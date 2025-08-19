@@ -345,30 +345,30 @@ define range(i32 -1, 1) i32 @H5C__tag_entry(ptr noundef captures(none) %0, ptr n
 
 196:                                              ; preds = %136
   %197 = getelementptr inbounds nuw i8, ptr %130, i64 40
-  %calloc664 = tail call dereferenceable_or_null(64) ptr @calloc(i64 1, i64 64)
+  %calloc684 = tail call dereferenceable_or_null(64) ptr @calloc(i64 1, i64 64)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %197, i8 0, i64 16, i1 false)
-  store ptr %calloc664, ptr %191, align 8, !tbaa !27
-  %.not579 = icmp eq ptr %calloc664, null
+  store ptr %calloc684, ptr %191, align 8, !tbaa !27
+  %.not579 = icmp eq ptr %calloc684, null
   br i1 %.not579, label %369, label %198
 
 198:                                              ; preds = %196
-  %199 = getelementptr inbounds nuw i8, ptr %calloc664, i64 24
+  %199 = getelementptr inbounds nuw i8, ptr %calloc684, i64 24
   store ptr %191, ptr %199, align 8, !tbaa !47
-  %200 = getelementptr inbounds nuw i8, ptr %calloc664, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %calloc684, i64 8
   store i32 32, ptr %200, align 8, !tbaa !32
-  %201 = getelementptr inbounds nuw i8, ptr %calloc664, i64 12
+  %201 = getelementptr inbounds nuw i8, ptr %calloc684, i64 12
   store i32 5, ptr %201, align 4, !tbaa !48
-  %202 = getelementptr inbounds nuw i8, ptr %calloc664, i64 32
+  %202 = getelementptr inbounds nuw i8, ptr %calloc684, i64 32
   store i64 32, ptr %202, align 8, !tbaa !38
-  %calloc663 = tail call dereferenceable_or_null(512) ptr @calloc(i64 1, i64 512)
-  store ptr %calloc663, ptr %calloc664, align 8, !tbaa !35
-  %203 = getelementptr inbounds nuw i8, ptr %calloc664, i64 56
+  %calloc683 = tail call dereferenceable_or_null(512) ptr @calloc(i64 1, i64 512)
+  store ptr %calloc683, ptr %calloc684, align 8, !tbaa !35
+  %203 = getelementptr inbounds nuw i8, ptr %calloc684, i64 56
   store i32 -1609490463, ptr %203, align 8, !tbaa !49
-  %.not580 = icmp eq ptr %calloc663, null
+  %.not580 = icmp eq ptr %calloc683, null
   br i1 %.not580, label %204, label %.critedge
 
 204:                                              ; preds = %198
-  tail call void @free(ptr noundef nonnull %calloc664) #11
+  tail call void @free(ptr noundef nonnull %calloc684) #11
   br label %369
 
 .critedge:                                        ; preds = %198
@@ -400,9 +400,9 @@ define range(i32 -1, 1) i32 @H5C__tag_entry(ptr noundef captures(none) %0, ptr n
 .critedge600:                                     ; preds = %.critedge, %205
   %217 = phi i64 [ 32, %.critedge ], [ %212, %205 ]
   %218 = phi ptr [ null, %.critedge ], [ %214, %205 ]
-  %219 = phi ptr [ %calloc663, %.critedge ], [ %.pre651, %205 ]
+  %219 = phi ptr [ %calloc683, %.critedge ], [ %.pre651, %205 ]
   %220 = phi i32 [ 32, %.critedge ], [ %.pre, %205 ]
-  %221 = phi ptr [ %calloc664, %.critedge ], [ %207, %205 ]
+  %221 = phi ptr [ %calloc684, %.critedge ], [ %207, %205 ]
   %222 = phi ptr [ %130, %.critedge ], [ %195, %205 ]
   %223 = getelementptr inbounds nuw i8, ptr %221, i64 16
   %224 = load i32, ptr %223, align 8, !tbaa !53
@@ -1001,13 +1001,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__iter_tagged_entries_real(ptr n
   %tr.sh.diff = trunc nuw i64 %sh.diff to i32
   %23 = and i32 %tr.sh.diff, -16777216
   %24 = add i32 %23, -1640531527
-  %sh.diff237 = lshr i64 %1, 32
-  %tr.sh.diff238 = trunc nuw i64 %sh.diff237 to i32
-  %25 = and i32 %tr.sh.diff238, 16711680
-  %26 = add i32 %24, %25
   %sh.diff239 = lshr i64 %1, 32
   %tr.sh.diff240 = trunc nuw i64 %sh.diff239 to i32
-  %27 = and i32 %tr.sh.diff240, 65280
+  %25 = and i32 %tr.sh.diff240, 16711680
+  %26 = add i32 %24, %25
+  %sh.diff241 = lshr i64 %1, 32
+  %tr.sh.diff242 = trunc nuw i64 %sh.diff241 to i32
+  %27 = and i32 %tr.sh.diff242, 65280
   %28 = add i32 %26, %27
   %29 = and i32 %13, 255
   %30 = add i32 %28, %29
@@ -1544,13 +1544,13 @@ define noundef i32 @H5C_retag_entries(ptr noundef captures(none) %0, i64 noundef
   %tr.sh.diff = trunc nuw i64 %sh.diff to i32
   %24 = and i32 %tr.sh.diff, -16777216
   %25 = add i32 %24, -1640531527
-  %sh.diff691 = lshr i64 %1, 32
-  %tr.sh.diff692 = trunc nuw i64 %sh.diff691 to i32
-  %26 = and i32 %tr.sh.diff692, 16711680
+  %sh.diff714 = lshr i64 %1, 32
+  %tr.sh.diff715 = trunc nuw i64 %sh.diff714 to i32
+  %26 = and i32 %tr.sh.diff715, 16711680
   %27 = add i32 %25, %26
-  %sh.diff693 = lshr i64 %1, 32
-  %tr.sh.diff694 = trunc nuw i64 %sh.diff693 to i32
-  %28 = and i32 %tr.sh.diff694, 65280
+  %sh.diff716 = lshr i64 %1, 32
+  %tr.sh.diff717 = trunc nuw i64 %sh.diff716 to i32
+  %28 = and i32 %tr.sh.diff717, 65280
   %29 = add i32 %27, %28
   %30 = and i32 %11, 255
   %31 = add i32 %29, %30
@@ -1770,17 +1770,17 @@ define noundef i32 @H5C_retag_entries(ptr noundef captures(none) %0, i64 noundef
 171:                                              ; preds = %167, %119
   %172 = phi ptr [ %139, %167 ], [ null, %119 ]
   store i64 %2, ptr %.1670, align 8, !tbaa !46
-  %sh.diff695 = lshr i64 %2, 32
-  %tr.sh.diff696 = trunc nuw i64 %sh.diff695 to i32
-  %173 = and i32 %tr.sh.diff696, -16777216
+  %sh.diff718 = lshr i64 %2, 32
+  %tr.sh.diff719 = trunc nuw i64 %sh.diff718 to i32
+  %173 = and i32 %tr.sh.diff719, -16777216
   %174 = add i32 %173, -1640531527
-  %sh.diff697 = lshr i64 %2, 32
-  %tr.sh.diff698 = trunc nuw i64 %sh.diff697 to i32
-  %175 = and i32 %tr.sh.diff698, 16711680
+  %sh.diff720 = lshr i64 %2, 32
+  %tr.sh.diff721 = trunc nuw i64 %sh.diff720 to i32
+  %175 = and i32 %tr.sh.diff721, 16711680
   %176 = add i32 %174, %175
-  %sh.diff699 = lshr i64 %2, 32
-  %tr.sh.diff700 = trunc nuw i64 %sh.diff699 to i32
-  %177 = and i32 %tr.sh.diff700, 65280
+  %sh.diff722 = lshr i64 %2, 32
+  %tr.sh.diff723 = trunc nuw i64 %sh.diff722 to i32
+  %177 = and i32 %tr.sh.diff723, 65280
   %178 = add i32 %176, %177
   %179 = lshr i64 %2, 32
   %180 = trunc nuw i64 %179 to i32

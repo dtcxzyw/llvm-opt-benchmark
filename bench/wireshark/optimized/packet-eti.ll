@@ -1784,8 +1784,8 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
   %.phi.trans.insert = getelementptr i8, ptr %34, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %37 = icmp ugt i32 %16, %.pre
-  %or.cond783 = select i1 %36, i1 true, i1 %37
-  br i1 %or.cond783, label %._crit_edge, label %42
+  %or.cond814 = select i1 %36, i1 true, i1 %37
+  br i1 %or.cond814, label %._crit_edge, label %42
 
 ._crit_edge:                                      ; preds = %33
   %.not = icmp eq i32 %35, %.pre
@@ -1915,7 +1915,7 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
 
 81:                                               ; preds = %80
   %82 = add i32 %.0486629, -1
-  %83 = sext i32 %.0476634 to i64
+  %83 = zext nneg i32 %.0476634 to i64
   %84 = getelementptr [2827 x %struct.ETI_Field], ptr @dissect_eti_message.fields, i64 0, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %86 = load i16, ptr %85, align 4
@@ -1933,7 +1933,7 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br label %559
 
 98:                                               ; preds = %80
-  %99 = add nsw i32 %.0476634, 1
+  %99 = add nuw nsw i32 %.0476634, 1
   %100 = add nsw i32 %.0480632, -1
   br label %559
 

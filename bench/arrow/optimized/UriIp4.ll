@@ -391,9 +391,9 @@ define internal fastcc ptr @uriParseDecOctetW(ptr noundef nonnull %0, ptr nounde
   br i1 %switch.i23.i, label %uriParseDecOctetThreeW.exit.sink.split.i, label %uriParseDecOctetOneW.exit
 
 uriParseDecOctetThreeW.exit.sink.split.i:         ; preds = %34, %30, %24, %24, %24, %24
-  %.sink26.i = phi i32 [ %31, %30 ], [ %35, %34 ], [ %25, %24 ], [ %25, %24 ], [ %25, %24 ], [ %25, %24 ]
+  %.sink30.i = phi i32 [ %31, %30 ], [ %35, %34 ], [ %25, %24 ], [ %25, %24 ], [ %25, %24 ], [ %25, %24 ]
   %.sink.i = phi i64 [ 8, %30 ], [ 8, %34 ], [ 4, %24 ], [ 4, %24 ], [ 4, %24 ], [ 4, %24 ]
-  %36 = trunc nuw nsw i32 %.sink26.i to i8
+  %36 = trunc nuw nsw i32 %.sink30.i to i8
   %37 = add nsw i8 %36, -48
   tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext %37) #4
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 %.sink.i

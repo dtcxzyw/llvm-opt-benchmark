@@ -1318,7 +1318,7 @@ _ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4fillIPS3_EEvT_S6_S2_RNS0_7H
 if.then46:                                        ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4fillIPS3_EEvT_S6_S2_RNS0_7HadesGCE.exit
   %idx.ext50 = zext i32 %.sroa.speculated90 to i64
   %add.ptr51.idx = shl nuw nsw i64 %idx.ext50, 3
-  %idx.ext53 = zext i32 %toLast to i64
+  %idx.ext53 = zext nneg i32 %toLast to i64
   %add.ptr54.idx = shl nuw nsw i64 %idx.ext53, 3
   %add.ptr54 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i66110, i64 %add.ptr54.idx
   %14 = add nuw nsw i64 %add.ptr51.idx, %add.ptr41.idx112
@@ -1342,7 +1342,7 @@ if.end60:                                         ; preds = %for.body5.i72, %if.
   br i1 %cmp62, label %if.then63, label %if.end72
 
 if.then63:                                        ; preds = %if.end60
-  %idx.ext65 = zext i32 %toLast to i64
+  %idx.ext65 = zext nneg i32 %toLast to i64
   %add.ptr66.idx = shl nuw nsw i64 %idx.ext65, 3
   %add.ptr66 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i66110, i64 %add.ptr66.idx
   %16 = load atomic i32, ptr %size_.i monotonic, align 4
@@ -2811,7 +2811,7 @@ _ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE4fillIPS3_EEvT_S6_S2_RNS0_
 if.then46:                                        ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE4fillIPS3_EEvT_S6_S2_RNS0_7HadesGCE.exit
   %idx.ext50 = zext i32 %.sroa.speculated90 to i64
   %add.ptr51.idx = shl nuw nsw i64 %idx.ext50, 2
-  %idx.ext53 = zext i32 %toLast to i64
+  %idx.ext53 = zext nneg i32 %toLast to i64
   %add.ptr54.idx = shl nuw nsw i64 %idx.ext53, 2
   %add.ptr54 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i66110, i64 %add.ptr54.idx
   %14 = add nuw nsw i64 %add.ptr51.idx, %add.ptr41.idx112
@@ -2835,7 +2835,7 @@ if.end60:                                         ; preds = %for.body5.i72, %if.
   br i1 %cmp62, label %if.then63, label %if.end72
 
 if.then63:                                        ; preds = %if.end60
-  %idx.ext65 = zext i32 %toLast to i64
+  %idx.ext65 = zext nneg i32 %toLast to i64
   %add.ptr66.idx = shl nuw nsw i64 %idx.ext65, 2
   %add.ptr66 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i66110, i64 %add.ptr66.idx
   %16 = load atomic i32, ptr %size_.i monotonic, align 4

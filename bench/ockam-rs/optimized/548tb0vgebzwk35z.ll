@@ -2513,9 +2513,9 @@ common.resume:                                    ; preds = %185, %83
 
 ._crit_edge.i.i10:                                ; preds = %178
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %26, i64 16)
-  %spec.select29.i = tail call i64 @llvm.umin.i64(i64 %26, i64 16)
+  %spec.select33.i = tail call i64 @llvm.umin.i64(i64 %26, i64 16)
   %164 = getelementptr inbounds i8, ptr %.val16.i, i64 %spec.select.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %164, ptr nonnull align 1 %.val16.i, i64 %spec.select29.i, i1 false), !noalias !551
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %164, ptr nonnull align 1 %.val16.i, i64 %spec.select33.i, i1 false), !noalias !551
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !551
   %165 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17hf633935a61c47bc0E.llvm.9199192478571720831", ptr %165, align 8, !noalias !551

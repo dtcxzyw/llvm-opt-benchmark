@@ -184,14 +184,14 @@ define noundef i32 @_ZN2cv6detail12DisjointSets9mergeSetsEii(ptr noundef nonnull
   br label %25
 
 25:                                               ; preds = %21, %19, %13
-  %.sink27 = phi i64 [ %5, %21 ], [ %9, %19 ], [ %5, %13 ]
-  %.sink25 = phi i64 [ %9, %21 ], [ %5, %19 ], [ %9, %13 ]
+  %.sink29 = phi i64 [ %5, %21 ], [ %9, %19 ], [ %5, %13 ]
+  %.sink27 = phi i64 [ %9, %21 ], [ %5, %19 ], [ %9, %13 ]
   %.0 = phi i32 [ %2, %21 ], [ %1, %19 ], [ %2, %13 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !11
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %.sink27
+  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %.sink29
   %29 = load i32, ptr %28, align 4, !tbaa !3
-  %30 = getelementptr inbounds nuw i32, ptr %27, i64 %.sink25
+  %30 = getelementptr inbounds nuw i32, ptr %27, i64 %.sink27
   %31 = load i32, ptr %30, align 4, !tbaa !3
   %32 = add nsw i32 %31, %29
   store i32 %32, ptr %30, align 4, !tbaa !3
@@ -883,13 +883,13 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !3
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !3
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

@@ -1163,8 +1163,8 @@ fs_read_file_at.exit.thread:                      ; preds = %39, %fs_read_file_a
   %52 = and i64 %51, 65280
   %.not65 = icmp eq i64 %52, 3584
   %.not11 = icmp eq i32 %22, 0
-  %or.cond17 = or i1 %.not65, %.not11
-  br i1 %or.cond17, label %.loopexit, label %.lr.ph
+  %or.cond20 = or i1 %.not65, %.not11
+  br i1 %or.cond20, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %50
   %53 = zext i32 %22 to i64

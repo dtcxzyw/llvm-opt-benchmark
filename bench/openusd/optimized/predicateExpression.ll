@@ -1300,10 +1300,10 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression
   br label %_ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpEiESaIS4_EE12emplace_backIJRKS3_iEEERS4_DpOT_.exit
 
 _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpEiESaIS4_EE12emplace_backIJRKS3_iEEERS4_DpOT_.exitthread-pre-split: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRKNS_22SdfPredicateExpression6FnCallEEEclES4_.exit, %45
-  %.sink38 = phi i64 [ 8, %45 ], [ -8, %_ZNK32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRKNS_22SdfPredicateExpression6FnCallEEEclES4_.exit ]
+  %.sink46 = phi i64 [ 8, %45 ], [ -8, %_ZNK32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRKNS_22SdfPredicateExpression6FnCallEEEclES4_.exit ]
   %.sroa.022.1.ph = phi ptr [ %41, %45 ], [ %.sroa.022.033, %_ZNK32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRKNS_22SdfPredicateExpression6FnCallEEEclES4_.exit ]
   %71 = load ptr, ptr %16, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 %.sink38
+  %72 = getelementptr inbounds i8, ptr %71, i64 %.sink46
   store ptr %72, ptr %16, align 8
   %.pr = load ptr, ptr %6, align 8
   br label %_ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpEiESaIS4_EE12emplace_backIJRKS3_iEEERS4_DpOT_.exit
@@ -2252,7 +2252,7 @@ define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRK
 
 34:                                               ; preds = %26
   %35 = icmp eq i32 %7, 1
-  br i1 %35, label %.split18.i, label %.thread21.i
+  br i1 %35, label %.split18.i, label %.thread24.i
 
 .split18.i:                                       ; preds = %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2280,31 +2280,31 @@ define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRK
   br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.exit"
 
 .split.i:                                         ; preds = %33, %.thread5.i
-  %.041020.i = phi i1 [ %.04.i, %33 ], [ true, %.thread5.i ]
+  %.041023.i = phi i1 [ %.04.i, %33 ], [ true, %.thread5.i ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull @.str.14)
   %49 = icmp eq i32 %7, 1
-  %or.cond17.i = select i1 %.041020.i, i1 %49, i1 false
+  %or.cond17.i = select i1 %.041023.i, i1 %49, i1 false
   br i1 %or.cond17.i, label %52, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.exit"
 
 50:                                               ; preds = %33
   %.old.i = icmp eq i32 %7, 1
-  %or.cond24.i = select i1 %.04.i, i1 %.old.i, i1 false
-  br i1 %or.cond24.i, label %52, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.exit"
+  %or.cond27.i = select i1 %.04.i, i1 %.old.i, i1 false
+  br i1 %or.cond27.i, label %52, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.exit"
 
-.thread21.i:                                      ; preds = %34
+.thread24.i:                                      ; preds = %34
   %51 = icmp eq i32 %7, 2
-  %or.cond26.i = select i1 %.04.i, i1 %51, i1 false
-  br i1 %or.cond26.i, label %52, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.exit"
+  %or.cond29.i = select i1 %.04.i, i1 %51, i1 false
+  br i1 %or.cond29.i, label %52, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.exit"
 
-52:                                               ; preds = %.thread21.i, %50, %.split.i
+52:                                               ; preds = %.thread24.i, %50, %.split.i
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 noundef signext 41)
   br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.exit"
 
-"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.exit": ; preds = %.thread5.i, %38, %40, %42, %44, %.split.i, %50, %.thread21.i, %52
+"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.exit": ; preds = %.thread5.i, %38, %40, %42, %44, %.split.i, %50, %.thread24.i, %52
   ret void
 }
 
@@ -2332,8 +2332,8 @@ define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRK
   %12 = load ptr, ptr %0, align 8
   %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %11)
   %14 = load i32, ptr %1, align 8
-  %.sink68.i.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sink68.i.sroa.gep2 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink85.i.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink85.i.sroa.gep2 = getelementptr inbounds nuw i8, ptr %7, i64 16
   switch i32 %14, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_1clERKNS0_6FnCallE.exit" [
     i32 2, label %46
     i32 1, label %15
@@ -2357,7 +2357,7 @@ define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRK
 
 22:                                               ; preds = %.lr.ph.i
   %23 = load ptr, ptr %20, align 8
-  %24 = load ptr, ptr %.sink68.i.sroa.gep, align 8
+  %24 = load ptr, ptr %.sink85.i.sroa.gep, align 8
   %.not.i.i.i = icmp eq ptr %23, %24
   br i1 %.not.i.i.i, label %28, label %25
 
@@ -2491,7 +2491,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 63:                                               ; preds = %60
   %64 = load ptr, ptr %51, align 8
-  %65 = load ptr, ptr %.sink68.i.sroa.gep2, align 8
+  %65 = load ptr, ptr %.sink85.i.sroa.gep2, align 8
   %.not.i.i28.i = icmp eq ptr %64, %65
   br i1 %.not.i.i28.i, label %69, label %66
 
@@ -2598,19 +2598,19 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i.i38.i, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_1clERKNS0_6FnCallE.exit", label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.sink.split.i
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.sink.split.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i37.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
-  %.sink68.i.sroa.phi = phi ptr [ %.sink68.i.sroa.gep, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i ], [ %.sink68.i.sroa.gep2, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i37.i ]
-  %.sink65.i = phi ptr [ %45, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i ], [ %97, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i37.i ]
-  %98 = load ptr, ptr %.sink68.i.sroa.phi, align 8
+  %.sink85.i.sroa.phi = phi ptr [ %.sink85.i.sroa.gep, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i ], [ %.sink85.i.sroa.gep2, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i37.i ]
+  %.sink82.i = phi ptr [ %45, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i ], [ %97, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i37.i ]
+  %98 = load ptr, ptr %.sink85.i.sroa.phi, align 8
   %99 = ptrtoint ptr %98 to i64
-  %100 = ptrtoint ptr %.sink65.i to i64
+  %100 = ptrtoint ptr %.sink82.i to i64
   %101 = sub i64 %99, %100
-  call void @_ZdlPvm(ptr noundef nonnull %.sink65.i, i64 noundef %101) #24
+  call void @_ZdlPvm(ptr noundef nonnull %.sink82.i, i64 noundef %101) #24
   br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_1clERKNS0_6FnCallE.exit"
 
 102:                                              ; preds = %88, %75, %.loopexit.split-lp.i, %.loopexit.i, %43, %30, %.loopexit.split-lp49.i, %.loopexit48.i
-  %.sink69.i = phi ptr [ %3, %.loopexit48.i ], [ %3, %.loopexit.split-lp49.i ], [ %3, %43 ], [ %3, %30 ], [ %7, %.loopexit.i ], [ %7, %.loopexit.split-lp.i ], [ %7, %88 ], [ %7, %75 ]
+  %.sink86.i = phi ptr [ %3, %.loopexit48.i ], [ %3, %.loopexit.split-lp49.i ], [ %3, %43 ], [ %3, %30 ], [ %7, %.loopexit.i ], [ %7, %.loopexit.split-lp.i ], [ %7, %88 ], [ %7, %75 ]
   %.pn23.pn.pn.i = phi { ptr, i32 } [ %lpad.loopexit50.i, %.loopexit48.i ], [ %lpad.loopexit.split-lp51.i, %.loopexit.split-lp49.i ], [ %.pn.i, %43 ], [ %31, %30 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %89, %88 ], [ %.pn23.i, %75 ]
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink69.i) #23
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink86.i) #23
   resume { ptr, i32 } %.pn23.pn.pn.i
 
 "_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_1clERKNS0_6FnCallE.exit": ; preds = %15, %2, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i37.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.sink.split.i
@@ -3288,18 +3288,18 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__28SdfPredic
   br i1 %30, label %.sink.split.i.i.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_4eolfEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS6_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
 .sink.split.i.i.i.i.i.i:                          ; preds = %27, %21
-  %.sink14.i.i.i.i.i.i = phi i64 [ 1, %21 ], [ 2, %27 ]
+  %.sink15.i.i.i.i.i.i = phi i64 [ 1, %21 ], [ 2, %27 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, 1
   store i64 %33, ptr %31, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %35 = load i64, ptr %34, align 8
-  %36 = add i64 %35, %.sink14.i.i.i.i.i.i
+  %36 = add i64 %35, %.sink15.i.i.i.i.i.i
   store i64 %36, ptr %34, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 1, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %17, i64 %.sink14.i.i.i.i.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %17, i64 %.sink15.i.i.i.i.i.i
   store ptr %38, ptr %4, align 8
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_4eolfEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS6_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit
 
@@ -3990,12 +3990,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionD2Ev.exit16: ; pred
   br label %165
 
 _ZN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionD2Ev.exit.sink.split: ; preds = %74, %149
-  %.sink25 = phi ptr [ %150, %149 ], [ %76, %74 ]
-  %.sink24 = phi ptr [ %148, %149 ], [ %73, %74 ]
-  %156 = ptrtoint ptr %.sink25 to i64
-  %157 = ptrtoint ptr %.sink24 to i64
+  %.sink34 = phi ptr [ %150, %149 ], [ %76, %74 ]
+  %.sink33 = phi ptr [ %148, %149 ], [ %73, %74 ]
+  %156 = ptrtoint ptr %.sink34 to i64
+  %157 = ptrtoint ptr %.sink33 to i64
   %158 = sub i64 %156, %157
-  call void @_ZdlPvm(ptr noundef nonnull %.sink24, i64 noundef %158) #24
+  call void @_ZdlPvm(ptr noundef nonnull %.sink33, i64 noundef %158) #24
   br label %_ZN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionD2Ev.exit.sink.split, %_ZN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionD2Ev.exit16, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EE9push_backEOS1_.exit
@@ -14915,9 +14915,9 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
   %24 = add i64 %23, 1
   store i64 %24, ptr %22, align 8
   %25 = icmp eq ptr %18, %13
-  br i1 %25, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i10
+  br i1 %25, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i11
 
-_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i10: ; preds = %17, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i
+_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i11: ; preds = %17, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i
   %26 = phi i64 [ %32, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i ], [ %24, %17 ]
   %27 = phi i64 [ %31, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i ], [ %21, %17 ]
   %28 = phi ptr [ %30, %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i ], [ %18, %17 ]
@@ -14927,7 +14927,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13track
     i8 9, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i
   ]
 
-_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i10, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i10
+_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i11, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i11
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store ptr %30, ptr %10, align 8
   %31 = add i64 %27, 1
@@ -14935,9 +14935,9 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS
   %32 = add i64 %26, 1
   store i64 %32, ptr %22, align 8
   %33 = icmp eq ptr %30, %13
-  br i1 %33, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i10, !llvm.loop !133
+  br i1 %33, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i11, !llvm.loop !133
 
-_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i10, %17
+_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii5blankEJEEEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSA_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5blankEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyEN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i11, %17
   %34 = tail call fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internalL16match_no_controlIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser8PredExprELNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS3_10PredActionETtTpTyENS_6normalENS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEDTclsrT_5matchIXT0_EXT1_ET2_T3_Efp_spfp0_EERT4_DpOT5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %1)
   br i1 %34, label %35, label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3padIN32pxrInternal_v0_24__pxrReserved__28SdfPredicateExpressionParser8PredExprENS_5ascii5blankES6_EEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE2ETtTpTyENS3_10PredActionETtTpTyES0_NS_12string_inputILNS_13tracking_modeE0ENS5_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_23SdfPredicateExprBuilderEEEEbRT3_DpOT4_.exit.i
 

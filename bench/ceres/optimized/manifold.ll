@@ -2657,27 +2657,27 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %shift = shufflevector <2 x double> %.0389.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %foldExtExtBinop = fadd <2 x double> %.0389.lcssa, %shift
   %71 = extractelement <2 x double> %foldExtExtBinop, i64 0
-  %shift646 = shufflevector <2 x double> %.0390.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop647 = fadd <2 x double> %.0390.lcssa, %shift646
-  %72 = extractelement <2 x double> %foldExtExtBinop647, i64 0
-  %shift649 = shufflevector <2 x double> %.0391.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop650 = fadd <2 x double> %.0391.lcssa, %shift649
-  %73 = extractelement <2 x double> %foldExtExtBinop650, i64 0
-  %shift652 = shufflevector <2 x double> %.0392.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop653 = fadd <2 x double> %.0392.lcssa, %shift652
-  %74 = extractelement <2 x double> %foldExtExtBinop653, i64 0
-  %shift655 = shufflevector <2 x double> %.0393.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop656 = fadd <2 x double> %.0393.lcssa, %shift655
-  %75 = extractelement <2 x double> %foldExtExtBinop656, i64 0
-  %shift658 = shufflevector <2 x double> %.0395.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop659 = fadd <2 x double> %.0395.lcssa, %shift658
-  %76 = extractelement <2 x double> %foldExtExtBinop659, i64 0
-  %shift661 = shufflevector <2 x double> %.0396.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop662 = fadd <2 x double> %.0396.lcssa, %shift661
-  %77 = extractelement <2 x double> %foldExtExtBinop662, i64 0
-  %shift664 = shufflevector <2 x double> %.0397.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop665 = fadd <2 x double> %.0397.lcssa, %shift664
-  %78 = extractelement <2 x double> %foldExtExtBinop665, i64 0
+  %shift656 = shufflevector <2 x double> %.0390.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop657 = fadd <2 x double> %.0390.lcssa, %shift656
+  %72 = extractelement <2 x double> %foldExtExtBinop657, i64 0
+  %shift659 = shufflevector <2 x double> %.0391.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop660 = fadd <2 x double> %.0391.lcssa, %shift659
+  %73 = extractelement <2 x double> %foldExtExtBinop660, i64 0
+  %shift662 = shufflevector <2 x double> %.0392.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop663 = fadd <2 x double> %.0392.lcssa, %shift662
+  %74 = extractelement <2 x double> %foldExtExtBinop663, i64 0
+  %shift665 = shufflevector <2 x double> %.0393.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop666 = fadd <2 x double> %.0393.lcssa, %shift665
+  %75 = extractelement <2 x double> %foldExtExtBinop666, i64 0
+  %shift668 = shufflevector <2 x double> %.0395.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop669 = fadd <2 x double> %.0395.lcssa, %shift668
+  %76 = extractelement <2 x double> %foldExtExtBinop669, i64 0
+  %shift671 = shufflevector <2 x double> %.0396.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop672 = fadd <2 x double> %.0396.lcssa, %shift671
+  %77 = extractelement <2 x double> %foldExtExtBinop672, i64 0
+  %shift674 = shufflevector <2 x double> %.0397.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop675 = fadd <2 x double> %.0397.lcssa, %shift674
+  %78 = extractelement <2 x double> %foldExtExtBinop675, i64 0
   %79 = icmp slt i64 %.0208.lcssa, %1
   br i1 %79, label %.lr.ph438, label %._crit_edge.._crit_edge439_crit_edge
 
@@ -2878,18 +2878,18 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %.0399.lcssa = phi <2 x double> [ zeroinitializer, %.preheader407 ], [ %187, %175 ]
   %.0398.lcssa = phi <2 x double> [ zeroinitializer, %.preheader407 ], [ %183, %175 ]
   %.0218.lcssa = phi i64 [ 0, %.preheader407 ], [ %176, %175 ]
-  %shift667 = shufflevector <2 x double> %.0398.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop668 = fadd <2 x double> %.0398.lcssa, %shift667
-  %197 = extractelement <2 x double> %foldExtExtBinop668, i64 0
-  %shift670 = shufflevector <2 x double> %.0399.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop671 = fadd <2 x double> %.0399.lcssa, %shift670
-  %198 = extractelement <2 x double> %foldExtExtBinop671, i64 0
-  %shift673 = shufflevector <2 x double> %.0401.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop674 = fadd <2 x double> %.0401.lcssa, %shift673
-  %199 = extractelement <2 x double> %foldExtExtBinop674, i64 0
-  %shift676 = shufflevector <2 x double> %.0403.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop677 = fadd <2 x double> %.0403.lcssa, %shift676
-  %200 = extractelement <2 x double> %foldExtExtBinop677, i64 0
+  %shift677 = shufflevector <2 x double> %.0398.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop678 = fadd <2 x double> %.0398.lcssa, %shift677
+  %197 = extractelement <2 x double> %foldExtExtBinop678, i64 0
+  %shift680 = shufflevector <2 x double> %.0399.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop681 = fadd <2 x double> %.0399.lcssa, %shift680
+  %198 = extractelement <2 x double> %foldExtExtBinop681, i64 0
+  %shift683 = shufflevector <2 x double> %.0401.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop684 = fadd <2 x double> %.0401.lcssa, %shift683
+  %199 = extractelement <2 x double> %foldExtExtBinop684, i64 0
+  %shift686 = shufflevector <2 x double> %.0403.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop687 = fadd <2 x double> %.0403.lcssa, %shift686
+  %200 = extractelement <2 x double> %foldExtExtBinop687, i64 0
   %201 = icmp slt i64 %.0218.lcssa, %1
   br i1 %201, label %.lr.ph469, label %._crit_edge457.._crit_edge470_crit_edge
 
@@ -3014,12 +3014,12 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %.0402.lcssa = phi <2 x double> [ zeroinitializer, %.preheader405 ], [ %261, %253 ]
   %.0400.lcssa = phi <2 x double> [ zeroinitializer, %.preheader405 ], [ %265, %253 ]
   %.0212.lcssa = phi i64 [ 0, %.preheader405 ], [ %254, %253 ]
-  %shift679 = shufflevector <2 x double> %.0402.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop680 = fadd <2 x double> %.0402.lcssa, %shift679
-  %267 = extractelement <2 x double> %foldExtExtBinop680, i64 0
-  %shift682 = shufflevector <2 x double> %.0400.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop683 = fadd <2 x double> %.0400.lcssa, %shift682
-  %268 = extractelement <2 x double> %foldExtExtBinop683, i64 0
+  %shift689 = shufflevector <2 x double> %.0402.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop690 = fadd <2 x double> %.0402.lcssa, %shift689
+  %267 = extractelement <2 x double> %foldExtExtBinop690, i64 0
+  %shift692 = shufflevector <2 x double> %.0400.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop693 = fadd <2 x double> %.0400.lcssa, %shift692
+  %268 = extractelement <2 x double> %foldExtExtBinop693, i64 0
   %269 = icmp slt i64 %.0212.lcssa, %1
   br i1 %269, label %.lr.ph490, label %._crit_edge482.._crit_edge491_crit_edge
 
@@ -3096,9 +3096,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
 ._crit_edge500:                                   ; preds = %297, %.preheader
   %.0394.lcssa = phi <2 x double> [ zeroinitializer, %.preheader ], [ %303, %297 ]
   %.0205.lcssa = phi i64 [ 0, %.preheader ], [ %298, %297 ]
-  %shift685 = shufflevector <2 x double> %.0394.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop686 = fadd <2 x double> %.0394.lcssa, %shift685
-  %305 = extractelement <2 x double> %foldExtExtBinop686, i64 0
+  %shift695 = shufflevector <2 x double> %.0394.lcssa, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop696 = fadd <2 x double> %.0394.lcssa, %shift695
+  %305 = extractelement <2 x double> %foldExtExtBinop696, i64 0
   %306 = icmp slt i64 %.0205.lcssa, %1
   br i1 %306, label %.lr.ph506, label %._crit_edge507
 
@@ -4931,7 +4931,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const
   br i1 %exitcond205.not, label %._crit_edge179.us, label %17, !llvm.loop !183
 
 ._crit_edge179.us:                                ; preds = %17
-  %22 = add nsw i64 %.2125181.us, 1
+  %22 = add nuw nsw i64 %.2125181.us, 1
   %exitcond206.not = icmp eq i64 %22, %4
   br i1 %exitcond206.not, label %._crit_edge183, label %.preheader.us, !llvm.loop !184
 
@@ -5824,8 +5824,8 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
 
 .preheader707:                                    ; preds = %._crit_edge751.us, %126
   %476 = icmp sgt i64 %19, %.0231807
-  %or.cond933 = select i1 %45, i1 %476, i1 false
-  br i1 %or.cond933, label %.preheader705.lr.ph.split.us, label %.loopexit708
+  %or.cond955 = select i1 %45, i1 %476, i1 false
+  br i1 %or.cond955, label %.preheader705.lr.ph.split.us, label %.loopexit708
 
 .preheader705.lr.ph.split.us:                     ; preds = %.preheader707
   br i1 %42, label %.preheader705.us.us, label %.preheader705.lr.ph.split.us.split
@@ -6991,7 +6991,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6
 
 .split.preheader:                                 ; preds = %9
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds i32, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
   %19 = getelementptr inbounds nuw i32, ptr %0, i64 %16
   br label %.split
 
@@ -7028,20 +7028,20 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6
   %.019.i.i.us = phi i64 [ %.0920.i.i.us, %39 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.0920.in.i.i.us = add nsw i64 %.019.i.i.us, -1
   %.0920.i.i.us = sdiv i64 %.0920.in.i.i.us, 2
-  %36 = getelementptr inbounds i32, ptr %0, i64 %.0920.i.i.us
+  %36 = getelementptr inbounds nuw i32, ptr %0, i64 %.0920.i.i.us
   %37 = load i32, ptr %36, align 4, !tbaa !47
   %38 = icmp slt i32 %37, %21
   br i1 %38, label %39, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
 
 39:                                               ; preds = %.lr.ph.i.i.us
-  %40 = getelementptr inbounds i32, ptr %0, i64 %.019.i.i.us
+  %40 = getelementptr inbounds nuw i32, ptr %0, i64 %.019.i.i.us
   store i32 %37, ptr %40, align 4, !tbaa !47
   %41 = icmp sgt i64 %.0920.i.i.us, %.08.us
   br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !304
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
   %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.08.us, %.split.us ], [ %.0920.i.i.us, %39 ], [ %.019.i.i.us, %.lr.ph.i.i.us ]
-  %42 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i.us
+  %42 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa.i.i.us
   store i32 %21, ptr %42, align 4, !tbaa !47
   %.not.us = icmp eq i64 %.08.us, 0
   %43 = add nsw i64 %.08.us, -1
@@ -7091,20 +7091,20 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5_
   %.019.i.i = phi i64 [ %.0920.i.i, %67 ], [ %.1.i, %62 ]
   %.0920.in.i.i = add nsw i64 %.019.i.i, -1
   %.0920.i.i = sdiv i64 %.0920.in.i.i, 2
-  %64 = getelementptr inbounds i32, ptr %0, i64 %.0920.i.i
+  %64 = getelementptr inbounds nuw i32, ptr %0, i64 %.0920.i.i
   %65 = load i32, ptr %64, align 4, !tbaa !47
   %66 = icmp slt i32 %65, %45
   br i1 %66, label %67, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
 67:                                               ; preds = %.lr.ph.i.i
-  %68 = getelementptr inbounds i32, ptr %0, i64 %.019.i.i
+  %68 = getelementptr inbounds nuw i32, ptr %0, i64 %.019.i.i
   store i32 %65, ptr %68, align 4, !tbaa !47
   %69 = icmp sgt i64 %.0920.i.i, %.08
   br i1 %69, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, !llvm.loop !304
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit: ; preds = %.lr.ph.i.i, %67, %62
   %.0.lcssa.i.i = phi i64 [ %.1.i, %62 ], [ %.0920.i.i, %67 ], [ %.019.i.i, %.lr.ph.i.i ]
-  %70 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i
+  %70 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa.i.i
   store i32 %45, ptr %70, align 4, !tbaa !47
   %.not = icmp eq i64 %.08, 0
   %71 = add nsw i64 %.08, -1

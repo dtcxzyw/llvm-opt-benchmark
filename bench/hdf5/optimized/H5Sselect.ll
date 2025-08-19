@@ -959,9 +959,9 @@ switch.lookup:                                    ; preds = %36
   %56 = zext nneg i32 %53 to i64
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.H5S_select_deserialize, i64 0, i64 %56
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %.sink48 = load ptr, ptr %switch.load, align 16, !tbaa !39
+  %.sink49 = load ptr, ptr %switch.load, align 16, !tbaa !39
   %57 = add i64 %2, -4
-  %58 = tail call i32 %.sink48(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %57, i1 noundef zeroext %7) #8
+  %58 = tail call i32 %.sink49(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %57, i1 noundef zeroext %7) #8
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %.thread, label %63
 
@@ -1882,7 +1882,7 @@ H5S_select_iter_init.exit:                        ; preds = %47, %51
 
 .preheader204:                                    ; preds = %91
   %.not234 = icmp eq i64 %71, 0
-  br i1 %.not234, label %.loopexit.thread260, label %.lr.ph230
+  br i1 %.not234, label %.loopexit.thread277, label %.lr.ph230
 
 .lr.ph230:                                        ; preds = %.preheader204
   %94 = icmp sgt i32 %.fr235, -1
@@ -1910,7 +1910,7 @@ H5S_select_iter_init.exit:                        ; preds = %47, %51
   %104 = icmp ne i64 %103, 0
   %105 = icmp eq i32 %.299.lcssa.us, 0
   %106 = and i1 %104, %105
-  br i1 %106, label %.lr.ph230.split.us, label %.loopexit.thread260
+  br i1 %106, label %.lr.ph230.split.us, label %.loopexit.thread277
 
 .preheader.us:                                    ; preds = %.lr.ph230.split.us
   %107 = load i64, ptr %8, align 8, !tbaa !22
@@ -1930,7 +1930,7 @@ H5S_select_iter_init.exit:                        ; preds = %47, %51
   %112 = load i64, ptr %111, align 8, !tbaa !22
   br label %.lr.ph.us.us.us
 
-._crit_edge221.split.us.us.us.loopexit:           ; preds = %136, %.thread255
+._crit_edge221.split.us.us.us.loopexit:           ; preds = %136, %.thread272
   %.pre248 = load i64, ptr %8, align 8, !tbaa !22
   br label %._crit_edge221.split.us.us.us
 
@@ -1975,9 +1975,9 @@ H5S_select_iter_init.exit:                        ; preds = %47, %51
 131:                                              ; preds = %130, %118
   %.6103.us.us.us = phi i32 [ %127, %130 ], [ %120, %118 ]
   %132 = icmp slt i32 %.6103.us.us.us, 0
-  br i1 %132, label %.thread255, label %136
+  br i1 %132, label %.thread272, label %136
 
-.thread255:                                       ; preds = %131
+.thread272:                                       ; preds = %131
   %133 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !22
   %134 = load i64, ptr @H5E_CANTNEXT_g, align 8, !tbaa !22
   %135 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5S_select_iterate, i32 noundef 1473, i64 noundef %133, i64 noundef %134, ptr noundef nonnull @.str.30) #8
@@ -2108,9 +2108,9 @@ H5S_select_iter_init.exit:                        ; preds = %47, %51
 190:                                              ; preds = %183, %184
   %.6103 = phi i32 [ %177, %183 ], [ %186, %184 ]
   %191 = icmp slt i32 %.6103, 0
-  br i1 %191, label %.thread256, label %195
+  br i1 %191, label %.thread273, label %195
 
-.thread256:                                       ; preds = %190
+.thread273:                                       ; preds = %190
   %192 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !22
   %193 = load i64, ptr @H5E_CANTNEXT_g, align 8, !tbaa !22
   %194 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5S_select_iterate, i32 noundef 1473, i64 noundef %192, i64 noundef %193, ptr noundef nonnull @.str.30) #8
@@ -2130,7 +2130,7 @@ H5S_select_iter_init.exit:                        ; preds = %47, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread143
 
-._crit_edge221.split.loopexit:                    ; preds = %195, %.thread256
+._crit_edge221.split.loopexit:                    ; preds = %195, %.thread273
   %.pre247 = load i64, ptr %8, align 8, !tbaa !22
   br label %._crit_edge221.split
 
@@ -2146,7 +2146,7 @@ H5S_select_iter_init.exit:                        ; preds = %47, %51
 .thread143:                                       ; preds = %.split233.us, %201
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.loopexit.thread260
+  br label %.loopexit.thread277
 
 ._crit_edge.split:                                ; preds = %._crit_edge221.split, %.preheader
   %.299.lcssa = phi i32 [ 0, %.preheader ], [ %.3100.lcssa, %._crit_edge221.split ]
@@ -2157,16 +2157,16 @@ H5S_select_iter_init.exit:                        ; preds = %47, %51
   %209 = icmp ne i64 %208, 0
   %210 = icmp eq i32 %.299.lcssa, 0
   %211 = and i1 %209, %210
-  br i1 %211, label %.lr.ph230.split, label %.loopexit.thread260
+  br i1 %211, label %.lr.ph230.split, label %.loopexit.thread277
 
-.loopexit.thread260:                              ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %.thread143, %.preheader204
-  %.093171264 = phi i32 [ 0, %.preheader204 ], [ -1, %.thread143 ], [ %.299.lcssa.us, %._crit_edge.split.us.us ], [ %.299.lcssa, %._crit_edge.split ]
+.loopexit.thread277:                              ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %.thread143, %.preheader204
+  %.093171281 = phi i32 [ 0, %.preheader204 ], [ -1, %.thread143 ], [ %.299.lcssa.us, %._crit_edge.split.us.us ], [ %.299.lcssa, %._crit_edge.split ]
   %212 = call ptr @H5FL_seq_free(ptr noundef nonnull @H5_size_t_seq_free_list, ptr noundef nonnull %85) #8
   %213 = call ptr @H5FL_seq_free(ptr noundef nonnull @H5_hsize_t_seq_free_list, ptr noundef nonnull %92) #8
   br label %.thread182
 
-.thread182:                                       ; preds = %.loopexit.thread, %.loopexit.thread260, %87, %73
-  %.093159178188 = phi i32 [ -1, %73 ], [ -1, %87 ], [ %.093171264, %.loopexit.thread260 ], [ -1, %.loopexit.thread ]
+.thread182:                                       ; preds = %.loopexit.thread, %.loopexit.thread277, %87, %73
+  %.093159178188 = phi i32 [ -1, %73 ], [ -1, %87 ], [ %.093171281, %.loopexit.thread277 ], [ -1, %.loopexit.thread ]
   %214 = load ptr, ptr %34, align 8, !tbaa !61
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 64
   %216 = load ptr, ptr %215, align 8, !tbaa !67
@@ -3431,9 +3431,9 @@ define range(i32 -1, 1) i32 @H5S_select_construct_projection(ptr noundef %0, ptr
   %.0 = phi i32 [ %74, %73 ], [ %83, %82 ]
   %90 = call ptr @H5S_create_simple(i32 noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %10) #8
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %.thread.thread104, label %95
+  br i1 %91, label %.thread.thread110, label %95
 
-.thread.thread104:                                ; preds = %89
+.thread.thread110:                                ; preds = %89
   %92 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !22
   %93 = load i64, ptr @H5E_CANTCREATE_g, align 8, !tbaa !22
   %94 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5S_select_construct_projection, i32 noundef 2204, i64 noundef %92, i64 noundef %93, ptr noundef nonnull @.str.56) #8
@@ -3525,8 +3525,8 @@ define range(i32 -1, 1) i32 @H5S_select_construct_projection(ptr noundef %0, ptr
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %60, %67, %.thread
-  %.071103 = phi ptr [ %90, %.thread ], [ %46, %67 ], [ %46, %60 ]
-  %137 = call i32 @H5S_close(ptr noundef nonnull %.071103) #8
+  %.071109 = phi ptr [ %90, %.thread ], [ %46, %67 ], [ %46, %60 ]
+  %137 = call i32 @H5S_close(ptr noundef nonnull %.071109) #8
   %138 = icmp slt i32 %137, 0
   br i1 %138, label %139, label %.thread89
 
@@ -3536,8 +3536,8 @@ define range(i32 -1, 1) i32 @H5S_select_construct_projection(ptr noundef %0, ptr
   %142 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5S_select_construct_projection, i32 noundef 2262, i64 noundef %140, i64 noundef %141, ptr noundef nonnull @.str.58) #8
   br label %.thread89
 
-.thread89:                                        ; preds = %.thread.thread104, %41, %48, %30, %20, %127, %133, %130, %24, %.thread.thread, %139
-  %.068 = phi i32 [ -1, %139 ], [ -1, %.thread.thread ], [ 0, %24 ], [ 0, %127 ], [ 0, %133 ], [ 0, %130 ], [ -1, %30 ], [ -1, %20 ], [ -1, %48 ], [ -1, %41 ], [ -1, %.thread.thread104 ]
+.thread89:                                        ; preds = %.thread.thread110, %41, %48, %30, %20, %127, %133, %130, %24, %.thread.thread, %139
+  %.068 = phi i32 [ -1, %139 ], [ -1, %.thread.thread ], [ 0, %24 ], [ 0, %127 ], [ 0, %133 ], [ 0, %130 ], [ -1, %30 ], [ -1, %20 ], [ -1, %48 ], [ -1, %41 ], [ -1, %.thread.thread110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

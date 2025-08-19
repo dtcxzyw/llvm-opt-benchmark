@@ -1018,9 +1018,9 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i113.i.i: ; preds = %374, %_ZN4llv
   br label %377
 
 377:                                              ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i113.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i101.i.i
-  %.sink233.i.i = phi i64 [ 4, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i113.i.i ], [ 6, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i101.i.i ]
+  %.sink284.i.i = phi i64 [ 4, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i113.i.i ], [ 6, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i101.i.i ]
   %.pre.i.i116.i.i = load i64, ptr %80, align 8, !tbaa !125
-  %378 = add i64 %.pre.i.i116.i.i, %.sink233.i.i
+  %378 = add i64 %.pre.i.i116.i.i, %.sink284.i.i
   store i64 %378, ptr %80, align 8, !tbaa !125
   %379 = call noundef zeroext i1 @_ZNK4llvm8CallBase14isIndirectCallEv(ptr noundef nonnull align 8 dereferenceable(88) %174) #13
   br i1 %379, label %thread-pre-split.thread.i.i, label %380
@@ -1136,9 +1136,9 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i138.i.i: ; preds = %426, %_ZN4llv
   br label %thread-pre-split.thread.sink.split.i.i
 
 thread-pre-split.thread.sink.split.i.i:           ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i138.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i126.i.i
-  %.sink235.i.i = phi i64 [ 17, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i126.i.i ], [ 16, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i138.i.i ]
+  %.sink286.i.i = phi i64 [ 17, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i126.i.i ], [ 16, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i138.i.i ]
   %.pre.i.i129.i.i = load i64, ptr %80, align 8, !tbaa !125
-  %429 = add i64 %.pre.i.i129.i.i, %.sink235.i.i
+  %429 = add i64 %.pre.i.i129.i.i, %.sink286.i.i
   store i64 %429, ptr %80, align 8, !tbaa !125
   br label %thread-pre-split.thread.i.i
 

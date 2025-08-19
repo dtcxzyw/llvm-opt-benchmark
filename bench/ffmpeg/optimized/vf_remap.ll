@@ -470,7 +470,7 @@ define internal noundef i32 @remap_packed8_nearest_slice(ptr noundef readonly ca
   %66 = getelementptr inbounds nuw i16, ptr %.06978, i64 %indvars.iv85
   %67 = getelementptr inbounds nuw i16, ptr %.07077, i64 %indvars.iv85
   %68 = mul nsw i64 %indvars.iv85, %57
-  %invariant.gep89.sink = getelementptr i8, ptr %.06879, i64 %68
+  %invariant.gep97.sink = getelementptr i8, ptr %.06879, i64 %68
   br label %69
 
 69:                                               ; preds = %.lr.ph, %92
@@ -507,8 +507,8 @@ define internal noundef i32 @remap_packed8_nearest_slice(ptr noundef readonly ca
 
 92:                                               ; preds = %79, %88
   %.sink = phi i8 [ %87, %79 ], [ %91, %88 ]
-  %gep90 = getelementptr i8, ptr %invariant.gep89.sink, i64 %indvars.iv
-  store i8 %.sink, ptr %gep90, align 1, !tbaa !44
+  %gep98 = getelementptr i8, ptr %invariant.gep97.sink, i64 %indvars.iv
+  store i8 %.sink, ptr %gep98, align 1, !tbaa !44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %93 = load i32, ptr %36, align 4, !tbaa !70
   %94 = sext i32 %93 to i64
@@ -764,7 +764,7 @@ define internal noundef i32 @remap_packed16_nearest_slice(ptr noundef readonly c
   %64 = getelementptr inbounds nuw i16, ptr %.06979.us.us, i64 %indvars.iv91
   %65 = getelementptr inbounds nuw i16, ptr %.07077.us.us, i64 %indvars.iv91
   %66 = mul nsw i64 %indvars.iv91, %63
-  %invariant.gep97.sink = getelementptr i16, ptr %.06881.us.us, i64 %66
+  %invariant.gep103.sink = getelementptr i16, ptr %.06881.us.us, i64 %66
   br label %67
 
 67:                                               ; preds = %89, %.preheader.us.us.us
@@ -800,8 +800,8 @@ define internal noundef i32 @remap_packed16_nearest_slice(ptr noundef readonly c
 
 89:                                               ; preds = %80, %76
   %.sink = phi i16 [ %88, %80 ], [ %79, %76 ]
-  %gep98 = getelementptr i16, ptr %invariant.gep97.sink, i64 %indvars.iv
-  store i16 %.sink, ptr %gep98, align 2, !tbaa !65
+  %gep104 = getelementptr i16, ptr %invariant.gep103.sink, i64 %indvars.iv
+  store i16 %.sink, ptr %gep104, align 2, !tbaa !65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us.us.us, label %67, !llvm.loop !77

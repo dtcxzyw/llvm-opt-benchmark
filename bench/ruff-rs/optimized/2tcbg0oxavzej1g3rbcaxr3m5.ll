@@ -265,7 +265,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN5salsa8function19maybe_cha
   %switch125 = icmp eq i64 %60, 5
   br i1 %switch125, label %.critedge, label %61
 
-default.unreachable25:                            ; preds = %342
+default.unreachable39:                            ; preds = %342
   unreachable
 
 61:                                               ; preds = %7
@@ -942,8 +942,8 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
   %308 = load ptr, ptr %307, align 8, !alias.scope !30, !noalias !31, !nonnull !3
   %309 = getelementptr inbounds nuw i8, ptr %159, i64 24
   %310 = load i64, ptr %309, align 8, !alias.scope !30, !noalias !31
-  %.fr28.i.i.i.i = freeze i64 %310
-  %311 = icmp ugt i64 %.fr25.i.i.i.i, %.fr28.i.i.i.i
+  %.fr29.i.i.i.i = freeze i64 %310
+  %311 = icmp ugt i64 %.fr25.i.i.i.i, %.fr29.i.i.i.i
   %.idx.i.i.i.i.i = mul nuw nsw i64 %.fr25.i.i.i.i, 184
   %312 = getelementptr inbounds nuw i8, ptr %308, i64 %.idx.i.i.i.i.i
   br i1 %311, label %.split.us.i.i.i.i, label %.split.i.i.i.i, !prof !5
@@ -954,7 +954,7 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
 
 .split19.us.i.i.i.i:                              ; preds = %.split.us.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef %.fr25.i.i.i.i, i64 noundef %.fr28.i.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8696efbb51af1ab0a0d91346b691acb5.90) #16
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef %.fr25.i.i.i.i, i64 noundef %.fr29.i.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8696efbb51af1ab0a0d91346b691acb5.90) #16
           to label %.noexc103.i.i unwind label %338
 
 .noexc103.i.i:                                    ; preds = %.split19.us.i.i.i.i
@@ -1045,7 +1045,7 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
 
 342:                                              ; preds = %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h73ca520ac151c7b0E.exit", %122
   %343 = load i32, ptr %3, align 8, !range !50, !noundef !3
-  switch i32 %343, label %default.unreachable25 [
+  switch i32 %343, label %default.unreachable39 [
     i32 0, label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
     i32 1, label %362
     i32 2, label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
@@ -1336,7 +1336,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN5salsa8function19maybe_cha
   %switch125 = icmp eq i64 %60, 5
   br i1 %switch125, label %.critedge, label %61
 
-default.unreachable25:                            ; preds = %342
+default.unreachable39:                            ; preds = %342
   unreachable
 
 61:                                               ; preds = %7
@@ -2013,8 +2013,8 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
   %308 = load ptr, ptr %307, align 8, !alias.scope !78, !noalias !79, !nonnull !3
   %309 = getelementptr inbounds nuw i8, ptr %159, i64 24
   %310 = load i64, ptr %309, align 8, !alias.scope !78, !noalias !79
-  %.fr28.i.i.i.i = freeze i64 %310
-  %311 = icmp ugt i64 %.fr25.i.i.i.i, %.fr28.i.i.i.i
+  %.fr29.i.i.i.i = freeze i64 %310
+  %311 = icmp ugt i64 %.fr25.i.i.i.i, %.fr29.i.i.i.i
   %.idx.i.i.i.i.i = mul nuw nsw i64 %.fr25.i.i.i.i, 184
   %312 = getelementptr inbounds nuw i8, ptr %308, i64 %.idx.i.i.i.i.i
   br i1 %311, label %.split.us.i.i.i.i, label %.split.i.i.i.i, !prof !5
@@ -2025,7 +2025,7 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
 
 .split19.us.i.i.i.i:                              ; preds = %.split.us.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !82)
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef %.fr25.i.i.i.i, i64 noundef %.fr28.i.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8696efbb51af1ab0a0d91346b691acb5.90) #16
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef %.fr25.i.i.i.i, i64 noundef %.fr29.i.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8696efbb51af1ab0a0d91346b691acb5.90) #16
           to label %.noexc103.i.i unwind label %338
 
 .noexc103.i.i:                                    ; preds = %.split19.us.i.i.i.i
@@ -2116,7 +2116,7 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
 
 342:                                              ; preds = %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h11c3f6aad50ea1feE.exit", %122
   %343 = load i32, ptr %3, align 8, !range !50, !noundef !3
-  switch i32 %343, label %default.unreachable25 [
+  switch i32 %343, label %default.unreachable39 [
     i32 0, label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
     i32 1, label %362
     i32 2, label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
@@ -2407,7 +2407,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN5salsa8function19maybe_cha
   %switch125 = icmp eq i64 %60, 5
   br i1 %switch125, label %.critedge, label %61
 
-default.unreachable25:                            ; preds = %342
+default.unreachable39:                            ; preds = %342
   unreachable
 
 61:                                               ; preds = %7
@@ -3084,8 +3084,8 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
   %308 = load ptr, ptr %307, align 8, !alias.scope !123, !noalias !124, !nonnull !3
   %309 = getelementptr inbounds nuw i8, ptr %159, i64 24
   %310 = load i64, ptr %309, align 8, !alias.scope !123, !noalias !124
-  %.fr28.i.i.i.i = freeze i64 %310
-  %311 = icmp ugt i64 %.fr25.i.i.i.i, %.fr28.i.i.i.i
+  %.fr29.i.i.i.i = freeze i64 %310
+  %311 = icmp ugt i64 %.fr25.i.i.i.i, %.fr29.i.i.i.i
   %.idx.i.i.i.i.i = mul nuw nsw i64 %.fr25.i.i.i.i, 184
   %312 = getelementptr inbounds nuw i8, ptr %308, i64 %.idx.i.i.i.i.i
   br i1 %311, label %.split.us.i.i.i.i, label %.split.i.i.i.i, !prof !5
@@ -3096,7 +3096,7 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
 
 .split19.us.i.i.i.i:                              ; preds = %.split.us.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !127)
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef %.fr25.i.i.i.i, i64 noundef %.fr28.i.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8696efbb51af1ab0a0d91346b691acb5.90) #16
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef %.fr25.i.i.i.i, i64 noundef %.fr29.i.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8696efbb51af1ab0a0d91346b691acb5.90) #16
           to label %.noexc103.i.i unwind label %338
 
 .noexc103.i.i:                                    ; preds = %.split19.us.i.i.i.i
@@ -3187,7 +3187,7 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
 
 342:                                              ; preds = %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h6953ec81f211c460E.exit", %122
   %343 = load i32, ptr %3, align 8, !range !50, !noundef !3
-  switch i32 %343, label %default.unreachable25 [
+  switch i32 %343, label %default.unreachable39 [
     i32 0, label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
     i32 1, label %362
     i32 2, label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
@@ -10645,7 +10645,7 @@ define noundef nonnull align 8 ptr @"_ZN5salsa8function7execute58_$LT$impl$u20$s
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %.not70 = icmp eq i64 %80, 0
-  br i1 %.not70, label %.invoke141, label %130, !prof !5
+  br i1 %.not70, label %.invoke163, label %130, !prof !5
 
 .thread122:                                       ; preds = %67, %64, %75, %71, %5
   %86 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h7695d8585bcbb11dE monotonic, align 1
@@ -10698,7 +10698,7 @@ define noundef nonnull align 8 ptr @"_ZN5salsa8function7execute58_$LT$impl$u20$s
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %.not72 = icmp eq i64 %112, 0
-  br i1 %.not72, label %.invoke141, label %118, !prof !5
+  br i1 %.not72, label %.invoke163, label %118, !prof !5
 
 118:                                              ; preds = %108
   store ptr %113, ptr %48, align 8
@@ -10839,11 +10839,11 @@ define noundef nonnull align 8 ptr @"_ZN5salsa8function7execute58_$LT$impl$u20$s
   call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !334
   br label %156
 
-.invoke141:                                       ; preds = %76, %108
+.invoke163:                                       ; preds = %76, %108
   invoke void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.8696efbb51af1ab0a0d91346b691acb5.30, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8696efbb51af1ab0a0d91346b691acb5.152) #16
-          to label %.cont142 unwind label %448
+          to label %.cont164 unwind label %448
 
-.cont142:                                         ; preds = %.invoke141
+.cont164:                                         ; preds = %.invoke163
   unreachable
 
 156:                                              ; preds = %.noexc82, %.noexc81, %137, %.noexc
@@ -11762,7 +11762,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17habee24a7e753c200E.exit12.i.i
   %.pn115 = phi { ptr, i32 } [ %449, %448 ], [ %197, %196 ], [ %193, %192 ], [ %eh.lpad-body97130, %447 ], [ %341, %340 ], [ %346, %345 ], [ %302, %301 ]
   resume { ptr, i32 } %.pn115
 
-448:                                              ; preds = %.invoke141, %160, %155, %.noexc80, %141, %130, %165, %126, %118, %101, %92, %.thread, %69
+448:                                              ; preds = %.invoke163, %160, %155, %.noexc80, %141, %130, %165, %126, %118, %101, %92, %.thread, %69
   %449 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr57drop_in_place$LT$salsa..zalsa_local..ActiveQueryGuard$GT$17h67048d670649d654E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #17
@@ -11880,7 +11880,7 @@ define noundef nonnull align 8 ptr @"_ZN5salsa8function7execute58_$LT$impl$u20$s
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %.not70 = icmp eq i64 %80, 0
-  br i1 %.not70, label %.invoke141, label %130, !prof !5
+  br i1 %.not70, label %.invoke163, label %130, !prof !5
 
 .thread122:                                       ; preds = %67, %64, %75, %71, %5
   %86 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h7695d8585bcbb11dE monotonic, align 1
@@ -11933,7 +11933,7 @@ define noundef nonnull align 8 ptr @"_ZN5salsa8function7execute58_$LT$impl$u20$s
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %.not72 = icmp eq i64 %112, 0
-  br i1 %.not72, label %.invoke141, label %118, !prof !5
+  br i1 %.not72, label %.invoke163, label %118, !prof !5
 
 118:                                              ; preds = %108
   store ptr %113, ptr %48, align 8
@@ -12074,11 +12074,11 @@ define noundef nonnull align 8 ptr @"_ZN5salsa8function7execute58_$LT$impl$u20$s
   call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !441
   br label %156
 
-.invoke141:                                       ; preds = %76, %108
+.invoke163:                                       ; preds = %76, %108
   invoke void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.8696efbb51af1ab0a0d91346b691acb5.30, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8696efbb51af1ab0a0d91346b691acb5.152) #16
-          to label %.cont142 unwind label %448
+          to label %.cont164 unwind label %448
 
-.cont142:                                         ; preds = %.invoke141
+.cont164:                                         ; preds = %.invoke163
   unreachable
 
 156:                                              ; preds = %.noexc82, %.noexc81, %137, %.noexc
@@ -12997,7 +12997,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17habee24a7e753c200E.exit12.i.i
   %.pn115 = phi { ptr, i32 } [ %449, %448 ], [ %197, %196 ], [ %193, %192 ], [ %eh.lpad-body97130, %447 ], [ %341, %340 ], [ %346, %345 ], [ %302, %301 ]
   resume { ptr, i32 } %.pn115
 
-448:                                              ; preds = %.invoke141, %160, %155, %.noexc80, %141, %130, %165, %126, %118, %101, %92, %.thread, %69
+448:                                              ; preds = %.invoke163, %160, %155, %.noexc80, %141, %130, %165, %126, %118, %101, %92, %.thread, %69
   %449 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr57drop_in_place$LT$salsa..zalsa_local..ActiveQueryGuard$GT$17h67048d670649d654E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #17
@@ -13115,7 +13115,7 @@ define noundef nonnull align 8 ptr @"_ZN5salsa8function7execute58_$LT$impl$u20$s
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %.not70 = icmp eq i64 %80, 0
-  br i1 %.not70, label %.invoke141, label %130, !prof !5
+  br i1 %.not70, label %.invoke163, label %130, !prof !5
 
 .thread122:                                       ; preds = %67, %64, %75, %71, %5
   %86 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h7695d8585bcbb11dE monotonic, align 1
@@ -13168,7 +13168,7 @@ define noundef nonnull align 8 ptr @"_ZN5salsa8function7execute58_$LT$impl$u20$s
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %.not72 = icmp eq i64 %112, 0
-  br i1 %.not72, label %.invoke141, label %118, !prof !5
+  br i1 %.not72, label %.invoke163, label %118, !prof !5
 
 118:                                              ; preds = %108
   store ptr %113, ptr %48, align 8
@@ -13309,11 +13309,11 @@ define noundef nonnull align 8 ptr @"_ZN5salsa8function7execute58_$LT$impl$u20$s
   call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !546
   br label %156
 
-.invoke141:                                       ; preds = %76, %108
+.invoke163:                                       ; preds = %76, %108
   invoke void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.8696efbb51af1ab0a0d91346b691acb5.30, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8696efbb51af1ab0a0d91346b691acb5.152) #16
-          to label %.cont142 unwind label %448
+          to label %.cont164 unwind label %448
 
-.cont142:                                         ; preds = %.invoke141
+.cont164:                                         ; preds = %.invoke163
   unreachable
 
 156:                                              ; preds = %.noexc82, %.noexc81, %137, %.noexc
@@ -14232,7 +14232,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17habee24a7e753c200E.exit12.i.i
   %.pn115 = phi { ptr, i32 } [ %449, %448 ], [ %197, %196 ], [ %193, %192 ], [ %eh.lpad-body97130, %447 ], [ %341, %340 ], [ %346, %345 ], [ %302, %301 ]
   resume { ptr, i32 } %.pn115
 
-448:                                              ; preds = %.invoke141, %160, %155, %.noexc80, %141, %130, %165, %126, %118, %101, %92, %.thread, %69
+448:                                              ; preds = %.invoke163, %160, %155, %.noexc80, %141, %130, %165, %126, %118, %101, %92, %.thread, %69
   %449 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr57drop_in_place$LT$salsa..zalsa_local..ActiveQueryGuard$GT$17h67048d670649d654E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #17

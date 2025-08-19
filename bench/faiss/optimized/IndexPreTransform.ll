@@ -1347,8 +1347,8 @@ _ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit: ; preds = %_ZNSt10unique_p
   br i1 %79, label %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit._crit_edge, label %80
 
 _ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit._crit_edge: ; preds = %60, %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit
-  %.not5262 = phi i1 [ %.not52, %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit ], [ true, %60 ]
-  %.0.lcssa.i59 = phi ptr [ %68, %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit ], [ %2, %60 ]
+  %.not5271 = phi i1 [ %.not52, %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit ], [ true, %60 ]
+  %.0.lcssa.i67 = phi ptr [ %68, %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit ], [ %2, %60 ]
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !4
   br label %92
@@ -1368,8 +1368,8 @@ _ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit._crit_edge: ; preds = %60, 
           to label %92 unwind label %112
 
 92:                                               ; preds = %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit._crit_edge, %80
-  %.not5261 = phi i1 [ %.not5262, %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit._crit_edge ], [ %.not52, %80 ]
-  %.0.lcssa.i58 = phi ptr [ %.0.lcssa.i59, %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit._crit_edge ], [ %68, %80 ]
+  %.not5270 = phi i1 [ %.not5271, %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit._crit_edge ], [ %.not52, %80 ]
+  %.0.lcssa.i66 = phi ptr [ %.0.lcssa.i67, %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit._crit_edge ], [ %68, %80 ]
   %93 = phi ptr [ %.pre, %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit._crit_edge ], [ %83, %80 ]
   %94 = phi ptr [ %6, %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit._crit_edge ], [ %91, %80 ]
   %95 = icmp eq ptr %94, %6
@@ -1392,7 +1392,7 @@ _ZN5faiss12_GLOBAL__N_127extract_index_search_paramsEPKNS_16SearchParametersE.ex
   %104 = load ptr, ptr %93, align 8, !tbaa !42
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 104
   %106 = load ptr, ptr %105, align 8
-  invoke void %106(ptr noundef nonnull align 8 dereferenceable(36) %93, i64 noundef %1, ptr noundef %.0.lcssa.i58, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %94, ptr noundef %103)
+  invoke void %106(ptr noundef nonnull align 8 dereferenceable(36) %93, i64 noundef %1, ptr noundef %.0.lcssa.i66, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %94, ptr noundef %103)
           to label %107 unwind label %114
 
 107:                                              ; preds = %_ZN5faiss12_GLOBAL__N_127extract_index_search_paramsEPKNS_16SearchParametersE.exit
@@ -1409,12 +1409,12 @@ _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %109, %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
-  %110 = icmp eq ptr %.0.lcssa.i58, null
-  %or.cond = or i1 %.not5261, %110
+  %110 = icmp eq ptr %.0.lcssa.i66, null
+  %or.cond = or i1 %.not5270, %110
   br i1 %or.cond, label %_ZN5faiss18TransformedVectorsD2Ev.exit, label %111
 
 111:                                              ; preds = %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %.0.lcssa.i58) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %.0.lcssa.i66) #21
   br label %_ZN5faiss18TransformedVectorsD2Ev.exit
 
 _ZN5faiss18TransformedVectorsD2Ev.exit:           ; preds = %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit, %111
@@ -1436,15 +1436,15 @@ _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit43
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit43: ; preds = %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i42, %114, %112
-  %.not5260 = phi i1 [ %.not52, %112 ], [ %.not5261, %114 ], [ %.not5261, %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i42 ]
-  %.0.lcssa.i57 = phi ptr [ %68, %112 ], [ %.0.lcssa.i58, %114 ], [ %.0.lcssa.i58, %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i42 ]
+  %.not5269 = phi i1 [ %.not52, %112 ], [ %.not5270, %114 ], [ %.not5270, %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i42 ]
+  %.0.lcssa.i68 = phi ptr [ %68, %112 ], [ %.0.lcssa.i66, %114 ], [ %.0.lcssa.i66, %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i42 ]
   %.pn32 = phi { ptr, i32 } [ %113, %112 ], [ %115, %114 ], [ %115, %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i42 ]
-  %116 = icmp eq ptr %.0.lcssa.i57, null
-  %or.cond51 = or i1 %.not5260, %116
+  %116 = icmp eq ptr %.0.lcssa.i68, null
+  %or.cond51 = or i1 %.not5269, %116
   br i1 %or.cond51, label %common.resume, label %117
 
 117:                                              ; preds = %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit43
-  tail call void @_ZdaPv(ptr noundef nonnull %.0.lcssa.i57) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %.0.lcssa.i68) #21
   br label %common.resume
 
 118:                                              ; preds = %48, %22

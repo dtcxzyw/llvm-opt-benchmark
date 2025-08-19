@@ -80,7 +80,7 @@ define void @dlapmr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %38 = add nuw i32 %35, 1
   %wide.trip.count144 = zext i32 %38 to i64
   %invariant.gep = getelementptr double, ptr %9, i64 %36
-  %invariant.gep162 = getelementptr double, ptr %9, i64 %37
+  %invariant.gep170 = getelementptr double, ptr %9, i64 %37
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -88,10 +88,10 @@ define void @dlapmr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %39 = mul nsw i64 %indvars.iv141, %21
   %gep = getelementptr double, ptr %invariant.gep, i64 %39
   %40 = load double, ptr %gep, align 8, !tbaa !9
-  %gep163 = getelementptr double, ptr %invariant.gep162, i64 %39
-  %41 = load double, ptr %gep163, align 8, !tbaa !9
+  %gep171 = getelementptr double, ptr %invariant.gep170, i64 %39
+  %41 = load double, ptr %gep171, align 8, !tbaa !9
   store double %41, ptr %gep, align 8, !tbaa !9
-  store double %40, ptr %gep163, align 8, !tbaa !9
+  store double %40, ptr %gep171, align 8, !tbaa !9
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
   br i1 %exitcond145.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
@@ -134,7 +134,7 @@ define void @dlapmr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %56, label %.loopexit, label %.lr.ph133.preheader
 
 .lr.ph133.preheader:                              ; preds = %53
-  %invariant.gep164 = getelementptr double, ptr %9, i64 %indvars.iv156
+  %invariant.gep172 = getelementptr double, ptr %9, i64 %indvars.iv156
   br label %.lr.ph133
 
 .lr.ph133:                                        ; preds = %.lr.ph133.preheader, %._crit_edge130
@@ -147,18 +147,18 @@ define void @dlapmr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .lr.ph129.preheader:                              ; preds = %.lr.ph133
   %58 = add nuw i32 %57, 1
   %wide.trip.count154 = zext i32 %58 to i64
-  %invariant.gep166 = getelementptr double, ptr %9, i64 %.pre
+  %invariant.gep174 = getelementptr double, ptr %9, i64 %.pre
   br label %.lr.ph129
 
 .lr.ph129:                                        ; preds = %.lr.ph129.preheader, %.lr.ph129
   %indvars.iv151 = phi i64 [ 1, %.lr.ph129.preheader ], [ %indvars.iv.next152, %.lr.ph129 ]
   %59 = mul nsw i64 %indvars.iv151, %48
-  %gep165 = getelementptr double, ptr %invariant.gep164, i64 %59
-  %60 = load double, ptr %gep165, align 8, !tbaa !9
-  %gep167 = getelementptr double, ptr %invariant.gep166, i64 %59
-  %61 = load double, ptr %gep167, align 8, !tbaa !9
-  store double %61, ptr %gep165, align 8, !tbaa !9
-  store double %60, ptr %gep167, align 8, !tbaa !9
+  %gep173 = getelementptr double, ptr %invariant.gep172, i64 %59
+  %60 = load double, ptr %gep173, align 8, !tbaa !9
+  %gep175 = getelementptr double, ptr %invariant.gep174, i64 %59
+  %61 = load double, ptr %gep175, align 8, !tbaa !9
+  store double %61, ptr %gep173, align 8, !tbaa !9
+  store double %60, ptr %gep175, align 8, !tbaa !9
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count154
   br i1 %exitcond155.not, label %._crit_edge130, label %.lr.ph129, !llvm.loop !13

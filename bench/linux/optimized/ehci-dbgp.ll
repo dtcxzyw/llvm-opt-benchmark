@@ -822,8 +822,8 @@ define internal fastcc noundef range(i32 -19, 1) i32 @_dbgp_external_startup() u
   %174 = phi i32 [ %293, %.thread6 ], [ 3, %165 ]
   br label %175
 
-175:                                              ; preds = %dbgp_control_msg.exit.thread31, %173
-  %176 = phi i32 [ 0, %173 ], [ %252, %dbgp_control_msg.exit.thread31 ]
+175:                                              ; preds = %dbgp_control_msg.exit.thread37, %173
+  %176 = phi i32 [ 0, %173 ], [ %252, %dbgp_control_msg.exit.thread37 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 1125900074616448, ptr %1, align 8, !annotation !5
   %177 = load ptr, ptr @ehci_debug, align 8
@@ -877,7 +877,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @_dbgp_external_startup() u
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 49965, ptr nonnull elementtype(i32) %214) #7, !srcloc !15
   %215 = tail call fastcc i32 @dbgp_wait_until_done(i32 noundef %206)
   %216 = icmp slt i32 %215, 0
-  br i1 %216, label %dbgp_control_msg.exit.thread31, label %217
+  br i1 %216, label %dbgp_control_msg.exit.thread37, label %217
 
 217:                                              ; preds = %203
   %218 = load ptr, ptr @ehci_debug, align 8
@@ -897,7 +897,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @_dbgp_external_startup() u
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %222, ptr nonnull elementtype(i32) %230) #7, !srcloc !15
   %231 = tail call fastcc i32 @dbgp_wait_until_done(i32 noundef %226)
   %232 = icmp slt i32 %231, 0
-  br i1 %232, label %dbgp_control_msg.exit.thread31, label %233
+  br i1 %232, label %dbgp_control_msg.exit.thread37, label %233
 
 233:                                              ; preds = %217
   %234 = load ptr, ptr @ehci_debug, align 8
@@ -907,7 +907,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @_dbgp_external_startup() u
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 12
   %239 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %238) #7, !srcloc !6
   %.not.i = icmp eq i32 %231, 0
-  br i1 %.not.i, label %dbgp_control_msg.exit.thread31, label %240
+  br i1 %.not.i, label %dbgp_control_msg.exit.thread37, label %240
 
 240:                                              ; preds = %233
   %241 = tail call i32 @llvm.umin.i32(i32 %231, i32 4)
@@ -926,7 +926,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @_dbgp_external_startup() u
   %251 = icmp eq i64 %250, %242
   br i1 %251, label %254, label %243, !llvm.loop !30
 
-dbgp_control_msg.exit.thread31:                   ; preds = %217, %203, %233
+dbgp_control_msg.exit.thread37:                   ; preds = %217, %203, %233
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %252 = add nuw nsw i32 %176, 1
   %253 = icmp eq i32 %252, 128
@@ -991,7 +991,7 @@ dbgp_control_msg.exit.thread31:                   ; preds = %217, %203, %233
   store i1 false, ptr @dbgp_not_safe, align 4
   br label %.thread
 
-.thread6:                                         ; preds = %dbgp_control_msg.exit.thread31, %266, %263, %260, %254
+.thread6:                                         ; preds = %dbgp_control_msg.exit.thread37, %266, %263, %260, %254
   %293 = add nsw i32 %174, -1
   %294 = icmp eq i32 %174, 0
   br i1 %294, label %.thread, label %173

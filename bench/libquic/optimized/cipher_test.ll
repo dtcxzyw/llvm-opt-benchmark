@@ -884,8 +884,8 @@ _ZNSt6vectorImSaImEED2Ev.exit.split.us:           ; preds = %.split.us
 285:                                              ; preds = %.split.split.us
   %.sroa.0291.0.add.us323 = add nuw nsw i64 %.sroa.0291.0.idx316.us320, 8
   %.not.us324 = icmp ne i64 %.sroa.0291.0.add.us323, 136
-  %or.cond342.not = select i1 %284, i1 %.not.us324, i1 false
-  br i1 %or.cond342.not, label %.split.split.us, label %_ZNSt6vectorImSaImEED2Ev.exit261
+  %or.cond374.not = select i1 %284, i1 %.not.us324, i1 false
+  br i1 %or.cond374.not, label %.split.split.us, label %_ZNSt6vectorImSaImEED2Ev.exit261
 
 _ZNSt6vectorImSaImEED2Ev.exit.split.split.us:     ; preds = %.split.split.us
   %286 = landingpad { ptr, i32 }
@@ -1776,7 +1776,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1, !tbaa !18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %21 = add i64 %11, -1
+  %21 = add nsw i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
 

@@ -692,9 +692,9 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr noundef readonly captures
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  br i1 %34, label %.thread26, label %63
+  br i1 %34, label %.thread42, label %63
 
-.thread26:                                        ; preds = %30
+.thread42:                                        ; preds = %30
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i16 0, ptr %36, align 8
   br label %._crit_edge
@@ -711,9 +711,9 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr noundef readonly captures
   %44 = load i32, ptr %43, align 4
   %45 = tail call ptr @cipso_v4_doi_getdef(i32 noundef %44) #10
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %201, label %.thread27
+  br i1 %46, label %201, label %.thread43
 
-.thread27:                                        ; preds = %42
+.thread43:                                        ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i16 2, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -733,9 +733,9 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr noundef readonly captures
   %57 = load i32, ptr %56, align 4
   %58 = tail call ptr @calipso_doi_getdef(i32 noundef %57) #10
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %201, label %.thread28
+  br i1 %59, label %201, label %.thread44
 
-.thread28:                                        ; preds = %55
+.thread44:                                        ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i16 10, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -753,23 +753,23 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr noundef readonly captures
     i16 10, label %75
   ]
 
-._crit_edge:                                      ; preds = %.thread26, %63
-  %67 = phi ptr [ %35, %.thread26 ], [ %66, %63 ]
+._crit_edge:                                      ; preds = %.thread42, %63
+  %67 = phi ptr [ %35, %.thread42 ], [ %66, %63 ]
   %.pre = load ptr, ptr %7, align 8
   br label %82
 
-68:                                               ; preds = %.thread27, %63
-  %69 = phi ptr [ %49, %.thread27 ], [ %66, %63 ]
-  %70 = phi ptr [ %45, %.thread27 ], [ null, %63 ]
+68:                                               ; preds = %.thread43, %63
+  %69 = phi ptr [ %49, %.thread43 ], [ %66, %63 ]
+  %70 = phi ptr [ %45, %.thread43 ], [ null, %63 ]
   %71 = load ptr, ptr %7, align 8
   %72 = getelementptr i8, ptr %71, i64 40
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
   br i1 %74, label %82, label %197
 
-75:                                               ; preds = %.thread28, %63
-  %76 = phi ptr [ %62, %.thread28 ], [ %66, %63 ]
-  %77 = phi ptr [ %58, %.thread28 ], [ null, %63 ]
+75:                                               ; preds = %.thread44, %63
+  %76 = phi ptr [ %62, %.thread44 ], [ %66, %63 ]
+  %77 = phi ptr [ %58, %.thread44 ], [ null, %63 ]
   %78 = load ptr, ptr %7, align 8
   %79 = getelementptr i8, ptr %78, i64 56
   %80 = load ptr, ptr %79, align 8
@@ -935,10 +935,10 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr noundef readonly captures
   br i1 %185, label %.sink.split, label %.thread20
 
 .sink.split:                                      ; preds = %183, %126
-  %.sink31 = phi i16 [ 2, %126 ], [ 10, %183 ]
+  %.sink47 = phi i16 [ 2, %126 ], [ 10, %183 ]
   %.sink = phi ptr [ %92, %126 ], [ %135, %183 ]
   %.ph = phi ptr [ %110, %126 ], [ %153, %183 ]
-  store i16 %.sink31, ptr %83, align 8
+  store i16 %.sink47, ptr %83, align 8
   store i32 6, ptr %13, align 8
   %186 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.sink, ptr %186, align 8

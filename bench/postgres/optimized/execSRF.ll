@@ -1043,9 +1043,9 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph20.i, %56, %.
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 %.idx
   %88 = load i8, ptr %87, align 8, !range !4, !noundef !5
   %89 = trunc nuw i8 %88 to i1
-  br i1 %89, label %.thread106, label %85
+  br i1 %89, label %.thread113, label %85
 
-.thread106:                                       ; preds = %86
+.thread113:                                       ; preds = %86
   store i8 1, ptr %3, align 1
   store i32 2, ptr %4, align 4
   br label %147
@@ -1195,8 +1195,8 @@ ExecPrepareTuplestoreResult.exit:                 ; preds = %136, %139
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 686, ptr noundef nonnull @__func__.ExecMakeFunctionResultSet) #6
   unreachable
 
-147:                                              ; preds = %.thread106, %97, %141, %101, %98, %36, %slot_getattr.exit, %50
-  %.1 = phi i64 [ %38, %36 ], [ %49, %slot_getattr.exit ], [ 0, %50 ], [ %93, %98 ], [ %93, %101 ], [ 0, %141 ], [ %93, %97 ], [ 0, %.thread106 ]
+147:                                              ; preds = %.thread113, %97, %141, %101, %98, %36, %slot_getattr.exit, %50
+  %.1 = phi i64 [ %38, %36 ], [ %49, %slot_getattr.exit ], [ 0, %50 ], [ %93, %98 ], [ %93, %101 ], [ 0, %141 ], [ %93, %97 ], [ 0, %.thread113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.1

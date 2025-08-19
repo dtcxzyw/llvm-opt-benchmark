@@ -792,11 +792,11 @@ split:                                            ; preds = %37
   br label %55
 
 split.thread:                                     ; preds = %44, %.tail, %24, %split
-  %.sink41 = phi i8 [ 2, %split ], [ 1, %24 ], [ 1, %.tail ], [ 2, %44 ]
+  %.sink43 = phi i8 [ 2, %split ], [ 1, %24 ], [ 1, %.tail ], [ 2, %44 ]
   %.sink = phi i16 [ 3, %split ], [ 4, %24 ], [ 4, %.tail ], [ 3, %44 ]
   %g_level0node.sink = phi ptr [ %32, %split ], [ @g_level0node, %24 ], [ @g_level0node, %.tail ], [ %32, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store i8 %.sink41, ptr %51, align 8
+  store i8 %.sink43, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i16 %.sink, ptr %52, align 4
   %53 = getelementptr inbounds nuw i8, ptr %22, i64 32

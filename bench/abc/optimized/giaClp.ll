@@ -39,14 +39,14 @@ define i32 @Gia_ManRebuildIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %19 = load ptr, ptr %8, align 8, !tbaa !10
   %20 = call i32 @Abc_CountZddCubes(ptr noundef %0, ptr noundef %19) #14
   %.not = icmp sle i32 %20, %16
-  %.56 = zext i1 %.not to i32
-  %.57 = call i32 @llvm.smin.i32(i32 %20, i32 %16)
-  %.val58 = load ptr, ptr %8, align 8
-  %.val59 = load ptr, ptr %7, align 8
-  %21 = select i1 %.not, ptr %.val58, ptr %.val59
-  %22 = select i1 %.not, ptr %.val59, ptr %.val58
+  %.64 = zext i1 %.not to i32
+  %.65 = call i32 @llvm.smin.i32(i32 %20, i32 %16)
+  %.val66 = load ptr, ptr %8, align 8
+  %.val67 = load ptr, ptr %7, align 8
+  %21 = select i1 %.not, ptr %.val66, ptr %.val67
+  %22 = select i1 %.not, ptr %.val67, ptr %.val66
   call void @Cudd_RecursiveDerefZdd(ptr noundef %0, ptr noundef %22) #14
-  %23 = icmp sgt i32 %.57, 1000
+  %23 = icmp sgt i32 %.65, 1000
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %6
@@ -55,7 +55,7 @@ define i32 @Gia_ManRebuildIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 25:                                               ; preds = %6
   %26 = add nsw i32 %.val, 3
-  %27 = mul nsw i32 %.57, %26
+  %27 = mul nsw i32 %.65, %26
   %28 = add nsw i32 %27, 1
   %29 = load i32, ptr %4, align 8, !tbaa !12
   %.not.i.not = icmp sgt i32 %29, %27
@@ -203,7 +203,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %88 = sext i32 %86 to i64
   %89 = getelementptr inbounds i8, ptr %85, i64 %88
   store i8 0, ptr %89, align 1, !tbaa !16
-  %90 = call i32 @Abc_ConvertZddToSop(ptr noundef %0, ptr noundef %21, ptr noundef nonnull %.val50, i32 noundef %.val, ptr noundef nonnull %5, i32 noundef %.56) #14
+  %90 = call i32 @Abc_ConvertZddToSop(ptr noundef %0, ptr noundef %21, ptr noundef nonnull %.val50, i32 noundef %.val, ptr noundef nonnull %5, i32 noundef %.64) #14
   call void @Cudd_RecursiveDerefZdd(ptr noundef %0, ptr noundef %21) #14
   %91 = call i32 @Gia_ManFactorNode(ptr noundef %2, ptr noundef nonnull %.val50, ptr noundef nonnull %3) #14
   br label %92
@@ -1030,8 +1030,8 @@ Vec_PtrStart.exit:                                ; preds = %4, %8
   %67 = lshr i64 %.val126, 32
   %68 = and i64 %67, 536870911
   %69 = sub nsw i64 %indvars.iv172, %68
-  %sext186 = shl i64 %69, 32
-  %70 = ashr exact i64 %sext186, 29
+  %sext190 = shl i64 %69, 32
+  %70 = ashr exact i64 %sext190, 29
   %71 = getelementptr inbounds i8, ptr %12, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !59
   %73 = ptrtoint ptr %72 to i64
@@ -1080,8 +1080,8 @@ Gia_ManCollapseDeref.exit:                        ; preds = %86, %80
   %89 = and i64 %.val128, 536870911
   %90 = sub nsw i64 %indvars.iv172, %89
   %.val6.i = load ptr, ptr %17, align 8, !tbaa !61
-  %sext187 = shl i64 %90, 32
-  %91 = ashr exact i64 %sext187, 32
+  %sext191 = shl i64 %90, 32
+  %91 = ashr exact i64 %sext191, 32
   %92 = getelementptr inbounds i32, ptr %.val6.i, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !22
   %94 = add nsw i32 %93, -1
@@ -1103,8 +1103,8 @@ Gia_ObjCollapseDeref.exit:                        ; preds = %87, %95
   %98 = lshr i64 %.val134, 32
   %99 = and i64 %98, 536870911
   %100 = sub nsw i64 %indvars.iv172, %99
-  %sext188 = shl i64 %100, 32
-  %101 = ashr exact i64 %sext188, 32
+  %sext192 = shl i64 %100, 32
+  %101 = ashr exact i64 %sext192, 32
   %102 = getelementptr inbounds i32, ptr %.val6.i146, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !22
   %104 = add nsw i32 %103, -1
@@ -1137,10 +1137,10 @@ Gia_ObjCollapseDeref.exit150:                     ; preds = %105, %Gia_ObjCollap
 .lr.ph165:                                        ; preds = %.critedge2
   %115 = getelementptr i8, ptr %0, i64 32
   %116 = getelementptr i8, ptr %112, i64 8
-  %.val137.val191 = load ptr, ptr %116, align 8, !tbaa !21
-  %117 = load i32, ptr %.val137.val191, align 4, !tbaa !22
-  %.not102192 = icmp eq i32 %117, 0
-  br i1 %.not102192, label %.critedge4, label %.lr.ph194
+  %.val137.val195 = load ptr, ptr %116, align 8, !tbaa !21
+  %117 = load i32, ptr %.val137.val195, align 4, !tbaa !22
+  %.not102196 = icmp eq i32 %117, 0
+  br i1 %.not102196, label %.critedge4, label %.lr.ph198
 
 118:                                              ; preds = %Gia_ObjCollapseDeref.exit155
   %119 = getelementptr i8, ptr %147, i64 8
@@ -1148,11 +1148,11 @@ Gia_ObjCollapseDeref.exit150:                     ; preds = %105, %Gia_ObjCollap
   %120 = getelementptr inbounds nuw i32, ptr %.val137.val, i64 %indvars.iv.next176
   %121 = load i32, ptr %120, align 4, !tbaa !22
   %.not102 = icmp eq i32 %121, 0
-  br i1 %.not102, label %.critedge4, label %.lr.ph194, !llvm.loop !65
+  br i1 %.not102, label %.critedge4, label %.lr.ph198, !llvm.loop !65
 
-.lr.ph194:                                        ; preds = %.lr.ph165, %118
+.lr.ph198:                                        ; preds = %.lr.ph165, %118
   %122 = phi i32 [ %121, %118 ], [ %117, %.lr.ph165 ]
-  %indvars.iv175193 = phi i64 [ %indvars.iv.next176, %118 ], [ 0, %.lr.ph165 ]
+  %indvars.iv175197 = phi i64 [ %indvars.iv.next176, %118 ], [ 0, %.lr.ph165 ]
   %123 = sext i32 %122 to i64
   %.val136 = load ptr, ptr %115, align 8, !tbaa !47
   %124 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val136, i64 %123
@@ -1184,15 +1184,15 @@ Gia_ObjCollapseDeref.exit150:                     ; preds = %105, %Gia_ObjCollap
   %.not.i152 = icmp eq i32 %143, 0
   br i1 %.not.i152, label %144, label %Gia_ObjCollapseDeref.exit155
 
-144:                                              ; preds = %.lr.ph194
+144:                                              ; preds = %.lr.ph198
   %145 = getelementptr inbounds ptr, ptr %12, i64 %140
   %146 = load ptr, ptr %145, align 8, !tbaa !59
   tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %146) #14
   store ptr null, ptr %145, align 8, !tbaa !59
   br label %Gia_ObjCollapseDeref.exit155
 
-Gia_ObjCollapseDeref.exit155:                     ; preds = %.lr.ph194, %144
-  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175193, 1
+Gia_ObjCollapseDeref.exit155:                     ; preds = %.lr.ph198, %144
+  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175197, 1
   %147 = load ptr, ptr %111, align 8, !tbaa !52
   %148 = getelementptr i8, ptr %147, i64 4
   %.val105 = load i32, ptr %148, align 4, !tbaa !3
@@ -1233,8 +1233,8 @@ Gia_ObjCollapseDeref.exit155..critedge4_crit_edge: ; preds = %Gia_ObjCollapseDer
   br i1 %exitcond181.not, label %.critedge6, label %154, !llvm.loop !66
 
 .critedge6:                                       ; preds = %154, %157, %.critedge2, %.critedge4
-  %.val190 = phi i32 [ %.val, %.critedge4 ], [ %.val105163, %.critedge2 ], [ %.val, %157 ], [ %.val, %154 ]
-  store i32 %.val190, ptr %13, align 4, !tbaa !56
+  %.val194 = phi i32 [ %.val, %.critedge4 ], [ %.val105163, %.critedge2 ], [ %.val, %157 ], [ %.val, %154 ]
+  store i32 %.val194, ptr %13, align 4, !tbaa !56
   br label %162
 
 162:                                              ; preds = %.critedge6, %Gia_ManCollapseDeref.exit
@@ -1866,14 +1866,14 @@ Vec_PtrAlloc.exit:                                ; preds = %3, %9
   br label %Vec_PtrPush.exit.thread
 
 Vec_PtrPush.exit.thread:                          ; preds = %43, %45, %34, %36
-  %.sink33 = phi ptr [ %35, %34 ], [ %37, %36 ], [ %44, %43 ], [ %46, %45 ]
+  %.sink38 = phi ptr [ %35, %34 ], [ %37, %36 ], [ %44, %43 ], [ %46, %45 ]
   %.sink = phi i32 [ 16, %34 ], [ 16, %36 ], [ %39, %43 ], [ %39, %45 ]
-  store ptr %.sink33, ptr %14, align 8, !tbaa !58
+  store ptr %.sink38, ptr %14, align 8, !tbaa !58
   store i32 %.sink, ptr %6, align 8, !tbaa !62
   %47 = or disjoint i32 %19, 1
   store i32 %47, ptr %8, align 4, !tbaa !56
   %48 = zext nneg i32 %19 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %.sink33, i64 %48
+  %49 = getelementptr inbounds nuw ptr, ptr %.sink38, i64 %48
   store ptr %26, ptr %49, align 8, !tbaa !59
   br label %.Vec_PtrGrow.exit11_crit_edge.i22
 

@@ -1386,8 +1386,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %107, %110
   %115 = load ptr, ptr %5, align 8, !tbaa !64
   %.not.i.i84 = icmp eq ptr %115, %50
   %116 = icmp eq ptr %115, null
-  %or.cond128 = or i1 %.not.i.i84, %116
-  br i1 %or.cond128, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit85, label %117
+  %or.cond132 = or i1 %.not.i.i84, %116
+  br i1 %or.cond132, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit85, label %117
 
 117:                                              ; preds = %114
   call void @_ZdaPv(ptr noundef nonnull %115) #18

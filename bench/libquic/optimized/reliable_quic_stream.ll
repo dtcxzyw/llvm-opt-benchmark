@@ -1188,8 +1188,8 @@ define void @_ZN3net18ReliableQuicStream10OnCanWriteEv(ptr noundef nonnull align
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !12
   %.not32 = icmp ult i64 %18, %.pre
-  %or.cond61 = select i1 %.not, i1 true, i1 %.not32
-  br i1 %or.cond61, label %._crit_edge, label %19
+  %or.cond65 = select i1 %.not, i1 true, i1 %.not32
+  br i1 %or.cond65, label %._crit_edge, label %19
 
 19:                                               ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 48

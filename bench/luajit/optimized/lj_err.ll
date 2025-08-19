@@ -469,15 +469,15 @@ err_unwind.exit.thread:                           ; preds = %30, %30, %30, %.lr.
   br i1 %.not107.i, label %err_unwind.exit62, label %.split.us.thread.i
 
 .split.us.thread.i:                               ; preds = %.split.us.i47, %.lr.ph.split.split.split.us.i
-  %.us-phi159356.i = phi ptr [ %.us-phi159.i, %.split.us.i47 ], [ %136, %.lr.ph.split.split.split.us.i ]
-  %.us-phi158355.i = phi ptr [ %.us-phi158.i, %.split.us.i47 ], [ %83, %.lr.ph.split.split.split.us.i ]
-  %.us-phi354.i = phi ptr [ %.us-phi.i, %.split.us.i47 ], [ %85, %.lr.ph.split.split.split.us.i ]
-  %215 = getelementptr inbounds nuw i8, ptr %.us-phi158355.i, i64 8
+  %.us-phi159364.i = phi ptr [ %.us-phi159.i, %.split.us.i47 ], [ %136, %.lr.ph.split.split.split.us.i ]
+  %.us-phi158363.i = phi ptr [ %.us-phi158.i, %.split.us.i47 ], [ %83, %.lr.ph.split.split.split.us.i ]
+  %.us-phi362.i = phi ptr [ %.us-phi.i, %.split.us.i47 ], [ %85, %.lr.ph.split.split.split.us.i ]
+  %215 = getelementptr inbounds nuw i8, ptr %.us-phi158363.i, i64 8
   store ptr %215, ptr %81, align 8, !tbaa !15
-  %216 = getelementptr inbounds nuw i8, ptr %.us-phi354.i, i64 32
+  %216 = getelementptr inbounds nuw i8, ptr %.us-phi362.i, i64 32
   %217 = load ptr, ptr %216, align 8, !tbaa !19
   store ptr %217, ptr %84, align 8, !tbaa !9
-  tail call fastcc void @unwindstack(ptr noundef nonnull %11, ptr noundef nonnull %.us-phi159356.i)
+  tail call fastcc void @unwindstack(ptr noundef nonnull %11, ptr noundef nonnull %.us-phi159364.i)
   br label %err_unwind.exit62
 
 .lr.ph225.split.i:                                ; preds = %.lr.ph225.i, %283
@@ -649,7 +649,7 @@ err_unwind.exit.thread:                           ; preds = %30, %30, %30, %.lr.
   unreachable
 
 err_unwind.exit62:                                ; preds = %108, %.split.us.i47, %.split.us.thread.i, %.split203.us.i, %238, %239, %247, %248, %.loopexit.i46, %.thread122.i42
-  %.4.i43 = phi ptr [ %11, %.thread122.i42 ], [ %.us-phi164.i, %247 ], [ %.us-phi164.i, %248 ], [ %.us-phi164.i, %238 ], [ %.us-phi164.i, %239 ], [ null, %.split203.us.i ], [ %282, %.loopexit.i46 ], [ %.us-phi.i, %.split.us.i47 ], [ %.us-phi354.i, %.split.us.thread.i ], [ null, %108 ]
+  %.4.i43 = phi ptr [ %11, %.thread122.i42 ], [ %.us-phi164.i, %247 ], [ %.us-phi164.i, %248 ], [ %.us-phi164.i, %238 ], [ %.us-phi164.i, %239 ], [ null, %.split203.us.i ], [ %282, %.loopexit.i46 ], [ %.us-phi.i, %.split.us.i47 ], [ %.us-phi362.i, %.split.us.thread.i ], [ null, %108 ]
   %293 = and i32 %1, 8
   %.not36 = icmp eq i32 %293, 0
   br i1 %.not36, label %294, label %err_unwind.exit.thread64
@@ -1660,8 +1660,8 @@ define hidden void @lj_err_argtype(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %39, label %.sink.split, label %44
 
 .sink.split:                                      ; preds = %36, %18
-  %.sink31 = phi ptr [ %22, %18 ], [ %38, %36 ]
-  %40 = load i64, ptr %.sink31, align 8, !tbaa !18
+  %.sink32 = phi ptr [ %22, %18 ], [ %38, %36 ]
+  %40 = load i64, ptr %.sink32, align 8, !tbaa !18
   %41 = ashr i64 %40, 47
   %42 = tail call i64 @llvm.umax.i64(i64 %41, i64 -14)
   %spec.select29 = xor i64 %42, -1

@@ -6662,8 +6662,8 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %_ZN4absl12lts_20240
 
 _ZN4absl12lts_202407226StatusC2ERKS1_.exit.thread: ; preds = %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt6vectorIN9grpc_core17EndpointAddressesESaIS5_EEE5ClearEv.exit
   %31 = load i64, ptr %0, align 8, !tbaa !21
-  %.not.i7 = icmp eq i64 %26, %31
-  br i1 %.not.i7, label %_ZN4absl12lts_202407226StatusD2Ev.exitthread-pre-split, label %32
+  %.not.i14 = icmp eq i64 %26, %31
+  br i1 %.not.i14, label %_ZN4absl12lts_202407226StatusD2Ev.exitthread-pre-split, label %32
 
 32:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.thread, %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
   %33 = phi i64 [ %31, %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.thread ], [ %30, %_ZN4absl12lts_202407226StatusC2ERKS1_.exit ]
@@ -6753,8 +6753,8 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %_ZN4absl12lts_20240
 
 _ZN4absl12lts_202407226StatusC2ERKS1_.exit.thread: ; preds = %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13RefCountedPtrINS3_13ServiceConfigEEEE5ClearEv.exit
   %21 = load i64, ptr %0, align 8, !tbaa !21
-  %.not.i8 = icmp eq i64 %16, %21
-  br i1 %.not.i8, label %_ZN4absl12lts_202407226StatusD2Ev.exitthread-pre-split, label %22
+  %.not.i10 = icmp eq i64 %16, %21
+  br i1 %.not.i10, label %_ZN4absl12lts_202407226StatusD2Ev.exitthread-pre-split, label %22
 
 22:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.thread, %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
   %23 = phi i64 [ %21, %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.thread ], [ %20, %_ZN4absl12lts_202407226StatusC2ERKS1_.exit ]
@@ -7031,7 +7031,7 @@ _ZN4absl12lts_202407228StatusOrIN9grpc_core13RefCountedPtrINS2_13ServiceConfigEE
   %43 = load ptr, ptr %41, align 8, !tbaa !20
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %45 = icmp eq ptr %43, %44
-  br i1 %45, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %45, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZN4absl12lts_202407228StatusOrIN9grpc_core13RefCountedPtrINS2_13ServiceConfigEEEEaSEOS6_.exit
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -7043,14 +7043,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %51 = icmp eq ptr %49, %50
   br i1 %51, label %55, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %_ZN4absl12lts_202407228StatusOrIN9grpc_core13RefCountedPtrINS2_13ServiceConfigEEEEaSEOS6_.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %_ZN4absl12lts_202407228StatusOrIN9grpc_core13RefCountedPtrINS2_13ServiceConfigEEEEaSEOS6_.exit
   %52 = load ptr, ptr %42, align 8, !tbaa !20
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %54 = icmp eq ptr %52, %53
   br i1 %54, label %55, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-55:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %56 = phi ptr [ %52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+55:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %56 = phi ptr [ %52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %58 = load i64, ptr %57, align 8, !tbaa !15
   %59 = icmp ult i64 %58, 16
@@ -7091,7 +7091,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %70, ptr %44, align 8, !tbaa !51
   br label %77
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %71 = load i64, ptr %44, align 8, !tbaa !51
   store ptr %52, ptr %41, align 8, !tbaa !20
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -10680,12 +10680,12 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br label %31
 
 .critedge21:                                      ; preds = %.lr.ph, %.thread
-  %.sink71 = phi i64 [ %52, %.thread ], [ %39, %.lr.ph ]
+  %.sink73 = phi i64 [ %52, %.thread ], [ %39, %.lr.ph ]
   %.sink = phi i8 [ 1, %.thread ], [ 0, %.lr.ph ]
   %56 = load ptr, ptr %4, align 8, !tbaa !51, !nonnull !178, !noundef !178
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %.sink71
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %.sink73
   %.sroa.0.0.copyload.i.i.i.i22 = load ptr, ptr %30, align 8, !tbaa !51
-  %58 = getelementptr inbounds nuw %"struct.grpc_core::DNSResolver::LookupTaskHandle", ptr %.sroa.0.0.copyload.i.i.i.i22, i64 %.sink71
+  %58 = getelementptr inbounds nuw %"struct.grpc_core::DNSResolver::LookupTaskHandle", ptr %.sroa.0.0.copyload.i.i.i.i22, i64 %.sink73
   store ptr %57, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %58, ptr %.sroa.4.0..sroa_idx, align 8

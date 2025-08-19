@@ -4317,11 +4317,11 @@ _ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.
   br i1 %246, label %212, label %_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit20, !llvm.loop !221
 
 _ZSt23__copy_move_backward_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit20: ; preds = %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i18, %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i50, %197, %._crit_edge
-  %.sink82 = phi ptr [ %73, %._crit_edge ], [ %200, %197 ], [ %storemerge.i.i.i51, %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i50 ], [ %storemerge.i.i.i19, %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i18 ]
+  %.sink98 = phi ptr [ %73, %._crit_edge ], [ %200, %197 ], [ %storemerge.i.i.i51, %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i50 ], [ %storemerge.i.i.i19, %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i18 ]
   %.sink = phi ptr [ %72, %._crit_edge ], [ %202, %197 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i50 ], [ %.sroa.457.1, %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i18 ]
   %.sroa.9.2.sink = phi ptr [ %71, %._crit_edge ], [ %204, %197 ], [ %.sroa.9.1, %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i50 ], [ %.sroa.958.1, %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i18 ]
   %.sroa.12.2.sink = phi ptr [ %70, %._crit_edge ], [ %206, %197 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i50 ], [ %.sroa.1259.1, %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i18 ]
-  store ptr %.sink82, ptr %0, align 8, !tbaa !58
+  store ptr %.sink98, ptr %0, align 8, !tbaa !58
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %247, align 8, !tbaa !69
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4911,11 +4911,11 @@ _ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.
   br i1 %227, label %197, label %_ZSt14__copy_move_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit16, !llvm.loop !236
 
 _ZSt14__copy_move_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit16: ; preds = %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i14, %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i38, %184, %._crit_edge
-  %.sink70 = phi ptr [ %69, %._crit_edge ], [ %186, %184 ], [ %storemerge.i.i39, %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i38 ], [ %storemerge.i.i15, %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i14 ]
+  %.sink86 = phi ptr [ %69, %._crit_edge ], [ %186, %184 ], [ %storemerge.i.i39, %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i38 ], [ %storemerge.i.i15, %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i14 ]
   %.sink = phi ptr [ %68, %._crit_edge ], [ %188, %184 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i38 ], [ %.sroa.445.1, %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i14 ]
   %.sroa.8.2.sink = phi ptr [ %67, %._crit_edge ], [ %190, %184 ], [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i38 ], [ %.sroa.846.1, %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i14 ]
   %.sroa.12.2.sink = phi ptr [ %66, %._crit_edge ], [ %192, %184 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i38 ], [ %.sroa.1248.1, %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i14 ]
-  store ptr %.sink70, ptr %0, align 8, !tbaa !58
+  store ptr %.sink86, ptr %0, align 8, !tbaa !58
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %228, align 8, !tbaa !69
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 16

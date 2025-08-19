@@ -811,9 +811,9 @@ pack_fence.exit.thread:                           ; preds = %95, %127, %159, %19
 
 pack_fence.exit:                                  ; preds = %227, %229, %191, %193, %157, %159, %125, %127, %93, %95
   %.083.i.sink = phi i32 [ %100, %95 ], [ -22, %93 ], [ %132, %127 ], [ -22, %125 ], [ %166, %159 ], [ -22, %157 ], [ %198, %193 ], [ -22, %191 ], [ %236, %229 ], [ -22, %227 ]
-  %.sink98 = phi i32 [ 233, %95 ], [ 233, %93 ], [ 240, %127 ], [ 240, %125 ], [ 246, %159 ], [ 246, %157 ], [ 252, %193 ], [ 252, %191 ], [ 259, %229 ], [ 259, %227 ]
+  %.sink122 = phi i32 [ 233, %95 ], [ 233, %93 ], [ 240, %127 ], [ 240, %125 ], [ 246, %159 ], [ 246, %157 ], [ 252, %193 ], [ 252, %191 ], [ 259, %229 ], [ 259, %227 ]
   %237 = call ptr @PMIx_Error_string(i32 noundef %.083.i.sink) #11
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %237, ptr noundef nonnull @.str.2, i32 noundef %.sink98) #11
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %237, ptr noundef nonnull @.str.2, i32 noundef %.sink122) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

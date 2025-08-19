@@ -917,24 +917,24 @@ define dso_local void @cpu_freq_recv_info(i32 noundef %0) local_unnamed_addr #0 
 
 .lr.ph107.preheader:                              ; preds = %.lr.ph.split.us.split
   %6 = icmp slt i32 %4, 0
-  br i1 %6, label %.lr.ph224.preheader, label %.split70.us
+  br i1 %6, label %.lr.ph234.preheader, label %.split70.us
 
-.lr.ph224.preheader:                              ; preds = %.lr.ph107.preheader
+.lr.ph234.preheader:                              ; preds = %.lr.ph107.preheader
   %7 = tail call ptr @__errno_location() #12
-  br label %.lr.ph224
+  br label %.lr.ph234
 
 .lr.ph107:                                        ; preds = %10
   %8 = icmp slt i32 %12, 0
-  br i1 %8, label %.lr.ph224, label %.split70.us
+  br i1 %8, label %.lr.ph234, label %.split70.us
 
-.lr.ph224:                                        ; preds = %.lr.ph224.preheader, %.lr.ph107
+.lr.ph234:                                        ; preds = %.lr.ph234.preheader, %.lr.ph107
   %9 = load i32, ptr %7, align 4
   switch i32 %9, label %.split73.us [
     i32 11, label %10
     i32 4, label %10
   ]
 
-10:                                               ; preds = %.lr.ph224, %.lr.ph224
+10:                                               ; preds = %.lr.ph234, %.lr.ph234
   %11 = tail call i64 @read(i32 noundef %0, ptr noundef %.037.ph109, i64 noundef %.0.ph111) #10
   %12 = trunc i64 %11 to i32
   %13 = icmp eq i32 %12, 0
@@ -948,11 +948,11 @@ define dso_local void @cpu_freq_recv_info(i32 noundef %0) local_unnamed_addr #0 
 
 .lr.ph92.preheader.preheader:                     ; preds = %.lr.ph.split.split
   %17 = icmp slt i32 %15, 0
-  br i1 %17, label %.lr.ph225.preheader, label %.split70.us
+  br i1 %17, label %.lr.ph235.preheader, label %.split70.us
 
-.lr.ph225.preheader:                              ; preds = %.lr.ph92.preheader.preheader
+.lr.ph235.preheader:                              ; preds = %.lr.ph92.preheader.preheader
   %18 = tail call ptr @__errno_location() #12
-  br label %.lr.ph225
+  br label %.lr.ph235
 
 .split76.us:                                      ; preds = %.lr.ph.split.split, %31
   %19 = tail call i32 @get_log_level() #10
@@ -984,23 +984,23 @@ define dso_local void @cpu_freq_recv_info(i32 noundef %0) local_unnamed_addr #0 
 
 .lr.ph92.preheader:                               ; preds = %31
   %29 = icmp slt i32 %33, 0
-  br i1 %29, label %.lr.ph225, label %.split70.us
+  br i1 %29, label %.lr.ph235, label %.split70.us
 
-.lr.ph225:                                        ; preds = %.lr.ph225.preheader, %.lr.ph92.preheader
+.lr.ph235:                                        ; preds = %.lr.ph235.preheader, %.lr.ph92.preheader
   %30 = load i32, ptr %18, align 4
   switch i32 %30, label %.split73.us [
     i32 11, label %31
     i32 4, label %31
   ]
 
-31:                                               ; preds = %.lr.ph225, %.lr.ph225
+31:                                               ; preds = %.lr.ph235, %.lr.ph235
   %32 = tail call i64 @read(i32 noundef %0, ptr noundef %.037.ph109, i64 noundef 2) #10
   %33 = trunc i64 %32 to i32
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %.split76.us, label %.lr.ph92.preheader
 
-.split73.us:                                      ; preds = %.lr.ph224, %.lr.ph225
-  %.0.ph111166 = phi i64 [ 2, %.lr.ph225 ], [ %.0.ph111, %.lr.ph224 ]
+.split73.us:                                      ; preds = %.lr.ph234, %.lr.ph235
+  %.0.ph111166 = phi i64 [ 2, %.lr.ph235 ], [ %.0.ph111, %.lr.ph234 ]
   %35 = tail call i32 @get_log_level() #10
   %36 = icmp sgt i32 %35, 4
   br i1 %36, label %37, label %.thread
@@ -1061,21 +1061,21 @@ define dso_local void @cpu_freq_recv_info(i32 noundef %0) local_unnamed_addr #0 
 .critedge.preheader:                              ; preds = %.lr.ph114.preheader, %.outer
   %59 = phi i32 [ %103, %.outer ], [ %57, %.lr.ph114.preheader ]
   %60 = phi i64 [ %102, %.outer ], [ %56, %.lr.ph114.preheader ]
-  %.035.ph133230 = phi i64 [ %94, %.outer ], [ %55, %.lr.ph114.preheader ]
-  %.034.ph134229 = phi ptr [ %93, %.outer ], [ %53, %.lr.ph114.preheader ]
+  %.035.ph133240 = phi i64 [ %94, %.outer ], [ %55, %.lr.ph114.preheader ]
+  %.034.ph134239 = phi ptr [ %93, %.outer ], [ %53, %.lr.ph114.preheader ]
   %61 = icmp slt i32 %59, 0
-  br i1 %61, label %.lr.ph227.preheader, label %.split120.us
+  br i1 %61, label %.lr.ph237.preheader, label %.split120.us
 
-.lr.ph227.preheader:                              ; preds = %.critedge.preheader
+.lr.ph237.preheader:                              ; preds = %.critedge.preheader
   %62 = tail call ptr @__errno_location() #12
-  br label %.lr.ph227
+  br label %.lr.ph237
 
 .split117.us:                                     ; preds = %.outer, %82, %.lr.ph114.preheader
-  %.035.ph133210 = phi i64 [ %55, %.lr.ph114.preheader ], [ %.035.ph133230, %82 ], [ %94, %.outer ]
+  %.035.ph133220 = phi i64 [ %55, %.lr.ph114.preheader ], [ %.035.ph133240, %82 ], [ %94, %.outer ]
   %63 = load i16, ptr @cpu_freq_count, align 2
   %64 = zext i16 %63 to i64
   %65 = mul nuw nsw i64 %64, 332
-  %66 = icmp eq i64 %.035.ph133210, %65
+  %66 = icmp eq i64 %.035.ph133220, %65
   %67 = tail call i32 @get_log_level() #10
   %68 = icmp sgt i32 %67, 4
   br i1 %66, label %69, label %73
@@ -1099,7 +1099,7 @@ define dso_local void @cpu_freq_recv_info(i32 noundef %0) local_unnamed_addr #0 
   %75 = load i16, ptr @cpu_freq_count, align 2
   %76 = zext i16 %75 to i32
   %77 = mul nuw nsw i32 %76, 332
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.3, i32 noundef 417, ptr noundef nonnull @__func__.cpu_freq_recv_info, i64 noundef %.035.ph133210, i32 noundef %77) #10
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.3, i32 noundef 417, ptr noundef nonnull @__func__.cpu_freq_recv_info, i64 noundef %.035.ph133220, i32 noundef %77) #10
   br label %78
 
 78:                                               ; preds = %74, %73
@@ -1109,22 +1109,22 @@ define dso_local void @cpu_freq_recv_info(i32 noundef %0) local_unnamed_addr #0 
 
 .critedge:                                        ; preds = %82
   %80 = icmp slt i32 %84, 0
-  br i1 %80, label %.lr.ph227, label %.split120.us
+  br i1 %80, label %.lr.ph237, label %.split120.us
 
-.lr.ph227:                                        ; preds = %.lr.ph227.preheader, %.critedge
+.lr.ph237:                                        ; preds = %.lr.ph237.preheader, %.critedge
   %81 = load i32, ptr %62, align 4
   switch i32 %81, label %.split123.us [
     i32 11, label %82
     i32 4, label %82
   ]
 
-82:                                               ; preds = %.lr.ph227, %.lr.ph227
-  %83 = tail call i64 @read(i32 noundef %0, ptr noundef %.034.ph134229, i64 noundef %.035.ph133230) #10
+82:                                               ; preds = %.lr.ph237, %.lr.ph237
+  %83 = tail call i64 @read(i32 noundef %0, ptr noundef %.034.ph134239, i64 noundef %.035.ph133240) #10
   %84 = trunc i64 %83 to i32
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %.split117.us, label %.critedge
 
-.split123.us:                                     ; preds = %.lr.ph227
+.split123.us:                                     ; preds = %.lr.ph237
   %86 = tail call i32 @get_log_level() #10
   %87 = icmp sgt i32 %86, 4
   br i1 %87, label %88, label %.thread
@@ -1133,14 +1133,14 @@ define dso_local void @cpu_freq_recv_info(i32 noundef %0) local_unnamed_addr #0 
   %89 = load i16, ptr @cpu_freq_count, align 2
   %90 = zext i16 %89 to i32
   %91 = mul nuw nsw i32 %90, 332
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.3, i32 noundef 417, ptr noundef nonnull @__func__.cpu_freq_recv_info, i64 noundef %.035.ph133230, i32 noundef %91) #10
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.3, i32 noundef 417, ptr noundef nonnull @__func__.cpu_freq_recv_info, i64 noundef %.035.ph133240, i32 noundef %91) #10
   br label %.thread
 
 .split120.us:                                     ; preds = %.critedge, %.critedge.preheader
   %.lcssa = phi i64 [ %60, %.critedge.preheader ], [ %83, %.critedge ]
   %92 = and i64 %.lcssa, 2147483647
-  %93 = getelementptr inbounds nuw i8, ptr %.034.ph134229, i64 %92
-  %94 = sub i64 %.035.ph133230, %92
+  %93 = getelementptr inbounds nuw i8, ptr %.034.ph134239, i64 %92
+  %94 = sub i64 %.035.ph133240, %92
   %.not49 = icmp eq i64 %94, 0
   br i1 %.not49, label %.outer._crit_edge, label %95
 
@@ -3841,28 +3841,28 @@ define dso_local range(i32 -1, 1) i32 @cpu_freq_verify_cmdline(ptr noundef %0, p
 
 47:                                               ; preds = %42
   %.not87 = icmp eq ptr %44, null
-  br i1 %.not87, label %.thread110, label %48
+  br i1 %.not87, label %.thread124, label %48
 
 48:                                               ; preds = %47
   %49 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.76, ptr noundef %45, ptr noundef nonnull %44) #10
-  br label %.thread107thread-pre-split
+  br label %.thread121thread-pre-split
 
 50:                                               ; preds = %42
   %51 = tail call fastcc i32 @_cpu_freq_check_freq(ptr noundef %45)
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %.thread107thread-pre-split, label %53
+  br i1 %52, label %.thread121thread-pre-split, label %53
 
 53:                                               ; preds = %50
   store i32 %51, ptr %2, align 4
   %.not88 = icmp eq ptr %43, null
   br i1 %.not88, label %69, label %54
 
-.thread110:                                       ; preds = %47
+.thread124:                                       ; preds = %47
   store i32 %46, ptr %3, align 4
-  %.not88111 = icmp eq ptr %43, null
-  br i1 %.not88111, label %.thread115, label %54
+  %.not88125 = icmp eq ptr %43, null
+  br i1 %.not88125, label %.thread129, label %54
 
-54:                                               ; preds = %.thread110, %53
+54:                                               ; preds = %.thread124, %53
   %55 = icmp eq ptr %44, null
   %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 296), align 8
   %57 = icmp eq i32 %56, -2
@@ -3871,12 +3871,12 @@ define dso_local range(i32 -1, 1) i32 @cpu_freq_verify_cmdline(ptr noundef %0, p
 
 58:                                               ; preds = %54
   %59 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.77) #10
-  br label %.thread107thread-pre-split
+  br label %.thread121thread-pre-split
 
 60:                                               ; preds = %54
   %61 = tail call fastcc i32 @_cpu_freq_check_freq(ptr noundef nonnull %43)
   %62 = icmp eq i32 %61, 0
-  br i1 %62, label %.thread107thread-pre-split, label %63
+  br i1 %62, label %.thread121thread-pre-split, label %63
 
 63:                                               ; preds = %60
   %64 = load i32, ptr %2, align 4
@@ -3884,84 +3884,84 @@ define dso_local range(i32 -1, 1) i32 @cpu_freq_verify_cmdline(ptr noundef %0, p
   store i32 %61, ptr %2, align 4
   %65 = load i32, ptr %1, align 4
   %66 = icmp ult i32 %61, %65
-  br i1 %66, label %67, label %.thread102
+  br i1 %66, label %67, label %.thread116
 
 67:                                               ; preds = %63
   %68 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.78, ptr noundef %45, ptr noundef nonnull %43) #10
-  br label %.thread107thread-pre-split
+  br label %.thread121thread-pre-split
 
 69:                                               ; preds = %53
   %.not89 = icmp eq ptr %44, null
-  br i1 %.not89, label %.thread115, label %70
+  br i1 %.not89, label %.thread129, label %70
 
-.thread102:                                       ; preds = %63
-  %.not89103 = icmp eq ptr %44, null
-  br i1 %.not89103, label %83, label %70
+.thread116:                                       ; preds = %63
+  %.not89117 = icmp eq ptr %44, null
+  br i1 %.not89117, label %83, label %70
 
-70:                                               ; preds = %.thread102, %69
-  %.not88112 = phi i1 [ false, %.thread102 ], [ true, %69 ]
+70:                                               ; preds = %.thread116, %69
+  %.not88126 = phi i1 [ false, %.thread116 ], [ true, %69 ]
   %71 = tail call fastcc i32 @_cpu_freq_check_gov(ptr noundef nonnull %44, i32 noundef 0)
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %70
   %74 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.79, ptr noundef nonnull %44) #10
-  br label %.thread107thread-pre-split
+  br label %.thread121thread-pre-split
 
 75:                                               ; preds = %70
   %.not92 = icmp eq i32 %71, -2139095040
-  br i1 %.not88112, label %76, label %79
+  br i1 %.not88126, label %76, label %79
 
 76:                                               ; preds = %75
   br i1 %.not92, label %82, label %77
 
 77:                                               ; preds = %76
   %78 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.80, ptr noundef nonnull %44) #10
-  br label %.thread107thread-pre-split
+  br label %.thread121thread-pre-split
 
 79:                                               ; preds = %75
   br i1 %.not92, label %80, label %82
 
 80:                                               ; preds = %79
   %81 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.81, ptr noundef nonnull %44) #10
-  br label %.thread107thread-pre-split
+  br label %.thread121thread-pre-split
 
 82:                                               ; preds = %79, %76
   store i32 %71, ptr %3, align 4
-  br label %.thread107
+  br label %.thread121
 
-83:                                               ; preds = %.thread102
-  %.pre105 = load i32, ptr %3, align 4
-  %84 = icmp eq i32 %.pre105, -2
+83:                                               ; preds = %.thread116
+  %.pre119 = load i32, ptr %3, align 4
+  %84 = icmp eq i32 %.pre119, -2
   %85 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 296), align 8
   %86 = icmp ne i32 %85, -2
   %or.cond9 = select i1 %84, i1 %86, i1 false
-  br i1 %or.cond9, label %.sink.split, label %.thread107
+  br i1 %or.cond9, label %.sink.split, label %.thread121
 
-.thread115:                                       ; preds = %.thread110, %69
+.thread129:                                       ; preds = %.thread124, %69
   %.pre = load i32, ptr %3, align 4
-  %.not121 = icmp eq i32 %.pre, -2
-  br i1 %.not121, label %.sink.split, label %.thread107thread-pre-split
+  %.not135 = icmp eq i32 %.pre, -2
+  br i1 %.not135, label %.sink.split, label %.thread121thread-pre-split
 
-.thread107thread-pre-split:                       ; preds = %48, %58, %67, %73, %77, %80, %.thread115, %50, %60
-  %.0.ph.ph = phi i32 [ -1, %48 ], [ -1, %58 ], [ -1, %67 ], [ -1, %73 ], [ -1, %80 ], [ 0, %.thread115 ], [ -1, %77 ], [ -1, %50 ], [ -1, %60 ]
+.thread121thread-pre-split:                       ; preds = %48, %58, %67, %73, %77, %80, %.thread129, %50, %60
+  %.0.ph.ph = phi i32 [ -1, %48 ], [ -1, %58 ], [ -1, %67 ], [ -1, %73 ], [ -1, %80 ], [ 0, %.thread129 ], [ -1, %77 ], [ -1, %50 ], [ -1, %60 ]
   %.pr.pr = load i32, ptr %3, align 4
-  br label %.thread107
+  br label %.thread121
 
-.thread107:                                       ; preds = %.thread107thread-pre-split, %82, %83
-  %.pr = phi i32 [ %.pr.pr, %.thread107thread-pre-split ], [ %71, %82 ], [ %.pre105, %83 ]
-  %.0.ph = phi i32 [ %.0.ph.ph, %.thread107thread-pre-split ], [ 0, %82 ], [ 0, %83 ]
+.thread121:                                       ; preds = %.thread121thread-pre-split, %82, %83
+  %.pr = phi i32 [ %.pr.pr, %.thread121thread-pre-split ], [ %71, %82 ], [ %.pre119, %83 ]
+  %.0.ph = phi i32 [ %.0.ph.ph, %.thread121thread-pre-split ], [ 0, %82 ], [ 0, %83 ]
   %.not93 = icmp eq i32 %.pr, -2
   br i1 %.not93, label %95, label %87
 
-.sink.split:                                      ; preds = %.thread115, %83
-  %.sink = phi i32 [ %85, %83 ], [ -2139095040, %.thread115 ]
+.sink.split:                                      ; preds = %.thread129, %83
+  %.sink = phi i32 [ %85, %83 ], [ -2139095040, %.thread129 ]
   store i32 %.sink, ptr %3, align 4
   br label %87
 
-87:                                               ; preds = %.sink.split, %.thread107
-  %.0100 = phi i32 [ %.0.ph, %.thread107 ], [ 0, %.sink.split ]
-  %88 = phi i32 [ %.pr, %.thread107 ], [ %.sink, %.sink.split ]
+87:                                               ; preds = %.sink.split, %.thread121
+  %.0100 = phi i32 [ %.0.ph, %.thread121 ], [ 0, %.sink.split ]
+  %88 = phi i32 [ %.pr, %.thread121 ], [ %.sink, %.sink.split ]
   %89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 300), align 4
   %90 = and i32 %88, 2147483647
   %91 = and i32 %90, %89
@@ -3973,9 +3973,9 @@ define dso_local range(i32 -1, 1) i32 @cpu_freq_verify_cmdline(ptr noundef %0, p
   store i32 -2, ptr %3, align 4
   br label %95
 
-95:                                               ; preds = %87, %93, %.thread107
-  %96 = phi i32 [ -2, %93 ], [ %88, %87 ], [ -2, %.thread107 ]
-  %.1 = phi i32 [ -1, %93 ], [ %.0100, %87 ], [ %.0.ph, %.thread107 ]
+95:                                               ; preds = %87, %93, %.thread121
+  %96 = phi i32 [ -2, %93 ], [ %88, %87 ], [ -2, %.thread121 ]
+  %.1 = phi i32 [ -1, %93 ], [ %.0100, %87 ], [ %.0.ph, %.thread121 ]
   %97 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %98 = and i64 %97, 2199023255552
   %.not94 = icmp eq i64 %98, 0

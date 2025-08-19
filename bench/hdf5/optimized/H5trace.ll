@@ -1097,8 +1097,8 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %243 = icmp eq i8 %242, 115
   %244 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %88) #10
   %245 = icmp sgt i32 %.11424, -1
-  %or.cond1910 = select i1 %243, i1 %245, i1 false
-  br i1 %or.cond1910, label %246, label %H5_trace_args_close_degree.exit1640
+  %or.cond2079 = select i1 %243, i1 %245, i1 false
+  br i1 %or.cond2079, label %246, label %H5_trace_args_close_degree.exit1640
 
 246:                                              ; preds = %240
   %247 = zext nneg i32 %.11424 to i64

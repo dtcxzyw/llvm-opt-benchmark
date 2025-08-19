@@ -87,7 +87,7 @@ define dso_local void @_ZN4llvm11AArch64_IMM12expandMOVImmEmjRNS_15SmallVectorIm
 
 32:                                               ; preds = %26
   %.not.i = icmp eq i32 %1, 64
-  br i1 %.not.i, label %.preheader442, label %33
+  br i1 %.not.i, label %.preheader475, label %33
 
 33:                                               ; preds = %32
   %34 = zext nneg i32 %1 to i64
@@ -95,13 +95,13 @@ define dso_local void @_ZN4llvm11AArch64_IMM12expandMOVImmEmjRNS_15SmallVectorIm
   %.not52.i = icmp ne i64 %35, 0
   %36 = icmp eq i64 %30, %29
   %or.cond256 = or i1 %36, %.not52.i
-  br i1 %or.cond256, label %119, label %.preheader442
+  br i1 %or.cond256, label %119, label %.preheader475
 
-.preheader442:                                    ; preds = %33, %32
+.preheader475:                                    ; preds = %33, %32
   br label %37
 
-37:                                               ; preds = %.preheader442, %37
-  %.045.i = phi i32 [ %.146.i, %37 ], [ %1, %.preheader442 ]
+37:                                               ; preds = %.preheader475, %37
+  %.045.i = phi i32 [ %.146.i, %37 ], [ %1, %.preheader475 ]
   %38 = lshr i32 %.045.i, 1
   %39 = zext nneg i32 %38 to i64
   %notmask.i = shl nsw i64 -1, %39
@@ -270,20 +270,20 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   br i1 %or.cond.i105, label %177, label %132
 
 132:                                              ; preds = %124
-  br i1 %.not.i106, label %.preheader410, label %133
+  br i1 %.not.i106, label %.preheader443, label %133
 
 133:                                              ; preds = %132
   %134 = lshr i64 %128, %122
   %.not52.i107 = icmp ne i64 %134, 0
   %135 = icmp eq i64 %128, %29
   %or.cond257 = or i1 %135, %.not52.i107
-  br i1 %or.cond257, label %.thread, label %.preheader410
+  br i1 %or.cond257, label %.thread, label %.preheader443
 
-.preheader410:                                    ; preds = %133, %132
+.preheader443:                                    ; preds = %133, %132
   br label %136
 
-136:                                              ; preds = %.preheader410, %136
-  %.045.i109 = phi i32 [ %.146.i112, %136 ], [ %1, %.preheader410 ]
+136:                                              ; preds = %.preheader443, %136
+  %.045.i109 = phi i32 [ %.146.i112, %136 ], [ %1, %.preheader443 ]
   %137 = lshr i32 %.045.i109, 1
   %138 = zext nneg i32 %137 to i64
   %notmask.i110 = shl nsw i64 -1, %138
@@ -363,13 +363,13 @@ _ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit124: ; preds = %155, %16
 .thread:                                          ; preds = %133
   %180 = or i64 %126, %30
   %181 = add i64 %180, 1
-  %or.cond.i125336 = icmp ult i64 %181, 2
-  br i1 %or.cond.i125336, label %229, label %.thread337
+  %or.cond.i125369 = icmp ult i64 %181, 2
+  br i1 %or.cond.i125369, label %229, label %.thread370
 
 182:                                              ; preds = %177
-  br i1 %.not.i106, label %186, label %.thread337
+  br i1 %.not.i106, label %186, label %.thread370
 
-.thread337:                                       ; preds = %.thread, %182
+.thread370:                                       ; preds = %.thread, %182
   %183 = phi i64 [ %178, %182 ], [ %180, %.thread ]
   %184 = lshr i64 %183, %122
   %.not52.i127 = icmp ne i64 %184, 0
@@ -377,8 +377,8 @@ _ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit124: ; preds = %155, %16
   %or.cond258 = or i1 %185, %.not52.i127
   br i1 %or.cond258, label %229, label %186
 
-186:                                              ; preds = %.thread337, %182
-  %187 = phi i64 [ %183, %.thread337 ], [ %178, %182 ]
+186:                                              ; preds = %.thread370, %182
+  %187 = phi i64 [ %183, %.thread370 ], [ %178, %182 ]
   br label %188
 
 188:                                              ; preds = %188, %186
@@ -453,26 +453,26 @@ _ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit144: ; preds = %207, %22
   %228 = sub i32 %.146.i132, %.049.i141
   br label %.critedge
 
-229:                                              ; preds = %.thread, %.thread337, %177, %_ZN4llvm16isShiftedMask_64Em.exit56.i140, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i137
+229:                                              ; preds = %.thread, %.thread370, %177, %_ZN4llvm16isShiftedMask_64Em.exit56.i140, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i137
   %230 = add i64 %130, 1
   %or.cond.i145 = icmp ult i64 %230, 2
   br i1 %or.cond.i145, label %340, label %231
 
 231:                                              ; preds = %229
-  br i1 %.not.i106, label %.preheader409, label %232
+  br i1 %.not.i106, label %.preheader442, label %232
 
 232:                                              ; preds = %231
   %233 = lshr i64 %130, %122
   %.not52.i147 = icmp ne i64 %233, 0
   %234 = icmp eq i64 %130, %29
   %or.cond259 = or i1 %234, %.not52.i147
-  br i1 %or.cond259, label %340, label %.preheader409
+  br i1 %or.cond259, label %340, label %.preheader442
 
-.preheader409:                                    ; preds = %232, %231
+.preheader442:                                    ; preds = %232, %231
   br label %235
 
-235:                                              ; preds = %.preheader409, %235
-  %.045.i149 = phi i32 [ %.146.i152, %235 ], [ %1, %.preheader409 ]
+235:                                              ; preds = %.preheader442, %235
+  %.045.i149 = phi i32 [ %.146.i152, %235 ], [ %1, %.preheader442 ]
   %236 = lshr i32 %.045.i149, 1
   %237 = zext nneg i32 %236 to i64
   %notmask.i150 = shl nsw i64 -1, %237
@@ -544,12 +544,12 @@ _ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit164: ; preds = %254, %26
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit164, %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit144, %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit124
-  %.146.i152.lcssa343.sink377 = phi i32 [ %.146.i152, %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit164 ], [ %.146.i132, %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit144 ], [ %.146.i112, %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit124 ]
+  %.146.i152.lcssa376.sink410 = phi i32 [ %.146.i152, %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit164 ], [ %.146.i132, %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit144 ], [ %.146.i112, %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit124 ]
   %.sink = phi i32 [ %275, %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit164 ], [ %228, %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit144 ], [ %176, %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit124 ]
   %.048.i162.sink = phi i32 [ %.048.i162, %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit164 ], [ %.048.i142, %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit144 ], [ %.048.i122, %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit124 ]
-  %276 = add i32 %.146.i152.lcssa343.sink377, 67108863
+  %276 = add i32 %.146.i152.lcssa376.sink410, 67108863
   %277 = and i32 %.sink, %276
-  %.neg.i163 = mul i32 %.146.i152.lcssa343.sink377, -2
+  %.neg.i163 = mul i32 %.146.i152.lcssa376.sink410, -2
   %278 = add i32 %.048.i162.sink, -1
   %279 = or i32 %278, %.neg.i163
   %280 = shl i32 %279, 6
@@ -2255,13 +2255,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
 125:                                              ; preds = %122
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 16
   %126 = icmp samesign ult i64 %indvars.iv116, 48
-  br i1 %126, label %122, label %.split.loop.exit135, !llvm.loop !39
+  br i1 %126, label %122, label %.split.loop.exit149, !llvm.loop !39
 
 .split.loop.exit:                                 ; preds = %122
   %127 = trunc nuw nsw i64 %indvars.iv116 to i32
-  br label %.split.loop.exit135
+  br label %.split.loop.exit149
 
-.split.loop.exit135:                              ; preds = %125, %.split.loop.exit
+.split.loop.exit149:                              ; preds = %125, %.split.loop.exit
   %.lcssa103 = phi i64 [ %124, %.split.loop.exit ], [ %30, %125 ]
   %.037.lcssa = phi i32 [ %127, %.split.loop.exit ], [ 64, %125 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -2279,7 +2279,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   %.pre3.i55 = load ptr, ptr %1, align 8, !tbaa !18
   br i1 %.not.i.i.not.i54, label %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit60, label %135, !prof !19
 
-135:                                              ; preds = %.split.loop.exit135
+135:                                              ; preds = %.split.loop.exit149
   %136 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %.pre3.i55, i64 %132
   %137 = icmp uge ptr %6, %.pre3.i55
   %138 = icmp ult ptr %6, %136
@@ -2302,9 +2302,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   %.pre.i58 = load ptr, ptr %1, align 8, !tbaa !18
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit60
 
-_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit60: ; preds = %.split.loop.exit135, %139, %.critedge.i.i.i57
-  %147 = phi ptr [ %.pre3.i55, %.split.loop.exit135 ], [ %144, %139 ], [ %.pre.i58, %.critedge.i.i.i57 ]
-  %.016.i.i.i59 = phi ptr [ %6, %.split.loop.exit135 ], [ %145, %139 ], [ %6, %.critedge.i.i.i57 ]
+_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit60: ; preds = %.split.loop.exit149, %139, %.critedge.i.i.i57
+  %147 = phi ptr [ %.pre3.i55, %.split.loop.exit149 ], [ %144, %139 ], [ %.pre.i58, %.critedge.i.i.i57 ]
+  %.016.i.i.i59 = phi ptr [ %6, %.split.loop.exit149 ], [ %145, %139 ], [ %6, %.critedge.i.i.i57 ]
   %148 = load i32, ptr %98, align 8, !tbaa !14
   %149 = zext i32 %148 to i64
   %150 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %147, i64 %149

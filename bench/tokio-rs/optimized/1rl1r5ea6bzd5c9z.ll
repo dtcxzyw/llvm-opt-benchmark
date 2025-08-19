@@ -4307,8 +4307,8 @@ define hidden void @_ZN5tokio7runtime9scheduler14current_thread13CurrentThread3n
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.432)
-  %.sroa.432.7..sroa_idx70 = getelementptr inbounds nuw i8, ptr %.sroa.432, i64 7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %.sroa.432.7..sroa_idx70, i8 0, i64 17, i1 false), !alias.scope !383
+  %.sroa.432.7..sroa_idx73 = getelementptr inbounds nuw i8, ptr %.sroa.432, i64 7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %.sroa.432.7..sroa_idx73, i8 0, i64 17, i1 false), !alias.scope !383
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !386
   invoke void @"_ZN5tokio4util12sharded_list24ShardedList$LT$L$C$T$GT$3new17h96768b3880282718E"(ptr noalias noundef nonnull sret({ { ptr, i64 }, { i64 }, i64 }) align 8 captures(none) dereferenceable(32) %8, i64 noundef 4)
           to label %.noexc unwind label %53
@@ -4441,8 +4441,8 @@ define hidden void @_ZN5tokio7runtime9scheduler14current_thread13CurrentThread3n
 49:                                               ; preds = %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %42, ptr noundef nonnull align 8 dereferenceable(112) %9, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.sroa.538.7..sroa_idx71 = getelementptr inbounds nuw i8, ptr %.sroa.538, i64 7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.538.7..sroa_idx71, i8 0, i64 16, i1 false)
+  %.sroa.538.7..sroa_idx74 = getelementptr inbounds nuw i8, ptr %.sroa.538, i64 7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.538.7..sroa_idx74, i8 0, i64 16, i1 false)
   %.cast = ptrtoint ptr %42 to i64
   store i64 0, ptr %0, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5847,8 +5847,8 @@ _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i2.i.i
   br i1 %55, label %.loopexit, label %.lr.ph.i.i9
 
 .loopexit:                                        ; preds = %56, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.700930863383756518.exit4.i.i14", %.lr.ph.i.i9, %23, %"_ZN111_$LT$tokio..runtime..scheduler..inject..pop..Pop$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cb0db8ac1bef0b5E.exit.thread"
-  %.03147 = phi i32 [ %.037, %"_ZN111_$LT$tokio..runtime..scheduler..inject..pop..Pop$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cb0db8ac1bef0b5E.exit.thread" ], [ %16, %23 ], [ %.037, %.lr.ph.i.i9 ], [ %.037, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.700930863383756518.exit4.i.i14" ], [ %62, %56 ]
-  store atomic i32 %.03147, ptr %15 release, align 4
+  %.03154 = phi i32 [ %.037, %"_ZN111_$LT$tokio..runtime..scheduler..inject..pop..Pop$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cb0db8ac1bef0b5E.exit.thread" ], [ %16, %23 ], [ %.037, %.lr.ph.i.i9 ], [ %.037, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.700930863383756518.exit4.i.i14" ], [ %62, %56 ]
+  store atomic i32 %.03154, ptr %15 release, align 4
   br label %"_ZN4core3ptr151drop_in_place$LT$tokio..runtime..scheduler..inject..pop..Pop$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17hdf700763d0519334E.exit"
 
 56:                                               ; preds = %35, %32
@@ -7313,7 +7313,7 @@ define hidden void @_ZN5tokio7runtime4time5wheel5level5Level15next_expiration17h
   %10 = trunc i64 %9 to i32
   switch i32 %10, label %.lr.ph.i.i.i [
     i32 0, label %.thread
-    i32 1, label %.thread28
+    i32 1, label %.thread29
   ]
 
 .thread:                                          ; preds = %7
@@ -7322,7 +7322,7 @@ define hidden void @_ZN5tokio7runtime4time5wheel5level5Level15next_expiration17h
   %13 = add i64 %12, %2
   br label %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit
 
-.thread28:                                        ; preds = %7
+.thread29:                                        ; preds = %7
   %14 = lshr i64 %2, 6
   %15 = tail call i64 @llvm.fshr.i64(i64 %5, i64 %5, i64 %14)
   %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %15, i1 true)
@@ -7390,10 +7390,10 @@ _ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.55429615
   %42 = icmp ugt i32 %.017.i.i, 3
   br i1 %42, label %.lr.ph.i.i, label %._crit_edge.i.loopexit.i
 
-_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit: ; preds = %.thread28, %.thread, %._crit_edge.i.loopexit.i
-  %.in = phi i64 [ %29, %._crit_edge.i.loopexit.i ], [ %13, %.thread ], [ %17, %.thread28 ]
-  %.011.i.i.i19 = phi i64 [ %36, %._crit_edge.i.loopexit.i ], [ 64, %.thread ], [ 4096, %.thread28 ]
-  %.011.i.i = phi i64 [ %37, %._crit_edge.i.loopexit.i ], [ 1, %.thread ], [ 64, %.thread28 ]
+_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit: ; preds = %.thread29, %.thread, %._crit_edge.i.loopexit.i
+  %.in = phi i64 [ %29, %._crit_edge.i.loopexit.i ], [ %13, %.thread ], [ %17, %.thread29 ]
+  %.011.i.i.i19 = phi i64 [ %36, %._crit_edge.i.loopexit.i ], [ 64, %.thread ], [ 4096, %.thread29 ]
+  %.011.i.i = phi i64 [ %37, %._crit_edge.i.loopexit.i ], [ 1, %.thread ], [ 64, %.thread29 ]
   %43 = and i64 %.in, 63
   %44 = sub i64 0, %.011.i.i.i19
   %45 = and i64 %2, %44

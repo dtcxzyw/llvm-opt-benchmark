@@ -2413,8 +2413,8 @@ define noundef ptr @cvRange(ptr noundef returned %0, double noundef %1, double n
 71:                                               ; preds = %59, %48
   %72 = icmp sgt i32 %.088, 0
   %73 = icmp sgt i32 %.087, 0
-  %or.cond146 = select i1 %72, i1 %73, i1 false
-  br i1 %or.cond146, label %.preheader95.us.preheader, label %.loopexit
+  %or.cond152 = select i1 %72, i1 %73, i1 false
+  br i1 %or.cond152, label %.preheader95.us.preheader, label %.loopexit
 
 .preheader95.us.preheader:                        ; preds = %71
   %wide.trip.count130 = zext nneg i32 %.087 to i64
@@ -2447,8 +2447,8 @@ define noundef ptr @cvRange(ptr noundef returned %0, double noundef %1, double n
 81:                                               ; preds = %47
   %82 = icmp sgt i32 %.088, 0
   %83 = icmp sgt i32 %.087, 0
-  %or.cond147 = select i1 %82, i1 %83, i1 false
-  br i1 %or.cond147, label %.preheader97.us.preheader, label %.loopexit
+  %or.cond153 = select i1 %82, i1 %83, i1 false
+  br i1 %or.cond153, label %.preheader97.us.preheader, label %.loopexit
 
 .preheader97.us.preheader:                        ; preds = %81
   %84 = getelementptr inbounds nuw i8, ptr %.080, i64 24
@@ -3360,12 +3360,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65: ; preds = %_ZN
   store ptr %12, ptr %163, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %spec.select = select i1 %.not, i32 33554432, i32 33619968
-  %spec.select69 = select i1 %.not, ptr null, ptr %13
+  %spec.select75 = select i1 %.not, ptr null, ptr %13
   %165 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i64 0, ptr %165, align 8
   store i32 %spec.select, ptr %29, align 8, !tbaa !45
   %166 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %spec.select69, ptr %166, align 8, !tbaa !48
+  store ptr %spec.select75, ptr %166, align 8, !tbaa !48
   %167 = invoke noundef double @_ZN2cv6kmeansERKNS_11_InputArrayEiRKNS_17_InputOutputArrayENS_12TermCriteriaEiiRKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(24) %27, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 %3, double %4, i32 noundef %5, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %29)
           to label %168 unwind label %170
 

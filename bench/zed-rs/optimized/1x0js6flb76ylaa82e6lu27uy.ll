@@ -26992,7 +26992,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
           cleanup
   br label %.body.i.i
 
-.loopexit.split-lp.i.i:                           ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hf62f87b3c4da2fe3E.llvm.5636063245141126112.exit.i.i", %193, %.invoke50.i.i, %.invoke49.i.i, %.invoke.i.i, %"_ZN14language_tools7lsp_log10LspLogView3new28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1be44fd8afc35195E.exit.i.i.i", %164, %.noexc30.i.i, %155, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h497920a622c9a23dE.llvm.18046559547927896630.exit.i21.i.i", %.noexc23.i.i, %103, %98, %.invoke52.i.i, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h497920a622c9a23dE.llvm.18046559547927896630.exit.i.i.i", %.invoke51.i.i, %.noexc.i.i, %52, %"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h3e2043206fb372bbE.exit"
+.loopexit.split-lp.i.i:                           ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hf62f87b3c4da2fe3E.llvm.5636063245141126112.exit.i.i", %193, %.invoke55.i.i, %.invoke54.i.i, %.invoke.i.i, %"_ZN14language_tools7lsp_log10LspLogView3new28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1be44fd8afc35195E.exit.i.i.i", %164, %.noexc30.i.i, %155, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h497920a622c9a23dE.llvm.18046559547927896630.exit.i21.i.i", %.noexc23.i.i, %103, %98, %.invoke57.i.i, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h497920a622c9a23dE.llvm.18046559547927896630.exit.i.i.i", %.invoke56.i.i, %.noexc.i.i, %52, %"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h3e2043206fb372bbE.exit"
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
@@ -27016,13 +27016,13 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
 
 .noexc15.i.i:                                     ; preds = %.noexc.i.i
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %.invoke51.i.i, label %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h497920a622c9a23dE.llvm.18046559547927896630.exit.i.i.i"
+  br i1 %58, label %.invoke56.i.i, label %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h497920a622c9a23dE.llvm.18046559547927896630.exit.i.i.i"
 
-.invoke51.i.i:                                    ; preds = %.noexc24.i.i, %.noexc15.i.i
+.invoke56.i.i:                                    ; preds = %.noexc24.i.i, %.noexc15.i.i
   invoke void @_ZN3std9panicking11begin_panic17h541ce6ba0d6e9ef9E(ptr noalias noundef nonnull readonly align 1 @anon.46b5d7ee46855cf67724596ae2c49155.142.llvm.18046559547927896630, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.46b5d7ee46855cf67724596ae2c49155.99.llvm.18046559547927896630) #36
           to label %.cont.i.i unwind label %.loopexit.split-lp.i.i, !noalias !4347
 
-.cont.i.i:                                        ; preds = %.invoke51.i.i
+.cont.i.i:                                        ; preds = %.invoke56.i.i
   unreachable
 
 "_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h497920a622c9a23dE.llvm.18046559547927896630.exit.i.i.i": ; preds = %.noexc15.i.i
@@ -27040,13 +27040,13 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   %67 = extractvalue { i64, i64 } %64, 1
   %68 = icmp eq i64 %67, 2099495403076279009
   %.sroa.0.0.i.i.i.i = select i1 %66, i1 %68, i1 false
-  br i1 %.sroa.0.0.i.i.i.i, label %69, label %.invoke52.i.i
+  br i1 %.sroa.0.0.i.i.i.i, label %69, label %.invoke57.i.i
 
-.invoke52.i.i:                                    ; preds = %.noexc26.i.i, %.noexc17.i.i
+.invoke57.i.i:                                    ; preds = %.noexc26.i.i, %.noexc17.i.i
   invoke void @_ZN4gpui3app10entity_map18double_lease_panic17h0cc1aec0d185c0f8E.llvm.18046559547927896630(ptr noalias noundef nonnull readonly align 1 @anon.46b5d7ee46855cf67724596ae2c49155.100.llvm.18046559547927896630, i64 noundef 4) #36
-          to label %.cont53.i.i unwind label %.loopexit.split-lp.i.i, !noalias !4347
+          to label %.cont58.i.i unwind label %.loopexit.split-lp.i.i, !noalias !4347
 
-.cont53.i.i:                                      ; preds = %.invoke52.i.i
+.cont58.i.i:                                      ; preds = %.invoke57.i.i
   unreachable
 
 69:                                               ; preds = %.noexc17.i.i
@@ -27144,7 +27144,7 @@ default.unreachable:                              ; preds = %202, %152
 
 .noexc24.i.i:                                     ; preds = %.noexc23.i.i
   %108 = icmp eq ptr %107, null
-  br i1 %108, label %.invoke51.i.i, label %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h497920a622c9a23dE.llvm.18046559547927896630.exit.i21.i.i"
+  br i1 %108, label %.invoke56.i.i, label %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h497920a622c9a23dE.llvm.18046559547927896630.exit.i21.i.i"
 
 "_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h497920a622c9a23dE.llvm.18046559547927896630.exit.i21.i.i": ; preds = %.noexc24.i.i
   %109 = load ptr, ptr %107, align 8, !noalias !4347, !nonnull !13, !align !1752, !noundef !13
@@ -27161,7 +27161,7 @@ default.unreachable:                              ; preds = %202, %152
   %117 = extractvalue { i64, i64 } %114, 1
   %118 = icmp eq i64 %117, 2099495403076279009
   %.sroa.0.0.i.i22.i.i = select i1 %116, i1 %118, i1 false
-  br i1 %.sroa.0.0.i.i22.i.i, label %_ZN4gpui3app10entity_map9EntityMap4read17h6e7e302331db7ae4E.exit28.i.i, label %.invoke52.i.i
+  br i1 %.sroa.0.0.i.i22.i.i, label %_ZN4gpui3app10entity_map9EntityMap4read17h6e7e302331db7ae4E.exit28.i.i, label %.invoke57.i.i
 
 _ZN4gpui3app10entity_map9EntityMap4read17h6e7e302331db7ae4E.exit28.i.i: ; preds = %.noexc26.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !4406)
@@ -27233,8 +27233,8 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
   %154 = load i8, ptr %153, align 8, !range !1173, !alias.scope !4396, !noalias !4397, !noundef !13
   switch i8 %154, label %default.unreachable [
     i8 0, label %.invoke.i.i
-    i8 1, label %.invoke49.i.i
-    i8 2, label %.invoke50.i.i
+    i8 1, label %.invoke54.i.i
+    i8 2, label %.invoke55.i.i
   ]
 
 155:                                              ; preds = %select.unfold.i.i
@@ -27357,11 +27357,11 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h7e7627795e14e023E.exit.i.i.i: ; preds
   invoke void @_ZN14language_tools7lsp_log10LspLogView25show_rpc_trace_for_server17he04600edff95cb4dE(ptr noalias noundef nonnull align 8 dereferenceable(184) %19, i64 noundef %96, ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
           to label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hf62f87b3c4da2fe3E.llvm.5636063245141126112.exit.i.i" unwind label %.loopexit.split-lp.i.i, !noalias !4328
 
-.invoke49.i.i:                                    ; preds = %202, %152
+.invoke54.i.i:                                    ; preds = %202, %152
   invoke void @_ZN14language_tools7lsp_log10LspLogView21show_trace_for_server17h527e43a09490b898E(ptr noalias noundef nonnull align 8 dereferenceable(184) %19, i64 noundef %96, ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
           to label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hf62f87b3c4da2fe3E.llvm.5636063245141126112.exit.i.i" unwind label %.loopexit.split-lp.i.i, !noalias !4328
 
-.invoke50.i.i:                                    ; preds = %202, %152
+.invoke55.i.i:                                    ; preds = %202, %152
   invoke void @_ZN14language_tools7lsp_log10LspLogView20show_logs_for_server17hfcd25105f277a386E(ptr noalias noundef nonnull align 8 dereferenceable(184) %19, i64 noundef %96, ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
           to label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hf62f87b3c4da2fe3E.llvm.5636063245141126112.exit.i.i" unwind label %.loopexit.split-lp.i.i, !noalias !4328
 
@@ -27376,7 +27376,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h7e7627795e14e023E.exit.i.i.i: ; preds
   invoke void @_ZN4gpui6window13WindowContext6notify17h7bbf49a79305f6e8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %11, i32 noundef %195, i32 noundef %197)
           to label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hf62f87b3c4da2fe3E.llvm.5636063245141126112.exit.i.i" unwind label %.loopexit.split-lp.i.i, !noalias !4328
 
-"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hf62f87b3c4da2fe3E.llvm.5636063245141126112.exit.i.i": ; preds = %.lr.ph.i.i.i.i, %193, %.invoke50.i.i, %.invoke49.i.i, %.invoke.i.i, %102
+"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hf62f87b3c4da2fe3E.llvm.5636063245141126112.exit.i.i": ; preds = %.lr.ph.i.i.i.i, %193, %.invoke55.i.i, %.invoke54.i.i, %.invoke.i.i, %102
   %198 = load ptr, ptr %38, align 8, !alias.scope !4434, !noalias !4435, !nonnull !13, !align !810, !noundef !13
   %199 = load i32, ptr %198, align 8, !range !1504, !noalias !4328, !noundef !13
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 4
@@ -27389,8 +27389,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h7e7627795e14e023E.exit.i.i.i: ; preds
   %204 = load i8, ptr %203, align 8, !range !1173, !alias.scope !4396, !noalias !4397, !noundef !13
   switch i8 %204, label %default.unreachable [
     i8 0, label %.invoke.i.i
-    i8 1, label %.invoke49.i.i
-    i8 2, label %.invoke50.i.i
+    i8 1, label %.invoke54.i.i
+    i8 2, label %.invoke55.i.i
   ]
 
 205:                                              ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hf62f87b3c4da2fe3E.llvm.5636063245141126112.exit.i.i"

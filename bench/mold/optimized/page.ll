@@ -745,8 +745,8 @@ define hidden void @_mi_heap_delayed_free_all(ptr noundef captures(none) %0) loc
   %.old1.not.i2 = icmp eq i64 %3, 0
   br i1 %.old1.not.i2, label %_mi_heap_delayed_free_partial.exit.thread, label %.preheader.preheader.i
 
-.preheader.preheader.i:                           ; preds = %1, %_mi_heap_delayed_free_partial.exit.thread6
-  %4 = phi i64 [ %21, %_mi_heap_delayed_free_partial.exit.thread6 ], [ %3, %1 ]
+.preheader.preheader.i:                           ; preds = %1, %_mi_heap_delayed_free_partial.exit.thread7
+  %4 = phi i64 [ %21, %_mi_heap_delayed_free_partial.exit.thread7 ], [ %3, %1 ]
   %5 = inttoptr i64 %4 to ptr
   br label %.preheader.i
 
@@ -795,19 +795,19 @@ define hidden void @_mi_heap_delayed_free_all(ptr noundef captures(none) %0) loc
   br i1 %.not.i, label %_mi_heap_delayed_free_partial.exit, label %.lr.ph.i, !llvm.loop !47
 
 .loopexit.i.thread:                               ; preds = %17
-  %.not.i4 = icmp eq i64 %.3.val.i, 0
-  br i1 %.not.i4, label %_mi_heap_delayed_free_partial.exit.thread6, label %.lr.ph.i.outer, !llvm.loop !47
+  %.not.i5 = icmp eq i64 %.3.val.i, 0
+  br i1 %.not.i5, label %_mi_heap_delayed_free_partial.exit.thread7, label %.lr.ph.i.outer, !llvm.loop !47
 
 _mi_heap_delayed_free_partial.exit:               ; preds = %.loopexit.i
-  br i1 %.02532.i.ph, label %_mi_heap_delayed_free_partial.exit.thread, label %_mi_heap_delayed_free_partial.exit.thread6
+  br i1 %.02532.i.ph, label %_mi_heap_delayed_free_partial.exit.thread, label %_mi_heap_delayed_free_partial.exit.thread7
 
-_mi_heap_delayed_free_partial.exit.thread6:       ; preds = %.loopexit.i.thread, %_mi_heap_delayed_free_partial.exit
+_mi_heap_delayed_free_partial.exit.thread7:       ; preds = %.loopexit.i.thread, %_mi_heap_delayed_free_partial.exit
   tail call void @llvm.x86.sse2.pause()
   %21 = load atomic i64, ptr %2 monotonic, align 8
   %.old1.not.i = icmp eq i64 %21, 0
   br i1 %.old1.not.i, label %_mi_heap_delayed_free_partial.exit.thread, label %.preheader.preheader.i, !llvm.loop !48
 
-_mi_heap_delayed_free_partial.exit.thread:        ; preds = %_mi_heap_delayed_free_partial.exit, %.critedge.i, %_mi_heap_delayed_free_partial.exit.thread6, %1
+_mi_heap_delayed_free_partial.exit.thread:        ; preds = %_mi_heap_delayed_free_partial.exit, %.critedge.i, %_mi_heap_delayed_free_partial.exit.thread7, %1
   ret void
 }
 
@@ -1171,8 +1171,8 @@ _mi_page_use_delayed_free.exit:                   ; preds = %.critedge.i.i, %12
   %.old1.not.i2.i = icmp eq i64 %17, 0
   br i1 %.old1.not.i2.i, label %_mi_heap_delayed_free_all.exit, label %.preheader.preheader.i.i
 
-.preheader.preheader.i.i:                         ; preds = %_mi_page_use_delayed_free.exit, %_mi_heap_delayed_free_partial.exit.thread6.i
-  %18 = phi i64 [ %35, %_mi_heap_delayed_free_partial.exit.thread6.i ], [ %17, %_mi_page_use_delayed_free.exit ]
+.preheader.preheader.i.i:                         ; preds = %_mi_page_use_delayed_free.exit, %_mi_heap_delayed_free_partial.exit.thread7.i
+  %18 = phi i64 [ %35, %_mi_heap_delayed_free_partial.exit.thread7.i ], [ %17, %_mi_page_use_delayed_free.exit ]
   %19 = inttoptr i64 %18 to ptr
   br label %.preheader.i.i
 
@@ -1221,19 +1221,19 @@ _mi_page_use_delayed_free.exit:                   ; preds = %.critedge.i.i, %12
   br i1 %.not.i.i, label %_mi_heap_delayed_free_partial.exit.i, label %.lr.ph.i.i, !llvm.loop !47
 
 .loopexit.i.thread.i:                             ; preds = %31
-  %.not.i4.i = icmp eq i64 %.3.val.i.i, 0
-  br i1 %.not.i4.i, label %_mi_heap_delayed_free_partial.exit.thread6.i, label %.lr.ph.i.outer.i, !llvm.loop !47
+  %.not.i5.i = icmp eq i64 %.3.val.i.i, 0
+  br i1 %.not.i5.i, label %_mi_heap_delayed_free_partial.exit.thread7.i, label %.lr.ph.i.outer.i, !llvm.loop !47
 
 _mi_heap_delayed_free_partial.exit.i:             ; preds = %.loopexit.i.i
-  br i1 %.02532.i.ph.i, label %_mi_heap_delayed_free_all.exit, label %_mi_heap_delayed_free_partial.exit.thread6.i
+  br i1 %.02532.i.ph.i, label %_mi_heap_delayed_free_all.exit, label %_mi_heap_delayed_free_partial.exit.thread7.i
 
-_mi_heap_delayed_free_partial.exit.thread6.i:     ; preds = %.loopexit.i.thread.i, %_mi_heap_delayed_free_partial.exit.i
+_mi_heap_delayed_free_partial.exit.thread7.i:     ; preds = %.loopexit.i.thread.i, %_mi_heap_delayed_free_partial.exit.i
   tail call void @llvm.x86.sse2.pause()
   %35 = load atomic i64, ptr %16 monotonic, align 8
   %.old1.not.i.i = icmp eq i64 %35, 0
   br i1 %.old1.not.i.i, label %_mi_heap_delayed_free_all.exit, label %.preheader.preheader.i.i, !llvm.loop !48
 
-_mi_heap_delayed_free_all.exit:                   ; preds = %.critedge.i.i11, %_mi_heap_delayed_free_partial.exit.i, %_mi_heap_delayed_free_partial.exit.thread6.i, %_mi_page_use_delayed_free.exit
+_mi_heap_delayed_free_all.exit:                   ; preds = %.critedge.i.i11, %_mi_heap_delayed_free_partial.exit.i, %_mi_heap_delayed_free_partial.exit.thread7.i, %_mi_page_use_delayed_free.exit
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %37 = load i16, ptr %36, align 2, !tbaa !30
   %38 = icmp eq i16 %37, 0
@@ -2015,11 +2015,11 @@ _mi_page_thread_free_collect.exit.i.i.i:          ; preds = %113, %112, %95, %.l
   %.not22.i.i.i = icmp eq ptr %122, null
   %.phi.trans.insert.i.i = getelementptr i8, ptr %.04886.i.i, i64 16
   %.048.val.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !36
-  %.not106.i.i = icmp eq ptr %.048.val.pre.i.i, null
+  %.not117.i.i = icmp eq ptr %.048.val.pre.i.i, null
   br i1 %.not22.i.i.i, label %_mi_page_free_collect.exit.i.i, label %123
 
 123:                                              ; preds = %_mi_page_thread_free_collect.exit.i.i.i
-  br i1 %.not106.i.i, label %.sink.split.i.i.i, label %_mi_page_free_collect.exit.thread.i.i, !prof !28
+  br i1 %.not117.i.i, label %.sink.split.i.i.i, label %_mi_page_free_collect.exit.thread.i.i, !prof !28
 
 .sink.split.i.i.i:                                ; preds = %123
   store ptr %122, ptr %.phi.trans.insert.i.i, align 8, !tbaa !36
@@ -2031,7 +2031,7 @@ _mi_page_thread_free_collect.exit.i.i.i:          ; preds = %113, %112, %95, %.l
   br label %_mi_page_free_collect.exit.thread.i.i
 
 _mi_page_free_collect.exit.i.i:                   ; preds = %_mi_page_thread_free_collect.exit.i.i.i
-  br i1 %.not106.i.i, label %127, label %_mi_page_free_collect.exit.thread.i.i
+  br i1 %.not117.i.i, label %127, label %_mi_page_free_collect.exit.thread.i.i
 
 127:                                              ; preds = %_mi_page_free_collect.exit.i.i
   %128 = getelementptr i8, ptr %.04886.i.i, i64 10
@@ -2138,7 +2138,7 @@ _mi_page_thread_free_collect.exit.i.i.i.i:        ; preds = %164, %163, %147, %1
   br label %mi_page_to_full.exit.i.i
 
 _mi_page_free_collect.exit.thread.i.i:            ; preds = %127, %_mi_page_free_collect.exit.i.i, %.sink.split.i.i.i, %123
-  %.048.val100.i.i = phi i1 [ false, %127 ], [ true, %_mi_page_free_collect.exit.i.i ], [ true, %123 ], [ true, %.sink.split.i.i.i ]
+  %.048.val111.i.i = phi i1 [ false, %127 ], [ true, %_mi_page_free_collect.exit.i.i ], [ true, %123 ], [ true, %.sink.split.i.i.i ]
   %178 = icmp eq ptr %.04487.i.i, null
   br i1 %178, label %194, label %179
 
@@ -2172,7 +2172,7 @@ _mi_page_free_collect.exit.thread.i.i:            ; preds = %127, %_mi_page_free
   %.347.i.i = phi ptr [ %.04487.i.i, %184 ], [ %.04487.i.i, %179 ], [ %.04886.i.i, %_mi_page_free_collect.exit.thread.i.i ], [ %spec.select.i.i, %191 ]
   %.2.i.i = phi i64 [ %85, %184 ], [ %85, %179 ], [ 0, %_mi_page_free_collect.exit.thread.i.i ], [ %85, %191 ]
   %195 = icmp ugt i64 %.2.i.i, 4
-  %or.cond.i.i = select i1 %.048.val100.i.i, i1 true, i1 %195
+  %or.cond.i.i = select i1 %.048.val111.i.i, i1 true, i1 %195
   br i1 %or.cond.i.i, label %mi_page_to_full.exit.thread.i.i, label %mi_page_to_full.exit.i.i
 
 mi_page_to_full.exit.i.i:                         ; preds = %194, %.sink.split.i.i.i.i, %172, %_mi_page_thread_free_collect.exit.i.i.i.i, %131

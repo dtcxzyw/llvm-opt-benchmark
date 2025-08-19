@@ -724,7 +724,7 @@ define internal range(i32 0, 2) i32 @_event_motion_notify(ptr readnone captures(
 .preheader:                                       ; preds = %35
   %.086103 = load ptr, ptr %26, align 8, !tbaa !88
   %.not91104 = icmp eq ptr %.086103, null
-  br i1 %.not91104, label %.thread142, label %.lr.ph106
+  br i1 %.not91104, label %.thread146, label %.lr.ph106
 
 .lr.ph106:                                        ; preds = %.preheader
   %64 = fpext reassoc nsz arcp contract afn float %52 to double
@@ -735,7 +735,7 @@ define internal range(i32 0, 2) i32 @_event_motion_notify(ptr readnone captures(
   %67 = tail call i32 (...) @dt_control_get_mouse_over_id() #14
   %.085107 = load ptr, ptr %26, align 8, !tbaa !88
   %.not92108 = icmp eq ptr %.085107, null
-  br i1 %.not92108, label %.thread142, label %.critedge
+  br i1 %.not92108, label %.thread146, label %.critedge
 
 68:                                               ; preds = %.critedge
   %69 = getelementptr inbounds nuw i8, ptr %.085109, i64 8
@@ -837,8 +837,8 @@ define internal range(i32 0, 2) i32 @_event_motion_notify(ptr readnone captures(
   br i1 %127, label %128, label %129
 
 128:                                              ; preds = %120
-  %simplifycfg.merge147 = select i1 %126, double %125, double %124
-  store double %simplifycfg.merge147, ptr %121, align 8, !tbaa !112
+  %simplifycfg.merge151 = select i1 %126, double %125, double %124
+  store double %simplifycfg.merge151, ptr %121, align 8, !tbaa !112
   br label %129
 
 129:                                              ; preds = %120, %128
@@ -849,7 +849,7 @@ define internal range(i32 0, 2) i32 @_event_motion_notify(ptr readnone captures(
   %.not94 = icmp eq ptr %.084, null
   br i1 %.not94, label %131, label %.lr.ph114
 
-.thread142:                                       ; preds = %.preheader, %66
+.thread146:                                       ; preds = %.preheader, %66
   store double %37, ptr %47, align 8, !tbaa !100
   store double %39, ptr %53, align 8, !tbaa !101
   br label %.loopexit
@@ -874,8 +874,8 @@ define internal range(i32 0, 2) i32 @_event_motion_notify(ptr readnone captures(
   %.not95 = icmp eq ptr %.080, null
   br i1 %.not95, label %.loopexit, label %.lr.ph120
 
-.loopexit:                                        ; preds = %.lr.ph120, %25, %.thread142, %131, %20, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %20 ], [ 1, %131 ], [ 1, %.thread142 ], [ 1, %25 ], [ 1, %.lr.ph120 ]
+.loopexit:                                        ; preds = %.lr.ph120, %25, %.thread146, %131, %20, %9
+  %.0 = phi i32 [ 0, %9 ], [ 0, %20 ], [ 1, %131 ], [ 1, %.thread146 ], [ 1, %25 ], [ 1, %.lr.ph120 ]
   ret i32 %.0
 }
 
@@ -1457,12 +1457,12 @@ define void @dt_culling_init(ptr noundef captures(none) initializes((36, 40), (6
   br label %.sink.split
 
 .sink.split:                                      ; preds = %112, %157, %105, %89
-  %.5.sink104 = phi i32 [ %.5, %89 ], [ %.493, %105 ], [ %.493, %157 ], [ %.493, %112 ]
-  %160 = call fastcc i32 @_thumb_get_rowid(i32 noundef %.5.sink104)
+  %.5.sink110 = phi i32 [ %.5, %89 ], [ %.493, %105 ], [ %.493, %157 ], [ %.493, %112 ]
+  %160 = call fastcc i32 @_thumb_get_rowid(i32 noundef %.5.sink110)
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %160, ptr %161, align 8, !tbaa !120
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %.5.sink104, ptr %162, align 4, !tbaa !151
+  store i32 %.5.sink110, ptr %162, align 4, !tbaa !151
   br label %163
 
 163:                                              ; preds = %.sink.split, %60
@@ -1770,19 +1770,19 @@ define void @dt_culling_full_redraw(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %.not37.i, label %_compute_sizes.exit, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %57, %54, %53, %50, %47, %44, %._crit_edge.i
-  %.sink47.i = phi i32 [ %43, %._crit_edge.i ], [ %43, %50 ], [ %43, %47 ], [ %43, %44 ], [ 1, %57 ], [ 1, %54 ], [ 1, %53 ]
-  %.sink45.ph.i = phi i32 [ %.pre.i, %._crit_edge.i ], [ %.pre.i, %50 ], [ %.pre.i, %47 ], [ %.pre.i, %44 ], [ %16, %57 ], [ %16, %54 ], [ %16, %53 ]
+  %.sink50.i = phi i32 [ %43, %._crit_edge.i ], [ %43, %50 ], [ %43, %47 ], [ %43, %44 ], [ 1, %57 ], [ 1, %54 ], [ 1, %53 ]
+  %.sink48.ph.i = phi i32 [ %.pre.i, %._crit_edge.i ], [ %.pre.i, %50 ], [ %.pre.i, %47 ], [ %.pre.i, %44 ], [ %16, %57 ], [ %16, %54 ], [ %16, %53 ]
   %.sink.ph.i = phi i32 [ %.pre42.i, %._crit_edge.i ], [ %.pre43.i, %50 ], [ %.pre43.i, %47 ], [ %.pre43.i, %44 ], [ %19, %57 ], [ %19, %54 ], [ %19, %53 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.sink47.i, ptr %60, align 8, !tbaa !107
+  store i32 %.sink50.i, ptr %60, align 8, !tbaa !107
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %13
-  %.sink45.i = phi i32 [ %16, %13 ], [ %.sink45.ph.i, %.sink.split.sink.split.i ]
+  %.sink48.i = phi i32 [ %16, %13 ], [ %.sink48.ph.i, %.sink.split.sink.split.i ]
   %.sink.i = phi i32 [ %19, %13 ], [ %.sink.ph.i, %.sink.split.sink.split.i ]
   %.0.ph.i = phi i32 [ 0, %13 ], [ 1, %.sink.split.sink.split.i ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %.sink45.i, ptr %61, align 4, !tbaa !128
+  store i32 %.sink48.i, ptr %61, align 4, !tbaa !128
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.sink.i, ptr %62, align 8, !tbaa !157
   br label %_compute_sizes.exit
@@ -1858,10 +1858,10 @@ dt_get_debug_wtime.exit:                          ; preds = %63, %65
 103:                                              ; preds = %.thread, %97, %80
   %104 = phi i32 [ %96, %97 ], [ %96, %80 ], [ %79, %.thread ]
   %105 = phi ptr [ %95, %97 ], [ %95, %80 ], [ %78, %.thread ]
-  %.0180 = phi double [ %93, %97 ], [ %93, %80 ], [ 0.000000e+00, %.thread ]
-  %.080179 = phi double [ %94, %97 ], [ %94, %80 ], [ 0.000000e+00, %.thread ]
-  %.081178 = phi i32 [ %90, %97 ], [ %90, %80 ], [ 0, %.thread ]
-  %.084177 = phi i32 [ %92, %97 ], [ %92, %80 ], [ 0, %.thread ]
+  %.0210 = phi double [ %93, %97 ], [ %93, %80 ], [ 0.000000e+00, %.thread ]
+  %.080209 = phi double [ %94, %97 ], [ %94, %80 ], [ 0.000000e+00, %.thread ]
+  %.081208 = phi i32 [ %90, %97 ], [ %90, %80 ], [ 0, %.thread ]
+  %.084207 = phi i32 [ %92, %97 ], [ %92, %80 ], [ 0, %.thread ]
   %.074.i = phi i32 [ %102, %97 ], [ 40, %80 ], [ 40, %.thread ]
   %.073.i = phi i32 [ %100, %97 ], [ 40, %80 ], [ 40, %.thread ]
   %106 = call ptr @g_hash_table_new_full(ptr noundef nonnull @g_int_hash, ptr noundef nonnull @g_int_equal, ptr noundef null, ptr noundef nonnull @_list_remove_thumb) #14
@@ -2025,11 +2025,11 @@ dt_get_debug_wtime.exit:                          ; preds = %63, %65
   br label %190
 
 190:                                              ; preds = %188, %154
-  %.sink99.i = phi ptr [ %174, %188 ], [ %153, %154 ]
+  %.sink104.i = phi ptr [ %174, %188 ], [ %153, %154 ]
   %.276.i = phi i32 [ %.377.i, %188 ], [ %.17594.i, %154 ]
   %.2.i = phi i32 [ %.3.i, %188 ], [ %.195.i, %154 ]
   %191 = load ptr, ptr %76, align 8, !tbaa !153
-  %192 = call ptr @g_list_prepend(ptr noundef %191, ptr noundef nonnull %.sink99.i) #14
+  %192 = call ptr @g_list_prepend(ptr noundef %191, ptr noundef nonnull %.sink104.i) #14
   store ptr %192, ptr %76, align 8, !tbaa !153
   %193 = load i32, ptr %105, align 8, !tbaa !120
   %194 = icmp eq i32 %146, %193
@@ -2732,9 +2732,9 @@ _thumbs_compute_positions.exit:                   ; preds = %_thumbs_recreate_li
 558:                                              ; preds = %551
   %559 = getelementptr inbounds nuw i8, ptr %552, i64 136
   %560 = load ptr, ptr %559, align 8, !tbaa !97
-  call void @gtk_widget_set_margin_start(ptr noundef %560, i32 noundef %.081178) #14
+  call void @gtk_widget_set_margin_start(ptr noundef %560, i32 noundef %.081208) #14
   %561 = load ptr, ptr %559, align 8, !tbaa !97
-  call void @gtk_widget_set_margin_top(ptr noundef %561, i32 noundef %.084177) #14
+  call void @gtk_widget_set_margin_top(ptr noundef %561, i32 noundef %.084207) #14
   %562 = getelementptr inbounds nuw i8, ptr %552, i64 8
   %563 = load i32, ptr %562, align 8, !tbaa !118
   %564 = getelementptr inbounds nuw i8, ptr %552, i64 12
@@ -2751,9 +2751,9 @@ _thumbs_compute_positions.exit:                   ; preds = %_thumbs_recreate_li
   %574 = load i32, ptr %573, align 4, !tbaa !166
   call void @gtk_layout_put(ptr noundef %569, ptr noundef %570, i32 noundef %572, i32 noundef %574) #14
   %575 = getelementptr inbounds nuw i8, ptr %552, i64 368
-  store double %.0180, ptr %575, align 8, !tbaa !111
+  store double %.0210, ptr %575, align 8, !tbaa !111
   %576 = getelementptr inbounds nuw i8, ptr %552, i64 376
-  store double %.080179, ptr %576, align 8, !tbaa !112
+  store double %.080209, ptr %576, align 8, !tbaa !112
   br label %599
 
 577:                                              ; preds = %551
@@ -3759,9 +3759,9 @@ define internal fastcc void @_thumbs_zoom_add(ptr noundef captures(none) %0, flo
   %68 = load ptr, ptr %.06195, align 8, !tbaa !89
   %69 = load i32, ptr %68, align 8, !tbaa !91
   %.not69 = icmp eq i32 %69, %42
-  br i1 %.not69, label %.loopexit.thread113, label %66
+  br i1 %.not69, label %.loopexit.thread118, label %66
 
-.loopexit.thread113:                              ; preds = %.lr.ph98
+.loopexit.thread118:                              ; preds = %.lr.ph98
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 136
   %71 = load ptr, ptr %70, align 8, !tbaa !97
   %72 = tail call ptr @gtk_widget_get_window(ptr noundef %71) #14
@@ -3777,10 +3777,10 @@ define internal fastcc void @_thumbs_zoom_add(ptr noundef captures(none) %0, flo
   %81 = fptosi float %80 to i32
   store i32 %81, ptr %13, align 4, !tbaa !63
   %.05999.pre = load ptr, ptr %25, align 8, !tbaa !88
-  %.not70100116 = icmp eq ptr %.05999.pre, null
-  br i1 %.not70100116, label %._crit_edge104, label %.lr.ph103.split.preheader
+  %.not70100121 = icmp eq ptr %.05999.pre, null
+  br i1 %.not70100121, label %._crit_edge104, label %.lr.ph103.split.preheader
 
-.lr.ph103.split.preheader:                        ; preds = %.loopexit.thread113
+.lr.ph103.split.preheader:                        ; preds = %.loopexit.thread118
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %.lr.ph103.split
 
@@ -3873,7 +3873,7 @@ _zoom_to_center.exit.thread.us:                   ; preds = %_zoom_to_center.exi
   %.not70.us = icmp eq ptr %.059.us, null
   br i1 %.not70.us, label %._crit_edge104, label %.lr.ph103.split.us
 
-._crit_edge104:                                   ; preds = %_zoom_to_center.exit.thread.us, %_zoom_to_center.exit.thread, %65, %.loopexit.thread113
+._crit_edge104:                                   ; preds = %_zoom_to_center.exit.thread.us, %_zoom_to_center.exit.thread, %65, %.loopexit.thread118
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit83
@@ -3989,16 +3989,16 @@ _thumbs_get_overlays_class.exit:                  ; preds = %3, %switch.lookup
   %.str.42.sink.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.42, %3 ]
   %10 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.42.sink.i) #14
   %11 = icmp ult i32 %1, 7
-  br i1 %11, label %switch.lookup50, label %_thumbs_get_overlays_class.exit46
+  br i1 %11, label %switch.lookup52, label %_thumbs_get_overlays_class.exit46
 
-switch.lookup50:                                  ; preds = %_thumbs_get_overlays_class.exit
+switch.lookup52:                                  ; preds = %_thumbs_get_overlays_class.exit
   %12 = zext nneg i32 %1 to i64
-  %switch.gep51 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.dt_culling_force_overlay, i64 0, i64 %12
-  %switch.load52 = load ptr, ptr %switch.gep51, align 8
+  %switch.gep53 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.dt_culling_force_overlay, i64 0, i64 %12
+  %switch.load54 = load ptr, ptr %switch.gep53, align 8
   br label %_thumbs_get_overlays_class.exit46
 
-_thumbs_get_overlays_class.exit46:                ; preds = %_thumbs_get_overlays_class.exit, %switch.lookup50
-  %.str.42.sink.i45 = phi ptr [ %switch.load52, %switch.lookup50 ], [ @.str.42, %_thumbs_get_overlays_class.exit ]
+_thumbs_get_overlays_class.exit46:                ; preds = %_thumbs_get_overlays_class.exit, %switch.lookup52
+  %.str.42.sink.i45 = phi ptr [ %switch.load54, %switch.lookup52 ], [ @.str.42, %_thumbs_get_overlays_class.exit ]
   %13 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.42.sink.i45) #14
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !17

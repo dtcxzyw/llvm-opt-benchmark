@@ -1793,7 +1793,7 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE6resizeEm(
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1, !tbaa !117
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %21 = add i64 %11, -1
+  %21 = add nsw i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN7xgboost11FeatureTypeEmS1_ET_S3_T0_RSaIT1_E.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i
 
@@ -3864,8 +3864,8 @@ _ZSt10accumulateIPmmET0_T_S2_S1_.exit.i112.i.i:   ; preds = %.lr.ph.i25.i.i.i, %
   %.0.lcssa.i.i113.i.i = phi i64 [ 0, %_ZNK7xgboost6linalg6TensorImLi2EE4SizeEv.exit.i107.i.i ], [ %709, %.lr.ph.i25.i.i.i ]
   %.not.i114.i.i = icmp eq i32 %501, 0
   %.not38.i.i.i = icmp eq ptr %503, %504
-  %or.cond129.i.i = select i1 %.not.i114.i.i, i1 true, i1 %.not38.i.i.i
-  br i1 %or.cond129.i.i, label %"_ZZZN7xgboost4data8cpu_impl12GetDataShapeEPKNS_7ContextEPNS0_12DMatrixProxyENS0_13DataIterProxyIFvPvEFiS8_EEEfPNS0_16ExternalDataInfoEENK3$_0clEvENKUlRKT_E_clINS0_17ArrayAdapterBatchEEEDaSH_.exit.i.i", label %.preheader.lr.ph.split.us.i116.i.i
+  %or.cond189.i.i = select i1 %.not.i114.i.i, i1 true, i1 %.not38.i.i.i
+  br i1 %or.cond189.i.i, label %"_ZZZN7xgboost4data8cpu_impl12GetDataShapeEPKNS_7ContextEPNS0_12DMatrixProxyENS0_13DataIterProxyIFvPvEFiS8_EEEfPNS0_16ExternalDataInfoEENK3$_0clEvENKUlRKT_E_clINS0_17ArrayAdapterBatchEEEDaSH_.exit.i.i", label %.preheader.lr.ph.split.us.i116.i.i
 
 .preheader.lr.ph.split.us.i116.i.i:               ; preds = %_ZSt10accumulateIPmmET0_T_S2_S1_.exit.i112.i.i
   %711 = load ptr, ptr %68, align 8, !tbaa !135
@@ -4808,8 +4808,8 @@ _ZSt10accumulateIPmmET0_T_S2_S1_.exit.i204.i.i:   ; preds = %.lr.ph.i26.i200.i.i
   %.0.lcssa.i.i205.i.i = phi i64 [ 0, %_ZNK7xgboost6linalg6TensorImLi2EE4SizeEv.exit.i197.i.i ], [ %1128, %.lr.ph.i26.i200.i.i ]
   %.not.i206.i.i = icmp eq i32 %812, 0
   %.not41.i.i.i = icmp eq ptr %814, %815
-  %or.cond130.i.i = select i1 %.not.i206.i.i, i1 true, i1 %.not41.i.i.i
-  br i1 %or.cond130.i.i, label %"_ZZZN7xgboost4data8cpu_impl12GetDataShapeEPKNS_7ContextEPNS0_12DMatrixProxyENS0_13DataIterProxyIFvPvEFiS8_EEEfPNS0_16ExternalDataInfoEENK3$_0clEvENKUlRKT_E_clINS0_20ColumnarAdapterBatchEEEDaSH_.exit.i.i", label %.preheader.lr.ph.split.us.i208.i.i
+  %or.cond190.i.i = select i1 %.not.i206.i.i, i1 true, i1 %.not41.i.i.i
+  br i1 %or.cond190.i.i, label %"_ZZZN7xgboost4data8cpu_impl12GetDataShapeEPKNS_7ContextEPNS0_12DMatrixProxyENS0_13DataIterProxyIFvPvEFiS8_EEEfPNS0_16ExternalDataInfoEENK3$_0clEvENKUlRKT_E_clINS0_20ColumnarAdapterBatchEEEDaSH_.exit.i.i", label %.preheader.lr.ph.split.us.i208.i.i
 
 .preheader.lr.ph.split.us.i208.i.i:               ; preds = %_ZSt10accumulateIPmmET0_T_S2_S1_.exit.i204.i.i
   %1130 = load ptr, ptr %68, align 8, !tbaa !135

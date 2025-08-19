@@ -266,11 +266,11 @@ define internal fastcc void @"_ZN6bitvec3vec19BitVec$LT$T$C$O$GT$20extend_from_b
 
 .sink.split.i.i:                                  ; preds = %86, %75
   %.sroa.428.8.extract.trunc.sink.i.i = phi i8 [ %.sroa.428.8.extract.trunc.i.i, %86 ], [ %.sroa.4.0.copyload.i.i, %75 ]
-  %.sroa.04.0.copyload.sink32.i.i = phi ptr [ %.sroa.04.0.copyload.i.i, %86 ], [ %.sroa.0.0.copyload23.i.i, %75 ]
+  %.sroa.04.0.copyload.sink33.i.i = phi ptr [ %.sroa.04.0.copyload.i.i, %86 ], [ %.sroa.0.0.copyload23.i.i, %75 ]
   %77 = xor i8 %.sroa.428.8.extract.trunc.sink.i.i, -1
-  %78 = load i8, ptr %.sroa.04.0.copyload.sink32.i.i, align 1, !noalias !16, !noundef !6
+  %78 = load i8, ptr %.sroa.04.0.copyload.sink33.i.i, align 1, !noalias !16, !noundef !6
   %79 = and i8 %78, %77
-  store i8 %79, ptr %.sroa.04.0.copyload.sink32.i.i, align 1, !noalias !16
+  store i8 %79, ptr %.sroa.04.0.copyload.sink33.i.i, align 1, !noalias !16
   br label %"_ZN6bitvec5slice3api54_$LT$impl$u20$bitvec..slice..BitSlice$LT$T$C$O$GT$$GT$4fill17h65c92a1a91c1add8E.exit.i"
 
 80:                                               ; preds = %70

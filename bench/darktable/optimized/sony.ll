@@ -1529,20 +1529,20 @@ _ZL9my_roundff.exit156:                           ; preds = %36
   %288 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %287
   %289 = load i8, ptr %288, align 1, !tbaa !101
   switch i8 %289, label %292 [
-    i8 1, label %.sink.split164
+    i8 1, label %.sink.split170
     i8 2, label %290
   ]
 
 290:                                              ; preds = %286
-  br label %.sink.split164
+  br label %.sink.split170
 
-.sink.split164:                                   ; preds = %286, %290
-  %.sink165 = phi i16 [ 2, %290 ], [ 1, %286 ]
+.sink.split170:                                   ; preds = %286, %290
+  %.sink171 = phi i16 [ 2, %290 ], [ 1, %286 ]
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 1336
-  store i16 %.sink165, ptr %291, align 8, !tbaa !111
+  store i16 %.sink171, ptr %291, align 8, !tbaa !111
   br label %292
 
-292:                                              ; preds = %.sink.split164, %283, %286, %245
+292:                                              ; preds = %.sink.split170, %283, %286, %245
   %293 = load i16, ptr %14, align 2, !tbaa !86
   %294 = icmp eq i16 %293, 40
   br i1 %294, label %295, label %308
@@ -1641,7 +1641,7 @@ switch.early.test:                                ; preds = %339
 
 347:                                              ; preds = %345
   %348 = icmp ult i16 %2, 279
-  br i1 %348, label %.critedge, label %.sink.split167
+  br i1 %348, label %.critedge, label %.sink.split173
 
 349:                                              ; preds = %345
   %.not140 = icmp eq i16 %314, 43
@@ -1649,17 +1649,17 @@ switch.early.test:                                ; preds = %339
 
 350:                                              ; preds = %349
   %351 = icmp ult i16 %2, 280
-  br i1 %351, label %.critedge, label %.sink.split167
+  br i1 %351, label %.critedge, label %.sink.split173
 
-.sink.split167:                                   ; preds = %350, %347
-  %.sink179 = phi i64 [ 277, %347 ], [ 278, %350 ]
-  %.sink174 = phi i64 [ 278, %347 ], [ 279, %350 ]
-  %352 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink179
+.sink.split173:                                   ; preds = %350, %347
+  %.sink185 = phi i64 [ 277, %347 ], [ 278, %350 ]
+  %.sink180 = phi i64 [ 278, %347 ], [ 279, %350 ]
+  %352 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink185
   %353 = load i8, ptr %352, align 1, !tbaa !101
   %354 = zext i8 %353 to i64
   %355 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %354
   %356 = load i8, ptr %355, align 1, !tbaa !101
-  %357 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink174
+  %357 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink180
   %358 = load i8, ptr %357, align 1, !tbaa !101
   %359 = zext i8 %358 to i64
   %360 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %359
@@ -1667,7 +1667,7 @@ switch.early.test:                                ; preds = %339
   tail call void @_ZN6LibRaw21parseSonyLensFeaturesEhh(ptr noundef nonnull align 8 dereferenceable(767680) %0, i8 noundef zeroext %356, i8 noundef zeroext %361)
   br label %362
 
-362:                                              ; preds = %.sink.split167, %349
+362:                                              ; preds = %.sink.split173, %349
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 3600
   %364 = load i16, ptr %363, align 8, !tbaa !94
   %.not141 = icmp eq i16 %364, -1
@@ -2906,8 +2906,8 @@ _ZN6LibRaw19process_Sony_0x9406EPht.exit:         ; preds = %142, %145, %147, %1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %258, %279
-  %.sink933 = phi i16 [ %280, %279 ], [ 0, %258 ]
-  store i16 %.sink933, ptr %278, align 2, !tbaa !128
+  %.sink976 = phi i16 [ %280, %279 ], [ 0, %258 ]
+  store i16 %.sink976, ptr %278, align 2, !tbaa !128
   br label %281
 
 281:                                              ; preds = %.sink.split, %258
@@ -2939,9 +2939,9 @@ switch.lookup:                                    ; preds = %281
   br label %300
 
 300:                                              ; preds = %281, %switch.lookup
-  %.sink934 = phi i16 [ %switch.load, %switch.lookup ], [ 255, %281 ]
+  %.sink977 = phi i16 [ %switch.load, %switch.lookup ], [ 255, %281 ]
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 4760
-  store i16 %.sink934, ptr %301, align 8, !tbaa !158
+  store i16 %.sink977, ptr %301, align 8, !tbaa !158
   %302 = getelementptr inbounds nuw i8, ptr %260, i64 226
   %303 = load i8, ptr %302, align 1, !tbaa !101
   %304 = zext i8 %303 to i16
@@ -3015,8 +3015,8 @@ switch.lookup:                                    ; preds = %281
   %345 = getelementptr i8, ptr %334, i64 %.idx726
   %346 = getelementptr i8, ptr %345, i64 16
   store ptr %342, ptr %346, align 8, !tbaa !139
-  %.idx927 = mul nsw i64 %344, 24
-  %347 = getelementptr i8, ptr %334, i64 %.idx927
+  %.idx970 = mul nsw i64 %344, 24
+  %347 = getelementptr i8, ptr %334, i64 %.idx970
   %348 = getelementptr i8, ptr %347, i64 12
   %349 = load i32, ptr %348, align 4, !tbaa !138
   %350 = zext i32 %349 to i64
@@ -3679,9 +3679,9 @@ _ZL7bcd2dech.exit871:                             ; preds = %585, %589, %592
   %727 = getelementptr inbounds nuw i8, ptr %0, i64 4760
   %switch.selectcmp = icmp eq i8 %726, 2
   %switch.select = select i1 %switch.selectcmp, i16 2, i16 255
-  %switch.selectcmp966 = icmp eq i8 %726, 1
-  %switch.select967 = select i1 %switch.selectcmp966, i16 1, i16 %switch.select
-  store i16 %switch.select967, ptr %727, align 8, !tbaa !158
+  %switch.selectcmp1009 = icmp eq i8 %726, 1
+  %switch.select1010 = select i1 %switch.selectcmp1009, i16 1, i16 %switch.select
+  store i16 %switch.select1010, ptr %727, align 8, !tbaa !158
   %728 = tail call i32 @strncasecmp(ptr noundef nonnull %650, ptr noundef nonnull @.str.26, i64 noundef 9) #19
   %.not763 = icmp eq i32 %728, 0
   br i1 %.not763, label %759, label %729
@@ -3728,8 +3728,8 @@ _ZL7bcd2dech.exit871:                             ; preds = %585, %589, %592
   br label %745
 
 745:                                              ; preds = %733, %743, %742, %741, %740, %739
-  %.sink937 = phi i16 [ %744, %743 ], [ 6, %742 ], [ 0, %741 ], [ 4, %740 ], [ 3, %739 ], [ 2, %733 ]
-  store i16 %.sink937, ptr %737, align 2, !tbaa !128
+  %.sink980 = phi i16 [ %744, %743 ], [ 6, %742 ], [ 0, %741 ], [ 4, %740 ], [ 3, %739 ], [ 2, %733 ]
+  store i16 %.sink980, ptr %737, align 2, !tbaa !128
   %746 = tail call i32 @strncasecmp(ptr noundef nonnull %650, ptr noundef nonnull @.str.30, i64 noundef 9) #19
   %.not766 = icmp eq i32 %746, 0
   br i1 %.not766, label %759, label %747
@@ -3766,8 +3766,8 @@ _ZL7bcd2dech.exit871:                             ; preds = %585, %589, %592
   br label %759
 
 759:                                              ; preds = %757, %698, %729, %731, %745, %747, %749, %751, %753, %755
-  %.sink942 = phi i64 [ 47, %755 ], [ 47, %753 ], [ 47, %751 ], [ 47, %749 ], [ 47, %747 ], [ 47, %745 ], [ 41, %731 ], [ 41, %729 ], [ 41, %698 ], [ %spec.select, %757 ]
-  %760 = getelementptr inbounds nuw i8, ptr %707, i64 %.sink942
+  %.sink985 = phi i64 [ 47, %755 ], [ 47, %753 ], [ 47, %751 ], [ 47, %749 ], [ 47, %747 ], [ 47, %745 ], [ 41, %731 ], [ 41, %729 ], [ 41, %698 ], [ %spec.select, %757 ]
+  %760 = getelementptr inbounds nuw i8, ptr %707, i64 %.sink985
   %761 = load i8, ptr %760, align 1, !tbaa !101
   %762 = zext i8 %761 to i16
   %763 = getelementptr inbounds nuw i8, ptr %0, i64 3560
@@ -3898,23 +3898,23 @@ _ZL7bcd2dech.exit871:                             ; preds = %585, %589, %592
   %831 = getelementptr inbounds nuw i8, ptr %0, i64 5002
   store i16 %830, ptr %831, align 2, !tbaa !128
   switch i16 %830, label %834 [
-    i16 0, label %.sink.split943
+    i16 0, label %.sink.split986
     i16 1, label %832
     i16 5, label %833
   ]
 
 832:                                              ; preds = %805
-  br label %.sink.split943
+  br label %.sink.split986
 
 833:                                              ; preds = %805
-  br label %.sink.split943
+  br label %.sink.split986
 
-.sink.split943:                                   ; preds = %805, %832, %833
-  %.sink944 = phi i16 [ 0, %833 ], [ 3, %832 ], [ 2, %805 ]
-  store i16 %.sink944, ptr %831, align 2, !tbaa !128
+.sink.split986:                                   ; preds = %805, %832, %833
+  %.sink987 = phi i16 [ 0, %833 ], [ 3, %832 ], [ 2, %805 ]
+  store i16 %.sink987, ptr %831, align 2, !tbaa !128
   br label %834
 
-834:                                              ; preds = %.sink.split943, %805
+834:                                              ; preds = %.sink.split986, %805
   %835 = getelementptr inbounds nuw i8, ptr %798, i64 27
   %836 = load i8, ptr %835, align 1, !tbaa !101
   %837 = getelementptr inbounds nuw i8, ptr %0, i64 3536
@@ -3995,18 +3995,18 @@ _ZL7bcd2dech.exit871:                             ; preds = %585, %589, %592
   %888 = zext i8 %887 to i16
   %trunc820 = or disjoint i16 %885, %888
   %889 = icmp ult i16 %trunc820, 6
-  br i1 %889, label %switch.lookup973, label %891
+  br i1 %889, label %switch.lookup1016, label %891
 
-switch.lookup973:                                 ; preds = %863
+switch.lookup1016:                                ; preds = %863
   %890 = zext nneg i16 %trunc820 to i64
-  %switch.gep974 = getelementptr inbounds nuw [6 x i16], ptr @switch.table._ZN6LibRaw19parseSonyMakernotesEijjjjRPhRtS1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_.1, i64 0, i64 %890
-  %switch.load975 = load i16, ptr %switch.gep974, align 2
+  %switch.gep1017 = getelementptr inbounds nuw [6 x i16], ptr @switch.table._ZN6LibRaw19parseSonyMakernotesEijjjjRPhRtS1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_.1, i64 0, i64 %890
+  %switch.load1018 = load i16, ptr %switch.gep1017, align 2
   br label %891
 
-891:                                              ; preds = %863, %switch.lookup973
-  %.sink945 = phi i16 [ %switch.load975, %switch.lookup973 ], [ 255, %863 ]
+891:                                              ; preds = %863, %switch.lookup1016
+  %.sink988 = phi i16 [ %switch.load1018, %switch.lookup1016 ], [ 255, %863 ]
   %892 = getelementptr inbounds nuw i8, ptr %0, i64 4760
-  store i16 %.sink945, ptr %892, align 8, !tbaa !158
+  store i16 %.sink988, ptr %892, align 8, !tbaa !158
   %893 = getelementptr inbounds nuw i8, ptr %798, i64 378
   %894 = load i8, ptr %893, align 1, !tbaa !101
   %895 = zext i8 %894 to i16
@@ -4064,23 +4064,23 @@ switch.lookup973:                                 ; preds = %863
   %934 = zext i8 %933 to i16
   %trunc = or disjoint i16 %931, %934
   %935 = icmp ult i16 %trunc, 6
-  br i1 %935, label %switch.lookup976, label %937
+  br i1 %935, label %switch.lookup1019, label %937
 
-switch.lookup976:                                 ; preds = %919
+switch.lookup1019:                                ; preds = %919
   %936 = zext nneg i16 %trunc to i64
-  %switch.gep977 = getelementptr inbounds nuw [6 x i16], ptr @switch.table._ZN6LibRaw19parseSonyMakernotesEijjjjRPhRtS1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_.2, i64 0, i64 %936
-  %switch.load978 = load i16, ptr %switch.gep977, align 2
+  %switch.gep1020 = getelementptr inbounds nuw [6 x i16], ptr @switch.table._ZN6LibRaw19parseSonyMakernotesEijjjjRPhRtS1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_.2, i64 0, i64 %936
+  %switch.load1021 = load i16, ptr %switch.gep1020, align 2
   %switch.cast = zext i8 %933 to i48
   %switch.shiftamt = shl nuw nsw i48 %switch.cast, 3
   %switch.downshift = lshr i48 3298534818305, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i8
   br label %937
 
-937:                                              ; preds = %919, %switch.lookup976
-  %.sink947 = phi i16 [ %switch.load978, %switch.lookup976 ], [ 255, %919 ]
-  %trunc931 = phi i8 [ %switch.masked, %switch.lookup976 ], [ -1, %919 ]
+937:                                              ; preds = %919, %switch.lookup1019
+  %.sink990 = phi i16 [ %switch.load1021, %switch.lookup1019 ], [ 255, %919 ]
+  %trunc974 = phi i8 [ %switch.masked, %switch.lookup1019 ], [ -1, %919 ]
   %938 = getelementptr inbounds nuw i8, ptr %0, i64 4760
-  store i16 %.sink947, ptr %938, align 8, !tbaa !158
+  store i16 %.sink990, ptr %938, align 8, !tbaa !158
   %939 = getelementptr inbounds nuw i8, ptr %798, i64 154
   %940 = load i8, ptr %939, align 1, !tbaa !101
   %941 = zext i8 %940 to i16
@@ -4093,11 +4093,11 @@ switch.lookup976:                                 ; preds = %919
   %switch.tableidx = add i16 %946, -1
   %948 = icmp ult i16 %switch.tableidx, 4
   %949 = shl nuw nsw i16 %switch.tableidx, 4
-  %switch.shiftamt981 = zext nneg i16 %949 to i64
-  %switch.downshift982 = lshr i64 1688867040329730, %switch.shiftamt981
-  %switch.masked983 = trunc i64 %switch.downshift982 to i16
-  %storemerge996 = select i1 %948, i16 %switch.masked983, i16 %946
-  store i16 %storemerge996, ptr %947, align 2, !tbaa !128
+  %switch.shiftamt1024 = zext nneg i16 %949 to i64
+  %switch.downshift1025 = lshr i64 1688867040329730, %switch.shiftamt1024
+  %switch.masked1026 = trunc i64 %switch.downshift1025 to i16
+  %storemerge1039 = select i1 %948, i16 %switch.masked1026, i16 %946
+  store i16 %storemerge1039, ptr %947, align 2, !tbaa !128
   %950 = getelementptr inbounds nuw i8, ptr %798, i64 170
   %951 = load i8, ptr %950, align 1, !tbaa !101
   %952 = zext i8 %951 to i16
@@ -4119,11 +4119,11 @@ switch.lookup976:                                 ; preds = %919
   br label %961
 
 961:                                              ; preds = %937, %959, %958
-  %.sink951 = phi float [ %960, %959 ], [ 1.777000e+03, %958 ], [ 1.500000e+03, %937 ]
+  %.sink994 = phi float [ %960, %959 ], [ 1.777000e+03, %958 ], [ 1.500000e+03, %937 ]
   %962 = getelementptr inbounds nuw i8, ptr %0, i64 3692
-  store float %.sink951, ptr %962, align 4, !tbaa !103
+  store float %.sink994, ptr %962, align 4, !tbaa !103
   %963 = getelementptr inbounds nuw i8, ptr %0, i64 4760
-  switch i8 %trunc931, label %1055 [
+  switch i8 %trunc974, label %1055 [
     i8 0, label %964
     i8 -1, label %964
   ]
@@ -4195,13 +4195,13 @@ switch.lookup976:                                 ; preds = %919
   %1004 = or disjoint i16 %1000, %1003
   %1005 = getelementptr inbounds nuw i8, ptr %0, i64 5000
   %1006 = getelementptr inbounds nuw i8, ptr %0, i64 5002
-  %switch.tableidx985 = add i16 %1004, -1
-  %1007 = icmp ult i16 %switch.tableidx985, 4
-  %1008 = shl nuw nsw i16 %switch.tableidx985, 4
-  %switch.shiftamt987 = zext nneg i16 %1008 to i64
-  %switch.downshift988 = lshr i64 1688867040329730, %switch.shiftamt987
-  %switch.masked989 = trunc i64 %switch.downshift988 to i16
-  %storemerge = select i1 %1007, i16 %switch.masked989, i16 %1004
+  %switch.tableidx1028 = add i16 %1004, -1
+  %1007 = icmp ult i16 %switch.tableidx1028, 4
+  %1008 = shl nuw nsw i16 %switch.tableidx1028, 4
+  %switch.shiftamt1030 = zext nneg i16 %1008 to i64
+  %switch.downshift1031 = lshr i64 1688867040329730, %switch.shiftamt1030
+  %switch.masked1032 = trunc i64 %switch.downshift1031 to i16
+  %storemerge = select i1 %1007, i16 %switch.masked1032, i16 %1004
   store i16 %storemerge, ptr %1006, align 2, !tbaa !128
   %1009 = getelementptr inbounds nuw i8, ptr %798, i64 170
   %1010 = load i8, ptr %1009, align 1, !tbaa !101
@@ -4224,9 +4224,9 @@ switch.lookup976:                                 ; preds = %919
   br label %1020
 
 1020:                                             ; preds = %992, %1018, %1017
-  %.sink955 = phi float [ %1019, %1018 ], [ 1.777000e+03, %1017 ], [ 1.500000e+03, %992 ]
+  %.sink998 = phi float [ %1019, %1018 ], [ 1.777000e+03, %1017 ], [ 1.500000e+03, %992 ]
   %1021 = getelementptr inbounds nuw i8, ptr %0, i64 3692
-  store float %.sink955, ptr %1021, align 4, !tbaa !103
+  store float %.sink998, ptr %1021, align 4, !tbaa !103
   %1022 = getelementptr inbounds nuw i8, ptr %798, i64 253
   %1023 = load i8, ptr %1022, align 1, !tbaa !101
   %1024 = zext i8 %1023 to i16
@@ -4249,17 +4249,17 @@ switch.lookup976:                                 ; preds = %919
   br label %1031
 
 1031:                                             ; preds = %1025, %1029, %1028
-  %.sink957 = phi float [ %1030, %1029 ], [ 1.777000e+03, %1028 ], [ 1.500000e+03, %1025 ]
+  %.sink1000 = phi float [ %1030, %1029 ], [ 1.777000e+03, %1028 ], [ 1.500000e+03, %1025 ]
   %1032 = getelementptr inbounds nuw i8, ptr %0, i64 3692
-  store float %.sink957, ptr %1032, align 4, !tbaa !103
+  store float %.sink1000, ptr %1032, align 4, !tbaa !103
   %1033 = getelementptr inbounds nuw i8, ptr %798, i64 14
   %1034 = load i8, ptr %1033, align 1, !tbaa !101
-  %switch.selectcmp968 = icmp eq i8 %1034, 2
-  %switch.select969 = select i1 %switch.selectcmp968, i16 2, i16 255
-  %switch.selectcmp970 = icmp eq i8 %1034, 1
-  %switch.select971 = select i1 %switch.selectcmp970, i16 1, i16 %switch.select969
+  %switch.selectcmp1011 = icmp eq i8 %1034, 2
+  %switch.select1012 = select i1 %switch.selectcmp1011, i16 2, i16 255
+  %switch.selectcmp1013 = icmp eq i8 %1034, 1
+  %switch.select1014 = select i1 %switch.selectcmp1013, i16 1, i16 %switch.select1012
   %1035 = getelementptr inbounds nuw i8, ptr %0, i64 4760
-  store i16 %switch.select971, ptr %1035, align 8, !tbaa !158
+  store i16 %switch.select1014, ptr %1035, align 8, !tbaa !158
   %1036 = getelementptr inbounds nuw i8, ptr %798, i64 36
   %1037 = load i8, ptr %1036, align 1, !tbaa !101
   %1038 = zext i8 %1037 to i16
@@ -4618,8 +4618,8 @@ _ZN6LibRaw19process_Sony_0x0116EPhty.exit878:     ; preds = %1102, %1105
   %1226 = getelementptr i8, ptr %1225, i64 16
   store ptr %1222, ptr %1226, align 8, !tbaa !139
   %1227 = load ptr, ptr %1215, align 8, !tbaa !150
-  %.idx930 = mul nsw i64 %1224, 24
-  %1228 = getelementptr i8, ptr %1212, i64 %.idx930
+  %.idx973 = mul nsw i64 %1224, 24
+  %1228 = getelementptr i8, ptr %1212, i64 %.idx973
   %1229 = getelementptr i8, ptr %1228, i64 12
   %1230 = load i32, ptr %1229, align 4, !tbaa !138
   %1231 = zext i32 %1230 to i64
@@ -4698,8 +4698,8 @@ _ZN6LibRaw19process_Sony_0x0116EPhty.exit878:     ; preds = %1102, %1105
   %1282 = getelementptr i8, ptr %1281, i64 16
   store ptr %1278, ptr %1282, align 8, !tbaa !139
   %1283 = load ptr, ptr %1271, align 8, !tbaa !150
-  %.idx929 = mul nsw i64 %1280, 24
-  %1284 = getelementptr i8, ptr %1268, i64 %.idx929
+  %.idx972 = mul nsw i64 %1280, 24
+  %1284 = getelementptr i8, ptr %1268, i64 %.idx972
   %1285 = getelementptr i8, ptr %1284, i64 12
   %1286 = load i32, ptr %1285, align 4, !tbaa !138
   %1287 = zext i32 %1286 to i64
@@ -4773,8 +4773,8 @@ _ZN6LibRaw19process_Sony_0x0116EPhty.exit878:     ; preds = %1102, %1105
   %1327 = getelementptr i8, ptr %1326, i64 16
   store ptr %1323, ptr %1327, align 8, !tbaa !139
   %1328 = load ptr, ptr %1316, align 8, !tbaa !150
-  %.idx928 = mul nsw i64 %1325, 24
-  %1329 = getelementptr i8, ptr %1313, i64 %.idx928
+  %.idx971 = mul nsw i64 %1325, 24
+  %1329 = getelementptr i8, ptr %1313, i64 %.idx971
   %1330 = getelementptr i8, ptr %1329, i64 12
   %1331 = load i32, ptr %1330, align 4, !tbaa !138
   %1332 = zext i32 %1331 to i64
@@ -5264,40 +5264,40 @@ _ZN6LibRaw19process_Sony_0x9403EPht.exit880:      ; preds = %1445, %1452, %1452,
   %1633 = zext i8 %1632 to i64
   %1634 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %1633
   %1635 = load i8, ptr %1634, align 1, !tbaa !101
-  %switch.tableidx991 = add i8 %1635, -1
-  %1636 = icmp ult i8 %switch.tableidx991, 3
-  br i1 %1636, label %switch.lookup990, label %1638
+  %switch.tableidx1034 = add i8 %1635, -1
+  %1636 = icmp ult i8 %switch.tableidx1034, 3
+  br i1 %1636, label %switch.lookup1033, label %1638
 
-switch.lookup990:                                 ; preds = %1630
-  %1637 = shl nuw nsw i8 %switch.tableidx991, 4
-  %switch.shiftamt993 = zext nneg i8 %1637 to i48
-  %switch.downshift994 = lshr i48 107376803865, %switch.shiftamt993
-  %switch.masked995 = trunc i48 %switch.downshift994 to i16
-  store i16 %switch.masked995, ptr %1628, align 2, !tbaa !85
+switch.lookup1033:                                ; preds = %1630
+  %1637 = shl nuw nsw i8 %switch.tableidx1034, 4
+  %switch.shiftamt1036 = zext nneg i8 %1637 to i48
+  %switch.downshift1037 = lshr i48 107376803865, %switch.shiftamt1036
+  %switch.masked1038 = trunc i48 %switch.downshift1037 to i16
+  store i16 %switch.masked1038, ptr %1628, align 2, !tbaa !85
   br label %1638
 
-1638:                                             ; preds = %1630, %switch.lookup990, %1620, %1620
-  %1639 = phi i16 [ %1629, %1620 ], [ %1629, %1620 ], [ %1629, %1630 ], [ %switch.masked995, %switch.lookup990 ]
+1638:                                             ; preds = %1630, %switch.lookup1033, %1620, %1620
+  %1639 = phi i16 [ %1629, %1620 ], [ %1629, %1620 ], [ %1629, %1630 ], [ %switch.masked1038, %switch.lookup1033 ]
   %1640 = getelementptr inbounds nuw i8, ptr %1591, i64 73
   %1641 = load i8, ptr %1640, align 1, !tbaa !101
   %1642 = zext i8 %1641 to i64
   %1643 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %1642
   %1644 = load i8, ptr %1643, align 1, !tbaa !101
   switch i8 %1644, label %1647 [
-    i8 1, label %.sink.split963
+    i8 1, label %.sink.split1006
     i8 2, label %1645
   ]
 
 1645:                                             ; preds = %1638
-  br label %.sink.split963
+  br label %.sink.split1006
 
-.sink.split963:                                   ; preds = %1638, %1645
-  %.sink964 = phi i16 [ 2, %1645 ], [ 1, %1638 ]
+.sink.split1006:                                  ; preds = %1638, %1645
+  %.sink1007 = phi i16 [ 2, %1645 ], [ 1, %1638 ]
   %1646 = getelementptr inbounds nuw i8, ptr %0, i64 1336
-  store i16 %.sink964, ptr %1646, align 8, !tbaa !111
+  store i16 %.sink1007, ptr %1646, align 8, !tbaa !111
   br label %1647
 
-1647:                                             ; preds = %.sink.split963, %1638
+1647:                                             ; preds = %.sink.split1006, %1638
   %1648 = icmp eq i16 %1639, 40
   br i1 %1648, label %1649, label %1660
 
@@ -6139,8 +6139,8 @@ define void @_ZN6LibRaw12parseSonySR2EPhjjj(ptr noundef nonnull align 8 derefere
   %.not.i = icmp eq i32 %191, 0
   %198 = load ptr, ptr @_ZN6LibRaw16Sony_SR2_wb_listE, align 8
   %.not6.i = icmp eq ptr %198, null
-  %or.cond344 = select i1 %.not.i, i1 true, i1 %.not6.i
-  br i1 %or.cond344, label %.preheader208, label %_ZNK21libraw_static_table_tixEj.exit
+  %or.cond372 = select i1 %.not.i, i1 true, i1 %.not6.i
+  br i1 %or.cond372, label %.preheader208, label %_ZNK21libraw_static_table_tixEj.exit
 
 _ZNK21libraw_static_table_tixEj.exit:             ; preds = %197, %193
   %.0.i.in = phi ptr [ %196, %193 ], [ %198, %197 ]
@@ -6321,8 +6321,8 @@ _ZNK21libraw_static_table_tixEj.exit153:          ; preds = %259, %260, %262, %2
   %.not.i154 = icmp eq i32 %281, 0
   %288 = load ptr, ptr @_ZN6LibRaw17Sony_SR2_wb_list1E, align 8
   %.not6.i155 = icmp eq ptr %288, null
-  %or.cond345 = select i1 %.not.i154, i1 true, i1 %.not6.i155
-  br i1 %or.cond345, label %.preheader215, label %_ZNK21libraw_static_table_tixEj.exit157
+  %or.cond373 = select i1 %.not.i154, i1 true, i1 %.not6.i155
+  br i1 %or.cond373, label %.preheader215, label %_ZNK21libraw_static_table_tixEj.exit157
 
 _ZNK21libraw_static_table_tixEj.exit157:          ; preds = %287, %283
   %.0.i156.in = phi ptr [ %286, %283 ], [ %288, %287 ]
@@ -6909,7 +6909,7 @@ _ZN6LibRaw12sony_decryptEPjiii.exit:              ; preds = %.lr.ph.i, %.loopexi
 158:                                              ; preds = %.lr.ph, %174
   %.in117 = phi i16 [ %152, %.lr.ph ], [ %159, %174 ]
   %.072112 = phi i32 [ 0, %.lr.ph ], [ %.173, %174 ]
-  %159 = add i16 %.in117, -1
+  %159 = add nsw i16 %.in117, -1
   %160 = load ptr, ptr %28, align 8, !tbaa !217
   %161 = invoke noundef signext i16 @_ZN6LibRaw9tiff_sgetEjPhjPxPjS2_S1_S2_Pi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %157, ptr noundef %160, i32 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %5)
           to label %162 unwind label %.loopexit.split-lp.loopexit
@@ -6997,7 +6997,7 @@ _ZN6LibRaw12sony_decryptEPjiii.exit:              ; preds = %.lr.ph.i, %.loopexi
 
 204:                                              ; preds = %.lr.ph115, %299
   %.in118 = phi i16 [ %191, %.lr.ph115 ], [ %205, %299 ]
-  %205 = add i16 %.in118, -1
+  %205 = add nsw i16 %.in118, -1
   %206 = invoke noundef i32 @_ZN16checked_buffer_t9tiff_sgetEjPxPjS1_S0_S1_Pi(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %196, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %5)
           to label %207 unwind label %.loopexit104
 

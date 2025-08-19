@@ -403,9 +403,9 @@ awt_getBIColorOrder.exit.i:                       ; preds = %85, %82, %76, %66
   br label %.lr.ph259.preheader.i
 
 .lr.ph259.preheader.i:                            ; preds = %156, %153, %149, %130
-  %.sink288.i = phi i32 [ 0, %156 ], [ 65, %153 ], [ 49, %149 ], [ 50, %130 ]
+  %.sink293.i = phi i32 [ 0, %156 ], [ 65, %153 ], [ 49, %149 ], [ 50, %130 ]
   %157 = getelementptr inbounds nuw i8, ptr %8, i64 608
-  store i32 %.sink288.i, ptr %157, align 8
+  store i32 %.sink293.i, ptr %157, align 8
   br label %.lr.ph259.i
 
 .lr.ph259.i:                                      ; preds = %.lr.ph259.i, %.lr.ph259.preheader.i
@@ -483,14 +483,14 @@ awt_getBIColorOrder.exit.i:                       ; preds = %85, %82, %76, %66
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %164
-  %.0205.lcssa282.i = phi i32 [ %spec.select.i, %._crit_edge.loopexit.i ], [ %167, %164 ]
+  %.0205.lcssa287.i = phi i32 [ %spec.select.i, %._crit_edge.loopexit.i ], [ %167, %164 ]
   %.0209.lcssa.i = phi i32 [ %.1210.i, %._crit_edge.loopexit.i ], [ 1, %164 ]
   %.0203.lcssa.i = phi i1 [ %185, %._crit_edge.loopexit.i ], [ false, %164 ]
   %186 = getelementptr inbounds nuw i8, ptr %8, i64 592
-  store i32 %.0205.lcssa282.i, ptr %186, align 8
+  store i32 %.0205.lcssa287.i, ptr %186, align 8
   %187 = getelementptr inbounds nuw i8, ptr %8, i64 492
   %188 = load i32, ptr %187, align 4
-  %189 = mul nsw i32 %188, %.0205.lcssa282.i
+  %189 = mul nsw i32 %188, %.0205.lcssa287.i
   %190 = getelementptr inbounds nuw i8, ptr %8, i64 596
   store i32 %189, ptr %190, align 4
   %191 = getelementptr inbounds nuw i8, ptr %8, i64 472
@@ -529,7 +529,7 @@ awt_getBIColorOrder.exit.i:                       ; preds = %85, %82, %76, %66
   %209 = load ptr, ptr %165, align 8
   %210 = getelementptr inbounds nuw i32, ptr %209, i64 %indvars.iv275.i
   %211 = load i32, ptr %210, align 4
-  %212 = sub nsw i32 %211, %.0205.lcssa282.i
+  %212 = sub nsw i32 %211, %.0205.lcssa287.i
   %213 = sext i32 %212 to i64
   %214 = getelementptr inbounds i32, ptr %208, i64 %213
   %215 = trunc nuw nsw i64 %indvars.iv275.i to i32
@@ -560,7 +560,7 @@ awt_getBIColorOrder.exit.i:                       ; preds = %85, %82, %76, %66
   %229 = load ptr, ptr %165, align 8
   %230 = getelementptr inbounds nuw i32, ptr %229, i64 %indvars.iv272.i
   %231 = load i32, ptr %230, align 4
-  %232 = sub nsw i32 %231, %.0205.lcssa282.i
+  %232 = sub nsw i32 %231, %.0205.lcssa287.i
   %233 = srem i32 %232, %225
   %234 = sext i32 %233 to i64
   %235 = getelementptr inbounds i32, ptr %228, i64 %234
@@ -609,11 +609,11 @@ awt_getBIColorOrder.exit.i:                       ; preds = %85, %82, %76, %66
   br i1 %258, label %248, label %.loopexit237.i.loopexit, !llvm.loop !12
 
 .loopexit237.sink.split.i:                        ; preds = %248, %243
-  %.sink292.i = phi i32 [ %245, %243 ], [ 8, %248 ]
+  %.sink297.i = phi i32 [ %245, %243 ], [ 8, %248 ]
   %259 = getelementptr inbounds nuw i8, ptr %8, i64 620
   store i32 1, ptr %259, align 4
   %260 = getelementptr inbounds nuw i8, ptr %8, i64 624
-  store i32 %.sink292.i, ptr %260, align 8
+  store i32 %.sink297.i, ptr %260, align 8
   br label %.loopexit237.i
 
 .loopexit237.i.loopexit:                          ; preds = %252

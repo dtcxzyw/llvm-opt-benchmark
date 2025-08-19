@@ -1210,13 +1210,13 @@ _ZN9CodeCache17code_heap_compareERKP8CodeHeapS3_.exit.thread20.i: ; preds = %_ZN
   br i1 %.not.not9.i, label %.lr.ph.i4, label %.._crit_edge_crit_edge.i
 
 .._crit_edge_crit_edge.i:                         ; preds = %41
-  %.pre13.i = zext nneg i32 %.0.i.ph to i64
+  %.pre13.i = sext i32 %.0.i.ph to i64
   br label %_ZN26GrowableArrayWithAllocatorIP8CodeHeap13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit
 
 .lr.ph.i4:                                        ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = sext i32 %42 to i64
-  %45 = zext nneg i32 %.0.i.ph to i64
+  %45 = sext i32 %.0.i.ph to i64
   br label %46
 
 46:                                               ; preds = %46, %.lr.ph.i4
@@ -1242,7 +1242,7 @@ _ZN26GrowableArrayWithAllocatorIP8CodeHeap13GrowableArrayIS1_EE13insert_beforeEi
   %53 = load ptr, ptr %1, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %.pre-phi.i
+  %56 = getelementptr inbounds ptr, ptr %55, i64 %.pre-phi.i
   store ptr %53, ptr %56, align 8
   %.pre = load ptr, ptr %54, align 8
   br label %_ZNK17GrowableArrayViewIP8CodeHeapE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZN9CodeCache17code_heap_compareES8_S8_EEEEiS6_Rb.exit
@@ -1250,8 +1250,8 @@ _ZN26GrowableArrayWithAllocatorIP8CodeHeap13GrowableArrayIS1_EE13insert_beforeEi
 _ZNK17GrowableArrayViewIP8CodeHeapE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZN9CodeCache17code_heap_compareES8_S8_EEEEiS6_Rb.exit: ; preds = %_ZN9CodeCache17code_heap_compareERKP8CodeHeapS3_.exit.thread20.i, %_ZN26GrowableArrayWithAllocatorIP8CodeHeap13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit
   %57 = phi ptr [ %.pre, %_ZN26GrowableArrayWithAllocatorIP8CodeHeap13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit ], [ %6, %_ZN9CodeCache17code_heap_compareERKP8CodeHeapS3_.exit.thread20.i ]
   %.0.i8 = phi i32 [ %.0.i.ph, %_ZN26GrowableArrayWithAllocatorIP8CodeHeap13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit ], [ %12, %_ZN9CodeCache17code_heap_compareERKP8CodeHeapS3_.exit.thread20.i ]
-  %58 = zext nneg i32 %.0.i8 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %58
+  %58 = sext i32 %.0.i8 to i64
+  %59 = getelementptr inbounds ptr, ptr %57, i64 %58
   %60 = load ptr, ptr %59, align 8
   ret ptr %60
 }
@@ -1506,12 +1506,12 @@ define hidden noundef ptr @_ZN9CodeCache8allocateEj12CodeBlobTypebS0_(i32 nounde
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 3
   %16 = icmp eq i32 %14, %.tr3949
-  %spec.select.i.i64 = or i1 %15, %16
-  br i1 %spec.select.i.i64, label %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit, label %.lr.ph66
+  %spec.select.i.i68 = or i1 %15, %16
+  br i1 %spec.select.i.i68, label %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit, label %.lr.ph70
 
-.lr.ph66:                                         ; preds = %.lr.ph.i, %.lr.ph66
-  %indvars.iv.i65 = phi i64 [ %indvars.iv.next.i, %.lr.ph66 ], [ 0, %.lr.ph.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i65, 1
+.lr.ph70:                                         ; preds = %.lr.ph.i, %.lr.ph70
+  %indvars.iv.i69 = phi i64 [ %indvars.iv.next.i, %.lr.ph70 ], [ 0, %.lr.ph.i ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i69, 1
   %.not.i = icmp ne i64 %indvars.iv.next.i, %11
   tail call void @llvm.assume(i1 %.not.i)
   %17 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next.i
@@ -1521,10 +1521,10 @@ define hidden noundef ptr @_ZN9CodeCache8allocateEj12CodeBlobTypebS0_(i32 nounde
   %21 = icmp eq i32 %20, 3
   %22 = icmp eq i32 %20, %.tr3949
   %spec.select.i.i = or i1 %21, %22
-  br i1 %spec.select.i.i, label %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit, label %.lr.ph66
+  br i1 %spec.select.i.i, label %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit, label %.lr.ph70
 
-_ZN9CodeCache13get_code_heapE12CodeBlobType.exit: ; preds = %.lr.ph66, %.lr.ph.i
-  %.lcssa = phi ptr [ %12, %.lr.ph.i ], [ %18, %.lr.ph66 ]
+_ZN9CodeCache13get_code_heapE12CodeBlobType.exit: ; preds = %.lr.ph70, %.lr.ph.i
+  %.lcssa = phi ptr [ %12, %.lr.ph.i ], [ %18, %.lr.ph70 ]
   %23 = tail call noundef ptr @_ZN8CodeHeap8allocateEm(ptr noundef nonnull align 8 dereferenceable(336) %.lcssa, i64 noundef %6) #20
   %.not47 = icmp eq ptr %23, null
   br i1 %.not47, label %.lr.ph, label %.loopexit
@@ -2390,9 +2390,9 @@ _ZN9CodeCache20unallocated_capacityEv.exit:       ; preds = %14
   br i1 %.not.i48, label %_ZN9CodeCache12max_capacityEv.exit, label %27, !llvm.loop !36
 
 _ZN9CodeCache12max_capacityEv.exit:               ; preds = %27, %7, %_ZN9CodeCache20unallocated_capacityEv.exit
-  %.0.lcssa.i58 = phi i64 [ %21, %_ZN9CodeCache20unallocated_capacityEv.exit ], [ 0, %7 ], [ %21, %27 ]
+  %.0.lcssa.i61 = phi i64 [ %21, %_ZN9CodeCache20unallocated_capacityEv.exit ], [ 0, %7 ], [ %21, %27 ]
   %.0.lcssa.i49 = phi i64 [ 0, %_ZN9CodeCache20unallocated_capacityEv.exit ], [ 0, %7 ], [ %32, %27 ]
-  %36 = sub i64 %.0.lcssa.i49, %.0.lcssa.i58
+  %36 = sub i64 %.0.lcssa.i49, %.0.lcssa.i61
   %37 = fsub double %10, %9
   store volatile i8 0, ptr @_ZN9CodeCache33_unloading_threshold_gc_requestedE, align 1
   store double %10, ptr @_ZN9CodeCache20_last_unloading_timeE, align 8
@@ -2437,7 +2437,7 @@ _ZN9CodeCache12max_capacityEv.exit:               ; preds = %27, %7, %_ZN9CodeCa
   %54 = uitofp i64 %.0.lcssa.i49 to double
   %55 = fmul double %53, %54
   %56 = fptoui double %55 to i64
-  %57 = icmp ult i64 %.0.lcssa.i58, %56
+  %57 = icmp ult i64 %.0.lcssa.i61, %56
   br i1 %57, label %58, label %61
 
 58:                                               ; preds = %47
@@ -2453,7 +2453,7 @@ _ZN9CodeCache12max_capacityEv.exit:               ; preds = %27, %7, %_ZN9CodeCa
 61:                                               ; preds = %47
   %62 = tail call noundef double @_ZNK6AbsSeq3avgEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN9CodeCache23_unloading_gc_intervalsE) #20
   %63 = tail call noundef double @_ZNK6AbsSeq3avgEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN9CodeCache27_unloading_allocation_ratesE) #20
-  %64 = sub nuw i64 %.0.lcssa.i58, %56
+  %64 = sub nuw i64 %.0.lcssa.i61, %56
   %65 = uitofp i64 %64 to double
   %66 = fdiv double %65, %63
   %67 = load i64, ptr @NmethodSweepActivity, align 8
@@ -2617,10 +2617,10 @@ _ZN9CodeCache20unallocated_capacityEv.exit:       ; preds = %6
   br i1 %.not.i36, label %_ZN9CodeCache12max_capacityEv.exit, label %19, !llvm.loop !36
 
 _ZN9CodeCache12max_capacityEv.exit:               ; preds = %19, %2, %_ZN9CodeCache20unallocated_capacityEv.exit
-  %.0.lcssa.i44 = phi i64 [ %13, %_ZN9CodeCache20unallocated_capacityEv.exit ], [ 0, %2 ], [ %13, %19 ]
+  %.0.lcssa.i48 = phi i64 [ %13, %_ZN9CodeCache20unallocated_capacityEv.exit ], [ 0, %2 ], [ %13, %19 ]
   %.0.lcssa.i37 = phi i64 [ 0, %_ZN9CodeCache20unallocated_capacityEv.exit ], [ 0, %2 ], [ %24, %19 ]
-  %28 = sub i64 %.0.lcssa.i37, %.0.lcssa.i44
-  %29 = uitofp i64 %.0.lcssa.i44 to double
+  %28 = sub i64 %.0.lcssa.i37, %.0.lcssa.i48
+  %29 = uitofp i64 %.0.lcssa.i48 to double
   %30 = uitofp i64 %.0.lcssa.i37 to double
   %31 = fdiv double %29, %30
   %32 = load i64, ptr @StartAggressiveSweepingAt, align 8
@@ -2684,12 +2684,12 @@ _ZN9CodeCache12max_capacityEv.exit:               ; preds = %19, %2, %_ZN9CodeCa
   br label %.sink.split
 
 .sink.split:                                      ; preds = %63, %61, %41, %39
-  %.sink48 = phi i32 [ 15, %39 ], [ 15, %41 ], [ 14, %61 ], [ 14, %63 ]
+  %.sink52 = phi i32 [ 15, %39 ], [ 15, %41 ], [ 14, %61 ], [ 14, %63 ]
   %68 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 192
   %71 = load ptr, ptr %70, align 8
-  tail call void %71(ptr noundef nonnull align 8 dereferenceable(104) %68, i32 noundef %.sink48) #20
+  tail call void %71(ptr noundef nonnull align 8 dereferenceable(104) %68, i32 noundef %.sink52) #20
   br label %72
 
 72:                                               ; preds = %.sink.split, %58, %43, %36, %0, %45
@@ -4189,8 +4189,8 @@ _ZNK17GrowableArrayViewIP7nmethodE4findERKS1_.exit: ; preds = %8
   br i1 %15, label %16, label %_ZN17GrowableArrayViewIP7nmethodE9delete_atEi.exit
 
 16:                                               ; preds = %_ZNK17GrowableArrayViewIP7nmethodE4findERKS1_.exit
-  %17 = sext i32 %14 to i64
-  %18 = getelementptr inbounds ptr, ptr %7, i64 %17
+  %17 = zext nneg i32 %14 to i64
+  %18 = getelementptr inbounds nuw ptr, ptr %7, i64 %17
   %19 = load ptr, ptr %18, align 8
   %sext = shl i64 %indvars.iv.i, 32
   %20 = ashr exact i64 %sext, 29
@@ -6406,8 +6406,8 @@ _ZN16CodeBlobIteratorI8CodeBlob18AllCodeBlobsFilterLb0EEC2ENS2_14LivenessFilterE
   br label %_ZN16CodeBlobIteratorI8CodeBlob18AllCodeBlobsFilterLb0EE9next_blobEv.exit.i
 
 _ZN16CodeBlobIteratorI8CodeBlob18AllCodeBlobsFilterLb0EE9next_blobEv.exit.i: ; preds = %.critedge.i.i, %29
-  %.sink8.i.i = phi ptr [ %30, %29 ], [ %32, %.critedge.i.i ]
-  %33 = call noundef ptr @_ZNK8CodeHeap9next_usedEP9HeapBlock(ptr noundef nonnull align 8 dereferenceable(336) %27, ptr noundef %.sink8.i.i) #20
+  %.sink10.i.i = phi ptr [ %30, %29 ], [ %32, %.critedge.i.i ]
+  %33 = call noundef ptr @_ZNK8CodeHeap9next_usedEP9HeapBlock(ptr noundef nonnull align 8 dereferenceable(336) %27, ptr noundef %.sink10.i.i) #20
   %.not8.i = icmp eq ptr %33, null
   br i1 %.not8.i, label %_ZN16CodeBlobIteratorI8CodeBlob18AllCodeBlobsFilterLb0EE9next_blobEv.exit.thread.i, label %36
 
@@ -6998,7 +6998,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP7nmethod13Grow
   br i1 %.not, label %_ZN13GrowableArrayIP7nmethodE10deallocateEPS1_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -7010,8 +7010,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP7nmethod13Grow
   br label %_ZN13GrowableArrayIP7nmethodE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP7nmethodE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIP7nmethodE10deallocateEPS1_.exit

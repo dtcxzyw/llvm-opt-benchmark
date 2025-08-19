@@ -443,13 +443,13 @@ define hidden void @_ZNK21CardTableBarrierSetC220eliminate_gc_barrierEP16PhaseMa
   br label %34
 
 34:                                               ; preds = %29, %26
-  %.sink17 = phi ptr [ %33, %29 ], [ %28, %26 ]
+  %.sink18 = phi ptr [ %33, %29 ], [ %28, %26 ]
   %35 = load ptr, ptr %16, align 8
   tail call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %35, ptr noundef nonnull %18) #4
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull %18) #4
-  tail call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %35, ptr noundef nonnull %18, ptr noundef %.sink17) #4
+  tail call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %35, ptr noundef nonnull %18, ptr noundef %.sink18) #4
   %.0 = getelementptr inbounds i8, ptr %.016, i64 -8
   %.not = icmp ult ptr %.0, %11
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !6

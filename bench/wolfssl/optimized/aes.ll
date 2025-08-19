@@ -5384,21 +5384,21 @@ IncrementGcmCounter.exit63.i:                     ; preds = %.preheader.i
   br i1 %.not54.i98.i, label %xorbufout.exit99.i, label %.lr.ph52.preheader.i65.i
 
 .lr.ph52.preheader.i65.i:                         ; preds = %.loopexit.i94.i, %77
-  %.070.i66.i = phi ptr [ %.sroa.0.1.i97.i, %.loopexit.i94.i ], [ %.039.lcssa.i, %77 ]
-  %.02669.i67.i = phi ptr [ %.sroa.037.1.i96.i, %.loopexit.i94.i ], [ %13, %77 ]
-  %.02868.i68.i = phi ptr [ %.sroa.039.1.i95.i, %.loopexit.i94.i ], [ %.0.lcssa.i, %77 ]
-  %.03167.i69.i = phi i32 [ %100, %.loopexit.i94.i ], [ %27, %77 ]
-  %wide.trip.count.i70.i = zext nneg i32 %.03167.i69.i to i64
+  %.071.i66.i = phi ptr [ %.sroa.0.1.i97.i, %.loopexit.i94.i ], [ %.039.lcssa.i, %77 ]
+  %.02670.i67.i = phi ptr [ %.sroa.037.1.i96.i, %.loopexit.i94.i ], [ %13, %77 ]
+  %.02869.i68.i = phi ptr [ %.sroa.039.1.i95.i, %.loopexit.i94.i ], [ %.0.lcssa.i, %77 ]
+  %.03168.i69.i = phi i32 [ %100, %.loopexit.i94.i ], [ %27, %77 ]
+  %wide.trip.count.i70.i = zext nneg i32 %.03168.i69.i to i64
   br label %.lr.ph52.i71.i
 
 .lr.ph52.i71.i:                                   ; preds = %.lr.ph52.i71.i, %.lr.ph52.preheader.i65.i
   %indvars.iv.i72.i = phi i64 [ 0, %.lr.ph52.preheader.i65.i ], [ %indvars.iv.next.i73.i, %.lr.ph52.i71.i ]
-  %101 = getelementptr inbounds nuw i8, ptr %.02669.i67.i, i64 %indvars.iv.i72.i
+  %101 = getelementptr inbounds nuw i8, ptr %.02670.i67.i, i64 %indvars.iv.i72.i
   %102 = load i8, ptr %101, align 1, !tbaa !15
-  %103 = getelementptr inbounds nuw i8, ptr %.070.i66.i, i64 %indvars.iv.i72.i
+  %103 = getelementptr inbounds nuw i8, ptr %.071.i66.i, i64 %indvars.iv.i72.i
   %104 = load i8, ptr %103, align 1, !tbaa !15
   %105 = xor i8 %104, %102
-  %106 = getelementptr inbounds nuw i8, ptr %.02868.i68.i, i64 %indvars.iv.i72.i
+  %106 = getelementptr inbounds nuw i8, ptr %.02869.i68.i, i64 %indvars.iv.i72.i
   store i8 %105, ptr %106, align 1, !tbaa !15
   %indvars.iv.next.i73.i = add nuw nsw i64 %indvars.iv.i72.i, 1
   %exitcond.not.i74.i = icmp eq i64 %indvars.iv.next.i73.i, %wide.trip.count.i70.i
@@ -5444,17 +5444,17 @@ xorbufout.exit99.i:                               ; preds = %.lr.ph52.i71.i, %.l
   br i1 %.not41.i.i, label %AES_GCM_encrypt_C.exit, label %.lr.ph38.preheader.i.i
 
 .lr.ph38.preheader.i.i:                           ; preds = %.loopexit.i111.i, %110
-  %.058.i.i = phi ptr [ %115, %.loopexit.i111.i ], [ %13, %110 ]
-  %.01957.i.i = phi ptr [ %117, %.loopexit.i111.i ], [ %6, %110 ]
-  %.02256.i.i = phi i32 [ %121, %.loopexit.i111.i ], [ %7, %110 ]
-  %wide.trip.count.i100.i = zext nneg i32 %.02256.i.i to i64
+  %.059.i.i = phi ptr [ %115, %.loopexit.i111.i ], [ %13, %110 ]
+  %.01958.i.i = phi ptr [ %117, %.loopexit.i111.i ], [ %6, %110 ]
+  %.02257.i.i = phi i32 [ %121, %.loopexit.i111.i ], [ %7, %110 ]
+  %wide.trip.count.i100.i = zext nneg i32 %.02257.i.i to i64
   br label %.lr.ph38.i.i
 
 .lr.ph38.i.i:                                     ; preds = %.lr.ph38.i.i, %.lr.ph38.preheader.i.i
   %indvars.iv.i101.i = phi i64 [ 0, %.lr.ph38.preheader.i.i ], [ %indvars.iv.next.i102.i, %.lr.ph38.i.i ]
-  %122 = getelementptr inbounds nuw i8, ptr %.058.i.i, i64 %indvars.iv.i101.i
+  %122 = getelementptr inbounds nuw i8, ptr %.059.i.i, i64 %indvars.iv.i101.i
   %123 = load i8, ptr %122, align 1, !tbaa !15
-  %124 = getelementptr inbounds nuw i8, ptr %.01957.i.i, i64 %indvars.iv.i101.i
+  %124 = getelementptr inbounds nuw i8, ptr %.01958.i.i, i64 %indvars.iv.i101.i
   %125 = load i8, ptr %124, align 1, !tbaa !15
   %126 = xor i8 %125, %123
   store i8 %126, ptr %124, align 1, !tbaa !15
@@ -5707,17 +5707,17 @@ IncrementGcmCounter.exit74.i:                     ; preds = %.preheader.i
   br i1 %.not41.i.i, label %xorbuf.exit97.i, label %.lr.ph38.preheader.i75.i
 
 .lr.ph38.preheader.i75.i:                         ; preds = %.loopexit.i95.i, %87
-  %.058.i.i = phi ptr [ %.sroa.0.1.i96.i, %.loopexit.i95.i ], [ %.042.lcssa.i, %87 ]
-  %.01957.i.i = phi ptr [ %.sroa.026.1.i.i, %.loopexit.i95.i ], [ %12, %87 ]
-  %.02256.i.i = phi i32 [ %96, %.loopexit.i95.i ], [ %29, %87 ]
-  %wide.trip.count.i76.i = zext nneg i32 %.02256.i.i to i64
+  %.059.i.i = phi ptr [ %.sroa.0.1.i96.i, %.loopexit.i95.i ], [ %.042.lcssa.i, %87 ]
+  %.01958.i.i = phi ptr [ %.sroa.026.1.i.i, %.loopexit.i95.i ], [ %12, %87 ]
+  %.02257.i.i = phi i32 [ %96, %.loopexit.i95.i ], [ %29, %87 ]
+  %wide.trip.count.i76.i = zext nneg i32 %.02257.i.i to i64
   br label %.lr.ph38.i77.i
 
 .lr.ph38.i77.i:                                   ; preds = %.lr.ph38.i77.i, %.lr.ph38.preheader.i75.i
   %indvars.iv.i78.i = phi i64 [ 0, %.lr.ph38.preheader.i75.i ], [ %indvars.iv.next.i79.i, %.lr.ph38.i77.i ]
-  %97 = getelementptr inbounds nuw i8, ptr %.058.i.i, i64 %indvars.iv.i78.i
+  %97 = getelementptr inbounds nuw i8, ptr %.059.i.i, i64 %indvars.iv.i78.i
   %98 = load i8, ptr %97, align 1, !tbaa !15
-  %99 = getelementptr inbounds nuw i8, ptr %.01957.i.i, i64 %indvars.iv.i78.i
+  %99 = getelementptr inbounds nuw i8, ptr %.01958.i.i, i64 %indvars.iv.i78.i
   %100 = load i8, ptr %99, align 1, !tbaa !15
   %101 = xor i8 %100, %98
   store i8 %101, ptr %99, align 1, !tbaa !15
@@ -6358,13 +6358,13 @@ switch.lookup:                                    ; preds = %5
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.wc_AesGetKeySize, i64 0, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep12 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.wc_AesGetKeySize.1, i64 0, i64 %10
-  %switch.load13 = load i32, ptr %switch.gep12, align 4
+  %switch.gep13 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.wc_AesGetKeySize.1, i64 0, i64 %10
+  %switch.load14 = load i32, ptr %switch.gep13, align 4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %switch.lookup
   %.sink = phi i32 [ %switch.load, %switch.lookup ], [ 0, %5 ]
-  %.09.ph = phi i32 [ %switch.load13, %switch.lookup ], [ -173, %5 ]
+  %.09.ph = phi i32 [ %switch.load14, %switch.lookup ], [ -173, %5 ]
   store i32 %.sink, ptr %1, align 4, !tbaa !11
   br label %11
 

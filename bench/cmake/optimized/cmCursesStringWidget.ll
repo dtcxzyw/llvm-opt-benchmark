@@ -237,8 +237,8 @@ define dso_local noundef zeroext i1 @_ZN20cmCursesStringWidget11HandleInputERiP1
   br i1 %31, label %.loopexit, label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %.critedge, %98
-  %.sink104 = phi ptr [ %102, %98 ], [ %21, %.critedge ]
-  %32 = call i32 @wgetch(ptr noundef %.sink104)
+  %.sink106 = phi ptr [ %102, %98 ], [ %21, %.critedge ]
+  %32 = call i32 @wgetch(ptr noundef %.sink106)
   store i32 %32, ptr %1, align 4, !tbaa !32
   br label %.backedge
 

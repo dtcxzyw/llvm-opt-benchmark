@@ -291,9 +291,9 @@ define hidden ptr @b2GetJointSim(ptr noundef readonly captures(none) %0, ptr nou
 16:                                               ; preds = %12, %6
   %.val11.sink.in = phi ptr [ %15, %12 ], [ %11, %6 ]
   %.val11.sink = load ptr, ptr %.val11.sink.in, align 8, !tbaa !14
-  %.sink13.in = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sink13 = load i32, ptr %.sink13.in, align 8, !tbaa !59
-  %17 = sext i32 %.sink13 to i64
+  %.sink14.in = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sink14 = load i32, ptr %.sink14.in, align 8, !tbaa !59
+  %17 = sext i32 %.sink14 to i64
   %18 = getelementptr inbounds %struct.b2JointSim, ptr %.val11.sink, i64 %17
   ret ptr %18
 }
@@ -340,9 +340,9 @@ define hidden ptr @b2GetJointSimCheckType(i64 %0, i32 noundef %1) local_unnamed_
 b2GetJointSim.exit:                               ; preds = %17, %23
   %.val11.sink.in.i = phi ptr [ %26, %23 ], [ %22, %17 ]
   %.val11.sink.i = load ptr, ptr %.val11.sink.in.i, align 8, !tbaa !14
-  %.sink13.in.i = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %.sink13.i = load i32, ptr %.sink13.in.i, align 8, !tbaa !59
-  %27 = sext i32 %.sink13.i to i64
+  %.sink14.in.i = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sink14.i = load i32, ptr %.sink14.in.i, align 8, !tbaa !59
+  %27 = sext i32 %.sink14.i to i64
   %28 = getelementptr inbounds %struct.b2JointSim, ptr %.val11.sink.i, i64 %27
   br label %29
 
@@ -2181,9 +2181,9 @@ define <2 x float> @b2Joint_GetLocalAnchorA(i64 %0) local_unnamed_addr #8 {
 b2GetJointSim.exit:                               ; preds = %12, %18
   %.val11.sink.in.i = phi ptr [ %21, %18 ], [ %17, %12 ]
   %.val11.sink.i = load ptr, ptr %.val11.sink.in.i, align 8, !tbaa !14
-  %.sink13.in.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sink13.i = load i32, ptr %.sink13.in.i, align 8, !tbaa !59
-  %22 = sext i32 %.sink13.i to i64
+  %.sink14.in.i = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink14.i = load i32, ptr %.sink14.in.i, align 8, !tbaa !59
+  %22 = sext i32 %.sink14.i to i64
   %23 = getelementptr inbounds %struct.b2JointSim, ptr %.val11.sink.i, i64 %22, i32 4
   %.sroa.04.0.copyload = load <2 x float>, ptr %23, align 4
   ret <2 x float> %.sroa.04.0.copyload
@@ -2225,9 +2225,9 @@ define <2 x float> @b2Joint_GetLocalAnchorB(i64 %0) local_unnamed_addr #8 {
 b2GetJointSim.exit:                               ; preds = %12, %18
   %.val11.sink.in.i = phi ptr [ %21, %18 ], [ %17, %12 ]
   %.val11.sink.i = load ptr, ptr %.val11.sink.in.i, align 8, !tbaa !14
-  %.sink13.in.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sink13.i = load i32, ptr %.sink13.in.i, align 8, !tbaa !59
-  %22 = sext i32 %.sink13.i to i64
+  %.sink14.in.i = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink14.i = load i32, ptr %.sink14.in.i, align 8, !tbaa !59
+  %22 = sext i32 %.sink14.i to i64
   %23 = getelementptr inbounds %struct.b2JointSim, ptr %.val11.sink.i, i64 %22, i32 5
   %.sroa.04.0.copyload = load <2 x float>, ptr %23, align 4
   ret <2 x float> %.sroa.04.0.copyload
@@ -2513,9 +2513,9 @@ define <2 x float> @b2Joint_GetConstraintForce(i64 %0) local_unnamed_addr #8 {
 b2GetJointSim.exit:                               ; preds = %12, %18
   %.val11.sink.in.i = phi ptr [ %21, %18 ], [ %17, %12 ]
   %.val11.sink.i = load ptr, ptr %.val11.sink.in.i, align 8, !tbaa !14
-  %.sink13.in.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sink13.i = load i32, ptr %.sink13.in.i, align 8, !tbaa !59
-  %22 = sext i32 %.sink13.i to i64
+  %.sink14.in.i = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink14.i = load i32, ptr %.sink14.in.i, align 8, !tbaa !59
+  %22 = sext i32 %.sink14.i to i64
   %23 = getelementptr inbounds %struct.b2JointSim, ptr %.val11.sink.i, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %25 = load i32, ptr %24, align 8, !tbaa !140
@@ -2612,9 +2612,9 @@ define float @b2Joint_GetConstraintTorque(i64 %0) local_unnamed_addr #0 {
 b2GetJointSim.exit:                               ; preds = %12, %18
   %.val11.sink.in.i = phi ptr [ %21, %18 ], [ %17, %12 ]
   %.val11.sink.i = load ptr, ptr %.val11.sink.in.i, align 8, !tbaa !14
-  %.sink13.in.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sink13.i = load i32, ptr %.sink13.in.i, align 8, !tbaa !59
-  %22 = sext i32 %.sink13.i to i64
+  %.sink14.in.i = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink14.i = load i32, ptr %.sink14.in.i, align 8, !tbaa !59
+  %22 = sext i32 %.sink14.i to i64
   %23 = getelementptr inbounds %struct.b2JointSim, ptr %.val11.sink.i, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %25 = load i32, ptr %24, align 8, !tbaa !140
@@ -2977,9 +2977,9 @@ define hidden void @b2DrawJoint(ptr noundef %0, ptr noundef %1, ptr noundef read
 b2GetJointSim.exit:                               ; preds = %24, %30
   %.val11.sink.in.i = phi ptr [ %33, %30 ], [ %29, %24 ]
   %.val11.sink.i = load ptr, ptr %.val11.sink.in.i, align 8, !tbaa !14
-  %.sink13.in.i = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sink13.i = load i32, ptr %.sink13.in.i, align 8, !tbaa !59
-  %34 = sext i32 %.sink13.i to i64
+  %.sink14.in.i = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sink14.i = load i32, ptr %.sink14.in.i, align 8, !tbaa !59
+  %34 = sext i32 %.sink14.i to i64
   %35 = getelementptr inbounds %struct.b2JointSim, ptr %.val11.sink.i, i64 %34
   %36 = tail call { <2 x float>, <2 x float> } @b2GetBodyTransformQuick(ptr noundef nonnull %1, ptr noundef nonnull %8) #10
   %37 = extractvalue { <2 x float>, <2 x float> } %36, 0
@@ -3010,8 +3010,8 @@ b2GetJointSim.exit:                               ; preds = %24, %30
   %53 = load <2 x float>, ptr %52, align 4
   %.sroa.3.8.vec.extract.i84 = extractelement <2 x float> %41, i64 0
   %.sroa.0.0.vec.extract.i85 = extractelement <2 x float> %53, i64 0
-  %foldExtExtBinop95 = fmul <2 x float> %41, %53
-  %54 = extractelement <2 x float> %foldExtExtBinop95, i64 0
+  %foldExtExtBinop96 = fmul <2 x float> %41, %53
+  %54 = extractelement <2 x float> %foldExtExtBinop96, i64 0
   %.sroa.3.12.vec.extract.i86 = extractelement <2 x float> %41, i64 1
   %.sroa.0.4.vec.extract.i87 = extractelement <2 x float> %53, i64 1
   %55 = fmul float %.sroa.3.12.vec.extract.i86, %.sroa.0.4.vec.extract.i87

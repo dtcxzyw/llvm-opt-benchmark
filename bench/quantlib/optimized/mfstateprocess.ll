@@ -1298,7 +1298,7 @@ cond.end79:                                       ; preds = %for.body, %cond.tru
   br i1 %exitcond.not, label %if.else108, label %for.body, !llvm.loop !71
 
 if.then89:                                        ; preds = %cond.end50.us, %for.cond.cleanup
-  %v.0.lcssa108 = phi double [ 0.000000e+00, %for.cond.cleanup ], [ %18, %cond.end50.us ]
+  %v.0.lcssa109 = phi double [ 0.000000e+00, %for.cond.cleanup ], [ %18, %cond.end50.us ]
   %vols_90 = getelementptr inbounds nuw i8, ptr %this, i64 168
   %23 = load ptr, ptr %vols_90, align 8, !tbaa !68
   %24 = load ptr, ptr %23, align 8, !tbaa !3
@@ -1318,11 +1318,11 @@ cond.end103:                                      ; preds = %if.then89, %cond.tr
   %cmp.i68 = fcmp olt double %cond104, %t
   %.sroa.speculated76 = select i1 %cmp.i68, double %t, double %cond104
   %sub106 = fsub double %add2597, %.sroa.speculated76
-  %28 = tail call double @llvm.fmuladd.f64(double %mul94, double %sub106, double %v.0.lcssa108)
+  %28 = tail call double @llvm.fmuladd.f64(double %mul94, double %sub106, double %v.0.lcssa109)
   br label %return
 
 if.else108:                                       ; preds = %cond.end79, %for.cond.cleanup
-  %v.0.lcssa112 = phi double [ 0.000000e+00, %for.cond.cleanup ], [ %22, %cond.end79 ]
+  %v.0.lcssa113 = phi double [ 0.000000e+00, %for.cond.cleanup ], [ %22, %cond.end79 ]
   %reversion_109 = getelementptr inbounds nuw i8, ptr %this, i64 144
   %29 = load double, ptr %reversion_109, align 8, !tbaa !30
   %mul110 = fmul double %29, 2.000000e+00
@@ -1351,7 +1351,7 @@ cond.end132:                                      ; preds = %if.else108, %cond.t
   %mul135 = fmul double %mul110, %.sroa.speculated
   %call136 = tail call double @exp(double noundef %mul135) #27, !tbaa !69
   %sub137 = fsub double %call122, %call136
-  %35 = tail call double @llvm.fmuladd.f64(double %mul117, double %sub137, double %v.0.lcssa112)
+  %35 = tail call double @llvm.fmuladd.f64(double %mul117, double %sub137, double %v.0.lcssa113)
   br label %return
 
 return:                                           ; preds = %cond.end103, %cond.end132, %cond.false, %if.then3, %entry

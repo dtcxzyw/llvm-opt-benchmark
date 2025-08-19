@@ -34301,14 +34301,14 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$polars_io..cloud..options..C
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  switch i64 %3, label %default.unreachable1.i.i [
+  switch i64 %3, label %default.unreachable [
     i64 0, label %8
     i64 1, label %9
     i64 2, label %10
     i64 3, label %7
   ]
 
-default.unreachable1.i.i:                         ; preds = %5
+default.unreachable:                              ; preds = %5
   unreachable
 
 7:                                                ; preds = %5
@@ -38434,14 +38434,14 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$polars_plan..dsl..options..N
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$polars_plan..plans..lit..DynListLiteralValue$GT$17hb166f1019453a19fE"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !462, !noundef !6
-  switch i64 %2, label %default.unreachable17 [
+  switch i64 %2, label %default.unreachable23 [
     i64 0, label %28
     i64 1, label %50
     i64 2, label %55
     i64 3, label %3
   ]
 
-default.unreachable17:                            ; preds = %1
+default.unreachable23:                            ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -38498,10 +38498,10 @@ default.unreachable17:                            ; preds = %1
   unreachable
 
 common.resume:                                    ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17h530161d4fba862f8E.exit8.i", %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h06d1e0c5ae4d67bfE.exit9.i.i", %15, %38
-  %.sink22 = phi i64 [ %.val1, %38 ], [ %7, %15 ], [ %.val1, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h06d1e0c5ae4d67bfE.exit9.i.i" ], [ %7, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17h530161d4fba862f8E.exit8.i" ]
+  %.sink28 = phi i64 [ %.val1, %38 ], [ %7, %15 ], [ %.val1, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h06d1e0c5ae4d67bfE.exit9.i.i" ], [ %7, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17h530161d4fba862f8E.exit8.i" ]
   %.sink = phi ptr [ %.val, %38 ], [ %5, %15 ], [ %.val, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h06d1e0c5ae4d67bfE.exit9.i.i" ], [ %5, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17h530161d4fba862f8E.exit8.i" ]
   %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %16, %15 ], [ %39, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h06d1e0c5ae4d67bfE.exit9.i.i" ], [ %16, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17h530161d4fba862f8E.exit8.i" ]
-  %26 = mul nuw nsw i64 %.sink22, 24
+  %26 = mul nuw nsw i64 %.sink28, 24
   tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.sink, i64 noundef %26, i64 noundef 8) #30
   resume { ptr, i32 } %common.resume.op
 

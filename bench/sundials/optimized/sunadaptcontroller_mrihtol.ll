@@ -204,15 +204,15 @@ define noundef i32 @SUNAdaptController_SetParams_MRIHTol(ptr noundef readonly ca
   %. = select i1 %5, double 2.000000e+01, double %1
   store double %., ptr %7, align 8, !tbaa !24
   %8 = fcmp ugt double %2, 0.000000e+00
-  %.sink17 = select i1 %8, double %2, double 1.000000e-05
+  %.sink19 = select i1 %8, double %2, double 1.000000e-05
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store double %.sink17, ptr %9, align 8, !tbaa !25
+  store double %.sink19, ptr %9, align 8, !tbaa !25
   %10 = fcmp ole double %3, 0.000000e+00
   %11 = fcmp ogt double %3, 1.000000e+00
   %or.cond = or i1 %10, %11
-  %.sink19 = select i1 %or.cond, double 1.000000e+00, double %3
+  %.sink21 = select i1 %or.cond, double 1.000000e+00, double %3
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store double %.sink19, ptr %12, align 8, !tbaa !26
+  store double %.sink21, ptr %12, align 8, !tbaa !26
   ret i32 0
 }
 

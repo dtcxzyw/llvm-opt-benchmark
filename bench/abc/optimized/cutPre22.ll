@@ -266,8 +266,8 @@ define internal fastcc void @Cut_CellSuppMin(ptr noundef %0) unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %28 = and i32 %.03239, 1
-  %.not63 = icmp eq i32 %28, 0
-  br i1 %.not63, label %select.unfold.preheader.i, label %Extra_TruthCopy.exit
+  %.not64 = icmp eq i32 %28, 0
+  br i1 %.not64, label %select.unfold.preheader.i, label %Extra_TruthCopy.exit
 
 select.unfold.preheader.i:                        ; preds = %._crit_edge
   %29 = icmp samesign ult i32 %24, 6
@@ -629,8 +629,8 @@ Cut_CManStart.exit:                               ; preds = %34
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %108 = and i32 %.03239.i, 1
-  %.not63.i = icmp eq i32 %108, 0
-  br i1 %.not63.i, label %select.unfold.preheader.i.i, label %Extra_TruthCopy.exit.i
+  %.not64.i = icmp eq i32 %108, 0
+  br i1 %.not64.i, label %select.unfold.preheader.i.i, label %Extra_TruthCopy.exit.i
 
 select.unfold.preheader.i.i:                      ; preds = %._crit_edge.i
   %109 = icmp samesign ult i32 %104, 6
@@ -1185,8 +1185,8 @@ Cut_CellCrossBar.exit.us:                         ; preds = %348, %332, %316, %3
 
 ._crit_edge.i272.us:                              ; preds = %.lr.ph.i266.us
   %392 = and i32 %.03239.i269.us, 1
-  %.not63.i273.us = icmp eq i32 %392, 0
-  br i1 %.not63.i273.us, label %select.unfold.preheader.i.i274.us, label %Extra_TruthCopy.exit.i265.us
+  %.not64.i273.us = icmp eq i32 %392, 0
+  br i1 %.not64.i273.us, label %select.unfold.preheader.i.i274.us, label %Extra_TruthCopy.exit.i265.us
 
 select.unfold.preheader.i.i274.us:                ; preds = %._crit_edge.i272.us
   %393 = icmp samesign ult i32 %388, 6
@@ -1380,8 +1380,8 @@ Extra_TruthIsEqual.exit.thread.i290.us:           ; preds = %444, %435
   %487 = icmp eq i16 %473, %486
   %488 = sub nsw i32 %.1218.lcssa.us, %.10350.us
   %489 = sext i32 %488 to i64
-  %.482 = select i1 %487, ptr %58, ptr %57
-  %490 = getelementptr inbounds [10 x i32], ptr %.482, i64 0, i64 %489
+  %.499 = select i1 %487, ptr %58, ptr %57
+  %490 = getelementptr inbounds [10 x i32], ptr %.499, i64 0, i64 %489
   %491 = load i32, ptr %490, align 4, !tbaa !13
   %492 = add nsw i32 %491, 1
   store i32 %492, ptr %490, align 4, !tbaa !13
@@ -2146,8 +2146,8 @@ Abc_Clock.exit:                                   ; preds = %0, %8
 
 ._crit_edge:                                      ; preds = %.split92.us, %15
   %indvars.iv.next135 = add nsw i64 %indvars.iv134, -1
-  %.not157 = icmp eq i64 %indvars.iv134, 0
-  br i1 %.not157, label %77, label %15, !llvm.loop !96
+  %.not161 = icmp eq i64 %indvars.iv134, 0
+  br i1 %.not161, label %77, label %15, !llvm.loop !96
 
 77:                                               ; preds = %._crit_edge
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 5176

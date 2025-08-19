@@ -5,36 +5,36 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
 define hidden noalias noundef ptr @lh_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %calloc22 = tail call dereferenceable_or_null(48) ptr @calloc(i64 1, i64 48)
-  %3 = icmp eq ptr %calloc22, null
+  %calloc24 = tail call dereferenceable_or_null(48) ptr @calloc(i64 1, i64 48)
+  %3 = icmp eq ptr %calloc24, null
   br i1 %3, label %14, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %calloc22, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %calloc24, i64 16
   store i64 16, ptr %5, align 8, !tbaa !6
   %calloc = tail call dereferenceable_or_null(128) ptr @calloc(i64 1, i64 128)
-  %6 = getelementptr inbounds nuw i8, ptr %calloc22, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %calloc24, i64 8
   store ptr %calloc, ptr %6, align 8, !tbaa !14
   %7 = icmp eq ptr %calloc, null
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %4
-  tail call void @free(ptr noundef nonnull %calloc22) #9
+  tail call void @free(ptr noundef nonnull %calloc24) #9
   br label %14
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw i8, ptr %calloc22, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %calloc24, i64 32
   %11 = icmp eq ptr %1, null
   %spec.select = select i1 %11, ptr @strcmp, ptr %1
   store ptr %spec.select, ptr %10, align 8, !tbaa !15
-  %12 = getelementptr inbounds nuw i8, ptr %calloc22, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %calloc24, i64 40
   %13 = icmp eq ptr %0, null
   %storemerge21 = select i1 %13, ptr @lh_strhash, ptr %0
   store ptr %storemerge21, ptr %12, align 8, !tbaa !16
   br label %14
 
 14:                                               ; preds = %2, %9, %8
-  %.0 = phi ptr [ null, %8 ], [ %calloc22, %9 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %8 ], [ %calloc24, %9 ], [ null, %2 ]
   ret ptr %.0
 }
 

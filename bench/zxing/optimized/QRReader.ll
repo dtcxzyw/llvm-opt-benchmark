@@ -165,9 +165,9 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
 32:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN5ZXing6QRCode12DetectPureQRERKNS_9BitMatrixE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DetectorResult") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %22) #16
-          to label %34 unwind label %.thread61
+          to label %34 unwind label %.thread75
 
-.thread61:                                        ; preds = %32
+.thread75:                                        ; preds = %32
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -207,20 +207,20 @@ define void @_ZNK5ZXing6QRCode6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_un
 
 .thread:                                          ; preds = %25
   %52 = and i32 %28, 65536
-  %.not68 = icmp eq i32 %52, 0
-  br i1 %.not68, label %.thread54, label %.thread51
+  %.not82 = icmp eq i32 %52, 0
+  br i1 %.not82, label %.thread68, label %.thread65
 
-.thread51:                                        ; preds = %.thread
+.thread65:                                        ; preds = %.thread
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %55
 
-55:                                               ; preds = %34, %.thread51
-  %56 = phi ptr [ %54, %.thread51 ], [ %51, %34 ]
-  %57 = phi ptr [ %53, %.thread51 ], [ %50, %34 ]
-  %58 = phi ptr [ null, %.thread51 ], [ %44, %34 ]
-  %59 = phi ptr [ null, %.thread51 ], [ %42, %34 ]
-  %60 = phi ptr [ null, %.thread51 ], [ %40, %34 ]
+55:                                               ; preds = %34, %.thread65
+  %56 = phi ptr [ %54, %.thread65 ], [ %51, %34 ]
+  %57 = phi ptr [ %53, %.thread65 ], [ %50, %34 ]
+  %58 = phi ptr [ null, %.thread65 ], [ %44, %34 ]
+  %59 = phi ptr [ null, %.thread65 ], [ %42, %34 ]
+  %60 = phi ptr [ null, %.thread65 ], [ %40, %34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN5ZXing6QRCode13DetectPureMQRERKNS_9BitMatrixE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DetectorResult") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %22) #16
           to label %61 unwind label %84
@@ -275,7 +275,7 @@ _ZN5ZXing14DetectorResultD2Ev.exit18:             ; preds = %_ZNSt6vectorIhSaIhE
   %.pre41 = load i32, ptr %.phi.trans.insert40, align 4, !tbaa !12
   br label %86
 
-82:                                               ; preds = %.thread59
+82:                                               ; preds = %.thread73
   %83 = landingpad { ptr, i32 }
           cleanup
   br label %155
@@ -298,25 +298,25 @@ _ZN5ZXing14DetectorResultD2Ev.exit18:             ; preds = %_ZNSt6vectorIhSaIhE
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.not36 = icmp eq ptr %89, %88
-  %or.cond67 = select i1 %spec.select.i19, i1 %.not36, i1 false
-  br i1 %or.cond67, label %99, label %128
+  %or.cond81 = select i1 %spec.select.i19, i1 %.not36, i1 false
+  br i1 %or.cond81, label %99, label %128
 
-.thread54:                                        ; preds = %.thread
+.thread68:                                        ; preds = %.thread
   %96 = and i32 %28, 131072
-  %.not69 = icmp eq i32 %96, 0
-  br i1 %.not69, label %.thread59, label %.thread56
+  %.not83 = icmp eq i32 %96, 0
+  br i1 %.not83, label %.thread73, label %.thread70
 
-.thread56:                                        ; preds = %.thread54
+.thread70:                                        ; preds = %.thread68
   %97 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %98 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %99
 
-99:                                               ; preds = %86, %.thread56
-  %100 = phi ptr [ %98, %.thread56 ], [ %95, %86 ]
-  %101 = phi ptr [ %97, %.thread56 ], [ %94, %86 ]
-  %102 = phi ptr [ null, %.thread56 ], [ %87, %86 ]
-  %103 = phi ptr [ null, %.thread56 ], [ %88, %86 ]
-  %104 = phi ptr [ null, %.thread56 ], [ %89, %86 ]
+99:                                               ; preds = %86, %.thread70
+  %100 = phi ptr [ %98, %.thread70 ], [ %95, %86 ]
+  %101 = phi ptr [ %97, %.thread70 ], [ %94, %86 ]
+  %102 = phi ptr [ null, %.thread70 ], [ %87, %86 ]
+  %103 = phi ptr [ null, %.thread70 ], [ %88, %86 ]
+  %104 = phi ptr [ null, %.thread70 ], [ %89, %86 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN5ZXing6QRCode14DetectPureRMQRERKNS_9BitMatrixE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DetectorResult") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %22) #16
           to label %105 unwind label %126
@@ -381,10 +381,10 @@ _ZN5ZXing14DetectorResultD2Ev.exit21:             ; preds = %_ZNSt6vectorIhSaIhE
   %130 = phi ptr [ %89, %86 ], [ %.pre43, %_ZN5ZXing14DetectorResultD2Ev.exit21 ]
   %131 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not37 = icmp eq ptr %130, %129
-  br i1 %.not37, label %.thread59, label %133
+  br i1 %.not37, label %.thread73, label %133
 
-.thread59:                                        ; preds = %.thread54, %128
-  %132 = phi ptr [ %130, %128 ], [ null, %.thread54 ]
+.thread73:                                        ; preds = %.thread68, %128
+  %132 = phi ptr [ %130, %128 ], [ null, %.thread68 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, i8 0, i64 216, i1 false)
   invoke void @_ZN5ZXing6ResultC2Ev(ptr noundef nonnull align 8 dereferenceable(211) %0) #16
           to label %147 unwind label %82
@@ -428,8 +428,8 @@ _ZN5ZXing14DetectorResultD2Ev.exit21:             ; preds = %_ZNSt6vectorIhSaIhE
   %.pre47 = load ptr, ptr %131, align 8, !tbaa !15
   br label %155
 
-147:                                              ; preds = %.thread59, %141
-  %148 = phi ptr [ %132, %.thread59 ], [ %.pre48, %141 ]
+147:                                              ; preds = %.thread73, %141
+  %148 = phi ptr [ %132, %.thread73 ], [ %.pre48, %141 ]
   %.not.i.i.i.i.i22 = icmp eq ptr %148, null
   br i1 %.not.i.i.i.i.i22, label %_ZN5ZXing14DetectorResultD2Ev.exit23, label %149
 
@@ -461,8 +461,8 @@ _ZN5ZXing14DetectorResultD2Ev.exit23:             ; preds = %147, %149
   call void @_ZdlPvm(ptr noundef nonnull %156, i64 noundef %162) #18
   br label %_ZN5ZXing14DetectorResultD2Ev.exit25
 
-_ZN5ZXing14DetectorResultD2Ev.exit25:             ; preds = %.thread61, %155, %157
-  %.pn.pn64 = phi { ptr, i32 } [ %33, %.thread61 ], [ %.pn.pn, %155 ], [ %.pn.pn, %157 ]
+_ZN5ZXing14DetectorResultD2Ev.exit25:             ; preds = %.thread75, %155, %157
+  %.pn.pn78 = phi { ptr, i32 } [ %33, %.thread75 ], [ %.pn.pn, %155 ], [ %.pn.pn, %157 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %164
 
@@ -470,7 +470,7 @@ _ZN5ZXing14DetectorResultD2Ev.exit25:             ; preds = %.thread61, %155, %1
   ret void
 
 164:                                              ; preds = %_ZN5ZXing14DetectorResultD2Ev.exit25, %19
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn64, %_ZN5ZXing14DetectorResultD2Ev.exit25 ], [ %20, %19 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn78, %_ZN5ZXing14DetectorResultD2Ev.exit25 ], [ %20, %19 ]
   resume { ptr, i32 } %.pn.pn.pn
 }
 

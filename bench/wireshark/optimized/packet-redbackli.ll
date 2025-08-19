@@ -270,8 +270,8 @@ define internal noundef zeroext i1 @redbackli_dissect_heur(ptr noundef %0, ptr n
   br i1 %23, label %.thread, label %.preheader, !llvm.loop !8
 
 .thread:                                          ; preds = %18, %15
-  %.145 = phi i32 [ %.041, %15 ], [ %.1, %18 ]
-  %24 = and i32 %.145, 14
+  %.146 = phi i32 [ %.041, %15 ], [ %.1, %18 ]
+  %24 = and i32 %.146, 14
   %or.cond37.not = icmp eq i32 %24, 14
   br i1 %or.cond37.not, label %25, label %.loopexit
 

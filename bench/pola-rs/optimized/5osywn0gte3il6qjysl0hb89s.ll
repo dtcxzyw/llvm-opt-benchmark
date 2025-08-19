@@ -4422,13 +4422,13 @@ default.unreachable:                              ; preds = %"_ZN4core6result19R
   br label %.body.i.i.i
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc86c8b8032377ef8E.exit.i.i.i.i.i.i": ; preds = %70, %65, %54
-  %.sink9.i.i.i.i.i.i.i.i = phi i64 [ 1, %70 ], [ 2, %65 ], [ 2, %54 ]
-  %.sink7.i.i.i.i.i.i.i.i = phi ptr [ %42, %70 ], [ %39, %65 ], [ %36, %54 ]
+  %.sink11.i.i.i.i.i.i.i.i = phi i64 [ 1, %70 ], [ 2, %65 ], [ 2, %54 ]
+  %.sink9.i.i.i.i.i.i.i.i = phi ptr [ %42, %70 ], [ %39, %65 ], [ %36, %54 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1269
-  %76 = getelementptr inbounds nuw i32, ptr %.sink7.i.i.i.i.i.i.i.i, i64 %.sink9.i.i.i.i.i.i.i.i
-  store ptr %.sink7.i.i.i.i.i.i.i.i, ptr %6, align 8, !noalias !1269
-  store ptr %.sink7.i.i.i.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !noalias !1269
-  store i64 %.sink9.i.i.i.i.i.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !noalias !1269
+  %76 = getelementptr inbounds nuw i32, ptr %.sink9.i.i.i.i.i.i.i.i, i64 %.sink11.i.i.i.i.i.i.i.i
+  store ptr %.sink9.i.i.i.i.i.i.i.i, ptr %6, align 8, !noalias !1269
+  store ptr %.sink9.i.i.i.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !noalias !1269
+  store i64 %.sink11.i.i.i.i.i.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !noalias !1269
   store ptr %76, ptr %.sroa.6.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !noalias !1269
   invoke fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h5f40dd7ba3fffb46E"(ptr nonnull align 8 dereferenceable(40) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
           to label %.noexc33.i.i.i unwind label %.loopexit.i.i.i, !noalias !1247
@@ -34510,8 +34510,8 @@ define internal fastcc void @_ZN4core4hash6Hasher9write_str17hf354e73c6a41e22eE(
   br label %55
 
 "_ZN68_$LT$foldhash..quality..FoldHasher$u20$as$u20$core..hash..Hasher$GT$5write17h3c423ba33757040aE.exit": ; preds = %17, %27, %55
-  %.sink3 = phi i64 [ %26, %17 ], [ %30, %27 ], [ %61, %55 ]
-  store i64 %.sink3, ptr %4, align 16, !alias.scope !8842, !noalias !8843
+  %.sink4 = phi i64 [ %26, %17 ], [ %30, %27 ], [ %61, %55 ]
+  store i64 %.sink4, ptr %4, align 16, !alias.scope !8842, !noalias !8843
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %67 = load i8, ptr %66, align 8, !alias.scope !8844, !noundef !3
   %68 = icmp ugt i8 %67, 120
@@ -34530,7 +34530,7 @@ define internal fastcc void @_ZN4core4hash6Hasher9write_str17hf354e73c6a41e22eE(
   %77 = trunc i128 %76 to i64
   %78 = lshr i128 %76, 64
   %79 = trunc nuw i128 %78 to i64
-  %80 = xor i64 %.sink3, %77
+  %80 = xor i64 %.sink4, %77
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load i64, ptr %81, align 8, !alias.scope !8844, !noundef !3
   %83 = xor i64 %82, %79
@@ -35336,7 +35336,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !6464, !noundef !3
-  switch i8 %23, label %default.unreachable68 [
+  switch i8 %23, label %default.unreachable73 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -35378,7 +35378,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %248
   ]
 
-default.unreachable68:                            ; preds = %2
+default.unreachable73:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2
@@ -36392,8 +36392,8 @@ define internal fastcc void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$11inser
   br label %60
 
 71:                                               ; preds = %60, %30, %34
-  %.sink3.i.i = phi i64 [ %66, %60 ], [ %33, %30 ], [ %35, %34 ]
-  %72 = xor i64 %.sink3.i.i, 255
+  %.sink4.i.i = phi i64 [ %66, %60 ], [ %33, %30 ], [ %35, %34 ]
+  %72 = xor i64 %.sink4.i.i, 255
   %73 = zext i64 %72 to i128
   %74 = zext i64 %11 to i128
   %75 = mul nuw i128 %73, %74
@@ -36881,8 +36881,8 @@ define hidden noundef align 8 dereferenceable_or_null(72) ptr @"_ZN8indexmap3map
   br label %59
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17h4aeab9c178936d42E.exit.i": ; preds = %59, %33, %29
-  %.sink3.i.i.i = phi i64 [ %32, %29 ], [ %34, %33 ], [ %65, %59 ]
-  %70 = xor i64 %.sink3.i.i.i, 255
+  %.sink4.i.i.i = phi i64 [ %32, %29 ], [ %34, %33 ], [ %65, %59 ]
+  %70 = xor i64 %.sink4.i.i.i, 255
   %71 = zext i64 %70 to i128
   %72 = zext i64 %18 to i128
   %73 = mul nuw i128 %71, %72
@@ -37099,8 +37099,8 @@ define internal fastcc noundef i64 @_ZN9hashbrown3map9make_hash17hbdd3d6a97a6689
   br label %51
 
 "_ZN68_$LT$foldhash..quality..FoldHasher$u20$as$u20$core..hash..Hasher$GT$6finish17hcb2b74a370351cc7E.exit": ; preds = %51, %25, %21
-  %.sink3.i = phi i64 [ %24, %21 ], [ %26, %25 ], [ %57, %51 ]
-  %62 = xor i64 %.sink3.i, 255
+  %.sink4.i = phi i64 [ %24, %21 ], [ %26, %25 ], [ %57, %51 ]
+  %62 = xor i64 %.sink4.i, 255
   %63 = zext i64 %62 to i128
   %64 = zext i64 %2 to i128
   %65 = mul nuw i128 %63, %64
@@ -38287,8 +38287,8 @@ define noundef zeroext i1 @_ZN14polars_parquet7parquet6schema5types12parquet_typ
   br label %132
 
 _ZN9hashbrown3map9make_hash17h4bb2d79dbd302989E.exit.i: ; preds = %106, %102, %132
-  %.sink3.i.i.i = phi i64 [ %138, %132 ], [ %105, %102 ], [ %107, %106 ]
-  %143 = xor i64 %.sink3.i.i.i, 255
+  %.sink4.i.i.i = phi i64 [ %138, %132 ], [ %105, %102 ], [ %107, %106 ]
+  %143 = xor i64 %.sink4.i.i.i, 255
   %144 = zext i64 %143 to i128
   %145 = zext i64 %91 to i128
   %146 = mul nuw i128 %144, %145
@@ -38566,8 +38566,8 @@ _ZN9hashbrown3map9make_hash17h4bb2d79dbd302989E.exit.i: ; preds = %106, %102, %1
   br label %281
 
 _ZN9hashbrown3map9make_hash17hb5d1b9956b3a5d9aE.exit.i: ; preds = %255, %251, %281
-  %.sink3.i.i.i30 = phi i64 [ %287, %281 ], [ %254, %251 ], [ %256, %255 ]
-  %292 = xor i64 %.sink3.i.i.i30, 255
+  %.sink4.i.i.i30 = phi i64 [ %287, %281 ], [ %254, %251 ], [ %256, %255 ]
+  %292 = xor i64 %.sink4.i.i.i30, 255
   %293 = zext i64 %292 to i128
   %294 = zext i64 %240 to i128
   %295 = mul nuw i128 %293, %294
@@ -39399,14 +39399,14 @@ _ZN14polars_parquet7parquet5write10statistics11reduce_vec817hba457e066f6f0054E.e
   br i1 %180, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4867ce066ddad126E.exit", label %112
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4867ce066ddad126E.exit": ; preds = %172, %"_ZN100_$LT$polars_parquet..parquet..statistics..binary..BinaryStatistics$u20$as$u20$core..clone..Clone$GT$5clone17h571d7d1a51ae574bE.exit"
-  %.sink76 = phi i64 [ %69, %"_ZN100_$LT$polars_parquet..parquet..statistics..binary..BinaryStatistics$u20$as$u20$core..clone..Clone$GT$5clone17h571d7d1a51ae574bE.exit" ], [ %.sroa.07.0.i.i.i.i.i, %172 ]
+  %.sink79 = phi i64 [ %69, %"_ZN100_$LT$polars_parquet..parquet..statistics..binary..BinaryStatistics$u20$as$u20$core..clone..Clone$GT$5clone17h571d7d1a51ae574bE.exit" ], [ %.sroa.07.0.i.i.i.i.i, %172 ]
   %.sroa.5.0.i.sink = phi i64 [ %.sroa.5.0.i, %"_ZN100_$LT$polars_parquet..parquet..statistics..binary..BinaryStatistics$u20$as$u20$core..clone..Clone$GT$5clone17h571d7d1a51ae574bE.exit" ], [ %.sroa.5.0.i.i.i.i.i, %172 ]
   %.sink = phi i64 [ %73, %"_ZN100_$LT$polars_parquet..parquet..statistics..binary..BinaryStatistics$u20$as$u20$core..clone..Clone$GT$5clone17h571d7d1a51ae574bE.exit" ], [ 0, %172 ]
   %.sroa.6.sink = phi ptr [ %.sroa.6, %"_ZN100_$LT$polars_parquet..parquet..statistics..binary..BinaryStatistics$u20$as$u20$core..clone..Clone$GT$5clone17h571d7d1a51ae574bE.exit" ], [ %.sroa.10, %172 ]
   %.sroa.7.sink = phi ptr [ %.sroa.7, %"_ZN100_$LT$polars_parquet..parquet..statistics..binary..BinaryStatistics$u20$as$u20$core..clone..Clone$GT$5clone17h571d7d1a51ae574bE.exit" ], [ %.sroa.11, %172 ]
   %.sroa.03.0.i.sink = phi i64 [ %.sroa.03.0.i, %"_ZN100_$LT$polars_parquet..parquet..statistics..binary..BinaryStatistics$u20$as$u20$core..clone..Clone$GT$5clone17h571d7d1a51ae574bE.exit" ], [ %.sroa.14.0.copyload55, %172 ]
   %.sroa.9.sink = phi ptr [ %.sroa.9, %"_ZN100_$LT$polars_parquet..parquet..statistics..binary..BinaryStatistics$u20$as$u20$core..clone..Clone$GT$5clone17h571d7d1a51ae574bE.exit" ], [ %.sroa.15, %172 ]
-  store i64 %.sink76, ptr %0, align 8
+  store i64 %.sink79, ptr %0, align 8
   %.sroa.3.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.i.sink, ptr %.sroa.3.0..sroa_idx8, align 8
   %.sroa.410.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -39979,14 +39979,14 @@ _ZN14polars_parquet7parquet5write10statistics11reduce_vec817hba457e066f6f0054E.e
   br i1 %180, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hda086364e22c0a78E.exit", label %112
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hda086364e22c0a78E.exit": ; preds = %172, %"_ZN112_$LT$polars_parquet..parquet..statistics..fixed_len_binary..FixedLenStatistics$u20$as$u20$core..clone..Clone$GT$5clone17h13c14c0ec98d2824E.exit"
-  %.sink76 = phi i64 [ %69, %"_ZN112_$LT$polars_parquet..parquet..statistics..fixed_len_binary..FixedLenStatistics$u20$as$u20$core..clone..Clone$GT$5clone17h13c14c0ec98d2824E.exit" ], [ %.sroa.07.0.i.i.i.i.i, %172 ]
+  %.sink79 = phi i64 [ %69, %"_ZN112_$LT$polars_parquet..parquet..statistics..fixed_len_binary..FixedLenStatistics$u20$as$u20$core..clone..Clone$GT$5clone17h13c14c0ec98d2824E.exit" ], [ %.sroa.07.0.i.i.i.i.i, %172 ]
   %.sroa.5.0.i.sink = phi i64 [ %.sroa.5.0.i, %"_ZN112_$LT$polars_parquet..parquet..statistics..fixed_len_binary..FixedLenStatistics$u20$as$u20$core..clone..Clone$GT$5clone17h13c14c0ec98d2824E.exit" ], [ %.sroa.5.0.i.i.i.i.i, %172 ]
   %.sink = phi i64 [ %73, %"_ZN112_$LT$polars_parquet..parquet..statistics..fixed_len_binary..FixedLenStatistics$u20$as$u20$core..clone..Clone$GT$5clone17h13c14c0ec98d2824E.exit" ], [ 0, %172 ]
   %.sroa.6.sink = phi ptr [ %.sroa.6, %"_ZN112_$LT$polars_parquet..parquet..statistics..fixed_len_binary..FixedLenStatistics$u20$as$u20$core..clone..Clone$GT$5clone17h13c14c0ec98d2824E.exit" ], [ %.sroa.10, %172 ]
   %.sroa.7.sink = phi ptr [ %.sroa.7, %"_ZN112_$LT$polars_parquet..parquet..statistics..fixed_len_binary..FixedLenStatistics$u20$as$u20$core..clone..Clone$GT$5clone17h13c14c0ec98d2824E.exit" ], [ %.sroa.11, %172 ]
   %.sroa.03.0.i.sink = phi i64 [ %.sroa.03.0.i, %"_ZN112_$LT$polars_parquet..parquet..statistics..fixed_len_binary..FixedLenStatistics$u20$as$u20$core..clone..Clone$GT$5clone17h13c14c0ec98d2824E.exit" ], [ %.sroa.14.0.copyload55, %172 ]
   %.sroa.9.sink = phi ptr [ %.sroa.9, %"_ZN112_$LT$polars_parquet..parquet..statistics..fixed_len_binary..FixedLenStatistics$u20$as$u20$core..clone..Clone$GT$5clone17h13c14c0ec98d2824E.exit" ], [ %.sroa.15, %172 ]
-  store i64 %.sink76, ptr %0, align 8
+  store i64 %.sink79, ptr %0, align 8
   %.sroa.3.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.i.sink, ptr %.sroa.3.0..sroa_idx8, align 8
   %.sroa.410.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -40178,7 +40178,7 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics14reduce_boolea
   %.sroa.03.0.sink = phi i64 [ %.sroa.03.0, %40 ], [ %.sroa.07.0.i6.i.i.i.i, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h437a7dc928f0243bE.exit.i.i" ]
   %.sroa.5.0.sink = phi i64 [ %.sroa.5.0, %40 ], [ %.sroa.5.0.i.i.i.i.i, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h437a7dc928f0243bE.exit.i.i" ]
   %.sroa.04.0.sink = phi i64 [ %.sroa.04.0, %40 ], [ 0, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h437a7dc928f0243bE.exit.i.i" ]
-  %.sink21 = phi i8 [ %42, %40 ], [ %.sroa.07.0.i4.i.i.i.i, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h437a7dc928f0243bE.exit.i.i" ]
+  %.sink24 = phi i8 [ %42, %40 ], [ %.sroa.07.0.i4.i.i.i.i, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h437a7dc928f0243bE.exit.i.i" ]
   %.sink = phi i8 [ %44, %40 ], [ %.sroa.07.0.i.i.i.i.i, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h437a7dc928f0243bE.exit.i.i" ]
   store i64 %.sroa.03.0.sink, ptr %0, align 8, !alias.scope !9845
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40188,7 +40188,7 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics14reduce_boolea
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.55.0, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !9845
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.sink21, ptr %.sroa.8.0..sroa_idx, align 8, !alias.scope !9845
+  store i8 %.sink24, ptr %.sroa.8.0..sroa_idx, align 8, !alias.scope !9845
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 33
   store i8 %.sink, ptr %.sroa.10.0..sroa_idx, align 1, !alias.scope !9845
   ret void
@@ -40498,18 +40498,18 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics16reduce_primit
   resume { ptr, i32 } %113
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0b54e1d4fd9a682eE.exit": ; preds = %120, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6e58aafa0bd9373bE.exit"
-  %.sink24 = phi i64 [ %54, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6e58aafa0bd9373bE.exit" ], [ %.sroa.07.0.i5.i.i.i.i, %120 ]
+  %.sink27 = phi i64 [ %54, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6e58aafa0bd9373bE.exit" ], [ %.sroa.07.0.i5.i.i.i.i, %120 ]
   %.sroa.5.0.i.sink = phi i64 [ %.sroa.5.0.i, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6e58aafa0bd9373bE.exit" ], [ %.sroa.5.0.i6.i.i.i.i, %120 ]
-  %.sink23 = phi i64 [ %58, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6e58aafa0bd9373bE.exit" ], [ 0, %120 ]
-  %.sink22 = phi i32 [ %62, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6e58aafa0bd9373bE.exit" ], [ %.sroa.07.0.i.i.i.i.i, %120 ]
+  %.sink26 = phi i64 [ %58, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6e58aafa0bd9373bE.exit" ], [ 0, %120 ]
+  %.sink25 = phi i32 [ %62, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6e58aafa0bd9373bE.exit" ], [ %.sroa.07.0.i.i.i.i.i, %120 ]
   %.sroa.54.0.i.sink = phi i32 [ %.sroa.54.0.i, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6e58aafa0bd9373bE.exit" ], [ %.sroa.5.0.i.i.i.i.i, %120 ]
   %.sink = phi i32 [ %67, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6e58aafa0bd9373bE.exit" ], [ %.sroa.07.0.i2.i.i.i.i, %120 ]
   %.sroa.56.0.i.sink = phi i32 [ %.sroa.56.0.i, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6e58aafa0bd9373bE.exit" ], [ %.sroa.5.0.i3.i.i.i.i, %120 ]
-  store i64 %.sink24, ptr %0, align 8, !alias.scope !9887
+  store i64 %.sink27, ptr %0, align 8, !alias.scope !9887
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.i.sink, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !9887
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink23, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !9887
+  store i64 %.sink26, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !9887
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.52.0.i, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !9887
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -40533,7 +40533,7 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics16reduce_primit
   %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.19.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.53.i.i, i64 23, i1 false)
   %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %.sink22, ptr %.sroa.20.0..sroa_idx, align 8, !alias.scope !9887
+  store i32 %.sink25, ptr %.sroa.20.0..sroa_idx, align 8, !alias.scope !9887
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 %.sroa.54.0.i.sink, ptr %.sroa.22.0..sroa_idx, align 4, !alias.scope !9887
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -40853,22 +40853,22 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics16reduce_primit
   resume { ptr, i32 } %115
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h64c1d087bd2f0ba6E.exit": ; preds = %122, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf4a8a915d7bc2afdE.exit"
-  %.sink23 = phi i64 [ %54, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf4a8a915d7bc2afdE.exit" ], [ %.sroa.07.0.i6.i.i.i.i, %122 ]
+  %.sink26 = phi i64 [ %54, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf4a8a915d7bc2afdE.exit" ], [ %.sroa.07.0.i6.i.i.i.i, %122 ]
   %.sroa.5.0.i.sink = phi i64 [ %.sroa.5.0.i, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf4a8a915d7bc2afdE.exit" ], [ %.sroa.5.0.i7.i.i.i.i, %122 ]
-  %.sink22 = phi i64 [ %58, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf4a8a915d7bc2afdE.exit" ], [ 0, %122 ]
-  %.sink21 = phi i64 [ %62, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf4a8a915d7bc2afdE.exit" ], [ %.sroa.07.0.i.i.i.i.i, %122 ]
+  %.sink25 = phi i64 [ %58, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf4a8a915d7bc2afdE.exit" ], [ 0, %122 ]
+  %.sink24 = phi i64 [ %62, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf4a8a915d7bc2afdE.exit" ], [ %.sroa.07.0.i.i.i.i.i, %122 ]
   %.sroa.54.0.i.sink = phi double [ %.sroa.54.0.i, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf4a8a915d7bc2afdE.exit" ], [ %.sroa.5.0.i.i.i.i.i, %122 ]
   %.sink = phi i64 [ %67, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf4a8a915d7bc2afdE.exit" ], [ %.sroa.07.0.i2.i.i.i.i, %122 ]
   %.sroa.56.0.i.sink = phi double [ %.sroa.56.0.i, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf4a8a915d7bc2afdE.exit" ], [ %.sroa.5.0.i3.i.i.i.i, %122 ]
-  store i64 %.sink23, ptr %0, align 8, !alias.scope !9946
+  store i64 %.sink26, ptr %0, align 8, !alias.scope !9946
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.i.sink, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !9946
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink22, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !9946
+  store i64 %.sink25, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !9946
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.52.0.i, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !9946
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sink21, ptr %.sroa.9.0..sroa_idx, align 8, !alias.scope !9946
+  store i64 %.sink24, ptr %.sroa.9.0..sroa_idx, align 8, !alias.scope !9946
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %.sroa.54.0.i.sink, ptr %.sroa.11.0..sroa_idx, align 8, !alias.scope !9946
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -41206,22 +41206,22 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics16reduce_primit
   resume { ptr, i32 } %113
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hbf4b5b870fdcd321E.exit": ; preds = %120, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3d766390e1cf1c47E.exit"
-  %.sink23 = phi i64 [ %54, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3d766390e1cf1c47E.exit" ], [ %.sroa.07.0.i6.i.i.i.i, %120 ]
+  %.sink26 = phi i64 [ %54, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3d766390e1cf1c47E.exit" ], [ %.sroa.07.0.i6.i.i.i.i, %120 ]
   %.sroa.5.0.i.sink = phi i64 [ %.sroa.5.0.i, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3d766390e1cf1c47E.exit" ], [ %.sroa.5.0.i7.i.i.i.i, %120 ]
-  %.sink22 = phi i64 [ %58, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3d766390e1cf1c47E.exit" ], [ 0, %120 ]
-  %.sink21 = phi i64 [ %62, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3d766390e1cf1c47E.exit" ], [ %.sroa.07.0.i.i.i.i.i, %120 ]
+  %.sink25 = phi i64 [ %58, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3d766390e1cf1c47E.exit" ], [ 0, %120 ]
+  %.sink24 = phi i64 [ %62, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3d766390e1cf1c47E.exit" ], [ %.sroa.07.0.i.i.i.i.i, %120 ]
   %.sroa.54.0.i.sink = phi i64 [ %.sroa.54.0.i, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3d766390e1cf1c47E.exit" ], [ %.sroa.5.0.i.i.i.i.i, %120 ]
   %.sink = phi i64 [ %67, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3d766390e1cf1c47E.exit" ], [ %.sroa.07.0.i2.i.i.i.i, %120 ]
   %.sroa.56.0.i.sink = phi i64 [ %.sroa.56.0.i, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3d766390e1cf1c47E.exit" ], [ %.sroa.5.0.i3.i.i.i.i, %120 ]
-  store i64 %.sink23, ptr %0, align 8, !alias.scope !10005
+  store i64 %.sink26, ptr %0, align 8, !alias.scope !10005
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.i.sink, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !10005
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink22, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10005
+  store i64 %.sink25, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10005
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.52.0.i, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !10005
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sink21, ptr %.sroa.9.0..sroa_idx, align 8, !alias.scope !10005
+  store i64 %.sink24, ptr %.sroa.9.0..sroa_idx, align 8, !alias.scope !10005
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sroa.54.0.i.sink, ptr %.sroa.11.0..sroa_idx, align 8, !alias.scope !10005
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -41561,18 +41561,18 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics16reduce_primit
   resume { ptr, i32 } %115
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6c775bbac2d6308aE.exit": ; preds = %122, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h92c133560797a0d7E.exit"
-  %.sink24 = phi i64 [ %54, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h92c133560797a0d7E.exit" ], [ %.sroa.07.0.i5.i.i.i.i, %122 ]
+  %.sink27 = phi i64 [ %54, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h92c133560797a0d7E.exit" ], [ %.sroa.07.0.i5.i.i.i.i, %122 ]
   %.sroa.5.0.i.sink = phi i64 [ %.sroa.5.0.i, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h92c133560797a0d7E.exit" ], [ %.sroa.5.0.i6.i.i.i.i, %122 ]
-  %.sink23 = phi i64 [ %58, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h92c133560797a0d7E.exit" ], [ 0, %122 ]
-  %.sink22 = phi i32 [ %62, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h92c133560797a0d7E.exit" ], [ %.sroa.07.0.i.i.i.i.i, %122 ]
+  %.sink26 = phi i64 [ %58, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h92c133560797a0d7E.exit" ], [ 0, %122 ]
+  %.sink25 = phi i32 [ %62, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h92c133560797a0d7E.exit" ], [ %.sroa.07.0.i.i.i.i.i, %122 ]
   %.sroa.54.0.i.sink = phi float [ %.sroa.54.0.i, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h92c133560797a0d7E.exit" ], [ %.sroa.5.0.i.i.i.i.i, %122 ]
   %.sink = phi i32 [ %67, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h92c133560797a0d7E.exit" ], [ %.sroa.07.0.i2.i.i.i.i, %122 ]
   %.sroa.56.0.i.sink = phi float [ %.sroa.56.0.i, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h92c133560797a0d7E.exit" ], [ %.sroa.5.0.i3.i.i.i.i, %122 ]
-  store i64 %.sink24, ptr %0, align 8, !alias.scope !10064
+  store i64 %.sink27, ptr %0, align 8, !alias.scope !10064
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.i.sink, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !10064
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink23, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10064
+  store i64 %.sink26, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10064
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.52.0.i, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !10064
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -41596,7 +41596,7 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics16reduce_primit
   %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.19.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.53.i.i, i64 23, i1 false)
   %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %.sink22, ptr %.sroa.20.0..sroa_idx, align 8, !alias.scope !10064
+  store i32 %.sink25, ptr %.sroa.20.0..sroa_idx, align 8, !alias.scope !10064
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 140
   store float %.sroa.54.0.i.sink, ptr %.sroa.22.0..sroa_idx, align 4, !alias.scope !10064
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -42698,8 +42698,8 @@ define internal fastcc noundef zeroext i1 @"_ZN106_$LT$polars_parquet..parquet..
   %196 = load ptr, ptr %195, align 8, !alias.scope !10153, !noalias !10150, !nonnull !3, !noundef !3
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %198 = load i64, ptr %197, align 8, !alias.scope !10153, !noalias !10150, !noundef !3
-  %.not.i17 = icmp eq i64 %194, %198
-  br i1 %.not.i17, label %.preheader.split.i, label %"_ZN108_$LT$polars_parquet..parquet..schema..types..parquet_type..PrimitiveType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff65ee7adcaeaeb6E.exit"
+  %.not.i23 = icmp eq i64 %194, %198
+  br i1 %.not.i23, label %.preheader.split.i, label %"_ZN108_$LT$polars_parquet..parquet..schema..types..parquet_type..PrimitiveType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff65ee7adcaeaeb6E.exit"
 
 .preheader.split.i:                               ; preds = %190, %199
   %.sroa.01.0.i = phi i64 [ %200, %199 ], [ 0, %190 ]

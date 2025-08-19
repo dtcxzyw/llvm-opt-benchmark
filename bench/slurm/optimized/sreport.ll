@@ -709,9 +709,9 @@ _build_tres_list.exit:                            ; preds = %182, %.loopexit.i
 224:                                              ; preds = %222, %288
   %225 = call ptr @readline(ptr noundef nonnull @.str.41) #17
   %226 = icmp eq ptr %225, null
-  br i1 %226, label %_get_command.exit.thread67, label %227
+  br i1 %226, label %_get_command.exit.thread85, label %227
 
-_get_command.exit.thread67:                       ; preds = %224
+_get_command.exit.thread85:                       ; preds = %224
   store i32 2, ptr @exit_flag, align 4
   br label %.loopexit
 
@@ -874,7 +874,7 @@ _get_command.exit:                                ; preds = %.lr.ph74.i, %.loope
   %290 = icmp eq i32 %289, 0
   br i1 %290, label %224, label %.loopexit, !llvm.loop !17
 
-.loopexit:                                        ; preds = %288, %_get_command.exit, %_get_command.exit.thread67, %_get_command.exit.thread
+.loopexit:                                        ; preds = %288, %_get_command.exit, %_get_command.exit.thread85, %_get_command.exit.thread
   call void @slurm_xfree(ptr noundef nonnull %10) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %291

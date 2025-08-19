@@ -2873,7 +2873,7 @@ define hidden range(i32 -2147483648, 2) i32 @serbian_UTF_8_stem(ptr noundef init
   %162 = load i32, ptr %2, align 8
   %163 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 117, i32 noundef 1) #2
   %164 = icmp slt i32 %163, 0
-  br i1 %164, label %.preheader180, label %165
+  br i1 %164, label %.preheader482, label %165
 
 165:                                              ; preds = %159
   %166 = load i32, ptr %2, align 8
@@ -2884,25 +2884,25 @@ define hidden range(i32 -2147483648, 2) i32 @serbian_UTF_8_stem(ptr noundef init
   %169 = load ptr, ptr %150, align 8
   %170 = load i32, ptr %169, align 4
   %171 = icmp slt i32 %170, 2
-  br i1 %171, label %172, label %.preheader180
+  br i1 %171, label %172, label %.preheader482
 
 172:                                              ; preds = %165
   %173 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 117, i32 noundef 1) #2
   %174 = icmp slt i32 %173, 0
-  br i1 %174, label %.preheader180, label %175
+  br i1 %174, label %.preheader482, label %175
 
 175:                                              ; preds = %172
   %176 = load i32, ptr %2, align 8
   %177 = add i32 %176, %173
   %178 = load ptr, ptr %150, align 8
   store i32 %177, ptr %178, align 4
-  br label %.preheader180
+  br label %.preheader482
 
-.preheader180:                                    ; preds = %175, %172, %165, %159
+.preheader482:                                    ; preds = %175, %172, %165, %159
   br label %179
 
-179:                                              ; preds = %.preheader180, %189
-  %storemerge.i71 = phi i32 [ %190, %189 ], [ %162, %.preheader180 ]
+179:                                              ; preds = %.preheader482, %189
+  %storemerge.i71 = phi i32 [ %190, %189 ], [ %162, %.preheader482 ]
   store i32 %storemerge.i71, ptr %2, align 8
   %180 = load i32, ptr %5, align 4
   %181 = icmp eq i32 %storemerge.i71, %180

@@ -184,7 +184,7 @@ tailrecurse:                                      ; preds = %59, %2
 
 5:                                                ; preds = %tailrecurse
   %6 = tail call i64 @fwrite(ptr nonnull @.str, i64 6, i64 1, ptr %0)
-  br label %common.ret99
+  br label %common.ret100
 
 7:                                                ; preds = %tailrecurse
   %8 = icmp slt i32 %3, 5
@@ -193,7 +193,7 @@ tailrecurse:                                      ; preds = %59, %2
 9:                                                ; preds = %7
   %10 = add nsw i32 %3, 96
   %fputc49 = tail call i32 @fputc(i32 %10, ptr %0)
-  br label %common.ret99
+  br label %common.ret100
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %.tr50, i64 24
@@ -269,13 +269,13 @@ tailrecurse:                                      ; preds = %59, %2
   %50 = icmp slt i32 %49, 5
   br i1 %50, label %51, label %52
 
-common.ret99:                                     ; preds = %9, %5, %62, %52, %51
+common.ret100:                                    ; preds = %9, %5, %62, %52, %51
   ret void
 
 51:                                               ; preds = %46
   tail call void @Rwr_NodePrint_rec(ptr noundef %0, ptr noundef nonnull %48)
   %fputc48 = tail call i32 @fputc(i32 39, ptr %0)
-  br label %common.ret99
+  br label %common.ret100
 
 52:                                               ; preds = %46
   %53 = getelementptr inbounds nuw i8, ptr %.tr50, i64 32
@@ -286,7 +286,7 @@ common.ret99:                                     ; preds = %9, %5, %62, %52, %5
   %57 = inttoptr i64 %56 to ptr
   tail call void @Rwr_NodePrint_rec(ptr noundef %0, ptr noundef %57)
   %58 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 2, i64 1, ptr %0)
-  br label %common.ret99
+  br label %common.ret100
 
 59:                                               ; preds = %41
   %60 = load i32, ptr %43, align 8, !tbaa !32
@@ -302,7 +302,7 @@ common.ret99:                                     ; preds = %9, %5, %62, %52, %5
   %67 = inttoptr i64 %66 to ptr
   tail call void @Rwr_NodePrint_rec(ptr noundef %0, ptr noundef %67)
   %fputc46 = tail call i32 @fputc(i32 41, ptr %0)
-  br label %common.ret99
+  br label %common.ret100
 }
 
 ; Function Attrs: nofree nounwind

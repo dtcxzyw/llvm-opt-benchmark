@@ -388,7 +388,7 @@ define internal fastcc noundef zeroext i1 @dmi_matches(ptr noundef readonly capt
   %8 = and i8 %7, 127
   switch i8 %8, label %9 [
     i8 0, label %.thread6
-    i8 24, label %.thread6.loopexit26
+    i8 24, label %.thread6.loopexit30
   ]
 
 9:                                                ; preds = %.split.us
@@ -482,11 +482,11 @@ define internal fastcc noundef zeroext i1 @dmi_matches(ptr noundef readonly capt
   %60 = icmp eq i64 %59, 4
   br i1 %60, label %.thread6, label %.split, !llvm.loop !13
 
-.thread6.loopexit26:                              ; preds = %.split.us
+.thread6.loopexit30:                              ; preds = %.split.us
   br label %.thread6
 
-.thread6:                                         ; preds = %43, %45, %53, %56, %.split, %.thread5, %40, %.thread5.us, %20, %17, %9, %.split.us, %.thread6.loopexit26
-  %61 = phi i1 [ true, %.split.us ], [ true, %.thread5.us ], [ false, %20 ], [ false, %17 ], [ false, %9 ], [ false, %.thread6.loopexit26 ], [ false, %40 ], [ true, %.thread5 ], [ true, %.split ], [ false, %56 ], [ false, %53 ], [ false, %45 ], [ false, %43 ]
+.thread6:                                         ; preds = %43, %45, %53, %56, %.split, %.thread5, %40, %.thread5.us, %20, %17, %9, %.split.us, %.thread6.loopexit30
+  %61 = phi i1 [ true, %.split.us ], [ true, %.thread5.us ], [ false, %20 ], [ false, %17 ], [ false, %9 ], [ false, %.thread6.loopexit30 ], [ false, %40 ], [ true, %.thread5 ], [ true, %.split ], [ false, %56 ], [ false, %53 ], [ false, %45 ], [ false, %43 ]
   ret i1 %61
 }
 

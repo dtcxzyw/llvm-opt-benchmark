@@ -858,25 +858,25 @@ common.resume:                                    ; preds = %49, %46, %21
 _ZN6fs_err4file4File4open17h47acb52cc4b9a21eE.exit: ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %31 = load i32, ptr %30, align 4, !range !56, !noalias !50, !noundef !4
-  %.sroa.0.0.copyload62 = load i64, ptr %6, align 8, !noalias !57
-  %.sroa.5.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.5.0.copyload64 = load ptr, ptr %.sroa.5.0..sroa_idx63, align 8, !noalias !57
-  %.sroa.6.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sroa.6.0.copyload66 = load i64, ptr %.sroa.6.0..sroa_idx65, align 8, !noalias !57
+  %.sroa.0.0.copyload63 = load i64, ptr %6, align 8, !noalias !57
+  %.sroa.5.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.5.0.copyload65 = load ptr, ptr %.sroa.5.0..sroa_idx64, align 8, !noalias !57
+  %.sroa.6.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.6.0.copyload67 = load i64, ptr %.sroa.6.0..sroa_idx66, align 8, !noalias !57
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !50
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !50
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %32 = icmp eq i64 %.sroa.0.0.copyload62, -9223372036854775808
+  %32 = icmp eq i64 %.sroa.0.0.copyload63, -9223372036854775808
   br i1 %32, label %_ZN6fs_err4file4File4open17h47acb52cc4b9a21eE.exit._crit_edge, label %33
 
 33:                                               ; preds = %_ZN6fs_err4file4File4open17h47acb52cc4b9a21eE.exit
-  store i64 %.sroa.0.0.copyload62, ptr %13, align 8
+  store i64 %.sroa.0.0.copyload63, ptr %13, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %.sroa.5.0.copyload64, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %.sroa.5.0.copyload65, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i64 %.sroa.6.0.copyload66, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.667.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store i32 %31, ptr %.sroa.667.0..sroa_idx, align 8
+  store i64 %.sroa.6.0.copyload67, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.668.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 24
+  store i32 %31, ptr %.sroa.668.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN9uv_client13cached_client19DataWithCachePolicy11from_reader17hd0ca54ad7b47f889E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %13)
   %34 = load ptr, ptr %12, align 8, !noundef !4
@@ -886,7 +886,7 @@ _ZN6fs_err4file4File4open17h47acb52cc4b9a21eE.exit: ; preds = %23
   br i1 %35, label %45, label %40
 
 _ZN6fs_err4file4File4open17h47acb52cc4b9a21eE.exit._crit_edge: ; preds = %_ZN6fs_err4file4File4open17h47acb52cc4b9a21eE.exit, %_ZN6fs_err4file4File4open17h47acb52cc4b9a21eE.exit.thread
-  %.val43 = phi ptr [ %27, %_ZN6fs_err4file4File4open17h47acb52cc4b9a21eE.exit.thread ], [ %.sroa.5.0.copyload64, %_ZN6fs_err4file4File4open17h47acb52cc4b9a21eE.exit ]
+  %.val43 = phi ptr [ %27, %_ZN6fs_err4file4File4open17h47acb52cc4b9a21eE.exit.thread ], [ %.sroa.5.0.copyload65, %_ZN6fs_err4file4File4open17h47acb52cc4b9a21eE.exit ]
   %38 = tail call fastcc noundef i8 @_ZN3std2io5error5Error4kind17he6aa3f96c380349fE(ptr nonnull %.val43)
   %39 = icmp eq i8 %38, 0
   br i1 %39, label %.noexc, label %64
@@ -2687,7 +2687,7 @@ _ZN7walkdir7WalkDir3new17he4a52b1076ed437eE.exit: ; preds = %4
   %188 = icmp eq i64 %187, -9223372036854775806
   br i1 %188, label %189, label %191
 
-default.unreachable972:                           ; preds = %232
+default.unreachable1005:                          ; preds = %232
   unreachable
 
 189:                                              ; preds = %186
@@ -2861,7 +2861,7 @@ _ZN3std4path4Path9ends_with17he5e19ceefacb2224E.exit: ; preds = %214
   br i1 %215, label %233, label %232
 
 232:                                              ; preds = %_ZN3std4path4Path9ends_with17he5e19ceefacb2224E.exit
-  switch i8 %.sroa.0.0.ph, label %default.unreachable972 [
+  switch i8 %.sroa.0.0.ph, label %default.unreachable1005 [
     i8 0, label %235
     i8 1, label %240
     i8 2, label %245
@@ -4636,7 +4636,7 @@ _ZN7walkdir7WalkDir3new17he4a52b1076ed437eE.exit: ; preds = %4
   %188 = icmp eq i64 %187, -9223372036854775806
   br i1 %188, label %189, label %191
 
-default.unreachable968:                           ; preds = %232
+default.unreachable1001:                          ; preds = %232
   unreachable
 
 189:                                              ; preds = %186
@@ -4810,7 +4810,7 @@ _ZN3std4path4Path9ends_with17he5e19ceefacb2224E.exit: ; preds = %214
   br i1 %215, label %233, label %232
 
 232:                                              ; preds = %_ZN3std4path4Path9ends_with17he5e19ceefacb2224E.exit
-  switch i8 %.sroa.0.0.ph, label %default.unreachable968 [
+  switch i8 %.sroa.0.0.ph, label %default.unreachable1001 [
     i8 0, label %235
     i8 1, label %240
     i8 2, label %245
@@ -6615,8 +6615,8 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17hbac5d32e4a2c2d79E(ptr no
   br label %7
 
 7:                                                ; preds = %.lr.ph, %35
-  %.sroa.0.016 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.124, %35 ]
-  %.sroa.4.015 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.123, %35 ]
+  %.sroa.0.016 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.125, %35 ]
+  %.sroa.4.015 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.124, %35 ]
   %8 = call { i64, ptr } @"_ZN69_$LT$std..sys..pal..unix..stdio..Stderr$u20$as$u20$std..io..Write$GT$5write17hb57121c90ff8fb05E"(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.016, i64 noundef %.sroa.4.015)
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -6698,9 +6698,9 @@ _ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.1493482510823734
   br label %35
 
 35:                                               ; preds = %.thread, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h74e0331b02f96decE.exit"
-  %.sroa.0.124 = phi ptr [ %31, %.thread ], [ %.sroa.0.016, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h74e0331b02f96decE.exit" ]
-  %.sroa.4.123 = phi i64 [ %30, %.thread ], [ %.sroa.4.015, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h74e0331b02f96decE.exit" ]
-  %36 = icmp eq i64 %.sroa.4.123, 0
+  %.sroa.0.125 = phi ptr [ %31, %.thread ], [ %.sroa.0.016, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h74e0331b02f96decE.exit" ]
+  %.sroa.4.124 = phi i64 [ %30, %.thread ], [ %.sroa.4.015, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h74e0331b02f96decE.exit" ]
+  %36 = icmp eq i64 %.sroa.4.124, 0
   br i1 %36, label %.loopexit, label %7
 }
 

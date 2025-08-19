@@ -492,24 +492,24 @@ define range(i32 -25, 1) i32 @pmix_ptl_base_connect(ptr noundef %0, i32 noundef 
 
 55:                                               ; preds = %34
   %56 = icmp eq i32 %16, 10
-  br i1 %56, label %.thread42, label %61
+  br i1 %56, label %.thread46, label %61
 
 57:                                               ; preds = %.backedge
   %58 = icmp sgt i32 %.032.be, -1
-  br i1 %58, label %.thread42, label %62
+  br i1 %58, label %.thread46, label %62
 
-.thread42:                                        ; preds = %55, %57
-  %.032.lcssa4144 = phi i32 [ %.032.be, %57 ], [ %.03236, %55 ]
-  %59 = tail call i32 @shutdown(i32 noundef %.032.lcssa4144, i32 noundef 2) #14
-  %60 = tail call i32 @close(i32 noundef %.032.lcssa4144) #14
+.thread46:                                        ; preds = %55, %57
+  %.032.lcssa4548 = phi i32 [ %.032.be, %57 ], [ %.03236, %55 ]
+  %59 = tail call i32 @shutdown(i32 noundef %.032.lcssa4548, i32 noundef 2) #14
+  %60 = tail call i32 @close(i32 noundef %.032.lcssa4548) #14
   br label %62
 
 61:                                               ; preds = %55
   store i32 %.03236, ptr %2, align 4, !tbaa !3
   br label %62
 
-62:                                               ; preds = %57, %.thread42, %61
-  %.0 = phi i32 [ 0, %61 ], [ -25, %.thread42 ], [ -25, %57 ]
+62:                                               ; preds = %57, %.thread46, %61
+  %.0 = phi i32 [ 0, %61 ], [ -25, %.thread46 ], [ -25, %57 ]
   ret i32 %.0
 }
 

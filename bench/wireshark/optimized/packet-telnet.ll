@@ -846,11 +846,11 @@ add_telnet_data_bytes_str.exit:                   ; preds = %37, %41, %43, %45
   br i1 %.not.i48.i, label %.thread.i, label %.thread.sink.split.i
 
 .thread.sink.split.i:                             ; preds = %101, %92, %83, %74, %65
-  %.sink138.i = phi ptr [ %73, %65 ], [ %82, %74 ], [ %91, %83 ], [ %100, %92 ], [ %109, %101 ]
+  %.sink149.i = phi ptr [ %73, %65 ], [ %82, %74 ], [ %91, %83 ], [ %100, %92 ], [ %109, %101 ]
   %.sink.ph.i = phi i8 [ %67, %65 ], [ %76, %74 ], [ %85, %83 ], [ %94, %92 ], [ %103, %101 ]
   %.0.i.i47.sink.ph.i = phi ptr [ %.0.i.i.i, %65 ], [ %.0.i.i32.i, %74 ], [ %.0.i.i37.i, %83 ], [ %.0.i.i42.i, %92 ], [ %.0.i.i47.i, %101 ]
   %.str.86.sink.ph.i = phi ptr [ @.str.173, %65 ], [ @.str.172, %74 ], [ @.str.171, %83 ], [ @.str.170, %92 ], [ @.str.86, %101 ]
-  %110 = load i32, ptr %.sink138.i, align 4
+  %110 = load i32, ptr %.sink149.i, align 4
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread.sink.split.i, %101, %92, %83, %74, %65

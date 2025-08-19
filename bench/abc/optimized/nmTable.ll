@@ -70,7 +70,7 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %21
   %26 = sext i32 %19 to i64
   %27 = shl nsw i64 %26, 3
   %calloc.i = call ptr @calloc(i64 1, i64 %27)
-  %calloc107.i = call ptr @calloc(i64 1, i64 %27)
+  %calloc115.i = call ptr @calloc(i64 1, i64 %27)
   %28 = icmp sgt i32 %16, 0
   %.pre = load ptr, ptr %0, align 8, !tbaa !13
   br i1 %28, label %.lr.ph84.i, label %._crit_edge93.i
@@ -92,10 +92,10 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %21
   br i1 %.not70.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %31, %.lr.ph.i
-  %.sink111.i = phi ptr [ %35, %.lr.ph.i ], [ %33, %31 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.sink111.i, i64 8
+  %.sink119.i = phi ptr [ %35, %.lr.ph.i ], [ %33, %31 ]
+  %34 = getelementptr inbounds nuw i8, ptr %.sink119.i, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !21
-  %36 = getelementptr inbounds nuw i8, ptr %.sink111.i, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %.sink119.i, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !23
   %38 = and i32 %37, 255
   %39 = mul nuw nsw i32 %38, 7937
@@ -115,7 +115,7 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %21
   %53 = getelementptr inbounds nuw ptr, ptr %calloc.i, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !19
   store ptr %54, ptr %34, align 8, !tbaa !21
-  store ptr %.sink111.i, ptr %53, align 8, !tbaa !19
+  store ptr %.sink119.i, ptr %53, align 8, !tbaa !19
   %.not72.i = icmp eq ptr %35, null
   br i1 %.not72.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !24
 
@@ -132,10 +132,10 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %21
   br i1 %.not67.i, label %._crit_edge90.i, label %.lr.ph89.i
 
 .lr.ph89.i:                                       ; preds = %55, %Nm_HashString.exit.i
-  %.sink112.i = phi ptr [ %59, %Nm_HashString.exit.i ], [ %57, %55 ]
-  %58 = getelementptr inbounds nuw i8, ptr %.sink112.i, i64 16
+  %.sink120.i = phi ptr [ %59, %Nm_HashString.exit.i ], [ %57, %55 ]
+  %58 = getelementptr inbounds nuw i8, ptr %.sink120.i, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !26
-  %60 = getelementptr inbounds nuw i8, ptr %.sink112.i, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %.sink120.i, i64 32
   %61 = load i8, ptr %60, align 8, !tbaa !27
   %.not12.i.i = icmp eq i8 %61, 0
   br i1 %.not12.i.i, label %Nm_HashString.exit.i, label %.lr.ph.i73.i
@@ -163,10 +163,10 @@ Nm_HashString.exit.i:                             ; preds = %.lr.ph.i73.i, %.lr.
   %.0.lcssa.i.i = phi i32 [ 0, %.lr.ph89.i ], [ %70, %.lr.ph.i73.i ]
   %75 = urem i32 %.0.lcssa.i.i, %19
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw ptr, ptr %calloc107.i, i64 %76
+  %77 = getelementptr inbounds nuw ptr, ptr %calloc115.i, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !19
   store ptr %78, ptr %58, align 8, !tbaa !26
-  store ptr %.sink112.i, ptr %77, align 8, !tbaa !19
+  store ptr %.sink120.i, ptr %77, align 8, !tbaa !19
   %.not69.i = icmp eq ptr %59, null
   br i1 %.not69.i, label %._crit_edge90.i, label %.lr.ph89.i, !llvm.loop !30
 
@@ -196,12 +196,12 @@ Nm_HashString.exit.i:                             ; preds = %.lr.ph.i73.i, %.lr.
 
 Nm_ManResize.exit:                                ; preds = %80, %83
   store ptr %calloc.i, ptr %0, align 8, !tbaa !13
-  store ptr %calloc107.i, ptr %81, align 8, !tbaa !14
+  store ptr %calloc115.i, ptr %81, align 8, !tbaa !14
   store i32 %19, ptr %6, align 8, !tbaa !11
   br label %84
 
 84:                                               ; preds = %._crit_edge, %Nm_ManResize.exit
-  %85 = phi ptr [ %.pre60, %._crit_edge ], [ %calloc107.i, %Nm_ManResize.exit ]
+  %85 = phi ptr [ %.pre60, %._crit_edge ], [ %calloc115.i, %Nm_ManResize.exit ]
   %86 = phi i32 [ %7, %._crit_edge ], [ %19, %Nm_ManResize.exit ]
   %87 = phi ptr [ %.pre59, %._crit_edge ], [ %calloc.i, %Nm_ManResize.exit ]
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 4

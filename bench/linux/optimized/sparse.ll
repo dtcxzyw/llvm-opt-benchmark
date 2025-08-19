@@ -759,8 +759,8 @@ define internal fastcc void @sparse_init_nid(i32 noundef %0, i64 noundef %1, i64
   %160 = phi ptr [ %158, %156 ], [ null, %146 ], [ null, %152 ], [ null, %149 ]
   store i64 0, ptr %160, align 8
   %161 = load i64, ptr @__highest_present_section_nr, align 8
-  %.not97 = icmp ult i64 %141, %161
-  br i1 %.not97, label %.lr.ph59.preheader, label %.thread43
+  %.not112 = icmp ult i64 %141, %161
+  br i1 %.not112, label %.lr.ph59.preheader, label %.thread43
 
 .lr.ph59.preheader:                               ; preds = %159
   %162 = add nuw i64 %141, 1

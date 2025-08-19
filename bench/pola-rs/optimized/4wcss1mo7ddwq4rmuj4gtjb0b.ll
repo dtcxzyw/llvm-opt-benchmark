@@ -7073,7 +7073,7 @@ define internal fastcc void @_ZN21polars_parquet_format14parquet_format11Logical
 76:                                               ; preds = %71
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   %77 = load i8, ptr %1, align 4, !range !258, !noundef !3
-  switch i8 %77, label %default.unreachable1213 [
+  switch i8 %77, label %default.unreachable1258 [
     i8 0, label %78
     i8 1, label %79
     i8 2, label %80
@@ -7090,7 +7090,7 @@ define internal fastcc void @_ZN21polars_parquet_format14parquet_format11Logical
     i8 13, label %95
   ]
 
-default.unreachable1213:                          ; preds = %76
+default.unreachable1258:                          ; preds = %76
   unreachable
 
 78:                                               ; preds = %76
@@ -11393,7 +11393,7 @@ define hidden void @_ZN21polars_parquet_format14parquet_format12FileMetaData21wr
 715:                                              ; preds = %.lr.ph1121, %728
   %.pn1127 = phi i64 [ %700, %.lr.ph1121 ], [ %716, %728 ]
   %.sroa.0398.71119 = phi i64 [ %712, %.lr.ph1121 ], [ %729, %728 ]
-  %716 = add i64 %.pn1127, -1
+  %716 = add nsw i64 %.pn1127, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
   invoke fastcc void @_ZN21polars_parquet_format14parquet_format11ColumnOrder21write_to_out_protocol17h3a21720b0aee1f4aE(ptr noalias noundef align 8 captures(none) dereferenceable(40) %63, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %724 unwind label %.loopexit
@@ -27102,13 +27102,13 @@ define internal fastcc void @_ZN21polars_parquet_format14parquet_format8TimeUnit
 40:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %41 = load i8, ptr %1, align 1, !range !172, !noundef !3
-  switch i8 %41, label %default.unreachable341 [
+  switch i8 %41, label %default.unreachable362 [
     i8 0, label %42
     i8 1, label %43
     i8 2, label %44
   ]
 
-default.unreachable341:                           ; preds = %40
+default.unreachable362:                           ; preds = %40
   unreachable
 
 42:                                               ; preds = %40
@@ -28417,10 +28417,10 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i: ; preds = %35
   unreachable
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h16ebea9e267b0e76E.exit": ; preds = %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.thread, %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i, %39
-  %.sroa.018.0445961 = phi i64 [ %21, %39 ], [ %21, %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i ], [ 0, %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.thread ]
+  %.sroa.018.0446466 = phi i64 [ %21, %39 ], [ %21, %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i ], [ 0, %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.thread ]
   %.sroa.4.0.i = phi i64 [ %21, %39 ], [ 0, %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i ], [ 0, %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.thread ]
   %.sroa.10.0.i = phi ptr [ %41, %39 ], [ inttoptr (i64 8 to ptr), %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i ], [ inttoptr (i64 8 to ptr), %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.thread ]
-  %44 = icmp samesign ule i64 %.sroa.018.0445961, %.sroa.4.0.i
+  %44 = icmp samesign ule i64 %.sroa.018.0446466, %.sroa.4.0.i
   call void @llvm.assume(i1 %44)
   store i64 %.sroa.4.0.i, ptr %12, align 8
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -30446,12 +30446,12 @@ define internal fastcc void @_ZN5alloc7raw_vec11finish_grow17h2ce5390271557cc5E(
   %30 = icmp eq ptr %.sroa.012.0.i.i.pn, null
   %31 = inttoptr i64 %1 to ptr
   %spec.select = select i1 %30, ptr %31, ptr %.sroa.012.0.i.i.pn
-  %spec.select4 = zext i1 %30 to i64
+  %spec.select6 = zext i1 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %33, align 8
-  store i64 %spec.select4, ptr %0, align 8
+  store i64 %spec.select6, ptr %0, align 8
   ret void
 }
 
@@ -32870,10 +32870,10 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i50.i: ; preds = %
   br label %.thread129.i.i.i.i
 
 .thread129.i.i.i.i:                               ; preds = %348, %346
-  %.sink872.i.i = phi ptr [ %265, %348 ], [ %.sroa.5113.8.copyload.i.i.i.i, %346 ]
+  %.sink885.i.i = phi ptr [ %265, %348 ], [ %.sroa.5113.8.copyload.i.i.i.i, %346 ]
   %.sink.i.i417.i.i = phi ptr [ %.sroa.0511.0.i.i, %348 ], [ %265, %346 ]
   %.pn77132.i.i.i.i = phi { ptr, i32 } [ %349, %348 ], [ %347, %346 ]
-  call void @Py_DecRef(ptr noundef nonnull %.sink872.i.i) #23, !noalias !1047
+  call void @Py_DecRef(ptr noundef nonnull %.sink885.i.i) #23, !noalias !1047
   call void @Py_DecRef(ptr noundef nonnull %.sink.i.i417.i.i) #23, !noalias !1047
   br label %.thread627.i.i
 
@@ -32982,13 +32982,13 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i21.i: ; preds = %
   br label %.thread627.i.i
 
 372:                                              ; preds = %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17h2073bdd29c3a9727E.exit.i.thread.i", %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17h2073bdd29c3a9727E.exit.thread.i.i"
-  %.sink248.i = phi ptr [ %355, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17h2073bdd29c3a9727E.exit.i.thread.i" ], [ %.sroa.0511.0.i.i, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17h2073bdd29c3a9727E.exit.thread.i.i" ]
+  %.sink268.i = phi ptr [ %355, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17h2073bdd29c3a9727E.exit.i.thread.i" ], [ %.sroa.0511.0.i.i, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17h2073bdd29c3a9727E.exit.thread.i.i" ]
   %.sroa.16.0.i = phi i32 [ %.sroa.10.0.i.i23.i, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17h2073bdd29c3a9727E.exit.i.thread.i" ], [ %.sroa.16.16.copyload79.i, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17h2073bdd29c3a9727E.exit.thread.i.i" ]
   %.sroa.14.0.i = phi ptr [ %.sroa.85.0.i.i24.i, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17h2073bdd29c3a9727E.exit.i.thread.i" ], [ %.sroa.14.16.copyload78.i, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17h2073bdd29c3a9727E.exit.thread.i.i" ]
   %.sroa.13.0.i = phi ptr [ %.sroa.7.0.i.i25.i, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17h2073bdd29c3a9727E.exit.i.thread.i" ], [ %.sroa.13.16.copyload77.i, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17h2073bdd29c3a9727E.exit.thread.i.i" ]
   %.sroa.10.0.i = phi ptr [ %.sroa.54.0.i.i26.i, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17h2073bdd29c3a9727E.exit.i.thread.i" ], [ %.sroa.10.16.copyload76.i, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17h2073bdd29c3a9727E.exit.thread.i.i" ]
   %.sroa.5.0.i = phi ptr [ %369, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17h2073bdd29c3a9727E.exit.i.thread.i" ], [ %.sroa.5113.8.copyload.i.i.i.i, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17h2073bdd29c3a9727E.exit.thread.i.i" ]
-  call void @Py_DecRef(ptr noundef nonnull %.sink248.i) #23, !noalias !950
+  call void @Py_DecRef(ptr noundef nonnull %.sink268.i) #23, !noalias !950
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %60, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %60), !noalias !950
   store ptr %.sroa.10.0.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !950
@@ -33320,10 +33320,10 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i21.i: ; preds = %
   br label %.thread132.i.i.i.i
 
 .thread132.i.i.i.i:                               ; preds = %449, %447, %445
-  %.sink873.i.i = phi ptr [ %269, %449 ], [ %.sroa.5115.8.copyload.i.i.i.i, %447 ], [ %.sroa.5115.8.copyload.i.i.i.i, %445 ]
+  %.sink886.i.i = phi ptr [ %269, %449 ], [ %.sroa.5115.8.copyload.i.i.i.i, %447 ], [ %.sroa.5115.8.copyload.i.i.i.i, %445 ]
   %.sink.i.i439.i.i = phi ptr [ %.sroa.0511.0.i.i, %449 ], [ %269, %447 ], [ %269, %445 ]
   %.pn77135.i.i.i.i = phi { ptr, i32 } [ %450, %449 ], [ %448, %447 ], [ %446, %445 ]
-  call void @Py_DecRef(ptr noundef nonnull %.sink873.i.i) #23, !noalias !1085
+  call void @Py_DecRef(ptr noundef nonnull %.sink886.i.i) #23, !noalias !1085
   call void @Py_DecRef(ptr noundef nonnull %.sink.i.i439.i.i) #23, !noalias !1085
   br label %.thread627.i.i
 
@@ -33466,13 +33466,13 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i6.i: ; preds = %4
   br label %432
 
 480:                                              ; preds = %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17he9db8db40f5bb7e3E.exit.i.thread.i", %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17he9db8db40f5bb7e3E.exit.thread.i.i"
-  %.sink249.i = phi ptr [ %456, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17he9db8db40f5bb7e3E.exit.i.thread.i" ], [ %.sroa.0511.0.i.i, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17he9db8db40f5bb7e3E.exit.thread.i.i" ]
+  %.sink269.i = phi ptr [ %456, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17he9db8db40f5bb7e3E.exit.i.thread.i" ], [ %.sroa.0511.0.i.i, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17he9db8db40f5bb7e3E.exit.thread.i.i" ]
   %.sroa.1093.0.i = phi ptr [ %.sroa.54.0.i.i.i, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17he9db8db40f5bb7e3E.exit.i.thread.i" ], [ %.sroa.1093.16.copyload94.i, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17he9db8db40f5bb7e3E.exit.thread.i.i" ]
   %.sroa.592.0.i = phi ptr [ %470, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17he9db8db40f5bb7e3E.exit.i.thread.i" ], [ %.sroa.5115.8.copyload.i.i.i.i, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17he9db8db40f5bb7e3E.exit.thread.i.i" ]
   %.sroa.1395.0.i = phi ptr [ %.sroa.7.0.i.i8.i, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17he9db8db40f5bb7e3E.exit.i.thread.i" ], [ %.sroa.1395.16.copyload96.i, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17he9db8db40f5bb7e3E.exit.thread.i.i" ]
   %.sroa.1497.0.i = phi ptr [ %.sroa.85.0.i.i.i, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17he9db8db40f5bb7e3E.exit.i.thread.i" ], [ %.sroa.1497.16.copyload98.i, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17he9db8db40f5bb7e3E.exit.thread.i.i" ]
   %.sroa.16100.0.i = phi i32 [ %.sroa.10.0.i.i7.i, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17he9db8db40f5bb7e3E.exit.i.thread.i" ], [ %.sroa.16100.16.copyload101.i, %"_ZN4pyo35types5tuple83_$LT$impl$u20$pyo3..call..PyCallArgs$u20$for$u20$$LP$T0$C$T1$C$T2$C$T3$C$T4$RP$$GT$15call_positional17he9db8db40f5bb7e3E.exit.thread.i.i" ]
-  call void @Py_DecRef(ptr noundef nonnull %.sink249.i) #23, !noalias !950
+  call void @Py_DecRef(ptr noundef nonnull %.sink269.i) #23, !noalias !950
   %.sroa.268.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %48, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %48), !noalias !950
   store ptr %.sroa.1093.0.i, ptr %.sroa.268.0..sroa_idx.i.i, align 8, !noalias !950

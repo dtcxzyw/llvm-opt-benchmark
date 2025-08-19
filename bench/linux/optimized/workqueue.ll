@@ -5111,19 +5111,19 @@ define internal fastcc void @show_pwq(ptr noundef %0) unnamed_addr #9 align 16 {
   br label %pr_cont_work.exit
 
 thread-pre-split.thread.i.thread:                 ; preds = %116
-  %120 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.58, i64 noundef %114, ptr noundef nonnull %79) #29
+  %120 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.58, i64 noundef %114, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #29
   br label %pr_cont_work.exit
 
 thread-pre-split.thread.i:                        ; preds = %.thread20, %104, %113
   %121 = phi ptr [ %83, %113 ], [ %83, %104 ], [ %.pr.pre.i21, %.thread20 ]
   %122 = icmp ne ptr %121, inttoptr (i64 -1 to ptr)
   %spec.select = select i1 %122, ptr %121, ptr %79
-  %spec.select61 = zext i1 %122 to i64
+  %spec.select87 = zext i1 %122 to i64
   br label %pr_cont_work.exit
 
 pr_cont_work.exit:                                ; preds = %thread-pre-split.thread.i, %thread-pre-split.thread.i.thread, %97, %118
   %123 = phi ptr [ %79, %97 ], [ inttoptr (i64 -1 to ptr), %118 ], [ %83, %thread-pre-split.thread.i.thread ], [ %spec.select, %thread-pre-split.thread.i ]
-  %124 = phi i64 [ %98, %97 ], [ %119, %118 ], [ 1, %thread-pre-split.thread.i.thread ], [ %spec.select61, %thread-pre-split.thread.i ]
+  %124 = phi i64 [ %98, %97 ], [ %119, %118 ], [ 1, %thread-pre-split.thread.i.thread ], [ %spec.select87, %thread-pre-split.thread.i ]
   %125 = load ptr, ptr %81, align 8
   %126 = icmp eq ptr %125, %76
   br i1 %126, label %.loopexit26, label %.preheader25, !llvm.loop !187
@@ -6211,8 +6211,8 @@ define internal fastcc noundef ptr @create_worker(ptr noundef %0) unnamed_addr #
   br label %95
 
 95:                                               ; preds = %91, %._crit_edge.i
-  %.sink5 = phi i64 [ 8, %._crit_edge.i ], [ 16, %91 ]
-  %96 = getelementptr inbounds nuw i8, ptr %90, i64 %.sink5
+  %.sink10 = phi i64 [ 8, %._crit_edge.i ], [ 16, %91 ]
+  %96 = getelementptr inbounds nuw i8, ptr %90, i64 %.sink10
   %97 = call i32 @set_cpus_allowed_ptr(ptr noundef %87, ptr noundef nonnull %96) #26
   br label %worker_attach_to_pool.exit
 
@@ -7848,19 +7848,19 @@ define internal fastcc i32 @workqueue_apply_unbound_cpumask(ptr noundef readonly
   %38 = load ptr, ptr %36, align 8
   call fastcc void @apply_wqattrs_cleanup(ptr noundef %37)
   %39 = icmp eq ptr %38, %2
-  br i1 %39, label %.loopexit.thread8, label %.split, !llvm.loop !262
+  br i1 %39, label %.loopexit.thread12, label %.split, !llvm.loop !262
 
 .loopexit:                                        ; preds = %.loopexit6
-  br i1 %30, label %.loopexit.thread, label %.loopexit.thread8
+  br i1 %30, label %.loopexit.thread, label %.loopexit.thread12
 
 .loopexit.thread:                                 ; preds = %.split.us, %.loopexit
   call void @mutex_lock(ptr noundef nonnull @wq_pool_attach_mutex) #26
   %40 = load i64, ptr %0, align 8
   store i64 %40, ptr @wq_unbound_cpumask, align 8
   call void @mutex_unlock(ptr noundef nonnull @wq_pool_attach_mutex) #26
-  br label %.loopexit.thread8
+  br label %.loopexit.thread12
 
-.loopexit.thread8:                                ; preds = %.split, %.loopexit.thread, %.loopexit
+.loopexit.thread12:                               ; preds = %.split, %.loopexit.thread, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %27
 }

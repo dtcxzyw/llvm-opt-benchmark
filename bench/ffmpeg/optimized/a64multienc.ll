@@ -188,9 +188,9 @@ define internal range(i32 -2147483648, 1) i32 @a64multi_encode_frame(ptr noundef
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 268
   %31 = load i32, ptr %30, align 4, !tbaa !28
   %.not122 = icmp eq i32 %31, 0
-  br i1 %.not122, label %.thread, label %.thread160
+  br i1 %.not122, label %.thread, label %.thread173
 
-.thread160:                                       ; preds = %29
+.thread173:                                       ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 276
   %33 = load i32, ptr %32, align 4, !tbaa !32
   store i32 %33, ptr %30, align 4, !tbaa !28
@@ -309,8 +309,8 @@ to_meta_with_crop.exit:                           ; preds = %.split.us.i
   %84 = icmp eq i32 %36, %38
   br i1 %84, label %85, label %.thread
 
-85:                                               ; preds = %.thread160, %83
-  %86 = phi i32 [ %33, %.thread160 ], [ %38, %83 ]
+85:                                               ; preds = %.thread173, %83
+  %86 = phi i32 [ %33, %.thread173 ], [ %38, %83 ]
   %87 = getelementptr inbounds nuw i8, ptr %9, i64 276
   %88 = getelementptr inbounds nuw i8, ptr %9, i64 268
   %.not124 = icmp eq i32 %86, 0

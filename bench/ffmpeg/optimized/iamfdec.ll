@@ -32,10 +32,11 @@ define internal range(i32 0, 52) i32 @iamf_probe(ptr noundef readonly captures(n
   br i1 %10, label %get_score.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %get_score.exit.thread29
-  %11 = phi i32 [ %38, %get_score.exit.thread29 ], [ %9, %1 ]
-  %12 = phi i64 [ %35, %get_score.exit.thread29 ], [ 0, %1 ]
-  %.02041 = phi i32 [ %34, %get_score.exit.thread29 ], [ 0, %1 ]
-  %.040 = phi i32 [ %.232, %get_score.exit.thread29 ], [ 0, %1 ]
+  %11 = phi i32 [ %36, %get_score.exit.thread29 ], [ %9, %1 ]
+  %12 = phi i64 [ %33, %get_score.exit.thread29 ], [ 0, %1 ]
+  %.02041 = phi i32 [ %32, %get_score.exit.thread29 ], [ 0, %1 ]
+  %.not.i = phi i32 [ 51, %get_score.exit.thread29 ], [ 0, %1 ]
+  %.not.not = phi i1 [ false, %get_score.exit.thread29 ], [ true, %1 ]
   %13 = load ptr, ptr %5, align 8, !tbaa !4
   %14 = getelementptr inbounds i8, ptr %13, i64 %12
   %15 = load i32, ptr %4, align 4, !tbaa !12
@@ -63,31 +64,25 @@ define internal range(i32 0, 52) i32 @iamf_probe(ptr noundef readonly captures(n
 
 29:                                               ; preds = %27
   %30 = icmp ult i32 %19, 24
-  br i1 %30, label %31, label %get_score.exit.thread
-
-31:                                               ; preds = %29
-  %.not.i = icmp eq i32 %.040, 0
-  %32 = select i1 %.not.i, i32 0, i32 51
+  %spec.select = select i1 %30, i32 %.not.i, i32 0
   br label %get_score.exit.thread
 
 get_score.exit:                                   ; preds = %27
-  %.not.not = icmp eq i32 %.040, 0
   br i1 %.not.not, label %get_score.exit.thread, label %get_score.exit.thread29
 
 get_score.exit.thread29:                          ; preds = %25, %get_score.exit
-  %.232 = phi i32 [ %.040, %get_score.exit ], [ 1, %25 ]
-  %33 = sub nsw i32 %18, %.02041
-  %. = call i32 @llvm.smin.i32(i32 %11, i32 %33)
-  %34 = add nsw i32 %., %.02041
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i8, ptr %13, i64 %35
-  %37 = sub nsw i32 %18, %34
-  %38 = call i32 @ff_iamf_parse_obu_header(ptr noundef %36, i32 noundef %37, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #5
-  %39 = icmp slt i32 %38, 0
-  br i1 %39, label %get_score.exit.thread, label %.lr.ph
+  %31 = sub nsw i32 %18, %.02041
+  %. = call i32 @llvm.smin.i32(i32 %11, i32 %31)
+  %32 = add nsw i32 %., %.02041
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds i8, ptr %13, i64 %33
+  %35 = sub nsw i32 %18, %32
+  %36 = call i32 @ff_iamf_parse_obu_header(ptr noundef %34, i32 noundef %35, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #5
+  %37 = icmp slt i32 %36, 0
+  br i1 %37, label %get_score.exit.thread, label %.lr.ph
 
-get_score.exit.thread:                            ; preds = %get_score.exit, %get_score.exit.thread29, %25, %21, %1, %29, %31
-  %.1.ph = phi i32 [ 0, %29 ], [ %32, %31 ], [ 0, %1 ], [ 0, %21 ], [ 0, %25 ], [ 0, %get_score.exit.thread29 ], [ 0, %get_score.exit ]
+get_score.exit.thread:                            ; preds = %get_score.exit, %get_score.exit.thread29, %25, %21, %29, %1
+  %.1.ph = phi i32 [ 0, %1 ], [ %spec.select, %29 ], [ 0, %21 ], [ 0, %25 ], [ 0, %get_score.exit.thread29 ], [ 0, %get_score.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -216,10 +211,10 @@ define internal range(i32 -2147483648, 1) i32 @iamf_read_header(ptr noundef %0) 
   br i1 %76, label %.sink.split, label %80
 
 .sink.split:                                      ; preds = %70, %73, %66
-  %.sink323 = phi i32 [ 1, %66 ], [ 524288, %73 ], [ 524288, %70 ]
+  %.sink332 = phi i32 [ 1, %66 ], [ 524288, %73 ], [ 524288, %70 ]
   %77 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %78 = load i32, ptr %77, align 8, !tbaa !69
-  %79 = or i32 %78, %.sink323
+  %79 = or i32 %78, %.sink332
   store i32 %79, ptr %77, align 8, !tbaa !69
   br label %80
 

@@ -12172,7 +12172,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %22 = load ptr, ptr %21, align 8, !noalias !2324, !nonnull !14, !align !15, !noundef !14
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2324
   store ptr %22, ptr %0, align 8
-  br label %.loopexit31
+  br label %.loopexit32
 
 23:                                               ; preds = %.thread, %19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2330)
@@ -12213,7 +12213,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %storemerge.i10 = phi i64 [ %37, %36 ], [ %39, %38 ]
   %.sink.i = phi i32 [ %30, %36 ], [ 1000000001, %38 ]
   store i64 %storemerge.i10, ptr %0, align 8, !alias.scope !2330, !noalias !2348
-  br label %.loopexit31
+  br label %.loopexit32
 
 40:                                               ; preds = %19
   store i8 0, ptr %12, align 8, !alias.scope !2349
@@ -12263,7 +12263,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 58:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2357
   %59 = icmp eq i64 %.sroa.0.01016.i.add, 3
-  br i1 %59, label %.loopexit31, label %43
+  br i1 %59, label %.loopexit32, label %43
 
 60:                                               ; preds = %55
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2369)
@@ -12280,9 +12280,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %.sroa.0.1.i = phi ptr [ %54, %50 ], [ %64, %60 ], [ %49, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2357
   store ptr %.sroa.0.1.i, ptr %0, align 8
-  br label %.loopexit31
+  br label %.loopexit32
 
-.loopexit31:                                      ; preds = %58, %.loopexit, %65, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h67bd0a16b220c241E.exit"
+.loopexit32:                                      ; preds = %58, %.loopexit, %65, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h67bd0a16b220c241E.exit"
   %.sink = phi i32 [ 1000000001, %.loopexit ], [ 1000000001, %65 ], [ %.sink.i, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h67bd0a16b220c241E.exit" ], [ 1000000000, %58 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sink, ptr %66, align 8
@@ -13953,15 +13953,15 @@ define void @"_ZN21uv_distribution_types11requirement127_$LT$impl$u20$core..conv
   br label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..group_name..GroupName$u5d$$GT$$GT$17h37e1e5be93767a15E.exit"
 
 55:                                               ; preds = %2, %25, %24
-  %.sink80 = phi i64 [ 8, %25 ], [ 176, %24 ], [ 96, %2 ]
-  %.sink78 = phi i64 [ 16, %25 ], [ 184, %24 ], [ 104, %2 ]
-  %.sink77 = phi i64 [ 24, %25 ], [ 192, %24 ], [ 112, %2 ]
+  %.sink82 = phi i64 [ 8, %25 ], [ 176, %24 ], [ 96, %2 ]
+  %.sink80 = phi i64 [ 16, %25 ], [ 184, %24 ], [ 104, %2 ]
+  %.sink79 = phi i64 [ 24, %25 ], [ 192, %24 ], [ 112, %2 ]
   %.sink = phi i64 [ 32, %25 ], [ 200, %24 ], [ 120, %2 ]
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink80
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink82
   %.sroa.014.0.copyload17 = load i64, ptr %56, align 8
-  %.sroa.518.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink78
+  %.sroa.518.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink80
   %.sroa.518.0.copyload24 = load ptr, ptr %.sroa.518.0..sroa_idx23, align 8
-  %.sroa.625.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink77
+  %.sroa.625.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink79
   %.sroa.625.0.copyload31 = load i64, ptr %.sroa.625.0..sroa_idx30, align 8
   %.sroa.732.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.732, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.732.0..sroa_idx35, i64 72, i1 false)

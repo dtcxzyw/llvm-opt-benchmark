@@ -880,26 +880,26 @@ while.end.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end12.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i
-  %__y.0.lcssa25.i.i.i.i.i = phi ptr [ %__x.021.i.i.i.i.i, %while.end.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i ]
+  %__y.0.lcssa26.i.i.i.i.i = phi ptr [ %__x.021.i.i.i.i.i, %while.end.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i ]
   %_M_left.i3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 32
   %18 = load ptr, ptr %_M_left.i3.i.i.i.i.i, align 8, !tbaa !14
-  %cmp.i4.i.i.i.i.i = icmp eq ptr %__y.0.lcssa25.i.i.i.i.i, %18
+  %cmp.i4.i.i.i.i.i = icmp eq ptr %__y.0.lcssa26.i.i.i.i.i, %18
   br i1 %cmp.i4.i.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i
-  %call.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i.i.i.i.i) #32
+  %call.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i.i.i.i.i) #32
   %_M_storage.i.i.i.i.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i, i64 32
   %.pre.i.i.i.i = load ptr, ptr %_M_storage.i.i.i.i.phi.trans.insert.i.i.i.i, align 8, !tbaa !3
   br label %if.end12.i.i.i.i.i
 
 if.end12.i.i.i.i.i:                               ; preds = %if.else.i.i.i.i.i, %while.end.i.i.i.i.i
   %19 = phi ptr [ %.pre.i.i.i.i, %if.else.i.i.i.i.i ], [ %17, %while.end.i.i.i.i.i ]
-  %__y.0.lcssa26.i.i.i.i.i = phi ptr [ %__y.0.lcssa25.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %__x.021.i.i.i.i.i, %while.end.i.i.i.i.i ]
+  %__y.0.lcssa25.i.i.i.i.i = phi ptr [ %__y.0.lcssa26.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %__x.021.i.i.i.i.i, %while.end.i.i.i.i.i ]
   %cmp.i5.i.i.i.i.i = icmp ult ptr %19, %add.ptr20
   br i1 %cmp.i5.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end12.i.i.i.i.i, %if.then.i.i.i.i.i
-  %retval.sroa.4.0.i.ph.i.i.i.i = phi ptr [ %__y.0.lcssa25.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %__y.0.lcssa26.i.i.i.i.i, %if.end12.i.i.i.i.i ]
+  %retval.sroa.4.0.i.ph.i.i.i.i = phi ptr [ %__y.0.lcssa26.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %__y.0.lcssa25.i.i.i.i.i, %if.end12.i.i.i.i.i ]
   %cmp2.i.i.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i.i.i, %add.ptr.i.i.i.i.i.i
   br i1 %cmp2.i.i.i.i.i, label %_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i.i, label %lor.rhs.i.i.i.i.i
 
@@ -946,26 +946,26 @@ while.end.i.i:                                    ; preds = %while.body.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i12, label %if.end12.i.i
 
 if.then.i.i12:                                    ; preds = %while.end.i.i, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i
-  %__y.0.lcssa26.i.i = phi ptr [ %__x.022.i.i, %while.end.i.i ], [ %add.ptr.i.i.i10, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i ]
+  %__y.0.lcssa27.i.i = phi ptr [ %__x.022.i.i, %while.end.i.i ], [ %add.ptr.i.i.i10, %_ZN8QuantLib10Observable16registerObserverEPNS_8ObserverE.exit.i ]
   %_M_left.i3.i.i = getelementptr inbounds nuw i8, ptr %add.ptr20, i64 32
   %24 = load ptr, ptr %_M_left.i3.i.i, align 8, !tbaa !14
-  %cmp.i.i.i13 = icmp eq ptr %__y.0.lcssa26.i.i, %24
+  %cmp.i.i.i13 = icmp eq ptr %__y.0.lcssa27.i.i, %24
   br i1 %cmp.i.i.i13, label %if.then.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i12
-  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i.i) #32
+  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa27.i.i) #32
   %pn.i.i.i4.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 40
   %.pre.i = load ptr, ptr %pn.i.i.i4.i.phi.trans.insert.i, align 8, !tbaa !37
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.else.i.i, %while.end.i.i
   %25 = phi ptr [ %.pre.i, %if.else.i.i ], [ %23, %while.end.i.i ]
-  %__y.0.lcssa27.i.i = phi ptr [ %__y.0.lcssa26.i.i, %if.else.i.i ], [ %__x.022.i.i, %while.end.i.i ]
+  %__y.0.lcssa26.i.i = phi ptr [ %__y.0.lcssa27.i.i, %if.else.i.i ], [ %__x.022.i.i, %while.end.i.i ]
   %cmp.i.i.i.i.i6.i.i = icmp ult ptr %25, %15
   br i1 %cmp.i.i.i.i.i6.i.i, label %if.then.i, label %invoke.cont25
 
 if.then.i:                                        ; preds = %if.end12.i.i, %if.then.i.i12
-  %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa26.i.i, %if.then.i.i12 ], [ %__y.0.lcssa27.i.i, %if.end12.i.i ]
+  %retval.sroa.4.0.i.ph.i = phi ptr [ %__y.0.lcssa27.i.i, %if.then.i.i12 ], [ %__y.0.lcssa26.i.i, %if.end12.i.i ]
   %cmp2.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i, %add.ptr.i.i.i10
   br i1 %cmp2.i.i, label %lor.end.i.i, label %lor.rhs.i.i
 
@@ -9496,9 +9496,9 @@ cond.true.i:                                      ; preds = %dynamic_cast.end3.i
 do.end.thread:                                    ; preds = %cond.true.i
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp28)
   store ptr %2, ptr %ref.tmp28, align 8, !tbaa !153
-  %pn.i63 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
-  %pn3.i64 = getelementptr inbounds nuw i8, ptr %iborCouponPricer, i64 8
-  store ptr %3, ptr %pn.i63, align 8, !tbaa !37
+  %pn.i77 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
+  %pn3.i78 = getelementptr inbounds nuw i8, ptr %iborCouponPricer, i64 8
+  store ptr %3, ptr %pn.i77, align 8, !tbaa !37
   br label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_16IborCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
 
 if.then:                                          ; preds = %dynamic_cast.end3.i, %entry
@@ -9683,8 +9683,8 @@ if.then.i.i22:                                    ; preds = %cond.true.i
   br label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_16IborCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
 
 _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_16IborCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit: ; preds = %do.end.thread, %if.then.i.i22
-  %pn3.i67 = phi ptr [ %pn3.i64, %do.end.thread ], [ %pn3.i, %if.then.i.i22 ]
-  %pn.i66 = phi ptr [ %pn.i63, %do.end.thread ], [ %pn.i, %if.then.i.i22 ]
+  %pn3.i81 = phi ptr [ %pn3.i78, %do.end.thread ], [ %pn3.i, %if.then.i.i22 ]
+  %pn.i80 = phi ptr [ %pn.i77, %do.end.thread ], [ %pn.i, %if.then.i.i22 ]
   %vtable = load ptr, ptr %c, align 8, !tbaa !35
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 128
   %28 = load ptr, ptr %vfn, align 8
@@ -9692,7 +9692,7 @@ _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_16IborCouponP
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_16IborCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
-  %29 = load ptr, ptr %pn.i66, align 8, !tbaa !37
+  %29 = load ptr, ptr %pn.i80, align 8, !tbaa !37
   %cmp.not.i.i24 = icmp eq ptr %29, null
   br i1 %cmp.not.i.i24, label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit, label %if.then.i.i25
 
@@ -9731,7 +9731,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %i
 
 _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit: ; preds = %invoke.cont30, %if.then.i.i25, %.noexc.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp28)
-  %36 = load ptr, ptr %pn3.i67, align 8, !tbaa !37
+  %36 = load ptr, ptr %pn3.i81, align 8, !tbaa !37
   %cmp.not.i.i30 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i30, label %_ZN5boost10shared_ptrIN8QuantLib16IborCouponPricerEED2Ev.exit, label %if.then.i.i31
 
@@ -9824,9 +9824,9 @@ cond.true.i:                                      ; preds = %dynamic_cast.end3.i
 do.end.thread:                                    ; preds = %cond.true.i
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp28)
   store ptr %2, ptr %ref.tmp28, align 8, !tbaa !153
-  %pn.i63 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
-  %pn3.i64 = getelementptr inbounds nuw i8, ptr %iborCouponPricer, i64 8
-  store ptr %3, ptr %pn.i63, align 8, !tbaa !37
+  %pn.i77 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
+  %pn3.i78 = getelementptr inbounds nuw i8, ptr %iborCouponPricer, i64 8
+  store ptr %3, ptr %pn.i77, align 8, !tbaa !37
   br label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_16IborCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
 
 if.then:                                          ; preds = %dynamic_cast.end3.i, %entry
@@ -10011,8 +10011,8 @@ if.then.i.i22:                                    ; preds = %cond.true.i
   br label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_16IborCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
 
 _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_16IborCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit: ; preds = %do.end.thread, %if.then.i.i22
-  %pn3.i67 = phi ptr [ %pn3.i64, %do.end.thread ], [ %pn3.i, %if.then.i.i22 ]
-  %pn.i66 = phi ptr [ %pn.i63, %do.end.thread ], [ %pn.i, %if.then.i.i22 ]
+  %pn3.i81 = phi ptr [ %pn3.i78, %do.end.thread ], [ %pn3.i, %if.then.i.i22 ]
+  %pn.i80 = phi ptr [ %pn.i77, %do.end.thread ], [ %pn.i, %if.then.i.i22 ]
   %vtable = load ptr, ptr %c, align 8, !tbaa !35
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 128
   %28 = load ptr, ptr %vfn, align 8
@@ -10020,7 +10020,7 @@ _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_16IborCouponP
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_16IborCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
-  %29 = load ptr, ptr %pn.i66, align 8, !tbaa !37
+  %29 = load ptr, ptr %pn.i80, align 8, !tbaa !37
   %cmp.not.i.i24 = icmp eq ptr %29, null
   br i1 %cmp.not.i.i24, label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit, label %if.then.i.i25
 
@@ -10059,7 +10059,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %i
 
 _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit: ; preds = %invoke.cont30, %if.then.i.i25, %.noexc.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp28)
-  %36 = load ptr, ptr %pn3.i67, align 8, !tbaa !37
+  %36 = load ptr, ptr %pn3.i81, align 8, !tbaa !37
   %cmp.not.i.i30 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i30, label %_ZN5boost10shared_ptrIN8QuantLib16IborCouponPricerEED2Ev.exit, label %if.then.i.i31
 
@@ -10152,9 +10152,9 @@ cond.true.i:                                      ; preds = %dynamic_cast.end3.i
 do.end.thread:                                    ; preds = %cond.true.i
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp28)
   store ptr %2, ptr %ref.tmp28, align 8, !tbaa !153
-  %pn.i63 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
-  %pn3.i64 = getelementptr inbounds nuw i8, ptr %iborCouponPricer, i64 8
-  store ptr %3, ptr %pn.i63, align 8, !tbaa !37
+  %pn.i77 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
+  %pn3.i78 = getelementptr inbounds nuw i8, ptr %iborCouponPricer, i64 8
+  store ptr %3, ptr %pn.i77, align 8, !tbaa !37
   br label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_16IborCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
 
 if.then:                                          ; preds = %dynamic_cast.end3.i, %entry
@@ -10339,8 +10339,8 @@ if.then.i.i22:                                    ; preds = %cond.true.i
   br label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_16IborCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
 
 _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_16IborCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit: ; preds = %do.end.thread, %if.then.i.i22
-  %pn3.i67 = phi ptr [ %pn3.i64, %do.end.thread ], [ %pn3.i, %if.then.i.i22 ]
-  %pn.i66 = phi ptr [ %pn.i63, %do.end.thread ], [ %pn.i, %if.then.i.i22 ]
+  %pn3.i81 = phi ptr [ %pn3.i78, %do.end.thread ], [ %pn3.i, %if.then.i.i22 ]
+  %pn.i80 = phi ptr [ %pn.i77, %do.end.thread ], [ %pn.i, %if.then.i.i22 ]
   %vtable = load ptr, ptr %c, align 8, !tbaa !35
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 128
   %28 = load ptr, ptr %vfn, align 8
@@ -10348,7 +10348,7 @@ _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_16IborCouponP
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_16IborCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
-  %29 = load ptr, ptr %pn.i66, align 8, !tbaa !37
+  %29 = load ptr, ptr %pn.i80, align 8, !tbaa !37
   %cmp.not.i.i24 = icmp eq ptr %29, null
   br i1 %cmp.not.i.i24, label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit, label %if.then.i.i25
 
@@ -10387,7 +10387,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %i
 
 _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit: ; preds = %invoke.cont30, %if.then.i.i25, %.noexc.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp28)
-  %36 = load ptr, ptr %pn3.i67, align 8, !tbaa !37
+  %36 = load ptr, ptr %pn3.i81, align 8, !tbaa !37
   %cmp.not.i.i30 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i30, label %_ZN5boost10shared_ptrIN8QuantLib16IborCouponPricerEED2Ev.exit, label %if.then.i.i31
 
@@ -10480,9 +10480,9 @@ cond.true.i:                                      ; preds = %dynamic_cast.end3.i
 do.end.thread:                                    ; preds = %cond.true.i
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp28)
   store ptr %2, ptr %ref.tmp28, align 8, !tbaa !153
-  %pn.i63 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
-  %pn3.i64 = getelementptr inbounds nuw i8, ptr %cmsCouponPricer, i64 8
-  store ptr %3, ptr %pn.i63, align 8, !tbaa !37
+  %pn.i77 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
+  %pn3.i78 = getelementptr inbounds nuw i8, ptr %cmsCouponPricer, i64 8
+  store ptr %3, ptr %pn.i77, align 8, !tbaa !37
   br label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_15CmsCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
 
 if.then:                                          ; preds = %dynamic_cast.end3.i, %entry
@@ -10667,8 +10667,8 @@ if.then.i.i22:                                    ; preds = %cond.true.i
   br label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_15CmsCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
 
 _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_15CmsCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit: ; preds = %do.end.thread, %if.then.i.i22
-  %pn3.i67 = phi ptr [ %pn3.i64, %do.end.thread ], [ %pn3.i, %if.then.i.i22 ]
-  %pn.i66 = phi ptr [ %pn.i63, %do.end.thread ], [ %pn.i, %if.then.i.i22 ]
+  %pn3.i81 = phi ptr [ %pn3.i78, %do.end.thread ], [ %pn3.i, %if.then.i.i22 ]
+  %pn.i80 = phi ptr [ %pn.i77, %do.end.thread ], [ %pn.i, %if.then.i.i22 ]
   %vtable = load ptr, ptr %c, align 8, !tbaa !35
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 128
   %28 = load ptr, ptr %vfn, align 8
@@ -10676,7 +10676,7 @@ _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_15CmsCouponPr
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_15CmsCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
-  %29 = load ptr, ptr %pn.i66, align 8, !tbaa !37
+  %29 = load ptr, ptr %pn.i80, align 8, !tbaa !37
   %cmp.not.i.i24 = icmp eq ptr %29, null
   br i1 %cmp.not.i.i24, label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit, label %if.then.i.i25
 
@@ -10715,7 +10715,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %i
 
 _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit: ; preds = %invoke.cont30, %if.then.i.i25, %.noexc.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp28)
-  %36 = load ptr, ptr %pn3.i67, align 8, !tbaa !37
+  %36 = load ptr, ptr %pn3.i81, align 8, !tbaa !37
   %cmp.not.i.i30 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i30, label %_ZN5boost10shared_ptrIN8QuantLib15CmsCouponPricerEED2Ev.exit, label %if.then.i.i31
 
@@ -10808,9 +10808,9 @@ cond.true.i:                                      ; preds = %dynamic_cast.end3.i
 do.end.thread:                                    ; preds = %cond.true.i
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp28)
   store ptr %2, ptr %ref.tmp28, align 8, !tbaa !153
-  %pn.i63 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
-  %pn3.i64 = getelementptr inbounds nuw i8, ptr %cmsSpreadCouponPricer, i64 8
-  store ptr %3, ptr %pn.i63, align 8, !tbaa !37
+  %pn.i77 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
+  %pn3.i78 = getelementptr inbounds nuw i8, ptr %cmsSpreadCouponPricer, i64 8
+  store ptr %3, ptr %pn.i77, align 8, !tbaa !37
   br label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_21CmsSpreadCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
 
 if.then:                                          ; preds = %dynamic_cast.end3.i, %entry
@@ -10995,8 +10995,8 @@ if.then.i.i22:                                    ; preds = %cond.true.i
   br label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_21CmsSpreadCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
 
 _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_21CmsSpreadCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit: ; preds = %do.end.thread, %if.then.i.i22
-  %pn3.i67 = phi ptr [ %pn3.i64, %do.end.thread ], [ %pn3.i, %if.then.i.i22 ]
-  %pn.i66 = phi ptr [ %pn.i63, %do.end.thread ], [ %pn.i, %if.then.i.i22 ]
+  %pn3.i81 = phi ptr [ %pn3.i78, %do.end.thread ], [ %pn3.i, %if.then.i.i22 ]
+  %pn.i80 = phi ptr [ %pn.i77, %do.end.thread ], [ %pn.i, %if.then.i.i22 ]
   %vtable = load ptr, ptr %c, align 8, !tbaa !35
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 128
   %28 = load ptr, ptr %vfn, align 8
@@ -11004,7 +11004,7 @@ _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_21CmsSpreadCo
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_21CmsSpreadCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
-  %29 = load ptr, ptr %pn.i66, align 8, !tbaa !37
+  %29 = load ptr, ptr %pn.i80, align 8, !tbaa !37
   %cmp.not.i.i24 = icmp eq ptr %29, null
   br i1 %cmp.not.i.i24, label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit, label %if.then.i.i25
 
@@ -11043,7 +11043,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %i
 
 _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit: ; preds = %invoke.cont30, %if.then.i.i25, %.noexc.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp28)
-  %36 = load ptr, ptr %pn3.i67, align 8, !tbaa !37
+  %36 = load ptr, ptr %pn3.i81, align 8, !tbaa !37
   %cmp.not.i.i30 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i30, label %_ZN5boost10shared_ptrIN8QuantLib21CmsSpreadCouponPricerEED2Ev.exit, label %if.then.i.i31
 
@@ -11136,9 +11136,9 @@ cond.true.i:                                      ; preds = %dynamic_cast.end3.i
 do.end.thread:                                    ; preds = %cond.true.i
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp28)
   store ptr %2, ptr %ref.tmp28, align 8, !tbaa !153
-  %pn.i63 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
-  %pn3.i64 = getelementptr inbounds nuw i8, ptr %cmsCouponPricer, i64 8
-  store ptr %3, ptr %pn.i63, align 8, !tbaa !37
+  %pn.i77 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
+  %pn3.i78 = getelementptr inbounds nuw i8, ptr %cmsCouponPricer, i64 8
+  store ptr %3, ptr %pn.i77, align 8, !tbaa !37
   br label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_15CmsCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
 
 if.then:                                          ; preds = %dynamic_cast.end3.i, %entry
@@ -11323,8 +11323,8 @@ if.then.i.i22:                                    ; preds = %cond.true.i
   br label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_15CmsCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
 
 _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_15CmsCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit: ; preds = %do.end.thread, %if.then.i.i22
-  %pn3.i67 = phi ptr [ %pn3.i64, %do.end.thread ], [ %pn3.i, %if.then.i.i22 ]
-  %pn.i66 = phi ptr [ %pn.i63, %do.end.thread ], [ %pn.i, %if.then.i.i22 ]
+  %pn3.i81 = phi ptr [ %pn3.i78, %do.end.thread ], [ %pn3.i, %if.then.i.i22 ]
+  %pn.i80 = phi ptr [ %pn.i77, %do.end.thread ], [ %pn.i, %if.then.i.i22 ]
   %vtable = load ptr, ptr %c, align 8, !tbaa !35
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 128
   %28 = load ptr, ptr %vfn, align 8
@@ -11332,7 +11332,7 @@ _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_15CmsCouponPr
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_15CmsCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
-  %29 = load ptr, ptr %pn.i66, align 8, !tbaa !37
+  %29 = load ptr, ptr %pn.i80, align 8, !tbaa !37
   %cmp.not.i.i24 = icmp eq ptr %29, null
   br i1 %cmp.not.i.i24, label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit, label %if.then.i.i25
 
@@ -11371,7 +11371,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %i
 
 _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit: ; preds = %invoke.cont30, %if.then.i.i25, %.noexc.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp28)
-  %36 = load ptr, ptr %pn3.i67, align 8, !tbaa !37
+  %36 = load ptr, ptr %pn3.i81, align 8, !tbaa !37
   %cmp.not.i.i30 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i30, label %_ZN5boost10shared_ptrIN8QuantLib15CmsCouponPricerEED2Ev.exit, label %if.then.i.i31
 
@@ -11464,9 +11464,9 @@ cond.true.i:                                      ; preds = %dynamic_cast.end3.i
 do.end.thread:                                    ; preds = %cond.true.i
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp28)
   store ptr %2, ptr %ref.tmp28, align 8, !tbaa !153
-  %pn.i63 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
-  %pn3.i64 = getelementptr inbounds nuw i8, ptr %cmsSpreadCouponPricer, i64 8
-  store ptr %3, ptr %pn.i63, align 8, !tbaa !37
+  %pn.i77 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
+  %pn3.i78 = getelementptr inbounds nuw i8, ptr %cmsSpreadCouponPricer, i64 8
+  store ptr %3, ptr %pn.i77, align 8, !tbaa !37
   br label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_21CmsSpreadCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
 
 if.then:                                          ; preds = %dynamic_cast.end3.i, %entry
@@ -11651,8 +11651,8 @@ if.then.i.i22:                                    ; preds = %cond.true.i
   br label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_21CmsSpreadCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
 
 _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_21CmsSpreadCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit: ; preds = %do.end.thread, %if.then.i.i22
-  %pn3.i67 = phi ptr [ %pn3.i64, %do.end.thread ], [ %pn3.i, %if.then.i.i22 ]
-  %pn.i66 = phi ptr [ %pn.i63, %do.end.thread ], [ %pn.i, %if.then.i.i22 ]
+  %pn3.i81 = phi ptr [ %pn3.i78, %do.end.thread ], [ %pn3.i, %if.then.i.i22 ]
+  %pn.i80 = phi ptr [ %pn.i77, %do.end.thread ], [ %pn.i, %if.then.i.i22 ]
   %vtable = load ptr, ptr %c, align 8, !tbaa !35
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 128
   %28 = load ptr, ptr %vfn, align 8
@@ -11660,7 +11660,7 @@ _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_21CmsSpreadCo
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_21CmsSpreadCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
-  %29 = load ptr, ptr %pn.i66, align 8, !tbaa !37
+  %29 = load ptr, ptr %pn.i80, align 8, !tbaa !37
   %cmp.not.i.i24 = icmp eq ptr %29, null
   br i1 %cmp.not.i.i24, label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit, label %if.then.i.i25
 
@@ -11699,7 +11699,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %i
 
 _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit: ; preds = %invoke.cont30, %if.then.i.i25, %.noexc.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp28)
-  %36 = load ptr, ptr %pn3.i67, align 8, !tbaa !37
+  %36 = load ptr, ptr %pn3.i81, align 8, !tbaa !37
   %cmp.not.i.i30 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i30, label %_ZN5boost10shared_ptrIN8QuantLib21CmsSpreadCouponPricerEED2Ev.exit, label %if.then.i.i31
 
@@ -11792,9 +11792,9 @@ cond.true.i:                                      ; preds = %dynamic_cast.end3.i
 do.end.thread:                                    ; preds = %cond.true.i
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp28)
   store ptr %2, ptr %ref.tmp28, align 8, !tbaa !153
-  %pn.i63 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
-  %pn3.i64 = getelementptr inbounds nuw i8, ptr %cmsCouponPricer, i64 8
-  store ptr %3, ptr %pn.i63, align 8, !tbaa !37
+  %pn.i77 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
+  %pn3.i78 = getelementptr inbounds nuw i8, ptr %cmsCouponPricer, i64 8
+  store ptr %3, ptr %pn.i77, align 8, !tbaa !37
   br label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_15CmsCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
 
 if.then:                                          ; preds = %dynamic_cast.end3.i, %entry
@@ -11979,8 +11979,8 @@ if.then.i.i22:                                    ; preds = %cond.true.i
   br label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_15CmsCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
 
 _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_15CmsCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit: ; preds = %do.end.thread, %if.then.i.i22
-  %pn3.i67 = phi ptr [ %pn3.i64, %do.end.thread ], [ %pn3.i, %if.then.i.i22 ]
-  %pn.i66 = phi ptr [ %pn.i63, %do.end.thread ], [ %pn.i, %if.then.i.i22 ]
+  %pn3.i81 = phi ptr [ %pn3.i78, %do.end.thread ], [ %pn3.i, %if.then.i.i22 ]
+  %pn.i80 = phi ptr [ %pn.i77, %do.end.thread ], [ %pn.i, %if.then.i.i22 ]
   %vtable = load ptr, ptr %c, align 8, !tbaa !35
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 128
   %28 = load ptr, ptr %vfn, align 8
@@ -11988,7 +11988,7 @@ _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_15CmsCouponPr
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_15CmsCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
-  %29 = load ptr, ptr %pn.i66, align 8, !tbaa !37
+  %29 = load ptr, ptr %pn.i80, align 8, !tbaa !37
   %cmp.not.i.i24 = icmp eq ptr %29, null
   br i1 %cmp.not.i.i24, label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit, label %if.then.i.i25
 
@@ -12027,7 +12027,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %i
 
 _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit: ; preds = %invoke.cont30, %if.then.i.i25, %.noexc.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp28)
-  %36 = load ptr, ptr %pn3.i67, align 8, !tbaa !37
+  %36 = load ptr, ptr %pn3.i81, align 8, !tbaa !37
   %cmp.not.i.i30 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i30, label %_ZN5boost10shared_ptrIN8QuantLib15CmsCouponPricerEED2Ev.exit, label %if.then.i.i31
 
@@ -12120,9 +12120,9 @@ cond.true.i:                                      ; preds = %dynamic_cast.end3.i
 do.end.thread:                                    ; preds = %cond.true.i
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp28)
   store ptr %2, ptr %ref.tmp28, align 8, !tbaa !153
-  %pn.i63 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
-  %pn3.i64 = getelementptr inbounds nuw i8, ptr %cmsSpreadCouponPricer, i64 8
-  store ptr %3, ptr %pn.i63, align 8, !tbaa !37
+  %pn.i77 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
+  %pn3.i78 = getelementptr inbounds nuw i8, ptr %cmsSpreadCouponPricer, i64 8
+  store ptr %3, ptr %pn.i77, align 8, !tbaa !37
   br label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_21CmsSpreadCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
 
 if.then:                                          ; preds = %dynamic_cast.end3.i, %entry
@@ -12307,8 +12307,8 @@ if.then.i.i22:                                    ; preds = %cond.true.i
   br label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_21CmsSpreadCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
 
 _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_21CmsSpreadCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit: ; preds = %do.end.thread, %if.then.i.i22
-  %pn3.i67 = phi ptr [ %pn3.i64, %do.end.thread ], [ %pn3.i, %if.then.i.i22 ]
-  %pn.i66 = phi ptr [ %pn.i63, %do.end.thread ], [ %pn.i, %if.then.i.i22 ]
+  %pn3.i81 = phi ptr [ %pn3.i78, %do.end.thread ], [ %pn3.i, %if.then.i.i22 ]
+  %pn.i80 = phi ptr [ %pn.i77, %do.end.thread ], [ %pn.i, %if.then.i.i22 ]
   %vtable = load ptr, ptr %c, align 8, !tbaa !35
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 128
   %28 = load ptr, ptr %vfn, align 8
@@ -12316,7 +12316,7 @@ _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_21CmsSpreadCo
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_21CmsSpreadCouponPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
-  %29 = load ptr, ptr %pn.i66, align 8, !tbaa !37
+  %29 = load ptr, ptr %pn.i80, align 8, !tbaa !37
   %cmp.not.i.i24 = icmp eq ptr %29, null
   br i1 %cmp.not.i.i24, label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit, label %if.then.i.i25
 
@@ -12355,7 +12355,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %i
 
 _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit: ; preds = %invoke.cont30, %if.then.i.i25, %.noexc.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp28)
-  %36 = load ptr, ptr %pn3.i67, align 8, !tbaa !37
+  %36 = load ptr, ptr %pn3.i81, align 8, !tbaa !37
   %cmp.not.i.i30 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i30, label %_ZN5boost10shared_ptrIN8QuantLib21CmsSpreadCouponPricerEED2Ev.exit, label %if.then.i.i31
 
@@ -12448,9 +12448,9 @@ cond.true.i:                                      ; preds = %dynamic_cast.end3.i
 do.end.thread:                                    ; preds = %cond.true.i
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp28)
   store ptr %2, ptr %ref.tmp28, align 8, !tbaa !153
-  %pn.i63 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
-  %pn3.i64 = getelementptr inbounds nuw i8, ptr %rangeAccrualPricer, i64 8
-  store ptr %3, ptr %pn.i63, align 8, !tbaa !37
+  %pn.i77 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
+  %pn3.i78 = getelementptr inbounds nuw i8, ptr %rangeAccrualPricer, i64 8
+  store ptr %3, ptr %pn.i77, align 8, !tbaa !37
   br label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_18RangeAccrualPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
 
 if.then:                                          ; preds = %dynamic_cast.end3.i, %entry
@@ -12635,8 +12635,8 @@ if.then.i.i22:                                    ; preds = %cond.true.i
   br label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_18RangeAccrualPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
 
 _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_18RangeAccrualPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit: ; preds = %do.end.thread, %if.then.i.i22
-  %pn3.i67 = phi ptr [ %pn3.i64, %do.end.thread ], [ %pn3.i, %if.then.i.i22 ]
-  %pn.i66 = phi ptr [ %pn.i63, %do.end.thread ], [ %pn.i, %if.then.i.i22 ]
+  %pn3.i81 = phi ptr [ %pn3.i78, %do.end.thread ], [ %pn3.i, %if.then.i.i22 ]
+  %pn.i80 = phi ptr [ %pn.i77, %do.end.thread ], [ %pn.i, %if.then.i.i22 ]
   %vtable = load ptr, ptr %c, align 8, !tbaa !35
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 128
   %28 = load ptr, ptr %vfn, align 8
@@ -12644,7 +12644,7 @@ _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_18RangeAccrua
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_18RangeAccrualPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
-  %29 = load ptr, ptr %pn.i66, align 8, !tbaa !37
+  %29 = load ptr, ptr %pn.i80, align 8, !tbaa !37
   %cmp.not.i.i24 = icmp eq ptr %29, null
   br i1 %cmp.not.i.i24, label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit, label %if.then.i.i25
 
@@ -12683,7 +12683,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %i
 
 _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit: ; preds = %invoke.cont30, %if.then.i.i25, %.noexc.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp28)
-  %36 = load ptr, ptr %pn3.i67, align 8, !tbaa !37
+  %36 = load ptr, ptr %pn3.i81, align 8, !tbaa !37
   %cmp.not.i.i30 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i30, label %_ZN5boost10shared_ptrIN8QuantLib18RangeAccrualPricerEED2Ev.exit, label %if.then.i.i31
 
@@ -12776,9 +12776,9 @@ cond.true.i:                                      ; preds = %dynamic_cast.end3.i
 do.end.thread:                                    ; preds = %cond.true.i
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp28)
   store ptr %2, ptr %ref.tmp28, align 8, !tbaa !153
-  %pn.i63 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
-  %pn3.i64 = getelementptr inbounds nuw i8, ptr %subPeriodsPricer, i64 8
-  store ptr %3, ptr %pn.i63, align 8, !tbaa !37
+  %pn.i77 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
+  %pn3.i78 = getelementptr inbounds nuw i8, ptr %subPeriodsPricer, i64 8
+  store ptr %3, ptr %pn.i77, align 8, !tbaa !37
   br label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_16SubPeriodsPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
 
 if.then:                                          ; preds = %dynamic_cast.end3.i, %entry
@@ -12963,8 +12963,8 @@ if.then.i.i22:                                    ; preds = %cond.true.i
   br label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_16SubPeriodsPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
 
 _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_16SubPeriodsPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit: ; preds = %do.end.thread, %if.then.i.i22
-  %pn3.i67 = phi ptr [ %pn3.i64, %do.end.thread ], [ %pn3.i, %if.then.i.i22 ]
-  %pn.i66 = phi ptr [ %pn.i63, %do.end.thread ], [ %pn.i, %if.then.i.i22 ]
+  %pn3.i81 = phi ptr [ %pn3.i78, %do.end.thread ], [ %pn3.i, %if.then.i.i22 ]
+  %pn.i80 = phi ptr [ %pn.i77, %do.end.thread ], [ %pn.i, %if.then.i.i22 ]
   %vtable = load ptr, ptr %c, align 8, !tbaa !35
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 128
   %28 = load ptr, ptr %vfn, align 8
@@ -12972,7 +12972,7 @@ _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_16SubPeriodsP
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEC2INS1_16SubPeriodsPricerEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
-  %29 = load ptr, ptr %pn.i66, align 8, !tbaa !37
+  %29 = load ptr, ptr %pn.i80, align 8, !tbaa !37
   %cmp.not.i.i24 = icmp eq ptr %29, null
   br i1 %cmp.not.i.i24, label %_ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit, label %if.then.i.i25
 
@@ -13011,7 +13011,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %i
 
 _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit: ; preds = %invoke.cont30, %if.then.i.i25, %.noexc.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp28)
-  %36 = load ptr, ptr %pn3.i67, align 8, !tbaa !37
+  %36 = load ptr, ptr %pn3.i81, align 8, !tbaa !37
   %cmp.not.i.i30 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i30, label %_ZN5boost10shared_ptrIN8QuantLib16SubPeriodsPricerEED2Ev.exit, label %if.then.i.i31
 

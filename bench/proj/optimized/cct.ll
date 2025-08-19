@@ -956,8 +956,8 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
 
 .preheader:                                       ; preds = %230, %._crit_edge377.thread
   %212 = phi i64 [ 1, %._crit_edge377.thread ], [ %209, %230 ]
-  %.6221.lcssa439 = phi i32 [ 1, %._crit_edge377.thread ], [ %.6221.lcssa, %230 ]
-  %213 = icmp slt i32 %.6221.lcssa439, %0
+  %.6221.lcssa463 = phi i32 [ 1, %._crit_edge377.thread ], [ %.6221.lcssa, %230 ]
+  %213 = icmp slt i32 %.6221.lcssa463, %0
   br i1 %213, label %.lr.ph383, label %._crit_edge384
 
 .lr.ph383:                                        ; preds = %.preheader
@@ -1057,7 +1057,7 @@ sub_2:                                            ; preds = %sub_1
   br label %._crit_edge384
 
 ._crit_edge384:                                   ; preds = %._crit_edge384.loopexit, %.preheader
-  %.13.lcssa = phi i32 [ %.6221.lcssa439, %.preheader ], [ %255, %._crit_edge384.loopexit ]
+  %.13.lcssa = phi i32 [ %.6221.lcssa463, %.preheader ], [ %255, %._crit_edge384.loopexit ]
   %256 = sub nsw i32 %0, %.13.lcssa
   %257 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %256, ptr %257, align 4, !tbaa !4

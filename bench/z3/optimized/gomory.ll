@@ -1535,16 +1535,16 @@ define hidden noundef range(i32 0, 4) i32 @_ZN2lp17test_row_polarityERKNS_10int_
   br i1 %16, label %18, label %.sink.split
 
 .sink.split:                                      ; preds = %12
-  %.49 = select i1 %15, i32 1, i32 2
+  %.53 = select i1 %15, i32 1, i32 2
   %17 = tail call noundef zeroext i1 @_ZNK2lp10int_solver8at_upperEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %8)
-  %.35 = select i1 %17, i32 %.49, i32 3
+  %.35 = select i1 %17, i32 %.53, i32 3
   br label %18
 
 18:                                               ; preds = %12, %.sink.split
   %.0 = phi i32 [ %.35, %.sink.split ], [ %., %12 ]
   %19 = icmp eq i32 %.02744, 0
-  %.not47 = icmp eq i32 %.02744, %.0
-  %.not = or i1 %19, %.not47
+  %.not51 = icmp eq i32 %.02744, %.0
+  %.not = or i1 %19, %.not51
   br i1 %.not, label %select.unfold, label %._crit_edge
 
 select.unfold:                                    ; preds = %18, %.lr.ph, %10
@@ -1634,16 +1634,16 @@ define hidden noundef ptr @_ZN2lp6gomory8add_depsEPN18dependency_managerIN25scop
   br i1 %or.cond.i.i.i19, label %_ZN2lp10lar_solver9join_depsEPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyES7_.exit, label %_ZN2lp10lar_solver9join_depsEPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyES7_.exit.sink.split
 
 _ZN2lp10lar_solver9join_depsEPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyES7_.exit.sink.split: ; preds = %40, %34
-  %.sink45 = phi ptr [ %32, %34 ], [ %38, %40 ]
+  %.sink50 = phi ptr [ %32, %34 ], [ %38, %40 ]
   %43 = getelementptr inbounds nuw i8, ptr %30, i64 1544
   %44 = load ptr, ptr %43, align 8, !tbaa !85
   %45 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %44, i64 noundef 24)
-  %46 = load i32, ptr %.sink45, align 4
+  %46 = load i32, ptr %.sink50, align 4
   %47 = add i32 %46, 1
   %48 = and i32 %47, 1073741823
   %49 = and i32 %46, -1073741824
   %50 = or disjoint i32 %48, %49
-  store i32 %50, ptr %.sink45, align 4
+  store i32 %50, ptr %.sink50, align 4
   %51 = load i32, ptr %.027, align 4
   %52 = add i32 %51, 1
   %53 = and i32 %52, 1073741823
@@ -1652,7 +1652,7 @@ _ZN2lp10lar_solver9join_depsEPN18dependency_managerIN25scoped_dependency_manager
   store i32 %55, ptr %.027, align 4
   store i32 0, ptr %45, align 4
   %56 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store ptr %.sink45, ptr %56, align 8, !tbaa !92
+  store ptr %.sink50, ptr %56, align 8, !tbaa !92
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %.027, ptr %57, align 8, !tbaa !92
   br label %_ZN2lp10lar_solver9join_depsEPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyES7_.exit
@@ -2498,7 +2498,7 @@ _ZN6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE3endEv.exit: ; pred
   br label %483
 
 .loopexit.split-lp:                               ; preds = %359, %422, %_ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit143.thread, %_ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit.thread, %.noexc134, %409, %.noexc136, %418, %.noexc138
-  %.sroa.0150.0.lcssa255 = phi ptr [ %.sroa.0150.3.ph, %359 ], [ %.sroa.0150.0.lcssa254, %422 ], [ %.sroa.0150.0.lcssa254, %_ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit143.thread ], [ %.sroa.0150.0.lcssa254, %_ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit.thread ], [ %.sroa.0150.0.lcssa254, %.noexc134 ], [ %.sroa.0150.0.lcssa254, %409 ], [ %.sroa.0150.0.lcssa254, %.noexc136 ], [ %.sroa.0150.0.lcssa254, %418 ], [ %.sroa.0150.0.lcssa254, %.noexc138 ]
+  %.sroa.0150.0.lcssa275 = phi ptr [ %.sroa.0150.3.ph, %359 ], [ %.sroa.0150.0.lcssa274, %422 ], [ %.sroa.0150.0.lcssa274, %_ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit143.thread ], [ %.sroa.0150.0.lcssa274, %_ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit.thread ], [ %.sroa.0150.0.lcssa274, %.noexc134 ], [ %.sroa.0150.0.lcssa274, %409 ], [ %.sroa.0150.0.lcssa274, %.noexc136 ], [ %.sroa.0150.0.lcssa274, %418 ], [ %.sroa.0150.0.lcssa274, %.noexc138 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %483
@@ -2563,8 +2563,8 @@ _ZN6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE3endEv.exit132: ; p
 
 _ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit.thread: ; preds = %399, %10, %_ZN6vectorIjLb0EjE3endEv.exit, %_ZN6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE3endEv.exit132, %.thread160, %390, %_ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit
   %403 = phi i1 [ false, %_ZN6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE3endEv.exit132 ], [ true, %.thread160 ], [ false, %390 ], [ false, %_ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit ], [ true, %_ZN6vectorIjLb0EjE3endEv.exit ], [ true, %10 ], [ false, %399 ]
-  %.063.lcssa256 = phi i1 [ %.265.ph, %_ZN6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE3endEv.exit132 ], [ %.265.ph, %.thread160 ], [ %.265.ph, %390 ], [ %.265.ph, %_ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit ], [ false, %_ZN6vectorIjLb0EjE3endEv.exit ], [ false, %10 ], [ %.265.ph, %399 ]
-  %.sroa.0150.0.lcssa254 = phi ptr [ %.sroa.0150.3.ph, %_ZN6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE3endEv.exit132 ], [ null, %.thread160 ], [ %.sroa.0150.3.ph, %390 ], [ %.sroa.0150.3.ph, %_ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit ], [ null, %_ZN6vectorIjLb0EjE3endEv.exit ], [ null, %10 ], [ %.sroa.0150.3.ph, %399 ]
+  %.063.lcssa276 = phi i1 [ %.265.ph, %_ZN6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE3endEv.exit132 ], [ %.265.ph, %.thread160 ], [ %.265.ph, %390 ], [ %.265.ph, %_ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit ], [ false, %_ZN6vectorIjLb0EjE3endEv.exit ], [ false, %10 ], [ %.265.ph, %399 ]
+  %.sroa.0150.0.lcssa274 = phi ptr [ %.sroa.0150.3.ph, %_ZN6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE3endEv.exit132 ], [ null, %.thread160 ], [ %.sroa.0150.3.ph, %390 ], [ %.sroa.0150.3.ph, %_ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit ], [ null, %_ZN6vectorIjLb0EjE3endEv.exit ], [ null, %10 ], [ %.sroa.0150.3.ph, %399 ]
   %404 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %405 = load ptr, ptr %404, align 8, !tbaa !3
   %406 = invoke noundef i32 @_ZN2lp10lar_solver22find_feasible_solutionEv(ptr noundef nonnull align 8 dereferenceable(2128) %405)
@@ -2673,13 +2673,13 @@ _ZNK2lp10lar_solver19column_value_is_intEj.exit.i: ; preds = %442
   br i1 %.not.i, label %439, label %"_ZZN2lp6gomory15get_gomory_cutsEjENK3$_2clEv.exit140", !llvm.loop !167
 
 464:                                              ; preds = %442, %_ZNK2lp10lar_solver19column_value_is_intEj.exit.i
-  br i1 %.063.lcssa256, label %"_ZZN2lp6gomory15get_gomory_cutsEjENK3$_2clEv.exit140", label %465
+  br i1 %.063.lcssa276, label %"_ZZN2lp6gomory15get_gomory_cutsEjENK3$_2clEv.exit140", label %465
 
 465:                                              ; preds = %464
   br i1 %403, label %_ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit143.thread, label %_ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit143
 
 _ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit143: ; preds = %465
-  %466 = getelementptr inbounds i8, ptr %.sroa.0150.0.lcssa254, i64 -4
+  %466 = getelementptr inbounds i8, ptr %.sroa.0150.0.lcssa274, i64 -4
   %467 = load i32, ptr %466, align 4, !tbaa !51
   %.not88 = icmp eq i32 %467, 0
   br i1 %.not88, label %_ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit143.thread, label %"_ZZN2lp6gomory15get_gomory_cutsEjENK3$_2clEv.exit140"
@@ -2696,7 +2696,7 @@ _ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit143.th
   br label %"_ZZN2lp6gomory15get_gomory_cutsEjENK3$_2clEv.exit140"
 
 "_ZZN2lp6gomory15get_gomory_cutsEjENK3$_2clEv.exit140": ; preds = %456, %"_ZZN2lp6gomory15get_gomory_cutsEjENK3$_2clEv.exit140.sink.split", %427, %.noexc138, %_ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit143.thread, %464, %_ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit143, %425
-  %.sroa.0150.0208 = phi ptr [ %.sroa.0150.0.lcssa254, %425 ], [ %.sroa.0150.0.lcssa254, %_ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit143 ], [ %.sroa.0150.0.lcssa254, %464 ], [ %.sroa.0150.0.lcssa254, %_ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit143.thread ], [ %.sroa.0150.0.lcssa254, %.noexc138 ], [ %.sroa.0150.0.lcssa254, %427 ], [ %.sroa.0150.0218, %"_ZZN2lp6gomory15get_gomory_cutsEjENK3$_2clEv.exit140.sink.split" ], [ %.sroa.0150.0.lcssa254, %456 ]
+  %.sroa.0150.0208 = phi ptr [ %.sroa.0150.0.lcssa274, %425 ], [ %.sroa.0150.0.lcssa274, %_ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit143 ], [ %.sroa.0150.0.lcssa274, %464 ], [ %.sroa.0150.0.lcssa274, %_ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit143.thread ], [ %.sroa.0150.0.lcssa274, %.noexc138 ], [ %.sroa.0150.0.lcssa274, %427 ], [ %.sroa.0150.0218, %"_ZZN2lp6gomory15get_gomory_cutsEjENK3$_2clEv.exit140.sink.split" ], [ %.sroa.0150.0.lcssa274, %456 ]
   %.3 = phi i32 [ 7, %425 ], [ 4, %_ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit143 ], [ 4, %464 ], [ 5, %_ZNK6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjE4sizeEv.exit143.thread ], [ 3, %.noexc138 ], [ 0, %427 ], [ %.3.ph, %"_ZZN2lp6gomory15get_gomory_cutsEjENK3$_2clEv.exit140.sink.split" ], [ 0, %456 ]
   %469 = load ptr, ptr %5, align 8, !tbaa !70
   %.not.i.i144 = icmp eq ptr %469, null
@@ -2750,7 +2750,7 @@ _ZN6vectorIZN2lp6gomory15get_gomory_cutsEjE10cut_resultLb1EjED2Ev.exit: ; preds 
   ret i32 %.3
 
 483:                                              ; preds = %.loopexit, %.loopexit.split-lp, %394, %401, %68, %355, %387
-  %.sroa.0150.0209 = phi ptr [ %.sroa.0150.3.ph, %387 ], [ %.sroa.0150.0218, %68 ], [ %.sroa.0150.0218, %355 ], [ %.sroa.0150.3.ph, %401 ], [ %.sroa.0150.3.ph, %394 ], [ %.sroa.0150.0.lcssa254, %.loopexit ], [ %.sroa.0150.0.lcssa255, %.loopexit.split-lp ]
+  %.sroa.0150.0209 = phi ptr [ %.sroa.0150.3.ph, %387 ], [ %.sroa.0150.0218, %68 ], [ %.sroa.0150.0218, %355 ], [ %.sroa.0150.3.ph, %401 ], [ %.sroa.0150.3.ph, %394 ], [ %.sroa.0150.0.lcssa274, %.loopexit ], [ %.sroa.0150.0.lcssa275, %.loopexit.split-lp ]
   %.pn89 = phi { ptr, i32 } [ %388, %387 ], [ %69, %68 ], [ %.pn78.pn, %355 ], [ %402, %401 ], [ %395, %394 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6vectorIjLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
   br label %484
@@ -4743,8 +4743,8 @@ _ZN6vectorISt4pairIj8rationalELb1EjE5clearEv.exit: ; preds = %1, %_ZN6vectorISt4
   %37 = icmp ugt i32 %25, 16
   %38 = mul i32 %25, 3
   %39 = icmp ugt i32 %36, %38
-  %or.cond16.i = select i1 %37, i1 %39, i1 false
-  br i1 %or.cond16.i, label %40, label %._crit_edge.thread.i
+  %or.cond18.i = select i1 %37, i1 %39, i1 false
+  br i1 %or.cond18.i, label %40, label %._crit_edge.thread.i
 
 40:                                               ; preds = %._crit_edge.i
   %41 = icmp eq ptr %23, null
@@ -6901,8 +6901,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %23 = icmp ugt i32 %11, 16
   %24 = mul i32 %11, 3
   %25 = icmp ugt i32 %22, %24
-  %or.cond18 = select i1 %23, i1 %25, i1 false
-  br i1 %or.cond18, label %26, label %._crit_edge.thread
+  %or.cond21 = select i1 %23, i1 %25, i1 false
+  br i1 %or.cond21, label %26, label %._crit_edge.thread
 
 26:                                               ; preds = %._crit_edge
   %27 = icmp eq ptr %9, null

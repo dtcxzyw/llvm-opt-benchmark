@@ -1581,7 +1581,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %45, %_ZNSt6vectorIi
   br i1 %exitcond.not, label %.lr.ph62, label %55, !llvm.loop !106
 
 .preheader:                                       ; preds = %67, %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %.032.lcssa79 = phi double [ %49, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %61, %67 ]
+  %.032.lcssa86 = phi double [ %49, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %61, %67 ]
   %.lcssa58 = phi i32 [ %46, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %69, %67 ]
   %63 = load i32, ptr %28, align 8, !tbaa !103
   %64 = icmp slt i32 %.lcssa58, %63
@@ -1619,7 +1619,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %45, %_ZNSt6vectorIi
 75:                                               ; preds = %.lr.ph67, %75
   %indvars.iv73 = phi i64 [ %66, %.lr.ph67 ], [ %indvars.iv.next74, %75 ]
   %.03065 = phi i32 [ 1, %.lr.ph67 ], [ %86, %75 ]
-  %.13364 = phi double [ %.032.lcssa79, %.lr.ph67 ], [ %82, %75 ]
+  %.13364 = phi double [ %.032.lcssa86, %.lr.ph67 ], [ %82, %75 ]
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, 1
   %76 = trunc nsw i64 %indvars.iv.next74 to i32
   %77 = sitofp i32 %76 to double
@@ -2191,8 +2191,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
 
 .preheader:                                       ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %.041.lcssa = phi double [ %82, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %92, %.lr.ph ]
-  %.not161 = icmp eq i32 %2, 0
-  br i1 %.not161, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i87.thread, label %.lr.ph156
+  %.not170 = icmp eq i32 %2, 0
+  br i1 %.not170, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i87.thread, label %.lr.ph156
 
 .lr.ph156:                                        ; preds = %.preheader
   %84 = sext i32 %81 to i64

@@ -296,10 +296,10 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   br i1 %76, label %.lr.ph280, label %._crit_edge281
 
 .lr.ph280:                                        ; preds = %65, %.preheader204
-  %.2133.lcssa350 = phi i32 [ %.2133.lcssa, %.preheader204 ], [ 0, %65 ]
-  %.0140.lcssa349 = phi i32 [ %.0140.lcssa, %.preheader204 ], [ 1, %65 ]
-  %.0142.lcssa348 = phi i32 [ %.0142.lcssa, %.preheader204 ], [ 1, %65 ]
-  %.0144.lcssa347 = phi i32 [ %.0144.lcssa, %.preheader204 ], [ 0, %65 ]
+  %.2133.lcssa370 = phi i32 [ %.2133.lcssa, %.preheader204 ], [ 0, %65 ]
+  %.0140.lcssa369 = phi i32 [ %.0140.lcssa, %.preheader204 ], [ 1, %65 ]
+  %.0142.lcssa368 = phi i32 [ %.0142.lcssa, %.preheader204 ], [ 1, %65 ]
+  %.0144.lcssa367 = phi i32 [ %.0144.lcssa, %.preheader204 ], [ 0, %65 ]
   %.not167 = icmp eq ptr %0, null
   %77 = ptrtoint ptr %0 to i64
   %78 = sext i32 %1 to i64
@@ -388,15 +388,15 @@ GetNextKey.exit:                                  ; preds = %ReplicateValue.exit
   %indvars.iv335 = phi i64 [ %78, %.lr.ph280 ], [ %indvars.iv.next336, %._crit_edge253 ]
   %.0120277 = phi ptr [ %0, %.lr.ph280 ], [ %.1121.lcssa, %._crit_edge253 ]
   %.1125276 = phi i32 [ %8, %.lr.ph280 ], [ %.2126.lcssa, %._crit_edge253 ]
-  %.5274 = phi i32 [ %.2133.lcssa350, %.lr.ph280 ], [ %.6.lcssa, %._crit_edge253 ]
+  %.5274 = phi i32 [ %.2133.lcssa370, %.lr.ph280 ], [ %.6.lcssa, %._crit_edge253 ]
   %.0137273 = phi i32 [ %8, %.lr.ph280 ], [ %.1138.lcssa, %._crit_edge253 ]
-  %.1141272 = phi i32 [ %.0140.lcssa349, %.lr.ph280 ], [ %116, %._crit_edge253 ]
-  %.1143271 = phi i32 [ %.0142.lcssa348, %.lr.ph280 ], [ %113, %._crit_edge253 ]
-  %.3147270 = phi i32 [ %.0144.lcssa347, %.lr.ph280 ], [ %.4148.lcssa, %._crit_edge253 ]
+  %.1141272 = phi i32 [ %.0140.lcssa369, %.lr.ph280 ], [ %116, %._crit_edge253 ]
+  %.1143271 = phi i32 [ %.0142.lcssa368, %.lr.ph280 ], [ %113, %._crit_edge253 ]
+  %.3147270 = phi i32 [ %.0144.lcssa367, %.lr.ph280 ], [ %.4148.lcssa, %._crit_edge253 ]
   %.1150268 = phi i32 [ 2, %.lr.ph280 ], [ %205, %._crit_edge253 ]
   %.0151267 = phi i32 [ -1, %.lr.ph280 ], [ %.1152.lcssa, %._crit_edge253 ]
   %indvars.iv.next336 = add nsw i64 %indvars.iv335, 1
-  %112 = shl i32 %.1141272, 1
+  %112 = shl nuw i32 %.1141272, 1
   %113 = add nsw i32 %112, %.1143271
   %114 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %indvars.iv.next336
   %115 = load i32, ptr %114, align 4, !tbaa !15

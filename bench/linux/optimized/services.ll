@@ -2753,7 +2753,7 @@ security_is_socket_class.exit:                    ; preds = %66, %55, %71, %74
   %113 = load i8, ptr %112, align 1
   switch i8 %113, label %.thread [
     i8 1, label %126
-    i8 2, label %.sink.split53
+    i8 2, label %.sink.split70
   ]
 
 114:                                              ; preds = %109
@@ -2761,9 +2761,9 @@ security_is_socket_class.exit:                    ; preds = %66, %55, %71, %74
   %116 = load i16, ptr %115, align 2
   %117 = icmp eq i16 %75, %116
   %118 = or i1 %76, %117
-  br i1 %118, label %123, label %.thread46
+  br i1 %118, label %123, label %.thread63
 
-.thread46:                                        ; preds = %114
+.thread63:                                        ; preds = %114
   store i32 1, ptr %23, align 4
   br label %133
 
@@ -2772,7 +2772,7 @@ security_is_socket_class.exit:                    ; preds = %66, %55, %71, %74
   %120 = load i16, ptr %119, align 2
   %121 = icmp eq i16 %75, %120
   %122 = or i1 %76, %121
-  br i1 %122, label %.sink.split53, label %129
+  br i1 %122, label %.sink.split70, label %129
 
 123:                                              ; preds = %114
   %124 = getelementptr inbounds nuw i8, ptr %79, i64 12
@@ -2781,17 +2781,17 @@ security_is_socket_class.exit:                    ; preds = %66, %55, %71, %74
   br label %133
 
 126:                                              ; preds = %111
-  br label %.sink.split53
+  br label %.sink.split70
 
-.sink.split53:                                    ; preds = %.thread, %111, %126
-  %.sink55 = phi ptr [ %79, %126 ], [ %82, %111 ], [ %79, %.thread ]
-  %127 = getelementptr inbounds nuw i8, ptr %.sink55, i64 12
+.sink.split70:                                    ; preds = %.thread, %111, %126
+  %.sink72 = phi ptr [ %79, %126 ], [ %82, %111 ], [ %79, %.thread ]
+  %127 = getelementptr inbounds nuw i8, ptr %.sink72, i64 12
   %128 = load i32, ptr %127, align 4
   br label %129
 
-129:                                              ; preds = %.sink.split53, %.thread
-  %.sink52 = phi i32 [ 1, %.thread ], [ %128, %.sink.split53 ]
-  store i32 %.sink52, ptr %23, align 4
+129:                                              ; preds = %.sink.split70, %.thread
+  %.sink69 = phi i32 [ 1, %.thread ], [ %128, %.sink.split70 ]
+  store i32 %.sink69, ptr %23, align 4
   %130 = getelementptr inbounds nuw i8, ptr %101, i64 66
   %131 = load i8, ptr %130, align 2
   switch i8 %131, label %._crit_edge [
@@ -2807,8 +2807,8 @@ security_is_socket_class.exit:                    ; preds = %66, %55, %71, %74
 132:                                              ; preds = %129
   br label %138
 
-133:                                              ; preds = %.thread46, %123, %._crit_edge
-  %134 = phi i16 [ %.pre, %._crit_edge ], [ %116, %123 ], [ %116, %.thread46 ]
+133:                                              ; preds = %.thread63, %123, %._crit_edge
+  %134 = phi i16 [ %.pre, %._crit_edge ], [ %116, %123 ], [ %116, %.thread63 ]
   %135 = icmp eq i16 %75, %134
   %136 = or i1 %76, %135
   %137 = select i1 %136, ptr %79, ptr %82

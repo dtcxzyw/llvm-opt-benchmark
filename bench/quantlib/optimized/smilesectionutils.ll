@@ -2504,8 +2504,8 @@ while.cond597.preheader:                          ; preds = %while.cond597.prehe
   %sub.ptr.sub.i665 = sub i64 %sub.ptr.lhs.cast.i663, %sub.ptr.rhs.cast.i664
   %sub.ptr.div.i666 = ashr exact i64 %sub.ptr.sub.i665, 3
   %sub603 = add nsw i64 %sub.ptr.div.i666, -1
-  %cmp6041243 = icmp ult i64 %241, %sub603
-  br i1 %cmp6041243, label %if.end.i668, label %if.end628
+  %cmp6041339 = icmp ult i64 %241, %sub603
+  br i1 %cmp6041339, label %if.end.i668, label %if.end628
 
 if.end.i668:                                      ; preds = %while.cond597.preheader, %land.rhs599.backedge
   %245 = phi i64 [ %inc608, %land.rhs599.backedge ], [ %241, %while.cond597.preheader ]
@@ -2576,8 +2576,8 @@ if.end628.loopexit:                               ; preds = %land.rhs599.backedg
 
 if.end628:                                        ; preds = %if.end628.loopexit, %while.cond597.preheader, %if.then626
   %255 = phi i64 [ %245, %if.then626 ], [ %241, %while.cond597.preheader ], [ %inc608, %if.end628.loopexit ]
-  %cmp6331244 = icmp ugt i64 %.pre12001217, 1
-  br i1 %cmp6331244, label %if.end.i728.preheader, label %if.end657
+  %cmp6331340 = icmp ugt i64 %.pre12001217, 1
+  br i1 %cmp6331340, label %if.end.i728.preheader, label %if.end657
 
 if.end.i728.preheader:                            ; preds = %if.end628
   %256 = load double, ptr %242, align 8, !tbaa !21
@@ -2585,8 +2585,8 @@ if.end.i728.preheader:                            ; preds = %if.end628
   br label %if.end.i728
 
 if.end.i728:                                      ; preds = %if.end.i728.preheader, %land.rhs631.backedge
-  %.pre120012161245 = phi i64 [ %dec637, %land.rhs631.backedge ], [ %.pre12001217, %if.end.i728.preheader ]
-  %dec637 = add i64 %.pre120012161245, -1
+  %.pre120012161341 = phi i64 [ %dec637, %land.rhs631.backedge ], [ %.pre12001217, %if.end.i728.preheader ]
+  %dec637 = add i64 %.pre120012161341, -1
   %add.ptr.i.i733 = getelementptr inbounds nuw double, ptr %242, i64 %dec637
   %258 = load double, ptr %add.ptr.i.i733, align 8, !tbaa !21
   %sub6.i735 = fsub double %258, %256
@@ -2601,12 +2601,12 @@ if.end.i728:                                      ; preds = %if.end.i728.prehead
 
 if.end14.i744:                                    ; preds = %if.end.i728
   %cmp15.not.i745 = icmp ult i64 %dec637, %255
-  %add.ptr.i17.i749 = getelementptr inbounds nuw double, ptr %242, i64 %.pre120012161245
+  %add.ptr.i17.i749 = getelementptr inbounds nuw double, ptr %242, i64 %.pre120012161341
   %260 = load double, ptr %add.ptr.i17.i749, align 8, !tbaa !21
   br i1 %cmp15.not.i745, label %_ZNK8QuantLib17SmileSectionUtils2afEmmm.exit756, label %if.end14.i744.if.end.i758_crit_edge
 
 if.end14.i744.if.end.i758_crit_edge:              ; preds = %if.end14.i744
-  %add.ptr.i15.i767.phi.trans.insert = getelementptr inbounds nuw double, ptr %243, i64 %.pre120012161245
+  %add.ptr.i15.i767.phi.trans.insert = getelementptr inbounds nuw double, ptr %243, i64 %.pre120012161341
   %.pre1203 = load double, ptr %add.ptr.i15.i767.phi.trans.insert, align 8, !tbaa !21
   %.pre1220 = fsub double %260, %258
   %.pre1221 = fsub double %.pre1203, %259
@@ -2615,7 +2615,7 @@ if.end14.i744.if.end.i758_crit_edge:              ; preds = %if.end14.i744
 
 _ZNK8QuantLib17SmileSectionUtils2afEmmm.exit756:  ; preds = %if.end14.i744
   %sub22.i750 = fsub double %260, %258
-  %add.ptr.i19.i751 = getelementptr inbounds nuw double, ptr %243, i64 %.pre120012161245
+  %add.ptr.i19.i751 = getelementptr inbounds nuw double, ptr %243, i64 %.pre120012161341
   %261 = load double, ptr %add.ptr.i19.i751, align 8, !tbaa !21
   %sub28.i752 = fsub double %261, %259
   %div29.i753 = fdiv double %sub22.i750, %sub28.i752
@@ -2633,11 +2633,11 @@ if.end.i758:                                      ; preds = %if.end14.i744.if.en
   br i1 %or.cond.i773, label %if.then654, label %if.end14.i774
 
 if.end14.i774:                                    ; preds = %if.end.i758
-  %cmp15.not.i775 = icmp ult i64 %.pre120012161245, %255
+  %cmp15.not.i775 = icmp ult i64 %.pre120012161341, %255
   br i1 %cmp15.not.i775, label %if.end17.i777, label %land.rhs631.backedge
 
 if.end17.i777:                                    ; preds = %if.end14.i774
-  %add.i778 = add nuw i64 %.pre120012161245, 1
+  %add.i778 = add nuw i64 %.pre120012161341, 1
   %add.ptr.i17.i779 = getelementptr inbounds nuw double, ptr %242, i64 %add.i778
   %264 = load double, ptr %add.ptr.i17.i779, align 8, !tbaa !21
   %sub22.i780 = fsub double %264, %260
@@ -2656,7 +2656,7 @@ land.rhs631.backedge:                             ; preds = %if.end17.i777, %if.
 
 if.then654:                                       ; preds = %_ZNK8QuantLib17SmileSectionUtils2afEmmm.exit756, %if.end.i758, %if.end.i728, %if.end17.i777
   store i64 %dec637, ptr %leftIndex_, align 8, !tbaa !36
-  store i64 %.pre120012161245, ptr %leftIndex_, align 8, !tbaa !36
+  store i64 %.pre120012161341, ptr %leftIndex_, align 8, !tbaa !36
   br label %if.end657
 
 if.end657.loopexit:                               ; preds = %land.rhs631.backedge
@@ -2664,23 +2664,23 @@ if.end657.loopexit:                               ; preds = %land.rhs631.backedg
   br label %if.end657
 
 if.end657:                                        ; preds = %if.end657.loopexit, %if.end628, %if.then654
-  %.pre120012161239 = phi i64 [ %.pre120012161245, %if.then654 ], [ %.pre12001217, %if.end628 ], [ %dec637, %if.end657.loopexit ]
-  %cmp6331237 = phi i1 [ true, %if.then654 ], [ false, %if.end628 ], [ false, %if.end657.loopexit ]
-  %cmp660 = icmp ult i64 %255, %.pre120012161239
+  %.pre120012161335 = phi i64 [ %.pre120012161341, %if.then654 ], [ %.pre12001217, %if.end628 ], [ %dec637, %if.end657.loopexit ]
+  %cmp6331333 = phi i1 [ true, %if.then654 ], [ false, %if.end628 ], [ false, %if.end657.loopexit ]
+  %cmp660 = icmp ult i64 %255, %.pre120012161335
   br i1 %cmp660, label %if.then661, label %if.end664
 
 if.then661:                                       ; preds = %if.end657
-  store i64 %.pre120012161239, ptr %rightIndex_, align 8, !tbaa !37
+  store i64 %.pre120012161335, ptr %rightIndex_, align 8, !tbaa !37
   br label %if.end664
 
 if.end664:                                        ; preds = %if.then661, %if.end657
-  %267 = phi i64 [ %.pre120012161239, %if.then661 ], [ %255, %if.end657 ]
-  %or.cond121 = and i1 %deleteArbitragePoints, %cmp6331237
+  %267 = phi i64 [ %.pre120012161335, %if.then661 ], [ %255, %if.end657 ]
+  %or.cond121 = and i1 %deleteArbitragePoints, %cmp6331333
   br i1 %or.cond121, label %if.then669, label %if.end739
 
 if.then669:                                       ; preds = %if.end664
   %268 = load ptr, ptr %this, align 8, !tbaa !18
-  %add.ptr.i787 = getelementptr inbounds double, ptr %268, i64 %.pre120012161239
+  %add.ptr.i787 = getelementptr inbounds double, ptr %268, i64 %.pre120012161335
   %269 = load ptr, ptr %_M_finish.i530, align 8, !tbaa !18
   %cmp.i.not.i.i = icmp eq ptr %add.ptr.i787, %269
   br i1 %cmp.i.not.i.i, label %invoke.cont685, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i.i
@@ -2699,7 +2699,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.ex
 
 invoke.cont685:                                   ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i.i, %if.then669
   %270 = phi ptr [ %.pre1206, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i.i ], [ %244, %if.then669 ]
-  %271 = phi i64 [ %.pre1205, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i.i ], [ %.pre120012161239, %if.then669 ]
+  %271 = phi i64 [ %.pre1205, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i.i ], [ %.pre120012161335, %if.then669 ]
   %272 = phi ptr [ %.pre1204, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i.i ], [ %243, %if.then669 ]
   %273 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i.i ], [ %269, %if.then669 ]
   %incdec.ptr.i.i795 = getelementptr inbounds i8, ptr %273, i64 -8
@@ -2752,7 +2752,7 @@ invoke.cont728:                                   ; preds = %_ZSt4moveIN9__gnu_c
   br label %if.end739
 
 if.end739:                                        ; preds = %invoke.cont728, %if.end664
-  %.pre12001214 = phi i64 [ %dec736, %invoke.cont728 ], [ %.pre120012161239, %if.end664 ]
+  %.pre12001214 = phi i64 [ %dec736, %invoke.cont728 ], [ %.pre120012161335, %if.end664 ]
   %281 = phi i64 [ %dec738, %invoke.cont728 ], [ %267, %if.end664 ]
   br i1 %deleteArbitragePoints, label %land.lhs.true741, label %do.body819
 

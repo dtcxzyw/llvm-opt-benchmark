@@ -7142,7 +7142,7 @@ define internal fastcc void @"_ZN4core3ptr53drop_in_place$LT$$u5b$quiche..recove
   %29 = load ptr, ptr %28, align 8, !alias.scope !1130, !nonnull !3, !noundef !3
   %30 = atomicrmw sub ptr %29, i64 1 release, align 8, !noalias !1130
   %31 = icmp eq i64 %30, 1
-  br i1 %31, label %.invoke35, label %"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17hb66cb5a9af521cbaE.exit"
+  br i1 %31, label %.invoke39, label %"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17hb66cb5a9af521cbaE.exit"
 
 32:                                               ; preds = %.lr.ph
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -7153,9 +7153,9 @@ define internal fastcc void @"_ZN4core3ptr53drop_in_place$LT$$u5b$quiche..recove
   %34 = load ptr, ptr %33, align 8, !alias.scope !1143, !nonnull !3, !noundef !3
   %35 = atomicrmw sub ptr %34, i64 1 release, align 8, !noalias !1143
   %36 = icmp eq i64 %35, 1
-  br i1 %36, label %.invoke35, label %"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17hb66cb5a9af521cbaE.exit"
+  br i1 %36, label %.invoke39, label %"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17hb66cb5a9af521cbaE.exit"
 
-.invoke35:                                        ; preds = %32, %27
+.invoke39:                                        ; preds = %32, %27
   %37 = phi ptr [ %28, %27 ], [ %33, %32 ]
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17ha56f18d17fc6c778E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %37)
@@ -7166,7 +7166,7 @@ define internal fastcc void @"_ZN4core3ptr53drop_in_place$LT$$u5b$quiche..recove
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h7738039fe091cb51E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %38, i64 noundef 1, i64 noundef 1)
           to label %"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17hb66cb5a9af521cbaE.exit" unwind label %42
 
-"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17hb66cb5a9af521cbaE.exit": ; preds = %.invoke35, %.invoke, %26, %.lr.ph, %27, %32
+"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17hb66cb5a9af521cbaE.exit": ; preds = %.invoke39, %.invoke, %26, %.lr.ph, %27, %32
   %39 = icmp eq i64 %20, %17
   br i1 %39, label %"_ZN4core3ptr43drop_in_place$LT$quiche..recovery..Sent$GT$17h74ed2b94261376a0E.exit", label %.lr.ph
 
@@ -7175,7 +7175,7 @@ define internal fastcc void @"_ZN4core3ptr53drop_in_place$LT$$u5b$quiche..recove
   %41 = icmp eq i64 %.sroa.0.1.i.i.i.i, %17
   br i1 %41, label %.body, label %44
 
-42:                                               ; preds = %.invoke35, %.invoke, %26
+42:                                               ; preds = %.invoke39, %.invoke, %26
   %43 = landingpad { ptr, i32 }
           cleanup
   br label %40

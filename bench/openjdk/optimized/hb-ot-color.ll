@@ -565,7 +565,7 @@ _ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i: ; preds = %77, %75
   store i32 %76, ptr %.0.i.i.i.i.i.i, align 4
   %.sroa.025.1.i = getelementptr inbounds nuw i8, ptr %.sroa.025.0.i, i64 %.sroa.025.1.idx.i
   %.sroa.4.1.i = tail call i32 @llvm.usub.sat.i32(i32 %.sroa.4.0.i, i32 1)
-  %78 = add i32 %.sroa.4.06.i.i.i, -1
+  %78 = add nsw i32 %.sroa.4.06.i.i.i, -1
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i, i64 4
   %.not.i.i.i = icmp eq i32 %78, 0
   br i1 %.not.i.i.i, label %_ZorI10hb_array_tIKN2OT7IntTypeIjLj4EEEE9hb_sink_tIS0_IjEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSA_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISA_Efp_EEEOSA_OSG_.exit.i, label %75, !llvm.loop !6
@@ -886,7 +886,7 @@ _ZN9hb_iter_tI10hb_array_tI19hb_ot_color_layer_tERS1_EdeEv.exit.i.i.i: ; preds =
   store i64 %.sroa.0.0.insert.insert.i.i.i.i, ptr %.0.i.i.i.i.i, align 4
   %.sroa.019.1 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 %.sroa.019.1.idx
   %.sroa.4.1 = tail call i32 @llvm.usub.sat.i32(i32 %.sroa.4.0, i32 1)
-  %111 = add i32 %.sroa.4.06.i.i, -1
+  %111 = add nsw i32 %.sroa.4.06.i.i, -1
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i, i64 4
   %.not.i.i = icmp eq i32 %111, 0
   br i1 %.not.i.i, label %_ZorI10hb_array_tIKN2OT11LayerRecordEE9hb_sink_tIS0_I19hb_ot_color_layer_tEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSA_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISA_Efp_EEEOSA_OSG_.exit, label %105, !llvm.loop !9
@@ -2728,13 +2728,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT13IndexSubtable14get_image
   br label %_ZNK2OT23IndexSubtableFormat1Or3INS_7IntTypeIjLj4EEEE14get_image_dataEjPjS4_.exit.sink.split
 
 _ZNK2OT23IndexSubtableFormat1Or3INS_7IntTypeIjLj4EEEE14get_image_dataEjPjS4_.exit.sink.split: ; preds = %61, %127
-  %.sink12.in = phi ptr [ %123, %127 ], [ %57, %61 ]
+  %.sink14.in = phi ptr [ %123, %127 ], [ %57, %61 ]
   %.sink = phi i32 [ %155, %127 ], [ %105, %61 ]
-  %.sink9 = phi i32 [ %152, %127 ], [ %94, %61 ]
-  %.sink12 = load i8, ptr %.sink12.in, align 1
-  %156 = zext i8 %.sink12 to i32
+  %.sink11 = phi i32 [ %152, %127 ], [ %94, %61 ]
+  %.sink14 = load i8, ptr %.sink14.in, align 1
+  %156 = zext i8 %.sink14 to i32
   %157 = or disjoint i32 %.sink, %156
-  %158 = sub i32 %.sink9, %157
+  %158 = sub i32 %.sink11, %157
   store i32 %158, ptr %3, align 4
   br label %_ZNK2OT23IndexSubtableFormat1Or3INS_7IntTypeIjLj4EEEE14get_image_dataEjPjS4_.exit
 
@@ -7471,10 +7471,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN21hb_sanitize_context_t8dispat
   br i1 %.not16.i.i7.i.i, label %_ZN21hb_sanitize_context_t9_dispatchIN2OT16DeltaSetIndexMapEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS3_.exit, label %_ZNK2OT24DeltaSetIndexMapFormat01INS_7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t.exit.sink.split.i.i
 
 _ZNK2OT24DeltaSetIndexMapFormat01INS_7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t.exit.sink.split.i.i: ; preds = %67, %18
-  %.sink14.i.i = phi i32 [ %32, %18 ], [ %68, %67 ]
+  %.sink17.i.i = phi i32 [ %32, %18 ], [ %68, %67 ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %74 = load i32, ptr %73, align 4
-  %75 = sub i32 %74, %.sink14.i.i
+  %75 = sub i32 %74, %.sink17.i.i
   store i32 %75, ptr %73, align 4
   %76 = icmp sgt i32 %75, 0
   br label %_ZN21hb_sanitize_context_t9_dispatchIN2OT16DeltaSetIndexMapEJEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOS3_.exit
@@ -8669,10 +8669,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT19IndexSubtableRecord8sani
   br i1 %.not16.i.i.i.i7.i.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit: ; preds = %66, %73
-  %.sink14.i.i.i = phi i32 [ %68, %66 ], [ %75, %73 ]
+  %.sink16.i.i.i = phi i32 [ %68, %66 ], [ %75, %73 ]
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %81 = load i32, ptr %80, align 4
-  %82 = sub i32 %81, %.sink14.i.i.i
+  %82 = sub i32 %81, %.sink16.i.i.i
   store i32 %82, ptr %80, align 4
   %83 = icmp sgt i32 %82, 0
   br i1 %83, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread23, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13IndexSubtableEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread

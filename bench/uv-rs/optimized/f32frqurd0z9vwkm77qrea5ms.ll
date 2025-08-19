@@ -545,14 +545,14 @@ define internal void @"_ZN127_$LT$reqwest_retry..middleware..RetryTransientMiddl
   %.sroa.1117 = alloca [120 x i8], align 8
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %40 = load i8, ptr %39, align 8, !range !6, !noundef !7
-  switch i8 %40, label %default.unreachable30 [
-    i8 0, label %.thread31
+  switch i8 %40, label %default.unreachable43 [
+    i8 0, label %.thread44
     i8 1, label %55
     i8 2, label %56
     i8 3, label %57
   ]
 
-default.unreachable30:                            ; preds = %222, %57, %3
+default.unreachable43:                            ; preds = %222, %57, %3
   unreachable
 
 41:                                               ; preds = %483, %51
@@ -564,7 +564,7 @@ common.ret:                                       ; preds = %476, %479
   store i8 %storemerge, ptr %39, align 8
   ret void
 
-.thread31:                                        ; preds = %3
+.thread44:                                        ; preds = %3
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 1249
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %44 = load ptr, ptr %43, align 8, !nonnull !7, !align !8, !noundef !7
@@ -612,7 +612,7 @@ common.ret:                                       ; preds = %476, %479
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.16346.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 1100
-  switch i8 %.pre, label %default.unreachable30 [
+  switch i8 %.pre, label %default.unreachable43 [
     i8 0, label %60
     i8 1, label %93
     i8 2, label %94
@@ -620,9 +620,9 @@ common.ret:                                       ; preds = %476, %479
     i8 4, label %77
   ]
 
-60:                                               ; preds = %.thread31, %57
-  %61 = phi ptr [ %50, %.thread31 ], [ %59, %57 ]
-  %62 = phi ptr [ %49, %.thread31 ], [ %58, %57 ]
+60:                                               ; preds = %.thread44, %57
+  %61 = phi ptr [ %50, %.thread44 ], [ %59, %57 ]
+  %62 = phi ptr [ %49, %.thread44 ], [ %58, %57 ]
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 1102
   store i8 0, ptr %63, align 2, !noalias !11
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 1101
@@ -1029,7 +1029,7 @@ common.ret:                                       ; preds = %476, %479
   call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !11
   %230 = load ptr, ptr %187, align 8, !noalias !11, !nonnull !7, !align !8, !noundef !7
   %231 = load i64, ptr %230, align 8, !range !43, !noalias !15, !noundef !7
-  switch i64 %231, label %default.unreachable30 [
+  switch i64 %231, label %default.unreachable43 [
     i64 0, label %232
     i64 1, label %272
     i64 2, label %310

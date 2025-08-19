@@ -1333,10 +1333,10 @@ define internal i32 @dissect_pdcp_nr(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %62, label %.sink.split, label %66
 
 .sink.split:                                      ; preds = %57, %51
-  %.sink602 = phi i8 [ 1, %51 ], [ 2, %57 ]
+  %.sink718 = phi i8 [ 1, %51 ], [ 2, %57 ]
   %63 = getelementptr inbounds nuw i8, ptr %.0345, i64 19
   %64 = load i8, ptr %63, align 1
-  %65 = or i8 %64, %.sink602
+  %65 = or i8 %64, %.sink718
   store i8 %65, ptr %63, align 1
   br label %66
 
@@ -1369,9 +1369,9 @@ define internal i32 @dissect_pdcp_nr(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %81
 
 81:                                               ; preds = %75, %79
-  %.sink603 = phi i1 [ true, %79 ], [ false, %75 ]
+  %.sink719 = phi i1 [ true, %79 ], [ false, %75 ]
   %82 = load ptr, ptr %25, align 8
-  tail call void @col_set_writable(ptr noundef %82, i32 noundef 25, i1 noundef zeroext %.sink603)
+  tail call void @col_set_writable(ptr noundef %82, i32 noundef 25, i1 noundef zeroext %.sink719)
   %83 = load i32, ptr %33, align 4
   %84 = icmp eq i32 %83, 1
   br i1 %84, label %85, label %91
@@ -1913,12 +1913,12 @@ show_pdcp_config.exit:                            ; preds = %344, %345, %348
   %380 = getelementptr inbounds nuw i8, ptr %.0345, i64 18
   %381 = load i8, ptr %380, align 2, !range !9, !noundef !10
   %382 = trunc nuw i8 %381 to i1
-  br i1 %382, label %383, label %.sink.split604
+  br i1 %382, label %383, label %.sink.split720
 
 383:                                              ; preds = %377
   %384 = getelementptr inbounds nuw i8, ptr %379, i64 12
   store i32 999, ptr %384, align 4
-  br label %.sink.split604
+  br label %.sink.split720
 
 385:                                              ; preds = %370
   %386 = load i32, ptr @global_default_ciphering_algorithm, align 4
@@ -1939,10 +1939,10 @@ show_pdcp_config.exit:                            ; preds = %344, %345, %348
   store i32 %395, ptr %396, align 4
   %397 = getelementptr inbounds nuw i8, ptr %392, i64 4
   store i8 0, ptr %397, align 4
-  br label %.sink.split604
+  br label %.sink.split720
 
-.sink.split604:                                   ; preds = %377, %383, %390
-  %.sink606 = phi ptr [ %392, %390 ], [ %379, %383 ], [ %379, %377 ]
+.sink.split720:                                   ; preds = %377, %383, %390
+  %.sink722 = phi ptr [ %392, %390 ], [ %379, %383 ], [ %379, %377 ]
   %.0346.ph = phi ptr [ null, %390 ], [ %376, %383 ], [ %376, %377 ]
   %398 = load ptr, ptr @pdcp_security_result_hash, align 8
   %399 = load i16, ptr %372, align 2
@@ -1953,11 +1953,11 @@ show_pdcp_config.exit:                            ; preds = %344, %345, %348
   store i32 %401, ptr %403, align 4
   %404 = getelementptr inbounds nuw i8, ptr %403, i64 4
   store i16 %399, ptr %404, align 4
-  %405 = tail call ptr @wmem_map_insert(ptr noundef %398, ptr noundef %403, ptr noundef %.sink606)
+  %405 = tail call ptr @wmem_map_insert(ptr noundef %398, ptr noundef %403, ptr noundef %.sink722)
   br label %406
 
-406:                                              ; preds = %.sink.split604, %385, %364
-  %.0346 = phi ptr [ null, %364 ], [ null, %385 ], [ %.0346.ph, %.sink.split604 ]
+406:                                              ; preds = %.sink.split720, %385, %364
+  %.0346 = phi ptr [ null, %364 ], [ null, %385 ], [ %.0346.ph, %.sink.split720 ]
   %407 = load ptr, ptr @pdcp_security_result_hash, align 8
   %408 = getelementptr inbounds nuw i8, ptr %.0345, i64 2
   %409 = load i16, ptr %408, align 2
@@ -2151,9 +2151,9 @@ proto_item_set_generated.exit433:                 ; preds = %proto_item_set_gene
 
 .thread522:                                       ; preds = %497, %501, %491, %495
   %hf_pdcp_nr_seq_num_12.sink = phi ptr [ @hf_pdcp_nr_seq_num_12, %495 ], [ @hf_pdcp_nr_seq_num_12, %491 ], [ @hf_pdcp_nr_seq_num_18, %501 ], [ @hf_pdcp_nr_seq_num_18, %497 ]
-  %.sink614 = phi i32 [ 2, %495 ], [ 2, %491 ], [ 3, %501 ], [ 3, %497 ]
+  %.sink730 = phi i32 [ 2, %495 ], [ 2, %491 ], [ 3, %501 ], [ 3, %497 ]
   %503 = load i32, ptr %hf_pdcp_nr_seq_num_12.sink, align 4
-  %504 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.0341507, i32 noundef %503, ptr noundef %0, i32 noundef 0, i32 noundef %.sink614, i32 noundef 0, ptr noundef nonnull %14)
+  %504 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.0341507, i32 noundef %503, ptr noundef %0, i32 noundef 0, i32 noundef %.sink730, i32 noundef 0, ptr noundef nonnull %14)
   %505 = load i32, ptr %14, align 4
   call void (ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %.0342506, ptr noundef %1, ptr noundef nonnull @.str.287, i32 noundef %505)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -2330,7 +2330,7 @@ proto_item_set_generated.exit433:                 ; preds = %proto_item_set_gene
   br label %1478
 
 578:                                              ; preds = %478, %.thread522
-  %.0499.ph = phi i32 [ %.sink614, %.thread522 ], [ 2, %478 ]
+  %.0499.ph = phi i32 [ %.sink730, %.thread522 ], [ 2, %478 ]
   %579 = load i32, ptr @global_pdcp_check_sequence_numbers, align 4
   switch i32 %579, label %.critedge421 [
     i32 2, label %587
@@ -3177,14 +3177,14 @@ look_up_keys_record.exit.i:                       ; preds = %1015, %1018, %953
 .sink.split.i450:                                 ; preds = %1045, %1033
   %.sroa.10.5 = phi ptr [ %.sroa.10.6, %1033 ], [ %.sroa.10.2, %1045 ]
   %.sroa.15.5 = phi i8 [ %.sroa.15.6, %1033 ], [ %.sroa.15.2, %1045 ]
-  %.sink224.i = phi i64 [ 24, %1033 ], [ 32, %1045 ]
-  %.sink222.i = phi i64 [ 74, %1033 ], [ 91, %1045 ]
+  %.sink263.i = phi i64 [ 24, %1033 ], [ 32, %1045 ]
+  %.sink261.i = phi i64 [ 74, %1033 ], [ 91, %1045 ]
   %.sink.i451 = phi ptr [ %6, %1033 ], [ %8, %1045 ]
   %.1148.ph.i = phi ptr [ %.0147.i, %1033 ], [ %.2149.i, %1045 ]
   %.1.ph.i = phi i32 [ %.0145.i, %1033 ], [ %.2.i, %1045 ]
-  %1049 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.sink224.i
+  %1049 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.sink263.i
   %1050 = load ptr, ptr %1049, align 8
-  %1051 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.sink222.i
+  %1051 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.sink261.i
   %.0..0..i = load i32, ptr %.sink.i451, align 4
   br label %1052
 
@@ -3550,8 +3550,8 @@ decipher_payload.exit.thread:                     ; preds = %1121, %1121, %1122,
   %1204 = trunc nuw i8 %1203 to i1
   %or.cond.i436 = select i1 %1202, i1 %1204, i1 false
   %cond.i437 = icmp eq i32 %.sroa.7.0, 2
-  %or.cond56.i = and i1 %cond.i437, %or.cond.i436
-  br i1 %or.cond56.i, label %1205, label %calculate_digest.exit
+  %or.cond59.i = and i1 %cond.i437, %or.cond.i436
+  br i1 %or.cond59.i, label %1205, label %calculate_digest.exit
 
 1205:                                             ; preds = %1201
   call void @llvm.lifetime.start.p0(ptr nonnull %9)

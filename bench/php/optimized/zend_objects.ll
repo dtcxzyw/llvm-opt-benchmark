@@ -125,14 +125,14 @@ define hidden void @zend_object_dtor_property(ptr noundef %0, ptr noundef %1) lo
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 8, !tbaa !9
   %8 = icmp eq i8 %7, 10
-  br i1 %8, label %9, label %.thread15, !prof !38
+  br i1 %8, label %9, label %.thread16, !prof !38
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %1, align 8, !tbaa !9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !9
   %.not9 = icmp eq ptr %12, null
-  br i1 %.not9, label %.thread15, label %13
+  br i1 %.not9, label %.thread16, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -157,15 +157,15 @@ define hidden void @zend_object_dtor_property(ptr noundef %0, ptr noundef %1) lo
   %31 = load i32, ptr %30, align 8, !tbaa !42
   %32 = and i32 %31, 33554431
   %.not10 = icmp eq i32 %32, 0
-  br i1 %.not10, label %.thread15, label %33
+  br i1 %.not10, label %.thread16, label %33
 
 33:                                               ; preds = %13
   tail call void @zend_ref_del_type_source(ptr noundef nonnull %11, ptr noundef nonnull %29) #7
   %.pre = load i8, ptr %3, align 1, !tbaa !9
   %34 = icmp eq i8 %.pre, 0
-  br i1 %34, label %i_zval_ptr_dtor.exit, label %.thread15
+  br i1 %34, label %i_zval_ptr_dtor.exit, label %.thread16
 
-.thread15:                                        ; preds = %5, %9, %13, %33
+.thread16:                                        ; preds = %5, %9, %13, %33
   %35 = load ptr, ptr %1, align 8, !tbaa !9
   %36 = load i32, ptr %35, align 4, !tbaa !4
   %37 = icmp ne i32 %36, 0
@@ -175,11 +175,11 @@ define hidden void @zend_object_dtor_property(ptr noundef %0, ptr noundef %1) lo
   %.not5.i = icmp eq i32 %38, 0
   br i1 %.not5.i, label %39, label %40
 
-39:                                               ; preds = %.thread15
+39:                                               ; preds = %.thread16
   tail call void @rc_dtor_func(ptr noundef nonnull %35) #7
   br label %i_zval_ptr_dtor.exit
 
-40:                                               ; preds = %.thread15
+40:                                               ; preds = %.thread16
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !9
   %43 = icmp eq i32 %42, 26

@@ -212,11 +212,11 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %151 = getelementptr double, ptr %132, i64 %150
   %152 = getelementptr i8, ptr %151, i64 16
   %153 = getelementptr i8, ptr %142, i64 8
-  %.582 = select i1 %.not, ptr %152, ptr %153
-  %.583 = select i1 %.not, ptr %153, ptr %152
-  %.pn581 = load double, ptr %.583, align 8, !tbaa !7
-  %.sink = fmul double %133, %.pn581
-  %.pn = load double, ptr %.582, align 8, !tbaa !7
+  %.590 = select i1 %.not, ptr %152, ptr %153
+  %.591 = select i1 %.not, ptr %153, ptr %152
+  %.pn589 = load double, ptr %.591, align 8, !tbaa !7
+  %.sink = fmul double %133, %.pn589
+  %.pn = load double, ptr %.590, align 8, !tbaa !7
   %.sink572 = fmul double %133, %.pn
   store double %.sink572, ptr getelementptr inbounds nuw (i8, ptr @dlaln2_.equiv_1, i64 8), align 8, !tbaa !7
   store double %.sink, ptr getelementptr inbounds nuw (i8, ptr @dlaln2_.equiv_1, i64 16), align 16, !tbaa !7
@@ -387,10 +387,10 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %271 = sext i32 %33 to i64
   %272 = getelementptr double, ptr %35, i64 %271
   %273 = getelementptr i8, ptr %272, i64 16
-  %.594 = select i1 %.not535, double %270, double %266
-  %.595 = select i1 %.not535, double %266, double %270
-  store double %.594, ptr %13, align 8, !tbaa !7
-  store double %.595, ptr %273, align 8, !tbaa !7
+  %.602 = select i1 %.not535, double %270, double %266
+  %.603 = select i1 %.not535, double %266, double %270
+  store double %.602, ptr %13, align 8, !tbaa !7
+  store double %.603, ptr %273, align 8, !tbaa !7
   %274 = fcmp oge double %270, 0.000000e+00
   %275 = fneg double %270
   %276 = select i1 %274, double %270, double %275
@@ -665,14 +665,14 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %468 = getelementptr double, ptr %32, i64 %467
   %469 = getelementptr i8, ptr %468, i64 8
   %470 = getelementptr i8, ptr %468, i64 16
-  %.586 = select i1 %.not531, ptr %465, ptr %9
-  %.587 = select i1 %.not531, ptr %470, ptr %469
-  %.588 = select i1 %.not531, ptr %469, ptr %470
-  %.589 = select i1 %.not531, ptr %9, ptr %465
-  %.1 = load double, ptr %.589, align 8, !tbaa !7
-  %.0495 = load double, ptr %.588, align 8, !tbaa !7
-  %.sink574 = load double, ptr %.587, align 8, !tbaa !7
-  %.sink575 = load double, ptr %.586, align 8, !tbaa !7
+  %.594 = select i1 %.not531, ptr %465, ptr %9
+  %.595 = select i1 %.not531, ptr %470, ptr %469
+  %.596 = select i1 %.not531, ptr %469, ptr %470
+  %.597 = select i1 %.not531, ptr %9, ptr %465
+  %.1 = load double, ptr %.597, align 8, !tbaa !7
+  %.0495 = load double, ptr %.596, align 8, !tbaa !7
+  %.sink574 = load double, ptr %.595, align 8, !tbaa !7
+  %.sink575 = load double, ptr %.594, align 8, !tbaa !7
   %471 = fneg double %.0
   %472 = tail call double @llvm.fmuladd.f64(double %471, double %.1, double %.sink575)
   %473 = tail call double @llvm.fmuladd.f64(double %.0493, double %.0495, double %472)
@@ -752,14 +752,14 @@ define void @dlaln2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %530 = getelementptr double, ptr %35, i64 %529
   %531 = getelementptr i8, ptr %530, i64 8
   %532 = getelementptr i8, ptr %530, i64 16
-  %.596 = select i1 %.not532, double %519, double %515
-  %.597 = select i1 %.not532, double %515, double %519
-  %.598 = select i1 %.not532, double %524, double %518
-  %.599 = select i1 %.not532, double %518, double %524
-  store double %.596, ptr %13, align 8, !tbaa !7
-  store double %.597, ptr %527, align 8, !tbaa !7
-  store double %.598, ptr %531, align 8, !tbaa !7
-  store double %.599, ptr %532, align 8, !tbaa !7
+  %.604 = select i1 %.not532, double %519, double %515
+  %.605 = select i1 %.not532, double %515, double %519
+  %.606 = select i1 %.not532, double %524, double %518
+  %.607 = select i1 %.not532, double %518, double %524
+  store double %.604, ptr %13, align 8, !tbaa !7
+  store double %.605, ptr %527, align 8, !tbaa !7
+  store double %.606, ptr %531, align 8, !tbaa !7
+  store double %.607, ptr %532, align 8, !tbaa !7
   %533 = fcmp oge double %519, 0.000000e+00
   %534 = fneg double %519
   %535 = select i1 %533, double %519, double %534

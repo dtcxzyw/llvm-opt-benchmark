@@ -1945,8 +1945,8 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !344, !noalias !341
+  %.sroa.0.i.1.i.1.i.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx11, align 1, !alias.scope !344, !noalias !341
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
 
 15:                                               ; preds = %6
@@ -1958,13 +1958,13 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !344, !noalias !341
+  %.sroa.0.i.1.i.1.i.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx10, align 1, !alias.scope !344, !noalias !341
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !344, !noalias !341
+  %.sroa.0.i.2.i.2.i.2..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx12, align 2, !alias.scope !344, !noalias !341
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
 
 26:                                               ; preds = %6
@@ -2404,7 +2404,7 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting46_$LT$impl$u20$
   %.0 = tail call i32 @llvm.abs.i32(i32 %2, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %10 = load i8, ptr %9, align 1, !range !397, !noundef !16
-  switch i8 %10, label %default.unreachable99 [
+  switch i8 %10, label %default.unreachable110 [
     i8 0, label %37
     i8 1, label %23
     i8 2, label %30
@@ -2436,7 +2436,7 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting46_$LT$impl$u20$
   store i64 %22, ptr %12, align 8, !alias.scope !398
   br label %_ZN6chrono6format10formatting14write_hundreds17h4281177c9451098aE.exit
 
-default.unreachable99:                            ; preds = %7
+default.unreachable110:                           ; preds = %7
   unreachable
 
 _ZN6chrono6format10formatting14write_hundreds17h4281177c9451098aE.exit: ; preds = %.critedge.i.i.i86, %113, %94, %48, %_ZN6chrono6format10formatting14write_hundreds17h4281177c9451098aE.exit83, %92, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hc837ed62ef544522E.llvm.5435959977682051014.exit"
@@ -9647,7 +9647,7 @@ default.unreachable:                              ; preds = %23
 default.unreachable1.i70:                         ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit"
   unreachable
 
-48:                                               ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread92", %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit"
+48:                                               ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread95", %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit"
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %50 = load ptr, ptr %49, align 8, !alias.scope !2355, !noalias !2358, !nonnull !16, !align !145, !noundef !16
   br label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h794c966d3083eefcE.exit71"
@@ -9695,14 +9695,14 @@ default.unreachable1.i70:                         ; preds = %"_ZN6diesel13query_
   %66 = load i64, ptr %63, align 8, !alias.scope !2365, !noalias !2374, !noundef !16
   %67 = sub i64 %66, %65
   %68 = icmp ult i64 %67, 2
-  br i1 %68, label %69, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread92"
+  br i1 %68, label %69, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread95"
 
 69:                                               ; preds = %61
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h7fc1091d943c4197E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %63, i64 noundef %65, i64 noundef 2), !noalias !2374
   %.pre.i.i.i.i = load i64, ptr %64, align 8, !alias.scope !2377, !noalias !2374
-  br label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread92"
+  br label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread95"
 
-"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread92": ; preds = %61, %69
+"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17he7ff3230eebba670E.exit.thread95": ; preds = %61, %69
   %70 = phi i64 [ %65, %61 ], [ %.pre.i.i.i.i, %69 ]
   %71 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !2377, !noalias !2374, !nonnull !16, !noundef !16

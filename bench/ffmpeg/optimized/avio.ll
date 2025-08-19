@@ -97,7 +97,7 @@ define ptr @ffio_geturlcontext(ptr noundef readonly captures(address_is_null) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ffurl_read2(ptr noundef %0, ptr noundef %1, i32 noundef %2) #3 {
+define range(i32 -3, -4) i32 @ffurl_read2(ptr noundef %0, ptr noundef %1, i32 noundef %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8, !tbaa !15
   %6 = and i32 %5, 1

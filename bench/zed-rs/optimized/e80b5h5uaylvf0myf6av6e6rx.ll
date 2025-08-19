@@ -553,8 +553,8 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !27, !noalias !24
+  %.sroa.0.i.1.i.1.i.1..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx9, align 1, !alias.scope !27, !noalias !24
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.2003563641925947959.exit.i
 
 15:                                               ; preds = %6
@@ -566,13 +566,13 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !27, !noalias !24
+  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !27, !noalias !24
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !27, !noalias !24
+  %.sroa.0.i.2.i.2.i.2..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx10, align 2, !alias.scope !27, !noalias !24
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.2003563641925947959.exit.i
 
 26:                                               ; preds = %6
@@ -1957,8 +1957,8 @@ define hidden noundef zeroext i1 @"_ZN16html_to_markdown12html_element11HtmlElem
 
 .lr.ph.split.split.i.i.i.i:                       ; preds = %58, %76
   %61 = phi i64 [ %74, %76 ], [ %59, %58 ]
-  %62 = sub nuw i64 %.sroa.4.0.i, %61
-  %63 = getelementptr inbounds i8, ptr %.sroa.0.0.i6, i64 %61
+  %62 = sub nuw nsw i64 %.sroa.4.0.i, %61
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i6, i64 %61
   %64 = icmp ult i64 %62, 16
   br i1 %64, label %.preheader.i.i.i.i.i, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i
 
@@ -1987,7 +1987,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i: ; preds = %.lr.ph
 
 _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i
   %.sroa.4.0.i26.i.i.i.i = phi i64 [ %72, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i ], [ %.sroa.01.05.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %73 = add i64 %61, 1
+  %73 = add nuw nsw i64 %61, 1
   %74 = add i64 %73, %.sroa.4.0.i26.i.i.i.i
   %.not13.i.i.i.i = icmp ugt i64 %74, %.sroa.4.0.i
   %75 = add i64 %.sroa.4.0.i26.i.i.i.i, %61
@@ -1998,7 +1998,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i: ; preds 
   br i1 %.not13.i.i.i.i, label %select.unfold.i, label %.lr.ph.split.split.i.i.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit.i.i.i.i": ; preds = %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i
-  %77 = getelementptr inbounds i8, ptr %.sroa.0.0.i6, i64 %75
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i6, i64 %75
   %lhsc = load i8, ptr %77, align 1
   %78 = icmp eq i8 %lhsc, 32
   br i1 %78, label %select.unfold.i, label %76
@@ -2011,7 +2011,7 @@ select.unfold.i:                                  ; preds = %"_ZN73_$LT$$u5b$A$u
   %.sroa.4.0.i.i.ph.i = sub nuw i64 %.pn36.i, %.lcssa232930.i
   %.sroa.0.0.i.i.ph.i = getelementptr inbounds i8, ptr %.sroa.0.0.i6, i64 %.lcssa232930.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !375
-  %81 = getelementptr inbounds i8, ptr %.sroa.0.0.i6, i64 %.pn36.i
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i6, i64 %.pn36.i
   store ptr %.sroa.0.0.i.i.ph.i, ptr %5, align 8, !alias.scope !382, !noalias !385
   store i64 %.sroa.4.0.i.i.ph.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8, !alias.scope !382, !noalias !385
   store ptr %.sroa.0.0.i.i.ph.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i, align 8, !alias.scope !382, !noalias !385

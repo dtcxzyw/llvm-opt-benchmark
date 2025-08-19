@@ -723,21 +723,21 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %_ZL11buttonLogicjb.
   br i1 %109, label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split, label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split
 
 _ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split: ; preds = %91, %71
-  %.sink30 = phi i32 [ %87, %71 ], [ %107, %91 ]
-  %.sink28 = phi i32 [ %86, %71 ], [ %106, %91 ]
+  %.sink36 = phi i32 [ %87, %71 ], [ %107, %91 ]
+  %.sink34 = phi i32 [ %86, %71 ], [ %106, %91 ]
   %.sink = phi i32 [ %88, %71 ], [ %108, %91 ]
-  %.sink25.ph = phi ptr [ %74, %71 ], [ %94, %91 ]
-  %110 = zext i32 %.sink30 to i64
+  %.sink31.ph = phi ptr [ %74, %71 ], [ %94, %91 ]
+  %110 = zext i32 %.sink36 to i64
   %111 = getelementptr inbounds nuw [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %110
-  %112 = zext i32 %.sink28 to i64
+  %112 = zext i32 %.sink34 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr nonnull readonly align 1 %0, i64 %112, i1 false)
   store i32 %.sink, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split
 
 _ZL13addGfxCmdTextiiiPKcj.exit.sink.split:        ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split, %91, %71
-  %.sink25 = phi ptr [ %74, %71 ], [ %94, %91 ], [ %.sink25.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
+  %.sink31 = phi ptr [ %74, %71 ], [ %94, %91 ], [ %.sink31.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
   %.0.i.i21.sink = phi ptr [ null, %71 ], [ null, %91 ], [ %111, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
-  %113 = getelementptr inbounds nuw i8, ptr %.sink25, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %.sink31, i64 16
   store ptr %.0.i.i21.sink, ptr %113, align 8
   br label %_ZL13addGfxCmdTextiiiPKcj.exit
 
@@ -949,21 +949,21 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %41, %48, %45
   br i1 %109, label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split, label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split
 
 _ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split: ; preds = %91, %71
-  %.sink29 = phi i32 [ %87, %71 ], [ %107, %91 ]
-  %.sink27 = phi i32 [ %86, %71 ], [ %106, %91 ]
+  %.sink35 = phi i32 [ %87, %71 ], [ %107, %91 ]
+  %.sink33 = phi i32 [ %86, %71 ], [ %106, %91 ]
   %.sink = phi i32 [ %88, %71 ], [ %108, %91 ]
-  %.sink24.ph = phi ptr [ %74, %71 ], [ %94, %91 ]
-  %110 = zext i32 %.sink29 to i64
+  %.sink30.ph = phi ptr [ %74, %71 ], [ %94, %91 ]
+  %110 = zext i32 %.sink35 to i64
   %111 = getelementptr inbounds nuw [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %110
-  %112 = zext i32 %.sink27 to i64
+  %112 = zext i32 %.sink33 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr nonnull readonly align 1 %0, i64 %112, i1 false)
   store i32 %.sink, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split
 
 _ZL13addGfxCmdTextiiiPKcj.exit.sink.split:        ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split, %91, %71
-  %.sink24 = phi ptr [ %74, %71 ], [ %94, %91 ], [ %.sink24.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
+  %.sink30 = phi ptr [ %74, %71 ], [ %94, %91 ], [ %.sink30.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
   %.0.i.i21.sink = phi ptr [ null, %71 ], [ null, %91 ], [ %111, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
-  %113 = getelementptr inbounds nuw i8, ptr %.sink24, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %.sink30, i64 16
   store ptr %.0.i.i21.sink, ptr %113, align 8
   br label %_ZL13addGfxCmdTextiiiPKcj.exit
 
@@ -1249,21 +1249,21 @@ _ZL20addGfxCmdRoundedRectfffffj.exit27.thread33:  ; preds = %92, %_ZL20addGfxCmd
   br i1 %145, label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split, label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split
 
 _ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split: ; preds = %128, %109
-  %.sink41 = phi i32 [ %124, %109 ], [ %143, %128 ]
-  %.sink39 = phi i32 [ %123, %109 ], [ %142, %128 ]
+  %.sink48 = phi i32 [ %124, %109 ], [ %143, %128 ]
+  %.sink46 = phi i32 [ %123, %109 ], [ %142, %128 ]
   %.sink = phi i32 [ %125, %109 ], [ %144, %128 ]
-  %.sink36.ph = phi ptr [ %112, %109 ], [ %131, %128 ]
-  %146 = zext i32 %.sink41 to i64
+  %.sink43.ph = phi ptr [ %112, %109 ], [ %131, %128 ]
+  %146 = zext i32 %.sink48 to i64
   %147 = getelementptr inbounds nuw [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %146
-  %148 = zext i32 %.sink39 to i64
+  %148 = zext i32 %.sink46 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %147, ptr nonnull readonly align 1 %0, i64 %148, i1 false)
   store i32 %.sink, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split
 
 _ZL13addGfxCmdTextiiiPKcj.exit.sink.split:        ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split, %128, %109
-  %.sink36 = phi ptr [ %112, %109 ], [ %131, %128 ], [ %.sink36.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
+  %.sink43 = phi ptr [ %112, %109 ], [ %131, %128 ], [ %.sink43.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
   %.0.i.i30.sink = phi ptr [ null, %109 ], [ null, %128 ], [ %147, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
-  %149 = getelementptr inbounds nuw i8, ptr %.sink36, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %.sink43, i64 16
   store ptr %.0.i.i30.sink, ptr %149, align 8
   br label %_ZL13addGfxCmdTextiiiPKcj.exit
 
@@ -1474,23 +1474,23 @@ _ZL17addGfxCmdTriangleiiiiij.exit:                ; preds = %_ZL11buttonLogicjb.
   br i1 %105, label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split, label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split
 
 _ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split: ; preds = %88, %69
-  %.sink60 = phi i32 [ %84, %69 ], [ %103, %88 ]
-  %.sink58 = phi i32 [ %83, %69 ], [ %102, %88 ]
-  %.sink55 = phi i32 [ %85, %69 ], [ %104, %88 ]
-  %.sink53.ph = phi ptr [ %72, %69 ], [ %91, %88 ]
+  %.sink71 = phi i32 [ %84, %69 ], [ %103, %88 ]
+  %.sink69 = phi i32 [ %83, %69 ], [ %102, %88 ]
+  %.sink66 = phi i32 [ %85, %69 ], [ %104, %88 ]
+  %.sink64.ph = phi ptr [ %72, %69 ], [ %91, %88 ]
   %.ph.ph = phi i32 [ %70, %69 ], [ %89, %88 ]
-  %106 = zext i32 %.sink60 to i64
+  %106 = zext i32 %.sink71 to i64
   %107 = getelementptr inbounds nuw [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %106
-  %108 = zext i32 %.sink58 to i64
+  %108 = zext i32 %.sink69 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr nonnull readonly align 1 %0, i64 %108, i1 false)
-  store i32 %.sink55, ptr @_ZL14g_textPoolSize, align 4
+  store i32 %.sink66, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split
 
 _ZL13addGfxCmdTextiiiPKcj.exit.sink.split:        ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split, %88, %69
-  %.sink53 = phi ptr [ %72, %69 ], [ %91, %88 ], [ %.sink53.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
+  %.sink64 = phi ptr [ %72, %69 ], [ %91, %88 ], [ %.sink64.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
   %.0.i.i31.sink = phi ptr [ null, %69 ], [ null, %88 ], [ %107, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
   %.ph = phi i32 [ %70, %69 ], [ %89, %88 ], [ %.ph.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
-  %109 = getelementptr inbounds nuw i8, ptr %.sink53, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %.sink64, i64 16
   store ptr %.0.i.i31.sink, ptr %109, align 8
   br label %_ZL13addGfxCmdTextiiiPKcj.exit
 
@@ -1498,8 +1498,8 @@ _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %_ZL13addGfxCmdTexti
   %110 = phi i32 [ %66, %87 ], [ %66, %68 ], [ %.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split ]
   %.not = icmp eq ptr %1, null
   %111 = icmp ugt i32 %110, 4999
-  %or.cond54 = select i1 %.not, i1 true, i1 %111
-  br i1 %or.cond54, label %_ZL13addGfxCmdTextiiiPKcj.exit35, label %112
+  %or.cond65 = select i1 %.not, i1 true, i1 %111
+  br i1 %or.cond65, label %_ZL13addGfxCmdTextiiiPKcj.exit35, label %112
 
 112:                                              ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit
   %113 = add nsw i32 %13, %10
@@ -1855,7 +1855,7 @@ _ZL11buttonLogicjb.exit:                          ; preds = %80, %84
   br label %105
 
 105:                                              ; preds = %.thread, %89, %90
-  %.not91 = phi i1 [ false, %89 ], [ true, %90 ], [ false, %.thread ]
+  %.not108 = phi i1 [ false, %89 ], [ true, %90 ], [ false, %.thread ]
   %.064.ph = phi i32 [ %51, %89 ], [ %104, %90 ], [ %51, %.thread ]
   %106 = icmp ugt i32 %41, 4999
   br i1 %106, label %_ZL20addGfxCmdRoundedRectfffffj.exit69, label %107
@@ -1874,10 +1874,10 @@ _ZL11buttonLogicjb.exit:                          ; preds = %80, %84
   br label %_ZL20addGfxCmdRoundedRectfffffj.exit69.sink.split
 
 _ZL20addGfxCmdRoundedRectfffffj.exit69.sink.split: ; preds = %107, %111
-  %.sink108 = phi i32 [ %112, %111 ], [ %108, %107 ]
+  %.sink125 = phi i32 [ %112, %111 ], [ %108, %107 ]
   %spec.select85.sink = phi i32 [ %spec.select85, %111 ], [ -1, %107 ]
-  %.06383.ph = phi i1 [ false, %111 ], [ %.not91, %107 ]
-  %113 = sitofp i32 %.sink108 to float
+  %.06383.ph = phi i1 [ false, %111 ], [ %.not108, %107 ]
+  %113 = sitofp i32 %.sink125 to float
   %114 = add nuw nsw i32 %41, 1
   store i32 %114, ptr @_ZL17g_gfxCmdQueueSize, align 4
   %115 = zext nneg i32 %41 to i64
@@ -1904,7 +1904,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit69.sink.split: ; preds = %107, %111
   br label %_ZL20addGfxCmdRoundedRectfffffj.exit69
 
 _ZL20addGfxCmdRoundedRectfffffj.exit69:           ; preds = %_ZL20addGfxCmdRoundedRectfffffj.exit69.sink.split, %109, %105
-  %.06383 = phi i1 [ %.not91, %105 ], [ false, %109 ], [ %.06383.ph, %_ZL20addGfxCmdRoundedRectfffffj.exit69.sink.split ]
+  %.06383 = phi i1 [ %.not108, %105 ], [ false, %109 ], [ %.06383.ph, %_ZL20addGfxCmdRoundedRectfffffj.exit69.sink.split ]
   %128 = tail call float @log10f(float noundef %4) #15
   %129 = tail call float @llvm.ceil.f32(float %128)
   %130 = fptosi float %129 to i32
@@ -2073,21 +2073,21 @@ _ZL13addGfxCmdTextiiiPKcj.exit76:                 ; preds = %189, %208
   br i1 %231, label %_ZL13addGfxCmdTextiiiPKcj.exit73.sink.split, label %_ZL13addGfxCmdTextiiiPKcj.exit73.sink.split.sink.split
 
 _ZL13addGfxCmdTextiiiPKcj.exit73.sink.split.sink.split: ; preds = %215, %167
-  %.sink114 = phi i32 [ %183, %167 ], [ %212, %215 ]
-  %.sink112 = phi i32 [ %182, %167 ], [ %229, %215 ]
+  %.sink131 = phi i32 [ %183, %167 ], [ %212, %215 ]
+  %.sink129 = phi i32 [ %182, %167 ], [ %229, %215 ]
   %.sink = phi i32 [ %184, %167 ], [ %230, %215 ]
-  %.sink109.ph = phi ptr [ %171, %167 ], [ %219, %215 ]
-  %232 = zext i32 %.sink114 to i64
+  %.sink126.ph = phi ptr [ %171, %167 ], [ %219, %215 ]
+  %232 = zext i32 %.sink131 to i64
   %233 = getelementptr inbounds nuw [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %232
-  %234 = zext i32 %.sink112 to i64
+  %234 = zext i32 %.sink129 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %233, ptr nonnull readonly align 16 %8, i64 %234, i1 false)
   store i32 %.sink, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL13addGfxCmdTextiiiPKcj.exit73.sink.split
 
 _ZL13addGfxCmdTextiiiPKcj.exit73.sink.split:      ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit73.sink.split.sink.split, %215, %167
-  %.sink109 = phi ptr [ %171, %167 ], [ %219, %215 ], [ %.sink109.ph, %_ZL13addGfxCmdTextiiiPKcj.exit73.sink.split.sink.split ]
+  %.sink126 = phi ptr [ %171, %167 ], [ %219, %215 ], [ %.sink126.ph, %_ZL13addGfxCmdTextiiiPKcj.exit73.sink.split.sink.split ]
   %.0.i.i78.sink = phi ptr [ null, %167 ], [ null, %215 ], [ %233, %_ZL13addGfxCmdTextiiiPKcj.exit73.sink.split.sink.split ]
-  %235 = getelementptr inbounds nuw i8, ptr %.sink109, i64 16
+  %235 = getelementptr inbounds nuw i8, ptr %.sink126, i64 16
   store ptr %.0.i.i78.sink, ptr %235, align 8
   br label %_ZL13addGfxCmdTextiiiPKcj.exit73
 

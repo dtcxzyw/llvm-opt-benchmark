@@ -1270,8 +1270,8 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.thread:      ; preds = %23
   %26 = getelementptr inbounds i8, ptr %24, i64 -4
   %27 = load i32, ptr %26, align 4, !tbaa !49
   %28 = add i32 %27, 1
-  %.not88 = icmp eq i32 %28, %2
-  br i1 %.not88, label %.preheader.split, label %31
+  %.not92 = icmp eq i32 %28, %2
+  br i1 %.not92, label %.preheader.split, label %31
 
 .preheader.split:                                 ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.thread
   %29 = getelementptr inbounds i8, ptr %24, i64 -4

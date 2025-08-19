@@ -1057,7 +1057,7 @@ define hidden noundef ptr @_ZN12erased_serde3ser9serialize17h6b7ea84e1277812fE(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17h0f0bd8b5eb70be22E"(ptr noundef nonnull align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17h0f0bd8b5eb70be22E"(ptr noundef nonnull align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [32 x i8], align 8
   %3 = alloca [32 x i8], align 8
   call void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h6f0108092d2c33e8E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef readonly align 8 dereferenceable(8) @anon.4596be5c5edd1b2fd8f3484f59dd1597.23)
@@ -1094,7 +1094,7 @@ select.unfold:                                    ; preds = %8, %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17h2fd7c32b8a92d2ffE"(ptr noundef nonnull align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17h2fd7c32b8a92d2ffE"(ptr noundef nonnull align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [32 x i8], align 8
   %3 = alloca [32 x i8], align 8
   call void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h6f0108092d2c33e8E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef readonly align 8 dereferenceable(8) @anon.4596be5c5edd1b2fd8f3484f59dd1597.23)
@@ -1131,7 +1131,7 @@ select.unfold:                                    ; preds = %8, %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17h7a4071d78ee894e0E"(ptr noundef nonnull align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17h7a4071d78ee894e0E"(ptr noundef nonnull align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [32 x i8], align 8
   %3 = alloca [32 x i8], align 8
   call void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h6f0108092d2c33e8E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef readonly align 8 dereferenceable(8) @anon.4596be5c5edd1b2fd8f3484f59dd1597.23)
@@ -7840,7 +7840,7 @@ define hidden void @_ZN5hyper5proto2h16decode7Decoder6decode17h80546eec68aecbd9E
   %.not = icmp eq i64 %78, 5
   br i1 %.not, label %.critedge, label %79
 
-default.unreachable374:                           ; preds = %.critedge
+default.unreachable415:                           ; preds = %212, %.critedge
   unreachable
 
 79:                                               ; preds = %4
@@ -7859,7 +7859,7 @@ default.unreachable374:                           ; preds = %.critedge
 
 .critedge:                                        ; preds = %82, %4, %85, %79, %96, %.thread
   %84 = load i8, ptr %1, align 8, !range !194, !noundef !4
-  switch i8 %84, label %default.unreachable374 [
+  switch i8 %84, label %default.unreachable415 [
     i8 0, label %101
     i8 1, label %105
     i8 2, label %170
@@ -8234,7 +8234,7 @@ default.unreachable374:                           ; preds = %.critedge
   call void @llvm.experimental.noalias.scope.decl(metadata !430)
   call void @llvm.experimental.noalias.scope.decl(metadata !433)
   call void @llvm.experimental.noalias.scope.decl(metadata !435)
-  switch i8 %.val, label %default.unreachable.i [
+  switch i8 %.val, label %default.unreachable415 [
     i8 0, label %213
     i8 1, label %296
     i8 2, label %378
@@ -8249,9 +8249,6 @@ default.unreachable374:                           ; preds = %.critedge
     i8 11, label %795
     i8 12, label %.loopexit282
   ]
-
-default.unreachable.i:                            ; preds = %212
-  unreachable
 
 213:                                              ; preds = %212
   call void @llvm.experimental.noalias.scope.decl(metadata !437)
@@ -10415,7 +10412,7 @@ define hidden void @_ZN5hyper5proto2h16decode7Decoder6decode17hc6be8af3b4d2d04cE
   %.not = icmp eq i64 %78, 5
   br i1 %.not, label %.critedge, label %79
 
-default.unreachable374:                           ; preds = %.critedge
+default.unreachable415:                           ; preds = %212, %.critedge
   unreachable
 
 79:                                               ; preds = %4
@@ -10434,7 +10431,7 @@ default.unreachable374:                           ; preds = %.critedge
 
 .critedge:                                        ; preds = %82, %4, %85, %79, %96, %.thread
   %84 = load i8, ptr %1, align 8, !range !194, !noundef !4
-  switch i8 %84, label %default.unreachable374 [
+  switch i8 %84, label %default.unreachable415 [
     i8 0, label %101
     i8 1, label %105
     i8 2, label %170
@@ -10809,7 +10806,7 @@ default.unreachable374:                           ; preds = %.critedge
   call void @llvm.experimental.noalias.scope.decl(metadata !818)
   call void @llvm.experimental.noalias.scope.decl(metadata !821)
   call void @llvm.experimental.noalias.scope.decl(metadata !823)
-  switch i8 %.val, label %default.unreachable.i [
+  switch i8 %.val, label %default.unreachable415 [
     i8 0, label %213
     i8 1, label %296
     i8 2, label %378
@@ -10824,9 +10821,6 @@ default.unreachable374:                           ; preds = %.critedge
     i8 11, label %795
     i8 12, label %.loopexit282
   ]
-
-default.unreachable.i:                            ; preds = %212
-  unreachable
 
 213:                                              ; preds = %212
   call void @llvm.experimental.noalias.scope.decl(metadata !825)
@@ -12990,7 +12984,7 @@ define hidden void @_ZN5hyper5proto2h16decode7Decoder6decode17hc7e1942e7ac33650E
   %.not = icmp eq i64 %78, 5
   br i1 %.not, label %.critedge, label %79
 
-default.unreachable374:                           ; preds = %.critedge
+default.unreachable415:                           ; preds = %212, %.critedge
   unreachable
 
 79:                                               ; preds = %4
@@ -13009,7 +13003,7 @@ default.unreachable374:                           ; preds = %.critedge
 
 .critedge:                                        ; preds = %82, %4, %85, %79, %96, %.thread
   %84 = load i8, ptr %1, align 8, !range !194, !noundef !4
-  switch i8 %84, label %default.unreachable374 [
+  switch i8 %84, label %default.unreachable415 [
     i8 0, label %101
     i8 1, label %105
     i8 2, label %170
@@ -13384,7 +13378,7 @@ default.unreachable374:                           ; preds = %.critedge
   call void @llvm.experimental.noalias.scope.decl(metadata !1206)
   call void @llvm.experimental.noalias.scope.decl(metadata !1209)
   call void @llvm.experimental.noalias.scope.decl(metadata !1211)
-  switch i8 %.val, label %default.unreachable.i [
+  switch i8 %.val, label %default.unreachable415 [
     i8 0, label %213
     i8 1, label %296
     i8 2, label %378
@@ -13399,9 +13393,6 @@ default.unreachable374:                           ; preds = %.critedge
     i8 11, label %795
     i8 12, label %.loopexit282
   ]
-
-default.unreachable.i:                            ; preds = %212
-  unreachable
 
 213:                                              ; preds = %212
   call void @llvm.experimental.noalias.scope.decl(metadata !1213)

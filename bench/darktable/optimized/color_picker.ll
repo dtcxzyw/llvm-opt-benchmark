@@ -290,10 +290,10 @@ _sort_coordinates.exit:                           ; preds = %32
   br label %108
 
 108:                                              ; preds = %104, %_sort_coordinates.exit
-  %.sink52 = phi float [ %107, %104 ], [ %103, %_sort_coordinates.exit ]
-  %.sink51 = phi i64 [ 4, %104 ], [ 12, %_sort_coordinates.exit ]
-  %109 = fdiv reassoc nsz arcp contract afn float %.sink52, %23
-  %110 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink51
+  %.sink91 = phi float [ %107, %104 ], [ %103, %_sort_coordinates.exit ]
+  %.sink90 = phi i64 [ 4, %104 ], [ 12, %_sort_coordinates.exit ]
+  %109 = fdiv reassoc nsz arcp contract afn float %.sink91, %23
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink90
   store float %109, ptr %110, align 4, !tbaa !58
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit

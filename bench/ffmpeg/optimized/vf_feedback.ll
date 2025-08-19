@@ -318,14 +318,15 @@ adjust_pos.exit:                                  ; preds = %20, %29
 
 131:                                              ; preds = %.preheader211, %.loopexit210
   %132 = phi i32 [ %91, %.preheader211 ], [ %174, %.loopexit210 ]
-  %indvars.iv230 = phi i64 [ 1, %.preheader211 ], [ %indvars.iv.next231, %.loopexit210 ]
+  %exitcond.not = phi i1 [ false, %.preheader211 ], [ true, %.loopexit210 ]
+  %indvars.iv230 = phi i64 [ 1, %.preheader211 ], [ 2, %.loopexit210 ]
   %133 = load ptr, ptr %4, align 8, !tbaa !24
   %134 = getelementptr inbounds nuw [8 x ptr], ptr %133, i64 0, i64 %indvars.iv230
   %135 = load ptr, ptr %134, align 8, !tbaa !56
   %.not192 = icmp ne ptr %135, null
   %136 = icmp sgt i32 %132, 0
-  %or.cond241 = select i1 %.not192, i1 %136, i1 false
-  br i1 %or.cond241, label %.lr.ph217, label %.loopexit210
+  %or.cond256 = select i1 %.not192, i1 %136, i1 false
+  br i1 %or.cond256, label %.lr.ph217, label %.loopexit210
 
 .lr.ph217:                                        ; preds = %131
   %137 = getelementptr inbounds nuw [4 x i32], ptr %94, i64 0, i64 %indvars.iv230
@@ -373,8 +374,6 @@ adjust_pos.exit:                                  ; preds = %20, %29
 
 .loopexit210:                                     ; preds = %140, %131
   %174 = phi i32 [ %132, %131 ], [ %172, %140 ]
-  %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next231, 3
   br i1 %exitcond.not, label %123, label %131, !llvm.loop !63
 
 175:                                              ; preds = %.lr.ph220, %175
@@ -512,7 +511,8 @@ adjust_pos.exit:                                  ; preds = %20, %29
   br i1 %.not180, label %288, label %277
 
 258:                                              ; preds = %235, %276
-  %indvars.iv233 = phi i64 [ 1, %235 ], [ %indvars.iv.next234, %276 ]
+  %exitcond236.not = phi i1 [ false, %235 ], [ true, %276 ]
+  %indvars.iv233 = phi i64 [ 1, %235 ], [ 2, %276 ]
   %259 = getelementptr inbounds nuw [8 x ptr], ptr %234, i64 0, i64 %indvars.iv233
   %260 = load ptr, ptr %259, align 8, !tbaa !56
   %.not181 = icmp eq ptr %260, null
@@ -537,8 +537,6 @@ adjust_pos.exit:                                  ; preds = %20, %29
   br label %276
 
 276:                                              ; preds = %258, %261
-  %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
-  %exitcond236.not = icmp eq i64 %indvars.iv.next234, 3
   br i1 %exitcond236.not, label %255, label %258, !llvm.loop !66
 
 277:                                              ; preds = %255

@@ -648,7 +648,7 @@ define internal i32 @dissect_s5066dts(ptr noundef %0, ptr noundef %1, ptr nounde
   %19 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
   %20 = and i8 %19, 15
   %21 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
-  switch i8 %20, label %default.unreachable150 [
+  switch i8 %20, label %default.unreachable153 [
     i8 0, label %22
     i8 1, label %24
     i8 2, label %24
@@ -692,7 +692,7 @@ define internal i32 @dissect_s5066dts(ptr noundef %0, ptr noundef %1, ptr nounde
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.259, i32 noundef 15, ptr noundef %32, ptr noundef %34)
   br label %35
 
-default.unreachable150:                           ; preds = %8
+default.unreachable153:                           ; preds = %8
   unreachable
 
 35:                                               ; preds = %30, %28, %24, %22

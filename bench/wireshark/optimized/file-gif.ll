@@ -293,12 +293,12 @@ define internal noundef i32 @dissect_gif(ptr noundef %0, ptr noundef %1, ptr nou
 78:                                               ; preds = %73, %72
   %.0175 = phi i32 [ %77, %73 ], [ 13, %72 ]
   %79 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0175)
-  %.not185205 = icmp eq i32 %79, 0
-  br i1 %.not185205, label %.thread, label %.lr.ph
+  %.not185206 = icmp eq i32 %79, 0
+  br i1 %.not185206, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %78, %174
-  %.1206 = phi i32 [ %.4, %174 ], [ %.0175, %78 ]
-  %80 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.1206)
+  %.1207 = phi i32 [ %.4, %174 ], [ %.0175, %78 ]
+  %80 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.1207)
   switch i8 %80, label %171 [
     i8 33, label %81
     i8 44, label %103
@@ -307,11 +307,11 @@ define internal noundef i32 @dissect_gif(ptr noundef %0, ptr noundef %1, ptr nou
 
 81:                                               ; preds = %.lr.ph
   %82 = load i32, ptr @hf_extension, align 4
-  %83 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %82, ptr noundef %0, i32 noundef %.1206, i32 noundef 1, i32 noundef 0)
+  %83 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %82, ptr noundef %0, i32 noundef %.1207, i32 noundef 1, i32 noundef 0)
   store ptr %83, ptr %5, align 8
   %84 = load i32, ptr @ett_extension, align 4
   %85 = call ptr @proto_item_add_subtree(ptr noundef %83, i32 noundef %84)
-  %86 = add i32 %.1206, 1
+  %86 = add i32 %.1207, 1
   %87 = load i32, ptr @hf_extension_label, align 4
   %88 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %87, ptr noundef %0, i32 noundef %86, i32 noundef 1, i32 noundef -2147483648)
   %89 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %86)
@@ -319,7 +319,7 @@ define internal noundef i32 @dissect_gif(ptr noundef %0, ptr noundef %1, ptr nou
   %91 = zext i8 %89 to i32
   %92 = call ptr @val_to_str(i32 noundef %91, ptr noundef nonnull @vals_extensions, ptr noundef nonnull @.str.100)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef nonnull @.str.99, ptr noundef %92)
-  %93 = add i32 %.1206, 2
+  %93 = add i32 %.1207, 2
   br label %94
 
 94:                                               ; preds = %94, %81
@@ -342,23 +342,23 @@ dissect_gif_data_block_seq.exit:                  ; preds = %94
 103:                                              ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %104 = load i32, ptr @hf_image, align 4
-  %105 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %104, ptr noundef %0, i32 noundef %.1206, i32 noundef 1, i32 noundef 0)
+  %105 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %104, ptr noundef %0, i32 noundef %.1207, i32 noundef 1, i32 noundef 0)
   store ptr %105, ptr %5, align 8
   %106 = load i32, ptr @ett_image, align 4
   %107 = call ptr @proto_item_add_subtree(ptr noundef %105, i32 noundef %106)
-  %108 = add i32 %.1206, 1
+  %108 = add i32 %.1207, 1
   %109 = load i32, ptr @hf_image_left, align 4
   %110 = call ptr @proto_tree_add_item(ptr noundef %107, i32 noundef %109, ptr noundef %0, i32 noundef %108, i32 noundef 2, i32 noundef -2147483648)
-  %111 = add i32 %.1206, 3
+  %111 = add i32 %.1207, 3
   %112 = load i32, ptr @hf_image_top, align 4
   %113 = call ptr @proto_tree_add_item(ptr noundef %107, i32 noundef %112, ptr noundef %0, i32 noundef %111, i32 noundef 2, i32 noundef -2147483648)
-  %114 = add i32 %.1206, 5
+  %114 = add i32 %.1207, 5
   %115 = load i32, ptr @hf_image_width, align 4
   %116 = call ptr @proto_tree_add_item(ptr noundef %107, i32 noundef %115, ptr noundef %0, i32 noundef %114, i32 noundef 2, i32 noundef -2147483648)
-  %117 = add i32 %.1206, 7
+  %117 = add i32 %.1207, 7
   %118 = load i32, ptr @hf_image_height, align 4
   %119 = call ptr @proto_tree_add_item(ptr noundef %107, i32 noundef %118, ptr noundef %0, i32 noundef %117, i32 noundef 2, i32 noundef -2147483648)
-  %120 = add i32 %.1206, 9
+  %120 = add i32 %.1207, 9
   %121 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %120)
   %.not186 = icmp sgt i8 %121, -1
   %122 = lshr i8 %121, 4
@@ -398,7 +398,7 @@ dissect_gif_data_block_seq.exit:                  ; preds = %94
 145:                                              ; preds = %142, %130
   %146 = load i32, ptr @hf_global_image_bpp, align 4
   %147 = call ptr @proto_tree_add_item(ptr noundef %127, i32 noundef %146, ptr noundef %0, i32 noundef %120, i32 noundef 1, i32 noundef -2147483648)
-  %148 = add i32 %.1206, 10
+  %148 = add i32 %.1207, 10
   br i1 %.not186, label %154, label %149
 
 149:                                              ; preds = %145
@@ -435,19 +435,19 @@ dissect_gif_data_block_seq.exit190:               ; preds = %158
 
 167:                                              ; preds = %.lr.ph
   %168 = load i32, ptr @hf_trailer, align 4
-  %169 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %168, ptr noundef %0, i32 noundef %.1206, i32 noundef 1, i32 noundef 0)
-  %170 = add i32 %.1206, 1
+  %169 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %168, ptr noundef %0, i32 noundef %.1207, i32 noundef 1, i32 noundef 0)
+  %170 = add i32 %.1207, 1
   br label %.thread
 
 171:                                              ; preds = %.lr.ph
-  %172 = call ptr @proto_tree_add_expert(ptr noundef %19, ptr noundef %1, ptr noundef nonnull @ei_gif_unknown_data_block_type, ptr noundef %0, i32 noundef %.1206, i32 noundef 1)
-  %173 = add i32 %.1206, 1
+  %172 = call ptr @proto_tree_add_expert(ptr noundef %19, ptr noundef %1, ptr noundef nonnull @ei_gif_unknown_data_block_type, ptr noundef %0, i32 noundef %.1207, i32 noundef 1)
+  %173 = add i32 %.1207, 1
   br label %174
 
 174:                                              ; preds = %dissect_gif_data_block_seq.exit190, %171, %dissect_gif_data_block_seq.exit
   %.4 = phi i32 [ %164, %dissect_gif_data_block_seq.exit190 ], [ %173, %171 ], [ %100, %dissect_gif_data_block_seq.exit ]
   %175 = load ptr, ptr %5, align 8
-  %176 = sub i32 %.4, %.1206
+  %176 = sub i32 %.4, %.1207
   call void @proto_item_set_len(ptr noundef %175, i32 noundef %176)
   %177 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4)
   %.not185 = icmp eq i32 %177, 0

@@ -147,24 +147,24 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
   %.098 = phi i32 [ 0, %37 ], [ %spec.select111, %.sink.split.i ]
   %40 = load ptr, ptr %6, align 8
   %.not25.i = icmp eq ptr %40, null
-  br i1 %.not25.i, label %.sink.split28.i.else, label %.sink.split28.i
+  br i1 %.not25.i, label %.sink.split31.i.else, label %.sink.split31.i
 
-.sink.split28.i:                                  ; preds = %.sink.split.i.cont
+.sink.split31.i:                                  ; preds = %.sink.split.i.cont
   %41 = call zeroext i1 @abi_type_is_float(ptr nonnull %40) #5
   %.sroa.speculated = select i1 %41, i32 %.098, i32 %.099
   %42 = add nuw nsw i32 %.sroa.speculated, 1
   %spec.select112 = select i1 %41, i32 %.099, i32 %42
   %spec.select113 = select i1 %41, i32 %42, i32 %.098
-  br label %.sink.split28.i.else
+  br label %.sink.split31.i.else
 
-.sink.split28.i.else:                             ; preds = %.sink.split28.i, %.sink.split.i.cont
-  %.1100.ph = phi i32 [ %.099, %.sink.split.i.cont ], [ %spec.select112, %.sink.split28.i ]
-  %.1.ph = phi i32 [ %.098, %.sink.split.i.cont ], [ %spec.select113, %.sink.split28.i ]
+.sink.split31.i.else:                             ; preds = %.sink.split31.i, %.sink.split.i.cont
+  %.1100.ph = phi i32 [ %.099, %.sink.split.i.cont ], [ %spec.select112, %.sink.split31.i ]
+  %.1.ph = phi i32 [ %.098, %.sink.split.i.cont ], [ %spec.select113, %.sink.split31.i ]
   %43 = load i32, ptr %2, align 4
   %.not73 = icmp ugt i32 %.1100.ph, %43
   br i1 %.not73, label %.critedge, label %44
 
-44:                                               ; preds = %.sink.split28.i.else
+44:                                               ; preds = %.sink.split31.i.else
   %45 = load i32, ptr %3, align 4
   %.not74 = icmp ugt i32 %.1.ph, %45
   br i1 %.not74, label %.critedge, label %46
@@ -181,7 +181,7 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
   %53 = call fastcc ptr @riscv_coerce_and_expand_fpcc_struct(ptr %51, ptr %52, i32 noundef %50)
   br label %116
 
-.critedge:                                        ; preds = %36, %33, %4, %.sink.split28.i.else, %44, %27
+.critedge:                                        ; preds = %36, %33, %4, %.sink.split31.i.else, %44, %27
   %54 = call i32 @type_abi_alignment(ptr noundef %0) #5
   %55 = shl i32 %9, 1
   %56 = icmp ne i32 %54, %55

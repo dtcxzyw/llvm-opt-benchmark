@@ -30835,17 +30835,17 @@ lean_alloc_ctor.exit8969:                         ; preds = %lean_alloc_ctor.exi
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_alloc_ctor.exit8969, %lean_dec.exit5389
-  %.sink9094 = phi ptr [ %32, %lean_dec.exit5389 ], [ %9664, %lean_alloc_ctor.exit8969 ]
-  %.sink9091 = phi i32 [ 16908312, %lean_dec.exit5389 ], [ 131096, %lean_alloc_ctor.exit8969 ]
+  %.sink9467 = phi ptr [ %32, %lean_dec.exit5389 ], [ %9664, %lean_alloc_ctor.exit8969 ]
+  %.sink9464 = phi i32 [ 16908312, %lean_dec.exit5389 ], [ 131096, %lean_alloc_ctor.exit8969 ]
   %.sink = phi ptr [ inttoptr (i64 3 to ptr), %lean_dec.exit5389 ], [ %9657, %lean_alloc_ctor.exit8969 ]
-  %9667 = getelementptr inbounds nuw i8, ptr %.sink9094, i64 4
-  store i32 1, ptr %.sink9094, align 4, !tbaa !8
-  store i32 %.sink9091, ptr %9667, align 4
-  %9668 = getelementptr inbounds nuw i8, ptr %.sink9094, i64 8
+  %9667 = getelementptr inbounds nuw i8, ptr %.sink9467, i64 4
+  store i32 1, ptr %.sink9467, align 4, !tbaa !8
+  store i32 %.sink9464, ptr %9667, align 4
+  %9668 = getelementptr inbounds nuw i8, ptr %.sink9467, i64 8
   store ptr %.sink, ptr %9668, align 8, !tbaa !4
-  %9669 = getelementptr inbounds nuw i8, ptr %.sink9094, i64 16
+  %9669 = getelementptr inbounds nuw i8, ptr %.sink9467, i64 16
   store ptr %2, ptr %9669, align 8, !tbaa !4
-  ret ptr %.sink9094
+  ret ptr %.sink9467
 }
 
 declare zeroext i8 @l_Lean_Syntax_isOfKind(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -64128,16 +64128,16 @@ lean_alloc_ctor.exit.i:                           ; preds = %27
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_alloc_ctor.exit.i, %lean_dec.exit
-  %.sink26 = phi ptr [ %24, %lean_dec.exit ], [ %33, %lean_alloc_ctor.exit.i ]
+  %.sink30 = phi ptr [ %24, %lean_dec.exit ], [ %33, %lean_alloc_ctor.exit.i ]
   %.sink = phi ptr [ %23, %lean_dec.exit ], [ %28, %lean_alloc_ctor.exit.i ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sink26, i64 4
-  store i32 1, ptr %.sink26, align 4, !tbaa !8
+  %36 = getelementptr inbounds nuw i8, ptr %.sink30, i64 4
+  store i32 1, ptr %.sink30, align 4, !tbaa !8
   store i32 131096, ptr %36, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %.sink26, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.sink30, i64 8
   store ptr %.sink, ptr %37, align 8, !tbaa !4
-  %38 = getelementptr inbounds nuw i8, ptr %.sink26, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.sink30, i64 16
   store ptr %8, ptr %38, align 8, !tbaa !4
-  ret ptr %.sink26
+  ret ptr %.sink30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -97653,16 +97653,16 @@ lean_alloc_ctor.exit.i:                           ; preds = %27
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_alloc_ctor.exit.i, %lean_dec.exit
-  %.sink26 = phi ptr [ %24, %lean_dec.exit ], [ %33, %lean_alloc_ctor.exit.i ]
+  %.sink30 = phi ptr [ %24, %lean_dec.exit ], [ %33, %lean_alloc_ctor.exit.i ]
   %.sink = phi ptr [ %23, %lean_dec.exit ], [ %28, %lean_alloc_ctor.exit.i ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sink26, i64 4
-  store i32 1, ptr %.sink26, align 4, !tbaa !8
+  %36 = getelementptr inbounds nuw i8, ptr %.sink30, i64 4
+  store i32 1, ptr %.sink30, align 4, !tbaa !8
   store i32 131096, ptr %36, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %.sink26, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.sink30, i64 8
   store ptr %.sink, ptr %37, align 8, !tbaa !4
-  %38 = getelementptr inbounds nuw i8, ptr %.sink26, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.sink30, i64 16
   store ptr %8, ptr %38, align 8, !tbaa !4
-  ret ptr %.sink26
+  ret ptr %.sink30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -130949,16 +130949,16 @@ lean_alloc_ctor.exit.i:                           ; preds = %27
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_alloc_ctor.exit.i, %lean_dec.exit
-  %.sink26 = phi ptr [ %24, %lean_dec.exit ], [ %33, %lean_alloc_ctor.exit.i ]
+  %.sink30 = phi ptr [ %24, %lean_dec.exit ], [ %33, %lean_alloc_ctor.exit.i ]
   %.sink = phi ptr [ %23, %lean_dec.exit ], [ %28, %lean_alloc_ctor.exit.i ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sink26, i64 4
-  store i32 1, ptr %.sink26, align 4, !tbaa !8
+  %36 = getelementptr inbounds nuw i8, ptr %.sink30, i64 4
+  store i32 1, ptr %.sink30, align 4, !tbaa !8
   store i32 131096, ptr %36, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %.sink26, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.sink30, i64 8
   store ptr %.sink, ptr %37, align 8, !tbaa !4
-  %38 = getelementptr inbounds nuw i8, ptr %.sink26, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.sink30, i64 16
   store ptr %8, ptr %38, align 8, !tbaa !4
-  ret ptr %.sink26
+  ret ptr %.sink30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -164611,16 +164611,16 @@ lean_alloc_ctor.exit.i:                           ; preds = %27
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_alloc_ctor.exit.i, %lean_dec.exit
-  %.sink26 = phi ptr [ %24, %lean_dec.exit ], [ %33, %lean_alloc_ctor.exit.i ]
+  %.sink30 = phi ptr [ %24, %lean_dec.exit ], [ %33, %lean_alloc_ctor.exit.i ]
   %.sink = phi ptr [ %23, %lean_dec.exit ], [ %28, %lean_alloc_ctor.exit.i ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sink26, i64 4
-  store i32 1, ptr %.sink26, align 4, !tbaa !8
+  %36 = getelementptr inbounds nuw i8, ptr %.sink30, i64 4
+  store i32 1, ptr %.sink30, align 4, !tbaa !8
   store i32 131096, ptr %36, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %.sink26, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.sink30, i64 8
   store ptr %.sink, ptr %37, align 8, !tbaa !4
-  %38 = getelementptr inbounds nuw i8, ptr %.sink26, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.sink30, i64 16
   store ptr %8, ptr %38, align 8, !tbaa !4
-  ret ptr %.sink26
+  ret ptr %.sink30
 }
 
 ; Function Attrs: nounwind uwtable

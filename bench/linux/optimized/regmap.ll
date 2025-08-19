@@ -1187,7 +1187,7 @@ define internal void @trace_event_raw_event_regmap_reg(ptr noundef %0, ptr nound
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
-  %spec.select12 = select i1 %51, ptr @.str.18, ptr %50
+  %spec.select18 = select i1 %51, ptr @.str.18, ptr %50
   br label %.thread8
 
 .thread9:                                         ; preds = %44
@@ -1200,7 +1200,7 @@ define internal void @trace_event_raw_event_regmap_reg(ptr noundef %0, ptr nound
   br label %.thread8
 
 .thread8:                                         ; preds = %48, %.thread8._crit_edge, %44, %.thread9
-  %54 = phi ptr [ @.str.18, %.thread9 ], [ %46, %44 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select12, %48 ]
+  %54 = phi ptr [ @.str.18, %.thread9 ], [ %46, %44 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %48 ]
   %55 = call ptr @strcpy(ptr noundef %41, ptr noundef %54) #24
   %56 = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i32 %2, ptr %56, align 4
@@ -1307,7 +1307,7 @@ define internal void @perf_trace_regmap_reg(ptr noundef %0, ptr noundef readonly
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
-  %spec.select12 = select i1 %61, ptr @.str.18, ptr %60
+  %spec.select18 = select i1 %61, ptr @.str.18, ptr %60
   br label %.thread8
 
 .thread9:                                         ; preds = %54
@@ -1320,7 +1320,7 @@ define internal void @perf_trace_regmap_reg(ptr noundef %0, ptr noundef readonly
   br label %.thread8
 
 .thread8:                                         ; preds = %58, %.thread8._crit_edge, %54, %.thread9
-  %64 = phi ptr [ @.str.18, %.thread9 ], [ %56, %54 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select12, %58 ]
+  %64 = phi ptr [ @.str.18, %.thread9 ], [ %56, %54 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %58 ]
   %65 = call ptr @strcpy(ptr noundef %51, ptr noundef %64) #24
   %66 = getelementptr inbounds nuw i8, ptr %38, i64 12
   store i32 %2, ptr %66, align 4
@@ -1428,7 +1428,7 @@ define internal void @trace_event_raw_event_regmap_bulk(ptr noundef %0, ptr noun
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
-  %spec.select12 = select i1 %57, ptr @.str.18, ptr %56
+  %spec.select18 = select i1 %57, ptr @.str.18, ptr %56
   br label %.thread8
 
 .thread9:                                         ; preds = %50
@@ -1441,7 +1441,7 @@ define internal void @trace_event_raw_event_regmap_bulk(ptr noundef %0, ptr noun
   br label %.thread8
 
 .thread8:                                         ; preds = %54, %.thread8._crit_edge, %50, %.thread9
-  %60 = phi ptr [ @.str.18, %.thread9 ], [ %52, %50 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select12, %54 ]
+  %60 = phi ptr [ @.str.18, %.thread9 ], [ %52, %50 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %54 ]
   %61 = call ptr @strcpy(ptr noundef %47, ptr noundef %60) #24
   %62 = getelementptr inbounds nuw i8, ptr %37, i64 12
   store i32 %2, ptr %62, align 4
@@ -1561,7 +1561,7 @@ define internal void @perf_trace_regmap_bulk(ptr noundef %0, ptr noundef readonl
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
-  %spec.select12 = select i1 %69, ptr @.str.18, ptr %68
+  %spec.select18 = select i1 %69, ptr @.str.18, ptr %68
   br label %.thread8
 
 .thread9:                                         ; preds = %62
@@ -1574,7 +1574,7 @@ define internal void @perf_trace_regmap_bulk(ptr noundef %0, ptr noundef readonl
   br label %.thread8
 
 .thread8:                                         ; preds = %66, %.thread8._crit_edge, %62, %.thread9
-  %72 = phi ptr [ @.str.18, %.thread9 ], [ %64, %62 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select12, %66 ]
+  %72 = phi ptr [ @.str.18, %.thread9 ], [ %64, %62 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %66 ]
   %73 = call ptr @strcpy(ptr noundef %59, ptr noundef %72) #24
   %74 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 %2, ptr %74, align 4
@@ -1675,7 +1675,7 @@ define internal void @trace_event_raw_event_regmap_block(ptr noundef %0, ptr nou
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
-  %spec.select12 = select i1 %51, ptr @.str.18, ptr %50
+  %spec.select18 = select i1 %51, ptr @.str.18, ptr %50
   br label %.thread8
 
 .thread9:                                         ; preds = %44
@@ -1688,7 +1688,7 @@ define internal void @trace_event_raw_event_regmap_block(ptr noundef %0, ptr nou
   br label %.thread8
 
 .thread8:                                         ; preds = %48, %.thread8._crit_edge, %44, %.thread9
-  %54 = phi ptr [ @.str.18, %.thread9 ], [ %46, %44 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select12, %48 ]
+  %54 = phi ptr [ @.str.18, %.thread9 ], [ %46, %44 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %48 ]
   %55 = call ptr @strcpy(ptr noundef %41, ptr noundef %54) #24
   %56 = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i32 %2, ptr %56, align 4
@@ -1795,7 +1795,7 @@ define internal void @perf_trace_regmap_block(ptr noundef %0, ptr noundef readon
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
-  %spec.select12 = select i1 %61, ptr @.str.18, ptr %60
+  %spec.select18 = select i1 %61, ptr @.str.18, ptr %60
   br label %.thread8
 
 .thread9:                                         ; preds = %54
@@ -1808,7 +1808,7 @@ define internal void @perf_trace_regmap_block(ptr noundef %0, ptr noundef readon
   br label %.thread8
 
 .thread8:                                         ; preds = %58, %.thread8._crit_edge, %54, %.thread9
-  %64 = phi ptr [ @.str.18, %.thread9 ], [ %56, %54 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select12, %58 ]
+  %64 = phi ptr [ @.str.18, %.thread9 ], [ %56, %54 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %58 ]
   %65 = call ptr @strcpy(ptr noundef %51, ptr noundef %64) #24
   %66 = getelementptr inbounds nuw i8, ptr %38, i64 12
   store i32 %2, ptr %66, align 4
@@ -1926,7 +1926,7 @@ define internal void @trace_event_raw_event_regcache_sync(ptr noundef %0, ptr no
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
-  %spec.select12 = select i1 %71, ptr @.str.18, ptr %70
+  %spec.select18 = select i1 %71, ptr @.str.18, ptr %70
   br label %.thread8
 
 .thread9:                                         ; preds = %64
@@ -1939,7 +1939,7 @@ define internal void @trace_event_raw_event_regcache_sync(ptr noundef %0, ptr no
   br label %.thread8
 
 .thread8:                                         ; preds = %68, %.thread8._crit_edge, %64, %.thread9
-  %74 = phi ptr [ @.str.18, %.thread9 ], [ %66, %64 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select12, %68 ]
+  %74 = phi ptr [ @.str.18, %.thread9 ], [ %66, %64 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %68 ]
   %75 = call ptr @strcpy(ptr noundef %61, ptr noundef %74) #24
   %76 = and i32 %54, 65535
   %77 = zext nneg i32 %76 to i64
@@ -2075,7 +2075,7 @@ define internal void @perf_trace_regcache_sync(ptr noundef %0, ptr noundef reado
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
-  %spec.select12 = select i1 %83, ptr @.str.18, ptr %82
+  %spec.select18 = select i1 %83, ptr @.str.18, ptr %82
   br label %.thread8
 
 .thread9:                                         ; preds = %76
@@ -2088,7 +2088,7 @@ define internal void @perf_trace_regcache_sync(ptr noundef %0, ptr noundef reado
   br label %.thread8
 
 .thread8:                                         ; preds = %80, %.thread8._crit_edge, %76, %.thread9
-  %86 = phi ptr [ @.str.18, %.thread9 ], [ %78, %76 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select12, %80 ]
+  %86 = phi ptr [ @.str.18, %.thread9 ], [ %78, %76 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %80 ]
   %87 = call ptr @strcpy(ptr noundef %73, ptr noundef %86) #24
   %88 = and i32 %31, 65535
   %89 = zext nneg i32 %88 to i64
@@ -2189,7 +2189,7 @@ define internal void @trace_event_raw_event_regmap_bool(ptr noundef %0, ptr noun
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
-  %spec.select12 = select i1 %50, ptr @.str.18, ptr %49
+  %spec.select18 = select i1 %50, ptr @.str.18, ptr %49
   br label %.thread8
 
 .thread9:                                         ; preds = %43
@@ -2202,7 +2202,7 @@ define internal void @trace_event_raw_event_regmap_bool(ptr noundef %0, ptr noun
   br label %.thread8
 
 .thread8:                                         ; preds = %47, %.thread8._crit_edge, %43, %.thread9
-  %53 = phi ptr [ @.str.18, %.thread9 ], [ %45, %43 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select12, %47 ]
+  %53 = phi ptr [ @.str.18, %.thread9 ], [ %45, %43 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %47 ]
   %54 = call ptr @strcpy(ptr noundef %40, ptr noundef %53) #24
   %55 = zext i1 %2 to i32
   %56 = getelementptr inbounds nuw i8, ptr %34, i64 12
@@ -2309,7 +2309,7 @@ define internal void @perf_trace_regmap_bool(ptr noundef %0, ptr noundef readonl
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
-  %spec.select12 = select i1 %61, ptr @.str.18, ptr %60
+  %spec.select18 = select i1 %61, ptr @.str.18, ptr %60
   br label %.thread8
 
 .thread9:                                         ; preds = %54
@@ -2322,7 +2322,7 @@ define internal void @perf_trace_regmap_bool(ptr noundef %0, ptr noundef readonl
   br label %.thread8
 
 .thread8:                                         ; preds = %58, %.thread8._crit_edge, %54, %.thread9
-  %64 = phi ptr [ @.str.18, %.thread9 ], [ %56, %54 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select12, %58 ]
+  %64 = phi ptr [ @.str.18, %.thread9 ], [ %56, %54 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %58 ]
   %65 = call ptr @strcpy(ptr noundef %51, ptr noundef %64) #24
   %66 = zext i1 %2 to i32
   %67 = getelementptr inbounds nuw i8, ptr %38, i64 12
@@ -2417,7 +2417,7 @@ define internal void @trace_event_raw_event_regmap_async(ptr noundef %0, ptr nou
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
-  %spec.select12 = select i1 %49, ptr @.str.18, ptr %48
+  %spec.select18 = select i1 %49, ptr @.str.18, ptr %48
   br label %.thread8
 
 .thread9:                                         ; preds = %42
@@ -2430,7 +2430,7 @@ define internal void @trace_event_raw_event_regmap_async(ptr noundef %0, ptr nou
   br label %.thread8
 
 .thread8:                                         ; preds = %46, %.thread8._crit_edge, %42, %.thread9
-  %52 = phi ptr [ @.str.18, %.thread9 ], [ %44, %42 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select12, %46 ]
+  %52 = phi ptr [ @.str.18, %.thread9 ], [ %44, %42 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %46 ]
   %53 = call ptr @strcpy(ptr noundef %39, ptr noundef %52) #24
   call void @trace_event_buffer_commit(ptr noundef nonnull %3) #24
   br label %54
@@ -2533,7 +2533,7 @@ define internal void @perf_trace_regmap_async(ptr noundef %0, ptr noundef readon
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
-  %spec.select12 = select i1 %59, ptr @.str.18, ptr %58
+  %spec.select18 = select i1 %59, ptr @.str.18, ptr %58
   br label %.thread8
 
 .thread9:                                         ; preds = %52
@@ -2546,7 +2546,7 @@ define internal void @perf_trace_regmap_async(ptr noundef %0, ptr noundef readon
   br label %.thread8
 
 .thread8:                                         ; preds = %56, %.thread8._crit_edge, %52, %.thread9
-  %62 = phi ptr [ @.str.18, %.thread9 ], [ %54, %52 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select12, %56 ]
+  %62 = phi ptr [ @.str.18, %.thread9 ], [ %54, %52 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %56 ]
   %63 = call ptr @strcpy(ptr noundef %49, ptr noundef %62) #24
   %64 = load i32, ptr %4, align 4
   %65 = load ptr, ptr %3, align 8
@@ -2638,7 +2638,7 @@ define internal void @trace_event_raw_event_regcache_drop_region(ptr noundef %0,
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
-  %spec.select12 = select i1 %51, ptr @.str.18, ptr %50
+  %spec.select18 = select i1 %51, ptr @.str.18, ptr %50
   br label %.thread8
 
 .thread9:                                         ; preds = %44
@@ -2651,7 +2651,7 @@ define internal void @trace_event_raw_event_regcache_drop_region(ptr noundef %0,
   br label %.thread8
 
 .thread8:                                         ; preds = %48, %.thread8._crit_edge, %44, %.thread9
-  %54 = phi ptr [ @.str.18, %.thread9 ], [ %46, %44 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select12, %48 ]
+  %54 = phi ptr [ @.str.18, %.thread9 ], [ %46, %44 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %48 ]
   %55 = call ptr @strcpy(ptr noundef %41, ptr noundef %54) #24
   %56 = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i32 %2, ptr %56, align 4
@@ -2758,7 +2758,7 @@ define internal void @perf_trace_regcache_drop_region(ptr noundef %0, ptr nounde
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
-  %spec.select12 = select i1 %61, ptr @.str.18, ptr %60
+  %spec.select18 = select i1 %61, ptr @.str.18, ptr %60
   br label %.thread8
 
 .thread9:                                         ; preds = %54
@@ -2771,7 +2771,7 @@ define internal void @perf_trace_regcache_drop_region(ptr noundef %0, ptr nounde
   br label %.thread8
 
 .thread8:                                         ; preds = %58, %.thread8._crit_edge, %54, %.thread9
-  %64 = phi ptr [ @.str.18, %.thread9 ], [ %56, %54 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select12, %58 ]
+  %64 = phi ptr [ @.str.18, %.thread9 ], [ %56, %54 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %58 ]
   %65 = call ptr @strcpy(ptr noundef %51, ptr noundef %64) #24
   %66 = getelementptr inbounds nuw i8, ptr %38, i64 12
   store i32 %2, ptr %66, align 4
@@ -4721,14 +4721,14 @@ define dso_local ptr @__regmap_init(ptr noundef %0, ptr noundef %1, ptr noundef 
   %511 = load i32, ptr %510, align 8
   %512 = icmp ugt i32 %478, %511
   %513 = icmp ugt i32 %511, %476
-  %or.cond165 = or i1 %512, %513
-  br i1 %or.cond165, label %514, label %517
+  %or.cond202 = or i1 %512, %513
+  br i1 %or.cond202, label %514, label %517
 
 514:                                              ; preds = %509
   %515 = icmp ult i32 %507, %478
   %516 = icmp ugt i32 %503, %476
-  %or.cond166 = select i1 %515, i1 true, i1 %516
-  br i1 %or.cond166, label %520, label %517
+  %or.cond203 = select i1 %515, i1 true, i1 %516
+  br i1 %or.cond203, label %520, label %517
 
 517:                                              ; preds = %514, %509
   %518 = phi ptr [ @.str.11, %509 ], [ @.str.12, %514 ]
@@ -9490,34 +9490,34 @@ define dso_local i32 @regmap_raw_read(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %37, label %49, label %42
 
 42:                                               ; preds = %40
-  br i1 %41, label %43, label %.thread28
+  br i1 %41, label %43, label %.thread40
 
 43:                                               ; preds = %42
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.thread27, label %47
+  br i1 %46, label %.thread39, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 136
   br label %109
 
 49:                                               ; preds = %40
-  br i1 %41, label %.thread27, label %.thread28
+  br i1 %41, label %.thread39, label %.thread40
 
-.thread27:                                        ; preds = %43, %49
+.thread39:                                        ; preds = %43, %49
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 548
   %51 = load i8, ptr %50, align 4, !range !36, !noundef !37
   %52 = icmp eq i8 %51, 0
-  br i1 %52, label %.thread28, label %.loopexit
+  br i1 %52, label %.thread40, label %.loopexit
 
-.thread28:                                        ; preds = %42, %.thread27, %49
+.thread40:                                        ; preds = %42, %.thread39, %49
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %.loopexit, label %56
 
-56:                                               ; preds = %.thread28
+56:                                               ; preds = %.thread40
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 596
   %58 = load i8, ptr %57, align 4, !range !36, !noundef !37
   %59 = icmp eq i8 %58, 0
@@ -9632,8 +9632,8 @@ define dso_local i32 @regmap_raw_read(ptr noundef %0, i32 noundef %1, ptr nounde
   %131 = icmp ugt i64 %8, %130
   br i1 %131, label %109, label %.loopexit, !llvm.loop !109
 
-.loopexit:                                        ; preds = %124, %119, %77, %108, %104, %.thread28, %.thread27
-  %132 = phi i32 [ 0, %108 ], [ -16, %.thread27 ], [ -524, %.thread28 ], [ %106, %104 ], [ %82, %77 ], [ %122, %119 ], [ 0, %124 ]
+.loopexit:                                        ; preds = %124, %119, %77, %108, %104, %.thread40, %.thread39
+  %132 = phi i32 [ 0, %108 ], [ -16, %.thread39 ], [ -524, %.thread40 ], [ %106, %104 ], [ %82, %77 ], [ %122, %119 ], [ 0, %124 ]
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %22, align 8

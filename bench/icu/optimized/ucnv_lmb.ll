@@ -141,9 +141,9 @@ define internal void @_ZL26_LMBCSToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %1, align 4, !tbaa !16
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %.thread125, label %.lr.ph
+  br i1 %6, label %.thread137, label %.lr.ph
 
-.thread125:                                       ; preds = %2
+.thread137:                                       ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
@@ -161,9 +161,9 @@ define internal void @_ZL26_LMBCSToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
   %17 = ptrtoint ptr %10 to i64
   %18 = load ptr, ptr %11, align 8, !tbaa !26
   %19 = icmp ugt ptr %18, %10
-  br i1 %19, label %.lr.ph144, label %.critedge
+  br i1 %19, label %.lr.ph156, label %.critedge
 
-.lr.ph144:                                        ; preds = %.lr.ph, %77
+.lr.ph156:                                        ; preds = %.lr.ph, %77
   %20 = phi ptr [ %78, %77 ], [ %18, %.lr.ph ]
   %21 = phi ptr [ %62, %77 ], [ %10, %.lr.ph ]
   %22 = load ptr, ptr %12, align 8, !tbaa !27
@@ -171,7 +171,7 @@ define internal void @_ZL26_LMBCSToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
   %24 = icmp ugt ptr %22, %23
   br i1 %24, label %25, label %80
 
-25:                                               ; preds = %.lr.ph144
+25:                                               ; preds = %.lr.ph156
   %26 = load ptr, ptr %14, align 8, !tbaa !18
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %28 = load i8, ptr %27, align 8, !tbaa !24
@@ -272,9 +272,9 @@ define internal void @_ZL26_LMBCSToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
 77:                                               ; preds = %71, %67
   %78 = load ptr, ptr %11, align 8, !tbaa !26
   %79 = icmp ugt ptr %78, %62
-  br i1 %79, label %.lr.ph144, label %.critedge, !llvm.loop !33
+  br i1 %79, label %.lr.ph156, label %.critedge, !llvm.loop !33
 
-80:                                               ; preds = %.lr.ph144
+80:                                               ; preds = %.lr.ph156
   %81 = load ptr, ptr %12, align 8, !tbaa !27
   %82 = load ptr, ptr %13, align 8, !tbaa !28
   %.not86 = icmp ugt ptr %81, %82
@@ -296,14 +296,14 @@ define internal void @_ZL26_LMBCSToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
   %.pre118 = load i32, ptr %1, align 4, !tbaa !16
   br label %90
 
-90:                                               ; preds = %.thread125, %87, %.loopexit
-  %91 = phi i32 [ %.pre118, %87 ], [ %.ph, %.loopexit ], [ %5, %.thread125 ]
+90:                                               ; preds = %.thread137, %87, %.loopexit
+  %91 = phi i32 [ %.pre118, %87 ], [ %.ph, %.loopexit ], [ %5, %.thread137 ]
   %92 = icmp eq i32 %91, 11
   br i1 %92, label %.critedge.sink.split, label %.critedge
 
 .critedge.sink.split:                             ; preds = %90, %80, %.thread
-  %.sink136 = phi i32 [ 0, %.thread ], [ 15, %80 ], [ 0, %90 ]
-  store i32 %.sink136, ptr %1, align 4, !tbaa !16
+  %.sink148 = phi i32 [ 0, %.thread ], [ 15, %80 ], [ 0, %90 ]
+  store i32 %.sink148, ptr %1, align 4, !tbaa !16
   br label %.critedge
 
 .critedge:                                        ; preds = %77, %.lr.ph, %.critedge.sink.split, %80, %90
@@ -377,7 +377,7 @@ define internal void @_ZL17_LMBCSFromUnicodeP25UConverterFromUnicodeArgsP10UErro
 
 switch.early.test:                                ; preds = %41
   %trunc = trunc nuw i16 %.fr438 to i8
-  switch i8 %trunc, label %.thread458 [
+  switch i8 %trunc, label %.thread481 [
     i8 -9, label %.thread
     i8 -41, label %.thread
     i8 -74, label %.thread
@@ -388,7 +388,7 @@ switch.early.test:                                ; preds = %41
     i8 -89, label %.thread
   ]
 
-.thread458:                                       ; preds = %switch.early.test
+.thread481:                                       ; preds = %switch.early.test
   store i8 1, ptr %23, align 1, !tbaa !38
   %44 = add nsw i16 %.fr438, -128
   br label %switch.early.test224
@@ -407,8 +407,8 @@ switch.early.test:                                ; preds = %41
   store i8 %48, ptr %12, align 1, !tbaa !42
   br label %.thread432
 
-switch.early.test224:                             ; preds = %.thread458, %.thread, %46
-  %49 = phi i16 [ %45, %.thread ], [ %47, %46 ], [ %44, %.thread458 ]
+switch.early.test224:                             ; preds = %.thread481, %.thread, %46
+  %49 = phi i16 [ %45, %.thread ], [ %47, %46 ], [ %44, %.thread481 ]
   switch i16 %.fr438, label %switch.early.test225 [
     i16 25, label %50
     i16 13, label %50
@@ -955,7 +955,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit273: ; preds = %
   %288 = getelementptr inbounds nuw i8, ptr %.1384, i64 1
   store i8 %146, ptr %.1384, align 1, !tbaa !42
   %289 = icmp eq i32 %278, 1
-  br i1 %289, label %290, label %.thread460
+  br i1 %289, label %290, label %.thread483
 
 290:                                              ; preds = %287
   %291 = getelementptr inbounds nuw i8, ptr %.1384, i64 2
@@ -969,10 +969,10 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit273: ; preds = %
   %295 = and i32 %283, %294
   %296 = icmp eq i32 %295, 0
   %or.cond5.i279 = select i1 %293, i1 %296, i1 false
-  br i1 %or.cond5.i279, label %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit286, label %.thread460
+  br i1 %or.cond5.i279, label %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit286, label %.thread483
 
-.thread460:                                       ; preds = %287, %292
-  %.034.i278463 = phi ptr [ %.034.i278, %292 ], [ %288, %287 ]
+.thread483:                                       ; preds = %287, %292
+  %.034.i278486 = phi ptr [ %.034.i278, %292 ], [ %288, %287 ]
   switch i32 %278, label %314 [
     i32 4, label %297
     i32 3, label %301
@@ -980,15 +980,15 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit273: ; preds = %
     i32 1, label %310
   ]
 
-297:                                              ; preds = %.thread460
+297:                                              ; preds = %.thread483
   %298 = lshr i32 %283, 24
   %299 = trunc nuw i32 %298 to i8
-  %300 = getelementptr inbounds nuw i8, ptr %.034.i278463, i64 1
-  store i8 %299, ptr %.034.i278463, align 1, !tbaa !42
+  %300 = getelementptr inbounds nuw i8, ptr %.034.i278486, i64 1
+  store i8 %299, ptr %.034.i278486, align 1, !tbaa !42
   br label %301
 
-301:                                              ; preds = %297, %.thread460
-  %.1.i284 = phi ptr [ %300, %297 ], [ %.034.i278463, %.thread460 ]
+301:                                              ; preds = %297, %.thread483
+  %.1.i284 = phi ptr [ %300, %297 ], [ %.034.i278486, %.thread483 ]
   %302 = lshr i32 %283, 16
   %303 = trunc i32 %302 to i8
   %304 = getelementptr inbounds nuw i8, ptr %.1.i284, i64 1
@@ -996,9 +996,9 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit273: ; preds = %
   %.pre.i285 = load i32, ptr %7, align 4, !tbaa !32
   br label %305
 
-305:                                              ; preds = %301, %.thread460
-  %306 = phi i32 [ %.pre.i285, %301 ], [ %283, %.thread460 ]
-  %.2.i282 = phi ptr [ %304, %301 ], [ %.034.i278463, %.thread460 ]
+305:                                              ; preds = %301, %.thread483
+  %306 = phi i32 [ %.pre.i285, %301 ], [ %283, %.thread483 ]
+  %.2.i282 = phi ptr [ %304, %301 ], [ %.034.i278486, %.thread483 ]
   %307 = lshr i32 %306, 8
   %308 = trunc i32 %307 to i8
   %309 = getelementptr inbounds nuw i8, ptr %.2.i282, i64 1
@@ -1006,16 +1006,16 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit273: ; preds = %
   %.pre1.i283 = load i32, ptr %7, align 4, !tbaa !32
   br label %310
 
-310:                                              ; preds = %305, %.thread460
-  %311 = phi i32 [ %.pre1.i283, %305 ], [ %283, %.thread460 ]
-  %.3.i280 = phi ptr [ %309, %305 ], [ %.034.i278463, %.thread460 ]
+310:                                              ; preds = %305, %.thread483
+  %311 = phi i32 [ %.pre1.i283, %305 ], [ %283, %.thread483 ]
+  %.3.i280 = phi ptr [ %309, %305 ], [ %.034.i278486, %.thread483 ]
   %312 = trunc i32 %311 to i8
   %313 = getelementptr inbounds nuw i8, ptr %.3.i280, i64 1
   store i8 %312, ptr %.3.i280, align 1, !tbaa !42
   br label %314
 
-314:                                              ; preds = %310, %.thread460
-  %.4.i281 = phi ptr [ %.034.i278463, %.thread460 ], [ %313, %310 ]
+314:                                              ; preds = %310, %.thread483
+  %.4.i281 = phi ptr [ %.034.i278486, %.thread483 ], [ %313, %310 ]
   %315 = ptrtoint ptr %.4.i281 to i64
   %316 = ptrtoint ptr %.1384 to i64
   %317 = sub i64 %315, %316

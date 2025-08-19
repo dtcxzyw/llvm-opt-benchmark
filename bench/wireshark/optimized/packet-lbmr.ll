@@ -2505,7 +2505,7 @@ dissect_lbmr_pser.exit:                           ; preds = %dissect_lbmr_rctxin
 
 459:                                              ; preds = %453
   %460 = load ptr, ptr %24, align 8
-  br i1 %spec.select.not, label %461, label %.thread461
+  br i1 %spec.select.not, label %461, label %.thread494
 
 461:                                              ; preds = %459
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %460, i32 noundef 25, ptr noundef nonnull @.str.803, ptr noundef nonnull @.str.813, i32 noundef %445, i32 noundef %447)
@@ -2530,9 +2530,9 @@ dissect_lbmr_pser.exit:                           ; preds = %dissect_lbmr_rctxin
 471:                                              ; preds = %461, %457, %458
   br i1 %.not366, label %488, label %477
 
-.thread461:                                       ; preds = %459
+.thread494:                                       ; preds = %459
   tail call void @col_append_sep_str(ptr noundef %460, i32 noundef 25, ptr noundef nonnull @.str.803, ptr noundef nonnull @.str.812)
-  br i1 %.not366, label %.thread463, label %.thread462
+  br i1 %.not366, label %.thread496, label %.thread495
 
 .thread389:                                       ; preds = %443
   %472 = load ptr, ptr %24, align 8
@@ -2547,9 +2547,9 @@ dissect_lbmr_pser.exit:                           ; preds = %dissect_lbmr_rctxin
   br label %500
 
 477:                                              ; preds = %471
-  br i1 %spec.select.not, label %482, label %.thread462
+  br i1 %spec.select.not, label %482, label %.thread495
 
-.thread462:                                       ; preds = %.thread461, %477
+.thread495:                                       ; preds = %.thread494, %477
   %478 = load i32, ptr @proto_lbmr, align 4
   %479 = zext nneg i8 %42 to i32
   %480 = tail call ptr @val_to_str(i32 noundef %59, ptr noundef nonnull @lbmr_packet_type, ptr noundef nonnull @.str.802)
@@ -2568,9 +2568,9 @@ dissect_lbmr_pser.exit:                           ; preds = %dissect_lbmr_rctxin
   br label %.thread405
 
 488:                                              ; preds = %471
-  br i1 %spec.select.not, label %493, label %.thread463
+  br i1 %spec.select.not, label %493, label %.thread496
 
-.thread463:                                       ; preds = %.thread461, %488
+.thread496:                                       ; preds = %.thread494, %488
   %489 = load i32, ptr @proto_lbmr, align 4
   %490 = zext nneg i8 %42 to i32
   %491 = tail call ptr @val_to_str(i32 noundef %59, ptr noundef nonnull @lbmr_packet_type, ptr noundef nonnull @.str.802)
@@ -2584,16 +2584,16 @@ dissect_lbmr_pser.exit:                           ; preds = %dissect_lbmr_rctxin
   %497 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %494, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.821, i32 noundef %495, i32 noundef %59, ptr noundef %496, i32 noundef %445, i32 noundef %447)
   br label %.thread405
 
-.thread405:                                       ; preds = %.thread463, %493, %.thread400, %469
-  %cond375386.ph = phi i1 [ false, %493 ], [ false, %.thread463 ], [ false, %.thread400 ], [ true, %469 ]
-  %.1.ph = phi ptr [ %497, %493 ], [ %492, %.thread463 ], [ %487, %.thread400 ], [ %470, %469 ]
+.thread405:                                       ; preds = %.thread496, %493, %.thread400, %469
+  %cond375386.ph = phi i1 [ false, %493 ], [ false, %.thread496 ], [ false, %.thread400 ], [ true, %469 ]
+  %.1.ph = phi ptr [ %497, %493 ], [ %492, %.thread496 ], [ %487, %.thread400 ], [ %470, %469 ]
   %498 = load i32, ptr @ett_lbmr, align 4
   %499 = tail call ptr @proto_item_add_subtree(ptr noundef %.1.ph, i32 noundef %498)
   br label %proto_item_set_generated.exit330
 
-500:                                              ; preds = %467, %.thread396, %482, %.thread462
-  %cond375386 = phi i1 [ true, %467 ], [ false, %.thread396 ], [ false, %.thread462 ], [ false, %482 ]
-  %.1 = phi ptr [ %468, %467 ], [ %476, %.thread396 ], [ %481, %.thread462 ], [ %486, %482 ]
+500:                                              ; preds = %467, %.thread396, %482, %.thread495
+  %cond375386 = phi i1 [ true, %467 ], [ false, %.thread396 ], [ false, %.thread495 ], [ false, %482 ]
+  %.1 = phi ptr [ %468, %467 ], [ %476, %.thread396 ], [ %481, %.thread495 ], [ %486, %482 ]
   %501 = load i32, ptr @ett_lbmr, align 4
   %502 = tail call ptr @proto_item_add_subtree(ptr noundef %.1, i32 noundef %501)
   %503 = load i32, ptr @hf_lbmr_tag, align 4
@@ -3152,15 +3152,15 @@ dissect_lbmr_tqrs.exit:                           ; preds = %dissect_lbmr_tqr.ex
 
 852:                                              ; preds = %849, %842
   %hf_lbmr_tir_tcp_ip.sink.i.i.i = phi ptr [ @hf_lbmr_tir_tcp_ip, %849 ], [ @hf_lbmr_tir_tcp_session_id, %842 ]
-  %.sink305.i.i.i = phi i32 [ %.0.i.i, %849 ], [ %843, %842 ]
-  %.sink304.i.i.i = phi i32 [ %850, %849 ], [ %845, %842 ]
+  %.sink309.i.i.i = phi i32 [ %.0.i.i, %849 ], [ %843, %842 ]
+  %.sink308.i.i.i = phi i32 [ %850, %849 ], [ %845, %842 ]
   %.0274.i.i.i = phi i32 [ 0, %849 ], [ %844, %842 ]
   %.0273.i.i.i = phi i16 [ %851, %849 ], [ %846, %842 ]
   %.1264.i.i.i = phi i32 [ 6, %849 ], [ 10, %842 ]
   %853 = load i32, ptr %hf_lbmr_tir_tcp_ip.sink.i.i.i, align 4
-  %854 = call ptr @proto_tree_add_item(ptr noundef %839, i32 noundef %853, ptr noundef %.0302, i32 noundef %.sink305.i.i.i, i32 noundef 4, i32 noundef 0)
+  %854 = call ptr @proto_tree_add_item(ptr noundef %839, i32 noundef %853, ptr noundef %.0302, i32 noundef %.sink309.i.i.i, i32 noundef 4, i32 noundef 0)
   %855 = load i32, ptr @hf_lbmr_tir_tcp_port, align 4
-  %856 = call ptr @proto_tree_add_item(ptr noundef %839, i32 noundef %855, ptr noundef %.0302, i32 noundef %.sink304.i.i.i, i32 noundef 2, i32 noundef 0)
+  %856 = call ptr @proto_tree_add_item(ptr noundef %839, i32 noundef %855, ptr noundef %.0302, i32 noundef %.sink308.i.i.i, i32 noundef 2, i32 noundef 0)
   %857 = load i32, ptr %789, align 4
   %858 = call ptr @lbttcp_transport_add(ptr noundef nonnull %788, i16 noundef zeroext %.0273.i.i.i, i32 noundef %.0274.i.i.i, i32 noundef %857)
   %859 = getelementptr inbounds nuw i8, ptr %858, i64 32
@@ -3282,15 +3282,15 @@ dissect_lbmr_tqrs.exit:                           ; preds = %dissect_lbmr_tqr.ex
 
 931:                                              ; preds = %928, %921
   %hf_lbmr_tir_lbtru_ip.sink.i.i.i = phi ptr [ @hf_lbmr_tir_lbtru_ip, %928 ], [ @hf_lbmr_tir_lbtru_session_id, %921 ]
-  %.sink307.i.i.i = phi i32 [ %.0.i.i, %928 ], [ %922, %921 ]
-  %.sink306.i.i.i = phi i32 [ %929, %928 ], [ %924, %921 ]
+  %.sink311.i.i.i = phi i32 [ %.0.i.i, %928 ], [ %922, %921 ]
+  %.sink310.i.i.i = phi i32 [ %929, %928 ], [ %924, %921 ]
   %.0280.i.i.i = phi i16 [ %930, %928 ], [ %925, %921 ]
   %.0279.i.i.i = phi i32 [ 0, %928 ], [ %923, %921 ]
   %.4267.i.i.i = phi i32 [ 6, %928 ], [ 10, %921 ]
   %932 = load i32, ptr %hf_lbmr_tir_lbtru_ip.sink.i.i.i, align 4
-  %933 = call ptr @proto_tree_add_item(ptr noundef %918, i32 noundef %932, ptr noundef %.0302, i32 noundef %.sink307.i.i.i, i32 noundef 4, i32 noundef 0)
+  %933 = call ptr @proto_tree_add_item(ptr noundef %918, i32 noundef %932, ptr noundef %.0302, i32 noundef %.sink311.i.i.i, i32 noundef 4, i32 noundef 0)
   %934 = load i32, ptr @hf_lbmr_tir_lbtru_port, align 4
-  %935 = call ptr @proto_tree_add_item(ptr noundef %918, i32 noundef %934, ptr noundef %.0302, i32 noundef %.sink306.i.i.i, i32 noundef 2, i32 noundef 0)
+  %935 = call ptr @proto_tree_add_item(ptr noundef %918, i32 noundef %934, ptr noundef %.0302, i32 noundef %.sink310.i.i.i, i32 noundef 2, i32 noundef 0)
   %936 = load i32, ptr %789, align 4
   %937 = call ptr @lbtru_transport_add(ptr noundef nonnull %788, i16 noundef zeroext %.0280.i.i.i, i32 noundef %.0279.i.i.i, i32 noundef %936)
   %938 = getelementptr inbounds nuw i8, ptr %937, i64 32

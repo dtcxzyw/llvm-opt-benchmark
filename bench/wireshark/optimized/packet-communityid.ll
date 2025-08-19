@@ -286,9 +286,9 @@ thread-pre-split.thread:                          ; preds = %70, %thread-pre-spl
   %103 = load i32, ptr %102, align 8
   %switch.tableidx = add i32 %103, -1
   %104 = icmp ult i32 %switch.tableidx, 3
-  br i1 %104, label %switch.lookup, label %.thread127
+  br i1 %104, label %switch.lookup, label %.thread135
 
-.thread127:                                       ; preds = %thread-pre-split.thread
+.thread135:                                       ; preds = %thread-pre-split.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %122
@@ -338,8 +338,8 @@ communityid_calc_wrapper.exit91.thread:           ; preds = %switch.lookup, %107
   %121 = icmp eq ptr %.pre119.pre, null
   br i1 %121, label %122, label %.critedge83.thread
 
-122:                                              ; preds = %.thread127, %120
-  %.165106130 = phi i8 [ 0, %.thread127 ], [ %switch.masked, %120 ]
+122:                                              ; preds = %.thread135, %120
+  %.165106138 = phi i8 [ 0, %.thread135 ], [ %switch.masked, %120 ]
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %124 = load ptr, ptr %123, align 8
   %125 = call ptr @wmem_list_head(ptr noundef %124)
@@ -370,9 +370,9 @@ communityid_calc_wrapper.exit91.thread:           ; preds = %switch.lookup, %107
   br i1 %.not77, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %136, %122, %130
-  %.266 = phi i8 [ %135, %130 ], [ %.165106130, %122 ], [ %.165106130, %136 ]
+  %.266 = phi i8 [ %135, %130 ], [ %.165106138, %122 ], [ %.165106138, %136 ]
   %.not78 = icmp eq i8 %.266, 0
-  br i1 %.not78, label %.critedge83.thread131, label %139
+  br i1 %.not78, label %.critedge83.thread139, label %139
 
 139:                                              ; preds = %.loopexit
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 164
@@ -406,7 +406,7 @@ communityid_calc_wrapper.exit95:                  ; preds = %142, %146
 .critedge83:                                      ; preds = %communityid_calc_wrapper.exit95
   %.pr109.pre = load ptr, ptr %5, align 8
   %.not79 = icmp eq ptr %.pr109.pre, null
-  br i1 %.not79, label %.critedge83.thread131, label %.critedge83.thread
+  br i1 %.not79, label %.critedge83.thread139, label %.critedge83.thread
 
 .critedge83.thread:                               ; preds = %thread-pre-split, %120, %.critedge83
   %155 = phi ptr [ %.pr109.pre, %.critedge83 ], [ %.pre119.pre, %120 ], [ %.pre119122, %thread-pre-split ]
@@ -430,14 +430,14 @@ communityid_calc_wrapper.exit95:                  ; preds = %142, %146
 
 proto_item_set_generated.exit:                    ; preds = %.critedge83.thread, %158, %161
   call void @g_free(ptr noundef nonnull %155)
-  br label %.critedge83.thread131
+  br label %.critedge83.thread139
 
-.critedge83.thread131:                            ; preds = %.loopexit, %proto_item_set_generated.exit, %.critedge83
+.critedge83.thread139:                            ; preds = %.loopexit, %proto_item_set_generated.exit, %.critedge83
   %165 = call i32 @tvb_reported_length(ptr noundef %0)
   br label %.thread97
 
-.thread97:                                        ; preds = %24, %.thread, %139, %142, %146, %30, %communityid_calc_wrapper.exit87.thread, %communityid_calc_wrapper.exit.thread, %communityid_calc_wrapper.exit95, %communityid_calc_wrapper.exit91.thread, %select.unfold, %4, %communityid_calc_wrapper.exit, %communityid_calc_wrapper.exit87, %.critedge83.thread131
-  %.0 = phi i32 [ %165, %.critedge83.thread131 ], [ 0, %communityid_calc_wrapper.exit91.thread ], [ 0, %communityid_calc_wrapper.exit87 ], [ 0, %communityid_calc_wrapper.exit ], [ 0, %4 ], [ 0, %select.unfold ], [ 0, %communityid_calc_wrapper.exit95 ], [ 0, %communityid_calc_wrapper.exit.thread ], [ 0, %communityid_calc_wrapper.exit87.thread ], [ 0, %30 ], [ 0, %146 ], [ 0, %142 ], [ 0, %139 ], [ 0, %.thread ], [ 0, %24 ]
+.thread97:                                        ; preds = %24, %.thread, %139, %142, %146, %30, %communityid_calc_wrapper.exit87.thread, %communityid_calc_wrapper.exit.thread, %communityid_calc_wrapper.exit95, %communityid_calc_wrapper.exit91.thread, %select.unfold, %4, %communityid_calc_wrapper.exit, %communityid_calc_wrapper.exit87, %.critedge83.thread139
+  %.0 = phi i32 [ %165, %.critedge83.thread139 ], [ 0, %communityid_calc_wrapper.exit91.thread ], [ 0, %communityid_calc_wrapper.exit87 ], [ 0, %communityid_calc_wrapper.exit ], [ 0, %4 ], [ 0, %select.unfold ], [ 0, %communityid_calc_wrapper.exit95 ], [ 0, %communityid_calc_wrapper.exit.thread ], [ 0, %communityid_calc_wrapper.exit87.thread ], [ 0, %30 ], [ 0, %146 ], [ 0, %142 ], [ 0, %139 ], [ 0, %.thread ], [ 0, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -555,9 +555,9 @@ define internal fastcc noundef zeroext i1 @communityid_calc(i8 noundef zeroext %
   %rev = tail call i16 @llvm.bswap.i16(i16 %27)
   %switch.tableidx = add i16 %rev, -128
   %33 = icmp ult i16 %switch.tableidx, 18
-  br i1 %33, label %switch.hole_check19, label %34
+  br i1 %33, label %switch.hole_check23, label %34
 
-34:                                               ; preds = %switch.hole_check19, %32
+34:                                               ; preds = %switch.hole_check23, %32
   store i16 %27, ptr %12, align 2
   store i16 %28, ptr %13, align 2
   br label %communityid_tuple_lt.exit.thread
@@ -573,19 +573,19 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.gep = getelementptr inbounds nuw [19 x i16], ptr @switch.table.communityid_calc, i64 0, i64 %35
   br label %.thread.sink.split
 
-switch.hole_check19:                              ; preds = %32
-  %switch.maskindex21 = zext nneg i16 %switch.tableidx to i32
-  %switch.shifted22 = lshr i32 203247, %switch.maskindex21
-  %switch.lobit23 = trunc i32 %switch.shifted22 to i1
-  br i1 %switch.lobit23, label %switch.lookup20, label %34
+switch.hole_check23:                              ; preds = %32
+  %switch.maskindex25 = zext nneg i16 %switch.tableidx to i32
+  %switch.shifted26 = lshr i32 203247, %switch.maskindex25
+  %switch.lobit27 = trunc i32 %switch.shifted26 to i1
+  br i1 %switch.lobit27, label %switch.lookup24, label %34
 
-switch.lookup20:                                  ; preds = %switch.hole_check19
+switch.lookup24:                                  ; preds = %switch.hole_check23
   %36 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep24 = getelementptr inbounds nuw [18 x i16], ptr @switch.table.communityid_calc.3, i64 0, i64 %36
+  %switch.gep28 = getelementptr inbounds nuw [18 x i16], ptr @switch.table.communityid_calc.3, i64 0, i64 %36
   br label %.thread.sink.split
 
-.thread.sink.split:                               ; preds = %switch.lookup20, %switch.lookup
-  %.sink.in = phi ptr [ %switch.gep, %switch.lookup ], [ %switch.gep24, %switch.lookup20 ]
+.thread.sink.split:                               ; preds = %switch.lookup24, %switch.lookup
+  %.sink.in = phi ptr [ %switch.gep, %switch.lookup ], [ %switch.gep28, %switch.lookup24 ]
   %.sink = load i16, ptr %.sink.in, align 2
   store i16 %27, ptr %12, align 2
   store i16 %.sink, ptr %13, align 2

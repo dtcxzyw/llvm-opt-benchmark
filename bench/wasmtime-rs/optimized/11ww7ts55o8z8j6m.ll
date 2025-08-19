@@ -429,9 +429,9 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
   %.pn.i = phi i64 [ %.val3, %39 ], [ %.0.i, %45 ]
   %.16.val.pn.i = phi i64 [ %1, %39 ], [ %.val3, %45 ]
   %.sink.i = sub nuw i64 %.16.val.pn.i, %.0.i
-  %.sink6.i = getelementptr inbounds i32, ptr %.val, i64 %.0.i
-  %.sink8.i = sub nuw i64 %.pn.i, %1
-  %.sink10.i = getelementptr inbounds i32, ptr %.val, i64 %1
+  %.sink7.i = getelementptr inbounds i32, ptr %.val, i64 %.0.i
+  %.sink9.i = sub nuw i64 %.pn.i, %1
+  %.sink11.i = getelementptr inbounds i32, ptr %.val, i64 %1
   %51 = icmp ugt i64 %4, %.sink.i
   br i1 %51, label %52, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0fe8369f5961d1c1E.llvm.7615600370855926762.exit"
 
@@ -440,16 +440,16 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0fe8369f5961d1c1E.llvm.7615600370855926762.exit": ; preds = %"_ZN16cranelift_entity4list17ListPool$LT$T$GT$10mut_slices17hbbd601a33d0834b0E.exit"
-  %53 = icmp ugt i64 %4, %.sink8.i
+  %53 = icmp ugt i64 %4, %.sink9.i
   br i1 %53, label %54, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbee04c5996371f27E.exit"
 
 54:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0fe8369f5961d1c1E.llvm.7615600370855926762.exit"
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %4, i64 noundef %.sink8.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d38b881a75336d54f1641bafdf4b5c5a.13) #12, !noalias !36
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %4, i64 noundef %.sink9.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d38b881a75336d54f1641bafdf4b5c5a.13) #12, !noalias !36
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbee04c5996371f27E.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0fe8369f5961d1c1E.llvm.7615600370855926762.exit"
   %55 = shl i64 %4, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sink6.i, ptr nonnull readonly align 4 %.sink10.i, i64 %55, i1 false), !alias.scope !39, !noalias !43
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sink7.i, ptr nonnull readonly align 4 %.sink11.i, i64 %55, i1 false), !alias.scope !39, !noalias !43
   br label %34
 }
 
@@ -630,9 +630,9 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
   %.pn.i = phi i64 [ %.val3, %73 ], [ %.0.i, %79 ]
   %.16.val.pn.i = phi i64 [ %1, %73 ], [ %.val3, %79 ]
   %.sink.i = sub nuw i64 %.16.val.pn.i, %.0.i
-  %.sink6.i = getelementptr inbounds i32, ptr %.val, i64 %.0.i
-  %.sink8.i = sub nuw i64 %.pn.i, %1
-  %.sink10.i = getelementptr inbounds i32, ptr %.val, i64 %1
+  %.sink7.i = getelementptr inbounds i32, ptr %.val, i64 %.0.i
+  %.sink9.i = sub nuw i64 %.pn.i, %1
+  %.sink11.i = getelementptr inbounds i32, ptr %.val, i64 %1
   %85 = icmp ugt i64 %4, %.sink.i
   br i1 %85, label %86, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h010c441a38139c51E.exit"
 
@@ -641,16 +641,16 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h010c441a38139c51E.exit": ; preds = %"_ZN16cranelift_entity4list17ListPool$LT$T$GT$10mut_slices17hc33fec99b50df3d6E.exit"
-  %87 = icmp ugt i64 %4, %.sink8.i
+  %87 = icmp ugt i64 %4, %.sink9.i
   br i1 %87, label %88, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4d5c196bc1bcb8b1E.exit"
 
 88:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h010c441a38139c51E.exit"
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 0) %4, i64 noundef %.sink8.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d38b881a75336d54f1641bafdf4b5c5a.13) #12, !noalias !78
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 0) %4, i64 noundef %.sink9.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d38b881a75336d54f1641bafdf4b5c5a.13) #12, !noalias !78
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4d5c196bc1bcb8b1E.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h010c441a38139c51E.exit"
   %89 = shl i64 %4, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sink6.i, ptr nonnull readonly align 4 %.sink10.i, i64 %89, i1 false), !alias.scope !81, !noalias !85
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sink7.i, ptr nonnull readonly align 4 %.sink11.i, i64 %89, i1 false), !alias.scope !81, !noalias !85
   br label %33
 }
 
@@ -786,7 +786,7 @@ define hidden void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$11swap_remov
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb07af7f1e204d7e9E.llvm.7615600370855926762.exit": ; preds = %21
-  %24 = getelementptr inbounds [0 x i32], ptr %.sroa.0.0.i, i64 0, i64 %1
+  %24 = getelementptr inbounds nuw [0 x i32], ptr %.sroa.0.0.i, i64 0, i64 %1
   %25 = getelementptr inbounds [0 x i32], ptr %.sroa.0.0.i, i64 0, i64 %19
   %.0.copyload.i = load i32, ptr %24, align 4, !alias.scope !114, !noalias !117
   %26 = load i32, ptr %25, align 4, !alias.scope !114, !noalias !117
@@ -865,7 +865,7 @@ define hidden { i32, i32 } @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$3get
 
 18:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he42a86ad2fc4ad73E.llvm.7615600370855926762.exit.i"
   %19 = getelementptr inbounds nuw i32, ptr %11, i64 %5
-  %20 = getelementptr inbounds i32, ptr %19, i64 %1
+  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %1
   %21 = load i32, ptr %20, align 4, !alias.scope !143, !noundef !4
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17heaa07f8d64f6b5a1E.exit"
 
@@ -1258,9 +1258,9 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN16cranelift_entity4list1
   %.pn.i.i = phi i64 [ %.val3.i, %82 ], [ %.0.i.i, %88 ]
   %.16.val.pn.i.i = phi i64 [ %10, %82 ], [ %.val3.i, %88 ]
   %.sink.i.i = sub nuw i64 %.16.val.pn.i.i, %.0.i.i
-  %.sink6.i.i = getelementptr inbounds i32, ptr %.val.i, i64 %.0.i.i
-  %.sink8.i.i = sub nuw i64 %.pn.i.i, %10
-  %.sink10.i.i = getelementptr inbounds i32, ptr %.val.i, i64 %10
+  %.sink7.i.i = getelementptr inbounds i32, ptr %.val.i, i64 %.0.i.i
+  %.sink9.i.i = sub nuw i64 %.pn.i.i, %10
+  %.sink11.i.i = getelementptr inbounds i32, ptr %.val.i, i64 %10
   %.not = icmp ugt i64 %.sink.i.i, %37
   br i1 %.not, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hef7433e2a5da2fe2E.exit.i", label %94
 
@@ -1269,16 +1269,16 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN16cranelift_entity4list1
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hef7433e2a5da2fe2E.exit.i": ; preds = %"_ZN16cranelift_entity4list17ListPool$LT$T$GT$10mut_slices17h33ce05b0113f633bE.exit.i"
-  %.not46 = icmp ugt i64 %.sink8.i.i, %37
+  %.not46 = icmp ugt i64 %.sink9.i.i, %37
   br i1 %.not46, label %"_ZN16cranelift_entity4list17ListPool$LT$T$GT$7realloc17h2ab5306e1e9cd8d1E.exit", label %95
 
 95:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hef7433e2a5da2fe2E.exit.i"
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %38, i64 noundef %.sink8.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d38b881a75336d54f1641bafdf4b5c5a.13) #12, !noalias !226
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %38, i64 noundef %.sink9.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d38b881a75336d54f1641bafdf4b5c5a.13) #12, !noalias !226
   unreachable
 
 "_ZN16cranelift_entity4list17ListPool$LT$T$GT$7realloc17h2ab5306e1e9cd8d1E.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hef7433e2a5da2fe2E.exit.i"
   %96 = shl nuw nsw i64 %38, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sink6.i.i, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sink10.i.i, i64 %96, i1 false), !alias.scope !229, !noalias !233
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sink7.i.i, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sink11.i.i, i64 %96, i1 false), !alias.scope !229, !noalias !233
   tail call void @"_ZN16cranelift_entity4list17ListPool$LT$T$GT$4free17hb6a65ea234ff15c7E.llvm.7615600370855926762"(ptr noalias noundef nonnull align 8 dereferenceable(48) %2, i64 noundef range(i64 -1, 4294967295) %10, i8 noundef range(i8 0, 31) %60)
   %97 = trunc i64 %.0.i.i to i32
   %98 = add i32 %97, 1

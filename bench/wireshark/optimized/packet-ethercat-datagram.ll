@@ -1579,11 +1579,11 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   br label %EcSummaryFormater.exit
 
 .thread78.thread.i:                               ; preds = %.thread78.i, %35
-  %.197.i = phi i32 [ %67, %.thread78.i ], [ 0, %35 ]
-  %.14896.i = phi i32 [ %68, %.thread78.i ], [ 0, %35 ]
+  %.198.i = phi i32 [ %67, %.thread78.i ], [ 0, %35 ]
+  %.14897.i = phi i32 [ %68, %.thread78.i ], [ 0, %35 ]
   %139 = zext i8 %41 to i32
   %140 = tail call ptr @val_to_str(i32 noundef range(i32 0, 256) %139, ptr noundef nonnull @EcCmdShort, ptr noundef nonnull @.str.851)
-  %141 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.850, i32 noundef %.197.i, i32 noundef %.14896.i, ptr noundef %140)
+  %141 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.850, i32 noundef %.198.i, i32 noundef %.14897.i, ptr noundef %140)
   br label %EcSummaryFormater.exit
 
 EcSummaryFormater.exit:                           ; preds = %74, %85, %97, %115, %.thread78.thread.i
@@ -1978,7 +1978,7 @@ proto_item_set_hidden.exit345:                    ; preds = %339, %336, %331, %3
   %345 = load i32, ptr @hf_ecat_dc_diff_bd, align 4
   %346 = sub i32 %343, %325
   %347 = call ptr @proto_tree_add_uint(ptr noundef %310, i32 noundef %345, ptr noundef %0, i32 noundef %168, i32 noundef 4, i32 noundef %346)
-  br i1 %312, label %348, label %proto_item_set_hidden.exit348.thread393
+  br i1 %312, label %348, label %proto_item_set_hidden.exit348.thread433
 
 348:                                              ; preds = %344
   %349 = zext nneg i32 %.0294 to i64
@@ -1986,20 +1986,20 @@ proto_item_set_hidden.exit345:                    ; preds = %339, %336, %331, %3
   %351 = load i32, ptr %350, align 4
   %352 = call ptr @proto_tree_add_uint(ptr noundef %310, i32 noundef %351, ptr noundef %0, i32 noundef %168, i32 noundef 4, i32 noundef %346)
   %.not.i346 = icmp eq ptr %352, null
-  br i1 %.not.i346, label %proto_item_set_hidden.exit348.thread393, label %353
+  br i1 %.not.i346, label %proto_item_set_hidden.exit348.thread433, label %353
 
 353:                                              ; preds = %348
   %354 = getelementptr inbounds nuw i8, ptr %352, i64 40
   %355 = load ptr, ptr %354, align 8
   %.not5.i347 = icmp eq ptr %355, null
-  br i1 %.not5.i347, label %proto_item_set_hidden.exit348.thread393, label %356
+  br i1 %.not5.i347, label %proto_item_set_hidden.exit348.thread433, label %356
 
 356:                                              ; preds = %353
   %357 = getelementptr inbounds nuw i8, ptr %355, i64 28
   %358 = load i32, ptr %357, align 4
   %359 = or i32 %358, 1
   store i32 %359, ptr %357, align 4
-  br label %proto_item_set_hidden.exit348.thread393
+  br label %proto_item_set_hidden.exit348.thread433
 
 360:                                              ; preds = %proto_item_set_hidden.exit345
   %361 = load i32, ptr %152, align 8
@@ -2036,9 +2036,9 @@ proto_item_set_hidden.exit345:                    ; preds = %339, %336, %331, %3
 proto_item_set_hidden.exit348:                    ; preds = %proto_item_set_hidden.exit342
   %.pre = load i32, ptr %151, align 4
   %.not315 = icmp eq i32 %.pre, 0
-  br i1 %.not315, label %proto_item_set_hidden.exit348.thread, label %proto_item_set_hidden.exit348.thread393
+  br i1 %.not315, label %proto_item_set_hidden.exit348.thread, label %proto_item_set_hidden.exit348.thread433
 
-proto_item_set_hidden.exit348.thread393:          ; preds = %344, %348, %353, %356, %proto_item_set_hidden.exit348
+proto_item_set_hidden.exit348.thread433:          ; preds = %344, %348, %353, %356, %proto_item_set_hidden.exit348
   %378 = phi i32 [ %.pre, %proto_item_set_hidden.exit348 ], [ %343, %356 ], [ %343, %353 ], [ %343, %348 ], [ %343, %344 ]
   %379 = load i32, ptr @hf_ecat_dc_diff_ba, align 4
   %380 = load i32, ptr %12, align 16
@@ -2046,7 +2046,7 @@ proto_item_set_hidden.exit348.thread393:          ; preds = %344, %348, %353, %3
   %382 = call ptr @proto_tree_add_uint(ptr noundef %310, i32 noundef %379, ptr noundef %0, i32 noundef %168, i32 noundef 4, i32 noundef %381)
   br i1 %312, label %383, label %proto_item_set_hidden.exit354
 
-383:                                              ; preds = %proto_item_set_hidden.exit348.thread393
+383:                                              ; preds = %proto_item_set_hidden.exit348.thread433
   %384 = zext nneg i32 %.0294 to i64
   %385 = getelementptr [10 x i32], ptr @hf_ecat_sub_dc_diff_ba, i64 0, i64 %384
   %386 = load i32, ptr %385, align 4
@@ -2067,7 +2067,7 @@ proto_item_set_hidden.exit348.thread393:          ; preds = %344, %348, %353, %3
   store i32 %394, ptr %392, align 4
   br label %proto_item_set_hidden.exit354
 
-proto_item_set_hidden.exit354:                    ; preds = %391, %388, %383, %proto_item_set_hidden.exit348.thread393
+proto_item_set_hidden.exit354:                    ; preds = %391, %388, %383, %proto_item_set_hidden.exit348.thread433
   %395 = load i32, ptr %152, align 8
   %.not317 = icmp eq i32 %395, 0
   br i1 %.not317, label %proto_item_set_hidden.exit357, label %396
@@ -2119,8 +2119,8 @@ proto_item_set_hidden.exit348.thread:             ; preds = %362, %366, %371, %3
   br i1 %.not5.i359, label %proto_item_set_hidden.exit357, label %proto_item_set_hidden.exit357.sink.split
 
 proto_item_set_hidden.exit357.sink.split:         ; preds = %418, %405
-  %.sink407 = phi ptr [ %407, %405 ], [ %420, %418 ]
-  %421 = getelementptr inbounds nuw i8, ptr %.sink407, i64 28
+  %.sink447 = phi ptr [ %407, %405 ], [ %420, %418 ]
+  %421 = getelementptr inbounds nuw i8, ptr %.sink447, i64 28
   %422 = load i32, ptr %421, align 4
   %423 = or i32 %422, 1
   store i32 %423, ptr %421, align 4

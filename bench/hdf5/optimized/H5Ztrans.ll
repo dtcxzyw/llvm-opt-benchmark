@@ -7125,9 +7125,9 @@ define noundef ptr @H5Z_xform_create(ptr noundef %0) local_unnamed_addr #0 {
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %26, ptr %27, align 8, !tbaa !32
   %28 = icmp eq ptr %26, null
-  br i1 %28, label %.thread123, label %32
+  br i1 %28, label %.thread131, label %32
 
-.thread123:                                       ; preds = %25
+.thread131:                                       ; preds = %25
   %29 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !10
   %30 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !10
   %31 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z_xform_create, i32 noundef 1413, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.6) #12
@@ -7236,10 +7236,10 @@ switch.early.test:                                ; preds = %60
   %82 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !10
   %83 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !10
   %84 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z_xform_create, i32 noundef 1443, i64 noundef %82, i64 noundef %83, ptr noundef nonnull @.str.8) #12
-  br label %.thread107
+  br label %.thread115
 
 ._crit_edge.thread:                               ; preds = %.preheader, %75, %._crit_edge
-  %.157.lcssa106 = phi i32 [ %.2, %75 ], [ 0, %._crit_edge ], [ 0, %.preheader ]
+  %.157.lcssa114 = phi i32 [ %.2, %75 ], [ 0, %._crit_edge ], [ 0, %.preheader ]
   store i32 0, ptr %26, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %85 = load i8, ptr @H5Z_init_g, align 1, !tbaa !3, !range !7, !noundef !8
@@ -7272,11 +7272,11 @@ H5Z__xform_parse.exit:                            ; preds = %._crit_edge.thread
   %97 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !10
   %98 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !10
   %99 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z_xform_create, i32 noundef 1452, i64 noundef %97, i64 noundef %98, ptr noundef nonnull @.str.9) #12
-  br label %.thread107
+  br label %.thread115
 
 100:                                              ; preds = %H5Z__xform_parse.exit
   %101 = load i32, ptr %26, align 8, !tbaa !33
-  %.not70 = icmp eq i32 %.157.lcssa106, %101
+  %.not70 = icmp eq i32 %.157.lcssa114, %101
   br i1 %.not70, label %.thread, label %102
 
 102:                                              ; preds = %100
@@ -7284,35 +7284,35 @@ H5Z__xform_parse.exit:                            ; preds = %._crit_edge.thread
   %104 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
   %105 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z_xform_create, i32 noundef 1458, i64 noundef %103, i64 noundef %104, ptr noundef nonnull @.str.10) #12
   tail call fastcc void @H5Z__xform_destroy_parse_tree(ptr noundef nonnull %93)
-  br label %.thread107
+  br label %.thread115
 
-.thread107:                                       ; preds = %102, %81, %96
-  %.056112 = phi i32 [ %.157.lcssa106, %102 ], [ %.157.lcssa106, %96 ], [ 1, %81 ]
+.thread115:                                       ; preds = %102, %81, %96
+  %.056120 = phi i32 [ %.157.lcssa114, %102 ], [ %.157.lcssa114, %96 ], [ 1, %81 ]
   %106 = tail call ptr @H5MM_xfree(ptr noundef nonnull %33) #12
-  %.not77 = icmp eq i32 %.056112, 0
-  br i1 %.not77, label %.thread114, label %107
+  %.not77 = icmp eq i32 %.056120, 0
+  br i1 %.not77, label %.thread122, label %107
 
-107:                                              ; preds = %.thread107
+107:                                              ; preds = %.thread115
   %108 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %109 = load ptr, ptr %108, align 8, !tbaa !35
   %.not78 = icmp eq ptr %109, null
-  br i1 %.not78, label %.thread114, label %110
+  br i1 %.not78, label %.thread122, label %110
 
 110:                                              ; preds = %107
   %111 = tail call ptr @H5MM_xfree(ptr noundef nonnull %109) #12
-  br label %.thread114
+  br label %.thread122
 
 112:                                              ; preds = %32
   %113 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !10
   %114 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !10
   %115 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z_xform_create, i32 noundef 1418, i64 noundef %113, i64 noundef %114, ptr noundef nonnull @.str.7) #12
-  br label %.thread114
+  br label %.thread122
 
-.thread114:                                       ; preds = %.thread107, %112, %107, %110
+.thread122:                                       ; preds = %.thread115, %112, %107, %110
   %116 = tail call ptr @H5MM_xfree(ptr noundef nonnull %26) #12
   br label %117
 
-117:                                              ; preds = %.thread123, %.thread114
+117:                                              ; preds = %.thread131, %.thread122
   %118 = tail call ptr @H5MM_xfree(ptr noundef nonnull %19) #12
   br label %.thread
 
@@ -7524,7 +7524,7 @@ define range(i32 -1, 1) i32 @H5Z_xform_copy(ptr noundef captures(none) %0) local
   br label %86
 
 ._crit_edge.thread:                               ; preds = %.preheader, %58, %._crit_edge
-  %.038.lcssa64 = phi i32 [ %spec.select, %58 ], [ 0, %._crit_edge ], [ 0, %.preheader ]
+  %.038.lcssa70 = phi i32 [ %spec.select, %58 ], [ 0, %._crit_edge ], [ 0, %.preheader ]
   store i32 0, ptr %35, align 8, !tbaa !33
   %68 = load ptr, ptr %0, align 8, !tbaa !210
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -7544,7 +7544,7 @@ define range(i32 -1, 1) i32 @H5Z_xform_copy(ptr noundef captures(none) %0) local
 78:                                               ; preds = %._crit_edge.thread
   %79 = load ptr, ptr %36, align 8, !tbaa !32
   %80 = load i32, ptr %79, align 8, !tbaa !33
-  %.not47 = icmp eq i32 %.038.lcssa64, %80
+  %.not47 = icmp eq i32 %.038.lcssa70, %80
   br i1 %.not47, label %85, label %81
 
 81:                                               ; preds = %78
@@ -7593,7 +7593,7 @@ define internal fastcc noalias noundef ptr @H5Z__xform_copy_tree(ptr noundef rea
   %6 = trunc nuw i8 %5 to i1
   %7 = xor i1 %6, true
   %8 = select i1 %4, i1 true, i1 %7
-  br i1 %8, label %9, label %common.ret1, !prof !9
+  br i1 %8, label %9, label %common.ret15, !prof !9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7617,7 +7617,7 @@ define internal fastcc noalias noundef ptr @H5Z__xform_copy_tree(ptr noundef rea
   %16 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !10
   %17 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !10
   %18 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z__xform_copy_tree, i32 noundef 1202, i64 noundef %16, i64 noundef %17, ptr noundef nonnull @.str.28) #12
-  br label %common.ret1
+  br label %common.ret15
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -7627,7 +7627,7 @@ define internal fastcc noalias noundef ptr @H5Z__xform_copy_tree(ptr noundef rea
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 %22, ptr %23, align 8, !tbaa !20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  br label %common.ret1
+  br label %common.ret15
 
 24:                                               ; preds = %9
   %25 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #13
@@ -7638,7 +7638,7 @@ define internal fastcc noalias noundef ptr @H5Z__xform_copy_tree(ptr noundef rea
   %28 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !10
   %29 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !10
   %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z__xform_copy_tree, i32 noundef 1212, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.28) #12
-  br label %common.ret1
+  br label %common.ret15
 
 31:                                               ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -7648,7 +7648,7 @@ define internal fastcc noalias noundef ptr @H5Z__xform_copy_tree(ptr noundef rea
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store double %34, ptr %35, align 8, !tbaa !20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
-  br label %common.ret1
+  br label %common.ret15
 
 36:                                               ; preds = %9
   %37 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #13
@@ -7659,7 +7659,7 @@ define internal fastcc noalias noundef ptr @H5Z__xform_copy_tree(ptr noundef rea
   %40 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !10
   %41 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !10
   %42 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z__xform_copy_tree, i32 noundef 1222, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.28) #12
-  br label %common.ret1
+  br label %common.ret15
 
 43:                                               ; preds = %36
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -7674,7 +7674,7 @@ define internal fastcc noalias noundef ptr @H5Z__xform_copy_tree(ptr noundef rea
   %51 = add i32 %47, 1
   store i32 %51, ptr %1, align 8, !tbaa !33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
-  br label %common.ret1
+  br label %common.ret15
 
 52:                                               ; preds = %9
   %53 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #13
@@ -7685,7 +7685,7 @@ define internal fastcc noalias noundef ptr @H5Z__xform_copy_tree(ptr noundef rea
   %56 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !10
   %57 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !10
   %58 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z__xform_copy_tree, i32 noundef 1233, i64 noundef %56, i64 noundef %57, ptr noundef nonnull @.str.28) #12
-  br label %common.ret1
+  br label %common.ret15
 
 59:                                               ; preds = %52
   %60 = getelementptr inbounds nuw i8, ptr %53, i64 16
@@ -7706,20 +7706,20 @@ define internal fastcc noalias noundef ptr @H5Z__xform_copy_tree(ptr noundef rea
   %.not109 = icmp eq ptr %66, null
   br i1 %.not109, label %70, label %67
 
-common.ret1:                                      ; preds = %15, %27, %39, %55, %75, %95, %115, %132, %31, %70, %110, %130, %90, %43, %19, %2, %127, %107, %87, %67
-  %common.ret1.op = phi ptr [ %53, %67 ], [ %73, %87 ], [ %93, %107 ], [ %113, %127 ], [ null, %15 ], [ %13, %19 ], [ null, %27 ], [ %25, %31 ], [ null, %39 ], [ %37, %43 ], [ null, %55 ], [ %53, %70 ], [ null, %75 ], [ %73, %90 ], [ null, %95 ], [ %93, %110 ], [ null, %115 ], [ %113, %130 ], [ null, %132 ], [ null, %2 ]
-  ret ptr %common.ret1.op
+common.ret15:                                     ; preds = %15, %27, %39, %55, %75, %95, %115, %132, %31, %70, %110, %130, %90, %43, %19, %2, %127, %107, %87, %67
+  %common.ret15.op = phi ptr [ %53, %67 ], [ %73, %87 ], [ %93, %107 ], [ %113, %127 ], [ null, %15 ], [ %13, %19 ], [ null, %27 ], [ %25, %31 ], [ null, %39 ], [ %37, %43 ], [ null, %55 ], [ %53, %70 ], [ null, %75 ], [ %73, %90 ], [ null, %95 ], [ %93, %110 ], [ null, %115 ], [ %113, %130 ], [ null, %132 ], [ null, %2 ]
+  ret ptr %common.ret15.op
 
 67:                                               ; preds = %64
   %68 = tail call fastcc ptr @H5Z__xform_copy_tree(ptr noundef nonnull %66, ptr noundef %1)
   %69 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %68, ptr %69, align 8, !tbaa !44
-  br label %common.ret1
+  br label %common.ret15
 
 70:                                               ; preds = %64
   %71 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr null, ptr %71, align 8, !tbaa !44
-  br label %common.ret1
+  br label %common.ret15
 
 72:                                               ; preds = %9
   %73 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #13
@@ -7730,7 +7730,7 @@ common.ret1:                                      ; preds = %15, %27, %39, %55, 
   %76 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !10
   %77 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !10
   %78 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z__xform_copy_tree, i32 noundef 1235, i64 noundef %76, i64 noundef %77, ptr noundef nonnull @.str.28) #12
-  br label %common.ret1
+  br label %common.ret15
 
 79:                                               ; preds = %72
   %80 = getelementptr inbounds nuw i8, ptr %73, i64 16
@@ -7755,12 +7755,12 @@ common.ret1:                                      ; preds = %15, %27, %39, %55, 
   %88 = tail call fastcc ptr @H5Z__xform_copy_tree(ptr noundef nonnull %86, ptr noundef %1)
   %89 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store ptr %88, ptr %89, align 8, !tbaa !44
-  br label %common.ret1
+  br label %common.ret15
 
 90:                                               ; preds = %84
   %91 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store ptr null, ptr %91, align 8, !tbaa !44
-  br label %common.ret1
+  br label %common.ret15
 
 92:                                               ; preds = %9
   %93 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #13
@@ -7771,7 +7771,7 @@ common.ret1:                                      ; preds = %15, %27, %39, %55, 
   %96 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !10
   %97 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !10
   %98 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z__xform_copy_tree, i32 noundef 1237, i64 noundef %96, i64 noundef %97, ptr noundef nonnull @.str.28) #12
-  br label %common.ret1
+  br label %common.ret15
 
 99:                                               ; preds = %92
   %100 = getelementptr inbounds nuw i8, ptr %93, i64 16
@@ -7796,12 +7796,12 @@ common.ret1:                                      ; preds = %15, %27, %39, %55, 
   %108 = tail call fastcc ptr @H5Z__xform_copy_tree(ptr noundef nonnull %106, ptr noundef %1)
   %109 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store ptr %108, ptr %109, align 8, !tbaa !44
-  br label %common.ret1
+  br label %common.ret15
 
 110:                                              ; preds = %104
   %111 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store ptr null, ptr %111, align 8, !tbaa !44
-  br label %common.ret1
+  br label %common.ret15
 
 112:                                              ; preds = %9
   %113 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #13
@@ -7812,7 +7812,7 @@ common.ret1:                                      ; preds = %15, %27, %39, %55, 
   %116 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !10
   %117 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !10
   %118 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z__xform_copy_tree, i32 noundef 1239, i64 noundef %116, i64 noundef %117, ptr noundef nonnull @.str.28) #12
-  br label %common.ret1
+  br label %common.ret15
 
 119:                                              ; preds = %112
   %120 = getelementptr inbounds nuw i8, ptr %113, i64 16
@@ -7837,18 +7837,18 @@ common.ret1:                                      ; preds = %15, %27, %39, %55, 
   %128 = tail call fastcc ptr @H5Z__xform_copy_tree(ptr noundef nonnull %126, ptr noundef %1)
   %129 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store ptr %128, ptr %129, align 8, !tbaa !44
-  br label %common.ret1
+  br label %common.ret15
 
 130:                                              ; preds = %124
   %131 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store ptr null, ptr %131, align 8, !tbaa !44
-  br label %common.ret1
+  br label %common.ret15
 
 132:                                              ; preds = %9
   %133 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !10
   %134 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
   %135 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z__xform_copy_tree, i32 noundef 1241, i64 noundef %133, i64 noundef %134, ptr noundef nonnull @.str.29) #12
-  br label %common.ret1
+  br label %common.ret15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -8544,14 +8544,14 @@ define internal fastcc noundef nonnull ptr @H5Z__get_token(ptr noundef nonnull r
   ]
 
 .loopexit82.thread:                               ; preds = %31, %.loopexit82, %.loopexit82, %.loopexit82
-  %.promoted92103 = phi ptr [ %.promoted92, %.loopexit82 ], [ %.promoted92, %.loopexit82 ], [ %.promoted92, %.loopexit82 ], [ %.promoted, %31 ]
+  %.promoted92106 = phi ptr [ %.promoted92, %.loopexit82 ], [ %.promoted92, %.loopexit82 ], [ %.promoted92, %.loopexit82 ], [ %.promoted, %31 ]
   store i32 2, ptr %9, align 8, !tbaa !213
-  %47 = load i8, ptr %.promoted92103, align 1, !tbaa !20
+  %47 = load i8, ptr %.promoted92106, align 1, !tbaa !20
   %48 = icmp eq i8 %47, 46
   br i1 %48, label %.preheader80, label %.loopexit81
 
 .preheader80:                                     ; preds = %.loopexit82.thread, %.preheader80
-  %49 = phi ptr [ %50, %.preheader80 ], [ %.promoted92103, %.loopexit82.thread ]
+  %49 = phi ptr [ %50, %.preheader80 ], [ %.promoted92106, %.loopexit82.thread ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %50, ptr %15, align 8, !tbaa !205
   %51 = load i8, ptr %50, align 1, !tbaa !20
@@ -8564,7 +8564,7 @@ define internal fastcc noundef nonnull ptr @H5Z__get_token(ptr noundef nonnull r
 
 .loopexit81:                                      ; preds = %.preheader80, %.loopexit82.thread
   %56 = phi i8 [ %47, %.loopexit82.thread ], [ %51, %.preheader80 ]
-  %57 = phi ptr [ %.promoted92103, %.loopexit82.thread ], [ %50, %.preheader80 ]
+  %57 = phi ptr [ %.promoted92106, %.loopexit82.thread ], [ %50, %.preheader80 ]
   switch i8 %56, label %.loopexit81..loopexit_crit_edge [
     i8 101, label %58
     i8 69, label %58
@@ -8662,8 +8662,8 @@ define internal fastcc noundef nonnull ptr @H5Z__get_token(ptr noundef nonnull r
   %99 = icmp ult i8 %switch.tableidx, 8
   %switch.shifted = lshr i8 -81, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond128 = select i1 %99, i1 %switch.lobit, i1 false
-  br i1 %or.cond128, label %switch.lookup, label %100
+  %or.cond131 = select i1 %99, i1 %switch.lobit, i1 false
+  br i1 %or.cond131, label %switch.lookup, label %100
 
 100:                                              ; preds = %98
   store i32 0, ptr %9, align 8, !tbaa !213

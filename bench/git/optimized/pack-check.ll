@@ -292,8 +292,8 @@ verify_pack_index.exit:                           ; preds = %17, %.sink.split.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !49
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %.not171.i = icmp eq i32 %88, 1
-  br i1 %.not171.i, label %.lr.ph152.i, label %99
+  %.not178.i = icmp eq i32 %88, 1
+  br i1 %.not178.i, label %.lr.ph152.i, label %99
 
 99:                                               ; preds = %._crit_edge.i
   call void @qsort(ptr noundef nonnull %92, i64 noundef range(i64 0, 4294967296) %93, i64 noundef 16, ptr noundef nonnull @compare_entries) #9

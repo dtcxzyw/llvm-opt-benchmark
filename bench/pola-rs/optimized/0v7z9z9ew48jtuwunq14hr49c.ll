@@ -651,9 +651,9 @@ define hidden void @_ZN14polars_parquet7parquet5write4page10write_page17h624fad7
   br label %103
 
 103:                                              ; preds = %73, %100
-  %.sink112 = phi i64 [ 32, %100 ], [ 16, %73 ]
+  %.sink117 = phi i64 [ 32, %100 ], [ 16, %73 ]
   %.sroa.027.0 = phi ptr [ %102, %100 ], [ %75, %73 ]
-  %104 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink112
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink117
   %.sroa.328.0 = load i64, ptr %104, align 8, !noundef !9
   %.val89 = load ptr, ptr %1, align 8, !nonnull !9, !align !8, !noundef !9
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1597,8 +1597,8 @@ _ZN4core3ops8function6FnOnce9call_once17hba3ae665f9576d34E.exit._ZN4core3ops8fun
   %.sroa.0.0.ph.i = phi i64 [ %.val.pre.i.i, %_ZN4core3ops8function6FnOnce9call_once17hba3ae665f9576d34E.exit._ZN4core3ops8function6FnOnce9call_once17hba3ae665f9576d34E.exit.thread_crit_edge.i.i ], [ %40, %39 ]
   %50 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %51 = load ptr, ptr %50, align 8, !alias.scope !167, !noalias !170, !nonnull !9, !noundef !9
-  %.idx18.i = mul nuw nsw i64 %36, 24
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx18.i
+  %.idx23.i = mul nuw nsw i64 %36, 24
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx23.i
   br label %.lr.ph.i.preheader.i
 
 .noexc6:                                          ; preds = %49, %.noexc5
@@ -1614,7 +1614,7 @@ _ZN4core3ops8function6FnOnce9call_once17hba3ae665f9576d34E.exit._ZN4core3ops8fun
 .lr.ph.i.preheader.i:                             ; preds = %.noexc6, %.thread.i
   %57 = phi ptr [ %52, %.thread.i ], [ %55, %.noexc6 ]
   %58 = phi ptr [ %51, %.thread.i ], [ %54, %.noexc6 ]
-  %.sroa.0.019.i = phi i64 [ %.sroa.0.0.ph.i, %.thread.i ], [ %46, %.noexc6 ]
+  %.sroa.0.024.i = phi i64 [ %.sroa.0.0.ph.i, %.thread.i ], [ %46, %.noexc6 ]
   %59 = phi i64 [ %36, %.thread.i ], [ %.pre.i, %.noexc6 ]
   br label %.lr.ph.i.i
 
@@ -1626,7 +1626,7 @@ _ZN4core3ops8function6FnOnce9call_once17hba3ae665f9576d34E.exit._ZN4core3ops8fun
   %62 = load ptr, ptr %60, align 8, !alias.scope !191, !noalias !194, !nonnull !9, !noundef !9
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load i64, ptr %63, align 8, !range !180, !noalias !198, !noundef !9
-  %.not.i.i.i = icmp eq i64 %64, %.sroa.0.019.i
+  %.not.i.i.i = icmp eq i64 %64, %.sroa.0.024.i
   br i1 %.not.i.i.i, label %"_ZN17crossbeam_channel5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17hccf09d063ca5f3cbE.exit.i.i", label %65
 
 65:                                               ; preds = %.lr.ph.i.i
@@ -36004,14 +36004,14 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$polars_io..cloud..options..C
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  switch i64 %3, label %default.unreachable1.i.i [
+  switch i64 %3, label %default.unreachable [
     i64 0, label %8
     i64 1, label %9
     i64 2, label %10
     i64 3, label %7
   ]
 
-default.unreachable1.i.i:                         ; preds = %5
+default.unreachable:                              ; preds = %5
   unreachable
 
 7:                                                ; preds = %5

@@ -263,11 +263,11 @@ define internal fastcc i32 @ocsp_verify(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %33, label %.sink.split, label %34
 
 .sink.split:                                      ; preds = %32, %7
-  %.sink20 = phi i32 [ 84, %7 ], [ 92, %32 ]
+  %.sink21 = phi i32 [ 84, %7 ], [ 92, %32 ]
   %.sink = phi i32 [ 130, %7 ], [ 117, %32 ]
   %.017.ph = phi i32 [ -1, %7 ], [ %.1, %32 ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink20, ptr noundef nonnull @__func__.ocsp_verify) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink21, ptr noundef nonnull @__func__.ocsp_verify) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef %.sink, ptr noundef null) #4
   br label %34
 
@@ -596,7 +596,7 @@ declare i32 @X509_pubkey_digest(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @ocsp_match_issuerid(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @ocsp_match_issuerid(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [50 x i8], align 16
   %5 = alloca [64 x i8], align 16
   %.not = icmp eq ptr %1, null

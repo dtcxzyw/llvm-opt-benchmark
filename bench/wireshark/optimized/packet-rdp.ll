@@ -1665,7 +1665,7 @@ define internal fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %1, p
   %8 = icmp slt i32 %5, 1
   br label %12
 
-9:                                                ; preds = %.thread96
+9:                                                ; preds = %.thread99
   %10 = getelementptr i8, ptr %.05687, i64 40
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
@@ -1684,14 +1684,14 @@ define internal fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %1, p
 
 18:                                               ; preds = %12
   %.not68 = icmp eq ptr %17, null
-  br i1 %.not68, label %.thread96, label %39
+  br i1 %.not68, label %.thread99, label %39
 
 19:                                               ; preds = %12
   %20 = icmp ne ptr %17, null
   %21 = getelementptr inbounds nuw i8, ptr %.05687, i64 16
   %22 = icmp slt i32 %14, 5
   %or.cond = and i1 %22, %20
-  br i1 %or.cond, label %23, label %.thread99
+  br i1 %or.cond, label %23, label %.thread102
 
 23:                                               ; preds = %19
   switch i32 %14, label %32 [
@@ -1728,14 +1728,14 @@ define internal fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %1, p
   %37 = load i32, ptr %36, align 4
   %38 = add i32 %37, %35
   store i32 %38, ptr %36, align 4
-  br label %.thread99
+  br label %.thread102
 
 39:                                               ; preds = %18
   %40 = load i32, ptr %17, align 4
   %.not70 = icmp eq i32 %40, 0
-  br i1 %.not70, label %.thread96, label %.thread99
+  br i1 %.not70, label %.thread99, label %.thread102
 
-.thread99:                                        ; preds = %19, %.thread, %39
+.thread102:                                       ; preds = %19, %.thread, %39
   %.06184 = phi i32 [ %14, %.thread ], [ %40, %39 ], [ %14, %19 ]
   %41 = getelementptr inbounds nuw i8, ptr %.05687, i64 28
   %42 = load i32, ptr %41, align 4
@@ -1743,7 +1743,7 @@ define internal fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %1, p
   %.not71 = icmp eq i32 %43, 0
   br i1 %.not71, label %51, label %44
 
-44:                                               ; preds = %.thread99
+44:                                               ; preds = %.thread102
   %45 = and i32 %42, 4
   %.not72 = icmp eq i32 %45, 0
   br i1 %.not72, label %46, label %51
@@ -1759,8 +1759,8 @@ define internal fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %1, p
   %50 = select i1 %.not74, i32 0, i32 -2147483644
   br label %51
 
-51:                                               ; preds = %.thread99, %46, %44, %48
-  %.057 = phi i32 [ %50, %48 ], [ -2147483644, %44 ], [ 0, %46 ], [ -2147483648, %.thread99 ]
+51:                                               ; preds = %.thread102, %46, %44, %48
+  %.057 = phi i32 [ %50, %48 ], [ -2147483644, %44 ], [ 0, %46 ], [ -2147483648, %.thread102 ]
   %52 = load ptr, ptr %.05687, align 8
   %53 = load i32, ptr %52, align 4
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %53, ptr noundef %0, i32 noundef %.088, i32 noundef %.06184, i32 noundef %.057)
@@ -1816,9 +1816,9 @@ define internal fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %1, p
   %.not79 = icmp eq i32 %77, 0
   %78 = select i1 %.not79, i32 %.06184, i32 0
   %spec.select = add i32 %78, %.088
-  br label %.thread96
+  br label %.thread99
 
-.thread96:                                        ; preds = %18, %75, %39
+.thread99:                                        ; preds = %18, %75, %39
   %.159 = phi i32 [ %.260, %75 ], [ %.05886, %39 ], [ %.05886, %18 ]
   %.2 = phi i32 [ %spec.select, %75 ], [ %.088, %39 ], [ %.088, %18 ]
   %79 = sub i32 %.2, %1
@@ -1826,8 +1826,8 @@ define internal fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %1, p
   %or.cond81 = select i1 %8, i1 true, i1 %.not80
   br i1 %or.cond81, label %9, label %._crit_edge
 
-._crit_edge:                                      ; preds = %9, %.thread96, %6
-  %.1 = phi i32 [ %1, %6 ], [ %.2, %.thread96 ], [ %.2, %9 ]
+._crit_edge:                                      ; preds = %9, %.thread99, %6
+  %.1 = phi i32 [ %1, %6 ], [ %.2, %.thread99 ], [ %.2, %9 ]
   tail call void @decrement_dissection_depth(ptr noundef %2)
   ret i32 %.1
 }
@@ -2886,11 +2886,11 @@ default.unreachable:                              ; preds = %.lr.ph20.i
 
 .sink.split.i:                                    ; preds = %266, %258, %257, %249, %241, %234
   %hf_rdp_fastpathScancodeKeyCode.sink.i = phi ptr [ @hf_rdp_pointer_ypos, %241 ], [ @hf_rdp_pointerx_ypos, %249 ], [ @hf_rdp_fastpathUnicodeCode, %257 ], [ @hf_rdp_fastpathRelMouseDeltaY, %258 ], [ @hf_rdp_fastpathQoeTimestamp, %266 ], [ @hf_rdp_fastpathScancodeKeyCode, %234 ]
-  %.sink30.i = phi i32 [ 5, %241 ], [ 5, %249 ], [ 1, %257 ], [ 5, %258 ], [ 1, %266 ], [ 1, %234 ]
-  %.sink29.i = phi i32 [ 2, %241 ], [ 2, %249 ], [ 2, %257 ], [ 2, %258 ], [ 4, %266 ], [ 1, %234 ]
+  %.sink38.i = phi i32 [ 5, %241 ], [ 5, %249 ], [ 1, %257 ], [ 5, %258 ], [ 1, %266 ], [ 1, %234 ]
+  %.sink37.i = phi i32 [ 2, %241 ], [ 2, %249 ], [ 2, %257 ], [ 2, %258 ], [ 4, %266 ], [ 1, %234 ]
   %267 = load i32, ptr %hf_rdp_fastpathScancodeKeyCode.sink.i, align 4
-  %268 = add i32 %.sink30.i, %.219.i
-  %269 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %267, ptr noundef %0, i32 noundef %268, i32 noundef %.sink29.i, i32 noundef -2147483648)
+  %268 = add i32 %.sink38.i, %.219.i
+  %269 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %267, ptr noundef %0, i32 noundef %268, i32 noundef %.sink37.i, i32 noundef -2147483648)
   br label %270
 
 270:                                              ; preds = %.sink.split.i, %234, %.lr.ph20.i
@@ -3238,8 +3238,8 @@ copy_address_wmem.exit:                           ; preds = %rdp_get_conversatio
   %153 = call i32 @llvm.umin.i32(i32 %.pre.i, i32 31)
   %154 = trunc nuw nsw i32 %153 to i8
   store i8 %154, ptr %118, align 8
-  %.not4450.i = icmp eq i32 %.pre.i, 0
-  br i1 %.not4450.i, label %._crit_edge.thread.i, label %.lr.ph.split.i
+  %.not4453.i = icmp eq i32 %.pre.i, 0
+  br i1 %.not4453.i, label %._crit_edge.thread.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %152, %.lr.ph.split.us.i
   %.141.us.i = phi i32 [ %155, %.lr.ph.split.us.i ], [ %144, %152 ]
@@ -3298,8 +3298,8 @@ find_known_channel_by_name.exit.i:                ; preds = %175, %172, %169, %1
   br i1 %183, label %.lr.ph.split.i, label %._crit_edge.thread.i, !llvm.loop !13
 
 ._crit_edge.thread.i:                             ; preds = %find_known_channel_by_name.exit.i, %.thread.i
-  %.035.lcssa53.i = phi i64 [ 0, %.thread.i ], [ %indvars.iv.next.i, %find_known_channel_by_name.exit.i ]
-  %184 = getelementptr [32 x %struct._rdp_channel_def], ptr %119, i64 0, i64 %.035.lcssa53.i
+  %.035.lcssa56.i = phi i64 [ 0, %.thread.i ], [ %indvars.iv.next.i, %find_known_channel_by_name.exit.i ]
+  %184 = getelementptr [32 x %struct._rdp_channel_def], ptr %119, i64 0, i64 %.035.lcssa56.i
   store i32 0, ptr %184, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
   store ptr null, ptr %185, align 8

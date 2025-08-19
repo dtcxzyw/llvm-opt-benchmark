@@ -102,19 +102,19 @@ define noundef ptr @uhash_openSize_77(ptr noundef %0, ptr noundef %1, ptr nounde
   %7 = getelementptr inbounds nuw [29 x i32], ptr @_ZL6PRIMES, i64 0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !28
   %9 = icmp slt i32 %8, %3
-  br i1 %9, label %10, label %.critedge.split.loop.exit10
+  br i1 %9, label %10, label %.critedge.split.loop.exit11
 
 10:                                               ; preds = %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 28
   br i1 %exitcond.not, label %.critedge, label %6, !llvm.loop !29
 
-.critedge.split.loop.exit10:                      ; preds = %6
+.critedge.split.loop.exit11:                      ; preds = %6
   %11 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %10, %.critedge.split.loop.exit10
-  %.0.lcssa = phi i32 [ %11, %.critedge.split.loop.exit10 ], [ 28, %10 ]
+.critedge:                                        ; preds = %10, %.critedge.split.loop.exit11
+  %.0.lcssa = phi i32 [ %11, %.critedge.split.loop.exit11 ], [ 28, %10 ]
   %12 = load i32, ptr %4, align 4, !tbaa !3
   %13 = icmp slt i32 %12, 1
   br i1 %13, label %14, label %_ZL13_uhash_createPFi8UElementEPFaS_S_ES3_iP10UErrorCode.exit

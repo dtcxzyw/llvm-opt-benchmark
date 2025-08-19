@@ -1186,7 +1186,7 @@ define noundef nonnull align 8 dereferenceable(104) ptr @_ZN6icu_7722CompoundTra
   %31 = load i32, ptr %30, align 8, !tbaa !38
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %33 = icmp sgt i32 %31, %.pre57
-  br i1 %33, label %.thread61, label %thread-pre-split.thread
+  br i1 %33, label %.thread68, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %.loopexit.thread
   store i32 %31, ptr %32, align 8, !tbaa !38
@@ -1194,14 +1194,14 @@ thread-pre-split.thread:                          ; preds = %.loopexit.thread
 
 34:                                               ; preds = %.loopexit
   %.not32 = icmp eq ptr %24, null
-  br i1 %.not32, label %.thread61, label %35
+  br i1 %.not32, label %.thread68, label %35
 
 35:                                               ; preds = %34
   tail call void @uprv_free_77(ptr noundef nonnull %24)
   %.pre59 = load i32, ptr %26, align 8, !tbaa !38
-  br label %.thread61
+  br label %.thread68
 
-.thread61:                                        ; preds = %.loopexit.thread, %35, %34
+.thread68:                                        ; preds = %.loopexit.thread, %35, %34
   %36 = phi ptr [ %26, %35 ], [ %26, %34 ], [ %30, %.loopexit.thread ]
   %37 = phi ptr [ %28, %35 ], [ %28, %34 ], [ %32, %.loopexit.thread ]
   %38 = phi i32 [ %.pre59, %35 ], [ %27, %34 ], [ %31, %.loopexit.thread ]
@@ -1212,10 +1212,10 @@ thread-pre-split.thread:                          ; preds = %.loopexit.thread
   %.pre60 = load i32, ptr %36, align 8, !tbaa !38
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %.loopexit, %.thread61
-  %42 = phi ptr [ %37, %.thread61 ], [ %28, %.loopexit ]
-  %43 = phi i32 [ %.pre60, %.thread61 ], [ %27, %.loopexit ]
-  %44 = phi ptr [ %41, %.thread61 ], [ %24, %.loopexit ]
+thread-pre-split:                                 ; preds = %.loopexit, %.thread68
+  %42 = phi ptr [ %37, %.thread68 ], [ %28, %.loopexit ]
+  %43 = phi i32 [ %.pre60, %.thread68 ], [ %27, %.loopexit ]
+  %44 = phi ptr [ %41, %.thread68 ], [ %24, %.loopexit ]
   store i32 %43, ptr %42, align 8, !tbaa !38
   %.not33 = icmp ne ptr %44, null
   %45 = icmp sgt i32 %43, 0

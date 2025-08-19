@@ -375,7 +375,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %46 = load ptr, ptr %45, align 8, !tbaa !144
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1952
   %48 = icmp eq ptr %46, %47
-  br i1 %48, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %48, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %43
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1944
@@ -387,14 +387,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %54 = icmp eq ptr %52, %53
   br i1 %54, label %58, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %43
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %43
   %55 = load ptr, ptr %7, align 8, !tbaa !144
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %57 = icmp eq ptr %55, %56
   br i1 %57, label %58, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-58:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %59 = phi ptr [ %55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+58:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %59 = phi ptr [ %55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %61 = load i64, ptr %60, align 8, !tbaa !143
   %62 = icmp ult i64 %61, 16
@@ -436,7 +436,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %73, ptr %47, align 8, !tbaa !4
   br label %80
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %74 = load i64, ptr %47, align 8, !tbaa !4
   store ptr %55, ptr %45, align 8, !tbaa !144
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -861,7 +861,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit21:                  ; preds = %131, %130
   br i1 %.not.i.i.i22, label %_ZNSt6vectorIPN7rocksdb22PlainTableIndexBuilder11IndexRecordESaIS3_EED2Ev.exit23, label %134
 
 134:                                              ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit21.thread, %_ZNSt6vectorIjSaIjEED2Ev.exit21
-  %.pn7.pn33 = phi { ptr, i32 } [ %115, %_ZNSt6vectorIjSaIjEED2Ev.exit21.thread ], [ %.pn7, %_ZNSt6vectorIjSaIjEED2Ev.exit21 ]
+  %.pn7.pn44 = phi { ptr, i32 } [ %115, %_ZNSt6vectorIjSaIjEED2Ev.exit21.thread ], [ %.pn7, %_ZNSt6vectorIjSaIjEED2Ev.exit21 ]
   %135 = phi ptr [ %25, %_ZNSt6vectorIjSaIjEED2Ev.exit21.thread ], [ %40, %_ZNSt6vectorIjSaIjEED2Ev.exit21 ]
   %136 = phi ptr [ %26, %_ZNSt6vectorIjSaIjEED2Ev.exit21.thread ], [ %36, %_ZNSt6vectorIjSaIjEED2Ev.exit21 ]
   %137 = ptrtoint ptr %136 to i64
@@ -871,9 +871,9 @@ _ZNSt6vectorIjSaIjEED2Ev.exit21:                  ; preds = %131, %130
   br label %_ZNSt6vectorIPN7rocksdb22PlainTableIndexBuilder11IndexRecordESaIS3_EED2Ev.exit23
 
 _ZNSt6vectorIPN7rocksdb22PlainTableIndexBuilder11IndexRecordESaIS3_EED2Ev.exit23: ; preds = %134, %_ZNSt6vectorIjSaIjEED2Ev.exit21
-  %.pn7.pn34 = phi { ptr, i32 } [ %.pn7.pn33, %134 ], [ %.pn7, %_ZNSt6vectorIjSaIjEED2Ev.exit21 ]
+  %.pn7.pn45 = phi { ptr, i32 } [ %.pn7.pn44, %134 ], [ %.pn7, %_ZNSt6vectorIjSaIjEED2Ev.exit21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  resume { ptr, i32 } %.pn7.pn34
+  resume { ptr, i32 } %.pn7.pn45
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

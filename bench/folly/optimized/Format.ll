@@ -2405,10 +2405,10 @@ define void @_ZN5folly9FormatArg8initSlowEv(ptr noundef nonnull align 8 derefere
   %42 = zext i8 %31 to i64
   %43 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5folly6detailL16formatAlignTableE, i64 0, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !89
-  %.not2971 = icmp eq i8 %44, 5
-  br i1 %.not2971, label %48, label %.thread72
+  %.not2993 = icmp eq i8 %44, 5
+  br i1 %.not2993, label %48, label %.thread94
 
-.thread72:                                        ; preds = %.thread
+.thread94:                                        ; preds = %.thread
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 17
   store i8 %44, ptr %45, align 1, !tbaa !53
   store ptr %25, ptr %8, align 8, !tbaa !50
@@ -2419,8 +2419,8 @@ define void @_ZN5folly9FormatArg8initSlowEv(ptr noundef nonnull align 8 derefere
   store i8 %41, ptr %47, align 1, !tbaa !53
   br label %.critedge38
 
-48:                                               ; preds = %.thread72, %.thread, %37, %32
-  %49 = phi ptr [ %22, %37 ], [ %35, %32 ], [ %22, %.thread ], [ %25, %.thread72 ]
+48:                                               ; preds = %.thread94, %.thread, %37, %32
+  %49 = phi ptr [ %22, %37 ], [ %35, %32 ], [ %22, %.thread ], [ %25, %.thread94 ]
   %50 = load i8, ptr %49, align 1, !tbaa !47
   %51 = zext i8 %50 to i64
   %52 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5folly6detailL15formatSignTableE, i64 0, i64 %51
@@ -2679,13 +2679,13 @@ _ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4t
   br label %144
 
 142:                                              ; preds = %.critedge.thread, %.critedge
-  %storemerge.ptr.lcssa4976 = phi ptr [ %.ptr47, %.critedge.thread ], [ %storemerge.ptr.lcssa49.ph, %.critedge ]
+  %storemerge.ptr.lcssa4998 = phi ptr [ %.ptr47, %.critedge.thread ], [ %storemerge.ptr.lcssa49.ph, %.critedge ]
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 21
   store i8 1, ptr %143, align 1, !tbaa !33
   br label %144
 
 144:                                              ; preds = %_ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_.exit, %136, %139, %142
-  %145 = phi ptr [ %storemerge.ptr.lcssa49.ph, %_ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_.exit ], [ %storemerge.ptr.lcssa49.ph, %136 ], [ %141, %139 ], [ %storemerge.ptr.lcssa4976, %142 ]
+  %145 = phi ptr [ %storemerge.ptr.lcssa49.ph, %_ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_.exit ], [ %storemerge.ptr.lcssa49.ph, %136 ], [ %141, %139 ], [ %storemerge.ptr.lcssa4998, %142 ]
   %.not34 = icmp eq ptr %145, %11
   br i1 %.not34, label %.critedge38, label %._crit_edge69
 

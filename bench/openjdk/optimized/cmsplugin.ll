@@ -255,8 +255,8 @@ define hidden range(i32 0, 2) i32 @_cmsReadFloat32Number(ptr noundef %0, ptr nou
 
 14:                                               ; preds = %12
   %15 = call float @llvm.fabs.f32(float %.cast)
-  %or.cond18 = fcmp ueq float %15, 0x7FF0000000000000
-  br i1 %or.cond18, label %.critedge, label %16
+  %or.cond20 = fcmp ueq float %15, 0x7FF0000000000000
+  br i1 %or.cond20, label %.critedge, label %16
 
 16:                                               ; preds = %14
   %17 = fcmp uge float %10, 0x3810000000000000
@@ -1230,9 +1230,9 @@ _cmsFindMemoryPlugin.exit:                        ; preds = %12, %16, %2
   br i1 %47, label %.loopexit.sink.split.i, label %.preheader.i, !llvm.loop !13
 
 .loopexit.sink.split.i:                           ; preds = %45, %41
-  %.0.lcssa26.sink.i = phi ptr [ @_cmsContextPoolHead, %41 ], [ %.0.i, %45 ]
+  %.0.lcssa31.sink.i = phi ptr [ @_cmsContextPoolHead, %41 ], [ %.0.i, %45 ]
   %48 = load ptr, ptr %22, align 8
-  store ptr %48, ptr %.0.lcssa26.sink.i, align 8
+  store ptr %48, ptr %.0.lcssa31.sink.i, align 8
   br label %cmsDeleteContext.exit
 
 cmsDeleteContext.exit:                            ; preds = %.preheader.i, %.loopexit.sink.split.i
@@ -1297,9 +1297,9 @@ cmsDeleteContext.exit:                            ; preds = %.preheader.i, %.loo
   br i1 %65, label %.loopexit.sink.split.i41, label %.preheader.i38, !llvm.loop !13
 
 .loopexit.sink.split.i41:                         ; preds = %63, %59
-  %.0.lcssa26.sink.i42 = phi ptr [ @_cmsContextPoolHead, %59 ], [ %.0.i39, %63 ]
+  %.0.lcssa31.sink.i42 = phi ptr [ @_cmsContextPoolHead, %59 ], [ %.0.i39, %63 ]
   %66 = load ptr, ptr %22, align 8
-  store ptr %66, ptr %.0.lcssa26.sink.i42, align 8
+  store ptr %66, ptr %.0.lcssa31.sink.i42, align 8
   br label %cmsDeleteContext.exit45
 
 cmsDeleteContext.exit45:                          ; preds = %.preheader.i38, %.loopexit.sink.split.i41
@@ -1378,9 +1378,9 @@ define hidden void @cmsDeleteContext(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %24, label %.loopexit.sink.split, label %.preheader, !llvm.loop !13
 
 .loopexit.sink.split:                             ; preds = %22, %18
-  %.0.lcssa26.sink = phi ptr [ @_cmsContextPoolHead, %18 ], [ %.0, %22 ]
+  %.0.lcssa31.sink = phi ptr [ @_cmsContextPoolHead, %18 ], [ %.0, %22 ]
   %25 = load ptr, ptr %0, align 8
-  store ptr %25, ptr %.0.lcssa26.sink, align 8
+  store ptr %25, ptr %.0.lcssa31.sink, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split
@@ -1519,9 +1519,9 @@ _cmsGetContext.exit:                              ; preds = %2, %.sink.split.i
   br i1 %43, label %.loopexit.sink.split.i, label %.preheader.i, !llvm.loop !13
 
 .loopexit.sink.split.i:                           ; preds = %41, %37
-  %.0.lcssa26.sink.i = phi ptr [ @_cmsContextPoolHead, %37 ], [ %.0.i58, %41 ]
+  %.0.lcssa31.sink.i = phi ptr [ @_cmsContextPoolHead, %37 ], [ %.0.i58, %41 ]
   %44 = load ptr, ptr %17, align 8
-  store ptr %44, ptr %.0.lcssa26.sink.i, align 8
+  store ptr %44, ptr %.0.lcssa31.sink.i, align 8
   br label %cmsDeleteContext.exit
 
 cmsDeleteContext.exit:                            ; preds = %.preheader.i, %.loopexit.sink.split.i
@@ -1597,9 +1597,9 @@ cmsDeleteContext.exit:                            ; preds = %.preheader.i, %.loo
   br i1 %66, label %.loopexit.sink.split.i63, label %.preheader.i60, !llvm.loop !13
 
 .loopexit.sink.split.i63:                         ; preds = %64, %60
-  %.0.lcssa26.sink.i64 = phi ptr [ @_cmsContextPoolHead, %60 ], [ %.0.i61, %64 ]
+  %.0.lcssa31.sink.i64 = phi ptr [ @_cmsContextPoolHead, %60 ], [ %.0.i61, %64 ]
   %67 = load ptr, ptr %17, align 8
-  store ptr %67, ptr %.0.lcssa26.sink.i64, align 8
+  store ptr %67, ptr %.0.lcssa31.sink.i64, align 8
   br label %cmsDeleteContext.exit67
 
 cmsDeleteContext.exit67:                          ; preds = %.preheader.i60, %.loopexit.sink.split.i63

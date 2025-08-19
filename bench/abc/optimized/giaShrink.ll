@@ -59,8 +59,8 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %21 = call noalias dereferenceable_or_null(262144) ptr @malloc(i64 noundef 262144) #18
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %21, ptr %22, align 8, !tbaa !15
-  %calloc239 = call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %23 = getelementptr inbounds nuw i8, ptr %calloc239, i64 8
+  %calloc273 = call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
+  %23 = getelementptr inbounds nuw i8, ptr %calloc273, i64 8
   %24 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 0, ptr %25, align 4, !tbaa !9
@@ -756,12 +756,12 @@ Vec_IntPush.exit184:                              ; preds = %.Vec_IntGrow.exit10
   %373 = sext i32 %371 to i64
   %374 = getelementptr inbounds i32, ptr %370, i64 %373
   store i32 0, ptr %374, align 4, !tbaa !40
-  %375 = add nuw i32 %.1109216, 1
+  %375 = add nuw nsw i32 %.1109216, 1
   %exitcond.not = icmp eq i32 %375, 4
   br i1 %exitcond.not, label %.critedge2._crit_edge, label %.lr.ph217, !llvm.loop !47
 
 .critedge2._crit_edge:                            ; preds = %Vec_IntPush.exit184, %.critedge2.preheader
-  %376 = call ptr @Gia_ManConvertAigToTruth(ptr noundef nonnull %0, ptr noundef nonnull %57, ptr noundef nonnull %calloc, ptr noundef nonnull %19, ptr noundef nonnull %calloc239) #17
+  %376 = call ptr @Gia_ManConvertAigToTruth(ptr noundef nonnull %0, ptr noundef nonnull %57, ptr noundef nonnull %calloc, ptr noundef nonnull %19, ptr noundef nonnull %calloc273) #17
   %.val133218 = load i32, ptr %17, align 4, !tbaa !9
   %377 = icmp sgt i32 %.val133218, 0
   br i1 %377, label %.lr.ph221, label %.critedge4
@@ -952,7 +952,7 @@ Vec_IntFree.exit200:                              ; preds = %Vec_IntFree.exit, %
   br label %Vec_IntFree.exit202
 
 Vec_IntFree.exit202:                              ; preds = %Vec_IntFree.exit200, %464
-  call void @free(ptr noundef nonnull %calloc239) #17
+  call void @free(ptr noundef nonnull %calloc273) #17
   %465 = load ptr, ptr %27, align 8, !tbaa !15
   %.not.i203 = icmp eq ptr %465, null
   br i1 %.not.i203, label %Vec_IntFree.exit204, label %466

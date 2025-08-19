@@ -162,8 +162,8 @@ define dso_local void @BackendStatusShmemInit() local_unnamed_addr #0 {
   br label %.loopexit102.sink.split
 
 .loopexit102.sink.split:                          ; preds = %31, %35, %.lr.ph106.preheader
-  %.sink138 = phi i64 [ %45, %.lr.ph106.preheader ], [ %27, %35 ], [ %27, %31 ]
-  call void @llvm.memset.p0.i64(ptr align 1 %28, i8 0, i64 %.sink138, i1 false)
+  %.sink143 = phi i64 [ %45, %.lr.ph106.preheader ], [ %27, %35 ], [ %27, %31 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %28, i8 0, i64 %.sink143, i1 false)
   br label %.loopexit102
 
 .loopexit102:                                     ; preds = %.loopexit102.sink.split, %39
@@ -232,8 +232,8 @@ define dso_local void @BackendStatusShmemInit() local_unnamed_addr #0 {
   br label %.loopexit100.sink.split
 
 .loopexit100.sink.split:                          ; preds = %62, %66, %.lr.ph111.preheader
-  %.sink139 = phi i64 [ %76, %.lr.ph111.preheader ], [ %58, %66 ], [ %58, %62 ]
-  call void @llvm.memset.p0.i64(ptr align 1 %59, i8 0, i64 %.sink139, i1 false)
+  %.sink144 = phi i64 [ %76, %.lr.ph111.preheader ], [ %58, %66 ], [ %58, %62 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %59, i8 0, i64 %.sink144, i1 false)
   br label %.loopexit100
 
 .loopexit100:                                     ; preds = %.loopexit100.sink.split, %70
@@ -301,8 +301,8 @@ define dso_local void @BackendStatusShmemInit() local_unnamed_addr #0 {
   br label %.loopexit98.sink.split
 
 .loopexit98.sink.split:                           ; preds = %95, %100, %.lr.ph116.preheader
-  %.sink140 = phi i64 [ %110, %.lr.ph116.preheader ], [ %96, %100 ], [ %96, %95 ]
-  call void @llvm.memset.p0.i64(ptr align 1 %92, i8 0, i64 %.sink140, i1 false)
+  %.sink145 = phi i64 [ %110, %.lr.ph116.preheader ], [ %96, %100 ], [ %96, %95 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %92, i8 0, i64 %.sink145, i1 false)
   br label %.loopexit98
 
 .loopexit98:                                      ; preds = %.loopexit98.sink.split, %104
@@ -739,15 +739,15 @@ define dso_local void @pgstat_report_activity(i32 noundef %0, ptr noundef readon
   br label %58
 
 58:                                               ; preds = %55, %50
-  %pgStatTransactionIdleTime.sink48 = phi ptr [ @pgStatActiveTime, %50 ], [ %spec.select, %55 ]
+  %pgStatTransactionIdleTime.sink50 = phi ptr [ @pgStatActiveTime, %50 ], [ %spec.select, %55 ]
   %59 = load i64, ptr %3, align 8
   %60 = mul i64 %59, 1000000
   %61 = load i32, ptr %4, align 4
   %62 = sext i32 %61 to i64
   %63 = add i64 %60, %62
-  %64 = load i64, ptr %pgStatTransactionIdleTime.sink48, align 8
+  %64 = load i64, ptr %pgStatTransactionIdleTime.sink50, align 8
   %65 = add i64 %63, %64
-  store i64 %65, ptr %pgStatTransactionIdleTime.sink48, align 8
+  store i64 %65, ptr %pgStatTransactionIdleTime.sink50, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %66

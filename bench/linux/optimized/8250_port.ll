@@ -6412,7 +6412,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rx_trig_bytes_show(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @rx_trig_bytes_store(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define internal range(i64 1, 0) i64 @rx_trig_bytes_store(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %7 = load ptr, ptr %6, align 8
@@ -6470,8 +6470,8 @@ define internal i64 @rx_trig_bytes_store(ptr noundef readonly captures(none) %0,
   br i1 %40, label %.thread4, label %.preheader, !llvm.loop !41
 
 41:                                               ; preds = %.preheader
-  %42 = trunc i64 %34 to i8
-  %43 = shl i8 %42, 6
+  %42 = trunc nuw nsw i64 %34 to i8
+  %43 = shl nuw i8 %42, 6
   %44 = add i8 %43, -64
   br label %.thread4
 

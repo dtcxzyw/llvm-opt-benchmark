@@ -1037,7 +1037,7 @@ define dso_local void @drm_connector_cleanup(ptr noundef %0) #1 align 16 {
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 80
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %90, label %.thread10, !prof !12
+  br i1 %89, label %90, label %.thread17, !prof !12
 
 90:                                               ; preds = %84
   tail call void asm sideeffect "392: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 392b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 392) #21, !srcloc !45
@@ -1045,21 +1045,21 @@ define dso_local void @drm_connector_cleanup(ptr noundef %0) #1 align 16 {
   tail call void asm sideeffect "393: nop\0A\09.pushsection .discard.instr_end\0A\09.long 393b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 393) #21, !srcloc !47
   %.pr.pre = load ptr, ptr %81, align 8
   %91 = icmp eq ptr %.pr.pre, null
-  br i1 %91, label %.thread6, label %.thread10
+  br i1 %91, label %.thread6, label %.thread17
 
-.thread10:                                        ; preds = %84, %90
-  %.pr12 = phi ptr [ %.pr.pre, %90 ], [ %82, %84 ]
+.thread17:                                        ; preds = %84, %90
+  %.pr19 = phi ptr [ %.pr.pre, %90 ], [ %82, %84 ]
   %92 = load ptr, ptr %85, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 80
   %94 = load ptr, ptr %93, align 8
   %95 = icmp eq ptr %94, null
   br i1 %95, label %.thread6, label %96
 
-96:                                               ; preds = %.thread10
-  tail call void %94(ptr noundef %0, ptr noundef nonnull %.pr12) #21
+96:                                               ; preds = %.thread17
+  tail call void %94(ptr noundef %0, ptr noundef nonnull %.pr19) #21
   br label %.thread6
 
-.thread6:                                         ; preds = %.loopexit, %96, %.thread10, %90
+.thread6:                                         ; preds = %.loopexit, %96, %.thread17, %90
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(1976) %0, i8 0, i64 1976, i1 false)
   %97 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %98 = load i8, ptr %97, align 8, !range !22, !noundef !23

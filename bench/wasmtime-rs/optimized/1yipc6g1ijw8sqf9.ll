@@ -5452,13 +5452,13 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   unreachable
 
 65:                                               ; preds = %57, %25
-  %.sink47 = phi ptr [ %60, %57 ], [ %28, %25 ]
-  %.sink46 = phi i64 [ %59, %57 ], [ %27, %25 ]
+  %.sink48 = phi ptr [ %60, %57 ], [ %28, %25 ]
+  %.sink47 = phi i64 [ %59, %57 ], [ %27, %25 ]
   %.sink = phi i64 [ %62, %57 ], [ %30, %25 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %.sink47, ptr %66, align 8
+  store ptr %.sink48, ptr %66, align 8
   %.sroa.213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i64 %.sink46, ptr %.sroa.213.0..sroa_idx, align 8
+  store i64 %.sink47, ptr %.sroa.213.0..sroa_idx, align 8
   %.sroa.314.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %.sink, ptr %.sroa.314.0..sroa_idx, align 8
   ret void
@@ -7413,9 +7413,9 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
 35:                                               ; preds = %31
   %..sroa.sel.v = select i1 %32, i64 24, i64 40
   %..sroa.sel = getelementptr inbounds nuw i8, ptr %8, i64 %..sroa.sel.v
-  %.31.sroa.sel.v = select i1 %32, i64 32, i64 48
-  %.31.sroa.sel = getelementptr inbounds nuw i8, ptr %8, i64 %.31.sroa.sel.v
-  %36 = load i64, ptr %.31.sroa.sel, align 8, !noundef !3
+  %.33.sroa.sel.v = select i1 %32, i64 32, i64 48
+  %.33.sroa.sel = getelementptr inbounds nuw i8, ptr %8, i64 %.33.sroa.sel.v
+  %36 = load i64, ptr %.33.sroa.sel, align 8, !noundef !3
   %37 = load ptr, ptr %..sroa.sel, align 8, !nonnull !3, !noundef !3
   store ptr %37, ptr %7, align 8
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -7604,9 +7604,9 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
 38:                                               ; preds = %34
   %..sroa.sel.v = select i1 %35, i64 72, i64 88
   %..sroa.sel = getelementptr inbounds nuw i8, ptr %10, i64 %..sroa.sel.v
-  %.35.sroa.sel.v = select i1 %35, i64 80, i64 96
-  %.35.sroa.sel = getelementptr inbounds nuw i8, ptr %10, i64 %.35.sroa.sel.v
-  %39 = load i64, ptr %.35.sroa.sel, align 8, !noundef !3
+  %.37.sroa.sel.v = select i1 %35, i64 80, i64 96
+  %.37.sroa.sel = getelementptr inbounds nuw i8, ptr %10, i64 %.37.sroa.sel.v
+  %39 = load i64, ptr %.37.sroa.sel, align 8, !noundef !3
   %40 = load ptr, ptr %..sroa.sel, align 8, !nonnull !3, !noundef !3
   store ptr %40, ptr %9, align 8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -10058,16 +10058,16 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 802
   %82 = load i16, ptr %81, align 2, !noundef !3
   %83 = icmp ult i16 %82, 11
-  br i1 %83, label %.loopexit69, label %.preheader
+  br i1 %83, label %.loopexit75, label %.preheader
 
 84:                                               ; preds = %.preheader
   invoke void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clone$GT$5clone17h4dd38584f056157bE"(ptr nonnull align 1 %4)
           to label %86 unwind label %.loopexit.split-lp
 
-.loopexit69:                                      ; preds = %79, %87
-  %storemerge68 = phi ptr [ %89, %87 ], [ %77, %79 ]
+.loopexit75:                                      ; preds = %79, %87
+  %storemerge74 = phi ptr [ %89, %87 ], [ %77, %79 ]
   %storemerge = phi i64 [ %88, %87 ], [ %80, %79 ]
-  store ptr %storemerge68, ptr %8, align 8
+  store ptr %storemerge74, ptr %8, align 8
   store i64 %storemerge, ptr %28, align 8
   %85 = add i64 %storemerge, -1
   invoke void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clone$GT$5clone17h4dd38584f056157bE"(ptr nonnull align 1 %4)
@@ -10080,9 +10080,9 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
 87:                                               ; preds = %86
   %88 = load i64, ptr %13, align 8, !noundef !3
   %89 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  br label %.loopexit69
+  br label %.loopexit75
 
-90:                                               ; preds = %.loopexit69
+90:                                               ; preds = %.loopexit75
   %91 = invoke align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hc1d469caf76c2b94E"()
           to label %92 unwind label %.loopexit.split-lp
 
@@ -10122,7 +10122,7 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
   br i1 %104, label %.loopexit59, label %.lr.ph.i31
 
 .lr.ph.i31:                                       ; preds = %103, %.lr.ph.i31
-  %.017.i32 = phi ptr [ %111, %.lr.ph.i31 ], [ %storemerge68, %103 ]
+  %.017.i32 = phi ptr [ %111, %.lr.ph.i31 ], [ %storemerge74, %103 ]
   %.01516.i33 = phi i64 [ %112, %.lr.ph.i31 ], [ %storemerge, %103 ]
   %105 = getelementptr inbounds nuw i8, ptr %.017.i32, i64 802
   %106 = load i16, ptr %105, align 2, !noundef !3
@@ -10137,7 +10137,7 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
   br i1 %113, label %.loopexit59, label %.lr.ph.i31
 
 .loopexit59:                                      ; preds = %.lr.ph.i31, %103, %117
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %117 ], [ %storemerge68, %103 ], [ %111, %.lr.ph.i31 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %117 ], [ %storemerge74, %103 ], [ %111, %.lr.ph.i31 ]
   %114 = load i64, ptr %2, align 8, !noundef !3
   %115 = add i64 %114, 1
   store i64 %115, ptr %2, align 8
@@ -10156,7 +10156,7 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
           cleanup
   br label %118
 
-.loopexit.split-lp:                               ; preds = %90, %84, %86, %.loopexit69
+.loopexit.split-lp:                               ; preds = %90, %84, %86, %.loopexit75
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %118

@@ -758,8 +758,8 @@ Aig_ObjFaninId0.exit370:                          ; preds = %220, %228
   br i1 %317, label %.lr.ph460, label %.lr.ph457
 
 ._crit_edge455.thread:                            ; preds = %.lr.ph466
-  %.val349587 = load i32, ptr %97, align 8, !tbaa !56
-  %318 = sub nsw i32 %.val318, %.val349587
+  %.val349596 = load i32, ptr %97, align 8, !tbaa !56
+  %318 = sub nsw i32 %.val318, %.val349596
   %319 = sext i32 %318 to i64
   %320 = icmp slt i64 %indvars.iv572, %319
   br i1 %320, label %._crit_edge461, label %.critedge8
@@ -3066,13 +3066,13 @@ Bar_ProgressUpdate.exit:                          ; preds = %122, %126
 133:                                              ; preds = %130
   %indvars.iv.next346 = add nuw nsw i64 %indvars.iv345, 1
   %exitcond348.not = icmp eq i64 %indvars.iv.next346, 16
-  br i1 %exitcond348.not, label %.thread384, label %130, !llvm.loop !127
+  br i1 %exitcond348.not, label %.thread393, label %130, !llvm.loop !127
 
 134:                                              ; preds = %130
   %135 = icmp eq i64 %indvars.iv345, 16
-  br i1 %135, label %.thread384, label %.preheader298
+  br i1 %135, label %.thread393, label %.preheader298
 
-.thread384:                                       ; preds = %133, %134
+.thread393:                                       ; preds = %133, %134
   %136 = call i32 @Saig_DetectTryPolarity(ptr noundef %18, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %17, ptr noundef nonnull %113, i32 noundef 0, ptr noundef nonnull %46, ptr noundef nonnull %6, i32 noundef %4)
   %.not209 = icmp eq i32 %136, 0
   br i1 %.not209, label %.thread, label %.thread.sink.split
@@ -3094,16 +3094,16 @@ Bar_ProgressUpdate.exit:                          ; preds = %122, %126
   %.not208 = icmp eq i32 %141, 0
   br i1 %.not208, label %.thread, label %.thread.sink.split
 
-.thread.sink.split:                               ; preds = %140, %.thread384
-  %.sink401 = phi i64 [ 16, %.thread384 ], [ 32, %140 ]
+.thread.sink.split:                               ; preds = %140, %.thread393
+  %.sink410 = phi i64 [ 16, %.thread393 ], [ 32, %140 ]
   %142 = load i64, ptr %116, align 8
-  %143 = or i64 %142, %.sink401
+  %143 = or i64 %142, %.sink410
   store i64 %143, ptr %116, align 8
   %144 = add nsw i32 %.0313, 1
   br label %.thread
 
-.thread:                                          ; preds = %.preheader298, %.thread.sink.split, %115, %109, %140, %.thread384
-  %.1 = phi i32 [ %.0313, %109 ], [ %.0313, %.thread384 ], [ %.0313, %140 ], [ %.0313, %115 ], [ %144, %.thread.sink.split ], [ %.0313, %.preheader298 ]
+.thread:                                          ; preds = %.preheader298, %.thread.sink.split, %115, %109, %140, %.thread393
+  %.1 = phi i32 [ %.0313, %109 ], [ %.0313, %.thread393 ], [ %.0313, %140 ], [ %.0313, %115 ], [ %144, %.thread.sink.split ], [ %.0313, %.preheader298 ]
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
   %145 = load ptr, ptr %37, align 8, !tbaa !25
   %146 = getelementptr i8, ptr %145, i64 4

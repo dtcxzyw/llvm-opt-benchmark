@@ -533,7 +533,7 @@ av_isspace.exit.thread.i.i69:                     ; preds = %.lr.ph.i.i67, %.lr.
 
 .preheader50.i:                                   ; preds = %.lr.ph.i.i67, %160
   %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %160 ], [ 0, %.lr.ph.i.i67 ]
-  %.idx68.i = mul nuw nsw i64 %indvars.iv64.i, 3468
+  %.idx72.i = mul nuw nsw i64 %indvars.iv64.i, 3468
   br label %.preheader.i73
 
 .preheader.i73:                                   ; preds = %159, %.preheader50.i
@@ -548,7 +548,7 @@ av_isspace.exit.thread.i.i69:                     ; preds = %.lr.ph.i.i67, %.lr.
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %136 = load ptr, ptr %121, align 8, !tbaa !34
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx.i74
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 %.idx68.i
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 %.idx72.i
   %139 = getelementptr inbounds nuw %struct.rgbvec, ptr %138, i64 %indvars.iv.i75
   %140 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 512, ptr noundef nonnull %46)
   %.not2953.i = icmp eq ptr %140, null
@@ -18356,11 +18356,11 @@ define internal fastcc { <2 x float>, float } @interp_prism(ptr noundef readonly
   br label %156
 
 156:                                              ; preds = %104, %52
-  %.sink213 = phi float [ %155, %104 ], [ %103, %52 ]
-  %.sink212 = phi float [ %152, %104 ], [ %100, %52 ]
+  %.sink215 = phi float [ %155, %104 ], [ %103, %52 ]
+  %.sink214 = phi float [ %152, %104 ], [ %100, %52 ]
   %.sroa.0195.0 = phi nsz <2 x float> [ %.sroa.0195.4.vec.insert200, %104 ], [ %.sroa.0195.4.vec.insert, %52 ]
-  %157 = fmul nsz float %23, %.sink213
-  %158 = tail call nsz float @llvm.fmuladd.f32(float %157, float %25, float %.sink212)
+  %157 = fmul nsz float %23, %.sink215
+  %158 = tail call nsz float @llvm.fmuladd.f32(float %157, float %25, float %.sink214)
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.0195.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %158, 1
   ret { <2 x float>, float } %.fca.1.insert
@@ -18869,13 +18869,13 @@ av_isspace.exit.thread.i307:                      ; preds = %.lr.ph.i305, %.lr.p
   %132 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %133 = load i32, ptr %132, align 4
   %134 = icmp ne i32 %133, 0
-  %or.cond.not387.not564 = select i1 %131, i1 %134, i1 false
+  %or.cond.not387.not588 = select i1 %131, i1 %134, i1 false
   %135 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %136 = load i32, ptr %135, align 4
   %137 = icmp ne i32 %136, 0
-  %or.cond13.not.not = select i1 %or.cond.not387.not564, i1 %137, i1 false
-  %.554 = zext i1 %or.cond13.not.not to i32
-  %138 = call fastcc i32 @allocate_3dlut(ptr noundef %0, i32 noundef %125, i32 noundef %.554)
+  %or.cond13.not.not = select i1 %or.cond.not387.not588, i1 %137, i1 false
+  %.578 = zext i1 %or.cond13.not.not to i32
+  %138 = call fastcc i32 @allocate_3dlut(ptr noundef %0, i32 noundef %125, i32 noundef %.578)
   %139 = icmp slt i32 %138, 0
   br i1 %139, label %.thread373, label %.preheader405
 

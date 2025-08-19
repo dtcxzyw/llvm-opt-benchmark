@@ -319,8 +319,8 @@ define internal fastcc range(i32 0, 2) i32 @asn1_item_print_ctx(ptr noundef %0, 
     i64 23, label %94
     i64 24, label %96
     i64 6, label %98
-    i64 4, label %.thread97.i
-    i64 3, label %.thread97.i
+    i64 4, label %.thread101.i
+    i64 3, label %.thread101.i
     i64 16, label %101
     i64 17, label %101
     i64 -3, label %101
@@ -390,10 +390,10 @@ define internal fastcc range(i32 0, 2) i32 @asn1_item_print_ctx(ptr noundef %0, 
   %.not82.i = icmp eq i32 %.069.i, 0
   br i1 %.not82.i, label %.critedge, label %117
 
-.thread97.i:                                      ; preds = %81, %81
+.thread101.i:                                     ; preds = %81, %81
   %116 = tail call fastcc i32 @asn1_print_obstring_ctx(ptr noundef %0, ptr noundef %.071.i, i32 noundef %2)
-  %.not82100.i = icmp eq i32 %116, 0
-  br i1 %.not82100.i, label %.critedge, label %asn1_primitive_print.exit.thread149
+  %.not82104.i = icmp eq i32 %116, 0
+  br i1 %.not82104.i, label %.critedge, label %asn1_primitive_print.exit.thread149
 
 117:                                              ; preds = %115
   %118 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.6) #8
@@ -581,11 +581,11 @@ asn1_primitive_print.exit:                        ; preds = %72
   %202 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %201) #8
   br label %.critedge
 
-asn1_primitive_print.exit.thread149:              ; preds = %44, %117, %.thread97.i, %104, %196, %197, %150, %137, %136, %asn1_primitive_print.exit, %36
+asn1_primitive_print.exit.thread149:              ; preds = %44, %117, %.thread101.i, %104, %196, %197, %150, %137, %136, %asn1_primitive_print.exit, %36
   br label %.critedge
 
-.critedge:                                        ; preds = %182, %184, %44, %.thread97.i, %104, %117, %115, %101, %78, %75, %38, %197, %193, %172, %168, %165, %157, %150, %147, %137, %132, %130, %123, %asn1_primitive_print.exit, %36, %27, %25, %asn1_primitive_print.exit.thread149, %200, %174, %135, %30
-  %.0 = phi i32 [ 1, %30 ], [ 0, %200 ], [ 1, %asn1_primitive_print.exit.thread149 ], [ 1, %135 ], [ 1, %174 ], [ 0, %25 ], [ 0, %27 ], [ 0, %36 ], [ 0, %asn1_primitive_print.exit ], [ 0, %123 ], [ %131, %130 ], [ 0, %132 ], [ 0, %137 ], [ %., %147 ], [ 0, %150 ], [ 0, %157 ], [ 0, %165 ], [ 0, %168 ], [ %173, %172 ], [ 0, %193 ], [ 0, %197 ], [ 0, %38 ], [ 0, %75 ], [ 0, %78 ], [ 0, %101 ], [ 0, %115 ], [ 0, %117 ], [ 0, %104 ], [ 0, %.thread97.i ], [ 0, %44 ], [ 0, %184 ], [ 0, %182 ]
+.critedge:                                        ; preds = %182, %184, %44, %.thread101.i, %104, %117, %115, %101, %78, %75, %38, %197, %193, %172, %168, %165, %157, %150, %147, %137, %132, %130, %123, %asn1_primitive_print.exit, %36, %27, %25, %asn1_primitive_print.exit.thread149, %200, %174, %135, %30
+  %.0 = phi i32 [ 1, %30 ], [ 0, %200 ], [ 1, %asn1_primitive_print.exit.thread149 ], [ 1, %135 ], [ 1, %174 ], [ 0, %25 ], [ 0, %27 ], [ 0, %36 ], [ 0, %asn1_primitive_print.exit ], [ 0, %123 ], [ %131, %130 ], [ 0, %132 ], [ 0, %137 ], [ %., %147 ], [ 0, %150 ], [ 0, %157 ], [ 0, %165 ], [ 0, %168 ], [ %173, %172 ], [ 0, %193 ], [ 0, %197 ], [ 0, %38 ], [ 0, %75 ], [ 0, %78 ], [ 0, %101 ], [ 0, %115 ], [ 0, %117 ], [ 0, %104 ], [ 0, %.thread101.i ], [ 0, %44 ], [ 0, %184 ], [ 0, %182 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }

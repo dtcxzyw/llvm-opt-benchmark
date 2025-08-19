@@ -1094,16 +1094,16 @@ _Z11as_TosState9BasicType.exit:                   ; preds = %216, %switch.lookup
   br label %222
 
 219:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit
-  br i1 %215, label %switch.lookup80, label %_Z11as_TosState9BasicType.exit59
+  br i1 %215, label %switch.lookup90, label %_Z11as_TosState9BasicType.exit59
 
-switch.lookup80:                                  ; preds = %219
+switch.lookup90:                                  ; preds = %219
   %220 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep82 = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN19AbstractInterpreter26deopt_continue_after_entryEP6MethodPhib.1, i64 0, i64 %220
-  %switch.load83 = load i32, ptr %switch.gep82, align 4
+  %switch.gep92 = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN19AbstractInterpreter26deopt_continue_after_entryEP6MethodPhib.1, i64 0, i64 %220
+  %switch.load93 = load i32, ptr %switch.gep92, align 4
   br label %_Z11as_TosState9BasicType.exit59
 
-_Z11as_TosState9BasicType.exit59:                 ; preds = %219, %switch.lookup80
-  %.0.i58 = phi i32 [ %switch.load83, %switch.lookup80 ], [ 11, %219 ]
+_Z11as_TosState9BasicType.exit59:                 ; preds = %219, %switch.lookup90
+  %.0.i58 = phi i32 [ %switch.load93, %switch.lookup90 ], [ 11, %219 ]
   %221 = call noundef ptr @_ZN19TemplateInterpreter12return_entryE8TosStateiN9Bytecodes4CodeE(i32 noundef %.0.i58, i32 noundef %32, i32 noundef %18) #11
   br label %222
 

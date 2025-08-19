@@ -1214,12 +1214,12 @@ _launch_app.exit:                                 ; preds = %_launch_app.exit.si
   br i1 %.not17, label %508, label %.sink.split
 
 .sink.split:                                      ; preds = %506, %_launch_app.exit
-  %.sink156 = phi i32 [ 1, %_launch_app.exit ], [ %507, %506 ]
-  store i32 %.sink156, ptr @global_rc, align 4
+  %.sink204 = phi i32 [ 1, %_launch_app.exit ], [ %507, %506 ]
+  store i32 %.sink204, ptr @global_rc, align 4
   br label %508
 
 508:                                              ; preds = %.sink.split, %506
-  %509 = phi i32 [ %503, %506 ], [ %.sink156, %.sink.split ]
+  %509 = phi i32 [ %503, %506 ], [ %.sink204, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -1420,7 +1420,7 @@ define internal noalias noundef ptr @_launch_one_app(ptr noundef %0) #0 {
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %41 = load i8, ptr %40, align 8, !range !8, !noundef !9
   %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %.preheader65
+  br i1 %42, label %43, label %.preheader75
 
 43:                                               ; preds = %37
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 72
@@ -1432,12 +1432,12 @@ define internal noalias noundef ptr @_launch_one_app(ptr noundef %0) #0 {
   %49 = tail call ptr @xstrdup(ptr noundef %48) #14
   %50 = load ptr, ptr %44, align 8
   store ptr %49, ptr %50, align 8
-  br label %.preheader65
+  br label %.preheader75
 
-.preheader65:                                     ; preds = %43, %37
+.preheader75:                                     ; preds = %43, %37
   br label %51
 
-51:                                               ; preds = %.preheader65, %53
+51:                                               ; preds = %.preheader75, %53
   call void @launch_common_set_stdio_fds(ptr noundef %8, ptr noundef nonnull %3, ptr noundef %6) #14
   %52 = call i32 @launch_g_step_launch(ptr noundef %8, ptr noundef nonnull %3, ptr noundef nonnull @global_rc, ptr noundef nonnull %4, ptr noundef %6) #14
   %.not57 = icmp eq i32 %52, 0
@@ -1807,9 +1807,9 @@ _file_bcast.exit:                                 ; preds = %83
   br i1 %.not100, label %133, label %.sink.split
 
 .sink.split:                                      ; preds = %129, %126
-  %.sink116 = phi i32 [ %128, %126 ], [ %131, %129 ]
+  %.sink137 = phi i32 [ %128, %126 ], [ %131, %129 ]
   %132 = getelementptr inbounds nuw i8, ptr %9, i64 168
-  store i32 %.sink116, ptr %132, align 8
+  store i32 %.sink137, ptr %132, align 8
   br label %133
 
 133:                                              ; preds = %.sink.split, %129
@@ -1913,7 +1913,7 @@ _file_bcast.exit:                                 ; preds = %83
   %194 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %195 = load i32, ptr %194, align 8
   %.not105 = icmp eq i32 %195, -2
-  br i1 %.not105, label %196, label %.sink.split118
+  br i1 %.not105, label %196, label %.sink.split139
 
 196:                                              ; preds = %189
   br i1 %2, label %197, label %201
@@ -1921,15 +1921,15 @@ _file_bcast.exit:                                 ; preds = %83
 197:                                              ; preds = %196
   %198 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %199 = load i32, ptr %198, align 4
-  br label %.sink.split118
+  br label %.sink.split139
 
-.sink.split118:                                   ; preds = %189, %197
-  %.sink119 = phi i32 [ %199, %197 ], [ %195, %189 ]
+.sink.split139:                                   ; preds = %189, %197
+  %.sink140 = phi i32 [ %199, %197 ], [ %195, %189 ]
   %200 = getelementptr inbounds nuw i8, ptr %9, i64 76
-  store i32 %.sink119, ptr %200, align 4
+  store i32 %.sink140, ptr %200, align 4
   br label %201
 
-201:                                              ; preds = %.sink.split118, %196
+201:                                              ; preds = %.sink.split139, %196
   %202 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %203 = load i32, ptr %202, align 4
   %.not106 = icmp eq i32 %203, -2

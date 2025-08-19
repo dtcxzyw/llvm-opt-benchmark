@@ -452,13 +452,13 @@ bytestream2_get_be16.exit.i:                      ; preds = %212
   br label %.outer.backedge.i
 
 .outer.backedge.i:                                ; preds = %260, %224
-  %.sink409.i = phi i32 [ %227, %224 ], [ %262, %260 ]
+  %.sink417.i = phi i32 [ %227, %224 ], [ %262, %260 ]
   %.sink.i = phi ptr [ %230, %224 ], [ %265, %260 ]
   %.promoted263.i = phi ptr [ %210, %224 ], [ %.promoted263344.i, %260 ]
   %.0139.ph.be.i = phi i32 [ %225, %224 ], [ %256, %260 ]
   %.0136.ph.be.i = phi i32 [ 0, %224 ], [ %257, %260 ]
   %.0128.ph.be.i = phi ptr [ %230, %224 ], [ %268, %260 ]
-  %231 = tail call i32 @llvm.abs.i32(i32 %.sink409.i, i1 true)
+  %231 = tail call i32 @llvm.abs.i32(i32 %.sink417.i, i1 true)
   %232 = zext nneg i32 %231 to i64
   %233 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 %232
   %234 = ptrtoint ptr %197 to i64

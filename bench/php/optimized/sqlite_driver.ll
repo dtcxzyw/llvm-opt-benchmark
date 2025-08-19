@@ -1305,8 +1305,8 @@ define internal fastcc void @do_callback(ptr noundef readonly captures(none) %0,
   %39 = zext nneg i32 %spec.store.select to i64
   %wide.trip.count = zext nneg i32 %1 to i64
   %invariant.gep = getelementptr inbounds nuw %struct._zval_struct, ptr %.0100, i64 %39
-  %invariant.gep125 = getelementptr inbounds nuw %struct._zval_struct, ptr %.0100, i64 %39
-  %invariant.gep127 = getelementptr inbounds nuw %struct._zval_struct, ptr %.0100, i64 %39
+  %invariant.gep129 = getelementptr inbounds nuw %struct._zval_struct, ptr %.0100, i64 %39
+  %invariant.gep131 = getelementptr inbounds nuw %struct._zval_struct, ptr %.0100, i64 %39
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %69
@@ -1321,12 +1321,12 @@ define internal fastcc void @do_callback(ptr noundef readonly captures(none) %0,
   ]
 
 43:                                               ; preds = %.lr.ph
-  %gep126 = getelementptr inbounds nuw %struct._zval_struct, ptr %invariant.gep125, i64 %indvars.iv
+  %gep130 = getelementptr inbounds nuw %struct._zval_struct, ptr %invariant.gep129, i64 %indvars.iv
   %44 = load ptr, ptr %40, align 8, !tbaa !123
   %45 = tail call i32 @sqlite3_value_int(ptr noundef %44) #11
   %46 = sext i32 %45 to i64
-  store i64 %46, ptr %gep126, align 8, !tbaa !31
-  %47 = getelementptr inbounds nuw i8, ptr %gep126, i64 8
+  store i64 %46, ptr %gep130, align 8, !tbaa !31
+  %47 = getelementptr inbounds nuw i8, ptr %gep130, i64 8
   store i32 4, ptr %47, align 8, !tbaa !31
   br label %69
 
@@ -1346,7 +1346,7 @@ define internal fastcc void @do_callback(ptr noundef readonly captures(none) %0,
   br label %69
 
 zend_string_alloc.exit:                           ; preds = %.lr.ph
-  %gep128 = getelementptr inbounds nuw %struct._zval_struct, ptr %invariant.gep127, i64 %indvars.iv
+  %gep132 = getelementptr inbounds nuw %struct._zval_struct, ptr %invariant.gep131, i64 %indvars.iv
   %55 = load ptr, ptr %40, align 8, !tbaa !123
   %56 = tail call ptr @sqlite3_value_text(ptr noundef %55) #11
   %57 = load ptr, ptr %40, align 8, !tbaa !123
@@ -1366,8 +1366,8 @@ zend_string_alloc.exit:                           ; preds = %.lr.ph
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %66, ptr align 1 %56, i64 %59, i1 false)
   %67 = getelementptr inbounds nuw [1 x i8], ptr %66, i64 0, i64 %59
   store i8 0, ptr %67, align 1, !tbaa !31
-  store ptr %62, ptr %gep128, align 8, !tbaa !31
-  %68 = getelementptr inbounds nuw i8, ptr %gep128, i64 8
+  store ptr %62, ptr %gep132, align 8, !tbaa !31
+  %68 = getelementptr inbounds nuw i8, ptr %gep132, i64 8
   store i32 262, ptr %68, align 8, !tbaa !31
   br label %69
 

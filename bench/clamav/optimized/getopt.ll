@@ -225,7 +225,7 @@ thread-pre-split:                                 ; preds = %36, %45, %56, %71
 99:                                               ; preds = %93
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 1
   %101 = load i8, ptr %100, align 1, !tbaa !3
-  switch i8 %101, label %.thread161 [
+  switch i8 %101, label %.thread171 [
     i8 45, label %102
     i8 0, label %108
   ]
@@ -234,7 +234,7 @@ thread-pre-split:                                 ; preds = %36, %45, %56, %71
   %103 = getelementptr inbounds nuw i8, ptr %96, i64 2
   %104 = load i8, ptr %103, align 1, !tbaa !3
   %105 = icmp eq i8 %104, 0
-  br i1 %105, label %106, label %.thread161
+  br i1 %105, label %106, label %.thread171
 
 106:                                              ; preds = %102, %92
   %107 = add nsw i32 %18, 1
@@ -334,15 +334,15 @@ thread-pre-split:                                 ; preds = %36, %45, %56, %71
   %spec.select106 = select i1 %137, i32 -1, i32 %.3
   br label %.thread
 
-.thread161:                                       ; preds = %99, %102
+.thread171:                                       ; preds = %99, %102
   store i32 1, ptr @my_getopt.charind, align 4, !tbaa !9
   %138 = tail call i32 @my_getopt(i32 noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   %.pre152 = load i32, ptr @optind, align 4, !tbaa !9
   br label %.thread
 
-.thread:                                          ; preds = %thread-pre-split.thread, %80, %43, %.loopexit, %109, %108, %106, %.thread161, %thread-pre-split, %83, %90
-  %139 = phi i32 [ %.pre153, %83 ], [ %91, %90 ], [ %.pre153, %thread-pre-split ], [ %107, %106 ], [ %.pre152, %.thread161 ], [ %110, %109 ], [ %18, %108 ], [ %136, %.loopexit ], [ %44, %43 ], [ %81, %80 ], [ %59, %thread-pre-split.thread ]
-  %.175 = phi i32 [ %.074, %83 ], [ %.074, %90 ], [ %.074, %thread-pre-split ], [ -1, %106 ], [ %138, %.thread161 ], [ 1, %109 ], [ -1, %108 ], [ %spec.select106, %.loopexit ], [ %26, %43 ], [ 63, %80 ], [ %26, %thread-pre-split.thread ]
+.thread:                                          ; preds = %thread-pre-split.thread, %80, %43, %.loopexit, %109, %108, %106, %.thread171, %thread-pre-split, %83, %90
+  %139 = phi i32 [ %.pre153, %83 ], [ %91, %90 ], [ %.pre153, %thread-pre-split ], [ %107, %106 ], [ %.pre152, %.thread171 ], [ %110, %109 ], [ %18, %108 ], [ %136, %.loopexit ], [ %44, %43 ], [ %81, %80 ], [ %59, %thread-pre-split.thread ]
+  %.175 = phi i32 [ %.074, %83 ], [ %.074, %90 ], [ %.074, %thread-pre-split ], [ -1, %106 ], [ %138, %.thread171 ], [ 1, %109 ], [ -1, %108 ], [ %spec.select106, %.loopexit ], [ %26, %43 ], [ 63, %80 ], [ %26, %thread-pre-split.thread ]
   %140 = icmp sgt i32 %139, %0
   br i1 %140, label %141, label %142
 
@@ -423,9 +423,9 @@ define internal fastcc i32 @_getopt_internal(i32 noundef %0, ptr noundef %1, ptr
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 2
   %32 = load i8, ptr %31, align 1, !tbaa !3
   %33 = icmp eq i8 %32, 0
-  br i1 %33, label %35, label %.thread311
+  br i1 %33, label %35, label %.thread323
 
-.thread311:                                       ; preds = %30
+.thread323:                                       ; preds = %30
   %34 = zext nneg i8 %29 to i32
   store i32 %34, ptr @optopt, align 4, !tbaa !9
   br label %.thread234
@@ -566,7 +566,7 @@ define internal fastcc i32 @_getopt_internal(i32 noundef %0, ptr noundef %1, ptr
   %90 = icmp eq i8 %29, %73
   br i1 %90, label %189, label %.preheader251
 
-.thread234:                                       ; preds = %.preheader251, %.thread311, %66
+.thread234:                                       ; preds = %.preheader251, %.thread323, %66
   %91 = load i8, ptr %28, align 1, !tbaa !3
   %.not206.not = icmp eq i8 %91, 45
   %92 = select i1 %.not206.not, i32 2, i32 1

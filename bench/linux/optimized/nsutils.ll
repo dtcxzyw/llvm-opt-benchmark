@@ -679,7 +679,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_externalize_name(i32 no
 
 60:                                               ; preds = %52
   %61 = icmp eq i32 %41, 0
-  br i1 %61, label %.loopexit14, label %62
+  br i1 %61, label %.loopexit23, label %62
 
 62:                                               ; preds = %60
   %63 = zext i32 %41 to i64
@@ -694,15 +694,15 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_externalize_name(i32 no
   %70 = getelementptr i8, ptr %68, i64 %65
   store i8 %67, ptr %70, align 1
   %71 = icmp eq i64 %69, %63
-  br i1 %71, label %.loopexit14, label %64, !llvm.loop !16
+  br i1 %71, label %.loopexit23, label %64, !llvm.loop !16
 
-.loopexit14:                                      ; preds = %64, %60
+.loopexit23:                                      ; preds = %64, %60
   br i1 %45, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit14, %80
-  %72 = phi i32 [ %90, %80 ], [ %41, %.loopexit14 ]
-  %73 = phi i32 [ %92, %80 ], [ 0, %.loopexit14 ]
-  %74 = phi i32 [ %91, %80 ], [ %42, %.loopexit14 ]
+.preheader:                                       ; preds = %.loopexit23, %80
+  %72 = phi i32 [ %90, %80 ], [ %41, %.loopexit23 ]
+  %73 = phi i32 [ %92, %80 ], [ 0, %.loopexit23 ]
+  %74 = phi i32 [ %91, %80 ], [ %42, %.loopexit23 ]
   %75 = icmp eq i32 %73, 0
   %.pre13 = load ptr, ptr %3, align 8
   br i1 %75, label %80, label %76
@@ -733,7 +733,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_externalize_name(i32 no
   %93 = icmp eq i32 %92, %43
   br i1 %93, label %.loopexit, label %.preheader, !llvm.loop !17
 
-.loopexit:                                        ; preds = %80, %.loopexit14
+.loopexit:                                        ; preds = %80, %.loopexit23
   %94 = icmp eq ptr %2, null
   br i1 %94, label %96, label %95
 

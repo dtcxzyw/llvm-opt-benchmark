@@ -1108,17 +1108,17 @@ find_func.exit:                                   ; preds = %504
   br i1 %.not322, label %542, label %.thread387.thread
 
 .thread387.thread:                                ; preds = %29, %.thread387
-  %.5301379479 = phi ptr [ %.1297, %.thread387 ], [ %22, %29 ]
-  %.0274385477 = phi i32 [ %.0274385, %.thread387 ], [ 1, %29 ]
-  call void @free(ptr noundef %.5301379479) #10
+  %.5301379484 = phi ptr [ %.1297, %.thread387 ], [ %22, %29 ]
+  %.0274385482 = phi i32 [ %.0274385, %.thread387 ], [ 1, %29 ]
+  call void @free(ptr noundef %.5301379484) #10
   br label %542
 
 542:                                              ; preds = %.thread387, %.thread387.thread
-  %.0274385478 = phi i32 [ %.0274385, %.thread387 ], [ %.0274385477, %.thread387.thread ]
+  %.0274385483 = phi i32 [ %.0274385, %.thread387 ], [ %.0274385482, %.thread387.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.0274385478
+  ret i32 %.0274385483
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

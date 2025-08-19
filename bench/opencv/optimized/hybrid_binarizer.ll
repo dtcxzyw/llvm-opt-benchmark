@@ -516,7 +516,7 @@ define hidden noundef i32 @_ZN5zxing15HybridBinarizer10initBlocksEv(ptr noundef 
   br label %.preheader100.us
 
 .loopexit99.us.thread:                            ; preds = %.loopexit99.us, %.loopexit.us, %.preheader98.us
-  %.4.us148 = phi i32 [ %85, %.preheader98.us ], [ %80, %.loopexit.us ], [ %85, %.loopexit99.us ]
+  %.4.us150 = phi i32 [ %85, %.preheader98.us ], [ %80, %.loopexit.us ], [ %85, %.loopexit99.us ]
   %32 = add nuw nsw i64 %indvars.iv133, %20
   %33 = load ptr, ptr %14, align 8, !tbaa !20
   %34 = getelementptr i8, ptr %33, i64 16
@@ -526,8 +526,8 @@ define hidden noundef i32 @_ZN5zxing15HybridBinarizer10initBlocksEv(ptr noundef 
   store i32 %spec.select97.us, ptr %37, align 4, !tbaa !42
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 %.279.us, ptr %38, align 4, !tbaa !44
-  store i32 %.4.us148, ptr %36, align 4, !tbaa !45
-  %39 = ashr i32 %.4.us148, 6
+  store i32 %.4.us150, ptr %36, align 4, !tbaa !45
+  %39 = ashr i32 %.4.us150, 6
   br i1 %69, label %_ZN5zxing15HybridBinarizer17getBlockThresholdEiiiiiiii.exit.us, label %40
 
 40:                                               ; preds = %.loopexit99.us.thread
@@ -596,11 +596,11 @@ _ZN5zxing15HybridBinarizer17getBlockThresholdEiiiiiiii.exit.us: ; preds = %_ZN5z
 73:                                               ; preds = %.preheader.us, %73
   %indvars.iv126 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next127, %73 ]
   %.3105.us = phi i32 [ %.285109.us, %.preheader.us ], [ %80, %73 ]
-  %gep161 = getelementptr i8, ptr %invariant.gep160, i64 %indvars.iv126
-  %74 = load i8, ptr %gep161, align 1, !tbaa !50
+  %gep163 = getelementptr i8, ptr %invariant.gep162, i64 %indvars.iv126
+  %74 = load i8, ptr %gep163, align 1, !tbaa !50
   %75 = zext i8 %74 to i32
   %76 = add nsw i32 %.3105.us, %75
-  %77 = getelementptr i8, ptr %gep161, i64 1
+  %77 = getelementptr i8, ptr %gep163, i64 1
   %78 = load i8, ptr %77, align 1, !tbaa !50
   %79 = zext i8 %78 to i32
   %80 = add nsw i32 %76, %79
@@ -627,7 +627,7 @@ _ZN5zxing15HybridBinarizer17getBlockThresholdEiiiiiiii.exit.us: ; preds = %_ZN5z
   %indvars.iv129 = phi i64 [ %87, %.preheader.us.preheader ], [ %indvars.iv.next130, %.loopexit.us ]
   %.175111.us.in = phi i32 [ %.074116.us, %.preheader.us.preheader ], [ %.175111.us, %.loopexit.us ]
   %.285109.us = phi i32 [ %85, %.preheader.us.preheader ], [ %80, %.loopexit.us ]
-  %invariant.gep160 = getelementptr i8, ptr %9, i64 %indvars.iv129
+  %invariant.gep162 = getelementptr i8, ptr %9, i64 %indvars.iv129
   br label %73
 
 .loopexit.us:                                     ; preds = %73

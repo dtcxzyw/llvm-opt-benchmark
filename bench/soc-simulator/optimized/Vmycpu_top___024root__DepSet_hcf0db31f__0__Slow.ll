@@ -470,16 +470,16 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %155 = load i32, ptr %154, align 4
   %. = select i1 %.not2858, i64 62, i64 69
-  %.3877 = select i1 %.not2858, i32 %155, i32 0
-  %.3878 = select i1 %.not2858, i32 0, i32 %155
+  %.3888 = select i1 %.not2858, i32 %155, i32 0
+  %.3889 = select i1 %.not2858, i32 0, i32 %155
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %.sink3757 = load i8, ptr %156, align 1
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %.sink3757, ptr %157, align 8
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  store i32 %.3877, ptr %158, align 4
+  store i32 %.3888, ptr %158, align 4
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  store i32 %.3878, ptr %159, align 4
+  store i32 %.3889, ptr %159, align 4
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %161 = load i32, ptr %160, align 8
   %162 = lshr i32 %161, 14
@@ -967,7 +967,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   store i8 %516, ptr %517, align 4
   %518 = getelementptr inbounds nuw i8, ptr %0, i64 55
   store i8 0, ptr %518, align 1
-  %519 = zext i32 %.3877 to i64
+  %519 = zext i32 %.3888 to i64
   %520 = shl i8 %89, 5
   %521 = and i8 %520, 32
   %522 = zext nneg i8 %521 to i64
@@ -1163,21 +1163,21 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %632 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i8 %631, ptr %632, align 4
   %.not2895 = icmp eq i8 %199, 0
-  %.3879 = select i1 %.not2895, i64 304, i64 312
-  %.3880 = select i1 %.not2895, i64 57, i64 63
-  %.3881 = select i1 %.not2895, i64 58, i64 64
-  %.3882 = select i1 %.not2895, i64 59, i64 65
-  %.3883 = select i1 %.not2895, i8 0, i8 %630
-  %633 = getelementptr inbounds nuw i8, ptr %0, i64 %.3879
-  %634 = getelementptr inbounds nuw i8, ptr %0, i64 %.3880
-  %635 = getelementptr inbounds nuw i8, ptr %0, i64 %.3881
-  %636 = getelementptr inbounds nuw i8, ptr %0, i64 %.3882
+  %.3890 = select i1 %.not2895, i64 304, i64 312
+  %.3891 = select i1 %.not2895, i64 57, i64 63
+  %.3892 = select i1 %.not2895, i64 58, i64 64
+  %.3893 = select i1 %.not2895, i64 59, i64 65
+  %.3894 = select i1 %.not2895, i8 0, i8 %630
+  %633 = getelementptr inbounds nuw i8, ptr %0, i64 %.3890
+  %634 = getelementptr inbounds nuw i8, ptr %0, i64 %.3891
+  %635 = getelementptr inbounds nuw i8, ptr %0, i64 %.3892
+  %636 = getelementptr inbounds nuw i8, ptr %0, i64 %.3893
   %.sink3761 = load i8, ptr %636, align 1
   %.sink3762 = load i8, ptr %635, align 2
   %.sink3763 = load i8, ptr %634, align 1
   %.sink3764 = load i32, ptr %633, align 8
   %637 = getelementptr inbounds nuw i8, ptr %0, i64 66
-  store i8 %.3883, ptr %637, align 2
+  store i8 %.3894, ptr %637, align 2
   %638 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 %.sink3764, ptr %638, align 8
   %639 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1269,8 +1269,8 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   br label %692
 
 692:                                              ; preds = %681, %685, %667
-  %.sink3819 = phi i8 [ %684, %681 ], [ %691, %685 ], [ %676, %667 ]
-  %693 = and i8 %.sink3819, 63
+  %.sink3830 = phi i8 [ %684, %681 ], [ %691, %685 ], [ %676, %667 ]
+  %693 = and i8 %.sink3830, 63
   %694 = getelementptr inbounds nuw i8, ptr %0, i64 205
   store i8 %693, ptr %694, align 1
   %695 = getelementptr inbounds nuw i8, ptr %0, i64 122
@@ -1328,16 +1328,16 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 728:                                              ; preds = %727
   %729 = and i32 %337, 469762048
-  %or.cond3935 = icmp eq i32 %729, 0
-  br i1 %or.cond3935, label %730, label %.sink.split3884
+  %or.cond3946 = icmp eq i32 %729, 0
+  br i1 %or.cond3946, label %730, label %.sink.split3895
 
-.sink.split3884:                                  ; preds = %728
+.sink.split3895:                                  ; preds = %728
   store i8 1, ptr %720, align 1
   br label %730
 
-730:                                              ; preds = %728, %.sink.split3884
-  %.sink3824 = phi i32 [ 11, %.sink.split3884 ], [ 16, %728 ]
-  %731 = lshr i32 %337, %.sink3824
+730:                                              ; preds = %728, %.sink.split3895
+  %.sink3835 = phi i32 [ 11, %.sink.split3895 ], [ 16, %728 ]
+  %731 = lshr i32 %337, %.sink3835
   %732 = trunc i32 %731 to i8
   %733 = and i8 %732, 31
   %734 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1351,7 +1351,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   br label %1098
 
 737:                                              ; preds = %727
-  br i1 %.not3085, label %738, label %.sink.split3885
+  br i1 %.not3085, label %738, label %.sink.split3896
 
 738:                                              ; preds = %737
   %739 = and i32 %337, 134217728
@@ -1361,18 +1361,18 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   br i1 %.not3102, label %742, label %741
 
 741:                                              ; preds = %738
-  br i1 %.not3103, label %.sink.split3885, label %743
+  br i1 %.not3103, label %.sink.split3896, label %743
 
 742:                                              ; preds = %738
-  br i1 %.not3103, label %743, label %.sink.split3885
+  br i1 %.not3103, label %743, label %.sink.split3896
 
-.sink.split3885:                                  ; preds = %742, %741, %737
+.sink.split3896:                                  ; preds = %742, %741, %737
   store i8 1, ptr %720, align 1
   br label %743
 
-743:                                              ; preds = %.sink.split3885, %742, %741
-  %.sink3829 = phi i32 [ 11, %741 ], [ 16, %742 ], [ 11, %.sink.split3885 ]
-  %744 = lshr i32 %337, %.sink3829
+743:                                              ; preds = %.sink.split3896, %742, %741
+  %.sink3840 = phi i32 [ 11, %741 ], [ 16, %742 ], [ 11, %.sink.split3896 ]
+  %744 = lshr i32 %337, %.sink3840
   %745 = trunc i32 %744 to i8
   %746 = and i8 %745, 31
   %747 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1457,10 +1457,10 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 780:                                              ; preds = %775
   %781 = lshr i32 %337, 16
-  %.sink3768.in3779 = trunc i32 %781 to i8
-  %.sink37683780 = and i8 %.sink3768.in3779, 31
+  %.sink3768.in3790 = trunc i32 %781 to i8
+  %.sink37683791 = and i8 %.sink3768.in3790, 31
   %782 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i8 %.sink37683780, ptr %782, align 8
+  store i8 %.sink37683791, ptr %782, align 8
   store i32 258048, ptr %56, align 8
   br label %1098
 
@@ -1531,13 +1531,13 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 810:                                              ; preds = %808
   %811 = and i32 %337, 30
-  %or.cond3891 = icmp eq i32 %811, 0
-  br i1 %or.cond3891, label %822, label %.sink.split
+  %or.cond3902 = icmp eq i32 %811, 0
+  br i1 %or.cond3902, label %822, label %.sink.split
 
 812:                                              ; preds = %808
   %813 = and i32 %337, 24
-  %or.cond3892 = icmp eq i32 %813, 0
-  br i1 %or.cond3892, label %814, label %.sink.split
+  %or.cond3903 = icmp eq i32 %813, 0
+  br i1 %or.cond3903, label %814, label %.sink.split
 
 814:                                              ; preds = %812
   %815 = and i32 %337, 4
@@ -1675,7 +1675,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 860:                                              ; preds = %857
   %861 = and i32 %337, 65011712
-  switch i32 %861, label %.sink.split3830 [
+  switch i32 %861, label %.sink.split3841 [
     i32 0, label %888
     i32 8388608, label %882
     i32 33554432, label %862
@@ -1690,8 +1690,8 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 865:                                              ; preds = %862
   %866 = and i32 %337, 31
-  %or.cond3896 = icmp eq i32 %866, 0
-  br i1 %or.cond3896, label %882, label %.sink.split3830
+  %or.cond3907 = icmp eq i32 %866, 0
+  br i1 %or.cond3907, label %882, label %.sink.split3841
 
 867:                                              ; preds = %862
   %868 = and i32 %337, 16
@@ -1700,8 +1700,8 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 869:                                              ; preds = %867
   %870 = and i32 %337, 15
-  %or.cond3899 = icmp eq i32 %870, 8
-  br i1 %or.cond3899, label %882, label %.sink.split3830
+  %or.cond3910 = icmp eq i32 %870, 8
+  br i1 %or.cond3910, label %882, label %.sink.split3841
 
 871:                                              ; preds = %867
   %872 = and i32 %337, 2
@@ -1710,8 +1710,8 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 873:                                              ; preds = %871
   %874 = and i32 %337, 7
-  %or.cond3901 = icmp eq i32 %874, 0
-  br i1 %or.cond3901, label %882, label %.sink.split3830
+  %or.cond3912 = icmp eq i32 %874, 0
+  br i1 %or.cond3912, label %882, label %.sink.split3841
 
 875:                                              ; preds = %871
   %876 = and i32 %337, 4
@@ -1720,20 +1720,20 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 877:                                              ; preds = %875
   %878 = and i32 %337, 3
-  %or.cond3902.not.not = icmp eq i32 %878, 2
-  br i1 %or.cond3902.not.not, label %882, label %.sink.split3830
+  %or.cond3913.not.not = icmp eq i32 %878, 2
+  br i1 %or.cond3913.not.not, label %882, label %.sink.split3841
 
 879:                                              ; preds = %875
   %880 = and i32 %337, 1
   %.not3018.not = icmp eq i32 %880, 0
   %881 = xor i1 %.not3017, %.not3018.not
-  br i1 %881, label %882, label %.sink.split3830
+  br i1 %881, label %882, label %.sink.split3841
 
-.sink.split3830:                                  ; preds = %879, %860, %877, %873, %869, %865
+.sink.split3841:                                  ; preds = %879, %860, %877, %873, %869, %865
   store i8 1, ptr %720, align 1
   br label %882
 
-882:                                              ; preds = %879, %877, %873, %869, %865, %.sink.split3830, %860
+882:                                              ; preds = %879, %877, %873, %869, %865, %.sink.split3841, %860
   br label %888
 
 883:                                              ; preds = %853
@@ -1746,8 +1746,8 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   br label %1098
 
 888:                                              ; preds = %882, %860, %856, %859
-  %.sink3836 = phi i32 [ 11, %856 ], [ 11, %859 ], [ 11, %882 ], [ 16, %860 ]
-  %889 = lshr i32 %337, %.sink3836
+  %.sink3847 = phi i32 [ 11, %856 ], [ 11, %859 ], [ 11, %882 ], [ 16, %860 ]
+  %889 = lshr i32 %337, %.sink3847
   %890 = trunc i32 %889 to i8
   %891 = and i8 %890, 31
   %892 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1775,8 +1775,8 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 898:                                              ; preds = %894
   %899 = and i32 %337, 56
-  %or.cond3904 = icmp eq i32 %899, 0
-  br i1 %or.cond3904, label %900, label %1098
+  %or.cond3915 = icmp eq i32 %899, 0
+  br i1 %or.cond3915, label %900, label %1098
 
 900:                                              ; preds = %898
   %901 = and i32 %337, 4
@@ -1818,8 +1818,8 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 912:                                              ; preds = %910
   %913 = and i32 %337, 917504
-  %or.cond3906 = icmp eq i32 %913, 0
-  br i1 %or.cond3906, label %974, label %.sink.split3837
+  %or.cond3917 = icmp eq i32 %913, 0
+  br i1 %or.cond3917, label %974, label %.sink.split3848
 
 914:                                              ; preds = %910
   %915 = and i32 %337, 524288
@@ -1828,13 +1828,13 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 916:                                              ; preds = %914
   %917 = and i32 %337, 327680
-  %or.cond3936.not = icmp eq i32 %917, 327680
-  br i1 %or.cond3936.not, label %.sink.split3837, label %974
+  %or.cond3947.not = icmp eq i32 %917, 327680
+  br i1 %or.cond3947.not, label %.sink.split3848, label %974
 
 918:                                              ; preds = %914
   %919 = and i32 %337, 393216
-  %or.cond3907 = icmp eq i32 %919, 0
-  br i1 %or.cond3907, label %974, label %.sink.split3837
+  %or.cond3918 = icmp eq i32 %919, 0
+  br i1 %or.cond3918, label %974, label %.sink.split3848
 
 920:                                              ; preds = %909
   %921 = and i32 %337, 32
@@ -1850,15 +1850,15 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 925:                                              ; preds = %924
   %926 = and i32 %337, 5
-  %or.cond3937.not = icmp ne i32 %926, 5
-  %or.cond3946.not = and i1 %.not2907, %or.cond3937.not
-  br i1 %or.cond3946.not, label %1002, label %.sink.split3838
+  %or.cond3948.not = icmp ne i32 %926, 5
+  %or.cond3957.not = and i1 %.not2907, %or.cond3948.not
+  br i1 %or.cond3957.not, label %1002, label %.sink.split3849
 
 927:                                              ; preds = %924
   %928 = and i32 %337, 6
-  %or.cond3908.not = icmp eq i32 %928, 2
-  %or.cond3947 = or i1 %.not2907, %or.cond3908.not
-  br i1 %or.cond3947, label %1002, label %.sink.split3838
+  %or.cond3919.not = icmp eq i32 %928, 2
+  %or.cond3958 = or i1 %.not2907, %or.cond3919.not
+  br i1 %or.cond3958, label %1002, label %.sink.split3849
 
 929:                                              ; preds = %920
   br i1 %.not2906, label %932, label %930
@@ -1866,7 +1866,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 930:                                              ; preds = %929
   %931 = and i32 %337, 4
   %.not2917 = icmp eq i32 %931, 0
-  br i1 %.not2917, label %1002, label %.sink.split3838
+  br i1 %.not2917, label %1002, label %.sink.split3849
 
 932:                                              ; preds = %929
   br i1 %.not2907, label %935, label %933
@@ -1874,12 +1874,12 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 933:                                              ; preds = %932
   %934 = and i32 %337, 7
   %or.cond3660 = icmp eq i32 %934, 6
-  br i1 %or.cond3660, label %.sink.split3838, label %1002
+  br i1 %or.cond3660, label %.sink.split3849, label %1002
 
 935:                                              ; preds = %932
   %936 = and i32 %337, 3
   %or.cond3662.not = icmp eq i32 %936, 1
-  br i1 %or.cond3662.not, label %.sink.split3838, label %1002
+  br i1 %or.cond3662.not, label %.sink.split3849, label %1002
 
 937:                                              ; preds = %907
   %938 = lshr i32 %337, 16
@@ -1978,11 +1978,11 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   store i32 64, ptr %56, align 8
   br label %1098
 
-.sink.split3837:                                  ; preds = %916, %918, %912
+.sink.split3848:                                  ; preds = %916, %918, %912
   store i8 1, ptr %720, align 1
   br label %974
 
-974:                                              ; preds = %918, %912, %.sink.split3837, %916
+974:                                              ; preds = %918, %912, %.sink.split3848, %916
   %975 = and i32 %337, 2031616
   switch i32 %975, label %976 [
     i32 1114112, label %980
@@ -2057,11 +2057,11 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   store i32 131136, ptr %56, align 8
   br label %1098
 
-.sink.split3838:                                  ; preds = %927, %935, %930, %933, %925
+.sink.split3849:                                  ; preds = %927, %935, %930, %933, %925
   store i8 1, ptr %720, align 1
   br label %1002
 
-1002:                                             ; preds = %925, %935, %930, %.sink.split3838, %933, %927
+1002:                                             ; preds = %925, %935, %930, %.sink.split3849, %933, %927
   %1003 = lshr i32 %337, 11
   %1004 = trunc i32 %1003 to i8
   %1005 = and i8 %1004, 31
@@ -2552,10 +2552,10 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %1193 = load i32, ptr %70, align 4
   %1194 = and i32 %1193, 1
   %.not3138 = icmp eq i32 %1194, 0
-  %spec.select3839 = select i1 %.not3138, ptr %364, ptr %372
-  %spec.select3840 = select i1 %.not3138, ptr %368, ptr %376
-  %.sink3769 = load i32, ptr %spec.select3840, align 4
-  %.sink3770 = load i32, ptr %spec.select3839, align 4
+  %spec.select3850 = select i1 %.not3138, ptr %364, ptr %372
+  %spec.select3851 = select i1 %.not3138, ptr %368, ptr %376
+  %.sink3769 = load i32, ptr %spec.select3851, align 4
+  %.sink3770 = load i32, ptr %spec.select3850, align 4
   %1195 = getelementptr inbounds nuw i8, ptr %0, i64 576
   store i32 %.sink3770, ptr %1195, align 8
   %1196 = getelementptr inbounds nuw i8, ptr %0, i64 580
@@ -2700,8 +2700,8 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %1321 = and i32 %1316, %1320
   %1322 = trunc nuw nsw i32 %1321 to i8
   %.masked.masked.masked = or disjoint i8 %1258, %1274
-  %.masked3943.masked = or i8 %.masked.masked.masked, %1290
-  %.masked = or i8 %.masked3943.masked, %1306
+  %.masked3954.masked = or i8 %.masked.masked.masked, %1290
+  %.masked = or i8 %.masked3954.masked, %1306
   %1323 = or i8 %.masked, %1322
   %1324 = getelementptr inbounds nuw i8, ptr %0, i64 1444
   %1325 = getelementptr inbounds nuw i8, ptr %0, i64 1452
@@ -2866,16 +2866,16 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 1450:                                             ; preds = %1449
   %1451 = and i32 %1419, 469762048
-  %or.cond3939 = icmp eq i32 %1451, 0
-  br i1 %or.cond3939, label %1452, label %.sink.split3886
+  %or.cond3950 = icmp eq i32 %1451, 0
+  br i1 %or.cond3950, label %1452, label %.sink.split3897
 
-.sink.split3886:                                  ; preds = %1450
+.sink.split3897:                                  ; preds = %1450
   store i8 1, ptr %1416, align 2
   br label %1452
 
-1452:                                             ; preds = %1450, %.sink.split3886
-  %.sink3845 = phi i32 [ 11, %.sink.split3886 ], [ 16, %1450 ]
-  %1453 = lshr i32 %1419, %.sink3845
+1452:                                             ; preds = %1450, %.sink.split3897
+  %.sink3856 = phi i32 [ 11, %.sink.split3897 ], [ 16, %1450 ]
+  %1453 = lshr i32 %1419, %.sink3856
   %1454 = trunc i32 %1453 to i8
   %1455 = and i8 %1454, 31
   %1456 = getelementptr inbounds nuw i8, ptr %0, i64 111
@@ -2889,7 +2889,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   br label %1521
 
 1459:                                             ; preds = %1449
-  br i1 %.not3358, label %1460, label %.sink.split3887
+  br i1 %.not3358, label %1460, label %.sink.split3898
 
 1460:                                             ; preds = %1459
   %1461 = and i32 %1419, 134217728
@@ -2899,18 +2899,18 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   br i1 %.not3375, label %1464, label %1463
 
 1463:                                             ; preds = %1460
-  br i1 %.not3376, label %.sink.split3887, label %1465
+  br i1 %.not3376, label %.sink.split3898, label %1465
 
 1464:                                             ; preds = %1460
-  br i1 %.not3376, label %1465, label %.sink.split3887
+  br i1 %.not3376, label %1465, label %.sink.split3898
 
-.sink.split3887:                                  ; preds = %1464, %1463, %1459
+.sink.split3898:                                  ; preds = %1464, %1463, %1459
   store i8 1, ptr %1416, align 2
   br label %1465
 
-1465:                                             ; preds = %.sink.split3887, %1464, %1463
-  %.sink3850 = phi i32 [ 11, %1463 ], [ 16, %1464 ], [ 11, %.sink.split3887 ]
-  %1466 = lshr i32 %1419, %.sink3850
+1465:                                             ; preds = %.sink.split3898, %1464, %1463
+  %.sink3861 = phi i32 [ 11, %1463 ], [ 16, %1464 ], [ 11, %.sink.split3898 ]
+  %1466 = lshr i32 %1419, %.sink3861
   %1467 = trunc i32 %1466 to i8
   %1468 = and i8 %1467, 31
   %1469 = getelementptr inbounds nuw i8, ptr %0, i64 111
@@ -2932,9 +2932,9 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 1474:                                             ; preds = %1473
   %1475 = and i32 %1419, 134217728
   %.not3370.not = icmp eq i32 %1475, 0
-  br i1 %.not3370.not, label %.thread3789, label %1476
+  br i1 %.not3370.not, label %.thread3800, label %1476
 
-.thread3789:                                      ; preds = %1474
+.thread3800:                                      ; preds = %1474
   store i8 1, ptr %1416, align 2
   br label %1489
 
@@ -2963,7 +2963,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   store i32 215040, ptr %1444, align 4
   br label %1489
 
-1489:                                             ; preds = %.thread3789, %1488, %1487, %1478
+1489:                                             ; preds = %.thread3800, %1488, %1487, %1478
   %1490 = lshr i32 %1419, 11
   %1491 = trunc i32 %1490 to i8
   %1492 = and i8 %1491, 31
@@ -2995,10 +2995,10 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 1502:                                             ; preds = %1497
   %1503 = lshr i32 %1419, 16
-  %.sink3773.in3792 = trunc i32 %1503 to i8
-  %.sink37733793 = and i8 %.sink3773.in3792, 31
+  %.sink3773.in3803 = trunc i32 %1503 to i8
+  %.sink37733804 = and i8 %.sink3773.in3803, 31
   %1504 = getelementptr inbounds nuw i8, ptr %0, i64 111
-  store i8 %.sink37733793, ptr %1504, align 1
+  store i8 %.sink37733804, ptr %1504, align 1
   store i32 258048, ptr %1444, align 4
   br label %1521
 
@@ -3059,8 +3059,8 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 1528:                                             ; preds = %1527
   %1529 = and i32 %1419, 201326592
-  %or.cond3909 = icmp eq i32 %1529, 0
-  br i1 %or.cond3909, label %1530, label %.sink.split3851
+  %or.cond3920 = icmp eq i32 %1529, 0
+  br i1 %or.cond3920, label %1530, label %.sink.split3862
 
 1530:                                             ; preds = %1528
   %1531 = and i32 %1419, 32
@@ -3069,13 +3069,13 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 1532:                                             ; preds = %1530
   %1533 = and i32 %1419, 30
-  %or.cond3912 = icmp eq i32 %1533, 0
-  br i1 %or.cond3912, label %1542, label %.sink.split3851
+  %or.cond3923 = icmp eq i32 %1533, 0
+  br i1 %or.cond3923, label %1542, label %.sink.split3862
 
 1534:                                             ; preds = %1530
   %1535 = and i32 %1419, 24
-  %or.cond3913 = icmp eq i32 %1535, 0
-  br i1 %or.cond3913, label %1536, label %.sink.split3851
+  %or.cond3924 = icmp eq i32 %1535, 0
+  br i1 %or.cond3924, label %1536, label %.sink.split3862
 
 1536:                                             ; preds = %1534
   %1537 = and i32 %1419, 4
@@ -3085,18 +3085,18 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 1538:                                             ; preds = %1536
   %1539 = and i32 %1419, 2
   %.not3335 = icmp eq i32 %1539, 0
-  br i1 %.not3335, label %1542, label %.sink.split3851
+  br i1 %.not3335, label %1542, label %.sink.split3862
 
 1540:                                             ; preds = %1536
   %1541 = and i32 %1419, 3
   %or.cond3671.not = icmp eq i32 %1541, 3
-  br i1 %or.cond3671.not, label %.sink.split3851, label %1542
+  br i1 %or.cond3671.not, label %.sink.split3862, label %1542
 
-.sink.split3851:                                  ; preds = %1540, %1538, %1534, %1532, %1528
+.sink.split3862:                                  ; preds = %1540, %1538, %1534, %1532, %1528
   store i8 1, ptr %1416, align 2
   br label %1542
 
-1542:                                             ; preds = %1532, %.sink.split3851, %1538, %1540
+1542:                                             ; preds = %1532, %.sink.split3862, %1538, %1540
   %1543 = and i32 %1419, 201326592
   %or.cond3672 = icmp eq i32 %1543, 0
   br i1 %or.cond3672, label %1544, label %1570
@@ -3214,7 +3214,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 1583:                                             ; preds = %1580
   %1584 = and i32 %1419, 65011712
-  switch i32 %1584, label %.sink.split3852 [
+  switch i32 %1584, label %.sink.split3863 [
     i32 0, label %1605
     i32 8388608, label %1605
     i32 33554432, label %1585
@@ -3229,8 +3229,8 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 1588:                                             ; preds = %1585
   %1589 = and i32 %1419, 31
-  %or.cond3917 = icmp eq i32 %1589, 0
-  br i1 %or.cond3917, label %1605, label %.sink.split3852
+  %or.cond3928 = icmp eq i32 %1589, 0
+  br i1 %or.cond3928, label %1605, label %.sink.split3863
 
 1590:                                             ; preds = %1585
   %1591 = and i32 %1419, 16
@@ -3239,8 +3239,8 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 1592:                                             ; preds = %1590
   %1593 = and i32 %1419, 15
-  %or.cond3920 = icmp eq i32 %1593, 8
-  br i1 %or.cond3920, label %1605, label %.sink.split3852
+  %or.cond3931 = icmp eq i32 %1593, 8
+  br i1 %or.cond3931, label %1605, label %.sink.split3863
 
 1594:                                             ; preds = %1590
   %1595 = and i32 %1419, 2
@@ -3249,8 +3249,8 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 1596:                                             ; preds = %1594
   %1597 = and i32 %1419, 7
-  %or.cond3922 = icmp eq i32 %1597, 0
-  br i1 %or.cond3922, label %1605, label %.sink.split3852
+  %or.cond3933 = icmp eq i32 %1597, 0
+  br i1 %or.cond3933, label %1605, label %.sink.split3863
 
 1598:                                             ; preds = %1594
   %1599 = and i32 %1419, 4
@@ -3259,27 +3259,27 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 1600:                                             ; preds = %1598
   %1601 = and i32 %1419, 3
-  %or.cond3923.not.not = icmp eq i32 %1601, 2
-  br i1 %or.cond3923.not.not, label %1605, label %.sink.split3852
+  %or.cond3934.not.not = icmp eq i32 %1601, 2
+  br i1 %or.cond3934.not.not, label %1605, label %.sink.split3863
 
 1602:                                             ; preds = %1598
   %1603 = and i32 %1419, 1
   %.not3291.not = icmp eq i32 %1603, 0
   %1604 = xor i1 %.not3290, %.not3291.not
-  br i1 %1604, label %1605, label %.sink.split3852
+  br i1 %1604, label %1605, label %.sink.split3863
 
-.sink.split3852:                                  ; preds = %1602, %1583, %1600, %1596, %1592, %1588
+.sink.split3863:                                  ; preds = %1602, %1583, %1600, %1596, %1592, %1588
   store i8 1, ptr %1416, align 2
   br label %1605
 
-1605:                                             ; preds = %1602, %1600, %1596, %1592, %1588, %.sink.split3852, %1583, %1583
+1605:                                             ; preds = %1602, %1600, %1596, %1592, %1588, %.sink.split3863, %1583, %1583
   %1606 = icmp eq i32 %1584, 0
   %.v = select i1 %1606, i32 16, i32 11
   br label %1607
 
 1607:                                             ; preds = %1579, %1605, %1582, %1576
-  %.sink3857 = phi i32 [ 11, %1579 ], [ %.v, %1605 ], [ 11, %1582 ], [ 11, %1576 ]
-  %1608 = lshr i32 %1419, %.sink3857
+  %.sink3868 = phi i32 [ 11, %1579 ], [ %.v, %1605 ], [ 11, %1582 ], [ 11, %1576 ]
+  %1608 = lshr i32 %1419, %.sink3868
   %1609 = trunc i32 %1608 to i8
   %1610 = and i8 %1609, 31
   %1611 = getelementptr inbounds nuw i8, ptr %0, i64 111
@@ -3307,25 +3307,25 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 1617:                                             ; preds = %1613
   %1618 = and i32 %1419, 56
-  %or.cond3925 = icmp eq i32 %1618, 0
-  br i1 %or.cond3925, label %1619, label %1626
+  %or.cond3936 = icmp eq i32 %1618, 0
+  br i1 %or.cond3936, label %1619, label %1626
 
 1619:                                             ; preds = %1617
   %1620 = and i32 %1419, 4
   %.not3313 = icmp eq i32 %1620, 0
   %1621 = and i32 %1419, 3
-  %brmerge3926.not = icmp eq i32 %1621, 2
+  %brmerge3937.not = icmp eq i32 %1621, 2
   br i1 %.not3313, label %1624, label %1622
 
 1622:                                             ; preds = %1619
-  br i1 %brmerge3926.not, label %1623, label %1626
+  br i1 %brmerge3937.not, label %1623, label %1626
 
 1623:                                             ; preds = %1622
   store i32 36, ptr %1444, align 4
   br label %1626
 
 1624:                                             ; preds = %1619
-  br i1 %brmerge3926.not, label %1625, label %1626
+  br i1 %brmerge3937.not, label %1625, label %1626
 
 1625:                                             ; preds = %1624
   store i32 36, ptr %1444, align 4
@@ -3351,8 +3351,8 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 1632:                                             ; preds = %1630
   %1633 = and i32 %1419, 917504
-  %or.cond3928 = icmp eq i32 %1633, 0
-  br i1 %or.cond3928, label %1701, label %.sink.split3858
+  %or.cond3939 = icmp eq i32 %1633, 0
+  br i1 %or.cond3939, label %1701, label %.sink.split3869
 
 1634:                                             ; preds = %1630
   %1635 = and i32 %1419, 524288
@@ -3361,13 +3361,13 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 1636:                                             ; preds = %1634
   %1637 = and i32 %1419, 327680
-  %or.cond3940.not = icmp eq i32 %1637, 327680
-  br i1 %or.cond3940.not, label %.sink.split3858, label %1701
+  %or.cond3951.not = icmp eq i32 %1637, 327680
+  br i1 %or.cond3951.not, label %.sink.split3869, label %1701
 
 1638:                                             ; preds = %1634
   %1639 = and i32 %1419, 393216
-  %or.cond3929 = icmp eq i32 %1639, 0
-  br i1 %or.cond3929, label %1701, label %.sink.split3858
+  %or.cond3940 = icmp eq i32 %1639, 0
+  br i1 %or.cond3940, label %1701, label %.sink.split3869
 
 1640:                                             ; preds = %1629
   %1641 = and i32 %1419, 32
@@ -3383,15 +3383,15 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 1645:                                             ; preds = %1644
   %1646 = and i32 %1419, 5
-  %or.cond3941.not = icmp ne i32 %1646, 5
-  %or.cond3948.not = and i1 %.not3170, %or.cond3941.not
-  br i1 %or.cond3948.not, label %1743, label %.sink.split3859
+  %or.cond3952.not = icmp ne i32 %1646, 5
+  %or.cond3959.not = and i1 %.not3170, %or.cond3952.not
+  br i1 %or.cond3959.not, label %1743, label %.sink.split3870
 
 1647:                                             ; preds = %1644
   %1648 = and i32 %1419, 6
-  %or.cond3930.not = icmp eq i32 %1648, 2
-  %or.cond3949 = or i1 %.not3170, %or.cond3930.not
-  br i1 %or.cond3949, label %1743, label %.sink.split3859
+  %or.cond3941.not = icmp eq i32 %1648, 2
+  %or.cond3960 = or i1 %.not3170, %or.cond3941.not
+  br i1 %or.cond3960, label %1743, label %.sink.split3870
 
 1649:                                             ; preds = %1640
   br i1 %.not3169, label %1652, label %1650
@@ -3399,19 +3399,19 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 1650:                                             ; preds = %1649
   %1651 = and i32 %1419, 4
   %.not3180 = icmp eq i32 %1651, 0
-  br i1 %.not3180, label %1743, label %.sink.split3859
+  br i1 %.not3180, label %1743, label %.sink.split3870
 
 1652:                                             ; preds = %1649
   br i1 %.not3170, label %1654, label %1653
 
 1653:                                             ; preds = %1652
   %or.cond3688 = icmp eq i32 %1422, 6
-  br i1 %or.cond3688, label %.sink.split3859, label %1743
+  br i1 %or.cond3688, label %.sink.split3870, label %1743
 
 1654:                                             ; preds = %1652
   %1655 = and i32 %1419, 3
   %or.cond3690.not = icmp eq i32 %1655, 1
-  br i1 %or.cond3690.not, label %.sink.split3859, label %1743
+  br i1 %or.cond3690.not, label %.sink.split3870, label %1743
 
 1656:                                             ; preds = %1628
   %.not3202 = icmp samesign ult i32 %1419, 536870912
@@ -3525,11 +3525,11 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   store i32 64, ptr %1444, align 4
   br label %1843
 
-.sink.split3858:                                  ; preds = %1636, %1638, %1632
+.sink.split3869:                                  ; preds = %1636, %1638, %1632
   store i8 1, ptr %1416, align 2
   br label %1701
 
-1701:                                             ; preds = %1638, %1632, %.sink.split3858, %1636
+1701:                                             ; preds = %1638, %1632, %.sink.split3869, %1636
   %1702 = and i32 %1419, 2031616
   switch i32 %1702, label %1703 [
     i32 1114112, label %1707
@@ -3636,11 +3636,11 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   store i32 131136, ptr %1444, align 4
   br label %1843
 
-.sink.split3859:                                  ; preds = %1647, %1654, %1650, %1653, %1645
+.sink.split3870:                                  ; preds = %1647, %1654, %1650, %1653, %1645
   store i8 1, ptr %1416, align 2
   br label %1743
 
-1743:                                             ; preds = %1645, %1654, %1650, %.sink.split3859, %1653, %1647
+1743:                                             ; preds = %1645, %1654, %1650, %.sink.split3870, %1653, %1647
   %1744 = and i32 %1419, 62
   %1745 = icmp eq i32 %1744, 8
   %1746 = select i1 %1745, i8 9, i8 0
@@ -3994,7 +3994,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %1891 = zext i8 %1890 to i32
   %1892 = and i32 %1891, 32
   %.not3387 = icmp eq i32 %1892, 0
-  br i1 %.not3387, label %.sink.split3860, label %1893
+  br i1 %.not3387, label %.sink.split3871, label %1893
 
 1893:                                             ; preds = %1843
   %1894 = and i32 %1891, 16
@@ -4004,7 +4004,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 1895:                                             ; preds = %1893
   %1896 = and i32 %1891, 15
   %or.cond3625 = icmp eq i32 %1896, 8
-  br i1 %or.cond3625, label %1897, label %.sink.split3860
+  br i1 %or.cond3625, label %1897, label %.sink.split3871
 
 1897:                                             ; preds = %1895
   %1898 = getelementptr inbounds nuw i8, ptr %0, i64 524
@@ -4012,7 +4012,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %1900 = and i32 %1899, 3
   %1901 = icmp eq i32 %1900, 0
   %1902 = select i1 %1901, i8 15, i8 0
-  br label %.sink.split3860
+  br label %.sink.split3871
 
 1903:                                             ; preds = %1893
   %1904 = and i32 %1891, 8
@@ -4088,19 +4088,19 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %1945 = phi i32 [ %1913, %1909 ], [ 0, %1907 ], [ %.neg3401, %1921 ], [ %1925, %1923 ], [ %1932, %1927 ], [ %1943, %1933 ]
   %1946 = trunc nsw i32 %1945 to i8
   %1947 = and i8 %1946, 15
-  br label %.sink.split3860
+  br label %.sink.split3871
 
 1948:                                             ; preds = %1903
   %1949 = and i32 %1891, 3
-  %or.cond3933 = icmp eq i32 %1949, 2
-  br i1 %or.cond3933, label %1950, label %.sink.split3860
+  %or.cond3944 = icmp eq i32 %1949, 2
+  br i1 %or.cond3944, label %1950, label %.sink.split3871
 
-.sink.split3860:                                  ; preds = %1948, %1843, %1897, %1895, %1944
-  %.sink3861 = phi i8 [ %1947, %1944 ], [ %1902, %1897 ], [ 0, %1895 ], [ 0, %1843 ], [ 0, %1948 ]
-  store i8 %.sink3861, ptr %518, align 1
+.sink.split3871:                                  ; preds = %1948, %1843, %1897, %1895, %1944
+  %.sink3872 = phi i8 [ %1947, %1944 ], [ %1902, %1897 ], [ 0, %1895 ], [ 0, %1843 ], [ 0, %1948 ]
+  store i8 %.sink3872, ptr %518, align 1
   br label %1950
 
-1950:                                             ; preds = %1948, %.sink.split3860
+1950:                                             ; preds = %1948, %.sink.split3871
   %1951 = zext i8 %1888 to i32
   %1952 = load i8, ptr %518, align 1
   %1953 = icmp ne i8 %1952, 0
@@ -4342,7 +4342,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %2129 = and i32 %2058, 4
   %.not3460 = icmp eq i32 %2129, 0
   %2130 = trunc i64 %2050 to i32
-  %spec.select3862 = select i1 %.not3460, i32 %2130, i32 %2052
+  %spec.select3873 = select i1 %.not3460, i32 %2130, i32 %2052
   %2131 = xor i8 %2123, -1
   %2132 = load i8, ptr %1210, align 1
   %2133 = and i8 %2132, %2131
@@ -4360,10 +4360,10 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   br label %2142
 
 2142:                                             ; preds = %2134, %2127
-  %.sink3863 = phi i8 [ %2141, %2134 ], [ %2133, %2127 ]
-  %.02850 = phi i32 [ %2139, %2134 ], [ %spec.select3862, %2127 ]
+  %.sink3874 = phi i8 [ %2141, %2134 ], [ %2133, %2127 ]
+  %.02850 = phi i32 [ %2139, %2134 ], [ %spec.select3873, %2127 ]
   %2143 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %.sink3863, ptr %2143, align 8
+  store i8 %.sink3874, ptr %2143, align 8
   %2144 = load i32, ptr %487, align 4
   %2145 = load i8, ptr %518, align 1
   %2146 = icmp ne i8 %2145, 0
@@ -4709,11 +4709,11 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %2406 = and i8 %.in3510, %2216
   %2407 = getelementptr inbounds nuw i8, ptr %0, i64 50
   store i8 %2406, ptr %2407, align 2
-  %.sink3865 = select i1 %.narrow3470, i64 492, i64 496
+  %.sink3876 = select i1 %.narrow3470, i64 492, i64 496
   %.sink3776.in.v = select i1 %.narrow3470, i64 135, i64 136
   %.sink3776.in = getelementptr inbounds nuw i8, ptr %0, i64 %.sink3776.in.v
   %2408 = select i1 %.narrow3470, i32 %2169, i32 %2185
-  %2409 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink3865
+  %2409 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink3876
   %.sink3775 = load i32, ptr %2409, align 4
   %.sink3776 = load i8, ptr %.sink3776.in, align 1
   %2410 = getelementptr inbounds nuw i8, ptr %0, i64 173
@@ -4777,7 +4777,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %2449 = and i32 %2442, %2448
   %2450 = or i32 %2444, %2449
   %2451 = trunc i32 %2450 to i8
-  %2452 = or i8 %.sink3863, %2451
+  %2452 = or i8 %.sink3874, %2451
   %2453 = or i8 %2452, %2402
   %2454 = and i8 %2453, 1
   %2455 = getelementptr inbounds nuw i8, ptr %0, i64 150
@@ -4868,7 +4868,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %.in3525.v = select i1 %.not3524, i64 688, i64 704
   %.in3525 = getelementptr inbounds nuw i8, ptr %0, i64 %.in3525.v
   %2523 = load i32, ptr %.in3525, align 8
-  br label %.sink.split3866
+  br label %.sink.split3877
 
 2524:                                             ; preds = %2433
   %.not3519 = icmp eq i32 %2519, 0
@@ -4881,7 +4881,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 2527:                                             ; preds = %2525
   %2528 = add i32 %220, 384
-  br label %.sink.split3866
+  br label %.sink.split3877
 
 2529:                                             ; preds = %2525
   %2530 = lshr i32 %2519, 9
@@ -4919,17 +4919,17 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 2555:                                             ; preds = %2529, %2539
   %2556 = phi i32 [ %2554, %2539 ], [ 512, %2529 ]
   %2557 = add i32 %2556, %220
-  br label %.sink.split3866
+  br label %.sink.split3877
 
-.sink.split3866:                                  ; preds = %2527, %2555, %2521
-  %.sink3869 = phi i32 [ %2523, %2521 ], [ %2528, %2527 ], [ %2557, %2555 ]
-  store i32 %.sink3869, ptr %2476, align 8
+.sink.split3877:                                  ; preds = %2527, %2555, %2521
+  %.sink3880 = phi i32 [ %2523, %2521 ], [ %2528, %2527 ], [ %2557, %2555 ]
+  store i32 %.sink3880, ptr %2476, align 8
   %2558 = xor i8 %2454, 1
   store i8 %2558, ptr %2518, align 1
   br label %2559
 
-2559:                                             ; preds = %.sink.split3866, %2524
-  %2560 = phi i8 [ 0, %2524 ], [ %2558, %.sink.split3866 ]
+2559:                                             ; preds = %.sink.split3877, %2524
+  %2560 = phi i8 [ 0, %2524 ], [ %2558, %.sink.split3877 ]
   %2561 = xor i8 %2453, -1
   %2562 = load i32, ptr %2069, align 4
   %2563 = lshr i32 %2562, 18
@@ -5038,11 +5038,11 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 2654:                                             ; preds = %2652
   %2655 = and i32 %2651, 6
   switch i32 %2655, label %2663 [
-    i32 2, label %.thread3804
+    i32 2, label %.thread3815
     i32 4, label %2659
   ]
 
-.thread3804:                                      ; preds = %2654
+.thread3815:                                      ; preds = %2654
   %2656 = trunc i32 %2651 to i8
   %2657 = and i8 %2656, 1
   %2658 = sub nuw nsw i8 2, %2657
@@ -5062,7 +5062,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   store i8 1, ptr %1415, align 4
   br label %2663
 
-2663:                                             ; preds = %2654, %2661, %.thread3804, %2662, %2652
+2663:                                             ; preds = %2654, %2661, %.thread3815, %2662, %2652
   %2664 = and i32 %2651, 2080374784
   %or.cond3707 = icmp eq i32 %2664, 1073741824
   br i1 %or.cond3707, label %2665, label %2689
@@ -5070,25 +5070,25 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 2665:                                             ; preds = %2663
   %2666 = and i32 %2651, 65011712
   switch i32 %2666, label %2686 [
-    i32 8388608, label %.sink.split3870
+    i32 8388608, label %.sink.split3881
     i32 33554432, label %2667
   ]
 
 2667:                                             ; preds = %2665
   %2668 = and i32 %2651, 63
   %or.cond3712 = icmp eq i32 %2668, 24
-  br i1 %or.cond3712, label %2669, label %.thread3808
+  br i1 %or.cond3712, label %2669, label %.thread3819
 
 2669:                                             ; preds = %2667
   store i8 1, ptr %1417, align 2
-  br label %.thread3808
+  br label %.thread3819
 
-.thread3808:                                      ; preds = %2667, %2669
+.thread3819:                                      ; preds = %2667, %2669
   %2670 = and i32 %2651, 48
   %or.cond3713 = icmp eq i32 %2670, 0
   br i1 %or.cond3713, label %2671, label %2686
 
-2671:                                             ; preds = %.thread3808
+2671:                                             ; preds = %.thread3819
   %2672 = and i32 %2651, 8
   %.not3557 = icmp eq i32 %2672, 0
   br i1 %.not3557, label %2675, label %2673
@@ -5096,7 +5096,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 2673:                                             ; preds = %2671
   %2674 = and i32 %2651, 7
   %or.cond3715 = icmp eq i32 %2674, 0
-  br i1 %or.cond3715, label %.sink.split3870, label %2686
+  br i1 %or.cond3715, label %.sink.split3881, label %2686
 
 2675:                                             ; preds = %2671
   %2676 = and i32 %2651, 4
@@ -5106,7 +5106,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 2677:                                             ; preds = %2675
   %2678 = and i32 %2651, 3
   %or.cond3716 = icmp eq i32 %2678, 2
-  br i1 %or.cond3716, label %.sink.split3870, label %2686
+  br i1 %or.cond3716, label %.sink.split3881, label %2686
 
 2679:                                             ; preds = %2675
   %2680 = and i32 %2651, 2
@@ -5116,19 +5116,19 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   br i1 %.not3559, label %2683, label %2682
 
 2682:                                             ; preds = %2679
-  br i1 %.not3560, label %.sink.split3870, label %2686
+  br i1 %.not3560, label %.sink.split3881, label %2686
 
 2683:                                             ; preds = %2679
-  br i1 %.not3560, label %2686, label %.sink.split3870
+  br i1 %.not3560, label %2686, label %.sink.split3881
 
-.sink.split3870:                                  ; preds = %2683, %2682, %2677, %2673, %2665
-  %.sink3873 = phi i16 [ 4096, %2665 ], [ 2048, %2673 ], [ 256, %2677 ], [ 512, %2682 ], [ 1024, %2683 ]
+.sink.split3881:                                  ; preds = %2683, %2682, %2677, %2673, %2665
+  %.sink3884 = phi i16 [ 4096, %2665 ], [ 2048, %2673 ], [ 256, %2677 ], [ 512, %2682 ], [ 1024, %2683 ]
   %2684 = load i16, ptr %1425, align 2
-  %2685 = or i16 %2684, %.sink3873
+  %2685 = or i16 %2684, %.sink3884
   store i16 %2685, ptr %1425, align 2
   br label %2686
 
-2686:                                             ; preds = %.sink.split3870, %2665, %.thread3808, %2673, %2682, %2683, %2677
+2686:                                             ; preds = %.sink.split3881, %2665, %.thread3819, %2673, %2682, %2683, %2677
   %2687 = and i8 %2570, 1
   %2688 = xor i8 %2687, 1
   store i8 %2688, ptr %2650, align 8
@@ -5148,11 +5148,11 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 2693:                                             ; preds = %2691
   %2694 = and i32 %2588, 6
   switch i32 %2694, label %2702 [
-    i32 2, label %.thread3809
+    i32 2, label %.thread3820
     i32 4, label %2698
   ]
 
-.thread3809:                                      ; preds = %2693
+.thread3820:                                      ; preds = %2693
   %2695 = trunc i32 %2588 to i8
   %2696 = and i8 %2695, 1
   %2697 = sub nuw nsw i8 2, %2696
@@ -5172,7 +5172,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   store i8 1, ptr %719, align 1
   br label %2702
 
-2702:                                             ; preds = %2693, %2700, %.thread3809, %2701, %2691
+2702:                                             ; preds = %2693, %2700, %.thread3820, %2701, %2691
   %2703 = and i32 %2588, 2080374784
   %or.cond3729 = icmp eq i32 %2703, 1073741824
   br i1 %or.cond3729, label %2704, label %2710
@@ -5286,8 +5286,8 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 2780:                                             ; preds = %2737
   %2781 = load i8, ptr %2, align 8
   %.not3601 = icmp eq i8 %2781, 0
-  %spec.select3874 = select i1 %.not3601, i8 %2778, i8 %2769
-  %2782 = sub nsw i8 0, %spec.select3874
+  %spec.select3885 = select i1 %.not3601, i8 %2778, i8 %2769
+  %2782 = sub nsw i8 0, %spec.select3885
   %2783 = and i8 %2782, 15
   br label %2784
 
@@ -5452,11 +5452,11 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %.not3611 = icmp eq i8 %2883, 0
   %2890 = load i32, ptr %434, align 4
   %2891 = add i32 %2890, 4
-  %spec.select3888 = select i1 %.not3611, i32 %2890, i32 %2891
+  %spec.select3899 = select i1 %.not3611, i32 %2890, i32 %2891
   br label %2892
 
 2892:                                             ; preds = %2889, %2824, %2874, %2886, %2880, %2829, %2821
-  %2893 = phi i32 [ %2822, %2821 ], [ %2827, %2824 ], [ %2860, %2829 ], [ %2877, %2874 ], [ %2881, %2880 ], [ %2888, %2886 ], [ %spec.select3888, %2889 ]
+  %2893 = phi i32 [ %2822, %2821 ], [ %2827, %2824 ], [ %2860, %2829 ], [ %2877, %2874 ], [ %2881, %2880 ], [ %2888, %2886 ], [ %spec.select3899, %2889 ]
   %2894 = getelementptr inbounds nuw i8, ptr %0, i64 784
   store i32 %2893, ptr %2894, align 8
   %2895 = load i8, ptr %177, align 1
@@ -5495,9 +5495,9 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   br label %2916
 
 2916:                                             ; preds = %2906, %2914, %2896
-  %.sink3875 = phi i8 [ %2913, %2906 ], [ 0, %2914 ], [ %2904, %2896 ]
+  %.sink3886 = phi i8 [ %2913, %2906 ], [ 0, %2914 ], [ %2904, %2896 ]
   %2917 = getelementptr inbounds nuw i8, ptr %0, i64 185
-  store i8 %.sink3875, ptr %2917, align 1
+  store i8 %.sink3886, ptr %2917, align 1
   ret void
 }
 
@@ -5729,8 +5729,8 @@ define dso_local void @_Z39Vmycpu_top___024root___stl_comb__TOP__0P20Vmycpu_top_
 
 115:                                              ; preds = %96
   %116 = and i32 %20, 3670016
-  %or.cond745.not = icmp eq i32 %116, 3670016
-  br i1 %or.cond745.not, label %117, label %322
+  %or.cond748.not = icmp eq i32 %116, 3670016
+  br i1 %or.cond748.not, label %117, label %322
 
 117:                                              ; preds = %115
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -5758,8 +5758,8 @@ define dso_local void @_Z39Vmycpu_top___024root___stl_comb__TOP__0P20Vmycpu_top_
 
 128:                                              ; preds = %94
   %129 = and i32 %20, 7340032
-  %or.cond747 = icmp eq i32 %129, 0
-  br i1 %or.cond747, label %130, label %322
+  %or.cond750 = icmp eq i32 %129, 0
+  br i1 %or.cond750, label %130, label %322
 
 130:                                              ; preds = %128
   %131 = and i32 %20, 524288
@@ -6794,11 +6794,11 @@ define dso_local void @_Z39Vmycpu_top___024root___stl_comb__TOP__0P20Vmycpu_top_
   %665 = and i32 %326, 1
   %.not668 = icmp eq i32 %665, 0
   %spec.select = select i1 %.not668, i8 %.0, i8 %.0487
-  %spec.select744 = select i1 %.not668, i8 %.0485, i8 %.0488
+  %spec.select747 = select i1 %.not668, i8 %.0485, i8 %.0488
   %666 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store i8 %spec.select, ptr %666, align 4
   %667 = getelementptr inbounds nuw i8, ptr %0, i64 163
-  store i8 %spec.select744, ptr %667, align 1
+  store i8 %spec.select747, ptr %667, align 1
   %668 = getelementptr inbounds nuw i8, ptr %0, i64 121
   %669 = load i8, ptr %668, align 1
   %670 = zext i8 %669 to i32

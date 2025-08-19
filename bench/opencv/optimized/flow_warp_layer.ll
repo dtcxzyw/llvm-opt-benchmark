@@ -848,13 +848,13 @@ define linkonce_odr hidden void @_ZN2cv3dnn17FlowWarpLayerImpl7forwardERKNS_11_I
   %82 = add nsw i64 %81, %114
   %gep = getelementptr float, ptr %invariant.gep, i64 %82
   %83 = load float, ptr %gep, align 4, !tbaa !67
-  %gep180 = getelementptr float, ptr %invariant.gep179, i64 %82
-  %84 = load float, ptr %gep180, align 4, !tbaa !67
+  %gep194 = getelementptr float, ptr %invariant.gep193, i64 %82
+  %84 = load float, ptr %gep194, align 4, !tbaa !67
   %85 = add nsw i64 %81, %117
-  %gep182 = getelementptr float, ptr %invariant.gep181, i64 %85
-  %86 = load float, ptr %gep182, align 4, !tbaa !67
-  %gep184 = getelementptr float, ptr %invariant.gep183, i64 %85
-  %87 = load float, ptr %gep184, align 4, !tbaa !67
+  %gep196 = getelementptr float, ptr %invariant.gep195, i64 %85
+  %86 = load float, ptr %gep196, align 4, !tbaa !67
+  %gep198 = getelementptr float, ptr %invariant.gep197, i64 %85
+  %87 = load float, ptr %gep198, align 4, !tbaa !67
   %88 = fmul float %110, %86
   %89 = call float @llvm.fmuladd.f32(float %109, float %83, float %88)
   %90 = call float @llvm.fmuladd.f32(float %111, float %84, float %89)
@@ -901,9 +901,9 @@ define linkonce_odr hidden void @_ZN2cv3dnn17FlowWarpLayerImpl7forwardERKNS_11_I
   %116 = sext i32 %.sroa.speculated138.us.us.us to i64
   %117 = sext i32 %106 to i64
   %invariant.gep = getelementptr float, ptr %31, i64 %115
-  %invariant.gep179 = getelementptr float, ptr %31, i64 %116
-  %invariant.gep181 = getelementptr float, ptr %31, i64 %115
-  %invariant.gep183 = getelementptr float, ptr %31, i64 %116
+  %invariant.gep193 = getelementptr float, ptr %31, i64 %116
+  %invariant.gep195 = getelementptr float, ptr %31, i64 %115
+  %invariant.gep197 = getelementptr float, ptr %31, i64 %116
   br label %79
 
 ._crit_edge.us.us.us:                             ; preds = %.loopexit.us.us.us

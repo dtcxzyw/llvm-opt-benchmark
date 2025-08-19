@@ -5332,7 +5332,7 @@ for.cond.for.end_crit_edge.i.i:                   ; preds = %_ZN10TestObjectD2Ev
   br label %_ZN5eastl8destructIP10TestObjectEEvT_S3_.exit
 
 _ZN5eastl8destructIP10TestObjectEEvT_S3_.exit:    ; preds = %_ZN5eastl10VectorBaseI10TestObjectNS_9allocatorEE10DoAllocateEm.exit, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIP10TestObjectS2_S2_EET1_T_T0_S3_.exit, %for.cond.for.end_crit_edge.i.i
-  %retval.sroa.0.0.lcssa.i.i.i9 = phi ptr [ %incdec.ptr.i1.i.i.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIP10TestObjectS2_S2_EET1_T_T0_S3_.exit ], [ %incdec.ptr.i1.i.i.i, %for.cond.for.end_crit_edge.i.i ], [ %retval.0.i, %_ZN5eastl10VectorBaseI10TestObjectNS_9allocatorEE10DoAllocateEm.exit ]
+  %retval.sroa.0.0.lcssa.i.i.i14 = phi ptr [ %incdec.ptr.i1.i.i.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIP10TestObjectS2_S2_EET1_T_T0_S3_.exit ], [ %incdec.ptr.i1.i.i.i, %for.cond.for.end_crit_edge.i.i ], [ %retval.0.i, %_ZN5eastl10VectorBaseI10TestObjectNS_9allocatorEE10DoAllocateEm.exit ]
   %9 = phi ptr [ %.pre, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIP10TestObjectS2_S2_EET1_T_T0_S3_.exit ], [ %.pr, %for.cond.for.end_crit_edge.i.i ], [ %0, %_ZN5eastl10VectorBaseI10TestObjectNS_9allocatorEE10DoAllocateEm.exit ]
   %tobool.not.i4 = icmp eq ptr %9, null
   br i1 %tobool.not.i4, label %_ZN5eastl10VectorBaseI10TestObjectNS_9allocatorEE6DoFreeEPS1_m.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i
@@ -5344,7 +5344,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %_ZN5eastl8destructI
 _ZN5eastl10VectorBaseI10TestObjectNS_9allocatorEE6DoFreeEPS1_m.exit: ; preds = %_ZN5eastl8destructIP10TestObjectEEvT_S3_.exit, %_ZN5eastl9allocator10deallocateEPvm.exit.i
   %mCapacityAllocator.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %retval.0.i, ptr %this, align 8
-  store ptr %retval.sroa.0.0.lcssa.i.i.i9, ptr %mpEnd, align 8
+  store ptr %retval.sroa.0.0.lcssa.i.i.i14, ptr %mpEnd, align 8
   %add.ptr = getelementptr inbounds %struct.TestObject, ptr %retval.0.i, i64 %n
   store ptr %add.ptr, ptr %mCapacityAllocator.i, align 8
   ret void
@@ -5664,7 +5664,7 @@ if.then6:                                         ; preds = %if.else
 _ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread: ; preds = %if.then6
   store i64 %n, ptr %mnSize.i.i, align 8
   %2 = load ptr, ptr %this, align 8
-  %add.ptr.i.i77 = getelementptr inbounds i8, ptr %2, i64 %n
+  %add.ptr.i.i79 = getelementptr inbounds i8, ptr %2, i64 %n
   br label %6
 
 _ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit: ; preds = %if.then6
@@ -5681,7 +5681,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit: ; preds = %if.th
   br label %6
 
 6:                                                ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread
-  %7 = phi ptr [ %add.ptr.i.i77, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread ], [ %spec.select, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit ]
+  %7 = phi ptr [ %add.ptr.i.i79, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread ], [ %spec.select, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit ]
   store i8 0, ptr %7, align 1
   %.pre = load i8, ptr %mRemainingSizeField.i.i, align 1
   br label %if.end10

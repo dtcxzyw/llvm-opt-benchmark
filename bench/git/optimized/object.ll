@@ -158,19 +158,19 @@ define dso_local ptr @lookup_object(ptr noundef readonly captures(none) %0, ptr 
 
 .lr.ph.preheader:                                 ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %bcmp.i50 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %1, ptr noundef nonnull readonly dereferenceable(32) %16, i64 32)
-  %.not.i.not51 = icmp eq i32 %bcmp.i50, 0
-  br i1 %.not.i.not51, label %25, label %.lr.ph53
+  %bcmp.i53 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %1, ptr noundef nonnull readonly dereferenceable(32) %16, i64 32)
+  %.not.i.not54 = icmp eq i32 %bcmp.i53, 0
+  br i1 %.not.i.not54, label %25, label %.lr.ph56
 
-.lr.ph:                                           ; preds = %.lr.ph53
+.lr.ph:                                           ; preds = %.lr.ph56
   %17 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %1, ptr noundef nonnull readonly dereferenceable(32) %17, i64 32)
   %.not.i.not = icmp eq i32 %bcmp.i, 0
-  br i1 %.not.i.not, label %.lr.ph._crit_edge, label %.lr.ph53, !llvm.loop !45
+  br i1 %.not.i.not, label %.lr.ph._crit_edge, label %.lr.ph56, !llvm.loop !45
 
-.lr.ph53:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0233452 = phi i32 [ %spec.store.select, %.lr.ph ], [ %11, %.lr.ph.preheader ]
-  %18 = add i32 %.0233452, 1
+.lr.ph56:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0233455 = phi i32 [ %spec.store.select, %.lr.ph ], [ %11, %.lr.ph.preheader ]
+  %18 = add i32 %.0233455, 1
   %19 = icmp eq i32 %18, %9
   %spec.store.select = select i1 %19, i32 0, i32 %18
   %20 = zext i32 %spec.store.select to i64
@@ -186,7 +186,7 @@ define dso_local ptr @lookup_object(ptr noundef readonly captures(none) %0, ptr 
 
 25:                                               ; preds = %.lr.ph._crit_edge, %.lr.ph.preheader
   %.sroa.0.0.copyload.lcssa = phi i64 [ %23, %.lr.ph._crit_edge ], [ %15, %.lr.ph.preheader ]
-  %.lcssa47 = phi ptr [ %22, %.lr.ph._crit_edge ], [ %14, %.lr.ph.preheader ]
+  %.lcssa50 = phi ptr [ %22, %.lr.ph._crit_edge ], [ %14, %.lr.ph.preheader ]
   %.lcssa = phi i64 [ %20, %.lr.ph._crit_edge ], [ %12, %.lr.ph.preheader ]
   %.02334.lcssa = phi i1 [ %24, %.lr.ph._crit_edge ], [ true, %.lr.ph.preheader ]
   br i1 %.02334.lcssa, label %.critedge, label %26
@@ -197,8 +197,8 @@ define dso_local ptr @lookup_object(ptr noundef readonly captures(none) %0, ptr 
   store i64 %.sroa.0.0.copyload.lcssa, ptr %13, align 1
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph53, %7, %25, %26, %2
-  %.0 = phi ptr [ null, %2 ], [ %.lcssa47, %26 ], [ %.lcssa47, %25 ], [ null, %7 ], [ null, %.lr.ph53 ]
+.critedge:                                        ; preds = %.lr.ph56, %7, %25, %26, %2
+  %.0 = phi ptr [ null, %2 ], [ %.lcssa50, %26 ], [ %.lcssa50, %25 ], [ null, %7 ], [ null, %.lr.ph56 ]
   ret ptr %.0
 }
 
@@ -837,15 +837,15 @@ lookup_replace_object.exit:                       ; preds = %3, %17, %23
   br label %lookup_object.exit
 
 lookup_object.exit:                               ; preds = %.lr.ph.i.preheader, %46, %.lr.ph.i._crit_edge
-  %.lcssa95129 = phi ptr [ %44, %46 ], [ %44, %.lr.ph.i._crit_edge ], [ %36, %.lr.ph.i.preheader ]
-  %49 = load i32, ptr %.lcssa95129, align 4
+  %.lcssa95138 = phi ptr [ %44, %46 ], [ %44, %.lr.ph.i._crit_edge ], [ %36, %.lr.ph.i.preheader ]
+  %49 = load i32, ptr %.lcssa95138, align 4
   %50 = and i32 %49, 1
   %.not57 = icmp eq i32 %50, 0
   br i1 %.not57, label %lookup_object.exit.thread, label %lookup_object.exit77
 
 lookup_object.exit.thread:                        ; preds = %.lr.ph, %29, %lookup_replace_object.exit, %lookup_object.exit
   %.not84 = phi i1 [ false, %lookup_object.exit ], [ true, %lookup_replace_object.exit ], [ true, %29 ], [ true, %.lr.ph ]
-  %.0.i6383 = phi ptr [ %.lcssa95129, %lookup_object.exit ], [ null, %lookup_replace_object.exit ], [ null, %29 ], [ null, %.lr.ph ]
+  %.0.i6383 = phi ptr [ %.lcssa95138, %lookup_object.exit ], [ null, %lookup_replace_object.exit ], [ null, %29 ], [ null, %.lr.ph ]
   br i1 %.not59, label %53, label %51
 
 51:                                               ; preds = %lookup_object.exit.thread
@@ -1032,7 +1032,7 @@ _.exit80:                                         ; preds = %114, %116
   br label %lookup_object.exit77
 
 lookup_object.exit77:                             ; preds = %.lr.ph107, %.lr.ph.i68.preheader, %93, %.lr.ph.i68._crit_edge, %76, %71, %106, %126, %129, %lookup_object.exit, %51, %_.exit80, %104, %_.exit
-  %.0 = phi ptr [ null, %_.exit ], [ %105, %104 ], [ null, %_.exit80 ], [ %52, %51 ], [ %.lcssa95129, %lookup_object.exit ], [ %123, %129 ], [ %123, %126 ], [ null, %106 ], [ null, %71 ], [ %91, %93 ], [ %91, %.lr.ph.i68._crit_edge ], [ null, %76 ], [ %83, %.lr.ph.i68.preheader ], [ null, %.lr.ph107 ]
+  %.0 = phi ptr [ null, %_.exit ], [ %105, %104 ], [ null, %_.exit80 ], [ %52, %51 ], [ %.lcssa95138, %lookup_object.exit ], [ %123, %129 ], [ %123, %126 ], [ null, %106 ], [ null, %71 ], [ %91, %93 ], [ %91, %.lr.ph.i68._crit_edge ], [ null, %76 ], [ %83, %.lr.ph.i68.preheader ], [ null, %.lr.ph107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

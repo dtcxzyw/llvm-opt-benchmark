@@ -353,7 +353,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %13, %_ZN7rocksdb6St
   br i1 %29, label %30, label %_ZN7rocksdb6StatusD2Ev.exit15
 
 30:                                               ; preds = %.thread, %27
-  %.pn820 = phi { ptr, i32 } [ %26, %.thread ], [ %28, %27 ]
+  %.pn821 = phi { ptr, i32 } [ %26, %.thread ], [ %28, %27 ]
   %31 = load ptr, ptr %6, align 8, !tbaa !52
   %.not.i.i11 = icmp eq ptr %31, null
   br i1 %.not.i.i11, label %_ZN7rocksdb6StatusD2Ev.exit15, label %32
@@ -363,10 +363,10 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %13, %_ZN7rocksdb6St
   br label %_ZN7rocksdb6StatusD2Ev.exit15
 
 _ZN7rocksdb6StatusD2Ev.exit15:                    ; preds = %32, %30, %27
-  %.pn819 = phi { ptr, i32 } [ %.pn820, %32 ], [ %.pn820, %30 ], [ %28, %27 ]
+  %.pn820 = phi { ptr, i32 } [ %.pn821, %32 ], [ %.pn821, %30 ], [ %28, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr null, ptr %7, align 8, !tbaa !65
-  resume { ptr, i32 } %.pn819
+  resume { ptr, i32 } %.pn820
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

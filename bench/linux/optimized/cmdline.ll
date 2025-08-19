@@ -295,12 +295,12 @@ define dso_local noundef zeroext i1 @parse_option_str(ptr noundef readonly captu
 
 .preheader:                                       ; preds = %11, %6
   %.ph = phi i8 [ %7, %6 ], [ %13, %11 ]
-  %.ph7 = phi ptr [ %8, %6 ], [ %12, %11 ]
+  %.ph8 = phi ptr [ %8, %6 ], [ %12, %11 ]
   br label %14
 
 14:                                               ; preds = %.preheader, %17
   %15 = phi i8 [ %.pre, %17 ], [ %.ph, %.preheader ]
-  %16 = phi ptr [ %18, %17 ], [ %.ph7, %.preheader ]
+  %16 = phi ptr [ %18, %17 ], [ %.ph8, %.preheader ]
   switch i8 %15, label %17 [
     i8 0, label %19
     i8 44, label %19

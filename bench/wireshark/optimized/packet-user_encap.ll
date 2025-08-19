@@ -141,12 +141,12 @@ define internal void @user_encap_encap_set_cb(ptr noundef writeonly captures(non
 
 .lr.ph.preheader:                                 ; preds = %5
   %10 = tail call i32 @g_str_equal(ptr noundef nonnull %9, ptr noundef %7)
-  %.not1320 = icmp eq i32 %10, 0
-  br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
+  %.not1321 = icmp eq i32 %10, 0
+  br i1 %.not1321, label %.lr.ph23, label %.lr.ph._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01621 = phi i32 [ %11, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %11 = add i32 %.01621, 1
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi i32 [ %11, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %11 = add i32 %.01622, 1
   %12 = zext i32 %11 to i64
   %13 = getelementptr %struct._value_string, ptr %3, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -154,10 +154,10 @@ define internal void @user_encap_encap_set_cb(ptr noundef writeonly captures(non
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %16 = tail call i32 @g_str_equal(ptr noundef nonnull %15, ptr noundef %7)
   %.not13 = icmp eq i32 %16, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !8
+  br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !8
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %13, %.lr.ph ]
@@ -165,7 +165,7 @@ define internal void @user_encap_encap_set_cb(ptr noundef writeonly captures(non
   store i32 %17, ptr %0, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge
   tail call void @g_free(ptr noundef %7)
   ret void
 }
@@ -181,11 +181,11 @@ define internal void @user_encap_encap_tostr_cb(ptr noundef readonly captures(no
   %8 = load i32, ptr %0, align 8
   %9 = load i32, ptr %3, align 8
   %10 = icmp eq i32 %9, %8
-  br i1 %10, label %._crit_edge21, label %.lr.ph20
+  br i1 %10, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph20:                                         ; preds = %.lr.ph, %16
-  %.01519 = phi i32 [ %11, %16 ], [ 0, %.lr.ph ]
-  %11 = add i32 %.01519, 1
+.lr.ph21:                                         ; preds = %.lr.ph, %16
+  %.01520 = phi i32 [ %11, %16 ], [ 0, %.lr.ph ]
+  %11 = add i32 %.01520, 1
   %12 = zext i32 %11 to i64
   %13 = getelementptr %struct._value_string, ptr %3, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -193,12 +193,12 @@ define internal void @user_encap_encap_tostr_cb(ptr noundef readonly captures(no
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge, label %16, !llvm.loop !9
 
-16:                                               ; preds = %.lr.ph20
+16:                                               ; preds = %.lr.ph21
   %17 = load i32, ptr %13, align 8
   %18 = icmp eq i32 %17, %8
-  br i1 %18, label %._crit_edge21, label %.lr.ph20, !llvm.loop !9
+  br i1 %18, label %._crit_edge22, label %.lr.ph21, !llvm.loop !9
 
-._crit_edge21:                                    ; preds = %16, %.lr.ph
+._crit_edge22:                                    ; preds = %16, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %15, %16 ]
   %19 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %19, ptr %1, align 8
@@ -206,13 +206,13 @@ define internal void @user_encap_encap_tostr_cb(ptr noundef readonly captures(no
   %21 = trunc i64 %20 to i32
   br label %23
 
-._crit_edge:                                      ; preds = %.lr.ph20, %5
+._crit_edge:                                      ; preds = %.lr.ph21, %5
   %22 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.33)
   store ptr %22, ptr %1, align 8
   br label %23
 
-23:                                               ; preds = %._crit_edge, %._crit_edge21
-  %storemerge = phi i32 [ 16, %._crit_edge ], [ %21, %._crit_edge21 ]
+23:                                               ; preds = %._crit_edge, %._crit_edge22
+  %storemerge = phi i32 [ 16, %._crit_edge ], [ %21, %._crit_edge22 ]
   store i32 %storemerge, ptr %2, align 4
   ret void
 }

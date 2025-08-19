@@ -768,9 +768,9 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
 110:                                              ; preds = %106
   %111 = load i32, ptr %102, align 8
   %.not162 = icmp eq i32 %111, 0
-  br i1 %.not162, label %.thread226, label %113
+  br i1 %.not162, label %.thread234, label %113
 
-.thread226:                                       ; preds = %110
+.thread234:                                       ; preds = %110
   %112 = getelementptr inbounds nuw i8, ptr %80, i64 40
   store ptr null, ptr %112, align 8
   br label %.loopexit
@@ -818,7 +818,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not165, label %120, label %.thread187
 
-.loopexit:                                        ; preds = %120, %.thread226, %117, %104
+.loopexit:                                        ; preds = %120, %.thread234, %117, %104
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %132 = load i32, ptr %31, align 8
   %133 = zext i32 %132 to i64

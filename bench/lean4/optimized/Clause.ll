@@ -5161,7 +5161,7 @@ lean_dec.exit31.backedge:                         ; preds = %63, %67, %73, %75, 
   br label %lean_dec.exit31
 
 67:                                               ; preds = %60
-  %68 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %61) #5
+  %68 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #5
   br label %lean_dec.exit31.backedge
 
 69:                                               ; preds = %lean_array_fset.exit
@@ -5358,7 +5358,7 @@ lean_obj_tag.exit538:                             ; preds = %57, %60
   br label %lean_dec.exit423
 
 75:                                               ; preds = %67
-  %76 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %69) #5
+  %76 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #5
   br label %lean_dec.exit423
 
 77:                                               ; preds = %64
@@ -5561,8 +5561,8 @@ lean_dec.exit422:                                 ; preds = %149, %148, %146, %l
   br i1 %.not725, label %156, label %lean_dec.exit421.thread, !prof !19
 
 lean_dec.exit421.thread:                          ; preds = %lean_dec.exit422
-  %.not731 = icmp ugt ptr %.1.i666, %153
-  br i1 %.not731, label %164, label %180
+  %.not835 = icmp ugt ptr %.1.i666, %153
+  br i1 %.not835, label %164, label %180
 
 156:                                              ; preds = %lean_dec.exit422
   %157 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i666, ptr noundef nonnull %153) #5
@@ -6102,7 +6102,7 @@ lean_obj_tag.exit570:                             ; preds = %360, %363
   br label %lean_dec.exit407
 
 376:                                              ; preds = %368
-  %377 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %370) #5
+  %377 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #5
   br label %lean_dec.exit407
 
 378:                                              ; preds = %367
@@ -6305,8 +6305,8 @@ lean_dec.exit406:                                 ; preds = %450, %449, %447, %l
   br i1 %.not710, label %457, label %lean_dec.exit405.thread, !prof !19
 
 lean_dec.exit405.thread:                          ; preds = %lean_dec.exit406
-  %.not730 = icmp ugt ptr %.1.i587671, %454
-  br i1 %.not730, label %465, label %487
+  %.not834 = icmp ugt ptr %.1.i587671, %454
+  br i1 %.not834, label %465, label %487
 
 457:                                              ; preds = %lean_dec.exit406
   %458 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i587671, ptr noundef nonnull %454) #5
@@ -6971,7 +6971,7 @@ lean_obj_tag.exit627:                             ; preds = %708, %711
   br label %lean_dec.exit394
 
 724:                                              ; preds = %716
-  %725 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %718) #5
+  %725 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #5
   br label %lean_dec.exit394
 
 726:                                              ; preds = %715
@@ -7174,8 +7174,8 @@ lean_dec.exit393:                                 ; preds = %798, %797, %795, %l
   br i1 %.not693, label %805, label %lean_dec.exit392.thread, !prof !19
 
 lean_dec.exit392.thread:                          ; preds = %lean_dec.exit393
-  %.not729 = icmp ugt ptr %.1.i644676, %802
-  br i1 %.not729, label %813, label %844
+  %.not833 = icmp ugt ptr %.1.i644676, %802
+  br i1 %.not833, label %813, label %844
 
 805:                                              ; preds = %lean_dec.exit393
   %806 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i644676, ptr noundef nonnull %802) #5

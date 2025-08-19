@@ -1017,17 +1017,17 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_key_gen_raw(ptr noundef reado
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %52 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %11, ptr noundef %8, ptr noundef null) #12
-  %.not115162 = icmp eq i32 %52, 0
-  br i1 %.not115162, label %.loopexit.sink.split, label %.lr.ph165
+  %.not115172 = icmp eq i32 %52, 0
+  br i1 %.not115172, label %.loopexit.sink.split, label %.lr.ph175
 
-.lr.ph165:                                        ; preds = %.lr.ph152, %._crit_edge147
-  %.0100149164 = phi ptr [ %70, %._crit_edge147 ], [ %7, %.lr.ph152 ]
-  %.097150163 = phi i64 [ %71, %._crit_edge147 ], [ %6, %.lr.ph152 ]
+.lr.ph175:                                        ; preds = %.lr.ph152, %._crit_edge147
+  %.0100149174 = phi ptr [ %70, %._crit_edge147 ], [ %7, %.lr.ph152 ]
+  %.097150173 = phi i64 [ %71, %._crit_edge147 ], [ %6, %.lr.ph152 ]
   %53 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %11, ptr noundef nonnull %10, i64 noundef %.fr) #12
   %.not116 = icmp eq i32 %53, 0
   br i1 %.not116, label %.loopexit.sink.split, label %54
 
-54:                                               ; preds = %.lr.ph165
+54:                                               ; preds = %.lr.ph175
   %55 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %11, ptr noundef %36, i64 noundef %32) #12
   %.not117 = icmp eq i32 %55, 0
   br i1 %.not117, label %.loopexit.sink.split, label %56
@@ -1066,10 +1066,10 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_key_gen_raw(ptr noundef reado
 ._crit_edge139:                                   ; preds = %58, %.preheader130
   %67 = load i32, ptr %13, align 4, !tbaa !42
   %68 = zext i32 %67 to i64
-  %69 = call i64 @llvm.umin.i64(i64 %.097150163, i64 %68)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0100149164, ptr nonnull align 16 %12, i64 %69, i1 false)
-  %70 = getelementptr inbounds nuw i8, ptr %.0100149164, i64 %69
-  %71 = sub i64 %.097150163, %69
+  %69 = call i64 @llvm.umin.i64(i64 %.097150173, i64 %68)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0100149174, ptr nonnull align 16 %12, i64 %69, i1 false)
+  %70 = getelementptr inbounds nuw i8, ptr %.0100149174, i64 %69
+  %71 = sub i64 %.097150173, %69
   %72 = icmp eq i64 %71, 0
   br i1 %72, label %.loopexit.sink.split, label %73
 
@@ -1127,10 +1127,10 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_key_gen_raw(ptr noundef reado
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %95 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %11, ptr noundef %8, ptr noundef null) #12
   %.not115 = icmp eq i32 %95, 0
-  br i1 %.not115, label %.loopexit.sink.split, label %.lr.ph165
+  br i1 %.not115, label %.loopexit.sink.split, label %.lr.ph175
 
-.loopexit.sink.split:                             ; preds = %._crit_edge139, %56, %54, %.lr.ph165, %._crit_edge147, %.lr.ph138, %61, %65, %.lr.ph152
-  %.092.ph = phi i32 [ 0, %.lr.ph152 ], [ 0, %65 ], [ 0, %61 ], [ 0, %.lr.ph138 ], [ 0, %._crit_edge147 ], [ 0, %.lr.ph165 ], [ 0, %54 ], [ 0, %56 ], [ 1, %._crit_edge139 ]
+.loopexit.sink.split:                             ; preds = %._crit_edge139, %56, %54, %.lr.ph175, %._crit_edge147, %.lr.ph138, %61, %65, %.lr.ph152
+  %.092.ph = phi i32 [ 0, %.lr.ph152 ], [ 0, %65 ], [ 0, %61 ], [ 0, %.lr.ph138 ], [ 0, %._crit_edge147 ], [ 0, %.lr.ph175 ], [ 0, %54 ], [ 0, %56 ], [ 1, %._crit_edge139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit

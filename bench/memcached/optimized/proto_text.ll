@@ -2119,11 +2119,11 @@ define internal fastcc void @process_mget_command(ptr noundef %0, ptr noundef no
   br i1 %.0242.lcssa, label %237, label %242
 
 237:                                              ; preds = %230, %236
-  %.4319 = phi ptr [ %232, %230 ], [ %.3, %236 ]
-  store i8 32, ptr %.4319, align 1, !tbaa !29
-  %238 = getelementptr inbounds nuw i8, ptr %.4319, i64 1
+  %.4326 = phi ptr [ %232, %230 ], [ %.3, %236 ]
+  store i8 32, ptr %.4326, align 1, !tbaa !29
+  %238 = getelementptr inbounds nuw i8, ptr %.4326, i64 1
   store i8 87, ptr %238, align 1, !tbaa !29
-  %239 = getelementptr inbounds nuw i8, ptr %.4319, i64 2
+  %239 = getelementptr inbounds nuw i8, ptr %.4326, i64 2
   %240 = load i16, ptr %221, align 2, !tbaa !32
   %241 = or i16 %240, 512
   store i16 %241, ptr %221, align 2, !tbaa !32
@@ -2316,13 +2316,13 @@ define internal fastcc void @process_mget_command(ptr noundef %0, ptr noundef no
   br label %415
 
 352:                                              ; preds = %318
-  %.328 = select i1 %323, i64 432, i64 408
-  %.329 = select i1 %323, i64 440, i64 400
-  %353 = getelementptr inbounds nuw i8, ptr %324, i64 %.328
+  %.335 = select i1 %323, i64 432, i64 408
+  %.336 = select i1 %323, i64 440, i64 400
+  %353 = getelementptr inbounds nuw i8, ptr %324, i64 %.335
   %354 = load i64, ptr %353, align 8, !tbaa !40
   %355 = add i64 %354, 1
   store i64 %355, ptr %353, align 8, !tbaa !40
-  %356 = getelementptr inbounds nuw i8, ptr %324, i64 %.329
+  %356 = getelementptr inbounds nuw i8, ptr %324, i64 %.336
   %357 = load i64, ptr %356, align 8, !tbaa !40
   %358 = add i64 %357, 1
   store i64 %358, ptr %356, align 8, !tbaa !40
@@ -2427,8 +2427,8 @@ define internal fastcc void @process_mget_command(ptr noundef %0, ptr noundef no
   br i1 %306, label %408, label %413
 
 408:                                              ; preds = %.loopexit.thread, %.loopexit
-  %.1238295321 = phi ptr [ %.1238.ph, %.loopexit.thread ], [ %.1238294, %.loopexit ]
-  call void @do_item_remove(ptr noundef %.1238295321) #13
+  %.1238295328 = phi ptr [ %.1238.ph, %.loopexit.thread ], [ %.1238294, %.loopexit ]
+  call void @do_item_remove(ptr noundef %.1238295328) #13
   %409 = load i16, ptr %4, align 8
   %410 = and i16 %409, 4
   %.not280 = icmp eq i16 %410, 0
@@ -2701,7 +2701,7 @@ define internal fastcc void @process_mset_command(ptr noundef %0, ptr noundef no
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 360
   %. = select i1 %111, i64 584, i64 576
   %.str.67..str.66 = select i1 %111, ptr @.str.67, ptr @.str.66
-  %.137 = select i1 %111, i32 5, i32 4
+  %.143 = select i1 %111, i32 5, i32 4
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 %.
   %119 = load i64, ptr %118, align 8, !tbaa !40
   %120 = add i64 %119, 1
@@ -2730,7 +2730,7 @@ define internal fastcc void @process_mset_command(ptr noundef %0, ptr noundef no
 
 134:                                              ; preds = %130
   %135 = zext nneg i16 %.1112 to i32
-  %136 = call i32 (ptr, i32, ptr, ...) @logger_log(ptr noundef nonnull %.0, i32 noundef 3, ptr noundef null, i32 noundef %.137, i32 noundef %135, ptr noundef %37, i64 noundef %38, i32 noundef 0, i32 noundef 0) #13
+  %136 = call i32 (ptr, i32, ptr, ...) @logger_log(ptr noundef nonnull %.0, i32 noundef 3, ptr noundef null, i32 noundef %.143, i32 noundef %135, ptr noundef %37, i64 noundef %38, i32 noundef 0, i32 noundef 0) #13
   br label %137
 
 137:                                              ; preds = %134, %130
@@ -3344,7 +3344,7 @@ define internal fastcc void @process_marithmetic_command(ptr noundef %0, ptr nou
   %45 = call i32 @do_add_delta(ptr noundef %42, ptr noundef %33, i64 noundef %34, i1 noundef zeroext %.0152, i64 noundef %43, ptr noundef nonnull %7, ptr noundef nonnull %44, i32 noundef %40, ptr noundef nonnull %6) #13
   switch i32 %45, label %.thread [
     i32 0, label %46
-    i32 1, label %.loopexit231
+    i32 1, label %.loopexit235
     i32 2, label %63
     i32 3, label %64
     i32 4, label %136
@@ -3382,7 +3382,7 @@ define internal fastcc void @process_marithmetic_command(ptr noundef %0, ptr nou
   br label %.thread
 
 63:                                               ; preds = %38
-  br label %.loopexit231
+  br label %.loopexit235
 
 64:                                               ; preds = %38
   %65 = load i16, ptr %4, align 8
@@ -3623,7 +3623,7 @@ define internal fastcc void @process_marithmetic_command(ptr noundef %0, ptr nou
   %195 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %196 = load i64, ptr %195, align 8, !tbaa !68
   %197 = icmp ugt i64 %196, 32
-  br i1 %197, label %.loopexit231, label %198
+  br i1 %197, label %.loopexit235, label %198
 
 198:                                              ; preds = %194
   store i8 32, ptr %.2217, align 1, !tbaa !29
@@ -3702,7 +3702,7 @@ define internal fastcc void @process_marithmetic_command(ptr noundef %0, ptr nou
   %228 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %229 = load i64, ptr %228, align 8, !tbaa !68
   %230 = icmp ugt i64 %229, 32
-  br i1 %230, label %.loopexit231, label %231
+  br i1 %230, label %.loopexit235, label %231
 
 231:                                              ; preds = %227
   store i8 32, ptr %.7219, align 1, !tbaa !29
@@ -3764,7 +3764,7 @@ define internal fastcc void @process_marithmetic_command(ptr noundef %0, ptr nou
   call void @conn_set_state(ptr noundef %0, i32 noundef 1) #13
   br label %263
 
-.loopexit231:                                     ; preds = %194, %227, %38, %63
+.loopexit235:                                     ; preds = %194, %227, %38, %63
   %.str.55.sink = phi ptr [ @.str.69, %63 ], [ @.str.71, %38 ], [ @.str.55, %227 ], [ @.str.55, %194 ]
   store ptr %.str.55.sink, ptr %5, align 8, !tbaa !85
   %.pr189 = load ptr, ptr %6, align 8, !tbaa !113
@@ -3781,12 +3781,12 @@ define internal fastcc void @process_marithmetic_command(ptr noundef %0, ptr nou
   call void @do_item_remove(ptr noundef nonnull %.pr189203) #13
   br label %261
 
-259:                                              ; preds = %.loopexit231
+259:                                              ; preds = %.loopexit235
   call void @do_item_remove(ptr noundef nonnull %.pr189) #13
   br label %.thread212
 
-.thread212:                                       ; preds = %.loopexit231, %259, %.thread196
-  %260 = phi ptr [ %.str.55.sink, %.loopexit231 ], [ %.str.55.sink, %259 ], [ @.str.72, %.thread196 ]
+.thread212:                                       ; preds = %.loopexit235, %259, %.thread196
+  %260 = phi ptr [ %.str.55.sink, %.loopexit235 ], [ %.str.55.sink, %259 ], [ @.str.72, %.thread196 ]
   call void @item_unlock(i32 noundef %40) #13
   br label %261
 
@@ -4023,7 +4023,7 @@ define internal fastcc void @process_get_command(ptr noundef %0, ptr noundef non
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %. = select i1 %3, i64 432, i64 408
-  %.202 = select i1 %3, i64 440, i64 400
+  %.210 = select i1 %3, i64 440, i64 400
   br label %24
 
 24:                                               ; preds = %239, %21
@@ -4290,7 +4290,7 @@ make_ascii_get_suffix.exit:                       ; preds = %74, %83
   %188 = load i64, ptr %187, align 8, !tbaa !40
   %189 = add i64 %188, 1
   store i64 %189, ptr %187, align 8, !tbaa !40
-  %190 = getelementptr inbounds nuw i8, ptr %186, i64 %.202
+  %190 = getelementptr inbounds nuw i8, ptr %186, i64 %.210
   %191 = load i64, ptr %190, align 8, !tbaa !40
   %192 = add i64 %191, 1
   store i64 %192, ptr %190, align 8, !tbaa !40
@@ -4591,13 +4591,13 @@ set_noreply_maybe.exit:                           ; preds = %5, %14, %17
   br label %68
 
 68:                                               ; preds = %66, %67
-  %.sink79 = phi i64 [ 576, %66 ], [ 584, %67 ]
+  %.sink85 = phi i64 [ 576, %66 ], [ 584, %67 ]
   %.064 = phi i32 [ 4, %66 ], [ 5, %67 ]
   %69 = load ptr, ptr %65, align 8, !tbaa !28
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 360
   %71 = call i32 @pthread_mutex_lock(ptr noundef nonnull %70) #13
   %72 = load ptr, ptr %65, align 8, !tbaa !28
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 %.sink79
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 %.sink85
   %74 = load i64, ptr %73, align 8, !tbaa !40
   %75 = add i64 %74, 1
   store i64 %75, ptr %73, align 8, !tbaa !40
@@ -6130,8 +6130,8 @@ set_noreply_maybe.exit:                           ; preds = %3, %8, %11
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %54
-  %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 1, %.lr.ph.preheader ]
-  %.04852 = phi i16 [ %55, %54 ], [ 0, %.lr.ph.preheader ]
+  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %54 ]
+  %.04852 = phi i16 [ 0, %.lr.ph.preheader ], [ %55, %54 ]
   %22 = getelementptr inbounds nuw %struct.token_s, ptr %1, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !66
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(8) @.str.154) #14

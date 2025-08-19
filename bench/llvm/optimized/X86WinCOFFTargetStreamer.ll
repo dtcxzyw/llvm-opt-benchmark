@@ -1521,7 +1521,7 @@ _ZN12_GLOBAL__N_124X86WinCOFFTargetStreamer18checkInFPOPrologueEN4llvm5SMLocE.ex
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %_ZN12_GLOBAL__N_124X86WinCOFFTargetStreamer18checkInFPOPrologueEN4llvm5SMLocE.exit
   %.pre-phi50.i.i.i.i.i = phi i32 [ %36, %._crit_edge.loopexit.i.i.i.i.i ], [ %.val11, %_ZN12_GLOBAL__N_124X86WinCOFFTargetStreamer18checkInFPOPrologueEN4llvm5SMLocE.exit ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %.val10, %_ZN12_GLOBAL__N_124X86WinCOFFTargetStreamer18checkInFPOPrologueEN4llvm5SMLocE.exit ]
-  switch i32 %.pre-phi50.i.i.i.i.i, label %._crit_edge.i.i.i.i.unreachabledefault.i [
+  switch i32 %.pre-phi50.i.i.i.i.i, label %default.unreachable [
     i32 3, label %37
     i32 2, label %42
     i32 1, label %47
@@ -1556,7 +1556,7 @@ _ZN12_GLOBAL__N_124X86WinCOFFTargetStreamer18checkInFPOPrologueEN4llvm5SMLocE.ex
   %49 = icmp eq i32 %.2.val.i.i.i.i.i, 3
   br i1 %49, label %"_ZN4llvm7none_ofIRNS_11SmallVectorIN12_GLOBAL__N_114FPOInstructionELj5EEEZNS2_24X86WinCOFFTargetStreamer17emitFPOStackAlignEjNS_5SMLocEE3$_0EEbOT_T0_.exit", label %"_ZN4llvm7none_ofIRNS_11SmallVectorIN12_GLOBAL__N_114FPOInstructionELj5EEEZNS2_24X86WinCOFFTargetStreamer17emitFPOStackAlignEjNS_5SMLocEE3$_0EEbOT_T0_.exit.thread"
 
-._crit_edge.i.i.i.i.unreachabledefault.i:         ; preds = %._crit_edge.i.i.i.i.i
+default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i
   unreachable
 
 .loopexit.split.loop.exit34.i.i.i.i.i:            ; preds = %23

@@ -422,8 +422,8 @@ checktab.exit55:                                  ; preds = %checktab.exit, %22,
   %52 = add nsw i64 %.157, %4
   tail call void @lua_seti(ptr noundef %0, i32 noundef %7, i64 noundef %52) #3
   %53 = add nsw i64 %.157, -1
-  %.not63 = icmp eq i64 %.157, 0
-  br i1 %.not63, label %.loopexit, label %.lr.ph
+  %.not66 = icmp eq i64 %.157, 0
+  br i1 %.not66, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph60, %48, %41, %checktab.exit55
   tail call void @lua_pushvalue(ptr noundef %0, i32 noundef %7) #3
@@ -679,11 +679,11 @@ define internal fastcc void @auxsort(ptr noundef %0, i32 noundef %1, i32 noundef
 
 48:                                               ; preds = %78, %43
   %.lcssa.sink = phi i64 [ %31, %43 ], [ %51, %78 ]
-  %.lcssa104.sink = phi i64 [ %46, %43 ], [ %65, %78 ]
+  %.lcssa111.sink = phi i64 [ %46, %43 ], [ %65, %78 ]
   %.025.i = phi i32 [ %.07995, %43 ], [ %50, %78 ]
   %.0.i = phi i32 [ %45, %43 ], [ %64, %78 ]
   tail call void @lua_seti(ptr noundef %0, i32 noundef 1, i64 noundef %.lcssa.sink) #3
-  tail call void @lua_seti(ptr noundef %0, i32 noundef 1, i64 noundef %.lcssa104.sink) #3
+  tail call void @lua_seti(ptr noundef %0, i32 noundef 1, i64 noundef %.lcssa111.sink) #3
   br label %49
 
 49:                                               ; preds = %63, %48

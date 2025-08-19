@@ -708,8 +708,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i252: ; preds = %236, %2
 
 259:                                              ; preds = %249
   %260 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %.not502 = icmp eq ptr %251, %252
-  br i1 %.not502, label %_ZNSt6vectorIN2cv6Point_IdEESaIS2_EE7reserveEm.exit.thread, label %_ZNSt12_Vector_baseIN2cv6Point_IdEESaIS2_EE11_M_allocateEm.exit.i
+  %.not549 = icmp eq ptr %251, %252
+  br i1 %.not549, label %_ZNSt6vectorIN2cv6Point_IdEESaIS2_EE7reserveEm.exit.thread, label %_ZNSt12_Vector_baseIN2cv6Point_IdEESaIS2_EE11_M_allocateEm.exit.i
 
 _ZNSt6vectorIN2cv6Point_IdEESaIS2_EE7reserveEm.exit.thread: ; preds = %259
   %261 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -1739,11 +1739,11 @@ _ZNK2cv3Mat2atIdEERKT_i.exit314:                  ; preds = %_ZNK2cv7MatExprcvNS
   br label %_ZNK2cv3Mat2atIdEERKT_i.exit314.thread
 
 _ZNK2cv3Mat2atIdEERKT_i.exit314.thread:           ; preds = %671, %_ZNK2cv3Mat2atIdEERKT_i.exit314
-  %.sink511 = phi ptr [ %699, %_ZNK2cv3Mat2atIdEERKT_i.exit314 ], [ %675, %671 ]
+  %.sink558 = phi ptr [ %699, %_ZNK2cv3Mat2atIdEERKT_i.exit314 ], [ %675, %671 ]
   %701 = phi double [ %700, %_ZNK2cv3Mat2atIdEERKT_i.exit314 ], [ %676, %671 ]
-  %702 = getelementptr inbounds nuw i8, ptr %.sink511, i64 8
+  %702 = getelementptr inbounds nuw i8, ptr %.sink558, i64 8
   %703 = load double, ptr %702, align 8, !tbaa !79
-  %704 = getelementptr inbounds nuw i8, ptr %.sink511, i64 16
+  %704 = getelementptr inbounds nuw i8, ptr %.sink558, i64 16
   br label %_ZNK2cv3Mat2atIdEERKT_i.exit317
 
 705:                                              ; preds = %685, %681
@@ -1765,13 +1765,13 @@ _ZNK2cv3Mat2atIdEERKT_i.exit314.thread:           ; preds = %671, %_ZNK2cv3Mat2a
   %716 = load i32, ptr %568, align 4, !tbaa !110
   %717 = sdiv i32 2, %716
   %718 = mul nsw i32 %717, %716
-  %.recomposed516 = srem i32 2, %716
+  %.recomposed563 = srem i32 2, %716
   %719 = load ptr, ptr %569, align 8, !tbaa !119
   %720 = load i64, ptr %719, align 8, !tbaa !120
   %721 = sext i32 %717 to i64
   %722 = mul i64 %720, %721
   %723 = getelementptr inbounds nuw i8, ptr %675, i64 %722
-  %724 = sext i32 %.recomposed516 to i64
+  %724 = sext i32 %.recomposed563 to i64
   %725 = getelementptr inbounds double, ptr %723, i64 %724
   br label %_ZNK2cv3Mat2atIdEERKT_i.exit317
 
@@ -1828,11 +1828,11 @@ _ZNK2cv3Mat2atIdEERKT_i.exit323:                  ; preds = %_ZNK2cv3Mat2atIdEER
   br label %_ZNK2cv3Mat2atIdEERKT_i.exit323.thread
 
 _ZNK2cv3Mat2atIdEERKT_i.exit323.thread:           ; preds = %731, %_ZNK2cv3Mat2atIdEERKT_i.exit323
-  %.sink512 = phi ptr [ %759, %_ZNK2cv3Mat2atIdEERKT_i.exit323 ], [ %735, %731 ]
+  %.sink559 = phi ptr [ %759, %_ZNK2cv3Mat2atIdEERKT_i.exit323 ], [ %735, %731 ]
   %761 = phi double [ %760, %_ZNK2cv3Mat2atIdEERKT_i.exit323 ], [ %736, %731 ]
-  %762 = getelementptr inbounds nuw i8, ptr %.sink512, i64 8
+  %762 = getelementptr inbounds nuw i8, ptr %.sink559, i64 8
   %763 = load double, ptr %762, align 8, !tbaa !79
-  %764 = getelementptr inbounds nuw i8, ptr %.sink512, i64 16
+  %764 = getelementptr inbounds nuw i8, ptr %.sink559, i64 16
   br label %_ZNK2cv3Mat2atIdEERKT_i.exit326
 
 765:                                              ; preds = %745, %741
@@ -1854,13 +1854,13 @@ _ZNK2cv3Mat2atIdEERKT_i.exit323.thread:           ; preds = %731, %_ZNK2cv3Mat2a
   %776 = load i32, ptr %572, align 4, !tbaa !110
   %777 = sdiv i32 2, %776
   %778 = mul nsw i32 %777, %776
-  %.recomposed517 = srem i32 2, %776
+  %.recomposed564 = srem i32 2, %776
   %779 = load ptr, ptr %573, align 8, !tbaa !119
   %780 = load i64, ptr %779, align 8, !tbaa !120
   %781 = sext i32 %777 to i64
   %782 = mul i64 %780, %781
   %783 = getelementptr inbounds nuw i8, ptr %735, i64 %782
-  %784 = sext i32 %.recomposed517 to i64
+  %784 = sext i32 %.recomposed564 to i64
   %785 = getelementptr inbounds double, ptr %783, i64 %784
   br label %_ZNK2cv3Mat2atIdEERKT_i.exit326
 

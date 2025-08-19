@@ -1015,9 +1015,9 @@ dissect_an_apdu_ie.exit:                          ; preds = %239, %242, %245
   br i1 %.not5.i25.i, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %271, %262
-  %.sink29.i = phi ptr [ %264, %262 ], [ %273, %271 ]
+  %.sink32.i = phi ptr [ %264, %262 ], [ %273, %271 ]
   %hf_gsup_destination_name_text.sink.ph.i = phi ptr [ @hf_gsup_source_name_text, %262 ], [ @hf_gsup_destination_name_text, %271 ]
-  %274 = getelementptr inbounds nuw i8, ptr %.sink29.i, i64 28
+  %274 = getelementptr inbounds nuw i8, ptr %.sink32.i, i64 28
   %275 = load i32, ptr %274, align 4
   %276 = or i32 %275, 1
   store i32 %276, ptr %274, align 4

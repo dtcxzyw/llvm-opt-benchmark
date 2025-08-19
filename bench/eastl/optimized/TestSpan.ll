@@ -555,8 +555,8 @@ if.end.i.i.i56:                                   ; preds = %for.body.i.i.i52
   %cmp3.i.i.i57 = icmp slt i32 %9, %8
   %first2.addr.017.i.i.i53.add = add nuw nsw i64 %first2.addr.017.i.i.i53.idx, 4
   %cmp1.i.i.i62.not = icmp eq i64 %first2.addr.017.i.i.i53.add, 20
-  %or.cond72 = select i1 %cmp3.i.i.i57, i1 true, i1 %cmp1.i.i.i62.not
-  br i1 %or.cond72, label %_ZN5eastlgeIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.body.i.i.i52, !llvm.loop !7
+  %or.cond79 = select i1 %cmp3.i.i.i57, i1 true, i1 %cmp1.i.i.i62.not
+  br i1 %or.cond79, label %_ZN5eastlgeIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.body.i.i.i52, !llvm.loop !7
 
 _ZN5eastlgeIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit: ; preds = %for.body.i.i.i52, %if.end.i.i.i56
   %call22 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2.i.i.not.i55.not.not.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 344, ptr noundef nonnull @.str.68)

@@ -1300,7 +1300,7 @@ dissect_eigrp_metric_comm.exit.sink.split.i.i.i:  ; preds = %401, %400, %399, %3
 dissect_eigrp_metric_comm.exit.i.i.i:             ; preds = %395, %dissect_eigrp_metric_comm.exit.sink.split.i.i.i, %338
   %404 = add i32 %345, %348
   %.neg49.i.i.i = add nsw i32 %.04850.i.i.i, -2
-  %405 = sub i32 %.neg49.i.i.i, %345
+  %405 = sub nsw i32 %.neg49.i.i.i, %345
   %406 = icmp sgt i32 %405, 0
   br i1 %406, label %338, label %dissect_eigrp_wide_metric_attr.exit.i.i, !llvm.loop !10
 

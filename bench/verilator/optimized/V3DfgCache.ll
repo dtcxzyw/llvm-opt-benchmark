@@ -3288,8 +3288,8 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheIntern
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.041.080 = load ptr, ptr %23, align 8
   %.not81 = icmp eq ptr %.sroa.041.080, null
-  %or.cond101 = select i1 %.not.not, i1 true, i1 %.not81
-  br i1 %or.cond101, label %.critedge, label %.lr.ph
+  %or.cond107 = select i1 %.not.not, i1 true, i1 %.not81
+  br i1 %or.cond107, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %_ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal6KeySelESt4pairIKS2_P6DfgSelENS_10_Select1stENS2_5EqualENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread52
   %.sroa.041.082 = phi ptr [ %.sroa.041.0, %_ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal6KeySelESt4pairIKS2_P6DfgSelENS_10_Select1stENS2_5EqualENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread52 ], [ %.sroa.041.080, %4 ]
@@ -4363,8 +4363,8 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheIntern
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.043.071 = load ptr, ptr %18, align 8
   %.not72 = icmp eq ptr %.sroa.043.071, null
-  %or.cond78 = select i1 %.not.not, i1 true, i1 %.not72
-  br i1 %or.cond78, label %.critedge, label %.lr.ph
+  %or.cond85 = select i1 %.not.not, i1 true, i1 %.not72
+  br i1 %or.cond85, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %_ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS2_P15DfgVertexBinaryENS_10_Select1stENS2_5EqualENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread54
   %.sroa.043.073 = phi ptr [ %.sroa.043.0, %_ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS2_P15DfgVertexBinaryENS_10_Select1stENS2_5EqualENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread54 ], [ %.sroa.043.071, %4 ]

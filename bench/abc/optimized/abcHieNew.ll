@@ -1698,7 +1698,7 @@ define void @Au_ManCountThings(ptr noundef readonly captures(none) %0) local_unn
   %5 = zext nneg i32 %.val to i64
   br label %7
 
-.critedge2.loopexit:                              ; preds = %152, %Au_NtkNodeNumFunc.exit93.thread123, %Au_NtkNodeNumFunc.exit93
+.critedge2.loopexit:                              ; preds = %152, %Au_NtkNodeNumFunc.exit93.thread126, %Au_NtkNodeNumFunc.exit93
   %6 = icmp sgt i64 %indvars.iv102, 2
   br i1 %6, label %7, label %.critedge, !llvm.loop !67
 
@@ -1739,7 +1739,7 @@ define void @Au_ManCountThings(ptr noundef readonly captures(none) %0) local_unn
 .thread:                                          ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 232
   store double 0.000000e+00, ptr %26, align 8, !tbaa !71
-  br label %.thread117
+  br label %.thread120
 
 27:                                               ; preds = %23, %7
   %28 = getelementptr i8, ptr %9, i64 60
@@ -1790,14 +1790,14 @@ Au_NtkNodeNumFunc.exit:                           ; preds = %Au_NtkNodeNumFunc.e
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %22, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !29
   %47 = icmp eq ptr %.pre, null
-  br i1 %47, label %._crit_edge, label %.thread117
+  br i1 %47, label %._crit_edge, label %.thread120
 
 ._crit_edge:                                      ; preds = %46
   %.phi.trans.insert105 = getelementptr i8, ptr %9, i64 60
   %.val.i63.pre = load i32, ptr %.phi.trans.insert105, align 4, !tbaa !45
   br label %51
 
-.thread117:                                       ; preds = %46, %.thread
+.thread120:                                       ; preds = %46, %.thread
   %48 = phi ptr [ %26, %.thread ], [ %45, %46 ]
   %49 = phi double [ 0.000000e+00, %.thread ], [ %.013.i, %46 ]
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 240
@@ -1862,9 +1862,9 @@ Au_NtkNodeNumFunc.exit76:                         ; preds = %Au_NtkNodeNumFunc.e
 71:                                               ; preds = %._crit_edge109, %Au_NtkNodeNumFunc.exit76
   %.val.i80 = phi i32 [ %.val.i80.pre, %._crit_edge109 ], [ %.val.i63, %Au_NtkNodeNumFunc.exit76 ]
   %72 = icmp sgt i32 %.val.i80, 0
-  br i1 %72, label %.lr.ph.i81, label %Au_NtkNodeNumFunc.exit93.thread123
+  br i1 %72, label %.lr.ph.i81, label %Au_NtkNodeNumFunc.exit93.thread126
 
-Au_NtkNodeNumFunc.exit93.thread123:               ; preds = %71
+Au_NtkNodeNumFunc.exit93.thread126:               ; preds = %71
   %73 = getelementptr inbounds nuw i8, ptr %9, i64 248
   store double 0.000000e+00, ptr %73, align 8, !tbaa !73
   br label %.critedge2.loopexit
@@ -1904,11 +1904,11 @@ Au_NtkNodeNumFunc.exit93.thread:                  ; preds = %76
   store double %88, ptr %89, align 8, !tbaa !73
   br label %.lr.ph
 
-Au_NtkNodeNumFunc.exit93:                         ; preds = %69, %.thread117
-  %90 = phi ptr [ %48, %.thread117 ], [ %45, %69 ]
-  %91 = phi ptr [ %50, %.thread117 ], [ %68, %69 ]
-  %92 = phi double [ %49, %.thread117 ], [ %.013.i, %69 ]
-  %93 = phi double [ 0.000000e+00, %.thread117 ], [ %.013.i62, %69 ]
+Au_NtkNodeNumFunc.exit93:                         ; preds = %69, %.thread120
+  %90 = phi ptr [ %48, %.thread120 ], [ %45, %69 ]
+  %91 = phi ptr [ %50, %.thread120 ], [ %68, %69 ]
+  %92 = phi double [ %49, %.thread120 ], [ %.013.i, %69 ]
+  %93 = phi double [ 0.000000e+00, %.thread120 ], [ %.013.i62, %69 ]
   %.phi.trans.insert112 = getelementptr i8, ptr %9, i64 60
   %.val54.pre = load i32, ptr %.phi.trans.insert112, align 4, !tbaa !45
   %94 = getelementptr inbounds nuw i8, ptr %9, i64 248
@@ -1918,21 +1918,21 @@ Au_NtkNodeNumFunc.exit93:                         ; preds = %69, %.thread117
 
 .lr.ph:                                           ; preds = %Au_NtkNodeNumFunc.exit93.thread, %Au_NtkNodeNumFunc.exit93
   %96 = phi ptr [ %89, %Au_NtkNodeNumFunc.exit93.thread ], [ %94, %Au_NtkNodeNumFunc.exit93 ]
-  %.013.i79122 = phi double [ %88, %Au_NtkNodeNumFunc.exit93.thread ], [ 0.000000e+00, %Au_NtkNodeNumFunc.exit93 ]
+  %.013.i79125 = phi double [ %88, %Au_NtkNodeNumFunc.exit93.thread ], [ 0.000000e+00, %Au_NtkNodeNumFunc.exit93 ]
   %97 = phi ptr [ %45, %Au_NtkNodeNumFunc.exit93.thread ], [ %90, %Au_NtkNodeNumFunc.exit93 ]
   %98 = phi ptr [ %68, %Au_NtkNodeNumFunc.exit93.thread ], [ %91, %Au_NtkNodeNumFunc.exit93 ]
-  %.val54121 = phi i32 [ %.val.i80, %Au_NtkNodeNumFunc.exit93.thread ], [ %.val54.pre, %Au_NtkNodeNumFunc.exit93 ]
+  %.val54124 = phi i32 [ %.val.i80, %Au_NtkNodeNumFunc.exit93.thread ], [ %.val54.pre, %Au_NtkNodeNumFunc.exit93 ]
   %99 = phi double [ %.013.i, %Au_NtkNodeNumFunc.exit93.thread ], [ %92, %Au_NtkNodeNumFunc.exit93 ]
   %100 = phi double [ %.013.i62, %Au_NtkNodeNumFunc.exit93.thread ], [ %93, %Au_NtkNodeNumFunc.exit93 ]
   %101 = getelementptr i8, ptr %9, i64 64
   %.val55 = load ptr, ptr %101, align 8, !tbaa !21
   %102 = getelementptr i8, ptr %9, i64 120
   %.val56 = load ptr, ptr %102, align 8, !tbaa !35
-  %wide.trip.count = zext nneg i32 %.val54121 to i64
+  %wide.trip.count = zext nneg i32 %.val54124 to i64
   br label %103
 
 103:                                              ; preds = %.lr.ph, %152
-  %104 = phi double [ %.013.i79122, %.lr.ph ], [ %153, %152 ]
+  %104 = phi double [ %.013.i79125, %.lr.ph ], [ %153, %152 ]
   %105 = phi double [ %100, %.lr.ph ], [ %154, %152 ]
   %106 = phi double [ %99, %.lr.ph ], [ %155, %152 ]
   %107 = phi double [ %19, %.lr.ph ], [ %156, %152 ]
@@ -2995,13 +2995,13 @@ tailrecurse:                                      ; preds = %166, %.split
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %53 = icmp sgt i32 %.us-phi, 4032
   %54 = add nuw nsw i32 %.us-phi, 64
-  %narrow148 = select i1 %53, i32 %54, i32 4160
-  %.sink = zext i32 %narrow148 to i64
-  %.sink147 = select i1 %53, i32 %54, i32 4160
+  %narrow164 = select i1 %53, i32 %54, i32 4160
+  %.sink = zext i32 %narrow164 to i64
+  %.sink163 = select i1 %53, i32 %54, i32 4160
   %55 = tail call noalias ptr @calloc(i64 noundef %.sink, i64 noundef 16) #28
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %57 = load i32, ptr %56, align 4, !tbaa !43
-  %58 = add nsw i32 %57, %.sink147
+  %58 = add nsw i32 %57, %.sink163
   store i32 %58, ptr %56, align 4, !tbaa !43
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %60 = load ptr, ptr %59, align 8, !tbaa !20
@@ -3811,14 +3811,14 @@ Vec_IntPush.exit:                                 ; preds = %1
   br label %Vec_IntPush.exit202.sink.split
 
 Vec_IntPush.exit202.sink.split:                   ; preds = %35, %37, %27, %29
-  %.sink359 = phi ptr [ %28, %27 ], [ %30, %29 ], [ %36, %35 ], [ %38, %37 ]
+  %.sink403 = phi ptr [ %28, %27 ], [ %30, %29 ], [ %36, %35 ], [ %38, %37 ]
   %.sink = phi i32 [ 16, %27 ], [ 16, %29 ], [ %32, %35 ], [ %32, %37 ]
-  store ptr %.sink359, ptr %11, align 8, !tbaa !21
+  store ptr %.sink403, ptr %11, align 8, !tbaa !21
   store i32 %.sink, ptr %8, align 8, !tbaa !22
   br label %Vec_IntPush.exit202
 
 Vec_IntPush.exit202:                              ; preds = %Vec_IntPush.exit202.sink.split, %16
-  %.pre.i198349 = phi ptr [ %14, %16 ], [ %.sink359, %Vec_IntPush.exit202.sink.split ]
+  %.pre.i198349 = phi ptr [ %14, %16 ], [ %.sink403, %Vec_IntPush.exit202.sink.split ]
   %39 = add nsw i32 %21, 1
   store i32 %39, ptr %9, align 4, !tbaa !45
   %40 = sext i32 %21 to i64
@@ -7111,15 +7111,15 @@ define noundef ptr @Au_NtkDerive(ptr noundef %0, ptr noundef %1, ptr noundef rea
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %67, %69, %59, %61
-  %.sink172 = phi ptr [ %60, %59 ], [ %62, %61 ], [ %68, %67 ], [ %70, %69 ]
+  %.sink178 = phi ptr [ %60, %59 ], [ %62, %61 ], [ %68, %67 ], [ %70, %69 ]
   %.sink = phi i32 [ 16, %59 ], [ 16, %61 ], [ %64, %67 ], [ %64, %69 ]
-  store ptr %.sink172, ptr %26, align 8, !tbaa !21
+  store ptr %.sink178, ptr %26, align 8, !tbaa !21
   store i32 %.sink, ptr %23, align 8, !tbaa !22
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %41
-  %.val15.i165 = phi ptr [ %.val15.i166, %41 ], [ %.sink172, %Vec_IntPush.exit.sink.split ]
-  %.pre.i163 = phi ptr [ %42, %41 ], [ %.sink172, %Vec_IntPush.exit.sink.split ]
+  %.val15.i165 = phi ptr [ %.val15.i166, %41 ], [ %.sink178, %Vec_IntPush.exit.sink.split ]
+  %.pre.i163 = phi ptr [ %42, %41 ], [ %.sink178, %Vec_IntPush.exit.sink.split ]
   %71 = add nsw i32 %53, 1
   store i32 %71, ptr %24, align 4, !tbaa !45
   %72 = sext i32 %53 to i64
@@ -7258,16 +7258,16 @@ Au_NtkCreateNode.exit:                            ; preds = %91, %.critedge4
   br label %Vec_IntPush.exit107.sink.split
 
 Vec_IntPush.exit107.sink.split:                   ; preds = %139, %141, %131, %133
-  %.sink174 = phi ptr [ %132, %131 ], [ %134, %133 ], [ %140, %139 ], [ %142, %141 ]
-  %.sink173 = phi i32 [ 16, %131 ], [ 16, %133 ], [ %136, %139 ], [ %136, %141 ]
-  store ptr %.sink174, ptr %26, align 8, !tbaa !21
-  store i32 %.sink173, ptr %23, align 8, !tbaa !22
+  %.sink180 = phi ptr [ %132, %131 ], [ %134, %133 ], [ %140, %139 ], [ %142, %141 ]
+  %.sink179 = phi i32 [ 16, %131 ], [ 16, %133 ], [ %136, %139 ], [ %136, %141 ]
+  store ptr %.sink180, ptr %26, align 8, !tbaa !21
+  store i32 %.sink179, ptr %23, align 8, !tbaa !22
   br label %Vec_IntPush.exit107
 
 Vec_IntPush.exit107:                              ; preds = %Vec_IntPush.exit107.sink.split, %107
-  %.val15.i171 = phi ptr [ %.val15.i170, %107 ], [ %.sink174, %Vec_IntPush.exit107.sink.split ]
-  %.pre.i156 = phi ptr [ %.pre.i157, %107 ], [ %.sink174, %Vec_IntPush.exit107.sink.split ]
-  %.pre.i103154 = phi ptr [ %108, %107 ], [ %.sink174, %Vec_IntPush.exit107.sink.split ]
+  %.val15.i171 = phi ptr [ %.val15.i170, %107 ], [ %.sink180, %Vec_IntPush.exit107.sink.split ]
+  %.pre.i156 = phi ptr [ %.pre.i157, %107 ], [ %.sink180, %Vec_IntPush.exit107.sink.split ]
+  %.pre.i103154 = phi ptr [ %108, %107 ], [ %.sink180, %Vec_IntPush.exit107.sink.split ]
   %143 = add nsw i32 %125, 1
   store i32 %143, ptr %24, align 4, !tbaa !45
   %144 = sext i32 %125 to i64

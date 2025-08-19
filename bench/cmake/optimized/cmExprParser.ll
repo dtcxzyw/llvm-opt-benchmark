@@ -799,8 +799,8 @@ _ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit268
   %.not251356 = icmp eq ptr %.4206304334, %3
   %330 = load i32, ptr @cmExpr_yydebug, align 4
   %331 = icmp eq i32 %330, 0
-  %or.cond393 = select i1 %.not251356, i1 true, i1 %331
-  br i1 %or.cond393, label %._crit_edge, label %.lr.ph.split
+  %or.cond400 = select i1 %.not251356, i1 true, i1 %331
+  br i1 %or.cond400, label %._crit_edge, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit268.thread, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit273
   %332 = phi i32 [ %348, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit273 ], [ 1, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit268.thread ]
@@ -1207,10 +1207,10 @@ _ZL9yytnamerrPcPKc.exit:                          ; preds = %.preheader.split.us
   br label %_ZL9yytnamerrPcPKc.exit68
 
 _ZL9yytnamerrPcPKc.exit68:                        ; preds = %64, %.preheader, %.thread.thread.i, %.split.us.thread.i
-  %.sink26 = phi i64 [ %91, %.thread.thread.i ], [ %.020.i, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %64 ]
+  %.sink29 = phi i64 [ %91, %.thread.thread.i ], [ %.020.i, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %64 ]
   %.sink = phi i64 [ 2, %.thread.thread.i ], [ 2, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %64 ]
   %.1 = phi i32 [ %70, %.thread.thread.i ], [ %70, %.split.us.thread.i ], [ %.0, %.preheader ], [ %.0, %64 ]
-  %92 = getelementptr inbounds i8, ptr %.039, i64 %.sink26
+  %92 = getelementptr inbounds i8, ptr %.039, i64 %.sink29
   %93 = getelementptr inbounds nuw i8, ptr %.147, i64 %.sink
   br label %.preheader, !llvm.loop !29
 

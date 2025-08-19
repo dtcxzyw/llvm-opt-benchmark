@@ -859,7 +859,7 @@ filter.exit:                                      ; preds = %344
   br i1 %349, label %.lr.ph111, label %._crit_edge
 
 .lr.ph111:                                        ; preds = %.lr.ph108, %.preheader
-  %.lcssa102156 = phi i32 [ %.pr, %.preheader ], [ %346, %.lr.ph108 ]
+  %.lcssa102203 = phi i32 [ %.pr, %.preheader ], [ %346, %.lr.ph108 ]
   %350 = getelementptr inbounds nuw i8, ptr %14, i64 25900
   %351 = load i32, ptr %350, align 4, !tbaa !45
   %352 = icmp sgt i32 %351, 0
@@ -867,7 +867,7 @@ filter.exit:                                      ; preds = %344
   br i1 %352, label %.lr.ph.preheader.i.us.preheader, label %._crit_edge
 
 .lr.ph.preheader.i.us.preheader:                  ; preds = %.lr.ph111
-  %wide.trip.count = zext nneg i32 %.lcssa102156 to i64
+  %wide.trip.count = zext nneg i32 %.lcssa102203 to i64
   br label %.lr.ph.preheader.i.us
 
 .lr.ph.preheader.i.us:                            ; preds = %.lr.ph.preheader.i.us.preheader, %psycho_acoustic_model.exit.loopexit.us
@@ -894,11 +894,11 @@ psycho_acoustic_model.exit.loopexit.us:           ; preds = %.lr.ph.i.us
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.preheader.i.us, !llvm.loop !71
 
 .lr.ph108.splitthread-pre-split:                  ; preds = %compute_scale_factors.exit
-  %.pr157 = load i32, ptr %27, align 4, !tbaa !45
+  %.pr204 = load i32, ptr %27, align 4, !tbaa !45
   br label %.lr.ph108.split
 
 .lr.ph108.split:                                  ; preds = %.lr.ph108, %.lr.ph108.splitthread-pre-split
-  %360 = phi i32 [ %.pr157, %.lr.ph108.splitthread-pre-split ], [ %31, %.lr.ph108 ]
+  %360 = phi i32 [ %.pr204, %.lr.ph108.splitthread-pre-split ], [ %31, %.lr.ph108 ]
   %.pr149 = phi i32 [ %.pr, %.lr.ph108.splitthread-pre-split ], [ %346, %.lr.ph108 ]
   %indvars.iv143 = phi i64 [ %indvars.iv.next144, %.lr.ph108.splitthread-pre-split ], [ 0, %.lr.ph108 ]
   %361 = getelementptr inbounds nuw [2 x [32 x i8]], ptr %25, i64 0, i64 %indvars.iv143
@@ -1093,13 +1093,13 @@ compute_scale_factors.exit:                       ; preds = %compute_scale_facto
   br i1 %431, label %.lr.ph108.splitthread-pre-split, label %.preheader, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %psycho_acoustic_model.exit.loopexit.us, %4, %.preheader85, %.lr.ph111, %.preheader
-  %.lcssa102153 = phi i32 [ %.pr, %.preheader ], [ %.lcssa102156, %.lr.ph111 ], [ %346, %.preheader85 ], [ %16, %4 ], [ %.lcssa102156, %psycho_acoustic_model.exit.loopexit.us ]
+  %.lcssa102200 = phi i32 [ %.pr, %.preheader ], [ %.lcssa102203, %.lr.ph111 ], [ %346, %.preheader85 ], [ %16, %4 ], [ %.lcssa102203, %psycho_acoustic_model.exit.loopexit.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %432 = sext i32 %.lcssa102153 to i64
+  %432 = sext i32 %.lcssa102200 to i64
   %433 = shl nsw i64 %432, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull readonly align 16 %11, i64 %433, i1 false)
-  %434 = shl nsw i32 %.lcssa102153, 5
+  %434 = shl nsw i32 %.lcssa102200, 5
   %435 = sext i32 %434 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %8, i8 0, i64 %435, i1 false)
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %12, i8 0, i64 %435, i1 false)
@@ -1138,11 +1138,11 @@ compute_scale_factors.exit:                       ; preds = %compute_scale_facto
 .preheader110.i:                                  ; preds = %457
   %454 = getelementptr inbounds nuw i8, ptr %14, i64 27576
   %455 = getelementptr inbounds nuw i8, ptr %14, i64 25836
-  %456 = icmp slt i32 %.lcssa102153, 1
+  %456 = icmp slt i32 %.lcssa102200, 1
   br i1 %456, label %._crit_edge126.thread.i, label %.preheader.us.preheader.i.lr.ph
 
 .preheader.us.preheader.i.lr.ph:                  ; preds = %.preheader110.i
-  %wide.trip.count142.i = zext nneg i32 %.lcssa102153 to i64
+  %wide.trip.count142.i = zext nneg i32 %.lcssa102200 to i64
   %wide.trip.count.i54 = zext nneg i32 %451 to i64
   br label %.preheader.us.preheader.i
 
@@ -1152,7 +1152,7 @@ compute_scale_factors.exit:                       ; preds = %compute_scale_facto
   %.0103111.i = phi i32 [ 0, %.lr.ph.i58 ], [ %465, %457 ]
   %458 = load i8, ptr %.0113.i, align 1, !tbaa !50
   %459 = zext i8 %458 to i32
-  %460 = mul nsw i32 %.lcssa102153, %459
+  %460 = mul nsw i32 %.lcssa102200, %459
   %461 = add nsw i32 %460, %.091112.i
   %462 = shl nuw i32 1, %459
   %463 = sext i32 %462 to i64
@@ -1314,9 +1314,9 @@ compute_scale_factors.exit:                       ; preds = %compute_scale_facto
   br label %554
 
 554:                                              ; preds = %532, %530
-  %.sink148.i = phi i8 [ %..i, %532 ], [ 2, %530 ]
+  %.sink153.i = phi i8 [ %..i, %532 ], [ 2, %530 ]
   %.2.i = phi i32 [ %531, %532 ], [ %.192.i112, %530 ]
-  store i8 %.sink148.i, ptr %492, align 1, !tbaa !50
+  store i8 %.sink153.i, ptr %492, align 1, !tbaa !50
   br label %.preheader.us.preheader.i
 
 ._crit_edge126.thread.i:                          ; preds = %._crit_edge126.i, %447, %.preheader110.i

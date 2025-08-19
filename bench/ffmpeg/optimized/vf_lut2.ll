@@ -455,8 +455,8 @@ define internal i32 @lut2_config_output(ptr noundef captures(none) initializes((
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %68 = load i32, ptr %67, align 4, !tbaa !53
   %.not150 = icmp eq i32 %.pre, %68
-  %or.cond174 = select i1 %.not149, i1 %.not150, i1 false
-  br i1 %or.cond174, label %74, label %._crit_edge
+  %or.cond189 = select i1 %.not149, i1 %.not150, i1 false
+  br i1 %or.cond189, label %74, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %63
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -509,8 +509,8 @@ define internal i32 @lut2_config_output(ptr noundef captures(none) initializes((
   %100 = getelementptr inbounds nuw i8, ptr %4, i64 340
   %101 = load i32, ptr %100, align 4, !tbaa !54
   %.not154 = icmp eq i32 %99, %101
-  %or.cond175 = select i1 %.not153, i1 %.not154, i1 false
-  br i1 %or.cond175, label %107, label %._crit_edge164
+  %or.cond190 = select i1 %.not153, i1 %.not154, i1 false
+  br i1 %or.cond190, label %107, label %._crit_edge164
 
 ._crit_edge164:                                   ; preds = %93
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -532,8 +532,8 @@ define internal i32 @lut2_config_output(ptr noundef captures(none) initializes((
   %114 = getelementptr inbounds nuw i8, ptr %4, i64 344
   %115 = load i32, ptr %114, align 8, !tbaa !54
   %.not156 = icmp eq i32 %113, %115
-  %or.cond176 = select i1 %.not155, i1 %.not156, i1 false
-  br i1 %or.cond176, label %121, label %._crit_edge169
+  %or.cond191 = select i1 %.not155, i1 %.not156, i1 false
+  br i1 %or.cond191, label %121, label %._crit_edge169
 
 ._crit_edge169:                                   ; preds = %107
   %116 = getelementptr inbounds nuw i8, ptr %2, i64 24

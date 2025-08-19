@@ -881,21 +881,21 @@ dissect_log.exit:                                 ; preds = %52, %.sink.split.i
   %90 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %89, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %trunc.i = and i8 %72, -2
   switch i8 %trunc.i, label %92 [
-    i8 0, label %.sink.split173.i
+    i8 0, label %.sink.split193.i
     i8 -2, label %91
   ]
 
 91:                                               ; preds = %78
-  br label %.sink.split173.i
+  br label %.sink.split193.i
 
-.sink.split173.i:                                 ; preds = %91, %78
+.sink.split193.i:                                 ; preds = %91, %78
   %.str.237.sink.i = phi ptr [ @.str.238, %91 ], [ @.str.237, %78 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef nonnull %.str.237.sink.i)
   br label %92
 
-92:                                               ; preds = %.sink.split173.i, %78, %71
-  %.0145.i = phi ptr [ null, %71 ], [ %82, %78 ], [ %82, %.sink.split173.i ]
-  %.0142.i = phi ptr [ null, %71 ], [ %84, %78 ], [ %84, %.sink.split173.i ]
+92:                                               ; preds = %.sink.split193.i, %78, %71
+  %.0145.i = phi ptr [ null, %71 ], [ %82, %78 ], [ %82, %.sink.split193.i ]
+  %.0142.i = phi ptr [ null, %71 ], [ %84, %78 ], [ %84, %.sink.split193.i ]
   %93 = and i32 %73, 1
   %94 = icmp eq i32 %93, 0
   %95 = load i32, ptr @hf_lap_c, align 4
@@ -1008,10 +1008,10 @@ dissect_log.exit:                                 ; preds = %52, %.sink.split.i
 
 .sink.split.i.i:                                  ; preds = %.sink.split.sink.split.i.i, %153, %150
   %hf_lmp_reason.sink.i.i = phi ptr [ @hf_lmp_rsvd, %153 ], [ @hf_lmp_reason, %150 ], [ @hf_lmp_mode, %.sink.split.sink.split.i.i ]
-  %.sink197.i.i = phi i32 [ 3, %153 ], [ 3, %150 ], [ 4, %.sink.split.sink.split.i.i ]
+  %.sink216.i.i = phi i32 [ 3, %153 ], [ 3, %150 ], [ 4, %.sink.split.sink.split.i.i ]
   %.0139.ph.i.i = phi i32 [ 4, %153 ], [ 4, %150 ], [ 5, %.sink.split.sink.split.i.i ]
   %159 = load i32, ptr %hf_lmp_reason.sink.i.i, align 4
-  %160 = call ptr @proto_tree_add_item(ptr noundef %133, i32 noundef %159, ptr noundef %101, i32 noundef %.sink197.i.i, i32 noundef 1, i32 noundef 0)
+  %160 = call ptr @proto_tree_add_item(ptr noundef %133, i32 noundef %159, ptr noundef %101, i32 noundef %.sink216.i.i, i32 noundef 1, i32 noundef 0)
   br label %161
 
 161:                                              ; preds = %.sink.split.i.i, %153, %150, %129
@@ -1665,9 +1665,9 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread133.i.i.i, %
   br i1 %.not235.i.i.i, label %487, label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %481, %474, %469
-  %.sink283.i.i.i = phi ptr [ %470, %469 ], [ %475, %474 ], [ %482, %481 ]
+  %.sink297.i.i.i = phi ptr [ %470, %469 ], [ %475, %474 ], [ %482, %481 ]
   %.1219.ph.i.i.i = phi i16 [ 4, %469 ], [ %473, %474 ], [ %480, %481 ]
-  %483 = getelementptr inbounds nuw i8, ptr %.sink283.i.i.i, i64 8
+  %483 = getelementptr inbounds nuw i8, ptr %.sink297.i.i.i, i64 8
   %484 = load ptr, ptr %483, align 8
   %485 = load i8, ptr %5, align 1
   %486 = call zeroext i1 %484(ptr noundef %.0.i.i, i32 noundef %467, ptr noundef %1, ptr noundef null, i32 noundef %.3212267.i.i.i, i8 noundef zeroext %466, i8 noundef zeroext %485)
@@ -2917,7 +2917,7 @@ define internal fastcc void @dissect_appl_proto(ptr noundef %0, ptr noundef %1, 
   br i1 %.not43, label %.critedge.preheader, label %32
 
 .critedge.preheader:                              ; preds = %.lr.ph
-  br i1 %.not4453, label %.critedge46.thread58, label %.lr.ph56
+  br i1 %.not4453, label %.critedge46, label %.lr.ph56
 
 32:                                               ; preds = %.lr.ph
   br i1 %.not4453, label %.critedge46.thread, label %.lr.ph, !llvm.loop !16
@@ -2943,20 +2943,16 @@ define internal fastcc void @dissect_appl_proto(ptr noundef %0, ptr noundef %1, 
   %.not44 = icmp eq ptr %.038, null
   br i1 %.not44, label %.critedge46, label %.lr.ph56, !llvm.loop !17
 
-.critedge46:                                      ; preds = %.critedge
-  %.not45 = icmp eq ptr %.3, null
-  br i1 %.not45, label %.critedge46.thread, label %.critedge46.thread58
-
-.critedge46.thread58:                             ; preds = %.critedge.preheader, %.critedge46
-  %.2.lcssa61 = phi ptr [ %.3, %.critedge46 ], [ %.151, %.critedge.preheader ]
-  %40 = getelementptr inbounds nuw i8, ptr %.2.lcssa61, i64 12
+.critedge46:                                      ; preds = %.critedge, %.critedge.preheader
+  %.2.lcssa = phi ptr [ %.151, %.critedge.preheader ], [ %.3, %.critedge ]
+  %40 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 12
   %41 = load i8, ptr %40, align 4, !range !18, !noundef !19
   %42 = trunc nuw i8 %41 to i1
   %43 = icmp ne i32 %3, 1
   %or.cond = and i1 %43, %42
   br i1 %or.cond, label %44, label %66
 
-44:                                               ; preds = %.critedge46.thread58
+44:                                               ; preds = %.critedge46
   %45 = icmp eq i32 %3, 2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %46 = call i32 @tvb_reported_length(ptr noundef %0)
@@ -2998,16 +2994,16 @@ dissect_ttp.exit:                                 ; preds = %44, %48, %56
   %65 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0.i)
   br label %66
 
-66:                                               ; preds = %dissect_ttp.exit, %.critedge46.thread58
-  %.0 = phi ptr [ %65, %dissect_ttp.exit ], [ %0, %.critedge46.thread58 ]
-  %67 = getelementptr inbounds nuw i8, ptr %.2.lcssa61, i64 16
+66:                                               ; preds = %dissect_ttp.exit, %.critedge46
+  %.0 = phi ptr [ %65, %dissect_ttp.exit ], [ %0, %.critedge46 ]
+  %67 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 16
   %68 = load ptr, ptr %67, align 8
   %69 = zext nneg i32 %3 to i64
   %70 = inttoptr i64 %69 to ptr
   %71 = call i32 @call_dissector_with_data(ptr noundef %68, ptr noundef %.0, ptr noundef %1, ptr noundef %2, ptr noundef %70)
   br label %73
 
-.critedge46.thread:                               ; preds = %32, %26, %5, %.critedge46
+.critedge46.thread:                               ; preds = %32, %26, %5
   %72 = call i32 @call_data_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %73
 

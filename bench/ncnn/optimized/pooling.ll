@@ -458,8 +458,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %196 = sub i32 %195, %182
   %197 = icmp sgt i32 %183, 0
   %198 = icmp sgt i32 %182, 0
-  %or.cond119 = and i1 %197, %198
-  br i1 %or.cond119, label %.preheader.us, label %._crit_edge113
+  %or.cond135 = and i1 %197, %198
+  br i1 %or.cond135, label %.preheader.us, label %._crit_edge113
 
 .preheader.us:                                    ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %._crit_edge.us
   %.053112.us = phi i32 [ %205, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ]
@@ -1607,10 +1607,10 @@ define internal void @_ZNK4ncnn7Pooling7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
   %48 = sext i32 %22 to i64
   %49 = add nsw i32 %21, 1
   %wide.trip.count102 = zext nneg i32 %33 to i64
-  %factor.op.mul124 = mul i64 %42, %47
+  %factor.op.mul129 = mul i64 %42, %47
   %wide.trip.count = zext nneg i32 %35 to i64
   %wide.trip.count117 = zext nneg i32 %33 to i64
-  %factor.op.mul125 = mul i64 %42, %47
+  %factor.op.mul130 = mul i64 %42, %47
   %wide.trip.count112 = zext nneg i32 %35 to i64
   br label %.noexc40.us.us
 
@@ -1631,7 +1631,7 @@ define internal void @_ZNK4ncnn7Pooling7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
 .preheader.us.us90.us:                            ; preds = %.noexc40.us.us, %._crit_edge73.split.us79.us.us
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %._crit_edge73.split.us79.us.us ], [ 0, %.noexc40.us.us ]
   %.03775.us.us92.us = phi ptr [ %60, %._crit_edge73.split.us79.us.us ], [ %51, %.noexc40.us.us ]
-  %.reass = mul i64 %indvars.iv99, %factor.op.mul124
+  %.reass = mul i64 %indvars.iv99, %factor.op.mul129
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 %.reass
   br label %55
 
@@ -1661,8 +1661,8 @@ define internal void @_ZNK4ncnn7Pooling7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
 .preheader.us.us.us.us:                           ; preds = %.preheader.us.us.us.us.preheader, %._crit_edge73.split.us.us.us.us.us
   %indvars.iv114 = phi i64 [ 0, %.preheader.us.us.us.us.preheader ], [ %indvars.iv.next115, %._crit_edge73.split.us.us.us.us.us ]
   %.03775.us.us.us.us = phi ptr [ %51, %.preheader.us.us.us.us.preheader ], [ %74, %._crit_edge73.split.us.us.us.us.us ]
-  %.reass126 = mul i64 %indvars.iv114, %factor.op.mul125
-  %61 = getelementptr inbounds nuw i8, ptr %50, i64 %.reass126
+  %.reass131 = mul i64 %indvars.iv114, %factor.op.mul130
+  %61 = getelementptr inbounds nuw i8, ptr %50, i64 %.reass131
   %62 = load ptr, ptr %9, align 8
   br label %.lr.ph.us.us.us.us.us
 
@@ -2024,7 +2024,7 @@ define internal void @_ZNK4ncnn7Pooling7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
   %52 = sext i32 %44 to i64
   %53 = add nsw i32 %21, 1
   %54 = sub i32 %53, %22
-  %factor.op.mul118 = mul i64 %42, %52
+  %factor.op.mul123 = mul i64 %42, %52
   br label %.noexc44.us.us
 
 .noexc44.us.us:                                   ; preds = %._ZN4ncnn3MatD2Ev.exit_crit_edge.split.us.us.us, %.noexc44.lr.ph.split.us.split.us
@@ -2061,7 +2061,7 @@ define internal void @_ZNK4ncnn7Pooling7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
 .preheader.us.us.us.us:                           ; preds = %.preheader.us.us.us.us.preheader, %._crit_edge77.split.us.us.us.us.us
   %indvars.iv109 = phi i64 [ 0, %.preheader.us.us.us.us.preheader ], [ %indvars.iv.next110, %._crit_edge77.split.us.us.us.us.us ]
   %.03880.us.us.us.us = phi ptr [ %61, %.preheader.us.us.us.us.preheader ], [ %76, %._crit_edge77.split.us.us.us.us.us ]
-  %.reass = mul i64 %indvars.iv109, %factor.op.mul118
+  %.reass = mul i64 %indvars.iv109, %factor.op.mul123
   %63 = getelementptr inbounds nuw i8, ptr %55, i64 %.reass
   %64 = load ptr, ptr %9, align 8
   br label %.lr.ph.us.us.us.us.us

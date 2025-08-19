@@ -952,18 +952,18 @@ extended_subheader_decoder.exit:                  ; preds = %181, %84, %87
 
 280:                                              ; preds = %276, %278, %272
   %hf_mac_header_generic_frag_subhd_fc_ext.sink = phi ptr [ @hf_mac_header_generic_frag_subhd_fc_ext, %276 ], [ @hf_mac_header_generic_frag_subhd_fc, %278 ], [ @hf_mac_header_generic_frag_subhd_fc_ext, %272 ]
-  %.sink537 = phi i32 [ 2, %276 ], [ 1, %278 ], [ 2, %272 ]
+  %.sink554 = phi i32 [ 2, %276 ], [ 1, %278 ], [ 2, %272 ]
   %hf_mac_header_generic_frag_subhd_fsn_ext.sink = phi ptr [ @hf_mac_header_generic_frag_subhd_fsn_ext, %276 ], [ @hf_mac_header_generic_frag_subhd_fsn, %278 ], [ @hf_mac_header_generic_frag_subhd_bsn, %272 ]
   %hf_mac_header_generic_frag_subhd_rsv_ext.sink = phi ptr [ @hf_mac_header_generic_frag_subhd_rsv_ext, %276 ], [ @hf_mac_header_generic_frag_subhd_rsv, %278 ], [ @hf_mac_header_generic_frag_subhd_rsv_ext, %272 ]
-  %.sink531 = phi i32 [ -2, %276 ], [ -1, %278 ], [ -2, %272 ]
+  %.sink548 = phi i32 [ -2, %276 ], [ -1, %278 ], [ -2, %272 ]
   %281 = load i32, ptr %hf_mac_header_generic_frag_subhd_fc_ext.sink, align 4
-  %282 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %281, ptr noundef %0, i32 noundef %.2422, i32 noundef %.sink537, i32 noundef 0)
+  %282 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %281, ptr noundef %0, i32 noundef %.2422, i32 noundef %.sink554, i32 noundef 0)
   %283 = load i32, ptr %hf_mac_header_generic_frag_subhd_fsn_ext.sink, align 4
-  %284 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %283, ptr noundef %0, i32 noundef %.2422, i32 noundef %.sink537, i32 noundef 0)
+  %284 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %283, ptr noundef %0, i32 noundef %.2422, i32 noundef %.sink554, i32 noundef 0)
   %285 = load i32, ptr %hf_mac_header_generic_frag_subhd_rsv_ext.sink, align 4
-  %286 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %285, ptr noundef %0, i32 noundef %.2422, i32 noundef %.sink537, i32 noundef 0)
-  %287 = add nsw i32 %.3438, %.sink531
-  %288 = add nuw nsw i32 %.2422, %.sink537
+  %286 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %285, ptr noundef %0, i32 noundef %.2422, i32 noundef %.sink554, i32 noundef 0)
+  %287 = add nsw i32 %.3438, %.sink548
+  %288 = add nuw nsw i32 %.2422, %.sink554
   store i32 %287, ptr @frag_len, align 4
   br label %290
 
@@ -1136,8 +1136,8 @@ decode_packing_subheader.exit:                    ; preds = %331, %338, %343
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit.sink.split:                             ; preds = %.preheader, %377
-  %.sink539 = trunc i64 %indvars.iv to i32
-  %380 = mul nuw i32 %.sink539, 67108863
+  %.sink556 = trunc i64 %indvars.iv to i32
+  %380 = mul nuw i32 %.sink556, 67108863
   store i32 %380, ptr @dissect_mac_header_generic_decoder.cid_base, align 4
   %381 = and i64 %indvars.iv, 4294967295
   br label %.loopexit

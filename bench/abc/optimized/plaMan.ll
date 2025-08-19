@@ -281,14 +281,14 @@ define noalias noundef ptr @Pla_GenPrimes(i32 noundef %0) local_unnamed_addr #0 
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %34, %36, %26, %28
-  %.sink18 = phi ptr [ %27, %26 ], [ %29, %28 ], [ %35, %34 ], [ %37, %36 ]
+  %.sink22 = phi ptr [ %27, %26 ], [ %29, %28 ], [ %35, %34 ], [ %37, %36 ]
   %.sink = phi i32 [ 16, %26 ], [ 16, %28 ], [ %31, %34 ], [ %31, %36 ]
-  store ptr %.sink18, ptr %6, align 8, !tbaa !24
+  store ptr %.sink22, ptr %6, align 8, !tbaa !24
   store i32 %.sink, ptr %3, align 8, !tbaa !23
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %19
-  %.pre.i16 = phi ptr [ %11, %19 ], [ %.sink18, %Vec_IntPush.exit.sink.split ]
+  %.pre.i16 = phi ptr [ %11, %19 ], [ %.sink22, %Vec_IntPush.exit.sink.split ]
   %38 = add nsw i32 %20, 1
   store i32 %38, ptr %4, align 4, !tbaa !21
   %39 = sext i32 %20 to i64

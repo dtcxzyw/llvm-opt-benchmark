@@ -37,10 +37,10 @@ define dso_local void @spt_init(i32 noundef %0, ptr noundef captures(none) %1) l
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %9 = sext i32 %0 to i64
   %10 = icmp slt i32 %0, 1
-  %.pre102 = load ptr, ptr %1, align 8, !tbaa !10
-  %.not72103 = icmp eq ptr %.pre102, null
-  %or.cond104 = select i1 %10, i1 %.not72103, i1 false
-  br i1 %or.cond104, label %.critedge2.preheader, label %.critedge
+  %.pre116 = load ptr, ptr %1, align 8, !tbaa !10
+  %.not72117 = icmp eq ptr %.pre116, null
+  %or.cond118 = select i1 %10, i1 %.not72117, i1 false
+  br i1 %or.cond118, label %.critedge2.preheader, label %.critedge
 
 .critedge2.preheader:                             ; preds = %17, %5
   %.0.lcssa = phi ptr [ %8, %5 ], [ %.1, %17 ]
@@ -49,25 +49,25 @@ define dso_local void @spt_init(i32 noundef %0, ptr noundef captures(none) %1) l
   br i1 %.not7394, label %.critedge2._crit_edge, label %.lr.ph
 
 .critedge:                                        ; preds = %5, %17
-  %.pre107 = phi ptr [ %.pre, %17 ], [ %.pre102, %5 ]
-  %.0106 = phi ptr [ %.1, %17 ], [ %8, %5 ]
-  %indvars.iv105 = phi i64 [ %indvars.iv.next, %17 ], [ 0, %5 ]
-  %.not81 = icmp eq ptr %.pre107, null
-  %12 = icmp ne ptr %.0106, %.pre107
+  %.pre121 = phi ptr [ %.pre, %17 ], [ %.pre116, %5 ]
+  %.0120 = phi ptr [ %.1, %17 ], [ %8, %5 ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next, %17 ], [ 0, %5 ]
+  %.not81 = icmp eq ptr %.pre121, null
+  %12 = icmp ne ptr %.0120, %.pre121
   %or.cond84 = select i1 %.not81, i1 true, i1 %12
   br i1 %or.cond84, label %17, label %13
 
 13:                                               ; preds = %.critedge
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre107) #15
-  %15 = getelementptr inbounds nuw i8, ptr %.pre107, i64 %14
-  %.not83 = icmp ugt ptr %.0106, %15
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre121) #15
+  %15 = getelementptr inbounds nuw i8, ptr %.pre121, i64 %14
+  %.not83 = icmp ugt ptr %.0120, %15
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  %spec.select = select i1 %.not83, ptr %.0106, ptr %16
+  %spec.select = select i1 %.not83, ptr %.0120, ptr %16
   br label %17
 
 17:                                               ; preds = %13, %.critedge
-  %.1 = phi ptr [ %.0106, %.critedge ], [ %spec.select, %13 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv105, 1
+  %.1 = phi ptr [ %.0120, %.critedge ], [ %spec.select, %13 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv119, 1
   %18 = icmp sge i64 %indvars.iv.next, %9
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !10

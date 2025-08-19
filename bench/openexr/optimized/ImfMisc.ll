@@ -1608,8 +1608,8 @@ _ZN7Imf_3_43Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rf.exit263: ; preds = %.lr.ph.i.i.i
   br label %282
 
 .loopexit.sink.split:                             ; preds = %.lr.ph325, %225
-  %.lcssa442.sink = phi ptr [ %233, %225 ], [ %236, %.lr.ph325 ]
-  store ptr %.lcssa442.sink, ptr %0, align 8, !tbaa !45
+  %.lcssa478.sink = phi ptr [ %233, %225 ], [ %236, %.lr.ph325 ]
+  store ptr %.lcssa478.sink, ptr %0, align 8, !tbaa !45
   br label %.loopexit
 
 .loopexit:                                        ; preds = %262, %254, %.lr.ph317, %.lr.ph321, %.lr.ph329, %.lr.ph333, %.lr.ph336, %192, %_ZN7Imf_3_43Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rf.exit263, %_ZN7Imf_3_43Xdr4readINS_9CharPtrIOEPKcEEvRT0_RN9Imath_3_24halfE.exit257, %_ZN7Imf_3_43Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rj.exit251, %_ZN7Imf_3_43Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rf.exit245, %_ZN7Imf_3_43Xdr4readINS_9CharPtrIOEPKcEEvRT0_RN9Imath_3_24halfE.exit239, %_ZN7Imf_3_43Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rj.exit233, %_ZN7Imf_3_43Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rf.exit, %_ZN7Imf_3_43Xdr4readINS_9CharPtrIOEPKcEEvRT0_RN9Imath_3_24halfE.exit, %_ZN7Imf_3_43Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rj.exit, %.lr.ph379, %.lr.ph382, %.lr.ph385, %.loopexit.sink.split, %.preheader306, %.preheader303, %.preheader301, %.preheader299, %.preheader297, %.preheader295, %.preheader293, %.preheader291, %.preheader289, %.preheader286, %.preheader284, %.preheader282, %.preheader280, %.preheader278, %.preheader276, %.preheader274, %.preheader272, %.preheader, %78, %_ZN9Imath_3_24halfC2Ef.exit, %20
@@ -3611,8 +3611,8 @@ _ZN7Imf_3_43Xdr4skipINS_9CharPtrIOEPKcEEvRT0_i.exit951: ; preds = %.lr.ph.i5.i93
   br label %.loopexit1056.sink.split
 
 .loopexit1056.sink.split:                         ; preds = %.lr.ph1122, %852
-  %.lcssa1452.sink = phi ptr [ %856, %852 ], [ %849, %.lr.ph1122 ]
-  store ptr %.lcssa1452.sink, ptr %0, align 8, !tbaa !45
+  %.lcssa1529.sink = phi ptr [ %856, %852 ], [ %849, %.lr.ph1122 ]
+  store ptr %.lcssa1529.sink, ptr %0, align 8, !tbaa !45
   br label %.loopexit1056
 
 .loopexit1056:                                    ; preds = %.loopexit1056.sink.split, %.preheader1055
@@ -5564,13 +5564,13 @@ define linkonce_odr void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 8, !tbaa !23
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !23
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -5988,9 +5988,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZSt16__do_str_codecvtINSt7__cxx1
   br label %80
 
 80:                                               ; preds = %.critedge, %.critedge.thread
-  %.sink75 = phi ptr [ %79, %.critedge.thread ], [ %.us-phi45, %.critedge ]
+  %.sink79 = phi ptr [ %79, %.critedge.thread ], [ %.us-phi45, %.critedge ]
   %81 = phi i1 [ true, %.critedge.thread ], [ false, %.critedge ]
-  %82 = ptrtoint ptr %.sink75 to i64
+  %82 = ptrtoint ptr %.sink79 to i64
   %83 = ptrtoint ptr %0 to i64
   %84 = sub i64 %82, %83
   store i64 %84, ptr %5, align 8, !tbaa !23

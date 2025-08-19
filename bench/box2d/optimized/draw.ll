@@ -1866,10 +1866,10 @@ define linkonce_odr dso_local void @_ZN15GLSolidPolygons10AddPolygonERK11b2Trans
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %6
-  %.sroa.6.64..sroa_idx17 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 64
-  store i32 %7, ptr %.sroa.6.64..sroa_idx17, align 8, !tbaa !150
-  %.sroa.6.68..sroa_idx18 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 68
-  store float %4, ptr %.sroa.6.68..sroa_idx18, align 4, !tbaa !155
+  %.sroa.6.64..sroa_idx19 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 64
+  store i32 %7, ptr %.sroa.6.64..sroa_idx19, align 8, !tbaa !150
+  %.sroa.6.68..sroa_idx20 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 68
+  store float %4, ptr %.sroa.6.68..sroa_idx20, align 4, !tbaa !155
   %13 = lshr i32 %5, 16
   %.sroa.3.0.insert.ext.i = shl i32 %5, 16
   %.sroa.2.0.insert.ext.i = and i32 %5, 65280
@@ -1877,8 +1877,8 @@ define linkonce_odr dso_local void @_ZN15GLSolidPolygons10AddPolygonERK11b2Trans
   %.sroa.0.0.insert.ext.i = and i32 %13, 255
   %.sroa.2.0.insert.insert.i = or disjoint i32 %.sroa.3.0.insert.insert.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = or i32 %.sroa.2.0.insert.insert.i, -16777216
-  %.sroa.6.72..sroa_idx19 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 72
-  store i32 %.sroa.0.0.insert.insert.i, ptr %.sroa.6.72..sroa_idx19, align 8
+  %.sroa.6.72..sroa_idx21 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 72
+  store i32 %.sroa.0.0.insert.insert.i, ptr %.sroa.6.72..sroa_idx21, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !156
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2122,8 +2122,8 @@ define linkonce_odr dso_local void @_ZN15GLSolidCapsules10AddCapsuleE6b2Vec2S0_f
   %.sroa.01.4.vec.extract.i = extractelement <2 x float> %2, i64 1
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %1, i64 1
   %6 = fsub float %.sroa.01.4.vec.extract.i, %.sroa.0.4.vec.extract.i
-  %foldExtExtBinop47 = fmul <2 x float> %foldExtExtBinop, %foldExtExtBinop
-  %7 = extractelement <2 x float> %foldExtExtBinop47, i64 0
+  %foldExtExtBinop49 = fmul <2 x float> %foldExtExtBinop, %foldExtExtBinop
+  %7 = extractelement <2 x float> %foldExtExtBinop49, i64 0
   %8 = fmul float %6, %6
   %9 = fadd float %7, %8
   %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %9)
@@ -2138,8 +2138,8 @@ define linkonce_odr dso_local void @_ZN15GLSolidCapsules10AddCapsuleE6b2Vec2S0_f
   %13 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %14 = fdiv float %13, %sqrt.i
   %15 = fdiv float %6, %sqrt.i
-  %foldExtExtBinop49 = fadd <2 x float> %1, %2
-  %16 = extractelement <2 x float> %foldExtExtBinop49, i64 0
+  %foldExtExtBinop51 = fadd <2 x float> %1, %2
+  %16 = extractelement <2 x float> %foldExtExtBinop51, i64 0
   %17 = fadd float %.sroa.0.4.vec.extract.i, %.sroa.01.4.vec.extract.i
   %18 = fmul float %16, 5.000000e-01
   %.sroa.02.0.vec.insert.i31 = insertelement <2 x float> poison, float %18, i64 0

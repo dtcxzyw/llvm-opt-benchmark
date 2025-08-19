@@ -1091,19 +1091,19 @@ _ZN6icu_7712SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i: ; pr
   br i1 %or.cond.i, label %25, label %_ZN6icu_7712SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i.thread
 
 _ZN6icu_7712SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i.thread: ; preds = %_ZN6icu_7712SharedObject7copyPtrINS_19CollationCacheEntryEEEvPKT_RS5_.exit.i, %_ZN6icu_7712SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i
-  %.110 = phi ptr [ %.1, %_ZN6icu_7712SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i ], [ null, %_ZN6icu_7712SharedObject7copyPtrINS_19CollationCacheEntryEEEvPKT_RS5_.exit.i ]
+  %.113 = phi ptr [ %.1, %_ZN6icu_7712SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i ], [ null, %_ZN6icu_7712SharedObject7copyPtrINS_19CollationCacheEntryEEEvPKT_RS5_.exit.i ]
   %24 = phi i32 [ %20, %_ZN6icu_7712SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i ], [ %17, %_ZN6icu_7712SharedObject7copyPtrINS_19CollationCacheEntryEEEvPKT_RS5_.exit.i ]
   store i32 %24, ptr %1, align 4, !tbaa !13
   br label %25
 
 25:                                               ; preds = %_ZN6icu_7712SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i.thread, %_ZN6icu_7712SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i
-  %.111 = phi ptr [ %.110, %_ZN6icu_7712SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i.thread ], [ %.1, %_ZN6icu_7712SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i ]
+  %.114 = phi ptr [ %.113, %_ZN6icu_7712SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i.thread ], [ %.1, %_ZN6icu_7712SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK6icu_7712UnifiedCache3getINS_19CollationCacheEntryEEEvRKNS_8CacheKeyIT_EEPKvRPKS4_R10UErrorCode.exit
 
 _ZNK6icu_7712UnifiedCache3getINS_19CollationCacheEntryEEEvRKNS_8CacheKeyIT_EEPKvRPKS4_R10UErrorCode.exit: ; preds = %25, %_ZN6icu_7714LocaleCacheKeyINS_19CollationCacheEntryEEC2ERKNS_6LocaleE.exit
-  %.2 = phi ptr [ %.111, %25 ], [ null, %_ZN6icu_7714LocaleCacheKeyINS_19CollationCacheEntryEEC2ERKNS_6LocaleE.exit ]
+  %.2 = phi ptr [ %.114, %25 ], [ null, %_ZN6icu_7714LocaleCacheKeyINS_19CollationCacheEntryEEC2ERKNS_6LocaleE.exit ]
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN6icu_7714LocaleCacheKeyINS_19CollationCacheEntryEEE, i64 16), ptr %5, align 8, !tbaa !39
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %9) #16
   call void @_ZN6icu_7712CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %5) #16
@@ -1951,7 +1951,7 @@ _ZNK6icu_7715CollationLoader22makeCacheEntryFromRootERKNS_6LocaleER10UErrorCode.
   unreachable
 
 _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit: ; preds = %125, %119, %110, %83, %67, %_ZNK6icu_7715CollationLoader22makeCacheEntryFromRootERKNS_6LocaleER10UErrorCode.exit, %127
-  %.162 = phi ptr [ %.1, %_ZNK6icu_7715CollationLoader22makeCacheEntryFromRootERKNS_6LocaleER10UErrorCode.exit ], [ %.1, %127 ], [ %126, %125 ], [ %120, %119 ], [ %111, %110 ], [ null, %83 ], [ null, %67 ]
+  %.164 = phi ptr [ %.1, %_ZNK6icu_7715CollationLoader22makeCacheEntryFromRootERKNS_6LocaleER10UErrorCode.exit ], [ %.1, %127 ], [ %126, %125 ], [ %120, %119 ], [ %111, %110 ], [ null, %83 ], [ null, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %132
 
@@ -1962,7 +1962,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   resume { ptr, i32 } %.pn53
 
 132:                                              ; preds = %2, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit
-  %.0 = phi ptr [ %.162, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit ], [ null, %2 ]
+  %.0 = phi ptr [ %.164, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit ], [ null, %2 ]
   ret ptr %.0
 }
 

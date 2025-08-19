@@ -103,8 +103,8 @@ define void @dorgql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 48:                                               ; preds = %.thread
   %49 = icmp slt i32 %.pre264275, 1
-  %or.cond279 = or i1 %23, %49
-  br i1 %or.cond279, label %191, label %50
+  %or.cond295 = or i1 %23, %49
+  br i1 %or.cond295, label %191, label %50
 
 50:                                               ; preds = %48
   %51 = icmp sgt i32 %.1, 1
@@ -171,8 +171,8 @@ define void @dorgql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %77, ptr %10, align 4, !tbaa !3
   %.not195237 = icmp sgt i32 %77, 0
   %.not199.not235 = icmp sgt i32 %76, 0
-  %or.cond280 = and i1 %.not195237, %.not199.not235
-  br i1 %or.cond280, label %.lr.ph.us.preheader, label %.thread223
+  %or.cond296 = and i1 %.not195237, %.not199.not235
+  br i1 %or.cond296, label %.lr.ph.us.preheader, label %.thread223
 
 .lr.ph.us.preheader:                              ; preds = %70
   %78 = load i32, ptr %0, align 4, !tbaa !3

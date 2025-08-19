@@ -590,8 +590,8 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
   %16 = tail call noundef zeroext i1 @_ZNK5arrow9ArraySpan19MayHaveLogicalNullsEv(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.07.019)
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.07.019, i64 128
   %.not12.not = icmp eq ptr %17, %15
-  %or.cond34 = select i1 %16, i1 true, i1 %.not12.not
-  br i1 %or.cond34, label %_ZNK5arrow9ArraySpan29DictionaryMayHaveLogicalNullsEv.exit, label %.lr.ph21
+  %or.cond39 = select i1 %16, i1 true, i1 %.not12.not
+  br i1 %or.cond39, label %_ZNK5arrow9ArraySpan29DictionaryMayHaveLogicalNullsEv.exit, label %.lr.ph21
 
 18:                                               ; preds = %.lr.ph
   switch i32 %9, label %45 [
@@ -1258,8 +1258,8 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %43 = getelementptr inbounds nuw i8, ptr %29, i64 64
-  %.not42 = icmp eq ptr %.pre, %.pre32
-  br i1 %.not42, label %.critedge75, label %44
+  %.not74 = icmp eq ptr %.pre, %.pre32
+  br i1 %.not74, label %.critedge75, label %44
 
 44:                                               ; preds = %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %45 = ptrtoint ptr %.pre32 to i64
@@ -2157,8 +2157,8 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %44 = getelementptr inbounds nuw i8, ptr %30, i64 64
-  %.not42 = icmp eq ptr %.pre, %.pre32
-  br i1 %.not42, label %.critedge75, label %45
+  %.not77 = icmp eq ptr %.pre, %.pre32
+  br i1 %.not77, label %.critedge75, label %45
 
 45:                                               ; preds = %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %46 = ptrtoint ptr %.pre32 to i64
@@ -4177,15 +4177,15 @@ tailrecurse.i:                                    ; preds = %6, %tailrecurse
     i32 26, label %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit
     i32 32, label %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit
     i32 38, label %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit
-    i32 14, label %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit64
-    i32 35, label %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit64
-    i32 13, label %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit64
-    i32 34, label %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit64
-    i32 39, label %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit64
-    i32 40, label %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit64
-    i32 28, label %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit64
-    i32 41, label %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit64
-    i32 42, label %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit64
+    i32 14, label %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit71
+    i32 35, label %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit71
+    i32 13, label %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit71
+    i32 34, label %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit71
+    i32 39, label %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit71
+    i32 40, label %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit71
+    i32 28, label %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit71
+    i32 41, label %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit71
+    i32 42, label %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit71
     i32 31, label %6
   ]
 
@@ -4197,12 +4197,12 @@ tailrecurse.i:                                    ; preds = %6, %tailrecurse
 _ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit: ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i
   br label %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit
 
-_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit64: ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i
+_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit71: ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i
   br label %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit
 
-_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit: ; preds = %tailrecurse.i, %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit64, %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit
-  %9 = phi i1 [ true, %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit ], [ false, %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit64 ], [ true, %tailrecurse.i ]
-  %.0.i = phi i32 [ 1, %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit ], [ 3, %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit64 ], [ 2, %tailrecurse.i ]
+_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit: ; preds = %tailrecurse.i, %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit71, %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit
+  %9 = phi i1 [ true, %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit ], [ false, %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit71 ], [ true, %tailrecurse.i ]
+  %.0.i = phi i32 [ 1, %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit ], [ 3, %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit71 ], [ 2, %tailrecurse.i ]
   %10 = getelementptr i8, ptr %.tr39, i64 32
   %wide.trip.count = zext nneg i32 %.0.i to i64
   br label %14
@@ -4239,8 +4239,8 @@ _ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit.thread: ; preds
   %scevgep = getelementptr i8, ptr %10, i64 %17
   %18 = tail call i32 @llvm.usub.sat.i32(i32 2, i32 %.0.i)
   %narrow = mul nuw nsw i32 %18, 24
-  %narrow57 = add nuw nsw i32 %narrow, 24
-  %19 = zext nneg i32 %narrow57 to i64
+  %narrow64 = add nuw nsw i32 %narrow, 24
+  %19 = zext nneg i32 %narrow64 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %19, i1 false), !tbaa !37
   br label %._crit_edge
 
@@ -4371,8 +4371,8 @@ _ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE6resizeEm.exit32: ; preds = %61, %63, %65
   %88 = ptrtoint ptr %86 to i64
   %89 = ptrtoint ptr %87 to i64
   %90 = sub i64 %88, %89
-  %sext58 = shl i64 %90, 28
-  %91 = ashr i64 %sext58, 32
+  %sext65 = shl i64 %90, 28
+  %91 = ashr i64 %sext65, 32
   %92 = icmp slt i64 %indvars.iv.next55, %91
   br i1 %92, label %.lr.ph45, label %._crit_edge46, !llvm.loop !236
 
@@ -4395,16 +4395,16 @@ tailrecurse:                                      ; preds = %265, %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %7 = load i32, ptr %6, align 8, !tbaa !60
   switch i32 %7, label %9 [
-    i32 0, label %.thread294
+    i32 0, label %.thread299
     i32 38, label %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit
     i32 28, label %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit
     i32 27, label %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit
   ]
 
-.thread294:                                       ; preds = %tailrecurse
+.thread299:                                       ; preds = %tailrecurse
   %8 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
   store i64 1, ptr %8, align 8, !tbaa !45
-  br label %common.ret517
+  br label %common.ret522
 
 9:                                                ; preds = %tailrecurse
   %10 = getelementptr inbounds nuw i8, ptr %.tr176, i64 40
@@ -4420,10 +4420,10 @@ tailrecurse:                                      ; preds = %265, %2
   br label %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit
 
 _ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit: ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %9
-  %.sink352 = phi i64 [ 40, %9 ], [ 16, %tailrecurse ], [ 16, %tailrecurse ], [ 16, %tailrecurse ]
-  %.sink350 = phi i64 [ 1, %9 ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ]
-  %18 = getelementptr inbounds nuw i8, ptr %.tr, i64 %.sink352
-  store i64 %.sink350, ptr %18, align 8, !tbaa !82
+  %.sink357 = phi i64 [ 40, %9 ], [ 16, %tailrecurse ], [ 16, %tailrecurse ], [ 16, %tailrecurse ]
+  %.sink355 = phi i64 [ 1, %9 ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ]
+  %18 = getelementptr inbounds nuw i8, ptr %.tr, i64 %.sink357
+  store i64 %.sink355, ptr %18, align 8, !tbaa !82
   switch i32 %7, label %_ZN5arrow19is_base_binary_likeENS_4Type4typeE.exit [
     i32 1, label %19
     i32 22, label %_ZN5arrow12is_primitiveENS_4Type4typeE.exit.thread
@@ -4466,7 +4466,7 @@ _ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit: ; preds = %tai
   store ptr %23, ptr %24, align 8, !tbaa !56
   %25 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
   store i64 1, ptr %25, align 8, !tbaa !80
-  br label %common.ret517
+  br label %common.ret522
 
 _ZN5arrow12is_primitiveENS_4Type4typeE.exit.thread: ; preds = %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit
   %26 = load ptr, ptr %.tr176, align 8, !tbaa !89
@@ -4485,7 +4485,7 @@ _ZN5arrow12is_primitiveENS_4Type4typeE.exit.thread: ; preds = %_ZN5arrow8interna
   %38 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
   store i64 %37, ptr %38, align 8, !tbaa !80
   %39 = icmp eq i32 %7, 29
-  br i1 %39, label %40, label %common.ret517
+  br i1 %39, label %40, label %common.ret522
 
 40:                                               ; preds = %_ZN5arrow12is_primitiveENS_4Type4typeE.exit.thread
   %41 = getelementptr inbounds nuw i8, ptr %.tr, i64 104
@@ -4535,7 +4535,7 @@ _ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE6resizeEm.exit: ; preds = %50, %52, %54, 
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !44
   tail call void @_ZN5arrow9ArraySpan10SetMembersERKNS_9ArrayDataE(ptr noundef nonnull align 8 dereferenceable(128) %60, ptr noundef nonnull align 8 dereferenceable(120) %64)
-  br label %common.ret517
+  br label %common.ret522
 
 65:                                               ; preds = %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit, %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit
   %66 = getelementptr inbounds nuw i8, ptr %.tr176, i64 40
@@ -4573,7 +4573,7 @@ _ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE6resizeEm.exit: ; preds = %50, %52, %54, 
   store ptr %.0, ptr %84, align 8, !tbaa !56
   %85 = getelementptr inbounds nuw i8, ptr %.tr, i64 88
   store i64 %.0109, ptr %85, align 8, !tbaa !80
-  br label %common.ret517
+  br label %common.ret522
 
 _ZN5arrow19is_base_binary_likeENS_4Type4typeE.exit: ; preds = %_ZN5arrow8internal24may_have_validity_bitmapENS_4Type4typeE.exit
   %86 = add i32 %7, -39
@@ -4589,7 +4589,7 @@ _ZN5arrow19is_base_binary_likeENS_4Type4typeE.exit: ; preds = %_ZN5arrow8interna
   %91 = getelementptr inbounds nuw i8, ptr %.tr176, i64 40
   %92 = load i8, ptr %91, align 8, !tbaa !237, !range !140, !noundef !141
   %93 = trunc nuw i8 %92 to i1
-  br i1 %93, label %94, label %common.ret517
+  br i1 %93, label %94, label %common.ret522
 
 94:                                               ; preds = %87
   %95 = getelementptr inbounds nuw i8, ptr %.tr176, i64 48
@@ -4599,7 +4599,7 @@ _ZN5arrow19is_base_binary_likeENS_4Type4typeE.exit: ; preds = %_ZN5arrow8interna
   store i64 16, ptr %.sroa.4157.0..sroa_idx, align 8, !tbaa !82
   %.sroa.5158.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.tr, i64 96
   store ptr null, ptr %.sroa.5158.0..sroa_idx, align 8, !tbaa !114
-  br label %common.ret517
+  br label %common.ret522
 
 97:                                               ; preds = %_ZN5arrow19is_base_binary_likeENS_4Type4typeE.exit
   switch i32 %7, label %175 [
@@ -4628,7 +4628,7 @@ _ZN5arrow19is_base_binary_likeENS_4Type4typeE.exit: ; preds = %_ZN5arrow8interna
   %109 = load i64, ptr %108, align 8, !tbaa !227
   %110 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
   store i64 %109, ptr %110, align 8, !tbaa !80
-  br label %common.ret517
+  br label %common.ret522
 
 _ZN5arrow23is_var_length_list_likeENS_4Type4typeE.exit.thread: ; preds = %97, %97, %97, %97, %97, %97
   %111 = getelementptr inbounds nuw i8, ptr %.tr, i64 104
@@ -4673,7 +4673,7 @@ _ZN5arrow23is_var_length_list_likeENS_4Type4typeE.exit.thread: ; preds = %97, %9
   store i64 8, ptr %.sroa.4153.0..sroa_idx, align 8, !tbaa !82
   %.sroa.5154.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.tr, i64 72
   store ptr null, ptr %.sroa.5154.0..sroa_idx, align 8, !tbaa !114
-  br label %common.ret517
+  br label %common.ret522
 
 130:                                              ; preds = %126
   %131 = getelementptr inbounds nuw i8, ptr %.tr176, i64 64
@@ -4683,7 +4683,7 @@ _ZN5arrow23is_var_length_list_likeENS_4Type4typeE.exit.thread: ; preds = %97, %9
   store i64 8, ptr %.sroa.4150.0..sroa_idx, align 8, !tbaa !82
   %.sroa.5151.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.tr, i64 72
   store ptr null, ptr %.sroa.5151.0..sroa_idx, align 8, !tbaa !114
-  br label %common.ret517
+  br label %common.ret522
 
 133:                                              ; preds = %126
   %134 = getelementptr inbounds nuw i8, ptr %.tr176, i64 64
@@ -4693,7 +4693,7 @@ _ZN5arrow23is_var_length_list_likeENS_4Type4typeE.exit.thread: ; preds = %97, %9
   store i64 16, ptr %.sroa.4147.0..sroa_idx, align 8, !tbaa !82
   %.sroa.5148.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.tr, i64 72
   store ptr null, ptr %.sroa.5148.0..sroa_idx, align 8, !tbaa !114
-  br label %common.ret517
+  br label %common.ret522
 
 136:                                              ; preds = %126
   %137 = getelementptr inbounds nuw i8, ptr %.tr176, i64 64
@@ -4710,7 +4710,7 @@ _ZN5arrow23is_var_length_list_likeENS_4Type4typeE.exit.thread: ; preds = %97, %9
   store i64 4, ptr %.sroa.8144.24..sroa.0138.0..sroa_idx, align 8, !tbaa !82
   %.sroa.9145.24..sroa.0138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.tr, i64 96
   store ptr null, ptr %.sroa.9145.24..sroa.0138.0..sroa_idx, align 8, !tbaa !114
-  br label %common.ret517
+  br label %common.ret522
 
 141:                                              ; preds = %126
   %142 = getelementptr inbounds nuw i8, ptr %.tr176, i64 64
@@ -4727,12 +4727,12 @@ _ZN5arrow23is_var_length_list_likeENS_4Type4typeE.exit.thread: ; preds = %97, %9
   store i64 8, ptr %.sroa.8.24..sroa.0132.0..sroa_idx, align 8, !tbaa !82
   %.sroa.9.24..sroa.0132.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.tr, i64 96
   store ptr null, ptr %.sroa.9.24..sroa.0132.0..sroa_idx, align 8, !tbaa !114
-  br label %common.ret517
+  br label %common.ret522
 
 146:                                              ; preds = %126
   %147 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %147, i8 0, i64 24, i1 false)
-  br label %common.ret517
+  br label %common.ret522
 
 148:                                              ; preds = %97
   %149 = getelementptr inbounds nuw i8, ptr %.tr, i64 104
@@ -4751,7 +4751,7 @@ _ZN5arrow23is_var_length_list_likeENS_4Type4typeE.exit.thread: ; preds = %97, %9
   %160 = load ptr, ptr %159, align 8, !tbaa !249
   %161 = load ptr, ptr %158, align 8, !tbaa !252
   %.not232 = icmp eq ptr %160, %161
-  br i1 %.not232, label %common.ret517, label %.lr.ph
+  br i1 %.not232, label %common.ret522, label %.lr.ph
 
 .lr.ph:                                           ; preds = %148, %.lr.ph
   %162 = phi ptr [ %169, %.lr.ph ], [ %161, %148 ]
@@ -4769,7 +4769,7 @@ _ZN5arrow23is_var_length_list_likeENS_4Type4typeE.exit.thread: ; preds = %97, %9
   %172 = sub i64 %170, %171
   %173 = ashr exact i64 %172, 4
   %174 = icmp ult i64 %167, %173
-  br i1 %174, label %.lr.ph, label %common.ret517, !llvm.loop !255
+  br i1 %174, label %.lr.ph, label %common.ret522, !llvm.loop !255
 
 175:                                              ; preds = %97
   %.off.i127 = add i32 %7, -27
@@ -4817,7 +4817,7 @@ _ZN5arrow23is_var_length_list_likeENS_4Type4typeE.exit.thread: ; preds = %97, %9
   %202 = lshr exact i64 %201, 7
   %203 = trunc i64 %202 to i32
   %204 = icmp sgt i32 %203, 0
-  br i1 %204, label %.lr.ph231, label %common.ret517
+  br i1 %204, label %.lr.ph231, label %common.ret522
 
 .lr.ph231:                                        ; preds = %191
   %205 = getelementptr inbounds nuw i8, ptr %.tr176, i64 41
@@ -4861,10 +4861,10 @@ _ZN5arrow23is_var_length_list_likeENS_4Type4typeE.exit.thread: ; preds = %97, %9
   %231 = ptrtoint ptr %229 to i64
   %232 = ptrtoint ptr %230 to i64
   %233 = sub i64 %231, %232
-  %sext289 = shl i64 %233, 25
-  %234 = ashr i64 %sext289, 32
+  %sext294 = shl i64 %233, 25
+  %234 = ashr i64 %sext294, 32
   %235 = icmp slt i64 %indvars.iv.next285, %234
-  br i1 %235, label %207, label %common.ret517, !llvm.loop !259
+  br i1 %235, label %207, label %common.ret522, !llvm.loop !259
 
 236:                                              ; preds = %176
   %237 = getelementptr inbounds nuw i8, ptr %.tr, i64 112
@@ -4876,7 +4876,7 @@ _ZN5arrow23is_var_length_list_likeENS_4Type4typeE.exit.thread: ; preds = %97, %9
   %243 = lshr exact i64 %242, 7
   %244 = trunc i64 %243 to i32
   %245 = icmp sgt i32 %244, 0
-  br i1 %245, label %.lr.ph229, label %common.ret517
+  br i1 %245, label %.lr.ph229, label %common.ret522
 
 .lr.ph229:                                        ; preds = %236
   %246 = getelementptr inbounds nuw i8, ptr %.tr176, i64 64
@@ -4896,18 +4896,18 @@ _ZN5arrow23is_var_length_list_likeENS_4Type4typeE.exit.thread: ; preds = %97, %9
   %255 = ptrtoint ptr %253 to i64
   %256 = ptrtoint ptr %254 to i64
   %257 = sub i64 %255, %256
-  %sext288 = shl i64 %257, 25
-  %258 = ashr i64 %sext288, 32
+  %sext293 = shl i64 %257, 25
+  %258 = ashr i64 %sext293, 32
   %259 = icmp slt i64 %indvars.iv.next, %258
-  br i1 %259, label %247, label %common.ret517, !llvm.loop !260
+  br i1 %259, label %247, label %common.ret522, !llvm.loop !260
 
 260:                                              ; preds = %175
-  switch i32 %7, label %common.ret517 [
+  switch i32 %7, label %common.ret522 [
     i32 31, label %261
     i32 38, label %265
   ]
 
-common.ret517:                                    ; preds = %127, %133, %141, %146, %136, %130, %87, %94, %_ZN5arrow12is_primitiveENS_4Type4typeE.exit.thread, %_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE6resizeEm.exit, %98, %80, %19, %191, %236, %148, %.thread294, %228, %247, %.lr.ph, %260, %261
+common.ret522:                                    ; preds = %127, %133, %141, %146, %136, %130, %87, %94, %_ZN5arrow12is_primitiveENS_4Type4typeE.exit.thread, %_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE6resizeEm.exit, %98, %80, %19, %191, %236, %148, %.thread299, %228, %247, %.lr.ph, %260, %261
   ret void
 
 261:                                              ; preds = %260
@@ -4916,7 +4916,7 @@ common.ret517:                                    ; preds = %127, %133, %141, %1
   tail call void @_ZN5arrow9ArraySpan14FillFromScalarERKNS_6ScalarE(ptr noundef nonnull align 8 dereferenceable(128) %.tr, ptr noundef nonnull align 8 dereferenceable(41) %263)
   %264 = load ptr, ptr %3, align 8, !tbaa !3
   store ptr %264, ptr %.tr, align 8, !tbaa !59
-  br label %common.ret517
+  br label %common.ret522
 
 265:                                              ; preds = %260
   %266 = getelementptr inbounds nuw i8, ptr %.tr, i64 104
@@ -4941,9 +4941,9 @@ common.ret517:                                    ; preds = %127, %133, %141, %1
   %279 = getelementptr inbounds nuw i8, ptr %.val117.val, i64 64
   %switch.selectcmp = icmp eq i32 %274, 7
   %switch.select = select i1 %switch.selectcmp, i64 4, i64 8
-  %switch.selectcmp408 = icmp eq i32 %274, 5
-  %switch.select409 = select i1 %switch.selectcmp408, i64 2, i64 %switch.select
-  store i64 %switch.select409, ptr %279, align 8, !tbaa !80
+  %switch.selectcmp413 = icmp eq i32 %274, 5
+  %switch.select414 = select i1 %switch.selectcmp413, i64 2, i64 %switch.select
+  store i64 %switch.select414, ptr %279, align 8, !tbaa !80
   %280 = getelementptr inbounds nuw i8, ptr %.val117.val, i64 128
   %281 = getelementptr inbounds nuw i8, ptr %.tr176, i64 64
   %282 = load ptr, ptr %281, align 8, !tbaa !253
@@ -5126,15 +5126,15 @@ tailrecurse.i.i:                                  ; preds = %46, %43
     i32 26, label %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit
     i32 32, label %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit
     i32 38, label %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit
-    i32 14, label %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit84
-    i32 35, label %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit84
-    i32 13, label %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit84
-    i32 34, label %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit84
-    i32 39, label %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit84
-    i32 40, label %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit84
-    i32 28, label %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit84
-    i32 41, label %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit84
-    i32 42, label %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit84
+    i32 14, label %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit102
+    i32 35, label %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit102
+    i32 13, label %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit102
+    i32 34, label %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit102
+    i32 39, label %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit102
+    i32 40, label %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit102
+    i32 28, label %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit102
+    i32 41, label %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit102
+    i32 42, label %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit102
     i32 31, label %46
   ]
 
@@ -5145,11 +5145,11 @@ tailrecurse.i.i:                                  ; preds = %46, %43
 _ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit: ; preds = %tailrecurse.i.i, %tailrecurse.i.i, %tailrecurse.i.i, %tailrecurse.i.i
   br label %_ZNK5arrow9ArraySpan11num_buffersEv.exit
 
-_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit84: ; preds = %tailrecurse.i.i, %tailrecurse.i.i, %tailrecurse.i.i, %tailrecurse.i.i, %tailrecurse.i.i, %tailrecurse.i.i, %tailrecurse.i.i, %tailrecurse.i.i, %tailrecurse.i.i
+_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit102: ; preds = %tailrecurse.i.i, %tailrecurse.i.i, %tailrecurse.i.i, %tailrecurse.i.i, %tailrecurse.i.i, %tailrecurse.i.i, %tailrecurse.i.i, %tailrecurse.i.i, %tailrecurse.i.i
   br label %_ZNK5arrow9ArraySpan11num_buffersEv.exit
 
-_ZNK5arrow9ArraySpan11num_buffersEv.exit:         ; preds = %tailrecurse.i.i, %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit84, %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit
-  %.0.i.i = phi i64 [ 1, %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit ], [ 3, %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit84 ], [ 2, %tailrecurse.i.i ]
+_ZNK5arrow9ArraySpan11num_buffersEv.exit:         ; preds = %tailrecurse.i.i, %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit102, %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit
+  %.0.i.i = phi i64 [ 1, %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit ], [ 3, %_ZNK5arrow9ArraySpan11num_buffersEv.exit.loopexit102 ], [ 2, %tailrecurse.i.i ]
   %48 = icmp samesign ult i64 %indvars.iv, %.0.i.i
   br i1 %48, label %56, label %49
 
@@ -5480,9 +5480,9 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit: ; pre
 .loopexit69:                                      ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit, %.thread, %125
   %.03068 = phi i32 [ %124, %.thread ], [ %52, %125 ], [ %52, %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit ]
   %188 = icmp eq i32 %.03068, 0
-  br i1 %188, label %.thread81, label %.loopexit69.thread
+  br i1 %188, label %.thread99, label %.loopexit69.thread
 
-.thread81:                                        ; preds = %.loopexit69
+.thread99:                                        ; preds = %.loopexit69
   %189 = load i64, ptr %24, align 8, !tbaa !79
   %190 = load ptr, ptr %0, align 8, !tbaa !44
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 24
@@ -5490,7 +5490,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit: ; pre
   br label %.preheader
 
 .loopexit69.thread:                               ; preds = %155, %.loopexit69
-  %.0306880 = phi i32 [ %.03068, %.loopexit69 ], [ %52, %155 ]
+  %.0306898 = phi i32 [ %.03068, %.loopexit69 ], [ %52, %155 ]
   %192 = load ptr, ptr %41, align 8, !tbaa !56
   %193 = icmp eq ptr %192, null
   br i1 %193, label %194, label %197
@@ -5502,10 +5502,10 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit: ; pre
   br label %197
 
 197:                                              ; preds = %.loopexit69.thread, %194
-  %198 = icmp eq i32 %.0306880, 29
+  %198 = icmp eq i32 %.0306898, 29
   br i1 %198, label %204, label %.preheader
 
-.preheader:                                       ; preds = %.thread81, %197
+.preheader:                                       ; preds = %.thread99, %197
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %200 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %201 = load ptr, ptr %200, align 8, !tbaa !54
@@ -7298,11 +7298,11 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ViewDataImpl12MakeDataView
   %51 = sdiv exact i64 %50, 56
   %.promoted11.i = load i64, ptr %42, align 8, !tbaa !311
   %.promoted.i = load i64, ptr %44, align 8, !tbaa !312
-  br label %.outer498
+  br label %.outer578
 
-.outer498:                                        ; preds = %.preheader.i, %62
+.outer578:                                        ; preds = %.preheader.i, %62
   %.promoted1012.i.ph = phi i64 [ %.promoted.i, %.preheader.i ], [ %63, %62 ]
-  %.ph499 = phi i64 [ %.promoted11.i, %.preheader.i ], [ 0, %62 ]
+  %.ph579 = phi i64 [ %.promoted11.i, %.preheader.i ], [ 0, %62 ]
   %52 = getelementptr inbounds nuw %"struct.arrow::DataTypeLayout", ptr %45, i64 %.promoted1012.i.ph
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !307
@@ -7313,8 +7313,8 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ViewDataImpl12MakeDataView
   %59 = ashr exact i64 %58, 4
   br label %60
 
-60:                                               ; preds = %.outer498, %68
-  %61 = phi i64 [ %69, %68 ], [ %.ph499, %.outer498 ]
+60:                                               ; preds = %.outer578, %68
+  %61 = phi i64 [ %69, %68 ], [ %.ph579, %.outer578 ]
   %.not.i = icmp ult i64 %61, %59
   br i1 %.not.i, label %65, label %62
 
@@ -7323,7 +7323,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ViewDataImpl12MakeDataView
   %63 = add i64 %.promoted1012.i.ph, 1
   store i64 %63, ptr %44, align 8, !tbaa !312
   %.not3.i = icmp ult i64 %63, %51
-  br i1 %.not3.i, label %.outer498, label %64, !llvm.loop !313
+  br i1 %.not3.i, label %.outer578, label %64, !llvm.loop !313
 
 64:                                               ; preds = %62
   store i8 1, ptr %39, align 8, !tbaa !294
@@ -7809,11 +7809,11 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit: ; pre
   %270 = sub i64 %268, %269
   %271 = sdiv exact i64 %270, 56
   %.promoted.i162 = load i64, ptr %173, align 8, !tbaa !312
-  br label %.outer496
+  br label %.outer576
 
-.outer496:                                        ; preds = %.preheader.i160, %282
+.outer576:                                        ; preds = %.preheader.i160, %282
   %.promoted1012.i164.ph = phi i64 [ %.promoted.i162, %.preheader.i160 ], [ %283, %282 ]
-  %.ph497 = phi i64 [ %261, %.preheader.i160 ], [ 0, %282 ]
+  %.ph577 = phi i64 [ %261, %.preheader.i160 ], [ 0, %282 ]
   %272 = getelementptr inbounds nuw %"struct.arrow::DataTypeLayout", ptr %265, i64 %.promoted1012.i164.ph
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %274 = load ptr, ptr %273, align 8, !tbaa !307
@@ -7824,8 +7824,8 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit: ; pre
   %279 = ashr exact i64 %278, 4
   br label %280
 
-280:                                              ; preds = %.outer496, %288
-  %281 = phi i64 [ %289, %288 ], [ %.ph497, %.outer496 ]
+280:                                              ; preds = %.outer576, %288
+  %281 = phi i64 [ %289, %288 ], [ %.ph577, %.outer576 ]
   %.not.i165 = icmp ult i64 %281, %279
   br i1 %.not.i165, label %285, label %282
 
@@ -7834,7 +7834,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit: ; pre
   %283 = add i64 %.promoted1012.i164.ph, 1
   store i64 %283, ptr %173, align 8, !tbaa !312
   %.not3.i166 = icmp ult i64 %283, %271
-  br i1 %.not3.i166, label %.outer496, label %284, !llvm.loop !313
+  br i1 %.not3.i166, label %.outer576, label %284, !llvm.loop !313
 
 284:                                              ; preds = %282
   store i8 1, ptr %39, align 8, !tbaa !294
@@ -8720,11 +8720,11 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit254: ; 
   %649 = sub i64 %647, %648
   %650 = sdiv exact i64 %649, 56
   %.promoted.i257 = load i64, ptr %327, align 8, !tbaa !312
-  br label %.outer492
+  br label %.outer572
 
-.outer492:                                        ; preds = %.preheader.i255, %661
+.outer572:                                        ; preds = %.preheader.i255, %661
   %.promoted1012.i259.ph = phi i64 [ %.promoted.i257, %.preheader.i255 ], [ %662, %661 ]
-  %.ph493 = phi i64 [ %.promoted11.i256, %.preheader.i255 ], [ 0, %661 ]
+  %.ph573 = phi i64 [ %.promoted11.i256, %.preheader.i255 ], [ 0, %661 ]
   %651 = getelementptr inbounds nuw %"struct.arrow::DataTypeLayout", ptr %645, i64 %.promoted1012.i259.ph
   %652 = getelementptr inbounds nuw i8, ptr %651, i64 8
   %653 = load ptr, ptr %652, align 8, !tbaa !307
@@ -8735,8 +8735,8 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit254: ; 
   %658 = ashr exact i64 %657, 4
   br label %659
 
-659:                                              ; preds = %.outer492, %667
-  %660 = phi i64 [ %668, %667 ], [ %.ph493, %.outer492 ]
+659:                                              ; preds = %.outer572, %667
+  %660 = phi i64 [ %668, %667 ], [ %.ph573, %.outer572 ]
   %.not.i260 = icmp ult i64 %660, %658
   br i1 %.not.i260, label %664, label %661
 
@@ -8745,7 +8745,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit254: ; 
   %662 = add i64 %.promoted1012.i259.ph, 1
   store i64 %662, ptr %327, align 8, !tbaa !312
   %.not3.i261 = icmp ult i64 %662, %650
-  br i1 %.not3.i261, label %.outer492, label %663, !llvm.loop !313
+  br i1 %.not3.i261, label %.outer572, label %663, !llvm.loop !313
 
 663:                                              ; preds = %661
   store i8 1, ptr %39, align 8, !tbaa !294
@@ -9719,24 +9719,24 @@ define linkonce_odr noundef zeroext i1 @_ZNK5arrow9ArrayData7IsValidEl(ptr nound
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = load ptr, ptr %4, align 8, !tbaa !14
-  %.not1653 = icmp eq ptr %5, null
-  br i1 %.not1653, label %.lr.ph.preheader, label %tailrecurse._crit_edge
+  %.not1655 = icmp eq ptr %5, null
+  br i1 %.not1655, label %.lr.ph.preheader, label %tailrecurse._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %2, %tailrecurse29
-  %6 = phi ptr [ %77, %tailrecurse29 ], [ %4, %2 ]
-  %.tr3055 = phi i64 [ %70, %tailrecurse29 ], [ %1, %2 ]
-  %.tr54 = phi ptr [ %75, %tailrecurse29 ], [ %0, %2 ]
+.lr.ph.preheader:                                 ; preds = %2, %tailrecurse31
+  %6 = phi ptr [ %77, %tailrecurse31 ], [ %4, %2 ]
+  %.tr3257 = phi i64 [ %70, %tailrecurse31 ], [ %1, %2 ]
+  %.tr56 = phi ptr [ %75, %tailrecurse31 ], [ %0, %2 ]
   br label %.lr.ph
 
-tailrecurse._crit_edge:                           ; preds = %tailrecurse29, %tailrecurse, %2
-  %.tr3048 = phi i64 [ %1, %2 ], [ %.tr3055, %tailrecurse ], [ %70, %tailrecurse29 ]
-  %.tr.lcssa = phi ptr [ %0, %2 ], [ %43, %tailrecurse ], [ %75, %tailrecurse29 ]
-  %.lcssa = phi ptr [ %5, %2 ], [ %46, %tailrecurse ], [ %78, %tailrecurse29 ]
+tailrecurse._crit_edge:                           ; preds = %tailrecurse31, %tailrecurse, %2
+  %.tr3250 = phi i64 [ %1, %2 ], [ %.tr3257, %tailrecurse ], [ %70, %tailrecurse31 ]
+  %.tr.lcssa = phi ptr [ %0, %2 ], [ %43, %tailrecurse ], [ %75, %tailrecurse31 ]
+  %.lcssa = phi ptr [ %5, %2 ], [ %46, %tailrecurse ], [ %78, %tailrecurse31 ]
   %7 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %.tr.lcssa, i64 32
   %10 = load i64, ptr %9, align 8, !tbaa !17
-  %11 = add nsw i64 %10, %.tr3048
+  %11 = add nsw i64 %10, %.tr3250
   %12 = lshr i64 %11, 3
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !37
@@ -9750,13 +9750,13 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse29, %tai
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %tailrecurse
   %21 = phi ptr [ %45, %tailrecurse ], [ %6, %.lr.ph.preheader ]
-  %.tr17 = phi ptr [ %43, %tailrecurse ], [ %.tr54, %.lr.ph.preheader ]
+  %.tr17 = phi ptr [ %43, %tailrecurse ], [ %.tr56, %.lr.ph.preheader ]
   %22 = load ptr, ptr %.tr17, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load i32, ptr %23, align 8, !tbaa !60
   switch i32 %24, label %82 [
     i32 27, label %tailrecurse
-    i32 28, label %tailrecurse29
+    i32 28, label %tailrecurse31
     i32 38, label %79
   ]
 
@@ -9769,7 +9769,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   %30 = getelementptr inbounds nuw i8, ptr %.tr17, i64 32
   %31 = load i64, ptr %30, align 8, !tbaa !17
   %32 = getelementptr i8, ptr %28, i64 %31
-  %33 = getelementptr i8, ptr %32, i64 %.tr3055
+  %33 = getelementptr i8, ptr %32, i64 %.tr3257
   %34 = load i8, ptr %33, align 1, !tbaa !37
   %35 = sext i8 %34 to i64
   %36 = load ptr, ptr %29, align 8, !tbaa !38
@@ -9786,7 +9786,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   %.not = icmp eq ptr %46, null
   br i1 %.not, label %.lr.ph, label %tailrecurse._crit_edge
 
-tailrecurse29:                                    ; preds = %.lr.ph
+tailrecurse31:                                    ; preds = %.lr.ph
   %47 = getelementptr inbounds nuw i8, ptr %.tr17, i64 40
   %48 = load ptr, ptr %47, align 8, !tbaa !11
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
@@ -9797,7 +9797,7 @@ tailrecurse29:                                    ; preds = %.lr.ph
   %54 = getelementptr inbounds nuw i8, ptr %.tr17, i64 32
   %55 = load i64, ptr %54, align 8, !tbaa !17
   %56 = getelementptr i8, ptr %52, i64 %55
-  %57 = getelementptr i8, ptr %56, i64 %.tr3055
+  %57 = getelementptr i8, ptr %56, i64 %.tr3257
   %58 = load i8, ptr %57, align 1, !tbaa !37
   %59 = sext i8 %58 to i64
   %60 = load ptr, ptr %53, align 8, !tbaa !38
@@ -9808,7 +9808,7 @@ tailrecurse29:                                    ; preds = %.lr.ph
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr i32, ptr %66, i64 %55
-  %68 = getelementptr i32, ptr %67, i64 %.tr3055
+  %68 = getelementptr i32, ptr %67, i64 %.tr3257
   %69 = load i32, ptr %68, align 4, !tbaa !41
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds nuw i8, ptr %.tr17, i64 64
@@ -9823,7 +9823,7 @@ tailrecurse29:                                    ; preds = %.lr.ph
   br i1 %.not16, label %.lr.ph.preheader, label %tailrecurse._crit_edge
 
 79:                                               ; preds = %.lr.ph
-  %80 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %.tr17, i64 noundef %.tr3055)
+  %80 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %.tr17, i64 noundef %.tr3257)
   %81 = xor i1 %80, true
   br label %88
 
@@ -11559,7 +11559,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5arrow9ArraySpan7IsValidEl(ptr nound
 
 tailrecurse:                                      ; preds = %71, %2
   %.tr = phi ptr [ %0, %2 ], [ %76, %71 ]
-  %.tr10 = phi i64 [ %1, %2 ], [ %74, %71 ]
+  %.tr11 = phi i64 [ %1, %2 ], [ %74, %71 ]
   %3 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !56
   %.not = icmp eq ptr %4, null
@@ -11568,7 +11568,7 @@ tailrecurse:                                      ; preds = %71, %2
 5:                                                ; preds = %tailrecurse
   %6 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %7 = load i64, ptr %6, align 8, !tbaa !53
-  %8 = add nsw i64 %7, %.tr10
+  %8 = add nsw i64 %7, %.tr11
   %9 = lshr i64 %8, 3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !37
@@ -11597,7 +11597,7 @@ tailrecurse:                                      ; preds = %71, %2
   %26 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %27 = load i64, ptr %26, align 8, !tbaa !53
   %28 = getelementptr i8, ptr %24, i64 %27
-  %29 = getelementptr i8, ptr %28, i64 %.tr10
+  %29 = getelementptr i8, ptr %28, i64 %.tr11
   %30 = load i8, ptr %29, align 1, !tbaa !37
   %31 = sext i8 %30 to i64
   %32 = load ptr, ptr %25, align 8, !tbaa !38
@@ -11607,7 +11607,7 @@ tailrecurse:                                      ; preds = %71, %2
   %36 = sext i32 %34 to i64
   %37 = load ptr, ptr %35, align 8, !tbaa !52
   %38 = getelementptr inbounds nuw %"struct.arrow::ArraySpan", ptr %37, i64 %36
-  %39 = tail call noundef zeroext i1 @_ZNK5arrow9ArraySpan6IsNullEl(ptr noundef nonnull align 8 dereferenceable(128) %38, i64 noundef %.tr10)
+  %39 = tail call noundef zeroext i1 @_ZNK5arrow9ArraySpan6IsNullEl(ptr noundef nonnull align 8 dereferenceable(128) %38, i64 noundef %.tr11)
   %40 = xor i1 %39, true
   br label %_ZNK5arrow9ArraySpan19IsNullRunEndEncodedEl.exit
 
@@ -11620,7 +11620,7 @@ tailrecurse:                                      ; preds = %71, %2
   %47 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %48 = load i64, ptr %47, align 8, !tbaa !53
   %49 = getelementptr i8, ptr %43, i64 %48
-  %50 = getelementptr i8, ptr %49, i64 %.tr10
+  %50 = getelementptr i8, ptr %49, i64 %.tr11
   %51 = load i8, ptr %50, align 1, !tbaa !37
   %52 = sext i8 %51 to i64
   %53 = load ptr, ptr %46, align 8, !tbaa !38
@@ -11628,7 +11628,7 @@ tailrecurse:                                      ; preds = %71, %2
   %55 = load i32, ptr %54, align 4, !tbaa !41
   %56 = sext i32 %55 to i64
   %57 = getelementptr i32, ptr %45, i64 %48
-  %58 = getelementptr i32, ptr %57, i64 %.tr10
+  %58 = getelementptr i32, ptr %57, i64 %.tr11
   %59 = load i32, ptr %58, align 4, !tbaa !41
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds nuw i8, ptr %.tr, i64 104
@@ -11648,7 +11648,7 @@ tailrecurse:                                      ; preds = %71, %2
 71:                                               ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %73 = load i64, ptr %72, align 8, !tbaa !53
-  %74 = tail call noundef i64 @_ZN5arrow8ree_util17FindPhysicalIndexERKNS_9ArraySpanEll(ptr noundef nonnull align 8 dereferenceable(128) %.tr, i64 noundef %.tr10, i64 noundef %73)
+  %74 = tail call noundef i64 @_ZN5arrow8ree_util17FindPhysicalIndexERKNS_9ArraySpanEll(ptr noundef nonnull align 8 dereferenceable(128) %.tr, i64 noundef %.tr11, i64 noundef %73)
   %75 = load ptr, ptr %67, align 8, !tbaa !52
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 128
   br label %tailrecurse
@@ -12756,7 +12756,7 @@ define linkonce_odr void @_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE17
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPSt10shared_ptrIN5arrow6BufferEEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt10shared_ptrIN5arrow6BufferEEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 4
+  %19 = shl nuw nsw i64 %1, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !92

@@ -848,9 +848,9 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.exit.i.i: ; pred
   br i1 %exitcond, label %139, label %133
 
 88:                                               ; preds = %62, %.thread44
-  %.lcssa72.sink = phi i64 [ 30, %.thread44 ], [ %25, %62 ]
+  %.lcssa84.sink = phi i64 [ 30, %.thread44 ], [ %25, %62 ]
   store ptr %.016.le.i, ptr %15, align 8, !alias.scope !59
-  store i64 %.lcssa72.sink, ptr %16, align 8, !alias.scope !59
+  store i64 %.lcssa84.sink, ptr %16, align 8, !alias.scope !59
   %89 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %.016.le.i, i64 %25
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %91 = load atomic i64, ptr %90 acquire, align 8, !noalias !62

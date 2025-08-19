@@ -2630,9 +2630,9 @@ define internal fastcc noundef i32 @dissect_rpc_authunix_groups(ptr noundef %0, 
 .lr.ph.thread:                                    ; preds = %3
   %12 = load ptr, ptr %4, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.264)
-  %.03957 = add i32 %2, 4
-  %.not61 = icmp eq ptr %.fr, null
-  br i1 %.not61, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split.preheader
+  %.03960 = add i32 %2, 4
+  %.not64 = icmp eq ptr %.fr, null
+  br i1 %.not64, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split.preheader
 
 13:                                               ; preds = %3
   %.039 = add i32 %2, 4
@@ -2670,11 +2670,11 @@ define internal fastcc noundef i32 @dissect_rpc_authunix_groups(ptr noundef %0, 
   br i1 %.not, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split.preheader
 
 .lr.ph.split.split.preheader:                     ; preds = %.lr.ph.thread, %.lr.ph.split
-  %.041.ph = phi i32 [ %.039, %.lr.ph.split ], [ %.03957, %.lr.ph.thread ]
+  %.041.ph = phi i32 [ %.039, %.lr.ph.split ], [ %.03960, %.lr.ph.thread ]
   br label %.lr.ph.split.split
 
 .lr.ph.split.split.us.preheader:                  ; preds = %.lr.ph.thread, %.lr.ph.split
-  %.041.us42.ph = phi i32 [ %.039, %.lr.ph.split ], [ %.03957, %.lr.ph.thread ]
+  %.041.us42.ph = phi i32 [ %.039, %.lr.ph.split ], [ %.03960, %.lr.ph.thread ]
   br label %.lr.ph.split.split.us
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split.split.us.preheader, %31
@@ -2761,9 +2761,9 @@ define internal fastcc noundef i32 @dissect_rpc_authunix_groups(ptr noundef %0, 
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %13, %48, %._crit_edge
-  %.0.lcssa67 = phi i32 [ %.0.lcssa, %48 ], [ %.0.lcssa, %._crit_edge ], [ %.039, %13 ], [ %.0.us.us, %.lr.ph.split.us.split.us ], [ %.0.us, %.lr.ph.split.us.split ]
+  %.0.lcssa70 = phi i32 [ %.0.lcssa, %48 ], [ %.0.lcssa, %._crit_edge ], [ %.039, %13 ], [ %.0.us.us, %.lr.ph.split.us.split.us ], [ %.0.us, %.lr.ph.split.us.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.0.lcssa67
+  ret i32 %.0.lcssa70
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -3878,8 +3878,8 @@ proto_item_set_generated.exit617:                 ; preds = %442, %448, %451
   br i1 %.not5.i622, label %proto_item_set_generated.exit620, label %proto_item_set_generated.exit620.sink.split
 
 proto_item_set_generated.exit620.sink.split:      ; preds = %475, %470
-  %.sink631 = phi ptr [ %472, %470 ], [ %477, %475 ]
-  %478 = getelementptr inbounds nuw i8, ptr %.sink631, i64 28
+  %.sink682 = phi ptr [ %472, %470 ], [ %477, %475 ]
+  %478 = getelementptr inbounds nuw i8, ptr %.sink682, i64 28
   %479 = load i32, ptr %478, align 4
   %480 = or i32 %479, 2
   store i32 %480, ptr %478, align 4

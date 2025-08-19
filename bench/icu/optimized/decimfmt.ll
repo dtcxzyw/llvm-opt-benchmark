@@ -764,7 +764,7 @@ define void @_ZN6icu_7713DecimalFormatC2EPKNS_20DecimalFormatSymbolsER10UErrorCo
 
 17:                                               ; preds = %14
   invoke void @_ZN6icu_7720DecimalFormatSymbolsC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2579) %15, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %18 unwind label %.thread30
+          to label %18 unwind label %.thread37
 
 18:                                               ; preds = %17
   %19 = load i32, ptr %2, align 4, !tbaa !13
@@ -803,7 +803,7 @@ define void @_ZN6icu_7713DecimalFormatC2EPKNS_20DecimalFormatSymbolsER10UErrorCo
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(2579) %15) #19
   br label %_ZN6icu_7712LocalPointerIKNS_20DecimalFormatSymbolsEE29adoptInsteadAndCheckErrorCodeEPS2_R10UErrorCode.exit
 
-.thread30:                                        ; preds = %17
+.thread37:                                        ; preds = %17
   %36 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %15) #19
@@ -917,10 +917,10 @@ _ZN6icu_7712LocalPointerIKNS_20DecimalFormatSymbolsEED2Ev.exit: ; preds = %74, %
   tail call void %87(ptr noundef nonnull align 8 dereferenceable(2579) %1) #19
   br label %_ZN6icu_7712LocalPointerIKNS_20DecimalFormatSymbolsEED2Ev.exit23
 
-_ZN6icu_7712LocalPointerIKNS_20DecimalFormatSymbolsEED2Ev.exit23: ; preds = %.thread30, %84, %81
-  %.pn32 = phi { ptr, i32 } [ %36, %.thread30 ], [ %82, %84 ], [ %82, %81 ]
+_ZN6icu_7712LocalPointerIKNS_20DecimalFormatSymbolsEED2Ev.exit23: ; preds = %.thread37, %84, %81
+  %.pn39 = phi { ptr, i32 } [ %36, %.thread37 ], [ %82, %84 ], [ %82, %81 ]
   tail call void @_ZN6icu_7712NumberFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #19
-  resume { ptr, i32 } %.pn32
+  resume { ptr, i32 } %.pn39
 }
 
 declare noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale10getDefaultEv() local_unnamed_addr #8
@@ -7661,12 +7661,12 @@ _ZN6icu_776number4impl25CurrencyPluralInfoWrapperC2ERKS2_.exit: ; preds = %_ZN6i
   br i1 %91, label %.body, label %.body.sink.split
 
 .body.sink.split:                                 ; preds = %89, %24
-  %.sink40 = phi ptr [ %26, %24 ], [ %90, %89 ]
+  %.sink43 = phi ptr [ %26, %24 ], [ %90, %89 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %25, %24 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %89 ]
-  %92 = load ptr, ptr %.sink40, align 8, !tbaa !18
+  %92 = load ptr, ptr %.sink43, align 8, !tbaa !18
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8
-  tail call void %94(ptr noundef nonnull align 8 dereferenceable(36) %.sink40) #19
+  tail call void %94(ptr noundef nonnull align 8 dereferenceable(36) %.sink43) #19
   br label %.body
 
 .body:                                            ; preds = %.body.sink.split, %89, %24

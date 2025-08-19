@@ -1753,8 +1753,8 @@ while.end52:                                      ; preds = %for.body29
   br i1 %cmp.i.not, label %for.inc59, label %for.body29
 
 for.inc59:                                        ; preds = %for.body29, %while.end52, %for.body
-  %cmp.i1428 = icmp eq ptr %10, %__begin3.sroa.0.022
-  br i1 %cmp.i1428, label %if.end63, label %for.body
+  %cmp.i1429 = icmp eq ptr %10, %__begin3.sroa.0.022
+  br i1 %cmp.i1429, label %if.end63, label %for.body
 
 if.end63:                                         ; preds = %for.inc59, %if.then19, %if.then, %cond.end
   ret void
@@ -4087,7 +4087,7 @@ if.then.i37:                                      ; preds = %_ZNSt6vectorIN8prox
 
 _ZNSt12_Vector_baseIN8proxygen11HPACKHeaderESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %_ZNSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %if.then.i37
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr37 = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw %"class.proxygen::HPACKHeader", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
   %add.ptr40 = getelementptr inbounds nuw %"class.proxygen::HPACKHeader", ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8

@@ -1199,13 +1199,13 @@ define internal i32 @h264_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %47, label %._crit_edge.i, label %.lr.ph66.preheader.i
 
 .lr.ph66.preheader.i:                             ; preds = %.critedge.i, %.preheader.i
-  %.0.lcssa76.i = phi ptr [ %.0.lcssa.ph.i, %.critedge.i ], [ %28, %.preheader.i ]
-  %.039.lcssa75.i = phi i64 [ %.phi.trans.insert.i, %.critedge.i ], [ 0, %.preheader.i ]
-  %48 = getelementptr inbounds nuw [18 x ptr], ptr %24, i64 0, i64 %.039.lcssa75.i
+  %.0.lcssa79.i = phi ptr [ %.0.lcssa.ph.i, %.critedge.i ], [ %28, %.preheader.i ]
+  %.039.lcssa78.i = phi i64 [ %.phi.trans.insert.i, %.critedge.i ], [ 0, %.preheader.i ]
+  %48 = getelementptr inbounds nuw [18 x ptr], ptr %24, i64 0, i64 %.039.lcssa78.i
   br label %.lr.ph66.i
 
 .lr.ph66.i:                                       ; preds = %.lr.ph66.i, %.lr.ph66.preheader.i
-  %indvars.iv68.i = phi i64 [ %.039.lcssa75.i, %.lr.ph66.preheader.i ], [ %indvars.iv.next69.i, %.lr.ph66.i ]
+  %indvars.iv68.i = phi i64 [ %.039.lcssa78.i, %.lr.ph66.preheader.i ], [ %indvars.iv.next69.i, %.lr.ph66.i ]
   %49 = phi ptr [ %48, %.lr.ph66.preheader.i ], [ %50, %.lr.ph66.i ]
   %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
   %50 = getelementptr inbounds nuw [18 x ptr], ptr %24, i64 0, i64 %indvars.iv.next69.i
@@ -1215,8 +1215,8 @@ define internal i32 @h264_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not50.i, label %._crit_edge.i, label %.lr.ph66.i, !llvm.loop !205
 
 ._crit_edge.i:                                    ; preds = %.lr.ph66.i, %.critedge.i
-  %.0.lcssa77.i = phi ptr [ %.0.lcssa.ph.i, %.critedge.i ], [ %.0.lcssa76.i, %.lr.ph66.i ]
-  %52 = getelementptr inbounds nuw i8, ptr %.0.lcssa77.i, i64 704
+  %.0.lcssa80.i = phi ptr [ %.0.lcssa.ph.i, %.critedge.i ], [ %.0.lcssa79.i, %.lr.ph66.i ]
+  %52 = getelementptr inbounds nuw i8, ptr %.0.lcssa80.i, i64 704
   %53 = load i32, ptr %52, align 8, !tbaa !206
   %54 = load i32, ptr %26, align 8, !tbaa !159
   %55 = or i32 %54, %53
@@ -1224,11 +1224,11 @@ define internal i32 @h264_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %56 = and i32 %54, 2
   %57 = or i32 %56, %53
   store i32 %57, ptr %52, align 8, !tbaa !206
-  %58 = getelementptr inbounds nuw i8, ptr %.0.lcssa77.i, i64 700
+  %58 = getelementptr inbounds nuw i8, ptr %.0.lcssa80.i, i64 700
   %59 = load i32, ptr %58, align 4, !tbaa !155
   %60 = and i32 %59, -5
   store i32 %60, ptr %58, align 4, !tbaa !155
-  %61 = tail call fastcc i32 @finalize_frame(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %.0.lcssa77.i, ptr noundef %2)
+  %61 = tail call fastcc i32 @finalize_frame(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %.0.lcssa80.i, ptr noundef %2)
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %send_next_delayed_frame.exit, label %63
 
@@ -1625,7 +1625,7 @@ get_last_needed_nal.exit.i:                       ; preds = %.thread.i.i
 
 .preheader.i98:                                   ; preds = %183, %get_last_needed_nal.exit.i
   %281 = phi i32 [ %276, %get_last_needed_nal.exit.i ], [ %.pre, %183 ]
-  %.0196302.i = phi i32 [ %.23355.i.i, %get_last_needed_nal.exit.i ], [ 0, %183 ]
+  %.0196326.i = phi i32 [ %.23355.i.i, %get_last_needed_nal.exit.i ], [ 0, %183 ]
   %282 = getelementptr inbounds nuw i8, ptr %13, i64 730776
   %283 = icmp sgt i32 %281, 0
   br i1 %283, label %.lr.ph.i102, label %._crit_edge.i99
@@ -1660,7 +1660,7 @@ get_last_needed_nal.exit.i:                       ; preds = %.thread.i.i
   %310 = getelementptr inbounds nuw i8, ptr %13, i64 736528
   %311 = getelementptr inbounds nuw i8, ptr %13, i64 729200
   %312 = getelementptr inbounds nuw i8, ptr %13, i64 730736
-  %313 = zext nneg i32 %.0196302.i to i64
+  %313 = zext nneg i32 %.0196326.i to i64
   br label %314
 
 314:                                              ; preds = %.thread280.i, %.lr.ph.i102
@@ -1673,10 +1673,10 @@ get_last_needed_nal.exit.i:                       ; preds = %.thread.i.i
   %319 = getelementptr inbounds nuw i8, ptr %316, i64 68
   %320 = load i32, ptr %319, align 4, !tbaa !227
   %321 = icmp eq i32 %320, 0
-  %or.cond309.i = select i1 %318, i1 %321, i1 false
+  %or.cond333.i = select i1 %318, i1 %321, i1 false
   %322 = getelementptr inbounds nuw i8, ptr %316, i64 64
   %323 = load i32, ptr %322, align 8, !tbaa !221
-  br i1 %or.cond309.i, label %324, label %._crit_edge298.i
+  br i1 %or.cond333.i, label %324, label %._crit_edge298.i
 
 324:                                              ; preds = %314
   %.not238.i = icmp eq i32 %323, 6
@@ -2400,13 +2400,13 @@ decode_nal_units.exit:                            ; preds = %625, %628, %631, %6
   br i1 %673, label %._crit_edge.i127, label %.lr.ph66.preheader.i120
 
 .lr.ph66.preheader.i120:                          ; preds = %.critedge.i114, %.preheader.i107
-  %.0.lcssa76.i121 = phi ptr [ %.0.lcssa.ph.i116, %.critedge.i114 ], [ %654, %.preheader.i107 ]
-  %.039.lcssa75.i122 = phi i64 [ %.phi.trans.insert.i117, %.critedge.i114 ], [ 0, %.preheader.i107 ]
-  %674 = getelementptr inbounds nuw [18 x ptr], ptr %650, i64 0, i64 %.039.lcssa75.i122
+  %.0.lcssa79.i121 = phi ptr [ %.0.lcssa.ph.i116, %.critedge.i114 ], [ %654, %.preheader.i107 ]
+  %.039.lcssa78.i122 = phi i64 [ %.phi.trans.insert.i117, %.critedge.i114 ], [ 0, %.preheader.i107 ]
+  %674 = getelementptr inbounds nuw [18 x ptr], ptr %650, i64 0, i64 %.039.lcssa78.i122
   br label %.lr.ph66.i123
 
 .lr.ph66.i123:                                    ; preds = %.lr.ph66.i123, %.lr.ph66.preheader.i120
-  %indvars.iv68.i124 = phi i64 [ %.039.lcssa75.i122, %.lr.ph66.preheader.i120 ], [ %indvars.iv.next69.i125, %.lr.ph66.i123 ]
+  %indvars.iv68.i124 = phi i64 [ %.039.lcssa78.i122, %.lr.ph66.preheader.i120 ], [ %indvars.iv.next69.i125, %.lr.ph66.i123 ]
   %675 = phi ptr [ %674, %.lr.ph66.preheader.i120 ], [ %676, %.lr.ph66.i123 ]
   %indvars.iv.next69.i125 = add nuw nsw i64 %indvars.iv68.i124, 1
   %676 = getelementptr inbounds nuw [18 x ptr], ptr %650, i64 0, i64 %indvars.iv.next69.i125
@@ -2416,8 +2416,8 @@ decode_nal_units.exit:                            ; preds = %625, %628, %631, %6
   br i1 %.not50.i126, label %._crit_edge.i127, label %.lr.ph66.i123, !llvm.loop !205
 
 ._crit_edge.i127:                                 ; preds = %.lr.ph66.i123, %.critedge.i114
-  %.0.lcssa77.i128 = phi ptr [ %.0.lcssa.ph.i116, %.critedge.i114 ], [ %.0.lcssa76.i121, %.lr.ph66.i123 ]
-  %678 = getelementptr inbounds nuw i8, ptr %.0.lcssa77.i128, i64 704
+  %.0.lcssa80.i128 = phi ptr [ %.0.lcssa.ph.i116, %.critedge.i114 ], [ %.0.lcssa79.i121, %.lr.ph66.i123 ]
+  %678 = getelementptr inbounds nuw i8, ptr %.0.lcssa80.i128, i64 704
   %679 = load i32, ptr %678, align 8, !tbaa !206
   %680 = load i32, ptr %652, align 8, !tbaa !159
   %681 = or i32 %680, %679
@@ -2425,11 +2425,11 @@ decode_nal_units.exit:                            ; preds = %625, %628, %631, %6
   %682 = and i32 %680, 2
   %683 = or i32 %682, %679
   store i32 %683, ptr %678, align 8, !tbaa !206
-  %684 = getelementptr inbounds nuw i8, ptr %.0.lcssa77.i128, i64 700
+  %684 = getelementptr inbounds nuw i8, ptr %.0.lcssa80.i128, i64 700
   %685 = load i32, ptr %684, align 4, !tbaa !155
   %686 = and i32 %685, -5
   store i32 %686, ptr %684, align 4, !tbaa !155
-  %687 = call fastcc i32 @finalize_frame(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %.0.lcssa77.i128, ptr noundef %2)
+  %687 = call fastcc i32 @finalize_frame(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %.0.lcssa80.i128, ptr noundef %2)
   %688 = icmp slt i32 %687, 0
   br i1 %688, label %send_next_delayed_frame.exit, label %689
 

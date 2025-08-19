@@ -1031,18 +1031,18 @@ _init_l_Lake_instToStringConfigLang___closed__1.exit: ; preds = %_init_l_Lake_Co
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_instToStringConfigLang___closed__1.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %123, %_init_l_Lake_instToStringConfigLang___closed__1.exit ]
-  %126 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !4
+  %.sink27 = phi ptr [ %4, %3 ], [ %123, %_init_l_Lake_instToStringConfigLang___closed__1.exit ]
+  %126 = getelementptr inbounds nuw i8, ptr %.sink27, i64 4
+  store i32 1, ptr %.sink27, align 4, !tbaa !4
   store i32 131096, ptr %126, align 4
-  %127 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %.sink27, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %127, align 8, !tbaa !10
-  %128 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %.sink27, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %128, align 8, !tbaa !10
   br label %129
 
 129:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink27, %.sink.split ]
   ret ptr %.0
 }
 

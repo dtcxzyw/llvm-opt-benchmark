@@ -403,11 +403,11 @@ define internal fastcc range(i32 -1, 2) i32 @send_request(ptr noundef nonnull %0
 
 .lr.ph.preheader:                                 ; preds = %14
   %19 = icmp slt i32 %17, 0
-  br i1 %19, label %.lr.ph._crit_edge, label %.lr.ph28
+  br i1 %19, label %.lr.ph._crit_edge, label %.lr.ph31
 
-.lr.ph:                                           ; preds = %.lr.ph28
+.lr.ph:                                           ; preds = %.lr.ph31
   %20 = icmp slt i32 %29, 0
-  br i1 %20, label %.lr.ph._crit_edge, label %.lr.ph28
+  br i1 %20, label %.lr.ph._crit_edge, label %.lr.ph31
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.01524.lcssa = phi i32 [ 0, %.lr.ph.preheader ], [ 1, %.lr.ph ]
@@ -421,7 +421,7 @@ define internal fastcc range(i32 -1, 2) i32 @send_request(ptr noundef nonnull %0
   call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.23) #13
   unreachable
 
-.lr.ph28:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph31:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %26 = phi i64 [ %28, %.lr.ph ], [ %16, %.lr.ph.preheader ]
   %27 = and i64 %26, 2147483647
   call void @write_or_die(i32 noundef 1, ptr noundef nonnull %3, i64 noundef %27) #12
@@ -432,8 +432,8 @@ define internal fastcc range(i32 -1, 2) i32 @send_request(ptr noundef nonnull %0
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %.lr.ph28, %14, %.lr.ph._crit_edge
-  %.01523 = phi i32 [ %.01524.lcssa, %.lr.ph._crit_edge ], [ 0, %14 ], [ 1, %.lr.ph28 ]
+.loopexit:                                        ; preds = %.lr.ph31, %14, %.lr.ph._crit_edge
+  %.01523 = phi i32 [ %.01524.lcssa, %.lr.ph._crit_edge ], [ 0, %14 ], [ 1, %.lr.ph31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %31 = call i32 @close(i32 noundef %4) #12
   br label %32

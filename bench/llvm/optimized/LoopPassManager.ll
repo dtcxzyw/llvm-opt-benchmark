@@ -598,8 +598,8 @@ _ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i: ; preds = %_ZNK4l
   %151 = icmp eq ptr %150, @_ZN4llvm16LoopNestAnalysis3KeyE
   %152 = getelementptr inbounds nuw i8, ptr %.0810.i.i5.i, i64 8
   %.not.not.i.i6.i = icmp eq ptr %152, %148
-  %or.cond120 = select i1 %151, i1 true, i1 %.not.not.i.i6.i
-  br i1 %or.cond120, label %_ZN4llvm17PreservedAnalyses24PreservedAnalysisChecker9preservedEv.exit, label %.lr.ph.i.i4.i, !llvm.loop !32
+  %or.cond127 = select i1 %151, i1 true, i1 %.not.not.i.i6.i
+  br i1 %or.cond127, label %_ZN4llvm17PreservedAnalyses24PreservedAnalysisChecker9preservedEv.exit, label %.lr.ph.i.i4.i, !llvm.loop !32
 
 153:                                              ; preds = %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.i
   %154 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %8, ptr noundef nonnull @_ZN4llvm16LoopNestAnalysis3KeyE) #13
@@ -826,17 +826,17 @@ define dso_local void @_ZN4llvm11PassManagerINS_4LoopENS_15AnalysisManagerIS1_JR
   %24 = zext i32 %.01926 to i64
   %25 = load ptr, ptr %7, align 8
   %26 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %25, i64 %24
-  %.sink31.in = select i1 %.not23, ptr %26, ptr %23
+  %.sink33.in = select i1 %.not23, ptr %26, ptr %23
   %27 = zext i1 %.not23 to i32
   %.120 = add i32 %.01926, %27
   %not..not23 = xor i1 %.not23, true
   %28 = zext i1 %not..not23 to i32
   %.1 = add i32 %.027, %28
-  %.sink31 = load ptr, ptr %.sink31.in, align 8, !tbaa !34
-  %29 = load ptr, ptr %.sink31, align 8, !tbaa !96
+  %.sink33 = load ptr, ptr %.sink33.in, align 8, !tbaa !34
+  %29 = load ptr, ptr %.sink33, align 8, !tbaa !96
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(8) %.sink31, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %2, i64 %3) #13
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(8) %.sink33, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %2, i64 %3) #13
   %32 = add nuw i32 %.02125, 1
   %33 = icmp ult i32 %32, %6
   br i1 %33, label %34, label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -3278,13 +3278,13 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_4LoopElLj4ENS_12DenseMapInfoIS3_vE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %32, %15, %65
-  %.sink32 = phi i32 [ %74, %65 ], [ %13, %15 ], [ %13, %32 ]
-  %.sink30 = phi ptr [ %72, %65 ], [ %10, %15 ], [ %10, %32 ]
-  %.sink29 = phi ptr [ %54, %65 ], [ %24, %15 ], [ %38, %32 ]
+  %.sink36 = phi i32 [ %74, %65 ], [ %13, %15 ], [ %13, %32 ]
+  %.sink34 = phi ptr [ %72, %65 ], [ %10, %15 ], [ %10, %32 ]
+  %.sink33 = phi ptr [ %54, %65 ], [ %24, %15 ], [ %38, %32 ]
   %.sink = phi i8 [ 1, %65 ], [ 0, %15 ], [ 0, %32 ]
-  %75 = zext i32 %.sink32 to i64
-  %76 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %75
-  store ptr %.sink29, ptr %0, align 8
+  %75 = zext i32 %.sink36 to i64
+  %76 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink34, i64 %75
+  store ptr %.sink33, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %76, ptr %.sroa.4.0..sroa_idx, align 8
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16

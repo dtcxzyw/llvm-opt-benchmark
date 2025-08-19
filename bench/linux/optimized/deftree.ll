@@ -2327,9 +2327,9 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 
 411:                                              ; preds = %400
   %412 = icmp eq i32 %317, 0
-  br i1 %412, label %.thread49, label %.preheader91
+  br i1 %412, label %.thread49, label %.preheader139
 
-.preheader91:                                     ; preds = %411, %.loopexit50
+.preheader139:                                    ; preds = %411, %.loopexit50
   %413 = phi i32 [ %451, %.loopexit50 ], [ %317, %411 ]
   %414 = phi i32 [ %450, %.loopexit50 ], [ 573, %411 ]
   %415 = sext i32 %413 to i64
@@ -2339,7 +2339,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %419 = icmp eq i16 %417, 0
   br i1 %419, label %.loopexit50, label %420
 
-420:                                              ; preds = %.preheader91
+420:                                              ; preds = %.preheader139
   %421 = zext i16 %417 to i32
   br label %422
 
@@ -2383,11 +2383,11 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %449 = icmp eq i32 %448, 0
   br i1 %449, label %.loopexit50, label %422, !llvm.loop !38
 
-.loopexit50:                                      ; preds = %447, %.preheader91
-  %450 = phi i32 [ %414, %.preheader91 ], [ %427, %447 ]
+.loopexit50:                                      ; preds = %447, %.preheader139
+  %450 = phi i32 [ %414, %.preheader139 ], [ %427, %447 ]
   %451 = add i32 %413, -1
   %452 = icmp eq i32 %451, 0
-  br i1 %452, label %.thread49, label %.preheader91, !llvm.loop !39
+  br i1 %452, label %.thread49, label %.preheader139, !llvm.loop !39
 
 .thread49:                                        ; preds = %.loopexit50, %302, %411, %386
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2780,14 +2780,14 @@ define internal fastcc void @compress_block(ptr noundef captures(none) %0, ptr n
 
 .sink.split:                                      ; preds = %208, %230, %41, %62
   %.sink11.sink = phi i16 [ %59, %41 ], [ %40, %62 ], [ %227, %208 ], [ %207, %230 ]
-  %.sink16 = phi i32 [ %61, %41 ], [ %63, %62 ], [ %229, %208 ], [ %231, %230 ]
+  %.sink23 = phi i32 [ %61, %41 ], [ %63, %62 ], [ %229, %208 ], [ %231, %230 ]
   store i16 %.sink11.sink, ptr %11, align 8
-  store i32 %.sink16, ptr %10, align 4
+  store i32 %.sink23, ptr %10, align 4
   br label %232
 
 232:                                              ; preds = %.sink.split, %193
   %233 = phi i16 [ %194, %193 ], [ %.sink11.sink, %.sink.split ]
-  %234 = phi i32 [ %195, %193 ], [ %.sink16, %.sink.split ]
+  %234 = phi i32 [ %195, %193 ], [ %.sink23, %.sink.split ]
   %235 = load i32, ptr %4, align 4
   %236 = zext i32 %235 to i64
   %237 = icmp samesign ult i64 %21, %236
@@ -3444,9 +3444,9 @@ define internal fastcc void @send_tree(ptr noundef %0, ptr noundef readonly capt
 
 .loopexit.sink.split:                             ; preds = %310, %335, %242, %267, %171, %196
   %.sink24.sink = phi i16 [ %194, %171 ], [ %200, %196 ], [ %265, %242 ], [ %271, %267 ], [ %333, %310 ], [ %339, %335 ]
-  %.sink26 = phi i32 [ %195, %171 ], [ %201, %196 ], [ %266, %242 ], [ %272, %267 ], [ %334, %310 ], [ %340, %335 ]
+  %.sink43 = phi i32 [ %195, %171 ], [ %201, %196 ], [ %266, %242 ], [ %272, %267 ], [ %334, %310 ], [ %340, %335 ]
   store i16 %.sink24.sink, ptr %14, align 8
-  store i32 %.sink26, ptr %13, align 4
+  store i32 %.sink43, ptr %13, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %83, %.loopexit.sink.split

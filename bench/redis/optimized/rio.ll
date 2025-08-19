@@ -1628,15 +1628,15 @@ sdslen.exit48:                                    ; preds = %107, %103, %99, %95
   br i1 %.not4370, label %.outer._crit_edge, label %.outer.split.preheader
 
 .outer.split.preheader:                           ; preds = %9, %sdslen.exit, %sdslen.exit48
-  %.03188 = phi ptr [ %.031, %sdslen.exit48 ], [ %1, %sdslen.exit ], [ %1, %9 ]
-  %.03386 = phi i64 [ %.033, %sdslen.exit48 ], [ %2, %sdslen.exit ], [ %2, %9 ]
+  %.03194 = phi ptr [ %.031, %sdslen.exit48 ], [ %1, %sdslen.exit ], [ %1, %9 ]
+  %.03392 = phi i64 [ %.033, %sdslen.exit48 ], [ %2, %sdslen.exit ], [ %2, %9 ]
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %.outer.split
 
 .outer.split:                                     ; preds = %.outer.split.preheader, %.outer
-  %111 = phi i64 [ %124, %.outer ], [ %.03386, %.outer.split.preheader ]
+  %111 = phi i64 [ %124, %.outer ], [ %.03392, %.outer.split.preheader ]
   %.0.ph71 = phi i64 [ %123, %.outer ], [ 0, %.outer.split.preheader ]
-  %112 = getelementptr inbounds nuw i8, ptr %.03188, i64 %.0.ph71
+  %112 = getelementptr inbounds nuw i8, ptr %.03194, i64 %.0.ph71
   br label %113
 
 113:                                              ; preds = %.outer.split, %119
@@ -1663,15 +1663,15 @@ sdslen.exit48:                                    ; preds = %107, %103, %99, %95
 
 .outer:                                           ; preds = %113
   %123 = add i64 %115, %.0.ph71
-  %.not43 = icmp eq i64 %123, %.03386
-  %124 = sub i64 %.03386, %123
+  %.not43 = icmp eq i64 %123, %.03392
+  %124 = sub i64 %.03392, %123
   br i1 %.not43, label %.outer._crit_edge, label %.outer.split, !llvm.loop !43
 
 .outer._crit_edge:                                ; preds = %.outer, %.thread, %sdslen.exit48
-  %.03387 = phi i64 [ 0, %sdslen.exit48 ], [ 0, %.thread ], [ %.03386, %.outer ]
+  %.03393 = phi i64 [ 0, %sdslen.exit48 ], [ 0, %.thread ], [ %.03392, %.outer ]
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %126 = load i64, ptr %125, align 8, !tbaa !12
-  %127 = add i64 %126, %.03387
+  %127 = add i64 %126, %.03393
   store i64 %127, ptr %125, align 8, !tbaa !12
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %129 = load ptr, ptr %128, align 8, !tbaa !12
@@ -1711,9 +1711,9 @@ define internal noundef i64 @rioConnsetRead(ptr readnone captures(none) %0, ptr 
 ; Function Attrs: nounwind uwtable
 define internal noundef range(i64 0, 2) i64 @rioConnsetWrite(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #2 {
   %4 = icmp ugt i64 %2, 262144
-  br i1 %4, label %sdslen.exit76.thread106, label %6
+  br i1 %4, label %sdslen.exit76.thread117, label %6
 
-sdslen.exit76.thread106:                          ; preds = %3
+sdslen.exit76.thread117:                          ; preds = %3
   %5 = tail call i64 @rioConnsetWrite(ptr noundef %0, ptr noundef null, i64 noundef 0)
   br label %.lr.ph92
 
@@ -1810,9 +1810,9 @@ sdslen.exit76:                                    ; preds = %48, %44, %40, %36, 
   %.not88 = icmp eq i64 %.057, 0
   br i1 %.not88, label %._crit_edge93, label %.lr.ph92
 
-.lr.ph92:                                         ; preds = %sdslen.exit76.thread106, %sdslen.exit76
-  %.051111 = phi ptr [ %1, %sdslen.exit76.thread106 ], [ %30, %sdslen.exit76 ]
-  %.057110 = phi i64 [ %2, %sdslen.exit76.thread106 ], [ %.057, %sdslen.exit76 ]
+.lr.ph92:                                         ; preds = %sdslen.exit76.thread117, %sdslen.exit76
+  %.051122 = phi ptr [ %1, %sdslen.exit76.thread117 ], [ %30, %sdslen.exit76 ]
+  %.057121 = phi i64 [ %2, %sdslen.exit76.thread117 ], [ %.057, %sdslen.exit76 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1822,8 +1822,8 @@ sdslen.exit76:                                    ; preds = %48, %44, %40, %36, 
 
 .lr.ph92.split:                                   ; preds = %.lr.ph92, %88
   %55 = phi i64 [ %57, %88 ], [ 1, %.lr.ph92 ]
-  %.15291 = phi ptr [ %89, %88 ], [ %.051111, %.lr.ph92 ]
-  %.15890 = phi i64 [ %90, %88 ], [ %.057110, %.lr.ph92 ]
+  %.15291 = phi ptr [ %89, %88 ], [ %.051122, %.lr.ph92 ]
+  %.15890 = phi i64 [ %90, %88 ], [ %.057121, %.lr.ph92 ]
   %.06089 = phi i64 [ %.161.lcssa, %88 ], [ 0, %.lr.ph92 ]
   %56 = tail call i64 @llvm.umin.i64(i64 %.15890, i64 32768)
   %.not96 = icmp eq i64 %55, 0
@@ -1871,8 +1871,8 @@ sdslen.exit76:                                    ; preds = %48, %44, %40, %36, 
 77:                                               ; preds = %73
   %78 = icmp eq i32 %71, -1
   %79 = icmp eq i32 %75, 11
-  %or.cond116 = and i1 %78, %79
-  br i1 %or.cond116, label %.thread.sink.split, label %.thread
+  %or.cond127 = and i1 %78, %79
+  br i1 %or.cond127, label %.thread.sink.split, label %.thread
 
 .thread.sink.split:                               ; preds = %77, %73
   %.sink = phi i32 [ 5, %73 ], [ 110, %77 ]

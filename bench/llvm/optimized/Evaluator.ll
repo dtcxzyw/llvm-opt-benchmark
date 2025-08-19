@@ -701,8 +701,8 @@ define dso_local noundef ptr @_ZNK4llvm9Evaluator16MutableAggregate10toConstantE
   %20 = and i64 %.sroa.0.0.copyload.i.i.i, 4
   %21 = icmp ne i64 %20, 0
   %22 = and i64 %.sroa.0.0.copyload.i.i.i, -8
-  %.not.i.not35 = icmp eq i64 %22, 0
-  %.not.i.not = or i1 %21, %.not.i.not35
+  %.not.i.not40 = icmp eq i64 %22, 0
+  %.not.i.not = or i1 %21, %.not.i.not40
   br i1 %.not.i.not, label %23, label %_ZNK4llvm9Evaluator12MutableValue10toConstantEv.exit
 
 23:                                               ; preds = %.lr.ph
@@ -2220,8 +2220,8 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i:          ; preds = %_ZN4llvm5APIntC2ERK
   br i1 %521, label %_ZNK4llvm5APInt3ugtEm.exit.thread.thread.thread, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i, %_ZN4llvm5APIntC2ERKS0_.exit329
-  %.ph600 = phi ptr [ %18, %_ZN4llvm5APIntC2ERKS0_.exit329 ], [ %522, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i ]
-  %.0.i.i330.pr = load i64, ptr %.ph600, align 8, !tbaa !25
+  %.ph668 = phi ptr [ %18, %_ZN4llvm5APIntC2ERKS0_.exit329 ], [ %522, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i ]
+  %.0.i.i330.pr = load i64, ptr %.ph668, align 8, !tbaa !25
   br label %523
 
 523:                                              ; preds = %thread-pre-split, %_ZN4llvm5APIntC2ERKS0_.exit329.thread
@@ -3322,13 +3322,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_14GlobalVariableENS_9Evaluator12MutableV
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %66, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %65, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %66, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %65, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %67 = zext i32 %.sink28 to i64
-  %68 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink26, i64 %67
-  store ptr %.sink25, ptr %0, align 8
+  %67 = zext i32 %.sink32 to i64
+  %68 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %67
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %68, ptr %.sroa.4.0..sroa_idx, align 8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3495,8 +3495,8 @@ define linkonce_odr hidden void @_ZN4llvm15SmallPtrSetImplIPNS_14GlobalVariableE
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread: ; preds = %.lr.ph.i, %18
-  %.sink15 = phi ptr [ %21, %18 ], [ %.02937.i, %.lr.ph.i ]
-  %.sink14 = phi i8 [ 1, %18 ], [ 0, %.lr.ph.i ]
+  %.sink18 = phi ptr [ %21, %18 ], [ %.02937.i, %.lr.ph.i ]
+  %.sink17 = phi i8 [ 1, %18 ], [ 0, %.lr.ph.i ]
   %.ph = phi ptr [ %20, %18 ], [ %8, %.lr.ph.i ]
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %23 = load i32, ptr %22, align 4
@@ -3518,17 +3518,17 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit: ; preds = %3, %._crit_edge.i
   br label %31
 
 31:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread
-  %.fca.0.extract11 = phi ptr [ %.sink15, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %.fca.0.extract, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
-  %.fca.1.insert.merged.i9 = phi i8 [ %.sink14, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %30, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
+  %.fca.0.extract14 = phi ptr [ %.sink18, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %.fca.0.extract, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
+  %.fca.1.insert.merged.i12 = phi i8 [ %.sink17, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %30, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
   %32 = phi ptr [ %.ph, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %.pre5, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
   %33 = phi i32 [ %23, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %spec.select, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
   %.v.i5.i = zext i32 %33 to i64
   %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %.v.i5.i
-  %.not3.i4.i.i6.i = icmp eq ptr %.fca.0.extract11, %34
+  %.not3.i4.i.i6.i = icmp eq ptr %.fca.0.extract14, %34
   br i1 %.not3.i4.i.i6.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_14GlobalVariableEE12makeIteratorEPKPKv.exit, label %.lr.ph.i5.i.i7.i
 
 .lr.ph.i5.i.i7.i:                                 ; preds = %31, %.critedge2.i7.i.i9.i
-  %.sroa.0.3.i = phi ptr [ %36, %.critedge2.i7.i.i9.i ], [ %.fca.0.extract11, %31 ]
+  %.sroa.0.3.i = phi ptr [ %36, %.critedge2.i7.i.i9.i ], [ %.fca.0.extract14, %31 ]
   %35 = load ptr, ptr %.sroa.0.3.i, align 8, !tbaa !195
   %switch.i6.i.i8.i = icmp ugt ptr %35, inttoptr (i64 -3 to ptr)
   br i1 %switch.i6.i.i8.i, label %.critedge2.i7.i.i9.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_14GlobalVariableEE12makeIteratorEPKPKv.exit
@@ -3539,12 +3539,12 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit: ; preds = %3, %._crit_edge.i
   br i1 %.not.i8.i.i10.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_14GlobalVariableEE12makeIteratorEPKPKv.exit, label %.lr.ph.i5.i.i7.i, !llvm.loop !206
 
 _ZNK4llvm15SmallPtrSetImplIPNS_14GlobalVariableEE12makeIteratorEPKPKv.exit: ; preds = %.lr.ph.i5.i.i7.i, %.critedge2.i7.i.i9.i, %31
-  %.sroa.0.4.i = phi ptr [ %.fca.0.extract11, %31 ], [ %36, %.critedge2.i7.i.i9.i ], [ %.sroa.0.3.i, %.lr.ph.i5.i.i7.i ]
+  %.sroa.0.4.i = phi ptr [ %.fca.0.extract14, %31 ], [ %36, %.critedge2.i7.i.i9.i ], [ %.sroa.0.3.i, %.lr.ph.i5.i.i7.i ]
   store ptr %.sroa.0.4.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %34, ptr %.sroa.4.0..sroa_idx, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.fca.1.insert.merged.i9, ptr %37, align 8, !tbaa !207, !alias.scope !211
+  store i8 %.fca.1.insert.merged.i12, ptr %37, align 8, !tbaa !207, !alias.scope !211
   ret void
 }
 
@@ -3637,13 +3637,13 @@ define dso_local noundef zeroext i1 @_ZN4llvm9Evaluator16EvaluateFunctionEPNS_8F
   %26 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !219
   %28 = icmp eq ptr %27, %1
-  br i1 %28, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit137, label %29
+  br i1 %28, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit159, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !219
   %32 = icmp eq ptr %31, %1
-  br i1 %32, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit139, label %33
+  br i1 %32, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit161, label %33
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 32
@@ -3658,7 +3658,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm9Evaluator16EvaluateFunctionEPNS_8F
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %4
   %.pre-phi56.i.i.i.i = phi i32 [ %37, %._crit_edge.loopexit.i.i.i.i ], [ %13, %4 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %11, %4 ]
-  switch i32 %.pre-phi56.i.i.i.i, label %._crit_edge.i.i.i.unreachabledefault.i [
+  switch i32 %.pre-phi56.i.i.i.i, label %default.unreachable [
     i32 3, label %38
     i32 2, label %._crit_edge._crit_edge.i.i.i.i
     i32 1, label %._crit_edge._crit_edge52.i.i.i.i
@@ -3690,23 +3690,23 @@ define dso_local noundef zeroext i1 @_ZN4llvm9Evaluator16EvaluateFunctionEPNS_8F
   %48 = icmp eq ptr %47, %1
   br i1 %48, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.thread
 
-._crit_edge.i.i.i.unreachabledefault.i:           ; preds = %._crit_edge.i.i.i.i
+default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
   unreachable
 
 _ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit: ; preds = %21
   %49 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 8
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit
 
-_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit137: ; preds = %25
+_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit159: ; preds = %25
   %50 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit
 
-_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit139: ; preds = %29
+_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit161: ; preds = %29
   %51 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   br label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit
 
-_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit: ; preds = %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit137, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit139, %38, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %38 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %49, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %50, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit137 ], [ %51, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit139 ], [ %.02946.i.i.i.i, %18 ]
+_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit: ; preds = %18, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit159, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit161, %38, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i
+  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %38 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %49, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %50, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit159 ], [ %51, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit161 ], [ %.02946.i.i.i.i, %18 ]
   %.not86 = icmp eq ptr %.028.i.i.i.i, %15
   br i1 %.not86, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_8FunctionELj4EEES3_EEbOT_RKT0_.exit.thread, label %274
 
@@ -4208,11 +4208,11 @@ define linkonce_odr hidden void @_ZNSt5dequeIN4llvm8DenseMapIPNS0_5ValueEPNS0_8C
   br label %18
 
 18:                                               ; preds = %9, %6
-  %.sink3.in = phi ptr [ %17, %9 ], [ %8, %6 ]
+  %.sink4.in = phi ptr [ %17, %9 ], [ %8, %6 ]
   %.sink.in = phi ptr [ %16, %9 ], [ %7, %6 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !95
-  %.sink3 = load i32, ptr %.sink3.in, align 8, !tbaa !98
-  %19 = zext i32 %.sink3 to i64
+  %.sink4 = load i32, ptr %.sink4.in, align 8, !tbaa !98
+  %19 = zext i32 %.sink4 to i64
   %20 = shl nuw nsw i64 %19, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %.sink, i64 noundef %20, i64 noundef 8) #15
   ret void

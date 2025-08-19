@@ -49,27 +49,27 @@ define dso_local range(i32 0, 2) i32 @skeyutl_main(i32 noundef %0, ptr noundef %
 
 .outer:                                           ; preds = %5, %2
   %.not53 = phi i1 [ true, %2 ], [ false, %5 ]
-  %.041.ph = phi ptr [ null, %2 ], [ %.041.ph127, %5 ]
-  %.039.ph = phi ptr [ null, %2 ], [ %.039.ph131, %5 ]
-  %.037.ph = phi ptr [ null, %2 ], [ %.037.ph134, %5 ]
-  br label %.outer126
+  %.041.ph = phi ptr [ null, %2 ], [ %.041.ph129, %5 ]
+  %.039.ph = phi ptr [ null, %2 ], [ %.039.ph133, %5 ]
+  %.037.ph = phi ptr [ null, %2 ], [ %.037.ph136, %5 ]
+  br label %.outer128
 
-.outer126:                                        ; preds = %.outer, %10
-  %.041.ph127 = phi ptr [ %.041.ph, %.outer ], [ %11, %10 ]
-  %.039.ph128 = phi ptr [ %.039.ph, %.outer ], [ %.039.ph131, %10 ]
-  %.037.ph129 = phi ptr [ %.037.ph, %.outer ], [ %.037.ph134, %10 ]
-  br label %.outer130
+.outer128:                                        ; preds = %.outer, %10
+  %.041.ph129 = phi ptr [ %.041.ph, %.outer ], [ %11, %10 ]
+  %.039.ph130 = phi ptr [ %.039.ph, %.outer ], [ %.039.ph133, %10 ]
+  %.037.ph131 = phi ptr [ %.037.ph, %.outer ], [ %.037.ph136, %10 ]
+  br label %.outer132
 
-.outer130:                                        ; preds = %.outer126, %17
-  %.039.ph131 = phi ptr [ %.039.ph128, %.outer126 ], [ %.3, %17 ]
-  %.037.ph132 = phi ptr [ %.037.ph129, %.outer126 ], [ %.037.ph134, %17 ]
-  br label %.outer133
+.outer132:                                        ; preds = %.outer128, %17
+  %.039.ph133 = phi ptr [ %.039.ph130, %.outer128 ], [ %.3, %17 ]
+  %.037.ph134 = phi ptr [ %.037.ph131, %.outer128 ], [ %.037.ph136, %17 ]
+  br label %.outer135
 
-.outer133:                                        ; preds = %.outer130, %24
-  %.037.ph134 = phi ptr [ %.037.ph132, %.outer130 ], [ %25, %24 ]
+.outer135:                                        ; preds = %.outer132, %24
+  %.037.ph136 = phi ptr [ %.037.ph134, %.outer132 ], [ %25, %24 ]
   br label %5
 
-5:                                                ; preds = %.backedge, %.outer133
+5:                                                ; preds = %.backedge, %.outer135
   %6 = tail call i32 @opt_next() #3
   switch i32 %6, label %.backedge [
     i32 0, label %28
@@ -99,10 +99,10 @@ define dso_local range(i32 0, 2) i32 @skeyutl_main(i32 noundef %0, ptr noundef %
 
 10:                                               ; preds = %5
   %11 = tail call ptr @opt_arg() #3
-  br label %.outer126, !llvm.loop !9
+  br label %.outer128, !llvm.loop !9
 
 12:                                               ; preds = %5
-  %13 = icmp eq ptr %.039.ph131, null
+  %13 = icmp eq ptr %.039.ph133, null
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %12
@@ -111,11 +111,11 @@ define dso_local range(i32 0, 2) i32 @skeyutl_main(i32 noundef %0, ptr noundef %
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %14, %12
-  %.3 = phi ptr [ %15, %14 ], [ %.039.ph131, %12 ]
+  %.3 = phi ptr [ %15, %14 ], [ %.039.ph133, %12 ]
   %18 = tail call ptr @opt_arg() #3
   %19 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %.3, ptr noundef %18) #3
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %.outer130, !llvm.loop !9
+  br i1 %20, label %21, label %.outer132, !llvm.loop !9
 
 21:                                               ; preds = %17, %14
   %.4 = phi ptr [ null, %14 ], [ %.3, %17 ]
@@ -125,7 +125,7 @@ define dso_local range(i32 0, 2) i32 @skeyutl_main(i32 noundef %0, ptr noundef %
 
 24:                                               ; preds = %5
   %25 = tail call ptr @opt_arg() #3
-  br label %.outer133, !llvm.loop !9
+  br label %.outer135, !llvm.loop !9
 
 26:                                               ; preds = %5, %5, %5, %5
   %27 = tail call i32 @opt_provider(i32 noundef %6) #3
@@ -133,14 +133,14 @@ define dso_local range(i32 0, 2) i32 @skeyutl_main(i32 noundef %0, ptr noundef %
   br i1 %.not56, label %.loopexit57, label %.backedge
 
 28:                                               ; preds = %5
-  %29 = call i32 @opt_cipher_any(ptr noundef %.041.ph127, ptr noundef nonnull %3) #3
+  %29 = call i32 @opt_cipher_any(ptr noundef %.041.ph129, ptr noundef nonnull %3) #3
   %.not52 = icmp eq i32 %29, 0
   br i1 %.not52, label %.loopexit, label %30
 
 30:                                               ; preds = %28
   %31 = load ptr, ptr %3, align 8, !tbaa !4
   %32 = icmp eq ptr %31, null
-  %33 = icmp eq ptr %.037.ph134, null
+  %33 = icmp eq ptr %.037.ph136, null
   %or.cond = select i1 %32, i1 %33, i1 false
   br i1 %or.cond, label %34, label %37
 
@@ -162,7 +162,7 @@ define dso_local range(i32 0, 2) i32 @skeyutl_main(i32 noundef %0, ptr noundef %
   br label %43
 
 43:                                               ; preds = %38, %40
-  %44 = phi ptr [ %42, %40 ], [ %.037.ph134, %38 ]
+  %44 = phi ptr [ %42, %40 ], [ %.037.ph136, %38 ]
   %45 = call ptr @app_get0_propq() #3
   %46 = call ptr @EVP_SKEYMGMT_fetch(ptr noundef %39, ptr noundef %44, ptr noundef %45) #3
   %47 = icmp eq ptr %46, null
@@ -170,7 +170,7 @@ define dso_local range(i32 0, 2) i32 @skeyutl_main(i32 noundef %0, ptr noundef %
 
 48:                                               ; preds = %43
   %49 = call ptr @EVP_SKEYMGMT_get0_gen_settable_params(ptr noundef nonnull %46) #3
-  %50 = call ptr @app_params_new_from_opts(ptr noundef %.039.ph131, ptr noundef %49) #3
+  %50 = call ptr @app_params_new_from_opts(ptr noundef %.039.ph133, ptr noundef %49) #3
   %51 = call ptr @app_get0_libctx() #3
   br i1 %33, label %52, label %55
 
@@ -180,7 +180,7 @@ define dso_local range(i32 0, 2) i32 @skeyutl_main(i32 noundef %0, ptr noundef %
   br label %55
 
 55:                                               ; preds = %48, %52
-  %56 = phi ptr [ %54, %52 ], [ %.037.ph134, %48 ]
+  %56 = phi ptr [ %54, %52 ], [ %.037.ph136, %48 ]
   %57 = call ptr @app_get0_propq() #3
   %58 = call ptr @EVP_SKEY_generate(ptr noundef %51, ptr noundef %56, ptr noundef %57, ptr noundef %50) #3
   call void @OSSL_PARAM_free(ptr noundef %50) #3
@@ -197,7 +197,7 @@ define dso_local range(i32 0, 2) i32 @skeyutl_main(i32 noundef %0, ptr noundef %
   br label %65
 
 65:                                               ; preds = %60, %62
-  %66 = phi ptr [ %64, %62 ], [ %.037.ph134, %60 ]
+  %66 = phi ptr [ %64, %62 ], [ %.037.ph136, %60 ]
   %67 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %61, ptr noundef nonnull @.str.23, ptr noundef %66) #3
   %68 = load ptr, ptr @bio_err, align 8, !tbaa !11
   call void @ERR_print_errors(ptr noundef %68) #3
@@ -224,7 +224,7 @@ define dso_local range(i32 0, 2) i32 @skeyutl_main(i32 noundef %0, ptr noundef %
 
 .loopexit57:                                      ; preds = %26, %43, %69, %65, %80, %34, %21, %9, %.loopexit
   %.043 = phi i32 [ 1, %.loopexit ], [ 0, %9 ], [ 1, %21 ], [ 1, %34 ], [ 1, %80 ], [ 1, %43 ], [ 1, %65 ], [ 0, %69 ], [ 1, %26 ]
-  %.2 = phi ptr [ %.039.ph131, %.loopexit ], [ %.039.ph131, %9 ], [ %.4, %21 ], [ %.039.ph131, %34 ], [ %.039.ph131, %80 ], [ %.039.ph131, %43 ], [ %.039.ph131, %65 ], [ %.039.ph131, %69 ], [ %.039.ph131, %26 ]
+  %.2 = phi ptr [ %.039.ph133, %.loopexit ], [ %.039.ph133, %9 ], [ %.4, %21 ], [ %.039.ph133, %34 ], [ %.039.ph133, %80 ], [ %.039.ph133, %43 ], [ %.039.ph133, %65 ], [ %.039.ph133, %69 ], [ %.039.ph133, %26 ]
   %.036 = phi ptr [ null, %.loopexit ], [ null, %9 ], [ null, %21 ], [ null, %34 ], [ null, %80 ], [ null, %43 ], [ null, %65 ], [ %58, %69 ], [ null, %26 ]
   %.035 = phi ptr [ null, %.loopexit ], [ null, %9 ], [ null, %21 ], [ null, %34 ], [ null, %80 ], [ null, %43 ], [ %46, %65 ], [ %46, %69 ], [ null, %26 ]
   %83 = load ptr, ptr @bio_err, align 8, !tbaa !11

@@ -87,17 +87,14 @@ define hidden void @"_ZN102_$LT$futures_util..future..future..map..Map$LT$Fut$C$
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.746.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1252.i.i.i.i)
-  switch i8 %18, label %default.unreachable.i [
+  switch i8 %18, label %default.unreachable [
     i8 0, label %21
     i8 1, label %31
     i8 2, label %32
     i8 3, label %24
   ]
 
-default.unreachable:                              ; preds = %41, %33
-  unreachable
-
-default.unreachable.i:                            ; preds = %20
+default.unreachable:                              ; preds = %41, %33, %20
   unreachable
 
 21:                                               ; preds = %20
@@ -2153,13 +2150,13 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %41 = alloca [8 x i8], align 8
   store ptr %1, ptr %41, align 8
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %.sink.sroa.gep292 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.sink.sroa.gep294 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %.sink.sroa.gep295 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %.sink.sroa.gep297 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %.sink.sroa.gep298 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %.sink.sroa.gep300 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %.sink.sroa.gep301 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %.sink.sroa.gep313 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %.sink.sroa.gep315 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %.sink.sroa.gep316 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %.sink.sroa.gep318 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %.sink.sroa.gep319 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %.sink.sroa.gep321 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %.sink.sroa.gep322 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %42 = invoke fastcc noundef align 8 dereferenceable(1200) ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17h98ec91823ce75610E"(ptr noalias noundef align 8 dereferenceable(8) %0)
           to label %46 unwind label %44
 
@@ -2369,7 +2366,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %123 = getelementptr inbounds nuw i8, ptr %42, i64 336
   %124 = zext i32 %120 to i64
   %125 = add nsw i64 %124, -1
-  %126 = getelementptr inbounds [0 x ptr], ptr %123, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw [0 x ptr], ptr %123, i64 0, i64 %125
   %127 = invoke fastcc noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19push_tree_recursive17h215de63d8a0737e4E"(ptr noalias noundef align 8 dereferenceable(8) %126, ptr noundef nonnull %63)
           to label %128 unwind label %.thread82
 
@@ -2412,7 +2409,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %141 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %142 = zext i32 %138 to i64
   %143 = add nsw i64 %142, -1
-  %144 = getelementptr inbounds [0 x { i64, i64, i64 }], ptr %141, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw [0 x { i64, i64, i64 }], ptr %141, i64 0, i64 %143
   %145 = zext i32 %129 to i64
   %146 = add nsw i64 %145, -1
   %147 = getelementptr inbounds nuw [0 x ptr], ptr %123, i64 0, i64 %146
@@ -2993,16 +2990,16 @@ _ZN8sum_tree3sum17hc7f5d903f6717c7bE.exit170:     ; preds = %.lr.ph.i159, %"_ZN4
   br label %.invoke
 
 .invoke:                                          ; preds = %313, %344
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %313 ], [ %.sink.sroa.gep292, %344 ]
-  %.sink.sroa.phi293 = phi ptr [ %.sink.sroa.gep294, %313 ], [ %.sink.sroa.gep295, %344 ]
-  %.sink.sroa.phi296 = phi ptr [ %.sink.sroa.gep297, %313 ], [ %.sink.sroa.gep298, %344 ]
-  %.sink.sroa.phi299 = phi ptr [ %.sink.sroa.gep300, %313 ], [ %.sink.sroa.gep301, %344 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %313 ], [ %.sink.sroa.gep313, %344 ]
+  %.sink.sroa.phi314 = phi ptr [ %.sink.sroa.gep315, %313 ], [ %.sink.sroa.gep316, %344 ]
+  %.sink.sroa.phi317 = phi ptr [ %.sink.sroa.gep318, %313 ], [ %.sink.sroa.gep319, %344 ]
+  %.sink.sroa.phi320 = phi ptr [ %.sink.sroa.gep321, %313 ], [ %.sink.sroa.gep322, %344 ]
   %.sink = phi ptr [ %19, %313 ], [ %17, %344 ]
   store ptr @anon.189432bcf7ed89cde280d69cc1f6d297.76.llvm.8892032343851396646, ptr %.sink, align 8
   store i64 1, ptr %.sink.sroa.phi, align 8
-  store ptr null, ptr %.sink.sroa.phi293, align 8
-  store ptr inttoptr (i64 8 to ptr), ptr %.sink.sroa.phi296, align 8
-  store i64 0, ptr %.sink.sroa.phi299, align 8
+  store ptr null, ptr %.sink.sroa.phi314, align 8
+  store ptr inttoptr (i64 8 to ptr), ptr %.sink.sroa.phi317, align 8
+  store i64 0, ptr %.sink.sroa.phi320, align 8
   invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.189432bcf7ed89cde280d69cc1f6d297.77.llvm.8892032343851396646) #26
           to label %.cont unwind label %326
 

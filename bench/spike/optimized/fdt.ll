@@ -958,9 +958,9 @@ fdt_offset_ptr.exit11._crit_edge:                 ; preds = %77, %94
   %114 = trunc nsw i64 %indvars.iv to i32
   %115 = add i32 %43, %114
   %116 = icmp uge i32 %115, %114
-  %.not56 = icmp ult i32 %115, %60
-  %or.cond64 = and i1 %116, %.not56
-  br i1 %or.cond64, label %117, label %fdt_next_node.exit.thread
+  %.not67 = icmp ult i32 %115, %60
+  %or.cond75 = and i1 %116, %.not67
+  br i1 %or.cond75, label %117, label %fdt_next_node.exit.thread
 
 117:                                              ; preds = %.preheader.i
   br i1 %92, label %118, label %fdt_offset_ptr.exit
@@ -984,8 +984,8 @@ fdt_offset_ptr.exit11._crit_edge:                 ; preds = %77, %94
   %132 = load i8, ptr %19, align 1, !tbaa !3
   %133 = zext i8 %132 to i32
   %134 = or disjoint i32 %131, %133
-  %.not57 = icmp ugt i32 %134, %114
-  br i1 %.not57, label %fdt_offset_ptr.exit, label %fdt_next_node.exit.thread
+  %.not68 = icmp ugt i32 %134, %114
+  br i1 %.not68, label %fdt_offset_ptr.exit, label %fdt_next_node.exit.thread
 
 fdt_offset_ptr.exit:                              ; preds = %120, %117
   %135 = getelementptr inbounds i8, ptr %71, i64 %indvars.iv

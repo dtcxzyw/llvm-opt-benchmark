@@ -1261,7 +1261,7 @@ default.unreachable:                              ; preds = %17, %3
 24:                                               ; preds = %27, %100, %32, %21
   %25 = load i64, ptr %10, align 8, !range !142, !noundef !6
   %26 = icmp slt i64 %25, -9223372036854775806
-  br i1 %26, label %.thread50, label %116
+  br i1 %26, label %.thread52, label %116
 
 27:                                               ; preds = %17
   %28 = icmp sgt i64 %11, -9223372036854775807
@@ -1286,7 +1286,7 @@ default.unreachable:                              ; preds = %17, %3
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
-  br label %.thread50
+  br label %.thread52
 
 .body:                                            ; preds = %87
   %37 = landingpad { ptr, i32 }
@@ -1452,7 +1452,7 @@ default.unreachable:                              ; preds = %17, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread50
+  br label %.thread52
 
 100:                                              ; preds = %23
   %101 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -1496,7 +1496,7 @@ default.unreachable:                              ; preds = %17, %3
   invoke void @"_ZN4core3ptr84drop_in_place$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$$GT$17h43bbd49a65fbd4a0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %115) #20
           to label %112 unwind label %110
 
-.thread50:                                        ; preds = %"_ZN136_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$alloc..vec..into_iter..IntoIter$LT$T$GT$$GT$$GT$11spec_extend17h21df1d64741f7ba8E.exit", %34, %120, %24
+.thread52:                                        ; preds = %"_ZN136_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$alloc..vec..into_iter..IntoIter$LT$T$GT$$GT$$GT$11spec_extend17h21df1d64741f7ba8E.exit", %34, %120, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
@@ -1514,7 +1514,7 @@ default.unreachable:                              ; preds = %17, %3
 120:                                              ; preds = %116
   %121 = getelementptr inbounds nuw i8, ptr %9, i64 72
   call void @"_ZN4core3ptr84drop_in_place$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$$GT$17h43bbd49a65fbd4a0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %121)
-  br label %.thread50
+  br label %.thread52
 
 .body.thread35:                                   ; preds = %78, %.body, %.body.thread
   %.pn41.pn = phi { ptr, i32 } [ %.pn41, %.body.thread ], [ %37, %.body ], [ %79, %78 ]
@@ -2008,13 +2008,13 @@ define noundef zeroext i1 @_ZN16uv_configuration15package_options7Upgrade6is_all
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @_ZN16uv_configuration15package_options7Upgrade8contains17h9fa796647d84bcbdE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !49, !noundef !6
-  switch i64 %3, label %default.unreachable4 [
+  switch i64 %3, label %default.unreachable5 [
     i64 0, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h74aca07113fd3e5dE.exit"
     i64 1, label %4
     i64 2, label %5
   ]
 
-default.unreachable4:                             ; preds = %2
+default.unreachable5:                             ; preds = %2
   unreachable
 
 4:                                                ; preds = %2

@@ -6534,7 +6534,7 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %8 = alloca { i64, [9 x i64] }, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %10 = load i8, ptr %9, align 8, !range !4, !noundef !5
-  switch i8 %10, label %default.unreachable17 [
+  switch i8 %10, label %default.unreachable18 [
     i8 0, label %12
     i8 1, label %37
     i8 2, label %38
@@ -6548,7 +6548,7 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %.pre16 = load ptr, ptr %.phi.trans.insert15, align 8, !alias.scope !1317, !noalias !1322
   br label %39
 
-default.unreachable17:                            ; preds = %3
+default.unreachable18:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %58, %11
@@ -6784,7 +6784,7 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %8 = alloca { i64, [9 x i64] }, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = load i8, ptr %9, align 8, !range !4, !noundef !5
-  switch i8 %10, label %default.unreachable18 [
+  switch i8 %10, label %default.unreachable19 [
     i8 0, label %12
     i8 1, label %33
     i8 2, label %34
@@ -6798,7 +6798,7 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %.pre17 = load ptr, ptr %.phi.trans.insert16, align 8, !alias.scope !1360, !noalias !1365
   br label %35
 
-default.unreachable18:                            ; preds = %3
+default.unreachable19:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %54, %11
@@ -7032,7 +7032,7 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %8 = alloca { i64, [9 x i64] }, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %10 = load i8, ptr %9, align 8, !range !4, !noundef !5
-  switch i8 %10, label %default.unreachable16 [
+  switch i8 %10, label %default.unreachable17 [
     i8 0, label %12
     i8 1, label %35
     i8 2, label %36
@@ -7046,7 +7046,7 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %.pre15 = load ptr, ptr %.phi.trans.insert14, align 8, !alias.scope !1402, !noalias !1407
   br label %37
 
-default.unreachable16:                            ; preds = %3
+default.unreachable17:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %56, %11
@@ -7500,7 +7500,7 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %11 = alloca { i64, [9 x i64] }, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %13 = load i8, ptr %12, align 8, !range !4, !noundef !5
-  switch i8 %13, label %default.unreachable26 [
+  switch i8 %13, label %default.unreachable29 [
     i8 0, label %15
     i8 1, label %44
     i8 2, label %45
@@ -7514,7 +7514,7 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %.pre25 = load ptr, ptr %.phi.trans.insert24, align 8, !alias.scope !1504, !noalias !1509
   br label %46
 
-default.unreachable26:                            ; preds = %3
+default.unreachable29:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %65, %14
@@ -7825,7 +7825,7 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %15 = alloca { { { { i64, ptr, {} }, i64 } } }, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %17 = load i8, ptr %16, align 8, !range !4, !noundef !5
-  switch i8 %17, label %default.unreachable33 [
+  switch i8 %17, label %default.unreachable37 [
     i8 0, label %19
     i8 1, label %55
     i8 2, label %56
@@ -7839,7 +7839,7 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %.pre32 = load ptr, ptr %.phi.trans.insert31, align 8, !alias.scope !1568, !noalias !1573
   br label %57
 
-default.unreachable33:                            ; preds = %3
+default.unreachable37:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %76, %18
@@ -8220,7 +8220,7 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %11 = alloca { i64, [9 x i64] }, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %13 = load i8, ptr %12, align 8, !range !4, !noundef !5
-  switch i8 %13, label %default.unreachable26 [
+  switch i8 %13, label %default.unreachable29 [
     i8 0, label %15
     i8 1, label %44
     i8 2, label %45
@@ -8234,7 +8234,7 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %.pre25 = load ptr, ptr %.phi.trans.insert24, align 8, !alias.scope !1643, !noalias !1648
   br label %46
 
-default.unreachable26:                            ; preds = %3
+default.unreachable29:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %65, %14
@@ -8535,7 +8535,7 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %8 = alloca { i64, [17 x i64] }, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = load i8, ptr %9, align 8, !range !4, !noundef !5
-  switch i8 %10, label %default.unreachable19 [
+  switch i8 %10, label %default.unreachable20 [
     i8 0, label %12
     i8 1, label %33
     i8 2, label %34
@@ -8549,7 +8549,7 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %.pre18 = load ptr, ptr %.phi.trans.insert17, align 8, !alias.scope !1707, !noalias !1712
   br label %35
 
-default.unreachable19:                            ; preds = %3
+default.unreachable20:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %54, %11
@@ -8785,14 +8785,14 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %10 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 90
   %12 = load i8, ptr %11, align 2, !range !4, !noundef !5
-  switch i8 %12, label %default.unreachable21 [
+  switch i8 %12, label %default.unreachable22 [
     i8 0, label %14
     i8 1, label %44
     i8 2, label %45
     i8 3, label %13
   ]
 
-default.unreachable21:                            ; preds = %3
+default.unreachable22:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -9096,7 +9096,7 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %11 = alloca { i64, [9 x i64] }, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %13 = load i8, ptr %12, align 8, !range !4, !noundef !5
-  switch i8 %13, label %default.unreachable26 [
+  switch i8 %13, label %default.unreachable29 [
     i8 0, label %15
     i8 1, label %44
     i8 2, label %45
@@ -9110,7 +9110,7 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %.pre25 = load ptr, ptr %.phi.trans.insert24, align 8, !alias.scope !1806, !noalias !1811
   br label %46
 
-default.unreachable26:                            ; preds = %3
+default.unreachable29:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %65, %14
@@ -9415,14 +9415,14 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %10 = alloca { i64, [11 x i64] }, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %12 = load i8, ptr %11, align 8, !range !4, !noundef !5
-  switch i8 %12, label %default.unreachable33 [
+  switch i8 %12, label %default.unreachable37 [
     i8 0, label %15
     i8 1, label %36
     i8 2, label %37
     i8 3, label %13
   ]
 
-default.unreachable33:                            ; preds = %3
+default.unreachable37:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -9893,7 +9893,7 @@ define hidden void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$as
   %8 = alloca { i64, [9 x i64] }, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = load i8, ptr %9, align 8, !range !4, !noundef !5
-  switch i8 %10, label %default.unreachable16 [
+  switch i8 %10, label %default.unreachable17 [
     i8 0, label %12
     i8 1, label %33
     i8 2, label %34
@@ -9907,7 +9907,7 @@ define hidden void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$as
   %.pre15 = load ptr, ptr %.phi.trans.insert14, align 8, !alias.scope !1959, !noalias !1964
   br label %35
 
-default.unreachable16:                            ; preds = %3
+default.unreachable17:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %54, %11
@@ -10145,7 +10145,7 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %11 = alloca { i64, [9 x i64] }, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %13 = load i8, ptr %12, align 8, !range !4, !noundef !5
-  switch i8 %13, label %default.unreachable26 [
+  switch i8 %13, label %default.unreachable29 [
     i8 0, label %15
     i8 1, label %44
     i8 2, label %45
@@ -10159,7 +10159,7 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %.pre25 = load ptr, ptr %.phi.trans.insert24, align 8, !alias.scope !2001, !noalias !2006
   br label %46
 
-default.unreachable26:                            ; preds = %3
+default.unreachable29:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %65, %14
@@ -10464,14 +10464,14 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %10 = alloca { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i32, [2 x i32] }, { i32, [2 x i32] }, i8, [7 x i8] }, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %12 = load i8, ptr %11, align 8, !range !4, !noundef !5
-  switch i8 %12, label %default.unreachable20 [
+  switch i8 %12, label %default.unreachable21 [
     i8 0, label %15
     i8 1, label %46
     i8 2, label %47
     i8 3, label %13
   ]
 
-default.unreachable20:                            ; preds = %3
+default.unreachable21:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -10757,14 +10757,14 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %12 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %14 = load i8, ptr %13, align 8, !range !4, !noundef !5
-  switch i8 %14, label %default.unreachable21 [
+  switch i8 %14, label %default.unreachable22 [
     i8 0, label %19
     i8 1, label %50
     i8 2, label %51
     i8 3, label %15
   ]
 
-default.unreachable21:                            ; preds = %3
+default.unreachable22:                            ; preds = %3
   unreachable
 
 15:                                               ; preds = %3
@@ -11106,7 +11106,7 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %8 = alloca { i64, [9 x i64] }, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %10 = load i8, ptr %9, align 8, !range !4, !noundef !5
-  switch i8 %10, label %default.unreachable16 [
+  switch i8 %10, label %default.unreachable17 [
     i8 0, label %12
     i8 1, label %37
     i8 2, label %38
@@ -11120,7 +11120,7 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %.pre15 = load ptr, ptr %.phi.trans.insert14, align 8, !alias.scope !2163, !noalias !2168
   br label %39
 
-default.unreachable16:                            ; preds = %3
+default.unreachable17:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %58, %11

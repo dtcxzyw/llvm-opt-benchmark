@@ -7004,10 +7004,10 @@ define hidden void @"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$12try
   br label %24
 
 22:                                               ; preds = %15
-  %.sink7.i = getelementptr inbounds nuw { { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, [2 x i32] }, ptr %12, i64 %.sroa.4.0.insert.ext
-  %23 = getelementptr inbounds nuw i8, ptr %.sink7.i, i64 32
+  %.sink8.i = getelementptr inbounds nuw { { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, [2 x i32] }, ptr %12, i64 %.sroa.4.0.insert.ext
+  %23 = getelementptr inbounds nuw i8, ptr %.sink8.i, i64 32
   %.sroa.08.0.copyload = load i32, ptr %23, align 8
-  %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink7.i, i64 36
+  %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink8.i, i64 36
   %.sroa.49.0.copyload = load i32, ptr %.sroa.49.0..sroa_idx, align 4
   store i32 %9, ptr %23, align 8
   store i32 %9, ptr %.sroa.49.0..sroa_idx, align 4
@@ -7242,10 +7242,10 @@ define hidden noundef range(i32 0, -1) i32 @"_ZN8petgraph10graph_impl28Graph$LT$
   br label %26
 
 24:                                               ; preds = %17
-  %.sink7.i.i = getelementptr inbounds nuw { { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, [2 x i32] }, ptr %14, i64 %.sroa.4.0.insert.ext.i
-  %25 = getelementptr inbounds nuw i8, ptr %.sink7.i.i, i64 32
+  %.sink8.i.i = getelementptr inbounds nuw { { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, [2 x i32] }, ptr %14, i64 %.sroa.4.0.insert.ext.i
+  %25 = getelementptr inbounds nuw i8, ptr %.sink8.i.i, i64 32
   %.sroa.08.0.copyload.i = load i32, ptr %25, align 8, !noalias !1712
-  %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink7.i.i, i64 36
+  %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink8.i.i, i64 36
   %.sroa.49.0.copyload.i = load i32, ptr %.sroa.49.0..sroa_idx.i, align 4, !noalias !1712
   store i32 %11, ptr %25, align 8, !noalias !1712
   store i32 %11, ptr %.sroa.49.0..sroa_idx.i, align 4, !noalias !1712

@@ -2379,46 +2379,46 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %315 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %316 = load i8, ptr %315, align 2, !range !7, !noundef !8
   %317 = icmp eq i8 %316, 0
-  br i1 %317, label %.thread75, label %318
+  br i1 %317, label %.thread109, label %318
 
 318:                                              ; preds = %314
   call void @ieee80211_apply_htcap_overrides(ptr noundef %179, ptr noundef nonnull %13) #12
   %319 = load i16, ptr %13, align 2
   %320 = or i16 %319, 12
   store i16 %320, ptr %13, align 2
-  br label %.thread75.sink.split
+  br label %.thread109.sink.split
 
 321:                                              ; preds = %312
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %13, i64 2
   %.pre = load i8, ptr %.phi.trans.insert, align 2, !range !7
   %322 = icmp eq i8 %.pre, 0
   %323 = select i1 %292, i1 true, i1 %322
-  br i1 %323, label %.thread75, label %324
+  br i1 %323, label %.thread109, label %324
 
 324:                                              ; preds = %321
   %325 = getelementptr inbounds nuw i8, ptr %302, i64 2918
   %326 = load i8, ptr %325, align 2, !range !7, !noundef !8
   %327 = icmp eq i8 %326, 0
-  br i1 %327, label %.thread75, label %328
+  br i1 %327, label %.thread109, label %328
 
 328:                                              ; preds = %324
   %329 = getelementptr inbounds nuw i8, ptr %302, i64 2916
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(22) %13, ptr noundef nonnull align 4 dereferenceable(22) %329, i64 22, i1 false)
-  br label %.thread75.sink.split
+  br label %.thread109.sink.split
 
-.thread75.sink.split:                             ; preds = %318, %328
+.thread109.sink.split:                            ; preds = %318, %328
   %330 = call ptr @skb_put(ptr noundef nonnull %32, i32 noundef 28) #12
   %331 = load i16, ptr %13, align 2
   %332 = call ptr @ieee80211_ie_build_ht_cap(ptr noundef %330, ptr noundef nonnull %13, i16 noundef zeroext %331) #12
-  br label %.thread75
+  br label %.thread109
 
-.thread75:                                        ; preds = %.thread75.sink.split, %314, %324, %321
+.thread109:                                       ; preds = %.thread109.sink.split, %314, %324, %321
   %333 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %334 = load i8, ptr %333, align 2, !range !7, !noundef !8
   %335 = icmp eq i8 %334, 0
   br i1 %335, label %344, label %336
 
-336:                                              ; preds = %.thread75
+336:                                              ; preds = %.thread109
   %337 = load i16, ptr %13, align 2
   %338 = and i16 %337, 2
   %339 = icmp eq i16 %338, 0
@@ -2433,7 +2433,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   store i8 1, ptr %343, align 1
   br label %344
 
-344:                                              ; preds = %340, %336, %.thread75
+344:                                              ; preds = %340, %336, %.thread109
   %345 = load ptr, ptr %21, align 8
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 5062
   %347 = select i1 %6, ptr %346, ptr %1
@@ -2639,7 +2639,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
 459:                                              ; preds = %458, %458
   %460 = load i8, ptr %14, align 4, !range !7, !noundef !8
   %461 = icmp eq i8 %460, 0
-  br i1 %461, label %.thread76, label %462
+  br i1 %461, label %.thread110, label %462
 
 462:                                              ; preds = %459
   call void @ieee80211_apply_vhtcap_overrides(ptr noundef %179, ptr noundef nonnull %14) #12
@@ -2647,19 +2647,19 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %464 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %465 = load i32, ptr %464, align 4
   %466 = call ptr @ieee80211_ie_build_vht_cap(ptr noundef %463, ptr noundef nonnull %14, i32 noundef %465) #12
-  br label %.thread76
+  br label %.thread110
 
 467:                                              ; preds = %458
   %.pre72 = load i8, ptr %14, align 4, !range !7
   %468 = icmp eq i8 %.pre72, 0
   %469 = select i1 %292, i1 true, i1 %468
-  br i1 %469, label %.thread76, label %470
+  br i1 %469, label %.thread110, label %470
 
 470:                                              ; preds = %467
   %471 = getelementptr inbounds nuw i8, ptr %302, i64 2940
   %472 = load i8, ptr %471, align 4, !range !7, !noundef !8
   %473 = icmp eq i8 %472, 0
-  br i1 %473, label %.thread76, label %474
+  br i1 %473, label %.thread110, label %474
 
 474:                                              ; preds = %470
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %471, i64 16, i1 false)
@@ -2671,16 +2671,16 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %480 = load volatile i64, ptr %479, align 8
   %481 = and i64 %480, 65536
   %482 = icmp eq i64 %481, 0
-  br i1 %482, label %.thread76, label %483
+  br i1 %482, label %.thread110, label %483
 
 483:                                              ; preds = %474
   call fastcc void @ieee80211_tdls_chandef_vht_upgrade(ptr noundef %179, ptr noundef %302)
-  br label %.thread76
+  br label %.thread110
 
-.thread76:                                        ; preds = %459, %483, %474, %470, %467, %462
+.thread110:                                       ; preds = %459, %483, %474, %470, %467, %462
   br i1 %210, label %491, label %484
 
-484:                                              ; preds = %.thread76
+484:                                              ; preds = %.thread110
   %485 = call i64 @ieee80211_ie_split_ric(ptr noundef %7, i64 noundef %8, ptr noundef nonnull @ieee80211_tdls_add_setup_start_ies.before_he_cap, i32 noundef 3, ptr noundef null, i32 noundef 0, i64 noundef %363) #12
   %486 = getelementptr i8, ptr %7, i64 %363
   %487 = sub i64 %485, %363
@@ -2690,8 +2690,8 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %489, ptr align 1 %486, i64 %490, i1 false)
   br label %491
 
-491:                                              ; preds = %484, %.thread76
-  %492 = phi i64 [ %485, %484 ], [ %363, %.thread76 ]
+491:                                              ; preds = %484, %.thread110
+  %492 = phi i64 [ %485, %484 ], [ %363, %.thread110 ]
   br i1 %446, label %493, label %578
 
 493:                                              ; preds = %491

@@ -2844,7 +2844,7 @@ define dso_local range(i32 -1, 1) i32 @PyFloat_Pack4(double noundef %0, ptr noun
 
 38:                                               ; preds = %33
   %39 = add nuw nsw i32 %34, 1
-  %40 = icmp ugt i32 %34, 253
+  %40 = icmp samesign ugt i32 %34, 253
   br i1 %40, label %.thread83, label %41
 
 41:                                               ; preds = %38, %33
@@ -3009,7 +3009,7 @@ define dso_local range(i32 -1, 1) i32 @PyFloat_Pack8(double noundef %0, ptr noun
 
 45:                                               ; preds = %43
   %46 = add nuw nsw i32 %35, 1
-  %47 = icmp ugt i32 %35, 2045
+  %47 = icmp samesign ugt i32 %35, 2045
   br i1 %47, label %74, label %48
 
 48:                                               ; preds = %43, %45, %34
@@ -3894,23 +3894,23 @@ _Py_convert_int_to_double.exit23:                 ; preds = %25, %PyObject_TypeC
   br label %PyFloat_FromDouble.exit
 
 _Py_convert_int_to_double.exit23.thread:          ; preds = %28, %_Py_convert_int_to_double.exit23
-  %.03553 = phi double [ %.035, %_Py_convert_int_to_double.exit23 ], [ -1.000000e+00, %28 ]
-  %38 = tail call double @fmod(double noundef %.036, double noundef %.03553) #18, !tbaa !53
+  %.03561 = phi double [ %.035, %_Py_convert_int_to_double.exit23 ], [ -1.000000e+00, %28 ]
+  %38 = tail call double @fmod(double noundef %.036, double noundef %.03561) #18, !tbaa !53
   %39 = fcmp une double %38, 0.000000e+00
   br i1 %39, label %40, label %45
 
 40:                                               ; preds = %_Py_convert_int_to_double.exit23.thread
-  %41 = fcmp olt double %.03553, 0.000000e+00
+  %41 = fcmp olt double %.03561, 0.000000e+00
   %42 = fcmp uge double %38, 0.000000e+00
   %.not9 = xor i1 %41, %42
   br i1 %.not9, label %47, label %43
 
 43:                                               ; preds = %40
-  %44 = fadd double %.03553, %38
+  %44 = fadd double %.03561, %38
   br label %47
 
 45:                                               ; preds = %_Py_convert_int_to_double.exit23.thread
-  %46 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %.03553)
+  %46 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %.03561)
   br label %47
 
 47:                                               ; preds = %40, %43, %45
@@ -4067,26 +4067,26 @@ _Py_convert_int_to_double.exit16:                 ; preds = %25, %PyObject_TypeC
   br label %.sink.split.i
 
 _Py_convert_int_to_double.exit16.thread:          ; preds = %28, %_Py_convert_int_to_double.exit16
-  %.03250 = phi double [ %.032, %_Py_convert_int_to_double.exit16 ], [ -1.000000e+00, %28 ]
-  %38 = tail call double @fmod(double noundef %.033, double noundef %.03250) #18, !tbaa !53
+  %.03255 = phi double [ %.032, %_Py_convert_int_to_double.exit16 ], [ -1.000000e+00, %28 ]
+  %38 = tail call double @fmod(double noundef %.033, double noundef %.03255) #18, !tbaa !53
   %39 = fsub double %.033, %38
-  %40 = fdiv double %39, %.03250
+  %40 = fdiv double %39, %.03255
   %41 = fcmp une double %38, 0.000000e+00
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %_Py_convert_int_to_double.exit16.thread
-  %43 = fcmp olt double %.03250, 0.000000e+00
+  %43 = fcmp olt double %.03255, 0.000000e+00
   %44 = fcmp uge double %38, 0.000000e+00
   %.not.i19 = xor i1 %43, %44
   br i1 %.not.i19, label %50, label %45
 
 45:                                               ; preds = %42
-  %46 = fadd double %.03250, %38
+  %46 = fadd double %.03255, %38
   %47 = fadd double %40, -1.000000e+00
   br label %50
 
 48:                                               ; preds = %_Py_convert_int_to_double.exit16.thread
-  %49 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %.03250)
+  %49 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %.03255)
   br label %50
 
 50:                                               ; preds = %48, %45, %42
@@ -4106,7 +4106,7 @@ _Py_convert_int_to_double.exit16.thread:          ; preds = %28, %_Py_convert_in
   br label %_float_div_mod.exit
 
 58:                                               ; preds = %50
-  %59 = fdiv double %.033, %.03250
+  %59 = fdiv double %.033, %.03255
   %60 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %59)
   br label %_float_div_mod.exit
 
@@ -4277,7 +4277,7 @@ _PyObject_Init.exit.i:                            ; preds = %59, %55, %_PyFreeLi
 
 .thread:                                          ; preds = %32
   %64 = fcmp uno double %.067, 0.000000e+00
-  br i1 %64, label %65, label %.thread90
+  br i1 %64, label %65, label %.thread103
 
 65:                                               ; preds = %.thread, %62
   %66 = tail call ptr @PyFloat_FromDouble(double noundef %.067)
@@ -4285,7 +4285,7 @@ _PyObject_Init.exit.i:                            ; preds = %59, %55, %_PyFreeLi
 
 67:                                               ; preds = %62
   %68 = fcmp uno double %.066, 0.000000e+00
-  br i1 %68, label %69, label %.thread90
+  br i1 %68, label %69, label %.thread103
 
 69:                                               ; preds = %67
   %70 = fcmp oeq double %.067, 1.000000e+00
@@ -4293,14 +4293,14 @@ _PyObject_Init.exit.i:                            ; preds = %59, %55, %_PyFreeLi
   %72 = tail call ptr @PyFloat_FromDouble(double noundef %71)
   br label %PyFloat_FromDouble.exit
 
-.thread90:                                        ; preds = %.thread, %67
-  %.066878992 = phi double [ %.066, %67 ], [ -1.000000e+00, %.thread ]
-  %73 = tail call double @llvm.fabs.f64(double %.066878992)
+.thread103:                                       ; preds = %.thread, %67
+  %.066100102105 = phi double [ %.066, %67 ], [ -1.000000e+00, %.thread ]
+  %73 = tail call double @llvm.fabs.f64(double %.066100102105)
   %74 = fcmp oeq double %73, 0x7FF0000000000000
   %75 = tail call double @llvm.fabs.f64(double %.067)
   br i1 %74, label %76, label %108
 
-76:                                               ; preds = %.thread90
+76:                                               ; preds = %.thread103
   %77 = fcmp oeq double %75, 1.000000e+00
   br i1 %77, label %78, label %100
 
@@ -4352,7 +4352,7 @@ _PyObject_Init.exit.i40:                          ; preds = %97, %93, %_PyFreeLi
   br label %PyFloat_FromDouble.exit
 
 100:                                              ; preds = %76
-  %101 = fcmp ogt double %.066878992, 0.000000e+00
+  %101 = fcmp ogt double %.066100102105, 0.000000e+00
   %102 = fcmp ule double %75, 1.000000e+00
   %103 = xor i1 %102, %101
   br i1 %103, label %104, label %106
@@ -4365,14 +4365,14 @@ _PyObject_Init.exit.i40:                          ; preds = %97, %93, %_PyFreeLi
   %107 = tail call ptr @PyFloat_FromDouble(double noundef 0.000000e+00)
   br label %PyFloat_FromDouble.exit
 
-108:                                              ; preds = %.thread90
+108:                                              ; preds = %.thread103
   %109 = fcmp oeq double %75, 0x7FF0000000000000
   br i1 %109, label %110, label %121
 
 110:                                              ; preds = %108
   %111 = frem nnan double %73, 2.000000e+00
   %112 = fcmp oeq double %111, 1.000000e+00
-  %113 = fcmp ogt double %.066878992, 0.000000e+00
+  %113 = fcmp ogt double %.066100102105, 0.000000e+00
   br i1 %113, label %114, label %117
 
 114:                                              ; preds = %110
@@ -4391,7 +4391,7 @@ _PyObject_Init.exit.i40:                          ; preds = %97, %93, %_PyFreeLi
   br i1 %122, label %123, label %132
 
 123:                                              ; preds = %121
-  %124 = fcmp olt double %.066878992, 0.000000e+00
+  %124 = fcmp olt double %.066100102105, 0.000000e+00
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %123
@@ -4411,8 +4411,8 @@ _PyObject_Init.exit.i40:                          ; preds = %97, %93, %_PyFreeLi
   br i1 %133, label %134, label %146
 
 134:                                              ; preds = %132
-  %135 = tail call double @llvm.floor.f64(double %.066878992)
-  %136 = fcmp une double %.066878992, %135
+  %135 = tail call double @llvm.floor.f64(double %.066100102105)
+  %136 = fcmp une double %.066100102105, %135
   br i1 %136, label %137, label %142
 
 137:                                              ; preds = %134
@@ -4442,7 +4442,7 @@ _PyObject_Init.exit.i40:                          ; preds = %97, %93, %_PyFreeLi
 151:                                              ; preds = %146
   %152 = tail call ptr @__errno_location() #21
   store i32 0, ptr %152, align 4, !tbaa !53
-  %153 = tail call double @pow(double noundef %.168, double noundef %.066878992) #18, !tbaa !53
+  %153 = tail call double @pow(double noundef %.168, double noundef %.066100102105) #18, !tbaa !53
   tail call fastcc void @_Py_ADJUST_ERANGE1(double noundef %153)
   %154 = load i32, ptr %152, align 4, !tbaa !53
   %.not21 = icmp eq i32 %154, 0
@@ -4768,15 +4768,15 @@ _Py_convert_int_to_double.exit16:                 ; preds = %25, %PyObject_TypeC
   br label %PyFloat_FromDouble.exit
 
 _Py_convert_int_to_double.exit16.thread:          ; preds = %28, %_Py_convert_int_to_double.exit16
-  %.03250 = phi double [ %.032, %_Py_convert_int_to_double.exit16 ], [ -1.000000e+00, %28 ]
-  %38 = tail call double @fmod(double noundef %.033, double noundef %.03250) #18, !tbaa !53
+  %.03258 = phi double [ %.032, %_Py_convert_int_to_double.exit16 ], [ -1.000000e+00, %28 ]
+  %38 = tail call double @fmod(double noundef %.033, double noundef %.03258) #18, !tbaa !53
   %39 = fsub double %.033, %38
-  %40 = fdiv double %39, %.03250
+  %40 = fdiv double %39, %.03258
   %41 = fcmp une double %38, 0.000000e+00
   br i1 %41, label %42, label %47
 
 42:                                               ; preds = %_Py_convert_int_to_double.exit16.thread
-  %43 = fcmp olt double %.03250, 0.000000e+00
+  %43 = fcmp olt double %.03258, 0.000000e+00
   %44 = fcmp uge double %38, 0.000000e+00
   %.not.i19 = xor i1 %43, %44
   br i1 %.not.i19, label %47, label %45
@@ -4801,7 +4801,7 @@ _Py_convert_int_to_double.exit16.thread:          ; preds = %28, %_Py_convert_in
   br label %_float_div_mod.exit
 
 55:                                               ; preds = %47
-  %56 = fdiv double %.033, %.03250
+  %56 = fdiv double %.033, %.03258
   %57 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %56)
   br label %_float_div_mod.exit
 
@@ -4959,8 +4959,8 @@ _Py_convert_int_to_double.exit16:                 ; preds = %25, %PyObject_TypeC
   br label %PyFloat_FromDouble.exit
 
 _Py_convert_int_to_double.exit16.thread:          ; preds = %28, %_Py_convert_int_to_double.exit16
-  %.02644 = phi double [ %.026, %_Py_convert_int_to_double.exit16 ], [ -1.000000e+00, %28 ]
-  %38 = fdiv double %.027, %.02644
+  %.02651 = phi double [ %.026, %_Py_convert_int_to_double.exit16 ], [ -1.000000e+00, %28 ]
+  %38 = fdiv double %.027, %.02651
   %39 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %40 = load ptr, ptr %39, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -5728,8 +5728,8 @@ _Py_convert_int_to_double.exit.i:                 ; preds = %11, %PyObject_TypeC
   br label %float_as_integer_ratio_impl.exit
 
 .thread.i:                                        ; preds = %25, %14
-  %.064110112.i = phi double [ %.064.i, %25 ], [ -1.000000e+00, %14 ]
-  %29 = call double @frexp(double noundef %.064110112.i, ptr noundef nonnull %3) #18
+  %.064124126.i = phi double [ %.064.i, %25 ], [ -1.000000e+00, %14 ]
+  %29 = call double @frexp(double noundef %.064124126.i, ptr noundef nonnull %3) #18
   %.promoted.i = load i32, ptr %3, align 4
   %30 = tail call double @llvm.floor.f64(double %29)
   %31 = fcmp une double %29, %30
@@ -6139,8 +6139,8 @@ thread-pre-split:                                 ; preds = %20, %22
   %113 = sitofp i32 %112 to double
   %114 = call double @llvm.fmuladd.f64(double %.1222, double 1.600000e+01, double %113)
   %115 = add nsw i64 %.0147221, -1
-  %.not243 = icmp eq i64 %.0147221, 0
-  br i1 %.not243, label %.critedge2.thread.sink.split, label %.lr.ph223, !llvm.loop !235
+  %.not258 = icmp eq i64 %.0147221, 0
+  br i1 %.not258, label %.critedge2.thread.sink.split, label %.lr.ph223, !llvm.loop !235
 
 116:                                              ; preds = %102
   %117 = xor i64 %84, -1
@@ -6197,12 +6197,12 @@ thread-pre-split:                                 ; preds = %20, %22
 
 152:                                              ; preds = %148
   %153 = icmp eq i64 %119, 3
-  br i1 %153, label %154, label %.preheader249
+  br i1 %153, label %154, label %.preheader264
 
 154:                                              ; preds = %152
   %155 = add nsw i64 %122, 1
   %156 = icmp slt i64 %155, %.0151.lcssa
-  br i1 %156, label %157, label %.preheader249
+  br i1 %156, label %157, label %.preheader264
 
 157:                                              ; preds = %154
   %158 = icmp slt i64 %155, %50
@@ -6215,13 +6215,13 @@ thread-pre-split:                                 ; preds = %20, %22
   %164 = load i32, ptr %163, align 4, !tbaa !53
   %165 = and i32 %164, 1
   %.not192 = icmp eq i32 %165, 0
-  br i1 %.not192, label %.preheader249, label %.loopexit
+  br i1 %.not192, label %.preheader264, label %.loopexit
 
-.preheader249:                                    ; preds = %157, %154, %152
+.preheader264:                                    ; preds = %157, %154, %152
   br label %166
 
-166:                                              ; preds = %.preheader249, %168
-  %.2149.in = phi i64 [ %.2149, %168 ], [ %122, %.preheader249 ]
+166:                                              ; preds = %.preheader264, %168
+  %.2149.in = phi i64 [ %.2149, %168 ], [ %122, %.preheader264 ]
   %167 = icmp sgt i64 %.2149.in, 0
   br i1 %167, label %168, label %.critedge202
 
@@ -6253,9 +6253,9 @@ thread-pre-split:                                 ; preds = %20, %22
   br label %.critedge2.thread.sink.split
 
 .critedge2.thread.sink.split:                     ; preds = %.lr.ph223, %.preheader, %.critedge202
-  %.sink242 = phi i64 [ %179, %.critedge202 ], [ %84, %.preheader ], [ %84, %.lr.ph223 ]
+  %.sink257 = phi i64 [ %179, %.critedge202 ], [ %84, %.preheader ], [ %84, %.lr.ph223 ]
   %.3.sink = phi double [ %.3, %.critedge202 ], [ 0.000000e+00, %.preheader ], [ %114, %.lr.ph223 ]
-  %180 = trunc i64 %.sink242 to i32
+  %180 = trunc i64 %.sink257 to i32
   %181 = call double @ldexp(double noundef %.3.sink, i32 noundef %180) #18, !tbaa !53
   br label %.critedge2.thread
 
@@ -6412,7 +6412,7 @@ PyObject_TypeCheck.exit.thread.i:                 ; preds = %PyObject_TypeCheck.
 14:                                               ; preds = %11
   %15 = tail call ptr @PyErr_Occurred() #18
   %.not7.i.i = icmp eq ptr %15, null
-  br i1 %.not7.i.i, label %.thread55.i, label %float_hex_impl.exit
+  br i1 %.not7.i.i, label %.thread60.i, label %float_hex_impl.exit
 
 16:                                               ; preds = %8
   %17 = load i32, ptr @_Py_NotImplementedStruct, align 8, !tbaa !28
@@ -6453,7 +6453,7 @@ _Py_convert_int_to_double.exit.i:                 ; preds = %11, %PyObject_TypeC
 
 33:                                               ; preds = %22
   %34 = fcmp oeq double %.038.i, 0.000000e+00
-  br i1 %34, label %35, label %.thread55.i
+  br i1 %34, label %35, label %.thread60.i
 
 35:                                               ; preds = %33
   %36 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.038.i)
@@ -6468,8 +6468,8 @@ _Py_convert_int_to_double.exit.i:                 ; preds = %11, %PyObject_TypeC
   %41 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.42) #18
   br label %float_hex_impl.exit
 
-.thread55.i:                                      ; preds = %33, %14
-  %.038525457.i = phi double [ %.038.i, %33 ], [ -1.000000e+00, %14 ]
+.thread60.i:                                      ; preds = %33, %14
+  %.038575962.i = phi double [ %.038.i, %33 ], [ -1.000000e+00, %14 ]
   %42 = phi double [ %23, %33 ], [ 1.000000e+00, %14 ]
   %43 = call double @frexp(double noundef %42, ptr noundef nonnull %3) #18
   %44 = load i32, ptr %3, align 4, !tbaa !53
@@ -6489,9 +6489,9 @@ _Py_convert_int_to_double.exit.i:                 ; preds = %11, %PyObject_TypeC
   store i8 46, ptr %56, align 1, !tbaa !28
   br label %57
 
-57:                                               ; preds = %57, %.thread55.i
-  %indvars.iv.i = phi i64 [ 2, %.thread55.i ], [ %indvars.iv.next.i, %57 ]
-  %.02447.i = phi double [ %55, %.thread55.i ], [ %65, %57 ]
+57:                                               ; preds = %57, %.thread60.i
+  %indvars.iv.i = phi i64 [ 2, %.thread60.i ], [ %indvars.iv.next.i, %57 ]
+  %.02447.i = phi double [ %55, %.thread60.i ], [ %65, %57 ]
   %58 = fmul double %.02447.i, 1.600000e+01
   %59 = fptosi double %58 to i32
   %60 = sext i32 %59 to i64
@@ -6511,16 +6511,16 @@ _Py_convert_int_to_double.exit.i:                 ; preds = %11, %PyObject_TypeC
   store i8 0, ptr %68, align 1, !tbaa !28
   %69 = icmp slt i32 %67, 0
   %spec.select.i = tail call i32 @llvm.abs.i32(i32 %67, i1 false)
-  %spec.select58.i = select i1 %69, i32 45, i32 43
-  %70 = fcmp olt double %.038525457.i, 0.000000e+00
+  %spec.select63.i = select i1 %69, i32 45, i32 43
+  %70 = fcmp olt double %.038575962.i, 0.000000e+00
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %66
-  %72 = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.43, ptr noundef nonnull %4, i32 noundef %spec.select58.i, i32 noundef %spec.select.i) #18
+  %72 = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.43, ptr noundef nonnull %4, i32 noundef %spec.select63.i, i32 noundef %spec.select.i) #18
   br label %float_hex_impl.exit
 
 73:                                               ; preds = %66
-  %74 = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.44, ptr noundef nonnull %4, i32 noundef %spec.select58.i, i32 noundef %spec.select.i) #18
+  %74 = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.44, ptr noundef nonnull %4, i32 noundef %spec.select63.i, i32 noundef %spec.select.i) #18
   br label %float_hex_impl.exit
 
 float_hex_impl.exit:                              ; preds = %14, %16, %19, %28, %30, %38, %40, %71, %73

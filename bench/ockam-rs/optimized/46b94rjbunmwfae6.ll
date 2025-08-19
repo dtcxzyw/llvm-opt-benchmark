@@ -101,13 +101,13 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN109_$LT$alloc
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1facae21fd1b6d6E.llvm.2123743330159991533.exit4", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1facae21fd1b6d6E.llvm.2123743330159991533.exit4.sink.split"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1facae21fd1b6d6E.llvm.2123743330159991533.exit4.sink.split": ; preds = %6, %1
-  %.sink6 = phi ptr [ %4, %1 ], [ %8, %6 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.sink6, i64 32
+  %.sink9 = phi ptr [ %4, %1 ], [ %8, %6 ]
+  %12 = getelementptr inbounds nuw i8, ptr %.sink9, i64 32
   store ptr %12, ptr %0, align 8
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1facae21fd1b6d6E.llvm.2123743330159991533.exit4"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1facae21fd1b6d6E.llvm.2123743330159991533.exit4": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1facae21fd1b6d6E.llvm.2123743330159991533.exit4.sink.split", %6
-  %.0 = phi ptr [ null, %6 ], [ %.sink6, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1facae21fd1b6d6E.llvm.2123743330159991533.exit4.sink.split" ]
+  %.0 = phi ptr [ null, %6 ], [ %.sink9, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1facae21fd1b6d6E.llvm.2123743330159991533.exit4.sink.split" ]
   ret ptr %.0
 }
 
@@ -761,9 +761,9 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   %.not.i.i.i.i = icmp eq ptr %174, null
   %175 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %176 = load ptr, ptr %175, align 8, !noalias !55
-  br i1 %.not.i.i.i.i, label %.thread142.i.i.i.i, label %196
+  br i1 %.not.i.i.i.i, label %.thread162.i.i.i.i, label %196
 
-.thread142.i.i.i.i:                               ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hb5364eb5579c0ca5E.exit.thread.i.i.i.i"
+.thread162.i.i.i.i:                               ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hb5364eb5579c0ca5E.exit.thread.i.i.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i.i.i.i)
   br label %.noexc6.sink.split
 
@@ -814,8 +814,8 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #31, !noalias !57
   unreachable
 
-.noexc6.sink.split:                               ; preds = %.thread142.i.i.i.i, %188, %177, %.noexc14, %187
-  %.sroa.8.190.i.i.i.i.ph = phi ptr [ %.1.i.i.i.i.i, %187 ], [ %.1.i.i.i.i.i, %.noexc14 ], [ %.1.i.i.i.i.i, %177 ], [ %176, %.thread142.i.i.i.i ], [ %190, %188 ]
+.noexc6.sink.split:                               ; preds = %.thread162.i.i.i.i, %188, %177, %.noexc14, %187
+  %.sroa.8.190.i.i.i.i.ph = phi ptr [ %.1.i.i.i.i.i, %187 ], [ %.1.i.i.i.i.i, %.noexc14 ], [ %.1.i.i.i.i.i, %177 ], [ %176, %.thread162.i.i.i.i ], [ %190, %188 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !55
   br label %.noexc6
 
@@ -3599,10 +3599,10 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   %.sroa.10.1 = phi ptr [ %.sroa.6.0, %8 ], [ %.sroa.10.0, %4 ]
   %.sroa.8.1 = phi ptr [ %.sroa.0.0, %8 ], [ %.sroa.8.0, %4 ]
   %.sroa.6.1 = phi ptr [ %.sroa.10.0, %8 ], [ %.sroa.6.0, %4 ]
-  %.sink6.i = phi ptr [ %.sroa.8.0, %8 ], [ %.sroa.0.0, %4 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sink6.i, i64 32
+  %.sink9.i = phi ptr [ %.sroa.8.0, %8 ], [ %.sroa.0.0, %4 ]
+  %13 = getelementptr inbounds nuw i8, ptr %.sink9.i, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %.sink6.i, ptr %3, align 8
+  store ptr %.sink9.i, ptr %3, align 8
   %14 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h49f50a17945b1c4cE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7e176beb17d48736771cb3db34f36bf5.16.llvm.2123743330159991533)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %4

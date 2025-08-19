@@ -1995,7 +1995,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZN8QuantLib6MatrixD2Ev.exit445
 
 _ZN8QuantLib6MatrixD2Ev.exit445:                  ; preds = %ehcleanup390.thread, %ehcleanup390, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i444
-  %.pn67.pn.pn.pn.pn.pn.pn.pn.pn601 = phi { ptr, i32 } [ %49, %ehcleanup390.thread ], [ %.pn67.pn.pn.pn.pn.pn.pn.pn, %ehcleanup390 ], [ %.pn67.pn.pn.pn.pn.pn.pn.pn, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i444 ]
+  %.pn67.pn.pn.pn.pn.pn.pn.pn.pn675 = phi { ptr, i32 } [ %49, %ehcleanup390.thread ], [ %.pn67.pn.pn.pn.pn.pn.pn.pn, %ehcleanup390 ], [ %.pn67.pn.pn.pn.pn.pn.pn.pn, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i444 ]
   store ptr null, ptr %C_, align 8, !tbaa !32
   %249 = load ptr, ptr %oneOverTaus_, align 8, !tbaa !8
   %tobool.not.i.i.i447 = icmp eq ptr %249, null
@@ -2011,7 +2011,7 @@ if.then.i.i.i448:                                 ; preds = %_ZN8QuantLib6Matrix
   br label %ehcleanup392
 
 ehcleanup392:                                     ; preds = %if.then.i.i.i448, %_ZN8QuantLib6MatrixD2Ev.exit445, %lpad
-  %.pn67.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %48, %lpad ], [ %.pn67.pn.pn.pn.pn.pn.pn.pn.pn601, %_ZN8QuantLib6MatrixD2Ev.exit445 ], [ %.pn67.pn.pn.pn.pn.pn.pn.pn.pn601, %if.then.i.i.i448 ]
+  %.pn67.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %48, %lpad ], [ %.pn67.pn.pn.pn.pn.pn.pn.pn.pn675, %_ZN8QuantLib6MatrixD2Ev.exit445 ], [ %.pn67.pn.pn.pn.pn.pn.pn.pn.pn675, %if.then.i.i.i448 ]
   %251 = load ptr, ptr %displacements_, align 8, !tbaa !8
   %tobool.not.i.i.i455 = icmp eq ptr %251, null
   br i1 %tobool.not.i.i.i455, label %_ZNSt6vectorIdSaIdEED2Ev.exit461, label %if.then.i.i.i456
@@ -2398,8 +2398,8 @@ _ZN8QuantLib6MatrixC2Emmd.exit:                   ; preds = %for.body.i.i.i.preh
   %cmp5297.not = icmp eq i64 %0, 0
   %or.cond = or i1 %cmp4999.not, %cmp5297.not
   %cmp5795.not = icmp eq i64 %28, 0
-  %or.cond112 = or i1 %or.cond, %cmp5795.not
-  br i1 %or.cond112, label %nrvo.skipdtor, label %for.cond50.preheader.us.us.preheader
+  %or.cond122 = or i1 %or.cond, %cmp5795.not
+  br i1 %or.cond122, label %nrvo.skipdtor, label %for.cond50.preheader.us.us.preheader
 
 for.cond50.preheader.us.us.preheader:             ; preds = %_ZN8QuantLib6MatrixC2Emmd.exit
   %.pre = load ptr, ptr %m1, align 8
@@ -2594,8 +2594,8 @@ for.body15:                                       ; preds = %if.end97, %for.body
   %arrayidx57 = getelementptr inbounds double, ptr %add.ptr.i.i69, i64 %20
   store double %add52, ptr %arrayidx57, align 8, !tbaa !33
   %38 = load i64, ptr %alive_, align 8, !tbaa !29
-  %sext133 = shl i64 %38, 32
-  %39 = ashr exact i64 %sext133, 32
+  %sext143 = shl i64 %38, 32
+  %39 = ashr exact i64 %sext143, 32
   %cmp60.not = icmp slt i64 %indvars.iv, %39
   br i1 %cmp60.not, label %for.cond.cleanup14.loopexit, label %if.then
 

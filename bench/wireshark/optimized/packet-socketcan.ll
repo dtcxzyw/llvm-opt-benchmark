@@ -1173,8 +1173,8 @@ define internal fastcc i32 @dissect_socketcan_common(ptr noundef %0, ptr noundef
   br i1 %78, label %.thread39.sink.split.i, label %get_bus_id.exit
 
 .thread39.sink.split.i:                           ; preds = %76, %72, %62
-  %.sink42.i = phi ptr [ %61, %62 ], [ %.1.i, %76 ], [ %.1.i, %72 ]
-  %79 = getelementptr inbounds nuw i8, ptr %.sink42.i, i64 16
+  %.sink46.i = phi ptr [ %61, %62 ], [ %.1.i, %76 ], [ %.1.i, %72 ]
+  %79 = getelementptr inbounds nuw i8, ptr %.sink46.i, i64 16
   %80 = load i32, ptr %79, align 8
   %81 = trunc i32 %80 to i16
   br label %get_bus_id.exit
@@ -1480,13 +1480,13 @@ socketcan_set_source_and_destination_columns.exit199: ; preds = %ht_lookup_sende
   %228 = load i32, ptr %8, align 4
   %.not171 = icmp sgt i32 %228, -1
   %229 = load ptr, ptr %168, align 8
-  %.216 = select i1 %.not171, i32 2047, i32 536870911
+  %.243 = select i1 %.not171, i32 2047, i32 536870911
   %.str.195..str.193 = select i1 %.not171, ptr @.str.195, ptr @.str.193
   %.str.196..str.194 = select i1 %.not171, ptr @.str.196, ptr @.str.194
-  %230 = and i32 %228, %.216
+  %230 = and i32 %228, %.243
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %229, i32 noundef 25, ptr noundef nonnull %.str.195..str.193, i32 noundef %230, i32 noundef %230)
   %231 = load i32, ptr %8, align 4
-  %232 = and i32 %231, %.216
+  %232 = and i32 %231, %.243
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %186, ptr noundef nonnull %.str.196..str.194, i32 noundef %232, i32 noundef %232)
   %233 = load i32, ptr @hf_can_len, align 4
   %234 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -1499,9 +1499,9 @@ socketcan_set_source_and_destination_columns.exit199: ; preds = %ht_lookup_sende
   %239 = load i32, ptr %234, align 4
   %240 = icmp ne i32 %239, 8
   %or.cond = select i1 %or.cond182.not, i1 %240, i1 false
-  br i1 %or.cond, label %.thread208, label %242
+  br i1 %or.cond, label %.thread235, label %242
 
-.thread208:                                       ; preds = %socketcan_set_source_and_destination_columns.exit199
+.thread235:                                       ; preds = %socketcan_set_source_and_destination_columns.exit199
   %241 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_can_err_dlc_mismatch, ptr noundef %0, i32 noundef 4, i32 noundef 1)
   br label %246
 
@@ -1514,7 +1514,7 @@ socketcan_set_source_and_destination_columns.exit199: ; preds = %ht_lookup_sende
   %245 = call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %244, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0)
   br label %251
 
-246:                                              ; preds = %.thread208, %242
+246:                                              ; preds = %.thread235, %242
   %247 = load i32, ptr @hf_can_reserved, align 4
   %248 = call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %247, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef 0)
   %249 = load i32, ptr @hf_can_len8dlc, align 4

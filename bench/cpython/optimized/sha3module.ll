@@ -575,8 +575,8 @@ newSHA3object.exit.i:                             ; preds = %29
   br i1 %56, label %57, label %91
 
 57:                                               ; preds = %53, %49, %45, %41, %37, %newSHA3object.exit.i
-  %.sink46.i = phi i8 [ 9, %newSHA3object.exit.i ], [ 8, %37 ], [ 10, %41 ], [ 11, %45 ], [ 12, %49 ], [ 13, %53 ]
-  %58 = call ptr @python_hashlib_Hacl_Hash_SHA3_malloc(i8 noundef zeroext %.sink46.i) #4
+  %.sink51.i = phi i8 [ 9, %newSHA3object.exit.i ], [ 8, %37 ], [ 10, %41 ], [ 11, %45 ], [ 12, %49 ], [ 13, %53 ]
+  %58 = call ptr @python_hashlib_Hacl_Hash_SHA3_malloc(i8 noundef zeroext %.sink51.i) #4
   %59 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store ptr %58, ptr %59, align 8, !tbaa !16
   %.not.i = icmp eq ptr %.029, null

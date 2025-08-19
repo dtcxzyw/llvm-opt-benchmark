@@ -2274,7 +2274,7 @@ define internal fastcc range(i32 -22, 1) i32 @calipso_opt_find(ptr noundef reado
   %15 = getelementptr i8, ptr %0, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %.thread12, label %18
+  br i1 %17, label %.thread21, label %18
 
 18:                                               ; preds = %9
   %19 = add nuw nsw i32 %12, 1
@@ -2294,10 +2294,10 @@ define internal fastcc range(i32 -22, 1) i32 @calipso_opt_find(ptr noundef reado
 29:                                               ; preds = %21
   switch i8 %16, label %33 [
     i8 7, label %35
-    i8 1, label %.thread12
+    i8 1, label %.thread21
   ]
 
-.thread12:                                        ; preds = %9, %29
+.thread21:                                        ; preds = %9, %29
   %30 = phi i32 [ %26, %29 ], [ 1, %9 ]
   %31 = icmp eq i32 %10, 0
   %32 = select i1 %31, i32 0, i32 %12
@@ -2307,11 +2307,11 @@ define internal fastcc range(i32 -22, 1) i32 @calipso_opt_find(ptr noundef reado
   %34 = icmp eq i32 %10, 0
   br i1 %34, label %35, label %42
 
-35:                                               ; preds = %29, %33, %.thread12
-  %36 = phi i32 [ %30, %.thread12 ], [ %26, %29 ], [ %26, %33 ]
-  %37 = phi i32 [ %13, %.thread12 ], [ 0, %29 ], [ %13, %33 ]
-  %38 = phi i32 [ %11, %.thread12 ], [ %11, %29 ], [ %12, %33 ]
-  %39 = phi i32 [ %32, %.thread12 ], [ %12, %29 ], [ 0, %33 ]
+35:                                               ; preds = %29, %33, %.thread21
+  %36 = phi i32 [ %30, %.thread21 ], [ %26, %29 ], [ %26, %33 ]
+  %37 = phi i32 [ %13, %.thread21 ], [ 0, %29 ], [ %13, %33 ]
+  %38 = phi i32 [ %11, %.thread21 ], [ %11, %29 ], [ %12, %33 ]
+  %39 = phi i32 [ %32, %.thread21 ], [ %12, %29 ], [ 0, %33 ]
   %40 = add nuw i32 %36, %12
   %41 = icmp ult i32 %40, %8
   br i1 %41, label %9, label %42, !llvm.loop !30

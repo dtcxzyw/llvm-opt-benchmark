@@ -1023,9 +1023,9 @@ link_sib.exit22.i:                                ; preds = %.preheader.i40
   br i1 %.not17.i, label %unlink_sib.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %87, %link_sib.exit22.i
-  %.sink26.i = phi ptr [ %83, %link_sib.exit22.i ], [ %89, %87 ]
+  %.sink28.i = phi ptr [ %83, %link_sib.exit22.i ], [ %89, %87 ]
   %.sink.i = phi ptr [ %.0.i.i, %link_sib.exit22.i ], [ %72, %87 ]
-  %91 = getelementptr inbounds nuw i8, ptr %.sink26.i, i64 112
+  %91 = getelementptr inbounds nuw i8, ptr %.sink28.i, i64 112
   store ptr %.sink.i, ptr %91, align 8, !tbaa !52
   br label %unlink_sib.exit
 
@@ -1145,9 +1145,9 @@ link_dep.exit47:                                  ; preds = %link_dep.exit
   br label %18
 
 18:                                               ; preds = %link_dep.exit47, %link_sib.exit
-  %.sink70 = phi i64 [ 96, %link_dep.exit47 ], [ 112, %link_sib.exit ]
+  %.sink76 = phi i64 [ 96, %link_dep.exit47 ], [ 112, %link_sib.exit ]
   %.sink = phi ptr [ %1, %link_dep.exit47 ], [ %.0.i, %link_sib.exit ]
-  %19 = getelementptr inbounds nuw i8, ptr %11, i64 %.sink70
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 %.sink76
   store ptr %.sink, ptr %19, align 8, !tbaa !53
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %21

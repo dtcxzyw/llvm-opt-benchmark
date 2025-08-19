@@ -20700,7 +20700,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
   %5 = alloca [24 x i8], align 8
   %.sroa.03 = alloca [23 x i8], align 8
   %6 = load i8, ptr %1, align 16, !range !1723, !noundef !3
-  switch i8 %6, label %default.unreachable23 [
+  switch i8 %6, label %default.unreachable25 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
@@ -20731,7 +20731,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
     i8 27, label %74
   ]
 
-default.unreachable23:                            ; preds = %2
+default.unreachable25:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2

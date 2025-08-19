@@ -2367,9 +2367,9 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   br label %80
 
 80:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hc724fd7da49785a4E.exit62.i.i18", %82, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h372de347928c042bE.exit", %16
-  %.sink56 = phi i64 [ 16, %"_ZN4core6option15Option$LT$T$GT$6map_or17hc724fd7da49785a4E.exit62.i.i18" ], [ 16, %82 ], [ 8, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h372de347928c042bE.exit" ], [ 16, %16 ]
+  %.sink65 = phi i64 [ 16, %"_ZN4core6option15Option$LT$T$GT$6map_or17hc724fd7da49785a4E.exit62.i.i18" ], [ 16, %82 ], [ 8, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h372de347928c042bE.exit" ], [ 16, %16 ]
   %.sroa.6.0.sink = phi i64 [ %.sroa.6.0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hc724fd7da49785a4E.exit62.i.i18" ], [ %15, %82 ], [ %.sink.i.i, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h372de347928c042bE.exit" ], [ 0, %16 ]
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink56
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink65
   store i64 %.sroa.6.0.sink, ptr %81, align 8
   ret void
 
@@ -2687,9 +2687,9 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   br label %80
 
 80:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hddcd7c8bb0715c58E.exit62.i.i18", %82, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h81e740940a8918b4E.exit", %16
-  %.sink56 = phi i64 [ 16, %"_ZN4core6option15Option$LT$T$GT$6map_or17hddcd7c8bb0715c58E.exit62.i.i18" ], [ 16, %82 ], [ 8, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h81e740940a8918b4E.exit" ], [ 16, %16 ]
+  %.sink65 = phi i64 [ 16, %"_ZN4core6option15Option$LT$T$GT$6map_or17hddcd7c8bb0715c58E.exit62.i.i18" ], [ 16, %82 ], [ 8, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h81e740940a8918b4E.exit" ], [ 16, %16 ]
   %.sroa.6.0.sink = phi i64 [ %.sroa.6.0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hddcd7c8bb0715c58E.exit62.i.i18" ], [ %15, %82 ], [ %.sink.i.i, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h81e740940a8918b4E.exit" ], [ 0, %16 ]
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink56
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink65
   store i64 %.sroa.6.0.sink, ptr %81, align 8
   ret void
 
@@ -6753,14 +6753,14 @@ define internal fastcc void @_ZN9uv_pep4407version7Version12only_release17h7ed8a
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %12 = load i8, ptr %11, align 1, !alias.scope !1673, !noalias !1670, !noundef !8
   %13 = icmp eq i8 %12, 0
-  %.sink24.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink24.i.sroa.gep5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink24.i.sroa.gep7 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sink24.i.sroa.gep8 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink24.i.sroa.gep10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink24.i.sroa.gep11 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink24.i.sroa.gep13 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sink24.i.sroa.gep14 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink32.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink32.i.sroa.gep5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink32.i.sroa.gep7 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink32.i.sroa.gep8 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink32.i.sroa.gep10 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink32.i.sroa.gep11 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink32.i.sroa.gep13 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink32.i.sroa.gep14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %2
@@ -6912,19 +6912,19 @@ define internal fastcc void @_ZN9uv_pep4407version7Version12only_release17h7ed8a
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %103, %72
-  %.sink24.i.sroa.phi = phi ptr [ %.sink24.i.sroa.gep, %103 ], [ %.sink24.i.sroa.gep5, %72 ]
-  %.sink24.i.sroa.phi6 = phi ptr [ %.sink24.i.sroa.gep7, %103 ], [ %.sink24.i.sroa.gep8, %72 ]
-  %.sink24.i.sroa.phi9 = phi ptr [ %.sink24.i.sroa.gep10, %103 ], [ %.sink24.i.sroa.gep11, %72 ]
-  %.sink24.i.sroa.phi12 = phi ptr [ %.sink24.i.sroa.gep13, %103 ], [ %.sink24.i.sroa.gep14, %72 ]
-  %.sink24.i = phi ptr [ %5, %103 ], [ %4, %72 ]
-  %.sink18.i = phi ptr [ inttoptr (i64 8 to ptr), %103 ], [ %3, %72 ]
+  %.sink32.i.sroa.phi = phi ptr [ %.sink32.i.sroa.gep, %103 ], [ %.sink32.i.sroa.gep5, %72 ]
+  %.sink32.i.sroa.phi6 = phi ptr [ %.sink32.i.sroa.gep7, %103 ], [ %.sink32.i.sroa.gep8, %72 ]
+  %.sink32.i.sroa.phi9 = phi ptr [ %.sink32.i.sroa.gep10, %103 ], [ %.sink32.i.sroa.gep11, %72 ]
+  %.sink32.i.sroa.phi12 = phi ptr [ %.sink32.i.sroa.gep13, %103 ], [ %.sink32.i.sroa.gep14, %72 ]
+  %.sink32.i = phi ptr [ %5, %103 ], [ %4, %72 ]
+  %.sink26.i = phi ptr [ inttoptr (i64 8 to ptr), %103 ], [ %3, %72 ]
   %.sink.i = phi i64 [ 0, %103 ], [ 1, %72 ]
   %73 = phi ptr [ @anon.8a601c176f70e9c95ce4b53445fbe9b7.39, %103 ], [ @anon.8a601c176f70e9c95ce4b53445fbe9b7.43, %72 ]
-  store i64 1, ptr %.sink24.i.sroa.phi, align 8, !noalias !1681
-  store ptr null, ptr %.sink24.i.sroa.phi6, align 8, !noalias !1681
-  store ptr %.sink18.i, ptr %.sink24.i.sroa.phi9, align 8, !noalias !1681
-  store i64 %.sink.i, ptr %.sink24.i.sroa.phi12, align 8, !noalias !1681
-  invoke void @_ZN4core9panicking9panic_fmt17h5764ee7030b7a73dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink24.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %73) #36
+  store i64 1, ptr %.sink32.i.sroa.phi, align 8, !noalias !1681
+  store ptr null, ptr %.sink32.i.sroa.phi6, align 8, !noalias !1681
+  store ptr %.sink26.i, ptr %.sink32.i.sroa.phi9, align 8, !noalias !1681
+  store i64 %.sink.i, ptr %.sink32.i.sroa.phi12, align 8, !noalias !1681
+  invoke void @_ZN4core9panicking9panic_fmt17h5764ee7030b7a73dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink32.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %73) #36
           to label %.cont.i unwind label %53, !noalias !1676
 
 .cont.i:                                          ; preds = %.invoke.i
@@ -7141,19 +7141,19 @@ define noundef nonnull ptr @"_ZN157_$LT$uv_pypi_types..marker_environment..Resol
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %25 = invoke noundef align 8 dereferenceable(16) ptr @"_ZN82_$LT$uv_pep508..marker..tree..StringVersion$u20$as$u20$core..ops..deref..Deref$GT$5deref17h59a351440efc0c8cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %24)
-          to label %26 unwind label %.thread146
+          to label %26 unwind label %.thread150
 
 "_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hdb843d84b070c9dfE.exit102": ; preds = %198, %195, %202
   br i1 %.sroa.037.3136, label %203, label %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17hc939dcbcd31df3f0E.exit104"
 
-.thread146:                                       ; preds = %26, %1
-  %lpad.thr_comm144 = landingpad { ptr, i32 }
+.thread150:                                       ; preds = %26, %1
+  %lpad.thr_comm148 = landingpad { ptr, i32 }
           cleanup
   br label %203
 
 26:                                               ; preds = %1
   invoke fastcc void @_ZN9uv_pep4407version7Version12only_release17h7ed8a66aceaed33eE(ptr noalias noundef align 8 captures(none) dereferenceable(16) %22, ptr noalias noundef readonly align 8 dereferenceable(16) %25)
-          to label %27 unwind label %.thread146
+          to label %27 unwind label %.thread150
 
 27:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -7697,11 +7697,11 @@ define noundef nonnull ptr @"_ZN157_$LT$uv_pypi_types..marker_environment..Resol
           to label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hdb843d84b070c9dfE.exit102" unwind label %189
 
 "_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17hc939dcbcd31df3f0E.exit104": ; preds = %.body, %54, %50, %203, %207, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hdb843d84b070c9dfE.exit102"
-  %.pn85140 = phi { ptr, i32 } [ %.pn85143, %203 ], [ %.pn85143, %207 ], [ %.pn.pn137, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hdb843d84b070c9dfE.exit102" ], [ %.pn.pn.i, %50 ], [ %.pn.pn.i, %54 ], [ %.pn.pn, %.body ]
+  %.pn85140 = phi { ptr, i32 } [ %.pn85147, %203 ], [ %.pn85147, %207 ], [ %.pn.pn137, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hdb843d84b070c9dfE.exit102" ], [ %.pn.pn.i, %50 ], [ %.pn.pn.i, %54 ], [ %.pn.pn, %.body ]
   resume { ptr, i32 } %.pn85140
 
-203:                                              ; preds = %.thread146, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hdb843d84b070c9dfE.exit102"
-  %.pn85143 = phi { ptr, i32 } [ %.pn.pn137, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hdb843d84b070c9dfE.exit102" ], [ %lpad.thr_comm144, %.thread146 ]
+203:                                              ; preds = %.thread150, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hdb843d84b070c9dfE.exit102"
+  %.pn85147 = phi { ptr, i32 } [ %.pn.pn137, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hdb843d84b070c9dfE.exit102" ], [ %lpad.thr_comm148, %.thread150 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1811)
   call void @llvm.experimental.noalias.scope.decl(metadata !1814)
   call void @llvm.experimental.noalias.scope.decl(metadata !1817)

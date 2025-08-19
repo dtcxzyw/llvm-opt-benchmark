@@ -739,7 +739,7 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2d58c45f3e4a7bb4E"(ptr %0, ptr %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = icmp eq ptr %0, %1
-  br i1 %4, label %.loopexit18, label %5
+  br i1 %4, label %.loopexit20, label %5
 
 5:                                                ; preds = %3
   %6 = invoke i64 @"_ZN4core3ptr9const_ptr33_$LT$impl$u20$$BP$const$u20$T$GT$7sub_ptr17h6137483b90f240dbE"(ptr %1, ptr %0)
@@ -769,9 +769,9 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 9:                                                ; preds = %.preheader
   %10 = add nuw i64 %.sroa.06.0, 1
   %11 = icmp eq i64 %10, %6
-  br i1 %11, label %.loopexit18, label %.preheader
+  br i1 %11, label %.loopexit20, label %.preheader
 
-.loopexit18:                                      ; preds = %9, %3
+.loopexit20:                                      ; preds = %9, %3
   tail call void @"_ZN4core3ptr701drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$pyo3_macros_backend..pymethod..Ty$C$proc_macro2..TokenStream$C$$LP$$RP$$C$pyo3_macros_backend..pymethod..SlotFragmentDef..generate_pyproto_fragment..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$proc_macro2..TokenStream$C$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..pymethod..Ty$GT$$C$pyo3_macros_backend..pymethod..SlotFragmentDef..generate_pyproto_fragment..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9162e47686695638E"(ptr align 8 %2)
   ret void
 
@@ -788,7 +788,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h32922f011a8be364E"(ptr %0, ptr %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = icmp eq ptr %0, %1
-  br i1 %4, label %.loopexit18, label %5
+  br i1 %4, label %.loopexit20, label %5
 
 5:                                                ; preds = %3
   %6 = invoke i64 @"_ZN4core3ptr9const_ptr33_$LT$impl$u20$$BP$const$u20$T$GT$7sub_ptr17h821af46d8db7fc0eE"(ptr %1, ptr %0)
@@ -818,9 +818,9 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 9:                                                ; preds = %.preheader
   %10 = add nuw i64 %.sroa.06.0, 1
   %11 = icmp eq i64 %10, %6
-  br i1 %11, label %.loopexit18, label %.preheader
+  br i1 %11, label %.loopexit20, label %.preheader
 
-.loopexit18:                                      ; preds = %9, %3
+.loopexit20:                                      ; preds = %9, %3
   tail call void @"_ZN4core3ptr926drop_in_place$LT$$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$..fold..enumerate$LT$$RF$pyo3_macros_backend..method..FnArg$C$$LP$$RP$$C$core..iter..adapters..map..map_fold$LT$$LP$usize$C$$RF$pyo3_macros_backend..method..FnArg$RP$$C$proc_macro2..TokenStream$C$$LP$$RP$$C$pyo3_macros_backend..params..impl_arg_params..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$proc_macro2..TokenStream$C$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..method..FnArg$GT$$GT$$C$pyo3_macros_backend..params..impl_arg_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h84dc72e71cd5bdf5E"(ptr align 8 %2)
   ret void
 
@@ -837,7 +837,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h49f37c912e6cbbadE"(ptr %0, ptr %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = icmp eq ptr %0, %1
-  br i1 %4, label %.loopexit18, label %5
+  br i1 %4, label %.loopexit20, label %5
 
 5:                                                ; preds = %3
   %6 = invoke i64 @"_ZN4core3ptr9const_ptr33_$LT$impl$u20$$BP$const$u20$T$GT$7sub_ptr17h202b8b8c81e60cfeE"(ptr %1, ptr %0)
@@ -867,9 +867,9 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 9:                                                ; preds = %.preheader
   %10 = add nuw i64 %.sroa.06.0, 1
   %11 = icmp eq i64 %10, %6
-  br i1 %11, label %.loopexit18, label %.preheader
+  br i1 %11, label %.loopexit20, label %.preheader
 
-.loopexit18:                                      ; preds = %9, %3
+.loopexit20:                                      ; preds = %9, %3
   tail call void @"_ZN4core3ptr679drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$pyo3_macros_backend..pyclass..PyClassEnumVariant$C$proc_macro2..TokenStream$C$$LP$$RP$$C$pyo3_macros_backend..pyclass..impl_complex_enum..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$proc_macro2..TokenStream$C$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..pyclass..PyClassEnumVariant$GT$$C$pyo3_macros_backend..pyclass..impl_complex_enum..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h25c813f542435e72E"(ptr align 8 %2)
   ret void
 
@@ -911,7 +911,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h62b020e1345bf15dE"(ptr %0, ptr %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = icmp eq ptr %0, %1
-  br i1 %4, label %.loopexit18, label %5
+  br i1 %4, label %.loopexit20, label %5
 
 5:                                                ; preds = %3
   %6 = invoke i64 @"_ZN4core3ptr9const_ptr33_$LT$impl$u20$$BP$const$u20$T$GT$7sub_ptr17he3f783b679a21c1dE"(ptr %1, ptr %0)
@@ -941,9 +941,9 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 9:                                                ; preds = %.preheader
   %10 = add nuw i64 %.sroa.06.0, 1
   %11 = icmp eq i64 %10, %6
-  br i1 %11, label %.loopexit18, label %.preheader
+  br i1 %11, label %.loopexit20, label %.preheader
 
-.loopexit18:                                      ; preds = %9, %3
+.loopexit20:                                      ; preds = %9, %3
   tail call void @"_ZN4core3ptr1633drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$pyo3_macros_backend..pyclass..PyClassEnumUnitVariant$C$$LP$$RF$proc_macro2..Ident$C$alloc..borrow..Cow$LT$proc_macro2..Ident$GT$$RP$$C$$LP$$RP$$C$pyo3_macros_backend..pyclass..impl_simple_enum..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..adapters..map..map_fold$LT$$LP$$RF$proc_macro2..Ident$C$alloc..borrow..Cow$LT$proc_macro2..Ident$GT$$RP$$C$pyo3_macros_backend..pymethod..MethodAndMethodDef$C$$LP$$RP$$C$pyo3_macros_backend..pyclass..simple_enum_default_methods$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..pyclass..PyClassEnumUnitVariant$GT$$C$pyo3_macros_backend..pyclass..impl_simple_enum..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$pyo3_macros_backend..pymethod..MethodAndMethodDef$C$alloc..vec..Vec$LT$pyo3_macros_backend..pymethod..MethodAndMethodDef$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..pyclass..PyClassEnumUnitVariant$GT$$C$pyo3_macros_backend..pyclass..impl_simple_enum..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$pyo3_macros_backend..pyclass..simple_enum_default_methods$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..pyclass..PyClassEnumUnitVariant$GT$$C$pyo3_macros_backend..pyclass..impl_simple_enum..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h89a2da7c44f1bc01E"(ptr align 8 %2)
   ret void
 
@@ -1005,7 +1005,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8534d234c31562b1E"(ptr %0, ptr %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = icmp eq ptr %0, %1
-  br i1 %4, label %.loopexit18, label %5
+  br i1 %4, label %.loopexit20, label %5
 
 5:                                                ; preds = %3
   %6 = invoke i64 @"_ZN4core3ptr9const_ptr33_$LT$impl$u20$$BP$const$u20$T$GT$7sub_ptr17h821af46d8db7fc0eE"(ptr %1, ptr %0)
@@ -1035,9 +1035,9 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 9:                                                ; preds = %.preheader
   %10 = add nuw i64 %.sroa.06.0, 1
   %11 = icmp eq i64 %10, %6
-  br i1 %11, label %.loopexit18, label %.preheader
+  br i1 %11, label %.loopexit20, label %.preheader
 
-.loopexit18:                                      ; preds = %9, %3
+.loopexit20:                                      ; preds = %9, %3
   tail call void @"_ZN4core3ptr671drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$pyo3_macros_backend..method..FnArg$C$proc_macro2..TokenStream$C$$LP$$RP$$C$pyo3_macros_backend..method..FnSpec..get_wrapper_function..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$proc_macro2..TokenStream$C$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..method..FnArg$GT$$C$pyo3_macros_backend..method..FnSpec..get_wrapper_function..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbfa8c8719e626118E"(ptr align 8 %2)
   ret void
 
@@ -1054,7 +1054,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h874af7aa315b4215E"(ptr %0, ptr %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = icmp eq ptr %0, %1
-  br i1 %4, label %.loopexit18, label %5
+  br i1 %4, label %.loopexit20, label %5
 
 5:                                                ; preds = %3
   %6 = invoke i64 @"_ZN4core3ptr9const_ptr33_$LT$impl$u20$$BP$const$u20$T$GT$7sub_ptr17h202b8b8c81e60cfeE"(ptr %1, ptr %0)
@@ -1084,9 +1084,9 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 9:                                                ; preds = %.preheader
   %10 = add nuw i64 %.sroa.06.0, 1
   %11 = icmp eq i64 %10, %6
-  br i1 %11, label %.loopexit18, label %.preheader
+  br i1 %11, label %.loopexit20, label %.preheader
 
-.loopexit18:                                      ; preds = %9, %3
+.loopexit20:                                      ; preds = %9, %3
   tail call void @"_ZN4core3ptr1623drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$pyo3_macros_backend..pyclass..PyClassEnumVariant$C$$LP$$RF$proc_macro2..Ident$C$alloc..borrow..Cow$LT$proc_macro2..Ident$GT$$RP$$C$$LP$$RP$$C$pyo3_macros_backend..pyclass..impl_complex_enum..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..adapters..map..map_fold$LT$$LP$$RF$proc_macro2..Ident$C$alloc..borrow..Cow$LT$proc_macro2..Ident$GT$$RP$$C$pyo3_macros_backend..pymethod..MethodAndMethodDef$C$$LP$$RP$$C$pyo3_macros_backend..pyclass..complex_enum_default_methods$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..pyclass..PyClassEnumVariant$GT$$C$pyo3_macros_backend..pyclass..impl_complex_enum..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$pyo3_macros_backend..pymethod..MethodAndMethodDef$C$alloc..vec..Vec$LT$pyo3_macros_backend..pymethod..MethodAndMethodDef$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..pyclass..PyClassEnumVariant$GT$$C$pyo3_macros_backend..pyclass..impl_complex_enum..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$pyo3_macros_backend..pyclass..complex_enum_default_methods$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..pyclass..PyClassEnumVariant$GT$$C$pyo3_macros_backend..pyclass..impl_complex_enum..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h13b431ccf5dbab64E"(ptr align 8 %2)
   ret void
 
@@ -1128,7 +1128,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hba3915d11c99f249E"(ptr %0, ptr %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = icmp eq ptr %0, %1
-  br i1 %4, label %.loopexit18, label %5
+  br i1 %4, label %.loopexit20, label %5
 
 5:                                                ; preds = %3
   %6 = invoke i64 @"_ZN4core3ptr9const_ptr33_$LT$impl$u20$$BP$const$u20$T$GT$7sub_ptr17h6137483b90f240dbE"(ptr %1, ptr %0)
@@ -1158,9 +1158,9 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 9:                                                ; preds = %.preheader
   %10 = add nuw i64 %.sroa.06.0, 1
   %11 = icmp eq i64 %10, %6
-  br i1 %11, label %.loopexit18, label %.preheader
+  br i1 %11, label %.loopexit20, label %.preheader
 
-.loopexit18:                                      ; preds = %9, %3
+.loopexit20:                                      ; preds = %9, %3
   tail call void @"_ZN4core3ptr671drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$pyo3_macros_backend..pymethod..Ty$C$proc_macro2..TokenStream$C$$LP$$RP$$C$pyo3_macros_backend..pymethod..SlotDef..generate_type_slot..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$proc_macro2..TokenStream$C$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..pymethod..Ty$GT$$C$pyo3_macros_backend..pymethod..SlotDef..generate_type_slot..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc33c59ef8fbf31d1E"(ptr align 8 %2)
   ret void
 
@@ -1177,7 +1177,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17heaffb5abc12825d9E"(ptr %0, ptr %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = icmp eq ptr %0, %1
-  br i1 %4, label %.loopexit18, label %5
+  br i1 %4, label %.loopexit20, label %5
 
 5:                                                ; preds = %3
   %6 = invoke i64 @"_ZN4core3ptr9const_ptr33_$LT$impl$u20$$BP$const$u20$T$GT$7sub_ptr17h821af46d8db7fc0eE"(ptr %1, ptr %0)
@@ -1207,9 +1207,9 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 9:                                                ; preds = %.preheader
   %10 = add nuw i64 %.sroa.06.0, 1
   %11 = icmp eq i64 %10, %6
-  br i1 %11, label %.loopexit18, label %.preheader
+  br i1 %11, label %.loopexit20, label %.preheader
 
-.loopexit18:                                      ; preds = %9, %3
+.loopexit20:                                      ; preds = %9, %3
   tail call void @"_ZN4core3ptr926drop_in_place$LT$$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$..fold..enumerate$LT$$RF$pyo3_macros_backend..method..FnArg$C$$LP$$RP$$C$core..iter..adapters..map..map_fold$LT$$LP$usize$C$$RF$pyo3_macros_backend..method..FnArg$RP$$C$proc_macro2..TokenStream$C$$LP$$RP$$C$pyo3_macros_backend..params..impl_arg_params..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$proc_macro2..TokenStream$C$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$pyo3_macros_backend..method..FnArg$GT$$GT$$C$pyo3_macros_backend..params..impl_arg_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2cd919ef3a40e54bE"(ptr align 8 %2)
   ret void
 

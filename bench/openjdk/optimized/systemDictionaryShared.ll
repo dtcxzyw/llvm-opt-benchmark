@@ -720,7 +720,7 @@ define hidden noundef ptr @_ZN22SystemDictionaryShared11find_recordEP23RunTimeSh
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, %2
-  br i1 %77, label %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit54, label %78
+  br i1 %77, label %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit57, label %78
 
 78:                                               ; preds = %69, %66
   %79 = getelementptr inbounds nuw i8, ptr %.02428.i, i64 8
@@ -794,7 +794,7 @@ _ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compa
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 24
   %127 = load ptr, ptr %126, align 8
   %128 = icmp eq ptr %127, %2
-  br i1 %128, label %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit53, label %129
+  br i1 %128, label %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit56, label %129
 
 129:                                              ; preds = %120, %117
   %130 = getelementptr inbounds nuw i8, ptr %.02428.i29, i64 8
@@ -883,16 +883,16 @@ _ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compa
   %183 = getelementptr inbounds nuw i8, ptr %167, i64 %174
   br label %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31
 
-_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit53: ; preds = %120
+_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit56: ; preds = %120
   %184 = getelementptr inbounds nuw i8, ptr %116, i64 %123
   br label %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31
 
-_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit54: ; preds = %69
+_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit57: ; preds = %69
   %185 = getelementptr inbounds nuw i8, ptr %65, i64 %72
   br label %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31
 
-_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31: ; preds = %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit54, %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit53, %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit, %49, %.loopexit.i34, %151, %100, %.loopexit.i26, %3, %5
-  %.020 = phi ptr [ null, %5 ], [ null, %3 ], [ null, %.loopexit.i26 ], [ %104, %100 ], [ null, %.loopexit.i34 ], [ %155, %151 ], [ %53, %49 ], [ %183, %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit ], [ %184, %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit53 ], [ %185, %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit54 ]
+_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31: ; preds = %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit57, %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit56, %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit, %49, %.loopexit.i34, %151, %100, %.loopexit.i26, %3, %5
+  %.020 = phi ptr [ null, %5 ], [ null, %3 ], [ null, %.loopexit.i26 ], [ %104, %100 ], [ null, %.loopexit.i34 ], [ %155, %151 ], [ %53, %49 ], [ %183, %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit ], [ %184, %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit56 ], [ %185, %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit57 ]
   ret ptr %.020
 }
 

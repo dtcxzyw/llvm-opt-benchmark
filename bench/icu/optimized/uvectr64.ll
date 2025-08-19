@@ -216,7 +216,7 @@ define void @_ZN6icu_779UVector646assignERKS0_R10UErrorCode(ptr noundef nonnull 
   %8 = load i32, ptr %7, align 4
   %.not.i = icmp slt i32 %8, %5
   %or.cond.i = select i1 %6, i1 true, i1 %.not.i
-  br i1 %or.cond.i, label %9, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread14
+  br i1 %or.cond.i, label %9, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread23
 
 9:                                                ; preds = %3
   %10 = load i32, ptr %2, align 4, !tbaa !16
@@ -227,7 +227,7 @@ define void @_ZN6icu_779UVector646assignERKS0_R10UErrorCode(ptr noundef nonnull 
   br i1 %6, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.sink.split, label %13
 
 13:                                               ; preds = %12
-  br i1 %.not.i, label %14, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread14
+  br i1 %.not.i, label %14, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread23
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -263,9 +263,9 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit: ; preds = %25
   store i32 %.120.i.i, ptr %7, align 4, !tbaa !13
   %.pre = load i32, ptr %4, align 8, !tbaa !6
   %32 = icmp slt i32 %.pre, 0
-  br i1 %32, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread14
+  br i1 %32, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread23
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread14: ; preds = %3, %13, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread23: ; preds = %3, %13, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit
   %33 = phi i32 [ %.pre, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit ], [ %5, %13 ], [ %5, %3 ]
   %34 = phi i32 [ %.120.i.i, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit ], [ %8, %13 ], [ %8, %3 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -273,7 +273,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread14: ; preds = %3,
   %37 = icmp sgt i32 %33, %36
   br i1 %37, label %38, label %.loopexit.i
 
-38:                                               ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread14
+38:                                               ; preds = %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread23
   %.not.i.i = icmp slt i32 %34, %33
   br i1 %.not.i.i, label %39, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i
 
@@ -329,7 +329,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i: ; preds = %56, %38
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i, i8 0, i64 %67, i1 false), !tbaa !18
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.lr.ph.i, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread14
+.loopexit.i:                                      ; preds = %.lr.ph.i, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.i, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread23
   store i32 %33, ptr %35, align 8, !tbaa !6
   br label %_ZN6icu_779UVector647setSizeEi.exit
 

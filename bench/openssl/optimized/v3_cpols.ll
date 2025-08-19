@@ -651,10 +651,10 @@ displaytext_str2tag.exit.i.i:                     ; preds = %.tail.thread.i.i.i,
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i, %229
-  %.sink17.i.i.i = phi i32 [ 407, %229 ], [ 402, %.lr.ph.i.i.i ]
+  %.sink18.i.i.i = phi i32 [ 407, %229 ], [ 402, %.lr.ph.i.i.i ]
   %.sink.i.i.i = phi i32 [ 524303, %229 ], [ 140, %.lr.ph.i.i.i ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.22, i32 noundef %.sink17.i.i.i, ptr noundef nonnull @__func__.nref_nos) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.22, i32 noundef %.sink18.i.i.i, ptr noundef nonnull @__func__.nref_nos) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef %.sink.i.i.i, ptr noundef null) #4
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %206, ptr noundef nonnull @X509V3_conf_free) #4
   br label %notice_section.exit.thread.i

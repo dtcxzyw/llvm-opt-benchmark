@@ -882,8 +882,8 @@ _ZNK5clang18ArraySubscriptExpr6getIdxEv.exit.i:   ; preds = %_ZNK5clang18ArraySu
 
 .critedge.i:                                      ; preds = %69, %57
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.0.copyload.i.i.i.i6.i.i = load i64, ptr %73, align 8
-  %74 = and i64 %.0.copyload.i.i.i.i6.i.i, -8
+  %.0.copyload.i.i.i.i7.i.i = load i64, ptr %73, align 8
+  %74 = and i64 %.0.copyload.i.i.i.i7.i.i, -8
   %75 = inttoptr i64 %74 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %76 = getelementptr inbounds nuw i8, ptr %58, i64 56

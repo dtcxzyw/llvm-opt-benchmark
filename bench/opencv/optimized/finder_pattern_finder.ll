@@ -3905,8 +3905,8 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit351:      ; preds = %_ZSt8_DestroyIPSt6v
   %887 = sub i64 %885, %886
   %888 = icmp ugt i64 %887, 8
   %.not623 = icmp eq ptr %870, %871
-  %or.cond790 = or i1 %888, %.not623
-  br i1 %or.cond790, label %.loopexit, label %.lr.ph611
+  %or.cond985 = or i1 %888, %.not623
+  br i1 %or.cond985, label %.loopexit, label %.lr.ph611
 
 .lr.ph611:                                        ; preds = %879, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
   %.pre658671 = phi ptr [ %.pre658672, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %.pre658669, %879 ]
@@ -4294,8 +4294,8 @@ _ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev.exit380: ; pr
   %1053 = ashr exact i64 %1052, 3
   %1054 = load i32, ptr @_ZN5zxing6qrcode19FinderPatternFinder14FPS_RESULT_MAXE, align 4, !tbaa !18
   %1055 = sext i32 %1054 to i64
-  %.not139854 = icmp ugt i64 %1053, %1055
-  br i1 %.not139854, label %.lr.ph592..critedge4.loopexit_crit_edge, label %.lr.ph857
+  %.not1391049 = icmp ugt i64 %1053, %1055
+  br i1 %.not1391049, label %.lr.ph592..critedge4.loopexit_crit_edge, label %.lr.ph1052
 
 .lr.ph592:                                        ; preds = %1237
   %1056 = load ptr, ptr %838, align 8, !tbaa !59
@@ -4307,13 +4307,13 @@ _ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev.exit380: ; pr
   %1062 = load i32, ptr @_ZN5zxing6qrcode19FinderPatternFinder14FPS_RESULT_MAXE, align 4, !tbaa !18
   %1063 = sext i32 %1062 to i64
   %.not139 = icmp ugt i64 %1061, %1063
-  br i1 %.not139, label %.lr.ph592..critedge4.loopexit_crit_edge, label %.lr.ph857, !llvm.loop !134
+  br i1 %.not139, label %.lr.ph592..critedge4.loopexit_crit_edge, label %.lr.ph1052, !llvm.loop !134
 
 .lr.ph592..critedge4.loopexit_crit_edge:          ; preds = %.lr.ph592, %.lr.ph592.preheader
   %.pre663.pre.lcssa = phi ptr [ %.pre663.pre679, %.lr.ph592.preheader ], [ %1242, %.lr.ph592 ]
   %.pre664678.lcssa = phi ptr [ %.pre664675, %.lr.ph592.preheader ], [ %1243, %.lr.ph592 ]
-  %.lcssa801 = phi i32 [ %1023, %.lr.ph592.preheader ], [ %1249, %.lr.ph592 ]
-  %.lcssa797 = phi ptr [ %1024, %.lr.ph592.preheader ], [ %1239, %.lr.ph592 ]
+  %.lcssa996 = phi i32 [ %1023, %.lr.ph592.preheader ], [ %1249, %.lr.ph592 ]
+  %.lcssa992 = phi ptr [ %1024, %.lr.ph592.preheader ], [ %1239, %.lr.ph592 ]
   %.lcssa = phi i32 [ %1025, %.lr.ph592.preheader ], [ %1249, %.lr.ph592 ]
   %.2116589.lcssa = phi i32 [ %.1115597, %.lr.ph592.preheader ], [ %.3117, %.lr.ph592 ]
   %.pre698 = ptrtoint ptr %.pre663.pre.lcssa to i64
@@ -4328,8 +4328,8 @@ _ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev.exit380: ; pr
   %.pre664676 = phi ptr [ %.pre664675, %1041 ], [ %.pre664678.lcssa, %.lr.ph592..critedge4.loopexit_crit_edge ], [ %1243, %1237 ]
   %1064 = phi ptr [ %1021, %1041 ], [ %.pre664678.lcssa, %.lr.ph592..critedge4.loopexit_crit_edge ], [ %1243, %1237 ]
   %1065 = phi ptr [ %1022, %1041 ], [ %.pre663.pre.lcssa, %.lr.ph592..critedge4.loopexit_crit_edge ], [ %1242, %1237 ]
-  %1066 = phi i32 [ %1023, %1041 ], [ %.lcssa801, %.lr.ph592..critedge4.loopexit_crit_edge ], [ %1249, %1237 ]
-  %1067 = phi ptr [ %1024, %1041 ], [ %.lcssa797, %.lr.ph592..critedge4.loopexit_crit_edge ], [ %1239, %1237 ]
+  %1066 = phi i32 [ %1023, %1041 ], [ %.lcssa996, %.lr.ph592..critedge4.loopexit_crit_edge ], [ %1249, %1237 ]
+  %1067 = phi ptr [ %1024, %1041 ], [ %.lcssa992, %.lr.ph592..critedge4.loopexit_crit_edge ], [ %1239, %1237 ]
   %1068 = phi i32 [ %1025, %1041 ], [ %.lcssa, %.lr.ph592..critedge4.loopexit_crit_edge ], [ %1249, %1237 ]
   %.2116.lcssa = phi i32 [ %.1115597, %1041 ], [ %.2116589.lcssa, %.lr.ph592..critedge4.loopexit_crit_edge ], [ %.3117, %1237 ]
   %1069 = icmp uge i64 %1042, %.pre-phi697
@@ -4337,23 +4337,23 @@ _ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev.exit380: ; pr
   %or.cond173 = select i1 %1069, i1 true, i1 %.not136
   br i1 %or.cond173, label %.critedge2.loopexit, label %.lr.ph600, !llvm.loop !135
 
-.lr.ph857:                                        ; preds = %.lr.ph592.preheader, %.lr.ph592
-  %.2116589856 = phi i32 [ %.3117, %.lr.ph592 ], [ %.1115597, %.lr.ph592.preheader ]
-  %.082590855 = phi i64 [ %1238, %.lr.ph592 ], [ %1042, %.lr.ph592.preheader ]
+.lr.ph1052:                                       ; preds = %.lr.ph592.preheader, %.lr.ph592
+  %.21165891051 = phi i32 [ %.3117, %.lr.ph592 ], [ %.1115597, %.lr.ph592.preheader ]
+  %.0825901050 = phi i64 [ %1238, %.lr.ph592 ], [ %1042, %.lr.ph592.preheader ]
   %1070 = load ptr, ptr %30, align 8, !tbaa !78
   %1071 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %1070, i64 %.084607
   %1072 = load ptr, ptr %1071, align 8, !tbaa !38
   %.not.i.i381 = icmp eq ptr %1072, null
   br i1 %.not.i.i381, label %1077, label %1073
 
-1073:                                             ; preds = %.lr.ph857
+1073:                                             ; preds = %.lr.ph1052
   %1074 = getelementptr inbounds nuw i8, ptr %1072, i64 8
   %1075 = load i32, ptr %1074, align 8, !tbaa !64
   %1076 = add i32 %1075, 1
   store i32 %1076, ptr %1074, align 8, !tbaa !64
   br label %1077
 
-1077:                                             ; preds = %1073, %.lr.ph857
+1077:                                             ; preds = %1073, %.lr.ph1052
   store ptr %1072, ptr %31, align 8, !tbaa !38
   %1078 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %1070, i64 %.083598
   %1079 = load ptr, ptr %1078, align 8, !tbaa !38
@@ -4369,7 +4369,7 @@ _ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev.exit380: ; pr
 
 1084:                                             ; preds = %1080, %1077
   store ptr %1079, ptr %32, align 8, !tbaa !38
-  %1085 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %1070, i64 %.082590855
+  %1085 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %1070, i64 %.0825901050
   %1086 = load ptr, ptr %1085, align 8, !tbaa !38
   %.not.i.i385 = icmp eq ptr %1086, null
   br i1 %.not.i.i385, label %1091, label %1087
@@ -4478,7 +4478,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit392: ; preds = %_ZN5zxing3RefI
 
 1136:                                             ; preds = %1132, %1129
   store ptr %1131, ptr %35, align 8, !tbaa !38
-  %1137 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %1122, i64 %.082590855
+  %1137 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %1122, i64 %.0825901050
   store ptr null, ptr %36, align 8, !tbaa !38
   %1138 = load ptr, ptr %1137, align 8, !tbaa !38
   %.not.i.i397 = icmp eq ptr %1138, null
@@ -4560,7 +4560,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit402: ; preds = %_ZN5zxing3RefI
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit404
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit404: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit402, %1166, %1171
-  %1175 = add nsw i32 %.2116589856, 1
+  %1175 = add nsw i32 %.21165891051, 1
   br label %1237
 
 1176:                                             ; preds = %1091
@@ -4688,8 +4688,8 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit414: ; preds = %1223, %1218, %
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit410
 
 1237:                                             ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit404, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit392
-  %.3117 = phi i32 [ %1175, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit404 ], [ %.2116589856, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit392 ]
-  %1238 = add nuw i64 %.082590855, 1
+  %.3117 = phi i32 [ %1175, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit404 ], [ %.21165891051, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit392 ]
+  %1238 = add nuw i64 %.0825901050, 1
   %1239 = load ptr, ptr %28, align 8, !tbaa !123
   %1240 = getelementptr inbounds nuw %"struct.zxing::Cluster", ptr %1239, i64 %.0118612, i32 1
   %1241 = getelementptr inbounds nuw i8, ptr %1240, i64 8
@@ -6869,7 +6869,7 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit76: ; preds = %193
   br i1 %.not.i104, label %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit105, label %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit76.thread
 
 _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit76.thread: ; preds = %183, %178, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit74, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit76
-  %.pn25137 = phi { ptr, i32 } [ %230, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit76 ], [ %170, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit74 ], [ %170, %178 ], [ %170, %183 ]
+  %.pn25181 = phi { ptr, i32 } [ %230, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit76 ], [ %170, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit74 ], [ %170, %178 ], [ %170, %183 ]
   %231 = phi ptr [ %.pre132, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit76 ], [ %72, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit74 ], [ %72, %178 ], [ %72, %183 ]
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
   %233 = load i32, ptr %232, align 8, !tbaa !64
@@ -6887,7 +6887,7 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit76.thread: ; preds = %183,
   br label %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit105
 
 _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit105: ; preds = %236, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit76.thread, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit76, %140, %134
-  %.pn25.pn = phi { ptr, i32 } [ %.pn, %140 ], [ %135, %134 ], [ %230, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit76 ], [ %.pn25137, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit76.thread ], [ %.pn25137, %236 ]
+  %.pn25.pn = phi { ptr, i32 } [ %.pn, %140 ], [ %135, %134 ], [ %230, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit76 ], [ %.pn25181, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit76.thread ], [ %.pn25181, %236 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #24
   br label %240
@@ -7412,10 +7412,10 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit99: ; preds = %_ZN5zxing3R
   br i1 %.not.i.i100, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit72, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit72.sink.split
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit72.sink.split: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit99, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit90, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit69
-  %.sink228 = phi ptr [ %168, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit69 ], [ %233, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit90 ], [ %247, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit99 ]
+  %.sink243 = phi ptr [ %168, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit69 ], [ %233, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit90 ], [ %247, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit99 ]
   %.sroa.0145.0.ph = phi ptr [ %162, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit69 ], [ %227, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit90 ], [ %241, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit99 ]
   %.sroa.0155.0.ph = phi ptr [ %156, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit69 ], [ %222, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit90 ], [ %236, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit99 ]
-  %248 = getelementptr inbounds nuw i8, ptr %.sink228, i64 8
+  %248 = getelementptr inbounds nuw i8, ptr %.sink243, i64 8
   %249 = load i32, ptr %248, align 8, !tbaa !64
   %250 = add i32 %249, 1
   store i32 %250, ptr %248, align 8, !tbaa !64
@@ -7423,7 +7423,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit72.sink.split: ; preds = %
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit72: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit72.sink.split, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit99, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit90, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit69
   %.sroa.0145.0 = phi ptr [ %162, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit69 ], [ %227, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit90 ], [ %241, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit99 ], [ %.sroa.0145.0.ph, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit72.sink.split ]
-  %.sroa.0135.0 = phi ptr [ null, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit69 ], [ null, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit90 ], [ null, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit99 ], [ %.sink228, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit72.sink.split ]
+  %.sroa.0135.0 = phi ptr [ null, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit69 ], [ null, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit90 ], [ null, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit99 ], [ %.sink243, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit72.sink.split ]
   %.sroa.0155.0 = phi ptr [ %156, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit69 ], [ %222, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit90 ], [ %236, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit99 ], [ %.sroa.0155.0.ph, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit72.sink.split ]
   %251 = load ptr, ptr %.sroa.0135.0, align 8, !tbaa !46
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 24
@@ -7686,12 +7686,12 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit130: ; preds = %_ZN5zxing3RefI
   br label %_ZN5zxing3RefINS_11ResultPointEED2Ev.exit76.sink.split
 
 _ZN5zxing3RefINS_11ResultPointEED2Ev.exit76.sink.split: ; preds = %183, %198, %213, %390
-  %.sroa.0155.0.sink230 = phi ptr [ %.sroa.0155.0, %390 ], [ %104, %213 ], [ %55, %198 ], [ %5, %183 ]
+  %.sroa.0155.0.sink245 = phi ptr [ %.sroa.0155.0, %390 ], [ %104, %213 ], [ %55, %198 ], [ %5, %183 ]
   %.pn25.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn25217, %390 ], [ %.pn23, %213 ], [ %.pn21, %198 ], [ %.pn, %183 ]
-  %391 = load ptr, ptr %.sroa.0155.0.sink230, align 8, !tbaa !46
+  %391 = load ptr, ptr %.sroa.0155.0.sink245, align 8, !tbaa !46
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 8
   %393 = load ptr, ptr %392, align 8
-  tail call void %393(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0155.0.sink230) #24
+  tail call void %393(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0155.0.sink245) #24
   br label %_ZN5zxing3RefINS_11ResultPointEED2Ev.exit76
 
 _ZN5zxing3RefINS_11ResultPointEED2Ev.exit76:      ; preds = %_ZN5zxing3RefINS_11ResultPointEED2Ev.exit76.sink.split, %385, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit130, %_ZN5zxing3RefINS_11ResultPointEED2Ev.exit82, %_ZN5zxing3RefINS_11ResultPointEED2Ev.exit78, %_ZN5zxing3RefINS_11ResultPointEED2Ev.exit74
@@ -8658,7 +8658,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit213: ; preds = %402, %404,
 
 421:                                              ; preds = %416
   %422 = icmp sgt i32 %420, 1
-  br i1 %422, label %423, label %.preheader621
+  br i1 %422, label %423, label %.preheader745
 
 423:                                              ; preds = %421
   %424 = load ptr, ptr %12, align 8, !tbaa !78
@@ -8669,9 +8669,9 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit213: ; preds = %402, %404,
 
 428:                                              ; preds = %423
   %429 = icmp eq i32 %427, 1
-  br i1 %429, label %430, label %.preheader621
+  br i1 %429, label %430, label %.preheader745
 
-.preheader621:                                    ; preds = %421, %428
+.preheader745:                                    ; preds = %421, %428
   br label %681
 
 430:                                              ; preds = %428
@@ -9229,10 +9229,10 @@ _ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.
   invoke fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEEvT_SH_T0_(ptr %666, ptr %667, float %661)
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEvT_SE_T0_.exit unwind label %.loopexit.split-lp437
 
-681:                                              ; preds = %.preheader621, %686
-  %.0123475 = phi float [ %687, %686 ], [ 0.000000e+00, %.preheader621 ]
-  %.0124474 = phi float [ %688, %686 ], [ 0.000000e+00, %.preheader621 ]
-  %.0125473 = phi i64 [ %689, %686 ], [ 0, %.preheader621 ]
+681:                                              ; preds = %.preheader745, %686
+  %.0123475 = phi float [ %687, %686 ], [ 0.000000e+00, %.preheader745 ]
+  %.0124474 = phi float [ %688, %686 ], [ 0.000000e+00, %.preheader745 ]
+  %.0125473 = phi i64 [ %689, %686 ], [ 0, %.preheader745 ]
   %682 = load ptr, ptr %12, align 8, !tbaa !78
   %683 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %682, i64 %.0125473
   %684 = load ptr, ptr %683, align 8, !tbaa !38
@@ -9263,11 +9263,11 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPattern
   %698 = sub i64 %696, %697
   %699 = icmp ugt i64 %698, 24
   %or.cond = and i1 %.not501, %699
-  br i1 %or.cond, label %.lr.ph596, label %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit
+  br i1 %or.cond, label %.lr.ph720, label %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit
 
 .lr.ph:                                           ; preds = %755
   %700 = icmp ugt i64 %762, 3
-  br i1 %700, label %.lr.ph596, label %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit, !llvm.loop !146
+  br i1 %700, label %.lr.ph720, label %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit, !llvm.loop !146
 
 .critedge:                                        ; preds = %755
   %701 = icmp sgt i64 %761, 128
@@ -9284,15 +9284,15 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPattern
           cleanup
   br label %.loopexit.split-lp
 
-.lr.ph596:                                        ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEvT_SE_T0_.exit, %.lr.ph
-  %.0126476595 = phi i64 [ %758, %.lr.ph ], [ 0, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEvT_SE_T0_.exit ]
+.lr.ph720:                                        ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEvT_SE_T0_.exit, %.lr.ph
+  %.0126476719 = phi i64 [ %758, %.lr.ph ], [ 0, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEvT_SE_T0_.exit ]
   %703 = phi ptr [ %756, %.lr.ph ], [ %695, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEvT_SE_T0_.exit ]
-  %704 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %703, i64 %.0126476595
+  %704 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %703, i64 %.0126476719
   %705 = load ptr, ptr %704, align 8, !tbaa !38
   %706 = invoke noundef float @_ZNK5zxing6qrcode13FinderPattern22getEstimatedModuleSizeEv(ptr noundef nonnull align 8 dereferenceable(40) %705)
           to label %707 unwind label %753
 
-707:                                              ; preds = %.lr.ph596
+707:                                              ; preds = %.lr.ph720
   %708 = fsub float %706, %661
   %709 = tail call noundef float @llvm.fabs.f32(float %708)
   %710 = fcmp ogt float %709, %.sroa.speculated
@@ -9301,7 +9301,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPattern
   br i1 %710, label %711, label %755
 
 711:                                              ; preds = %707
-  %712 = getelementptr inbounds %"class.zxing::Ref.21", ptr %.pre533, i64 %.0126476595
+  %712 = getelementptr inbounds %"class.zxing::Ref.21", ptr %.pre533, i64 %.0126476719
   %713 = getelementptr inbounds nuw i8, ptr %712, i64 8
   %.not.i.i253 = icmp eq ptr %713, %.pre531
   br i1 %.not.i.i253, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i, label %714
@@ -9387,12 +9387,12 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPattern
   br label %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EE.exit
 
 _ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EE.exit: ; preds = %748, %743, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i
-  %752 = add i64 %.0126476595, -1
+  %752 = add i64 %.0126476719, -1
   %.pre = load ptr, ptr %13, align 8, !tbaa !77
   %.pre532 = load ptr, ptr %12, align 8, !tbaa !78
   br label %755
 
-753:                                              ; preds = %.lr.ph596
+753:                                              ; preds = %.lr.ph720
   %754 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -9400,7 +9400,7 @@ _ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE5eraseEN9__gnu_cxx
 755:                                              ; preds = %707, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EE.exit
   %756 = phi ptr [ %.pre532, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EE.exit ], [ %.pre533, %707 ]
   %757 = phi ptr [ %.pre, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EE.exit ], [ %.pre531, %707 ]
-  %.1127 = phi i64 [ %752, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EE.exit ], [ %.0126476595, %707 ]
+  %.1127 = phi i64 [ %752, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EE.exit ], [ %.0126476719, %707 ]
   %758 = add i64 %.1127, 1
   %759 = ptrtoint ptr %757 to i64
   %760 = ptrtoint ptr %756 to i64
@@ -10907,7 +10907,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18crossCh
   %10 = load ptr, ptr %7, align 8, !tbaa !3
   %11 = tail call noundef i32 @_ZNK5zxing9BitMatrix8getWidthEv(ptr noundef nonnull align 8 dereferenceable(346) %10)
   %12 = icmp slt i32 %1, 0
-  br i1 %12, label %159, label %13
+  br i1 %12, label %160, label %13
 
 13:                                               ; preds = %5
   %14 = icmp slt i32 %1, %9
@@ -10915,7 +10915,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18crossCh
   %or.cond.not208 = and i1 %15, %14
   %.not = icmp slt i32 %2, %11
   %or.cond184 = and i1 %or.cond.not208, %.not
-  br i1 %or.cond184, label %16, label %159
+  br i1 %or.cond184, label %16, label %160
 
 16:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -10991,7 +10991,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18crossCh
   %61 = getelementptr i8, ptr %60, i64 %58
   %62 = load i8, ptr %61, align 1, !tbaa !174
   %.not169 = icmp eq i8 %62, 0
-  br i1 %.not169, label %.critedge.split.loop.exit385, label %63
+  br i1 %.not169, label %.critedge.split.loop.exit407, label %63
 
 63:                                               ; preds = %57
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
@@ -11000,12 +11000,12 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18crossCh
   %exitcond302.not = icmp eq i64 %indvars.iv.next295, %wide.trip.count301
   br i1 %exitcond302.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !175
 
-.critedge.split.loop.exit385:                     ; preds = %57
+.critedge.split.loop.exit407:                     ; preds = %57
   %indvars300.le = trunc i64 %indvars.iv294 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %.critedge.split.loop.exit385
-  %.0137229.lcssa = phi i32 [ %indvars300.le, %.critedge.split.loop.exit385 ], [ %54, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %.critedge.split.loop.exit407
+  %.0137229.lcssa = phi i32 [ %indvars300.le, %.critedge.split.loop.exit407 ], [ %54, %.lr.ph ]
   %64 = icmp slt i32 %2, %.0137229.lcssa
   br i1 %64, label %.critedge.thread, label %.preheader213
 
@@ -11058,8 +11058,8 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18crossCh
   br i1 %or.cond188, label %.critedge.thread, label %.preheader212
 
 .preheader212:                                    ; preds = %.critedge3
-  %.not362 = icmp slt i32 %.0134, %80
-  br i1 %.not362, label %.critedge5, label %.lr.ph239
+  %.not384 = icmp slt i32 %.0134, %80
+  br i1 %.not384, label %.critedge5, label %.lr.ph239
 
 .lr.ph239:                                        ; preds = %.preheader212, %91
   %indvars.iv317 = phi i64 [ %indvars.iv.next318, %91 ], [ %indvars.iv305, %.preheader212 ]
@@ -11096,48 +11096,48 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18crossCh
 .lr.ph252.preheader:                              ; preds = %.critedge5
   %94 = sext i32 %55 to i64
   %95 = sext i32 %11 to i64
-  %96 = sub i32 %9, %.0134
+  %96 = sub nsw i32 %9, %.0134
   %wide.trip.count333 = zext i32 %96 to i64
   %97 = xor i32 %.0134, -1
   %98 = add i32 %9, %97
   %99 = add nuw nsw i64 %53, 1
   %100 = icmp slt i64 %99, %95
-  br i1 %100, label %.lr.ph417, label %.critedge7
+  br i1 %100, label %.lr.ph439, label %.critedge7
 
 .lr.ph252:                                        ; preds = %111
   %101 = add nuw nsw i32 %106, 1
-  %indvars.iv.next327 = add nsw i64 %indvars.iv326416, 1
-  %indvars.iv.next342 = add i32 %indvars.iv341414, -1
+  %indvars.iv.next327 = add nsw i64 %indvars.iv326438, 1
+  %indvars.iv.next342 = add i32 %indvars.iv341436, -1
   %102 = add nuw nsw i64 %indvars.iv.next329, %53
   %103 = icmp slt i64 %102, %95
-  br i1 %103, label %.lr.ph417, label %.critedge7, !llvm.loop !178
+  br i1 %103, label %.lr.ph439, label %.critedge7, !llvm.loop !178
 
-.lr.ph417:                                        ; preds = %.lr.ph252.preheader, %.lr.ph252
+.lr.ph439:                                        ; preds = %.lr.ph252.preheader, %.lr.ph252
   %104 = phi i64 [ %102, %.lr.ph252 ], [ %99, %.lr.ph252.preheader ]
   %105 = phi i32 [ %101, %.lr.ph252 ], [ %56, %.lr.ph252.preheader ]
   %106 = phi i32 [ %101, %.lr.ph252 ], [ %.0137229.lcssa, %.lr.ph252.preheader ]
-  %indvars.iv326416 = phi i64 [ %indvars.iv.next327, %.lr.ph252 ], [ %94, %.lr.ph252.preheader ]
-  %indvars.iv328415 = phi i64 [ %indvars.iv.next329, %.lr.ph252 ], [ 1, %.lr.ph252.preheader ]
-  %indvars.iv341414 = phi i32 [ %indvars.iv.next342, %.lr.ph252 ], [ %98, %.lr.ph252.preheader ]
-  %107 = mul nsw i64 %indvars.iv326416, %52
+  %indvars.iv326438 = phi i64 [ %indvars.iv.next327, %.lr.ph252 ], [ %94, %.lr.ph252.preheader ]
+  %indvars.iv328437 = phi i64 [ %indvars.iv.next329, %.lr.ph252 ], [ 1, %.lr.ph252.preheader ]
+  %indvars.iv341436 = phi i32 [ %indvars.iv.next342, %.lr.ph252 ], [ %98, %.lr.ph252.preheader ]
+  %107 = mul nsw i64 %indvars.iv326438, %52
   %108 = getelementptr i8, ptr %30, i64 %107
   %109 = getelementptr i8, ptr %108, i64 %104
   %110 = load i8, ptr %109, align 1, !tbaa !174
   %.not175 = icmp eq i8 %110, 0
   br i1 %.not175, label %.critedge7, label %111
 
-111:                                              ; preds = %.lr.ph417
-  %indvars.iv.next329 = add nuw nsw i64 %indvars.iv328415, 1
+111:                                              ; preds = %.lr.ph439
+  %indvars.iv.next329 = add nuw nsw i64 %indvars.iv328437, 1
   %exitcond334.not = icmp eq i64 %indvars.iv.next329, %wide.trip.count333
   br i1 %exitcond334.not, label %.critedge.thread, label %.lr.ph252, !llvm.loop !178
 
-.critedge7:                                       ; preds = %.lr.ph417, %.lr.ph252, %.lr.ph252.preheader
-  %indvars.iv341.lcssa = phi i32 [ %98, %.lr.ph252.preheader ], [ %indvars.iv341414, %.lr.ph417 ], [ %indvars.iv.next342, %.lr.ph252 ]
-  %indvars.iv328.lcssa = phi i64 [ 1, %.lr.ph252.preheader ], [ %indvars.iv328415, %.lr.ph417 ], [ %indvars.iv.next329, %.lr.ph252 ]
-  %indvars.iv326.lcssa = phi i64 [ %94, %.lr.ph252.preheader ], [ %indvars.iv326416, %.lr.ph417 ], [ %indvars.iv.next327, %.lr.ph252 ]
-  %.lcssa399 = phi i32 [ %56, %.lr.ph252.preheader ], [ %105, %.lr.ph417 ], [ %101, %.lr.ph252 ]
+.critedge7:                                       ; preds = %.lr.ph439, %.lr.ph252, %.lr.ph252.preheader
+  %indvars.iv341.lcssa = phi i32 [ %98, %.lr.ph252.preheader ], [ %indvars.iv341436, %.lr.ph439 ], [ %indvars.iv.next342, %.lr.ph252 ]
+  %indvars.iv328.lcssa = phi i64 [ 1, %.lr.ph252.preheader ], [ %indvars.iv328437, %.lr.ph439 ], [ %indvars.iv.next329, %.lr.ph252 ]
+  %indvars.iv326.lcssa = phi i64 [ %94, %.lr.ph252.preheader ], [ %indvars.iv326438, %.lr.ph439 ], [ %indvars.iv.next327, %.lr.ph252 ]
+  %.lcssa421 = phi i32 [ %56, %.lr.ph252.preheader ], [ %105, %.lr.ph439 ], [ %101, %.lr.ph252 ]
   %112 = trunc nuw nsw i64 %indvars.iv328.lcssa to i32
-  store i32 %.lcssa399, ptr %18, align 8
+  store i32 %.lcssa421, ptr %18, align 8
   %113 = add nuw nsw i32 %2, %112
   %.not177 = icmp slt i32 %113, %11
   %114 = add nuw nsw i32 %.0134, %112
@@ -11187,8 +11187,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18crossCh
   br i1 %130, label %.lr.ph263.preheader, label %.critedge11
 
 .lr.ph263.preheader:                              ; preds = %.preheader
-  %131 = sext i32 %9 to i64
-  %invariant.op = sub nsw i64 %131, %51
+  %131 = zext nneg i32 %9 to i64
   br label %.lr.ph263
 
 .lr.ph263:                                        ; preds = %.lr.ph263.preheader, %141
@@ -11212,45 +11211,46 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18crossCh
 141:                                              ; preds = %135
   %142 = add nuw nsw i32 %132, 1
   %indvars.iv.next353 = add nuw nsw i64 %indvars.iv352, 1
-  %143 = icmp slt i64 %indvars.iv.next353, %invariant.op
+  %143 = add nuw nsw i64 %indvars.iv.next353, %51
+  %144 = icmp samesign ult i64 %143, %131
   %indvars.iv.next350 = add nsw i64 %indvars.iv349, 1
-  br i1 %143, label %.lr.ph263, label %.critedge11, !llvm.loop !180
+  br i1 %144, label %.lr.ph263, label %.critedge11, !llvm.loop !180
 
 .critedge11:                                      ; preds = %141, %.lr.ph263, %135, %.preheader
   %.lcssa261 = phi i32 [ 0, %.preheader ], [ %132, %135 ], [ %132, %.lr.ph263 ], [ %indvars.iv356, %141 ]
   store i32 %.lcssa261, ptr %20, align 16
   %.not183 = icmp slt i32 %.lcssa261, %3
-  %144 = call noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %6)
-  br i1 %144, label %145, label %.critedge.thread
+  %145 = call noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %6)
+  br i1 %145, label %146, label %.critedge.thread
 
-145:                                              ; preds = %.critedge11
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %147 = load i32, ptr %146, align 4, !tbaa !23
-  %148 = icmp ne i32 %147, 1
-  %149 = select i1 %.not183, i1 true, i1 %.not174.not
-  %or.cond13.not = or i1 %149, %148
-  br i1 %or.cond13.not, label %150, label %.critedge.thread
+146:                                              ; preds = %.critedge11
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %148 = load i32, ptr %147, align 4, !tbaa !23
+  %149 = icmp ne i32 %148, 1
+  %150 = select i1 %.not183, i1 true, i1 %.not174.not
+  %or.cond13.not = or i1 %150, %149
+  br i1 %or.cond13.not, label %151, label %.critedge.thread
 
-150:                                              ; preds = %145
-  %151 = icmp eq i32 %147, 2
-  %152 = select i1 %.not183, i1 %.not174.not, i1 false
-  %or.cond15 = and i1 %152, %151
-  br i1 %or.cond15, label %.critedge.thread, label %153
+151:                                              ; preds = %146
+  %152 = icmp eq i32 %148, 2
+  %153 = select i1 %.not183, i1 %.not174.not, i1 false
+  %or.cond15 = and i1 %153, %152
+  br i1 %or.cond15, label %.critedge.thread, label %154
 
-153:                                              ; preds = %150
-  %154 = call noundef i32 @_ZN5zxing6qrcode19FinderPatternFinder18getStateCountTotalEPiRKNS1_15CrossCheckStateE(ptr nonnull align 8 poison, ptr noundef nonnull %6, ptr noundef nonnull align 4 dereferenceable(4) %146)
-  %155 = sub nsw i32 %154, %4
-  %156 = tail call i32 @llvm.abs.i32(i32 %155, i1 true)
-  %157 = shl nsw i32 %4, 1
-  %158 = icmp slt i32 %156, %157
+154:                                              ; preds = %151
+  %155 = call noundef i32 @_ZN5zxing6qrcode19FinderPatternFinder18getStateCountTotalEPiRKNS1_15CrossCheckStateE(ptr nonnull align 8 poison, ptr noundef nonnull %6, ptr noundef nonnull align 4 dereferenceable(4) %147)
+  %156 = sub nsw i32 %155, %4
+  %157 = tail call i32 @llvm.abs.i32(i32 %156, i1 true)
+  %158 = shl nsw i32 %4, 1
+  %159 = icmp slt i32 %157, %158
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %63, %78, %111, %125, %.preheader213, %.critedge5, %.critedge, %.critedge3, %153, %.critedge11, %145, %150, %.critedge9, %.critedge7, %42, %44
-  %.1 = phi i1 [ false, %44 ], [ false, %42 ], [ false, %.critedge ], [ false, %.critedge3 ], [ false, %.critedge7 ], [ false, %.critedge9 ], [ %158, %153 ], [ false, %.critedge11 ], [ false, %145 ], [ false, %150 ], [ false, %.critedge5 ], [ false, %.preheader213 ], [ false, %125 ], [ false, %111 ], [ false, %78 ], [ false, %63 ]
+.critedge.thread:                                 ; preds = %63, %78, %111, %125, %.preheader213, %.critedge5, %.critedge, %.critedge3, %154, %.critedge11, %146, %151, %.critedge9, %.critedge7, %42, %44
+  %.1 = phi i1 [ false, %44 ], [ false, %42 ], [ false, %.critedge ], [ false, %.critedge3 ], [ false, %.critedge7 ], [ false, %.critedge9 ], [ %159, %154 ], [ false, %.critedge11 ], [ false, %146 ], [ false, %151 ], [ false, %.critedge5 ], [ false, %.preheader213 ], [ false, %125 ], [ false, %111 ], [ false, %78 ], [ false, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %159
+  br label %160
 
-159:                                              ; preds = %5, %13, %.critedge.thread
+160:                                              ; preds = %5, %13, %.critedge.thread
   %.0 = phi i1 [ %.1, %.critedge.thread ], [ false, %13 ], [ false, %5 ]
   ret i1 %.0
 }
@@ -11570,13 +11570,13 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder18crossCheckVe
   br i1 %exitcond255.not, label %.critedge12.sink.split, label %126, !llvm.loop !189
 
 .critedge12.sink.split:                           ; preds = %126, %130
-  %.lcssa265.sink = phi i32 [ %113, %130 ], [ %127, %126 ]
+  %.lcssa278.sink = phi i32 [ %113, %130 ], [ %127, %126 ]
   %.7.lcssa.ph = phi i32 [ %11, %130 ], [ %.7199, %126 ]
-  store i32 %.lcssa265.sink, ptr %112, align 16
+  store i32 %.lcssa278.sink, ptr %112, align 16
   br label %.critedge12
 
 .critedge12:                                      ; preds = %.critedge12.sink.split, %.preheader145
-  %134 = phi i32 [ 0, %.preheader145 ], [ %.lcssa265.sink, %.critedge12.sink.split ]
+  %134 = phi i32 [ 0, %.preheader145 ], [ %.lcssa278.sink, %.critedge12.sink.split ]
   %.7.lcssa = phi i32 [ %.4113.lcssa, %.preheader145 ], [ %.7.lcssa.ph, %.critedge12.sink.split ]
   %.not132 = icmp slt i32 %134, %3
   %spec.select140 = select i1 %.not132, i32 %spec.select, i32 2
@@ -11693,8 +11693,8 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder18crossCheckVe
   %or.cond = and i1 %193, %173
   %194 = icmp eq i32 %.1108, 1
   %or.cond15 = and i1 %194, %174
-  %or.cond285 = or i1 %or.cond, %or.cond15
-  br i1 %or.cond285, label %.critedge2.thread, label %195
+  %or.cond298 = or i1 %or.cond, %or.cond15
+  br i1 %or.cond298, label %.critedge2.thread, label %195
 
 195:                                              ; preds = %192
   %196 = call noundef i32 @_ZN5zxing6qrcode19FinderPatternFinder18getStateCountTotalEPiRKNS1_15CrossCheckStateE(ptr nonnull align 8 poison, ptr noundef nonnull %8, ptr noundef nonnull align 4 dereferenceable(4) %148)
@@ -12008,13 +12008,13 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder20crossCheckHo
   br label %.critedge12.sink.split
 
 .critedge12.sink.split:                           ; preds = %121, %..critedge12_crit_edge175
-  %.lcssa285.sink = phi i32 [ %117, %..critedge12_crit_edge175 ], [ %104, %121 ]
+  %.lcssa294.sink = phi i32 [ %117, %..critedge12_crit_edge175 ], [ %104, %121 ]
   %.7.lcssa.ph = phi i32 [ %123, %..critedge12_crit_edge175 ], [ %11, %121 ]
-  store i32 %.lcssa285.sink, ptr %102, align 16
+  store i32 %.lcssa294.sink, ptr %102, align 16
   br label %.critedge12
 
 .critedge12:                                      ; preds = %.critedge12.sink.split, %.preheader130
-  %124 = phi i32 [ 0, %.preheader130 ], [ %.lcssa285.sink, %.critedge12.sink.split ]
+  %124 = phi i32 [ 0, %.preheader130 ], [ %.lcssa294.sink, %.critedge12.sink.split ]
   %.7.lcssa = phi i32 [ %.4104.lcssa, %.preheader130 ], [ %.7.lcssa.ph, %.critedge12.sink.split ]
   %.not116 = icmp slt i32 %124, %3
   %spec.select125 = select i1 %.not116, i32 %spec.select, i32 2
@@ -12054,13 +12054,13 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder20crossCheckHo
   br label %.critedge14.sink.split
 
 .critedge14.sink.split:                           ; preds = %136, %..critedge14_crit_edge195
-  %.lcssa282.sink = phi i32 [ %132, %..critedge14_crit_edge195 ], [ %130, %136 ]
+  %.lcssa291.sink = phi i32 [ %132, %..critedge14_crit_edge195 ], [ %130, %136 ]
   %.8.lcssa.ph = phi i32 [ %138, %..critedge14_crit_edge195 ], [ %11, %136 ]
-  store i32 %.lcssa282.sink, ptr %127, align 16
+  store i32 %.lcssa291.sink, ptr %127, align 16
   br label %.critedge14
 
 .critedge14:                                      ; preds = %.critedge14.sink.split, %125
-  %139 = phi i32 [ %.promoted197, %125 ], [ %.lcssa282.sink, %.critedge14.sink.split ]
+  %139 = phi i32 [ %.promoted197, %125 ], [ %.lcssa291.sink, %.critedge14.sink.split ]
   %.8.lcssa = phi i32 [ %.6, %125 ], [ %.8.lcssa.ph, %.critedge14.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %140 = load i32, ptr @_ZN5zxing6qrcode19FinderPatternFinder18INTEGER_MATH_SHIFTE, align 4, !tbaa !18
@@ -12169,8 +12169,8 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder20crossCheckHo
   %or.cond = and i1 %196, %176
   %197 = icmp eq i32 %.199, 1
   %or.cond17 = and i1 %197, %177
-  %or.cond307 = or i1 %or.cond, %or.cond17
-  br i1 %or.cond307, label %.critedge2.thread, label %198
+  %or.cond316 = or i1 %or.cond, %or.cond17
+  br i1 %or.cond316, label %.critedge2.thread, label %198
 
 198:                                              ; preds = %195
   %199 = call noundef i32 @_ZN5zxing6qrcode19FinderPatternFinder18getStateCountTotalEPiRKNS1_15CrossCheckStateE(ptr nonnull align 8 poison, ptr noundef nonnull %8, ptr noundef nonnull align 4 dereferenceable(4) %151)
@@ -12713,7 +12713,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIS_IN5zxing6qrcode19FinderPatternFi
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPSt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS4_EEmS6_ET_S8_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS4_EEmS6_ET_S8_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 24
+  %19 = mul nuw nsw i64 %1, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !12
@@ -12804,18 +12804,18 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 .lr.ph:                                           ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = icmp eq i64 %2, 0
-  br i1 %12, label %._crit_edge, label %.lr.ph213
+  br i1 %12, label %._crit_edge, label %.lr.ph267
 
 13:                                               ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEET_SM_SM_T0_.exit"
   %14 = icmp eq i64 %123, 0
-  br i1 %14, label %._crit_edge, label %.lr.ph213, !llvm.loop !211
+  br i1 %14, label %._crit_edge, label %.lr.ph267, !llvm.loop !211
 
 ._crit_edge:                                      ; preds = %13, %.lr.ph
-  %.lcssa205 = phi i64 [ %9, %.lr.ph ], [ %538, %13 ]
-  %.lcssa199 = phi i64 [ %8, %.lr.ph ], [ %537, %13 ]
+  %.lcssa259 = phi i64 [ %9, %.lr.ph ], [ %538, %13 ]
+  %.lcssa253 = phi i64 [ %8, %.lr.ph ], [ %537, %13 ]
   %storemerge72.lcssa = phi ptr [ %1, %.lr.ph ], [ %.sroa.021.1.i.i, %13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %15 = add nsw i64 %.lcssa205, -2
+  %15 = add nsw i64 %.lcssa259, -2
   %16 = lshr i64 %15, 1
   br label %17
 
@@ -12835,7 +12835,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEC2ERKS3_.exit.thread.i.i.i: ; preds = %20, %17
   store ptr %19, ptr %5, align 8, !tbaa !61
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_T0_SN_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa205, ptr noundef %5)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_T0_SN_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa259, ptr noundef %5)
           to label %24 unwind label %42
 
 24:                                               ; preds = %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEC2ERKS3_.exit.thread.i.i.i
@@ -12919,12 +12919,12 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit19.thread.i.i.i: ; preds =
   br label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %436, %486, %56, %120
-  %.sink90.i.i.sink165 = phi ptr [ %62, %120 ], [ %19, %56 ], [ %440, %486 ], [ %390, %436 ]
+  %.sink97.i.i.sink219 = phi ptr [ %62, %120 ], [ %19, %56 ], [ %440, %486 ], [ %390, %436 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %107, %120 ], [ %43, %56 ], [ %.pn8.i13.i.i, %486 ], [ %.pn8.i.i.i, %436 ]
-  %57 = load ptr, ptr %.sink90.i.i.sink165, align 8, !tbaa !46
+  %57 = load ptr, ptr %.sink97.i.i.sink219, align 8, !tbaa !46
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
-  tail call void %59(ptr noundef nonnull align 8 dereferenceable(12) %.sink90.i.i.sink165) #24
+  tail call void %59(ptr noundef nonnull align 8 dereferenceable(12) %.sink97.i.i.sink219) #24
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit10.thread.i.i.i, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit10.thread.i12.i.i, %106, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit11.thread.i, %42, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit19.thread.i.i.i
@@ -12933,7 +12933,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 "_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_RT0_.exit.i.i": ; preds = %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit17.i.i.i, %38, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %60 = icmp sgt i64 %.lcssa199, 8
+  %60 = icmp sgt i64 %.lcssa253, 8
   br i1 %60, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_T0_.exit"
 
 .lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_RT0_.exit"
@@ -13075,18 +13075,18 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit11.thread.i: ; preds = %11
   %121 = icmp sgt i64 %.in.i, 8
   br i1 %121, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_T0_.exit", !llvm.loop !213
 
-.lr.ph213:                                        ; preds = %.lr.ph, %13
-  %storemerge72212 = phi ptr [ %.sroa.021.1.i.i, %13 ], [ %1, %.lr.ph ]
-  %.073211 = phi i64 [ %123, %13 ], [ %2, %.lr.ph ]
+.lr.ph267:                                        ; preds = %.lr.ph, %13
+  %storemerge72266 = phi ptr [ %.sroa.021.1.i.i, %13 ], [ %1, %.lr.ph ]
+  %.073265 = phi i64 [ %123, %13 ], [ %2, %.lr.ph ]
   %122 = phi i64 [ %538, %13 ], [ %9, %.lr.ph ]
-  %123 = add nsw i64 %.073211, -1
+  %123 = add nsw i64 %.073265, -1
   %124 = lshr i64 %122, 1
   %125 = getelementptr inbounds nuw %"class.zxing::Ref.35", ptr %0, i64 %124
-  %126 = getelementptr inbounds i8, ptr %storemerge72212, i64 -8
+  %126 = getelementptr inbounds i8, ptr %storemerge72266, i64 -8
   %127 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_"(ptr nonnull %11, ptr %125)
   br i1 %127, label %128, label %257
 
-128:                                              ; preds = %.lr.ph213
+128:                                              ; preds = %.lr.ph267
   %129 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_"(ptr %125, ptr nonnull %126)
   br i1 %129, label %130, label %172
 
@@ -13364,7 +13364,7 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEC2ERKS3_.exit.i.i33.i.i: ; preds = 
   store i32 -559026175, ptr %252, align 8, !tbaa !64
   br label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i
 
-257:                                              ; preds = %.lr.ph213
+257:                                              ; preds = %.lr.ph267
   %258 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5zxing6qrcode19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EclINS_17__normal_iteratorIPNS2_3RefINS3_17FinderPatternInfoEEESt6vectorISG_SaISG_EEEESL_EEbT_T0_"(ptr nonnull %11, ptr nonnull %126)
   br i1 %258, label %259, label %301
 
@@ -13643,11 +13643,11 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEC2ERKS3_.exit.i.i51.i.i: ; preds = 
   br label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i: ; preds = %385, %344, %300, %256, %215, %171
-  %.sink59.i.i = phi ptr [ %303, %385 ], [ %303, %344 ], [ %260, %300 ], [ %174, %256 ], [ %174, %215 ], [ %131, %171 ]
-  %386 = load ptr, ptr %.sink59.i.i, align 8, !tbaa !46
+  %.sink92.i.i = phi ptr [ %303, %385 ], [ %303, %344 ], [ %260, %300 ], [ %174, %256 ], [ %174, %215 ], [ %131, %171 ]
+  %386 = load ptr, ptr %.sink92.i.i, align 8, !tbaa !46
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 8
   %388 = load ptr, ptr %387, align 8
-  tail call void %388(ptr noundef nonnull align 8 dereferenceable(12) %.sink59.i.i) #24
+  tail call void %388(ptr noundef nonnull align 8 dereferenceable(12) %.sink92.i.i) #24
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_SM_T0_.exit.i.preheader"
 
 "_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_SM_T0_.exit.i.preheader": ; preds = %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, %380, %379, %339, %338, %295, %294, %251, %250, %210, %209, %166, %165
@@ -13655,7 +13655,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPa
 
 "_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_SM_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_SM_T0_.exit.i.preheader", %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i
   %.sroa.021.0.i.i = phi ptr [ %535, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ], [ %11, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_SM_T0_.exit.i.preheader" ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ], [ %storemerge72212, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_SM_T0_.exit.i.preheader" ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ], [ %storemerge72266, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_SM_T0_.exit.i.preheader" ]
   br label %389
 
 389:                                              ; preds = %438, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_SM_T0_.exit.i"
@@ -13984,7 +13984,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPa
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_SM_SM_T0_.exit.i", !llvm.loop !216
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEET_SM_SM_T0_.exit": ; preds = %488
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_T0_T1_"(ptr nonnull %.sroa.021.1.i.i, ptr %storemerge72212, i64 noundef %123)
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_T0_T1_"(ptr nonnull %.sroa.021.1.i.i, ptr %storemerge72266, i64 noundef %123)
   %536 = ptrtoint ptr %.sroa.021.1.i.i to i64
   %537 = sub i64 %536, %6
   %538 = ashr exact i64 %537, 3
@@ -15155,18 +15155,18 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 .lr.ph:                                           ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = icmp eq i64 %2, 0
-  br i1 %12, label %._crit_edge, label %.lr.ph213
+  br i1 %12, label %._crit_edge, label %.lr.ph267
 
 13:                                               ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEET_SH_SH_T0_.exit
   %14 = icmp eq i64 %122, 0
-  br i1 %14, label %._crit_edge, label %.lr.ph213, !llvm.loop !224
+  br i1 %14, label %._crit_edge, label %.lr.ph267, !llvm.loop !224
 
 ._crit_edge:                                      ; preds = %13, %.lr.ph
-  %.lcssa205 = phi i64 [ %9, %.lr.ph ], [ %523, %13 ]
-  %.lcssa199 = phi i64 [ %8, %.lr.ph ], [ %522, %13 ]
+  %.lcssa259 = phi i64 [ %9, %.lr.ph ], [ %523, %13 ]
+  %.lcssa253 = phi i64 [ %8, %.lr.ph ], [ %522, %13 ]
   %storemerge72.lcssa = phi ptr [ %1, %.lr.ph ], [ %.sroa.021.1.i.i, %13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %15 = add nsw i64 %.lcssa205, -2
+  %15 = add nsw i64 %.lcssa259, -2
   %16 = lshr i64 %15, 1
   br label %17
 
@@ -15186,7 +15186,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i: ; preds = %20, %17
   store ptr %19, ptr %5, align 8, !tbaa !38
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa205, ptr noundef %5)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa259, ptr noundef %5)
           to label %24 unwind label %42
 
 24:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i
@@ -15270,12 +15270,12 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.thread.i.i.i: ; preds = %49
   br label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %423, %473, %56, %119
-  %.sink90.i.i.sink165 = phi ptr [ %62, %119 ], [ %19, %56 ], [ %427, %473 ], [ %377, %423 ]
+  %.sink97.i.i.sink219 = phi ptr [ %62, %119 ], [ %19, %56 ], [ %427, %473 ], [ %377, %423 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %106, %119 ], [ %43, %56 ], [ %.pn8.i13.i.i, %473 ], [ %.pn8.i.i.i, %423 ]
-  %57 = load ptr, ptr %.sink90.i.i.sink165, align 8, !tbaa !46
+  %57 = load ptr, ptr %.sink97.i.i.sink219, align 8, !tbaa !46
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
-  tail call void %59(ptr noundef nonnull align 8 dereferenceable(12) %.sink90.i.i.sink165) #24
+  tail call void %59(ptr noundef nonnull align 8 dereferenceable(12) %.sink97.i.i.sink219) #24
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit10.thread.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit10.thread.i12.i.i, %105, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit11.thread.i, %42, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.thread.i.i.i
@@ -15284,7 +15284,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_RT0_.exit.i.i: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit17.i.i.i, %38, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %60 = icmp sgt i64 %.lcssa199, 8
+  %60 = icmp sgt i64 %.lcssa253, 8
   br i1 %60, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_T0_.exit
 
 .lr.ph.i9.i:                                      ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_RT0_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_RT0_.exit
@@ -15426,18 +15426,18 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13Finder
   %120 = icmp sgt i64 %.in.i, 8
   br i1 %120, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_T0_.exit, !llvm.loop !226
 
-.lr.ph213:                                        ; preds = %.lr.ph, %13
-  %storemerge72212 = phi ptr [ %.sroa.021.1.i.i, %13 ], [ %1, %.lr.ph ]
-  %.073211 = phi i64 [ %122, %13 ], [ %2, %.lr.ph ]
+.lr.ph267:                                        ; preds = %.lr.ph, %13
+  %storemerge72266 = phi ptr [ %.sroa.021.1.i.i, %13 ], [ %1, %.lr.ph ]
+  %.073265 = phi i64 [ %122, %13 ], [ %2, %.lr.ph ]
   %121 = phi i64 [ %523, %13 ], [ %9, %.lr.ph ]
-  %122 = add nsw i64 %.073211, -1
+  %122 = add nsw i64 %.073265, -1
   %123 = lshr i64 %121, 1
   %124 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %0, i64 %123
-  %125 = getelementptr inbounds i8, ptr %storemerge72212, i64 -8
+  %125 = getelementptr inbounds i8, ptr %storemerge72266, i64 -8
   %126 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr %124)
   br i1 %126, label %127, label %250
 
-127:                                              ; preds = %.lr.ph213
+127:                                              ; preds = %.lr.ph267
   %128 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %124, ptr nonnull %125)
   br i1 %128, label %129, label %169
 
@@ -15715,7 +15715,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i38.i.i: ; preds = %24
   store i32 -559026175, ptr %245, align 8, !tbaa !64
   br label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i
 
-250:                                              ; preds = %.lr.ph213
+250:                                              ; preds = %.lr.ph267
   %251 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_120ModuleSizeComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr nonnull %125)
   br i1 %251, label %252, label %292
 
@@ -15994,11 +15994,11 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i62.i.i: ; preds = %36
   br label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i: ; preds = %372, %333, %291, %249, %210, %168
-  %.sink69.i.i = phi ptr [ %294, %372 ], [ %294, %333 ], [ %253, %291 ], [ %171, %249 ], [ %171, %210 ], [ %130, %168 ]
-  %373 = load ptr, ptr %.sink69.i.i, align 8, !tbaa !46
+  %.sink102.i.i = phi ptr [ %294, %372 ], [ %294, %333 ], [ %253, %291 ], [ %171, %249 ], [ %171, %210 ], [ %130, %168 ]
+  %373 = load ptr, ptr %.sink102.i.i, align 8, !tbaa !46
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 8
   %375 = load ptr, ptr %374, align 8
-  tail call void %375(ptr noundef nonnull align 8 dereferenceable(12) %.sink69.i.i) #24
+  tail call void %375(ptr noundef nonnull align 8 dereferenceable(12) %.sink102.i.i) #24
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader: ; preds = %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, %367, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i62.i.i, %328, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i54.i.i, %286, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i46.i.i, %244, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i38.i.i, %205, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i30.i.i, %163, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i.i.i
@@ -16006,7 +16006,7 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qr
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_SH_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i
   %.sroa.021.0.i.i = phi ptr [ %520, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ], [ %11, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ], [ %storemerge72212, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ], [ %storemerge72266, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
   br label %376
 
 376:                                              ; preds = %425, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_SH_T0_.exit.i
@@ -16335,7 +16335,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPa
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_SH_SH_T0_.exit.i, !llvm.loop !229
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEET_SH_SH_T0_.exit: ; preds = %475
-  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_T0_T1_(ptr nonnull %.sroa.021.1.i.i, ptr %storemerge72212, i64 noundef %122)
+  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_120ModuleSizeComparatorEEEEvT_SH_T0_T1_(ptr nonnull %.sroa.021.1.i.i, ptr %storemerge72266, i64 noundef %122)
   %521 = ptrtoint ptr %.sroa.021.1.i.i to i64
   %522 = sub i64 %521, %6
   %523 = ashr exact i64 %522, 3
@@ -17512,18 +17512,18 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 .lr.ph:                                           ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = icmp eq i64 %2, 0
-  br i1 %12, label %._crit_edge, label %.lr.ph215
+  br i1 %12, label %._crit_edge, label %.lr.ph269
 
 13:                                               ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEET_SH_SH_T0_.exit
   %14 = icmp eq i64 %122, 0
-  br i1 %14, label %._crit_edge, label %.lr.ph215, !llvm.loop !247
+  br i1 %14, label %._crit_edge, label %.lr.ph269, !llvm.loop !247
 
 ._crit_edge:                                      ; preds = %13, %.lr.ph
-  %.lcssa207 = phi i64 [ %9, %.lr.ph ], [ %557, %13 ]
-  %.lcssa201 = phi i64 [ %8, %.lr.ph ], [ %556, %13 ]
+  %.lcssa261 = phi i64 [ %9, %.lr.ph ], [ %557, %13 ]
+  %.lcssa255 = phi i64 [ %8, %.lr.ph ], [ %556, %13 ]
   %storemerge74.lcssa = phi ptr [ %1, %.lr.ph ], [ %.sroa.040.1.i.i, %13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %15 = add nsw i64 %.lcssa207, -2
+  %15 = add nsw i64 %.lcssa261, -2
   %16 = lshr i64 %15, 1
   br label %17
 
@@ -17543,7 +17543,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i: ; preds = %20, %17
   store ptr %19, ptr %5, align 8, !tbaa !38
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa207, ptr noundef %5)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa261, ptr noundef %5)
           to label %24 unwind label %42
 
 24:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i
@@ -17627,12 +17627,12 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.thread.i.i.i: ; preds = %49
   br label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %441, %508, %56, %119
-  %.sink132.i.i.sink167 = phi ptr [ %62, %119 ], [ %19, %56 ], [ %444, %508 ], [ %377, %441 ]
+  %.sink139.i.i.sink221 = phi ptr [ %62, %119 ], [ %19, %56 ], [ %444, %508 ], [ %377, %441 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %106, %119 ], [ %43, %56 ], [ %lpad.phi65.i.i, %508 ], [ %lpad.phi57.i.i, %441 ]
-  %57 = load ptr, ptr %.sink132.i.i.sink167, align 8, !tbaa !46
+  %57 = load ptr, ptr %.sink139.i.i.sink221, align 8, !tbaa !46
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
-  tail call void %59(ptr noundef nonnull align 8 dereferenceable(12) %.sink132.i.i.sink167) #24
+  tail call void %59(ptr noundef nonnull align 8 dereferenceable(12) %.sink139.i.i.sink221) #24
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit9.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit9.i11.i.i, %105, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit11.thread.i, %42, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.thread.i.i.i
@@ -17641,7 +17641,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_RT0_.exit.i.i: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit17.i.i.i, %38, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %60 = icmp sgt i64 %.lcssa201, 8
+  %60 = icmp sgt i64 %.lcssa255, 8
   br i1 %60, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_T0_.exit
 
 .lr.ph.i9.i:                                      ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_RT0_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_RT0_.exit
@@ -17783,18 +17783,18 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13Finder
   %120 = icmp sgt i64 %.in.i, 8
   br i1 %120, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_T0_.exit, !llvm.loop !249
 
-.lr.ph215:                                        ; preds = %.lr.ph, %13
-  %storemerge74214 = phi ptr [ %.sroa.040.1.i.i, %13 ], [ %1, %.lr.ph ]
-  %.075213 = phi i64 [ %122, %13 ], [ %2, %.lr.ph ]
+.lr.ph269:                                        ; preds = %.lr.ph, %13
+  %storemerge74268 = phi ptr [ %.sroa.040.1.i.i, %13 ], [ %1, %.lr.ph ]
+  %.075267 = phi i64 [ %122, %13 ], [ %2, %.lr.ph ]
   %121 = phi i64 [ %557, %13 ], [ %9, %.lr.ph ]
-  %122 = add nsw i64 %.075213, -1
+  %122 = add nsw i64 %.075267, -1
   %123 = lshr i64 %121, 1
   %124 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %0, i64 %123
-  %125 = getelementptr inbounds i8, ptr %storemerge74214, i64 -8
+  %125 = getelementptr inbounds i8, ptr %storemerge74268, i64 -8
   %126 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr %124)
   br i1 %126, label %127, label %250
 
-127:                                              ; preds = %.lr.ph215
+127:                                              ; preds = %.lr.ph269
   %128 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %124, ptr nonnull %125)
   br i1 %128, label %129, label %169
 
@@ -18072,7 +18072,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i38.i.i: ; preds = %24
   store i32 -559026175, ptr %245, align 8, !tbaa !64
   br label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i
 
-250:                                              ; preds = %.lr.ph215
+250:                                              ; preds = %.lr.ph269
   %251 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115BestComparator2EEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr nonnull %125)
   br i1 %251, label %252, label %292
 
@@ -18351,11 +18351,11 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i62.i.i: ; preds = %36
   br label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i: ; preds = %372, %333, %291, %249, %210, %168
-  %.sink69.i.i = phi ptr [ %294, %372 ], [ %294, %333 ], [ %253, %291 ], [ %171, %249 ], [ %171, %210 ], [ %130, %168 ]
-  %373 = load ptr, ptr %.sink69.i.i, align 8, !tbaa !46
+  %.sink102.i.i = phi ptr [ %294, %372 ], [ %294, %333 ], [ %253, %291 ], [ %171, %249 ], [ %171, %210 ], [ %130, %168 ]
+  %373 = load ptr, ptr %.sink102.i.i, align 8, !tbaa !46
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 8
   %375 = load ptr, ptr %374, align 8
-  tail call void %375(ptr noundef nonnull align 8 dereferenceable(12) %.sink69.i.i) #24
+  tail call void %375(ptr noundef nonnull align 8 dereferenceable(12) %.sink102.i.i) #24
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_SH_T0_.exit.i.preheader: ; preds = %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, %367, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i62.i.i, %328, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i54.i.i, %286, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i46.i.i, %244, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i38.i.i, %205, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i30.i.i, %163, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i.i.i
@@ -18363,7 +18363,7 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qr
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_SH_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_SH_T0_.exit.i.preheader, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i
   %.sroa.040.0.i.i = phi ptr [ %554, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ], [ %11, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ], [ %storemerge74214, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ], [ %storemerge74268, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
   br label %376
 
 376:                                              ; preds = %442, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_SH_T0_.exit.i
@@ -18800,7 +18800,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPa
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_SH_SH_T0_.exit.i, !llvm.loop !252
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEET_SH_SH_T0_.exit: ; preds = %509
-  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_T0_T1_(ptr nonnull %.sroa.040.1.i.i, ptr %storemerge74214, i64 noundef %122)
+  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115BestComparator2EEEEvT_SH_T0_T1_(ptr nonnull %.sroa.040.1.i.i, ptr %storemerge74268, i64 noundef %122)
   %555 = ptrtoint ptr %.sroa.040.1.i.i to i64
   %556 = sub i64 %555, %6
   %557 = ashr exact i64 %556, 3
@@ -19754,18 +19754,18 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 .lr.ph:                                           ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = icmp eq i64 %2, 0
-  br i1 %12, label %._crit_edge, label %.lr.ph213
+  br i1 %12, label %._crit_edge, label %.lr.ph267
 
 13:                                               ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEET_SH_SH_T0_.exit
   %14 = icmp eq i64 %122, 0
-  br i1 %14, label %._crit_edge, label %.lr.ph213, !llvm.loop !257
+  br i1 %14, label %._crit_edge, label %.lr.ph267, !llvm.loop !257
 
 ._crit_edge:                                      ; preds = %13, %.lr.ph
-  %.lcssa205 = phi i64 [ %9, %.lr.ph ], [ %523, %13 ]
-  %.lcssa199 = phi i64 [ %8, %.lr.ph ], [ %522, %13 ]
+  %.lcssa259 = phi i64 [ %9, %.lr.ph ], [ %523, %13 ]
+  %.lcssa253 = phi i64 [ %8, %.lr.ph ], [ %522, %13 ]
   %storemerge72.lcssa = phi ptr [ %1, %.lr.ph ], [ %.sroa.021.1.i.i, %13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %15 = add nsw i64 %.lcssa205, -2
+  %15 = add nsw i64 %.lcssa259, -2
   %16 = lshr i64 %15, 1
   br label %17
 
@@ -19785,7 +19785,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i: ; preds = %20, %17
   store ptr %19, ptr %5, align 8, !tbaa !38
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa205, ptr noundef %5)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa259, ptr noundef %5)
           to label %24 unwind label %42
 
 24:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i
@@ -19869,12 +19869,12 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.thread.i.i.i: ; preds = %49
   br label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %423, %473, %56, %119
-  %.sink90.i.i.sink165 = phi ptr [ %62, %119 ], [ %19, %56 ], [ %427, %473 ], [ %377, %423 ]
+  %.sink97.i.i.sink219 = phi ptr [ %62, %119 ], [ %19, %56 ], [ %427, %473 ], [ %377, %423 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %106, %119 ], [ %43, %56 ], [ %.pn8.i13.i.i, %473 ], [ %.pn8.i.i.i, %423 ]
-  %57 = load ptr, ptr %.sink90.i.i.sink165, align 8, !tbaa !46
+  %57 = load ptr, ptr %.sink97.i.i.sink219, align 8, !tbaa !46
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
-  tail call void %59(ptr noundef nonnull align 8 dereferenceable(12) %.sink90.i.i.sink165) #24
+  tail call void %59(ptr noundef nonnull align 8 dereferenceable(12) %.sink97.i.i.sink219) #24
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit10.thread.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit10.thread.i12.i.i, %105, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit11.thread.i, %42, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.thread.i.i.i
@@ -19883,7 +19883,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_RT0_.exit.i.i: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit17.i.i.i, %38, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %60 = icmp sgt i64 %.lcssa199, 8
+  %60 = icmp sgt i64 %.lcssa253, 8
   br i1 %60, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_T0_.exit
 
 .lr.ph.i9.i:                                      ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_RT0_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_RT0_.exit
@@ -20025,18 +20025,18 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13Finder
   %120 = icmp sgt i64 %.in.i, 8
   br i1 %120, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_T0_.exit, !llvm.loop !259
 
-.lr.ph213:                                        ; preds = %.lr.ph, %13
-  %storemerge72212 = phi ptr [ %.sroa.021.1.i.i, %13 ], [ %1, %.lr.ph ]
-  %.073211 = phi i64 [ %122, %13 ], [ %2, %.lr.ph ]
+.lr.ph267:                                        ; preds = %.lr.ph, %13
+  %storemerge72266 = phi ptr [ %.sroa.021.1.i.i, %13 ], [ %1, %.lr.ph ]
+  %.073265 = phi i64 [ %122, %13 ], [ %2, %.lr.ph ]
   %121 = phi i64 [ %523, %13 ], [ %9, %.lr.ph ]
-  %122 = add nsw i64 %.073211, -1
+  %122 = add nsw i64 %.073265, -1
   %123 = lshr i64 %121, 1
   %124 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %0, i64 %123
-  %125 = getelementptr inbounds i8, ptr %storemerge72212, i64 -8
+  %125 = getelementptr inbounds i8, ptr %storemerge72266, i64 -8
   %126 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr %124)
   br i1 %126, label %127, label %250
 
-127:                                              ; preds = %.lr.ph213
+127:                                              ; preds = %.lr.ph267
   %128 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %124, ptr nonnull %125)
   br i1 %128, label %129, label %169
 
@@ -20314,7 +20314,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i38.i.i: ; preds = %24
   store i32 -559026175, ptr %245, align 8, !tbaa !64
   br label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i
 
-250:                                              ; preds = %.lr.ph213
+250:                                              ; preds = %.lr.ph267
   %251 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_115CountComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr nonnull %125)
   br i1 %251, label %252, label %292
 
@@ -20593,11 +20593,11 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i62.i.i: ; preds = %36
   br label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i: ; preds = %372, %333, %291, %249, %210, %168
-  %.sink69.i.i = phi ptr [ %294, %372 ], [ %294, %333 ], [ %253, %291 ], [ %171, %249 ], [ %171, %210 ], [ %130, %168 ]
-  %373 = load ptr, ptr %.sink69.i.i, align 8, !tbaa !46
+  %.sink102.i.i = phi ptr [ %294, %372 ], [ %294, %333 ], [ %253, %291 ], [ %171, %249 ], [ %171, %210 ], [ %130, %168 ]
+  %373 = load ptr, ptr %.sink102.i.i, align 8, !tbaa !46
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 8
   %375 = load ptr, ptr %374, align 8
-  tail call void %375(ptr noundef nonnull align 8 dereferenceable(12) %.sink69.i.i) #24
+  tail call void %375(ptr noundef nonnull align 8 dereferenceable(12) %.sink102.i.i) #24
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader: ; preds = %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, %367, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i62.i.i, %328, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i54.i.i, %286, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i46.i.i, %244, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i38.i.i, %205, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i30.i.i, %163, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i.i.i
@@ -20605,7 +20605,7 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qr
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_SH_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i
   %.sroa.021.0.i.i = phi ptr [ %520, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ], [ %11, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ], [ %storemerge72212, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ], [ %storemerge72266, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
   br label %376
 
 376:                                              ; preds = %425, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_SH_T0_.exit.i
@@ -20934,7 +20934,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPa
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_SH_SH_T0_.exit.i, !llvm.loop !262
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEET_SH_SH_T0_.exit: ; preds = %475
-  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_T0_T1_(ptr nonnull %.sroa.021.1.i.i, ptr %storemerge72212, i64 noundef %122)
+  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_115CountComparatorEEEEvT_SH_T0_T1_(ptr nonnull %.sroa.021.1.i.i, ptr %storemerge72266, i64 noundef %122)
   %521 = ptrtoint ptr %.sroa.021.1.i.i to i64
   %522 = sub i64 %521, %6
   %523 = ashr exact i64 %522, 3
@@ -21815,18 +21815,18 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 .lr.ph:                                           ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %2, 0
-  br i1 %14, label %._crit_edge, label %.lr.ph213
+  br i1 %14, label %._crit_edge, label %.lr.ph267
 
 15:                                               ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEET_SH_SH_T0_.exit
   %16 = icmp eq i64 %124, 0
-  br i1 %16, label %._crit_edge, label %.lr.ph213, !llvm.loop !267
+  br i1 %16, label %._crit_edge, label %.lr.ph267, !llvm.loop !267
 
 ._crit_edge:                                      ; preds = %15, %.lr.ph
-  %.lcssa205 = phi i64 [ %11, %.lr.ph ], [ %534, %15 ]
-  %.lcssa199 = phi i64 [ %10, %.lr.ph ], [ %533, %15 ]
+  %.lcssa259 = phi i64 [ %11, %.lr.ph ], [ %534, %15 ]
+  %.lcssa253 = phi i64 [ %10, %.lr.ph ], [ %533, %15 ]
   %storemerge72.lcssa = phi ptr [ %1, %.lr.ph ], [ %.sroa.025.1.i.i, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %17 = add nsw i64 %.lcssa205, -2
+  %17 = add nsw i64 %.lcssa259, -2
   %18 = lshr i64 %17, 1
   br label %19
 
@@ -21846,7 +21846,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i: ; preds = %22, %19
   store ptr %21, ptr %7, align 8, !tbaa !38
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa205, ptr noundef %7, float %3)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa259, ptr noundef %7, float %3)
           to label %26 unwind label %44
 
 26:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i
@@ -21930,12 +21930,12 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.thread.i.i.i: ; preds = %51
   br label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %426, %480, %58, %121
-  %.sink94.i.i.sink165 = phi ptr [ %64, %121 ], [ %21, %58 ], [ %434, %480 ], [ %380, %426 ]
+  %.sink101.i.i.sink219 = phi ptr [ %64, %121 ], [ %21, %58 ], [ %434, %480 ], [ %380, %426 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %108, %121 ], [ %45, %58 ], [ %.pn20.i13.i.i, %480 ], [ %.pn20.i.i.i, %426 ]
-  %59 = load ptr, ptr %.sink94.i.i.sink165, align 8, !tbaa !46
+  %59 = load ptr, ptr %.sink101.i.i.sink219, align 8, !tbaa !46
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
-  tail call void %61(ptr noundef nonnull align 8 dereferenceable(12) %.sink94.i.i.sink165) #24
+  tail call void %61(ptr noundef nonnull align 8 dereferenceable(12) %.sink101.i.i.sink219) #24
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit10.thread.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit10.thread.i12.i.i, %107, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit11.thread.i, %44, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.thread.i.i.i
@@ -21944,7 +21944,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEEvT_SH_RT0_.exit.i.i: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit17.i.i.i, %40, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %62 = icmp sgt i64 %.lcssa199, 8
+  %62 = icmp sgt i64 %.lcssa253, 8
   br i1 %62, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEEvT_SH_SH_T0_.exit
 
 .lr.ph.i9.i:                                      ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEEvT_SH_RT0_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEEvT_SH_SH_RT0_.exit
@@ -22086,20 +22086,20 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13Finder
   %122 = icmp sgt i64 %.in.i, 8
   br i1 %122, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEEvT_SH_SH_T0_.exit, !llvm.loop !269
 
-.lr.ph213:                                        ; preds = %.lr.ph, %15
-  %storemerge72212 = phi ptr [ %.sroa.025.1.i.i, %15 ], [ %1, %.lr.ph ]
-  %.073211 = phi i64 [ %124, %15 ], [ %2, %.lr.ph ]
+.lr.ph267:                                        ; preds = %.lr.ph, %15
+  %storemerge72266 = phi ptr [ %.sroa.025.1.i.i, %15 ], [ %1, %.lr.ph ]
+  %.073265 = phi i64 [ %124, %15 ], [ %2, %.lr.ph ]
   %123 = phi i64 [ %534, %15 ], [ %11, %.lr.ph ]
-  %124 = add nsw i64 %.073211, -1
+  %124 = add nsw i64 %.073265, -1
   %125 = lshr i64 %123, 1
   %126 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %0, i64 %125
-  %127 = getelementptr inbounds i8, ptr %storemerge72212, i64 -8
+  %127 = getelementptr inbounds i8, ptr %storemerge72266, i64 -8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store float %3, ptr %6, align 4
   %128 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_129FurthestFromAverageComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr noundef nonnull align 4 dereferenceable(4) %6, ptr nonnull %13, ptr %126)
   br i1 %128, label %129, label %252
 
-129:                                              ; preds = %.lr.ph213
+129:                                              ; preds = %.lr.ph267
   %130 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_129FurthestFromAverageComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr noundef nonnull align 4 dereferenceable(4) %6, ptr %126, ptr nonnull %127)
   br i1 %130, label %131, label %171
 
@@ -22377,7 +22377,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i38.i.i: ; preds = %24
   store i32 -559026175, ptr %247, align 8, !tbaa !64
   br label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i
 
-252:                                              ; preds = %.lr.ph213
+252:                                              ; preds = %.lr.ph267
   %253 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_129FurthestFromAverageComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr noundef nonnull align 4 dereferenceable(4) %6, ptr nonnull %13, ptr nonnull %127)
   br i1 %253, label %254, label %294
 
@@ -22656,11 +22656,11 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i62.i.i: ; preds = %36
   br label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i: ; preds = %374, %335, %293, %251, %212, %170
-  %.sink69.i.i = phi ptr [ %296, %374 ], [ %296, %335 ], [ %255, %293 ], [ %173, %251 ], [ %173, %212 ], [ %132, %170 ]
-  %375 = load ptr, ptr %.sink69.i.i, align 8, !tbaa !46
+  %.sink102.i.i = phi ptr [ %296, %374 ], [ %296, %335 ], [ %255, %293 ], [ %173, %251 ], [ %173, %212 ], [ %132, %170 ]
+  %375 = load ptr, ptr %.sink102.i.i, align 8, !tbaa !46
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 8
   %377 = load ptr, ptr %376, align 8
-  tail call void %377(ptr noundef nonnull align 8 dereferenceable(12) %.sink69.i.i) #24
+  tail call void %377(ptr noundef nonnull align 8 dereferenceable(12) %.sink102.i.i) #24
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEEvT_SH_SH_SH_T0_.exit.i
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEEvT_SH_SH_SH_T0_.exit.i: ; preds = %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, %369, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i62.i.i, %330, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i54.i.i, %288, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i46.i.i, %246, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i38.i.i, %207, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i30.i.i, %165, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i.i.i
@@ -22668,7 +22668,7 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qr
   br label %378
 
 378:                                              ; preds = %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEEvT_SH_SH_SH_T0_.exit.i
-  %.sroa.022.0.i.i = phi ptr [ %storemerge72212, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEEvT_SH_SH_SH_T0_.exit.i ], [ %.sroa.022.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ]
+  %.sroa.022.0.i.i = phi ptr [ %storemerge72266, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEEvT_SH_SH_SH_T0_.exit.i ], [ %.sroa.022.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ]
   %.sroa.025.0.i.i = phi ptr [ %13, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEEvT_SH_SH_SH_T0_.exit.i ], [ %531, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ]
   br label %379
 
@@ -23006,7 +23006,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPa
   br label %378, !llvm.loop !272
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEET_SH_SH_T0_.exit: ; preds = %486
-  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEEvT_SH_T0_T1_(ptr nonnull %.sroa.025.1.i.i, ptr %storemerge72212, i64 noundef %124, float %3)
+  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_129FurthestFromAverageComparatorEEEEvT_SH_T0_T1_(ptr nonnull %.sroa.025.1.i.i, ptr %storemerge72266, i64 noundef %124, float %3)
   %532 = ptrtoint ptr %.sroa.025.1.i.i to i64
   %533 = sub i64 %532, %8
   %534 = ashr exact i64 %533, 3
@@ -23904,18 +23904,18 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 .lr.ph:                                           ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = icmp eq i64 %2, 0
-  br i1 %12, label %._crit_edge, label %.lr.ph213
+  br i1 %12, label %._crit_edge, label %.lr.ph267
 
 13:                                               ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEET_SH_SH_T0_.exit
   %14 = icmp eq i64 %122, 0
-  br i1 %14, label %._crit_edge, label %.lr.ph213, !llvm.loop !279
+  br i1 %14, label %._crit_edge, label %.lr.ph267, !llvm.loop !279
 
 ._crit_edge:                                      ; preds = %13, %.lr.ph
-  %.lcssa205 = phi i64 [ %9, %.lr.ph ], [ %535, %13 ]
-  %.lcssa199 = phi i64 [ %8, %.lr.ph ], [ %534, %13 ]
+  %.lcssa259 = phi i64 [ %9, %.lr.ph ], [ %535, %13 ]
+  %.lcssa253 = phi i64 [ %8, %.lr.ph ], [ %534, %13 ]
   %storemerge72.lcssa = phi ptr [ %1, %.lr.ph ], [ %.sroa.021.1.i.i, %13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %15 = add nsw i64 %.lcssa205, -2
+  %15 = add nsw i64 %.lcssa259, -2
   %16 = lshr i64 %15, 1
   br label %17
 
@@ -23935,7 +23935,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i: ; preds = %20, %17
   store ptr %19, ptr %5, align 8, !tbaa !38
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa205, ptr noundef %5)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa259, ptr noundef %5)
           to label %24 unwind label %42
 
 24:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i
@@ -24019,12 +24019,12 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.thread.i.i.i: ; preds = %49
   br label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %429, %485, %56, %119
-  %.sink90.i.i.sink165 = phi ptr [ %62, %119 ], [ %19, %56 ], [ %433, %485 ], [ %377, %429 ]
+  %.sink97.i.i.sink219 = phi ptr [ %62, %119 ], [ %19, %56 ], [ %433, %485 ], [ %377, %429 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %106, %119 ], [ %43, %56 ], [ %.pn.i13.i.i, %485 ], [ %.pn.i.i.i, %429 ]
-  %57 = load ptr, ptr %.sink90.i.i.sink165, align 8, !tbaa !46
+  %57 = load ptr, ptr %.sink97.i.i.sink219, align 8, !tbaa !46
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
-  tail call void %59(ptr noundef nonnull align 8 dereferenceable(12) %.sink90.i.i.sink165) #24
+  tail call void %59(ptr noundef nonnull align 8 dereferenceable(12) %.sink97.i.i.sink219) #24
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit10.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit10.i12.i.i, %105, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit11.thread.i, %42, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.thread.i.i.i
@@ -24033,7 +24033,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_RT0_.exit.i.i: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit17.i.i.i, %38, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %60 = icmp sgt i64 %.lcssa199, 8
+  %60 = icmp sgt i64 %.lcssa253, 8
   br i1 %60, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_T0_.exit
 
 .lr.ph.i9.i:                                      ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_RT0_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_RT0_.exit
@@ -24175,18 +24175,18 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13Finder
   %120 = icmp sgt i64 %.in.i, 8
   br i1 %120, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_T0_.exit, !llvm.loop !281
 
-.lr.ph213:                                        ; preds = %.lr.ph, %13
-  %storemerge72212 = phi ptr [ %.sroa.021.1.i.i, %13 ], [ %1, %.lr.ph ]
-  %.073211 = phi i64 [ %122, %13 ], [ %2, %.lr.ph ]
+.lr.ph267:                                        ; preds = %.lr.ph, %13
+  %storemerge72266 = phi ptr [ %.sroa.021.1.i.i, %13 ], [ %1, %.lr.ph ]
+  %.073265 = phi i64 [ %122, %13 ], [ %2, %.lr.ph ]
   %121 = phi i64 [ %535, %13 ], [ %9, %.lr.ph ]
-  %122 = add nsw i64 %.073211, -1
+  %122 = add nsw i64 %.073265, -1
   %123 = lshr i64 %121, 1
   %124 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %0, i64 %123
-  %125 = getelementptr inbounds i8, ptr %storemerge72212, i64 -8
+  %125 = getelementptr inbounds i8, ptr %storemerge72266, i64 -8
   %126 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr %124)
   br i1 %126, label %127, label %250
 
-127:                                              ; preds = %.lr.ph213
+127:                                              ; preds = %.lr.ph267
   %128 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %124, ptr nonnull %125)
   br i1 %128, label %129, label %169
 
@@ -24464,7 +24464,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i38.i.i: ; preds = %24
   store i32 -559026175, ptr %245, align 8, !tbaa !64
   br label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i
 
-250:                                              ; preds = %.lr.ph213
+250:                                              ; preds = %.lr.ph267
   %251 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111XComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr nonnull %125)
   br i1 %251, label %252, label %292
 
@@ -24743,11 +24743,11 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i62.i.i: ; preds = %36
   br label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i: ; preds = %372, %333, %291, %249, %210, %168
-  %.sink69.i.i = phi ptr [ %294, %372 ], [ %294, %333 ], [ %253, %291 ], [ %171, %249 ], [ %171, %210 ], [ %130, %168 ]
-  %373 = load ptr, ptr %.sink69.i.i, align 8, !tbaa !46
+  %.sink102.i.i = phi ptr [ %294, %372 ], [ %294, %333 ], [ %253, %291 ], [ %171, %249 ], [ %171, %210 ], [ %130, %168 ]
+  %373 = load ptr, ptr %.sink102.i.i, align 8, !tbaa !46
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 8
   %375 = load ptr, ptr %374, align 8
-  tail call void %375(ptr noundef nonnull align 8 dereferenceable(12) %.sink69.i.i) #24
+  tail call void %375(ptr noundef nonnull align 8 dereferenceable(12) %.sink102.i.i) #24
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader: ; preds = %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, %367, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i62.i.i, %328, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i54.i.i, %286, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i46.i.i, %244, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i38.i.i, %205, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i30.i.i, %163, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i.i.i
@@ -24755,7 +24755,7 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qr
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_SH_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i
   %.sroa.021.0.i.i = phi ptr [ %532, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ], [ %11, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ], [ %storemerge72212, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ], [ %storemerge72266, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
   br label %376
 
 376:                                              ; preds = %431, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_SH_T0_.exit.i
@@ -25096,7 +25096,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPa
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_SH_SH_T0_.exit.i, !llvm.loop !284
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEET_SH_SH_T0_.exit: ; preds = %487
-  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_T0_T1_(ptr nonnull %.sroa.021.1.i.i, ptr %storemerge72212, i64 noundef %122)
+  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111XComparatorEEEEvT_SH_T0_T1_(ptr nonnull %.sroa.021.1.i.i, ptr %storemerge72266, i64 noundef %122)
   %533 = ptrtoint ptr %.sroa.021.1.i.i to i64
   %534 = sub i64 %533, %6
   %535 = ashr exact i64 %534, 3
@@ -25994,18 +25994,18 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 .lr.ph:                                           ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = icmp eq i64 %2, 0
-  br i1 %12, label %._crit_edge, label %.lr.ph213
+  br i1 %12, label %._crit_edge, label %.lr.ph267
 
 13:                                               ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEET_SH_SH_T0_.exit
   %14 = icmp eq i64 %122, 0
-  br i1 %14, label %._crit_edge, label %.lr.ph213, !llvm.loop !289
+  br i1 %14, label %._crit_edge, label %.lr.ph267, !llvm.loop !289
 
 ._crit_edge:                                      ; preds = %13, %.lr.ph
-  %.lcssa205 = phi i64 [ %9, %.lr.ph ], [ %535, %13 ]
-  %.lcssa199 = phi i64 [ %8, %.lr.ph ], [ %534, %13 ]
+  %.lcssa259 = phi i64 [ %9, %.lr.ph ], [ %535, %13 ]
+  %.lcssa253 = phi i64 [ %8, %.lr.ph ], [ %534, %13 ]
   %storemerge72.lcssa = phi ptr [ %1, %.lr.ph ], [ %.sroa.021.1.i.i, %13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %15 = add nsw i64 %.lcssa205, -2
+  %15 = add nsw i64 %.lcssa259, -2
   %16 = lshr i64 %15, 1
   br label %17
 
@@ -26025,7 +26025,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i: ; preds = %20, %17
   store ptr %19, ptr %5, align 8, !tbaa !38
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa205, ptr noundef %5)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa259, ptr noundef %5)
           to label %24 unwind label %42
 
 24:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i
@@ -26109,12 +26109,12 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.thread.i.i.i: ; preds = %49
   br label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %429, %485, %56, %119
-  %.sink90.i.i.sink165 = phi ptr [ %62, %119 ], [ %19, %56 ], [ %433, %485 ], [ %377, %429 ]
+  %.sink97.i.i.sink219 = phi ptr [ %62, %119 ], [ %19, %56 ], [ %433, %485 ], [ %377, %429 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %106, %119 ], [ %43, %56 ], [ %.pn.i13.i.i, %485 ], [ %.pn.i.i.i, %429 ]
-  %57 = load ptr, ptr %.sink90.i.i.sink165, align 8, !tbaa !46
+  %57 = load ptr, ptr %.sink97.i.i.sink219, align 8, !tbaa !46
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
-  tail call void %59(ptr noundef nonnull align 8 dereferenceable(12) %.sink90.i.i.sink165) #24
+  tail call void %59(ptr noundef nonnull align 8 dereferenceable(12) %.sink97.i.i.sink219) #24
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit10.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit10.i12.i.i, %105, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit11.thread.i, %42, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.thread.i.i.i
@@ -26123,7 +26123,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_RT0_.exit.i.i: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit17.i.i.i, %38, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %60 = icmp sgt i64 %.lcssa199, 8
+  %60 = icmp sgt i64 %.lcssa253, 8
   br i1 %60, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_T0_.exit
 
 .lr.ph.i9.i:                                      ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_RT0_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_RT0_.exit
@@ -26265,18 +26265,18 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13Finder
   %120 = icmp sgt i64 %.in.i, 8
   br i1 %120, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_T0_.exit, !llvm.loop !291
 
-.lr.ph213:                                        ; preds = %.lr.ph, %13
-  %storemerge72212 = phi ptr [ %.sroa.021.1.i.i, %13 ], [ %1, %.lr.ph ]
-  %.073211 = phi i64 [ %122, %13 ], [ %2, %.lr.ph ]
+.lr.ph267:                                        ; preds = %.lr.ph, %13
+  %storemerge72266 = phi ptr [ %.sroa.021.1.i.i, %13 ], [ %1, %.lr.ph ]
+  %.073265 = phi i64 [ %122, %13 ], [ %2, %.lr.ph ]
   %121 = phi i64 [ %535, %13 ], [ %9, %.lr.ph ]
-  %122 = add nsw i64 %.073211, -1
+  %122 = add nsw i64 %.073265, -1
   %123 = lshr i64 %121, 1
   %124 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %0, i64 %123
-  %125 = getelementptr inbounds i8, ptr %storemerge72212, i64 -8
+  %125 = getelementptr inbounds i8, ptr %storemerge72266, i64 -8
   %126 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr %124)
   br i1 %126, label %127, label %250
 
-127:                                              ; preds = %.lr.ph213
+127:                                              ; preds = %.lr.ph267
   %128 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %124, ptr nonnull %125)
   br i1 %128, label %129, label %169
 
@@ -26554,7 +26554,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i38.i.i: ; preds = %24
   store i32 -559026175, ptr %245, align 8, !tbaa !64
   br label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i
 
-250:                                              ; preds = %.lr.ph213
+250:                                              ; preds = %.lr.ph267
   %251 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_111YComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr nonnull %125)
   br i1 %251, label %252, label %292
 
@@ -26833,11 +26833,11 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i62.i.i: ; preds = %36
   br label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i: ; preds = %372, %333, %291, %249, %210, %168
-  %.sink69.i.i = phi ptr [ %294, %372 ], [ %294, %333 ], [ %253, %291 ], [ %171, %249 ], [ %171, %210 ], [ %130, %168 ]
-  %373 = load ptr, ptr %.sink69.i.i, align 8, !tbaa !46
+  %.sink102.i.i = phi ptr [ %294, %372 ], [ %294, %333 ], [ %253, %291 ], [ %171, %249 ], [ %171, %210 ], [ %130, %168 ]
+  %373 = load ptr, ptr %.sink102.i.i, align 8, !tbaa !46
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 8
   %375 = load ptr, ptr %374, align 8
-  tail call void %375(ptr noundef nonnull align 8 dereferenceable(12) %.sink69.i.i) #24
+  tail call void %375(ptr noundef nonnull align 8 dereferenceable(12) %.sink102.i.i) #24
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader: ; preds = %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, %367, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i62.i.i, %328, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i54.i.i, %286, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i46.i.i, %244, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i38.i.i, %205, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i30.i.i, %163, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i.i.i
@@ -26845,7 +26845,7 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qr
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_SH_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i
   %.sroa.021.0.i.i = phi ptr [ %532, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ], [ %11, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ], [ %storemerge72212, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ], [ %storemerge72266, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
   br label %376
 
 376:                                              ; preds = %431, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_SH_T0_.exit.i
@@ -27186,7 +27186,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPa
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_SH_SH_T0_.exit.i, !llvm.loop !294
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEET_SH_SH_T0_.exit: ; preds = %487
-  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_T0_T1_(ptr nonnull %.sroa.021.1.i.i, ptr %storemerge72212, i64 noundef %122)
+  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_111YComparatorEEEEvT_SH_T0_T1_(ptr nonnull %.sroa.021.1.i.i, ptr %storemerge72266, i64 noundef %122)
   %533 = ptrtoint ptr %.sroa.021.1.i.i to i64
   %534 = sub i64 %533, %6
   %535 = ashr exact i64 %534, 3
@@ -28085,18 +28085,18 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 .lr.ph:                                           ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp eq i64 %2, 0
-  br i1 %14, label %._crit_edge, label %.lr.ph213
+  br i1 %14, label %._crit_edge, label %.lr.ph267
 
 15:                                               ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_116CenterComparatorEEEET_SH_SH_T0_.exit
   %16 = icmp eq i64 %124, 0
-  br i1 %16, label %._crit_edge, label %.lr.ph213, !llvm.loop !299
+  br i1 %16, label %._crit_edge, label %.lr.ph267, !llvm.loop !299
 
 ._crit_edge:                                      ; preds = %15, %.lr.ph
-  %.lcssa205 = phi i64 [ %11, %.lr.ph ], [ %540, %15 ]
-  %.lcssa199 = phi i64 [ %10, %.lr.ph ], [ %539, %15 ]
+  %.lcssa259 = phi i64 [ %11, %.lr.ph ], [ %540, %15 ]
+  %.lcssa253 = phi i64 [ %10, %.lr.ph ], [ %539, %15 ]
   %storemerge72.lcssa = phi ptr [ %1, %.lr.ph ], [ %.sroa.036.1.i.i, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %17 = add nsw i64 %.lcssa205, -2
+  %17 = add nsw i64 %.lcssa259, -2
   %18 = lshr i64 %17, 1
   br label %19
 
@@ -28116,7 +28116,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i: ; preds = %22, %19
   store ptr %21, ptr %7, align 8, !tbaa !38
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_116CenterComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa205, ptr noundef %7, float %3)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_116CenterComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa259, ptr noundef %7, float %3)
           to label %26 unwind label %44
 
 26:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i
@@ -28200,12 +28200,12 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.thread.i.i.i: ; preds = %51
   br label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %434, %491, %58, %121
-  %.sink105.i.i.sink165 = phi ptr [ %64, %121 ], [ %21, %58 ], [ %437, %491 ], [ %380, %434 ]
+  %.sink112.i.i.sink219 = phi ptr [ %64, %121 ], [ %21, %58 ], [ %437, %491 ], [ %380, %434 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %108, %121 ], [ %45, %58 ], [ %.pn32.i15.i.i, %491 ], [ %.pn32.i.i.i, %434 ]
-  %59 = load ptr, ptr %.sink105.i.i.sink165, align 8, !tbaa !46
+  %59 = load ptr, ptr %.sink112.i.i.sink219, align 8, !tbaa !46
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
-  tail call void %61(ptr noundef nonnull align 8 dereferenceable(12) %.sink105.i.i.sink165) #24
+  tail call void %61(ptr noundef nonnull align 8 dereferenceable(12) %.sink112.i.i.sink219) #24
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit15.thread.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit15.thread.i14.i.i, %107, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit11.thread.i, %44, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.thread.i.i.i
@@ -28214,7 +28214,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_116CenterComparatorEEEEvT_SH_RT0_.exit.i.i: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit17.i.i.i, %40, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %62 = icmp sgt i64 %.lcssa199, 8
+  %62 = icmp sgt i64 %.lcssa253, 8
   br i1 %62, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_116CenterComparatorEEEEvT_SH_SH_T0_.exit
 
 .lr.ph.i9.i:                                      ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_116CenterComparatorEEEEvT_SH_RT0_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_116CenterComparatorEEEEvT_SH_SH_RT0_.exit
@@ -28356,20 +28356,20 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13Finder
   %122 = icmp sgt i64 %.in.i, 8
   br i1 %122, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_116CenterComparatorEEEEvT_SH_SH_T0_.exit, !llvm.loop !301
 
-.lr.ph213:                                        ; preds = %.lr.ph, %15
-  %storemerge72212 = phi ptr [ %.sroa.036.1.i.i, %15 ], [ %1, %.lr.ph ]
-  %.073211 = phi i64 [ %124, %15 ], [ %2, %.lr.ph ]
+.lr.ph267:                                        ; preds = %.lr.ph, %15
+  %storemerge72266 = phi ptr [ %.sroa.036.1.i.i, %15 ], [ %1, %.lr.ph ]
+  %.073265 = phi i64 [ %124, %15 ], [ %2, %.lr.ph ]
   %123 = phi i64 [ %540, %15 ], [ %11, %.lr.ph ]
-  %124 = add nsw i64 %.073211, -1
+  %124 = add nsw i64 %.073265, -1
   %125 = lshr i64 %123, 1
   %126 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %0, i64 %125
-  %127 = getelementptr inbounds i8, ptr %storemerge72212, i64 -8
+  %127 = getelementptr inbounds i8, ptr %storemerge72266, i64 -8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store float %3, ptr %6, align 4
   %128 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_116CenterComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr noundef nonnull align 4 dereferenceable(4) %6, ptr nonnull %13, ptr %126)
   br i1 %128, label %129, label %252
 
-129:                                              ; preds = %.lr.ph213
+129:                                              ; preds = %.lr.ph267
   %130 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_116CenterComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr noundef nonnull align 4 dereferenceable(4) %6, ptr %126, ptr nonnull %127)
   br i1 %130, label %131, label %171
 
@@ -28647,7 +28647,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i38.i.i: ; preds = %24
   store i32 -559026175, ptr %247, align 8, !tbaa !64
   br label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i
 
-252:                                              ; preds = %.lr.ph213
+252:                                              ; preds = %.lr.ph267
   %253 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_116CenterComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr noundef nonnull align 4 dereferenceable(4) %6, ptr nonnull %13, ptr nonnull %127)
   br i1 %253, label %254, label %294
 
@@ -28926,11 +28926,11 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i62.i.i: ; preds = %36
   br label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i: ; preds = %374, %335, %293, %251, %212, %170
-  %.sink69.i.i = phi ptr [ %296, %374 ], [ %296, %335 ], [ %255, %293 ], [ %173, %251 ], [ %173, %212 ], [ %132, %170 ]
-  %375 = load ptr, ptr %.sink69.i.i, align 8, !tbaa !46
+  %.sink102.i.i = phi ptr [ %296, %374 ], [ %296, %335 ], [ %255, %293 ], [ %173, %251 ], [ %173, %212 ], [ %132, %170 ]
+  %375 = load ptr, ptr %.sink102.i.i, align 8, !tbaa !46
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 8
   %377 = load ptr, ptr %376, align 8
-  tail call void %377(ptr noundef nonnull align 8 dereferenceable(12) %.sink69.i.i) #24
+  tail call void %377(ptr noundef nonnull align 8 dereferenceable(12) %.sink102.i.i) #24
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_116CenterComparatorEEEEvT_SH_SH_SH_T0_.exit.i
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_116CenterComparatorEEEEvT_SH_SH_SH_T0_.exit.i: ; preds = %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, %369, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i62.i.i, %330, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i54.i.i, %288, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i46.i.i, %246, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i38.i.i, %207, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i30.i.i, %165, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i.i.i
@@ -28938,7 +28938,7 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qr
   br label %378
 
 378:                                              ; preds = %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_116CenterComparatorEEEEvT_SH_SH_SH_T0_.exit.i
-  %.sroa.033.0.i.i = phi ptr [ %storemerge72212, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_116CenterComparatorEEEEvT_SH_SH_SH_T0_.exit.i ], [ %.sroa.033.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ]
+  %.sroa.033.0.i.i = phi ptr [ %storemerge72266, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_116CenterComparatorEEEEvT_SH_SH_SH_T0_.exit.i ], [ %.sroa.033.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ]
   %.sroa.036.0.i.i = phi ptr [ %13, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_116CenterComparatorEEEEvT_SH_SH_SH_T0_.exit.i ], [ %537, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ]
   br label %379
 
@@ -29332,7 +29332,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPa
   br label %378, !llvm.loop !304
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_116CenterComparatorEEEET_SH_SH_T0_.exit: ; preds = %492
-  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_116CenterComparatorEEEEvT_SH_T0_T1_(ptr nonnull %.sroa.036.1.i.i, ptr %storemerge72212, i64 noundef %124, float %3)
+  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_116CenterComparatorEEEEvT_SH_T0_T1_(ptr nonnull %.sroa.036.1.i.i, ptr %storemerge72266, i64 noundef %124, float %3)
   %538 = ptrtoint ptr %.sroa.036.1.i.i to i64
   %539 = sub i64 %538, %8
   %540 = ashr exact i64 %539, 3
@@ -30314,18 +30314,18 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 .lr.ph:                                           ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = icmp eq i64 %2, 0
-  br i1 %12, label %._crit_edge, label %.lr.ph213
+  br i1 %12, label %._crit_edge, label %.lr.ph267
 
 13:                                               ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEET_SH_SH_T0_.exit
   %14 = icmp eq i64 %122, 0
-  br i1 %14, label %._crit_edge, label %.lr.ph213, !llvm.loop !311
+  br i1 %14, label %._crit_edge, label %.lr.ph267, !llvm.loop !311
 
 ._crit_edge:                                      ; preds = %13, %.lr.ph
-  %.lcssa205 = phi i64 [ %9, %.lr.ph ], [ %529, %13 ]
-  %.lcssa199 = phi i64 [ %8, %.lr.ph ], [ %528, %13 ]
+  %.lcssa259 = phi i64 [ %9, %.lr.ph ], [ %529, %13 ]
+  %.lcssa253 = phi i64 [ %8, %.lr.ph ], [ %528, %13 ]
   %storemerge72.lcssa = phi ptr [ %1, %.lr.ph ], [ %.sroa.032.1.i.i, %13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %15 = add nsw i64 %.lcssa205, -2
+  %15 = add nsw i64 %.lcssa259, -2
   %16 = lshr i64 %15, 1
   br label %17
 
@@ -30345,7 +30345,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i: ; preds = %20, %17
   store ptr %19, ptr %5, align 8, !tbaa !38
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa205, ptr noundef %5)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_T0_SI_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa259, ptr noundef %5)
           to label %24 unwind label %42
 
 24:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i
@@ -30429,12 +30429,12 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.thread.i.i.i: ; preds = %49
   br label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %427, %480, %56, %119
-  %.sink101.i.i.sink165 = phi ptr [ %62, %119 ], [ %19, %56 ], [ %430, %480 ], [ %377, %427 ]
+  %.sink108.i.i.sink219 = phi ptr [ %62, %119 ], [ %19, %56 ], [ %430, %480 ], [ %377, %427 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %106, %119 ], [ %43, %56 ], [ %.pn15.i15.i.i, %480 ], [ %.pn15.i.i.i, %427 ]
-  %57 = load ptr, ptr %.sink101.i.i.sink165, align 8, !tbaa !46
+  %57 = load ptr, ptr %.sink108.i.i.sink219, align 8, !tbaa !46
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
-  tail call void %59(ptr noundef nonnull align 8 dereferenceable(12) %.sink101.i.i.sink165) #24
+  tail call void %59(ptr noundef nonnull align 8 dereferenceable(12) %.sink108.i.i.sink219) #24
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit15.thread.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit15.thread.i14.i.i, %105, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit11.thread.i, %42, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.thread.i.i.i
@@ -30443,7 +30443,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_RT0_.exit.i.i: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit17.i.i.i, %38, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %60 = icmp sgt i64 %.lcssa199, 8
+  %60 = icmp sgt i64 %.lcssa253, 8
   br i1 %60, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_T0_.exit
 
 .lr.ph.i9.i:                                      ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_RT0_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_RT0_.exit
@@ -30585,18 +30585,18 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13Finder
   %120 = icmp sgt i64 %.in.i, 8
   br i1 %120, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_T0_.exit, !llvm.loop !313
 
-.lr.ph213:                                        ; preds = %.lr.ph, %13
-  %storemerge72212 = phi ptr [ %.sroa.032.1.i.i, %13 ], [ %1, %.lr.ph ]
-  %.073211 = phi i64 [ %122, %13 ], [ %2, %.lr.ph ]
+.lr.ph267:                                        ; preds = %.lr.ph, %13
+  %storemerge72266 = phi ptr [ %.sroa.032.1.i.i, %13 ], [ %1, %.lr.ph ]
+  %.073265 = phi i64 [ %122, %13 ], [ %2, %.lr.ph ]
   %121 = phi i64 [ %529, %13 ], [ %9, %.lr.ph ]
-  %122 = add nsw i64 %.073211, -1
+  %122 = add nsw i64 %.073265, -1
   %123 = lshr i64 %121, 1
   %124 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %0, i64 %123
-  %125 = getelementptr inbounds i8, ptr %storemerge72212, i64 -8
+  %125 = getelementptr inbounds i8, ptr %storemerge72266, i64 -8
   %126 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr %124)
   br i1 %126, label %127, label %250
 
-127:                                              ; preds = %.lr.ph213
+127:                                              ; preds = %.lr.ph267
   %128 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr %124, ptr nonnull %125)
   br i1 %128, label %129, label %169
 
@@ -30874,7 +30874,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i38.i.i: ; preds = %24
   store i32 -559026175, ptr %245, align 8, !tbaa !64
   br label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i
 
-250:                                              ; preds = %.lr.ph213
+250:                                              ; preds = %.lr.ph267
   %251 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5zxing6qrcode12_GLOBAL__N_114BestComparatorEEclINS_17__normal_iteratorIPNS2_3RefINS3_13FinderPatternEEESt6vectorISB_SaISB_EEEESG_EEbT_T0_(ptr nonnull %11, ptr nonnull %125)
   br i1 %251, label %252, label %292
 
@@ -31153,11 +31153,11 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i62.i.i: ; preds = %36
   br label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i: ; preds = %372, %333, %291, %249, %210, %168
-  %.sink69.i.i = phi ptr [ %294, %372 ], [ %294, %333 ], [ %253, %291 ], [ %171, %249 ], [ %171, %210 ], [ %130, %168 ]
-  %373 = load ptr, ptr %.sink69.i.i, align 8, !tbaa !46
+  %.sink102.i.i = phi ptr [ %294, %372 ], [ %294, %333 ], [ %253, %291 ], [ %171, %249 ], [ %171, %210 ], [ %130, %168 ]
+  %373 = load ptr, ptr %.sink102.i.i, align 8, !tbaa !46
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 8
   %375 = load ptr, ptr %374, align 8
-  tail call void %375(ptr noundef nonnull align 8 dereferenceable(12) %.sink69.i.i) #24
+  tail call void %375(ptr noundef nonnull align 8 dereferenceable(12) %.sink102.i.i) #24
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader: ; preds = %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.sink.split.i.i, %367, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i62.i.i, %328, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i54.i.i, %286, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i46.i.i, %244, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i38.i.i, %205, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i30.i.i, %163, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit7.i.i.i.i
@@ -31165,7 +31165,7 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qr
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_SH_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i
   %.sroa.032.0.i.i = phi ptr [ %526, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ], [ %11, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ], [ %storemerge72212, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i ], [ %storemerge72266, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
   br label %376
 
 376:                                              ; preds = %428, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_SH_T0_.exit.i
@@ -31550,7 +31550,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPa
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_SH_SH_T0_.exit.i, !llvm.loop !316
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEET_SH_SH_T0_.exit: ; preds = %481
-  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_T0_T1_(ptr nonnull %.sroa.032.1.i.i, ptr %storemerge72212, i64 noundef %122)
+  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode13FinderPatternEEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterINS4_12_GLOBAL__N_114BestComparatorEEEEvT_SH_T0_T1_(ptr nonnull %.sroa.032.1.i.i, ptr %storemerge72266, i64 noundef %122)
   %527 = ptrtoint ptr %.sroa.032.1.i.i to i64
   %528 = sub i64 %527, %6
   %529 = ashr exact i64 %528, 3

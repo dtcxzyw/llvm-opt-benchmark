@@ -1628,11 +1628,11 @@ _ZNSt7__cxx114listIN6Assimp17STransformVecInfoESaIS2_EE5eraseESt20_List_const_it
   br label %645
 
 .preheader565thread-pre-split:                    ; preds = %406, %400
-  %.pr723 = load i64, ptr %279, align 8
+  %.pr770 = load i64, ptr %279, align 8
   br label %.preheader565
 
 .preheader565:                                    ; preds = %.preheader565thread-pre-split, %370
-  %411 = phi i64 [ %.pr723, %.preheader565thread-pre-split ], [ %371, %370 ]
+  %411 = phi i64 [ %.pr770, %.preheader565thread-pre-split ], [ %371, %370 ]
   %.0216 = phi i32 [ 8, %.preheader565thread-pre-split ], [ %372, %370 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %266, i64 64, i1 false)
@@ -1795,7 +1795,7 @@ _Z13UpdateUVIndexRKNSt7__cxx114listIN6Assimp12TTUpdateInfoESaIS2_EEEj.exit: ; pr
 
 473:                                              ; preds = %.loopexit562.thread
   %474 = icmp eq i32 %469, 0
-  br i1 %474, label %.sink.split736, label %.sink.split736.sink.split
+  br i1 %474, label %.sink.split783, label %.sink.split783.sink.split
 
 475:                                              ; preds = %460
   %476 = load i32, ptr %412, align 4
@@ -1806,25 +1806,25 @@ _Z13UpdateUVIndexRKNSt7__cxx114listIN6Assimp12TTUpdateInfoESaIS2_EEEj.exit: ; pr
 
 480:                                              ; preds = %475
   %481 = icmp eq i32 %476, 0
-  br i1 %481, label %.sink.split736, label %.sink.split736.sink.split
+  br i1 %481, label %.sink.split783, label %.sink.split783.sink.split
 
-.sink.split736.sink.split:                        ; preds = %480, %473
-  %.sink744 = phi i64 [ %471, %473 ], [ %478, %480 ]
-  %.sink738 = phi ptr [ %472, %473 ], [ %479, %480 ]
-  %482 = add nsw i64 %.sink744, -12
+.sink.split783.sink.split:                        ; preds = %480, %473
+  %.sink791 = phi i64 [ %471, %473 ], [ %478, %480 ]
+  %.sink785 = phi ptr [ %472, %473 ], [ %479, %480 ]
+  %482 = add nsw i64 %.sink791, -12
   %483 = urem i64 %482, 12
   %484 = sub nuw nsw i64 %482, %483
   %485 = add nsw i64 %484, 12
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %.sink738, i8 0, i64 %485, i1 false)
-  br label %.sink.split736
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %.sink785, i8 0, i64 %485, i1 false)
+  br label %.sink.split783
 
-.sink.split736:                                   ; preds = %.sink.split736.sink.split, %480, %473
-  %.sink = phi ptr [ %472, %473 ], [ %479, %480 ], [ %.sink738, %.sink.split736.sink.split ]
+.sink.split783:                                   ; preds = %.sink.split783.sink.split, %480, %473
+  %.sink = phi ptr [ %472, %473 ], [ %479, %480 ], [ %.sink785, %.sink.split783.sink.split ]
   store ptr %.sink, ptr %461, align 8
   br label %486
 
-486:                                              ; preds = %.sink.split736, %.loopexit562
-  %487 = phi ptr [ %462, %.loopexit562 ], [ %.sink, %.sink.split736 ]
+486:                                              ; preds = %.sink.split783, %.loopexit562
+  %487 = phi ptr [ %462, %.loopexit562 ], [ %.sink, %.sink.split783 ]
   %488 = getelementptr inbounds nuw i8, ptr %.sroa.0470.3661, i64 16
   %489 = getelementptr inbounds nuw i8, ptr %.sroa.0470.3661, i64 36
   %490 = load i32, ptr %489, align 4
@@ -1852,19 +1852,19 @@ _Z13UpdateUVIndexRKNSt7__cxx114listIN6Assimp12TTUpdateInfoESaIS2_EEEj.exit: ; pr
   %505 = getelementptr inbounds nuw i8, ptr %.sroa.0470.3661, i64 28
   %506 = load float, ptr %505, align 4
   %507 = fcmp oeq float %506, 1.000000e+00
-  %or.cond.not9.i322.not751 = select i1 %504, i1 %507, i1 false
+  %or.cond.not9.i322.not798 = select i1 %504, i1 %507, i1 false
   %508 = load float, ptr %488, align 8
   %509 = fcmp oeq float %508, 0.000000e+00
-  %or.cond4.i323.not748 = select i1 %or.cond.not9.i322.not751, i1 %509, i1 false
+  %or.cond4.i323.not795 = select i1 %or.cond.not9.i322.not798, i1 %509, i1 false
   %510 = getelementptr inbounds nuw i8, ptr %.sroa.0470.3661, i64 20
   %511 = load float, ptr %510, align 4
   %512 = fcmp oeq float %511, 0.000000e+00
-  %or.cond7.i324.not746 = select i1 %or.cond4.i323.not748, i1 %512, i1 false
+  %or.cond7.i324.not793 = select i1 %or.cond4.i323.not795, i1 %512, i1 false
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sroa.0470.3661, i64 32
   %.pre717 = load float, ptr %.phi.trans.insert, align 8
   %513 = fcmp olt float %.pre717, 0x3F81DF46A0000000
-  %or.cond737 = select i1 %or.cond7.i324.not746, i1 %513, i1 false
-  br i1 %or.cond737, label %.loopexit, label %_ZNK6Assimp17STransformVecInfo15IsUntransformedEv.exit325.thread
+  %or.cond784 = select i1 %or.cond7.i324.not793, i1 %513, i1 false
+  br i1 %or.cond784, label %.loopexit, label %_ZNK6Assimp17STransformVecInfo15IsUntransformedEv.exit325.thread
 
 _ZNK6Assimp17STransformVecInfo15IsUntransformedEv.exit325.thread: ; preds = %498
   %514 = load i32, ptr %9, align 4

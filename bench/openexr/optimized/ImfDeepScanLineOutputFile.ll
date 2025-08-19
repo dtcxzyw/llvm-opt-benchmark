@@ -642,22 +642,22 @@ define void @_ZN7Imf_3_422DeepScanLineOutputFileC2EPKcRKNS_6HeaderEi(ptr noundef
   %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %.pre31, i64 368
   %.pre33 = load ptr, ptr %.phi.trans.insert32, align 8, !tbaa !59
   %82 = icmp eq ptr %.pre33, null
-  br i1 %82, label %.thread34, label %.thread
+  br i1 %82, label %.thread39, label %.thread
 
 .thread:                                          ; preds = %77, %78
   %83 = phi ptr [ %.pre33, %78 ], [ %73, %77 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef 56) #27
   %.pr = load ptr, ptr %6, align 8, !tbaa !93
   %84 = icmp eq ptr %.pr, null
-  br i1 %84, label %86, label %.thread34
+  br i1 %84, label %86, label %.thread39
 
-.thread34:                                        ; preds = %78, %.thread
+.thread39:                                        ; preds = %78, %.thread
   %85 = phi ptr [ %.pr, %.thread ], [ %.pre31, %78 ]
   tail call void @_ZN7Imf_3_422DeepScanLineOutputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(377) %85) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %85, i64 noundef 384) #27
   br label %86
 
-86:                                               ; preds = %.thread, %.thread34
+86:                                               ; preds = %.thread, %.thread39
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5)
           to label %87 unwind label %113
@@ -694,7 +694,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28: ; preds = %91
           to label %125 unwind label %118
 
 101:                                              ; preds = %67
-  br i1 %76, label %.thread35, label %102
+  br i1 %76, label %.thread40, label %102
 
 102:                                              ; preds = %101
   %103 = load ptr, ptr %75, align 8, !tbaa !77
@@ -705,22 +705,22 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28: ; preds = %91
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 368
   %.pre30 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !59
   %106 = icmp eq ptr %.pre30, null
-  br i1 %106, label %.thread36, label %.thread35
+  br i1 %106, label %.thread41, label %.thread40
 
-.thread35:                                        ; preds = %101, %102
+.thread40:                                        ; preds = %101, %102
   %107 = phi ptr [ %.pre30, %102 ], [ %73, %101 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %107, i64 noundef 56) #27
   %.pr29 = load ptr, ptr %6, align 8, !tbaa !93
   %108 = icmp eq ptr %.pr29, null
-  br i1 %108, label %110, label %.thread36
+  br i1 %108, label %110, label %.thread41
 
-.thread36:                                        ; preds = %102, %.thread35
-  %109 = phi ptr [ %.pr29, %.thread35 ], [ %.pre, %102 ]
+.thread41:                                        ; preds = %102, %.thread40
+  %109 = phi ptr [ %.pr29, %.thread40 ], [ %.pre, %102 ]
   tail call void @_ZN7Imf_3_422DeepScanLineOutputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(377) %109) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %109, i64 noundef 384) #27
   br label %110
 
-110:                                              ; preds = %.thread36, %.thread35
+110:                                              ; preds = %.thread41, %.thread40
   invoke void @__cxa_rethrow() #28
           to label %125 unwind label %111
 
@@ -1496,21 +1496,21 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit23: ; preds = %82
           to label %111 unwind label %104
 
 92:                                               ; preds = %60
-  br i1 %70, label %.thread25, label %93
+  br i1 %70, label %.thread28, label %93
 
 93:                                               ; preds = %92
   tail call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef 56) #27
   %.pr24 = load ptr, ptr %6, align 8, !tbaa !93
   %94 = icmp eq ptr %.pr24, null
-  br i1 %94, label %96, label %.thread25
+  br i1 %94, label %96, label %.thread28
 
-.thread25:                                        ; preds = %92, %93
+.thread28:                                        ; preds = %92, %93
   %95 = phi ptr [ %.pr24, %93 ], [ %67, %92 ]
   tail call void @_ZN7Imf_3_422DeepScanLineOutputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(377) %95) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef 384) #27
   br label %96
 
-96:                                               ; preds = %.thread25, %93
+96:                                               ; preds = %.thread28, %93
   invoke void @__cxa_rethrow() #28
           to label %111 unwind label %97
 
@@ -4265,7 +4265,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit96: ; preds = %262
 295:                                              ; preds = %288
   store i8 0, ptr %.sroa.17.0125, align 1, !tbaa !82
   %296 = getelementptr inbounds nuw i8, ptr %.sroa.17.0125, i64 1
-  %297 = add i64 %289, -1
+  %297 = add nsw i64 %289, -1
   %298 = icmp eq i64 %297, 0
   br i1 %298, label %_ZNSt6vectorIcSaIcEE6resizeEm.exit, label %299
 
@@ -5166,15 +5166,15 @@ _ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4
   br label %_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE13_M_clone_nodeILb0ENSB_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_RT0_.exit
 
 _ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE13_M_clone_nodeILb0ENSB_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_RT0_.exit: ; preds = %14, %19, %22, %24, %_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i
-  %.sink9.i.i = phi ptr [ %25, %_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i ], [ %6, %14 ], [ %6, %19 ], [ %6, %22 ], [ %6, %24 ]
+  %.sink12.i.i = phi ptr [ %25, %_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i ], [ %6, %14 ], [ %6, %19 ], [ %6, %22 ], [ %6, %24 ]
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %27 = getelementptr inbounds nuw i8, ptr %.sink9.i.i, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.sink12.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %27, ptr noundef nonnull align 8 dereferenceable(312) %26, i64 312, i1 false)
   %28 = load i32, ptr %1, align 8, !tbaa !223
-  store i32 %28, ptr %.sink9.i.i, align 8, !tbaa !223
-  %29 = getelementptr inbounds nuw i8, ptr %.sink9.i.i, i64 16
+  store i32 %28, ptr %.sink12.i.i, align 8, !tbaa !223
+  %29 = getelementptr inbounds nuw i8, ptr %.sink12.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  %30 = getelementptr inbounds nuw i8, ptr %.sink9.i.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.sink12.i.i, i64 8
   store ptr %2, ptr %30, align 8, !tbaa !218
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !209
@@ -5182,11 +5182,11 @@ _ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4
   br i1 %.not, label %39, label %33
 
 33:                                               ; preds = %_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE13_M_clone_nodeILb0ENSB_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_RT0_.exit
-  %34 = invoke noundef ptr @_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE7_M_copyILb0ENSB_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %32, ptr noundef nonnull %.sink9.i.i, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %34 = invoke noundef ptr @_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE7_M_copyILb0ENSB_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %32, ptr noundef nonnull %.sink12.i.i, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %35 unwind label %37
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i8, ptr %.sink9.i.i, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %.sink12.i.i, i64 24
   store ptr %34, ptr %36, align 8, !tbaa !209
   br label %39
 
@@ -5203,7 +5203,7 @@ _ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4
 
 .lr.ph:                                           ; preds = %39, %78
   %.050 = phi ptr [ %.0, %78 ], [ %.047, %39 ]
-  %.03149 = phi ptr [ %.sink9.i.i36, %78 ], [ %.sink9.i.i, %39 ]
+  %.03149 = phi ptr [ %.sink12.i.i36, %78 ], [ %.sink12.i.i, %39 ]
   %40 = load ptr, ptr %5, align 8, !tbaa !216
   %.not.i.i.i34 = icmp eq ptr %40, null
   br i1 %.not.i.i.i34, label %_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i43, label %41
@@ -5257,17 +5257,17 @@ _ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4
           to label %60 unwind label %73
 
 60:                                               ; preds = %58, %56, %53, %48, %_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i43
-  %.sink9.i.i36 = phi ptr [ %40, %48 ], [ %40, %53 ], [ %40, %56 ], [ %40, %58 ], [ %59, %_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i43 ]
+  %.sink12.i.i36 = phi ptr [ %40, %48 ], [ %40, %53 ], [ %40, %56 ], [ %40, %58 ], [ %59, %_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i43 ]
   %61 = getelementptr inbounds nuw i8, ptr %.050, i64 32
-  %62 = getelementptr inbounds nuw i8, ptr %.sink9.i.i36, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %.sink12.i.i36, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %62, ptr noundef nonnull align 8 dereferenceable(312) %61, i64 312, i1 false)
   %63 = load i32, ptr %.050, align 8, !tbaa !223
-  store i32 %63, ptr %.sink9.i.i36, align 8, !tbaa !223
-  %64 = getelementptr inbounds nuw i8, ptr %.sink9.i.i36, i64 16
+  store i32 %63, ptr %.sink12.i.i36, align 8, !tbaa !223
+  %64 = getelementptr inbounds nuw i8, ptr %.sink12.i.i36, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %.03149, i64 16
-  store ptr %.sink9.i.i36, ptr %65, align 8, !tbaa !210
-  %66 = getelementptr inbounds nuw i8, ptr %.sink9.i.i36, i64 8
+  store ptr %.sink12.i.i36, ptr %65, align 8, !tbaa !210
+  %66 = getelementptr inbounds nuw i8, ptr %.sink12.i.i36, i64 8
   store ptr %.03149, ptr %66, align 8, !tbaa !218
   %67 = getelementptr inbounds nuw i8, ptr %.050, i64 24
   %68 = load ptr, ptr %67, align 8, !tbaa !209
@@ -5275,11 +5275,11 @@ _ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4
   br i1 %.not33, label %78, label %69
 
 69:                                               ; preds = %60
-  %70 = invoke noundef ptr @_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE7_M_copyILb0ENSB_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %68, ptr noundef nonnull %.sink9.i.i36, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %70 = invoke noundef ptr @_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE7_M_copyILb0ENSB_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %68, ptr noundef nonnull %.sink12.i.i36, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %71 unwind label %73
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds nuw i8, ptr %.sink9.i.i36, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %.sink12.i.i36, i64 24
   store ptr %70, ptr %72, align 8, !tbaa !209
   br label %78
 
@@ -5292,7 +5292,7 @@ _ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4
   %.pn = phi { ptr, i32 } [ %74, %73 ], [ %38, %37 ]
   %.030 = extractvalue { ptr, i32 } %.pn, 0
   %76 = tail call ptr @__cxa_begin_catch(ptr %.030) #24
-  invoke void @_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.sink9.i.i)
+  invoke void @_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.sink12.i.i)
           to label %77 unwind label %79
 
 77:                                               ; preds = %75
@@ -5315,7 +5315,7 @@ _ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4
   resume { ptr, i32 } %80
 
 ._crit_edge:                                      ; preds = %78, %39
-  ret ptr %.sink9.i.i
+  ret ptr %.sink12.i.i
 
 82:                                               ; preds = %79
   %83 = landingpad { ptr, i32 }
@@ -6405,13 +6405,13 @@ define linkonce_odr void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 8, !tbaa !134
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !134
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

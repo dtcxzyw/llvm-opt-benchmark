@@ -280,7 +280,7 @@ define hidden noundef zeroext i1 @_ZNK11ZRemembered9scan_pageEP5ZPage(ptr nounde
   br i1 %.not36.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i, label %40, !llvm.loop !6
 
 40:                                               ; preds = %37
-  %41 = shl i64 %35, 6
+  %41 = shl nuw i64 %35, 6
   br label %42
 
 42:                                               ; preds = %40, %33
@@ -360,7 +360,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i: ; preds = %42, %25
   %.0.i.i.i.i.i.i.i.i.i.i = phi i1 [ false, %54 ], [ false, %46 ], [ true, %88 ], [ true, %90 ]
   %93 = or i1 %.2, %.0.i.i.i.i.i.i.i.i.i.i
   %94 = add nuw nsw i32 %.0, 1
-  %95 = add i64 %.0.i.i.i.i.i.i.i, 1
+  %95 = add nuw i64 %.0.i.i.i.i.i.i.i, 1
   %96 = icmp ult i64 %95, %21
   br i1 %96, label %25, label %"_ZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS_E3$_0EEvT_.exit", !llvm.loop !10
 
@@ -1518,10 +1518,10 @@ _Z17color_remset_good8zaddress8zpointer.exit:     ; preds = %.split.i, %75, %89
   br i1 %or.cond18.i.i, label %.preheader.i.i.preheader, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit
 
 .preheader.i.i.preheader:                         ; preds = %_Z17color_remset_good8zaddress8zpointer.exit.thread, %_Z17color_remset_good8zaddress8zpointer.exit
-  %.0.i210.in = phi i64 [ %102, %_Z17color_remset_good8zaddress8zpointer.exit.thread ], [ %.0.in.i, %_Z17color_remset_good8zaddress8zpointer.exit ]
+  %.0.i215.in = phi i64 [ %102, %_Z17color_remset_good8zaddress8zpointer.exit.thread ], [ %.0.in.i, %_Z17color_remset_good8zaddress8zpointer.exit ]
   %106 = phi i64 [ %.ph, %_Z17color_remset_good8zaddress8zpointer.exit.thread ], [ %103, %_Z17color_remset_good8zaddress8zpointer.exit ]
-  %.0.i210 = or i64 %.0.i210.in, 48
-  %107 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i210, i64 %2, ptr nonnull %0) #14, !srcloc !8
+  %.0.i215 = or i64 %.0.i215.in, 48
+  %107 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i215, i64 %2, ptr nonnull %0) #14, !srcloc !8
   %108 = icmp eq i64 %107, %2
   br i1 %108, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.lr.ph
 
@@ -1541,7 +1541,7 @@ _Z17color_remset_good8zaddress8zpointer.exit:     ; preds = %.split.i, %75, %89
   br i1 %.not6, label %.preheader.i.i.backedge, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit
 
 .preheader.i.i.backedge:                          ; preds = %114, %.lr.ph
-  %117 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i210, i64 %109, ptr nonnull %0) #14, !srcloc !8
+  %117 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i215, i64 %109, ptr nonnull %0) #14, !srcloc !8
   %118 = icmp eq i64 %117, %109
   br i1 %118, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.lr.ph, !llvm.loop !17
 
@@ -2145,7 +2145,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20ZRemsetTableIterator4nextEP1
   br i1 %.not36.i.i.i, label %35, label %41, !llvm.loop !6
 
 41:                                               ; preds = %38
-  %42 = shl i64 %36, 6
+  %42 = shl nuw i64 %36, 6
   br label %43
 
 43:                                               ; preds = %41, %30

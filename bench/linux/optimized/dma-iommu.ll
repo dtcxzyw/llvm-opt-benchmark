@@ -3131,7 +3131,7 @@ define internal fastcc void @__iommu_dma_unmap(ptr noundef %0, i64 noundef %1, i
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %45 = load i32, ptr %7, align 8
   %46 = icmp eq i32 %45, 1
-  br i1 %46, label %47, label %.thread18
+  br i1 %46, label %47, label %.thread33
 
 47:                                               ; preds = %.thread, %40
   %48 = phi ptr [ %44, %.thread ], [ %41, %40 ]
@@ -3140,7 +3140,7 @@ define internal fastcc void @__iommu_dma_unmap(ptr noundef %0, i64 noundef %1, i
   store i64 %50, ptr %48, align 8
   br label %iommu_dma_free_iova.exit
 
-.thread18:                                        ; preds = %.thread
+.thread33:                                        ; preds = %.thread
   %51 = load i64, ptr %8, align 8
   %52 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %51) #18, !srcloc !10
   %53 = lshr i64 %13, %52
@@ -3153,13 +3153,13 @@ define internal fastcc void @__iommu_dma_unmap(ptr noundef %0, i64 noundef %1, i
   %59 = load ptr, ptr %58, align 8
   br i1 %57, label %63, label %60
 
-60:                                               ; preds = %.thread18
+60:                                               ; preds = %.thread33
   %61 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %59) #18, !srcloc !67
   %62 = inttoptr i64 %61 to ptr
   br label %63
 
-63:                                               ; preds = %60, %.thread18
-  %64 = phi ptr [ %62, %60 ], [ %59, %.thread18 ]
+63:                                               ; preds = %60, %.thread33
+  %64 = phi ptr [ %62, %60 ], [ %59, %.thread33 ]
   %65 = call i64 @_raw_spin_lock_irqsave(ptr noundef %64) #15
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %67 = load volatile i64, ptr %66, align 8

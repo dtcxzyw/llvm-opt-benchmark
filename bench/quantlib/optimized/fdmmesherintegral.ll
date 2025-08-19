@@ -206,8 +206,8 @@ entry:
   br i1 %cmp.not.i, label %_ZNK5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEptEv.exit, label %_ZNK5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEptEv.exit.thread, !prof !9
 
 _ZNK5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEptEv.exit.thread: ; preds = %entry
-  %locations_.i121 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %2 = load ptr, ptr %locations_.i121, align 8, !tbaa !10
+  %locations_.i146 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %2 = load ptr, ptr %locations_.i146, align 8, !tbaa !10
   br label %_ZNK5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEptEv.exit24
 
 _ZNK5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEptEv.exit: ; preds = %entry

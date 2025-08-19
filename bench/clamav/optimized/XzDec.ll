@@ -762,8 +762,8 @@ define i32 @MixCoder_Code(ptr noundef captures(none) %0, ptr noundef %1, ptr nou
   br i1 %105, label %.split141.us, label %.split, !llvm.loop !38
 
 .split141.us:                                     ; preds = %.split, %._crit_edge
-  %.186.lcssa147 = phi i32 [ %.287.ph, %._crit_edge ], [ %.085, %.split ]
-  %106 = icmp eq i32 %.186.lcssa147, 0
+  %.186.lcssa150 = phi i32 [ %.287.ph, %._crit_edge ], [ %.085, %.split ]
+  %106 = icmp eq i32 %.186.lcssa150, 0
   br i1 %106, label %107, label %.split141.us.thread
 
 .split141.us.thread:                              ; preds = %22, %.split141.us
@@ -1447,8 +1447,8 @@ define i32 @XzUnpacker_Code(ptr noundef %0, ptr noundef %1, ptr noundef captures
 
 41:                                               ; preds = %.backedge, %7
   %42 = phi i64 [ 0, %7 ], [ %.pre, %.backedge ]
-  %.0252 = phi ptr [ %3, %7 ], [ %.2254360, %.backedge ]
-  %.0248 = phi ptr [ %1, %7 ], [ %.2250361, %.backedge ]
+  %.0252 = phi ptr [ %3, %7 ], [ %.2254381, %.backedge ]
+  %.0248 = phi ptr [ %1, %7 ], [ %.2250382, %.backedge ]
   %43 = sub i64 %14, %42
   %44 = load i32, ptr %0, align 8, !tbaa !46
   %45 = icmp eq i32 %44, 6
@@ -1468,7 +1468,7 @@ define i32 @XzUnpacker_Code(ptr noundef %0, ptr noundef %1, ptr noundef captures
 
 51:                                               ; preds = %46
   store i32 2, ptr %6, align 4, !tbaa !27
-  br label %.thread364
+  br label %.thread385
 
 52:                                               ; preds = %46
   %53 = call i32 @MixCoder_Code(ptr noundef nonnull %36, ptr noundef %.0248, ptr noundef nonnull %8, ptr noundef %.0252, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %5, ptr noundef nonnull %6)
@@ -1491,7 +1491,7 @@ define i32 @XzUnpacker_Code(ptr noundef %0, ptr noundef %1, ptr noundef captures
   %66 = add i64 %65, %61
   store i64 %66, ptr %35, align 8, !tbaa !54
   %.not311 = icmp eq i32 %53, 0
-  br i1 %.not311, label %67, label %.thread364
+  br i1 %.not311, label %67, label %.thread385
 
 67:                                               ; preds = %52
   %68 = load i32, ptr %6, align 4, !tbaa !27
@@ -1539,7 +1539,7 @@ define i32 @XzUnpacker_Code(ptr noundef %0, ptr noundef %1, ptr noundef captures
   %92 = icmp eq i64 %55, 0
   %93 = icmp eq i64 %61, 0
   %or.cond11 = select i1 %92, i1 %93, i1 false
-  br i1 %or.cond11, label %.thread364, label %310
+  br i1 %or.cond11, label %.thread385, label %310
 
 94:                                               ; preds = %41
   %95 = icmp eq i64 %14, %42
@@ -1974,7 +1974,7 @@ Xz_CheckFooter.exit:                              ; preds = %290
   store i64 %309, ptr %15, align 8, !tbaa !63
   br label %.backedge
 
-.thread364:                                       ; preds = %52, %91, %51
+.thread385:                                       ; preds = %52, %91, %51
   %.1.ph = phi i32 [ 0, %51 ], [ %53, %52 ], [ 0, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1986,13 +1986,13 @@ Xz_CheckFooter.exit:                              ; preds = %290
   br label %.backedge
 
 .backedge:                                        ; preds = %97, %124, %._crit_edge, %156, %167, %149, %178, %223, %250, %231, %204, %261, %254, %305, %304, %.thread, %.thread327, %265, %Xz_CheckFooter.exit, %310
-  %.2250361 = phi ptr [ %64, %310 ], [ %.0248, %Xz_CheckFooter.exit ], [ %.0248, %265 ], [ %.0248, %.thread327 ], [ %.0248, %.thread ], [ %.0248, %304 ], [ %.0248, %305 ], [ %.0248, %254 ], [ %.0248, %261 ], [ %.0248, %204 ], [ %.0248, %231 ], [ %.0248, %250 ], [ %.0248, %223 ], [ %.0248, %178 ], [ %.0248, %149 ], [ %.0248, %167 ], [ %.0248, %156 ], [ %.0248, %._crit_edge ], [ %.0248, %124 ], [ %.0248, %97 ]
-  %.2254360 = phi ptr [ %58, %310 ], [ %274, %Xz_CheckFooter.exit ], [ %274, %265 ], [ %.0252, %.thread327 ], [ %194, %.thread ], [ %.0252, %304 ], [ %307, %305 ], [ %256, %254 ], [ %.0252, %261 ], [ %206, %204 ], [ %232, %231 ], [ %.0252, %250 ], [ %226, %223 ], [ %181, %178 ], [ %130, %149 ], [ %.0252, %167 ], [ %164, %156 ], [ %107, %._crit_edge ], [ %.0252, %124 ], [ %.0252, %97 ]
+  %.2250382 = phi ptr [ %64, %310 ], [ %.0248, %Xz_CheckFooter.exit ], [ %.0248, %265 ], [ %.0248, %.thread327 ], [ %.0248, %.thread ], [ %.0248, %304 ], [ %.0248, %305 ], [ %.0248, %254 ], [ %.0248, %261 ], [ %.0248, %204 ], [ %.0248, %231 ], [ %.0248, %250 ], [ %.0248, %223 ], [ %.0248, %178 ], [ %.0248, %149 ], [ %.0248, %167 ], [ %.0248, %156 ], [ %.0248, %._crit_edge ], [ %.0248, %124 ], [ %.0248, %97 ]
+  %.2254381 = phi ptr [ %58, %310 ], [ %274, %Xz_CheckFooter.exit ], [ %274, %265 ], [ %.0252, %.thread327 ], [ %194, %.thread ], [ %.0252, %304 ], [ %307, %305 ], [ %256, %254 ], [ %.0252, %261 ], [ %206, %204 ], [ %232, %231 ], [ %.0252, %250 ], [ %226, %223 ], [ %181, %178 ], [ %130, %149 ], [ %.0252, %167 ], [ %164, %156 ], [ %107, %._crit_edge ], [ %.0252, %124 ], [ %.0252, %97 ]
   %.pre = load i64, ptr %4, align 8, !tbaa !26
   br label %41
 
-.thread336:                                       ; preds = %286, %290, %276, %Xz_CheckFooter.exit, %112, %121, %301, %261, %204, %178, %104, %250, %231, %165, %167, %.thread364, %199, %96
-  %.3341 = phi i32 [ 3, %199 ], [ 0, %96 ], [ %.1.ph, %.thread364 ], [ 3, %286 ], [ 3, %290 ], [ 3, %276 ], [ 3, %Xz_CheckFooter.exit ], [ 4, %121 ], [ 17, %112 ], [ %171, %167 ], [ %166, %165 ], [ 3, %231 ], [ 3, %250 ], [ 17, %104 ], [ 3, %178 ], [ 3, %204 ], [ 3, %261 ], [ 17, %301 ]
+.thread336:                                       ; preds = %286, %290, %276, %Xz_CheckFooter.exit, %112, %121, %301, %261, %204, %178, %104, %250, %231, %165, %167, %.thread385, %199, %96
+  %.3341 = phi i32 [ 3, %199 ], [ 0, %96 ], [ %.1.ph, %.thread385 ], [ 3, %286 ], [ 3, %290 ], [ 3, %276 ], [ 3, %Xz_CheckFooter.exit ], [ 4, %121 ], [ 17, %112 ], [ %171, %167 ], [ %166, %165 ], [ 3, %231 ], [ 3, %250 ], [ 17, %104 ], [ 3, %178 ], [ 3, %204 ], [ 3, %261 ], [ 17, %301 ]
   ret i32 %.3341
 }
 

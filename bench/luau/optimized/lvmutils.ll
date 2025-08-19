@@ -1019,10 +1019,10 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit.thread: ; preds = %23, %15
   br i1 %37, label %60, label %.thread.i
 
 .thread.i:                                        ; preds = %35, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit.thread
-  %.015.i = phi ptr [ %36, %35 ], [ %31, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit.thread ]
+  %.016.i = phi ptr [ %36, %35 ], [ %31, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit.thread ]
   %38 = load ptr, ptr %12, align 8, !tbaa !35
   %39 = load ptr, ptr %13, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull readonly align 8 dereferenceable(16) %.016.i, i64 16, i1 false), !tbaa.struct !33
   %40 = load ptr, ptr %13, align 8, !tbaa !36
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull readonly align 8 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !33
@@ -1383,12 +1383,12 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit65:        ; preds = %61, %63
   br i1 %78, label %104, label %.thread.i
 
 .thread.i:                                        ; preds = %76, %71
-  %.015.i = phi ptr [ %77, %76 ], [ %72, %71 ]
+  %.016.i = phi ptr [ %77, %76 ], [ %72, %71 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %80 = load ptr, ptr %79, align 8, !tbaa !35
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull readonly align 8 dereferenceable(16) %.016.i, i64 16, i1 false), !tbaa.struct !33
   %83 = load ptr, ptr %81, align 8, !tbaa !36
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !33
@@ -1600,12 +1600,12 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit65:        ; preds = %61, %63
   br i1 %78, label %104, label %.thread.i
 
 .thread.i:                                        ; preds = %76, %71
-  %.015.i = phi ptr [ %77, %76 ], [ %72, %71 ]
+  %.016.i = phi ptr [ %77, %76 ], [ %72, %71 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %80 = load ptr, ptr %79, align 8, !tbaa !35
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull readonly align 8 dereferenceable(16) %.016.i, i64 16, i1 false), !tbaa.struct !33
   %83 = load ptr, ptr %81, align 8, !tbaa !36
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !33
@@ -1870,12 +1870,12 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit89:        ; preds = %90, %92
   br i1 %107, label %133, label %.thread.i
 
 .thread.i:                                        ; preds = %105, %100
-  %.015.i = phi ptr [ %106, %105 ], [ %101, %100 ]
+  %.016.i = phi ptr [ %106, %105 ], [ %101, %100 ]
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %109 = load ptr, ptr %108, align 8, !tbaa !35
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %111 = load ptr, ptr %110, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull readonly align 8 dereferenceable(16) %.016.i, i64 16, i1 false), !tbaa.struct !33
   %112 = load ptr, ptr %110, align 8, !tbaa !36
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !33
@@ -2140,12 +2140,12 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit89:        ; preds = %90, %92
   br i1 %107, label %133, label %.thread.i
 
 .thread.i:                                        ; preds = %105, %100
-  %.015.i = phi ptr [ %106, %105 ], [ %101, %100 ]
+  %.016.i = phi ptr [ %106, %105 ], [ %101, %100 ]
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %109 = load ptr, ptr %108, align 8, !tbaa !35
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %111 = load ptr, ptr %110, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull readonly align 8 dereferenceable(16) %.016.i, i64 16, i1 false), !tbaa.struct !33
   %112 = load ptr, ptr %110, align 8, !tbaa !36
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !33
@@ -2443,12 +2443,12 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit89:        ; preds = %122, %124
   br i1 %140, label %166, label %.thread.i
 
 .thread.i:                                        ; preds = %138, %133
-  %.015.i = phi ptr [ %139, %138 ], [ %134, %133 ]
+  %.016.i = phi ptr [ %139, %138 ], [ %134, %133 ]
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %142 = load ptr, ptr %141, align 8, !tbaa !35
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %144 = load ptr, ptr %143, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %144, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %144, ptr noundef nonnull readonly align 8 dereferenceable(16) %.016.i, i64 16, i1 false), !tbaa.struct !33
   %145 = load ptr, ptr %143, align 8, !tbaa !36
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %146, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !33
@@ -2637,12 +2637,12 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit51:        ; preds = %44, %46
   br i1 %64, label %90, label %.thread.i
 
 .thread.i:                                        ; preds = %62, %57
-  %.015.i = phi ptr [ %63, %62 ], [ %58, %57 ]
+  %.016.i = phi ptr [ %63, %62 ], [ %58, %57 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %66 = load ptr, ptr %65, align 8, !tbaa !35
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull readonly align 8 dereferenceable(16) %.016.i, i64 16, i1 false), !tbaa.struct !33
   %69 = load ptr, ptr %67, align 8, !tbaa !36
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !33
@@ -2828,12 +2828,12 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit51:        ; preds = %44, %46
   br i1 %61, label %87, label %.thread.i
 
 .thread.i:                                        ; preds = %59, %54
-  %.015.i = phi ptr [ %60, %59 ], [ %55, %54 ]
+  %.016.i = phi ptr [ %60, %59 ], [ %55, %54 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %63 = load ptr, ptr %62, align 8, !tbaa !35
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull readonly align 8 dereferenceable(16) %.016.i, i64 16, i1 false), !tbaa.struct !33
   %66 = load ptr, ptr %64, align 8, !tbaa !36
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !33
@@ -3038,12 +3038,12 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit59:        ; preds = %56, %58
   br i1 %73, label %99, label %.thread.i
 
 .thread.i:                                        ; preds = %71, %66
-  %.015.i = phi ptr [ %72, %71 ], [ %67, %66 ]
+  %.016.i = phi ptr [ %72, %71 ], [ %67, %66 ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %75 = load ptr, ptr %74, align 8, !tbaa !35
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull readonly align 8 dereferenceable(16) %.016.i, i64 16, i1 false), !tbaa.struct !33
   %78 = load ptr, ptr %76, align 8, !tbaa !36
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !33

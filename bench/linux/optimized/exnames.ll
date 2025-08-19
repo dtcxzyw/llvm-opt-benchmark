@@ -189,7 +189,7 @@ define dso_local range(i32 0, 16387) i32 @acpi_ex_get_name_string(i32 noundef %0
   store i8 47, ptr %89, align 1
   %93 = getelementptr i8, ptr %89, i64 2
   store i8 %66, ptr %92, align 1
-  br label %.thread34
+  br label %.thread45
 
 94:                                               ; preds = %88
   %95 = icmp eq i8 %66, 2
@@ -198,9 +198,9 @@ define dso_local range(i32 0, 16387) i32 @acpi_ex_get_name_string(i32 noundef %0
 96:                                               ; preds = %94
   %97 = getelementptr i8, ptr %89, i64 1
   store i8 46, ptr %89, align 1
-  br label %.thread34
+  br label %.thread45
 
-.thread34:                                        ; preds = %96, %91
+.thread45:                                        ; preds = %96, %91
   %.ph = phi ptr [ %97, %96 ], [ %93, %91 ]
   store i8 0, ptr %.ph, align 1
   %98 = load ptr, ptr %10, align 8
@@ -216,7 +216,7 @@ define dso_local range(i32 0, 16387) i32 @acpi_ex_get_name_string(i32 noundef %0
   %103 = icmp eq i8 %66, 0
   br i1 %103, label %.thread20.thread24, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %.thread34, %100
+.preheader.preheader:                             ; preds = %.thread45, %100
   br label %.preheader
 
 104:                                              ; preds = %.preheader
@@ -318,14 +318,14 @@ define dso_local range(i32 0, 16387) i32 @acpi_ex_get_name_string(i32 noundef %0
 
 .loopexit.sink.split:                             ; preds = %59, %151
   %.sink = phi ptr [ %141, %151 ], [ %49, %59 ]
-  %.ph41 = phi i1 [ %38, %151 ], [ true, %59 ]
+  %.ph52 = phi i1 [ %38, %151 ], [ true, %59 ]
   %153 = call fastcc i32 @acpi_ex_name_segment(ptr noundef nonnull %10, ptr noundef nonnull %.sink), !range !7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split, %59
   %154 = phi i32 [ %62, %59 ], [ %153, %.loopexit.sink.split ], [ %108, %.preheader ]
   %155 = phi ptr [ %49, %59 ], [ %.sink, %.loopexit.sink.split ], [ %78, %.preheader ]
-  %156 = phi i1 [ true, %59 ], [ %.ph41, %.loopexit.sink.split ], [ true, %.preheader ]
+  %156 = phi i1 [ true, %59 ], [ %.ph52, %.loopexit.sink.split ], [ true, %.preheader ]
   %157 = icmp eq i32 %154, 16386
   %158 = and i1 %157, %156
   br i1 %158, label %.thread21, label %.thread20

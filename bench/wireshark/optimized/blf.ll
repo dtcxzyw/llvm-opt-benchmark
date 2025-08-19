@@ -1879,8 +1879,8 @@ define internal fastcc noundef zeroext i1 @blf_read_ethernetframe(ptr noundef re
   %reass.sub = sub i64 %4, %3
   %11 = add i64 %reass.sub, 32
   %12 = icmp slt i64 %5, %11
-  %.sink47.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 13
-  %.sink47.sroa.gep49 = getelementptr inbounds nuw i8, ptr %10, i64 17
+  %.sink49.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 13
+  %.sink49.sroa.gep51 = getelementptr inbounds nuw i8, ptr %10, i64 17
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %8
@@ -1991,23 +1991,23 @@ blf_read_bytes.exit:                              ; preds = %15
   br label %83
 
 83:                                               ; preds = %77, %61
-  %.sink48 = phi i16 [ %79, %77 ], [ %73, %61 ]
-  %.sink47.sroa.phi = phi ptr [ %.sink47.sroa.gep, %77 ], [ %.sink47.sroa.gep49, %61 ]
-  %.sink42 = phi i64 [ 14, %77 ], [ 18, %61 ]
-  %.sink33 = phi i32 [ 14, %77 ], [ 18, %61 ]
-  %84 = trunc i16 %.sink48 to i8
-  store i8 %84, ptr %.sink47.sroa.phi, align 1
+  %.sink50 = phi i16 [ %79, %77 ], [ %73, %61 ]
+  %.sink49.sroa.phi = phi ptr [ %.sink49.sroa.gep, %77 ], [ %.sink49.sroa.gep51, %61 ]
+  %.sink44 = phi i64 [ 14, %77 ], [ 18, %61 ]
+  %.sink35 = phi i32 [ 14, %77 ], [ 18, %61 ]
+  %84 = trunc i16 %.sink50 to i8
+  store i8 %84, ptr %.sink49.sroa.phi, align 1
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 280
   %88 = getelementptr inbounds nuw i8, ptr %9, i64 22
   %89 = load i16, ptr %88, align 2
   %90 = zext i16 %89 to i64
-  %91 = add nuw nsw i64 %.sink42, %90
+  %91 = add nuw nsw i64 %.sink44, %90
   call void @ws_buffer_assure_space(ptr noundef nonnull %87, i64 noundef %91)
   %92 = load ptr, ptr %85, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 280
-  call void @ws_buffer_append(ptr noundef nonnull %93, ptr noundef nonnull %10, i64 noundef %.sink42)
+  call void @ws_buffer_append(ptr noundef nonnull %93, ptr noundef nonnull %10, i64 noundef %.sink44)
   %94 = load i16, ptr %88, align 2
   %95 = add i64 %4, 32
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2032,7 +2032,7 @@ blf_read_bytes.exit:                              ; preds = %15
 
 blf_read_bytes.exit32:                            ; preds = %83
   %107 = zext i16 %94 to i32
-  %108 = add nuw nsw i32 %.sink33, %107
+  %108 = add nuw nsw i32 %.sink35, %107
   %109 = getelementptr inbounds nuw i8, ptr %9, i64 22
   %110 = load ptr, ptr %96, align 8
   %111 = load i16, ptr %109, align 2
@@ -3293,8 +3293,8 @@ blf_read_bytes.exit:                              ; preds = %16
   %49 = trunc i16 %36 to i8
   %50 = lshr i8 %49, 1
   %51 = and i8 %50, 8
-  %spec.select50 = or disjoint i8 %spec.select, %51
-  store i8 %spec.select50, ptr %34, align 1
+  %spec.select51 = or disjoint i8 %spec.select, %51
+  store i8 %spec.select51, ptr %34, align 1
   br label %52
 
 52:                                               ; preds = %blf_read_bytes.exit, %38
@@ -3479,11 +3479,11 @@ blf_read_bytes.exit:                              ; preds = %18
   %62 = or disjoint i8 %58, %61
   %63 = or disjoint i8 %62, %49
   %64 = or disjoint i8 %63, 32
-  %spec.select54 = select i1 %.not49.not.not, i8 %64, i8 %63
+  %spec.select56 = select i1 %.not49.not.not, i8 %64, i8 %63
   %65 = trunc i32 %52 to i8
   %66 = and i8 %65, 8
-  %spec.select55 = or disjoint i8 %spec.select54, %66
-  store i8 %spec.select55, ptr %50, align 1
+  %spec.select57 = or disjoint i8 %spec.select56, %66
+  store i8 %spec.select57, ptr %50, align 1
   br label %67
 
 67:                                               ; preds = %31, %54

@@ -386,7 +386,7 @@ _ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds 
   br label %_ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %.preheader, %_ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %.split.us
-  %.us-phi42 = phi i1 [ %49, %_ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %49, %.split.us ], [ false, %.preheader ]
+  %.us-phi55 = phi i1 [ %49, %_ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %49, %.split.us ], [ false, %.preheader ]
   %54 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %.split.us ], [ %16, %.preheader ]
   %.not.i.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN4llvm6WeakVHESaIS1_EED2Ev.exit, label %55
@@ -402,7 +402,7 @@ _ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %.preheader, %
 
 _ZNSt6vectorIN4llvm6WeakVHESaIS1_EED2Ev.exit:     ; preds = %_ZSt8_DestroyIPN4llvm6WeakVHES1_EvT_S3_RSaIT0_E.exit.i, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %.us-phi42
+  ret i1 %.us-phi55
 }
 
 declare noundef zeroext i1 @_ZN4llvm23removeUnreachableBlocksERNS_8FunctionEPNS_14DomTreeUpdaterEPNS_16MemorySSAUpdaterE(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef, ptr noundef) local_unnamed_addr #2

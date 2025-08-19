@@ -360,14 +360,14 @@ invoke.cont12.thread:                             ; preds = %cond.false.i
   br label %invoke.cont17
 
 invoke.cont17:                                    ; preds = %invoke.cont6, %invoke.cont12.thread
-  %.sink554 = phi ptr [ %.pre.i, %invoke.cont12.thread ], [ %1, %invoke.cont6 ]
-  %sigma_.i461 = getelementptr inbounds nuw i8, ptr %.sink554, i64 200
+  %.sink594 = phi ptr [ %.pre.i, %invoke.cont12.thread ], [ %1, %invoke.cont6 ]
+  %sigma_.i461 = getelementptr inbounds nuw i8, ptr %.sink594, i64 200
   %2 = load double, ptr %sigma_.i461, align 8, !tbaa !14
   %mul462 = fmul double %mixingFactor, %2
-  %theta_.i = getelementptr inbounds nuw i8, ptr %.sink554, i64 192
+  %theta_.i = getelementptr inbounds nuw i8, ptr %.sink594, i64 192
   %3 = load double, ptr %theta_.i, align 8, !tbaa !39
   %mul16 = fmul double %3, 4.000000e+00
-  %kappa_.i = getelementptr inbounds nuw i8, ptr %.sink554, i64 184
+  %kappa_.i = getelementptr inbounds nuw i8, ptr %.sink594, i64 184
   %4 = load double, ptr %kappa_.i, align 8, !tbaa !40
   %mul21 = fmul double %mul16, %4
   %mul.i = fmul double %mul462, %mul462
@@ -434,8 +434,8 @@ invoke.cont28:                                    ; preds = %cond.false.i153
   br label %invoke.cont76
 
 invoke.cont76:                                    ; preds = %for.body, %invoke.cont28
-  %.sink555 = phi ptr [ %.pre.i154, %invoke.cont28 ], [ %10, %for.body ]
-  %kappa_.i157476 = getelementptr inbounds nuw i8, ptr %.sink555, i64 184
+  %.sink595 = phi ptr [ %.pre.i154, %invoke.cont28 ], [ %10, %for.body ]
+  %kappa_.i157476 = getelementptr inbounds nuw i8, ptr %.sink595, i64 184
   %11 = load double, ptr %kappa_.i157476, align 8, !tbaa !40
   %fneg = fneg double %11
   %mul37 = fmul double %div26, %fneg
@@ -446,10 +446,10 @@ invoke.cont76:                                    ; preds = %for.body, %invoke.c
   %sub = fsub double 1.000000e+00, %call48
   %mul49 = fmul double %mul.i, %sub
   %div50 = fdiv double %mul39, %mul49
-  %v0_.i = getelementptr inbounds nuw i8, ptr %.sink555, i64 176
+  %v0_.i = getelementptr inbounds nuw i8, ptr %.sink595, i64 176
   %12 = load double, ptr %v0_.i, align 8, !tbaa !48
   %mul55 = fmul double %div50, %12
-  %kappa_.i182 = getelementptr inbounds nuw i8, ptr %.sink555, i64 184
+  %kappa_.i182 = getelementptr inbounds nuw i8, ptr %.sink595, i64 184
   %13 = load double, ptr %kappa_.i182, align 8, !tbaa !40
   %fneg63 = fneg double %13
   %mul64 = fmul double %div26, %fneg63
@@ -458,7 +458,7 @@ invoke.cont76:                                    ; preds = %for.body, %invoke.c
   %mul67 = fmul double %mul.i, %sub66
   %mul72 = fmul double %13, 4.000000e+00
   %div73 = fdiv double %mul67, %mul72
-  %v0_.i194 = getelementptr inbounds nuw i8, ptr %.sink555, i64 176
+  %v0_.i194 = getelementptr inbounds nuw i8, ptr %.sink595, i64 176
   %14 = load double, ptr %v0_.i194, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp81)
   invoke void @_ZN8QuantLib48InverseNonCentralCumulativeChiSquareDistributionC1Eddmd(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp81, double noundef %div, double noundef %mul55, i64 noundef 100, double noundef 1.000000e-08)
@@ -573,7 +573,7 @@ for.body103:                                      ; preds = %invoke.cont97, %inv
 invoke.cont111:                                   ; preds = %for.body103
   %sub105 = fsub double %sub84, %p.0521
   %sub106 = sub nuw i64 %size, %i.0522
-  %conv107 = uitofp i64 %sub106 to double
+  %conv107 = uitofp nneg i64 %sub106 to double
   %div108 = fdiv double %sub105, %conv107
   %add = fadd double %p.0521, %div108
   %call113 = invoke noundef double @_ZNK8QuantLib48InverseNonCentralCumulativeChiSquareDistributionclEd(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp109, double noundef %add)
@@ -1006,18 +1006,18 @@ invoke.cont237:                                   ; preds = %cond.false.i270
   br label %invoke.cont271
 
 invoke.cont271:                                   ; preds = %catch, %invoke.cont237
-  %.sink556 = phi ptr [ %.pre.i271, %invoke.cont237 ], [ %67, %catch ]
-  %theta_.i274481 = getelementptr inbounds nuw i8, ptr %.sink556, i64 192
+  %.sink596 = phi ptr [ %.pre.i271, %invoke.cont237 ], [ %67, %catch ]
+  %theta_.i274481 = getelementptr inbounds nuw i8, ptr %.sink596, i64 192
   %68 = load double, ptr %theta_.i274481, align 8, !tbaa !39
-  %kappa_.i280 = getelementptr inbounds nuw i8, ptr %.sink556, i64 184
+  %kappa_.i280 = getelementptr inbounds nuw i8, ptr %.sink596, i64 184
   %69 = load double, ptr %kappa_.i280, align 8, !tbaa !40
   %mul245 = fmul double %69, 2.000000e+00
   %div246 = fdiv double %68, %mul245
   %call247 = call double @sqrt(double noundef %div246) #22, !tbaa !46
   %mul248 = fmul double %mul462, %call247
-  %theta_.i286483 = getelementptr inbounds nuw i8, ptr %.sink556, i64 192
+  %theta_.i286483 = getelementptr inbounds nuw i8, ptr %.sink596, i64 192
   %70 = load double, ptr %theta_.i286483, align 8, !tbaa !39
-  %v0_.i292 = getelementptr inbounds nuw i8, ptr %.sink556, i64 176
+  %v0_.i292 = getelementptr inbounds nuw i8, ptr %.sink596, i64 176
   %71 = load double, ptr %v0_.i292, align 8, !tbaa !48
   %72 = call double @llvm.fmuladd.f64(double %mul248, double -4.000000e+00, double %71)
   %73 = call double @llvm.fmuladd.f64(double %mul248, double -4.000000e+00, double %70)
@@ -1032,7 +1032,7 @@ for.body290.lr.ph:                                ; preds = %invoke.cont271
   %76 = call double @llvm.fmuladd.f64(double %mul248, double 4.000000e+00, double %70)
   %cmp.i293 = fcmp olt double %75, %76
   %.sroa.speculated393 = select i1 %cmp.i293, double %76, double %75
-  %conv292 = uitofp i64 %size to double
+  %conv292 = uitofp nneg i64 %size to double
   %sub293 = fadd double %conv292, -1.000000e+00
   %sub297 = fsub double %.sroa.speculated393, %.sroa.speculated391
   br label %for.body290
@@ -4958,7 +4958,7 @@ if.end:                                           ; preds = %entry
   %sub = add nsw i64 %sub.ptr.div.i, -2
   %div1213 = lshr i64 %sub, 1
   %sub.i = add nsw i64 %sub.ptr.div.i, -1
-  %div.i1719 = lshr i64 %sub.i, 1
+  %div.i16 = lshr i64 %sub.i, 1
   %0 = and i64 %sub.ptr.sub.i.fr, 8
   %cmp16.i = icmp eq i64 %0, 0
   %div18.i = lshr exact i64 %sub, 1
@@ -4966,7 +4966,7 @@ if.end:                                           ; preds = %entry
 
 while.cond.preheader:                             ; preds = %if.end
   %sub24.i = or disjoint i64 %sub, 1
-  %add.ptr.i20.i = getelementptr inbounds double, ptr %__first.coerce, i64 %sub24.i
+  %add.ptr.i20.i = getelementptr inbounds nuw double, ptr %__first.coerce, i64 %sub24.i
   %add.ptr.i21.i = getelementptr inbounds nuw double, ptr %__first.coerce, i64 %div18.i
   br label %while.cond
 
@@ -4974,7 +4974,7 @@ while.cond.us:                                    ; preds = %if.end, %_ZSt13__ad
   %__parent.0.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us ], [ %div1213, %if.end ]
   %add.ptr.i.us = getelementptr inbounds double, ptr %__first.coerce, i64 %__parent.0.us
   %1 = load double, ptr %add.ptr.i.us, align 8, !tbaa !6
-  %cmp28.i.us = icmp slt i64 %__parent.0.us, %div.i1719
+  %cmp28.i.us = icmp slt i64 %__parent.0.us, %div.i16
   br i1 %cmp28.i.us, label %while.body.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
 
 while.body.i.us:                                  ; preds = %while.cond.us, %while.body.i.us
@@ -4992,7 +4992,7 @@ while.body.i.us:                                  ; preds = %while.cond.us, %whi
   %4 = load double, ptr %add.ptr.i18.i.us, align 8, !tbaa !6
   %add.ptr.i19.i.us = getelementptr inbounds double, ptr %__first.coerce, i64 %__holeIndex.addr.029.i.us
   store double %4, ptr %add.ptr.i19.i.us, align 8, !tbaa !6
-  %cmp.i.us = icmp slt i64 %spec.select.i.us, %div.i1719
+  %cmp.i.us = icmp slt i64 %spec.select.i.us, %div.i16
   br i1 %cmp.i.us, label %while.body.i.us, label %while.end.i.us, !llvm.loop !124
 
 while.end.i.us:                                   ; preds = %while.body.i.us
@@ -5003,20 +5003,20 @@ land.rhs.i.i.us:                                  ; preds = %while.end.i.us, %wh
   %__holeIndex.addr.017.i.i.us = phi i64 [ %__parent.018.i.i.us, %while.body.i.i.us ], [ %spec.select.i.us, %while.end.i.us ]
   %__parent.018.in.i.i.us = add nsw i64 %__holeIndex.addr.017.i.i.us, -1
   %__parent.018.i.i.us = sdiv i64 %__parent.018.in.i.i.us, 2
-  %add.ptr.i.i.i.us = getelementptr inbounds double, ptr %__first.coerce, i64 %__parent.018.i.i.us
+  %add.ptr.i.i.i.us = getelementptr inbounds nuw double, ptr %__first.coerce, i64 %__parent.018.i.i.us
   %5 = load double, ptr %add.ptr.i.i.i.us, align 8, !tbaa !6
   %cmp.i.i.i.us = fcmp olt double %5, %1
   br i1 %cmp.i.i.i.us, label %while.body.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
 
 while.body.i.i.us:                                ; preds = %land.rhs.i.i.us
-  %add.ptr.i8.i.i.us = getelementptr inbounds double, ptr %__first.coerce, i64 %__holeIndex.addr.017.i.i.us
+  %add.ptr.i8.i.i.us = getelementptr inbounds nuw double, ptr %__first.coerce, i64 %__holeIndex.addr.017.i.i.us
   store double %5, ptr %add.ptr.i8.i.i.us, align 8, !tbaa !6
   %cmp.i22.i.us = icmp sgt i64 %__parent.018.i.i.us, %__parent.0.us
   br i1 %cmp.i22.i.us, label %land.rhs.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !125
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us: ; preds = %land.rhs.i.i.us, %while.body.i.i.us, %while.cond.us, %while.end.i.us
   %__holeIndex.addr.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %while.end.i.us ], [ %__parent.0.us, %while.cond.us ], [ %__parent.018.i.i.us, %while.body.i.i.us ], [ %__holeIndex.addr.017.i.i.us, %land.rhs.i.i.us ]
-  %add.ptr.i9.i.i.us = getelementptr inbounds double, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.us
+  %add.ptr.i9.i.i.us = getelementptr inbounds nuw double, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.us
   store double %1, ptr %add.ptr.i9.i.i.us, align 8, !tbaa !6
   %cmp8.not.us = icmp eq i64 %__parent.0.us, 0
   %dec.us = add nsw i64 %__parent.0.us, -1
@@ -5026,7 +5026,7 @@ while.cond:                                       ; preds = %while.cond.preheade
   %__parent.0 = phi i64 [ %dec, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit ], [ %div1213, %while.cond.preheader ]
   %add.ptr.i = getelementptr inbounds double, ptr %__first.coerce, i64 %__parent.0
   %6 = load double, ptr %add.ptr.i, align 8, !tbaa !6
-  %cmp28.i = icmp slt i64 %__parent.0, %div.i1719
+  %cmp28.i = icmp slt i64 %__parent.0, %div.i16
   br i1 %cmp28.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.cond, %while.body.i
@@ -5044,7 +5044,7 @@ while.body.i:                                     ; preds = %while.cond, %while.
   %9 = load double, ptr %add.ptr.i18.i, align 8, !tbaa !6
   %add.ptr.i19.i = getelementptr inbounds double, ptr %__first.coerce, i64 %__holeIndex.addr.029.i
   store double %9, ptr %add.ptr.i19.i, align 8, !tbaa !6
-  %cmp.i = icmp slt i64 %spec.select.i, %div.i1719
+  %cmp.i = icmp slt i64 %spec.select.i, %div.i16
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !124
 
 while.end.i:                                      ; preds = %while.body.i, %while.cond
@@ -5066,20 +5066,20 @@ land.rhs.i.i:                                     ; preds = %if.end33.i, %while.
   %__holeIndex.addr.017.i.i = phi i64 [ %__parent.018.i.i, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end33.i ]
   %__parent.018.in.i.i = add nsw i64 %__holeIndex.addr.017.i.i, -1
   %__parent.018.i.i = sdiv i64 %__parent.018.in.i.i, 2
-  %add.ptr.i.i.i = getelementptr inbounds double, ptr %__first.coerce, i64 %__parent.018.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %__first.coerce, i64 %__parent.018.i.i
   %11 = load double, ptr %add.ptr.i.i.i, align 8, !tbaa !6
   %cmp.i.i.i = fcmp olt double %11, %6
   br i1 %cmp.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %add.ptr.i8.i.i = getelementptr inbounds double, ptr %__first.coerce, i64 %__holeIndex.addr.017.i.i
+  %add.ptr.i8.i.i = getelementptr inbounds nuw double, ptr %__first.coerce, i64 %__holeIndex.addr.017.i.i
   store double %11, ptr %add.ptr.i8.i.i, align 8, !tbaa !6
   %cmp.i22.i = icmp sgt i64 %__parent.018.i.i, %__parent.0
   br i1 %cmp.i22.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, !llvm.loop !125
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit: ; preds = %land.rhs.i.i, %while.body.i.i, %if.end33.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end33.i ], [ %__parent.018.i.i, %while.body.i.i ], [ %__holeIndex.addr.017.i.i, %land.rhs.i.i ]
-  %add.ptr.i9.i.i = getelementptr inbounds double, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i
+  %add.ptr.i9.i.i = getelementptr inbounds nuw double, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i
   store double %6, ptr %add.ptr.i9.i.i, align 8, !tbaa !6
   %cmp8.not = icmp eq i64 %__parent.0, 0
   %dec = add nsw i64 %__parent.0, -1

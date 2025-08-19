@@ -433,7 +433,7 @@ define ptr @Java_java_net_Inet6AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   br i1 %.not179, label %._crit_edge233, label %.lr.ph232, !llvm.loop !11
 
 ._crit_edge233:                                   ; preds = %.lr.ph232, %.loopexit.thread, %.loopexit
-  %.0123247 = phi ptr [ %.0123.ph, %.loopexit.thread ], [ %.0123, %.loopexit ], [ %.0123, %.lr.ph232 ]
+  %.0123257 = phi ptr [ %.0123.ph, %.loopexit.thread ], [ %.0123, %.loopexit ], [ %.0123, %.lr.ph232 ]
   %169 = load ptr, ptr %6, align 8
   %.not180 = icmp eq ptr %169, null
   br i1 %.not180, label %171, label %170
@@ -443,7 +443,7 @@ define ptr @Java_java_net_Inet6AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   br label %171
 
 171:                                              ; preds = %._crit_edge233, %170, %14, %4, %13
-  %.0 = phi ptr [ null, %13 ], [ null, %4 ], [ null, %14 ], [ %.0123247, %170 ], [ %.0123247, %._crit_edge233 ]
+  %.0 = phi ptr [ null, %13 ], [ null, %4 ], [ null, %14 ], [ %.0123257, %170 ], [ %.0123257, %._crit_edge233 ]
   ret ptr %.0
 }
 

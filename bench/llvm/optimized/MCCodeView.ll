@@ -760,27 +760,27 @@ define dso_local void @_ZN4llvm15CodeViewContext12addLineEntryERKNS_7MCCVLocE(pt
   br i1 %18, label %._crit_edge.thread.i.i.i, label %24
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %2
-  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %15, %2 ]
+  %.019.lcssa29.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %15, %2 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %20 = load ptr, ptr %19, align 8, !tbaa !153
-  %21 = icmp eq ptr %.019.lcssa28.i.i.i, %20
+  %21 = icmp eq ptr %.019.lcssa29.i.i.i, %20
   br i1 %21, label %select.unfold.i.i, label %22
 
 22:                                               ; preds = %._crit_edge.thread.i.i.i
-  %23 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #18
+  %23 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i) #18
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %23, i64 32
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !69
   br label %24
 
 24:                                               ; preds = %22, %._crit_edge.i.i.i
   %25 = phi i32 [ %.pre.i.i, %22 ], [ %17, %._crit_edge.i.i.i ]
-  %.019.lcssa29.i.i.i = phi ptr [ %.019.lcssa28.i.i.i, %22 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
+  %.019.lcssa28.i.i.i = phi ptr [ %.019.lcssa29.i.i.i, %22 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
   %.sroa.05.0.i.i.i = phi ptr [ %23, %22 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
   %26 = icmp ult i32 %25, %12
   br i1 %26, label %select.unfold.i.i, label %38
 
 select.unfold.i.i:                                ; preds = %24, %._crit_edge.thread.i.i.i
-  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %24 ]
+  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa29.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa28.i.i.i, %24 ]
   %27 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %15
   br i1 %27, label %_ZNSt3mapIjSt4pairImmESt4lessIjESaIS0_IKjS1_EEE6insertEOS5_.exit.thread, label %28
 
@@ -2605,30 +2605,30 @@ _ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE.exit123: ; preds = %147, %1
   br i1 %.not.i.i.i.i124, label %.thread.sink.split.sink.split, label %.thread.sink.split, !prof !288
 
 .thread.sink.split.sink.split:                    ; preds = %140, %157, %84
-  %.sink209.sink = phi i64 [ %94, %84 ], [ %144, %140 ], [ %159, %157 ]
-  %.sink205.ph = phi i8 [ 4, %84 ], [ 11, %140 ], [ 3, %157 ]
-  %.sink202.ph = phi i32 [ %92, %84 ], [ %142, %140 ], [ %137, %157 ]
+  %.sink225.sink = phi i64 [ %94, %84 ], [ %144, %140 ], [ %159, %157 ]
+  %.sink221.ph = phi i8 [ 4, %84 ], [ 11, %140 ], [ 3, %157 ]
+  %.sink218.ph = phi i32 [ %92, %84 ], [ %142, %140 ], [ %137, %157 ]
   %.sroa.053.1.ph.ph.ph = phi i32 [ %.sroa.053.0192, %84 ], [ %.sroa.0.2, %140 ], [ %.sroa.0.2, %157 ]
   %.sroa.6.1.ph.ph.ph = phi i32 [ %.sroa.6.0193, %84 ], [ %.sroa.8.2, %140 ], [ %.sroa.8.2, %157 ]
   %.183.ph.ph.ph = phi i8 [ 0, %84 ], [ 1, %140 ], [ 1, %157 ]
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull %48, i64 noundef %.sink209.sink, i64 noundef 1) #17
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull %48, i64 noundef %.sink225.sink, i64 noundef 1) #17
   %.pre.i.i126 = load i64, ptr %43, align 8, !tbaa !47
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %.thread.sink.split.sink.split, %140, %157, %84
-  %.sink208 = phi i64 [ %93, %84 ], [ %143, %140 ], [ %158, %157 ], [ %.pre.i.i126, %.thread.sink.split.sink.split ]
-  %.sink205 = phi i8 [ 4, %84 ], [ 11, %140 ], [ 3, %157 ], [ %.sink205.ph, %.thread.sink.split.sink.split ]
-  %.sink202 = phi i32 [ %92, %84 ], [ %142, %140 ], [ %137, %157 ], [ %.sink202.ph, %.thread.sink.split.sink.split ]
+  %.sink224 = phi i64 [ %93, %84 ], [ %143, %140 ], [ %158, %157 ], [ %.pre.i.i126, %.thread.sink.split.sink.split ]
+  %.sink221 = phi i8 [ 4, %84 ], [ 11, %140 ], [ 3, %157 ], [ %.sink221.ph, %.thread.sink.split.sink.split ]
+  %.sink218 = phi i32 [ %92, %84 ], [ %142, %140 ], [ %137, %157 ], [ %.sink218.ph, %.thread.sink.split.sink.split ]
   %.sroa.053.1.ph.ph = phi i32 [ %.sroa.053.0192, %84 ], [ %.sroa.0.2, %140 ], [ %.sroa.0.2, %157 ], [ %.sroa.053.1.ph.ph.ph, %.thread.sink.split.sink.split ]
   %.sroa.6.1.ph.ph = phi i32 [ %.sroa.6.0193, %84 ], [ %.sroa.8.2, %140 ], [ %.sroa.8.2, %157 ], [ %.sroa.6.1.ph.ph.ph, %.thread.sink.split.sink.split ]
   %.183.ph.ph = phi i8 [ 0, %84 ], [ 1, %140 ], [ 1, %157 ], [ %.183.ph.ph.ph, %.thread.sink.split.sink.split ]
   %161 = load ptr, ptr %42, align 8, !tbaa !46
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 %.sink208
-  store i8 %.sink205, ptr %162, align 1
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 %.sink224
+  store i8 %.sink221, ptr %162, align 1
   %163 = load i64, ptr %43, align 8, !tbaa !47
   %164 = add i64 %163, 1
   store i64 %164, ptr %43, align 8, !tbaa !47
-  call fastcc void @_ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE(i32 noundef %.sink202, ptr noundef nonnull align 8 dereferenceable(24) %42)
+  call fastcc void @_ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE(i32 noundef %.sink218, ptr noundef nonnull align 8 dereferenceable(24) %42)
   %165 = load ptr, ptr %.088191, align 8, !tbaa !142
   br label %.thread
 
@@ -3369,7 +3369,7 @@ define linkonce_odr void @_ZNSt6vectorIN4llvm16MCCVFunctionInfoESaIS1_EE17_M_def
   br i1 %.not27, label %20, label %_ZSt27__uninitialized_default_n_aIPN4llvm16MCCVFunctionInfoEmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN4llvm16MCCVFunctionInfoEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 48
+  %19 = mul nuw nsw i64 %1, 48
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !122

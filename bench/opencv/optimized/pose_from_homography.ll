@@ -891,7 +891,7 @@ _ZN12_GLOBAL__N_121calcChessboardCornersEN2cv5Size_IiEEfRSt6vectorINS0_7Point3_I
   br label %309
 
 ._crit_edge.i:                                    ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit.i, %_ZN12_GLOBAL__N_121calcChessboardCornersEN2cv5Size_IiEEfRSt6vectorINS0_7Point3_IfEESaIS5_EENS_7PatternE.exit.i, %_ZN12_GLOBAL__N_121calcChessboardCornersEN2cv5Size_IiEEfRSt6vectorINS0_7Point3_IfEESaIS5_EENS_7PatternE.exit.thread.i
-  %.sroa.0275.4304.i = phi ptr [ null, %_ZN12_GLOBAL__N_121calcChessboardCornersEN2cv5Size_IiEEfRSt6vectorINS0_7Point3_IfEESaIS5_EENS_7PatternE.exit.thread.i ], [ %.sroa.0275.3.i, %_ZN12_GLOBAL__N_121calcChessboardCornersEN2cv5Size_IiEEfRSt6vectorINS0_7Point3_IfEESaIS5_EENS_7PatternE.exit.i ], [ %.sroa.0275.3.i, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit.i ]
+  %.sroa.0275.4335.i = phi ptr [ null, %_ZN12_GLOBAL__N_121calcChessboardCornersEN2cv5Size_IiEEfRSt6vectorINS0_7Point3_IfEESaIS5_EENS_7PatternE.exit.thread.i ], [ %.sroa.0275.3.i, %_ZN12_GLOBAL__N_121calcChessboardCornersEN2cv5Size_IiEEfRSt6vectorINS0_7Point3_IfEESaIS5_EENS_7PatternE.exit.i ], [ %.sroa.0275.3.i, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   invoke void @_ZN2cv7samples8findFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %26, ptr noundef nonnull align 8 dereferenceable(32) %82, i1 noundef zeroext true, i1 noundef zeroext false)
@@ -2031,11 +2031,11 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit.i:  ; preds = %691, %689
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit215.i: ; preds = %693, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  %.not.i.i.i216.i = icmp eq ptr %.sroa.0275.4304.i, null
+  %.not.i.i.i216.i = icmp eq ptr %.sroa.0275.4335.i, null
   br i1 %.not.i.i.i216.i, label %_ZNSolsEPFRSoS_E.exit.i, label %694
 
 694:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit215.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0275.4304.i) #20
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0275.4335.i) #20
   br label %_ZNSolsEPFRSoS_E.exit.i
 
 _ZNSolsEPFRSoS_E.exit.i:                          ; preds = %694, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit215.i, %.noexc234.i
@@ -2192,7 +2192,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit223.i: ; preds = %725, %723
   br label %728
 
 728:                                              ; preds = %727, %.loopexit.split-lp.i, %.loopexit.i
-  %.sroa.0275.4305.i = phi ptr [ %.sroa.0275.4304.i, %727 ], [ %.sroa.0275.3.i, %.loopexit.i ], [ %.sroa.0275.3.i, %.loopexit.split-lp.i ]
+  %.sroa.0275.4336.i = phi ptr [ %.sroa.0275.4335.i, %727 ], [ %.sroa.0275.3.i, %.loopexit.i ], [ %.sroa.0275.3.i, %.loopexit.split-lp.i ]
   %.pn144.i = phi { ptr, i32 } [ %.pn128.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %727 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %729 = load ptr, ptr %24, align 8, !tbaa !74
   %.not.i.i.i224.i = icmp eq ptr %729, null
@@ -2207,7 +2207,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit225.i: ; preds = %730, %728
   br label %731
 
 731:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit225.i, %.loopexit.split-lp284.i, %.loopexit283.i
-  %.sroa.0275.0.i = phi ptr [ %.sroa.0275.4305.i, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit225.i ], [ %.sroa.0275.2.i, %.loopexit283.i ], [ %.sroa.0275.2.i, %.loopexit.split-lp284.i ]
+  %.sroa.0275.0.i = phi ptr [ %.sroa.0275.4336.i, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit225.i ], [ %.sroa.0275.2.i, %.loopexit283.i ], [ %.sroa.0275.2.i, %.loopexit.split-lp284.i ]
   %.pn144.pn.i = phi { ptr, i32 } [ %.pn144.i, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit225.i ], [ %lpad.loopexit285.i, %.loopexit283.i ], [ %lpad.loopexit.split-lp286.i, %.loopexit.split-lp284.i ]
   %.not.i.i.i226.i = icmp eq ptr %.sroa.0275.0.i, null
   br i1 %.not.i.i.i226.i, label %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit227.i, label %732

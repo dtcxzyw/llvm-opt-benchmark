@@ -141,8 +141,8 @@ sub_0:                                            ; preds = %54
 .tail.thread:                                     ; preds = %sub_0
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 1
   %61 = load i8, ptr %60, align 1
-  %.not86130 = icmp eq i8 %61, 0
-  br i1 %.not86130, label %62, label %.tail108.thread
+  %.not86149 = icmp eq i8 %61, 0
+  br i1 %.not86149, label %62, label %.tail108.thread
 
 62:                                               ; preds = %.tail.thread
   %63 = load ptr, ptr @stdout, align 8, !tbaa !23

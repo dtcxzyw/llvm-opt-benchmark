@@ -2874,17 +2874,17 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %162, %179, %198, %217
-  %.sink121 = phi ptr [ %227, %217 ], [ %208, %198 ], [ %189, %179 ], [ %169, %162 ]
-  %.sink119 = phi double [ 4.000000e-01, %217 ], [ 2.600000e-01, %198 ], [ 1.700000e-01, %179 ], [ 3.000000e-01, %162 ]
-  %.sink114 = phi double [ 3.200000e-01, %217 ], [ 1.600000e-01, %198 ], [ 1.900000e-01, %179 ], [ 2.000000e-01, %162 ]
+  %.sink130 = phi ptr [ %227, %217 ], [ %208, %198 ], [ %189, %179 ], [ %169, %162 ]
+  %.sink128 = phi double [ 4.000000e-01, %217 ], [ 2.600000e-01, %198 ], [ 1.700000e-01, %179 ], [ 3.000000e-01, %162 ]
+  %.sink123 = phi double [ 3.200000e-01, %217 ], [ 1.600000e-01, %198 ], [ 1.900000e-01, %179 ], [ 2.000000e-01, %162 ]
   %.sink = phi i32 [ 31, %217 ], [ 31, %198 ], [ 60, %179 ], [ 20, %162 ]
-  %229 = getelementptr inbounds nuw i8, ptr %.sink121, i64 192
-  store double %.sink119, ptr %229, align 8, !tbaa !67
-  %230 = getelementptr inbounds nuw i8, ptr %.sink121, i64 200
+  %229 = getelementptr inbounds nuw i8, ptr %.sink130, i64 192
+  store double %.sink128, ptr %229, align 8, !tbaa !67
+  %230 = getelementptr inbounds nuw i8, ptr %.sink130, i64 200
   store double 2.300000e+00, ptr %230, align 8, !tbaa !68
-  %231 = getelementptr inbounds nuw i8, ptr %.sink121, i64 176
-  store double %.sink114, ptr %231, align 8, !tbaa !69
-  %232 = getelementptr inbounds nuw i8, ptr %.sink121, i64 240
+  %231 = getelementptr inbounds nuw i8, ptr %.sink130, i64 176
+  store double %.sink123, ptr %231, align 8, !tbaa !69
+  %232 = getelementptr inbounds nuw i8, ptr %.sink130, i64 240
   store i32 %.sink, ptr %232, align 8, !tbaa !70
   br label %233
 

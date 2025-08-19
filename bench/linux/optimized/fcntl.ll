@@ -1384,8 +1384,8 @@ define internal fastcc i64 @do_fcntl(i32 noundef %0, i32 noundef %1, i64 noundef
 168:                                              ; preds = %164, %156
   tail call void @__rcu_read_unlock() #6
   %169 = load i32, ptr %160, align 8
-  %switch13 = icmp ult i32 %169, 3
-  br i1 %switch13, label %171, label %170
+  %switch19 = icmp ult i32 %169, 3
+  br i1 %switch19, label %171, label %170
 
 170:                                              ; preds = %168
   tail call void asm sideeffect "393: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 393b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 393) #6, !srcloc !21

@@ -214,7 +214,7 @@ define internal i32 @kmsgrab_read_header(ptr noundef %0) #0 {
   br i1 %87, label %._crit_edge.thread, label %93
 
 ._crit_edge.thread:                               ; preds = %.preheader226, %._crit_edge
-  %.3263 = phi ptr [ %.3.ph, %._crit_edge ], [ null, %.preheader226 ]
+  %.3283 = phi ptr [ %.3.ph, %._crit_edge ], [ null, %.preheader226 ]
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %89 = load i64, ptr %88, align 8, !tbaa !51
   %90 = icmp sgt i64 %89, 0
@@ -333,7 +333,7 @@ define internal i32 @kmsgrab_read_header(ptr noundef %0) #0 {
   %145 = load i32, ptr %122, align 8, !tbaa !61
   %146 = and i32 %145, 2
   %.not217 = icmp eq i32 %146, 0
-  br i1 %.not217, label %.thread264, label %147
+  br i1 %.not217, label %.thread284, label %147
 
 147:                                              ; preds = %143
   %148 = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -341,8 +341,8 @@ define internal i32 @kmsgrab_read_header(ptr noundef %0) #0 {
   %.not218 = icmp eq i64 %149, 72057594037927935
   %.pre257 = load i64, ptr %120, align 8, !tbaa !60
   %.not219 = icmp eq i64 %149, %.pre257
-  %or.cond272 = select i1 %.not218, i1 true, i1 %.not219
-  br i1 %or.cond272, label %151, label %150
+  %or.cond292 = select i1 %.not218, i1 true, i1 %.not219
+  br i1 %or.cond292, label %151, label %150
 
 150:                                              ; preds = %147
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.34, i64 noundef %.pre257) #7
@@ -350,9 +350,9 @@ define internal i32 @kmsgrab_read_header(ptr noundef %0) #0 {
 
 151:                                              ; preds = %147
   store i64 %.pre257, ptr %148, align 8, !tbaa !70
-  br label %.thread264
+  br label %.thread284
 
-.thread264:                                       ; preds = %143, %151
+.thread284:                                       ; preds = %143, %151
   %152 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %153 = load i32, ptr %152, align 8, !tbaa !66
   %154 = tail call ptr @av_get_pix_fmt_name(i32 noundef %153) #7
@@ -450,8 +450,8 @@ define internal i32 @kmsgrab_read_header(ptr noundef %0) #0 {
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.31) #7
   br label %245
 
-207:                                              ; preds = %.thread264, %190, %160
-  %.1181 = phi ptr [ null, %160 ], [ %183, %190 ], [ null, %.thread264 ]
+207:                                              ; preds = %.thread284, %190, %160
+  %.1181 = phi ptr [ null, %160 ], [ %183, %190 ], [ null, %.thread284 ]
   %208 = tail call ptr @avformat_new_stream(ptr noundef %0, ptr noundef null) #7
   %.not223 = icmp eq ptr %208, null
   br i1 %.not223, label %245, label %209
@@ -523,7 +523,7 @@ define internal i32 @kmsgrab_read_header(ptr noundef %0) #0 {
   %.0186 = phi ptr [ null, %41 ], [ %104, %140 ], [ %104, %142 ], [ %104, %150 ], [ %104, %237 ], [ %104, %238 ], [ %104, %206 ], [ %104, %184 ], [ %104, %131 ], [ null, %109 ], [ null, %31 ], [ null, %48 ], [ null, %92 ], [ null, %91 ], [ %104, %207 ], [ %104, %209 ]
   %.0185 = phi i32 [ -22, %41 ], [ -22, %140 ], [ -22, %142 ], [ -22, %150 ], [ %235, %237 ], [ 0, %238 ], [ -22, %206 ], [ %189, %184 ], [ -22, %131 ], [ %112, %109 ], [ %36, %31 ], [ %52, %48 ], [ -22, %92 ], [ -22, %91 ], [ -12, %207 ], [ -12, %209 ]
   %.0180 = phi ptr [ null, %41 ], [ null, %140 ], [ null, %142 ], [ null, %150 ], [ %.1181, %237 ], [ %.1181, %238 ], [ %183, %206 ], [ null, %184 ], [ null, %131 ], [ null, %109 ], [ null, %31 ], [ null, %48 ], [ null, %92 ], [ null, %91 ], [ %.1181, %207 ], [ %.1181, %209 ]
-  %.0178 = phi ptr [ %30, %41 ], [ %.1179, %140 ], [ %.1179, %142 ], [ %.1179, %150 ], [ %.1179, %237 ], [ %.1179, %238 ], [ %.1179, %206 ], [ %.1179, %184 ], [ %.1179, %131 ], [ %.1179, %109 ], [ null, %31 ], [ null, %48 ], [ %.3263, %92 ], [ %.3263, %91 ], [ %.1179, %207 ], [ %.1179, %209 ]
+  %.0178 = phi ptr [ %30, %41 ], [ %.1179, %140 ], [ %.1179, %142 ], [ %.1179, %150 ], [ %.1179, %237 ], [ %.1179, %238 ], [ %.1179, %206 ], [ %.1179, %184 ], [ %.1179, %131 ], [ %.1179, %109 ], [ null, %31 ], [ null, %48 ], [ %.3283, %92 ], [ %.3283, %91 ], [ %.1179, %207 ], [ %.1179, %209 ]
   %.0177 = phi ptr [ null, %41 ], [ %.1, %140 ], [ %.1, %142 ], [ %.1, %150 ], [ %.1, %237 ], [ %.1, %238 ], [ %.1, %206 ], [ %.1, %184 ], [ %.1, %131 ], [ %.1, %109 ], [ null, %31 ], [ null, %48 ], [ %44, %92 ], [ %44, %91 ], [ %.1, %207 ], [ %.1, %209 ]
   tail call void @drmModeFreePlaneResources(ptr noundef %.0177) #7
   tail call void @drmModeFreePlane(ptr noundef %.0178) #7
@@ -722,7 +722,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @kmsgrab_read_packet(ptr
   %102 = getelementptr inbounds nuw [4 x i32], ptr %85, i64 0, i64 %indvars.iv145.i
   %103 = load i32, ptr %102, align 4, !tbaa !42
   %.not120.i = icmp eq i32 %103, 0
-  br i1 %.not120.i, label %.critedge.split.loop.exit150.i, label %104
+  br i1 %.not120.i, label %.critedge.split.loop.exit155.i, label %104
 
 104:                                              ; preds = %101
   %105 = getelementptr inbounds nuw [4 x i32], ptr %96, i64 0, i64 %indvars.iv145.i
@@ -824,13 +824,13 @@ select.unfold.i:                                  ; preds = %.critedge124.i
   %exitcond148.not.i = icmp eq i64 %indvars.iv.next146.i, 4
   br i1 %exitcond148.not.i, label %.critedge.i, label %101, !llvm.loop !114
 
-.critedge.split.loop.exit150.i:                   ; preds = %101
+.critedge.split.loop.exit155.i:                   ; preds = %101
   %146 = trunc nuw nsw i64 %indvars.iv145.i to i32
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %.thread.i, %.critedge.split.loop.exit150.i
-  %.0102.lcssa.i = phi i32 [ %.0102140.i, %.critedge.split.loop.exit150.i ], [ %.3105128.i, %.thread.i ]
-  %.0101.lcssa.i = phi i32 [ %146, %.critedge.split.loop.exit150.i ], [ 4, %.thread.i ]
+.critedge.i:                                      ; preds = %.thread.i, %.critedge.split.loop.exit155.i
+  %.0102.lcssa.i = phi i32 [ %.0102140.i, %.critedge.split.loop.exit155.i ], [ %.3105128.i, %.thread.i ]
+  %.0101.lcssa.i = phi i32 [ %146, %.critedge.split.loop.exit155.i ], [ 4, %.thread.i ]
   store i32 %.0102.lcssa.i, ptr %45, align 8, !tbaa !115
   store i32 %.0101.lcssa.i, ptr %.sroa.425.0..sroa_idx.i, align 4, !tbaa !117
   br label %147

@@ -1509,7 +1509,7 @@ ftc_basic_family_compare.exit.thread:             ; preds = %.preheader, %48, %5
   %117 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %118 = load ptr, ptr %117, align 8, !tbaa !44
   %.not113 = icmp eq ptr %118, %92
-  br i1 %.not113, label %.loopexit.thread153.loopexit, label %.lr.ph141, !llvm.loop !112
+  br i1 %.not113, label %.loopexit.thread173.loopexit, label %.lr.ph141, !llvm.loop !112
 
 .lr.ph141:                                        ; preds = %103, %116
   %119 = phi ptr [ %118, %116 ], [ %115, %103 ]
@@ -1519,27 +1519,27 @@ ftc_basic_family_compare.exit.thread:             ; preds = %.preheader, %48, %5
 .loopexit:                                        ; preds = %101
   %.pre = load ptr, ptr %90, align 8, !tbaa !44
   %120 = icmp eq ptr %92, %.pre
-  br i1 %120, label %.loopexit.thread, label %.loopexit.thread153
+  br i1 %120, label %.loopexit.thread, label %.loopexit.thread173
 
-.loopexit.thread153.loopexit:                     ; preds = %116
+.loopexit.thread173.loopexit:                     ; preds = %116
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  br label %.loopexit.thread153
+  br label %.loopexit.thread173
 
-.loopexit.thread153:                              ; preds = %.loopexit.thread153.loopexit, %.loopexit
-  %.186158 = phi ptr [ %.085139, %.loopexit ], [ %121, %.loopexit.thread153.loopexit ]
-  %.088157 = phi ptr [ %90, %.loopexit ], [ %114, %.loopexit.thread153.loopexit ]
+.loopexit.thread173:                              ; preds = %.loopexit.thread173.loopexit, %.loopexit
+  %.186178 = phi ptr [ %.085139, %.loopexit ], [ %121, %.loopexit.thread173.loopexit ]
+  %.088177 = phi ptr [ %90, %.loopexit ], [ %114, %.loopexit.thread173.loopexit ]
   %122 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %123 = load ptr, ptr %122, align 8, !tbaa !84
-  store ptr %123, ptr %.186158, align 8, !tbaa !44
-  %124 = load ptr, ptr %.088157, align 8, !tbaa !44
+  store ptr %123, ptr %.186178, align 8, !tbaa !44
+  %124 = load ptr, ptr %.088177, align 8, !tbaa !44
   %125 = load ptr, ptr %8, align 8, !tbaa !44
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store ptr %124, ptr %126, align 8, !tbaa !84
-  store ptr %125, ptr %.088157, align 8, !tbaa !44
+  store ptr %125, ptr %.088177, align 8, !tbaa !44
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %103, %.loopexit.thread153, %.loopexit
-  %127 = phi ptr [ %125, %.loopexit.thread153 ], [ %92, %.loopexit ], [ %92, %103 ]
+.loopexit.thread:                                 ; preds = %103, %.loopexit.thread173, %.loopexit
+  %127 = phi ptr [ %125, %.loopexit.thread173 ], [ %92, %.loopexit ], [ %92, %103 ]
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %129 = load ptr, ptr %128, align 8, !tbaa !18
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
@@ -1829,11 +1829,11 @@ FTC_Manager_FlushN.exit:                          ; preds = %86
   %.pre = load i32, ptr %38, align 8, !tbaa !101
   %93 = shl nuw i32 %.04472, 1
   %94 = call i32 @llvm.umin.i32(i32 %93, i32 %.pre)
-  %spec.select88 = select i1 %92, i32 %.pre, i32 %94
+  %spec.select93 = select i1 %92, i32 %.pre, i32 %94
   br label %95
 
 95:                                               ; preds = %91, %.thread62
-  %.145 = phi i32 [ %.04472, %.thread62 ], [ %spec.select88, %91 ]
+  %.145 = phi i32 [ %.04472, %.thread62 ], [ %spec.select93, %91 ]
   %96 = load ptr, ptr %33, align 8, !tbaa !18
   %97 = call fastcc i32 @ftc_snode_load(ptr noundef nonnull %0, ptr noundef %96, i32 noundef %6, ptr noundef nonnull %5)
   %98 = and i32 %97, 255
@@ -2111,7 +2111,7 @@ ftc_basic_family_compare.exit.thread:             ; preds = %59, %63, %67, %71, 
   %143 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %144 = load ptr, ptr %143, align 8, !tbaa !44
   %.not114 = icmp eq ptr %144, %118
-  br i1 %.not114, label %.loopexit.thread153.loopexit, label %.lr.ph141, !llvm.loop !120
+  br i1 %.not114, label %.loopexit.thread174.loopexit, label %.lr.ph141, !llvm.loop !120
 
 .lr.ph141:                                        ; preds = %129, %142
   %145 = phi ptr [ %144, %142 ], [ %141, %129 ]
@@ -2121,27 +2121,27 @@ ftc_basic_family_compare.exit.thread:             ; preds = %59, %63, %67, %71, 
 .loopexit:                                        ; preds = %127
   %.pre = load ptr, ptr %116, align 8, !tbaa !44
   %146 = icmp eq ptr %118, %.pre
-  br i1 %146, label %.loopexit.thread, label %.loopexit.thread153
+  br i1 %146, label %.loopexit.thread, label %.loopexit.thread174
 
-.loopexit.thread153.loopexit:                     ; preds = %142
+.loopexit.thread174.loopexit:                     ; preds = %142
   %147 = getelementptr inbounds nuw i8, ptr %145, i64 16
-  br label %.loopexit.thread153
+  br label %.loopexit.thread174
 
-.loopexit.thread153:                              ; preds = %.loopexit.thread153.loopexit, %.loopexit
-  %.187158 = phi ptr [ %.086139, %.loopexit ], [ %147, %.loopexit.thread153.loopexit ]
-  %.089157 = phi ptr [ %116, %.loopexit ], [ %140, %.loopexit.thread153.loopexit ]
+.loopexit.thread174:                              ; preds = %.loopexit.thread174.loopexit, %.loopexit
+  %.187179 = phi ptr [ %.086139, %.loopexit ], [ %147, %.loopexit.thread174.loopexit ]
+  %.089178 = phi ptr [ %116, %.loopexit ], [ %140, %.loopexit.thread174.loopexit ]
   %148 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %149 = load ptr, ptr %148, align 8, !tbaa !84
-  store ptr %149, ptr %.187158, align 8, !tbaa !44
-  %150 = load ptr, ptr %.089157, align 8, !tbaa !44
+  store ptr %149, ptr %.187179, align 8, !tbaa !44
+  %150 = load ptr, ptr %.089178, align 8, !tbaa !44
   %151 = load ptr, ptr %9, align 8, !tbaa !44
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
   store ptr %150, ptr %152, align 8, !tbaa !84
-  store ptr %151, ptr %.089157, align 8, !tbaa !44
+  store ptr %151, ptr %.089178, align 8, !tbaa !44
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %129, %.loopexit.thread153, %.loopexit
-  %153 = phi ptr [ %151, %.loopexit.thread153 ], [ %118, %.loopexit ], [ %118, %129 ]
+.loopexit.thread:                                 ; preds = %129, %.loopexit.thread174, %.loopexit
+  %153 = phi ptr [ %151, %.loopexit.thread174 ], [ %118, %.loopexit ], [ %118, %129 ]
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %155 = load ptr, ptr %154, align 8, !tbaa !18
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
@@ -2513,7 +2513,7 @@ ftc_cmap_node_compare.exit.thread:                ; preds = %40, %44, %ftc_cmap_
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !85
   %.not95 = icmp eq ptr %36, %63
-  br i1 %.not95, label %.thread124, label %FTC_MruNode_Up.exit
+  br i1 %.not95, label %.thread134, label %FTC_MruNode_Up.exit
 
 FTC_MruNode_Up.exit:                              ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -2529,9 +2529,9 @@ FTC_MruNode_Up.exit:                              ; preds = %59
   store ptr %63, ptr %36, align 8, !tbaa !73
   store ptr %69, ptr %64, align 8, !tbaa !72
   store ptr %36, ptr %62, align 8, !tbaa !63
-  br label %.thread124
+  br label %.thread134
 
-.thread124:                                       ; preds = %59, %FTC_MruNode_Up.exit
+.thread134:                                       ; preds = %59, %FTC_MruNode_Up.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %75
 
@@ -2550,12 +2550,12 @@ FTC_MruNode_Up.exit:                              ; preds = %59
   %74 = icmp ugt i32 %.pre123, 127
   br i1 %74, label %132, label %75
 
-75:                                               ; preds = %.thread124, %73
-  %76 = phi ptr [ %36, %.thread124 ], [ %72, %73 ]
-  %.pre-phi126 = phi i32 [ %50, %.thread124 ], [ %.pre123, %73 ]
+75:                                               ; preds = %.thread134, %73
+  %76 = phi ptr [ %36, %.thread134 ], [ %72, %73 ]
+  %.pre-phi136 = phi i32 [ %50, %.thread134 ], [ %.pre123, %73 ]
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 52
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 56
-  %79 = zext nneg i32 %.pre-phi126 to i64
+  %79 = zext nneg i32 %.pre-phi136 to i64
   %80 = getelementptr inbounds nuw [128 x i16], ptr %78, i64 0, i64 %79
   %81 = load i16, ptr %80, align 2, !tbaa !132
   %82 = zext i16 %81 to i32

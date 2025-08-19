@@ -894,41 +894,41 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
     i16 60, label %109
     i16 22, label %114
     i16 24, label %.lr.ph887.preheader
-    i16 27, label %.preheader2771
-    i16 42, label %.preheader2771
-    i16 59, label %.preheader2771
-    i16 49, label %.preheader2771
+    i16 27, label %.preheader2843
+    i16 42, label %.preheader2843
+    i16 59, label %.preheader2843
+    i16 49, label %.preheader2843
     i16 30, label %133
     i16 32, label %137
     i16 33, label %141
     i16 37, label %145
-    i16 38, label %.preheader2774
+    i16 38, label %.preheader2846
     i16 39, label %.lr.ph
     i16 31, label %154
     i16 43, label %159
     i16 71, label %163
-    i16 46, label %.preheader2777
-    i16 47, label %.preheader2780
+    i16 46, label %.preheader2849
+    i16 47, label %.preheader2852
     i16 51, label %177
     i16 50, label %181
     i16 56, label %.lr.ph878.preheader
     i16 52, label %.lr.ph873.preheader
     i16 58, label %197
-    i16 53, label %.preheader2787
+    i16 53, label %.preheader2859
     i16 57, label %207
-    i16 70, label %.preheader2790
-    i16 72, label %.preheader2793
-    i16 54, label %.preheader2796
-    i16 55, label %.preheader2799
-    i16 65, label %.preheader2802
-    i16 61, label %.preheader2805
-    i16 62, label %.preheader2808
-    i16 63, label %.preheader2811
-    i16 64, label %.preheader2814
+    i16 70, label %.preheader2862
+    i16 72, label %.preheader2865
+    i16 54, label %.preheader2868
+    i16 55, label %.preheader2871
+    i16 65, label %.preheader2874
+    i16 61, label %.preheader2877
+    i16 62, label %.preheader2880
+    i16 63, label %.preheader2883
+    i16 64, label %.preheader2886
     i16 48, label %.lr.ph858.preheader
   ]
 
-.preheader2771:                                   ; preds = %29, %29, %29, %29
+.preheader2843:                                   ; preds = %29, %29, %29, %29
   br label %129
 
 .lr.ph873.preheader:                              ; preds = %29
@@ -1159,8 +1159,8 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
   %exitcond1901.not = icmp eq i64 %128, %21
   br i1 %exitcond1901.not, label %cmp_resunit.exit.thread, label %129, !llvm.loop !32
 
-129:                                              ; preds = %.preheader2771, %127
-  %.2885 = phi i64 [ %128, %127 ], [ 0, %.preheader2771 ]
+129:                                              ; preds = %.preheader2843, %127
+  %.2885 = phi i64 [ %128, %127 ], [ 0, %.preheader2843 ]
   %130 = getelementptr inbounds nuw %struct.pmix_byte_object, ptr %12, i64 %.2885
   %131 = getelementptr inbounds nuw %struct.pmix_byte_object, ptr %15, i64 %.2885
   %132 = tail call fastcc i32 @cmp_byte_object(ptr noundef %130, ptr noundef %131)
@@ -1207,12 +1207,12 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
   %.493 = zext i1 %.not450 to i32
   br label %cmp_resunit.exit.thread
 
-149:                                              ; preds = %.preheader2774
+149:                                              ; preds = %.preheader2846
   %150 = add nuw i64 %.3884, 1
   %exitcond1853.not = icmp eq i64 %150, %21
-  br i1 %exitcond1853.not, label %cmp_resunit.exit.thread, label %.preheader2774, !llvm.loop !33
+  br i1 %exitcond1853.not, label %cmp_resunit.exit.thread, label %.preheader2846, !llvm.loop !33
 
-.preheader2774:                                   ; preds = %29, %149
+.preheader2846:                                   ; preds = %29, %149
   %.3884 = phi i64 [ %150, %149 ], [ 0, %29 ]
   %151 = getelementptr inbounds nuw %struct.pmix_proc_info, ptr %12, i64 %.3884
   %152 = getelementptr inbounds nuw %struct.pmix_proc_info, ptr %15, i64 %.3884
@@ -1251,12 +1251,12 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
   %.496 = zext i1 %.not446 to i32
   br label %cmp_resunit.exit.thread
 
-167:                                              ; preds = %.preheader2777
+167:                                              ; preds = %.preheader2849
   %168 = add nuw i64 %.4883, 1
   %exitcond1805.not = icmp eq i64 %168, %21
-  br i1 %exitcond1805.not, label %cmp_resunit.exit.thread, label %.preheader2777, !llvm.loop !34
+  br i1 %exitcond1805.not, label %cmp_resunit.exit.thread, label %.preheader2849, !llvm.loop !34
 
-.preheader2777:                                   ; preds = %29, %167
+.preheader2849:                                   ; preds = %29, %167
   %.4883 = phi i64 [ %168, %167 ], [ 0, %29 ]
   %169 = getelementptr inbounds nuw %struct.pmix_envar_t, ptr %12, i64 %.4883
   %170 = getelementptr inbounds nuw %struct.pmix_envar_t, ptr %15, i64 %.4883
@@ -1264,12 +1264,12 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
   %.not445 = icmp eq i32 %171, 0
   br i1 %.not445, label %167, label %cmp_resunit.exit.thread
 
-172:                                              ; preds = %.preheader2780
+172:                                              ; preds = %.preheader2852
   %173 = add nuw i64 %.5882, 1
   %exitcond1757.not = icmp eq i64 %173, %21
-  br i1 %exitcond1757.not, label %cmp_resunit.exit.thread, label %.preheader2780, !llvm.loop !35
+  br i1 %exitcond1757.not, label %cmp_resunit.exit.thread, label %.preheader2852, !llvm.loop !35
 
-.preheader2780:                                   ; preds = %29, %172
+.preheader2852:                                   ; preds = %29, %172
   %.5882 = phi i64 [ %173, %172 ], [ 0, %29 ]
   %174 = getelementptr inbounds nuw %struct.pmix_coord, ptr %12, i64 %.5882
   %175 = getelementptr inbounds nuw %struct.pmix_coord, ptr %15, i64 %.5882
@@ -1334,12 +1334,12 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
   %.499 = zext i1 %.not439 to i32
   br label %cmp_resunit.exit.thread
 
-202:                                              ; preds = %.preheader2787
+202:                                              ; preds = %.preheader2859
   %203 = add nuw i64 %.8871, 1
   %exitcond1709.not = icmp eq i64 %203, %21
-  br i1 %exitcond1709.not, label %cmp_resunit.exit.thread, label %.preheader2787, !llvm.loop !38
+  br i1 %exitcond1709.not, label %cmp_resunit.exit.thread, label %.preheader2859, !llvm.loop !38
 
-.preheader2787:                                   ; preds = %29, %202
+.preheader2859:                                   ; preds = %29, %202
   %.8871 = phi i64 [ %203, %202 ], [ 0, %29 ]
   %204 = getelementptr inbounds nuw %struct.pmix_geometry, ptr %12, i64 %.8871
   %205 = getelementptr inbounds nuw %struct.pmix_geometry, ptr %15, i64 %.8871
@@ -1358,12 +1358,12 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
   %.500 = zext i1 %.not437 to i32
   br label %cmp_resunit.exit.thread
 
-212:                                              ; preds = %.preheader2790
+212:                                              ; preds = %.preheader2862
   %213 = add nuw i64 %.9870, 1
   %exitcond1661.not = icmp eq i64 %213, %21
-  br i1 %exitcond1661.not, label %cmp_resunit.exit.thread, label %.preheader2790, !llvm.loop !39
+  br i1 %exitcond1661.not, label %cmp_resunit.exit.thread, label %.preheader2862, !llvm.loop !39
 
-.preheader2790:                                   ; preds = %29, %212
+.preheader2862:                                   ; preds = %29, %212
   %.9870 = phi i64 [ %213, %212 ], [ 0, %29 ]
   %214 = getelementptr inbounds nuw %struct.pmix_device, ptr %12, i64 %.9870
   %215 = getelementptr inbounds nuw %struct.pmix_device, ptr %15, i64 %.9870
@@ -1374,9 +1374,9 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
 217:                                              ; preds = %cmp_resunit.exit
   %218 = add nuw i64 %.10869, 1
   %exitcond1613.not = icmp eq i64 %218, %21
-  br i1 %exitcond1613.not, label %cmp_resunit.exit.thread, label %.preheader2793, !llvm.loop !40
+  br i1 %exitcond1613.not, label %cmp_resunit.exit.thread, label %.preheader2865, !llvm.loop !40
 
-.preheader2793:                                   ; preds = %29, %217
+.preheader2865:                                   ; preds = %29, %217
   %.10869 = phi i64 [ %218, %217 ], [ 0, %29 ]
   %219 = getelementptr inbounds nuw %struct.pmix_resource_unit, ptr %12, i64 %.10869
   %220 = getelementptr inbounds nuw %struct.pmix_resource_unit, ptr %15, i64 %.10869
@@ -1385,7 +1385,7 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
   %.not.i = icmp eq i64 %221, %222
   br i1 %.not.i, label %223, label %cmp_resunit.exit.thread
 
-223:                                              ; preds = %.preheader2793
+223:                                              ; preds = %.preheader2865
   %224 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %225 = load i64, ptr %224, align 8, !tbaa !17
   %226 = getelementptr inbounds nuw i8, ptr %220, i64 8
@@ -1397,12 +1397,12 @@ cmp_resunit.exit:                                 ; preds = %223
   %229 = icmp ult i64 %225, %227
   br i1 %229, label %cmp_resunit.exit.thread, label %217
 
-230:                                              ; preds = %.preheader2796
+230:                                              ; preds = %.preheader2868
   %231 = add nuw i64 %.11868, 1
   %exitcond1565.not = icmp eq i64 %231, %21
-  br i1 %exitcond1565.not, label %cmp_resunit.exit.thread, label %.preheader2796, !llvm.loop !41
+  br i1 %exitcond1565.not, label %cmp_resunit.exit.thread, label %.preheader2868, !llvm.loop !41
 
-.preheader2796:                                   ; preds = %29, %230
+.preheader2868:                                   ; preds = %29, %230
   %.11868 = phi i64 [ %231, %230 ], [ 0, %29 ]
   %232 = getelementptr inbounds nuw %struct.pmix_device_distance, ptr %12, i64 %.11868
   %233 = getelementptr inbounds nuw %struct.pmix_device_distance, ptr %15, i64 %.11868
@@ -1410,12 +1410,12 @@ cmp_resunit.exit:                                 ; preds = %223
   %.not434 = icmp eq i32 %234, 0
   br i1 %.not434, label %230, label %cmp_resunit.exit.thread
 
-235:                                              ; preds = %.preheader2799
+235:                                              ; preds = %.preheader2871
   %236 = add nuw i64 %.12867, 1
   %exitcond1517.not = icmp eq i64 %236, %21
-  br i1 %exitcond1517.not, label %cmp_resunit.exit.thread, label %.preheader2799, !llvm.loop !42
+  br i1 %exitcond1517.not, label %cmp_resunit.exit.thread, label %.preheader2871, !llvm.loop !42
 
-.preheader2799:                                   ; preds = %29, %235
+.preheader2871:                                   ; preds = %29, %235
   %.12867 = phi i64 [ %236, %235 ], [ 0, %29 ]
   %237 = getelementptr inbounds nuw %struct.pmix_endpoint, ptr %12, i64 %.12867
   %238 = getelementptr inbounds nuw %struct.pmix_endpoint, ptr %15, i64 %.12867
@@ -1423,12 +1423,12 @@ cmp_resunit.exit:                                 ; preds = %223
   %.not433 = icmp eq i32 %239, 0
   br i1 %.not433, label %235, label %cmp_resunit.exit.thread
 
-240:                                              ; preds = %.preheader2802
+240:                                              ; preds = %.preheader2874
   %241 = add nuw i64 %.13866, 1
   %exitcond1469.not = icmp eq i64 %241, %21
-  br i1 %exitcond1469.not, label %cmp_resunit.exit.thread, label %.preheader2802, !llvm.loop !43
+  br i1 %exitcond1469.not, label %cmp_resunit.exit.thread, label %.preheader2874, !llvm.loop !43
 
-.preheader2802:                                   ; preds = %29, %240
+.preheader2874:                                   ; preds = %29, %240
   %.13866 = phi i64 [ %241, %240 ], [ 0, %29 ]
   %242 = getelementptr inbounds nuw %struct.pmix_data_buffer, ptr %12, i64 %.13866
   %243 = getelementptr inbounds nuw %struct.pmix_data_buffer, ptr %15, i64 %.13866
@@ -1436,12 +1436,12 @@ cmp_resunit.exit:                                 ; preds = %223
   %.not432 = icmp eq i32 %244, 0
   br i1 %.not432, label %240, label %cmp_resunit.exit.thread
 
-245:                                              ; preds = %.preheader2805
+245:                                              ; preds = %.preheader2877
   %246 = add nuw i64 %.14865, 1
   %exitcond1421.not = icmp eq i64 %246, %21
-  br i1 %exitcond1421.not, label %cmp_resunit.exit.thread, label %.preheader2805, !llvm.loop !44
+  br i1 %exitcond1421.not, label %cmp_resunit.exit.thread, label %.preheader2877, !llvm.loop !44
 
-.preheader2805:                                   ; preds = %29, %245
+.preheader2877:                                   ; preds = %29, %245
   %.14865 = phi i64 [ %246, %245 ], [ 0, %29 ]
   %247 = getelementptr inbounds nuw %struct.pmix_proc_stats, ptr %12, i64 %.14865
   %248 = getelementptr inbounds nuw %struct.pmix_proc_stats, ptr %15, i64 %.14865
@@ -1449,12 +1449,12 @@ cmp_resunit.exit:                                 ; preds = %223
   %.not431 = icmp eq i32 %249, 0
   br i1 %.not431, label %245, label %cmp_resunit.exit.thread
 
-250:                                              ; preds = %.preheader2808
+250:                                              ; preds = %.preheader2880
   %251 = add nuw i64 %.15864, 1
   %exitcond1373.not = icmp eq i64 %251, %21
-  br i1 %exitcond1373.not, label %cmp_resunit.exit.thread, label %.preheader2808, !llvm.loop !45
+  br i1 %exitcond1373.not, label %cmp_resunit.exit.thread, label %.preheader2880, !llvm.loop !45
 
-.preheader2808:                                   ; preds = %29, %250
+.preheader2880:                                   ; preds = %29, %250
   %.15864 = phi i64 [ %251, %250 ], [ 0, %29 ]
   %252 = getelementptr inbounds nuw %struct.pmix_disk_stats_t, ptr %12, i64 %.15864
   %253 = getelementptr inbounds nuw %struct.pmix_disk_stats_t, ptr %15, i64 %.15864
@@ -1462,12 +1462,12 @@ cmp_resunit.exit:                                 ; preds = %223
   %.not430 = icmp eq i32 %254, 0
   br i1 %.not430, label %250, label %cmp_resunit.exit.thread
 
-255:                                              ; preds = %.preheader2811
+255:                                              ; preds = %.preheader2883
   %256 = add nuw i64 %.16863, 1
   %exitcond1325.not = icmp eq i64 %256, %21
-  br i1 %exitcond1325.not, label %cmp_resunit.exit.thread, label %.preheader2811, !llvm.loop !46
+  br i1 %exitcond1325.not, label %cmp_resunit.exit.thread, label %.preheader2883, !llvm.loop !46
 
-.preheader2811:                                   ; preds = %29, %255
+.preheader2883:                                   ; preds = %29, %255
   %.16863 = phi i64 [ %256, %255 ], [ 0, %29 ]
   %257 = getelementptr inbounds nuw %struct.pmix_net_stats_t, ptr %12, i64 %.16863
   %258 = getelementptr inbounds nuw %struct.pmix_net_stats_t, ptr %15, i64 %.16863
@@ -1475,12 +1475,12 @@ cmp_resunit.exit:                                 ; preds = %223
   %.not429 = icmp eq i32 %259, 0
   br i1 %.not429, label %255, label %cmp_resunit.exit.thread
 
-260:                                              ; preds = %.preheader2814
+260:                                              ; preds = %.preheader2886
   %261 = add nuw i64 %.17862, 1
   %exitcond.not = icmp eq i64 %261, %21
-  br i1 %exitcond.not, label %cmp_resunit.exit.thread, label %.preheader2814, !llvm.loop !47
+  br i1 %exitcond.not, label %cmp_resunit.exit.thread, label %.preheader2886, !llvm.loop !47
 
-.preheader2814:                                   ; preds = %29, %260
+.preheader2886:                                   ; preds = %29, %260
   %.17862 = phi i64 [ %261, %260 ], [ 0, %29 ]
   %262 = getelementptr inbounds nuw %struct.pmix_node_stats_t, ptr %12, i64 %.17862
   %263 = getelementptr inbounds nuw %struct.pmix_node_stats_t, ptr %15, i64 %.17862
@@ -1519,8 +1519,8 @@ cmp_resunit.exit.thread.loopexit542.split.loop.exit850: ; preds = %.lr.ph
   %.mux.le = select i1 %or.cond3.le, i32 1, i32 2
   br label %cmp_resunit.exit.thread
 
-cmp_resunit.exit.thread:                          ; preds = %7, %18, %19, %25, %27, %29, %.lr.ph858, %266, %260, %.preheader2814, %255, %.preheader2811, %250, %.preheader2808, %245, %.preheader2805, %240, %.preheader2802, %235, %.preheader2799, %230, %.preheader2796, %cmp_resunit.exit, %223, %.preheader2793, %217, %212, %.preheader2790, %202, %.preheader2787, %.lr.ph873, %191, %.lr.ph878, %185, %172, %.preheader2780, %167, %.preheader2777, %149, %.preheader2774, %127, %129, %.lr.ph887, %120, %40, %.preheader, %cmp_resunit.exit.thread.loopexit542.split.loop.exit850, %2, %17, %211, %207, %201, %197, %184, %181, %180, %177, %166, %163, %162, %159, %158, %154, %148, %145, %144, %141, %140, %137, %136, %133, %118, %114, %113, %109, %108, %104, %103, %99, %98, %94, %93, %89, %88, %84, %83, %79, %78, %74, %73, %69, %68, %64, %63, %60, %59, %55, %54, %50, %49, %45, %39, %36, %35, %32, %273
-  %.0 = phi i32 [ 5, %273 ], [ 2, %32 ], [ %., %35 ], [ 2, %36 ], [ %.474, %39 ], [ 2, %45 ], [ %.475, %49 ], [ 2, %50 ], [ %.476, %54 ], [ 2, %55 ], [ %.477, %59 ], [ 2, %60 ], [ %.478, %63 ], [ 2, %64 ], [ %.479, %68 ], [ 2, %69 ], [ %.480, %73 ], [ 2, %74 ], [ %.481, %78 ], [ 2, %79 ], [ %.482, %83 ], [ 2, %84 ], [ %.483, %88 ], [ 2, %89 ], [ %.484, %93 ], [ 2, %94 ], [ %.485, %98 ], [ 2, %99 ], [ %.486, %103 ], [ 2, %104 ], [ %.487, %108 ], [ 2, %109 ], [ %.488, %113 ], [ 2, %114 ], [ %.489, %118 ], [ 2, %133 ], [ %.490, %136 ], [ 2, %137 ], [ %.491, %140 ], [ 2, %141 ], [ %.492, %144 ], [ 2, %145 ], [ %.493, %148 ], [ 2, %154 ], [ %.494, %158 ], [ 2, %159 ], [ %.495, %162 ], [ 2, %163 ], [ %.496, %166 ], [ 2, %177 ], [ %.497, %180 ], [ 2, %181 ], [ %.498, %184 ], [ 2, %197 ], [ %.499, %201 ], [ 2, %207 ], [ %.500, %211 ], [ %spec.select, %17 ], [ %.mux.le, %cmp_resunit.exit.thread.loopexit542.split.loop.exit850 ], [ 0, %2 ], [ 0, %40 ], [ %44, %.preheader ], [ %126, %.lr.ph887 ], [ 0, %120 ], [ 0, %127 ], [ %132, %129 ], [ 0, %149 ], [ %153, %.preheader2774 ], [ 0, %167 ], [ %171, %.preheader2777 ], [ 0, %172 ], [ %176, %.preheader2780 ], [ %190, %.lr.ph878 ], [ 0, %185 ], [ %196, %.lr.ph873 ], [ 0, %191 ], [ 0, %202 ], [ %206, %.preheader2787 ], [ 0, %212 ], [ %216, %.preheader2790 ], [ 2, %cmp_resunit.exit ], [ 4, %.preheader2793 ], [ 1, %223 ], [ 0, %217 ], [ 0, %230 ], [ %234, %.preheader2796 ], [ 0, %235 ], [ %239, %.preheader2799 ], [ 0, %240 ], [ %244, %.preheader2802 ], [ 0, %245 ], [ %249, %.preheader2805 ], [ 0, %250 ], [ %254, %.preheader2808 ], [ 0, %255 ], [ %259, %.preheader2811 ], [ 0, %260 ], [ %264, %.preheader2814 ], [ %272, %.lr.ph858 ], [ 0, %266 ], [ 0, %29 ], [ 0, %27 ], [ 2, %25 ], [ 1, %19 ], [ 1, %18 ], [ 3, %7 ]
+cmp_resunit.exit.thread:                          ; preds = %7, %18, %19, %25, %27, %29, %.lr.ph858, %266, %260, %.preheader2886, %255, %.preheader2883, %250, %.preheader2880, %245, %.preheader2877, %240, %.preheader2874, %235, %.preheader2871, %230, %.preheader2868, %cmp_resunit.exit, %223, %.preheader2865, %217, %212, %.preheader2862, %202, %.preheader2859, %.lr.ph873, %191, %.lr.ph878, %185, %172, %.preheader2852, %167, %.preheader2849, %149, %.preheader2846, %127, %129, %.lr.ph887, %120, %40, %.preheader, %cmp_resunit.exit.thread.loopexit542.split.loop.exit850, %2, %17, %211, %207, %201, %197, %184, %181, %180, %177, %166, %163, %162, %159, %158, %154, %148, %145, %144, %141, %140, %137, %136, %133, %118, %114, %113, %109, %108, %104, %103, %99, %98, %94, %93, %89, %88, %84, %83, %79, %78, %74, %73, %69, %68, %64, %63, %60, %59, %55, %54, %50, %49, %45, %39, %36, %35, %32, %273
+  %.0 = phi i32 [ 5, %273 ], [ 2, %32 ], [ %., %35 ], [ 2, %36 ], [ %.474, %39 ], [ 2, %45 ], [ %.475, %49 ], [ 2, %50 ], [ %.476, %54 ], [ 2, %55 ], [ %.477, %59 ], [ 2, %60 ], [ %.478, %63 ], [ 2, %64 ], [ %.479, %68 ], [ 2, %69 ], [ %.480, %73 ], [ 2, %74 ], [ %.481, %78 ], [ 2, %79 ], [ %.482, %83 ], [ 2, %84 ], [ %.483, %88 ], [ 2, %89 ], [ %.484, %93 ], [ 2, %94 ], [ %.485, %98 ], [ 2, %99 ], [ %.486, %103 ], [ 2, %104 ], [ %.487, %108 ], [ 2, %109 ], [ %.488, %113 ], [ 2, %114 ], [ %.489, %118 ], [ 2, %133 ], [ %.490, %136 ], [ 2, %137 ], [ %.491, %140 ], [ 2, %141 ], [ %.492, %144 ], [ 2, %145 ], [ %.493, %148 ], [ 2, %154 ], [ %.494, %158 ], [ 2, %159 ], [ %.495, %162 ], [ 2, %163 ], [ %.496, %166 ], [ 2, %177 ], [ %.497, %180 ], [ 2, %181 ], [ %.498, %184 ], [ 2, %197 ], [ %.499, %201 ], [ 2, %207 ], [ %.500, %211 ], [ %spec.select, %17 ], [ %.mux.le, %cmp_resunit.exit.thread.loopexit542.split.loop.exit850 ], [ 0, %2 ], [ 0, %40 ], [ %44, %.preheader ], [ %126, %.lr.ph887 ], [ 0, %120 ], [ 0, %127 ], [ %132, %129 ], [ 0, %149 ], [ %153, %.preheader2846 ], [ 0, %167 ], [ %171, %.preheader2849 ], [ 0, %172 ], [ %176, %.preheader2852 ], [ %190, %.lr.ph878 ], [ 0, %185 ], [ %196, %.lr.ph873 ], [ 0, %191 ], [ 0, %202 ], [ %206, %.preheader2859 ], [ 0, %212 ], [ %216, %.preheader2862 ], [ 2, %cmp_resunit.exit ], [ 4, %.preheader2865 ], [ 1, %223 ], [ 0, %217 ], [ 0, %230 ], [ %234, %.preheader2868 ], [ 0, %235 ], [ %239, %.preheader2871 ], [ 0, %240 ], [ %244, %.preheader2874 ], [ 0, %245 ], [ %249, %.preheader2877 ], [ 0, %250 ], [ %254, %.preheader2880 ], [ 0, %255 ], [ %259, %.preheader2883 ], [ 0, %260 ], [ %264, %.preheader2886 ], [ %272, %.lr.ph858 ], [ 0, %266 ], [ 0, %29 ], [ 0, %27 ], [ 2, %25 ], [ 1, %19 ], [ 1, %18 ], [ 3, %7 ]
   ret i32 %.0
 }
 
@@ -1669,7 +1669,7 @@ define internal fastcc range(i32 0, 6) i32 @cmp_topo(ptr noundef readonly captur
   br i1 %14, label %18, label %19
 
 18:                                               ; preds = %11
-  %spec.select38 = select i1 %17, i32 0, i32 2
+  %spec.select43 = select i1 %17, i32 0, i32 2
   br label %33
 
 19:                                               ; preds = %11
@@ -1704,7 +1704,7 @@ define internal fastcc range(i32 0, 6) i32 @cmp_topo(ptr noundef readonly captur
   br label %33
 
 33:                                               ; preds = %18, %7, %32, %29, %20, %19, %9, %8, %28
-  %.0 = phi i32 [ 5, %28 ], [ 4, %8 ], [ 4, %9 ], [ 1, %19 ], [ 5, %20 ], [ 2, %29 ], [ %., %32 ], [ %spec.select, %7 ], [ %spec.select38, %18 ]
+  %.0 = phi i32 [ 5, %28 ], [ 4, %8 ], [ 4, %9 ], [ 1, %19 ], [ 5, %20 ], [ 2, %29 ], [ %., %32 ], [ %spec.select, %7 ], [ %spec.select43, %18 ]
   ret i32 %.0
 }
 
@@ -2855,7 +2855,7 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr noundef readonly c
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %129 = load ptr, ptr %128, align 8, !tbaa !137
   %130 = icmp eq ptr %129, null
-  %.147 = select i1 %.not128, i32 2, i32 1
+  %.184 = select i1 %.not128, i32 2, i32 1
   br i1 %130, label %.loopexit, label %131
 
 131:                                              ; preds = %._crit_edge
@@ -2888,7 +2888,7 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr noundef readonly c
   br i1 %.not129, label %139, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph137, %139, %7, %._crit_edge, %107, %.preheader, %137, %131, %119, %113, %106, %101, %99, %93, %91, %85, %83, %77, %75, %69, %67, %61, %59, %53, %51, %45, %43, %37, %35, %29, %27, %21, %19, %13, %12, %9, %8
-  %.091 = phi i32 [ 1, %8 ], [ 2, %9 ], [ 1, %12 ], [ 1, %13 ], [ 2, %19 ], [ 1, %21 ], [ 2, %27 ], [ 1, %29 ], [ 2, %35 ], [ 1, %37 ], [ 2, %43 ], [ 1, %45 ], [ 2, %51 ], [ 1, %53 ], [ 2, %59 ], [ 1, %61 ], [ 2, %67 ], [ 1, %69 ], [ 2, %75 ], [ 1, %77 ], [ 2, %83 ], [ 1, %85 ], [ 2, %91 ], [ 1, %93 ], [ 2, %99 ], [ 2, %101 ], [ 1, %106 ], [ 1, %113 ], [ 2, %119 ], [ 1, %131 ], [ 2, %137 ], [ 0, %.preheader ], [ %spec.select, %7 ], [ %., %107 ], [ %.147, %._crit_edge ], [ %143, %.lr.ph137 ], [ 0, %139 ], [ %125, %.lr.ph ]
+  %.091 = phi i32 [ 1, %8 ], [ 2, %9 ], [ 1, %12 ], [ 1, %13 ], [ 2, %19 ], [ 1, %21 ], [ 2, %27 ], [ 1, %29 ], [ 2, %35 ], [ 1, %37 ], [ 2, %43 ], [ 1, %45 ], [ 2, %51 ], [ 1, %53 ], [ 2, %59 ], [ 1, %61 ], [ 2, %67 ], [ 1, %69 ], [ 2, %75 ], [ 1, %77 ], [ 2, %83 ], [ 1, %85 ], [ 2, %91 ], [ 1, %93 ], [ 2, %99 ], [ 2, %101 ], [ 1, %106 ], [ 1, %113 ], [ 2, %119 ], [ 1, %131 ], [ 2, %137 ], [ 0, %.preheader ], [ %spec.select, %7 ], [ %., %107 ], [ %.184, %._crit_edge ], [ %143, %.lr.ph137 ], [ 0, %139 ], [ %125, %.lr.ph ]
   ret i32 %.091
 }
 
@@ -2949,7 +2949,7 @@ define internal fastcc range(i32 0, 6) i32 @cmp_regattr(ptr noundef readonly cap
   br i1 %30, label %34, label %35
 
 34:                                               ; preds = %27
-  %spec.select63 = select i1 %33, i32 0, i32 2
+  %spec.select71 = select i1 %33, i32 0, i32 2
   br label %.loopexit
 
 35:                                               ; preds = %27
@@ -2997,7 +2997,7 @@ define internal fastcc range(i32 0, 6) i32 @cmp_regattr(ptr noundef readonly cap
   br i1 %.not53, label %47, label %.loopexit
 
 .loopexit:                                        ; preds = %48, %55, %47, %34, %7, %.preheader, %42, %36, %35, %25, %19, %18, %13, %12, %9, %8
-  %.038 = phi i32 [ 1, %8 ], [ 2, %9 ], [ 1, %12 ], [ 2, %13 ], [ 1, %18 ], [ 1, %19 ], [ 2, %25 ], [ 1, %35 ], [ 1, %36 ], [ 2, %42 ], [ 0, %.preheader ], [ %spec.select, %7 ], [ %spec.select63, %34 ], [ 2, %48 ], [ 1, %55 ], [ 0, %47 ]
+  %.038 = phi i32 [ 1, %8 ], [ 2, %9 ], [ 1, %12 ], [ 2, %13 ], [ 1, %18 ], [ 1, %19 ], [ 2, %25 ], [ 1, %35 ], [ 1, %36 ], [ 2, %42 ], [ 0, %.preheader ], [ %spec.select, %7 ], [ %spec.select71, %34 ], [ 2, %48 ], [ 1, %55 ], [ 0, %47 ]
   ret i32 %.038
 }
 

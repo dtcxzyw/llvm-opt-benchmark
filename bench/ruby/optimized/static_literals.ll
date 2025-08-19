@@ -347,35 +347,35 @@ define internal fastcc ptr @pm_node_hash_insert(ptr noundef captures(none) %0, p
 .lr.ph64.preheader:                               ; preds = %33
   %39 = tail call i32 %4(ptr noundef nonnull %1, ptr noundef nonnull %38, ptr noundef %2) #9
   %40 = icmp eq i32 %39, 0
-  %.pre70.pre82 = load ptr, ptr %0, align 8, !tbaa !24
-  br i1 %40, label %._crit_edge65, label %.lr.ph85
+  %.pre70.pre88 = load ptr, ptr %0, align 8, !tbaa !24
+  br i1 %40, label %._crit_edge65, label %.lr.ph91
 
-.lr.ph85:                                         ; preds = %.lr.ph64.preheader, %.lr.ph64
-  %.pre70.pre84 = phi ptr [ %.pre70.pre, %.lr.ph64 ], [ %.pre70.pre82, %.lr.ph64.preheader ]
-  %.0506283 = phi i32 [ %.050, %.lr.ph64 ], [ %.05060, %.lr.ph64.preheader ]
-  %41 = add i32 %.0506283, 1
+.lr.ph91:                                         ; preds = %.lr.ph64.preheader, %.lr.ph64
+  %.pre70.pre90 = phi ptr [ %.pre70.pre, %.lr.ph64 ], [ %.pre70.pre88, %.lr.ph64.preheader ]
+  %.0506289 = phi i32 [ %.050, %.lr.ph64 ], [ %.05060, %.lr.ph64.preheader ]
+  %41 = add i32 %.0506289, 1
   %.050 = and i32 %41, %.pre-phi
   %42 = zext i32 %.050 to i64
-  %43 = getelementptr ptr, ptr %.pre70.pre84, i64 %42
+  %43 = getelementptr ptr, ptr %.pre70.pre90, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !25
   %.not57 = icmp eq ptr %44, null
   br i1 %.not57, label %._crit_edge65.thread, label %.lr.ph64, !llvm.loop !32
 
-.lr.ph64:                                         ; preds = %.lr.ph85
+.lr.ph64:                                         ; preds = %.lr.ph91
   %45 = tail call i32 %4(ptr noundef nonnull %1, ptr noundef nonnull %44, ptr noundef %2) #9
   %46 = icmp eq i32 %45, 0
   %.pre70.pre = load ptr, ptr %0, align 8, !tbaa !24
-  br i1 %46, label %._crit_edge65, label %.lr.ph85, !llvm.loop !32
+  br i1 %46, label %._crit_edge65, label %.lr.ph91, !llvm.loop !32
 
-._crit_edge65.thread:                             ; preds = %.lr.ph85, %33
-  %.ph = phi ptr [ %35, %33 ], [ %.pre70.pre84, %.lr.ph85 ]
-  %.lcssa.ph = phi i64 [ %36, %33 ], [ %42, %.lr.ph85 ]
+._crit_edge65.thread:                             ; preds = %.lr.ph91, %33
+  %.ph = phi ptr [ %35, %33 ], [ %.pre70.pre90, %.lr.ph91 ]
+  %.lcssa.ph = phi i64 [ %36, %33 ], [ %42, %.lr.ph91 ]
   %47 = getelementptr ptr, ptr %.ph, i64 %.lcssa.ph
   br label %50
 
 ._crit_edge65:                                    ; preds = %.lr.ph64, %.lr.ph64.preheader
   %.lcssa = phi i64 [ %36, %.lr.ph64.preheader ], [ %42, %.lr.ph64 ]
-  %.pre70.pre.lcssa = phi ptr [ %.pre70.pre82, %.lr.ph64.preheader ], [ %.pre70.pre, %.lr.ph64 ]
+  %.pre70.pre.lcssa = phi ptr [ %.pre70.pre88, %.lr.ph64.preheader ], [ %.pre70.pre, %.lr.ph64 ]
   %.phi.trans.insert.phi.trans.insert = getelementptr ptr, ptr %.pre70.pre.lcssa, i64 %.lcssa
   %.pre71.pre = load ptr, ptr %.phi.trans.insert.phi.trans.insert, align 8, !tbaa !25
   %48 = getelementptr ptr, ptr %.pre70.pre.lcssa, i64 %.lcssa
@@ -1002,7 +1002,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @node_hash(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i16, ptr %1, align 8, !tbaa !7
-  switch i16 %3, label %common.ret199 [
+  switch i16 %3, label %common.ret209 [
     i16 82, label %4
     i16 138, label %.lr.ph.i
     i16 54, label %76
@@ -1076,8 +1076,8 @@ murmur_hash.exit.i:                               ; preds = %.lr.ph.i.i, %7
   br label %integer_hash.exit
 
 integer_hash.exit:                                ; preds = %murmur_hash.exit.i, %.lr.ph.i8.i
-  %.sink26.i = phi i32 [ %41, %.lr.ph.i8.i ], [ %27, %murmur_hash.exit.i ]
-  %42 = mul i32 %.sink26.i, -2048144789
+  %.sink27.i = phi i32 [ %41, %.lr.ph.i8.i ], [ %27, %murmur_hash.exit.i ]
+  %42 = mul i32 %.sink27.i, -2048144789
   %43 = lshr i32 %42, 13
   %44 = xor i32 %43, %42
   %45 = mul i32 %44, -1028477387
@@ -1088,7 +1088,7 @@ integer_hash.exit:                                ; preds = %murmur_hash.exit.i,
   %50 = trunc nuw i8 %49 to i1
   %51 = xor i32 %47, -1017931171
   %spec.select.i = select i1 %50, i32 %51, i32 %47
-  br label %common.ret199
+  br label %common.ret209
 
 .lr.ph.i:                                         ; preds = %2
   %52 = load ptr, ptr %0, align 8, !tbaa !16
@@ -1116,7 +1116,7 @@ integer_hash.exit:                                ; preds = %murmur_hash.exit.i,
   %73 = mul i32 %72, -1028477387
   %74 = lshr i32 %73, 16
   %75 = xor i32 %74, %73
-  br label %common.ret199
+  br label %common.ret209
 
 76:                                               ; preds = %2
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1151,7 +1151,7 @@ murmur_hash.exit41:                               ; preds = %.lr.ph.i35
   %96 = mul i32 %95, -1028477387
   %97 = lshr i32 %96, 16
   %98 = xor i32 %97, %96
-  br label %common.ret199
+  br label %common.ret209
 
 99:                                               ; preds = %2
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1215,8 +1215,8 @@ murmur_hash.exit.i50:                             ; preds = %.lr.ph.i.i45, %102
   br label %integer_hash.exit55
 
 integer_hash.exit55:                              ; preds = %murmur_hash.exit.i50, %.lr.ph.i8.i54
-  %.sink26.i52 = phi i32 [ %136, %.lr.ph.i8.i54 ], [ %122, %murmur_hash.exit.i50 ]
-  %137 = mul i32 %.sink26.i52, -2048144789
+  %.sink27.i52 = phi i32 [ %136, %.lr.ph.i8.i54 ], [ %122, %murmur_hash.exit.i50 ]
+  %137 = mul i32 %.sink27.i52, -2048144789
   %138 = lshr i32 %137, 13
   %139 = xor i32 %138, %137
   %140 = mul i32 %139, -1028477387
@@ -1288,8 +1288,8 @@ murmur_hash.exit.i64:                             ; preds = %.lr.ph.i.i59, %149
   br label %integer_hash.exit69
 
 integer_hash.exit69:                              ; preds = %murmur_hash.exit.i64, %.lr.ph.i8.i68
-  %.sink26.i66 = phi i32 [ %183, %.lr.ph.i8.i68 ], [ %169, %murmur_hash.exit.i64 ]
-  %184 = mul i32 %.sink26.i66, -2048144789
+  %.sink27.i66 = phi i32 [ %183, %.lr.ph.i8.i68 ], [ %169, %murmur_hash.exit.i64 ]
+  %184 = mul i32 %.sink27.i66, -2048144789
   %185 = lshr i32 %184, 13
   %186 = xor i32 %185, %184
   %187 = mul i32 %186, -1028477387
@@ -1302,11 +1302,11 @@ integer_hash.exit69:                              ; preds = %murmur_hash.exit.i6
   %spec.select.i67 = select i1 %192, i32 %193, i32 %189
   %194 = xor i32 %spec.select.i53, %spec.select.i67
   %195 = xor i32 %194, -1420803475
-  br label %common.ret199
+  br label %common.ret209
 
-common.ret199:                                    ; preds = %2, %murmur_hash.exit130, %murmur_hash.exit112, %murmur_hash.exit94, %murmur_hash.exit76, %integer_hash.exit69, %murmur_hash.exit41, %.lr.ph.i, %integer_hash.exit, %196
-  %common.ret199.op = phi i32 [ %207, %196 ], [ %spec.select.i, %integer_hash.exit ], [ %75, %.lr.ph.i ], [ %98, %murmur_hash.exit41 ], [ %195, %integer_hash.exit69 ], [ %260, %murmur_hash.exit76 ], [ %303, %murmur_hash.exit94 ], [ %355, %murmur_hash.exit112 ], [ %407, %murmur_hash.exit130 ], [ 0, %2 ]
-  ret i32 %common.ret199.op
+common.ret209:                                    ; preds = %2, %murmur_hash.exit130, %murmur_hash.exit112, %murmur_hash.exit94, %murmur_hash.exit76, %integer_hash.exit69, %murmur_hash.exit41, %.lr.ph.i, %integer_hash.exit, %196
+  %common.ret209.op = phi i32 [ %207, %196 ], [ %spec.select.i, %integer_hash.exit ], [ %75, %.lr.ph.i ], [ %98, %murmur_hash.exit41 ], [ %195, %integer_hash.exit69 ], [ %260, %murmur_hash.exit76 ], [ %303, %murmur_hash.exit94 ], [ %355, %murmur_hash.exit112 ], [ %407, %murmur_hash.exit130 ], [ 0, %2 ]
+  ret i32 %common.ret209.op
 
 196:                                              ; preds = %2
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1320,7 +1320,7 @@ common.ret199:                                    ; preds = %2, %murmur_hash.exi
   %205 = or disjoint i32 %204, %203
   %206 = mul i32 %205, 461845907
   %207 = xor i32 %206, %199
-  br label %common.ret199
+  br label %common.ret209
 
 208:                                              ; preds = %2
   %209 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -1405,7 +1405,7 @@ murmur_hash.exit76:                               ; preds = %.lr.ph39.i, %._crit
   %258 = mul i32 %257, 461845907
   %259 = xor i32 %258, %252
   %260 = xor i32 %259, %251
-  br label %common.ret199
+  br label %common.ret209
 
 261:                                              ; preds = %2
   %262 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1480,7 +1480,7 @@ murmur_hash.exit94:                               ; preds = %.lr.ph39.i90, %._cr
   %301 = mul i32 %300, -1028477387
   %302 = lshr i32 %301, 16
   %303 = xor i32 %302, %301
-  br label %common.ret199
+  br label %common.ret209
 
 304:                                              ; preds = %2
   %305 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -1564,7 +1564,7 @@ murmur_hash.exit112:                              ; preds = %.lr.ph39.i108, %._c
   %353 = mul i32 %352, 461845907
   %354 = xor i32 %353, %345
   %355 = xor i32 %354, %344
-  br label %common.ret199
+  br label %common.ret209
 
 356:                                              ; preds = %2
   %357 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -1648,7 +1648,7 @@ murmur_hash.exit130:                              ; preds = %.lr.ph39.i126, %._c
   %405 = mul i32 %404, 461845907
   %406 = xor i32 %405, %397
   %407 = xor i32 %406, %396
-  br label %common.ret199
+  br label %common.ret209
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)

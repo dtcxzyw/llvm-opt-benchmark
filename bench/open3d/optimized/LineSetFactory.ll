@@ -286,7 +286,7 @@ define linkonce_odr void @_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaI
   br i1 %.not28.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = mul i64 %12, 24
+  %22 = mul nuw nsw i64 %12, 24
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %22
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !32
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit
@@ -382,7 +382,7 @@ define linkonce_odr void @_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaI
   br i1 %.not28.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = shl i64 %12, 3
+  %22 = shl nuw nsw i64 %12, 3
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %22
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !59
   br label %_ZNSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS2_EE17_M_default_appendEm.exit
@@ -4311,8 +4311,8 @@ _ZNKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE12_M_check_lenEmPKc.
   %119 = getelementptr inbounds nuw i8, ptr %45, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i123.sroa.3)
   store i64 0, ptr %.sroa.0.i123.sroa.3, align 16
-  %.sroa.0.i123.sroa.3.8.i123.16.i123.16..sroa_idx1455 = getelementptr inbounds nuw i8, ptr %.sroa.0.i123.sroa.3, i64 8
-  store double %5, ptr %.sroa.0.i123.sroa.3.8.i123.16.i123.16..sroa_idx1455, align 8, !tbaa !36, !noalias !257
+  %.sroa.0.i123.sroa.3.8.i123.16.i123.16..sroa_idx1558 = getelementptr inbounds nuw i8, ptr %.sroa.0.i123.sroa.3, i64 8
+  store double %5, ptr %.sroa.0.i123.sroa.3.8.i123.16.i123.16..sroa_idx1558, align 8, !tbaa !36, !noalias !257
   %.sroa.0.i123.sroa.3.16.i123.24.i123.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i123.sroa.3, i64 16
   store double 1.000000e+00, ptr %.sroa.0.i123.sroa.3.16.i123.24.i123.24..sroa_idx, align 16, !tbaa !36, !noalias !257
   %.sroa.0.i123.sroa.3.0..sroa.0.i123.sroa.3.8..sroa.0.i123.8..sroa.0.i123.8..sroa.0.8..sroa.0.8..i128 = load <2 x double>, ptr %.sroa.0.i123.sroa.3, align 16, !noalias !257
@@ -4329,12 +4329,12 @@ _ZNKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE12_M_check_lenEmPKc.
   %124 = fmul double %123, %75
   %125 = fmul double %76, 0.000000e+00
   %126 = extractelement <2 x double> %.sroa.0.i123.sroa.3.0..sroa.0.i123.sroa.3.8..sroa.0.i123.8..sroa.0.i123.8..sroa.0.8..sroa.0.8..i128, i64 0
-  %foldExtExtBinop1125 = fmul <2 x double> %.sroa.0.i123.sroa.3.0..sroa.0.i123.sroa.3.8..sroa.0.i123.8..sroa.0.i123.8..sroa.0.8..sroa.0.8..i128, %67
-  %127 = extractelement <2 x double> %foldExtExtBinop1125, i64 0
+  %foldExtExtBinop1228 = fmul <2 x double> %.sroa.0.i123.sroa.3.0..sroa.0.i123.sroa.3.8..sroa.0.i123.8..sroa.0.i123.8..sroa.0.8..sroa.0.8..i128, %67
+  %127 = extractelement <2 x double> %foldExtExtBinop1228, i64 0
   %128 = fadd double %125, %127
   %129 = extractelement <2 x double> %.sroa.0.i123.sroa.3.8..sroa.0.i123.sroa.3.16..sroa.0.i123.16..sroa.0.i123.16..sroa.0.16..sroa.0.16..i129, i64 0
-  %foldExtExtBinop1127 = fmul <2 x double> %.sroa.0.i123.sroa.3.8..sroa.0.i123.sroa.3.16..sroa.0.i123.16..sroa.0.i123.16..sroa.0.16..sroa.0.16..i129, %69
-  %130 = extractelement <2 x double> %foldExtExtBinop1127, i64 0
+  %foldExtExtBinop1230 = fmul <2 x double> %.sroa.0.i123.sroa.3.8..sroa.0.i123.sroa.3.16..sroa.0.i123.16..sroa.0.i123.16..sroa.0.16..sroa.0.16..i129, %69
+  %130 = extractelement <2 x double> %foldExtExtBinop1230, i64 0
   %131 = fadd double %128, %130
   %132 = fadd double %124, %131
   %133 = fmul double %123, %85
@@ -4355,11 +4355,11 @@ _ZNKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE12_M_check_lenEmPKc.
   %148 = fdiv double %147, %139
   %149 = fmul double %123, %107
   %150 = fmul double %108, 0.000000e+00
-  %foldExtExtBinop1129 = fmul <2 x double> %59, %.sroa.0.i123.sroa.3.0..sroa.0.i123.sroa.3.8..sroa.0.i123.8..sroa.0.i123.8..sroa.0.8..sroa.0.8..i128
-  %151 = extractelement <2 x double> %foldExtExtBinop1129, i64 0
+  %foldExtExtBinop1232 = fmul <2 x double> %59, %.sroa.0.i123.sroa.3.0..sroa.0.i123.sroa.3.8..sroa.0.i123.8..sroa.0.i123.8..sroa.0.8..sroa.0.8..i128
+  %151 = extractelement <2 x double> %foldExtExtBinop1232, i64 0
   %152 = fadd double %150, %151
-  %foldExtExtBinop1131 = fmul <2 x double> %61, %.sroa.0.i123.sroa.3.8..sroa.0.i123.sroa.3.16..sroa.0.i123.16..sroa.0.i123.16..sroa.0.16..sroa.0.16..i129
-  %153 = extractelement <2 x double> %foldExtExtBinop1131, i64 0
+  %foldExtExtBinop1234 = fmul <2 x double> %61, %.sroa.0.i123.sroa.3.8..sroa.0.i123.sroa.3.16..sroa.0.i123.16..sroa.0.i123.16..sroa.0.16..sroa.0.16..i129
+  %153 = extractelement <2 x double> %foldExtExtBinop1234, i64 0
   %154 = fadd double %152, %153
   %155 = fadd double %149, %154
   %156 = fdiv double %155, %139
@@ -4387,10 +4387,10 @@ _ZNKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE12_M_check_lenEmPKc.
   %160 = fmul double %5, %55
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i146)
   store double %160, ptr %.sroa.0.i146, align 16, !tbaa !36, !noalias !264
-  %.sroa.0.i146.8.i146.8.i146.8..sroa_idx1456 = getelementptr inbounds nuw i8, ptr %.sroa.0.i146, i64 8
-  store double 0.000000e+00, ptr %.sroa.0.i146.8.i146.8.i146.8..sroa_idx1456, align 8, !tbaa !36, !noalias !264
-  %.sroa.0.i146.16.i146.16.i146.16..sroa_idx1457 = getelementptr inbounds nuw i8, ptr %.sroa.0.i146, i64 16
-  store double %5, ptr %.sroa.0.i146.16.i146.16.i146.16..sroa_idx1457, align 16, !tbaa !36, !noalias !264
+  %.sroa.0.i146.8.i146.8.i146.8..sroa_idx1559 = getelementptr inbounds nuw i8, ptr %.sroa.0.i146, i64 8
+  store double 0.000000e+00, ptr %.sroa.0.i146.8.i146.8.i146.8..sroa_idx1559, align 8, !tbaa !36, !noalias !264
+  %.sroa.0.i146.16.i146.16.i146.16..sroa_idx1560 = getelementptr inbounds nuw i8, ptr %.sroa.0.i146, i64 16
+  store double %5, ptr %.sroa.0.i146.16.i146.16.i146.16..sroa_idx1560, align 16, !tbaa !36, !noalias !264
   %.sroa.0.i146.24.i146.24.i146.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i146, i64 24
   store double 1.000000e+00, ptr %.sroa.0.i146.24.i146.24.i146.24..sroa_idx, align 8, !tbaa !36, !noalias !264
   %.sroa.0.i146.0..sroa.0.i146.0..sroa.0.i146.0..sroa.0.0..sroa.0.0..i150 = load <2 x double>, ptr %.sroa.0.i146, align 16, !noalias !264
@@ -4406,47 +4406,47 @@ _ZNKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE12_M_check_lenEmPKc.
   %162 = extractelement <2 x double> %.sroa.0.i146.16..sroa.0.i146.16..sroa.0.i146.16..sroa.0.16..sroa.0.16..i152, i64 1
   %.pre1079 = extractelement <2 x double> %.pre970.pre, i64 0
   %163 = fmul double %162, %.pre1079
-  %foldExtExtBinop1178 = fmul <2 x double> %.sroa.0.i146.0..sroa.0.i146.0..sroa.0.i146.0..sroa.0.0..sroa.0.0..i150, %.pre967.pre
-  %foldExtExtBinop1180 = fmul <2 x double> %.sroa.0.i146.8..sroa.0.i146.8..sroa.0.i146.8..sroa.0.8..sroa.0.8..i151, %.pre968.pre
-  %foldExtExtBinop1182 = fadd <2 x double> %foldExtExtBinop1178, %foldExtExtBinop1180
-  %foldExtExtBinop1184 = fmul <2 x double> %.sroa.0.i146.16..sroa.0.i146.16..sroa.0.i146.16..sroa.0.16..sroa.0.16..i152, %.pre969.pre
-  %foldExtExtBinop1186 = fadd <2 x double> %foldExtExtBinop1182, %foldExtExtBinop1184
-  %164 = extractelement <2 x double> %foldExtExtBinop1186, i64 0
+  %foldExtExtBinop1281 = fmul <2 x double> %.sroa.0.i146.0..sroa.0.i146.0..sroa.0.i146.0..sroa.0.0..sroa.0.0..i150, %.pre967.pre
+  %foldExtExtBinop1283 = fmul <2 x double> %.sroa.0.i146.8..sroa.0.i146.8..sroa.0.i146.8..sroa.0.8..sroa.0.8..i151, %.pre968.pre
+  %foldExtExtBinop1285 = fadd <2 x double> %foldExtExtBinop1281, %foldExtExtBinop1283
+  %foldExtExtBinop1287 = fmul <2 x double> %.sroa.0.i146.16..sroa.0.i146.16..sroa.0.i146.16..sroa.0.16..sroa.0.16..i152, %.pre969.pre
+  %foldExtExtBinop1289 = fadd <2 x double> %foldExtExtBinop1285, %foldExtExtBinop1287
+  %164 = extractelement <2 x double> %foldExtExtBinop1289, i64 0
   %165 = fadd double %163, %164
-  %foldExtExtBinop1143 = fmul <2 x double> %.sroa.0.i146.16..sroa.0.i146.16..sroa.0.i146.16..sroa.0.16..sroa.0.16..i152, %.pre970.pre
-  %shift1157 = shufflevector <2 x double> %foldExtExtBinop1143, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1246 = fmul <2 x double> %.sroa.0.i146.16..sroa.0.i146.16..sroa.0.i146.16..sroa.0.16..sroa.0.16..i152, %.pre970.pre
+  %shift1260 = shufflevector <2 x double> %foldExtExtBinop1246, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %shift = shufflevector <2 x double> %.pre967.pre, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1145 = fmul <2 x double> %.sroa.0.i146.0..sroa.0.i146.0..sroa.0.i146.0..sroa.0.0..sroa.0.0..i150, %shift
-  %shift1147 = shufflevector <2 x double> %.pre968.pre, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1148 = fmul <2 x double> %.sroa.0.i146.8..sroa.0.i146.8..sroa.0.i146.8..sroa.0.8..sroa.0.8..i151, %shift1147
-  %foldExtExtBinop1150 = fadd <2 x double> %foldExtExtBinop1145, %foldExtExtBinop1148
-  %shift1152 = shufflevector <2 x double> %.pre969.pre, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1153 = fmul <2 x double> %.sroa.0.i146.16..sroa.0.i146.16..sroa.0.i146.16..sroa.0.16..sroa.0.16..i152, %shift1152
-  %foldExtExtBinop1155 = fadd <2 x double> %foldExtExtBinop1150, %foldExtExtBinop1153
-  %foldExtExtBinop1158 = fadd <2 x double> %shift1157, %foldExtExtBinop1155
-  %166 = extractelement <2 x double> %foldExtExtBinop1158, i64 0
+  %foldExtExtBinop1248 = fmul <2 x double> %.sroa.0.i146.0..sroa.0.i146.0..sroa.0.i146.0..sroa.0.0..sroa.0.0..i150, %shift
+  %shift1250 = shufflevector <2 x double> %.pre968.pre, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1251 = fmul <2 x double> %.sroa.0.i146.8..sroa.0.i146.8..sroa.0.i146.8..sroa.0.8..sroa.0.8..i151, %shift1250
+  %foldExtExtBinop1253 = fadd <2 x double> %foldExtExtBinop1248, %foldExtExtBinop1251
+  %shift1255 = shufflevector <2 x double> %.pre969.pre, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1256 = fmul <2 x double> %.sroa.0.i146.16..sroa.0.i146.16..sroa.0.i146.16..sroa.0.16..sroa.0.16..i152, %shift1255
+  %foldExtExtBinop1258 = fadd <2 x double> %foldExtExtBinop1253, %foldExtExtBinop1256
+  %foldExtExtBinop1261 = fadd <2 x double> %shift1260, %foldExtExtBinop1258
+  %166 = extractelement <2 x double> %foldExtExtBinop1261, i64 0
   %167 = fdiv double %165, %166
-  %foldExtExtBinop1160 = fmul <2 x double> %.sroa.0.i146.16..sroa.0.i146.16..sroa.0.i146.16..sroa.0.16..sroa.0.16..i152, %.pre966.pre
-  %shift1175 = shufflevector <2 x double> %foldExtExtBinop1160, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %shift1162 = shufflevector <2 x double> %.pre.pre, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1163 = fmul <2 x double> %shift1162, %.sroa.0.i146.0..sroa.0.i146.0..sroa.0.i146.0..sroa.0.0..sroa.0.0..i150
-  %shift1165 = shufflevector <2 x double> %.pre964.pre, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1166 = fmul <2 x double> %shift1165, %.sroa.0.i146.8..sroa.0.i146.8..sroa.0.i146.8..sroa.0.8..sroa.0.8..i151
-  %foldExtExtBinop1168 = fadd <2 x double> %foldExtExtBinop1163, %foldExtExtBinop1166
-  %shift1170 = shufflevector <2 x double> %.pre965.pre, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1171 = fmul <2 x double> %shift1170, %.sroa.0.i146.16..sroa.0.i146.16..sroa.0.i146.16..sroa.0.16..sroa.0.16..i152
-  %foldExtExtBinop1173 = fadd <2 x double> %foldExtExtBinop1168, %foldExtExtBinop1171
-  %foldExtExtBinop1176 = fadd <2 x double> %shift1175, %foldExtExtBinop1173
-  %168 = extractelement <2 x double> %foldExtExtBinop1176, i64 0
+  %foldExtExtBinop1263 = fmul <2 x double> %.sroa.0.i146.16..sroa.0.i146.16..sroa.0.i146.16..sroa.0.16..sroa.0.16..i152, %.pre966.pre
+  %shift1278 = shufflevector <2 x double> %foldExtExtBinop1263, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %shift1265 = shufflevector <2 x double> %.pre.pre, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1266 = fmul <2 x double> %shift1265, %.sroa.0.i146.0..sroa.0.i146.0..sroa.0.i146.0..sroa.0.0..sroa.0.0..i150
+  %shift1268 = shufflevector <2 x double> %.pre964.pre, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1269 = fmul <2 x double> %shift1268, %.sroa.0.i146.8..sroa.0.i146.8..sroa.0.i146.8..sroa.0.8..sroa.0.8..i151
+  %foldExtExtBinop1271 = fadd <2 x double> %foldExtExtBinop1266, %foldExtExtBinop1269
+  %shift1273 = shufflevector <2 x double> %.pre965.pre, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1274 = fmul <2 x double> %shift1273, %.sroa.0.i146.16..sroa.0.i146.16..sroa.0.i146.16..sroa.0.16..sroa.0.16..i152
+  %foldExtExtBinop1276 = fadd <2 x double> %foldExtExtBinop1271, %foldExtExtBinop1274
+  %foldExtExtBinop1279 = fadd <2 x double> %shift1278, %foldExtExtBinop1276
+  %168 = extractelement <2 x double> %foldExtExtBinop1279, i64 0
   %169 = fdiv double %168, %166
   %.pre1067 = extractelement <2 x double> %.pre966.pre, i64 0
   %170 = fmul double %162, %.pre1067
-  %foldExtExtBinop1133 = fmul <2 x double> %.pre.pre, %.sroa.0.i146.0..sroa.0.i146.0..sroa.0.i146.0..sroa.0.0..sroa.0.0..i150
-  %foldExtExtBinop1135 = fmul <2 x double> %.pre964.pre, %.sroa.0.i146.8..sroa.0.i146.8..sroa.0.i146.8..sroa.0.8..sroa.0.8..i151
-  %foldExtExtBinop1137 = fadd <2 x double> %foldExtExtBinop1133, %foldExtExtBinop1135
-  %foldExtExtBinop1139 = fmul <2 x double> %.pre965.pre, %.sroa.0.i146.16..sroa.0.i146.16..sroa.0.i146.16..sroa.0.16..sroa.0.16..i152
-  %foldExtExtBinop1141 = fadd <2 x double> %foldExtExtBinop1137, %foldExtExtBinop1139
-  %171 = extractelement <2 x double> %foldExtExtBinop1141, i64 0
+  %foldExtExtBinop1236 = fmul <2 x double> %.pre.pre, %.sroa.0.i146.0..sroa.0.i146.0..sroa.0.i146.0..sroa.0.0..sroa.0.0..i150
+  %foldExtExtBinop1238 = fmul <2 x double> %.pre964.pre, %.sroa.0.i146.8..sroa.0.i146.8..sroa.0.i146.8..sroa.0.8..sroa.0.8..i151
+  %foldExtExtBinop1240 = fadd <2 x double> %foldExtExtBinop1236, %foldExtExtBinop1238
+  %foldExtExtBinop1242 = fmul <2 x double> %.pre965.pre, %.sroa.0.i146.16..sroa.0.i146.16..sroa.0.i146.16..sroa.0.16..sroa.0.16..i152
+  %foldExtExtBinop1244 = fadd <2 x double> %foldExtExtBinop1240, %foldExtExtBinop1242
+  %171 = extractelement <2 x double> %foldExtExtBinop1244, i64 0
   %172 = fadd double %170, %171
   %173 = fdiv double %172, %166
   %174 = getelementptr inbounds nuw i8, ptr %161, i64 48
@@ -4479,10 +4479,10 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJ
   %180 = fmul double %5, %56
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i169)
   store double %160, ptr %.sroa.0.i169, align 16, !tbaa !36, !noalias !271
-  %.sroa.0.i169.8.i169.8.i169.8..sroa_idx1458 = getelementptr inbounds nuw i8, ptr %.sroa.0.i169, i64 8
-  store double %180, ptr %.sroa.0.i169.8.i169.8.i169.8..sroa_idx1458, align 8, !tbaa !36, !noalias !271
-  %.sroa.0.i169.16.i169.16.i169.16..sroa_idx1459 = getelementptr inbounds nuw i8, ptr %.sroa.0.i169, i64 16
-  store double %5, ptr %.sroa.0.i169.16.i169.16.i169.16..sroa_idx1459, align 16, !tbaa !36, !noalias !271
+  %.sroa.0.i169.8.i169.8.i169.8..sroa_idx1561 = getelementptr inbounds nuw i8, ptr %.sroa.0.i169, i64 8
+  store double %180, ptr %.sroa.0.i169.8.i169.8.i169.8..sroa_idx1561, align 8, !tbaa !36, !noalias !271
+  %.sroa.0.i169.16.i169.16.i169.16..sroa_idx1562 = getelementptr inbounds nuw i8, ptr %.sroa.0.i169, i64 16
+  store double %5, ptr %.sroa.0.i169.16.i169.16.i169.16..sroa_idx1562, align 16, !tbaa !36, !noalias !271
   %.sroa.0.i169.24.i169.24.i169.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i169, i64 24
   store double 1.000000e+00, ptr %.sroa.0.i169.24.i169.24.i169.24..sroa_idx, align 8, !tbaa !36, !noalias !271
   %181 = load <2 x double>, ptr %8, align 16, !tbaa !26, !noalias !271
@@ -4497,51 +4497,51 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJ
   %185 = extractelement <2 x double> %184, i64 0
   %186 = extractelement <2 x double> %.sroa.0.i169.16..sroa.0.i169.16..sroa.0.i169.16..sroa.0.16..sroa.0.16..i175, i64 1
   %187 = fmul double %186, %185
-  %foldExtExtBinop1188 = fmul <2 x double> %181, %.sroa.0.i169.0..sroa.0.i169.0..sroa.0.i169.0..sroa.0.0..sroa.0.0..i173
-  %foldExtExtBinop1190 = fmul <2 x double> %182, %.sroa.0.i169.8..sroa.0.i169.8..sroa.0.i169.8..sroa.0.8..sroa.0.8..i174
-  %foldExtExtBinop1192 = fadd <2 x double> %foldExtExtBinop1188, %foldExtExtBinop1190
-  %foldExtExtBinop1194 = fmul <2 x double> %183, %.sroa.0.i169.16..sroa.0.i169.16..sroa.0.i169.16..sroa.0.16..sroa.0.16..i175
-  %foldExtExtBinop1196 = fadd <2 x double> %foldExtExtBinop1192, %foldExtExtBinop1194
-  %188 = extractelement <2 x double> %foldExtExtBinop1196, i64 0
+  %foldExtExtBinop1291 = fmul <2 x double> %181, %.sroa.0.i169.0..sroa.0.i169.0..sroa.0.i169.0..sroa.0.0..sroa.0.0..i173
+  %foldExtExtBinop1293 = fmul <2 x double> %182, %.sroa.0.i169.8..sroa.0.i169.8..sroa.0.i169.8..sroa.0.8..sroa.0.8..i174
+  %foldExtExtBinop1295 = fadd <2 x double> %foldExtExtBinop1291, %foldExtExtBinop1293
+  %foldExtExtBinop1297 = fmul <2 x double> %183, %.sroa.0.i169.16..sroa.0.i169.16..sroa.0.i169.16..sroa.0.16..sroa.0.16..i175
+  %foldExtExtBinop1299 = fadd <2 x double> %foldExtExtBinop1295, %foldExtExtBinop1297
+  %188 = extractelement <2 x double> %foldExtExtBinop1299, i64 0
   %189 = fadd double %187, %188
   %190 = load <2 x double>, ptr %64, align 16, !tbaa !26, !noalias !271
   %191 = load <2 x double>, ptr %66, align 16, !tbaa !26, !noalias !271
   %192 = load <2 x double>, ptr %68, align 16, !tbaa !26, !noalias !271
   %193 = load <2 x double>, ptr %70, align 16, !tbaa !26, !noalias !271
-  %foldExtExtBinop1198 = fmul <2 x double> %.sroa.0.i169.16..sroa.0.i169.16..sroa.0.i169.16..sroa.0.16..sroa.0.16..i175, %193
-  %shift1200 = shufflevector <2 x double> %190, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1201 = fmul <2 x double> %.sroa.0.i169.0..sroa.0.i169.0..sroa.0.i169.0..sroa.0.0..sroa.0.0..i173, %shift1200
-  %shift1203 = shufflevector <2 x double> %191, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1204 = fmul <2 x double> %.sroa.0.i169.8..sroa.0.i169.8..sroa.0.i169.8..sroa.0.8..sroa.0.8..i174, %shift1203
-  %foldExtExtBinop1206 = fadd <2 x double> %foldExtExtBinop1201, %foldExtExtBinop1204
-  %shift1208 = shufflevector <2 x double> %192, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1209 = fmul <2 x double> %.sroa.0.i169.16..sroa.0.i169.16..sroa.0.i169.16..sroa.0.16..sroa.0.16..i175, %shift1208
-  %foldExtExtBinop1211 = fadd <2 x double> %foldExtExtBinop1206, %foldExtExtBinop1209
-  %shift1213 = shufflevector <2 x double> %foldExtExtBinop1198, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1214 = fadd <2 x double> %shift1213, %foldExtExtBinop1211
-  %194 = extractelement <2 x double> %foldExtExtBinop1214, i64 0
+  %foldExtExtBinop1301 = fmul <2 x double> %.sroa.0.i169.16..sroa.0.i169.16..sroa.0.i169.16..sroa.0.16..sroa.0.16..i175, %193
+  %shift1303 = shufflevector <2 x double> %190, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1304 = fmul <2 x double> %.sroa.0.i169.0..sroa.0.i169.0..sroa.0.i169.0..sroa.0.0..sroa.0.0..i173, %shift1303
+  %shift1306 = shufflevector <2 x double> %191, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1307 = fmul <2 x double> %.sroa.0.i169.8..sroa.0.i169.8..sroa.0.i169.8..sroa.0.8..sroa.0.8..i174, %shift1306
+  %foldExtExtBinop1309 = fadd <2 x double> %foldExtExtBinop1304, %foldExtExtBinop1307
+  %shift1311 = shufflevector <2 x double> %192, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1312 = fmul <2 x double> %.sroa.0.i169.16..sroa.0.i169.16..sroa.0.i169.16..sroa.0.16..sroa.0.16..i175, %shift1311
+  %foldExtExtBinop1314 = fadd <2 x double> %foldExtExtBinop1309, %foldExtExtBinop1312
+  %shift1316 = shufflevector <2 x double> %foldExtExtBinop1301, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1317 = fadd <2 x double> %shift1316, %foldExtExtBinop1314
+  %194 = extractelement <2 x double> %foldExtExtBinop1317, i64 0
   %195 = fdiv double %189, %194
-  %foldExtExtBinop1216 = fmul <2 x double> %.sroa.0.i169.16..sroa.0.i169.16..sroa.0.i169.16..sroa.0.16..sroa.0.16..i175, %184
-  %shift1218 = shufflevector <2 x double> %181, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1219 = fmul <2 x double> %shift1218, %.sroa.0.i169.0..sroa.0.i169.0..sroa.0.i169.0..sroa.0.0..sroa.0.0..i173
-  %shift1221 = shufflevector <2 x double> %182, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1222 = fmul <2 x double> %shift1221, %.sroa.0.i169.8..sroa.0.i169.8..sroa.0.i169.8..sroa.0.8..sroa.0.8..i174
-  %foldExtExtBinop1224 = fadd <2 x double> %foldExtExtBinop1219, %foldExtExtBinop1222
-  %shift1226 = shufflevector <2 x double> %183, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1227 = fmul <2 x double> %shift1226, %.sroa.0.i169.16..sroa.0.i169.16..sroa.0.i169.16..sroa.0.16..sroa.0.16..i175
-  %foldExtExtBinop1229 = fadd <2 x double> %foldExtExtBinop1224, %foldExtExtBinop1227
-  %shift1231 = shufflevector <2 x double> %foldExtExtBinop1216, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1232 = fadd <2 x double> %shift1231, %foldExtExtBinop1229
-  %196 = extractelement <2 x double> %foldExtExtBinop1232, i64 0
+  %foldExtExtBinop1319 = fmul <2 x double> %.sroa.0.i169.16..sroa.0.i169.16..sroa.0.i169.16..sroa.0.16..sroa.0.16..i175, %184
+  %shift1321 = shufflevector <2 x double> %181, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1322 = fmul <2 x double> %shift1321, %.sroa.0.i169.0..sroa.0.i169.0..sroa.0.i169.0..sroa.0.0..sroa.0.0..i173
+  %shift1324 = shufflevector <2 x double> %182, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1325 = fmul <2 x double> %shift1324, %.sroa.0.i169.8..sroa.0.i169.8..sroa.0.i169.8..sroa.0.8..sroa.0.8..i174
+  %foldExtExtBinop1327 = fadd <2 x double> %foldExtExtBinop1322, %foldExtExtBinop1325
+  %shift1329 = shufflevector <2 x double> %183, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1330 = fmul <2 x double> %shift1329, %.sroa.0.i169.16..sroa.0.i169.16..sroa.0.i169.16..sroa.0.16..sroa.0.16..i175
+  %foldExtExtBinop1332 = fadd <2 x double> %foldExtExtBinop1327, %foldExtExtBinop1330
+  %shift1334 = shufflevector <2 x double> %foldExtExtBinop1319, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1335 = fadd <2 x double> %shift1334, %foldExtExtBinop1332
+  %196 = extractelement <2 x double> %foldExtExtBinop1335, i64 0
   %197 = fdiv double %196, %194
   %198 = extractelement <2 x double> %193, i64 0
   %199 = fmul double %186, %198
-  %foldExtExtBinop1234 = fmul <2 x double> %.sroa.0.i169.0..sroa.0.i169.0..sroa.0.i169.0..sroa.0.0..sroa.0.0..i173, %190
-  %foldExtExtBinop1236 = fmul <2 x double> %.sroa.0.i169.8..sroa.0.i169.8..sroa.0.i169.8..sroa.0.8..sroa.0.8..i174, %191
-  %foldExtExtBinop1238 = fadd <2 x double> %foldExtExtBinop1234, %foldExtExtBinop1236
-  %foldExtExtBinop1240 = fmul <2 x double> %.sroa.0.i169.16..sroa.0.i169.16..sroa.0.i169.16..sroa.0.16..sroa.0.16..i175, %192
-  %foldExtExtBinop1242 = fadd <2 x double> %foldExtExtBinop1238, %foldExtExtBinop1240
-  %200 = extractelement <2 x double> %foldExtExtBinop1242, i64 0
+  %foldExtExtBinop1337 = fmul <2 x double> %.sroa.0.i169.0..sroa.0.i169.0..sroa.0.i169.0..sroa.0.0..sroa.0.0..i173, %190
+  %foldExtExtBinop1339 = fmul <2 x double> %.sroa.0.i169.8..sroa.0.i169.8..sroa.0.i169.8..sroa.0.8..sroa.0.8..i174, %191
+  %foldExtExtBinop1341 = fadd <2 x double> %foldExtExtBinop1337, %foldExtExtBinop1339
+  %foldExtExtBinop1343 = fmul <2 x double> %.sroa.0.i169.16..sroa.0.i169.16..sroa.0.i169.16..sroa.0.16..sroa.0.16..i175, %192
+  %foldExtExtBinop1345 = fadd <2 x double> %foldExtExtBinop1341, %foldExtExtBinop1343
+  %200 = extractelement <2 x double> %foldExtExtBinop1345, i64 0
   %201 = fadd double %199, %200
   %202 = fdiv double %201, %194
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i169)
@@ -4633,10 +4633,10 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJ
   %232 = phi ptr [ %227, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i188 ], [ %209, %207 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i192)
   store double 0.000000e+00, ptr %.sroa.0.i192, align 16, !tbaa !36, !noalias !278
-  %.sroa.0.i192.8.i192.8.i192.8..sroa_idx1460 = getelementptr inbounds nuw i8, ptr %.sroa.0.i192, i64 8
-  store double %180, ptr %.sroa.0.i192.8.i192.8.i192.8..sroa_idx1460, align 8, !tbaa !36, !noalias !278
-  %.sroa.0.i192.16.i192.16.i192.16..sroa_idx1461 = getelementptr inbounds nuw i8, ptr %.sroa.0.i192, i64 16
-  store double %5, ptr %.sroa.0.i192.16.i192.16.i192.16..sroa_idx1461, align 16, !tbaa !36, !noalias !278
+  %.sroa.0.i192.8.i192.8.i192.8..sroa_idx1563 = getelementptr inbounds nuw i8, ptr %.sroa.0.i192, i64 8
+  store double %180, ptr %.sroa.0.i192.8.i192.8.i192.8..sroa_idx1563, align 8, !tbaa !36, !noalias !278
+  %.sroa.0.i192.16.i192.16.i192.16..sroa_idx1564 = getelementptr inbounds nuw i8, ptr %.sroa.0.i192, i64 16
+  store double %5, ptr %.sroa.0.i192.16.i192.16.i192.16..sroa_idx1564, align 16, !tbaa !36, !noalias !278
   %.sroa.0.i192.24.i192.24.i192.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i192, i64 24
   store double 1.000000e+00, ptr %.sroa.0.i192.24.i192.24.i192.24..sroa_idx, align 8, !tbaa !36, !noalias !278
   %233 = load <2 x double>, ptr %8, align 16, !tbaa !26, !noalias !278
@@ -4651,51 +4651,51 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJ
   %237 = extractelement <2 x double> %236, i64 0
   %238 = extractelement <2 x double> %.sroa.0.i192.16..sroa.0.i192.16..sroa.0.i192.16..sroa.0.16..sroa.0.16..i198, i64 1
   %239 = fmul double %238, %237
-  %foldExtExtBinop1244 = fmul <2 x double> %233, %.sroa.0.i192.0..sroa.0.i192.0..sroa.0.i192.0..sroa.0.0..sroa.0.0..i196
-  %foldExtExtBinop1246 = fmul <2 x double> %234, %.sroa.0.i192.8..sroa.0.i192.8..sroa.0.i192.8..sroa.0.8..sroa.0.8..i197
-  %foldExtExtBinop1248 = fadd <2 x double> %foldExtExtBinop1244, %foldExtExtBinop1246
-  %foldExtExtBinop1250 = fmul <2 x double> %235, %.sroa.0.i192.16..sroa.0.i192.16..sroa.0.i192.16..sroa.0.16..sroa.0.16..i198
-  %foldExtExtBinop1252 = fadd <2 x double> %foldExtExtBinop1248, %foldExtExtBinop1250
-  %240 = extractelement <2 x double> %foldExtExtBinop1252, i64 0
+  %foldExtExtBinop1347 = fmul <2 x double> %233, %.sroa.0.i192.0..sroa.0.i192.0..sroa.0.i192.0..sroa.0.0..sroa.0.0..i196
+  %foldExtExtBinop1349 = fmul <2 x double> %234, %.sroa.0.i192.8..sroa.0.i192.8..sroa.0.i192.8..sroa.0.8..sroa.0.8..i197
+  %foldExtExtBinop1351 = fadd <2 x double> %foldExtExtBinop1347, %foldExtExtBinop1349
+  %foldExtExtBinop1353 = fmul <2 x double> %235, %.sroa.0.i192.16..sroa.0.i192.16..sroa.0.i192.16..sroa.0.16..sroa.0.16..i198
+  %foldExtExtBinop1355 = fadd <2 x double> %foldExtExtBinop1351, %foldExtExtBinop1353
+  %240 = extractelement <2 x double> %foldExtExtBinop1355, i64 0
   %241 = fadd double %239, %240
   %242 = load <2 x double>, ptr %64, align 16, !tbaa !26, !noalias !278
   %243 = load <2 x double>, ptr %66, align 16, !tbaa !26, !noalias !278
   %244 = load <2 x double>, ptr %68, align 16, !tbaa !26, !noalias !278
   %245 = load <2 x double>, ptr %70, align 16, !tbaa !26, !noalias !278
-  %foldExtExtBinop1254 = fmul <2 x double> %.sroa.0.i192.16..sroa.0.i192.16..sroa.0.i192.16..sroa.0.16..sroa.0.16..i198, %245
-  %shift1256 = shufflevector <2 x double> %242, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1257 = fmul <2 x double> %.sroa.0.i192.0..sroa.0.i192.0..sroa.0.i192.0..sroa.0.0..sroa.0.0..i196, %shift1256
-  %shift1259 = shufflevector <2 x double> %243, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1260 = fmul <2 x double> %.sroa.0.i192.8..sroa.0.i192.8..sroa.0.i192.8..sroa.0.8..sroa.0.8..i197, %shift1259
-  %foldExtExtBinop1262 = fadd <2 x double> %foldExtExtBinop1257, %foldExtExtBinop1260
-  %shift1264 = shufflevector <2 x double> %244, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1265 = fmul <2 x double> %.sroa.0.i192.16..sroa.0.i192.16..sroa.0.i192.16..sroa.0.16..sroa.0.16..i198, %shift1264
-  %foldExtExtBinop1267 = fadd <2 x double> %foldExtExtBinop1262, %foldExtExtBinop1265
-  %shift1269 = shufflevector <2 x double> %foldExtExtBinop1254, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1270 = fadd <2 x double> %shift1269, %foldExtExtBinop1267
-  %246 = extractelement <2 x double> %foldExtExtBinop1270, i64 0
+  %foldExtExtBinop1357 = fmul <2 x double> %.sroa.0.i192.16..sroa.0.i192.16..sroa.0.i192.16..sroa.0.16..sroa.0.16..i198, %245
+  %shift1359 = shufflevector <2 x double> %242, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1360 = fmul <2 x double> %.sroa.0.i192.0..sroa.0.i192.0..sroa.0.i192.0..sroa.0.0..sroa.0.0..i196, %shift1359
+  %shift1362 = shufflevector <2 x double> %243, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1363 = fmul <2 x double> %.sroa.0.i192.8..sroa.0.i192.8..sroa.0.i192.8..sroa.0.8..sroa.0.8..i197, %shift1362
+  %foldExtExtBinop1365 = fadd <2 x double> %foldExtExtBinop1360, %foldExtExtBinop1363
+  %shift1367 = shufflevector <2 x double> %244, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1368 = fmul <2 x double> %.sroa.0.i192.16..sroa.0.i192.16..sroa.0.i192.16..sroa.0.16..sroa.0.16..i198, %shift1367
+  %foldExtExtBinop1370 = fadd <2 x double> %foldExtExtBinop1365, %foldExtExtBinop1368
+  %shift1372 = shufflevector <2 x double> %foldExtExtBinop1357, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1373 = fadd <2 x double> %shift1372, %foldExtExtBinop1370
+  %246 = extractelement <2 x double> %foldExtExtBinop1373, i64 0
   %247 = fdiv double %241, %246
-  %foldExtExtBinop1272 = fmul <2 x double> %.sroa.0.i192.16..sroa.0.i192.16..sroa.0.i192.16..sroa.0.16..sroa.0.16..i198, %236
-  %shift1274 = shufflevector <2 x double> %233, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1275 = fmul <2 x double> %shift1274, %.sroa.0.i192.0..sroa.0.i192.0..sroa.0.i192.0..sroa.0.0..sroa.0.0..i196
-  %shift1277 = shufflevector <2 x double> %234, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1278 = fmul <2 x double> %shift1277, %.sroa.0.i192.8..sroa.0.i192.8..sroa.0.i192.8..sroa.0.8..sroa.0.8..i197
-  %foldExtExtBinop1280 = fadd <2 x double> %foldExtExtBinop1275, %foldExtExtBinop1278
-  %shift1282 = shufflevector <2 x double> %235, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1283 = fmul <2 x double> %shift1282, %.sroa.0.i192.16..sroa.0.i192.16..sroa.0.i192.16..sroa.0.16..sroa.0.16..i198
-  %foldExtExtBinop1285 = fadd <2 x double> %foldExtExtBinop1280, %foldExtExtBinop1283
-  %shift1287 = shufflevector <2 x double> %foldExtExtBinop1272, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1288 = fadd <2 x double> %shift1287, %foldExtExtBinop1285
-  %248 = extractelement <2 x double> %foldExtExtBinop1288, i64 0
+  %foldExtExtBinop1375 = fmul <2 x double> %.sroa.0.i192.16..sroa.0.i192.16..sroa.0.i192.16..sroa.0.16..sroa.0.16..i198, %236
+  %shift1377 = shufflevector <2 x double> %233, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1378 = fmul <2 x double> %shift1377, %.sroa.0.i192.0..sroa.0.i192.0..sroa.0.i192.0..sroa.0.0..sroa.0.0..i196
+  %shift1380 = shufflevector <2 x double> %234, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1381 = fmul <2 x double> %shift1380, %.sroa.0.i192.8..sroa.0.i192.8..sroa.0.i192.8..sroa.0.8..sroa.0.8..i197
+  %foldExtExtBinop1383 = fadd <2 x double> %foldExtExtBinop1378, %foldExtExtBinop1381
+  %shift1385 = shufflevector <2 x double> %235, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1386 = fmul <2 x double> %shift1385, %.sroa.0.i192.16..sroa.0.i192.16..sroa.0.i192.16..sroa.0.16..sroa.0.16..i198
+  %foldExtExtBinop1388 = fadd <2 x double> %foldExtExtBinop1383, %foldExtExtBinop1386
+  %shift1390 = shufflevector <2 x double> %foldExtExtBinop1375, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1391 = fadd <2 x double> %shift1390, %foldExtExtBinop1388
+  %248 = extractelement <2 x double> %foldExtExtBinop1391, i64 0
   %249 = fdiv double %248, %246
   %250 = extractelement <2 x double> %245, i64 0
   %251 = fmul double %238, %250
-  %foldExtExtBinop1290 = fmul <2 x double> %.sroa.0.i192.0..sroa.0.i192.0..sroa.0.i192.0..sroa.0.0..sroa.0.0..i196, %242
-  %foldExtExtBinop1292 = fmul <2 x double> %.sroa.0.i192.8..sroa.0.i192.8..sroa.0.i192.8..sroa.0.8..sroa.0.8..i197, %243
-  %foldExtExtBinop1294 = fadd <2 x double> %foldExtExtBinop1290, %foldExtExtBinop1292
-  %foldExtExtBinop1296 = fmul <2 x double> %.sroa.0.i192.16..sroa.0.i192.16..sroa.0.i192.16..sroa.0.16..sroa.0.16..i198, %244
-  %foldExtExtBinop1298 = fadd <2 x double> %foldExtExtBinop1294, %foldExtExtBinop1296
-  %252 = extractelement <2 x double> %foldExtExtBinop1298, i64 0
+  %foldExtExtBinop1393 = fmul <2 x double> %.sroa.0.i192.0..sroa.0.i192.0..sroa.0.i192.0..sroa.0.0..sroa.0.0..i196, %242
+  %foldExtExtBinop1395 = fmul <2 x double> %.sroa.0.i192.8..sroa.0.i192.8..sroa.0.i192.8..sroa.0.8..sroa.0.8..i197, %243
+  %foldExtExtBinop1397 = fadd <2 x double> %foldExtExtBinop1393, %foldExtExtBinop1395
+  %foldExtExtBinop1399 = fmul <2 x double> %.sroa.0.i192.16..sroa.0.i192.16..sroa.0.i192.16..sroa.0.16..sroa.0.16..i198, %244
+  %foldExtExtBinop1401 = fadd <2 x double> %foldExtExtBinop1397, %foldExtExtBinop1399
+  %252 = extractelement <2 x double> %foldExtExtBinop1401, i64 0
   %253 = fadd double %251, %252
   %254 = fdiv double %253, %246
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i192)
@@ -5613,10 +5613,10 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJ
   %619 = fmul double %5, %618
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i363)
   store double 0.000000e+00, ptr %.sroa.0.i363, align 16, !tbaa !36, !noalias !332
-  %.sroa.0.i363.8.i363.8.i363.8..sroa_idx1463 = getelementptr inbounds nuw i8, ptr %.sroa.0.i363, i64 8
-  store double %619, ptr %.sroa.0.i363.8.i363.8.i363.8..sroa_idx1463, align 8, !tbaa !36, !noalias !332
-  %.sroa.0.i363.16.i363.16.i363.16..sroa_idx1464 = getelementptr inbounds nuw i8, ptr %.sroa.0.i363, i64 16
-  store double 0.000000e+00, ptr %.sroa.0.i363.16.i363.16.i363.16..sroa_idx1464, align 16, !tbaa !36, !noalias !332
+  %.sroa.0.i363.8.i363.8.i363.8..sroa_idx1566 = getelementptr inbounds nuw i8, ptr %.sroa.0.i363, i64 8
+  store double %619, ptr %.sroa.0.i363.8.i363.8.i363.8..sroa_idx1566, align 8, !tbaa !36, !noalias !332
+  %.sroa.0.i363.16.i363.16.i363.16..sroa_idx1567 = getelementptr inbounds nuw i8, ptr %.sroa.0.i363, i64 16
+  store double 0.000000e+00, ptr %.sroa.0.i363.16.i363.16.i363.16..sroa_idx1567, align 16, !tbaa !36, !noalias !332
   %.sroa.0.i363.24.i363.24.i363.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i363, i64 24
   store double 1.000000e+00, ptr %.sroa.0.i363.24.i363.24.i363.24..sroa_idx, align 8, !tbaa !36, !noalias !332
   %620 = load <2 x double>, ptr %8, align 16, !tbaa !26, !noalias !332
@@ -5631,51 +5631,51 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJ
   %624 = extractelement <2 x double> %623, i64 0
   %625 = extractelement <2 x double> %.sroa.0.i363.16..sroa.0.i363.16..sroa.0.i363.16..sroa.0.16..sroa.0.16..i369, i64 1
   %626 = fmul double %625, %624
-  %foldExtExtBinop1324 = fmul <2 x double> %620, %.sroa.0.i363.0..sroa.0.i363.0..sroa.0.i363.0..sroa.0.0..sroa.0.0..i367
-  %foldExtExtBinop1326 = fmul <2 x double> %621, %.sroa.0.i363.8..sroa.0.i363.8..sroa.0.i363.8..sroa.0.8..sroa.0.8..i368
-  %foldExtExtBinop1328 = fadd <2 x double> %foldExtExtBinop1324, %foldExtExtBinop1326
-  %foldExtExtBinop1330 = fmul <2 x double> %622, %.sroa.0.i363.16..sroa.0.i363.16..sroa.0.i363.16..sroa.0.16..sroa.0.16..i369
-  %foldExtExtBinop1332 = fadd <2 x double> %foldExtExtBinop1328, %foldExtExtBinop1330
-  %627 = extractelement <2 x double> %foldExtExtBinop1332, i64 0
+  %foldExtExtBinop1427 = fmul <2 x double> %620, %.sroa.0.i363.0..sroa.0.i363.0..sroa.0.i363.0..sroa.0.0..sroa.0.0..i367
+  %foldExtExtBinop1429 = fmul <2 x double> %621, %.sroa.0.i363.8..sroa.0.i363.8..sroa.0.i363.8..sroa.0.8..sroa.0.8..i368
+  %foldExtExtBinop1431 = fadd <2 x double> %foldExtExtBinop1427, %foldExtExtBinop1429
+  %foldExtExtBinop1433 = fmul <2 x double> %622, %.sroa.0.i363.16..sroa.0.i363.16..sroa.0.i363.16..sroa.0.16..sroa.0.16..i369
+  %foldExtExtBinop1435 = fadd <2 x double> %foldExtExtBinop1431, %foldExtExtBinop1433
+  %627 = extractelement <2 x double> %foldExtExtBinop1435, i64 0
   %628 = fadd double %626, %627
   %629 = load <2 x double>, ptr %64, align 16, !tbaa !26, !noalias !332
   %630 = load <2 x double>, ptr %66, align 16, !tbaa !26, !noalias !332
   %631 = load <2 x double>, ptr %68, align 16, !tbaa !26, !noalias !332
   %632 = load <2 x double>, ptr %70, align 16, !tbaa !26, !noalias !332
-  %foldExtExtBinop1334 = fmul <2 x double> %.sroa.0.i363.16..sroa.0.i363.16..sroa.0.i363.16..sroa.0.16..sroa.0.16..i369, %632
-  %shift1336 = shufflevector <2 x double> %629, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1337 = fmul <2 x double> %.sroa.0.i363.0..sroa.0.i363.0..sroa.0.i363.0..sroa.0.0..sroa.0.0..i367, %shift1336
-  %shift1339 = shufflevector <2 x double> %630, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1340 = fmul <2 x double> %.sroa.0.i363.8..sroa.0.i363.8..sroa.0.i363.8..sroa.0.8..sroa.0.8..i368, %shift1339
-  %foldExtExtBinop1342 = fadd <2 x double> %foldExtExtBinop1337, %foldExtExtBinop1340
-  %shift1344 = shufflevector <2 x double> %631, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1345 = fmul <2 x double> %.sroa.0.i363.16..sroa.0.i363.16..sroa.0.i363.16..sroa.0.16..sroa.0.16..i369, %shift1344
-  %foldExtExtBinop1347 = fadd <2 x double> %foldExtExtBinop1342, %foldExtExtBinop1345
-  %shift1349 = shufflevector <2 x double> %foldExtExtBinop1334, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1350 = fadd <2 x double> %shift1349, %foldExtExtBinop1347
-  %633 = extractelement <2 x double> %foldExtExtBinop1350, i64 0
+  %foldExtExtBinop1437 = fmul <2 x double> %.sroa.0.i363.16..sroa.0.i363.16..sroa.0.i363.16..sroa.0.16..sroa.0.16..i369, %632
+  %shift1439 = shufflevector <2 x double> %629, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1440 = fmul <2 x double> %.sroa.0.i363.0..sroa.0.i363.0..sroa.0.i363.0..sroa.0.0..sroa.0.0..i367, %shift1439
+  %shift1442 = shufflevector <2 x double> %630, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1443 = fmul <2 x double> %.sroa.0.i363.8..sroa.0.i363.8..sroa.0.i363.8..sroa.0.8..sroa.0.8..i368, %shift1442
+  %foldExtExtBinop1445 = fadd <2 x double> %foldExtExtBinop1440, %foldExtExtBinop1443
+  %shift1447 = shufflevector <2 x double> %631, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1448 = fmul <2 x double> %.sroa.0.i363.16..sroa.0.i363.16..sroa.0.i363.16..sroa.0.16..sroa.0.16..i369, %shift1447
+  %foldExtExtBinop1450 = fadd <2 x double> %foldExtExtBinop1445, %foldExtExtBinop1448
+  %shift1452 = shufflevector <2 x double> %foldExtExtBinop1437, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1453 = fadd <2 x double> %shift1452, %foldExtExtBinop1450
+  %633 = extractelement <2 x double> %foldExtExtBinop1453, i64 0
   %634 = fdiv double %628, %633
-  %foldExtExtBinop1352 = fmul <2 x double> %.sroa.0.i363.16..sroa.0.i363.16..sroa.0.i363.16..sroa.0.16..sroa.0.16..i369, %623
-  %shift1354 = shufflevector <2 x double> %620, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1355 = fmul <2 x double> %shift1354, %.sroa.0.i363.0..sroa.0.i363.0..sroa.0.i363.0..sroa.0.0..sroa.0.0..i367
-  %shift1357 = shufflevector <2 x double> %621, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1358 = fmul <2 x double> %shift1357, %.sroa.0.i363.8..sroa.0.i363.8..sroa.0.i363.8..sroa.0.8..sroa.0.8..i368
-  %foldExtExtBinop1360 = fadd <2 x double> %foldExtExtBinop1355, %foldExtExtBinop1358
-  %shift1362 = shufflevector <2 x double> %622, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1363 = fmul <2 x double> %shift1362, %.sroa.0.i363.16..sroa.0.i363.16..sroa.0.i363.16..sroa.0.16..sroa.0.16..i369
-  %foldExtExtBinop1365 = fadd <2 x double> %foldExtExtBinop1360, %foldExtExtBinop1363
-  %shift1367 = shufflevector <2 x double> %foldExtExtBinop1352, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1368 = fadd <2 x double> %shift1367, %foldExtExtBinop1365
-  %635 = extractelement <2 x double> %foldExtExtBinop1368, i64 0
+  %foldExtExtBinop1455 = fmul <2 x double> %.sroa.0.i363.16..sroa.0.i363.16..sroa.0.i363.16..sroa.0.16..sroa.0.16..i369, %623
+  %shift1457 = shufflevector <2 x double> %620, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1458 = fmul <2 x double> %shift1457, %.sroa.0.i363.0..sroa.0.i363.0..sroa.0.i363.0..sroa.0.0..sroa.0.0..i367
+  %shift1460 = shufflevector <2 x double> %621, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1461 = fmul <2 x double> %shift1460, %.sroa.0.i363.8..sroa.0.i363.8..sroa.0.i363.8..sroa.0.8..sroa.0.8..i368
+  %foldExtExtBinop1463 = fadd <2 x double> %foldExtExtBinop1458, %foldExtExtBinop1461
+  %shift1465 = shufflevector <2 x double> %622, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1466 = fmul <2 x double> %shift1465, %.sroa.0.i363.16..sroa.0.i363.16..sroa.0.i363.16..sroa.0.16..sroa.0.16..i369
+  %foldExtExtBinop1468 = fadd <2 x double> %foldExtExtBinop1463, %foldExtExtBinop1466
+  %shift1470 = shufflevector <2 x double> %foldExtExtBinop1455, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1471 = fadd <2 x double> %shift1470, %foldExtExtBinop1468
+  %635 = extractelement <2 x double> %foldExtExtBinop1471, i64 0
   %636 = fdiv double %635, %633
   %637 = extractelement <2 x double> %632, i64 0
   %638 = fmul double %625, %637
-  %foldExtExtBinop1370 = fmul <2 x double> %.sroa.0.i363.0..sroa.0.i363.0..sroa.0.i363.0..sroa.0.0..sroa.0.0..i367, %629
-  %foldExtExtBinop1372 = fmul <2 x double> %.sroa.0.i363.8..sroa.0.i363.8..sroa.0.i363.8..sroa.0.8..sroa.0.8..i368, %630
-  %foldExtExtBinop1374 = fadd <2 x double> %foldExtExtBinop1370, %foldExtExtBinop1372
-  %foldExtExtBinop1376 = fmul <2 x double> %.sroa.0.i363.16..sroa.0.i363.16..sroa.0.i363.16..sroa.0.16..sroa.0.16..i369, %631
-  %foldExtExtBinop1378 = fadd <2 x double> %foldExtExtBinop1374, %foldExtExtBinop1376
-  %639 = extractelement <2 x double> %foldExtExtBinop1378, i64 0
+  %foldExtExtBinop1473 = fmul <2 x double> %.sroa.0.i363.0..sroa.0.i363.0..sroa.0.i363.0..sroa.0.0..sroa.0.0..i367, %629
+  %foldExtExtBinop1475 = fmul <2 x double> %.sroa.0.i363.8..sroa.0.i363.8..sroa.0.i363.8..sroa.0.8..sroa.0.8..i368, %630
+  %foldExtExtBinop1477 = fadd <2 x double> %foldExtExtBinop1473, %foldExtExtBinop1475
+  %foldExtExtBinop1479 = fmul <2 x double> %.sroa.0.i363.16..sroa.0.i363.16..sroa.0.i363.16..sroa.0.16..sroa.0.16..i369, %631
+  %foldExtExtBinop1481 = fadd <2 x double> %foldExtExtBinop1477, %foldExtExtBinop1479
+  %639 = extractelement <2 x double> %foldExtExtBinop1481, i64 0
   %640 = fadd double %638, %639
   %641 = fdiv double %640, %633
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i363)
@@ -5773,10 +5773,10 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJ
   %673 = fmul double %5, %672
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i386)
   store double %671, ptr %.sroa.0.i386, align 16, !tbaa !36, !noalias !339
-  %.sroa.0.i386.8.i386.8.i386.8..sroa_idx1465 = getelementptr inbounds nuw i8, ptr %.sroa.0.i386, i64 8
-  store double %673, ptr %.sroa.0.i386.8.i386.8.i386.8..sroa_idx1465, align 8, !tbaa !36, !noalias !339
-  %.sroa.0.i386.16.i386.16.i386.16..sroa_idx1466 = getelementptr inbounds nuw i8, ptr %.sroa.0.i386, i64 16
-  store double %5, ptr %.sroa.0.i386.16.i386.16.i386.16..sroa_idx1466, align 16, !tbaa !36, !noalias !339
+  %.sroa.0.i386.8.i386.8.i386.8..sroa_idx1568 = getelementptr inbounds nuw i8, ptr %.sroa.0.i386, i64 8
+  store double %673, ptr %.sroa.0.i386.8.i386.8.i386.8..sroa_idx1568, align 8, !tbaa !36, !noalias !339
+  %.sroa.0.i386.16.i386.16.i386.16..sroa_idx1569 = getelementptr inbounds nuw i8, ptr %.sroa.0.i386, i64 16
+  store double %5, ptr %.sroa.0.i386.16.i386.16.i386.16..sroa_idx1569, align 16, !tbaa !36, !noalias !339
   %.sroa.0.i386.24.i386.24.i386.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i386, i64 24
   store double 1.000000e+00, ptr %.sroa.0.i386.24.i386.24.i386.24..sroa_idx, align 8, !tbaa !36, !noalias !339
   %674 = load <2 x double>, ptr %8, align 16, !tbaa !26, !noalias !339
@@ -5791,51 +5791,51 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJ
   %678 = extractelement <2 x double> %677, i64 0
   %679 = extractelement <2 x double> %.sroa.0.i386.16..sroa.0.i386.16..sroa.0.i386.16..sroa.0.16..sroa.0.16..i392, i64 1
   %680 = fmul double %679, %678
-  %foldExtExtBinop1380 = fmul <2 x double> %674, %.sroa.0.i386.0..sroa.0.i386.0..sroa.0.i386.0..sroa.0.0..sroa.0.0..i390
-  %foldExtExtBinop1382 = fmul <2 x double> %675, %.sroa.0.i386.8..sroa.0.i386.8..sroa.0.i386.8..sroa.0.8..sroa.0.8..i391
-  %foldExtExtBinop1384 = fadd <2 x double> %foldExtExtBinop1380, %foldExtExtBinop1382
-  %foldExtExtBinop1386 = fmul <2 x double> %676, %.sroa.0.i386.16..sroa.0.i386.16..sroa.0.i386.16..sroa.0.16..sroa.0.16..i392
-  %foldExtExtBinop1388 = fadd <2 x double> %foldExtExtBinop1384, %foldExtExtBinop1386
-  %681 = extractelement <2 x double> %foldExtExtBinop1388, i64 0
+  %foldExtExtBinop1483 = fmul <2 x double> %674, %.sroa.0.i386.0..sroa.0.i386.0..sroa.0.i386.0..sroa.0.0..sroa.0.0..i390
+  %foldExtExtBinop1485 = fmul <2 x double> %675, %.sroa.0.i386.8..sroa.0.i386.8..sroa.0.i386.8..sroa.0.8..sroa.0.8..i391
+  %foldExtExtBinop1487 = fadd <2 x double> %foldExtExtBinop1483, %foldExtExtBinop1485
+  %foldExtExtBinop1489 = fmul <2 x double> %676, %.sroa.0.i386.16..sroa.0.i386.16..sroa.0.i386.16..sroa.0.16..sroa.0.16..i392
+  %foldExtExtBinop1491 = fadd <2 x double> %foldExtExtBinop1487, %foldExtExtBinop1489
+  %681 = extractelement <2 x double> %foldExtExtBinop1491, i64 0
   %682 = fadd double %680, %681
   %683 = load <2 x double>, ptr %64, align 16, !tbaa !26, !noalias !339
   %684 = load <2 x double>, ptr %66, align 16, !tbaa !26, !noalias !339
   %685 = load <2 x double>, ptr %68, align 16, !tbaa !26, !noalias !339
   %686 = load <2 x double>, ptr %70, align 16, !tbaa !26, !noalias !339
-  %foldExtExtBinop1390 = fmul <2 x double> %.sroa.0.i386.16..sroa.0.i386.16..sroa.0.i386.16..sroa.0.16..sroa.0.16..i392, %686
-  %shift1392 = shufflevector <2 x double> %683, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1393 = fmul <2 x double> %.sroa.0.i386.0..sroa.0.i386.0..sroa.0.i386.0..sroa.0.0..sroa.0.0..i390, %shift1392
-  %shift1395 = shufflevector <2 x double> %684, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1396 = fmul <2 x double> %.sroa.0.i386.8..sroa.0.i386.8..sroa.0.i386.8..sroa.0.8..sroa.0.8..i391, %shift1395
-  %foldExtExtBinop1398 = fadd <2 x double> %foldExtExtBinop1393, %foldExtExtBinop1396
-  %shift1400 = shufflevector <2 x double> %685, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1401 = fmul <2 x double> %.sroa.0.i386.16..sroa.0.i386.16..sroa.0.i386.16..sroa.0.16..sroa.0.16..i392, %shift1400
-  %foldExtExtBinop1403 = fadd <2 x double> %foldExtExtBinop1398, %foldExtExtBinop1401
-  %shift1405 = shufflevector <2 x double> %foldExtExtBinop1390, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1406 = fadd <2 x double> %shift1405, %foldExtExtBinop1403
-  %687 = extractelement <2 x double> %foldExtExtBinop1406, i64 0
+  %foldExtExtBinop1493 = fmul <2 x double> %.sroa.0.i386.16..sroa.0.i386.16..sroa.0.i386.16..sroa.0.16..sroa.0.16..i392, %686
+  %shift1495 = shufflevector <2 x double> %683, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1496 = fmul <2 x double> %.sroa.0.i386.0..sroa.0.i386.0..sroa.0.i386.0..sroa.0.0..sroa.0.0..i390, %shift1495
+  %shift1498 = shufflevector <2 x double> %684, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1499 = fmul <2 x double> %.sroa.0.i386.8..sroa.0.i386.8..sroa.0.i386.8..sroa.0.8..sroa.0.8..i391, %shift1498
+  %foldExtExtBinop1501 = fadd <2 x double> %foldExtExtBinop1496, %foldExtExtBinop1499
+  %shift1503 = shufflevector <2 x double> %685, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1504 = fmul <2 x double> %.sroa.0.i386.16..sroa.0.i386.16..sroa.0.i386.16..sroa.0.16..sroa.0.16..i392, %shift1503
+  %foldExtExtBinop1506 = fadd <2 x double> %foldExtExtBinop1501, %foldExtExtBinop1504
+  %shift1508 = shufflevector <2 x double> %foldExtExtBinop1493, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1509 = fadd <2 x double> %shift1508, %foldExtExtBinop1506
+  %687 = extractelement <2 x double> %foldExtExtBinop1509, i64 0
   %688 = fdiv double %682, %687
-  %foldExtExtBinop1408 = fmul <2 x double> %.sroa.0.i386.16..sroa.0.i386.16..sroa.0.i386.16..sroa.0.16..sroa.0.16..i392, %677
-  %shift1410 = shufflevector <2 x double> %674, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1411 = fmul <2 x double> %shift1410, %.sroa.0.i386.0..sroa.0.i386.0..sroa.0.i386.0..sroa.0.0..sroa.0.0..i390
-  %shift1413 = shufflevector <2 x double> %675, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1414 = fmul <2 x double> %shift1413, %.sroa.0.i386.8..sroa.0.i386.8..sroa.0.i386.8..sroa.0.8..sroa.0.8..i391
-  %foldExtExtBinop1416 = fadd <2 x double> %foldExtExtBinop1411, %foldExtExtBinop1414
-  %shift1418 = shufflevector <2 x double> %676, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1419 = fmul <2 x double> %shift1418, %.sroa.0.i386.16..sroa.0.i386.16..sroa.0.i386.16..sroa.0.16..sroa.0.16..i392
-  %foldExtExtBinop1421 = fadd <2 x double> %foldExtExtBinop1416, %foldExtExtBinop1419
-  %shift1423 = shufflevector <2 x double> %foldExtExtBinop1408, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop1424 = fadd <2 x double> %shift1423, %foldExtExtBinop1421
-  %689 = extractelement <2 x double> %foldExtExtBinop1424, i64 0
+  %foldExtExtBinop1511 = fmul <2 x double> %.sroa.0.i386.16..sroa.0.i386.16..sroa.0.i386.16..sroa.0.16..sroa.0.16..i392, %677
+  %shift1513 = shufflevector <2 x double> %674, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1514 = fmul <2 x double> %shift1513, %.sroa.0.i386.0..sroa.0.i386.0..sroa.0.i386.0..sroa.0.0..sroa.0.0..i390
+  %shift1516 = shufflevector <2 x double> %675, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1517 = fmul <2 x double> %shift1516, %.sroa.0.i386.8..sroa.0.i386.8..sroa.0.i386.8..sroa.0.8..sroa.0.8..i391
+  %foldExtExtBinop1519 = fadd <2 x double> %foldExtExtBinop1514, %foldExtExtBinop1517
+  %shift1521 = shufflevector <2 x double> %676, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1522 = fmul <2 x double> %shift1521, %.sroa.0.i386.16..sroa.0.i386.16..sroa.0.i386.16..sroa.0.16..sroa.0.16..i392
+  %foldExtExtBinop1524 = fadd <2 x double> %foldExtExtBinop1519, %foldExtExtBinop1522
+  %shift1526 = shufflevector <2 x double> %foldExtExtBinop1511, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop1527 = fadd <2 x double> %shift1526, %foldExtExtBinop1524
+  %689 = extractelement <2 x double> %foldExtExtBinop1527, i64 0
   %690 = fdiv double %689, %687
   %691 = extractelement <2 x double> %686, i64 0
   %692 = fmul double %679, %691
-  %foldExtExtBinop1426 = fmul <2 x double> %.sroa.0.i386.0..sroa.0.i386.0..sroa.0.i386.0..sroa.0.0..sroa.0.0..i390, %683
-  %foldExtExtBinop1428 = fmul <2 x double> %.sroa.0.i386.8..sroa.0.i386.8..sroa.0.i386.8..sroa.0.8..sroa.0.8..i391, %684
-  %foldExtExtBinop1430 = fadd <2 x double> %foldExtExtBinop1426, %foldExtExtBinop1428
-  %foldExtExtBinop1432 = fmul <2 x double> %.sroa.0.i386.16..sroa.0.i386.16..sroa.0.i386.16..sroa.0.16..sroa.0.16..i392, %685
-  %foldExtExtBinop1434 = fadd <2 x double> %foldExtExtBinop1430, %foldExtExtBinop1432
-  %693 = extractelement <2 x double> %foldExtExtBinop1434, i64 0
+  %foldExtExtBinop1529 = fmul <2 x double> %.sroa.0.i386.0..sroa.0.i386.0..sroa.0.i386.0..sroa.0.0..sroa.0.0..i390, %683
+  %foldExtExtBinop1531 = fmul <2 x double> %.sroa.0.i386.8..sroa.0.i386.8..sroa.0.i386.8..sroa.0.8..sroa.0.8..i391, %684
+  %foldExtExtBinop1533 = fadd <2 x double> %foldExtExtBinop1529, %foldExtExtBinop1531
+  %foldExtExtBinop1535 = fmul <2 x double> %.sroa.0.i386.16..sroa.0.i386.16..sroa.0.i386.16..sroa.0.16..sroa.0.16..i392, %685
+  %foldExtExtBinop1537 = fadd <2 x double> %foldExtExtBinop1533, %foldExtExtBinop1535
+  %693 = extractelement <2 x double> %foldExtExtBinop1537, i64 0
   %694 = fadd double %692, %693
   %695 = fdiv double %694, %687
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i386)

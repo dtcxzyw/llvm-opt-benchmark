@@ -160,11 +160,11 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit32: ; preds = %_
   br label %52
 
 52:                                               ; preds = %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit32, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit26, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit20, %22, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit
-  %.sink61 = phi i64 [ 16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit32 ], [ 16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit26 ], [ 16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit20 ], [ 8, %22 ], [ 16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
-  %.sink60 = phi i64 [ %51, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit32 ], [ %42, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit26 ], [ %35, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit20 ], [ %10, %22 ], [ %21, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
+  %.sink63 = phi i64 [ 16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit32 ], [ 16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit26 ], [ 16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit20 ], [ 8, %22 ], [ 16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
+  %.sink62 = phi i64 [ %51, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit32 ], [ %42, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit26 ], [ %35, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit20 ], [ %10, %22 ], [ %21, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
   %.sink = phi i32 [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit32 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit26 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit20 ], [ 1, %22 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
-  %.sroa.635.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink61
-  store i64 %.sink60, ptr %.sroa.635.0..sroa_idx, align 8, !tbaa !33
+  %.sroa.635.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink63
+  store i64 %.sink62, ptr %.sroa.635.0..sroa_idx, align 8, !tbaa !33
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.sink, ptr %53, align 8, !tbaa !34
   ret void

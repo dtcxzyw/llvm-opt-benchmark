@@ -686,8 +686,8 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %94
   %104 = load i8, ptr %103, align 1
   %105 = or i8 %104, %102
   store i8 %105, ptr %103, align 1
-  %.not.i.i59145 = icmp samesign ult i64 %.0710.i.i, 4
-  br i1 %.not.i.i59145, label %.lr.ph147, label %._crit_edge106
+  %.not.i.i59159 = icmp samesign ult i64 %.0710.i.i, 4
+  br i1 %.not.i.i59159, label %.lr.ph161, label %._crit_edge106
 
 ._crit_edge106:                                   ; preds = %97, %_ZNK3ue29CharReach9find_nextEm.exit, %115, %.lr.ph105, %_ZNK3ue29CharReach10find_firstEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -695,17 +695,17 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %94
   %exitcond121.not = icmp eq i64 %indvars.iv.next119, 8
   br i1 %exitcond121.not, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit, label %87, !llvm.loop !11
 
-.lr.ph147:                                        ; preds = %.lr.ph105, %_ZNK3ue29CharReach9find_nextEm.exit
-  %.0104146 = phi i64 [ %123, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %101, %.lr.ph105 ]
-  %106 = lshr i64 %.0104146, 6
-  %107 = and i64 %.0104146, 63
+.lr.ph161:                                        ; preds = %.lr.ph105, %_ZNK3ue29CharReach9find_nextEm.exit
+  %.0104160 = phi i64 [ %123, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %101, %.lr.ph105 ]
+  %106 = lshr i64 %.0104160, 6
+  %107 = and i64 %.0104160, 63
   %.not20.i.i = icmp eq i64 %107, 63
   br i1 %.not20.i.i, label %.preheader, label %108
 
-.preheader:                                       ; preds = %108, %.lr.ph147
+.preheader:                                       ; preds = %108, %.lr.ph161
   br label %115
 
-108:                                              ; preds = %.lr.ph147
+108:                                              ; preds = %.lr.ph161
   %109 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %106
   %110 = load i64, ptr %109, align 8
   %111 = shl nsw i64 -2, %107
@@ -714,7 +714,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %94
   br i1 %.not21.i.i, label %.preheader, label %113
 
 113:                                              ; preds = %108
-  %114 = and i64 %.0104146, 192
+  %114 = and i64 %.0104160, 192
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 115:                                              ; preds = %.preheader, %117
@@ -734,16 +734,16 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %94
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %113, %120
-  %.sink138 = phi i64 [ %112, %113 ], [ %119, %120 ]
-  %.sink137 = phi i64 [ %114, %113 ], [ %121, %120 ]
-  %122 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sink138, i1 true)
-  %123 = or disjoint i64 %122, %.sink137
+  %.sink152 = phi i64 [ %112, %113 ], [ %119, %120 ]
+  %.sink151 = phi i64 [ %114, %113 ], [ %121, %120 ]
+  %122 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sink152, i1 true)
+  %123 = or disjoint i64 %122, %.sink151
   %124 = getelementptr inbounds nuw i8, ptr %26, i64 %123
   %125 = load i8, ptr %124, align 1
   %126 = or i8 %125, %102
   store i8 %126, ptr %124, align 1
-  %.not.i.i59 = icmp samesign ult i64 %.sink137, 256
-  br i1 %.not.i.i59, label %.lr.ph147, label %._crit_edge106
+  %.not.i.i59 = icmp samesign ult i64 %.sink151, 256
+  br i1 %.not.i.i59, label %.lr.ph161, label %._crit_edge106
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit:   ; preds = %._crit_edge106
   call void @_ZdlPv(ptr noundef nonnull %20) #14
@@ -853,20 +853,20 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %16
   %25 = load i8, ptr %24, align 1
   %26 = or i8 %25, %11
   store i8 %26, ptr %24, align 1
-  %.not.i.i1443 = icmp samesign ult i64 %.0710.i.i, 4
-  br i1 %.not.i.i1443, label %.lr.ph45, label %._crit_edge
+  %.not.i.i1447 = icmp samesign ult i64 %.0710.i.i, 4
+  br i1 %.not.i.i1447, label %.lr.ph49, label %._crit_edge
 
-.lr.ph45:                                         ; preds = %.lr.ph.preheader, %_ZNK3ue29CharReach9find_nextEm.exit
-  %.02344 = phi i64 [ %44, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %23, %.lr.ph.preheader ]
-  %27 = lshr i64 %.02344, 6
-  %28 = and i64 %.02344, 63
+.lr.ph49:                                         ; preds = %.lr.ph.preheader, %_ZNK3ue29CharReach9find_nextEm.exit
+  %.02348 = phi i64 [ %44, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %23, %.lr.ph.preheader ]
+  %27 = lshr i64 %.02348, 6
+  %28 = and i64 %.02348, 63
   %.not20.i.i = icmp eq i64 %28, 63
   br i1 %.not20.i.i, label %.preheader, label %29
 
-.preheader:                                       ; preds = %29, %.lr.ph45
+.preheader:                                       ; preds = %29, %.lr.ph49
   br label %36
 
-29:                                               ; preds = %.lr.ph45
+29:                                               ; preds = %.lr.ph49
   %30 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %27
   %31 = load i64, ptr %30, align 8
   %32 = shl nsw i64 -2, %28
@@ -875,7 +875,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %16
   br i1 %.not21.i.i, label %.preheader, label %34
 
 34:                                               ; preds = %29
-  %35 = and i64 %.02344, 192
+  %35 = and i64 %.02348, 192
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 36:                                               ; preds = %.preheader, %38
@@ -895,16 +895,16 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %16
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %34, %41
-  %.sink37 = phi i64 [ %33, %34 ], [ %40, %41 ]
-  %.sink36 = phi i64 [ %35, %34 ], [ %42, %41 ]
-  %43 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sink37, i1 true)
-  %44 = or disjoint i64 %43, %.sink36
+  %.sink41 = phi i64 [ %33, %34 ], [ %40, %41 ]
+  %.sink40 = phi i64 [ %35, %34 ], [ %42, %41 ]
+  %43 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sink41, i1 true)
+  %44 = or disjoint i64 %43, %.sink40
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 %44
   %46 = load i8, ptr %45, align 1
   %47 = or i8 %46, %11
   store i8 %47, ptr %45, align 1
-  %.not.i.i14 = icmp samesign ult i64 %.sink36, 256
-  br i1 %.not.i.i14, label %.lr.ph45, label %._crit_edge
+  %.not.i.i14 = icmp samesign ult i64 %.sink40, 256
+  br i1 %.not.i.i14, label %.lr.ph49, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %19, %_ZNK3ue29CharReach9find_nextEm.exit, %36, %.lr.ph.preheader, %_ZNK3ue29CharReach10find_firstEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

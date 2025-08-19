@@ -3397,7 +3397,7 @@ define void @_ZN17uv_build_frontend5error5Error19from_command_output17hacfa8b613
   store i64 -9223372036854775805, ptr %30, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %switch97 = icmp eq i8 %3, 1
-  br i1 %switch97, label %187, label %.thread154
+  br i1 %switch97, label %187, label %.thread161
 
 56:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
@@ -3602,7 +3602,7 @@ define void @_ZN17uv_build_frontend5error5Error19from_command_output17hacfa8b613
   %.sroa.018.0.sink = phi i64 [ %.sroa.018.0, %170 ], [ %.sroa.026.0, %116 ]
   %.sroa.520.sroa.0.0.sink = phi ptr [ %.sroa.520.sroa.0.0, %170 ], [ %.sroa.528.sroa.0.0, %116 ]
   %.sroa.520.sroa.4.0.sink = phi i64 [ %.sroa.520.sroa.4.0, %170 ], [ %.sroa.528.sroa.4.0, %116 ]
-  %.sink158 = phi ptr [ %143, %170 ], [ %89, %116 ]
+  %.sink165 = phi ptr [ %143, %170 ], [ %89, %116 ]
   %.sink = phi i32 [ %57, %170 ], [ %64, %116 ]
   %.sroa.016.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.018.0.sink, ptr %.sroa.016.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -3611,7 +3611,7 @@ define void @_ZN17uv_build_frontend5error5Error19from_command_output17hacfa8b613
   %.sroa.016.sroa.0.sroa.5.sroa.4.0..sroa.016.sroa.0.sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sroa.520.sroa.4.0.sink, ptr %.sroa.016.sroa.0.sroa.5.sroa.4.0..sroa.016.sroa.0.sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.016.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %.sink158, ptr %.sroa.016.sroa.4.0..sroa_idx, align 8
+  store ptr %.sink165, ptr %.sroa.016.sroa.4.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 %.sink, ptr %.sroa.7.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
@@ -3769,7 +3769,7 @@ define void @_ZN17uv_build_frontend5error5Error19from_command_output17hacfa8b613
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %174, ptr nonnull readonly align 1 %6, i64 %7, i1 false), !noalias !778
   br label %170
 
-"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$uv_build_frontend..error..MissingLibrary$GT$$GT$17h3d52120ccbdf2c27E.exit": ; preds = %199, %202, %.thread154, %122
+"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$uv_build_frontend..error..MissingLibrary$GT$$GT$17h3d52120ccbdf2c27E.exit": ; preds = %199, %202, %.thread161, %122
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   ret void
 
@@ -3802,7 +3802,7 @@ define void @_ZN17uv_build_frontend5error5Error19from_command_output17hacfa8b613
   invoke fastcc void @"_ZN4core3ptr61drop_in_place$LT$uv_build_frontend..error..MissingLibrary$GT$17h67d2a86eae0e2498E"(ptr noalias noundef align 8 dereferenceable(40) %28) #19
           to label %.thread unwind label %123
 
-.thread154:                                       ; preds = %.thread140
+.thread161:                                       ; preds = %.thread140
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %184, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %185 = getelementptr inbounds nuw i8, ptr %2, i64 48

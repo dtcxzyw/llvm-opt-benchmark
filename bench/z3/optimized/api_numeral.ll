@@ -184,10 +184,10 @@ _ZL18check_numeral_sortP11_Z3_contextP8_Z3_sort.exit: ; preds = %_Z15is_numeral_
   br i1 %.not, label %35, label %40
 
 .thread:                                          ; preds = %_ZNK4decl13get_family_idEv.exit.i.i
-  %.not106 = icmp eq ptr %1, null
-  br i1 %.not106, label %35, label %.thread107
+  %.not114 = icmp eq ptr %1, null
+  br i1 %.not114, label %35, label %.thread115
 
-.thread107:                                       ; preds = %.thread
+.thread115:                                       ; preds = %.thread
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 368
   br label %_ZNK4decl13get_family_idEv.exit.thread.i.i.i
 
@@ -212,8 +212,8 @@ _ZL18check_numeral_sortP11_Z3_contextP8_Z3_sort.exit: ; preds = %_Z15is_numeral_
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 368
   br i1 %16, label %_ZNK8fpa_util8is_floatEP4sort.exit, label %_ZNK4decl13get_family_idEv.exit.thread.i.i.i
 
-_ZNK4decl13get_family_idEv.exit.thread.i.i.i:     ; preds = %.thread107, %40
-  %42 = phi ptr [ %34, %.thread107 ], [ %41, %40 ]
+_ZNK4decl13get_family_idEv.exit.thread.i.i.i:     ; preds = %.thread115, %40
+  %42 = phi ptr [ %34, %.thread115 ], [ %41, %40 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %44 = load i32, ptr %43, align 8, !tbaa !169
   %45 = load i32, ptr %15, align 8, !tbaa !13

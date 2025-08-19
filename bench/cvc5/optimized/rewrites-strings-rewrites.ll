@@ -29205,7 +29205,7 @@ _ZN4cvc58internal8RationalD2Ev.exit13886:         ; preds = %_ZN4cvc58internal12
   %12526 = load ptr, ptr %1320, align 8, !tbaa !18
   store ptr %12526, ptr %12525, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1318, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 39, ptr nonnull %1319, i64 2)
-          to label %12527 unwind label %.thread22762
+          to label %12527 unwind label %.thread26369
 
 12527:                                            ; preds = %12524
   %12528 = load ptr, ptr %1320, align 8, !tbaa !18
@@ -30754,7 +30754,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14002: ; preds = %13257, %1325
   %13261 = load ptr, ptr %27, align 8, !tbaa !18
   store ptr %13261, ptr %1364, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1363, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 317, ptr nonnull %1364, i64 1)
-          to label %13262 unwind label %.thread22766
+          to label %13262 unwind label %.thread26373
 
 13262:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14002
   %13263 = load ptr, ptr %1363, align 8, !tbaa !18
@@ -32907,7 +32907,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14180: ; preds = %14280, %1427
   call void @llvm.lifetime.start.p0(ptr nonnull %1416)
   store ptr %14284, ptr %1416, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1415, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 19, ptr nonnull %1416, i64 1)
-          to label %14286 unwind label %.thread22802
+          to label %14286 unwind label %.thread26409
 
 14286:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14180
   %14287 = load ptr, ptr %1415, align 8, !tbaa !18
@@ -34750,7 +34750,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %15146 = load ptr, ptr %1255, align 8, !tbaa !18
   store ptr %15146, ptr %15145, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1463, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 5, ptr nonnull %1464, i64 2)
-          to label %15147 unwind label %.thread22824
+          to label %15147 unwind label %.thread26431
 
 15147:                                            ; preds = %15143
   %15148 = load ptr, ptr %1463, align 8, !tbaa !18
@@ -34763,7 +34763,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %15151 = load ptr, ptr %118, align 8, !tbaa !18
   store ptr %15151, ptr %15150, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1465, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 77, ptr nonnull %1466, i64 2)
-          to label %15152 unwind label %.thread22828
+          to label %15152 unwind label %.thread26435
 
 15152:                                            ; preds = %15147
   %15153 = getelementptr inbounds nuw i8, ptr %1462, i64 8
@@ -34781,7 +34781,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   call void @llvm.lifetime.start.p0(ptr nonnull %1472)
   store ptr %15156, ptr %1472, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1471, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 19, ptr nonnull %1472, i64 1)
-          to label %15158 unwind label %.thread22813
+          to label %15158 unwind label %.thread26420
 
 15158:                                            ; preds = %15152
   %15159 = load ptr, ptr %1471, align 8, !tbaa !18
@@ -35375,7 +35375,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %15428 = load ptr, ptr %127, align 8, !tbaa !18
   store ptr %15428, ptr %1485, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1484, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 317, ptr nonnull %1485, i64 1)
-          to label %15429 unwind label %.thread22832
+          to label %15429 unwind label %.thread26439
 
 15429:                                            ; preds = %15427
   %15430 = load ptr, ptr %1484, align 8, !tbaa !18
@@ -35881,7 +35881,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %15660 = load ptr, ptr %136, align 8, !tbaa !18
   store ptr %15660, ptr %1500, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1499, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 317, ptr nonnull %1500, i64 1)
-          to label %15661 unwind label %.thread22838
+          to label %15661 unwind label %.thread26445
 
 15661:                                            ; preds = %15659
   %15662 = load ptr, ptr %1499, align 8, !tbaa !18
@@ -36942,7 +36942,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %16167 = load ptr, ptr %1255, align 8, !tbaa !18
   store ptr %16167, ptr %16166, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1524, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 78, ptr nonnull %1525, i64 2)
-          to label %16168 unwind label %.thread22856
+          to label %16168 unwind label %.thread26463
 
 16168:                                            ; preds = %16164
   %16169 = load ptr, ptr %1524, align 8, !tbaa !18
@@ -36955,7 +36955,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %16172 = load ptr, ptr %1316, align 8, !tbaa !18
   store ptr %16172, ptr %16171, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1526, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 75, ptr nonnull %1527, i64 2)
-          to label %16173 unwind label %.thread22860
+          to label %16173 unwind label %.thread26467
 
 16173:                                            ; preds = %16168
   %16174 = getelementptr inbounds nuw i8, ptr %1523, i64 8
@@ -37648,7 +37648,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14568: ; preds = %16487, %1648
   %16493 = load ptr, ptr %1255, align 8, !tbaa !18
   store ptr %16493, ptr %16492, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1546, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 78, ptr nonnull %1547, i64 2)
-          to label %16494 unwind label %.thread22873
+          to label %16494 unwind label %.thread26480
 
 16494:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14568
   %16495 = load ptr, ptr %1546, align 8, !tbaa !18
@@ -37661,7 +37661,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14568: ; preds = %16487, %1648
   %16498 = load ptr, ptr %1255, align 8, !tbaa !18
   store ptr %16498, ptr %16497, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1548, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 78, ptr nonnull %1549, i64 2)
-          to label %16499 unwind label %.thread22877
+          to label %16499 unwind label %.thread26484
 
 16499:                                            ; preds = %16494
   %16500 = getelementptr inbounds nuw i8, ptr %1545, i64 8
@@ -37675,7 +37675,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14568: ; preds = %16487, %1648
   %16503 = load ptr, ptr %170, align 8, !tbaa !18
   store ptr %16503, ptr %1553, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1552, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 317, ptr nonnull %1553, i64 1)
-          to label %16504 unwind label %.thread22864
+          to label %16504 unwind label %.thread26471
 
 16504:                                            ; preds = %16499
   %16505 = load ptr, ptr %1552, align 8, !tbaa !18
@@ -38289,7 +38289,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %16791 = load ptr, ptr %185, align 8, !tbaa !18
   store ptr %16791, ptr %16790, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1563, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 318, ptr nonnull %1564, i64 3)
-          to label %16792 unwind label %.thread22887
+          to label %16792 unwind label %.thread26494
 
 16792:                                            ; preds = %16783
   %16793 = load ptr, ptr %1563, align 8, !tbaa !18
@@ -38342,7 +38342,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14620: ; preds = %16809, %1680
   %16815 = load ptr, ptr %1255, align 8, !tbaa !18
   store ptr %16815, ptr %16814, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1568, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 78, ptr nonnull %1569, i64 2)
-          to label %16816 unwind label %.thread22881
+          to label %16816 unwind label %.thread26488
 
 16816:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14620
   %16817 = load ptr, ptr %1568, align 8, !tbaa !18
@@ -38892,7 +38892,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %17075 = load ptr, ptr %197, align 8, !tbaa !18
   store ptr %17075, ptr %17074, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1579, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 318, ptr nonnull %1580, i64 3)
-          to label %17076 unwind label %.thread22912
+          to label %17076 unwind label %.thread26519
 
 17076:                                            ; preds = %17067
   %17077 = load ptr, ptr %1579, align 8, !tbaa !18
@@ -38945,7 +38945,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14668: ; preds = %17093, %1708
   %17099 = load ptr, ptr %1255, align 8, !tbaa !18
   store ptr %17099, ptr %17098, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1584, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 78, ptr nonnull %1585, i64 2)
-          to label %17100 unwind label %.thread22904
+          to label %17100 unwind label %.thread26511
 
 17100:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14668
   %17101 = load ptr, ptr %1584, align 8, !tbaa !18
@@ -39564,7 +39564,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %17387 = load ptr, ptr %206, align 8, !tbaa !18
   store ptr %17387, ptr %17386, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1597, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 315, ptr nonnull %1598, i64 2)
-          to label %17388 unwind label %.thread22934
+          to label %17388 unwind label %.thread26541
 
 17388:                                            ; preds = %17383
   %17389 = load ptr, ptr %1597, align 8, !tbaa !18
@@ -39627,13 +39627,13 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14720: ; preds = %17409, %1740
   %17415 = load ptr, ptr %210, align 8, !tbaa !18
   store ptr %17415, ptr %17414, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1606, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 5, ptr nonnull %1607, i64 2)
-          to label %17416 unwind label %.thread22928
+          to label %17416 unwind label %.thread26535
 
 17416:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14720
   %17417 = load ptr, ptr %1606, align 8, !tbaa !18
   store ptr %17417, ptr %1605, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1604, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 21, ptr nonnull %1605, i64 1)
-          to label %17418 unwind label %.thread22932
+          to label %17418 unwind label %.thread26539
 
 17418:                                            ; preds = %17416
   %17419 = load ptr, ptr %1604, align 8, !tbaa !18
@@ -39646,7 +39646,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14720: ; preds = %17409, %1740
   %17421 = load ptr, ptr %203, align 8, !tbaa !18
   store ptr %17421, ptr %1611, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1610, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 317, ptr nonnull %1611, i64 1)
-          to label %17422 unwind label %.thread22919
+          to label %17422 unwind label %.thread26526
 
 17422:                                            ; preds = %17418
   %17423 = load ptr, ptr %1610, align 8, !tbaa !18
@@ -40278,7 +40278,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %17716 = load ptr, ptr %217, align 8, !tbaa !18
   store ptr %17716, ptr %17715, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1619, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 315, ptr nonnull %1620, i64 2)
-          to label %17717 unwind label %.thread22955
+          to label %17717 unwind label %.thread26562
 
 17717:                                            ; preds = %17712
   %17718 = load ptr, ptr %1619, align 8, !tbaa !18
@@ -40341,13 +40341,13 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14774: ; preds = %17738, %1773
   %17744 = load ptr, ptr %224, align 8, !tbaa !18
   store ptr %17744, ptr %17743, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1628, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 5, ptr nonnull %1629, i64 2)
-          to label %17745 unwind label %.thread22949
+          to label %17745 unwind label %.thread26556
 
 17745:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14774
   %17746 = load ptr, ptr %1628, align 8, !tbaa !18
   store ptr %17746, ptr %1627, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1626, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 21, ptr nonnull %1627, i64 1)
-          to label %17747 unwind label %.thread22953
+          to label %17747 unwind label %.thread26560
 
 17747:                                            ; preds = %17745
   %17748 = load ptr, ptr %1626, align 8, !tbaa !18
@@ -40360,7 +40360,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14774: ; preds = %17738, %1773
   %17750 = load ptr, ptr %217, align 8, !tbaa !18
   store ptr %17750, ptr %1633, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1632, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 317, ptr nonnull %1633, i64 1)
-          to label %17751 unwind label %.thread22940
+          to label %17751 unwind label %.thread26547
 
 17751:                                            ; preds = %17747
   %17752 = load ptr, ptr %1632, align 8, !tbaa !18
@@ -41014,13 +41014,13 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14826: ; preds = %18046, %1804
   %18052 = load ptr, ptr %234, align 8, !tbaa !18
   store ptr %18052, ptr %18051, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1648, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 5, ptr nonnull %1649, i64 2)
-          to label %18053 unwind label %.thread22970
+          to label %18053 unwind label %.thread26577
 
 18053:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14826
   %18054 = load ptr, ptr %1648, align 8, !tbaa !18
   store ptr %18054, ptr %1647, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1646, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 21, ptr nonnull %1647, i64 1)
-          to label %18055 unwind label %.thread22974
+          to label %18055 unwind label %.thread26581
 
 18055:                                            ; preds = %18053
   %18056 = load ptr, ptr %1646, align 8, !tbaa !18
@@ -41033,7 +41033,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14826: ; preds = %18046, %1804
   %18058 = load ptr, ptr %231, align 8, !tbaa !18
   store ptr %18058, ptr %1653, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1652, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 317, ptr nonnull %1653, i64 1)
-          to label %18059 unwind label %.thread22961
+          to label %18059 unwind label %.thread26568
 
 18059:                                            ; preds = %18055
   %18060 = load ptr, ptr %1652, align 8, !tbaa !18
@@ -41658,13 +41658,13 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14876: ; preds = %18341, %1833
   %18347 = load ptr, ptr %244, align 8, !tbaa !18
   store ptr %18347, ptr %18346, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1668, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 5, ptr nonnull %1669, i64 2)
-          to label %18348 unwind label %.thread22989
+          to label %18348 unwind label %.thread26596
 
 18348:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14876
   %18349 = load ptr, ptr %1668, align 8, !tbaa !18
   store ptr %18349, ptr %1667, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1666, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 21, ptr nonnull %1667, i64 1)
-          to label %18350 unwind label %.thread22993
+          to label %18350 unwind label %.thread26600
 
 18350:                                            ; preds = %18348
   %18351 = load ptr, ptr %1666, align 8, !tbaa !18
@@ -41677,7 +41677,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14876: ; preds = %18341, %1833
   %18353 = load ptr, ptr %241, align 8, !tbaa !18
   store ptr %18353, ptr %1673, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1672, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 317, ptr nonnull %1673, i64 1)
-          to label %18354 unwind label %.thread22980
+          to label %18354 unwind label %.thread26587
 
 18354:                                            ; preds = %18350
   %18355 = load ptr, ptr %1672, align 8, !tbaa !18
@@ -42313,7 +42313,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %18654 = load ptr, ptr %257, align 8, !tbaa !18
   store ptr %18654, ptr %18653, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1681, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 315, ptr nonnull %1682, i64 3)
-          to label %18655 unwind label %.thread23005
+          to label %18655 unwind label %.thread26612
 
 18655:                                            ; preds = %18648
   %18656 = load ptr, ptr %1681, align 8, !tbaa !18
@@ -42348,7 +42348,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %18668 = load ptr, ptr %257, align 8, !tbaa !18
   store ptr %18668, ptr %18667, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1687, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 315, ptr nonnull %1688, i64 2)
-          to label %18669 unwind label %.thread22999
+          to label %18669 unwind label %.thread26606
 
 18669:                                            ; preds = %18665
   %18670 = load ptr, ptr %1687, align 8, !tbaa !18
@@ -42970,7 +42970,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %18962 = load ptr, ptr %271, align 8, !tbaa !18
   store ptr %18962, ptr %18961, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1700, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 315, ptr nonnull %1701, i64 3)
-          to label %18963 unwind label %.thread23017
+          to label %18963 unwind label %.thread26624
 
 18963:                                            ; preds = %18956
   %18964 = load ptr, ptr %1700, align 8, !tbaa !18
@@ -43005,7 +43005,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %18976 = load ptr, ptr %277, align 8, !tbaa !18
   store ptr %18976, ptr %18975, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1706, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 315, ptr nonnull %1707, i64 2)
-          to label %18977 unwind label %.thread23011
+          to label %18977 unwind label %.thread26618
 
 18977:                                            ; preds = %18973
   %18978 = load ptr, ptr %1706, align 8, !tbaa !18
@@ -43586,13 +43586,13 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %19241 = load ptr, ptr %291, align 8, !tbaa !18
   store ptr %19241, ptr %1726, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1725, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 19, ptr nonnull %1726, i64 1)
-          to label %19242 unwind label %.thread23023
+          to label %19242 unwind label %.thread26630
 
 19242:                                            ; preds = %19240
   %19243 = load ptr, ptr %1725, align 8, !tbaa !18
   store ptr %19243, ptr %1724, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1723, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 364, ptr nonnull %1724, i64 1)
-          to label %19244 unwind label %.thread23027
+          to label %19244 unwind label %.thread26634
 
 19244:                                            ; preds = %19242
   %19245 = load ptr, ptr %1723, align 8, !tbaa !18
@@ -44155,13 +44155,13 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %19505 = load ptr, ptr %301, align 8, !tbaa !18
   store ptr %19505, ptr %1742, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1741, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 19, ptr nonnull %1742, i64 1)
-          to label %19506 unwind label %.thread23033
+          to label %19506 unwind label %.thread26640
 
 19506:                                            ; preds = %19504
   %19507 = load ptr, ptr %1741, align 8, !tbaa !18
   store ptr %19507, ptr %1740, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1739, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 364, ptr nonnull %1740, i64 1)
-          to label %19508 unwind label %.thread23037
+          to label %19508 unwind label %.thread26644
 
 19508:                                            ; preds = %19506
   %19509 = load ptr, ptr %1739, align 8, !tbaa !18
@@ -44803,7 +44803,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %19817 = load ptr, ptr %318, align 8, !tbaa !18
   store ptr %19817, ptr %19816, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1751, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 315, ptr nonnull %1752, i64 2)
-          to label %19818 unwind label %.loopexit22481.thread23063
+          to label %19818 unwind label %.loopexit22481.thread26670
 
 19818:                                            ; preds = %19814
   %19819 = load ptr, ptr %1751, align 8, !tbaa !18
@@ -44877,13 +44877,13 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit15124: ; preds = %19843, %1983
   %19849 = load ptr, ptr %322, align 8, !tbaa !18
   store ptr %19849, ptr %19848, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1764, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 5, ptr nonnull %1765, i64 2)
-          to label %19850 unwind label %.thread23052
+          to label %19850 unwind label %.thread26659
 
 19850:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit15124
   %19851 = load ptr, ptr %1764, align 8, !tbaa !18
   store ptr %19851, ptr %1763, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1762, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 21, ptr nonnull %1763, i64 1)
-          to label %19852 unwind label %.thread23056
+          to label %19852 unwind label %.thread26663
 
 19852:                                            ; preds = %19850
   %19853 = load ptr, ptr %1762, align 8, !tbaa !18
@@ -44896,7 +44896,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit15124: ; preds = %19843, %1983
   %19855 = load ptr, ptr %311, align 8, !tbaa !18
   store ptr %19855, ptr %1769, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1768, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 317, ptr nonnull %1769, i64 1)
-          to label %19856 unwind label %.thread23043
+          to label %19856 unwind label %.thread26650
 
 19856:                                            ; preds = %19852
   %19857 = load ptr, ptr %1768, align 8, !tbaa !18
@@ -45657,7 +45657,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %20214 = load ptr, ptr %1779, align 8, !tbaa !18
   store ptr %20214, ptr %20213, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1777, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 315, ptr nonnull %1778, i64 2)
-          to label %20215 unwind label %.loopexit22469.thread23102
+          to label %20215 unwind label %.loopexit22469.thread26709
 
 20215:                                            ; preds = %20212
   %20216 = load ptr, ptr %1777, align 8, !tbaa !18
@@ -45731,13 +45731,13 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit15186: ; preds = %20240, %2023
   %20246 = load ptr, ptr %344, align 8, !tbaa !18
   store ptr %20246, ptr %20245, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1790, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 5, ptr nonnull %1791, i64 2)
-          to label %20247 unwind label %.thread23077
+          to label %20247 unwind label %.thread26684
 
 20247:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit15186
   %20248 = load ptr, ptr %1790, align 8, !tbaa !18
   store ptr %20248, ptr %1789, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1788, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 21, ptr nonnull %1789, i64 1)
-          to label %20249 unwind label %.thread23081
+          to label %20249 unwind label %.thread26688
 
 20249:                                            ; preds = %20247
   %20250 = load ptr, ptr %1788, align 8, !tbaa !18
@@ -45750,7 +45750,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit15186: ; preds = %20240, %2023
   %20252 = load ptr, ptr %333, align 8, !tbaa !18
   store ptr %20252, ptr %1795, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1794, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 317, ptr nonnull %1795, i64 1)
-          to label %20253 unwind label %.thread23068
+          to label %20253 unwind label %.thread26675
 
 20253:                                            ; preds = %20249
   %20254 = load ptr, ptr %1794, align 8, !tbaa !18
@@ -48289,7 +48289,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %21429 = load ptr, ptr %1255, align 8, !tbaa !18
   store ptr %21429, ptr %21428, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1859, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 78, ptr nonnull %1860, i64 2)
-          to label %21430 unwind label %.thread23133
+          to label %21430 unwind label %.thread26740
 
 21430:                                            ; preds = %21426
   %21431 = load ptr, ptr %1859, align 8, !tbaa !18
@@ -48302,7 +48302,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %21434 = load ptr, ptr %1255, align 8, !tbaa !18
   store ptr %21434, ptr %21433, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1861, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 78, ptr nonnull %1862, i64 2)
-          to label %21435 unwind label %.thread23137
+          to label %21435 unwind label %.thread26744
 
 21435:                                            ; preds = %21430
   %21436 = getelementptr inbounds nuw i8, ptr %1858, i64 8
@@ -48996,7 +48996,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %21760 = load ptr, ptr %1255, align 8, !tbaa !18
   store ptr %21760, ptr %21759, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1880, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 78, ptr nonnull %1881, i64 2)
-          to label %21761 unwind label %.thread23152
+          to label %21761 unwind label %.thread26759
 
 21761:                                            ; preds = %21757
   %21762 = load ptr, ptr %1880, align 8, !tbaa !18
@@ -49009,7 +49009,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %21765 = load ptr, ptr %1255, align 8, !tbaa !18
   store ptr %21765, ptr %21764, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1882, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 78, ptr nonnull %1883, i64 2)
-          to label %21766 unwind label %.thread23156
+          to label %21766 unwind label %.thread26763
 
 21766:                                            ; preds = %21761
   %21767 = getelementptr inbounds nuw i8, ptr %1879, i64 8
@@ -49729,7 +49729,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %22102 = load ptr, ptr %1255, align 8, !tbaa !18
   store ptr %22102, ptr %22101, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1901, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 78, ptr nonnull %1902, i64 2)
-          to label %22103 unwind label %.thread23173
+          to label %22103 unwind label %.thread26780
 
 22103:                                            ; preds = %22099
   %22104 = load ptr, ptr %1901, align 8, !tbaa !18
@@ -49742,7 +49742,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %22107 = load ptr, ptr %1255, align 8, !tbaa !18
   store ptr %22107, ptr %22106, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1903, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 78, ptr nonnull %1904, i64 2)
-          to label %22108 unwind label %.thread23177
+          to label %22108 unwind label %.thread26784
 
 22108:                                            ; preds = %22103
   %22109 = getelementptr inbounds nuw i8, ptr %1900, i64 8
@@ -49756,7 +49756,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %22112 = load ptr, ptr %1310, align 8, !tbaa !18
   store ptr %22112, ptr %1908, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1907, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 317, ptr nonnull %1908, i64 1)
-          to label %22113 unwind label %.thread23164
+          to label %22113 unwind label %.thread26771
 
 22113:                                            ; preds = %22108
   %22114 = load ptr, ptr %1907, align 8, !tbaa !18
@@ -50408,7 +50408,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %22420 = load ptr, ptr %433, align 8, !tbaa !18
   store ptr %22420, ptr %22419, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1918, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 39, ptr nonnull %1919, i64 2)
-          to label %22421 unwind label %.thread23202
+          to label %22421 unwind label %.thread26809
 
 22421:                                            ; preds = %22416
   %22422 = getelementptr inbounds nuw i8, ptr %1917, i64 8
@@ -50441,7 +50441,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %22433 = load ptr, ptr %1255, align 8, !tbaa !18
   store ptr %22433, ptr %22432, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1924, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 78, ptr nonnull %1925, i64 2)
-          to label %22434 unwind label %.thread23194
+          to label %22434 unwind label %.thread26801
 
 22434:                                            ; preds = %22430
   %22435 = load ptr, ptr %1924, align 8, !tbaa !18
@@ -50454,7 +50454,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %22438 = load ptr, ptr %1255, align 8, !tbaa !18
   store ptr %22438, ptr %22437, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1926, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 78, ptr nonnull %1927, i64 2)
-          to label %22439 unwind label %.thread23198
+          to label %22439 unwind label %.thread26805
 
 22439:                                            ; preds = %22434
   %22440 = getelementptr inbounds nuw i8, ptr %1923, i64 8
@@ -50471,7 +50471,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %22445 = load ptr, ptr %436, align 8, !tbaa !18
   store ptr %22445, ptr %22444, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1930, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 39, ptr nonnull %1931, i64 2)
-          to label %22446 unwind label %.thread23185
+          to label %22446 unwind label %.thread26792
 
 22446:                                            ; preds = %22439
   %22447 = load ptr, ptr %1930, align 8, !tbaa !18
@@ -51141,7 +51141,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %22756 = load ptr, ptr %1255, align 8, !tbaa !18
   store ptr %22756, ptr %22755, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1945, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 78, ptr nonnull %1946, i64 2)
-          to label %22757 unwind label %.thread23218
+          to label %22757 unwind label %.thread26825
 
 22757:                                            ; preds = %22753
   %22758 = load ptr, ptr %1945, align 8, !tbaa !18
@@ -51154,7 +51154,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %22760 = load ptr, ptr %439, align 8, !tbaa !18
   store ptr %22760, ptr %1950, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1949, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 317, ptr nonnull %1950, i64 1)
-          to label %22761 unwind label %.thread23209
+          to label %22761 unwind label %.thread26816
 
 22761:                                            ; preds = %22757
   %22762 = load ptr, ptr %1949, align 8, !tbaa !18
@@ -51789,7 +51789,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %23060 = load ptr, ptr %458, align 8, !tbaa !18
   store ptr %23060, ptr %23059, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %1962, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 315, ptr nonnull %1963, i64 2)
-          to label %23061 unwind label %.thread23227
+          to label %23061 unwind label %.thread26834
 
 23061:                                            ; preds = %23057
   %23062 = load ptr, ptr %1962, align 8, !tbaa !18
@@ -54551,7 +54551,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %24373 = load ptr, ptr %521, align 8, !tbaa !18
   store ptr %24373, ptr %24372, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2026, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 321, ptr nonnull %2027, i64 2)
-          to label %24374 unwind label %.thread23241
+          to label %24374 unwind label %.thread26848
 
 24374:                                            ; preds = %24370
   %24375 = load ptr, ptr %2026, align 8, !tbaa !18
@@ -54567,7 +54567,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %24379 = load ptr, ptr %517, align 8, !tbaa !18
   store ptr %24379, ptr %24378, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2030, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 315, ptr nonnull %2031, i64 2)
-          to label %24380 unwind label %.thread23245
+          to label %24380 unwind label %.thread26852
 
 24380:                                            ; preds = %24374
   %24381 = load ptr, ptr %2030, align 8, !tbaa !18
@@ -55128,7 +55128,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit15946: ; preds = %24632, %2462
   %24636 = load ptr, ptr %527, align 8, !tbaa !18
   store ptr %24636, ptr %2045, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2044, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 317, ptr nonnull %2045, i64 1)
-          to label %24637 unwind label %.thread23249
+          to label %24637 unwind label %.thread26856
 
 24637:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit15946
   %24638 = load ptr, ptr %2044, align 8, !tbaa !18
@@ -55566,7 +55566,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %24836 = load ptr, ptr %533, align 8, !tbaa !18
   store ptr %24836, ptr %2058, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2057, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 317, ptr nonnull %2058, i64 1)
-          to label %24837 unwind label %.thread23255
+          to label %24837 unwind label %.thread26862
 
 24837:                                            ; preds = %24835
   %24838 = load ptr, ptr %2057, align 8, !tbaa !18
@@ -58624,7 +58624,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %26288 = load ptr, ptr %1255, align 8, !tbaa !18
   store ptr %26288, ptr %26287, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2126, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 78, ptr nonnull %2127, i64 2)
-          to label %26289 unwind label %.thread23299
+          to label %26289 unwind label %.thread26906
 
 26289:                                            ; preds = %26285
   %26290 = load ptr, ptr %2126, align 8, !tbaa !18
@@ -58645,7 +58645,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %26297 = load ptr, ptr %1302, align 8, !tbaa !18
   store ptr %26297, ptr %26296, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2130, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 318, ptr nonnull %2131, i64 3)
-          to label %26298 unwind label %.thread23303
+          to label %26298 unwind label %.thread26910
 
 26298:                                            ; preds = %26289
   %26299 = getelementptr inbounds nuw i8, ptr %2129, i64 8
@@ -58684,7 +58684,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %26312 = load ptr, ptr %2138, align 8, !tbaa !18
   store ptr %26312, ptr %26311, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2136, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 39, ptr nonnull %2137, i64 2)
-          to label %26313 unwind label %.loopexit22336.thread23281
+          to label %26313 unwind label %.loopexit22336.thread26888
 
 26313:                                            ; preds = %26310
   %26314 = load ptr, ptr %2136, align 8, !tbaa !18
@@ -59452,7 +59452,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %26674 = load ptr, ptr %1255, align 8, !tbaa !18
   store ptr %26674, ptr %26673, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2153, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 78, ptr nonnull %2154, i64 2)
-          to label %26675 unwind label %.thread23345
+          to label %26675 unwind label %.thread26952
 
 26675:                                            ; preds = %26671
   %26676 = load ptr, ptr %2153, align 8, !tbaa !18
@@ -59473,7 +59473,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %26683 = load ptr, ptr %1298, align 8, !tbaa !18
   store ptr %26683, ptr %26682, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2157, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 318, ptr nonnull %2158, i64 3)
-          to label %26684 unwind label %.thread23349
+          to label %26684 unwind label %.thread26956
 
 26684:                                            ; preds = %26675
   %26685 = getelementptr inbounds nuw i8, ptr %2156, i64 8
@@ -59512,7 +59512,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %26698 = load ptr, ptr %2165, align 8, !tbaa !18
   store ptr %26698, ptr %26697, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2163, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 39, ptr nonnull %2164, i64 2)
-          to label %26699 unwind label %.loopexit22324.thread23327
+          to label %26699 unwind label %.loopexit22324.thread26934
 
 26699:                                            ; preds = %26696
   %26700 = load ptr, ptr %2163, align 8, !tbaa !18
@@ -60203,7 +60203,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   call void @llvm.lifetime.start.p0(ptr nonnull %2181)
   store ptr %27012, ptr %2181, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2180, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 19, ptr nonnull %2181, i64 1)
-          to label %27014 unwind label %.thread23353
+          to label %27014 unwind label %.thread26960
 
 27014:                                            ; preds = %27011
   %27015 = load ptr, ptr %2180, align 8, !tbaa !18
@@ -63113,7 +63113,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16616: ; preds = %28392, %2838
   %28396 = load ptr, ptr %683, align 8, !tbaa !18
   store ptr %28396, ptr %2251, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2250, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 369, ptr nonnull %2251, i64 1)
-          to label %28397 unwind label %.thread23365
+          to label %28397 unwind label %.thread26972
 
 28397:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16616
   %28398 = load ptr, ptr %2250, align 8, !tbaa !18
@@ -63126,7 +63126,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16616: ; preds = %28392, %2838
   %28400 = load ptr, ptr %673, align 8, !tbaa !18
   store ptr %28400, ptr %2255, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2254, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 317, ptr nonnull %2255, i64 1)
-          to label %28401 unwind label %.thread23369
+          to label %28401 unwind label %.thread26976
 
 28401:                                            ; preds = %28397
   %28402 = load ptr, ptr %2254, align 8, !tbaa !18
@@ -65150,7 +65150,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16786: ; preds = %29341, %2933
   %29347 = load ptr, ptr %714, align 8, !tbaa !18
   store ptr %29347, ptr %2307, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2306, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 19, ptr nonnull %2307, i64 1)
-          to label %29348 unwind label %.thread23417
+          to label %29348 unwind label %.thread27024
 
 29348:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16786
   %29349 = load ptr, ptr %2306, align 8, !tbaa !18
@@ -65834,7 +65834,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16838: ; preds = %29654, %2964
   %29660 = load ptr, ptr %723, align 8, !tbaa !18
   store ptr %29660, ptr %2327, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2326, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 19, ptr nonnull %2327, i64 1)
-          to label %29661 unwind label %.thread23437
+          to label %29661 unwind label %.thread27044
 
 29661:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16838
   %29662 = load ptr, ptr %2326, align 8, !tbaa !18
@@ -66864,7 +66864,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16924: ; preds = %30138, %3013
   %30142 = load ptr, ptr %748, align 8, !tbaa !18
   store ptr %30142, ptr %2354, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2353, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 369, ptr nonnull %2354, i64 1)
-          to label %30143 unwind label %.thread23457
+          to label %30143 unwind label %.thread27064
 
 30143:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16924
   %30144 = load ptr, ptr %2353, align 8, !tbaa !18
@@ -66877,7 +66877,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16924: ; preds = %30138, %3013
   %30146 = load ptr, ptr %738, align 8, !tbaa !18
   store ptr %30146, ptr %2358, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2357, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 338, ptr nonnull %2358, i64 1)
-          to label %30147 unwind label %.thread23461
+          to label %30147 unwind label %.thread27068
 
 30147:                                            ; preds = %30143
   %30148 = load ptr, ptr %2357, align 8, !tbaa !18
@@ -67449,7 +67449,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16970: ; preds = %30404, %3039
   %30408 = load ptr, ptr %761, align 8, !tbaa !18
   store ptr %30408, ptr %2373, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2372, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 369, ptr nonnull %2373, i64 1)
-          to label %30409 unwind label %.thread23465
+          to label %30409 unwind label %.thread27072
 
 30409:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16970
   %30410 = load ptr, ptr %2372, align 8, !tbaa !18
@@ -67462,7 +67462,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16970: ; preds = %30404, %3039
   %30412 = load ptr, ptr %751, align 8, !tbaa !18
   store ptr %30412, ptr %2377, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2376, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 339, ptr nonnull %2377, i64 1)
-          to label %30413 unwind label %.thread23469
+          to label %30413 unwind label %.thread27076
 
 30413:                                            ; preds = %30409
   %30414 = load ptr, ptr %2376, align 8, !tbaa !18
@@ -71406,7 +71406,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %32269 = load ptr, ptr %809, align 8, !tbaa !18
   store ptr %32269, ptr %32268, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2463, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 315, ptr nonnull %2464, i64 3)
-          to label %32270 unwind label %.thread23490
+          to label %32270 unwind label %.thread27097
 
 32270:                                            ; preds = %32263
   %32271 = load ptr, ptr %2463, align 8, !tbaa !18
@@ -71469,7 +71469,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit17348: ; preds = %32293, %3228
   %32297 = load ptr, ptr %803, align 8, !tbaa !18
   store ptr %32297, ptr %2473, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2472, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 317, ptr nonnull %2473, i64 1)
-          to label %32298 unwind label %.thread23473
+          to label %32298 unwind label %.thread27080
 
 32298:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit17348
   %32299 = load ptr, ptr %2472, align 8, !tbaa !18
@@ -72159,7 +72159,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %32621 = load ptr, ptr %827, align 8, !tbaa !18
   store ptr %32621, ptr %32620, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2485, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 315, ptr nonnull %2486, i64 3)
-          to label %32622 unwind label %.thread23513
+          to label %32622 unwind label %.thread27120
 
 32622:                                            ; preds = %32615
   %32623 = load ptr, ptr %2485, align 8, !tbaa !18
@@ -72222,7 +72222,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit17404: ; preds = %32645, %3263
   %32649 = load ptr, ptr %821, align 8, !tbaa !18
   store ptr %32649, ptr %2495, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2494, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 317, ptr nonnull %2495, i64 1)
-          to label %32650 unwind label %.thread23496
+          to label %32650 unwind label %.thread27103
 
 32650:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit17404
   %32651 = load ptr, ptr %2494, align 8, !tbaa !18
@@ -72959,7 +72959,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %32981 = load ptr, ptr %835, align 8, !tbaa !18
   store ptr %32981, ptr %2520, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2519, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 317, ptr nonnull %2520, i64 1)
-          to label %32982 unwind label %.thread23519
+          to label %32982 unwind label %.thread27126
 
 32982:                                            ; preds = %32980
   %32983 = load ptr, ptr %2519, align 8, !tbaa !18
@@ -73585,7 +73585,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %33264 = load ptr, ptr %845, align 8, !tbaa !18
   store ptr %33264, ptr %2541, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2540, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 317, ptr nonnull %2541, i64 1)
-          to label %33265 unwind label %.thread23536
+          to label %33265 unwind label %.thread27143
 
 33265:                                            ; preds = %33263
   %33266 = load ptr, ptr %2540, align 8, !tbaa !18
@@ -74163,13 +74163,13 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %33524 = load ptr, ptr %858, align 8, !tbaa !18
   store ptr %33524, ptr %33523, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2557, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 5, ptr nonnull %2558, i64 2)
-          to label %33525 unwind label %.thread23557
+          to label %33525 unwind label %.thread27164
 
 33525:                                            ; preds = %33521
   %33526 = load ptr, ptr %2557, align 8, !tbaa !18
   store ptr %33526, ptr %2556, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2555, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 21, ptr nonnull %2556, i64 1)
-          to label %33527 unwind label %.thread23561
+          to label %33527 unwind label %.thread27168
 
 33527:                                            ; preds = %33525
   %33528 = load ptr, ptr %2555, align 8, !tbaa !18
@@ -74700,13 +74700,13 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit17596: ; preds = %33767, %3376
   %33773 = load ptr, ptr %1283, align 8, !tbaa !18
   store ptr %33773, ptr %33772, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2574, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 5, ptr nonnull %2575, i64 2)
-          to label %33774 unwind label %.thread23563
+          to label %33774 unwind label %.thread27170
 
 33774:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit17596
   %33775 = load ptr, ptr %2574, align 8, !tbaa !18
   store ptr %33775, ptr %2573, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2572, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 21, ptr nonnull %2573, i64 1)
-          to label %33776 unwind label %.thread23567
+          to label %33776 unwind label %.thread27174
 
 33776:                                            ; preds = %33774
   %33777 = load ptr, ptr %2572, align 8, !tbaa !18
@@ -75811,7 +75811,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit17688: ; preds = %34295, %3428
   %34301 = load ptr, ptr %885, align 8, !tbaa !18
   store ptr %34301, ptr %34300, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2599, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 321, ptr nonnull %2600, i64 2)
-          to label %34302 unwind label %.thread23573
+          to label %34302 unwind label %.thread27180
 
 34302:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit17688
   %34303 = load ptr, ptr %2599, align 8, !tbaa !18
@@ -80760,7 +80760,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %36666 = load ptr, ptr %979, align 8, !tbaa !18
   store ptr %36666, ptr %2703, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2702, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 346, ptr nonnull %2703, i64 1)
-          to label %36667 unwind label %.thread23606
+          to label %36667 unwind label %.thread27213
 
 36667:                                            ; preds = %36663
   %36668 = getelementptr inbounds nuw i8, ptr %2701, i64 8
@@ -80798,7 +80798,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %36681 = load ptr, ptr %982, align 8, !tbaa !18
   store ptr %36681, ptr %36680, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2710, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 315, ptr nonnull %2711, i64 2)
-          to label %36682 unwind label %.thread23599
+          to label %36682 unwind label %.thread27206
 
 36682:                                            ; preds = %36676
   %36683 = load ptr, ptr %2710, align 8, !tbaa !18
@@ -87794,7 +87794,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %39996 = load ptr, ptr %1144, align 8, !tbaa !18
   store ptr %39996, ptr %2877, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2876, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 317, ptr nonnull %2877, i64 1)
-          to label %39997 unwind label %.thread23633
+          to label %39997 unwind label %.thread27240
 
 39997:                                            ; preds = %39995
   %39998 = load ptr, ptr %2876, align 8, !tbaa !18
@@ -88340,7 +88340,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %40253 = load ptr, ptr %1163, align 8, !tbaa !18
   store ptr %40253, ptr %40252, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2891, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 315, ptr nonnull %2892, i64 2)
-          to label %40254 unwind label %.thread23639
+          to label %40254 unwind label %.thread27246
 
 40254:                                            ; preds = %40248
   %40255 = load ptr, ptr %2891, align 8, !tbaa !18
@@ -88959,7 +88959,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %40546 = load ptr, ptr %1176, align 8, !tbaa !18
   store ptr %40546, ptr %40545, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2906, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 315, ptr nonnull %2907, i64 2)
-          to label %40547 unwind label %.thread23652
+          to label %40547 unwind label %.thread27259
 
 40547:                                            ; preds = %40543
   %40548 = load ptr, ptr %2906, align 8, !tbaa !18
@@ -90683,7 +90683,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit18996: ; preds = %41349, %4134
   %41353 = load ptr, ptr %1211, align 8, !tbaa !18
   store ptr %41353, ptr %2955, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2954, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 369, ptr nonnull %2955, i64 1)
-          to label %41354 unwind label %.thread23658
+          to label %41354 unwind label %.thread27265
 
 41354:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit18996
   %41355 = load ptr, ptr %2954, align 8, !tbaa !18
@@ -90696,7 +90696,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit18996: ; preds = %41349, %4134
   %41357 = load ptr, ptr %1208, align 8, !tbaa !18
   store ptr %41357, ptr %2959, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2958, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 340, ptr nonnull %2959, i64 1)
-          to label %41358 unwind label %.thread23662
+          to label %41358 unwind label %.thread27269
 
 41358:                                            ; preds = %41354
   %41359 = load ptr, ptr %2958, align 8, !tbaa !18
@@ -91238,7 +91238,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %41604 = load ptr, ptr %1214, align 8, !tbaa !18
   store ptr %41604, ptr %2973, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %2972, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 19, ptr nonnull %2973, i64 1)
-          to label %41605 unwind label %.thread23666
+          to label %41605 unwind label %.thread27273
 
 41605:                                            ; preds = %41601
   %41606 = load ptr, ptr %2972, align 8, !tbaa !18
@@ -92264,7 +92264,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %42076 = load ptr, ptr %1232, align 8, !tbaa !18
   store ptr %42076, ptr %3005, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %3004, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 19, ptr nonnull %3005, i64 1)
-          to label %42077 unwind label %.thread23673
+          to label %42077 unwind label %.thread27280
 
 42077:                                            ; preds = %42073
   %42078 = load ptr, ptr %3004, align 8, !tbaa !18
@@ -93966,7 +93966,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit19282: ; preds = %42866, %4286
   call void @llvm.lifetime.start.p0(ptr nonnull %3046)
   store ptr %42870, ptr %3046, align 8, !tbaa !20
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tESt16initializer_listINS0_12NodeTemplateILb0EEEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %3045, ptr noundef nonnull align 8 dereferenceable(3560) %3048, i32 noundef 19, ptr nonnull %3046, i64 1)
-          to label %42872 unwind label %.thread23693
+          to label %42872 unwind label %.thread27300
 
 42872:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit19282
   %42873 = load ptr, ptr %3045, align 8, !tbaa !18
@@ -119711,7 +119711,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @llvm.lifetime.end.p0(ptr nonnull %1317)
   br label %56185
 
-.thread22762:                                     ; preds = %12524
+.thread26369:                                     ; preds = %12524
   %52901 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1320) #22
@@ -119722,8 +119722,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22650
 
-.loopexit22650:                                   ; preds = %.thread22762, %.preheader22649.preheader
-  %.pn849922765 = phi { ptr, i32 } [ %52901, %.thread22762 ], [ %52902, %.preheader22649.preheader ]
+.loopexit22650:                                   ; preds = %.thread26369, %.preheader22649.preheader
+  %.pn849926372 = phi { ptr, i32 } [ %52901, %.thread26369 ], [ %52902, %.preheader22649.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1321)
   call void @llvm.lifetime.end.p0(ptr nonnull %1320)
   call void @llvm.lifetime.end.p0(ptr nonnull %1319)
@@ -120010,7 +120010,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %52990
 
-.thread22766:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14002
+.thread26373:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14002
   %52978 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22633
@@ -120018,7 +120018,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 52979:                                            ; preds = %13265
   %52980 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22770
+  br label %.thread26377
 
 52981:                                            ; preds = %13268
   %52982 = landingpad { ptr, i32 }
@@ -120044,9 +120044,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 52988:                                            ; preds = %52987, %52981
   %.pn8526.pn = phi { ptr, i32 } [ %.pn8526, %52987 ], [ %52982, %52981 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1361) #22
-  br label %.thread22770
+  br label %.thread26377
 
-.thread22770:                                     ; preds = %52979, %52988
+.thread26377:                                     ; preds = %52979, %52988
   %.pn8526.pn.pn = phi { ptr, i32 } [ %.pn8526.pn, %52988 ], [ %52980, %52979 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1365) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %1366)
@@ -120062,8 +120062,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1363) #22
   br label %.loopexit22633
 
-.loopexit22633:                                   ; preds = %.thread22770, %.thread22766, %.preheader22632.preheader
-  %.pn8526.pn.pn.pn.pn22769 = phi { ptr, i32 } [ %52978, %.thread22766 ], [ %52989, %.preheader22632.preheader ], [ %.pn8526.pn.pn, %.thread22770 ]
+.loopexit22633:                                   ; preds = %.thread26377, %.thread26373, %.preheader22632.preheader
+  %.pn8526.pn.pn.pn.pn26376 = phi { ptr, i32 } [ %52978, %.thread26373 ], [ %52989, %.preheader22632.preheader ], [ %.pn8526.pn.pn, %.thread26377 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1364)
   call void @llvm.lifetime.end.p0(ptr nonnull %1363)
   call void @llvm.lifetime.end.p0(ptr nonnull %1362)
@@ -120073,7 +120073,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %52990
 
 52990:                                            ; preds = %.loopexit22633, %52976
-  %.pn8526.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8526.pn.pn.pn.pn22769, %.loopexit22633 ], [ %52977, %52976 ]
+  %.pn8526.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8526.pn.pn.pn.pn26376, %.loopexit22633 ], [ %52977, %52976 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1356) #22
   br label %52991
 
@@ -120115,7 +120115,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53002:                                            ; preds = %13506
   %53003 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22772
+  br label %.thread26379
 
 53004:                                            ; preds = %13511
   %53005 = landingpad { ptr, i32 }
@@ -120152,9 +120152,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   %.pn8536.pn.pn = phi { ptr, i32 } [ %.pn8536.pn, %53013 ], [ %53005, %53004 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1375)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1370) #22
-  br label %.thread22772
+  br label %.thread26379
 
-.thread22772:                                     ; preds = %53002, %53014
+.thread26379:                                     ; preds = %53002, %53014
   %.pn8536.pn.pn.pn = phi { ptr, i32 } [ %.pn8536.pn.pn, %53014 ], [ %53003, %53002 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1372) #22
   br label %.loopexit22629
@@ -120164,8 +120164,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22629
 
-.loopexit22629:                                   ; preds = %.thread22772, %.preheader22628.preheader
-  %.pn8536.pn.pn.pn.pn22775 = phi { ptr, i32 } [ %.pn8536.pn.pn.pn, %.thread22772 ], [ %53015, %.preheader22628.preheader ]
+.loopexit22629:                                   ; preds = %.thread26379, %.preheader22628.preheader
+  %.pn8536.pn.pn.pn.pn26382 = phi { ptr, i32 } [ %.pn8536.pn.pn.pn, %.thread26379 ], [ %53015, %.preheader22628.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1373)
   call void @llvm.lifetime.end.p0(ptr nonnull %1372)
   call void @llvm.lifetime.end.p0(ptr nonnull %1371)
@@ -120173,7 +120173,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body14044
 
 .body14044:                                       ; preds = %13494, %13491, %.loopexit22629
-  %.pn8536.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8536.pn.pn.pn.pn22775, %.loopexit22629 ], [ %13492, %13494 ], [ %13492, %13491 ]
+  %.pn8536.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8536.pn.pn.pn.pn26382, %.loopexit22629 ], [ %13492, %13494 ], [ %13492, %13491 ]
   br label %53016
 
 53016:                                            ; preds = %53016, %.body14044
@@ -120219,7 +120219,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53031:                                            ; preds = %13759
   %53032 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22776
+  br label %.thread26383
 
 53033:                                            ; preds = %13777
   %53034 = landingpad { ptr, i32 }
@@ -120245,9 +120245,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53040:                                            ; preds = %53039, %53033
   %.pn8544.pn = phi { ptr, i32 } [ %.pn8544, %53039 ], [ %53034, %53033 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1386) #22
-  br label %.thread22776
+  br label %.thread26383
 
-.thread22776:                                     ; preds = %53031, %53040
+.thread26383:                                     ; preds = %53031, %53040
   %.pn8544.pn.pn = phi { ptr, i32 } [ %.pn8544.pn, %53040 ], [ %53032, %53031 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1388) #22
   br label %.loopexit22625
@@ -120257,8 +120257,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22625
 
-.loopexit22625:                                   ; preds = %.thread22776, %.preheader22624.preheader
-  %.pn8544.pn.pn.pn22779 = phi { ptr, i32 } [ %.pn8544.pn.pn, %.thread22776 ], [ %53041, %.preheader22624.preheader ]
+.loopexit22625:                                   ; preds = %.thread26383, %.preheader22624.preheader
+  %.pn8544.pn.pn.pn26386 = phi { ptr, i32 } [ %.pn8544.pn.pn, %.thread26383 ], [ %53041, %.preheader22624.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1389)
   call void @llvm.lifetime.end.p0(ptr nonnull %1388)
   call void @llvm.lifetime.end.p0(ptr nonnull %1387)
@@ -120266,7 +120266,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53042
 
 53042:                                            ; preds = %.loopexit22625, %53029
-  %.pn8544.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8544.pn.pn.pn22779, %.loopexit22625 ], [ %53030, %53029 ]
+  %.pn8544.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8544.pn.pn.pn26386, %.loopexit22625 ], [ %53030, %53029 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1382) #22
   br label %.loopexit22623
 
@@ -120276,7 +120276,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.loopexit22621
 
 .loopexit22621:                                   ; preds = %.loopexit22623, %.loopexit22623.thread
-  %.pn8544.pn.pn.pn.pn.pn.pn22784 = phi { ptr, i32 } [ %53026, %.loopexit22623.thread ], [ %.pn8544.pn.pn.pn.pn.pn, %.loopexit22623 ]
+  %.pn8544.pn.pn.pn.pn.pn.pn26391 = phi { ptr, i32 } [ %53026, %.loopexit22623.thread ], [ %.pn8544.pn.pn.pn.pn.pn, %.loopexit22623 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1385)
   call void @llvm.lifetime.end.p0(ptr nonnull %1384)
   call void @llvm.lifetime.end.p0(ptr nonnull %1383)
@@ -120286,7 +120286,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body14086
 
 .body14086:                                       ; preds = %13733, %13730, %.loopexit22621
-  %.pn8544.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8544.pn.pn.pn.pn.pn.pn22784, %.loopexit22621 ], [ %13731, %13733 ], [ %13731, %13730 ]
+  %.pn8544.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8544.pn.pn.pn.pn.pn.pn26391, %.loopexit22621 ], [ %13731, %13733 ], [ %13731, %13730 ]
   br label %53043
 
 53043:                                            ; preds = %53043, %.body14086
@@ -120327,7 +120327,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53057:                                            ; preds = %14028
   %53058 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22785
+  br label %.thread26392
 
 53059:                                            ; preds = %14046
   %53060 = landingpad { ptr, i32 }
@@ -120353,9 +120353,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53066:                                            ; preds = %53065, %53059
   %.pn8554.pn = phi { ptr, i32 } [ %.pn8554, %53065 ], [ %53060, %53059 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1400) #22
-  br label %.thread22785
+  br label %.thread26392
 
-.thread22785:                                     ; preds = %53057, %53066
+.thread26392:                                     ; preds = %53057, %53066
   %.pn8554.pn.pn = phi { ptr, i32 } [ %.pn8554.pn, %53066 ], [ %53058, %53057 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1402) #22
   br label %.loopexit22617
@@ -120365,8 +120365,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22617
 
-.loopexit22617:                                   ; preds = %.thread22785, %.preheader22616.preheader
-  %.pn8554.pn.pn.pn22788 = phi { ptr, i32 } [ %.pn8554.pn.pn, %.thread22785 ], [ %53067, %.preheader22616.preheader ]
+.loopexit22617:                                   ; preds = %.thread26392, %.preheader22616.preheader
+  %.pn8554.pn.pn.pn26395 = phi { ptr, i32 } [ %.pn8554.pn.pn, %.thread26392 ], [ %53067, %.preheader22616.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1403)
   call void @llvm.lifetime.end.p0(ptr nonnull %1402)
   call void @llvm.lifetime.end.p0(ptr nonnull %1401)
@@ -120374,7 +120374,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53068
 
 53068:                                            ; preds = %.loopexit22617, %53055
-  %.pn8554.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8554.pn.pn.pn22788, %.loopexit22617 ], [ %53056, %53055 ]
+  %.pn8554.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8554.pn.pn.pn26395, %.loopexit22617 ], [ %53056, %53055 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1396) #22
   br label %.loopexit22615
 
@@ -120389,7 +120389,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.loopexit22613
 
 .loopexit22613:                                   ; preds = %.loopexit22615, %.loopexit22615.thread
-  %.pn8554.pn.pn.pn.pn.pn.pn2279622801 = phi { ptr, i32 } [ %53069, %.loopexit22615.thread ], [ %.pn8554.pn.pn.pn.pn.pn, %.loopexit22615 ]
+  %.pn8554.pn.pn.pn.pn.pn.pn2640326408 = phi { ptr, i32 } [ %53069, %.loopexit22615.thread ], [ %.pn8554.pn.pn.pn.pn.pn, %.loopexit22615 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1399)
   call void @llvm.lifetime.end.p0(ptr nonnull %1398)
   call void @llvm.lifetime.end.p0(ptr nonnull %1397)
@@ -120399,7 +120399,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body14132
 
 .body14132:                                       ; preds = %14002, %13999, %.loopexit22613
-  %.pn8554.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8554.pn.pn.pn.pn.pn.pn2279622801, %.loopexit22613 ], [ %14000, %14002 ], [ %14000, %13999 ]
+  %.pn8554.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8554.pn.pn.pn.pn.pn.pn2640326408, %.loopexit22613 ], [ %14000, %14002 ], [ %14000, %13999 ]
   br label %53070
 
 53070:                                            ; preds = %53070, %.body14132
@@ -120437,7 +120437,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %53094
 
-.thread22802:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14180
+.thread26409:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14180
   %53084 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22609
@@ -120445,7 +120445,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53085:                                            ; preds = %14288
   %53086 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22807
+  br label %.thread26414
 
 53087:                                            ; preds = %14305
   %53088 = landingpad { ptr, i32 }
@@ -120461,9 +120461,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53091:                                            ; preds = %53089, %53087
   %.pn8564 = phi { ptr, i32 } [ %53090, %53089 ], [ %53088, %53087 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1411) #22
-  br label %.thread22807
+  br label %.thread26414
 
-.thread22807:                                     ; preds = %53085, %53091
+.thread26414:                                     ; preds = %53085, %53091
   %.pn8564.pn = phi { ptr, i32 } [ %.pn8564, %53091 ], [ %53086, %53085 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1413) #22
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1415) #22
@@ -120475,8 +120475,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1415) #22
   br label %.loopexit22609
 
-.loopexit22609:                                   ; preds = %.thread22802, %53092, %.thread22807
-  %.pn8564.pn.pn.pn22806 = phi { ptr, i32 } [ %.pn8564.pn, %.thread22807 ], [ %53084, %.thread22802 ], [ %53093, %53092 ]
+.loopexit22609:                                   ; preds = %.thread26409, %53092, %.thread26414
+  %.pn8564.pn.pn.pn26413 = phi { ptr, i32 } [ %.pn8564.pn, %.thread26414 ], [ %53084, %.thread26409 ], [ %53093, %53092 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1416)
   call void @llvm.lifetime.end.p0(ptr nonnull %1415)
   call void @llvm.lifetime.end.p0(ptr nonnull %1414)
@@ -120486,7 +120486,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53094
 
 53094:                                            ; preds = %.loopexit22609, %53082
-  %.pn8564.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8564.pn.pn.pn22806, %.loopexit22609 ], [ %53083, %53082 ]
+  %.pn8564.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8564.pn.pn.pn26413, %.loopexit22609 ], [ %53083, %53082 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1408) #22
   br label %53095
 
@@ -120633,7 +120633,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53139:                                            ; preds = %14706
   %53140 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22809
+  br label %.thread26416
 
 53141:                                            ; preds = %14724
   %53142 = landingpad { ptr, i32 }
@@ -120649,9 +120649,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53145:                                            ; preds = %53143, %53141
   %.pn8581 = phi { ptr, i32 } [ %53144, %53143 ], [ %53142, %53141 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1437) #22
-  br label %.thread22809
+  br label %.thread26416
 
-.thread22809:                                     ; preds = %53139, %53145
+.thread26416:                                     ; preds = %53139, %53145
   %.pn8581.pn = phi { ptr, i32 } [ %.pn8581, %53145 ], [ %53140, %53139 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1439) #22
   br label %.loopexit22603
@@ -120661,8 +120661,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22603
 
-.loopexit22603:                                   ; preds = %.thread22809, %.preheader22602.preheader
-  %.pn8581.pn.pn22812 = phi { ptr, i32 } [ %.pn8581.pn, %.thread22809 ], [ %53146, %.preheader22602.preheader ]
+.loopexit22603:                                   ; preds = %.thread26416, %.preheader22602.preheader
+  %.pn8581.pn.pn26419 = phi { ptr, i32 } [ %.pn8581.pn, %.thread26416 ], [ %53146, %.preheader22602.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1440)
   call void @llvm.lifetime.end.p0(ptr nonnull %1439)
   call void @llvm.lifetime.end.p0(ptr nonnull %1438)
@@ -120670,7 +120670,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53147
 
 53147:                                            ; preds = %.loopexit22603, %53137
-  %.pn8581.pn.pn.pn = phi { ptr, i32 } [ %.pn8581.pn.pn22812, %.loopexit22603 ], [ %53138, %53137 ]
+  %.pn8581.pn.pn.pn = phi { ptr, i32 } [ %.pn8581.pn.pn26419, %.loopexit22603 ], [ %53138, %53137 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1435) #22
   br label %53148
 
@@ -120822,12 +120822,12 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %53209
 
-.thread22824:                                     ; preds = %15143
+.thread26431:                                     ; preds = %15143
   %53193 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22595
 
-.thread22828:                                     ; preds = %15147
+.thread26435:                                     ; preds = %15147
   %53194 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %1466)
@@ -120835,7 +120835,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1463) #22
   br label %.loopexit22595
 
-.thread22813:                                     ; preds = %15152
+.thread26420:                                     ; preds = %15152
   %53195 = landingpad { ptr, i32 }
           cleanup
   br label %53208
@@ -120843,7 +120843,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53196:                                            ; preds = %15160
   %53197 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22821
+  br label %.thread26428
 
 53198:                                            ; preds = %15162
   %53199 = landingpad { ptr, i32 }
@@ -120869,9 +120869,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53205:                                            ; preds = %53204, %53198
   %.pn8598.pn = phi { ptr, i32 } [ %.pn8598, %53204 ], [ %53199, %53198 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1467) #22
-  br label %.thread22821
+  br label %.thread26428
 
-.thread22821:                                     ; preds = %53196, %53205
+.thread26428:                                     ; preds = %53196, %53205
   %.pn8598.pn.pn = phi { ptr, i32 } [ %.pn8598.pn, %53205 ], [ %53197, %53196 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1469) #22
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1471) #22
@@ -120883,8 +120883,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1471) #22
   br label %53208
 
-53208:                                            ; preds = %.thread22821, %53206, %.thread22813
-  %.pn8598.pn.pn.pn.pn22820 = phi { ptr, i32 } [ %.pn8598.pn.pn, %.thread22821 ], [ %53195, %.thread22813 ], [ %53207, %53206 ]
+53208:                                            ; preds = %.thread26428, %53206, %.thread26420
+  %.pn8598.pn.pn.pn.pn26427 = phi { ptr, i32 } [ %.pn8598.pn.pn, %.thread26428 ], [ %53195, %.thread26420 ], [ %53207, %53206 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1472)
   call void @llvm.lifetime.end.p0(ptr nonnull %1471)
   call void @llvm.lifetime.end.p0(ptr nonnull %1470)
@@ -120897,8 +120897,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1463) #22
   br label %.loopexit22595
 
-.loopexit22595:                                   ; preds = %53208, %.thread22828, %.thread22824
-  %.pn8598.pn.pn.pn.pn.pn.pn22827 = phi { ptr, i32 } [ %53193, %.thread22824 ], [ %53194, %.thread22828 ], [ %.pn8598.pn.pn.pn.pn22820, %53208 ]
+.loopexit22595:                                   ; preds = %53208, %.thread26435, %.thread26431
+  %.pn8598.pn.pn.pn.pn.pn.pn26434 = phi { ptr, i32 } [ %53193, %.thread26431 ], [ %53194, %.thread26435 ], [ %.pn8598.pn.pn.pn.pn26427, %53208 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1464)
   call void @llvm.lifetime.end.p0(ptr nonnull %1463)
   call void @llvm.lifetime.end.p0(ptr nonnull %1462)
@@ -120906,7 +120906,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53209
 
 53209:                                            ; preds = %.loopexit22595, %53191
-  %.pn8598.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8598.pn.pn.pn.pn.pn.pn22827, %.loopexit22595 ], [ %53192, %53191 ]
+  %.pn8598.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8598.pn.pn.pn.pn.pn.pn26434, %.loopexit22595 ], [ %53192, %53191 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1460)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1455) #22
   br label %53210
@@ -120968,7 +120968,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %53236
 
-.thread22832:                                     ; preds = %15427
+.thread26439:                                     ; preds = %15427
   %53227 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22589
@@ -120976,7 +120976,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53228:                                            ; preds = %15432
   %53229 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22836
+  br label %.thread26443
 
 53230:                                            ; preds = %15450
   %53231 = landingpad { ptr, i32 }
@@ -120992,9 +120992,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53234:                                            ; preds = %53232, %53230
   %.pn8611 = phi { ptr, i32 } [ %53233, %53232 ], [ %53231, %53230 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1482) #22
-  br label %.thread22836
+  br label %.thread26443
 
-.thread22836:                                     ; preds = %53228, %53234
+.thread26443:                                     ; preds = %53228, %53234
   %.pn8611.pn = phi { ptr, i32 } [ %.pn8611, %53234 ], [ %53229, %53228 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1486) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %1487)
@@ -121010,8 +121010,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1484) #22
   br label %.loopexit22589
 
-.loopexit22589:                                   ; preds = %.thread22836, %.thread22832, %.preheader22588.preheader
-  %.pn8611.pn.pn.pn22835 = phi { ptr, i32 } [ %53227, %.thread22832 ], [ %53235, %.preheader22588.preheader ], [ %.pn8611.pn, %.thread22836 ]
+.loopexit22589:                                   ; preds = %.thread26443, %.thread26439, %.preheader22588.preheader
+  %.pn8611.pn.pn.pn26442 = phi { ptr, i32 } [ %53227, %.thread26439 ], [ %53235, %.preheader22588.preheader ], [ %.pn8611.pn, %.thread26443 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1485)
   call void @llvm.lifetime.end.p0(ptr nonnull %1484)
   call void @llvm.lifetime.end.p0(ptr nonnull %1483)
@@ -121019,7 +121019,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53236
 
 53236:                                            ; preds = %.loopexit22589, %53225
-  %.pn8611.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8611.pn.pn.pn22835, %.loopexit22589 ], [ %53226, %53225 ]
+  %.pn8611.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8611.pn.pn.pn26442, %.loopexit22589 ], [ %53226, %53225 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1481)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1476) #22
   br label %53237
@@ -121081,7 +121081,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %53264
 
-.thread22838:                                     ; preds = %15659
+.thread26445:                                     ; preds = %15659
   %53255 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22585
@@ -121089,7 +121089,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53256:                                            ; preds = %15664
   %53257 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22842
+  br label %.thread26449
 
 53258:                                            ; preds = %15682
   %53259 = landingpad { ptr, i32 }
@@ -121105,9 +121105,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53262:                                            ; preds = %53260, %53258
   %.pn8621 = phi { ptr, i32 } [ %53261, %53260 ], [ %53259, %53258 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1497) #22
-  br label %.thread22842
+  br label %.thread26449
 
-.thread22842:                                     ; preds = %53256, %53262
+.thread26449:                                     ; preds = %53256, %53262
   %.pn8621.pn = phi { ptr, i32 } [ %.pn8621, %53262 ], [ %53257, %53256 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1501) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %1502)
@@ -121123,8 +121123,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1499) #22
   br label %.loopexit22585
 
-.loopexit22585:                                   ; preds = %.thread22842, %.thread22838, %.preheader22584.preheader
-  %.pn8621.pn.pn.pn22841 = phi { ptr, i32 } [ %53255, %.thread22838 ], [ %53263, %.preheader22584.preheader ], [ %.pn8621.pn, %.thread22842 ]
+.loopexit22585:                                   ; preds = %.thread26449, %.thread26445, %.preheader22584.preheader
+  %.pn8621.pn.pn.pn26448 = phi { ptr, i32 } [ %53255, %.thread26445 ], [ %53263, %.preheader22584.preheader ], [ %.pn8621.pn, %.thread26449 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1500)
   call void @llvm.lifetime.end.p0(ptr nonnull %1499)
   call void @llvm.lifetime.end.p0(ptr nonnull %1498)
@@ -121132,7 +121132,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53264
 
 53264:                                            ; preds = %.loopexit22585, %53253
-  %.pn8621.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8621.pn.pn.pn22841, %.loopexit22585 ], [ %53254, %53253 ]
+  %.pn8621.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8621.pn.pn.pn26448, %.loopexit22585 ], [ %53254, %53253 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1496)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1491) #22
   br label %53265
@@ -121283,12 +121283,12 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %53327
 
-.thread22856:                                     ; preds = %16164
+.thread26463:                                     ; preds = %16164
   %53310 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22575
 
-.thread22860:                                     ; preds = %16168
+.thread26467:                                     ; preds = %16168
   %53311 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %1527)
@@ -121299,12 +121299,12 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53312:                                            ; preds = %16183
   %53313 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22850
+  br label %.thread26457
 
 53314:                                            ; preds = %16195
   %53315 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22844
+  br label %.thread26451
 
 53316:                                            ; preds = %16198
   %53317 = landingpad { ptr, i32 }
@@ -121330,9 +121330,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53323:                                            ; preds = %53322, %53316
   %.pn8639.pn = phi { ptr, i32 } [ %.pn8639, %53322 ], [ %53317, %53316 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1532) #22
-  br label %.thread22844
+  br label %.thread26451
 
-.thread22844:                                     ; preds = %53314, %53323
+.thread26451:                                     ; preds = %53314, %53323
   %.pn8639.pn.pn = phi { ptr, i32 } [ %.pn8639.pn, %53323 ], [ %53315, %53314 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1534) #22
   br label %.loopexit22579
@@ -121342,17 +121342,17 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22579
 
-.loopexit22579:                                   ; preds = %.thread22844, %.preheader22578.preheader
-  %.pn8639.pn.pn.pn22849 = phi { ptr, i32 } [ %.pn8639.pn.pn, %.thread22844 ], [ %53324, %.preheader22578.preheader ]
+.loopexit22579:                                   ; preds = %.thread26451, %.preheader22578.preheader
+  %.pn8639.pn.pn.pn26456 = phi { ptr, i32 } [ %.pn8639.pn.pn, %.thread26451 ], [ %53324, %.preheader22578.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1535)
   call void @llvm.lifetime.end.p0(ptr nonnull %1534)
   call void @llvm.lifetime.end.p0(ptr nonnull %1533)
   call void @llvm.lifetime.end.p0(ptr nonnull %1532)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1528) #22
-  br label %.thread22850
+  br label %.thread26457
 
-.thread22850:                                     ; preds = %53312, %.loopexit22579
-  %.pn8639.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8639.pn.pn.pn22849, %.loopexit22579 ], [ %53313, %53312 ]
+.thread26457:                                     ; preds = %53312, %.loopexit22579
+  %.pn8639.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8639.pn.pn.pn26456, %.loopexit22579 ], [ %53313, %53312 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1530) #22
   br label %53326
 
@@ -121361,8 +121361,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %53326
 
-53326:                                            ; preds = %.preheader22576.preheader, %.thread22850
-  %.pn8639.pn.pn.pn.pn.pn22855 = phi { ptr, i32 } [ %.pn8639.pn.pn.pn.pn, %.thread22850 ], [ %53325, %.preheader22576.preheader ]
+53326:                                            ; preds = %.preheader22576.preheader, %.thread26457
+  %.pn8639.pn.pn.pn.pn.pn26462 = phi { ptr, i32 } [ %.pn8639.pn.pn.pn.pn, %.thread26457 ], [ %53325, %.preheader22576.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1531)
   call void @llvm.lifetime.end.p0(ptr nonnull %1530)
   call void @llvm.lifetime.end.p0(ptr nonnull %1529)
@@ -121373,8 +121373,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1524) #22
   br label %.loopexit22575
 
-.loopexit22575:                                   ; preds = %53326, %.thread22860, %.thread22856
-  %.pn8639.pn.pn.pn.pn.pn.pn.pn22859 = phi { ptr, i32 } [ %53310, %.thread22856 ], [ %53311, %.thread22860 ], [ %.pn8639.pn.pn.pn.pn.pn22855, %53326 ]
+.loopexit22575:                                   ; preds = %53326, %.thread26467, %.thread26463
+  %.pn8639.pn.pn.pn.pn.pn.pn.pn26466 = phi { ptr, i32 } [ %53310, %.thread26463 ], [ %53311, %.thread26467 ], [ %.pn8639.pn.pn.pn.pn.pn26462, %53326 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1525)
   call void @llvm.lifetime.end.p0(ptr nonnull %1524)
   call void @llvm.lifetime.end.p0(ptr nonnull %1523)
@@ -121382,7 +121382,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53327
 
 53327:                                            ; preds = %.loopexit22575, %53308
-  %.pn8639.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8639.pn.pn.pn.pn.pn.pn.pn22859, %.loopexit22575 ], [ %53309, %53308 ]
+  %.pn8639.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8639.pn.pn.pn.pn.pn.pn.pn26466, %.loopexit22575 ], [ %53309, %53308 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1521)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1516) #22
   br label %53328
@@ -121444,12 +121444,12 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %53360
 
-.thread22873:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14568
+.thread26480:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14568
   %53345 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22567
 
-.thread22877:                                     ; preds = %16494
+.thread26484:                                     ; preds = %16494
   %53346 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %1549)
@@ -121457,7 +121457,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1546) #22
   br label %.loopexit22567
 
-.thread22864:                                     ; preds = %16499
+.thread26471:                                     ; preds = %16499
   %53347 = landingpad { ptr, i32 }
           cleanup
   br label %53359
@@ -121465,7 +121465,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53348:                                            ; preds = %16509
   %53349 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22870
+  br label %.thread26477
 
 53350:                                            ; preds = %16512
   %53351 = landingpad { ptr, i32 }
@@ -121491,9 +121491,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53357:                                            ; preds = %53356, %53350
   %.pn8653.pn = phi { ptr, i32 } [ %.pn8653, %53356 ], [ %53351, %53350 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1550) #22
-  br label %.thread22870
+  br label %.thread26477
 
-.thread22870:                                     ; preds = %53348, %53357
+.thread26477:                                     ; preds = %53348, %53357
   %.pn8653.pn.pn = phi { ptr, i32 } [ %.pn8653.pn, %53357 ], [ %53349, %53348 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1554) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %1555)
@@ -121509,8 +121509,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1552) #22
   br label %53359
 
-53359:                                            ; preds = %.preheader22568.preheader, %.thread22864, %.thread22870
-  %.pn8653.pn.pn.pn.pn22869 = phi { ptr, i32 } [ %53347, %.thread22864 ], [ %53358, %.preheader22568.preheader ], [ %.pn8653.pn.pn, %.thread22870 ]
+53359:                                            ; preds = %.preheader22568.preheader, %.thread26471, %.thread26477
+  %.pn8653.pn.pn.pn.pn26476 = phi { ptr, i32 } [ %53347, %.thread26471 ], [ %53358, %.preheader22568.preheader ], [ %.pn8653.pn.pn, %.thread26477 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1553)
   call void @llvm.lifetime.end.p0(ptr nonnull %1552)
   call void @llvm.lifetime.end.p0(ptr nonnull %1551)
@@ -121521,8 +121521,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1546) #22
   br label %.loopexit22567
 
-.loopexit22567:                                   ; preds = %53359, %.thread22877, %.thread22873
-  %.pn8653.pn.pn.pn.pn.pn.pn22876 = phi { ptr, i32 } [ %53345, %.thread22873 ], [ %53346, %.thread22877 ], [ %.pn8653.pn.pn.pn.pn22869, %53359 ]
+.loopexit22567:                                   ; preds = %53359, %.thread26484, %.thread26480
+  %.pn8653.pn.pn.pn.pn.pn.pn26483 = phi { ptr, i32 } [ %53345, %.thread26480 ], [ %53346, %.thread26484 ], [ %.pn8653.pn.pn.pn.pn26476, %53359 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1547)
   call void @llvm.lifetime.end.p0(ptr nonnull %1546)
   call void @llvm.lifetime.end.p0(ptr nonnull %1545)
@@ -121530,7 +121530,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53360
 
 53360:                                            ; preds = %.loopexit22567, %53343
-  %.pn8653.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8653.pn.pn.pn.pn.pn.pn22876, %.loopexit22567 ], [ %53344, %53343 ]
+  %.pn8653.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8653.pn.pn.pn.pn.pn.pn26483, %.loopexit22567 ], [ %53344, %53343 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1539) #22
   br label %53361
 
@@ -121576,7 +121576,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   %53372 = icmp eq ptr %53371, %1558
   br i1 %53372, label %.loopexit22559, label %53369
 
-.thread22887:                                     ; preds = %16783
+.thread26494:                                     ; preds = %16783
   %53373 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22561
@@ -121584,14 +121584,14 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53374:                                            ; preds = %16794
   %53375 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22892
+  br label %.thread26499
 
 53376:                                            ; preds = %16811
   %53377 = landingpad { ptr, i32 }
           cleanup
   br label %53387
 
-.thread22881:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14620
+.thread26488:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14620
   %53378 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22563
@@ -121599,7 +121599,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53379:                                            ; preds = %16821
   %53380 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22885
+  br label %.thread26492
 
 53381:                                            ; preds = %16839
   %53382 = landingpad { ptr, i32 }
@@ -121615,9 +121615,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53385:                                            ; preds = %53383, %53381
   %.pn8666 = phi { ptr, i32 } [ %53384, %53383 ], [ %53382, %53381 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1566) #22
-  br label %.thread22885
+  br label %.thread26492
 
-.thread22885:                                     ; preds = %53379, %53385
+.thread26492:                                     ; preds = %53379, %53385
   %.pn8666.pn = phi { ptr, i32 } [ %.pn8666, %53385 ], [ %53380, %53379 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1570) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %1571)
@@ -121633,8 +121633,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1568) #22
   br label %.loopexit22563
 
-.loopexit22563:                                   ; preds = %.thread22885, %.thread22881, %.preheader22562.preheader
-  %.pn8666.pn.pn.pn22884 = phi { ptr, i32 } [ %53378, %.thread22881 ], [ %53386, %.preheader22562.preheader ], [ %.pn8666.pn, %.thread22885 ]
+.loopexit22563:                                   ; preds = %.thread26492, %.thread26488, %.preheader22562.preheader
+  %.pn8666.pn.pn.pn26491 = phi { ptr, i32 } [ %53378, %.thread26488 ], [ %53386, %.preheader22562.preheader ], [ %.pn8666.pn, %.thread26492 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1569)
   call void @llvm.lifetime.end.p0(ptr nonnull %1568)
   call void @llvm.lifetime.end.p0(ptr nonnull %1567)
@@ -121642,11 +121642,11 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53387
 
 53387:                                            ; preds = %.loopexit22563, %53376
-  %.pn8666.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8666.pn.pn.pn22884, %.loopexit22563 ], [ %53377, %53376 ]
+  %.pn8666.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8666.pn.pn.pn26491, %.loopexit22563 ], [ %53377, %53376 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1559) #22
-  br label %.thread22892
+  br label %.thread26499
 
-.thread22892:                                     ; preds = %53374, %53387
+.thread26499:                                     ; preds = %53374, %53387
   %.pn8666.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8666.pn.pn.pn.pn, %53387 ], [ %53375, %53374 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1561) #22
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1563) #22
@@ -121658,8 +121658,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1563) #22
   br label %.loopexit22561
 
-.loopexit22561:                                   ; preds = %.thread22887, %53388, %.thread22892
-  %.pn8666.pn.pn.pn.pn.pn.pn.pn22891 = phi { ptr, i32 } [ %.pn8666.pn.pn.pn.pn.pn, %.thread22892 ], [ %53373, %.thread22887 ], [ %53389, %53388 ]
+.loopexit22561:                                   ; preds = %.thread26494, %53388, %.thread26499
+  %.pn8666.pn.pn.pn.pn.pn.pn.pn26498 = phi { ptr, i32 } [ %.pn8666.pn.pn.pn.pn.pn, %.thread26499 ], [ %53373, %.thread26494 ], [ %53389, %53388 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1564)
   call void @llvm.lifetime.end.p0(ptr nonnull %1563)
   call void @llvm.lifetime.end.p0(ptr nonnull %1562)
@@ -121669,7 +121669,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body14616
 
 .body14616:                                       ; preds = %16777, %16774, %.loopexit22561
-  %.pn8666.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8666.pn.pn.pn.pn.pn.pn.pn22891, %.loopexit22561 ], [ %16775, %16777 ], [ %16775, %16774 ]
+  %.pn8666.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8666.pn.pn.pn.pn.pn.pn.pn26498, %.loopexit22561 ], [ %16775, %16777 ], [ %16775, %16774 ]
   br label %53390
 
 53390:                                            ; preds = %53390, %.body14616
@@ -121697,7 +121697,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   %53399 = icmp eq ptr %53398, %1574
   br i1 %53399, label %.loopexit22549, label %53396
 
-.thread22912:                                     ; preds = %17067
+.thread26519:                                     ; preds = %17067
   %53400 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22551
@@ -121705,14 +121705,14 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53401:                                            ; preds = %17078
   %53402 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22917
+  br label %.thread26524
 
 53403:                                            ; preds = %17095
   %53404 = landingpad { ptr, i32 }
           cleanup
   br label %53419
 
-.thread22904:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14668
+.thread26511:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14668
   %53405 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22553
@@ -121720,7 +121720,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 .loopexit22557.thread:                            ; preds = %17100
   %53406 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22908
+  br label %.thread26515
 
 53407:                                            ; preds = %17110
   %53408 = landingpad { ptr, i32 }
@@ -121757,10 +121757,10 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   %53417 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1590) #22
-  br label %.thread22908
+  br label %.thread26515
 
-.thread22908:                                     ; preds = %.loopexit22557.thread, %.loopexit22557
-  %.pn8677.pn.pn.pn.pn22900.ph = phi { ptr, i32 } [ %53417, %.loopexit22557 ], [ %53406, %.loopexit22557.thread ]
+.thread26515:                                     ; preds = %.loopexit22557.thread, %.loopexit22557
+  %.pn8677.pn.pn.pn.pn26507.ph = phi { ptr, i32 } [ %53417, %.loopexit22557 ], [ %53406, %.loopexit22557.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1591)
   call void @llvm.lifetime.end.p0(ptr nonnull %1590)
   call void @llvm.lifetime.end.p0(ptr nonnull %1589)
@@ -121783,8 +121783,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1584) #22
   br label %.loopexit22553
 
-.loopexit22553:                                   ; preds = %53418, %.thread22908, %.thread22904
-  %.pn8677.pn.pn.pn.pn.pn22907 = phi { ptr, i32 } [ %53405, %.thread22904 ], [ %.pn8677.pn.pn.pn.pn22900.ph, %.thread22908 ], [ %.pn8677.pn.pn, %53418 ]
+.loopexit22553:                                   ; preds = %53418, %.thread26515, %.thread26511
+  %.pn8677.pn.pn.pn.pn.pn26514 = phi { ptr, i32 } [ %53405, %.thread26511 ], [ %.pn8677.pn.pn.pn.pn26507.ph, %.thread26515 ], [ %.pn8677.pn.pn, %53418 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1585)
   call void @llvm.lifetime.end.p0(ptr nonnull %1584)
   call void @llvm.lifetime.end.p0(ptr nonnull %1583)
@@ -121792,11 +121792,11 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53419
 
 53419:                                            ; preds = %.loopexit22553, %53403
-  %.pn8677.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8677.pn.pn.pn.pn.pn22907, %.loopexit22553 ], [ %53404, %53403 ]
+  %.pn8677.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8677.pn.pn.pn.pn.pn26514, %.loopexit22553 ], [ %53404, %53403 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1575) #22
-  br label %.thread22917
+  br label %.thread26524
 
-.thread22917:                                     ; preds = %53401, %53419
+.thread26524:                                     ; preds = %53401, %53419
   %.pn8677.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8677.pn.pn.pn.pn.pn.pn, %53419 ], [ %53402, %53401 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1577) #22
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1579) #22
@@ -121808,8 +121808,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1579) #22
   br label %.loopexit22551
 
-.loopexit22551:                                   ; preds = %.thread22912, %53420, %.thread22917
-  %.pn8677.pn.pn.pn.pn.pn.pn.pn.pn.pn22916 = phi { ptr, i32 } [ %.pn8677.pn.pn.pn.pn.pn.pn.pn, %.thread22917 ], [ %53400, %.thread22912 ], [ %53421, %53420 ]
+.loopexit22551:                                   ; preds = %.thread26519, %53420, %.thread26524
+  %.pn8677.pn.pn.pn.pn.pn.pn.pn.pn.pn26523 = phi { ptr, i32 } [ %.pn8677.pn.pn.pn.pn.pn.pn.pn, %.thread26524 ], [ %53400, %.thread26519 ], [ %53421, %53420 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1580)
   call void @llvm.lifetime.end.p0(ptr nonnull %1579)
   call void @llvm.lifetime.end.p0(ptr nonnull %1578)
@@ -121819,7 +121819,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body14664
 
 .body14664:                                       ; preds = %17061, %17058, %.loopexit22551
-  %.pn8677.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8677.pn.pn.pn.pn.pn.pn.pn.pn.pn22916, %.loopexit22551 ], [ %17059, %17061 ], [ %17059, %17058 ]
+  %.pn8677.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8677.pn.pn.pn.pn.pn.pn.pn.pn.pn26523, %.loopexit22551 ], [ %17059, %17061 ], [ %17059, %17058 ]
   br label %53422
 
 53422:                                            ; preds = %53422, %.body14664
@@ -121847,7 +121847,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   %53431 = icmp eq ptr %53430, %1594
   br i1 %53431, label %.loopexit22541, label %53428
 
-.thread22934:                                     ; preds = %17383
+.thread26541:                                     ; preds = %17383
   %53432 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22543
@@ -121855,25 +121855,25 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53433:                                            ; preds = %17393
   %53434 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22938
+  br label %.thread26545
 
 53435:                                            ; preds = %17411
   %53436 = landingpad { ptr, i32 }
           cleanup
   br label %53452
 
-.thread22928:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14720
+.thread26535:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14720
   %53437 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22545
 
-.thread22932:                                     ; preds = %17416
+.thread26539:                                     ; preds = %17416
   %53438 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1606) #22
   br label %.loopexit22545
 
-.thread22919:                                     ; preds = %17418
+.thread26526:                                     ; preds = %17418
   %53439 = landingpad { ptr, i32 }
           cleanup
   br label %53451
@@ -121881,7 +121881,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53440:                                            ; preds = %17425
   %53441 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22925
+  br label %.thread26532
 
 53442:                                            ; preds = %17428
   %53443 = landingpad { ptr, i32 }
@@ -121907,9 +121907,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53449:                                            ; preds = %53448, %53442
   %.pn8690.pn = phi { ptr, i32 } [ %.pn8690, %53448 ], [ %53443, %53442 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1608) #22
-  br label %.thread22925
+  br label %.thread26532
 
-.thread22925:                                     ; preds = %53440, %53449
+.thread26532:                                     ; preds = %53440, %53449
   %.pn8690.pn.pn = phi { ptr, i32 } [ %.pn8690.pn, %53449 ], [ %53441, %53440 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1612) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %1613)
@@ -121925,8 +121925,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1610) #22
   br label %53451
 
-53451:                                            ; preds = %.preheader22546.preheader, %.thread22919, %.thread22925
-  %.pn8690.pn.pn.pn.pn22924 = phi { ptr, i32 } [ %53439, %.thread22919 ], [ %53450, %.preheader22546.preheader ], [ %.pn8690.pn.pn, %.thread22925 ]
+53451:                                            ; preds = %.preheader22546.preheader, %.thread26526, %.thread26532
+  %.pn8690.pn.pn.pn.pn26531 = phi { ptr, i32 } [ %53439, %.thread26526 ], [ %53450, %.preheader22546.preheader ], [ %.pn8690.pn.pn, %.thread26532 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1611)
   call void @llvm.lifetime.end.p0(ptr nonnull %1610)
   call void @llvm.lifetime.end.p0(ptr nonnull %1609)
@@ -121935,8 +121935,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1606) #22
   br label %.loopexit22545
 
-.loopexit22545:                                   ; preds = %53451, %.thread22932, %.thread22928
-  %.pn8690.pn.pn.pn.pn.pn.pn22931 = phi { ptr, i32 } [ %53437, %.thread22928 ], [ %53438, %.thread22932 ], [ %.pn8690.pn.pn.pn.pn22924, %53451 ]
+.loopexit22545:                                   ; preds = %53451, %.thread26539, %.thread26535
+  %.pn8690.pn.pn.pn.pn.pn.pn26538 = phi { ptr, i32 } [ %53437, %.thread26535 ], [ %53438, %.thread26539 ], [ %.pn8690.pn.pn.pn.pn26531, %53451 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1607)
   call void @llvm.lifetime.end.p0(ptr nonnull %1606)
   call void @llvm.lifetime.end.p0(ptr nonnull %1605)
@@ -121946,11 +121946,11 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53452
 
 53452:                                            ; preds = %.loopexit22545, %53435
-  %.pn8690.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8690.pn.pn.pn.pn.pn.pn22931, %.loopexit22545 ], [ %53436, %53435 ]
+  %.pn8690.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8690.pn.pn.pn.pn.pn.pn26538, %.loopexit22545 ], [ %53436, %53435 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1595) #22
-  br label %.thread22938
+  br label %.thread26545
 
-.thread22938:                                     ; preds = %53433, %53452
+.thread26545:                                     ; preds = %53433, %53452
   %.pn8690.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8690.pn.pn.pn.pn.pn.pn.pn, %53452 ], [ %53434, %53433 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1599) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %1600)
@@ -121966,8 +121966,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1597) #22
   br label %.loopexit22543
 
-.loopexit22543:                                   ; preds = %.thread22938, %.thread22934, %.preheader22542.preheader
-  %.pn8690.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn22937 = phi { ptr, i32 } [ %53432, %.thread22934 ], [ %53453, %.preheader22542.preheader ], [ %.pn8690.pn.pn.pn.pn.pn.pn.pn.pn, %.thread22938 ]
+.loopexit22543:                                   ; preds = %.thread26545, %.thread26541, %.preheader22542.preheader
+  %.pn8690.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn26544 = phi { ptr, i32 } [ %53432, %.thread26541 ], [ %53453, %.preheader22542.preheader ], [ %.pn8690.pn.pn.pn.pn.pn.pn.pn.pn, %.thread26545 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1598)
   call void @llvm.lifetime.end.p0(ptr nonnull %1597)
   call void @llvm.lifetime.end.p0(ptr nonnull %1596)
@@ -121975,7 +121975,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body14716
 
 .body14716:                                       ; preds = %17377, %17374, %.loopexit22543
-  %.pn8690.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8690.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn22937, %.loopexit22543 ], [ %17375, %17377 ], [ %17375, %17374 ]
+  %.pn8690.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8690.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn26544, %.loopexit22543 ], [ %17375, %17377 ], [ %17375, %17374 ]
   br label %53454
 
 53454:                                            ; preds = %53454, %.body14716
@@ -122003,7 +122003,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   %53463 = icmp eq ptr %53462, %1616
   br i1 %53463, label %.loopexit22533, label %53460
 
-.thread22955:                                     ; preds = %17712
+.thread26562:                                     ; preds = %17712
   %53464 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22535
@@ -122011,25 +122011,25 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53465:                                            ; preds = %17722
   %53466 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22959
+  br label %.thread26566
 
 53467:                                            ; preds = %17740
   %53468 = landingpad { ptr, i32 }
           cleanup
   br label %53484
 
-.thread22949:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14774
+.thread26556:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14774
   %53469 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22537
 
-.thread22953:                                     ; preds = %17745
+.thread26560:                                     ; preds = %17745
   %53470 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1628) #22
   br label %.loopexit22537
 
-.thread22940:                                     ; preds = %17747
+.thread26547:                                     ; preds = %17747
   %53471 = landingpad { ptr, i32 }
           cleanup
   br label %53483
@@ -122037,7 +122037,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53472:                                            ; preds = %17754
   %53473 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22946
+  br label %.thread26553
 
 53474:                                            ; preds = %17757
   %53475 = landingpad { ptr, i32 }
@@ -122063,9 +122063,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53481:                                            ; preds = %53480, %53474
   %.pn8704.pn = phi { ptr, i32 } [ %.pn8704, %53480 ], [ %53475, %53474 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1630) #22
-  br label %.thread22946
+  br label %.thread26553
 
-.thread22946:                                     ; preds = %53472, %53481
+.thread26553:                                     ; preds = %53472, %53481
   %.pn8704.pn.pn = phi { ptr, i32 } [ %.pn8704.pn, %53481 ], [ %53473, %53472 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1634) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %1635)
@@ -122081,8 +122081,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1632) #22
   br label %53483
 
-53483:                                            ; preds = %.preheader22538.preheader, %.thread22940, %.thread22946
-  %.pn8704.pn.pn.pn.pn22945 = phi { ptr, i32 } [ %53471, %.thread22940 ], [ %53482, %.preheader22538.preheader ], [ %.pn8704.pn.pn, %.thread22946 ]
+53483:                                            ; preds = %.preheader22538.preheader, %.thread26547, %.thread26553
+  %.pn8704.pn.pn.pn.pn26552 = phi { ptr, i32 } [ %53471, %.thread26547 ], [ %53482, %.preheader22538.preheader ], [ %.pn8704.pn.pn, %.thread26553 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1633)
   call void @llvm.lifetime.end.p0(ptr nonnull %1632)
   call void @llvm.lifetime.end.p0(ptr nonnull %1631)
@@ -122091,8 +122091,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1628) #22
   br label %.loopexit22537
 
-.loopexit22537:                                   ; preds = %53483, %.thread22953, %.thread22949
-  %.pn8704.pn.pn.pn.pn.pn.pn22952 = phi { ptr, i32 } [ %53469, %.thread22949 ], [ %53470, %.thread22953 ], [ %.pn8704.pn.pn.pn.pn22945, %53483 ]
+.loopexit22537:                                   ; preds = %53483, %.thread26560, %.thread26556
+  %.pn8704.pn.pn.pn.pn.pn.pn26559 = phi { ptr, i32 } [ %53469, %.thread26556 ], [ %53470, %.thread26560 ], [ %.pn8704.pn.pn.pn.pn26552, %53483 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1629)
   call void @llvm.lifetime.end.p0(ptr nonnull %1628)
   call void @llvm.lifetime.end.p0(ptr nonnull %1627)
@@ -122102,11 +122102,11 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53484
 
 53484:                                            ; preds = %.loopexit22537, %53467
-  %.pn8704.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8704.pn.pn.pn.pn.pn.pn22952, %.loopexit22537 ], [ %53468, %53467 ]
+  %.pn8704.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8704.pn.pn.pn.pn.pn.pn26559, %.loopexit22537 ], [ %53468, %53467 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1617) #22
-  br label %.thread22959
+  br label %.thread26566
 
-.thread22959:                                     ; preds = %53465, %53484
+.thread26566:                                     ; preds = %53465, %53484
   %.pn8704.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8704.pn.pn.pn.pn.pn.pn.pn, %53484 ], [ %53466, %53465 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1621) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %1622)
@@ -122122,8 +122122,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1619) #22
   br label %.loopexit22535
 
-.loopexit22535:                                   ; preds = %.thread22959, %.thread22955, %.preheader22534.preheader
-  %.pn8704.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn22958 = phi { ptr, i32 } [ %53464, %.thread22955 ], [ %53485, %.preheader22534.preheader ], [ %.pn8704.pn.pn.pn.pn.pn.pn.pn.pn, %.thread22959 ]
+.loopexit22535:                                   ; preds = %.thread26566, %.thread26562, %.preheader22534.preheader
+  %.pn8704.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn26565 = phi { ptr, i32 } [ %53464, %.thread26562 ], [ %53485, %.preheader22534.preheader ], [ %.pn8704.pn.pn.pn.pn.pn.pn.pn.pn, %.thread26566 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1620)
   call void @llvm.lifetime.end.p0(ptr nonnull %1619)
   call void @llvm.lifetime.end.p0(ptr nonnull %1618)
@@ -122131,7 +122131,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body14770
 
 .body14770:                                       ; preds = %17706, %17703, %.loopexit22535
-  %.pn8704.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8704.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn22958, %.loopexit22535 ], [ %17704, %17706 ], [ %17704, %17703 ]
+  %.pn8704.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8704.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn26565, %.loopexit22535 ], [ %17704, %17706 ], [ %17704, %17703 ]
   br label %53486
 
 53486:                                            ; preds = %53486, %.body14770
@@ -122162,25 +122162,25 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53496:                                            ; preds = %18030
   %53497 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22976
+  br label %.thread26583
 
 53498:                                            ; preds = %18048
   %53499 = landingpad { ptr, i32 }
           cleanup
   br label %53515
 
-.thread22970:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14826
+.thread26577:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14826
   %53500 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22529
 
-.thread22974:                                     ; preds = %18053
+.thread26581:                                     ; preds = %18053
   %53501 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1648) #22
   br label %.loopexit22529
 
-.thread22961:                                     ; preds = %18055
+.thread26568:                                     ; preds = %18055
   %53502 = landingpad { ptr, i32 }
           cleanup
   br label %53514
@@ -122188,7 +122188,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53503:                                            ; preds = %18062
   %53504 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22967
+  br label %.thread26574
 
 53505:                                            ; preds = %18065
   %53506 = landingpad { ptr, i32 }
@@ -122214,9 +122214,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53512:                                            ; preds = %53511, %53505
   %.pn8718.pn = phi { ptr, i32 } [ %.pn8718, %53511 ], [ %53506, %53505 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1650) #22
-  br label %.thread22967
+  br label %.thread26574
 
-.thread22967:                                     ; preds = %53503, %53512
+.thread26574:                                     ; preds = %53503, %53512
   %.pn8718.pn.pn = phi { ptr, i32 } [ %.pn8718.pn, %53512 ], [ %53504, %53503 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1654) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %1655)
@@ -122232,8 +122232,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1652) #22
   br label %53514
 
-53514:                                            ; preds = %.preheader22530.preheader, %.thread22961, %.thread22967
-  %.pn8718.pn.pn.pn.pn22966 = phi { ptr, i32 } [ %53502, %.thread22961 ], [ %53513, %.preheader22530.preheader ], [ %.pn8718.pn.pn, %.thread22967 ]
+53514:                                            ; preds = %.preheader22530.preheader, %.thread26568, %.thread26574
+  %.pn8718.pn.pn.pn.pn26573 = phi { ptr, i32 } [ %53502, %.thread26568 ], [ %53513, %.preheader22530.preheader ], [ %.pn8718.pn.pn, %.thread26574 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1653)
   call void @llvm.lifetime.end.p0(ptr nonnull %1652)
   call void @llvm.lifetime.end.p0(ptr nonnull %1651)
@@ -122242,8 +122242,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1648) #22
   br label %.loopexit22529
 
-.loopexit22529:                                   ; preds = %53514, %.thread22974, %.thread22970
-  %.pn8718.pn.pn.pn.pn.pn.pn22973 = phi { ptr, i32 } [ %53500, %.thread22970 ], [ %53501, %.thread22974 ], [ %.pn8718.pn.pn.pn.pn22966, %53514 ]
+.loopexit22529:                                   ; preds = %53514, %.thread26581, %.thread26577
+  %.pn8718.pn.pn.pn.pn.pn.pn26580 = phi { ptr, i32 } [ %53500, %.thread26577 ], [ %53501, %.thread26581 ], [ %.pn8718.pn.pn.pn.pn26573, %53514 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1649)
   call void @llvm.lifetime.end.p0(ptr nonnull %1648)
   call void @llvm.lifetime.end.p0(ptr nonnull %1647)
@@ -122253,11 +122253,11 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53515
 
 53515:                                            ; preds = %.loopexit22529, %53498
-  %.pn8718.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8718.pn.pn.pn.pn.pn.pn22973, %.loopexit22529 ], [ %53499, %53498 ]
+  %.pn8718.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8718.pn.pn.pn.pn.pn.pn26580, %.loopexit22529 ], [ %53499, %53498 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1639) #22
-  br label %.thread22976
+  br label %.thread26583
 
-.thread22976:                                     ; preds = %53496, %53515
+.thread26583:                                     ; preds = %53496, %53515
   %.pn8718.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8718.pn.pn.pn.pn.pn.pn.pn, %53515 ], [ %53497, %53496 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1641) #22
   br label %.loopexit22527
@@ -122267,8 +122267,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22527
 
-.loopexit22527:                                   ; preds = %.thread22976, %.preheader22526.preheader
-  %.pn8718.pn.pn.pn.pn.pn.pn.pn.pn.pn22979 = phi { ptr, i32 } [ %.pn8718.pn.pn.pn.pn.pn.pn.pn.pn, %.thread22976 ], [ %53516, %.preheader22526.preheader ]
+.loopexit22527:                                   ; preds = %.thread26583, %.preheader22526.preheader
+  %.pn8718.pn.pn.pn.pn.pn.pn.pn.pn.pn26586 = phi { ptr, i32 } [ %.pn8718.pn.pn.pn.pn.pn.pn.pn.pn, %.thread26583 ], [ %53516, %.preheader22526.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1642)
   call void @llvm.lifetime.end.p0(ptr nonnull %1641)
   call void @llvm.lifetime.end.p0(ptr nonnull %1640)
@@ -122276,7 +122276,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body14822
 
 .body14822:                                       ; preds = %18018, %18015, %.loopexit22527
-  %.pn8718.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8718.pn.pn.pn.pn.pn.pn.pn.pn.pn22979, %.loopexit22527 ], [ %18016, %18018 ], [ %18016, %18015 ]
+  %.pn8718.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8718.pn.pn.pn.pn.pn.pn.pn.pn.pn26586, %.loopexit22527 ], [ %18016, %18018 ], [ %18016, %18015 ]
   br label %53517
 
 53517:                                            ; preds = %53517, %.body14822
@@ -122307,25 +122307,25 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53527:                                            ; preds = %18325
   %53528 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22995
+  br label %.thread26602
 
 53529:                                            ; preds = %18343
   %53530 = landingpad { ptr, i32 }
           cleanup
   br label %53546
 
-.thread22989:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14876
+.thread26596:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit14876
   %53531 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22521
 
-.thread22993:                                     ; preds = %18348
+.thread26600:                                     ; preds = %18348
   %53532 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1668) #22
   br label %.loopexit22521
 
-.thread22980:                                     ; preds = %18350
+.thread26587:                                     ; preds = %18350
   %53533 = landingpad { ptr, i32 }
           cleanup
   br label %53545
@@ -122333,7 +122333,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53534:                                            ; preds = %18357
   %53535 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread22986
+  br label %.thread26593
 
 53536:                                            ; preds = %18360
   %53537 = landingpad { ptr, i32 }
@@ -122359,9 +122359,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53543:                                            ; preds = %53542, %53536
   %.pn8731.pn = phi { ptr, i32 } [ %.pn8731, %53542 ], [ %53537, %53536 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1670) #22
-  br label %.thread22986
+  br label %.thread26593
 
-.thread22986:                                     ; preds = %53534, %53543
+.thread26593:                                     ; preds = %53534, %53543
   %.pn8731.pn.pn = phi { ptr, i32 } [ %.pn8731.pn, %53543 ], [ %53535, %53534 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1674) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %1675)
@@ -122377,8 +122377,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1672) #22
   br label %53545
 
-53545:                                            ; preds = %.preheader22522.preheader, %.thread22980, %.thread22986
-  %.pn8731.pn.pn.pn.pn22985 = phi { ptr, i32 } [ %53533, %.thread22980 ], [ %53544, %.preheader22522.preheader ], [ %.pn8731.pn.pn, %.thread22986 ]
+53545:                                            ; preds = %.preheader22522.preheader, %.thread26587, %.thread26593
+  %.pn8731.pn.pn.pn.pn26592 = phi { ptr, i32 } [ %53533, %.thread26587 ], [ %53544, %.preheader22522.preheader ], [ %.pn8731.pn.pn, %.thread26593 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1673)
   call void @llvm.lifetime.end.p0(ptr nonnull %1672)
   call void @llvm.lifetime.end.p0(ptr nonnull %1671)
@@ -122387,8 +122387,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1668) #22
   br label %.loopexit22521
 
-.loopexit22521:                                   ; preds = %53545, %.thread22993, %.thread22989
-  %.pn8731.pn.pn.pn.pn.pn.pn22992 = phi { ptr, i32 } [ %53531, %.thread22989 ], [ %53532, %.thread22993 ], [ %.pn8731.pn.pn.pn.pn22985, %53545 ]
+.loopexit22521:                                   ; preds = %53545, %.thread26600, %.thread26596
+  %.pn8731.pn.pn.pn.pn.pn.pn26599 = phi { ptr, i32 } [ %53531, %.thread26596 ], [ %53532, %.thread26600 ], [ %.pn8731.pn.pn.pn.pn26592, %53545 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1669)
   call void @llvm.lifetime.end.p0(ptr nonnull %1668)
   call void @llvm.lifetime.end.p0(ptr nonnull %1667)
@@ -122398,11 +122398,11 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53546
 
 53546:                                            ; preds = %.loopexit22521, %53529
-  %.pn8731.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8731.pn.pn.pn.pn.pn.pn22992, %.loopexit22521 ], [ %53530, %53529 ]
+  %.pn8731.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8731.pn.pn.pn.pn.pn.pn26599, %.loopexit22521 ], [ %53530, %53529 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1659) #22
-  br label %.thread22995
+  br label %.thread26602
 
-.thread22995:                                     ; preds = %53527, %53546
+.thread26602:                                     ; preds = %53527, %53546
   %.pn8731.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8731.pn.pn.pn.pn.pn.pn.pn, %53546 ], [ %53528, %53527 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1661) #22
   br label %.loopexit22519
@@ -122412,8 +122412,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22519
 
-.loopexit22519:                                   ; preds = %.thread22995, %.preheader22518.preheader
-  %.pn8731.pn.pn.pn.pn.pn.pn.pn.pn.pn22998 = phi { ptr, i32 } [ %.pn8731.pn.pn.pn.pn.pn.pn.pn.pn, %.thread22995 ], [ %53547, %.preheader22518.preheader ]
+.loopexit22519:                                   ; preds = %.thread26602, %.preheader22518.preheader
+  %.pn8731.pn.pn.pn.pn.pn.pn.pn.pn.pn26605 = phi { ptr, i32 } [ %.pn8731.pn.pn.pn.pn.pn.pn.pn.pn, %.thread26602 ], [ %53547, %.preheader22518.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1662)
   call void @llvm.lifetime.end.p0(ptr nonnull %1661)
   call void @llvm.lifetime.end.p0(ptr nonnull %1660)
@@ -122421,7 +122421,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body14872
 
 .body14872:                                       ; preds = %18313, %18310, %.loopexit22519
-  %.pn8731.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8731.pn.pn.pn.pn.pn.pn.pn.pn.pn22998, %.loopexit22519 ], [ %18311, %18313 ], [ %18311, %18310 ]
+  %.pn8731.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8731.pn.pn.pn.pn.pn.pn.pn.pn.pn26605, %.loopexit22519 ], [ %18311, %18313 ], [ %18311, %18310 ]
   br label %53548
 
 53548:                                            ; preds = %53548, %.body14872
@@ -122449,7 +122449,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   %53557 = icmp eq ptr %53556, %1678
   br i1 %53557, label %.loopexit22509, label %53554
 
-.thread23005:                                     ; preds = %18648
+.thread26612:                                     ; preds = %18648
   %53558 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22511
@@ -122457,9 +122457,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53559:                                            ; preds = %18662
   %53560 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23009
+  br label %.thread26616
 
-.thread22999:                                     ; preds = %18665
+.thread26606:                                     ; preds = %18665
   %53561 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22513
@@ -122467,7 +122467,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53562:                                            ; preds = %18674
   %53563 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23003
+  br label %.thread26610
 
 53564:                                            ; preds = %18692
   %53565 = landingpad { ptr, i32 }
@@ -122506,9 +122506,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53573:                                            ; preds = %.loopexit22515, %53564
   %.pn8744.pn.pn = phi { ptr, i32 } [ %.pn8744.pn, %.loopexit22515 ], [ %53565, %53564 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1685) #22
-  br label %.thread23003
+  br label %.thread26610
 
-.thread23003:                                     ; preds = %53562, %53573
+.thread26610:                                     ; preds = %53562, %53573
   %.pn8744.pn.pn.pn = phi { ptr, i32 } [ %.pn8744.pn.pn, %53573 ], [ %53563, %53562 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1689) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %1690)
@@ -122524,16 +122524,16 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1687) #22
   br label %.loopexit22513
 
-.loopexit22513:                                   ; preds = %.thread23003, %.thread22999, %.preheader22512.preheader
-  %.pn8744.pn.pn.pn.pn.pn23002 = phi { ptr, i32 } [ %53561, %.thread22999 ], [ %53574, %.preheader22512.preheader ], [ %.pn8744.pn.pn.pn, %.thread23003 ]
+.loopexit22513:                                   ; preds = %.thread26610, %.thread26606, %.preheader22512.preheader
+  %.pn8744.pn.pn.pn.pn.pn26609 = phi { ptr, i32 } [ %53561, %.thread26606 ], [ %53574, %.preheader22512.preheader ], [ %.pn8744.pn.pn.pn, %.thread26610 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1688)
   call void @llvm.lifetime.end.p0(ptr nonnull %1687)
   call void @llvm.lifetime.end.p0(ptr nonnull %1686)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1679) #22
-  br label %.thread23009
+  br label %.thread26616
 
-.thread23009:                                     ; preds = %53559, %.loopexit22513
-  %.pn8744.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8744.pn.pn.pn.pn.pn23002, %.loopexit22513 ], [ %53560, %53559 ]
+.thread26616:                                     ; preds = %53559, %.loopexit22513
+  %.pn8744.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8744.pn.pn.pn.pn.pn26609, %.loopexit22513 ], [ %53560, %53559 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1683) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %1684)
   call void @llvm.lifetime.end.p0(ptr nonnull %1683)
@@ -122548,8 +122548,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1681) #22
   br label %.loopexit22511
 
-.loopexit22511:                                   ; preds = %.thread23009, %.thread23005, %.preheader22510.preheader
-  %.pn8744.pn.pn.pn.pn.pn.pn.pn.pn23008 = phi { ptr, i32 } [ %53558, %.thread23005 ], [ %53575, %.preheader22510.preheader ], [ %.pn8744.pn.pn.pn.pn.pn.pn, %.thread23009 ]
+.loopexit22511:                                   ; preds = %.thread26616, %.thread26612, %.preheader22510.preheader
+  %.pn8744.pn.pn.pn.pn.pn.pn.pn.pn26615 = phi { ptr, i32 } [ %53558, %.thread26612 ], [ %53575, %.preheader22510.preheader ], [ %.pn8744.pn.pn.pn.pn.pn.pn, %.thread26616 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1682)
   call void @llvm.lifetime.end.p0(ptr nonnull %1681)
   call void @llvm.lifetime.end.p0(ptr nonnull %1680)
@@ -122557,7 +122557,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body14926
 
 .body14926:                                       ; preds = %18642, %18639, %.loopexit22511
-  %.pn8744.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8744.pn.pn.pn.pn.pn.pn.pn.pn23008, %.loopexit22511 ], [ %18640, %18642 ], [ %18640, %18639 ]
+  %.pn8744.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8744.pn.pn.pn.pn.pn.pn.pn.pn26615, %.loopexit22511 ], [ %18640, %18642 ], [ %18640, %18639 ]
   br label %53576
 
 53576:                                            ; preds = %53576, %.body14926
@@ -122585,7 +122585,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   %53585 = icmp eq ptr %53584, %1697
   br i1 %53585, label %.loopexit22501, label %53582
 
-.thread23017:                                     ; preds = %18956
+.thread26624:                                     ; preds = %18956
   %53586 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22503
@@ -122593,9 +122593,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53587:                                            ; preds = %18970
   %53588 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23021
+  br label %.thread26628
 
-.thread23011:                                     ; preds = %18973
+.thread26618:                                     ; preds = %18973
   %53589 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22505
@@ -122603,7 +122603,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53590:                                            ; preds = %18982
   %53591 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23015
+  br label %.thread26622
 
 53592:                                            ; preds = %19000
   %53593 = landingpad { ptr, i32 }
@@ -122642,9 +122642,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53601:                                            ; preds = %.loopexit22507, %53592
   %.pn8756.pn.pn = phi { ptr, i32 } [ %.pn8756.pn, %.loopexit22507 ], [ %53593, %53592 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1704) #22
-  br label %.thread23015
+  br label %.thread26622
 
-.thread23015:                                     ; preds = %53590, %53601
+.thread26622:                                     ; preds = %53590, %53601
   %.pn8756.pn.pn.pn = phi { ptr, i32 } [ %.pn8756.pn.pn, %53601 ], [ %53591, %53590 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1708) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %1709)
@@ -122660,16 +122660,16 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1706) #22
   br label %.loopexit22505
 
-.loopexit22505:                                   ; preds = %.thread23015, %.thread23011, %.preheader22504.preheader
-  %.pn8756.pn.pn.pn.pn.pn23014 = phi { ptr, i32 } [ %53589, %.thread23011 ], [ %53602, %.preheader22504.preheader ], [ %.pn8756.pn.pn.pn, %.thread23015 ]
+.loopexit22505:                                   ; preds = %.thread26622, %.thread26618, %.preheader22504.preheader
+  %.pn8756.pn.pn.pn.pn.pn26621 = phi { ptr, i32 } [ %53589, %.thread26618 ], [ %53602, %.preheader22504.preheader ], [ %.pn8756.pn.pn.pn, %.thread26622 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1707)
   call void @llvm.lifetime.end.p0(ptr nonnull %1706)
   call void @llvm.lifetime.end.p0(ptr nonnull %1705)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1698) #22
-  br label %.thread23021
+  br label %.thread26628
 
-.thread23021:                                     ; preds = %53587, %.loopexit22505
-  %.pn8756.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8756.pn.pn.pn.pn.pn23014, %.loopexit22505 ], [ %53588, %53587 ]
+.thread26628:                                     ; preds = %53587, %.loopexit22505
+  %.pn8756.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8756.pn.pn.pn.pn.pn26621, %.loopexit22505 ], [ %53588, %53587 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1702) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %1703)
   call void @llvm.lifetime.end.p0(ptr nonnull %1702)
@@ -122684,8 +122684,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1700) #22
   br label %.loopexit22503
 
-.loopexit22503:                                   ; preds = %.thread23021, %.thread23017, %.preheader22502.preheader
-  %.pn8756.pn.pn.pn.pn.pn.pn.pn.pn23020 = phi { ptr, i32 } [ %53586, %.thread23017 ], [ %53603, %.preheader22502.preheader ], [ %.pn8756.pn.pn.pn.pn.pn.pn, %.thread23021 ]
+.loopexit22503:                                   ; preds = %.thread26628, %.thread26624, %.preheader22502.preheader
+  %.pn8756.pn.pn.pn.pn.pn.pn.pn.pn26627 = phi { ptr, i32 } [ %53586, %.thread26624 ], [ %53603, %.preheader22502.preheader ], [ %.pn8756.pn.pn.pn.pn.pn.pn, %.thread26628 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1701)
   call void @llvm.lifetime.end.p0(ptr nonnull %1700)
   call void @llvm.lifetime.end.p0(ptr nonnull %1699)
@@ -122693,7 +122693,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body14976
 
 .body14976:                                       ; preds = %18950, %18947, %.loopexit22503
-  %.pn8756.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8756.pn.pn.pn.pn.pn.pn.pn.pn23020, %.loopexit22503 ], [ %18948, %18950 ], [ %18948, %18947 ]
+  %.pn8756.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8756.pn.pn.pn.pn.pn.pn.pn.pn26627, %.loopexit22503 ], [ %18948, %18950 ], [ %18948, %18947 ]
   br label %53604
 
 53604:                                            ; preds = %53604, %.body14976
@@ -122724,14 +122724,14 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53614:                                            ; preds = %19237
   %53615 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23029
+  br label %.thread26636
 
-.thread23023:                                     ; preds = %19240
+.thread26630:                                     ; preds = %19240
   %53616 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22499
 
-.thread23027:                                     ; preds = %19242
+.thread26634:                                     ; preds = %19242
   %53617 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1725) #22
@@ -122786,18 +122786,18 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1725) #22
   br label %.loopexit22499
 
-.loopexit22499:                                   ; preds = %53631, %.thread23027, %.thread23023
-  %.pn8768.pn.pn.pn.pn.pn23026 = phi { ptr, i32 } [ %53616, %.thread23023 ], [ %53617, %.thread23027 ], [ %.pn8768.pn.pn.pn, %53631 ]
+.loopexit22499:                                   ; preds = %53631, %.thread26634, %.thread26630
+  %.pn8768.pn.pn.pn.pn.pn26633 = phi { ptr, i32 } [ %53616, %.thread26630 ], [ %53617, %.thread26634 ], [ %.pn8768.pn.pn.pn, %53631 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1726)
   call void @llvm.lifetime.end.p0(ptr nonnull %1725)
   call void @llvm.lifetime.end.p0(ptr nonnull %1724)
   call void @llvm.lifetime.end.p0(ptr nonnull %1723)
   call void @llvm.lifetime.end.p0(ptr nonnull %1722)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1717) #22
-  br label %.thread23029
+  br label %.thread26636
 
-.thread23029:                                     ; preds = %53614, %.loopexit22499
-  %.pn8768.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8768.pn.pn.pn.pn.pn23026, %.loopexit22499 ], [ %53615, %53614 ]
+.thread26636:                                     ; preds = %53614, %.loopexit22499
+  %.pn8768.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8768.pn.pn.pn.pn.pn26633, %.loopexit22499 ], [ %53615, %53614 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1719) #22
   br label %.loopexit22497
 
@@ -122806,8 +122806,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22497
 
-.loopexit22497:                                   ; preds = %.thread23029, %.preheader22496.preheader
-  %.pn8768.pn.pn.pn.pn.pn.pn.pn23032 = phi { ptr, i32 } [ %.pn8768.pn.pn.pn.pn.pn.pn, %.thread23029 ], [ %53632, %.preheader22496.preheader ]
+.loopexit22497:                                   ; preds = %.thread26636, %.preheader22496.preheader
+  %.pn8768.pn.pn.pn.pn.pn.pn.pn26639 = phi { ptr, i32 } [ %.pn8768.pn.pn.pn.pn.pn.pn, %.thread26636 ], [ %53632, %.preheader22496.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1720)
   call void @llvm.lifetime.end.p0(ptr nonnull %1719)
   call void @llvm.lifetime.end.p0(ptr nonnull %1718)
@@ -122815,7 +122815,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body15022
 
 .body15022:                                       ; preds = %19224, %19221, %.loopexit22497
-  %.pn8768.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8768.pn.pn.pn.pn.pn.pn.pn23032, %.loopexit22497 ], [ %19222, %19224 ], [ %19222, %19221 ]
+  %.pn8768.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8768.pn.pn.pn.pn.pn.pn.pn26639, %.loopexit22497 ], [ %19222, %19224 ], [ %19222, %19221 ]
   br label %53633
 
 53633:                                            ; preds = %53633, %.body15022
@@ -122846,14 +122846,14 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53643:                                            ; preds = %19501
   %53644 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23039
+  br label %.thread26646
 
-.thread23033:                                     ; preds = %19504
+.thread26640:                                     ; preds = %19504
   %53645 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22493
 
-.thread23037:                                     ; preds = %19506
+.thread26644:                                     ; preds = %19506
   %53646 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1741) #22
@@ -122908,18 +122908,18 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1741) #22
   br label %.loopexit22493
 
-.loopexit22493:                                   ; preds = %53660, %.thread23037, %.thread23033
-  %.pn8779.pn.pn.pn.pn.pn23036 = phi { ptr, i32 } [ %53645, %.thread23033 ], [ %53646, %.thread23037 ], [ %.pn8779.pn.pn.pn, %53660 ]
+.loopexit22493:                                   ; preds = %53660, %.thread26644, %.thread26640
+  %.pn8779.pn.pn.pn.pn.pn26643 = phi { ptr, i32 } [ %53645, %.thread26640 ], [ %53646, %.thread26644 ], [ %.pn8779.pn.pn.pn, %53660 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1742)
   call void @llvm.lifetime.end.p0(ptr nonnull %1741)
   call void @llvm.lifetime.end.p0(ptr nonnull %1740)
   call void @llvm.lifetime.end.p0(ptr nonnull %1739)
   call void @llvm.lifetime.end.p0(ptr nonnull %1738)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1733) #22
-  br label %.thread23039
+  br label %.thread26646
 
-.thread23039:                                     ; preds = %53643, %.loopexit22493
-  %.pn8779.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8779.pn.pn.pn.pn.pn23036, %.loopexit22493 ], [ %53644, %53643 ]
+.thread26646:                                     ; preds = %53643, %.loopexit22493
+  %.pn8779.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8779.pn.pn.pn.pn.pn26643, %.loopexit22493 ], [ %53644, %53643 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1735) #22
   br label %.loopexit22491
 
@@ -122928,8 +122928,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22491
 
-.loopexit22491:                                   ; preds = %.thread23039, %.preheader22490.preheader
-  %.pn8779.pn.pn.pn.pn.pn.pn.pn23042 = phi { ptr, i32 } [ %.pn8779.pn.pn.pn.pn.pn.pn, %.thread23039 ], [ %53661, %.preheader22490.preheader ]
+.loopexit22491:                                   ; preds = %.thread26646, %.preheader22490.preheader
+  %.pn8779.pn.pn.pn.pn.pn.pn.pn26649 = phi { ptr, i32 } [ %.pn8779.pn.pn.pn.pn.pn.pn, %.thread26646 ], [ %53661, %.preheader22490.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1736)
   call void @llvm.lifetime.end.p0(ptr nonnull %1735)
   call void @llvm.lifetime.end.p0(ptr nonnull %1734)
@@ -122937,7 +122937,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body15068
 
 .body15068:                                       ; preds = %19488, %19485, %.loopexit22491
-  %.pn8779.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8779.pn.pn.pn.pn.pn.pn.pn23042, %.loopexit22491 ], [ %19486, %19488 ], [ %19486, %19485 ]
+  %.pn8779.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8779.pn.pn.pn.pn.pn.pn.pn26649, %.loopexit22491 ], [ %19486, %19488 ], [ %19486, %19485 ]
   br label %53662
 
 53662:                                            ; preds = %53662, %.body15068
@@ -122970,7 +122970,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22479
 
-.loopexit22481.thread23063:                       ; preds = %19814
+.loopexit22481.thread26670:                       ; preds = %19814
   %53673 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1753) #22
@@ -122996,18 +122996,18 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %53697
 
-.thread23052:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit15124
+.thread26659:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit15124
   %53682 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22485
 
-.thread23056:                                     ; preds = %19850
+.thread26663:                                     ; preds = %19850
   %53683 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1764) #22
   br label %.loopexit22485
 
-.thread23043:                                     ; preds = %19852
+.thread26650:                                     ; preds = %19852
   %53684 = landingpad { ptr, i32 }
           cleanup
   br label %53696
@@ -123015,7 +123015,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53685:                                            ; preds = %19859
   %53686 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23049
+  br label %.thread26656
 
 53687:                                            ; preds = %19862
   %53688 = landingpad { ptr, i32 }
@@ -123041,9 +123041,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53694:                                            ; preds = %53693, %53687
   %.pn8790.pn = phi { ptr, i32 } [ %.pn8790, %53693 ], [ %53688, %53687 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1766) #22
-  br label %.thread23049
+  br label %.thread26656
 
-.thread23049:                                     ; preds = %53685, %53694
+.thread26656:                                     ; preds = %53685, %53694
   %.pn8790.pn.pn = phi { ptr, i32 } [ %.pn8790.pn, %53694 ], [ %53686, %53685 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1770) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %1771)
@@ -123059,8 +123059,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1768) #22
   br label %53696
 
-53696:                                            ; preds = %.preheader22486.preheader, %.thread23043, %.thread23049
-  %.pn8790.pn.pn.pn.pn23048 = phi { ptr, i32 } [ %53684, %.thread23043 ], [ %53695, %.preheader22486.preheader ], [ %.pn8790.pn.pn, %.thread23049 ]
+53696:                                            ; preds = %.preheader22486.preheader, %.thread26650, %.thread26656
+  %.pn8790.pn.pn.pn.pn26655 = phi { ptr, i32 } [ %53684, %.thread26650 ], [ %53695, %.preheader22486.preheader ], [ %.pn8790.pn.pn, %.thread26656 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1769)
   call void @llvm.lifetime.end.p0(ptr nonnull %1768)
   call void @llvm.lifetime.end.p0(ptr nonnull %1767)
@@ -123069,8 +123069,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1764) #22
   br label %.loopexit22485
 
-.loopexit22485:                                   ; preds = %53696, %.thread23056, %.thread23052
-  %.pn8790.pn.pn.pn.pn.pn.pn23055 = phi { ptr, i32 } [ %53682, %.thread23052 ], [ %53683, %.thread23056 ], [ %.pn8790.pn.pn.pn.pn23048, %53696 ]
+.loopexit22485:                                   ; preds = %53696, %.thread26663, %.thread26659
+  %.pn8790.pn.pn.pn.pn.pn.pn26662 = phi { ptr, i32 } [ %53682, %.thread26659 ], [ %53683, %.thread26663 ], [ %.pn8790.pn.pn.pn.pn26655, %53696 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1765)
   call void @llvm.lifetime.end.p0(ptr nonnull %1764)
   call void @llvm.lifetime.end.p0(ptr nonnull %1763)
@@ -123080,7 +123080,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53697
 
 53697:                                            ; preds = %.loopexit22485, %53680
-  %.pn8790.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8790.pn.pn.pn.pn.pn.pn23055, %.loopexit22485 ], [ %53681, %53680 ]
+  %.pn8790.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8790.pn.pn.pn.pn.pn.pn26662, %.loopexit22485 ], [ %53681, %53680 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1749) #22
   br label %53698
 
@@ -123104,8 +123104,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1753) #22
   br label %.loopexit22479
 
-.loopexit22479:                                   ; preds = %.loopexit22481, %.loopexit22481.thread23063, %.loopexit22481.thread
-  %.pn8790.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn23062 = phi { ptr, i32 } [ %53672, %.loopexit22481.thread ], [ %53673, %.loopexit22481.thread23063 ], [ %.pn8790.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit22481 ]
+.loopexit22479:                                   ; preds = %.loopexit22481, %.loopexit22481.thread26670, %.loopexit22481.thread
+  %.pn8790.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn26669 = phi { ptr, i32 } [ %53672, %.loopexit22481.thread ], [ %53673, %.loopexit22481.thread26670 ], [ %.pn8790.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit22481 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1754)
   call void @llvm.lifetime.end.p0(ptr nonnull %1753)
   call void @llvm.lifetime.end.p0(ptr nonnull %1752)
@@ -123115,7 +123115,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body15120
 
 .body15120:                                       ; preds = %19803, %19800, %.loopexit22479
-  %.pn8790.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8790.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn23062, %.loopexit22479 ], [ %19801, %19803 ], [ %19801, %19800 ]
+  %.pn8790.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8790.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn26669, %.loopexit22479 ], [ %19801, %19803 ], [ %19801, %19800 ]
   br label %53700
 
 53700:                                            ; preds = %53700, %.body15120
@@ -123143,7 +123143,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   %53709 = icmp eq ptr %53708, %1774
   br i1 %53709, label %.loopexit22465, label %53706
 
-.loopexit22469.thread23102:                       ; preds = %20212
+.loopexit22469.thread26709:                       ; preds = %20212
   %53710 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1779) #22
@@ -123152,7 +123152,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53711:                                            ; preds = %20222
   %53712 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23083
+  br label %.thread26690
 
 53713:                                            ; preds = %20225
   %53714 = landingpad { ptr, i32 }
@@ -123164,18 +123164,18 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %53732
 
-.thread23077:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit15186
+.thread26684:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit15186
   %53717 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22473
 
-.thread23081:                                     ; preds = %20247
+.thread26688:                                     ; preds = %20247
   %53718 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1790) #22
   br label %.loopexit22473
 
-.thread23068:                                     ; preds = %20249
+.thread26675:                                     ; preds = %20249
   %53719 = landingpad { ptr, i32 }
           cleanup
   br label %53731
@@ -123183,7 +123183,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53720:                                            ; preds = %20256
   %53721 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23074
+  br label %.thread26681
 
 53722:                                            ; preds = %20259
   %53723 = landingpad { ptr, i32 }
@@ -123209,9 +123209,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53729:                                            ; preds = %53728, %53722
   %.pn8806.pn = phi { ptr, i32 } [ %.pn8806, %53728 ], [ %53723, %53722 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1792) #22
-  br label %.thread23074
+  br label %.thread26681
 
-.thread23074:                                     ; preds = %53720, %53729
+.thread26681:                                     ; preds = %53720, %53729
   %.pn8806.pn.pn = phi { ptr, i32 } [ %.pn8806.pn, %53729 ], [ %53721, %53720 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1796) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %1797)
@@ -123227,8 +123227,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1794) #22
   br label %53731
 
-53731:                                            ; preds = %.preheader22474.preheader, %.thread23068, %.thread23074
-  %.pn8806.pn.pn.pn.pn23073 = phi { ptr, i32 } [ %53719, %.thread23068 ], [ %53730, %.preheader22474.preheader ], [ %.pn8806.pn.pn, %.thread23074 ]
+53731:                                            ; preds = %.preheader22474.preheader, %.thread26675, %.thread26681
+  %.pn8806.pn.pn.pn.pn26680 = phi { ptr, i32 } [ %53719, %.thread26675 ], [ %53730, %.preheader22474.preheader ], [ %.pn8806.pn.pn, %.thread26681 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1795)
   call void @llvm.lifetime.end.p0(ptr nonnull %1794)
   call void @llvm.lifetime.end.p0(ptr nonnull %1793)
@@ -123237,8 +123237,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1790) #22
   br label %.loopexit22473
 
-.loopexit22473:                                   ; preds = %53731, %.thread23081, %.thread23077
-  %.pn8806.pn.pn.pn.pn.pn.pn23080 = phi { ptr, i32 } [ %53717, %.thread23077 ], [ %53718, %.thread23081 ], [ %.pn8806.pn.pn.pn.pn23073, %53731 ]
+.loopexit22473:                                   ; preds = %53731, %.thread26688, %.thread26684
+  %.pn8806.pn.pn.pn.pn.pn.pn26687 = phi { ptr, i32 } [ %53717, %.thread26684 ], [ %53718, %.thread26688 ], [ %.pn8806.pn.pn.pn.pn26680, %53731 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1791)
   call void @llvm.lifetime.end.p0(ptr nonnull %1790)
   call void @llvm.lifetime.end.p0(ptr nonnull %1789)
@@ -123248,16 +123248,16 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53732
 
 53732:                                            ; preds = %.loopexit22473, %53715
-  %.pn8806.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8806.pn.pn.pn.pn.pn.pn23080, %.loopexit22473 ], [ %53716, %53715 ]
+  %.pn8806.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8806.pn.pn.pn.pn.pn.pn26687, %.loopexit22473 ], [ %53716, %53715 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1775) #22
   br label %53733
 
 53733:                                            ; preds = %53732, %53713
   %.pn8806.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8806.pn.pn.pn.pn.pn.pn.pn, %53732 ], [ %53714, %53713 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1781) #22
-  br label %.thread23083
+  br label %.thread26690
 
-.thread23083:                                     ; preds = %53711, %53733
+.thread26690:                                     ; preds = %53711, %53733
   %.pn8806.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8806.pn.pn.pn.pn.pn.pn.pn.pn, %53733 ], [ %53712, %53711 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1783) #22
   br label %.loopexit22469
@@ -123272,8 +123272,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22467
 
-.loopexit22469:                                   ; preds = %.preheader22470.preheader, %.thread23083
-  %.pn8806.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn23088 = phi { ptr, i32 } [ %.pn8806.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.thread23083 ], [ %53734, %.preheader22470.preheader ]
+.loopexit22469:                                   ; preds = %.preheader22470.preheader, %.thread26690
+  %.pn8806.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn26695 = phi { ptr, i32 } [ %.pn8806.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.thread26690 ], [ %53734, %.preheader22470.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1784)
   call void @llvm.lifetime.end.p0(ptr nonnull %1783)
   call void @llvm.lifetime.end.p0(ptr nonnull %1782)
@@ -123282,8 +123282,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1779) #22
   br label %.loopexit22467
 
-.loopexit22467:                                   ; preds = %.loopexit22469, %.loopexit22469.thread23102, %.loopexit22469.thread
-  %.pn8806.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn2309623101 = phi { ptr, i32 } [ %53735, %.loopexit22469.thread ], [ %53710, %.loopexit22469.thread23102 ], [ %.pn8806.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn23088, %.loopexit22469 ]
+.loopexit22467:                                   ; preds = %.loopexit22469, %.loopexit22469.thread26709, %.loopexit22469.thread
+  %.pn8806.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn2670326708 = phi { ptr, i32 } [ %53735, %.loopexit22469.thread ], [ %53710, %.loopexit22469.thread26709 ], [ %.pn8806.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn26695, %.loopexit22469 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1780)
   call void @llvm.lifetime.end.p0(ptr nonnull %1779)
   call void @llvm.lifetime.end.p0(ptr nonnull %1778)
@@ -123293,7 +123293,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body15182
 
 .body15182:                                       ; preds = %20200, %20197, %.loopexit22467
-  %.pn8806.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8806.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn2309623101, %.loopexit22467 ], [ %20198, %20200 ], [ %20198, %20197 ]
+  %.pn8806.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8806.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn2670326708, %.loopexit22467 ], [ %20198, %20200 ], [ %20198, %20197 ]
   br label %53736
 
 53736:                                            ; preds = %53736, %.body15182
@@ -123322,7 +123322,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53743:                                            ; preds = %20549
   %53744 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit22463.thread23117
+  br label %.loopexit22463.thread26724
 
 53745:                                            ; preds = %20566
   %53746 = landingpad { ptr, i32 }
@@ -123348,9 +123348,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53752:                                            ; preds = %53751, %53745
   %.pn8822.pn = phi { ptr, i32 } [ %.pn8822, %53751 ], [ %53746, %53745 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1803) #22
-  br label %.loopexit22463.thread23117
+  br label %.loopexit22463.thread26724
 
-.loopexit22463.thread23117:                       ; preds = %53743, %53752
+.loopexit22463.thread26724:                       ; preds = %53743, %53752
   %.pn8822.pn.pn = phi { ptr, i32 } [ %.pn8822.pn, %53752 ], [ %53744, %53743 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1805) #22
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1807) #22
@@ -123367,8 +123367,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1807) #22
   br label %.loopexit22461
 
-.loopexit22461:                                   ; preds = %.loopexit22463.thread, %.loopexit22463, %.loopexit22463.thread23117
-  %.pn8822.pn.pn.pn.pn2311223116 = phi { ptr, i32 } [ %.pn8822.pn.pn, %.loopexit22463.thread23117 ], [ %53753, %.loopexit22463.thread ], [ %53754, %.loopexit22463 ]
+.loopexit22461:                                   ; preds = %.loopexit22463.thread, %.loopexit22463, %.loopexit22463.thread26724
+  %.pn8822.pn.pn.pn.pn2671926723 = phi { ptr, i32 } [ %.pn8822.pn.pn, %.loopexit22463.thread26724 ], [ %53753, %.loopexit22463.thread ], [ %53754, %.loopexit22463 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1808)
   call void @llvm.lifetime.end.p0(ptr nonnull %1807)
   call void @llvm.lifetime.end.p0(ptr nonnull %1806)
@@ -123378,7 +123378,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53755
 
 53755:                                            ; preds = %.loopexit22461, %53741
-  %.pn8822.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8822.pn.pn.pn.pn2311223116, %.loopexit22461 ], [ %53742, %53741 ]
+  %.pn8822.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8822.pn.pn.pn.pn2671926723, %.loopexit22461 ], [ %53742, %53741 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1802)
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1799) #22
   br label %.body15236
@@ -123469,7 +123469,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.loopexit22453
 
 .loopexit22453:                                   ; preds = %.loopexit22457, %.loopexit22457.thread, %.loopexit22455
-  %.pn8831.pn.pn.pn.pn.pn2312523132 = phi { ptr, i32 } [ %.pn8831.pn.pn.pn, %.loopexit22455 ], [ %53777, %.loopexit22457 ], [ %53763, %.loopexit22457.thread ]
+  %.pn8831.pn.pn.pn.pn.pn2673226739 = phi { ptr, i32 } [ %.pn8831.pn.pn.pn, %.loopexit22455 ], [ %53777, %.loopexit22457 ], [ %53763, %.loopexit22457.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1822)
   call void @llvm.lifetime.end.p0(ptr nonnull %1821)
   call void @llvm.lifetime.end.p0(ptr nonnull %1820)
@@ -123481,7 +123481,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53778
 
 53778:                                            ; preds = %.loopexit22453, %53761
-  %.pn8831.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8831.pn.pn.pn.pn.pn2312523132, %.loopexit22453 ], [ %53762, %53761 ]
+  %.pn8831.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8831.pn.pn.pn.pn.pn2673226739, %.loopexit22453 ], [ %53762, %53761 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1814)
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1811) #22
   br label %.body15276
@@ -123694,14 +123694,14 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53835:                                            ; preds = %21421
   %53836 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23141
+  br label %.thread26748
 
-.thread23133:                                     ; preds = %21426
+.thread26740:                                     ; preds = %21426
   %53837 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22439
 
-.thread23137:                                     ; preds = %21430
+.thread26744:                                     ; preds = %21430
   %53838 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %1862)
@@ -123762,16 +123762,16 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1859) #22
   br label %.loopexit22439
 
-.loopexit22439:                                   ; preds = %53852, %.thread23137, %.thread23133
-  %.pn8857.pn.pn.pn.pn.pn23136 = phi { ptr, i32 } [ %53837, %.thread23133 ], [ %53838, %.thread23137 ], [ %.pn8857.pn.pn.pn, %53852 ]
+.loopexit22439:                                   ; preds = %53852, %.thread26744, %.thread26740
+  %.pn8857.pn.pn.pn.pn.pn26743 = phi { ptr, i32 } [ %53837, %.thread26740 ], [ %53838, %.thread26744 ], [ %.pn8857.pn.pn.pn, %53852 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1860)
   call void @llvm.lifetime.end.p0(ptr nonnull %1859)
   call void @llvm.lifetime.end.p0(ptr nonnull %1858)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1853) #22
-  br label %.thread23141
+  br label %.thread26748
 
-.thread23141:                                     ; preds = %53835, %.loopexit22439
-  %.pn8857.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8857.pn.pn.pn.pn.pn23136, %.loopexit22439 ], [ %53836, %53835 ]
+.thread26748:                                     ; preds = %53835, %.loopexit22439
+  %.pn8857.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8857.pn.pn.pn.pn.pn26743, %.loopexit22439 ], [ %53836, %53835 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1855) #22
   br label %.loopexit22437
 
@@ -123780,8 +123780,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22437
 
-.loopexit22437:                                   ; preds = %.thread23141, %.preheader22436.preheader
-  %.pn8857.pn.pn.pn.pn.pn.pn.pn23144 = phi { ptr, i32 } [ %.pn8857.pn.pn.pn.pn.pn.pn, %.thread23141 ], [ %53853, %.preheader22436.preheader ]
+.loopexit22437:                                   ; preds = %.thread26748, %.preheader22436.preheader
+  %.pn8857.pn.pn.pn.pn.pn.pn.pn26751 = phi { ptr, i32 } [ %.pn8857.pn.pn.pn.pn.pn.pn, %.thread26748 ], [ %53853, %.preheader22436.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1856)
   call void @llvm.lifetime.end.p0(ptr nonnull %1855)
   call void @llvm.lifetime.end.p0(ptr nonnull %1854)
@@ -123789,7 +123789,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53854
 
 53854:                                            ; preds = %.loopexit22437, %53833
-  %.pn8857.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8857.pn.pn.pn.pn.pn.pn.pn23144, %.loopexit22437 ], [ %53834, %53833 ]
+  %.pn8857.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8857.pn.pn.pn.pn.pn.pn.pn26751, %.loopexit22437 ], [ %53834, %53833 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1851) #22
   br label %.loopexit22435
 
@@ -123843,14 +123843,14 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53869:                                            ; preds = %21752
   %53870 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23160
+  br label %.thread26767
 
-.thread23152:                                     ; preds = %21757
+.thread26759:                                     ; preds = %21757
   %53871 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22427
 
-.thread23156:                                     ; preds = %21761
+.thread26763:                                     ; preds = %21761
   %53872 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %1883)
@@ -123910,7 +123910,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53887
 
 53887:                                            ; preds = %.loopexit22431.thread, %.loopexit22431
-  %.pn8870.pn.pn.pn.pn23151 = phi { ptr, i32 } [ %53873, %.loopexit22431.thread ], [ %.pn8870.pn.pn.pn, %.loopexit22431 ]
+  %.pn8870.pn.pn.pn.pn26758 = phi { ptr, i32 } [ %53873, %.loopexit22431.thread ], [ %.pn8870.pn.pn.pn, %.loopexit22431 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1889)
   call void @llvm.lifetime.end.p0(ptr nonnull %1888)
   call void @llvm.lifetime.end.p0(ptr nonnull %1887)
@@ -123923,16 +123923,16 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1880) #22
   br label %.loopexit22427
 
-.loopexit22427:                                   ; preds = %53887, %.thread23156, %.thread23152
-  %.pn8870.pn.pn.pn.pn.pn.pn23155 = phi { ptr, i32 } [ %53871, %.thread23152 ], [ %53872, %.thread23156 ], [ %.pn8870.pn.pn.pn.pn23151, %53887 ]
+.loopexit22427:                                   ; preds = %53887, %.thread26763, %.thread26759
+  %.pn8870.pn.pn.pn.pn.pn.pn26762 = phi { ptr, i32 } [ %53871, %.thread26759 ], [ %53872, %.thread26763 ], [ %.pn8870.pn.pn.pn.pn26758, %53887 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1881)
   call void @llvm.lifetime.end.p0(ptr nonnull %1880)
   call void @llvm.lifetime.end.p0(ptr nonnull %1879)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1874) #22
-  br label %.thread23160
+  br label %.thread26767
 
-.thread23160:                                     ; preds = %53869, %.loopexit22427
-  %.pn8870.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8870.pn.pn.pn.pn.pn.pn23155, %.loopexit22427 ], [ %53870, %53869 ]
+.thread26767:                                     ; preds = %53869, %.loopexit22427
+  %.pn8870.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8870.pn.pn.pn.pn.pn.pn26762, %.loopexit22427 ], [ %53870, %53869 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1876) #22
   br label %.loopexit22425
 
@@ -123941,8 +123941,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22425
 
-.loopexit22425:                                   ; preds = %.thread23160, %.preheader22424.preheader
-  %.pn8870.pn.pn.pn.pn.pn.pn.pn.pn23163 = phi { ptr, i32 } [ %.pn8870.pn.pn.pn.pn.pn.pn.pn, %.thread23160 ], [ %53888, %.preheader22424.preheader ]
+.loopexit22425:                                   ; preds = %.thread26767, %.preheader22424.preheader
+  %.pn8870.pn.pn.pn.pn.pn.pn.pn.pn26770 = phi { ptr, i32 } [ %.pn8870.pn.pn.pn.pn.pn.pn.pn, %.thread26767 ], [ %53888, %.preheader22424.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1877)
   call void @llvm.lifetime.end.p0(ptr nonnull %1876)
   call void @llvm.lifetime.end.p0(ptr nonnull %1875)
@@ -123950,7 +123950,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53889
 
 53889:                                            ; preds = %.loopexit22425, %53867
-  %.pn8870.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8870.pn.pn.pn.pn.pn.pn.pn.pn23163, %.loopexit22425 ], [ %53868, %53867 ]
+  %.pn8870.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8870.pn.pn.pn.pn.pn.pn.pn.pn26770, %.loopexit22425 ], [ %53868, %53867 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1872) #22
   br label %.loopexit22423
 
@@ -123999,14 +123999,14 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53902:                                            ; preds = %22094
   %53903 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23181
+  br label %.thread26788
 
-.thread23173:                                     ; preds = %22099
+.thread26780:                                     ; preds = %22099
   %53904 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22417
 
-.thread23177:                                     ; preds = %22103
+.thread26784:                                     ; preds = %22103
   %53905 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %1904)
@@ -124014,7 +124014,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1901) #22
   br label %.loopexit22417
 
-.thread23164:                                     ; preds = %22108
+.thread26771:                                     ; preds = %22108
   %53906 = landingpad { ptr, i32 }
           cleanup
   br label %53918
@@ -124022,7 +124022,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53907:                                            ; preds = %22118
   %53908 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23170
+  br label %.thread26777
 
 53909:                                            ; preds = %22121
   %53910 = landingpad { ptr, i32 }
@@ -124048,9 +124048,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53916:                                            ; preds = %53915, %53909
   %.pn8884.pn = phi { ptr, i32 } [ %.pn8884, %53915 ], [ %53910, %53909 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1905) #22
-  br label %.thread23170
+  br label %.thread26777
 
-.thread23170:                                     ; preds = %53907, %53916
+.thread26777:                                     ; preds = %53907, %53916
   %.pn8884.pn.pn = phi { ptr, i32 } [ %.pn8884.pn, %53916 ], [ %53908, %53907 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1909) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %1910)
@@ -124066,8 +124066,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1907) #22
   br label %53918
 
-53918:                                            ; preds = %.preheader22418.preheader, %.thread23164, %.thread23170
-  %.pn8884.pn.pn.pn.pn23169 = phi { ptr, i32 } [ %53906, %.thread23164 ], [ %53917, %.preheader22418.preheader ], [ %.pn8884.pn.pn, %.thread23170 ]
+53918:                                            ; preds = %.preheader22418.preheader, %.thread26771, %.thread26777
+  %.pn8884.pn.pn.pn.pn26776 = phi { ptr, i32 } [ %53906, %.thread26771 ], [ %53917, %.preheader22418.preheader ], [ %.pn8884.pn.pn, %.thread26777 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1908)
   call void @llvm.lifetime.end.p0(ptr nonnull %1907)
   call void @llvm.lifetime.end.p0(ptr nonnull %1906)
@@ -124078,16 +124078,16 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1901) #22
   br label %.loopexit22417
 
-.loopexit22417:                                   ; preds = %53918, %.thread23177, %.thread23173
-  %.pn8884.pn.pn.pn.pn.pn.pn23176 = phi { ptr, i32 } [ %53904, %.thread23173 ], [ %53905, %.thread23177 ], [ %.pn8884.pn.pn.pn.pn23169, %53918 ]
+.loopexit22417:                                   ; preds = %53918, %.thread26784, %.thread26780
+  %.pn8884.pn.pn.pn.pn.pn.pn26783 = phi { ptr, i32 } [ %53904, %.thread26780 ], [ %53905, %.thread26784 ], [ %.pn8884.pn.pn.pn.pn26776, %53918 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1902)
   call void @llvm.lifetime.end.p0(ptr nonnull %1901)
   call void @llvm.lifetime.end.p0(ptr nonnull %1900)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1895) #22
-  br label %.thread23181
+  br label %.thread26788
 
-.thread23181:                                     ; preds = %53902, %.loopexit22417
-  %.pn8884.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8884.pn.pn.pn.pn.pn.pn23176, %.loopexit22417 ], [ %53903, %53902 ]
+.thread26788:                                     ; preds = %53902, %.loopexit22417
+  %.pn8884.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8884.pn.pn.pn.pn.pn.pn26783, %.loopexit22417 ], [ %53903, %53902 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1897) #22
   br label %.loopexit22415
 
@@ -124096,8 +124096,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22415
 
-.loopexit22415:                                   ; preds = %.thread23181, %.preheader22414.preheader
-  %.pn8884.pn.pn.pn.pn.pn.pn.pn.pn23184 = phi { ptr, i32 } [ %.pn8884.pn.pn.pn.pn.pn.pn.pn, %.thread23181 ], [ %53919, %.preheader22414.preheader ]
+.loopexit22415:                                   ; preds = %.thread26788, %.preheader22414.preheader
+  %.pn8884.pn.pn.pn.pn.pn.pn.pn.pn26791 = phi { ptr, i32 } [ %.pn8884.pn.pn.pn.pn.pn.pn.pn, %.thread26788 ], [ %53919, %.preheader22414.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1898)
   call void @llvm.lifetime.end.p0(ptr nonnull %1897)
   call void @llvm.lifetime.end.p0(ptr nonnull %1896)
@@ -124105,7 +124105,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53920
 
 53920:                                            ; preds = %.loopexit22415, %53900
-  %.pn8884.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8884.pn.pn.pn.pn.pn.pn.pn.pn23184, %.loopexit22415 ], [ %53901, %53900 ]
+  %.pn8884.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8884.pn.pn.pn.pn.pn.pn.pn.pn26791, %.loopexit22415 ], [ %53901, %53900 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1894)
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1891) #22
   br label %.body15502
@@ -124144,7 +124144,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %53953
 
-.thread23202:                                     ; preds = %22416
+.thread26809:                                     ; preds = %22416
   %53933 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22407
@@ -124152,14 +124152,14 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53934:                                            ; preds = %22427
   %53935 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23207
+  br label %.thread26814
 
-.thread23194:                                     ; preds = %22430
+.thread26801:                                     ; preds = %22430
   %53936 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22409
 
-.thread23198:                                     ; preds = %22434
+.thread26805:                                     ; preds = %22434
   %53937 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %1927)
@@ -124167,7 +124167,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1924) #22
   br label %.loopexit22409
 
-.thread23185:                                     ; preds = %22439
+.thread26792:                                     ; preds = %22439
   %53938 = landingpad { ptr, i32 }
           cleanup
   br label %53950
@@ -124175,7 +124175,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53939:                                            ; preds = %22449
   %53940 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23191
+  br label %.thread26798
 
 53941:                                            ; preds = %22452
   %53942 = landingpad { ptr, i32 }
@@ -124201,9 +124201,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 53948:                                            ; preds = %53947, %53941
   %.pn8897.pn = phi { ptr, i32 } [ %.pn8897, %53947 ], [ %53942, %53941 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1928) #22
-  br label %.thread23191
+  br label %.thread26798
 
-.thread23191:                                     ; preds = %53939, %53948
+.thread26798:                                     ; preds = %53939, %53948
   %.pn8897.pn.pn = phi { ptr, i32 } [ %.pn8897.pn, %53948 ], [ %53940, %53939 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1932) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %1933)
@@ -124219,8 +124219,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1930) #22
   br label %53950
 
-53950:                                            ; preds = %.preheader22410.preheader, %.thread23185, %.thread23191
-  %.pn8897.pn.pn.pn.pn23190 = phi { ptr, i32 } [ %53938, %.thread23185 ], [ %53949, %.preheader22410.preheader ], [ %.pn8897.pn.pn, %.thread23191 ]
+53950:                                            ; preds = %.preheader22410.preheader, %.thread26792, %.thread26798
+  %.pn8897.pn.pn.pn.pn26797 = phi { ptr, i32 } [ %53938, %.thread26792 ], [ %53949, %.preheader22410.preheader ], [ %.pn8897.pn.pn, %.thread26798 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1931)
   call void @llvm.lifetime.end.p0(ptr nonnull %1930)
   call void @llvm.lifetime.end.p0(ptr nonnull %1929)
@@ -124231,16 +124231,16 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1924) #22
   br label %.loopexit22409
 
-.loopexit22409:                                   ; preds = %53950, %.thread23198, %.thread23194
-  %.pn8897.pn.pn.pn.pn.pn.pn23197 = phi { ptr, i32 } [ %53936, %.thread23194 ], [ %53937, %.thread23198 ], [ %.pn8897.pn.pn.pn.pn23190, %53950 ]
+.loopexit22409:                                   ; preds = %53950, %.thread26805, %.thread26801
+  %.pn8897.pn.pn.pn.pn.pn.pn26804 = phi { ptr, i32 } [ %53936, %.thread26801 ], [ %53937, %.thread26805 ], [ %.pn8897.pn.pn.pn.pn26797, %53950 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1925)
   call void @llvm.lifetime.end.p0(ptr nonnull %1924)
   call void @llvm.lifetime.end.p0(ptr nonnull %1923)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1916) #22
-  br label %.thread23207
+  br label %.thread26814
 
-.thread23207:                                     ; preds = %53934, %.loopexit22409
-  %.pn8897.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8897.pn.pn.pn.pn.pn.pn23197, %.loopexit22409 ], [ %53935, %53934 ]
+.thread26814:                                     ; preds = %53934, %.loopexit22409
+  %.pn8897.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8897.pn.pn.pn.pn.pn.pn26804, %.loopexit22409 ], [ %53935, %53934 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1920) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %1921)
   call void @llvm.lifetime.end.p0(ptr nonnull %1920)
@@ -124255,8 +124255,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1918) #22
   br label %.loopexit22407
 
-.loopexit22407:                                   ; preds = %.thread23202, %53951, %.thread23207
-  %.pn8897.pn.pn.pn.pn.pn.pn.pn.pn.pn23206 = phi { ptr, i32 } [ %.pn8897.pn.pn.pn.pn.pn.pn.pn, %.thread23207 ], [ %53933, %.thread23202 ], [ %53952, %53951 ]
+.loopexit22407:                                   ; preds = %.thread26809, %53951, %.thread26814
+  %.pn8897.pn.pn.pn.pn.pn.pn.pn.pn.pn26813 = phi { ptr, i32 } [ %.pn8897.pn.pn.pn.pn.pn.pn.pn, %.thread26814 ], [ %53933, %.thread26809 ], [ %53952, %53951 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1919)
   call void @llvm.lifetime.end.p0(ptr nonnull %1918)
   call void @llvm.lifetime.end.p0(ptr nonnull %1917)
@@ -124264,7 +124264,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53953
 
 53953:                                            ; preds = %.loopexit22407, %53931
-  %.pn8897.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8897.pn.pn.pn.pn.pn.pn.pn.pn.pn23206, %.loopexit22407 ], [ %53932, %53931 ]
+  %.pn8897.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8897.pn.pn.pn.pn.pn.pn.pn.pn.pn26813, %.loopexit22407 ], [ %53932, %53931 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1915)
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1912) #22
   br label %.body15554
@@ -124313,15 +124313,15 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %53984
 
-.thread23218:                                     ; preds = %22753
+.thread26825:                                     ; preds = %22753
   %53970 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22401
 
-.thread23209:                                     ; preds = %22757
+.thread26816:                                     ; preds = %22757
   %53971 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23223
+  br label %.thread26830
 
 53972:                                            ; preds = %22766
   %53973 = landingpad { ptr, i32 }
@@ -124360,10 +124360,10 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @llvm.lifetime.end.p0(ptr nonnull %1952)
   call void @llvm.lifetime.end.p0(ptr nonnull %1951)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1949) #22
-  br label %.thread23223
+  br label %.thread26830
 
-.thread23223:                                     ; preds = %.thread23209, %.preheader22402.preheader
-  %.pn8911.pn.pn.pn.pn23214.ph = phi { ptr, i32 } [ %53982, %.preheader22402.preheader ], [ %53971, %.thread23209 ]
+.thread26830:                                     ; preds = %.thread26816, %.preheader22402.preheader
+  %.pn8911.pn.pn.pn.pn26821.ph = phi { ptr, i32 } [ %53982, %.preheader22402.preheader ], [ %53971, %.thread26816 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1950)
   call void @llvm.lifetime.end.p0(ptr nonnull %1949)
   call void @llvm.lifetime.end.p0(ptr nonnull %1948)
@@ -124384,8 +124384,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1945) #22
   br label %.loopexit22401
 
-.loopexit22401:                                   ; preds = %53983, %.thread23223, %.thread23218
-  %.pn8911.pn.pn.pn.pn.pn23221 = phi { ptr, i32 } [ %53970, %.thread23218 ], [ %.pn8911.pn.pn.pn.pn23214.ph, %.thread23223 ], [ %.pn8911.pn.pn, %53983 ]
+.loopexit22401:                                   ; preds = %53983, %.thread26830, %.thread26825
+  %.pn8911.pn.pn.pn.pn.pn26828 = phi { ptr, i32 } [ %53970, %.thread26825 ], [ %.pn8911.pn.pn.pn.pn26821.ph, %.thread26830 ], [ %.pn8911.pn.pn, %53983 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1946)
   call void @llvm.lifetime.end.p0(ptr nonnull %1945)
   call void @llvm.lifetime.end.p0(ptr nonnull %1944)
@@ -124393,7 +124393,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %53984
 
 53984:                                            ; preds = %.loopexit22401, %53968
-  %.pn8911.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8911.pn.pn.pn.pn.pn23221, %.loopexit22401 ], [ %53969, %53968 ]
+  %.pn8911.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8911.pn.pn.pn.pn.pn26828, %.loopexit22401 ], [ %53969, %53968 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1942)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1937) #22
   br label %53985
@@ -124450,7 +124450,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %54012
 
-.thread23227:                                     ; preds = %23057
+.thread26834:                                     ; preds = %23057
   %54000 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22395
@@ -124458,7 +124458,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 54001:                                            ; preds = %23066
   %54002 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23231
+  br label %.thread26838
 
 54003:                                            ; preds = %23071
   %54004 = landingpad { ptr, i32 }
@@ -124485,9 +124485,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   %.pn8923.pn = phi { ptr, i32 } [ %.pn8923, %54009 ], [ %54004, %54003 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1967)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1960) #22
-  br label %.thread23231
+  br label %.thread26838
 
-.thread23231:                                     ; preds = %54001, %54010
+.thread26838:                                     ; preds = %54001, %54010
   %.pn8923.pn.pn = phi { ptr, i32 } [ %.pn8923.pn, %54010 ], [ %54002, %54001 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1964) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %1965)
@@ -124503,8 +124503,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1962) #22
   br label %.loopexit22395
 
-.loopexit22395:                                   ; preds = %.thread23231, %.thread23227, %.preheader22394.preheader
-  %.pn8923.pn.pn.pn.pn23230 = phi { ptr, i32 } [ %54000, %.thread23227 ], [ %54011, %.preheader22394.preheader ], [ %.pn8923.pn.pn, %.thread23231 ]
+.loopexit22395:                                   ; preds = %.thread26838, %.thread26834, %.preheader22394.preheader
+  %.pn8923.pn.pn.pn.pn26837 = phi { ptr, i32 } [ %54000, %.thread26834 ], [ %54011, %.preheader22394.preheader ], [ %.pn8923.pn.pn, %.thread26838 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1963)
   call void @llvm.lifetime.end.p0(ptr nonnull %1962)
   call void @llvm.lifetime.end.p0(ptr nonnull %1961)
@@ -124512,7 +124512,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %54012
 
 54012:                                            ; preds = %.loopexit22395, %53998
-  %.pn8923.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8923.pn.pn.pn.pn23230, %.loopexit22395 ], [ %53999, %53998 ]
+  %.pn8923.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8923.pn.pn.pn.pn26837, %.loopexit22395 ], [ %53999, %53998 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1958) #22
   br label %.loopexit22393
 
@@ -124559,7 +124559,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 54022:                                            ; preds = %23297
   %54023 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23233
+  br label %.thread26840
 
 54024:                                            ; preds = %23315
   %54025 = landingpad { ptr, i32 }
@@ -124575,9 +124575,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 54028:                                            ; preds = %54026, %54024
   %.pn8933 = phi { ptr, i32 } [ %54027, %54026 ], [ %54025, %54024 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1974) #22
-  br label %.thread23233
+  br label %.thread26840
 
-.thread23233:                                     ; preds = %54022, %54028
+.thread26840:                                     ; preds = %54022, %54028
   %.pn8933.pn = phi { ptr, i32 } [ %.pn8933, %54028 ], [ %54023, %54022 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1976) #22
   br label %.loopexit22389
@@ -124587,8 +124587,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22389
 
-.loopexit22389:                                   ; preds = %.thread23233, %.preheader22388.preheader
-  %.pn8933.pn.pn23236 = phi { ptr, i32 } [ %.pn8933.pn, %.thread23233 ], [ %54029, %.preheader22388.preheader ]
+.loopexit22389:                                   ; preds = %.thread26840, %.preheader22388.preheader
+  %.pn8933.pn.pn26843 = phi { ptr, i32 } [ %.pn8933.pn, %.thread26840 ], [ %54029, %.preheader22388.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1977)
   call void @llvm.lifetime.end.p0(ptr nonnull %1976)
   call void @llvm.lifetime.end.p0(ptr nonnull %1975)
@@ -124596,7 +124596,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %54030
 
 54030:                                            ; preds = %.loopexit22389, %54020
-  %.pn8933.pn.pn.pn = phi { ptr, i32 } [ %.pn8933.pn.pn23236, %.loopexit22389 ], [ %54021, %54020 ]
+  %.pn8933.pn.pn.pn = phi { ptr, i32 } [ %.pn8933.pn.pn26843, %.loopexit22389 ], [ %54021, %54020 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1971) #22
   br label %54031
 
@@ -124871,7 +124871,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 54105:                                            ; preds = %24117
   %54106 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23237
+  br label %.thread26844
 
 54107:                                            ; preds = %24135
   %54108 = landingpad { ptr, i32 }
@@ -124920,9 +124920,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 54120:                                            ; preds = %54119, %54107
   %.pn8964.pn.pn.pn = phi { ptr, i32 } [ %.pn8964.pn.pn, %54119 ], [ %54108, %54107 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2008) #22
-  br label %.thread23237
+  br label %.thread26844
 
-.thread23237:                                     ; preds = %54105, %54120
+.thread26844:                                     ; preds = %54105, %54120
   %.pn8964.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8964.pn.pn.pn, %54120 ], [ %54106, %54105 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2010) #22
   br label %.loopexit22376
@@ -124932,8 +124932,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22376
 
-.loopexit22376:                                   ; preds = %.thread23237, %.preheader22375.preheader
-  %.pn8964.pn.pn.pn.pn.pn23240 = phi { ptr, i32 } [ %.pn8964.pn.pn.pn.pn, %.thread23237 ], [ %54121, %.preheader22375.preheader ]
+.loopexit22376:                                   ; preds = %.thread26844, %.preheader22375.preheader
+  %.pn8964.pn.pn.pn.pn.pn26847 = phi { ptr, i32 } [ %.pn8964.pn.pn.pn.pn, %.thread26844 ], [ %54121, %.preheader22375.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2011)
   call void @llvm.lifetime.end.p0(ptr nonnull %2010)
   call void @llvm.lifetime.end.p0(ptr nonnull %2009)
@@ -124941,7 +124941,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body15854
 
 .body15854:                                       ; preds = %24103, %24100, %.loopexit22376
-  %.pn8964.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8964.pn.pn.pn.pn.pn23240, %.loopexit22376 ], [ %24101, %24103 ], [ %24101, %24100 ]
+  %.pn8964.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8964.pn.pn.pn.pn.pn26847, %.loopexit22376 ], [ %24101, %24103 ], [ %24101, %24100 ]
   br label %54122
 
 54122:                                            ; preds = %54122, %.body15854
@@ -124979,12 +124979,12 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %54154
 
-.thread23241:                                     ; preds = %24370
+.thread26848:                                     ; preds = %24370
   %54136 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22368
 
-.thread23245:                                     ; preds = %24374
+.thread26852:                                     ; preds = %24374
   %54137 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %2031)
@@ -125058,8 +125058,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2026) #22
   br label %.loopexit22368
 
-.loopexit22368:                                   ; preds = %54153, %.thread23245, %.thread23241
-  %.pn8973.pn.pn.pn.pn.pn.pn23244 = phi { ptr, i32 } [ %54136, %.thread23241 ], [ %54137, %.thread23245 ], [ %.pn8973.pn.pn.pn.pn, %54153 ]
+.loopexit22368:                                   ; preds = %54153, %.thread26852, %.thread26848
+  %.pn8973.pn.pn.pn.pn.pn.pn26851 = phi { ptr, i32 } [ %54136, %.thread26848 ], [ %54137, %.thread26852 ], [ %.pn8973.pn.pn.pn.pn, %54153 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2027)
   call void @llvm.lifetime.end.p0(ptr nonnull %2026)
   call void @llvm.lifetime.end.p0(ptr nonnull %2025)
@@ -125067,7 +125067,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %54154
 
 54154:                                            ; preds = %.loopexit22368, %54134
-  %.pn8973.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8973.pn.pn.pn.pn.pn.pn23244, %.loopexit22368 ], [ %54135, %54134 ]
+  %.pn8973.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8973.pn.pn.pn.pn.pn.pn26851, %.loopexit22368 ], [ %54135, %54134 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2022) #22
   br label %.loopexit22366
 
@@ -125111,7 +125111,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %54173
 
-.thread23249:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit15946
+.thread26856:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit15946
   %54164 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22362
@@ -125119,7 +125119,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 54165:                                            ; preds = %24640
   %54166 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23253
+  br label %.thread26860
 
 54167:                                            ; preds = %24658
   %54168 = landingpad { ptr, i32 }
@@ -125135,9 +125135,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 54171:                                            ; preds = %54169, %54167
   %.pn8985 = phi { ptr, i32 } [ %54170, %54169 ], [ %54168, %54167 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2042) #22
-  br label %.thread23253
+  br label %.thread26860
 
-.thread23253:                                     ; preds = %54165, %54171
+.thread26860:                                     ; preds = %54165, %54171
   %.pn8985.pn = phi { ptr, i32 } [ %.pn8985, %54171 ], [ %54166, %54165 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2046) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %2047)
@@ -125153,8 +125153,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2044) #22
   br label %.loopexit22362
 
-.loopexit22362:                                   ; preds = %.thread23253, %.thread23249, %.preheader22361.preheader
-  %.pn8985.pn.pn.pn23252 = phi { ptr, i32 } [ %54164, %.thread23249 ], [ %54172, %.preheader22361.preheader ], [ %.pn8985.pn, %.thread23253 ]
+.loopexit22362:                                   ; preds = %.thread26860, %.thread26856, %.preheader22361.preheader
+  %.pn8985.pn.pn.pn26859 = phi { ptr, i32 } [ %54164, %.thread26856 ], [ %54172, %.preheader22361.preheader ], [ %.pn8985.pn, %.thread26860 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2045)
   call void @llvm.lifetime.end.p0(ptr nonnull %2044)
   call void @llvm.lifetime.end.p0(ptr nonnull %2043)
@@ -125162,7 +125162,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %54173
 
 54173:                                            ; preds = %.loopexit22362, %54162
-  %.pn8985.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8985.pn.pn.pn23252, %.loopexit22362 ], [ %54163, %54162 ]
+  %.pn8985.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8985.pn.pn.pn26859, %.loopexit22362 ], [ %54163, %54162 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2039) #22
   br label %54174
 
@@ -125204,7 +125204,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %54193
 
-.thread23255:                                     ; preds = %24835
+.thread26862:                                     ; preds = %24835
   %54184 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22358
@@ -125212,7 +125212,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 54185:                                            ; preds = %24840
   %54186 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23259
+  br label %.thread26866
 
 54187:                                            ; preds = %24858
   %54188 = landingpad { ptr, i32 }
@@ -125228,9 +125228,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 54191:                                            ; preds = %54189, %54187
   %.pn8994 = phi { ptr, i32 } [ %54190, %54189 ], [ %54188, %54187 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2055) #22
-  br label %.thread23259
+  br label %.thread26866
 
-.thread23259:                                     ; preds = %54185, %54191
+.thread26866:                                     ; preds = %54185, %54191
   %.pn8994.pn = phi { ptr, i32 } [ %.pn8994, %54191 ], [ %54186, %54185 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2059) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %2060)
@@ -125246,8 +125246,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2057) #22
   br label %.loopexit22358
 
-.loopexit22358:                                   ; preds = %.thread23259, %.thread23255, %.preheader22357.preheader
-  %.pn8994.pn.pn.pn23258 = phi { ptr, i32 } [ %54184, %.thread23255 ], [ %54192, %.preheader22357.preheader ], [ %.pn8994.pn, %.thread23259 ]
+.loopexit22358:                                   ; preds = %.thread26866, %.thread26862, %.preheader22357.preheader
+  %.pn8994.pn.pn.pn26865 = phi { ptr, i32 } [ %54184, %.thread26862 ], [ %54192, %.preheader22357.preheader ], [ %.pn8994.pn, %.thread26866 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2058)
   call void @llvm.lifetime.end.p0(ptr nonnull %2057)
   call void @llvm.lifetime.end.p0(ptr nonnull %2056)
@@ -125255,7 +125255,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %54193
 
 54193:                                            ; preds = %.loopexit22358, %54182
-  %.pn8994.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8994.pn.pn.pn23258, %.loopexit22358 ], [ %54183, %54182 ]
+  %.pn8994.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn8994.pn.pn.pn26865, %.loopexit22358 ], [ %54183, %54182 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2054)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2051) #22
   br label %54194
@@ -125787,7 +125787,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %54365
 
-.thread23299:                                     ; preds = %26285
+.thread26906:                                     ; preds = %26285
   %54342 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22328
@@ -125797,7 +125797,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %54364
 
-.loopexit22336.thread23281:                       ; preds = %26310
+.loopexit22336.thread26888:                       ; preds = %26310
   %54345 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2138) #22
@@ -125867,8 +125867,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2138) #22
   br label %.loopexit22332
 
-.loopexit22332:                                   ; preds = %.loopexit22336.thread23281, %.loopexit22336.thread, %.loopexit22334
-  %.pn9049.pn.pn.pn.pn.pn.pn232702327623292 = phi { ptr, i32 } [ %.pn9049.pn.pn.pn.pn, %.loopexit22334 ], [ %54345, %.loopexit22336.thread23281 ], [ %54362, %.loopexit22336.thread ]
+.loopexit22332:                                   ; preds = %.loopexit22336.thread26888, %.loopexit22336.thread, %.loopexit22334
+  %.pn9049.pn.pn.pn.pn.pn.pn268772688326899 = phi { ptr, i32 } [ %.pn9049.pn.pn.pn.pn, %.loopexit22334 ], [ %54345, %.loopexit22336.thread26888 ], [ %54362, %.loopexit22336.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2139)
   call void @llvm.lifetime.end.p0(ptr nonnull %2138)
   call void @llvm.lifetime.end.p0(ptr nonnull %2137)
@@ -125880,7 +125880,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2128) #22
   br label %54364
 
-.thread23303:                                     ; preds = %26289
+.thread26910:                                     ; preds = %26289
   %54363 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %2131)
@@ -125891,7 +125891,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.loopexit22328
 
 54364:                                            ; preds = %54343, %.loopexit22332
-  %.pn9049.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9049.pn.pn.pn.pn.pn.pn232702327623292, %.loopexit22332 ], [ %54344, %54343 ]
+  %.pn9049.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9049.pn.pn.pn.pn.pn.pn268772688326899, %.loopexit22332 ], [ %54344, %54343 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2130) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %2131)
   call void @llvm.lifetime.end.p0(ptr nonnull %2130)
@@ -125900,8 +125900,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2126) #22
   br label %.loopexit22328
 
-.loopexit22328:                                   ; preds = %54364, %.thread23303, %.thread23299
-  %.pn9049.pn.pn.pn.pn.pn.pn.pn.pn.pn23302 = phi { ptr, i32 } [ %54342, %.thread23299 ], [ %54363, %.thread23303 ], [ %.pn9049.pn.pn.pn.pn.pn.pn.pn, %54364 ]
+.loopexit22328:                                   ; preds = %54364, %.thread26910, %.thread26906
+  %.pn9049.pn.pn.pn.pn.pn.pn.pn.pn.pn26909 = phi { ptr, i32 } [ %54342, %.thread26906 ], [ %54363, %.thread26910 ], [ %.pn9049.pn.pn.pn.pn.pn.pn.pn, %54364 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2127)
   call void @llvm.lifetime.end.p0(ptr nonnull %2126)
   call void @llvm.lifetime.end.p0(ptr nonnull %2125)
@@ -125909,7 +125909,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %54365
 
 54365:                                            ; preds = %.loopexit22328, %54340
-  %.pn9049.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9049.pn.pn.pn.pn.pn.pn.pn.pn.pn23302, %.loopexit22328 ], [ %54341, %54340 ]
+  %.pn9049.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9049.pn.pn.pn.pn.pn.pn.pn.pn.pn26909, %.loopexit22328 ], [ %54341, %54340 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2123)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2120) #22
   br label %54366
@@ -125964,7 +125964,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %54406
 
-.thread23345:                                     ; preds = %26671
+.thread26952:                                     ; preds = %26671
   %54383 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22316
@@ -125974,7 +125974,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %54405
 
-.loopexit22324.thread23327:                       ; preds = %26696
+.loopexit22324.thread26934:                       ; preds = %26696
   %54386 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2165) #22
@@ -126044,8 +126044,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2165) #22
   br label %.loopexit22320
 
-.loopexit22320:                                   ; preds = %.loopexit22324.thread23327, %.loopexit22324.thread, %.loopexit22322
-  %.pn9064.pn.pn.pn.pn.pn.pn233162332223338 = phi { ptr, i32 } [ %.pn9064.pn.pn.pn.pn, %.loopexit22322 ], [ %54386, %.loopexit22324.thread23327 ], [ %54403, %.loopexit22324.thread ]
+.loopexit22320:                                   ; preds = %.loopexit22324.thread26934, %.loopexit22324.thread, %.loopexit22322
+  %.pn9064.pn.pn.pn.pn.pn.pn269232692926945 = phi { ptr, i32 } [ %.pn9064.pn.pn.pn.pn, %.loopexit22322 ], [ %54386, %.loopexit22324.thread26934 ], [ %54403, %.loopexit22324.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2166)
   call void @llvm.lifetime.end.p0(ptr nonnull %2165)
   call void @llvm.lifetime.end.p0(ptr nonnull %2164)
@@ -126057,7 +126057,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2155) #22
   br label %54405
 
-.thread23349:                                     ; preds = %26675
+.thread26956:                                     ; preds = %26675
   %54404 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %2158)
@@ -126068,7 +126068,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.loopexit22316
 
 54405:                                            ; preds = %54384, %.loopexit22320
-  %.pn9064.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9064.pn.pn.pn.pn.pn.pn233162332223338, %.loopexit22320 ], [ %54385, %54384 ]
+  %.pn9064.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9064.pn.pn.pn.pn.pn.pn269232692926945, %.loopexit22320 ], [ %54385, %54384 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2157) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %2158)
   call void @llvm.lifetime.end.p0(ptr nonnull %2157)
@@ -126077,8 +126077,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2153) #22
   br label %.loopexit22316
 
-.loopexit22316:                                   ; preds = %54405, %.thread23349, %.thread23345
-  %.pn9064.pn.pn.pn.pn.pn.pn.pn.pn.pn23348 = phi { ptr, i32 } [ %54383, %.thread23345 ], [ %54404, %.thread23349 ], [ %.pn9064.pn.pn.pn.pn.pn.pn.pn, %54405 ]
+.loopexit22316:                                   ; preds = %54405, %.thread26956, %.thread26952
+  %.pn9064.pn.pn.pn.pn.pn.pn.pn.pn.pn26955 = phi { ptr, i32 } [ %54383, %.thread26952 ], [ %54404, %.thread26956 ], [ %.pn9064.pn.pn.pn.pn.pn.pn.pn, %54405 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2154)
   call void @llvm.lifetime.end.p0(ptr nonnull %2153)
   call void @llvm.lifetime.end.p0(ptr nonnull %2152)
@@ -126086,7 +126086,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %54406
 
 54406:                                            ; preds = %.loopexit22316, %54381
-  %.pn9064.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9064.pn.pn.pn.pn.pn.pn.pn.pn.pn23348, %.loopexit22316 ], [ %54382, %54381 ]
+  %.pn9064.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9064.pn.pn.pn.pn.pn.pn.pn.pn.pn26955, %.loopexit22316 ], [ %54382, %54381 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2150)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2145) #22
   br label %54407
@@ -126143,7 +126143,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %54432
 
-.thread23353:                                     ; preds = %27011
+.thread26960:                                     ; preds = %27011
   %54422 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22310
@@ -126151,7 +126151,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 54423:                                            ; preds = %27016
   %54424 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23358
+  br label %.thread26965
 
 54425:                                            ; preds = %27033
   %54426 = landingpad { ptr, i32 }
@@ -126167,9 +126167,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 54429:                                            ; preds = %54427, %54425
   %.pn9080 = phi { ptr, i32 } [ %54428, %54427 ], [ %54426, %54425 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2176) #22
-  br label %.thread23358
+  br label %.thread26965
 
-.thread23358:                                     ; preds = %54423, %54429
+.thread26965:                                     ; preds = %54423, %54429
   %.pn9080.pn = phi { ptr, i32 } [ %.pn9080, %54429 ], [ %54424, %54423 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2178) #22
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2180) #22
@@ -126181,8 +126181,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2180) #22
   br label %.loopexit22310
 
-.loopexit22310:                                   ; preds = %.thread23353, %54430, %.thread23358
-  %.pn9080.pn.pn.pn23357 = phi { ptr, i32 } [ %.pn9080.pn, %.thread23358 ], [ %54422, %.thread23353 ], [ %54431, %54430 ]
+.loopexit22310:                                   ; preds = %.thread26960, %54430, %.thread26965
+  %.pn9080.pn.pn.pn26964 = phi { ptr, i32 } [ %.pn9080.pn, %.thread26965 ], [ %54422, %.thread26960 ], [ %54431, %54430 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2181)
   call void @llvm.lifetime.end.p0(ptr nonnull %2180)
   call void @llvm.lifetime.end.p0(ptr nonnull %2179)
@@ -126192,7 +126192,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %54432
 
 54432:                                            ; preds = %.loopexit22310, %54420
-  %.pn9080.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9080.pn.pn.pn23357, %.loopexit22310 ], [ %54421, %54420 ]
+  %.pn9080.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9080.pn.pn.pn26964, %.loopexit22310 ], [ %54421, %54420 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2175)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2172) #22
   br label %54433
@@ -126409,7 +126409,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.loopexit22296
 
 .loopexit22296:                                   ; preds = %.loopexit22298, %.loopexit22298.thread
-  %.pn9098.pn.pn.pn.pn.pn23364 = phi { ptr, i32 } [ %54476, %.loopexit22298.thread ], [ %.pn9098.pn.pn.pn.pn, %.loopexit22298 ]
+  %.pn9098.pn.pn.pn.pn.pn26971 = phi { ptr, i32 } [ %54476, %.loopexit22298.thread ], [ %.pn9098.pn.pn.pn.pn, %.loopexit22298 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2207)
   call void @llvm.lifetime.end.p0(ptr nonnull %2206)
   call void @llvm.lifetime.end.p0(ptr nonnull %2205)
@@ -126419,7 +126419,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %54492
 
 54492:                                            ; preds = %.loopexit22296, %54474
-  %.pn9098.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9098.pn.pn.pn.pn.pn23364, %.loopexit22296 ], [ %54475, %54474 ]
+  %.pn9098.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9098.pn.pn.pn.pn.pn26971, %.loopexit22296 ], [ %54475, %54474 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2200) #22
   br label %.loopexit22294
 
@@ -126712,12 +126712,12 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %54588
 
-.thread23365:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16616
+.thread26972:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16616
   %54578 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22282
 
-.thread23369:                                     ; preds = %28397
+.thread26976:                                     ; preds = %28397
   %54579 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %2255)
@@ -126758,8 +126758,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2250) #22
   br label %.loopexit22282
 
-.loopexit22282:                                   ; preds = %54587, %.thread23369, %.thread23365
-  %.pn9131.pn.pn.pn23368 = phi { ptr, i32 } [ %54578, %.thread23365 ], [ %54579, %.thread23369 ], [ %.pn9131.pn, %54587 ]
+.loopexit22282:                                   ; preds = %54587, %.thread26976, %.thread26972
+  %.pn9131.pn.pn.pn26975 = phi { ptr, i32 } [ %54578, %.thread26972 ], [ %54579, %.thread26976 ], [ %.pn9131.pn, %54587 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2251)
   call void @llvm.lifetime.end.p0(ptr nonnull %2250)
   call void @llvm.lifetime.end.p0(ptr nonnull %2249)
@@ -126767,7 +126767,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %54588
 
 54588:                                            ; preds = %.loopexit22282, %54576
-  %.pn9131.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9131.pn.pn.pn23368, %.loopexit22282 ], [ %54577, %54576 ]
+  %.pn9131.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9131.pn.pn.pn26975, %.loopexit22282 ], [ %54577, %54576 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2243) #22
   br label %54589
 
@@ -126958,7 +126958,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.loopexit22274
 
 .loopexit22274:                                   ; preds = %.loopexit22276, %.loopexit22276.thread
-  %.pn9150.pn.pn.pn.pn2338023385 = phi { ptr, i32 } [ %54639, %.loopexit22276.thread ], [ %.pn9150.pn.pn.pn, %.loopexit22276 ]
+  %.pn9150.pn.pn.pn.pn2698726992 = phi { ptr, i32 } [ %54639, %.loopexit22276.thread ], [ %.pn9150.pn.pn.pn, %.loopexit22276 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2276)
   call void @llvm.lifetime.end.p0(ptr nonnull %2275)
   call void @llvm.lifetime.end.p0(ptr nonnull %2274)
@@ -126970,7 +126970,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %54640
 
 54640:                                            ; preds = %.loopexit22274, %54624
-  %.pn9150.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9150.pn.pn.pn.pn2338023385, %.loopexit22274 ], [ %54625, %54624 ]
+  %.pn9150.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9150.pn.pn.pn.pn2698726992, %.loopexit22274 ], [ %54625, %54624 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2266) #22
   br label %54641
 
@@ -127066,7 +127066,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.loopexit22268
 
 .loopexit22268:                                   ; preds = %.loopexit22270, %.loopexit22270.thread
-  %.pn9160.pn.pn.pn2339323398 = phi { ptr, i32 } [ %54668, %.loopexit22270.thread ], [ %.pn9160.pn.pn, %.loopexit22270 ]
+  %.pn9160.pn.pn.pn2700027005 = phi { ptr, i32 } [ %54668, %.loopexit22270.thread ], [ %.pn9160.pn.pn, %.loopexit22270 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2291)
   call void @llvm.lifetime.end.p0(ptr nonnull %2290)
   call void @llvm.lifetime.end.p0(ptr nonnull %2289)
@@ -127076,7 +127076,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %54669
 
 54669:                                            ; preds = %.loopexit22268, %54656
-  %.pn9160.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9160.pn.pn.pn2339323398, %.loopexit22268 ], [ %54657, %54656 ]
+  %.pn9160.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9160.pn.pn.pn2700027005, %.loopexit22268 ], [ %54657, %54656 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2285)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2280) #22
   br label %54670
@@ -127133,7 +127133,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %54705
 
-.thread23417:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16786
+.thread27024:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16786
   %54685 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22256
@@ -127151,7 +127151,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 54690:                                            ; preds = %29365
   %54691 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit22262.thread23414
+  br label %.loopexit22262.thread27021
 
 54692:                                            ; preds = %29367
   %54693 = landingpad { ptr, i32 }
@@ -127177,9 +127177,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 54699:                                            ; preds = %54698, %54692
   %.pn9170.pn = phi { ptr, i32 } [ %.pn9170, %54698 ], [ %54693, %54692 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2308) #22
-  br label %.loopexit22262.thread23414
+  br label %.loopexit22262.thread27021
 
-.loopexit22262.thread23414:                       ; preds = %54690, %54699
+.loopexit22262.thread27021:                       ; preds = %54690, %54699
   %.pn9170.pn.pn = phi { ptr, i32 } [ %.pn9170.pn, %54699 ], [ %54691, %54690 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2310) #22
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2312) #22
@@ -127196,8 +127196,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2312) #22
   br label %.loopexit22260
 
-.loopexit22260:                                   ; preds = %.loopexit22262.thread, %.loopexit22262, %.loopexit22262.thread23414
-  %.pn9170.pn.pn.pn.pn2340623411 = phi { ptr, i32 } [ %.pn9170.pn.pn, %.loopexit22262.thread23414 ], [ %54700, %.loopexit22262.thread ], [ %54701, %.loopexit22262 ]
+.loopexit22260:                                   ; preds = %.loopexit22262.thread, %.loopexit22262, %.loopexit22262.thread27021
+  %.pn9170.pn.pn.pn.pn2701327018 = phi { ptr, i32 } [ %.pn9170.pn.pn, %.loopexit22262.thread27021 ], [ %54700, %.loopexit22262.thread ], [ %54701, %.loopexit22262 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2313)
   call void @llvm.lifetime.end.p0(ptr nonnull %2312)
   call void @llvm.lifetime.end.p0(ptr nonnull %2311)
@@ -127208,7 +127208,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %54702
 
 54702:                                            ; preds = %.loopexit22260, %54688
-  %.pn9170.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9170.pn.pn.pn.pn2340623411, %.loopexit22260 ], [ %54689, %54688 ]
+  %.pn9170.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9170.pn.pn.pn.pn2701327018, %.loopexit22260 ], [ %54689, %54688 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2302) #22
   br label %.loopexit22258
 
@@ -127224,8 +127224,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2306) #22
   br label %.loopexit22256
 
-.loopexit22256:                                   ; preds = %54703, %.thread23417, %.loopexit22258
-  %.pn9170.pn.pn.pn.pn.pn.pn.pn.pn2342723436 = phi { ptr, i32 } [ %.pn9170.pn.pn.pn.pn.pn.pn, %.loopexit22258 ], [ %54704, %54703 ], [ %54685, %.thread23417 ]
+.loopexit22256:                                   ; preds = %54703, %.thread27024, %.loopexit22258
+  %.pn9170.pn.pn.pn.pn.pn.pn.pn.pn2703427043 = phi { ptr, i32 } [ %.pn9170.pn.pn.pn.pn.pn.pn, %.loopexit22258 ], [ %54704, %54703 ], [ %54685, %.thread27024 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2307)
   call void @llvm.lifetime.end.p0(ptr nonnull %2306)
   call void @llvm.lifetime.end.p0(ptr nonnull %2305)
@@ -127239,7 +127239,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %54705
 
 54705:                                            ; preds = %.loopexit22256, %54683
-  %.pn9170.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9170.pn.pn.pn.pn.pn.pn.pn.pn2342723436, %.loopexit22256 ], [ %54684, %54683 ]
+  %.pn9170.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9170.pn.pn.pn.pn.pn.pn.pn.pn2703427043, %.loopexit22256 ], [ %54684, %54683 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2295) #22
   br label %54706
 
@@ -127288,7 +127288,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %54739
 
-.thread23437:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16838
+.thread27044:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16838
   %54721 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22248
@@ -127360,8 +127360,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2326) #22
   br label %.loopexit22248
 
-.loopexit22248:                                   ; preds = %54737, %.thread23437, %.loopexit22250
-  %.pn9184.pn.pn.pn.pn.pn.pn2344723456 = phi { ptr, i32 } [ %.pn9184.pn.pn.pn.pn, %.loopexit22250 ], [ %54738, %54737 ], [ %54721, %.thread23437 ]
+.loopexit22248:                                   ; preds = %54737, %.thread27044, %.loopexit22250
+  %.pn9184.pn.pn.pn.pn.pn.pn2705427063 = phi { ptr, i32 } [ %.pn9184.pn.pn.pn.pn, %.loopexit22250 ], [ %54738, %54737 ], [ %54721, %.thread27044 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2327)
   call void @llvm.lifetime.end.p0(ptr nonnull %2326)
   call void @llvm.lifetime.end.p0(ptr nonnull %2325)
@@ -127373,7 +127373,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %54739
 
 54739:                                            ; preds = %.loopexit22248, %54719
-  %.pn9184.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9184.pn.pn.pn.pn.pn.pn2344723456, %.loopexit22248 ], [ %54720, %54719 ]
+  %.pn9184.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9184.pn.pn.pn.pn.pn.pn2705427063, %.loopexit22248 ], [ %54720, %54719 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2317) #22
   br label %54740
 
@@ -127506,12 +127506,12 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %54790
 
-.thread23457:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16924
+.thread27064:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16924
   %54780 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22240
 
-.thread23461:                                     ; preds = %30143
+.thread27068:                                     ; preds = %30143
   %54781 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %2358)
@@ -127552,8 +127552,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2353) #22
   br label %.loopexit22240
 
-.loopexit22240:                                   ; preds = %54789, %.thread23461, %.thread23457
-  %.pn9203.pn.pn.pn23460 = phi { ptr, i32 } [ %54780, %.thread23457 ], [ %54781, %.thread23461 ], [ %.pn9203.pn, %54789 ]
+.loopexit22240:                                   ; preds = %54789, %.thread27068, %.thread27064
+  %.pn9203.pn.pn.pn27067 = phi { ptr, i32 } [ %54780, %.thread27064 ], [ %54781, %.thread27068 ], [ %.pn9203.pn, %54789 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2354)
   call void @llvm.lifetime.end.p0(ptr nonnull %2353)
   call void @llvm.lifetime.end.p0(ptr nonnull %2352)
@@ -127561,7 +127561,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %54790
 
 54790:                                            ; preds = %.loopexit22240, %54778
-  %.pn9203.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9203.pn.pn.pn23460, %.loopexit22240 ], [ %54779, %54778 ]
+  %.pn9203.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9203.pn.pn.pn27067, %.loopexit22240 ], [ %54779, %54778 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2346) #22
   br label %54791
 
@@ -127645,12 +127645,12 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %54825
 
-.thread23465:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16970
+.thread27072:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16970
   %54815 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22234
 
-.thread23469:                                     ; preds = %30409
+.thread27076:                                     ; preds = %30409
   %54816 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %2377)
@@ -127691,8 +127691,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2372) #22
   br label %.loopexit22234
 
-.loopexit22234:                                   ; preds = %54824, %.thread23469, %.thread23465
-  %.pn9215.pn.pn.pn23468 = phi { ptr, i32 } [ %54815, %.thread23465 ], [ %54816, %.thread23469 ], [ %.pn9215.pn, %54824 ]
+.loopexit22234:                                   ; preds = %54824, %.thread27076, %.thread27072
+  %.pn9215.pn.pn.pn27075 = phi { ptr, i32 } [ %54815, %.thread27072 ], [ %54816, %.thread27076 ], [ %.pn9215.pn, %54824 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2373)
   call void @llvm.lifetime.end.p0(ptr nonnull %2372)
   call void @llvm.lifetime.end.p0(ptr nonnull %2371)
@@ -127700,7 +127700,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %54825
 
 54825:                                            ; preds = %.loopexit22234, %54813
-  %.pn9215.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9215.pn.pn.pn23468, %.loopexit22234 ], [ %54814, %54813 ]
+  %.pn9215.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9215.pn.pn.pn27075, %.loopexit22234 ], [ %54814, %54813 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2365) #22
   br label %54826
 
@@ -128409,7 +128409,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   %55008 = icmp eq ptr %55007, %2460
   br i1 %55008, label %.loopexit22210, label %55005
 
-.thread23490:                                     ; preds = %32263
+.thread27097:                                     ; preds = %32263
   %55009 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22212
@@ -128417,14 +128417,14 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55010:                                            ; preds = %32277
   %55011 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23494
+  br label %.thread27101
 
 55012:                                            ; preds = %32295
   %55013 = landingpad { ptr, i32 }
           cleanup
   br label %55031
 
-.thread23473:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit17348
+.thread27080:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit17348
   %55014 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22214
@@ -128500,8 +128500,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2472) #22
   br label %.loopexit22214
 
-.loopexit22214:                                   ; preds = %.preheader22215.preheader, %.thread23473, %.loopexit22216
-  %.pn9296.pn.pn.pn.pn.pn.pn2348023489 = phi { ptr, i32 } [ %.pn9296.pn.pn.pn.pn, %.loopexit22216 ], [ %55030, %.preheader22215.preheader ], [ %55014, %.thread23473 ]
+.loopexit22214:                                   ; preds = %.preheader22215.preheader, %.thread27080, %.loopexit22216
+  %.pn9296.pn.pn.pn.pn.pn.pn2708727096 = phi { ptr, i32 } [ %.pn9296.pn.pn.pn.pn, %.loopexit22216 ], [ %55030, %.preheader22215.preheader ], [ %55014, %.thread27080 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2473)
   call void @llvm.lifetime.end.p0(ptr nonnull %2472)
   call void @llvm.lifetime.end.p0(ptr nonnull %2471)
@@ -128511,11 +128511,11 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %55031
 
 55031:                                            ; preds = %.loopexit22214, %55012
-  %.pn9296.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9296.pn.pn.pn.pn.pn.pn2348023489, %.loopexit22214 ], [ %55013, %55012 ]
+  %.pn9296.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9296.pn.pn.pn.pn.pn.pn2708727096, %.loopexit22214 ], [ %55013, %55012 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2461) #22
-  br label %.thread23494
+  br label %.thread27101
 
-.thread23494:                                     ; preds = %55010, %55031
+.thread27101:                                     ; preds = %55010, %55031
   %.pn9296.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9296.pn.pn.pn.pn.pn.pn.pn, %55031 ], [ %55011, %55010 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2465) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %2466)
@@ -128531,8 +128531,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2463) #22
   br label %.loopexit22212
 
-.loopexit22212:                                   ; preds = %.thread23494, %.thread23490, %.preheader22211.preheader
-  %.pn9296.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn23493 = phi { ptr, i32 } [ %55009, %.thread23490 ], [ %55032, %.preheader22211.preheader ], [ %.pn9296.pn.pn.pn.pn.pn.pn.pn.pn, %.thread23494 ]
+.loopexit22212:                                   ; preds = %.thread27101, %.thread27097, %.preheader22211.preheader
+  %.pn9296.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn27100 = phi { ptr, i32 } [ %55009, %.thread27097 ], [ %55032, %.preheader22211.preheader ], [ %.pn9296.pn.pn.pn.pn.pn.pn.pn.pn, %.thread27101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2464)
   call void @llvm.lifetime.end.p0(ptr nonnull %2463)
   call void @llvm.lifetime.end.p0(ptr nonnull %2462)
@@ -128540,7 +128540,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body17344
 
 .body17344:                                       ; preds = %32257, %32254, %.loopexit22212
-  %.pn9296.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9296.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn23493, %.loopexit22212 ], [ %32255, %32257 ], [ %32255, %32254 ]
+  %.pn9296.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9296.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn27100, %.loopexit22212 ], [ %32255, %32257 ], [ %32255, %32254 ]
   br label %55033
 
 55033:                                            ; preds = %55033, %.body17344
@@ -128568,7 +128568,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   %55042 = icmp eq ptr %55041, %2482
   br i1 %55042, label %.loopexit22200, label %55039
 
-.thread23513:                                     ; preds = %32615
+.thread27120:                                     ; preds = %32615
   %55043 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22202
@@ -128576,14 +128576,14 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55044:                                            ; preds = %32629
   %55045 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23517
+  br label %.thread27124
 
 55046:                                            ; preds = %32647
   %55047 = landingpad { ptr, i32 }
           cleanup
   br label %55071
 
-.thread23496:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit17404
+.thread27103:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit17404
   %55048 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22204
@@ -128683,8 +128683,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2494) #22
   br label %.loopexit22204
 
-.loopexit22204:                                   ; preds = %.preheader22205.preheader, %.thread23496, %.loopexit22206
-  %.pn9310.pn.pn.pn.pn.pn.pn.pn.pn2350323512 = phi { ptr, i32 } [ %.pn9310.pn.pn.pn.pn.pn.pn, %.loopexit22206 ], [ %55070, %.preheader22205.preheader ], [ %55048, %.thread23496 ]
+.loopexit22204:                                   ; preds = %.preheader22205.preheader, %.thread27103, %.loopexit22206
+  %.pn9310.pn.pn.pn.pn.pn.pn.pn.pn2711027119 = phi { ptr, i32 } [ %.pn9310.pn.pn.pn.pn.pn.pn, %.loopexit22206 ], [ %55070, %.preheader22205.preheader ], [ %55048, %.thread27103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2495)
   call void @llvm.lifetime.end.p0(ptr nonnull %2494)
   call void @llvm.lifetime.end.p0(ptr nonnull %2493)
@@ -128694,11 +128694,11 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %55071
 
 55071:                                            ; preds = %.loopexit22204, %55046
-  %.pn9310.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9310.pn.pn.pn.pn.pn.pn.pn.pn2350323512, %.loopexit22204 ], [ %55047, %55046 ]
+  %.pn9310.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9310.pn.pn.pn.pn.pn.pn.pn.pn2711027119, %.loopexit22204 ], [ %55047, %55046 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2483) #22
-  br label %.thread23517
+  br label %.thread27124
 
-.thread23517:                                     ; preds = %55044, %55071
+.thread27124:                                     ; preds = %55044, %55071
   %.pn9310.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9310.pn.pn.pn.pn.pn.pn.pn.pn.pn, %55071 ], [ %55045, %55044 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2487) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %2488)
@@ -128714,8 +128714,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2485) #22
   br label %.loopexit22202
 
-.loopexit22202:                                   ; preds = %.thread23517, %.thread23513, %.preheader22201.preheader
-  %.pn9310.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn23516 = phi { ptr, i32 } [ %55043, %.thread23513 ], [ %55072, %.preheader22201.preheader ], [ %.pn9310.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.thread23517 ]
+.loopexit22202:                                   ; preds = %.thread27124, %.thread27120, %.preheader22201.preheader
+  %.pn9310.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn27123 = phi { ptr, i32 } [ %55043, %.thread27120 ], [ %55072, %.preheader22201.preheader ], [ %.pn9310.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.thread27124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2486)
   call void @llvm.lifetime.end.p0(ptr nonnull %2485)
   call void @llvm.lifetime.end.p0(ptr nonnull %2484)
@@ -128723,7 +128723,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body17400
 
 .body17400:                                       ; preds = %32609, %32606, %.loopexit22202
-  %.pn9310.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9310.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn23516, %.loopexit22202 ], [ %32607, %32609 ], [ %32607, %32606 ]
+  %.pn9310.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9310.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn27123, %.loopexit22202 ], [ %32607, %32609 ], [ %32607, %32606 ]
   br label %55073
 
 55073:                                            ; preds = %55073, %.body17400
@@ -128766,7 +128766,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %55107
 
-.thread23519:                                     ; preds = %32980
+.thread27126:                                     ; preds = %32980
   %55089 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22196
@@ -128842,8 +128842,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2519) #22
   br label %.loopexit22196
 
-.loopexit22196:                                   ; preds = %.preheader22197.preheader, %.thread23519, %.loopexit22198
-  %.pn9326.pn.pn.pn.pn.pn.pn2352623535 = phi { ptr, i32 } [ %.pn9326.pn.pn.pn.pn, %.loopexit22198 ], [ %55106, %.preheader22197.preheader ], [ %55089, %.thread23519 ]
+.loopexit22196:                                   ; preds = %.preheader22197.preheader, %.thread27126, %.loopexit22198
+  %.pn9326.pn.pn.pn.pn.pn.pn2713327142 = phi { ptr, i32 } [ %.pn9326.pn.pn.pn.pn, %.loopexit22198 ], [ %55106, %.preheader22197.preheader ], [ %55089, %.thread27126 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2520)
   call void @llvm.lifetime.end.p0(ptr nonnull %2519)
   call void @llvm.lifetime.end.p0(ptr nonnull %2518)
@@ -128853,7 +128853,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %55107
 
 55107:                                            ; preds = %.loopexit22196, %55087
-  %.pn9326.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9326.pn.pn.pn.pn.pn.pn2352623535, %.loopexit22196 ], [ %55088, %55087 ]
+  %.pn9326.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9326.pn.pn.pn.pn.pn.pn2713327142, %.loopexit22196 ], [ %55088, %55087 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2514)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2509) #22
   br label %55108
@@ -128903,14 +128903,14 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55119:                                            ; preds = %33256
   %55120 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23553
+  br label %.thread27160
 
 55121:                                            ; preds = %33259
   %55122 = landingpad { ptr, i32 }
           cleanup
   br label %55141
 
-.thread23536:                                     ; preds = %33263
+.thread27143:                                     ; preds = %33263
   %55123 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22188
@@ -128986,8 +128986,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2540) #22
   br label %.loopexit22188
 
-.loopexit22188:                                   ; preds = %.preheader22189.preheader, %.thread23536, %.loopexit22190
-  %.pn9339.pn.pn.pn.pn.pn.pn2354323552 = phi { ptr, i32 } [ %.pn9339.pn.pn.pn.pn, %.loopexit22190 ], [ %55140, %.preheader22189.preheader ], [ %55123, %.thread23536 ]
+.loopexit22188:                                   ; preds = %.preheader22189.preheader, %.thread27143, %.loopexit22190
+  %.pn9339.pn.pn.pn.pn.pn.pn2715027159 = phi { ptr, i32 } [ %.pn9339.pn.pn.pn.pn, %.loopexit22190 ], [ %55140, %.preheader22189.preheader ], [ %55123, %.thread27143 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2541)
   call void @llvm.lifetime.end.p0(ptr nonnull %2540)
   call void @llvm.lifetime.end.p0(ptr nonnull %2539)
@@ -128997,12 +128997,12 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %55141
 
 55141:                                            ; preds = %.loopexit22188, %55121
-  %.pn9339.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9339.pn.pn.pn.pn.pn.pn2354323552, %.loopexit22188 ], [ %55122, %55121 ]
+  %.pn9339.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9339.pn.pn.pn.pn.pn.pn2715027159, %.loopexit22188 ], [ %55122, %55121 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2535)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2530) #22
-  br label %.thread23553
+  br label %.thread27160
 
-.thread23553:                                     ; preds = %55119, %55141
+.thread27160:                                     ; preds = %55119, %55141
   %.pn9339.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9339.pn.pn.pn.pn.pn.pn.pn, %55141 ], [ %55120, %55119 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2532) #22
   br label %.loopexit22186
@@ -129012,8 +129012,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22186
 
-.loopexit22186:                                   ; preds = %.thread23553, %.preheader22185.preheader
-  %.pn9339.pn.pn.pn.pn.pn.pn.pn.pn.pn23556 = phi { ptr, i32 } [ %.pn9339.pn.pn.pn.pn.pn.pn.pn.pn, %.thread23553 ], [ %55142, %.preheader22185.preheader ]
+.loopexit22186:                                   ; preds = %.thread27160, %.preheader22185.preheader
+  %.pn9339.pn.pn.pn.pn.pn.pn.pn.pn.pn27163 = phi { ptr, i32 } [ %.pn9339.pn.pn.pn.pn.pn.pn.pn.pn, %.thread27160 ], [ %55142, %.preheader22185.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2533)
   call void @llvm.lifetime.end.p0(ptr nonnull %2532)
   call void @llvm.lifetime.end.p0(ptr nonnull %2531)
@@ -129021,7 +129021,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body17504
 
 .body17504:                                       ; preds = %33244, %33241, %.loopexit22186
-  %.pn9339.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9339.pn.pn.pn.pn.pn.pn.pn.pn.pn23556, %.loopexit22186 ], [ %33242, %33244 ], [ %33242, %33241 ]
+  %.pn9339.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9339.pn.pn.pn.pn.pn.pn.pn.pn.pn27163, %.loopexit22186 ], [ %33242, %33244 ], [ %33242, %33241 ]
   br label %55143
 
 55143:                                            ; preds = %55143, %.body17504
@@ -129047,12 +129047,12 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %55166
 
-.thread23557:                                     ; preds = %33521
+.thread27164:                                     ; preds = %33521
   %55150 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22182
 
-.thread23561:                                     ; preds = %33525
+.thread27168:                                     ; preds = %33525
   %55151 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2557) #22
@@ -129107,8 +129107,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2557) #22
   br label %.loopexit22182
 
-.loopexit22182:                                   ; preds = %55165, %.thread23561, %.thread23557
-  %.pn9352.pn.pn.pn.pn.pn23560 = phi { ptr, i32 } [ %55150, %.thread23557 ], [ %55151, %.thread23561 ], [ %.pn9352.pn.pn.pn, %55165 ]
+.loopexit22182:                                   ; preds = %55165, %.thread27168, %.thread27164
+  %.pn9352.pn.pn.pn.pn.pn27167 = phi { ptr, i32 } [ %55150, %.thread27164 ], [ %55151, %.thread27168 ], [ %.pn9352.pn.pn.pn, %55165 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2558)
   call void @llvm.lifetime.end.p0(ptr nonnull %2557)
   call void @llvm.lifetime.end.p0(ptr nonnull %2556)
@@ -129118,7 +129118,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %55166
 
 55166:                                            ; preds = %.loopexit22182, %55148
-  %.pn9352.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9352.pn.pn.pn.pn.pn23560, %.loopexit22182 ], [ %55149, %55148 ]
+  %.pn9352.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9352.pn.pn.pn.pn.pn27167, %.loopexit22182 ], [ %55149, %55148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2552)
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2549) #22
   br label %.body17550
@@ -129160,12 +129160,12 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %55194
 
-.thread23563:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit17596
+.thread27170:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit17596
   %55178 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22176
 
-.thread23567:                                     ; preds = %33774
+.thread27174:                                     ; preds = %33774
   %55179 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2574) #22
@@ -129222,8 +129222,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2574) #22
   br label %.loopexit22176
 
-.loopexit22176:                                   ; preds = %55193, %.thread23567, %.thread23563
-  %.pn9362.pn.pn.pn.pn.pn23566 = phi { ptr, i32 } [ %55178, %.thread23563 ], [ %55179, %.thread23567 ], [ %.pn9362.pn.pn.pn, %55193 ]
+.loopexit22176:                                   ; preds = %55193, %.thread27174, %.thread27170
+  %.pn9362.pn.pn.pn.pn.pn27173 = phi { ptr, i32 } [ %55178, %.thread27170 ], [ %55179, %.thread27174 ], [ %.pn9362.pn.pn.pn, %55193 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2575)
   call void @llvm.lifetime.end.p0(ptr nonnull %2574)
   call void @llvm.lifetime.end.p0(ptr nonnull %2573)
@@ -129233,7 +129233,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %55194
 
 55194:                                            ; preds = %.loopexit22176, %55176
-  %.pn9362.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9362.pn.pn.pn.pn.pn23566, %.loopexit22176 ], [ %55177, %55176 ]
+  %.pn9362.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9362.pn.pn.pn.pn.pn27173, %.loopexit22176 ], [ %55177, %55176 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2565) #22
   br label %55195
 
@@ -129282,7 +129282,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55206:                                            ; preds = %34032
   %55207 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23569
+  br label %.thread27176
 
 55208:                                            ; preds = %34050
   %55209 = landingpad { ptr, i32 }
@@ -129318,9 +129318,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55218:                                            ; preds = %55217, %55208
   %.pn9374.pn.pn = phi { ptr, i32 } [ %.pn9374.pn, %55217 ], [ %55209, %55208 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2583) #22
-  br label %.thread23569
+  br label %.thread27176
 
-.thread23569:                                     ; preds = %55206, %55218
+.thread27176:                                     ; preds = %55206, %55218
   %.pn9374.pn.pn.pn = phi { ptr, i32 } [ %.pn9374.pn.pn, %55218 ], [ %55207, %55206 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2585) #22
   br label %.loopexit22170
@@ -129330,8 +129330,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22170
 
-.loopexit22170:                                   ; preds = %.thread23569, %.preheader22169.preheader
-  %.pn9374.pn.pn.pn.pn23572 = phi { ptr, i32 } [ %.pn9374.pn.pn.pn, %.thread23569 ], [ %55219, %.preheader22169.preheader ]
+.loopexit22170:                                   ; preds = %.thread27176, %.preheader22169.preheader
+  %.pn9374.pn.pn.pn.pn27179 = phi { ptr, i32 } [ %.pn9374.pn.pn.pn, %.thread27176 ], [ %55219, %.preheader22169.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2586)
   call void @llvm.lifetime.end.p0(ptr nonnull %2585)
   call void @llvm.lifetime.end.p0(ptr nonnull %2584)
@@ -129339,7 +129339,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body17640
 
 .body17640:                                       ; preds = %34019, %34016, %.loopexit22170
-  %.pn9374.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9374.pn.pn.pn.pn23572, %.loopexit22170 ], [ %34017, %34019 ], [ %34017, %34016 ]
+  %.pn9374.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9374.pn.pn.pn.pn27179, %.loopexit22170 ], [ %34017, %34019 ], [ %34017, %34016 ]
   br label %55220
 
 55220:                                            ; preds = %55220, %.body17640
@@ -129382,7 +129382,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %55245
 
-.thread23573:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit17688
+.thread27180:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit17688
   %55236 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22166
@@ -129390,7 +129390,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55237:                                            ; preds = %34307
   %55238 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23577
+  br label %.thread27184
 
 55239:                                            ; preds = %34325
   %55240 = landingpad { ptr, i32 }
@@ -129406,9 +129406,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55243:                                            ; preds = %55241, %55239
   %.pn9382 = phi { ptr, i32 } [ %55242, %55241 ], [ %55240, %55239 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2597) #22
-  br label %.thread23577
+  br label %.thread27184
 
-.thread23577:                                     ; preds = %55237, %55243
+.thread27184:                                     ; preds = %55237, %55243
   %.pn9382.pn = phi { ptr, i32 } [ %.pn9382, %55243 ], [ %55238, %55237 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2601) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %2602)
@@ -129424,8 +129424,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2599) #22
   br label %.loopexit22166
 
-.loopexit22166:                                   ; preds = %.thread23577, %.thread23573, %.preheader22165.preheader
-  %.pn9382.pn.pn.pn23576 = phi { ptr, i32 } [ %55236, %.thread23573 ], [ %55244, %.preheader22165.preheader ], [ %.pn9382.pn, %.thread23577 ]
+.loopexit22166:                                   ; preds = %.thread27184, %.thread27180, %.preheader22165.preheader
+  %.pn9382.pn.pn.pn27183 = phi { ptr, i32 } [ %55236, %.thread27180 ], [ %55244, %.preheader22165.preheader ], [ %.pn9382.pn, %.thread27184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2600)
   call void @llvm.lifetime.end.p0(ptr nonnull %2599)
   call void @llvm.lifetime.end.p0(ptr nonnull %2598)
@@ -129433,7 +129433,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %55245
 
 55245:                                            ; preds = %.loopexit22166, %55234
-  %.pn9382.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9382.pn.pn.pn23576, %.loopexit22166 ], [ %55235, %55234 ]
+  %.pn9382.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9382.pn.pn.pn27183, %.loopexit22166 ], [ %55235, %55234 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2592) #22
   br label %55246
 
@@ -129589,7 +129589,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55284:                                            ; preds = %34798
   %55285 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23579
+  br label %.thread27186
 
 55286:                                            ; preds = %34816
   %55287 = landingpad { ptr, i32 }
@@ -129615,9 +129615,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55293:                                            ; preds = %55292, %55286
   %.pn9404.pn = phi { ptr, i32 } [ %.pn9404, %55292 ], [ %55287, %55286 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2621) #22
-  br label %.thread23579
+  br label %.thread27186
 
-.thread23579:                                     ; preds = %55284, %55293
+.thread27186:                                     ; preds = %55284, %55293
   %.pn9404.pn.pn = phi { ptr, i32 } [ %.pn9404.pn, %55293 ], [ %55285, %55284 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2623) #22
   br label %.loopexit22159
@@ -129627,8 +129627,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22159
 
-.loopexit22159:                                   ; preds = %.thread23579, %.preheader22158.preheader
-  %.pn9404.pn.pn.pn23582 = phi { ptr, i32 } [ %.pn9404.pn.pn, %.thread23579 ], [ %55294, %.preheader22158.preheader ]
+.loopexit22159:                                   ; preds = %.thread27186, %.preheader22158.preheader
+  %.pn9404.pn.pn.pn27189 = phi { ptr, i32 } [ %.pn9404.pn.pn, %.thread27186 ], [ %55294, %.preheader22158.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2624)
   call void @llvm.lifetime.end.p0(ptr nonnull %2623)
   call void @llvm.lifetime.end.p0(ptr nonnull %2622)
@@ -129636,7 +129636,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %55295
 
 55295:                                            ; preds = %.loopexit22159, %55282
-  %.pn9404.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9404.pn.pn.pn23582, %.loopexit22159 ], [ %55283, %55282 ]
+  %.pn9404.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9404.pn.pn.pn27189, %.loopexit22159 ], [ %55283, %55282 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2620)
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2617) #22
   br label %.body17786
@@ -129670,7 +129670,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55304:                                            ; preds = %34974
   %55305 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23583
+  br label %.thread27190
 
 55306:                                            ; preds = %34992
   %55307 = landingpad { ptr, i32 }
@@ -129696,9 +129696,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55313:                                            ; preds = %55312, %55306
   %.pn9412.pn = phi { ptr, i32 } [ %.pn9412, %55312 ], [ %55307, %55306 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2631) #22
-  br label %.thread23583
+  br label %.thread27190
 
-.thread23583:                                     ; preds = %55304, %55313
+.thread27190:                                     ; preds = %55304, %55313
   %.pn9412.pn.pn = phi { ptr, i32 } [ %.pn9412.pn, %55313 ], [ %55305, %55304 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2633) #22
   br label %.loopexit22156
@@ -129708,8 +129708,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22156
 
-.loopexit22156:                                   ; preds = %.thread23583, %.preheader22155.preheader
-  %.pn9412.pn.pn.pn23586 = phi { ptr, i32 } [ %.pn9412.pn.pn, %.thread23583 ], [ %55314, %.preheader22155.preheader ]
+.loopexit22156:                                   ; preds = %.thread27190, %.preheader22155.preheader
+  %.pn9412.pn.pn.pn27193 = phi { ptr, i32 } [ %.pn9412.pn.pn, %.thread27190 ], [ %55314, %.preheader22155.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2634)
   call void @llvm.lifetime.end.p0(ptr nonnull %2633)
   call void @llvm.lifetime.end.p0(ptr nonnull %2632)
@@ -129717,7 +129717,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %55315
 
 55315:                                            ; preds = %.loopexit22156, %55302
-  %.pn9412.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9412.pn.pn.pn23586, %.loopexit22156 ], [ %55303, %55302 ]
+  %.pn9412.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9412.pn.pn.pn27193, %.loopexit22156 ], [ %55303, %55302 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2630)
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2627) #22
   br label %.body17822
@@ -129887,7 +129887,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55360:                                            ; preds = %35579
   %55361 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23587
+  br label %.thread27194
 
 55362:                                            ; preds = %35584
   %55363 = landingpad { ptr, i32 }
@@ -129924,9 +129924,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   %.pn9434.pn.pn = phi { ptr, i32 } [ %.pn9434.pn, %55371 ], [ %55363, %55362 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2659)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2654) #22
-  br label %.thread23587
+  br label %.thread27194
 
-.thread23587:                                     ; preds = %55360, %55372
+.thread27194:                                     ; preds = %55360, %55372
   %.pn9434.pn.pn.pn = phi { ptr, i32 } [ %.pn9434.pn.pn, %55372 ], [ %55361, %55360 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2656) #22
   br label %.loopexit22148
@@ -129936,8 +129936,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22148
 
-.loopexit22148:                                   ; preds = %.thread23587, %.preheader22147.preheader
-  %.pn9434.pn.pn.pn.pn23590 = phi { ptr, i32 } [ %.pn9434.pn.pn.pn, %.thread23587 ], [ %55373, %.preheader22147.preheader ]
+.loopexit22148:                                   ; preds = %.thread27194, %.preheader22147.preheader
+  %.pn9434.pn.pn.pn.pn27197 = phi { ptr, i32 } [ %.pn9434.pn.pn.pn, %.thread27194 ], [ %55373, %.preheader22147.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2657)
   call void @llvm.lifetime.end.p0(ptr nonnull %2656)
   call void @llvm.lifetime.end.p0(ptr nonnull %2655)
@@ -129945,7 +129945,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body17938
 
 .body17938:                                       ; preds = %35567, %35564, %.loopexit22148
-  %.pn9434.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9434.pn.pn.pn.pn23590, %.loopexit22148 ], [ %35565, %35567 ], [ %35565, %35564 ]
+  %.pn9434.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9434.pn.pn.pn.pn27197, %.loopexit22148 ], [ %35565, %35567 ], [ %35565, %35564 ]
   br label %55374
 
 55374:                                            ; preds = %55374, %.body17938
@@ -130130,7 +130130,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55432:                                            ; preds = %36210
   %55433 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23591
+  br label %.thread27198
 
 55434:                                            ; preds = %36217
   %55435 = landingpad { ptr, i32 }
@@ -130167,9 +130167,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   %.pn9456.pn.pn = phi { ptr, i32 } [ %.pn9456.pn, %55443 ], [ %55435, %55434 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2685)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2680) #22
-  br label %.thread23591
+  br label %.thread27198
 
-.thread23591:                                     ; preds = %55432, %55444
+.thread27198:                                     ; preds = %55432, %55444
   %.pn9456.pn.pn.pn = phi { ptr, i32 } [ %.pn9456.pn.pn, %55444 ], [ %55433, %55432 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2682) #22
   br label %.loopexit22140
@@ -130179,8 +130179,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22140
 
-.loopexit22140:                                   ; preds = %.thread23591, %.preheader22139.preheader
-  %.pn9456.pn.pn.pn.pn23594 = phi { ptr, i32 } [ %.pn9456.pn.pn.pn, %.thread23591 ], [ %55445, %.preheader22139.preheader ]
+.loopexit22140:                                   ; preds = %.thread27198, %.preheader22139.preheader
+  %.pn9456.pn.pn.pn.pn27201 = phi { ptr, i32 } [ %.pn9456.pn.pn.pn, %.thread27198 ], [ %55445, %.preheader22139.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2683)
   call void @llvm.lifetime.end.p0(ptr nonnull %2682)
   call void @llvm.lifetime.end.p0(ptr nonnull %2681)
@@ -130188,7 +130188,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body18054
 
 .body18054:                                       ; preds = %36200, %36197, %.loopexit22140
-  %.pn9456.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9456.pn.pn.pn.pn23594, %.loopexit22140 ], [ %36198, %36200 ], [ %36198, %36197 ]
+  %.pn9456.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9456.pn.pn.pn.pn27201, %.loopexit22140 ], [ %36198, %36200 ], [ %36198, %36197 ]
   br label %55446
 
 55446:                                            ; preds = %55446, %.body18054
@@ -130219,7 +130219,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55456:                                            ; preds = %36432
   %55457 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23595
+  br label %.thread27202
 
 55458:                                            ; preds = %36437
   %55459 = landingpad { ptr, i32 }
@@ -130256,9 +130256,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   %.pn9464.pn.pn = phi { ptr, i32 } [ %.pn9464.pn, %55467 ], [ %55459, %55458 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2695)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2690) #22
-  br label %.thread23595
+  br label %.thread27202
 
-.thread23595:                                     ; preds = %55456, %55468
+.thread27202:                                     ; preds = %55456, %55468
   %.pn9464.pn.pn.pn = phi { ptr, i32 } [ %.pn9464.pn.pn, %55468 ], [ %55457, %55456 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2692) #22
   br label %.loopexit22136
@@ -130268,8 +130268,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22136
 
-.loopexit22136:                                   ; preds = %.thread23595, %.preheader22135.preheader
-  %.pn9464.pn.pn.pn.pn23598 = phi { ptr, i32 } [ %.pn9464.pn.pn.pn, %.thread23595 ], [ %55469, %.preheader22135.preheader ]
+.loopexit22136:                                   ; preds = %.thread27202, %.preheader22135.preheader
+  %.pn9464.pn.pn.pn.pn27205 = phi { ptr, i32 } [ %.pn9464.pn.pn.pn, %.thread27202 ], [ %55469, %.preheader22135.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2693)
   call void @llvm.lifetime.end.p0(ptr nonnull %2692)
   call void @llvm.lifetime.end.p0(ptr nonnull %2691)
@@ -130277,7 +130277,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body18094
 
 .body18094:                                       ; preds = %36420, %36417, %.loopexit22136
-  %.pn9464.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9464.pn.pn.pn.pn23598, %.loopexit22136 ], [ %36418, %36420 ], [ %36418, %36417 ]
+  %.pn9464.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9464.pn.pn.pn.pn27205, %.loopexit22136 ], [ %36418, %36420 ], [ %36418, %36417 ]
   br label %55470
 
 55470:                                            ; preds = %55470, %.body18094
@@ -130305,7 +130305,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   %55479 = icmp eq ptr %55478, %2699
   br i1 %55479, label %.loopexit22126, label %55476
 
-.thread23606:                                     ; preds = %36663
+.thread27213:                                     ; preds = %36663
   %55480 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22128
@@ -130313,9 +130313,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55481:                                            ; preds = %36671
   %55482 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23611
+  br label %.thread27218
 
-.thread23599:                                     ; preds = %36676
+.thread27206:                                     ; preds = %36676
   %55483 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22130
@@ -130323,7 +130323,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55484:                                            ; preds = %36684
   %55485 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23604
+  br label %.thread27211
 
 55486:                                            ; preds = %36703
   %55487 = landingpad { ptr, i32 }
@@ -130362,9 +130362,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55495:                                            ; preds = %.loopexit22132, %55486
   %.pn9472.pn.pn = phi { ptr, i32 } [ %.pn9472.pn, %.loopexit22132 ], [ %55487, %55486 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2706) #22
-  br label %.thread23604
+  br label %.thread27211
 
-.thread23604:                                     ; preds = %55484, %55495
+.thread27211:                                     ; preds = %55484, %55495
   %.pn9472.pn.pn.pn = phi { ptr, i32 } [ %.pn9472.pn.pn, %55495 ], [ %55485, %55484 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2708) #22
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2710) #22
@@ -130376,18 +130376,18 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2710) #22
   br label %.loopexit22130
 
-.loopexit22130:                                   ; preds = %.thread23599, %55496, %.thread23604
-  %.pn9472.pn.pn.pn.pn.pn23603 = phi { ptr, i32 } [ %.pn9472.pn.pn.pn, %.thread23604 ], [ %55483, %.thread23599 ], [ %55497, %55496 ]
+.loopexit22130:                                   ; preds = %.thread27206, %55496, %.thread27211
+  %.pn9472.pn.pn.pn.pn.pn27210 = phi { ptr, i32 } [ %.pn9472.pn.pn.pn, %.thread27211 ], [ %55483, %.thread27206 ], [ %55497, %55496 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2711)
   call void @llvm.lifetime.end.p0(ptr nonnull %2710)
   call void @llvm.lifetime.end.p0(ptr nonnull %2709)
   call void @llvm.lifetime.end.p0(ptr nonnull %2708)
   call void @llvm.lifetime.end.p0(ptr nonnull %2707)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2700) #22
-  br label %.thread23611
+  br label %.thread27218
 
-.thread23611:                                     ; preds = %55481, %.loopexit22130
-  %.pn9472.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9472.pn.pn.pn.pn.pn23603, %.loopexit22130 ], [ %55482, %55481 ]
+.thread27218:                                     ; preds = %55481, %.loopexit22130
+  %.pn9472.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9472.pn.pn.pn.pn.pn27210, %.loopexit22130 ], [ %55482, %55481 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2704) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %2705)
   call void @llvm.lifetime.end.p0(ptr nonnull %2704)
@@ -130402,8 +130402,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2702) #22
   br label %.loopexit22128
 
-.loopexit22128:                                   ; preds = %.thread23606, %55498, %.thread23611
-  %.pn9472.pn.pn.pn.pn.pn.pn.pn.pn23610 = phi { ptr, i32 } [ %.pn9472.pn.pn.pn.pn.pn.pn, %.thread23611 ], [ %55480, %.thread23606 ], [ %55499, %55498 ]
+.loopexit22128:                                   ; preds = %.thread27213, %55498, %.thread27218
+  %.pn9472.pn.pn.pn.pn.pn.pn.pn.pn27217 = phi { ptr, i32 } [ %.pn9472.pn.pn.pn.pn.pn.pn, %.thread27218 ], [ %55480, %.thread27213 ], [ %55499, %55498 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2703)
   call void @llvm.lifetime.end.p0(ptr nonnull %2702)
   call void @llvm.lifetime.end.p0(ptr nonnull %2701)
@@ -130411,7 +130411,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body18136
 
 .body18136:                                       ; preds = %36657, %36654, %.loopexit22128
-  %.pn9472.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9472.pn.pn.pn.pn.pn.pn.pn.pn23610, %.loopexit22128 ], [ %36655, %36657 ], [ %36655, %36654 ]
+  %.pn9472.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9472.pn.pn.pn.pn.pn.pn.pn.pn27217, %.loopexit22128 ], [ %36655, %36657 ], [ %36655, %36654 ]
   br label %55500
 
 55500:                                            ; preds = %55500, %.body18136
@@ -130594,7 +130594,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55550:                                            ; preds = %37339
   %55551 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23613
+  br label %.thread27220
 
 55552:                                            ; preds = %37344
   %55553 = landingpad { ptr, i32 }
@@ -130644,9 +130644,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   %.pn9499.pn.pn.pn = phi { ptr, i32 } [ %.pn9499.pn.pn, %55563 ], [ %55553, %55552 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2742)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2737) #22
-  br label %.thread23613
+  br label %.thread27220
 
-.thread23613:                                     ; preds = %55550, %55564
+.thread27220:                                     ; preds = %55550, %55564
   %.pn9499.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9499.pn.pn.pn, %55564 ], [ %55551, %55550 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2739) #22
   br label %.loopexit22116
@@ -130656,8 +130656,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22116
 
-.loopexit22116:                                   ; preds = %.thread23613, %.preheader22115.preheader
-  %.pn9499.pn.pn.pn.pn.pn23616 = phi { ptr, i32 } [ %.pn9499.pn.pn.pn.pn, %.thread23613 ], [ %55565, %.preheader22115.preheader ]
+.loopexit22116:                                   ; preds = %.thread27220, %.preheader22115.preheader
+  %.pn9499.pn.pn.pn.pn.pn27223 = phi { ptr, i32 } [ %.pn9499.pn.pn.pn.pn, %.thread27220 ], [ %55565, %.preheader22115.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2740)
   call void @llvm.lifetime.end.p0(ptr nonnull %2739)
   call void @llvm.lifetime.end.p0(ptr nonnull %2738)
@@ -130665,7 +130665,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body18258
 
 .body18258:                                       ; preds = %37327, %37324, %.loopexit22116
-  %.pn9499.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9499.pn.pn.pn.pn.pn23616, %.loopexit22116 ], [ %37325, %37327 ], [ %37325, %37324 ]
+  %.pn9499.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9499.pn.pn.pn.pn.pn27223, %.loopexit22116 ], [ %37325, %37327 ], [ %37325, %37324 ]
   br label %55566
 
 55566:                                            ; preds = %55566, %.body18258
@@ -130938,7 +130938,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55642:                                            ; preds = %38192
   %55643 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23617
+  br label %.thread27224
 
 55644:                                            ; preds = %38197
   %55645 = landingpad { ptr, i32 }
@@ -130988,9 +130988,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   %.pn9531.pn.pn.pn = phi { ptr, i32 } [ %.pn9531.pn.pn, %55655 ], [ %55645, %55644 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2784)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2779) #22
-  br label %.thread23617
+  br label %.thread27224
 
-.thread23617:                                     ; preds = %55642, %55656
+.thread27224:                                     ; preds = %55642, %55656
   %.pn9531.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9531.pn.pn.pn, %55656 ], [ %55643, %55642 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2781) #22
   br label %.loopexit22100
@@ -131000,8 +131000,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22100
 
-.loopexit22100:                                   ; preds = %.thread23617, %.preheader22099.preheader
-  %.pn9531.pn.pn.pn.pn.pn23620 = phi { ptr, i32 } [ %.pn9531.pn.pn.pn.pn, %.thread23617 ], [ %55657, %.preheader22099.preheader ]
+.loopexit22100:                                   ; preds = %.thread27224, %.preheader22099.preheader
+  %.pn9531.pn.pn.pn.pn.pn27227 = phi { ptr, i32 } [ %.pn9531.pn.pn.pn.pn, %.thread27224 ], [ %55657, %.preheader22099.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2782)
   call void @llvm.lifetime.end.p0(ptr nonnull %2781)
   call void @llvm.lifetime.end.p0(ptr nonnull %2780)
@@ -131009,7 +131009,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body18414
 
 .body18414:                                       ; preds = %38180, %38177, %.loopexit22100
-  %.pn9531.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9531.pn.pn.pn.pn.pn23620, %.loopexit22100 ], [ %38178, %38180 ], [ %38178, %38177 ]
+  %.pn9531.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9531.pn.pn.pn.pn.pn27227, %.loopexit22100 ], [ %38178, %38180 ], [ %38178, %38177 ]
   br label %55658
 
 55658:                                            ; preds = %55658, %.body18414
@@ -131479,7 +131479,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55794:                                            ; preds = %39523
   %55795 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23621
+  br label %.thread27228
 
 55796:                                            ; preds = %39541
   %55797 = landingpad { ptr, i32 }
@@ -131495,9 +131495,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55800:                                            ; preds = %55798, %55796
   %.pn9582 = phi { ptr, i32 } [ %55799, %55798 ], [ %55797, %55796 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2847) #22
-  br label %.thread23621
+  br label %.thread27228
 
-.thread23621:                                     ; preds = %55794, %55800
+.thread27228:                                     ; preds = %55794, %55800
   %.pn9582.pn = phi { ptr, i32 } [ %.pn9582, %55800 ], [ %55795, %55794 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2849) #22
   br label %.loopexit22087
@@ -131507,8 +131507,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22087
 
-.loopexit22087:                                   ; preds = %.thread23621, %.preheader22086.preheader
-  %.pn9582.pn.pn23624 = phi { ptr, i32 } [ %.pn9582.pn, %.thread23621 ], [ %55801, %.preheader22086.preheader ]
+.loopexit22087:                                   ; preds = %.thread27228, %.preheader22086.preheader
+  %.pn9582.pn.pn27231 = phi { ptr, i32 } [ %.pn9582.pn, %.thread27228 ], [ %55801, %.preheader22086.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2850)
   call void @llvm.lifetime.end.p0(ptr nonnull %2849)
   call void @llvm.lifetime.end.p0(ptr nonnull %2848)
@@ -131516,7 +131516,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %55802
 
 55802:                                            ; preds = %.loopexit22087, %55792
-  %.pn9582.pn.pn.pn = phi { ptr, i32 } [ %.pn9582.pn.pn23624, %.loopexit22087 ], [ %55793, %55792 ]
+  %.pn9582.pn.pn.pn = phi { ptr, i32 } [ %.pn9582.pn.pn27231, %.loopexit22087 ], [ %55793, %55792 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2844) #22
   br label %55803
 
@@ -131558,7 +131558,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55814:                                            ; preds = %39717
   %55815 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23629
+  br label %.thread27236
 
 55816:                                            ; preds = %39737
   %55817 = landingpad { ptr, i32 }
@@ -131568,7 +131568,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55818:                                            ; preds = %39743
   %55819 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23625
+  br label %.thread27232
 
 55820:                                            ; preds = %39746
   %55821 = landingpad { ptr, i32 }
@@ -131594,9 +131594,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55827:                                            ; preds = %55826, %55820
   %.pn9590.pn = phi { ptr, i32 } [ %.pn9590, %55826 ], [ %55821, %55820 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2861) #22
-  br label %.thread23625
+  br label %.thread27232
 
-.thread23625:                                     ; preds = %55818, %55827
+.thread27232:                                     ; preds = %55818, %55827
   %.pn9590.pn.pn = phi { ptr, i32 } [ %.pn9590.pn, %55827 ], [ %55819, %55818 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2863) #22
   br label %.loopexit22083
@@ -131606,8 +131606,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22083
 
-.loopexit22083:                                   ; preds = %.thread23625, %.preheader22082.preheader
-  %.pn9590.pn.pn.pn23628 = phi { ptr, i32 } [ %.pn9590.pn.pn, %.thread23625 ], [ %55828, %.preheader22082.preheader ]
+.loopexit22083:                                   ; preds = %.thread27232, %.preheader22082.preheader
+  %.pn9590.pn.pn.pn27235 = phi { ptr, i32 } [ %.pn9590.pn.pn, %.thread27232 ], [ %55828, %.preheader22082.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2864)
   call void @llvm.lifetime.end.p0(ptr nonnull %2863)
   call void @llvm.lifetime.end.p0(ptr nonnull %2862)
@@ -131617,11 +131617,11 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %55829
 
 55829:                                            ; preds = %.loopexit22083, %55816
-  %.pn9590.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9590.pn.pn.pn23628, %.loopexit22083 ], [ %55817, %55816 ]
+  %.pn9590.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9590.pn.pn.pn27235, %.loopexit22083 ], [ %55817, %55816 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2854) #22
-  br label %.thread23629
+  br label %.thread27236
 
-.thread23629:                                     ; preds = %55814, %55829
+.thread27236:                                     ; preds = %55814, %55829
   %.pn9590.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9590.pn.pn.pn.pn, %55829 ], [ %55815, %55814 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2856) #22
   br label %.loopexit22081
@@ -131631,8 +131631,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %.loopexit22081
 
-.loopexit22081:                                   ; preds = %.thread23629, %.preheader22080.preheader
-  %.pn9590.pn.pn.pn.pn.pn.pn23632 = phi { ptr, i32 } [ %.pn9590.pn.pn.pn.pn.pn, %.thread23629 ], [ %55830, %.preheader22080.preheader ]
+.loopexit22081:                                   ; preds = %.thread27236, %.preheader22080.preheader
+  %.pn9590.pn.pn.pn.pn.pn.pn27239 = phi { ptr, i32 } [ %.pn9590.pn.pn.pn.pn.pn, %.thread27236 ], [ %55830, %.preheader22080.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2857)
   call void @llvm.lifetime.end.p0(ptr nonnull %2856)
   call void @llvm.lifetime.end.p0(ptr nonnull %2855)
@@ -131640,7 +131640,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %.body18702
 
 .body18702:                                       ; preds = %39707, %39704, %.loopexit22081
-  %.pn9590.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9590.pn.pn.pn.pn.pn.pn23632, %.loopexit22081 ], [ %39705, %39707 ], [ %39705, %39704 ]
+  %.pn9590.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9590.pn.pn.pn.pn.pn.pn27239, %.loopexit22081 ], [ %39705, %39707 ], [ %39705, %39704 ]
   br label %55831
 
 55831:                                            ; preds = %55831, %.body18702
@@ -131683,7 +131683,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %55856
 
-.thread23633:                                     ; preds = %39995
+.thread27240:                                     ; preds = %39995
   %55847 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22077
@@ -131691,7 +131691,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55848:                                            ; preds = %40002
   %55849 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23637
+  br label %.thread27244
 
 55850:                                            ; preds = %40020
   %55851 = landingpad { ptr, i32 }
@@ -131707,9 +131707,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55854:                                            ; preds = %55852, %55850
   %.pn9600 = phi { ptr, i32 } [ %55853, %55852 ], [ %55851, %55850 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2874) #22
-  br label %.thread23637
+  br label %.thread27244
 
-.thread23637:                                     ; preds = %55848, %55854
+.thread27244:                                     ; preds = %55848, %55854
   %.pn9600.pn = phi { ptr, i32 } [ %.pn9600, %55854 ], [ %55849, %55848 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2878) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %2879)
@@ -131725,8 +131725,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2876) #22
   br label %.loopexit22077
 
-.loopexit22077:                                   ; preds = %.thread23637, %.thread23633, %.preheader22076.preheader
-  %.pn9600.pn.pn.pn23636 = phi { ptr, i32 } [ %55847, %.thread23633 ], [ %55855, %.preheader22076.preheader ], [ %.pn9600.pn, %.thread23637 ]
+.loopexit22077:                                   ; preds = %.thread27244, %.thread27240, %.preheader22076.preheader
+  %.pn9600.pn.pn.pn27243 = phi { ptr, i32 } [ %55847, %.thread27240 ], [ %55855, %.preheader22076.preheader ], [ %.pn9600.pn, %.thread27244 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2877)
   call void @llvm.lifetime.end.p0(ptr nonnull %2876)
   call void @llvm.lifetime.end.p0(ptr nonnull %2875)
@@ -131734,7 +131734,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %55856
 
 55856:                                            ; preds = %.loopexit22077, %55845
-  %.pn9600.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9600.pn.pn.pn23636, %.loopexit22077 ], [ %55846, %55845 ]
+  %.pn9600.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9600.pn.pn.pn27243, %.loopexit22077 ], [ %55846, %55845 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2873)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2868) #22
   br label %55857
@@ -131791,7 +131791,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %55887
 
-.thread23639:                                     ; preds = %40248
+.thread27246:                                     ; preds = %40248
   %55872 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22069
@@ -131854,8 +131854,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2891) #22
   br label %.loopexit22069
 
-.loopexit22069:                                   ; preds = %.preheader22070.preheader, %.thread23639, %.loopexit22071
-  %.pn9610.pn.pn.pn.pn.pn2364423651 = phi { ptr, i32 } [ %.pn9610.pn.pn.pn, %.loopexit22071 ], [ %55886, %.preheader22070.preheader ], [ %55872, %.thread23639 ]
+.loopexit22069:                                   ; preds = %.preheader22070.preheader, %.thread27246, %.loopexit22071
+  %.pn9610.pn.pn.pn.pn.pn2725127258 = phi { ptr, i32 } [ %.pn9610.pn.pn.pn, %.loopexit22071 ], [ %55886, %.preheader22070.preheader ], [ %55872, %.thread27246 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2892)
   call void @llvm.lifetime.end.p0(ptr nonnull %2891)
   call void @llvm.lifetime.end.p0(ptr nonnull %2890)
@@ -131865,7 +131865,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %55887
 
 55887:                                            ; preds = %.loopexit22069, %55870
-  %.pn9610.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9610.pn.pn.pn.pn.pn2364423651, %.loopexit22069 ], [ %55871, %55870 ]
+  %.pn9610.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9610.pn.pn.pn.pn.pn2725127258, %.loopexit22069 ], [ %55871, %55870 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2885) #22
   br label %.loopexit22067
 
@@ -131916,7 +131916,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %55914
 
-.thread23652:                                     ; preds = %40543
+.thread27259:                                     ; preds = %40543
   %55902 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22063
@@ -131924,7 +131924,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 55903:                                            ; preds = %40552
   %55904 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23656
+  br label %.thread27263
 
 55905:                                            ; preds = %40557
   %55906 = landingpad { ptr, i32 }
@@ -131951,9 +131951,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   %.pn9621.pn = phi { ptr, i32 } [ %.pn9621, %55911 ], [ %55906, %55905 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2911)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2904) #22
-  br label %.thread23656
+  br label %.thread27263
 
-.thread23656:                                     ; preds = %55903, %55912
+.thread27263:                                     ; preds = %55903, %55912
   %.pn9621.pn.pn = phi { ptr, i32 } [ %.pn9621.pn, %55912 ], [ %55904, %55903 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2908) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %2909)
@@ -131969,8 +131969,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2906) #22
   br label %.loopexit22063
 
-.loopexit22063:                                   ; preds = %.thread23656, %.thread23652, %.preheader22062.preheader
-  %.pn9621.pn.pn.pn.pn23655 = phi { ptr, i32 } [ %55902, %.thread23652 ], [ %55913, %.preheader22062.preheader ], [ %.pn9621.pn.pn, %.thread23656 ]
+.loopexit22063:                                   ; preds = %.thread27263, %.thread27259, %.preheader22062.preheader
+  %.pn9621.pn.pn.pn.pn27262 = phi { ptr, i32 } [ %55902, %.thread27259 ], [ %55913, %.preheader22062.preheader ], [ %.pn9621.pn.pn, %.thread27263 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2907)
   call void @llvm.lifetime.end.p0(ptr nonnull %2906)
   call void @llvm.lifetime.end.p0(ptr nonnull %2905)
@@ -131978,7 +131978,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %55914
 
 55914:                                            ; preds = %.loopexit22063, %55900
-  %.pn9621.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9621.pn.pn.pn.pn23655, %.loopexit22063 ], [ %55901, %55900 ]
+  %.pn9621.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9621.pn.pn.pn.pn27262, %.loopexit22063 ], [ %55901, %55900 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2902) #22
   br label %.loopexit22061
 
@@ -132271,12 +132271,12 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %56007
 
-.thread23658:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit18996
+.thread27265:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit18996
   %55997 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22051
 
-.thread23662:                                     ; preds = %41354
+.thread27269:                                     ; preds = %41354
   %55998 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %2959)
@@ -132317,8 +132317,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2954) #22
   br label %.loopexit22051
 
-.loopexit22051:                                   ; preds = %56006, %.thread23662, %.thread23658
-  %.pn9654.pn.pn.pn23661 = phi { ptr, i32 } [ %55997, %.thread23658 ], [ %55998, %.thread23662 ], [ %.pn9654.pn, %56006 ]
+.loopexit22051:                                   ; preds = %56006, %.thread27269, %.thread27265
+  %.pn9654.pn.pn.pn27268 = phi { ptr, i32 } [ %55997, %.thread27265 ], [ %55998, %.thread27269 ], [ %.pn9654.pn, %56006 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2955)
   call void @llvm.lifetime.end.p0(ptr nonnull %2954)
   call void @llvm.lifetime.end.p0(ptr nonnull %2953)
@@ -132326,7 +132326,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %56007
 
 56007:                                            ; preds = %.loopexit22051, %55995
-  %.pn9654.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9654.pn.pn.pn23661, %.loopexit22051 ], [ %55996, %55995 ]
+  %.pn9654.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9654.pn.pn.pn27268, %.loopexit22051 ], [ %55996, %55995 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2947) #22
   br label %56008
 
@@ -132400,7 +132400,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %56038
 
-.thread23666:                                     ; preds = %41601
+.thread27273:                                     ; preds = %41601
   %56028 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22047
@@ -132408,7 +132408,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 56029:                                            ; preds = %41607
   %56030 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23671
+  br label %.thread27278
 
 56031:                                            ; preds = %41624
   %56032 = landingpad { ptr, i32 }
@@ -132424,9 +132424,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 56035:                                            ; preds = %56033, %56031
   %.pn9666 = phi { ptr, i32 } [ %56034, %56033 ], [ %56032, %56031 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2968) #22
-  br label %.thread23671
+  br label %.thread27278
 
-.thread23671:                                     ; preds = %56029, %56035
+.thread27278:                                     ; preds = %56029, %56035
   %.pn9666.pn = phi { ptr, i32 } [ %.pn9666, %56035 ], [ %56030, %56029 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2970) #22
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2972) #22
@@ -132438,8 +132438,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2972) #22
   br label %.loopexit22047
 
-.loopexit22047:                                   ; preds = %.thread23666, %56036, %.thread23671
-  %.pn9666.pn.pn.pn23670 = phi { ptr, i32 } [ %.pn9666.pn, %.thread23671 ], [ %56028, %.thread23666 ], [ %56037, %56036 ]
+.loopexit22047:                                   ; preds = %.thread27273, %56036, %.thread27278
+  %.pn9666.pn.pn.pn27277 = phi { ptr, i32 } [ %.pn9666.pn, %.thread27278 ], [ %56028, %.thread27273 ], [ %56037, %56036 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2973)
   call void @llvm.lifetime.end.p0(ptr nonnull %2972)
   call void @llvm.lifetime.end.p0(ptr nonnull %2971)
@@ -132449,7 +132449,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %56038
 
 56038:                                            ; preds = %.loopexit22047, %56026
-  %.pn9666.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9666.pn.pn.pn23670, %.loopexit22047 ], [ %56027, %56026 ]
+  %.pn9666.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9666.pn.pn.pn27277, %.loopexit22047 ], [ %56027, %56026 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2967)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2962) #22
   br label %56039
@@ -132625,7 +132625,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %56106
 
-.thread23673:                                     ; preds = %42073
+.thread27280:                                     ; preds = %42073
   %56088 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22033
@@ -132697,8 +132697,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3004) #22
   br label %.loopexit22033
 
-.loopexit22033:                                   ; preds = %56104, %.thread23673, %.loopexit22035
-  %.pn9686.pn.pn.pn.pn.pn.pn2368323692 = phi { ptr, i32 } [ %.pn9686.pn.pn.pn.pn, %.loopexit22035 ], [ %56105, %56104 ], [ %56088, %.thread23673 ]
+.loopexit22033:                                   ; preds = %56104, %.thread27280, %.loopexit22035
+  %.pn9686.pn.pn.pn.pn.pn.pn2729027299 = phi { ptr, i32 } [ %.pn9686.pn.pn.pn.pn, %.loopexit22035 ], [ %56105, %56104 ], [ %56088, %.thread27280 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3005)
   call void @llvm.lifetime.end.p0(ptr nonnull %3004)
   call void @llvm.lifetime.end.p0(ptr nonnull %3003)
@@ -132710,7 +132710,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %56106
 
 56106:                                            ; preds = %.loopexit22033, %56086
-  %.pn9686.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9686.pn.pn.pn.pn.pn.pn2368323692, %.loopexit22033 ], [ %56087, %56086 ]
+  %.pn9686.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9686.pn.pn.pn.pn.pn.pn2729027299, %.loopexit22033 ], [ %56087, %56086 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2997)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2992) #22
   br label %56107
@@ -132969,7 +132969,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
           cleanup
   br label %56181
 
-.thread23693:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit19282
+.thread27300:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit19282
   %56171 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit22023
@@ -132977,7 +132977,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 56172:                                            ; preds = %42874
   %56173 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread23698
+  br label %.thread27305
 
 56174:                                            ; preds = %42891
   %56175 = landingpad { ptr, i32 }
@@ -132993,9 +132993,9 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
 56178:                                            ; preds = %56176, %56174
   %.pn9722 = phi { ptr, i32 } [ %56177, %56176 ], [ %56175, %56174 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3041) #22
-  br label %.thread23698
+  br label %.thread27305
 
-.thread23698:                                     ; preds = %56172, %56178
+.thread27305:                                     ; preds = %56172, %56178
   %.pn9722.pn = phi { ptr, i32 } [ %.pn9722, %56178 ], [ %56173, %56172 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3043) #22
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3045) #22
@@ -133007,8 +133007,8 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3045) #22
   br label %.loopexit22023
 
-.loopexit22023:                                   ; preds = %.thread23693, %56179, %.thread23698
-  %.pn9722.pn.pn.pn23697 = phi { ptr, i32 } [ %.pn9722.pn, %.thread23698 ], [ %56171, %.thread23693 ], [ %56180, %56179 ]
+.loopexit22023:                                   ; preds = %.thread27300, %56179, %.thread27305
+  %.pn9722.pn.pn.pn27304 = phi { ptr, i32 } [ %.pn9722.pn, %.thread27305 ], [ %56171, %.thread27300 ], [ %56180, %56179 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3046)
   call void @llvm.lifetime.end.p0(ptr nonnull %3045)
   call void @llvm.lifetime.end.p0(ptr nonnull %3044)
@@ -133018,7 +133018,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %56181
 
 56181:                                            ; preds = %.loopexit22023, %56169
-  %.pn9722.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9722.pn.pn.pn23697, %.loopexit22023 ], [ %56170, %56169 ]
+  %.pn9722.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9722.pn.pn.pn27304, %.loopexit22023 ], [ %56170, %56169 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3038) #22
   br label %56182
 
@@ -133044,7 +133044,7 @@ _ZN4cvc58internal8RationalD2Ev.exit21291:         ; preds = %_ZN4cvc58internal8R
   br label %56184
 
 56184:                                            ; preds = %56183, %.loopexit22650
-  %.pn9722.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9722.pn.pn.pn.pn.pn.pn.pn.pn, %56183 ], [ %.pn849922765, %.loopexit22650 ]
+  %.pn9722.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9722.pn.pn.pn.pn.pn.pn.pn.pn, %56183 ], [ %.pn849926372, %.loopexit22650 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1318)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1316) #22
   br label %56185

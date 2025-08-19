@@ -615,9 +615,9 @@ qunique.exit.i:                                   ; preds = %177
   br label %TidListEval.exit
 
 TidListEval.exit:                                 ; preds = %.lr.ph101.i, %list_length.exit.i, %.critedge.i, %qunique.exit.i
-  %.068.lcssa114.i = phi ptr [ %.1.i, %qunique.exit.i ], [ %.1.i, %.critedge.i ], [ %43, %list_length.exit.i ], [ %43, %.lr.ph101.i ]
+  %.068.lcssa120.i = phi ptr [ %.1.i, %qunique.exit.i ], [ %.1.i, %.critedge.i ], [ %43, %list_length.exit.i ], [ %43, %.lr.ph101.i ]
   %.784.i = phi i32 [ %180, %qunique.exit.i ], [ %.178.i, %.critedge.i ], [ 0, %list_length.exit.i ], [ 0, %.lr.ph101.i ]
-  store ptr %.068.lcssa114.i, ptr %18, align 8
+  store ptr %.068.lcssa120.i, ptr %18, align 8
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 236
   store i32 %.784.i, ptr %181, align 4
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -626,7 +626,7 @@ TidListEval.exit:                                 ; preds = %.lr.ph101.i, %list_
 
 183:                                              ; preds = %._crit_edge, %TidListEval.exit
   %184 = phi i32 [ %.784.i, %TidListEval.exit ], [ %.pre, %._crit_edge ]
-  %185 = phi ptr [ %.068.lcssa114.i, %TidListEval.exit ], [ %19, %._crit_edge ]
+  %185 = phi ptr [ %.068.lcssa120.i, %TidListEval.exit ], [ %19, %._crit_edge ]
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %187 = load ptr, ptr %186, align 8
   %188 = icmp eq i32 %11, -1

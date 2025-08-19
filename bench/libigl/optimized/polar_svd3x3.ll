@@ -885,7 +885,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal21dense_assignment_loopINS
   br i1 %29, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEEENS2_INS_7ProductINS_5BlockINS3_IfLi12ELi3ELi0ELi12ELi3EEELin1ELin1ELb0EEENS_9TransposeIKS9_EELi1EEEEENS0_9assign_opIffEELi1EE23assignCoeffByOuterInnerEll.exit.us.preheader, label %.lr.ph.split
 
 _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEEENS2_INS_7ProductINS_5BlockINS3_IfLi12ELi3ELi0ELi12ELi3EEELin1ELin1ELb0EEENS_9TransposeIKS9_EELi1EEEEENS0_9assign_opIffEELi1EE23assignCoeffByOuterInnerEll.exit.us.preheader: ; preds = %.lr.ph
-  %31 = shl nuw i64 %.03161, 2
+  %31 = shl nuw nsw i64 %.03161, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %invariant.gep, i8 0, i64 %31, i1 false), !tbaa !31
   br label %.preheader46
 
@@ -2720,8 +2720,8 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal11gebp_kernelIfflNS0_16bla
 
 .preheader690:                                    ; preds = %._crit_edge734.us, %161
   %457 = icmp sgt i64 %19, %.0237790
-  %or.cond952 = select i1 %46, i1 %457, i1 false
-  br i1 %or.cond952, label %.preheader688.lr.ph.split.us, label %.loopexit691
+  %or.cond976 = select i1 %46, i1 %457, i1 false
+  br i1 %or.cond976, label %.preheader688.lr.ph.split.us, label %.loopexit691
 
 .preheader688.lr.ph.split.us:                     ; preds = %.preheader690
   br i1 %43, label %.preheader688.us.us, label %.preheader688.lr.ph.split.us.split

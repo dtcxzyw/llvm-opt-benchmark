@@ -211,12 +211,12 @@ define internal void @_ZL10init_mergePK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr 
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.012, label %.sink.split50, label %45
+  br i1 %.012, label %.sink.split51, label %45
 
 .sink.split:                                      ; preds = %.thread, %.thread37
   %.pn26.pn36.ph = phi { ptr, i32 } [ %21, %.thread37 ], [ %20, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.sink.split50
+  br label %.sink.split51
 
 24:                                               ; preds = %4
   %25 = icmp eq i32 %12, 0
@@ -267,13 +267,13 @@ define internal void @_ZL10init_mergePK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr 
 .thread40:                                        ; preds = %34
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split49
+  br label %.sink.split50
 
 .thread44:                                        ; preds = %36
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #17
-  br label %.sink.split49
+  br label %.sink.split50
 
 42:                                               ; preds = %37, %39
   %.0 = phi i1 [ false, %39 ], [ true, %37 ]
@@ -284,24 +284,24 @@ define internal void @_ZL10init_mergePK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr 
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %.0, label %.sink.split50, label %45
+  br i1 %.0, label %.sink.split51, label %45
 
-.sink.split49:                                    ; preds = %.thread40, %.thread44
+.sink.split50:                                    ; preds = %.thread40, %.thread44
   %.pn.pn43.ph = phi { ptr, i32 } [ %41, %.thread44 ], [ %40, %.thread40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.sink.split50
+  br label %.sink.split51
 
 44:                                               ; preds = %._crit_edge
   ret void
 
-.sink.split50:                                    ; preds = %42, %.sink.split49, %22, %.sink.split
-  %.sink = phi ptr [ %15, %.sink.split ], [ %15, %22 ], [ %35, %.sink.split49 ], [ %35, %42 ]
-  %.pn26.pn.pn.ph = phi { ptr, i32 } [ %.pn26.pn36.ph, %.sink.split ], [ %23, %22 ], [ %.pn.pn43.ph, %.sink.split49 ], [ %43, %42 ]
+.sink.split51:                                    ; preds = %42, %.sink.split50, %22, %.sink.split
+  %.sink = phi ptr [ %15, %.sink.split ], [ %15, %22 ], [ %35, %.sink.split50 ], [ %35, %42 ]
+  %.pn26.pn.pn.ph = phi { ptr, i32 } [ %.pn26.pn36.ph, %.sink.split ], [ %23, %22 ], [ %.pn.pn43.ph, %.sink.split50 ], [ %43, %42 ]
   call void @__cxa_free_exception(ptr %.sink) #17
   br label %45
 
-45:                                               ; preds = %.sink.split50, %42, %22
-  %.pn26.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %43, %42 ], [ %.pn26.pn.pn.ph, %.sink.split50 ]
+45:                                               ; preds = %.sink.split51, %42, %22
+  %.pn26.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %43, %42 ], [ %.pn26.pn.pn.ph, %.sink.split51 ]
   resume { ptr, i32 } %.pn26.pn.pn
 
 46:                                               ; preds = %39, %19

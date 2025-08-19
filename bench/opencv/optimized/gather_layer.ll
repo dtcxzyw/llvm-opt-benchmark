@@ -823,7 +823,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15GatherLayerImpl7forwardERKNS_11_Inp
   %85 = load i32, ptr %82, align 8, !tbaa !57
   %86 = and i32 %85, 4095
   %87 = icmp eq i32 %84, %86
-  br i1 %87, label %97, label %.invoke162
+  br i1 %87, label %97, label %.invoke184
 
 88:                                               ; preds = %75
   %89 = landingpad { ptr, i32 }
@@ -846,7 +846,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15GatherLayerImpl7forwardERKNS_11_Inp
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.body
 
-95:                                               ; preds = %.invoke162
+95:                                               ; preds = %.invoke184
   %96 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -855,16 +855,16 @@ define linkonce_odr hidden void @_ZN2cv3dnn15GatherLayerImpl7forwardERKNS_11_Inp
   %98 = load i32, ptr %8, align 8, !tbaa !57
   %99 = and i32 %98, 4095
   %100 = icmp eq i32 %99, 4
-  br i1 %100, label %104, label %.invoke162
+  br i1 %100, label %104, label %.invoke184
 
-.invoke162:                                       ; preds = %97, %81
+.invoke184:                                       ; preds = %97, %81
   %101 = phi i32 [ %84, %81 ], [ %99, %97 ]
   %102 = phi i32 [ %86, %81 ], [ 4, %97 ]
   %103 = phi ptr [ @_ZZN2cv3dnn15GatherLayerImpl7forwardERKNS_11_InputArrayERKNS_12_OutputArrayES7_E14__cv_check__80, %81 ], [ @_ZZN2cv3dnn15GatherLayerImpl7forwardERKNS_11_InputArrayERKNS_12_OutputArrayES7_E14__cv_check__81, %97 ]
   invoke void @_ZN2cv6detail20check_failed_MatTypeEiiRKNS0_12CheckContextE(i32 noundef %101, i32 noundef %102, ptr noundef nonnull align 8 dereferenceable(48) %103) #25
-          to label %.cont163 unwind label %95
+          to label %.cont185 unwind label %95
 
-.cont163:                                         ; preds = %.invoke162
+.cont185:                                         ; preds = %.invoke184
   unreachable
 
 104:                                              ; preds = %97

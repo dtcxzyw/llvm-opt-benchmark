@@ -2783,9 +2783,9 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %43, label %50, label %.thread.i.i.thread
 
 .thread.i.i.thread:                               ; preds = %29, %31, %.thread.i.i
-  %.sroa.67.057.i.i33 = phi i64 [ %.sroa.67.057.i.i, %.thread.i.i ], [ %..i.i.i, %29 ], [ 1, %31 ]
-  %44 = shl nuw i64 %.sroa.67.057.i.i33, 5
-  %45 = add nuw nsw i64 %.sroa.67.057.i.i33, 16
+  %.sroa.67.057.i.i42 = phi i64 [ %.sroa.67.057.i.i, %.thread.i.i ], [ %..i.i.i, %29 ], [ 1, %31 ]
+  %44 = shl nuw i64 %.sroa.67.057.i.i42, 5
+  %45 = add nuw nsw i64 %.sroa.67.057.i.i42, 16
   %46 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %44, i64 %45)
   %47 = extractvalue { i64, i1 } %46, 1
   %48 = extractvalue { i64, i1 } %46, 0
@@ -2816,9 +2816,9 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb6e79ba0f31224c4E.llvm.44
 "_ZN9hashbrown3raw22RawTableInner$LT$A$GT$14prepare_resize17h67ee784a17734616E.exit": ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb6e79ba0f31224c4E.llvm.4496275211649392194.exit.i.i.i
   %56 = getelementptr inbounds i8, ptr %.fca.0.extract.i.i.i.i, i64 %44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %56, i8 -1, i64 %45, i1 false), !noalias !611
-  %57 = add nsw i64 %.sroa.67.057.i.i33, -1
+  %57 = add nsw i64 %.sroa.67.057.i.i42, -1
   %58 = icmp ult i64 %57, 8
-  %59 = lshr i64 %.sroa.67.057.i.i33, 3
+  %59 = lshr i64 %.sroa.67.057.i.i42, 3
   %60 = mul nuw nsw i64 %59, 7
   %.0.i.i.i = select i1 %58, i64 %57, i64 %60
   %61 = sub i64 %.0.i.i.i, %9
@@ -2827,10 +2827,10 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb6e79ba0f31224c4E.llvm.44
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$14prepare_resize17h67ee784a17734616E.exit"
-  %.sroa.5.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %56, ptr %0, align 8, !alias.scope !624, !noalias !627
   store i64 %57, ptr %16, align 8, !alias.scope !624, !noalias !627
-  store i64 %61, ptr %.sroa.5.0..sroa_idx34, align 8, !alias.scope !624, !noalias !627
+  store i64 %61, ptr %.sroa.5.0..sroa_idx43, align 8, !alias.scope !624, !noalias !627
   store i64 %9, ptr %8, align 8, !alias.scope !624, !noalias !627
   br label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$15allocation_info17h79aa096fc1dffb55E.llvm.4496275211649392194.exit.i.i.i"
 
@@ -3890,9 +3890,9 @@ define internal fastcc void @"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$15rehash_
   %.val19 = load i64, ptr %6, align 8, !noundef !4
   %7 = add i64 %.val19, 1
   %.not.not4.i = icmp eq i64 %7, 0
-  br i1 %.not.not4.i, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17hae99cc9f5ff4af58E.exit.thread20", label %.lr.ph.i
+  br i1 %.not.not4.i, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17hae99cc9f5ff4af58E.exit.thread24", label %.lr.ph.i
 
-"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17hae99cc9f5ff4af58E.exit.thread20": ; preds = %4
+"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17hae99cc9f5ff4af58E.exit.thread24": ; preds = %4
   %8 = icmp ne ptr %.val18, null
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds nuw i8, ptr %.val18, i64 16
@@ -3912,9 +3912,9 @@ define internal fastcc void @"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$15rehash_
 
 ._crit_edge.i:                                    ; preds = %17
   %spec.select = tail call i64 @llvm.umax.i64(i64 %7, i64 16)
-  %spec.select28 = tail call i64 @llvm.umin.i64(i64 %7, i64 16)
+  %spec.select32 = tail call i64 @llvm.umin.i64(i64 %7, i64 16)
   %14 = getelementptr inbounds i8, ptr %.val18, i64 %spec.select
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull align 1 %.val18, i64 %spec.select28, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull align 1 %.val18, i64 %spec.select32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %15, align 8
@@ -3950,9 +3950,9 @@ define internal fastcc void @"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$15rehash_
   %27 = mul nuw i64 %26, 7
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17hae99cc9f5ff4af58E.exit.thread20", %._crit_edge.loopexit
-  %.pre-phi = phi i64 [ %27, %._crit_edge.loopexit ], [ 0, %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17hae99cc9f5ff4af58E.exit.thread20" ]
-  %28 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ -1, %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17hae99cc9f5ff4af58E.exit.thread20" ]
+._crit_edge:                                      ; preds = %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17hae99cc9f5ff4af58E.exit.thread24", %._crit_edge.loopexit
+  %.pre-phi = phi i64 [ %27, %._crit_edge.loopexit ], [ 0, %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17hae99cc9f5ff4af58E.exit.thread24" ]
+  %28 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ -1, %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17hae99cc9f5ff4af58E.exit.thread24" ]
   %29 = icmp ult i64 %28, 8
   %.0 = select i1 %29, i64 %28, i64 %.pre-phi
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24

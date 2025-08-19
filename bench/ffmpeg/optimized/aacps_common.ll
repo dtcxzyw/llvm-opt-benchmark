@@ -588,8 +588,8 @@ read_iid_data.exit:                               ; preds = %get_vlc2.exit.i, %g
 .lr.ph.i259:                                      ; preds = %356
   %.not45.i = icmp eq i64 %indvars.iv458, 0
   %357 = trunc nuw nsw i64 %indvars.iv458 to i32
-  %spec.select501 = select i1 %.not45.i, i32 %114, i32 %357
-  %358 = tail call i32 @llvm.smax.i32(i32 %spec.select501, i32 1)
+  %spec.select513 = select i1 %.not45.i, i32 %114, i32 %357
+  %358 = tail call i32 @llvm.smax.i32(i32 %spec.select513, i32 1)
   %359 = zext nneg i32 %358 to i64
   %360 = getelementptr [34 x i8], ptr %337, i64 %359
   %361 = getelementptr i8, ptr %360, i64 -34
@@ -754,9 +754,9 @@ read_icc_data.exit:                               ; preds = %get_vlc2.exit.i262,
   %465 = add i32 %.sroa.28303.8, 4
   %466 = tail call i32 @llvm.umin.i32(i32 %.sroa.83328.0.copyload, i32 %465)
   %467 = icmp eq i32 %464, 15
-  br i1 %467, label %.thread476, label %480
+  br i1 %467, label %.thread488, label %480
 
-.thread476:                                       ; preds = %456
+.thread488:                                       ; preds = %456
   %468 = lshr i32 %466, 3
   %469 = zext nneg i32 %468 to i64
   %470 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %469
@@ -776,9 +776,9 @@ read_icc_data.exit:                               ; preds = %get_vlc2.exit.i262,
   %.not430 = icmp ult i32 %463, 268435456
   br i1 %.not430, label %.thread364, label %.lr.ph423
 
-.lr.ph423:                                        ; preds = %.thread476, %480
-  %482 = phi i32 [ %479, %.thread476 ], [ %481, %480 ]
-  %.sroa.28303.10480 = phi i32 [ %476, %.thread476 ], [ %466, %480 ]
+.lr.ph423:                                        ; preds = %.thread488, %480
+  %482 = phi i32 [ %479, %.thread488 ], [ %481, %480 ]
+  %.sroa.28303.10492 = phi i32 [ %476, %.thread488 ], [ %466, %480 ]
   %483 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %484 = getelementptr inbounds nuw i8, ptr %2, i64 416
   %485 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -789,7 +789,7 @@ read_icc_data.exit:                               ; preds = %get_vlc2.exit.i262,
 
 488:                                              ; preds = %.lr.ph423, %ps_read_extension_data.exit
   %.1196422 = phi i32 [ %482, %.lr.ph423 ], [ %646, %ps_read_extension_data.exit ]
-  %.sroa.28303.11421 = phi i32 [ %.sroa.28303.10480, %.lr.ph423 ], [ %.sroa.28303.28, %ps_read_extension_data.exit ]
+  %.sroa.28303.11421 = phi i32 [ %.sroa.28303.10492, %.lr.ph423 ], [ %.sroa.28303.28, %ps_read_extension_data.exit ]
   %489 = lshr i32 %.sroa.28303.11421, 3
   %490 = zext nneg i32 %489 to i64
   %491 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %490
@@ -859,8 +859,8 @@ read_icc_data.exit:                               ; preds = %get_vlc2.exit.i262,
 .lr.ph.i.i:                                       ; preds = %527
   %.not34.i.i = icmp eq i64 %indvars.iv.i273, 0
   %528 = trunc nuw nsw i64 %indvars.iv.i273 to i32
-  %spec.select503 = select i1 %.not34.i.i, i32 %114, i32 %528
-  %529 = tail call i32 @llvm.smax.i32(i32 %spec.select503, i32 1)
+  %spec.select515 = select i1 %.not34.i.i, i32 %114, i32 %528
+  %529 = tail call i32 @llvm.smax.i32(i32 %spec.select515, i32 1)
   %530 = zext nneg i32 %529 to i64
   %531 = getelementptr [34 x i8], ptr %484, i64 %530
   %532 = getelementptr i8, ptr %531, i64 -34
@@ -958,8 +958,8 @@ read_ipdopd_data.exit.i:                          ; preds = %534, %557, %527, %.
 .lr.ph.i35.i:                                     ; preds = %592
   %.not34.i33.i = icmp eq i64 %indvars.iv.i273, 0
   %593 = trunc nuw nsw i64 %indvars.iv.i273 to i32
-  %spec.select504 = select i1 %.not34.i33.i, i32 %114, i32 %593
-  %594 = tail call i32 @llvm.smax.i32(i32 %spec.select504, i32 1)
+  %spec.select516 = select i1 %.not34.i33.i, i32 %114, i32 %593
+  %594 = tail call i32 @llvm.smax.i32(i32 %spec.select516, i32 1)
   %595 = zext nneg i32 %594 to i64
   %596 = getelementptr [34 x i8], ptr %486, i64 %595
   %597 = getelementptr i8, ptr %596, i64 -34
@@ -1051,9 +1051,9 @@ ps_read_extension_data.exit:                      ; preds = %488, %.loopexit.i
   br i1 %648, label %651, label %.thread364
 
 .thread364:                                       ; preds = %480, %._crit_edge
-  %.1196.lcssa484 = phi i32 [ %646, %._crit_edge ], [ 0, %480 ]
-  %.sroa.28303.11.lcssa483 = phi i32 [ %.sroa.28303.28, %._crit_edge ], [ %466, %480 ]
-  %649 = add i32 %.1196.lcssa484, %.sroa.28303.11.lcssa483
+  %.1196.lcssa496 = phi i32 [ %646, %._crit_edge ], [ 0, %480 ]
+  %.sroa.28303.11.lcssa495 = phi i32 [ %.sroa.28303.28, %._crit_edge ], [ %466, %480 ]
+  %649 = add i32 %.1196.lcssa496, %.sroa.28303.11.lcssa495
   %650 = tail call i32 @llvm.umin.i32(i32 %.sroa.83328.0.copyload, i32 %649)
   br label %652
 

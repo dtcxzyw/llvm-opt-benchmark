@@ -834,13 +834,13 @@ common.resume.i.i.i:                              ; preds = %142, %139
 .noexc34.invoke.sink.split:                       ; preds = %138, %141, %110
   %.sink = phi ptr [ %105, %110 ], [ %133, %141 ], [ %133, %138 ]
   %.ph = phi ptr [ @anon.8801f4312e2f8894f33ba1843a3fdad8.120, %110 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.122, %141 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.122, %138 ]
-  %.ph53 = phi ptr [ @anon.8801f4312e2f8894f33ba1843a3fdad8.121, %110 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.123, %141 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.123, %138 ]
+  %.ph57 = phi ptr [ @anon.8801f4312e2f8894f33ba1843a3fdad8.121, %110 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.123, %141 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.123, %138 ]
   call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.sink, i64 noundef 136, i64 noundef 8) #20
   br label %.noexc34.invoke
 
 .noexc34.invoke:                                  ; preds = %.noexc34.invoke.sink.split, %132, %108
   %144 = phi ptr [ @anon.8801f4312e2f8894f33ba1843a3fdad8.120, %108 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.122, %132 ], [ %.ph, %.noexc34.invoke.sink.split ]
-  %145 = phi ptr [ @anon.8801f4312e2f8894f33ba1843a3fdad8.121, %108 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.123, %132 ], [ %.ph53, %.noexc34.invoke.sink.split ]
+  %145 = phi ptr [ @anon.8801f4312e2f8894f33ba1843a3fdad8.121, %108 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.123, %132 ], [ %.ph57, %.noexc34.invoke.sink.split ]
   invoke void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 %144, i64 noundef 54, ptr noalias noundef readonly align 8 dereferenceable(24) %145) #22
           to label %.noexc34.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -3307,16 +3307,16 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState20wr
   %121 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %122 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %123 = load i64, ptr %102, align 8, !noundef !3
-  %.not859863 = icmp eq i64 %123, 0
-  br i1 %.not859863, label %.thread, label %.lr.ph860.lr.ph
+  %.not890894 = icmp eq i64 %123, 0
+  br i1 %.not890894, label %.thread, label %.lr.ph891.lr.ph
 
-.lr.ph860.lr.ph:                                  ; preds = %.lr.ph.lr.ph
+.lr.ph891.lr.ph:                                  ; preds = %.lr.ph.lr.ph
   %.promoted = load i64, ptr %122, align 8
-  br label %.lr.ph860
+  br label %.lr.ph891
 
-.lr.ph860:                                        ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h3963a0157a2ea48aE.exit", %.lr.ph860.lr.ph
-  %124 = phi i64 [ %123, %.lr.ph860.lr.ph ], [ %790, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h3963a0157a2ea48aE.exit" ]
-  %125 = phi i64 [ %.promoted, %.lr.ph860.lr.ph ], [ %785, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h3963a0157a2ea48aE.exit" ]
+.lr.ph891:                                        ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h3963a0157a2ea48aE.exit", %.lr.ph891.lr.ph
+  %124 = phi i64 [ %123, %.lr.ph891.lr.ph ], [ %790, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h3963a0157a2ea48aE.exit" ]
+  %125 = phi i64 [ %.promoted, %.lr.ph891.lr.ph ], [ %785, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h3963a0157a2ea48aE.exit" ]
   br label %147
 
 .thread:                                          ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h3963a0157a2ea48aE.exit", %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17ha1f76031d9475efaE.exit.thread", %.lr.ph.lr.ph, %6
@@ -3372,11 +3372,11 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState20wr
   %.promoted783 = load i64, ptr %145, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %81)
   %146 = load i64, ptr %129, align 8, !noundef !3
-  %.not529865 = icmp eq i64 %146, 0
-  br i1 %.not529865, label %._crit_edge, label %.lr.ph866
+  %.not529896 = icmp eq i64 %146, 0
+  br i1 %.not529896, label %._crit_edge, label %.lr.ph897
 
-147:                                              ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17ha1f76031d9475efaE.exit.thread", %.lr.ph860
-  %148 = phi i64 [ %124, %.lr.ph860 ], [ %713, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17ha1f76031d9475efaE.exit.thread" ]
+147:                                              ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17ha1f76031d9475efaE.exit.thread", %.lr.ph891
+  %148 = phi i64 [ %124, %.lr.ph891 ], [ %713, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17ha1f76031d9475efaE.exit.thread" ]
   %149 = add nsw i64 %148, -1
   store i64 %149, ptr %102, align 8
   %150 = load i64, ptr %2, align 8, !range !20, !noundef !3
@@ -3451,10 +3451,10 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState20wr
   call void @llvm.lifetime.start.p0(ptr nonnull %81)
   %188 = load i64, ptr %129, align 8, !noundef !3
   %.not529 = icmp eq i64 %188, 0
-  br i1 %.not529, label %._crit_edge, label %.lr.ph866
+  br i1 %.not529, label %._crit_edge, label %.lr.ph897
 
 .loopexit755:                                     ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h512b6c1986f935fdE.exit", %.thread, %._crit_edge
-  %189 = phi i64 [ %.lcssa847, %._crit_edge ], [ %126, %.thread ], [ %676, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h512b6c1986f935fdE.exit" ]
+  %189 = phi i64 [ %.lcssa878, %._crit_edge ], [ %126, %.thread ], [ %676, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h512b6c1986f935fdE.exit" ]
   %190 = getelementptr inbounds nuw i8, ptr %2, i64 186
   %191 = load i8, ptr %190, align 2, !range !25, !noundef !3
   %192 = trunc nuw i8 %191 to i1
@@ -3463,7 +3463,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState20wr
   %or.cond = select i1 %192, i1 %194, i1 false
   br i1 %or.cond, label %233, label %207
 
-.lr.ph866:                                        ; preds = %.lr.ph782, %187
+.lr.ph897:                                        ; preds = %.lr.ph782, %187
   %195 = phi i64 [ %188, %187 ], [ %146, %.lr.ph782 ]
   %196 = phi i64 [ %675, %187 ], [ %.promoted783, %.lr.ph782 ]
   %197 = add nsw i64 %195, -1
@@ -3485,7 +3485,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState20wr
   br i1 %.not562, label %.critedge598, label %610
 
 ._crit_edge:                                      ; preds = %187, %.lr.ph782
-  %.lcssa847 = phi i64 [ %126, %.lr.ph782 ], [ %676, %187 ]
+  %.lcssa878 = phi i64 [ %126, %.lr.ph782 ], [ %676, %187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   br label %.loopexit755
 
@@ -4585,7 +4585,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState20wr
   call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.8801f4312e2f8894f33ba1843a3fdad8.33, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8801f4312e2f8894f33ba1843a3fdad8.70) #22
   unreachable
 
-610:                                              ; preds = %.lr.ph866
+610:                                              ; preds = %.lr.ph897
   %611 = icmp ult i64 %206, 5
   call void @llvm.assume(i1 %611)
   %612 = icmp eq i64 %206, 0
@@ -4626,7 +4626,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState20wr
   %.not563 = icmp eq i64 %625, 0
   br i1 %.not563, label %681, label %680
 
-.critedge598:                                     ; preds = %613, %.lr.ph866, %615, %.thread709, %610
+.critedge598:                                     ; preds = %613, %.lr.ph897, %615, %.thread709, %610
   %630 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h4bd33b52b8179ae2E monotonic, align 1
   %631 = icmp eq i8 %630, 0
   br i1 %631, label %632, label %662
@@ -4862,8 +4862,8 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState20wr
   %712 = icmp uge i64 %711, %5
   %713 = load i64, ptr %102, align 8
   %.not = icmp eq i64 %713, 0
-  %or.cond869 = select i1 %712, i1 true, i1 %.not
-  br i1 %or.cond869, label %.thread, label %147
+  %or.cond900 = select i1 %712, i1 true, i1 %.not
+  br i1 %or.cond900, label %.thread, label %147
 
 714:                                              ; preds = %706
   %715 = icmp ult i64 %708, 5
@@ -5051,9 +5051,9 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState20wr
   %788 = add nuw i64 %786, 25
   %789 = icmp uge i64 %788, %5
   %790 = load i64, ptr %102, align 8
-  %.not859 = icmp eq i64 %790, 0
-  %or.cond868 = select i1 %789, i1 true, i1 %.not859
-  br i1 %or.cond868, label %.thread, label %.lr.ph860
+  %.not890 = icmp eq i64 %790, 0
+  %or.cond899 = select i1 %789, i1 true, i1 %.not890
+  br i1 %or.cond899, label %.thread, label %.lr.ph891
 
 791:                                              ; preds = %724
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.616.0..sroa_idx17, ptr noundef nonnull align 8 dereferenceable(24) %728, i64 24, i1 false)

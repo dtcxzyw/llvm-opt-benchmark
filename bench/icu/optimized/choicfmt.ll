@@ -987,22 +987,22 @@ define noundef range(i32 -2147483646, -2147483648) i32 @_ZN6icu_7712ChoiceFormat
   %18 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %8, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !45
   %20 = icmp eq i32 %19, 6
-  br i1 %20, label %.thread, label %.lr.ph41
+  br i1 %20, label %.thread, label %.lr.ph44
 
 21:                                               ; preds = %51
   %22 = sext i32 %55 to i64
   %23 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %30, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !45
   %25 = icmp eq i32 %24, 6
-  br i1 %25, label %.thread, label %.lr.ph41
+  br i1 %25, label %.thread, label %.lr.ph44
 
-.lr.ph41:                                         ; preds = %.lr.ph, %21
+.lr.ph44:                                         ; preds = %.lr.ph, %21
   %26 = phi ptr [ %23, %21 ], [ %18, %.lr.ph ]
-  %.03240 = phi i32 [ %29, %21 ], [ %6, %.lr.ph ]
-  %..i3339 = phi i32 [ %..i, %21 ], [ %..i30, %.lr.ph ]
-  %27 = add nsw i32 %..i3339, 2
+  %.03243 = phi i32 [ %29, %21 ], [ %6, %.lr.ph ]
+  %..i3342 = phi i32 [ %..i, %21 ], [ %..i30, %.lr.ph ]
+  %27 = add nsw i32 %..i3342, 2
   %28 = tail call noundef double @_ZNK6icu_7714MessagePattern15getNumericValueERKNS0_4PartE(ptr noundef nonnull align 8 dereferenceable(127) %0, ptr noundef nonnull align 4 dereferenceable(16) %26)
-  %29 = add nsw i32 %..i3339, 3
+  %29 = add nsw i32 %..i3342, 3
   %30 = load ptr, ptr %7, align 8, !tbaa !40
   %31 = sext i32 %27 to i64
   %32 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %30, i64 %31, i32 1
@@ -1016,7 +1016,7 @@ define noundef range(i32 -2147483646, -2147483648) i32 @_ZN6icu_7712ChoiceFormat
   %40 = icmp ult i32 %33, %39
   br i1 %40, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %.lr.ph41
+_ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %.lr.ph44
   %41 = and i16 %34, 2
   %.not.i.i.i = icmp eq i16 %41, 0
   %42 = load ptr, ptr %16, align 8
@@ -1031,7 +1031,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %.lr.ph41
   %49 = fcmp ogt double %2, %28
   br i1 %49, label %51, label %.thread
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit.thread:  ; preds = %.lr.ph41, %_ZNK6icu_7713UnicodeString6charAtEi.exit
+_ZNK6icu_7713UnicodeString6charAtEi.exit.thread:  ; preds = %.lr.ph44, %_ZNK6icu_7713UnicodeString6charAtEi.exit
   %50 = fcmp ult double %2, %28
   br i1 %50, label %.thread, label %51
 
@@ -1045,7 +1045,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.thread:  ; preds = %.lr.ph41, %_ZNK6icu
   br i1 %.not, label %21, label %.thread
 
 .thread:                                          ; preds = %48, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread, %21, %51, %.lr.ph, %3
-  %.0.lcssa = phi i32 [ %6, %3 ], [ %6, %.lr.ph ], [ %29, %51 ], [ %29, %21 ], [ %.03240, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ], [ %.03240, %48 ]
+  %.0.lcssa = phi i32 [ %6, %3 ], [ %6, %.lr.ph ], [ %29, %51 ], [ %29, %21 ], [ %.03243, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ], [ %.03243, %48 ]
   ret i32 %.0.lcssa
 }
 

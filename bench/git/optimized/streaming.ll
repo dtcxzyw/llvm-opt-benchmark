@@ -782,16 +782,16 @@ define internal i64 @read_istream_filtered(ptr noundef %0, ptr noundef writeonly
   %16 = load i32, ptr %8, align 4, !tbaa !78
   %17 = load i32, ptr %9, align 8, !tbaa !79
   %18 = icmp slt i32 %16, %17
-  br i1 %18, label %.outer, label %.lr.ph135
+  br i1 %18, label %.outer, label %.lr.ph141
 
 .outer:                                           ; preds = %.backedge, %.lr.ph
-  %.lcssa125 = phi i32 [ %16, %.lr.ph ], [ %65, %.backedge ]
+  %.lcssa131 = phi i32 [ %16, %.lr.ph ], [ %65, %.backedge ]
   %.lcssa = phi i32 [ %17, %.lr.ph ], [ %66, %.backedge ]
-  %19 = sub nsw i32 %.lcssa, %.lcssa125
+  %19 = sub nsw i32 %.lcssa, %.lcssa131
   %20 = zext nneg i32 %19 to i64
   %spec.select = call i64 @llvm.umin.i64(i64 %.054.ph86, i64 %20)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.051.ph87
-  %22 = sext i32 %.lcssa125 to i64
+  %22 = sext i32 %.lcssa131 to i64
   %23 = getelementptr inbounds i8, ptr %14, i64 %22
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr nonnull align 1 %23, i64 %spec.select, i1 false)
   %24 = load i32, ptr %8, align 4, !tbaa !78
@@ -803,7 +803,7 @@ define internal i64 @read_istream_filtered(ptr noundef %0, ptr noundef writeonly
   %.not = icmp eq i64 %27, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph135:                                        ; preds = %.lr.ph, %.backedge
+.lr.ph141:                                        ; preds = %.lr.ph, %.backedge
   store i32 0, ptr %8, align 4, !tbaa !78
   store i32 0, ptr %9, align 8, !tbaa !79
   %29 = load i32, ptr %10, align 4, !tbaa !80
@@ -811,7 +811,7 @@ define internal i64 @read_istream_filtered(ptr noundef %0, ptr noundef writeonly
   %31 = icmp slt i32 %29, %30
   br i1 %31, label %32, label %47
 
-32:                                               ; preds = %.lr.ph135
+32:                                               ; preds = %.lr.ph141
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %33 = sub nsw i32 %30, %29
   %34 = zext nneg i32 %33 to i64
@@ -839,7 +839,7 @@ define internal i64 @read_istream_filtered(ptr noundef %0, ptr noundef writeonly
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.backedge
 
-47:                                               ; preds = %.lr.ph135
+47:                                               ; preds = %.lr.ph141
   %48 = load i32, ptr %12, align 8, !tbaa !82
   %.not59 = icmp eq i32 %48, 0
   br i1 %.not59, label %56, label %49
@@ -889,7 +889,7 @@ define internal i64 @read_istream_filtered(ptr noundef %0, ptr noundef writeonly
   %65 = load i32, ptr %8, align 4, !tbaa !78
   %66 = load i32, ptr %9, align 8, !tbaa !79
   %67 = icmp slt i32 %65, %66
-  br i1 %67, label %.outer, label %.lr.ph135
+  br i1 %67, label %.outer, label %.lr.ph141
 
 .critedge:                                        ; preds = %32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

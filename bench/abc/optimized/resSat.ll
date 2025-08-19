@@ -884,10 +884,10 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %12 = load ptr, ptr %0, align 8, !tbaa !51
   %.not = icmp eq i32 %2, 0
-  %.116 = select i1 %.not, i64 56, i64 64
-  %.117 = select i1 %.not, i64 80, i64 84
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.116
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %.117
+  %.123 = select i1 %.not, i64 56, i64 64
+  %.124 = select i1 %.not, i64 80, i64 84
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.123
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %.124
   %.0 = load ptr, ptr %13, align 8, !tbaa !54
   %.056 = load i32, ptr %14, align 4, !tbaa !33
   %15 = call ptr @Res_SatSimulateConstr(ptr noundef nonnull %12, i32 noundef %2)
@@ -1036,15 +1036,15 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %84, %86, %76, %78
-  %.sink106 = phi ptr [ %77, %76 ], [ %79, %78 ], [ %85, %84 ], [ %87, %86 ]
-  %.sink105 = phi i32 [ 16, %76 ], [ 16, %78 ], [ %81, %84 ], [ %81, %86 ]
-  store ptr %.sink106, ptr %25, align 8, !tbaa !68
-  store i32 %.sink105, ptr %22, align 8, !tbaa !67
+  %.sink113 = phi ptr [ %77, %76 ], [ %79, %78 ], [ %85, %84 ], [ %87, %86 ]
+  %.sink112 = phi i32 [ 16, %76 ], [ 16, %78 ], [ %81, %84 ], [ %81, %86 ]
+  store ptr %.sink113, ptr %25, align 8, !tbaa !68
+  store i32 %.sink112, ptr %22, align 8, !tbaa !67
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %69
-  %.val7294 = phi ptr [ %.val7295, %69 ], [ %.sink106, %Vec_IntPush.exit.sink.split ]
-  %.pre.i91 = phi ptr [ %47, %69 ], [ %.sink106, %Vec_IntPush.exit.sink.split ]
+  %.val7294 = phi ptr [ %.val7295, %69 ], [ %.sink113, %Vec_IntPush.exit.sink.split ]
+  %.pre.i91 = phi ptr [ %47, %69 ], [ %.sink113, %Vec_IntPush.exit.sink.split ]
   %88 = add nsw i32 %70, 1
   store i32 %88, ptr %23, align 4, !tbaa !66
   %89 = sext i32 %70 to i64

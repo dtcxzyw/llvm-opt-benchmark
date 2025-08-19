@@ -13919,14 +13919,14 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$$u5b$ockam_core..error..inne
 define hidden void @"_ZN4core3ptr69drop_in_place$LT$aws_sdk_kms..operation..list_keys..ListKeysError$GT$17h193586b9e2f97b05E.llvm.9405825265181994393"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(128) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1608, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  switch i64 %2, label %default.unreachable11 [
+  switch i64 %2, label %default.unreachable28 [
     i64 0, label %5
     i64 1, label %27
     i64 2, label %49
     i64 3, label %4
   ]
 
-default.unreachable11:                            ; preds = %1
+default.unreachable28:                            ; preds = %1
   unreachable
 
 4:                                                ; preds = %1
@@ -15336,14 +15336,14 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$aws_smithy_runtime_api..clie
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr71drop_in_place$LT$aws_smithy_types..error..operation..BuildErrorKind$GT$17ha43644efe582f802E.llvm.9405825265181994393"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1608, !noundef !4
-  switch i64 %2, label %default.unreachable1 [
+  switch i64 %2, label %default.unreachable4 [
     i64 0, label %18
     i64 1, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h06424953c9d99f32E.llvm.9405825265181994393.exit"
     i64 2, label %24
     i64 3, label %3
   ]
 
-default.unreachable1:                             ; preds = %1
+default.unreachable4:                             ; preds = %1
   unreachable
 
 3:                                                ; preds = %1

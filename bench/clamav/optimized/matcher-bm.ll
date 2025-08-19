@@ -121,8 +121,8 @@ define i32 @cli_bm_addpatt(ptr noundef captures(none) %0, ptr noundef %1, ptr no
   %64 = zext i8 %63 to i64
   %.idx = mul nuw nsw i64 %61, 296
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
-  %.idx150 = mul nuw nsw i64 %58, 1688
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx150
+  %.idx158 = mul nuw nsw i64 %58, 1688
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx158
   %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %64
   %68 = load ptr, ptr %67, align 8, !tbaa !39
   %.not122 = icmp eq ptr %68, null
@@ -178,27 +178,27 @@ define i32 @cli_bm_addpatt(ptr noundef captures(none) %0, ptr noundef %1, ptr no
   %98 = load i8, ptr %.0105, align 1, !tbaa !38
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 62
   %100 = load i8, ptr %99, align 2, !tbaa !43
-  %.not125157 = icmp ult i8 %98, %100
-  br i1 %.not125157, label %.lr.ph159, label %._crit_edge.thread
+  %.not125165 = icmp ult i8 %98, %100
+  br i1 %.not125165, label %.lr.ph167, label %._crit_edge.thread
 
-101:                                              ; preds = %.lr.ph159
+101:                                              ; preds = %.lr.ph167
   %102 = getelementptr inbounds nuw i8, ptr %105, i64 62
   %103 = load i8, ptr %102, align 2, !tbaa !43
   %.not125 = icmp ult i8 %98, %103
-  br i1 %.not125, label %.lr.ph159, label %.._crit_edge_crit_edge161
+  br i1 %.not125, label %.lr.ph167, label %.._crit_edge_crit_edge169
 
-.lr.ph159:                                        ; preds = %.lr.ph140, %101
-  %.0103139158 = phi ptr [ %105, %101 ], [ %97, %.lr.ph140 ]
-  %104 = getelementptr inbounds nuw i8, ptr %.0103139158, i64 48
+.lr.ph167:                                        ; preds = %.lr.ph140, %101
+  %.0103139166 = phi ptr [ %105, %101 ], [ %97, %.lr.ph140 ]
+  %104 = getelementptr inbounds nuw i8, ptr %.0103139166, i64 48
   %105 = load ptr, ptr %104, align 8, !tbaa !44
   %.not124 = icmp eq ptr %105, null
   br i1 %.not124, label %.critedge, label %101
 
-.._crit_edge_crit_edge161:                        ; preds = %101
+.._crit_edge_crit_edge169:                        ; preds = %101
   %106 = icmp eq ptr %105, %97
   br i1 %106, label %._crit_edge.thread, label %.critedge
 
-._crit_edge.thread:                               ; preds = %.lr.ph140, %.loopexit, %.._crit_edge_crit_edge161
+._crit_edge.thread:                               ; preds = %.lr.ph140, %.loopexit, %.._crit_edge_crit_edge169
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %97, ptr %107, align 8, !tbaa !44
   %108 = load ptr, ptr %96, align 8, !tbaa !39
@@ -216,8 +216,8 @@ define i32 @cli_bm_addpatt(ptr noundef captures(none) %0, ptr noundef %1, ptr no
   store ptr %1, ptr %96, align 8, !tbaa !39
   br label %117
 
-.critedge:                                        ; preds = %.lr.ph159, %.._crit_edge_crit_edge161
-  %114 = getelementptr inbounds nuw i8, ptr %.0103139158, i64 48
+.critedge:                                        ; preds = %.lr.ph167, %.._crit_edge_crit_edge169
+  %114 = getelementptr inbounds nuw i8, ptr %.0103139166, i64 48
   %115 = load ptr, ptr %114, align 8, !tbaa !44
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %115, ptr %116, align 8, !tbaa !44
@@ -506,9 +506,9 @@ define i32 @cli_bm_initoff(ptr noundef readonly captures(none) %0, ptr noundef c
   br i1 %.not71, label %.sink.split, label %90
 
 .sink.split:                                      ; preds = %80, %28
-  %.sink88 = phi i32 [ %39, %28 ], [ %84, %80 ]
+  %.sink96 = phi i32 [ %39, %28 ], [ %84, %80 ]
   %.ph = phi ptr [ %21, %28 ], [ %58, %80 ]
-  %89 = add i32 %.sink88, 1
+  %89 = add i32 %.sink96, 1
   store i32 %89, ptr %6, align 8, !tbaa !51
   br label %90
 
@@ -1003,8 +1003,8 @@ define i32 @cli_bm_scanbuff(ptr noundef readonly captures(none) %0, i32 noundef 
   %.not263 = icmp eq i32 %.1210.lcssa, %1
   %or.cond282 = select i1 %.not262, i1 true, i1 %.not263
   %190 = icmp eq i32 %172, %.0205.lcssa
-  %or.cond471 = select i1 %or.cond282, i1 %190, i1 false
-  br i1 %or.cond471, label %191, label %.backedge
+  %or.cond497 = select i1 %or.cond282, i1 %190, i1 false
+  br i1 %or.cond497, label %191, label %.backedge
 
 191:                                              ; preds = %.critedge281
   br i1 %.not246, label %192, label %216

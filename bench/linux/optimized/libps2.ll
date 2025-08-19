@@ -830,7 +830,7 @@ define dso_local noundef i32 @ps2_interrupt(ptr noundef readonly captures(none) 
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %57 = load i8, ptr %56, align 8
   %58 = icmp eq i8 %57, 0
-  br i1 %58, label %.thread17, label %59
+  br i1 %58, label %.thread19, label %59
 
 59:                                               ; preds = %53
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 72
@@ -844,12 +844,12 @@ define dso_local noundef i32 @ps2_interrupt(ptr noundef readonly captures(none) 
   %65 = icmp eq i64 %64, 0
   br i1 %65, label %75, label %69
 
-.thread17:                                        ; preds = %53
+.thread19:                                        ; preds = %53
   %66 = and i64 %25, 4
   %67 = icmp eq i64 %66, 0
-  br i1 %67, label %..thread4_crit_edge, label %.thread20
+  br i1 %67, label %..thread4_crit_edge, label %.thread22
 
-.thread20:                                        ; preds = %.thread17
+.thread22:                                        ; preds = %.thread19
   %68 = and i64 %25, -22
   br label %.thread4
 
@@ -870,12 +870,12 @@ define dso_local noundef i32 @ps2_interrupt(ptr noundef readonly captures(none) 
   %76 = icmp eq i8 %.pr, 0
   br i1 %76, label %..thread4_crit_edge, label %116
 
-..thread4_crit_edge:                              ; preds = %.thread17, %75
+..thread4_crit_edge:                              ; preds = %.thread19, %75
   %.pre = load i64, ptr %24, align 8
   br label %.thread4
 
-.thread4:                                         ; preds = %.thread20, %..thread4_crit_edge, %69
-  %77 = phi i64 [ %.pre, %..thread4_crit_edge ], [ %70, %69 ], [ %68, %.thread20 ]
+.thread4:                                         ; preds = %.thread22, %..thread4_crit_edge, %69
+  %77 = phi i64 [ %.pre, %..thread4_crit_edge ], [ %70, %69 ], [ %68, %.thread22 ]
   %78 = and i64 %77, -3
   store i64 %78, ptr %24, align 8
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -898,7 +898,7 @@ define dso_local noundef i32 @ps2_interrupt(ptr noundef readonly captures(none) 
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %89 = load i8, ptr %88, align 8
   %90 = icmp eq i8 %89, 0
-  br i1 %90, label %.thread24, label %91
+  br i1 %90, label %.thread26, label %91
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 72
@@ -912,12 +912,12 @@ define dso_local noundef i32 @ps2_interrupt(ptr noundef readonly captures(none) 
   %97 = icmp eq i64 %96, 0
   br i1 %97, label %107, label %101
 
-.thread24:                                        ; preds = %87
+.thread26:                                        ; preds = %87
   %98 = and i64 %25, 4
   %99 = icmp eq i64 %98, 0
-  br i1 %99, label %..thread7_crit_edge, label %.thread27
+  br i1 %99, label %..thread7_crit_edge, label %.thread29
 
-.thread27:                                        ; preds = %.thread24
+.thread29:                                        ; preds = %.thread26
   %100 = and i64 %25, -6
   br label %.thread7
 
@@ -938,12 +938,12 @@ define dso_local noundef i32 @ps2_interrupt(ptr noundef readonly captures(none) 
   %108 = icmp eq i8 %.pr6, 0
   br i1 %108, label %..thread7_crit_edge, label %116
 
-..thread7_crit_edge:                              ; preds = %.thread24, %107
+..thread7_crit_edge:                              ; preds = %.thread26, %107
   %.pre13 = load i64, ptr %24, align 8
   br label %.thread7
 
-.thread7:                                         ; preds = %.thread27, %..thread7_crit_edge, %101
-  %109 = phi i64 [ %.pre13, %..thread7_crit_edge ], [ %102, %101 ], [ %100, %.thread27 ]
+.thread7:                                         ; preds = %.thread29, %..thread7_crit_edge, %101
+  %109 = phi i64 [ %.pre13, %..thread7_crit_edge ], [ %102, %101 ], [ %100, %.thread29 ]
   %110 = and i64 %109, -3
   store i64 %110, ptr %24, align 8
   %111 = getelementptr inbounds nuw i8, ptr %5, i64 40

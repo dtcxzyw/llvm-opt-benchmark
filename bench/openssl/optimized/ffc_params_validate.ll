@@ -321,10 +321,10 @@ define i32 @ossl_ffc_params_full_validate(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not36, label %53, label %.sink.split
 
 .sink.split:                                      ; preds = %50, %46
-  %.sink42 = phi i32 [ 172, %46 ], [ 178, %50 ]
+  %.sink46 = phi i32 [ 172, %46 ], [ 178, %50 ]
   %.sink = phi i32 [ 113, %46 ], [ 115, %50 ]
   call void @ERR_new() #4
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink42, ptr noundef nonnull @__func__.ossl_ffc_params_full_validate) #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink46, ptr noundef nonnull @__func__.ossl_ffc_params_full_validate) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 10, i32 noundef %.sink, ptr noundef null) #4
   br label %53
 

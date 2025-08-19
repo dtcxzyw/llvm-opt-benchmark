@@ -1324,13 +1324,13 @@ X11SD_ClipToRoot.exit.thread.i:                   ; preds = %194, %171, %164, %1
   br label %X11SD_DisposeOrCacheXImage.exit.thread11.sink.split.i
 
 X11SD_DisposeOrCacheXImage.exit.thread11.sink.split.i: ; preds = %._crit_edge.i, %214, %X11SD_ClipToRoot.exit.thread.i, %155, %137
-  %.sink26.i = phi ptr [ %139, %137 ], [ %144, %X11SD_ClipToRoot.exit.thread.i ], [ %144, %214 ], [ %144, %._crit_edge.i ], [ %144, %155 ]
-  %246 = getelementptr inbounds nuw i8, ptr %.sink26.i, i64 80
+  %.sink42.i = phi ptr [ %139, %137 ], [ %144, %X11SD_ClipToRoot.exit.thread.i ], [ %144, %214 ], [ %144, %._crit_edge.i ], [ %144, %155 ]
+  %246 = getelementptr inbounds nuw i8, ptr %.sink42.i, i64 80
   store ptr null, ptr %246, align 8
   br label %X11SD_DisposeOrCacheXImage.exit.thread11.i
 
 X11SD_DisposeOrCacheXImage.exit.thread11.i:       ; preds = %X11SD_DisposeOrCacheXImage.exit.thread11.sink.split.i, %113
-  %.3.i = phi ptr [ %.0123.i, %113 ], [ %.sink26.i, %X11SD_DisposeOrCacheXImage.exit.thread11.sink.split.i ]
+  %.3.i = phi ptr [ %.0123.i, %113 ], [ %.sink42.i, %X11SD_DisposeOrCacheXImage.exit.thread11.sink.split.i ]
   %247 = icmp sgt i32 %45, 8
   br i1 %247, label %248, label %281
 
@@ -1427,8 +1427,8 @@ X11SD_DisposeOrCacheXImage.exit.thread11.i:       ; preds = %X11SD_DisposeOrCach
   br label %308
 
 .sink.split:                                      ; preds = %265, %146
-  %.sink88 = phi ptr [ %144, %146 ], [ %263, %265 ]
-  %302 = call i32 @XFree(ptr noundef nonnull %.sink88) #18
+  %.sink104 = phi ptr [ %144, %146 ], [ %263, %265 ]
+  %302 = call i32 @XFree(ptr noundef nonnull %.sink104) #18
   br label %303
 
 303:                                              ; preds = %.sink.split, %258, %X11SD_DisposeOrCacheXImage.exit.i

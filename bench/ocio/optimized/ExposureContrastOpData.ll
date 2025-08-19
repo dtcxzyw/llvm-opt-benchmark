@@ -2220,7 +2220,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev22ExposureContrastOpData22replaceDyn
   tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
   %5 = load ptr, ptr %2, align 8, !tbaa !42, !noalias !115
   %.not.not.i = icmp eq ptr %5, null
-  br i1 %.not.not.i, label %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exit.thread32, label %6
+  br i1 %.not.not.i, label %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exit.thread44, label %6
 
 6:                                                ; preds = %3
   store ptr %5, ptr %4, align 8, !tbaa !42, !alias.scope !115
@@ -2243,7 +2243,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev22ExposureContrastOpData22replaceDyn
   store i32 %15, ptr %11, align 4, !tbaa !58, !noalias !115
   br label %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exit.thread
 
-_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exit.thread32: ; preds = %3
+_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exit.thread44: ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !alias.scope !115
   br label %154
 
@@ -2561,7 +2561,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i2
   tail call void @__cxa_free_exception(ptr nonnull %151) #19
   br label %182
 
-154:                                              ; preds = %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exit.thread32, %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exit
+154:                                              ; preds = %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exit.thread44, %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exit
   %155 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN19OpenColorIO_v2_5dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %155, ptr noundef nonnull @.str.13)
           to label %.invoke unwind label %157

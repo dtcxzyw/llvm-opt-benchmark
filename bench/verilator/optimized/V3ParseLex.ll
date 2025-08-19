@@ -22503,7 +22503,7 @@ _ZN11V3LexerBase16yy_try_NUL_transEi.exit:        ; preds = %.lr.ph.i1013, %1343
 
 13455:                                            ; preds = %13362
   %13456 = call noundef i32 @_ZN11V3LexerBase18yy_get_next_bufferEv(ptr noundef nonnull align 8 dereferenceable(732) %0)
-  switch i32 %13456, label %default.unreachable8488 [
+  switch i32 %13456, label %default.unreachable8897 [
     i32 1, label %13457
     i32 0, label %13468
     i32 2, label %13482
@@ -22576,7 +22576,7 @@ _ZN11V3LexerBase16yy_try_NUL_transEi.exit:        ; preds = %.lr.ph.i1013, %1343
   %13497 = getelementptr inbounds i8, ptr %13494, i64 %13496
   br label %.preheader1125.outer.backedge
 
-default.unreachable8488:                          ; preds = %13455
+default.unreachable8897:                          ; preds = %13455
   unreachable
 
 13498:                                            ; preds = %13457
@@ -24557,7 +24557,7 @@ define dso_local noundef range(i32 0, 256) i32 @_ZN11V3LexerBase7yyinputEv(ptr n
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store ptr %30, ptr %3, align 8, !tbaa !47
   %31 = tail call noundef i32 @_ZN11V3LexerBase18yy_get_next_bufferEv(ptr noundef nonnull align 8 dereferenceable(732) %0)
-  switch i32 %31, label %default.unreachable38 [
+  switch i32 %31, label %default.unreachable39 [
     i32 2, label %32
     i32 1, label %36
     i32 0, label %52
@@ -24599,7 +24599,7 @@ tailrecurse:                                      ; preds = %43, %41
   %51 = icmp eq i8 %50, 0
   br i1 %51, label %15, label %.loopexit
 
-default.unreachable38:                            ; preds = %28
+default.unreachable39:                            ; preds = %28
   unreachable
 
 52:                                               ; preds = %28
@@ -25251,9 +25251,9 @@ _ZN11V3LexerBase21yyensure_buffer_stackEv.exit:   ; preds = %13, %17, %31
   br label %.critedge9
 
 .critedge9:                                       ; preds = %_ZN11V3LexerBase21yyensure_buffer_stackEv.exit, %40
-  %.pr13 = phi ptr [ %47, %40 ], [ %36, %_ZN11V3LexerBase21yyensure_buffer_stackEv.exit ]
+  %.pr17 = phi ptr [ %47, %40 ], [ %36, %_ZN11V3LexerBase21yyensure_buffer_stackEv.exit ]
   %56 = phi i64 [ %55, %40 ], [ %35, %_ZN11V3LexerBase21yyensure_buffer_stackEv.exit ]
-  %57 = getelementptr inbounds nuw ptr, ptr %.pr13, i64 %56
+  %57 = getelementptr inbounds nuw ptr, ptr %.pr17, i64 %56
   store ptr %1, ptr %57, align 8, !tbaa !40
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %59 = load i32, ptr %58, align 4, !tbaa !43
@@ -26348,7 +26348,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN12V3NumberData9ValueAndXEmS1_ET_S3_T0_RSaIT1_E.exit, label %23
 

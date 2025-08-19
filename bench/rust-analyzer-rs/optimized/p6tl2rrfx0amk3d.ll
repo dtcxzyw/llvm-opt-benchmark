@@ -670,7 +670,7 @@ define hidden void @_ZN5salsa7runtime11local_state10LocalState16with_query_stack
   tail call void @llvm.assume(i1 %24)
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load ptr, ptr %25, align 8, !alias.scope !124, !noalias !125, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %26, i64 %23
   %.sroa.0.0.copyload1.i = load i64, ptr %27, align 8, !noalias !127
   %28 = icmp eq i64 %.sroa.0.0.copyload1.i, -9223372036854775807
   br i1 %28, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc6b9735a7d342710E.llvm.14225396269139012787.exit.thread.i", label %30

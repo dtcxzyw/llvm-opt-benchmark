@@ -157,9 +157,9 @@ define void @amd_l2(i64 noundef %0, ptr noundef %1, ptr noundef captures(none) %
   %.08551207 = phi double [ 0.000000e+00, %.preheader1038.lr.ph ], [ %.1856, %478 ]
   %.08571206 = phi i64 [ 0, %.preheader1038.lr.ph ], [ %350, %478 ]
   %.08671205 = phi i64 [ 0, %.preheader1038.lr.ph ], [ %.1868, %478 ]
-  %.08791204 = phi i64 [ 2, %.preheader1038.lr.ph ], [ %.1880.lcssa12951299, %478 ]
+  %.08791204 = phi i64 [ 2, %.preheader1038.lr.ph ], [ %.1880.lcssa13581362, %478 ]
   %.28971203 = phi i64 [ %.0895.lcssa, %.preheader1038.lr.ph ], [ %.3898.lcssa, %478 ]
-  %.09031202 = phi i64 [ 0, %.preheader1038.lr.ph ], [ %.1904.lcssa1301, %478 ]
+  %.09031202 = phi i64 [ 0, %.preheader1038.lr.ph ], [ %.1904.lcssa1364, %478 ]
   %.09061201 = phi i64 [ -1, %.preheader1038.lr.ph ], [ %.2908, %478 ]
   %75 = icmp slt i64 %.09031202, %0
   br i1 %75, label %.lr.ph1047, label %._crit_edge1048
@@ -893,9 +893,9 @@ clear_flag.exit1012:                              ; preds = %356, %._crit_edge11
 
 369:                                              ; preds = %363
   %370 = icmp slt i64 %367, -1
-  br i1 %370, label %.thread1286, label %372
+  br i1 %370, label %.thread1349, label %372
 
-.thread1286:                                      ; preds = %369
+.thread1349:                                      ; preds = %369
   %371 = sub nuw nsw i64 -2, %367
   store i64 -1, ptr %366, align 8, !tbaa !9
   br label %.lr.ph1182.preheader
@@ -907,8 +907,8 @@ clear_flag.exit1012:                              ; preds = %356, %._crit_edge11
   %.not9781178 = icmp eq i64 %374, -1
   br i1 %.not9781178, label %.critedge, label %.lr.ph1182.preheader
 
-.lr.ph1182.preheader:                             ; preds = %.thread1286, %372
-  %.38871179.ph = phi i64 [ %374, %372 ], [ %371, %.thread1286 ]
+.lr.ph1182.preheader:                             ; preds = %.thread1349, %372
+  %.38871179.ph = phi i64 [ %374, %372 ], [ %371, %.thread1349 ]
   br label %.lr.ph1182
 
 .lr.ph1182:                                       ; preds = %.lr.ph1182.preheader, %._crit_edge1177
@@ -969,9 +969,9 @@ clear_flag.exit1012:                              ; preds = %356, %._crit_edge11
 399:                                              ; preds = %395
   %400 = getelementptr inbounds i64, ptr %10, i64 %.19111174
   %401 = load i64, ptr %400, align 8, !tbaa !9
-  %.not1310 = icmp eq i64 %401, %381
+  %.not1373 = icmp eq i64 %401, %381
   %402 = getelementptr inbounds i64, ptr %1, i64 %.19111174
-  br i1 %.not1310, label %.lr.ph1171, label %.critedge996
+  br i1 %.not1373, label %.lr.ph1171, label %.critedge996
 
 .lr.ph1171:                                       ; preds = %399
   %403 = load i64, ptr %402, align 8, !tbaa !9
@@ -1097,19 +1097,19 @@ select.unfold:                                    ; preds = %405
   br i1 %449, label %450, label %452
 
 450:                                              ; preds = %._crit_edge1198.thread, %._crit_edge1198
-  %.12.lcssa1304 = phi i64 [ %.0799, %._crit_edge1198.thread ], [ %.13, %._crit_edge1198 ]
-  %.1904.lcssa1302 = phi i64 [ %.0823.lcssa, %._crit_edge1198.thread ], [ %.2905, %._crit_edge1198 ]
-  %.1880.lcssa12951300 = phi i64 [ %.010.i1007, %._crit_edge1198.thread ], [ %.3882, %._crit_edge1198 ]
+  %.12.lcssa1367 = phi i64 [ %.0799, %._crit_edge1198.thread ], [ %.13, %._crit_edge1198 ]
+  %.1904.lcssa1365 = phi i64 [ %.0823.lcssa, %._crit_edge1198.thread ], [ %.2905, %._crit_edge1198 ]
+  %.1880.lcssa13581363 = phi i64 [ %.010.i1007, %._crit_edge1198.thread ], [ %.3882, %._crit_edge1198 ]
   store i64 -1, ptr %224, align 8, !tbaa !9
   %451 = getelementptr inbounds i64, ptr %12, i64 %.2908
   store i64 0, ptr %451, align 8, !tbaa !9
   br label %452
 
 452:                                              ; preds = %450, %._crit_edge1198
-  %.12.lcssa1303 = phi i64 [ %.12.lcssa1304, %450 ], [ %.13, %._crit_edge1198 ]
-  %.1904.lcssa1301 = phi i64 [ %.1904.lcssa1302, %450 ], [ %.2905, %._crit_edge1198 ]
-  %.1880.lcssa12951299 = phi i64 [ %.1880.lcssa12951300, %450 ], [ %.3882, %._crit_edge1198 ]
-  %spec.select997 = select i1 %92, i64 %.1813, i64 %.12.lcssa1303
+  %.12.lcssa1366 = phi i64 [ %.12.lcssa1367, %450 ], [ %.13, %._crit_edge1198 ]
+  %.1904.lcssa1364 = phi i64 [ %.1904.lcssa1365, %450 ], [ %.2905, %._crit_edge1198 ]
+  %.1880.lcssa13581362 = phi i64 [ %.1880.lcssa13581363, %450 ], [ %.3882, %._crit_edge1198 ]
+  %spec.select997 = select i1 %92, i64 %.1813, i64 %.12.lcssa1366
   br i1 %.not976, label %478, label %453
 
 453:                                              ; preds = %452

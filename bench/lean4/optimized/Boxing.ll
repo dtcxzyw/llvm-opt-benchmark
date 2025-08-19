@@ -172,7 +172,7 @@ define noalias nonnull ptr @l___private_Lean_Compiler_IR_Boxing_0__Lean_IR_Expli
   br label %lean_nat_add.exit
 
 12:                                               ; preds = %4
-  %13 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %6) #6
+  %13 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #6
   br label %lean_nat_add.exit
 
 .critedge.i:                                      ; preds = %1
@@ -762,7 +762,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_mapMUnsafe_map___at_Lean_IR_ExplicitBoxing_mkBoxedVersionAux___spec__1(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_mapMUnsafe_map___at_Lean_IR_ExplicitBoxing_mkBoxedVersionAux___spec__1(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not69 = icmp ult i64 %1, %0
   br i1 %.not69, label %.lr.ph, label %._crit_edge
 
@@ -838,7 +838,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
   br label %lean_nat_add.exit.i
 
 33:                                               ; preds = %25
-  %34 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %27) #6
+  %34 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #6
   br label %lean_nat_add.exit.i
 
 .critedge.i.i:                                    ; preds = %lean_array_uset.exit
@@ -1008,7 +1008,7 @@ lean_ensure_exclusive_array.exit.i49:             ; preds = %75, %lean_alloc_cto
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Nat_foldM_loop___at_Lean_IR_ExplicitBoxing_mkBoxedVersionAux___spec__2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Nat_foldM_loop___at_Lean_IR_ExplicitBoxing_mkBoxedVersionAux___spec__2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = ptrtoint ptr %2 to i64
   %9 = and i64 %8, 1
   %.not381 = icmp eq i64 %9, 0
@@ -1022,17 +1022,17 @@ define noalias ptr @l_Nat_foldM_loop___at_Lean_IR_ExplicitBoxing_mkBoxedVersionA
   %.0187.ph = phi ptr [ %6, %7 ], [ %.0187.ph.be, %.outer.backedge ]
   %.0181.ph = phi ptr [ %5, %7 ], [ %.0181.ph.be, %.outer.backedge ]
   %.0179.ph = phi ptr [ %3, %7 ], [ %.1.i203367, %.outer.backedge ]
-  br label %.outer580
+  br label %.outer635
 
-.outer580:                                        ; preds = %.outer, %lean_alloc_ctor.exit335
-  %.0181.ph581 = phi ptr [ %.0181.ph, %.outer ], [ %343, %lean_alloc_ctor.exit335 ]
-  %.0179.ph582 = phi ptr [ %.0179.ph, %.outer ], [ %.1.i203367, %lean_alloc_ctor.exit335 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.0181.ph581, i64 8
-  %15 = getelementptr inbounds nuw i8, ptr %.0181.ph581, i64 16
+.outer635:                                        ; preds = %.outer, %lean_alloc_ctor.exit335
+  %.0181.ph636 = phi ptr [ %.0181.ph, %.outer ], [ %343, %lean_alloc_ctor.exit335 ]
+  %.0179.ph637 = phi ptr [ %.0179.ph, %.outer ], [ %.1.i203367, %lean_alloc_ctor.exit335 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.0181.ph636, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.0181.ph636, i64 16
   br label %16
 
-16:                                               ; preds = %.outer580, %lean_alloc_ctor.exit
-  %.0179 = phi ptr [ %.1.i203367, %lean_alloc_ctor.exit ], [ %.0179.ph582, %.outer580 ]
+16:                                               ; preds = %.outer635, %lean_alloc_ctor.exit
+  %.0179 = phi ptr [ %.1.i203367, %lean_alloc_ctor.exit ], [ %.0179.ph637, %.outer635 ]
   %17 = ptrtoint ptr %.0179 to i64
   %18 = and i64 %17, 1
   %.not = icmp eq i64 %18, 0
@@ -1137,7 +1137,7 @@ lean_nat_sub.exit201:                             ; preds = %38, %.critedge.i199
 
 lean_dec.exit218:                                 ; preds = %35, %48, %46, %58, %57, %55
   %.1.i369 = phi ptr [ %52, %55 ], [ %52, %57 ], [ %52, %58 ], [ inttoptr (i64 1 to ptr), %46 ], [ %50, %48 ], [ inttoptr (i64 1 to ptr), %35 ]
-  %.0181.val = load i32, ptr %.0181.ph581, align 4, !tbaa !10
+  %.0181.val = load i32, ptr %.0181.ph636, align 4, !tbaa !10
   %59 = icmp eq i32 %.0181.val, 1
   %60 = load ptr, ptr %14, align 8, !tbaa !4
   %61 = load ptr, ptr %15, align 8, !tbaa !4
@@ -1402,7 +1402,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit214
   br label %16
 
 158:                                              ; preds = %lean_dec.exit216
-  tail call void @lean_free_object(ptr noundef nonnull %.0181.ph581) #6
+  tail call void @lean_free_object(ptr noundef nonnull %.0181.ph636) #6
   %159 = ptrtoint ptr %.0187.ph to i64
   %160 = and i64 %159, 1
   %.not.i280 = icmp eq i64 %160, 0
@@ -1421,7 +1421,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit214
   br label %lean_nat_add.exit.i
 
 169:                                              ; preds = %161
-  %170 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %163) #6
+  %170 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #6
   br label %lean_nat_add.exit.i
 
 .critedge.i.i:                                    ; preds = %158
@@ -1626,19 +1626,19 @@ lean_inc.exit226:                                 ; preds = %230, %229, %227, %2
   br label %lean_inc.exit225
 
 lean_inc.exit225:                                 ; preds = %238, %237, %235, %lean_inc.exit226
-  %239 = ptrtoint ptr %.0181.ph581 to i64
+  %239 = ptrtoint ptr %.0181.ph636 to i64
   %240 = and i64 %239, 1
   %.not386 = icmp eq i64 %240, 0
   br i1 %.not386, label %241, label %lean_dec.exit210
 
 241:                                              ; preds = %lean_inc.exit225
-  %242 = load i32, ptr %.0181.ph581, align 4, !tbaa !10
+  %242 = load i32, ptr %.0181.ph636, align 4, !tbaa !10
   %243 = icmp sgt i32 %242, 1
   br i1 %243, label %244, label %246, !prof !13
 
 244:                                              ; preds = %241
   %245 = add nsw i32 %242, -1
-  store i32 %245, ptr %.0181.ph581, align 4, !tbaa !10
+  store i32 %245, ptr %.0181.ph636, align 4, !tbaa !10
   br label %lean_dec.exit210
 
 246:                                              ; preds = %241
@@ -1646,7 +1646,7 @@ lean_inc.exit225:                                 ; preds = %238, %237, %235, %l
   br i1 %.not.i251, label %lean_dec.exit210, label %247
 
 247:                                              ; preds = %246
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0181.ph581) #6
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0181.ph636) #6
   br label %lean_dec.exit210
 
 lean_dec.exit210:                                 ; preds = %247, %246, %244, %lean_inc.exit225
@@ -1921,7 +1921,7 @@ lean_alloc_ctor.exit335:                          ; preds = %lean_alloc_ctor.exi
   store ptr %60, ptr %347, align 8, !tbaa !4
   %348 = getelementptr inbounds nuw i8, ptr %343, i64 16
   store ptr %342, ptr %348, align 8, !tbaa !4
-  br label %.outer580
+  br label %.outer635
 
 349:                                              ; preds = %lean_dec.exit208
   %350 = ptrtoint ptr %.0187.ph to i64
@@ -1942,7 +1942,7 @@ lean_alloc_ctor.exit335:                          ; preds = %lean_alloc_ctor.exi
   br label %lean_nat_add.exit.i337
 
 360:                                              ; preds = %352
-  %361 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %354) #6
+  %361 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #6
   br label %lean_nat_add.exit.i337
 
 .critedge.i.i339:                                 ; preds = %349
@@ -2276,7 +2276,7 @@ lean_dec.exit:                                    ; preds = %lean_nat_eq.exit, %
   store i32 1, ptr %471, align 4, !tbaa !10
   store i32 131096, ptr %475, align 4
   %476 = getelementptr inbounds nuw i8, ptr %471, i64 8
-  store ptr %.0181.ph581, ptr %476, align 8, !tbaa !4
+  store ptr %.0181.ph636, ptr %476, align 8, !tbaa !4
   %477 = getelementptr inbounds nuw i8, ptr %471, i64 16
   store ptr %.0187.ph, ptr %477, align 8, !tbaa !4
   ret ptr %471
@@ -2668,7 +2668,7 @@ lean_dec.exit221:                                 ; preds = %111, %110, %108, %l
   br label %lean_nat_add.exit.i
 
 120:                                              ; preds = %112
-  %121 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %114) #6
+  %121 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #6
   br label %lean_nat_add.exit.i
 
 .critedge.i.i:                                    ; preds = %lean_dec.exit221
@@ -2866,7 +2866,7 @@ lean_alloc_ctor.exit303:                          ; preds = %lean_alloc_ctor.exi
   br label %lean_nat_add.exit.i305
 
 196:                                              ; preds = %188
-  %197 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %190) #6
+  %197 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #6
   br label %lean_nat_add.exit.i305
 
 .critedge.i.i307:                                 ; preds = %185
@@ -2977,7 +2977,7 @@ lean_alloc_ctor.exit314:                          ; preds = %lean_alloc_ctor.exi
 declare ptr @l_Lean_IR_reshape(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_mapMUnsafe_map___at_Lean_IR_ExplicitBoxing_mkBoxedVersionAux___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_mapMUnsafe_map___at_Lean_IR_ExplicitBoxing_mkBoxedVersionAux___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 8
   %.val11 = load i64, ptr %5, align 8, !tbaa !8
   %6 = ptrtoint ptr %0 to i64
@@ -3035,7 +3035,7 @@ lean_dec.exit:                                    ; preds = %24, %23, %21, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Nat_foldM_loop___at_Lean_IR_ExplicitBoxing_mkBoxedVersionAux___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(none) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Nat_foldM_loop___at_Lean_IR_ExplicitBoxing_mkBoxedVersionAux___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(none) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = tail call ptr @l_Nat_foldM_loop___at_Lean_IR_ExplicitBoxing_mkBoxedVersionAux___spec__2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr poison, ptr noundef %5, ptr noundef %6)
   %9 = ptrtoint ptr %2 to i64
   %10 = and i64 %9, 1
@@ -4154,7 +4154,7 @@ define noalias noundef nonnull ptr @l___private_Lean_Compiler_IR_Boxing_0__Lean_
   br label %lean_nat_add.exit38
 
 16:                                               ; preds = %8
-  %17 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %10) #6
+  %17 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #6
   br label %lean_nat_add.exit38
 
 .critedge.i36:                                    ; preds = %5
@@ -4315,7 +4315,7 @@ lean_dec.exit:                                    ; preds = %69, %68, %66, %lean
   br label %lean_nat_add.exit
 
 78:                                               ; preds = %70
-  %79 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %72) #6
+  %79 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #6
   br label %lean_nat_add.exit
 
 .critedge.i:                                      ; preds = %lean_dec.exit
@@ -4355,16 +4355,16 @@ lean_alloc_ctor.exit55:                           ; preds = %lean_nat_add.exit
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_alloc_ctor.exit55, %lean_nat_add.exit38
-  %.sink68 = phi ptr [ %19, %lean_nat_add.exit38 ], [ %89, %lean_alloc_ctor.exit55 ]
+  %.sink76 = phi ptr [ %19, %lean_nat_add.exit38 ], [ %89, %lean_alloc_ctor.exit55 ]
   %.sink = phi ptr [ %0, %lean_nat_add.exit38 ], [ %81, %lean_alloc_ctor.exit55 ]
-  %92 = getelementptr inbounds nuw i8, ptr %.sink68, i64 4
-  store i32 1, ptr %.sink68, align 4, !tbaa !10
+  %92 = getelementptr inbounds nuw i8, ptr %.sink76, i64 4
+  store i32 1, ptr %.sink76, align 4, !tbaa !10
   store i32 131096, ptr %92, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %.sink68, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.sink76, i64 8
   store ptr %4, ptr %93, align 8, !tbaa !4
-  %94 = getelementptr inbounds nuw i8, ptr %.sink68, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %.sink76, i64 16
   store ptr %.sink, ptr %94, align 8, !tbaa !4
-  ret ptr %.sink68
+  ret ptr %.sink76
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5385,16 +5385,16 @@ lean_dec.exit:                                    ; preds = %72, %71, %69, %lean
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit, %50
-  %.sink51 = phi ptr [ %52, %50 ], [ %73, %lean_dec.exit ]
+  %.sink58 = phi ptr [ %52, %50 ], [ %73, %lean_dec.exit ]
   %.sink = phi ptr [ %51, %50 ], [ %57, %lean_dec.exit ]
-  %76 = getelementptr inbounds nuw i8, ptr %.sink51, i64 4
-  store i32 1, ptr %.sink51, align 4, !tbaa !10
+  %76 = getelementptr inbounds nuw i8, ptr %.sink58, i64 4
+  store i32 1, ptr %.sink58, align 4, !tbaa !10
   store i32 131096, ptr %76, align 4
-  %77 = getelementptr inbounds nuw i8, ptr %.sink51, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.sink58, i64 8
   store ptr %.sink, ptr %77, align 8, !tbaa !4
-  %78 = getelementptr inbounds nuw i8, ptr %.sink51, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %.sink58, i64 16
   store ptr %2, ptr %78, align 8, !tbaa !4
-  ret ptr %.sink51
+  ret ptr %.sink58
 }
 
 declare ptr @l_Lean_IR_findEnvDecl_x27(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -8021,7 +8021,7 @@ lean_alloc_ctor.exit550:                          ; preds = %lean_inc.exit392
   br label %lean_dec.exit356
 
 398:                                              ; preds = %390
-  %399 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %392) #6
+  %399 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #6
   br label %lean_dec.exit356
 
 400:                                              ; preds = %lean_alloc_ctor.exit550
@@ -8280,7 +8280,7 @@ lean_alloc_ctor.exit569:                          ; preds = %lean_inc.exit387
   br label %lean_dec.exit353
 
 494:                                              ; preds = %486
-  %495 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %488) #6
+  %495 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #6
   br label %lean_dec.exit353
 
 496:                                              ; preds = %lean_alloc_ctor.exit569
@@ -9241,7 +9241,7 @@ lean_alloc_ctor.exit640:                          ; preds = %lean_inc.exit371
   br label %lean_dec.exit341
 
 845:                                              ; preds = %837
-  %846 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %839) #6
+  %846 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #6
   br label %lean_dec.exit341
 
 847:                                              ; preds = %lean_alloc_ctor.exit640
@@ -9623,11 +9623,11 @@ lean_dec.exit77:                                  ; preds = %35, %34, %32, %lean
   %36 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %8) #6
   %37 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %1) #6
   %38 = icmp eq i8 %36, 0
-  %.not146 = icmp eq i8 %37, 0
+  %.not160 = icmp eq i8 %37, 0
   br i1 %38, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit, label %39
 
 39:                                               ; preds = %lean_dec.exit77
-  br i1 %.not146, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread, label %40
+  br i1 %.not160, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread, label %40
 
 40:                                               ; preds = %39
   %41 = tail call zeroext i8 @l_Lean_IR_IRType_beq(ptr noundef %8, ptr noundef %1) #6
@@ -9635,7 +9635,7 @@ lean_dec.exit77:                                  ; preds = %35, %34, %32, %lean
   br i1 %42, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread, label %180
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit:           ; preds = %lean_dec.exit77
-  br i1 %.not146, label %180, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread
+  br i1 %.not160, label %180, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread:    ; preds = %40, %39, %l_Lean_IR_ExplicitBoxing_eqvTypes.exit
   %43 = tail call ptr @l___private_Lean_Compiler_IR_Boxing_0__Lean_IR_ExplicitBoxing_M_mkFresh___rarg(ptr noundef %18)
@@ -10175,11 +10175,11 @@ lean_dec.exit170:                                 ; preds = %49, %48, %46, %lean
   %50 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %22) #6
   %51 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %1) #6
   %52 = icmp eq i8 %50, 0
-  %.not339 = icmp eq i8 %51, 0
+  %.not374 = icmp eq i8 %51, 0
   br i1 %52, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit, label %53
 
 53:                                               ; preds = %lean_dec.exit170
-  br i1 %.not339, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread, label %54
+  br i1 %.not374, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread, label %54
 
 54:                                               ; preds = %53
   %55 = tail call zeroext i8 @l_Lean_IR_IRType_beq(ptr noundef %22, ptr noundef %1) #6
@@ -10187,7 +10187,7 @@ lean_dec.exit170:                                 ; preds = %49, %48, %46, %lean
   br i1 %56, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread, label %194
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit:           ; preds = %lean_dec.exit170
-  br i1 %.not339, label %194, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread
+  br i1 %.not374, label %194, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread:    ; preds = %54, %53, %l_Lean_IR_ExplicitBoxing_eqvTypes.exit
   %57 = tail call ptr @l___private_Lean_Compiler_IR_Boxing_0__Lean_IR_ExplicitBoxing_M_mkFresh___rarg(ptr noundef %32)
@@ -10736,11 +10736,11 @@ lean_dec.exit163:                                 ; preds = %257, %256, %254, %l
   %258 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %230) #6
   %259 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %1) #6
   %260 = icmp eq i8 %258, 0
-  %.not338 = icmp eq i8 %259, 0
+  %.not373 = icmp eq i8 %259, 0
   br i1 %260, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit268, label %261
 
 261:                                              ; preds = %lean_dec.exit163
-  br i1 %.not338, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit268.thread, label %262
+  br i1 %.not373, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit268.thread, label %262
 
 262:                                              ; preds = %261
   %263 = tail call zeroext i8 @l_Lean_IR_IRType_beq(ptr noundef %230, ptr noundef %1) #6
@@ -10748,7 +10748,7 @@ lean_dec.exit163:                                 ; preds = %257, %256, %254, %l
   br i1 %264, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit268.thread, label %419
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit268:        ; preds = %lean_dec.exit163
-  br i1 %.not338, label %419, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit268.thread
+  br i1 %.not373, label %419, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit268.thread
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit268.thread: ; preds = %262, %261, %l_Lean_IR_ExplicitBoxing_eqvTypes.exit268
   %265 = tail call ptr @l___private_Lean_Compiler_IR_Boxing_0__Lean_IR_ExplicitBoxing_M_mkFresh___rarg(ptr noundef %240)
@@ -11287,7 +11287,7 @@ define noalias nonnull ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_IR_ExplicitBo
   br label %lean_nat_add.exit
 
 17:                                               ; preds = %9
-  %18 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %11) #6
+  %18 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #6
   br label %lean_nat_add.exit
 
 .critedge.i:                                      ; preds = %6
@@ -11783,11 +11783,11 @@ lean_dec.exit446:                                 ; preds = %159, %158, %156, %l
   %160 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %132) #6
   %161 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %116) #6
   %162 = icmp eq i8 %160, 0
-  %.not1011 = icmp eq i8 %161, 0
+  %.not1129 = icmp eq i8 %161, 0
   br i1 %162, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit, label %163
 
 163:                                              ; preds = %lean_dec.exit446
-  br i1 %.not1011, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread, label %164
+  br i1 %.not1129, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread, label %164
 
 164:                                              ; preds = %163
   %165 = tail call zeroext i8 @l_Lean_IR_IRType_beq(ptr noundef %132, ptr noundef %116) #6
@@ -11795,7 +11795,7 @@ lean_dec.exit446:                                 ; preds = %159, %158, %156, %l
   br i1 %166, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread, label %405
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit:           ; preds = %lean_dec.exit446
-  br i1 %.not1011, label %405, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread
+  br i1 %.not1129, label %405, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread:    ; preds = %164, %163, %l_Lean_IR_ExplicitBoxing_eqvTypes.exit
   %167 = tail call ptr @l___private_Lean_Compiler_IR_Boxing_0__Lean_IR_ExplicitBoxing_M_mkFresh___rarg(ptr noundef %142)
@@ -16519,11 +16519,11 @@ define nonnull ptr @l_Lean_IR_ExplicitBoxing_castResultIfNeeded(ptr noundef %0, 
   %8 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %1) #6
   %9 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %3) #6
   %10 = icmp eq i8 %8, 0
-  %.not130 = icmp eq i8 %9, 0
+  %.not144 = icmp eq i8 %9, 0
   br i1 %10, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit, label %11
 
 11:                                               ; preds = %7
-  br i1 %.not130, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread, label %12
+  br i1 %.not144, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread, label %12
 
 12:                                               ; preds = %11
   %13 = tail call zeroext i8 @l_Lean_IR_IRType_beq(ptr noundef %1, ptr noundef %3) #6
@@ -16531,7 +16531,7 @@ define nonnull ptr @l_Lean_IR_ExplicitBoxing_castResultIfNeeded(ptr noundef %0, 
   br i1 %14, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread, label %138
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit:           ; preds = %7
-  br i1 %.not130, label %138, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread
+  br i1 %.not144, label %138, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread:    ; preds = %12, %11, %l_Lean_IR_ExplicitBoxing_eqvTypes.exit
   %15 = tail call ptr @l___private_Lean_Compiler_IR_Boxing_0__Lean_IR_ExplicitBoxing_M_mkFresh___rarg(ptr noundef %6)
@@ -23216,7 +23216,7 @@ lean_alloc_ctor.exit188:                          ; preds = %266
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_mapMUnsafe_map___at_Lean_IR_ExplicitBoxing_visitFnBody___spec__2(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_mapMUnsafe_map___at_Lean_IR_ExplicitBoxing_visitFnBody___spec__2(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not75 = icmp ult i64 %1, %0
   %6 = ptrtoint ptr %3 to i64
   %7 = and i64 %6, 1
@@ -25917,11 +25917,11 @@ lean_dec.exit1676:                                ; preds = %888, %887, %885, %l
   %896 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %892) #6
   %897 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef nonnull inttoptr (i64 11 to ptr)) #6
   %898 = icmp eq i8 %896, 0
-  %.not3294 = icmp eq i8 %897, 0
+  %.not3544 = icmp eq i8 %897, 0
   br i1 %898, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit, label %899
 
 899:                                              ; preds = %895
-  br i1 %.not3294, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread, label %900
+  br i1 %.not3544, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread, label %900
 
 900:                                              ; preds = %899
   %901 = tail call zeroext i8 @l_Lean_IR_IRType_beq(ptr noundef %892, ptr noundef nonnull inttoptr (i64 11 to ptr)) #6
@@ -25929,7 +25929,7 @@ lean_dec.exit1676:                                ; preds = %888, %887, %885, %l
   br i1 %902, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread, label %991
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit:           ; preds = %895
-  br i1 %.not3294, label %991, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread
+  br i1 %.not3544, label %991, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit.thread:    ; preds = %900, %899, %l_Lean_IR_ExplicitBoxing_eqvTypes.exit
   tail call void @lean_free_object(ptr noundef nonnull %889) #6
@@ -26293,11 +26293,11 @@ lean_dec.exit1671:                                ; preds = %1033, %1032, %1030,
   %1034 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %892) #6
   %1035 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef nonnull inttoptr (i64 11 to ptr)) #6
   %1036 = icmp eq i8 %1034, 0
-  %.not3293 = icmp eq i8 %1035, 0
+  %.not3543 = icmp eq i8 %1035, 0
   br i1 %1036, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2436, label %1037
 
 1037:                                             ; preds = %lean_dec.exit1671
-  br i1 %.not3293, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2436.thread, label %1038
+  br i1 %.not3543, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2436.thread, label %1038
 
 1038:                                             ; preds = %1037
   %1039 = tail call zeroext i8 @l_Lean_IR_IRType_beq(ptr noundef %892, ptr noundef nonnull inttoptr (i64 11 to ptr)) #6
@@ -26305,7 +26305,7 @@ lean_dec.exit1671:                                ; preds = %1033, %1032, %1030,
   br i1 %1040, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2436.thread, label %1118
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit2436:       ; preds = %lean_dec.exit1671
-  br i1 %.not3293, label %1118, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2436.thread
+  br i1 %.not3543, label %1118, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2436.thread
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit2436.thread: ; preds = %1038, %1037, %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2436
   %1041 = tail call ptr @l___private_Lean_Compiler_IR_Boxing_0__Lean_IR_ExplicitBoxing_M_mkFresh___rarg(ptr noundef %894)
@@ -26927,11 +26927,11 @@ lean_dec_ref.exit2130:                            ; preds = %1270, %1269, %1267,
   %1271 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %1224) #6
   %1272 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef nonnull inttoptr (i64 11 to ptr)) #6
   %1273 = icmp eq i8 %1271, 0
-  %.not3292 = icmp eq i8 %1272, 0
+  %.not3542 = icmp eq i8 %1272, 0
   br i1 %1273, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2487, label %1274
 
 1274:                                             ; preds = %lean_dec_ref.exit2130
-  br i1 %.not3292, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2487.thread, label %1275
+  br i1 %.not3542, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2487.thread, label %1275
 
 1275:                                             ; preds = %1274
   %1276 = tail call zeroext i8 @l_Lean_IR_IRType_beq(ptr noundef %1224, ptr noundef nonnull inttoptr (i64 11 to ptr)) #6
@@ -26939,7 +26939,7 @@ lean_dec_ref.exit2130:                            ; preds = %1270, %1269, %1267,
   br i1 %1277, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2487.thread, label %1375
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit2487:       ; preds = %lean_dec_ref.exit2130
-  br i1 %.not3292, label %1375, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2487.thread
+  br i1 %.not3542, label %1375, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2487.thread
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit2487.thread: ; preds = %1275, %1274, %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2487
   %1278 = ptrtoint ptr %.01560 to i64
@@ -27411,11 +27411,11 @@ lean_dec.exit1661:                                ; preds = %1451, %1450, %1448,
   %1459 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %1455) #6
   %1460 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %1411) #6
   %1461 = icmp eq i8 %1459, 0
-  %.not3291 = icmp eq i8 %1460, 0
+  %.not3541 = icmp eq i8 %1460, 0
   br i1 %1461, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2517, label %1462
 
 1462:                                             ; preds = %1458
-  br i1 %.not3291, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2517.thread, label %1463
+  br i1 %.not3541, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2517.thread, label %1463
 
 1463:                                             ; preds = %1462
   %1464 = tail call zeroext i8 @l_Lean_IR_IRType_beq(ptr noundef %1455, ptr noundef %1411) #6
@@ -27423,7 +27423,7 @@ lean_dec.exit1661:                                ; preds = %1451, %1450, %1448,
   br i1 %1465, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2517.thread, label %1574
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit2517:       ; preds = %1458
-  br i1 %.not3291, label %1574, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2517.thread
+  br i1 %.not3541, label %1574, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2517.thread
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit2517.thread: ; preds = %1463, %1462, %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2517
   tail call void @lean_free_object(ptr noundef nonnull %1452) #6
@@ -27853,11 +27853,11 @@ lean_dec.exit1656:                                ; preds = %1616, %1615, %1613,
   %1617 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %1455) #6
   %1618 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %1411) #6
   %1619 = icmp eq i8 %1617, 0
-  %.not3290 = icmp eq i8 %1618, 0
+  %.not3540 = icmp eq i8 %1618, 0
   br i1 %1619, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2553, label %1620
 
 1620:                                             ; preds = %lean_dec.exit1656
-  br i1 %.not3290, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2553.thread, label %1621
+  br i1 %.not3540, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2553.thread, label %1621
 
 1621:                                             ; preds = %1620
   %1622 = tail call zeroext i8 @l_Lean_IR_IRType_beq(ptr noundef %1455, ptr noundef %1411) #6
@@ -27865,7 +27865,7 @@ lean_dec.exit1656:                                ; preds = %1616, %1615, %1613,
   br i1 %1623, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2553.thread, label %1715
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit2553:       ; preds = %lean_dec.exit1656
-  br i1 %.not3290, label %1715, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2553.thread
+  br i1 %.not3540, label %1715, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2553.thread
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit2553.thread: ; preds = %1621, %1620, %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2553
   %1624 = tail call ptr @l___private_Lean_Compiler_IR_Boxing_0__Lean_IR_ExplicitBoxing_M_mkFresh___rarg(ptr noundef %1457)
@@ -28584,11 +28584,11 @@ lean_dec_ref.exit2124:                            ; preds = %1887, %1886, %1884,
   %1888 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %1841) #6
   %1889 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %1743) #6
   %1890 = icmp eq i8 %1888, 0
-  %.not3289 = icmp eq i8 %1889, 0
+  %.not3539 = icmp eq i8 %1889, 0
   br i1 %1890, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2616, label %1891
 
 1891:                                             ; preds = %lean_dec_ref.exit2124
-  br i1 %.not3289, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2616.thread, label %1892
+  br i1 %.not3539, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2616.thread, label %1892
 
 1892:                                             ; preds = %1891
   %1893 = tail call zeroext i8 @l_Lean_IR_IRType_beq(ptr noundef %1841, ptr noundef %1743) #6
@@ -28596,7 +28596,7 @@ lean_dec_ref.exit2124:                            ; preds = %1887, %1886, %1884,
   br i1 %1894, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2616.thread, label %2006
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit2616:       ; preds = %lean_dec_ref.exit2124
-  br i1 %.not3289, label %2006, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2616.thread
+  br i1 %.not3539, label %2006, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2616.thread
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit2616.thread: ; preds = %1892, %1891, %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2616
   %1895 = ptrtoint ptr %.01566 to i64
@@ -29553,11 +29553,11 @@ lean_dec.exit1643:                                ; preds = %2247, %2246, %2244,
   %2255 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %2251) #6
   %2256 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %.0.i2669) #6
   %2257 = icmp eq i8 %2255, 0
-  %.not3288 = icmp eq i8 %2256, 0
+  %.not3538 = icmp eq i8 %2256, 0
   br i1 %2257, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2682, label %2258
 
 2258:                                             ; preds = %2254
-  br i1 %.not3288, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2682.thread, label %2259
+  br i1 %.not3538, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2682.thread, label %2259
 
 2259:                                             ; preds = %2258
   %2260 = tail call zeroext i8 @l_Lean_IR_IRType_beq(ptr noundef %2251, ptr noundef %.0.i2669) #6
@@ -29565,7 +29565,7 @@ lean_dec.exit1643:                                ; preds = %2247, %2246, %2244,
   br i1 %2261, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2682.thread, label %2370
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit2682:       ; preds = %2254
-  br i1 %.not3288, label %2370, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2682.thread
+  br i1 %.not3538, label %2370, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2682.thread
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit2682.thread: ; preds = %2259, %2258, %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2682
   tail call void @lean_free_object(ptr noundef nonnull %2248) #6
@@ -29998,11 +29998,11 @@ lean_dec.exit1638:                                ; preds = %2412, %2411, %2409,
   %2413 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %2251) #6
   %2414 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %.0.i2669) #6
   %2415 = icmp eq i8 %2413, 0
-  %.not3287 = icmp eq i8 %2414, 0
+  %.not3537 = icmp eq i8 %2414, 0
   br i1 %2415, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2718, label %2416
 
 2416:                                             ; preds = %lean_dec.exit1638
-  br i1 %.not3287, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2718.thread, label %2417
+  br i1 %.not3537, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2718.thread, label %2417
 
 2417:                                             ; preds = %2416
   %2418 = tail call zeroext i8 @l_Lean_IR_IRType_beq(ptr noundef %2251, ptr noundef %.0.i2669) #6
@@ -30010,7 +30010,7 @@ lean_dec.exit1638:                                ; preds = %2412, %2411, %2409,
   br i1 %2419, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2718.thread, label %2511
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit2718:       ; preds = %lean_dec.exit1638
-  br i1 %.not3287, label %2511, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2718.thread
+  br i1 %.not3537, label %2511, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2718.thread
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit2718.thread: ; preds = %2417, %2416, %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2718
   %2420 = tail call ptr @l___private_Lean_Compiler_IR_Boxing_0__Lean_IR_ExplicitBoxing_M_mkFresh___rarg(ptr noundef %2253)
@@ -30698,11 +30698,11 @@ lean_dec_ref.exit2116:                            ; preds = %2670, %2669, %2667,
   %2671 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %2624) #6
   %2672 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %.0.i2751) #6
   %2673 = icmp eq i8 %2671, 0
-  %.not3286 = icmp eq i8 %2672, 0
+  %.not3536 = icmp eq i8 %2672, 0
   br i1 %2673, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2783, label %2674
 
 2674:                                             ; preds = %lean_dec_ref.exit2116
-  br i1 %.not3286, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2783.thread, label %2675
+  br i1 %.not3536, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2783.thread, label %2675
 
 2675:                                             ; preds = %2674
   %2676 = tail call zeroext i8 @l_Lean_IR_IRType_beq(ptr noundef %2624, ptr noundef %.0.i2751) #6
@@ -30710,7 +30710,7 @@ lean_dec_ref.exit2116:                            ; preds = %2670, %2669, %2667,
   br i1 %2677, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2783.thread, label %2789
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit2783:       ; preds = %lean_dec_ref.exit2116
-  br i1 %.not3286, label %2789, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2783.thread
+  br i1 %.not3536, label %2789, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2783.thread
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit2783.thread: ; preds = %2675, %2674, %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2783
   %2678 = ptrtoint ptr %.01574 to i64
@@ -32875,11 +32875,11 @@ lean_dec_ref.exit2104:                            ; preds = %3474, %3473, %3471,
   %3475 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %3448) #6
   %3476 = tail call zeroext i8 @l_Lean_IR_IRType_isScalar(ptr noundef %3381) #6
   %3477 = icmp eq i8 %3475, 0
-  %.not3285 = icmp eq i8 %3476, 0
+  %.not3535 = icmp eq i8 %3476, 0
   br i1 %3477, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2924, label %3478
 
 3478:                                             ; preds = %lean_dec_ref.exit2104
-  br i1 %.not3285, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2924.thread, label %3479
+  br i1 %.not3535, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2924.thread, label %3479
 
 3479:                                             ; preds = %3478
   %3480 = tail call zeroext i8 @l_Lean_IR_IRType_beq(ptr noundef %3448, ptr noundef %3381) #6
@@ -32887,7 +32887,7 @@ lean_dec_ref.exit2104:                            ; preds = %3474, %3473, %3471,
   br i1 %3481, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2924.thread, label %3582
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit2924:       ; preds = %lean_dec_ref.exit2104
-  br i1 %.not3285, label %3582, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2924.thread
+  br i1 %.not3535, label %3582, label %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2924.thread
 
 l_Lean_IR_ExplicitBoxing_eqvTypes.exit2924.thread: ; preds = %3479, %3478, %l_Lean_IR_ExplicitBoxing_eqvTypes.exit2924
   %3482 = ptrtoint ptr %.01590 to i64
@@ -34175,7 +34175,7 @@ lean_alloc_ctor.exit2999:                         ; preds = %lean_dec.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_mapMUnsafe_map___at_Lean_IR_ExplicitBoxing_visitFnBody___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_mapMUnsafe_map___at_Lean_IR_ExplicitBoxing_visitFnBody___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 8
   %.val12 = load i64, ptr %6, align 8, !tbaa !8
   %7 = ptrtoint ptr %0 to i64
@@ -34445,7 +34445,7 @@ lean_inc.exit95:                                  ; preds = %81, %80, %78, %lean
   br label %lean_dec.exit89
 
 93:                                               ; preds = %85
-  %94 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %87) #6
+  %94 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #6
   br label %lean_dec.exit89
 
 95:                                               ; preds = %lean_inc.exit95
@@ -35054,7 +35054,7 @@ lean_inc.exit95:                                  ; preds = %80, %79, %77, %lean
   br label %lean_dec.exit89
 
 92:                                               ; preds = %84
-  %93 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %86) #6
+  %93 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #6
   br label %lean_dec.exit89
 
 94:                                               ; preds = %lean_inc.exit95

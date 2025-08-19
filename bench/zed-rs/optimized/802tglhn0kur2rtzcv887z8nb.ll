@@ -699,7 +699,7 @@ define hidden void @_ZN4gpui8elements4text10StyledText15with_highlights17h06e253
 
 .lr.ph:                                           ; preds = %4, %191
   %88 = phi ptr [ %193, %191 ], [ %82, %4 ]
-  %.sroa.03.090 = phi i64 [ %96, %191 ], [ 0, %4 ]
+  %.sroa.03.092 = phi i64 [ %96, %191 ], [ 0, %4 ]
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 128
   store ptr %89, ptr %14, align 8, !alias.scope !209, !noalias !214
   invoke void @"_ZN9rich_text8RichText7element28_$u7b$$u7b$closure$u7d$$u7d$17h7b79fe198f9505d9E.llvm.4327276305301521166"(ptr noalias noundef nonnull sret([128 x i8]) align 8 captures(none) dereferenceable(128) %13, ptr noalias noundef nonnull align 8 dereferenceable(16) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %88)
@@ -716,7 +716,7 @@ define hidden void @_ZN4gpui8elements4text10StyledText15with_highlights17h06e253
   br i1 %92, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6cd43a834be6eeaE.exit.thread", label %94
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6cd43a834be6eeaE.exit.thread": ; preds = %191, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6cd43a834be6eeaE.exit", %4
-  %.sroa.03.0.lcssa = phi i64 [ 0, %4 ], [ %96, %191 ], [ %.sroa.03.090, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6cd43a834be6eeaE.exit" ]
+  %.sroa.03.0.lcssa = phi i64 [ 0, %4 ], [ %96, %191 ], [ %.sroa.03.092, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6cd43a834be6eeaE.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.sroa.2.0.in = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -728,7 +728,7 @@ define hidden void @_ZN4gpui8elements4text10StyledText15with_highlights17h06e253
   %95 = load i64, ptr %13, align 8, !noundef !4
   %96 = load i64, ptr %21, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %12, ptr noundef nonnull align 8 dereferenceable(112) %20, i64 112, i1 false)
-  %97 = icmp ult i64 %.sroa.03.090, %95
+  %97 = icmp ult i64 %.sroa.03.092, %95
   br i1 %97, label %118, label %137
 
 98:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6cd43a834be6eeaE.exit.thread"
@@ -937,7 +937,7 @@ define hidden void @_ZN4gpui8elements4text10StyledText15with_highlights17h06e253
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.510.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.56.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)
-  %157 = sub i64 %95, %.sroa.03.090
+  %157 = sub i64 %95, %.sroa.03.092
   invoke void @_ZN4gpui5style9TextStyle6to_run17hc84fa29986d4428eE(ptr noalias noundef nonnull sret([144 x i8]) align 8 captures(none) dereferenceable(144) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %10, i64 noundef %157)
           to label %160 unwind label %158
 

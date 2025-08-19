@@ -169,12 +169,12 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements5findPEj(ptr noundef nonnu
   %8 = add nsw i32 %7, -1
   %9 = add nsw i32 %5, 1
   %10 = icmp slt i32 %9, %8
-  br i1 %10, label %.lr.ph108, label %.thread86
+  br i1 %10, label %.lr.ph111, label %.thread88
 
-.lr.ph108:                                        ; preds = %2, %37
-  %.038107 = phi i32 [ %.033..038, %37 ], [ %8, %2 ]
-  %.041106 = phi i32 [ %.041..033, %37 ], [ %5, %2 ]
-  %11 = add nsw i32 %.038107, %.041106
+.lr.ph111:                                        ; preds = %2, %37
+  %.038109 = phi i32 [ %.033..038, %37 ], [ %8, %2 ]
+  %.041108 = phi i32 [ %.041..033, %37 ], [ %5, %2 ]
+  %11 = add nsw i32 %.038109, %.041108
   %12 = sdiv i32 %11, 2
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i32, ptr %3, i64 %13
@@ -183,9 +183,9 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements5findPEj(ptr noundef nonnu
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %37, label %.preheader52
 
-.preheader52:                                     ; preds = %.lr.ph108
+.preheader52:                                     ; preds = %.lr.ph111
   %.02953 = add nsw i32 %12, 1
-  %17 = icmp eq i32 %.02953, %.038107
+  %17 = icmp eq i32 %.02953, %.038109
   br i1 %17, label %.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader52
@@ -195,7 +195,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements5findPEj(ptr noundef nonnu
 19:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %20 = trunc nsw i64 %indvars.iv.next to i32
-  %21 = icmp eq i32 %.038107, %20
+  %21 = icmp eq i32 %.038109, %20
   br i1 %21, label %.preheader, label %.lr.ph, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
@@ -212,8 +212,8 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements5findPEj(ptr noundef nonnu
 
 .preheader:                                       ; preds = %19, %.preheader52
   %.13059 = add nsw i32 %12, -1
-  %27 = icmp eq i32 %.13059, %.041106
-  br i1 %27, label %.thread86, label %.lr.ph61.preheader
+  %27 = icmp eq i32 %.13059, %.041108
+  br i1 %27, label %.thread88, label %.lr.ph61.preheader
 
 .lr.ph61.preheader:                               ; preds = %.preheader
   %narrow = add nsw i32 %12, -1
@@ -223,8 +223,8 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements5findPEj(ptr noundef nonnu
 29:                                               ; preds = %.lr.ph61
   %indvars.iv.next75 = add nsw i64 %indvars.iv74, -1
   %30 = trunc nsw i64 %indvars.iv.next75 to i32
-  %31 = icmp eq i32 %.041106, %30
-  br i1 %31, label %.thread86, label %.lr.ph61, !llvm.loop !14
+  %31 = icmp eq i32 %.041108, %30
+  br i1 %31, label %.thread88, label %.lr.ph61, !llvm.loop !14
 
 .lr.ph61:                                         ; preds = %.lr.ph61.preheader, %29
   %indvars.iv74 = phi i64 [ %28, %.lr.ph61.preheader ], [ %indvars.iv.next75, %29 ]
@@ -238,20 +238,20 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements5findPEj(ptr noundef nonnu
   %36 = trunc nsw i64 %indvars.iv74 to i32
   br label %37
 
-37:                                               ; preds = %.lr.ph108, %._crit_edge56, %._crit_edge62
-  %.033 = phi i32 [ %36, %._crit_edge62 ], [ %12, %.lr.ph108 ], [ %26, %._crit_edge56 ]
-  %.031 = phi i32 [ %33, %._crit_edge62 ], [ %15, %.lr.ph108 ], [ %23, %._crit_edge56 ]
+37:                                               ; preds = %.lr.ph111, %._crit_edge56, %._crit_edge62
+  %.033 = phi i32 [ %36, %._crit_edge62 ], [ %12, %.lr.ph111 ], [ %26, %._crit_edge56 ]
+  %.031 = phi i32 [ %33, %._crit_edge62 ], [ %15, %.lr.ph111 ], [ %23, %._crit_edge56 ]
   %38 = and i32 %.031, -256
   %39 = icmp ult i32 %1, %38
-  %.041..033 = select i1 %39, i32 %.041106, i32 %.033
-  %.033..038 = select i1 %39, i32 %.033, i32 %.038107
+  %.041..033 = select i1 %39, i32 %.041108, i32 %.033
+  %.033..038 = select i1 %39, i32 %.033, i32 %.038109
   %40 = add nsw i32 %.041..033, 1
   %41 = icmp slt i32 %40, %.033..038
-  br i1 %41, label %.lr.ph108, label %.thread86
+  br i1 %41, label %.lr.ph111, label %.thread88
 
-.thread86:                                        ; preds = %37, %.preheader, %29, %2
-  %.041105 = phi i32 [ %5, %2 ], [ %.041106, %29 ], [ %.041106, %.preheader ], [ %.041..033, %37 ]
-  ret i32 %.041105
+.thread88:                                        ; preds = %37, %.preheader, %29, %2
+  %.041107 = phi i32 [ %5, %2 ], [ %.041108, %29 ], [ %.041108, %.preheader ], [ %.041..033, %37 ]
+  ret i32 %.041107
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

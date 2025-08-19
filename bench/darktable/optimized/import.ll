@@ -3097,9 +3097,9 @@ _get_custom_places.exit:                          ; preds = %88
 
 .sink.split:                                      ; preds = %68, %71, %_get_custom_places.exit, %._crit_edge93
   %.sink = phi ptr [ %90, %._crit_edge93 ], [ %14, %_get_custom_places.exit ], [ %14, %71 ], [ %14, %68 ]
-  %.0.lcssa.i96100.ph = phi ptr [ %.1.i, %._crit_edge93 ], [ null, %_get_custom_places.exit ], [ null, %71 ], [ null, %68 ]
+  %.0.lcssa.i105109.ph = phi ptr [ %.1.i, %._crit_edge93 ], [ null, %_get_custom_places.exit ], [ null, %71 ], [ null, %68 ]
   call void @g_free(ptr noundef %.sink) #16
-  call void @g_list_free(ptr noundef %.0.lcssa.i96100.ph) #16
+  call void @g_list_free(ptr noundef %.0.lcssa.i105109.ph) #16
   call fastcc void @_update_folders_list(ptr noundef %0)
   %102 = call i32 @_update_files_list(ptr noundef %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3374,15 +3374,15 @@ define internal fastcc void @_thumb_set_in_listview(ptr noundef %0, ptr noundef 
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %49, label %53, label %.thread82.i
+  br i1 %49, label %53, label %.thread84.i
 
 53:                                               ; preds = %48, %.thread.i
   %54 = call ptr @gdk_pixbuf_new_from_file_at_size(ptr noundef nonnull %24, i32 noundef 128, i32 noundef 128, ptr noundef null) #16
   %.not62.not.i = icmp eq ptr %54, null
-  br i1 %.not62.not.i, label %.thread70.i, label %.thread82.i
+  br i1 %.not62.not.i, label %.thread70.i, label %.thread84.i
 
-.thread82.i:                                      ; preds = %53, %48
-  %.385.i = phi ptr [ %54, %53 ], [ %.2.i, %48 ]
+.thread84.i:                                      ; preds = %53, %48
+  %.387.i = phi ptr [ %54, %53 ], [ %.2.i, %48 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1856) %7, i8 0, i64 1856, i1 false)
   %55 = call i32 @dt_exif_read(ptr noundef nonnull %7, ptr noundef nonnull %24) #16
@@ -3394,28 +3394,28 @@ define internal fastcc void @_thumb_set_in_listview(ptr noundef %0, ptr noundef 
     i32 3, label %59
   ]
 
-58:                                               ; preds = %.thread82.i
+58:                                               ; preds = %.thread84.i
   br label %.sink.split.i
 
-59:                                               ; preds = %.thread82.i
+59:                                               ; preds = %.thread84.i
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %59, %58, %.thread82.i
-  %.sink.i = phi i32 [ 270, %58 ], [ 180, %59 ], [ 90, %.thread82.i ]
-  %60 = call ptr @gdk_pixbuf_rotate_simple(ptr noundef %.385.i, i32 noundef %.sink.i) #16
+.sink.split.i:                                    ; preds = %59, %58, %.thread84.i
+  %.sink.i = phi i32 [ 270, %58 ], [ 180, %59 ], [ 90, %.thread84.i ]
+  %60 = call ptr @gdk_pixbuf_rotate_simple(ptr noundef %.387.i, i32 noundef %.sink.i) #16
   br label %61
 
-61:                                               ; preds = %.sink.split.i, %.thread82.i
-  %.050.i = phi ptr [ %.385.i, %.thread82.i ], [ %60, %.sink.split.i ]
-  %.not63.i = icmp eq ptr %.385.i, %.050.i
+61:                                               ; preds = %.sink.split.i, %.thread84.i
+  %.050.i = phi ptr [ %.387.i, %.thread84.i ], [ %60, %.sink.split.i ]
+  %.not63.i = icmp eq ptr %.387.i, %.050.i
   br i1 %.not63.i, label %63, label %62
 
 62:                                               ; preds = %61
-  call void @g_object_unref(ptr noundef %.385.i) #16
+  call void @g_object_unref(ptr noundef %.387.i) #16
   br label %63
 
 63:                                               ; preds = %62, %61
-  %.5.i = phi ptr [ %.050.i, %62 ], [ %.385.i, %61 ]
+  %.5.i = phi ptr [ %.050.i, %62 ], [ %.387.i, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_import_get_thumbnail.exit
 
@@ -3427,7 +3427,7 @@ define internal fastcc void @_thumb_set_in_listview(ptr noundef %0, ptr noundef 
 _import_get_thumbnail.exit.thread:                ; preds = %.thread70.i
   %65 = getelementptr inbounds nuw i8, ptr %.280.val, i64 168
   %66 = load ptr, ptr %65, align 8, !tbaa !50
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %66, ptr noundef %1, i32 noundef 0, i32 noundef %2, i32 noundef 1, ptr noundef null, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %66, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 1, ptr noundef null, i32 noundef -1) #16
   br label %79
 
 67:                                               ; preds = %.thread70.i

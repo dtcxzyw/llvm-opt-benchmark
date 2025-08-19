@@ -2071,21 +2071,21 @@ stringlib__factorize.exit:                        ; preds = %44
 define internal fastcc i64 @stringlib__two_way(ptr noundef %0, i64 noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !66
-  %.fr278 = freeze i64 %5
+  %.fr289 = freeze i64 %5
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !68
   %.fr237 = freeze i64 %7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i64, ptr %8, align 8, !tbaa !70
   %10 = load ptr, ptr %2, align 8, !tbaa !64
-  %11 = getelementptr i8, ptr %0, i64 %.fr278
+  %11 = getelementptr i8, ptr %0, i64 %.fr289
   %12 = getelementptr i8, ptr %11, i64 -1
   %13 = getelementptr i8, ptr %0, i64 %1
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %16 = load i64, ptr %15, align 8, !tbaa !71
   %17 = add i64 %16, %.fr237
-  %18 = tail call i64 @llvm.smin.i64(i64 %.fr278, i64 %17)
+  %18 = tail call i64 @llvm.smin.i64(i64 %.fr289, i64 %17)
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %20 = load i32, ptr %19, align 8, !tbaa !69
   %.not = icmp eq i32 %20, 0
@@ -2096,8 +2096,8 @@ define internal fastcc i64 @stringlib__two_way(ptr noundef %0, i64 noundef %1, p
   br i1 %21, label %.preheader180.lr.ph, label %.thread
 
 .preheader180.lr.ph:                              ; preds = %.preheader182
-  %22 = sub i64 0, %.fr278
-  %23 = sub i64 %.fr278, %9
+  %22 = sub i64 0, %.fr289
+  %23 = sub i64 %.fr289, %9
   %24 = tail call i64 @llvm.smax.i64(i64 %.fr237, i64 %23)
   %reass.sub = sub i64 %24, %.fr237
   %25 = add i64 %reass.sub, 1
@@ -2131,7 +2131,7 @@ define internal fastcc i64 @stringlib__two_way(ptr noundef %0, i64 noundef %1, p
   %34 = getelementptr i8, ptr %.2128, i64 %22
   %35 = getelementptr i8, ptr %34, i64 1
   %36 = tail call i64 @llvm.smax.i64(i64 %.fr237, i64 %.1144)
-  %37 = icmp slt i64 %36, %.fr278
+  %37 = icmp slt i64 %36, %.fr289
   br i1 %37, label %.lr.ph, label %.preheader177
 
 .preheader177:                                    ; preds = %50, %.preheader178
@@ -2163,7 +2163,7 @@ define internal fastcc i64 @stringlib__two_way(ptr noundef %0, i64 noundef %1, p
 
 50:                                               ; preds = %.lr.ph
   %51 = add i64 %.0135197, 1
-  %exitcond.not = icmp eq i64 %51, %.fr278
+  %exitcond.not = icmp eq i64 %51, %.fr289
   br i1 %exitcond.not, label %.preheader177, label %.lr.ph, !llvm.loop !74
 
 52:                                               ; preds = %.lr.ph199
@@ -2210,8 +2210,8 @@ define internal fastcc i64 @stringlib__two_way(ptr noundef %0, i64 noundef %1, p
   br i1 %73, label %.preheader175.lr.ph, label %.thread
 
 .preheader175.lr.ph:                              ; preds = %71
-  %74 = sub i64 0, %.fr278
-  %75 = icmp slt i64 %.fr237, %.fr278
+  %74 = sub i64 0, %.fr289
+  %75 = icmp slt i64 %.fr237, %.fr289
   %.not152206 = icmp sgt i64 %.fr237, 0
   br i1 %75, label %.preheader175.us, label %.preheader175.lr.ph.split
 
@@ -2285,7 +2285,7 @@ define internal fastcc i64 @stringlib__two_way(ptr noundef %0, i64 noundef %1, p
 
 106:                                              ; preds = %93
   %107 = add nsw i64 %.0124203.us, 1
-  %108 = icmp slt i64 %107, %.fr278
+  %108 = icmp slt i64 %107, %.fr289
   br i1 %108, label %93, label %..preheader_crit_edge.us, !llvm.loop !77
 
 ..preheader_crit_edge.us:                         ; preds = %106
@@ -2388,11 +2388,11 @@ define internal fastcc range(i32 -1, 2) i32 @tailmatch(ptr noundef readonly capt
   %.val49 = load i64, ptr %9, align 8, !tbaa !50
   %10 = and i64 %.val49, 134217728
   %.not = icmp eq i64 %10, 0
-  %.sink51.sroa.gep52 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink54.sroa.gep55 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br i1 %.not, label %13, label %11
 
 11:                                               ; preds = %6
-  %.sink51.sroa.gep = getelementptr i8, ptr %2, i64 16
+  %.sink54.sroa.gep = getelementptr i8, ptr %2, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %17
 
@@ -2406,9 +2406,9 @@ define internal fastcc range(i32 -1, 2) i32 @tailmatch(ptr noundef readonly capt
   br label %17
 
 17:                                               ; preds = %11, %15
-  %.sink51.sroa.phi = phi ptr [ %.sink51.sroa.gep, %11 ], [ %.sink51.sroa.gep52, %15 ]
+  %.sink54.sroa.phi = phi ptr [ %.sink54.sroa.gep, %11 ], [ %.sink54.sroa.gep55, %15 ]
   %.037 = phi ptr [ %12, %11 ], [ %16, %15 ]
-  %.val50 = load i64, ptr %.sink51.sroa.phi, align 8, !tbaa !53
+  %.val50 = load i64, ptr %.sink54.sroa.phi, align 8, !tbaa !53
   %18 = icmp sgt i64 %4, %1
   br i1 %18, label %23, label %19
 

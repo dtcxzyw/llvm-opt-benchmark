@@ -356,14 +356,14 @@ define noalias noundef ptr @Abc_NtkPrecomputeCellPairs(ptr noundef readonly capt
   br label %Vec_IntPush.exit.i.sink.split
 
 Vec_IntPush.exit.i.sink.split:                    ; preds = %138, %140, %130, %132
-  %.sink276 = phi ptr [ %131, %130 ], [ %133, %132 ], [ %139, %138 ], [ %141, %140 ]
+  %.sink290 = phi ptr [ %131, %130 ], [ %133, %132 ], [ %139, %138 ], [ %141, %140 ]
   %.sink = phi i32 [ 16, %130 ], [ 16, %132 ], [ %135, %138 ], [ %135, %140 ]
-  store ptr %.sink276, ptr %9, align 8, !tbaa !11
+  store ptr %.sink290, ptr %9, align 8, !tbaa !11
   store i32 %.sink, ptr %6, align 8, !tbaa !10
   br label %Vec_IntPush.exit.i
 
 Vec_IntPush.exit.i:                               ; preds = %Vec_IntPush.exit.i.sink.split, %._crit_edge198
-  %.pre.i.i271 = phi ptr [ %34, %._crit_edge198 ], [ %.sink276, %Vec_IntPush.exit.i.sink.split ]
+  %.pre.i.i271 = phi ptr [ %34, %._crit_edge198 ], [ %.sink290, %Vec_IntPush.exit.i.sink.split ]
   %142 = add nsw i32 %124, 1
   store i32 %142, ptr %7, align 4, !tbaa !3
   %143 = sext i32 %124 to i64
@@ -379,9 +379,9 @@ Vec_IntPush.exit11.sink.split.i:                  ; preds = %Vec_IntPush.exit.i
   %149 = shl nuw nsw i32 %145, 1
   %150 = zext nneg i32 %149 to i64
   %151 = shl nuw nsw i64 %150, 2
-  %.sink277 = select i1 %148, i64 64, i64 %151
+  %.sink291 = select i1 %148, i64 64, i64 %151
   %.sink.i = select i1 %148, i32 16, i32 %149
-  %152 = tail call ptr @realloc(ptr noundef nonnull %.pre.i.i271, i64 noundef %.sink277) #14
+  %152 = tail call ptr @realloc(ptr noundef nonnull %.pre.i.i271, i64 noundef %.sink291) #14
   store ptr %152, ptr %9, align 8, !tbaa !11
   store i32 %.sink.i, ptr %6, align 8, !tbaa !10
   %.pre = load i32, ptr %7, align 4, !tbaa !3
@@ -405,11 +405,11 @@ Vec_IntPush.exit18.sink.split.i:                  ; preds = %Vec_IntPush.exit11.
   %161 = shl nuw nsw i32 %157, 1
   %162 = zext nneg i32 %161 to i64
   %163 = shl nuw nsw i64 %162, 2
-  %.sink278 = select i1 %160, i64 64, i64 %163
-  %.sink20.i = select i1 %160, i32 16, i32 %161
-  %164 = tail call ptr @realloc(ptr noundef nonnull %.pre.i.i270, i64 noundef %.sink278) #14
+  %.sink292 = select i1 %160, i64 64, i64 %163
+  %.sink27.i = select i1 %160, i32 16, i32 %161
+  %164 = tail call ptr @realloc(ptr noundef nonnull %.pre.i.i270, i64 noundef %.sink292) #14
   store ptr %164, ptr %9, align 8, !tbaa !11
-  store i32 %.sink20.i, ptr %6, align 8, !tbaa !10
+  store i32 %.sink27.i, ptr %6, align 8, !tbaa !10
   %.pre274 = load i32, ptr %7, align 4, !tbaa !3
   br label %Vec_IntPushThree.exit
 
@@ -542,14 +542,14 @@ Vec_IntStartFull.exit:                            ; preds = %2, %7
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %24, %26, %16, %18
-  %.sink14 = phi ptr [ %17, %16 ], [ %19, %18 ], [ %25, %24 ], [ %27, %26 ]
+  %.sink17 = phi ptr [ %17, %16 ], [ %19, %18 ], [ %25, %24 ], [ %27, %26 ]
   %.sink = phi i32 [ 16, %16 ], [ 16, %18 ], [ %21, %24 ], [ %21, %26 ]
-  store ptr %.sink14, ptr %6, align 8, !tbaa !11
+  store ptr %.sink17, ptr %6, align 8, !tbaa !11
   store i32 %.sink, ptr %3, align 8, !tbaa !10
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %.lr.ph
-  %.pre.i13 = phi ptr [ %9, %.lr.ph ], [ %.sink14, %Vec_IntPush.exit.sink.split ]
+  %.pre.i13 = phi ptr [ %9, %.lr.ph ], [ %.sink17, %Vec_IntPush.exit.sink.split ]
   %28 = add nsw i32 %10, 1
   store i32 %28, ptr %4, align 4, !tbaa !3
   %29 = sext i32 %10 to i64
@@ -655,7 +655,7 @@ define i32 @Abc_NtkPrecomputePrint(ptr noundef %0, i32 noundef %1, ptr noundef r
   %46 = getelementptr i32, ptr %.val, i64 %16
   %47 = load i32, ptr %46, align 4, !tbaa !15
   %48 = icmp eq i32 %47, -1
-  br i1 %48, label %.split50.us.loopexit69, label %49
+  br i1 %48, label %.split50.us.loopexit73, label %49
 
 49:                                               ; preds = %.split
   %50 = getelementptr i8, ptr %46, i64 8
@@ -675,16 +675,16 @@ define i32 @Abc_NtkPrecomputePrint(ptr noundef %0, i32 noundef %1, ptr noundef r
   %64 = lshr i32 %63, 28
   tail call void @Dau_DsdPrintFromTruth(ptr noundef nonnull %61, i32 noundef %64) #13
   %65 = add nsw i32 %.03952, 1
-  br label %.split50.us.loopexit69
+  br label %.split50.us.loopexit73
 
-.split50.us.loopexit69:                           ; preds = %49, %.split
+.split50.us.loopexit73:                           ; preds = %49, %.split
   %.2 = phi i32 [ %65, %49 ], [ %.03952, %.split ]
   %indvars.iv.next = add nsw i64 %16, 3
   br label %.split50.us
 
-.split50.us:                                      ; preds = %31, %.split50.us.loopexit69
-  %.us-phi = phi i32 [ %.2, %.split50.us.loopexit69 ], [ %.2.us, %31 ]
-  %.us-phi51.in = phi i64 [ %indvars.iv.next, %.split50.us.loopexit69 ], [ %indvars.iv.next61, %31 ]
+.split50.us:                                      ; preds = %31, %.split50.us.loopexit73
+  %.us-phi = phi i32 [ %.2, %.split50.us.loopexit73 ], [ %.2.us, %31 ]
+  %.us-phi51.in = phi i64 [ %indvars.iv.next, %.split50.us.loopexit73 ], [ %indvars.iv.next61, %31 ]
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count
   br i1 %exitcond67.not, label %._crit_edge, label %6, !llvm.loop !36
@@ -1095,15 +1095,15 @@ Abc_NodeCheckFanoutHasFanin.exit.thread:          ; preds = %80, %66
 
 .critedge:                                        ; preds = %103
   %.not50 = icmp eq i32 %.148, 0
-  %spec.select99 = select i1 %.not50, i32 0, i32 %3
+  %spec.select100 = select i1 %.not50, i32 0, i32 %3
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge, %27
-  %.1.lcssa95 = phi i32 [ %.046, %27 ], [ %.2, %.critedge ]
-  %.047.lcssa93 = phi i32 [ 0, %27 ], [ %.148, %.critedge ]
-  %106 = phi i32 [ 0, %27 ], [ %spec.select99, %.critedge ]
-  %spec.select = sub nsw i32 %.1.lcssa95, %106
-  store i32 %.047.lcssa93, ptr %4, align 4, !tbaa !15
+  %.1.lcssa96 = phi i32 [ %.046, %27 ], [ %.2, %.critedge ]
+  %.047.lcssa94 = phi i32 [ 0, %27 ], [ %.148, %.critedge ]
+  %106 = phi i32 [ 0, %27 ], [ %spec.select100, %.critedge ]
+  %spec.select = sub nsw i32 %.1.lcssa96, %106
+  store i32 %.047.lcssa94, ptr %4, align 4, !tbaa !15
   br label %Abc_ObjHasDupFanins.exit
 
 Abc_ObjHasDupFanins.exit:                         ; preds = %40, %70, %56, %5, %.critedge.thread
@@ -1649,7 +1649,7 @@ Abc_ObjHasDupFanouts.exit:                        ; preds = %59, %67, %41, %35, 
 
 .critedge.loopexit:                               ; preds = %Abc_ObjHasDupFanouts.exit
   %.pre = load ptr, ptr %25, align 8, !tbaa !54
-  %77 = sitofp i32 %.1 to float
+  %77 = uitofp nneg i32 %.1 to float
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %Abc_Clock.exit

@@ -260,8 +260,8 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !29, !noalias !26
+  %.sroa.0.i.1.i.1.i.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx11, align 1, !alias.scope !29, !noalias !26
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 15:                                               ; preds = %6
@@ -273,13 +273,13 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !29, !noalias !26
+  %.sroa.0.i.1.i.1.i.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx10, align 1, !alias.scope !29, !noalias !26
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !29, !noalias !26
+  %.sroa.0.i.2.i.2.i.2..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx12, align 2, !alias.scope !29, !noalias !26
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 26:                                               ; preds = %6
@@ -9400,9 +9400,9 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h031799cd30625d
   br label %.loopexit51.sink.split
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
-  %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.42.llvm.11423182251827145186, i64 %10
-  %12 = add nuw i64 %10, 1
+  %10 = phi i64 [ 1, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
+  %11 = getelementptr inbounds nuw { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.42.llvm.11423182251827145186, i64 %10
+  %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i8, ptr %13, align 8, !alias.scope !1720, !noalias !1723, !noundef !5
   %15 = and i8 %14, %7
@@ -9622,9 +9622,9 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h15e64a5a35c8fd
   br label %.loopexit51.sink.split
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
-  %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i32, [1 x i32] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.36.llvm.11423182251827145186, i64 %10
-  %12 = add nuw i64 %10, 1
+  %10 = phi i64 [ 1, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
+  %11 = getelementptr inbounds nuw { { ptr, i64 }, i32, [1 x i32] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.36.llvm.11423182251827145186, i64 %10
+  %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i32, ptr %13, align 8, !alias.scope !1804, !noalias !1807, !noundef !5
   %15 = and i32 %14, %7
@@ -10363,9 +10363,9 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h40b9a7e0c658a9
   br label %.loopexit51.sink.split
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
-  %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.42.llvm.11423182251827145186, i64 %10
-  %12 = add nuw i64 %10, 1
+  %10 = phi i64 [ 1, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
+  %11 = getelementptr inbounds nuw { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.42.llvm.11423182251827145186, i64 %10
+  %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i8, ptr %13, align 8, !alias.scope !2068, !noalias !2071, !noundef !5
   %15 = and i8 %14, %7
@@ -10682,9 +10682,9 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h552d6650eef8d5
   br label %.loopexit51.sink.split
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
-  %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.3.llvm.11423182251827145186, i64 %10
-  %12 = add nuw i64 %10, 1
+  %10 = phi i64 [ 1, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
+  %11 = getelementptr inbounds nuw { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.3.llvm.11423182251827145186, i64 %10
+  %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i64, ptr %13, align 8, !noalias !2184, !noundef !5
   %15 = icmp eq i64 %14, 0
@@ -10941,9 +10941,9 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h9a1b1c16ac4546
   br label %.loopexit51.sink.split
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
-  %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.3.llvm.11423182251827145186, i64 %10
-  %12 = add nuw i64 %10, 1
+  %10 = phi i64 [ 1, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
+  %11 = getelementptr inbounds nuw { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.3.llvm.11423182251827145186, i64 %10
+  %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i64, ptr %13, align 8, !noalias !2284, !noundef !5
   %15 = icmp eq i64 %14, 0
@@ -11283,9 +11283,9 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17ha474e3be61ff0a
   br label %.loopexit51.sink.split
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
-  %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i32, [1 x i32] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.37.llvm.11423182251827145186, i64 %10
-  %12 = add nuw i64 %10, 1
+  %10 = phi i64 [ 1, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
+  %11 = getelementptr inbounds nuw { { ptr, i64 }, i32, [1 x i32] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.37.llvm.11423182251827145186, i64 %10
+  %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i64, ptr %13, align 8, !noalias !2410, !noundef !5
   %15 = icmp eq i64 %14, 0
@@ -11705,9 +11705,9 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hcb514d2090f45a
   br label %.loopexit51.sink.split
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
-  %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i32, [1 x i32] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.40.llvm.11423182251827145186, i64 %10
-  %12 = add nuw i64 %10, 1
+  %10 = phi i64 [ 1, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
+  %11 = getelementptr inbounds nuw { { ptr, i64 }, i32, [1 x i32] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.40.llvm.11423182251827145186, i64 %10
+  %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i64, ptr %13, align 8, !noalias !2558, !noundef !5
   %15 = icmp eq i64 %14, 0

@@ -209,11 +209,11 @@ _ZSt4moveIPN4llvm3LLTES2_ET0_T_S4_S3_.exit35.i:   ; preds = %39
 
 _ZSt4moveIPN4llvm3LLTES2_ET0_T_S4_S3_.exit35.i.thread: ; preds = %39, %_ZSt4moveIPN4llvm3LLTES2_ET0_T_S4_S3_.exit35.i
   %42 = phi i32 [ %.pre6, %_ZSt4moveIPN4llvm3LLTES2_ET0_T_S4_S3_.exit35.i ], [ %17, %39 ]
-  %.pre8.pre1116 = phi ptr [ %.pre8.pre11.pre, %_ZSt4moveIPN4llvm3LLTES2_ET0_T_S4_S3_.exit35.i ], [ %.pre9, %39 ]
+  %.pre8.pre1122 = phi ptr [ %.pre8.pre11.pre, %_ZSt4moveIPN4llvm3LLTES2_ET0_T_S4_S3_.exit35.i ], [ %.pre9, %39 ]
   %43 = zext i32 %42 to i64
   %44 = load ptr, ptr %29, align 8, !tbaa !13
   %gepdiff.i = shl nuw nsw i64 %43, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 8 %.pre8.pre1116, i64 %gepdiff.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 8 %.pre8.pre1122, i64 %gepdiff.i, i1 false)
   %.pre8.pre = load ptr, ptr %6, align 8, !tbaa !13
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_3LLTELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.i
 
@@ -681,11 +681,11 @@ _ZSt4moveIPN4llvm18LegalityPredicates18TypePairAndMemDescES3_ET0_T_S5_S4_.exit35
   br i1 %.not.i.i.i7, label %_ZN4llvm23SmallVectorTemplateBaseINS_18LegalityPredicates18TypePairAndMemDescELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i, label %_ZSt4moveIPN4llvm18LegalityPredicates18TypePairAndMemDescES3_ET0_T_S5_S4_.exit35.i.thread
 
 _ZSt4moveIPN4llvm18LegalityPredicates18TypePairAndMemDescES3_ET0_T_S5_S4_.exit35.i.thread: ; preds = %43, %_ZSt4moveIPN4llvm18LegalityPredicates18TypePairAndMemDescES3_ET0_T_S5_S4_.exit35.i
-  %.pre9.pre1220 = phi ptr [ %.pre9.pre12.pre, %_ZSt4moveIPN4llvm18LegalityPredicates18TypePairAndMemDescES3_ET0_T_S5_S4_.exit35.i ], [ %.pre10, %43 ]
-  %.pre-phi19 = phi i64 [ %.pre15, %_ZSt4moveIPN4llvm18LegalityPredicates18TypePairAndMemDescES3_ET0_T_S5_S4_.exit35.i ], [ %44, %43 ]
+  %.pre9.pre1225 = phi ptr [ %.pre9.pre12.pre, %_ZSt4moveIPN4llvm18LegalityPredicates18TypePairAndMemDescES3_ET0_T_S5_S4_.exit35.i ], [ %.pre10, %43 ]
+  %.pre-phi24 = phi i64 [ %.pre15, %_ZSt4moveIPN4llvm18LegalityPredicates18TypePairAndMemDescES3_ET0_T_S5_S4_.exit35.i ], [ %44, %43 ]
   %46 = load ptr, ptr %34, align 8, !tbaa !13
-  %gepdiff.i = shl nuw nsw i64 %.pre-phi19, 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %46, ptr align 8 %.pre9.pre1220, i64 %gepdiff.i, i1 false)
+  %gepdiff.i = shl nuw nsw i64 %.pre-phi24, 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %46, ptr align 8 %.pre9.pre1225, i64 %gepdiff.i, i1 false)
   %.pre9.pre = load ptr, ptr %22, align 8, !tbaa !13
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_18LegalityPredicates18TypePairAndMemDescELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i
 
@@ -1100,13 +1100,13 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %22 = getelementptr inbounds nuw i8, ptr %.02952.i.i.i.i.i.i.i, i64 16
   %23 = load i64, ptr %22, align 8
   %spec.select.i.i31.i.i.i.i.i.i.i = icmp eq i64 %23, %14
-  br i1 %spec.select.i.i31.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit15", label %24
+  br i1 %spec.select.i.i31.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit18", label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %.02952.i.i.i.i.i.i.i, i64 24
   %26 = load i64, ptr %25, align 8
   %spec.select.i.i32.i.i.i.i.i.i.i = icmp eq i64 %26, %14
-  br i1 %spec.select.i.i32.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit17", label %27
+  br i1 %spec.select.i.i32.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit20", label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %.02952.i.i.i.i.i.i.i, i64 32
@@ -1121,7 +1121,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i, %2
   %.pre-phi62.i.i.i.i.i.i.i = phi i32 [ %31, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %10, %2 ]
   %.029.lcssa.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %8, %2 ]
-  switch i32 %.pre-phi62.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.unreachabledefault.i.i.i.i [
+  switch i32 %.pre-phi62.i.i.i.i.i.i.i, label %default.unreachable [
     i32 3, label %32
     i32 2, label %._crit_edge._crit_edge.i.i.i.i.i.i.i
     i32 1, label %._crit_edge._crit_edge58.i.i.i.i.i.i.i
@@ -1164,7 +1164,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %spec.select.i.i35.i.i.i.i.i.i.i = icmp eq i64 %44, %43
   br i1 %spec.select.i.i35.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %45
 
-._crit_edge.i.i.i.unreachabledefault.i.i.i.i:     ; preds = %._crit_edge.i.i.i.i.i.i.i
+default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i.i.i
   unreachable
 
 45:                                               ; preds = %42, %._crit_edge.i.i.i.i.i.i.i
@@ -1174,16 +1174,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %46 = getelementptr inbounds nuw i8, ptr %.02952.i.i.i.i.i.i.i, i64 8
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit15": ; preds = %21
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit18": ; preds = %21
   %47 = getelementptr inbounds nuw i8, ptr %.02952.i.i.i.i.i.i.i, i64 16
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit17": ; preds = %24
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit20": ; preds = %24
   %48 = getelementptr inbounds nuw i8, ptr %.02952.i.i.i.i.i.i.i, i64 24
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %16, %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit", %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit15", %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit17", %32, %37, %42, %45
-  %.028.i.i.i.i.i.i.i = phi ptr [ %12, %45 ], [ %.029.lcssa.i.i.i.i.i.i.i, %32 ], [ %.1.i.i.i.i.i.i.i, %37 ], [ %.2.i.i.i.i.i.i.i, %42 ], [ %46, %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit" ], [ %47, %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit15" ], [ %48, %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit17" ], [ %.02952.i.i.i.i.i.i.i, %16 ]
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %16, %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit", %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit18", %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit20", %32, %37, %42, %45
+  %.028.i.i.i.i.i.i.i = phi ptr [ %12, %45 ], [ %.029.lcssa.i.i.i.i.i.i.i, %32 ], [ %.1.i.i.i.i.i.i.i, %37 ], [ %.2.i.i.i.i.i.i.i, %42 ], [ %46, %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit" ], [ %47, %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit18" ], [ %48, %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit20" ], [ %.02952.i.i.i.i.i.i.i, %16 ]
   %49 = icmp ne ptr %.028.i.i.i.i.i.i.i, %12
   ret i1 %49
 }

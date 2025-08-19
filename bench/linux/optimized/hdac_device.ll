@@ -1519,7 +1519,7 @@ define dso_local noundef range(i32 -5, 1) i32 @snd_hdac_query_supported_pcm(ptr 
   %.inv = icmp slt i32 %46, 0
   %49 = icmp ult i32 %48, 2
   %50 = select i1 %.inv, i1 true, i1 %49
-  br i1 %50, label %51, label %.thread6
+  br i1 %50, label %51, label %.thread13
 
 51:                                               ; preds = %44
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 768
@@ -1533,18 +1533,18 @@ define dso_local noundef range(i32 -5, 1) i32 @snd_hdac_query_supported_pcm(ptr 
   %58 = load i32, ptr %7, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %59 = add i32 %58, 1
-  %.inv8 = icmp slt i32 %57, 0
+  %.inv15 = icmp slt i32 %57, 0
   %60 = icmp ult i32 %59, 2
-  %61 = select i1 %.inv8, i1 true, i1 %60
-  br i1 %61, label %114, label %.thread6
+  %61 = select i1 %.inv15, i1 true, i1 %60
+  br i1 %61, label %114, label %.thread13
 
-.thread6:                                         ; preds = %44, %51
+.thread13:                                        ; preds = %44, %51
   %62 = phi i32 [ %58, %51 ], [ %47, %44 ]
   %63 = and i32 %62, 1
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %96, label %65
 
-65:                                               ; preds = %.thread6
+65:                                               ; preds = %.thread13
   %66 = and i32 %17, 65536
   %67 = lshr exact i32 %66, 13
   %68 = lshr exact i32 %66, 15
@@ -1583,10 +1583,10 @@ define dso_local noundef range(i32 -5, 1) i32 @snd_hdac_query_supported_pcm(ptr 
   %95 = or disjoint i32 %83, 2
   br label %96
 
-96:                                               ; preds = %94, %92, %65, %.thread6
-  %97 = phi i32 [ %81, %92 ], [ 32, %94 ], [ %81, %65 ], [ 0, %.thread6 ]
-  %98 = phi i32 [ %83, %92 ], [ %95, %94 ], [ %83, %65 ], [ 0, %.thread6 ]
-  %99 = phi i64 [ %93, %92 ], [ %77, %94 ], [ %86, %65 ], [ 0, %.thread6 ]
+96:                                               ; preds = %94, %92, %65, %.thread13
+  %97 = phi i32 [ %81, %92 ], [ 32, %94 ], [ %81, %65 ], [ 0, %.thread13 ]
+  %98 = phi i32 [ %83, %92 ], [ %95, %94 ], [ %83, %65 ], [ 0, %.thread13 ]
+  %99 = phi i64 [ %93, %92 ], [ %77, %94 ], [ %86, %65 ], [ 0, %.thread13 ]
   %100 = icmp eq i32 %62, 4
   %101 = or i64 %99, 2
   %102 = select i1 %100, i32 8, i32 %97
@@ -1744,9 +1744,9 @@ define dso_local noundef zeroext i1 @snd_hdac_is_supported_format(ptr noundef %0
   %39 = load i32, ptr %4, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %40 = add i32 %39, 1
-  %.inv6 = icmp slt i32 %38, 0
+  %.inv8 = icmp slt i32 %38, 0
   %41 = icmp ult i32 %40, 2
-  %42 = select i1 %.inv6, i1 true, i1 %41
+  %42 = select i1 %.inv8, i1 true, i1 %41
   br i1 %42, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %23, %32

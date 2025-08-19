@@ -61,7 +61,7 @@ define dso_local noundef ptr @fname_create(ptr noundef readonly captures(none) %
 24:                                               ; preds = %21
   store i32 2, ptr %12, align 8
   %25 = tail call ptr @xstrdup(ptr noundef nonnull @.str.4) #8
-  br label %.sink.split162
+  br label %.sink.split171
 
 26:                                               ; preds = %21
   %27 = call i64 @strtoul(ptr noundef nonnull %1, ptr noundef nonnull %5, i32 noundef 10) #8
@@ -79,7 +79,7 @@ define dso_local noundef ptr @fname_create(ptr noundef readonly captures(none) %
   store i32 1, ptr %12, align 8
   store i32 %32, ptr %13, align 4
   %35 = tail call ptr @xstrdup(ptr noundef nonnull %1) #8
-  br label %.sink.split162
+  br label %.sink.split171
 
 36:                                               ; preds = %31, %26
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -128,7 +128,7 @@ _remove_path_slashes.exit.thread:                 ; preds = %49
 _remove_path_slashes.exit:                        ; preds = %49
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq ptr %39, null
-  br i1 %.not, label %50, label %.sink.split162
+  br i1 %.not, label %50, label %.sink.split171
 
 50:                                               ; preds = %_remove_path_slashes.exit.thread, %_remove_path_slashes.exit
   store ptr null, ptr %7, align 8
@@ -431,22 +431,22 @@ _remove_path_slashes.exit:                        ; preds = %49
   br i1 %.not99, label %162, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %70, %.loopexit
-  %.177145 = phi ptr [ %.076, %.loopexit ], [ %74, %70 ]
+  %.177154 = phi ptr [ %.076, %.loopexit ], [ %74, %70 ]
   %161 = phi ptr [ %54, %.loopexit ], [ %73, %70 ]
-  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.177145, ptr noundef nonnull %161) #8
+  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.177154, ptr noundef nonnull %161) #8
   br label %162
 
 162:                                              ; preds = %.loopexit.thread, %.loopexit
   call void @slurm_xfree(ptr noundef nonnull %7) #8
   %163 = load ptr, ptr %6, align 8
-  br label %.sink.split162
+  br label %.sink.split171
 
-.sink.split162:                                   ; preds = %_remove_path_slashes.exit, %24, %34, %162
-  %.sink163 = phi ptr [ %163, %162 ], [ %35, %34 ], [ %25, %24 ], [ %39, %_remove_path_slashes.exit ]
-  store ptr %.sink163, ptr %11, align 8
+.sink.split171:                                   ; preds = %_remove_path_slashes.exit, %24, %34, %162
+  %.sink172 = phi ptr [ %163, %162 ], [ %35, %34 ], [ %25, %24 ], [ %39, %_remove_path_slashes.exit ]
+  store ptr %.sink172, ptr %11, align 8
   br label %164
 
-164:                                              ; preds = %.sink.split162, %3, %15, %18
+164:                                              ; preds = %.sink.split171, %3, %15, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

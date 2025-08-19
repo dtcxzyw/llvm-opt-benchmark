@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.EVP_SealInit = private unnamed_addr constant [13 x i8] c"EVP_SealInit\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @EVP_SealInit(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @EVP_SealInit(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca [64 x i8], align 16
   %9 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)

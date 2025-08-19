@@ -1607,9 +1607,9 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal17set_from_tripletsIN9__gn
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %15 = shl i64 %9, 2
   %16 = add i64 %15, 4
-  %calloc33 = tail call ptr @calloc(i64 1, i64 %16)
-  store ptr %calloc33, ptr %14, align 8, !tbaa !100
-  %.not6.i = icmp eq ptr %calloc33, null
+  %calloc41 = tail call ptr @calloc(i64 1, i64 %16)
+  store ptr %calloc41, ptr %14, align 8, !tbaa !100
+  %.not6.i = icmp eq ptr %calloc41, null
   br i1 %.not6.i, label %17, label %_ZN5Eigen12SparseMatrixIiLi1EiEC2Ell.exit
 
 17:                                               ; preds = %4
@@ -2156,7 +2156,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIiLi1EiEEE13InnerIteratorC2ERKS
   br i1 %95, label %.lr.ph, label %._crit_edge, !llvm.loop !113
 
 ._crit_edge76:                                    ; preds = %.lr.ph75, %._crit_edge72
-  %.sroa.052.097 = phi ptr [ null, %._crit_edge72 ], [ %74, %.lr.ph75 ]
+  %.sroa.052.0107 = phi ptr [ null, %._crit_edge72 ], [ %74, %.lr.ph75 ]
   %.035.lcssa = phi i32 [ 0, %._crit_edge72 ], [ %136, %.lr.ph75 ]
   %96 = getelementptr inbounds i32, ptr %calloc, i64 %7
   store i32 %.035.lcssa, ptr %96, align 4, !tbaa !12
@@ -2215,7 +2215,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIiLi1EiEEE13InnerIteratorC2ERKS
   %121 = getelementptr inbounds i32, ptr %104, i64 %.sroa.8.077.us
   %122 = load i32, ptr %121, align 4, !tbaa !12
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds i32, ptr %.sroa.052.097, i64 %123
+  %124 = getelementptr inbounds i32, ptr %.sroa.052.0107, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !12
   %126 = add nsw i32 %125, 1
   store i32 %126, ptr %124, align 4, !tbaa !12
@@ -2246,7 +2246,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIiLi1EiEEE13InnerIteratorC2ERKS
 138:                                              ; preds = %._crit_edge76
   %139 = landingpad { ptr, i32 }
           cleanup
-  call void @free(ptr noundef %.sroa.052.097) #22
+  call void @free(ptr noundef %.sroa.052.0107) #22
   br label %.body45
 
 _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIiLi1EiEEE13InnerIteratorC2ERKS3_l.exit48: ; preds = %.lr.ph81, %._crit_edge79
@@ -2275,7 +2275,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIiLi1EiEEE13InnerIteratorC2ERKS
   %149 = getelementptr inbounds i32, ptr %104, i64 %.sroa.8.077
   %150 = load i32, ptr %149, align 4, !tbaa !12
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds i32, ptr %.sroa.052.097, i64 %151
+  %152 = getelementptr inbounds i32, ptr %.sroa.052.0107, i64 %151
   %153 = load i32, ptr %152, align 4, !tbaa !12
   %154 = add nsw i32 %153, 1
   store i32 %154, ptr %152, align 4, !tbaa !12
@@ -2333,7 +2333,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIiLi1EiEEE13InnerIteratorC2ERKS
   %187 = load i64, ptr %185, align 8, !tbaa !118
   store i64 %187, ptr %184, align 8, !tbaa !118
   store i64 %186, ptr %185, align 8, !tbaa !118
-  call void @free(ptr noundef %.sroa.052.097) #22
+  call void @free(ptr noundef %.sroa.052.0107) #22
   call void @free(ptr noundef %164) #22
   %188 = load ptr, ptr %20, align 8, !tbaa !33
   call void @free(ptr noundef %188) #22
@@ -2550,8 +2550,8 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIiLi1EiE19reserveInne
   %71 = getelementptr i32, ptr %66, i64 %70
   store i32 %68, ptr %71, align 4, !tbaa !12
   %72 = add nsw i64 %.075109, -1
-  %.not126 = icmp eq i64 %.075109, 0
-  br i1 %.not126, label %._crit_edge112.loopexit, label %55, !llvm.loop !121
+  %.not134 = icmp eq i64 %.075109, 0
+  br i1 %.not134, label %._crit_edge112.loopexit, label %55, !llvm.loop !121
 
 ._crit_edge118:                                   ; preds = %._crit_edge112
   %73 = add nsw i64 %20, -1
@@ -2562,7 +2562,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIiLi1EiE19reserveInne
   %78 = load i32, ptr %77, align 4, !tbaa !12
   %79 = add nsw i32 %78, %75
   %80 = load ptr, ptr %1, align 8, !tbaa !11
-  %81 = getelementptr inbounds i32, ptr %80, i64 %73
+  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %73
   %82 = load i32, ptr %81, align 4, !tbaa !12
   %83 = add nsw i32 %79, %82
   store i32 %83, ptr %21, align 4, !tbaa !12
@@ -2683,8 +2683,8 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIiLi1EiE19reserveInne
   %145 = getelementptr i32, ptr %142, i64 %133
   store i32 %144, ptr %145, align 4, !tbaa !12
   %146 = add nsw i64 %.095, -1
-  %.not125 = icmp eq i64 %.095, 0
-  br i1 %.not125, label %.loopexit, label %.lr.ph97, !llvm.loop !123
+  %.not133 = icmp eq i64 %.095, 0
+  br i1 %.not133, label %.loopexit, label %.lr.ph97, !llvm.loop !123
 
 .loopexit:                                        ; preds = %.lr.ph97, %127, %121
   %147 = icmp samesign ugt i64 %.07199.in, 1
@@ -2898,9 +2898,9 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal17set_from_tripletsIN9__gn
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %15 = shl i64 %9, 2
   %16 = add i64 %15, 4
-  %calloc33 = tail call ptr @calloc(i64 1, i64 %16)
-  store ptr %calloc33, ptr %14, align 8, !tbaa !131
-  %.not6.i = icmp eq ptr %calloc33, null
+  %calloc40 = tail call ptr @calloc(i64 1, i64 %16)
+  store ptr %calloc40, ptr %14, align 8, !tbaa !131
+  %.not6.i = icmp eq ptr %calloc40, null
   br i1 %.not6.i, label %17, label %_ZN5Eigen12SparseMatrixISt7complexIdELi1EiEC2Ell.exit
 
 17:                                               ; preds = %4
@@ -3473,7 +3473,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixISt7complexIdELi1EiEEE13InnerIt
   br i1 %95, label %.lr.ph, label %._crit_edge, !llvm.loop !145
 
 ._crit_edge75:                                    ; preds = %.lr.ph74, %._crit_edge71
-  %.sroa.052.090 = phi ptr [ null, %._crit_edge71 ], [ %74, %.lr.ph74 ]
+  %.sroa.052.0102 = phi ptr [ null, %._crit_edge71 ], [ %74, %.lr.ph74 ]
   %.035.lcssa = phi i32 [ 0, %._crit_edge71 ], [ %109, %.lr.ph74 ]
   %96 = getelementptr inbounds i32, ptr %calloc, i64 %7
   store i32 %.035.lcssa, ptr %96, align 4, !tbaa !12
@@ -3511,7 +3511,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixISt7complexIdELi1EiEEE13InnerIt
 111:                                              ; preds = %._crit_edge75
   %112 = landingpad { ptr, i32 }
           cleanup
-  call void @free(ptr noundef %.sroa.052.090) #22
+  call void @free(ptr noundef %.sroa.052.0102) #22
   br label %.body45
 
 113:                                              ; preds = %.lr.ph80, %._crit_edge78
@@ -3564,7 +3564,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixISt7complexIdELi1EiEEE13InnerIt
   %136 = getelementptr inbounds i32, ptr %116, i64 %.sroa.8.076
   %137 = load i32, ptr %136, align 4, !tbaa !12
   %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds i32, ptr %.sroa.052.090, i64 %138
+  %139 = getelementptr inbounds i32, ptr %.sroa.052.0102, i64 %138
   %140 = load i32, ptr %139, align 4, !tbaa !12
   %141 = add nsw i32 %140, 1
   store i32 %141, ptr %139, align 4, !tbaa !12
@@ -3623,7 +3623,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixISt7complexIdELi1EiEEE13InnerIt
   %174 = load i64, ptr %172, align 8, !tbaa !118
   store i64 %174, ptr %171, align 8, !tbaa !118
   store i64 %173, ptr %172, align 8, !tbaa !118
-  call void @free(ptr noundef %.sroa.052.090) #22
+  call void @free(ptr noundef %.sroa.052.0102) #22
   call void @free(ptr noundef %150) #22
   %175 = load ptr, ptr %20, align 8, !tbaa !73
   call void @free(ptr noundef %175) #22
@@ -3790,8 +3790,8 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixISt7complexIdELi1EiE1
 
 ._crit_edge118._crit_edge:                        ; preds = %._crit_edge107, %._crit_edge118
   %39 = phi i64 [ %.pre122, %._crit_edge118 ], [ %19, %._crit_edge107 ]
-  %.pre123129 = phi ptr [ %50, %._crit_edge118 ], [ %.pre123.pre, %._crit_edge107 ]
-  %.phi.trans.insert = getelementptr inbounds i32, ptr %.pre123129, i64 %39
+  %.pre123139 = phi ptr [ %50, %._crit_edge118 ], [ %.pre123.pre, %._crit_edge107 ]
+  %.phi.trans.insert = getelementptr inbounds i32, ptr %.pre123139, i64 %39
   %.pre124 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !12
   br label %91
 
@@ -3855,8 +3855,8 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixISt7complexIdELi1EiE1
   %76 = getelementptr %"class.std::complex", ptr %72, i64 %75
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %73, i64 16, i1 false), !tbaa.struct !139
   %77 = add nsw i64 %.075109, -1
-  %.not133 = icmp eq i64 %.075109, 0
-  br i1 %.not133, label %._crit_edge112.loopexit, label %57, !llvm.loop !152
+  %.not143 = icmp eq i64 %.075109, 0
+  br i1 %.not143, label %._crit_edge112.loopexit, label %57, !llvm.loop !152
 
 78:                                               ; preds = %._crit_edge118
   %79 = add nsw i64 %.pre122, -1
@@ -3867,7 +3867,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixISt7complexIdELi1EiE1
   %84 = load i32, ptr %83, align 4, !tbaa !12
   %85 = add nsw i32 %84, %81
   %86 = load ptr, ptr %1, align 8, !tbaa !11
-  %87 = getelementptr inbounds i32, ptr %86, i64 %79
+  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %79
   %88 = load i32, ptr %87, align 4, !tbaa !12
   %89 = add nsw i32 %85, %88
   %90 = getelementptr inbounds nuw i32, ptr %50, i64 %.pre122
@@ -3991,8 +3991,8 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixISt7complexIdELi1EiE1
   %155 = getelementptr %"class.std::complex", ptr %153, i64 %140
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %155, ptr noundef nonnull align 8 dereferenceable(16) %154, i64 16, i1 false), !tbaa.struct !139
   %156 = add nsw i64 %.095, -1
-  %.not132 = icmp eq i64 %.095, 0
-  br i1 %.not132, label %.loopexit, label %.lr.ph97, !llvm.loop !154
+  %.not142 = icmp eq i64 %.095, 0
+  br i1 %.not142, label %.loopexit, label %.lr.ph97, !llvm.loop !154
 
 .loopexit:                                        ; preds = %.lr.ph97, %133, %126
   %157 = icmp samesign ugt i64 %.07199.in, 1
@@ -4227,9 +4227,9 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal17set_from_tripletsIN9__gn
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %15 = shl i64 %9, 2
   %16 = add i64 %15, 4
-  %calloc33 = tail call ptr @calloc(i64 1, i64 %16)
-  store ptr %calloc33, ptr %14, align 8, !tbaa !162
-  %.not6.i = icmp eq ptr %calloc33, null
+  %calloc41 = tail call ptr @calloc(i64 1, i64 %16)
+  store ptr %calloc41, ptr %14, align 8, !tbaa !162
+  %.not6.i = icmp eq ptr %calloc41, null
   br i1 %.not6.i, label %17, label %_ZN5Eigen12SparseMatrixIdLi1EiEC2Ell.exit
 
 17:                                               ; preds = %4
@@ -4775,7 +4775,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi1EiEEE13InnerIteratorC2ERKS
   br i1 %95, label %.lr.ph, label %._crit_edge, !llvm.loop !175
 
 ._crit_edge75:                                    ; preds = %.lr.ph74, %._crit_edge71
-  %.sroa.052.096 = phi ptr [ null, %._crit_edge71 ], [ %74, %.lr.ph74 ]
+  %.sroa.052.0106 = phi ptr [ null, %._crit_edge71 ], [ %74, %.lr.ph74 ]
   %.035.lcssa = phi i32 [ 0, %._crit_edge71 ], [ %136, %.lr.ph74 ]
   %96 = getelementptr inbounds i32, ptr %calloc, i64 %7
   store i32 %.035.lcssa, ptr %96, align 4, !tbaa !12
@@ -4834,7 +4834,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi1EiEEE13InnerIteratorC2ERKS
   %121 = getelementptr inbounds i32, ptr %104, i64 %.sroa.8.076.us
   %122 = load i32, ptr %121, align 4, !tbaa !12
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds i32, ptr %.sroa.052.096, i64 %123
+  %124 = getelementptr inbounds i32, ptr %.sroa.052.0106, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !12
   %126 = add nsw i32 %125, 1
   store i32 %126, ptr %124, align 4, !tbaa !12
@@ -4865,7 +4865,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi1EiEEE13InnerIteratorC2ERKS
 138:                                              ; preds = %._crit_edge75
   %139 = landingpad { ptr, i32 }
           cleanup
-  call void @free(ptr noundef %.sroa.052.096) #22
+  call void @free(ptr noundef %.sroa.052.0106) #22
   br label %.body45
 
 _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi1EiEEE13InnerIteratorC2ERKS3_l.exit48: ; preds = %.lr.ph80, %._crit_edge78
@@ -4894,7 +4894,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi1EiEEE13InnerIteratorC2ERKS
   %149 = getelementptr inbounds i32, ptr %104, i64 %.sroa.8.076
   %150 = load i32, ptr %149, align 4, !tbaa !12
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds i32, ptr %.sroa.052.096, i64 %151
+  %152 = getelementptr inbounds i32, ptr %.sroa.052.0106, i64 %151
   %153 = load i32, ptr %152, align 4, !tbaa !12
   %154 = add nsw i32 %153, 1
   store i32 %154, ptr %152, align 4, !tbaa !12
@@ -4952,7 +4952,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi1EiEEE13InnerIteratorC2ERKS
   %187 = load i64, ptr %185, align 8, !tbaa !118
   store i64 %187, ptr %184, align 8, !tbaa !118
   store i64 %186, ptr %185, align 8, !tbaa !118
-  call void @free(ptr noundef %.sroa.052.096) #22
+  call void @free(ptr noundef %.sroa.052.0106) #22
   call void @free(ptr noundef %164) #22
   %188 = load ptr, ptr %20, align 8, !tbaa !94
   call void @free(ptr noundef %188) #22
@@ -5167,8 +5167,8 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi1EiE19reserveInne
   %70 = getelementptr double, ptr %65, i64 %69
   store double %67, ptr %70, align 8, !tbaa !54
   %71 = add nsw i64 %.075109, -1
-  %.not130 = icmp eq i64 %.075109, 0
-  br i1 %.not130, label %._crit_edge112, label %54, !llvm.loop !182
+  %.not139 = icmp eq i64 %.075109, 0
+  br i1 %.not139, label %._crit_edge112, label %54, !llvm.loop !182
 
 ._crit_edge118:                                   ; preds = %._crit_edge112
   %72 = add nsw i64 %20, -1
@@ -5179,7 +5179,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi1EiE19reserveInne
   %77 = load i32, ptr %76, align 4, !tbaa !12
   %78 = add nsw i32 %77, %74
   %79 = load ptr, ptr %1, align 8, !tbaa !11
-  %80 = getelementptr inbounds i32, ptr %79, i64 %72
+  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %72
   %81 = load i32, ptr %80, align 4, !tbaa !12
   %82 = add nsw i32 %78, %81
   store i32 %82, ptr %21, align 4, !tbaa !12
@@ -5300,8 +5300,8 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi1EiE19reserveInne
   %144 = getelementptr double, ptr %141, i64 %132
   store double %143, ptr %144, align 8, !tbaa !54
   %145 = add nsw i64 %.095, -1
-  %.not129 = icmp eq i64 %.095, 0
-  br i1 %.not129, label %.loopexit, label %.lr.ph97, !llvm.loop !184
+  %.not138 = icmp eq i64 %.095, 0
+  br i1 %.not138, label %.loopexit, label %.lr.ph97, !llvm.loop !184
 
 .loopexit:                                        ; preds = %.lr.ph97, %126, %120
   %146 = icmp samesign ugt i64 %.07199.in, 1

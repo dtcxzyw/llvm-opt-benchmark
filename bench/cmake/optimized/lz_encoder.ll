@@ -112,7 +112,7 @@ define internal fastcc noundef zeroext i1 @lz_encoder_prepare(ptr noundef nonnul
   switch i32 %48, label %99 [
     i32 3, label %55
     i32 4, label %49
-    i32 18, label %.thread124
+    i32 18, label %.thread128
     i32 19, label %50
     i32 20, label %51
   ]
@@ -126,7 +126,7 @@ define internal fastcc noundef zeroext i1 @lz_encoder_prepare(ptr noundef nonnul
 51:                                               ; preds = %36
   br label %55
 
-.thread124:                                       ; preds = %36
+.thread128:                                       ; preds = %36
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @lzma_mf_bt2_find, ptr %52, align 8, !tbaa !28
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -171,15 +171,15 @@ define internal fastcc noundef zeroext i1 @lz_encoder_prepare(ptr noundef nonnul
   %spec.select = select i1 %77, i32 %78, i32 %spec.select110
   br label %79
 
-79:                                               ; preds = %55, %.thread124
-  %.not106114122129 = phi i1 [ false, %.thread124 ], [ %.not106112, %55 ]
-  %80 = phi i32 [ 65536, %.thread124 ], [ %spec.select, %55 ]
+79:                                               ; preds = %55, %.thread128
+  %.not106114126133 = phi i1 [ false, %.thread128 ], [ %.not106112, %55 ]
+  %80 = phi i32 [ 65536, %.thread128 ], [ %spec.select, %55 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %82 = load i32, ptr %81, align 4, !tbaa !4
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %84 = load i32, ptr %83, align 8, !tbaa !12
   store i32 %80, ptr %81, align 4, !tbaa !4
-  %not..not106114 = xor i1 %.not106114122129, true
+  %not..not106114 = xor i1 %.not106114126133, true
   %85 = zext i1 %not..not106114 to i32
   %storemerge = shl i32 %45, %85
   store i32 %storemerge, ptr %83, align 8, !tbaa !12
@@ -209,10 +209,10 @@ define internal fastcc noundef zeroext i1 @lz_encoder_prepare(ptr noundef nonnul
 
 .sink.split:                                      ; preds = %91
   %96 = load i32, ptr %43, align 8, !tbaa !25
-  %. = select i1 %.not106114122129, i32 2, i32 1
-  %.132 = select i1 %.not106114122129, i32 4, i32 16
+  %. = select i1 %.not106114126133, i32 2, i32 1
+  %.136 = select i1 %.not106114126133, i32 4, i32 16
   %97 = lshr i32 %96, %.
-  %98 = add nuw i32 %97, %.132
+  %98 = add nuw i32 %97, %.136
   store i32 %98, ptr %94, align 4, !tbaa !34
   br label %99
 

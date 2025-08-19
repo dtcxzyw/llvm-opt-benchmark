@@ -1311,89 +1311,75 @@ rb_scan_args_set.exit:                            ; preds = %37
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @path_binread(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca [3 x i64], align 16
-  %5 = alloca [2 x ptr], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = load i64, ptr @id_at_path, align 8, !tbaa !6
-  %7 = tail call i64 @rb_ivar_get(i64 noundef %2, i64 noundef %6) #7
-  %8 = icmp eq i64 %7, 0
-  %9 = and i64 %7, 7
-  %10 = icmp ne i64 %9, 0
-  %11 = or i1 %8, %10
-  br i1 %11, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i
+  %5 = load i64, ptr @id_at_path, align 8, !tbaa !6
+  %6 = tail call i64 @rb_ivar_get(i64 noundef %2, i64 noundef %5) #7
+  %7 = icmp eq i64 %6, 0
+  %8 = and i64 %6, 7
+  %9 = icmp ne i64 %8, 0
+  %10 = or i1 %7, %9
+  br i1 %10, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i
 
 rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %3
-  %12 = inttoptr i64 %7 to ptr
-  %13 = load i64, ptr %12, align 8, !tbaa !10
-  %14 = and i64 %13, 31
-  %15 = icmp eq i64 %14, 5
-  br i1 %15, label %17, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
+  %11 = inttoptr i64 %6 to ptr
+  %12 = load i64, ptr %11, align 8, !tbaa !10
+  %13 = and i64 %12, 31
+  %14 = icmp eq i64 %13, 5
+  br i1 %14, label %16, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i, %3
-  %16 = load i64, ptr @rb_eTypeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %16, ptr noundef nonnull @.str.91) #9
+  %15 = load i64, ptr @rb_eTypeError, align 8, !tbaa !6
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %15, ptr noundef nonnull @.str.91) #9
   unreachable
 
-17:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
-  store i64 %7, ptr %4, align 16, !tbaa !6
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %18, ptr %5, align 8, !tbaa !26
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %20, ptr %19, align 8, !tbaa !26
-  %21 = icmp slt i32 %0, 0
-  br i1 %21, label %37, label %.preheader
+16:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
+  store i64 %6, ptr %4, align 16, !tbaa !6
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %18 = icmp slt i32 %0, 0
+  br i1 %18, label %30, label %.preheader.preheader
 
-.preheader:                                       ; preds = %17, %34
-  %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %17 ]
-  %.185.i4 = phi i32 [ %.286.i, %34 ], [ 0, %17 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %23 = load ptr, ptr %22, align 8, !tbaa !26
-  %24 = icmp slt i32 %.185.i4, %0
-  %.not108.i = icmp eq ptr %23, null
-  br i1 %24, label %25, label %32
+.preheader.preheader:                             ; preds = %16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br label %.preheader
 
-25:                                               ; preds = %.preheader
-  br i1 %.not108.i, label %30, label %26
+.preheader:                                       ; preds = %.preheader.preheader, %27
+  %exitcond.not = phi i1 [ true, %27 ], [ false, %.preheader.preheader ]
+  %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %17, %27 ], [ %19, %.preheader.preheader ]
+  %.185.i4 = phi i32 [ %.286.i, %27 ], [ 0, %.preheader.preheader ]
+  %20 = icmp slt i32 %.185.i4, %0
+  br i1 %20, label %21, label %26
 
-26:                                               ; preds = %25
-  %27 = sext i32 %.185.i4 to i64
-  %28 = getelementptr inbounds i64, ptr %1, i64 %27
-  %29 = load i64, ptr %28, align 8, !tbaa !6
-  store i64 %29, ptr %23, align 8, !tbaa !6
-  br label %30
+21:                                               ; preds = %.preheader
+  %22 = sext i32 %.185.i4 to i64
+  %23 = getelementptr inbounds i64, ptr %1, i64 %22
+  %24 = load i64, ptr %23, align 8, !tbaa !6
+  store i64 %24, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
+  %25 = add nsw i32 %.185.i4, 1
+  br label %27
 
-30:                                               ; preds = %26, %25
-  %31 = add nsw i32 %.185.i4, 1
-  br label %34
+26:                                               ; preds = %.preheader
+  store i64 4, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
+  br label %27
 
-32:                                               ; preds = %.preheader
-  br i1 %.not108.i, label %34, label %33
+27:                                               ; preds = %26, %21
+  %.286.i = phi i32 [ %25, %21 ], [ %.185.i4, %26 ]
+  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !29
 
-33:                                               ; preds = %32
-  store i64 4, ptr %23, align 8, !tbaa !6
-  br label %34
+28:                                               ; preds = %27
+  %29 = icmp eq i32 %.286.i, %0
+  br i1 %29, label %rb_scan_args_set.exit, label %30
 
-34:                                               ; preds = %33, %32, %30
-  %.286.i = phi i32 [ %31, %30 ], [ %.185.i4, %33 ], [ %.185.i4, %32 ]
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 2
-  br i1 %exitcond.not, label %35, label %.preheader, !llvm.loop !29
-
-35:                                               ; preds = %34
-  %36 = icmp eq i32 %.286.i, %0
-  br i1 %36, label %rb_scan_args_set.exit, label %37
-
-37:                                               ; preds = %35, %17
-  call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 2) #9
+30:                                               ; preds = %28, %16
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 2) #9
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %35
-  %38 = load i64, ptr @rb_cFile, align 8, !tbaa !6
-  %39 = load i64, ptr @id_binread, align 8, !tbaa !6
-  %40 = add nuw nsw i32 %0, 1
-  %41 = call i64 @rb_funcallv(i64 noundef %38, i64 noundef %39, i32 noundef %40, ptr noundef nonnull %4) #7
+rb_scan_args_set.exit:                            ; preds = %28
+  %31 = load i64, ptr @rb_cFile, align 8, !tbaa !6
+  %32 = load i64, ptr @id_binread, align 8, !tbaa !6
+  %33 = add nuw nsw i32 %0, 1
+  %34 = call i64 @rb_funcallv(i64 noundef %31, i64 noundef %32, i32 noundef %33, ptr noundef nonnull %4) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %41
+  ret i64 %34
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1681,89 +1667,75 @@ rb_scan_args_set.exit:                            ; preds = %37
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @path_sysopen(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca [3 x i64], align 16
-  %5 = alloca [2 x ptr], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = load i64, ptr @id_at_path, align 8, !tbaa !6
-  %7 = tail call i64 @rb_ivar_get(i64 noundef %2, i64 noundef %6) #7
-  %8 = icmp eq i64 %7, 0
-  %9 = and i64 %7, 7
-  %10 = icmp ne i64 %9, 0
-  %11 = or i1 %8, %10
-  br i1 %11, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i
+  %5 = load i64, ptr @id_at_path, align 8, !tbaa !6
+  %6 = tail call i64 @rb_ivar_get(i64 noundef %2, i64 noundef %5) #7
+  %7 = icmp eq i64 %6, 0
+  %8 = and i64 %6, 7
+  %9 = icmp ne i64 %8, 0
+  %10 = or i1 %7, %9
+  br i1 %10, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i
 
 rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %3
-  %12 = inttoptr i64 %7 to ptr
-  %13 = load i64, ptr %12, align 8, !tbaa !10
-  %14 = and i64 %13, 31
-  %15 = icmp eq i64 %14, 5
-  br i1 %15, label %17, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
+  %11 = inttoptr i64 %6 to ptr
+  %12 = load i64, ptr %11, align 8, !tbaa !10
+  %13 = and i64 %12, 31
+  %14 = icmp eq i64 %13, 5
+  br i1 %14, label %16, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i, %3
-  %16 = load i64, ptr @rb_eTypeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %16, ptr noundef nonnull @.str.91) #9
+  %15 = load i64, ptr @rb_eTypeError, align 8, !tbaa !6
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %15, ptr noundef nonnull @.str.91) #9
   unreachable
 
-17:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
-  store i64 %7, ptr %4, align 16, !tbaa !6
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %18, ptr %5, align 8, !tbaa !26
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %20, ptr %19, align 8, !tbaa !26
-  %21 = icmp slt i32 %0, 0
-  br i1 %21, label %37, label %.preheader
+16:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
+  store i64 %6, ptr %4, align 16, !tbaa !6
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %18 = icmp slt i32 %0, 0
+  br i1 %18, label %30, label %.preheader.preheader
 
-.preheader:                                       ; preds = %17, %34
-  %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %17 ]
-  %.185.i4 = phi i32 [ %.286.i, %34 ], [ 0, %17 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %23 = load ptr, ptr %22, align 8, !tbaa !26
-  %24 = icmp slt i32 %.185.i4, %0
-  %.not108.i = icmp eq ptr %23, null
-  br i1 %24, label %25, label %32
+.preheader.preheader:                             ; preds = %16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br label %.preheader
 
-25:                                               ; preds = %.preheader
-  br i1 %.not108.i, label %30, label %26
+.preheader:                                       ; preds = %.preheader.preheader, %27
+  %exitcond.not = phi i1 [ true, %27 ], [ false, %.preheader.preheader ]
+  %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %17, %27 ], [ %19, %.preheader.preheader ]
+  %.185.i4 = phi i32 [ %.286.i, %27 ], [ 0, %.preheader.preheader ]
+  %20 = icmp slt i32 %.185.i4, %0
+  br i1 %20, label %21, label %26
 
-26:                                               ; preds = %25
-  %27 = sext i32 %.185.i4 to i64
-  %28 = getelementptr inbounds i64, ptr %1, i64 %27
-  %29 = load i64, ptr %28, align 8, !tbaa !6
-  store i64 %29, ptr %23, align 8, !tbaa !6
-  br label %30
+21:                                               ; preds = %.preheader
+  %22 = sext i32 %.185.i4 to i64
+  %23 = getelementptr inbounds i64, ptr %1, i64 %22
+  %24 = load i64, ptr %23, align 8, !tbaa !6
+  store i64 %24, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
+  %25 = add nsw i32 %.185.i4, 1
+  br label %27
 
-30:                                               ; preds = %26, %25
-  %31 = add nsw i32 %.185.i4, 1
-  br label %34
+26:                                               ; preds = %.preheader
+  store i64 4, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
+  br label %27
 
-32:                                               ; preds = %.preheader
-  br i1 %.not108.i, label %34, label %33
+27:                                               ; preds = %26, %21
+  %.286.i = phi i32 [ %25, %21 ], [ %.185.i4, %26 ]
+  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !29
 
-33:                                               ; preds = %32
-  store i64 4, ptr %23, align 8, !tbaa !6
-  br label %34
+28:                                               ; preds = %27
+  %29 = icmp eq i32 %.286.i, %0
+  br i1 %29, label %rb_scan_args_set.exit, label %30
 
-34:                                               ; preds = %33, %32, %30
-  %.286.i = phi i32 [ %31, %30 ], [ %.185.i4, %33 ], [ %.185.i4, %32 ]
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 2
-  br i1 %exitcond.not, label %35, label %.preheader, !llvm.loop !29
-
-35:                                               ; preds = %34
-  %36 = icmp eq i32 %.286.i, %0
-  br i1 %36, label %rb_scan_args_set.exit, label %37
-
-37:                                               ; preds = %35, %17
-  call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 2) #9
+30:                                               ; preds = %28, %16
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 2) #9
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %35
-  %38 = load i64, ptr @rb_cIO, align 8, !tbaa !6
-  %39 = load i64, ptr @id_sysopen, align 8, !tbaa !6
-  %40 = add nuw nsw i32 %0, 1
-  %41 = call i64 @rb_funcallv(i64 noundef %38, i64 noundef %39, i32 noundef %40, ptr noundef nonnull %4) #7
+rb_scan_args_set.exit:                            ; preds = %28
+  %31 = load i64, ptr @rb_cIO, align 8, !tbaa !6
+  %32 = load i64, ptr @id_sysopen, align 8, !tbaa !6
+  %33 = add nuw nsw i32 %0, 1
+  %34 = call i64 @rb_funcallv(i64 noundef %31, i64 noundef %32, i32 noundef %33, ptr noundef nonnull %4) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %41
+  ret i64 %34
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

@@ -1816,7 +1816,7 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef captures(address) %0, i3
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %86
   %.0126 = phi ptr [ %0, %.preheader.lr.ph ], [ %87, %86 ]
-  %invariant.gep156 = getelementptr inbounds nuw i64, ptr %.0126, i64 %73
+  %invariant.gep160 = getelementptr inbounds nuw i64, ptr %.0126, i64 %73
   br label %74
 
 74:                                               ; preds = %.preheader, %74
@@ -1825,8 +1825,8 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef captures(address) %0, i3
   %76 = load i64, ptr %75, align 8, !tbaa !33
   %77 = and i64 %68, %76
   %78 = lshr i64 %77, %69
-  %gep157 = getelementptr inbounds nuw i64, ptr %invariant.gep156, i64 %indvars.iv141
-  %79 = load i64, ptr %gep157, align 8, !tbaa !33
+  %gep161 = getelementptr inbounds nuw i64, ptr %invariant.gep160, i64 %indvars.iv141
+  %79 = load i64, ptr %gep161, align 8, !tbaa !33
   %80 = shl i64 %79, %69
   %81 = and i64 %80, %68
   %82 = and i64 %76, %70
@@ -1834,7 +1834,7 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef captures(address) %0, i3
   store i64 %83, ptr %75, align 8, !tbaa !33
   %84 = and i64 %79, %68
   %85 = or i64 %84, %78
-  store i64 %85, ptr %gep157, align 8, !tbaa !33
+  store i64 %85, ptr %gep161, align 8, !tbaa !33
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next142, %73
   br i1 %exitcond146.not, label %86, label %74, !llvm.loop !70
@@ -1863,20 +1863,20 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef captures(address) %0, i3
 .preheader120:                                    ; preds = %.preheader120.lr.ph, %107
   %.1124 = phi ptr [ %0, %.preheader120.lr.ph ], [ %108, %107 ]
   %invariant.gep = getelementptr inbounds nuw i64, ptr %.1124, i64 %98
-  %invariant.gep154 = getelementptr inbounds nuw i64, ptr %.1124, i64 %99
+  %invariant.gep158 = getelementptr inbounds nuw i64, ptr %.1124, i64 %99
   br label %.preheader119
 
 .preheader119:                                    ; preds = %.preheader120, %105
   %indvars.iv138 = phi i64 [ 0, %.preheader120 ], [ %indvars.iv.next139, %105 ]
   %gep = getelementptr inbounds nuw i64, ptr %invariant.gep, i64 %indvars.iv138
-  %gep155 = getelementptr inbounds nuw i64, ptr %invariant.gep154, i64 %indvars.iv138
+  %gep159 = getelementptr inbounds nuw i64, ptr %invariant.gep158, i64 %indvars.iv138
   br label %100
 
 100:                                              ; preds = %.preheader119, %100
   %indvars.iv = phi i64 [ 0, %.preheader119 ], [ %indvars.iv.next, %100 ]
   %101 = getelementptr inbounds nuw i64, ptr %gep, i64 %indvars.iv
   %102 = load i64, ptr %101, align 8, !tbaa !33
-  %103 = getelementptr inbounds nuw i64, ptr %gep155, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw i64, ptr %gep159, i64 %indvars.iv
   %104 = load i64, ptr %103, align 8, !tbaa !33
   store i64 %104, ptr %101, align 8, !tbaa !33
   store i64 %102, ptr %103, align 8, !tbaa !33

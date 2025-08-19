@@ -6010,21 +6010,21 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__26UsdImaging_DrawModeStandi
   br i1 %791, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE9push_backERKS2_.exit.sink.split, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE9push_backERKS2_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE9push_backERKS2_.exit.sink.split.sink.split: ; preds = %739, %770
-  %.sink291 = phi ptr [ %764, %770 ], [ %733, %739 ]
-  %792 = getelementptr inbounds nuw i8, ptr %.sink291, i64 12
+  %.sink331 = phi ptr [ %764, %770 ], [ %733, %739 ]
+  %792 = getelementptr inbounds nuw i8, ptr %.sink331, i64 12
   store i32 0, ptr %792, align 4
-  %793 = load ptr, ptr %.sink291, align 8
+  %793 = load ptr, ptr %.sink331, align 8
   %794 = getelementptr inbounds nuw i8, ptr %793, i64 16
   %795 = load ptr, ptr %794, align 8
-  call void %795(ptr noundef nonnull align 8 dereferenceable(16) %.sink291) #20
+  call void %795(ptr noundef nonnull align 8 dereferenceable(16) %.sink331) #20
   br label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE9push_backERKS2_.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE9push_backERKS2_.exit.sink.split: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE9push_backERKS2_.exit.sink.split.sink.split, %790, %759
-  %.sink285 = phi ptr [ %733, %759 ], [ %764, %790 ], [ %.sink291, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE9push_backERKS2_.exit.sink.split.sink.split ]
-  %796 = load ptr, ptr %.sink285, align 8
+  %.sink325 = phi ptr [ %733, %759 ], [ %764, %790 ], [ %.sink331, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE9push_backERKS2_.exit.sink.split.sink.split ]
+  %796 = load ptr, ptr %.sink325, align 8
   %797 = getelementptr inbounds nuw i8, ptr %796, i64 24
   %798 = load ptr, ptr %797, align 8
-  call void %798(ptr noundef nonnull align 8 dereferenceable(16) %.sink285) #20
+  call void %798(ptr noundef nonnull align 8 dereferenceable(16) %.sink325) #20
   br label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE9push_backERKS2_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE9push_backERKS2_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE9push_backERKS2_.exit.sink.split, %790, %777, %.critedge, %759, %746, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__26UsdImaging_DrawModeStandinEEaSEOS2_.exit167, %565, %575, %568

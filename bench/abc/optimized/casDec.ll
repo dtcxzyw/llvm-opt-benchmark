@@ -551,7 +551,7 @@ Abc_Clock.exit296:                                ; preds = %.critedge288, %288
   %.0.i295.neg = phi i64 [ %.neg307, %288 ], [ 1, %.critedge288 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not278 = icmp eq i32 %6, 0
-  br i1 %.not278, label %.preheader413, label %292
+  br i1 %.not278, label %.preheader422, label %292
 
 292:                                              ; preds = %Abc_Clock.exit296
   %293 = call noalias ptr @fopen(ptr noundef %4, ptr noundef nonnull @.str.6)
@@ -580,7 +580,7 @@ Abc_Clock.exit296:                                ; preds = %.critedge288, %288
   call void @WriteLUTSintoBLIFfile(ptr noundef %293, ptr noundef nonnull %0, ptr noundef nonnull @CreateDecomposedNetwork.pLuts, i32 noundef %55, ptr noundef nonnull %16, ptr noundef %2, i32 poison, ptr poison)
   %301 = call i64 @fwrite(ptr nonnull @.str.12, i64 5, i64 1, ptr %293)
   %302 = call i32 @fclose(ptr noundef %293)
-  br i1 %.not286, label %.preheader413, label %303
+  br i1 %.not286, label %.preheader422, label %303
 
 303:                                              ; preds = %._crit_edge344
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -605,13 +605,13 @@ Abc_Clock.exit298:                                ; preds = %303, %306
   %315 = fdiv float %314, 1.000000e+06
   %316 = fpext float %315 to double
   %317 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, double noundef %316)
-  br label %.preheader413
+  br label %.preheader422
 
-.preheader413:                                    ; preds = %._crit_edge344, %Abc_Clock.exit298, %Abc_Clock.exit296
+.preheader422:                                    ; preds = %._crit_edge344, %Abc_Clock.exit298, %Abc_Clock.exit296
   br label %318
 
-318:                                              ; preds = %.preheader413, %353
-  %indvars.iv397 = phi i64 [ %indvars.iv.next398, %353 ], [ 0, %.preheader413 ]
+318:                                              ; preds = %.preheader422, %353
+  %indvars.iv397 = phi i64 [ %indvars.iv.next398, %353 ], [ 0, %.preheader422 ]
   %319 = getelementptr inbounds nuw [1024 x ptr], ptr @CreateDecomposedNetwork.pLuts, i64 0, i64 %indvars.iv397
   %320 = load ptr, ptr %319, align 8, !tbaa !24
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 8

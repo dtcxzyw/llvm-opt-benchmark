@@ -158,17 +158,14 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i.i:          ; preds = %_ZNK4llvm9StringRef
   switch i8 %lhsc.i, label %34 [
     i8 110, label %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.i
     i8 115, label %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split.i
-    i8 114, label %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split190.i
-    i8 98, label %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split191.i
-    i8 99, label %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split192.i
-    i8 100, label %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split193.i
-    i8 101, label %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split194.i
+    i8 114, label %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split191.i
+    i8 98, label %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split192.i
+    i8 99, label %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split193.i
+    i8 100, label %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split194.i
+    i8 101, label %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split195.i
   ]
 
 _ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
-  br label %34
-
-_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split190.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
   br label %34
 
 _ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split191.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
@@ -183,6 +180,9 @@ _ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thr
 _ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split194.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
   br label %34
 
+_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split195.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
+  br label %34
+
 _ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
   br label %34
 
@@ -191,12 +191,12 @@ _ZN12_GLOBAL__N_111tryParseISAERN4llvm9StringRefERNS0_9VFISAKindE.exit: ; preds 
   store i8 0, ptr %33, align 8, !tbaa !11
   br label %257
 
-34:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.i, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split194.i, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split193.i, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split192.i, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split191.i, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split190.i, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i
-  %.sink167 = phi i64 [ 10, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i ], [ 5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split.i ], [ 5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split190.i ], [ 5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split191.i ], [ 5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split192.i ], [ 5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split193.i ], [ 5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split194.i ], [ 5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.i ], [ 5, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ]
-  %.sink = phi i64 [ -10, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i ], [ -5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split.i ], [ -5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split190.i ], [ -5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split191.i ], [ -5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split192.i ], [ -5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split193.i ], [ -5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split194.i ], [ -5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.i ], [ -5, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ]
-  %35 = phi i1 [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i ], [ false, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split.i ], [ false, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split190.i ], [ false, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split191.i ], [ false, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split192.i ], [ false, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split193.i ], [ false, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split194.i ], [ false, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ]
-  %.0.ph = phi i32 [ 7, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i ], [ 1, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split.i ], [ 2, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split190.i ], [ 3, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split191.i ], [ 4, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split192.i ], [ 5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split193.i ], [ 6, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split194.i ], [ 0, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.i ], [ 8, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ]
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink167
+34:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.i, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split195.i, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split194.i, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split193.i, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split192.i, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split191.i, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i
+  %.sink186 = phi i64 [ 10, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i ], [ 5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split.i ], [ 5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split191.i ], [ 5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split192.i ], [ 5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split193.i ], [ 5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split194.i ], [ 5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split195.i ], [ 5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.i ], [ 5, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ]
+  %.sink = phi i64 [ -10, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i ], [ -5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split.i ], [ -5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split191.i ], [ -5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split192.i ], [ -5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split193.i ], [ -5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split194.i ], [ -5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split195.i ], [ -5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.i ], [ -5, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ]
+  %35 = phi i1 [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i ], [ false, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split.i ], [ false, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split191.i ], [ false, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split192.i ], [ false, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split193.i ], [ false, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split194.i ], [ false, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split195.i ], [ false, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ]
+  %.0.ph = phi i32 [ 7, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i ], [ 1, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split.i ], [ 2, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split191.i ], [ 3, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split192.i ], [ 4, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split193.i ], [ 5, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split194.i ], [ 6, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.fold.split195.i ], [ 0, %_ZN4llvm12StringSwitchINS_9VFISAKindES1_E4CaseENS_13StringLiteralES1_.exit55.thread.i ], [ 8, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ]
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink186
   %37 = add i64 %.sink, %2
   %.not.i.i.i34 = icmp eq i64 %37, 0
   br i1 %.not.i.i.i34, label %38, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i35
@@ -464,8 +464,8 @@ _ZN4llvm9StringRef13consume_frontES0_.exit17.i.i.i: ; preds = %_ZNK4llvm9StringR
   %112 = add i64 %111, 2147483648
   %.not.i.i.i30.i = icmp ult i64 %112, 4294967296
   %113 = trunc nsw i64 %111 to i32
-  %spec.select168 = select i1 %.not.i.i.i30.i, i32 %113, i32 1
-  %.4 = select i1 %110, i32 1, i32 %spec.select168
+  %spec.select187 = select i1 %.not.i.i.i30.i, i32 %113, i32 1
+  %.4 = select i1 %110, i32 1, i32 %spec.select187
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %109, label %_ZN12_GLOBAL__N_130tryParseCompileTimeLinearTokenERN4llvm9StringRefERNS0_11VFParamKindERiS1_.exit50.sink.split.i.i, label %_ZN12_GLOBAL__N_117tryParseParameterERN4llvm9StringRefERNS0_11VFParamKindERi.exit.threadthread-pre-split
 
@@ -497,8 +497,8 @@ _ZN4llvm9StringRef13consume_frontES0_.exit17.i20.i.i: ; preds = %_ZNK4llvm9Strin
   %124 = add i64 %123, 2147483648
   %.not.i.i21.i.i = icmp ult i64 %124, 4294967296
   %125 = trunc nsw i64 %123 to i32
-  %spec.select169 = select i1 %.not.i.i21.i.i, i32 %125, i32 1
-  %.3 = select i1 %122, i32 1, i32 %spec.select169
+  %spec.select188 = select i1 %.not.i.i21.i.i, i32 %125, i32 1
+  %.3 = select i1 %122, i32 1, i32 %spec.select188
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %121, label %_ZN12_GLOBAL__N_130tryParseCompileTimeLinearTokenERN4llvm9StringRefERNS0_11VFParamKindERiS1_.exit50.sink.split.i.i, label %_ZN12_GLOBAL__N_117tryParseParameterERN4llvm9StringRefERNS0_11VFParamKindERi.exit.threadthread-pre-split
 
@@ -530,8 +530,8 @@ _ZN4llvm9StringRef13consume_frontES0_.exit17.i33.i.i: ; preds = %_ZNK4llvm9Strin
   %136 = add i64 %135, 2147483648
   %.not.i.i34.i.i = icmp ult i64 %136, 4294967296
   %137 = trunc nsw i64 %135 to i32
-  %spec.select170 = select i1 %.not.i.i34.i.i, i32 %137, i32 1
-  %.2100 = select i1 %134, i32 1, i32 %spec.select170
+  %spec.select189 = select i1 %.not.i.i34.i.i, i32 %137, i32 1
+  %.2100 = select i1 %134, i32 1, i32 %spec.select189
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %133, label %_ZN12_GLOBAL__N_130tryParseCompileTimeLinearTokenERN4llvm9StringRefERNS0_11VFParamKindERiS1_.exit50.sink.split.i.i, label %_ZN12_GLOBAL__N_117tryParseParameterERN4llvm9StringRefERNS0_11VFParamKindERi.exit.threadthread-pre-split
 
@@ -563,15 +563,15 @@ _ZN4llvm9StringRef13consume_frontES0_.exit17.i46.i.i: ; preds = %_ZNK4llvm9Strin
   %148 = add i64 %147, 2147483648
   %.not.i.i47.i.i = icmp ult i64 %148, 4294967296
   %149 = trunc nsw i64 %147 to i32
-  %spec.select171 = select i1 %.not.i.i47.i.i, i32 %149, i32 1
-  %.199 = select i1 %146, i32 1, i32 %spec.select171
+  %spec.select190 = select i1 %.not.i.i47.i.i, i32 %149, i32 1
+  %.199 = select i1 %146, i32 1, i32 %spec.select190
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %145, label %_ZN12_GLOBAL__N_130tryParseCompileTimeLinearTokenERN4llvm9StringRefERNS0_11VFParamKindERiS1_.exit50.sink.split.i.i, label %_ZN12_GLOBAL__N_117tryParseParameterERN4llvm9StringRefERNS0_11VFParamKindERi.exit.threadthread-pre-split
 
 _ZN12_GLOBAL__N_130tryParseCompileTimeLinearTokenERN4llvm9StringRefERNS0_11VFParamKindERiS1_.exit50.sink.split.i.i: ; preds = %_ZN4llvm9StringRef13consume_frontES0_.exit17.i46.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit17.i33.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit17.i20.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit17.i.i.i
   %.1 = phi i32 [ 1, %_ZN4llvm9StringRef13consume_frontES0_.exit17.i.i.i ], [ %117, %_ZN4llvm9StringRef13consume_frontES0_.exit17.i20.i.i ], [ %129, %_ZN4llvm9StringRef13consume_frontES0_.exit17.i33.i.i ], [ %141, %_ZN4llvm9StringRef13consume_frontES0_.exit17.i46.i.i ]
-  %.sink64.i.i = phi i32 [ %.4, %_ZN4llvm9StringRef13consume_frontES0_.exit17.i.i.i ], [ %.3, %_ZN4llvm9StringRef13consume_frontES0_.exit17.i20.i.i ], [ %.2100, %_ZN4llvm9StringRef13consume_frontES0_.exit17.i33.i.i ], [ %.199, %_ZN4llvm9StringRef13consume_frontES0_.exit17.i46.i.i ]
-  %150 = sub nsw i32 0, %.sink64.i.i
+  %.sink65.i.i = phi i32 [ %.4, %_ZN4llvm9StringRef13consume_frontES0_.exit17.i.i.i ], [ %.3, %_ZN4llvm9StringRef13consume_frontES0_.exit17.i20.i.i ], [ %.2100, %_ZN4llvm9StringRef13consume_frontES0_.exit17.i33.i.i ], [ %.199, %_ZN4llvm9StringRef13consume_frontES0_.exit17.i46.i.i ]
+  %150 = sub nsw i32 0, %.sink65.i.i
   br label %_ZN12_GLOBAL__N_117tryParseParameterERN4llvm9StringRefERNS0_11VFParamKindERi.exit.threadthread-pre-split
 
 _ZN12_GLOBAL__N_117tryParseParameterERN4llvm9StringRefERNS0_11VFParamKindERi.exit: ; preds = %_ZN12_GLOBAL__N_134tryParseLinearTokenWithRuntimeStepERN4llvm9StringRefERNS0_11VFParamKindERiS1_.exit.i.i, %_ZN12_GLOBAL__N_134tryParseLinearTokenWithRuntimeStepERN4llvm9StringRefERNS0_11VFParamKindERiS1_.exit36.i.i, %_ZN12_GLOBAL__N_134tryParseLinearTokenWithRuntimeStepERN4llvm9StringRefERNS0_11VFParamKindERiS1_.exit46.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit.thread.sink.split.i53.i.i
@@ -797,14 +797,14 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i65:    ; preds = %219
   %226 = add i64 %222, -1
   store ptr %225, ptr %15, align 8, !tbaa !4
   store i64 %226, ptr %23, align 8, !tbaa !9
-  %.not.i.i172 = icmp eq i64 %226, 0
-  br i1 %.not.i.i172, label %231, label %227
+  %.not.i.i191 = icmp eq i64 %226, 0
+  br i1 %.not.i.i191, label %231, label %227
 
 227:                                              ; preds = %224
   %228 = getelementptr i8, ptr %221, i64 %222
   %229 = getelementptr inbounds i8, ptr %228, i64 -1
-  %lhsc175 = load i8, ptr %229, align 1
-  %230 = icmp eq i8 %lhsc175, 41
+  %lhsc194 = load i8, ptr %229, align 1
+  %230 = icmp eq i8 %lhsc194, 41
   br i1 %230, label %233, label %231
 
 231:                                              ; preds = %227, %224
@@ -1060,11 +1060,11 @@ _ZN4llvm17getContainedTypesERKPNS_4TypeE.exit:    ; preds = %40
 
 .lr.ph60.preheader:                               ; preds = %_ZN4llvm17getContainedTypesERKPNS_4TypeE.exit.thread, %_ZN4llvm17getContainedTypesERKPNS_4TypeE.exit
   %51 = phi ptr [ %43, %_ZN4llvm17getContainedTypesERKPNS_4TypeE.exit.thread ], [ %50, %_ZN4llvm17getContainedTypesERKPNS_4TypeE.exit ]
-  %.sroa.0.1.i67 = phi ptr [ %2, %_ZN4llvm17getContainedTypesERKPNS_4TypeE.exit.thread ], [ %45, %_ZN4llvm17getContainedTypesERKPNS_4TypeE.exit ]
+  %.sroa.0.1.i69 = phi ptr [ %2, %_ZN4llvm17getContainedTypesERKPNS_4TypeE.exit.thread ], [ %45, %_ZN4llvm17getContainedTypesERKPNS_4TypeE.exit ]
   br label %.lr.ph60
 
 .lr.ph60:                                         ; preds = %.lr.ph60.preheader, %_ZN12_GLOBAL__N_120getElementCountForTyEN4llvm9VFISAKindEPKNS0_4TypeE.exit65.thread
-  %.04559 = phi ptr [ %70, %_ZN12_GLOBAL__N_120getElementCountForTyEN4llvm9VFISAKindEPKNS0_4TypeE.exit65.thread ], [ %.sroa.0.1.i67, %.lr.ph60.preheader ]
+  %.04559 = phi ptr [ %70, %_ZN12_GLOBAL__N_120getElementCountForTyEN4llvm9VFISAKindEPKNS0_4TypeE.exit65.thread ], [ %.sroa.0.1.i69, %.lr.ph60.preheader ]
   %.sroa.011.458 = phi i40 [ %.sroa.011.5.ph, %_ZN12_GLOBAL__N_120getElementCountForTyEN4llvm9VFISAKindEPKNS0_4TypeE.exit65.thread ], [ %.sroa.011.0.lcssa, %.lr.ph60.preheader ]
   %52 = load ptr, ptr %.04559, align 8, !tbaa !53
   %53 = call noundef zeroext i1 @_ZNK4llvm4Type11isIntegerTyEj(ptr noundef nonnull align 8 dereferenceable(24) %52, i32 noundef 64) #16
@@ -2009,11 +2009,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit.sink.split:
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit.sink.split, %37, %22
-  %.sink36 = phi i32 [ %26, %22 ], [ %38, %37 ], [ %.pre.i28, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit.sink.split ]
+  %.sink41 = phi i32 [ %26, %22 ], [ %38, %37 ], [ %.pre.i28, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit.sink.split ]
   %.026.sink = phi ptr [ %25, %22 ], [ %.026, %37 ], [ %.026.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit.sink.split ]
   %.1 = phi i32 [ %.033, %22 ], [ %29, %37 ], [ %.1.ph, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit.sink.split ]
   %42 = load ptr, ptr %3, align 8, !tbaa !18
-  %43 = zext i32 %.sink36 to i64
+  %43 = zext i32 %.sink41 to i64
   %44 = getelementptr inbounds nuw ptr, ptr %42, i64 %43
   %45 = ptrtoint ptr %.026.sink to i64
   store i64 %45, ptr %44, align 1

@@ -1844,13 +1844,13 @@ ptr_from_index.exit:                              ; preds = %18, %27, %30
 
 85:                                               ; preds = %82, %79
   %.not.i35 = phi i1 [ %84, %82 ], [ true, %79 ]
-  %.not38 = icmp ne i32 %73, 0
-  %.not39 = and i1 %.not38, %.not.i35
-  br i1 %.not39, label %90, label %86
+  %.not45 = icmp ne i32 %73, 0
+  %.not46 = and i1 %.not45, %.not.i35
+  br i1 %.not46, label %90, label %86
 
 86:                                               ; preds = %85
   %87 = or disjoint i32 %62, 8
-  %88 = select i1 %.not38, i32 %62, i32 %87
+  %88 = select i1 %.not45, i32 %62, i32 %87
   %89 = or disjoint i32 %88, 16
   %simplifycfg.merge = select i1 %.not.i35, i32 %88, i32 %89
   store i32 %simplifycfg.merge, ptr %63, align 8, !tbaa !46
@@ -2139,7 +2139,7 @@ define internal ptr @ndarray_subscript(ptr noundef %0, ptr noundef %1) #0 {
   %.not.i70 = icmp eq ptr %85, null
   %86 = load i32, ptr %72, align 4, !tbaa !25
   %87 = sext i32 %86 to i64
-  br i1 %.not.i70, label %.thread50.i, label %88
+  br i1 %.not.i70, label %.thread53.i, label %88
 
 88:                                               ; preds = %83
   %89 = shl nsw i64 %87, 3
@@ -2157,11 +2157,11 @@ define internal ptr @ndarray_subscript(ptr noundef %0, ptr noundef %1) #0 {
   %96 = icmp sgt i32 %94, 0
   br i1 %96, label %.lr.ph.split.i, label %.loopexit
 
-.thread50.i:                                      ; preds = %83
+.thread53.i:                                      ; preds = %83
   %97 = icmp sgt i32 %86, 0
   br i1 %97, label %.lr.ph.split.us.preheader.i, label %.loopexit
 
-.lr.ph.split.us.preheader.i:                      ; preds = %.thread50.i
+.lr.ph.split.us.preheader.i:                      ; preds = %.thread53.i
   %98 = getelementptr inbounds nuw i8, ptr %48, i64 128
   %99 = load ptr, ptr %98, align 8, !tbaa !32
   %100 = getelementptr inbounds nuw i8, ptr %48, i64 136
@@ -2238,13 +2238,13 @@ define internal ptr @ndarray_subscript(ptr noundef %0, ptr noundef %1) #0 {
   tail call void @_Py_Dealloc(ptr noundef nonnull %48) #14
   br label %_Py_NewRef.exit
 
-.loopexit:                                        ; preds = %114, %.lr.ph.split.us.i, %.thread50.i, %93
-  %.153.i = phi ptr [ null, %.thread50.i ], [ %90, %93 ], [ null, %.lr.ph.split.us.i ], [ %90, %114 ]
+.loopexit:                                        ; preds = %114, %.lr.ph.split.us.i, %.thread53.i, %93
+  %.156.i = phi ptr [ null, %.thread53.i ], [ %90, %93 ], [ null, %.lr.ph.split.us.i ], [ %90, %114 ]
   %136 = getelementptr inbounds nuw i8, ptr %48, i64 128
   store ptr %76, ptr %136, align 8, !tbaa !32
   %137 = getelementptr inbounds nuw i8, ptr %48, i64 136
   store ptr %80, ptr %137, align 8, !tbaa !42
-  store ptr %.153.i, ptr %84, align 8, !tbaa !43
+  store ptr %.156.i, ptr %84, align 8, !tbaa !43
   %138 = getelementptr inbounds nuw i8, ptr %48, i64 64
   %139 = load i32, ptr %138, align 8, !tbaa !46
   %140 = or i32 %139, 512
@@ -3492,8 +3492,8 @@ define internal ptr @ndarray_tobytes(ptr noundef readonly captures(none) %0, ptr
   %49 = getelementptr i64, ptr %28, i64 %.132.i
   store i64 %48, ptr %49, align 8, !tbaa !12
   %50 = add nsw i64 %.132.i, -1
-  %.not36.i = icmp eq i64 %.132.i, 0
-  br i1 %.not36.i, label %.loopexit, label %44, !llvm.loop !74
+  %.not37.i = icmp eq i64 %.132.i, 0
+  br i1 %.not37.i, label %.loopexit, label %44, !llvm.loop !74
 
 .loopexit:                                        ; preds = %44, %30
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -3739,7 +3739,7 @@ define internal i32 @ndarray_getbuf(ptr noundef %0, ptr noundef %1, i32 noundef 
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %103 = load ptr, ptr %102, align 8, !tbaa !32
   %.not69 = icmp eq ptr %103, null
-  br i1 %.not69, label %.thread78, label %104
+  br i1 %.not69, label %.thread82, label %104
 
 104:                                              ; preds = %101
   %105 = icmp ne i32 %63, 0
@@ -3751,35 +3751,35 @@ define internal i32 @ndarray_getbuf(ptr noundef %0, ptr noundef %1, i32 noundef 
 108:                                              ; preds = %104
   %.pr.pre = load ptr, ptr %16, align 8, !tbaa !34
   %109 = icmp eq ptr %.pr.pre, null
-  br i1 %109, label %.thread, label %.thread78
+  br i1 %109, label %.thread, label %.thread82
 
 .thread:                                          ; preds = %99, %108
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %111 = load ptr, ptr %110, align 8, !tbaa !32
   %112 = icmp eq ptr %111, null
-  br i1 %112, label %113, label %.thread78
+  br i1 %112, label %113, label %.thread82
 
 113:                                              ; preds = %.thread
   %114 = tail call i32 @PyBuffer_IsContiguous(ptr noundef nonnull %1, i8 noundef signext 70) #14
   %.not71 = icmp eq i32 %114, 0
-  br i1 %.not71, label %115, label %.thread78
+  br i1 %.not71, label %115, label %.thread82
 
 115:                                              ; preds = %113, %104, %95
   %116 = load ptr, ptr @PyExc_BufferError, align 8, !tbaa !9
   tail call void @PyErr_SetString(ptr noundef %116, ptr noundef nonnull @.str.44) #14
   br label %125
 
-.thread78:                                        ; preds = %101, %113, %.thread, %108
+.thread82:                                        ; preds = %101, %113, %.thread, %108
   %117 = load i32, ptr %0, align 8, !tbaa !11
   %118 = icmp slt i32 %117, 0
   br i1 %118, label %_Py_NewRef.exit, label %119
 
-119:                                              ; preds = %.thread78
+119:                                              ; preds = %.thread82
   %120 = add nuw i32 %117, 1
   store i32 %120, ptr %0, align 8, !tbaa !11
   br label %_Py_NewRef.exit
 
-_Py_NewRef.exit:                                  ; preds = %.thread78, %119
+_Py_NewRef.exit:                                  ; preds = %.thread82, %119
   store ptr %0, ptr %15, align 8, !tbaa !51
   %121 = load ptr, ptr %4, align 8, !tbaa !38
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 48
@@ -3925,8 +3925,8 @@ define internal ptr @ndarray_tolist(ptr noundef readonly captures(none) %0, ptr 
   %50 = getelementptr i64, ptr %30, i64 %.132.i.i
   store i64 %49, ptr %50, align 8, !tbaa !12
   %51 = add nsw i64 %.132.i.i, -1
-  %.not36.i.i = icmp eq i64 %.132.i.i, 0
-  br i1 %.not36.i.i, label %strides_from_shape.exit.thread.i, label %45, !llvm.loop !74
+  %.not37.i.i = icmp eq i64 %.132.i.i, 0
+  br i1 %.not37.i.i, label %strides_from_shape.exit.thread.i, label %45, !llvm.loop !74
 
 strides_from_shape.exit.i:                        ; preds = %25
   %52 = tail call ptr @PyErr_NoMemory() #14
@@ -5181,9 +5181,9 @@ Py_DECREF.exit.i.i:                               ; preds = %252, %249, %pack_fr
   %269 = add nsw i32 %267, -1
   store i32 %269, ptr %258, align 8, !tbaa !11
   %270 = icmp eq i32 %269, 0
-  br i1 %270, label %init_simple.exit.thread144.i, label %init_simple.exit.thread123.i
+  br i1 %270, label %init_simple.exit.thread200.i, label %init_simple.exit.thread123.i
 
-init_simple.exit.thread144.i:                     ; preds = %268
+init_simple.exit.thread200.i:                     ; preds = %268
   tail call void @_Py_Dealloc(ptr noundef nonnull %258) #14
   store ptr null, ptr %116, align 8, !tbaa !34
   br label %init_simple.exit.thread.i
@@ -5315,8 +5315,8 @@ strides_from_shape.exit.i.thread132.i:            ; preds = %290
   %331 = getelementptr i64, ptr %295, i64 %.132.i.i.i
   store i64 %330, ptr %331, align 8, !tbaa !12
   %332 = add nsw i64 %.132.i.i.i, -1
-  %.not36.i.i.i = icmp eq i64 %.132.i.i.i, 0
-  br i1 %.not36.i.i.i, label %strides_from_shape.exit.i.thread.i, label %326, !llvm.loop !74
+  %.not37.i.i.i = icmp eq i64 %.132.i.i.i, 0
+  br i1 %.not37.i.i.i, label %strides_from_shape.exit.i.thread.i, label %326, !llvm.loop !74
 
 strides_from_shape.exit.i.thread.i:               ; preds = %307, %326, %315, %302
   %333 = getelementptr inbounds nuw i8, ptr %90, i64 112
@@ -5621,7 +5621,7 @@ init_structure.exit.i:                            ; preds = %470, %._crit_edge.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %.049.i) #14
   br label %init_ndbuf.exit
 
-init_simple.exit.thread.i:                        ; preds = %449, %404, %verify_structure.exit.i.i, %strides_from_shape.exit.i.i, %strides_from_shape.exit.i.thread132.i, %286, %282, %init_simple.exit.thread123.i, %init_simple.exit.thread144.i, %Py_DECREF.exit.i.i, %108
+init_simple.exit.thread.i:                        ; preds = %449, %404, %verify_structure.exit.i.i, %strides_from_shape.exit.i.i, %strides_from_shape.exit.i.thread132.i, %286, %282, %init_simple.exit.thread123.i, %init_simple.exit.thread200.i, %Py_DECREF.exit.i.i, %108
   %478 = load i32, ptr %.049.i, align 8, !tbaa !11
   %.not.i.i = icmp sgt i32 %478, -1
   br i1 %.not.i.i, label %479, label %Py_DECREF.exit.i

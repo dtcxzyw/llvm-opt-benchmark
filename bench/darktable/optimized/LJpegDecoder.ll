@@ -1262,8 +1262,8 @@ _ZSt6fill_nIPPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23Pref
 _ZNSt6vectorIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEESaIS7_EED2Ev.exit: ; preds = %22
   %30 = landingpad { ptr, i32 }
           cleanup
-  %.idx30 = shl nuw nsw i64 %4, 3
-  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %.idx30) #24
+  %.idx33 = shl nuw nsw i64 %4, 3
+  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %.idx33) #24
   resume { ptr, i32 } %30
 }
 

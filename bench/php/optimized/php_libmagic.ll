@@ -15,9 +15,9 @@ define hidden noalias noundef ptr @convert_libmagic_pattern(ptr noundef readonly
   %5 = load i8, ptr %4, align 1, !tbaa !4
   %switch.selectcmp = icmp eq i8 %5, 0
   %switch.select = select i1 %switch.selectcmp, i64 4, i64 1
-  %switch.selectcmp62 = icmp eq i8 %5, 126
-  %switch.select63 = select i1 %switch.selectcmp62, i64 2, i64 %switch.select
-  %6 = add i64 %.04549, %switch.select63
+  %switch.selectcmp65 = icmp eq i8 %5, 126
+  %switch.select66 = select i1 %switch.selectcmp65, i64 2, i64 %switch.select
+  %6 = add i64 %.04549, %switch.select66
   %7 = add nuw i64 %.050, 1
   %exitcond.not = icmp eq i64 %7, %1
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
@@ -60,22 +60,22 @@ define hidden noalias noundef ptr @convert_libmagic_pattern(ptr noundef readonly
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph53, %17
-  %.sink65 = phi i64 [ 3, %17 ], [ 1, %.lr.ph53 ]
+  %.sink68 = phi i64 [ 3, %17 ], [ 1, %.lr.ph53 ]
   %.251.sink = phi i64 [ %20, %17 ], [ %.251, %.lr.ph53 ]
   %.sink = phi i8 [ 48, %17 ], [ 92, %.lr.ph53 ]
-  %.sink59.ph = phi i8 [ 48, %17 ], [ %16, %.lr.ph53 ]
-  %22 = add i64 %.251, %.sink65
+  %.sink62.ph = phi i8 [ 48, %17 ], [ %16, %.lr.ph53 ]
+  %22 = add i64 %.251, %.sink68
   %23 = getelementptr inbounds nuw [1 x i8], ptr %14, i64 0, i64 %.251.sink
   store i8 %.sink, ptr %23, align 1, !tbaa !4
   br label %24
 
 24:                                               ; preds = %.sink.split, %.lr.ph53
-  %.sink61 = phi i64 [ %.251, %.lr.ph53 ], [ %22, %.sink.split ]
-  %.sink59 = phi i8 [ %16, %.lr.ph53 ], [ %.sink59.ph, %.sink.split ]
-  %25 = getelementptr inbounds nuw [1 x i8], ptr %14, i64 0, i64 %.sink61
-  store i8 %.sink59, ptr %25, align 1, !tbaa !4
+  %.sink64 = phi i64 [ %.251, %.lr.ph53 ], [ %22, %.sink.split ]
+  %.sink62 = phi i8 [ %16, %.lr.ph53 ], [ %.sink62.ph, %.sink.split ]
+  %25 = getelementptr inbounds nuw [1 x i8], ptr %14, i64 0, i64 %.sink64
+  store i8 %.sink62, ptr %25, align 1, !tbaa !4
   %26 = add nuw i64 %.152, 1
-  %27 = add i64 %.sink61, 1
+  %27 = add i64 %.sink64, 1
   %exitcond58.not = icmp eq i64 %26, %1
   br i1 %exitcond58.not, label %._crit_edge54, label %.lr.ph53
 

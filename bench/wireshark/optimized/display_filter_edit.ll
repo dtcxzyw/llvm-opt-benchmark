@@ -2526,11 +2526,11 @@ _ZN7QStringD2Ev.exit72:                           ; preds = %_ZN7QStringD2Ev.exi
 _ZNK8QPointerI19StockIconToolButtonEptEv.exit73:  ; preds = %72
   %100 = load atomic i32, ptr %58 monotonic, align 4
   %101 = icmp eq i32 %100, 0
-  %spec.select214 = select i1 %101, ptr null, ptr %62
-  %102 = load ptr, ptr %spec.select214, align 8
+  %spec.select268 = select i1 %101, ptr null, ptr %62
+  %102 = load ptr, ptr %spec.select268, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 104
   %104 = load ptr, ptr %103, align 8
-  call void %104(ptr noundef align 8 dereferenceable_or_null(40) %spec.select214, i1 noundef zeroext false)
+  call void %104(ptr noundef align 8 dereferenceable_or_null(40) %spec.select268, i1 noundef zeroext false)
   br label %105
 
 105:                                              ; preds = %_ZN7QStringD2Ev.exit64, %_ZNK8QPointerI19StockIconToolButtonEptEv.exit73, %_ZNK8QPointerI19StockIconToolButtonEptEv.exit
@@ -3075,7 +3075,7 @@ _ZNK8QPointerI19StockIconToolButtonEcvPS0_Ev.exit157: ; preds = %267
 _ZNK8QPointerI19StockIconToolButtonEptEv.exit158: ; preds = %_ZNK8QPointerI19StockIconToolButtonEcvPS0_Ev.exit157
   %273 = load atomic i32, ptr %268 monotonic, align 4
   %274 = icmp eq i32 %273, 0
-  %spec.select215 = select i1 %274, ptr null, ptr %272
+  %spec.select269 = select i1 %274, ptr null, ptr %272
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %5, i64 25, ptr nonnull @.str.3)
   %275 = load ptr, ptr %5, align 8
@@ -3089,7 +3089,7 @@ _ZNK8QPointerI19StockIconToolButtonEptEv.exit158: ; preds = %_ZNK8QPointerI19Sto
   %281 = load i64, ptr %280, align 8
   store i64 %281, ptr %279, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  invoke void @_ZN19StockIconToolButton12setStockIconE7QString(ptr noundef align 8 dereferenceable_or_null(72) %spec.select215, ptr noundef nonnull %19)
+  invoke void @_ZN19StockIconToolButton12setStockIconE7QString(ptr noundef align 8 dereferenceable_or_null(72) %spec.select269, ptr noundef nonnull %19)
           to label %282 unwind label %294
 
 282:                                              ; preds = %_ZNK8QPointerI19StockIconToolButtonEptEv.exit158
@@ -5986,7 +5986,7 @@ _ZNK8QPointerI19StockIconToolButtonEcvPS0_Ev.exit: ; preds = %212
   %220 = trunc nuw i8 %219 to i1
   %221 = load atomic i32, ptr %213 monotonic, align 4
   %222 = icmp eq i32 %221, 0
-  %spec.select155 = select i1 %222, ptr null, ptr %217
+  %spec.select181 = select i1 %222, ptr null, ptr %217
   %223 = call { i64, i64 } @_ZNK7QWidget12contentsRectEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
   br i1 %220, label %_ZNK8QPointerI19StockIconToolButtonEptEv.exit78, label %_ZNK8QPointerI19StockIconToolButtonEptEv.exit53
 
@@ -6002,7 +6002,7 @@ _ZNK8QPointerI19StockIconToolButtonEptEv.exit53:  ; preds = %218
   store i32 %225, ptr %5, align 4
   %228 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %.sroa.095.4.extract.trunc, ptr %228, align 4
-  call void @_ZN7QWidget4moveERK6QPoint(ptr noundef align 8 dereferenceable_or_null(40) %spec.select155, ptr noundef nonnull align 4 dereferenceable(8) %5)
+  call void @_ZN7QWidget4moveERK6QPoint(ptr noundef align 8 dereferenceable_or_null(40) %spec.select181, ptr noundef nonnull align 4 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK8QPointerI19StockIconToolButtonEcvPS0_Ev.exit.thread
 
@@ -6153,7 +6153,7 @@ _ZNK8QPointerI19StockIconToolButtonEptEv.exit79:  ; preds = %_ZNK8QPointerI19Sto
   store i32 %279, ptr %4, align 4
   %282 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %.sroa.091.4.extract.trunc, ptr %282, align 4
-  call void @_ZN7QWidget4moveERK6QPoint(ptr noundef align 8 dereferenceable_or_null(40) %spec.select155, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  call void @_ZN7QWidget4moveERK6QPoint(ptr noundef align 8 dereferenceable_or_null(40) %spec.select181, ptr noundef nonnull align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK8QPointerI19StockIconToolButtonEcvPS0_Ev.exit.thread
 
@@ -6200,7 +6200,7 @@ _ZNK8QPointerI19StockIconToolButtonEcvPS0_Ev.exit81: ; preds = %295
 _ZNK8QPointerI19StockIconToolButtonEptEv.exit82:  ; preds = %301
   %304 = load atomic i32, ptr %287 monotonic, align 4
   %305 = icmp eq i32 %304, 0
-  %spec.select156 = select i1 %305, ptr null, ptr %291
+  %spec.select182 = select i1 %305, ptr null, ptr %291
   %306 = call { i64, i64 } @_ZNK7QWidget12contentsRectEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
   %307 = extractvalue { i64, i64 } %306, 1
   %.sroa.3.8.extract.trunc = trunc i64 %307 to i32
@@ -6213,7 +6213,7 @@ _ZNK8QPointerI19StockIconToolButtonEptEv.exit82:  ; preds = %301
   store i32 %308, ptr %3, align 4
   %311 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %.sroa.088.4.extract.trunc, ptr %311, align 4
-  call void @_ZN7QWidget4moveERK6QPoint(ptr noundef align 8 dereferenceable_or_null(40) %spec.select156, ptr noundef nonnull align 4 dereferenceable(8) %3)
+  call void @_ZN7QWidget4moveERK6QPoint(ptr noundef align 8 dereferenceable_or_null(40) %spec.select182, ptr noundef nonnull align 4 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK8QPointerI19StockIconToolButtonEcvPS0_Ev.exit80.thread
 
@@ -6244,8 +6244,8 @@ _ZNK8QPointerI19StockIconToolButtonEptEv.exit85:  ; preds = %320, %316, %312
   %329 = load i32, ptr %326, align 4
   %330 = load atomic i32, ptr %296 monotonic, align 4
   %331 = icmp eq i32 %330, 0
-  %spec.select157 = select i1 %331, ptr null, ptr %300
-  %332 = getelementptr inbounds nuw i8, ptr %spec.select157, i64 32
+  %spec.select183 = select i1 %331, ptr null, ptr %300
+  %332 = getelementptr inbounds nuw i8, ptr %spec.select183, i64 32
   %333 = load ptr, ptr %332, align 8
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 20
   %335 = getelementptr inbounds nuw i8, ptr %333, i64 28
@@ -6355,11 +6355,11 @@ _ZNK8QPointerI19StockIconToolButtonEptEv.exit:    ; preds = %17
 _ZNK8QPointerI19StockIconToolButtonEptEv.exit22:  ; preds = %_ZNK8QPointerI19StockIconToolButtonEptEv.exit
   %30 = load atomic i32, ptr %12 monotonic, align 4
   %31 = icmp eq i32 %30, 0
-  %spec.select69 = select i1 %31, ptr null, ptr %16
-  %32 = load ptr, ptr %spec.select69, align 8
+  %spec.select79 = select i1 %31, ptr null, ptr %16
+  %32 = load ptr, ptr %spec.select79, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 104
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef align 8 dereferenceable_or_null(40) %spec.select69, i1 noundef zeroext true)
+  tail call void %34(ptr noundef align 8 dereferenceable_or_null(40) %spec.select79, i1 noundef zeroext true)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
@@ -11455,8 +11455,8 @@ _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30.thread: ; preds = %38, %
   %45 = getelementptr i8, ptr %44, i64 %.idx39
   %46 = icmp ne i64 %.idx39, 0
   %47 = icmp ult ptr %44, %45
-  %or.cond43 = select i1 %46, i1 %47, i1 false
-  br i1 %or.cond43, label %.lr.ph.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit
+  %or.cond57 = select i1 %46, i1 %47, i1 false
+  br i1 %or.cond57, label %.lr.ph.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit
 
 .lr.ph.i:                                         ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30.thread
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -11499,8 +11499,8 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
   %68 = getelementptr i8, ptr %67, i64 %.idx
   %69 = icmp ne i64 %.idx, 0
   %70 = icmp ult ptr %67, %68
-  %or.cond44 = select i1 %69, i1 %70, i1 false
-  br i1 %or.cond44, label %.lr.ph.i31, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit
+  %or.cond58 = select i1 %69, i1 %70, i1 false
+  br i1 %or.cond58, label %.lr.ph.i31, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit
 
 .lr.ph.i31:                                       ; preds = %65
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -11721,8 +11721,8 @@ _ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33: ; preds = %36
 
 58:                                               ; preds = %_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33.thread, %_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33
   %59 = phi ptr [ %48, %_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33.thread ], [ %57, %_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33 ]
-  %.pr59 = phi ptr [ %39, %_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33.thread ], [ %.pr.pre, %_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.pr59, i64 4
+  %.pr62 = phi ptr [ %39, %_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33.thread ], [ %.pr.pre, %_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33 ]
+  %60 = getelementptr inbounds nuw i8, ptr %.pr62, i64 4
   %61 = load i32, ptr %60, align 4
   br label %_ZNK17QArrayDataPointerI7QStringE5flagsEv.exit
 

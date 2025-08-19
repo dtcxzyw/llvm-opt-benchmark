@@ -1757,16 +1757,16 @@ define dso_local void @php_stat(ptr noundef %0, i32 noundef %1, ptr noundef capt
   %51 = add i32 %1, -8
   %52 = call i32 @llvm.fshl.i32(i32 %51, i32 %51, i32 31)
   %53 = icmp ult i32 %52, 6
-  br i1 %53, label %switch.lookup532, label %55
+  br i1 %53, label %switch.lookup546, label %55
 
-switch.lookup532:                                 ; preds = %.critedge
+switch.lookup546:                                 ; preds = %.critedge
   %54 = zext nneg i32 %52 to i64
-  %switch.gep533 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.php_stat.1, i64 0, i64 %54
-  %switch.load534 = load i32, ptr %switch.gep533, align 4
+  %switch.gep547 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.php_stat.1, i64 0, i64 %54
+  %switch.load548 = load i32, ptr %switch.gep547, align 4
   br label %55
 
-55:                                               ; preds = %switch.lookup532, %.critedge
-  %.0346 = phi i32 [ 0, %.critedge ], [ %switch.load534, %switch.lookup532 ]
+55:                                               ; preds = %switch.lookup546, %.critedge
+  %.0346 = phi i32 [ 0, %.critedge ], [ %switch.load548, %switch.lookup546 ]
   switch i32 %1, label %58 [
     i32 18, label %56
     i32 15, label %56

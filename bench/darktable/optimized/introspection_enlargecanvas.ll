@@ -698,16 +698,16 @@ switch.lookup:                                    ; preds = %_compute_pos.exit
   %switch.gep = getelementptr inbounds nuw [5 x float], ptr @switch.table.process, i64 0, i64 %41
   %switch.load = load float, ptr %switch.gep, align 4
   %42 = zext nneg i32 %39 to i64
-  %switch.gep25 = getelementptr inbounds nuw [5 x float], ptr @switch.table.process.1, i64 0, i64 %42
-  %switch.load26 = load float, ptr %switch.gep25, align 4
+  %switch.gep26 = getelementptr inbounds nuw [5 x float], ptr @switch.table.process.1, i64 0, i64 %42
+  %switch.load27 = load float, ptr %switch.gep26, align 4
   %43 = zext nneg i32 %39 to i64
-  %switch.gep27 = getelementptr inbounds nuw [5 x float], ptr @switch.table.process.2, i64 0, i64 %43
-  %switch.load28 = load float, ptr %switch.gep27, align 4
+  %switch.gep28 = getelementptr inbounds nuw [5 x float], ptr @switch.table.process.2, i64 0, i64 %43
+  %switch.load29 = load float, ptr %switch.gep28, align 4
   store float %switch.load, ptr %8, align 16, !tbaa !40
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store float %switch.load26, ptr %44, align 4, !tbaa !40
+  store float %switch.load27, ptr %44, align 4, !tbaa !40
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store float %switch.load28, ptr %45, align 8, !tbaa !40
+  store float %switch.load29, ptr %45, align 8, !tbaa !40
   br label %46
 
 46:                                               ; preds = %_compute_pos.exit, %switch.lookup

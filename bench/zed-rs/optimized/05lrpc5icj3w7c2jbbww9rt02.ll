@@ -3659,7 +3659,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %49 = load ptr, ptr %15, align 8, !alias.scope !542, !noalias !543, !nonnull !4, !noundef !4
   %50 = load ptr, ptr %14, align 8, !alias.scope !542, !noalias !543, !nonnull !4, !noundef !4
   %51 = icmp eq ptr %50, %49
-  br i1 %51, label %.split.loop.exit96, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h771f1d6ffd22586cE.exit.i"
+  br i1 %51, label %.split.loop.exit105, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h771f1d6ffd22586cE.exit.i"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h771f1d6ffd22586cE.exit.i": ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 720
@@ -3750,7 +3750,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   store ptr %81, ptr %75, align 8, !alias.scope !575, !noalias !568
   %.sroa.0.0.copyload1.i16 = load i64, ptr %80, align 8, !noalias !576
   %82 = icmp eq i64 %.sroa.0.0.copyload1.i16, 2
-  br i1 %82, label %._crit_edge83.loopexit.split.loop.exit99, label %83
+  br i1 %82, label %._crit_edge83.loopexit.split.loop.exit108, label %83
 
 83:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h771f1d6ffd22586cE.exit.i15"
   %.sroa.6.0..sroa_idx2.i17 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -3817,12 +3817,12 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   invoke void @"_ZN4core3ptr508drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$$C$gpui..elements..uniform_list..uniform_list$LT$$RF$str$C$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$C$outline_panel..OutlinePanel$C$$LT$outline_panel..OutlinePanel$u20$as$u20$gpui..element..Render$GT$..render..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h463c81c1f26e6e74E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12) #29
           to label %common.resume unwind label %135
 
-._crit_edge83.loopexit.split.loop.exit99:         ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h771f1d6ffd22586cE.exit.i15"
+._crit_edge83.loopexit.split.loop.exit108:        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h771f1d6ffd22586cE.exit.i15"
   %105 = getelementptr inbounds nuw i8, ptr %80, i64 720
   br label %._crit_edge83
 
-._crit_edge83:                                    ; preds = %127, %._crit_edge83.loopexit.split.loop.exit99, %._crit_edge
-  %106 = phi ptr [ %77, %._crit_edge ], [ %105, %._crit_edge83.loopexit.split.loop.exit99 ], [ %133, %127 ]
+._crit_edge83:                                    ; preds = %127, %._crit_edge83.loopexit.split.loop.exit108, %._crit_edge
+  %106 = phi ptr [ %77, %._crit_edge ], [ %105, %._crit_edge83.loopexit.split.loop.exit108 ], [ %133, %127 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !592
   store ptr %12, ptr %4, align 8, !noalias !592
   %107 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hfbe494b5bd749118E.llvm.15992447837750267435(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %12)
@@ -3935,9 +3935,9 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
 
 .split.loop.exit:                                 ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h771f1d6ffd22586cE.exit.i"
   %142 = getelementptr inbounds nuw i8, ptr %50, i64 720
-  br label %.split.loop.exit96
+  br label %.split.loop.exit105
 
-.split.loop.exit96:                               ; preds = %48, %.split.loop.exit
+.split.loop.exit105:                              ; preds = %48, %.split.loop.exit
   %143 = phi ptr [ %142, %.split.loop.exit ], [ %50, %48 ]
   store i64 %.sroa.7.082, ptr %.sink9.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !612
@@ -3945,13 +3945,13 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %144 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hfbe494b5bd749118E.llvm.15992447837750267435(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %13)
           to label %147 unwind label %145
 
-145:                                              ; preds = %147, %.split.loop.exit96
+145:                                              ; preds = %147, %.split.loop.exit105
   %146 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5ad7d4ca422abd86E.llvm.15992447837750267435"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
           to label %common.resume unwind label %148
 
-147:                                              ; preds = %.split.loop.exit96
+147:                                              ; preds = %.split.loop.exit105
   invoke void @"_ZN4core3ptr92drop_in_place$LT$$u5b$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$u5d$$GT$17h0b6a675098d5a73bE.llvm.15992447837750267435"(ptr noalias noundef nonnull align 8 %143, i64 noundef %144)
           to label %"_ZN4core3ptr508drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$$C$gpui..elements..uniform_list..uniform_list$LT$$RF$str$C$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$C$outline_panel..OutlinePanel$C$$LT$outline_panel..OutlinePanel$u20$as$u20$gpui..element..Render$GT$..render..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h463c81c1f26e6e74E.exit37" unwind label %145
 
@@ -5451,10 +5451,10 @@ define hidden void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h
   br i1 %6, label %"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h89c5350c65e863a7E.llvm.18335949784920153493.exit", label %._crit_edge
 
 ._crit_edge:                                      ; preds = %20, %2
-  %.lcssa27 = phi ptr [ %4, %2 ], [ %21, %20 ]
+  %.lcssa28 = phi ptr [ %4, %2 ], [ %21, %20 ]
   %.lcssa = phi ptr [ %5, %2 ], [ %22, %20 ]
   store ptr %.lcssa, ptr %3, align 8, !noalias !925
-  %7 = getelementptr inbounds nuw i8, ptr %.lcssa27, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.lcssa28, i64 8
   %8 = load i32, ptr %7, align 8, !range !899, !noalias !925, !noundef !4
   %9 = icmp eq i32 %8, 2
   br i1 %9, label %11, label %10
@@ -5473,7 +5473,7 @@ define hidden void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.lcssa, i64 12
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !925
   store i32 2, ptr %12, align 8, !noalias !925
-  tail call void @__rust_dealloc(ptr noundef nonnull %.lcssa27, i64 noundef 24, i64 noundef 8) #30, !noalias !925
+  tail call void @__rust_dealloc(ptr noundef nonnull %.lcssa28, i64 noundef 24, i64 noundef 8) #30, !noalias !925
   store i32 %13, ptr %0, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i64 %.sroa.5.0.copyload.i, ptr %.sroa.2.0..sroa_idx, align 4
@@ -6022,13 +6022,13 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %13 = lshr exact i64 %.sroa.012.0.ph90, 1
   %14 = and i64 %13, 31
   %15 = icmp eq i64 %14, 31
-  br i1 %15, label %.lr.ph157, label %._crit_edge
+  br i1 %15, label %.lr.ph159, label %._crit_edge
 
 16:                                               ; preds = %73
   %17 = lshr exact i64 %74, 1
   %18 = and i64 %17, 31
   %19 = icmp eq i64 %18, 31
-  br i1 %19, label %.lr.ph157, label %._crit_edge
+  br i1 %19, label %.lr.ph159, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %73, %3
   %.sroa.0.0.ph.lcssa85 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph89, %73 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
@@ -6045,7 +6045,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %24, label %22
 
-.lr.ph157:                                        ; preds = %.lr.ph, %16
+.lr.ph159:                                        ; preds = %.lr.ph, %16
   invoke void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
           to label %73 unwind label %.loopexit
 
@@ -6192,14 +6192,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   store i64 2, ptr %0, align 8
   br label %"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$outline_panel..HighlightArguments$GT$$GT$$GT$$GT$17h0702e32c979dcddcE.exit42"
 
-73:                                               ; preds = %.lr.ph157
+73:                                               ; preds = %.lr.ph159
   %74 = load atomic i64, ptr %6 acquire, align 128
   %75 = load atomic ptr, ptr %8 acquire, align 8
   %76 = and i64 %74, 1
   %77 = icmp eq i64 %76, 0
   br i1 %77, label %16, label %.critedge
 
-.loopexit:                                        ; preds = %.lr.ph157
+.loopexit:                                        ; preds = %.lr.ph159
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %78
@@ -6277,13 +6277,13 @@ define hidden noundef range(i8 1, 3) i8 @"_ZN16concurrent_queue9unbounded18Unbou
   %9 = lshr exact i64 %.sroa.013.0.ph93, 1
   %10 = and i64 %9, 31
   %11 = icmp eq i64 %10, 31
-  br i1 %11, label %.lr.ph161, label %._crit_edge
+  br i1 %11, label %.lr.ph163, label %._crit_edge
 
 12:                                               ; preds = %58
   %13 = lshr exact i64 %59, 1
   %14 = and i64 %13, 31
   %15 = icmp eq i64 %14, 31
-  br i1 %15, label %.lr.ph161, label %._crit_edge
+  br i1 %15, label %.lr.ph163, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12, %.lr.ph
   %.sroa.017.090.lcssa = phi ptr [ %.sroa.017.0.ph94, %.lr.ph ], [ %60, %12 ]
@@ -6294,7 +6294,7 @@ define hidden noundef range(i8 1, 3) i8 @"_ZN16concurrent_queue9unbounded18Unbou
   %or.cond = select i1 %16, i1 %17, i1 false
   br i1 %or.cond, label %20, label %18
 
-.lr.ph161:                                        ; preds = %.lr.ph, %12
+.lr.ph163:                                        ; preds = %.lr.ph, %12
   invoke void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
           to label %58 unwind label %.loopexit
 
@@ -6399,14 +6399,14 @@ define hidden noundef range(i8 1, 3) i8 @"_ZN16concurrent_queue9unbounded18Unbou
   %57 = atomicrmw or ptr %56, i64 1 release, align 8
   br label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h994dfc64e4162595E.exit43"
 
-58:                                               ; preds = %.lr.ph161
+58:                                               ; preds = %.lr.ph163
   %59 = load atomic i64, ptr %2 acquire, align 128
   %60 = load atomic ptr, ptr %4 acquire, align 8
   %61 = and i64 %59, 1
   %62 = icmp eq i64 %61, 0
   br i1 %62, label %12, label %.thread59
 
-.loopexit:                                        ; preds = %.lr.ph161
+.loopexit:                                        ; preds = %.lr.ph163
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %63

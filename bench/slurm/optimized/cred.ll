@@ -1049,7 +1049,7 @@ define dso_local void @format_core_allocs(ptr noundef readonly captures(none) %0
   %52 = mul i32 %43, %47
   %53 = mul i32 %52, %50
   %54 = add i32 %53, %.07195
-  %55 = sub nuw i32 %.07593, %43
+  %55 = sub nuw nsw i32 %.07593, %43
   %56 = add i32 %.07394, 1
   %.not81 = icmp eq i32 %55, 0
   br i1 %.not81, label %.loopexit, label %40, !llvm.loop !13

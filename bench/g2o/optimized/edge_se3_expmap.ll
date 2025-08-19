@@ -891,9 +891,9 @@ _ZNK3g2o7SE3QuatmlERKS0_.exit:                    ; preds = %._crit_edge.i.i, %1
   %212 = fmul <2 x double> %211, %211
   %213 = fmul <2 x double> %210, %210
   %214 = fadd <2 x double> %213, %212
-  %shift84 = shufflevector <2 x double> %214, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop85 = fadd <2 x double> %214, %shift84
-  %215 = extractelement <2 x double> %foldExtExtBinop85, i64 0
+  %shift85 = shufflevector <2 x double> %214, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop86 = fadd <2 x double> %214, %shift85
+  %215 = extractelement <2 x double> %foldExtExtBinop86, i64 0
   %216 = fcmp ogt double %215, 0.000000e+00
   br i1 %216, label %217, label %_ZNK3g2o7SE3QuatmlERKS0_.exit18
 
@@ -1435,13 +1435,13 @@ define void @_ZN3g2o13EdgeSE3Expmap14linearizeOplusEv(ptr noundef nonnull readon
   %123 = load <2 x double>, ptr %19, align 16, !tbaa !66, !noalias !153
   %124 = bitcast <2 x i64> %58 to <2 x double>
   %125 = shufflevector <2 x double> %124, <2 x double> poison, <2 x i32> zeroinitializer
-  %.sroa.0124.sroa.0.8.vec.extract233 = extractelement <2 x i64> %58, i64 1
-  %126 = bitcast i64 %.sroa.0124.sroa.0.8.vec.extract233 to <1 x double>
+  %.sroa.0124.sroa.0.8.vec.extract234 = extractelement <2 x i64> %58, i64 1
+  %126 = bitcast i64 %.sroa.0124.sroa.0.8.vec.extract234 to <1 x double>
   %127 = shufflevector <1 x double> %126, <1 x double> poison, <2 x i32> zeroinitializer
   %128 = bitcast <2 x i64> %59 to <2 x double>
   %129 = shufflevector <2 x double> %128, <2 x double> poison, <2 x i32> zeroinitializer
-  %.sroa.0124.sroa.9.24.vec.extract238 = extractelement <2 x i64> %59, i64 1
-  %130 = bitcast i64 %.sroa.0124.sroa.9.24.vec.extract238 to <1 x double>
+  %.sroa.0124.sroa.9.24.vec.extract239 = extractelement <2 x i64> %59, i64 1
+  %130 = bitcast i64 %.sroa.0124.sroa.9.24.vec.extract239 to <1 x double>
   %131 = shufflevector <1 x double> %130, <1 x double> poison, <2 x i32> zeroinitializer
   %132 = fmul <2 x double> %122, %131
   %133 = fmul <2 x double> %123, %127
@@ -1614,9 +1614,9 @@ define void @_ZN3g2o13EdgeSE3Expmap14linearizeOplusEv(ptr noundef nonnull readon
   %266 = fmul <2 x double> %265, %265
   %267 = fmul <2 x double> %264, %264
   %268 = fadd <2 x double> %267, %266
-  %shift222 = shufflevector <2 x double> %268, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop223 = fadd <2 x double> %268, %shift222
-  %269 = extractelement <2 x double> %foldExtExtBinop223, i64 0
+  %shift223 = shufflevector <2 x double> %268, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop224 = fadd <2 x double> %268, %shift223
+  %269 = extractelement <2 x double> %foldExtExtBinop224, i64 0
   %270 = fcmp ogt double %269, 0.000000e+00
   br i1 %270, label %271, label %_ZNK3g2o7SE3QuatmlERKS0_.exit48
 

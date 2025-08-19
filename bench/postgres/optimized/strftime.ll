@@ -435,13 +435,13 @@ _conv.exit.i:                                     ; preds = %127, %.lr.ph.i.i.i,
   %131 = call fastcc ptr @_fmt(ptr noundef nonnull @.str.53, ptr noundef %1, ptr noundef %.0209, ptr noundef %3, ptr noundef %25)
   %132 = load i32, ptr %25, align 4
   %133 = icmp eq i32 %132, 3
-  %spec.select940 = select i1 %133, i32 2, i32 %132
+  %spec.select986 = select i1 %133, i32 2, i32 %132
   %134 = load i32, ptr %4, align 4
-  %135 = icmp ugt i32 %spec.select940, %134
+  %135 = icmp ugt i32 %spec.select986, %134
   br i1 %135, label %136, label %137
 
 136:                                              ; preds = %130
-  store i32 %spec.select940, ptr %4, align 4
+  store i32 %spec.select986, ptr %4, align 4
   br label %137
 
 137:                                              ; preds = %136, %130
@@ -1219,13 +1219,13 @@ _conv.exit449:                                    ; preds = %.lr.ph.i.i444, %413
   %419 = call fastcc ptr @_fmt(ptr noundef nonnull @.str.1, ptr noundef %1, ptr noundef %.0209, ptr noundef %3, ptr noundef %26)
   %420 = load i32, ptr %26, align 4
   %421 = icmp eq i32 %420, 3
-  %spec.select941 = select i1 %421, i32 2, i32 %420
+  %spec.select987 = select i1 %421, i32 2, i32 %420
   %422 = load i32, ptr %4, align 4
-  %423 = icmp ugt i32 %spec.select941, %422
+  %423 = icmp ugt i32 %spec.select987, %422
   br i1 %423, label %424, label %425
 
 424:                                              ; preds = %418
-  store i32 %spec.select941, ptr %4, align 4
+  store i32 %spec.select987, ptr %4, align 4
   br label %425
 
 425:                                              ; preds = %424, %418

@@ -6740,10 +6740,10 @@ define internal void @dissect_r3_upstreammfgfield_capabilities(ptr noundef %0, i
   br i1 %.not, label %.critedge, label %24
 
 ._crit_edge.thread:                               ; preds = %8
-  %.not62 = icmp eq ptr %4, null
-  br i1 %.not62, label %.critedge, label %.thread64
+  %.not67 = icmp eq ptr %4, null
+  br i1 %.not67, label %.critedge, label %.thread69
 
-.thread64:                                        ; preds = %._crit_edge.thread
+.thread69:                                        ; preds = %._crit_edge.thread
   %22 = load i32, ptr @ett_r3capabilities, align 4
   %23 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %4, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %22, ptr noundef null, ptr noundef nonnull @.str.2116, i32 noundef 0)
   br label %.critedge
@@ -6785,7 +6785,7 @@ define internal void @dissect_r3_upstreammfgfield_capabilities(ptr noundef %0, i
   %50 = icmp slt i32 %49, %12
   br i1 %50, label %.lr.ph59, label %.critedge, !llvm.loop !25
 
-.critedge:                                        ; preds = %28, %.lr.ph59, %.thread64, %._crit_edge.thread, %24, %._crit_edge, %15
+.critedge:                                        ; preds = %28, %.lr.ph59, %.thread69, %._crit_edge.thread, %24, %._crit_edge, %15
   ret void
 }
 
@@ -7067,8 +7067,8 @@ define internal void @dissect_r3_upstreammfgfield_checksumresults(ptr noundef %0
   br i1 %.not54.not, label %.critedge59, label %.preheader
 
 .thread.thread:                                   ; preds = %8
-  %.not54.not68 = icmp eq ptr %4, null
-  br i1 %.not54.not68, label %.critedge59, label %.critedge.thread
+  %.not54.not73 = icmp eq ptr %4, null
+  br i1 %.not54.not73, label %.critedge59, label %.critedge.thread
 
 .preheader:                                       ; preds = %.thread
   %17 = icmp sgt i32 %12, 0
@@ -7092,9 +7092,9 @@ define internal void @dissect_r3_upstreammfgfield_checksumresults(ptr noundef %0
   br i1 %26, label %.lr.ph, label %.critedge, !llvm.loop !26
 
 .critedge.thread:                                 ; preds = %.preheader, %.thread.thread
-  %.ph69 = phi i32 [ %12, %.preheader ], [ 0, %.thread.thread ]
+  %.ph74 = phi i32 [ %12, %.preheader ], [ 0, %.thread.thread ]
   %27 = load i32, ptr @ett_r3checksumresults, align 4
-  %28 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %4, ptr noundef %0, i32 noundef 0, i32 noundef %.ph69, i32 noundef %27, ptr noundef null, ptr noundef nonnull @.str.2122, ptr noundef nonnull @.str.2123)
+  %28 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %4, ptr noundef %0, i32 noundef 0, i32 noundef %.ph74, i32 noundef %27, ptr noundef null, ptr noundef nonnull @.str.2122, ptr noundef nonnull @.str.2123)
   br label %.critedge59
 
 .critedge:                                        ; preds = %.lr.ph, %19

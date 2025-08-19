@@ -404,13 +404,13 @@ define hidden noundef zeroext i1 @_ZN2os18committed_in_rangeEPhmRS0_Rm(ptr nound
   br i1 %.not, label %.lr.ph64, label %._crit_edge65, !llvm.loop !9
 
 ._crit_edge65:                                    ; preds = %._crit_edge, %30
-  %.143.lcssa71 = phi i32 [ %.14352, %30 ], [ %.143.lcssa, %._crit_edge ]
+  %.143.lcssa75 = phi i32 [ %.14352, %30 ], [ %.143.lcssa, %._crit_edge ]
   %46 = phi ptr [ %24, %30 ], [ %43, %._crit_edge ]
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.loopexit, label %48
 
 48:                                               ; preds = %._crit_edge65
-  %49 = sext i32 %.143.lcssa71 to i64
+  %49 = sext i32 %.143.lcssa75 to i64
   %50 = mul i64 %6, %49
   store i64 %50, ptr %3, align 8
   br label %.loopexit
@@ -733,8 +733,8 @@ define hidden noundef zeroext i1 @_ZN2os12dir_is_emptyEPKc(ptr noundef readonly 
 
 .preheader.preheader:                             ; preds = %1
   %4 = tail call ptr @readdir64(ptr noundef nonnull %2) #28
-  %.not23 = icmp eq ptr %4, null
-  br i1 %.not23, label %.critedge, label %sub_0
+  %.not24 = icmp eq ptr %4, null
+  br i1 %.not24, label %.critedge, label %sub_0
 
 sub_0:                                            ; preds = %.preheader.preheader, %.preheader.backedge
   %5 = phi ptr [ %16, %.preheader.backedge ], [ %4, %.preheader.preheader ]
@@ -2214,9 +2214,9 @@ _ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread.i: ; preds = %61, %58
   br i1 %75, label %76, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %_ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread.i, %50
-  %.sink3.i = phi ptr [ %7, %50 ], [ %9, %_ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread.i ]
-  call void @_ZNK5frame11java_senderEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %.sink3.i, ptr noundef nonnull align 8 dereferenceable(56) %10) #28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %.sink3.i, i64 56, i1 false)
+  %.sink6.i = phi ptr [ %7, %50 ], [ %9, %_ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread.i ]
+  call void @_ZNK5frame11java_senderEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %.sink6.i, ptr noundef nonnull align 8 dereferenceable(56) %10) #28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %.sink6.i, i64 56, i1 false)
   br label %76
 
 _ZL32get_frame_at_stack_banging_pointP10JavaThreadPhPKvP5frame.exit: ; preds = %_ZN19TemplateInterpreter8containsEPh.exit.thread.i, %54, %61

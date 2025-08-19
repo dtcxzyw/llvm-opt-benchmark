@@ -1506,9 +1506,9 @@ _ZN5arrow6FutureIPvE4MakeEv.exit:                 ; preds = %20, %_ZNKSt14defaul
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %49 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !29, !noalias !77
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %49, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESE_JDpT0_EE4typeEOSE_DpOSF_.exit, label %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESE_JDpT0_EE4typeEOSE_DpOSF_.exit.thread72
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESE_JDpT0_EE4typeEOSE_DpOSF_.exit, label %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESE_JDpT0_EE4typeEOSE_DpOSF_.exit.thread83
 
-_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESE_JDpT0_EE4typeEOSE_DpOSF_.exit.thread72: ; preds = %47
+_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESE_JDpT0_EE4typeEOSE_DpOSF_.exit.thread83: ; preds = %47
   %50 = load i32, ptr %48, align 4, !tbaa !30, !noalias !77
   %51 = add nsw i32 %50, 1
   store i32 %51, ptr %48, align 4, !tbaa !30, !noalias !77
@@ -1521,10 +1521,10 @@ _ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmE
   %.not.i.i.i.i = icmp eq ptr %.pr.pre, null
   br i1 %.not.i.i.i.i, label %_ZN5arrow10WeakFutureIPvEC2ERKNS_6FutureIS1_EE.exit, label %53
 
-53:                                               ; preds = %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESE_JDpT0_EE4typeEOSE_DpOSF_.exit.thread72, %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESE_JDpT0_EE4typeEOSE_DpOSF_.exit
-  %.pr75 = phi ptr [ %36, %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESE_JDpT0_EE4typeEOSE_DpOSF_.exit.thread72 ], [ %.pr.pre, %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESE_JDpT0_EE4typeEOSE_DpOSF_.exit ]
-  %54 = phi ptr [ %37, %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESE_JDpT0_EE4typeEOSE_DpOSF_.exit.thread72 ], [ %.pre71, %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESE_JDpT0_EE4typeEOSE_DpOSF_.exit ]
-  %55 = getelementptr inbounds nuw i8, ptr %.pr75, i64 12
+53:                                               ; preds = %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESE_JDpT0_EE4typeEOSE_DpOSF_.exit.thread83, %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESE_JDpT0_EE4typeEOSE_DpOSF_.exit
+  %.pr86 = phi ptr [ %36, %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESE_JDpT0_EE4typeEOSE_DpOSF_.exit.thread83 ], [ %.pr.pre, %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESE_JDpT0_EE4typeEOSE_DpOSF_.exit ]
+  %54 = phi ptr [ %37, %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESE_JDpT0_EE4typeEOSE_DpOSF_.exit.thread83 ], [ %.pre71, %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESE_JDpT0_EE4typeEOSE_DpOSF_.exit ]
+  %55 = getelementptr inbounds nuw i8, ptr %.pr86, i64 12
   %56 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !29
   %.not.i.i.i.i.i = icmp eq i8 %56, 0
   br i1 %.not.i.i.i.i.i, label %60, label %57
@@ -1541,7 +1541,7 @@ _ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmE
 
 _ZN5arrow10WeakFutureIPvEC2ERKNS_6FutureIS1_EE.exit: ; preds = %_ZN5arrow6FutureIPvE4MakeEv.exit, %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESE_JDpT0_EE4typeEOSE_DpOSF_.exit, %57, %60
   %62 = phi ptr [ %.pre71, %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESE_JDpT0_EE4typeEOSE_DpOSF_.exit ], [ %54, %57 ], [ %54, %60 ], [ %37, %_ZN5arrow6FutureIPvE4MakeEv.exit ]
-  %63 = phi ptr [ null, %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESE_JDpT0_EE4typeEOSE_DpOSF_.exit ], [ %.pr75, %57 ], [ %.pr75, %60 ], [ null, %_ZN5arrow6FutureIPvE4MakeEv.exit ]
+  %63 = phi ptr [ null, %_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureIPvEERFS4_S4_PKvmEPhSB_RmEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESE_JDpT0_EE4typeEOSE_DpOSF_.exit ], [ %.pr86, %57 ], [ %.pr86, %60 ], [ null, %_ZN5arrow6FutureIPvE4MakeEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %64 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -1797,13 +1797,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i26: ; preds = %168,
   br i1 %170, label %_ZZN5arrow8internal8Executor6SubmitIRFPvS3_PKvmEJPhS8_RmENS_6FutureIS3_EEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_ENUt_D2Ev.exit28.sink.split, label %_ZZN5arrow8internal8Executor6SubmitIRFPvS3_PKvmEJPhS8_RmENS_6FutureIS3_EEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_ENUt_D2Ev.exit28
 
 _ZZN5arrow8internal8Executor6SubmitIRFPvS3_PKvmEJPhS8_RmENS_6FutureIS3_EEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_ENUt_D2Ev.exit28.sink.split: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i26, %157
-  %.sink80 = phi ptr [ %159, %157 ], [ %63, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i26 ]
-  %.sink79 = phi i64 [ 8, %157 ], [ 24, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i26 ]
+  %.sink91 = phi ptr [ %159, %157 ], [ %63, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i26 ]
+  %.sink90 = phi i64 [ 8, %157 ], [ 24, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i26 ]
   %.pn63.ph = phi { ptr, i32 } [ %158, %157 ], [ %161, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i26 ]
-  %171 = load ptr, ptr %.sink80, align 8, !tbaa !27
-  %172 = getelementptr inbounds nuw i8, ptr %171, i64 %.sink79
+  %171 = load ptr, ptr %.sink91, align 8, !tbaa !27
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 %.sink90
   %173 = load ptr, ptr %172, align 8
-  call void %173(ptr noundef nonnull align 8 dereferenceable(8) %.sink80) #20
+  call void %173(ptr noundef nonnull align 8 dereferenceable(8) %.sink91) #20
   br label %_ZZN5arrow8internal8Executor6SubmitIRFPvS3_PKvmEJPhS8_RmENS_6FutureIS3_EEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_ENUt_D2Ev.exit28
 
 _ZZN5arrow8internal8Executor6SubmitIRFPvS3_PKvmEJPhS8_RmENS_6FutureIS3_EEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_ENUt_D2Ev.exit28: ; preds = %_ZZN5arrow8internal8Executor6SubmitIRFPvS3_PKvmEJPhS8_RmENS_6FutureIS3_EEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_ENUt_D2Ev.exit28.sink.split, %157, %160, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i26

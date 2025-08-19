@@ -729,8 +729,8 @@ has_small_order.exit:                             ; preds = %.preheader.i
   store i64 %573, ptr %59, align 16
   call fastcc void @fe25519_mul(ptr noundef %8, ptr noundef %8, ptr noundef %14)
   %574 = add nsw i32 %.02158, -1
-  %.not75 = icmp eq i32 %.02158, 0
-  br i1 %.not75, label %575, label %91, !llvm.loop !10
+  %.not76 = icmp eq i32 %.02158, 0
+  br i1 %.not76, label %575, label %91, !llvm.loop !10
 
 575:                                              ; preds = %91
   %576 = zext nneg i32 %104 to i64

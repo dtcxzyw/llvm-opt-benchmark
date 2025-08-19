@@ -1977,19 +1977,19 @@ pmix_obj_run_destructors.exit362:                 ; preds = %.lr.ph.i359, %159
 
 178:                                              ; preds = %177, %173
   %179 = call zeroext i1 @prte_get_attribute(ptr noundef nonnull %32, i16 noundef zeroext 212, ptr noundef null, i16 noundef zeroext 31) #16
-  br i1 %179, label %.sink.split515, label %180
+  br i1 %179, label %.sink.split580, label %180
 
 180:                                              ; preds = %178
   %181 = call zeroext i1 @prte_get_attribute(ptr noundef nonnull %32, i16 noundef zeroext 244, ptr noundef null, i16 noundef zeroext 1) #16
-  br i1 %181, label %184, label %.sink.split515
+  br i1 %181, label %184, label %.sink.split580
 
-.sink.split515:                                   ; preds = %180, %178
+.sink.split580:                                   ; preds = %180, %178
   %182 = getelementptr inbounds nuw i8, ptr %15, i64 144
   %183 = load i32, ptr %182, align 8, !tbaa !111
   br label %184
 
-184:                                              ; preds = %.sink.split515, %180
-  %.sink = phi i32 [ 50, %180 ], [ %183, %.sink.split515 ]
+184:                                              ; preds = %.sink.split580, %180
+  %.sink = phi i32 [ 50, %180 ], [ %183, %.sink.split580 ]
   %185 = call i32 @prte_pmix_convert_rc(i32 noundef %.sink) #16
   %186 = call i32 @prte_plm_base_spawn_response(i32 noundef %185, ptr noundef nonnull %15) #16
   switch i32 %186, label %187 [
@@ -2310,10 +2310,10 @@ pmix_obj_run_constructors.exit384:                ; preds = %.lr.ph.i381, %308
   ]
 
 .sink.split:                                      ; preds = %._crit_edge477, %pmix_obj_run_constructors.exit384
-  %.sink514 = phi i32 [ %315, %pmix_obj_run_constructors.exit384 ], [ %324, %._crit_edge477 ]
-  %.sink513 = phi i32 [ 636, %pmix_obj_run_constructors.exit384 ], [ 641, %._crit_edge477 ]
-  %325 = call ptr @PMIx_Error_string(i32 noundef %.sink514) #16
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %325, ptr noundef nonnull @.str.1, i32 noundef %.sink513) #16
+  %.sink579 = phi i32 [ %315, %pmix_obj_run_constructors.exit384 ], [ %324, %._crit_edge477 ]
+  %.sink578 = phi i32 [ 636, %pmix_obj_run_constructors.exit384 ], [ 641, %._crit_edge477 ]
+  %325 = call ptr @PMIx_Error_string(i32 noundef %.sink579) #16
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %325, ptr noundef nonnull @.str.1, i32 noundef %.sink578) #16
   br label %326
 
 326:                                              ; preds = %.sink.split, %._crit_edge477, %._crit_edge477, %pmix_obj_run_constructors.exit384
@@ -4209,7 +4209,7 @@ pmix_obj_run_destructors.exit233:                 ; preds = %.lr.ph.i230, %315
   br label %340
 
 340:                                              ; preds = %41, %338, %46
-  %.1242 = phi i1 [ false, %41 ], [ true, %338 ], [ false, %46 ]
+  %.1266 = phi i1 [ false, %41 ], [ true, %338 ], [ false, %46 ]
   %341 = load i8, ptr @prte_persistent, align 1, !tbaa !83, !range !87, !noundef !88
   %342 = trunc nuw i8 %341 to i1
   br i1 %342, label %343, label %362
@@ -4267,7 +4267,7 @@ pmix_obj_run_destructors.exit233:                 ; preds = %.lr.ph.i230, %315
   br label %362
 
 362:                                              ; preds = %355, %340
-  br i1 %.1242, label %363, label %388
+  br i1 %.1266, label %363, label %388
 
 363:                                              ; preds = %362
   %364 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 72), align 8, !tbaa !54

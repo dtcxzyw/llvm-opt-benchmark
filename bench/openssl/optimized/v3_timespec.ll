@@ -1100,7 +1100,7 @@ print_day_of_week.exit.i.i:                       ; preds = %195, %173, %223, %2
   %.not148.i.i = icmp eq i32 %307, 0
   br i1 %.not148.i.i, label %i2r_OSSL_PERIOD.exit.thread.i, label %.loopexit.i.i
 
-308:                                              ; preds = %switch.lookup51
+308:                                              ; preds = %switch.lookup62
   %309 = add nuw nsw i32 %.326.i.i, 1
   %310 = load ptr, ptr %294, align 8, !tbaa !42
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
@@ -1130,14 +1130,14 @@ print_day_of_week.exit.i.i:                       ; preds = %195, %173, %223, %2
 
 323:                                              ; preds = %321, %320
   %324 = load i64, ptr %5, align 8, !tbaa !11
-  %switch.tableidx52 = add i64 %324, -1
-  %325 = icmp ult i64 %switch.tableidx52, 12
-  br i1 %325, label %switch.lookup51, label %i2r_OSSL_PERIOD.exit.thread.i
+  %switch.tableidx63 = add i64 %324, -1
+  %325 = icmp ult i64 %switch.tableidx63, 12
+  br i1 %325, label %switch.lookup62, label %i2r_OSSL_PERIOD.exit.thread.i
 
-switch.lookup51:                                  ; preds = %323
-  %switch.gep53 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.i2r_OSSL_TIME_SPEC.6, i64 0, i64 %switch.tableidx52
-  %switch.load54 = load ptr, ptr %switch.gep53, align 8
-  %326 = call i32 @BIO_puts(ptr noundef %2, ptr noundef nonnull %switch.load54) #4
+switch.lookup62:                                  ; preds = %323
+  %switch.gep64 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.i2r_OSSL_TIME_SPEC.6, i64 0, i64 %switch.tableidx63
+  %switch.load65 = load ptr, ptr %switch.gep64, align 8
+  %326 = call i32 @BIO_puts(ptr noundef %2, ptr noundef nonnull %switch.load65) #4
   %.not147.i.i = icmp eq i32 %326, 0
   br i1 %.not147.i.i, label %i2r_OSSL_PERIOD.exit.thread.i, label %308
 
@@ -1200,7 +1200,7 @@ switch.lookup51:                                  ; preds = %323
   %355 = icmp slt i32 %354, 1
   br i1 %355, label %i2r_OSSL_PERIOD.exit.thread.i, label %341
 
-i2r_OSSL_PERIOD.exit.thread.i:                    ; preds = %335, %.loopexit.i.i, %327, %306, %299, %296, %.loopexit12.i.i, %256, %249, %246, %243, %237, %print_day_of_week.exit.i.i, %223, %220, %216, %210, %208, %206, %204, %202, %200, %196, %147, %144, %141, %135, %129, %90, %83, %i2r_OSSL_DAY_TIME_BAND.exit.i.i, %118, %116, %111, %109, %107, %.lr.ph.i.i, %190, %188, %170, %switch.lookup, %162, %155, %167, %286, %284, %273, %271, %.lr.ph25.i.i, %switch.lookup51, %321, %.lr.ph27.i.i, %323, %352, %350, %.lr.ph29.i.i
+i2r_OSSL_PERIOD.exit.thread.i:                    ; preds = %335, %.loopexit.i.i, %327, %306, %299, %296, %.loopexit12.i.i, %256, %249, %246, %243, %237, %print_day_of_week.exit.i.i, %223, %220, %216, %210, %208, %206, %204, %202, %200, %196, %147, %144, %141, %135, %129, %90, %83, %i2r_OSSL_DAY_TIME_BAND.exit.i.i, %118, %116, %111, %109, %107, %.lr.ph.i.i, %190, %188, %170, %switch.lookup, %162, %155, %167, %286, %284, %273, %271, %.lr.ph25.i.i, %switch.lookup62, %321, %.lr.ph27.i.i, %323, %352, %350, %.lr.ph29.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %i2r_OSSL_TIME_SPEC_TIME.exit
 

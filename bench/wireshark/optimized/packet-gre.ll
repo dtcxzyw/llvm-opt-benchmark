@@ -436,8 +436,8 @@ define internal i32 @dissect_gre(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.2 = phi i32 [ %97, %94 ], [ %.1, %91 ]
   %99 = and i16 %.pre187, 128
   %.not175 = icmp ne i16 %99, 0
-  %or.cond190.not = select i1 %.0165, i1 %.not175, i1 false
-  br i1 %or.cond190.not, label %100, label %104
+  %or.cond193.not = select i1 %.0165, i1 %.not175, i1 false
+  br i1 %or.cond193.not, label %100, label %104
 
 100:                                              ; preds = %98
   %101 = load i32, ptr @hf_gre_ack_number, align 4

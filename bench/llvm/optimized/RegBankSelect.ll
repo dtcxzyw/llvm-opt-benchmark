@@ -1941,7 +1941,7 @@ _ZN4llvm13RegBankSelect18RepairingPlacementD2Ev.exit109: ; preds = %_ZN4llvm23Sm
   %246 = load ptr, ptr %245, align 8
   %247 = call noundef i32 %246(ptr noundef nonnull align 8 dereferenceable(160) %239, ptr noundef nonnull align 8 dereferenceable(24) %spec.select24.i, ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i112, i64 %.fca.0.extract.i, i8 %.fca.1.extract.i) #23
   %.not18.i = icmp eq i32 %247, -1
-  br i1 %.not18.i, label %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread, label %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread174
+  br i1 %.not18.i, label %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread, label %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread201
 
 _ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit: ; preds = %223
   %248 = load ptr, ptr %88, align 8, !tbaa !213
@@ -1950,15 +1950,15 @@ _ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBan
   %251 = load ptr, ptr %250, align 8
   %252 = call noundef i32 %251(ptr noundef nonnull align 8 dereferenceable(160) %248, ptr noundef nonnull align 8 dereferenceable(12) %127, ptr noundef %229) #23
   %253 = icmp eq i32 %252, -1
-  br i1 %253, label %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread, label %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread174
+  br i1 %253, label %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread, label %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread201
 
 _ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread: ; preds = %233, %231, %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 -1, i64 24, i1 false), !alias.scope !324
   br label %.thread160
 
-_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread174: ; preds = %233, %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit
-  %.0.i111177.in = phi i32 [ %252, %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit ], [ %247, %233 ]
-  %.0.i111177 = zext i32 %.0.i111177.in to i64
+_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread201: ; preds = %233, %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit
+  %.0.i111204.in = phi i32 [ %252, %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit ], [ %247, %233 ]
+  %.0.i111204 = zext i32 %.0.i111204.in to i64
   %254 = getelementptr inbounds i8, ptr %210, i64 -40
   %255 = load ptr, ptr %254, align 8, !tbaa !25
   %256 = getelementptr inbounds i8, ptr %210, i64 -32
@@ -1969,11 +1969,11 @@ _ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBan
   %.not84165 = icmp eq i32 %257, 0
   br i1 %.not84165, label %.thread150, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread174
-  %260 = mul nuw nsw i64 %.0.i111177, 5
+.lr.ph:                                           ; preds = %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread201
+  %260 = mul nuw nsw i64 %.0.i111204, 5
   %261 = add nuw nsw i64 %260, 99
   %262 = udiv i64 %261, 100
-  %263 = add nuw nsw i64 %262, %.0.i111177
+  %263 = add nuw nsw i64 %262, %.0.i111204
   br label %264
 
 264:                                              ; preds = %_ZNK4llvm13RegBankSelect11MappingCostgtERKS1_.exit121.thread, %.lr.ph
@@ -1987,7 +1987,7 @@ _ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBan
 
 270:                                              ; preds = %264
   %271 = load i64, ptr %7, align 8, !tbaa !312
-  %272 = add i64 %271, %.0.i111177
+  %272 = add i64 %271, %.0.i111204
   %273 = icmp ult i64 %272, %271
   br i1 %273, label %274, label %275
 
@@ -2085,8 +2085,8 @@ _ZNK4llvm13RegBankSelect11MappingCostgtERKS1_.exit121.thread: ; preds = %_ZNK4ll
   %.9.le = zext i1 %.9.shrunk to i8
   br label %.thread150
 
-.thread150:                                       ; preds = %.thread150.loopexit, %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread174, %116, %221, %_ZNK4llvm13RegBankSelect15assignmentMatchENS_8RegisterERKNS_16RegisterBankInfo12ValueMappingERb.exit, %_ZN4llvm13RegBankSelect18RepairingPlacementD2Ev.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit, %112, %106
-  %.1153 = phi i8 [ %.0170, %221 ], [ %.0170, %_ZNK4llvm13RegBankSelect15assignmentMatchENS_8RegisterERKNS_16RegisterBankInfo12ValueMappingERb.exit ], [ %.0170, %_ZN4llvm13RegBankSelect18RepairingPlacementD2Ev.exit ], [ %.0170, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %.0170, %112 ], [ %.0170, %106 ], [ %.0170, %116 ], [ 0, %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread174 ], [ %.9.le, %.thread150.loopexit ]
+.thread150:                                       ; preds = %.thread150.loopexit, %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread201, %116, %221, %_ZNK4llvm13RegBankSelect15assignmentMatchENS_8RegisterERKNS_16RegisterBankInfo12ValueMappingERb.exit, %_ZN4llvm13RegBankSelect18RepairingPlacementD2Ev.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit, %112, %106
+  %.1153 = phi i8 [ %.0170, %221 ], [ %.0170, %_ZNK4llvm13RegBankSelect15assignmentMatchENS_8RegisterERKNS_16RegisterBankInfo12ValueMappingERb.exit ], [ %.0170, %_ZN4llvm13RegBankSelect18RepairingPlacementD2Ev.exit ], [ %.0170, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %.0170, %112 ], [ %.0170, %106 ], [ %.0170, %116 ], [ 0, %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread201 ], [ %.9.le, %.thread150.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not82 = icmp eq i64 %indvars.iv.next, %104
   br i1 %.not82, label %._crit_edge, label %106, !llvm.loop !327
@@ -2113,8 +2113,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13RegBankSelect11MappingCostltERKS
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %7, %9
-  %or.cond121 = select i1 %5, i1 %10, i1 false
-  br i1 %or.cond121, label %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit, label %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit.thread
+  %or.cond128 = select i1 %5, i1 %10, i1 false
+  br i1 %or.cond128, label %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit, label %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit.thread
 
 _ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit: ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2147,17 +2147,17 @@ _ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit70.thread: ; preds = %_ZNK4llv
   br i1 %or.cond99, label %.critedge, label %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit71.thread
 
 .critedge:                                        ; preds = %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit70.thread
-  br i1 %16, label %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit72.thread109, label %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit72.thread.thread
+  br i1 %16, label %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit72.thread116, label %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit72.thread.thread
 
-_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit72.thread109: ; preds = %.critedge
+_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit72.thread116: ; preds = %.critedge
   %28 = select i1 %17, i1 %20, i1 false
   br label %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit72.thread
 
 _ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit72: ; preds = %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit.thread
   br i1 %21, label %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit72.thread, label %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit73
 
-_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit72.thread: ; preds = %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit72, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit72.thread109
-  %29 = phi i1 [ %28, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit72.thread109 ], [ %20, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit72 ]
+_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit72.thread: ; preds = %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit72, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit72.thread116
+  %29 = phi i1 [ %28, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit72.thread116 ], [ %20, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit72 ]
   %.phi.trans.insert107 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre108 = load i64, ptr %.phi.trans.insert107, align 8, !tbaa !315
   %30 = icmp eq i64 %.pre108, -1
@@ -2214,12 +2214,12 @@ _ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit75.thread: ; preds = %_
   br i1 %48, label %89, label %50
 
 50:                                               ; preds = %47
-  br i1 %49, label %.thread110, label %52
+  br i1 %49, label %.thread117, label %52
 
-.thread110:                                       ; preds = %50
+.thread117:                                       ; preds = %50
   %51 = sub nuw i64 %4, %3
-  %.053113 = tail call i64 @llvm.usub.sat.i64(i64 %7, i64 %23)
-  %.0114 = tail call i64 @llvm.usub.sat.i64(i64 %23, i64 %7)
+  %.053120 = tail call i64 @llvm.usub.sat.i64(i64 %7, i64 %23)
+  %.0121 = tail call i64 @llvm.usub.sat.i64(i64 %23, i64 %7)
   br label %61
 
 52:                                               ; preds = %50
@@ -2244,18 +2244,18 @@ _ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit75.thread: ; preds = %_
   %60 = zext i1 %59 to i32
   br label %61
 
-61:                                               ; preds = %.thread110, %56, %58, %54
-  %62 = phi i64 [ 0, %54 ], [ %55, %56 ], [ %55, %58 ], [ 0, %.thread110 ]
-  %.0118 = phi i64 [ %.0, %54 ], [ %.0, %56 ], [ %.0, %58 ], [ %.0114, %.thread110 ]
-  %.053117 = phi i64 [ %.053, %54 ], [ %.053, %56 ], [ %.053, %58 ], [ %.053113, %.thread110 ]
-  %.054116 = phi i64 [ %.054, %54 ], [ %.054, %56 ], [ %.054, %58 ], [ %51, %.thread110 ]
-  %63 = phi i32 [ 0, %54 ], [ 1, %56 ], [ %60, %58 ], [ 0, %.thread110 ]
-  %64 = mul i64 %.054116, %26
-  %.not67 = icmp eq i64 %.054116, 0
+61:                                               ; preds = %.thread117, %56, %58, %54
+  %62 = phi i64 [ 0, %54 ], [ %55, %56 ], [ %55, %58 ], [ 0, %.thread117 ]
+  %.0125 = phi i64 [ %.0, %54 ], [ %.0, %56 ], [ %.0, %58 ], [ %.0121, %.thread117 ]
+  %.053124 = phi i64 [ %.053, %54 ], [ %.053, %56 ], [ %.053, %58 ], [ %.053120, %.thread117 ]
+  %.054123 = phi i64 [ %.054, %54 ], [ %.054, %56 ], [ %.054, %58 ], [ %51, %.thread117 ]
+  %63 = phi i32 [ 0, %54 ], [ 1, %56 ], [ %60, %58 ], [ 0, %.thread117 ]
+  %64 = mul i64 %.054123, %26
+  %.not67 = icmp eq i64 %.054123, 0
   br i1 %.not67, label %70, label %65
 
 65:                                               ; preds = %61
-  %66 = icmp ult i64 %64, %.054116
+  %66 = icmp ult i64 %64, %.054123
   br i1 %66, label %70, label %67
 
 67:                                               ; preds = %65
@@ -2266,21 +2266,21 @@ _ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit75.thread: ; preds = %_
 70:                                               ; preds = %65, %67, %61
   %71 = phi i32 [ 0, %61 ], [ 1, %65 ], [ %69, %67 ]
   %.not68.not = icmp ugt i64 %7, %23
-  %72 = xor i64 %.053117, -1
+  %72 = xor i64 %.053124, -1
   %73 = icmp ugt i64 %62, %72
   %narrow = select i1 %.not68.not, i1 %73, i1 false
   %74 = zext i1 %narrow to i32
   %75 = or i32 %63, %74
   %76 = icmp ne i32 %75, 0
-  %77 = add i64 %62, %.053117
+  %77 = add i64 %62, %.053124
   %.not69.not = icmp ugt i64 %23, %7
-  %78 = xor i64 %.0118, -1
+  %78 = xor i64 %.0125, -1
   %79 = icmp ugt i64 %64, %78
   %narrow106 = select i1 %.not69.not, i1 %79, i1 false
   %80 = zext i1 %narrow106 to i32
   %81 = or i32 %71, %80
   %82 = icmp ne i32 %81, 0
-  %83 = add i64 %64, %.0118
+  %83 = add i64 %64, %.0125
   %or.cond = select i1 %76, i1 %82, i1 false
   br i1 %or.cond, label %89, label %84
 
@@ -4283,8 +4283,8 @@ define dso_local void @_ZNK4llvm13RegBankSelect11MappingCost5printERNS_11raw_ost
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !314
   %11 = icmp eq i64 %10, -1
-  %or.cond18 = select i1 %8, i1 %11, i1 false
-  br i1 %or.cond18, label %12, label %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit.thread
+  %or.cond19 = select i1 %8, i1 %11, i1 false
+  br i1 %or.cond19, label %12, label %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit.thread
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24

@@ -305,26 +305,26 @@ define hidden void @lj_dispatch_update(ptr noundef captures(none) %0) local_unna
   store ptr @lj_vm_callhook, ptr %100, align 8, !tbaa !8
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 154
-  br i1 %exitcond125.not, label %.loopexit.thread131, label %.preheader114, !llvm.loop !53
+  br i1 %exitcond125.not, label %.loopexit.thread133, label %.preheader114, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.loopexit116
-  br i1 %93, label %.loopexit.thread, label %.loopexit.thread131
+  br i1 %93, label %.loopexit.thread, label %.loopexit.thread133
 
 .loopexit.thread:                                 ; preds = %.preheader, %.loopexit
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 4688
   store ptr %.090, ptr %101, align 8, !tbaa !8
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 4712
   store ptr %.089, ptr %102, align 8, !tbaa !8
-  br label %.loopexit.thread131
+  br label %.loopexit.thread133
 
-.loopexit.thread131:                              ; preds = %.preheader114, %.loopexit.thread, %.loopexit
+.loopexit.thread133:                              ; preds = %.preheader114, %.loopexit.thread, %.loopexit
   %.not112 = icmp ne i32 %7, 0
   %103 = and i32 %21, 16
   %.not113 = icmp eq i32 %103, 0
   %or.cond = and i1 %.not113, %.not112
   br i1 %or.cond, label %104, label %lj_dispatch_init_hotcount.exit
 
-104:                                              ; preds = %.loopexit.thread131
+104:                                              ; preds = %.loopexit.thread133
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 2396
   %106 = load i32, ptr %105, align 4, !tbaa !44
   %.tr.i = trunc i32 %106 to i16
@@ -341,7 +341,7 @@ define hidden void @lj_dispatch_update(ptr noundef captures(none) %0) local_unna
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
   br i1 %exitcond.not.i, label %lj_dispatch_init_hotcount.exit, label %110, !llvm.loop !46
 
-lj_dispatch_init_hotcount.exit:                   ; preds = %110, %.loopexit.thread131, %1
+lj_dispatch_init_hotcount.exit:                   ; preds = %110, %.loopexit.thread133, %1
   ret void
 }
 

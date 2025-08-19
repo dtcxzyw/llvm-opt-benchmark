@@ -221,7 +221,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %70, %_ZN17QArrayDat
           cleanup
   br label %156
 
-.loopexit.split-lp:                               ; preds = %.thread54
+.loopexit.split-lp:                               ; preds = %.thread64
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %156
@@ -370,7 +370,7 @@ _ZN7QStringD2Ev.exit22:                           ; preds = %108, %_ZN17QArrayDa
   %130 = load ptr, ptr %129, align 8
   %131 = icmp ne ptr %130, null
   %or.cond36 = select i1 %or.cond, i1 %131, i1 false
-  br i1 %or.cond36, label %.thread54, label %_ZNK11QModelIndex7isValidEv.exit.thread
+  br i1 %or.cond36, label %.thread64, label %_ZNK11QModelIndex7isValidEv.exit.thread
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %.loopexit47
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -394,7 +394,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %.loopexit47
   %137 = select i1 %135, i1 %136, i1 false
   %138 = icmp ne ptr %.pre49, null
   %139 = select i1 %137, i1 %138, i1 false
-  br i1 %139, label %.thread54, label %_ZNK11QModelIndex7isValidEv.exit23.thread
+  br i1 %139, label %.thread64, label %_ZNK11QModelIndex7isValidEv.exit23.thread
 
 _ZNK11QModelIndex7isValidEv.exit23.thread:        ; preds = %134
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -418,7 +418,7 @@ _ZNK11QModelIndex7isValidEv.exit23.thread:        ; preds = %134
   %145 = select i1 %143, i1 %144, i1 false
   %146 = icmp ne ptr %.pre52, null
   %147 = select i1 %145, i1 %146, i1 false
-  br i1 %147, label %.thread54, label %_ZNK11QModelIndex7isValidEv.exit24.thread
+  br i1 %147, label %.thread64, label %_ZNK11QModelIndex7isValidEv.exit24.thread
 
 _ZNK11QModelIndex7isValidEv.exit24.thread:        ; preds = %142
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -428,7 +428,7 @@ _ZNK11QModelIndex7isValidEv.exit24.thread:        ; preds = %142
 148:                                              ; preds = %_ZNK11QModelIndex7isValidEv.exit24.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %.thread54
+  br label %.thread64
 
 149:                                              ; preds = %_ZNK11QModelIndex7isValidEv.exit24.thread
   %150 = landingpad { ptr, i32 }
@@ -436,11 +436,11 @@ _ZNK11QModelIndex7isValidEv.exit24.thread:        ; preds = %142
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %156
 
-.thread54:                                        ; preds = %.loopexit47, %134, %142, %148
+.thread64:                                        ; preds = %.loopexit47, %134, %142, %148
   invoke void @_ZN17QAbstractItemView15setCurrentIndexERK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(40) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %151 unwind label %.loopexit.split-lp
 
-151:                                              ; preds = %.thread54
+151:                                              ; preds = %.thread64
   %152 = load ptr, ptr %10, align 8
   %.not.i.i.i25 = icmp eq ptr %152, null
   br i1 %.not.i.i.i25, label %_ZN7QStringD2Ev.exit28, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i26

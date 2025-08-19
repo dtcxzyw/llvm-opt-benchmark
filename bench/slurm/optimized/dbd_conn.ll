@@ -46,8 +46,8 @@ define dso_local ptr @dbd_conn_open(ptr noundef captures(address_is_null) %0, pt
   store i32 1, ptr %9, align 4
   %.not31 = icmp eq ptr %1, null
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 248), align 8
-  %.sink36 = select i1 %.not31, ptr %10, ptr %1
-  %11 = tail call ptr @slurm_xstrdup(ptr noundef %.sink36) #7
+  %.sink39 = select i1 %.not31, ptr %10, ptr %1
+  %11 = tail call ptr @slurm_xstrdup(ptr noundef %.sink39) #7
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %11, ptr %12, align 8
   %13 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 744), align 8
@@ -610,8 +610,8 @@ dbd_conn_send_recv.exit:                          ; preds = %11, %13
   %30 = load i16, ptr %29, align 8
   %31 = icmp ne i16 %30, 1434
   %.not43 = icmp sgt i32 %28, -1
-  %or.cond52 = select i1 %31, i1 true, i1 %.not43
-  br i1 %or.cond52, label %thread-pre-split, label %.thread
+  %or.cond55 = select i1 %31, i1 true, i1 %.not43
+  br i1 %or.cond55, label %thread-pre-split, label %.thread
 
 .thread:                                          ; preds = %24
   store i32 0, ptr %27, align 4

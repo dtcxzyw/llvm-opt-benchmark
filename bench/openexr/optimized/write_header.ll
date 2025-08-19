@@ -70,7 +70,7 @@ define hidden noundef i32 @internal_exr_calc_header_version_flags(ptr noundef re
   br label %.outer
 
 .outer:                                           ; preds = %.loopexit.thread, %.lr.ph61
-  %indvars.iv67.ph = phi i64 [ %indvars.iv.next6879, %.loopexit.thread ], [ 0, %.lr.ph61 ]
+  %indvars.iv67.ph = phi i64 [ %indvars.iv.next6881, %.loopexit.thread ], [ 0, %.lr.ph61 ]
   %20 = phi i1 [ false, %.loopexit.thread ], [ true, %.lr.ph61 ]
   br label %21
 
@@ -126,9 +126,9 @@ define hidden noundef i32 @internal_exr_calc_header_version_flags(ptr noundef re
   br i1 %exitcond71.not, label %._crit_edge, label %21, !llvm.loop !42
 
 .loopexit.thread:                                 ; preds = %43
-  %indvars.iv.next6879 = add nuw nsw i64 %indvars.iv67, 1
-  %exitcond71.not80 = icmp eq i64 %indvars.iv.next6879, %wide.trip.count70
-  br i1 %exitcond71.not80, label %.thread51, label %.outer, !llvm.loop !42
+  %indvars.iv.next6881 = add nuw nsw i64 %indvars.iv67, 1
+  %exitcond71.not82 = icmp eq i64 %indvars.iv.next6881, %wide.trip.count70
+  br i1 %exitcond71.not82, label %.thread51, label %.outer, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.loopexit
   br i1 %20, label %._crit_edge.thread, label %.thread51
@@ -214,7 +214,7 @@ define hidden i32 @internal_exr_write_header(ptr noundef %0) local_unnamed_addr 
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.loopexit.thread.i, %.lr.ph61.i
-  %indvars.iv67.ph.i = phi i64 [ %indvars.iv.next6879.i, %.loopexit.thread.i ], [ 0, %.lr.ph61.i ]
+  %indvars.iv67.ph.i = phi i64 [ %indvars.iv.next6881.i, %.loopexit.thread.i ], [ 0, %.lr.ph61.i ]
   %21 = phi i1 [ false, %.loopexit.thread.i ], [ true, %.lr.ph61.i ]
   br label %22
 
@@ -270,9 +270,9 @@ define hidden i32 @internal_exr_write_header(ptr noundef %0) local_unnamed_addr 
   br i1 %exitcond71.not.i, label %._crit_edge.i, label %22, !llvm.loop !42
 
 .loopexit.thread.i:                               ; preds = %44
-  %indvars.iv.next6879.i = add nuw nsw i64 %indvars.iv67.i, 1
-  %exitcond71.not80.i = icmp eq i64 %indvars.iv.next6879.i, %wide.trip.count70.i
-  br i1 %exitcond71.not80.i, label %.thread51.i, label %.outer.i, !llvm.loop !42
+  %indvars.iv.next6881.i = add nuw nsw i64 %indvars.iv67.i, 1
+  %exitcond71.not82.i = icmp eq i64 %indvars.iv.next6881.i, %wide.trip.count70.i
+  br i1 %exitcond71.not82.i, label %.thread51.i, label %.outer.i, !llvm.loop !42
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i
   br i1 %21, label %._crit_edge.thread.i, label %.thread51.i
@@ -862,8 +862,8 @@ define internal fastcc i32 @save_chlist(ptr noundef %0, ptr noundef readonly cap
   br label %save_attr_sz.exit
 
 20:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.045.lcssa71 = phi i64 [ 1, %._crit_edge.thread ], [ %14, %._crit_edge ]
-  %21 = trunc nuw nsw i64 %.045.lcssa71 to i32
+  %.045.lcssa76 = phi i64 [ 1, %._crit_edge.thread ], [ %14, %._crit_edge ]
+  %21 = trunc nuw nsw i64 %.045.lcssa76 to i32
   store i32 %21, ptr %3, align 4, !tbaa !43
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load ptr, ptr %22, align 8, !tbaa !46
@@ -1476,8 +1476,8 @@ define internal fastcc i32 @save_string_vector(ptr noundef %0, ptr noundef reado
   br label %save_attr_sz.exit
 
 16:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.025.lcssa42 = phi i64 [ 0, %._crit_edge.thread ], [ %31, %._crit_edge ]
-  %17 = trunc nuw nsw i64 %.025.lcssa42 to i32
+  %.025.lcssa43 = phi i64 [ 0, %._crit_edge.thread ], [ %31, %._crit_edge ]
+  %17 = trunc nuw nsw i64 %.025.lcssa43 to i32
   store i32 %17, ptr %4, align 4, !tbaa !43
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !46

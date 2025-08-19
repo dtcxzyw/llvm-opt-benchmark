@@ -735,11 +735,11 @@ dfwork_build.exit.i:                              ; preds = %97, %94
   br label %compile_filter.exit
 
 108:                                              ; preds = %dfwork_build.exit.i, %dfwork_build.exit.thread.i, %28
-  %.sink38.i = phi ptr [ %29, %28 ], [ %41, %dfwork_build.exit.thread.i ], [ %41, %dfwork_build.exit.i ]
+  %.sink40.i = phi ptr [ %29, %28 ], [ %41, %dfwork_build.exit.thread.i ], [ %41, %dfwork_build.exit.i ]
   %.034.i = phi ptr [ %29, %28 ], [ null, %dfwork_build.exit.thread.i ], [ null, %dfwork_build.exit.i ]
   %.033.i = phi ptr [ null, %28 ], [ %41, %dfwork_build.exit.thread.i ], [ %41, %dfwork_build.exit.i ]
-  %109 = load ptr, ptr %.sink38.i, align 8
-  store ptr null, ptr %.sink38.i, align 8
+  %109 = load ptr, ptr %.sink40.i, align 8
+  store ptr null, ptr %.sink40.i, align 8
   %110 = icmp eq ptr %109, null
   br i1 %110, label %115, label %111
 

@@ -897,7 +897,7 @@ define dso_local void @_Z18writeDeepTiledFilePKcN9Imath_3_23BoxINS1_4Vec2IiEEEES
   %49 = shl nuw i64 %47, 3
   %50 = select i1 %48, i64 -1, i64 %49
   %51 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %50) #15
-          to label %52 unwind label %.thread114
+          to label %52 unwind label %.thread121
 
 52:                                               ; preds = %44
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -907,7 +907,7 @@ define dso_local void @_Z18writeDeepTiledFilePKcN9Imath_3_23BoxINS1_4Vec2IiEEEES
   store ptr %51, ptr %53, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %55 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %50) #15
-          to label %56 unwind label %.thread117
+          to label %56 unwind label %.thread124
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -919,7 +919,7 @@ define dso_local void @_Z18writeDeepTiledFilePKcN9Imath_3_23BoxINS1_4Vec2IiEEEES
   %60 = shl nuw i64 %47, 2
   %61 = select i1 %59, i64 -1, i64 %60
   %62 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %61) #15
-          to label %_ZN7Imf_3_47Array2DIjE11resizeEraseEll.exit unwind label %_ZN7Imf_3_47Array2DIjED2Ev.exit65.thread111
+          to label %_ZN7Imf_3_47Array2DIjE11resizeEraseEll.exit unwind label %_ZN7Imf_3_47Array2DIjED2Ev.exit65.thread118
 
 _ZN7Imf_3_47Array2DIjE11resizeEraseEll.exit:      ; preds = %56
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -1156,8 +1156,8 @@ _Z20getSampleDataForTileiiiiRN7Imf_3_47Array2DIjEERNS0_IPfEERNS0_IPN9Imath_3_24h
 .preheader79:                                     ; preds = %153, %114
   %.not90 = icmp slt i32 %23, 0
   %.not5088 = icmp slt i32 %27, 0
-  %or.cond123 = select i1 %.not90, i1 true, i1 %.not5088
-  br i1 %or.cond123, label %._crit_edge92, label %.preheader.preheader
+  %or.cond130 = select i1 %.not90, i1 true, i1 %.not5088
+  br i1 %or.cond130, label %._crit_edge92, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader79
   %wide.trip.count105 = zext i32 %24 to i64
@@ -1187,18 +1187,18 @@ _Z20getSampleDataForTileiiiiRN7Imf_3_47Array2DIjEERNS0_IPfEERNS0_IPN9Imath_3_24h
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %218
 
-.thread114:                                       ; preds = %44
+.thread121:                                       ; preds = %44
   %163 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7Imf_3_47Array2DIPfED2Ev.exit67
 
-.thread117:                                       ; preds = %52
+.thread124:                                       ; preds = %52
   %164 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %217
 
-_ZN7Imf_3_47Array2DIjED2Ev.exit65.thread111:      ; preds = %56
+_ZN7Imf_3_47Array2DIjED2Ev.exit65.thread118:      ; preds = %56
   %165 = landingpad { ptr, i32 }
           cleanup
   br label %213
@@ -1365,32 +1365,32 @@ _ZN7Imf_3_47Array2DIjED2Ev.exit65:                ; preds = %166, %.body
   %212 = icmp eq ptr %.pre, null
   br i1 %212, label %215, label %213
 
-213:                                              ; preds = %_ZN7Imf_3_47Array2DIjED2Ev.exit65.thread111, %_ZN7Imf_3_47Array2DIjED2Ev.exit65
-  %.pn.pn.pn.pn.pn.pn113 = phi { ptr, i32 } [ %165, %_ZN7Imf_3_47Array2DIjED2Ev.exit65.thread111 ], [ %.pn.pn.pn.pn, %_ZN7Imf_3_47Array2DIjED2Ev.exit65 ]
-  %214 = phi ptr [ %55, %_ZN7Imf_3_47Array2DIjED2Ev.exit65.thread111 ], [ %.pre, %_ZN7Imf_3_47Array2DIjED2Ev.exit65 ]
+213:                                              ; preds = %_ZN7Imf_3_47Array2DIjED2Ev.exit65.thread118, %_ZN7Imf_3_47Array2DIjED2Ev.exit65
+  %.pn.pn.pn.pn.pn.pn120 = phi { ptr, i32 } [ %165, %_ZN7Imf_3_47Array2DIjED2Ev.exit65.thread118 ], [ %.pn.pn.pn.pn, %_ZN7Imf_3_47Array2DIjED2Ev.exit65 ]
+  %214 = phi ptr [ %55, %_ZN7Imf_3_47Array2DIjED2Ev.exit65.thread118 ], [ %.pre, %_ZN7Imf_3_47Array2DIjED2Ev.exit65 ]
   call void @_ZdaPv(ptr noundef nonnull %214) #16
   br label %215
 
 215:                                              ; preds = %213, %_ZN7Imf_3_47Array2DIjED2Ev.exit65
-  %.pn.pn.pn.pn.pn.pn110.ph = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn113, %213 ], [ %.pn.pn.pn.pn, %_ZN7Imf_3_47Array2DIjED2Ev.exit65 ]
+  %.pn.pn.pn.pn.pn.pn117.ph = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn120, %213 ], [ %.pn.pn.pn.pn, %_ZN7Imf_3_47Array2DIjED2Ev.exit65 ]
   %.pre108.pr = load ptr, ptr %53, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %216 = icmp eq ptr %.pre108.pr, null
   br i1 %216, label %_ZN7Imf_3_47Array2DIPfED2Ev.exit67, label %217
 
-217:                                              ; preds = %.thread117, %215
-  %.pn.pn.pn.pn.pn.pn110121 = phi { ptr, i32 } [ %164, %.thread117 ], [ %.pn.pn.pn.pn.pn.pn110.ph, %215 ]
-  %.pre108120 = phi ptr [ %51, %.thread117 ], [ %.pre108.pr, %215 ]
-  call void @_ZdaPv(ptr noundef nonnull %.pre108120) #16
+217:                                              ; preds = %.thread124, %215
+  %.pn.pn.pn.pn.pn.pn117128 = phi { ptr, i32 } [ %164, %.thread124 ], [ %.pn.pn.pn.pn.pn.pn117.ph, %215 ]
+  %.pre108127 = phi ptr [ %51, %.thread124 ], [ %.pre108.pr, %215 ]
+  call void @_ZdaPv(ptr noundef nonnull %.pre108127) #16
   br label %_ZN7Imf_3_47Array2DIPfED2Ev.exit67
 
-_ZN7Imf_3_47Array2DIPfED2Ev.exit67:               ; preds = %.thread114, %215, %217
-  %.pn.pn.pn.pn.pn.pn.pn116 = phi { ptr, i32 } [ %163, %.thread114 ], [ %.pn.pn.pn.pn.pn.pn110.ph, %215 ], [ %.pn.pn.pn.pn.pn.pn110121, %217 ]
+_ZN7Imf_3_47Array2DIPfED2Ev.exit67:               ; preds = %.thread121, %215, %217
+  %.pn.pn.pn.pn.pn.pn.pn123 = phi { ptr, i32 } [ %163, %.thread121 ], [ %.pn.pn.pn.pn.pn.pn117.ph, %215 ], [ %.pn.pn.pn.pn.pn.pn117128, %217 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %218
 
 218:                                              ; preds = %_ZN7Imf_3_47Array2DIPfED2Ev.exit67, %161, %159, %157, %155
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn116, %_ZN7Imf_3_47Array2DIPfED2Ev.exit67 ], [ %162, %161 ], [ %156, %155 ], [ %160, %159 ], [ %158, %157 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn123, %_ZN7Imf_3_47Array2DIPfED2Ev.exit67 ], [ %162, %161 ], [ %156, %155 ], [ %160, %159 ], [ %158, %157 ]
   call void @_ZN7Imf_3_46HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %6) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn
@@ -1451,7 +1451,7 @@ define dso_local void @_Z17deepTiledExamplesv() local_unnamed_addr #4 personalit
   store ptr %10, ptr %11, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = invoke noalias noundef nonnull dereferenceable(3840000) ptr @_Znam(i64 noundef 3840000) #15
-          to label %14 unwind label %.thread35
+          to label %14 unwind label %.thread42
 
 14:                                               ; preds = %0
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1561,7 +1561,7 @@ _ZN7Imf_3_47Array2DIPfED2Ev.exit:                 ; preds = %_ZN7Imf_3_47Array2D
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 
-.thread35:                                        ; preds = %0
+.thread42:                                        ; preds = %0
   %49 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1595,17 +1595,17 @@ _ZN7Imf_3_47Array2DIPfED2Ev.exit:                 ; preds = %_ZN7Imf_3_47Array2D
   %60 = icmp eq ptr %.pre29.pr, null
   br i1 %60, label %_ZN7Imf_3_47Array2DIPfED2Ev.exit27, label %61
 
-61:                                               ; preds = %.thread35, %59
-  %.pn3139 = phi { ptr, i32 } [ %49, %.thread35 ], [ %51, %59 ]
-  %.pre2938 = phi ptr [ %10, %.thread35 ], [ %.pre29.pr, %59 ]
-  call void @_ZdaPv(ptr noundef nonnull %.pre2938) #16
+61:                                               ; preds = %.thread42, %59
+  %.pn3846 = phi { ptr, i32 } [ %49, %.thread42 ], [ %51, %59 ]
+  %.pre2945 = phi ptr [ %10, %.thread42 ], [ %.pre29.pr, %59 ]
+  call void @_ZdaPv(ptr noundef nonnull %.pre2945) #16
   br label %_ZN7Imf_3_47Array2DIPfED2Ev.exit27
 
 _ZN7Imf_3_47Array2DIPfED2Ev.exit27:               ; preds = %59, %61
-  %.pn.pn34 = phi { ptr, i32 } [ %51, %59 ], [ %.pn3139, %61 ]
+  %.pn.pn41 = phi { ptr, i32 } [ %51, %59 ], [ %.pn3846, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  resume { ptr, i32 } %.pn.pn34
+  resume { ptr, i32 } %.pn.pn41
 }
 
 declare void @_Z10drawImage2RN7Imf_3_47Array2DIN9Imath_3_24halfEEERNS0_IfEEii(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i32 noundef) local_unnamed_addr #0

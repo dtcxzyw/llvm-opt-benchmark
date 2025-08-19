@@ -411,9 +411,9 @@ define dso_local i32 @qemuio_command(ptr noundef %0, ptr noundef %1) local_unnam
 .lr.ph.i.preheader:                               ; preds = %2
   %9 = call ptr @qemu_strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.4) #26
   %.not43.i22 = icmp eq ptr %9, null
-  br i1 %.not43.i22, label %breakline.exit.thread27, label %.lr.ph
+  br i1 %.not43.i22, label %breakline.exit.thread37, label %.lr.ph
 
-breakline.exit.thread27:                          ; preds = %.lr.ph.i.preheader
+breakline.exit.thread37:                          ; preds = %.lr.ph.i.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %command.exit
 
@@ -518,27 +518,27 @@ init_check_command.exit.i:                        ; preds = %42
   %.not46.i = icmp ne i32 %.pre57.i, -1
   %54 = icmp sgt i32 %49, %.pre57.i
   %or.cond.i13 = and i1 %.not46.i, %54
-  br i1 %or.cond.i13, label %.thread58.i, label %66
+  br i1 %or.cond.i13, label %.thread63.i, label %66
 
 55:                                               ; preds = %48
   %56 = icmp eq i32 %.pre57.i, -1
-  br i1 %56, label %57, label %.thread58.i
+  br i1 %56, label %57, label %.thread63.i
 
 57:                                               ; preds = %55
   %58 = load ptr, ptr @stderr, align 8
   %59 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %58, i32 noundef 1, ptr noundef nonnull @.str.5, i32 noundef %49, ptr noundef nonnull %23, i32 noundef %51) #26
   br label %command.exit
 
-.thread58.i:                                      ; preds = %55, %53
+.thread63.i:                                      ; preds = %55, %53
   %60 = icmp eq i32 %51, %.pre57.i
   %61 = load ptr, ptr @stderr, align 8
   br i1 %60, label %62, label %64
 
-62:                                               ; preds = %.thread58.i
+62:                                               ; preds = %.thread63.i
   %63 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %61, i32 noundef 1, ptr noundef nonnull @.str.6, i32 noundef %49, ptr noundef nonnull %23, i32 noundef %51) #26
   br label %command.exit
 
-64:                                               ; preds = %.thread58.i
+64:                                               ; preds = %.thread63.i
   %65 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %61, i32 noundef 1, ptr noundef nonnull @.str.7, i32 noundef %49, ptr noundef nonnull %23, i32 noundef %51, i32 noundef %.pre57.i) #26
   br label %command.exit
 
@@ -550,18 +550,18 @@ init_check_command.exit.i:                        ; preds = %42
   br i1 %.not47.i, label %69, label %71
 
 69:                                               ; preds = %66
-  br i1 %.not48.i, label %.thread59.i, label %70
+  br i1 %.not48.i, label %.thread64.i, label %70
 
 70:                                               ; preds = %69
   call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 108, ptr noundef nonnull @__PRETTY_FUNCTION__.command) #25
   unreachable
 
 71:                                               ; preds = %66
-  br i1 %.not48.i, label %.thread59.i, label %72
+  br i1 %.not48.i, label %.thread64.i, label %72
 
 72:                                               ; preds = %71
   %73 = call zeroext i1 @blk_is_available(ptr noundef nonnull %0) #26
-  br i1 %73, label %74, label %.thread59.i
+  br i1 %73, label %74, label %.thread64.i
 
 74:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -592,7 +592,7 @@ init_check_command.exit.i:                        ; preds = %42
 .thread.i:                                        ; preds = %.critedge.i, %74
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread59.i
+  br label %.thread64.i
 
 84:                                               ; preds = %79
   %85 = load ptr, ptr %5, align 8
@@ -602,7 +602,7 @@ init_check_command.exit.i:                        ; preds = %42
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %command.exit
 
-.thread59.i:                                      ; preds = %.thread.i, %72, %71, %69
+.thread64.i:                                      ; preds = %.thread.i, %72, %71, %69
   store i32 0, ptr @optind, align 4
   %86 = getelementptr inbounds nuw i8, ptr %.011.i, i64 16
   %87 = load ptr, ptr %86, align 8
@@ -614,9 +614,9 @@ init_check_command.exit.i:                        ; preds = %42
   %90 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %89, i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %23) #26
   br label %command.exit
 
-command.exit:                                     ; preds = %breakline.exit.thread27, %.thread59.i, %84, %64, %62, %57, %init_check_command.exit.i, %breakline.exit.thread, %.loopexit, %breakline.exit
-  %.040.lcssa.i18 = phi ptr [ %.040.be.i, %.loopexit ], [ %.040.be.i, %breakline.exit ], [ null, %breakline.exit.thread ], [ %.040.be.i, %init_check_command.exit.i ], [ %.040.be.i, %57 ], [ %.040.be.i, %62 ], [ %.040.be.i, %64 ], [ %.040.be.i, %84 ], [ %.040.be.i, %.thread59.i ], [ %8, %breakline.exit.thread27 ]
-  %.0 = phi i32 [ -22, %.loopexit ], [ 0, %breakline.exit ], [ 0, %breakline.exit.thread ], [ -22, %init_check_command.exit.i ], [ -22, %57 ], [ -22, %62 ], [ -22, %64 ], [ %82, %84 ], [ %88, %.thread59.i ], [ 0, %breakline.exit.thread27 ]
+command.exit:                                     ; preds = %breakline.exit.thread37, %.thread64.i, %84, %64, %62, %57, %init_check_command.exit.i, %breakline.exit.thread, %.loopexit, %breakline.exit
+  %.040.lcssa.i18 = phi ptr [ %.040.be.i, %.loopexit ], [ %.040.be.i, %breakline.exit ], [ null, %breakline.exit.thread ], [ %.040.be.i, %init_check_command.exit.i ], [ %.040.be.i, %57 ], [ %.040.be.i, %62 ], [ %.040.be.i, %64 ], [ %.040.be.i, %84 ], [ %.040.be.i, %.thread64.i ], [ %8, %breakline.exit.thread37 ]
+  %.0 = phi i32 [ -22, %.loopexit ], [ 0, %breakline.exit ], [ 0, %breakline.exit.thread ], [ -22, %init_check_command.exit.i ], [ -22, %57 ], [ -22, %62 ], [ -22, %64 ], [ %82, %84 ], [ %88, %.thread64.i ], [ 0, %breakline.exit.thread37 ]
   call void @g_free(ptr noundef %7) #26
   call void @g_free(ptr noundef %.040.lcssa.i18) #26
   ret i32 %.0
@@ -1910,35 +1910,35 @@ define internal range(i32 -2147483648, 1) i32 @readv_f(ptr noundef %0, i32 nound
 
 .outer:                                           ; preds = %23, %3
   %.052.ph = phi i1 [ true, %23 ], [ false, %3 ]
-  %.048.ph = phi i32 [ %.048.ph119, %23 ], [ 0, %3 ]
-  %.046.ph = phi i1 [ %.046.ph120, %23 ], [ false, %3 ]
-  %.044.ph = phi i32 [ %.044.ph125, %23 ], [ 0, %3 ]
-  %.042.ph = phi i1 [ %.042.ph129, %23 ], [ false, %3 ]
+  %.048.ph = phi i32 [ %.048.ph124, %23 ], [ 0, %3 ]
+  %.046.ph = phi i1 [ %.046.ph125, %23 ], [ false, %3 ]
+  %.044.ph = phi i32 [ %.044.ph130, %23 ], [ 0, %3 ]
+  %.042.ph = phi i1 [ %.042.ph134, %23 ], [ false, %3 ]
   %.041.ph = phi i1 [ %.041, %23 ], [ false, %3 ]
-  br label %.outer118
+  br label %.outer123
 
-.outer118:                                        ; preds = %.outer, %parse_pattern.exit
-  %.048.ph119 = phi i32 [ %.048.ph, %.outer ], [ %20, %parse_pattern.exit ]
-  %.046.ph120 = phi i1 [ %.046.ph, %.outer ], [ true, %parse_pattern.exit ]
-  %.044.ph121 = phi i32 [ %.044.ph, %.outer ], [ %.044.ph125, %parse_pattern.exit ]
-  %.042.ph122 = phi i1 [ %.042.ph, %.outer ], [ %.042.ph129, %parse_pattern.exit ]
-  %.041.ph123 = phi i1 [ %.041.ph, %.outer ], [ %.041, %parse_pattern.exit ]
-  %10 = or i32 %.044.ph121, 8
-  br label %.outer124
+.outer123:                                        ; preds = %.outer, %parse_pattern.exit
+  %.048.ph124 = phi i32 [ %.048.ph, %.outer ], [ %20, %parse_pattern.exit ]
+  %.046.ph125 = phi i1 [ %.046.ph, %.outer ], [ true, %parse_pattern.exit ]
+  %.044.ph126 = phi i32 [ %.044.ph, %.outer ], [ %.044.ph130, %parse_pattern.exit ]
+  %.042.ph127 = phi i1 [ %.042.ph, %.outer ], [ %.042.ph134, %parse_pattern.exit ]
+  %.041.ph128 = phi i1 [ %.041.ph, %.outer ], [ %.041, %parse_pattern.exit ]
+  %10 = or i32 %.044.ph126, 8
+  br label %.outer129
 
-.outer124:                                        ; preds = %.outer118, %22
-  %.044.ph125 = phi i32 [ %.044.ph121, %.outer118 ], [ %10, %22 ]
-  %.042.ph126 = phi i1 [ %.042.ph122, %.outer118 ], [ %.042.ph129, %22 ]
-  %.041.ph127 = phi i1 [ %.041.ph123, %.outer118 ], [ %.041, %22 ]
-  br label %.outer128
+.outer129:                                        ; preds = %.outer123, %22
+  %.044.ph130 = phi i32 [ %.044.ph126, %.outer123 ], [ %10, %22 ]
+  %.042.ph131 = phi i1 [ %.042.ph127, %.outer123 ], [ %.042.ph134, %22 ]
+  %.041.ph132 = phi i1 [ %.041.ph128, %.outer123 ], [ %.041, %22 ]
+  br label %.outer133
 
-.outer128:                                        ; preds = %.outer124, %21
-  %.042.ph129 = phi i1 [ %.042.ph126, %.outer124 ], [ true, %21 ]
-  %.041.ph130 = phi i1 [ %.041.ph127, %.outer124 ], [ %.041, %21 ]
+.outer133:                                        ; preds = %.outer129, %21
+  %.042.ph134 = phi i1 [ %.042.ph131, %.outer129 ], [ true, %21 ]
+  %.041.ph135 = phi i1 [ %.041.ph132, %.outer129 ], [ %.041, %21 ]
   br label %11
 
-11:                                               ; preds = %.outer128, %11
-  %.041 = phi i1 [ true, %11 ], [ %.041.ph130, %.outer128 ]
+11:                                               ; preds = %.outer133, %11
+  %.041 = phi i1 [ true, %11 ], [ %.041.ph135, %.outer133 ]
   %12 = tail call i32 @getopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.58) #26
   switch i32 %12, label %24 [
     i32 -1, label %26
@@ -1971,13 +1971,13 @@ parse_pattern.exit.thread:                        ; preds = %13, %16
 parse_pattern.exit:                               ; preds = %16
   %20 = trunc nuw nsw i64 %15 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.outer118, !llvm.loop !16
+  br label %.outer123, !llvm.loop !16
 
 21:                                               ; preds = %11
-  br label %.outer128, !llvm.loop !16
+  br label %.outer133, !llvm.loop !16
 
 22:                                               ; preds = %11
-  br label %.outer124, !llvm.loop !16
+  br label %.outer129, !llvm.loop !16
 
 23:                                               ; preds = %11
   br label %.outer, !llvm.loop !16
@@ -2032,7 +2032,7 @@ parse_pattern.exit:                               ; preds = %16
   %51 = sub i32 %1, %50
   %52 = sext i32 %50 to i64
   %53 = getelementptr inbounds ptr, ptr %2, i64 %52
-  %54 = and i32 %.044.ph125, 8
+  %54 = and i32 %.044.ph130, 8
   %55 = icmp ne i32 %54, 0
   %56 = call fastcc ptr @create_iovec(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %53, i32 noundef %51, i32 noundef 171, i1 noundef zeroext %55)
   %57 = icmp eq ptr %56, null
@@ -2042,7 +2042,7 @@ parse_pattern.exit:                               ; preds = %16
   %59 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #26
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 2147483647, ptr %4, align 4
-  %60 = call ptr @blk_aio_preadv(ptr noundef %0, i64 noundef range(i64 0, -9223372036854775808) %.0.i63, ptr noundef nonnull %9, i32 noundef range(i32 0, 16) %.044.ph125, ptr noundef nonnull @aio_rw_done, ptr noundef nonnull %4) #26
+  %60 = call ptr @blk_aio_preadv(ptr noundef %0, i64 noundef range(i64 0, -9223372036854775808) %.0.i63, ptr noundef nonnull %9, i32 noundef range(i32 0, 16) %.044.ph130, ptr noundef nonnull @aio_rw_done, ptr noundef nonnull %4) #26
   %61 = load i32, ptr %4, align 4
   %62 = icmp eq i32 %61, 2147483647
   br i1 %62, label %.lr.ph.i, label %do_aio_readv.exit
@@ -2069,13 +2069,13 @@ do_aio_readv.exit:                                ; preds = %.lr.ph.i, %58
   br label %99
 
 73:                                               ; preds = %do_aio_readv.exit
-  br i1 %.046.ph120, label %74, label %82
+  br i1 %.046.ph125, label %74, label %82
 
 74:                                               ; preds = %73
   %75 = load i64, ptr %65, align 8
   %76 = call noalias ptr @g_malloc(i64 noundef %75) #28
   %77 = load i64, ptr %65, align 8
-  %78 = trunc i32 %.048.ph119 to i8
+  %78 = trunc i32 %.048.ph124 to i8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %76, i8 noundef %78, i64 noundef %77, i1 noundef false) #26
   %bcmp = call i32 @bcmp(ptr nonnull %56, ptr nonnull %76, i64 %77)
   %.not62 = icmp eq i32 %bcmp, 0
@@ -2092,7 +2092,7 @@ do_aio_readv.exit:                                ; preds = %.lr.ph.i, %58
 
 82:                                               ; preds = %81, %73
   %.151 = phi i32 [ %.2, %81 ], [ 0, %73 ]
-  br i1 %.042.ph129, label %99, label %83
+  br i1 %.042.ph134, label %99, label %83
 
 83:                                               ; preds = %82
   br i1 %.052.ph, label %84, label %86
@@ -2790,24 +2790,24 @@ define internal range(i32 -2147483648, 1) i32 @writev_f(ptr noundef %0, i32 noun
 
 .outer:                                           ; preds = %14, %3
   %.039.ph = phi i1 [ true, %14 ], [ false, %3 ]
-  %.037.ph = phi i32 [ %.037.ph89, %14 ], [ 0, %3 ]
-  %.034.ph = phi i32 [ %.034.ph93, %14 ], [ 205, %3 ]
+  %.037.ph = phi i32 [ %.037.ph94, %14 ], [ 0, %3 ]
+  %.034.ph = phi i32 [ %.034.ph98, %14 ], [ 205, %3 ]
   %.033.ph = phi i1 [ %.033, %14 ], [ false, %3 ]
-  br label %.outer88
+  br label %.outer93
 
-.outer88:                                         ; preds = %.outer88.backedge, %.outer
-  %.037.ph89 = phi i32 [ %.037.ph, %.outer ], [ %.037.ph89.be, %.outer88.backedge ]
-  %.034.ph90 = phi i32 [ %.034.ph, %.outer ], [ %.034.ph93, %.outer88.backedge ]
-  %.033.ph91 = phi i1 [ %.033.ph, %.outer ], [ %.033, %.outer88.backedge ]
-  br label %.outer92
+.outer93:                                         ; preds = %.outer93.backedge, %.outer
+  %.037.ph94 = phi i32 [ %.037.ph, %.outer ], [ %.037.ph94.be, %.outer93.backedge ]
+  %.034.ph95 = phi i32 [ %.034.ph, %.outer ], [ %.034.ph98, %.outer93.backedge ]
+  %.033.ph96 = phi i1 [ %.033.ph, %.outer ], [ %.033, %.outer93.backedge ]
+  br label %.outer97
 
-.outer92:                                         ; preds = %.outer88, %parse_pattern.exit
-  %.034.ph93 = phi i32 [ %.034.ph90, %.outer88 ], [ %24, %parse_pattern.exit ]
-  %.033.ph94 = phi i1 [ %.033.ph91, %.outer88 ], [ %.033, %parse_pattern.exit ]
+.outer97:                                         ; preds = %.outer93, %parse_pattern.exit
+  %.034.ph98 = phi i32 [ %.034.ph95, %.outer93 ], [ %24, %parse_pattern.exit ]
+  %.033.ph99 = phi i1 [ %.033.ph96, %.outer93 ], [ %.033, %parse_pattern.exit ]
   br label %10
 
-10:                                               ; preds = %.outer92, %10
-  %.033 = phi i1 [ true, %10 ], [ %.033.ph94, %.outer92 ]
+10:                                               ; preds = %.outer97, %10
+  %.033 = phi i1 [ true, %10 ], [ %.033.ph99, %.outer97 ]
   %11 = tail call i32 @getopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.82) #26
   switch i32 %11, label %25 [
     i32 -1, label %27
@@ -2819,19 +2819,19 @@ define internal range(i32 -2147483648, 1) i32 @writev_f(ptr noundef %0, i32 noun
   ], !llvm.loop !22
 
 12:                                               ; preds = %10
-  %13 = or i32 %.037.ph89, 16
-  br label %.outer88.backedge
+  %13 = or i32 %.037.ph94, 16
+  br label %.outer93.backedge
 
-.outer88.backedge:                                ; preds = %12, %15
-  %.037.ph89.be = phi i32 [ %16, %15 ], [ %13, %12 ]
-  br label %.outer88, !llvm.loop !22
+.outer93.backedge:                                ; preds = %12, %15
+  %.037.ph94.be = phi i32 [ %16, %15 ], [ %13, %12 ]
+  br label %.outer93, !llvm.loop !22
 
 14:                                               ; preds = %10
   br label %.outer, !llvm.loop !22
 
 15:                                               ; preds = %10
-  %16 = or i32 %.037.ph89, 8
-  br label %.outer88.backedge
+  %16 = or i32 %.037.ph94, 8
+  br label %.outer93.backedge
 
 17:                                               ; preds = %10
   %18 = load ptr, ptr @optarg, align 8
@@ -2855,7 +2855,7 @@ parse_pattern.exit.thread:                        ; preds = %17, %20
 parse_pattern.exit:                               ; preds = %20
   %24 = trunc nuw nsw i64 %19 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.outer92, !llvm.loop !22
+  br label %.outer97, !llvm.loop !22
 
 25:                                               ; preds = %10
   %26 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.67) #26
@@ -2907,9 +2907,9 @@ parse_pattern.exit:                               ; preds = %20
   %52 = sub i32 %1, %51
   %53 = sext i32 %51 to i64
   %54 = getelementptr inbounds ptr, ptr %2, i64 %53
-  %55 = and i32 %.037.ph89, 8
+  %55 = and i32 %.037.ph94, 8
   %56 = icmp ne i32 %55, 0
-  %57 = call fastcc ptr @create_iovec(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %54, i32 noundef %52, i32 noundef %.034.ph93, i1 noundef zeroext %56)
+  %57 = call fastcc ptr @create_iovec(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %54, i32 noundef %52, i32 noundef %.034.ph98, i1 noundef zeroext %56)
   %58 = icmp eq ptr %57, null
   br i1 %58, label %94, label %59
 
@@ -2917,7 +2917,7 @@ parse_pattern.exit:                               ; preds = %20
   %60 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #26
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 2147483647, ptr %4, align 4
-  %61 = call ptr @blk_aio_pwritev(ptr noundef %0, i64 noundef range(i64 0, -9223372036854775808) %.0.i49, ptr noundef nonnull %9, i32 noundef range(i32 0, 32) %.037.ph89, ptr noundef nonnull @aio_rw_done, ptr noundef nonnull %4) #26
+  %61 = call ptr @blk_aio_pwritev(ptr noundef %0, i64 noundef range(i64 0, -9223372036854775808) %.0.i49, ptr noundef nonnull %9, i32 noundef range(i32 0, 32) %.037.ph94, ptr noundef nonnull @aio_rw_done, ptr noundef nonnull %4) #26
   %62 = load i32, ptr %4, align 4
   %63 = icmp eq i32 %62, 2147483647
   br i1 %63, label %.lr.ph.i, label %do_aio_writev.exit
@@ -4942,14 +4942,14 @@ define internal range(i32 -22, 1) i32 @reopen_f(ptr noundef %0, i32 noundef %1, 
 
 .outer:                                           ; preds = %16, %3
   %.040.ph = phi i1 [ true, %16 ], [ false, %3 ]
-  %.039.ph = phi i8 [ %.039.ph102, %16 ], [ 0, %3 ]
-  br label %.outer101
+  %.039.ph = phi i8 [ %.039.ph104, %16 ], [ 0, %3 ]
+  br label %.outer103
 
-.outer101:                                        ; preds = %.outer, %.sink.split
-  %.039.ph102 = phi i8 [ %.039.ph, %.outer ], [ 1, %.sink.split ]
+.outer103:                                        ; preds = %.outer, %.sink.split
+  %.039.ph104 = phi i8 [ %.039.ph, %.outer ], [ 1, %.sink.split ]
   br label %14
 
-14:                                               ; preds = %.outer101, %22
+14:                                               ; preds = %.outer103, %22
   %15 = call i32 @getopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.180) #26
   switch i32 %15, label %38 [
     i32 -1, label %40
@@ -4981,7 +4981,7 @@ define internal range(i32 -22, 1) i32 @reopen_f(ptr noundef %0, i32 noundef %1, 
   br label %95
 
 26:                                               ; preds = %14
-  %27 = trunc nuw i8 %.039.ph102 to i1
+  %27 = trunc nuw i8 %.039.ph104 to i1
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %26
@@ -4994,7 +4994,7 @@ define internal range(i32 -22, 1) i32 @reopen_f(ptr noundef %0, i32 noundef %1, 
   br label %.sink.split
 
 32:                                               ; preds = %14
-  %33 = trunc nuw i8 %.039.ph102 to i1
+  %33 = trunc nuw i8 %.039.ph104 to i1
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %32
@@ -5014,7 +5014,7 @@ define internal range(i32 -22, 1) i32 @reopen_f(ptr noundef %0, i32 noundef %1, 
 .sink.split:                                      ; preds = %29, %35
   %.sink = phi i32 [ %37, %35 ], [ %31, %29 ]
   store i32 %.sink, ptr %4, align 4
-  br label %.outer101, !llvm.loop !32
+  br label %.outer103, !llvm.loop !32
 
 40:                                               ; preds = %14
   %41 = load i32, ptr @optind, align 4
@@ -5085,7 +5085,7 @@ define internal range(i32 -22, 1) i32 @reopen_f(ptr noundef %0, i32 noundef %1, 
   br i1 %.not52, label %71, label %68
 
 68:                                               ; preds = %65
-  %69 = trunc nuw i8 %.039.ph102 to i1
+  %69 = trunc nuw i8 %.039.ph104 to i1
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %68

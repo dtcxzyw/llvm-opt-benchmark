@@ -346,9 +346,9 @@ _ZN10BigIntegerD2Ev.exit44:                       ; preds = %_ZN10BigIntegermIER
   br i1 %70, label %.body40, label %.body40.sink.split
 
 .body40.sink.split:                               ; preds = %67, %52
-  %.sink71 = phi ptr [ %54, %52 ], [ %69, %67 ]
+  %.sink95 = phi ptr [ %54, %52 ], [ %69, %67 ]
   %.pn26.ph = phi { ptr, i32 } [ %53, %52 ], [ %68, %67 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink71) #9
+  call void @_ZdaPv(ptr noundef nonnull %.sink95) #9
   br label %.body40
 
 .body40:                                          ; preds = %.body40.sink.split, %67, %52
@@ -429,9 +429,9 @@ _ZN10BigIntegerD2Ev.exit58:                       ; preds = %_ZN10BigIntegermIER
   br i1 %92, label %.body48, label %.body48.sink.split
 
 .body48.sink.split:                               ; preds = %89, %73
-  %.sink72 = phi ptr [ %75, %73 ], [ %91, %89 ]
+  %.sink96 = phi ptr [ %75, %73 ], [ %91, %89 ]
   %.pn28.ph = phi { ptr, i32 } [ %74, %73 ], [ %90, %89 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink72) #9
+  call void @_ZdaPv(ptr noundef nonnull %.sink96) #9
   br label %.body48
 
 .body48:                                          ; preds = %.body48.sink.split, %89, %73
@@ -447,9 +447,9 @@ _ZN10BigIntegerD2Ev.exit58:                       ; preds = %_ZN10BigIntegermIER
   br i1 %96, label %.body54, label %.body54.sink.split
 
 .body54.sink.split:                               ; preds = %93, %80
-  %.sink73 = phi ptr [ %82, %80 ], [ %95, %93 ]
+  %.sink97 = phi ptr [ %82, %80 ], [ %95, %93 ]
   %.pn30.ph = phi { ptr, i32 } [ %81, %80 ], [ %94, %93 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink73) #9
+  call void @_ZdaPv(ptr noundef nonnull %.sink97) #9
   br label %.body54
 
 .body54:                                          ; preds = %.body54.sink.split, %93, %80

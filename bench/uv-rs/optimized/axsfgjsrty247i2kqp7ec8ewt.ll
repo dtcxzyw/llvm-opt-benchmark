@@ -3722,9 +3722,9 @@ _ZN3std4path4Path4join17hd7191ba3578f741cE.exit278: ; preds = %_ZN3std4path4Path
 694:                                              ; preds = %689
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1993dadabce9275fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %690)
-          to label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h7c960b9fa853eb32E.exit350" unwind label %.thread436
+          to label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h7c960b9fa853eb32E.exit350" unwind label %.thread472
 
-.thread436:                                       ; preds = %694
+.thread472:                                       ; preds = %694
   %695 = landingpad { ptr, i32 }
           cleanup
   br label %.body313.thread
@@ -3774,8 +3774,8 @@ _ZN3std4path4Path4join17hd7191ba3578f741cE.exit278: ; preds = %_ZN3std4path4Path
   invoke void @"_ZN4core3ptr69drop_in_place$LT$reqwest_middleware..client..ClientWithMiddleware$GT$17h22359f3c1fb49cd0E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %708) #25
           to label %709 unwind label %227
 
-.body313.thread:                                  ; preds = %.thread436, %685, %.body313
-  %.pn233.pn.pn417 = phi { ptr, i32 } [ %.pn233.pn.pn, %.body313 ], [ %686, %685 ], [ %695, %.thread436 ]
+.body313.thread:                                  ; preds = %.thread472, %685, %.body313
+  %.pn233.pn.pn417 = phi { ptr, i32 } [ %.pn233.pn.pn, %.body313 ], [ %686, %685 ], [ %695, %.thread472 ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$uv_git_types..GitUrl$GT$17ha3e6d52ab71a1f30E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %1) #25
           to label %.body313.thread418 unwind label %227
 

@@ -572,9 +572,9 @@ ssl_select_next_record_layer.exit:                ; preds = %56
   %122 = load i8, ptr %121, align 8, !tbaa !115
   %123 = add i8 %122, -1
   %or.cond181 = icmp ult i8 %123, 4
-  br i1 %or.cond181, label %.thread233, label %126
+  br i1 %or.cond181, label %.thread245, label %126
 
-.thread233:                                       ; preds = %120
+.thread245:                                       ; preds = %120
   %124 = zext nneg i8 %122 to i32
   %125 = shl nuw nsw i32 256, %124
   store i32 %125, ptr %25, align 4, !tbaa !101
@@ -585,7 +585,7 @@ ssl_select_next_record_layer.exit:                ; preds = %56
   %.not174 = icmp eq i32 %.pr, 16384
   br i1 %.not174, label %129, label %127
 
-127:                                              ; preds = %.thread233, %126
+127:                                              ; preds = %.thread245, %126
   %128 = getelementptr inbounds nuw i8, ptr %.2153, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %37, ptr noundef nonnull @.str.12, ptr noundef nonnull %25) #9
@@ -802,7 +802,7 @@ ossl_get_max_early_data.exit:                     ; preds = %152, %157
   %225 = load ptr, ptr %171, align 8, !tbaa !148
   %226 = call i32 %221(ptr noundef %222, ptr noundef %223, i32 noundef %1, i32 noundef %224, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %.1139, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9, ptr noundef %10, i64 noundef %11, ptr noundef %12, i64 noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %53, ptr noundef %17, ptr noundef %.0142, ptr noundef %.0154193199, ptr noundef %.1141, ptr noundef null, ptr noundef null, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %40, ptr noundef %0, ptr noundef %225, ptr noundef nonnull %21) #9
   %227 = call i32 @BIO_free(ptr noundef %.0142) #9
-  switch i32 %226, label %.thread213.loopexit243 [
+  switch i32 %226, label %.thread213.loopexit255 [
     i32 -2, label %.thread213
     i32 -1, label %228
     i32 1, label %231
@@ -815,15 +815,15 @@ ossl_get_max_early_data.exit:                     ; preds = %152, %157
   %or.cond182 = or i1 %.not177, %.not178
   br i1 %or.cond182, label %.thread213, label %230
 
-.thread213.loopexit243:                           ; preds = %220
+.thread213.loopexit255:                           ; preds = %220
   br label %.thread213
 
-.thread213:                                       ; preds = %228, %191, %220, %.thread213.loopexit243
-  %.sink240 = phi i32 [ 1426, %220 ], [ 1385, %191 ], [ 1438, %228 ], [ 1446, %.thread213.loopexit243 ]
-  %.sink239 = phi i32 [ 313, %220 ], [ 786691, %191 ], [ 322, %228 ], [ 786691, %.thread213.loopexit243 ]
+.thread213:                                       ; preds = %228, %191, %220, %.thread213.loopexit255
+  %.sink252 = phi i32 [ 1426, %220 ], [ 1385, %191 ], [ 1438, %228 ], [ 1446, %.thread213.loopexit255 ]
+  %.sink251 = phi i32 [ 313, %220 ], [ 786691, %191 ], [ 322, %228 ], [ 786691, %.thread213.loopexit255 ]
   call void @ERR_new() #9
-  call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink240, ptr noundef nonnull @__func__.ssl_set_new_record_layer) #9
-  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef %.sink239, ptr noundef null) #9
+  call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink252, ptr noundef nonnull @__func__.ssl_set_new_record_layer) #9
+  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef %.sink251, ptr noundef null) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %ssl_post_record_layer_select.exit
 
@@ -1556,7 +1556,7 @@ tls_write_check_pending.exit:                     ; preds = %56, %62, %65
   br i1 %exitcond.not, label %158, label %150, !llvm.loop !204
 
 158:                                              ; preds = %150
-  %159 = mul i64 %spec.store.select, %143
+  %159 = mul nuw nsw i64 %spec.store.select, %143
   br label %.loopexit
 
 160:                                              ; preds = %146
@@ -1923,14 +1923,14 @@ define range(i32 -2147483648, 2) i32 @ssl3_read_bytes(ptr noundef %0, i8 noundef
   br i1 %48, label %._crit_edge, label %.lr.ph725.preheader
 
 .lr.ph725.preheader:                              ; preds = %37, %.critedge
-  %.0294.lcssa870 = phi i64 [ %4, %.critedge ], [ 0, %37 ]
-  %.0302.lcssa869 = phi ptr [ %41, %.critedge ], [ %38, %37 ]
+  %.0294.lcssa902 = phi i64 [ %4, %.critedge ], [ 0, %37 ]
+  %.0302.lcssa901 = phi ptr [ %41, %.critedge ], [ %38, %37 ]
   br label %.lr.ph725
 
 .lr.ph725:                                        ; preds = %.lr.ph725.preheader, %.lr.ph725
   %49 = phi i64 [ %54, %.lr.ph725 ], [ 0, %.lr.ph725.preheader ]
   %.0300724 = phi i32 [ %53, %.lr.ph725 ], [ 0, %.lr.ph725.preheader ]
-  %.1303723 = phi ptr [ %50, %.lr.ph725 ], [ %.0302.lcssa869, %.lr.ph725.preheader ]
+  %.1303723 = phi ptr [ %50, %.lr.ph725 ], [ %.0302.lcssa901, %.lr.ph725.preheader ]
   %50 = getelementptr inbounds nuw i8, ptr %.1303723, i64 1
   %51 = load i8, ptr %.1303723, align 1, !tbaa !213
   %52 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 0, i64 %49
@@ -1942,7 +1942,7 @@ define range(i32 -2147483648, 2) i32 @ssl3_read_bytes(ptr noundef %0, i8 noundef
   br i1 %56, label %.lr.ph725, label %._crit_edge, !llvm.loop !215
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph725, %.critedge
-  %.0294.lcssa871 = phi i64 [ %4, %.critedge ], [ %.0294.lcssa870, %.lr.ph725 ], [ %.0294717, %.lr.ph ]
+  %.0294.lcssa903 = phi i64 [ %4, %.critedge ], [ %.0294.lcssa902, %.lr.ph725 ], [ %.0294717, %.lr.ph ]
   %.not394 = icmp eq ptr %2, null
   br i1 %.not394, label %58, label %57
 
@@ -1951,7 +1951,7 @@ define range(i32 -2147483648, 2) i32 @ssl3_read_bytes(ptr noundef %0, i8 noundef
   br label %58
 
 58:                                               ; preds = %57, %._crit_edge
-  store i64 %.0294.lcssa871, ptr %6, align 8, !tbaa !111
+  store i64 %.0294.lcssa903, ptr %6, align 8, !tbaa !111
   br label %ssl_release_record.exit
 
 59:                                               ; preds = %34, %32
@@ -2004,7 +2004,7 @@ define range(i32 -2147483648, 2) i32 @ssl3_read_bytes(ptr noundef %0, i8 noundef
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %97 = getelementptr inbounds nuw i8, ptr %14, i64 444
   %invariant.op = or i1 %27, %81
-  %invariant.op1406 = or i1 %invariant.op, %33
+  %invariant.op1438 = or i1 %invariant.op, %33
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %70
@@ -2077,9 +2077,9 @@ define range(i32 -2147483648, 2) i32 @ssl3_read_bytes(ptr noundef %0, i8 noundef
 
 130:                                              ; preds = %.critedge11
   %.not345 = icmp eq i8 %.pre861, 22
-  br i1 %.not345, label %.thread875, label %132
+  br i1 %.not345, label %.thread907, label %132
 
-.thread875:                                       ; preds = %130
+.thread907:                                       ; preds = %130
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 12
   br label %144
 
@@ -2111,9 +2111,9 @@ define range(i32 -2147483648, 2) i32 @ssl3_read_bytes(ptr noundef %0, i8 noundef
   %.not348 = icmp eq i8 %.pre861, 21
   br i1 %.not348, label %.thread, label %144
 
-144:                                              ; preds = %.thread875, %.critedge11._crit_edge
-  %145 = phi ptr [ %131, %.thread875 ], [ %143, %.critedge11._crit_edge ]
-  %146 = phi i8 [ 22, %.thread875 ], [ %.pre861, %.critedge11._crit_edge ]
+144:                                              ; preds = %.thread907, %.critedge11._crit_edge
+  %145 = phi ptr [ %131, %.thread907 ], [ %143, %.critedge11._crit_edge ]
+  %146 = phi i8 [ 22, %.thread907 ], [ %.pre861, %.critedge11._crit_edge ]
   %147 = getelementptr inbounds nuw i8, ptr %128, i64 32
   %148 = load i64, ptr %147, align 8, !tbaa !21
   %.not349 = icmp eq i64 %148, 0
@@ -2142,7 +2142,7 @@ define range(i32 -2147483648, 2) i32 @ssl3_read_bytes(ptr noundef %0, i8 noundef
   br label %ssl_release_record.exit
 
 153:                                              ; preds = %.thread, %150
-  %.not348877 = phi i1 [ true, %.thread ], [ false, %150 ]
+  %.not348909 = phi i1 [ true, %.thread ], [ false, %150 ]
   %154 = phi ptr [ %143, %.thread ], [ %145, %150 ]
   %155 = phi i8 [ 21, %.thread ], [ %146, %150 ]
   %156 = load i32, ptr %80, align 4, !tbaa !220
@@ -2159,7 +2159,7 @@ define range(i32 -2147483648, 2) i32 @ssl3_read_bytes(ptr noundef %0, i8 noundef
 160:                                              ; preds = %153
   %161 = icmp ne i8 %1, %155
   %162 = icmp ne i8 %155, 20
-  %or.cond18.reass.reass.reass.reass = or i1 %162, %invariant.op1406
+  %or.cond18.reass.reass.reass.reass = or i1 %162, %invariant.op1438
   %or.cond727 = select i1 %161, i1 %or.cond18.reass.reass.reass.reass, i1 false
   br i1 %or.cond727, label %266, label %163
 
@@ -2411,7 +2411,7 @@ ssl_release_record.exit.thread:                   ; preds = %ssl_release_record.
 275:                                              ; preds = %271
   %276 = load i32, ptr %91, align 8, !tbaa !118
   %.not359 = icmp eq i32 %276, 0
-  %or.cond397 = and i1 %.not348877, %.not359
+  %or.cond397 = and i1 %.not348909, %.not359
   br i1 %or.cond397, label %.thread448, label %277
 
 277:                                              ; preds = %275
@@ -2422,7 +2422,7 @@ ssl_release_record.exit.thread:                   ; preds = %ssl_release_record.
   br label %ssl_release_record.exit
 
 278:                                              ; preds = %271
-  br i1 %.not348877, label %.thread448, label %340
+  br i1 %.not348909, label %.thread448, label %340
 
 .thread448:                                       ; preds = %278, %275
   %279 = getelementptr inbounds nuw i8, ptr %128, i64 16

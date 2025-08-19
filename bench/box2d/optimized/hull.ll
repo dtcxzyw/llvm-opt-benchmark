@@ -72,12 +72,12 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %27 = getelementptr inbounds nuw %struct.b2Vec2, ptr %1, i64 %indvars.iv
   %.sroa.079.0.copyload = load <2 x float>, ptr %27, align 4
   %foldExtExtBinop = fsub <2 x float> %.sroa.079.0.copyload, %17
-  %foldExtExtBinop323 = fsub <2 x float> %.sroa.079.0.copyload, %17
-  %foldExtExtBinop325 = fmul <2 x float> %foldExtExtBinop, %foldExtExtBinop
-  %foldExtExtBinop327 = fmul <2 x float> %foldExtExtBinop323, %foldExtExtBinop323
-  %shift = shufflevector <2 x float> %foldExtExtBinop327, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop329 = fadd <2 x float> %foldExtExtBinop325, %shift
-  %28 = extractelement <2 x float> %foldExtExtBinop329, i64 0
+  %foldExtExtBinop331 = fsub <2 x float> %.sroa.079.0.copyload, %17
+  %foldExtExtBinop333 = fmul <2 x float> %foldExtExtBinop, %foldExtExtBinop
+  %foldExtExtBinop335 = fmul <2 x float> %foldExtExtBinop331, %foldExtExtBinop331
+  %shift = shufflevector <2 x float> %foldExtExtBinop335, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop337 = fadd <2 x float> %foldExtExtBinop333, %shift
+  %28 = extractelement <2 x float> %foldExtExtBinop337, i64 0
   %29 = fcmp uge float %28, %14
   br i1 %29, label %26, label %.loopexit
 
@@ -120,13 +120,13 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %49 = load i64, ptr %48, align 8
   store i64 %49, ptr %45, align 8
   %50 = load <2 x float>, ptr %4, align 16
-  %foldExtExtBinop331 = fsub <2 x float> %50, %.sroa.059.0.copyload
-  %foldExtExtBinop333 = fmul <2 x float> %foldExtExtBinop331, %foldExtExtBinop331
-  %foldExtExtBinop335 = fsub <2 x float> %50, %.sroa.059.0.copyload
-  %foldExtExtBinop337 = fmul <2 x float> %foldExtExtBinop335, %foldExtExtBinop335
-  %shift339 = shufflevector <2 x float> %foldExtExtBinop337, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop340 = fadd <2 x float> %foldExtExtBinop333, %shift339
-  %51 = extractelement <2 x float> %foldExtExtBinop340, i64 0
+  %foldExtExtBinop339 = fsub <2 x float> %50, %.sroa.059.0.copyload
+  %foldExtExtBinop341 = fmul <2 x float> %foldExtExtBinop339, %foldExtExtBinop339
+  %foldExtExtBinop343 = fsub <2 x float> %50, %.sroa.059.0.copyload
+  %foldExtExtBinop345 = fmul <2 x float> %foldExtExtBinop343, %foldExtExtBinop343
+  %shift347 = shufflevector <2 x float> %foldExtExtBinop345, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop348 = fadd <2 x float> %foldExtExtBinop341, %shift347
+  %51 = extractelement <2 x float> %foldExtExtBinop348, i64 0
   br label %.lr.ph242
 
 52:                                               ; preds = %33, %52
@@ -161,11 +161,11 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   store i64 %67, ptr %63, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %foldExtExtBinop342 = fsub <2 x float> %.sroa.045.0.copyload, %.sroa.059.0.copyload
-  %foldExtExtBinop344 = fsub <2 x float> %.sroa.045.0.copyload, %.sroa.059.0.copyload
-  %68 = extractelement <2 x float> %foldExtExtBinop344, i64 1
-  %foldExtExtBinop346 = fmul <2 x float> %foldExtExtBinop342, %foldExtExtBinop342
-  %69 = extractelement <2 x float> %foldExtExtBinop346, i64 0
+  %foldExtExtBinop350 = fsub <2 x float> %.sroa.045.0.copyload, %.sroa.059.0.copyload
+  %foldExtExtBinop352 = fsub <2 x float> %.sroa.045.0.copyload, %.sroa.059.0.copyload
+  %68 = extractelement <2 x float> %foldExtExtBinop352, i64 1
+  %foldExtExtBinop354 = fmul <2 x float> %foldExtExtBinop350, %foldExtExtBinop350
+  %69 = extractelement <2 x float> %foldExtExtBinop354, i64 0
   %70 = fmul float %68, %68
   %71 = fadd float %69, %70
   %sqrt.i = tail call float @llvm.sqrt.f32(float %71)
@@ -173,7 +173,7 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   br i1 %72, label %.lr.ph248, label %73
 
 73:                                               ; preds = %._crit_edge243
-  %74 = extractelement <2 x float> %foldExtExtBinop342, i64 0
+  %74 = extractelement <2 x float> %foldExtExtBinop350, i64 0
   %75 = fdiv float 1.000000e+00, %sqrt.i
   %76 = fmul float %74, %75
   %.sroa.012.0.vec.insert.i = insertelement <2 x float> poison, float %76, i64 0
@@ -186,7 +186,7 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %78 = fmul float %12, 2.000000e+00
   %79 = fmul float %12, -2.000000e+00
   %wide.trip.count286 = zext nneg i32 %64 to i64
-  %shift363 = shufflevector <2 x float> %.sroa.012.0.i, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %shift371 = shufflevector <2 x float> %.sroa.012.0.i, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   br label %91
 
 .lr.ph242:                                        ; preds = %.lr.ph242.preheader, %.lr.ph242
@@ -195,13 +195,13 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %.0143239 = phi float [ %51, %.lr.ph242.preheader ], [ %.1144, %.lr.ph242 ]
   %80 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %4, i64 0, i64 %indvars.iv278
   %81 = load <2 x float>, ptr %80, align 8
-  %foldExtExtBinop348 = fsub <2 x float> %81, %.sroa.059.0.copyload
-  %foldExtExtBinop350 = fsub <2 x float> %81, %.sroa.059.0.copyload
-  %foldExtExtBinop352 = fmul <2 x float> %foldExtExtBinop348, %foldExtExtBinop348
-  %foldExtExtBinop354 = fmul <2 x float> %foldExtExtBinop350, %foldExtExtBinop350
-  %shift356 = shufflevector <2 x float> %foldExtExtBinop354, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop357 = fadd <2 x float> %foldExtExtBinop352, %shift356
-  %82 = extractelement <2 x float> %foldExtExtBinop357, i64 0
+  %foldExtExtBinop356 = fsub <2 x float> %81, %.sroa.059.0.copyload
+  %foldExtExtBinop358 = fsub <2 x float> %81, %.sroa.059.0.copyload
+  %foldExtExtBinop360 = fmul <2 x float> %foldExtExtBinop356, %foldExtExtBinop356
+  %foldExtExtBinop362 = fmul <2 x float> %foldExtExtBinop358, %foldExtExtBinop358
+  %shift364 = shufflevector <2 x float> %foldExtExtBinop362, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop365 = fadd <2 x float> %foldExtExtBinop360, %shift364
+  %82 = extractelement <2 x float> %foldExtExtBinop365, i64 0
   %83 = fcmp ogt float %82, %.0143239
   %.1144 = select i1 %83, float %82, float %.0143239
   %84 = trunc nuw nsw i64 %indvars.iv278 to i32
@@ -230,13 +230,13 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %.0148245 = phi i32 [ 0, %.lr.ph248 ], [ %.1149, %104 ]
   %92 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %4, i64 0, i64 %indvars.iv283
   %93 = load <2 x float>, ptr %92, align 8
-  %foldExtExtBinop359 = fsub <2 x float> %93, %.sroa.059.0.copyload
-  %foldExtExtBinop361 = fsub <2 x float> %93, %.sroa.059.0.copyload
-  %foldExtExtBinop364 = fmul <2 x float> %shift363, %foldExtExtBinop359
-  %shift366 = shufflevector <2 x float> %foldExtExtBinop361, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop367 = fmul <2 x float> %.sroa.012.0.i, %shift366
-  %foldExtExtBinop369 = fsub <2 x float> %foldExtExtBinop364, %foldExtExtBinop367
-  %94 = extractelement <2 x float> %foldExtExtBinop369, i64 0
+  %foldExtExtBinop367 = fsub <2 x float> %93, %.sroa.059.0.copyload
+  %foldExtExtBinop369 = fsub <2 x float> %93, %.sroa.059.0.copyload
+  %foldExtExtBinop372 = fmul <2 x float> %shift371, %foldExtExtBinop367
+  %shift374 = shufflevector <2 x float> %foldExtExtBinop369, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop375 = fmul <2 x float> %.sroa.012.0.i, %shift374
+  %foldExtExtBinop377 = fsub <2 x float> %foldExtExtBinop372, %foldExtExtBinop375
+  %94 = extractelement <2 x float> %foldExtExtBinop377, i64 0
   %95 = fcmp ult float %94, %78
   br i1 %95, label %98, label %96
 
@@ -254,11 +254,11 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
 
 .sink.split:                                      ; preds = %96, %100
   %.0146246.sink = phi i32 [ %.0146246, %100 ], [ %.0148245, %96 ]
-  %.sink310 = phi ptr [ %6, %100 ], [ %5, %96 ]
+  %.sink318 = phi ptr [ %6, %100 ], [ %5, %96 ]
   %.1149.ph = phi i32 [ %.0148245, %100 ], [ %97, %96 ]
   %.1147.ph = phi i32 [ %101, %100 ], [ %.0146246, %96 ]
   %102 = sext i32 %.0146246.sink to i64
-  %103 = getelementptr inbounds [6 x %struct.b2Vec2], ptr %.sink310, i64 0, i64 %102
+  %103 = getelementptr inbounds [6 x %struct.b2Vec2], ptr %.sink318, i64 0, i64 %102
   store <2 x float> %93, ptr %103, align 8
   br label %104
 
@@ -334,15 +334,15 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %exitcond297.not = icmp eq i64 %indvars.iv.next294, %wide.trip.count296
   br i1 %exitcond297.not, label %.preheader223, label %.lr.ph258, !llvm.loop !17
 
-.preheader222:                                    ; preds = %.preheader222.lr.ph, %.loopexit305
-  %127 = phi i32 [ %118, %.preheader222.lr.ph ], [ %163, %.loopexit305 ]
+.preheader222:                                    ; preds = %.preheader222.lr.ph, %.loopexit313
+  %127 = phi i32 [ %118, %.preheader222.lr.ph ], [ %163, %.loopexit313 ]
   %128 = sext i32 %127 to i64
   br label %129
 
 129:                                              ; preds = %b2Normalize.exit211, %.preheader222
   %indvars.iv301 = phi i64 [ 0, %.preheader222 ], [ %indvars.iv.next302, %b2Normalize.exit211 ]
   %130 = icmp slt i64 %indvars.iv301, %128
-  br i1 %130, label %131, label %.loopexit305
+  br i1 %130, label %131, label %.loopexit313
 
 131:                                              ; preds = %129
   %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
@@ -359,11 +359,11 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %140 = zext nneg i32 %136 to i64
   %141 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %140
   %.sroa.011.0.copyload = load <2 x float>, ptr %141, align 4
-  %foldExtExtBinop371 = fsub <2 x float> %.sroa.011.0.copyload, %.sroa.013.0.copyload
-  %foldExtExtBinop373 = fsub <2 x float> %.sroa.011.0.copyload, %.sroa.013.0.copyload
-  %142 = extractelement <2 x float> %foldExtExtBinop373, i64 1
-  %foldExtExtBinop375 = fmul <2 x float> %foldExtExtBinop371, %foldExtExtBinop371
-  %143 = extractelement <2 x float> %foldExtExtBinop375, i64 0
+  %foldExtExtBinop379 = fsub <2 x float> %.sroa.011.0.copyload, %.sroa.013.0.copyload
+  %foldExtExtBinop381 = fsub <2 x float> %.sroa.011.0.copyload, %.sroa.013.0.copyload
+  %142 = extractelement <2 x float> %foldExtExtBinop381, i64 1
+  %foldExtExtBinop383 = fmul <2 x float> %foldExtExtBinop379, %foldExtExtBinop379
+  %143 = extractelement <2 x float> %foldExtExtBinop383, i64 0
   %144 = fmul float %142, %142
   %145 = fadd float %143, %144
   %sqrt.i207 = tail call float @llvm.sqrt.f32(float %145)
@@ -371,7 +371,7 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   br i1 %146, label %b2Normalize.exit211, label %147
 
 147:                                              ; preds = %131
-  %148 = extractelement <2 x float> %foldExtExtBinop371, i64 0
+  %148 = extractelement <2 x float> %foldExtExtBinop379, i64 0
   %149 = fdiv float 1.000000e+00, %sqrt.i207
   %150 = fmul float %148, %149
   %.sroa.012.0.vec.insert.i208 = insertelement <2 x float> poison, float %150, i64 0
@@ -381,14 +381,14 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
 
 b2Normalize.exit211:                              ; preds = %131, %147
   %.sroa.012.0.i210 = phi <2 x float> [ %.sroa.012.4.vec.insert.i209, %147 ], [ zeroinitializer, %131 ]
-  %foldExtExtBinop377 = fsub <2 x float> %.sroa.012.0.copyload, %.sroa.013.0.copyload
-  %foldExtExtBinop379 = fsub <2 x float> %.sroa.012.0.copyload, %.sroa.013.0.copyload
-  %shift381 = shufflevector <2 x float> %.sroa.012.0.i210, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop382 = fmul <2 x float> %foldExtExtBinop377, %shift381
-  %shift384 = shufflevector <2 x float> %foldExtExtBinop379, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop385 = fmul <2 x float> %shift384, %.sroa.012.0.i210
-  %foldExtExtBinop387 = fsub <2 x float> %foldExtExtBinop382, %foldExtExtBinop385
-  %152 = extractelement <2 x float> %foldExtExtBinop387, i64 0
+  %foldExtExtBinop385 = fsub <2 x float> %.sroa.012.0.copyload, %.sroa.013.0.copyload
+  %foldExtExtBinop387 = fsub <2 x float> %.sroa.012.0.copyload, %.sroa.013.0.copyload
+  %shift389 = shufflevector <2 x float> %.sroa.012.0.i210, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop390 = fmul <2 x float> %foldExtExtBinop385, %shift389
+  %shift392 = shufflevector <2 x float> %foldExtExtBinop387, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop393 = fmul <2 x float> %shift392, %.sroa.012.0.i210
+  %foldExtExtBinop395 = fsub <2 x float> %foldExtExtBinop390, %foldExtExtBinop393
+  %152 = extractelement <2 x float> %foldExtExtBinop395, i64 0
   %153 = fcmp ugt float %152, %120
   br i1 %153, label %129, label %.preheader
 
@@ -400,7 +400,7 @@ b2Normalize.exit211:                              ; preds = %131, %147
 .thread:                                          ; preds = %.lr.ph260, %.preheader
   %.lcssa = phi i32 [ %154, %.preheader ], [ %160, %.lr.ph260 ]
   store i32 %.lcssa, ptr %9, align 4, !tbaa !3
-  br label %.loopexit305
+  br label %.loopexit313
 
 .lr.ph260:                                        ; preds = %.preheader, %.lr.ph260
   %indvars.iv298 = phi i64 [ %indvars.iv.next299, %.lr.ph260 ], [ %138, %.preheader ]
@@ -415,13 +415,13 @@ b2Normalize.exit211:                              ; preds = %131, %147
   %162 = icmp sgt i32 %160, %161
   br i1 %162, label %.lr.ph260, label %.thread, !llvm.loop !18
 
-.loopexit305:                                     ; preds = %129, %.thread
+.loopexit313:                                     ; preds = %129, %.thread
   %163 = phi i32 [ %.lcssa, %.thread ], [ %127, %129 ]
   %164 = icmp sgt i32 %163, 2
   %165 = and i1 %130, %164
   br i1 %165, label %.preheader222, label %._crit_edge263, !llvm.loop !19
 
-._crit_edge263:                                   ; preds = %.loopexit305
+._crit_edge263:                                   ; preds = %.loopexit313
   %166 = icmp slt i32 %163, 3
   br i1 %166, label %._crit_edge263.thread, label %167
 
@@ -456,10 +456,10 @@ define internal fastcc void @b2RecurseHull(ptr dead_on_unwind noalias nonnull wr
 
 11:                                               ; preds = %5
   %foldExtExtBinop = fsub <2 x float> %2, %1
-  %foldExtExtBinop100 = fsub <2 x float> %2, %1
-  %12 = extractelement <2 x float> %foldExtExtBinop100, i64 1
-  %foldExtExtBinop102 = fmul <2 x float> %foldExtExtBinop, %foldExtExtBinop
-  %13 = extractelement <2 x float> %foldExtExtBinop102, i64 0
+  %foldExtExtBinop102 = fsub <2 x float> %2, %1
+  %12 = extractelement <2 x float> %foldExtExtBinop102, i64 1
+  %foldExtExtBinop104 = fmul <2 x float> %foldExtExtBinop, %foldExtExtBinop
+  %13 = extractelement <2 x float> %foldExtExtBinop104, i64 0
   %14 = fmul float %12, %12
   %15 = fadd float %13, %14
   %sqrt.i = tail call float @llvm.sqrt.f32(float %15)
@@ -479,14 +479,14 @@ b2Normalize.exit:                                 ; preds = %11, %17
   %.sroa.012.0.i = phi <2 x float> [ %.sroa.012.4.vec.insert.i, %17 ], [ zeroinitializer, %11 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = load <2 x float>, ptr %3, align 4
-  %foldExtExtBinop104 = fsub <2 x float> %22, %1
-  %23 = extractelement <2 x float> %foldExtExtBinop104, i64 0
   %foldExtExtBinop106 = fsub <2 x float> %22, %1
+  %23 = extractelement <2 x float> %foldExtExtBinop106, i64 0
+  %foldExtExtBinop108 = fsub <2 x float> %22, %1
   %.sroa.0.4.vec.extract.i61 = extractelement <2 x float> %.sroa.012.0.i, i64 1
   %24 = fmul float %.sroa.0.4.vec.extract.i61, %23
-  %shift = shufflevector <2 x float> %foldExtExtBinop106, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop108 = fmul <2 x float> %.sroa.012.0.i, %shift
-  %25 = extractelement <2 x float> %foldExtExtBinop108, i64 0
+  %shift = shufflevector <2 x float> %foldExtExtBinop108, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop110 = fmul <2 x float> %.sroa.012.0.i, %shift
+  %25 = extractelement <2 x float> %foldExtExtBinop110, i64 0
   %26 = fsub float %24, %25
   %27 = fcmp ogt float %26, 0.000000e+00
   br i1 %27, label %28, label %29
@@ -525,13 +525,13 @@ b2Normalize.exit:                                 ; preds = %11, %17
   %.04775 = phi float [ %26, %.lr.ph.preheader ], [ %.148, %49 ]
   %36 = getelementptr inbounds nuw %struct.b2Vec2, ptr %3, i64 %indvars.iv
   %37 = load <2 x float>, ptr %36, align 4
-  %foldExtExtBinop110 = fsub <2 x float> %37, %1
-  %38 = extractelement <2 x float> %foldExtExtBinop110, i64 0
   %foldExtExtBinop112 = fsub <2 x float> %37, %1
+  %38 = extractelement <2 x float> %foldExtExtBinop112, i64 0
+  %foldExtExtBinop114 = fsub <2 x float> %37, %1
   %39 = fmul float %.sroa.0.4.vec.extract.i61, %38
-  %shift114 = shufflevector <2 x float> %foldExtExtBinop112, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop115 = fmul <2 x float> %.sroa.012.0.i, %shift114
-  %40 = extractelement <2 x float> %foldExtExtBinop115, i64 0
+  %shift116 = shufflevector <2 x float> %foldExtExtBinop114, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop117 = fmul <2 x float> %.sroa.012.0.i, %shift116
+  %40 = extractelement <2 x float> %foldExtExtBinop117, i64 0
   %41 = fsub float %39, %40
   %42 = fcmp ogt float %41, %.04775
   %.148 = select i1 %42, float %41, float %.04775
@@ -655,10 +655,10 @@ define noundef zeroext i1 @b2ValidateHull(ptr noundef readonly captures(none) %0
   %12 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %11
   %13 = load <2 x float>, ptr %12, align 4
   %foldExtExtBinop = fsub <2 x float> %13, %.sroa.028.0.copyload.us
-  %foldExtExtBinop133 = fsub <2 x float> %13, %.sroa.028.0.copyload.us
-  %14 = extractelement <2 x float> %foldExtExtBinop133, i64 1
-  %foldExtExtBinop135 = fmul <2 x float> %foldExtExtBinop, %foldExtExtBinop
-  %15 = extractelement <2 x float> %foldExtExtBinop135, i64 0
+  %foldExtExtBinop134 = fsub <2 x float> %13, %.sroa.028.0.copyload.us
+  %14 = extractelement <2 x float> %foldExtExtBinop134, i64 1
+  %foldExtExtBinop136 = fmul <2 x float> %foldExtExtBinop, %foldExtExtBinop
+  %15 = extractelement <2 x float> %foldExtExtBinop136, i64 0
   %16 = fmul float %14, %14
   %17 = fadd float %15, %16
   %sqrt.i.us = tail call float @llvm.sqrt.f32(float %17)
@@ -689,13 +689,13 @@ b2Normalize.exit.us:                              ; preds = %19, %7
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %indvars.iv
   %29 = load <2 x float>, ptr %28, align 4
-  %foldExtExtBinop137 = fsub <2 x float> %29, %.sroa.028.0.copyload.us
-  %foldExtExtBinop139 = fsub <2 x float> %29, %.sroa.028.0.copyload.us
-  %foldExtExtBinop141 = fmul <2 x float> %shift, %foldExtExtBinop137
-  %shift143 = shufflevector <2 x float> %foldExtExtBinop139, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop144 = fmul <2 x float> %.sroa.012.0.i.us, %shift143
-  %foldExtExtBinop146 = fsub <2 x float> %foldExtExtBinop141, %foldExtExtBinop144
-  %30 = extractelement <2 x float> %foldExtExtBinop146, i64 0
+  %foldExtExtBinop138 = fsub <2 x float> %29, %.sroa.028.0.copyload.us
+  %foldExtExtBinop140 = fsub <2 x float> %29, %.sroa.028.0.copyload.us
+  %foldExtExtBinop142 = fmul <2 x float> %shift, %foldExtExtBinop138
+  %shift144 = shufflevector <2 x float> %foldExtExtBinop140, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop145 = fmul <2 x float> %.sroa.012.0.i.us, %shift144
+  %foldExtExtBinop147 = fsub <2 x float> %foldExtExtBinop142, %foldExtExtBinop145
+  %30 = extractelement <2 x float> %foldExtExtBinop147, i64 0
   %31 = fcmp ult float %30, 0.000000e+00
   br i1 %31, label %32, label %.critedge
 
@@ -734,11 +734,11 @@ b2Normalize.exit.us:                              ; preds = %19, %7
   %45 = zext nneg i32 %41 to i64
   %46 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %45
   %.sroa.07.0.copyload = load <2 x float>, ptr %46, align 4
-  %foldExtExtBinop148 = fsub <2 x float> %.sroa.07.0.copyload, %.sroa.09.0.copyload
-  %foldExtExtBinop150 = fsub <2 x float> %.sroa.07.0.copyload, %.sroa.09.0.copyload
-  %47 = extractelement <2 x float> %foldExtExtBinop150, i64 1
-  %foldExtExtBinop152 = fmul <2 x float> %foldExtExtBinop148, %foldExtExtBinop148
-  %48 = extractelement <2 x float> %foldExtExtBinop152, i64 0
+  %foldExtExtBinop149 = fsub <2 x float> %.sroa.07.0.copyload, %.sroa.09.0.copyload
+  %foldExtExtBinop151 = fsub <2 x float> %.sroa.07.0.copyload, %.sroa.09.0.copyload
+  %47 = extractelement <2 x float> %foldExtExtBinop151, i64 1
+  %foldExtExtBinop153 = fmul <2 x float> %foldExtExtBinop149, %foldExtExtBinop149
+  %48 = extractelement <2 x float> %foldExtExtBinop153, i64 0
   %49 = fmul float %47, %47
   %50 = fadd float %48, %49
   %sqrt.i93 = tail call float @llvm.sqrt.f32(float %50)
@@ -746,7 +746,7 @@ b2Normalize.exit.us:                              ; preds = %19, %7
   br i1 %51, label %b2Normalize.exit97, label %52
 
 52:                                               ; preds = %36
-  %53 = extractelement <2 x float> %foldExtExtBinop148, i64 0
+  %53 = extractelement <2 x float> %foldExtExtBinop149, i64 0
   %54 = fdiv float 1.000000e+00, %sqrt.i93
   %55 = fmul float %53, %54
   %.sroa.012.0.vec.insert.i94 = insertelement <2 x float> poison, float %55, i64 0
@@ -756,14 +756,14 @@ b2Normalize.exit.us:                              ; preds = %19, %7
 
 b2Normalize.exit97:                               ; preds = %36, %52
   %.sroa.012.0.i96 = phi <2 x float> [ %.sroa.012.4.vec.insert.i95, %52 ], [ zeroinitializer, %36 ]
-  %foldExtExtBinop154 = fsub <2 x float> %.sroa.08.0.copyload, %.sroa.09.0.copyload
-  %foldExtExtBinop156 = fsub <2 x float> %.sroa.08.0.copyload, %.sroa.09.0.copyload
-  %shift158 = shufflevector <2 x float> %.sroa.012.0.i96, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop159 = fmul <2 x float> %foldExtExtBinop154, %shift158
-  %shift161 = shufflevector <2 x float> %foldExtExtBinop156, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop162 = fmul <2 x float> %shift161, %.sroa.012.0.i96
-  %foldExtExtBinop164 = fsub <2 x float> %foldExtExtBinop159, %foldExtExtBinop162
-  %57 = extractelement <2 x float> %foldExtExtBinop164, i64 0
+  %foldExtExtBinop155 = fsub <2 x float> %.sroa.08.0.copyload, %.sroa.09.0.copyload
+  %foldExtExtBinop157 = fsub <2 x float> %.sroa.08.0.copyload, %.sroa.09.0.copyload
+  %shift159 = shufflevector <2 x float> %.sroa.012.0.i96, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop160 = fmul <2 x float> %foldExtExtBinop155, %shift159
+  %shift162 = shufflevector <2 x float> %foldExtExtBinop157, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop163 = fmul <2 x float> %shift162, %.sroa.012.0.i96
+  %foldExtExtBinop165 = fsub <2 x float> %foldExtExtBinop160, %foldExtExtBinop163
+  %57 = extractelement <2 x float> %foldExtExtBinop165, i64 0
   %58 = fcmp ugt float %57, %34
   br i1 %58, label %35, label %.critedge, !llvm.loop !24
 

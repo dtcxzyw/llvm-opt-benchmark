@@ -9083,8 +9083,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h1fc0a82a2928b426E.exit: ; preds = %.no
 
 102:                                              ; preds = %91
   store i64 1, ptr %95, align 8
-  %.sroa.4.0..sroa_idx143 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store i64 1, ptr %.sroa.4.0..sroa_idx143, align 8
+  %.sroa.4.0..sroa_idx153 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  store i64 1, ptr %.sroa.4.0..sroa_idx153, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 24

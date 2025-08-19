@@ -590,8 +590,8 @@ _ZN6vectorIP4exprLb0EjE5resetEv.exit:             ; preds = %1, %4
   %27 = icmp ugt i32 %16, 16
   %28 = mul i32 %16, 3
   %29 = icmp ugt i32 %26, %28
-  %or.cond16.i = select i1 %27, i1 %29, i1 false
-  br i1 %or.cond16.i, label %30, label %._crit_edge.thread.i
+  %or.cond18.i = select i1 %27, i1 %29, i1 false
+  br i1 %or.cond18.i, label %30, label %._crit_edge.thread.i
 
 30:                                               ; preds = %._crit_edge.i
   %31 = icmp eq ptr %14, null
@@ -923,9 +923,9 @@ _ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i: ; preds = %_ZNK11ast_manager6i
   br i1 %34, label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i, label %.sink.split.sink.split.i.i
 
 .sink.split.sink.split.i.i:                       ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i
-  %.sink16.i.i = phi ptr [ %31, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i ], [ %1, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ]
+  %.sink19.i.i = phi ptr [ %31, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i ], [ %1, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ]
   %.sink.i.i = phi ptr [ %28, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i ], [ %33, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ]
-  %35 = load i32, ptr %.sink16.i.i, align 4, !tbaa !596
+  %35 = load i32, ptr %.sink19.i.i, align 4, !tbaa !596
   %36 = getelementptr inbounds i8, ptr %.sink.i.i, i64 -4
   %37 = load i32, ptr %36, align 4, !tbaa !546
   %.fr.i.i.i6.i.i = freeze i32 %37
@@ -936,8 +936,8 @@ _ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i: ; preds = %_ZNK11ast_manager6i
   br label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i
 
 _ZNK3smt7context16lit_internalizedEPK4expr.exit.i: ; preds = %.sink.split.sink.split.i.i, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i, %26
-  %.sink9.i.i = phi ptr [ @_ZN3smtL13null_bool_varE, %26 ], [ @_ZN3smtL13null_bool_varE, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ], [ %spec.select.i.i.i7.i.i, %.sink.split.sink.split.i.i ]
-  %41 = load i32, ptr %.sink9.i.i, align 4, !tbaa !546
+  %.sink12.i.i = phi ptr [ @_ZN3smtL13null_bool_varE, %26 ], [ @_ZN3smtL13null_bool_varE, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ], [ %spec.select.i.i.i7.i.i, %.sink.split.sink.split.i.i ]
+  %41 = load i32, ptr %.sink12.i.i, align 4, !tbaa !546
   %.not.i = icmp eq i32 %41, 2147483647
   br i1 %.not.i, label %_ZN3smt22for_each_relevant_expr14get_assignmentEP4expr.exit.thread, label %_ZN3smt22for_each_relevant_expr14get_assignmentEP4expr.exit
 
@@ -1019,9 +1019,9 @@ _ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i: ; preds = %_ZNK11ast_manager6i
   br i1 %34, label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i, label %.sink.split.sink.split.i.i
 
 .sink.split.sink.split.i.i:                       ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i
-  %.sink16.i.i = phi ptr [ %31, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i ], [ %1, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ]
+  %.sink19.i.i = phi ptr [ %31, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i ], [ %1, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ]
   %.sink.i.i = phi ptr [ %28, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i ], [ %33, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ]
-  %35 = load i32, ptr %.sink16.i.i, align 4, !tbaa !596
+  %35 = load i32, ptr %.sink19.i.i, align 4, !tbaa !596
   %36 = getelementptr inbounds i8, ptr %.sink.i.i, i64 -4
   %37 = load i32, ptr %36, align 4, !tbaa !546
   %.fr.i.i.i6.i.i = freeze i32 %37
@@ -1032,8 +1032,8 @@ _ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i: ; preds = %_ZNK11ast_manager6i
   br label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i
 
 _ZNK3smt7context16lit_internalizedEPK4expr.exit.i: ; preds = %.sink.split.sink.split.i.i, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i, %26
-  %.sink9.i.i = phi ptr [ @_ZN3smtL13null_bool_varE, %26 ], [ @_ZN3smtL13null_bool_varE, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ], [ %spec.select.i.i.i7.i.i, %.sink.split.sink.split.i.i ]
-  %41 = load i32, ptr %.sink9.i.i, align 4, !tbaa !546
+  %.sink12.i.i = phi ptr [ @_ZN3smtL13null_bool_varE, %26 ], [ @_ZN3smtL13null_bool_varE, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ], [ %spec.select.i.i.i7.i.i, %.sink.split.sink.split.i.i ]
+  %41 = load i32, ptr %.sink12.i.i, align 4, !tbaa !546
   %.not.i = icmp eq i32 %41, 2147483647
   br i1 %.not.i, label %_ZN3smt22for_each_relevant_expr14get_assignmentEP4expr.exit.thread, label %_ZN3smt22for_each_relevant_expr14get_assignmentEP4expr.exit
 
@@ -1216,9 +1216,9 @@ _ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i: ; preds = %_ZNK11ast_manager6i
   br i1 %81, label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i, label %.sink.split.sink.split.i.i
 
 .sink.split.sink.split.i.i:                       ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i
-  %.sink16.i.i = phi ptr [ %78, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i ], [ %49, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ]
+  %.sink19.i.i = phi ptr [ %78, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i ], [ %49, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ]
   %.sink.i.i = phi ptr [ %75, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i ], [ %80, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ]
-  %82 = load i32, ptr %.sink16.i.i, align 4, !tbaa !596
+  %82 = load i32, ptr %.sink19.i.i, align 4, !tbaa !596
   %83 = getelementptr inbounds i8, ptr %.sink.i.i, i64 -4
   %84 = load i32, ptr %83, align 4, !tbaa !546
   %.fr.i.i.i6.i.i = freeze i32 %84
@@ -1229,8 +1229,8 @@ _ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i: ; preds = %_ZNK11ast_manager6i
   br label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i
 
 _ZNK3smt7context16lit_internalizedEPK4expr.exit.i: ; preds = %.sink.split.sink.split.i.i, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i, %73
-  %.sink9.i.i = phi ptr [ @_ZN3smtL13null_bool_varE, %73 ], [ @_ZN3smtL13null_bool_varE, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ], [ %spec.select.i.i.i7.i.i, %.sink.split.sink.split.i.i ]
-  %88 = load i32, ptr %.sink9.i.i, align 4, !tbaa !546
+  %.sink12.i.i = phi ptr [ @_ZN3smtL13null_bool_varE, %73 ], [ @_ZN3smtL13null_bool_varE, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ], [ %spec.select.i.i.i7.i.i, %.sink.split.sink.split.i.i ]
+  %88 = load i32, ptr %.sink12.i.i, align 4, !tbaa !546
   %.not.i = icmp eq i32 %88, 2147483647
   br i1 %.not.i, label %_ZN3smt22for_each_relevant_expr14get_assignmentEP4expr.exit.thread, label %_ZN3smt22for_each_relevant_expr14get_assignmentEP4expr.exit
 
@@ -1656,9 +1656,9 @@ _ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i: ; preds = %_ZNK11ast_manager6i
   br i1 %53, label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i, label %.sink.split.sink.split.i.i
 
 .sink.split.sink.split.i.i:                       ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i
-  %.sink16.i.i = phi ptr [ %50, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i ], [ %14, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ]
+  %.sink19.i.i = phi ptr [ %50, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i ], [ %14, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ]
   %.sink.i.i = phi ptr [ %47, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i ], [ %52, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ]
-  %54 = load i32, ptr %.sink16.i.i, align 4, !tbaa !596
+  %54 = load i32, ptr %.sink19.i.i, align 4, !tbaa !596
   %55 = getelementptr inbounds i8, ptr %.sink.i.i, i64 -4
   %56 = load i32, ptr %55, align 4, !tbaa !546
   %.fr.i.i.i6.i.i = freeze i32 %56
@@ -1669,8 +1669,8 @@ _ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i: ; preds = %_ZNK11ast_manager6i
   br label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i
 
 _ZNK3smt7context16lit_internalizedEPK4expr.exit.i: ; preds = %.sink.split.sink.split.i.i, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i, %45
-  %.sink9.i.i = phi ptr [ @_ZN3smtL13null_bool_varE, %45 ], [ @_ZN3smtL13null_bool_varE, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ], [ %spec.select.i.i.i7.i.i, %.sink.split.sink.split.i.i ]
-  %60 = load i32, ptr %.sink9.i.i, align 4, !tbaa !546
+  %.sink12.i.i = phi ptr [ @_ZN3smtL13null_bool_varE, %45 ], [ @_ZN3smtL13null_bool_varE, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ], [ %spec.select.i.i.i7.i.i, %.sink.split.sink.split.i.i ]
+  %60 = load i32, ptr %.sink12.i.i, align 4, !tbaa !546
   %.not.i = icmp eq i32 %60, 2147483647
   br i1 %.not.i, label %_ZN3smt22for_each_relevant_expr14get_assignmentEP4expr.exit, label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.thread.i
 
@@ -1820,9 +1820,9 @@ _ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i31: ; preds = %_ZNK11ast_manager
   br i1 %130, label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i37, label %.sink.split.sink.split.i.i32
 
 .sink.split.sink.split.i.i32:                     ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i31, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i44
-  %.sink16.i.i33 = phi ptr [ %127, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i44 ], [ %91, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i31 ]
+  %.sink19.i.i33 = phi ptr [ %127, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i44 ], [ %91, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i31 ]
   %.sink.i.i34 = phi ptr [ %124, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i44 ], [ %129, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i31 ]
-  %131 = load i32, ptr %.sink16.i.i33, align 4, !tbaa !596
+  %131 = load i32, ptr %.sink19.i.i33, align 4, !tbaa !596
   %132 = getelementptr inbounds i8, ptr %.sink.i.i34, i64 -4
   %133 = load i32, ptr %132, align 4, !tbaa !546
   %.fr.i.i.i6.i.i35 = freeze i32 %133
@@ -1833,8 +1833,8 @@ _ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i31: ; preds = %_ZNK11ast_manager
   br label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i37
 
 _ZNK3smt7context16lit_internalizedEPK4expr.exit.i37: ; preds = %.sink.split.sink.split.i.i32, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i31, %122
-  %.sink9.i.i38 = phi ptr [ @_ZN3smtL13null_bool_varE, %122 ], [ @_ZN3smtL13null_bool_varE, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i31 ], [ %spec.select.i.i.i7.i.i36, %.sink.split.sink.split.i.i32 ]
-  %137 = load i32, ptr %.sink9.i.i38, align 4, !tbaa !546
+  %.sink12.i.i38 = phi ptr [ @_ZN3smtL13null_bool_varE, %122 ], [ @_ZN3smtL13null_bool_varE, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i31 ], [ %spec.select.i.i.i7.i.i36, %.sink.split.sink.split.i.i32 ]
+  %137 = load i32, ptr %.sink12.i.i38, align 4, !tbaa !546
   %.not.i39 = icmp eq i32 %137, 2147483647
   br i1 %.not.i39, label %_ZN3smt22for_each_relevant_expr14get_assignmentEP4expr.exit45, label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.thread.i40
 
@@ -1951,8 +1951,8 @@ _ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i: ; preds = %19
   br label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i
 
 _ZNK3smt7context16lit_internalizedEPK4expr.exit.i: ; preds = %.sink.split.sink.split.i.i, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i
-  %.sink9.i.i = phi ptr [ @_ZN3smtL13null_bool_varE, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ], [ %spec.select.i.i.i7.i.i, %.sink.split.sink.split.i.i ]
-  %36 = load i32, ptr %.sink9.i.i, align 4, !tbaa !546
+  %.sink12.i.i = phi ptr [ @_ZN3smtL13null_bool_varE, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ], [ %spec.select.i.i.i7.i.i, %.sink.split.sink.split.i.i ]
+  %36 = load i32, ptr %.sink12.i.i, align 4, !tbaa !546
   %.not.i = icmp eq i32 %36, 2147483647
   br i1 %.not.i, label %_ZN3smt22for_each_relevant_expr14get_assignmentEP4expr.exit.thread, label %_ZN3smt22for_each_relevant_expr14get_assignmentEP4expr.exit
 
@@ -2051,8 +2051,8 @@ _ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i: ; preds = %39
   br label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i
 
 _ZNK3smt7context16lit_internalizedEPK4expr.exit.i: ; preds = %.sink.split.sink.split.i.i, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i
-  %.sink9.i.i = phi ptr [ @_ZN3smtL13null_bool_varE, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ], [ %spec.select.i.i.i7.i.i, %.sink.split.sink.split.i.i ]
-  %49 = load i32, ptr %.sink9.i.i, align 4, !tbaa !546
+  %.sink12.i.i = phi ptr [ @_ZN3smtL13null_bool_varE, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i ], [ %spec.select.i.i.i7.i.i, %.sink.split.sink.split.i.i ]
+  %49 = load i32, ptr %.sink12.i.i, align 4, !tbaa !546
   %.not.i = icmp eq i32 %49, 2147483647
   br i1 %.not.i, label %_ZN3smt22for_each_relevant_expr14get_assignmentEP4expr.exit.thread.thread, label %_ZN3smt22for_each_relevant_expr14get_assignmentEP4expr.exit
 
@@ -2104,9 +2104,9 @@ _ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i6: ; preds = %_ZNK11ast_manager6
   br i1 %73, label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i12, label %.sink.split.sink.split.i.i7
 
 .sink.split.sink.split.i.i7:                      ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i6, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i19
-  %.sink16.i.i8 = phi ptr [ %70, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i19 ], [ %1, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i6 ]
+  %.sink19.i.i8 = phi ptr [ %70, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i19 ], [ %1, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i6 ]
   %.sink.i.i9 = phi ptr [ %67, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.i19 ], [ %72, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i6 ]
-  %74 = load i32, ptr %.sink16.i.i8, align 4, !tbaa !596
+  %74 = load i32, ptr %.sink19.i.i8, align 4, !tbaa !596
   %75 = getelementptr inbounds i8, ptr %.sink.i.i9, i64 -4
   %76 = load i32, ptr %75, align 4, !tbaa !546
   %.fr.i.i.i6.i.i10 = freeze i32 %76
@@ -2117,8 +2117,8 @@ _ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i6: ; preds = %_ZNK11ast_manager6
   br label %_ZNK3smt7context16lit_internalizedEPK4expr.exit.i12
 
 _ZNK3smt7context16lit_internalizedEPK4expr.exit.i12: ; preds = %.sink.split.sink.split.i.i7, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i6, %65
-  %.sink9.i.i13 = phi ptr [ @_ZN3smtL13null_bool_varE, %65 ], [ @_ZN3smtL13null_bool_varE, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i6 ], [ %spec.select.i.i.i7.i.i11, %.sink.split.sink.split.i.i7 ]
-  %80 = load i32, ptr %.sink9.i.i13, align 4, !tbaa !546
+  %.sink12.i.i13 = phi ptr [ @_ZN3smtL13null_bool_varE, %65 ], [ @_ZN3smtL13null_bool_varE, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i6 ], [ %spec.select.i.i.i7.i.i11, %.sink.split.sink.split.i.i7 ]
+  %80 = load i32, ptr %.sink12.i.i13, align 4, !tbaa !546
   %.not.i14 = icmp eq i32 %80, 2147483647
   br i1 %.not.i14, label %_ZNK11ast_manager8is_labelEPK4exprRb.exit.thread, label %_ZN3smt22for_each_relevant_expr14get_assignmentEP4expr.exit20
 

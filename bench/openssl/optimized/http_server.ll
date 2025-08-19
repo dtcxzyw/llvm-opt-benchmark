@@ -589,7 +589,7 @@ define range(i32 -1, 2) i32 @http_server_get_asn1_req(ptr noundef %0, ptr nounde
   store ptr null, ptr %1, align 8, !tbaa !16
   %.not = icmp eq ptr %2, null
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %.sink.sroa.gep233 = getelementptr inbounds nuw i8, ptr %15, i64 5
+  %.sink.sroa.gep251 = getelementptr inbounds nuw i8, ptr %15, i64 5
   br i1 %.not, label %20, label %19
 
 19:                                               ; preds = %9
@@ -739,7 +739,7 @@ http_server_send_status.exit203:                  ; preds = %65, %68
   br i1 %73, label %74, label %130
 
 74:                                               ; preds = %72, %71
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %71 ], [ %.sink.sroa.gep233, %72 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %71 ], [ %.sink.sroa.gep251, %72 ]
   %75 = getelementptr inbounds i8, ptr %.sink.sroa.phi, i64 -1
   store i8 0, ptr %75, align 1, !tbaa !20
   br label %76
@@ -999,8 +999,8 @@ http_server_send_status.exit207:                  ; preds = %130, %134
   br i1 %190, label %.sink.split, label %191
 
 .sink.split:                                      ; preds = %188, %185
-  %.sink230 = phi i32 [ 1, %185 ], [ 0, %188 ]
-  store i32 %.sink230, ptr %5, align 4, !tbaa !3
+  %.sink248 = phi i32 [ 1, %185 ], [ 0, %188 ]
+  store i32 %.sink248, ptr %5, align 4, !tbaa !3
   br label %191
 
 191:                                              ; preds = %.sink.split, %181, %182, %188

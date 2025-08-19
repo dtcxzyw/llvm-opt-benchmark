@@ -130,18 +130,18 @@ define hidden noundef zeroext i1 @_ZN13MethodMatcher12canonicalizeEPcRPKc(ptr no
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %6 = load i8, ptr %5, align 1
   %.not51 = icmp eq i8 %6, 0
-  br i1 %.not51, label %.preheader81, label %7
+  br i1 %.not51, label %.preheader85, label %7
 
 7:                                                ; preds = %4
   %8 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str) #15
   %.not52 = icmp eq ptr %8, null
-  br i1 %.not52, label %.preheader81, label %.loopexit.sink.split
+  br i1 %.not52, label %.preheader85, label %.loopexit.sink.split
 
-.preheader81:                                     ; preds = %4, %7
+.preheader85:                                     ; preds = %4, %7
   br label %9
 
-9:                                                ; preds = %.preheader81, %9
-  %.pn54 = phi ptr [ %.040, %9 ], [ %0, %.preheader81 ]
+9:                                                ; preds = %.preheader85, %9
+  %.pn54 = phi ptr [ %.040, %9 ], [ %0, %.preheader85 ]
   %.040 = getelementptr inbounds nuw i8, ptr %.pn54, i64 1
   %10 = load i8, ptr %.040, align 1
   switch i8 %10, label %9 [
@@ -183,8 +183,8 @@ define hidden noundef zeroext i1 @_ZN13MethodMatcher12canonicalizeEPcRPKc(ptr no
 
 .loopexit67.thread:                               ; preds = %11
   %18 = load i8, ptr %0, align 1
-  %.not556974 = icmp eq i8 %18, 0
-  br i1 %.not556974, label %.loopexit, label %.lr.ph.split.us.preheader
+  %.not556978 = icmp eq i8 %18, 0
+  br i1 %.not556978, label %.loopexit, label %.lr.ph.split.us.preheader
 
 .lr.ph:                                           ; preds = %.loopexit67
   br i1 %.not, label %.lr.ph.split.us.preheader, label %.lr.ph.split

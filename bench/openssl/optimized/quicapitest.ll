@@ -2227,8 +2227,8 @@ define internal range(i32 0, 2) i32 @test_bio_ssl() #1 {
 
 30:                                               ; preds = %28
   %31 = call i32 @BIO_test_flags(ptr noundef %11, i32 noundef 7) #10
-  %.not176 = icmp eq i32 %31, 2
-  br i1 %.not176, label %.lr.ph.split, label %.critedge, !llvm.loop !36
+  %.not177 = icmp eq i32 %31, 2
+  br i1 %.not177, label %.lr.ph.split, label %.critedge, !llvm.loop !36
 
 .critedge:                                        ; preds = %28, %.lr.ph.split, %30, %.critedge13
   %.079.lcssa = phi i32 [ 2, %.critedge13 ], [ 2, %.lr.ph.split ], [ 0, %28 ], [ %31, %30 ]
@@ -2311,8 +2311,8 @@ define internal range(i32 0, 2) i32 @test_bio_ssl() #1 {
 .lr.ph122.preheader:                              ; preds = %.preheader
   %63 = load i64, ptr %4, align 8, !tbaa !17
   %64 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 1044, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.201, i64 noundef 11, ptr noundef nonnull %5, i64 noundef %63) #10
-  %.not97178 = icmp eq i32 %64, 0
-  br i1 %.not97178, label %.loopexit, label %.lr.ph
+  %.not97179 = icmp eq i32 %64, 0
+  br i1 %.not97179, label %.loopexit, label %.lr.ph
 
 .lr.ph122:                                        ; preds = %111
   %65 = load i64, ptr %4, align 8, !tbaa !17
@@ -2321,12 +2321,12 @@ define internal range(i32 0, 2) i32 @test_bio_ssl() #1 {
   br i1 %.not97, label %.loopexit, label %.lr.ph, !llvm.loop !38
 
 .lr.ph:                                           ; preds = %.lr.ph122.preheader, %.lr.ph122
-  %.185119181 = phi ptr [ %100, %.lr.ph122 ], [ null, %.lr.ph122.preheader ]
-  %.083120180 = phi ptr [ %100, %.lr.ph122 ], [ %11, %.lr.ph122.preheader ]
-  %.069121179 = phi i64 [ 4, %.lr.ph122 ], [ 0, %.lr.ph122.preheader ]
+  %.185119182 = phi ptr [ %100, %.lr.ph122 ], [ null, %.lr.ph122.preheader ]
+  %.083120181 = phi ptr [ %100, %.lr.ph122 ], [ %11, %.lr.ph122.preheader ]
+  %.069121180 = phi i64 [ 4, %.lr.ph122 ], [ 0, %.lr.ph122.preheader ]
   %67 = phi i1 [ true, %.lr.ph122 ], [ false, %.lr.ph122.preheader ]
   %68 = load ptr, ptr %2, align 8, !tbaa !15
-  %69 = call i32 @ossl_quic_tserver_write(ptr noundef %68, i64 noundef %.069121179, ptr noundef nonnull @.str.201, i64 noundef 11, ptr noundef nonnull %3) #10
+  %69 = call i32 @ossl_quic_tserver_write(ptr noundef %68, i64 noundef %.069121180, ptr noundef nonnull @.str.201, i64 noundef 11, ptr noundef nonnull %3) #10
   %70 = icmp ne i32 %69, 0
   %71 = zext i1 %70 to i32
   %72 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1048, ptr noundef nonnull @.str.208, i32 noundef %71) #10
@@ -2336,7 +2336,7 @@ define internal range(i32 0, 2) i32 @test_bio_ssl() #1 {
 73:                                               ; preds = %.lr.ph
   %74 = load ptr, ptr %2, align 8, !tbaa !15
   %75 = call i32 @ossl_quic_tserver_tick(ptr noundef %74) #10
-  %76 = call i32 @BIO_read_ex(ptr noundef %.083120180, ptr noundef nonnull %5, i64 noundef 80, ptr noundef nonnull %4) #10
+  %76 = call i32 @BIO_read_ex(ptr noundef %.083120181, ptr noundef nonnull %5, i64 noundef 80, ptr noundef nonnull %4) #10
   %77 = icmp ne i32 %76, 0
   %78 = zext i1 %77 to i32
   %79 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1052, ptr noundef nonnull @.str.209, i32 noundef %78) #10
@@ -2405,21 +2405,21 @@ define internal range(i32 0, 2) i32 @test_bio_ssl() #1 {
   %117 = zext i1 %116 to i32
   %118 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1043, ptr noundef nonnull @.str.207, i32 noundef %117) #10
   %.not96 = icmp eq i32 %118, 0
-  br i1 %.not96, label %..loopexit.loopexit_crit_edge216, label %.lr.ph122, !llvm.loop !38
+  br i1 %.not96, label %..loopexit.loopexit_crit_edge217, label %.lr.ph122, !llvm.loop !38
 
 ..loopexit.loopexit_crit_edge:                    ; preds = %80
   %not..not100 = xor i1 %.not100, true
   %.mux = zext i1 %not..not100 to i32
   br label %.loopexit
 
-..loopexit.loopexit_crit_edge216:                 ; preds = %111
+..loopexit.loopexit_crit_edge217:                 ; preds = %111
   br label %.loopexit, !llvm.loop !38
 
-.loopexit:                                        ; preds = %46, %106, %102, %98, %93, %89, %83, %73, %.lr.ph, %.lr.ph122, %.lr.ph122.preheader, %..loopexit.loopexit_crit_edge, %..loopexit.loopexit_crit_edge216, %.preheader, %17, %13, %10, %0, %53
-  %.086 = phi ptr [ %11, %53 ], [ %11, %17 ], [ %11, %13 ], [ %11, %10 ], [ null, %0 ], [ %11, %.preheader ], [ %11, %..loopexit.loopexit_crit_edge216 ], [ %11, %..loopexit.loopexit_crit_edge ], [ %11, %.lr.ph122.preheader ], [ %11, %.lr.ph122 ], [ %11, %.lr.ph ], [ %11, %73 ], [ %11, %83 ], [ %11, %89 ], [ %11, %93 ], [ %11, %98 ], [ %11, %102 ], [ %11, %106 ], [ %11, %46 ]
-  %.084 = phi ptr [ null, %53 ], [ null, %17 ], [ null, %13 ], [ null, %10 ], [ null, %0 ], [ null, %.preheader ], [ %100, %..loopexit.loopexit_crit_edge216 ], [ %.185119181, %..loopexit.loopexit_crit_edge ], [ null, %.lr.ph122.preheader ], [ %100, %106 ], [ %100, %102 ], [ %100, %98 ], [ %.185119181, %93 ], [ %.185119181, %89 ], [ %.185119181, %83 ], [ %.185119181, %73 ], [ %.185119181, %.lr.ph ], [ %100, %.lr.ph122 ], [ null, %46 ]
-  %.082 = phi i32 [ 0, %53 ], [ 0, %17 ], [ 0, %13 ], [ 0, %10 ], [ 0, %0 ], [ 0, %.preheader ], [ 0, %..loopexit.loopexit_crit_edge216 ], [ %.mux, %..loopexit.loopexit_crit_edge ], [ 0, %.lr.ph122.preheader ], [ 0, %.lr.ph122 ], [ 0, %.lr.ph ], [ 0, %73 ], [ 0, %83 ], [ 0, %89 ], [ 0, %93 ], [ 0, %98 ], [ 0, %102 ], [ 0, %106 ], [ 0, %46 ]
-  %.070 = phi ptr [ null, %53 ], [ null, %17 ], [ null, %13 ], [ null, %10 ], [ null, %0 ], [ null, %.preheader ], [ null, %..loopexit.loopexit_crit_edge216 ], [ null, %..loopexit.loopexit_crit_edge ], [ null, %.lr.ph122.preheader ], [ null, %106 ], [ %91, %102 ], [ %91, %98 ], [ %91, %93 ], [ %91, %89 ], [ null, %83 ], [ null, %73 ], [ null, %.lr.ph ], [ null, %.lr.ph122 ], [ null, %46 ]
+.loopexit:                                        ; preds = %46, %106, %102, %98, %93, %89, %83, %73, %.lr.ph, %.lr.ph122, %.lr.ph122.preheader, %..loopexit.loopexit_crit_edge, %..loopexit.loopexit_crit_edge217, %.preheader, %17, %13, %10, %0, %53
+  %.086 = phi ptr [ %11, %53 ], [ %11, %17 ], [ %11, %13 ], [ %11, %10 ], [ null, %0 ], [ %11, %.preheader ], [ %11, %..loopexit.loopexit_crit_edge217 ], [ %11, %..loopexit.loopexit_crit_edge ], [ %11, %.lr.ph122.preheader ], [ %11, %.lr.ph122 ], [ %11, %.lr.ph ], [ %11, %73 ], [ %11, %83 ], [ %11, %89 ], [ %11, %93 ], [ %11, %98 ], [ %11, %102 ], [ %11, %106 ], [ %11, %46 ]
+  %.084 = phi ptr [ null, %53 ], [ null, %17 ], [ null, %13 ], [ null, %10 ], [ null, %0 ], [ null, %.preheader ], [ %100, %..loopexit.loopexit_crit_edge217 ], [ %.185119182, %..loopexit.loopexit_crit_edge ], [ null, %.lr.ph122.preheader ], [ %100, %106 ], [ %100, %102 ], [ %100, %98 ], [ %.185119182, %93 ], [ %.185119182, %89 ], [ %.185119182, %83 ], [ %.185119182, %73 ], [ %.185119182, %.lr.ph ], [ %100, %.lr.ph122 ], [ null, %46 ]
+  %.082 = phi i32 [ 0, %53 ], [ 0, %17 ], [ 0, %13 ], [ 0, %10 ], [ 0, %0 ], [ 0, %.preheader ], [ 0, %..loopexit.loopexit_crit_edge217 ], [ %.mux, %..loopexit.loopexit_crit_edge ], [ 0, %.lr.ph122.preheader ], [ 0, %.lr.ph122 ], [ 0, %.lr.ph ], [ 0, %73 ], [ 0, %83 ], [ 0, %89 ], [ 0, %93 ], [ 0, %98 ], [ 0, %102 ], [ 0, %106 ], [ 0, %46 ]
+  %.070 = phi ptr [ null, %53 ], [ null, %17 ], [ null, %13 ], [ null, %10 ], [ null, %0 ], [ null, %.preheader ], [ null, %..loopexit.loopexit_crit_edge217 ], [ null, %..loopexit.loopexit_crit_edge ], [ null, %.lr.ph122.preheader ], [ null, %106 ], [ %91, %102 ], [ %91, %98 ], [ %91, %93 ], [ %91, %89 ], [ null, %83 ], [ null, %73 ], [ null, %.lr.ph ], [ null, %.lr.ph122 ], [ null, %46 ]
   call void @BIO_free_all(ptr noundef %.086) #10
   call void @BIO_free_all(ptr noundef %.084) #10
   call void @SSL_free(ptr noundef %.070) #10
@@ -4464,7 +4464,7 @@ define internal range(i32 0, 2) i32 @test_new_token() #1 {
 .lr.ph:                                           ; preds = %60, %76
   %.01319.i20 = phi i32 [ %.114.i, %76 ], [ 0, %60 ]
   %.020.i19 = phi ptr [ %.1.i, %76 ], [ null, %60 ]
-  switch i32 %.01319.i20, label %default.unreachable24 [
+  switch i32 %.01319.i20, label %default.unreachable26 [
     i32 0, label %63
     i32 1, label %65
     i32 2, label %71
@@ -4512,7 +4512,7 @@ define internal range(i32 0, 2) i32 @test_new_token() #1 {
   %78 = icmp sgt i32 %77, 0
   br i1 %78, label %.lr.ph, label %find_new_token_data.exit, !llvm.loop !68
 
-default.unreachable24:                            ; preds = %.lr.ph
+default.unreachable26:                            ; preds = %.lr.ph
   unreachable
 
 find_new_token_data.exit:                         ; preds = %76, %60, %68, %75

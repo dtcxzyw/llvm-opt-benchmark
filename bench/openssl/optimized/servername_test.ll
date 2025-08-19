@@ -407,8 +407,8 @@ PACKET_get_length_prefixed_1.exit:                ; preds = %20, %25
 
 PACKET_get_length_prefixed_1.exit.thread:         ; preds = %19
   %30 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 65, ptr noundef nonnull @.str.20, i32 noundef 0) #5
-  %.not7107 = icmp eq i32 %30, 0
-  br i1 %.not7107, label %PACKET_forward.exit.thread, label %PACKET_get_length_prefixed_2.exit.thread
+  %.not7119 = icmp eq i32 %30, 0
+  br i1 %.not7119, label %PACKET_forward.exit.thread, label %PACKET_get_length_prefixed_2.exit.thread
 
 31:                                               ; preds = %PACKET_get_length_prefixed_1.exit
   %32 = icmp samesign ult i64 %.sroa.18.4, 2
@@ -444,8 +444,8 @@ PACKET_get_length_prefixed_2.exit:                ; preds = %31, %33, %43
 
 PACKET_get_length_prefixed_2.exit.thread:         ; preds = %PACKET_get_length_prefixed_1.exit.thread
   %48 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 67, ptr noundef nonnull @.str.21, i32 noundef 0) #5
-  %.not8121 = icmp eq i32 %48, 0
-  br i1 %.not8121, label %PACKET_forward.exit.thread, label %PACKET_get_length_prefixed_1.exit45
+  %.not8133 = icmp eq i32 %48, 0
+  br i1 %.not8133, label %PACKET_forward.exit.thread, label %PACKET_get_length_prefixed_1.exit45
 
 49:                                               ; preds = %PACKET_get_length_prefixed_2.exit
   %.not.i.i.i42 = icmp eq i64 %.sroa.18.5, 0
@@ -507,7 +507,7 @@ PACKET_as_length_prefixed_2.exit:                 ; preds = %60, %62, %71
   %.sroa.11.0 = phi i64 [ %.sroa.11.6, %102 ], [ %.sroa.11.4, %PACKET_as_length_prefixed_2.exit ]
   %.sroa.074.0 = phi ptr [ %.sroa.074.1, %102 ], [ null, %PACKET_as_length_prefixed_2.exit ]
   %.sroa.675.0 = phi i64 [ %.sroa.675.1, %102 ], [ 0, %PACKET_as_length_prefixed_2.exit ]
-  %.088 = phi i32 [ %.1139144, %102 ], [ 0, %PACKET_as_length_prefixed_2.exit ]
+  %.088 = phi i32 [ %.1151156, %102 ], [ 0, %PACKET_as_length_prefixed_2.exit ]
   switch i64 %.sroa.11.0, label %PACKET_get_net_2.exit [
     i64 0, label %PACKET_forward.exit.thread
     i64 1, label %PACKET_get_net_2.exit.thread
@@ -529,8 +529,8 @@ PACKET_get_net_2.exit:                            ; preds = %.preheader
 
 PACKET_get_net_2.exit.thread:                     ; preds = %.preheader
   %84 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 76, ptr noundef nonnull @.str.23, i32 noundef 0) #5
-  %.not12136 = icmp eq i32 %84, 0
-  br i1 %.not12136, label %PACKET_forward.exit.thread, label %PACKET_get_length_prefixed_2.exit55
+  %.not12148 = icmp eq i32 %84, 0
+  br i1 %.not12148, label %PACKET_forward.exit.thread, label %PACKET_get_length_prefixed_2.exit55
 
 85:                                               ; preds = %PACKET_get_net_2.exit
   %86 = icmp ult i64 %82, 2
@@ -555,7 +555,7 @@ PACKET_get_net_2.exit.thread:                     ; preds = %.preheader
   br label %PACKET_get_length_prefixed_2.exit55
 
 PACKET_get_length_prefixed_2.exit55:              ; preds = %PACKET_get_net_2.exit.thread, %85, %87, %97
-  %.1139144 = phi i32 [ %80, %85 ], [ %80, %87 ], [ %80, %97 ], [ %.088, %PACKET_get_net_2.exit.thread ]
+  %.1151156 = phi i32 [ %80, %85 ], [ %80, %87 ], [ %80, %97 ], [ %.088, %PACKET_get_net_2.exit.thread ]
   %.sroa.076.6 = phi ptr [ %81, %85 ], [ %81, %87 ], [ %99, %97 ], [ %.sroa.076.0, %PACKET_get_net_2.exit.thread ]
   %.sroa.11.6 = phi i64 [ %82, %85 ], [ %82, %87 ], [ %100, %97 ], [ 1, %PACKET_get_net_2.exit.thread ]
   %.sroa.074.1 = phi ptr [ %.sroa.074.0, %85 ], [ %.sroa.074.0, %87 ], [ %98, %97 ], [ %.sroa.074.0, %PACKET_get_net_2.exit.thread ]
@@ -566,7 +566,7 @@ PACKET_get_length_prefixed_2.exit55:              ; preds = %PACKET_get_net_2.ex
   br i1 %.not13, label %PACKET_forward.exit.thread, label %102
 
 102:                                              ; preds = %PACKET_get_length_prefixed_2.exit55
-  %103 = icmp eq i32 %.1139144, 0
+  %103 = icmp eq i32 %.1151156, 0
   br i1 %103, label %104, label %.preheader, !llvm.loop !15
 
 104:                                              ; preds = %102

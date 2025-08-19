@@ -201,13 +201,13 @@ define internal i32 @vaapi_vc1_start_frame(ptr noundef %0, ptr readnone captures
   %153 = getelementptr inbounds nuw i8, ptr %7, i64 6528
   %154 = load i8, ptr %153, align 8, !tbaa !98
   %155 = icmp eq i8 %154, 4
-  br i1 %155, label %159, label %.thread386
+  br i1 %155, label %159, label %.thread401
 
 156:                                              ; preds = %151
   %157 = getelementptr inbounds nuw i8, ptr %7, i64 10200
   %158 = load i32, ptr %157, align 8, !tbaa !99
   %.not13.i = icmp eq i32 %158, 0
-  br i1 %.not13.i, label %.thread390, label %159
+  br i1 %.not13.i, label %.thread405, label %159
 
 159:                                              ; preds = %156, %152
   %160 = getelementptr inbounds nuw i8, ptr %7, i64 6936
@@ -218,12 +218,12 @@ define internal i32 @vaapi_vc1_start_frame(ptr noundef %0, ptr readnone captures
   %163 = getelementptr inbounds nuw i8, ptr %7, i64 6528
   %164 = load i8, ptr %163, align 8, !tbaa !98
   %165 = icmp eq i8 %164, 4
-  br i1 %165, label %166, label %.thread382
+  br i1 %165, label %166, label %.thread397
 
 166:                                              ; preds = %162
   %167 = getelementptr inbounds nuw i8, ptr %7, i64 10416
   %168 = load i32, ptr %167, align 8, !tbaa !101
-  switch i32 %168, label %.thread382 [
+  switch i32 %168, label %.thread397 [
     i32 1, label %169
     i32 2, label %172
     i32 3, label %175
@@ -232,47 +232,47 @@ define internal i32 @vaapi_vc1_start_frame(ptr noundef %0, ptr readnone captures
 169:                                              ; preds = %166
   %170 = getelementptr inbounds nuw i8, ptr %7, i64 6936
   %171 = load i8, ptr %170, align 8, !tbaa !100
-  br label %.thread382
+  br label %.thread397
 
 172:                                              ; preds = %166
   %173 = getelementptr inbounds nuw i8, ptr %7, i64 10204
   %174 = load i8, ptr %173, align 4, !tbaa !102
-  br label %.thread382
+  br label %.thread397
 
 175:                                              ; preds = %166
   %176 = getelementptr inbounds nuw i8, ptr %7, i64 6936
   %177 = load i8, ptr %176, align 8, !tbaa !100
-  br label %.thread382
+  br label %.thread397
 
 178:                                              ; preds = %151, %159
   %.0.shrunk.i.ph.ph = phi i8 [ %161, %159 ], [ 0, %151 ]
   switch i32 %130, label %.thread321 [
-    i32 0, label %.thread386
-    i32 1, label %.thread390
+    i32 0, label %.thread401
+    i32 1, label %.thread405
   ]
 
-.thread386:                                       ; preds = %152, %178
-  %.0.shrunk.i.ph.ph388 = phi i8 [ %.0.shrunk.i.ph.ph, %178 ], [ 0, %152 ]
+.thread401:                                       ; preds = %152, %178
+  %.0.shrunk.i.ph.ph403 = phi i8 [ %.0.shrunk.i.ph.ph, %178 ], [ 0, %152 ]
   %179 = getelementptr inbounds nuw i8, ptr %7, i64 6528
   %180 = load i8, ptr %179, align 8, !tbaa !98
   %181 = icmp eq i8 %180, 4
   br i1 %181, label %.thread14.sink.split.i, label %.thread321
 
-.thread390:                                       ; preds = %156, %178
-  %.0.shrunk.i.ph.ph392 = phi i8 [ %.0.shrunk.i.ph.ph, %178 ], [ 0, %156 ]
+.thread405:                                       ; preds = %156, %178
+  %.0.shrunk.i.ph.ph407 = phi i8 [ %.0.shrunk.i.ph.ph, %178 ], [ 0, %156 ]
   %182 = getelementptr inbounds nuw i8, ptr %7, i64 10200
   %183 = load i32, ptr %182, align 8, !tbaa !99
   %.not13.i266 = icmp eq i32 %183, 0
   br i1 %.not13.i266, label %.thread321, label %.thread14.sink.split.i
 
-.thread382:                                       ; preds = %175, %172, %169, %166, %162
-  %.0.shrunk.i.ph.ph384 = phi i8 [ 0, %162 ], [ 0, %166 ], [ %177, %175 ], [ %174, %172 ], [ %171, %169 ]
+.thread397:                                       ; preds = %175, %172, %169, %166, %162
+  %.0.shrunk.i.ph.ph399 = phi i8 [ 0, %162 ], [ 0, %166 ], [ %177, %175 ], [ %174, %172 ], [ %171, %169 ]
   %184 = getelementptr inbounds nuw i8, ptr %7, i64 6528
   %185 = load i8, ptr %184, align 8, !tbaa !98
   %186 = icmp eq i8 %185, 4
   br i1 %186, label %187, label %.thread
 
-187:                                              ; preds = %.thread382
+187:                                              ; preds = %.thread397
   %188 = getelementptr inbounds nuw i8, ptr %7, i64 10416
   %189 = load i32, ptr %188, align 8, !tbaa !101
   switch i32 %189, label %.thread [
@@ -284,24 +284,24 @@ define internal i32 @vaapi_vc1_start_frame(ptr noundef %0, ptr readnone captures
 190:                                              ; preds = %187
   br label %.thread14.sink.split.i
 
-.thread14.sink.split.i:                           ; preds = %190, %187, %187, %.thread390, %.thread386
-  %.0.shrunk.i.ph.ph385 = phi i8 [ %.0.shrunk.i.ph.ph384, %190 ], [ %.0.shrunk.i.ph.ph392, %.thread390 ], [ %.0.shrunk.i.ph.ph388, %.thread386 ], [ %.0.shrunk.i.ph.ph384, %187 ], [ %.0.shrunk.i.ph.ph384, %187 ]
-  %.sink15.i = phi i64 [ 10205, %190 ], [ 6937, %.thread390 ], [ 6937, %.thread386 ], [ 6937, %187 ], [ 6937, %187 ]
+.thread14.sink.split.i:                           ; preds = %190, %187, %187, %.thread405, %.thread401
+  %.0.shrunk.i.ph.ph400 = phi i8 [ %.0.shrunk.i.ph.ph399, %190 ], [ %.0.shrunk.i.ph.ph407, %.thread405 ], [ %.0.shrunk.i.ph.ph403, %.thread401 ], [ %.0.shrunk.i.ph.ph399, %187 ], [ %.0.shrunk.i.ph.ph399, %187 ]
+  %.sink15.i = phi i64 [ 10205, %190 ], [ 6937, %.thread405 ], [ 6937, %.thread401 ], [ 6937, %187 ], [ 6937, %187 ]
   %191 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink15.i
   %192 = load i8, ptr %191, align 1, !tbaa !103
   br label %vc1_get_LUMSHIFT.exit
 
-.thread321:                                       ; preds = %.thread390, %.thread386, %178
-  %.0.shrunk.i.ph.ph389 = phi i8 [ %.0.shrunk.i.ph.ph392, %.thread390 ], [ %.0.shrunk.i.ph.ph388, %.thread386 ], [ %.0.shrunk.i.ph.ph, %178 ]
+.thread321:                                       ; preds = %.thread405, %.thread401, %178
+  %.0.shrunk.i.ph.ph404 = phi i8 [ %.0.shrunk.i.ph.ph407, %.thread405 ], [ %.0.shrunk.i.ph.ph403, %.thread401 ], [ %.0.shrunk.i.ph.ph, %178 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.62, i8 0, i64 3, i1 false)
   br label %vc1_get_FPTYPE.exit
 
-.thread:                                          ; preds = %187, %.thread382
+.thread:                                          ; preds = %187, %.thread397
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.62, i8 0, i64 3, i1 false)
   br label %vc1_get_FPTYPE.exit
 
 vc1_get_LUMSHIFT.exit:                            ; preds = %148, %4, %.thread14.sink.split.i
-  %.0.shrunk.i308 = phi i8 [ %.0.shrunk.i.ph.ph385, %.thread14.sink.split.i ], [ 0, %4 ], [ 0, %148 ]
+  %.0.shrunk.i308 = phi i8 [ %.0.shrunk.i.ph.ph400, %.thread14.sink.split.i ], [ 0, %4 ], [ 0, %148 ]
   %.0.shrunk.i264 = phi i8 [ %192, %.thread14.sink.split.i ], [ 0, %4 ], [ 0, %148 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.62, i8 0, i64 3, i1 false)
   %193 = icmp eq i32 %130, 2
@@ -346,7 +346,7 @@ vc1_get_LUMSHIFT.exit:                            ; preds = %148, %4, %.thread14
 vc1_get_FPTYPE.exit:                              ; preds = %.thread321, %._crit_edge371, %203, %200, %199, %195, %194, %.thread
   %207 = phi i1 [ true, %199 ], [ true, %195 ], [ true, %194 ], [ true, %.thread ], [ false, %203 ], [ false, %200 ], [ false, %._crit_edge371 ], [ false, %.thread321 ]
   %208 = phi i8 [ %.0.shrunk.i264, %199 ], [ %.0.shrunk.i264, %195 ], [ %.0.shrunk.i264, %194 ], [ 0, %.thread ], [ %.0.shrunk.i264, %203 ], [ %.0.shrunk.i264, %200 ], [ %.0.shrunk.i264, %._crit_edge371 ], [ 0, %.thread321 ]
-  %.0.shrunk.i308312 = phi i8 [ %.0.shrunk.i308, %199 ], [ %.0.shrunk.i308, %195 ], [ %.0.shrunk.i308, %194 ], [ %.0.shrunk.i.ph.ph384, %.thread ], [ %.0.shrunk.i308, %203 ], [ %.0.shrunk.i308, %200 ], [ %.0.shrunk.i308, %._crit_edge371 ], [ %.0.shrunk.i.ph.ph389, %.thread321 ]
+  %.0.shrunk.i308312 = phi i8 [ %.0.shrunk.i308, %199 ], [ %.0.shrunk.i308, %195 ], [ %.0.shrunk.i308, %194 ], [ %.0.shrunk.i.ph.ph399, %.thread ], [ %.0.shrunk.i308, %203 ], [ %.0.shrunk.i308, %200 ], [ %.0.shrunk.i308, %._crit_edge371 ], [ %.0.shrunk.i.ph.ph404, %.thread321 ]
   %209 = phi i16 [ 0, %199 ], [ %198, %195 ], [ 3, %194 ], [ 3, %.thread ], [ %206, %203 ], [ 0, %200 ], [ %202, %._crit_edge371 ], [ 1, %.thread321 ]
   %210 = trunc i32 %130 to i16
   %211 = shl i16 %210, 3
@@ -440,7 +440,7 @@ vc1_get_FPTYPE.exit:                              ; preds = %.thread321, %._crit
 
 vc1_has_MVTYPEMB_bitplane.exit.thread:            ; preds = %270, %273, %276, %.fold.split.i
   %.0.i272.ph = phi i8 [ 0, %.fold.split.i ], [ %280, %276 ], [ 1, %273 ], [ 0, %270 ]
-  %switch.i395 = icmp ult i32 %130, 2
+  %switch.i410 = icmp ult i32 %130, 2
   br label %vc1_has_DIRECTMB_bitplane.exit
 
 vc1_has_MVTYPEMB_bitplane.exit:                   ; preds = %vc1_get_FPTYPE.exit
@@ -460,10 +460,10 @@ vc1_has_MVTYPEMB_bitplane.exit:                   ; preds = %vc1_get_FPTYPE.exit
 
 vc1_has_DIRECTMB_bitplane.exit:                   ; preds = %vc1_has_MVTYPEMB_bitplane.exit.thread, %vc1_has_MVTYPEMB_bitplane.exit, %282
   %286 = phi i1 [ %281, %vc1_has_MVTYPEMB_bitplane.exit ], [ %281, %282 ], [ false, %vc1_has_MVTYPEMB_bitplane.exit.thread ]
-  %switch.i399 = phi i1 [ %switch.i, %vc1_has_MVTYPEMB_bitplane.exit ], [ %switch.i, %282 ], [ %switch.i395, %vc1_has_MVTYPEMB_bitplane.exit.thread ]
+  %switch.i414 = phi i1 [ %switch.i, %vc1_has_MVTYPEMB_bitplane.exit ], [ %switch.i, %282 ], [ %switch.i410, %vc1_has_MVTYPEMB_bitplane.exit.thread ]
   %287 = phi i8 [ 0, %vc1_has_MVTYPEMB_bitplane.exit ], [ %285, %282 ], [ %.0.i272.ph, %vc1_has_MVTYPEMB_bitplane.exit.thread ]
   %.not.i275 = icmp eq i32 %240, 0
-  %or.cond340 = and i1 %switch.i399, %.not.i275
+  %or.cond340 = and i1 %switch.i414, %.not.i275
   br i1 %or.cond340, label %288, label %vc1_has_SKIPMB_bitplane.exit.thread
 
 288:                                              ; preds = %vc1_has_DIRECTMB_bitplane.exit
@@ -482,8 +482,8 @@ vc1_has_DIRECTMB_bitplane.exit:                   ; preds = %vc1_has_MVTYPEMB_bi
 vc1_has_SKIPMB_bitplane.exit:                     ; preds = %288
   %292 = getelementptr inbounds nuw i8, ptr %7, i64 10544
   %293 = load i32, ptr %292, align 8, !tbaa !97
-  %.fr420 = freeze i32 %293
-  %.not8.i279 = icmp eq i32 %.fr420, 0
+  %.fr435 = freeze i32 %293
+  %.not8.i279 = icmp eq i32 %.fr435, 0
   br i1 %.not8.i279, label %294, label %vc1_has_SKIPMB_bitplane.exit.thread
 
 294:                                              ; preds = %289, %vc1_has_SKIPMB_bitplane.exit
@@ -673,16 +673,16 @@ vc1_get_MVMODE.exit:                              ; preds = %357, %switch.lookup
   %371 = getelementptr inbounds nuw i8, ptr %7, i64 6529
   %372 = load i8, ptr %371, align 1, !tbaa !114
   %373 = icmp ult i8 %372, 5
-  br i1 %373, label %switch.lookup425, label %vc1_get_MVMODE2.exit
+  br i1 %373, label %switch.lookup440, label %vc1_get_MVMODE2.exit
 
-switch.lookup425:                                 ; preds = %370
+switch.lookup440:                                 ; preds = %370
   %374 = zext nneg i8 %372 to i64
-  %switch.gep426 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.vaapi_vc1_start_frame.4, i64 0, i64 %374
-  %switch.load427 = load i32, ptr %switch.gep426, align 4
+  %switch.gep441 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.vaapi_vc1_start_frame.4, i64 0, i64 %374
+  %switch.load442 = load i32, ptr %switch.gep441, align 4
   br label %vc1_get_MVMODE2.exit
 
-vc1_get_MVMODE2.exit:                             ; preds = %370, %switch.lookup425, %vc1_get_MVMODE.exit, %362, %363, %366
-  %.0.i295 = phi i32 [ 0, %vc1_get_MVMODE.exit ], [ 0, %366 ], [ 0, %363 ], [ 0, %362 ], [ %switch.load427, %switch.lookup425 ], [ 0, %370 ]
+vc1_get_MVMODE2.exit:                             ; preds = %370, %switch.lookup440, %vc1_get_MVMODE.exit, %362, %363, %366
+  %.0.i295 = phi i32 [ 0, %vc1_get_MVMODE.exit ], [ 0, %366 ], [ 0, %363 ], [ 0, %362 ], [ %switch.load442, %switch.lookup440 ], [ 0, %370 ]
   %375 = or disjoint i32 %.0.i295, %.0.i293
   %.in228.v = select i1 %.not352, i64 6964, i64 10468
   %.in228 = getelementptr inbounds nuw i8, ptr %7, i64 %.in228.v
@@ -820,16 +820,16 @@ vc1_get_MVMODE2.exit:                             ; preds = %370, %switch.lookup
   %.val263 = load i32, ptr %491, align 8, !tbaa !138
   %switch.tableidx = add i32 %.val263, -3
   %492 = icmp ult i32 %switch.tableidx, 5
-  br i1 %492, label %switch.lookup428, label %vc1_get_TTFRM.exit
+  br i1 %492, label %switch.lookup443, label %vc1_get_TTFRM.exit
 
-switch.lookup428:                                 ; preds = %466
+switch.lookup443:                                 ; preds = %466
   %493 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep429 = getelementptr inbounds nuw [5 x i16], ptr @switch.table.vaapi_vc1_start_frame.5, i64 0, i64 %493
-  %switch.load430 = load i16, ptr %switch.gep429, align 2
+  %switch.gep444 = getelementptr inbounds nuw [5 x i16], ptr @switch.table.vaapi_vc1_start_frame.5, i64 0, i64 %493
+  %switch.load445 = load i16, ptr %switch.gep444, align 2
   br label %vc1_get_TTFRM.exit
 
-vc1_get_TTFRM.exit:                               ; preds = %466, %switch.lookup428
-  %.0.i297 = phi i16 [ %switch.load430, %switch.lookup428 ], [ 0, %466 ]
+vc1_get_TTFRM.exit:                               ; preds = %466, %switch.lookup443
+  %.0.i297 = phi i16 [ %switch.load445, %switch.lookup443 ], [ 0, %466 ]
   %494 = or disjoint i16 %490, %.0.i297
   %495 = getelementptr inbounds nuw i8, ptr %7, i64 6840
   %496 = load i32, ptr %495, align 8, !tbaa !139
@@ -855,8 +855,8 @@ vc1_get_TTFRM.exit:                               ; preds = %466, %switch.lookup
   %514 = getelementptr inbounds nuw i8, ptr %7, i64 10544
   %515 = load i32, ptr %514, align 8, !tbaa !97
   %.not.i299 = icmp eq i32 %515, 0
-  %brmerge418.demorgan = and i1 %.not.i299, %207
-  br i1 %brmerge418.demorgan, label %516, label %vc1_get_INTCOMPFIELD.exit
+  %brmerge433.demorgan = and i1 %.not.i299, %207
+  br i1 %brmerge433.demorgan, label %516, label %vc1_get_INTCOMPFIELD.exit
 
 516:                                              ; preds = %513
   %517 = getelementptr inbounds nuw i8, ptr %7, i64 6528
@@ -1161,10 +1161,10 @@ vc1_get_INTCOMPFIELD.exit:                        ; preds = %513, %527, %vc1_get
   br i1 %.not254, label %633, label %.sink.split
 
 .sink.split:                                      ; preds = %628, %613, %595
-  %.sink419 = phi i64 [ 6968, %595 ], [ 6984, %613 ], [ 10176, %628 ]
+  %.sink434 = phi i64 [ 6968, %595 ], [ 6984, %613 ], [ 10176, %628 ]
   %.sroa.7.0.ph = phi ptr [ %596, %595 ], [ %614, %613 ], [ %629, %628 ]
   %.sroa.0.0.ph = phi ptr [ %590, %595 ], [ %608, %613 ], [ %623, %628 ]
-  %631 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink419
+  %631 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink434
   %632 = load ptr, ptr %631, align 8, !tbaa !54
   br label %633
 
@@ -1374,9 +1374,9 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_vc1_decode_slice(ptr nounde
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %26 = load i32, ptr %25, align 4, !tbaa !77
   %. = select i1 %24, i32 31, i32 15
-  %.28 = select i1 %24, i32 5, i32 4
+  %.29 = select i1 %24, i32 5, i32 4
   %27 = add nsw i32 %26, %.
-  %28 = ashr i32 %27, %.28
+  %28 = ashr i32 %27, %.29
   %29 = getelementptr i8, ptr %6, i64 4176
   %.val = load i32, ptr %29, align 8, !tbaa !163
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 3352

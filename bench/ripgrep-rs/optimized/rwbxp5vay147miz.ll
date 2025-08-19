@@ -146,8 +146,8 @@ define internal fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(pt
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.1..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %14, ptr %.sroa.0.1..sroa_idx12, align 1, !alias.scope !23
+  %.sroa.0.1..sroa_idx15 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %14, ptr %.sroa.0.1..sroa_idx15, align 1, !alias.scope !23
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit
 
 15:                                               ; preds = %6
@@ -164,8 +164,8 @@ define internal fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(pt
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.2..sroa_idx13 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
-  store i8 %25, ptr %.sroa.0.2..sroa_idx13, align 2, !alias.scope !23
+  %.sroa.0.2..sroa_idx16 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
+  store i8 %25, ptr %.sroa.0.2..sroa_idx16, align 2, !alias.scope !23
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit
 
 26:                                               ; preds = %6
@@ -177,8 +177,8 @@ define internal fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(pt
   %31 = trunc i32 %30 to i8
   %32 = and i8 %31, 63
   %33 = or disjoint i8 %32, -128
-  %.sroa.0.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %33, ptr %.sroa.0.1..sroa_idx11, align 1, !alias.scope !23
+  %.sroa.0.1..sroa_idx14 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %33, ptr %.sroa.0.1..sroa_idx14, align 1, !alias.scope !23
   %34 = lshr i32 %1, 6
   %35 = trunc i32 %34 to i8
   %36 = and i8 %35, 63
@@ -457,7 +457,7 @@ define void @"_ZN87_$LT$grep_printer..hyperlink..HyperlinkFormat$u20$as$u20$core
   invoke void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$grep_printer..hyperlink..Part$GT$$GT$17h1234086875e90139E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
           to label %"_ZN4core3ptr59drop_in_place$LT$grep_printer..hyperlink..FormatBuilder$GT$17ha84f363f588fb94dE.exit" unwind label %204
 
-30:                                               ; preds = %.loopexit134, %156, %24, %3
+30:                                               ; preds = %.loopexit159, %156, %24, %3
   %31 = landingpad { ptr, i32 }
           cleanup
   br label %29
@@ -486,7 +486,7 @@ define void @"_ZN87_$LT$grep_printer..hyperlink..HyperlinkFormat$u20$as$u20$core
   %.sroa.048.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
   br label %38
 
-default.unreachable127:                           ; preds = %.thread99
+default.unreachable152:                           ; preds = %.thread99
   unreachable
 
 default.unreachable:                              ; preds = %.thread96
@@ -547,7 +547,7 @@ default.unreachable:                              ; preds = %.thread96
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.invoke132, %.invoke, %196, %190
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.invoke157, %.invoke, %196, %190
   %lpad.loopexit109 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -589,7 +589,7 @@ default.unreachable:                              ; preds = %.thread96
 .thread99:                                        ; preds = %52, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5408d9e8e339252E.exit15.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5408d9e8e339252E.exit13.i", %64
   %.sroa.4.0.i.ph103 = phi i32 [ %74, %64 ], [ %53, %52 ], [ %62, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5408d9e8e339252E.exit15.i" ], [ %50, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5408d9e8e339252E.exit13.i" ]
   %.sroa.0.1.ph102 = phi ptr [ %66, %64 ], [ %39, %52 ], [ %55, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5408d9e8e339252E.exit15.i" ], [ %45, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5408d9e8e339252E.exit13.i" ]
-  switch i8 %.071121, label %default.unreachable127 [
+  switch i8 %.071121, label %default.unreachable152 [
     i8 0, label %167
     i8 1, label %168
     i8 2, label %170
@@ -934,18 +934,18 @@ _ZN12grep_printer9hyperlink13FormatBuilder5build17h263187fbc8f4ce59E.exit: ; pre
   ret void
 
 167:                                              ; preds = %.thread99
-  switch i32 %.sroa.4.0.i.ph103, label %.invoke132 [
+  switch i32 %.sroa.4.0.i.ph103, label %.invoke157 [
     i32 123, label %175
     i32 125, label %174
   ]
 
 168:                                              ; preds = %.thread99
   %169 = icmp eq i32 %.sroa.4.0.i.ph103, 125
-  br i1 %169, label %.invoke132, label %.loopexit134
+  br i1 %169, label %.invoke157, label %.loopexit159
 
 170:                                              ; preds = %.thread99
   %171 = icmp eq i32 %.sroa.4.0.i.ph103, 123
-  br i1 %171, label %.invoke132, label %188
+  br i1 %171, label %.invoke157, label %188
 
 172:                                              ; preds = %.thread99
   %173 = icmp eq i32 %.sroa.4.0.i.ph103, 125
@@ -954,22 +954,22 @@ _ZN12grep_printer9hyperlink13FormatBuilder5build17h263187fbc8f4ce59E.exit: ; pre
 174:                                              ; preds = %167
   br label %175
 
-175:                                              ; preds = %.invoke132, %.invoke, %199, %192, %167, %174
-  %.1 = phi i8 [ 1, %174 ], [ 2, %167 ], [ 0, %192 ], [ 0, %199 ], [ 3, %.invoke ], [ 0, %.invoke132 ]
+175:                                              ; preds = %.invoke157, %.invoke, %199, %192, %167, %174
+  %.1 = phi i8 [ 1, %174 ], [ 2, %167 ], [ 0, %192 ], [ 0, %199 ], [ 3, %.invoke ], [ 0, %.invoke157 ]
   %176 = icmp eq ptr %.sroa.0.1.ph102, %34
   br i1 %176, label %.thread96, label %38
 
 .sink.split:                                      ; preds = %199, %192
-  %.lcssa129.sink = phi i64 [ %193, %192 ], [ %200, %199 ]
+  %.lcssa154.sink = phi i64 [ %193, %192 ], [ %200, %199 ]
   %.lcssa.sink = phi ptr [ %195, %192 ], [ %202, %199 ]
   %.sroa.059.sroa.5.0.copyload.lcssa.sink.ph = phi i64 [ %.sroa.048.sroa.5.0.copyload, %192 ], [ %.sroa.059.sroa.5.0.copyload, %199 ]
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.lcssa129.sink, ptr %177, align 8
+  store i64 %.lcssa154.sink, ptr %177, align 8
   %.sroa.264.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.lcssa.sink, ptr %.sroa.264.0..sroa_idx, align 8
-  br label %.loopexit134
+  br label %.loopexit159
 
-.loopexit134:                                     ; preds = %168, %.sink.split
+.loopexit159:                                     ; preds = %168, %.sink.split
   %.sink = phi i64 [ 24, %.sink.split ], [ 8, %168 ]
   %.sroa.059.sroa.5.0.copyload.lcssa.sink = phi i64 [ %.sroa.059.sroa.5.0.copyload.lcssa.sink.ph, %.sink.split ], [ -9223372036854775803, %168 ]
   %.sroa.365.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
@@ -979,7 +979,7 @@ _ZN12grep_printer9hyperlink13FormatBuilder5build17h263187fbc8f4ce59E.exit: ; pre
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hed26c23aaf3dd599E.llvm.1773065985454848448"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16)
           to label %.noexc89 unwind label %30
 
-.noexc89:                                         ; preds = %.loopexit134
+.noexc89:                                         ; preds = %.loopexit159
   %178 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %179 = load i64, ptr %178, align 8, !range !4, !noalias !143, !noundef !5
   %.not.i.i.i.i88 = icmp eq i64 %179, 0
@@ -996,7 +996,7 @@ _ZN12grep_printer9hyperlink13FormatBuilder5build17h263187fbc8f4ce59E.exit: ; pre
   call void @__rust_dealloc(ptr noundef nonnull %185, i64 noundef %182, i64 noundef %179) #17
   br label %203
 
-.invoke132:                                       ; preds = %170, %168, %167
+.invoke157:                                       ; preds = %170, %168, %167
   %186 = phi i32 [ %.sroa.4.0.i.ph103, %167 ], [ 125, %168 ], [ 123, %170 ]
   %187 = invoke fastcc noundef align 8 dereferenceable(24) ptr @_ZN12grep_printer9hyperlink13FormatBuilder11append_char17h8b3f66a571247debE(ptr noalias noundef align 8 dereferenceable(24) %17, i32 noundef %186)
           to label %175 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1446,8 +1446,8 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12gre
   %15 = trunc i32 %1 to i8
   %16 = and i8 %15, 63
   %17 = or disjoint i8 %16, -128
-  %.sroa.0.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %17, ptr %.sroa.0.1..sroa_idx11, align 1, !alias.scope !206
+  %.sroa.0.1..sroa_idx15 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %17, ptr %.sroa.0.1..sroa_idx15, align 1, !alias.scope !206
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit
 
 18:                                               ; preds = %7
@@ -1464,8 +1464,8 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12gre
   %26 = trunc i32 %1 to i8
   %27 = and i8 %26, 63
   %28 = or disjoint i8 %27, -128
-  %.sroa.0.2..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
-  store i8 %28, ptr %.sroa.0.2..sroa_idx12, align 2, !alias.scope !206
+  %.sroa.0.2..sroa_idx16 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
+  store i8 %28, ptr %.sroa.0.2..sroa_idx16, align 2, !alias.scope !206
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit
 
 29:                                               ; preds = %7
@@ -1477,8 +1477,8 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12gre
   %34 = trunc i32 %33 to i8
   %35 = and i8 %34, 63
   %36 = or disjoint i8 %35, -128
-  %.sroa.0.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %36, ptr %.sroa.0.1..sroa_idx10, align 1, !alias.scope !206
+  %.sroa.0.1..sroa_idx14 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %36, ptr %.sroa.0.1..sroa_idx14, align 1, !alias.scope !206
   %37 = lshr i32 %1, 6
   %38 = trunc i32 %37 to i8
   %39 = and i8 %38, 63
@@ -2394,10 +2394,10 @@ define hidden void @_ZN12grep_printer9hyperlink13HyperlinkPath9from_path17h383c3
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd0a29e6a09902a18E.exit.i": ; preds = %.noexc15.i, %67, %.noexc.i, %43
-  %.sink22.i = phi i64 [ %.pre.i.i, %.noexc.i ], [ %36, %43 ], [ %.pre.i14.i, %.noexc15.i ], [ %72, %67 ]
+  %.sink28.i = phi i64 [ %.pre.i.i, %.noexc.i ], [ %36, %43 ], [ %.pre.i14.i, %.noexc15.i ], [ %72, %67 ]
   %.sink.i = phi i8 [ %38, %.noexc.i ], [ %38, %43 ], [ %76, %.noexc15.i ], [ %76, %67 ]
   %80 = load ptr, ptr %31, align 8, !noalias !344, !nonnull !5, !noundef !5
-  %81 = getelementptr inbounds i8, ptr %80, i64 %.sink22.i
+  %81 = getelementptr inbounds i8, ptr %80, i64 %.sink28.i
   store i8 %.sink.i, ptr %81, align 1, !noalias !344
   %82 = load i64, ptr %32, align 8, !noalias !344, !noundef !5
   %storemerge.i = add i64 %82, 1

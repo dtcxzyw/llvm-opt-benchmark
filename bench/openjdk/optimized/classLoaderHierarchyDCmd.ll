@@ -1412,7 +1412,7 @@ define linkonce_odr hidden void @_ZNK14LoaderTreeNode22print_with_child_nodesEP1
   br label %_ZNK14LoaderTreeNode12loader_klassEv.exit.i
 
 _ZNK14LoaderTreeNode12loader_klassEv.exit.i:      ; preds = %41, %23
-  %.ph153 = phi ptr [ %32, %23 ], [ %42, %41 ]
+  %.ph163 = phi ptr [ %32, %23 ], [ %42, %41 ]
   %43 = phi ptr [ %40, %23 ], [ %42, %41 ]
   %.not.i87 = icmp eq ptr %43, null
   br i1 %.not.i87, label %_ZNK14LoaderTreeNode15loader_name_oopEv.exit.i, label %_ZNK14LoaderTreeNode17loader_class_nameEv.exit
@@ -1424,9 +1424,9 @@ _ZNK14LoaderTreeNode17loader_class_nameEv.exit:   ; preds = %_ZNK14LoaderTreeNod
   br i1 %.not.i.i88, label %_ZNK14LoaderTreeNode11loader_nameEv.exit, label %_ZNK14LoaderTreeNode15loader_name_oopEv.exit.i
 
 _ZNK14LoaderTreeNode15loader_name_oopEv.exit.i:   ; preds = %_ZNK14LoaderTreeNode12loader_klassEv.exit.i, %_ZNK14LoaderTreeNode17loader_class_nameEv.exit
-  %.ph141159 = phi ptr [ %44, %_ZNK14LoaderTreeNode17loader_class_nameEv.exit ], [ @.str.21, %_ZNK14LoaderTreeNode12loader_klassEv.exit.i ]
-  %.pr158 = phi ptr [ %.pr.pre, %_ZNK14LoaderTreeNode17loader_class_nameEv.exit ], [ %18, %_ZNK14LoaderTreeNode12loader_klassEv.exit.i ]
-  %45 = tail call noundef ptr @_ZN21java_lang_ClassLoader4nameEP7oopDesc(ptr noundef nonnull %.pr158) #8
+  %.ph141169 = phi ptr [ %44, %_ZNK14LoaderTreeNode17loader_class_nameEv.exit ], [ @.str.21, %_ZNK14LoaderTreeNode12loader_klassEv.exit.i ]
+  %.pr168 = phi ptr [ %.pr.pre, %_ZNK14LoaderTreeNode17loader_class_nameEv.exit ], [ %18, %_ZNK14LoaderTreeNode12loader_klassEv.exit.i ]
+  %45 = tail call noundef ptr @_ZN21java_lang_ClassLoader4nameEP7oopDesc(ptr noundef nonnull %.pr168) #8
   %.not.i89 = icmp eq ptr %45, null
   br i1 %.not.i89, label %_ZNK14LoaderTreeNode11loader_nameEv.exit, label %46
 
@@ -1435,8 +1435,8 @@ _ZNK14LoaderTreeNode15loader_name_oopEv.exit.i:   ; preds = %_ZNK14LoaderTreeNod
   br label %_ZNK14LoaderTreeNode11loader_nameEv.exit
 
 _ZNK14LoaderTreeNode11loader_nameEv.exit:         ; preds = %5, %_ZNK14LoaderTreeNode17loader_class_nameEv.exit, %_ZNK14LoaderTreeNode15loader_name_oopEv.exit.i, %46
-  %48 = phi ptr [ %.ph141159, %46 ], [ %.ph141159, %_ZNK14LoaderTreeNode15loader_name_oopEv.exit.i ], [ %44, %_ZNK14LoaderTreeNode17loader_class_nameEv.exit ], [ @.str.21, %5 ]
-  %49 = phi ptr [ %.ph153, %46 ], [ %.ph153, %_ZNK14LoaderTreeNode15loader_name_oopEv.exit.i ], [ %.ph153, %_ZNK14LoaderTreeNode17loader_class_nameEv.exit ], [ null, %5 ]
+  %48 = phi ptr [ %.ph141169, %46 ], [ %.ph141169, %_ZNK14LoaderTreeNode15loader_name_oopEv.exit.i ], [ %44, %_ZNK14LoaderTreeNode17loader_class_nameEv.exit ], [ @.str.21, %5 ]
+  %49 = phi ptr [ %.ph163, %46 ], [ %.ph163, %_ZNK14LoaderTreeNode15loader_name_oopEv.exit.i ], [ %.ph163, %_ZNK14LoaderTreeNode17loader_class_nameEv.exit ], [ null, %5 ]
   %50 = phi ptr [ %47, %46 ], [ @.str.21, %_ZNK14LoaderTreeNode15loader_name_oopEv.exit.i ], [ @.str.21, %_ZNK14LoaderTreeNode17loader_class_nameEv.exit ], [ @.str.21, %5 ]
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %52 = load i32, ptr %51, align 4
@@ -1513,8 +1513,8 @@ _ZN13BranchTracker4MarkC2ERS_b.exit:              ; preds = %71
 
 _ZN13BranchTracker4MarkC2ERS_b.exit91.thread:     ; preds = %_ZN13BranchTracker4MarkC2ERS_b.exit, %_ZN13BranchTracker4MarkC2ERS_b.exit.thread
   %.ph = phi ptr [ %75, %_ZN13BranchTracker4MarkC2ERS_b.exit.thread ], [ %82, %_ZN13BranchTracker4MarkC2ERS_b.exit ]
-  %.ph160 = phi i32 [ %74, %_ZN13BranchTracker4MarkC2ERS_b.exit.thread ], [ %81, %_ZN13BranchTracker4MarkC2ERS_b.exit ]
-  %84 = add nuw nsw i32 %.ph160, 1
+  %.ph170 = phi i32 [ %74, %_ZN13BranchTracker4MarkC2ERS_b.exit.thread ], [ %81, %_ZN13BranchTracker4MarkC2ERS_b.exit ]
+  %84 = add nuw nsw i32 %.ph170, 1
   store i32 %84, ptr %51, align 4
   br label %.lr.ph.i92.preheader
 

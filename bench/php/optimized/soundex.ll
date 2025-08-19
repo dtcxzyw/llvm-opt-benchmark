@@ -64,9 +64,9 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   br i1 %20, label %.lr.ph112.preheader, label %._crit_edge
 
 .lr.ph112.preheader:                              ; preds = %zend_parse_arg_str_ex.exit.thread, %.preheader
-  %.067.lcssa118 = phi i64 [ %.2, %.preheader ], [ 0, %zend_parse_arg_str_ex.exit.thread ]
-  %scevgep = getelementptr i8, ptr %4, i64 %.067.lcssa118
-  %21 = sub nuw nsw i64 4, %.067.lcssa118
+  %.067.lcssa121 = phi i64 [ %.2, %.preheader ], [ 0, %zend_parse_arg_str_ex.exit.thread ]
+  %scevgep = getelementptr i8, ptr %4, i64 %.067.lcssa121
+  %21 = sub nuw nsw i64 4, %.067.lcssa121
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %21, i1 false), !tbaa !4
   br label %._crit_edge
 

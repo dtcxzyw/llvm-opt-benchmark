@@ -731,7 +731,7 @@ define internal fastcc void @_ZN7snippet13parse_snippet17h115d1f9287b059bbE(ptr 
   %59 = or disjoint i32 %58, %54
   br label %61
 
-._crit_edge:                                      ; preds = %_ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit74, %_ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit, %211, %.thread309, %6
+._crit_edge:                                      ; preds = %_ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit74, %_ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit, %211, %.thread324, %6
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %60, align 8
@@ -1173,13 +1173,13 @@ define internal fastcc void @_ZN7snippet13parse_snippet17h115d1f9287b059bbE(ptr 
   %250 = load i64, ptr %17, align 8, !alias.scope !236, !noundef !4
   %251 = load i64, ptr %4, align 8, !alias.scope !236, !noundef !4
   %252 = icmp eq i64 %250, %251
-  br i1 %252, label %253, label %.thread309
+  br i1 %252, label %253, label %.thread324
 
 253:                                              ; preds = %249
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hee2bc4e37d96365eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  br label %.thread309
+  br label %.thread324
 
-.thread309:                                       ; preds = %253, %249
+.thread324:                                       ; preds = %253, %249
   %254 = load ptr, ptr %18, align 8, !alias.scope !236, !nonnull !4, !noundef !4
   %255 = getelementptr inbounds i8, ptr %254, i64 %250
   store i8 92, ptr %255, align 1

@@ -273,7 +273,7 @@ define internal fastcc ptr @__devm_ioremap_resource(ptr noundef %0, ptr noundef 
   br i1 %57, label %69, label %58
 
 58:                                               ; preds = %52
-  switch i32 %19, label %default.unreachable10 [
+  switch i32 %19, label %default.unreachable16 [
     i32 0, label %59
     i32 1, label %61
     i32 2, label %63
@@ -292,7 +292,7 @@ define internal fastcc ptr @__devm_ioremap_resource(ptr noundef %0, ptr noundef 
   %64 = tail call ptr @ioremap_wc(i64 noundef %53, i64 noundef %24) #5
   br label %65
 
-default.unreachable10:                            ; preds = %58
+default.unreachable16:                            ; preds = %58
   unreachable
 
 65:                                               ; preds = %63, %61, %59

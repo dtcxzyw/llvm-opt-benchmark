@@ -527,8 +527,8 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %244
   %264 = icmp sgt i32 %4, 0
   %or.cond = and i1 %252, %264
   %265 = icmp sgt i32 %3, 0
-  %or.cond1167 = and i1 %or.cond, %265
-  br i1 %or.cond1167, label %.lr.ph.split.us.split.us.split.us.preheader, label %.loopexit691
+  %or.cond1178 = and i1 %or.cond, %265
+  br i1 %or.cond1178, label %.lr.ph.split.us.split.us.split.us.preheader, label %.loopexit691
 
 .lr.ph.split.us.split.us.split.us.preheader:      ; preds = %.lr.ph
   %266 = and i32 %257, -2

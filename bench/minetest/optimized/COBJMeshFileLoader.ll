@@ -1247,7 +1247,7 @@ for.body.i.i.i.i.i.i501.preheader:                ; preds = %_ZNKSt6vectorIN3irr
   %58 = sub i64 %cond.i31.i.i.i4981512, %textureCoordBuffer.sroa.0.012811513
   %diff.check1514 = icmp ult i64 %58, 32
   %or.cond1675 = or i1 %min.iters.check1517, %diff.check1514
-  br i1 %or.cond1675, label %for.body.i.i.i.i.i.i501.preheader386, label %vector.ph1518
+  br i1 %or.cond1675, label %for.body.i.i.i.i.i.i501.preheader451, label %vector.ph1518
 
 vector.ph1518:                                    ; preds = %for.body.i.i.i.i.i.i501.preheader
   %n.vec1520 = and i64 %57, 4611686018427387900
@@ -1275,16 +1275,16 @@ middle.block1516:                                 ; preds = %vector.body1525
   %ind.end = getelementptr i8, ptr %call5.i.i.i.i.i.i497, i64 %62
   %ind.end1522 = getelementptr i8, ptr %textureCoordBuffer.sroa.0.01281, i64 %62
   %cmp.n1524 = icmp eq i64 %57, %n.vec1520
-  br i1 %cmp.n1524, label %_ZNSt6vectorIN3irr4core8vector2dIfEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %for.body.i.i.i.i.i.i501.preheader386
+  br i1 %cmp.n1524, label %_ZNSt6vectorIN3irr4core8vector2dIfEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %for.body.i.i.i.i.i.i501.preheader451
 
-for.body.i.i.i.i.i.i501.preheader386:             ; preds = %middle.block1516, %for.body.i.i.i.i.i.i501.preheader
+for.body.i.i.i.i.i.i501.preheader451:             ; preds = %middle.block1516, %for.body.i.i.i.i.i.i501.preheader
   %__cur.08.i.i.i.i.i.i502.ph = phi ptr [ %ind.end, %middle.block1516 ], [ %call5.i.i.i.i.i.i497, %for.body.i.i.i.i.i.i501.preheader ]
   %__first.addr.07.i.i.i.i.i.i503.ph = phi ptr [ %ind.end1522, %middle.block1516 ], [ %textureCoordBuffer.sroa.0.01281, %for.body.i.i.i.i.i.i501.preheader ]
   br label %for.body.i.i.i.i.i.i501
 
-for.body.i.i.i.i.i.i501:                          ; preds = %for.body.i.i.i.i.i.i501.preheader386, %for.body.i.i.i.i.i.i501
-  %__cur.08.i.i.i.i.i.i502 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i505, %for.body.i.i.i.i.i.i501 ], [ %__cur.08.i.i.i.i.i.i502.ph, %for.body.i.i.i.i.i.i501.preheader386 ]
-  %__first.addr.07.i.i.i.i.i.i503 = phi ptr [ %incdec.ptr.i.i.i.i.i.i504, %for.body.i.i.i.i.i.i501 ], [ %__first.addr.07.i.i.i.i.i.i503.ph, %for.body.i.i.i.i.i.i501.preheader386 ]
+for.body.i.i.i.i.i.i501:                          ; preds = %for.body.i.i.i.i.i.i501.preheader451, %for.body.i.i.i.i.i.i501
+  %__cur.08.i.i.i.i.i.i502 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i505, %for.body.i.i.i.i.i.i501 ], [ %__cur.08.i.i.i.i.i.i502.ph, %for.body.i.i.i.i.i.i501.preheader451 ]
+  %__first.addr.07.i.i.i.i.i.i503 = phi ptr [ %incdec.ptr.i.i.i.i.i.i504, %for.body.i.i.i.i.i.i501 ], [ %__first.addr.07.i.i.i.i.i.i503.ph, %for.body.i.i.i.i.i.i501.preheader451 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !117)
   call void @llvm.experimental.noalias.scope.decl(metadata !120)
   %63 = load i64, ptr %__first.addr.07.i.i.i.i.i.i503, align 4, !tbaa.struct !116, !alias.scope !120, !noalias !117
@@ -6572,7 +6572,7 @@ if.then32.i.i21.i:                                ; preds = %if.end28.i.i18.i
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then32.i.i21.i, %if.end28.i.i18.i, %if.then6, %_ZNK3irr4core8aabbox3dIfE7isEmptyEv.exit
-  %hasMeshBufferBBox.1 = phi i8 [ %hasMeshBufferBBox.033, %_ZNK3irr4core8aabbox3dIfE7isEmptyEv.exit ], [ 1, %if.then6 ], [ %hasMeshBufferBBox.033, %if.end28.i.i18.i ], [ %hasMeshBufferBBox.033, %if.then32.i.i21.i ]
+  %hasMeshBufferBBox.1 = phi i8 [ %hasMeshBufferBBox.033, %_ZNK3irr4core8aabbox3dIfE7isEmptyEv.exit ], [ 1, %if.then6 ], [ 1, %if.end28.i.i18.i ], [ 1, %if.then32.i.i21.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !186
   %34 = load ptr, ptr %MeshBuffers, align 8, !tbaa !187

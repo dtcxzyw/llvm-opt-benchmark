@@ -1945,11 +1945,11 @@ define internal fastcc void @_ZL7do_shamPKcS0_S0_S0_S0_S0_S0_S0_iiPPfbiS2_fffPKf
   br label %185
 
 185:                                              ; preds = %176, %177
-  %.sink1413 = phi double [ %184, %177 ], [ %169, %176 ]
+  %.sink1645 = phi double [ %184, %177 ], [ %169, %176 ]
   %186 = getelementptr inbounds nuw float, ptr %175, i64 %indvars.iv1277
   %187 = load float, ptr %186, align 4, !tbaa !26
   %188 = fpext float %187 to double
-  %189 = fmul double %.sink1413, %188
+  %189 = fmul double %.sink1645, %188
   %.sink = fptrunc double %189 to float
   %190 = getelementptr inbounds nuw float, ptr %171, i64 %indvars.iv1277
   store float %.sink, ptr %190, align 4, !tbaa !26
@@ -2006,7 +2006,7 @@ define internal fastcc void @_ZL7do_shamPKcS0_S0_S0_S0_S0_S0_S0_iiPPfbiS2_fffPKf
   br i1 %101, label %.outer, label %_ZL6indexniPKiS0_.exit
 
 .outer:                                           ; preds = %.preheader1113, %.thread
-  %indvars.iv1287.ph = phi i64 [ %indvars.iv.next12881382, %.thread ], [ 0, %.preheader1113 ]
+  %indvars.iv1287.ph = phi i64 [ %indvars.iv.next12881614, %.thread ], [ 0, %.preheader1113 ]
   %.04501155.ph = phi i1 [ true, %.thread ], [ false, %.preheader1113 ]
   br label %210
 
@@ -2041,9 +2041,9 @@ define internal fastcc void @_ZL7do_shamPKcS0_S0_S0_S0_S0_S0_S0_iiPPfbiS2_fffPKf
   br i1 %exitcond1290.not, label %._crit_edge1157, label %210, !llvm.loop !63
 
 .thread:                                          ; preds = %210, %225
-  %indvars.iv.next12881382 = add nuw nsw i64 %indvars.iv1287, 1
-  %exitcond1290.not1383 = icmp eq i64 %indvars.iv.next12881382, %206
-  br i1 %exitcond1290.not1383, label %._crit_edge1157.thread, label %.outer, !llvm.loop !63
+  %indvars.iv.next12881614 = add nuw nsw i64 %indvars.iv1287, 1
+  %exitcond1290.not1615 = icmp eq i64 %indvars.iv.next12881614, %206
+  br i1 %exitcond1290.not1615, label %._crit_edge1157.thread, label %.outer, !llvm.loop !63
 
 ._crit_edge1157:                                  ; preds = %228
   br i1 %.04501155.ph, label %._crit_edge1157.thread, label %.lr.ph23.i
@@ -2461,8 +2461,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit569:       ; preds = %_ZNKSt7__cxx1112bas
   %408 = shl nuw nsw i64 %wide.trip.count1314, 2
   %409 = getelementptr i8, ptr %407, i64 %408
   %scevgep = getelementptr i8, ptr %409, i64 4
-  %scevgep1445 = getelementptr i8, ptr %203, i64 %408
-  %bound0 = icmp ult ptr %407, %scevgep1445
+  %scevgep1677 = getelementptr i8, ptr %203, i64 %408
+  %bound0 = icmp ult ptr %407, %scevgep1677
   %bound1 = icmp ult ptr %203, %scevgep
   %found.conflict = and i1 %bound0, %bound1
   br i1 %found.conflict, label %.lr.ph1187.lver.orig, label %.lr.ph1187.ph
@@ -3313,12 +3313,12 @@ _ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit247.i.thread: ; preds = %
 
 .critedge.i:                                      ; preds = %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit247.i.thread, %._crit_edge313.i, %_ZL6indexniPKiS0_.exit.thread.i
   %769 = phi float [ %714, %_ZL6indexniPKiS0_.exit.thread.i ], [ %725, %._crit_edge313.i ], [ %725, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit247.i.thread ]
-  %.016.lcssa.i361.i = phi i64 [ 0, %_ZL6indexniPKiS0_.exit.thread.i ], [ %723, %._crit_edge313.i ], [ %723, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit247.i.thread ]
+  %.016.lcssa.i395.i = phi i64 [ 0, %_ZL6indexniPKiS0_.exit.thread.i ], [ %723, %._crit_edge313.i ], [ %723, %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit247.i.thread ]
   %770 = fpext float %769 to double
-  %771 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %520, ptr noundef nonnull @.str.175, i32 noundef %.8318.i, i64 noundef %.016.lcssa.i361.i, double noundef %770) #20
+  %771 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %520, ptr noundef nonnull @.str.175, i32 noundef %.8318.i, i64 noundef %.016.lcssa.i395.i, double noundef %770) #20
   %772 = sext i32 %.8318.i to i64
   %773 = getelementptr inbounds %struct.t_minimum, ptr %519, i64 %772
-  store i64 %.016.lcssa.i361.i, ptr %773, align 8, !tbaa !81
+  store i64 %.016.lcssa.i395.i, ptr %773, align 8, !tbaa !81
   %774 = getelementptr inbounds nuw i8, ptr %773, i64 8
   store float %769, ptr %774, align 8, !tbaa !83
   %775 = add nsw i32 %.8318.i, 1

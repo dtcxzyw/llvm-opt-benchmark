@@ -1890,9 +1890,9 @@ define internal fastcc void @cmd_log_init_finish(i32 noundef %0, ptr noundef %1,
   %180 = and i8 %179, 4
   %.not60 = icmp eq i8 %180, 0
   %181 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  br i1 %.not60, label %.thread78, label %183
+  br i1 %.not60, label %.thread81, label %183
 
-.thread78:                                        ; preds = %178
+.thread81:                                        ; preds = %178
   store i32 0, ptr %181, align 4, !tbaa !15
   %182 = getelementptr inbounds nuw i8, ptr %5, i64 20
   br label %189
@@ -1900,13 +1900,13 @@ define internal fastcc void @cmd_log_init_finish(i32 noundef %0, ptr noundef %1,
 183:                                              ; preds = %178
   %184 = load i32, ptr %181, align 4, !tbaa !15
   %.not61 = icmp eq i32 %184, 0
-  br i1 %.not61, label %185, label %.thread76
+  br i1 %.not61, label %185, label %.thread79
 
 185:                                              ; preds = %183
   store i32 1, ptr %181, align 4, !tbaa !15
-  br label %.thread76
+  br label %.thread79
 
-.thread76:                                        ; preds = %185, %183
+.thread79:                                        ; preds = %185, %183
   %186 = getelementptr inbounds nuw i8, ptr %5, i64 20
   br label %193
 
@@ -1917,15 +1917,15 @@ define internal fastcc void @cmd_log_init_finish(i32 noundef %0, ptr noundef %1,
   %188 = getelementptr inbounds nuw i8, ptr %5, i64 20
   br i1 %187, label %189, label %193
 
-189:                                              ; preds = %.thread78, %.thread
-  %190 = phi ptr [ %182, %.thread78 ], [ %188, %.thread ]
+189:                                              ; preds = %.thread81, %.thread
+  %190 = phi ptr [ %182, %.thread81 ], [ %188, %.thread ]
   %191 = load i64, ptr %112, align 8
   %192 = and i64 %191, 2048
   %.not63 = icmp eq i64 %192, 0
   br i1 %.not63, label %248, label %193
 
-193:                                              ; preds = %.thread76, %189, %.thread
-  %194 = phi ptr [ %186, %.thread76 ], [ %190, %189 ], [ %188, %.thread ]
+193:                                              ; preds = %.thread79, %189, %.thread
+  %194 = phi ptr [ %186, %.thread79 ], [ %190, %189 ], [ %188, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !114
   %195 = load ptr, ptr %13, align 8, !tbaa !185
@@ -1944,8 +1944,8 @@ define internal fastcc void @cmd_log_init_finish(i32 noundef %0, ptr noundef %1,
 .lr.ph.i:                                         ; preds = %198
   %201 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %202 = load i64, ptr %201, align 8, !tbaa !189
-  %.not74 = icmp eq i64 %202, 0
-  br i1 %.not74, label %.critedge.i, label %.lr.ph.preheader
+  %.not77 = icmp eq i64 %202, 0
+  br i1 %.not77, label %.critedge.i, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i
   %203 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -3495,9 +3495,9 @@ strbuf_addch.exit265:                             ; preds = %strbuf_avail.exit.i
   %631 = load i32, ptr %630, align 8
   %632 = icmp ne i32 %631, 0
   %or.cond5 = select i1 %or.cond.not174, i1 true, i1 %632
-  br i1 %or.cond5, label %633, label %.thread430
+  br i1 %or.cond5, label %633, label %.thread490
 
-.thread430:                                       ; preds = %623
+.thread490:                                       ; preds = %623
   store i32 0, ptr %624, align 4, !tbaa !233
   br label %638
 
@@ -3512,8 +3512,8 @@ strbuf_addch.exit265:                             ; preds = %strbuf_avail.exit.i
   call void (ptr, ...) @die(ptr noundef %637, ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.104) #25
   unreachable
 
-638:                                              ; preds = %.thread430, %633
-  %639 = phi i1 [ true, %.thread430 ], [ %635, %633 ]
+638:                                              ; preds = %.thread490, %633
+  %639 = phi i1 [ true, %.thread490 ], [ %635, %633 ]
   %640 = getelementptr inbounds nuw i8, ptr %29, i64 332
   %641 = load i32, ptr %640, align 4
   %642 = icmp ne i32 %641, 0
@@ -3953,7 +3953,7 @@ st_mult.exit:                                     ; preds = %828
 
 843:                                              ; preds = %839
   %844 = icmp ne i64 %.0132.ph342, 1
-  br label %.sink.split462
+  br label %.sink.split522
 
 845:                                              ; preds = %839
   %846 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -3968,20 +3968,20 @@ st_mult.exit:                                     ; preds = %828
 
 852:                                              ; preds = %845
   %853 = icmp ne i32 %841, 1
-  br label %.sink.split462
+  br label %.sink.split522
 
 854:                                              ; preds = %845
   %855 = icmp eq i32 %841, 2
-  br label %.sink.split462
+  br label %.sink.split522
 
-.sink.split462:                                   ; preds = %852, %854, %843
-  %.sink463 = phi i1 [ %844, %843 ], [ %855, %854 ], [ %853, %852 ]
-  %856 = zext i1 %.sink463 to i32
+.sink.split522:                                   ; preds = %852, %854, %843
+  %.sink523 = phi i1 [ %844, %843 ], [ %855, %854 ], [ %853, %852 ]
+  %856 = zext i1 %.sink523 to i32
   store i32 %856, ptr %36, align 4, !tbaa !122
   br label %857
 
-857:                                              ; preds = %.sink.split462, %836
-  %858 = phi i32 [ %837, %836 ], [ %856, %.sink.split462 ]
+857:                                              ; preds = %.sink.split522, %836
+  %858 = phi i32 [ %837, %836 ], [ %856, %.sink.split522 ]
   %859 = load i32, ptr %627, align 8, !tbaa !243
   %860 = icmp eq i32 %859, 0
   %861 = load i32, ptr %429, align 8
@@ -4429,7 +4429,7 @@ st_mult.exit.i:                                   ; preds = %1005
   br label %1039
 
 1039:                                             ; preds = %1035, %._crit_edge.i
-  %1040 = add nuw i64 %.076115.i, 1
+  %1040 = add nuw nsw i64 %.076115.i, 1
   %1041 = lshr i64 %1040, 1
   %1042 = icmp ugt i64 %.076115.i, 2
   br i1 %1042, label %.preheader110.i, label %._crit_edge116.i, !llvm.loop !259
@@ -4627,8 +4627,8 @@ st_mult.exit.i.i42.i:                             ; preds = %1114
   %scevgep86.i = getelementptr i8, ptr %1122, i64 %1124
   %1125 = sub nuw nsw i32 %1117, %.sroa.12.178.i
   %1126 = shl nuw nsw i32 %1125, 3
-  %narrow91.i = add nuw nsw i32 %1126, 8
-  %1127 = zext nneg i32 %narrow91.i to i64
+  %narrow99.i = add nuw nsw i32 %1126, 8
+  %1127 = zext nneg i32 %narrow99.i to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep86.i, i8 0, i64 %1127, i1 false), !tbaa !264
   br label %._crit_edge4.i.i49.i
 
@@ -4748,9 +4748,9 @@ get_base_commit.exit.thread:                      ; preds = %.critedge.critedge.
   %1173 = load i32, ptr %36, align 4
   %1174 = icmp ne i32 %1173, 0
   %or.cond42 = select i1 %or.cond40, i1 true, i1 %1174
-  br i1 %or.cond42, label %1179, label %.thread435
+  br i1 %or.cond42, label %1179, label %.thread495
 
-.thread435:                                       ; preds = %get_base_commit.exit.thread
+.thread495:                                       ; preds = %get_base_commit.exit.thread
   %1175 = load i32, ptr %34, align 4, !tbaa !122
   %1176 = getelementptr inbounds nuw i8, ptr %30, i64 368
   store i32 %1175, ptr %1176, align 8, !tbaa !272
@@ -4841,14 +4841,14 @@ clean_message_id.exit:                            ; preds = %1207, %1209
   br label %1218
 
 1218:                                             ; preds = %clean_message_id.exit, %1179
-  %.pr434 = load i32, ptr %36, align 4, !tbaa !122
+  %.pr494 = load i32, ptr %36, align 4, !tbaa !122
   %1219 = load i32, ptr %34, align 4, !tbaa !122
   %1220 = getelementptr inbounds nuw i8, ptr %30, i64 368
   store i32 %1219, ptr %1220, align 8, !tbaa !272
   %1221 = load ptr, ptr %61, align 8, !tbaa !114
   %1222 = getelementptr inbounds nuw i8, ptr %30, i64 360
   store ptr %1221, ptr %1222, align 8, !tbaa !273
-  %.not205 = icmp eq i32 %.pr434, 0
+  %.not205 = icmp eq i32 %.pr494, 0
   br i1 %.not205, label %1437, label %1223
 
 1223:                                             ; preds = %1218
@@ -5149,15 +5149,15 @@ read_desc_file.exit.i.i:                          ; preds = %1327, %1325, %1324,
   %1345 = icmp ugt i64 %1344, 100
   %or.cond.i.i = select i1 %1342, i1 %1345, i1 false
   %spec.select.i.i = select i1 %or.cond.i.i, ptr %10, ptr %11
-  %spec.select3.i.i = select i1 %or.cond.i.i, ptr %9, ptr %8
+  %spec.select5.i.i = select i1 %or.cond.i.i, ptr %9, ptr %8
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %1341, %1338
   %.sink.i.i = phi ptr [ %10, %1338 ], [ %spec.select.i.i, %1341 ]
-  %.sink1.i.i = phi ptr [ %9, %1338 ], [ %spec.select3.i.i, %1341 ]
+  %.sink3.i.i = phi ptr [ %9, %1338 ], [ %spec.select5.i.i, %1341 ]
   %1346 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 16
   %1347 = load ptr, ptr %1346, align 8, !tbaa !131
-  store ptr %1347, ptr %.sink1.i.i, align 8, !tbaa !114
+  store ptr %1347, ptr %.sink3.i.i, align 8, !tbaa !114
   br label %prepare_cover_text.exit.i
 
 prepare_cover_text.exit.i:                        ; preds = %.sink.split.i.i, %read_desc_file.exit.i.i, %1302
@@ -5367,9 +5367,9 @@ print_signature.exit:                             ; preds = %make_cover_letter.e
   store ptr null, ptr %1381, align 8, !tbaa !249
   br label %1437
 
-1437:                                             ; preds = %.thread435, %print_signature.exit, %1218
-  %1438 = phi ptr [ %1220, %print_signature.exit ], [ %1220, %1218 ], [ %1176, %.thread435 ]
-  %.0133 = phi i64 [ %1434, %print_signature.exit ], [ %.0132.ph342, %1218 ], [ %.0132.ph342, %.thread435 ]
+1437:                                             ; preds = %.thread495, %print_signature.exit, %1218
+  %1438 = phi ptr [ %1220, %print_signature.exit ], [ %1220, %1218 ], [ %1176, %.thread495 ]
+  %.0133 = phi i64 [ %1434, %print_signature.exit ], [ %.0132.ph342, %1218 ], [ %.0132.ph342, %.thread495 ]
   %1439 = load i32, ptr %88, align 4, !tbaa !309
   %1440 = getelementptr inbounds nuw i8, ptr %30, i64 464
   store i32 %1439, ptr %1440, align 8, !tbaa !310

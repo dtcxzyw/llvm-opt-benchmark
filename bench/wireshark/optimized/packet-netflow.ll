@@ -6388,8 +6388,8 @@ switch.lookup:                                    ; preds = %4
   %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.dissect_netflow, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %13 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep325 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.dissect_netflow.4, i64 0, i64 %13
-  %switch.load326 = load ptr, ptr %switch.gep325, align 8
+  %switch.gep337 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.dissect_netflow.4, i64 0, i64 %13
+  %switch.load338 = load ptr, ptr %switch.gep337, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_set_str(ptr noundef %15, i32 noundef 35, ptr noundef nonnull @.str.3337)
@@ -6626,7 +6626,7 @@ switch.lookup:                                    ; preds = %4
 .thread305:                                       ; preds = %119, %120, %121, %122, %123, %124, %117, %117
   %125 = phi i8 [ 0, %124 ], [ %118, %119 ], [ %118, %120 ], [ %118, %121 ], [ %118, %122 ], [ %118, %123 ], [ %118, %117 ], [ %118, %117 ]
   %.2251 = phi i32 [ -1, %124 ], [ 32, %119 ], [ 40, %120 ], [ 32, %121 ], [ 40, %122 ], [ 44, %123 ], [ 28, %117 ], [ 28, %117 ]
-  %.2 = phi ptr [ %switch.load326, %124 ], [ %switch.load326, %119 ], [ %switch.load326, %120 ], [ @dissect_v8_flowpdu, %121 ], [ @dissect_v8_flowpdu, %122 ], [ @dissect_v8_flowpdu, %123 ], [ %switch.load326, %117 ], [ %switch.load326, %117 ]
+  %.2 = phi ptr [ %switch.load338, %124 ], [ %switch.load338, %119 ], [ %switch.load338, %120 ], [ @dissect_v8_flowpdu, %121 ], [ @dissect_v8_flowpdu, %122 ], [ @dissect_v8_flowpdu, %123 ], [ %switch.load338, %117 ], [ %switch.load338, %117 ]
   %126 = load i32, ptr @hf_cflow_aggmethod, align 4
   %127 = add nuw nsw i32 %.3, 1
   %128 = zext nneg i8 %125 to i32
@@ -6642,7 +6642,7 @@ switch.lookup:                                    ; preds = %4
   br i1 %or.cond21, label %135, label %139
 
 135:                                              ; preds = %.thread305, %133
-  %.1314 = phi ptr [ %.2, %.thread305 ], [ %switch.load326, %133 ]
+  %.1314 = phi ptr [ %.2, %.thread305 ], [ %switch.load338, %133 ]
   %.4312 = phi i32 [ %131, %.thread305 ], [ %.3, %133 ]
   %.1250311 = phi i32 [ %.2251, %.thread305 ], [ %switch.load, %133 ]
   %136 = load i32, ptr @hf_cflow_reserved, align 4
@@ -6662,7 +6662,7 @@ switch.lookup:                                    ; preds = %4
   br label %146
 
 146:                                              ; preds = %139, %140, %135
-  %.1313 = phi ptr [ %.1314, %135 ], [ %switch.load326, %140 ], [ %switch.load326, %139 ]
+  %.1313 = phi ptr [ %.1314, %135 ], [ %switch.load338, %140 ], [ %switch.load338, %139 ]
   %.1250310 = phi i32 [ %.1250311, %135 ], [ %switch.load, %140 ], [ %switch.load, %139 ]
   %.5 = phi i32 [ %138, %135 ], [ %145, %140 ], [ %.3, %139 ]
   %147 = icmp eq i16 %31, 0
@@ -8730,9 +8730,9 @@ define internal fastcc noundef i32 @dissect_v9_v10_template_fields(ptr noundef %
   store ptr %.0106, ptr %41, align 8
   %.not112 = icmp eq i16 %28, -1
   %narrow = select i1 %.not112, i16 1, i16 %28
-  %.sink9 = zext i16 %narrow to i32
+  %.sink10 = zext i16 %narrow to i32
   %42 = load i32, ptr %20, align 4
-  %43 = add i32 %42, %.sink9
+  %43 = add i32 %42, %.sink10
   store i32 %43, ptr %20, align 4
   br label %44
 
@@ -8987,12 +8987,12 @@ define internal fastcc i32 @dissect_v9_v10_pdu_data(ptr noundef %0, ptr noundef 
   %.06436.sroa.gep6754 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %.06436.sroa.gep6756 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.06436.sroa.gep6759 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %indvars.iv6933.sroa.gep6950 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %indvars.iv6933.sroa.gep6953 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %indvars.iv6933.sroa.gep6956 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %indvars.iv6933.sroa.gep6959 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %indvars.iv6933.sroa.gep6962 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  %indvars.iv6933.sroa.gep6965 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %indvars.iv6933.sroa.gep6976 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %indvars.iv6933.sroa.gep6979 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %indvars.iv6933.sroa.gep6982 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %indvars.iv6933.sroa.gep6985 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %indvars.iv6933.sroa.gep6988 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  %indvars.iv6933.sroa.gep6991 = getelementptr inbounds nuw i8, ptr %8, i64 96
   br i1 %26, label %6287, label %27
 
 27:                                               ; preds = %7
@@ -11871,12 +11871,12 @@ switch.lookup:                                    ; preds = %proto_item_set_hidd
   %646 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.2)
   %647 = lshr i8 %646, 6
   %648 = zext nneg i8 %647 to i64
-  %switch.gep6946 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_v9_v10_pdu_data.5, i64 0, i64 %648
-  %switch.load6947 = load ptr, ptr %switch.gep6946, align 8
+  %switch.gep6972 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_v9_v10_pdu_data.5, i64 0, i64 %648
+  %switch.load6973 = load ptr, ptr %switch.gep6972, align 8
   %649 = zext nneg i8 %647 to i64
-  %switch.gep6948 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_v9_v10_pdu_data.6, i64 0, i64 %649
-  %switch.load6949 = load ptr, ptr %switch.gep6948, align 8
-  %.06438 = load i32, ptr %switch.load6949, align 4
+  %switch.gep6974 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_v9_v10_pdu_data.6, i64 0, i64 %649
+  %switch.load6975 = load ptr, ptr %switch.gep6974, align 8
+  %.06438 = load i32, ptr %switch.load6975, align 4
   %650 = load i32, ptr @hf_cflow_forwarding_status, align 4
   %651 = call ptr @proto_tree_add_item(ptr noundef %645, i32 noundef %650, ptr noundef %0, i32 noundef %.2, i32 noundef %643, i32 noundef 0)
   %652 = call ptr @proto_tree_add_item(ptr noundef %645, i32 noundef %.06438, ptr noundef %0, i32 noundef %.2, i32 noundef %643, i32 noundef 0)
@@ -11890,7 +11890,7 @@ switch.lookup:                                    ; preds = %proto_item_set_hidd
   %657 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.2)
   %658 = and i8 %657, 63
   %659 = zext nneg i8 %658 to i32
-  %660 = call ptr @val_to_str_const(i32 noundef %659, ptr noundef nonnull %switch.load6947, ptr noundef nonnull @.str.4658)
+  %660 = call ptr @val_to_str_const(i32 noundef %659, ptr noundef nonnull %switch.load6973, ptr noundef nonnull @.str.4658)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef null, ptr noundef nonnull @.str.4661, ptr noundef %660)
   br label %.thread6851
 
@@ -20240,15 +20240,15 @@ switch.lookup:                                    ; preds = %proto_item_set_hidd
 
 .sink.split:                                      ; preds = %6194, %6198
   %hf_pie_juniper_cpid_32bit.sink = phi ptr [ @hf_pie_juniper_cpid_32bit, %6198 ], [ @hf_pie_juniper_cpid_16bit, %6194 ]
-  %.sink6941 = phi i32 [ 4, %6198 ], [ 2, %6194 ]
+  %.sink6967 = phi i32 [ 4, %6198 ], [ 2, %6194 ]
   %hf_pie_juniper_cpdesc_32bit.sink = phi ptr [ @hf_pie_juniper_cpdesc_32bit, %6198 ], [ @hf_pie_juniper_cpdesc_16bit, %6194 ]
   %6199 = load i32, ptr %hf_pie_juniper_cpid_32bit.sink, align 4
-  %6200 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %6197, i32 noundef %6199, ptr noundef %0, i32 noundef %.2, i32 noundef %.sink6941, i32 noundef 0, ptr noundef nonnull %18)
+  %6200 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %6197, i32 noundef %6199, ptr noundef %0, i32 noundef %.2, i32 noundef %.sink6967, i32 noundef 0, ptr noundef nonnull %18)
   %6201 = load i32, ptr %18, align 4
   %6202 = call ptr @val_to_str_ext_const(i32 noundef %6201, ptr noundef nonnull @v10_juniper_cpid_ext, ptr noundef nonnull @.str.4690)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6197, ptr noundef nonnull @.str.4661, ptr noundef %6202)
   %6203 = load i32, ptr %hf_pie_juniper_cpdesc_32bit.sink, align 4
-  %6204 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %6197, i32 noundef %6203, ptr noundef %0, i32 noundef %.2, i32 noundef %.sink6941, i32 noundef 0, ptr noundef nonnull %19)
+  %6204 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %6197, i32 noundef %6203, ptr noundef %0, i32 noundef %.2, i32 noundef %.sink6967, i32 noundef 0, ptr noundef nonnull %19)
   br label %6205
 
 6205:                                             ; preds = %.sink.split, %6194
@@ -20376,56 +20376,56 @@ switch.lookup:                                    ; preds = %proto_item_set_hidd
 
 .preheader:                                       ; preds = %.preheader6873, %6273
   %6253 = phi i1 [ true, %.preheader6873 ], [ false, %6273 ]
-  %indvars.iv6933.sroa.phi = phi ptr [ %14, %.preheader6873 ], [ %indvars.iv6933.sroa.gep6950, %6273 ]
-  %indvars.iv6933.sroa.phi6951 = phi ptr [ %13, %.preheader6873 ], [ %indvars.iv6933.sroa.gep6953, %6273 ]
-  %indvars.iv6933.sroa.phi6954 = phi ptr [ %11, %.preheader6873 ], [ %indvars.iv6933.sroa.gep6956, %6273 ]
-  %indvars.iv6933.sroa.phi6957 = phi ptr [ %10, %.preheader6873 ], [ %indvars.iv6933.sroa.gep6959, %6273 ]
-  %indvars.iv6933.sroa.phi6960 = phi ptr [ %9, %.preheader6873 ], [ %indvars.iv6933.sroa.gep6962, %6273 ]
-  %indvars.iv6933.sroa.phi6963 = phi ptr [ %8, %.preheader6873 ], [ %indvars.iv6933.sroa.gep6965, %6273 ]
+  %indvars.iv6933.sroa.phi = phi ptr [ %14, %.preheader6873 ], [ %indvars.iv6933.sroa.gep6976, %6273 ]
+  %indvars.iv6933.sroa.phi6977 = phi ptr [ %13, %.preheader6873 ], [ %indvars.iv6933.sroa.gep6979, %6273 ]
+  %indvars.iv6933.sroa.phi6980 = phi ptr [ %11, %.preheader6873 ], [ %indvars.iv6933.sroa.gep6982, %6273 ]
+  %indvars.iv6933.sroa.phi6983 = phi ptr [ %10, %.preheader6873 ], [ %indvars.iv6933.sroa.gep6985, %6273 ]
+  %indvars.iv6933.sroa.phi6986 = phi ptr [ %9, %.preheader6873 ], [ %indvars.iv6933.sroa.gep6988, %6273 ]
+  %indvars.iv6933.sroa.phi6989 = phi ptr [ %8, %.preheader6873 ], [ %indvars.iv6933.sroa.gep6991, %6273 ]
   br label %6254
 
 6254:                                             ; preds = %.preheader, %6272
   %indvars.iv6929 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next6930, %6272 ]
-  %6255 = getelementptr [6 x i32], ptr %indvars.iv6933.sroa.phi6957, i64 0, i64 %indvars.iv6929
+  %6255 = getelementptr [6 x i32], ptr %indvars.iv6933.sroa.phi6983, i64 0, i64 %indvars.iv6929
   %6256 = load i32, ptr %6255, align 4
   %.not = icmp eq i32 %6256, 0
   br i1 %.not, label %.thread6872, label %6257
 
 6257:                                             ; preds = %6254
-  %6258 = getelementptr [6 x i32], ptr %indvars.iv6933.sroa.phi6954, i64 0, i64 %indvars.iv6929
+  %6258 = getelementptr [6 x i32], ptr %indvars.iv6933.sroa.phi6980, i64 0, i64 %indvars.iv6929
   %6259 = load i32, ptr %6258, align 4
   %.not6541 = icmp eq i32 %6259, 0
   br i1 %.not6541, label %.thread6872.sink.split, label %6272
 
 .thread6872.sink.split:                           ; preds = %6257
-  %6260 = getelementptr [6 x i32], ptr %indvars.iv6933.sroa.phi6951, i64 0, i64 %indvars.iv6929
+  %6260 = getelementptr [6 x i32], ptr %indvars.iv6933.sroa.phi6977, i64 0, i64 %indvars.iv6929
   %6261 = load i32, ptr %6260, align 4
   %.not6543 = icmp eq i32 %6261, 0
-  %6262 = getelementptr [6 x %struct.nstime_t], ptr %indvars.iv6933.sroa.phi6963, i64 0, i64 %indvars.iv6929
-  %hf_cflow_abstimestart.val6944 = load i32, ptr @hf_cflow_abstimestart, align 4
-  %hf_cflow_timestart.val6945 = load i32, ptr @hf_cflow_timestart, align 4
-  %6263 = select i1 %.not6543, i32 %hf_cflow_abstimestart.val6944, i32 %hf_cflow_timestart.val6945
+  %6262 = getelementptr [6 x %struct.nstime_t], ptr %indvars.iv6933.sroa.phi6989, i64 0, i64 %indvars.iv6929
+  %hf_cflow_abstimestart.val6970 = load i32, ptr @hf_cflow_abstimestart, align 4
+  %hf_cflow_timestart.val6971 = load i32, ptr @hf_cflow_timestart, align 4
+  %6263 = select i1 %.not6543, i32 %hf_cflow_abstimestart.val6970, i32 %hf_cflow_timestart.val6971
   %6264 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %6263, ptr noundef %0, i32 noundef %6256, i32 noundef 4, ptr noundef %6262)
   br label %.thread6872
 
 .thread6872:                                      ; preds = %.thread6872.sink.split, %6254
-  %6265 = getelementptr [6 x i32], ptr %indvars.iv6933.sroa.phi6954, i64 0, i64 %indvars.iv6929
+  %6265 = getelementptr [6 x i32], ptr %indvars.iv6933.sroa.phi6980, i64 0, i64 %indvars.iv6929
   %6266 = load i32, ptr %6265, align 4
   %.not6544 = icmp eq i32 %6266, 0
-  br i1 %.not6544, label %6272, label %.sink.split6942
+  br i1 %.not6544, label %6272, label %.sink.split6968
 
-.sink.split6942:                                  ; preds = %.thread6872
+.sink.split6968:                                  ; preds = %.thread6872
   %6267 = getelementptr [6 x i32], ptr %indvars.iv6933.sroa.phi, i64 0, i64 %indvars.iv6929
   %6268 = load i32, ptr %6267, align 4
   %.not6545 = icmp eq i32 %6268, 0
-  %6269 = getelementptr [6 x %struct.nstime_t], ptr %indvars.iv6933.sroa.phi6960, i64 0, i64 %indvars.iv6929
+  %6269 = getelementptr [6 x %struct.nstime_t], ptr %indvars.iv6933.sroa.phi6986, i64 0, i64 %indvars.iv6929
   %hf_cflow_abstimeend.val = load i32, ptr @hf_cflow_abstimeend, align 4
   %hf_cflow_timeend.val = load i32, ptr @hf_cflow_timeend, align 4
   %6270 = select i1 %.not6545, i32 %hf_cflow_abstimeend.val, i32 %hf_cflow_timeend.val
   %6271 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %6270, ptr noundef %0, i32 noundef %6266, i32 noundef 4, ptr noundef %6269)
   br label %6272
 
-6272:                                             ; preds = %.sink.split6942, %6257, %.thread6872
+6272:                                             ; preds = %.sink.split6968, %6257, %.thread6872
   %indvars.iv.next6930 = add nuw nsw i64 %indvars.iv6929, 1
   %exitcond6932.not = icmp eq i64 %indvars.iv.next6930, 6
   br i1 %exitcond6932.not, label %6273, label %6254, !llvm.loop !20

@@ -679,13 +679,13 @@ define void @_ZN6uu_cut9cut_files17h68757c20467e9be9E(ptr noalias noundef align 
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i64, ptr %20, align 8, !noundef !5
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %25, label %.thread175
+  br i1 %22, label %25, label %.thread185
 
-.thread175:                                       ; preds = %2
+.thread185:                                       ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val177 = load ptr, ptr %23, align 8, !nonnull !5, !noundef !5
-  %.idx178 = mul nsw i64 %21, 24
-  %24 = getelementptr inbounds i8, ptr %.val177, i64 %.idx178
+  %.val187 = load ptr, ptr %23, align 8, !nonnull !5, !noundef !5
+  %.idx188 = mul nsw i64 %21, 24
+  %24 = getelementptr inbounds i8, ptr %.val187, i64 %.idx188
   br label %.lr.ph.lr.ph
 
 25:                                               ; preds = %2
@@ -703,7 +703,7 @@ define void @_ZN6uu_cut9cut_files17h68757c20467e9be9E(ptr noalias noundef align 
           cleanup
   br label %.body
 
-.loopexit.loopexit.split-lp:                      ; preds = %.invoke210, %.invoke, %127, %125, %120, %.split.us, %184, %180
+.loopexit.loopexit.split-lp:                      ; preds = %.invoke220, %.invoke, %127, %125, %120, %.split.us, %184, %180
   %lpad.loopexit.split-lp114 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -766,9 +766,9 @@ define void @_ZN6uu_cut9cut_files17h68757c20467e9be9E(ptr noalias noundef align 
   %48 = icmp eq i64 %45, 0
   br i1 %48, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
-.lr.ph.lr.ph:                                     ; preds = %.thread175, %39
-  %49 = phi ptr [ %24, %.thread175 ], [ %47, %39 ]
-  %.val179 = phi ptr [ %.val177, %.thread175 ], [ %.val, %39 ]
+.lr.ph.lr.ph:                                     ; preds = %.thread185, %39
+  %49 = phi ptr [ %24, %.thread185 ], [ %47, %39 ]
+  %.val189 = phi ptr [ %.val187, %.thread185 ], [ %.val, %39 ]
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -817,7 +817,7 @@ define void @_ZN6uu_cut9cut_files17h68757c20467e9be9E(ptr noalias noundef align 
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %.0.ph141 = phi i1 [ false, %.lr.ph.lr.ph ], [ %.1, %.outer ]
-  %.sroa.0.0.ph139 = phi ptr [ %.val179, %.lr.ph.lr.ph ], [ %168, %.outer ]
+  %.sroa.0.0.ph139 = phi ptr [ %.val189, %.lr.ph.lr.ph ], [ %168, %.outer ]
   br i1 %.0.ph141, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %105
@@ -831,8 +831,8 @@ define void @_ZN6uu_cut9cut_files17h68757c20467e9be9E(ptr noalias noundef align 
   br i1 %.not.i.us, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha096326d6343c9deE.exit.us", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha096326d6343c9deE.exit.thread.us"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha096326d6343c9deE.exit.us": ; preds = %.lr.ph.split.us
-  %lhsc174 = load i8, ptr %90, align 1
-  %93 = icmp eq i8 %lhsc174, 45
+  %lhsc184 = load i8, ptr %90, align 1
+  %93 = icmp eq i8 %lhsc184, 45
   br i1 %93, label %105, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha096326d6343c9deE.exit.thread.us"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha096326d6343c9deE.exit.thread.us": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha096326d6343c9deE.exit.us", %.lr.ph.split.us
@@ -927,7 +927,7 @@ define void @_ZN6uu_cut9cut_files17h68757c20467e9be9E(ptr noalias noundef align 
           to label %115 unwind label %.loopexit.loopexit.split
 
 114:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha096326d6343c9deE.exit"
-  br i1 %switch, label %.invoke210, label %180
+  br i1 %switch, label %.invoke220, label %180
 
 115:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha096326d6343c9deE.exit.thread"
   br i1 %113, label %116, label %.split.us
@@ -1141,7 +1141,7 @@ define void @_ZN6uu_cut9cut_files17h68757c20467e9be9E(ptr noalias noundef align 
   %178 = icmp eq ptr %107, %49
   br i1 %178, label %.outer._crit_edge, label %.lr.ph.split
 
-.invoke210:                                       ; preds = %114
+.invoke220:                                       ; preds = %114
   %179 = invoke noundef nonnull align 8 ptr @_ZN3std2io5stdio5stdin17h662b61da6fbe6128E()
           to label %.invoke unwind label %.loopexit.loopexit.split-lp
 
@@ -1155,7 +1155,7 @@ define void @_ZN6uu_cut9cut_files17h68757c20467e9be9E(ptr noalias noundef align 
   %.not64 = icmp eq ptr %.sroa.085.0, null
   br i1 %.not64, label %.outer, label %186
 
-.invoke:                                          ; preds = %.invoke210
+.invoke:                                          ; preds = %.invoke220
   %183 = invoke { ptr, ptr } @_ZN6uu_cut9cut_bytes17h99382225ae4b7f05E(ptr noundef nonnull align 8 %179, ptr noalias noundef nonnull readonly align 8 %65, i64 noundef %67, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %63)
           to label %182 unwind label %.loopexit.loopexit.split-lp
 

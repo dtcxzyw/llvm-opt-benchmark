@@ -1178,8 +1178,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.t
   br i1 %.not.i248, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec2fEEEbv.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread.thread: ; preds = %359, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread
-  %.in552 = phi ptr [ %.pr451.pr.pr, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread ], [ %.pr449, %359 ]
-  %394 = ptrtoint ptr %.in552 to i64
+  %.in558 = phi ptr [ %.pr451.pr.pr, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfVec4fEEEbv.exit.thread ], [ %.pr449, %359 ]
+  %394 = ptrtoint ptr %.in558 to i64
   %395 = and i64 %394, -8
   %396 = inttoptr i64 %395 to ptr
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 16

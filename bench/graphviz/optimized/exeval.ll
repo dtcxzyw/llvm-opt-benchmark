@@ -580,7 +580,7 @@ define internal fastcc ptr @eval(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %216
 
 216:                                              ; preds = %.lr.ph1090, %248
-  %217 = phi ptr [ %211, %.lr.ph1090 ], [ %251, %248 ]
+  %217 = phi ptr [ %211, %.lr.ph1090 ], [ %252, %248 ]
   %.18651088 = phi i32 [ 0, %.lr.ph1090 ], [ %.3867997, %248 ]
   %218 = phi ptr [ null, %.lr.ph1090 ], [ %249, %248 ]
   %219 = getelementptr inbounds nuw i8, ptr %217, i64 32
@@ -650,7 +650,6 @@ define internal fastcc ptr @eval(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %.not948, label %248, label %.thread
 
 .thread:                                          ; preds = %.lr.ph1077.split.split, %.lr.ph1077.split.split.us1081, %.lr.ph1077.split.split.us, %.lr.ph1077, %216, %._crit_edge1078
-  %.3867996 = phi i32 [ %.18651088, %._crit_edge1078 ], [ 1, %216 ], [ 1, %.lr.ph1077 ], [ 1, %.lr.ph1077.split.split.us ], [ 1, %.lr.ph1077.split.split.us1081 ], [ 1, %.lr.ph1077.split.split ]
   %241 = load ptr, ptr %219, align 8, !tbaa !3
   %.not949 = icmp eq ptr %241, null
   br i1 %.not949, label %.loopexit1005, label %242
@@ -668,19 +667,16 @@ define internal fastcc ptr @eval(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 248:                                              ; preds = %242, %._crit_edge1078
   %249 = phi ptr [ %243, %242 ], [ %218, %._crit_edge1078 ]
-  %.3867997 = phi i32 [ %.3867996, %242 ], [ 0, %._crit_edge1078 ]
-  %250 = getelementptr inbounds nuw i8, ptr %217, i64 40
-  %251 = load ptr, ptr %250, align 8, !tbaa !3
-  %.not944 = icmp eq ptr %251, null
-  br i1 %.not944, label %._crit_edge1091.loopexit, label %216, !llvm.loop !51
+  %250 = phi i1 [ false, %242 ], [ true, %._crit_edge1078 ]
+  %.3867997 = phi i32 [ 1, %242 ], [ 0, %._crit_edge1078 ]
+  %251 = getelementptr inbounds nuw i8, ptr %217, i64 40
+  %252 = load ptr, ptr %251, align 8, !tbaa !3
+  %.not944 = icmp eq ptr %252, null
+  br i1 %.not944, label %._crit_edge1091, label %216, !llvm.loop !51
 
-._crit_edge1091.loopexit:                         ; preds = %248
-  %252 = icmp eq i32 %.3867997, 0
-  br label %._crit_edge1091
-
-._crit_edge1091:                                  ; preds = %._crit_edge1091.loopexit, %204
-  %.lcssa1084 = phi ptr [ null, %204 ], [ %249, %._crit_edge1091.loopexit ]
-  %.1865.lcssa = phi i1 [ true, %204 ], [ %252, %._crit_edge1091.loopexit ]
+._crit_edge1091:                                  ; preds = %248, %204
+  %.lcssa1084 = phi ptr [ null, %204 ], [ %249, %248 ]
+  %.1865.lcssa = phi i1 [ true, %204 ], [ %250, %248 ]
   %253 = icmp ne ptr %209, null
   %or.cond = select i1 %.1865.lcssa, i1 %253, i1 false
   br i1 %or.cond, label %254, label %.loopexit1005
@@ -1100,17 +1096,17 @@ define internal fastcc ptr @eval(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 ._crit_edge1040:                                  ; preds = %.lr.ph1039
   %brmerge = or i1 %.lcssa1011, %496
   %.str.3.mux = select i1 %.lcssa1011, ptr @.str.3, ptr @.str.4
-  br i1 %brmerge, label %.thread1204.sink.split, label %.thread1204
+  br i1 %brmerge, label %.thread1253.sink.split, label %.thread1253
 
 ._crit_edge1040.thread:                           ; preds = %._crit_edge1034
-  br i1 %.lcssa1011, label %.thread1204.sink.split, label %.thread1204
+  br i1 %.lcssa1011, label %.thread1253.sink.split, label %.thread1253
 
-.thread1204.sink.split:                           ; preds = %._crit_edge1040, %._crit_edge1040.thread
+.thread1253.sink.split:                           ; preds = %._crit_edge1040, %._crit_edge1040.thread
   %.str.4.sink = phi ptr [ @.str.3, %._crit_edge1040.thread ], [ %.str.3.mux, %._crit_edge1040 ]
   tail call void (ptr, ...) @exerror(ptr noundef nonnull %.str.4.sink) #25
-  br label %.thread1204
+  br label %.thread1253
 
-.thread1204:                                      ; preds = %._crit_edge1040, %.thread1204.sink.split, %._crit_edge1040.thread
+.thread1253:                                      ; preds = %._crit_edge1040, %.thread1253.sink.split, %._crit_edge1040.thread
   %499 = load ptr, ptr %14, align 8, !tbaa !3
   %500 = getelementptr inbounds nuw i8, ptr %499, i64 48
   %501 = load ptr, ptr %500, align 8, !tbaa !37
@@ -1125,9 +1121,9 @@ define internal fastcc ptr @eval(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %.not1105 = icmp eq ptr %.28621042, null
   br i1 %.not1105, label %.loopexit1005, label %.lr.ph1046
 
-.lr.ph1046:                                       ; preds = %.thread1204, %.lr.ph1046
-  %indvars.iv1135 = phi i64 [ %indvars.iv.next1136, %.lr.ph1046 ], [ 0, %.thread1204 ]
-  %.28621044 = phi ptr [ %.2862, %.lr.ph1046 ], [ %.28621042, %.thread1204 ]
+.lr.ph1046:                                       ; preds = %.thread1253, %.lr.ph1046
+  %indvars.iv1135 = phi i64 [ %indvars.iv.next1136, %.lr.ph1046 ], [ 0, %.thread1253 ]
+  %.28621044 = phi ptr [ %.2862, %.lr.ph1046 ], [ %.28621042, %.thread1253 ]
   %509 = getelementptr inbounds nuw i8, ptr %.28621044, i64 32
   %510 = load ptr, ptr %509, align 8, !tbaa !3
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 32
@@ -1687,16 +1683,16 @@ define internal fastcc ptr @eval(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %794 = tail call fastcc ptr @eval(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %2)
   %795 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %796 = load ptr, ptr %795, align 8, !tbaa !3
-  %.not9181249 = icmp eq ptr %796, null
-  br i1 %.not9181249, label %.loopexit1005, label %.lr.ph1251
+  %.not9181300 = icmp eq ptr %796, null
+  br i1 %.not9181300, label %.loopexit1005, label %.lr.ph1302
 
 797:                                              ; preds = %.critedge3
   %798 = getelementptr inbounds nuw i8, ptr %800, i64 40
   %799 = load ptr, ptr %798, align 8, !tbaa !3
   %.not918 = icmp eq ptr %799, null
-  br i1 %.not918, label %.loopexit1005, label %.lr.ph1251, !llvm.loop !68
+  br i1 %.not918, label %.loopexit1005, label %.lr.ph1302, !llvm.loop !68
 
-.lr.ph1251:                                       ; preds = %793, %797
+.lr.ph1302:                                       ; preds = %793, %797
   %800 = phi ptr [ %799, %797 ], [ %796, %793 ]
   %801 = getelementptr inbounds nuw i8, ptr %800, i64 8
   %802 = load i64, ptr %801, align 8, !tbaa !33
@@ -1705,15 +1701,15 @@ define internal fastcc ptr @eval(ptr noundef %0, ptr noundef %1, ptr noundef %2)
     i64 44, label %.critedge3
   ]
 
-.critedge3:                                       ; preds = %.lr.ph1251, %.lr.ph1251
+.critedge3:                                       ; preds = %.lr.ph1302, %.lr.ph1302
   %803 = getelementptr inbounds nuw i8, ptr %800, i64 32
   %804 = load ptr, ptr %803, align 8, !tbaa !3
   %805 = tail call fastcc ptr @eval(ptr noundef nonnull %0, ptr noundef %804, ptr noundef %2)
   %806 = load i64, ptr %11, align 8, !tbaa !31
   %.not919 = icmp eq i64 %806, 0
-  br i1 %.not919, label %797, label %.critedge3..loopexit1005.loopexit1241_crit_edge, !llvm.loop !68
+  br i1 %.not919, label %797, label %.critedge3..loopexit1005.loopexit1291_crit_edge, !llvm.loop !68
 
-.critedge:                                        ; preds = %.lr.ph1251
+.critedge:                                        ; preds = %.lr.ph1302
   %807 = tail call fastcc ptr @eval(ptr noundef nonnull %0, ptr noundef nonnull %800, ptr noundef %2)
   br label %.loopexit1005
 
@@ -2268,8 +2264,8 @@ thread-pre-split:                                 ; preds = %1009, %856
   %1067 = load ptr, ptr %1066, align 8, !tbaa !67
   %.sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0.319 = load ptr, ptr %.sroa.0165, align 8, !tbaa !3
   %1068 = ptrtoint ptr %.sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0.319 to i64
-  %.str.13..str.141226 = select i1 %1065, ptr @.str.13, ptr @.str.14
-  %1069 = call ptr (ptr, ptr, ...) @exprintf(ptr noundef %1067, ptr noundef nonnull %.str.13..str.141226, i64 noundef %1068)
+  %.str.13..str.141276 = select i1 %1065, ptr @.str.13, ptr @.str.14
+  %1069 = call ptr (ptr, ptr, ...) @exprintf(ptr noundef %1067, ptr noundef nonnull %.str.13..str.141276, i64 noundef %1068)
   br label %.loopexit1005
 
 1070:                                             ; preds = %1034
@@ -2720,11 +2716,11 @@ thread-pre-split:                                 ; preds = %1009, %856
   %1299 = call ptr @exzero(i64 noundef %1298) #25
   br label %.loopexit1005
 
-.critedge3..loopexit1005.loopexit1241_crit_edge:  ; preds = %.critedge3
+.critedge3..loopexit1005.loopexit1291_crit_edge:  ; preds = %.critedge3
   br label %.loopexit1005, !llvm.loop !68
 
-.loopexit1005:                                    ; preds = %797, %.lr.ph1046, %422, %418, %420, %387, %383, %385, %339, %335, %337, %304, %300, %302, %.thread, %194, %196, %202, %793, %.critedge3..loopexit1005.loopexit1241_crit_edge, %130, %1205, %1210, %._crit_edge1174, %1204, %1191, %1185, %._crit_edge1176, %1049, %1062, %._crit_edge1200, %868, %880, %._crit_edge1196, %437, %441, %395, %347, %312, %264, %181, %3, %10, %1131, %1132, %1123, %1124, %951, %952, %943, %944, %._crit_edge1091, %258, %254, %246, %.thread1204, %828, %826, %822, %820, %812, %816, %.critedge, %13, %1297, %1272, %1268, %1264, %1261, %1254, %1252, %1250, %1248, %1246, %1243, %1235, %1226, %1173, %1167, %1163, %1159, %1155, %1150, %1145, %1141, %1137, %1116, %1111, %1106, %1101, %1096, %1090, %1086, %1083, %1082, %1036, %1030, %1026, %1022, %1018, %1015, %1003, %1000, %998, %996, %994, %987, %982, %978, %974, %970, %966, %962, %958, %937, %930, %923, %916, %912, %907, %901, %896, %895, %861, %855, %623, %595, %590, %586, %584, %574, %._crit_edge, %._crit_edge1025, %430, %424, %174, %158, %157, %144, %142, %140, %138, %136, %134, %18
-  %.sroa.0841.0 = phi ptr [ %1299, %1297 ], [ %1043, %1036 ], [ %.sroa.0841.0.copyload853, %1082 ], [ %1085, %1083 ], [ %1089, %1086 ], [ %storemerge981, %1090 ], [ %1100, %1096 ], [ %1105, %1101 ], [ %1110, %1106 ], [ %1115, %1111 ], [ %1120, %1116 ], [ %1140, %1137 ], [ %1144, %1141 ], [ %1149, %1145 ], [ %1154, %1150 ], [ %1158, %1155 ], [ %1162, %1159 ], [ %1166, %1163 ], [ %1170, %1167 ], [ %.sroa.0841.0.copyload851, %1015 ], [ %.sroa.0841.0.copyload846, %994 ], [ %.sroa.0841.0.copyload847, %996 ], [ %.sroa.0841.0.copyload848, %998 ], [ %.sroa.0841.0.copyload849, %1000 ], [ %.sroa.0841.0.copyload850, %1003 ], [ %863, %861 ], [ %.sroa.0841.0.copyload845, %895 ], [ %900, %896 ], [ %906, %901 ], [ %911, %907 ], [ %915, %912 ], [ %922, %916 ], [ %929, %923 ], [ %936, %930 ], [ %940, %937 ], [ %961, %958 ], [ %965, %962 ], [ %969, %966 ], [ %973, %970 ], [ %977, %974 ], [ %981, %978 ], [ %986, %982 ], [ %991, %987 ], [ %1021, %1018 ], [ %1025, %1022 ], [ %1029, %1026 ], [ %1033, %1030 ], [ %1263, %1261 ], [ %1267, %1264 ], [ %1271, %1268 ], [ %1275, %1272 ], [ %1177, %1173 ], [ %.sroa.0841.0.copyload856, %1226 ], [ %1242, %1235 ], [ %1245, %1243 ], [ %1247, %1246 ], [ %1249, %1248 ], [ %1251, %1250 ], [ %1253, %1252 ], [ %1256, %1254 ], [ %.sroa.0841.0.copyload843, %855 ], [ %19, %18 ], [ %135, %134 ], [ %137, %136 ], [ %139, %138 ], [ %141, %140 ], [ %143, %142 ], [ %145, %144 ], [ %148, %157 ], [ %161, %158 ], [ inttoptr (i64 1 to ptr), %174 ], [ %429, %424 ], [ %433, %430 ], [ %538, %._crit_edge1025 ], [ %557, %._crit_edge ], [ %582, %574 ], [ null, %584 ], [ %589, %586 ], [ %592, %590 ], [ %598, %595 ], [ %.sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0.copyload263, %623 ], [ %15, %13 ], [ %807, %.critedge ], [ %815, %812 ], [ %819, %816 ], [ %825, %822 ], [ null, %820 ], [ %831, %828 ], [ %827, %826 ], [ %504, %.thread1204 ], [ %243, %246 ], [ %255, %254 ], [ %255, %258 ], [ %.lcssa1084, %._crit_edge1091 ], [ %947, %944 ], [ %.sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0.copyload294.pre, %943 ], [ %957, %952 ], [ %.sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0.copyload295.pre, %951 ], [ %1128, %1124 ], [ %.sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0.copyload340.pre, %1123 ], [ %1136, %1132 ], [ %.sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0.copyload342.pre, %1131 ], [ inttoptr (i64 1 to ptr), %10 ], [ inttoptr (i64 1 to ptr), %3 ], [ %spec.select, %130 ], [ inttoptr (i64 1 to ptr), %181 ], [ null, %264 ], [ null, %312 ], [ null, %347 ], [ %storemerge9301050, %395 ], [ null, %441 ], [ %440, %437 ], [ %.sroa.0841.0.copyload844.pre, %._crit_edge1196 ], [ %883, %880 ], [ %873, %868 ], [ %.sroa.0841.0.copyload852.pre, %._crit_edge1200 ], [ %1069, %1062 ], [ %1055, %1049 ], [ %.sroa.0841.0.copyload854.pre, %._crit_edge1176 ], [ %1190, %1185 ], [ %1196, %1191 ], [ %.sroa.0841.0.copyload855.pre, %._crit_edge1174 ], [ %1214, %1210 ], [ %1209, %1205 ], [ null, %1204 ], [ %805, %.critedge3..loopexit1005.loopexit1241_crit_edge ], [ %794, %793 ], [ inttoptr (i64 1 to ptr), %202 ], [ null, %196 ], [ null, %194 ], [ inttoptr (i64 1 to ptr), %.thread ], [ null, %302 ], [ null, %300 ], [ %281, %304 ], [ null, %337 ], [ null, %335 ], [ %341, %339 ], [ null, %385 ], [ null, %383 ], [ %364, %387 ], [ null, %420 ], [ null, %418 ], [ %storemerge930, %422 ], [ %504, %.lr.ph1046 ], [ %805, %797 ]
+.loopexit1005:                                    ; preds = %797, %.lr.ph1046, %422, %418, %420, %387, %383, %385, %339, %335, %337, %304, %300, %302, %.thread, %194, %196, %202, %793, %.critedge3..loopexit1005.loopexit1291_crit_edge, %130, %1205, %1210, %._crit_edge1174, %1204, %1191, %1185, %._crit_edge1176, %1049, %1062, %._crit_edge1200, %868, %880, %._crit_edge1196, %437, %441, %395, %347, %312, %264, %181, %3, %10, %1131, %1132, %1123, %1124, %951, %952, %943, %944, %._crit_edge1091, %258, %254, %246, %.thread1253, %828, %826, %822, %820, %812, %816, %.critedge, %13, %1297, %1272, %1268, %1264, %1261, %1254, %1252, %1250, %1248, %1246, %1243, %1235, %1226, %1173, %1167, %1163, %1159, %1155, %1150, %1145, %1141, %1137, %1116, %1111, %1106, %1101, %1096, %1090, %1086, %1083, %1082, %1036, %1030, %1026, %1022, %1018, %1015, %1003, %1000, %998, %996, %994, %987, %982, %978, %974, %970, %966, %962, %958, %937, %930, %923, %916, %912, %907, %901, %896, %895, %861, %855, %623, %595, %590, %586, %584, %574, %._crit_edge, %._crit_edge1025, %430, %424, %174, %158, %157, %144, %142, %140, %138, %136, %134, %18
+  %.sroa.0841.0 = phi ptr [ %1299, %1297 ], [ %1043, %1036 ], [ %.sroa.0841.0.copyload853, %1082 ], [ %1085, %1083 ], [ %1089, %1086 ], [ %storemerge981, %1090 ], [ %1100, %1096 ], [ %1105, %1101 ], [ %1110, %1106 ], [ %1115, %1111 ], [ %1120, %1116 ], [ %1140, %1137 ], [ %1144, %1141 ], [ %1149, %1145 ], [ %1154, %1150 ], [ %1158, %1155 ], [ %1162, %1159 ], [ %1166, %1163 ], [ %1170, %1167 ], [ %.sroa.0841.0.copyload851, %1015 ], [ %.sroa.0841.0.copyload846, %994 ], [ %.sroa.0841.0.copyload847, %996 ], [ %.sroa.0841.0.copyload848, %998 ], [ %.sroa.0841.0.copyload849, %1000 ], [ %.sroa.0841.0.copyload850, %1003 ], [ %863, %861 ], [ %.sroa.0841.0.copyload845, %895 ], [ %900, %896 ], [ %906, %901 ], [ %911, %907 ], [ %915, %912 ], [ %922, %916 ], [ %929, %923 ], [ %936, %930 ], [ %940, %937 ], [ %961, %958 ], [ %965, %962 ], [ %969, %966 ], [ %973, %970 ], [ %977, %974 ], [ %981, %978 ], [ %986, %982 ], [ %991, %987 ], [ %1021, %1018 ], [ %1025, %1022 ], [ %1029, %1026 ], [ %1033, %1030 ], [ %1263, %1261 ], [ %1267, %1264 ], [ %1271, %1268 ], [ %1275, %1272 ], [ %1177, %1173 ], [ %.sroa.0841.0.copyload856, %1226 ], [ %1242, %1235 ], [ %1245, %1243 ], [ %1247, %1246 ], [ %1249, %1248 ], [ %1251, %1250 ], [ %1253, %1252 ], [ %1256, %1254 ], [ %.sroa.0841.0.copyload843, %855 ], [ %19, %18 ], [ %135, %134 ], [ %137, %136 ], [ %139, %138 ], [ %141, %140 ], [ %143, %142 ], [ %145, %144 ], [ %148, %157 ], [ %161, %158 ], [ inttoptr (i64 1 to ptr), %174 ], [ %429, %424 ], [ %433, %430 ], [ %538, %._crit_edge1025 ], [ %557, %._crit_edge ], [ %582, %574 ], [ null, %584 ], [ %589, %586 ], [ %592, %590 ], [ %598, %595 ], [ %.sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0.copyload263, %623 ], [ %15, %13 ], [ %807, %.critedge ], [ %815, %812 ], [ %819, %816 ], [ %825, %822 ], [ null, %820 ], [ %831, %828 ], [ %827, %826 ], [ %504, %.thread1253 ], [ %243, %246 ], [ %255, %254 ], [ %255, %258 ], [ %.lcssa1084, %._crit_edge1091 ], [ %947, %944 ], [ %.sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0.copyload294.pre, %943 ], [ %957, %952 ], [ %.sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0.copyload295.pre, %951 ], [ %1128, %1124 ], [ %.sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0.copyload340.pre, %1123 ], [ %1136, %1132 ], [ %.sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0.copyload342.pre, %1131 ], [ inttoptr (i64 1 to ptr), %10 ], [ inttoptr (i64 1 to ptr), %3 ], [ %spec.select, %130 ], [ inttoptr (i64 1 to ptr), %181 ], [ null, %264 ], [ null, %312 ], [ null, %347 ], [ %storemerge9301050, %395 ], [ null, %441 ], [ %440, %437 ], [ %.sroa.0841.0.copyload844.pre, %._crit_edge1196 ], [ %883, %880 ], [ %873, %868 ], [ %.sroa.0841.0.copyload852.pre, %._crit_edge1200 ], [ %1069, %1062 ], [ %1055, %1049 ], [ %.sroa.0841.0.copyload854.pre, %._crit_edge1176 ], [ %1190, %1185 ], [ %1196, %1191 ], [ %.sroa.0841.0.copyload855.pre, %._crit_edge1174 ], [ %1214, %1210 ], [ %1209, %1205 ], [ null, %1204 ], [ %805, %.critedge3..loopexit1005.loopexit1291_crit_edge ], [ %794, %793 ], [ inttoptr (i64 1 to ptr), %202 ], [ null, %196 ], [ null, %194 ], [ inttoptr (i64 1 to ptr), %.thread ], [ null, %302 ], [ null, %300 ], [ %281, %304 ], [ null, %337 ], [ null, %335 ], [ %341, %339 ], [ null, %385 ], [ null, %383 ], [ %364, %387 ], [ null, %420 ], [ null, %418 ], [ %storemerge930, %422 ], [ %504, %.lr.ph1046 ], [ %805, %797 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2866,16 +2862,16 @@ define internal fastcc ptr @getdyn(ptr noundef %0, ptr noundef readonly captures
   br label %.sink.split
 
 .sink.split:                                      ; preds = %59, %28
-  %.sink60 = phi ptr [ %25, %28 ], [ %56, %59 ]
+  %.sink65 = phi ptr [ %25, %28 ], [ %56, %59 ]
   %63 = load ptr, ptr %7, align 8, !tbaa !3
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 56
   %65 = load ptr, ptr %64, align 8, !tbaa !53
   %66 = load ptr, ptr %65, align 8, !tbaa !54
-  %67 = call ptr %66(ptr noundef nonnull %65, ptr noundef nonnull %.sink60, i32 noundef 1) #25
+  %67 = call ptr %66(ptr noundef nonnull %65, ptr noundef nonnull %.sink65, i32 noundef 1) #25
   br label %68
 
 68:                                               ; preds = %.sink.split, %17, %45
-  %.0 = phi ptr [ %21, %17 ], [ %50, %45 ], [ %.sink60, %.sink.split ]
+  %.0 = phi ptr [ %21, %17 ], [ %50, %45 ], [ %.sink65, %.sink.split ]
   store ptr %.0, ptr %3, align 8, !tbaa !35
   %69 = load ptr, ptr %7, align 8, !tbaa !3
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
@@ -3366,8 +3362,8 @@ agxblen.exit.i:                                   ; preds = %57
   br i1 %.not.i26.i, label %68, label %.thread
 
 .thread:                                          ; preds = %agxblen.exit.i, %62
-  %.val.i25.i95 = phi i8 [ %.val.i25.pre.i, %62 ], [ 0, %agxblen.exit.i ]
-  %63 = zext i8 %.val.i25.i95 to i64
+  %.val.i25.i103 = phi i8 [ %.val.i25.pre.i, %62 ], [ 0, %agxblen.exit.i ]
+  %63 = zext i8 %.val.i25.i103 to i64
   %64 = getelementptr inbounds nuw [31 x i8], ptr %6, i64 0, i64 %63
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %64, ptr readonly align 1 %9, i64 %49, i1 false)
   %65 = trunc i64 %49 to i8
@@ -3598,7 +3594,7 @@ agxblen.exit.i.i87:                               ; preds = %agxbput.exit
 agxbsizeof.exit.i.i86:                            ; preds = %156, %agxblen.exit.i.i87
   %163 = phi ptr [ %157, %156 ], [ %154, %agxblen.exit.i.i87 ]
   %164 = phi ptr [ %158, %156 ], [ %153, %agxblen.exit.i.i87 ]
-  %.val.i97 = phi i8 [ -1, %156 ], [ %.val.i, %agxblen.exit.i.i87 ]
+  %.val.i105 = phi i8 [ -1, %156 ], [ %.val.i, %agxblen.exit.i.i87 ]
   %.0.i20.i.i = phi i64 [ %160, %156 ], [ %155, %agxblen.exit.i.i87 ]
   %.0.i14.i.i = phi i64 [ %162, %156 ], [ 31, %agxblen.exit.i.i87 ]
   %.not.i5.i = icmp ult i64 %.0.i20.i.i, %.0.i14.i.i
@@ -3610,7 +3606,7 @@ agxbsizeof.exit.i.i86:                            ; preds = %156, %agxblen.exit.
   br label %166
 
 166:                                              ; preds = %165, %agxbsizeof.exit.i.i86
-  %.val.i6.pr.i = phi i8 [ %.val.i15.pre.i.i, %165 ], [ %.val.i97, %agxbsizeof.exit.i.i86 ]
+  %.val.i6.pr.i = phi i8 [ %.val.i15.pre.i.i, %165 ], [ %.val.i105, %agxbsizeof.exit.i.i86 ]
   %.not.i16.i.i = icmp eq i8 %.val.i6.pr.i, -1
   br i1 %.not.i16.i.i, label %agxbputc.exit.i.thread, label %agxbputc.exit.i
 
@@ -5581,11 +5577,11 @@ exeval.exit168:                                   ; preds = %.then184, %138, %12
   tail call void @free(ptr noundef %191) #25
   %197 = load ptr, ptr %0, align 8, !tbaa !74
   %198 = icmp eq ptr %197, null
-  br i1 %198, label %199, label %.sink.split224
+  br i1 %198, label %199, label %.sink.split245
 
 199:                                              ; preds = %189
   tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.32) #25
-  br label %.sink.split224
+  br label %.sink.split245
 
 200:                                              ; preds = %186
   %201 = load i32, ptr %4, align 8, !tbaa !111
@@ -5593,7 +5589,7 @@ exeval.exit168:                                   ; preds = %.then184, %138, %12
   store i32 %202, ptr %4, align 8, !tbaa !111
   %203 = load ptr, ptr %0, align 8, !tbaa !74
   %.not151 = icmp eq ptr %.sroa.011.0, null
-  br i1 %.not151, label %.sink.split224, label %204
+  br i1 %.not151, label %.sink.split245, label %204
 
 204:                                              ; preds = %200
   %205 = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %.sroa.12.0, i64 10)
@@ -5606,7 +5602,7 @@ exeval.exit168:                                   ; preds = %.then184, %138, %12
 208:                                              ; preds = %204
   %209 = load i8, ptr %203, align 1, !tbaa !3
   %.not155 = icmp eq i8 %209, 0
-  br i1 %.not155, label %.sink.split224, label %210
+  br i1 %.not155, label %.sink.split245, label %210
 
 210:                                              ; preds = %208
   %211 = and i8 %209, -33
@@ -5620,7 +5616,7 @@ exeval.exit168:                                   ; preds = %.then184, %138, %12
   store i8 95, ptr %203, align 1, !tbaa !3
   %.pre209 = load i8, ptr %216, align 1, !tbaa !3
   %.not156201 = icmp eq i8 %.pre209, 0
-  br i1 %.not156201, label %.sink.split224, label %.lr.ph203.preheader
+  br i1 %.not156201, label %.sink.split245, label %.lr.ph203.preheader
 
 .lr.ph203.preheader:                              ; preds = %210, %215
   %.ph = phi i8 [ %209, %210 ], [ %.pre209, %215 ]
@@ -5647,7 +5643,7 @@ exeval.exit168:                                   ; preds = %.then184, %138, %12
   %227 = getelementptr inbounds nuw i8, ptr %.1202, i64 1
   %228 = load i8, ptr %227, align 1, !tbaa !3
   %.not156 = icmp eq i8 %228, 0
-  br i1 %.not156, label %.sink.split224, label %.lr.ph203, !llvm.loop !121
+  br i1 %.not156, label %.sink.split245, label %.lr.ph203, !llvm.loop !121
 
 229:                                              ; preds = %204
   %230 = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %.sroa.12.0, i64 6)
@@ -5660,7 +5656,7 @@ exeval.exit168:                                   ; preds = %.then184, %138, %12
 .preheader:                                       ; preds = %229
   %233 = load i8, ptr %203, align 1, !tbaa !3
   %.not154198 = icmp eq i8 %233, 0
-  br i1 %.not154198, label %.sink.split224, label %.lr.ph200
+  br i1 %.not154198, label %.sink.split245, label %.lr.ph200
 
 .lr.ph200:                                        ; preds = %.preheader, %250
   %234 = phi i8 [ %252, %250 ], [ %233, %.preheader ]
@@ -5697,7 +5693,7 @@ exeval.exit168:                                   ; preds = %.then184, %138, %12
   %251 = getelementptr inbounds nuw i8, ptr %.2199, i64 1
   %252 = load i8, ptr %251, align 1, !tbaa !3
   %.not154 = icmp eq i8 %252, 0
-  br i1 %.not154, label %.sink.split224, label %.lr.ph200, !llvm.loop !123
+  br i1 %.not154, label %.sink.split245, label %.lr.ph200, !llvm.loop !123
 
 253:                                              ; preds = %229
   %254 = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %.sroa.12.0, i64 5)
@@ -5710,7 +5706,7 @@ exeval.exit168:                                   ; preds = %.then184, %138, %12
 257:                                              ; preds = %253
   %258 = load i8, ptr %203, align 1, !tbaa !3
   %.not5.i = icmp eq i8 %258, 0
-  br i1 %.not5.i, label %.sink.split224, label %.lr.ph.i
+  br i1 %.not5.i, label %.sink.split245, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %257, %.lr.ph.i
   %259 = phi i8 [ %265, %.lr.ph.i ], [ %258, %257 ]
@@ -5724,7 +5720,7 @@ exeval.exit168:                                   ; preds = %.then184, %138, %12
   %264 = getelementptr inbounds nuw i8, ptr %.06.i, i64 1
   %265 = load i8, ptr %264, align 1, !tbaa !3
   %.not.i175 = icmp eq i8 %265, 0
-  br i1 %.not.i175, label %.sink.split224, label %.lr.ph.i, !llvm.loop !124
+  br i1 %.not.i175, label %.sink.split245, label %.lr.ph.i, !llvm.loop !124
 
 266:                                              ; preds = %253
   %267 = tail call fastcc zeroext i1 @strview_str_eq(ptr %.sroa.011.0, i64 %.sroa.12.0, ptr noundef nonnull @.str.38)
@@ -5733,7 +5729,7 @@ exeval.exit168:                                   ; preds = %.then184, %138, %12
 268:                                              ; preds = %266
   %269 = load i8, ptr %203, align 1, !tbaa !3
   %.not5.i176 = icmp eq i8 %269, 0
-  br i1 %.not5.i176, label %.sink.split224, label %.lr.ph.i177
+  br i1 %.not5.i176, label %.sink.split245, label %.lr.ph.i177
 
 .lr.ph.i177:                                      ; preds = %268, %.lr.ph.i177
   %270 = phi i8 [ %276, %.lr.ph.i177 ], [ %269, %268 ]
@@ -5747,16 +5743,16 @@ exeval.exit168:                                   ; preds = %.then184, %138, %12
   %275 = getelementptr inbounds nuw i8, ptr %.06.i178, i64 1
   %276 = load i8, ptr %275, align 1, !tbaa !3
   %.not.i180 = icmp eq i8 %276, 0
-  br i1 %.not.i180, label %.sink.split224, label %.lr.ph.i177, !llvm.loop !125
+  br i1 %.not.i180, label %.sink.split245, label %.lr.ph.i177, !llvm.loop !125
 
 277:                                              ; preds = %266
   %278 = tail call fastcc zeroext i1 @strview_str_eq(ptr %.sroa.011.0, i64 %.sroa.12.0, ptr noundef nonnull @.str.39)
-  br i1 %278, label %.preheader194, label %.sink.split224
+  br i1 %278, label %.preheader194, label %.sink.split245
 
 .preheader194:                                    ; preds = %277
   %279 = load i8, ptr %203, align 1, !tbaa !3
   %.not152196 = icmp eq i8 %279, 0
-  br i1 %.not152196, label %.sink.split224, label %.lr.ph
+  br i1 %.not152196, label %.sink.split245, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader194, %289
   %280 = phi i8 [ %291, %289 ], [ %279, %.preheader194 ]
@@ -5780,7 +5776,7 @@ exeval.exit168:                                   ; preds = %.then184, %138, %12
   %290 = getelementptr inbounds nuw i8, ptr %.3197, i64 1
   %291 = load i8, ptr %290, align 1, !tbaa !3
   %.not152 = icmp eq i8 %291, 0
-  br i1 %.not152, label %.sink.split224, label %.lr.ph, !llvm.loop !126
+  br i1 %.not152, label %.sink.split245, label %.lr.ph, !llvm.loop !126
 
 292:                                              ; preds = %186, %186
   store i64 %179, ptr %3, align 8, !tbaa !40
@@ -5798,7 +5794,7 @@ exeval.exit168:                                   ; preds = %.then184, %138, %12
 
 298:                                              ; preds = %296
   tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.40) #25
-  br label %.sink.split224
+  br label %.sink.split245
 
 299:                                              ; preds = %296
   %300 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -5832,15 +5828,15 @@ exeval.exit168:                                   ; preds = %.then184, %138, %12
 
 318:                                              ; preds = %314, %310
   call void @free(ptr noundef %307) #25
-  br label %.sink.split224
+  br label %.sink.split245
 
-.sink.split224:                                   ; preds = %289, %.lr.ph.i177, %.lr.ph.i, %250, %226, %298, %318, %200, %277, %257, %268, %215, %.preheader, %.preheader194, %208, %189, %199
+.sink.split245:                                   ; preds = %289, %.lr.ph.i177, %.lr.ph.i, %250, %226, %298, %318, %200, %277, %257, %268, %215, %.preheader, %.preheader194, %208, %189, %199
   store i32 115, ptr %187, align 8, !tbaa !112
   %319 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 -1, ptr %319, align 8, !tbaa !113
   br label %320
 
-320:                                              ; preds = %.sink.split224, %186
+320:                                              ; preds = %.sink.split245, %186
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }

@@ -1446,7 +1446,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_777UVector7index
   %20 = getelementptr inbounds %union.UElement, ptr %18, i64 %indvars.iv55
   %21 = load i32, ptr %20, align 8, !tbaa !19
   %22 = icmp eq i32 %21, %.sroa.016.0.extract.trunc
-  br i1 %22, label %.thread.loopexit.split.loop.exit68, label %23
+  br i1 %22, label %.thread.loopexit.split.loop.exit70, label %23
 
 23:                                               ; preds = %.lr.ph40.split.us
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, 1
@@ -1461,7 +1461,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_777UVector7index
   %.sroa.0.0.copyload = load ptr, ptr %27, align 8, !tbaa !19
   %28 = tail call noundef signext i8 %25(ptr %1, ptr %.sroa.0.0.copyload)
   %.not23 = icmp eq i8 %28, 0
-  br i1 %.not23, label %29, label %.thread.loopexit62.split.loop.exit
+  br i1 %.not23, label %29, label %.thread.loopexit64.split.loop.exit
 
 29:                                               ; preds = %24
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -1475,27 +1475,27 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_777UVector7index
   %33 = getelementptr inbounds %union.UElement, ptr %18, i64 %indvars.iv52
   %34 = load ptr, ptr %33, align 8, !tbaa !19
   %35 = icmp eq ptr %1, %34
-  br i1 %35, label %.thread.loopexit60.split.loop.exit66, label %36
+  br i1 %35, label %.thread.loopexit62.split.loop.exit68, label %36
 
 36:                                               ; preds = %.lr.ph40.split
   %indvars.iv.next53 = add nsw i64 %indvars.iv52, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count58
   br i1 %exitcond.not, label %.thread, label %.lr.ph40.split, !llvm.loop !30
 
-.thread.loopexit.split.loop.exit68:               ; preds = %.lr.ph40.split.us
+.thread.loopexit.split.loop.exit70:               ; preds = %.lr.ph40.split.us
   %37 = trunc nsw i64 %indvars.iv55 to i32
   br label %.thread
 
-.thread.loopexit60.split.loop.exit66:             ; preds = %.lr.ph40.split
+.thread.loopexit62.split.loop.exit68:             ; preds = %.lr.ph40.split
   %38 = trunc nsw i64 %indvars.iv52 to i32
   br label %.thread
 
-.thread.loopexit62.split.loop.exit:               ; preds = %24
+.thread.loopexit64.split.loop.exit:               ; preds = %24
   %39 = trunc nsw i64 %indvars.iv to i32
   br label %.thread
 
-.thread:                                          ; preds = %29, %36, %23, %.thread.loopexit62.split.loop.exit, %.thread.loopexit60.split.loop.exit66, %.thread.loopexit.split.loop.exit68, %.preheader33, %.preheader
-  %.1 = phi i32 [ -1, %.preheader ], [ -1, %.preheader33 ], [ %37, %.thread.loopexit.split.loop.exit68 ], [ %38, %.thread.loopexit60.split.loop.exit66 ], [ %39, %.thread.loopexit62.split.loop.exit ], [ -1, %23 ], [ -1, %36 ], [ -1, %29 ]
+.thread:                                          ; preds = %29, %36, %23, %.thread.loopexit64.split.loop.exit, %.thread.loopexit62.split.loop.exit68, %.thread.loopexit.split.loop.exit70, %.preheader33, %.preheader
+  %.1 = phi i32 [ -1, %.preheader ], [ -1, %.preheader33 ], [ %37, %.thread.loopexit.split.loop.exit70 ], [ %38, %.thread.loopexit62.split.loop.exit68 ], [ %39, %.thread.loopexit64.split.loop.exit ], [ -1, %23 ], [ -1, %36 ], [ -1, %29 ]
   ret i32 %.1
 }
 
@@ -2147,7 +2147,7 @@ define noundef i32 @_ZNK6icu_777UVector7indexOfEPvi(ptr noundef nonnull readonly
   %.sroa.0.0.copyload.i = load ptr, ptr %17, align 8, !tbaa !19
   %18 = tail call noundef signext i8 %15(ptr %1, ptr %.sroa.0.0.copyload.i)
   %.not23.i = icmp eq i8 %18, 0
-  br i1 %.not23.i, label %19, label %.thread.loopexit62.split.loop.exit.i
+  br i1 %.not23.i, label %19, label %.thread.loopexit64.split.loop.exit.i
 
 19:                                               ; preds = %14
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
@@ -2161,23 +2161,23 @@ define noundef i32 @_ZNK6icu_777UVector7indexOfEPvi(ptr noundef nonnull readonly
   %23 = getelementptr inbounds %union.UElement, ptr %12, i64 %indvars.iv52.i
   %24 = load ptr, ptr %23, align 8, !tbaa !19
   %25 = icmp eq ptr %1, %24
-  br i1 %25, label %.thread.loopexit60.split.loop.exit66.i, label %26
+  br i1 %25, label %.thread.loopexit62.split.loop.exit68.i, label %26
 
 26:                                               ; preds = %.lr.ph40.split.i
   %indvars.iv.next53.i = add nsw i64 %indvars.iv52.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next53.i, %wide.trip.count58.i
   br i1 %exitcond.not.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit, label %.lr.ph40.split.i, !llvm.loop !30
 
-.thread.loopexit60.split.loop.exit66.i:           ; preds = %.lr.ph40.split.i
+.thread.loopexit62.split.loop.exit68.i:           ; preds = %.lr.ph40.split.i
   %27 = trunc nsw i64 %indvars.iv52.i to i32
   br label %_ZNK6icu_777UVector7indexOfE8UElementia.exit
 
-.thread.loopexit62.split.loop.exit.i:             ; preds = %14
+.thread.loopexit64.split.loop.exit.i:             ; preds = %14
   %28 = trunc nsw i64 %indvars.iv.i to i32
   br label %_ZNK6icu_777UVector7indexOfE8UElementia.exit
 
-_ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %19, %26, %.preheader33.i, %.preheader.i, %.thread.loopexit60.split.loop.exit66.i, %.thread.loopexit62.split.loop.exit.i
-  %.1.i = phi i32 [ -1, %.preheader.i ], [ -1, %.preheader33.i ], [ %27, %.thread.loopexit60.split.loop.exit66.i ], [ %28, %.thread.loopexit62.split.loop.exit.i ], [ -1, %26 ], [ -1, %19 ]
+_ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %19, %26, %.preheader33.i, %.preheader.i, %.thread.loopexit62.split.loop.exit68.i, %.thread.loopexit64.split.loop.exit.i
+  %.1.i = phi i32 [ -1, %.preheader.i ], [ -1, %.preheader33.i ], [ %27, %.thread.loopexit62.split.loop.exit68.i ], [ %28, %.thread.loopexit64.split.loop.exit.i ], [ -1, %26 ], [ -1, %19 ]
   ret i32 %.1.i
 }
 
@@ -2290,7 +2290,7 @@ define noundef i32 @_ZNK6icu_777UVector7indexOfEii(ptr noundef nonnull readonly 
   %15 = getelementptr inbounds %union.UElement, ptr %13, i64 %indvars.iv55.i
   %16 = load i32, ptr %15, align 8, !tbaa !19
   %17 = icmp eq i32 %16, %1
-  br i1 %17, label %.thread.loopexit.split.loop.exit68.i, label %18
+  br i1 %17, label %.thread.loopexit.split.loop.exit70.i, label %18
 
 18:                                               ; preds = %.lr.ph40.split.us.i
   %indvars.iv.next56.i = add nsw i64 %indvars.iv55.i, 1
@@ -2305,7 +2305,7 @@ define noundef i32 @_ZNK6icu_777UVector7indexOfEii(ptr noundef nonnull readonly 
   %.sroa.0.0.copyload.i = load ptr, ptr %22, align 8, !tbaa !19
   %23 = tail call noundef signext i8 %20(ptr %4, ptr %.sroa.0.0.copyload.i)
   %.not23.i = icmp eq i8 %23, 0
-  br i1 %.not23.i, label %24, label %.thread.loopexit62.split.loop.exit.i
+  br i1 %.not23.i, label %24, label %.thread.loopexit64.split.loop.exit.i
 
 24:                                               ; preds = %19
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
@@ -2314,16 +2314,16 @@ define noundef i32 @_ZNK6icu_777UVector7indexOfEii(ptr noundef nonnull readonly 
   %27 = icmp slt i64 %indvars.iv.next.i, %26
   br i1 %27, label %19, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit, !llvm.loop !33
 
-.thread.loopexit.split.loop.exit68.i:             ; preds = %.lr.ph40.split.us.i
+.thread.loopexit.split.loop.exit70.i:             ; preds = %.lr.ph40.split.us.i
   %28 = trunc nsw i64 %indvars.iv55.i to i32
   br label %_ZNK6icu_777UVector7indexOfE8UElementia.exit
 
-.thread.loopexit62.split.loop.exit.i:             ; preds = %19
+.thread.loopexit64.split.loop.exit.i:             ; preds = %19
   %29 = trunc nsw i64 %indvars.iv.i to i32
   br label %_ZNK6icu_777UVector7indexOfE8UElementia.exit
 
-_ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %24, %18, %.preheader33.i, %.preheader.i, %.thread.loopexit.split.loop.exit68.i, %.thread.loopexit62.split.loop.exit.i
-  %.1.i = phi i32 [ -1, %.preheader.i ], [ -1, %.preheader33.i ], [ %28, %.thread.loopexit.split.loop.exit68.i ], [ %29, %.thread.loopexit62.split.loop.exit.i ], [ -1, %18 ], [ -1, %24 ]
+_ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %24, %18, %.preheader33.i, %.preheader.i, %.thread.loopexit.split.loop.exit70.i, %.thread.loopexit64.split.loop.exit.i
+  %.1.i = phi i32 [ -1, %.preheader.i ], [ -1, %.preheader33.i ], [ %28, %.thread.loopexit.split.loop.exit70.i ], [ %29, %.thread.loopexit64.split.loop.exit.i ], [ -1, %18 ], [ -1, %24 ]
   ret i32 %.1.i
 }
 
@@ -2471,8 +2471,8 @@ _ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit: ; preds = %27, %12
   br i1 %43, label %.lr.ph31, label %._crit_edge.._crit_edge32_crit_edge
 
 ._crit_edge.._crit_edge32_crit_edge:              ; preds = %_ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit, %._crit_edge
-  %.018.lcssa37 = phi i32 [ %.120, %._crit_edge ], [ 0, %_ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit ]
-  %.pre35 = sext i32 %.018.lcssa37 to i64
+  %.018.lcssa43 = phi i32 [ %.120, %._crit_edge ], [ 0, %_ZN6icu_777UVector14ensureCapacityEiR10UErrorCode.exit ]
+  %.pre35 = sext i32 %.018.lcssa43 to i64
   br label %._crit_edge32
 
 .lr.ph31:                                         ; preds = %._crit_edge

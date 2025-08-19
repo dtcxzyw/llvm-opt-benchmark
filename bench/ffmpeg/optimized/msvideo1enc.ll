@@ -103,7 +103,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %.not372 = icmp slt i32 %33, %35
   %36 = load i32, ptr %9, align 4, !tbaa !33
   %37 = icmp sgt i32 %36, 0
-  br i1 %37, label %.preheader465.lr.ph, label %.thread679
+  br i1 %37, label %.preheader465.lr.ph, label %.thread692
 
 .preheader465.lr.ph:                              ; preds = %.thread
   %38 = load i32, ptr %7, align 8, !tbaa !32
@@ -128,7 +128,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 1252
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 1256
   %59 = icmp sgt i32 %38, 0
-  br i1 %59, label %.preheader465.preheader, label %.thread679
+  br i1 %59, label %.preheader465.preheader, label %.thread692
 
 .preheader465.preheader:                          ; preds = %.preheader465.lr.ph
   %60 = load ptr, ptr %2, align 8, !tbaa !40
@@ -424,10 +424,10 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %indvars.iv617 = phi i64 [ 0, %186 ], [ %indvars.iv.next618, %190 ]
   %.idx = mul nuw nsw i64 %indvars.iv617, 48
   %192 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx
-  %.idx672 = mul nuw nsw i64 %indvars.iv617, 24
-  %193 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx672
-  %.idx673 = shl nuw nsw i64 %indvars.iv617, 4
-  %194 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx673
+  %.idx685 = mul nuw nsw i64 %indvars.iv617, 24
+  %193 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx685
+  %.idx686 = shl nuw nsw i64 %indvars.iv617, 4
+  %194 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx686
   %195 = tail call i32 @avpriv_elbg_do(ptr noundef nonnull %41, ptr noundef nonnull %192, i32 noundef 3, i32 noundef 4, ptr noundef nonnull %193, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %194, ptr noundef nonnull %44, i64 noundef 0) #4
   %196 = icmp slt i32 %195, 0
   br i1 %196, label %.loopexit459, label %190
@@ -822,7 +822,7 @@ default.unreachable:                              ; preds = %252
   %407 = icmp slt i32 %406, %395
   br i1 %407, label %.preheader465, label %._crit_edge547, !llvm.loop !76
 
-.thread679:                                       ; preds = %.preheader465.lr.ph, %.thread
+.thread692:                                       ; preds = %.preheader465.lr.ph, %.thread
   store i8 0, ptr %19, align 1, !tbaa !48
   %408 = getelementptr inbounds nuw i8, ptr %19, i64 1
   store i8 0, ptr %408, align 1, !tbaa !48
@@ -858,8 +858,8 @@ default.unreachable:                              ; preds = %252
   %423 = add nsw i32 %422, 1
   br label %428
 
-.critedge:                                        ; preds = %413, %.thread679, %418
-  %424 = phi ptr [ %409, %.thread679 ], [ %412, %418 ], [ %417, %413 ]
+.critedge:                                        ; preds = %413, %.thread692, %418
+  %424 = phi ptr [ %409, %.thread692 ], [ %412, %418 ], [ %417, %413 ]
   %425 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %426 = load i32, ptr %425, align 8, !tbaa !78
   %427 = or i32 %426, 1

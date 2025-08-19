@@ -519,11 +519,11 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %26, %30
   %281 = lshr i32 %203, 24
   %282 = add nuw nsw i32 %280, %281
   %.reass.reass.us308 = add i64 %198, %indvars.iv349
-  %sext363 = shl i64 %.reass.reass.us308, 32
+  %sext385 = shl i64 %.reass.reass.us308, 32
   %283 = and i32 %203, 16777215
   %284 = zext nneg i32 %283 to i64
   %285 = zext nneg i32 %282 to i64
-  %286 = ashr exact i64 %sext363, 30
+  %286 = ashr exact i64 %sext385, 30
   br label %204
 
 ..loopexit278_crit_edge.us:                       ; preds = %.loopexit.us
@@ -1007,7 +1007,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %10, %14
   %70 = sext i32 %18 to i64
   %71 = add nuw nsw i32 %.072, 1
   %wide.trip.count112 = zext nneg i32 %71 to i64
-  %wide.trip.count = zext i32 %68 to i64
+  %wide.trip.count = zext nneg i32 %68 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge100
@@ -1215,8 +1215,8 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %12, %16
   %75 = add nsw i32 %2, -1
   %wide.trip.count.i = zext nneg i32 %2 to i64
   %76 = icmp sgt i32 %2, 0
-  %or.cond178 = and i1 %.not102142, %76
-  br i1 %or.cond178, label %.preheader.us148.preheader, label %.loopexit
+  %or.cond186 = and i1 %.not102142, %76
+  br i1 %or.cond186, label %.preheader.us148.preheader, label %.loopexit
 
 .preheader.us148.preheader:                       ; preds = %.preheader.lr.ph
   %77 = zext nneg i32 %spec.store.select to i64
@@ -1225,7 +1225,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %12, %16
   %80 = sext i32 %20 to i64
   %81 = add nuw nsw i32 %.087, 1
   %wide.trip.count173 = zext nneg i32 %81 to i64
-  %wide.trip.count168 = zext i32 %78 to i64
+  %wide.trip.count168 = zext nneg i32 %78 to i64
   br label %.preheader.us148
 
 .preheader.us148:                                 ; preds = %.preheader.us148.preheader, %._crit_edge145.split.us.us
@@ -1651,7 +1651,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %11, %15
   %72 = sext i32 %19 to i64
   %73 = add nuw nsw i32 %.093, 1
   %wide.trip.count138 = zext nneg i32 %73 to i64
-  %wide.trip.count = zext i32 %70 to i64
+  %wide.trip.count = zext nneg i32 %70 to i64
   br label %.preheader121
 
 .preheader121:                                    ; preds = %.preheader121.preheader, %._crit_edge

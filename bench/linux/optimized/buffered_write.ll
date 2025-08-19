@@ -521,7 +521,7 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
 
 301:                                              ; preds = %.thread
   %302 = trunc nuw nsw i32 %296 to i8
-  switch i32 %296, label %default.unreachable105 [
+  switch i32 %296, label %default.unreachable128 [
     i32 0, label %303
     i32 1, label %303
     i32 3, label %319
@@ -860,7 +860,7 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
   tail call void @kfree(ptr noundef %455) #11
   br label %482
 
-default.unreachable105:                           ; preds = %301
+default.unreachable128:                           ; preds = %301
   unreachable
 
 482:                                              ; preds = %481, %448, %438, %422, %401, %381, %316, %304, %303
@@ -2079,8 +2079,8 @@ define internal fastcc i32 @netfs_writepages_region(ptr noundef %0, ptr noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   br label %19
 
-19:                                               ; preds = %.backedge234, %4
-  %20 = phi i32 [ 0, %4 ], [ %.be, %.backedge234 ]
+19:                                               ; preds = %.backedge265, %4
+  %20 = phi i32 [ 0, %4 ], [ %.be, %.backedge265 ]
   br label %.loopexit50
 
 .loopexit50:                                      ; preds = %.loopexit50.backedge, %19
@@ -2311,7 +2311,7 @@ define internal fastcc i32 @netfs_writepages_region(ptr noundef %0, ptr noundef 
   %144 = and i64 %143, 8
   %145 = icmp eq i64 %144, 0
   %146 = add nuw nsw i32 %20, 1
-  br i1 %145, label %.backedge234, label %.thread41.loopexit
+  br i1 %145, label %.backedge265, label %.thread41.loopexit
 
 147:                                              ; preds = %129
   %148 = getelementptr inbounds nuw i8, ptr %22, i64 40
@@ -2933,9 +2933,9 @@ define internal fastcc i32 @netfs_writepages_region(ptr noundef %0, ptr noundef 
   %524 = call i32 @__SCT__cond_resched() #11
   %.pr = load i64, ptr %1, align 8
   %525 = icmp sgt i64 %.pr, 0
-  br i1 %525, label %.backedge234, label %.thread41.loopexit
+  br i1 %525, label %.backedge265, label %.thread41.loopexit
 
-.backedge234:                                     ; preds = %523, %140
+.backedge265:                                     ; preds = %523, %140
   %.be = phi i32 [ %146, %140 ], [ 0, %523 ]
   br label %19, !llvm.loop !71
 

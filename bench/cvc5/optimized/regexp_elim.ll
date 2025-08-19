@@ -2501,8 +2501,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit633: ; preds = %_ZNK4cvc58internal
   %960 = icmp eq i32 %959, 2
   %961 = zext i1 %960 to i64
   %spec.select.i.i634 = add nuw i64 %indvars.iv2551, %961
-  %sext2574 = shl i64 %spec.select.i.i634, 32
-  %962 = ashr exact i64 %sext2574, 32
+  %sext2903 = shl i64 %spec.select.i.i634, 32
+  %962 = ashr exact i64 %sext2903, 32
   %963 = getelementptr inbounds [0 x ptr], ptr %918, i64 0, i64 %962
   %964 = load ptr, ptr %963, align 8, !tbaa !36, !noalias !96
   store ptr %964, ptr %173, align 8, !tbaa !30, !alias.scope !96
@@ -5742,8 +5742,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit971: ; preds = %_ZN4cvc58internal1
   call void @llvm.lifetime.end.p0(ptr nonnull %188)
   %indvars.iv.next2542 = add nuw nsw i64 %indvars.iv2541, 1
   %exitcond2544.not = icmp eq i64 %indvars.iv.next2542, %1500
-  %or.cond2628 = select i1 %cond2.not, i1 true, i1 %exitcond2544.not
-  br i1 %or.cond2628, label %._crit_edge2487, label %1503, !llvm.loop !159
+  %or.cond2957 = select i1 %cond2.not, i1 true, i1 %exitcond2544.not
+  br i1 %or.cond2957, label %._crit_edge2487, label %1503, !llvm.loop !159
 
 2302:                                             ; preds = %.body923, %2080, %1839
   %.pn345.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn345.pn.pn.pn, %1839 ], [ %.pn338.pn.pn.pn, %.body923 ], [ %.pn328.pn.pn.pn.pn, %2080 ]
@@ -21414,8 +21414,8 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImN4cvc58internal12NodeTemp
   %.02150.i.i = phi i64 [ %.2.i.i, %68 ], [ %36, %_ZSt9make_pairIRmN4cvc58internal12NodeTemplateILb1EEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS6_INS7_IT0_E4typeEE6__typeEEOS8_OSD_.exit ]
   %.sroa.038.049.i.i = phi ptr [ %.sroa.038.1.i.i, %68 ], [ %4, %_ZSt9make_pairIRmN4cvc58internal12NodeTemplateILb1EEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS6_INS7_IT0_E4typeEE6__typeEEOS8_OSD_.exit ]
   %38 = lshr i64 %.02150.i.i, 1
-  %.idx26 = shl nuw nsw i64 %38, 4
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.038.049.i.i, i64 %.idx26
+  %.idx31 = shl nuw nsw i64 %38, 4
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.038.049.i.i, i64 %.idx31
   %40 = load i64, ptr %39, align 8, !tbaa !547
   %41 = icmp ult i64 %40, %1
   br i1 %41, label %42, label %46
@@ -21453,7 +21453,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairImN4cvc58internal12N
   %.sroa.011.0.lcssa.i.i.i = phi ptr [ %.sroa.038.049.i.i, %.critedge.i.i ], [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImN4cvc58internal12NodeTemplateILb1EEEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i.i ]
   %.idx = shl nuw nsw i64 %.02150.i.i, 4
   %56 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %57 = add nuw nsw i64 %.idx26, 16
+  %57 = add nuw nsw i64 %.idx31, 16
   %gepdiff = sub nsw i64 %.idx, %57
   %58 = ashr exact i64 %gepdiff, 4
   %59 = icmp sgt i64 %58, 0

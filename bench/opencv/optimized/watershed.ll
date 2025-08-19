@@ -1135,8 +1135,8 @@ _ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EE9push_backEOS2_.exit: ; preds = %.preheader
   %382 = icmp sgt i32 %381, 0
   %383 = load i32, ptr %194, align 4
   %384 = icmp sgt i32 %383, 0
-  %or.cond392 = select i1 %382, i1 %384, i1 false
-  br i1 %or.cond392, label %.preheader, label %._crit_edge337
+  %or.cond427 = select i1 %382, i1 %384, i1 false
+  br i1 %or.cond427, label %.preheader, label %._crit_edge337
 
 .preheader:                                       ; preds = %.preheader300, %._crit_edge
   %385 = phi i32 [ %433, %._crit_edge ], [ %381, %.preheader300 ]

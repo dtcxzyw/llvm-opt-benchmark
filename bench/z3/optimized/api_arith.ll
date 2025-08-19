@@ -4251,7 +4251,7 @@ define noundef ptr @Z3_get_numerator(ptr noundef %0, ptr noundef %1) local_unnam
   %36 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI12z3_exception
-  br label %.thread48
+  br label %.thread49
 
 37:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4370,7 +4370,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   %75 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI12z3_exception
-  br label %.thread48
+  br label %.thread49
 
 76:                                               ; preds = %68, %69, %31, %32
   %.0 = phi ptr [ null, %32 ], [ null, %31 ], [ %63, %69 ], [ %63, %68 ]
@@ -4397,11 +4397,11 @@ _ZN8rationalD2Ev.exit36:                          ; preds = %.noexc.i35
   store atomic i8 1, ptr @g_z3_log_enabled seq_cst, align 1
   br label %_ZN10z3_log_ctxD2Ev.exit
 
-.thread48:                                        ; preds = %74, %35
+.thread49:                                        ; preds = %74, %35
   %.pn29.pn.ph = phi { ptr, i32 } [ %75, %74 ], [ %36, %35 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.02250 = extractvalue { ptr, i32 } %.pn29.pn.ph, 1
+  %.02251 = extractvalue { ptr, i32 } %.pn29.pn.ph, 1
   br label %83
 
 82:                                               ; preds = %70, %.body, %33
@@ -4411,9 +4411,9 @@ _ZN8rationalD2Ev.exit36:                          ; preds = %.noexc.i35
   %.022 = extractvalue { ptr, i32 } %.pn29.pn, 1
   br i1 %7, label %83, label %_ZN10z3_log_ctxD2Ev.exit37, !prof !159
 
-83:                                               ; preds = %.thread48, %.thread, %82
-  %.02247 = phi i32 [ %.02243, %.thread ], [ %.022, %82 ], [ %.02250, %.thread48 ]
-  %.pn29.pn.pn.pn45 = phi { ptr, i32 } [ %9, %.thread ], [ %.pn29.pn, %82 ], [ %.pn29.pn.ph, %.thread48 ]
+83:                                               ; preds = %.thread49, %.thread, %82
+  %.02247 = phi i32 [ %.02243, %.thread ], [ %.022, %82 ], [ %.02251, %.thread49 ]
+  %.pn29.pn.pn.pn45 = phi { ptr, i32 } [ %9, %.thread ], [ %.pn29.pn, %82 ], [ %.pn29.pn.ph, %.thread49 ]
   store atomic i8 1, ptr @g_z3_log_enabled seq_cst, align 1
   br label %_ZN10z3_log_ctxD2Ev.exit37
 
@@ -4535,7 +4535,7 @@ define noundef ptr @Z3_get_denominator(ptr noundef %0, ptr noundef %1) local_unn
   %36 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI12z3_exception
-  br label %.thread48
+  br label %.thread49
 
 37:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4654,7 +4654,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   %75 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI12z3_exception
-  br label %.thread48
+  br label %.thread49
 
 76:                                               ; preds = %68, %69, %31, %32
   %.0 = phi ptr [ null, %32 ], [ null, %31 ], [ %63, %69 ], [ %63, %68 ]
@@ -4681,11 +4681,11 @@ _ZN8rationalD2Ev.exit36:                          ; preds = %.noexc.i35
   store atomic i8 1, ptr @g_z3_log_enabled seq_cst, align 1
   br label %_ZN10z3_log_ctxD2Ev.exit
 
-.thread48:                                        ; preds = %74, %35
+.thread49:                                        ; preds = %74, %35
   %.pn29.pn.ph = phi { ptr, i32 } [ %75, %74 ], [ %36, %35 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.02250 = extractvalue { ptr, i32 } %.pn29.pn.ph, 1
+  %.02251 = extractvalue { ptr, i32 } %.pn29.pn.ph, 1
   br label %83
 
 82:                                               ; preds = %70, %.body, %33
@@ -4695,9 +4695,9 @@ _ZN8rationalD2Ev.exit36:                          ; preds = %.noexc.i35
   %.022 = extractvalue { ptr, i32 } %.pn29.pn, 1
   br i1 %7, label %83, label %_ZN10z3_log_ctxD2Ev.exit37, !prof !159
 
-83:                                               ; preds = %.thread48, %.thread, %82
-  %.02247 = phi i32 [ %.02243, %.thread ], [ %.022, %82 ], [ %.02250, %.thread48 ]
-  %.pn29.pn.pn.pn45 = phi { ptr, i32 } [ %9, %.thread ], [ %.pn29.pn, %82 ], [ %.pn29.pn.ph, %.thread48 ]
+83:                                               ; preds = %.thread49, %.thread, %82
+  %.02247 = phi i32 [ %.02243, %.thread ], [ %.022, %82 ], [ %.02251, %.thread49 ]
+  %.pn29.pn.pn.pn45 = phi { ptr, i32 } [ %9, %.thread ], [ %.pn29.pn, %82 ], [ %.pn29.pn.ph, %.thread49 ]
   store atomic i8 1, ptr @g_z3_log_enabled seq_cst, align 1
   br label %_ZN10z3_log_ctxD2Ev.exit37
 

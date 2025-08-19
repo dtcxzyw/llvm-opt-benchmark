@@ -442,7 +442,7 @@ tile_log2.exit232.i:                              ; preds = %153
   %175 = sdiv i32 %174, %160
   %176 = add nsw i32 %110, -1
   %177 = select i1 %.not215.i, i32 0, i32 %171
-  %spec.select327.i = ashr i32 %134, %177
+  %spec.select342.i = ashr i32 %134, %177
   %smax = call i32 @llvm.smax.i32(i32 %126, i32 %spec.select.i)
   %178 = add nsw i32 %smax, 1
   %179 = add nsw i32 %175, -1
@@ -569,7 +569,7 @@ tile_log2.exit234.i:                              ; preds = %182
   br i1 %240, label %.lr.ph253.i, label %._crit_edge254.i, !llvm.loop !89
 
 ._crit_edge254.i:                                 ; preds = %.lr.ph253.i
-  %241 = sdiv i32 %spec.select327.i, %.0190..i
+  %241 = sdiv i32 %spec.select342.i, %.0190..i
   %spec.select219.i = call i32 @llvm.smax.i32(i32 %241, i32 1)
   store i32 %spec.select219.i, ptr %172, align 8, !tbaa !90
   %.reass.i = add i32 %spec.select219.i, %176
@@ -641,8 +641,8 @@ tile_log2.exit234.i:                              ; preds = %182
   %.pre309.i = mul nsw i32 %.pre306.i, %.pre.i
   %269 = add nsw i32 %.pre309.i, -1
   %270 = icmp sgt i32 %269, %268
-  %or.cond329.i = select i1 %.not217.i, i1 %270, i1 false
-  br i1 %or.cond329.i, label %271, label %.loopexit._crit_edge.i
+  %or.cond344.i = select i1 %.not217.i, i1 %270, i1 false
+  br i1 %or.cond344.i, label %271, label %.loopexit._crit_edge.i
 
 271:                                              ; preds = %.loopexit.i
   %272 = add nuw nsw i32 %268, 1
@@ -802,9 +802,9 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_av1_configure(ptr no
   br label %58
 
 58:                                               ; preds = %38, %43, %55
-  %.sink40 = phi i64 [ 21436, %43 ], [ 21428, %55 ], [ 21436, %38 ]
+  %.sink43 = phi i64 [ 21436, %43 ], [ 21428, %55 ], [ 21436, %38 ]
   %.sink = phi i32 [ %54, %43 ], [ 128, %55 ], [ %21, %38 ]
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink40
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink43
   store i32 %.sink, ptr %59, align 4, !tbaa !111
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 1956
   store i32 255, ptr %60, align 4, !tbaa !112

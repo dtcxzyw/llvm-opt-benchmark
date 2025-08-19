@@ -7413,13 +7413,13 @@ define internal fastcc void @"_ZN58_$LT$hir_ty..ConstScalar$u20$as$u20$core..clo
   %30 = extractvalue { ptr, i64 } %29, 0
   %31 = extractvalue { ptr, i64 } %29, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2438)
-  switch i64 %14, label %default.unreachable1.i [
+  switch i64 %14, label %default.unreachable3.i [
     i64 0, label %"_ZN56_$LT$hir_ty..MemoryMap$u20$as$u20$core..clone..Clone$GT$5clone17h0f3d755eff384d92E.exit"
     i64 1, label %32
     i64 2, label %44
   ]
 
-default.unreachable1.i:                           ; preds = %20
+default.unreachable3.i:                           ; preds = %20
   unreachable
 
 32:                                               ; preds = %20
@@ -8916,8 +8916,8 @@ define hidden void @"_ZN66_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..ha
   ]
 
 .sink.split:                                      ; preds = %124, %115, %100, %91, %68, %54, %33, %21, %130, %153, %160, %167, %174, %186, %193
-  %.sink7 = phi i64 [ %197, %193 ], [ %192, %186 ], [ %185, %174 ], [ %173, %167 ], [ %166, %160 ], [ %159, %153 ], [ %152, %130 ], [ %81, %68 ], [ %67, %54 ], [ %53, %33 ], [ %32, %21 ], [ %99, %91 ], [ %105, %100 ], [ %123, %115 ], [ %129, %124 ]
-  %9 = mul i64 %.sink7, 5871781006564002453
+  %.sink8 = phi i64 [ %197, %193 ], [ %192, %186 ], [ %185, %174 ], [ %173, %167 ], [ %166, %160 ], [ %159, %153 ], [ %152, %130 ], [ %81, %68 ], [ %67, %54 ], [ %53, %33 ], [ %32, %21 ], [ %99, %91 ], [ %105, %100 ], [ %123, %115 ], [ %129, %124 ]
+  %9 = mul i64 %.sink8, 5871781006564002453
   store i64 %9, ptr %1, align 8
   br label %10
 
@@ -9805,7 +9805,7 @@ define internal fastcc void @"_ZN68_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20
   %.sroa.016 = alloca { i64, [2 x i64] }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = load i32, ptr %1, align 8, !range !1311, !noundef !11
-  switch i32 %5, label %default.unreachable17 [
+  switch i32 %5, label %default.unreachable18 [
     i32 0, label %6
     i32 1, label %9
     i32 2, label %25
@@ -9820,7 +9820,7 @@ define internal fastcc void @"_ZN68_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20
     i32 11, label %108
   ]
 
-default.unreachable17:                            ; preds = %2
+default.unreachable18:                            ; preds = %2
   unreachable
 
 6:                                                ; preds = %2
@@ -13335,18 +13335,18 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %.not, label %.preheader.split.preheader, label %.thread
 
 .preheader.split.preheader:                       ; preds = %4
-  %exitcond.not12 = icmp eq i64 %1, 0
-  br i1 %exitcond.not12, label %.thread, label %.lr.ph
+  %exitcond.not14 = icmp eq i64 %1, 0
+  br i1 %exitcond.not14, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %_ZN4core3cmp9PartialEq2ne17hd131da47a2c4fd78E.llvm.4103369960975828492.exit, %.preheader.split.backedge, %.lr.ph, %13, %"_ZN67_$LT$chalk_ir..AliasTy$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h56d27eb956e50a30E.exit.i.i.i.i", %32, %25, %40, %47, %.preheader.split.preheader, %4
   %.0 = phi i1 [ false, %4 ], [ true, %.preheader.split.preheader ], [ false, %47 ], [ false, %40 ], [ false, %25 ], [ false, %32 ], [ false, %"_ZN67_$LT$chalk_ir..AliasTy$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h56d27eb956e50a30E.exit.i.i.i.i" ], [ false, %13 ], [ false, %.lr.ph ], [ true, %.preheader.split.backedge ], [ false, %_ZN4core3cmp9PartialEq2ne17hd131da47a2c4fd78E.llvm.4103369960975828492.exit ]
   ret i1 %.0
 
 .lr.ph:                                           ; preds = %.preheader.split.preheader, %.preheader.split.backedge
-  %.sroa.01.013 = phi i64 [ %5, %.preheader.split.backedge ], [ 0, %.preheader.split.preheader ]
-  %5 = add i64 %.sroa.01.013, 1
-  %6 = getelementptr inbounds [0 x { { i64, [3 x i64] }, ptr }], ptr %0, i64 0, i64 %.sroa.01.013
-  %7 = getelementptr inbounds [0 x { { i64, [3 x i64] }, ptr }], ptr %2, i64 0, i64 %.sroa.01.013
+  %.sroa.01.015 = phi i64 [ %5, %.preheader.split.backedge ], [ 0, %.preheader.split.preheader ]
+  %5 = add i64 %.sroa.01.015, 1
+  %6 = getelementptr inbounds [0 x { { i64, [3 x i64] }, ptr }], ptr %0, i64 0, i64 %.sroa.01.015
+  %7 = getelementptr inbounds [0 x { { i64, [3 x i64] }, ptr }], ptr %2, i64 0, i64 %.sroa.01.015
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4140)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4143)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4145)
@@ -13510,18 +13510,18 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %.not, label %.preheader.split.preheader, label %.thread
 
 .preheader.split.preheader:                       ; preds = %4
-  %exitcond.not12 = icmp eq i64 %1, 0
-  br i1 %exitcond.not12, label %.thread, label %.lr.ph
+  %exitcond.not14 = icmp eq i64 %1, 0
+  br i1 %exitcond.not14, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %_ZN4core3cmp9PartialEq2ne17h42f6457f3efe33a4E.llvm.4103369960975828492.exit, %.preheader.split.backedge, %.lr.ph, %14, %18, %.preheader.split.preheader, %4
   %.0 = phi i1 [ false, %4 ], [ true, %.preheader.split.preheader ], [ false, %18 ], [ false, %14 ], [ false, %.lr.ph ], [ true, %.preheader.split.backedge ], [ false, %_ZN4core3cmp9PartialEq2ne17h42f6457f3efe33a4E.llvm.4103369960975828492.exit ]
   ret i1 %.0
 
 .lr.ph:                                           ; preds = %.preheader.split.preheader, %.preheader.split.backedge
-  %.sroa.01.013 = phi i64 [ %5, %.preheader.split.backedge ], [ 0, %.preheader.split.preheader ]
-  %5 = add i64 %.sroa.01.013, 1
-  %6 = getelementptr inbounds [0 x { { i64, [1 x i64] } }], ptr %0, i64 0, i64 %.sroa.01.013
-  %7 = getelementptr inbounds [0 x { { i64, [1 x i64] } }], ptr %2, i64 0, i64 %.sroa.01.013
+  %.sroa.01.015 = phi i64 [ %5, %.preheader.split.backedge ], [ 0, %.preheader.split.preheader ]
+  %5 = add i64 %.sroa.01.015, 1
+  %6 = getelementptr inbounds [0 x { { i64, [1 x i64] } }], ptr %0, i64 0, i64 %.sroa.01.015
+  %7 = getelementptr inbounds [0 x { { i64, [1 x i64] } }], ptr %2, i64 0, i64 %.sroa.01.015
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4211)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4214)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4216)
@@ -16196,7 +16196,7 @@ define hidden noundef ptr @"_ZN84_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$chalk_ir.
 
 47:                                               ; preds = %45
   %48 = load i8, ptr %46, align 8, !range !877, !noundef !11
-  switch i8 %48, label %default.unreachable341 [
+  switch i8 %48, label %default.unreachable362 [
     i8 0, label %49
     i8 1, label %58
     i8 2, label %65
@@ -16222,7 +16222,7 @@ define hidden noundef ptr @"_ZN84_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$chalk_ir.
     i8 22, label %206
   ]
 
-default.unreachable341:                           ; preds = %47
+default.unreachable362:                           ; preds = %47
   unreachable
 
 49:                                               ; preds = %47
@@ -20014,7 +20014,7 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_101_$LT$impl$u20$chalk_ir..visi
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN8chalk_ir1_104_$LT$impl$u20$chalk_ir..visit..TypeSuperVisitable$LT$I$GT$$u20$for$u20$chalk_ir..DomainGoal$LT$I$GT$$GT$16super_visit_with17h6bb276c7adb1d279E"(ptr noalias noundef readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = load i32, ptr %0, align 8, !range !1311, !noundef !11
-  switch i32 %5, label %default.unreachable57 [
+  switch i32 %5, label %default.unreachable60 [
     i32 0, label %6
     i32 1, label %11
     i32 2, label %45
@@ -20029,7 +20029,7 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_104_$LT$impl$u20$chalk_ir..visi
     i32 11, label %"_ZN8chalk_ir1_99_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$10visit_with17hda56b2a4ab2e8812E.exit"
   ]
 
-default.unreachable57:                            ; preds = %113, %60, %26, %4
+default.unreachable60:                            ; preds = %113, %60, %26, %4
   unreachable
 
 6:                                                ; preds = %4
@@ -20081,7 +20081,7 @@ default.unreachable57:                            ; preds = %113, %60, %26, %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5559)
   %29 = load i64, ptr %28, align 8, !range !69, !alias.scope !5556, !noalias !5561, !noundef !11
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  switch i64 %29, label %default.unreachable57 [
+  switch i64 %29, label %default.unreachable60 [
     i64 0, label %31
     i64 1, label %34
     i64 2, label %37
@@ -20158,7 +20158,7 @@ default.unreachable57:                            ; preds = %113, %60, %26, %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5594)
   %63 = load i64, ptr %62, align 8, !range !69, !alias.scope !5591, !noalias !5596, !noundef !11
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  switch i64 %63, label %default.unreachable57 [
+  switch i64 %63, label %default.unreachable60 [
     i64 0, label %65
     i64 1, label %68
     i64 2, label %71
@@ -20262,7 +20262,7 @@ default.unreachable57:                            ; preds = %113, %60, %26, %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5629)
   %116 = load i64, ptr %115, align 8, !range !69, !alias.scope !5626, !noalias !5631, !noundef !11
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  switch i64 %116, label %default.unreachable57 [
+  switch i64 %116, label %default.unreachable60 [
     i64 0, label %118
     i64 1, label %121
     i64 2, label %124
@@ -22169,7 +22169,7 @@ define internal fastcc void @"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..fold..Type
   %7 = alloca ptr, align 8
   %8 = alloca { i64, [3 x i64] }, align 8
   %9 = load i32, ptr %1, align 8, !range !1311, !noundef !11
-  switch i32 %9, label %default.unreachable145 [
+  switch i32 %9, label %default.unreachable156 [
     i32 0, label %10
     i32 1, label %14
     i32 2, label %32
@@ -22184,7 +22184,7 @@ define internal fastcc void @"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..fold..Type
     i32 11, label %136
   ]
 
-default.unreachable145:                           ; preds = %5
+default.unreachable156:                           ; preds = %5
   unreachable
 
 10:                                               ; preds = %5

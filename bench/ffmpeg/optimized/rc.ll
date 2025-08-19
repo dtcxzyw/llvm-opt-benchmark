@@ -1609,7 +1609,7 @@ define i32 @ff_opus_rc_dec_laplace(ptr noundef captures(none) %0, i32 noundef %1
   %.14262 = phi i32 [ %17, %18 ], [ %1, %12 ]
   %.14461 = phi i32 [ %19, %18 ], [ 1, %12 ]
   %16 = shl nuw nsw i32 %.163, 1
-  %17 = add i32 %16, %.14262
+  %17 = add nuw nsw i32 %16, %.14262
   %.not52 = icmp ult i32 %11, %17
   br i1 %.not52, label %.critedge, label %18
 
@@ -1626,7 +1626,7 @@ define i32 @ff_opus_rc_dec_laplace(ptr noundef captures(none) %0, i32 noundef %1
   %.144.lcssa = phi i32 [ 1, %12 ], [ %19, %18 ]
   %.142.lcssa = phi i32 [ %1, %12 ], [ %17, %18 ]
   %.1.lcssa = phi i32 [ %.159, %12 ], [ %.1, %18 ]
-  %22 = sub i32 %11, %.142.lcssa
+  %22 = sub nsw i32 %11, %.142.lcssa
   %23 = lshr i32 %22, 1
   %24 = add nuw nsw i32 %23, %.144.lcssa
   %25 = and i32 %22, -2
@@ -1659,9 +1659,9 @@ opus_rc_dec_update.exit:                          ; preds = %.critedge, %3
   %36 = sub i32 %32, %.041
   %37 = mul i32 %36, %6
   %38 = sub i32 %5, %34
-  %spec.select81 = select i1 %.not.i, i32 %38, i32 %37
-  store i32 %spec.select81, ptr %4, align 8, !tbaa !8
-  %39 = icmp ult i32 %spec.select81, 8388609
+  %spec.select86 = select i1 %.not.i, i32 %38, i32 %37
+  store i32 %spec.select86, ptr %4, align 8, !tbaa !8
+  %39 = icmp ult i32 %spec.select86, 8388609
   br i1 %39, label %.lr.ph66, label %opus_rc_dec_normalize.exit
 
 .lr.ph66:                                         ; preds = %opus_rc_dec_update.exit
@@ -1678,7 +1678,7 @@ opus_rc_dec_update.exit:                          ; preds = %.critedge, %3
   %46 = phi i32 [ %.promoted68, %.lr.ph66 ], [ %64, %45 ]
   %47 = phi i32 [ %.promoted67, %.lr.ph66 ], [ %60, %45 ]
   %48 = phi i32 [ %35, %.lr.ph66 ], [ %62, %45 ]
-  %49 = phi i32 [ %spec.select81, %.lr.ph66 ], [ %63, %45 ]
+  %49 = phi i32 [ %spec.select86, %.lr.ph66 ], [ %63, %45 ]
   %50 = shl i32 %48, 8
   %51 = lshr i32 %47, 3
   %52 = zext nneg i32 %51 to i64

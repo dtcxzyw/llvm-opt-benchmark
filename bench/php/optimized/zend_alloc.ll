@@ -964,15 +964,15 @@ zend_mm_chunk_free.exit113:                       ; preds = %96, %99, %101
 .lr.ph132:                                        ; preds = %121
   %135 = getelementptr i8, ptr %0, i64 8
   %136 = load ptr, ptr %129, align 8, !tbaa !39
-  %.not101155 = icmp eq ptr %136, null
-  br i1 %.not101155, label %._crit_edge138, label %.lr.ph156
+  %.not101166 = icmp eq ptr %136, null
+  br i1 %.not101166, label %._crit_edge138, label %.lr.ph167
 
 137:                                              ; preds = %zend_mm_chunk_free.exit119
   %138 = load ptr, ptr %129, align 8, !tbaa !39
   %.not101 = icmp eq ptr %138, null
-  br i1 %.not101, label %._crit_edge138, label %.lr.ph156
+  br i1 %.not101, label %._crit_edge138, label %.lr.ph167
 
-.lr.ph156:                                        ; preds = %.lr.ph132, %137
+.lr.ph167:                                        ; preds = %.lr.ph132, %137
   %139 = phi ptr [ %138, %137 ], [ %136, %.lr.ph132 ]
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = load ptr, ptr %140, align 8, !tbaa !34
@@ -981,13 +981,13 @@ zend_mm_chunk_free.exit113:                       ; preds = %96, %99, %101
   %.not.i117 = icmp eq ptr %.val108, null
   br i1 %.not.i117, label %145, label %142, !prof !23
 
-142:                                              ; preds = %.lr.ph156
+142:                                              ; preds = %.lr.ph167
   %143 = getelementptr inbounds nuw i8, ptr %.val108, i64 8
   %144 = load ptr, ptr %143, align 8, !tbaa !45
   tail call void %144(ptr noundef nonnull %.val108, ptr noundef nonnull %139, i64 noundef 2097152) #40
   br label %zend_mm_chunk_free.exit119
 
-145:                                              ; preds = %.lr.ph156
+145:                                              ; preds = %.lr.ph167
   %146 = tail call i32 @munmap(ptr noundef nonnull %139, i64 noundef 2097152) #40
   %.not.i.i118 = icmp eq i32 %146, 0
   br i1 %.not.i.i118, label %zend_mm_chunk_free.exit119, label %147
@@ -1773,8 +1773,8 @@ zend_mm_alloc_small.exit:                         ; preds = %zend_mm_get_next_fr
   %244 = and i64 %240, 63
   %245 = shl nuw i64 1, %244
   %246 = and i64 %243, %245
-  %.not61 = icmp eq i64 %246, 0
-  br i1 %.not61, label %.critedge.i, label %zend_mm_bitset_reset_range.exit
+  %.not86 = icmp eq i64 %246, 0
+  br i1 %.not86, label %.critedge.i, label %zend_mm_bitset_reset_range.exit
 
 247:                                              ; preds = %233
   %248 = lshr i32 %236, 6
@@ -1919,11 +1919,11 @@ zend_mm_bitset_is_free_range.exit:                ; preds = %265, %273
   br label %zend_mm_bitset_set_range.exit
 
 zend_mm_bitset_set_range.exit:                    ; preds = %294, %._crit_edge, %325
-  %.sink60 = phi i64 [ %298, %294 ], [ %.pre-phi53, %._crit_edge ], [ %333, %325 ]
-  %.sink58 = phi i64 [ %297, %294 ], [ %324, %._crit_edge ], [ %332, %325 ]
-  %334 = getelementptr inbounds nuw i64, ptr %235, i64 %.sink60
+  %.sink85 = phi i64 [ %298, %294 ], [ %.pre-phi53, %._crit_edge ], [ %333, %325 ]
+  %.sink83 = phi i64 [ %297, %294 ], [ %324, %._crit_edge ], [ %332, %325 ]
+  %334 = getelementptr inbounds nuw i64, ptr %235, i64 %.sink85
   %335 = load i64, ptr %334, align 8, !tbaa !32
-  %336 = or i64 %335, %.sink58
+  %336 = or i64 %335, %.sink83
   store i64 %336, ptr %334, align 8, !tbaa !32
   %337 = or disjoint i32 %163, 1073741824
   store i32 %337, ptr %19, align 4, !tbaa !24
@@ -2342,8 +2342,8 @@ zend_mm_alloc_small.exit:                         ; preds = %zend_mm_get_next_fr
   %247 = and i64 %243, 63
   %248 = shl nuw i64 1, %247
   %249 = and i64 %246, %248
-  %.not61 = icmp eq i64 %249, 0
-  br i1 %.not61, label %.critedge.i, label %zend_mm_bitset_reset_range.exit
+  %.not86 = icmp eq i64 %249, 0
+  br i1 %.not86, label %.critedge.i, label %zend_mm_bitset_reset_range.exit
 
 250:                                              ; preds = %236
   %251 = lshr i32 %239, 6
@@ -2488,11 +2488,11 @@ zend_mm_bitset_is_free_range.exit:                ; preds = %268, %276
   br label %zend_mm_bitset_set_range.exit
 
 zend_mm_bitset_set_range.exit:                    ; preds = %297, %._crit_edge, %328
-  %.sink60 = phi i64 [ %301, %297 ], [ %.pre-phi53, %._crit_edge ], [ %336, %328 ]
-  %.sink58 = phi i64 [ %300, %297 ], [ %327, %._crit_edge ], [ %335, %328 ]
-  %337 = getelementptr inbounds nuw i64, ptr %238, i64 %.sink60
+  %.sink85 = phi i64 [ %301, %297 ], [ %.pre-phi53, %._crit_edge ], [ %336, %328 ]
+  %.sink83 = phi i64 [ %300, %297 ], [ %327, %._crit_edge ], [ %335, %328 ]
+  %337 = getelementptr inbounds nuw i64, ptr %238, i64 %.sink85
   %338 = load i64, ptr %337, align 8, !tbaa !32
-  %339 = or i64 %338, %.sink58
+  %339 = or i64 %338, %.sink83
   store i64 %339, ptr %337, align 8, !tbaa !32
   %340 = or disjoint i32 %166, 1073741824
   store i32 %340, ptr %20, align 4, !tbaa !24
@@ -6297,16 +6297,16 @@ define internal fastcc void @zend_mm_free_huge(ptr noundef captures(address) %0,
 .lr.ph.preheader:                                 ; preds = %6
   %8 = load ptr, ptr %.015.i13, align 8, !tbaa !66
   %9 = icmp eq ptr %8, %1
-  br i1 %9, label %.lr.ph._crit_edge, label %.lr.ph24
+  br i1 %9, label %.lr.ph._crit_edge, label %.lr.ph27
 
-.lr.ph:                                           ; preds = %.lr.ph24
+.lr.ph:                                           ; preds = %.lr.ph27
   %10 = load ptr, ptr %.015.i, align 8, !tbaa !66
   %11 = icmp eq ptr %10, %1
-  br i1 %11, label %.lr.ph._crit_edge, label %.lr.ph24
+  br i1 %11, label %.lr.ph._crit_edge, label %.lr.ph27
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.015.i16.lcssa = phi ptr [ %.015.i13, %.lr.ph.preheader ], [ %.015.i, %.lr.ph ]
-  %.0.i15.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.015.i1623, %.lr.ph ]
+  %.0.i15.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.015.i1626, %.lr.ph ]
   %.not16.i = icmp eq ptr %.0.i15.lcssa, null
   %12 = getelementptr inbounds nuw i8, ptr %.015.i16.lcssa, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !64
@@ -6401,14 +6401,14 @@ define internal fastcc void @zend_mm_free_huge(ptr noundef captures(address) %0,
   tail call fastcc void @zend_mm_free_pages(ptr noundef %0, ptr noundef nonnull %26, i32 noundef range(i32 0, 512) %28, i32 noundef range(i32 0, 1024) %60)
   br label %zend_mm_del_huge_block.exit
 
-.lr.ph24:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.015.i1623 = phi ptr [ %.015.i, %.lr.ph ], [ %.015.i13, %.lr.ph.preheader ]
-  %66 = getelementptr inbounds nuw i8, ptr %.015.i1623, i64 16
+.lr.ph27:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.015.i1626 = phi ptr [ %.015.i, %.lr.ph ], [ %.015.i13, %.lr.ph.preheader ]
+  %66 = getelementptr inbounds nuw i8, ptr %.015.i1626, i64 16
   %.015.i = load ptr, ptr %66, align 8, !tbaa !77
   %.not.i = icmp eq ptr %.015.i, null
   br i1 %.not.i, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph24, %6
+._crit_edge:                                      ; preds = %.lr.ph27, %6
   tail call fastcc void @zend_mm_panic() #41
   unreachable
 
@@ -7066,8 +7066,8 @@ zend_mm_alloc_small.exit:                         ; preds = %zend_mm_get_next_fr
   %250 = and i64 %246, 63
   %251 = shl nuw i64 1, %250
   %252 = and i64 %249, %251
-  %.not64 = icmp eq i64 %252, 0
-  br i1 %.not64, label %.critedge.i, label %zend_mm_bitset_reset_range.exit
+  %.not90 = icmp eq i64 %252, 0
+  br i1 %.not90, label %.critedge.i, label %zend_mm_bitset_reset_range.exit
 
 253:                                              ; preds = %239
   %254 = lshr i32 %242, 6
@@ -7131,8 +7131,8 @@ zend_mm_alloc_small.exit:                         ; preds = %zend_mm_get_next_fr
 
 zend_mm_bitset_is_free_range.exit:                ; preds = %271, %279
   %.sink = phi i64 [ %278, %271 ], [ %290, %279 ]
-  %.not63 = icmp eq i64 %.sink, 0
-  br i1 %.not63, label %.critedge.i, label %zend_mm_bitset_reset_range.exit
+  %.not89 = icmp eq i64 %.sink, 0
+  br i1 %.not89, label %.critedge.i, label %zend_mm_bitset_reset_range.exit
 
 .critedge.i:                                      ; preds = %245, %zend_mm_bitset_is_free_range.exit
   %291 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -7212,11 +7212,11 @@ zend_mm_bitset_is_free_range.exit:                ; preds = %271, %279
   br label %zend_mm_bitset_set_range.exit
 
 zend_mm_bitset_set_range.exit:                    ; preds = %300, %._crit_edge, %331
-  %.sink62 = phi i64 [ %304, %300 ], [ %.pre-phi55, %._crit_edge ], [ %339, %331 ]
-  %.sink60 = phi i64 [ %303, %300 ], [ %330, %._crit_edge ], [ %338, %331 ]
-  %340 = getelementptr inbounds nuw i64, ptr %241, i64 %.sink62
+  %.sink88 = phi i64 [ %304, %300 ], [ %.pre-phi55, %._crit_edge ], [ %339, %331 ]
+  %.sink86 = phi i64 [ %303, %300 ], [ %330, %._crit_edge ], [ %338, %331 ]
+  %340 = getelementptr inbounds nuw i64, ptr %241, i64 %.sink88
   %341 = load i64, ptr %340, align 8, !tbaa !32
-  %342 = or i64 %341, %.sink60
+  %342 = or i64 %341, %.sink86
   store i64 %342, ptr %340, align 8, !tbaa !32
   %343 = or disjoint i32 %169, 1073741824
   store i32 %343, ptr %25, align 4, !tbaa !24
@@ -7647,8 +7647,8 @@ zend_mm_alloc_small.exit:                         ; preds = %zend_mm_get_next_fr
   %253 = and i64 %249, 63
   %254 = shl nuw i64 1, %253
   %255 = and i64 %252, %254
-  %.not64 = icmp eq i64 %255, 0
-  br i1 %.not64, label %.critedge.i, label %zend_mm_bitset_reset_range.exit
+  %.not90 = icmp eq i64 %255, 0
+  br i1 %.not90, label %.critedge.i, label %zend_mm_bitset_reset_range.exit
 
 256:                                              ; preds = %242
   %257 = lshr i32 %245, 6
@@ -7712,8 +7712,8 @@ zend_mm_alloc_small.exit:                         ; preds = %zend_mm_get_next_fr
 
 zend_mm_bitset_is_free_range.exit:                ; preds = %274, %282
   %.sink = phi i64 [ %281, %274 ], [ %293, %282 ]
-  %.not63 = icmp eq i64 %.sink, 0
-  br i1 %.not63, label %.critedge.i, label %zend_mm_bitset_reset_range.exit
+  %.not89 = icmp eq i64 %.sink, 0
+  br i1 %.not89, label %.critedge.i, label %zend_mm_bitset_reset_range.exit
 
 .critedge.i:                                      ; preds = %248, %zend_mm_bitset_is_free_range.exit
   %294 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -7793,11 +7793,11 @@ zend_mm_bitset_is_free_range.exit:                ; preds = %274, %282
   br label %zend_mm_bitset_set_range.exit
 
 zend_mm_bitset_set_range.exit:                    ; preds = %303, %._crit_edge, %334
-  %.sink62 = phi i64 [ %307, %303 ], [ %.pre-phi55, %._crit_edge ], [ %342, %334 ]
-  %.sink60 = phi i64 [ %306, %303 ], [ %333, %._crit_edge ], [ %341, %334 ]
-  %343 = getelementptr inbounds nuw i64, ptr %244, i64 %.sink62
+  %.sink88 = phi i64 [ %307, %303 ], [ %.pre-phi55, %._crit_edge ], [ %342, %334 ]
+  %.sink86 = phi i64 [ %306, %303 ], [ %333, %._crit_edge ], [ %341, %334 ]
+  %343 = getelementptr inbounds nuw i64, ptr %244, i64 %.sink88
   %344 = load i64, ptr %343, align 8, !tbaa !32
-  %345 = or i64 %344, %.sink60
+  %345 = or i64 %344, %.sink86
   store i64 %345, ptr %343, align 8, !tbaa !32
   %346 = or disjoint i32 %172, 1073741824
   store i32 %346, ptr %26, align 4, !tbaa !24
@@ -8938,8 +8938,8 @@ zend_mm_chunk_truncate.exit.thread:               ; preds = %zend_mm_chunk_trunc
 
 zend_mm_chunk_extend.exit:                        ; preds = %76
   %83 = tail call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef nonnull %1, i64 noundef %11, i64 noundef %18, i32 noundef 0) #40
-  %.not132 = icmp eq ptr %83, inttoptr (i64 -1 to ptr)
-  br i1 %.not132, label %zend_mm_chunk_truncate.exit.thread108, label %84
+  %.not139 = icmp eq ptr %83, inttoptr (i64 -1 to ptr)
+  br i1 %.not139, label %zend_mm_chunk_truncate.exit.thread108, label %84
 
 84:                                               ; preds = %81, %zend_mm_chunk_extend.exit
   %85 = load i64, ptr %60, align 8, !tbaa !42
@@ -9702,11 +9702,11 @@ zend_mm_chunk_alloc.exit171:                      ; preds = %102, %110
   br label %zend_mm_bitset_set_range.exit
 
 zend_mm_bitset_set_range.exit:                    ; preds = %177, %._crit_edge225, %206
-  %.sink295 = phi i64 [ %181, %177 ], [ %.pre-phi, %._crit_edge225 ], [ %214, %206 ]
-  %.sink294 = phi i64 [ %180, %177 ], [ %205, %._crit_edge225 ], [ %213, %206 ]
-  %215 = getelementptr inbounds i64, ptr %175, i64 %.sink295
+  %.sink309 = phi i64 [ %181, %177 ], [ %.pre-phi, %._crit_edge225 ], [ %214, %206 ]
+  %.sink308 = phi i64 [ %180, %177 ], [ %205, %._crit_edge225 ], [ %213, %206 ]
+  %215 = getelementptr inbounds i64, ptr %175, i64 %.sink309
   %216 = load i64, ptr %215, align 8, !tbaa !32
-  %217 = or i64 %216, %.sink294
+  %217 = or i64 %216, %.sink308
   store i64 %217, ptr %215, align 8, !tbaa !32
   %218 = or i32 %1, 1073741824
   %219 = getelementptr inbounds nuw i8, ptr %.1, i64 608
@@ -9892,7 +9892,7 @@ define internal fastcc void @zend_mm_free_pages(ptr noundef captures(none) %0, p
   %17 = load i64, ptr %16, align 8, !tbaa !32
   %18 = and i64 %17, %14
   store i64 %18, ptr %16, align 8, !tbaa !32
-  %.pre = add nuw nsw i32 %3, %2
+  %.pre = add nuw nsw i32 %2, 1
   br label %zend_mm_bitset_reset_range.exit
 
 19:                                               ; preds = %4

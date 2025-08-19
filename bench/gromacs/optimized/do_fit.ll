@@ -500,8 +500,8 @@ define void @_Z10calc_fit_RiiPKfPA3_S_PA3_fS4_(i32 noundef %0, i32 noundef %1, p
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %13 = add i32 %0, -4
   %or.cond = icmp ult i32 %13, -2
-  %.sink318.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sink318.sroa.gep321 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sink321.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sink321.sroa.gep324 = getelementptr inbounds nuw i8, ptr %10, i64 32
   br i1 %or.cond, label %14, label %.lr.ph.preheader
 
 14:                                               ; preds = %6
@@ -573,8 +573,8 @@ define void @_Z10calc_fit_RiiPKfPA3_S_PA3_fS4_(i32 noundef %0, i32 noundef %1, p
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %11, i8 0, i64 36, i1 false)
   %35 = icmp sgt i32 %1, 0
   %36 = icmp sgt i32 %0, 0
-  %or.cond309 = and i1 %35, %36
-  br i1 %or.cond309, label %.lr.ph187.split.us.preheader, label %.preheader171.preheader
+  %or.cond312 = and i1 %35, %36
+  br i1 %or.cond312, label %.lr.ph187.split.us.preheader, label %.preheader171.preheader
 
 .lr.ph187.split.us.preheader:                     ; preds = %._crit_edge
   %wide.trip.count245 = zext nneg i32 %1 to i64
@@ -675,13 +675,13 @@ define void @_Z10calc_fit_RiiPKfPA3_S_PA3_fS4_(i32 noundef %0, i32 noundef %1, p
   br label %75
 
 75:                                               ; preds = %.preheader171.split, %71
-  %.sink313 = phi double [ %74, %71 ], [ 0.000000e+00, %.preheader171.split ]
+  %.sink316 = phi double [ %74, %71 ], [ 0.000000e+00, %.preheader171.split ]
   %76 = getelementptr inbounds nuw double, ptr %63, i64 %indvars.iv247
-  store double %.sink313, ptr %76, align 8, !tbaa !17
+  store double %.sink316, ptr %76, align 8, !tbaa !17
   %77 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv247
   %78 = load ptr, ptr %77, align 8, !tbaa !13
   %79 = getelementptr inbounds nuw double, ptr %78, i64 %indvars.iv261
-  store double %.sink313, ptr %79, align 8, !tbaa !17
+  store double %.sink316, ptr %79, align 8, !tbaa !17
   %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
   %exitcond253.not = icmp eq i64 %indvars.iv.next248, %indvars.iv259
   br i1 %exitcond253.not, label %.split.us, label %.preheader171.split, !llvm.loop !24
@@ -849,9 +849,9 @@ define void @_Z10calc_fit_RiiPKfPA3_S_PA3_fS4_(i32 noundef %0, i32 noundef %1, p
   br label %.thread
 
 .thread:                                          ; preds = %160, %114
-  %.sink318.sroa.phi = phi ptr [ %.sink318.sroa.gep, %160 ], [ %.sink318.sroa.gep321, %114 ]
-  %.sink316 = phi float [ %171, %160 ], [ %159, %114 ]
-  store float %.sink316, ptr %.sink318.sroa.phi, align 16, !tbaa !4
+  %.sink321.sroa.phi = phi ptr [ %.sink321.sroa.gep, %160 ], [ %.sink321.sroa.gep324, %114 ]
+  %.sink319 = phi float [ %171, %160 ], [ %159, %114 ]
+  store float %.sink319, ptr %.sink321.sroa.phi, align 16, !tbaa !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %5, i8 0, i64 36, i1 false)
   br label %.preheader169.us.preheader
 

@@ -4290,8 +4290,8 @@ s7comm_decode_szl_id_0x94_idx_xxxx.exit:          ; preds = %.loopexit.i, %674
 .thread:                                          ; preds = %759, %702, %s7comm_decode_szl_id_0x94_idx_xxxx.exit, %s7comm_decode_szl_id_xy92_idx_xxxx.exit, %s7comm_decode_szl_id_xy91_idx_0000.exit, %333, %331, %329, %327, %325, %323, %321, %319, %317, %314, %312, %310, %308, %306, %304, %302, %300, %298, %296, %s7comm_decode_szl_id_xy1c_idx_000x.exit, %227, %212, %196, %183, %170, %126, %121, %s7comm_decode_szl_id_xy00.exit, %788
   %.3 = phi i32 [ %791, %788 ], [ %787, %759 ], [ %757, %702 ], [ %701, %s7comm_decode_szl_id_0x94_idx_xxxx.exit ], [ %673, %s7comm_decode_szl_id_xy92_idx_xxxx.exit ], [ %377, %s7comm_decode_szl_id_xy91_idx_0000.exit ], [ %348, %333 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %326, %325 ], [ %324, %323 ], [ %322, %321 ], [ %320, %319 ], [ %318, %317 ], [ %315, %314 ], [ %313, %312 ], [ %311, %310 ], [ %309, %308 ], [ %307, %306 ], [ %305, %304 ], [ %303, %302 ], [ %301, %300 ], [ %299, %298 ], [ %297, %296 ], [ %.0.i222, %s7comm_decode_szl_id_xy1c_idx_000x.exit ], [ %228, %227 ], [ %226, %212 ], [ %211, %196 ], [ %195, %183 ], [ %182, %170 ], [ %169, %126 ], [ %124, %121 ], [ %.0.i220, %s7comm_decode_szl_id_xy00.exit ]
   %792 = add i16 %.0207231, 1
-  %.not235 = icmp ugt i16 %792, %.0208
-  br i1 %.not235, label %.loopexit, label %113, !llvm.loop !10
+  %.not258 = icmp ugt i16 %792, %.0208
+  br i1 %.not258, label %.loopexit, label %113, !llvm.loop !10
 
 793:                                              ; preds = %54
   %794 = zext i8 %4 to i32

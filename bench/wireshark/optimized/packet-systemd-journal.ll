@@ -1239,8 +1239,8 @@ define internal noundef i32 @dissect_systemd_journal_line_entry(ptr noundef %0, 
 
 ._crit_edge.thread:                               ; preds = %22
   %32 = add i32 %.0156, 1
-  %.not165 = icmp sgt i32 %24, %32
-  br i1 %.not165, label %91, label %.preheader
+  %.not170 = icmp sgt i32 %24, %32
+  br i1 %.not170, label %91, label %.preheader
 
 .lr.ph:                                           ; preds = %22, %85
   %33 = phi ptr [ %90, %85 ], [ %29, %22 ]

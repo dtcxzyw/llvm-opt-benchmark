@@ -2628,9 +2628,9 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %165 = load volatile ptr, ptr %164, align 8
   %166 = icmp eq ptr %165, null
-  br i1 %166, label %.thread17, label %167
+  br i1 %166, label %.thread26, label %167
 
-.thread17:                                        ; preds = %163
+.thread26:                                        ; preds = %163
   call void @__rcu_read_unlock() #13
   br label %500
 
@@ -2846,9 +2846,9 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %301 = load volatile ptr, ptr %300, align 8
   %302 = icmp eq ptr %301, null
-  br i1 %302, label %.thread18, label %303
+  br i1 %302, label %.thread27, label %303
 
-.thread18:                                        ; preds = %299
+.thread27:                                        ; preds = %299
   call void @__rcu_read_unlock() #13
   br label %320
 
@@ -2882,8 +2882,8 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %319 = select i1 %318, i32 0, i32 -14
   br label %320
 
-320:                                              ; preds = %.thread18, %314, %308, %303, %296
-  %321 = phi i32 [ -22, %296 ], [ -107, %303 ], [ -14, %308 ], [ %319, %314 ], [ -107, %.thread18 ]
+320:                                              ; preds = %.thread27, %314, %308, %303, %296
+  %321 = phi i32 [ -22, %296 ], [ -107, %303 ], [ -14, %308 ], [ %319, %314 ], [ -107, %.thread27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %500
 
@@ -2930,9 +2930,9 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %350 = load volatile ptr, ptr %349, align 8
   %351 = icmp eq ptr %350, null
-  br i1 %351, label %.thread19, label %352
+  br i1 %351, label %.thread28, label %352
 
-.thread19:                                        ; preds = %348
+.thread28:                                        ; preds = %348
   call void @__rcu_read_unlock() #13
   br label %355
 
@@ -2943,7 +2943,7 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   call void @__rcu_read_unlock() #13
   br i1 %354, label %355, label %.thread10
 
-355:                                              ; preds = %.thread19, %352
+355:                                              ; preds = %.thread28, %352
   %356 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %357 = load ptr, ptr %356, align 8
   %358 = getelementptr inbounds nuw i8, ptr %357, i64 1848
@@ -3128,8 +3128,8 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   br label %.thread10.sink.split
 
 .thread10.sink.split:                             ; preds = %46, %170, %176, %182, %188, %194, %200, %205, %250, %256, %262, %268, %274, %278, %284, %290, %322, %328, %334, %355, %362, %368, %371, %377, %381, %385, %391, %433, %446, %450, %456, %461, %467, %473, %.thread
-  %.sink21 = phi i32 [ %342, %.thread ], [ %478, %473 ], [ %472, %467 ], [ %466, %461 ], [ %460, %456 ], [ %455, %450 ], [ %449, %446 ], [ %445, %433 ], [ %396, %391 ], [ %390, %385 ], [ %384, %381 ], [ %380, %377 ], [ %376, %371 ], [ %370, %368 ], [ %367, %362 ], [ %361, %355 ], [ %339, %334 ], [ %333, %328 ], [ %327, %322 ], [ %295, %290 ], [ %289, %284 ], [ %283, %278 ], [ %277, %274 ], [ %273, %268 ], [ %267, %262 ], [ %261, %256 ], [ %255, %250 ], [ %210, %205 ], [ %204, %200 ], [ %199, %194 ], [ %193, %188 ], [ %187, %182 ], [ %181, %176 ], [ %175, %170 ], [ %49, %46 ]
-  store i32 %.sink21, ptr %8, align 4
+  %.sink30 = phi i32 [ %342, %.thread ], [ %478, %473 ], [ %472, %467 ], [ %466, %461 ], [ %460, %456 ], [ %455, %450 ], [ %449, %446 ], [ %445, %433 ], [ %396, %391 ], [ %390, %385 ], [ %384, %381 ], [ %380, %377 ], [ %376, %371 ], [ %370, %368 ], [ %367, %362 ], [ %361, %355 ], [ %339, %334 ], [ %333, %328 ], [ %327, %322 ], [ %295, %290 ], [ %289, %284 ], [ %283, %278 ], [ %277, %274 ], [ %273, %268 ], [ %267, %262 ], [ %261, %256 ], [ %255, %250 ], [ %210, %205 ], [ %204, %200 ], [ %199, %194 ], [ %193, %188 ], [ %187, %182 ], [ %181, %176 ], [ %175, %170 ], [ %49, %46 ]
+  store i32 %.sink30, ptr %8, align 4
   br label %.thread10
 
 .thread10:                                        ; preds = %.thread10.sink.split, %343, %352, %167
@@ -3174,8 +3174,8 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 4 %8, i64 %488, i1 false)
   br label %500
 
-500:                                              ; preds = %.thread17, %499, %494, %493, %481, %431, %320, %249, %246, %241, %167, %161, %60, %58, %43, %40, %39, %34
-  %501 = phi i32 [ %432, %431 ], [ %321, %320 ], [ -107, %167 ], [ %162, %161 ], [ %59, %58 ], [ %61, %60 ], [ -14, %34 ], [ -92, %40 ], [ -107, %43 ], [ %243, %241 ], [ -92, %39 ], [ -14, %481 ], [ 0, %249 ], [ %248, %246 ], [ 0, %499 ], [ %498, %494 ], [ -14, %493 ], [ -107, %.thread17 ]
+500:                                              ; preds = %.thread26, %499, %494, %493, %481, %431, %320, %249, %246, %241, %167, %161, %60, %58, %43, %40, %39, %34
+  %501 = phi i32 [ %432, %431 ], [ %321, %320 ], [ -107, %167 ], [ %162, %161 ], [ %59, %58 ], [ %61, %60 ], [ -14, %34 ], [ -92, %40 ], [ -107, %43 ], [ %243, %241 ], [ -92, %39 ], [ -14, %481 ], [ 0, %249 ], [ %248, %246 ], [ 0, %499 ], [ %498, %494 ], [ -14, %493 ], [ -107, %.thread26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %501

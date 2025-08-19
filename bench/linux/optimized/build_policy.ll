@@ -957,8 +957,8 @@ define internal range(i32 0, 2) i32 @sched_rt_period_timer(ptr noundef %0) #1 al
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %74, %68, %64, %55
-  %.not12 = icmp ugt i64 %59, %60
-  br i1 %.not12, label %82, label %78
+  %.not17 = icmp ugt i64 %59, %60
+  br i1 %.not17, label %82, label %78
 
 78:                                               ; preds = %thread-pre-split
   %79 = getelementptr inbounds nuw i8, ptr %36, i64 2128
@@ -993,15 +993,15 @@ thread-pre-split:                                 ; preds = %74, %68, %64, %55
 95:                                               ; preds = %88
   %96 = icmp ne i32 %93, 0
   %97 = select i1 %96, i32 1, i32 %22
-  br i1 %.not8, label %.thread13, label %140
+  br i1 %.not8, label %.thread18, label %140
 
 98:                                               ; preds = %83
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %36, i64 2128
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %99 = icmp eq i32 %.pre, 0
-  br i1 %99, label %140, label %.thread13
+  br i1 %99, label %140, label %.thread18
 
-.thread13:                                        ; preds = %95, %98
+.thread18:                                        ; preds = %95, %98
   %100 = phi i32 [ %84, %98 ], [ 0, %95 ]
   %101 = phi i1 [ %86, %98 ], [ %96, %95 ]
   %102 = phi i32 [ %87, %98 ], [ %97, %95 ]
@@ -1012,7 +1012,7 @@ thread-pre-split:                                 ; preds = %74, %68, %64, %55
   %107 = select i1 %106, i1 true, i1 %101
   br i1 %107, label %139, label %108
 
-108:                                              ; preds = %.thread13
+108:                                              ; preds = %.thread18
   %109 = getelementptr i8, ptr %36, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = add i32 %110, %103
@@ -1065,7 +1065,7 @@ thread-pre-split:                                 ; preds = %74, %68, %64, %55
   tail call void %136(ptr noundef nonnull %133, i64 noundef %138, i32 noundef 0) #29
   br label %139
 
-139:                                              ; preds = %135, %125, %.thread13
+139:                                              ; preds = %135, %125, %.thread18
   tail call void @resched_curr(ptr noundef %36) #29
   br label %140
 
@@ -3644,14 +3644,14 @@ define internal void @update_curr_rt(ptr noundef %0) #1 align 16 {
 38:                                               ; preds = %32
   %39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @def_rt_bandwidth, i64 16), align 8
   %40 = icmp eq i64 %39, 0
-  br i1 %40, label %.thread3, label %41, !prof !7
+  br i1 %40, label %.thread4, label %41, !prof !7
 
 41:                                               ; preds = %38
   store i32 1, ptr %29, align 4
   %42 = load i1, ptr @sched_rt_runtime_exceeded.__already_done, align 1
   br i1 %42, label %.thread, label %43, !prof !29
 
-.thread3:                                         ; preds = %38
+.thread4:                                         ; preds = %38
   store i64 0, ptr %26, align 8
   br label %.sink.split
 
@@ -3717,8 +3717,8 @@ define internal void @update_curr_rt(ptr noundef %0) #1 align 16 {
   tail call void @hrtimer_start_range_ns(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @def_rt_bandwidth, i64 24), i64 noundef %70, i64 noundef %72, i32 noundef 10) #29
   br label %.sink.split
 
-.sink.split:                                      ; preds = %32, %43, %.thread3, %61, %64
-  %.sink = phi ptr [ @def_rt_bandwidth, %64 ], [ @def_rt_bandwidth, %61 ], [ %25, %.thread3 ], [ %25, %43 ], [ %25, %32 ]
+.sink.split:                                      ; preds = %32, %43, %.thread4, %61, %64
+  %.sink = phi ptr [ @def_rt_bandwidth, %64 ], [ @def_rt_bandwidth, %61 ], [ %25, %.thread4 ], [ %25, %43 ], [ %25, %32 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %.sink) #29
   br label %73
 
@@ -4340,9 +4340,9 @@ define dso_local noundef range(i32 0, 2) i32 @__update_load_avg_blocked_se(i64 n
 
 25:                                               ; preds = %20
   %26 = icmp samesign ult i64 %17, 32768
-  br i1 %26, label %.thread4, label %46, !prof !29
+  br i1 %26, label %.thread6, label %46, !prof !29
 
-.thread4:                                         ; preds = %25
+.thread6:                                         ; preds = %25
   %27 = getelementptr [32 x i32], ptr @runnable_avg_yN_inv, i64 0, i64 %18
   %28 = load i32, ptr %27, align 4
   %29 = zext i64 %22 to i128
@@ -4399,10 +4399,10 @@ define dso_local noundef range(i32 0, 2) i32 @__update_load_avg_blocked_se(i64 n
   %74 = and i64 %18, 31
   br label %75
 
-75:                                               ; preds = %.thread4, %46
-  %76 = phi ptr [ %69, %46 ], [ %43, %.thread4 ]
-  %77 = phi i64 [ %73, %46 ], [ %45, %.thread4 ]
-  %78 = phi i64 [ %74, %46 ], [ %18, %.thread4 ]
+75:                                               ; preds = %.thread6, %46
+  %76 = phi ptr [ %69, %46 ], [ %43, %.thread6 ]
+  %77 = phi i64 [ %73, %46 ], [ %45, %.thread6 ]
+  %78 = phi i64 [ %74, %46 ], [ %18, %.thread6 ]
   %79 = getelementptr [32 x i32], ptr @runnable_avg_yN_inv, i64 0, i64 %78
   %80 = load i32, ptr %79, align 4
   %81 = zext i32 %80 to i64
@@ -6667,8 +6667,8 @@ define internal fastcc void @update_curr_dl_se(ptr noundef %0, ptr noundef %1, i
   br i1 %69, label %71, label %.sink.split
 
 .sink.split:                                      ; preds = %64, %61
-  %.sink9 = phi i8 [ 1, %61 ], [ 9, %64 ]
-  %70 = or i8 %60, %.sink9
+  %.sink14 = phi i8 [ 1, %61 ], [ 9, %64 ]
+  %70 = or i8 %60, %.sink14
   store i8 %70, ptr %59, align 4
   br label %71
 
@@ -10020,12 +10020,12 @@ define dso_local range(i32 -1, 1) i32 @sched_dl_overflow(ptr noundef %0, i32 nou
   %56 = phi i64 [ %67, %64 ], [ 0, %.preheader34.preheader ]
   %57 = phi i32 [ %65, %64 ], [ 0, %.preheader34.preheader ]
   %58 = shl nsw i64 -1, %56
-  %.reass42.reass = and i64 %58, %invariant.op
-  %59 = icmp eq i64 %.reass42.reass, 0
+  %.reass59.reass = and i64 %58, %invariant.op
+  %59 = icmp eq i64 %.reass59.reass, 0
   br i1 %59, label %.thread, label %60
 
 60:                                               ; preds = %.preheader34
-  %61 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.reass42.reass) #28, !srcloc !76
+  %61 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.reass59.reass) #28, !srcloc !76
   %62 = and i64 %61, 4294967232
   %63 = icmp eq i64 %62, 0
   br i1 %63, label %64, label %.thread
@@ -10051,7 +10051,7 @@ define dso_local range(i32 -1, 1) i32 @sched_dl_overflow(ptr noundef %0, i32 nou
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = load i64, ptr @__cpu_active_mask, align 8
   %78 = load i64, ptr %76, align 8
-  %invariant.op49 = and i64 %78, %77
+  %invariant.op66 = and i64 %78, %77
   br label %110
 
 79:                                               ; preds = %.thread
@@ -10069,7 +10069,7 @@ define dso_local range(i32 -1, 1) i32 @sched_dl_overflow(ptr noundef %0, i32 nou
   br i1 %90, label %91, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %79
-  %invariant.op50 = and i64 %87, %86
+  %invariant.op67 = and i64 %87, %86
   br label %.preheader
 
 91:                                               ; preds = %79
@@ -10081,7 +10081,7 @@ define dso_local range(i32 -1, 1) i32 @sched_dl_overflow(ptr noundef %0, i32 nou
   %94 = phi i64 [ %105, %102 ], [ 0, %.preheader.preheader ]
   %95 = phi i32 [ %103, %102 ], [ 0, %.preheader.preheader ]
   %96 = shl nsw i64 -1, %94
-  %.reass.reass = and i64 %96, %invariant.op50
+  %.reass.reass = and i64 %96, %invariant.op67
   %97 = icmp eq i64 %.reass.reass, 0
   br i1 %97, label %.thread20, label %98
 
@@ -10108,7 +10108,7 @@ define dso_local range(i32 -1, 1) i32 @sched_dl_overflow(ptr noundef %0, i32 nou
   %111 = phi i64 [ 0, %70 ], [ %122, %119 ]
   %112 = phi i64 [ 0, %70 ], [ %120, %119 ]
   %113 = shl nsw i64 -1, %111
-  %.reass.reass.reass = and i64 %113, %invariant.op49
+  %.reass.reass.reass = and i64 %113, %invariant.op66
   %114 = icmp eq i64 %.reass.reass.reass, 0
   br i1 %114, label %.thread22, label %115
 
@@ -10762,7 +10762,7 @@ define internal fastcc range(i32 -16, 1) i32 @dl_bw_manage(i32 noundef range(i32
   br i1 %25, label %26, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %14
-  %invariant.op48 = and i64 %22, %21
+  %invariant.op60 = and i64 %22, %21
   br label %.preheader
 
 26:                                               ; preds = %14
@@ -10774,12 +10774,12 @@ define internal fastcc range(i32 -16, 1) i32 @dl_bw_manage(i32 noundef range(i32
   %29 = phi i64 [ %40, %37 ], [ 0, %.preheader.preheader ]
   %30 = phi i32 [ %38, %37 ], [ 0, %.preheader.preheader ]
   %31 = shl nsw i64 -1, %29
-  %.reass39.reass = and i64 %31, %invariant.op48
-  %32 = icmp eq i64 %.reass39.reass, 0
+  %.reass51.reass = and i64 %31, %invariant.op60
+  %32 = icmp eq i64 %.reass51.reass, 0
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %.preheader
-  %34 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.reass39.reass) #28, !srcloc !76
+  %34 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.reass51.reass) #28, !srcloc !76
   %35 = and i64 %34, 4294967232
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %37, label %.thread
@@ -10864,7 +10864,7 @@ define internal fastcc range(i32 -16, 1) i32 @dl_bw_manage(i32 noundef range(i32
   br i1 %94, label %95, label %.preheader25.preheader
 
 .preheader25.preheader:                           ; preds = %83
-  %invariant.op46 = and i64 %91, %90
+  %invariant.op58 = and i64 %91, %90
   br label %.preheader25
 
 95:                                               ; preds = %83
@@ -10876,7 +10876,7 @@ define internal fastcc range(i32 -16, 1) i32 @dl_bw_manage(i32 noundef range(i32
   %98 = phi i64 [ %109, %106 ], [ 0, %.preheader25.preheader ]
   %99 = phi i32 [ %107, %106 ], [ 0, %.preheader25.preheader ]
   %100 = shl nsw i64 -1, %98
-  %.reass.reass = and i64 %100, %invariant.op46
+  %.reass.reass = and i64 %100, %invariant.op58
   %101 = icmp eq i64 %.reass.reass, 0
   br i1 %101, label %.thread17, label %102
 
@@ -10957,7 +10957,7 @@ define internal fastcc range(i32 -16, 1) i32 @dl_bw_manage(i32 noundef range(i32
   br i1 %154, label %155, label %.preheader24.preheader
 
 .preheader24.preheader:                           ; preds = %145
-  %invariant.op47 = and i64 %128, %151
+  %invariant.op59 = and i64 %128, %151
   br label %.preheader24
 
 155:                                              ; preds = %145
@@ -10969,12 +10969,12 @@ define internal fastcc range(i32 -16, 1) i32 @dl_bw_manage(i32 noundef range(i32
   %158 = phi i64 [ %169, %166 ], [ 0, %.preheader24.preheader ]
   %159 = phi i32 [ %167, %166 ], [ 0, %.preheader24.preheader ]
   %160 = shl nsw i64 -1, %158
-  %.reass37.reass = and i64 %160, %invariant.op47
-  %161 = icmp eq i64 %.reass37.reass, 0
+  %.reass49.reass = and i64 %160, %invariant.op59
+  %161 = icmp eq i64 %.reass49.reass, 0
   br i1 %161, label %.thread21, label %162
 
 162:                                              ; preds = %.preheader24
-  %163 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.reass37.reass) #28, !srcloc !76
+  %163 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.reass49.reass) #28, !srcloc !76
   %164 = and i64 %163, 4294967232
   %165 = icmp eq i64 %164, 0
   br i1 %165, label %166, label %.thread21
@@ -12397,9 +12397,9 @@ define internal fastcc void @replenish_dl_entity(ptr noundef %0) unnamed_addr #1
 84:                                               ; preds = %76, %.loopexit
   %.pre-phi = phi i8 [ %.pre7.pre-phi, %76 ], [ %41, %.loopexit ]
   %85 = phi i8 [ %.pre5, %76 ], [ %40, %.loopexit ]
-  %.not9 = icmp eq i8 %.pre-phi, 0
+  %.not10 = icmp eq i8 %.pre-phi, 0
   %86 = and i8 %85, -3
-  %87 = select i1 %.not9, i8 %85, i8 %86
+  %87 = select i1 %.not10, i8 %85, i8 %86
   %88 = and i8 %87, 1
   %89 = or i8 %.pre-phi, %88
   %.not = icmp eq i8 %89, 0

@@ -53,8 +53,8 @@ define internal i32 @linebuffer_write(ptr noundef %0, ptr noundef %1, i32 nounde
   %.not = icmp eq i8 %19, 10
   %20 = getelementptr inbounds nuw i8, ptr %.0121195, i64 1
   %21 = icmp uge ptr %20, %18
-  %or.cond265.not = select i1 %.not, i1 true, i1 %21
-  br i1 %or.cond265.not, label %.critedge153, label %.lr.ph, !llvm.loop !19
+  %or.cond281.not = select i1 %.not, i1 true, i1 %21
+  br i1 %or.cond281.not, label %.critedge153, label %.lr.ph, !llvm.loop !19
 
 .critedge153:                                     ; preds = %.lr.ph
   %22 = ptrtoint ptr %20 to i64
@@ -75,8 +75,8 @@ define internal i32 @linebuffer_write(ptr noundef %0, ptr noundef %1, i32 nounde
   %30 = sext i32 %29 to i64
   %31 = icmp sgt i64 %26, %30
   %32 = icmp sgt i32 %28, 0
-  %or.cond244 = and i1 %31, %32
-  br i1 %or.cond244, label %36, label %.critedge4.thread
+  %or.cond260 = and i1 %31, %32
+  br i1 %or.cond260, label %36, label %.critedge4.thread
 
 33:                                               ; preds = %23
   %34 = load i32, ptr %16, align 4, !tbaa !23

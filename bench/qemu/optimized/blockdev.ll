@@ -753,8 +753,8 @@ define dso_local void @drive_check_orphaned() local_unnamed_addr #0 {
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.7, ptr noundef %22, i32 noundef %24, i32 noundef %26) #14
   %27 = call ptr @loc_pop(ptr noundef nonnull %1) #14
   %28 = call ptr @blk_next(ptr noundef nonnull %.01216) #14
-  %.not19 = icmp eq ptr %28, null
-  br i1 %.not19, label %._crit_edge.thread, label %.lr.ph.outer, !llvm.loop !11
+  %.not20 = icmp eq ptr %28, null
+  br i1 %.not20, label %._crit_edge.thread, label %.lr.ph.outer, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %14
   br i1 %.017.ph, label %._crit_edge.thread, label %.critedge
@@ -1349,10 +1349,10 @@ drive_get.exit230:                                ; preds = %131
   br label %.sink.split
 
 .sink.split:                                      ; preds = %148, %149
-  %.sink299 = phi ptr [ %62, %149 ], [ @.str.78, %148 ]
+  %.sink316 = phi ptr [ %62, %149 ], [ @.str.78, %148 ]
   %150 = call ptr @qemu_find_opts(ptr noundef nonnull @.str.76) #14
   %151 = call ptr @qemu_opts_create(ptr noundef %150, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #14
-  %152 = call zeroext i1 @qemu_opt_set(ptr noundef %151, ptr noundef nonnull @.str.77, ptr noundef nonnull %.sink299, ptr noundef nonnull @error_abort) #14
+  %152 = call zeroext i1 @qemu_opt_set(ptr noundef %151, ptr noundef nonnull @.str.77, ptr noundef nonnull %.sink316, ptr noundef nonnull @error_abort) #14
   %153 = call ptr @qdict_get_str(ptr noundef %49, ptr noundef nonnull @.str.75) #14
   %154 = call zeroext i1 @qemu_opt_set(ptr noundef %151, ptr noundef nonnull @.str.3, ptr noundef %153, ptr noundef nonnull @error_abort) #14
   br label %155
@@ -3788,7 +3788,7 @@ bdrv_filter_or_cow_bs.exit:                       ; preds = %77, %56
 
 .lr.ph.preheader:                                 ; preds = %75, %bdrv_filter_or_cow_bs.exit
   %80 = phi ptr [ %79, %bdrv_filter_or_cow_bs.exit ], [ null, %75 ]
-  %.098122128 = phi ptr [ %.098122, %bdrv_filter_or_cow_bs.exit ], [ %58, %75 ]
+  %.098122140 = phi ptr [ %.098122, %bdrv_filter_or_cow_bs.exit ], [ %58, %75 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %bdrv_filter_or_cow_bs.exit120
@@ -3809,7 +3809,7 @@ bdrv_filter_or_cow_bs.exit120:                    ; preds = %82
   br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %82, %bdrv_filter_or_cow_bs.exit120, %bdrv_filter_or_cow_bs.exit
-  %.098122129 = phi ptr [ %.098122, %bdrv_filter_or_cow_bs.exit ], [ %.098122128, %bdrv_filter_or_cow_bs.exit120 ], [ %.098122128, %82 ]
+  %.098122141 = phi ptr [ %.098122, %bdrv_filter_or_cow_bs.exit ], [ %.098122140, %bdrv_filter_or_cow_bs.exit120 ], [ %.098122140, %82 ]
   tail call void @bdrv_graph_rdunlock_main_loop() #14
   %88 = icmp eq ptr %.1100, null
   %89 = icmp ne ptr %4, null
@@ -3829,7 +3829,7 @@ bdrv_filter_or_cow_bs.exit120:                    ; preds = %82
   %92 = or disjoint i32 %spec.select118, 4
   %.1 = select i1 %or.cond12, i32 %spec.select118, i32 %92
   %93 = select i1 %8, i64 %9, i64 0
-  call void @stream_start(ptr noundef %0, ptr noundef nonnull %32, ptr noundef %.1100, ptr noundef %4, i1 noundef zeroext %spec.select, ptr noundef %.098122129, i32 noundef %.1, i64 noundef %93, i32 noundef %.0103, ptr noundef %12, ptr noundef nonnull %19) #14
+  call void @stream_start(ptr noundef %0, ptr noundef nonnull %32, ptr noundef %.1100, ptr noundef %4, i1 noundef zeroext %spec.select, ptr noundef %.098122141, i32 noundef %.1, i64 noundef %93, i32 noundef %.0103, ptr noundef %12, ptr noundef nonnull %19) #14
   %94 = load ptr, ptr %19, align 8
   %.not117 = icmp eq ptr %94, null
   br i1 %.not117, label %96, label %95
@@ -4326,9 +4326,9 @@ bdrv_cow_bs.exit.thread:                          ; preds = %29, %bdrv_cow_bs.ex
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %.thread111, label %37
+  br i1 %36, label %.thread119, label %37
 
-.thread111:                                       ; preds = %bdrv_cow_bs.exit.thread
+.thread119:                                       ; preds = %bdrv_cow_bs.exit.thread
   store i32 1, ptr %34, align 8
   br label %41
 
@@ -4340,8 +4340,8 @@ bdrv_cow_bs.exit.thread:                          ; preds = %29, %bdrv_cow_bs.ex
   %spec.select = select i1 %40, ptr %8, ptr %39
   br label %41
 
-41:                                               ; preds = %37, %.thread111
-  %42 = phi ptr [ null, %.thread111 ], [ %spec.select, %37 ]
+41:                                               ; preds = %37, %.thread119
+  %42 = phi ptr [ null, %.thread119 ], [ %spec.select, %37 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @bdrv_graph_rdunlock_main_loop() #14
   %44 = tail call i64 @bdrv_getlength(ptr noundef nonnull %8) #14

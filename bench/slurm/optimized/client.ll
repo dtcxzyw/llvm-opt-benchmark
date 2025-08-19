@@ -424,7 +424,7 @@ define dso_local range(i32 -1, 1) i32 @client_req_parse_body(ptr noundef %0) loc
   %42 = load i32, ptr %0, align 8
   %43 = sext i32 %42 to i64
   %44 = icmp slt i64 %indvars.iv81, %43
-  br i1 %44, label %45, label %.critedge2.loopexit.split.loop.exit92
+  br i1 %44, label %45, label %.critedge2.loopexit.split.loop.exit100
 
 45:                                               ; preds = %41
   %indvars.iv.next82 = add nsw i64 %indvars.iv81, 1
@@ -438,13 +438,13 @@ define dso_local range(i32 -1, 1) i32 @client_req_parse_body(ptr noundef %0) loc
   %49 = trunc nsw i64 %indvars.iv81 to i32
   br label %.critedge2
 
-.critedge2.loopexit.split.loop.exit92:            ; preds = %41
+.critedge2.loopexit.split.loop.exit100:           ; preds = %41
   %50 = trunc nsw i64 %indvars.iv81 to i32
   br label %.critedge2
 
-.critedge2:                                       ; preds = %45, %.critedge2.loopexit.split.loop.exit, %.critedge2.loopexit.split.loop.exit92, %31
-  %.lcssa = phi i64 [ %33, %31 ], [ %indvars.iv81, %.critedge2.loopexit.split.loop.exit ], [ %indvars.iv81, %.critedge2.loopexit.split.loop.exit92 ], [ %indvars.iv.next82, %45 ]
-  %.2.lcssa = phi i32 [ %27, %31 ], [ %49, %.critedge2.loopexit.split.loop.exit ], [ %50, %.critedge2.loopexit.split.loop.exit92 ], [ %46, %45 ]
+.critedge2:                                       ; preds = %45, %.critedge2.loopexit.split.loop.exit, %.critedge2.loopexit.split.loop.exit100, %31
+  %.lcssa = phi i64 [ %33, %31 ], [ %indvars.iv81, %.critedge2.loopexit.split.loop.exit ], [ %indvars.iv81, %.critedge2.loopexit.split.loop.exit100 ], [ %indvars.iv.next82, %45 ]
+  %.2.lcssa = phi i32 [ %27, %31 ], [ %49, %.critedge2.loopexit.split.loop.exit ], [ %50, %.critedge2.loopexit.split.loop.exit100 ], [ %46, %45 ]
   %51 = load i32, ptr %0, align 8
   %.not58 = icmp slt i32 %.2.lcssa, %51
   br i1 %.not58, label %54, label %52

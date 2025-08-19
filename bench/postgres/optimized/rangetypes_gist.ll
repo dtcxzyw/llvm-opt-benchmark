@@ -1008,8 +1008,8 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   %63 = trunc nuw i8 %62 to i1
   %or.cond11 = select i1 %60, i1 %63, i1 false
   %or.cond14 = select i1 %60, i1 true, i1 %63
-  %.94 = select i1 %or.cond14, float 2.000000e+00, float 4.000000e+00
-  %.sink = select i1 %or.cond11, float 0.000000e+00, float %.94
+  %.95 = select i1 %or.cond14, float 2.000000e+00, float 4.000000e+00
+  %.sink = select i1 %or.cond11, float 0.000000e+00, float %.95
   store float %.sink, ptr %16, align 4
   %64 = call signext i8 @range_get_flags(ptr noundef nonnull %19) #10
   %65 = and i8 %64, -127
@@ -1043,9 +1043,9 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
 80:                                               ; preds = %76
   %81 = call i32 @range_cmp_bounds(ptr noundef nonnull %31, ptr noundef nonnull %5, ptr noundef nonnull %4) #10
   %82 = icmp slt i32 %81, 1
-  %brmerge96 = select i1 %82, i1 true, i1 %.not83
-  %.mux97 = select i1 %82, float 0.000000e+00, float 1.000000e+00
-  br i1 %brmerge96, label %.sink.split, label %83
+  %brmerge97 = select i1 %82, i1 true, i1 %.not83
+  %.mux98 = select i1 %82, float 0.000000e+00, float 1.000000e+00
+  br i1 %brmerge97, label %.sink.split, label %83
 
 83:                                               ; preds = %80
   %84 = load i64, ptr %5, align 8
@@ -1080,9 +1080,9 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
 101:                                              ; preds = %97
   %102 = call i32 @range_cmp_bounds(ptr noundef nonnull %31, ptr noundef nonnull %3, ptr noundef nonnull %2) #10
   %103 = icmp sgt i32 %102, -1
-  %brmerge99 = select i1 %103, i1 true, i1 %.not83
-  %.mux100 = select i1 %103, float 0.000000e+00, float 1.000000e+00
-  br i1 %brmerge99, label %.sink.split, label %104
+  %brmerge100 = select i1 %103, i1 true, i1 %.not83
+  %.mux101 = select i1 %103, float 0.000000e+00, float 1.000000e+00
+  br i1 %brmerge100, label %.sink.split, label %104
 
 104:                                              ; preds = %101
   %105 = load i64, ptr %2, align 8
@@ -1160,8 +1160,8 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %101, %80, %113, %93, %97, %72, %76, %49, %42, %39, %36, %83, %147, %104, %66
-  %.sink93 = phi float [ %68, %66 ], [ %112, %104 ], [ %148, %147 ], [ %91, %83 ], [ 0.000000e+00, %36 ], [ 1.000000e+00, %39 ], [ 2.000000e+00, %42 ], [ %., %49 ], [ 0.000000e+00, %76 ], [ %.mux97, %80 ], [ 0x7FF0000000000000, %72 ], [ 0.000000e+00, %97 ], [ %.mux100, %101 ], [ 0x7FF0000000000000, %93 ], [ 0x7FF0000000000000, %113 ]
-  store float %.sink93, ptr %16, align 4
+  %.sink94 = phi float [ %68, %66 ], [ %112, %104 ], [ %148, %147 ], [ %91, %83 ], [ 0.000000e+00, %36 ], [ 1.000000e+00, %39 ], [ 2.000000e+00, %42 ], [ %., %49 ], [ 0.000000e+00, %76 ], [ %.mux98, %80 ], [ 0x7FF0000000000000, %72 ], [ 0.000000e+00, %97 ], [ %.mux101, %101 ], [ 0x7FF0000000000000, %93 ], [ 0x7FF0000000000000, %113 ]
+  store float %.sink94, ptr %16, align 4
   br label %149
 
 149:                                              ; preds = %.sink.split, %57
@@ -1380,8 +1380,8 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
 
 98:                                               ; preds = %89
   %99 = trunc nsw i64 %indvars.iv.i to i32
-  %sext363.i = shl i64 %indvars.iv.i, 32
-  %100 = ashr exact i64 %sext363.i, 27
+  %sext371.i = shl i64 %indvars.iv.i, 32
+  %100 = ashr exact i64 %sext371.i, 27
   %101 = getelementptr inbounds i8, ptr %68, i64 %100
   %102 = icmp slt i32 %.0190274.i, %64
   br i1 %102, label %.lr.ph263.preheader.i, label %.critedge2.i
@@ -1395,19 +1395,19 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   %104 = getelementptr inbounds %struct.NonEmptyRange, ptr %69, i64 %indvars.iv351.i, i32 1
   %105 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef nonnull %104, ptr noundef %.1183246.i) #10
   %106 = icmp slt i32 %105, 1
-  br i1 %106, label %107, label %.critedge2.loopexit.split.loop.exit393.i
+  br i1 %106, label %107, label %.critedge2.loopexit.split.loop.exit401.i
 
 107:                                              ; preds = %.lr.ph263.i
   %indvars.iv.next352.i = add nsw i64 %indvars.iv351.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next352.i, %66
   br i1 %exitcond.not.i, label %.critedge2.i, label %.lr.ph263.i, !llvm.loop !12
 
-.critedge2.loopexit.split.loop.exit393.i:         ; preds = %.lr.ph263.i
+.critedge2.loopexit.split.loop.exit401.i:         ; preds = %.lr.ph263.i
   %108 = trunc nsw i64 %indvars.iv351.i to i32
   br label %.critedge2.i
 
-.critedge2.i:                                     ; preds = %107, %.critedge2.loopexit.split.loop.exit393.i, %98
-  %.1191.lcssa.i = phi i32 [ %.0190274.i, %98 ], [ %108, %.critedge2.loopexit.split.loop.exit393.i ], [ %64, %107 ]
+.critedge2.i:                                     ; preds = %107, %.critedge2.loopexit.split.loop.exit401.i, %98
+  %.1191.lcssa.i = phi i32 [ %.0190274.i, %98 ], [ %108, %.critedge2.loopexit.split.loop.exit401.i ], [ %64, %107 ]
   %.not.i.i = icmp sgt i32 %83, %99
   %..i.i = call i32 @llvm.smin.i32(i32 %.1191.lcssa.i, i32 %84)
   %.044.i.i = select i1 %.not.i.i, i32 %..i.i, i32 %99
@@ -1525,19 +1525,19 @@ range_gist_consider_split.exit.i:                 ; preds = %.critedge.i.i, %129
   %153 = getelementptr inbounds nuw %struct.NonEmptyRange, ptr %68, i64 %indvars.iv357.i
   %154 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef %153, ptr noundef %.2188284.i) #10
   %155 = icmp sgt i32 %154, -1
-  br i1 %155, label %156, label %.critedge6.loopexit.split.loop.exit395.i
+  br i1 %155, label %156, label %.critedge6.loopexit.split.loop.exit403.i
 
 156:                                              ; preds = %.lr.ph298.i
   %indvars.iv.next358.i = add nsw i64 %indvars.iv357.i, -1
   %157 = icmp sgt i64 %indvars.iv357.i, 0
   br i1 %157, label %.lr.ph298.i, label %.critedge6.i, !llvm.loop !14
 
-.critedge6.loopexit.split.loop.exit395.i:         ; preds = %.lr.ph298.i
+.critedge6.loopexit.split.loop.exit403.i:         ; preds = %.lr.ph298.i
   %158 = trunc nuw nsw i64 %indvars.iv357.i to i32
   br label %.critedge6.i
 
-.critedge6.i:                                     ; preds = %156, %.critedge6.loopexit.split.loop.exit395.i, %.critedge4.i
-  %.3197.lcssa.i = phi i32 [ %.2196308.i, %.critedge4.i ], [ %158, %.critedge6.loopexit.split.loop.exit395.i ], [ -1, %156 ]
+.critedge6.i:                                     ; preds = %156, %.critedge6.loopexit.split.loop.exit403.i, %.critedge4.i
+  %.3197.lcssa.i = phi i32 [ %.2196308.i, %.critedge4.i ], [ %158, %.critedge6.loopexit.split.loop.exit403.i ], [ -1, %156 ]
   %159 = add nsw i32 %.3197.lcssa.i, 1
   %160 = add nuw nsw i32 %148, 1
   %.not.i205.i = icmp slt i32 %159, %83
@@ -1800,14 +1800,14 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
   br label %282
 
 282:                                              ; preds = %278, %269
-  %.sink401.i = phi i32 [ %279, %278 ], [ %270, %269 ]
-  %.sink399.i = phi ptr [ %280, %278 ], [ %271, %269 ]
+  %.sink409.i = phi i32 [ %279, %278 ], [ %270, %269 ]
+  %.sink407.i = phi ptr [ %280, %278 ], [ %271, %269 ]
   %.5178.i = phi ptr [ %.6179.i, %278 ], [ %.4177327.i, %269 ]
   %.6.i = phi ptr [ %.4328.i, %278 ], [ %.5.i, %269 ]
-  %.sink397.i = trunc i32 %257 to i16
-  %283 = sext i32 %.sink401.i to i64
-  %284 = getelementptr inbounds i16, ptr %.sink399.i, i64 %283
-  store i16 %.sink397.i, ptr %284, align 2
+  %.sink405.i = trunc i32 %257 to i16
+  %283 = sext i32 %.sink409.i to i64
+  %284 = getelementptr inbounds i16, ptr %.sink407.i, i64 %283
+  store i16 %.sink405.i, ptr %284, align 2
   %285 = add i16 %.2329.i, 1
   %286 = zext i16 %285 to i32
   %287 = icmp samesign ugt i32 %.1181.i, %286
@@ -1992,11 +1992,11 @@ get_gist_range_class.exit.i:                      ; preds = %352, %344
 
 377:                                              ; preds = %373, %364
   %.sink.i80 = phi i32 [ %374, %373 ], [ %365, %364 ]
-  %.sink41.i = phi ptr [ %375, %373 ], [ %366, %364 ]
+  %.sink43.i = phi ptr [ %375, %373 ], [ %366, %364 ]
   %.131.i = phi ptr [ %.232.i, %373 ], [ %.03037.i, %364 ]
   %.2.i81 = phi ptr [ %.038.i, %373 ], [ %.1.i, %364 ]
   %378 = sext i32 %.sink.i80 to i64
-  %379 = getelementptr inbounds i16, ptr %.sink41.i, i64 %378
+  %379 = getelementptr inbounds i16, ptr %.sink43.i, i64 %378
   store i16 %.03336.i, ptr %379, align 2
   %380 = add i16 %.03336.i, 1
   %.not.i82 = icmp ult i16 %343, %380
@@ -2155,13 +2155,13 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
   br label %69
 
 69:                                               ; preds = %65, %56
-  %.sink78 = phi i32 [ %66, %65 ], [ %57, %56 ]
-  %.sink76 = phi ptr [ %67, %65 ], [ %58, %56 ]
+  %.sink80 = phi i32 [ %66, %65 ], [ %57, %56 ]
+  %.sink78 = phi ptr [ %67, %65 ], [ %58, %56 ]
   %.154 = phi ptr [ %.255, %65 ], [ %.05364, %56 ]
   %.2 = phi ptr [ %.065, %65 ], [ %.1, %56 ]
   %.sink = trunc i32 %44 to i16
-  %70 = sext i32 %.sink78 to i64
-  %71 = getelementptr inbounds i16, ptr %.sink76, i64 %70
+  %70 = sext i32 %.sink80 to i64
+  %71 = getelementptr inbounds i16, ptr %.sink78, i64 %70
   store i16 %.sink, ptr %71, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
@@ -2213,8 +2213,8 @@ define internal fastcc void @range_gist_fallback_split(ptr noundef %0, ptr nound
   %19 = load i64, ptr %18, align 8
   %20 = inttoptr i64 %19 to ptr
   %21 = tail call ptr @pg_detoast_datum(ptr noundef %20) #10
-  %.not41 = icmp ult i32 %11, %16
-  br i1 %.not41, label %31, label %22
+  %.not43 = icmp ult i32 %11, %16
+  br i1 %.not43, label %31, label %22
 
 22:                                               ; preds = %15
   %23 = load i32, ptr %5, align 8
@@ -2254,11 +2254,11 @@ define internal fastcc void @range_gist_fallback_split(ptr noundef %0, ptr nound
 
 40:                                               ; preds = %36, %27
   %.sink = phi i32 [ %37, %36 ], [ %28, %27 ]
-  %.sink42 = phi ptr [ %38, %36 ], [ %29, %27 ]
+  %.sink44 = phi ptr [ %38, %36 ], [ %29, %27 ]
   %.131 = phi ptr [ %.232, %36 ], [ %.03037, %27 ]
   %.2 = phi ptr [ %.038, %36 ], [ %.1, %27 ]
   %41 = sext i32 %.sink to i64
-  %42 = getelementptr inbounds i16, ptr %.sink42, i64 %41
+  %42 = getelementptr inbounds i16, ptr %.sink44, i64 %41
   store i16 %.03336, ptr %42, align 2
   %43 = add i16 %.03336, 1
   %44 = zext i16 %43 to i32

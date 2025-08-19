@@ -2041,14 +2041,14 @@ define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Optio
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !481)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  switch i8 %3, label %default.unreachable1.i [
+  switch i8 %3, label %default.unreachable [
     i8 0, label %21
     i8 1, label %29
     i8 2, label %30
     i8 3, label %7
   ]
 
-default.unreachable1.i:                           ; preds = %5
+default.unreachable:                              ; preds = %5
   unreachable
 
 7:                                                ; preds = %5
@@ -3154,7 +3154,7 @@ define internal fastcc void @_ZN9uv_pep5086marker5parse17parse_marker_expr17h7cd
   %.sroa.4197.0.copyload.i = load i8, ptr %.sroa.4197.0..sroa_idx.i, align 1, !noalias !666
   br i1 %98, label %100, label %_ZN9uv_pep5086marker5parse25parse_marker_key_op_value17h0659ae733e996b39E.exit.thread123
 
-default.unreachable263.i:                         ; preds = %251
+default.unreachable271.i:                         ; preds = %251
   unreachable
 
 default.unreachable.i:                            ; preds = %245
@@ -3908,7 +3908,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.exit.thre
   %252 = icmp ne ptr %.sroa.6199.0.copyload.i, null
   call void @llvm.assume(i1 %252)
   store ptr %.sroa.6199.0.copyload.i, ptr %36, align 8, !noalias !666
-  switch i8 %.sroa.726.i.sroa.0.0.copyload96, label %default.unreachable263.i [
+  switch i8 %.sroa.726.i.sroa.0.0.copyload96, label %default.unreachable271.i [
     i8 0, label %318
     i8 1, label %322
     i8 2, label %324
@@ -6436,7 +6436,7 @@ define void @"_ZN88_$LT$uv_cli..comma..CommaSeparatedRequirements$u20$as$u20$cor
           cleanup
   br label %.body.thread
 
-.body.thread81.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke263, %.invoke, %97
+.body.thread81.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke276, %.invoke, %97
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -6467,18 +6467,18 @@ define void @"_ZN88_$LT$uv_cli..comma..CommaSeparatedRequirements$u20$as$u20$cor
 
 74:                                               ; preds = %73
   %75 = icmp eq i64 %.sroa.09.0.ph.lcssa155, %2
-  br i1 %75, label %80, label %.invoke263
+  br i1 %75, label %80, label %.invoke276
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds i8, ptr %1, i64 %.sroa.09.0.ph.lcssa155
   %78 = load i8, ptr %77, align 1, !alias.scope !1145, !noundef !4
   %79 = icmp sgt i8 %78, -65
-  br i1 %79, label %80, label %.invoke263
+  br i1 %79, label %80, label %.invoke276
 
 80:                                               ; preds = %.thread.thread, %76, %74, %.thread
-  %.sroa.09.0.ph.lcssa155213 = phi i64 [ 0, %.thread.thread ], [ %.sroa.09.0.ph.lcssa155, %76 ], [ %.sroa.09.0.ph.lcssa155, %74 ], [ 0, %.thread ]
-  %81 = sub nuw i64 %2, %.sroa.09.0.ph.lcssa155213
-  %82 = getelementptr inbounds i8, ptr %1, i64 %.sroa.09.0.ph.lcssa155213
+  %.sroa.09.0.ph.lcssa155226 = phi i64 [ 0, %.thread.thread ], [ %.sroa.09.0.ph.lcssa155, %76 ], [ %.sroa.09.0.ph.lcssa155, %74 ], [ 0, %.thread ]
+  %81 = sub nuw i64 %2, %.sroa.09.0.ph.lcssa155226
+  %82 = getelementptr inbounds i8, ptr %1, i64 %.sroa.09.0.ph.lcssa155226
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1148
   store ptr %82, ptr %13, align 8, !alias.scope !1151, !noalias !1154
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -6831,7 +6831,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h269cda56e8f177d8E.exit.thread9
 .thread92:                                        ; preds = %146, %148, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h269cda56e8f177d8E.exit.thread96, %154, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.not.i37 = icmp ugt i64 %.sroa.09.0.ph163, %.sroa.10.0156
-  br i1 %.not.i37, label %.invoke263, label %220
+  br i1 %.not.i37, label %.invoke276, label %220
 
 220:                                              ; preds = %.thread92
   %221 = icmp eq i64 %.sroa.09.0.ph163, 0
@@ -6847,13 +6847,13 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h269cda56e8f177d8E.exit.thread9
 
 225:                                              ; preds = %222
   %226 = icmp eq i64 %.sroa.09.0.ph163, %2
-  br i1 %226, label %223, label %.invoke263
+  br i1 %226, label %223, label %.invoke276
 
 227:                                              ; preds = %222
   %228 = getelementptr inbounds i8, ptr %1, i64 %.sroa.09.0.ph163
   %229 = load i8, ptr %228, align 1, !alias.scope !1204, !noundef !4
   %230 = icmp sgt i8 %229, -65
-  br i1 %230, label %223, label %.invoke263
+  br i1 %230, label %223, label %.invoke276
 
 231:                                              ; preds = %223
   %.not6.i = icmp ult i64 %.sroa.10.0156, %2
@@ -6861,26 +6861,26 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h269cda56e8f177d8E.exit.thread9
 
 232:                                              ; preds = %231
   %233 = icmp eq i64 %.sroa.10.0156, %2
-  br i1 %233, label %243, label %.invoke263
+  br i1 %233, label %243, label %.invoke276
 
 234:                                              ; preds = %231
   %235 = getelementptr inbounds i8, ptr %1, i64 %.sroa.10.0156
   %236 = load i8, ptr %235, align 1, !alias.scope !1204, !noundef !4
   %237 = icmp sgt i8 %236, -65
-  br i1 %237, label %243, label %.invoke263
+  br i1 %237, label %243, label %.invoke276
 
 238:                                              ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17h269cda56e8f177d8E.exit.thread96, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h269cda56e8f177d8E.exit.thread96, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h269cda56e8f177d8E.exit.thread96, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h269cda56e8f177d8E.exit.thread96, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h269cda56e8f177d8E.exit.thread96
   %239 = icmp eq ptr %.sroa.0.1, %21
   br i1 %239, label %.thread, label %30
 
-.invoke263:                                       ; preds = %232, %225, %.thread92, %227, %234, %74, %76
+.invoke276:                                       ; preds = %232, %225, %.thread92, %227, %234, %74, %76
   %240 = phi i64 [ %.sroa.09.0.ph.lcssa155, %76 ], [ %.sroa.09.0.ph.lcssa155, %74 ], [ %.sroa.09.0.ph163, %234 ], [ %.sroa.09.0.ph163, %227 ], [ %.sroa.09.0.ph163, %.thread92 ], [ %.sroa.09.0.ph163, %225 ], [ %.sroa.09.0.ph163, %232 ]
   %241 = phi i64 [ %2, %76 ], [ %2, %74 ], [ %.sroa.10.0156, %234 ], [ %.sroa.10.0156, %227 ], [ %.sroa.10.0156, %.thread92 ], [ %.sroa.10.0156, %225 ], [ %.sroa.10.0156, %232 ]
   %242 = phi ptr [ @anon.03c59c5ea3f4e74c580d06b48142e06c.121, %76 ], [ @anon.03c59c5ea3f4e74c580d06b48142e06c.121, %74 ], [ @anon.03c59c5ea3f4e74c580d06b48142e06c.123, %234 ], [ @anon.03c59c5ea3f4e74c580d06b48142e06c.123, %227 ], [ @anon.03c59c5ea3f4e74c580d06b48142e06c.123, %.thread92 ], [ @anon.03c59c5ea3f4e74c580d06b48142e06c.123, %225 ], [ @anon.03c59c5ea3f4e74c580d06b48142e06c.123, %232 ]
   invoke void @_ZN4core3str16slice_error_fail17hbde71130ea7318aaE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %240, i64 noundef %241, ptr noalias noundef readonly align 8 dereferenceable(24) %242) #24
-          to label %.cont264 unwind label %.body.thread81.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont277 unwind label %.body.thread81.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont264:                                         ; preds = %.invoke263
+.cont277:                                         ; preds = %.invoke276
   unreachable
 
 243:                                              ; preds = %234, %232, %223

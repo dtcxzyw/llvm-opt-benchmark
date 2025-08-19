@@ -1084,8 +1084,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm15GISelAddressing12instMayAliasERKN
   %.pre = load i16, ptr %.phi.trans.insert, align 8, !tbaa !247
   %45 = and i16 %.pre, 2
   %.not79 = icmp eq i16 %45, 0
-  %or.cond82 = select i1 %.not78, i1 true, i1 %.not79
-  br i1 %or.cond82, label %._crit_edge, label %113
+  %or.cond87 = select i1 %.not78, i1 true, i1 %.not79
+  br i1 %or.cond87, label %._crit_edge, label %113
 
 ._crit_edge:                                      ; preds = %41
   %46 = and i16 %.pre, 32
@@ -3393,7 +3393,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm12LoadStoreOpt29operationAliasesWit
   %.val35.val.i.i.i.i.i.i = load ptr, ptr %12, align 8, !tbaa !181
   %.val35.val51.i.i.i.i.i.i = load ptr, ptr %13, align 8, !tbaa !188
   %21 = tail call noundef zeroext i1 @_ZN4llvm15GISelAddressing12instMayAliasERKNS_12MachineInstrES3_RNS_19MachineRegisterInfoEPNS_9AAResultsE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(70) %.val36.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(504) %.val35.val.i.i.i.i.i.i, ptr noundef %.val35.val51.i.i.i.i.i.i)
-  br i1 %21, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit19", label %22
+  br i1 %21, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit20", label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %.02964.i.i.i.i.i.i, i64 24
@@ -3401,7 +3401,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm12LoadStoreOpt29operationAliasesWit
   %.val38.val.i.i.i.i.i.i = load ptr, ptr %12, align 8, !tbaa !181
   %.val38.val50.i.i.i.i.i.i = load ptr, ptr %13, align 8, !tbaa !188
   %24 = tail call noundef zeroext i1 @_ZN4llvm15GISelAddressing12instMayAliasERKNS_12MachineInstrES3_RNS_19MachineRegisterInfoEPNS_9AAResultsE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(70) %.val39.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(504) %.val38.val.i.i.i.i.i.i, ptr noundef %.val38.val50.i.i.i.i.i.i)
-  br i1 %24, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit21", label %25
+  br i1 %24, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit22", label %25
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %.02964.i.i.i.i.i.i, i64 32
@@ -3468,16 +3468,16 @@ define dso_local noundef zeroext i1 @_ZN4llvm12LoadStoreOpt29operationAliasesWit
   %47 = getelementptr inbounds nuw i8, ptr %.02964.i.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit19": ; preds = %19
+"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit20": ; preds = %19
   %48 = getelementptr inbounds nuw i8, ptr %.02964.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit21": ; preds = %22
+"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit22": ; preds = %22
   %49 = getelementptr inbounds nuw i8, ptr %.02964.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit": ; preds = %14, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit19", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit21", %30, %36, %42, %46
-  %.028.i.i.i.i.i.i = phi ptr [ %9, %46 ], [ %.029.lcssa.i.i.i.i.i.i, %30 ], [ %.1.i.i.i.i.i.i, %36 ], [ %.2.i.i.i.i.i.i, %42 ], [ %47, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %48, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit19" ], [ %49, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit21" ], [ %.02964.i.i.i.i.i.i, %14 ]
+"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit": ; preds = %14, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit20", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit22", %30, %36, %42, %46
+  %.028.i.i.i.i.i.i = phi ptr [ %9, %46 ], [ %.029.lcssa.i.i.i.i.i.i, %30 ], [ %.1.i.i.i.i.i.i, %36 ], [ %.2.i.i.i.i.i.i, %42 ], [ %47, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %48, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit20" ], [ %49, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit22" ], [ %.02964.i.i.i.i.i.i, %14 ]
   %50 = icmp ne ptr %9, %.028.i.i.i.i.i.i
   br label %51
 
@@ -4925,9 +4925,9 @@ _ZNK4llvm13GMemOperation6getMMOEv.exit184.thread: ; preds = %193
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
   %.pre.i183 = load ptr, ptr %202, align 8, !tbaa !237
   %203 = getelementptr inbounds nuw i8, ptr %.pre.i183, i64 24
-  %.sroa.0.0.copyload.i185361 = load i64, ptr %203, align 8, !tbaa !226
-  %spec.select.i.i186.not362 = icmp eq i64 %.sroa.0.0.copyload.i185361, %.sroa.0.0.copyload.i
-  br i1 %spec.select.i.i186.not362, label %_ZNK4llvm13GMemOperation8isAtomicEv.exit.thread.i188, label %.loopexit338.sink.split
+  %.sroa.0.0.copyload.i185379 = load i64, ptr %203, align 8, !tbaa !226
+  %spec.select.i.i186.not380 = icmp eq i64 %.sroa.0.0.copyload.i185379, %.sroa.0.0.copyload.i
+  br i1 %spec.select.i.i186.not380, label %_ZNK4llvm13GMemOperation8isAtomicEv.exit.thread.i188, label %.loopexit338.sink.split
 
 _ZNK4llvm13GMemOperation8isAtomicEv.exit.i195:    ; preds = %_ZNK4llvm13GMemOperation6getMMOEv.exit184
   %204 = inttoptr i64 %195 to ptr
@@ -5825,8 +5825,8 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm12LoadStoreOpt15mergeTruncS
   %.not18 = icmp eq i64 %38, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp ne i64 %indvars.iv.next, %34
-  %or.cond51.not = select i1 %.not18, i1 %.not, i1 false
-  br i1 %or.cond51.not, label %35, label %.thread, !llvm.loop !487
+  %or.cond53.not = select i1 %.not18, i1 %.not, i1 false
+  br i1 %or.cond53.not, label %35, label %.thread, !llvm.loop !487
 
 .thread:                                          ; preds = %35, %15, %23, %.preheader
   %.117 = phi i1 [ true, %.preheader ], [ true, %23 ], [ %.not20, %15 ], [ %.not18, %35 ]
@@ -6277,8 +6277,8 @@ _ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineIn
   br i1 %.not33, label %._crit_edge42, label %.lr.ph41
 
 .loopexit:                                        ; preds = %._crit_edge42, %2, %.preheader, %._crit_edge
-  %.0.lcssa50 = phi i1 [ true, %.preheader ], [ false, %._crit_edge ], [ false, %2 ], [ true, %._crit_edge42 ]
-  ret i1 %.0.lcssa50
+  %.0.lcssa51 = phi i1 [ true, %.preheader ], [ false, %._crit_edge ], [ false, %2 ], [ true, %._crit_edge42 ]
+  ret i1 %.0.lcssa51
 }
 
 declare noundef zeroext i1 @_ZN4llvm15isTriviallyDeadERKNS_12MachineInstrERKNS_19MachineRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(70), ptr noundef nonnull align 8 dereferenceable(504)) local_unnamed_addr #2
@@ -6731,9 +6731,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm14MIPatternMatch2OrIJNS0_
 
 _ZN4llvm14MIPatternMatch2OrIJNS0_14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_13ConstantMatchIlEELj142ELb0EEEEE5matchIRS4_EEbRKNS_19MachineRegisterInfoEOT_.exit.sink.split: ; preds = %35, %14
   %.sink = phi i64 [ 24, %14 ], [ 8, %35 ]
-  %.sink8 = phi { i64, i8 } [ %22, %14 ], [ %43, %35 ]
+  %.sink9 = phi { i64, i8 } [ %22, %14 ], [ %43, %35 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
-  %47 = extractvalue { i64, i8 } %.sink8, 0
+  %47 = extractvalue { i64, i8 } %.sink9, 0
   %48 = load ptr, ptr %46, align 8, !tbaa !493
   store i64 %47, ptr %48, align 8, !tbaa !11
   br label %_ZN4llvm14MIPatternMatch2OrIJNS0_14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_13ConstantMatchIlEELj142ELb0EEEEE5matchIRS4_EEbRKNS_19MachineRegisterInfoEOT_.exit

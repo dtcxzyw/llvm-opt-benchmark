@@ -1867,8 +1867,8 @@ tailrecurse:                                      ; preds = %46, %3
   %8 = icmp eq ptr %.tr23, null
   %9 = load i32, ptr %5, align 8
   %10 = icmp ne i32 %9, 0
-  %or.cond34.not = select i1 %8, i1 %10, i1 false
-  br i1 %or.cond34.not, label %_ZN12ciMethodData18data_layout_beforeEi.exit, label %.loopexit
+  %or.cond37.not = select i1 %8, i1 %10, i1 false
+  br i1 %or.cond37.not, label %_ZN12ciMethodData18data_layout_beforeEi.exit, label %.loopexit
 
 _ZN12ciMethodData18data_layout_beforeEi.exit:     ; preds = %tailrecurse
   %11 = load i32, ptr %6, align 8
@@ -1920,8 +1920,8 @@ select.unfold:                                    ; preds = %29
   %42 = load ptr, ptr %7, align 8
   %43 = sext i32 %39 to i64
   %44 = getelementptr inbounds i8, ptr %42, i64 %43
-  %.not2136 = icmp eq ptr %42, null
-  %.not21 = select i1 %41, i1 true, i1 %.not2136
+  %.not2139 = icmp eq ptr %42, null
+  %.not21 = select i1 %41, i1 true, i1 %.not2139
   br i1 %.not21, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %29, %select.unfold, %_ZN12ciMethodData18data_layout_beforeEi.exit, %tailrecurse

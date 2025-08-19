@@ -790,8 +790,8 @@ define internal fastcc { i64, double } @"_ZN11polars_core13chunked_array21Chunke
   %29 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 48
   %30 = load ptr, ptr %29, align 8, !invariant.load !3, !noalias !48, !nonnull !3
   %31 = tail call noundef i64 %30(ptr noundef nonnull align 1 %.val.i.i), !noalias !48
-  %.not16 = icmp eq i64 %31, 0
-  br i1 %.not16, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
+  %.not21 = icmp eq i64 %31, 0
+  br i1 %.not21, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
 
 32:                                               ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
@@ -972,8 +972,8 @@ define internal fastcc { i16, i16 } @"_ZN11polars_core13chunked_array21ChunkedAr
   %29 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 48
   %30 = load ptr, ptr %29, align 8, !invariant.load !3, !noalias !57, !nonnull !3
   %31 = tail call noundef i64 %30(ptr noundef nonnull align 1 %.val.i.i), !noalias !57
-  %.not16 = icmp eq i64 %31, 0
-  br i1 %.not16, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
+  %.not21 = icmp eq i64 %31, 0
+  br i1 %.not21, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
 
 32:                                               ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
@@ -1154,8 +1154,8 @@ define internal fastcc { i32, i32 } @"_ZN11polars_core13chunked_array21ChunkedAr
   %29 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 48
   %30 = load ptr, ptr %29, align 8, !invariant.load !3, !noalias !66, !nonnull !3
   %31 = tail call noundef i64 %30(ptr noundef nonnull align 1 %.val.i.i), !noalias !66
-  %.not16 = icmp eq i64 %31, 0
-  br i1 %.not16, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
+  %.not21 = icmp eq i64 %31, 0
+  br i1 %.not21, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
 
 32:                                               ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
@@ -1336,8 +1336,8 @@ define internal fastcc { i64, i64 } @"_ZN11polars_core13chunked_array21ChunkedAr
   %29 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 48
   %30 = load ptr, ptr %29, align 8, !invariant.load !3, !noalias !75, !nonnull !3
   %31 = tail call noundef i64 %30(ptr noundef nonnull align 1 %.val.i.i), !noalias !75
-  %.not16 = icmp eq i64 %31, 0
-  br i1 %.not16, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
+  %.not21 = icmp eq i64 %31, 0
+  br i1 %.not21, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
 
 32:                                               ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
@@ -1518,8 +1518,8 @@ define internal fastcc { i1, i8 } @"_ZN11polars_core13chunked_array21ChunkedArra
   %29 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 48
   %30 = load ptr, ptr %29, align 8, !invariant.load !3, !noalias !84, !nonnull !3
   %31 = tail call noundef i64 %30(ptr noundef nonnull align 1 %.val.i.i), !noalias !84
-  %.not16 = icmp eq i64 %31, 0
-  br i1 %.not16, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
+  %.not21 = icmp eq i64 %31, 0
+  br i1 %.not21, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
 
 32:                                               ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
@@ -1700,8 +1700,8 @@ define internal fastcc { i32, float } @"_ZN11polars_core13chunked_array21Chunked
   %29 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 48
   %30 = load ptr, ptr %29, align 8, !invariant.load !3, !noalias !93, !nonnull !3
   %31 = tail call noundef i64 %30(ptr noundef nonnull align 1 %.val.i.i), !noalias !93
-  %.not16 = icmp eq i64 %31, 0
-  br i1 %.not16, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
+  %.not21 = icmp eq i64 %31, 0
+  br i1 %.not21, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
 
 32:                                               ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
@@ -1882,8 +1882,8 @@ define internal fastcc void @"_ZN11polars_core13chunked_array21ChunkedArray$LT$T
   %30 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 48
   %31 = load ptr, ptr %30, align 8, !invariant.load !3, !noalias !102, !nonnull !3
   %32 = tail call noundef i64 %31(ptr noundef nonnull align 1 %.val.i.i), !noalias !102
-  %.not16 = icmp eq i64 %32, 0
-  br i1 %.not16, label %33, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
+  %.not21 = icmp eq i64 %32, 0
+  br i1 %.not21, label %33, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
 
 33:                                               ; preds = %.lr.ph.i.i
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
@@ -2065,8 +2065,8 @@ define internal fastcc { i32, i32 } @"_ZN11polars_core13chunked_array21ChunkedAr
   %29 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 48
   %30 = load ptr, ptr %29, align 8, !invariant.load !3, !noalias !114, !nonnull !3
   %31 = tail call noundef i64 %30(ptr noundef nonnull align 1 %.val.i.i), !noalias !114
-  %.not16 = icmp eq i64 %31, 0
-  br i1 %.not16, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
+  %.not21 = icmp eq i64 %31, 0
+  br i1 %.not21, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
 
 32:                                               ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
@@ -2247,8 +2247,8 @@ define internal fastcc { i16, i16 } @"_ZN11polars_core13chunked_array21ChunkedAr
   %29 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 48
   %30 = load ptr, ptr %29, align 8, !invariant.load !3, !noalias !123, !nonnull !3
   %31 = tail call noundef i64 %30(ptr noundef nonnull align 1 %.val.i.i), !noalias !123
-  %.not16 = icmp eq i64 %31, 0
-  br i1 %.not16, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
+  %.not21 = icmp eq i64 %31, 0
+  br i1 %.not21, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
 
 32:                                               ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
@@ -2429,8 +2429,8 @@ define internal fastcc { i64, i64 } @"_ZN11polars_core13chunked_array21ChunkedAr
   %29 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 48
   %30 = load ptr, ptr %29, align 8, !invariant.load !3, !noalias !132, !nonnull !3
   %31 = tail call noundef i64 %30(ptr noundef nonnull align 1 %.val.i.i), !noalias !132
-  %.not16 = icmp eq i64 %31, 0
-  br i1 %.not16, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
+  %.not21 = icmp eq i64 %31, 0
+  br i1 %.not21, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
 
 32:                                               ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
@@ -2611,8 +2611,8 @@ define internal fastcc { i1, i8 } @"_ZN11polars_core13chunked_array21ChunkedArra
   %29 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 48
   %30 = load ptr, ptr %29, align 8, !invariant.load !3, !noalias !141, !nonnull !3
   %31 = tail call noundef i64 %30(ptr noundef nonnull align 1 %.val.i.i), !noalias !141
-  %.not16 = icmp eq i64 %31, 0
-  br i1 %.not16, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
+  %.not21 = icmp eq i64 %31, 0
+  br i1 %.not21, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
 
 32:                                               ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
@@ -61270,8 +61270,8 @@ define hidden void @_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_
   %51 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 48
   %52 = load ptr, ptr %51, align 8, !invariant.load !3, !noalias !10156, !nonnull !3
   %53 = tail call noundef i64 %52(ptr noundef nonnull align 1 %.val.i.i), !noalias !10156
-  %.not40 = icmp eq i64 %53, 0
-  br i1 %.not40, label %54, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
+  %.not47 = icmp eq i64 %53, 0
+  br i1 %.not47, label %54, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
 
 54:                                               ; preds = %.lr.ph.i.i
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
@@ -61497,8 +61497,8 @@ _ZN11polars_core13chunked_array3ops5arity17unary_elementwise17h95d1745dce202f6fE
   %158 = getelementptr inbounds nuw i8, ptr %.val2.i.i12, i64 48
   %159 = load ptr, ptr %158, align 8, !invariant.load !3, !noalias !10171, !nonnull !3
   %160 = tail call noundef i64 %159(ptr noundef nonnull align 1 %.val.i.i11), !noalias !10171
-  %.not39 = icmp eq i64 %160, 0
-  br i1 %.not39, label %161, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i13
+  %.not46 = icmp eq i64 %160, 0
+  br i1 %.not46, label %161, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i13
 
 161:                                              ; preds = %.lr.ph.i.i7
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i10, i64 16
@@ -61842,8 +61842,8 @@ define hidden void @_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_
   %51 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 48
   %52 = load ptr, ptr %51, align 8, !invariant.load !3, !noalias !10201, !nonnull !3
   %53 = tail call noundef i64 %52(ptr noundef nonnull align 1 %.val.i.i), !noalias !10201
-  %.not40 = icmp eq i64 %53, 0
-  br i1 %.not40, label %54, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
+  %.not47 = icmp eq i64 %53, 0
+  br i1 %.not47, label %54, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
 
 54:                                               ; preds = %.lr.ph.i.i
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
@@ -62069,8 +62069,8 @@ _ZN11polars_core13chunked_array3ops5arity17unary_elementwise17h90f5b16d31ef18a1E
   %158 = getelementptr inbounds nuw i8, ptr %.val2.i.i12, i64 48
   %159 = load ptr, ptr %158, align 8, !invariant.load !3, !noalias !10216, !nonnull !3
   %160 = tail call noundef i64 %159(ptr noundef nonnull align 1 %.val.i.i11), !noalias !10216
-  %.not39 = icmp eq i64 %160, 0
-  br i1 %.not39, label %161, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i13
+  %.not46 = icmp eq i64 %160, 0
+  br i1 %.not46, label %161, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i13
 
 161:                                              ; preds = %.lr.ph.i.i7
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i10, i64 16
@@ -62414,8 +62414,8 @@ define hidden void @_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_
   %51 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 48
   %52 = load ptr, ptr %51, align 8, !invariant.load !3, !noalias !10246, !nonnull !3
   %53 = tail call noundef i64 %52(ptr noundef nonnull align 1 %.val.i.i), !noalias !10246
-  %.not40 = icmp eq i64 %53, 0
-  br i1 %.not40, label %54, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
+  %.not47 = icmp eq i64 %53, 0
+  br i1 %.not47, label %54, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
 
 54:                                               ; preds = %.lr.ph.i.i
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
@@ -62641,8 +62641,8 @@ _ZN11polars_core13chunked_array3ops5arity17unary_elementwise17h7926810ac704cb19E
   %158 = getelementptr inbounds nuw i8, ptr %.val2.i.i12, i64 48
   %159 = load ptr, ptr %158, align 8, !invariant.load !3, !noalias !10261, !nonnull !3
   %160 = tail call noundef i64 %159(ptr noundef nonnull align 1 %.val.i.i11), !noalias !10261
-  %.not39 = icmp eq i64 %160, 0
-  br i1 %.not39, label %161, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i13
+  %.not46 = icmp eq i64 %160, 0
+  br i1 %.not46, label %161, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i13
 
 161:                                              ; preds = %.lr.ph.i.i7
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i10, i64 16
@@ -62986,8 +62986,8 @@ define hidden void @_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_
   %51 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 48
   %52 = load ptr, ptr %51, align 8, !invariant.load !3, !noalias !10291, !nonnull !3
   %53 = tail call noundef i64 %52(ptr noundef nonnull align 1 %.val.i.i), !noalias !10291
-  %.not40 = icmp eq i64 %53, 0
-  br i1 %.not40, label %54, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
+  %.not47 = icmp eq i64 %53, 0
+  br i1 %.not47, label %54, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
 
 54:                                               ; preds = %.lr.ph.i.i
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
@@ -63213,8 +63213,8 @@ _ZN11polars_core13chunked_array3ops5arity17unary_elementwise17h708d5e6c5a065965E
   %158 = getelementptr inbounds nuw i8, ptr %.val2.i.i12, i64 48
   %159 = load ptr, ptr %158, align 8, !invariant.load !3, !noalias !10306, !nonnull !3
   %160 = tail call noundef i64 %159(ptr noundef nonnull align 1 %.val.i.i11), !noalias !10306
-  %.not39 = icmp eq i64 %160, 0
-  br i1 %.not39, label %161, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i13
+  %.not46 = icmp eq i64 %160, 0
+  br i1 %.not46, label %161, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i13
 
 161:                                              ; preds = %.lr.ph.i.i7
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i10, i64 16
@@ -63560,8 +63560,8 @@ define hidden void @_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_
   %53 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 48
   %54 = load ptr, ptr %53, align 8, !invariant.load !3, !noalias !10336, !nonnull !3
   %55 = tail call noundef i64 %54(ptr noundef nonnull align 1 %.val.i.i), !noalias !10336
-  %.not36 = icmp eq i64 %55, 0
-  br i1 %.not36, label %56, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
+  %.not43 = icmp eq i64 %55, 0
+  br i1 %.not43, label %56, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
 
 56:                                               ; preds = %.lr.ph.i.i
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
@@ -63787,8 +63787,8 @@ _ZN11polars_core13chunked_array3ops5arity17unary_elementwise17h31688e98b40afae9E
   %160 = getelementptr inbounds nuw i8, ptr %.val2.i.i12, i64 48
   %161 = load ptr, ptr %160, align 8, !invariant.load !3, !noalias !10351, !nonnull !3
   %162 = tail call noundef i64 %161(ptr noundef nonnull align 1 %.val.i.i11), !noalias !10351
-  %.not35 = icmp eq i64 %162, 0
-  br i1 %.not35, label %163, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i13
+  %.not42 = icmp eq i64 %162, 0
+  br i1 %.not42, label %163, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i13
 
 163:                                              ; preds = %.lr.ph.i.i7
   %164 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i10, i64 16
@@ -64140,8 +64140,8 @@ define hidden void @_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_
   %51 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 48
   %52 = load ptr, ptr %51, align 8, !invariant.load !3, !noalias !10383, !nonnull !3
   %53 = tail call noundef i64 %52(ptr noundef nonnull align 1 %.val.i.i), !noalias !10383
-  %.not40 = icmp eq i64 %53, 0
-  br i1 %.not40, label %54, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
+  %.not47 = icmp eq i64 %53, 0
+  br i1 %.not47, label %54, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i
 
 54:                                               ; preds = %.lr.ph.i.i
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
@@ -64367,8 +64367,8 @@ _ZN11polars_core13chunked_array3ops5arity17unary_elementwise17had2d1c1a46830f95E
   %158 = getelementptr inbounds nuw i8, ptr %.val2.i.i12, i64 48
   %159 = load ptr, ptr %158, align 8, !invariant.load !3, !noalias !10398, !nonnull !3
   %160 = tail call noundef i64 %159(ptr noundef nonnull align 1 %.val.i.i11), !noalias !10398
-  %.not39 = icmp eq i64 %160, 0
-  br i1 %.not39, label %161, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i13
+  %.not46 = icmp eq i64 %160, 0
+  br i1 %.not46, label %161, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i13
 
 161:                                              ; preds = %.lr.ph.i.i7
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i10, i64 16
@@ -73108,7 +73108,7 @@ define internal fastcc void @_ZN11polars_core13chunked_array3ops9any_value16arr_
 
 27:                                               ; preds = %4
   %28 = load i8, ptr %3, align 16, !range !11268, !noundef !3
-  switch i8 %28, label %default.unreachable34 [
+  switch i8 %28, label %default.unreachable39 [
     i8 0, label %30
     i8 1, label %49
     i8 2, label %58
@@ -73143,7 +73143,7 @@ define internal fastcc void @_ZN11polars_core13chunked_array3ops9any_value16arr_
   store i8 0, ptr %0, align 16
   br label %355
 
-default.unreachable34:                            ; preds = %27
+default.unreachable39:                            ; preds = %27
   unreachable
 
 30:                                               ; preds = %27
@@ -82800,7 +82800,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h02b
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -82960,7 +82960,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h0c4
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -83120,7 +83120,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h113
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -83280,7 +83280,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h1e1
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -83493,7 +83493,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h3b0
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -83653,7 +83653,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h3cf
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -83813,7 +83813,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h4c2
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -83973,7 +83973,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h4ef
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -84133,7 +84133,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h564
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -84293,7 +84293,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h628
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -84453,7 +84453,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h7e7
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -84613,7 +84613,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h835
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -84773,7 +84773,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h92d
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -84933,7 +84933,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h992
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -85093,7 +85093,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h9d8
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -85253,7 +85253,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17hd75
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -85413,7 +85413,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17hde9
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -85619,7 +85619,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17h00
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -85779,7 +85779,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17h28
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -85939,7 +85939,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17h2c
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -86099,7 +86099,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17h3c
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -86259,7 +86259,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17h44
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -86419,7 +86419,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17h69
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -86579,7 +86579,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17h7f
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -86739,7 +86739,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17h80
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -86899,7 +86899,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17h81
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -87059,7 +87059,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17ha8
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -87219,7 +87219,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17haf
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -87379,7 +87379,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17hc1
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -87592,7 +87592,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17hca
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -87752,7 +87752,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17he4
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -87912,7 +87912,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17he5
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -88072,7 +88072,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17hec
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -88232,7 +88232,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17hfc
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -96598,7 +96598,7 @@ define internal void @"_ZN11polars_core6series15implementations4list213_$LT$impl
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i, label %.lr.ph.i.i.i
@@ -96711,7 +96711,7 @@ define internal void @"_ZN11polars_core6series15implementations6binary215_$LT$im
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i, label %.lr.ph.i.i.i
@@ -96824,7 +96824,7 @@ define internal void @"_ZN11polars_core6series15implementations6floats216_$LT$im
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i, label %.lr.ph.i.i.i
@@ -96937,7 +96937,7 @@ define internal void @"_ZN11polars_core6series15implementations6floats216_$LT$im
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i, label %.lr.ph.i.i.i
@@ -97050,7 +97050,7 @@ define internal void @"_ZN11polars_core6series15implementations6string215_$LT$im
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i, label %.lr.ph.i.i.i
@@ -97163,7 +97163,7 @@ define internal void @"_ZN11polars_core6series15implementations7boolean216_$LT$i
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i, label %.lr.ph.i.i.i
@@ -97222,7 +97222,7 @@ define internal fastcc void @_ZN11polars_core9datatypes5dtype8DataType12try_to_a
   %18 = alloca [2 x i8], align 2
   store i16 %2, ptr %18, align 2
   %19 = load i8, ptr %1, align 16, !range !11268, !noundef !3
-  switch i8 %19, label %default.unreachable125 [
+  switch i8 %19, label %default.unreachable127 [
     i8 0, label %20
     i8 1, label %22
     i8 2, label %24
@@ -97253,7 +97253,7 @@ define internal fastcc void @_ZN11polars_core9datatypes5dtype8DataType12try_to_a
     i8 27, label %110
   ], !prof !13605
 
-default.unreachable125:                           ; preds = %110, %3
+default.unreachable127:                           ; preds = %110, %3
   unreachable
 
 20:                                               ; preds = %3
@@ -97545,7 +97545,7 @@ common.resume:                                    ; preds = %147, %98, %84
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %112 = load i128, ptr %111, align 16, !range !13626, !noundef !3
   %113 = trunc nuw nsw i128 %112 to i64
-  switch i64 %113, label %default.unreachable125 [
+  switch i64 %113, label %default.unreachable127 [
     i64 0, label %142
     i64 1, label %157
     i64 2, label %145
@@ -97738,7 +97738,7 @@ define internal fastcc void @_ZN11polars_core9datatypes9any_value8AnyValue11into
   %19 = alloca [24 x i8], align 8
   %20 = alloca [48 x i8], align 8
   %21 = load i8, ptr %1, align 16, !range !13627, !noundef !3
-  switch i8 %21, label %default.unreachable47 [
+  switch i8 %21, label %default.unreachable53 [
     i8 0, label %22
     i8 1, label %23
     i8 2, label %24
@@ -97774,7 +97774,7 @@ define internal fastcc void @_ZN11polars_core9datatypes9any_value8AnyValue11into
     i8 32, label %227
   ]
 
-default.unreachable47:                            ; preds = %2
+default.unreachable53:                            ; preds = %2
   unreachable
 
 22:                                               ; preds = %2
@@ -99475,7 +99475,7 @@ define internal void @"_ZN203_$LT$polars_core..series..implementations..SeriesWr
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i, label %.lr.ph.i.i.i
@@ -99588,7 +99588,7 @@ define internal void @"_ZN204_$LT$polars_core..series..implementations..SeriesWr
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i, label %.lr.ph.i.i.i
@@ -99701,7 +99701,7 @@ define internal void @"_ZN204_$LT$polars_core..series..implementations..SeriesWr
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i, label %.lr.ph.i.i.i
@@ -99814,7 +99814,7 @@ define internal void @"_ZN204_$LT$polars_core..series..implementations..SeriesWr
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i, label %.lr.ph.i.i.i
@@ -99927,7 +99927,7 @@ define internal void @"_ZN204_$LT$polars_core..series..implementations..SeriesWr
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i, label %.lr.ph.i.i.i
@@ -100040,7 +100040,7 @@ define internal void @"_ZN205_$LT$polars_core..series..implementations..SeriesWr
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i, label %.lr.ph.i.i.i
@@ -100153,7 +100153,7 @@ define internal void @"_ZN205_$LT$polars_core..series..implementations..SeriesWr
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i, label %.lr.ph.i.i.i
@@ -100266,7 +100266,7 @@ define internal void @"_ZN205_$LT$polars_core..series..implementations..SeriesWr
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i, label %.lr.ph.i.i.i
@@ -100379,7 +100379,7 @@ define internal void @"_ZN205_$LT$polars_core..series..implementations..SeriesWr
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i.i, label %.lr.ph.i.i.i
@@ -104907,7 +104907,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
   %5 = alloca [24 x i8], align 8
   %.sroa.03 = alloca [23 x i8], align 8
   %6 = load i8, ptr %1, align 16, !range !11268, !noundef !3
-  switch i8 %6, label %default.unreachable23 [
+  switch i8 %6, label %default.unreachable25 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
@@ -104938,7 +104938,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
     i8 27, label %74
   ]
 
-default.unreachable23:                            ; preds = %2
+default.unreachable25:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -116060,7 +116060,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h27566972
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26) #28
           to label %224 unwind label %213
 
-34:                                               ; preds = %.invoke141, %12
+34:                                               ; preds = %.invoke145, %12
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %33
@@ -116574,14 +116574,14 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h27566972
 223:                                              ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %.invoke141
+  br label %.invoke145
 
 224:                                              ; preds = %225, %33
   %.pn68 = phi { ptr, i32 } [ %226, %225 ], [ %.pn66, %33 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27) #28
           to label %227 unwind label %213
 
-225:                                              ; preds = %.invoke140
+225:                                              ; preds = %.invoke144
   %226 = landingpad { ptr, i32 }
           cleanup
   br label %224
@@ -116591,12 +116591,12 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h27566972
   invoke void @"_ZN4core3ptr103drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..UInt32Type$GT$$GT$17hde05a5f825c29a53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2) #28
           to label %239 unwind label %213
 
-228:                                              ; preds = %.invoke139
+228:                                              ; preds = %.invoke143
   %229 = landingpad { ptr, i32 }
           cleanup
   br label %227
 
-230:                                              ; preds = %.invoke139
+230:                                              ; preds = %.invoke143
   call void @"_ZN4core3ptr103drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..UInt32Type$GT$$GT$17hde05a5f825c29a53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2)
   ret void
 
@@ -116613,7 +116613,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h27566972
 234:                                              ; preds = %215
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h8a1dbf5f079b3685E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24)
-          to label %.invoke141 unwind label %236
+          to label %.invoke145 unwind label %236
 
 235:                                              ; preds = %231, %238, %236
   %.pn64 = phi { ptr, i32 } [ %237, %236 ], [ %.pn62.ph, %238 ], [ %lpad.thr_comm.split-lp, %231 ]
@@ -116625,17 +116625,17 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h27566972
           cleanup
   br label %235
 
-.invoke141:                                       ; preds = %234, %223
+.invoke145:                                       ; preds = %234, %223
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   invoke void @"_ZN4core3ptr90drop_in_place$LT$polars_ops..frame..join..iejoin..filtered_bit_array..FilteredBitArray$GT$17h0ddbf379843c5a3aE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %25)
-          to label %.invoke140 unwind label %34
+          to label %.invoke144 unwind label %34
 
-.invoke140:                                       ; preds = %.invoke141
+.invoke144:                                       ; preds = %.invoke145
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26)
-          to label %.invoke139 unwind label %225
+          to label %.invoke143 unwind label %225
 
-.invoke139:                                       ; preds = %.invoke140
+.invoke143:                                       ; preds = %.invoke144
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27)
           to label %230 unwind label %228
 
@@ -116690,7 +116690,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h92bd76f8
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26) #28
           to label %224 unwind label %213
 
-34:                                               ; preds = %.invoke141, %12
+34:                                               ; preds = %.invoke145, %12
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %33
@@ -117204,14 +117204,14 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h92bd76f8
 223:                                              ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %.invoke141
+  br label %.invoke145
 
 224:                                              ; preds = %225, %33
   %.pn68 = phi { ptr, i32 } [ %226, %225 ], [ %.pn66, %33 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27) #28
           to label %227 unwind label %213
 
-225:                                              ; preds = %.invoke140
+225:                                              ; preds = %.invoke144
   %226 = landingpad { ptr, i32 }
           cleanup
   br label %224
@@ -117221,12 +117221,12 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h92bd76f8
   invoke void @"_ZN4core3ptr103drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..UInt32Type$GT$$GT$17hde05a5f825c29a53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2) #28
           to label %239 unwind label %213
 
-228:                                              ; preds = %.invoke139
+228:                                              ; preds = %.invoke143
   %229 = landingpad { ptr, i32 }
           cleanup
   br label %227
 
-230:                                              ; preds = %.invoke139
+230:                                              ; preds = %.invoke143
   call void @"_ZN4core3ptr103drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..UInt32Type$GT$$GT$17hde05a5f825c29a53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2)
   ret void
 
@@ -117243,7 +117243,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h92bd76f8
 234:                                              ; preds = %215
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h8a1dbf5f079b3685E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24)
-          to label %.invoke141 unwind label %236
+          to label %.invoke145 unwind label %236
 
 235:                                              ; preds = %231, %238, %236
   %.pn64 = phi { ptr, i32 } [ %237, %236 ], [ %.pn62.ph, %238 ], [ %lpad.thr_comm.split-lp, %231 ]
@@ -117255,17 +117255,17 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h92bd76f8
           cleanup
   br label %235
 
-.invoke141:                                       ; preds = %234, %223
+.invoke145:                                       ; preds = %234, %223
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   invoke void @"_ZN4core3ptr90drop_in_place$LT$polars_ops..frame..join..iejoin..filtered_bit_array..FilteredBitArray$GT$17h0ddbf379843c5a3aE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %25)
-          to label %.invoke140 unwind label %34
+          to label %.invoke144 unwind label %34
 
-.invoke140:                                       ; preds = %.invoke141
+.invoke144:                                       ; preds = %.invoke145
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26)
-          to label %.invoke139 unwind label %225
+          to label %.invoke143 unwind label %225
 
-.invoke139:                                       ; preds = %.invoke140
+.invoke143:                                       ; preds = %.invoke144
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27)
           to label %230 unwind label %228
 
@@ -117320,7 +117320,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h9bc7edc2
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26) #28
           to label %224 unwind label %213
 
-34:                                               ; preds = %.invoke141, %12
+34:                                               ; preds = %.invoke145, %12
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %33
@@ -117834,14 +117834,14 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h9bc7edc2
 223:                                              ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %.invoke141
+  br label %.invoke145
 
 224:                                              ; preds = %225, %33
   %.pn68 = phi { ptr, i32 } [ %226, %225 ], [ %.pn66, %33 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27) #28
           to label %227 unwind label %213
 
-225:                                              ; preds = %.invoke140
+225:                                              ; preds = %.invoke144
   %226 = landingpad { ptr, i32 }
           cleanup
   br label %224
@@ -117851,12 +117851,12 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h9bc7edc2
   invoke void @"_ZN4core3ptr103drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..UInt32Type$GT$$GT$17hde05a5f825c29a53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2) #28
           to label %239 unwind label %213
 
-228:                                              ; preds = %.invoke139
+228:                                              ; preds = %.invoke143
   %229 = landingpad { ptr, i32 }
           cleanup
   br label %227
 
-230:                                              ; preds = %.invoke139
+230:                                              ; preds = %.invoke143
   call void @"_ZN4core3ptr103drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..UInt32Type$GT$$GT$17hde05a5f825c29a53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2)
   ret void
 
@@ -117873,7 +117873,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h9bc7edc2
 234:                                              ; preds = %215
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h8a1dbf5f079b3685E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24)
-          to label %.invoke141 unwind label %236
+          to label %.invoke145 unwind label %236
 
 235:                                              ; preds = %231, %238, %236
   %.pn64 = phi { ptr, i32 } [ %237, %236 ], [ %.pn62.ph, %238 ], [ %lpad.thr_comm.split-lp, %231 ]
@@ -117885,17 +117885,17 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h9bc7edc2
           cleanup
   br label %235
 
-.invoke141:                                       ; preds = %234, %223
+.invoke145:                                       ; preds = %234, %223
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   invoke void @"_ZN4core3ptr90drop_in_place$LT$polars_ops..frame..join..iejoin..filtered_bit_array..FilteredBitArray$GT$17h0ddbf379843c5a3aE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %25)
-          to label %.invoke140 unwind label %34
+          to label %.invoke144 unwind label %34
 
-.invoke140:                                       ; preds = %.invoke141
+.invoke144:                                       ; preds = %.invoke145
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26)
-          to label %.invoke139 unwind label %225
+          to label %.invoke143 unwind label %225
 
-.invoke139:                                       ; preds = %.invoke140
+.invoke143:                                       ; preds = %.invoke144
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27)
           to label %230 unwind label %228
 
@@ -117950,7 +117950,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha58630d0
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26) #28
           to label %224 unwind label %213
 
-34:                                               ; preds = %.invoke141, %12
+34:                                               ; preds = %.invoke145, %12
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %33
@@ -118464,14 +118464,14 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha58630d0
 223:                                              ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %.invoke141
+  br label %.invoke145
 
 224:                                              ; preds = %225, %33
   %.pn68 = phi { ptr, i32 } [ %226, %225 ], [ %.pn66, %33 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27) #28
           to label %227 unwind label %213
 
-225:                                              ; preds = %.invoke140
+225:                                              ; preds = %.invoke144
   %226 = landingpad { ptr, i32 }
           cleanup
   br label %224
@@ -118481,12 +118481,12 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha58630d0
   invoke void @"_ZN4core3ptr103drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..UInt32Type$GT$$GT$17hde05a5f825c29a53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2) #28
           to label %239 unwind label %213
 
-228:                                              ; preds = %.invoke139
+228:                                              ; preds = %.invoke143
   %229 = landingpad { ptr, i32 }
           cleanup
   br label %227
 
-230:                                              ; preds = %.invoke139
+230:                                              ; preds = %.invoke143
   call void @"_ZN4core3ptr103drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..UInt32Type$GT$$GT$17hde05a5f825c29a53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2)
   ret void
 
@@ -118503,7 +118503,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha58630d0
 234:                                              ; preds = %215
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h8a1dbf5f079b3685E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24)
-          to label %.invoke141 unwind label %236
+          to label %.invoke145 unwind label %236
 
 235:                                              ; preds = %231, %238, %236
   %.pn64 = phi { ptr, i32 } [ %237, %236 ], [ %.pn62.ph, %238 ], [ %lpad.thr_comm.split-lp, %231 ]
@@ -118515,17 +118515,17 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha58630d0
           cleanup
   br label %235
 
-.invoke141:                                       ; preds = %234, %223
+.invoke145:                                       ; preds = %234, %223
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   invoke void @"_ZN4core3ptr90drop_in_place$LT$polars_ops..frame..join..iejoin..filtered_bit_array..FilteredBitArray$GT$17h0ddbf379843c5a3aE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %25)
-          to label %.invoke140 unwind label %34
+          to label %.invoke144 unwind label %34
 
-.invoke140:                                       ; preds = %.invoke141
+.invoke144:                                       ; preds = %.invoke145
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26)
-          to label %.invoke139 unwind label %225
+          to label %.invoke143 unwind label %225
 
-.invoke139:                                       ; preds = %.invoke140
+.invoke143:                                       ; preds = %.invoke144
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27)
           to label %230 unwind label %228
 
@@ -118580,7 +118580,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha58aee76
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26) #28
           to label %224 unwind label %213
 
-34:                                               ; preds = %.invoke141, %12
+34:                                               ; preds = %.invoke145, %12
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %33
@@ -119094,14 +119094,14 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha58aee76
 223:                                              ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %.invoke141
+  br label %.invoke145
 
 224:                                              ; preds = %225, %33
   %.pn68 = phi { ptr, i32 } [ %226, %225 ], [ %.pn66, %33 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27) #28
           to label %227 unwind label %213
 
-225:                                              ; preds = %.invoke140
+225:                                              ; preds = %.invoke144
   %226 = landingpad { ptr, i32 }
           cleanup
   br label %224
@@ -119111,12 +119111,12 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha58aee76
   invoke void @"_ZN4core3ptr103drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..UInt32Type$GT$$GT$17hde05a5f825c29a53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2) #28
           to label %239 unwind label %213
 
-228:                                              ; preds = %.invoke139
+228:                                              ; preds = %.invoke143
   %229 = landingpad { ptr, i32 }
           cleanup
   br label %227
 
-230:                                              ; preds = %.invoke139
+230:                                              ; preds = %.invoke143
   call void @"_ZN4core3ptr103drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..UInt32Type$GT$$GT$17hde05a5f825c29a53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2)
   ret void
 
@@ -119133,7 +119133,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha58aee76
 234:                                              ; preds = %215
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h8a1dbf5f079b3685E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24)
-          to label %.invoke141 unwind label %236
+          to label %.invoke145 unwind label %236
 
 235:                                              ; preds = %231, %238, %236
   %.pn64 = phi { ptr, i32 } [ %237, %236 ], [ %.pn62.ph, %238 ], [ %lpad.thr_comm.split-lp, %231 ]
@@ -119145,17 +119145,17 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha58aee76
           cleanup
   br label %235
 
-.invoke141:                                       ; preds = %234, %223
+.invoke145:                                       ; preds = %234, %223
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   invoke void @"_ZN4core3ptr90drop_in_place$LT$polars_ops..frame..join..iejoin..filtered_bit_array..FilteredBitArray$GT$17h0ddbf379843c5a3aE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %25)
-          to label %.invoke140 unwind label %34
+          to label %.invoke144 unwind label %34
 
-.invoke140:                                       ; preds = %.invoke141
+.invoke144:                                       ; preds = %.invoke145
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26)
-          to label %.invoke139 unwind label %225
+          to label %.invoke143 unwind label %225
 
-.invoke139:                                       ; preds = %.invoke140
+.invoke143:                                       ; preds = %.invoke144
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27)
           to label %230 unwind label %228
 
@@ -119210,7 +119210,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha6bb49b6
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26) #28
           to label %224 unwind label %213
 
-34:                                               ; preds = %.invoke141, %12
+34:                                               ; preds = %.invoke145, %12
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %33
@@ -119724,14 +119724,14 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha6bb49b6
 223:                                              ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %.invoke141
+  br label %.invoke145
 
 224:                                              ; preds = %225, %33
   %.pn68 = phi { ptr, i32 } [ %226, %225 ], [ %.pn66, %33 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27) #28
           to label %227 unwind label %213
 
-225:                                              ; preds = %.invoke140
+225:                                              ; preds = %.invoke144
   %226 = landingpad { ptr, i32 }
           cleanup
   br label %224
@@ -119741,12 +119741,12 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha6bb49b6
   invoke void @"_ZN4core3ptr103drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..UInt32Type$GT$$GT$17hde05a5f825c29a53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2) #28
           to label %239 unwind label %213
 
-228:                                              ; preds = %.invoke139
+228:                                              ; preds = %.invoke143
   %229 = landingpad { ptr, i32 }
           cleanup
   br label %227
 
-230:                                              ; preds = %.invoke139
+230:                                              ; preds = %.invoke143
   call void @"_ZN4core3ptr103drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..UInt32Type$GT$$GT$17hde05a5f825c29a53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2)
   ret void
 
@@ -119763,7 +119763,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha6bb49b6
 234:                                              ; preds = %215
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h8a1dbf5f079b3685E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24)
-          to label %.invoke141 unwind label %236
+          to label %.invoke145 unwind label %236
 
 235:                                              ; preds = %231, %238, %236
   %.pn64 = phi { ptr, i32 } [ %237, %236 ], [ %.pn62.ph, %238 ], [ %lpad.thr_comm.split-lp, %231 ]
@@ -119775,17 +119775,17 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha6bb49b6
           cleanup
   br label %235
 
-.invoke141:                                       ; preds = %234, %223
+.invoke145:                                       ; preds = %234, %223
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   invoke void @"_ZN4core3ptr90drop_in_place$LT$polars_ops..frame..join..iejoin..filtered_bit_array..FilteredBitArray$GT$17h0ddbf379843c5a3aE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %25)
-          to label %.invoke140 unwind label %34
+          to label %.invoke144 unwind label %34
 
-.invoke140:                                       ; preds = %.invoke141
+.invoke144:                                       ; preds = %.invoke145
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26)
-          to label %.invoke139 unwind label %225
+          to label %.invoke143 unwind label %225
 
-.invoke139:                                       ; preds = %.invoke140
+.invoke143:                                       ; preds = %.invoke144
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27)
           to label %230 unwind label %228
 
@@ -119840,7 +119840,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hb876f8b7
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26) #28
           to label %224 unwind label %213
 
-34:                                               ; preds = %.invoke141, %12
+34:                                               ; preds = %.invoke145, %12
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %33
@@ -120354,14 +120354,14 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hb876f8b7
 223:                                              ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %.invoke141
+  br label %.invoke145
 
 224:                                              ; preds = %225, %33
   %.pn68 = phi { ptr, i32 } [ %226, %225 ], [ %.pn66, %33 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27) #28
           to label %227 unwind label %213
 
-225:                                              ; preds = %.invoke140
+225:                                              ; preds = %.invoke144
   %226 = landingpad { ptr, i32 }
           cleanup
   br label %224
@@ -120371,12 +120371,12 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hb876f8b7
   invoke void @"_ZN4core3ptr103drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..UInt32Type$GT$$GT$17hde05a5f825c29a53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2) #28
           to label %239 unwind label %213
 
-228:                                              ; preds = %.invoke139
+228:                                              ; preds = %.invoke143
   %229 = landingpad { ptr, i32 }
           cleanup
   br label %227
 
-230:                                              ; preds = %.invoke139
+230:                                              ; preds = %.invoke143
   call void @"_ZN4core3ptr103drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..UInt32Type$GT$$GT$17hde05a5f825c29a53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2)
   ret void
 
@@ -120393,7 +120393,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hb876f8b7
 234:                                              ; preds = %215
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h8a1dbf5f079b3685E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24)
-          to label %.invoke141 unwind label %236
+          to label %.invoke145 unwind label %236
 
 235:                                              ; preds = %231, %238, %236
   %.pn64 = phi { ptr, i32 } [ %237, %236 ], [ %.pn62.ph, %238 ], [ %lpad.thr_comm.split-lp, %231 ]
@@ -120405,17 +120405,17 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hb876f8b7
           cleanup
   br label %235
 
-.invoke141:                                       ; preds = %234, %223
+.invoke145:                                       ; preds = %234, %223
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   invoke void @"_ZN4core3ptr90drop_in_place$LT$polars_ops..frame..join..iejoin..filtered_bit_array..FilteredBitArray$GT$17h0ddbf379843c5a3aE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %25)
-          to label %.invoke140 unwind label %34
+          to label %.invoke144 unwind label %34
 
-.invoke140:                                       ; preds = %.invoke141
+.invoke144:                                       ; preds = %.invoke145
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26)
-          to label %.invoke139 unwind label %225
+          to label %.invoke143 unwind label %225
 
-.invoke139:                                       ; preds = %.invoke140
+.invoke143:                                       ; preds = %.invoke144
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27)
           to label %230 unwind label %228
 
@@ -120470,7 +120470,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hba7de456
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26) #28
           to label %224 unwind label %213
 
-34:                                               ; preds = %.invoke141, %12
+34:                                               ; preds = %.invoke145, %12
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %33
@@ -120984,14 +120984,14 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hba7de456
 223:                                              ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %.invoke141
+  br label %.invoke145
 
 224:                                              ; preds = %225, %33
   %.pn68 = phi { ptr, i32 } [ %226, %225 ], [ %.pn66, %33 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27) #28
           to label %227 unwind label %213
 
-225:                                              ; preds = %.invoke140
+225:                                              ; preds = %.invoke144
   %226 = landingpad { ptr, i32 }
           cleanup
   br label %224
@@ -121001,12 +121001,12 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hba7de456
   invoke void @"_ZN4core3ptr103drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..UInt32Type$GT$$GT$17hde05a5f825c29a53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2) #28
           to label %239 unwind label %213
 
-228:                                              ; preds = %.invoke139
+228:                                              ; preds = %.invoke143
   %229 = landingpad { ptr, i32 }
           cleanup
   br label %227
 
-230:                                              ; preds = %.invoke139
+230:                                              ; preds = %.invoke143
   call void @"_ZN4core3ptr103drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..UInt32Type$GT$$GT$17hde05a5f825c29a53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2)
   ret void
 
@@ -121023,7 +121023,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hba7de456
 234:                                              ; preds = %215
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h8a1dbf5f079b3685E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24)
-          to label %.invoke141 unwind label %236
+          to label %.invoke145 unwind label %236
 
 235:                                              ; preds = %231, %238, %236
   %.pn64 = phi { ptr, i32 } [ %237, %236 ], [ %.pn62.ph, %238 ], [ %lpad.thr_comm.split-lp, %231 ]
@@ -121035,17 +121035,17 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hba7de456
           cleanup
   br label %235
 
-.invoke141:                                       ; preds = %234, %223
+.invoke145:                                       ; preds = %234, %223
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   invoke void @"_ZN4core3ptr90drop_in_place$LT$polars_ops..frame..join..iejoin..filtered_bit_array..FilteredBitArray$GT$17h0ddbf379843c5a3aE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %25)
-          to label %.invoke140 unwind label %34
+          to label %.invoke144 unwind label %34
 
-.invoke140:                                       ; preds = %.invoke141
+.invoke144:                                       ; preds = %.invoke145
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26)
-          to label %.invoke139 unwind label %225
+          to label %.invoke143 unwind label %225
 
-.invoke139:                                       ; preds = %.invoke140
+.invoke143:                                       ; preds = %.invoke144
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27)
           to label %230 unwind label %228
 
@@ -121100,7 +121100,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hf2942c3e
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26) #28
           to label %224 unwind label %213
 
-34:                                               ; preds = %.invoke141, %12
+34:                                               ; preds = %.invoke145, %12
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %33
@@ -121614,14 +121614,14 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hf2942c3e
 223:                                              ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %.invoke141
+  br label %.invoke145
 
 224:                                              ; preds = %225, %33
   %.pn68 = phi { ptr, i32 } [ %226, %225 ], [ %.pn66, %33 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27) #28
           to label %227 unwind label %213
 
-225:                                              ; preds = %.invoke140
+225:                                              ; preds = %.invoke144
   %226 = landingpad { ptr, i32 }
           cleanup
   br label %224
@@ -121631,12 +121631,12 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hf2942c3e
   invoke void @"_ZN4core3ptr103drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..UInt32Type$GT$$GT$17hde05a5f825c29a53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2) #28
           to label %239 unwind label %213
 
-228:                                              ; preds = %.invoke139
+228:                                              ; preds = %.invoke143
   %229 = landingpad { ptr, i32 }
           cleanup
   br label %227
 
-230:                                              ; preds = %.invoke139
+230:                                              ; preds = %.invoke143
   call void @"_ZN4core3ptr103drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..UInt32Type$GT$$GT$17hde05a5f825c29a53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2)
   ret void
 
@@ -121653,7 +121653,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hf2942c3e
 234:                                              ; preds = %215
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h8a1dbf5f079b3685E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24)
-          to label %.invoke141 unwind label %236
+          to label %.invoke145 unwind label %236
 
 235:                                              ; preds = %231, %238, %236
   %.pn64 = phi { ptr, i32 } [ %237, %236 ], [ %.pn62.ph, %238 ], [ %lpad.thr_comm.split-lp, %231 ]
@@ -121665,17 +121665,17 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hf2942c3e
           cleanup
   br label %235
 
-.invoke141:                                       ; preds = %234, %223
+.invoke145:                                       ; preds = %234, %223
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   invoke void @"_ZN4core3ptr90drop_in_place$LT$polars_ops..frame..join..iejoin..filtered_bit_array..FilteredBitArray$GT$17h0ddbf379843c5a3aE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %25)
-          to label %.invoke140 unwind label %34
+          to label %.invoke144 unwind label %34
 
-.invoke140:                                       ; preds = %.invoke141
+.invoke144:                                       ; preds = %.invoke145
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26)
-          to label %.invoke139 unwind label %225
+          to label %.invoke143 unwind label %225
 
-.invoke139:                                       ; preds = %.invoke140
+.invoke143:                                       ; preds = %.invoke144
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27)
           to label %230 unwind label %228
 
@@ -121730,7 +121730,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hf82102c8
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26) #28
           to label %224 unwind label %213
 
-34:                                               ; preds = %.invoke141, %12
+34:                                               ; preds = %.invoke145, %12
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %33
@@ -122244,14 +122244,14 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hf82102c8
 223:                                              ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %.invoke141
+  br label %.invoke145
 
 224:                                              ; preds = %225, %33
   %.pn68 = phi { ptr, i32 } [ %226, %225 ], [ %.pn66, %33 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27) #28
           to label %227 unwind label %213
 
-225:                                              ; preds = %.invoke140
+225:                                              ; preds = %.invoke144
   %226 = landingpad { ptr, i32 }
           cleanup
   br label %224
@@ -122261,12 +122261,12 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hf82102c8
   invoke void @"_ZN4core3ptr103drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..UInt32Type$GT$$GT$17hde05a5f825c29a53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2) #28
           to label %239 unwind label %213
 
-228:                                              ; preds = %.invoke139
+228:                                              ; preds = %.invoke143
   %229 = landingpad { ptr, i32 }
           cleanup
   br label %227
 
-230:                                              ; preds = %.invoke139
+230:                                              ; preds = %.invoke143
   call void @"_ZN4core3ptr103drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..UInt32Type$GT$$GT$17hde05a5f825c29a53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2)
   ret void
 
@@ -122283,7 +122283,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hf82102c8
 234:                                              ; preds = %215
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h8a1dbf5f079b3685E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24)
-          to label %.invoke141 unwind label %236
+          to label %.invoke145 unwind label %236
 
 235:                                              ; preds = %231, %238, %236
   %.pn64 = phi { ptr, i32 } [ %237, %236 ], [ %.pn62.ph, %238 ], [ %lpad.thr_comm.split-lp, %231 ]
@@ -122295,17 +122295,17 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hf82102c8
           cleanup
   br label %235
 
-.invoke141:                                       ; preds = %234, %223
+.invoke145:                                       ; preds = %234, %223
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   invoke void @"_ZN4core3ptr90drop_in_place$LT$polars_ops..frame..join..iejoin..filtered_bit_array..FilteredBitArray$GT$17h0ddbf379843c5a3aE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %25)
-          to label %.invoke140 unwind label %34
+          to label %.invoke144 unwind label %34
 
-.invoke140:                                       ; preds = %.invoke141
+.invoke144:                                       ; preds = %.invoke145
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26)
-          to label %.invoke139 unwind label %225
+          to label %.invoke143 unwind label %225
 
-.invoke139:                                       ; preds = %.invoke140
+.invoke143:                                       ; preds = %.invoke144
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27)
           to label %230 unwind label %228
 
@@ -122360,7 +122360,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hfec7abcc
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26) #28
           to label %224 unwind label %213
 
-34:                                               ; preds = %.invoke141, %12
+34:                                               ; preds = %.invoke145, %12
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %33
@@ -122874,14 +122874,14 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hfec7abcc
 223:                                              ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %.invoke141
+  br label %.invoke145
 
 224:                                              ; preds = %225, %33
   %.pn68 = phi { ptr, i32 } [ %226, %225 ], [ %.pn66, %33 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27) #28
           to label %227 unwind label %213
 
-225:                                              ; preds = %.invoke140
+225:                                              ; preds = %.invoke144
   %226 = landingpad { ptr, i32 }
           cleanup
   br label %224
@@ -122891,12 +122891,12 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hfec7abcc
   invoke void @"_ZN4core3ptr103drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..UInt32Type$GT$$GT$17hde05a5f825c29a53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2) #28
           to label %239 unwind label %213
 
-228:                                              ; preds = %.invoke139
+228:                                              ; preds = %.invoke143
   %229 = landingpad { ptr, i32 }
           cleanup
   br label %227
 
-230:                                              ; preds = %.invoke139
+230:                                              ; preds = %.invoke143
   call void @"_ZN4core3ptr103drop_in_place$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..UInt32Type$GT$$GT$17hde05a5f825c29a53E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2)
   ret void
 
@@ -122913,7 +122913,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hfec7abcc
 234:                                              ; preds = %215
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h8a1dbf5f079b3685E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24)
-          to label %.invoke141 unwind label %236
+          to label %.invoke145 unwind label %236
 
 235:                                              ; preds = %231, %238, %236
   %.pn64 = phi { ptr, i32 } [ %237, %236 ], [ %.pn62.ph, %238 ], [ %lpad.thr_comm.split-lp, %231 ]
@@ -122925,17 +122925,17 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hfec7abcc
           cleanup
   br label %235
 
-.invoke141:                                       ; preds = %234, %223
+.invoke145:                                       ; preds = %234, %223
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   invoke void @"_ZN4core3ptr90drop_in_place$LT$polars_ops..frame..join..iejoin..filtered_bit_array..FilteredBitArray$GT$17h0ddbf379843c5a3aE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %25)
-          to label %.invoke140 unwind label %34
+          to label %.invoke144 unwind label %34
 
-.invoke140:                                       ; preds = %.invoke141
+.invoke144:                                       ; preds = %.invoke145
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26)
-          to label %.invoke139 unwind label %225
+          to label %.invoke143 unwind label %225
 
-.invoke139:                                       ; preds = %.invoke140
+.invoke143:                                       ; preds = %.invoke144
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h947d98a5db777107E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27)
           to label %230 unwind label %228
 
@@ -123149,7 +123149,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -123284,7 +123284,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 145:                                              ; preds = %.noexc60
   %146 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %147 = sub nuw i64 %.sroa.0.020.i.i47, %143
+  %147 = sub nuw nsw i64 %.sroa.0.020.i.i47, %143
   %148 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %149 = icmp eq ptr %146, %125
   br i1 %149, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -123674,7 +123674,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -123808,7 +123808,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -124197,7 +124197,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -124331,7 +124331,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -124720,7 +124720,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -124854,7 +124854,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -125243,7 +125243,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -125377,7 +125377,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -125766,7 +125766,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -125900,7 +125900,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -126289,7 +126289,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -126423,7 +126423,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -126814,7 +126814,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -126949,7 +126949,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 145:                                              ; preds = %.noexc60
   %146 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %147 = sub nuw i64 %.sroa.0.020.i.i47, %143
+  %147 = sub nuw nsw i64 %.sroa.0.020.i.i47, %143
   %148 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %149 = icmp eq ptr %146, %125
   br i1 %149, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -127339,7 +127339,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -127474,7 +127474,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 145:                                              ; preds = %.noexc60
   %146 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %147 = sub nuw i64 %.sroa.0.020.i.i47, %143
+  %147 = sub nuw nsw i64 %.sroa.0.020.i.i47, %143
   %148 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %149 = icmp eq ptr %146, %125
   br i1 %149, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -127864,7 +127864,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -127998,7 +127998,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -128387,7 +128387,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -128521,7 +128521,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -128910,7 +128910,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -129044,7 +129044,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -129433,7 +129433,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -129567,7 +129567,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -129956,7 +129956,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -130090,7 +130090,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -130481,7 +130481,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -130615,7 +130615,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -131004,7 +131004,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -131138,7 +131138,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -131527,7 +131527,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -131661,7 +131661,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -132050,7 +132050,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -132184,7 +132184,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -132573,7 +132573,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -132707,7 +132707,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -133098,7 +133098,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -133232,7 +133232,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -133621,7 +133621,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -133755,7 +133755,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -134144,7 +134144,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -134278,7 +134278,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -134667,7 +134667,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -134801,7 +134801,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -135190,7 +135190,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -135324,7 +135324,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -135715,7 +135715,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -135849,7 +135849,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -136238,7 +136238,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -136372,7 +136372,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -136761,7 +136761,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -136895,7 +136895,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -137284,7 +137284,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -137418,7 +137418,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -137807,7 +137807,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -137941,7 +137941,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -138330,7 +138330,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -138464,7 +138464,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -138853,7 +138853,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -138987,7 +138987,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -139376,7 +139376,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -139510,7 +139510,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -139899,7 +139899,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -140033,7 +140033,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -140422,7 +140422,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -140556,7 +140556,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -140945,7 +140945,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -141079,7 +141079,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -141468,7 +141468,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -141603,7 +141603,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 145:                                              ; preds = %.noexc60
   %146 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %147 = sub nuw i64 %.sroa.0.020.i.i47, %143
+  %147 = sub nuw nsw i64 %.sroa.0.020.i.i47, %143
   %148 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %149 = icmp eq ptr %146, %125
   br i1 %149, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -141993,7 +141993,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -142127,7 +142127,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -142516,7 +142516,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -142650,7 +142650,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -143039,7 +143039,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -143173,7 +143173,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -143562,7 +143562,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -143696,7 +143696,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -144085,7 +144085,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -144219,7 +144219,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -144608,7 +144608,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -144742,7 +144742,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -145131,7 +145131,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -145265,7 +145265,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -145654,7 +145654,7 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin27piecewise_merge_join_impl
 
 84:                                               ; preds = %.noexc42
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
-  %86 = sub nuw i64 %.sroa.0.020.i.i, %82
+  %86 = sub nuw nsw i64 %.sroa.0.020.i.i, %82
   %87 = add nuw nsw i64 %.sroa.07.019.i.i, 1
   %88 = icmp eq ptr %85, %64
   br i1 %88, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i, label %.lr.ph.i.i
@@ -145788,7 +145788,7 @@ _ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i: ; pre
 
 143:                                              ; preds = %.noexc60
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i49, i64 16
-  %145 = sub nuw i64 %.sroa.0.020.i.i47, %141
+  %145 = sub nuw nsw i64 %.sroa.0.020.i.i47, %141
   %146 = add nuw nsw i64 %.sroa.07.019.i.i48, 1
   %147 = icmp eq ptr %144, %123
   br i1 %147, label %_ZN11polars_core5utils22index_to_chunked_index17h287d11bbeb791517E.exit.i52, label %.lr.ph.i.i46
@@ -146543,9 +146543,9 @@ common.resume:                                    ; preds = %755, %167, %178, %1
   unreachable
 
 194:                                              ; preds = %189, %160
-  %.sink184.i = phi ptr [ %190, %189 ], [ %161, %160 ]
+  %.sink187.i = phi ptr [ %190, %189 ], [ %161, %160 ]
   %.sink.i = phi ptr [ %192, %189 ], [ %163, %160 ]
-  store ptr %.sink184.i, ptr %41, align 8, !noalias !17206
+  store ptr %.sink187.i, ptr %41, align 8, !noalias !17206
   %195 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %.sink.i, ptr %195, align 8, !noalias !17206
   call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !17206
@@ -146588,11 +146588,11 @@ common.resume:                                    ; preds = %755, %167, %178, %1
   unreachable
 
 212:                                              ; preds = %207, %199
-  %.sink187.i = phi ptr [ %208, %207 ], [ %200, %199 ]
-  %.sink185.i = phi ptr [ %210, %207 ], [ %202, %199 ]
-  store ptr %.sink187.i, ptr %39, align 8, !noalias !17206
+  %.sink190.i = phi ptr [ %208, %207 ], [ %200, %199 ]
+  %.sink188.i = phi ptr [ %210, %207 ], [ %202, %199 ]
+  store ptr %.sink190.i, ptr %39, align 8, !noalias !17206
   %213 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store ptr %.sink185.i, ptr %213, align 8, !noalias !17206
+  store ptr %.sink188.i, ptr %213, align 8, !noalias !17206
   call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !17206
   %214 = invoke { ptr, ptr } @"_ZN71_$LT$polars_core..series..Series$u20$as$u20$core..ops..deref..Deref$GT$5deref17h9bacfe61a8c64c88E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %41)
           to label %217 unwind label %215, !noalias !17208
@@ -150522,8 +150522,8 @@ define void @_ZN10polars_ops6series3ops4clip4clip17h5d887f0002b7a294E(ptr dead_o
   %147 = load i64, ptr %146, align 8, !alias.scope !17556, !noalias !17559, !noundef !3
   %.not.i.i.not.i = icmp ne i64 %147, 1
   %.not.i.not = icmp eq i64 %145, 3
-  %or.cond812 = select i1 %.not.i.i.not.i, i1 true, i1 %.not.i.not
-  br i1 %or.cond812, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3178836a3f94a010E.exit.i.lr.ph", label %143
+  %or.cond827 = select i1 %.not.i.i.not.i, i1 true, i1 %.not.i.not
+  br i1 %or.cond827, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3178836a3f94a010E.exit.i.lr.ph", label %143
 
 148:                                              ; preds = %1175, %1160, %119
   ret void

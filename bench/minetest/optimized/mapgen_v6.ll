@@ -7914,7 +7914,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   %conv18 = uitofp nneg i32 %mul to double
   %node_min = getelementptr inbounds nuw i8, ptr %this, i64 208
   %div31497 = sdiv i16 %10, 16
-  %div31.sext4 = zext i16 %div31497 to i32
+  %div31.sext7 = zext i16 %div31497 to i32
   %Z = getelementptr inbounds nuw i8, ptr %this, i64 212
   %full_node_min.i = getelementptr inbounds nuw i8, ptr %this, i64 220
   %Z.i = getelementptr inbounds nuw i8, ptr %this, i64 224
@@ -7960,7 +7960,7 @@ for.cond22.preheader:                             ; preds = %for.cond.cleanup26,
   %indvars.iv489 = phi i32 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %indvars.iv.next490, %for.cond.cleanup26 ]
   %mul45 = mul nsw i32 %indvars.iv489, %conv16
   %16 = trunc i32 %mul45 to i16
-  %add42 = add i32 %mul45, %div31.sext4
+  %add42 = add i32 %mul45, %div31.sext7
   br label %for.body27
 
 for.cond.cleanup:                                 ; preds = %for.cond.cleanup26
@@ -7977,7 +7977,7 @@ for.body27:                                       ; preds = %for.cond.cleanup169
   %17 = load i16, ptr %node_min, align 8, !tbaa !137
   %conv29 = zext i16 %17 to i32
   %mul35 = mul nsw i32 %indvars.iv, %conv16
-  %add32 = add i32 %mul35, %div31.sext4
+  %add32 = add i32 %mul35, %div31.sext7
   %add36 = add i32 %add32, %conv29
   %18 = load i16, ptr %Z, align 4, !tbaa !136
   %conv39 = zext i16 %18 to i32

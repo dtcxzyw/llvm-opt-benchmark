@@ -537,16 +537,16 @@ get_bits_long.exit:                               ; preds = %286, %.lr.ph.split.
   %264 = zext nneg i32 %263 to i64
   %265 = getelementptr inbounds nuw i8, ptr %261, i64 %264
   %266 = load i32, ptr %265, align 1, !tbaa !61
-  %267 = call i32 @llvm.bswap.i32(i32 %266)
-  %268 = and i32 %262, 7
-  %269 = shl i32 %267, %268
-  %270 = load i32, ptr %85, align 8, !tbaa !55
-  %271 = lshr i32 %269, %239
-  %272 = add i32 %262, %228
-  %273 = call i32 @llvm.umin.i32(i32 %270, i32 %272)
-  store i32 %273, ptr %89, align 8, !tbaa !57
-  %274 = ashr i32 %271, 1
-  %275 = and i32 %271, 1
+  %267 = load i32, ptr %85, align 8, !tbaa !55
+  %268 = add i32 %262, %228
+  %269 = call i32 @llvm.umin.i32(i32 %267, i32 %268)
+  store i32 %269, ptr %89, align 8, !tbaa !57
+  %270 = call i32 @llvm.bswap.i32(i32 %266)
+  %271 = and i32 %262, 7
+  %272 = shl i32 %270, %271
+  %273 = lshr i32 %272, %239
+  %274 = lshr i32 %273, 1
+  %275 = and i32 %273, 1
   %sext = sub nsw i32 0, %275
   %276 = xor i32 %274, %sext
   %277 = add i32 %276, %260
@@ -653,12 +653,12 @@ get_bits_long.exit:                               ; preds = %286, %.lr.ph.split.
   br i1 %316, label %304, label %._crit_edge231, !llvm.loop !71
 
 ._crit_edge236:                                   ; preds = %320, %.loopexit, %._crit_edge231
-  %.0153.lcssa278 = phi i32 [ %313, %._crit_edge231 ], [ %297, %.loopexit ], [ %313, %320 ]
+  %.0153.lcssa289 = phi i32 [ %313, %._crit_edge231 ], [ %297, %.loopexit ], [ %313, %320 ]
   %.val = load i32, ptr %89, align 8, !tbaa !57
   %317 = srem i32 %.val, 8
   store i32 %317, ptr %91, align 8, !tbaa !58
   %318 = sdiv i32 %.val, 8
-  %319 = icmp sgt i32 %.0153.lcssa278, 0
+  %319 = icmp sgt i32 %.0153.lcssa289, 0
   br i1 %319, label %332, label %330
 
 320:                                              ; preds = %.lr.ph235, %320

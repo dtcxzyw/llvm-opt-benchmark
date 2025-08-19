@@ -271,9 +271,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @stripe_map_range(ptr noundef
   %49 = zext i32 %15 to i64
   %50 = mul i64 %46, %49
   %51 = add i64 %50, %27
-  br i1 %47, label %.thread13, label %65
+  br i1 %47, label %.thread17, label %65
 
-.thread13:                                        ; preds = %48
+.thread17:                                        ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %53 = load i32, ptr %52, align 8
   %54 = lshr i32 %53, 9
@@ -324,10 +324,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @stripe_map_range(ptr noundef
   %.pre = zext nneg i32 %12 to i64
   br label %89
 
-82:                                               ; preds = %.thread13, %72
-  %83 = phi i64 [ %56, %.thread13 ], [ %81, %72 ]
-  %84 = phi ptr [ %52, %.thread13 ], [ %77, %72 ]
-  %85 = phi i64 [ %51, %.thread13 ], [ %76, %72 ]
+82:                                               ; preds = %.thread17, %72
+  %83 = phi i64 [ %56, %.thread17 ], [ %81, %72 ]
+  %84 = phi ptr [ %52, %.thread17 ], [ %77, %72 ]
+  %85 = phi i64 [ %51, %.thread17 ], [ %76, %72 ]
   %86 = zext i32 %15 to i64
   %87 = urem i64 %83, %86
   %88 = udiv i64 %83, %86

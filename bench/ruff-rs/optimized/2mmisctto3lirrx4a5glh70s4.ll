@@ -1017,14 +1017,14 @@ define hidden void @"_ZN186_$LT$lsp_types..folding_range.._..$LT$impl$u20$serde.
   br label %16
 
 14:                                               ; preds = %10, %9
-  %.sink24 = phi ptr [ %8, %9 ], [ %11, %10 ]
+  %.sink27 = phi ptr [ %8, %9 ], [ %11, %10 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink24, ptr %15, align 8
+  store ptr %.sink27, ptr %15, align 8
   br label %16
 
 16:                                               ; preds = %14, %12
-  %.sink26 = phi i8 [ 1, %14 ], [ 0, %12 ]
-  store i8 %.sink26, ptr %0, align 8
+  %.sink29 = phi i8 [ 1, %14 ], [ 0, %12 ]
+  store i8 %.sink29, ptr %0, align 8
   ret void
 }
 
@@ -1819,7 +1819,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #28, !noalias !40
   unreachable
 
-168:                                              ; preds = %.invoke250.i, %260, %.noexc225.i, %246, %234, %224, %207, %198, %.thread244.i, %176
+168:                                              ; preds = %.invoke259.i, %260, %.noexc225.i, %246, %234, %224, %207, %198, %.thread244.i, %176
   %169 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$lsp_server..msg..ResponseError$GT$17h3b7c7efab1e5efabE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %37) #27
@@ -1874,7 +1874,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !43
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !43
   %.not201.i = icmp eq i64 %187, 0
-  br i1 %.not201.i, label %.invoke250.i, label %234, !prof !7
+  br i1 %.not201.i, label %.invoke259.i, label %234, !prof !7
 
 .thread247.i:                                     ; preds = %182, %178, %173, %170
   %193 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h7695d8585bcbb11dE monotonic, align 1, !noalias !43
@@ -1927,7 +1927,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !43
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !43
   %.not204.i = icmp eq i64 %218, 0
-  br i1 %.not204.i, label %.invoke250.i, label %224, !prof !7
+  br i1 %.not204.i, label %.invoke259.i, label %224, !prof !7
 
 224:                                              ; preds = %214
   store ptr %219, ptr %28, align 8, !noalias !43
@@ -2072,11 +2072,11 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !71
   br label %261
 
-.invoke250.i:                                     ; preds = %214, %183
+.invoke259.i:                                     ; preds = %214, %183
   invoke void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.371c52bf24696e894bc435f77c095309.15, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.371c52bf24696e894bc435f77c095309.152) #25
-          to label %.cont251.i unwind label %168, !noalias !43
+          to label %.cont260.i unwind label %168, !noalias !43
 
-.cont251.i:                                       ; preds = %.invoke250.i
+.cont260.i:                                       ; preds = %.invoke259.i
   unreachable
 
 261:                                              ; preds = %.noexc227.i, %.noexc226.i, %243, %.noexc224.i
@@ -2571,7 +2571,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #28, !noalias !77
   unreachable
 
-168:                                              ; preds = %.invoke250.i, %260, %.noexc225.i, %246, %234, %224, %207, %198, %.thread244.i, %176
+168:                                              ; preds = %.invoke259.i, %260, %.noexc225.i, %246, %234, %224, %207, %198, %.thread244.i, %176
   %169 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$lsp_server..msg..ResponseError$GT$17h3b7c7efab1e5efabE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %37) #27
@@ -2626,7 +2626,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !80
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !80
   %.not201.i = icmp eq i64 %187, 0
-  br i1 %.not201.i, label %.invoke250.i, label %234, !prof !7
+  br i1 %.not201.i, label %.invoke259.i, label %234, !prof !7
 
 .thread247.i:                                     ; preds = %182, %178, %173, %170
   %193 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h7695d8585bcbb11dE monotonic, align 1, !noalias !80
@@ -2679,7 +2679,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !80
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !80
   %.not204.i = icmp eq i64 %218, 0
-  br i1 %.not204.i, label %.invoke250.i, label %224, !prof !7
+  br i1 %.not204.i, label %.invoke259.i, label %224, !prof !7
 
 224:                                              ; preds = %214
   store ptr %219, ptr %28, align 8, !noalias !80
@@ -2824,11 +2824,11 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !105
   br label %261
 
-.invoke250.i:                                     ; preds = %214, %183
+.invoke259.i:                                     ; preds = %214, %183
   invoke void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.371c52bf24696e894bc435f77c095309.15, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.371c52bf24696e894bc435f77c095309.152) #25
-          to label %.cont251.i unwind label %168, !noalias !80
+          to label %.cont260.i unwind label %168, !noalias !80
 
-.cont251.i:                                       ; preds = %.invoke250.i
+.cont260.i:                                       ; preds = %.invoke259.i
   unreachable
 
 261:                                              ; preds = %.noexc227.i, %.noexc226.i, %243, %.noexc224.i
@@ -3328,7 +3328,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #28, !noalias !111
   unreachable
 
-168:                                              ; preds = %.invoke250.i, %260, %.noexc225.i, %246, %234, %224, %207, %198, %.thread244.i, %176
+168:                                              ; preds = %.invoke259.i, %260, %.noexc225.i, %246, %234, %224, %207, %198, %.thread244.i, %176
   %169 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$lsp_server..msg..ResponseError$GT$17h3b7c7efab1e5efabE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %37) #27
@@ -3383,7 +3383,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !114
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !114
   %.not201.i = icmp eq i64 %187, 0
-  br i1 %.not201.i, label %.invoke250.i, label %234, !prof !7
+  br i1 %.not201.i, label %.invoke259.i, label %234, !prof !7
 
 .thread247.i:                                     ; preds = %182, %178, %173, %170
   %193 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h7695d8585bcbb11dE monotonic, align 1, !noalias !114
@@ -3436,7 +3436,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !114
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !114
   %.not204.i = icmp eq i64 %218, 0
-  br i1 %.not204.i, label %.invoke250.i, label %224, !prof !7
+  br i1 %.not204.i, label %.invoke259.i, label %224, !prof !7
 
 224:                                              ; preds = %214
   store ptr %219, ptr %28, align 8, !noalias !114
@@ -3581,11 +3581,11 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !132
   br label %261
 
-.invoke250.i:                                     ; preds = %214, %183
+.invoke259.i:                                     ; preds = %214, %183
   invoke void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.371c52bf24696e894bc435f77c095309.15, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.371c52bf24696e894bc435f77c095309.152) #25
-          to label %.cont251.i unwind label %168, !noalias !114
+          to label %.cont260.i unwind label %168, !noalias !114
 
-.cont251.i:                                       ; preds = %.invoke250.i
+.cont260.i:                                       ; preds = %.invoke259.i
   unreachable
 
 261:                                              ; preds = %.noexc227.i, %.noexc226.i, %243, %.noexc224.i
@@ -5610,9 +5610,9 @@ define hidden void @"_ZN9lsp_types13folding_range1_95_$LT$impl$u20$serde..de..De
   br label %25
 
 21:                                               ; preds = %.noexc6.i, %17
-  %.sink24.i.i = phi ptr [ %16, %17 ], [ %18, %.noexc6.i ]
+  %.sink27.i.i = phi ptr [ %16, %17 ], [ %18, %.noexc6.i ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink24.i.i, ptr %22, align 8, !alias.scope !238, !noalias !239
+  store ptr %.sink27.i.i, ptr %22, align 8, !alias.scope !238, !noalias !239
   br label %25
 
 23:                                               ; preds = %2
@@ -5622,8 +5622,8 @@ define hidden void @"_ZN9lsp_types13folding_range1_95_$LT$impl$u20$serde..de..De
   br label %"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$serde_json..value..Value$GT$16deserialize_enum17h303cc24dd02dfde8E.exit"
 
 25:                                               ; preds = %21, %19
-  %.sink26.i.i = phi i8 [ 1, %21 ], [ 0, %19 ]
-  store i8 %.sink26.i.i, ptr %0, align 8, !alias.scope !238, !noalias !239
+  %.sink29.i.i = phi i8 [ 1, %21 ], [ 0, %19 ]
+  store i8 %.sink29.i.i, ptr %0, align 8, !alias.scope !238, !noalias !239
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !232
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !232
   br label %"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$serde_json..value..Value$GT$16deserialize_enum17h303cc24dd02dfde8E.exit"

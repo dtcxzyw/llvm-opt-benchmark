@@ -373,12 +373,12 @@ define dso_local zeroext i1 @hashvalidate(i32 noundef %0) local_unnamed_addr #0 
   br i1 %.not104, label %list_length.exit, label %.thread
 
 .thread:                                          ; preds = %.critedge, %198
-  %.11163 = phi i1 [ false, %198 ], [ %.10, %.critedge ]
+  %.11165 = phi i1 [ false, %198 ], [ %.10, %.critedge ]
   %199 = load i32, ptr %163, align 4
   br label %list_length.exit
 
 list_length.exit:                                 ; preds = %198, %.thread
-  %.11164 = phi i1 [ %.11163, %.thread ], [ false, %198 ]
+  %.11166 = phi i1 [ %.11165, %.thread ], [ false, %198 ]
   %200 = phi i32 [ %199, %.thread ], [ 0, %198 ]
   %.not.i115 = icmp eq ptr %.092.lcssa, null
   br i1 %.not.i115, label %list_length.exit118, label %201
@@ -405,7 +405,7 @@ list_length.exit118:                              ; preds = %list_length.exit, %
   br label %211
 
 211:                                              ; preds = %206, %208, %list_length.exit118
-  %.12 = phi i1 [ %.11164, %list_length.exit118 ], [ false, %208 ], [ false, %206 ]
+  %.12 = phi i1 [ %.11166, %list_length.exit118 ], [ false, %208 ], [ false, %206 ]
   tail call void @ReleaseCatCacheList(ptr noundef %21) #4
   tail call void @ReleaseCatCacheList(ptr noundef nonnull %20) #4
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #4

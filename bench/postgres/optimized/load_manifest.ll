@@ -544,14 +544,14 @@ define internal fastcc noundef ptr @manifest_files_insert_hash_internal(ptr noun
 17:                                               ; preds = %15, %.loopexit
   %18 = load ptr, ptr %7, align 8
   %.val90 = load i32, ptr %8, align 4
-  %.071181 = and i32 %.val90, %2
-  %19 = zext i32 %.071181 to i64
+  %.071185 = and i32 %.val90, %2
+  %19 = zext i32 %.071185 to i64
   %20 = getelementptr inbounds nuw %struct.manifest_file, ptr %18, i64 %19
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %._crit_edge186, label %.lr.ph185
+  br i1 %22, label %._crit_edge190, label %.lr.ph189
 
-._crit_edge186:                                   ; preds = %17, %76
+._crit_edge190:                                   ; preds = %17, %76
   %.lcssa = phi ptr [ %78, %76 ], [ %20, %17 ]
   %23 = load i32, ptr %5, align 8
   %24 = add i32 %23, 1
@@ -560,33 +560,33 @@ define internal fastcc noundef ptr @manifest_files_insert_hash_internal(ptr noun
   store ptr %1, ptr %25, align 8
   br label %.thread97.sink.split
 
-.lr.ph185:                                        ; preds = %17, %76
+.lr.ph189:                                        ; preds = %17, %76
   %26 = phi ptr [ %78, %76 ], [ %20, %17 ]
-  %.071183 = phi i32 [ %.071, %76 ], [ %.071181, %17 ]
-  %.083182 = phi i32 [ %67, %76 ], [ 0, %17 ]
+  %.071187 = phi i32 [ %.071, %76 ], [ %.071185, %17 ]
+  %.083186 = phi i32 [ %67, %76 ], [ 0, %17 ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %1) #24
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %.thread97, label %31
 
-31:                                               ; preds = %.lr.ph185
+31:                                               ; preds = %.lr.ph189
   %32 = tail call fastcc i32 @hash_string(ptr noundef nonnull readonly %28)
   %33 = and i32 %.val90, %32
-  %.not.i = icmp ugt i32 %33, %.071183
+  %.not.i = icmp ugt i32 %33, %.071187
   br i1 %.not.i, label %34, label %manifest_files_distance.exit
 
 34:                                               ; preds = %31
   %35 = load i64, ptr %0, align 8
   %36 = trunc i64 %35 to i32
-  %37 = add i32 %.071183, %36
+  %37 = add i32 %.071187, %36
   br label %manifest_files_distance.exit
 
 manifest_files_distance.exit:                     ; preds = %31, %34
-  %.pn.i = phi i32 [ %37, %34 ], [ %.071183, %31 ]
+  %.pn.i = phi i32 [ %37, %34 ], [ %.071187, %31 ]
   %.0.i = sub i32 %.pn.i, %33
-  %38 = icmp ugt i32 %.083182, %.0.i
-  %39 = add i32 %.071183, 1
+  %38 = icmp ugt i32 %.083186, %.0.i
+  %39 = add i32 %.071187, 1
   br i1 %38, label %.preheader107.preheader, label %66
 
 .preheader107.preheader:                          ; preds = %manifest_files_distance.exit
@@ -594,17 +594,17 @@ manifest_files_distance.exit:                     ; preds = %31, %34
   %41 = zext i32 %40 to i64
   %42 = getelementptr inbounds nuw %struct.manifest_file, ptr %18, i64 %41
   %43 = load i32, ptr %42, align 8
-  %.not106189 = icmp eq i32 %43, 0
-  br i1 %.not106189, label %.preheader, label %.lr.ph191
+  %.not106193 = icmp eq i32 %43, 0
+  br i1 %.not106193, label %.preheader, label %.lr.ph195
 
-.lr.ph191:                                        ; preds = %.preheader107.preheader, %.preheader107
+.lr.ph195:                                        ; preds = %.preheader107.preheader, %.preheader107
   %44 = phi i32 [ %55, %.preheader107 ], [ %40, %.preheader107.preheader ]
-  %.073190 = phi i32 [ %45, %.preheader107 ], [ 0, %.preheader107.preheader ]
-  %45 = add i32 %.073190, 1
+  %.073194 = phi i32 [ %45, %.preheader107 ], [ 0, %.preheader107.preheader ]
+  %45 = add i32 %.073194, 1
   %46 = icmp sgt i32 %45, 150
   br i1 %46, label %47, label %.preheader107, !prof !4
 
-47:                                               ; preds = %.lr.ph191
+47:                                               ; preds = %.lr.ph195
   %48 = load i32, ptr %5, align 8
   %49 = uitofp i32 %48 to double
   %50 = load i64, ptr %0, align 8
@@ -613,32 +613,32 @@ manifest_files_distance.exit:                     ; preds = %31, %34
   %53 = fcmp ult double %52, 1.000000e-01
   br i1 %53, label %.preheader107, label %.loopexit.loopexit
 
-.preheader107:                                    ; preds = %.lr.ph191, %47
+.preheader107:                                    ; preds = %.lr.ph195, %47
   %54 = add i32 %44, 1
   %55 = and i32 %54, %.val90
   %56 = zext i32 %55 to i64
   %57 = getelementptr inbounds nuw %struct.manifest_file, ptr %18, i64 %56
   %58 = load i32, ptr %57, align 8
   %.not106 = icmp eq i32 %58, 0
-  br i1 %.not106, label %.preheader, label %.lr.ph191
+  br i1 %.not106, label %.preheader, label %.lr.ph195
 
 .preheader:                                       ; preds = %.preheader107.preheader, %.preheader107
-  %.lcssa176 = phi i32 [ %55, %.preheader107 ], [ %40, %.preheader107.preheader ]
-  %.lcssa174 = phi ptr [ %57, %.preheader107 ], [ %42, %.preheader107.preheader ]
+  %.lcssa180 = phi i32 [ %55, %.preheader107 ], [ %40, %.preheader107.preheader ]
+  %.lcssa178 = phi ptr [ %57, %.preheader107 ], [ %42, %.preheader107.preheader ]
   %59 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %.not88129 = icmp eq i32 %.lcssa176, %.071183
+  %.not88129 = icmp eq i32 %.lcssa180, %.071187
   br i1 %.not88129, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.075131 = phi i32 [ %61, %.lr.ph ], [ %.lcssa176, %.preheader ]
-  %.279130 = phi ptr [ %63, %.lr.ph ], [ %.lcssa174, %.preheader ]
+  %.075131 = phi i32 [ %61, %.lr.ph ], [ %.lcssa180, %.preheader ]
+  %.279130 = phi ptr [ %63, %.lr.ph ], [ %.lcssa178, %.preheader ]
   %.val93 = load i32, ptr %8, align 4
   %60 = add i32 %.075131, -1
   %61 = and i32 %.val93, %60
   %62 = zext i32 %61 to i64
   %63 = getelementptr inbounds nuw %struct.manifest_file, ptr %18, i64 %62
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.279130, ptr noundef nonnull align 8 dereferenceable(40) %63, i64 40, i1 false)
-  %.not88 = icmp eq i32 %61, %.071183
+  %.not88 = icmp eq i32 %61, %.071187
   br i1 %.not88, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -649,7 +649,7 @@ manifest_files_distance.exit:                     ; preds = %31, %34
   br label %.thread97.sink.split
 
 66:                                               ; preds = %manifest_files_distance.exit
-  %67 = add i32 %.083182, 1
+  %67 = add i32 %.083186, 1
   %68 = icmp ugt i32 %67, 25
   br i1 %68, label %69, label %76, !prof !4
 
@@ -668,16 +668,16 @@ manifest_files_distance.exit:                     ; preds = %31, %34
   %78 = getelementptr inbounds nuw %struct.manifest_file, ptr %18, i64 %77
   %79 = load i32, ptr %78, align 8
   %80 = icmp eq i32 %79, 0
-  br i1 %80, label %._crit_edge186, label %.lr.ph185
+  br i1 %80, label %._crit_edge190, label %.lr.ph189
 
-.thread97.sink.split:                             ; preds = %._crit_edge186, %._crit_edge
-  %81 = phi ptr [ %.lcssa, %._crit_edge186 ], [ %26, %._crit_edge ]
+.thread97.sink.split:                             ; preds = %._crit_edge190, %._crit_edge
+  %81 = phi ptr [ %.lcssa, %._crit_edge190 ], [ %26, %._crit_edge ]
   store i32 1, ptr %81, align 8
   br label %.thread97
 
-.thread97:                                        ; preds = %.lr.ph185, %.thread97.sink.split
-  %82 = phi ptr [ %81, %.thread97.sink.split ], [ %26, %.lr.ph185 ]
-  %.sink = phi i8 [ 0, %.thread97.sink.split ], [ 1, %.lr.ph185 ]
+.thread97:                                        ; preds = %.lr.ph189, %.thread97.sink.split
+  %82 = phi ptr [ %81, %.thread97.sink.split ], [ %26, %.lr.ph189 ]
+  %.sink = phi i8 [ 0, %.thread97.sink.split ], [ 1, %.lr.ph189 ]
   store i8 %.sink, ptr %3, align 1
   ret ptr %82
 }
@@ -1070,8 +1070,8 @@ manifest_files_distance.exit:                     ; preds = %8
   br i1 %37, label %.lr.ph78, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph78, %1, %.preheader
-  %.0.lcssa90 = phi i32 [ %.1, %.preheader ], [ 0, %1 ], [ %.1, %.lr.ph78 ]
-  %.049.lcssa89 = phi i32 [ %.150, %.preheader ], [ 0, %1 ], [ %.150, %.lr.ph78 ]
+  %.0.lcssa94 = phi i32 [ %.1, %.preheader ], [ 0, %1 ], [ %.1, %.lr.ph78 ]
+  %.049.lcssa93 = phi i32 [ %.150, %.preheader ], [ 0, %1 ], [ %.150, %.lr.ph78 ]
   %.057.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.158, %.lr.ph78 ]
   %.054.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.155, %.lr.ph78 ]
   tail call void @pfree(ptr noundef %4) #22
@@ -1085,7 +1085,7 @@ manifest_files_distance.exit:                     ; preds = %8
   %41 = uitofp i32 %39 to double
   %42 = uitofp i64 %.pre84 to double
   %43 = fdiv double %41, %42
-  %44 = uitofp i32 %.049.lcssa89 to double
+  %44 = uitofp i32 %.049.lcssa93 to double
   %45 = fdiv double %44, %41
   %46 = uitofp i32 %.057.lcssa to double
   %47 = fdiv double %46, %41
@@ -1095,7 +1095,7 @@ manifest_files_distance.exit:                     ; preds = %8
   %.053 = phi double [ %47, %40 ], [ 0.000000e+00, %._crit_edge ]
   %.052 = phi double [ %43, %40 ], [ 0.000000e+00, %._crit_edge ]
   %.051 = phi double [ %45, %40 ], [ 0.000000e+00, %._crit_edge ]
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str, i64 noundef %.pre84, i32 noundef %39, double noundef %.052, i32 noundef %.049.lcssa89, i32 noundef %.0.lcssa90, double noundef %.051, i32 noundef %.057.lcssa, i32 noundef %.054.lcssa, double noundef %.053) #22
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str, i64 noundef %.pre84, i32 noundef %39, double noundef %.052, i32 noundef %.049.lcssa93, i32 noundef %.0.lcssa94, double noundef %.051, i32 noundef %.057.lcssa, i32 noundef %.054.lcssa, double noundef %.053) #22
   ret void
 }
 

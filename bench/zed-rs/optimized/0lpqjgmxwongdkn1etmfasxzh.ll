@@ -15548,8 +15548,8 @@ default.unreachable:                              ; preds = %102, %49
   br label %144
 
 .sink.split:                                      ; preds = %113, %111, %102, %106, %109
-  %.sink156 = phi i64 [ -9223372036854775806, %109 ], [ -9223372036854775807, %106 ], [ -9223372036854775808, %102 ], [ -9223372036854775805, %111 ], [ -9223372036854775804, %113 ]
-  store i64 %.sink156, ptr %11, align 8, !alias.scope !2240, !noalias !2243
+  %.sink162 = phi i64 [ -9223372036854775806, %109 ], [ -9223372036854775807, %106 ], [ -9223372036854775808, %102 ], [ -9223372036854775805, %111 ], [ -9223372036854775804, %113 ]
+  store i64 %.sink162, ptr %11, align 8, !alias.scope !2240, !noalias !2243
   br label %121
 
 121:                                              ; preds = %.sink.split, %118
@@ -21762,103 +21762,103 @@ define void @"_ZN87_$LT$theme..scale..ColorScales$u20$as$u20$core..iter..traits.
           to label %76 unwind label %77
 
 7:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %9, ptr noundef nonnull align 8 dereferenceable(120) %8, i64 120, i1 false)
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 240
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %11, ptr noundef nonnull align 8 dereferenceable(120) %10, i64 120, i1 false)
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 360
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %13, ptr noundef nonnull align 8 dereferenceable(120) %12, i64 120, i1 false)
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 480
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 480
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %15, ptr noundef nonnull align 8 dereferenceable(120) %14, i64 120, i1 false)
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 600
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 600
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %17, ptr noundef nonnull align 8 dereferenceable(120) %16, i64 120, i1 false)
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 720
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 720
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %19, ptr noundef nonnull align 8 dereferenceable(120) %18, i64 120, i1 false)
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 840
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 840
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %21, ptr noundef nonnull align 8 dereferenceable(120) %20, i64 120, i1 false)
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 960
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 960
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %23, ptr noundef nonnull align 8 dereferenceable(120) %22, i64 120, i1 false)
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 1080
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 1080
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %25, ptr noundef nonnull align 8 dereferenceable(120) %24, i64 120, i1 false)
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 1200
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 1200
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %27, ptr noundef nonnull align 8 dereferenceable(120) %26, i64 120, i1 false)
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 1320
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 1320
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %29, ptr noundef nonnull align 8 dereferenceable(120) %28, i64 120, i1 false)
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 1440
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 1440
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %31, ptr noundef nonnull align 8 dereferenceable(120) %30, i64 120, i1 false)
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 1560
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 1560
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %33, ptr noundef nonnull align 8 dereferenceable(120) %32, i64 120, i1 false)
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 1680
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 1680
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %35, ptr noundef nonnull align 8 dereferenceable(120) %34, i64 120, i1 false)
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 1800
-  %37 = getelementptr inbounds nuw i8, ptr %4, i64 1800
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %37, ptr noundef nonnull align 8 dereferenceable(120) %36, i64 120, i1 false)
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 1920
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 1920
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %39, ptr noundef nonnull align 8 dereferenceable(120) %38, i64 120, i1 false)
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 2040
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 2040
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %41, ptr noundef nonnull align 8 dereferenceable(120) %40, i64 120, i1 false)
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 2160
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 2160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %43, ptr noundef nonnull align 8 dereferenceable(120) %42, i64 120, i1 false)
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 2280
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 2280
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr noundef nonnull align 8 dereferenceable(120) %44, i64 120, i1 false)
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 2400
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 2400
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %47, ptr noundef nonnull align 8 dereferenceable(120) %46, i64 120, i1 false)
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 2520
-  %49 = getelementptr inbounds nuw i8, ptr %4, i64 2520
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %49, ptr noundef nonnull align 8 dereferenceable(120) %48, i64 120, i1 false)
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 2640
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 2640
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %51, ptr noundef nonnull align 8 dereferenceable(120) %50, i64 120, i1 false)
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 2760
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 2760
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %53, ptr noundef nonnull align 8 dereferenceable(120) %52, i64 120, i1 false)
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 2880
-  %55 = getelementptr inbounds nuw i8, ptr %4, i64 2880
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %55, ptr noundef nonnull align 8 dereferenceable(120) %54, i64 120, i1 false)
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 3000
-  %57 = getelementptr inbounds nuw i8, ptr %4, i64 3000
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %57, ptr noundef nonnull align 8 dereferenceable(120) %56, i64 120, i1 false)
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 3120
-  %59 = getelementptr inbounds nuw i8, ptr %4, i64 3120
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %59, ptr noundef nonnull align 8 dereferenceable(120) %58, i64 120, i1 false)
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 3240
-  %61 = getelementptr inbounds nuw i8, ptr %4, i64 3240
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %61, ptr noundef nonnull align 8 dereferenceable(120) %60, i64 120, i1 false)
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 3360
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 3360
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %63, ptr noundef nonnull align 8 dereferenceable(120) %62, i64 120, i1 false)
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 3480
-  %65 = getelementptr inbounds nuw i8, ptr %4, i64 3480
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %65, ptr noundef nonnull align 8 dereferenceable(120) %64, i64 120, i1 false)
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 3600
-  %67 = getelementptr inbounds nuw i8, ptr %4, i64 3600
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %67, ptr noundef nonnull align 8 dereferenceable(120) %66, i64 120, i1 false)
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 3720
-  %69 = getelementptr inbounds nuw i8, ptr %4, i64 3720
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %69, ptr noundef nonnull align 8 dereferenceable(120) %68, i64 120, i1 false)
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 3840
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 480
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 600
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 720
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 840
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 960
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1080
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1200
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1320
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1440
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 1560
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1680
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 1800
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 1920
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 2040
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 2160
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 2280
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 2400
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 2520
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 2640
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 2760
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 2880
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 3000
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 3120
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 3240
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 3360
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 3480
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 3600
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 3720
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 3840
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 120
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %40, ptr noundef nonnull align 8 dereferenceable(120) %8, i64 120, i1 false)
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 240
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %41, ptr noundef nonnull align 8 dereferenceable(120) %9, i64 120, i1 false)
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 360
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %42, ptr noundef nonnull align 8 dereferenceable(120) %10, i64 120, i1 false)
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 480
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %43, ptr noundef nonnull align 8 dereferenceable(120) %11, i64 120, i1 false)
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 600
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %44, ptr noundef nonnull align 8 dereferenceable(120) %12, i64 120, i1 false)
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 720
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr noundef nonnull align 8 dereferenceable(120) %13, i64 120, i1 false)
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 840
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %46, ptr noundef nonnull align 8 dereferenceable(120) %14, i64 120, i1 false)
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 960
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %47, ptr noundef nonnull align 8 dereferenceable(120) %15, i64 120, i1 false)
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 1080
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %48, ptr noundef nonnull align 8 dereferenceable(120) %16, i64 120, i1 false)
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 1200
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %49, ptr noundef nonnull align 8 dereferenceable(120) %17, i64 120, i1 false)
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 1320
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %50, ptr noundef nonnull align 8 dereferenceable(120) %18, i64 120, i1 false)
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 1440
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %51, ptr noundef nonnull align 8 dereferenceable(120) %19, i64 120, i1 false)
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 1560
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %52, ptr noundef nonnull align 8 dereferenceable(120) %20, i64 120, i1 false)
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 1680
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %53, ptr noundef nonnull align 8 dereferenceable(120) %21, i64 120, i1 false)
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 1800
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %54, ptr noundef nonnull align 8 dereferenceable(120) %22, i64 120, i1 false)
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 1920
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %55, ptr noundef nonnull align 8 dereferenceable(120) %23, i64 120, i1 false)
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 2040
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %56, ptr noundef nonnull align 8 dereferenceable(120) %24, i64 120, i1 false)
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 2160
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %57, ptr noundef nonnull align 8 dereferenceable(120) %25, i64 120, i1 false)
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 2280
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %58, ptr noundef nonnull align 8 dereferenceable(120) %26, i64 120, i1 false)
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 2400
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %59, ptr noundef nonnull align 8 dereferenceable(120) %27, i64 120, i1 false)
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 2520
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %60, ptr noundef nonnull align 8 dereferenceable(120) %28, i64 120, i1 false)
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 2640
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %61, ptr noundef nonnull align 8 dereferenceable(120) %29, i64 120, i1 false)
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 2760
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %62, ptr noundef nonnull align 8 dereferenceable(120) %30, i64 120, i1 false)
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 2880
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %63, ptr noundef nonnull align 8 dereferenceable(120) %31, i64 120, i1 false)
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 3000
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %64, ptr noundef nonnull align 8 dereferenceable(120) %32, i64 120, i1 false)
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 3120
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %65, ptr noundef nonnull align 8 dereferenceable(120) %33, i64 120, i1 false)
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 3240
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %66, ptr noundef nonnull align 8 dereferenceable(120) %34, i64 120, i1 false)
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 3360
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %67, ptr noundef nonnull align 8 dereferenceable(120) %35, i64 120, i1 false)
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 3480
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %68, ptr noundef nonnull align 8 dereferenceable(120) %36, i64 120, i1 false)
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 3600
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %69, ptr noundef nonnull align 8 dereferenceable(120) %37, i64 120, i1 false)
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 3720
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %70, ptr noundef nonnull align 8 dereferenceable(120) %38, i64 120, i1 false)
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 3840
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %71, ptr noundef nonnull align 8 dereferenceable(120) %70, i64 120, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %71, ptr noundef nonnull align 8 dereferenceable(120) %39, i64 120, i1 false)
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 3960
   store ptr %4, ptr %0, align 8, !alias.scope !2983, !noalias !2986
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -22110,8 +22110,8 @@ define void @_ZN5theme5scale13ColorScaleSet4step17hd0ad35fcdc7bd468E(ptr dead_on
   unreachable
 
 22:                                               ; preds = %13, %17
-  %.sink6 = phi i64 [ 56, %17 ], [ 32, %13 ]
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink6
+  %.sink10 = phi i64 [ 56, %17 ], [ 32, %13 ]
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink10
   %24 = load ptr, ptr %23, align 8, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds [0 x { float, float, float, float }], ptr %24, i64 0, i64 %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %25, i64 16, i1 false)
@@ -22155,8 +22155,8 @@ define void @_ZN5theme5scale13ColorScaleSet10step_alpha17h9ea7715b36d43865E(ptr 
   unreachable
 
 22:                                               ; preds = %13, %17
-  %.sink6 = phi i64 [ 104, %17 ], [ 80, %13 ]
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink6
+  %.sink10 = phi i64 [ 104, %17 ], [ 80, %13 ]
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink10
   %24 = load ptr, ptr %23, align 8, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds [0 x { float, float, float, float }], ptr %24, i64 0, i64 %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %25, i64 16, i1 false)

@@ -124,11 +124,11 @@ define i32 @cs_dfs(i32 noundef %0, ptr noundef readonly captures(address_is_null
   br label %69
 
 69:                                               ; preds = %.thread, %._crit_edge
-  %.sink91 = phi i64 [ %64, %.thread ], [ %68, %._crit_edge ]
+  %.sink99 = phi i64 [ %64, %.thread ], [ %68, %._crit_edge ]
   %.lcssa.sink = phi i32 [ %57, %.thread ], [ %21, %._crit_edge ]
   %.163 = phi i32 [ %.06283, %.thread ], [ %67, %._crit_edge ]
   %.2 = phi i32 [ %63, %.thread ], [ %66, %._crit_edge ]
-  %70 = getelementptr inbounds i32, ptr %3, i64 %.sink91
+  %70 = getelementptr inbounds i32, ptr %3, i64 %.sink99
   store i32 %.lcssa.sink, ptr %70, align 4, !tbaa !13
   %71 = icmp sgt i32 %.2, -1
   br i1 %71, label %18, label %.loopexit, !llvm.loop !16

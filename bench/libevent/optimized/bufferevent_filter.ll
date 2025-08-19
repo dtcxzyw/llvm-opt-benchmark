@@ -899,61 +899,61 @@ define internal fastcc void @be_filter_read_nolock_(ptr noundef readonly capture
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %41 = load i64, ptr %40, align 8
   %.not38.i = icmp eq i64 %41, 0
-  br i1 %.not38.i, label %be_filter_process_input.exit.thread26, label %42
+  br i1 %.not38.i, label %be_filter_process_input.exit.thread25, label %42
 
 42:                                               ; preds = %39, %.critedge.thread.i
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %44 = tail call i32 @event_add(ptr noundef nonnull %43, ptr noundef nonnull %37) #3
-  br label %be_filter_process_input.exit.thread26
+  br label %be_filter_process_input.exit.thread25
 
 be_filter_process_input.exit:                     ; preds = %7
   call fastcc void @be_filter_process_input(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %3)
   %.pr.pre = load i32, ptr %3, align 4
-  %.not14 = icmp eq i32 %.pr.pre, 0
-  br i1 %.not14, label %be_filter_process_input.exit.thread, label %be_filter_process_input.exit.thread26
+  %45 = icmp eq i32 %.pr.pre, 0
+  br i1 %45, label %be_filter_process_input.exit.thread, label %be_filter_process_input.exit.thread25
 
-be_filter_process_input.exit.thread26:            ; preds = %39, %42, %be_filter_process_input.exit
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %46 = load ptr, ptr %45, align 8
-  %47 = tail call i64 @evbuffer_get_length(ptr noundef %46) #3
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %49 = load i64, ptr %48, align 8
-  %.not11.i = icmp ult i64 %47, %49
-  br i1 %.not11.i, label %bufferevent_trigger_nolock_.exit, label %50
+be_filter_process_input.exit.thread25:            ; preds = %39, %42, %be_filter_process_input.exit
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 256
+  %47 = load ptr, ptr %46, align 8
+  %48 = tail call i64 @evbuffer_get_length(ptr noundef %47) #3
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 272
+  %50 = load i64, ptr %49, align 8
+  %.not11.i = icmp ult i64 %48, %50
+  br i1 %.not11.i, label %bufferevent_trigger_nolock_.exit, label %51
 
-50:                                               ; preds = %be_filter_process_input.exit.thread26
+51:                                               ; preds = %be_filter_process_input.exit.thread25
   tail call void @bufferevent_run_readcb_(ptr noundef nonnull %1, i32 noundef 0) #3
   br label %bufferevent_trigger_nolock_.exit
 
-bufferevent_trigger_nolock_.exit:                 ; preds = %be_filter_process_input.exit.thread26, %50
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %52 = load ptr, ptr %51, align 8
-  %53 = tail call i64 @evbuffer_get_length(ptr noundef %52) #3
-  %.not15 = icmp ne i64 %53, 0
+bufferevent_trigger_nolock_.exit:                 ; preds = %be_filter_process_input.exit.thread25, %51
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %53 = load ptr, ptr %52, align 8
+  %54 = tail call i64 @evbuffer_get_length(ptr noundef %53) #3
+  %.not15 = icmp ne i64 %54, 0
   %or.cond = and i1 %.not, %.not15
-  br i1 %or.cond, label %54, label %be_filter_process_input.exit.thread
+  br i1 %or.cond, label %55, label %be_filter_process_input.exit.thread
 
-54:                                               ; preds = %bufferevent_trigger_nolock_.exit
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %56 = load i64, ptr %55, align 8
-  %.not.i = icmp eq i64 %56, 0
+55:                                               ; preds = %bufferevent_trigger_nolock_.exit
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %57 = load i64, ptr %56, align 8
+  %.not.i = icmp eq i64 %57, 0
   br i1 %.not.i, label %be_filter_process_input.exit.thread, label %be_readbuf_full.exit
 
-be_readbuf_full.exit:                             ; preds = %54
-  %57 = load ptr, ptr %45, align 8
-  %58 = tail call i64 @evbuffer_get_length(ptr noundef %57) #3
-  %59 = load i64, ptr %55, align 8
-  %.not20 = icmp ult i64 %58, %59
-  br i1 %.not20, label %be_filter_process_input.exit.thread, label %60
+be_readbuf_full.exit:                             ; preds = %55
+  %58 = load ptr, ptr %46, align 8
+  %59 = tail call i64 @evbuffer_get_length(ptr noundef %58) #3
+  %60 = load i64, ptr %56, align 8
+  %.not20 = icmp ult i64 %59, %60
+  br i1 %.not20, label %be_filter_process_input.exit.thread, label %61
 
-60:                                               ; preds = %be_readbuf_full.exit
-  %61 = load ptr, ptr %45, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 528
-  %63 = load ptr, ptr %62, align 8
-  %64 = tail call i32 @evbuffer_cb_set_flags(ptr noundef %61, ptr noundef %63, i32 noundef 1) #3
+61:                                               ; preds = %be_readbuf_full.exit
+  %62 = load ptr, ptr %46, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 528
+  %64 = load ptr, ptr %63, align 8
+  %65 = tail call i32 @evbuffer_cb_set_flags(ptr noundef %62, ptr noundef %64, i32 noundef 1) #3
   br label %be_filter_process_input.exit.thread
 
-be_filter_process_input.exit.thread:              ; preds = %.split13, %54, %be_filter_process_input.exit, %60, %be_readbuf_full.exit, %bufferevent_trigger_nolock_.exit, %2
+be_filter_process_input.exit.thread:              ; preds = %.split13, %55, %be_filter_process_input.exit, %61, %be_readbuf_full.exit, %bufferevent_trigger_nolock_.exit, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

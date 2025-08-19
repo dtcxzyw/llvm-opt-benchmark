@@ -5007,9 +5007,9 @@ switch.lookup:                                    ; preds = %1
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @prefs_get_enum_value(ptr noundef %16, i32 noundef 1)
   %18 = icmp ult i32 %17, 5
-  br i1 %18, label %switch.lookup21, label %24
+  br i1 %18, label %switch.lookup22, label %24
 
-switch.lookup21:                                  ; preds = %14
+switch.lookup22:                                  ; preds = %14
   %19 = zext nneg i32 %17 to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN22LayoutPreferencesFrame13updateWidgetsEv, i64 0, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -5020,43 +5020,43 @@ switch.lookup21:                                  ; preds = %14
   tail call void @_ZN15QAbstractButton10setCheckedEb(ptr noundef align 8 dereferenceable_or_null(40) %23, i1 noundef zeroext true)
   br label %24
 
-24:                                               ; preds = %14, %switch.lookup21
+24:                                               ; preds = %14, %switch.lookup22
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 @prefs_get_enum_value(ptr noundef %26, i32 noundef 1)
   %28 = icmp ult i32 %27, 5
-  br i1 %28, label %switch.lookup22, label %34
+  br i1 %28, label %switch.lookup23, label %34
 
-switch.lookup22:                                  ; preds = %24
+switch.lookup23:                                  ; preds = %24
   %29 = zext nneg i32 %27 to i64
-  %switch.gep23 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN22LayoutPreferencesFrame13updateWidgetsEv.1, i64 0, i64 %29
-  %switch.load24 = load i64, ptr %switch.gep23, align 8
+  %switch.gep24 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN22LayoutPreferencesFrame13updateWidgetsEv.1, i64 0, i64 %29
+  %switch.load25 = load i64, ptr %switch.gep24, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %switch.load24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %switch.load25
   %33 = load ptr, ptr %32, align 8
   tail call void @_ZN15QAbstractButton10setCheckedEb(ptr noundef align 8 dereferenceable_or_null(40) %33, i1 noundef zeroext true)
   br label %34
 
-34:                                               ; preds = %24, %switch.lookup22
+34:                                               ; preds = %24, %switch.lookup23
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i32 @prefs_get_enum_value(ptr noundef %36, i32 noundef 1)
   %38 = icmp ult i32 %37, 5
-  br i1 %38, label %switch.lookup25, label %44
+  br i1 %38, label %switch.lookup26, label %44
 
-switch.lookup25:                                  ; preds = %34
+switch.lookup26:                                  ; preds = %34
   %39 = zext nneg i32 %37 to i64
-  %switch.gep26 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN22LayoutPreferencesFrame13updateWidgetsEv.2, i64 0, i64 %39
-  %switch.load27 = load i64, ptr %switch.gep26, align 8
+  %switch.gep27 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN22LayoutPreferencesFrame13updateWidgetsEv.2, i64 0, i64 %39
+  %switch.load28 = load i64, ptr %switch.gep27, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %switch.load27
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %switch.load28
   %43 = load ptr, ptr %42, align 8
   tail call void @_ZN15QAbstractButton10setCheckedEb(ptr noundef align 8 dereferenceable_or_null(40) %43, i1 noundef zeroext true)
   br label %44
 
-44:                                               ; preds = %34, %switch.lookup25
+44:                                               ; preds = %34, %switch.lookup26
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 296

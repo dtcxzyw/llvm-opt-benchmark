@@ -174,25 +174,25 @@ define linkonce_odr hidden void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicA
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer: ; preds = %220, %4
   %.090.ph = phi ptr [ %.fca.0.extract, %220 ], [ %1, %4 ]
   %.088.ph = phi ptr [ %.088, %220 ], [ %0, %4 ]
-  %.030.ph = phi i8 [ %.030.ph228, %220 ], [ %6, %4 ]
+  %.030.ph = phi i8 [ %.030.ph243, %220 ], [ %6, %4 ]
   %.0.ph = phi i64 [ %120, %220 ], [ %2, %4 ]
   %7 = ptrtoint ptr %.090.ph to i64
   %8 = getelementptr inbounds i8, ptr %.090.ph, i64 -1
   %9 = getelementptr inbounds i8, ptr %.090.ph, i64 -2
   %10 = getelementptr inbounds i8, ptr %.090.ph, i64 -3
   %11 = getelementptr inbounds i8, ptr %.090.ph, i64 -1
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer226
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer241
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer226: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer226.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer
-  %.088.ph227 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer ], [ %.088.ph227.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.030.ph228 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.0.ph229 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer ], [ %120, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer226.backedge ]
-  %12 = trunc nuw i8 %.030.ph228 to i1
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer241: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer241.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer
+  %.088.ph242 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer ], [ %.088.ph242.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.030.ph243 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.0.ph244 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer ], [ %120, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer241.backedge ]
+  %12 = trunc nuw i8 %.030.ph243 to i1
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer226, %221
-  %.088 = phi ptr [ %218, %221 ], [ %.088.ph227, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer226 ]
-  %.0 = phi i64 [ %120, %221 ], [ %.0.ph229, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer226 ]
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer241, %221
+  %.088 = phi ptr [ %218, %221 ], [ %.088.ph242, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer241 ]
+  %.0 = phi i64 [ %120, %221 ], [ %.0.ph244, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer241 ]
   %13 = ptrtoint ptr %.088 to i64
   %14 = sub i64 %7, %13
   switch i64 %14, label %88 [
@@ -329,7 +329,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcE
   br i1 %89, label %90, label %113
 
 90:                                               ; preds = %88
-  %91 = trunc nuw i8 %.030.ph228 to i1
+  %91 = trunc nuw i8 %.030.ph243 to i1
   %92 = icmp eq ptr %.088, %.090.ph
   %storemerge23.i = getelementptr inbounds nuw i8, ptr %.088, i64 1
   %.not24.i39 = icmp eq ptr %storemerge23.i, %.090.ph
@@ -614,7 +614,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcE
 
 _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPcRNS_6ranges4lessEEET0_S6_S6_T1_.exit: ; preds = %._crit_edge.i, %211
   store i8 %181, ptr %210, align 1, !tbaa !4
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer241.backedge
 
 213:                                              ; preds = %178, %177
   %214 = tail call { ptr, i8 } @_ZNSt3__118__bitset_partitionB8ne210000INS_17_ClassicAlgPolicyEPcNS_6ranges4lessEEENS_4pairIT0_bEES6_S6_T1_(ptr noundef nonnull %.088, ptr noundef nonnull %.090.ph)
@@ -638,11 +638,11 @@ _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPcRN
 222:                                              ; preds = %221, %213
   tail call void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcLb1EEEvT1_S5_T0_NS_15iterator_traitsIS5_E15difference_typeEb(ptr noundef nonnull %.088, ptr noundef %.fca.0.extract, i64 noundef %120, i1 noundef zeroext %12)
   %223 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 1
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer241.backedge
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer226.backedge: ; preds = %222, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPcRNS_6ranges4lessEEET0_S6_S6_T1_.exit
-  %.088.ph227.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPcRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %223, %222 ]
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer226, !llvm.loop !18
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer241.backedge: ; preds = %222, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPcRNS_6ranges4lessEEET0_S6_S6_T1_.exit
+  %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPcRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %223, %222 ]
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer241, !llvm.loop !18
 
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit, %220, %112, %102, %117, %115, %103, %93, %15, %20, %56, %34, %21
   ret void
@@ -670,25 +670,25 @@ define linkonce_odr hidden void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicA
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer: ; preds = %221, %4
   %.090.ph = phi ptr [ %.fca.0.extract, %221 ], [ %1, %4 ]
   %.088.ph = phi ptr [ %.088, %221 ], [ %0, %4 ]
-  %.030.ph = phi i8 [ %.030.ph228, %221 ], [ %6, %4 ]
+  %.030.ph = phi i8 [ %.030.ph243, %221 ], [ %6, %4 ]
   %.0.ph = phi i64 [ %121, %221 ], [ %2, %4 ]
   %7 = ptrtoint ptr %.090.ph to i64
   %8 = getelementptr inbounds i8, ptr %.090.ph, i64 -4
   %9 = getelementptr inbounds i8, ptr %.090.ph, i64 -8
   %10 = getelementptr inbounds i8, ptr %.090.ph, i64 -12
   %11 = getelementptr inbounds i8, ptr %.090.ph, i64 -4
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer226
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer241
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer226: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer226.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer
-  %.088.ph227 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer ], [ %.088.ph227.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.030.ph228 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.0.ph229 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer ], [ %121, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer226.backedge ]
-  %12 = trunc nuw i8 %.030.ph228 to i1
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer241: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer241.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer
+  %.088.ph242 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer ], [ %.088.ph242.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.030.ph243 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.0.ph244 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer ], [ %121, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer241.backedge ]
+  %12 = trunc nuw i8 %.030.ph243 to i1
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer226, %222
-  %.088 = phi ptr [ %219, %222 ], [ %.088.ph227, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer226 ]
-  %.0 = phi i64 [ %121, %222 ], [ %.0.ph229, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer226 ]
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer241, %222
+  %.088 = phi ptr [ %219, %222 ], [ %.088.ph242, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer241 ]
+  %.0 = phi i64 [ %121, %222 ], [ %.0.ph244, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer241 ]
   %13 = ptrtoint ptr %.088 to i64
   %14 = sub i64 %7, %13
   %15 = ashr exact i64 %14, 2
@@ -826,7 +826,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwE
   br i1 %90, label %91, label %114
 
 91:                                               ; preds = %89
-  %92 = trunc nuw i8 %.030.ph228 to i1
+  %92 = trunc nuw i8 %.030.ph243 to i1
   %93 = icmp eq ptr %.088, %.090.ph
   %storemerge23.i = getelementptr inbounds nuw i8, ptr %.088, i64 4
   %.not24.i39 = icmp eq ptr %storemerge23.i, %.090.ph
@@ -1111,7 +1111,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwE
 
 _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPwRNS_6ranges4lessEEET0_S6_S6_T1_.exit: ; preds = %._crit_edge.i, %212
   store i32 %182, ptr %211, align 4, !tbaa !19
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer241.backedge
 
 214:                                              ; preds = %179, %178
   %215 = tail call { ptr, i8 } @_ZNSt3__118__bitset_partitionB8ne210000INS_17_ClassicAlgPolicyEPwNS_6ranges4lessEEENS_4pairIT0_bEES6_S6_T1_(ptr noundef nonnull %.088, ptr noundef nonnull %.090.ph)
@@ -1135,11 +1135,11 @@ _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPwRN
 223:                                              ; preds = %222, %214
   tail call void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwLb1EEEvT1_S5_T0_NS_15iterator_traitsIS5_E15difference_typeEb(ptr noundef nonnull %.088, ptr noundef %.fca.0.extract, i64 noundef %121, i1 noundef zeroext %12)
   %224 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 4
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer241.backedge
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer226.backedge: ; preds = %223, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPwRNS_6ranges4lessEEET0_S6_S6_T1_.exit
-  %.088.ph227.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPwRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer226, !llvm.loop !31
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer241.backedge: ; preds = %223, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPwRNS_6ranges4lessEEET0_S6_S6_T1_.exit
+  %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPwRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer241, !llvm.loop !31
 
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
   ret void
@@ -1166,25 +1166,25 @@ define linkonce_odr hidden void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicA
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer: ; preds = %220, %4
   %.090.ph = phi ptr [ %.fca.0.extract, %220 ], [ %1, %4 ]
   %.088.ph = phi ptr [ %.088, %220 ], [ %0, %4 ]
-  %.030.ph = phi i8 [ %.030.ph228, %220 ], [ %6, %4 ]
+  %.030.ph = phi i8 [ %.030.ph243, %220 ], [ %6, %4 ]
   %.0.ph = phi i64 [ %120, %220 ], [ %2, %4 ]
   %7 = ptrtoint ptr %.090.ph to i64
   %8 = getelementptr inbounds i8, ptr %.090.ph, i64 -1
   %9 = getelementptr inbounds i8, ptr %.090.ph, i64 -2
   %10 = getelementptr inbounds i8, ptr %.090.ph, i64 -3
   %11 = getelementptr inbounds i8, ptr %.090.ph, i64 -1
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer226
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer241
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer226: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer226.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer
-  %.088.ph227 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer ], [ %.088.ph227.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.030.ph228 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.0.ph229 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer ], [ %120, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer226.backedge ]
-  %12 = trunc nuw i8 %.030.ph228 to i1
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer241: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer241.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer
+  %.088.ph242 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer ], [ %.088.ph242.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.030.ph243 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.0.ph244 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer ], [ %120, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer241.backedge ]
+  %12 = trunc nuw i8 %.030.ph243 to i1
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer226, %221
-  %.088 = phi ptr [ %218, %221 ], [ %.088.ph227, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer226 ]
-  %.0 = phi i64 [ %120, %221 ], [ %.0.ph229, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer226 ]
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer241, %221
+  %.088 = phi ptr [ %218, %221 ], [ %.088.ph242, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer241 ]
+  %.0 = phi i64 [ %120, %221 ], [ %.0.ph244, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer241 ]
   %13 = ptrtoint ptr %.088 to i64
   %14 = sub i64 %7, %13
   switch i64 %14, label %88 [
@@ -1321,7 +1321,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaE
   br i1 %89, label %90, label %113
 
 90:                                               ; preds = %88
-  %91 = trunc nuw i8 %.030.ph228 to i1
+  %91 = trunc nuw i8 %.030.ph243 to i1
   %92 = icmp eq ptr %.088, %.090.ph
   %storemerge23.i = getelementptr inbounds nuw i8, ptr %.088, i64 1
   %.not24.i39 = icmp eq ptr %storemerge23.i, %.090.ph
@@ -1606,7 +1606,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaE
 
 _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPaRNS_6ranges4lessEEET0_S6_S6_T1_.exit: ; preds = %._crit_edge.i, %211
   store i8 %181, ptr %210, align 1, !tbaa !4
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer241.backedge
 
 213:                                              ; preds = %178, %177
   %214 = tail call { ptr, i8 } @_ZNSt3__118__bitset_partitionB8ne210000INS_17_ClassicAlgPolicyEPaNS_6ranges4lessEEENS_4pairIT0_bEES6_S6_T1_(ptr noundef nonnull %.088, ptr noundef nonnull %.090.ph)
@@ -1630,11 +1630,11 @@ _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPaRN
 222:                                              ; preds = %221, %213
   tail call void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaLb1EEEvT1_S5_T0_NS_15iterator_traitsIS5_E15difference_typeEb(ptr noundef nonnull %.088, ptr noundef %.fca.0.extract, i64 noundef %120, i1 noundef zeroext %12)
   %223 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 1
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer241.backedge
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer226.backedge: ; preds = %222, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPaRNS_6ranges4lessEEET0_S6_S6_T1_.exit
-  %.088.ph227.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPaRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %223, %222 ]
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer226, !llvm.loop !42
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer241.backedge: ; preds = %222, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPaRNS_6ranges4lessEEET0_S6_S6_T1_.exit
+  %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPaRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %223, %222 ]
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer241, !llvm.loop !42
 
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit, %220, %112, %102, %117, %115, %103, %93, %15, %20, %56, %34, %21
   ret void
@@ -1661,25 +1661,25 @@ define linkonce_odr hidden void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicA
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer: ; preds = %220, %4
   %.090.ph = phi ptr [ %.fca.0.extract, %220 ], [ %1, %4 ]
   %.088.ph = phi ptr [ %.088, %220 ], [ %0, %4 ]
-  %.030.ph = phi i8 [ %.030.ph228, %220 ], [ %6, %4 ]
+  %.030.ph = phi i8 [ %.030.ph243, %220 ], [ %6, %4 ]
   %.0.ph = phi i64 [ %120, %220 ], [ %2, %4 ]
   %7 = ptrtoint ptr %.090.ph to i64
   %8 = getelementptr inbounds i8, ptr %.090.ph, i64 -1
   %9 = getelementptr inbounds i8, ptr %.090.ph, i64 -2
   %10 = getelementptr inbounds i8, ptr %.090.ph, i64 -3
   %11 = getelementptr inbounds i8, ptr %.090.ph, i64 -1
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer226
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer241
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer226: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer226.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer
-  %.088.ph227 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer ], [ %.088.ph227.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.030.ph228 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.0.ph229 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer ], [ %120, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer226.backedge ]
-  %12 = trunc nuw i8 %.030.ph228 to i1
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer241: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer241.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer
+  %.088.ph242 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer ], [ %.088.ph242.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.030.ph243 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.0.ph244 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer ], [ %120, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer241.backedge ]
+  %12 = trunc nuw i8 %.030.ph243 to i1
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer226, %221
-  %.088 = phi ptr [ %218, %221 ], [ %.088.ph227, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer226 ]
-  %.0 = phi i64 [ %120, %221 ], [ %.0.ph229, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer226 ]
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer241, %221
+  %.088 = phi ptr [ %218, %221 ], [ %.088.ph242, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer241 ]
+  %.0 = phi i64 [ %120, %221 ], [ %.0.ph244, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer241 ]
   %13 = ptrtoint ptr %.088 to i64
   %14 = sub i64 %7, %13
   switch i64 %14, label %88 [
@@ -1816,7 +1816,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhE
   br i1 %89, label %90, label %113
 
 90:                                               ; preds = %88
-  %91 = trunc nuw i8 %.030.ph228 to i1
+  %91 = trunc nuw i8 %.030.ph243 to i1
   %92 = icmp eq ptr %.088, %.090.ph
   %storemerge23.i = getelementptr inbounds nuw i8, ptr %.088, i64 1
   %.not24.i39 = icmp eq ptr %storemerge23.i, %.090.ph
@@ -2101,7 +2101,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhE
 
 _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPhRNS_6ranges4lessEEET0_S6_S6_T1_.exit: ; preds = %._crit_edge.i, %211
   store i8 %181, ptr %210, align 1, !tbaa !4
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer241.backedge
 
 213:                                              ; preds = %178, %177
   %214 = tail call { ptr, i8 } @_ZNSt3__118__bitset_partitionB8ne210000INS_17_ClassicAlgPolicyEPhNS_6ranges4lessEEENS_4pairIT0_bEES6_S6_T1_(ptr noundef nonnull %.088, ptr noundef nonnull %.090.ph)
@@ -2125,11 +2125,11 @@ _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPhRN
 222:                                              ; preds = %221, %213
   tail call void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhLb1EEEvT1_S5_T0_NS_15iterator_traitsIS5_E15difference_typeEb(ptr noundef nonnull %.088, ptr noundef %.fca.0.extract, i64 noundef %120, i1 noundef zeroext %12)
   %223 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 1
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer241.backedge
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer226.backedge: ; preds = %222, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPhRNS_6ranges4lessEEET0_S6_S6_T1_.exit
-  %.088.ph227.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPhRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %223, %222 ]
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer226, !llvm.loop !53
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer241.backedge: ; preds = %222, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPhRNS_6ranges4lessEEET0_S6_S6_T1_.exit
+  %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPhRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %223, %222 ]
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer241, !llvm.loop !53
 
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit, %220, %112, %102, %117, %115, %103, %93, %15, %20, %56, %34, %21
   ret void
@@ -2157,25 +2157,25 @@ define linkonce_odr hidden void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicA
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer: ; preds = %221, %4
   %.090.ph = phi ptr [ %.fca.0.extract, %221 ], [ %1, %4 ]
   %.088.ph = phi ptr [ %.088, %221 ], [ %0, %4 ]
-  %.030.ph = phi i8 [ %.030.ph228, %221 ], [ %6, %4 ]
+  %.030.ph = phi i8 [ %.030.ph243, %221 ], [ %6, %4 ]
   %.0.ph = phi i64 [ %121, %221 ], [ %2, %4 ]
   %7 = ptrtoint ptr %.090.ph to i64
   %8 = getelementptr inbounds i8, ptr %.090.ph, i64 -2
   %9 = getelementptr inbounds i8, ptr %.090.ph, i64 -4
   %10 = getelementptr inbounds i8, ptr %.090.ph, i64 -6
   %11 = getelementptr inbounds i8, ptr %.090.ph, i64 -2
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer226
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer241
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer226: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer226.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer
-  %.088.ph227 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer ], [ %.088.ph227.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.030.ph228 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.0.ph229 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer ], [ %121, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer226.backedge ]
-  %12 = trunc nuw i8 %.030.ph228 to i1
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer241: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer241.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer
+  %.088.ph242 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer ], [ %.088.ph242.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.030.ph243 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.0.ph244 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer ], [ %121, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer241.backedge ]
+  %12 = trunc nuw i8 %.030.ph243 to i1
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer226, %222
-  %.088 = phi ptr [ %219, %222 ], [ %.088.ph227, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer226 ]
-  %.0 = phi i64 [ %121, %222 ], [ %.0.ph229, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer226 ]
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer241, %222
+  %.088 = phi ptr [ %219, %222 ], [ %.088.ph242, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer241 ]
+  %.0 = phi i64 [ %121, %222 ], [ %.0.ph244, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer241 ]
   %13 = ptrtoint ptr %.088 to i64
   %14 = sub i64 %7, %13
   %15 = ashr exact i64 %14, 1
@@ -2313,7 +2313,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsE
   br i1 %90, label %91, label %114
 
 91:                                               ; preds = %89
-  %92 = trunc nuw i8 %.030.ph228 to i1
+  %92 = trunc nuw i8 %.030.ph243 to i1
   %93 = icmp eq ptr %.088, %.090.ph
   %storemerge23.i = getelementptr inbounds nuw i8, ptr %.088, i64 2
   %.not24.i39 = icmp eq ptr %storemerge23.i, %.090.ph
@@ -2598,7 +2598,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsE
 
 _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPsRNS_6ranges4lessEEET0_S6_S6_T1_.exit: ; preds = %._crit_edge.i, %212
   store i16 %182, ptr %211, align 2, !tbaa !54
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer241.backedge
 
 214:                                              ; preds = %179, %178
   %215 = tail call { ptr, i8 } @_ZNSt3__118__bitset_partitionB8ne210000INS_17_ClassicAlgPolicyEPsNS_6ranges4lessEEENS_4pairIT0_bEES6_S6_T1_(ptr noundef nonnull %.088, ptr noundef nonnull %.090.ph)
@@ -2622,11 +2622,11 @@ _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPsRN
 223:                                              ; preds = %222, %214
   tail call void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsLb1EEEvT1_S5_T0_NS_15iterator_traitsIS5_E15difference_typeEb(ptr noundef nonnull %.088, ptr noundef %.fca.0.extract, i64 noundef %121, i1 noundef zeroext %12)
   %224 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 2
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer241.backedge
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer226.backedge: ; preds = %223, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPsRNS_6ranges4lessEEET0_S6_S6_T1_.exit
-  %.088.ph227.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPsRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer226, !llvm.loop !66
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer241.backedge: ; preds = %223, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPsRNS_6ranges4lessEEET0_S6_S6_T1_.exit
+  %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPsRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer241, !llvm.loop !66
 
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
   ret void
@@ -2654,25 +2654,25 @@ define linkonce_odr hidden void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicA
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer: ; preds = %221, %4
   %.090.ph = phi ptr [ %.fca.0.extract, %221 ], [ %1, %4 ]
   %.088.ph = phi ptr [ %.088, %221 ], [ %0, %4 ]
-  %.030.ph = phi i8 [ %.030.ph228, %221 ], [ %6, %4 ]
+  %.030.ph = phi i8 [ %.030.ph243, %221 ], [ %6, %4 ]
   %.0.ph = phi i64 [ %121, %221 ], [ %2, %4 ]
   %7 = ptrtoint ptr %.090.ph to i64
   %8 = getelementptr inbounds i8, ptr %.090.ph, i64 -2
   %9 = getelementptr inbounds i8, ptr %.090.ph, i64 -4
   %10 = getelementptr inbounds i8, ptr %.090.ph, i64 -6
   %11 = getelementptr inbounds i8, ptr %.090.ph, i64 -2
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer226
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer241
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer226: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer226.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer
-  %.088.ph227 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer ], [ %.088.ph227.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.030.ph228 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.0.ph229 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer ], [ %121, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer226.backedge ]
-  %12 = trunc nuw i8 %.030.ph228 to i1
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer241: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer241.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer
+  %.088.ph242 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer ], [ %.088.ph242.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.030.ph243 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.0.ph244 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer ], [ %121, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer241.backedge ]
+  %12 = trunc nuw i8 %.030.ph243 to i1
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer226, %222
-  %.088 = phi ptr [ %219, %222 ], [ %.088.ph227, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer226 ]
-  %.0 = phi i64 [ %121, %222 ], [ %.0.ph229, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer226 ]
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer241, %222
+  %.088 = phi ptr [ %219, %222 ], [ %.088.ph242, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer241 ]
+  %.0 = phi i64 [ %121, %222 ], [ %.0.ph244, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer241 ]
   %13 = ptrtoint ptr %.088 to i64
   %14 = sub i64 %7, %13
   %15 = ashr exact i64 %14, 1
@@ -2810,7 +2810,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtE
   br i1 %90, label %91, label %114
 
 91:                                               ; preds = %89
-  %92 = trunc nuw i8 %.030.ph228 to i1
+  %92 = trunc nuw i8 %.030.ph243 to i1
   %93 = icmp eq ptr %.088, %.090.ph
   %storemerge23.i = getelementptr inbounds nuw i8, ptr %.088, i64 2
   %.not24.i39 = icmp eq ptr %storemerge23.i, %.090.ph
@@ -3095,7 +3095,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtE
 
 _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPtRNS_6ranges4lessEEET0_S6_S6_T1_.exit: ; preds = %._crit_edge.i, %212
   store i16 %182, ptr %211, align 2, !tbaa !54
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer241.backedge
 
 214:                                              ; preds = %179, %178
   %215 = tail call { ptr, i8 } @_ZNSt3__118__bitset_partitionB8ne210000INS_17_ClassicAlgPolicyEPtNS_6ranges4lessEEENS_4pairIT0_bEES6_S6_T1_(ptr noundef nonnull %.088, ptr noundef nonnull %.090.ph)
@@ -3119,11 +3119,11 @@ _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPtRN
 223:                                              ; preds = %222, %214
   tail call void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtLb1EEEvT1_S5_T0_NS_15iterator_traitsIS5_E15difference_typeEb(ptr noundef nonnull %.088, ptr noundef %.fca.0.extract, i64 noundef %121, i1 noundef zeroext %12)
   %224 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 2
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer241.backedge
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer226.backedge: ; preds = %223, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPtRNS_6ranges4lessEEET0_S6_S6_T1_.exit
-  %.088.ph227.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPtRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer226, !llvm.loop !77
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer241.backedge: ; preds = %223, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPtRNS_6ranges4lessEEET0_S6_S6_T1_.exit
+  %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPtRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer241, !llvm.loop !77
 
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
   ret void
@@ -3151,25 +3151,25 @@ define linkonce_odr hidden void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicA
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer: ; preds = %221, %4
   %.090.ph = phi ptr [ %.fca.0.extract, %221 ], [ %1, %4 ]
   %.088.ph = phi ptr [ %.088, %221 ], [ %0, %4 ]
-  %.030.ph = phi i8 [ %.030.ph228, %221 ], [ %6, %4 ]
+  %.030.ph = phi i8 [ %.030.ph243, %221 ], [ %6, %4 ]
   %.0.ph = phi i64 [ %121, %221 ], [ %2, %4 ]
   %7 = ptrtoint ptr %.090.ph to i64
   %8 = getelementptr inbounds i8, ptr %.090.ph, i64 -4
   %9 = getelementptr inbounds i8, ptr %.090.ph, i64 -8
   %10 = getelementptr inbounds i8, ptr %.090.ph, i64 -12
   %11 = getelementptr inbounds i8, ptr %.090.ph, i64 -4
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer226
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer241
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer226: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer226.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer
-  %.088.ph227 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer ], [ %.088.ph227.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.030.ph228 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.0.ph229 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer ], [ %121, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer226.backedge ]
-  %12 = trunc nuw i8 %.030.ph228 to i1
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer241: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer241.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer
+  %.088.ph242 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer ], [ %.088.ph242.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.030.ph243 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.0.ph244 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer ], [ %121, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer241.backedge ]
+  %12 = trunc nuw i8 %.030.ph243 to i1
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer226, %222
-  %.088 = phi ptr [ %219, %222 ], [ %.088.ph227, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer226 ]
-  %.0 = phi i64 [ %121, %222 ], [ %.0.ph229, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer226 ]
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer241, %222
+  %.088 = phi ptr [ %219, %222 ], [ %.088.ph242, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer241 ]
+  %.0 = phi i64 [ %121, %222 ], [ %.0.ph244, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer241 ]
   %13 = ptrtoint ptr %.088 to i64
   %14 = sub i64 %7, %13
   %15 = ashr exact i64 %14, 2
@@ -3307,7 +3307,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiE
   br i1 %90, label %91, label %114
 
 91:                                               ; preds = %89
-  %92 = trunc nuw i8 %.030.ph228 to i1
+  %92 = trunc nuw i8 %.030.ph243 to i1
   %93 = icmp eq ptr %.088, %.090.ph
   %storemerge23.i = getelementptr inbounds nuw i8, ptr %.088, i64 4
   %.not24.i39 = icmp eq ptr %storemerge23.i, %.090.ph
@@ -3592,7 +3592,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiE
 
 _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPiRNS_6ranges4lessEEET0_S6_S6_T1_.exit: ; preds = %._crit_edge.i, %212
   store i32 %182, ptr %211, align 4, !tbaa !78
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer241.backedge
 
 214:                                              ; preds = %179, %178
   %215 = tail call { ptr, i8 } @_ZNSt3__118__bitset_partitionB8ne210000INS_17_ClassicAlgPolicyEPiNS_6ranges4lessEEENS_4pairIT0_bEES6_S6_T1_(ptr noundef nonnull %.088, ptr noundef nonnull %.090.ph)
@@ -3616,11 +3616,11 @@ _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPiRN
 223:                                              ; preds = %222, %214
   tail call void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiLb1EEEvT1_S5_T0_NS_15iterator_traitsIS5_E15difference_typeEb(ptr noundef nonnull %.088, ptr noundef %.fca.0.extract, i64 noundef %121, i1 noundef zeroext %12)
   %224 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 4
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer241.backedge
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer226.backedge: ; preds = %223, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPiRNS_6ranges4lessEEET0_S6_S6_T1_.exit
-  %.088.ph227.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPiRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer226, !llvm.loop !90
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer241.backedge: ; preds = %223, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPiRNS_6ranges4lessEEET0_S6_S6_T1_.exit
+  %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPiRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer241, !llvm.loop !90
 
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
   ret void
@@ -3648,25 +3648,25 @@ define linkonce_odr hidden void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicA
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer: ; preds = %221, %4
   %.090.ph = phi ptr [ %.fca.0.extract, %221 ], [ %1, %4 ]
   %.088.ph = phi ptr [ %.088, %221 ], [ %0, %4 ]
-  %.030.ph = phi i8 [ %.030.ph228, %221 ], [ %6, %4 ]
+  %.030.ph = phi i8 [ %.030.ph243, %221 ], [ %6, %4 ]
   %.0.ph = phi i64 [ %121, %221 ], [ %2, %4 ]
   %7 = ptrtoint ptr %.090.ph to i64
   %8 = getelementptr inbounds i8, ptr %.090.ph, i64 -4
   %9 = getelementptr inbounds i8, ptr %.090.ph, i64 -8
   %10 = getelementptr inbounds i8, ptr %.090.ph, i64 -12
   %11 = getelementptr inbounds i8, ptr %.090.ph, i64 -4
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer226
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer241
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer226: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer226.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer
-  %.088.ph227 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer ], [ %.088.ph227.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.030.ph228 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.0.ph229 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer ], [ %121, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer226.backedge ]
-  %12 = trunc nuw i8 %.030.ph228 to i1
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer241: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer241.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer
+  %.088.ph242 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer ], [ %.088.ph242.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.030.ph243 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.0.ph244 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer ], [ %121, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer241.backedge ]
+  %12 = trunc nuw i8 %.030.ph243 to i1
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer226, %222
-  %.088 = phi ptr [ %219, %222 ], [ %.088.ph227, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer226 ]
-  %.0 = phi i64 [ %121, %222 ], [ %.0.ph229, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer226 ]
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer241, %222
+  %.088 = phi ptr [ %219, %222 ], [ %.088.ph242, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer241 ]
+  %.0 = phi i64 [ %121, %222 ], [ %.0.ph244, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer241 ]
   %13 = ptrtoint ptr %.088 to i64
   %14 = sub i64 %7, %13
   %15 = ashr exact i64 %14, 2
@@ -3804,7 +3804,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjE
   br i1 %90, label %91, label %114
 
 91:                                               ; preds = %89
-  %92 = trunc nuw i8 %.030.ph228 to i1
+  %92 = trunc nuw i8 %.030.ph243 to i1
   %93 = icmp eq ptr %.088, %.090.ph
   %storemerge23.i = getelementptr inbounds nuw i8, ptr %.088, i64 4
   %.not24.i39 = icmp eq ptr %storemerge23.i, %.090.ph
@@ -4089,7 +4089,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjE
 
 _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPjRNS_6ranges4lessEEET0_S6_S6_T1_.exit: ; preds = %._crit_edge.i, %212
   store i32 %182, ptr %211, align 4, !tbaa !78
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer241.backedge
 
 214:                                              ; preds = %179, %178
   %215 = tail call { ptr, i8 } @_ZNSt3__118__bitset_partitionB8ne210000INS_17_ClassicAlgPolicyEPjNS_6ranges4lessEEENS_4pairIT0_bEES6_S6_T1_(ptr noundef nonnull %.088, ptr noundef nonnull %.090.ph)
@@ -4113,11 +4113,11 @@ _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPjRN
 223:                                              ; preds = %222, %214
   tail call void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjLb1EEEvT1_S5_T0_NS_15iterator_traitsIS5_E15difference_typeEb(ptr noundef nonnull %.088, ptr noundef %.fca.0.extract, i64 noundef %121, i1 noundef zeroext %12)
   %224 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 4
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer241.backedge
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer226.backedge: ; preds = %223, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPjRNS_6ranges4lessEEET0_S6_S6_T1_.exit
-  %.088.ph227.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPjRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer226, !llvm.loop !101
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer241.backedge: ; preds = %223, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPjRNS_6ranges4lessEEET0_S6_S6_T1_.exit
+  %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPjRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer241, !llvm.loop !101
 
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
   ret void
@@ -4145,25 +4145,25 @@ define linkonce_odr hidden void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicA
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer: ; preds = %221, %4
   %.090.ph = phi ptr [ %.fca.0.extract, %221 ], [ %1, %4 ]
   %.088.ph = phi ptr [ %.088, %221 ], [ %0, %4 ]
-  %.030.ph = phi i8 [ %.030.ph228, %221 ], [ %6, %4 ]
+  %.030.ph = phi i8 [ %.030.ph243, %221 ], [ %6, %4 ]
   %.0.ph = phi i64 [ %121, %221 ], [ %2, %4 ]
   %7 = ptrtoint ptr %.090.ph to i64
   %8 = getelementptr inbounds i8, ptr %.090.ph, i64 -8
   %9 = getelementptr inbounds i8, ptr %.090.ph, i64 -16
   %10 = getelementptr inbounds i8, ptr %.090.ph, i64 -24
   %11 = getelementptr inbounds i8, ptr %.090.ph, i64 -8
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer226
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer241
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer226: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer226.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer
-  %.088.ph227 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer ], [ %.088.ph227.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.030.ph228 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.0.ph229 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer ], [ %121, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer226.backedge ]
-  %12 = trunc nuw i8 %.030.ph228 to i1
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer241: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer241.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer
+  %.088.ph242 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer ], [ %.088.ph242.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.030.ph243 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.0.ph244 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer ], [ %121, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer241.backedge ]
+  %12 = trunc nuw i8 %.030.ph243 to i1
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer226, %222
-  %.088 = phi ptr [ %219, %222 ], [ %.088.ph227, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer226 ]
-  %.0 = phi i64 [ %121, %222 ], [ %.0.ph229, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer226 ]
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer241, %222
+  %.088 = phi ptr [ %219, %222 ], [ %.088.ph242, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer241 ]
+  %.0 = phi i64 [ %121, %222 ], [ %.0.ph244, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer241 ]
   %13 = ptrtoint ptr %.088 to i64
   %14 = sub i64 %7, %13
   %15 = ashr exact i64 %14, 3
@@ -4301,7 +4301,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlE
   br i1 %90, label %91, label %114
 
 91:                                               ; preds = %89
-  %92 = trunc nuw i8 %.030.ph228 to i1
+  %92 = trunc nuw i8 %.030.ph243 to i1
   %93 = icmp eq ptr %.088, %.090.ph
   %storemerge23.i = getelementptr inbounds nuw i8, ptr %.088, i64 8
   %.not24.i39 = icmp eq ptr %storemerge23.i, %.090.ph
@@ -4586,7 +4586,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlE
 
 _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPlRNS_6ranges4lessEEET0_S6_S6_T1_.exit: ; preds = %._crit_edge.i, %212
   store i64 %182, ptr %211, align 8, !tbaa !102
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer241.backedge
 
 214:                                              ; preds = %179, %178
   %215 = tail call { ptr, i8 } @_ZNSt3__118__bitset_partitionB8ne210000INS_17_ClassicAlgPolicyEPlNS_6ranges4lessEEENS_4pairIT0_bEES6_S6_T1_(ptr noundef nonnull %.088, ptr noundef nonnull %.090.ph)
@@ -4610,11 +4610,11 @@ _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPlRN
 223:                                              ; preds = %222, %214
   tail call void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlLb1EEEvT1_S5_T0_NS_15iterator_traitsIS5_E15difference_typeEb(ptr noundef nonnull %.088, ptr noundef %.fca.0.extract, i64 noundef %121, i1 noundef zeroext %12)
   %224 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 8
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer241.backedge
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer226.backedge: ; preds = %223, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPlRNS_6ranges4lessEEET0_S6_S6_T1_.exit
-  %.088.ph227.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPlRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer226, !llvm.loop !114
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer241.backedge: ; preds = %223, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPlRNS_6ranges4lessEEET0_S6_S6_T1_.exit
+  %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPlRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer241, !llvm.loop !114
 
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
   ret void
@@ -4642,25 +4642,25 @@ define linkonce_odr hidden void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicA
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer: ; preds = %221, %4
   %.090.ph = phi ptr [ %.fca.0.extract, %221 ], [ %1, %4 ]
   %.088.ph = phi ptr [ %.088, %221 ], [ %0, %4 ]
-  %.030.ph = phi i8 [ %.030.ph228, %221 ], [ %6, %4 ]
+  %.030.ph = phi i8 [ %.030.ph243, %221 ], [ %6, %4 ]
   %.0.ph = phi i64 [ %121, %221 ], [ %2, %4 ]
   %7 = ptrtoint ptr %.090.ph to i64
   %8 = getelementptr inbounds i8, ptr %.090.ph, i64 -8
   %9 = getelementptr inbounds i8, ptr %.090.ph, i64 -16
   %10 = getelementptr inbounds i8, ptr %.090.ph, i64 -24
   %11 = getelementptr inbounds i8, ptr %.090.ph, i64 -8
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer226
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer241
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer226: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer226.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer
-  %.088.ph227 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer ], [ %.088.ph227.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.030.ph228 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.0.ph229 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer ], [ %121, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer226.backedge ]
-  %12 = trunc nuw i8 %.030.ph228 to i1
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer241: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer241.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer
+  %.088.ph242 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer ], [ %.088.ph242.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.030.ph243 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.0.ph244 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer ], [ %121, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer241.backedge ]
+  %12 = trunc nuw i8 %.030.ph243 to i1
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer226, %222
-  %.088 = phi ptr [ %219, %222 ], [ %.088.ph227, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer226 ]
-  %.0 = phi i64 [ %121, %222 ], [ %.0.ph229, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer226 ]
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer241, %222
+  %.088 = phi ptr [ %219, %222 ], [ %.088.ph242, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer241 ]
+  %.0 = phi i64 [ %121, %222 ], [ %.0.ph244, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer241 ]
   %13 = ptrtoint ptr %.088 to i64
   %14 = sub i64 %7, %13
   %15 = ashr exact i64 %14, 3
@@ -4798,7 +4798,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmE
   br i1 %90, label %91, label %114
 
 91:                                               ; preds = %89
-  %92 = trunc nuw i8 %.030.ph228 to i1
+  %92 = trunc nuw i8 %.030.ph243 to i1
   %93 = icmp eq ptr %.088, %.090.ph
   %storemerge23.i = getelementptr inbounds nuw i8, ptr %.088, i64 8
   %.not24.i39 = icmp eq ptr %storemerge23.i, %.090.ph
@@ -5083,7 +5083,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmE
 
 _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPmRNS_6ranges4lessEEET0_S6_S6_T1_.exit: ; preds = %._crit_edge.i, %212
   store i64 %182, ptr %211, align 8, !tbaa !102
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer241.backedge
 
 214:                                              ; preds = %179, %178
   %215 = tail call { ptr, i8 } @_ZNSt3__118__bitset_partitionB8ne210000INS_17_ClassicAlgPolicyEPmNS_6ranges4lessEEENS_4pairIT0_bEES6_S6_T1_(ptr noundef nonnull %.088, ptr noundef nonnull %.090.ph)
@@ -5107,11 +5107,11 @@ _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPmRN
 223:                                              ; preds = %222, %214
   tail call void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmLb1EEEvT1_S5_T0_NS_15iterator_traitsIS5_E15difference_typeEb(ptr noundef nonnull %.088, ptr noundef %.fca.0.extract, i64 noundef %121, i1 noundef zeroext %12)
   %224 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 8
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer241.backedge
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer226.backedge: ; preds = %223, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPmRNS_6ranges4lessEEET0_S6_S6_T1_.exit
-  %.088.ph227.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPmRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer226, !llvm.loop !125
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer241.backedge: ; preds = %223, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPmRNS_6ranges4lessEEET0_S6_S6_T1_.exit
+  %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPmRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer241, !llvm.loop !125
 
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
   ret void
@@ -5139,25 +5139,25 @@ define linkonce_odr hidden void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicA
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer: ; preds = %221, %4
   %.090.ph = phi ptr [ %.fca.0.extract, %221 ], [ %1, %4 ]
   %.088.ph = phi ptr [ %.088, %221 ], [ %0, %4 ]
-  %.030.ph = phi i8 [ %.030.ph228, %221 ], [ %6, %4 ]
+  %.030.ph = phi i8 [ %.030.ph243, %221 ], [ %6, %4 ]
   %.0.ph = phi i64 [ %121, %221 ], [ %2, %4 ]
   %7 = ptrtoint ptr %.090.ph to i64
   %8 = getelementptr inbounds i8, ptr %.090.ph, i64 -8
   %9 = getelementptr inbounds i8, ptr %.090.ph, i64 -16
   %10 = getelementptr inbounds i8, ptr %.090.ph, i64 -24
   %11 = getelementptr inbounds i8, ptr %.090.ph, i64 -8
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer226
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer241
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer226: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer226.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer
-  %.088.ph227 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer ], [ %.088.ph227.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.030.ph228 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.0.ph229 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer ], [ %121, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer226.backedge ]
-  %12 = trunc nuw i8 %.030.ph228 to i1
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer241: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer241.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer
+  %.088.ph242 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer ], [ %.088.ph242.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.030.ph243 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.0.ph244 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer ], [ %121, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer241.backedge ]
+  %12 = trunc nuw i8 %.030.ph243 to i1
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer226, %222
-  %.088 = phi ptr [ %219, %222 ], [ %.088.ph227, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer226 ]
-  %.0 = phi i64 [ %121, %222 ], [ %.0.ph229, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer226 ]
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer241, %222
+  %.088 = phi ptr [ %219, %222 ], [ %.088.ph242, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer241 ]
+  %.0 = phi i64 [ %121, %222 ], [ %.0.ph244, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer241 ]
   %13 = ptrtoint ptr %.088 to i64
   %14 = sub i64 %7, %13
   %15 = ashr exact i64 %14, 3
@@ -5295,7 +5295,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxE
   br i1 %90, label %91, label %114
 
 91:                                               ; preds = %89
-  %92 = trunc nuw i8 %.030.ph228 to i1
+  %92 = trunc nuw i8 %.030.ph243 to i1
   %93 = icmp eq ptr %.088, %.090.ph
   %storemerge23.i = getelementptr inbounds nuw i8, ptr %.088, i64 8
   %.not24.i39 = icmp eq ptr %storemerge23.i, %.090.ph
@@ -5580,7 +5580,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxE
 
 _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPxRNS_6ranges4lessEEET0_S6_S6_T1_.exit: ; preds = %._crit_edge.i, %212
   store i64 %182, ptr %211, align 8, !tbaa !126
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer241.backedge
 
 214:                                              ; preds = %179, %178
   %215 = tail call { ptr, i8 } @_ZNSt3__118__bitset_partitionB8ne210000INS_17_ClassicAlgPolicyEPxNS_6ranges4lessEEENS_4pairIT0_bEES6_S6_T1_(ptr noundef nonnull %.088, ptr noundef nonnull %.090.ph)
@@ -5604,11 +5604,11 @@ _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPxRN
 223:                                              ; preds = %222, %214
   tail call void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxLb1EEEvT1_S5_T0_NS_15iterator_traitsIS5_E15difference_typeEb(ptr noundef nonnull %.088, ptr noundef %.fca.0.extract, i64 noundef %121, i1 noundef zeroext %12)
   %224 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 8
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer241.backedge
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer226.backedge: ; preds = %223, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPxRNS_6ranges4lessEEET0_S6_S6_T1_.exit
-  %.088.ph227.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPxRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer226, !llvm.loop !138
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer241.backedge: ; preds = %223, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPxRNS_6ranges4lessEEET0_S6_S6_T1_.exit
+  %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPxRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer241, !llvm.loop !138
 
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
   ret void
@@ -5636,25 +5636,25 @@ define linkonce_odr hidden void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicA
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer: ; preds = %221, %4
   %.090.ph = phi ptr [ %.fca.0.extract, %221 ], [ %1, %4 ]
   %.088.ph = phi ptr [ %.088, %221 ], [ %0, %4 ]
-  %.030.ph = phi i8 [ %.030.ph228, %221 ], [ %6, %4 ]
+  %.030.ph = phi i8 [ %.030.ph243, %221 ], [ %6, %4 ]
   %.0.ph = phi i64 [ %121, %221 ], [ %2, %4 ]
   %7 = ptrtoint ptr %.090.ph to i64
   %8 = getelementptr inbounds i8, ptr %.090.ph, i64 -8
   %9 = getelementptr inbounds i8, ptr %.090.ph, i64 -16
   %10 = getelementptr inbounds i8, ptr %.090.ph, i64 -24
   %11 = getelementptr inbounds i8, ptr %.090.ph, i64 -8
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer226
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer241
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer226: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer226.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer
-  %.088.ph227 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer ], [ %.088.ph227.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.030.ph228 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer226.backedge ]
-  %.0.ph229 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer ], [ %121, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer226.backedge ]
-  %12 = trunc nuw i8 %.030.ph228 to i1
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer241: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer241.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer
+  %.088.ph242 = phi ptr [ %.088.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer ], [ %.088.ph242.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.030.ph243 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer241.backedge ]
+  %.0.ph244 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer ], [ %121, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer241.backedge ]
+  %12 = trunc nuw i8 %.030.ph243 to i1
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer226, %222
-  %.088 = phi ptr [ %219, %222 ], [ %.088.ph227, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer226 ]
-  %.0 = phi i64 [ %121, %222 ], [ %.0.ph229, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer226 ]
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer241, %222
+  %.088 = phi ptr [ %219, %222 ], [ %.088.ph242, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer241 ]
+  %.0 = phi i64 [ %121, %222 ], [ %.0.ph244, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer241 ]
   %13 = ptrtoint ptr %.088 to i64
   %14 = sub i64 %7, %13
   %15 = ashr exact i64 %14, 3
@@ -5792,7 +5792,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyE
   br i1 %90, label %91, label %114
 
 91:                                               ; preds = %89
-  %92 = trunc nuw i8 %.030.ph228 to i1
+  %92 = trunc nuw i8 %.030.ph243 to i1
   %93 = icmp eq ptr %.088, %.090.ph
   %storemerge23.i = getelementptr inbounds nuw i8, ptr %.088, i64 8
   %.not24.i39 = icmp eq ptr %storemerge23.i, %.090.ph
@@ -6077,7 +6077,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyE
 
 _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPyRNS_6ranges4lessEEET0_S6_S6_T1_.exit: ; preds = %._crit_edge.i, %212
   store i64 %182, ptr %211, align 8, !tbaa !126
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer241.backedge
 
 214:                                              ; preds = %179, %178
   %215 = tail call { ptr, i8 } @_ZNSt3__118__bitset_partitionB8ne210000INS_17_ClassicAlgPolicyEPyNS_6ranges4lessEEENS_4pairIT0_bEES6_S6_T1_(ptr noundef nonnull %.088, ptr noundef nonnull %.090.ph)
@@ -6101,11 +6101,11 @@ _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPyRN
 223:                                              ; preds = %222, %214
   tail call void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyLb1EEEvT1_S5_T0_NS_15iterator_traitsIS5_E15difference_typeEb(ptr noundef nonnull %.088, ptr noundef %.fca.0.extract, i64 noundef %121, i1 noundef zeroext %12)
   %224 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 8
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer226.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer241.backedge
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer226.backedge: ; preds = %223, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPyRNS_6ranges4lessEEET0_S6_S6_T1_.exit
-  %.088.ph227.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPyRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer226, !llvm.loop !149
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer241.backedge: ; preds = %223, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPyRNS_6ranges4lessEEET0_S6_S6_T1_.exit
+  %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPyRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer241, !llvm.loop !149
 
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
   ret void
@@ -6133,25 +6133,25 @@ define linkonce_odr hidden void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicA
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer: ; preds = %253, %4
   %.093.ph = phi ptr [ %.fca.0.extract, %253 ], [ %1, %4 ]
   %.091.ph = phi ptr [ %.091, %253 ], [ %0, %4 ]
-  %.030.ph = phi i8 [ %.030.ph226, %253 ], [ %6, %4 ]
+  %.030.ph = phi i8 [ %.030.ph241, %253 ], [ %6, %4 ]
   %.0.ph = phi i64 [ %138, %253 ], [ %2, %4 ]
   %7 = ptrtoint ptr %.093.ph to i64
   %8 = getelementptr inbounds i8, ptr %.093.ph, i64 -4
   %9 = getelementptr inbounds i8, ptr %.093.ph, i64 -8
   %10 = getelementptr inbounds i8, ptr %.093.ph, i64 -12
   %11 = getelementptr inbounds i8, ptr %.093.ph, i64 -4
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer224
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer239
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer224: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer224.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer
-  %.091.ph225 = phi ptr [ %.091.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer ], [ %.091.ph225.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer224.backedge ]
-  %.030.ph226 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer224.backedge ]
-  %.0.ph227 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer ], [ %138, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer224.backedge ]
-  %12 = trunc nuw i8 %.030.ph226 to i1
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer239: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer239.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer
+  %.091.ph240 = phi ptr [ %.091.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer ], [ %.091.ph240.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer239.backedge ]
+  %.030.ph241 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer239.backedge ]
+  %.0.ph242 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer ], [ %138, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer239.backedge ]
+  %12 = trunc nuw i8 %.030.ph241 to i1
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer224, %254
-  %.091 = phi ptr [ %251, %254 ], [ %.091.ph225, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer224 ]
-  %.0 = phi i64 [ %138, %254 ], [ %.0.ph227, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer224 ]
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer239, %254
+  %.091 = phi ptr [ %251, %254 ], [ %.091.ph240, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer239 ]
+  %.0 = phi i64 [ %138, %254 ], [ %.0.ph242, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer239 ]
   %13 = ptrtoint ptr %.091 to i64
   %14 = sub i64 %7, %13
   %15 = ashr exact i64 %14, 2
@@ -6302,7 +6302,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfE
   br i1 %107, label %108, label %131
 
 108:                                              ; preds = %106
-  %109 = trunc nuw i8 %.030.ph226 to i1
+  %109 = trunc nuw i8 %.030.ph241 to i1
   %110 = icmp eq ptr %.091, %.093.ph
   %storemerge24.i = getelementptr inbounds nuw i8, ptr %.091, i64 4
   %.not25.i = icmp eq ptr %storemerge24.i, %.093.ph
@@ -6597,7 +6597,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfE
 
 _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPfRNS_6ranges4lessEEET0_S6_S6_T1_.exit: ; preds = %._crit_edge.i, %244
   store float %214, ptr %243, align 4, !tbaa !150
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer224.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer239.backedge
 
 246:                                              ; preds = %211, %210
   %247 = tail call { ptr, i8 } @_ZNSt3__118__bitset_partitionB8ne210000INS_17_ClassicAlgPolicyEPfNS_6ranges4lessEEENS_4pairIT0_bEES6_S6_T1_(ptr noundef nonnull %.091, ptr noundef nonnull %.093.ph)
@@ -6621,11 +6621,11 @@ _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPfRN
 255:                                              ; preds = %254, %246
   tail call void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfLb1EEEvT1_S5_T0_NS_15iterator_traitsIS5_E15difference_typeEb(ptr noundef nonnull %.091, ptr noundef %.fca.0.extract, i64 noundef %138, i1 noundef zeroext %12)
   %256 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 4
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer224.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer239.backedge
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer224.backedge: ; preds = %255, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPfRNS_6ranges4lessEEET0_S6_S6_T1_.exit
-  %.091.ph225.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPfRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %256, %255 ]
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer224, !llvm.loop !162
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer239.backedge: ; preds = %255, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPfRNS_6ranges4lessEEET0_S6_S6_T1_.exit
+  %.091.ph240.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPfRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %256, %255 ]
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer239, !llvm.loop !162
 
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit, %253, %130, %120, %135, %133, %121, %111, %16, %21, %65, %38, %22
   ret void
@@ -6653,25 +6653,25 @@ define linkonce_odr hidden void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicA
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer: ; preds = %253, %4
   %.093.ph = phi ptr [ %.fca.0.extract, %253 ], [ %1, %4 ]
   %.091.ph = phi ptr [ %.091, %253 ], [ %0, %4 ]
-  %.030.ph = phi i8 [ %.030.ph226, %253 ], [ %6, %4 ]
+  %.030.ph = phi i8 [ %.030.ph241, %253 ], [ %6, %4 ]
   %.0.ph = phi i64 [ %138, %253 ], [ %2, %4 ]
   %7 = ptrtoint ptr %.093.ph to i64
   %8 = getelementptr inbounds i8, ptr %.093.ph, i64 -8
   %9 = getelementptr inbounds i8, ptr %.093.ph, i64 -16
   %10 = getelementptr inbounds i8, ptr %.093.ph, i64 -24
   %11 = getelementptr inbounds i8, ptr %.093.ph, i64 -8
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer224
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer239
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer224: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer224.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer
-  %.091.ph225 = phi ptr [ %.091.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer ], [ %.091.ph225.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer224.backedge ]
-  %.030.ph226 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer224.backedge ]
-  %.0.ph227 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer ], [ %138, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer224.backedge ]
-  %12 = trunc nuw i8 %.030.ph226 to i1
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer239: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer239.backedge, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer
+  %.091.ph240 = phi ptr [ %.091.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer ], [ %.091.ph240.be, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer239.backedge ]
+  %.030.ph241 = phi i8 [ %.030.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer ], [ 0, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer239.backedge ]
+  %.0.ph242 = phi i64 [ %.0.ph, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer ], [ %138, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer239.backedge ]
+  %12 = trunc nuw i8 %.030.ph241 to i1
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer224, %254
-  %.091 = phi ptr [ %251, %254 ], [ %.091.ph225, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer224 ]
-  %.0 = phi i64 [ %138, %254 ], [ %.0.ph227, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer224 ]
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer239, %254
+  %.091 = phi ptr [ %251, %254 ], [ %.091.ph240, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer239 ]
+  %.0 = phi i64 [ %138, %254 ], [ %.0.ph242, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer239 ]
   %13 = ptrtoint ptr %.091 to i64
   %14 = sub i64 %7, %13
   %15 = ashr exact i64 %14, 3
@@ -6822,7 +6822,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdE
   br i1 %107, label %108, label %131
 
 108:                                              ; preds = %106
-  %109 = trunc nuw i8 %.030.ph226 to i1
+  %109 = trunc nuw i8 %.030.ph241 to i1
   %110 = icmp eq ptr %.091, %.093.ph
   %storemerge24.i = getelementptr inbounds nuw i8, ptr %.091, i64 8
   %.not25.i = icmp eq ptr %storemerge24.i, %.093.ph
@@ -7117,7 +7117,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdE
 
 _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPdRNS_6ranges4lessEEET0_S6_S6_T1_.exit: ; preds = %._crit_edge.i, %244
   store double %214, ptr %243, align 8, !tbaa !163
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer224.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer239.backedge
 
 246:                                              ; preds = %211, %210
   %247 = tail call { ptr, i8 } @_ZNSt3__118__bitset_partitionB8ne210000INS_17_ClassicAlgPolicyEPdNS_6ranges4lessEEENS_4pairIT0_bEES6_S6_T1_(ptr noundef nonnull %.091, ptr noundef nonnull %.093.ph)
@@ -7141,11 +7141,11 @@ _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPdRN
 255:                                              ; preds = %254, %246
   tail call void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdLb1EEEvT1_S5_T0_NS_15iterator_traitsIS5_E15difference_typeEb(ptr noundef nonnull %.091, ptr noundef %.fca.0.extract, i64 noundef %138, i1 noundef zeroext %12)
   %256 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 8
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer224.backedge
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer239.backedge
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer224.backedge: ; preds = %255, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPdRNS_6ranges4lessEEET0_S6_S6_T1_.exit
-  %.091.ph225.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPdRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %256, %255 ]
-  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer224, !llvm.loop !175
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer239.backedge: ; preds = %255, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPdRNS_6ranges4lessEEET0_S6_S6_T1_.exit
+  %.091.ph240.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPdRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %256, %255 ]
+  br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer239, !llvm.loop !175
 
 _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit, %253, %130, %120, %135, %133, %121, %111, %16, %21, %65, %38, %22
   ret void
@@ -7173,25 +7173,25 @@ define linkonce_odr hidden void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicA
 _ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer: ; preds = %306, %4
   %.092.ph = phi ptr [ %299, %306 ], [ %1, %4 ]
   %.090.ph = phi ptr [ %.090, %306 ], [ %0, %4 ]
-  %.030.ph = phi i8 [ %.030.ph258, %306 ], [ %6, %4 ]
+  %.030.ph = phi i8 [ %.030.ph354, %306 ], [ %6, %4 ]
   %.0.ph = phi i64 [ %146, %306 ], [ %2, %4 ]
   %7 = ptrtoint ptr %.092.ph to i64
   %8 = getelementptr inbounds i8, ptr %.092.ph, i64 -16
   %9 = getelementptr inbounds i8, ptr %.092.ph, i64 -32
   %10 = getelementptr inbounds i8, ptr %.092.ph, i64 -48
   %11 = getelementptr inbounds i8, ptr %.092.ph, i64 -16
-  br label %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer256
+  br label %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer352
 
-_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer256: ; preds = %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer256.backedge, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer
-  %.090.ph257 = phi ptr [ %.090.ph, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer ], [ %.090.ph257.be, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer256.backedge ]
-  %.030.ph258 = phi i8 [ %.030.ph, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer ], [ 0, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer256.backedge ]
-  %.0.ph259 = phi i64 [ %.0.ph, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer ], [ %146, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer256.backedge ]
-  %12 = trunc nuw i8 %.030.ph258 to i1
+_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer352: ; preds = %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer352.backedge, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer
+  %.090.ph353 = phi ptr [ %.090.ph, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer ], [ %.090.ph353.be, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer352.backedge ]
+  %.030.ph354 = phi i8 [ %.030.ph, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer ], [ 0, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer352.backedge ]
+  %.0.ph355 = phi i64 [ %.0.ph, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer ], [ %146, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer352.backedge ]
+  %12 = trunc nuw i8 %.030.ph354 to i1
   br label %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit
 
-_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit: ; preds = %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer256, %307
-  %.090 = phi ptr [ %304, %307 ], [ %.090.ph257, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer256 ]
-  %.0 = phi i64 [ %146, %307 ], [ %.0.ph259, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer256 ]
+_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit: ; preds = %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer352, %307
+  %.090 = phi ptr [ %304, %307 ], [ %.090.ph353, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer352 ]
+  %.0 = phi i64 [ %146, %307 ], [ %.0.ph355, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer352 ]
   %13 = ptrtoint ptr %.090 to i64
   %14 = sub i64 %7, %13
   %15 = ashr exact i64 %14, 4
@@ -7440,7 +7440,7 @@ _ZNSt3__17__sort4B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enabl
   br i1 %115, label %116, label %139
 
 116:                                              ; preds = %114
-  %117 = trunc nuw i8 %.030.ph258 to i1
+  %117 = trunc nuw i8 %.030.ph354 to i1
   %118 = icmp eq ptr %.090, %.092.ph
   %storemerge24.i = getelementptr inbounds nuw i8, ptr %.090, i64 16
   %.not25.i = icmp eq ptr %storemerge24.i, %.092.ph
@@ -7856,7 +7856,7 @@ _ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enabl
 
 _ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPeRNS_6ranges4lessEEET0_S6_S6_T1_.exit: ; preds = %._crit_edge.i, %271
   store x86_fp80 %.pre, ptr %270, align 16, !tbaa !176
-  br label %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer256.backedge
+  br label %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer352.backedge
 
 273:                                              ; preds = %.preheader, %273
   %.0.i60 = phi ptr [ %274, %273 ], [ %.090, %.preheader ]
@@ -7952,11 +7952,11 @@ _ZNSt3__132__partition_with_equals_on_rightB8ne210000INS_17_ClassicAlgPolicyEPeN
 308:                                              ; preds = %307, %_ZNSt3__132__partition_with_equals_on_rightB8ne210000INS_17_ClassicAlgPolicyEPeNS_6ranges4lessEEENS_4pairIT0_bEES6_S6_T1_.exit
   tail call void @_ZNSt3__111__introsortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeLb0EEEvT1_S5_T0_NS_15iterator_traitsIS5_E15difference_typeEb(ptr noundef nonnull %.090, ptr noundef nonnull %299, i64 noundef %146, i1 noundef zeroext %12)
   %309 = getelementptr inbounds nuw i8, ptr %299, i64 16
-  br label %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer256.backedge
+  br label %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer352.backedge
 
-_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer256.backedge: ; preds = %308, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPeRNS_6ranges4lessEEET0_S6_S6_T1_.exit
-  %.090.ph257.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPeRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %309, %308 ]
-  br label %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer256, !llvm.loop !194
+_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer352.backedge: ; preds = %308, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPeRNS_6ranges4lessEEET0_S6_S6_T1_.exit
+  %.090.ph353.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPeRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %309, %308 ]
+  br label %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer352, !llvm.loop !194
 
 _ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.thread: ; preds = %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit, %306, %138, %128, %143, %141, %129, %119, %113, %110, %107, %103, %_ZNSt3__17__sort4B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEvS7_S7_S7_S7_S6_.exit.i, %70, %67, %63, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.i, %41, %38, %37, %35, %31, %30, %16, %21
   ret void
@@ -8117,11 +8117,11 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPcEEvT0_S3_RmS4_.e
 
 .thread.i:                                        ; preds = %24, %._crit_edge
   %69 = phi i1 [ %67, %._crit_edge ], [ true, %24 ]
-  %.lcssa109157 = phi i64 [ %65, %._crit_edge ], [ %28, %24 ]
-  %.4.lcssa155 = phi ptr [ %60, %._crit_edge ], [ %.3, %24 ]
-  %.079.lcssa151 = phi i64 [ %.382, %._crit_edge ], [ 0, %24 ]
-  %.091.lcssa146 = phi ptr [ %62, %._crit_edge ], [ %25, %24 ]
-  %70 = add nsw i64 %.lcssa109157, 1
+  %.lcssa109171 = phi i64 [ %65, %._crit_edge ], [ %28, %24 ]
+  %.4.lcssa169 = phi ptr [ %60, %._crit_edge ], [ %.3, %24 ]
+  %.079.lcssa165 = phi i64 [ %.382, %._crit_edge ], [ 0, %24 ]
+  %.091.lcssa160 = phi ptr [ %62, %._crit_edge ], [ %25, %24 ]
+  %70 = add nsw i64 %.lcssa109171, 1
   %71 = sdiv i64 %70, 2
   %72 = sub nsw i64 %70, %71
   br label %76
@@ -8133,9 +8133,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPcEEvT0_S3_RmS4_.e
 
 76:                                               ; preds = %73, %.thread.i
   %77 = phi i1 [ %69, %.thread.i ], [ %67, %73 ]
-  %.4.lcssa153 = phi ptr [ %.4.lcssa155, %.thread.i ], [ %60, %73 ]
-  %.079.lcssa149 = phi i64 [ %.079.lcssa151, %.thread.i ], [ %.382, %73 ]
-  %.091.lcssa144 = phi ptr [ %.091.lcssa146, %.thread.i ], [ %62, %73 ]
+  %.4.lcssa167 = phi ptr [ %.4.lcssa169, %.thread.i ], [ %60, %73 ]
+  %.079.lcssa163 = phi i64 [ %.079.lcssa165, %.thread.i ], [ %.382, %73 ]
+  %.091.lcssa158 = phi ptr [ %.091.lcssa160, %.thread.i ], [ %62, %73 ]
   %.052.i = phi i64 [ %71, %.thread.i ], [ %75, %73 ]
   %.04351.i = phi i64 [ %72, %.thread.i ], [ 64, %73 ]
   %78 = icmp sgt i64 %.052.i, 0
@@ -8144,7 +8144,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPcEEvT0_S3_RmS4_.e
 .lr.ph.i11:                                       ; preds = %76, %.lr.ph.i11
   %79 = phi i64 [ %84, %.lr.ph.i11 ], [ 0, %76 ]
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i13, %.lr.ph.i11 ], [ 0, %76 ]
-  %.04555.i = phi ptr [ %85, %.lr.ph.i11 ], [ %.4.lcssa153, %76 ]
+  %.04555.i = phi ptr [ %85, %.lr.ph.i11 ], [ %.4.lcssa167, %76 ]
   %80 = load i8, ptr %.04555.i, align 1, !tbaa !4
   %81 = icmp sge i8 %80, %3
   %82 = zext i1 %81 to i64
@@ -8157,9 +8157,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPcEEvT0_S3_RmS4_.e
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %76, %73
   %86 = phi i1 [ %77, %76 ], [ %67, %73 ], [ %77, %.lr.ph.i11 ]
-  %.4.lcssa152 = phi ptr [ %.4.lcssa153, %76 ], [ %60, %73 ], [ %.4.lcssa153, %.lr.ph.i11 ]
-  %.079.lcssa148 = phi i64 [ %.079.lcssa149, %76 ], [ %.382, %73 ], [ %.079.lcssa149, %.lr.ph.i11 ]
-  %.091.lcssa143 = phi ptr [ %.091.lcssa144, %76 ], [ %62, %73 ], [ %.091.lcssa144, %.lr.ph.i11 ]
+  %.4.lcssa166 = phi ptr [ %.4.lcssa167, %76 ], [ %60, %73 ], [ %.4.lcssa167, %.lr.ph.i11 ]
+  %.079.lcssa162 = phi i64 [ %.079.lcssa163, %76 ], [ %.382, %73 ], [ %.079.lcssa163, %.lr.ph.i11 ]
+  %.091.lcssa157 = phi ptr [ %.091.lcssa158, %76 ], [ %62, %73 ], [ %.091.lcssa158, %.lr.ph.i11 ]
   %.389 = phi i64 [ 0, %76 ], [ %.288, %73 ], [ %84, %.lr.ph.i11 ]
   %.053.i = phi i64 [ %.052.i, %76 ], [ 64, %73 ], [ %.052.i, %.lr.ph.i11 ]
   %.04350.i = phi i64 [ %.04351.i, %76 ], [ %75, %73 ], [ %.04351.i, %.lr.ph.i11 ]
@@ -8170,7 +8170,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPcEEvT0_S3_RmS4_.e
 .lr.ph59.i:                                       ; preds = %.loopexit54.i, %.lr.ph59.i
   %88 = phi i64 [ %93, %.lr.ph59.i ], [ 0, %.loopexit54.i ]
   %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %.lr.ph59.i ], [ 0, %.loopexit54.i ]
-  %.04257.i = phi ptr [ %94, %.lr.ph59.i ], [ %.091.lcssa143, %.loopexit54.i ]
+  %.04257.i = phi ptr [ %94, %.lr.ph59.i ], [ %.091.lcssa157, %.loopexit54.i ]
   %89 = load i8, ptr %.04257.i, align 1, !tbaa !4
   %90 = icmp slt i8 %89, %3
   %91 = zext i1 %90 to i64
@@ -8182,7 +8182,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPcEEvT0_S3_RmS4_.e
   br i1 %exitcond65.not.i, label %.loopexit.i, label %.lr.ph59.i, !llvm.loop !203
 
 .loopexit.i:                                      ; preds = %.lr.ph59.i, %.loopexit54.i
-  %.483 = phi i64 [ %.079.lcssa148, %.loopexit54.i ], [ %93, %.lr.ph59.i ]
+  %.483 = phi i64 [ %.079.lcssa162, %.loopexit54.i ], [ %93, %.lr.ph59.i ]
   %.not13.i.i = icmp eq i64 %.389, 0
   %.not1114.i.i = icmp eq i64 %.483, 0
   %or.cond15.i.i = select i1 %.not13.i.i, i1 true, i1 %.not1114.i.i
@@ -8197,9 +8197,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPcEEvT0_S3_RmS4_.e
   %99 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.584, i1 false)
   %100 = add i64 %.584, -1
   %101 = and i64 %100, %.584
-  %102 = getelementptr inbounds nuw i8, ptr %.4.lcssa152, i64 %96
+  %102 = getelementptr inbounds nuw i8, ptr %.4.lcssa166, i64 %96
   %103 = sub nsw i64 0, %99
-  %104 = getelementptr inbounds i8, ptr %.091.lcssa143, i64 %103
+  %104 = getelementptr inbounds i8, ptr %.091.lcssa157, i64 %103
   %105 = load i8, ptr %102, align 1, !tbaa !4
   %106 = load i8, ptr %104, align 1, !tbaa !4
   store i8 %106, ptr %102, align 1, !tbaa !4
@@ -8214,11 +8214,11 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %107 = phi i64 [ %.389, %.loopexit.i ], [ %98, %.lr.ph.i.i ]
   %108 = icmp eq i64 %107, 0
   %109 = select i1 %108, i64 %.053.i, i64 0
-  %110 = getelementptr inbounds i8, ptr %.4.lcssa152, i64 %109
+  %110 = getelementptr inbounds i8, ptr %.4.lcssa166, i64 %109
   %111 = icmp eq i64 %.685, 0
   %112 = select i1 %111, i64 %.04350.i, i64 0
   %113 = sub i64 0, %112
-  %114 = getelementptr inbounds i8, ptr %.091.lcssa143, i64 %113
+  %114 = getelementptr inbounds i8, ptr %.091.lcssa157, i64 %113
   br i1 %108, label %126, label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPccEEvRT1_S6_T0_RT2_RmSA_.exit, %124
@@ -8555,10 +8555,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
   br i1 %34, label %50, label %35
 
 35:                                               ; preds = %.preheader.i.i
-  %36 = shl nsw i64 %.1.i.i, 1
+  %36 = shl nuw nsw i64 %.1.i.i, 1
   %37 = or disjoint i64 %36, 1
-  %38 = getelementptr inbounds i8, ptr %0, i64 %37
-  %39 = add nsw i64 %36, 2
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %37
+  %39 = add nuw nsw i64 %36, 2
   %40 = icmp slt i64 %39, %9
   br i1 %40, label %41, label %._crit_edge43.i.i
 
@@ -8967,9 +8967,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPwEEvT0_S3_RmS4_.e
 .thread.i:                                        ; preds = %._crit_edge.thread, %._crit_edge
   %71 = phi i1 [ true, %._crit_edge.thread ], [ %68, %._crit_edge ]
   %72 = phi i64 [ %70, %._crit_edge.thread ], [ %67, %._crit_edge ]
-  %.4.lcssa157 = phi ptr [ %.3, %._crit_edge.thread ], [ %60, %._crit_edge ]
-  %.077.lcssa153 = phi i64 [ 0, %._crit_edge.thread ], [ %.380, %._crit_edge ]
-  %.092.lcssa148 = phi ptr [ %25, %._crit_edge.thread ], [ %62, %._crit_edge ]
+  %.4.lcssa172 = phi ptr [ %.3, %._crit_edge.thread ], [ %60, %._crit_edge ]
+  %.077.lcssa168 = phi i64 [ 0, %._crit_edge.thread ], [ %.380, %._crit_edge ]
+  %.092.lcssa163 = phi ptr [ %25, %._crit_edge.thread ], [ %62, %._crit_edge ]
   %73 = add nsw i64 %72, 1
   %74 = sdiv i64 %73, 2
   %75 = sub nsw i64 %73, %74
@@ -8982,9 +8982,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPwEEvT0_S3_RmS4_.e
 
 79:                                               ; preds = %76, %.thread.i
   %80 = phi i1 [ %71, %.thread.i ], [ %68, %76 ]
-  %.4.lcssa155 = phi ptr [ %.4.lcssa157, %.thread.i ], [ %60, %76 ]
-  %.077.lcssa151 = phi i64 [ %.077.lcssa153, %.thread.i ], [ %.380, %76 ]
-  %.092.lcssa146 = phi ptr [ %.092.lcssa148, %.thread.i ], [ %62, %76 ]
+  %.4.lcssa170 = phi ptr [ %.4.lcssa172, %.thread.i ], [ %60, %76 ]
+  %.077.lcssa166 = phi i64 [ %.077.lcssa168, %.thread.i ], [ %.380, %76 ]
+  %.092.lcssa161 = phi ptr [ %.092.lcssa163, %.thread.i ], [ %62, %76 ]
   %.052.i = phi i64 [ %74, %.thread.i ], [ %78, %76 ]
   %.04351.i = phi i64 [ %75, %.thread.i ], [ 64, %76 ]
   %81 = icmp sgt i64 %.052.i, 0
@@ -8992,7 +8992,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPwEEvT0_S3_RmS4_.e
 
 .lr.ph.i11:                                       ; preds = %79, %.lr.ph.i11
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i13, %.lr.ph.i11 ], [ 0, %79 ]
-  %.04555.i = phi ptr [ %88, %.lr.ph.i11 ], [ %.4.lcssa155, %79 ]
+  %.04555.i = phi ptr [ %88, %.lr.ph.i11 ], [ %.4.lcssa170, %79 ]
   %82 = phi i64 [ %87, %.lr.ph.i11 ], [ 0, %79 ]
   %83 = load i32, ptr %.04555.i, align 4, !tbaa !19
   %84 = icmp sge i32 %83, %3
@@ -9006,9 +9006,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPwEEvT0_S3_RmS4_.e
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %79, %76
   %89 = phi i1 [ %80, %79 ], [ %68, %76 ], [ %80, %.lr.ph.i11 ]
-  %.4.lcssa154 = phi ptr [ %.4.lcssa155, %79 ], [ %60, %76 ], [ %.4.lcssa155, %.lr.ph.i11 ]
-  %.077.lcssa150 = phi i64 [ %.077.lcssa151, %79 ], [ %.380, %76 ], [ %.077.lcssa151, %.lr.ph.i11 ]
-  %.092.lcssa145 = phi ptr [ %.092.lcssa146, %79 ], [ %62, %76 ], [ %.092.lcssa146, %.lr.ph.i11 ]
+  %.4.lcssa169 = phi ptr [ %.4.lcssa170, %79 ], [ %60, %76 ], [ %.4.lcssa170, %.lr.ph.i11 ]
+  %.077.lcssa165 = phi i64 [ %.077.lcssa166, %79 ], [ %.380, %76 ], [ %.077.lcssa166, %.lr.ph.i11 ]
+  %.092.lcssa160 = phi ptr [ %.092.lcssa161, %79 ], [ %62, %76 ], [ %.092.lcssa161, %.lr.ph.i11 ]
   %.388 = phi i64 [ 0, %79 ], [ %.287, %76 ], [ %87, %.lr.ph.i11 ]
   %.053.i = phi i64 [ %.052.i, %79 ], [ 64, %76 ], [ %.052.i, %.lr.ph.i11 ]
   %.04350.i = phi i64 [ %.04351.i, %79 ], [ %78, %76 ], [ %.04351.i, %.lr.ph.i11 ]
@@ -9020,7 +9020,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPwEEvT0_S3_RmS4_.e
 
 .lr.ph60.i:                                       ; preds = %.preheader.i, %.lr.ph60.i
   %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %.lr.ph60.i ], [ 0, %.preheader.i ]
-  %.04258.i = phi ptr [ %97, %.lr.ph60.i ], [ %.092.lcssa145, %.preheader.i ]
+  %.04258.i = phi ptr [ %97, %.lr.ph60.i ], [ %.092.lcssa160, %.preheader.i ]
   %91 = phi i64 [ %96, %.lr.ph60.i ], [ 0, %.preheader.i ]
   %92 = load i32, ptr %.04258.i, align 4, !tbaa !19
   %93 = icmp slt i32 %92, %3
@@ -9033,7 +9033,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPwEEvT0_S3_RmS4_.e
   br i1 %exitcond67.not.i, label %.loopexit.i, label %.lr.ph60.i, !llvm.loop !222
 
 .loopexit.i:                                      ; preds = %.lr.ph60.i, %.loopexit54.i
-  %.481 = phi i64 [ %.077.lcssa150, %.loopexit54.i ], [ %96, %.lr.ph60.i ]
+  %.481 = phi i64 [ %.077.lcssa165, %.loopexit54.i ], [ %96, %.lr.ph60.i ]
   %.not13.i.i = icmp eq i64 %.388, 0
   %.not1114.i.i = icmp eq i64 %.481, 0
   %or.cond15.i.i = select i1 %.not13.i.i, i1 true, i1 %.not1114.i.i
@@ -9048,9 +9048,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPwEEvT0_S3_RmS4_.e
   %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.582, i1 false)
   %103 = add i64 %.582, -1
   %104 = and i64 %103, %.582
-  %105 = getelementptr inbounds nuw i32, ptr %.4.lcssa154, i64 %99
+  %105 = getelementptr inbounds nuw i32, ptr %.4.lcssa169, i64 %99
   %106 = sub nsw i64 0, %102
-  %107 = getelementptr inbounds i32, ptr %.092.lcssa145, i64 %106
+  %107 = getelementptr inbounds i32, ptr %.092.lcssa160, i64 %106
   %108 = load i32, ptr %105, align 4, !tbaa !19
   %109 = load i32, ptr %107, align 4, !tbaa !19
   store i32 %109, ptr %105, align 4, !tbaa !19
@@ -9069,29 +9069,29 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %113 = icmp eq i64 %.fr.i, 0
   %spec.select = select i1 %113, i64 %.04350.i, i64 0
   %114 = sub nsw i64 0, %spec.select
-  %115 = getelementptr inbounds i32, ptr %.092.lcssa145, i64 %114
+  %115 = getelementptr inbounds i32, ptr %.092.lcssa160, i64 %114
   %.not.i15 = icmp eq i64 %110, 0
   br i1 %.not.i15, label %135, label %.preheader30.i.preheader
 
 _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwwEEvRT1_S6_T0_RT2_RmSA_.exit.thread: ; preds = %.preheader.i
   %116 = icmp eq i64 %.388, 0
   %117 = select i1 %116, i64 %.053.i, i64 0
-  %.6165 = getelementptr inbounds i32, ptr %.4.lcssa154, i64 %117
+  %.6180 = getelementptr inbounds i32, ptr %.4.lcssa169, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds nuw i32, ptr %.092.lcssa145, i64 %118
-  %.not.i15166 = icmp eq i64 %.388, 0
-  br i1 %.not.i15166, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPwEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
+  %119 = getelementptr inbounds nuw i32, ptr %.092.lcssa160, i64 %118
+  %.not.i15181 = icmp eq i64 %.388, 0
+  br i1 %.not.i15181, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPwEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
 .preheader30.i.preheader:                         ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwwEEvRT1_S6_T0_RT2_RmSA_.exit.thread, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwwEEvRT1_S6_T0_RT2_RmSA_.exit
   %120 = phi ptr [ %119, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwwEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %115, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwwEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %121 = phi i64 [ %117, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwwEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %112, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwwEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %.691167 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwwEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwwEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %122 = getelementptr inbounds i32, ptr %.4.lcssa154, i64 %121
+  %.691182 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwwEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwwEEvRT1_S6_T0_RT2_RmSA_.exit ]
+  %122 = getelementptr inbounds i32, ptr %.4.lcssa169, i64 %121
   br label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %.preheader30.i.preheader, %133
   %123 = phi ptr [ %134, %133 ], [ %120, %.preheader30.i.preheader ]
-  %124 = phi i64 [ %128, %133 ], [ %.691167, %.preheader30.i.preheader ]
+  %124 = phi i64 [ %128, %133 ], [ %.691182, %.preheader30.i.preheader ]
   %125 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %124, i1 true)
   %126 = xor i64 %125, 63
   %notmask26.i = shl nsw i64 -1, %126
@@ -9114,7 +9114,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not25.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPwEEvRT0_S4_RmS5_.exit, label %.preheader30.i, !llvm.loop !223
 
 135:                                              ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwwEEvRT1_S6_T0_RT2_RmSA_.exit
-  %.6 = getelementptr inbounds i32, ptr %.4.lcssa154, i64 %112
+  %.6 = getelementptr inbounds i32, ptr %.4.lcssa169, i64 %112
   %.not22.i = icmp eq i64 %.fr.i, 0
   br i1 %.not22.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPwEEvRT0_S4_RmS5_.exit, label %.preheader.i17
 
@@ -9144,7 +9144,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not23.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPwEEvRT0_S4_RmS5_.exit, label %.preheader.i17, !llvm.loop !224
 
 _ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPwEEvRT0_S4_RmS5_.exit: ; preds = %133, %147, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwwEEvRT1_S6_T0_RT2_RmSA_.exit.thread, %135
-  %.7 = phi ptr [ %.6, %135 ], [ %.6165, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwwEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %148, %147 ], [ %123, %133 ]
+  %.7 = phi ptr [ %.6, %135 ], [ %.6180, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwwEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %148, %147 ], [ %123, %133 ]
   %149 = getelementptr inbounds i8, ptr %.7, i64 -4
   %.not = icmp eq ptr %0, %149
   br i1 %.not, label %152, label %150
@@ -9427,10 +9427,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
   br i1 %35, label %51, label %36
 
 36:                                               ; preds = %.preheader.i.i
-  %37 = shl nsw i64 %.1.i.i, 1
+  %37 = shl nuw nsw i64 %.1.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds i32, ptr %0, i64 %38
-  %40 = add nsw i64 %37, 2
+  %39 = getelementptr inbounds nuw i32, ptr %0, i64 %38
+  %40 = add nuw nsw i64 %37, 2
   %41 = icmp slt i64 %40, %10
   br i1 %41, label %42, label %._crit_edge43.i.i
 
@@ -9831,11 +9831,11 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPaEEvT0_S3_RmS4_.e
 
 .thread.i:                                        ; preds = %24, %._crit_edge
   %69 = phi i1 [ %67, %._crit_edge ], [ true, %24 ]
-  %.lcssa109157 = phi i64 [ %65, %._crit_edge ], [ %28, %24 ]
-  %.4.lcssa155 = phi ptr [ %60, %._crit_edge ], [ %.3, %24 ]
-  %.079.lcssa151 = phi i64 [ %.382, %._crit_edge ], [ 0, %24 ]
-  %.091.lcssa146 = phi ptr [ %62, %._crit_edge ], [ %25, %24 ]
-  %70 = add nsw i64 %.lcssa109157, 1
+  %.lcssa109171 = phi i64 [ %65, %._crit_edge ], [ %28, %24 ]
+  %.4.lcssa169 = phi ptr [ %60, %._crit_edge ], [ %.3, %24 ]
+  %.079.lcssa165 = phi i64 [ %.382, %._crit_edge ], [ 0, %24 ]
+  %.091.lcssa160 = phi ptr [ %62, %._crit_edge ], [ %25, %24 ]
+  %70 = add nsw i64 %.lcssa109171, 1
   %71 = sdiv i64 %70, 2
   %72 = sub nsw i64 %70, %71
   br label %76
@@ -9847,9 +9847,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPaEEvT0_S3_RmS4_.e
 
 76:                                               ; preds = %73, %.thread.i
   %77 = phi i1 [ %69, %.thread.i ], [ %67, %73 ]
-  %.4.lcssa153 = phi ptr [ %.4.lcssa155, %.thread.i ], [ %60, %73 ]
-  %.079.lcssa149 = phi i64 [ %.079.lcssa151, %.thread.i ], [ %.382, %73 ]
-  %.091.lcssa144 = phi ptr [ %.091.lcssa146, %.thread.i ], [ %62, %73 ]
+  %.4.lcssa167 = phi ptr [ %.4.lcssa169, %.thread.i ], [ %60, %73 ]
+  %.079.lcssa163 = phi i64 [ %.079.lcssa165, %.thread.i ], [ %.382, %73 ]
+  %.091.lcssa158 = phi ptr [ %.091.lcssa160, %.thread.i ], [ %62, %73 ]
   %.052.i = phi i64 [ %71, %.thread.i ], [ %75, %73 ]
   %.04351.i = phi i64 [ %72, %.thread.i ], [ 64, %73 ]
   %78 = icmp sgt i64 %.052.i, 0
@@ -9858,7 +9858,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPaEEvT0_S3_RmS4_.e
 .lr.ph.i11:                                       ; preds = %76, %.lr.ph.i11
   %79 = phi i64 [ %84, %.lr.ph.i11 ], [ 0, %76 ]
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i13, %.lr.ph.i11 ], [ 0, %76 ]
-  %.04555.i = phi ptr [ %85, %.lr.ph.i11 ], [ %.4.lcssa153, %76 ]
+  %.04555.i = phi ptr [ %85, %.lr.ph.i11 ], [ %.4.lcssa167, %76 ]
   %80 = load i8, ptr %.04555.i, align 1, !tbaa !4
   %81 = icmp sge i8 %80, %3
   %82 = zext i1 %81 to i64
@@ -9871,9 +9871,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPaEEvT0_S3_RmS4_.e
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %76, %73
   %86 = phi i1 [ %77, %76 ], [ %67, %73 ], [ %77, %.lr.ph.i11 ]
-  %.4.lcssa152 = phi ptr [ %.4.lcssa153, %76 ], [ %60, %73 ], [ %.4.lcssa153, %.lr.ph.i11 ]
-  %.079.lcssa148 = phi i64 [ %.079.lcssa149, %76 ], [ %.382, %73 ], [ %.079.lcssa149, %.lr.ph.i11 ]
-  %.091.lcssa143 = phi ptr [ %.091.lcssa144, %76 ], [ %62, %73 ], [ %.091.lcssa144, %.lr.ph.i11 ]
+  %.4.lcssa166 = phi ptr [ %.4.lcssa167, %76 ], [ %60, %73 ], [ %.4.lcssa167, %.lr.ph.i11 ]
+  %.079.lcssa162 = phi i64 [ %.079.lcssa163, %76 ], [ %.382, %73 ], [ %.079.lcssa163, %.lr.ph.i11 ]
+  %.091.lcssa157 = phi ptr [ %.091.lcssa158, %76 ], [ %62, %73 ], [ %.091.lcssa158, %.lr.ph.i11 ]
   %.389 = phi i64 [ 0, %76 ], [ %.288, %73 ], [ %84, %.lr.ph.i11 ]
   %.053.i = phi i64 [ %.052.i, %76 ], [ 64, %73 ], [ %.052.i, %.lr.ph.i11 ]
   %.04350.i = phi i64 [ %.04351.i, %76 ], [ %75, %73 ], [ %.04351.i, %.lr.ph.i11 ]
@@ -9884,7 +9884,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPaEEvT0_S3_RmS4_.e
 .lr.ph59.i:                                       ; preds = %.loopexit54.i, %.lr.ph59.i
   %88 = phi i64 [ %93, %.lr.ph59.i ], [ 0, %.loopexit54.i ]
   %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %.lr.ph59.i ], [ 0, %.loopexit54.i ]
-  %.04257.i = phi ptr [ %94, %.lr.ph59.i ], [ %.091.lcssa143, %.loopexit54.i ]
+  %.04257.i = phi ptr [ %94, %.lr.ph59.i ], [ %.091.lcssa157, %.loopexit54.i ]
   %89 = load i8, ptr %.04257.i, align 1, !tbaa !4
   %90 = icmp slt i8 %89, %3
   %91 = zext i1 %90 to i64
@@ -9896,7 +9896,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPaEEvT0_S3_RmS4_.e
   br i1 %exitcond65.not.i, label %.loopexit.i, label %.lr.ph59.i, !llvm.loop !241
 
 .loopexit.i:                                      ; preds = %.lr.ph59.i, %.loopexit54.i
-  %.483 = phi i64 [ %.079.lcssa148, %.loopexit54.i ], [ %93, %.lr.ph59.i ]
+  %.483 = phi i64 [ %.079.lcssa162, %.loopexit54.i ], [ %93, %.lr.ph59.i ]
   %.not13.i.i = icmp eq i64 %.389, 0
   %.not1114.i.i = icmp eq i64 %.483, 0
   %or.cond15.i.i = select i1 %.not13.i.i, i1 true, i1 %.not1114.i.i
@@ -9911,9 +9911,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPaEEvT0_S3_RmS4_.e
   %99 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.584, i1 false)
   %100 = add i64 %.584, -1
   %101 = and i64 %100, %.584
-  %102 = getelementptr inbounds nuw i8, ptr %.4.lcssa152, i64 %96
+  %102 = getelementptr inbounds nuw i8, ptr %.4.lcssa166, i64 %96
   %103 = sub nsw i64 0, %99
-  %104 = getelementptr inbounds i8, ptr %.091.lcssa143, i64 %103
+  %104 = getelementptr inbounds i8, ptr %.091.lcssa157, i64 %103
   %105 = load i8, ptr %102, align 1, !tbaa !4
   %106 = load i8, ptr %104, align 1, !tbaa !4
   store i8 %106, ptr %102, align 1, !tbaa !4
@@ -9928,11 +9928,11 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %107 = phi i64 [ %.389, %.loopexit.i ], [ %98, %.lr.ph.i.i ]
   %108 = icmp eq i64 %107, 0
   %109 = select i1 %108, i64 %.053.i, i64 0
-  %110 = getelementptr inbounds i8, ptr %.4.lcssa152, i64 %109
+  %110 = getelementptr inbounds i8, ptr %.4.lcssa166, i64 %109
   %111 = icmp eq i64 %.685, 0
   %112 = select i1 %111, i64 %.04350.i, i64 0
   %113 = sub i64 0, %112
-  %114 = getelementptr inbounds i8, ptr %.091.lcssa143, i64 %113
+  %114 = getelementptr inbounds i8, ptr %.091.lcssa157, i64 %113
   br i1 %108, label %126, label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaaEEvRT1_S6_T0_RT2_RmSA_.exit, %124
@@ -10269,10 +10269,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
   br i1 %34, label %50, label %35
 
 35:                                               ; preds = %.preheader.i.i
-  %36 = shl nsw i64 %.1.i.i, 1
+  %36 = shl nuw nsw i64 %.1.i.i, 1
   %37 = or disjoint i64 %36, 1
-  %38 = getelementptr inbounds i8, ptr %0, i64 %37
-  %39 = add nsw i64 %36, 2
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %37
+  %39 = add nuw nsw i64 %36, 2
   %40 = icmp slt i64 %39, %9
   br i1 %40, label %41, label %._crit_edge43.i.i
 
@@ -10672,11 +10672,11 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPhEEvT0_S3_RmS4_.e
 
 .thread.i:                                        ; preds = %24, %._crit_edge
   %69 = phi i1 [ %67, %._crit_edge ], [ true, %24 ]
-  %.lcssa109157 = phi i64 [ %65, %._crit_edge ], [ %28, %24 ]
-  %.4.lcssa155 = phi ptr [ %60, %._crit_edge ], [ %.3, %24 ]
-  %.079.lcssa151 = phi i64 [ %.382, %._crit_edge ], [ 0, %24 ]
-  %.091.lcssa146 = phi ptr [ %62, %._crit_edge ], [ %25, %24 ]
-  %70 = add nsw i64 %.lcssa109157, 1
+  %.lcssa109171 = phi i64 [ %65, %._crit_edge ], [ %28, %24 ]
+  %.4.lcssa169 = phi ptr [ %60, %._crit_edge ], [ %.3, %24 ]
+  %.079.lcssa165 = phi i64 [ %.382, %._crit_edge ], [ 0, %24 ]
+  %.091.lcssa160 = phi ptr [ %62, %._crit_edge ], [ %25, %24 ]
+  %70 = add nsw i64 %.lcssa109171, 1
   %71 = sdiv i64 %70, 2
   %72 = sub nsw i64 %70, %71
   br label %76
@@ -10688,9 +10688,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPhEEvT0_S3_RmS4_.e
 
 76:                                               ; preds = %73, %.thread.i
   %77 = phi i1 [ %69, %.thread.i ], [ %67, %73 ]
-  %.4.lcssa153 = phi ptr [ %.4.lcssa155, %.thread.i ], [ %60, %73 ]
-  %.079.lcssa149 = phi i64 [ %.079.lcssa151, %.thread.i ], [ %.382, %73 ]
-  %.091.lcssa144 = phi ptr [ %.091.lcssa146, %.thread.i ], [ %62, %73 ]
+  %.4.lcssa167 = phi ptr [ %.4.lcssa169, %.thread.i ], [ %60, %73 ]
+  %.079.lcssa163 = phi i64 [ %.079.lcssa165, %.thread.i ], [ %.382, %73 ]
+  %.091.lcssa158 = phi ptr [ %.091.lcssa160, %.thread.i ], [ %62, %73 ]
   %.052.i = phi i64 [ %71, %.thread.i ], [ %75, %73 ]
   %.04351.i = phi i64 [ %72, %.thread.i ], [ 64, %73 ]
   %78 = icmp sgt i64 %.052.i, 0
@@ -10699,7 +10699,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPhEEvT0_S3_RmS4_.e
 .lr.ph.i11:                                       ; preds = %76, %.lr.ph.i11
   %79 = phi i64 [ %84, %.lr.ph.i11 ], [ 0, %76 ]
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i13, %.lr.ph.i11 ], [ 0, %76 ]
-  %.04555.i = phi ptr [ %85, %.lr.ph.i11 ], [ %.4.lcssa153, %76 ]
+  %.04555.i = phi ptr [ %85, %.lr.ph.i11 ], [ %.4.lcssa167, %76 ]
   %80 = load i8, ptr %.04555.i, align 1, !tbaa !4
   %81 = icmp uge i8 %80, %3
   %82 = zext i1 %81 to i64
@@ -10712,9 +10712,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPhEEvT0_S3_RmS4_.e
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %76, %73
   %86 = phi i1 [ %77, %76 ], [ %67, %73 ], [ %77, %.lr.ph.i11 ]
-  %.4.lcssa152 = phi ptr [ %.4.lcssa153, %76 ], [ %60, %73 ], [ %.4.lcssa153, %.lr.ph.i11 ]
-  %.079.lcssa148 = phi i64 [ %.079.lcssa149, %76 ], [ %.382, %73 ], [ %.079.lcssa149, %.lr.ph.i11 ]
-  %.091.lcssa143 = phi ptr [ %.091.lcssa144, %76 ], [ %62, %73 ], [ %.091.lcssa144, %.lr.ph.i11 ]
+  %.4.lcssa166 = phi ptr [ %.4.lcssa167, %76 ], [ %60, %73 ], [ %.4.lcssa167, %.lr.ph.i11 ]
+  %.079.lcssa162 = phi i64 [ %.079.lcssa163, %76 ], [ %.382, %73 ], [ %.079.lcssa163, %.lr.ph.i11 ]
+  %.091.lcssa157 = phi ptr [ %.091.lcssa158, %76 ], [ %62, %73 ], [ %.091.lcssa158, %.lr.ph.i11 ]
   %.389 = phi i64 [ 0, %76 ], [ %.288, %73 ], [ %84, %.lr.ph.i11 ]
   %.053.i = phi i64 [ %.052.i, %76 ], [ 64, %73 ], [ %.052.i, %.lr.ph.i11 ]
   %.04350.i = phi i64 [ %.04351.i, %76 ], [ %75, %73 ], [ %.04351.i, %.lr.ph.i11 ]
@@ -10725,7 +10725,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPhEEvT0_S3_RmS4_.e
 .lr.ph59.i:                                       ; preds = %.loopexit54.i, %.lr.ph59.i
   %88 = phi i64 [ %93, %.lr.ph59.i ], [ 0, %.loopexit54.i ]
   %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %.lr.ph59.i ], [ 0, %.loopexit54.i ]
-  %.04257.i = phi ptr [ %94, %.lr.ph59.i ], [ %.091.lcssa143, %.loopexit54.i ]
+  %.04257.i = phi ptr [ %94, %.lr.ph59.i ], [ %.091.lcssa157, %.loopexit54.i ]
   %89 = load i8, ptr %.04257.i, align 1, !tbaa !4
   %90 = icmp ult i8 %89, %3
   %91 = zext i1 %90 to i64
@@ -10737,7 +10737,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPhEEvT0_S3_RmS4_.e
   br i1 %exitcond65.not.i, label %.loopexit.i, label %.lr.ph59.i, !llvm.loop !260
 
 .loopexit.i:                                      ; preds = %.lr.ph59.i, %.loopexit54.i
-  %.483 = phi i64 [ %.079.lcssa148, %.loopexit54.i ], [ %93, %.lr.ph59.i ]
+  %.483 = phi i64 [ %.079.lcssa162, %.loopexit54.i ], [ %93, %.lr.ph59.i ]
   %.not13.i.i = icmp eq i64 %.389, 0
   %.not1114.i.i = icmp eq i64 %.483, 0
   %or.cond15.i.i = select i1 %.not13.i.i, i1 true, i1 %.not1114.i.i
@@ -10752,9 +10752,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPhEEvT0_S3_RmS4_.e
   %99 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.584, i1 false)
   %100 = add i64 %.584, -1
   %101 = and i64 %100, %.584
-  %102 = getelementptr inbounds nuw i8, ptr %.4.lcssa152, i64 %96
+  %102 = getelementptr inbounds nuw i8, ptr %.4.lcssa166, i64 %96
   %103 = sub nsw i64 0, %99
-  %104 = getelementptr inbounds i8, ptr %.091.lcssa143, i64 %103
+  %104 = getelementptr inbounds i8, ptr %.091.lcssa157, i64 %103
   %105 = load i8, ptr %102, align 1, !tbaa !4
   %106 = load i8, ptr %104, align 1, !tbaa !4
   store i8 %106, ptr %102, align 1, !tbaa !4
@@ -10769,11 +10769,11 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %107 = phi i64 [ %.389, %.loopexit.i ], [ %98, %.lr.ph.i.i ]
   %108 = icmp eq i64 %107, 0
   %109 = select i1 %108, i64 %.053.i, i64 0
-  %110 = getelementptr inbounds i8, ptr %.4.lcssa152, i64 %109
+  %110 = getelementptr inbounds i8, ptr %.4.lcssa166, i64 %109
   %111 = icmp eq i64 %.685, 0
   %112 = select i1 %111, i64 %.04350.i, i64 0
   %113 = sub i64 0, %112
-  %114 = getelementptr inbounds i8, ptr %.091.lcssa143, i64 %113
+  %114 = getelementptr inbounds i8, ptr %.091.lcssa157, i64 %113
   br i1 %108, label %126, label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhhEEvRT1_S6_T0_RT2_RmSA_.exit, %124
@@ -11110,10 +11110,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
   br i1 %34, label %50, label %35
 
 35:                                               ; preds = %.preheader.i.i
-  %36 = shl nsw i64 %.1.i.i, 1
+  %36 = shl nuw nsw i64 %.1.i.i, 1
   %37 = or disjoint i64 %36, 1
-  %38 = getelementptr inbounds i8, ptr %0, i64 %37
-  %39 = add nsw i64 %36, 2
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %37
+  %39 = add nuw nsw i64 %36, 2
   %40 = icmp slt i64 %39, %9
   br i1 %40, label %41, label %._crit_edge43.i.i
 
@@ -11519,9 +11519,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPsEEvT0_S3_RmS4_.e
 .thread.i:                                        ; preds = %._crit_edge.thread, %._crit_edge
   %71 = phi i1 [ true, %._crit_edge.thread ], [ %68, %._crit_edge ]
   %72 = phi i64 [ %70, %._crit_edge.thread ], [ %67, %._crit_edge ]
-  %.4.lcssa157 = phi ptr [ %.3, %._crit_edge.thread ], [ %60, %._crit_edge ]
-  %.077.lcssa153 = phi i64 [ 0, %._crit_edge.thread ], [ %.380, %._crit_edge ]
-  %.092.lcssa148 = phi ptr [ %25, %._crit_edge.thread ], [ %62, %._crit_edge ]
+  %.4.lcssa172 = phi ptr [ %.3, %._crit_edge.thread ], [ %60, %._crit_edge ]
+  %.077.lcssa168 = phi i64 [ 0, %._crit_edge.thread ], [ %.380, %._crit_edge ]
+  %.092.lcssa163 = phi ptr [ %25, %._crit_edge.thread ], [ %62, %._crit_edge ]
   %73 = add nsw i64 %72, 1
   %74 = sdiv i64 %73, 2
   %75 = sub nsw i64 %73, %74
@@ -11534,9 +11534,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPsEEvT0_S3_RmS4_.e
 
 79:                                               ; preds = %76, %.thread.i
   %80 = phi i1 [ %71, %.thread.i ], [ %68, %76 ]
-  %.4.lcssa155 = phi ptr [ %.4.lcssa157, %.thread.i ], [ %60, %76 ]
-  %.077.lcssa151 = phi i64 [ %.077.lcssa153, %.thread.i ], [ %.380, %76 ]
-  %.092.lcssa146 = phi ptr [ %.092.lcssa148, %.thread.i ], [ %62, %76 ]
+  %.4.lcssa170 = phi ptr [ %.4.lcssa172, %.thread.i ], [ %60, %76 ]
+  %.077.lcssa166 = phi i64 [ %.077.lcssa168, %.thread.i ], [ %.380, %76 ]
+  %.092.lcssa161 = phi ptr [ %.092.lcssa163, %.thread.i ], [ %62, %76 ]
   %.052.i = phi i64 [ %74, %.thread.i ], [ %78, %76 ]
   %.04351.i = phi i64 [ %75, %.thread.i ], [ 64, %76 ]
   %81 = icmp sgt i64 %.052.i, 0
@@ -11544,7 +11544,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPsEEvT0_S3_RmS4_.e
 
 .lr.ph.i11:                                       ; preds = %79, %.lr.ph.i11
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i13, %.lr.ph.i11 ], [ 0, %79 ]
-  %.04555.i = phi ptr [ %88, %.lr.ph.i11 ], [ %.4.lcssa155, %79 ]
+  %.04555.i = phi ptr [ %88, %.lr.ph.i11 ], [ %.4.lcssa170, %79 ]
   %82 = phi i64 [ %87, %.lr.ph.i11 ], [ 0, %79 ]
   %83 = load i16, ptr %.04555.i, align 2, !tbaa !54
   %84 = icmp sge i16 %83, %3
@@ -11558,9 +11558,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPsEEvT0_S3_RmS4_.e
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %79, %76
   %89 = phi i1 [ %80, %79 ], [ %68, %76 ], [ %80, %.lr.ph.i11 ]
-  %.4.lcssa154 = phi ptr [ %.4.lcssa155, %79 ], [ %60, %76 ], [ %.4.lcssa155, %.lr.ph.i11 ]
-  %.077.lcssa150 = phi i64 [ %.077.lcssa151, %79 ], [ %.380, %76 ], [ %.077.lcssa151, %.lr.ph.i11 ]
-  %.092.lcssa145 = phi ptr [ %.092.lcssa146, %79 ], [ %62, %76 ], [ %.092.lcssa146, %.lr.ph.i11 ]
+  %.4.lcssa169 = phi ptr [ %.4.lcssa170, %79 ], [ %60, %76 ], [ %.4.lcssa170, %.lr.ph.i11 ]
+  %.077.lcssa165 = phi i64 [ %.077.lcssa166, %79 ], [ %.380, %76 ], [ %.077.lcssa166, %.lr.ph.i11 ]
+  %.092.lcssa160 = phi ptr [ %.092.lcssa161, %79 ], [ %62, %76 ], [ %.092.lcssa161, %.lr.ph.i11 ]
   %.388 = phi i64 [ 0, %79 ], [ %.287, %76 ], [ %87, %.lr.ph.i11 ]
   %.053.i = phi i64 [ %.052.i, %79 ], [ 64, %76 ], [ %.052.i, %.lr.ph.i11 ]
   %.04350.i = phi i64 [ %.04351.i, %79 ], [ %78, %76 ], [ %.04351.i, %.lr.ph.i11 ]
@@ -11572,7 +11572,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPsEEvT0_S3_RmS4_.e
 
 .lr.ph60.i:                                       ; preds = %.preheader.i, %.lr.ph60.i
   %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %.lr.ph60.i ], [ 0, %.preheader.i ]
-  %.04258.i = phi ptr [ %97, %.lr.ph60.i ], [ %.092.lcssa145, %.preheader.i ]
+  %.04258.i = phi ptr [ %97, %.lr.ph60.i ], [ %.092.lcssa160, %.preheader.i ]
   %91 = phi i64 [ %96, %.lr.ph60.i ], [ 0, %.preheader.i ]
   %92 = load i16, ptr %.04258.i, align 2, !tbaa !54
   %93 = icmp slt i16 %92, %3
@@ -11585,7 +11585,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPsEEvT0_S3_RmS4_.e
   br i1 %exitcond67.not.i, label %.loopexit.i, label %.lr.ph60.i, !llvm.loop !279
 
 .loopexit.i:                                      ; preds = %.lr.ph60.i, %.loopexit54.i
-  %.481 = phi i64 [ %.077.lcssa150, %.loopexit54.i ], [ %96, %.lr.ph60.i ]
+  %.481 = phi i64 [ %.077.lcssa165, %.loopexit54.i ], [ %96, %.lr.ph60.i ]
   %.not13.i.i = icmp eq i64 %.388, 0
   %.not1114.i.i = icmp eq i64 %.481, 0
   %or.cond15.i.i = select i1 %.not13.i.i, i1 true, i1 %.not1114.i.i
@@ -11600,9 +11600,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPsEEvT0_S3_RmS4_.e
   %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.582, i1 false)
   %103 = add i64 %.582, -1
   %104 = and i64 %103, %.582
-  %105 = getelementptr inbounds nuw i16, ptr %.4.lcssa154, i64 %99
+  %105 = getelementptr inbounds nuw i16, ptr %.4.lcssa169, i64 %99
   %106 = sub nsw i64 0, %102
-  %107 = getelementptr inbounds i16, ptr %.092.lcssa145, i64 %106
+  %107 = getelementptr inbounds i16, ptr %.092.lcssa160, i64 %106
   %108 = load i16, ptr %105, align 2, !tbaa !54
   %109 = load i16, ptr %107, align 2, !tbaa !54
   store i16 %109, ptr %105, align 2, !tbaa !54
@@ -11621,29 +11621,29 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %113 = icmp eq i64 %.fr.i, 0
   %spec.select = select i1 %113, i64 %.04350.i, i64 0
   %114 = sub nsw i64 0, %spec.select
-  %115 = getelementptr inbounds i16, ptr %.092.lcssa145, i64 %114
+  %115 = getelementptr inbounds i16, ptr %.092.lcssa160, i64 %114
   %.not.i15 = icmp eq i64 %110, 0
   br i1 %.not.i15, label %135, label %.preheader30.i.preheader
 
 _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPssEEvRT1_S6_T0_RT2_RmSA_.exit.thread: ; preds = %.preheader.i
   %116 = icmp eq i64 %.388, 0
   %117 = select i1 %116, i64 %.053.i, i64 0
-  %.6165 = getelementptr inbounds i16, ptr %.4.lcssa154, i64 %117
+  %.6180 = getelementptr inbounds i16, ptr %.4.lcssa169, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds nuw i16, ptr %.092.lcssa145, i64 %118
-  %.not.i15166 = icmp eq i64 %.388, 0
-  br i1 %.not.i15166, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPsEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
+  %119 = getelementptr inbounds nuw i16, ptr %.092.lcssa160, i64 %118
+  %.not.i15181 = icmp eq i64 %.388, 0
+  br i1 %.not.i15181, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPsEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
 .preheader30.i.preheader:                         ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPssEEvRT1_S6_T0_RT2_RmSA_.exit.thread, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPssEEvRT1_S6_T0_RT2_RmSA_.exit
   %120 = phi ptr [ %119, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPssEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %115, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPssEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %121 = phi i64 [ %117, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPssEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %112, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPssEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %.691167 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPssEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPssEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %122 = getelementptr inbounds i16, ptr %.4.lcssa154, i64 %121
+  %.691182 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPssEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPssEEvRT1_S6_T0_RT2_RmSA_.exit ]
+  %122 = getelementptr inbounds i16, ptr %.4.lcssa169, i64 %121
   br label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %.preheader30.i.preheader, %133
   %123 = phi ptr [ %134, %133 ], [ %120, %.preheader30.i.preheader ]
-  %124 = phi i64 [ %128, %133 ], [ %.691167, %.preheader30.i.preheader ]
+  %124 = phi i64 [ %128, %133 ], [ %.691182, %.preheader30.i.preheader ]
   %125 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %124, i1 true)
   %126 = xor i64 %125, 63
   %notmask26.i = shl nsw i64 -1, %126
@@ -11666,7 +11666,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not25.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPsEEvRT0_S4_RmS5_.exit, label %.preheader30.i, !llvm.loop !280
 
 135:                                              ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPssEEvRT1_S6_T0_RT2_RmSA_.exit
-  %.6 = getelementptr inbounds i16, ptr %.4.lcssa154, i64 %112
+  %.6 = getelementptr inbounds i16, ptr %.4.lcssa169, i64 %112
   %.not22.i = icmp eq i64 %.fr.i, 0
   br i1 %.not22.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPsEEvRT0_S4_RmS5_.exit, label %.preheader.i17
 
@@ -11696,7 +11696,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not23.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPsEEvRT0_S4_RmS5_.exit, label %.preheader.i17, !llvm.loop !281
 
 _ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPsEEvRT0_S4_RmS5_.exit: ; preds = %133, %147, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPssEEvRT1_S6_T0_RT2_RmSA_.exit.thread, %135
-  %.7 = phi ptr [ %.6, %135 ], [ %.6165, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPssEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %148, %147 ], [ %123, %133 ]
+  %.7 = phi ptr [ %.6, %135 ], [ %.6180, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPssEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %148, %147 ], [ %123, %133 ]
   %149 = getelementptr inbounds i8, ptr %.7, i64 -2
   %.not = icmp eq ptr %0, %149
   br i1 %.not, label %152, label %150
@@ -11979,10 +11979,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
   br i1 %34, label %50, label %35
 
 35:                                               ; preds = %.preheader.i.i
-  %36 = shl nsw i64 %.1.i.i, 1
+  %36 = shl nuw nsw i64 %.1.i.i, 1
   %37 = or disjoint i64 %36, 1
-  %38 = getelementptr inbounds i16, ptr %0, i64 %37
-  %39 = add nsw i64 %36, 2
+  %38 = getelementptr inbounds nuw i16, ptr %0, i64 %37
+  %39 = add nuw nsw i64 %36, 2
   %40 = icmp slt i64 %39, %10
   br i1 %40, label %41, label %._crit_edge42.i.i
 
@@ -12389,9 +12389,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPtEEvT0_S3_RmS4_.e
 .thread.i:                                        ; preds = %._crit_edge.thread, %._crit_edge
   %71 = phi i1 [ true, %._crit_edge.thread ], [ %68, %._crit_edge ]
   %72 = phi i64 [ %70, %._crit_edge.thread ], [ %67, %._crit_edge ]
-  %.4.lcssa157 = phi ptr [ %.3, %._crit_edge.thread ], [ %60, %._crit_edge ]
-  %.077.lcssa153 = phi i64 [ 0, %._crit_edge.thread ], [ %.380, %._crit_edge ]
-  %.092.lcssa148 = phi ptr [ %25, %._crit_edge.thread ], [ %62, %._crit_edge ]
+  %.4.lcssa172 = phi ptr [ %.3, %._crit_edge.thread ], [ %60, %._crit_edge ]
+  %.077.lcssa168 = phi i64 [ 0, %._crit_edge.thread ], [ %.380, %._crit_edge ]
+  %.092.lcssa163 = phi ptr [ %25, %._crit_edge.thread ], [ %62, %._crit_edge ]
   %73 = add nsw i64 %72, 1
   %74 = sdiv i64 %73, 2
   %75 = sub nsw i64 %73, %74
@@ -12404,9 +12404,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPtEEvT0_S3_RmS4_.e
 
 79:                                               ; preds = %76, %.thread.i
   %80 = phi i1 [ %71, %.thread.i ], [ %68, %76 ]
-  %.4.lcssa155 = phi ptr [ %.4.lcssa157, %.thread.i ], [ %60, %76 ]
-  %.077.lcssa151 = phi i64 [ %.077.lcssa153, %.thread.i ], [ %.380, %76 ]
-  %.092.lcssa146 = phi ptr [ %.092.lcssa148, %.thread.i ], [ %62, %76 ]
+  %.4.lcssa170 = phi ptr [ %.4.lcssa172, %.thread.i ], [ %60, %76 ]
+  %.077.lcssa166 = phi i64 [ %.077.lcssa168, %.thread.i ], [ %.380, %76 ]
+  %.092.lcssa161 = phi ptr [ %.092.lcssa163, %.thread.i ], [ %62, %76 ]
   %.052.i = phi i64 [ %74, %.thread.i ], [ %78, %76 ]
   %.04351.i = phi i64 [ %75, %.thread.i ], [ 64, %76 ]
   %81 = icmp sgt i64 %.052.i, 0
@@ -12414,7 +12414,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPtEEvT0_S3_RmS4_.e
 
 .lr.ph.i11:                                       ; preds = %79, %.lr.ph.i11
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i13, %.lr.ph.i11 ], [ 0, %79 ]
-  %.04555.i = phi ptr [ %88, %.lr.ph.i11 ], [ %.4.lcssa155, %79 ]
+  %.04555.i = phi ptr [ %88, %.lr.ph.i11 ], [ %.4.lcssa170, %79 ]
   %82 = phi i64 [ %87, %.lr.ph.i11 ], [ 0, %79 ]
   %83 = load i16, ptr %.04555.i, align 2, !tbaa !54
   %84 = icmp uge i16 %83, %3
@@ -12428,9 +12428,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPtEEvT0_S3_RmS4_.e
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %79, %76
   %89 = phi i1 [ %80, %79 ], [ %68, %76 ], [ %80, %.lr.ph.i11 ]
-  %.4.lcssa154 = phi ptr [ %.4.lcssa155, %79 ], [ %60, %76 ], [ %.4.lcssa155, %.lr.ph.i11 ]
-  %.077.lcssa150 = phi i64 [ %.077.lcssa151, %79 ], [ %.380, %76 ], [ %.077.lcssa151, %.lr.ph.i11 ]
-  %.092.lcssa145 = phi ptr [ %.092.lcssa146, %79 ], [ %62, %76 ], [ %.092.lcssa146, %.lr.ph.i11 ]
+  %.4.lcssa169 = phi ptr [ %.4.lcssa170, %79 ], [ %60, %76 ], [ %.4.lcssa170, %.lr.ph.i11 ]
+  %.077.lcssa165 = phi i64 [ %.077.lcssa166, %79 ], [ %.380, %76 ], [ %.077.lcssa166, %.lr.ph.i11 ]
+  %.092.lcssa160 = phi ptr [ %.092.lcssa161, %79 ], [ %62, %76 ], [ %.092.lcssa161, %.lr.ph.i11 ]
   %.388 = phi i64 [ 0, %79 ], [ %.287, %76 ], [ %87, %.lr.ph.i11 ]
   %.053.i = phi i64 [ %.052.i, %79 ], [ 64, %76 ], [ %.052.i, %.lr.ph.i11 ]
   %.04350.i = phi i64 [ %.04351.i, %79 ], [ %78, %76 ], [ %.04351.i, %.lr.ph.i11 ]
@@ -12442,7 +12442,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPtEEvT0_S3_RmS4_.e
 
 .lr.ph60.i:                                       ; preds = %.preheader.i, %.lr.ph60.i
   %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %.lr.ph60.i ], [ 0, %.preheader.i ]
-  %.04258.i = phi ptr [ %97, %.lr.ph60.i ], [ %.092.lcssa145, %.preheader.i ]
+  %.04258.i = phi ptr [ %97, %.lr.ph60.i ], [ %.092.lcssa160, %.preheader.i ]
   %91 = phi i64 [ %96, %.lr.ph60.i ], [ 0, %.preheader.i ]
   %92 = load i16, ptr %.04258.i, align 2, !tbaa !54
   %93 = icmp ult i16 %92, %3
@@ -12455,7 +12455,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPtEEvT0_S3_RmS4_.e
   br i1 %exitcond67.not.i, label %.loopexit.i, label %.lr.ph60.i, !llvm.loop !298
 
 .loopexit.i:                                      ; preds = %.lr.ph60.i, %.loopexit54.i
-  %.481 = phi i64 [ %.077.lcssa150, %.loopexit54.i ], [ %96, %.lr.ph60.i ]
+  %.481 = phi i64 [ %.077.lcssa165, %.loopexit54.i ], [ %96, %.lr.ph60.i ]
   %.not13.i.i = icmp eq i64 %.388, 0
   %.not1114.i.i = icmp eq i64 %.481, 0
   %or.cond15.i.i = select i1 %.not13.i.i, i1 true, i1 %.not1114.i.i
@@ -12470,9 +12470,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPtEEvT0_S3_RmS4_.e
   %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.582, i1 false)
   %103 = add i64 %.582, -1
   %104 = and i64 %103, %.582
-  %105 = getelementptr inbounds nuw i16, ptr %.4.lcssa154, i64 %99
+  %105 = getelementptr inbounds nuw i16, ptr %.4.lcssa169, i64 %99
   %106 = sub nsw i64 0, %102
-  %107 = getelementptr inbounds i16, ptr %.092.lcssa145, i64 %106
+  %107 = getelementptr inbounds i16, ptr %.092.lcssa160, i64 %106
   %108 = load i16, ptr %105, align 2, !tbaa !54
   %109 = load i16, ptr %107, align 2, !tbaa !54
   store i16 %109, ptr %105, align 2, !tbaa !54
@@ -12491,29 +12491,29 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %113 = icmp eq i64 %.fr.i, 0
   %spec.select = select i1 %113, i64 %.04350.i, i64 0
   %114 = sub nsw i64 0, %spec.select
-  %115 = getelementptr inbounds i16, ptr %.092.lcssa145, i64 %114
+  %115 = getelementptr inbounds i16, ptr %.092.lcssa160, i64 %114
   %.not.i15 = icmp eq i64 %110, 0
   br i1 %.not.i15, label %135, label %.preheader30.i.preheader
 
 _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPttEEvRT1_S6_T0_RT2_RmSA_.exit.thread: ; preds = %.preheader.i
   %116 = icmp eq i64 %.388, 0
   %117 = select i1 %116, i64 %.053.i, i64 0
-  %.6165 = getelementptr inbounds i16, ptr %.4.lcssa154, i64 %117
+  %.6180 = getelementptr inbounds i16, ptr %.4.lcssa169, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds nuw i16, ptr %.092.lcssa145, i64 %118
-  %.not.i15166 = icmp eq i64 %.388, 0
-  br i1 %.not.i15166, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPtEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
+  %119 = getelementptr inbounds nuw i16, ptr %.092.lcssa160, i64 %118
+  %.not.i15181 = icmp eq i64 %.388, 0
+  br i1 %.not.i15181, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPtEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
 .preheader30.i.preheader:                         ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPttEEvRT1_S6_T0_RT2_RmSA_.exit.thread, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPttEEvRT1_S6_T0_RT2_RmSA_.exit
   %120 = phi ptr [ %119, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPttEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %115, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPttEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %121 = phi i64 [ %117, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPttEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %112, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPttEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %.691167 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPttEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPttEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %122 = getelementptr inbounds i16, ptr %.4.lcssa154, i64 %121
+  %.691182 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPttEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPttEEvRT1_S6_T0_RT2_RmSA_.exit ]
+  %122 = getelementptr inbounds i16, ptr %.4.lcssa169, i64 %121
   br label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %.preheader30.i.preheader, %133
   %123 = phi ptr [ %134, %133 ], [ %120, %.preheader30.i.preheader ]
-  %124 = phi i64 [ %128, %133 ], [ %.691167, %.preheader30.i.preheader ]
+  %124 = phi i64 [ %128, %133 ], [ %.691182, %.preheader30.i.preheader ]
   %125 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %124, i1 true)
   %126 = xor i64 %125, 63
   %notmask26.i = shl nsw i64 -1, %126
@@ -12536,7 +12536,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not25.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPtEEvRT0_S4_RmS5_.exit, label %.preheader30.i, !llvm.loop !299
 
 135:                                              ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPttEEvRT1_S6_T0_RT2_RmSA_.exit
-  %.6 = getelementptr inbounds i16, ptr %.4.lcssa154, i64 %112
+  %.6 = getelementptr inbounds i16, ptr %.4.lcssa169, i64 %112
   %.not22.i = icmp eq i64 %.fr.i, 0
   br i1 %.not22.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPtEEvRT0_S4_RmS5_.exit, label %.preheader.i17
 
@@ -12566,7 +12566,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not23.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPtEEvRT0_S4_RmS5_.exit, label %.preheader.i17, !llvm.loop !300
 
 _ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPtEEvRT0_S4_RmS5_.exit: ; preds = %133, %147, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPttEEvRT1_S6_T0_RT2_RmSA_.exit.thread, %135
-  %.7 = phi ptr [ %.6, %135 ], [ %.6165, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPttEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %148, %147 ], [ %123, %133 ]
+  %.7 = phi ptr [ %.6, %135 ], [ %.6180, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPttEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %148, %147 ], [ %123, %133 ]
   %149 = getelementptr inbounds i8, ptr %.7, i64 -2
   %.not = icmp eq ptr %0, %149
   br i1 %.not, label %152, label %150
@@ -12849,10 +12849,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
   br i1 %34, label %50, label %35
 
 35:                                               ; preds = %.preheader.i.i
-  %36 = shl nsw i64 %.1.i.i, 1
+  %36 = shl nuw nsw i64 %.1.i.i, 1
   %37 = or disjoint i64 %36, 1
-  %38 = getelementptr inbounds i16, ptr %0, i64 %37
-  %39 = add nsw i64 %36, 2
+  %38 = getelementptr inbounds nuw i16, ptr %0, i64 %37
+  %39 = add nuw nsw i64 %36, 2
   %40 = icmp slt i64 %39, %10
   br i1 %40, label %41, label %._crit_edge42.i.i
 
@@ -13259,9 +13259,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPiEEvT0_S3_RmS4_.e
 .thread.i:                                        ; preds = %._crit_edge.thread, %._crit_edge
   %71 = phi i1 [ true, %._crit_edge.thread ], [ %68, %._crit_edge ]
   %72 = phi i64 [ %70, %._crit_edge.thread ], [ %67, %._crit_edge ]
-  %.4.lcssa157 = phi ptr [ %.3, %._crit_edge.thread ], [ %60, %._crit_edge ]
-  %.077.lcssa153 = phi i64 [ 0, %._crit_edge.thread ], [ %.380, %._crit_edge ]
-  %.092.lcssa148 = phi ptr [ %25, %._crit_edge.thread ], [ %62, %._crit_edge ]
+  %.4.lcssa172 = phi ptr [ %.3, %._crit_edge.thread ], [ %60, %._crit_edge ]
+  %.077.lcssa168 = phi i64 [ 0, %._crit_edge.thread ], [ %.380, %._crit_edge ]
+  %.092.lcssa163 = phi ptr [ %25, %._crit_edge.thread ], [ %62, %._crit_edge ]
   %73 = add nsw i64 %72, 1
   %74 = sdiv i64 %73, 2
   %75 = sub nsw i64 %73, %74
@@ -13274,9 +13274,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPiEEvT0_S3_RmS4_.e
 
 79:                                               ; preds = %76, %.thread.i
   %80 = phi i1 [ %71, %.thread.i ], [ %68, %76 ]
-  %.4.lcssa155 = phi ptr [ %.4.lcssa157, %.thread.i ], [ %60, %76 ]
-  %.077.lcssa151 = phi i64 [ %.077.lcssa153, %.thread.i ], [ %.380, %76 ]
-  %.092.lcssa146 = phi ptr [ %.092.lcssa148, %.thread.i ], [ %62, %76 ]
+  %.4.lcssa170 = phi ptr [ %.4.lcssa172, %.thread.i ], [ %60, %76 ]
+  %.077.lcssa166 = phi i64 [ %.077.lcssa168, %.thread.i ], [ %.380, %76 ]
+  %.092.lcssa161 = phi ptr [ %.092.lcssa163, %.thread.i ], [ %62, %76 ]
   %.052.i = phi i64 [ %74, %.thread.i ], [ %78, %76 ]
   %.04351.i = phi i64 [ %75, %.thread.i ], [ 64, %76 ]
   %81 = icmp sgt i64 %.052.i, 0
@@ -13284,7 +13284,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPiEEvT0_S3_RmS4_.e
 
 .lr.ph.i11:                                       ; preds = %79, %.lr.ph.i11
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i13, %.lr.ph.i11 ], [ 0, %79 ]
-  %.04555.i = phi ptr [ %88, %.lr.ph.i11 ], [ %.4.lcssa155, %79 ]
+  %.04555.i = phi ptr [ %88, %.lr.ph.i11 ], [ %.4.lcssa170, %79 ]
   %82 = phi i64 [ %87, %.lr.ph.i11 ], [ 0, %79 ]
   %83 = load i32, ptr %.04555.i, align 4, !tbaa !78
   %84 = icmp sge i32 %83, %3
@@ -13298,9 +13298,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPiEEvT0_S3_RmS4_.e
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %79, %76
   %89 = phi i1 [ %80, %79 ], [ %68, %76 ], [ %80, %.lr.ph.i11 ]
-  %.4.lcssa154 = phi ptr [ %.4.lcssa155, %79 ], [ %60, %76 ], [ %.4.lcssa155, %.lr.ph.i11 ]
-  %.077.lcssa150 = phi i64 [ %.077.lcssa151, %79 ], [ %.380, %76 ], [ %.077.lcssa151, %.lr.ph.i11 ]
-  %.092.lcssa145 = phi ptr [ %.092.lcssa146, %79 ], [ %62, %76 ], [ %.092.lcssa146, %.lr.ph.i11 ]
+  %.4.lcssa169 = phi ptr [ %.4.lcssa170, %79 ], [ %60, %76 ], [ %.4.lcssa170, %.lr.ph.i11 ]
+  %.077.lcssa165 = phi i64 [ %.077.lcssa166, %79 ], [ %.380, %76 ], [ %.077.lcssa166, %.lr.ph.i11 ]
+  %.092.lcssa160 = phi ptr [ %.092.lcssa161, %79 ], [ %62, %76 ], [ %.092.lcssa161, %.lr.ph.i11 ]
   %.388 = phi i64 [ 0, %79 ], [ %.287, %76 ], [ %87, %.lr.ph.i11 ]
   %.053.i = phi i64 [ %.052.i, %79 ], [ 64, %76 ], [ %.052.i, %.lr.ph.i11 ]
   %.04350.i = phi i64 [ %.04351.i, %79 ], [ %78, %76 ], [ %.04351.i, %.lr.ph.i11 ]
@@ -13312,7 +13312,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPiEEvT0_S3_RmS4_.e
 
 .lr.ph60.i:                                       ; preds = %.preheader.i, %.lr.ph60.i
   %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %.lr.ph60.i ], [ 0, %.preheader.i ]
-  %.04258.i = phi ptr [ %97, %.lr.ph60.i ], [ %.092.lcssa145, %.preheader.i ]
+  %.04258.i = phi ptr [ %97, %.lr.ph60.i ], [ %.092.lcssa160, %.preheader.i ]
   %91 = phi i64 [ %96, %.lr.ph60.i ], [ 0, %.preheader.i ]
   %92 = load i32, ptr %.04258.i, align 4, !tbaa !78
   %93 = icmp slt i32 %92, %3
@@ -13325,7 +13325,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPiEEvT0_S3_RmS4_.e
   br i1 %exitcond67.not.i, label %.loopexit.i, label %.lr.ph60.i, !llvm.loop !317
 
 .loopexit.i:                                      ; preds = %.lr.ph60.i, %.loopexit54.i
-  %.481 = phi i64 [ %.077.lcssa150, %.loopexit54.i ], [ %96, %.lr.ph60.i ]
+  %.481 = phi i64 [ %.077.lcssa165, %.loopexit54.i ], [ %96, %.lr.ph60.i ]
   %.not13.i.i = icmp eq i64 %.388, 0
   %.not1114.i.i = icmp eq i64 %.481, 0
   %or.cond15.i.i = select i1 %.not13.i.i, i1 true, i1 %.not1114.i.i
@@ -13340,9 +13340,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPiEEvT0_S3_RmS4_.e
   %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.582, i1 false)
   %103 = add i64 %.582, -1
   %104 = and i64 %103, %.582
-  %105 = getelementptr inbounds nuw i32, ptr %.4.lcssa154, i64 %99
+  %105 = getelementptr inbounds nuw i32, ptr %.4.lcssa169, i64 %99
   %106 = sub nsw i64 0, %102
-  %107 = getelementptr inbounds i32, ptr %.092.lcssa145, i64 %106
+  %107 = getelementptr inbounds i32, ptr %.092.lcssa160, i64 %106
   %108 = load i32, ptr %105, align 4, !tbaa !78
   %109 = load i32, ptr %107, align 4, !tbaa !78
   store i32 %109, ptr %105, align 4, !tbaa !78
@@ -13361,29 +13361,29 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %113 = icmp eq i64 %.fr.i, 0
   %spec.select = select i1 %113, i64 %.04350.i, i64 0
   %114 = sub nsw i64 0, %spec.select
-  %115 = getelementptr inbounds i32, ptr %.092.lcssa145, i64 %114
+  %115 = getelementptr inbounds i32, ptr %.092.lcssa160, i64 %114
   %.not.i15 = icmp eq i64 %110, 0
   br i1 %.not.i15, label %135, label %.preheader30.i.preheader
 
 _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiiEEvRT1_S6_T0_RT2_RmSA_.exit.thread: ; preds = %.preheader.i
   %116 = icmp eq i64 %.388, 0
   %117 = select i1 %116, i64 %.053.i, i64 0
-  %.6165 = getelementptr inbounds i32, ptr %.4.lcssa154, i64 %117
+  %.6180 = getelementptr inbounds i32, ptr %.4.lcssa169, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds nuw i32, ptr %.092.lcssa145, i64 %118
-  %.not.i15166 = icmp eq i64 %.388, 0
-  br i1 %.not.i15166, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPiEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
+  %119 = getelementptr inbounds nuw i32, ptr %.092.lcssa160, i64 %118
+  %.not.i15181 = icmp eq i64 %.388, 0
+  br i1 %.not.i15181, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPiEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
 .preheader30.i.preheader:                         ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiiEEvRT1_S6_T0_RT2_RmSA_.exit.thread, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiiEEvRT1_S6_T0_RT2_RmSA_.exit
   %120 = phi ptr [ %119, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiiEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %115, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiiEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %121 = phi i64 [ %117, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiiEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %112, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiiEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %.691167 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiiEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiiEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %122 = getelementptr inbounds i32, ptr %.4.lcssa154, i64 %121
+  %.691182 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiiEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiiEEvRT1_S6_T0_RT2_RmSA_.exit ]
+  %122 = getelementptr inbounds i32, ptr %.4.lcssa169, i64 %121
   br label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %.preheader30.i.preheader, %133
   %123 = phi ptr [ %134, %133 ], [ %120, %.preheader30.i.preheader ]
-  %124 = phi i64 [ %128, %133 ], [ %.691167, %.preheader30.i.preheader ]
+  %124 = phi i64 [ %128, %133 ], [ %.691182, %.preheader30.i.preheader ]
   %125 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %124, i1 true)
   %126 = xor i64 %125, 63
   %notmask26.i = shl nsw i64 -1, %126
@@ -13406,7 +13406,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not25.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPiEEvRT0_S4_RmS5_.exit, label %.preheader30.i, !llvm.loop !318
 
 135:                                              ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiiEEvRT1_S6_T0_RT2_RmSA_.exit
-  %.6 = getelementptr inbounds i32, ptr %.4.lcssa154, i64 %112
+  %.6 = getelementptr inbounds i32, ptr %.4.lcssa169, i64 %112
   %.not22.i = icmp eq i64 %.fr.i, 0
   br i1 %.not22.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPiEEvRT0_S4_RmS5_.exit, label %.preheader.i17
 
@@ -13436,7 +13436,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not23.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPiEEvRT0_S4_RmS5_.exit, label %.preheader.i17, !llvm.loop !319
 
 _ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPiEEvRT0_S4_RmS5_.exit: ; preds = %133, %147, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiiEEvRT1_S6_T0_RT2_RmSA_.exit.thread, %135
-  %.7 = phi ptr [ %.6, %135 ], [ %.6165, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiiEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %148, %147 ], [ %123, %133 ]
+  %.7 = phi ptr [ %.6, %135 ], [ %.6180, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiiEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %148, %147 ], [ %123, %133 ]
   %149 = getelementptr inbounds i8, ptr %.7, i64 -4
   %.not = icmp eq ptr %0, %149
   br i1 %.not, label %152, label %150
@@ -13719,10 +13719,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
   br i1 %35, label %51, label %36
 
 36:                                               ; preds = %.preheader.i.i
-  %37 = shl nsw i64 %.1.i.i, 1
+  %37 = shl nuw nsw i64 %.1.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds i32, ptr %0, i64 %38
-  %40 = add nsw i64 %37, 2
+  %39 = getelementptr inbounds nuw i32, ptr %0, i64 %38
+  %40 = add nuw nsw i64 %37, 2
   %41 = icmp slt i64 %40, %10
   br i1 %41, label %42, label %._crit_edge43.i.i
 
@@ -14129,9 +14129,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPjEEvT0_S3_RmS4_.e
 .thread.i:                                        ; preds = %._crit_edge.thread, %._crit_edge
   %71 = phi i1 [ true, %._crit_edge.thread ], [ %68, %._crit_edge ]
   %72 = phi i64 [ %70, %._crit_edge.thread ], [ %67, %._crit_edge ]
-  %.4.lcssa157 = phi ptr [ %.3, %._crit_edge.thread ], [ %60, %._crit_edge ]
-  %.077.lcssa153 = phi i64 [ 0, %._crit_edge.thread ], [ %.380, %._crit_edge ]
-  %.092.lcssa148 = phi ptr [ %25, %._crit_edge.thread ], [ %62, %._crit_edge ]
+  %.4.lcssa172 = phi ptr [ %.3, %._crit_edge.thread ], [ %60, %._crit_edge ]
+  %.077.lcssa168 = phi i64 [ 0, %._crit_edge.thread ], [ %.380, %._crit_edge ]
+  %.092.lcssa163 = phi ptr [ %25, %._crit_edge.thread ], [ %62, %._crit_edge ]
   %73 = add nsw i64 %72, 1
   %74 = sdiv i64 %73, 2
   %75 = sub nsw i64 %73, %74
@@ -14144,9 +14144,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPjEEvT0_S3_RmS4_.e
 
 79:                                               ; preds = %76, %.thread.i
   %80 = phi i1 [ %71, %.thread.i ], [ %68, %76 ]
-  %.4.lcssa155 = phi ptr [ %.4.lcssa157, %.thread.i ], [ %60, %76 ]
-  %.077.lcssa151 = phi i64 [ %.077.lcssa153, %.thread.i ], [ %.380, %76 ]
-  %.092.lcssa146 = phi ptr [ %.092.lcssa148, %.thread.i ], [ %62, %76 ]
+  %.4.lcssa170 = phi ptr [ %.4.lcssa172, %.thread.i ], [ %60, %76 ]
+  %.077.lcssa166 = phi i64 [ %.077.lcssa168, %.thread.i ], [ %.380, %76 ]
+  %.092.lcssa161 = phi ptr [ %.092.lcssa163, %.thread.i ], [ %62, %76 ]
   %.052.i = phi i64 [ %74, %.thread.i ], [ %78, %76 ]
   %.04351.i = phi i64 [ %75, %.thread.i ], [ 64, %76 ]
   %81 = icmp sgt i64 %.052.i, 0
@@ -14154,7 +14154,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPjEEvT0_S3_RmS4_.e
 
 .lr.ph.i11:                                       ; preds = %79, %.lr.ph.i11
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i13, %.lr.ph.i11 ], [ 0, %79 ]
-  %.04555.i = phi ptr [ %88, %.lr.ph.i11 ], [ %.4.lcssa155, %79 ]
+  %.04555.i = phi ptr [ %88, %.lr.ph.i11 ], [ %.4.lcssa170, %79 ]
   %82 = phi i64 [ %87, %.lr.ph.i11 ], [ 0, %79 ]
   %83 = load i32, ptr %.04555.i, align 4, !tbaa !78
   %84 = icmp uge i32 %83, %3
@@ -14168,9 +14168,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPjEEvT0_S3_RmS4_.e
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %79, %76
   %89 = phi i1 [ %80, %79 ], [ %68, %76 ], [ %80, %.lr.ph.i11 ]
-  %.4.lcssa154 = phi ptr [ %.4.lcssa155, %79 ], [ %60, %76 ], [ %.4.lcssa155, %.lr.ph.i11 ]
-  %.077.lcssa150 = phi i64 [ %.077.lcssa151, %79 ], [ %.380, %76 ], [ %.077.lcssa151, %.lr.ph.i11 ]
-  %.092.lcssa145 = phi ptr [ %.092.lcssa146, %79 ], [ %62, %76 ], [ %.092.lcssa146, %.lr.ph.i11 ]
+  %.4.lcssa169 = phi ptr [ %.4.lcssa170, %79 ], [ %60, %76 ], [ %.4.lcssa170, %.lr.ph.i11 ]
+  %.077.lcssa165 = phi i64 [ %.077.lcssa166, %79 ], [ %.380, %76 ], [ %.077.lcssa166, %.lr.ph.i11 ]
+  %.092.lcssa160 = phi ptr [ %.092.lcssa161, %79 ], [ %62, %76 ], [ %.092.lcssa161, %.lr.ph.i11 ]
   %.388 = phi i64 [ 0, %79 ], [ %.287, %76 ], [ %87, %.lr.ph.i11 ]
   %.053.i = phi i64 [ %.052.i, %79 ], [ 64, %76 ], [ %.052.i, %.lr.ph.i11 ]
   %.04350.i = phi i64 [ %.04351.i, %79 ], [ %78, %76 ], [ %.04351.i, %.lr.ph.i11 ]
@@ -14182,7 +14182,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPjEEvT0_S3_RmS4_.e
 
 .lr.ph60.i:                                       ; preds = %.preheader.i, %.lr.ph60.i
   %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %.lr.ph60.i ], [ 0, %.preheader.i ]
-  %.04258.i = phi ptr [ %97, %.lr.ph60.i ], [ %.092.lcssa145, %.preheader.i ]
+  %.04258.i = phi ptr [ %97, %.lr.ph60.i ], [ %.092.lcssa160, %.preheader.i ]
   %91 = phi i64 [ %96, %.lr.ph60.i ], [ 0, %.preheader.i ]
   %92 = load i32, ptr %.04258.i, align 4, !tbaa !78
   %93 = icmp ult i32 %92, %3
@@ -14195,7 +14195,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPjEEvT0_S3_RmS4_.e
   br i1 %exitcond67.not.i, label %.loopexit.i, label %.lr.ph60.i, !llvm.loop !336
 
 .loopexit.i:                                      ; preds = %.lr.ph60.i, %.loopexit54.i
-  %.481 = phi i64 [ %.077.lcssa150, %.loopexit54.i ], [ %96, %.lr.ph60.i ]
+  %.481 = phi i64 [ %.077.lcssa165, %.loopexit54.i ], [ %96, %.lr.ph60.i ]
   %.not13.i.i = icmp eq i64 %.388, 0
   %.not1114.i.i = icmp eq i64 %.481, 0
   %or.cond15.i.i = select i1 %.not13.i.i, i1 true, i1 %.not1114.i.i
@@ -14210,9 +14210,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPjEEvT0_S3_RmS4_.e
   %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.582, i1 false)
   %103 = add i64 %.582, -1
   %104 = and i64 %103, %.582
-  %105 = getelementptr inbounds nuw i32, ptr %.4.lcssa154, i64 %99
+  %105 = getelementptr inbounds nuw i32, ptr %.4.lcssa169, i64 %99
   %106 = sub nsw i64 0, %102
-  %107 = getelementptr inbounds i32, ptr %.092.lcssa145, i64 %106
+  %107 = getelementptr inbounds i32, ptr %.092.lcssa160, i64 %106
   %108 = load i32, ptr %105, align 4, !tbaa !78
   %109 = load i32, ptr %107, align 4, !tbaa !78
   store i32 %109, ptr %105, align 4, !tbaa !78
@@ -14231,29 +14231,29 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %113 = icmp eq i64 %.fr.i, 0
   %spec.select = select i1 %113, i64 %.04350.i, i64 0
   %114 = sub nsw i64 0, %spec.select
-  %115 = getelementptr inbounds i32, ptr %.092.lcssa145, i64 %114
+  %115 = getelementptr inbounds i32, ptr %.092.lcssa160, i64 %114
   %.not.i15 = icmp eq i64 %110, 0
   br i1 %.not.i15, label %135, label %.preheader30.i.preheader
 
 _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjjEEvRT1_S6_T0_RT2_RmSA_.exit.thread: ; preds = %.preheader.i
   %116 = icmp eq i64 %.388, 0
   %117 = select i1 %116, i64 %.053.i, i64 0
-  %.6165 = getelementptr inbounds i32, ptr %.4.lcssa154, i64 %117
+  %.6180 = getelementptr inbounds i32, ptr %.4.lcssa169, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds nuw i32, ptr %.092.lcssa145, i64 %118
-  %.not.i15166 = icmp eq i64 %.388, 0
-  br i1 %.not.i15166, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPjEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
+  %119 = getelementptr inbounds nuw i32, ptr %.092.lcssa160, i64 %118
+  %.not.i15181 = icmp eq i64 %.388, 0
+  br i1 %.not.i15181, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPjEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
 .preheader30.i.preheader:                         ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjjEEvRT1_S6_T0_RT2_RmSA_.exit.thread, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjjEEvRT1_S6_T0_RT2_RmSA_.exit
   %120 = phi ptr [ %119, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjjEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %115, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjjEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %121 = phi i64 [ %117, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjjEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %112, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjjEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %.691167 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjjEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjjEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %122 = getelementptr inbounds i32, ptr %.4.lcssa154, i64 %121
+  %.691182 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjjEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjjEEvRT1_S6_T0_RT2_RmSA_.exit ]
+  %122 = getelementptr inbounds i32, ptr %.4.lcssa169, i64 %121
   br label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %.preheader30.i.preheader, %133
   %123 = phi ptr [ %134, %133 ], [ %120, %.preheader30.i.preheader ]
-  %124 = phi i64 [ %128, %133 ], [ %.691167, %.preheader30.i.preheader ]
+  %124 = phi i64 [ %128, %133 ], [ %.691182, %.preheader30.i.preheader ]
   %125 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %124, i1 true)
   %126 = xor i64 %125, 63
   %notmask26.i = shl nsw i64 -1, %126
@@ -14276,7 +14276,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not25.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPjEEvRT0_S4_RmS5_.exit, label %.preheader30.i, !llvm.loop !337
 
 135:                                              ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjjEEvRT1_S6_T0_RT2_RmSA_.exit
-  %.6 = getelementptr inbounds i32, ptr %.4.lcssa154, i64 %112
+  %.6 = getelementptr inbounds i32, ptr %.4.lcssa169, i64 %112
   %.not22.i = icmp eq i64 %.fr.i, 0
   br i1 %.not22.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPjEEvRT0_S4_RmS5_.exit, label %.preheader.i17
 
@@ -14306,7 +14306,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not23.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPjEEvRT0_S4_RmS5_.exit, label %.preheader.i17, !llvm.loop !338
 
 _ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPjEEvRT0_S4_RmS5_.exit: ; preds = %133, %147, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjjEEvRT1_S6_T0_RT2_RmSA_.exit.thread, %135
-  %.7 = phi ptr [ %.6, %135 ], [ %.6165, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjjEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %148, %147 ], [ %123, %133 ]
+  %.7 = phi ptr [ %.6, %135 ], [ %.6180, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjjEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %148, %147 ], [ %123, %133 ]
   %149 = getelementptr inbounds i8, ptr %.7, i64 -4
   %.not = icmp eq ptr %0, %149
   br i1 %.not, label %152, label %150
@@ -14589,10 +14589,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
   br i1 %35, label %51, label %36
 
 36:                                               ; preds = %.preheader.i.i
-  %37 = shl nsw i64 %.1.i.i, 1
+  %37 = shl nuw nsw i64 %.1.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds i32, ptr %0, i64 %38
-  %40 = add nsw i64 %37, 2
+  %39 = getelementptr inbounds nuw i32, ptr %0, i64 %38
+  %40 = add nuw nsw i64 %37, 2
   %41 = icmp slt i64 %40, %10
   br i1 %41, label %42, label %._crit_edge43.i.i
 
@@ -14999,9 +14999,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPlEEvT0_S3_RmS4_.e
 .thread.i:                                        ; preds = %._crit_edge.thread, %._crit_edge
   %71 = phi i1 [ true, %._crit_edge.thread ], [ %68, %._crit_edge ]
   %72 = phi i64 [ %70, %._crit_edge.thread ], [ %67, %._crit_edge ]
-  %.4.lcssa155 = phi ptr [ %.3, %._crit_edge.thread ], [ %60, %._crit_edge ]
-  %.079.lcssa151 = phi i64 [ 0, %._crit_edge.thread ], [ %.382, %._crit_edge ]
-  %.090.lcssa146 = phi ptr [ %25, %._crit_edge.thread ], [ %62, %._crit_edge ]
+  %.4.lcssa171 = phi ptr [ %.3, %._crit_edge.thread ], [ %60, %._crit_edge ]
+  %.079.lcssa167 = phi i64 [ 0, %._crit_edge.thread ], [ %.382, %._crit_edge ]
+  %.090.lcssa162 = phi ptr [ %25, %._crit_edge.thread ], [ %62, %._crit_edge ]
   %73 = add nsw i64 %72, 1
   %74 = sdiv i64 %73, 2
   %75 = sub nsw i64 %73, %74
@@ -15014,9 +15014,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPlEEvT0_S3_RmS4_.e
 
 79:                                               ; preds = %76, %.thread.i
   %80 = phi i1 [ %71, %.thread.i ], [ %68, %76 ]
-  %.4.lcssa153 = phi ptr [ %.4.lcssa155, %.thread.i ], [ %60, %76 ]
-  %.079.lcssa149 = phi i64 [ %.079.lcssa151, %.thread.i ], [ %.382, %76 ]
-  %.090.lcssa144 = phi ptr [ %.090.lcssa146, %.thread.i ], [ %62, %76 ]
+  %.4.lcssa169 = phi ptr [ %.4.lcssa171, %.thread.i ], [ %60, %76 ]
+  %.079.lcssa165 = phi i64 [ %.079.lcssa167, %.thread.i ], [ %.382, %76 ]
+  %.090.lcssa160 = phi ptr [ %.090.lcssa162, %.thread.i ], [ %62, %76 ]
   %.052.i = phi i64 [ %74, %.thread.i ], [ %78, %76 ]
   %.04351.i = phi i64 [ %75, %.thread.i ], [ 64, %76 ]
   %81 = icmp sgt i64 %.052.i, 0
@@ -15025,7 +15025,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPlEEvT0_S3_RmS4_.e
 .lr.ph.i11:                                       ; preds = %79, %.lr.ph.i11
   %82 = phi i64 [ %87, %.lr.ph.i11 ], [ 0, %79 ]
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i13, %.lr.ph.i11 ], [ 0, %79 ]
-  %.04555.i = phi ptr [ %88, %.lr.ph.i11 ], [ %.4.lcssa153, %79 ]
+  %.04555.i = phi ptr [ %88, %.lr.ph.i11 ], [ %.4.lcssa169, %79 ]
   %83 = load i64, ptr %.04555.i, align 8, !tbaa !102
   %84 = icmp sge i64 %83, %3
   %85 = zext i1 %84 to i64
@@ -15038,9 +15038,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPlEEvT0_S3_RmS4_.e
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %79, %76
   %89 = phi i1 [ %80, %79 ], [ %68, %76 ], [ %80, %.lr.ph.i11 ]
-  %.4.lcssa152 = phi ptr [ %.4.lcssa153, %79 ], [ %60, %76 ], [ %.4.lcssa153, %.lr.ph.i11 ]
-  %.079.lcssa148 = phi i64 [ %.079.lcssa149, %79 ], [ %.382, %76 ], [ %.079.lcssa149, %.lr.ph.i11 ]
-  %.090.lcssa143 = phi ptr [ %.090.lcssa144, %79 ], [ %62, %76 ], [ %.090.lcssa144, %.lr.ph.i11 ]
+  %.4.lcssa168 = phi ptr [ %.4.lcssa169, %79 ], [ %60, %76 ], [ %.4.lcssa169, %.lr.ph.i11 ]
+  %.079.lcssa164 = phi i64 [ %.079.lcssa165, %79 ], [ %.382, %76 ], [ %.079.lcssa165, %.lr.ph.i11 ]
+  %.090.lcssa159 = phi ptr [ %.090.lcssa160, %79 ], [ %62, %76 ], [ %.090.lcssa160, %.lr.ph.i11 ]
   %.388 = phi i64 [ 0, %79 ], [ %.287, %76 ], [ %87, %.lr.ph.i11 ]
   %.053.i = phi i64 [ %.052.i, %79 ], [ 64, %76 ], [ %.052.i, %.lr.ph.i11 ]
   %.04350.i = phi i64 [ %.04351.i, %79 ], [ %78, %76 ], [ %.04351.i, %.lr.ph.i11 ]
@@ -15051,7 +15051,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPlEEvT0_S3_RmS4_.e
 .lr.ph59.i:                                       ; preds = %.loopexit54.i, %.lr.ph59.i
   %91 = phi i64 [ %96, %.lr.ph59.i ], [ 0, %.loopexit54.i ]
   %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %.lr.ph59.i ], [ 0, %.loopexit54.i ]
-  %.04257.i = phi ptr [ %97, %.lr.ph59.i ], [ %.090.lcssa143, %.loopexit54.i ]
+  %.04257.i = phi ptr [ %97, %.lr.ph59.i ], [ %.090.lcssa159, %.loopexit54.i ]
   %92 = load i64, ptr %.04257.i, align 8, !tbaa !102
   %93 = icmp slt i64 %92, %3
   %94 = zext i1 %93 to i64
@@ -15063,7 +15063,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPlEEvT0_S3_RmS4_.e
   br i1 %exitcond65.not.i, label %.loopexit.i, label %.lr.ph59.i, !llvm.loop !355
 
 .loopexit.i:                                      ; preds = %.lr.ph59.i, %.loopexit54.i
-  %.483 = phi i64 [ %.079.lcssa148, %.loopexit54.i ], [ %96, %.lr.ph59.i ]
+  %.483 = phi i64 [ %.079.lcssa164, %.loopexit54.i ], [ %96, %.lr.ph59.i ]
   %.not13.i.i = icmp eq i64 %.388, 0
   %.not1114.i.i = icmp eq i64 %.483, 0
   %or.cond15.i.i = select i1 %.not13.i.i, i1 true, i1 %.not1114.i.i
@@ -15078,9 +15078,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPlEEvT0_S3_RmS4_.e
   %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.584, i1 false)
   %103 = add i64 %.584, -1
   %104 = and i64 %103, %.584
-  %105 = getelementptr inbounds nuw i64, ptr %.4.lcssa152, i64 %99
+  %105 = getelementptr inbounds nuw i64, ptr %.4.lcssa168, i64 %99
   %106 = sub nsw i64 0, %102
-  %107 = getelementptr inbounds i64, ptr %.090.lcssa143, i64 %106
+  %107 = getelementptr inbounds i64, ptr %.090.lcssa159, i64 %106
   %108 = load i64, ptr %105, align 8, !tbaa !102
   %109 = load i64, ptr %107, align 8, !tbaa !102
   store i64 %109, ptr %105, align 8, !tbaa !102
@@ -15095,11 +15095,11 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %110 = phi i64 [ %.388, %.loopexit.i ], [ %101, %.lr.ph.i.i ]
   %111 = icmp eq i64 %110, 0
   %112 = select i1 %111, i64 %.053.i, i64 0
-  %113 = getelementptr inbounds i64, ptr %.4.lcssa152, i64 %112
+  %113 = getelementptr inbounds i64, ptr %.4.lcssa168, i64 %112
   %114 = icmp eq i64 %.6, 0
   %115 = select i1 %114, i64 %.04350.i, i64 0
   %116 = sub nsw i64 0, %115
-  %117 = getelementptr inbounds i64, ptr %.090.lcssa143, i64 %116
+  %117 = getelementptr inbounds i64, ptr %.090.lcssa159, i64 %116
   br i1 %111, label %130, label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPllEEvRT1_S6_T0_RT2_RmSA_.exit, %128
@@ -15438,10 +15438,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
   br i1 %35, label %51, label %36
 
 36:                                               ; preds = %.preheader.i.i
-  %37 = shl nsw i64 %.1.i.i, 1
+  %37 = shl nuw nsw i64 %.1.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds i64, ptr %0, i64 %38
-  %40 = add nsw i64 %37, 2
+  %39 = getelementptr inbounds nuw i64, ptr %0, i64 %38
+  %40 = add nuw nsw i64 %37, 2
   %41 = icmp slt i64 %40, %10
   br i1 %41, label %42, label %._crit_edge43.i.i
 
@@ -15848,9 +15848,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPmEEvT0_S3_RmS4_.e
 .thread.i:                                        ; preds = %._crit_edge.thread, %._crit_edge
   %71 = phi i1 [ true, %._crit_edge.thread ], [ %68, %._crit_edge ]
   %72 = phi i64 [ %70, %._crit_edge.thread ], [ %67, %._crit_edge ]
-  %.4.lcssa155 = phi ptr [ %.3, %._crit_edge.thread ], [ %60, %._crit_edge ]
-  %.079.lcssa151 = phi i64 [ 0, %._crit_edge.thread ], [ %.382, %._crit_edge ]
-  %.090.lcssa146 = phi ptr [ %25, %._crit_edge.thread ], [ %62, %._crit_edge ]
+  %.4.lcssa171 = phi ptr [ %.3, %._crit_edge.thread ], [ %60, %._crit_edge ]
+  %.079.lcssa167 = phi i64 [ 0, %._crit_edge.thread ], [ %.382, %._crit_edge ]
+  %.090.lcssa162 = phi ptr [ %25, %._crit_edge.thread ], [ %62, %._crit_edge ]
   %73 = add nsw i64 %72, 1
   %74 = sdiv i64 %73, 2
   %75 = sub nsw i64 %73, %74
@@ -15863,9 +15863,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPmEEvT0_S3_RmS4_.e
 
 79:                                               ; preds = %76, %.thread.i
   %80 = phi i1 [ %71, %.thread.i ], [ %68, %76 ]
-  %.4.lcssa153 = phi ptr [ %.4.lcssa155, %.thread.i ], [ %60, %76 ]
-  %.079.lcssa149 = phi i64 [ %.079.lcssa151, %.thread.i ], [ %.382, %76 ]
-  %.090.lcssa144 = phi ptr [ %.090.lcssa146, %.thread.i ], [ %62, %76 ]
+  %.4.lcssa169 = phi ptr [ %.4.lcssa171, %.thread.i ], [ %60, %76 ]
+  %.079.lcssa165 = phi i64 [ %.079.lcssa167, %.thread.i ], [ %.382, %76 ]
+  %.090.lcssa160 = phi ptr [ %.090.lcssa162, %.thread.i ], [ %62, %76 ]
   %.052.i = phi i64 [ %74, %.thread.i ], [ %78, %76 ]
   %.04351.i = phi i64 [ %75, %.thread.i ], [ 64, %76 ]
   %81 = icmp sgt i64 %.052.i, 0
@@ -15874,7 +15874,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPmEEvT0_S3_RmS4_.e
 .lr.ph.i11:                                       ; preds = %79, %.lr.ph.i11
   %82 = phi i64 [ %87, %.lr.ph.i11 ], [ 0, %79 ]
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i13, %.lr.ph.i11 ], [ 0, %79 ]
-  %.04555.i = phi ptr [ %88, %.lr.ph.i11 ], [ %.4.lcssa153, %79 ]
+  %.04555.i = phi ptr [ %88, %.lr.ph.i11 ], [ %.4.lcssa169, %79 ]
   %83 = load i64, ptr %.04555.i, align 8, !tbaa !102
   %84 = icmp uge i64 %83, %3
   %85 = zext i1 %84 to i64
@@ -15887,9 +15887,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPmEEvT0_S3_RmS4_.e
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %79, %76
   %89 = phi i1 [ %80, %79 ], [ %68, %76 ], [ %80, %.lr.ph.i11 ]
-  %.4.lcssa152 = phi ptr [ %.4.lcssa153, %79 ], [ %60, %76 ], [ %.4.lcssa153, %.lr.ph.i11 ]
-  %.079.lcssa148 = phi i64 [ %.079.lcssa149, %79 ], [ %.382, %76 ], [ %.079.lcssa149, %.lr.ph.i11 ]
-  %.090.lcssa143 = phi ptr [ %.090.lcssa144, %79 ], [ %62, %76 ], [ %.090.lcssa144, %.lr.ph.i11 ]
+  %.4.lcssa168 = phi ptr [ %.4.lcssa169, %79 ], [ %60, %76 ], [ %.4.lcssa169, %.lr.ph.i11 ]
+  %.079.lcssa164 = phi i64 [ %.079.lcssa165, %79 ], [ %.382, %76 ], [ %.079.lcssa165, %.lr.ph.i11 ]
+  %.090.lcssa159 = phi ptr [ %.090.lcssa160, %79 ], [ %62, %76 ], [ %.090.lcssa160, %.lr.ph.i11 ]
   %.388 = phi i64 [ 0, %79 ], [ %.287, %76 ], [ %87, %.lr.ph.i11 ]
   %.053.i = phi i64 [ %.052.i, %79 ], [ 64, %76 ], [ %.052.i, %.lr.ph.i11 ]
   %.04350.i = phi i64 [ %.04351.i, %79 ], [ %78, %76 ], [ %.04351.i, %.lr.ph.i11 ]
@@ -15900,7 +15900,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPmEEvT0_S3_RmS4_.e
 .lr.ph59.i:                                       ; preds = %.loopexit54.i, %.lr.ph59.i
   %91 = phi i64 [ %96, %.lr.ph59.i ], [ 0, %.loopexit54.i ]
   %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %.lr.ph59.i ], [ 0, %.loopexit54.i ]
-  %.04257.i = phi ptr [ %97, %.lr.ph59.i ], [ %.090.lcssa143, %.loopexit54.i ]
+  %.04257.i = phi ptr [ %97, %.lr.ph59.i ], [ %.090.lcssa159, %.loopexit54.i ]
   %92 = load i64, ptr %.04257.i, align 8, !tbaa !102
   %93 = icmp ult i64 %92, %3
   %94 = zext i1 %93 to i64
@@ -15912,7 +15912,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPmEEvT0_S3_RmS4_.e
   br i1 %exitcond65.not.i, label %.loopexit.i, label %.lr.ph59.i, !llvm.loop !374
 
 .loopexit.i:                                      ; preds = %.lr.ph59.i, %.loopexit54.i
-  %.483 = phi i64 [ %.079.lcssa148, %.loopexit54.i ], [ %96, %.lr.ph59.i ]
+  %.483 = phi i64 [ %.079.lcssa164, %.loopexit54.i ], [ %96, %.lr.ph59.i ]
   %.not13.i.i = icmp eq i64 %.388, 0
   %.not1114.i.i = icmp eq i64 %.483, 0
   %or.cond15.i.i = select i1 %.not13.i.i, i1 true, i1 %.not1114.i.i
@@ -15927,9 +15927,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPmEEvT0_S3_RmS4_.e
   %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.584, i1 false)
   %103 = add i64 %.584, -1
   %104 = and i64 %103, %.584
-  %105 = getelementptr inbounds nuw i64, ptr %.4.lcssa152, i64 %99
+  %105 = getelementptr inbounds nuw i64, ptr %.4.lcssa168, i64 %99
   %106 = sub nsw i64 0, %102
-  %107 = getelementptr inbounds i64, ptr %.090.lcssa143, i64 %106
+  %107 = getelementptr inbounds i64, ptr %.090.lcssa159, i64 %106
   %108 = load i64, ptr %105, align 8, !tbaa !102
   %109 = load i64, ptr %107, align 8, !tbaa !102
   store i64 %109, ptr %105, align 8, !tbaa !102
@@ -15944,11 +15944,11 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %110 = phi i64 [ %.388, %.loopexit.i ], [ %101, %.lr.ph.i.i ]
   %111 = icmp eq i64 %110, 0
   %112 = select i1 %111, i64 %.053.i, i64 0
-  %113 = getelementptr inbounds i64, ptr %.4.lcssa152, i64 %112
+  %113 = getelementptr inbounds i64, ptr %.4.lcssa168, i64 %112
   %114 = icmp eq i64 %.6, 0
   %115 = select i1 %114, i64 %.04350.i, i64 0
   %116 = sub nsw i64 0, %115
-  %117 = getelementptr inbounds i64, ptr %.090.lcssa143, i64 %116
+  %117 = getelementptr inbounds i64, ptr %.090.lcssa159, i64 %116
   br i1 %111, label %130, label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmmEEvRT1_S6_T0_RT2_RmSA_.exit, %128
@@ -16287,10 +16287,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
   br i1 %35, label %51, label %36
 
 36:                                               ; preds = %.preheader.i.i
-  %37 = shl nsw i64 %.1.i.i, 1
+  %37 = shl nuw nsw i64 %.1.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds i64, ptr %0, i64 %38
-  %40 = add nsw i64 %37, 2
+  %39 = getelementptr inbounds nuw i64, ptr %0, i64 %38
+  %40 = add nuw nsw i64 %37, 2
   %41 = icmp slt i64 %40, %10
   br i1 %41, label %42, label %._crit_edge43.i.i
 
@@ -16697,9 +16697,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPxEEvT0_S3_RmS4_.e
 .thread.i:                                        ; preds = %._crit_edge.thread, %._crit_edge
   %71 = phi i1 [ true, %._crit_edge.thread ], [ %68, %._crit_edge ]
   %72 = phi i64 [ %70, %._crit_edge.thread ], [ %67, %._crit_edge ]
-  %.4.lcssa157 = phi ptr [ %.3, %._crit_edge.thread ], [ %60, %._crit_edge ]
-  %.077.lcssa153 = phi i64 [ 0, %._crit_edge.thread ], [ %.380, %._crit_edge ]
-  %.092.lcssa148 = phi ptr [ %25, %._crit_edge.thread ], [ %62, %._crit_edge ]
+  %.4.lcssa172 = phi ptr [ %.3, %._crit_edge.thread ], [ %60, %._crit_edge ]
+  %.077.lcssa168 = phi i64 [ 0, %._crit_edge.thread ], [ %.380, %._crit_edge ]
+  %.092.lcssa163 = phi ptr [ %25, %._crit_edge.thread ], [ %62, %._crit_edge ]
   %73 = add nsw i64 %72, 1
   %74 = sdiv i64 %73, 2
   %75 = sub nsw i64 %73, %74
@@ -16712,9 +16712,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPxEEvT0_S3_RmS4_.e
 
 79:                                               ; preds = %76, %.thread.i
   %80 = phi i1 [ %71, %.thread.i ], [ %68, %76 ]
-  %.4.lcssa155 = phi ptr [ %.4.lcssa157, %.thread.i ], [ %60, %76 ]
-  %.077.lcssa151 = phi i64 [ %.077.lcssa153, %.thread.i ], [ %.380, %76 ]
-  %.092.lcssa146 = phi ptr [ %.092.lcssa148, %.thread.i ], [ %62, %76 ]
+  %.4.lcssa170 = phi ptr [ %.4.lcssa172, %.thread.i ], [ %60, %76 ]
+  %.077.lcssa166 = phi i64 [ %.077.lcssa168, %.thread.i ], [ %.380, %76 ]
+  %.092.lcssa161 = phi ptr [ %.092.lcssa163, %.thread.i ], [ %62, %76 ]
   %.052.i = phi i64 [ %74, %.thread.i ], [ %78, %76 ]
   %.04351.i = phi i64 [ %75, %.thread.i ], [ 64, %76 ]
   %81 = icmp sgt i64 %.052.i, 0
@@ -16722,7 +16722,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPxEEvT0_S3_RmS4_.e
 
 .lr.ph.i11:                                       ; preds = %79, %.lr.ph.i11
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i13, %.lr.ph.i11 ], [ 0, %79 ]
-  %.04555.i = phi ptr [ %88, %.lr.ph.i11 ], [ %.4.lcssa155, %79 ]
+  %.04555.i = phi ptr [ %88, %.lr.ph.i11 ], [ %.4.lcssa170, %79 ]
   %82 = phi i64 [ %87, %.lr.ph.i11 ], [ 0, %79 ]
   %83 = load i64, ptr %.04555.i, align 8, !tbaa !126
   %84 = icmp sge i64 %83, %3
@@ -16736,9 +16736,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPxEEvT0_S3_RmS4_.e
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %79, %76
   %89 = phi i1 [ %80, %79 ], [ %68, %76 ], [ %80, %.lr.ph.i11 ]
-  %.4.lcssa154 = phi ptr [ %.4.lcssa155, %79 ], [ %60, %76 ], [ %.4.lcssa155, %.lr.ph.i11 ]
-  %.077.lcssa150 = phi i64 [ %.077.lcssa151, %79 ], [ %.380, %76 ], [ %.077.lcssa151, %.lr.ph.i11 ]
-  %.092.lcssa145 = phi ptr [ %.092.lcssa146, %79 ], [ %62, %76 ], [ %.092.lcssa146, %.lr.ph.i11 ]
+  %.4.lcssa169 = phi ptr [ %.4.lcssa170, %79 ], [ %60, %76 ], [ %.4.lcssa170, %.lr.ph.i11 ]
+  %.077.lcssa165 = phi i64 [ %.077.lcssa166, %79 ], [ %.380, %76 ], [ %.077.lcssa166, %.lr.ph.i11 ]
+  %.092.lcssa160 = phi ptr [ %.092.lcssa161, %79 ], [ %62, %76 ], [ %.092.lcssa161, %.lr.ph.i11 ]
   %.388 = phi i64 [ 0, %79 ], [ %.287, %76 ], [ %87, %.lr.ph.i11 ]
   %.053.i = phi i64 [ %.052.i, %79 ], [ 64, %76 ], [ %.052.i, %.lr.ph.i11 ]
   %.04350.i = phi i64 [ %.04351.i, %79 ], [ %78, %76 ], [ %.04351.i, %.lr.ph.i11 ]
@@ -16750,7 +16750,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPxEEvT0_S3_RmS4_.e
 
 .lr.ph60.i:                                       ; preds = %.preheader.i, %.lr.ph60.i
   %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %.lr.ph60.i ], [ 0, %.preheader.i ]
-  %.04258.i = phi ptr [ %97, %.lr.ph60.i ], [ %.092.lcssa145, %.preheader.i ]
+  %.04258.i = phi ptr [ %97, %.lr.ph60.i ], [ %.092.lcssa160, %.preheader.i ]
   %91 = phi i64 [ %96, %.lr.ph60.i ], [ 0, %.preheader.i ]
   %92 = load i64, ptr %.04258.i, align 8, !tbaa !126
   %93 = icmp slt i64 %92, %3
@@ -16763,7 +16763,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPxEEvT0_S3_RmS4_.e
   br i1 %exitcond67.not.i, label %.loopexit.i, label %.lr.ph60.i, !llvm.loop !393
 
 .loopexit.i:                                      ; preds = %.lr.ph60.i, %.loopexit54.i
-  %.481 = phi i64 [ %.077.lcssa150, %.loopexit54.i ], [ %96, %.lr.ph60.i ]
+  %.481 = phi i64 [ %.077.lcssa165, %.loopexit54.i ], [ %96, %.lr.ph60.i ]
   %.not13.i.i = icmp eq i64 %.388, 0
   %.not1114.i.i = icmp eq i64 %.481, 0
   %or.cond15.i.i = select i1 %.not13.i.i, i1 true, i1 %.not1114.i.i
@@ -16778,9 +16778,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPxEEvT0_S3_RmS4_.e
   %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.582, i1 false)
   %103 = add i64 %.582, -1
   %104 = and i64 %103, %.582
-  %105 = getelementptr inbounds nuw i64, ptr %.4.lcssa154, i64 %99
+  %105 = getelementptr inbounds nuw i64, ptr %.4.lcssa169, i64 %99
   %106 = sub nsw i64 0, %102
-  %107 = getelementptr inbounds i64, ptr %.092.lcssa145, i64 %106
+  %107 = getelementptr inbounds i64, ptr %.092.lcssa160, i64 %106
   %108 = load i64, ptr %105, align 8, !tbaa !126
   %109 = load i64, ptr %107, align 8, !tbaa !126
   store i64 %109, ptr %105, align 8, !tbaa !126
@@ -16799,29 +16799,29 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %113 = icmp eq i64 %.fr.i, 0
   %spec.select = select i1 %113, i64 %.04350.i, i64 0
   %114 = sub nsw i64 0, %spec.select
-  %115 = getelementptr inbounds i64, ptr %.092.lcssa145, i64 %114
+  %115 = getelementptr inbounds i64, ptr %.092.lcssa160, i64 %114
   %.not.i15 = icmp eq i64 %110, 0
   br i1 %.not.i15, label %135, label %.preheader30.i.preheader
 
 _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxxEEvRT1_S6_T0_RT2_RmSA_.exit.thread: ; preds = %.preheader.i
   %116 = icmp eq i64 %.388, 0
   %117 = select i1 %116, i64 %.053.i, i64 0
-  %.6165 = getelementptr inbounds i64, ptr %.4.lcssa154, i64 %117
+  %.6180 = getelementptr inbounds i64, ptr %.4.lcssa169, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds nuw i64, ptr %.092.lcssa145, i64 %118
-  %.not.i15166 = icmp eq i64 %.388, 0
-  br i1 %.not.i15166, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPxEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
+  %119 = getelementptr inbounds nuw i64, ptr %.092.lcssa160, i64 %118
+  %.not.i15181 = icmp eq i64 %.388, 0
+  br i1 %.not.i15181, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPxEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
 .preheader30.i.preheader:                         ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxxEEvRT1_S6_T0_RT2_RmSA_.exit.thread, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxxEEvRT1_S6_T0_RT2_RmSA_.exit
   %120 = phi ptr [ %119, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxxEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %115, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxxEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %121 = phi i64 [ %117, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxxEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %112, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxxEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %.691167 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxxEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxxEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %122 = getelementptr inbounds i64, ptr %.4.lcssa154, i64 %121
+  %.691182 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxxEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxxEEvRT1_S6_T0_RT2_RmSA_.exit ]
+  %122 = getelementptr inbounds i64, ptr %.4.lcssa169, i64 %121
   br label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %.preheader30.i.preheader, %133
   %123 = phi ptr [ %134, %133 ], [ %120, %.preheader30.i.preheader ]
-  %124 = phi i64 [ %128, %133 ], [ %.691167, %.preheader30.i.preheader ]
+  %124 = phi i64 [ %128, %133 ], [ %.691182, %.preheader30.i.preheader ]
   %125 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %124, i1 true)
   %126 = xor i64 %125, 63
   %notmask26.i = shl nsw i64 -1, %126
@@ -16844,7 +16844,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not25.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPxEEvRT0_S4_RmS5_.exit, label %.preheader30.i, !llvm.loop !394
 
 135:                                              ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxxEEvRT1_S6_T0_RT2_RmSA_.exit
-  %.6 = getelementptr inbounds i64, ptr %.4.lcssa154, i64 %112
+  %.6 = getelementptr inbounds i64, ptr %.4.lcssa169, i64 %112
   %.not22.i = icmp eq i64 %.fr.i, 0
   br i1 %.not22.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPxEEvRT0_S4_RmS5_.exit, label %.preheader.i17
 
@@ -16874,7 +16874,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not23.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPxEEvRT0_S4_RmS5_.exit, label %.preheader.i17, !llvm.loop !395
 
 _ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPxEEvRT0_S4_RmS5_.exit: ; preds = %133, %147, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxxEEvRT1_S6_T0_RT2_RmSA_.exit.thread, %135
-  %.7 = phi ptr [ %.6, %135 ], [ %.6165, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxxEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %148, %147 ], [ %123, %133 ]
+  %.7 = phi ptr [ %.6, %135 ], [ %.6180, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxxEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %148, %147 ], [ %123, %133 ]
   %149 = getelementptr inbounds i8, ptr %.7, i64 -8
   %.not = icmp eq ptr %0, %149
   br i1 %.not, label %152, label %150
@@ -17157,10 +17157,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
   br i1 %35, label %51, label %36
 
 36:                                               ; preds = %.preheader.i.i
-  %37 = shl nsw i64 %.1.i.i, 1
+  %37 = shl nuw nsw i64 %.1.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds i64, ptr %0, i64 %38
-  %40 = add nsw i64 %37, 2
+  %39 = getelementptr inbounds nuw i64, ptr %0, i64 %38
+  %40 = add nuw nsw i64 %37, 2
   %41 = icmp slt i64 %40, %10
   br i1 %41, label %42, label %._crit_edge43.i.i
 
@@ -17567,9 +17567,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPyEEvT0_S3_RmS4_.e
 .thread.i:                                        ; preds = %._crit_edge.thread, %._crit_edge
   %71 = phi i1 [ true, %._crit_edge.thread ], [ %68, %._crit_edge ]
   %72 = phi i64 [ %70, %._crit_edge.thread ], [ %67, %._crit_edge ]
-  %.4.lcssa157 = phi ptr [ %.3, %._crit_edge.thread ], [ %60, %._crit_edge ]
-  %.077.lcssa153 = phi i64 [ 0, %._crit_edge.thread ], [ %.380, %._crit_edge ]
-  %.092.lcssa148 = phi ptr [ %25, %._crit_edge.thread ], [ %62, %._crit_edge ]
+  %.4.lcssa172 = phi ptr [ %.3, %._crit_edge.thread ], [ %60, %._crit_edge ]
+  %.077.lcssa168 = phi i64 [ 0, %._crit_edge.thread ], [ %.380, %._crit_edge ]
+  %.092.lcssa163 = phi ptr [ %25, %._crit_edge.thread ], [ %62, %._crit_edge ]
   %73 = add nsw i64 %72, 1
   %74 = sdiv i64 %73, 2
   %75 = sub nsw i64 %73, %74
@@ -17582,9 +17582,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPyEEvT0_S3_RmS4_.e
 
 79:                                               ; preds = %76, %.thread.i
   %80 = phi i1 [ %71, %.thread.i ], [ %68, %76 ]
-  %.4.lcssa155 = phi ptr [ %.4.lcssa157, %.thread.i ], [ %60, %76 ]
-  %.077.lcssa151 = phi i64 [ %.077.lcssa153, %.thread.i ], [ %.380, %76 ]
-  %.092.lcssa146 = phi ptr [ %.092.lcssa148, %.thread.i ], [ %62, %76 ]
+  %.4.lcssa170 = phi ptr [ %.4.lcssa172, %.thread.i ], [ %60, %76 ]
+  %.077.lcssa166 = phi i64 [ %.077.lcssa168, %.thread.i ], [ %.380, %76 ]
+  %.092.lcssa161 = phi ptr [ %.092.lcssa163, %.thread.i ], [ %62, %76 ]
   %.052.i = phi i64 [ %74, %.thread.i ], [ %78, %76 ]
   %.04351.i = phi i64 [ %75, %.thread.i ], [ 64, %76 ]
   %81 = icmp sgt i64 %.052.i, 0
@@ -17592,7 +17592,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPyEEvT0_S3_RmS4_.e
 
 .lr.ph.i11:                                       ; preds = %79, %.lr.ph.i11
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i13, %.lr.ph.i11 ], [ 0, %79 ]
-  %.04555.i = phi ptr [ %88, %.lr.ph.i11 ], [ %.4.lcssa155, %79 ]
+  %.04555.i = phi ptr [ %88, %.lr.ph.i11 ], [ %.4.lcssa170, %79 ]
   %82 = phi i64 [ %87, %.lr.ph.i11 ], [ 0, %79 ]
   %83 = load i64, ptr %.04555.i, align 8, !tbaa !126
   %84 = icmp uge i64 %83, %3
@@ -17606,9 +17606,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPyEEvT0_S3_RmS4_.e
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %79, %76
   %89 = phi i1 [ %80, %79 ], [ %68, %76 ], [ %80, %.lr.ph.i11 ]
-  %.4.lcssa154 = phi ptr [ %.4.lcssa155, %79 ], [ %60, %76 ], [ %.4.lcssa155, %.lr.ph.i11 ]
-  %.077.lcssa150 = phi i64 [ %.077.lcssa151, %79 ], [ %.380, %76 ], [ %.077.lcssa151, %.lr.ph.i11 ]
-  %.092.lcssa145 = phi ptr [ %.092.lcssa146, %79 ], [ %62, %76 ], [ %.092.lcssa146, %.lr.ph.i11 ]
+  %.4.lcssa169 = phi ptr [ %.4.lcssa170, %79 ], [ %60, %76 ], [ %.4.lcssa170, %.lr.ph.i11 ]
+  %.077.lcssa165 = phi i64 [ %.077.lcssa166, %79 ], [ %.380, %76 ], [ %.077.lcssa166, %.lr.ph.i11 ]
+  %.092.lcssa160 = phi ptr [ %.092.lcssa161, %79 ], [ %62, %76 ], [ %.092.lcssa161, %.lr.ph.i11 ]
   %.388 = phi i64 [ 0, %79 ], [ %.287, %76 ], [ %87, %.lr.ph.i11 ]
   %.053.i = phi i64 [ %.052.i, %79 ], [ 64, %76 ], [ %.052.i, %.lr.ph.i11 ]
   %.04350.i = phi i64 [ %.04351.i, %79 ], [ %78, %76 ], [ %.04351.i, %.lr.ph.i11 ]
@@ -17620,7 +17620,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPyEEvT0_S3_RmS4_.e
 
 .lr.ph60.i:                                       ; preds = %.preheader.i, %.lr.ph60.i
   %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %.lr.ph60.i ], [ 0, %.preheader.i ]
-  %.04258.i = phi ptr [ %97, %.lr.ph60.i ], [ %.092.lcssa145, %.preheader.i ]
+  %.04258.i = phi ptr [ %97, %.lr.ph60.i ], [ %.092.lcssa160, %.preheader.i ]
   %91 = phi i64 [ %96, %.lr.ph60.i ], [ 0, %.preheader.i ]
   %92 = load i64, ptr %.04258.i, align 8, !tbaa !126
   %93 = icmp ult i64 %92, %3
@@ -17633,7 +17633,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPyEEvT0_S3_RmS4_.e
   br i1 %exitcond67.not.i, label %.loopexit.i, label %.lr.ph60.i, !llvm.loop !412
 
 .loopexit.i:                                      ; preds = %.lr.ph60.i, %.loopexit54.i
-  %.481 = phi i64 [ %.077.lcssa150, %.loopexit54.i ], [ %96, %.lr.ph60.i ]
+  %.481 = phi i64 [ %.077.lcssa165, %.loopexit54.i ], [ %96, %.lr.ph60.i ]
   %.not13.i.i = icmp eq i64 %.388, 0
   %.not1114.i.i = icmp eq i64 %.481, 0
   %or.cond15.i.i = select i1 %.not13.i.i, i1 true, i1 %.not1114.i.i
@@ -17648,9 +17648,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPyEEvT0_S3_RmS4_.e
   %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.582, i1 false)
   %103 = add i64 %.582, -1
   %104 = and i64 %103, %.582
-  %105 = getelementptr inbounds nuw i64, ptr %.4.lcssa154, i64 %99
+  %105 = getelementptr inbounds nuw i64, ptr %.4.lcssa169, i64 %99
   %106 = sub nsw i64 0, %102
-  %107 = getelementptr inbounds i64, ptr %.092.lcssa145, i64 %106
+  %107 = getelementptr inbounds i64, ptr %.092.lcssa160, i64 %106
   %108 = load i64, ptr %105, align 8, !tbaa !126
   %109 = load i64, ptr %107, align 8, !tbaa !126
   store i64 %109, ptr %105, align 8, !tbaa !126
@@ -17669,29 +17669,29 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %113 = icmp eq i64 %.fr.i, 0
   %spec.select = select i1 %113, i64 %.04350.i, i64 0
   %114 = sub nsw i64 0, %spec.select
-  %115 = getelementptr inbounds i64, ptr %.092.lcssa145, i64 %114
+  %115 = getelementptr inbounds i64, ptr %.092.lcssa160, i64 %114
   %.not.i15 = icmp eq i64 %110, 0
   br i1 %.not.i15, label %135, label %.preheader30.i.preheader
 
 _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyyEEvRT1_S6_T0_RT2_RmSA_.exit.thread: ; preds = %.preheader.i
   %116 = icmp eq i64 %.388, 0
   %117 = select i1 %116, i64 %.053.i, i64 0
-  %.6165 = getelementptr inbounds i64, ptr %.4.lcssa154, i64 %117
+  %.6180 = getelementptr inbounds i64, ptr %.4.lcssa169, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds nuw i64, ptr %.092.lcssa145, i64 %118
-  %.not.i15166 = icmp eq i64 %.388, 0
-  br i1 %.not.i15166, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPyEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
+  %119 = getelementptr inbounds nuw i64, ptr %.092.lcssa160, i64 %118
+  %.not.i15181 = icmp eq i64 %.388, 0
+  br i1 %.not.i15181, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPyEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
 .preheader30.i.preheader:                         ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyyEEvRT1_S6_T0_RT2_RmSA_.exit.thread, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyyEEvRT1_S6_T0_RT2_RmSA_.exit
   %120 = phi ptr [ %119, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyyEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %115, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyyEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %121 = phi i64 [ %117, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyyEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %112, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyyEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %.691167 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyyEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyyEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %122 = getelementptr inbounds i64, ptr %.4.lcssa154, i64 %121
+  %.691182 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyyEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyyEEvRT1_S6_T0_RT2_RmSA_.exit ]
+  %122 = getelementptr inbounds i64, ptr %.4.lcssa169, i64 %121
   br label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %.preheader30.i.preheader, %133
   %123 = phi ptr [ %134, %133 ], [ %120, %.preheader30.i.preheader ]
-  %124 = phi i64 [ %128, %133 ], [ %.691167, %.preheader30.i.preheader ]
+  %124 = phi i64 [ %128, %133 ], [ %.691182, %.preheader30.i.preheader ]
   %125 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %124, i1 true)
   %126 = xor i64 %125, 63
   %notmask26.i = shl nsw i64 -1, %126
@@ -17714,7 +17714,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not25.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPyEEvRT0_S4_RmS5_.exit, label %.preheader30.i, !llvm.loop !413
 
 135:                                              ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyyEEvRT1_S6_T0_RT2_RmSA_.exit
-  %.6 = getelementptr inbounds i64, ptr %.4.lcssa154, i64 %112
+  %.6 = getelementptr inbounds i64, ptr %.4.lcssa169, i64 %112
   %.not22.i = icmp eq i64 %.fr.i, 0
   br i1 %.not22.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPyEEvRT0_S4_RmS5_.exit, label %.preheader.i17
 
@@ -17744,7 +17744,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not23.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPyEEvRT0_S4_RmS5_.exit, label %.preheader.i17, !llvm.loop !414
 
 _ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPyEEvRT0_S4_RmS5_.exit: ; preds = %133, %147, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyyEEvRT1_S6_T0_RT2_RmSA_.exit.thread, %135
-  %.7 = phi ptr [ %.6, %135 ], [ %.6165, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyyEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %148, %147 ], [ %123, %133 ]
+  %.7 = phi ptr [ %.6, %135 ], [ %.6180, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyyEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %148, %147 ], [ %123, %133 ]
   %149 = getelementptr inbounds i8, ptr %.7, i64 -8
   %.not = icmp eq ptr %0, %149
   br i1 %.not, label %152, label %150
@@ -18027,10 +18027,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
   br i1 %35, label %51, label %36
 
 36:                                               ; preds = %.preheader.i.i
-  %37 = shl nsw i64 %.1.i.i, 1
+  %37 = shl nuw nsw i64 %.1.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds i64, ptr %0, i64 %38
-  %40 = add nsw i64 %37, 2
+  %39 = getelementptr inbounds nuw i64, ptr %0, i64 %38
+  %40 = add nuw nsw i64 %37, 2
   %41 = icmp slt i64 %40, %10
   br i1 %41, label %42, label %._crit_edge43.i.i
 
@@ -18437,9 +18437,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPfEEvT0_S3_RmS4_.e
 .thread.i:                                        ; preds = %._crit_edge.thread, %._crit_edge
   %71 = phi i1 [ true, %._crit_edge.thread ], [ %68, %._crit_edge ]
   %72 = phi i64 [ %70, %._crit_edge.thread ], [ %67, %._crit_edge ]
-  %.4.lcssa157 = phi ptr [ %.3, %._crit_edge.thread ], [ %60, %._crit_edge ]
-  %.077.lcssa153 = phi i64 [ 0, %._crit_edge.thread ], [ %.380, %._crit_edge ]
-  %.092.lcssa148 = phi ptr [ %25, %._crit_edge.thread ], [ %62, %._crit_edge ]
+  %.4.lcssa172 = phi ptr [ %.3, %._crit_edge.thread ], [ %60, %._crit_edge ]
+  %.077.lcssa168 = phi i64 [ 0, %._crit_edge.thread ], [ %.380, %._crit_edge ]
+  %.092.lcssa163 = phi ptr [ %25, %._crit_edge.thread ], [ %62, %._crit_edge ]
   %73 = add nsw i64 %72, 1
   %74 = sdiv i64 %73, 2
   %75 = sub nsw i64 %73, %74
@@ -18452,9 +18452,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPfEEvT0_S3_RmS4_.e
 
 79:                                               ; preds = %76, %.thread.i
   %80 = phi i1 [ %71, %.thread.i ], [ %68, %76 ]
-  %.4.lcssa155 = phi ptr [ %.4.lcssa157, %.thread.i ], [ %60, %76 ]
-  %.077.lcssa151 = phi i64 [ %.077.lcssa153, %.thread.i ], [ %.380, %76 ]
-  %.092.lcssa146 = phi ptr [ %.092.lcssa148, %.thread.i ], [ %62, %76 ]
+  %.4.lcssa170 = phi ptr [ %.4.lcssa172, %.thread.i ], [ %60, %76 ]
+  %.077.lcssa166 = phi i64 [ %.077.lcssa168, %.thread.i ], [ %.380, %76 ]
+  %.092.lcssa161 = phi ptr [ %.092.lcssa163, %.thread.i ], [ %62, %76 ]
   %.052.i = phi i64 [ %74, %.thread.i ], [ %78, %76 ]
   %.04351.i = phi i64 [ %75, %.thread.i ], [ 64, %76 ]
   %81 = icmp sgt i64 %.052.i, 0
@@ -18462,7 +18462,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPfEEvT0_S3_RmS4_.e
 
 .lr.ph.i11:                                       ; preds = %79, %.lr.ph.i11
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i13, %.lr.ph.i11 ], [ 0, %79 ]
-  %.04555.i = phi ptr [ %88, %.lr.ph.i11 ], [ %.4.lcssa155, %79 ]
+  %.04555.i = phi ptr [ %88, %.lr.ph.i11 ], [ %.4.lcssa170, %79 ]
   %82 = phi i64 [ %87, %.lr.ph.i11 ], [ 0, %79 ]
   %83 = load float, ptr %.04555.i, align 4, !tbaa !150
   %84 = fcmp uge float %83, %3
@@ -18476,9 +18476,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPfEEvT0_S3_RmS4_.e
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %79, %76
   %89 = phi i1 [ %80, %79 ], [ %68, %76 ], [ %80, %.lr.ph.i11 ]
-  %.4.lcssa154 = phi ptr [ %.4.lcssa155, %79 ], [ %60, %76 ], [ %.4.lcssa155, %.lr.ph.i11 ]
-  %.077.lcssa150 = phi i64 [ %.077.lcssa151, %79 ], [ %.380, %76 ], [ %.077.lcssa151, %.lr.ph.i11 ]
-  %.092.lcssa145 = phi ptr [ %.092.lcssa146, %79 ], [ %62, %76 ], [ %.092.lcssa146, %.lr.ph.i11 ]
+  %.4.lcssa169 = phi ptr [ %.4.lcssa170, %79 ], [ %60, %76 ], [ %.4.lcssa170, %.lr.ph.i11 ]
+  %.077.lcssa165 = phi i64 [ %.077.lcssa166, %79 ], [ %.380, %76 ], [ %.077.lcssa166, %.lr.ph.i11 ]
+  %.092.lcssa160 = phi ptr [ %.092.lcssa161, %79 ], [ %62, %76 ], [ %.092.lcssa161, %.lr.ph.i11 ]
   %.388 = phi i64 [ 0, %79 ], [ %.287, %76 ], [ %87, %.lr.ph.i11 ]
   %.053.i = phi i64 [ %.052.i, %79 ], [ 64, %76 ], [ %.052.i, %.lr.ph.i11 ]
   %.04350.i = phi i64 [ %.04351.i, %79 ], [ %78, %76 ], [ %.04351.i, %.lr.ph.i11 ]
@@ -18490,7 +18490,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPfEEvT0_S3_RmS4_.e
 
 .lr.ph60.i:                                       ; preds = %.preheader.i, %.lr.ph60.i
   %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %.lr.ph60.i ], [ 0, %.preheader.i ]
-  %.04258.i = phi ptr [ %97, %.lr.ph60.i ], [ %.092.lcssa145, %.preheader.i ]
+  %.04258.i = phi ptr [ %97, %.lr.ph60.i ], [ %.092.lcssa160, %.preheader.i ]
   %91 = phi i64 [ %96, %.lr.ph60.i ], [ 0, %.preheader.i ]
   %92 = load float, ptr %.04258.i, align 4, !tbaa !150
   %93 = fcmp olt float %92, %3
@@ -18503,7 +18503,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPfEEvT0_S3_RmS4_.e
   br i1 %exitcond67.not.i, label %.loopexit.i, label %.lr.ph60.i, !llvm.loop !431
 
 .loopexit.i:                                      ; preds = %.lr.ph60.i, %.loopexit54.i
-  %.481 = phi i64 [ %.077.lcssa150, %.loopexit54.i ], [ %96, %.lr.ph60.i ]
+  %.481 = phi i64 [ %.077.lcssa165, %.loopexit54.i ], [ %96, %.lr.ph60.i ]
   %.not13.i.i = icmp eq i64 %.388, 0
   %.not1114.i.i = icmp eq i64 %.481, 0
   %or.cond15.i.i = select i1 %.not13.i.i, i1 true, i1 %.not1114.i.i
@@ -18518,9 +18518,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPfEEvT0_S3_RmS4_.e
   %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.582, i1 false)
   %103 = add i64 %.582, -1
   %104 = and i64 %103, %.582
-  %105 = getelementptr inbounds nuw float, ptr %.4.lcssa154, i64 %99
+  %105 = getelementptr inbounds nuw float, ptr %.4.lcssa169, i64 %99
   %106 = sub nsw i64 0, %102
-  %107 = getelementptr inbounds float, ptr %.092.lcssa145, i64 %106
+  %107 = getelementptr inbounds float, ptr %.092.lcssa160, i64 %106
   %108 = load float, ptr %105, align 4, !tbaa !150
   %109 = load float, ptr %107, align 4, !tbaa !150
   store float %109, ptr %105, align 4, !tbaa !150
@@ -18539,29 +18539,29 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %113 = icmp eq i64 %.fr.i, 0
   %spec.select = select i1 %113, i64 %.04350.i, i64 0
   %114 = sub nsw i64 0, %spec.select
-  %115 = getelementptr inbounds float, ptr %.092.lcssa145, i64 %114
+  %115 = getelementptr inbounds float, ptr %.092.lcssa160, i64 %114
   %.not.i15 = icmp eq i64 %110, 0
   br i1 %.not.i15, label %135, label %.preheader30.i.preheader
 
 _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPffEEvRT1_S6_T0_RT2_RmSA_.exit.thread: ; preds = %.preheader.i
   %116 = icmp eq i64 %.388, 0
   %117 = select i1 %116, i64 %.053.i, i64 0
-  %.6165 = getelementptr inbounds float, ptr %.4.lcssa154, i64 %117
+  %.6180 = getelementptr inbounds float, ptr %.4.lcssa169, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds nuw float, ptr %.092.lcssa145, i64 %118
-  %.not.i15166 = icmp eq i64 %.388, 0
-  br i1 %.not.i15166, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPfEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
+  %119 = getelementptr inbounds nuw float, ptr %.092.lcssa160, i64 %118
+  %.not.i15181 = icmp eq i64 %.388, 0
+  br i1 %.not.i15181, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPfEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
 .preheader30.i.preheader:                         ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPffEEvRT1_S6_T0_RT2_RmSA_.exit.thread, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPffEEvRT1_S6_T0_RT2_RmSA_.exit
   %120 = phi ptr [ %119, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPffEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %115, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPffEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %121 = phi i64 [ %117, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPffEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %112, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPffEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %.691167 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPffEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPffEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %122 = getelementptr inbounds float, ptr %.4.lcssa154, i64 %121
+  %.691182 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPffEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPffEEvRT1_S6_T0_RT2_RmSA_.exit ]
+  %122 = getelementptr inbounds float, ptr %.4.lcssa169, i64 %121
   br label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %.preheader30.i.preheader, %133
   %123 = phi ptr [ %134, %133 ], [ %120, %.preheader30.i.preheader ]
-  %124 = phi i64 [ %128, %133 ], [ %.691167, %.preheader30.i.preheader ]
+  %124 = phi i64 [ %128, %133 ], [ %.691182, %.preheader30.i.preheader ]
   %125 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %124, i1 true)
   %126 = xor i64 %125, 63
   %notmask26.i = shl nsw i64 -1, %126
@@ -18584,7 +18584,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not25.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPfEEvRT0_S4_RmS5_.exit, label %.preheader30.i, !llvm.loop !432
 
 135:                                              ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPffEEvRT1_S6_T0_RT2_RmSA_.exit
-  %.6 = getelementptr inbounds float, ptr %.4.lcssa154, i64 %112
+  %.6 = getelementptr inbounds float, ptr %.4.lcssa169, i64 %112
   %.not22.i = icmp eq i64 %.fr.i, 0
   br i1 %.not22.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPfEEvRT0_S4_RmS5_.exit, label %.preheader.i17
 
@@ -18614,7 +18614,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not23.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPfEEvRT0_S4_RmS5_.exit, label %.preheader.i17, !llvm.loop !433
 
 _ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPfEEvRT0_S4_RmS5_.exit: ; preds = %133, %147, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPffEEvRT1_S6_T0_RT2_RmSA_.exit.thread, %135
-  %.7 = phi ptr [ %.6, %135 ], [ %.6165, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPffEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %148, %147 ], [ %123, %133 ]
+  %.7 = phi ptr [ %.6, %135 ], [ %.6180, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPffEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %148, %147 ], [ %123, %133 ]
   %149 = getelementptr inbounds i8, ptr %.7, i64 -4
   %.not = icmp eq ptr %0, %149
   br i1 %.not, label %152, label %150
@@ -18908,10 +18908,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
   br i1 %35, label %51, label %36
 
 36:                                               ; preds = %.preheader.i.i
-  %37 = shl nsw i64 %.1.i.i, 1
+  %37 = shl nuw nsw i64 %.1.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds float, ptr %0, i64 %38
-  %40 = add nsw i64 %37, 2
+  %39 = getelementptr inbounds nuw float, ptr %0, i64 %38
+  %40 = add nuw nsw i64 %37, 2
   %41 = icmp slt i64 %40, %10
   br i1 %41, label %42, label %48
 
@@ -19306,9 +19306,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPdEEvT0_S3_RmS4_.e
 .thread.i:                                        ; preds = %._crit_edge.thread, %._crit_edge
   %71 = phi i1 [ true, %._crit_edge.thread ], [ %68, %._crit_edge ]
   %72 = phi i64 [ %70, %._crit_edge.thread ], [ %67, %._crit_edge ]
-  %.4.lcssa157 = phi ptr [ %.3, %._crit_edge.thread ], [ %60, %._crit_edge ]
-  %.077.lcssa153 = phi i64 [ 0, %._crit_edge.thread ], [ %.380, %._crit_edge ]
-  %.092.lcssa148 = phi ptr [ %25, %._crit_edge.thread ], [ %62, %._crit_edge ]
+  %.4.lcssa172 = phi ptr [ %.3, %._crit_edge.thread ], [ %60, %._crit_edge ]
+  %.077.lcssa168 = phi i64 [ 0, %._crit_edge.thread ], [ %.380, %._crit_edge ]
+  %.092.lcssa163 = phi ptr [ %25, %._crit_edge.thread ], [ %62, %._crit_edge ]
   %73 = add nsw i64 %72, 1
   %74 = sdiv i64 %73, 2
   %75 = sub nsw i64 %73, %74
@@ -19321,9 +19321,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPdEEvT0_S3_RmS4_.e
 
 79:                                               ; preds = %76, %.thread.i
   %80 = phi i1 [ %71, %.thread.i ], [ %68, %76 ]
-  %.4.lcssa155 = phi ptr [ %.4.lcssa157, %.thread.i ], [ %60, %76 ]
-  %.077.lcssa151 = phi i64 [ %.077.lcssa153, %.thread.i ], [ %.380, %76 ]
-  %.092.lcssa146 = phi ptr [ %.092.lcssa148, %.thread.i ], [ %62, %76 ]
+  %.4.lcssa170 = phi ptr [ %.4.lcssa172, %.thread.i ], [ %60, %76 ]
+  %.077.lcssa166 = phi i64 [ %.077.lcssa168, %.thread.i ], [ %.380, %76 ]
+  %.092.lcssa161 = phi ptr [ %.092.lcssa163, %.thread.i ], [ %62, %76 ]
   %.052.i = phi i64 [ %74, %.thread.i ], [ %78, %76 ]
   %.04351.i = phi i64 [ %75, %.thread.i ], [ 64, %76 ]
   %81 = icmp sgt i64 %.052.i, 0
@@ -19331,7 +19331,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPdEEvT0_S3_RmS4_.e
 
 .lr.ph.i11:                                       ; preds = %79, %.lr.ph.i11
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i13, %.lr.ph.i11 ], [ 0, %79 ]
-  %.04555.i = phi ptr [ %88, %.lr.ph.i11 ], [ %.4.lcssa155, %79 ]
+  %.04555.i = phi ptr [ %88, %.lr.ph.i11 ], [ %.4.lcssa170, %79 ]
   %82 = phi i64 [ %87, %.lr.ph.i11 ], [ 0, %79 ]
   %83 = load double, ptr %.04555.i, align 8, !tbaa !163
   %84 = fcmp uge double %83, %3
@@ -19345,9 +19345,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPdEEvT0_S3_RmS4_.e
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %79, %76
   %89 = phi i1 [ %80, %79 ], [ %68, %76 ], [ %80, %.lr.ph.i11 ]
-  %.4.lcssa154 = phi ptr [ %.4.lcssa155, %79 ], [ %60, %76 ], [ %.4.lcssa155, %.lr.ph.i11 ]
-  %.077.lcssa150 = phi i64 [ %.077.lcssa151, %79 ], [ %.380, %76 ], [ %.077.lcssa151, %.lr.ph.i11 ]
-  %.092.lcssa145 = phi ptr [ %.092.lcssa146, %79 ], [ %62, %76 ], [ %.092.lcssa146, %.lr.ph.i11 ]
+  %.4.lcssa169 = phi ptr [ %.4.lcssa170, %79 ], [ %60, %76 ], [ %.4.lcssa170, %.lr.ph.i11 ]
+  %.077.lcssa165 = phi i64 [ %.077.lcssa166, %79 ], [ %.380, %76 ], [ %.077.lcssa166, %.lr.ph.i11 ]
+  %.092.lcssa160 = phi ptr [ %.092.lcssa161, %79 ], [ %62, %76 ], [ %.092.lcssa161, %.lr.ph.i11 ]
   %.388 = phi i64 [ 0, %79 ], [ %.287, %76 ], [ %87, %.lr.ph.i11 ]
   %.053.i = phi i64 [ %.052.i, %79 ], [ 64, %76 ], [ %.052.i, %.lr.ph.i11 ]
   %.04350.i = phi i64 [ %.04351.i, %79 ], [ %78, %76 ], [ %.04351.i, %.lr.ph.i11 ]
@@ -19359,7 +19359,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPdEEvT0_S3_RmS4_.e
 
 .lr.ph60.i:                                       ; preds = %.preheader.i, %.lr.ph60.i
   %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %.lr.ph60.i ], [ 0, %.preheader.i ]
-  %.04258.i = phi ptr [ %97, %.lr.ph60.i ], [ %.092.lcssa145, %.preheader.i ]
+  %.04258.i = phi ptr [ %97, %.lr.ph60.i ], [ %.092.lcssa160, %.preheader.i ]
   %91 = phi i64 [ %96, %.lr.ph60.i ], [ 0, %.preheader.i ]
   %92 = load double, ptr %.04258.i, align 8, !tbaa !163
   %93 = fcmp olt double %92, %3
@@ -19372,7 +19372,7 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPdEEvT0_S3_RmS4_.e
   br i1 %exitcond67.not.i, label %.loopexit.i, label %.lr.ph60.i, !llvm.loop !450
 
 .loopexit.i:                                      ; preds = %.lr.ph60.i, %.loopexit54.i
-  %.481 = phi i64 [ %.077.lcssa150, %.loopexit54.i ], [ %96, %.lr.ph60.i ]
+  %.481 = phi i64 [ %.077.lcssa165, %.loopexit54.i ], [ %96, %.lr.ph60.i ]
   %.not13.i.i = icmp eq i64 %.388, 0
   %.not1114.i.i = icmp eq i64 %.481, 0
   %or.cond15.i.i = select i1 %.not13.i.i, i1 true, i1 %.not1114.i.i
@@ -19387,9 +19387,9 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPdEEvT0_S3_RmS4_.e
   %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.582, i1 false)
   %103 = add i64 %.582, -1
   %104 = and i64 %103, %.582
-  %105 = getelementptr inbounds nuw double, ptr %.4.lcssa154, i64 %99
+  %105 = getelementptr inbounds nuw double, ptr %.4.lcssa169, i64 %99
   %106 = sub nsw i64 0, %102
-  %107 = getelementptr inbounds double, ptr %.092.lcssa145, i64 %106
+  %107 = getelementptr inbounds double, ptr %.092.lcssa160, i64 %106
   %108 = load double, ptr %105, align 8, !tbaa !163
   %109 = load double, ptr %107, align 8, !tbaa !163
   store double %109, ptr %105, align 8, !tbaa !163
@@ -19408,29 +19408,29 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   %113 = icmp eq i64 %.fr.i, 0
   %spec.select = select i1 %113, i64 %.04350.i, i64 0
   %114 = sub nsw i64 0, %spec.select
-  %115 = getelementptr inbounds double, ptr %.092.lcssa145, i64 %114
+  %115 = getelementptr inbounds double, ptr %.092.lcssa160, i64 %114
   %.not.i15 = icmp eq i64 %110, 0
   br i1 %.not.i15, label %135, label %.preheader30.i.preheader
 
 _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPddEEvRT1_S6_T0_RT2_RmSA_.exit.thread: ; preds = %.preheader.i
   %116 = icmp eq i64 %.388, 0
   %117 = select i1 %116, i64 %.053.i, i64 0
-  %.6165 = getelementptr inbounds double, ptr %.4.lcssa154, i64 %117
+  %.6180 = getelementptr inbounds double, ptr %.4.lcssa169, i64 %117
   %118 = sub nsw i64 0, %.04350.i
-  %119 = getelementptr inbounds nuw double, ptr %.092.lcssa145, i64 %118
-  %.not.i15166 = icmp eq i64 %.388, 0
-  br i1 %.not.i15166, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPdEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
+  %119 = getelementptr inbounds nuw double, ptr %.092.lcssa160, i64 %118
+  %.not.i15181 = icmp eq i64 %.388, 0
+  br i1 %.not.i15181, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPdEEvRT0_S4_RmS5_.exit, label %.preheader30.i.preheader
 
 .preheader30.i.preheader:                         ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPddEEvRT1_S6_T0_RT2_RmSA_.exit.thread, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPddEEvRT1_S6_T0_RT2_RmSA_.exit
   %120 = phi ptr [ %119, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPddEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %115, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPddEEvRT1_S6_T0_RT2_RmSA_.exit ]
   %121 = phi i64 [ %117, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPddEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %112, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPddEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %.691167 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPddEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPddEEvRT1_S6_T0_RT2_RmSA_.exit ]
-  %122 = getelementptr inbounds double, ptr %.4.lcssa154, i64 %121
+  %.691182 = phi i64 [ %.388, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPddEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %110, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPddEEvRT1_S6_T0_RT2_RmSA_.exit ]
+  %122 = getelementptr inbounds double, ptr %.4.lcssa169, i64 %121
   br label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %.preheader30.i.preheader, %133
   %123 = phi ptr [ %134, %133 ], [ %120, %.preheader30.i.preheader ]
-  %124 = phi i64 [ %128, %133 ], [ %.691167, %.preheader30.i.preheader ]
+  %124 = phi i64 [ %128, %133 ], [ %.691182, %.preheader30.i.preheader ]
   %125 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %124, i1 true)
   %126 = xor i64 %125, 63
   %notmask26.i = shl nsw i64 -1, %126
@@ -19453,7 +19453,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not25.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPdEEvRT0_S4_RmS5_.exit, label %.preheader30.i, !llvm.loop !451
 
 135:                                              ; preds = %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPddEEvRT1_S6_T0_RT2_RmSA_.exit
-  %.6 = getelementptr inbounds double, ptr %.4.lcssa154, i64 %112
+  %.6 = getelementptr inbounds double, ptr %.4.lcssa169, i64 %112
   %.not22.i = icmp eq i64 %.fr.i, 0
   br i1 %.not22.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPdEEvRT0_S4_RmS5_.exit, label %.preheader.i17
 
@@ -19483,7 +19483,7 @@ _ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS
   br i1 %.not23.i, label %_ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPdEEvRT0_S4_RmS5_.exit, label %.preheader.i17, !llvm.loop !452
 
 _ZNSt3__124__swap_bitmap_pos_withinB8ne210000INS_17_ClassicAlgPolicyEPdEEvRT0_S4_RmS5_.exit: ; preds = %133, %147, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPddEEvRT1_S6_T0_RT2_RmSA_.exit.thread, %135
-  %.7 = phi ptr [ %.6, %135 ], [ %.6165, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPddEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %148, %147 ], [ %123, %133 ]
+  %.7 = phi ptr [ %.6, %135 ], [ %.6180, %_ZNSt3__133__bitset_partition_partial_blocksB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPddEEvRT1_S6_T0_RT2_RmSA_.exit.thread ], [ %148, %147 ], [ %123, %133 ]
   %149 = getelementptr inbounds i8, ptr %.7, i64 -8
   %.not = icmp eq ptr %0, %149
   br i1 %.not, label %152, label %150
@@ -19777,10 +19777,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
   br i1 %35, label %51, label %36
 
 36:                                               ; preds = %.preheader.i.i
-  %37 = shl nsw i64 %.1.i.i, 1
+  %37 = shl nuw nsw i64 %.1.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds double, ptr %0, i64 %38
-  %40 = add nsw i64 %37, 2
+  %39 = getelementptr inbounds nuw double, ptr %0, i64 %38
+  %40 = add nuw nsw i64 %37, 2
   %41 = icmp slt i64 %40, %10
   br i1 %41, label %42, label %48
 
@@ -20417,10 +20417,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__119__partial_sort_implB8ne210000
   br i1 %35, label %51, label %36
 
 36:                                               ; preds = %.preheader.i.i
-  %37 = shl nsw i64 %.1.i.i, 1
+  %37 = shl nuw nsw i64 %.1.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds x86_fp80, ptr %0, i64 %38
-  %40 = add nsw i64 %37, 2
+  %39 = getelementptr inbounds nuw x86_fp80, ptr %0, i64 %38
+  %40 = add nuw nsw i64 %37, 2
   %41 = icmp slt i64 %40, %10
   br i1 %41, label %42, label %48
 

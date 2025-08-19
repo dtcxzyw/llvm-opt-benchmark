@@ -600,8 +600,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit72.i: ; preds = %228
   br label %common.resume
 
 ._crit_edge85.thread.i:                           ; preds = %._crit_edge85.i, %_ZNK11func_interp11num_entriesEv.exit.i, %._crit_edge.i28
-  %.0.i.i71124129.i = phi i32 [ %192, %._crit_edge85.i ], [ 0, %_ZNK11func_interp11num_entriesEv.exit.i ], [ 0, %._crit_edge.i28 ]
-  %.not95125128.i = phi i1 [ false, %._crit_edge85.i ], [ true, %_ZNK11func_interp11num_entriesEv.exit.i ], [ true, %._crit_edge.i28 ]
+  %.0.i.i71128133.i = phi i32 [ %192, %._crit_edge85.i ], [ 0, %_ZNK11func_interp11num_entriesEv.exit.i ], [ 0, %._crit_edge.i28 ]
+  %.not95129132.i = phi i1 [ false, %._crit_edge85.i ], [ true, %_ZNK11func_interp11num_entriesEv.exit.i ], [ true, %._crit_edge.i28 ]
   %232 = getelementptr inbounds nuw i8, ptr %186, i64 24
   %233 = load ptr, ptr %232, align 8, !tbaa !76
   %234 = icmp eq ptr %233, null
@@ -650,7 +650,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit72.i: ; preds = %228
   br label %common.resume
 
 248:                                              ; preds = %242, %235
-  br i1 %.not95125128.i, label %._crit_edge89.i, label %.lr.ph88.i
+  br i1 %.not95129132.i, label %._crit_edge89.i, label %.lr.ph88.i
 
 ._crit_edge89.i:                                  ; preds = %.lr.ph88.i, %248
   %249 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.2, i64 noundef 2)
@@ -662,7 +662,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit72.i: ; preds = %228
   %.086.i = phi i32 [ %251, %.lr.ph88.i ], [ 0, %248 ]
   %250 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.9, i64 noundef 1)
   %251 = add nuw i32 %.086.i, 1
-  %exitcond114.not.i = icmp eq i32 %251, %.0.i.i71124129.i
+  %exitcond114.not.i = icmp eq i32 %251, %.0.i.i71128133.i
   br i1 %exitcond114.not.i, label %._crit_edge89.i, label %.lr.ph88.i, !llvm.loop !84
 
 _ZL17display_functionsRSoRK10model_core.exit:     ; preds = %._crit_edge89.i, %_ZL17display_constantsRSoRK10model_core.exit, %_ZNK10model_core17get_num_functionsEv.exit.i

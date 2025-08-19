@@ -4198,7 +4198,7 @@ define dso_local i32 @__block_write_begin_int(ptr noundef %0, i64 noundef %1, i3
 
 276:                                              ; preds = %272, %270
   %277 = icmp ugt i32 %78, %240
-  br i1 %277, label %278, label %.preheader33
+  br i1 %277, label %278, label %.preheader43
 
 278:                                              ; preds = %276
   %279 = and i64 %88, 4294967295
@@ -4206,13 +4206,13 @@ define dso_local i32 @__block_write_begin_int(ptr noundef %0, i64 noundef %1, i3
   %281 = sub i64 %18, %88
   %282 = and i64 %281, 4294967295
   tail call void @llvm.memset.p0.i64(ptr align 1 %280, i8 0, i64 %282, i1 false)
-  br label %.preheader33
+  br label %.preheader43
 
-.preheader33:                                     ; preds = %278, %276
+.preheader43:                                     ; preds = %278, %276
   br label %283
 
-283:                                              ; preds = %.preheader33, %291
-  %284 = phi i64 [ %294, %291 ], [ 0, %.preheader33 ]
+283:                                              ; preds = %.preheader43, %291
+  %284 = phi i64 [ %294, %291 ], [ 0, %.preheader43 ]
   %285 = load volatile i64, ptr %0, align 8
   %286 = and i64 %285, 64
   %287 = icmp eq i64 %286, 0
@@ -5010,7 +5010,7 @@ define dso_local noundef i32 @block_read_full_folio(ptr noundef %0, ptr noundef 
 94:                                               ; preds = %90
   %95 = load volatile i64, ptr %0, align 8
   %96 = icmp ugt i32 %76, %74
-  br i1 %96, label %98, label %.preheader14
+  br i1 %96, label %98, label %.preheader20
 
 97:                                               ; preds = %90
   tail call void asm sideeffect "389: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 389b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 389) #13, !srcloc !147
@@ -5021,13 +5021,13 @@ define dso_local noundef i32 @block_read_full_folio(ptr noundef %0, ptr noundef 
   %99 = and i64 %73, 4294967295
   %100 = getelementptr i8, ptr %82, i64 %99
   tail call void @llvm.memset.p0.i64(ptr align 1 %100, i8 0, i64 %31, i1 false)
-  br label %.preheader14
+  br label %.preheader20
 
-.preheader14:                                     ; preds = %98, %94
+.preheader20:                                     ; preds = %98, %94
   br label %101
 
-101:                                              ; preds = %.preheader14, %109
-  %102 = phi i64 [ %112, %109 ], [ 0, %.preheader14 ]
+101:                                              ; preds = %.preheader20, %109
+  %102 = phi i64 [ %112, %109 ], [ 0, %.preheader20 ]
   %103 = load volatile i64, ptr %0, align 8
   %104 = and i64 %103, 64
   %105 = icmp eq i64 %104, 0

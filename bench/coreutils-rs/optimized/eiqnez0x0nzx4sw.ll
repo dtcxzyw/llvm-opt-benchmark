@@ -463,13 +463,13 @@ define hidden void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5
   %.pre.i = load ptr, ptr %14, align 8, !alias.scope !66, !noalias !69
   %.pre19.i = load i8, ptr %.pre.i, align 1, !noalias !71
   %30 = icmp eq i8 %.pre19.i, 37
-  br i1 %30, label %.thread.i, label %.thread20.i
+  br i1 %30, label %.thread.i, label %.thread21.i
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %14, align 8, !alias.scope !66, !noalias !69, !nonnull !16, !align !35, !noundef !16
   %33 = load i8, ptr %32, align 1, !noalias !71, !noundef !16
   %34 = icmp eq i8 %33, 37
-  br i1 %34, label %35, label %.thread20.i
+  br i1 %34, label %35, label %.thread21.i
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 1
@@ -499,7 +499,7 @@ define hidden void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5
   %46 = icmp eq i8 %45, 7
   br i1 %46, label %52, label %51
 
-.thread20.i:                                      ; preds = %31, %29
+.thread21.i:                                      ; preds = %31, %29
   %47 = phi ptr [ %.pre.i, %29 ], [ %32, %31 ]
   %48 = phi i8 [ %.pre19.i, %29 ], [ %33, %31 ]
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 1
@@ -540,14 +540,14 @@ define hidden void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5
           cleanup
   br label %56
 
-57:                                               ; preds = %.thread20.i, %51, %39
-  %.sroa.17.1.ph.ph = phi i64 [ %.sroa.17.0, %39 ], [ %.sroa.10140.0.copyload, %51 ], [ %.sroa.17.0, %.thread20.i ]
-  %.sroa.16.1.ph.ph = phi ptr [ %.sroa.16.0, %39 ], [ %.sroa.9.0.copyload, %51 ], [ %.sroa.16.0, %.thread20.i ]
-  %.sroa.15101.1.ph.ph = phi i64 [ %.sroa.15101.0, %39 ], [ %.sroa.8.0.copyload, %51 ], [ %.sroa.15101.0, %.thread20.i ]
-  %.sroa.15.1.ph.ph = phi i32 [ %.sroa.15.0, %39 ], [ %.sroa.7139.0.copyload, %51 ], [ %.sroa.15.0, %.thread20.i ]
-  %.sroa.14.1.ph.ph = phi i32 [ %.sroa.14.0, %39 ], [ %.sroa.6138.0.copyload, %51 ], [ %.sroa.14.0, %.thread20.i ]
-  %.sroa.10.1.ph.ph = phi i8 [ 37, %39 ], [ %.sroa.4136.0.copyload, %51 ], [ %48, %.thread20.i ]
-  %.sroa.0.0149.ph.ph = phi i8 [ 7, %39 ], [ %45, %51 ], [ 7, %.thread20.i ]
+57:                                               ; preds = %.thread21.i, %51, %39
+  %.sroa.17.1.ph.ph = phi i64 [ %.sroa.17.0, %39 ], [ %.sroa.10140.0.copyload, %51 ], [ %.sroa.17.0, %.thread21.i ]
+  %.sroa.16.1.ph.ph = phi ptr [ %.sroa.16.0, %39 ], [ %.sroa.9.0.copyload, %51 ], [ %.sroa.16.0, %.thread21.i ]
+  %.sroa.15101.1.ph.ph = phi i64 [ %.sroa.15101.0, %39 ], [ %.sroa.8.0.copyload, %51 ], [ %.sroa.15101.0, %.thread21.i ]
+  %.sroa.15.1.ph.ph = phi i32 [ %.sroa.15.0, %39 ], [ %.sroa.7139.0.copyload, %51 ], [ %.sroa.15.0, %.thread21.i ]
+  %.sroa.14.1.ph.ph = phi i32 [ %.sroa.14.0, %39 ], [ %.sroa.6138.0.copyload, %51 ], [ %.sroa.14.0, %.thread21.i ]
+  %.sroa.10.1.ph.ph = phi i8 [ 37, %39 ], [ %.sroa.4136.0.copyload, %51 ], [ %48, %.thread21.i ]
+  %.sroa.0.0149.ph.ph = phi i8 [ 7, %39 ], [ %45, %51 ], [ 7, %.thread21.i ]
   %58 = icmp eq i8 %.sroa.0.0149.ph.ph, 7
   br i1 %58, label %64, label %69
 
@@ -647,13 +647,13 @@ define hidden void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5
   %.pre.i79 = load ptr, ptr %14, align 8, !alias.scope !77, !noalias !80
   %.pre19.i80 = load i8, ptr %.pre.i79, align 1, !noalias !82
   %83 = icmp eq i8 %.pre19.i80, 37
-  br i1 %83, label %.thread.i83, label %.thread20.i81
+  br i1 %83, label %.thread.i83, label %.thread21.i81
 
 84:                                               ; preds = %79
   %85 = load ptr, ptr %14, align 8, !alias.scope !77, !noalias !80, !nonnull !16, !align !35, !noundef !16
   %86 = load i8, ptr %85, align 1, !noalias !82, !noundef !16
   %87 = icmp eq i8 %86, 37
-  br i1 %87, label %88, label %.thread20.i81
+  br i1 %87, label %88, label %.thread21.i81
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 1
@@ -680,7 +680,7 @@ define hidden void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5
   %98 = icmp eq i8 %97, 7
   br i1 %98, label %102, label %125
 
-.thread20.i81:                                    ; preds = %84, %82
+.thread21.i81:                                    ; preds = %84, %82
   %99 = phi ptr [ %.pre.i79, %82 ], [ %85, %84 ]
   %100 = phi i8 [ %.pre19.i80, %82 ], [ %86, %84 ]
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 1
@@ -754,10 +754,10 @@ define hidden void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !82
   br label %131
 
-.thread260:                                       ; preds = %92, %.thread20.i81
-  %.sink = phi i64 [ -2, %92 ], [ -1, %.thread20.i81 ]
-  %storemerge275 = phi ptr [ %93, %92 ], [ %101, %.thread20.i81 ]
-  %.sroa.10103.1.ph.ph.ph = phi i8 [ 37, %92 ], [ %100, %.thread20.i81 ]
+.thread260:                                       ; preds = %92, %.thread21.i81
+  %.sink = phi i64 [ -2, %92 ], [ -1, %.thread21.i81 ]
+  %storemerge275 = phi ptr [ %93, %92 ], [ %101, %.thread21.i81 ]
+  %.sroa.10103.1.ph.ph.ph = phi i8 [ 37, %92 ], [ %100, %.thread21.i81 ]
   %122 = add i64 %81, %.sink
   store ptr %storemerge275, ptr %14, align 8, !alias.scope !77, !noalias !80
   store i64 %122, ptr %24, align 8, !alias.scope !77, !noalias !80
@@ -788,17 +788,17 @@ define hidden void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5
   br label %131
 
 131:                                              ; preds = %128, %.thread245
-  %.sink303 = phi i32 [ 10, %128 ], [ 6, %.thread245 ]
-  %.pn305 = phi { i64, ptr } [ %126, %128 ], [ %107, %.thread245 ]
-  %.sink301 = phi ptr [ %129, %128 ], [ %120, %.thread245 ]
+  %.sink317 = phi i32 [ 10, %128 ], [ 6, %.thread245 ]
+  %.pn319 = phi { i64, ptr } [ %126, %128 ], [ %107, %.thread245 ]
+  %.sink315 = phi ptr [ %129, %128 ], [ %120, %.thread245 ]
   %.val75.sink = phi i64 [ %.val75, %128 ], [ %106, %.thread245 ]
-  %.sink302 = extractvalue { i64, ptr } %.pn305, 0
+  %.sink316 = extractvalue { i64, ptr } %.pn319, 0
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink303, ptr %132, align 8
+  store i32 %.sink317, ptr %132, align 8
   %.sroa.439.sroa.3.0..sroa.439.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink302, ptr %.sroa.439.sroa.3.0..sroa.439.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sink316, ptr %.sroa.439.sroa.3.0..sroa.439.0..sroa_idx.sroa_idx, align 8
   %.sroa.439.sroa.4.0..sroa.439.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink301, ptr %.sroa.439.sroa.4.0..sroa.439.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sink315, ptr %.sroa.439.sroa.4.0..sroa.439.0..sroa_idx.sroa_idx, align 8
   %.sroa.439.sroa.5.0..sroa.439.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.val75.sink, ptr %.sroa.439.sroa.5.0..sroa.439.0..sroa_idx.sroa_idx, align 8
   store i64 -9223372036854775808, ptr %0, align 8

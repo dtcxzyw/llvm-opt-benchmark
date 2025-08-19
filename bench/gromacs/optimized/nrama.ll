@@ -556,7 +556,7 @@ _ZL6d_compRK5t_dihS1_.exit.thread70.i:            ; preds = %_ZL6d_compRK5t_dihS
   br label %_ZL6d_compRK5t_dihS1_.exit.thread.i
 
 _ZL6d_compRK5t_dihS1_.exit.thread.i:              ; preds = %_ZL6d_compRK5t_dihS1_.exit.thread70.i, %_ZL6d_compRK5t_dihS1_.exit.i, %188, %_ZSt11lower_boundIP5t_dihS0_PFbRKS0_S3_EET_S6_S6_RKT0_T1_.exit.i
-  %204 = add i32 %.04574.i, 1
+  %204 = add nsw i32 %.04574.i, 1
   %205 = add i32 %204, %141
   %206 = sext i32 %141 to i64
   %207 = getelementptr i32, ptr %.04773.i, i64 %206

@@ -204,7 +204,7 @@ put_bits32.exit:                                  ; preds = %38, %41
   %106 = phi i32 [ undef, %.lr.ph224.i ], [ %.be92.i, %.backedge.i ]
   %107 = phi i32 [ undef, %.lr.ph224.i ], [ %.be.i, %.backedge.i ]
   %.sink.i13219.i = phi i32 [ undef, %.lr.ph224.i ], [ %.sink.i13.be.i, %.backedge.i ]
-  %.sink28.i21218.i = phi i32 [ undef, %.lr.ph224.i ], [ %.sink28.i21.be.i, %.backedge.i ]
+  %.sink29.i21218.i = phi i32 [ undef, %.lr.ph224.i ], [ %.sink29.i21.be.i, %.backedge.i ]
   %108 = load i32, ptr %77, align 8, !tbaa !45
   %.not.i = icmp eq i32 %108, 0
   br i1 %.not.i, label %.preheader91.i, label %get_block_info.exit218.i
@@ -228,7 +228,7 @@ get_block_info.exit.i:                            ; preds = %.preheader91.i, %11
   %114 = icmp ne i32 %113, %78
   %115 = icmp ne i32 %112, %80
   %or.cond.i.i = or i1 %.not24.i212.i, %115
-  %.sink28.i.i = select i1 %or.cond.i.i, i32 4, i32 %81
+  %.sink29.i.i = select i1 %or.cond.i.i, i32 4, i32 %81
   %.not25.i.i = icmp eq i32 %111, 0
   %116 = mul nsw i32 %112, %72
   %117 = add i32 %113, %116
@@ -248,7 +248,7 @@ get_block_info.exit.i:                            ; preds = %.preheader91.i, %11
 
 126:                                              ; preds = %get_block_info.exit.i
   %127 = load i32, ptr %82, align 8, !tbaa !56
-  %128 = icmp sgt i32 %.sink28.i.i, 0
+  %128 = icmp sgt i32 %.sink29.i.i, 0
   %129 = icmp sgt i32 %.sink.i199.i, 0
   %or.cond62.i = select i1 %128, i1 %129, i1 false
   br i1 %or.cond62.i, label %.preheader.us.preheader.i.i, label %.loopexit.i
@@ -311,7 +311,7 @@ get_block_info.exit.i:                            ; preds = %.preheader91.i, %11
   %161 = getelementptr inbounds i16, ptr %.01824.us.i.i, i64 %83
   %162 = getelementptr inbounds i16, ptr %.01923.us.i.i, i64 %84
   %163 = add nuw nsw i32 %.025.us.i.i, 1
-  %exitcond29.not.i.i = icmp eq i32 %163, %.sink28.i.i
+  %exitcond29.not.i.i = icmp eq i32 %163, %.sink29.i.i
   br i1 %exitcond29.not.i.i, label %.loopexit.i, label %.preheader.us.i.i, !llvm.loop !60
 
 compare_blocks.exit.i:                            ; preds = %135
@@ -413,18 +413,18 @@ put_bits.exit.i:                                  ; preds = %188, %180, %170
   br label %put_bits.exit210.i
 
 put_bits.exit210.i:                               ; preds = %214, %206, %196
-  %.sink372.i = phi i32 [ -8, %196 ], [ 24, %214 ], [ 24, %206 ]
+  %.sink421.i = phi i32 [ -8, %196 ], [ 24, %214 ], [ 24, %206 ]
   %.026.i.i208.i = phi i32 [ %198, %196 ], [ %192, %214 ], [ %192, %206 ]
-  %215 = add nsw i32 %.sink372.i, %194
+  %215 = add nsw i32 %.sink421.i, %194
   store i32 %.026.i.i208.i, ptr %25, align 8, !tbaa !42
   store i32 %215, ptr %36, align 4, !tbaa !41
   %216 = add nsw i32 %.015995.i, %.0158222.i
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %update_block_in_prev_frame.exit354.i, %put_bits.exit210.i
-  %.promoted158298.i = phi i32 [ %.promoted158300.i, %update_block_in_prev_frame.exit354.i ], [ %.sink28.i.i, %put_bits.exit210.i ]
+  %.promoted158298.i = phi i32 [ %.promoted158300.i, %update_block_in_prev_frame.exit354.i ], [ %.sink29.i.i, %put_bits.exit210.i ]
   %.promoted153292.i = phi i32 [ %.promoted153294.i, %update_block_in_prev_frame.exit354.i ], [ %.sink.i199.i, %put_bits.exit210.i ]
-  %.sink28.i21.be.i = phi i32 [ %.sink28.i22.i, %update_block_in_prev_frame.exit354.i ], [ %.sink28.i.i, %put_bits.exit210.i ]
+  %.sink29.i21.be.i = phi i32 [ %.sink29.i22.i, %update_block_in_prev_frame.exit354.i ], [ %.sink29.i.i, %put_bits.exit210.i ]
   %.sink.i13.be.i = phi i32 [ %.sink.i14.i, %update_block_in_prev_frame.exit354.i ], [ %.sink.i199.i, %put_bits.exit210.i ]
   %.be.i = phi i32 [ %979, %update_block_in_prev_frame.exit354.i ], [ %113, %put_bits.exit210.i ]
   %.be92.i = phi i32 [ %980, %update_block_in_prev_frame.exit354.i ], [ %112, %put_bits.exit210.i ]
@@ -442,7 +442,7 @@ get_block_info.exit218.i:                         ; preds = %105
   %.sink.i211.i = select i1 %or.cond64.i, i32 4, i32 %79
   %221 = icmp ne i32 %218, %80
   %or.cond.i213.i = or i1 %.not24.i212.i, %221
-  %.sink28.i214.i = select i1 %or.cond.i213.i, i32 4, i32 %81
+  %.sink29.i214.i = select i1 %or.cond.i213.i, i32 4, i32 %81
   %.not25.i215.i = icmp eq i32 %.0158222.i, 0
   br i1 %.not25.i215.i, label %get_block_info.exit226.i, label %222
 
@@ -456,9 +456,9 @@ get_block_info.exit218.i:                         ; preds = %105
   br label %get_block_info.exit226.i
 
 get_block_info.exit226.i:                         ; preds = %.preheader91.i, %222, %get_block_info.exit218.i, %.critedge.i, %put_bits.exit.i, %compare_blocks.exit.i
-  %.sroa.21.0 = phi i32 [ %.sink28.i.i, %.critedge.i ], [ %.sink28.i.i, %compare_blocks.exit.i ], [ %.sink28.i.i, %put_bits.exit.i ], [ %.sink28.i214.i, %get_block_info.exit218.i ], [ %.sink28.i214.i, %222 ], [ %.promoted158297.i, %.preheader91.i ]
+  %.sroa.21.0 = phi i32 [ %.sink29.i.i, %.critedge.i ], [ %.sink29.i.i, %compare_blocks.exit.i ], [ %.sink29.i.i, %put_bits.exit.i ], [ %.sink29.i214.i, %get_block_info.exit218.i ], [ %.sink29.i214.i, %222 ], [ %.promoted158297.i, %.preheader91.i ]
   %.sroa.14.0 = phi i32 [ %.sink.i199.i, %.critedge.i ], [ %.sink.i199.i, %compare_blocks.exit.i ], [ %.sink.i199.i, %put_bits.exit.i ], [ %.sink.i211.i, %get_block_info.exit218.i ], [ %.sink.i211.i, %222 ], [ %.promoted153291.i, %.preheader91.i ]
-  %.sink28.i26.i = phi i32 [ %.sink28.i.i, %.critedge.i ], [ %.sink28.i.i, %compare_blocks.exit.i ], [ %.sink28.i.i, %put_bits.exit.i ], [ %.sink28.i214.i, %get_block_info.exit218.i ], [ %.sink28.i214.i, %222 ], [ %.sink28.i21218.i, %.preheader91.i ]
+  %.sink29.i26.i = phi i32 [ %.sink29.i.i, %.critedge.i ], [ %.sink29.i.i, %compare_blocks.exit.i ], [ %.sink29.i.i, %put_bits.exit.i ], [ %.sink29.i214.i, %get_block_info.exit218.i ], [ %.sink29.i214.i, %222 ], [ %.sink29.i21218.i, %.preheader91.i ]
   %.sink.i18.i = phi i32 [ %.sink.i199.i, %.critedge.i ], [ %.sink.i199.i, %compare_blocks.exit.i ], [ %.sink.i199.i, %put_bits.exit.i ], [ %.sink.i211.i, %get_block_info.exit218.i ], [ %.sink.i211.i, %222 ], [ %.sink.i13219.i, %.preheader91.i ]
   %229 = phi i32 [ %113, %.critedge.i ], [ %113, %compare_blocks.exit.i ], [ %113, %put_bits.exit.i ], [ 0, %get_block_info.exit218.i ], [ %219, %222 ], [ %107, %.preheader91.i ]
   %230 = phi i32 [ %112, %.critedge.i ], [ %112, %compare_blocks.exit.i ], [ %112, %put_bits.exit.i ], [ 0, %get_block_info.exit218.i ], [ %218, %222 ], [ %106, %.preheader91.i ]
@@ -662,7 +662,7 @@ get_block_info.exit235.i:                         ; preds = %get_block_info.exit
   %320 = icmp ne i32 %319, %78
   %321 = icmp ne i32 %318, %80
   %or.cond.i230.i = or i1 %.not24.i212.i, %321
-  %.sink28.i231.i = select i1 %or.cond.i230.i, i32 4, i32 %81
+  %.sink29.i231.i = select i1 %or.cond.i230.i, i32 4, i32 %81
   %.not25.i232.i = icmp eq i32 %313, 0
   %322 = mul nsw i32 %318, %72
   %323 = add i32 %319, %322
@@ -682,9 +682,9 @@ get_block_info.exit235.i:                         ; preds = %get_block_info.exit
   %333 = sext i32 %325 to i64
   %334 = getelementptr inbounds i16, ptr %.val, i64 %333
   %.0124.i.i = load i32, ptr %85, align 4, !tbaa !53
-  %335 = mul nsw i32 %.sink.i236.i, %.sink28.i231.i
+  %335 = mul nsw i32 %.sink.i236.i, %.sink29.i231.i
   %336 = add nsw i32 %335, %315
-  %337 = icmp sgt i32 %.sink28.i231.i, 0
+  %337 = icmp sgt i32 %.sink29.i231.i, 0
   %338 = icmp sgt i32 %.sink.i236.i, 0
   %or.cond226.i = select i1 %337, i1 %338, i1 false
   br i1 %or.cond226.i, label %.preheader.us.preheader.i245.i, label %._crit_edge172.i.i
@@ -759,7 +759,7 @@ get_block_info.exit235.i:                         ; preds = %get_block_info.exit
 ._crit_edge.us.i251.i:                            ; preds = %339
   %374 = getelementptr inbounds i16, ptr %.0171.us.i.i, i64 %84
   %375 = add nuw nsw i32 %.0123170.us.i.i, 1
-  %exitcond199.not.i.i = icmp eq i32 %375, %.sink28.i231.i
+  %exitcond199.not.i.i = icmp eq i32 %375, %.sink29.i231.i
   br i1 %exitcond199.not.i.i, label %._crit_edge172.i.i, label %.preheader.us.i247.i, !llvm.loop !63
 
 ._crit_edge172.i.i:                               ; preds = %._crit_edge.us.i251.i, %332
@@ -859,13 +859,13 @@ update_block_in_prev_frame.exit258.i..critedge2.i_crit_edge: ; preds = %update_b
   %.sroa.8.0.lcssa.i197.i = phi i8 [ %.sroa.8.0.lcssa.i.i, %update_block_in_prev_frame.exit258.i..critedge2.i_crit_edge ], [ %.promoted195.i, %update_block_in_prev_frame.exit.i ], [ %.sroa.8.0.lcssa.i196.i156, %399 ], [ %.sroa.8.0.lcssa.i196.i156, %396 ], [ %.sroa.8.0.lcssa.i196.i156, %393 ], [ %.sroa.8.0.lcssa.i196.i156, %389 ], [ %.sroa.8.0.lcssa.i196.i156, %385 ], [ %.sroa.8.0.lcssa.i196.i156, %._crit_edge172.i.i ], [ %.sroa.8.0.lcssa.i196.i156, %get_block_info.exit235.i ], [ %.sroa.8.0.lcssa.i.i, %311 ]
   %.sroa.1432.0.lcssa.i194.i = phi i8 [ %.sroa.1432.0.lcssa.i.i, %update_block_in_prev_frame.exit258.i..critedge2.i_crit_edge ], [ %.promoted192.i, %update_block_in_prev_frame.exit.i ], [ %.sroa.1432.0.lcssa.i193.i157, %399 ], [ %.sroa.1432.0.lcssa.i193.i157, %396 ], [ %.sroa.1432.0.lcssa.i193.i157, %393 ], [ %.sroa.1432.0.lcssa.i193.i157, %389 ], [ %.sroa.1432.0.lcssa.i193.i157, %385 ], [ %.sroa.1432.0.lcssa.i193.i157, %._crit_edge172.i.i ], [ %.sroa.1432.0.lcssa.i193.i157, %get_block_info.exit235.i ], [ %.sroa.1432.0.lcssa.i.i, %311 ]
   %.sroa.828.0.lcssa.i191.i = phi i8 [ %.sroa.828.0.lcssa.i.i, %update_block_in_prev_frame.exit258.i..critedge2.i_crit_edge ], [ %.promoted189.i, %update_block_in_prev_frame.exit.i ], [ %.sroa.828.0.lcssa.i190.i158, %399 ], [ %.sroa.828.0.lcssa.i190.i158, %396 ], [ %.sroa.828.0.lcssa.i190.i158, %393 ], [ %.sroa.828.0.lcssa.i190.i158, %389 ], [ %.sroa.828.0.lcssa.i190.i158, %385 ], [ %.sroa.828.0.lcssa.i190.i158, %._crit_edge172.i.i ], [ %.sroa.828.0.lcssa.i190.i158, %get_block_info.exit235.i ], [ %.sroa.828.0.lcssa.i.i, %311 ]
-  %.sink28.i231188.i = phi i32 [ %.sink28.i231.i, %update_block_in_prev_frame.exit258.i..critedge2.i_crit_edge ], [ %.sroa.21.0, %update_block_in_prev_frame.exit.i ], [ %.sink28.i231.i, %399 ], [ %.sink28.i231.i, %396 ], [ %.sink28.i231.i, %393 ], [ %.sink28.i231.i, %389 ], [ %.sink28.i231.i, %385 ], [ %.sink28.i231.i, %._crit_edge172.i.i ], [ %.sink28.i231.i, %get_block_info.exit235.i ], [ %.sink28.i231.i, %311 ]
+  %.sink29.i231188.i = phi i32 [ %.sink29.i231.i, %update_block_in_prev_frame.exit258.i..critedge2.i_crit_edge ], [ %.sroa.21.0, %update_block_in_prev_frame.exit.i ], [ %.sink29.i231.i, %399 ], [ %.sink29.i231.i, %396 ], [ %.sink29.i231.i, %393 ], [ %.sink29.i231.i, %389 ], [ %.sink29.i231.i, %385 ], [ %.sink29.i231.i, %._crit_edge172.i.i ], [ %.sink29.i231.i, %get_block_info.exit235.i ], [ %.sink29.i231.i, %311 ]
   %.sink.i236185.i = phi i32 [ %.sink.i236.i, %update_block_in_prev_frame.exit258.i..critedge2.i_crit_edge ], [ %.sroa.14.0, %update_block_in_prev_frame.exit.i ], [ %.sink.i236.i, %399 ], [ %.sink.i236.i, %396 ], [ %.sink.i236.i, %393 ], [ %.sink.i236.i, %389 ], [ %.sink.i236.i, %385 ], [ %.sink.i236.i, %._crit_edge172.i.i ], [ %.sink.i236.i, %get_block_info.exit235.i ], [ %.sink.i236.i, %311 ]
   %420 = phi i8 [ %377, %update_block_in_prev_frame.exit258.i..critedge2.i_crit_edge ], [ %268, %update_block_in_prev_frame.exit.i ], [ %314, %399 ], [ %314, %396 ], [ %314, %393 ], [ %314, %389 ], [ %314, %385 ], [ %314, %._crit_edge172.i.i ], [ %314, %get_block_info.exit235.i ], [ %377, %311 ]
   %.sroa.014.0.lcssa.i169.lcssa.i = phi i8 [ %.sroa.014.0.lcssa.i.i, %update_block_in_prev_frame.exit258.i..critedge2.i_crit_edge ], [ %.promoted168.i, %update_block_in_prev_frame.exit.i ], [ %.sroa.014.0.lcssa.i169175.i162, %399 ], [ %.sroa.014.0.lcssa.i169175.i162, %396 ], [ %.sroa.014.0.lcssa.i169175.i162, %393 ], [ %.sroa.014.0.lcssa.i169175.i162, %389 ], [ %.sroa.014.0.lcssa.i169175.i162, %385 ], [ %.sroa.014.0.lcssa.i169175.i162, %._crit_edge172.i.i ], [ %.sroa.014.0.lcssa.i169175.i162, %get_block_info.exit235.i ], [ %.sroa.014.0.lcssa.i.i, %311 ]
   %.sroa.024.0.lcssa.i167.lcssa.i = phi i8 [ %.sroa.024.0.lcssa.i.i, %update_block_in_prev_frame.exit258.i..critedge2.i_crit_edge ], [ %.promoted166.i, %update_block_in_prev_frame.exit.i ], [ %.sroa.024.0.lcssa.i167176.i161, %399 ], [ %.sroa.024.0.lcssa.i167176.i161, %396 ], [ %.sroa.024.0.lcssa.i167176.i161, %393 ], [ %.sroa.024.0.lcssa.i167176.i161, %389 ], [ %.sroa.024.0.lcssa.i167176.i161, %385 ], [ %.sroa.024.0.lcssa.i167176.i161, %._crit_edge172.i.i ], [ %.sroa.024.0.lcssa.i167176.i161, %get_block_info.exit235.i ], [ %.sroa.024.0.lcssa.i.i, %311 ]
   %.1160.lcssa.i = phi i32 [ 32, %update_block_in_prev_frame.exit258.i..critedge2.i_crit_edge ], [ 1, %update_block_in_prev_frame.exit.i ], [ %.1160181.i159, %399 ], [ %.1160181.i159, %396 ], [ %.1160181.i159, %393 ], [ %.1160181.i159, %389 ], [ %.1160181.i159, %385 ], [ %.1160181.i159, %._crit_edge172.i.i ], [ %.1160181.i159, %get_block_info.exit235.i ], [ %310, %311 ]
-  %.sink28.i23.i = phi i32 [ %.sink28.i231.i, %update_block_in_prev_frame.exit258.i..critedge2.i_crit_edge ], [ %.sink28.i26.i, %update_block_in_prev_frame.exit.i ], [ %.sink28.i231.i, %399 ], [ %.sink28.i231.i, %396 ], [ %.sink28.i231.i, %393 ], [ %.sink28.i231.i, %389 ], [ %.sink28.i231.i, %385 ], [ %.sink28.i231.i, %._crit_edge172.i.i ], [ %.sink28.i231.i, %get_block_info.exit235.i ], [ %.sink28.i231.i, %311 ]
+  %.sink29.i23.i = phi i32 [ %.sink29.i231.i, %update_block_in_prev_frame.exit258.i..critedge2.i_crit_edge ], [ %.sink29.i26.i, %update_block_in_prev_frame.exit.i ], [ %.sink29.i231.i, %399 ], [ %.sink29.i231.i, %396 ], [ %.sink29.i231.i, %393 ], [ %.sink29.i231.i, %389 ], [ %.sink29.i231.i, %385 ], [ %.sink29.i231.i, %._crit_edge172.i.i ], [ %.sink29.i231.i, %get_block_info.exit235.i ], [ %.sink29.i231.i, %311 ]
   %.sink.i15.i = phi i32 [ %.sink.i236.i, %update_block_in_prev_frame.exit258.i..critedge2.i_crit_edge ], [ %.sink.i18.i, %update_block_in_prev_frame.exit.i ], [ %.sink.i236.i, %399 ], [ %.sink.i236.i, %396 ], [ %.sink.i236.i, %393 ], [ %.sink.i236.i, %389 ], [ %.sink.i236.i, %385 ], [ %.sink.i236.i, %._crit_edge172.i.i ], [ %.sink.i236.i, %get_block_info.exit235.i ], [ %.sink.i236.i, %311 ]
   %421 = phi i32 [ %319, %update_block_in_prev_frame.exit258.i..critedge2.i_crit_edge ], [ %229, %update_block_in_prev_frame.exit.i ], [ %319, %399 ], [ %319, %396 ], [ %319, %393 ], [ %319, %389 ], [ %319, %385 ], [ %319, %._crit_edge172.i.i ], [ %319, %get_block_info.exit235.i ], [ %319, %311 ]
   %422 = phi i32 [ %318, %update_block_in_prev_frame.exit258.i..critedge2.i_crit_edge ], [ %230, %update_block_in_prev_frame.exit.i ], [ %318, %399 ], [ %318, %396 ], [ %318, %393 ], [ %318, %389 ], [ %318, %385 ], [ %318, %._crit_edge172.i.i ], [ %318, %get_block_info.exit235.i ], [ %318, %311 ]
@@ -915,9 +915,9 @@ update_block_in_prev_frame.exit258.i..critedge2.i_crit_edge: ; preds = %update_b
   br label %put_bits.exit262.i
 
 put_bits.exit262.i:                               ; preds = %446, %438, %428
-  %.sink373.i = phi i32 [ -8, %428 ], [ 24, %446 ], [ 24, %438 ]
+  %.sink422.i = phi i32 [ -8, %428 ], [ 24, %446 ], [ 24, %438 ]
   %.026.i.i260.i = phi i32 [ %430, %428 ], [ %424, %446 ], [ %424, %438 ]
-  %447 = add nsw i32 %.sink373.i, %426
+  %447 = add nsw i32 %.sink422.i, %426
   store i32 %.026.i.i260.i, ptr %25, align 8, !tbaa !42
   store i32 %447, ptr %36, align 4, !tbaa !41
   %448 = zext i8 %420 to i32
@@ -962,15 +962,15 @@ put_bits.exit262.i:                               ; preds = %446, %438, %428
   br label %put_bits.exit266.i
 
 put_bits.exit266.i:                               ; preds = %473, %465, %455
-  %.sink374.i = phi i32 [ -16, %455 ], [ 16, %473 ], [ 16, %465 ]
+  %.sink423.i = phi i32 [ -16, %455 ], [ 16, %473 ], [ 16, %465 ]
   %.026.i.i264.i = phi i32 [ %457, %455 ], [ %453, %473 ], [ %453, %465 ]
-  %474 = add nsw i32 %.sink374.i, %447
+  %474 = add nsw i32 %.sink423.i, %447
   store i32 %.026.i.i264.i, ptr %25, align 8, !tbaa !42
   store i32 %474, ptr %36, align 4, !tbaa !41
   br label %update_block_in_prev_frame.exit354.i
 
 475:                                              ; preds = %290, %287, %284, %280, %276, %._crit_edge172.i
-  %476 = icmp sgt i32 %.sink28.i26.i, 0
+  %476 = icmp sgt i32 %.sink29.i26.i, 0
   %477 = icmp sgt i32 %.sink.i18.i, 0
   %or.cond227.i = select i1 %476, i1 %477, i1 false
   br i1 %or.cond227.i, label %.preheader.us.preheader.i270.i, label %._crit_edge120.i.i
@@ -1018,7 +1018,7 @@ put_bits.exit266.i:                               ; preds = %473, %465, %455
 ._crit_edge.us.i276.i:                            ; preds = %478
   %492 = getelementptr inbounds i16, ptr %.0119.us.i.i, i64 %84
   %493 = add nuw nsw i32 %.073118.us.i.i, 1
-  %exitcond138.not.i.i = icmp eq i32 %493, %.sink28.i26.i
+  %exitcond138.not.i.i = icmp eq i32 %493, %.sink29.i26.i
   br i1 %exitcond138.not.i.i, label %._crit_edge120.loopexit.i.i, label %.preheader.us.i272.i, !llvm.loop !67
 
 ._crit_edge120.loopexit.i.i:                      ; preds = %._crit_edge.us.i276.i
@@ -1064,7 +1064,7 @@ get_max_component_diff.exit.i:                    ; preds = %505, %._crit_edge12
   store i8 0, ptr %88, align 1, !tbaa !43
   store i8 0, ptr %87, align 1, !tbaa !43
   store i8 0, ptr %89, align 1, !tbaa !43
-  %507 = mul nsw i32 %.sink.i18.i, %.sink28.i26.i
+  %507 = mul nsw i32 %.sink.i18.i, %.sink29.i26.i
   %508 = icmp slt i32 %507, 2
   %509 = mul nuw nsw i32 %.sink.i268.i, 5
   %wide.trip.count.i281.i = zext nneg i32 %.sink.i18.i to i64
@@ -1098,8 +1098,8 @@ get_max_component_diff.exit.i:                    ; preds = %505, %._crit_edge12
   br i1 %477, label %.preheader.us.i282.preheader.i, label %._crit_edge93.i.i
 
 .preheader.us.i282.preheader.i:                   ; preds = %.preheader.lr.ph.i279.i
-  %521 = trunc i64 %indvars.iv.i to i32
-  %522 = mul i32 %521, 5
+  %521 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %522 = mul nuw nsw i32 %521, 5
   br label %.preheader.us.i282.i
 
 .preheader.us.i282.i:                             ; preds = %._crit_edge.us.i286.i, %.preheader.us.i282.preheader.i
@@ -1137,7 +1137,7 @@ get_max_component_diff.exit.i:                    ; preds = %505, %._crit_edge12
 ._crit_edge.us.i286.i:                            ; preds = %523
   %537 = getelementptr inbounds i16, ptr %.06092.us.i.i, i64 %84
   %538 = add nuw nsw i32 %.06390.us.i.i, 1
-  %exitcond109.not.i.i = icmp eq i32 %538, %.sink28.i26.i
+  %exitcond109.not.i.i = icmp eq i32 %538, %.sink29.i26.i
   br i1 %exitcond109.not.i.i, label %._crit_edge93.i.i, label %.preheader.us.i282.i, !llvm.loop !69
 
 ._crit_edge93.i.i:                                ; preds = %._crit_edge.us.i286.i, %.preheader.lr.ph.i279.i, %.preheader75.i.i
@@ -1163,8 +1163,8 @@ get_max_component_diff.exit.i:                    ; preds = %505, %._crit_edge12
 leastsquares.exit.i:                              ; preds = %._crit_edge93.i.i, %520
   %549 = load i16, ptr %232, align 2, !tbaa !58
   %550 = zext i16 %549 to i32
-  %551 = trunc i64 %indvars.iv.i to i32
-  %552 = mul i32 %551, 5
+  %551 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %552 = mul nuw nsw i32 %551, 5
   %553 = lshr i32 %550, %552
   %554 = trunc i32 %553 to i8
   %555 = and i8 %554, 31
@@ -1183,7 +1183,7 @@ leastsquares.exit.i:                              ; preds = %._crit_edge93.i.i, 
   %560 = mul nsw i32 %546, %.061.lcssa.i.i
   %561 = sub nsw i32 %.064.lcssa.i.i, %560
   %562 = sdiv i32 %561, %507
-  %563 = add i32 %562, 1
+  %563 = add nsw i32 %562, 1
   %564 = add i32 %563, %548
   %565 = add i32 %563, %547
   %.not.i.i = icmp ult i32 %565, 256
@@ -1206,8 +1206,8 @@ leastsquares.exit.i:                              ; preds = %._crit_edge93.i.i, 
   br i1 %477, label %.preheader.us.i290.preheader.i, label %calc_lsq_max_fit_error.exit311.i
 
 .preheader.us.i290.preheader.i:                   ; preds = %.preheader.lr.ph.i287.i
-  %574 = trunc i64 %indvars.iv.i to i32
-  %575 = mul i32 %574, 5
+  %574 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %575 = mul nuw nsw i32 %574, 5
   br label %.preheader.us.i290.i
 
 .preheader.us.i290.i:                             ; preds = %._crit_edge.us.i294.i, %.preheader.us.i290.preheader.i
@@ -1253,7 +1253,7 @@ leastsquares.exit.i:                              ; preds = %._crit_edge93.i.i, 
 ._crit_edge.us.i294.i:                            ; preds = %576
   %602 = getelementptr inbounds i16, ptr %.063.us.i.i, i64 %84
   %603 = add nuw nsw i32 %.04962.us.i.i, 1
-  %exitcond68.not.i.i = icmp eq i32 %603, %.sink28.i26.i
+  %exitcond68.not.i.i = icmp eq i32 %603, %.sink29.i26.i
   br i1 %exitcond68.not.i.i, label %calc_lsq_max_fit_error.exit.i, label %.preheader.us.i290.i, !llvm.loop !71
 
 calc_lsq_max_fit_error.exit.i:                    ; preds = %._crit_edge.us.i294.i
@@ -1307,7 +1307,7 @@ calc_lsq_max_fit_error.exit.thread.i:             ; preds = %559
 ._crit_edge.us.i309.i:                            ; preds = %604
   %630 = getelementptr inbounds i16, ptr %.063.us.i300.i, i64 %84
   %631 = add nuw nsw i32 %.04962.us.i301.i, 1
-  %exitcond68.not.i310.i = icmp eq i32 %631, %.sink28.i26.i
+  %exitcond68.not.i310.i = icmp eq i32 %631, %.sink29.i26.i
   br i1 %exitcond68.not.i310.i, label %calc_lsq_max_fit_error.exit311.i, label %.preheader.us.i299.i, !llvm.loop !71
 
 calc_lsq_max_fit_error.exit311.i:                 ; preds = %._crit_edge.us.i309.i, %calc_lsq_max_fit_error.exit.thread.i, %calc_lsq_max_fit_error.exit.i, %.preheader.lr.ph.i287.i
@@ -1337,7 +1337,7 @@ get_block_info.exit319.i:                         ; preds = %636
   %.sink.i312.i = select i1 %or.cond74.i, i32 4, i32 %79
   %642 = icmp ne i32 %639, %80
   %or.cond.i314.i = or i1 %.not24.i212.i, %642
-  %.sink28.i315.i = select i1 %or.cond.i314.i, i32 4, i32 %81
+  %.sink29.i315.i = select i1 %or.cond.i314.i, i32 4, i32 %81
   %.not25.i316.i = icmp eq i32 %.1.i, 0
   %643 = mul nsw i32 %639, %72
   %644 = add i32 %640, %643
@@ -1391,7 +1391,7 @@ get_block_info.exit319.i..preheader.preheader.i_crit_edge: ; preds = %get_block_
 
 .lr.ph213.i.preheader:                            ; preds = %.preheader86.i, %.preheader87.i
   %.ph = phi i32 [ %.pre305.i.pre, %.preheader87.i ], [ %689, %.preheader86.i ]
-  %.ph581 = phi i32 [ %.pre304.i.pre, %.preheader87.i ], [ %.026.i.i329.i, %.preheader86.i ]
+  %.ph631 = phi i32 [ %.pre304.i.pre, %.preheader87.i ], [ %.026.i.i329.i, %.preheader86.i ]
   br label %.lr.ph213.i
 
 .preheader86.i:                                   ; preds = %put_bits.exit331.i
@@ -1439,9 +1439,9 @@ get_block_info.exit319.i..preheader.preheader.i_crit_edge: ; preds = %get_block_
   br label %put_bits.exit331.i
 
 put_bits.exit331.i:                               ; preds = %688, %680, %670
-  %.sink375.i = phi i32 [ -16, %670 ], [ 16, %688 ], [ 16, %680 ]
+  %.sink424.i = phi i32 [ -16, %670 ], [ 16, %688 ], [ 16, %680 ]
   %.026.i.i329.i = phi i32 [ %672, %670 ], [ %668, %688 ], [ %668, %680 ]
-  %689 = add nsw i32 %.sink375.i, %663
+  %689 = add nsw i32 %.sink424.i, %663
   store i32 %.026.i.i329.i, ptr %25, align 8, !tbaa !42
   store i32 %689, ptr %36, align 4, !tbaa !41
   %indvars.iv.next276.i = add nuw nsw i64 %indvars.iv275.i, 1
@@ -1458,7 +1458,7 @@ put_bits.exit331.i:                               ; preds = %688, %680, %670
 
 .lr.ph213.i:                                      ; preds = %.lr.ph213.i.preheader, %put_bits.exit335.i
   %692 = phi i32 [ %710, %put_bits.exit335.i ], [ %.ph, %.lr.ph213.i.preheader ]
-  %693 = phi i32 [ %.026.i.i333.i, %put_bits.exit335.i ], [ %.ph581, %.lr.ph213.i.preheader ]
+  %693 = phi i32 [ %.026.i.i333.i, %put_bits.exit335.i ], [ %.ph631, %.lr.ph213.i.preheader ]
   %.0155212.i = phi i32 [ %711, %put_bits.exit335.i ], [ %656, %.lr.ph213.i.preheader ]
   %694 = icmp sgt i32 %692, 16
   br i1 %694, label %695, label %697
@@ -1490,9 +1490,9 @@ put_bits.exit331.i:                               ; preds = %688, %680, %670
   br label %put_bits.exit335.i
 
 put_bits.exit335.i:                               ; preds = %709, %704, %695
-  %.sink376.i = phi i32 [ -16, %695 ], [ 16, %709 ], [ 16, %704 ]
+  %.sink425.i = phi i32 [ -16, %695 ], [ 16, %709 ], [ 16, %704 ]
   %.026.i.i333.i = phi i32 [ %696, %695 ], [ 0, %709 ], [ 0, %704 ]
-  %710 = add nsw i32 %.sink376.i, %692
+  %710 = add nsw i32 %.sink425.i, %692
   store i32 %.026.i.i333.i, ptr %25, align 8, !tbaa !42
   store i32 %710, ptr %36, align 4, !tbaa !41
   %711 = add i32 %.0155212.i, 1
@@ -1544,9 +1544,9 @@ put_bits.exit335.i:                               ; preds = %709, %704, %695
   br label %put_bits.exit339.i
 
 put_bits.exit339.i:                               ; preds = %732, %727, %718
-  %.sink377.i = phi i32 [ -16, %718 ], [ 16, %732 ], [ 16, %727 ]
+  %.sink426.i = phi i32 [ -16, %718 ], [ 16, %732 ], [ 16, %727 ]
   %.026.i.i337.i = phi i32 [ %719, %718 ], [ 0, %732 ], [ 0, %727 ]
-  %733 = add nsw i32 %.sink377.i, %715
+  %733 = add nsw i32 %.sink426.i, %715
   store i32 %.026.i.i337.i, ptr %25, align 8, !tbaa !42
   store i32 %733, ptr %36, align 4, !tbaa !41
   %734 = add nuw nsw i32 %.0216.i, 1
@@ -1659,9 +1659,9 @@ put_bits.exit.i.i:                                ; preds = %779, %771, %761
   br label %put_bits.exit51.i.i
 
 put_bits.exit51.i.i:                              ; preds = %802, %794, %784
-  %.sink103.i.i = phi i32 [ -16, %784 ], [ 16, %802 ], [ 16, %794 ]
+  %.sink117.i.i = phi i32 [ -16, %784 ], [ 16, %802 ], [ 16, %794 ]
   %.026.i.i49.i.i = phi i32 [ %786, %784 ], [ %782, %802 ], [ %782, %794 ]
-  %803 = add nsw i32 %.sink103.i.i, %780
+  %803 = add nsw i32 %.sink117.i.i, %780
   store i32 %.026.i.i49.i.i, ptr %25, align 8, !tbaa !42
   store i32 %803, ptr %36, align 4, !tbaa !41
   store i8 %741, ptr %6, align 1, !tbaa !43
@@ -1771,9 +1771,9 @@ put_bits.exit51.i.i:                              ; preds = %802, %794, %784
   br label %put_bits.exit60.us.i.i
 
 put_bits.exit60.us.i.i:                           ; preds = %850, %842, %841
-  %.sink104.i.i = phi i32 [ -2, %850 ], [ 30, %842 ], [ 30, %841 ]
+  %.sink118.i.i = phi i32 [ -2, %850 ], [ 30, %842 ], [ 30, %841 ]
   %.026.i.i58.us.i.i = phi i32 [ %852, %850 ], [ %spec.select18.i.us.i.i, %842 ], [ %spec.select18.i.us.i.i, %841 ]
-  %853 = add nsw i32 %.sink104.i.i, %831
+  %853 = add nsw i32 %.sink118.i.i, %831
   store i32 %.026.i.i58.us.i.i, ptr %25, align 8, !tbaa !42
   store i32 %853, ptr %36, align 4, !tbaa !41
   %854 = add i32 %.03974.us.i.i, 1
@@ -1877,9 +1877,9 @@ match_color.exit.us.i.i:                          ; preds = %874
   br label %put_bits.exit56.us.i.i
 
 put_bits.exit56.us.i.i:                           ; preds = %911, %903, %902
-  %.sink105.i.i = phi i32 [ -2, %911 ], [ 30, %903 ], [ 30, %902 ]
+  %.sink119.i.i = phi i32 [ -2, %911 ], [ 30, %903 ], [ 30, %902 ]
   %.026.i.i54.us.i.i = phi i32 [ %913, %911 ], [ %spec.select18.i.us.i.i, %903 ], [ %spec.select18.i.us.i.i, %902 ]
-  %914 = add nsw i32 %.sink105.i.i, %856
+  %914 = add nsw i32 %.sink119.i.i, %856
   store i32 %.026.i.i54.us.i.i, ptr %25, align 8, !tbaa !42
   store i32 %914, ptr %36, align 4, !tbaa !41
   %indvars.iv.next.i346.i = add nuw nsw i64 %indvars.iv.i345.i, 1
@@ -1925,8 +1925,8 @@ put_bits.exit56.us.i.i:                           ; preds = %911, %903, %902
   br label %put_bits.exit60.us83.i.i
 
 put_bits.exit60.us83.i.i:                         ; preds = %929, %928, %917
-  %.sink106.i.i = phi i32 [ 30, %929 ], [ 30, %928 ], [ -2, %917 ]
-  %934 = add nsw i32 %.sink106.i.i, %918
+  %.sink120.i.i = phi i32 [ 30, %929 ], [ 30, %928 ], [ -2, %917 ]
+  %934 = add nsw i32 %.sink120.i.i, %918
   store i32 -1, ptr %25, align 8, !tbaa !42
   store i32 %934, ptr %36, align 4, !tbaa !41
   %935 = add i32 %.03974.us82.i.i, 1
@@ -1945,13 +1945,13 @@ put_bits.exit60.us83.i.i:                         ; preds = %929, %928, %917
   br i1 %939, label %.preheader.i.i.preheader, label %encode_four_color_block.exit.i
 
 .preheader.i.i.preheader:                         ; preds = %.preheader70.i.i, %put_bits.exit51.i.i
-  %.ph582 = phi i32 [ %803, %put_bits.exit51.i.i ], [ %937, %.preheader70.i.i ]
-  %.ph583 = phi i32 [ %.026.i.i49.i.i, %put_bits.exit51.i.i ], [ %938, %.preheader70.i.i ]
+  %.ph632 = phi i32 [ %803, %put_bits.exit51.i.i ], [ %937, %.preheader70.i.i ]
+  %.ph633 = phi i32 [ %.026.i.i49.i.i, %put_bits.exit51.i.i ], [ %938, %.preheader70.i.i ]
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %942
-  %940 = phi i32 [ %963, %942 ], [ %.ph582, %.preheader.i.i.preheader ]
-  %941 = phi i32 [ %.026.i.i62.i.i, %942 ], [ %.ph583, %.preheader.i.i.preheader ]
+  %940 = phi i32 [ %963, %942 ], [ %.ph632, %.preheader.i.i.preheader ]
+  %941 = phi i32 [ %.026.i.i62.i.i, %942 ], [ %.ph633, %.preheader.i.i.preheader ]
   %.03888.i.i = phi i32 [ %943, %942 ], [ %spec.select.i.i, %.preheader.i.i.preheader ]
   br label %944
 
@@ -1994,9 +1994,9 @@ put_bits.exit60.us83.i.i:                         ; preds = %929, %928, %917
   br label %put_bits.exit64.i.i
 
 put_bits.exit64.i.i:                              ; preds = %962, %957, %948
-  %.sink107.i.i = phi i32 [ -2, %948 ], [ 30, %962 ], [ 30, %957 ]
+  %.sink121.i.i = phi i32 [ -2, %948 ], [ 30, %962 ], [ 30, %957 ]
   %.026.i.i62.i.i = phi i32 [ %949, %948 ], [ 0, %962 ], [ 0, %957 ]
-  %963 = add nsw i32 %.sink107.i.i, %945
+  %963 = add nsw i32 %.sink121.i.i, %945
   store i32 %.026.i.i62.i.i, ptr %25, align 8, !tbaa !42
   store i32 %963, ptr %36, align 4, !tbaa !41
   %964 = add nuw nsw i32 %.087.i.i, 1
@@ -2010,9 +2010,9 @@ encode_four_color_block.exit.i:                   ; preds = %942, %.preheader70.
 .loopexit89.i:                                    ; preds = %712, %encode_four_color_block.exit.i
   %.pre-phi313.i = phi i32 [ %740, %encode_four_color_block.exit.i ], [ %656, %712 ]
   %.pre-phi310.i = phi i32 [ %737, %encode_four_color_block.exit.i ], [ %652, %712 ]
-  %.promoted158301.i = phi i32 [ %.sroa.21.0, %encode_four_color_block.exit.i ], [ %.sink28.i315.i, %712 ]
+  %.promoted158301.i = phi i32 [ %.sroa.21.0, %encode_four_color_block.exit.i ], [ %.sink29.i315.i, %712 ]
   %.promoted153295.i = phi i32 [ %.sroa.14.0, %encode_four_color_block.exit.i ], [ %.sink.i312.i, %712 ]
-  %.sink28.i25.i = phi i32 [ %.sink28.i26.i, %encode_four_color_block.exit.i ], [ %.sink28.i315.i, %712 ]
+  %.sink29.i25.i = phi i32 [ %.sink29.i26.i, %encode_four_color_block.exit.i ], [ %.sink29.i315.i, %712 ]
   %.sink.i17.i = phi i32 [ %.sink.i18.i, %encode_four_color_block.exit.i ], [ %.sink.i312.i, %712 ]
   %965 = phi i32 [ %229, %encode_four_color_block.exit.i ], [ %640, %712 ]
   %966 = phi i32 [ %230, %encode_four_color_block.exit.i ], [ %639, %712 ]
@@ -2028,21 +2028,21 @@ encode_four_color_block.exit.i:                   ; preds = %942, %.preheader70.
 .lr.ph.i349.i:                                    ; preds = %.loopexit89.i..lr.ph.i349.i_crit_edge, %.preheader88.i
   %.pre-phi = phi i64 [ %.pre413, %.loopexit89.i..lr.ph.i349.i_crit_edge ], [ %658, %.preheader88.i ]
   %.in.in.i = phi i32 [ %.pre-phi313.i, %.loopexit89.i..lr.ph.i349.i_crit_edge ], [ %656, %.preheader88.i ]
-  %.7331.i = phi i32 [ %.7.i, %.loopexit89.i..lr.ph.i349.i_crit_edge ], [ %646, %.preheader88.i ]
-  %.7177330.i = phi i32 [ %.7177.i, %.loopexit89.i..lr.ph.i349.i_crit_edge ], [ %650, %.preheader88.i ]
+  %.7380.i = phi i32 [ %.7.i, %.loopexit89.i..lr.ph.i349.i_crit_edge ], [ %646, %.preheader88.i ]
+  %.7177379.i = phi i32 [ %.7177.i, %.loopexit89.i..lr.ph.i349.i_crit_edge ], [ %650, %.preheader88.i ]
   %968 = phi i32 [ %966, %.loopexit89.i..lr.ph.i349.i_crit_edge ], [ %639, %.preheader88.i ]
   %969 = phi i32 [ %965, %.loopexit89.i..lr.ph.i349.i_crit_edge ], [ %640, %.preheader88.i ]
-  %.sink.i17329.i = phi i32 [ %.sink.i17.i, %.loopexit89.i..lr.ph.i349.i_crit_edge ], [ %.sink.i312.i, %.preheader88.i ]
-  %.sink28.i25328.i = phi i32 [ %.sink28.i25.i, %.loopexit89.i..lr.ph.i349.i_crit_edge ], [ %.sink28.i315.i, %.preheader88.i ]
-  %.promoted153295326.i = phi i32 [ %.promoted153295.i, %.loopexit89.i..lr.ph.i349.i_crit_edge ], [ %.sink.i312.i, %.preheader88.i ]
-  %.promoted158301325.i = phi i32 [ %.promoted158301.i, %.loopexit89.i..lr.ph.i349.i_crit_edge ], [ %.sink28.i315.i, %.preheader88.i ]
-  %.pre-phi310324.i = phi i32 [ %.pre-phi310.i, %.loopexit89.i..lr.ph.i349.i_crit_edge ], [ %652, %.preheader88.i ]
+  %.sink.i17378.i = phi i32 [ %.sink.i17.i, %.loopexit89.i..lr.ph.i349.i_crit_edge ], [ %.sink.i312.i, %.preheader88.i ]
+  %.sink29.i25377.i = phi i32 [ %.sink29.i25.i, %.loopexit89.i..lr.ph.i349.i_crit_edge ], [ %.sink29.i315.i, %.preheader88.i ]
+  %.promoted153295375.i = phi i32 [ %.promoted153295.i, %.loopexit89.i..lr.ph.i349.i_crit_edge ], [ %.sink.i312.i, %.preheader88.i ]
+  %.promoted158301374.i = phi i32 [ %.promoted158301.i, %.loopexit89.i..lr.ph.i349.i_crit_edge ], [ %.sink29.i315.i, %.preheader88.i ]
+  %.pre-phi310373.i = phi i32 [ %.pre-phi310.i, %.loopexit89.i..lr.ph.i349.i_crit_edge ], [ %652, %.preheader88.i ]
   %.in.i = shl i32 %.in.in.i, 1
   %970 = sext i32 %.in.i to i64
-  %971 = sext i32 %.7177330.i to i64
+  %971 = sext i32 %.7177379.i to i64
   %972 = getelementptr inbounds i16, ptr %60, i64 %971
   %973 = getelementptr inbounds i16, ptr %.val, i64 %.pre-phi
-  %974 = tail call i32 @llvm.umin.i32(i32 %.pre-phi310324.i, i32 4)
+  %974 = tail call i32 @llvm.umin.i32(i32 %.pre-phi310373.i, i32 4)
   br label %975
 
 975:                                              ; preds = %975, %.lr.ph.i349.i
@@ -2057,14 +2057,14 @@ encode_four_color_block.exit.i:                   ; preds = %942, %.preheader70.
   br i1 %exitcond.not.i353.i, label %update_block_in_prev_frame.exit354.i, label %975, !llvm.loop !64
 
 update_block_in_prev_frame.exit354.i:             ; preds = %975, %.loopexit89.i, %put_bits.exit266.i
-  %.promoted158300.i = phi i32 [ %.sink28.i231188.i, %put_bits.exit266.i ], [ %.promoted158301.i, %.loopexit89.i ], [ %.promoted158301325.i, %975 ]
-  %.promoted153294.i = phi i32 [ %.sink.i236185.i, %put_bits.exit266.i ], [ %.promoted153295.i, %.loopexit89.i ], [ %.promoted153295326.i, %975 ]
-  %.sink28.i22.i = phi i32 [ %.sink28.i23.i, %put_bits.exit266.i ], [ %.sink28.i25.i, %.loopexit89.i ], [ %.sink28.i25328.i, %975 ]
-  %.sink.i14.i = phi i32 [ %.sink.i15.i, %put_bits.exit266.i ], [ %.sink.i17.i, %.loopexit89.i ], [ %.sink.i17329.i, %975 ]
+  %.promoted158300.i = phi i32 [ %.sink29.i231188.i, %put_bits.exit266.i ], [ %.promoted158301.i, %.loopexit89.i ], [ %.promoted158301374.i, %975 ]
+  %.promoted153294.i = phi i32 [ %.sink.i236185.i, %put_bits.exit266.i ], [ %.promoted153295.i, %.loopexit89.i ], [ %.promoted153295375.i, %975 ]
+  %.sink29.i22.i = phi i32 [ %.sink29.i23.i, %put_bits.exit266.i ], [ %.sink29.i25.i, %.loopexit89.i ], [ %.sink29.i25377.i, %975 ]
+  %.sink.i14.i = phi i32 [ %.sink.i15.i, %put_bits.exit266.i ], [ %.sink.i17.i, %.loopexit89.i ], [ %.sink.i17378.i, %975 ]
   %979 = phi i32 [ %421, %put_bits.exit266.i ], [ %965, %.loopexit89.i ], [ %969, %975 ]
   %980 = phi i32 [ %422, %put_bits.exit266.i ], [ %966, %.loopexit89.i ], [ %968, %975 ]
-  %.6176.i = phi i32 [ %.5175.i, %put_bits.exit266.i ], [ %.7177.i, %.loopexit89.i ], [ %.7177330.i, %975 ]
-  %.6.i = phi i32 [ %.5.i, %put_bits.exit266.i ], [ %.7.i, %.loopexit89.i ], [ %.7331.i, %975 ]
+  %.6176.i = phi i32 [ %.5175.i, %put_bits.exit266.i ], [ %.7177.i, %.loopexit89.i ], [ %.7177379.i, %975 ]
+  %.6.i = phi i32 [ %.5.i, %put_bits.exit266.i ], [ %.7.i, %.loopexit89.i ], [ %.7380.i, %975 ]
   %.1160.pn.i = phi i32 [ %.1160.lcssa.i, %put_bits.exit266.i ], [ 1, %.loopexit89.i ], [ 1, %975 ]
   %.2.i = add nsw i32 %.1160.pn.i, %.1.i
   br label %.backedge.i

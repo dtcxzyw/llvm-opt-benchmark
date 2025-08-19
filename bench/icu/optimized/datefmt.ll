@@ -870,7 +870,7 @@ _ZNK6icu_7710DateFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionE.exit: ; 
   br i1 %34, label %_ZNK6icu_7710DateFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionE.exit.thread, label %37
 
 _ZNK6icu_7710DateFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionE.exit.thread: ; preds = %8, %_ZNK6icu_7710DateFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionE.exit
-  %.0.i13 = phi double [ %.0.i, %_ZNK6icu_7710DateFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionE.exit ], [ 0.000000e+00, %8 ]
+  %.0.i15 = phi double [ %.0.i, %_ZNK6icu_7710DateFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionE.exit ], [ 0.000000e+00, %8 ]
   store i32 1, ptr %2, align 4, !tbaa !6
   br label %37
 
@@ -882,13 +882,13 @@ _ZNK6icu_7710DateFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionE.exit.thr
   resume { ptr, i32 } %36
 
 37:                                               ; preds = %_ZNK6icu_7710DateFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionE.exit.thread, %_ZNK6icu_7710DateFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionE.exit
-  %.0.i12 = phi double [ %.0.i13, %_ZNK6icu_7710DateFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionE.exit.thread ], [ %.0.i, %_ZNK6icu_7710DateFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionE.exit ]
+  %.0.i14 = phi double [ %.0.i15, %_ZNK6icu_7710DateFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionE.exit.thread ], [ %.0.i, %_ZNK6icu_7710DateFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionE.exit ]
   call void @_ZN6icu_7713ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %38
 
 38:                                               ; preds = %3, %37
-  %.0 = phi double [ %.0.i12, %37 ], [ 0.000000e+00, %3 ]
+  %.0 = phi double [ %.0.i14, %37 ], [ 0.000000e+00, %3 ]
   ret double %.0
 }
 
@@ -1206,13 +1206,13 @@ _ZN6icu_7712SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i: ; p
   br i1 %or.cond.i.i, label %_ZNK6icu_7712UnifiedCache3getINS_18DateFmtBestPatternEEEvRKNS_8CacheKeyIT_EERPKS4_R10UErrorCode.exit, label %_ZN6icu_7712SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i.thread
 
 _ZN6icu_7712SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i.thread: ; preds = %_ZN6icu_7712SharedObject7copyPtrINS_18DateFmtBestPatternEEEvPKT_RS5_.exit.i.i, %_ZN6icu_7712SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i
-  %.121 = phi ptr [ %.1, %_ZN6icu_7712SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i ], [ null, %_ZN6icu_7712SharedObject7copyPtrINS_18DateFmtBestPatternEEEvPKT_RS5_.exit.i.i ]
+  %.126 = phi ptr [ %.1, %_ZN6icu_7712SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i ], [ null, %_ZN6icu_7712SharedObject7copyPtrINS_18DateFmtBestPatternEEEvPKT_RS5_.exit.i.i ]
   %33 = phi i32 [ %29, %_ZN6icu_7712SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i ], [ %26, %_ZN6icu_7712SharedObject7copyPtrINS_18DateFmtBestPatternEEEvPKT_RS5_.exit.i.i ]
   store i32 %33, ptr %3, align 4, !tbaa !6
   br label %_ZNK6icu_7712UnifiedCache3getINS_18DateFmtBestPatternEEEvRKNS_8CacheKeyIT_EERPKS4_R10UErrorCode.exit
 
 _ZNK6icu_7712UnifiedCache3getINS_18DateFmtBestPatternEEEvRKNS_8CacheKeyIT_EERPKS4_R10UErrorCode.exit: ; preds = %_ZN6icu_7712SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i, %_ZN6icu_7712SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i.thread
-  %.122 = phi ptr [ %.121, %_ZN6icu_7712SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i.thread ], [ %.1, %_ZN6icu_7712SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i ]
+  %.127 = phi ptr [ %.126, %_ZN6icu_7712SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i.thread ], [ %.1, %_ZN6icu_7712SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i ]
   %34 = phi i32 [ %33, %_ZN6icu_7712SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i.thread ], [ %30, %_ZN6icu_7712SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1231,12 +1231,12 @@ _ZNK6icu_7712UnifiedCache3getINS_18DateFmtBestPatternEEEvRKNS_8CacheKeyIT_EERPKS
   br label %45
 
 39:                                               ; preds = %_ZNK6icu_7712UnifiedCache3getINS_18DateFmtBestPatternEEEvRKNS_8CacheKeyIT_EERPKS4_R10UErrorCode.exit
-  %40 = getelementptr inbounds nuw i8, ptr %.122, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %.127, i64 24
   invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %40)
           to label %41 unwind label %37
 
 41:                                               ; preds = %39
-  invoke void @_ZNK6icu_7712SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %.122)
+  invoke void @_ZNK6icu_7712SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %.127)
           to label %44 unwind label %42
 
 42:                                               ; preds = %41
@@ -1277,9 +1277,9 @@ define noundef ptr @_ZN6icu_7710DateFormat25createInstanceForSkeletonEPNS_8Calen
 
 10:                                               ; preds = %4
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread39, label %11
+  br i1 %.not, label %.thread40, label %11
 
-.thread39:                                        ; preds = %10
+.thread40:                                        ; preds = %10
   store i32 1, ptr %3, align 4, !tbaa !6
   br label %_ZN6icu_7712LocalPointerINS_8CalendarEED2Ev.exit24
 
@@ -1293,17 +1293,17 @@ define noundef ptr @_ZN6icu_7710DateFormat25createInstanceForSkeletonEPNS_8Calen
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 184
   %15 = load ptr, ptr %14, align 8
   %16 = invoke noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(192) %0)
-          to label %17 unwind label %.thread34
+          to label %17 unwind label %.thread35
 
 17:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull @.str)
-          to label %.noexc unwind label %.thread34
+          to label %.noexc unwind label %.thread35
 
 .noexc:                                           ; preds = %17
   invoke void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef %16)
-          to label %.noexc22 unwind label %.thread34
+          to label %.noexc22 unwind label %.thread35
 
 .noexc22:                                         ; preds = %.noexc
   %18 = load ptr, ptr %5, align 8
@@ -1313,7 +1313,7 @@ define noundef ptr @_ZN6icu_7710DateFormat25createInstanceForSkeletonEPNS_8Calen
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %23 = load i32, ptr %22, align 8
   invoke void @_ZN6icu_776Locale15setKeywordValueENS_11StringPieceES1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %7, ptr %18, i32 %20, ptr %21, i32 %23, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %24 unwind label %.thread34
+          to label %24 unwind label %.thread35
 
 24:                                               ; preds = %.noexc22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1327,7 +1327,7 @@ define noundef ptr @_ZN6icu_7710DateFormat25createInstanceForSkeletonEPNS_8Calen
           cleanup
   br label %42
 
-.thread34:                                        ; preds = %12, %17, %.noexc, %.noexc22
+.thread35:                                        ; preds = %12, %17, %.noexc, %.noexc22
   %28 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %7) #13
@@ -1347,9 +1347,9 @@ define noundef ptr @_ZN6icu_7710DateFormat25createInstanceForSkeletonEPNS_8Calen
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 136
   %37 = load ptr, ptr %36, align 8
   invoke void %37(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull %0)
-          to label %39 unwind label %.thread37
+          to label %39 unwind label %.thread38
 
-.thread37:                                        ; preds = %34
+.thread38:                                        ; preds = %34
   %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %7) #13
@@ -1369,8 +1369,8 @@ define noundef ptr @_ZN6icu_7710DateFormat25createInstanceForSkeletonEPNS_8Calen
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %7) #13
   br label %42
 
-42:                                               ; preds = %40, %.thread34, %.thread
-  %.pn.pn32 = phi { ptr, i32 } [ %27, %.thread ], [ %41, %40 ], [ %28, %.thread34 ]
+42:                                               ; preds = %40, %.thread35, %.thread
+  %.pn.pn33 = phi { ptr, i32 } [ %27, %.thread ], [ %41, %40 ], [ %28, %.thread35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %43 = load ptr, ptr %0, align 8, !tbaa !3
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -1378,9 +1378,9 @@ define noundef ptr @_ZN6icu_7710DateFormat25createInstanceForSkeletonEPNS_8Calen
   call void %45(ptr noundef nonnull align 8 dereferenceable(192) %0) #13
   br label %_ZN6icu_7712LocalPointerINS_8CalendarEED2Ev.exit
 
-_ZN6icu_7712LocalPointerINS_8CalendarEED2Ev.exit: ; preds = %.thread37, %42
-  %.pn.pn33 = phi { ptr, i32 } [ %.pn.pn32, %42 ], [ %38, %.thread37 ]
-  resume { ptr, i32 } %.pn.pn33
+_ZN6icu_7712LocalPointerINS_8CalendarEED2Ev.exit: ; preds = %.thread38, %42
+  %.pn.pn34 = phi { ptr, i32 } [ %.pn.pn33, %42 ], [ %38, %.thread38 ]
+  resume { ptr, i32 } %.pn.pn34
 
 46:                                               ; preds = %4, %39
   %.sroa.0.0 = phi ptr [ %.sroa.0.1, %39 ], [ %0, %4 ]
@@ -1395,9 +1395,9 @@ _ZN6icu_7712LocalPointerINS_8CalendarEED2Ev.exit: ; preds = %.thread37, %42
   call void %51(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.0.0) #13
   br label %_ZN6icu_7712LocalPointerINS_8CalendarEED2Ev.exit24
 
-_ZN6icu_7712LocalPointerINS_8CalendarEED2Ev.exit24: ; preds = %.thread39, %46, %48
-  %.042 = phi ptr [ null, %.thread39 ], [ %.0, %46 ], [ %.0, %48 ]
-  ret ptr %.042
+_ZN6icu_7712LocalPointerINS_8CalendarEED2Ev.exit24: ; preds = %.thread40, %46, %48
+  %.043 = phi ptr [ null, %.thread40 ], [ %.0, %46 ], [ %.0, %48 ]
+  ret ptr %.043
 }
 
 declare void @_ZN6icu_776LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #4
@@ -1998,7 +1998,7 @@ _ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35: ; preds = %19, %_
   br i1 %31, label %_ZN6icu_7712LocalPointerINS_24DateTimePatternGeneratorEED2Ev.exit36, label %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35.thread
 
 _ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35.thread: ; preds = %24, %22, %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35
-  %.059 = phi ptr [ null, %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35 ], [ %10, %22 ], [ null, %24 ]
+  %.063 = phi ptr [ null, %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35 ], [ %10, %22 ], [ null, %24 ]
   %32 = load ptr, ptr %6, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
@@ -2006,8 +2006,8 @@ _ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35.thread: ; preds = 
   br label %_ZN6icu_7712LocalPointerINS_24DateTimePatternGeneratorEED2Ev.exit36
 
 _ZN6icu_7712LocalPointerINS_24DateTimePatternGeneratorEED2Ev.exit36: ; preds = %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35, %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35.thread
-  %.060 = phi ptr [ null, %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35 ], [ %.059, %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35.thread ]
-  ret ptr %.060
+  %.064 = phi ptr [ null, %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35 ], [ %.063, %_ZN6icu_7712LocalPointerINS_18DateFmtBestPatternEED2Ev.exit35.thread ]
+  ret ptr %.064
 }
 
 ; Function Attrs: mustprogress uwtable

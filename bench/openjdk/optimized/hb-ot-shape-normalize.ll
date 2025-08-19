@@ -181,20 +181,20 @@ _ZN11hb_buffer_t11next_glyphsEj.exit.thread:      ; preds = %_ZN9hb_font_t18get_
 .lr.ph.preheader:                                 ; preds = %99
   %102 = load i8, ptr %41, align 8
   %103 = trunc i8 %102 to i1
-  br i1 %103, label %.lr.ph240, label %.critedge
+  br i1 %103, label %.lr.ph277, label %.critedge
 
-.lr.ph:                                           ; preds = %.lr.ph240
+.lr.ph:                                           ; preds = %.lr.ph277
   %104 = load i8, ptr %41, align 8
   %105 = trunc i8 %104 to i1
-  br i1 %105, label %.lr.ph240, label %.critedge, !llvm.loop !8
+  br i1 %105, label %.lr.ph277, label %.critedge, !llvm.loop !8
 
-.lr.ph240:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph277:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   call fastcc void @_ZL27decompose_current_characterPK31hb_ot_shape_normalize_context_tb(ptr noundef %4, i1 noundef zeroext %32)
   %106 = load i32, ptr %34, align 4
   %107 = icmp ult i32 %106, %spec.select160
   br i1 %107, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !8
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph240
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph277
   br label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %99

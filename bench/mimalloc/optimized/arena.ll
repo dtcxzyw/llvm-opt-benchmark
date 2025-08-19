@@ -1558,12 +1558,12 @@ define internal fastcc void @mi_arenas_try_purge(i1 noundef zeroext %0, i1 nound
   br i1 %.not6978.i, label %.critedge71.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %59, %.critedge.i
-  %.059.lcssa97.i = phi i64 [ %.05977.i, %.critedge.i ], [ %54, %59 ]
+  %.059.lcssa107.i = phi i64 [ %.05977.i, %.critedge.i ], [ %54, %59 ]
   %61 = or disjoint i64 %.06181.i, %53
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %64, %.lr.ph.preheader.i
-  %.16079.i = phi i64 [ %65, %64 ], [ %.059.lcssa97.i, %.lr.ph.preheader.i ]
+  %.16079.i = phi i64 [ %65, %64 ], [ %.059.lcssa107.i, %.lr.ph.preheader.i ]
   %62 = load i64, ptr %42, align 8, !tbaa !17
   %63 = tail call zeroext i1 @_mi_bitmap_try_claim(ptr noundef nonnull %45, i64 noundef %62, i64 noundef %.16079.i, i64 noundef %61) #20
   br i1 %63, label %66, label %64

@@ -2492,13 +2492,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit181.i:     ; preds = %_ZNKSt7__cxx1112bas
 .thread.i:                                        ; preds = %485
   %492 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split222.i
+  br label %.sink.split269.i
 
 .thread205.i:                                     ; preds = %488
   %493 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %41) #25
-  br label %.sink.split222.i
+  br label %.sink.split269.i
 
 494:                                              ; preds = %491, %489
   %.0.i = phi i1 [ false, %491 ], [ true, %489 ]
@@ -2511,13 +2511,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit181.i:     ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br i1 %.0.i, label %496, label %497
 
-.sink.split222.i:                                 ; preds = %.thread205.i, %.thread.i
+.sink.split269.i:                                 ; preds = %.thread205.i, %.thread.i
   %.pn105.pn204.ph.i = phi { ptr, i32 } [ %493, %.thread205.i ], [ %492, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %496
 
-496:                                              ; preds = %.sink.split222.i, %494
-  %.pn105.pn204.i = phi { ptr, i32 } [ %495, %494 ], [ %.pn105.pn204.ph.i, %.sink.split222.i ]
+496:                                              ; preds = %.sink.split269.i, %494
+  %.pn105.pn204.i = phi { ptr, i32 } [ %495, %494 ], [ %.pn105.pn204.ph.i, %.sink.split269.i ]
   call void @__cxa_free_exception(ptr %487) #25
   br label %497
 

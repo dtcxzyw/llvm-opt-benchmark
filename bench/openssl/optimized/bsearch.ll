@@ -68,14 +68,14 @@ define ptr @ossl_bsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   %28 = getelementptr inbounds i8, ptr %1, i64 %27
   %29 = tail call i32 %4(ptr noundef %0, ptr noundef %28) #1
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %.preheader, label %.critedge.split.loop.exit80, !llvm.loop !5
+  br i1 %30, label %.preheader, label %.critedge.split.loop.exit81, !llvm.loop !5
 
-.critedge.split.loop.exit80:                      ; preds = %26
+.critedge.split.loop.exit81:                      ; preds = %26
   %31 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.preheader, %.critedge.split.loop.exit80
-  %.236.lcssa = phi i32 [ %31, %.critedge.split.loop.exit80 ], [ 0, %.preheader ]
+.critedge:                                        ; preds = %.preheader, %.critedge.split.loop.exit81
+  %.236.lcssa = phi i32 [ %31, %.critedge.split.loop.exit81 ], [ 0, %.preheader ]
   %32 = mul nsw i32 %.236.lcssa, %3
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds i8, ptr %1, i64 %33

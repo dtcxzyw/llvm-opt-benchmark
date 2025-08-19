@@ -1984,9 +1984,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109: ; preds = %_Z
   br i1 %.not.i.i110, label %.body88, label %.body88.sink.split
 
 .body88.sink.split:                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109, %332
-  %.sink143 = phi ptr [ %334, %332 ], [ %376, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109 ]
+  %.sink174 = phi ptr [ %334, %332 ], [ %376, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109 ]
   %.pn.pn.pn.ph = phi { ptr, i32 } [ %333, %332 ], [ %363, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink143) #20
+  call void @_ZdaPv(ptr noundef nonnull %.sink174) #20
   br label %.body88
 
 .body88:                                          ; preds = %.body88.sink.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109, %332
@@ -2599,8 +2599,8 @@ _ZN7rocksdb6Status15InvalidArgumentERKNS_5SliceES3_.exit76: ; preds = %203
   %219 = load ptr, ptr %184, align 8, !tbaa !142, !noalias !144
   %220 = load ptr, ptr %11, align 8, !tbaa !147, !noalias !144
   %221 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.not163 = icmp eq ptr %219, %220
-  br i1 %.not163, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit.i, label %222
+  %.not230 = icmp eq ptr %219, %220
+  br i1 %.not230, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit.i, label %222
 
 222:                                              ; preds = %215
   %223 = ptrtoint ptr %220 to i64

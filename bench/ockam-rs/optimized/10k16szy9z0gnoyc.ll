@@ -15053,10 +15053,10 @@ common.ret.sink.split.i.i.i.i:                    ; preds = %710, %706
 
 common.ret.sink.split.i.i.i:                      ; preds = %"_ZN4core3ptr263drop_in_place$LT$ockam_node..context..send_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..send_and_receive_extended$LT$alloc..vec..Vec$LT$u8$GT$$C$ockam_core..routing..route..Route$C$alloc..vec..Vec$LT$u8$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h86bb0807282297a3E.exit.i.i.i", %1096
   %.sink.i.i.i = phi i64 [ 16, %1096 ], [ 72, %"_ZN4core3ptr263drop_in_place$LT$ockam_node..context..send_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..send_and_receive_extended$LT$alloc..vec..Vec$LT$u8$GT$$C$ockam_core..routing..route..Route$C$alloc..vec..Vec$LT$u8$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h86bb0807282297a3E.exit.i.i.i" ]
-  %.sink5.i.i.i = phi i64 [ %1098, %1096 ], [ %1548, %"_ZN4core3ptr263drop_in_place$LT$ockam_node..context..send_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..send_and_receive_extended$LT$alloc..vec..Vec$LT$u8$GT$$C$ockam_core..routing..route..Route$C$alloc..vec..Vec$LT$u8$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h86bb0807282297a3E.exit.i.i.i" ]
+  %.sink38.i.i.i = phi i64 [ %1098, %1096 ], [ %1548, %"_ZN4core3ptr263drop_in_place$LT$ockam_node..context..send_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..send_and_receive_extended$LT$alloc..vec..Vec$LT$u8$GT$$C$ockam_core..routing..route..Route$C$alloc..vec..Vec$LT$u8$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h86bb0807282297a3E.exit.i.i.i" ]
   %1094 = getelementptr inbounds nuw i8, ptr %1091, i64 %.sink.i.i.i
   %1095 = load ptr, ptr %1094, align 8, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %1095, i64 noundef %.sink5.i.i.i, i64 noundef 1) #30, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %1095, i64 noundef %.sink38.i.i.i, i64 noundef 1) #30, !noalias !4
   br label %"_ZN4core3ptr98drop_in_place$LT$ockam_node..api..Client..request$LT$$LP$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha49d264064f1e0e6E.exit"
 
 1096:                                             ; preds = %1090
@@ -24944,10 +24944,10 @@ common.ret.sink.split.i:                          ; preds = %12, %9
 
 "_ZN4core3ptr209drop_in_place$LT$ockam_identity..secure_channels..secure_client..SecureClient..ask$LT$$LP$$RP$$C$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hff0fdfe4522782c4E.exit.sink.split.i": ; preds = %"_ZN4core3ptr67drop_in_place$LT$ockam_identity..models..credential..Credential$GT$17h28c8ab549fc54077E.exit.i.i", %22
   %.sink.i = phi i64 [ 96, %"_ZN4core3ptr67drop_in_place$LT$ockam_identity..models..credential..Credential$GT$17h28c8ab549fc54077E.exit.i.i" ], [ 6480, %22 ]
-  %.sink29.i = phi i64 [ %433, %"_ZN4core3ptr67drop_in_place$LT$ockam_identity..models..credential..Credential$GT$17h28c8ab549fc54077E.exit.i.i" ], [ %24, %22 ]
+  %.sink59.i = phi i64 [ %433, %"_ZN4core3ptr67drop_in_place$LT$ockam_identity..models..credential..Credential$GT$17h28c8ab549fc54077E.exit.i.i" ], [ %24, %22 ]
   %379 = getelementptr inbounds nuw i8, ptr %16, i64 %.sink.i
   %380 = load ptr, ptr %379, align 8, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %380, i64 noundef %.sink29.i, i64 noundef 1) #30, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %380, i64 noundef %.sink59.i, i64 noundef 1) #30, !noalias !4
   br label %"_ZN4core3ptr209drop_in_place$LT$ockam_identity..secure_channels..secure_client..SecureClient..ask$LT$$LP$$RP$$C$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hff0fdfe4522782c4E.exit.i"
 
 "_ZN4core3ptr209drop_in_place$LT$ockam_identity..secure_channels..secure_client..SecureClient..ask$LT$$LP$$RP$$C$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hff0fdfe4522782c4E.exit.i": ; preds = %"_ZN4core3ptr67drop_in_place$LT$ockam_identity..models..credential..Credential$GT$17h28c8ab549fc54077E.exit.i.i", %"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17ha029e25ff610ea75E.llvm.13826239688354340414.exit.i", %"_ZN4core3ptr209drop_in_place$LT$ockam_identity..secure_channels..secure_client..SecureClient..ask$LT$$LP$$RP$$C$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hff0fdfe4522782c4E.exit.sink.split.i", %26, %22, %19
@@ -36783,7 +36783,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$ockam_node..api..Client$GT$1
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..Error$GT$17hfdc3c3776e3f9877E.llvm.13826239688354340414"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !12727, !noundef !4
-  switch i64 %2, label %default.unreachable17 [
+  switch i64 %2, label %default.unreachable28 [
     i64 0, label %29
     i64 1, label %44
     i64 2, label %57
@@ -36802,7 +36802,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..Error$GT$1
     i64 15, label %3
   ]
 
-default.unreachable17:                            ; preds = %1
+default.unreachable28:                            ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -39371,9 +39371,9 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMe
   unreachable
 
 152:                                              ; preds = %130, %135, %.body48, %172
-  %.sink57 = phi i64 [ 56, %172 ], [ 56, %.body48 ], [ 64, %135 ], [ 64, %130 ]
+  %.sink82 = phi i64 [ 56, %172 ], [ 56, %.body48 ], [ 64, %135 ], [ 64, %130 ]
   %.pn12 = phi { ptr, i32 } [ %173, %172 ], [ %.pn, %.body48 ], [ %136, %135 ], [ %.pn8, %130 ]
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink57
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink82
   tail call void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$ockam_core..routing..address_meta..AddressAndMetadata$GT$$GT$17h095dc7492a3bdc77E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %153) #32
   resume { ptr, i32 } %.pn12
 

@@ -1067,7 +1067,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 321:                                              ; preds = %320, %.thread.i
   %322 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 92), align 4, !range !6, !noundef !7
   %323 = trunc nuw i8 %322 to i1
-  br i1 %323, label %.thread114.i, label %324
+  br i1 %323, label %.thread118.i, label %324
 
 324:                                              ; preds = %321
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.203) #11
@@ -1076,13 +1076,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %326 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 60), align 4, !range !6, !noundef !7
   %327 = trunc nuw i8 %326 to i1
   %or.cond19.i = select i1 %327, i1 true, i1 %325
-  br i1 %or.cond19.i, label %.thread114.i, label %328
+  br i1 %or.cond19.i, label %.thread118.i, label %328
 
 328:                                              ; preds = %324
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.204) #11
-  br label %.thread114.i
+  br label %.thread118.i
 
-.thread114.i:                                     ; preds = %328, %324, %321
+.thread118.i:                                     ; preds = %328, %324, %321
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.205) #11
   %329 = load ptr, ptr %3, align 8
   %330 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 2), align 2, !range !6, !noundef !7
@@ -1092,7 +1092,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.not.i = icmp eq i32 %333, 2
   br i1 %.not.i, label %337, label %334
 
-334:                                              ; preds = %.thread114.i
+334:                                              ; preds = %.thread118.i
   %335 = call ptr @PQerrorMessage(ptr noundef %.2) #11
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.163, ptr noundef %335) #11
   %336 = load ptr, ptr %3, align 8
@@ -1101,7 +1101,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   call void @exit(i32 noundef 1) #12
   unreachable
 
-337:                                              ; preds = %.thread114.i
+337:                                              ; preds = %.thread118.i
   call void @termPQExpBuffer(ptr noundef nonnull %3) #11
   %338 = call i32 @PQntuples(ptr noundef %332) #11
   %339 = icmp sgt i32 %338, 0
@@ -2176,8 +2176,8 @@ append_db_pattern_cte.exit59:                     ; preds = %._crit_edge.i57, %.
 .thread:                                          ; preds = %91
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.165, ptr noundef %96) #11
   %110 = add nuw nsw i32 %.063, 1
-  %exitcond.not70 = icmp eq i32 %110, %74
-  br i1 %exitcond.not70, label %._crit_edge.thread, label %.lr.ph.backedge
+  %exitcond.not80 = icmp eq i32 %110, %74
+  br i1 %exitcond.not80, label %._crit_edge.thread, label %.lr.ph.backedge
 
 ._crit_edge.thread:                               ; preds = %.thread
   call void @PQclear(ptr noundef %68) #11

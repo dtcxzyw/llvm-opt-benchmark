@@ -306,8 +306,8 @@ condstore.split:                                  ; preds = %.preheader
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 6
   %40 = load i16, ptr %39, align 2, !tbaa !11
   %41 = and i16 %40, 24
-  %.not51 = icmp eq i16 %41, 0
-  br i1 %.not51, label %46, label %42
+  %.not55 = icmp eq i16 %41, 0
+  br i1 %.not55, label %46, label %42
 
 42:                                               ; preds = %condstore.split
   %43 = and i16 %40, 8

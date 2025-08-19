@@ -123,9 +123,9 @@ define internal range(i32 -2147483648, 1) i32 @rtmp_http_open(ptr noundef %0, pt
 57:                                               ; preds = %.preheader56, %66
   %.0 = phi i32 [ %67, %66 ], [ 0, %.preheader56 ]
   %58 = load ptr, ptr %25, align 8, !tbaa !19
-  %59 = zext i32 %.0 to i64
+  %59 = zext nneg i32 %.0 to i64
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 %59
-  %61 = sub i32 64, %.0
+  %61 = sub nsw i32 64, %.0
   %62 = call i32 @ffurl_read2(ptr noundef %58, ptr noundef nonnull %60, i32 noundef %61) #4
   switch i32 %62, label %64 [
     i32 -541478725, label %.preheader

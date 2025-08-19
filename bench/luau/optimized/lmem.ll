@@ -72,7 +72,7 @@ define hidden noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef
   %35 = load ptr, ptr %34, align 8, !tbaa !27
   %.not31.i = icmp ne ptr %35, null
   %brmerge.i = select i1 %.not31.i, i1 true, i1 %33
-  br i1 %brmerge.i, label %.thread23, label %.thread37.i
+  br i1 %brmerge.i, label %.thread23, label %.thread40.i
 
 .thread.i:                                        ; preds = %19
   %36 = getelementptr inbounds nuw i8, ptr %.027.i, i64 40
@@ -85,28 +85,28 @@ define hidden noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef
   store i32 %41, ptr %39, align 4, !tbaa !25
   store ptr %.027.i, ptr %37, align 8, !tbaa !26
   %42 = load ptr, ptr %36, align 8, !tbaa !27
-  %.not3134.i = icmp eq ptr %42, null
-  br i1 %.not3134.i, label %.thread37.i, label %.thread23
+  %.not3137.i = icmp eq ptr %42, null
+  br i1 %.not3137.i, label %.thread40.i, label %.thread23
 
-.thread37.i:                                      ; preds = %.thread.i, %23
-  %.03639.i = phi ptr [ %37, %.thread.i ], [ %26, %23 ]
+.thread40.i:                                      ; preds = %.thread.i, %23
+  %.03942.i = phi ptr [ %37, %.thread.i ], [ %26, %23 ]
   %43 = getelementptr inbounds nuw i8, ptr %.027.i, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !28
   store ptr %44, ptr %15, align 8, !tbaa !20
   %.not32.i = icmp eq ptr %44, null
   br i1 %.not32.i, label %46, label %45
 
-45:                                               ; preds = %.thread37.i
+45:                                               ; preds = %.thread40.i
   store ptr null, ptr %44, align 8, !tbaa !29
   br label %46
 
-46:                                               ; preds = %45, %.thread37.i
+46:                                               ; preds = %45, %.thread40.i
   store ptr null, ptr %43, align 8, !tbaa !28
   br label %.thread23
 
 .thread23:                                        ; preds = %46, %.thread.i, %23
-  %.035.i = phi ptr [ %37, %.thread.i ], [ %.03639.i, %46 ], [ %26, %23 ]
-  %47 = getelementptr inbounds nuw i8, ptr %.035.i, i64 8
+  %.038.i = phi ptr [ %37, %.thread.i ], [ %.03942.i, %46 ], [ %26, %23 ]
+  %47 = getelementptr inbounds nuw i8, ptr %.038.i, i64 8
   br label %56
 
 .thread:                                          ; preds = %3, %8
@@ -203,7 +203,7 @@ define hidden noundef ptr @_Z12luaM_newgco_P9lua_Statemh(ptr noundef %0, i64 nou
   %34 = icmp sgt i32 %30, -1
   %.not30.i = icmp ne ptr %.pre.i, null
   %brmerge.i = select i1 %.not30.i, i1 true, i1 %34
-  br i1 %brmerge.i, label %68, label %.thread36.i
+  br i1 %brmerge.i, label %68, label %.thread39.i
 
 .thread.i:                                        ; preds = %20
   %35 = getelementptr inbounds nuw i8, ptr %.026.i, i64 40
@@ -215,22 +215,22 @@ define hidden noundef ptr @_Z12luaM_newgco_P9lua_Statemh(ptr noundef %0, i64 nou
   %40 = load i32, ptr %39, align 4, !tbaa !25
   %41 = add nsw i32 %40, 1
   store i32 %41, ptr %39, align 4, !tbaa !25
-  %.not3033.i = icmp eq ptr %38, null
-  br i1 %.not3033.i, label %.thread36.i, label %68
+  %.not3036.i = icmp eq ptr %38, null
+  br i1 %.not3036.i, label %.thread39.i, label %68
 
-.thread36.i:                                      ; preds = %.thread.i, %24
-  %.03538.i = phi ptr [ %36, %.thread.i ], [ %27, %24 ]
+.thread39.i:                                      ; preds = %.thread.i, %24
+  %.03841.i = phi ptr [ %36, %.thread.i ], [ %27, %24 ]
   %42 = getelementptr inbounds nuw i8, ptr %.026.i, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !28
   store ptr %43, ptr %15, align 8, !tbaa !20
   %.not31.i = icmp eq ptr %43, null
   br i1 %.not31.i, label %45, label %44
 
-44:                                               ; preds = %.thread36.i
+44:                                               ; preds = %.thread39.i
   store ptr null, ptr %43, align 8, !tbaa !29
   br label %45
 
-45:                                               ; preds = %44, %.thread36.i
+45:                                               ; preds = %44, %.thread39.i
   store ptr null, ptr %42, align 8, !tbaa !28
   br label %68
 
@@ -281,7 +281,7 @@ _ZL7newpageP9lua_StatePP8lua_Pageiii.exit:        ; preds = %56, %64
   br label %68
 
 68:                                               ; preds = %_ZL7newpageP9lua_StatePP8lua_Pageiii.exit, %24, %.thread.i, %45
-  %.0 = phi ptr [ %66, %_ZL7newpageP9lua_StatePP8lua_Pageiii.exit ], [ %36, %.thread.i ], [ %.03538.i, %45 ], [ %27, %24 ]
+  %.0 = phi ptr [ %66, %_ZL7newpageP9lua_StatePP8lua_Pageiii.exit ], [ %36, %.thread.i ], [ %.03841.i, %45 ], [ %27, %24 ]
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %70 = load i64, ptr %69, align 8, !tbaa !45
   %71 = add i64 %70, %1
@@ -584,10 +584,10 @@ define hidden void @_Z13luaM_freegco_P9lua_StateP8GCObjectmhP8lua_Page(ptr nound
   br label %_ZL12freegcoblockP9lua_StateiPvP8lua_Page.exit.sink.split
 
 _ZL12freegcoblockP9lua_StateiPvP8lua_Page.exit.sink.split: ; preds = %73, %70, %68, %57, %59, %62
-  %.val.i.i.sink22 = phi ptr [ %.val.i.i, %62 ], [ %.val.i.i, %59 ], [ %.val.i.i, %57 ], [ %7, %68 ], [ %7, %70 ], [ %7, %73 ]
-  %74 = getelementptr inbounds nuw i8, ptr %.val.i.i.sink22, i64 16
+  %.val.i.i.sink25 = phi ptr [ %.val.i.i, %62 ], [ %.val.i.i, %59 ], [ %.val.i.i, %57 ], [ %7, %68 ], [ %7, %70 ], [ %7, %73 ]
+  %74 = getelementptr inbounds nuw i8, ptr %.val.i.i.sink25, i64 16
   %75 = load ptr, ptr %74, align 8, !tbaa !30
-  %76 = getelementptr inbounds nuw i8, ptr %.val.i.i.sink22, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.val.i.i.sink25, i64 24
   %77 = load ptr, ptr %76, align 8, !tbaa !44
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %79 = load i32, ptr %78, align 8, !tbaa !49
@@ -683,7 +683,7 @@ define hidden noundef ptr @_Z13luaM_realloc_P9lua_StatePvmmh(ptr noundef %0, ptr
   %51 = load ptr, ptr %50, align 8, !tbaa !27
   %.not31.i = icmp ne ptr %51, null
   %brmerge.i = select i1 %.not31.i, i1 true, i1 %49
-  br i1 %brmerge.i, label %.thread, label %.thread37.i
+  br i1 %brmerge.i, label %.thread, label %.thread40.i
 
 .thread.i:                                        ; preds = %35
   %52 = getelementptr inbounds nuw i8, ptr %.027.i, i64 40
@@ -696,28 +696,28 @@ define hidden noundef ptr @_Z13luaM_realloc_P9lua_StatePvmmh(ptr noundef %0, ptr
   store i32 %57, ptr %55, align 4, !tbaa !25
   store ptr %.027.i, ptr %53, align 8, !tbaa !26
   %58 = load ptr, ptr %52, align 8, !tbaa !27
-  %.not3134.i = icmp eq ptr %58, null
-  br i1 %.not3134.i, label %.thread37.i, label %.thread
+  %.not3137.i = icmp eq ptr %58, null
+  br i1 %.not3137.i, label %.thread40.i, label %.thread
 
-.thread37.i:                                      ; preds = %.thread.i, %39
-  %.03639.i = phi ptr [ %53, %.thread.i ], [ %42, %39 ]
+.thread40.i:                                      ; preds = %.thread.i, %39
+  %.03942.i = phi ptr [ %53, %.thread.i ], [ %42, %39 ]
   %59 = getelementptr inbounds nuw i8, ptr %.027.i, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !28
   store ptr %60, ptr %30, align 8, !tbaa !20
   %.not32.i = icmp eq ptr %60, null
   br i1 %.not32.i, label %62, label %61
 
-61:                                               ; preds = %.thread37.i
+61:                                               ; preds = %.thread40.i
   store ptr null, ptr %60, align 8, !tbaa !29
   br label %62
 
-62:                                               ; preds = %61, %.thread37.i
+62:                                               ; preds = %61, %.thread40.i
   store ptr null, ptr %59, align 8, !tbaa !28
   br label %.thread
 
 .thread:                                          ; preds = %62, %.thread.i, %39
-  %.035.i = phi ptr [ %53, %.thread.i ], [ %.03639.i, %62 ], [ %42, %39 ]
-  %63 = getelementptr inbounds nuw i8, ptr %.035.i, i64 8
+  %.038.i = phi ptr [ %53, %.thread.i ], [ %.03942.i, %62 ], [ %42, %39 ]
+  %63 = getelementptr inbounds nuw i8, ptr %.038.i, i64 8
   %64 = icmp ne i64 %3, 0
   br label %74
 

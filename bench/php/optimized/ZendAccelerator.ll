@@ -3730,9 +3730,9 @@ define internal fastcc noundef ptr @opcache_compile_file(ptr noundef %0, i32 nou
 67:                                               ; preds = %62
   %68 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2, !tbaa !45, !range !37, !noundef !38
   %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %74, label %.thread89
+  br i1 %69, label %74, label %.thread93
 
-.thread89:                                        ; preds = %67
+.thread93:                                        ; preds = %67
   %70 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !28
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load i64, ptr %71, align 8, !tbaa !216
@@ -3935,7 +3935,7 @@ zend_string_copy.exit86:                          ; preds = %zend_string_copy.ex
   %169 = call i64 @zend_string_hash_func(ptr noundef nonnull %storemerge80) #26
   br label %zend_string_hash_val.exit
 
-.critedge:                                        ; preds = %74, %80, %.thread89, %58, %53
+.critedge:                                        ; preds = %74, %80, %.thread93, %58, %53
   %170 = load ptr, ptr @accelerator_orig_compile_file, align 8, !tbaa !39
   %171 = call ptr %170(ptr noundef nonnull %0, i32 noundef %1) #26
   store ptr %171, ptr %2, align 8, !tbaa !180
@@ -4834,8 +4834,8 @@ accel_restart_leave.exit:                         ; preds = %168, %184
   br i1 %.not13.i17, label %.thread.sink.split, label %.lr.ph.i15
 
 .thread.sink.split:                               ; preds = %246, %226, %231, %211
-  %.sink40 = phi i8 [ 0, %211 ], [ 1, %231 ], [ 0, %226 ], [ 1, %246 ]
-  store i8 %.sink40, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 4), align 4, !tbaa !260
+  %.sink45 = phi i8 [ 0, %211 ], [ 1, %231 ], [ 0, %226 ], [ 1, %246 ]
+  store i8 %.sink45, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 4), align 4, !tbaa !260
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %206, %228
@@ -5648,9 +5648,9 @@ accel_move_code_to_huge_pages.exit:               ; preds = %accel_remap_huge_pa
 111:                                              ; preds = %105
   %112 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 56), align 8, !tbaa !284, !range !37, !noundef !38
   %113 = trunc nuw i8 %112 to i1
-  br i1 %113, label %114, label %accel_find_sapi.exit.thread3
+  br i1 %113, label %114, label %accel_find_sapi.exit.thread10
 
-accel_find_sapi.exit.thread3:                     ; preds = %111
+accel_find_sapi.exit.thread10:                    ; preds = %111
   store i8 0, ptr @accel_startup_ok, align 1, !tbaa !52
   br label %121
 
@@ -5670,7 +5670,7 @@ accel_find_sapi.exit:                             ; preds = %accel_move_code_to_
   store i8 0, ptr @accel_startup_ok, align 1, !tbaa !52
   br i1 %120, label %accel_find_sapi.exit.thread, label %121
 
-121:                                              ; preds = %accel_find_sapi.exit.thread3, %accel_find_sapi.exit
+121:                                              ; preds = %accel_find_sapi.exit.thread10, %accel_find_sapi.exit
   %122 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(4) @.str.43) #29
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %124, label %accel_find_sapi.exit.thread
@@ -7465,7 +7465,7 @@ zend_accel_inheritance_cache_find.exit.thread:    ; preds = %zend_accel_inherita
 
 .lr.ph74.outer:                                   ; preds = %.preheader, %.thread
   %.ph = phi ptr [ %34, %.thread ], [ %27, %.preheader ]
-  %indvars.iv101.ph = phi i64 [ %indvars.iv.next102109, %.thread ], [ 0, %.preheader ]
+  %indvars.iv101.ph = phi i64 [ %indvars.iv.next102115, %.thread ], [ 0, %.preheader ]
   %.134.i73.ph = phi i1 [ true, %.thread ], [ false, %.preheader ]
   br label %.lr.ph74
 
@@ -7493,17 +7493,17 @@ zend_accel_inheritance_cache_find.exit.thread:    ; preds = %zend_accel_inherita
   br i1 %41, label %.lr.ph74, label %.preheader._crit_edge
 
 .thread:                                          ; preds = %37
-  %indvars.iv.next102109 = add nuw nsw i64 %indvars.iv101, 1
+  %indvars.iv.next102115 = add nuw nsw i64 %indvars.iv101, 1
   %42 = load i32, ptr %28, align 8, !tbaa !329
   %43 = zext i32 %42 to i64
-  %44 = icmp samesign ult i64 %indvars.iv.next102109, %43
-  br i1 %44, label %.lr.ph74.outer, label %.preheader._crit_edge.thread111
+  %44 = icmp samesign ult i64 %indvars.iv.next102115, %43
+  br i1 %44, label %.lr.ph74.outer, label %.preheader._crit_edge.thread117
 
-.preheader._crit_edge.thread111:                  ; preds = %.thread
+.preheader._crit_edge.thread117:                  ; preds = %.thread
   %45 = icmp eq i32 %42, 0
   br i1 %45, label %zend_accel_inheritance_cache_find.exit.thread.backedge, label %.lr.ph81.preheader
 
-zend_accel_inheritance_cache_find.exit.thread.backedge: ; preds = %80, %.preheader._crit_edge.thread111, %.preheader61
+zend_accel_inheritance_cache_find.exit.thread.backedge: ; preds = %80, %.preheader._crit_edge.thread117, %.preheader61
   br label %zend_accel_inheritance_cache_find.exit.thread
 
 .thread41:                                        ; preds = %21, %37, %13
@@ -7518,7 +7518,7 @@ zend_accel_inheritance_cache_find.exit.thread.backedge: ; preds = %80, %.prehead
   %47 = icmp eq i32 %39, 0
   br i1 %47, label %zend_accel_inheritance_cache_find.exit.thread.backedge, label %.lr.ph81.preheader
 
-.lr.ph81.preheader:                               ; preds = %.preheader._crit_edge.thread111, %.preheader61
+.lr.ph81.preheader:                               ; preds = %.preheader._crit_edge.thread117, %.preheader61
   br label %.lr.ph81
 
 .thread57:                                        ; preds = %.preheader._crit_edge, %.preheader, %._crit_edge
@@ -10200,8 +10200,8 @@ preload_try_strip_filename.exit.i:                ; preds = %.preheader.i.i
 416:                                              ; preds = %preload_try_strip_filename.exit.i
   %417 = load ptr, ptr @preload_scripts, align 8, !tbaa !230
   %418 = call ptr @zend_hash_str_find(ptr noundef %417, ptr noundef nonnull %405, i64 noundef range(i64 1, 0) %411) #26
-  %.not76.i = icmp eq ptr %418, null
-  br i1 %.not76.i, label %.thread.i, label %.thread59.i
+  %.not81.i = icmp eq ptr %418, null
+  br i1 %.not81.i, label %.thread.i, label %.thread59.i
 
 419:                                              ; preds = %393
   br i1 %.03973.i, label %.thread59.i, label %.thread.i
@@ -10391,8 +10391,8 @@ preload_try_strip_filename.exit.i122:             ; preds = %.preheader.i.i119
 515:                                              ; preds = %preload_try_strip_filename.exit.i122
   %516 = load ptr, ptr @preload_scripts, align 8, !tbaa !230
   %517 = call ptr @zend_hash_str_find(ptr noundef %516, ptr noundef nonnull %504, i64 noundef range(i64 1, 0) %510) #26
-  %.not66.i = icmp eq ptr %517, null
-  br i1 %.not66.i, label %.thread.i116, label %.thread54.i
+  %.not71.i = icmp eq ptr %517, null
+  br i1 %.not71.i, label %.thread.i116, label %.thread54.i
 
 518:                                              ; preds = %489
   br i1 %.03664.i, label %.thread54.i, label %.thread.i116
@@ -11716,26 +11716,26 @@ zend_string_release.exit199:                      ; preds = %.loopexit266, %99, 
   br i1 %.154.i, label %._crit_edge.thread.i, label %247
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.backedge
-  %.059.lcssa110.i = phi i1 [ %244, %._crit_edge.i ], [ true, %.backedge ]
-  %.163.lcssa108.i = phi i1 [ %.264.i, %._crit_edge.i ], [ %.062.i, %.backedge ]
+  %.059.lcssa114.i = phi i1 [ %244, %._crit_edge.i ], [ true, %.backedge ]
+  %.163.lcssa112.i = phi i1 [ %.264.i, %._crit_edge.i ], [ %.062.i, %.backedge ]
   %245 = load i32, ptr %208, align 4, !tbaa !322
   %246 = and i32 %245, -16777217
   store i32 %246, ptr %208, align 4, !tbaa !322
   br label %247
 
 247:                                              ; preds = %._crit_edge.thread.i, %._crit_edge.i
-  %.053.lcssa111.i = phi i1 [ true, %._crit_edge.thread.i ], [ false, %._crit_edge.i ]
-  %.059.lcssa109.i = phi i1 [ %.059.lcssa110.i, %._crit_edge.thread.i ], [ %244, %._crit_edge.i ]
-  %.163.lcssa107.i = phi i1 [ %.163.lcssa108.i, %._crit_edge.thread.i ], [ %.264.i, %._crit_edge.i ]
-  %cond.fr = freeze i1 %.163.lcssa107.i
+  %.053.lcssa115.i = phi i1 [ true, %._crit_edge.thread.i ], [ false, %._crit_edge.i ]
+  %.059.lcssa113.i = phi i1 [ %.059.lcssa114.i, %._crit_edge.thread.i ], [ %244, %._crit_edge.i ]
+  %.163.lcssa111.i = phi i1 [ %.163.lcssa112.i, %._crit_edge.thread.i ], [ %.264.i, %._crit_edge.i ]
+  %cond.fr = freeze i1 %.163.lcssa111.i
   %248 = load i32, ptr %215, align 8, !tbaa !421
   %.not71.i = icmp eq i32 %248, 0
   br i1 %.not71.i, label %._crit_edge88.thread.i, label %.lr.ph87.outer.i
 
 .lr.ph87.outer.i:                                 ; preds = %247, %.thread.i210
   %249 = phi i32 [ %.pre331, %.thread.i210 ], [ %248, %247 ]
-  %indvars.iv.ph.i = phi i64 [ %indvars.iv.next115.i, %.thread.i210 ], [ 0, %247 ]
-  %.486.ph.i = phi i1 [ false, %.thread.i210 ], [ %.053.lcssa111.i, %247 ]
+  %indvars.iv.ph.i = phi i64 [ %indvars.iv.next119.i, %.thread.i210 ], [ 0, %247 ]
+  %.486.ph.i = phi i1 [ false, %.thread.i210 ], [ %.053.lcssa115.i, %247 ]
   %.05585.ph.i = phi i1 [ false, %.thread.i210 ], [ true, %247 ]
   br label %.lr.ph87.i
 
@@ -11768,9 +11768,9 @@ zend_string_release.exit199:                      ; preds = %.loopexit266, %99, 
   br i1 %266, label %.lr.ph87.i, label %._crit_edge88.i
 
 .thread.i210:                                     ; preds = %256
-  %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv.i208, 1
+  %indvars.iv.next119.i = add nuw nsw i64 %indvars.iv.i208, 1
   %267 = zext i32 %.pre331 to i64
-  %268 = icmp samesign ult i64 %indvars.iv.next115.i, %267
+  %268 = icmp samesign ult i64 %indvars.iv.next119.i, %267
   br i1 %268, label %.lr.ph87.outer.i, label %._crit_edge88.thread.i
 
 ._crit_edge88.i:                                  ; preds = %263
@@ -11783,7 +11783,7 @@ zend_string_release.exit199:                      ; preds = %.loopexit266, %99, 
   br label %._crit_edge88.thread.i
 
 ._crit_edge88.thread.i:                           ; preds = %.thread.i210, %269, %._crit_edge88.i, %247
-  %.3.i = phi i1 [ %.053.lcssa111.i, %247 ], [ %.486.ph.i, %269 ], [ %.486.ph.i, %._crit_edge88.i ], [ false, %.thread.i210 ]
+  %.3.i = phi i1 [ %.053.lcssa115.i, %247 ], [ %.486.ph.i, %269 ], [ %.486.ph.i, %._crit_edge88.i ], [ false, %.thread.i210 ]
   %272 = load i32, ptr %218, align 4, !tbaa !425
   %.not72.i = icmp eq i32 %272, 0
   br i1 %.not72.i, label %._crit_edge100.i.thread, label %273
@@ -11842,24 +11842,24 @@ zend_string_release.exit199:                      ; preds = %.loopexit266, %99, 
   br i1 %.096.i.ph, label %._crit_edge100.thread.i, label %._crit_edge100.i.thread
 
 ._crit_edge100.thread.i:                          ; preds = %._crit_edge100.i, %275
-  %.7.lcssa124.i = phi i1 [ %.794.i.ph, %._crit_edge100.i ], [ %.3.i, %275 ]
+  %.7.lcssa128.i = phi i1 [ %.794.i.ph, %._crit_edge100.i ], [ %.3.i, %275 ]
   %291 = load i32, ptr %208, align 4, !tbaa !322
   %292 = and i32 %291, -67108865
   store i32 %292, ptr %208, align 4, !tbaa !322
   br label %._crit_edge100.i.thread
 
 ._crit_edge100.i.thread:                          ; preds = %._crit_edge100.thread.i, %._crit_edge100.i, %._crit_edge88.thread.i
-  %.9.i = phi i1 [ %.3.i, %._crit_edge88.thread.i ], [ %.7.lcssa124.i, %._crit_edge100.thread.i ], [ %.794.i.ph, %._crit_edge100.i ]
-  %293 = or i1 %.059.lcssa109.i, %.9.i
+  %.9.i = phi i1 [ %.3.i, %._crit_edge88.thread.i ], [ %.7.lcssa128.i, %._crit_edge100.thread.i ], [ %.794.i.ph, %._crit_edge100.i ]
+  %293 = or i1 %.059.lcssa113.i, %.9.i
   br i1 %293, label %294, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %._crit_edge100.i.thread, %._crit_edge100.i.thread.thread
   br label %.backedge
 
 ._crit_edge100.i.thread.thread:                   ; preds = %.thread
-  br i1 %.059.lcssa109.i, label %.thread342, label %.backedge.backedge
+  br i1 %.059.lcssa113.i, label %.thread369, label %.backedge.backedge
 
-.thread342:                                       ; preds = %._crit_edge100.i.thread.thread
+.thread369:                                       ; preds = %._crit_edge100.i.thread.thread
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !173
   br label %preload_try_resolve_constants.exit
 
@@ -11873,7 +11873,7 @@ preload_try_resolve_constants.exit.thread:        ; preds = %294
   store i32 %296, ptr %208, align 4, !tbaa !322
   br label %297
 
-preload_try_resolve_constants.exit:               ; preds = %.thread342, %294
+preload_try_resolve_constants.exit:               ; preds = %.thread369, %294
   br i1 %cond.fr, label %297, label %298
 
 297:                                              ; preds = %preload_try_resolve_constants.exit.thread, %preload_try_resolve_constants.exit
@@ -12512,10 +12512,10 @@ define internal void @preload_sort_classes(ptr noundef captures(address) %0, i64
   br i1 %22, label %.backedge, label %.preheader50
 
 .backedge:                                        ; preds = %20, %37
-  %.041.lcssa65.sink67 = phi ptr [ %.1, %37 ], [ %.041, %20 ]
+  %.041.lcssa67.sink69 = phi ptr [ %.1, %37 ], [ %.041, %20 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.04057, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.04057, ptr noundef nonnull align 8 dereferenceable(32) %.041.lcssa65.sink67, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.041.lcssa65.sink67, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.04057, ptr noundef nonnull align 8 dereferenceable(32) %.041.lcssa67.sink69, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.041.lcssa67.sink69, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   br label %8
 
 .loopexit51:                                      ; preds = %.preheader50, %16, %12, %8

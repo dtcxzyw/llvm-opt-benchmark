@@ -760,13 +760,13 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64FunctionInfo36needsShadow
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.031.050.i.i.i.i.i.i.i, i64 24
   %.val.i17.i.i.i.i.i.i.i = load i32, ptr %18, align 4, !tbaa !244
   %19 = icmp eq i32 %.val.i17.i.i.i.i.i.i.i, 6
-  br i1 %19, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit19, label %20
+  br i1 %19, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit20, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.031.050.i.i.i.i.i.i.i, i64 36
   %.val.i18.i.i.i.i.i.i.i = load i32, ptr %21, align 4, !tbaa !244
   %22 = icmp eq i32 %.val.i18.i.i.i.i.i.i.i, 6
-  br i1 %22, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit21, label %23
+  br i1 %22, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit22, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.031.050.i.i.i.i.i.i.i, i64 48
@@ -819,16 +819,16 @@ _ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit: ; pred
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.031.050.i.i.i.i.i.i.i, i64 12
   br label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit
 
-_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit19: ; preds = %17
+_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit20: ; preds = %17
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.031.050.i.i.i.i.i.i.i, i64 24
   br label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit
 
-_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit21: ; preds = %20
+_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit22: ; preds = %20
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.031.050.i.i.i.i.i.i.i, i64 36
   br label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit
 
-_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit:  ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit19, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit21, %28, %32, %36
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %28 ], [ %.sroa.031.1.i.i.i.i.i.i.i, %32 ], [ %spec.select.i.i.i.i.i.i.i, %36 ], [ %38, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit ], [ %39, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit19 ], [ %40, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit21 ], [ %.sroa.031.050.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit:  ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit20, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit22, %28, %32, %36
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %28 ], [ %.sroa.031.1.i.i.i.i.i.i.i, %32 ], [ %spec.select.i.i.i.i.i.i.i, %36 ], [ %38, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit ], [ %39, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit20 ], [ %40, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit22 ], [ %.sroa.031.050.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %.not = icmp eq ptr %.val.val4, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i
   br i1 %.not, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.thread, label %41
 
@@ -1543,9 +1543,9 @@ _ZSt4copyIPKSt4pairIjPN4llvm8MCSymbolEEPS4_ET0_T_S9_S8_.exit35.i.i._ZSt4copyIPKS
 
 _ZSt4copyIPKSt4pairIjPN4llvm8MCSymbolEEPS4_ET0_T_S9_S8_.exit35.i.thread.i: ; preds = %_ZSt4copyIPKSt4pairIjPN4llvm8MCSymbolEEPS4_ET0_T_S9_S8_.exit35.i.i._ZSt4copyIPKSt4pairIjPN4llvm8MCSymbolEEPS4_ET0_T_S9_S8_.exit35.i.thread.i_crit_edge, %67
   %70 = phi ptr [ %.pre16, %_ZSt4copyIPKSt4pairIjPN4llvm8MCSymbolEEPS4_ET0_T_S9_S8_.exit35.i.i._ZSt4copyIPKSt4pairIjPN4llvm8MCSymbolEEPS4_ET0_T_S9_S8_.exit35.i.thread.i_crit_edge ], [ %62, %67 ]
-  %.pre-phi.i6.i = phi i64 [ %.pre37.i.i, %_ZSt4copyIPKSt4pairIjPN4llvm8MCSymbolEEPS4_ET0_T_S9_S8_.exit35.i.i._ZSt4copyIPKSt4pairIjPN4llvm8MCSymbolEEPS4_ET0_T_S9_S8_.exit35.i.thread.i_crit_edge ], [ %68, %67 ]
+  %.pre-phi.i8.i = phi i64 [ %.pre37.i.i, %_ZSt4copyIPKSt4pairIjPN4llvm8MCSymbolEEPS4_ET0_T_S9_S8_.exit35.i.i._ZSt4copyIPKSt4pairIjPN4llvm8MCSymbolEEPS4_ET0_T_S9_S8_.exit35.i.thread.i_crit_edge ], [ %68, %67 ]
   %71 = load ptr, ptr %61, align 8, !tbaa !59
-  %gepdiff.i.i13 = shl nuw nsw i64 %.pre-phi.i6.i, 4
+  %gepdiff.i.i13 = shl nuw nsw i64 %.pre-phi.i8.i, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr align 8 %71, i64 %gepdiff.i.i13, i1 false)
   br label %.sink.split.i.i14
 

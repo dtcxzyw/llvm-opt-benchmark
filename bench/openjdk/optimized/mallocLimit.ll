@@ -393,9 +393,9 @@ _ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit: ; preds = %27, %30
 
 _ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit28: ; preds = %69, %72
   %.sink.i26 = phi i32 [ 1, %69 ], [ 0, %72 ]
-  %.sink5.i27 = phi i64 [ 3, %69 ], [ 5, %72 ]
+  %.sink6.i27 = phi i64 [ 3, %69 ], [ 5, %72 ]
   store i32 %.sink.i26, ptr %68, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %67, i64 %.sink5.i27
+  %75 = getelementptr inbounds nuw i8, ptr %67, i64 %.sink6.i27
   store ptr %75, ptr %13, align 8
   br label %_ZN12ParserHelper10match_charEc.exit22
 

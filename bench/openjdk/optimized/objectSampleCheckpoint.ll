@@ -211,13 +211,13 @@ _ZL21c_heap_allocate_arrayImEP13GrowableArrayIT_Ei.exit.i: ; preds = %9, %6
   br i1 %.not.not9.i.i.i, label %.lr.ph.i2.i.i, label %.._crit_edge_crit_edge.i.i.i
 
 .._crit_edge_crit_edge.i.i.i:                     ; preds = %45
-  %.pre13.i.i.i = zext nneg i32 %.0.i.ph.i.i to i64
+  %.pre13.i.i.i = sext i32 %.0.i.ph.i.i to i64
   br label %_ZN26GrowableArrayWithAllocatorIm13GrowableArrayImEE13insert_beforeEiRKm.exit.i.i
 
 .lr.ph.i2.i.i:                                    ; preds = %45
   %47 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %48 = sext i32 %46 to i64
-  %49 = zext nneg i32 %.0.i.ph.i.i to i64
+  %49 = sext i32 %.0.i.ph.i.i to i64
   br label %50
 
 50:                                               ; preds = %50, %.lr.ph.i2.i.i
@@ -242,7 +242,7 @@ _ZN26GrowableArrayWithAllocatorIm13GrowableArrayImEE13insert_beforeEiRKm.exit.i.
   store i32 %56, ptr %15, align 8
   %57 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i64, ptr %58, i64 %.pre-phi.i.i.i
+  %59 = getelementptr inbounds i64, ptr %58, i64 %.pre-phi.i.i.i
   store i64 %0, ptr %59, align 8
   br label %_ZL26add_to_unloaded_thread_setm.exit
 
@@ -1076,13 +1076,13 @@ define hidden void @_ZN22ObjectSampleCheckpoint16add_to_leakp_setEPK13InstanceKl
   br i1 %.not.not9.i.i.i, label %.lr.ph.i2.i.i, label %.._crit_edge_crit_edge.i.i.i
 
 .._crit_edge_crit_edge.i.i.i:                     ; preds = %33
-  %.pre13.i.i.i = zext nneg i32 %.0.i.ph.i.i to i64
+  %.pre13.i.i.i = sext i32 %.0.i.ph.i.i to i64
   br label %43
 
 .lr.ph.i2.i.i:                                    ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = sext i32 %34 to i64
-  %37 = zext nneg i32 %.0.i.ph.i.i to i64
+  %37 = sext i32 %.0.i.ph.i.i to i64
   br label %38
 
 38:                                               ; preds = %38, %.lr.ph.i2.i.i
@@ -1107,7 +1107,7 @@ define hidden void @_ZN22ObjectSampleCheckpoint16add_to_leakp_setEPK13InstanceKl
   store i32 %45, ptr %3, align 8
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i64, ptr %47, i64 %.pre-phi.i.i.i
+  %48 = getelementptr inbounds i64, ptr %47, i64 %.pre-phi.i.i.i
   store i64 %1, ptr %48, align 8
   %49 = tail call noundef i64 @_ZN15JfrMethodLookup8klass_idEm(i64 noundef %1) #11
   %50 = tail call noundef zeroext i1 @_ZN17JfrKlassUnloading11is_unloadedEmb(i64 noundef %49, i1 noundef zeroext false) #11
@@ -2453,7 +2453,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIm13GrowableArra
   br i1 %.not, label %_ZN13GrowableArrayImE10deallocateEPm.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -2465,8 +2465,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIm13GrowableArra
   br label %_ZN13GrowableArrayImE10deallocateEPm.exit
 
 _ZN13GrowableArrayImE10deallocateEPm.exit:        ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayImE10deallocateEPm.exit

@@ -289,14 +289,14 @@ define internal fastcc noundef ptr @_ZL15ucbuf_fillucbufP8UCHARBUFP10UErrorCode(
   br label %44
 
 44:                                               ; preds = %41, %32
-  %.sink120 = phi i32 [ %43, %41 ], [ %34, %32 ]
+  %.sink125 = phi i32 [ %43, %41 ], [ %34, %32 ]
   %.0100 = phi ptr [ %38, %41 ], [ %5, %32 ]
   %.096 = phi i32 [ %36, %41 ], [ 1000, %32 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %46 = load i32, ptr %45, align 4, !tbaa !20
-  %47 = sub nsw i32 %46, %.sink120
+  %47 = sub nsw i32 %46, %.sink125
   store i32 %47, ptr %45, align 4, !tbaa !20
-  %48 = icmp eq i32 %.sink120, 0
+  %48 = icmp eq i32 %.sink125, 0
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %44
@@ -319,7 +319,7 @@ define internal fastcc noundef ptr @_ZL15ucbuf_fillucbufP8UCHARBUFP10UErrorCode(
   %56 = getelementptr inbounds i16, ptr %13, i64 %55
   store ptr %56, ptr %3, align 8, !tbaa !12
   store ptr %.0100, ptr %4, align 8, !tbaa !3
-  %57 = sext i32 %.sink120 to i64
+  %57 = sext i32 %.sink125 to i64
   %58 = getelementptr inbounds i8, ptr %.0100, i64 %57
   %59 = load ptr, ptr %52, align 8, !tbaa !26
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -385,7 +385,7 @@ define internal fastcc noundef ptr @_ZL15ucbuf_fillucbufP8UCHARBUFP10UErrorCode(
   %101 = ashr exact i64 %sext107, 32
   %.not108 = icmp sgt i64 %101, %57
   %102 = add i32 %89, 19
-  %103 = select i1 %.not108, i32 %.sink120, i32 %102
+  %103 = select i1 %.not108, i32 %.sink125, i32 %102
   %104 = add i32 %89, %93
   %105 = sub i32 %103, %104
   %106 = sext i32 %105 to i64
@@ -442,11 +442,11 @@ define internal fastcc noundef ptr @_ZL15ucbuf_fillucbufP8UCHARBUFP10UErrorCode(
 135:                                              ; preds = %51
   %136 = sext i32 %.097 to i64
   %137 = getelementptr inbounds i16, ptr %13, i64 %136
-  call void @u_charsToUChars_77(ptr noundef nonnull %.0100, ptr noundef %137, i32 noundef %.sink120)
+  call void @u_charsToUChars_77(ptr noundef nonnull %.0100, ptr noundef %137, i32 noundef %.sink125)
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %139 = load i32, ptr %138, align 4, !tbaa !20
   %140 = icmp sgt i32 %139, %.096
-  %141 = add nsw i32 %.sink120, %.097
+  %141 = add nsw i32 %.sink125, %.097
   %142 = select i1 %140, i32 %.096, i32 %141
   br label %143
 
@@ -763,12 +763,12 @@ sub_0:                                            ; preds = %11
 45:                                               ; preds = %41, %43, %39
   %46 = load i32, ptr %4, align 4, !tbaa !14
   %47 = icmp sgt i32 %46, 0
-  br i1 %47, label %.thread87, label %48
+  br i1 %47, label %.thread95, label %48
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr %30, align 8, !tbaa !26
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %51, label %.thread88
+  br i1 %50, label %51, label %.thread96
 
 51:                                               ; preds = %48
   %52 = load ptr, ptr %1, align 8, !tbaa !3
@@ -776,9 +776,9 @@ sub_0:                                            ; preds = %11
   store ptr %53, ptr %30, align 8, !tbaa !26
   %.pre = load i32, ptr %4, align 4, !tbaa !14
   %54 = icmp slt i32 %.pre, 1
-  br i1 %54, label %56, label %.thread87
+  br i1 %54, label %56, label %.thread95
 
-.thread87:                                        ; preds = %45, %51
+.thread95:                                        ; preds = %45, %51
   %55 = load ptr, ptr %30, align 8, !tbaa !26
   tail call void @ucnv_close_77(ptr noundef %55)
   tail call void @uprv_free_77(ptr noundef nonnull %24)
@@ -787,19 +787,19 @@ sub_0:                                            ; preds = %11
 
 56:                                               ; preds = %51
   %57 = icmp eq ptr %53, null
-  br i1 %57, label %58, label %.thread88
+  br i1 %57, label %58, label %.thread96
 
 58:                                               ; preds = %56
   %59 = load i8, ptr %31, align 8, !tbaa !29
   %60 = icmp eq i8 %59, 1
-  br i1 %60, label %61, label %.thread88
+  br i1 %60, label %61, label %.thread96
 
 61:                                               ; preds = %58
   %62 = load ptr, ptr @stderr, align 8, !tbaa !30
   %63 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 60, i64 1, ptr %62) #17
-  br label %.thread88
+  br label %.thread96
 
-.thread88:                                        ; preds = %48, %61, %58, %56
+.thread96:                                        ; preds = %48, %61, %58, %56
   %64 = load i32, ptr %33, align 8, !tbaa !32
   %65 = sub nsw i32 %25, %64
   %66 = getelementptr inbounds nuw i8, ptr %24, i64 28
@@ -817,12 +817,12 @@ sub_0:                                            ; preds = %11
   %73 = icmp eq ptr %72, null
   br i1 %73, label %74, label %75
 
-74:                                               ; preds = %.thread88
+74:                                               ; preds = %.thread96
   store i32 7, ptr %4, align 4, !tbaa !14
   tail call void @ucbuf_close(ptr noundef nonnull %24)
   br label %91
 
-75:                                               ; preds = %.thread88
+75:                                               ; preds = %.thread96
   %76 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %72, ptr %76, align 8, !tbaa !16
   %77 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -853,8 +853,8 @@ sub_0:                                            ; preds = %11
   store i32 4, ptr %4, align 4, !tbaa !14
   br label %91
 
-91:                                               ; preds = %27, %.thread87, %74, %80, %89, %85, %5, %8, %90, %14
-  %.0 = phi ptr [ null, %14 ], [ null, %90 ], [ null, %8 ], [ null, %5 ], [ null, %27 ], [ null, %.thread87 ], [ null, %74 ], [ null, %80 ], [ null, %89 ], [ %24, %85 ]
+91:                                               ; preds = %27, %.thread95, %74, %80, %89, %85, %5, %8, %90, %14
+  %.0 = phi ptr [ null, %14 ], [ null, %90 ], [ null, %8 ], [ null, %5 ], [ null, %27 ], [ null, %.thread95 ], [ null, %74 ], [ null, %80 ], [ null, %89 ], [ %24, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -1322,8 +1322,8 @@ _ZL19ucbuf_isCharNewLineDs.exit:                  ; preds = %_ZL19ucbuf_isCharNe
   %29 = icmp ne i16 %14, 13
   %.pre = load ptr, ptr %9, align 8, !tbaa !19
   %.not69 = icmp ugt ptr %13, %.pre
-  %or.cond108 = select i1 %29, i1 true, i1 %.not69
-  br i1 %or.cond108, label %41, label %30
+  %or.cond114 = select i1 %29, i1 true, i1 %.not69
+  br i1 %or.cond114, label %41, label %30
 
 30:                                               ; preds = %28
   %31 = load i16, ptr %13, align 2, !tbaa !21

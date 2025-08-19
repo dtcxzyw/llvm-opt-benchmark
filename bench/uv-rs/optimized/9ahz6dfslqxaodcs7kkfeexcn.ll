@@ -237,31 +237,31 @@ _ZN3std2fs11OpenOptions4open17h26ed3692dc922839E.exit.i: ; preds = %_ZN3std4path
 40:                                               ; preds = %_ZN3std2fs11OpenOptions4open17h26ed3692dc922839E.exit.i
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %42 = load i32, ptr %41, align 4, !range !51, !noalias !27, !noundef !4
-  %.sroa.0.0.copyload81 = load i64, ptr %10, align 8, !alias.scope !49, !noalias !52
-  %.sroa.7.0..sroa_idx82 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sroa.7.0.copyload83 = load ptr, ptr %.sroa.7.0..sroa_idx82, align 8, !alias.scope !49, !noalias !52
-  %.sroa.9.0..sroa_idx86 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.9.0.copyload87 = load i64, ptr %.sroa.9.0..sroa_idx86, align 8, !alias.scope !49, !noalias !52
+  %.sroa.0.0.copyload86 = load i64, ptr %10, align 8, !alias.scope !49, !noalias !52
+  %.sroa.7.0..sroa_idx87 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sroa.7.0.copyload88 = load ptr, ptr %.sroa.7.0..sroa_idx87, align 8, !alias.scope !49, !noalias !52
+  %.sroa.9.0..sroa_idx91 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sroa.9.0.copyload92 = load i64, ptr %.sroa.9.0..sroa_idx91, align 8, !alias.scope !49, !noalias !52
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !27
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !27
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %43 = icmp eq i64 %.sroa.0.0.copyload81, -9223372036854775808
+  %43 = icmp eq i64 %.sroa.0.0.copyload86, -9223372036854775808
   br i1 %43, label %._crit_edge, label %44
 
 44:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store i64 %.sroa.0.0.copyload81, ptr %9, align 8
+  store i64 %.sroa.0.0.copyload86, ptr %9, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %.sroa.7.0.copyload83, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx84 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 %.sroa.9.0.copyload87, ptr %.sroa.9.0..sroa_idx84, align 8
-  %.sroa.988.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i32 %42, ptr %.sroa.988.0..sroa_idx, align 8
+  store ptr %.sroa.7.0.copyload88, ptr %.sroa.7.0..sroa_idx, align 8
+  %.sroa.9.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i64 %.sroa.9.0.copyload92, ptr %.sroa.9.0..sroa_idx89, align 8
+  %.sroa.993.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i32 %42, ptr %.sroa.993.0..sroa_idx, align 8
   %45 = invoke noundef ptr @_ZN3std2io5Write9write_all17hc53ac7c1a8301349E(ptr noalias noundef nonnull align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 1 @anon.70c4cdf4c7eb110bcbb58b69f2a47aa0.6, i64 noundef 1)
           to label %55 unwind label %53
 
 ._crit_edge:                                      ; preds = %40, %.thread
-  %.val = phi ptr [ %37, %.thread ], [ %.sroa.7.0.copyload83, %40 ]
+  %.val = phi ptr [ %37, %.thread ], [ %.sroa.7.0.copyload88, %40 ]
   %46 = ptrtoint ptr %.val to i64
   %47 = and i64 %46, 3
   switch i64 %47, label %default.unreachable [

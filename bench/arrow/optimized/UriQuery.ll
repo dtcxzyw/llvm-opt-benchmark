@@ -636,8 +636,8 @@ uriAppendQueryItemA.exit.thread113:               ; preds = %37, %uriAppendQuery
   %86 = icmp ult ptr %85, %3
   %.174 = select i1 %86, ptr %85, ptr null
   %87 = getelementptr inbounds nuw i8, ptr %.076134, i64 1
-  %exitcond.not165 = icmp eq ptr %87, %3
-  br i1 %exitcond.not165, label %.split83, label %.lr.ph.outer, !llvm.loop !23
+  %exitcond.not176 = icmp eq ptr %87, %3
+  br i1 %exitcond.not176, label %.split83, label %.lr.ph.outer, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %81
   %88 = icmp eq ptr %.266, null
@@ -645,26 +645,26 @@ uriAppendQueryItemA.exit.thread113:               ; preds = %37, %uriAppendQuery
   br i1 %.not92, label %.split83, label %uriAppendQueryItemA.exit103
 
 .split83:                                         ; preds = %.thread, %22, %._crit_edge
-  %.063.lcssa159 = phi ptr [ %.063140.ph, %._crit_edge ], [ %0, %22 ], [ %spec.select, %.thread ]
-  %.064.lcssa158 = phi i1 [ %88, %._crit_edge ], [ true, %22 ], [ true, %.thread ]
-  %.073.lcssa157 = phi ptr [ %.073136.ph, %._crit_edge ], [ %2, %22 ], [ %.174, %.thread ]
-  %.076.lcssa156 = phi ptr [ %scevgep, %._crit_edge ], [ %2, %22 ], [ %scevgep, %.thread ]
-  %89 = ptrtoint ptr %.076.lcssa156 to i64
-  %90 = ptrtoint ptr %.073.lcssa157 to i64
+  %.063.lcssa170 = phi ptr [ %.063140.ph, %._crit_edge ], [ %0, %22 ], [ %spec.select, %.thread ]
+  %.064.lcssa169 = phi i1 [ %88, %._crit_edge ], [ true, %22 ], [ true, %.thread ]
+  %.073.lcssa168 = phi ptr [ %.073136.ph, %._crit_edge ], [ %2, %22 ], [ %.174, %.thread ]
+  %.076.lcssa167 = phi ptr [ %scevgep, %._crit_edge ], [ %2, %22 ], [ %scevgep, %.thread ]
+  %89 = ptrtoint ptr %.076.lcssa167 to i64
+  %90 = ptrtoint ptr %.073.lcssa168 to i64
   %91 = sub i64 %89, %90
   %92 = trunc i64 %91 to i32
-  %93 = icmp eq ptr %.073.lcssa157, null
-  %94 = icmp ugt ptr %.073.lcssa157, %.076.lcssa156
+  %93 = icmp eq ptr %.073.lcssa168, null
+  %94 = icmp ugt ptr %.073.lcssa168, %.076.lcssa167
   %or.cond.i99 = or i1 %94, %93
-  %95 = icmp eq ptr %.073.lcssa157, %.076.lcssa156
-  %96 = and i1 %95, %.064.lcssa158
-  %or.cond190 = select i1 %or.cond.i99, i1 true, i1 %96
-  br i1 %or.cond190, label %uriFreeQueryListMmA.exit, label %97
+  %95 = icmp eq ptr %.073.lcssa168, %.076.lcssa167
+  %96 = and i1 %95, %.064.lcssa169
+  %or.cond201 = select i1 %or.cond.i99, i1 true, i1 %96
+  br i1 %or.cond201, label %uriFreeQueryListMmA.exit, label %97
 
 97:                                               ; preds = %.split83
   %98 = load ptr, ptr %.077, align 8, !tbaa !17
   %99 = call ptr %98(ptr noundef nonnull %.077, i64 noundef 24) #7
-  store ptr %99, ptr %.063.lcssa159, align 8, !tbaa !22
+  store ptr %99, ptr %.063.lcssa170, align 8, !tbaa !22
   %100 = icmp eq ptr %99, null
   br i1 %100, label %uriAppendQueryItemA.exit103.thread117, label %101
 
@@ -682,9 +682,9 @@ uriAppendQueryItemA.exit.thread113:               ; preds = %37, %uriAppendQuery
 108:                                              ; preds = %101
   %109 = getelementptr inbounds nuw i8, ptr %.077, i64 32
   %110 = load ptr, ptr %109, align 8, !tbaa !19
-  %111 = load ptr, ptr %.063.lcssa159, align 8, !tbaa !22
+  %111 = load ptr, ptr %.063.lcssa170, align 8, !tbaa !22
   call void %110(ptr noundef nonnull %.077, ptr noundef %111) #7
-  store ptr null, ptr %.063.lcssa159, align 8, !tbaa !22
+  store ptr null, ptr %.063.lcssa170, align 8, !tbaa !22
   br label %uriAppendQueryItemA.exit103.thread117
 
 112:                                              ; preds = %101
@@ -695,12 +695,12 @@ uriAppendQueryItemA.exit.thread113:               ; preds = %37, %uriAppendQuery
   br i1 %115, label %116, label %118
 
 116:                                              ; preds = %112
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %106, ptr nonnull align 1 %.073.lcssa157, i64 %113, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %106, ptr nonnull align 1 %.073.lcssa168, i64 %113, i1 false)
   %117 = call ptr @uriUnescapeInPlaceExA(ptr noundef nonnull %106, i32 noundef %4, i32 noundef %5) #7
   br label %118
 
 118:                                              ; preds = %116, %112
-  %119 = load ptr, ptr %.063.lcssa159, align 8, !tbaa !22
+  %119 = load ptr, ptr %.063.lcssa170, align 8, !tbaa !22
   store ptr %106, ptr %119, align 8, !tbaa !7
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store ptr null, ptr %120, align 8, !tbaa !12
@@ -1511,27 +1511,27 @@ uriAppendQueryItemW.exit.thread113:               ; preds = %35, %uriAppendQuery
   br i1 %.not92, label %.split83, label %uriAppendQueryItemW.exit103
 
 .split83:                                         ; preds = %.thread, %20, %._crit_edge
-  %.063.lcssa159 = phi ptr [ %.063140.ph, %._crit_edge ], [ %0, %20 ], [ %spec.select, %.thread ]
-  %.064.lcssa158 = phi i1 [ %90, %._crit_edge ], [ true, %20 ], [ true, %.thread ]
-  %.073.lcssa157 = phi ptr [ %.073136.ph, %._crit_edge ], [ %2, %20 ], [ %.174, %.thread ]
-  %.076.lcssa156 = phi ptr [ %82, %._crit_edge ], [ %2, %20 ], [ %88, %.thread ]
-  %91 = ptrtoint ptr %.076.lcssa156 to i64
-  %92 = ptrtoint ptr %.073.lcssa157 to i64
+  %.063.lcssa170 = phi ptr [ %.063140.ph, %._crit_edge ], [ %0, %20 ], [ %spec.select, %.thread ]
+  %.064.lcssa169 = phi i1 [ %90, %._crit_edge ], [ true, %20 ], [ true, %.thread ]
+  %.073.lcssa168 = phi ptr [ %.073136.ph, %._crit_edge ], [ %2, %20 ], [ %.174, %.thread ]
+  %.076.lcssa167 = phi ptr [ %82, %._crit_edge ], [ %2, %20 ], [ %88, %.thread ]
+  %91 = ptrtoint ptr %.076.lcssa167 to i64
+  %92 = ptrtoint ptr %.073.lcssa168 to i64
   %93 = sub i64 %91, %92
   %94 = lshr exact i64 %93, 2
   %95 = trunc i64 %94 to i32
-  %96 = icmp eq ptr %.073.lcssa157, null
-  %97 = icmp ugt ptr %.073.lcssa157, %.076.lcssa156
+  %96 = icmp eq ptr %.073.lcssa168, null
+  %97 = icmp ugt ptr %.073.lcssa168, %.076.lcssa167
   %or.cond.i99 = or i1 %97, %96
-  %98 = icmp eq ptr %.073.lcssa157, %.076.lcssa156
-  %99 = and i1 %98, %.064.lcssa158
-  %or.cond190 = select i1 %or.cond.i99, i1 true, i1 %99
-  br i1 %or.cond190, label %uriFreeQueryListMmW.exit, label %100
+  %98 = icmp eq ptr %.073.lcssa168, %.076.lcssa167
+  %99 = and i1 %98, %.064.lcssa169
+  %or.cond201 = select i1 %or.cond.i99, i1 true, i1 %99
+  br i1 %or.cond201, label %uriFreeQueryListMmW.exit, label %100
 
 100:                                              ; preds = %.split83
   %101 = load ptr, ptr %.077, align 8, !tbaa !17
   %102 = call ptr %101(ptr noundef nonnull %.077, i64 noundef 24) #7
-  store ptr %102, ptr %.063.lcssa159, align 8, !tbaa !33
+  store ptr %102, ptr %.063.lcssa170, align 8, !tbaa !33
   %103 = icmp eq ptr %102, null
   br i1 %103, label %uriAppendQueryItemW.exit103.thread117, label %104
 
@@ -1550,9 +1550,9 @@ uriAppendQueryItemW.exit.thread113:               ; preds = %35, %uriAppendQuery
 112:                                              ; preds = %104
   %113 = getelementptr inbounds nuw i8, ptr %.077, i64 32
   %114 = load ptr, ptr %113, align 8, !tbaa !19
-  %115 = load ptr, ptr %.063.lcssa159, align 8, !tbaa !33
+  %115 = load ptr, ptr %.063.lcssa170, align 8, !tbaa !33
   call void %114(ptr noundef nonnull %.077, ptr noundef %115) #7
-  store ptr null, ptr %.063.lcssa159, align 8, !tbaa !33
+  store ptr null, ptr %.063.lcssa170, align 8, !tbaa !33
   br label %uriAppendQueryItemW.exit103.thread117
 
 116:                                              ; preds = %104
@@ -1564,12 +1564,12 @@ uriAppendQueryItemW.exit.thread113:               ; preds = %35, %uriAppendQuery
 
 120:                                              ; preds = %116
   %121 = shl nsw i64 %117, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %110, ptr nonnull align 4 %.073.lcssa157, i64 %121, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %110, ptr nonnull align 4 %.073.lcssa168, i64 %121, i1 false)
   %122 = call ptr @uriUnescapeInPlaceExW(ptr noundef nonnull %110, i32 noundef %4, i32 noundef %5) #7
   br label %123
 
 123:                                              ; preds = %120, %116
-  %124 = load ptr, ptr %.063.lcssa159, align 8, !tbaa !33
+  %124 = load ptr, ptr %.063.lcssa170, align 8, !tbaa !33
   store ptr %110, ptr %124, align 8, !tbaa !24
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   store ptr null, ptr %125, align 8, !tbaa !28

@@ -1851,7 +1851,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
   %5 = alloca [24 x i8], align 8
   %.sroa.03 = alloca [23 x i8], align 8
   %6 = load i8, ptr %1, align 16, !range !12, !noundef !3
-  switch i8 %6, label %default.unreachable23 [
+  switch i8 %6, label %default.unreachable25 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
@@ -1882,7 +1882,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
     i8 27, label %74
   ]
 
-default.unreachable23:                            ; preds = %2
+default.unreachable25:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -4297,7 +4297,7 @@ define internal fastcc void @_ZN14polars_testing7asserts5utils26assert_series_va
 
 133:                                              ; preds = %126, %114
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
-  br label %.invoke466
+  br label %.invoke483
 
 134:                                              ; preds = %501, %.body221, %318, %297, %292, %.body, %147, %117, %104, %95
   %135 = landingpad { ptr, i32 }
@@ -4751,9 +4751,9 @@ _ZN14polars_testing7asserts5utils23comparing_nested_floats17h150a318d439c8454E.e
 
 296:                                              ; preds = %295
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
-  br label %.invoke466
+  br label %.invoke483
 
-.invoke466:                                       ; preds = %133, %507, %296
+.invoke483:                                       ; preds = %133, %507, %296
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h5a240e1989fa0c97E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %69)
           to label %300 unwind label %298
 
@@ -4762,12 +4762,12 @@ _ZN14polars_testing7asserts5utils23comparing_nested_floats17h150a318d439c8454E.e
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h5a240e1989fa0c97E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %70) #19
           to label %508 unwind label %134
 
-298:                                              ; preds = %.invoke466
+298:                                              ; preds = %.invoke483
   %299 = landingpad { ptr, i32 }
           cleanup
   br label %297
 
-300:                                              ; preds = %.invoke466
+300:                                              ; preds = %.invoke483
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
   call void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17h5a240e1989fa0c97E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %70)
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
@@ -5673,7 +5673,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h32e370ad7d817f3eE.exit: ; preds = %
 
 507:                                              ; preds = %506
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
-  br label %.invoke466
+  br label %.invoke483
 
 508:                                              ; preds = %297, %95
   %.pn200.pn = phi { ptr, i32 } [ %.pn200, %297 ], [ %96, %95 ]

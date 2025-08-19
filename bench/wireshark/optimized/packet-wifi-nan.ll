@@ -1290,8 +1290,8 @@ define internal i32 @dissect_nan_beacon(ptr noundef %0, ptr noundef %1, ptr noun
   %19 = load i32, ptr @ett_nan, align 4
   %20 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19)
   %21 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %.not23 = icmp eq i32 %21, 0
-  br i1 %.not23, label %._crit_edge, label %.lr.ph
+  %.not24 = icmp eq i32 %21, 0
+  br i1 %.not24, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
   call fastcc void @find_attribute_field(ptr noundef %20, ptr noundef %0, i32 noundef %21, ptr noundef nonnull %5, ptr noundef %1)

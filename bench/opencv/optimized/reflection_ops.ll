@@ -708,7 +708,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
           to label %197 unwind label %206
 
 197:                                              ; preds = %195
-  br i1 %76, label %198, label %.invoke309
+  br i1 %76, label %198, label %.invoke327
 
 198:                                              ; preds = %197
   %199 = load ptr, ptr %196, align 8, !tbaa !15
@@ -720,19 +720,19 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
 203:                                              ; preds = %198
   %204 = extractvalue { ptr, ptr } %202, 1
   %205 = invoke noundef ptr @_ZNK6google8protobuf10Reflection17GetMessageFactoryEv(ptr noundef nonnull align 8 dereferenceable(96) %204)
-          to label %.invoke309 unwind label %206
+          to label %.invoke327 unwind label %206
 
-206:                                              ; preds = %.invoke309, %.invoke, %198, %203, %195
+206:                                              ; preds = %.invoke327, %.invoke, %198, %203, %195
   %207 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.invoke309:                                       ; preds = %203, %197
+.invoke327:                                       ; preds = %203, %197
   %208 = phi ptr [ null, %197 ], [ %205, %203 ]
   %209 = invoke noundef ptr @_ZNK6google8protobuf10Reflection10AddMessageEPNS0_7MessageEPKNS0_15FieldDescriptorEPNS0_14MessageFactoryE(ptr noundef nonnull align 8 dereferenceable(96) %63, ptr noundef nonnull %1, ptr noundef nonnull %99, ptr noundef %208)
           to label %.invoke unwind label %206
 
-.invoke:                                          ; preds = %.invoke309
+.invoke:                                          ; preds = %.invoke327
   %210 = load ptr, ptr %209, align 8, !tbaa !15
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 112
   %212 = load ptr, ptr %211, align 8
@@ -927,7 +927,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
           to label %267 unwind label %276
 
 267:                                              ; preds = %265
-  br i1 %76, label %268, label %.invoke310
+  br i1 %76, label %268, label %.invoke328
 
 268:                                              ; preds = %267
   %269 = load ptr, ptr %266, align 8, !tbaa !15
@@ -939,26 +939,26 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
 273:                                              ; preds = %268
   %274 = extractvalue { ptr, ptr } %272, 1
   %275 = invoke noundef ptr @_ZNK6google8protobuf10Reflection17GetMessageFactoryEv(ptr noundef nonnull align 8 dereferenceable(96) %274)
-          to label %.invoke310 unwind label %276
+          to label %.invoke328 unwind label %276
 
-276:                                              ; preds = %.invoke310, %.invoke305, %268, %273, %265
+276:                                              ; preds = %.invoke328, %.invoke323, %268, %273, %265
   %277 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.invoke310:                                       ; preds = %273, %267
+.invoke328:                                       ; preds = %273, %267
   %278 = phi ptr [ null, %267 ], [ %275, %273 ]
   %279 = invoke noundef ptr @_ZNK6google8protobuf10Reflection14MutableMessageEPNS0_7MessageEPKNS0_15FieldDescriptorEPNS0_14MessageFactoryE(ptr noundef nonnull align 8 dereferenceable(96) %63, ptr noundef nonnull %1, ptr noundef nonnull %99, ptr noundef %278)
-          to label %.invoke305 unwind label %276
+          to label %.invoke323 unwind label %276
 
-.invoke305:                                       ; preds = %.invoke310
+.invoke323:                                       ; preds = %.invoke328
   %280 = load ptr, ptr %279, align 8, !tbaa !15
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 112
   %282 = load ptr, ptr %281, align 8
   invoke void %282(ptr noundef nonnull align 8 dereferenceable(16) %279, ptr noundef nonnull align 8 dereferenceable(16) %266)
           to label %.critedge237 unwind label %276
 
-.critedge237:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.invoke305, %.preheader, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i257, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i258, %128, %264, %248, %245, %242, %239, %236, %233, %230, %222
+.critedge237:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.invoke323, %.preheader, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i257, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i258, %128, %264, %248, %245, %242, %239, %236, %233, %230, %222
   %283 = getelementptr inbounds nuw i8, ptr %.sroa.0267.0298, i64 8
   %.not271 = icmp eq ptr %283, %72
   br i1 %.not271, label %._crit_edge, label %98

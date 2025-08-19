@@ -2253,9 +2253,9 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS1_5ValueEEEEN4ViewD2Ev.exit
 
 _ZZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS1_5ValueEEEEN4ViewD2Ev.exit: ; preds = %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit.thread, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  %views.sroa.22.2217 = phi ptr [ %views.sroa.22.0192, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit.thread ], [ %add.ptr19.i.i.i, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit ], [ %add.ptr19.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i ], [ %add.ptr19.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ %add.ptr19.i.i.i, %if.end8.sink.split.i.i.i.i.i ]
-  %__cur.0.lcssa.i.i.i.i.i.i.pn216 = phi ptr [ %views.sroa.12.0191, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit.thread ], [ %__cur.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit ], [ %__cur.0.lcssa.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i ], [ %__cur.0.lcssa.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ %__cur.0.lcssa.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i ]
-  %views.sroa.0.2215 = phi ptr [ %views.sroa.0.0190, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit.thread ], [ %call5.i.i.i.i.i.i, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit ], [ %call5.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i ]
+  %views.sroa.22.2220 = phi ptr [ %views.sroa.22.0192, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit.thread ], [ %add.ptr19.i.i.i, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit ], [ %add.ptr19.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i ], [ %add.ptr19.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ %add.ptr19.i.i.i, %if.end8.sink.split.i.i.i.i.i ]
+  %__cur.0.lcssa.i.i.i.i.i.i.pn219 = phi ptr [ %views.sroa.12.0191, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit.thread ], [ %__cur.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit ], [ %__cur.0.lcssa.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i ], [ %__cur.0.lcssa.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ %__cur.0.lcssa.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i ]
+  %views.sroa.0.2218 = phi ptr [ %views.sroa.0.0190, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit.thread ], [ %call5.i.i.i.i.i.i, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit ], [ %call5.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i ]
   %call51 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %call30) #22
   br label %for.inc
 
@@ -2430,16 +2430,16 @@ if.end8.sink.split.i.i.i.i.i112:                  ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS1_5ValueEEEEN4ViewD2Ev.exit121
 
 _ZZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS1_5ValueEEEEN4ViewD2Ev.exit121: ; preds = %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit90.thread, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit90, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i99, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i109, %if.end8.sink.split.i.i.i.i.i112
-  %views.sroa.22.3225 = phi ptr [ %views.sroa.22.0192, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit90.thread ], [ %add.ptr19.i.i.i88, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit90 ], [ %add.ptr19.i.i.i88, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i99 ], [ %add.ptr19.i.i.i88, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i109 ], [ %add.ptr19.i.i.i88, %if.end8.sink.split.i.i.i.i.i112 ]
-  %__cur.0.lcssa.i.i.i.i.i.i83.pn224 = phi ptr [ %views.sroa.12.0191, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit90.thread ], [ %__cur.0.lcssa.i.i.i.i.i.i83, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit90 ], [ %__cur.0.lcssa.i.i.i.i.i.i83, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i99 ], [ %__cur.0.lcssa.i.i.i.i.i.i83, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i109 ], [ %__cur.0.lcssa.i.i.i.i.i.i83, %if.end8.sink.split.i.i.i.i.i112 ]
-  %views.sroa.0.3223 = phi ptr [ %views.sroa.0.0190, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit90.thread ], [ %call5.i.i.i.i.i.i66, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit90 ], [ %call5.i.i.i.i.i.i66, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i99 ], [ %call5.i.i.i.i.i.i66, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i109 ], [ %call5.i.i.i.i.i.i66, %if.end8.sink.split.i.i.i.i.i112 ]
+  %views.sroa.22.3228 = phi ptr [ %views.sroa.22.0192, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit90.thread ], [ %add.ptr19.i.i.i88, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit90 ], [ %add.ptr19.i.i.i88, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i99 ], [ %add.ptr19.i.i.i88, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i109 ], [ %add.ptr19.i.i.i88, %if.end8.sink.split.i.i.i.i.i112 ]
+  %__cur.0.lcssa.i.i.i.i.i.i83.pn227 = phi ptr [ %views.sroa.12.0191, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit90.thread ], [ %__cur.0.lcssa.i.i.i.i.i.i83, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit90 ], [ %__cur.0.lcssa.i.i.i.i.i.i83, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i99 ], [ %__cur.0.lcssa.i.i.i.i.i.i83, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i109 ], [ %__cur.0.lcssa.i.i.i.i.i.i83, %if.end8.sink.split.i.i.i.i.i112 ]
+  %views.sroa.0.3226 = phi ptr [ %views.sroa.0.0190, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit90.thread ], [ %call5.i.i.i.i.i.i66, %_ZNSt6vectorIZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4ViewSaIS8_EE9push_backEOS8_.exit90 ], [ %call5.i.i.i.i.i.i66, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i99 ], [ %call5.i.i.i.i.i.i66, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i109 ], [ %call5.i.i.i.i.i.i66, %if.end8.sink.split.i.i.i.i.i112 ]
   %call84 = call noundef i64 @_ZN2v815ArrayBufferView10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %call30) #22
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS1_5ValueEEEEN4ViewD2Ev.exit, %_ZZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS1_5ValueEEEEN4ViewD2Ev.exit121
-  %views.sroa.0.1 = phi ptr [ %views.sroa.0.2215, %_ZZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS1_5ValueEEEEN4ViewD2Ev.exit ], [ %views.sroa.0.3223, %_ZZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS1_5ValueEEEEN4ViewD2Ev.exit121 ]
-  %__cur.0.lcssa.i.i.i.i.i.i.pn.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i.pn216, %_ZZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS1_5ValueEEEEN4ViewD2Ev.exit ], [ %__cur.0.lcssa.i.i.i.i.i.i83.pn224, %_ZZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS1_5ValueEEEEN4ViewD2Ev.exit121 ]
-  %views.sroa.22.1 = phi ptr [ %views.sroa.22.2217, %_ZZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS1_5ValueEEEEN4ViewD2Ev.exit ], [ %views.sroa.22.3225, %_ZZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS1_5ValueEEEEN4ViewD2Ev.exit121 ]
+  %views.sroa.0.1 = phi ptr [ %views.sroa.0.2218, %_ZZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS1_5ValueEEEEN4ViewD2Ev.exit ], [ %views.sroa.0.3226, %_ZZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS1_5ValueEEEEN4ViewD2Ev.exit121 ]
+  %__cur.0.lcssa.i.i.i.i.i.i.pn.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i.pn219, %_ZZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS1_5ValueEEEEN4ViewD2Ev.exit ], [ %__cur.0.lcssa.i.i.i.i.i.i83.pn227, %_ZZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS1_5ValueEEEEN4ViewD2Ev.exit121 ]
+  %views.sroa.22.1 = phi ptr [ %views.sroa.22.2220, %_ZZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS1_5ValueEEEEN4ViewD2Ev.exit ], [ %views.sroa.22.3228, %_ZZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS1_5ValueEEEEN4ViewD2Ev.exit121 ]
   %call51.pn = phi i64 [ %call51, %_ZZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS1_5ValueEEEEN4ViewD2Ev.exit ], [ %call84, %_ZZN4node12_GLOBAL__N_16ConcatERKN2v820FunctionCallbackInfoINS1_5ValueEEEEN4ViewD2Ev.exit121 ]
   %views.sroa.12.1 = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.pn.pn, i64 32
   %total.1 = add i64 %call51.pn, %total.0194
@@ -4361,21 +4361,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i110: ; preds = %i
   br i1 %cmp.i.i.i.i.i.i112, label %return.sink.split, label %return
 
 return.sink.split.sink.split:                     ; preds = %if.then.i.i.i.i43, %if.then.i.i.i.i118
-  %.sink5 = phi ptr [ %44, %if.then.i.i.i.i118 ], [ %16, %if.then.i.i.i.i43 ]
-  %_M_weak_count.i.i.i.i119 = getelementptr inbounds nuw i8, ptr %.sink5, i64 12
+  %.sink11 = phi ptr [ %44, %if.then.i.i.i.i118 ], [ %16, %if.then.i.i.i.i43 ]
+  %_M_weak_count.i.i.i.i119 = getelementptr inbounds nuw i8, ptr %.sink11, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i119, align 4
-  %vtable.i.i.i.i120 = load ptr, ptr %.sink5, align 8
+  %vtable.i.i.i.i120 = load ptr, ptr %.sink11, align 8
   %vfn.i.i.i.i121 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i120, i64 16
   %53 = load ptr, ptr %vfn.i.i.i.i121, align 8
-  call void %53(ptr noundef nonnull align 8 dereferenceable(16) %.sink5) #22
+  call void %53(ptr noundef nonnull align 8 dereferenceable(16) %.sink11) #22
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i110, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i35
-  %.sink2 = phi ptr [ %16, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i35 ], [ %44, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i110 ], [ %.sink5, %return.sink.split.sink.split ]
-  %vtable2.i.i.i.i.i.i114 = load ptr, ptr %.sink2, align 8
+  %.sink8 = phi ptr [ %16, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i35 ], [ %44, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i110 ], [ %.sink11, %return.sink.split.sink.split ]
+  %vtable2.i.i.i.i.i.i114 = load ptr, ptr %.sink8, align 8
   %vfn3.i.i.i.i.i.i115 = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i114, i64 24
   %54 = load ptr, ptr %vfn3.i.i.i.i.i.i115, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(16) %.sink2) #22
+  call void %54(ptr noundef nonnull align 8 dereferenceable(16) %.sink8) #22
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i110, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i100, %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit90, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i35, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i25, %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit
@@ -5672,11 +5672,11 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   br i1 %or.cond, label %if.then.i.i.i.i14, label %if.end11
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i33 = getelementptr inbounds i8, ptr %1, i64 -8
-  %7 = load ptr, ptr %incdec.ptr.i.i.i.i33, align 8
-  %cmp34 = icmp ne ptr %7, null
-  %or.cond35 = and i1 %subtract_from_self, %cmp34
-  br i1 %or.cond35, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, label %if.end11
+  %incdec.ptr.i.i.i.i35 = getelementptr inbounds i8, ptr %1, i64 -8
+  %7 = load ptr, ptr %incdec.ptr.i.i.i.i35, align 8
+  %cmp36 = icmp ne ptr %7, null
+  %or.cond37 = and i1 %subtract_from_self, %cmp36
+  br i1 %or.cond37, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, label %if.end11
 
 if.then.i.i.i.i14:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -8127,10 +8127,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   br i1 %cmp.not, label %cleanup, label %if.then.i.i.i.i13
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i59 = getelementptr inbounds i8, ptr %12, i64 -8
-  %18 = load ptr, ptr %incdec.ptr.i.i.i.i59, align 8
-  %cmp.not60 = icmp eq ptr %18, null
-  br i1 %cmp.not60, label %cleanup, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit17
+  %incdec.ptr.i.i.i.i65 = getelementptr inbounds i8, ptr %12, i64 -8
+  %18 = load ptr, ptr %incdec.ptr.i.i.i.i65, align 8
+  %cmp.not66 = icmp eq ptr %18, null
+  br i1 %cmp.not66, label %cleanup, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit17
 
 if.then.i.i.i.i13:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -8388,10 +8388,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   br i1 %cmp.not, label %if.end19, label %if.then.i.i.i.i19
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i41 = getelementptr inbounds i8, ptr %16, i64 -8
-  %22 = load ptr, ptr %incdec.ptr.i.i.i.i41, align 8
-  %cmp.not42 = icmp eq ptr %22, null
-  br i1 %cmp.not42, label %if.end19, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit23
+  %incdec.ptr.i.i.i.i45 = getelementptr inbounds i8, ptr %16, i64 -8
+  %22 = load ptr, ptr %incdec.ptr.i.i.i.i45, align 8
+  %cmp.not46 = icmp eq ptr %22, null
+  br i1 %cmp.not46, label %if.end19, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit23
 
 if.then.i.i.i.i19:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -9488,10 +9488,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i:   ; preds = %if.end.i.i
   br i1 %cmp.not.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i: ; preds = %if.end.i.i
-  %incdec.ptr.i.i.i.i19.i = getelementptr inbounds i8, ptr %4, i64 -8
-  %10 = load ptr, ptr %incdec.ptr.i.i.i.i19.i, align 8
-  %cmp.not20.i = icmp eq ptr %10, null
-  br i1 %cmp.not20.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i
+  %incdec.ptr.i.i.i.i20.i = getelementptr inbounds i8, ptr %4, i64 -8
+  %10 = load ptr, ptr %incdec.ptr.i.i.i.i20.i, align 8
+  %cmp.not21.i = icmp eq ptr %10, null
+  br i1 %cmp.not21.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i
   %11 = phi ptr [ %10, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i ], [ %9, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i ]
@@ -9743,10 +9743,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i: ; preds = %if.end.i.i.i
   br i1 %cmp.not.i3.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i: ; preds = %if.end.i.i.i
-  %incdec.ptr.i.i.i.i19.i.i = getelementptr inbounds i8, ptr %4, i64 -8
-  %10 = load ptr, ptr %incdec.ptr.i.i.i.i19.i.i, align 8
-  %cmp.not20.i.i = icmp eq ptr %10, null
-  br i1 %cmp.not20.i.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
+  %incdec.ptr.i.i.i.i20.i.i = getelementptr inbounds i8, ptr %4, i64 -8
+  %10 = load ptr, ptr %incdec.ptr.i.i.i.i20.i.i, align 8
+  %cmp.not21.i.i = icmp eq ptr %10, null
+  br i1 %cmp.not21.i.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i
   %11 = phi ptr [ %10, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i ], [ %9, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i ]

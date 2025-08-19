@@ -514,8 +514,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %49, label %61, label %.thread.thread.i.i
 
 .thread.thread.i.i:                               ; preds = %.thread.i.i, %37, %35
-  %.sroa.6.05167.i.i = phi i64 [ %.sroa.6.051.i.i, %.thread.i.i ], [ %..i.i.i, %35 ], [ 1, %37 ]
-  %50 = shl nuw i64 %.sroa.6.05167.i.i, 3
+  %.sroa.6.05171.i.i = phi i64 [ %.sroa.6.051.i.i, %.thread.i.i ], [ %..i.i.i, %35 ], [ 1, %37 ]
+  %50 = shl nuw i64 %.sroa.6.05171.i.i, 3
   %51 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %50, i64 15)
   %52 = extractvalue { i64, i1 } %51, 1
   br i1 %52, label %61, label %53
@@ -523,7 +523,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 53:                                               ; preds = %.thread.thread.i.i
   %54 = extractvalue { i64, i1 } %51, 0
   %55 = and i64 %54, -16
-  %56 = add nuw nsw i64 %.sroa.6.05167.i.i, 16
+  %56 = add nuw nsw i64 %.sroa.6.05171.i.i, 16
   %57 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %55, i64 %56)
   %58 = extractvalue { i64, i1 } %57, 1
   %59 = extractvalue { i64, i1 } %57, 0
@@ -552,9 +552,9 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h400c36339e43d739E.exit.thr
   br label %90
 
 _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.i: ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.11428043649131767347.exit.i.i.i
-  %68 = add nsw i64 %.sroa.6.05167.i.i, -1
+  %68 = add nsw i64 %.sroa.6.05171.i.i, -1
   %69 = icmp ult i64 %68, 8
-  %70 = lshr i64 %.sroa.6.05167.i.i, 3
+  %70 = lshr i64 %.sroa.6.05171.i.i, 3
   %71 = mul nuw nsw i64 %70, 7
   %.0.i.i.i = select i1 %69, i64 %68, i64 %71
   %72 = getelementptr inbounds i8, ptr %64, i64 %55
@@ -852,9 +852,9 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17h782a8b650e027c37E.exit.threa
 
 ._crit_edge.i.i12:                                ; preds = %206
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %25, i64 16)
-  %spec.select28.i = tail call i64 @llvm.umin.i64(i64 %25, i64 16)
+  %spec.select32.i = tail call i64 @llvm.umin.i64(i64 %25, i64 16)
   %192 = getelementptr inbounds i8, ptr %.val15.i, i64 %spec.select.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %192, ptr nonnull align 1 %.val15.i, i64 %spec.select28.i, i1 false), !noalias !140
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %192, ptr nonnull align 1 %.val15.i, i64 %spec.select32.i, i1 false), !noalias !140
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !140
   %193 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %193, align 8, !noalias !140

@@ -279,18 +279,18 @@ replication_yyensure_buffer_stack.exit:           ; preds = %33, %36, %44
   %126 = sext i16 %125 to i32
   %127 = getelementptr inbounds nuw i8, ptr %.1177, i64 1
   %.not204 = icmp eq i16 %125, 284
-  br i1 %.not204, label %.backedge.sink.split1066, label %89, !llvm.loop !6
+  br i1 %.not204, label %.backedge.sink.split1092, label %89, !llvm.loop !6
 
-.backedge.sink.split1066:                         ; preds = %._crit_edge, %.backedge.sink.split1066.backedge
-  %.1183.ph = phi ptr [ %.1183.ph.be, %.backedge.sink.split1066.backedge ], [ %.0182, %._crit_edge ]
+.backedge.sink.split1092:                         ; preds = %._crit_edge, %.backedge.sink.split1092.backedge
+  %.1183.ph = phi ptr [ %.1183.ph.be, %.backedge.sink.split1092.backedge ], [ %.0182, %._crit_edge ]
   %128 = load ptr, ptr %77, align 8
   %129 = load i32, ptr %76, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split1066
-  %.1183 = phi ptr [ %.1183.ph, %.backedge.sink.split1066 ], [ %591, %.backedge.backedge ]
-  %.2178 = phi ptr [ %128, %.backedge.sink.split1066 ], [ %593, %.backedge.backedge ]
-  %.3 = phi i32 [ %129, %.backedge.sink.split1066 ], [ %.3.be, %.backedge.backedge ]
+.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split1092
+  %.1183 = phi ptr [ %.1183.ph, %.backedge.sink.split1092 ], [ %591, %.backedge.backedge ]
+  %.2178 = phi ptr [ %128, %.backedge.sink.split1092 ], [ %593, %.backedge.backedge ]
+  %.3 = phi i32 [ %129, %.backedge.sink.split1092 ], [ %.3.be, %.backedge.backedge ]
   %130 = sext i32 %.3 to i64
   %131 = getelementptr inbounds [285 x i16], ptr @yy_accept, i64 0, i64 %130
   %132 = load i16, ptr %131, align 2
@@ -313,9 +313,9 @@ replication_yyensure_buffer_stack.exit:           ; preds = %33, %36, %44
     i32 0, label %140
     i32 1, label %.loopexit
     i32 2, label %.loopexit588
-    i32 3, label %.loopexit735
-    i32 4, label %.loopexit905
-    i32 5, label %.loopexit1067
+    i32 3, label %.loopexit761
+    i32 4, label %.loopexit931
+    i32 5, label %.loopexit1093
     i32 6, label %643
     i32 7, label %142
     i32 8, label %143
@@ -354,7 +354,7 @@ replication_yyensure_buffer_stack.exit:           ; preds = %33, %36, %44
 140:                                              ; preds = %139
   %141 = load i8, ptr %74, align 8
   store i8 %141, ptr %.2178, align 1
-  br label %.backedge.sink.split1066.backedge
+  br label %.backedge.sink.split1092.backedge
 
 142:                                              ; preds = %139
   br label %643
@@ -720,11 +720,11 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i216, %303
   %323 = icmp eq i16 %322, 284
   %.not206257 = icmp eq i64 %.lcssa.i218, 0
   %.not206 = or i1 %.not206257, %323
-  br i1 %.not206, label %.backedge.sink.split1066.backedge, label %324
+  br i1 %.not206, label %.backedge.sink.split1092.backedge, label %324
 
-.backedge.sink.split1066.backedge:                ; preds = %yy_try_NUL_trans.exit, %140
+.backedge.sink.split1092.backedge:                ; preds = %yy_try_NUL_trans.exit, %140
   %.1183.ph.be = phi ptr [ %.1183, %140 ], [ %253, %yy_try_NUL_trans.exit ]
-  br label %.backedge.sink.split1066
+  br label %.backedge.sink.split1092
 
 324:                                              ; preds = %yy_try_NUL_trans.exit
   %325 = sext i16 %322 to i32
@@ -1025,10 +1025,10 @@ replication_yyrealloc.exit.i221:                  ; preds = %385, %383
   br label %466
 
 466:                                              ; preds = %.critedge2.i, %358
-  %.sink198.in.i = phi ptr [ %465, %.critedge2.i ], [ %359, %358 ]
+  %.sink206.in.i = phi ptr [ %465, %.critedge2.i ], [ %359, %358 ]
   %.sink.i = phi i32 [ %462, %.critedge2.i ], [ 0, %358 ]
-  %.sink198.i = load ptr, ptr %.sink198.in.i, align 8
-  %467 = getelementptr inbounds nuw i8, ptr %.sink198.i, i64 28
+  %.sink206.i = load ptr, ptr %.sink206.in.i, align 8
+  %467 = getelementptr inbounds nuw i8, ptr %.sink206.i, i64 28
   store i32 %.sink.i, ptr %467, align 4
   %468 = load i32, ptr %82, align 4
   %469 = icmp eq i32 %468, 0
@@ -1143,7 +1143,7 @@ yy_get_next_buffer.exit:                          ; preds = %480, %512
   %537 = getelementptr inbounds nuw i8, ptr %536, i64 8
   %538 = load ptr, ptr %537, align 8
   store ptr %538, ptr %78, align 8
-  switch i32 %.0135.i, label %default.unreachable716 [
+  switch i32 %.0135.i, label %default.unreachable742 [
     i32 1, label %yy_get_previous_state.exit238
     i32 0, label %540
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread255_crit_edge
@@ -1333,7 +1333,7 @@ yy_get_next_buffer.exit.thread255:                ; preds = %340, %yy_get_next_b
   %exitcond.not.i252 = icmp eq ptr %636, %593
   br i1 %exitcond.not.i252, label %.backedge.backedge, label %.lr.ph31.i240, !llvm.loop !8
 
-default.unreachable716:                           ; preds = %yy_get_next_buffer.exit
+default.unreachable742:                           ; preds = %yy_get_next_buffer.exit
   unreachable
 
 yy_get_previous_state.exit238:                    ; preds = %yy_get_next_buffer.exit, %340
@@ -1356,17 +1356,17 @@ yy_get_previous_state.exit238:                    ; preds = %yy_get_next_buffer.
 .loopexit588:                                     ; preds = %139
   br label %643
 
-.loopexit735:                                     ; preds = %139
+.loopexit761:                                     ; preds = %139
   br label %643
 
-.loopexit905:                                     ; preds = %139
+.loopexit931:                                     ; preds = %139
   br label %643
 
-.loopexit1067:                                    ; preds = %139
+.loopexit1093:                                    ; preds = %139
   br label %643
 
-643:                                              ; preds = %139, %.loopexit1067, %.loopexit905, %.loopexit735, %.loopexit588, %.loopexit, %215, %210, %204, %190, %176, %166, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %85
-  %.0 = phi i32 [ %72, %85 ], [ 267, %142 ], [ 268, %143 ], [ 269, %144 ], [ 270, %145 ], [ 273, %146 ], [ 276, %147 ], [ 274, %148 ], [ 275, %149 ], [ 277, %150 ], [ 278, %151 ], [ 279, %152 ], [ 280, %153 ], [ 281, %154 ], [ 271, %155 ], [ 282, %156 ], [ 260, %157 ], [ 261, %166 ], [ 258, %176 ], [ 259, %190 ], [ 259, %204 ], [ %213, %210 ], [ 0, %215 ], [ 262, %.loopexit ], [ 263, %.loopexit588 ], [ 264, %.loopexit735 ], [ 265, %.loopexit905 ], [ 272, %.loopexit1067 ], [ 266, %139 ]
+643:                                              ; preds = %139, %.loopexit1093, %.loopexit931, %.loopexit761, %.loopexit588, %.loopexit, %215, %210, %204, %190, %176, %166, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %85
+  %.0 = phi i32 [ %72, %85 ], [ 267, %142 ], [ 268, %143 ], [ 269, %144 ], [ 270, %145 ], [ 273, %146 ], [ 276, %147 ], [ 274, %148 ], [ 275, %149 ], [ 277, %150 ], [ 278, %151 ], [ 279, %152 ], [ 280, %153 ], [ 281, %154 ], [ 271, %155 ], [ 282, %156 ], [ 260, %157 ], [ 261, %166 ], [ 258, %176 ], [ 259, %190 ], [ 259, %204 ], [ %213, %210 ], [ 0, %215 ], [ 262, %.loopexit ], [ 263, %.loopexit588 ], [ 264, %.loopexit761 ], [ 265, %.loopexit931 ], [ 272, %.loopexit1093 ], [ 266, %139 ]
   ret i32 %.0
 }
 
@@ -2059,9 +2059,9 @@ replication_yyensure_buffer_stack.exit:           ; preds = %10, %13, %23
   br label %.thread
 
 .thread:                                          ; preds = %replication_yyensure_buffer_stack.exit, %50, %31
-  %.pr36 = phi ptr [ %.pr.pre, %50 ], [ %.pr.pre, %31 ], [ %27, %replication_yyensure_buffer_stack.exit ]
+  %.pr40 = phi ptr [ %.pr.pre, %50 ], [ %.pr.pre, %31 ], [ %27, %replication_yyensure_buffer_stack.exit ]
   %52 = phi i64 [ %51, %50 ], [ %.pre30, %31 ], [ %26, %replication_yyensure_buffer_stack.exit ]
-  %53 = getelementptr inbounds nuw ptr, ptr %.pr36, i64 %52
+  %53 = getelementptr inbounds nuw ptr, ptr %.pr40, i64 %52
   store ptr %0, ptr %53, align 8
   %54 = load ptr, ptr %5, align 8
   %55 = load i64, ptr %28, align 8

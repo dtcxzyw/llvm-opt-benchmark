@@ -138,21 +138,21 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i:
   %7 = alloca %"class.std::_Bind.8", align 8
   %8 = sext i32 %1 to i64
   %9 = icmp slt i32 %1, 0
-  %.sink81.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink81.sroa.gep92 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink81.sroa.gep93 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sink81.sroa.gep95 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink81.sroa.gep96 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink81.sroa.gep97 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sink81.sroa.gep99 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sink81.sroa.gep100 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sink81.sroa.gep101 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sink81.sroa.gep103 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink81.sroa.gep104 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink81.sroa.gep105 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.sink81.sroa.gep107 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %.sink81.sroa.gep108 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %.sink81.sroa.gep109 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink91.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink91.sroa.gep102 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink91.sroa.gep103 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink91.sroa.gep105 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink91.sroa.gep106 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink91.sroa.gep107 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink91.sroa.gep109 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink91.sroa.gep110 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink91.sroa.gep111 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink91.sroa.gep113 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink91.sroa.gep114 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink91.sroa.gep115 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sink91.sroa.gep117 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %.sink91.sroa.gep118 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %.sink91.sroa.gep119 = getelementptr inbounds nuw i8, ptr %3, i64 40
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit.i
@@ -407,21 +407,21 @@ _ZNSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES7_ILi2EES7_ILi3EES
   br i1 %78, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit24, label %.invoke
 
 .invoke:                                          ; preds = %74, %72, %.thread
-  %.sink81.sroa.phi = phi ptr [ %.sink81.sroa.gep, %.thread ], [ %.sink81.sroa.gep92, %72 ], [ %.sink81.sroa.gep93, %74 ]
-  %.sink81.sroa.phi94 = phi ptr [ %.sink81.sroa.gep95, %.thread ], [ %.sink81.sroa.gep96, %72 ], [ %.sink81.sroa.gep97, %74 ]
-  %.sink81.sroa.phi98 = phi ptr [ %.sink81.sroa.gep99, %.thread ], [ %.sink81.sroa.gep100, %72 ], [ %.sink81.sroa.gep101, %74 ]
-  %.sink81.sroa.phi102 = phi ptr [ %.sink81.sroa.gep103, %.thread ], [ %.sink81.sroa.gep104, %72 ], [ %.sink81.sroa.gep105, %74 ]
-  %.sink81.sroa.phi106 = phi ptr [ %.sink81.sroa.gep107, %.thread ], [ %.sink81.sroa.gep108, %72 ], [ %.sink81.sroa.gep109, %74 ]
-  %.sink81 = phi ptr [ %4, %.thread ], [ %4, %72 ], [ %3, %74 ]
-  %.sink78 = phi i64 [ 73, %.thread ], [ 73, %72 ], [ 74, %74 ]
+  %.sink91.sroa.phi = phi ptr [ %.sink91.sroa.gep, %.thread ], [ %.sink91.sroa.gep102, %72 ], [ %.sink91.sroa.gep103, %74 ]
+  %.sink91.sroa.phi104 = phi ptr [ %.sink91.sroa.gep105, %.thread ], [ %.sink91.sroa.gep106, %72 ], [ %.sink91.sroa.gep107, %74 ]
+  %.sink91.sroa.phi108 = phi ptr [ %.sink91.sroa.gep109, %.thread ], [ %.sink91.sroa.gep110, %72 ], [ %.sink91.sroa.gep111, %74 ]
+  %.sink91.sroa.phi112 = phi ptr [ %.sink91.sroa.gep113, %.thread ], [ %.sink91.sroa.gep114, %72 ], [ %.sink91.sroa.gep115, %74 ]
+  %.sink91.sroa.phi116 = phi ptr [ %.sink91.sroa.gep117, %.thread ], [ %.sink91.sroa.gep118, %72 ], [ %.sink91.sroa.gep119, %74 ]
+  %.sink91 = phi ptr [ %4, %.thread ], [ %4, %72 ], [ %3, %74 ]
+  %.sink88 = phi i64 [ 73, %.thread ], [ 73, %72 ], [ 74, %74 ]
   %79 = phi ptr [ @.str.1, %.thread ], [ @.str.1, %72 ], [ @.str.2, %74 ]
-  store ptr @.str, ptr %.sink81, align 8
-  store ptr @__func__._Z10_DoTBBTestbim, ptr %.sink81.sroa.phi, align 8
-  store i64 %.sink78, ptr %.sink81.sroa.phi94, align 8
-  store ptr @__PRETTY_FUNCTION__._Z10_DoTBBTestbim, ptr %.sink81.sroa.phi98, align 8
-  store i8 0, ptr %.sink81.sroa.phi102, align 8
-  store i32 4, ptr %.sink81.sroa.phi106, align 8
-  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink81, ptr noundef nonnull @.str.13, ptr noundef nonnull %79) #22
+  store ptr @.str, ptr %.sink91, align 8
+  store ptr @__func__._Z10_DoTBBTestbim, ptr %.sink91.sroa.phi, align 8
+  store i64 %.sink88, ptr %.sink91.sroa.phi104, align 8
+  store ptr @__PRETTY_FUNCTION__._Z10_DoTBBTestbim, ptr %.sink91.sroa.phi108, align 8
+  store i8 0, ptr %.sink91.sroa.phi112, align 8
+  store i32 4, ptr %.sink91.sroa.phi116, align 8
+  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink91, ptr noundef nonnull @.str.13, ptr noundef nonnull %79) #22
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke

@@ -580,7 +580,7 @@ escape_quotes.exit:                               ; preds = %94
 152:                                              ; preds = %148
   %153 = load i32, ptr %8, align 8
   %154 = icmp sgt i32 %153, -1
-  br i1 %154, label %159, label %.thread207
+  br i1 %154, label %159, label %.thread211
 
 .thread:                                          ; preds = %117
   %155 = load i32, ptr %8, align 8
@@ -622,14 +622,14 @@ escape_quotes.exit:                               ; preds = %94
   %170 = load i8, ptr %23, align 2, !range !6
   %171 = trunc nuw i8 %170 to i1
   %or.cond10 = select i1 %or.cond7.not, i1 true, i1 %171
-  br i1 %or.cond10, label %.thread207, label %172
+  br i1 %or.cond10, label %.thread211, label %172
 
 172:                                              ; preds = %166
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.13) #10
   call void @exit(i32 noundef 1) #11
   unreachable
 
-.thread207:                                       ; preds = %152, %166
+.thread211:                                       ; preds = %152, %166
   %173 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.063, ptr %173, align 8
   %174 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -647,12 +647,12 @@ escape_quotes.exit:                               ; preds = %94
   %or.cond78 = select i1 %.not73, i1 %179, i1 false
   br i1 %or.cond78, label %180, label %181
 
-180:                                              ; preds = %.thread207
+180:                                              ; preds = %.thread211
   store i32 %.050, ptr %7, align 4
   br label %181
 
-181:                                              ; preds = %180, %.thread207
-  %182 = phi i32 [ %.050, %180 ], [ %178, %.thread207 ]
+181:                                              ; preds = %180, %.thread211
+  %182 = phi i32 [ %.050, %180 ], [ %178, %.thread211 ]
   %183 = load i32, ptr @objfilter, align 4
   %184 = and i32 %183, 1
   %.not74 = icmp eq i32 %184, 0

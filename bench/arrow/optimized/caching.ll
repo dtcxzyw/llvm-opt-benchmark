@@ -1045,8 +1045,8 @@ define linkonce_odr void @_ZN5arrow2io8internal14ReadRangeCache8LazyImpl16MakeCa
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not17 = icmp eq ptr %6, %7
-  br i1 %.not17, label %_ZNSt6vectorIN5arrow2io8internal15RangeCacheEntryESaIS3_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN5arrow2io8internal15RangeCacheEntryESaIS3_EE11_M_allocateEm.exit.i
+  %.not22 = icmp eq ptr %6, %7
+  br i1 %.not22, label %_ZNSt6vectorIN5arrow2io8internal15RangeCacheEntryESaIS3_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN5arrow2io8internal15RangeCacheEntryESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIN5arrow2io8internal15RangeCacheEntryESaIS3_EE11_M_allocateEm.exit.i: ; preds = %14
   %16 = shl nuw nsw i64 %10, 1
@@ -1478,8 +1478,8 @@ define linkonce_odr void @_ZN5arrow2io8internal14ReadRangeCache4Impl16MakeCacheE
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not22 = icmp eq ptr %6, %7
-  br i1 %.not22, label %_ZNSt6vectorIN5arrow2io8internal15RangeCacheEntryESaIS3_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN5arrow2io8internal15RangeCacheEntryESaIS3_EE11_M_allocateEm.exit.i
+  %.not27 = icmp eq ptr %6, %7
+  br i1 %.not27, label %_ZNSt6vectorIN5arrow2io8internal15RangeCacheEntryESaIS3_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN5arrow2io8internal15RangeCacheEntryESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIN5arrow2io8internal15RangeCacheEntryESaIS3_EE11_M_allocateEm.exit.i: ; preds = %14
   %16 = shl nuw nsw i64 %10, 1
@@ -2306,8 +2306,8 @@ _ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit:  ; preds = %60, %69, %72
 .preheader:                                       ; preds = %77
   %.sroa.036.058 = getelementptr inbounds nuw i8, ptr %.sroa.011.0.lcssa.i.i, i64 32
   %81 = load ptr, ptr %21, align 8, !tbaa !106
-  %.not64 = icmp eq ptr %.sroa.036.058, %81
-  br i1 %.not64, label %.critedge2, label %.lr.ph
+  %.not78 = icmp eq ptr %.sroa.036.058, %81
+  br i1 %.not78, label %.critedge2, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3043,8 +3043,8 @@ _ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE6resizeEm.exit: ; preds = %73, %75, %7
 
 85:                                               ; preds = %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE6resizeEm.exit
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.not88 = icmp eq i64 %.pre-phi87, %81
-  br i1 %.not88, label %_ZNSt6vectorIN5arrow6FutureINS0_8internal5EmptyEEESaIS4_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN5arrow6FutureINS0_8internal5EmptyEEESaIS4_EE11_M_allocateEm.exit.i
+  %.not120 = icmp eq i64 %.pre-phi87, %81
+  br i1 %.not120, label %_ZNSt6vectorIN5arrow6FutureINS0_8internal5EmptyEEESaIS4_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN5arrow6FutureINS0_8internal5EmptyEEESaIS4_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIN5arrow6FutureINS0_8internal5EmptyEEESaIS4_EE11_M_allocateEm.exit.i: ; preds = %85
   %87 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %82) #21
@@ -6162,7 +6162,7 @@ define linkonce_odr void @_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE17_M_default
 19:                                               ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN5arrow2io9ReadRangeEmS2_ET_S4_T0_RSaIT1_E.exit, label %23
 

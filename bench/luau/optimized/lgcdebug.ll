@@ -1956,9 +1956,9 @@ _ZL9enumedgesP11EnumContextP8GCObjectP10lua_TValuemPKc.exit.i.i: ; preds = %191,
 .thread.i:                                        ; preds = %474, %445
   %480 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %481 = load ptr, ptr %480, align 8, !tbaa !82
-  %.not40.i66101.i = icmp eq ptr %481, null
+  %.not40.i66127.i = icmp eq ptr %481, null
   %482 = getelementptr inbounds nuw i8, ptr %481, i64 24
-  %spec.select.i67102.i = select i1 %.not40.i66101.i, ptr null, ptr %482
+  %spec.select.i67128.i = select i1 %.not40.i66127.i, ptr null, ptr %482
   br label %503
 
 483:                                              ; preds = %474
@@ -1987,21 +1987,21 @@ _ZL9enumedgesP11EnumContextP8GCObjectP10lua_TValuemPKc.exit.i.i: ; preds = %191,
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 24
   %spec.select.i67.i = select i1 %.not40.i66.i, ptr null, ptr %501
   %502 = icmp eq i8 %.pre.i, 8
-  %spec.select115.i = select i1 %502, i64 16, i64 0
+  %spec.select141.i = select i1 %502, i64 16, i64 0
   br label %503
 
 503:                                              ; preds = %483, %.thread.i
-  %spec.select.i67105.i = phi ptr [ %spec.select.i67102.i, %.thread.i ], [ %spec.select.i67.i, %483 ]
+  %spec.select.i67131.i = phi ptr [ %spec.select.i67128.i, %.thread.i ], [ %spec.select.i67.i, %483 ]
   %504 = phi i8 [ 11, %.thread.i ], [ %.pre.i, %483 ]
-  %505 = phi i64 [ 0, %.thread.i ], [ %spec.select115.i, %483 ]
+  %505 = phi i64 [ 0, %.thread.i ], [ %spec.select141.i, %483 ]
   %506 = getelementptr i8, ptr %0, i64 8
-  %.val.i68106.i = load ptr, ptr %506, align 8, !tbaa !114
-  %.val42.i107.in.i = getelementptr i8, ptr %0, i64 16
-  %.val42.i107.i = load ptr, ptr %.val42.i107.in.i, align 8, !tbaa !115
+  %.val.i68132.i = load ptr, ptr %506, align 8, !tbaa !114
+  %.val42.i133.in.i = getelementptr i8, ptr %0, i64 16
+  %.val42.i133.i = load ptr, ptr %.val42.i133.in.i, align 8, !tbaa !115
   %507 = getelementptr inbounds nuw i8, ptr %2, i64 %505
   %508 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %509 = load i8, ptr %508, align 2, !tbaa !34
-  tail call void %.val42.i107.i(ptr noundef %.val.i68106.i, ptr noundef nonnull %507, i8 noundef zeroext %504, i8 noundef zeroext %509, i64 noundef range(i64 -130996502352, 130996502644) %471, ptr noundef %spec.select.i67105.i)
+  tail call void %.val42.i133.i(ptr noundef %.val.i68132.i, ptr noundef nonnull %507, i8 noundef zeroext %504, i8 noundef zeroext %509, i64 noundef range(i64 -130996502352, 130996502644) %471, ptr noundef %spec.select.i67131.i)
   %510 = load i32, ptr %453, align 8, !tbaa !98
   %.not41.i70.i = icmp eq i32 %510, 0
   br i1 %.not41.i70.i, label %_ZL9enumedgesP11EnumContextP8GCObjectP10lua_TValuemPKc.exit.i74.i, label %.lr.ph.i.i71.i

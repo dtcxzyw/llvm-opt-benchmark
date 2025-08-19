@@ -109,7 +109,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit.thread.i:     ; preds = %_ZNK4llvm6MDNode14g
   %30 = load ptr, ptr %29, align 8, !tbaa !12
   %31 = load i8, ptr %30, align 4, !tbaa !3
   %32 = icmp eq i8 %31, 0
-  br i1 %32, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread32, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread
+  br i1 %32, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread33, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread
 
 _ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit: ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -118,14 +118,14 @@ _ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit: ; preds = %_ZNK4llvm6MDNode
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %43, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread
 
-_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread32: ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i
+_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread33: ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !12
   %39 = load i8, ptr %38, align 4, !tbaa !3
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %.thread, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread
 
-.thread:                                          ; preds = %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread32
+.thread:                                          ; preds = %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread33
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %41 = getelementptr inbounds i8, ptr %1, i64 -32
   %42 = load ptr, ptr %41, align 8, !tbaa !15
@@ -184,7 +184,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit.i18:          ; preds = %43, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
-_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread: ; preds = %9, %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread32, %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i, %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit
+_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread: ; preds = %9, %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread33, %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i, %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit
   %68 = and i64 %13, 2
   %.not.i.i = icmp eq i64 %68, 0
   br i1 %.not.i.i, label %75, label %69

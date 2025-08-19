@@ -1589,8 +1589,8 @@ zend_active_function.exit:                        ; preds = %14, %9
   br i1 %switch, label %zend_active_function.exit.thread, label %31
 
 zend_active_function.exit.thread:                 ; preds = %5, %zend_active_function.exit
-  %.0.i24 = phi ptr [ %.0.i, %zend_active_function.exit ], [ %7, %5 ]
-  %22 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 16
+  %.0.i28 = phi ptr [ %.0.i, %zend_active_function.exit ], [ %7, %5 ]
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   %.not14 = icmp eq ptr %0, null
   br i1 %.not14, label %26, label %24
@@ -2590,21 +2590,21 @@ zend_vm_calc_used_stack.exit:                     ; preds = %55, %63
   br label %zend_vm_stack_push_call_frame_ex.exit
 
 zend_vm_stack_push_call_frame_ex.exit:            ; preds = %80, %83
-  %.sink348 = phi ptr [ %81, %80 ], [ %71, %83 ]
+  %.sink376 = phi ptr [ %81, %80 ], [ %71, %83 ]
   %.sink = phi i32 [ %82, %80 ], [ %.0169, %83 ]
   %85 = load ptr, ptr %78, align 8, !tbaa !4
   %.not.i271 = icmp eq ptr %85, null
   %86 = or i1 %79, %.not.i271
   call void @llvm.assume(i1 %86)
-  %87 = getelementptr inbounds nuw i8, ptr %.sink348, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %.sink376, i64 24
   store ptr %45, ptr %87, align 8, !tbaa !143
-  %88 = getelementptr inbounds nuw i8, ptr %.sink348, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %.sink376, i64 32
   store ptr %.0170, ptr %88, align 8, !tbaa !4
-  %89 = getelementptr inbounds nuw i8, ptr %.sink348, i64 40
+  %89 = getelementptr inbounds nuw i8, ptr %.sink376, i64 40
   store i32 %.sink, ptr %89, align 8, !tbaa !4
-  %90 = getelementptr inbounds nuw i8, ptr %.sink348, i64 44
+  %90 = getelementptr inbounds nuw i8, ptr %.sink376, i64 44
   store i32 %57, ptr %90, align 4, !tbaa !4
-  store ptr %.sink348, ptr %3, align 8, !tbaa !158
+  store ptr %.sink376, ptr %3, align 8, !tbaa !158
   %91 = load i32, ptr %46, align 4, !tbaa !4
   %92 = and i32 %91, 2048
   %.not200 = icmp eq i32 %92, 0
@@ -3341,10 +3341,10 @@ zend_vm_stack_free_args.exit256:                  ; preds = %zend_vm_stack_free_
   br label %433
 
 433:                                              ; preds = %427, %430
-  %.sink353 = phi ptr [ %432, %430 ], [ %428, %427 ]
+  %.sink381 = phi ptr [ %432, %430 ], [ %428, %427 ]
   %434 = load ptr, ptr %3, align 8, !tbaa !158
   %435 = load ptr, ptr %8, align 8, !tbaa !170
-  call void %.sink353(ptr noundef %434, ptr noundef %435) #24
+  call void %.sink381(ptr noundef %434, ptr noundef %435) #24
   %436 = load i32, ptr @zend_observer_fcall_op_array_extension, align 4, !tbaa !100
   %.not217 = icmp ne i32 %436, -1
   %.pre335 = load ptr, ptr %3, align 8, !tbaa !158

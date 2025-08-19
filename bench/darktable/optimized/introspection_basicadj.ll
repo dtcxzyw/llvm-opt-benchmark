@@ -1543,8 +1543,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %spec.select2.i.c = call i32 @llvm.smin.i32(i32 %96, i32 %102)
   %.not64.i = icmp slt i32 %spec.select.i, %spec.select1.i.c
   %.not65.i = icmp slt i32 %spec.select69.i, %spec.select2.i.c
-  %or.cond314 = select i1 %.not64.i, i1 %.not65.i, i1 false
-  br i1 %or.cond314, label %103, label %_get_selected_area.exit
+  %or.cond352 = select i1 %.not64.i, i1 %.not65.i, i1 false
+  br i1 %or.cond352, label %103, label %_get_selected_area.exit
 
 103:                                              ; preds = %.preheader3.i
   br label %_get_selected_area.exit
@@ -2094,20 +2094,20 @@ _get_sum_and_average.exit.i.i:                    ; preds = %.lr.ph.i.i.i
   %410 = load i32, ptr %409, align 4, !tbaa !35
   %411 = add i32 %410, %.2240350.i.i
   %.not264.i.i = icmp ugt i32 %411, %401
-  br i1 %.not264.i.i, label %.critedge5.loopexit.split.loop.exit419.i.i, label %412
+  br i1 %.not264.i.i, label %.critedge5.loopexit.split.loop.exit441.i.i, label %412
 
 412:                                              ; preds = %.lr.ph352.i.i
   %indvars.iv.next392.i.i = add nuw nsw i64 %indvars.iv391.i.i, 1
   %exitcond395.not.i.i = icmp eq i64 %indvars.iv.next392.i.i, %wide.trip.count394.i.i
   br i1 %exitcond395.not.i.i, label %.critedge5.i.i, label %.lr.ph352.i.i
 
-.critedge5.loopexit.split.loop.exit419.i.i:       ; preds = %.lr.ph352.i.i
+.critedge5.loopexit.split.loop.exit441.i.i:       ; preds = %.lr.ph352.i.i
   %413 = trunc nuw nsw i64 %indvars.iv391.i.i to i32
   br label %.critedge5.i.i
 
-.critedge5.i.i:                                   ; preds = %405, %412, %.critedge5.loopexit.split.loop.exit419.i.i
-  %.0235.lcssa.i25.i = phi i32 [ %407, %.critedge5.loopexit.split.loop.exit419.i.i ], [ %407, %412 ], [ 1, %405 ]
-  %.0234.lcssa.i.i = phi i32 [ %413, %.critedge5.loopexit.split.loop.exit419.i.i ], [ %408, %412 ], [ 0, %405 ]
+.critedge5.i.i:                                   ; preds = %405, %412, %.critedge5.loopexit.split.loop.exit441.i.i
+  %.0235.lcssa.i25.i = phi i32 [ %407, %.critedge5.loopexit.split.loop.exit441.i.i ], [ %407, %412 ], [ 1, %405 ]
+  %.0234.lcssa.i.i = phi i32 [ %413, %.critedge5.loopexit.split.loop.exit441.i.i ], [ %408, %412 ], [ 0, %405 ]
   %414 = shl i32 %399, 3
   %415 = shl i32 %.0235.lcssa.i25.i, 3
   %416 = fmul reassoc nsz arcp contract afn float %190, 8.000000e+00
@@ -2141,13 +2141,13 @@ _get_sum_and_average.exit.i.i:                    ; preds = %.lr.ph.i.i.i
   br label %440
 
 440:                                              ; preds = %433, %428
-  %.sink423.i.i = phi float [ %439, %433 ], [ %355, %428 ]
+  %.sink445.i.i = phi float [ %439, %433 ], [ %355, %428 ]
   %.neg317.sink.in.i.i = phi float [ %434, %433 ], [ %366, %428 ]
-  %.sink421.i.i = phi float [ %435, %433 ], [ %432, %428 ]
+  %.sink443.i.i = phi float [ %435, %433 ], [ %432, %428 ]
   %.neg317.sink.i.i = fmul reassoc nsz arcp contract afn float %.neg317.sink.in.i.i, -2.000000e+00
-  %441 = fadd reassoc nsz arcp contract afn float %.sink423.i.i, 1.250000e+01
+  %441 = fadd reassoc nsz arcp contract afn float %.sink445.i.i, 1.250000e+01
   %442 = fadd reassoc nsz arcp contract afn float %441, %.neg317.sink.i.i
-  %443 = fadd reassoc nsz arcp contract afn float %442, %.sink421.i.i
+  %443 = fadd reassoc nsz arcp contract afn float %442, %.sink443.i.i
   %.0231.i.i = fmul reassoc nsz arcp contract afn float %443, 5.000000e-01
   %444 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %426)
   %445 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %.0231.i.i)

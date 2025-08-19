@@ -185,9 +185,9 @@ define range(i32 -806, 805) i32 @SUNLinSolSetup_SPTFQMR(ptr noundef readonly cap
   br label %13
 
 13:                                               ; preds = %2, %6, %10
-  %.sink15 = phi ptr [ %.pre, %10 ], [ %.pre, %6 ], [ %3, %2 ]
+  %.sink17 = phi ptr [ %.pre, %10 ], [ %.pre, %6 ], [ %3, %2 ]
   %.sink = phi i32 [ %12, %10 ], [ 0, %6 ], [ 0, %2 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sink15, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.sink17, i64 24
   store i32 %.sink, ptr %14, align 8, !tbaa !27
   ret i32 %.sink
 }

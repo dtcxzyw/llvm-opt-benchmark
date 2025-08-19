@@ -1301,10 +1301,10 @@ get_num.exit123.i:                                ; preds = %42, %39
 
 231:                                              ; preds = %223
   %232 = tail call i32 @llvm.smax.i32(i32 %230, i32 0)
-  %.sink15.i = sub nsw i32 %196, %232
+  %.sink16.i = sub nsw i32 %196, %232
   %.sink.idx.i = zext nneg i32 %232 to i64
   %.sink.i = getelementptr inbounds nuw i8, ptr %229, i64 %.sink.idx.i
-  %233 = sext i32 %.sink15.i to i64
+  %233 = sext i32 %.sink16.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %.sink.i, i8 0, i64 %233, i1 false)
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.29) #12
   br label %readfull.exit
@@ -1329,10 +1329,10 @@ readfull.exit:                                    ; preds = %223, %231
 
 243:                                              ; preds = %234
   %244 = tail call i32 @llvm.smax.i32(i32 %242, i32 0)
-  %.sink15.i133 = sub nsw i32 %194, %244
+  %.sink16.i133 = sub nsw i32 %194, %244
   %.sink.idx.i135 = zext nneg i32 %244 to i64
   %.sink.i136 = getelementptr inbounds nuw i8, ptr %241, i64 %.sink.idx.i135
-  %245 = sext i32 %.sink15.i133 to i64
+  %245 = sext i32 %.sink16.i133 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %.sink.i136, i8 0, i64 %245, i1 false)
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.29) #12
   br label %readfull.exit137
@@ -1354,10 +1354,10 @@ readfull.exit137:                                 ; preds = %234, %243
 
 253:                                              ; preds = %246
   %254 = tail call i32 @llvm.smax.i32(i32 %252, i32 0)
-  %.sink15.i139 = sub nsw i32 %201, %254
+  %.sink16.i139 = sub nsw i32 %201, %254
   %.sink.idx.i141 = zext nneg i32 %254 to i64
   %.sink.i142 = getelementptr inbounds nuw i8, ptr %251, i64 %.sink.idx.i141
-  %255 = sext i32 %.sink15.i139 to i64
+  %255 = sext i32 %.sink16.i139 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %.sink.i142, i8 0, i64 %255, i1 false)
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.29) #12
   br label %readfull.exit143

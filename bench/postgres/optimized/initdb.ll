@@ -1998,15 +1998,15 @@ choose_dsm_implementation.exit.i:                 ; preds = %54, %.loopexit.sink
 67:                                               ; preds = %61
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.not.i, label %.split.loop.exit36.i, label %61, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.split.loop.exit38.i, label %61, !llvm.loop !9
 
 .split.loop.exit.i:                               ; preds = %61
   %68 = trunc nuw nsw i64 %indvars.iv.i to i32
   %69 = call i32 @llvm.umin.i32(i32 %68, i32 4)
   %70 = zext nneg i32 %69 to i64
-  br label %.split.loop.exit36.i
+  br label %.split.loop.exit38.i
 
-.split.loop.exit36.i:                             ; preds = %67, %.split.loop.exit.i
+.split.loop.exit38.i:                             ; preds = %67, %.split.loop.exit.i
   %.019.lcssa.i = phi i64 [ %70, %.split.loop.exit.i ], [ 4, %67 ]
   %.0.i = phi i32 [ %65, %.split.loop.exit.i ], [ 0, %67 ]
   %71 = getelementptr inbounds nuw [5 x i32], ptr @test_config_settings.trial_conns, i64 0, i64 %.019.lcssa.i
@@ -2020,8 +2020,8 @@ choose_dsm_implementation.exit.i:                 ; preds = %54, %.loopexit.sink
   %78 = call i32 @fflush(ptr noundef %77)
   br label %79
 
-79:                                               ; preds = %84, %.split.loop.exit36.i
-  %indvars.iv30.i = phi i64 [ 0, %.split.loop.exit36.i ], [ %indvars.iv.next31.i, %84 ]
+79:                                               ; preds = %84, %.split.loop.exit38.i
+  %indvars.iv30.i = phi i64 [ 0, %.split.loop.exit38.i ], [ %indvars.iv.next31.i, %84 ]
   %80 = getelementptr inbounds nuw [19 x i32], ptr @test_config_settings.trial_bufs, i64 0, i64 %indvars.iv30.i
   %81 = load i32, ptr %80, align 4
   %82 = shl i32 %81, 13

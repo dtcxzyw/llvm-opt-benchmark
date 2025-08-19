@@ -157,12 +157,12 @@ switch.lookup:                                    ; preds = %9
   %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.acrossfade_config_output.3, i64 0, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep10 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.acrossfade_config_output.4, i64 0, i64 %20
-  %switch.load11 = load ptr, ptr %switch.gep10, align 8
+  %switch.gep13 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.acrossfade_config_output.4, i64 0, i64 %20
+  %switch.load14 = load ptr, ptr %switch.gep13, align 8
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store ptr %switch.load, ptr %21, align 8, !tbaa !38
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 104
-  store ptr %switch.load11, ptr %22, align 8, !tbaa !39
+  store ptr %switch.load14, ptr %22, align 8, !tbaa !39
   br label %23
 
 23:                                               ; preds = %9, %switch.lookup
@@ -882,12 +882,12 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.acrossfade_config_output.3, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep31 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.acrossfade_config_output.4, i64 0, i64 %9
-  %switch.load32 = load ptr, ptr %switch.gep31, align 8
+  %switch.gep32 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.acrossfade_config_output.4, i64 0, i64 %9
+  %switch.load33 = load ptr, ptr %switch.gep32, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %switch.load, ptr %10, align 8, !tbaa !38
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store ptr %switch.load32, ptr %11, align 8, !tbaa !39
+  store ptr %switch.load33, ptr %11, align 8, !tbaa !39
   br label %12
 
 12:                                               ; preds = %1, %switch.lookup
@@ -1928,18 +1928,18 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.acrossfade_config_output, i64 0, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep21 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.acrossfade_config_output.3, i64 0, i64 %17
-  %switch.load22 = load ptr, ptr %switch.gep21, align 8
+  %switch.gep22 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.acrossfade_config_output.3, i64 0, i64 %17
+  %switch.load23 = load ptr, ptr %switch.gep22, align 8
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep23 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.acrossfade_config_output.4, i64 0, i64 %18
-  %switch.load24 = load ptr, ptr %switch.gep23, align 8
+  %switch.gep24 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.acrossfade_config_output.4, i64 0, i64 %18
+  %switch.load25 = load ptr, ptr %switch.gep24, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store ptr %switch.load, ptr %19, align 8, !tbaa !60
   %20 = load ptr, ptr %3, align 8, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 96
-  store ptr %switch.load22, ptr %21, align 8, !tbaa !38
+  store ptr %switch.load23, ptr %21, align 8, !tbaa !38
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 104
-  store ptr %switch.load24, ptr %22, align 8, !tbaa !39
+  store ptr %switch.load25, ptr %22, align 8, !tbaa !39
   br label %23
 
 23:                                               ; preds = %14, %switch.lookup

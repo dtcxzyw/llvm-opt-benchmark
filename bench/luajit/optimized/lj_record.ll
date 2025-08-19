@@ -1607,13 +1607,13 @@ define hidden range(i32 0, 2) i32 @lj_record_mm_lookup(ptr noundef %0, ptr nound
   br label %.sink.split
 
 .sink.split:                                      ; preds = %42, %36
-  %.sink97 = phi i32 [ %41, %36 ], [ %47, %42 ]
-  %.sink96 = phi i16 [ 2185, %36 ], [ 2195, %42 ]
-  %.sink95.in = phi i32 [ %37, %36 ], [ %46, %42 ]
-  %.sink95 = trunc i32 %.sink95.in to i16
-  %48 = trunc i32 %.sink97 to i16
-  store i16 %.sink96, ptr %32, align 4, !tbaa !4
-  store i16 %.sink95, ptr %31, align 8, !tbaa !4
+  %.sink101 = phi i32 [ %41, %36 ], [ %47, %42 ]
+  %.sink100 = phi i16 [ 2185, %36 ], [ 2195, %42 ]
+  %.sink99.in = phi i32 [ %37, %36 ], [ %46, %42 ]
+  %.sink99 = trunc i32 %.sink99.in to i16
+  %48 = trunc i32 %.sink101 to i16
+  store i16 %.sink100, ptr %32, align 4, !tbaa !4
+  store i16 %.sink99, ptr %31, align 8, !tbaa !4
   store i16 %48, ptr %33, align 2, !tbaa !4
   %49 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #8
   br label %50
@@ -2061,8 +2061,8 @@ lj_record_constify.exit.thread:                   ; preds = %163, %lj_record_con
   %178 = bitcast i64 %175 to double
   %179 = icmp ult i64 %175, -1970324836974592
   %180 = fcmp uno double %178, 0.000000e+00
-  %or.cond394 = and i1 %179, %180
-  br i1 %or.cond394, label %181, label %191
+  %or.cond404 = and i1 %179, %180
+  br i1 %or.cond404, label %181, label %191
 
 181:                                              ; preds = %177, %174
   %182 = load i32, ptr %4, align 8, !tbaa !83
@@ -2444,9 +2444,9 @@ rec_idx_key.exit:                                 ; preds = %238, %248, %279, %.
   br label %.sink.split
 
 .sink.split:                                      ; preds = %374, %378
-  %.sink395 = phi i16 [ %380, %378 ], [ %376, %374 ]
+  %.sink405 = phi i16 [ %380, %378 ], [ %376, %374 ]
   %.sink = phi i16 [ %382, %378 ], [ 0, %374 ]
-  store i16 %.sink395, ptr %10, align 4, !tbaa !4
+  store i16 %.sink405, ptr %10, align 4, !tbaa !4
   store i16 %302, ptr %9, align 8, !tbaa !4
   store i16 %.sink, ptr %11, align 2, !tbaa !4
   %383 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #8
@@ -5889,9 +5889,9 @@ define internal fastcc void @rec_varg(ptr noundef %0, i32 noundef %1, i64 nounde
   br i1 %.not236, label %40, label %.sink.split
 
 .sink.split:                                      ; preds = %37, %35
-  %.sink295 = phi i32 [ %36, %35 ], [ 1, %37 ]
+  %.sink307 = phi i32 [ %36, %35 ], [ 1, %37 ]
   %.1.ph = phi i64 [ %.0202, %35 ], [ 1, %37 ]
-  %39 = add i32 %1, %.sink295
+  %39 = add i32 %1, %.sink307
   store i32 %39, ptr %20, align 4, !tbaa !36
   br label %40
 
@@ -5905,8 +5905,8 @@ define internal fastcc void @rec_varg(ptr noundef %0, i32 noundef %1, i64 nounde
   br i1 %45, label %51, label %.preheader
 
 .preheader:                                       ; preds = %40
-  %.not298 = icmp eq i64 %.1, 0
-  br i1 %.not298, label %.loopexit, label %.lr.ph280
+  %.not310 = icmp eq i64 %.1, 0
+  br i1 %.not310, label %.loopexit, label %.lr.ph280
 
 .lr.ph280:                                        ; preds = %.preheader
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -6017,10 +6017,10 @@ define internal fastcc void @rec_varg(ptr noundef %0, i32 noundef %1, i64 nounde
 
 110:                                              ; preds = %103, %99
   %.sink = phi i32 [ %109, %103 ], [ %102, %99 ]
-  %.sink296 = phi i16 [ 2195, %103 ], [ 403, %99 ]
+  %.sink308 = phi i16 [ 2195, %103 ], [ 403, %99 ]
   %111 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %.sink) #8
   %112 = trunc i32 %111 to i16
-  store i16 %.sink296, ptr %88, align 4, !tbaa !4
+  store i16 %.sink308, ptr %88, align 4, !tbaa !4
   store i16 %98, ptr %87, align 8, !tbaa !4
   store i16 %112, ptr %89, align 2, !tbaa !4
   %113 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #8
@@ -6566,7 +6566,7 @@ define internal fastcc range(i32 0, 3) i32 @rec_for(ptr noundef %0, ptr noundef 
   %65 = phi ptr [ %54, %.thread ], [ %61, %56 ]
   %66 = phi ptr [ %53, %.thread ], [ %60, %56 ]
   %67 = phi ptr [ %52, %.thread ], [ %59, %56 ]
-  %.fr112123 = phi i32 [ 14, %.thread ], [ %58, %56 ]
+  %.fr112128 = phi i32 [ 14, %.thread ], [ %58, %56 ]
   br label %.split
 
 .split.us:                                        ; preds = %56, %109
@@ -6721,7 +6721,7 @@ define internal fastcc range(i32 0, 3) i32 @rec_for(ptr noundef %0, ptr noundef 
   br i1 %exitcond.not, label %.split111.us, label %.split, !llvm.loop !163
 
 .split111.us:                                     ; preds = %148, %109
-  %.fr112122 = phi i32 [ %58, %109 ], [ %.fr112123, %148 ]
+  %.fr112127 = phi i32 [ %58, %109 ], [ %.fr112128, %148 ]
   %149 = load i32, ptr %16, align 4, !tbaa !37
   %150 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %149, ptr %150, align 4, !tbaa !37
@@ -6733,13 +6733,13 @@ define internal fastcc range(i32 0, 3) i32 @rec_for(ptr noundef %0, ptr noundef 
   %155 = zext i1 %154 to i32
   %156 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %157 = load i32, ptr %156, align 4, !tbaa !37
-  tail call fastcc void @rec_for_check(ptr noundef %0, i32 noundef %.fr112122, i32 noundef %155, i32 noundef %152, i32 noundef %157, i32 noundef 1)
+  tail call fastcc void @rec_for_check(ptr noundef %0, i32 noundef %.fr112127, i32 noundef %155, i32 noundef %152, i32 noundef %157, i32 noundef 1)
   %158 = trunc i32 %152 to i16
   br label %159
 
 159:                                              ; preds = %.split111.us, %47
   %.199 = phi i16 [ %.098.in, %47 ], [ %158, %.split111.us ]
-  %.1 = phi i32 [ %.097, %47 ], [ %.fr112122, %.split111.us ]
+  %.1 = phi i32 [ %.097, %47 ], [ %.fr112127, %.split111.us ]
   %160 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %161 = load double, ptr %160, align 8, !tbaa !4
   %162 = load double, ptr %13, align 8, !tbaa !4
@@ -6778,9 +6778,9 @@ define internal fastcc range(i32 0, 3) i32 @rec_for(ptr noundef %0, ptr noundef 
   br label %189
 
 rec_for_iter.exit:                                ; preds = %175, %170
-  %.sink125 = phi i1 [ %177, %175 ], [ %172, %170 ]
+  %.sink130 = phi i1 [ %177, %175 ], [ %172, %170 ]
   %.0102 = phi i32 [ 256, %175 ], [ 512, %170 ]
-  %182 = select i1 %.sink125, i32 1, i32 2
+  %182 = select i1 %.sink130, i32 1, i32 2
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i32 %7, ptr %183, align 4, !tbaa !36
   %184 = load i32, ptr %1, align 4, !tbaa !37
@@ -6791,12 +6791,12 @@ rec_for_iter.exit:                                ; preds = %175, %170
   br label %189
 
 189:                                              ; preds = %rec_for_iter.exit, %178
-  %.sink126 = phi ptr [ %188, %rec_for_iter.exit ], [ %181, %178 ]
+  %.sink131 = phi ptr [ %188, %rec_for_iter.exit ], [ %181, %178 ]
   %190 = phi i1 [ false, %rec_for_iter.exit ], [ true, %178 ]
   %.0.i101107 = phi i32 [ %182, %rec_for_iter.exit ], [ 0, %178 ]
   %.0102105 = phi i32 [ %.0102, %rec_for_iter.exit ], [ %.0102.ph, %178 ]
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr %.sink126, ptr %191, align 8, !tbaa !61
+  store ptr %.sink131, ptr %191, align 8, !tbaa !61
   tail call void @lj_snap_add(ptr noundef nonnull %0) #8
   %192 = or i32 %.1, %.0102105
   %193 = trunc i32 %192 to i16

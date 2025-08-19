@@ -961,13 +961,13 @@ Min_CubeIsContained.exit.i367.i:                  ; preds = %424, %416
   %.val253.i = load ptr, ptr %7, align 8, !tbaa !31
   tail call void @Extra_MmFixedEntryRecycle(ptr noundef %.val253.i, ptr noundef nonnull %.3.i) #10
   %430 = xor i32 %.1224.i, 3
-  %431 = shl nsw i32 %.5.i, 1
+  %431 = shl nuw nsw i32 %.5.i, 1
   %432 = and i32 %431, 30
   %433 = shl nuw i32 %430, %432
   %434 = getelementptr inbounds nuw i8, ptr %.2.i, i64 12
-  %435 = ashr i32 %.5.i, 4
-  %436 = sext i32 %435 to i64
-  %437 = getelementptr inbounds [1 x i32], ptr %434, i64 0, i64 %436
+  %435 = lshr i32 %.5.i, 4
+  %436 = zext nneg i32 %435 to i64
+  %437 = getelementptr inbounds nuw [1 x i32], ptr %434, i64 0, i64 %436
   %438 = load i32, ptr %437, align 4, !tbaa !21
   %439 = xor i32 %438, %433
   store i32 %439, ptr %437, align 4, !tbaa !21
@@ -1001,12 +1001,12 @@ Min_CubeIsContained.exit.i367.i:                  ; preds = %424, %416
   %459 = or disjoint i32 %457, %458
   store i32 %459, ptr %454, align 8
   %460 = xor i32 %.1220.i, 3
-  %461 = shl nsw i32 %.5.i, 1
+  %461 = shl nuw nsw i32 %.5.i, 1
   %462 = and i32 %461, 30
   %463 = shl nuw i32 %460, %462
-  %464 = ashr i32 %.5.i, 4
-  %465 = sext i32 %464 to i64
-  %466 = getelementptr inbounds [1 x i32], ptr %404, i64 0, i64 %465
+  %464 = lshr i32 %.5.i, 4
+  %465 = zext nneg i32 %464 to i64
+  %466 = getelementptr inbounds nuw [1 x i32], ptr %404, i64 0, i64 %465
   %467 = load i32, ptr %466, align 4, !tbaa !21
   %468 = xor i32 %467, %463
   store i32 %468, ptr %466, align 4, !tbaa !21
@@ -1957,15 +1957,15 @@ define ptr @Min_SopComplement(ptr noundef %0, ptr noundef readonly captures(addr
   br label %Vec_IntPush.exit.i.sink.split
 
 Vec_IntPush.exit.i.sink.split:                    ; preds = %80, %82, %72, %74
-  %.sink104 = phi ptr [ %73, %72 ], [ %75, %74 ], [ %81, %80 ], [ %83, %82 ]
+  %.sink110 = phi ptr [ %73, %72 ], [ %75, %74 ], [ %81, %80 ], [ %83, %82 ]
   %.sink = phi i32 [ 16, %72 ], [ 16, %74 ], [ %77, %80 ], [ %77, %82 ]
-  store ptr %.sink104, ptr %7, align 8, !tbaa !59
+  store ptr %.sink110, ptr %7, align 8, !tbaa !59
   store i32 %.sink, ptr %4, align 8, !tbaa !58
   br label %Vec_IntPush.exit.i
 
 Vec_IntPush.exit.i:                               ; preds = %Vec_IntPush.exit.i.sink.split, %63
-  %.val5190 = phi ptr [ %.val5192, %63 ], [ %.sink104, %Vec_IntPush.exit.i.sink.split ]
-  %.pre.i.i87 = phi ptr [ %60, %63 ], [ %.sink104, %Vec_IntPush.exit.i.sink.split ]
+  %.val5190 = phi ptr [ %.val5192, %63 ], [ %.sink110, %Vec_IntPush.exit.i.sink.split ]
+  %.pre.i.i87 = phi ptr [ %60, %63 ], [ %.sink110, %Vec_IntPush.exit.i.sink.split ]
   %84 = add nsw i32 %66, 1
   store i32 %84, ptr %5, align 4, !tbaa !55
   %85 = sext i32 %66 to i64
@@ -2002,8 +2002,8 @@ Min_CoverGetDisjVars.exit:                        ; preds = %.loopexit.i
 
 .lr.ph:                                           ; preds = %Min_CoverGetDisjVars.exit
   %96 = zext nneg i32 %.val.pre to i64
-  %indvars.iv.next105 = add nsw i64 %96, -1
-  %97 = getelementptr inbounds nuw i32, ptr %.val5193, i64 %indvars.iv.next105
+  %indvars.iv.next111 = add nsw i64 %96, -1
+  %97 = getelementptr inbounds nuw i32, ptr %.val5193, i64 %indvars.iv.next111
   %98 = load i32, ptr %97, align 4, !tbaa !21
   %99 = shl nsw i32 %98, 1
   %100 = and i32 %99, 30
@@ -2015,15 +2015,15 @@ Min_CoverGetDisjVars.exit:                        ; preds = %.loopexit.i
   %106 = load i32, ptr %105, align 4, !tbaa !21
   %107 = xor i32 %101, %106
   store i32 %107, ptr %105, align 4, !tbaa !21
-  %108 = icmp eq i64 %indvars.iv.next105, 0
-  br i1 %108, label %.critedge, label %.lr.ph109
+  %108 = icmp eq i64 %indvars.iv.next111, 0
+  br i1 %108, label %.critedge, label %.lr.ph115
 
-.lr.ph109:                                        ; preds = %.lr.ph, %.lr.ph109
-  %109 = phi ptr [ %157, %.lr.ph109 ], [ %102, %.lr.ph ]
-  %110 = phi ptr [ %152, %.lr.ph109 ], [ %97, %.lr.ph ]
-  %indvars.iv.next108 = phi i64 [ %indvars.iv.next, %.lr.ph109 ], [ %indvars.iv.next105, %.lr.ph ]
-  %.162107 = phi ptr [ %121, %.lr.ph109 ], [ %.04569, %.lr.ph ]
-  %.04463106 = phi ptr [ %121, %.lr.ph109 ], [ %.04670, %.lr.ph ]
+.lr.ph115:                                        ; preds = %.lr.ph, %.lr.ph115
+  %109 = phi ptr [ %157, %.lr.ph115 ], [ %102, %.lr.ph ]
+  %110 = phi ptr [ %152, %.lr.ph115 ], [ %97, %.lr.ph ]
+  %indvars.iv.next114 = phi i64 [ %indvars.iv.next, %.lr.ph115 ], [ %indvars.iv.next111, %.lr.ph ]
+  %.162113 = phi ptr [ %121, %.lr.ph115 ], [ %.04569, %.lr.ph ]
+  %.04463112 = phi ptr [ %121, %.lr.ph115 ], [ %.04670, %.lr.ph ]
   %111 = load i32, ptr %110, align 4, !tbaa !21
   %112 = shl nsw i32 %111, 1
   %113 = ashr i32 %111, 4
@@ -2057,7 +2057,7 @@ Min_CoverGetDisjVars.exit:                        ; preds = %.loopexit.i
   %136 = sext i32 %135 to i64
   %137 = shl nsw i64 %136, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %131, ptr nonnull readonly align 4 %109, i64 %137, i1 false)
-  %138 = getelementptr inbounds nuw i8, ptr %.04463106, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %.04463112, i64 8
   %139 = load i32, ptr %138, align 8
   %140 = and i32 %139, -4194304
   %141 = or disjoint i32 %140, %130
@@ -2073,8 +2073,8 @@ Min_CoverGetDisjVars.exit:                        ; preds = %.loopexit.i
   %150 = load i32, ptr %149, align 4, !tbaa !21
   %151 = xor i32 %146, %150
   store i32 %151, ptr %149, align 4, !tbaa !21
-  store ptr %121, ptr %.162107, align 8, !tbaa !14
-  %indvars.iv.next = add nsw i64 %indvars.iv.next108, -1
+  store ptr %121, ptr %.162113, align 8, !tbaa !14
+  %indvars.iv.next = add nsw i64 %indvars.iv.next114, -1
   %152 = getelementptr inbounds nuw i32, ptr %.val5193, i64 %indvars.iv.next
   %153 = load i32, ptr %152, align 4, !tbaa !21
   %154 = shl nsw i32 %153, 1
@@ -2088,12 +2088,12 @@ Min_CoverGetDisjVars.exit:                        ; preds = %.loopexit.i
   %162 = xor i32 %156, %161
   store i32 %162, ptr %160, align 4, !tbaa !21
   %163 = icmp eq i64 %indvars.iv.next, 0
-  br i1 %163, label %.critedge, label %.lr.ph109
+  br i1 %163, label %.critedge, label %.lr.ph115
 
-.critedge:                                        ; preds = %.lr.ph109, %.lr.ph, %.loopexit, %Min_CoverGetDisjVars.exit
-  %.val51103 = phi ptr [ %.val5193, %Min_CoverGetDisjVars.exit ], [ %.val5196, %.loopexit ], [ %.val5193, %.lr.ph ], [ %.val5193, %.lr.ph109 ]
-  %.pre.i.i81 = phi ptr [ %.pre.i.i84, %Min_CoverGetDisjVars.exit ], [ %.pre.i.i77, %.loopexit ], [ %.val5193, %.lr.ph ], [ %.val5193, %.lr.ph109 ]
-  %.044.lcssa = phi ptr [ %.04670, %Min_CoverGetDisjVars.exit ], [ %.04670, %.loopexit ], [ %.04670, %.lr.ph ], [ %121, %.lr.ph109 ]
+.critedge:                                        ; preds = %.lr.ph115, %.lr.ph, %.loopexit, %Min_CoverGetDisjVars.exit
+  %.val51109 = phi ptr [ %.val5193, %Min_CoverGetDisjVars.exit ], [ %.val5196, %.loopexit ], [ %.val5193, %.lr.ph ], [ %.val5193, %.lr.ph115 ]
+  %.pre.i.i81 = phi ptr [ %.pre.i.i84, %Min_CoverGetDisjVars.exit ], [ %.pre.i.i77, %.loopexit ], [ %.val5193, %.lr.ph ], [ %.val5193, %.lr.ph115 ]
+  %.044.lcssa = phi ptr [ %.04670, %Min_CoverGetDisjVars.exit ], [ %.04670, %.loopexit ], [ %.04670, %.lr.ph ], [ %121, %.lr.ph115 ]
   store ptr %43, ptr %.044.lcssa, align 8, !tbaa !15
   br label %Min_CubesDisjoint.exit
 
@@ -2103,7 +2103,7 @@ Min_CubesDisjoint.exit.loopexit:                  ; preds = %34
 
 Min_CubesDisjoint.exit:                           ; preds = %Min_CubesDisjoint.exit.loopexit, %.critedge
   %.046 = phi ptr [ %43, %.critedge ], [ %.046.pre, %Min_CubesDisjoint.exit.loopexit ]
-  %.val5189 = phi ptr [ %.val51103, %.critedge ], [ %.val5196, %Min_CubesDisjoint.exit.loopexit ]
+  %.val5189 = phi ptr [ %.val51109, %.critedge ], [ %.val5196, %Min_CubesDisjoint.exit.loopexit ]
   %.pre.i.i80 = phi ptr [ %.pre.i.i81, %.critedge ], [ %.pre.i.i77, %Min_CubesDisjoint.exit.loopexit ]
   %.147 = phi ptr [ %.044.lcssa, %.critedge ], [ %.04670, %Min_CubesDisjoint.exit.loopexit ]
   %.not49 = icmp eq ptr %.046, null

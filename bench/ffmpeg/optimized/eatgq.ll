@@ -428,10 +428,10 @@ bytestream2_get_byte.exit.i:                      ; preds = %112
 
 258:                                              ; preds = %246, %226
   %.sroa.5.2.i = phi i32 [ %238, %226 ], [ %250, %246 ]
-  %.sink72.i.i = phi i32 [ %245, %226 ], [ %257, %246 ]
-  %.sink71.i.i = phi i64 [ %242, %226 ], [ %254, %246 ]
-  %259 = trunc i32 %.sink72.i.i to i16
-  %260 = getelementptr inbounds nuw i16, ptr %130, i64 %.sink71.i.i
+  %.sink73.i.i = phi i32 [ %245, %226 ], [ %257, %246 ]
+  %.sink72.i.i = phi i64 [ %242, %226 ], [ %254, %246 ]
+  %259 = trunc i32 %.sink73.i.i to i16
+  %260 = getelementptr inbounds nuw i16, ptr %130, i64 %.sink72.i.i
   store i16 %259, ptr %260, align 2, !tbaa !42
   %261 = add nsw i32 %.05967.i.i, 1
   br label %.loopexit.i.i
@@ -618,7 +618,8 @@ copy_block16.exit.preheader.i:                    ; preds = %354
   br label %366
 
 366:                                              ; preds = %copy_block8.exit.i, %copy_block16.exit.preheader.i
-  %indvars.iv153.i = phi i64 [ 1, %copy_block16.exit.preheader.i ], [ %indvars.iv.next154.i, %copy_block8.exit.i ]
+  %exitcond156.not.i = phi i1 [ false, %copy_block16.exit.preheader.i ], [ true, %copy_block8.exit.i ]
+  %indvars.iv153.i = phi i64 [ 1, %copy_block16.exit.preheader.i ], [ 2, %copy_block8.exit.i ]
   %367 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv153.i
   %368 = load ptr, ptr %367, align 8, !tbaa !55
   %369 = getelementptr inbounds nuw [8 x i32], ptr %91, i64 0, i64 %indvars.iv153.i
@@ -653,8 +654,6 @@ copy_block16.exit.preheader.i:                    ; preds = %354
   br i1 %exitcond.not.i131.i, label %copy_block8.exit.i, label %386, !llvm.loop !58
 
 copy_block8.exit.i:                               ; preds = %386
-  %indvars.iv.next154.i = add nuw nsw i64 %indvars.iv153.i, 1
-  %exitcond156.not.i = icmp eq i64 %indvars.iv.next154.i, 3
   br i1 %exitcond156.not.i, label %tgq_decode_mb.exit, label %366, !llvm.loop !59
 
 391:                                              ; preds = %304

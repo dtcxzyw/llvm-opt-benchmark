@@ -47,7 +47,7 @@ define hidden i32 @internal_coding_fill_channel_info(ptr noundef writeonly captu
   br i1 %25, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.thread, %24
-  %.04668 = phi ptr [ %18, %.thread ], [ %2, %24 ]
+  %.04676 = phi ptr [ %18, %.thread ], [ %2, %24 ]
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !27
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -74,7 +74,7 @@ define hidden i32 @internal_coding_fill_channel_info(ptr noundef writeonly captu
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %compute_sampled_height.exit.us.us
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %compute_sampled_height.exit.us.us ], [ 0, %.lr.ph.split.us ]
   %40 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %27, i64 %indvars.iv62
-  %41 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %.04668, i64 %indvars.iv62
+  %41 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %.04676, i64 %indvars.iv62
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !32
   store ptr %43, ptr %41, align 8, !tbaa !34
@@ -126,7 +126,7 @@ compute_sampled_height.exit.us.us:                ; preds = %47, %.lr.ph.split.u
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %compute_sampled_width.exit.us
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %compute_sampled_width.exit.us ], [ 0, %.lr.ph.split.us ]
   %70 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %27, i64 %indvars.iv57
-  %71 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %.04668, i64 %indvars.iv57
+  %71 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %.04676, i64 %indvars.iv57
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !32
   store ptr %73, ptr %71, align 8, !tbaa !34
@@ -185,8 +185,8 @@ compute_sampled_width.exit.us:                    ; preds = %85, %compute_sample
   br i1 %exitcond61.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %compute_sampled_width.exit, %compute_sampled_width.exit.us, %compute_sampled_height.exit.us.us, %24
-  %.04669 = phi ptr [ %2, %24 ], [ %.04668, %compute_sampled_height.exit.us.us ], [ %.04668, %compute_sampled_width.exit.us ], [ %.04668, %compute_sampled_width.exit ]
-  store ptr %.04669, ptr %0, align 8, !tbaa !51
+  %.04677 = phi ptr [ %2, %24 ], [ %.04676, %compute_sampled_height.exit.us.us ], [ %.04676, %compute_sampled_width.exit.us ], [ %.04676, %compute_sampled_width.exit ]
+  store ptr %.04677, ptr %0, align 8, !tbaa !51
   %103 = trunc i32 %11 to i16
   store i16 %103, ptr %1, align 2, !tbaa !52
   br label %145
@@ -194,7 +194,7 @@ compute_sampled_width.exit.us:                    ; preds = %85, %compute_sample
 .lr.ph.split:                                     ; preds = %.lr.ph, %compute_sampled_width.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %compute_sampled_width.exit ], [ 0, %.lr.ph ]
   %104 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %27, i64 %indvars.iv
-  %105 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %.04668, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %.04676, i64 %indvars.iv
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %107 = load ptr, ptr %106, align 8, !tbaa !32
   store ptr %107, ptr %105, align 8, !tbaa !34

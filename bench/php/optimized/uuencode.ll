@@ -139,11 +139,11 @@ define dso_local ptr @php_uuencode(ptr noundef %0, i64 noundef %1) local_unnamed
 
 ._crit_edge118.thread:                            ; preds = %2
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %.thread141, label %.thread134
+  br i1 %.not, label %.thread146, label %.thread139
 
 79:                                               ; preds = %._crit_edge118
   %80 = icmp eq i64 %.1, 45
-  br i1 %80, label %.thread134, label %._crit_edge123
+  br i1 %80, label %.thread139, label %._crit_edge123
 
 ._crit_edge123:                                   ; preds = %79
   %.pre = ptrtoint ptr %11 to i64
@@ -151,36 +151,36 @@ define dso_local ptr @php_uuencode(ptr noundef %0, i64 noundef %1) local_unnamed
   %.pre126 = sub i64 %.pre, %.pre124
   br label %88
 
-.thread134:                                       ; preds = %._crit_edge118.thread, %79
-  %.080.lcssa131140 = phi ptr [ %.282, %79 ], [ %10, %._crit_edge118.thread ]
-  %.078.lcssa132138 = phi ptr [ %.179.lcssa, %79 ], [ %0, %._crit_edge118.thread ]
-  %81 = ptrtoint ptr %.078.lcssa132138 to i64
+.thread139:                                       ; preds = %._crit_edge118.thread, %79
+  %.080.lcssa136145 = phi ptr [ %.282, %79 ], [ %10, %._crit_edge118.thread ]
+  %.078.lcssa137144 = phi ptr [ %.179.lcssa, %79 ], [ %0, %._crit_edge118.thread ]
+  %81 = ptrtoint ptr %.078.lcssa137144 to i64
   %82 = ptrtoint ptr %11 to i64
   %83 = sub i64 %82, %81
   %84 = trunc i64 %83 to i8
   %85 = and i8 %84, 63
   %86 = add nuw nsw i8 %85, 32
-  %87 = getelementptr inbounds nuw i8, ptr %.080.lcssa131140, i64 1
-  store i8 %86, ptr %.080.lcssa131140, align 1, !tbaa !9
+  %87 = getelementptr inbounds nuw i8, ptr %.080.lcssa136145, i64 1
+  store i8 %86, ptr %.080.lcssa136145, align 1, !tbaa !9
   br label %88
 
-88:                                               ; preds = %._crit_edge123, %.thread134
-  %.078.lcssa132139 = phi ptr [ %.179.lcssa, %._crit_edge123 ], [ %.078.lcssa132138, %.thread134 ]
-  %.pre-phi127 = phi i64 [ %.pre126, %._crit_edge123 ], [ %83, %.thread134 ]
-  %.4 = phi ptr [ %.282, %._crit_edge123 ], [ %87, %.thread134 ]
-  %.3 = phi i64 [ %.1, %._crit_edge123 ], [ 0, %.thread134 ]
-  %89 = load i8, ptr %.078.lcssa132139, align 1, !tbaa !9
+88:                                               ; preds = %._crit_edge123, %.thread139
+  %.078.lcssa137143 = phi ptr [ %.179.lcssa, %._crit_edge123 ], [ %.078.lcssa137144, %.thread139 ]
+  %.pre-phi127 = phi i64 [ %.pre126, %._crit_edge123 ], [ %83, %.thread139 ]
+  %.4 = phi ptr [ %.282, %._crit_edge123 ], [ %87, %.thread139 ]
+  %.3 = phi i64 [ %.1, %._crit_edge123 ], [ 0, %.thread139 ]
+  %89 = load i8, ptr %.078.lcssa137143, align 1, !tbaa !9
   %.not96 = icmp ult i8 %89, 4
   %90 = lshr i8 %89, 2
   %narrow = add nuw nsw i8 %90, 32
   %91 = select i1 %.not96, i8 96, i8 %narrow
   %92 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   store i8 %91, ptr %.4, align 1, !tbaa !9
-  %93 = load i8, ptr %.078.lcssa132139, align 1, !tbaa !9
+  %93 = load i8, ptr %.078.lcssa137143, align 1, !tbaa !9
   %94 = zext i8 %93 to i32
   %95 = shl nuw nsw i32 %94, 4
   %96 = and i32 %95, 48
-  %97 = getelementptr inbounds nuw i8, ptr %.078.lcssa132139, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %.078.lcssa137143, i64 1
   %98 = load i8, ptr %97, align 1, !tbaa !9
   %99 = lshr i8 %98, 4
   %100 = zext nneg i8 %99 to i32
@@ -203,7 +203,7 @@ define dso_local ptr @php_uuencode(ptr noundef %0, i64 noundef %1) local_unnamed
   %109 = zext i8 %108 to i32
   %110 = shl nuw nsw i32 %109, 2
   %111 = and i32 %110, 60
-  %112 = getelementptr inbounds nuw i8, ptr %.078.lcssa132139, i64 2
+  %112 = getelementptr inbounds nuw i8, ptr %.078.lcssa137143, i64 2
   %113 = load i8, ptr %112, align 1, !tbaa !9
   %114 = lshr i8 %113, 6
   %115 = zext nneg i8 %114 to i32
@@ -235,14 +235,14 @@ define dso_local ptr @php_uuencode(ptr noundef %0, i64 noundef %1) local_unnamed
   %.383 = phi ptr [ %126, %123 ], [ %.282, %._crit_edge118 ]
   %.2 = phi i64 [ %.3, %123 ], [ %.1, %._crit_edge118 ]
   %128 = icmp ult i64 %.2, 45
-  br i1 %128, label %129, label %.thread141
+  br i1 %128, label %129, label %.thread146
 
 129:                                              ; preds = %127
   %130 = getelementptr inbounds nuw i8, ptr %.383, i64 1
   store i8 10, ptr %.383, align 1, !tbaa !9
-  br label %.thread141
+  br label %.thread146
 
-.thread141:                                       ; preds = %._crit_edge118.thread, %129, %127
+.thread146:                                       ; preds = %._crit_edge118.thread, %129, %127
   %.5 = phi ptr [ %130, %129 ], [ %.383, %127 ], [ %10, %._crit_edge118.thread ]
   %131 = getelementptr inbounds nuw i8, ptr %.5, i64 1
   store i8 96, ptr %.5, align 1, !tbaa !9
@@ -260,7 +260,7 @@ define dso_local ptr @php_uuencode(ptr noundef %0, i64 noundef %1) local_unnamed
   %.not.i = icmp eq i32 %139, 0
   br i1 %.not.i, label %140, label %zend_string_alloc.exit
 
-140:                                              ; preds = %.thread141
+140:                                              ; preds = %.thread146
   %141 = load i32, ptr %4, align 4, !tbaa !4
   %142 = icmp eq i32 %141, 1
   br i1 %142, label %143, label %zend_string_alloc.exit, !prof !14
@@ -279,7 +279,7 @@ define dso_local ptr @php_uuencode(ptr noundef %0, i64 noundef %1) local_unnamed
   store i32 %151, ptr %149, align 4, !tbaa !9
   br label %zend_string_truncate.exit
 
-zend_string_alloc.exit:                           ; preds = %.thread141, %140
+zend_string_alloc.exit:                           ; preds = %.thread146, %140
   %152 = and i64 %135, -8
   %153 = add i64 %152, 32
   %154 = tail call noalias ptr @_emalloc(i64 noundef %153) #10

@@ -195,7 +195,7 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %48
   %107 = load i64, ptr %90, align 8, !tbaa !92
   %108 = call noundef i32 %106(i32 noundef 3, i64 noundef %107, i64 noundef %91, i64 noundef 0)
   %109 = icmp eq i32 %108, -1
-  br i1 %109, label %.thread.i.thread120, label %110
+  br i1 %109, label %.thread.i.thread122, label %110
 
 110:                                              ; preds = %105
   %111 = call i32 @wcscmp(ptr noundef nonnull %8, ptr noundef nonnull %13) #6
@@ -232,19 +232,19 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %48
   %.not28.i = icmp eq ptr %122, null
   br i1 %.not28.i, label %132, label %125
 
-.thread.i.thread120:                              ; preds = %105
+.thread.i.thread122:                              ; preds = %105
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %123 = load ptr, ptr %93, align 8, !tbaa !93
-  %.not28.i122 = icmp eq ptr %123, null
-  br i1 %.not28.i122, label %.loopexit, label %125
+  %.not28.i124 = icmp eq ptr %123, null
+  br i1 %.not28.i124, label %.loopexit, label %125
 
 .thread.i.thread:                                 ; preds = %103
   %124 = load ptr, ptr %93, align 8, !tbaa !93
   %.not28.i111 = icmp eq ptr %124, null
   br i1 %.not28.i111, label %.loopexit, label %125
 
-125:                                              ; preds = %.thread.i.thread120, %.thread.i.thread, %.thread.i
-  %.02231.i112 = phi i1 [ false, %.thread.i.thread ], [ %117, %.thread.i ], [ true, %.thread.i.thread120 ]
+125:                                              ; preds = %.thread.i.thread122, %.thread.i.thread, %.thread.i
+  %.02231.i112 = phi i1 [ false, %.thread.i.thread ], [ %117, %.thread.i ], [ true, %.thread.i.thread122 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %126 = call noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef nonnull %13, ptr noundef nonnull %11, i64 noundef 2048)
   %127 = load ptr, ptr %93, align 8, !tbaa !93
@@ -274,8 +274,8 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %48
   br i1 %133, label %134, label %_ZL12DllVolChangeP11CommandDataPwm.exit
 
 134:                                              ; preds = %.thread42.i
-  %.pr126 = load ptr, ptr %93, align 8, !tbaa !93
-  %135 = icmp eq ptr %.pr126, null
+  %.pr128 = load ptr, ptr %93, align 8, !tbaa !93
+  %135 = icmp eq ptr %.pr128, null
   br i1 %135, label %.loopexit, label %_ZL12DllVolChangeP11CommandDataPwm.exit
 
 _ZL12DllVolChangeP11CommandDataPwm.exit:          ; preds = %.thread42.i, %134
@@ -285,7 +285,7 @@ _ZL12DllVolChangeP11CommandDataPwm.exit:          ; preds = %.thread42.i, %134
   %139 = call noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %13, i32 noundef %83)
   br i1 %139, label %.critedge96, label %94, !llvm.loop !94
 
-.loopexit:                                        ; preds = %.thread.i.thread, %.thread.i.thread120, %130, %132, %134, %.thread44.i
+.loopexit:                                        ; preds = %.thread.i.thread, %.thread.i.thread122, %130, %132, %134, %.thread44.i
   %140 = getelementptr inbounds nuw i8, ptr %16, i64 83424
   store i32 15, ptr %140, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

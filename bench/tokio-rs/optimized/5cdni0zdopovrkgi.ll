@@ -3574,14 +3574,14 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread4park5Inner4park17h
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = cmpxchg ptr %14, i64 3, i64 0 seq_cst seq_cst, align 8
   %16 = extractvalue { i64, i1 } %15, 1
-  %.sink33.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sink33.sroa.gep34 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sink33.sroa.gep36 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sink33.sroa.gep37 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %.sink33.sroa.gep39 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sink33.sroa.gep40 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sink33.sroa.gep42 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.sink33.sroa.gep43 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sink34.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink34.sroa.gep35 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sink34.sroa.gep37 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink34.sroa.gep38 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %.sink34.sroa.gep40 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink34.sroa.gep41 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sink34.sroa.gep43 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sink34.sroa.gep44 = getelementptr inbounds nuw i8, ptr %12, i64 24
   br i1 %16, label %"_ZN4core3ptr91drop_in_place$LT$tokio..util..try_lock..LockGuard$LT$tokio..runtime..driver..Driver$GT$$GT$17h52e47e2267de0a8bE.exit14", label %17
 
 17:                                               ; preds = %2
@@ -3644,18 +3644,18 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread4park5Inner4park17h
   br label %.invoke
 
 .invoke:                                          ; preds = %32, %36
-  %.sink33.sroa.phi = phi ptr [ %.sink33.sroa.gep, %32 ], [ %.sink33.sroa.gep34, %36 ]
-  %.sink33.sroa.phi35 = phi ptr [ %.sink33.sroa.gep36, %32 ], [ %.sink33.sroa.gep37, %36 ]
-  %.sink33.sroa.phi38 = phi ptr [ %.sink33.sroa.gep39, %32 ], [ %.sink33.sroa.gep40, %36 ]
-  %.sink33.sroa.phi41 = phi ptr [ %.sink33.sroa.gep42, %32 ], [ %.sink33.sroa.gep43, %36 ]
-  %.sink33 = phi ptr [ %9, %32 ], [ %12, %36 ]
+  %.sink34.sroa.phi = phi ptr [ %.sink34.sroa.gep, %32 ], [ %.sink34.sroa.gep35, %36 ]
+  %.sink34.sroa.phi36 = phi ptr [ %.sink34.sroa.gep37, %32 ], [ %.sink34.sroa.gep38, %36 ]
+  %.sink34.sroa.phi39 = phi ptr [ %.sink34.sroa.gep40, %32 ], [ %.sink34.sroa.gep41, %36 ]
+  %.sink34.sroa.phi42 = phi ptr [ %.sink34.sroa.gep43, %32 ], [ %.sink34.sroa.gep44, %36 ]
+  %.sink34 = phi ptr [ %9, %32 ], [ %12, %36 ]
   %.sink = phi ptr [ %8, %32 ], [ %11, %36 ]
   %38 = phi ptr [ @anon.ba4985a049956e0df762c1765696dc31.72, %32 ], [ @anon.ba4985a049956e0df762c1765696dc31.73, %36 ]
-  store i64 1, ptr %.sink33.sroa.phi, align 8, !noalias !525
-  store ptr null, ptr %.sink33.sroa.phi35, align 8, !noalias !525
-  store ptr %.sink, ptr %.sink33.sroa.phi38, align 8, !noalias !525
-  store i64 1, ptr %.sink33.sroa.phi41, align 8, !noalias !525
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink33, ptr noalias noundef readonly align 8 dereferenceable(24) %38) #27
+  store i64 1, ptr %.sink34.sroa.phi, align 8, !noalias !525
+  store ptr null, ptr %.sink34.sroa.phi36, align 8, !noalias !525
+  store ptr %.sink, ptr %.sink34.sroa.phi39, align 8, !noalias !525
+  store i64 1, ptr %.sink34.sroa.phi42, align 8, !noalias !525
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink34, ptr noalias noundef readonly align 8 dereferenceable(24) %38) #27
           to label %.cont unwind label %78
 
 .cont:                                            ; preds = %.invoke
@@ -8674,8 +8674,8 @@ define { i64, ptr } @_ZN5tokio7runtime2io16registration_set15RegistrationSet8all
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(25) %.sroa.0, i8 0, i64 25, i1 false), !alias.scope !1534
-  %.sroa.0.32..sroa_idx5 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %.sroa.0.32..sroa_idx5, i8 0, i64 24, i1 false), !alias.scope !1534
+  %.sroa.0.32..sroa_idx6 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %.sroa.0.32..sroa_idx6, i8 0, i64 24, i1 false), !alias.scope !1534
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1537
   store i64 1, ptr %5, align 128, !noalias !1537
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -8977,7 +8977,7 @@ define hidden void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo4wake17he2f3c
 19:                                               ; preds = %14
   %20 = load i64, ptr %5, align 8, !alias.scope !1575, !noalias !1578, !noundef !5
   %21 = icmp ult i64 %20, 32
-  br i1 %21, label %_ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit, label %.invoke100, !prof !1580
+  br i1 %21, label %_ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit, label %.invoke113, !prof !1580
 
 _ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit: ; preds = %19
   %22 = getelementptr inbounds nuw [32 x { ptr, ptr }], ptr %4, i64 0, i64 %20
@@ -9010,7 +9010,7 @@ _ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit: ; preds = %19
 35:                                               ; preds = %28
   %36 = load i64, ptr %5, align 8, !alias.scope !1581, !noalias !1584, !noundef !5
   %37 = icmp ult i64 %36, 32
-  br i1 %37, label %_ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit29, label %.invoke100, !prof !1580
+  br i1 %37, label %_ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit29, label %.invoke113, !prof !1580
 
 _ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit29: ; preds = %35
   %38 = getelementptr inbounds nuw [32 x { ptr, ptr }], ptr %4, i64 0, i64 %36
@@ -9195,14 +9195,14 @@ common.resume:                                    ; preds = %.thread
   %101 = getelementptr inbounds nuw i8, ptr %66, i64 40
   store i8 1, ptr %101, align 8
   %102 = icmp ult i64 %.pre, 32
-  br i1 %102, label %_ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit54, label %.invoke100, !prof !1580
+  br i1 %102, label %_ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit54, label %.invoke113, !prof !1580
 
-.invoke100:                                       ; preds = %100, %35, %19
+.invoke113:                                       ; preds = %100, %35, %19
   %103 = phi i64 [ %20, %19 ], [ %36, %35 ], [ %.pre, %100 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %103, i64 noundef 32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.44.llvm.9993772341007493287) #27
-          to label %.cont101 unwind label %.loopexit.split-lp
+          to label %.cont114 unwind label %.loopexit.split-lp
 
-.cont101:                                         ; preds = %.invoke100
+.cont114:                                         ; preds = %.invoke113
   unreachable
 
 _ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit54: ; preds = %100
@@ -9225,7 +9225,7 @@ _ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit54: ; preds = %10
           cleanup
   br label %111
 
-.loopexit.split-lp:                               ; preds = %.invoke100
+.loopexit.split-lp:                               ; preds = %.invoke113
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %111
@@ -9460,11 +9460,11 @@ define hidden void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo14poll_readin
   br i1 %90, label %93, label %.sink.split
 
 .sink.split:                                      ; preds = %88, %84
-  %.sink43 = phi i64 [ %..i, %84 ], [ %89, %88 ]
+  %.sink46 = phi i64 [ %..i, %84 ], [ %89, %88 ]
   %.sink.ph = phi i8 [ 1, %84 ], [ 0, %88 ]
   %91 = lshr i64 %85, 16
   %92 = trunc i64 %91 to i8
-  store i64 %.sink43, ptr %0, align 8
+  store i64 %.sink46, ptr %0, align 8
   %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %92, ptr %.sroa.424.0..sroa_idx, align 8
   br label %93
@@ -9676,13 +9676,13 @@ define void @"_ZN92_$LT$tokio..runtime..io..scheduled_io..Readiness$u20$as$u20$c
 
 .backedge:                                        ; preds = %.backedge.backedge, %3
   %17 = load i8, ptr %8, align 8, !range !202, !noundef !5
-  switch i8 %17, label %default.unreachable138 [
+  switch i8 %17, label %default.unreachable141 [
     i8 0, label %18
     i8 1, label %32
     i8 2, label %40
   ]
 
-default.unreachable138:                           ; preds = %.backedge
+default.unreachable141:                           ; preds = %.backedge
   unreachable
 
 18:                                               ; preds = %.backedge

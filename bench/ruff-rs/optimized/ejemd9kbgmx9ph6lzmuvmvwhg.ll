@@ -2283,8 +2283,8 @@ define hidden void @_ZN2ty4args12CheckCommand12into_options17hd1687853e578f35fE(
   store i64 %.sroa.013.0, ptr %13, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
-  %.sroa.5.0..sroa_idx189 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.5.0..sroa_idx189, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.5, i64 48, i1 false)
+  %.sroa.5.0..sroa_idx190 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.5.0..sroa_idx190, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.5, i64 48, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false)
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 120
@@ -2301,8 +2301,8 @@ define hidden void @_ZN2ty4args12CheckCommand12into_options17hd1687853e578f35fE(
   store i64 0, ptr %.sroa.12.0..sroa_idx, align 4
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 260
   store i8 %93, ptr %.sroa.13.0..sroa_idx, align 4
-  %.sroa.14190.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 264
-  store i8 %95, ptr %.sroa.14190.0..sroa_idx, align 8
+  %.sroa.14191.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 264
+  store i8 %95, ptr %.sroa.14191.0..sroa_idx, align 8
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 265
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.15.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.15, i64 39, i1 false)
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 304
@@ -4050,6 +4050,9 @@ switch.lookup:                                    ; preds = %"_ZN4core3ptr91drop
   invoke void @_ZN5alloc3fmt6format12format_inner17h9fdd91b8084950bfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %37, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %12)
           to label %102 unwind label %100
 
+default.unreachable154:                           ; preds = %171
+  unreachable
+
 100:                                              ; preds = %switch.lookup
   %101 = landingpad { ptr, i32 }
           cleanup
@@ -4313,14 +4316,11 @@ switch.lookup:                                    ; preds = %"_ZN4core3ptr91drop
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !526
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  switch i8 %1, label %default.unreachable151 [
+  switch i8 %1, label %default.unreachable154 [
     i8 0, label %172
     i8 1, label %184
     i8 2, label %176
   ]
-
-default.unreachable151:                           ; preds = %171
-  unreachable
 
 172:                                              ; preds = %171
   %173 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7colored7control15SHOULD_COLORIZE17h85305782e0b3941eE, i64 8) acquire, align 8

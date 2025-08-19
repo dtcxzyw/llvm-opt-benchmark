@@ -1514,14 +1514,14 @@ add_dct.exit80:                                   ; preds = %add_dct.exit79, %22
   %317 = load i32, ptr %316, align 8, !tbaa !77
   %318 = icmp eq i32 %317, 3
   %spec.select = select i1 %318, i64 1592, i64 1848
-  %spec.select185 = select i1 %318, i64 2128, i64 2640
+  %spec.select191 = select i1 %318, i64 2128, i64 2640
   br label %319
 
 319:                                              ; preds = %315, %312
-  %.sink184 = phi i64 [ 1592, %312 ], [ %spec.select, %315 ]
-  %.sink183 = phi i64 [ 2128, %312 ], [ %spec.select185, %315 ]
-  %320 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink184
-  %321 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink183
+  %.sink190 = phi i64 [ 1592, %312 ], [ %spec.select, %315 ]
+  %.sink189 = phi i64 [ 2128, %312 ], [ %spec.select191, %315 ]
+  %320 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink190
+  %321 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink189
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 2968
   %323 = load i32, ptr %322, align 8, !tbaa !151
   %324 = and i32 %323, 1
@@ -2176,12 +2176,12 @@ lowest_referenced_row.exit:                       ; preds = %675, %692
   %712 = getelementptr inbounds nuw i8, ptr %0, i64 2972
   %713 = load i32, ptr %712, align 4, !tbaa !166
   %714 = icmp ult i32 %713, 3
-  br i1 %714, label %switch.lookup189, label %734
+  br i1 %714, label %switch.lookup195, label %734
 
-switch.lookup189:                                 ; preds = %711
+switch.lookup195:                                 ; preds = %711
   %715 = zext nneg i32 %713 to i64
-  %switch.gep190 = getelementptr inbounds nuw [3 x i64], ptr @switch.table.lowest_referenced_row, i64 0, i64 %715
-  %switch.load191 = load i64, ptr %switch.gep190, align 8
+  %switch.gep196 = getelementptr inbounds nuw [3 x i64], ptr @switch.table.lowest_referenced_row, i64 0, i64 %715
+  %switch.load197 = load i64, ptr %switch.gep196, align 8
   %716 = getelementptr inbounds nuw i8, ptr %0, i64 3012
   br label %729
 
@@ -2201,17 +2201,17 @@ switch.lookup189:                                 ; preds = %711
   %.0.i.i114 = select i1 %728, i32 0, i32 %..i.i113
   br label %lowest_referenced_row.exit115
 
-729:                                              ; preds = %729, %switch.lookup189
-  %indvars.iv.i108 = phi i64 [ 0, %switch.lookup189 ], [ %indvars.iv.next.i111, %729 ]
-  %.02934.i109 = phi i32 [ -2147483648, %switch.lookup189 ], [ %732, %729 ]
-  %.03033.i110 = phi i32 [ 2147483647, %switch.lookup189 ], [ %733, %729 ]
+729:                                              ; preds = %729, %switch.lookup195
+  %indvars.iv.i108 = phi i64 [ 0, %switch.lookup195 ], [ %indvars.iv.next.i111, %729 ]
+  %.02934.i109 = phi i32 [ -2147483648, %switch.lookup195 ], [ %732, %729 ]
+  %.03033.i110 = phi i32 [ 2147483647, %switch.lookup195 ], [ %733, %729 ]
   %.idx148 = shl nuw nsw i64 %indvars.iv.i108, 3
   %730 = getelementptr inbounds nuw i8, ptr %716, i64 %.idx148
   %731 = load i32, ptr %730, align 4, !tbaa !94
   %732 = tail call i32 @llvm.smax.i32(i32 %.02934.i109, i32 %731)
   %733 = tail call i32 @llvm.smin.i32(i32 %.03033.i110, i32 %731)
   %indvars.iv.next.i111 = add nuw nsw i64 %indvars.iv.i108, 1
-  %exitcond.not.i112 = icmp eq i64 %indvars.iv.next.i111, %switch.load191
+  %exitcond.not.i112 = icmp eq i64 %indvars.iv.next.i111, %switch.load197
   br i1 %exitcond.not.i112, label %717, label %729, !llvm.loop !167
 
 734:                                              ; preds = %711, %708, %699

@@ -644,8 +644,8 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   br label %.loopexit160.i.sink.split.i
 
 .loopexit160.i.sink.split.i:                      ; preds = %.lr.ph173.preheader.i.i, %74, %.loopexit161.i.i
-  %.sink54.i = phi i64 [ %82, %.lr.ph173.preheader.i.i ], [ %64, %74 ], [ %64, %.loopexit161.i.i ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %25, i8 0, i64 %.sink54.i, i1 false)
+  %.sink64.i = phi i64 [ %82, %.lr.ph173.preheader.i.i ], [ %64, %74 ], [ %64, %.loopexit161.i.i ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %25, i8 0, i64 %.sink64.i, i1 false)
   br label %.loopexit160.i.i
 
 .loopexit160.i.i:                                 ; preds = %.loopexit160.i.sink.split.i, %78
@@ -1014,8 +1014,8 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %0, 
   %30 = getelementptr inbounds nuw i8, ptr %spec.select, i64 808
   %31 = load ptr, ptr %30, align 8
   %.not41 = icmp eq ptr %31, null
-  %.not424957 = icmp eq ptr %31, %29
-  %.not4249 = select i1 %.not41, i1 true, i1 %.not424957
+  %.not424962 = icmp eq ptr %31, %29
+  %.not4249 = select i1 %.not41, i1 true, i1 %.not424962
   br i1 %.not4249, label %.loopexit, label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %28, %.critedge
@@ -1258,8 +1258,8 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
 
 114:                                              ; preds = %._crit_edge
   %.not159 = icmp eq ptr %.pre, null
-  %.not160203230 = icmp eq ptr %.pre, %110
-  %.not160203 = select i1 %.not159, i1 true, i1 %.not160203230
+  %.not160203242 = icmp eq ptr %.pre, %110
+  %.not160203 = select i1 %.not159, i1 true, i1 %.not160203242
   br i1 %.not160203, label %.loopexit, label %.lr.ph207
 
 .lr.ph207:                                        ; preds = %114, %.lr.ph207

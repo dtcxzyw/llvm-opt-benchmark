@@ -378,8 +378,8 @@ get_conversion_data.exit.i.i:                     ; preds = %44
   br i1 %67, label %get_conversion_data.exit.thread.sink.split.i.i, label %find_add_q_ctx.exit
 
 get_conversion_data.exit.thread.sink.split.i.i:   ; preds = %63, %get_conversion_data.exit.i.i
-  %.sink36.i.i = phi ptr [ %40, %get_conversion_data.exit.i.i ], [ %59, %63 ]
-  %68 = getelementptr i8, ptr %.sink36.i.i, i64 194
+  %.sink40.i.i = phi ptr [ %40, %get_conversion_data.exit.i.i ], [ %59, %63 ]
+  %68 = getelementptr i8, ptr %.sink40.i.i, i64 194
   %69 = load i16, ptr %68, align 1
   br label %find_add_q_ctx.exit
 

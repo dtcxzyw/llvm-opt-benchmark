@@ -65,13 +65,13 @@ define internal range(i32 0, 52) i32 @s337m_probe(ptr noundef readonly captures(
   %36 = or disjoint i32 %33, %35
   %37 = lshr i32 %36, 4
   %spec.select.i = select i1 %18, i32 %37, i32 %36
-  %spec.select32.i = select i1 %18, i32 20, i32 24
+  %spec.select35.i = select i1 %18, i32 20, i32 24
   br label %38
 
 38:                                               ; preds = %.thread, %27
   %.025.i = phi i32 [ %spec.select.i, %27 ], [ %26, %.thread ]
   %.024.i.in.in = phi ptr [ %28, %27 ], [ %23, %.thread ]
-  %.0.i = phi i32 [ %spec.select32.i, %27 ], [ 16, %.thread ]
+  %.0.i = phi i32 [ %spec.select35.i, %27 ], [ 16, %.thread ]
   %.024.i.in = load i16, ptr %.024.i.in.in, align 1
   %39 = and i16 %.024.i.in, 31
   %.not.i = icmp eq i16 %39, 28
@@ -211,13 +211,13 @@ define internal i32 @s337m_read_packet(ptr noundef %0, ptr noundef %1) #2 {
   %24 = ashr i32 %22, 8
   %25 = ashr i32 %23, 4
   %spec.select.i = select i1 %9, i32 %23, i32 %25
-  %spec.select32.i = select i1 %9, i32 24, i32 20
+  %spec.select35.i = select i1 %9, i32 24, i32 20
   br label %26
 
 26:                                               ; preds = %.thread, %21
   %.025.i = phi i32 [ %spec.select.i, %21 ], [ %20, %.thread ]
   %.024.i = phi i32 [ %24, %21 ], [ %19, %.thread ]
-  %.0.i = phi i32 [ %spec.select32.i, %21 ], [ 16, %.thread ]
+  %.0.i = phi i32 [ %spec.select35.i, %21 ], [ 16, %.thread ]
   %27 = and i32 %.024.i, 31
   %.not.i = icmp eq i32 %27, 28
   br i1 %.not.i, label %30, label %28

@@ -128,19 +128,19 @@ define internal fastcc i32 @get_trace_fd(ptr noundef captures(none) %0, ptr noun
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 0
-  br i1 %13, label %16, label %.thread52
+  br i1 %13, label %16, label %.thread55
 
 .tail.thread:                                     ; preds = %.thread
   %14 = tail call i32 @strcasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.13) #16
   %.not38 = icmp eq i32 %14, 0
   br i1 %.not38, label %16, label %sub_046
 
-.thread52:                                        ; preds = %.tail
+.thread55:                                        ; preds = %.tail
   %15 = tail call i32 @strcasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.13) #16
-  %.not3853 = icmp eq i32 %15, 0
-  br i1 %.not3853, label %16, label %.tail45.thread
+  %.not3856 = icmp eq i32 %15, 0
+  br i1 %.not3856, label %16, label %.tail45.thread
 
-16:                                               ; preds = %.thread, %.thread52, %.tail.thread, %.tail, %7
+16:                                               ; preds = %.thread, %.thread55, %.tail.thread, %.tail, %7
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %17, align 8, !tbaa !4
   br label %50
@@ -155,7 +155,7 @@ sub_046:                                          ; preds = %.tail.thread
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %22, label %.tail45.thread
 
-.tail45.thread:                                   ; preds = %.thread52, %sub_046, %.tail45
+.tail45.thread:                                   ; preds = %.thread55, %sub_046, %.tail45
   %21 = tail call i32 @strcasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.15) #16
   %.not40 = icmp eq i32 %21, 0
   br i1 %.not40, label %22, label %24

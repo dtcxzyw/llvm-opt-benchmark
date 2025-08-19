@@ -119,9 +119,9 @@ define float @sasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unna
   br i1 %67, label %.preheader.i.i, label %89
 
 .preheader.i.i:                                   ; preds = %65, %._crit_edge105.i.i, %._crit_edge.i.i
-  %.282140.i.i = phi float [ 0.000000e+00, %65 ], [ %.181.lcssa.i.i, %._crit_edge.i.i ], [ %64, %._crit_edge105.i.i ]
-  %.07894138.i.i = phi ptr [ %1, %65 ], [ %33, %._crit_edge.i.i ], [ %33, %._crit_edge105.i.i ]
-  %.095137.i.i = phi i64 [ %0, %65 ], [ %32, %._crit_edge.i.i ], [ %32, %._crit_edge105.i.i ]
+  %.282147.i.i = phi float [ 0.000000e+00, %65 ], [ %.181.lcssa.i.i, %._crit_edge.i.i ], [ %64, %._crit_edge105.i.i ]
+  %.07894145.i.i = phi ptr [ %1, %65 ], [ %33, %._crit_edge.i.i ], [ %33, %._crit_edge105.i.i ]
+  %.095144.i.i = phi i64 [ %0, %65 ], [ %32, %._crit_edge.i.i ], [ %32, %._crit_edge105.i.i ]
   %68 = phi i64 [ %66, %65 ], [ %34, %._crit_edge.i.i ], [ %34, %._crit_edge105.i.i ]
   %69 = phi i64 [ 0, %65 ], [ %35, %._crit_edge.i.i ], [ %35, %._crit_edge105.i.i ]
   %70 = icmp samesign ult i64 %69, %68
@@ -131,7 +131,7 @@ define float @sasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unna
   %.072112.i.i = phi <4 x float> [ %80, %.lr.ph113.i.i ], [ zeroinitializer, %.preheader.i.i ]
   %.073111.i.i = phi <4 x float> [ %75, %.lr.ph113.i.i ], [ zeroinitializer, %.preheader.i.i ]
   %.2110.i.i = phi i64 [ %81, %.lr.ph113.i.i ], [ %69, %.preheader.i.i ]
-  %71 = getelementptr inbounds nuw float, ptr %.07894138.i.i, i64 %.2110.i.i
+  %71 = getelementptr inbounds nuw float, ptr %.07894145.i.i, i64 %.2110.i.i
   %72 = load <2 x i64>, ptr %71, align 1, !tbaa !11
   %73 = and <2 x i64> %72, splat (i64 9223372034707292159)
   %74 = bitcast <2 x i64> %73 to <4 x float>
@@ -154,28 +154,28 @@ define float @sasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unna
   %85 = tail call <4 x float> @llvm.x86.sse3.hadd.ps(<4 x float> %84, <4 x float> %84)
   %86 = tail call <4 x float> @llvm.x86.sse3.hadd.ps(<4 x float> %85, <4 x float> %85)
   %87 = extractelement <4 x float> %86, i64 0
-  %88 = fadd float %.282140.i.i, %87
+  %88 = fadd float %.282147.i.i, %87
   br label %89
 
 89:                                               ; preds = %._crit_edge114.i.i, %65
-  %.07894139.i.i = phi ptr [ %.07894138.i.i, %._crit_edge114.i.i ], [ %1, %65 ]
-  %.095136.i.i = phi i64 [ %.095137.i.i, %._crit_edge114.i.i ], [ %0, %65 ]
+  %.07894146.i.i = phi ptr [ %.07894145.i.i, %._crit_edge114.i.i ], [ %1, %65 ]
+  %.095143.i.i = phi i64 [ %.095144.i.i, %._crit_edge114.i.i ], [ %0, %65 ]
   %90 = phi i64 [ %68, %._crit_edge114.i.i ], [ %66, %65 ]
   %.383.i.i = phi float [ %88, %._crit_edge114.i.i ], [ 0.000000e+00, %65 ]
-  %91 = icmp samesign ult i64 %90, %.095136.i.i
+  %91 = icmp samesign ult i64 %90, %.095143.i.i
   br i1 %91, label %.lr.ph120.i.i, label %asum_compute.exit
 
 .lr.ph120.i.i:                                    ; preds = %89, %.lr.ph120.i.i
   %.3118.i.i = phi i64 [ %98, %.lr.ph120.i.i ], [ %90, %89 ]
   %.4117.i.i = phi float [ %97, %.lr.ph120.i.i ], [ %.383.i.i, %89 ]
-  %92 = getelementptr inbounds nuw float, ptr %.07894139.i.i, i64 %.3118.i.i
+  %92 = getelementptr inbounds nuw float, ptr %.07894146.i.i, i64 %.3118.i.i
   %93 = load float, ptr %92, align 4, !tbaa !7
   %94 = fcmp ogt float %93, 0.000000e+00
   %95 = fneg float %93
   %96 = select i1 %94, float %93, float %95
   %97 = fadd float %.4117.i.i, %96
   %98 = add nuw nsw i64 %.3118.i.i, 1
-  %exitcond131.not.i.i = icmp eq i64 %98, %.095136.i.i
+  %exitcond131.not.i.i = icmp eq i64 %98, %.095143.i.i
   br i1 %exitcond131.not.i.i, label %asum_compute.exit, label %.lr.ph120.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i:                               ; preds = %16
@@ -322,9 +322,9 @@ define internal noundef i32 @asum_thread_function(i64 noundef %0, i64 %1, i64 %2
   br i1 %64, label %.preheader.i.i, label %86
 
 .preheader.i.i:                                   ; preds = %62, %._crit_edge105.i.i, %._crit_edge.i.i
-  %.282140.i.i = phi float [ 0.000000e+00, %62 ], [ %.181.lcssa.i.i, %._crit_edge.i.i ], [ %61, %._crit_edge105.i.i ]
-  %.07894138.i.i = phi ptr [ %4, %62 ], [ %30, %._crit_edge.i.i ], [ %30, %._crit_edge105.i.i ]
-  %.095137.i.i = phi i64 [ %0, %62 ], [ %29, %._crit_edge.i.i ], [ %29, %._crit_edge105.i.i ]
+  %.282147.i.i = phi float [ 0.000000e+00, %62 ], [ %.181.lcssa.i.i, %._crit_edge.i.i ], [ %61, %._crit_edge105.i.i ]
+  %.07894145.i.i = phi ptr [ %4, %62 ], [ %30, %._crit_edge.i.i ], [ %30, %._crit_edge105.i.i ]
+  %.095144.i.i = phi i64 [ %0, %62 ], [ %29, %._crit_edge.i.i ], [ %29, %._crit_edge105.i.i ]
   %65 = phi i64 [ %63, %62 ], [ %31, %._crit_edge.i.i ], [ %31, %._crit_edge105.i.i ]
   %66 = phi i64 [ 0, %62 ], [ %32, %._crit_edge.i.i ], [ %32, %._crit_edge105.i.i ]
   %67 = icmp samesign ult i64 %66, %65
@@ -334,7 +334,7 @@ define internal noundef i32 @asum_thread_function(i64 noundef %0, i64 %1, i64 %2
   %.072112.i.i = phi <4 x float> [ %77, %.lr.ph113.i.i ], [ zeroinitializer, %.preheader.i.i ]
   %.073111.i.i = phi <4 x float> [ %72, %.lr.ph113.i.i ], [ zeroinitializer, %.preheader.i.i ]
   %.2110.i.i = phi i64 [ %78, %.lr.ph113.i.i ], [ %66, %.preheader.i.i ]
-  %68 = getelementptr inbounds nuw float, ptr %.07894138.i.i, i64 %.2110.i.i
+  %68 = getelementptr inbounds nuw float, ptr %.07894145.i.i, i64 %.2110.i.i
   %69 = load <2 x i64>, ptr %68, align 1, !tbaa !11
   %70 = and <2 x i64> %69, splat (i64 9223372034707292159)
   %71 = bitcast <2 x i64> %70 to <4 x float>
@@ -357,28 +357,28 @@ define internal noundef i32 @asum_thread_function(i64 noundef %0, i64 %1, i64 %2
   %82 = tail call <4 x float> @llvm.x86.sse3.hadd.ps(<4 x float> %81, <4 x float> %81)
   %83 = tail call <4 x float> @llvm.x86.sse3.hadd.ps(<4 x float> %82, <4 x float> %82)
   %84 = extractelement <4 x float> %83, i64 0
-  %85 = fadd float %.282140.i.i, %84
+  %85 = fadd float %.282147.i.i, %84
   br label %86
 
 86:                                               ; preds = %._crit_edge114.i.i, %62
-  %.07894139.i.i = phi ptr [ %.07894138.i.i, %._crit_edge114.i.i ], [ %4, %62 ]
-  %.095136.i.i = phi i64 [ %.095137.i.i, %._crit_edge114.i.i ], [ %0, %62 ]
+  %.07894146.i.i = phi ptr [ %.07894145.i.i, %._crit_edge114.i.i ], [ %4, %62 ]
+  %.095143.i.i = phi i64 [ %.095144.i.i, %._crit_edge114.i.i ], [ %0, %62 ]
   %87 = phi i64 [ %65, %._crit_edge114.i.i ], [ %63, %62 ]
   %.383.i.i = phi float [ %85, %._crit_edge114.i.i ], [ 0.000000e+00, %62 ]
-  %88 = icmp samesign ult i64 %87, %.095136.i.i
+  %88 = icmp samesign ult i64 %87, %.095143.i.i
   br i1 %88, label %.lr.ph120.i.i, label %asum_compute.exit
 
 .lr.ph120.i.i:                                    ; preds = %86, %.lr.ph120.i.i
   %.3118.i.i = phi i64 [ %95, %.lr.ph120.i.i ], [ %87, %86 ]
   %.4117.i.i = phi float [ %94, %.lr.ph120.i.i ], [ %.383.i.i, %86 ]
-  %89 = getelementptr inbounds nuw float, ptr %.07894139.i.i, i64 %.3118.i.i
+  %89 = getelementptr inbounds nuw float, ptr %.07894146.i.i, i64 %.3118.i.i
   %90 = load float, ptr %89, align 4, !tbaa !7
   %91 = fcmp ogt float %90, 0.000000e+00
   %92 = fneg float %90
   %93 = select i1 %91, float %90, float %92
   %94 = fadd float %.4117.i.i, %93
   %95 = add nuw nsw i64 %.3118.i.i, 1
-  %exitcond131.not.i.i = icmp eq i64 %95, %.095136.i.i
+  %exitcond131.not.i.i = icmp eq i64 %95, %.095143.i.i
   br i1 %exitcond131.not.i.i, label %asum_compute.exit, label %.lr.ph120.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i:                               ; preds = %13

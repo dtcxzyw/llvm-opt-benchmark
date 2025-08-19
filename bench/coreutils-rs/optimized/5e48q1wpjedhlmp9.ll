@@ -1870,13 +1870,13 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h7942ba4
 
 .sink.split:                                      ; preds = %30, %74, %61
   %.sink = phi i64 [ %17, %61 ], [ 0, %74 ], [ 0, %30 ]
-  %.ph83 = phi i64 [ %62, %61 ], [ %77, %74 ], [ %31, %30 ]
+  %.ph90 = phi i64 [ %62, %61 ], [ %77, %74 ], [ %31, %30 ]
   store i64 %.sink, ptr %14, align 8
   br label %33
 
 33:                                               ; preds = %.sink.split, %61, %74, %30
   %34 = phi i64 [ %19, %61 ], [ %19, %74 ], [ %19, %30 ], [ %.sink, %.sink.split ]
-  %35 = phi i64 [ %62, %61 ], [ %77, %74 ], [ %31, %30 ], [ %.ph83, %.sink.split ]
+  %35 = phi i64 [ %62, %61 ], [ %77, %74 ], [ %31, %30 ], [ %.ph90, %.sink.split ]
   %36 = add i64 %9, %35
   %.not37 = icmp ult i64 %36, %3
   br i1 %.not37, label %18, label %._crit_edge
@@ -4147,8 +4147,8 @@ define hidden void @"_ZN5uu_ls16create_hyperlink28_$u7b$$u7b$closure$u7d$$u7d$17
 
 "_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hbd08afcff9d24bd4E.exit": ; preds = %15
   %20 = add nsw i32 %2, -48
-  %or.cond8.i = icmp ult i32 %20, 10
-  br i1 %or.cond8.i, label %.thread18, label %293
+  %or.cond9.i = icmp ult i32 %20, 10
+  br i1 %or.cond9.i, label %.thread18, label %293
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %1, align 8, !nonnull !4, !align !109, !noundef !4
@@ -4242,7 +4242,7 @@ define hidden void @"_ZN5uu_ls16create_hyperlink28_$u7b$$u7b$closure$u7d$$u7d$17
 
 "_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h23bf47a7bef98fa4E.exit.i.i.i.i": ; preds = %64
   %66 = add nsw i64 %65, -1
-  %67 = getelementptr inbounds [0 x i8], ptr %9, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [0 x i8], ptr %9, i64 0, i64 %66
   %68 = load i8, ptr %67, align 1, !alias.scope !2090, !noalias !2091, !noundef !4
   %.not.i.not.i.i.i.i = icmp eq i8 %68, %45
   br i1 %.not.i.not.i.i.i.i, label %64, label %69
@@ -4262,12 +4262,12 @@ define hidden void @"_ZN5uu_ls16create_hyperlink28_$u7b$$u7b$closure$u7d$$u7d$17
   br label %.thread129.i.i.i
 
 .thread129.i.i.i:                                 ; preds = %74, %.thread.i.i.i
-  %.sink100.i = phi i8 [ %45, %74 ], [ %51, %.thread.i.i.i ]
+  %.sink130.i = phi i8 [ %45, %74 ], [ %51, %.thread.i.i.i ]
   %76 = phi i64 [ %63, %74 ], [ 1, %.thread.i.i.i ]
   %77 = phi i64 [ %46, %74 ], [ 2, %.thread.i.i.i ]
   %78 = phi <1 x i8> [ %75, %74 ], [ %72, %.thread.i.i.i ]
   %storemerge128131.i.i.i = phi i64 [ %66, %74 ], [ 1, %.thread.i.i.i ]
-  %79 = insertelement <1 x i8> poison, i8 %.sink100.i, i64 0
+  %79 = insertelement <1 x i8> poison, i8 %.sink130.i, i64 0
   %80 = shufflevector <1 x i8> %79, <1 x i8> poison, <16 x i32> zeroinitializer
   %81 = shufflevector <1 x i8> %78, <1 x i8> poison, <16 x i32> zeroinitializer
   %82 = getelementptr inbounds nuw i8, ptr %9, i64 1
@@ -4306,7 +4306,7 @@ define hidden void @"_ZN5uu_ls16create_hyperlink28_$u7b$$u7b$closure$u7d$$u7d$17
   %94 = shl nuw nsw i64 %.sroa.022.0143.i.i.i, 4
   %95 = getelementptr i8, ptr %91, i64 %94
   %.0.copyload.i.i.i.i = load <16 x i8>, ptr %95, align 1, !alias.scope !2100, !noalias !2101
-  %96 = getelementptr inbounds i8, ptr %95, i64 %storemerge128131.i.i.i
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 %storemerge128131.i.i.i
   %.0.copyload2.i.i.i.i = load <16 x i8>, ptr %96, align 1, !alias.scope !2100, !noalias !2101
   %97 = icmp eq <16 x i8> %.0.copyload.i.i.i.i, %80
   %98 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i, %81
@@ -4355,7 +4355,7 @@ define hidden void @"_ZN5uu_ls16create_hyperlink28_$u7b$$u7b$closure$u7d$$u7d$17
   %119 = add i64 %118, -16
   %120 = getelementptr inbounds i8, ptr %22, i64 %119
   %.0.copyload.i84.i.i.i = load <16 x i8>, ptr %120, align 1, !alias.scope !2100, !noalias !2104
-  %121 = getelementptr inbounds i8, ptr %120, i64 %storemerge128131.i.i.i
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 %storemerge128131.i.i.i
   %.0.copyload2.i85.i.i.i = load <16 x i8>, ptr %121, align 1, !alias.scope !2100, !noalias !2104
   %122 = icmp eq <16 x i8> %.0.copyload.i84.i.i.i, %80
   %123 = icmp eq <16 x i8> %.0.copyload2.i85.i.i.i, %81
@@ -4368,7 +4368,7 @@ define hidden void @"_ZN5uu_ls16create_hyperlink28_$u7b$$u7b$closure$u7d$$u7d$17
   %.166150.i.i.i = phi i64 [ %135, %134 ], [ %.065.lcssa.i.i.i, %.preheader.i.i.i ]
   %127 = getelementptr inbounds i8, ptr %22, i64 %.166150.i.i.i
   %.0.copyload.i86.i.i.i = load <16 x i8>, ptr %127, align 1, !alias.scope !2100, !noalias !2107
-  %128 = getelementptr inbounds i8, ptr %127, i64 %storemerge128131.i.i.i
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 %storemerge128131.i.i.i
   %.0.copyload2.i87.i.i.i = load <16 x i8>, ptr %128, align 1, !alias.scope !2100, !noalias !2107
   %129 = icmp eq <16 x i8> %.0.copyload.i86.i.i.i, %80
   %130 = icmp eq <16 x i8> %.0.copyload2.i87.i.i.i, %81
@@ -4598,7 +4598,7 @@ _ZN4core3str11validations15next_code_point17hf9f5ecc635d7edf4E.llvm.142444036174
   br label %242
 
 242:                                              ; preds = %.sink.split.i.i.i, %.lr.ph.i44.i.i
-  %243 = phi i64 [ %.promoted.i41.i.i, %.lr.ph.i44.i.i ], [ %.ph83.i.i.i, %.sink.split.i.i.i ]
+  %243 = phi i64 [ %.promoted.i41.i.i, %.lr.ph.i44.i.i ], [ %.ph90.i.i.i, %.sink.split.i.i.i ]
   %244 = phi i64 [ %222, %.lr.ph.i44.i.i ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
   %245 = phi i64 [ %235, %.lr.ph.i44.i.i ], [ %256, %.sink.split.i.i.i ]
   %246 = getelementptr inbounds i8, ptr %225, i64 %245
@@ -4620,8 +4620,8 @@ _ZN4core3str11validations15next_code_point17hf9f5ecc635d7edf4E.llvm.142444036174
 
 .sink.split.i.i.i:                                ; preds = %286, %273, %253
   %.sink.i.i.i = phi i64 [ %241, %273 ], [ 0, %286 ], [ 0, %253 ]
-  %.ph83.i.i.i = phi i64 [ %274, %273 ], [ %288, %286 ], [ %254, %253 ]
-  %256 = add i64 %.ph83.i.i.i, %234
+  %.ph90.i.i.i = phi i64 [ %274, %273 ], [ %288, %286 ], [ %254, %253 ]
+  %256 = add i64 %.ph90.i.i.i, %234
   %.not37.i.i.i = icmp ult i64 %256, %227
   br i1 %.not37.i.i.i, label %242, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i.i"
 
@@ -4826,8 +4826,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %303, %299, %"_ZN55_
   %321 = trunc i32 %2 to i8
   %322 = and i8 %321, 63
   %323 = or disjoint i8 %322, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx178 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %323, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx178, align 1, !alias.scope !2174, !noalias !2172
+  %.sroa.0.i.1.i.1.i.1..sroa_idx212 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %323, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx212, align 1, !alias.scope !2174, !noalias !2172
   br label %"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$GT$9to_string17h30cc80c750be000fE.exit"
 
 324:                                              ; preds = %313
@@ -4844,8 +4844,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %303, %299, %"_ZN55_
   %332 = trunc i32 %2 to i8
   %333 = and i8 %332, 63
   %334 = or disjoint i8 %333, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx179 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %334, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx179, align 2, !alias.scope !2174, !noalias !2172
+  %.sroa.0.i.2.i.2.i.2..sroa_idx213 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %334, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx213, align 2, !alias.scope !2174, !noalias !2172
   br label %"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$GT$9to_string17h30cc80c750be000fE.exit"
 
 335:                                              ; preds = %313
@@ -4857,8 +4857,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %303, %299, %"_ZN55_
   %340 = trunc i32 %339 to i8
   %341 = and i8 %340, 63
   %342 = or disjoint i8 %341, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx177 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %342, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx177, align 1, !alias.scope !2174, !noalias !2172
+  %.sroa.0.i.1.i.1.i.1..sroa_idx211 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %342, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx211, align 1, !alias.scope !2174, !noalias !2172
   %343 = lshr i32 %2, 6
   %344 = trunc i32 %343 to i8
   %345 = and i8 %344, 63

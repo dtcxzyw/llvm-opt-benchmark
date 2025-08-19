@@ -2294,8 +2294,8 @@ define internal fastcc void @_ZN5alloc6string6String4push17hd55aa8b09ff6dfb4E(pt
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.1..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %14, ptr %.sroa.0.1..sroa_idx12, align 1, !alias.scope !367
+  %.sroa.0.1..sroa_idx15 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %14, ptr %.sroa.0.1..sroa_idx15, align 1, !alias.scope !367
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit
 
 15:                                               ; preds = %6
@@ -2307,13 +2307,13 @@ define internal fastcc void @_ZN5alloc6string6String4push17hd55aa8b09ff6dfb4E(pt
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %22, ptr %.sroa.0.1..sroa_idx11, align 1, !alias.scope !367
+  %.sroa.0.1..sroa_idx14 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %22, ptr %.sroa.0.1..sroa_idx14, align 1, !alias.scope !367
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.2..sroa_idx13 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
-  store i8 %25, ptr %.sroa.0.2..sroa_idx13, align 2, !alias.scope !367
+  %.sroa.0.2..sroa_idx16 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
+  store i8 %25, ptr %.sroa.0.2..sroa_idx16, align 2, !alias.scope !367
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit
 
 26:                                               ; preds = %6
@@ -5115,8 +5115,8 @@ _ZN10ockam_core4bare23size_of_variable_length17h4f405c59410e4404E.exit.i: ; pred
   %.sroa.10.1.i = phi ptr [ %.sroa.6.0.i, %34 ], [ %.sroa.10.0.i, %30 ]
   %.sroa.8.1.i = phi ptr [ %.sroa.0.0.i, %34 ], [ %.sroa.8.0.i, %30 ]
   %.sroa.6.1.i = phi ptr [ %.sroa.10.0.i, %34 ], [ %.sroa.6.0.i, %30 ]
-  %.sink6.i.i = phi ptr [ %.sroa.8.0.i, %34 ], [ %.sroa.0.0.i, %30 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.sink6.i.i, i64 16
+  %.sink9.i.i = phi ptr [ %.sroa.8.0.i, %34 ], [ %.sroa.0.0.i, %30 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.sink9.i.i, i64 16
   %39 = load i64, ptr %38, align 8, !alias.scope !817, !noundef !20
   br label %40
 
@@ -5129,7 +5129,7 @@ _ZN10ockam_core4bare23size_of_variable_length17h4f405c59410e4404E.exit.i: ; pred
   br i1 %43, label %_ZN10ockam_core7routing7address7Address12encoded_size17h4606c9619191ec63E.llvm.14247421389134134460.exit.i, label %40
 
 _ZN10ockam_core7routing7address7Address12encoded_size17h4606c9619191ec63E.llvm.14247421389134134460.exit.i: ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %.sink6.i.i, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %.sink9.i.i, i64 32
   %45 = add i64 %.0.i, 1
   %46 = add i64 %45, %39
   %47 = add i64 %46, %42
@@ -5189,8 +5189,8 @@ _ZN10ockam_core4bare23size_of_variable_length17h4f405c59410e4404E.exit.i28: ; pr
   %.sroa.10.1.i41 = phi ptr [ %.sroa.6.0.i38, %60 ], [ %.sroa.10.0.i36, %56 ]
   %.sroa.8.1.i42 = phi ptr [ %.sroa.0.0.i39, %60 ], [ %.sroa.8.0.i37, %56 ]
   %.sroa.6.1.i43 = phi ptr [ %.sroa.10.0.i36, %60 ], [ %.sroa.6.0.i38, %56 ]
-  %.sink6.i.i44 = phi ptr [ %.sroa.8.0.i37, %60 ], [ %.sroa.0.0.i39, %56 ]
-  %64 = getelementptr inbounds nuw i8, ptr %.sink6.i.i44, i64 16
+  %.sink9.i.i44 = phi ptr [ %.sroa.8.0.i37, %60 ], [ %.sroa.0.0.i39, %56 ]
+  %64 = getelementptr inbounds nuw i8, ptr %.sink9.i.i44, i64 16
   %65 = load i64, ptr %64, align 8, !alias.scope !823, !noundef !20
   br label %66
 
@@ -5203,7 +5203,7 @@ _ZN10ockam_core4bare23size_of_variable_length17h4f405c59410e4404E.exit.i28: ; pr
   br i1 %69, label %_ZN10ockam_core7routing7address7Address12encoded_size17h4606c9619191ec63E.llvm.14247421389134134460.exit.i47, label %66
 
 _ZN10ockam_core7routing7address7Address12encoded_size17h4606c9619191ec63E.llvm.14247421389134134460.exit.i47: ; preds = %66
-  %70 = getelementptr inbounds nuw i8, ptr %.sink6.i.i44, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.sink9.i.i44, i64 32
   %71 = add i64 %.0.i40, 1
   %72 = add i64 %71, %65
   %73 = add i64 %72, %68
@@ -5428,9 +5428,9 @@ _ZN10ockam_core4bare9write_str17h45bf16c359560f2cE.exit: ; preds = %.noexc66, %.
   br label %160
 
 160:                                              ; preds = %_ZN10ockam_core4bare9write_str17h45bf16c359560f2cE.exit, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h92a9d22a3aaf88aaE.exit64"
-  %.sink92 = phi i64 [ %144, %_ZN10ockam_core4bare9write_str17h45bf16c359560f2cE.exit ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h92a9d22a3aaf88aaE.exit64" ]
+  %.sink106 = phi i64 [ %144, %_ZN10ockam_core4bare9write_str17h45bf16c359560f2cE.exit ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h92a9d22a3aaf88aaE.exit64" ]
   %161 = load i64, ptr %92, align 8, !noundef !20
-  %162 = add i64 %161, %.sink92
+  %162 = add i64 %161, %.sink106
   store i64 %162, ptr %92, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -5523,7 +5523,7 @@ define void @"_ZN116_$LT$ockam_core..routing..message..transport_message..Transp
 28:                                               ; preds = %25
   %29 = add i64 %26, %.fca.1.extract.i.i
   %30 = icmp ugt i64 %26, %29
-  br i1 %30, label %.invoke85.i, label %31
+  br i1 %30, label %.invoke94.i, label %31
 
 31:                                               ; preds = %28
   %32 = icmp ugt i64 %29, %2
@@ -5569,19 +5569,19 @@ define void @"_ZN116_$LT$ockam_core..routing..message..transport_message..Transp
 46:                                               ; preds = %43
   %47 = add i64 %44, %.fca.1.extract.i.i.i
   %48 = icmp ugt i64 %44, %47
-  br i1 %48, label %.invoke85.i, label %49
+  br i1 %48, label %.invoke94.i, label %49
 
 49:                                               ; preds = %46
   %50 = icmp ugt i64 %47, %2
   br i1 %50, label %.invoke.i, label %54
 
-.invoke85.i:                                      ; preds = %46, %28
+.invoke94.i:                                      ; preds = %46, %28
   %51 = phi i64 [ %26, %28 ], [ %44, %46 ]
   %52 = phi i64 [ %29, %28 ], [ %47, %46 ]
   invoke void @_ZN4core5slice5index22slice_index_order_fail17he265421b305b24a6E(i64 noundef %51, i64 noundef %52, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.49e9a0265e54857feb382c85f62d0083.18.llvm.14247421389134134460) #28
-          to label %.cont86.i unwind label %77, !noalias !869
+          to label %.cont95.i unwind label %77, !noalias !869
 
-.cont86.i:                                        ; preds = %.invoke85.i
+.cont95.i:                                        ; preds = %.invoke94.i
   unreachable
 
 .invoke.i:                                        ; preds = %49, %31
@@ -5668,7 +5668,7 @@ select.unfold.i:                                  ; preds = %.noexc53.i, %43, %.
   call void @"_ZN4core3ptr105drop_in_place$LT$alloc..collections..vec_deque..VecDeque$LT$ockam_core..routing..address..Address$GT$$GT$17hf1f3ded3b59b7d0dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11), !noalias !869
   br label %79
 
-77:                                               ; preds = %62, %54, %.invoke.i, %.invoke85.i, %41, %23
+77:                                               ; preds = %62, %54, %.invoke.i, %.invoke94.i, %41, %23
   %78 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17hfc8393f5f475b9c2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #29
@@ -5812,8 +5812,8 @@ _ZN10ockam_core4bare23size_of_variable_length17h4f405c59410e4404E.exit.i: ; pred
   %.sroa.10.1.i = phi ptr [ %.sroa.6.0.i, %16 ], [ %.sroa.10.0.i, %12 ]
   %.sroa.8.1.i = phi ptr [ %.sroa.0.0.i, %16 ], [ %.sroa.8.0.i, %12 ]
   %.sroa.6.1.i = phi ptr [ %.sroa.10.0.i, %16 ], [ %.sroa.6.0.i, %12 ]
-  %.sink6.i.i = phi ptr [ %.sroa.8.0.i, %16 ], [ %.sroa.0.0.i, %12 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.sink6.i.i, i64 16
+  %.sink9.i.i = phi ptr [ %.sroa.8.0.i, %16 ], [ %.sroa.0.0.i, %12 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.sink9.i.i, i64 16
   %21 = load i64, ptr %20, align 8, !alias.scope !894, !noundef !20
   br label %22
 
@@ -5826,7 +5826,7 @@ _ZN10ockam_core4bare23size_of_variable_length17h4f405c59410e4404E.exit.i: ; pred
   br i1 %25, label %_ZN10ockam_core7routing7address7Address12encoded_size17h4606c9619191ec63E.llvm.14247421389134134460.exit.i, label %22
 
 _ZN10ockam_core7routing7address7Address12encoded_size17h4606c9619191ec63E.llvm.14247421389134134460.exit.i: ; preds = %22
-  %26 = getelementptr inbounds nuw i8, ptr %.sink6.i.i, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.sink9.i.i, i64 32
   %27 = add i64 %.0.i, 1
   %28 = add i64 %27, %21
   %29 = add i64 %28, %24
@@ -5896,8 +5896,8 @@ _ZN10ockam_core4bare23size_of_variable_length17h4f405c59410e4404E.exit.i11: ; pr
   %.sroa.10.1.i24 = phi ptr [ %.sroa.6.0.i21, %45 ], [ %.sroa.10.0.i19, %41 ]
   %.sroa.8.1.i25 = phi ptr [ %.sroa.0.0.i22, %45 ], [ %.sroa.8.0.i20, %41 ]
   %.sroa.6.1.i26 = phi ptr [ %.sroa.10.0.i19, %45 ], [ %.sroa.6.0.i21, %41 ]
-  %.sink6.i.i27 = phi ptr [ %.sroa.8.0.i20, %45 ], [ %.sroa.0.0.i22, %41 ]
-  %49 = getelementptr inbounds nuw i8, ptr %.sink6.i.i27, i64 16
+  %.sink9.i.i27 = phi ptr [ %.sroa.8.0.i20, %45 ], [ %.sroa.0.0.i22, %41 ]
+  %49 = getelementptr inbounds nuw i8, ptr %.sink9.i.i27, i64 16
   %50 = load i64, ptr %49, align 8, !alias.scope !900, !noundef !20
   br label %51
 
@@ -5910,7 +5910,7 @@ _ZN10ockam_core4bare23size_of_variable_length17h4f405c59410e4404E.exit.i11: ; pr
   br i1 %54, label %_ZN10ockam_core7routing7address7Address12encoded_size17h4606c9619191ec63E.llvm.14247421389134134460.exit.i30, label %51
 
 _ZN10ockam_core7routing7address7Address12encoded_size17h4606c9619191ec63E.llvm.14247421389134134460.exit.i30: ; preds = %51
-  %55 = getelementptr inbounds nuw i8, ptr %.sink6.i.i27, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %.sink9.i.i27, i64 32
   %56 = add i64 %.0.i23, 1
   %57 = add i64 %56, %50
   %58 = add i64 %57, %53
@@ -6333,7 +6333,7 @@ define internal void @"_ZN127_$LT$ockam_core..access_control..any..AnyIncomingAc
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i8, ptr %5, align 8, !range !33, !noundef !20
-  switch i8 %6, label %default.unreachable44 [
+  switch i8 %6, label %default.unreachable45 [
     i8 0, label %8
     i8 1, label %20
     i8 2, label %21
@@ -6347,7 +6347,7 @@ define internal void @"_ZN127_$LT$ockam_core..access_control..any..AnyIncomingAc
   %.pre43 = load ptr, ptr %.phi.trans.insert42, align 8, !alias.scope !939, !noalias !944
   br label %22
 
-default.unreachable44:                            ; preds = %3
+default.unreachable45:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %41, %7
@@ -6581,7 +6581,7 @@ define internal void @"_ZN127_$LT$ockam_core..access_control..any..AnyOutgoingAc
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i8, ptr %5, align 8, !range !33, !noundef !20
-  switch i8 %6, label %default.unreachable44 [
+  switch i8 %6, label %default.unreachable45 [
     i8 0, label %8
     i8 1, label %20
     i8 2, label %21
@@ -6595,7 +6595,7 @@ define internal void @"_ZN127_$LT$ockam_core..access_control..any..AnyOutgoingAc
   %.pre43 = load ptr, ptr %.phi.trans.insert42, align 8, !alias.scope !965, !noalias !970
   br label %22
 
-default.unreachable44:                            ; preds = %3
+default.unreachable45:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %41, %7

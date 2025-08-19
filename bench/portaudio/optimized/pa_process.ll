@@ -1213,24 +1213,24 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr noundef captu
   %83 = load ptr, ptr %2, align 8, !tbaa !49
   %84 = load ptr, ptr %15, align 8, !tbaa !34
   %85 = load ptr, ptr %84, align 8, !tbaa !49
-  %.not233346 = icmp eq ptr %85, null
-  br i1 %.not233346, label %.lr.ph282, label %.preheader267
+  %.not233350 = icmp eq ptr %85, null
+  br i1 %.not233350, label %.lr.ph282, label %.preheader267
 
 .lr.ph282:                                        ; preds = %.thread, %80
-  %.2356 = phi i32 [ 1, %.thread ], [ %.2, %80 ]
-  %.0212354 = phi i32 [ %45, %.thread ], [ %.0212, %80 ]
-  %.0213352 = phi i32 [ %40, %.thread ], [ %.0213, %80 ]
-  %.0216350 = phi ptr [ %83, %.thread ], [ %43, %80 ]
-  %.1222347 = phi ptr [ %83, %.thread ], [ %.1222, %80 ]
+  %.2360 = phi i32 [ 1, %.thread ], [ %.2, %80 ]
+  %.0212358 = phi i32 [ %45, %.thread ], [ %.0212, %80 ]
+  %.0213356 = phi i32 [ %40, %.thread ], [ %.0213, %80 ]
+  %.0216354 = phi ptr [ %83, %.thread ], [ %43, %80 ]
+  %.1222351 = phi ptr [ %83, %.thread ], [ %.1222, %80 ]
   %86 = trunc i64 %..1206 to i32
-  %87 = zext i32 %.0212354 to i64
+  %87 = zext i32 %.0212358 to i64
   br label %88
 
 88:                                               ; preds = %.lr.ph282, %88
   %.2210281 = phi i32 [ 0, %.lr.ph282 ], [ %91, %88 ]
-  %.1217280 = phi ptr [ %.0216350, %.lr.ph282 ], [ %90, %88 ]
+  %.1217280 = phi ptr [ %.0216354, %.lr.ph282 ], [ %90, %88 ]
   %89 = load ptr, ptr %21, align 8, !tbaa !28
-  tail call void %89(ptr noundef %.1217280, i32 noundef %.0213352, i32 noundef %86) #11
+  tail call void %89(ptr noundef %.1217280, i32 noundef %.0213356, i32 noundef %86) #11
   %90 = getelementptr inbounds nuw i8, ptr %.1217280, i64 %87
   %91 = add nuw i32 %.2210281, 1
   %92 = load i32, ptr %9, align 8, !tbaa !14
@@ -1242,7 +1242,7 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr noundef captu
   br i1 %.not234, label %.lr.ph, label %.preheader267
 
 .preheader267:                                    ; preds = %.thread, %94
-  %.1222348364 = phi ptr [ %.1222, %94 ], [ %83, %.thread ]
+  %.1222352368 = phi ptr [ %.1222, %94 ], [ %83, %.thread ]
   %95 = load i32, ptr %18, align 4, !tbaa !25
   %96 = zext i32 %95 to i64
   %factor.op.mul = mul i64 %..1206, %96
@@ -1294,8 +1294,8 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr noundef captu
   br i1 %123, label %106, label %.loopexit264, !llvm.loop !68
 
 .loopexit264:                                     ; preds = %99, %106, %88, %38
-  %.0221 = phi ptr [ null, %38 ], [ %.1222347, %88 ], [ %.1222, %106 ], [ %.1222348364, %99 ]
-  %.1 = phi i32 [ %.0, %38 ], [ %.2356, %88 ], [ 0, %106 ], [ 1, %99 ]
+  %.0221 = phi ptr [ null, %38 ], [ %.1222351, %88 ], [ %.1222, %106 ], [ %.1222352368, %99 ]
+  %.1 = phi i32 [ %.0, %38 ], [ %.2360, %88 ], [ 0, %106 ], [ 1, %99 ]
   %124 = load i32, ptr %22, align 8, !tbaa !15
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %158, label %126
@@ -1675,10 +1675,10 @@ define internal fastcc i64 @AdaptingProcess(ptr noundef %0, ptr noundef captures
   %76 = sub i64 %71, %72
   %.not172 = icmp eq i64 %70, 0
   %. = select i1 %.not172, i64 %73, i64 %70
-  %.237.v = select i1 %.not172, i64 216, i64 208
-  %.237 = getelementptr inbounds nuw i8, ptr %0, i64 %.237.v
+  %.249.v = select i1 %.not172, i64 216, i64 208
+  %.249 = getelementptr inbounds nuw i8, ptr %0, i64 %.249.v
   %.176 = tail call i64 @llvm.umin.i64(i64 %., i64 %76)
-  %.0153 = load ptr, ptr %.237, align 8, !tbaa !34
+  %.0153 = load ptr, ptr %.249, align 8, !tbaa !34
   %.0151 = trunc i64 %.176 to i32
   %77 = load i32, ptr %21, align 4, !tbaa !29
   %.not173 = icmp eq i32 %77, 0
@@ -1699,15 +1699,15 @@ define internal fastcc i64 @AdaptingProcess(ptr noundef %0, ptr noundef captures
 
 86:                                               ; preds = %83, %80
   %87 = phi i32 [ %81, %80 ], [ %.pre235, %83 ]
-  %.pn238.in = phi i32 [ %82, %80 ], [ %79, %83 ]
+  %.pn250.in = phi i32 [ %82, %80 ], [ %79, %83 ]
   %.0148 = phi i32 [ %81, %80 ], [ 1, %83 ]
   %.0147 = phi i32 [ %79, %80 ], [ %85, %83 ]
   %.not217 = icmp eq i32 %87, 0
   br i1 %.not217, label %._crit_edge187, label %.lr.ph186
 
 .lr.ph186:                                        ; preds = %86
-  %.pn238 = zext i32 %.pn238.in to i64
-  %.pn = mul i64 %72, %.pn238
+  %.pn250 = zext i32 %.pn250.in to i64
+  %.pn = mul i64 %72, %.pn250
   %.0149 = getelementptr inbounds nuw i8, ptr %78, i64 %.pn
   %88 = zext i32 %.0147 to i64
   br label %89
@@ -1964,7 +1964,7 @@ define internal fastcc i64 @AdaptingInputOnlyProcess(ptr noundef %0, ptr noundef
 
 45:                                               ; preds = %._crit_edge, %29
   %46 = phi i32 [ %30, %29 ], [ %35, %._crit_edge ]
-  %.pn100.in = phi i32 [ %31, %29 ], [ %28, %._crit_edge ]
+  %.pn104.in = phi i32 [ %31, %29 ], [ %28, %._crit_edge ]
   %.079 = phi i32 [ %30, %29 ], [ 1, %._crit_edge ]
   %.078 = phi i32 [ %28, %29 ], [ %34, %._crit_edge ]
   %.076 = phi ptr [ %27, %29 ], [ %44, %._crit_edge ]
@@ -1972,8 +1972,8 @@ define internal fastcc i64 @AdaptingInputOnlyProcess(ptr noundef %0, ptr noundef
   br i1 %.not92, label %._crit_edge90, label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %45
-  %.pn100 = zext i32 %.pn100.in to i64
-  %.pn = mul i64 %21, %.pn100
+  %.pn104 = zext i32 %.pn104.in to i64
+  %.pn = mul i64 %21, %.pn104
   %.080 = getelementptr inbounds nuw i8, ptr %27, i64 %.pn
   %47 = trunc i64 %25 to i32
   %48 = zext i32 %.078 to i64
@@ -2599,10 +2599,10 @@ define internal fastcc void @CopyTempOutputBuffersToHostOutputBuffers(ptr nounde
 18:                                               ; preds = %13
   %.not67 = icmp eq i64 %14, 0
   %. = select i1 %.not67, i64 %16, i64 %14
-  %.81.v = select i1 %.not67, i64 256, i64 248
-  %.81 = getelementptr inbounds nuw i8, ptr %0, i64 %.81.v
+  %.84.v = select i1 %.not67, i64 256, i64 248
+  %.84 = getelementptr inbounds nuw i8, ptr %0, i64 %.84.v
   %.70 = tail call i64 @llvm.umin.i64(i64 %., i64 %15)
-  %.061 = load ptr, ptr %.81, align 8, !tbaa !34
+  %.061 = load ptr, ptr %.84, align 8, !tbaa !34
   %.060 = trunc i64 %.70 to i32
   %19 = load i32, ptr %6, align 4, !tbaa !40
   %.not68 = icmp eq i32 %19, 0

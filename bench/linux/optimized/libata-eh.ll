@@ -3829,15 +3829,15 @@ ata_eh_clear_action.exit:                         ; preds = %218, %.loopexit3.i
   store i32 %402, ptr %265, align 8
   %403 = load i32, ptr %284, align 4
   %404 = and i32 %403, 16
-  %.not42 = icmp eq i32 %404, 0
+  %.not64 = icmp eq i32 %404, 0
   %405 = and i32 %403, -138
-  %406 = select i1 %.not42, i32 %403, i32 %405
+  %406 = select i1 %.not64, i32 %403, i32 %405
   %407 = and i32 %406, -257
-  %.not43 = icmp eq i32 %407, 0
-  %408 = select i1 %.not43, i32 %406, i32 %407
+  %.not65 = icmp eq i32 %407, 0
+  %408 = select i1 %.not65, i32 %406, i32 %407
   %409 = or i32 %404, %407
-  %.not41 = icmp eq i32 %409, 0
-  br i1 %.not41, label %411, label %410
+  %.not63 = icmp eq i32 %409, 0
+  br i1 %.not63, label %411, label %410
 
 410:                                              ; preds = %399
   store i32 %408, ptr %284, align 4
@@ -4747,7 +4747,7 @@ define dso_local void @ata_eh_report(ptr noundef %0) local_unnamed_addr #0 align
   %160 = getelementptr inbounds nuw i8, ptr %7, i64 904
   %161 = load i32, ptr %160, align 8
   %162 = icmp eq i32 %161, 0
-  br i1 %162, label %.preheader19, label %163
+  br i1 %162, label %.preheader30, label %163
 
 163:                                              ; preds = %159
   %164 = load ptr, ptr %7, align 64
@@ -4819,7 +4819,7 @@ define dso_local void @ata_eh_report(ptr noundef %0) local_unnamed_addr #0 align
   %226 = icmp eq i32 %225, 0
   %227 = select i1 %226, ptr @.str.3, ptr @.str.164
   %228 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.147, i32 noundef %174, i32 noundef %176, ptr noundef nonnull %179, ptr noundef nonnull %182, ptr noundef nonnull %185, ptr noundef nonnull %188, ptr noundef nonnull %191, ptr noundef nonnull %194, ptr noundef nonnull %197, ptr noundef nonnull %200, ptr noundef nonnull %203, ptr noundef nonnull %206, ptr noundef nonnull %209, ptr noundef nonnull %212, ptr noundef nonnull %215, ptr noundef nonnull %218, ptr noundef nonnull %221, ptr noundef nonnull %224, ptr noundef nonnull %227) #20
-  br label %.preheader19
+  br label %.preheader30
 
 229:                                              ; preds = %168
   %230 = getelementptr inbounds nuw i8, ptr %164, i64 36
@@ -4876,13 +4876,13 @@ define dso_local void @ata_eh_report(ptr noundef %0) local_unnamed_addr #0 align
   %281 = icmp eq i32 %280, 0
   %282 = select i1 %281, ptr @.str.3, ptr @.str.164
   %283 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.165, i32 noundef %231, ptr noundef nonnull %234, ptr noundef nonnull %237, ptr noundef nonnull %240, ptr noundef nonnull %243, ptr noundef nonnull %246, ptr noundef nonnull %249, ptr noundef nonnull %252, ptr noundef nonnull %255, ptr noundef nonnull %258, ptr noundef nonnull %261, ptr noundef nonnull %264, ptr noundef nonnull %267, ptr noundef nonnull %270, ptr noundef nonnull %273, ptr noundef nonnull %276, ptr noundef nonnull %279, ptr noundef nonnull %282) #20
-  br label %.preheader19
+  br label %.preheader30
 
-.preheader19:                                     ; preds = %229, %172, %159
+.preheader30:                                     ; preds = %229, %172, %159
   br label %284
 
-284:                                              ; preds = %.preheader19, %560
-  %285 = phi i64 [ %561, %560 ], [ 0, %.preheader19 ]
+284:                                              ; preds = %.preheader30, %560
+  %285 = phi i64 [ %561, %560 ], [ 0, %.preheader30 ]
   %286 = getelementptr [33 x %struct.ata_queued_cmd], ptr %17, i64 0, i64 %285
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %3, i8 0, i64 20, i1 false)

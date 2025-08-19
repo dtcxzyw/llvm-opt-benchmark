@@ -4500,8 +4500,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13SdfSchemaBase15FieldDefinition16IsValidL
 _ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit24: ; preds = %158, %161
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.0.063, i64 8
   %.not47 = icmp ne ptr %162, %20
-  %or.cond71.not = select i1 %.not17.not, i1 %.not47, i1 false
-  br i1 %or.cond71.not, label %114, label %.loopexit, !llvm.loop !16
+  %or.cond86.not = select i1 %.not17.not, i1 %.not47, i1 false
+  br i1 %or.cond86.not, label %114, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit24, %.preheader, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit23, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
   %.011 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit23 ], [ true, %.preheader ], [ %.not17.not, %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit24 ]
@@ -9279,8 +9279,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13SdfSchemaBase15FieldDefinition16IsValidL
 _ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit22: ; preds = %141, %144
   %145 = getelementptr inbounds nuw i8, ptr %.sroa.0.061, i64 64
   %.not45 = icmp ne ptr %145, %20
-  %or.cond69.not = select i1 %.not17.not, i1 %.not45, i1 false
-  br i1 %or.cond69.not, label %111, label %.loopexit, !llvm.loop !59
+  %or.cond83.not = select i1 %.not17.not, i1 %.not45, i1 false
+  br i1 %or.cond83.not, label %111, label %.loopexit, !llvm.loop !59
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit22, %.preheader, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit21, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
   %.011 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit21 ], [ true, %.preheader ], [ %.not17.not, %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit22 ]
@@ -10158,7 +10158,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 .outer:                                           ; preds = %.thread, %69
   %.03982.ph = phi i1 [ true, %.thread ], [ false, %69 ]
-  %.041.idx81.ph = phi i64 [ %.041.add87, %.thread ], [ 0, %69 ]
+  %.041.idx81.ph = phi i64 [ %.041.add94, %.thread ], [ 0, %69 ]
   br label %71
 
 71:                                               ; preds = %.outer, %104
@@ -10193,7 +10193,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 _ZN32pxrInternal_v0_24__pxrReserved__20Sdf_ListOpListEditorINS_22SdfReferenceTypePolicyEE12_ListDiffersENS_13SdfListOpTypeERKNS_9SdfListOpINS_12SdfReferenceEEES8_.exit.thread: ; preds = %74
   %90 = getelementptr inbounds nuw i8, ptr %.041.ptr83, i64 4
   store i8 1, ptr %90, align 4
-  br label %.loopexit92
+  br label %.loopexit99
 
 91:                                               ; preds = %74
   %.not9.i.i.i.i.i.i.i = icmp eq ptr %79, %78
@@ -10219,9 +10219,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__20Sdf_ListOpListEditorINS_22SdfReferenceTyp
   %96 = getelementptr inbounds nuw i8, ptr %.041.ptr83, i64 4
   %97 = zext i1 %.ph.i.i to i8
   store i8 %97, ptr %96, align 4
-  br i1 %93, label %104, label %.loopexit92
+  br i1 %93, label %104, label %.loopexit99
 
-.loopexit92:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_ListOpListEditorINS_22SdfReferenceTypePolicyEE12_ListDiffersENS_13SdfListOpTypeERKNS_9SdfListOpINS_12SdfReferenceEEES8_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_ListOpListEditorINS_22SdfReferenceTypePolicyEE12_ListDiffersENS_13SdfListOpTypeERKNS_9SdfListOpINS_12SdfReferenceEEES8_.exit.thread
+.loopexit99:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_ListOpListEditorINS_22SdfReferenceTypePolicyEE12_ListDiffersENS_13SdfListOpTypeERKNS_9SdfListOpINS_12SdfReferenceEEES8_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_ListOpListEditorINS_22SdfReferenceTypePolicyEE12_ListDiffersENS_13SdfListOpTypeERKNS_9SdfListOpINS_12SdfReferenceEEES8_.exit.thread
   %98 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_12SdfReferenceEE8GetItemsENS_13SdfListOpTypeE(ptr noundef nonnull align 8 dereferenceable(152) %70, i32 noundef %.pre)
   %99 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_12SdfReferenceEE8GetItemsENS_13SdfListOpTypeE(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %.pre)
   %100 = load ptr, ptr %0, align 8
@@ -10235,27 +10235,27 @@ _ZN32pxrInternal_v0_24__pxrReserved__20Sdf_ListOpListEditorINS_22SdfReferenceTyp
   %.not = icmp eq i64 %.041.add, 48
   br i1 %.not, label %105, label %71
 
-.thread:                                          ; preds = %.loopexit92
-  %.041.add87 = add nuw nsw i64 %.041.idx81, 8
-  %.not88 = icmp eq i64 %.041.add87, 48
-  br i1 %.not88, label %.thread90, label %.outer
+.thread:                                          ; preds = %.loopexit99
+  %.041.add94 = add nuw nsw i64 %.041.idx81, 8
+  %.not95 = icmp eq i64 %.041.add94, 48
+  br i1 %.not95, label %.thread97, label %.outer
 
 105:                                              ; preds = %104
-  br i1 %.03982.ph, label %.thread90, label %106
+  br i1 %.03982.ph, label %.thread97, label %106
 
 106:                                              ; preds = %105
   %107 = load i8, ptr %1, align 8
   %108 = load i8, ptr %70, align 8
   %109 = xor i8 %108, %107
   %110 = trunc i8 %109 to i1
-  br i1 %110, label %.thread90, label %_ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockD2Ev.exit
+  br i1 %110, label %.thread97, label %_ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockD2Ev.exit
 
-.thread90:                                        ; preds = %.thread, %106, %105
+.thread97:                                        ; preds = %.thread, %106, %105
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_12SdfReferenceEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(152) %16, ptr noundef nonnull align 8 dereferenceable(152) %1)
           to label %111 unwind label %169
 
-111:                                              ; preds = %.thread90
+111:                                              ; preds = %.thread97
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_12SdfReferenceEE4SwapERS2_(ptr noundef nonnull align 8 dereferenceable(152) %70, ptr noundef nonnull align 8 dereferenceable(152) %16)
           to label %112 unwind label %.loopexit.split-lp
 
@@ -10399,7 +10399,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %156, %161
   store ptr null, ptr %148, align 8
   br label %.preheader
 
-169:                                              ; preds = %.thread90
+169:                                              ; preds = %.thread97
   %170 = landingpad { ptr, i32 }
           cleanup
   br label %204
@@ -10515,7 +10515,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %156, %161
   call void @__clang_call_terminate(ptr %203) #24
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockD2Ev.exit: ; preds = %.loopexit92, %200, %198, %106, %54, %20
+_ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockD2Ev.exit: ; preds = %.loopexit99, %200, %198, %106, %54, %20
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %144, %179, %150, %171
@@ -13905,8 +13905,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit21: ; preds = %95, 
 _ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit22: ; preds = %120, %123
   %124 = getelementptr inbounds nuw i8, ptr %.sroa.0.061, i64 56
   %.not45 = icmp ne ptr %124, %19
-  %or.cond69.not = select i1 %.not17.not, i1 %.not45, i1 false
-  br i1 %or.cond69.not, label %108, label %.loopexit, !llvm.loop !91
+  %or.cond82.not = select i1 %.not17.not, i1 %.not45, i1 false
+  br i1 %or.cond82.not, label %108, label %.loopexit, !llvm.loop !91
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit22, %.preheader, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit21, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
   %.011 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit21 ], [ true, %.preheader ], [ %.not17.not, %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit22 ]
@@ -14730,7 +14730,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 .outer:                                           ; preds = %.thread, %69
   %.03982.ph = phi i1 [ true, %.thread ], [ false, %69 ]
-  %.041.idx81.ph = phi i64 [ %.041.add87, %.thread ], [ 0, %69 ]
+  %.041.idx81.ph = phi i64 [ %.041.add94, %.thread ], [ 0, %69 ]
   br label %71
 
 71:                                               ; preds = %.outer, %104
@@ -14765,7 +14765,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 _ZN32pxrInternal_v0_24__pxrReserved__20Sdf_ListOpListEditorINS_20SdfPayloadTypePolicyEE12_ListDiffersENS_13SdfListOpTypeERKNS_9SdfListOpINS_10SdfPayloadEEES8_.exit.thread: ; preds = %74
   %90 = getelementptr inbounds nuw i8, ptr %.041.ptr83, i64 4
   store i8 1, ptr %90, align 4
-  br label %.loopexit92
+  br label %.loopexit99
 
 91:                                               ; preds = %74
   %.not9.i.i.i.i.i.i.i = icmp eq ptr %79, %78
@@ -14791,9 +14791,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__20Sdf_ListOpListEditorINS_20SdfPayloadTypeP
   %96 = getelementptr inbounds nuw i8, ptr %.041.ptr83, i64 4
   %97 = zext i1 %.ph.i.i to i8
   store i8 %97, ptr %96, align 4
-  br i1 %93, label %104, label %.loopexit92
+  br i1 %93, label %104, label %.loopexit99
 
-.loopexit92:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_ListOpListEditorINS_20SdfPayloadTypePolicyEE12_ListDiffersENS_13SdfListOpTypeERKNS_9SdfListOpINS_10SdfPayloadEEES8_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_ListOpListEditorINS_20SdfPayloadTypePolicyEE12_ListDiffersENS_13SdfListOpTypeERKNS_9SdfListOpINS_10SdfPayloadEEES8_.exit.thread
+.loopexit99:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_ListOpListEditorINS_20SdfPayloadTypePolicyEE12_ListDiffersENS_13SdfListOpTypeERKNS_9SdfListOpINS_10SdfPayloadEEES8_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_ListOpListEditorINS_20SdfPayloadTypePolicyEE12_ListDiffersENS_13SdfListOpTypeERKNS_9SdfListOpINS_10SdfPayloadEEES8_.exit.thread
   %98 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_10SdfPayloadEE8GetItemsENS_13SdfListOpTypeE(ptr noundef nonnull align 8 dereferenceable(152) %70, i32 noundef %.pre)
   %99 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_10SdfPayloadEE8GetItemsENS_13SdfListOpTypeE(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %.pre)
   %100 = load ptr, ptr %0, align 8
@@ -14807,27 +14807,27 @@ _ZN32pxrInternal_v0_24__pxrReserved__20Sdf_ListOpListEditorINS_20SdfPayloadTypeP
   %.not = icmp eq i64 %.041.add, 48
   br i1 %.not, label %105, label %71
 
-.thread:                                          ; preds = %.loopexit92
-  %.041.add87 = add nuw nsw i64 %.041.idx81, 8
-  %.not88 = icmp eq i64 %.041.add87, 48
-  br i1 %.not88, label %.thread90, label %.outer
+.thread:                                          ; preds = %.loopexit99
+  %.041.add94 = add nuw nsw i64 %.041.idx81, 8
+  %.not95 = icmp eq i64 %.041.add94, 48
+  br i1 %.not95, label %.thread97, label %.outer
 
 105:                                              ; preds = %104
-  br i1 %.03982.ph, label %.thread90, label %106
+  br i1 %.03982.ph, label %.thread97, label %106
 
 106:                                              ; preds = %105
   %107 = load i8, ptr %1, align 8
   %108 = load i8, ptr %70, align 8
   %109 = xor i8 %108, %107
   %110 = trunc i8 %109 to i1
-  br i1 %110, label %.thread90, label %_ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockD2Ev.exit
+  br i1 %110, label %.thread97, label %_ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockD2Ev.exit
 
-.thread90:                                        ; preds = %.thread, %106, %105
+.thread97:                                        ; preds = %.thread, %106, %105
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_10SdfPayloadEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(152) %16, ptr noundef nonnull align 8 dereferenceable(152) %1)
           to label %111 unwind label %169
 
-111:                                              ; preds = %.thread90
+111:                                              ; preds = %.thread97
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_10SdfPayloadEE4SwapERS2_(ptr noundef nonnull align 8 dereferenceable(152) %70, ptr noundef nonnull align 8 dereferenceable(152) %16)
           to label %112 unwind label %.loopexit.split-lp
 
@@ -14971,7 +14971,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %156, %161
   store ptr null, ptr %148, align 8
   br label %.preheader
 
-169:                                              ; preds = %.thread90
+169:                                              ; preds = %.thread97
   %170 = landingpad { ptr, i32 }
           cleanup
   br label %204
@@ -15087,7 +15087,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %156, %161
   call void @__clang_call_terminate(ptr %203) #24
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockD2Ev.exit: ; preds = %.loopexit92, %200, %198, %106, %54, %20
+_ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockD2Ev.exit: ; preds = %.loopexit99, %200, %198, %106, %54, %20
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %144, %179, %150, %171
@@ -18384,8 +18384,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13SdfSchemaBase15FieldDefinition16IsValidL
 _ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit22: ; preds = %161, %164
   %165 = getelementptr inbounds nuw i8, ptr %.sroa.0.061, i64 8
   %.not45 = icmp ne ptr %165, %20
-  %or.cond69.not = select i1 %.not17.not, i1 %.not45, i1 false
-  br i1 %or.cond69.not, label %123, label %.loopexit, !llvm.loop !131
+  %or.cond83.not = select i1 %.not17.not, i1 %.not45, i1 false
+  br i1 %or.cond83.not, label %123, label %.loopexit, !llvm.loop !131
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit22, %.preheader, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit21, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
   %.011 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit21 ], [ true, %.preheader ], [ %.not17.not, %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit22 ]

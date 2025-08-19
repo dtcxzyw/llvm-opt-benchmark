@@ -106,7 +106,7 @@ define dso_local range(i32 0, 2) i32 @demultiplex_sideband(ptr noundef %0, i32 n
 
 25:                                               ; preds = %23
   %26 = icmp eq i32 %1, 1
-  br i1 %26, label %27, label %.thread103.sink.split
+  br i1 %26, label %27, label %.thread111.sink.split
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -157,7 +157,7 @@ define dso_local range(i32 0, 2) i32 @demultiplex_sideband(ptr noundef %0, i32 n
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %5, ptr noundef nonnull @.str.9, ptr noundef nonnull %45, ptr noundef nonnull @.str.10) #10
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 1
   tail call fastcc void @maybe_colorize_sideband(ptr noundef %5, ptr noundef nonnull %46, i32 noundef %35)
-  br label %.thread103.sink.split
+  br label %.thread111.sink.split
 
 47:                                               ; preds = %.lr.ph, %strbuf_setlen.exit
   %48 = phi ptr [ %36, %.lr.ph ], [ %82, %strbuf_setlen.exit ]
@@ -280,7 +280,7 @@ strbuf_setlen.exit:                               ; preds = %strbuf_addch.exit, 
 97:                                               ; preds = %92, %27, %16
   store i32 -2, ptr %6, align 4, !tbaa !20
   %.not83 = icmp eq i32 %4, 0
-  br i1 %.not83, label %.thread103, label %98
+  br i1 %.not83, label %.thread111, label %98
 
 98:                                               ; preds = %97
   %99 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -288,18 +288,18 @@ strbuf_setlen.exit:                               ; preds = %strbuf_addch.exit, 
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.13, ptr noundef %100) #11
   unreachable
 
-.thread103.sink.split:                            ; preds = %25, %.thread
+.thread111.sink.split:                            ; preds = %25, %.thread
   %.sink = phi i32 [ -1, %.thread ], [ 0, %25 ]
   store i32 %.sink, ptr %6, align 4, !tbaa !20
-  br label %.thread103
+  br label %.thread111
 
-.thread103:                                       ; preds = %.thread103.sink.split, %97
+.thread111:                                       ; preds = %.thread111.sink.split, %97
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %102 = load i64, ptr %101, align 8, !tbaa !13
   %.not84 = icmp eq i64 %102, 0
   br i1 %.not84, label %115, label %103
 
-103:                                              ; preds = %.thread103
+103:                                              ; preds = %.thread111
   %104 = load i64, ptr %5, align 8, !tbaa !17
   %.not.i.i85 = icmp eq i64 %104, 0
   %.neg.i87 = add i64 %102, 1
@@ -330,7 +330,7 @@ strbuf_addch.exit94:                              ; preds = %103, %strbuf_avail.
   %114 = tail call i64 @write_in_full(i32 noundef 2, ptr noundef %112, i64 noundef %113) #10
   br label %115
 
-115:                                              ; preds = %strbuf_addch.exit94, %.thread103
+115:                                              ; preds = %strbuf_addch.exit94, %.thread111
   tail call void @strbuf_release(ptr noundef nonnull %5) #10
   br label %116
 

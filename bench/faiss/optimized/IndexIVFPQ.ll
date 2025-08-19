@@ -3004,11 +3004,11 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit190:         ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit170
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.sink.split:         ; preds = %._crit_edge247, %134
-  %.sroa.0199.0.sink284 = phi ptr [ %.sroa.0208.0, %134 ], [ %.sroa.0199.0, %._crit_edge247 ]
+  %.sroa.0199.0.sink309 = phi ptr [ %.sroa.0208.0, %134 ], [ %.sroa.0199.0, %._crit_edge247 ]
   %.sroa.11.0.sink = phi i64 [ %135, %134 ], [ %.sroa.11.0, %._crit_edge247 ]
-  %273 = ptrtoint ptr %.sroa.0199.0.sink284 to i64
+  %273 = ptrtoint ptr %.sroa.0199.0.sink309 to i64
   %274 = sub i64 %.sroa.11.0.sink, %273
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0199.0.sink284, i64 noundef %274) #33
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0199.0.sink309, i64 noundef %274) #33
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.sink.split, %._crit_edge247, %._crit_edge250, %._crit_edge239
@@ -3047,7 +3047,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit198:                 ; preds = %_ZNSt6vectorIfSaIfE
 define linkonce_odr void @_ZN5faiss12AlignedTableIfLi32EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = icmp eq i64 %1, 0
-  br i1 %4, label %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread8, label %5
+  br i1 %4, label %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread9, label %5
 
 5:                                                ; preds = %2
   %6 = icmp ult i64 %1, 256
@@ -3065,7 +3065,7 @@ _ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit: ; preds = %.preheader.i
   %11 = icmp eq i64 %10, %.0.i
   br i1 %11, label %_ZN5faiss22AlignedTableTightAllocIfLi32EE6resizeEm.exit, label %.thread
 
-_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread8: ; preds = %2
+_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread9: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !159
   %14 = icmp eq i64 %13, 0
@@ -3105,7 +3105,7 @@ _ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread: ; preds = %5
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %26, ptr align 4 %27, i64 %28, i1 false)
   br label %30
 
-29:                                               ; preds = %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread8
+29:                                               ; preds = %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !19
   br label %30
@@ -3121,7 +3121,7 @@ _ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread: ; preds = %5
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5faiss22AlignedTableTightAllocIfLi32EE6resizeEm.exit
 
-_ZN5faiss22AlignedTableTightAllocIfLi32EE6resizeEm.exit: ; preds = %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread8, %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread, %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit, %30
+_ZN5faiss22AlignedTableTightAllocIfLi32EE6resizeEm.exit: ; preds = %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread9, %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit.thread, %_ZN5faiss12AlignedTableIfLi32EE14round_capacityEm.exit, %30
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %34, align 8, !tbaa !160
   ret void
@@ -3476,11 +3476,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i:        ; preds = %141
   br i1 %145, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i, label %146
 
 146:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i
-  %.sink63.i.i.i = phi float [ %134, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %125, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
+  %.sink71.i.i.i = phi float [ %134, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %125, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
   %.sink.i.i.i = phi i64 [ %137, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %127, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
   %.1.i.i.i = phi i64 [ %119, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %118, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
   %147 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i.i
-  store float %.sink63.i.i.i, ptr %147, align 4, !tbaa !138
+  store float %.sink71.i.i.i, ptr %147, align 4, !tbaa !138
   %148 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i.i
   store i64 %.sink.i.i.i, ptr %148, align 8, !tbaa !16
   %149 = shl i64 %.1.i.i.i, 1
@@ -3576,11 +3576,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i71.i:      ; preds = %191
   br i1 %195, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i75.i, label %196
 
 196:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i71.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i78.i
-  %.sink63.i.i72.i = phi float [ %184, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i78.i ], [ %175, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i71.i ]
+  %.sink71.i.i72.i = phi float [ %184, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i78.i ], [ %175, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i71.i ]
   %.sink.i.i73.i = phi i64 [ %187, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i78.i ], [ %177, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i71.i ]
   %.1.i.i74.i = phi i64 [ %169, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i78.i ], [ %168, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i71.i ]
   %197 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i69.i
-  store float %.sink63.i.i72.i, ptr %197, align 4, !tbaa !138
+  store float %.sink71.i.i72.i, ptr %197, align 4, !tbaa !138
   %198 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i69.i
   store i64 %.sink.i.i73.i, ptr %198, align 8, !tbaa !16
   %199 = shl i64 %.1.i.i74.i, 1
@@ -3676,11 +3676,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i88.i:      ; preds = %241
   br i1 %245, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i92.i, label %246
 
 246:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i88.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i95.i
-  %.sink63.i.i89.i = phi float [ %234, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i95.i ], [ %225, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i88.i ]
+  %.sink71.i.i89.i = phi float [ %234, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i95.i ], [ %225, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i88.i ]
   %.sink.i.i90.i = phi i64 [ %237, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i95.i ], [ %227, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i88.i ]
   %.1.i.i91.i = phi i64 [ %219, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i95.i ], [ %218, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i88.i ]
   %247 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i86.i
-  store float %.sink63.i.i89.i, ptr %247, align 4, !tbaa !138
+  store float %.sink71.i.i89.i, ptr %247, align 4, !tbaa !138
   %248 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i86.i
   store i64 %.sink.i.i90.i, ptr %248, align 8, !tbaa !16
   %249 = shl i64 %.1.i.i91.i, 1
@@ -3776,11 +3776,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i105.i:     ; preds = %291
   br i1 %295, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i109.i, label %296
 
 296:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i105.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i112.i
-  %.sink63.i.i106.i = phi float [ %284, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i112.i ], [ %275, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i105.i ]
+  %.sink71.i.i106.i = phi float [ %284, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i112.i ], [ %275, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i105.i ]
   %.sink.i.i107.i = phi i64 [ %287, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i112.i ], [ %277, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i105.i ]
   %.1.i.i108.i = phi i64 [ %269, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i112.i ], [ %268, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i105.i ]
   %297 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i103.i
-  store float %.sink63.i.i106.i, ptr %297, align 4, !tbaa !138
+  store float %.sink71.i.i106.i, ptr %297, align 4, !tbaa !138
   %298 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i103.i
   store i64 %.sink.i.i107.i, ptr %298, align 8, !tbaa !16
   %299 = shl i64 %.1.i.i108.i, 1
@@ -3921,11 +3921,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i125.i:     ; preds = %364
   br i1 %368, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i129.i, label %369
 
 369:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i125.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i132.i
-  %.sink63.i.i126.i = phi float [ %357, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i132.i ], [ %348, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i125.i ]
+  %.sink71.i.i126.i = phi float [ %357, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i132.i ], [ %348, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i125.i ]
   %.sink.i.i127.i = phi i64 [ %360, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i132.i ], [ %350, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i125.i ]
   %.1.i.i128.i = phi i64 [ %342, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i132.i ], [ %341, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i125.i ]
   %370 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i123.i
-  store float %.sink63.i.i126.i, ptr %370, align 4, !tbaa !138
+  store float %.sink71.i.i126.i, ptr %370, align 4, !tbaa !138
   %371 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i123.i
   store i64 %.sink.i.i127.i, ptr %371, align 8, !tbaa !16
   %372 = shl i64 %.1.i.i128.i, 1
@@ -4055,11 +4055,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i151.i:     ; preds = %431
   br i1 %435, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i155.i, label %436
 
 436:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i151.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i158.i
-  %.sink63.i.i152.i = phi float [ %424, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i158.i ], [ %415, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i151.i ]
+  %.sink71.i.i152.i = phi float [ %424, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i158.i ], [ %415, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i151.i ]
   %.sink.i.i153.i = phi i64 [ %427, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i158.i ], [ %417, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i151.i ]
   %.1.i.i154.i = phi i64 [ %409, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i158.i ], [ %408, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i151.i ]
   %437 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i149.i
-  store float %.sink63.i.i152.i, ptr %437, align 4, !tbaa !138
+  store float %.sink71.i.i152.i, ptr %437, align 4, !tbaa !138
   %438 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i149.i
   store i64 %.sink.i.i153.i, ptr %438, align 8, !tbaa !16
   %439 = shl i64 %.1.i.i154.i, 1
@@ -4189,11 +4189,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i177.i:     ; preds = %499
   br i1 %503, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i181.i, label %504
 
 504:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i177.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i184.i
-  %.sink63.i.i178.i = phi float [ %492, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i184.i ], [ %483, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i177.i ]
+  %.sink71.i.i178.i = phi float [ %492, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i184.i ], [ %483, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i177.i ]
   %.sink.i.i179.i = phi i64 [ %495, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i184.i ], [ %485, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i177.i ]
   %.1.i.i180.i = phi i64 [ %477, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i184.i ], [ %476, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i177.i ]
   %505 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i175.i
-  store float %.sink63.i.i178.i, ptr %505, align 4, !tbaa !138
+  store float %.sink71.i.i178.i, ptr %505, align 4, !tbaa !138
   %506 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i175.i
   store i64 %.sink.i.i179.i, ptr %506, align 8, !tbaa !16
   %507 = shl i64 %.1.i.i180.i, 1
@@ -4314,11 +4314,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i32:      ; preds = %563
   br i1 %567, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i36, label %568
 
 568:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i32, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i39
-  %.sink63.i.i.i33 = phi float [ %556, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i39 ], [ %547, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i32 ]
+  %.sink71.i.i.i33 = phi float [ %556, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i39 ], [ %547, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i32 ]
   %.sink.i.i.i34 = phi i64 [ %559, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i39 ], [ %549, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i32 ]
   %.1.i.i.i35 = phi i64 [ %541, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i39 ], [ %540, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i32 ]
   %569 = getelementptr inbounds nuw float, ptr %518, i64 %.056.i.i.i30
-  store float %.sink63.i.i.i33, ptr %569, align 4, !tbaa !138
+  store float %.sink71.i.i.i33, ptr %569, align 4, !tbaa !138
   %570 = getelementptr inbounds nuw i64, ptr %519, i64 %.056.i.i.i30
   store i64 %.sink.i.i.i34, ptr %570, align 8, !tbaa !16
   %571 = shl i64 %.1.i.i.i35, 1
@@ -4488,11 +4488,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i54:      ; preds = %667
   br i1 %671, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i58, label %672
 
 672:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i54, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i61
-  %.sink63.i.i.i55 = phi float [ %660, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i61 ], [ %651, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i54 ]
+  %.sink71.i.i.i55 = phi float [ %660, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i61 ], [ %651, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i54 ]
   %.sink.i.i.i56 = phi i64 [ %663, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i61 ], [ %653, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i54 ]
   %.1.i.i.i57 = phi i64 [ %645, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i61 ], [ %644, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i54 ]
   %673 = getelementptr inbounds nuw float, ptr %621, i64 %.056.i.i.i52
-  store float %.sink63.i.i.i55, ptr %673, align 4, !tbaa !138
+  store float %.sink71.i.i.i55, ptr %673, align 4, !tbaa !138
   %674 = getelementptr inbounds nuw i64, ptr %622, i64 %.056.i.i.i52
   store i64 %.sink.i.i.i56, ptr %674, align 8, !tbaa !16
   %675 = shl i64 %.1.i.i.i57, 1
@@ -4665,7 +4665,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0E
   br label %62
 
 .preheader147.i.i.i.i:                            ; preds = %216
-  %61 = zext i32 %.188.i.i.i.i to i64
+  %61 = zext nneg i32 %.188.i.i.i.i to i64
   %.not168.i.i.i.i = icmp eq i32 %.188.i.i.i.i, 0
   br i1 %.not168.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph161.i.i.i.i
 
@@ -5103,7 +5103,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %314
 
 .preheader147.i.i39.i.i:                          ; preds = %472
-  %313 = zext i32 %.188.i.i37.i.i to i64
+  %313 = zext nneg i32 %.188.i.i37.i.i to i64
   %.not168.i.i40.i.i = icmp eq i32 %.188.i.i37.i.i, 0
   br i1 %.not168.i.i40.i.i, label %.preheader.i.i57.i.i, label %.lr.ph161.i.i42.i.i
 
@@ -5548,7 +5548,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %573
 
 .preheader151.i.i.i.i:                            ; preds = %755
-  %572 = zext i32 %.188.i.i112.i.i to i64
+  %572 = zext nneg i32 %.188.i.i112.i.i to i64
   %.not172.i.i.i.i = icmp eq i32 %.188.i.i112.i.i, 0
   br i1 %.not172.i.i.i.i, label %.preheader.i.i127.i.i, label %.lr.ph165.i.i.i.i
 
@@ -6025,7 +6025,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %864
 
 .preheader155.i.i.i.i:                            ; preds = %1066
-  %863 = zext i32 %.188.i.i172.i.i to i64
+  %863 = zext nneg i32 %.188.i.i172.i.i to i64
   %.not176.i.i.i.i = icmp eq i32 %.188.i.i172.i.i, 0
   br i1 %.not176.i.i.i.i, label %.preheader.i.i187.i.i, label %.lr.ph169.i.i.i.i
 
@@ -6529,7 +6529,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %1182
 
 .preheader159.i.i.i.i:                            ; preds = %1412
-  %1181 = zext i32 %.188.i.i232.i.i to i64
+  %1181 = zext nneg i32 %.188.i.i232.i.i to i64
   %.not180.i.i.i.i = icmp eq i32 %.188.i.i232.i.i, 0
   br i1 %.not180.i.i.i.i, label %.preheader.i.i247.i.i, label %.lr.ph173.i.i.i.i
 
@@ -7076,7 +7076,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %1543
 
 .preheader175.i.i.i.i:                            ; preds = %1869
-  %1542 = zext i32 %.188.i.i292.i.i to i64
+  %1542 = zext nneg i32 %.188.i.i292.i.i to i64
   %.not196.i.i.i.i = icmp eq i32 %.188.i.i292.i.i, 0
   br i1 %.not196.i.i.i.i, label %.preheader.i.i307.i.i, label %.lr.ph189.i.i.i.i
 
@@ -7736,7 +7736,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %2013
 
 .preheader143.i.i.i.i:                            ; preds = %2159
-  %2012 = zext i32 %.188.i.i348.i.i to i64
+  %2012 = zext nneg i32 %.188.i.i348.i.i to i64
   %.not164.i.i.i.i = icmp eq i32 %.188.i.i348.i.i, 0
   br i1 %.not164.i.i.i.i, label %.preheader.i.i363.i.i, label %.lr.ph157.i.i.i.i
 
@@ -8886,8 +8886,8 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10Index
   %26 = shl nsw i32 %5, 1
   %27 = sext i32 %26 to i64
   %28 = add i64 %25, %27
-  %.not6 = icmp eq i64 %28, 0
-  br i1 %.not6, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %29
+  %.not15 = icmp eq i64 %28, 0
+  br i1 %.not15, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %29
 
 29:                                               ; preds = %2
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %28)
@@ -9050,7 +9050,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1, !tbaa !72
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %21 = add i64 %11, -1
+  %21 = add nsw i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
 
@@ -9159,13 +9159,13 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4, !tbaa !138
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !138
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -9260,13 +9260,13 @@ define linkonce_odr void @_ZNSt6vectorIPKfSaIS1_EE17_M_default_appendEm(ptr noun
 19:                                               ; preds = %3
   store ptr null, ptr %5, align 8, !tbaa !19
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPPKfmS1_ET_S3_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPPKfmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPPKfmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -10026,11 +10026,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %102 = load i64, ptr %101, align 8, !tbaa !164
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %104 = load ptr, ptr %103, align 8
-  %sext101.i = shl i64 %95, 32
-  %105 = ashr exact i64 %sext101.i, 32
+  %sext110.i = shl i64 %95, 32
+  %105 = ashr exact i64 %sext110.i, 32
   %106 = icmp sgt i32 %96, 0
   %factor.op.mul.i = mul i64 %102, %105
-  %factor.op.mul103.i = mul i64 %102, %92
+  %factor.op.mul112.i = mul i64 %102, %92
   br i1 %106, label %.lr.ph.preheader.i.us.preheader, label %.loopexit.i
 
 .lr.ph.preheader.i.us.preheader:                  ; preds = %88
@@ -10047,9 +10047,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %110 = and i64 %.04178.i.us, %99
   %sext.i.us = shl i64 %110, 32
   %111 = ashr exact i64 %sext.i.us, 32
-  %.reass104.i.us = mul i64 %factor.op.mul103.i, %111
+  %.reass113.i.us = mul i64 %factor.op.mul112.i, %111
   %.reass.i.us = mul i64 %factor.op.mul.i, %indvars.iv90.i.us
-  %112 = getelementptr float, ptr %109, i64 %.reass104.i.us
+  %112 = getelementptr float, ptr %109, i64 %.reass113.i.us
   %113 = getelementptr float, ptr %112, i64 %.reass.i.us
   br label %.lr.ph.i.us
 
@@ -10340,7 +10340,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   br label %81
 
 .preheader223.i.i:                                ; preds = %398
-  %45 = zext i32 %.188.i.i to i64
+  %45 = zext nneg i32 %.188.i.i to i64
   %.not244.i.i = icmp eq i32 %.188.i.i, 0
   br i1 %.not244.i.i, label %.preheader.i.i, label %.lr.ph237.i.i
 
@@ -10664,11 +10664,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i:      ; preds = %236
   br i1 %240, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i, label %241
 
 241:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i
-  %.sink63.i.i.i.i = phi float [ %229, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %220, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
+  %.sink71.i.i.i.i = phi float [ %229, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %220, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
   %.sink.i.i.i.i = phi i64 [ %232, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %222, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
   %.1.i.i.i.i = phi i64 [ %214, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %213, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
   %242 = getelementptr inbounds nuw float, ptr %41, i64 %.056.i.i.i.i
-  store float %.sink63.i.i.i.i, ptr %242, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i, ptr %242, align 4, !tbaa !138
   %243 = getelementptr inbounds nuw i64, ptr %42, i64 %.056.i.i.i.i
   store i64 %.sink.i.i.i.i, ptr %243, align 8, !tbaa !16
   %244 = shl i64 %.1.i.i.i.i, 1
@@ -10762,11 +10762,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i:   ; preds = %284
   br i1 %288, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i, label %289
 
 289:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i
-  %.sink63.i.i114.i.i = phi float [ %277, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i ], [ %268, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i ]
+  %.sink71.i.i114.i.i = phi float [ %277, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i ], [ %268, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i ]
   %.sink.i.i115.i.i = phi i64 [ %280, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i ], [ %270, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i ]
   %.1.i.i116.i.i = phi i64 [ %262, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i ], [ %261, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i ]
   %290 = getelementptr inbounds nuw float, ptr %41, i64 %.056.i.i111.i.i
-  store float %.sink63.i.i114.i.i, ptr %290, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i, ptr %290, align 4, !tbaa !138
   %291 = getelementptr inbounds nuw i64, ptr %42, i64 %.056.i.i111.i.i
   store i64 %.sink.i.i115.i.i, ptr %291, align 8, !tbaa !16
   %292 = shl i64 %.1.i.i116.i.i, 1
@@ -10860,11 +10860,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i:   ; preds = %332
   br i1 %336, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i, label %337
 
 337:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i
-  %.sink63.i.i131.i.i = phi float [ %325, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i ], [ %316, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i ]
+  %.sink71.i.i131.i.i = phi float [ %325, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i ], [ %316, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i ]
   %.sink.i.i132.i.i = phi i64 [ %328, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i ], [ %318, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i ]
   %.1.i.i133.i.i = phi i64 [ %310, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i ], [ %309, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i ]
   %338 = getelementptr inbounds nuw float, ptr %41, i64 %.056.i.i128.i.i
-  store float %.sink63.i.i131.i.i, ptr %338, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i, ptr %338, align 4, !tbaa !138
   %339 = getelementptr inbounds nuw i64, ptr %42, i64 %.056.i.i128.i.i
   store i64 %.sink.i.i132.i.i, ptr %339, align 8, !tbaa !16
   %340 = shl i64 %.1.i.i133.i.i, 1
@@ -10958,11 +10958,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i:   ; preds = %380
   br i1 %384, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i, label %385
 
 385:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i
-  %.sink63.i.i148.i.i = phi float [ %373, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i ], [ %364, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i ]
+  %.sink71.i.i148.i.i = phi float [ %373, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i ], [ %364, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i ]
   %.sink.i.i149.i.i = phi i64 [ %376, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i ], [ %366, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i ]
   %.1.i.i150.i.i = phi i64 [ %358, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i ], [ %357, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i ]
   %386 = getelementptr inbounds nuw float, ptr %41, i64 %.056.i.i145.i.i
-  store float %.sink63.i.i148.i.i, ptr %386, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i, ptr %386, align 4, !tbaa !138
   %387 = getelementptr inbounds nuw i64, ptr %42, i64 %.056.i.i145.i.i
   store i64 %.sink.i.i149.i.i, ptr %387, align 8, !tbaa !16
   %388 = shl i64 %.1.i.i150.i.i, 1
@@ -11128,11 +11128,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i:   ; preds = %460
   br i1 %464, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i, label %465
 
 465:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i
-  %.sink63.i.i168.i.i = phi float [ %453, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i ], [ %444, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i ]
+  %.sink71.i.i168.i.i = phi float [ %453, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i ], [ %444, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i ]
   %.sink.i.i169.i.i = phi i64 [ %456, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i ], [ %446, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i ]
   %.1.i.i170.i.i = phi i64 [ %438, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i ], [ %437, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i ]
   %466 = getelementptr inbounds nuw float, ptr %41, i64 %.056.i.i165.i.i
-  store float %.sink63.i.i168.i.i, ptr %466, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i, ptr %466, align 4, !tbaa !138
   %467 = getelementptr inbounds nuw i64, ptr %42, i64 %.056.i.i165.i.i
   store i64 %.sink.i.i169.i.i, ptr %467, align 8, !tbaa !16
   %468 = shl i64 %.1.i.i170.i.i, 1
@@ -11270,11 +11270,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i:   ; preds = %535
   br i1 %539, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i, label %540
 
 540:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i
-  %.sink63.i.i194.i.i = phi float [ %528, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i ], [ %519, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i ]
+  %.sink71.i.i194.i.i = phi float [ %528, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i ], [ %519, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i ]
   %.sink.i.i195.i.i = phi i64 [ %531, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i ], [ %521, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i ]
   %.1.i.i196.i.i = phi i64 [ %513, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i ], [ %512, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i ]
   %541 = getelementptr inbounds nuw float, ptr %405, i64 %.056.i.i191.i.i
-  store float %.sink63.i.i194.i.i, ptr %541, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i, ptr %541, align 4, !tbaa !138
   %542 = getelementptr inbounds nuw i64, ptr %406, i64 %.056.i.i191.i.i
   store i64 %.sink.i.i195.i.i, ptr %542, align 8, !tbaa !16
   %543 = shl i64 %.1.i.i196.i.i, 1
@@ -11341,7 +11341,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %611
 
 .preheader223.i.i44:                              ; preds = %932
-  %575 = zext i32 %.188.i.i42 to i64
+  %575 = zext nneg i32 %.188.i.i42 to i64
   %.not244.i.i45 = icmp eq i32 %.188.i.i42, 0
   br i1 %.not244.i.i45, label %.preheader.i.i64, label %.lr.ph237.i.i46
 
@@ -11669,11 +11669,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i199:   ; preds = %770
   br i1 %774, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i203, label %775
 
 775:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i199, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i208
-  %.sink63.i.i.i.i200 = phi float [ %763, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i208 ], [ %754, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i199 ]
+  %.sink71.i.i.i.i200 = phi float [ %763, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i208 ], [ %754, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i199 ]
   %.sink.i.i.i.i201 = phi i64 [ %766, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i208 ], [ %756, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i199 ]
   %.1.i.i.i.i202 = phi i64 [ %748, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i208 ], [ %747, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i199 ]
   %776 = getelementptr inbounds nuw float, ptr %571, i64 %.056.i.i.i.i197
-  store float %.sink63.i.i.i.i200, ptr %776, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i200, ptr %776, align 4, !tbaa !138
   %777 = getelementptr inbounds nuw i64, ptr %572, i64 %.056.i.i.i.i197
   store i64 %.sink.i.i.i.i201, ptr %777, align 8, !tbaa !16
   %778 = shl i64 %.1.i.i.i.i202, 1
@@ -11767,11 +11767,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i184: ; preds = %818
   br i1 %822, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i188, label %823
 
 823:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i184, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i193
-  %.sink63.i.i114.i.i185 = phi float [ %811, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i193 ], [ %802, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i184 ]
+  %.sink71.i.i114.i.i185 = phi float [ %811, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i193 ], [ %802, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i184 ]
   %.sink.i.i115.i.i186 = phi i64 [ %814, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i193 ], [ %804, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i184 ]
   %.1.i.i116.i.i187 = phi i64 [ %796, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i193 ], [ %795, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i184 ]
   %824 = getelementptr inbounds nuw float, ptr %571, i64 %.056.i.i111.i.i182
-  store float %.sink63.i.i114.i.i185, ptr %824, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i185, ptr %824, align 4, !tbaa !138
   %825 = getelementptr inbounds nuw i64, ptr %572, i64 %.056.i.i111.i.i182
   store i64 %.sink.i.i115.i.i186, ptr %825, align 8, !tbaa !16
   %826 = shl i64 %.1.i.i116.i.i187, 1
@@ -11865,11 +11865,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i169: ; preds = %866
   br i1 %870, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i173, label %871
 
 871:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i169, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i178
-  %.sink63.i.i131.i.i170 = phi float [ %859, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i178 ], [ %850, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i169 ]
+  %.sink71.i.i131.i.i170 = phi float [ %859, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i178 ], [ %850, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i169 ]
   %.sink.i.i132.i.i171 = phi i64 [ %862, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i178 ], [ %852, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i169 ]
   %.1.i.i133.i.i172 = phi i64 [ %844, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i178 ], [ %843, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i169 ]
   %872 = getelementptr inbounds nuw float, ptr %571, i64 %.056.i.i128.i.i167
-  store float %.sink63.i.i131.i.i170, ptr %872, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i170, ptr %872, align 4, !tbaa !138
   %873 = getelementptr inbounds nuw i64, ptr %572, i64 %.056.i.i128.i.i167
   store i64 %.sink.i.i132.i.i171, ptr %873, align 8, !tbaa !16
   %874 = shl i64 %.1.i.i133.i.i172, 1
@@ -11963,11 +11963,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i156: ; preds = %914
   br i1 %918, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i160, label %919
 
 919:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i156, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i163
-  %.sink63.i.i148.i.i157 = phi float [ %907, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i163 ], [ %898, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i156 ]
+  %.sink71.i.i148.i.i157 = phi float [ %907, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i163 ], [ %898, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i156 ]
   %.sink.i.i149.i.i158 = phi i64 [ %910, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i163 ], [ %900, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i156 ]
   %.1.i.i150.i.i159 = phi i64 [ %892, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i163 ], [ %891, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i156 ]
   %920 = getelementptr inbounds nuw float, ptr %571, i64 %.056.i.i145.i.i154
-  store float %.sink63.i.i148.i.i157, ptr %920, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i157, ptr %920, align 4, !tbaa !138
   %921 = getelementptr inbounds nuw i64, ptr %572, i64 %.056.i.i145.i.i154
   store i64 %.sink.i.i149.i.i158, ptr %921, align 8, !tbaa !16
   %922 = shl i64 %.1.i.i150.i.i159, 1
@@ -12133,11 +12133,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i105: ; preds = %994
   br i1 %998, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i109, label %999
 
 999:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i105, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i112
-  %.sink63.i.i168.i.i106 = phi float [ %987, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i112 ], [ %978, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i105 ]
+  %.sink71.i.i168.i.i106 = phi float [ %987, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i112 ], [ %978, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i105 ]
   %.sink.i.i169.i.i107 = phi i64 [ %990, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i112 ], [ %980, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i105 ]
   %.1.i.i170.i.i108 = phi i64 [ %972, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i112 ], [ %971, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i105 ]
   %1000 = getelementptr inbounds nuw float, ptr %571, i64 %.056.i.i165.i.i103
-  store float %.sink63.i.i168.i.i106, ptr %1000, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i106, ptr %1000, align 4, !tbaa !138
   %1001 = getelementptr inbounds nuw i64, ptr %572, i64 %.056.i.i165.i.i103
   store i64 %.sink.i.i169.i.i107, ptr %1001, align 8, !tbaa !16
   %1002 = shl i64 %.1.i.i170.i.i108, 1
@@ -12276,11 +12276,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i91: ; preds = %1070
   br i1 %1074, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i95, label %1075
 
 1075:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i91, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i98
-  %.sink63.i.i194.i.i92 = phi float [ %1063, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i98 ], [ %1054, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i91 ]
+  %.sink71.i.i194.i.i92 = phi float [ %1063, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i98 ], [ %1054, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i91 ]
   %.sink.i.i195.i.i93 = phi i64 [ %1066, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i98 ], [ %1056, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i91 ]
   %.1.i.i196.i.i94 = phi i64 [ %1048, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i98 ], [ %1047, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i91 ]
   %1076 = getelementptr inbounds nuw float, ptr %939, i64 %.056.i.i191.i.i89
-  store float %.sink63.i.i194.i.i92, ptr %1076, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i92, ptr %1076, align 4, !tbaa !138
   %1077 = getelementptr inbounds nuw i64, ptr %940, i64 %.056.i.i191.i.i89
   store i64 %.sink.i.i195.i.i93, ptr %1077, align 8, !tbaa !16
   %1078 = shl i64 %.1.i.i196.i.i94, 1
@@ -12349,7 +12349,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %1148
 
 .preheader227.i.i:                                ; preds = %1493
-  %1112 = zext i32 %.188.i.i222 to i64
+  %1112 = zext nneg i32 %.188.i.i222 to i64
   %.not248.i.i = icmp eq i32 %.188.i.i222, 0
   br i1 %.not248.i.i, label %.preheader.i.i239, label %.lr.ph241.i.i
 
@@ -12701,11 +12701,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i360:   ; preds = %1331
   br i1 %1335, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i364, label %1336
 
 1336:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i360, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i369
-  %.sink63.i.i.i.i361 = phi float [ %1324, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i369 ], [ %1315, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i360 ]
+  %.sink71.i.i.i.i361 = phi float [ %1324, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i369 ], [ %1315, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i360 ]
   %.sink.i.i.i.i362 = phi i64 [ %1327, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i369 ], [ %1317, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i360 ]
   %.1.i.i.i.i363 = phi i64 [ %1309, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i369 ], [ %1308, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i360 ]
   %1337 = getelementptr inbounds nuw float, ptr %1108, i64 %.056.i.i.i.i358
-  store float %.sink63.i.i.i.i361, ptr %1337, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i361, ptr %1337, align 4, !tbaa !138
   %1338 = getelementptr inbounds nuw i64, ptr %1109, i64 %.056.i.i.i.i358
   store i64 %.sink.i.i.i.i362, ptr %1338, align 8, !tbaa !16
   %1339 = shl i64 %.1.i.i.i.i363, 1
@@ -12799,11 +12799,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i347: ; preds = %1379
   br i1 %1383, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i351, label %1384
 
 1384:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i347, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i354
-  %.sink63.i.i114.i.i348 = phi float [ %1372, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i354 ], [ %1363, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i347 ]
+  %.sink71.i.i114.i.i348 = phi float [ %1372, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i354 ], [ %1363, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i347 ]
   %.sink.i.i115.i.i349 = phi i64 [ %1375, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i354 ], [ %1365, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i347 ]
   %.1.i.i116.i.i350 = phi i64 [ %1357, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i354 ], [ %1356, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i347 ]
   %1385 = getelementptr inbounds nuw float, ptr %1108, i64 %.056.i.i111.i.i345
-  store float %.sink63.i.i114.i.i348, ptr %1385, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i348, ptr %1385, align 4, !tbaa !138
   %1386 = getelementptr inbounds nuw i64, ptr %1109, i64 %.056.i.i111.i.i345
   store i64 %.sink.i.i115.i.i349, ptr %1386, align 8, !tbaa !16
   %1387 = shl i64 %.1.i.i116.i.i350, 1
@@ -12897,11 +12897,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i334: ; preds = %1427
   br i1 %1431, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i338, label %1432
 
 1432:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i334, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i341
-  %.sink63.i.i131.i.i335 = phi float [ %1420, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i341 ], [ %1411, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i334 ]
+  %.sink71.i.i131.i.i335 = phi float [ %1420, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i341 ], [ %1411, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i334 ]
   %.sink.i.i132.i.i336 = phi i64 [ %1423, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i341 ], [ %1413, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i334 ]
   %.1.i.i133.i.i337 = phi i64 [ %1405, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i341 ], [ %1404, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i334 ]
   %1433 = getelementptr inbounds nuw float, ptr %1108, i64 %.056.i.i128.i.i332
-  store float %.sink63.i.i131.i.i335, ptr %1433, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i335, ptr %1433, align 4, !tbaa !138
   %1434 = getelementptr inbounds nuw i64, ptr %1109, i64 %.056.i.i128.i.i332
   store i64 %.sink.i.i132.i.i336, ptr %1434, align 8, !tbaa !16
   %1435 = shl i64 %.1.i.i133.i.i337, 1
@@ -12995,11 +12995,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i321: ; preds = %1475
   br i1 %1479, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i325, label %1480
 
 1480:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i321, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i328
-  %.sink63.i.i148.i.i322 = phi float [ %1468, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i328 ], [ %1459, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i321 ]
+  %.sink71.i.i148.i.i322 = phi float [ %1468, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i328 ], [ %1459, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i321 ]
   %.sink.i.i149.i.i323 = phi i64 [ %1471, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i328 ], [ %1461, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i321 ]
   %.1.i.i150.i.i324 = phi i64 [ %1453, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i328 ], [ %1452, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i321 ]
   %1481 = getelementptr inbounds nuw float, ptr %1108, i64 %.056.i.i145.i.i319
-  store float %.sink63.i.i148.i.i322, ptr %1481, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i322, ptr %1481, align 4, !tbaa !138
   %1482 = getelementptr inbounds nuw i64, ptr %1109, i64 %.056.i.i145.i.i319
   store i64 %.sink.i.i149.i.i323, ptr %1482, align 8, !tbaa !16
   %1483 = shl i64 %.1.i.i150.i.i324, 1
@@ -13165,11 +13165,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i276: ; preds = %1555
   br i1 %1559, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i280, label %1560
 
 1560:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i276, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i283
-  %.sink63.i.i168.i.i277 = phi float [ %1548, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i283 ], [ %1539, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i276 ]
+  %.sink71.i.i168.i.i277 = phi float [ %1548, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i283 ], [ %1539, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i276 ]
   %.sink.i.i169.i.i278 = phi i64 [ %1551, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i283 ], [ %1541, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i276 ]
   %.1.i.i170.i.i279 = phi i64 [ %1533, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i283 ], [ %1532, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i276 ]
   %1561 = getelementptr inbounds nuw float, ptr %1108, i64 %.056.i.i165.i.i274
-  store float %.sink63.i.i168.i.i277, ptr %1561, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i277, ptr %1561, align 4, !tbaa !138
   %1562 = getelementptr inbounds nuw i64, ptr %1109, i64 %.056.i.i165.i.i274
   store i64 %.sink.i.i169.i.i278, ptr %1562, align 8, !tbaa !16
   %1563 = shl i64 %.1.i.i170.i.i279, 1
@@ -13314,11 +13314,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i262: ; preds = %1637
   br i1 %1641, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i266, label %1642
 
 1642:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i262, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i269
-  %.sink63.i.i194.i.i263 = phi float [ %1630, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i269 ], [ %1621, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i262 ]
+  %.sink71.i.i194.i.i263 = phi float [ %1630, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i269 ], [ %1621, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i262 ]
   %.sink.i.i195.i.i264 = phi i64 [ %1633, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i269 ], [ %1623, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i262 ]
   %.1.i.i196.i.i265 = phi i64 [ %1615, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i269 ], [ %1614, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i262 ]
   %1643 = getelementptr inbounds nuw float, ptr %1500, i64 %.056.i.i191.i.i260
-  store float %.sink63.i.i194.i.i263, ptr %1643, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i263, ptr %1643, align 4, !tbaa !138
   %1644 = getelementptr inbounds nuw i64, ptr %1501, i64 %.056.i.i191.i.i260
   store i64 %.sink.i.i195.i.i264, ptr %1644, align 8, !tbaa !16
   %1645 = shl i64 %.1.i.i196.i.i265, 1
@@ -13389,7 +13389,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %1717
 
 .preheader231.i.i:                                ; preds = %2082
-  %1681 = zext i32 %.188.i.i383 to i64
+  %1681 = zext nneg i32 %.188.i.i383 to i64
   %.not252.i.i = icmp eq i32 %.188.i.i383, 0
   br i1 %.not252.i.i, label %.preheader.i.i400, label %.lr.ph245.i.i
 
@@ -13761,11 +13761,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i521:   ; preds = %1920
   br i1 %1924, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i525, label %1925
 
 1925:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i521, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i530
-  %.sink63.i.i.i.i522 = phi float [ %1913, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i530 ], [ %1904, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i521 ]
+  %.sink71.i.i.i.i522 = phi float [ %1913, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i530 ], [ %1904, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i521 ]
   %.sink.i.i.i.i523 = phi i64 [ %1916, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i530 ], [ %1906, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i521 ]
   %.1.i.i.i.i524 = phi i64 [ %1898, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i530 ], [ %1897, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i521 ]
   %1926 = getelementptr inbounds nuw float, ptr %1677, i64 %.056.i.i.i.i519
-  store float %.sink63.i.i.i.i522, ptr %1926, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i522, ptr %1926, align 4, !tbaa !138
   %1927 = getelementptr inbounds nuw i64, ptr %1678, i64 %.056.i.i.i.i519
   store i64 %.sink.i.i.i.i523, ptr %1927, align 8, !tbaa !16
   %1928 = shl i64 %.1.i.i.i.i524, 1
@@ -13859,11 +13859,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i508: ; preds = %1968
   br i1 %1972, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i512, label %1973
 
 1973:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i508, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i515
-  %.sink63.i.i114.i.i509 = phi float [ %1961, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i515 ], [ %1952, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i508 ]
+  %.sink71.i.i114.i.i509 = phi float [ %1961, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i515 ], [ %1952, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i508 ]
   %.sink.i.i115.i.i510 = phi i64 [ %1964, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i515 ], [ %1954, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i508 ]
   %.1.i.i116.i.i511 = phi i64 [ %1946, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i515 ], [ %1945, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i508 ]
   %1974 = getelementptr inbounds nuw float, ptr %1677, i64 %.056.i.i111.i.i506
-  store float %.sink63.i.i114.i.i509, ptr %1974, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i509, ptr %1974, align 4, !tbaa !138
   %1975 = getelementptr inbounds nuw i64, ptr %1678, i64 %.056.i.i111.i.i506
   store i64 %.sink.i.i115.i.i510, ptr %1975, align 8, !tbaa !16
   %1976 = shl i64 %.1.i.i116.i.i511, 1
@@ -13957,11 +13957,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i495: ; preds = %2016
   br i1 %2020, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i499, label %2021
 
 2021:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i495, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i502
-  %.sink63.i.i131.i.i496 = phi float [ %2009, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i502 ], [ %2000, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i495 ]
+  %.sink71.i.i131.i.i496 = phi float [ %2009, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i502 ], [ %2000, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i495 ]
   %.sink.i.i132.i.i497 = phi i64 [ %2012, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i502 ], [ %2002, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i495 ]
   %.1.i.i133.i.i498 = phi i64 [ %1994, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i502 ], [ %1993, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i495 ]
   %2022 = getelementptr inbounds nuw float, ptr %1677, i64 %.056.i.i128.i.i493
-  store float %.sink63.i.i131.i.i496, ptr %2022, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i496, ptr %2022, align 4, !tbaa !138
   %2023 = getelementptr inbounds nuw i64, ptr %1678, i64 %.056.i.i128.i.i493
   store i64 %.sink.i.i132.i.i497, ptr %2023, align 8, !tbaa !16
   %2024 = shl i64 %.1.i.i133.i.i498, 1
@@ -14055,11 +14055,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i482: ; preds = %2064
   br i1 %2068, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i486, label %2069
 
 2069:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i482, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i489
-  %.sink63.i.i148.i.i483 = phi float [ %2057, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i489 ], [ %2048, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i482 ]
+  %.sink71.i.i148.i.i483 = phi float [ %2057, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i489 ], [ %2048, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i482 ]
   %.sink.i.i149.i.i484 = phi i64 [ %2060, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i489 ], [ %2050, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i482 ]
   %.1.i.i150.i.i485 = phi i64 [ %2042, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i489 ], [ %2041, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i482 ]
   %2070 = getelementptr inbounds nuw float, ptr %1677, i64 %.056.i.i145.i.i480
-  store float %.sink63.i.i148.i.i483, ptr %2070, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i483, ptr %2070, align 4, !tbaa !138
   %2071 = getelementptr inbounds nuw i64, ptr %1678, i64 %.056.i.i145.i.i480
   store i64 %.sink.i.i149.i.i484, ptr %2071, align 8, !tbaa !16
   %2072 = shl i64 %.1.i.i150.i.i485, 1
@@ -14225,11 +14225,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i437: ; preds = %2144
   br i1 %2148, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i441, label %2149
 
 2149:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i437, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i444
-  %.sink63.i.i168.i.i438 = phi float [ %2137, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i444 ], [ %2128, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i437 ]
+  %.sink71.i.i168.i.i438 = phi float [ %2137, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i444 ], [ %2128, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i437 ]
   %.sink.i.i169.i.i439 = phi i64 [ %2140, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i444 ], [ %2130, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i437 ]
   %.1.i.i170.i.i440 = phi i64 [ %2122, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i444 ], [ %2121, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i437 ]
   %2150 = getelementptr inbounds nuw float, ptr %1677, i64 %.056.i.i165.i.i435
-  store float %.sink63.i.i168.i.i438, ptr %2150, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i438, ptr %2150, align 4, !tbaa !138
   %2151 = getelementptr inbounds nuw i64, ptr %1678, i64 %.056.i.i165.i.i435
   store i64 %.sink.i.i169.i.i439, ptr %2151, align 8, !tbaa !16
   %2152 = shl i64 %.1.i.i170.i.i440, 1
@@ -14379,11 +14379,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i423: ; preds = %2231
   br i1 %2235, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i427, label %2236
 
 2236:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i423, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i430
-  %.sink63.i.i194.i.i424 = phi float [ %2224, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i430 ], [ %2215, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i423 ]
+  %.sink71.i.i194.i.i424 = phi float [ %2224, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i430 ], [ %2215, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i423 ]
   %.sink.i.i195.i.i425 = phi i64 [ %2227, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i430 ], [ %2217, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i423 ]
   %.1.i.i196.i.i426 = phi i64 [ %2209, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i430 ], [ %2208, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i423 ]
   %2237 = getelementptr inbounds nuw float, ptr %2089, i64 %.056.i.i191.i.i421
-  store float %.sink63.i.i194.i.i424, ptr %2237, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i424, ptr %2237, align 4, !tbaa !138
   %2238 = getelementptr inbounds nuw i64, ptr %2090, i64 %.056.i.i191.i.i421
   store i64 %.sink.i.i195.i.i425, ptr %2238, align 8, !tbaa !16
   %2239 = shl i64 %.1.i.i196.i.i426, 1
@@ -14456,7 +14456,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %2313
 
 .preheader235.i.i:                                ; preds = %2706
-  %2277 = zext i32 %.188.i.i544 to i64
+  %2277 = zext nneg i32 %.188.i.i544 to i64
   %.not256.i.i = icmp eq i32 %.188.i.i544, 0
   br i1 %.not256.i.i, label %.preheader.i.i561, label %.lr.ph249.i.i
 
@@ -14856,11 +14856,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i682:   ; preds = %2544
   br i1 %2548, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i686, label %2549
 
 2549:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i682, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i691
-  %.sink63.i.i.i.i683 = phi float [ %2537, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i691 ], [ %2528, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i682 ]
+  %.sink71.i.i.i.i683 = phi float [ %2537, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i691 ], [ %2528, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i682 ]
   %.sink.i.i.i.i684 = phi i64 [ %2540, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i691 ], [ %2530, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i682 ]
   %.1.i.i.i.i685 = phi i64 [ %2522, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i691 ], [ %2521, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i682 ]
   %2550 = getelementptr inbounds nuw float, ptr %2273, i64 %.056.i.i.i.i680
-  store float %.sink63.i.i.i.i683, ptr %2550, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i683, ptr %2550, align 4, !tbaa !138
   %2551 = getelementptr inbounds nuw i64, ptr %2274, i64 %.056.i.i.i.i680
   store i64 %.sink.i.i.i.i684, ptr %2551, align 8, !tbaa !16
   %2552 = shl i64 %.1.i.i.i.i685, 1
@@ -14954,11 +14954,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i669: ; preds = %2592
   br i1 %2596, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i673, label %2597
 
 2597:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i669, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i676
-  %.sink63.i.i114.i.i670 = phi float [ %2585, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i676 ], [ %2576, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i669 ]
+  %.sink71.i.i114.i.i670 = phi float [ %2585, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i676 ], [ %2576, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i669 ]
   %.sink.i.i115.i.i671 = phi i64 [ %2588, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i676 ], [ %2578, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i669 ]
   %.1.i.i116.i.i672 = phi i64 [ %2570, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i676 ], [ %2569, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i669 ]
   %2598 = getelementptr inbounds nuw float, ptr %2273, i64 %.056.i.i111.i.i667
-  store float %.sink63.i.i114.i.i670, ptr %2598, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i670, ptr %2598, align 4, !tbaa !138
   %2599 = getelementptr inbounds nuw i64, ptr %2274, i64 %.056.i.i111.i.i667
   store i64 %.sink.i.i115.i.i671, ptr %2599, align 8, !tbaa !16
   %2600 = shl i64 %.1.i.i116.i.i672, 1
@@ -15052,11 +15052,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i656: ; preds = %2640
   br i1 %2644, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i660, label %2645
 
 2645:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i656, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i663
-  %.sink63.i.i131.i.i657 = phi float [ %2633, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i663 ], [ %2624, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i656 ]
+  %.sink71.i.i131.i.i657 = phi float [ %2633, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i663 ], [ %2624, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i656 ]
   %.sink.i.i132.i.i658 = phi i64 [ %2636, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i663 ], [ %2626, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i656 ]
   %.1.i.i133.i.i659 = phi i64 [ %2618, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i663 ], [ %2617, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i656 ]
   %2646 = getelementptr inbounds nuw float, ptr %2273, i64 %.056.i.i128.i.i654
-  store float %.sink63.i.i131.i.i657, ptr %2646, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i657, ptr %2646, align 4, !tbaa !138
   %2647 = getelementptr inbounds nuw i64, ptr %2274, i64 %.056.i.i128.i.i654
   store i64 %.sink.i.i132.i.i658, ptr %2647, align 8, !tbaa !16
   %2648 = shl i64 %.1.i.i133.i.i659, 1
@@ -15150,11 +15150,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i643: ; preds = %2688
   br i1 %2692, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i647, label %2693
 
 2693:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i643, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i650
-  %.sink63.i.i148.i.i644 = phi float [ %2681, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i650 ], [ %2672, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i643 ]
+  %.sink71.i.i148.i.i644 = phi float [ %2681, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i650 ], [ %2672, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i643 ]
   %.sink.i.i149.i.i645 = phi i64 [ %2684, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i650 ], [ %2674, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i643 ]
   %.1.i.i150.i.i646 = phi i64 [ %2666, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i650 ], [ %2665, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i643 ]
   %2694 = getelementptr inbounds nuw float, ptr %2273, i64 %.056.i.i145.i.i641
-  store float %.sink63.i.i148.i.i644, ptr %2694, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i644, ptr %2694, align 4, !tbaa !138
   %2695 = getelementptr inbounds nuw i64, ptr %2274, i64 %.056.i.i145.i.i641
   store i64 %.sink.i.i149.i.i645, ptr %2695, align 8, !tbaa !16
   %2696 = shl i64 %.1.i.i150.i.i646, 1
@@ -15320,11 +15320,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i598: ; preds = %2768
   br i1 %2772, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i602, label %2773
 
 2773:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i598, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i605
-  %.sink63.i.i168.i.i599 = phi float [ %2761, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i605 ], [ %2752, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i598 ]
+  %.sink71.i.i168.i.i599 = phi float [ %2761, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i605 ], [ %2752, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i598 ]
   %.sink.i.i169.i.i600 = phi i64 [ %2764, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i605 ], [ %2754, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i598 ]
   %.1.i.i170.i.i601 = phi i64 [ %2746, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i605 ], [ %2745, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i598 ]
   %2774 = getelementptr inbounds nuw float, ptr %2273, i64 %.056.i.i165.i.i596
-  store float %.sink63.i.i168.i.i599, ptr %2774, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i599, ptr %2774, align 4, !tbaa !138
   %2775 = getelementptr inbounds nuw i64, ptr %2274, i64 %.056.i.i165.i.i596
   store i64 %.sink.i.i169.i.i600, ptr %2775, align 8, !tbaa !16
   %2776 = shl i64 %.1.i.i170.i.i601, 1
@@ -15481,11 +15481,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i584: ; preds = %2862
   br i1 %2866, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i588, label %2867
 
 2867:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i584, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i591
-  %.sink63.i.i194.i.i585 = phi float [ %2855, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i591 ], [ %2846, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i584 ]
+  %.sink71.i.i194.i.i585 = phi float [ %2855, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i591 ], [ %2846, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i584 ]
   %.sink.i.i195.i.i586 = phi i64 [ %2858, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i591 ], [ %2848, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i584 ]
   %.1.i.i196.i.i587 = phi i64 [ %2840, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i591 ], [ %2839, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i584 ]
   %2868 = getelementptr inbounds nuw float, ptr %2713, i64 %.056.i.i191.i.i582
-  store float %.sink63.i.i194.i.i585, ptr %2868, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i585, ptr %2868, align 4, !tbaa !138
   %2869 = getelementptr inbounds nuw i64, ptr %2714, i64 %.056.i.i191.i.i582
   store i64 %.sink.i.i195.i.i586, ptr %2869, align 8, !tbaa !16
   %2870 = shl i64 %.1.i.i196.i.i587, 1
@@ -15566,7 +15566,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %2952
 
 .preheader251.i.i:                                ; preds = %3441
-  %2916 = zext i32 %.188.i.i705 to i64
+  %2916 = zext nneg i32 %.188.i.i705 to i64
   %.not272.i.i = icmp eq i32 %.188.i.i705, 0
   br i1 %.not272.i.i, label %.preheader.i.i722, label %.lr.ph265.i.i
 
@@ -16062,11 +16062,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i839:   ; preds = %3279
   br i1 %3283, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i843, label %3284
 
 3284:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i839, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i847
-  %.sink63.i.i.i.i840 = phi float [ %3272, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i847 ], [ %3263, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i839 ]
+  %.sink71.i.i.i.i840 = phi float [ %3272, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i847 ], [ %3263, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i839 ]
   %.sink.i.i.i.i841 = phi i64 [ %3275, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i847 ], [ %3265, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i839 ]
   %.1.i.i.i.i842 = phi i64 [ %3257, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i847 ], [ %3256, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i839 ]
   %3285 = getelementptr inbounds nuw float, ptr %2912, i64 %.056.i.i.i.i837
-  store float %.sink63.i.i.i.i840, ptr %3285, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i840, ptr %3285, align 4, !tbaa !138
   %3286 = getelementptr inbounds nuw i64, ptr %2913, i64 %.056.i.i.i.i837
   store i64 %.sink.i.i.i.i841, ptr %3286, align 8, !tbaa !16
   %3287 = shl i64 %.1.i.i.i.i842, 1
@@ -16160,11 +16160,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i826: ; preds = %3327
   br i1 %3331, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i830, label %3332
 
 3332:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i826, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i833
-  %.sink63.i.i114.i.i827 = phi float [ %3320, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i833 ], [ %3311, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i826 ]
+  %.sink71.i.i114.i.i827 = phi float [ %3320, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i833 ], [ %3311, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i826 ]
   %.sink.i.i115.i.i828 = phi i64 [ %3323, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i833 ], [ %3313, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i826 ]
   %.1.i.i116.i.i829 = phi i64 [ %3305, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i833 ], [ %3304, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i826 ]
   %3333 = getelementptr inbounds nuw float, ptr %2912, i64 %.056.i.i111.i.i824
-  store float %.sink63.i.i114.i.i827, ptr %3333, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i827, ptr %3333, align 4, !tbaa !138
   %3334 = getelementptr inbounds nuw i64, ptr %2913, i64 %.056.i.i111.i.i824
   store i64 %.sink.i.i115.i.i828, ptr %3334, align 8, !tbaa !16
   %3335 = shl i64 %.1.i.i116.i.i829, 1
@@ -16258,11 +16258,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i813: ; preds = %3375
   br i1 %3379, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i817, label %3380
 
 3380:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i813, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i820
-  %.sink63.i.i131.i.i814 = phi float [ %3368, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i820 ], [ %3359, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i813 ]
+  %.sink71.i.i131.i.i814 = phi float [ %3368, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i820 ], [ %3359, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i813 ]
   %.sink.i.i132.i.i815 = phi i64 [ %3371, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i820 ], [ %3361, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i813 ]
   %.1.i.i133.i.i816 = phi i64 [ %3353, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i820 ], [ %3352, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i813 ]
   %3381 = getelementptr inbounds nuw float, ptr %2912, i64 %.056.i.i128.i.i811
-  store float %.sink63.i.i131.i.i814, ptr %3381, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i814, ptr %3381, align 4, !tbaa !138
   %3382 = getelementptr inbounds nuw i64, ptr %2913, i64 %.056.i.i128.i.i811
   store i64 %.sink.i.i132.i.i815, ptr %3382, align 8, !tbaa !16
   %3383 = shl i64 %.1.i.i133.i.i816, 1
@@ -16356,11 +16356,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i800: ; preds = %3423
   br i1 %3427, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i804, label %3428
 
 3428:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i800, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i807
-  %.sink63.i.i148.i.i801 = phi float [ %3416, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i807 ], [ %3407, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i800 ]
+  %.sink71.i.i148.i.i801 = phi float [ %3416, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i807 ], [ %3407, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i800 ]
   %.sink.i.i149.i.i802 = phi i64 [ %3419, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i807 ], [ %3409, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i800 ]
   %.1.i.i150.i.i803 = phi i64 [ %3401, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i807 ], [ %3400, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i800 ]
   %3429 = getelementptr inbounds nuw float, ptr %2912, i64 %.056.i.i145.i.i798
-  store float %.sink63.i.i148.i.i801, ptr %3429, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i801, ptr %3429, align 4, !tbaa !138
   %3430 = getelementptr inbounds nuw i64, ptr %2913, i64 %.056.i.i145.i.i798
   store i64 %.sink.i.i149.i.i802, ptr %3430, align 8, !tbaa !16
   %3431 = shl i64 %.1.i.i150.i.i803, 1
@@ -16526,11 +16526,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i759: ; preds = %3503
   br i1 %3507, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i763, label %3508
 
 3508:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i759, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i766
-  %.sink63.i.i168.i.i760 = phi float [ %3496, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i766 ], [ %3487, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i759 ]
+  %.sink71.i.i168.i.i760 = phi float [ %3496, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i766 ], [ %3487, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i759 ]
   %.sink.i.i169.i.i761 = phi i64 [ %3499, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i766 ], [ %3489, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i759 ]
   %.1.i.i170.i.i762 = phi i64 [ %3481, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i766 ], [ %3480, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i759 ]
   %3509 = getelementptr inbounds nuw float, ptr %2912, i64 %.056.i.i165.i.i757
-  store float %.sink63.i.i168.i.i760, ptr %3509, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i760, ptr %3509, align 4, !tbaa !138
   %3510 = getelementptr inbounds nuw i64, ptr %2913, i64 %.056.i.i165.i.i757
   store i64 %.sink.i.i169.i.i761, ptr %3510, align 8, !tbaa !16
   %3511 = shl i64 %.1.i.i170.i.i762, 1
@@ -16711,11 +16711,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i745: ; preds = %3621
   br i1 %3625, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i749, label %3626
 
 3626:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i745, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i752
-  %.sink63.i.i194.i.i746 = phi float [ %3614, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i752 ], [ %3605, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i745 ]
+  %.sink71.i.i194.i.i746 = phi float [ %3614, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i752 ], [ %3605, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i745 ]
   %.sink.i.i195.i.i747 = phi i64 [ %3617, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i752 ], [ %3607, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i745 ]
   %.1.i.i196.i.i748 = phi i64 [ %3599, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i752 ], [ %3598, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i745 ]
   %3627 = getelementptr inbounds nuw float, ptr %3448, i64 %.056.i.i191.i.i743
-  store float %.sink63.i.i194.i.i746, ptr %3627, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i746, ptr %3627, align 4, !tbaa !138
   %3628 = getelementptr inbounds nuw i64, ptr %3449, i64 %.056.i.i191.i.i743
   store i64 %.sink.i.i195.i.i747, ptr %3628, align 8, !tbaa !16
   %3629 = shl i64 %.1.i.i196.i.i748, 1
@@ -16789,7 +16789,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %3700
 
 .preheader219.i.i:                                ; preds = %4009
-  %3664 = zext i32 %.188.i.i861 to i64
+  %3664 = zext nneg i32 %.188.i.i861 to i64
   %.not240.i.i = icmp eq i32 %.188.i.i861, 0
   br i1 %.not240.i.i, label %.preheader.i.i878, label %.lr.ph233.i.i
 
@@ -17105,11 +17105,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1000:  ; preds = %3847
   br i1 %3851, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i1004, label %3852
 
 3852:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1000, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i1008
-  %.sink63.i.i.i.i1001 = phi float [ %3840, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i1008 ], [ %3831, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1000 ]
+  %.sink71.i.i.i.i1001 = phi float [ %3840, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i1008 ], [ %3831, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1000 ]
   %.sink.i.i.i.i1002 = phi i64 [ %3843, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i1008 ], [ %3833, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1000 ]
   %.1.i.i.i.i1003 = phi i64 [ %3825, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i1008 ], [ %3824, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1000 ]
   %3853 = getelementptr inbounds nuw float, ptr %3660, i64 %.056.i.i.i.i998
-  store float %.sink63.i.i.i.i1001, ptr %3853, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i1001, ptr %3853, align 4, !tbaa !138
   %3854 = getelementptr inbounds nuw i64, ptr %3661, i64 %.056.i.i.i.i998
   store i64 %.sink.i.i.i.i1002, ptr %3854, align 8, !tbaa !16
   %3855 = shl i64 %.1.i.i.i.i1003, 1
@@ -17203,11 +17203,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i987: ; preds = %3895
   br i1 %3899, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i991, label %3900
 
 3900:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i987, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i994
-  %.sink63.i.i114.i.i988 = phi float [ %3888, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i994 ], [ %3879, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i987 ]
+  %.sink71.i.i114.i.i988 = phi float [ %3888, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i994 ], [ %3879, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i987 ]
   %.sink.i.i115.i.i989 = phi i64 [ %3891, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i994 ], [ %3881, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i987 ]
   %.1.i.i116.i.i990 = phi i64 [ %3873, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i994 ], [ %3872, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i987 ]
   %3901 = getelementptr inbounds nuw float, ptr %3660, i64 %.056.i.i111.i.i985
-  store float %.sink63.i.i114.i.i988, ptr %3901, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i988, ptr %3901, align 4, !tbaa !138
   %3902 = getelementptr inbounds nuw i64, ptr %3661, i64 %.056.i.i111.i.i985
   store i64 %.sink.i.i115.i.i989, ptr %3902, align 8, !tbaa !16
   %3903 = shl i64 %.1.i.i116.i.i990, 1
@@ -17301,11 +17301,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i973: ; preds = %3943
   br i1 %3947, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i977, label %3948
 
 3948:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i973, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i981
-  %.sink63.i.i131.i.i974 = phi float [ %3936, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i981 ], [ %3927, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i973 ]
+  %.sink71.i.i131.i.i974 = phi float [ %3936, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i981 ], [ %3927, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i973 ]
   %.sink.i.i132.i.i975 = phi i64 [ %3939, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i981 ], [ %3929, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i973 ]
   %.1.i.i133.i.i976 = phi i64 [ %3921, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i981 ], [ %3920, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i973 ]
   %3949 = getelementptr inbounds nuw float, ptr %3660, i64 %.056.i.i128.i.i971
-  store float %.sink63.i.i131.i.i974, ptr %3949, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i974, ptr %3949, align 4, !tbaa !138
   %3950 = getelementptr inbounds nuw i64, ptr %3661, i64 %.056.i.i128.i.i971
   store i64 %.sink.i.i132.i.i975, ptr %3950, align 8, !tbaa !16
   %3951 = shl i64 %.1.i.i133.i.i976, 1
@@ -17399,11 +17399,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i960: ; preds = %3991
   br i1 %3995, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i964, label %3996
 
 3996:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i960, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i967
-  %.sink63.i.i148.i.i961 = phi float [ %3984, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i967 ], [ %3975, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i960 ]
+  %.sink71.i.i148.i.i961 = phi float [ %3984, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i967 ], [ %3975, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i960 ]
   %.sink.i.i149.i.i962 = phi i64 [ %3987, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i967 ], [ %3977, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i960 ]
   %.1.i.i150.i.i963 = phi i64 [ %3969, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i967 ], [ %3968, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i960 ]
   %3997 = getelementptr inbounds nuw float, ptr %3660, i64 %.056.i.i145.i.i958
-  store float %.sink63.i.i148.i.i961, ptr %3997, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i961, ptr %3997, align 4, !tbaa !138
   %3998 = getelementptr inbounds nuw i64, ptr %3661, i64 %.056.i.i145.i.i958
   store i64 %.sink.i.i149.i.i962, ptr %3998, align 8, !tbaa !16
   %3999 = shl i64 %.1.i.i150.i.i963, 1
@@ -17569,11 +17569,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i915: ; preds = %4071
   br i1 %4075, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i919, label %4076
 
 4076:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i915, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i922
-  %.sink63.i.i168.i.i916 = phi float [ %4064, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i922 ], [ %4055, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i915 ]
+  %.sink71.i.i168.i.i916 = phi float [ %4064, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i922 ], [ %4055, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i915 ]
   %.sink.i.i169.i.i917 = phi i64 [ %4067, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i922 ], [ %4057, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i915 ]
   %.1.i.i170.i.i918 = phi i64 [ %4049, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i922 ], [ %4048, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i915 ]
   %4077 = getelementptr inbounds nuw float, ptr %3660, i64 %.056.i.i165.i.i913
-  store float %.sink63.i.i168.i.i916, ptr %4077, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i916, ptr %4077, align 4, !tbaa !138
   %4078 = getelementptr inbounds nuw i64, ptr %3661, i64 %.056.i.i165.i.i913
   store i64 %.sink.i.i169.i.i917, ptr %4078, align 8, !tbaa !16
   %4079 = shl i64 %.1.i.i170.i.i918, 1
@@ -17709,11 +17709,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i901: ; preds = %4144
   br i1 %4148, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i905, label %4149
 
 4149:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i901, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i908
-  %.sink63.i.i194.i.i902 = phi float [ %4137, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i908 ], [ %4128, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i901 ]
+  %.sink71.i.i194.i.i902 = phi float [ %4137, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i908 ], [ %4128, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i901 ]
   %.sink.i.i195.i.i903 = phi i64 [ %4140, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i908 ], [ %4130, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i901 ]
   %.1.i.i196.i.i904 = phi i64 [ %4122, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i908 ], [ %4121, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i901 ]
   %4150 = getelementptr inbounds nuw float, ptr %4016, i64 %.056.i.i191.i.i899
-  store float %.sink63.i.i194.i.i902, ptr %4150, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i902, ptr %4150, align 4, !tbaa !138
   %4151 = getelementptr inbounds nuw i64, ptr %4017, i64 %.056.i.i191.i.i899
   store i64 %.sink.i.i195.i.i903, ptr %4151, align 8, !tbaa !16
   %4152 = shl i64 %.1.i.i196.i.i904, 1
@@ -17768,7 +17768,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !419
   %6 = and i32 %5, 7
-  switch i32 %6, label %default.unreachable92 [
+  switch i32 %6, label %default.unreachable93 [
     i32 7, label %21
     i32 6, label %32
     i32 5, label %43
@@ -17779,7 +17779,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
     i32 0, label %7
   ]
 
-default.unreachable92:                            ; preds = %2
+default.unreachable93:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2, %87
@@ -18367,11 +18367,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i:        ; preds = %141
   br i1 %145, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i, label %146
 
 146:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i
-  %.sink63.i.i.i = phi float [ %134, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %125, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
+  %.sink71.i.i.i = phi float [ %134, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %125, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
   %.sink.i.i.i = phi i64 [ %137, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %127, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
   %.1.i.i.i = phi i64 [ %119, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %118, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
   %147 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i.i
-  store float %.sink63.i.i.i, ptr %147, align 4, !tbaa !138
+  store float %.sink71.i.i.i, ptr %147, align 4, !tbaa !138
   %148 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i.i
   store i64 %.sink.i.i.i, ptr %148, align 8, !tbaa !16
   %149 = shl i64 %.1.i.i.i, 1
@@ -18467,11 +18467,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i71.i:      ; preds = %191
   br i1 %195, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i75.i, label %196
 
 196:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i71.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i78.i
-  %.sink63.i.i72.i = phi float [ %184, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i78.i ], [ %175, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i71.i ]
+  %.sink71.i.i72.i = phi float [ %184, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i78.i ], [ %175, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i71.i ]
   %.sink.i.i73.i = phi i64 [ %187, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i78.i ], [ %177, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i71.i ]
   %.1.i.i74.i = phi i64 [ %169, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i78.i ], [ %168, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i71.i ]
   %197 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i69.i
-  store float %.sink63.i.i72.i, ptr %197, align 4, !tbaa !138
+  store float %.sink71.i.i72.i, ptr %197, align 4, !tbaa !138
   %198 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i69.i
   store i64 %.sink.i.i73.i, ptr %198, align 8, !tbaa !16
   %199 = shl i64 %.1.i.i74.i, 1
@@ -18567,11 +18567,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i88.i:      ; preds = %241
   br i1 %245, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i92.i, label %246
 
 246:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i88.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i95.i
-  %.sink63.i.i89.i = phi float [ %234, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i95.i ], [ %225, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i88.i ]
+  %.sink71.i.i89.i = phi float [ %234, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i95.i ], [ %225, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i88.i ]
   %.sink.i.i90.i = phi i64 [ %237, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i95.i ], [ %227, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i88.i ]
   %.1.i.i91.i = phi i64 [ %219, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i95.i ], [ %218, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i88.i ]
   %247 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i86.i
-  store float %.sink63.i.i89.i, ptr %247, align 4, !tbaa !138
+  store float %.sink71.i.i89.i, ptr %247, align 4, !tbaa !138
   %248 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i86.i
   store i64 %.sink.i.i90.i, ptr %248, align 8, !tbaa !16
   %249 = shl i64 %.1.i.i91.i, 1
@@ -18667,11 +18667,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i105.i:     ; preds = %291
   br i1 %295, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i109.i, label %296
 
 296:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i105.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i112.i
-  %.sink63.i.i106.i = phi float [ %284, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i112.i ], [ %275, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i105.i ]
+  %.sink71.i.i106.i = phi float [ %284, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i112.i ], [ %275, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i105.i ]
   %.sink.i.i107.i = phi i64 [ %287, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i112.i ], [ %277, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i105.i ]
   %.1.i.i108.i = phi i64 [ %269, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i112.i ], [ %268, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i105.i ]
   %297 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i103.i
-  store float %.sink63.i.i106.i, ptr %297, align 4, !tbaa !138
+  store float %.sink71.i.i106.i, ptr %297, align 4, !tbaa !138
   %298 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i103.i
   store i64 %.sink.i.i107.i, ptr %298, align 8, !tbaa !16
   %299 = shl i64 %.1.i.i108.i, 1
@@ -18812,11 +18812,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i125.i:     ; preds = %364
   br i1 %368, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i129.i, label %369
 
 369:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i125.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i132.i
-  %.sink63.i.i126.i = phi float [ %357, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i132.i ], [ %348, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i125.i ]
+  %.sink71.i.i126.i = phi float [ %357, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i132.i ], [ %348, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i125.i ]
   %.sink.i.i127.i = phi i64 [ %360, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i132.i ], [ %350, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i125.i ]
   %.1.i.i128.i = phi i64 [ %342, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i132.i ], [ %341, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i125.i ]
   %370 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i123.i
-  store float %.sink63.i.i126.i, ptr %370, align 4, !tbaa !138
+  store float %.sink71.i.i126.i, ptr %370, align 4, !tbaa !138
   %371 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i123.i
   store i64 %.sink.i.i127.i, ptr %371, align 8, !tbaa !16
   %372 = shl i64 %.1.i.i128.i, 1
@@ -18946,11 +18946,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i151.i:     ; preds = %431
   br i1 %435, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i155.i, label %436
 
 436:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i151.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i158.i
-  %.sink63.i.i152.i = phi float [ %424, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i158.i ], [ %415, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i151.i ]
+  %.sink71.i.i152.i = phi float [ %424, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i158.i ], [ %415, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i151.i ]
   %.sink.i.i153.i = phi i64 [ %427, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i158.i ], [ %417, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i151.i ]
   %.1.i.i154.i = phi i64 [ %409, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i158.i ], [ %408, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i151.i ]
   %437 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i149.i
-  store float %.sink63.i.i152.i, ptr %437, align 4, !tbaa !138
+  store float %.sink71.i.i152.i, ptr %437, align 4, !tbaa !138
   %438 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i149.i
   store i64 %.sink.i.i153.i, ptr %438, align 8, !tbaa !16
   %439 = shl i64 %.1.i.i154.i, 1
@@ -19080,11 +19080,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i177.i:     ; preds = %499
   br i1 %503, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i181.i, label %504
 
 504:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i177.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i184.i
-  %.sink63.i.i178.i = phi float [ %492, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i184.i ], [ %483, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i177.i ]
+  %.sink71.i.i178.i = phi float [ %492, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i184.i ], [ %483, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i177.i ]
   %.sink.i.i179.i = phi i64 [ %495, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i184.i ], [ %485, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i177.i ]
   %.1.i.i180.i = phi i64 [ %477, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i184.i ], [ %476, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i177.i ]
   %505 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i175.i
-  store float %.sink63.i.i178.i, ptr %505, align 4, !tbaa !138
+  store float %.sink71.i.i178.i, ptr %505, align 4, !tbaa !138
   %506 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i175.i
   store i64 %.sink.i.i179.i, ptr %506, align 8, !tbaa !16
   %507 = shl i64 %.1.i.i180.i, 1
@@ -19205,11 +19205,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i32:      ; preds = %563
   br i1 %567, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i36, label %568
 
 568:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i32, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i39
-  %.sink63.i.i.i33 = phi float [ %556, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i39 ], [ %547, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i32 ]
+  %.sink71.i.i.i33 = phi float [ %556, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i39 ], [ %547, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i32 ]
   %.sink.i.i.i34 = phi i64 [ %559, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i39 ], [ %549, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i32 ]
   %.1.i.i.i35 = phi i64 [ %541, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i39 ], [ %540, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i32 ]
   %569 = getelementptr inbounds nuw float, ptr %518, i64 %.056.i.i.i30
-  store float %.sink63.i.i.i33, ptr %569, align 4, !tbaa !138
+  store float %.sink71.i.i.i33, ptr %569, align 4, !tbaa !138
   %570 = getelementptr inbounds nuw i64, ptr %519, i64 %.056.i.i.i30
   store i64 %.sink.i.i.i34, ptr %570, align 8, !tbaa !16
   %571 = shl i64 %.1.i.i.i35, 1
@@ -19376,11 +19376,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i54:      ; preds = %661
   br i1 %665, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i58, label %666
 
 666:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i54, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i61
-  %.sink63.i.i.i55 = phi float [ %654, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i61 ], [ %645, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i54 ]
+  %.sink71.i.i.i55 = phi float [ %654, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i61 ], [ %645, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i54 ]
   %.sink.i.i.i56 = phi i64 [ %657, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i61 ], [ %647, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i54 ]
   %.1.i.i.i57 = phi i64 [ %639, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i61 ], [ %638, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i54 ]
   %667 = getelementptr inbounds nuw float, ptr %617, i64 %.056.i.i.i52
-  store float %.sink63.i.i.i55, ptr %667, align 4, !tbaa !138
+  store float %.sink71.i.i.i55, ptr %667, align 4, !tbaa !138
   %668 = getelementptr inbounds nuw i64, ptr %618, i64 %.056.i.i.i52
   store i64 %.sink.i.i.i56, ptr %668, align 8, !tbaa !16
   %669 = shl i64 %.1.i.i.i57, 1
@@ -19551,7 +19551,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1E
   br label %62
 
 .preheader147.i.i.i.i:                            ; preds = %216
-  %61 = zext i32 %.188.i.i.i.i to i64
+  %61 = zext nneg i32 %.188.i.i.i.i to i64
   %.not168.i.i.i.i = icmp eq i32 %.188.i.i.i.i, 0
   br i1 %.not168.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph161.i.i.i.i
 
@@ -19989,7 +19989,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %314
 
 .preheader147.i.i39.i.i:                          ; preds = %472
-  %313 = zext i32 %.188.i.i37.i.i to i64
+  %313 = zext nneg i32 %.188.i.i37.i.i to i64
   %.not168.i.i40.i.i = icmp eq i32 %.188.i.i37.i.i, 0
   br i1 %.not168.i.i40.i.i, label %.preheader.i.i57.i.i, label %.lr.ph161.i.i42.i.i
 
@@ -20434,7 +20434,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %573
 
 .preheader151.i.i.i.i:                            ; preds = %755
-  %572 = zext i32 %.188.i.i112.i.i to i64
+  %572 = zext nneg i32 %.188.i.i112.i.i to i64
   %.not172.i.i.i.i = icmp eq i32 %.188.i.i112.i.i, 0
   br i1 %.not172.i.i.i.i, label %.preheader.i.i127.i.i, label %.lr.ph165.i.i.i.i
 
@@ -20911,7 +20911,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %864
 
 .preheader155.i.i.i.i:                            ; preds = %1066
-  %863 = zext i32 %.188.i.i172.i.i to i64
+  %863 = zext nneg i32 %.188.i.i172.i.i to i64
   %.not176.i.i.i.i = icmp eq i32 %.188.i.i172.i.i, 0
   br i1 %.not176.i.i.i.i, label %.preheader.i.i187.i.i, label %.lr.ph169.i.i.i.i
 
@@ -21415,7 +21415,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %1182
 
 .preheader159.i.i.i.i:                            ; preds = %1412
-  %1181 = zext i32 %.188.i.i232.i.i to i64
+  %1181 = zext nneg i32 %.188.i.i232.i.i to i64
   %.not180.i.i.i.i = icmp eq i32 %.188.i.i232.i.i, 0
   br i1 %.not180.i.i.i.i, label %.preheader.i.i247.i.i, label %.lr.ph173.i.i.i.i
 
@@ -21962,7 +21962,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %1543
 
 .preheader175.i.i.i.i:                            ; preds = %1869
-  %1542 = zext i32 %.188.i.i292.i.i to i64
+  %1542 = zext nneg i32 %.188.i.i292.i.i to i64
   %.not196.i.i.i.i = icmp eq i32 %.188.i.i292.i.i, 0
   br i1 %.not196.i.i.i.i, label %.preheader.i.i307.i.i, label %.lr.ph189.i.i.i.i
 
@@ -22622,7 +22622,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %2013
 
 .preheader143.i.i.i.i:                            ; preds = %2159
-  %2012 = zext i32 %.188.i.i348.i.i to i64
+  %2012 = zext nneg i32 %.188.i.i348.i.i to i64
   %.not164.i.i.i.i = icmp eq i32 %.188.i.i348.i.i, 0
   br i1 %.not164.i.i.i.i, label %.preheader.i.i363.i.i, label %.lr.ph157.i.i.i.i
 
@@ -23805,7 +23805,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   br label %81
 
 .preheader223.i.i:                                ; preds = %398
-  %45 = zext i32 %.188.i.i to i64
+  %45 = zext nneg i32 %.188.i.i to i64
   %.not244.i.i = icmp eq i32 %.188.i.i, 0
   br i1 %.not244.i.i, label %.preheader.i.i, label %.lr.ph237.i.i
 
@@ -24129,11 +24129,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i:      ; preds = %236
   br i1 %240, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i, label %241
 
 241:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i
-  %.sink63.i.i.i.i = phi float [ %229, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %220, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
+  %.sink71.i.i.i.i = phi float [ %229, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %220, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
   %.sink.i.i.i.i = phi i64 [ %232, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %222, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
   %.1.i.i.i.i = phi i64 [ %214, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %213, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
   %242 = getelementptr inbounds nuw float, ptr %41, i64 %.056.i.i.i.i
-  store float %.sink63.i.i.i.i, ptr %242, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i, ptr %242, align 4, !tbaa !138
   %243 = getelementptr inbounds nuw i64, ptr %42, i64 %.056.i.i.i.i
   store i64 %.sink.i.i.i.i, ptr %243, align 8, !tbaa !16
   %244 = shl i64 %.1.i.i.i.i, 1
@@ -24227,11 +24227,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i:   ; preds = %284
   br i1 %288, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i, label %289
 
 289:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i
-  %.sink63.i.i114.i.i = phi float [ %277, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i ], [ %268, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i ]
+  %.sink71.i.i114.i.i = phi float [ %277, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i ], [ %268, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i ]
   %.sink.i.i115.i.i = phi i64 [ %280, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i ], [ %270, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i ]
   %.1.i.i116.i.i = phi i64 [ %262, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i ], [ %261, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i ]
   %290 = getelementptr inbounds nuw float, ptr %41, i64 %.056.i.i111.i.i
-  store float %.sink63.i.i114.i.i, ptr %290, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i, ptr %290, align 4, !tbaa !138
   %291 = getelementptr inbounds nuw i64, ptr %42, i64 %.056.i.i111.i.i
   store i64 %.sink.i.i115.i.i, ptr %291, align 8, !tbaa !16
   %292 = shl i64 %.1.i.i116.i.i, 1
@@ -24325,11 +24325,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i:   ; preds = %332
   br i1 %336, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i, label %337
 
 337:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i
-  %.sink63.i.i131.i.i = phi float [ %325, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i ], [ %316, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i ]
+  %.sink71.i.i131.i.i = phi float [ %325, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i ], [ %316, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i ]
   %.sink.i.i132.i.i = phi i64 [ %328, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i ], [ %318, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i ]
   %.1.i.i133.i.i = phi i64 [ %310, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i ], [ %309, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i ]
   %338 = getelementptr inbounds nuw float, ptr %41, i64 %.056.i.i128.i.i
-  store float %.sink63.i.i131.i.i, ptr %338, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i, ptr %338, align 4, !tbaa !138
   %339 = getelementptr inbounds nuw i64, ptr %42, i64 %.056.i.i128.i.i
   store i64 %.sink.i.i132.i.i, ptr %339, align 8, !tbaa !16
   %340 = shl i64 %.1.i.i133.i.i, 1
@@ -24423,11 +24423,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i:   ; preds = %380
   br i1 %384, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i, label %385
 
 385:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i
-  %.sink63.i.i148.i.i = phi float [ %373, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i ], [ %364, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i ]
+  %.sink71.i.i148.i.i = phi float [ %373, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i ], [ %364, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i ]
   %.sink.i.i149.i.i = phi i64 [ %376, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i ], [ %366, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i ]
   %.1.i.i150.i.i = phi i64 [ %358, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i ], [ %357, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i ]
   %386 = getelementptr inbounds nuw float, ptr %41, i64 %.056.i.i145.i.i
-  store float %.sink63.i.i148.i.i, ptr %386, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i, ptr %386, align 4, !tbaa !138
   %387 = getelementptr inbounds nuw i64, ptr %42, i64 %.056.i.i145.i.i
   store i64 %.sink.i.i149.i.i, ptr %387, align 8, !tbaa !16
   %388 = shl i64 %.1.i.i150.i.i, 1
@@ -24593,11 +24593,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i:   ; preds = %460
   br i1 %464, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i, label %465
 
 465:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i
-  %.sink63.i.i168.i.i = phi float [ %453, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i ], [ %444, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i ]
+  %.sink71.i.i168.i.i = phi float [ %453, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i ], [ %444, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i ]
   %.sink.i.i169.i.i = phi i64 [ %456, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i ], [ %446, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i ]
   %.1.i.i170.i.i = phi i64 [ %438, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i ], [ %437, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i ]
   %466 = getelementptr inbounds nuw float, ptr %41, i64 %.056.i.i165.i.i
-  store float %.sink63.i.i168.i.i, ptr %466, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i, ptr %466, align 4, !tbaa !138
   %467 = getelementptr inbounds nuw i64, ptr %42, i64 %.056.i.i165.i.i
   store i64 %.sink.i.i169.i.i, ptr %467, align 8, !tbaa !16
   %468 = shl i64 %.1.i.i170.i.i, 1
@@ -24735,11 +24735,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i:   ; preds = %535
   br i1 %539, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i, label %540
 
 540:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i
-  %.sink63.i.i194.i.i = phi float [ %528, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i ], [ %519, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i ]
+  %.sink71.i.i194.i.i = phi float [ %528, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i ], [ %519, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i ]
   %.sink.i.i195.i.i = phi i64 [ %531, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i ], [ %521, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i ]
   %.1.i.i196.i.i = phi i64 [ %513, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i ], [ %512, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i ]
   %541 = getelementptr inbounds nuw float, ptr %405, i64 %.056.i.i191.i.i
-  store float %.sink63.i.i194.i.i, ptr %541, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i, ptr %541, align 4, !tbaa !138
   %542 = getelementptr inbounds nuw i64, ptr %406, i64 %.056.i.i191.i.i
   store i64 %.sink.i.i195.i.i, ptr %542, align 8, !tbaa !16
   %543 = shl i64 %.1.i.i196.i.i, 1
@@ -24806,7 +24806,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %611
 
 .preheader223.i.i44:                              ; preds = %932
-  %575 = zext i32 %.188.i.i42 to i64
+  %575 = zext nneg i32 %.188.i.i42 to i64
   %.not244.i.i45 = icmp eq i32 %.188.i.i42, 0
   br i1 %.not244.i.i45, label %.preheader.i.i64, label %.lr.ph237.i.i46
 
@@ -25134,11 +25134,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i199:   ; preds = %770
   br i1 %774, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i203, label %775
 
 775:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i199, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i208
-  %.sink63.i.i.i.i200 = phi float [ %763, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i208 ], [ %754, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i199 ]
+  %.sink71.i.i.i.i200 = phi float [ %763, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i208 ], [ %754, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i199 ]
   %.sink.i.i.i.i201 = phi i64 [ %766, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i208 ], [ %756, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i199 ]
   %.1.i.i.i.i202 = phi i64 [ %748, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i208 ], [ %747, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i199 ]
   %776 = getelementptr inbounds nuw float, ptr %571, i64 %.056.i.i.i.i197
-  store float %.sink63.i.i.i.i200, ptr %776, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i200, ptr %776, align 4, !tbaa !138
   %777 = getelementptr inbounds nuw i64, ptr %572, i64 %.056.i.i.i.i197
   store i64 %.sink.i.i.i.i201, ptr %777, align 8, !tbaa !16
   %778 = shl i64 %.1.i.i.i.i202, 1
@@ -25232,11 +25232,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i184: ; preds = %818
   br i1 %822, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i188, label %823
 
 823:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i184, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i193
-  %.sink63.i.i114.i.i185 = phi float [ %811, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i193 ], [ %802, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i184 ]
+  %.sink71.i.i114.i.i185 = phi float [ %811, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i193 ], [ %802, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i184 ]
   %.sink.i.i115.i.i186 = phi i64 [ %814, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i193 ], [ %804, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i184 ]
   %.1.i.i116.i.i187 = phi i64 [ %796, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i193 ], [ %795, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i184 ]
   %824 = getelementptr inbounds nuw float, ptr %571, i64 %.056.i.i111.i.i182
-  store float %.sink63.i.i114.i.i185, ptr %824, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i185, ptr %824, align 4, !tbaa !138
   %825 = getelementptr inbounds nuw i64, ptr %572, i64 %.056.i.i111.i.i182
   store i64 %.sink.i.i115.i.i186, ptr %825, align 8, !tbaa !16
   %826 = shl i64 %.1.i.i116.i.i187, 1
@@ -25330,11 +25330,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i169: ; preds = %866
   br i1 %870, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i173, label %871
 
 871:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i169, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i178
-  %.sink63.i.i131.i.i170 = phi float [ %859, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i178 ], [ %850, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i169 ]
+  %.sink71.i.i131.i.i170 = phi float [ %859, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i178 ], [ %850, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i169 ]
   %.sink.i.i132.i.i171 = phi i64 [ %862, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i178 ], [ %852, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i169 ]
   %.1.i.i133.i.i172 = phi i64 [ %844, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i178 ], [ %843, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i169 ]
   %872 = getelementptr inbounds nuw float, ptr %571, i64 %.056.i.i128.i.i167
-  store float %.sink63.i.i131.i.i170, ptr %872, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i170, ptr %872, align 4, !tbaa !138
   %873 = getelementptr inbounds nuw i64, ptr %572, i64 %.056.i.i128.i.i167
   store i64 %.sink.i.i132.i.i171, ptr %873, align 8, !tbaa !16
   %874 = shl i64 %.1.i.i133.i.i172, 1
@@ -25428,11 +25428,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i156: ; preds = %914
   br i1 %918, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i160, label %919
 
 919:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i156, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i163
-  %.sink63.i.i148.i.i157 = phi float [ %907, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i163 ], [ %898, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i156 ]
+  %.sink71.i.i148.i.i157 = phi float [ %907, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i163 ], [ %898, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i156 ]
   %.sink.i.i149.i.i158 = phi i64 [ %910, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i163 ], [ %900, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i156 ]
   %.1.i.i150.i.i159 = phi i64 [ %892, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i163 ], [ %891, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i156 ]
   %920 = getelementptr inbounds nuw float, ptr %571, i64 %.056.i.i145.i.i154
-  store float %.sink63.i.i148.i.i157, ptr %920, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i157, ptr %920, align 4, !tbaa !138
   %921 = getelementptr inbounds nuw i64, ptr %572, i64 %.056.i.i145.i.i154
   store i64 %.sink.i.i149.i.i158, ptr %921, align 8, !tbaa !16
   %922 = shl i64 %.1.i.i150.i.i159, 1
@@ -25598,11 +25598,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i105: ; preds = %994
   br i1 %998, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i109, label %999
 
 999:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i105, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i112
-  %.sink63.i.i168.i.i106 = phi float [ %987, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i112 ], [ %978, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i105 ]
+  %.sink71.i.i168.i.i106 = phi float [ %987, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i112 ], [ %978, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i105 ]
   %.sink.i.i169.i.i107 = phi i64 [ %990, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i112 ], [ %980, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i105 ]
   %.1.i.i170.i.i108 = phi i64 [ %972, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i112 ], [ %971, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i105 ]
   %1000 = getelementptr inbounds nuw float, ptr %571, i64 %.056.i.i165.i.i103
-  store float %.sink63.i.i168.i.i106, ptr %1000, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i106, ptr %1000, align 4, !tbaa !138
   %1001 = getelementptr inbounds nuw i64, ptr %572, i64 %.056.i.i165.i.i103
   store i64 %.sink.i.i169.i.i107, ptr %1001, align 8, !tbaa !16
   %1002 = shl i64 %.1.i.i170.i.i108, 1
@@ -25741,11 +25741,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i91: ; preds = %1070
   br i1 %1074, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i95, label %1075
 
 1075:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i91, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i98
-  %.sink63.i.i194.i.i92 = phi float [ %1063, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i98 ], [ %1054, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i91 ]
+  %.sink71.i.i194.i.i92 = phi float [ %1063, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i98 ], [ %1054, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i91 ]
   %.sink.i.i195.i.i93 = phi i64 [ %1066, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i98 ], [ %1056, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i91 ]
   %.1.i.i196.i.i94 = phi i64 [ %1048, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i98 ], [ %1047, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i91 ]
   %1076 = getelementptr inbounds nuw float, ptr %939, i64 %.056.i.i191.i.i89
-  store float %.sink63.i.i194.i.i92, ptr %1076, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i92, ptr %1076, align 4, !tbaa !138
   %1077 = getelementptr inbounds nuw i64, ptr %940, i64 %.056.i.i191.i.i89
   store i64 %.sink.i.i195.i.i93, ptr %1077, align 8, !tbaa !16
   %1078 = shl i64 %.1.i.i196.i.i94, 1
@@ -25814,7 +25814,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %1148
 
 .preheader227.i.i:                                ; preds = %1493
-  %1112 = zext i32 %.188.i.i222 to i64
+  %1112 = zext nneg i32 %.188.i.i222 to i64
   %.not248.i.i = icmp eq i32 %.188.i.i222, 0
   br i1 %.not248.i.i, label %.preheader.i.i239, label %.lr.ph241.i.i
 
@@ -26166,11 +26166,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i360:   ; preds = %1331
   br i1 %1335, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i364, label %1336
 
 1336:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i360, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i369
-  %.sink63.i.i.i.i361 = phi float [ %1324, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i369 ], [ %1315, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i360 ]
+  %.sink71.i.i.i.i361 = phi float [ %1324, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i369 ], [ %1315, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i360 ]
   %.sink.i.i.i.i362 = phi i64 [ %1327, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i369 ], [ %1317, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i360 ]
   %.1.i.i.i.i363 = phi i64 [ %1309, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i369 ], [ %1308, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i360 ]
   %1337 = getelementptr inbounds nuw float, ptr %1108, i64 %.056.i.i.i.i358
-  store float %.sink63.i.i.i.i361, ptr %1337, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i361, ptr %1337, align 4, !tbaa !138
   %1338 = getelementptr inbounds nuw i64, ptr %1109, i64 %.056.i.i.i.i358
   store i64 %.sink.i.i.i.i362, ptr %1338, align 8, !tbaa !16
   %1339 = shl i64 %.1.i.i.i.i363, 1
@@ -26264,11 +26264,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i347: ; preds = %1379
   br i1 %1383, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i351, label %1384
 
 1384:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i347, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i354
-  %.sink63.i.i114.i.i348 = phi float [ %1372, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i354 ], [ %1363, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i347 ]
+  %.sink71.i.i114.i.i348 = phi float [ %1372, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i354 ], [ %1363, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i347 ]
   %.sink.i.i115.i.i349 = phi i64 [ %1375, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i354 ], [ %1365, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i347 ]
   %.1.i.i116.i.i350 = phi i64 [ %1357, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i354 ], [ %1356, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i347 ]
   %1385 = getelementptr inbounds nuw float, ptr %1108, i64 %.056.i.i111.i.i345
-  store float %.sink63.i.i114.i.i348, ptr %1385, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i348, ptr %1385, align 4, !tbaa !138
   %1386 = getelementptr inbounds nuw i64, ptr %1109, i64 %.056.i.i111.i.i345
   store i64 %.sink.i.i115.i.i349, ptr %1386, align 8, !tbaa !16
   %1387 = shl i64 %.1.i.i116.i.i350, 1
@@ -26362,11 +26362,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i334: ; preds = %1427
   br i1 %1431, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i338, label %1432
 
 1432:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i334, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i341
-  %.sink63.i.i131.i.i335 = phi float [ %1420, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i341 ], [ %1411, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i334 ]
+  %.sink71.i.i131.i.i335 = phi float [ %1420, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i341 ], [ %1411, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i334 ]
   %.sink.i.i132.i.i336 = phi i64 [ %1423, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i341 ], [ %1413, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i334 ]
   %.1.i.i133.i.i337 = phi i64 [ %1405, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i341 ], [ %1404, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i334 ]
   %1433 = getelementptr inbounds nuw float, ptr %1108, i64 %.056.i.i128.i.i332
-  store float %.sink63.i.i131.i.i335, ptr %1433, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i335, ptr %1433, align 4, !tbaa !138
   %1434 = getelementptr inbounds nuw i64, ptr %1109, i64 %.056.i.i128.i.i332
   store i64 %.sink.i.i132.i.i336, ptr %1434, align 8, !tbaa !16
   %1435 = shl i64 %.1.i.i133.i.i337, 1
@@ -26460,11 +26460,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i321: ; preds = %1475
   br i1 %1479, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i325, label %1480
 
 1480:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i321, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i328
-  %.sink63.i.i148.i.i322 = phi float [ %1468, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i328 ], [ %1459, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i321 ]
+  %.sink71.i.i148.i.i322 = phi float [ %1468, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i328 ], [ %1459, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i321 ]
   %.sink.i.i149.i.i323 = phi i64 [ %1471, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i328 ], [ %1461, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i321 ]
   %.1.i.i150.i.i324 = phi i64 [ %1453, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i328 ], [ %1452, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i321 ]
   %1481 = getelementptr inbounds nuw float, ptr %1108, i64 %.056.i.i145.i.i319
-  store float %.sink63.i.i148.i.i322, ptr %1481, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i322, ptr %1481, align 4, !tbaa !138
   %1482 = getelementptr inbounds nuw i64, ptr %1109, i64 %.056.i.i145.i.i319
   store i64 %.sink.i.i149.i.i323, ptr %1482, align 8, !tbaa !16
   %1483 = shl i64 %.1.i.i150.i.i324, 1
@@ -26630,11 +26630,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i276: ; preds = %1555
   br i1 %1559, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i280, label %1560
 
 1560:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i276, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i283
-  %.sink63.i.i168.i.i277 = phi float [ %1548, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i283 ], [ %1539, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i276 ]
+  %.sink71.i.i168.i.i277 = phi float [ %1548, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i283 ], [ %1539, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i276 ]
   %.sink.i.i169.i.i278 = phi i64 [ %1551, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i283 ], [ %1541, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i276 ]
   %.1.i.i170.i.i279 = phi i64 [ %1533, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i283 ], [ %1532, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i276 ]
   %1561 = getelementptr inbounds nuw float, ptr %1108, i64 %.056.i.i165.i.i274
-  store float %.sink63.i.i168.i.i277, ptr %1561, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i277, ptr %1561, align 4, !tbaa !138
   %1562 = getelementptr inbounds nuw i64, ptr %1109, i64 %.056.i.i165.i.i274
   store i64 %.sink.i.i169.i.i278, ptr %1562, align 8, !tbaa !16
   %1563 = shl i64 %.1.i.i170.i.i279, 1
@@ -26779,11 +26779,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i262: ; preds = %1637
   br i1 %1641, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i266, label %1642
 
 1642:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i262, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i269
-  %.sink63.i.i194.i.i263 = phi float [ %1630, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i269 ], [ %1621, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i262 ]
+  %.sink71.i.i194.i.i263 = phi float [ %1630, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i269 ], [ %1621, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i262 ]
   %.sink.i.i195.i.i264 = phi i64 [ %1633, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i269 ], [ %1623, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i262 ]
   %.1.i.i196.i.i265 = phi i64 [ %1615, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i269 ], [ %1614, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i262 ]
   %1643 = getelementptr inbounds nuw float, ptr %1500, i64 %.056.i.i191.i.i260
-  store float %.sink63.i.i194.i.i263, ptr %1643, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i263, ptr %1643, align 4, !tbaa !138
   %1644 = getelementptr inbounds nuw i64, ptr %1501, i64 %.056.i.i191.i.i260
   store i64 %.sink.i.i195.i.i264, ptr %1644, align 8, !tbaa !16
   %1645 = shl i64 %.1.i.i196.i.i265, 1
@@ -26854,7 +26854,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %1717
 
 .preheader231.i.i:                                ; preds = %2082
-  %1681 = zext i32 %.188.i.i383 to i64
+  %1681 = zext nneg i32 %.188.i.i383 to i64
   %.not252.i.i = icmp eq i32 %.188.i.i383, 0
   br i1 %.not252.i.i, label %.preheader.i.i400, label %.lr.ph245.i.i
 
@@ -27226,11 +27226,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i521:   ; preds = %1920
   br i1 %1924, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i525, label %1925
 
 1925:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i521, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i530
-  %.sink63.i.i.i.i522 = phi float [ %1913, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i530 ], [ %1904, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i521 ]
+  %.sink71.i.i.i.i522 = phi float [ %1913, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i530 ], [ %1904, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i521 ]
   %.sink.i.i.i.i523 = phi i64 [ %1916, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i530 ], [ %1906, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i521 ]
   %.1.i.i.i.i524 = phi i64 [ %1898, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i530 ], [ %1897, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i521 ]
   %1926 = getelementptr inbounds nuw float, ptr %1677, i64 %.056.i.i.i.i519
-  store float %.sink63.i.i.i.i522, ptr %1926, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i522, ptr %1926, align 4, !tbaa !138
   %1927 = getelementptr inbounds nuw i64, ptr %1678, i64 %.056.i.i.i.i519
   store i64 %.sink.i.i.i.i523, ptr %1927, align 8, !tbaa !16
   %1928 = shl i64 %.1.i.i.i.i524, 1
@@ -27324,11 +27324,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i508: ; preds = %1968
   br i1 %1972, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i512, label %1973
 
 1973:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i508, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i515
-  %.sink63.i.i114.i.i509 = phi float [ %1961, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i515 ], [ %1952, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i508 ]
+  %.sink71.i.i114.i.i509 = phi float [ %1961, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i515 ], [ %1952, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i508 ]
   %.sink.i.i115.i.i510 = phi i64 [ %1964, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i515 ], [ %1954, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i508 ]
   %.1.i.i116.i.i511 = phi i64 [ %1946, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i515 ], [ %1945, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i508 ]
   %1974 = getelementptr inbounds nuw float, ptr %1677, i64 %.056.i.i111.i.i506
-  store float %.sink63.i.i114.i.i509, ptr %1974, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i509, ptr %1974, align 4, !tbaa !138
   %1975 = getelementptr inbounds nuw i64, ptr %1678, i64 %.056.i.i111.i.i506
   store i64 %.sink.i.i115.i.i510, ptr %1975, align 8, !tbaa !16
   %1976 = shl i64 %.1.i.i116.i.i511, 1
@@ -27422,11 +27422,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i495: ; preds = %2016
   br i1 %2020, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i499, label %2021
 
 2021:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i495, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i502
-  %.sink63.i.i131.i.i496 = phi float [ %2009, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i502 ], [ %2000, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i495 ]
+  %.sink71.i.i131.i.i496 = phi float [ %2009, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i502 ], [ %2000, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i495 ]
   %.sink.i.i132.i.i497 = phi i64 [ %2012, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i502 ], [ %2002, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i495 ]
   %.1.i.i133.i.i498 = phi i64 [ %1994, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i502 ], [ %1993, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i495 ]
   %2022 = getelementptr inbounds nuw float, ptr %1677, i64 %.056.i.i128.i.i493
-  store float %.sink63.i.i131.i.i496, ptr %2022, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i496, ptr %2022, align 4, !tbaa !138
   %2023 = getelementptr inbounds nuw i64, ptr %1678, i64 %.056.i.i128.i.i493
   store i64 %.sink.i.i132.i.i497, ptr %2023, align 8, !tbaa !16
   %2024 = shl i64 %.1.i.i133.i.i498, 1
@@ -27520,11 +27520,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i482: ; preds = %2064
   br i1 %2068, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i486, label %2069
 
 2069:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i482, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i489
-  %.sink63.i.i148.i.i483 = phi float [ %2057, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i489 ], [ %2048, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i482 ]
+  %.sink71.i.i148.i.i483 = phi float [ %2057, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i489 ], [ %2048, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i482 ]
   %.sink.i.i149.i.i484 = phi i64 [ %2060, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i489 ], [ %2050, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i482 ]
   %.1.i.i150.i.i485 = phi i64 [ %2042, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i489 ], [ %2041, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i482 ]
   %2070 = getelementptr inbounds nuw float, ptr %1677, i64 %.056.i.i145.i.i480
-  store float %.sink63.i.i148.i.i483, ptr %2070, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i483, ptr %2070, align 4, !tbaa !138
   %2071 = getelementptr inbounds nuw i64, ptr %1678, i64 %.056.i.i145.i.i480
   store i64 %.sink.i.i149.i.i484, ptr %2071, align 8, !tbaa !16
   %2072 = shl i64 %.1.i.i150.i.i485, 1
@@ -27690,11 +27690,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i437: ; preds = %2144
   br i1 %2148, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i441, label %2149
 
 2149:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i437, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i444
-  %.sink63.i.i168.i.i438 = phi float [ %2137, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i444 ], [ %2128, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i437 ]
+  %.sink71.i.i168.i.i438 = phi float [ %2137, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i444 ], [ %2128, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i437 ]
   %.sink.i.i169.i.i439 = phi i64 [ %2140, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i444 ], [ %2130, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i437 ]
   %.1.i.i170.i.i440 = phi i64 [ %2122, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i444 ], [ %2121, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i437 ]
   %2150 = getelementptr inbounds nuw float, ptr %1677, i64 %.056.i.i165.i.i435
-  store float %.sink63.i.i168.i.i438, ptr %2150, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i438, ptr %2150, align 4, !tbaa !138
   %2151 = getelementptr inbounds nuw i64, ptr %1678, i64 %.056.i.i165.i.i435
   store i64 %.sink.i.i169.i.i439, ptr %2151, align 8, !tbaa !16
   %2152 = shl i64 %.1.i.i170.i.i440, 1
@@ -27844,11 +27844,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i423: ; preds = %2231
   br i1 %2235, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i427, label %2236
 
 2236:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i423, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i430
-  %.sink63.i.i194.i.i424 = phi float [ %2224, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i430 ], [ %2215, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i423 ]
+  %.sink71.i.i194.i.i424 = phi float [ %2224, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i430 ], [ %2215, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i423 ]
   %.sink.i.i195.i.i425 = phi i64 [ %2227, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i430 ], [ %2217, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i423 ]
   %.1.i.i196.i.i426 = phi i64 [ %2209, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i430 ], [ %2208, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i423 ]
   %2237 = getelementptr inbounds nuw float, ptr %2089, i64 %.056.i.i191.i.i421
-  store float %.sink63.i.i194.i.i424, ptr %2237, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i424, ptr %2237, align 4, !tbaa !138
   %2238 = getelementptr inbounds nuw i64, ptr %2090, i64 %.056.i.i191.i.i421
   store i64 %.sink.i.i195.i.i425, ptr %2238, align 8, !tbaa !16
   %2239 = shl i64 %.1.i.i196.i.i426, 1
@@ -27921,7 +27921,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %2313
 
 .preheader235.i.i:                                ; preds = %2706
-  %2277 = zext i32 %.188.i.i544 to i64
+  %2277 = zext nneg i32 %.188.i.i544 to i64
   %.not256.i.i = icmp eq i32 %.188.i.i544, 0
   br i1 %.not256.i.i, label %.preheader.i.i561, label %.lr.ph249.i.i
 
@@ -28321,11 +28321,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i682:   ; preds = %2544
   br i1 %2548, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i686, label %2549
 
 2549:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i682, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i691
-  %.sink63.i.i.i.i683 = phi float [ %2537, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i691 ], [ %2528, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i682 ]
+  %.sink71.i.i.i.i683 = phi float [ %2537, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i691 ], [ %2528, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i682 ]
   %.sink.i.i.i.i684 = phi i64 [ %2540, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i691 ], [ %2530, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i682 ]
   %.1.i.i.i.i685 = phi i64 [ %2522, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i691 ], [ %2521, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i682 ]
   %2550 = getelementptr inbounds nuw float, ptr %2273, i64 %.056.i.i.i.i680
-  store float %.sink63.i.i.i.i683, ptr %2550, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i683, ptr %2550, align 4, !tbaa !138
   %2551 = getelementptr inbounds nuw i64, ptr %2274, i64 %.056.i.i.i.i680
   store i64 %.sink.i.i.i.i684, ptr %2551, align 8, !tbaa !16
   %2552 = shl i64 %.1.i.i.i.i685, 1
@@ -28419,11 +28419,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i669: ; preds = %2592
   br i1 %2596, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i673, label %2597
 
 2597:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i669, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i676
-  %.sink63.i.i114.i.i670 = phi float [ %2585, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i676 ], [ %2576, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i669 ]
+  %.sink71.i.i114.i.i670 = phi float [ %2585, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i676 ], [ %2576, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i669 ]
   %.sink.i.i115.i.i671 = phi i64 [ %2588, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i676 ], [ %2578, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i669 ]
   %.1.i.i116.i.i672 = phi i64 [ %2570, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i676 ], [ %2569, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i669 ]
   %2598 = getelementptr inbounds nuw float, ptr %2273, i64 %.056.i.i111.i.i667
-  store float %.sink63.i.i114.i.i670, ptr %2598, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i670, ptr %2598, align 4, !tbaa !138
   %2599 = getelementptr inbounds nuw i64, ptr %2274, i64 %.056.i.i111.i.i667
   store i64 %.sink.i.i115.i.i671, ptr %2599, align 8, !tbaa !16
   %2600 = shl i64 %.1.i.i116.i.i672, 1
@@ -28517,11 +28517,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i656: ; preds = %2640
   br i1 %2644, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i660, label %2645
 
 2645:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i656, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i663
-  %.sink63.i.i131.i.i657 = phi float [ %2633, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i663 ], [ %2624, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i656 ]
+  %.sink71.i.i131.i.i657 = phi float [ %2633, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i663 ], [ %2624, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i656 ]
   %.sink.i.i132.i.i658 = phi i64 [ %2636, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i663 ], [ %2626, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i656 ]
   %.1.i.i133.i.i659 = phi i64 [ %2618, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i663 ], [ %2617, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i656 ]
   %2646 = getelementptr inbounds nuw float, ptr %2273, i64 %.056.i.i128.i.i654
-  store float %.sink63.i.i131.i.i657, ptr %2646, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i657, ptr %2646, align 4, !tbaa !138
   %2647 = getelementptr inbounds nuw i64, ptr %2274, i64 %.056.i.i128.i.i654
   store i64 %.sink.i.i132.i.i658, ptr %2647, align 8, !tbaa !16
   %2648 = shl i64 %.1.i.i133.i.i659, 1
@@ -28615,11 +28615,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i643: ; preds = %2688
   br i1 %2692, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i647, label %2693
 
 2693:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i643, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i650
-  %.sink63.i.i148.i.i644 = phi float [ %2681, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i650 ], [ %2672, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i643 ]
+  %.sink71.i.i148.i.i644 = phi float [ %2681, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i650 ], [ %2672, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i643 ]
   %.sink.i.i149.i.i645 = phi i64 [ %2684, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i650 ], [ %2674, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i643 ]
   %.1.i.i150.i.i646 = phi i64 [ %2666, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i650 ], [ %2665, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i643 ]
   %2694 = getelementptr inbounds nuw float, ptr %2273, i64 %.056.i.i145.i.i641
-  store float %.sink63.i.i148.i.i644, ptr %2694, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i644, ptr %2694, align 4, !tbaa !138
   %2695 = getelementptr inbounds nuw i64, ptr %2274, i64 %.056.i.i145.i.i641
   store i64 %.sink.i.i149.i.i645, ptr %2695, align 8, !tbaa !16
   %2696 = shl i64 %.1.i.i150.i.i646, 1
@@ -28785,11 +28785,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i598: ; preds = %2768
   br i1 %2772, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i602, label %2773
 
 2773:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i598, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i605
-  %.sink63.i.i168.i.i599 = phi float [ %2761, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i605 ], [ %2752, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i598 ]
+  %.sink71.i.i168.i.i599 = phi float [ %2761, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i605 ], [ %2752, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i598 ]
   %.sink.i.i169.i.i600 = phi i64 [ %2764, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i605 ], [ %2754, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i598 ]
   %.1.i.i170.i.i601 = phi i64 [ %2746, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i605 ], [ %2745, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i598 ]
   %2774 = getelementptr inbounds nuw float, ptr %2273, i64 %.056.i.i165.i.i596
-  store float %.sink63.i.i168.i.i599, ptr %2774, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i599, ptr %2774, align 4, !tbaa !138
   %2775 = getelementptr inbounds nuw i64, ptr %2274, i64 %.056.i.i165.i.i596
   store i64 %.sink.i.i169.i.i600, ptr %2775, align 8, !tbaa !16
   %2776 = shl i64 %.1.i.i170.i.i601, 1
@@ -28946,11 +28946,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i584: ; preds = %2862
   br i1 %2866, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i588, label %2867
 
 2867:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i584, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i591
-  %.sink63.i.i194.i.i585 = phi float [ %2855, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i591 ], [ %2846, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i584 ]
+  %.sink71.i.i194.i.i585 = phi float [ %2855, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i591 ], [ %2846, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i584 ]
   %.sink.i.i195.i.i586 = phi i64 [ %2858, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i591 ], [ %2848, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i584 ]
   %.1.i.i196.i.i587 = phi i64 [ %2840, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i591 ], [ %2839, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i584 ]
   %2868 = getelementptr inbounds nuw float, ptr %2713, i64 %.056.i.i191.i.i582
-  store float %.sink63.i.i194.i.i585, ptr %2868, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i585, ptr %2868, align 4, !tbaa !138
   %2869 = getelementptr inbounds nuw i64, ptr %2714, i64 %.056.i.i191.i.i582
   store i64 %.sink.i.i195.i.i586, ptr %2869, align 8, !tbaa !16
   %2870 = shl i64 %.1.i.i196.i.i587, 1
@@ -29031,7 +29031,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %2952
 
 .preheader251.i.i:                                ; preds = %3441
-  %2916 = zext i32 %.188.i.i705 to i64
+  %2916 = zext nneg i32 %.188.i.i705 to i64
   %.not272.i.i = icmp eq i32 %.188.i.i705, 0
   br i1 %.not272.i.i, label %.preheader.i.i722, label %.lr.ph265.i.i
 
@@ -29527,11 +29527,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i839:   ; preds = %3279
   br i1 %3283, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i843, label %3284
 
 3284:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i839, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i847
-  %.sink63.i.i.i.i840 = phi float [ %3272, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i847 ], [ %3263, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i839 ]
+  %.sink71.i.i.i.i840 = phi float [ %3272, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i847 ], [ %3263, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i839 ]
   %.sink.i.i.i.i841 = phi i64 [ %3275, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i847 ], [ %3265, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i839 ]
   %.1.i.i.i.i842 = phi i64 [ %3257, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i847 ], [ %3256, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i839 ]
   %3285 = getelementptr inbounds nuw float, ptr %2912, i64 %.056.i.i.i.i837
-  store float %.sink63.i.i.i.i840, ptr %3285, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i840, ptr %3285, align 4, !tbaa !138
   %3286 = getelementptr inbounds nuw i64, ptr %2913, i64 %.056.i.i.i.i837
   store i64 %.sink.i.i.i.i841, ptr %3286, align 8, !tbaa !16
   %3287 = shl i64 %.1.i.i.i.i842, 1
@@ -29625,11 +29625,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i826: ; preds = %3327
   br i1 %3331, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i830, label %3332
 
 3332:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i826, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i833
-  %.sink63.i.i114.i.i827 = phi float [ %3320, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i833 ], [ %3311, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i826 ]
+  %.sink71.i.i114.i.i827 = phi float [ %3320, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i833 ], [ %3311, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i826 ]
   %.sink.i.i115.i.i828 = phi i64 [ %3323, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i833 ], [ %3313, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i826 ]
   %.1.i.i116.i.i829 = phi i64 [ %3305, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i833 ], [ %3304, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i826 ]
   %3333 = getelementptr inbounds nuw float, ptr %2912, i64 %.056.i.i111.i.i824
-  store float %.sink63.i.i114.i.i827, ptr %3333, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i827, ptr %3333, align 4, !tbaa !138
   %3334 = getelementptr inbounds nuw i64, ptr %2913, i64 %.056.i.i111.i.i824
   store i64 %.sink.i.i115.i.i828, ptr %3334, align 8, !tbaa !16
   %3335 = shl i64 %.1.i.i116.i.i829, 1
@@ -29723,11 +29723,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i813: ; preds = %3375
   br i1 %3379, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i817, label %3380
 
 3380:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i813, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i820
-  %.sink63.i.i131.i.i814 = phi float [ %3368, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i820 ], [ %3359, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i813 ]
+  %.sink71.i.i131.i.i814 = phi float [ %3368, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i820 ], [ %3359, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i813 ]
   %.sink.i.i132.i.i815 = phi i64 [ %3371, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i820 ], [ %3361, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i813 ]
   %.1.i.i133.i.i816 = phi i64 [ %3353, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i820 ], [ %3352, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i813 ]
   %3381 = getelementptr inbounds nuw float, ptr %2912, i64 %.056.i.i128.i.i811
-  store float %.sink63.i.i131.i.i814, ptr %3381, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i814, ptr %3381, align 4, !tbaa !138
   %3382 = getelementptr inbounds nuw i64, ptr %2913, i64 %.056.i.i128.i.i811
   store i64 %.sink.i.i132.i.i815, ptr %3382, align 8, !tbaa !16
   %3383 = shl i64 %.1.i.i133.i.i816, 1
@@ -29821,11 +29821,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i800: ; preds = %3423
   br i1 %3427, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i804, label %3428
 
 3428:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i800, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i807
-  %.sink63.i.i148.i.i801 = phi float [ %3416, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i807 ], [ %3407, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i800 ]
+  %.sink71.i.i148.i.i801 = phi float [ %3416, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i807 ], [ %3407, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i800 ]
   %.sink.i.i149.i.i802 = phi i64 [ %3419, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i807 ], [ %3409, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i800 ]
   %.1.i.i150.i.i803 = phi i64 [ %3401, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i807 ], [ %3400, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i800 ]
   %3429 = getelementptr inbounds nuw float, ptr %2912, i64 %.056.i.i145.i.i798
-  store float %.sink63.i.i148.i.i801, ptr %3429, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i801, ptr %3429, align 4, !tbaa !138
   %3430 = getelementptr inbounds nuw i64, ptr %2913, i64 %.056.i.i145.i.i798
   store i64 %.sink.i.i149.i.i802, ptr %3430, align 8, !tbaa !16
   %3431 = shl i64 %.1.i.i150.i.i803, 1
@@ -29991,11 +29991,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i759: ; preds = %3503
   br i1 %3507, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i763, label %3508
 
 3508:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i759, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i766
-  %.sink63.i.i168.i.i760 = phi float [ %3496, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i766 ], [ %3487, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i759 ]
+  %.sink71.i.i168.i.i760 = phi float [ %3496, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i766 ], [ %3487, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i759 ]
   %.sink.i.i169.i.i761 = phi i64 [ %3499, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i766 ], [ %3489, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i759 ]
   %.1.i.i170.i.i762 = phi i64 [ %3481, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i766 ], [ %3480, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i759 ]
   %3509 = getelementptr inbounds nuw float, ptr %2912, i64 %.056.i.i165.i.i757
-  store float %.sink63.i.i168.i.i760, ptr %3509, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i760, ptr %3509, align 4, !tbaa !138
   %3510 = getelementptr inbounds nuw i64, ptr %2913, i64 %.056.i.i165.i.i757
   store i64 %.sink.i.i169.i.i761, ptr %3510, align 8, !tbaa !16
   %3511 = shl i64 %.1.i.i170.i.i762, 1
@@ -30176,11 +30176,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i745: ; preds = %3621
   br i1 %3625, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i749, label %3626
 
 3626:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i745, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i752
-  %.sink63.i.i194.i.i746 = phi float [ %3614, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i752 ], [ %3605, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i745 ]
+  %.sink71.i.i194.i.i746 = phi float [ %3614, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i752 ], [ %3605, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i745 ]
   %.sink.i.i195.i.i747 = phi i64 [ %3617, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i752 ], [ %3607, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i745 ]
   %.1.i.i196.i.i748 = phi i64 [ %3599, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i752 ], [ %3598, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i745 ]
   %3627 = getelementptr inbounds nuw float, ptr %3448, i64 %.056.i.i191.i.i743
-  store float %.sink63.i.i194.i.i746, ptr %3627, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i746, ptr %3627, align 4, !tbaa !138
   %3628 = getelementptr inbounds nuw i64, ptr %3449, i64 %.056.i.i191.i.i743
   store i64 %.sink.i.i195.i.i747, ptr %3628, align 8, !tbaa !16
   %3629 = shl i64 %.1.i.i196.i.i748, 1
@@ -30254,7 +30254,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %3700
 
 .preheader219.i.i:                                ; preds = %4009
-  %3664 = zext i32 %.188.i.i861 to i64
+  %3664 = zext nneg i32 %.188.i.i861 to i64
   %.not240.i.i = icmp eq i32 %.188.i.i861, 0
   br i1 %.not240.i.i, label %.preheader.i.i878, label %.lr.ph233.i.i
 
@@ -30570,11 +30570,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1000:  ; preds = %3847
   br i1 %3851, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i1004, label %3852
 
 3852:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1000, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i1008
-  %.sink63.i.i.i.i1001 = phi float [ %3840, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i1008 ], [ %3831, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1000 ]
+  %.sink71.i.i.i.i1001 = phi float [ %3840, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i1008 ], [ %3831, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1000 ]
   %.sink.i.i.i.i1002 = phi i64 [ %3843, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i1008 ], [ %3833, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1000 ]
   %.1.i.i.i.i1003 = phi i64 [ %3825, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i1008 ], [ %3824, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1000 ]
   %3853 = getelementptr inbounds nuw float, ptr %3660, i64 %.056.i.i.i.i998
-  store float %.sink63.i.i.i.i1001, ptr %3853, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i1001, ptr %3853, align 4, !tbaa !138
   %3854 = getelementptr inbounds nuw i64, ptr %3661, i64 %.056.i.i.i.i998
   store i64 %.sink.i.i.i.i1002, ptr %3854, align 8, !tbaa !16
   %3855 = shl i64 %.1.i.i.i.i1003, 1
@@ -30668,11 +30668,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i987: ; preds = %3895
   br i1 %3899, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i991, label %3900
 
 3900:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i987, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i994
-  %.sink63.i.i114.i.i988 = phi float [ %3888, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i994 ], [ %3879, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i987 ]
+  %.sink71.i.i114.i.i988 = phi float [ %3888, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i994 ], [ %3879, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i987 ]
   %.sink.i.i115.i.i989 = phi i64 [ %3891, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i994 ], [ %3881, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i987 ]
   %.1.i.i116.i.i990 = phi i64 [ %3873, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i994 ], [ %3872, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i987 ]
   %3901 = getelementptr inbounds nuw float, ptr %3660, i64 %.056.i.i111.i.i985
-  store float %.sink63.i.i114.i.i988, ptr %3901, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i988, ptr %3901, align 4, !tbaa !138
   %3902 = getelementptr inbounds nuw i64, ptr %3661, i64 %.056.i.i111.i.i985
   store i64 %.sink.i.i115.i.i989, ptr %3902, align 8, !tbaa !16
   %3903 = shl i64 %.1.i.i116.i.i990, 1
@@ -30766,11 +30766,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i973: ; preds = %3943
   br i1 %3947, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i977, label %3948
 
 3948:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i973, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i981
-  %.sink63.i.i131.i.i974 = phi float [ %3936, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i981 ], [ %3927, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i973 ]
+  %.sink71.i.i131.i.i974 = phi float [ %3936, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i981 ], [ %3927, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i973 ]
   %.sink.i.i132.i.i975 = phi i64 [ %3939, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i981 ], [ %3929, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i973 ]
   %.1.i.i133.i.i976 = phi i64 [ %3921, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i981 ], [ %3920, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i973 ]
   %3949 = getelementptr inbounds nuw float, ptr %3660, i64 %.056.i.i128.i.i971
-  store float %.sink63.i.i131.i.i974, ptr %3949, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i974, ptr %3949, align 4, !tbaa !138
   %3950 = getelementptr inbounds nuw i64, ptr %3661, i64 %.056.i.i128.i.i971
   store i64 %.sink.i.i132.i.i975, ptr %3950, align 8, !tbaa !16
   %3951 = shl i64 %.1.i.i133.i.i976, 1
@@ -30864,11 +30864,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i960: ; preds = %3991
   br i1 %3995, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i964, label %3996
 
 3996:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i960, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i967
-  %.sink63.i.i148.i.i961 = phi float [ %3984, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i967 ], [ %3975, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i960 ]
+  %.sink71.i.i148.i.i961 = phi float [ %3984, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i967 ], [ %3975, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i960 ]
   %.sink.i.i149.i.i962 = phi i64 [ %3987, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i967 ], [ %3977, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i960 ]
   %.1.i.i150.i.i963 = phi i64 [ %3969, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i967 ], [ %3968, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i960 ]
   %3997 = getelementptr inbounds nuw float, ptr %3660, i64 %.056.i.i145.i.i958
-  store float %.sink63.i.i148.i.i961, ptr %3997, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i961, ptr %3997, align 4, !tbaa !138
   %3998 = getelementptr inbounds nuw i64, ptr %3661, i64 %.056.i.i145.i.i958
   store i64 %.sink.i.i149.i.i962, ptr %3998, align 8, !tbaa !16
   %3999 = shl i64 %.1.i.i150.i.i963, 1
@@ -31034,11 +31034,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i915: ; preds = %4071
   br i1 %4075, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i919, label %4076
 
 4076:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i915, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i922
-  %.sink63.i.i168.i.i916 = phi float [ %4064, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i922 ], [ %4055, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i915 ]
+  %.sink71.i.i168.i.i916 = phi float [ %4064, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i922 ], [ %4055, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i915 ]
   %.sink.i.i169.i.i917 = phi i64 [ %4067, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i922 ], [ %4057, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i915 ]
   %.1.i.i170.i.i918 = phi i64 [ %4049, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i922 ], [ %4048, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i915 ]
   %4077 = getelementptr inbounds nuw float, ptr %3660, i64 %.056.i.i165.i.i913
-  store float %.sink63.i.i168.i.i916, ptr %4077, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i916, ptr %4077, align 4, !tbaa !138
   %4078 = getelementptr inbounds nuw i64, ptr %3661, i64 %.056.i.i165.i.i913
   store i64 %.sink.i.i169.i.i917, ptr %4078, align 8, !tbaa !16
   %4079 = shl i64 %.1.i.i170.i.i918, 1
@@ -31174,11 +31174,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i901: ; preds = %4144
   br i1 %4148, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i905, label %4149
 
 4149:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i901, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i908
-  %.sink63.i.i194.i.i902 = phi float [ %4137, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i908 ], [ %4128, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i901 ]
+  %.sink71.i.i194.i.i902 = phi float [ %4137, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i908 ], [ %4128, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i901 ]
   %.sink.i.i195.i.i903 = phi i64 [ %4140, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i908 ], [ %4130, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i901 ]
   %.1.i.i196.i.i904 = phi i64 [ %4122, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i908 ], [ %4121, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i901 ]
   %4150 = getelementptr inbounds nuw float, ptr %4016, i64 %.056.i.i191.i.i899
-  store float %.sink63.i.i194.i.i902, ptr %4150, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i902, ptr %4150, align 4, !tbaa !138
   %4151 = getelementptr inbounds nuw i64, ptr %4017, i64 %.056.i.i191.i.i899
   store i64 %.sink.i.i195.i.i903, ptr %4151, align 8, !tbaa !16
   %4152 = shl i64 %.1.i.i196.i.i904, 1
@@ -31543,11 +31543,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i:        ; preds = %141
   br i1 %145, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i, label %146
 
 146:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i
-  %.sink63.i.i.i = phi float [ %134, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %125, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
+  %.sink71.i.i.i = phi float [ %134, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %125, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
   %.sink.i.i.i = phi i64 [ %137, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %127, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
   %.1.i.i.i = phi i64 [ %119, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %118, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
   %147 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i.i
-  store float %.sink63.i.i.i, ptr %147, align 4, !tbaa !138
+  store float %.sink71.i.i.i, ptr %147, align 4, !tbaa !138
   %148 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i.i
   store i64 %.sink.i.i.i, ptr %148, align 8, !tbaa !16
   %149 = shl i64 %.1.i.i.i, 1
@@ -31643,11 +31643,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i71.i:      ; preds = %191
   br i1 %195, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i75.i, label %196
 
 196:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i71.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i78.i
-  %.sink63.i.i72.i = phi float [ %184, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i78.i ], [ %175, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i71.i ]
+  %.sink71.i.i72.i = phi float [ %184, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i78.i ], [ %175, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i71.i ]
   %.sink.i.i73.i = phi i64 [ %187, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i78.i ], [ %177, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i71.i ]
   %.1.i.i74.i = phi i64 [ %169, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i78.i ], [ %168, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i71.i ]
   %197 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i69.i
-  store float %.sink63.i.i72.i, ptr %197, align 4, !tbaa !138
+  store float %.sink71.i.i72.i, ptr %197, align 4, !tbaa !138
   %198 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i69.i
   store i64 %.sink.i.i73.i, ptr %198, align 8, !tbaa !16
   %199 = shl i64 %.1.i.i74.i, 1
@@ -31743,11 +31743,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i88.i:      ; preds = %241
   br i1 %245, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i92.i, label %246
 
 246:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i88.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i95.i
-  %.sink63.i.i89.i = phi float [ %234, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i95.i ], [ %225, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i88.i ]
+  %.sink71.i.i89.i = phi float [ %234, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i95.i ], [ %225, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i88.i ]
   %.sink.i.i90.i = phi i64 [ %237, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i95.i ], [ %227, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i88.i ]
   %.1.i.i91.i = phi i64 [ %219, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i95.i ], [ %218, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i88.i ]
   %247 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i86.i
-  store float %.sink63.i.i89.i, ptr %247, align 4, !tbaa !138
+  store float %.sink71.i.i89.i, ptr %247, align 4, !tbaa !138
   %248 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i86.i
   store i64 %.sink.i.i90.i, ptr %248, align 8, !tbaa !16
   %249 = shl i64 %.1.i.i91.i, 1
@@ -31843,11 +31843,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i105.i:     ; preds = %291
   br i1 %295, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i109.i, label %296
 
 296:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i105.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i112.i
-  %.sink63.i.i106.i = phi float [ %284, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i112.i ], [ %275, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i105.i ]
+  %.sink71.i.i106.i = phi float [ %284, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i112.i ], [ %275, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i105.i ]
   %.sink.i.i107.i = phi i64 [ %287, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i112.i ], [ %277, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i105.i ]
   %.1.i.i108.i = phi i64 [ %269, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i112.i ], [ %268, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i105.i ]
   %297 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i103.i
-  store float %.sink63.i.i106.i, ptr %297, align 4, !tbaa !138
+  store float %.sink71.i.i106.i, ptr %297, align 4, !tbaa !138
   %298 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i103.i
   store i64 %.sink.i.i107.i, ptr %298, align 8, !tbaa !16
   %299 = shl i64 %.1.i.i108.i, 1
@@ -31988,11 +31988,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i125.i:     ; preds = %364
   br i1 %368, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i129.i, label %369
 
 369:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i125.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i132.i
-  %.sink63.i.i126.i = phi float [ %357, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i132.i ], [ %348, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i125.i ]
+  %.sink71.i.i126.i = phi float [ %357, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i132.i ], [ %348, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i125.i ]
   %.sink.i.i127.i = phi i64 [ %360, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i132.i ], [ %350, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i125.i ]
   %.1.i.i128.i = phi i64 [ %342, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i132.i ], [ %341, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i125.i ]
   %370 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i123.i
-  store float %.sink63.i.i126.i, ptr %370, align 4, !tbaa !138
+  store float %.sink71.i.i126.i, ptr %370, align 4, !tbaa !138
   %371 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i123.i
   store i64 %.sink.i.i127.i, ptr %371, align 8, !tbaa !16
   %372 = shl i64 %.1.i.i128.i, 1
@@ -32122,11 +32122,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i151.i:     ; preds = %431
   br i1 %435, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i155.i, label %436
 
 436:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i151.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i158.i
-  %.sink63.i.i152.i = phi float [ %424, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i158.i ], [ %415, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i151.i ]
+  %.sink71.i.i152.i = phi float [ %424, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i158.i ], [ %415, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i151.i ]
   %.sink.i.i153.i = phi i64 [ %427, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i158.i ], [ %417, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i151.i ]
   %.1.i.i154.i = phi i64 [ %409, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i158.i ], [ %408, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i151.i ]
   %437 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i149.i
-  store float %.sink63.i.i152.i, ptr %437, align 4, !tbaa !138
+  store float %.sink71.i.i152.i, ptr %437, align 4, !tbaa !138
   %438 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i149.i
   store i64 %.sink.i.i153.i, ptr %438, align 8, !tbaa !16
   %439 = shl i64 %.1.i.i154.i, 1
@@ -32256,11 +32256,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i177.i:     ; preds = %499
   br i1 %503, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i181.i, label %504
 
 504:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i177.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i184.i
-  %.sink63.i.i178.i = phi float [ %492, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i184.i ], [ %483, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i177.i ]
+  %.sink71.i.i178.i = phi float [ %492, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i184.i ], [ %483, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i177.i ]
   %.sink.i.i179.i = phi i64 [ %495, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i184.i ], [ %485, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i177.i ]
   %.1.i.i180.i = phi i64 [ %477, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i184.i ], [ %476, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i177.i ]
   %505 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i175.i
-  store float %.sink63.i.i178.i, ptr %505, align 4, !tbaa !138
+  store float %.sink71.i.i178.i, ptr %505, align 4, !tbaa !138
   %506 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i175.i
   store i64 %.sink.i.i179.i, ptr %506, align 8, !tbaa !16
   %507 = shl i64 %.1.i.i180.i, 1
@@ -32381,11 +32381,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i32:      ; preds = %563
   br i1 %567, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i36, label %568
 
 568:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i32, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i39
-  %.sink63.i.i.i33 = phi float [ %556, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i39 ], [ %547, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i32 ]
+  %.sink71.i.i.i33 = phi float [ %556, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i39 ], [ %547, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i32 ]
   %.sink.i.i.i34 = phi i64 [ %559, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i39 ], [ %549, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i32 ]
   %.1.i.i.i35 = phi i64 [ %541, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i39 ], [ %540, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i32 ]
   %569 = getelementptr inbounds nuw float, ptr %518, i64 %.056.i.i.i30
-  store float %.sink63.i.i.i33, ptr %569, align 4, !tbaa !138
+  store float %.sink71.i.i.i33, ptr %569, align 4, !tbaa !138
   %570 = getelementptr inbounds nuw i64, ptr %519, i64 %.056.i.i.i30
   store i64 %.sink.i.i.i34, ptr %570, align 8, !tbaa !16
   %571 = shl i64 %.1.i.i.i35, 1
@@ -32555,11 +32555,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i54:      ; preds = %667
   br i1 %671, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i58, label %672
 
 672:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i54, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i61
-  %.sink63.i.i.i55 = phi float [ %660, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i61 ], [ %651, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i54 ]
+  %.sink71.i.i.i55 = phi float [ %660, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i61 ], [ %651, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i54 ]
   %.sink.i.i.i56 = phi i64 [ %663, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i61 ], [ %653, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i54 ]
   %.1.i.i.i57 = phi i64 [ %645, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i61 ], [ %644, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i54 ]
   %673 = getelementptr inbounds nuw float, ptr %621, i64 %.056.i.i.i52
-  store float %.sink63.i.i.i55, ptr %673, align 4, !tbaa !138
+  store float %.sink71.i.i.i55, ptr %673, align 4, !tbaa !138
   %674 = getelementptr inbounds nuw i64, ptr %622, i64 %.056.i.i.i52
   store i64 %.sink.i.i.i56, ptr %674, align 8, !tbaa !16
   %675 = shl i64 %.1.i.i.i57, 1
@@ -32730,7 +32730,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0E
   br label %62
 
 .preheader147.i.i.i.i:                            ; preds = %216
-  %61 = zext i32 %.188.i.i.i.i to i64
+  %61 = zext nneg i32 %.188.i.i.i.i to i64
   %.not168.i.i.i.i = icmp eq i32 %.188.i.i.i.i, 0
   br i1 %.not168.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph161.i.i.i.i
 
@@ -33168,7 +33168,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %314
 
 .preheader147.i.i40.i.i:                          ; preds = %472
-  %313 = zext i32 %.188.i.i38.i.i to i64
+  %313 = zext nneg i32 %.188.i.i38.i.i to i64
   %.not168.i.i41.i.i = icmp eq i32 %.188.i.i38.i.i, 0
   br i1 %.not168.i.i41.i.i, label %.preheader.i.i58.i.i, label %.lr.ph161.i.i43.i.i
 
@@ -33613,7 +33613,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %573
 
 .preheader151.i.i.i.i:                            ; preds = %755
-  %572 = zext i32 %.188.i.i113.i.i to i64
+  %572 = zext nneg i32 %.188.i.i113.i.i to i64
   %.not172.i.i.i.i = icmp eq i32 %.188.i.i113.i.i, 0
   br i1 %.not172.i.i.i.i, label %.preheader.i.i128.i.i, label %.lr.ph165.i.i.i.i
 
@@ -34090,7 +34090,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %864
 
 .preheader155.i.i.i.i:                            ; preds = %1066
-  %863 = zext i32 %.188.i.i173.i.i to i64
+  %863 = zext nneg i32 %.188.i.i173.i.i to i64
   %.not176.i.i.i.i = icmp eq i32 %.188.i.i173.i.i, 0
   br i1 %.not176.i.i.i.i, label %.preheader.i.i188.i.i, label %.lr.ph169.i.i.i.i
 
@@ -34594,7 +34594,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %1182
 
 .preheader159.i.i.i.i:                            ; preds = %1412
-  %1181 = zext i32 %.188.i.i233.i.i to i64
+  %1181 = zext nneg i32 %.188.i.i233.i.i to i64
   %.not180.i.i.i.i = icmp eq i32 %.188.i.i233.i.i, 0
   br i1 %.not180.i.i.i.i, label %.preheader.i.i248.i.i, label %.lr.ph173.i.i.i.i
 
@@ -35141,7 +35141,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %1543
 
 .preheader175.i.i.i.i:                            ; preds = %1869
-  %1542 = zext i32 %.188.i.i293.i.i to i64
+  %1542 = zext nneg i32 %.188.i.i293.i.i to i64
   %.not196.i.i.i.i = icmp eq i32 %.188.i.i293.i.i, 0
   br i1 %.not196.i.i.i.i, label %.preheader.i.i308.i.i, label %.lr.ph189.i.i.i.i
 
@@ -35801,7 +35801,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %2013
 
 .preheader143.i.i.i.i:                            ; preds = %2159
-  %2012 = zext i32 %.188.i.i349.i.i to i64
+  %2012 = zext nneg i32 %.188.i.i349.i.i to i64
   %.not164.i.i.i.i = icmp eq i32 %.188.i.i349.i.i, 0
   br i1 %.not164.i.i.i.i, label %.preheader.i.i364.i.i, label %.lr.ph157.i.i.i.i
 
@@ -36987,7 +36987,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   br label %81
 
 .preheader223.i.i:                                ; preds = %398
-  %45 = zext i32 %.188.i.i to i64
+  %45 = zext nneg i32 %.188.i.i to i64
   %.not244.i.i = icmp eq i32 %.188.i.i, 0
   br i1 %.not244.i.i, label %.preheader.i.i, label %.lr.ph237.i.i
 
@@ -37311,11 +37311,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i:      ; preds = %236
   br i1 %240, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i, label %241
 
 241:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i
-  %.sink63.i.i.i.i = phi float [ %229, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %220, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
+  %.sink71.i.i.i.i = phi float [ %229, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %220, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
   %.sink.i.i.i.i = phi i64 [ %232, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %222, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
   %.1.i.i.i.i = phi i64 [ %214, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %213, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
   %242 = getelementptr inbounds nuw float, ptr %41, i64 %.056.i.i.i.i
-  store float %.sink63.i.i.i.i, ptr %242, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i, ptr %242, align 4, !tbaa !138
   %243 = getelementptr inbounds nuw i64, ptr %42, i64 %.056.i.i.i.i
   store i64 %.sink.i.i.i.i, ptr %243, align 8, !tbaa !16
   %244 = shl i64 %.1.i.i.i.i, 1
@@ -37409,11 +37409,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i:   ; preds = %284
   br i1 %288, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i, label %289
 
 289:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i
-  %.sink63.i.i114.i.i = phi float [ %277, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i ], [ %268, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i ]
+  %.sink71.i.i114.i.i = phi float [ %277, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i ], [ %268, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i ]
   %.sink.i.i115.i.i = phi i64 [ %280, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i ], [ %270, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i ]
   %.1.i.i116.i.i = phi i64 [ %262, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i ], [ %261, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i ]
   %290 = getelementptr inbounds nuw float, ptr %41, i64 %.056.i.i111.i.i
-  store float %.sink63.i.i114.i.i, ptr %290, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i, ptr %290, align 4, !tbaa !138
   %291 = getelementptr inbounds nuw i64, ptr %42, i64 %.056.i.i111.i.i
   store i64 %.sink.i.i115.i.i, ptr %291, align 8, !tbaa !16
   %292 = shl i64 %.1.i.i116.i.i, 1
@@ -37507,11 +37507,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i:   ; preds = %332
   br i1 %336, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i, label %337
 
 337:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i
-  %.sink63.i.i131.i.i = phi float [ %325, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i ], [ %316, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i ]
+  %.sink71.i.i131.i.i = phi float [ %325, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i ], [ %316, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i ]
   %.sink.i.i132.i.i = phi i64 [ %328, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i ], [ %318, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i ]
   %.1.i.i133.i.i = phi i64 [ %310, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i ], [ %309, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i ]
   %338 = getelementptr inbounds nuw float, ptr %41, i64 %.056.i.i128.i.i
-  store float %.sink63.i.i131.i.i, ptr %338, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i, ptr %338, align 4, !tbaa !138
   %339 = getelementptr inbounds nuw i64, ptr %42, i64 %.056.i.i128.i.i
   store i64 %.sink.i.i132.i.i, ptr %339, align 8, !tbaa !16
   %340 = shl i64 %.1.i.i133.i.i, 1
@@ -37605,11 +37605,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i:   ; preds = %380
   br i1 %384, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i, label %385
 
 385:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i
-  %.sink63.i.i148.i.i = phi float [ %373, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i ], [ %364, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i ]
+  %.sink71.i.i148.i.i = phi float [ %373, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i ], [ %364, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i ]
   %.sink.i.i149.i.i = phi i64 [ %376, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i ], [ %366, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i ]
   %.1.i.i150.i.i = phi i64 [ %358, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i ], [ %357, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i ]
   %386 = getelementptr inbounds nuw float, ptr %41, i64 %.056.i.i145.i.i
-  store float %.sink63.i.i148.i.i, ptr %386, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i, ptr %386, align 4, !tbaa !138
   %387 = getelementptr inbounds nuw i64, ptr %42, i64 %.056.i.i145.i.i
   store i64 %.sink.i.i149.i.i, ptr %387, align 8, !tbaa !16
   %388 = shl i64 %.1.i.i150.i.i, 1
@@ -37775,11 +37775,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i:   ; preds = %460
   br i1 %464, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i, label %465
 
 465:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i
-  %.sink63.i.i168.i.i = phi float [ %453, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i ], [ %444, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i ]
+  %.sink71.i.i168.i.i = phi float [ %453, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i ], [ %444, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i ]
   %.sink.i.i169.i.i = phi i64 [ %456, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i ], [ %446, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i ]
   %.1.i.i170.i.i = phi i64 [ %438, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i ], [ %437, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i ]
   %466 = getelementptr inbounds nuw float, ptr %41, i64 %.056.i.i165.i.i
-  store float %.sink63.i.i168.i.i, ptr %466, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i, ptr %466, align 4, !tbaa !138
   %467 = getelementptr inbounds nuw i64, ptr %42, i64 %.056.i.i165.i.i
   store i64 %.sink.i.i169.i.i, ptr %467, align 8, !tbaa !16
   %468 = shl i64 %.1.i.i170.i.i, 1
@@ -37917,11 +37917,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i:   ; preds = %535
   br i1 %539, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i, label %540
 
 540:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i
-  %.sink63.i.i194.i.i = phi float [ %528, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i ], [ %519, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i ]
+  %.sink71.i.i194.i.i = phi float [ %528, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i ], [ %519, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i ]
   %.sink.i.i195.i.i = phi i64 [ %531, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i ], [ %521, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i ]
   %.1.i.i196.i.i = phi i64 [ %513, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i ], [ %512, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i ]
   %541 = getelementptr inbounds nuw float, ptr %405, i64 %.056.i.i191.i.i
-  store float %.sink63.i.i194.i.i, ptr %541, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i, ptr %541, align 4, !tbaa !138
   %542 = getelementptr inbounds nuw i64, ptr %406, i64 %.056.i.i191.i.i
   store i64 %.sink.i.i195.i.i, ptr %542, align 8, !tbaa !16
   %543 = shl i64 %.1.i.i196.i.i, 1
@@ -37988,7 +37988,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %611
 
 .preheader223.i.i44:                              ; preds = %932
-  %575 = zext i32 %.188.i.i42 to i64
+  %575 = zext nneg i32 %.188.i.i42 to i64
   %.not244.i.i45 = icmp eq i32 %.188.i.i42, 0
   br i1 %.not244.i.i45, label %.preheader.i.i64, label %.lr.ph237.i.i46
 
@@ -38316,11 +38316,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i199:   ; preds = %770
   br i1 %774, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i203, label %775
 
 775:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i199, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i208
-  %.sink63.i.i.i.i200 = phi float [ %763, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i208 ], [ %754, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i199 ]
+  %.sink71.i.i.i.i200 = phi float [ %763, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i208 ], [ %754, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i199 ]
   %.sink.i.i.i.i201 = phi i64 [ %766, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i208 ], [ %756, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i199 ]
   %.1.i.i.i.i202 = phi i64 [ %748, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i208 ], [ %747, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i199 ]
   %776 = getelementptr inbounds nuw float, ptr %571, i64 %.056.i.i.i.i197
-  store float %.sink63.i.i.i.i200, ptr %776, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i200, ptr %776, align 4, !tbaa !138
   %777 = getelementptr inbounds nuw i64, ptr %572, i64 %.056.i.i.i.i197
   store i64 %.sink.i.i.i.i201, ptr %777, align 8, !tbaa !16
   %778 = shl i64 %.1.i.i.i.i202, 1
@@ -38414,11 +38414,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i184: ; preds = %818
   br i1 %822, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i188, label %823
 
 823:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i184, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i193
-  %.sink63.i.i114.i.i185 = phi float [ %811, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i193 ], [ %802, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i184 ]
+  %.sink71.i.i114.i.i185 = phi float [ %811, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i193 ], [ %802, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i184 ]
   %.sink.i.i115.i.i186 = phi i64 [ %814, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i193 ], [ %804, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i184 ]
   %.1.i.i116.i.i187 = phi i64 [ %796, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i193 ], [ %795, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i184 ]
   %824 = getelementptr inbounds nuw float, ptr %571, i64 %.056.i.i111.i.i182
-  store float %.sink63.i.i114.i.i185, ptr %824, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i185, ptr %824, align 4, !tbaa !138
   %825 = getelementptr inbounds nuw i64, ptr %572, i64 %.056.i.i111.i.i182
   store i64 %.sink.i.i115.i.i186, ptr %825, align 8, !tbaa !16
   %826 = shl i64 %.1.i.i116.i.i187, 1
@@ -38512,11 +38512,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i169: ; preds = %866
   br i1 %870, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i173, label %871
 
 871:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i169, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i178
-  %.sink63.i.i131.i.i170 = phi float [ %859, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i178 ], [ %850, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i169 ]
+  %.sink71.i.i131.i.i170 = phi float [ %859, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i178 ], [ %850, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i169 ]
   %.sink.i.i132.i.i171 = phi i64 [ %862, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i178 ], [ %852, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i169 ]
   %.1.i.i133.i.i172 = phi i64 [ %844, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i178 ], [ %843, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i169 ]
   %872 = getelementptr inbounds nuw float, ptr %571, i64 %.056.i.i128.i.i167
-  store float %.sink63.i.i131.i.i170, ptr %872, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i170, ptr %872, align 4, !tbaa !138
   %873 = getelementptr inbounds nuw i64, ptr %572, i64 %.056.i.i128.i.i167
   store i64 %.sink.i.i132.i.i171, ptr %873, align 8, !tbaa !16
   %874 = shl i64 %.1.i.i133.i.i172, 1
@@ -38610,11 +38610,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i156: ; preds = %914
   br i1 %918, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i160, label %919
 
 919:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i156, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i163
-  %.sink63.i.i148.i.i157 = phi float [ %907, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i163 ], [ %898, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i156 ]
+  %.sink71.i.i148.i.i157 = phi float [ %907, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i163 ], [ %898, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i156 ]
   %.sink.i.i149.i.i158 = phi i64 [ %910, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i163 ], [ %900, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i156 ]
   %.1.i.i150.i.i159 = phi i64 [ %892, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i163 ], [ %891, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i156 ]
   %920 = getelementptr inbounds nuw float, ptr %571, i64 %.056.i.i145.i.i154
-  store float %.sink63.i.i148.i.i157, ptr %920, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i157, ptr %920, align 4, !tbaa !138
   %921 = getelementptr inbounds nuw i64, ptr %572, i64 %.056.i.i145.i.i154
   store i64 %.sink.i.i149.i.i158, ptr %921, align 8, !tbaa !16
   %922 = shl i64 %.1.i.i150.i.i159, 1
@@ -38780,11 +38780,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i105: ; preds = %994
   br i1 %998, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i109, label %999
 
 999:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i105, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i112
-  %.sink63.i.i168.i.i106 = phi float [ %987, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i112 ], [ %978, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i105 ]
+  %.sink71.i.i168.i.i106 = phi float [ %987, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i112 ], [ %978, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i105 ]
   %.sink.i.i169.i.i107 = phi i64 [ %990, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i112 ], [ %980, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i105 ]
   %.1.i.i170.i.i108 = phi i64 [ %972, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i112 ], [ %971, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i105 ]
   %1000 = getelementptr inbounds nuw float, ptr %571, i64 %.056.i.i165.i.i103
-  store float %.sink63.i.i168.i.i106, ptr %1000, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i106, ptr %1000, align 4, !tbaa !138
   %1001 = getelementptr inbounds nuw i64, ptr %572, i64 %.056.i.i165.i.i103
   store i64 %.sink.i.i169.i.i107, ptr %1001, align 8, !tbaa !16
   %1002 = shl i64 %.1.i.i170.i.i108, 1
@@ -38923,11 +38923,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i91: ; preds = %1070
   br i1 %1074, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i95, label %1075
 
 1075:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i91, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i98
-  %.sink63.i.i194.i.i92 = phi float [ %1063, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i98 ], [ %1054, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i91 ]
+  %.sink71.i.i194.i.i92 = phi float [ %1063, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i98 ], [ %1054, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i91 ]
   %.sink.i.i195.i.i93 = phi i64 [ %1066, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i98 ], [ %1056, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i91 ]
   %.1.i.i196.i.i94 = phi i64 [ %1048, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i98 ], [ %1047, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i91 ]
   %1076 = getelementptr inbounds nuw float, ptr %939, i64 %.056.i.i191.i.i89
-  store float %.sink63.i.i194.i.i92, ptr %1076, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i92, ptr %1076, align 4, !tbaa !138
   %1077 = getelementptr inbounds nuw i64, ptr %940, i64 %.056.i.i191.i.i89
   store i64 %.sink.i.i195.i.i93, ptr %1077, align 8, !tbaa !16
   %1078 = shl i64 %.1.i.i196.i.i94, 1
@@ -38996,7 +38996,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %1148
 
 .preheader227.i.i:                                ; preds = %1493
-  %1112 = zext i32 %.188.i.i222 to i64
+  %1112 = zext nneg i32 %.188.i.i222 to i64
   %.not248.i.i = icmp eq i32 %.188.i.i222, 0
   br i1 %.not248.i.i, label %.preheader.i.i239, label %.lr.ph241.i.i
 
@@ -39348,11 +39348,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i360:   ; preds = %1331
   br i1 %1335, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i364, label %1336
 
 1336:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i360, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i369
-  %.sink63.i.i.i.i361 = phi float [ %1324, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i369 ], [ %1315, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i360 ]
+  %.sink71.i.i.i.i361 = phi float [ %1324, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i369 ], [ %1315, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i360 ]
   %.sink.i.i.i.i362 = phi i64 [ %1327, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i369 ], [ %1317, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i360 ]
   %.1.i.i.i.i363 = phi i64 [ %1309, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i369 ], [ %1308, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i360 ]
   %1337 = getelementptr inbounds nuw float, ptr %1108, i64 %.056.i.i.i.i358
-  store float %.sink63.i.i.i.i361, ptr %1337, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i361, ptr %1337, align 4, !tbaa !138
   %1338 = getelementptr inbounds nuw i64, ptr %1109, i64 %.056.i.i.i.i358
   store i64 %.sink.i.i.i.i362, ptr %1338, align 8, !tbaa !16
   %1339 = shl i64 %.1.i.i.i.i363, 1
@@ -39446,11 +39446,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i347: ; preds = %1379
   br i1 %1383, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i351, label %1384
 
 1384:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i347, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i354
-  %.sink63.i.i114.i.i348 = phi float [ %1372, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i354 ], [ %1363, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i347 ]
+  %.sink71.i.i114.i.i348 = phi float [ %1372, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i354 ], [ %1363, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i347 ]
   %.sink.i.i115.i.i349 = phi i64 [ %1375, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i354 ], [ %1365, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i347 ]
   %.1.i.i116.i.i350 = phi i64 [ %1357, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i354 ], [ %1356, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i347 ]
   %1385 = getelementptr inbounds nuw float, ptr %1108, i64 %.056.i.i111.i.i345
-  store float %.sink63.i.i114.i.i348, ptr %1385, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i348, ptr %1385, align 4, !tbaa !138
   %1386 = getelementptr inbounds nuw i64, ptr %1109, i64 %.056.i.i111.i.i345
   store i64 %.sink.i.i115.i.i349, ptr %1386, align 8, !tbaa !16
   %1387 = shl i64 %.1.i.i116.i.i350, 1
@@ -39544,11 +39544,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i334: ; preds = %1427
   br i1 %1431, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i338, label %1432
 
 1432:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i334, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i341
-  %.sink63.i.i131.i.i335 = phi float [ %1420, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i341 ], [ %1411, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i334 ]
+  %.sink71.i.i131.i.i335 = phi float [ %1420, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i341 ], [ %1411, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i334 ]
   %.sink.i.i132.i.i336 = phi i64 [ %1423, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i341 ], [ %1413, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i334 ]
   %.1.i.i133.i.i337 = phi i64 [ %1405, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i341 ], [ %1404, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i334 ]
   %1433 = getelementptr inbounds nuw float, ptr %1108, i64 %.056.i.i128.i.i332
-  store float %.sink63.i.i131.i.i335, ptr %1433, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i335, ptr %1433, align 4, !tbaa !138
   %1434 = getelementptr inbounds nuw i64, ptr %1109, i64 %.056.i.i128.i.i332
   store i64 %.sink.i.i132.i.i336, ptr %1434, align 8, !tbaa !16
   %1435 = shl i64 %.1.i.i133.i.i337, 1
@@ -39642,11 +39642,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i321: ; preds = %1475
   br i1 %1479, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i325, label %1480
 
 1480:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i321, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i328
-  %.sink63.i.i148.i.i322 = phi float [ %1468, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i328 ], [ %1459, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i321 ]
+  %.sink71.i.i148.i.i322 = phi float [ %1468, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i328 ], [ %1459, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i321 ]
   %.sink.i.i149.i.i323 = phi i64 [ %1471, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i328 ], [ %1461, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i321 ]
   %.1.i.i150.i.i324 = phi i64 [ %1453, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i328 ], [ %1452, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i321 ]
   %1481 = getelementptr inbounds nuw float, ptr %1108, i64 %.056.i.i145.i.i319
-  store float %.sink63.i.i148.i.i322, ptr %1481, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i322, ptr %1481, align 4, !tbaa !138
   %1482 = getelementptr inbounds nuw i64, ptr %1109, i64 %.056.i.i145.i.i319
   store i64 %.sink.i.i149.i.i323, ptr %1482, align 8, !tbaa !16
   %1483 = shl i64 %.1.i.i150.i.i324, 1
@@ -39812,11 +39812,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i276: ; preds = %1555
   br i1 %1559, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i280, label %1560
 
 1560:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i276, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i283
-  %.sink63.i.i168.i.i277 = phi float [ %1548, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i283 ], [ %1539, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i276 ]
+  %.sink71.i.i168.i.i277 = phi float [ %1548, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i283 ], [ %1539, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i276 ]
   %.sink.i.i169.i.i278 = phi i64 [ %1551, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i283 ], [ %1541, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i276 ]
   %.1.i.i170.i.i279 = phi i64 [ %1533, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i283 ], [ %1532, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i276 ]
   %1561 = getelementptr inbounds nuw float, ptr %1108, i64 %.056.i.i165.i.i274
-  store float %.sink63.i.i168.i.i277, ptr %1561, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i277, ptr %1561, align 4, !tbaa !138
   %1562 = getelementptr inbounds nuw i64, ptr %1109, i64 %.056.i.i165.i.i274
   store i64 %.sink.i.i169.i.i278, ptr %1562, align 8, !tbaa !16
   %1563 = shl i64 %.1.i.i170.i.i279, 1
@@ -39961,11 +39961,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i262: ; preds = %1637
   br i1 %1641, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i266, label %1642
 
 1642:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i262, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i269
-  %.sink63.i.i194.i.i263 = phi float [ %1630, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i269 ], [ %1621, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i262 ]
+  %.sink71.i.i194.i.i263 = phi float [ %1630, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i269 ], [ %1621, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i262 ]
   %.sink.i.i195.i.i264 = phi i64 [ %1633, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i269 ], [ %1623, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i262 ]
   %.1.i.i196.i.i265 = phi i64 [ %1615, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i269 ], [ %1614, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i262 ]
   %1643 = getelementptr inbounds nuw float, ptr %1500, i64 %.056.i.i191.i.i260
-  store float %.sink63.i.i194.i.i263, ptr %1643, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i263, ptr %1643, align 4, !tbaa !138
   %1644 = getelementptr inbounds nuw i64, ptr %1501, i64 %.056.i.i191.i.i260
   store i64 %.sink.i.i195.i.i264, ptr %1644, align 8, !tbaa !16
   %1645 = shl i64 %.1.i.i196.i.i265, 1
@@ -40036,7 +40036,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %1717
 
 .preheader231.i.i:                                ; preds = %2082
-  %1681 = zext i32 %.188.i.i383 to i64
+  %1681 = zext nneg i32 %.188.i.i383 to i64
   %.not252.i.i = icmp eq i32 %.188.i.i383, 0
   br i1 %.not252.i.i, label %.preheader.i.i400, label %.lr.ph245.i.i
 
@@ -40408,11 +40408,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i521:   ; preds = %1920
   br i1 %1924, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i525, label %1925
 
 1925:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i521, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i530
-  %.sink63.i.i.i.i522 = phi float [ %1913, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i530 ], [ %1904, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i521 ]
+  %.sink71.i.i.i.i522 = phi float [ %1913, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i530 ], [ %1904, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i521 ]
   %.sink.i.i.i.i523 = phi i64 [ %1916, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i530 ], [ %1906, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i521 ]
   %.1.i.i.i.i524 = phi i64 [ %1898, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i530 ], [ %1897, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i521 ]
   %1926 = getelementptr inbounds nuw float, ptr %1677, i64 %.056.i.i.i.i519
-  store float %.sink63.i.i.i.i522, ptr %1926, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i522, ptr %1926, align 4, !tbaa !138
   %1927 = getelementptr inbounds nuw i64, ptr %1678, i64 %.056.i.i.i.i519
   store i64 %.sink.i.i.i.i523, ptr %1927, align 8, !tbaa !16
   %1928 = shl i64 %.1.i.i.i.i524, 1
@@ -40506,11 +40506,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i508: ; preds = %1968
   br i1 %1972, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i512, label %1973
 
 1973:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i508, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i515
-  %.sink63.i.i114.i.i509 = phi float [ %1961, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i515 ], [ %1952, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i508 ]
+  %.sink71.i.i114.i.i509 = phi float [ %1961, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i515 ], [ %1952, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i508 ]
   %.sink.i.i115.i.i510 = phi i64 [ %1964, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i515 ], [ %1954, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i508 ]
   %.1.i.i116.i.i511 = phi i64 [ %1946, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i515 ], [ %1945, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i508 ]
   %1974 = getelementptr inbounds nuw float, ptr %1677, i64 %.056.i.i111.i.i506
-  store float %.sink63.i.i114.i.i509, ptr %1974, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i509, ptr %1974, align 4, !tbaa !138
   %1975 = getelementptr inbounds nuw i64, ptr %1678, i64 %.056.i.i111.i.i506
   store i64 %.sink.i.i115.i.i510, ptr %1975, align 8, !tbaa !16
   %1976 = shl i64 %.1.i.i116.i.i511, 1
@@ -40604,11 +40604,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i495: ; preds = %2016
   br i1 %2020, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i499, label %2021
 
 2021:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i495, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i502
-  %.sink63.i.i131.i.i496 = phi float [ %2009, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i502 ], [ %2000, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i495 ]
+  %.sink71.i.i131.i.i496 = phi float [ %2009, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i502 ], [ %2000, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i495 ]
   %.sink.i.i132.i.i497 = phi i64 [ %2012, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i502 ], [ %2002, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i495 ]
   %.1.i.i133.i.i498 = phi i64 [ %1994, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i502 ], [ %1993, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i495 ]
   %2022 = getelementptr inbounds nuw float, ptr %1677, i64 %.056.i.i128.i.i493
-  store float %.sink63.i.i131.i.i496, ptr %2022, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i496, ptr %2022, align 4, !tbaa !138
   %2023 = getelementptr inbounds nuw i64, ptr %1678, i64 %.056.i.i128.i.i493
   store i64 %.sink.i.i132.i.i497, ptr %2023, align 8, !tbaa !16
   %2024 = shl i64 %.1.i.i133.i.i498, 1
@@ -40702,11 +40702,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i482: ; preds = %2064
   br i1 %2068, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i486, label %2069
 
 2069:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i482, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i489
-  %.sink63.i.i148.i.i483 = phi float [ %2057, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i489 ], [ %2048, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i482 ]
+  %.sink71.i.i148.i.i483 = phi float [ %2057, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i489 ], [ %2048, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i482 ]
   %.sink.i.i149.i.i484 = phi i64 [ %2060, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i489 ], [ %2050, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i482 ]
   %.1.i.i150.i.i485 = phi i64 [ %2042, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i489 ], [ %2041, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i482 ]
   %2070 = getelementptr inbounds nuw float, ptr %1677, i64 %.056.i.i145.i.i480
-  store float %.sink63.i.i148.i.i483, ptr %2070, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i483, ptr %2070, align 4, !tbaa !138
   %2071 = getelementptr inbounds nuw i64, ptr %1678, i64 %.056.i.i145.i.i480
   store i64 %.sink.i.i149.i.i484, ptr %2071, align 8, !tbaa !16
   %2072 = shl i64 %.1.i.i150.i.i485, 1
@@ -40872,11 +40872,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i437: ; preds = %2144
   br i1 %2148, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i441, label %2149
 
 2149:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i437, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i444
-  %.sink63.i.i168.i.i438 = phi float [ %2137, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i444 ], [ %2128, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i437 ]
+  %.sink71.i.i168.i.i438 = phi float [ %2137, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i444 ], [ %2128, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i437 ]
   %.sink.i.i169.i.i439 = phi i64 [ %2140, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i444 ], [ %2130, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i437 ]
   %.1.i.i170.i.i440 = phi i64 [ %2122, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i444 ], [ %2121, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i437 ]
   %2150 = getelementptr inbounds nuw float, ptr %1677, i64 %.056.i.i165.i.i435
-  store float %.sink63.i.i168.i.i438, ptr %2150, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i438, ptr %2150, align 4, !tbaa !138
   %2151 = getelementptr inbounds nuw i64, ptr %1678, i64 %.056.i.i165.i.i435
   store i64 %.sink.i.i169.i.i439, ptr %2151, align 8, !tbaa !16
   %2152 = shl i64 %.1.i.i170.i.i440, 1
@@ -41026,11 +41026,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i423: ; preds = %2231
   br i1 %2235, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i427, label %2236
 
 2236:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i423, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i430
-  %.sink63.i.i194.i.i424 = phi float [ %2224, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i430 ], [ %2215, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i423 ]
+  %.sink71.i.i194.i.i424 = phi float [ %2224, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i430 ], [ %2215, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i423 ]
   %.sink.i.i195.i.i425 = phi i64 [ %2227, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i430 ], [ %2217, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i423 ]
   %.1.i.i196.i.i426 = phi i64 [ %2209, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i430 ], [ %2208, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i423 ]
   %2237 = getelementptr inbounds nuw float, ptr %2089, i64 %.056.i.i191.i.i421
-  store float %.sink63.i.i194.i.i424, ptr %2237, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i424, ptr %2237, align 4, !tbaa !138
   %2238 = getelementptr inbounds nuw i64, ptr %2090, i64 %.056.i.i191.i.i421
   store i64 %.sink.i.i195.i.i425, ptr %2238, align 8, !tbaa !16
   %2239 = shl i64 %.1.i.i196.i.i426, 1
@@ -41103,7 +41103,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %2313
 
 .preheader235.i.i:                                ; preds = %2706
-  %2277 = zext i32 %.188.i.i544 to i64
+  %2277 = zext nneg i32 %.188.i.i544 to i64
   %.not256.i.i = icmp eq i32 %.188.i.i544, 0
   br i1 %.not256.i.i, label %.preheader.i.i561, label %.lr.ph249.i.i
 
@@ -41503,11 +41503,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i682:   ; preds = %2544
   br i1 %2548, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i686, label %2549
 
 2549:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i682, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i691
-  %.sink63.i.i.i.i683 = phi float [ %2537, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i691 ], [ %2528, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i682 ]
+  %.sink71.i.i.i.i683 = phi float [ %2537, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i691 ], [ %2528, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i682 ]
   %.sink.i.i.i.i684 = phi i64 [ %2540, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i691 ], [ %2530, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i682 ]
   %.1.i.i.i.i685 = phi i64 [ %2522, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i691 ], [ %2521, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i682 ]
   %2550 = getelementptr inbounds nuw float, ptr %2273, i64 %.056.i.i.i.i680
-  store float %.sink63.i.i.i.i683, ptr %2550, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i683, ptr %2550, align 4, !tbaa !138
   %2551 = getelementptr inbounds nuw i64, ptr %2274, i64 %.056.i.i.i.i680
   store i64 %.sink.i.i.i.i684, ptr %2551, align 8, !tbaa !16
   %2552 = shl i64 %.1.i.i.i.i685, 1
@@ -41601,11 +41601,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i669: ; preds = %2592
   br i1 %2596, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i673, label %2597
 
 2597:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i669, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i676
-  %.sink63.i.i114.i.i670 = phi float [ %2585, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i676 ], [ %2576, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i669 ]
+  %.sink71.i.i114.i.i670 = phi float [ %2585, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i676 ], [ %2576, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i669 ]
   %.sink.i.i115.i.i671 = phi i64 [ %2588, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i676 ], [ %2578, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i669 ]
   %.1.i.i116.i.i672 = phi i64 [ %2570, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i676 ], [ %2569, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i669 ]
   %2598 = getelementptr inbounds nuw float, ptr %2273, i64 %.056.i.i111.i.i667
-  store float %.sink63.i.i114.i.i670, ptr %2598, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i670, ptr %2598, align 4, !tbaa !138
   %2599 = getelementptr inbounds nuw i64, ptr %2274, i64 %.056.i.i111.i.i667
   store i64 %.sink.i.i115.i.i671, ptr %2599, align 8, !tbaa !16
   %2600 = shl i64 %.1.i.i116.i.i672, 1
@@ -41699,11 +41699,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i656: ; preds = %2640
   br i1 %2644, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i660, label %2645
 
 2645:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i656, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i663
-  %.sink63.i.i131.i.i657 = phi float [ %2633, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i663 ], [ %2624, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i656 ]
+  %.sink71.i.i131.i.i657 = phi float [ %2633, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i663 ], [ %2624, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i656 ]
   %.sink.i.i132.i.i658 = phi i64 [ %2636, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i663 ], [ %2626, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i656 ]
   %.1.i.i133.i.i659 = phi i64 [ %2618, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i663 ], [ %2617, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i656 ]
   %2646 = getelementptr inbounds nuw float, ptr %2273, i64 %.056.i.i128.i.i654
-  store float %.sink63.i.i131.i.i657, ptr %2646, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i657, ptr %2646, align 4, !tbaa !138
   %2647 = getelementptr inbounds nuw i64, ptr %2274, i64 %.056.i.i128.i.i654
   store i64 %.sink.i.i132.i.i658, ptr %2647, align 8, !tbaa !16
   %2648 = shl i64 %.1.i.i133.i.i659, 1
@@ -41797,11 +41797,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i643: ; preds = %2688
   br i1 %2692, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i647, label %2693
 
 2693:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i643, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i650
-  %.sink63.i.i148.i.i644 = phi float [ %2681, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i650 ], [ %2672, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i643 ]
+  %.sink71.i.i148.i.i644 = phi float [ %2681, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i650 ], [ %2672, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i643 ]
   %.sink.i.i149.i.i645 = phi i64 [ %2684, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i650 ], [ %2674, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i643 ]
   %.1.i.i150.i.i646 = phi i64 [ %2666, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i650 ], [ %2665, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i643 ]
   %2694 = getelementptr inbounds nuw float, ptr %2273, i64 %.056.i.i145.i.i641
-  store float %.sink63.i.i148.i.i644, ptr %2694, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i644, ptr %2694, align 4, !tbaa !138
   %2695 = getelementptr inbounds nuw i64, ptr %2274, i64 %.056.i.i145.i.i641
   store i64 %.sink.i.i149.i.i645, ptr %2695, align 8, !tbaa !16
   %2696 = shl i64 %.1.i.i150.i.i646, 1
@@ -41967,11 +41967,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i598: ; preds = %2768
   br i1 %2772, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i602, label %2773
 
 2773:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i598, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i605
-  %.sink63.i.i168.i.i599 = phi float [ %2761, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i605 ], [ %2752, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i598 ]
+  %.sink71.i.i168.i.i599 = phi float [ %2761, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i605 ], [ %2752, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i598 ]
   %.sink.i.i169.i.i600 = phi i64 [ %2764, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i605 ], [ %2754, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i598 ]
   %.1.i.i170.i.i601 = phi i64 [ %2746, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i605 ], [ %2745, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i598 ]
   %2774 = getelementptr inbounds nuw float, ptr %2273, i64 %.056.i.i165.i.i596
-  store float %.sink63.i.i168.i.i599, ptr %2774, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i599, ptr %2774, align 4, !tbaa !138
   %2775 = getelementptr inbounds nuw i64, ptr %2274, i64 %.056.i.i165.i.i596
   store i64 %.sink.i.i169.i.i600, ptr %2775, align 8, !tbaa !16
   %2776 = shl i64 %.1.i.i170.i.i601, 1
@@ -42128,11 +42128,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i584: ; preds = %2862
   br i1 %2866, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i588, label %2867
 
 2867:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i584, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i591
-  %.sink63.i.i194.i.i585 = phi float [ %2855, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i591 ], [ %2846, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i584 ]
+  %.sink71.i.i194.i.i585 = phi float [ %2855, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i591 ], [ %2846, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i584 ]
   %.sink.i.i195.i.i586 = phi i64 [ %2858, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i591 ], [ %2848, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i584 ]
   %.1.i.i196.i.i587 = phi i64 [ %2840, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i591 ], [ %2839, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i584 ]
   %2868 = getelementptr inbounds nuw float, ptr %2713, i64 %.056.i.i191.i.i582
-  store float %.sink63.i.i194.i.i585, ptr %2868, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i585, ptr %2868, align 4, !tbaa !138
   %2869 = getelementptr inbounds nuw i64, ptr %2714, i64 %.056.i.i191.i.i582
   store i64 %.sink.i.i195.i.i586, ptr %2869, align 8, !tbaa !16
   %2870 = shl i64 %.1.i.i196.i.i587, 1
@@ -42213,7 +42213,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %2952
 
 .preheader251.i.i:                                ; preds = %3441
-  %2916 = zext i32 %.188.i.i705 to i64
+  %2916 = zext nneg i32 %.188.i.i705 to i64
   %.not272.i.i = icmp eq i32 %.188.i.i705, 0
   br i1 %.not272.i.i, label %.preheader.i.i722, label %.lr.ph265.i.i
 
@@ -42709,11 +42709,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i839:   ; preds = %3279
   br i1 %3283, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i843, label %3284
 
 3284:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i839, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i847
-  %.sink63.i.i.i.i840 = phi float [ %3272, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i847 ], [ %3263, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i839 ]
+  %.sink71.i.i.i.i840 = phi float [ %3272, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i847 ], [ %3263, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i839 ]
   %.sink.i.i.i.i841 = phi i64 [ %3275, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i847 ], [ %3265, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i839 ]
   %.1.i.i.i.i842 = phi i64 [ %3257, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i847 ], [ %3256, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i839 ]
   %3285 = getelementptr inbounds nuw float, ptr %2912, i64 %.056.i.i.i.i837
-  store float %.sink63.i.i.i.i840, ptr %3285, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i840, ptr %3285, align 4, !tbaa !138
   %3286 = getelementptr inbounds nuw i64, ptr %2913, i64 %.056.i.i.i.i837
   store i64 %.sink.i.i.i.i841, ptr %3286, align 8, !tbaa !16
   %3287 = shl i64 %.1.i.i.i.i842, 1
@@ -42807,11 +42807,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i826: ; preds = %3327
   br i1 %3331, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i830, label %3332
 
 3332:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i826, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i833
-  %.sink63.i.i114.i.i827 = phi float [ %3320, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i833 ], [ %3311, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i826 ]
+  %.sink71.i.i114.i.i827 = phi float [ %3320, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i833 ], [ %3311, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i826 ]
   %.sink.i.i115.i.i828 = phi i64 [ %3323, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i833 ], [ %3313, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i826 ]
   %.1.i.i116.i.i829 = phi i64 [ %3305, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i833 ], [ %3304, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i826 ]
   %3333 = getelementptr inbounds nuw float, ptr %2912, i64 %.056.i.i111.i.i824
-  store float %.sink63.i.i114.i.i827, ptr %3333, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i827, ptr %3333, align 4, !tbaa !138
   %3334 = getelementptr inbounds nuw i64, ptr %2913, i64 %.056.i.i111.i.i824
   store i64 %.sink.i.i115.i.i828, ptr %3334, align 8, !tbaa !16
   %3335 = shl i64 %.1.i.i116.i.i829, 1
@@ -42905,11 +42905,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i813: ; preds = %3375
   br i1 %3379, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i817, label %3380
 
 3380:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i813, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i820
-  %.sink63.i.i131.i.i814 = phi float [ %3368, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i820 ], [ %3359, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i813 ]
+  %.sink71.i.i131.i.i814 = phi float [ %3368, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i820 ], [ %3359, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i813 ]
   %.sink.i.i132.i.i815 = phi i64 [ %3371, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i820 ], [ %3361, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i813 ]
   %.1.i.i133.i.i816 = phi i64 [ %3353, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i820 ], [ %3352, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i813 ]
   %3381 = getelementptr inbounds nuw float, ptr %2912, i64 %.056.i.i128.i.i811
-  store float %.sink63.i.i131.i.i814, ptr %3381, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i814, ptr %3381, align 4, !tbaa !138
   %3382 = getelementptr inbounds nuw i64, ptr %2913, i64 %.056.i.i128.i.i811
   store i64 %.sink.i.i132.i.i815, ptr %3382, align 8, !tbaa !16
   %3383 = shl i64 %.1.i.i133.i.i816, 1
@@ -43003,11 +43003,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i800: ; preds = %3423
   br i1 %3427, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i804, label %3428
 
 3428:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i800, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i807
-  %.sink63.i.i148.i.i801 = phi float [ %3416, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i807 ], [ %3407, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i800 ]
+  %.sink71.i.i148.i.i801 = phi float [ %3416, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i807 ], [ %3407, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i800 ]
   %.sink.i.i149.i.i802 = phi i64 [ %3419, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i807 ], [ %3409, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i800 ]
   %.1.i.i150.i.i803 = phi i64 [ %3401, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i807 ], [ %3400, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i800 ]
   %3429 = getelementptr inbounds nuw float, ptr %2912, i64 %.056.i.i145.i.i798
-  store float %.sink63.i.i148.i.i801, ptr %3429, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i801, ptr %3429, align 4, !tbaa !138
   %3430 = getelementptr inbounds nuw i64, ptr %2913, i64 %.056.i.i145.i.i798
   store i64 %.sink.i.i149.i.i802, ptr %3430, align 8, !tbaa !16
   %3431 = shl i64 %.1.i.i150.i.i803, 1
@@ -43173,11 +43173,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i759: ; preds = %3503
   br i1 %3507, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i763, label %3508
 
 3508:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i759, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i766
-  %.sink63.i.i168.i.i760 = phi float [ %3496, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i766 ], [ %3487, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i759 ]
+  %.sink71.i.i168.i.i760 = phi float [ %3496, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i766 ], [ %3487, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i759 ]
   %.sink.i.i169.i.i761 = phi i64 [ %3499, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i766 ], [ %3489, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i759 ]
   %.1.i.i170.i.i762 = phi i64 [ %3481, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i766 ], [ %3480, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i759 ]
   %3509 = getelementptr inbounds nuw float, ptr %2912, i64 %.056.i.i165.i.i757
-  store float %.sink63.i.i168.i.i760, ptr %3509, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i760, ptr %3509, align 4, !tbaa !138
   %3510 = getelementptr inbounds nuw i64, ptr %2913, i64 %.056.i.i165.i.i757
   store i64 %.sink.i.i169.i.i761, ptr %3510, align 8, !tbaa !16
   %3511 = shl i64 %.1.i.i170.i.i762, 1
@@ -43358,11 +43358,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i745: ; preds = %3621
   br i1 %3625, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i749, label %3626
 
 3626:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i745, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i752
-  %.sink63.i.i194.i.i746 = phi float [ %3614, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i752 ], [ %3605, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i745 ]
+  %.sink71.i.i194.i.i746 = phi float [ %3614, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i752 ], [ %3605, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i745 ]
   %.sink.i.i195.i.i747 = phi i64 [ %3617, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i752 ], [ %3607, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i745 ]
   %.1.i.i196.i.i748 = phi i64 [ %3599, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i752 ], [ %3598, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i745 ]
   %3627 = getelementptr inbounds nuw float, ptr %3448, i64 %.056.i.i191.i.i743
-  store float %.sink63.i.i194.i.i746, ptr %3627, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i746, ptr %3627, align 4, !tbaa !138
   %3628 = getelementptr inbounds nuw i64, ptr %3449, i64 %.056.i.i191.i.i743
   store i64 %.sink.i.i195.i.i747, ptr %3628, align 8, !tbaa !16
   %3629 = shl i64 %.1.i.i196.i.i748, 1
@@ -43436,7 +43436,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %3700
 
 .preheader219.i.i:                                ; preds = %4009
-  %3664 = zext i32 %.188.i.i861 to i64
+  %3664 = zext nneg i32 %.188.i.i861 to i64
   %.not240.i.i = icmp eq i32 %.188.i.i861, 0
   br i1 %.not240.i.i, label %.preheader.i.i878, label %.lr.ph233.i.i
 
@@ -43752,11 +43752,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1000:  ; preds = %3847
   br i1 %3851, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i1004, label %3852
 
 3852:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1000, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i1008
-  %.sink63.i.i.i.i1001 = phi float [ %3840, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i1008 ], [ %3831, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1000 ]
+  %.sink71.i.i.i.i1001 = phi float [ %3840, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i1008 ], [ %3831, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1000 ]
   %.sink.i.i.i.i1002 = phi i64 [ %3843, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i1008 ], [ %3833, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1000 ]
   %.1.i.i.i.i1003 = phi i64 [ %3825, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i1008 ], [ %3824, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1000 ]
   %3853 = getelementptr inbounds nuw float, ptr %3660, i64 %.056.i.i.i.i998
-  store float %.sink63.i.i.i.i1001, ptr %3853, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i1001, ptr %3853, align 4, !tbaa !138
   %3854 = getelementptr inbounds nuw i64, ptr %3661, i64 %.056.i.i.i.i998
   store i64 %.sink.i.i.i.i1002, ptr %3854, align 8, !tbaa !16
   %3855 = shl i64 %.1.i.i.i.i1003, 1
@@ -43850,11 +43850,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i987: ; preds = %3895
   br i1 %3899, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i991, label %3900
 
 3900:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i987, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i994
-  %.sink63.i.i114.i.i988 = phi float [ %3888, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i994 ], [ %3879, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i987 ]
+  %.sink71.i.i114.i.i988 = phi float [ %3888, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i994 ], [ %3879, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i987 ]
   %.sink.i.i115.i.i989 = phi i64 [ %3891, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i994 ], [ %3881, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i987 ]
   %.1.i.i116.i.i990 = phi i64 [ %3873, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i120.i.i994 ], [ %3872, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i113.i.i987 ]
   %3901 = getelementptr inbounds nuw float, ptr %3660, i64 %.056.i.i111.i.i985
-  store float %.sink63.i.i114.i.i988, ptr %3901, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i988, ptr %3901, align 4, !tbaa !138
   %3902 = getelementptr inbounds nuw i64, ptr %3661, i64 %.056.i.i111.i.i985
   store i64 %.sink.i.i115.i.i989, ptr %3902, align 8, !tbaa !16
   %3903 = shl i64 %.1.i.i116.i.i990, 1
@@ -43948,11 +43948,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i973: ; preds = %3943
   br i1 %3947, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i977, label %3948
 
 3948:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i973, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i981
-  %.sink63.i.i131.i.i974 = phi float [ %3936, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i981 ], [ %3927, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i973 ]
+  %.sink71.i.i131.i.i974 = phi float [ %3936, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i981 ], [ %3927, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i973 ]
   %.sink.i.i132.i.i975 = phi i64 [ %3939, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i981 ], [ %3929, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i973 ]
   %.1.i.i133.i.i976 = phi i64 [ %3921, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i137.i.i981 ], [ %3920, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i130.i.i973 ]
   %3949 = getelementptr inbounds nuw float, ptr %3660, i64 %.056.i.i128.i.i971
-  store float %.sink63.i.i131.i.i974, ptr %3949, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i974, ptr %3949, align 4, !tbaa !138
   %3950 = getelementptr inbounds nuw i64, ptr %3661, i64 %.056.i.i128.i.i971
   store i64 %.sink.i.i132.i.i975, ptr %3950, align 8, !tbaa !16
   %3951 = shl i64 %.1.i.i133.i.i976, 1
@@ -44046,11 +44046,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i960: ; preds = %3991
   br i1 %3995, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i964, label %3996
 
 3996:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i960, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i967
-  %.sink63.i.i148.i.i961 = phi float [ %3984, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i967 ], [ %3975, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i960 ]
+  %.sink71.i.i148.i.i961 = phi float [ %3984, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i967 ], [ %3975, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i960 ]
   %.sink.i.i149.i.i962 = phi i64 [ %3987, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i967 ], [ %3977, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i960 ]
   %.1.i.i150.i.i963 = phi i64 [ %3969, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i154.i.i967 ], [ %3968, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i147.i.i960 ]
   %3997 = getelementptr inbounds nuw float, ptr %3660, i64 %.056.i.i145.i.i958
-  store float %.sink63.i.i148.i.i961, ptr %3997, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i961, ptr %3997, align 4, !tbaa !138
   %3998 = getelementptr inbounds nuw i64, ptr %3661, i64 %.056.i.i145.i.i958
   store i64 %.sink.i.i149.i.i962, ptr %3998, align 8, !tbaa !16
   %3999 = shl i64 %.1.i.i150.i.i963, 1
@@ -44216,11 +44216,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i915: ; preds = %4071
   br i1 %4075, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i919, label %4076
 
 4076:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i915, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i922
-  %.sink63.i.i168.i.i916 = phi float [ %4064, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i922 ], [ %4055, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i915 ]
+  %.sink71.i.i168.i.i916 = phi float [ %4064, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i922 ], [ %4055, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i915 ]
   %.sink.i.i169.i.i917 = phi i64 [ %4067, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i922 ], [ %4057, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i915 ]
   %.1.i.i170.i.i918 = phi i64 [ %4049, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i174.i.i922 ], [ %4048, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i167.i.i915 ]
   %4077 = getelementptr inbounds nuw float, ptr %3660, i64 %.056.i.i165.i.i913
-  store float %.sink63.i.i168.i.i916, ptr %4077, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i916, ptr %4077, align 4, !tbaa !138
   %4078 = getelementptr inbounds nuw i64, ptr %3661, i64 %.056.i.i165.i.i913
   store i64 %.sink.i.i169.i.i917, ptr %4078, align 8, !tbaa !16
   %4079 = shl i64 %.1.i.i170.i.i918, 1
@@ -44356,11 +44356,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i901: ; preds = %4144
   br i1 %4148, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i905, label %4149
 
 4149:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i901, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i908
-  %.sink63.i.i194.i.i902 = phi float [ %4137, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i908 ], [ %4128, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i901 ]
+  %.sink71.i.i194.i.i902 = phi float [ %4137, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i908 ], [ %4128, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i901 ]
   %.sink.i.i195.i.i903 = phi i64 [ %4140, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i908 ], [ %4130, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i901 ]
   %.1.i.i196.i.i904 = phi i64 [ %4122, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i200.i.i908 ], [ %4121, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i193.i.i901 ]
   %4150 = getelementptr inbounds nuw float, ptr %4016, i64 %.056.i.i191.i.i899
-  store float %.sink63.i.i194.i.i902, ptr %4150, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i902, ptr %4150, align 4, !tbaa !138
   %4151 = getelementptr inbounds nuw i64, ptr %4017, i64 %.056.i.i191.i.i899
   store i64 %.sink.i.i195.i.i903, ptr %4151, align 8, !tbaa !16
   %4152 = shl i64 %.1.i.i196.i.i904, 1
@@ -44723,11 +44723,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i:        ; preds = %141
   br i1 %145, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i, label %146
 
 146:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i
-  %.sink63.i.i.i = phi float [ %134, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %125, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
+  %.sink71.i.i.i = phi float [ %134, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %125, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
   %.sink.i.i.i = phi i64 [ %137, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %127, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
   %.1.i.i.i = phi i64 [ %119, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %118, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
   %147 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i.i
-  store float %.sink63.i.i.i, ptr %147, align 4, !tbaa !138
+  store float %.sink71.i.i.i, ptr %147, align 4, !tbaa !138
   %148 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i.i
   store i64 %.sink.i.i.i, ptr %148, align 8, !tbaa !16
   %149 = shl i64 %.1.i.i.i, 1
@@ -44823,11 +44823,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i71.i:      ; preds = %191
   br i1 %195, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i75.i, label %196
 
 196:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i71.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i78.i
-  %.sink63.i.i72.i = phi float [ %184, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i78.i ], [ %175, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i71.i ]
+  %.sink71.i.i72.i = phi float [ %184, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i78.i ], [ %175, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i71.i ]
   %.sink.i.i73.i = phi i64 [ %187, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i78.i ], [ %177, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i71.i ]
   %.1.i.i74.i = phi i64 [ %169, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i78.i ], [ %168, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i71.i ]
   %197 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i69.i
-  store float %.sink63.i.i72.i, ptr %197, align 4, !tbaa !138
+  store float %.sink71.i.i72.i, ptr %197, align 4, !tbaa !138
   %198 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i69.i
   store i64 %.sink.i.i73.i, ptr %198, align 8, !tbaa !16
   %199 = shl i64 %.1.i.i74.i, 1
@@ -44923,11 +44923,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i88.i:      ; preds = %241
   br i1 %245, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i92.i, label %246
 
 246:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i88.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i95.i
-  %.sink63.i.i89.i = phi float [ %234, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i95.i ], [ %225, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i88.i ]
+  %.sink71.i.i89.i = phi float [ %234, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i95.i ], [ %225, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i88.i ]
   %.sink.i.i90.i = phi i64 [ %237, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i95.i ], [ %227, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i88.i ]
   %.1.i.i91.i = phi i64 [ %219, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i95.i ], [ %218, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i88.i ]
   %247 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i86.i
-  store float %.sink63.i.i89.i, ptr %247, align 4, !tbaa !138
+  store float %.sink71.i.i89.i, ptr %247, align 4, !tbaa !138
   %248 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i86.i
   store i64 %.sink.i.i90.i, ptr %248, align 8, !tbaa !16
   %249 = shl i64 %.1.i.i91.i, 1
@@ -45023,11 +45023,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i105.i:     ; preds = %291
   br i1 %295, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i109.i, label %296
 
 296:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i105.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i112.i
-  %.sink63.i.i106.i = phi float [ %284, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i112.i ], [ %275, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i105.i ]
+  %.sink71.i.i106.i = phi float [ %284, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i112.i ], [ %275, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i105.i ]
   %.sink.i.i107.i = phi i64 [ %287, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i112.i ], [ %277, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i105.i ]
   %.1.i.i108.i = phi i64 [ %269, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i112.i ], [ %268, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i105.i ]
   %297 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i103.i
-  store float %.sink63.i.i106.i, ptr %297, align 4, !tbaa !138
+  store float %.sink71.i.i106.i, ptr %297, align 4, !tbaa !138
   %298 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i103.i
   store i64 %.sink.i.i107.i, ptr %298, align 8, !tbaa !16
   %299 = shl i64 %.1.i.i108.i, 1
@@ -45168,11 +45168,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i125.i:     ; preds = %364
   br i1 %368, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i129.i, label %369
 
 369:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i125.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i132.i
-  %.sink63.i.i126.i = phi float [ %357, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i132.i ], [ %348, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i125.i ]
+  %.sink71.i.i126.i = phi float [ %357, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i132.i ], [ %348, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i125.i ]
   %.sink.i.i127.i = phi i64 [ %360, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i132.i ], [ %350, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i125.i ]
   %.1.i.i128.i = phi i64 [ %342, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i132.i ], [ %341, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i125.i ]
   %370 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i123.i
-  store float %.sink63.i.i126.i, ptr %370, align 4, !tbaa !138
+  store float %.sink71.i.i126.i, ptr %370, align 4, !tbaa !138
   %371 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i123.i
   store i64 %.sink.i.i127.i, ptr %371, align 8, !tbaa !16
   %372 = shl i64 %.1.i.i128.i, 1
@@ -45302,11 +45302,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i151.i:     ; preds = %431
   br i1 %435, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i155.i, label %436
 
 436:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i151.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i158.i
-  %.sink63.i.i152.i = phi float [ %424, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i158.i ], [ %415, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i151.i ]
+  %.sink71.i.i152.i = phi float [ %424, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i158.i ], [ %415, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i151.i ]
   %.sink.i.i153.i = phi i64 [ %427, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i158.i ], [ %417, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i151.i ]
   %.1.i.i154.i = phi i64 [ %409, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i158.i ], [ %408, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i151.i ]
   %437 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i149.i
-  store float %.sink63.i.i152.i, ptr %437, align 4, !tbaa !138
+  store float %.sink71.i.i152.i, ptr %437, align 4, !tbaa !138
   %438 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i149.i
   store i64 %.sink.i.i153.i, ptr %438, align 8, !tbaa !16
   %439 = shl i64 %.1.i.i154.i, 1
@@ -45436,11 +45436,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i177.i:     ; preds = %499
   br i1 %503, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i181.i, label %504
 
 504:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i177.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i184.i
-  %.sink63.i.i178.i = phi float [ %492, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i184.i ], [ %483, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i177.i ]
+  %.sink71.i.i178.i = phi float [ %492, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i184.i ], [ %483, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i177.i ]
   %.sink.i.i179.i = phi i64 [ %495, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i184.i ], [ %485, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i177.i ]
   %.1.i.i180.i = phi i64 [ %477, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i184.i ], [ %476, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i177.i ]
   %505 = getelementptr inbounds nuw float, ptr %42, i64 %.056.i.i175.i
-  store float %.sink63.i.i178.i, ptr %505, align 4, !tbaa !138
+  store float %.sink71.i.i178.i, ptr %505, align 4, !tbaa !138
   %506 = getelementptr inbounds nuw i64, ptr %43, i64 %.056.i.i175.i
   store i64 %.sink.i.i179.i, ptr %506, align 8, !tbaa !16
   %507 = shl i64 %.1.i.i180.i, 1
@@ -45561,11 +45561,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i32:      ; preds = %563
   br i1 %567, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i36, label %568
 
 568:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i32, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i39
-  %.sink63.i.i.i33 = phi float [ %556, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i39 ], [ %547, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i32 ]
+  %.sink71.i.i.i33 = phi float [ %556, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i39 ], [ %547, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i32 ]
   %.sink.i.i.i34 = phi i64 [ %559, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i39 ], [ %549, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i32 ]
   %.1.i.i.i35 = phi i64 [ %541, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i39 ], [ %540, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i32 ]
   %569 = getelementptr inbounds nuw float, ptr %518, i64 %.056.i.i.i30
-  store float %.sink63.i.i.i33, ptr %569, align 4, !tbaa !138
+  store float %.sink71.i.i.i33, ptr %569, align 4, !tbaa !138
   %570 = getelementptr inbounds nuw i64, ptr %519, i64 %.056.i.i.i30
   store i64 %.sink.i.i.i34, ptr %570, align 8, !tbaa !16
   %571 = shl i64 %.1.i.i.i35, 1
@@ -45732,11 +45732,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i54:      ; preds = %661
   br i1 %665, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i58, label %666
 
 666:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i54, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i61
-  %.sink63.i.i.i55 = phi float [ %654, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i61 ], [ %645, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i54 ]
+  %.sink71.i.i.i55 = phi float [ %654, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i61 ], [ %645, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i54 ]
   %.sink.i.i.i56 = phi i64 [ %657, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i61 ], [ %647, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i54 ]
   %.1.i.i.i57 = phi i64 [ %639, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i61 ], [ %638, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i54 ]
   %667 = getelementptr inbounds nuw float, ptr %617, i64 %.056.i.i.i52
-  store float %.sink63.i.i.i55, ptr %667, align 4, !tbaa !138
+  store float %.sink71.i.i.i55, ptr %667, align 4, !tbaa !138
   %668 = getelementptr inbounds nuw i64, ptr %618, i64 %.056.i.i.i52
   store i64 %.sink.i.i.i56, ptr %668, align 8, !tbaa !16
   %669 = shl i64 %.1.i.i.i57, 1
@@ -45907,7 +45907,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1E
   br label %62
 
 .preheader147.i.i.i.i:                            ; preds = %216
-  %61 = zext i32 %.188.i.i.i.i to i64
+  %61 = zext nneg i32 %.188.i.i.i.i to i64
   %.not168.i.i.i.i = icmp eq i32 %.188.i.i.i.i, 0
   br i1 %.not168.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph161.i.i.i.i
 
@@ -46345,7 +46345,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %314
 
 .preheader147.i.i40.i.i:                          ; preds = %472
-  %313 = zext i32 %.188.i.i38.i.i to i64
+  %313 = zext nneg i32 %.188.i.i38.i.i to i64
   %.not168.i.i41.i.i = icmp eq i32 %.188.i.i38.i.i, 0
   br i1 %.not168.i.i41.i.i, label %.preheader.i.i58.i.i, label %.lr.ph161.i.i43.i.i
 
@@ -46790,7 +46790,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %573
 
 .preheader151.i.i.i.i:                            ; preds = %755
-  %572 = zext i32 %.188.i.i113.i.i to i64
+  %572 = zext nneg i32 %.188.i.i113.i.i to i64
   %.not172.i.i.i.i = icmp eq i32 %.188.i.i113.i.i, 0
   br i1 %.not172.i.i.i.i, label %.preheader.i.i128.i.i, label %.lr.ph165.i.i.i.i
 
@@ -47267,7 +47267,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %864
 
 .preheader155.i.i.i.i:                            ; preds = %1066
-  %863 = zext i32 %.188.i.i173.i.i to i64
+  %863 = zext nneg i32 %.188.i.i173.i.i to i64
   %.not176.i.i.i.i = icmp eq i32 %.188.i.i173.i.i, 0
   br i1 %.not176.i.i.i.i, label %.preheader.i.i188.i.i, label %.lr.ph169.i.i.i.i
 
@@ -47771,7 +47771,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %1182
 
 .preheader159.i.i.i.i:                            ; preds = %1412
-  %1181 = zext i32 %.188.i.i233.i.i to i64
+  %1181 = zext nneg i32 %.188.i.i233.i.i to i64
   %.not180.i.i.i.i = icmp eq i32 %.188.i.i233.i.i, 0
   br i1 %.not180.i.i.i.i, label %.preheader.i.i248.i.i, label %.lr.ph173.i.i.i.i
 
@@ -48318,7 +48318,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %1543
 
 .preheader175.i.i.i.i:                            ; preds = %1869
-  %1542 = zext i32 %.188.i.i293.i.i to i64
+  %1542 = zext nneg i32 %.188.i.i293.i.i to i64
   %.not196.i.i.i.i = icmp eq i32 %.188.i.i293.i.i, 0
   br i1 %.not196.i.i.i.i, label %.preheader.i.i308.i.i, label %.lr.ph189.i.i.i.i
 
@@ -48978,7 +48978,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %2013
 
 .preheader143.i.i.i.i:                            ; preds = %2159
-  %2012 = zext i32 %.188.i.i349.i.i to i64
+  %2012 = zext nneg i32 %.188.i.i349.i.i to i64
   %.not164.i.i.i.i = icmp eq i32 %.188.i.i349.i.i, 0
   br i1 %.not164.i.i.i.i, label %.preheader.i.i364.i.i, label %.lr.ph157.i.i.i.i
 
@@ -50161,7 +50161,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   br label %81
 
 .preheader223.i.i:                                ; preds = %398
-  %45 = zext i32 %.188.i.i to i64
+  %45 = zext nneg i32 %.188.i.i to i64
   %.not244.i.i = icmp eq i32 %.188.i.i, 0
   br i1 %.not244.i.i, label %.preheader.i.i, label %.lr.ph237.i.i
 
@@ -50485,11 +50485,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i:      ; preds = %236
   br i1 %240, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i, label %241
 
 241:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i
-  %.sink63.i.i.i.i = phi float [ %229, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %220, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
+  %.sink71.i.i.i.i = phi float [ %229, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %220, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
   %.sink.i.i.i.i = phi i64 [ %232, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %222, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
   %.1.i.i.i.i = phi i64 [ %214, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %213, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
   %242 = getelementptr inbounds nuw float, ptr %41, i64 %.056.i.i.i.i
-  store float %.sink63.i.i.i.i, ptr %242, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i, ptr %242, align 4, !tbaa !138
   %243 = getelementptr inbounds nuw i64, ptr %42, i64 %.056.i.i.i.i
   store i64 %.sink.i.i.i.i, ptr %243, align 8, !tbaa !16
   %244 = shl i64 %.1.i.i.i.i, 1
@@ -50583,11 +50583,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i:   ; preds = %284
   br i1 %288, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i, label %289
 
 289:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i
-  %.sink63.i.i114.i.i = phi float [ %277, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i ], [ %268, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i ]
+  %.sink71.i.i114.i.i = phi float [ %277, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i ], [ %268, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i ]
   %.sink.i.i115.i.i = phi i64 [ %280, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i ], [ %270, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i ]
   %.1.i.i116.i.i = phi i64 [ %262, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i ], [ %261, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i ]
   %290 = getelementptr inbounds nuw float, ptr %41, i64 %.056.i.i111.i.i
-  store float %.sink63.i.i114.i.i, ptr %290, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i, ptr %290, align 4, !tbaa !138
   %291 = getelementptr inbounds nuw i64, ptr %42, i64 %.056.i.i111.i.i
   store i64 %.sink.i.i115.i.i, ptr %291, align 8, !tbaa !16
   %292 = shl i64 %.1.i.i116.i.i, 1
@@ -50681,11 +50681,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i:   ; preds = %332
   br i1 %336, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i, label %337
 
 337:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i
-  %.sink63.i.i131.i.i = phi float [ %325, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i ], [ %316, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i ]
+  %.sink71.i.i131.i.i = phi float [ %325, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i ], [ %316, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i ]
   %.sink.i.i132.i.i = phi i64 [ %328, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i ], [ %318, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i ]
   %.1.i.i133.i.i = phi i64 [ %310, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i ], [ %309, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i ]
   %338 = getelementptr inbounds nuw float, ptr %41, i64 %.056.i.i128.i.i
-  store float %.sink63.i.i131.i.i, ptr %338, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i, ptr %338, align 4, !tbaa !138
   %339 = getelementptr inbounds nuw i64, ptr %42, i64 %.056.i.i128.i.i
   store i64 %.sink.i.i132.i.i, ptr %339, align 8, !tbaa !16
   %340 = shl i64 %.1.i.i133.i.i, 1
@@ -50779,11 +50779,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i:   ; preds = %380
   br i1 %384, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i, label %385
 
 385:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i
-  %.sink63.i.i148.i.i = phi float [ %373, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i ], [ %364, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i ]
+  %.sink71.i.i148.i.i = phi float [ %373, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i ], [ %364, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i ]
   %.sink.i.i149.i.i = phi i64 [ %376, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i ], [ %366, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i ]
   %.1.i.i150.i.i = phi i64 [ %358, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i ], [ %357, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i ]
   %386 = getelementptr inbounds nuw float, ptr %41, i64 %.056.i.i145.i.i
-  store float %.sink63.i.i148.i.i, ptr %386, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i, ptr %386, align 4, !tbaa !138
   %387 = getelementptr inbounds nuw i64, ptr %42, i64 %.056.i.i145.i.i
   store i64 %.sink.i.i149.i.i, ptr %387, align 8, !tbaa !16
   %388 = shl i64 %.1.i.i150.i.i, 1
@@ -50949,11 +50949,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i:   ; preds = %460
   br i1 %464, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i, label %465
 
 465:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i
-  %.sink63.i.i168.i.i = phi float [ %453, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i ], [ %444, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i ]
+  %.sink71.i.i168.i.i = phi float [ %453, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i ], [ %444, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i ]
   %.sink.i.i169.i.i = phi i64 [ %456, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i ], [ %446, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i ]
   %.1.i.i170.i.i = phi i64 [ %438, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i ], [ %437, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i ]
   %466 = getelementptr inbounds nuw float, ptr %41, i64 %.056.i.i165.i.i
-  store float %.sink63.i.i168.i.i, ptr %466, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i, ptr %466, align 4, !tbaa !138
   %467 = getelementptr inbounds nuw i64, ptr %42, i64 %.056.i.i165.i.i
   store i64 %.sink.i.i169.i.i, ptr %467, align 8, !tbaa !16
   %468 = shl i64 %.1.i.i170.i.i, 1
@@ -51091,11 +51091,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i:   ; preds = %535
   br i1 %539, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i, label %540
 
 540:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i
-  %.sink63.i.i194.i.i = phi float [ %528, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i ], [ %519, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i ]
+  %.sink71.i.i194.i.i = phi float [ %528, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i ], [ %519, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i ]
   %.sink.i.i195.i.i = phi i64 [ %531, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i ], [ %521, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i ]
   %.1.i.i196.i.i = phi i64 [ %513, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i ], [ %512, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i ]
   %541 = getelementptr inbounds nuw float, ptr %405, i64 %.056.i.i191.i.i
-  store float %.sink63.i.i194.i.i, ptr %541, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i, ptr %541, align 4, !tbaa !138
   %542 = getelementptr inbounds nuw i64, ptr %406, i64 %.056.i.i191.i.i
   store i64 %.sink.i.i195.i.i, ptr %542, align 8, !tbaa !16
   %543 = shl i64 %.1.i.i196.i.i, 1
@@ -51162,7 +51162,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %611
 
 .preheader223.i.i44:                              ; preds = %932
-  %575 = zext i32 %.188.i.i42 to i64
+  %575 = zext nneg i32 %.188.i.i42 to i64
   %.not244.i.i45 = icmp eq i32 %.188.i.i42, 0
   br i1 %.not244.i.i45, label %.preheader.i.i64, label %.lr.ph237.i.i46
 
@@ -51490,11 +51490,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i199:   ; preds = %770
   br i1 %774, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i203, label %775
 
 775:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i199, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i208
-  %.sink63.i.i.i.i200 = phi float [ %763, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i208 ], [ %754, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i199 ]
+  %.sink71.i.i.i.i200 = phi float [ %763, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i208 ], [ %754, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i199 ]
   %.sink.i.i.i.i201 = phi i64 [ %766, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i208 ], [ %756, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i199 ]
   %.1.i.i.i.i202 = phi i64 [ %748, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i208 ], [ %747, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i199 ]
   %776 = getelementptr inbounds nuw float, ptr %571, i64 %.056.i.i.i.i197
-  store float %.sink63.i.i.i.i200, ptr %776, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i200, ptr %776, align 4, !tbaa !138
   %777 = getelementptr inbounds nuw i64, ptr %572, i64 %.056.i.i.i.i197
   store i64 %.sink.i.i.i.i201, ptr %777, align 8, !tbaa !16
   %778 = shl i64 %.1.i.i.i.i202, 1
@@ -51588,11 +51588,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i184: ; preds = %818
   br i1 %822, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i188, label %823
 
 823:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i184, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i193
-  %.sink63.i.i114.i.i185 = phi float [ %811, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i193 ], [ %802, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i184 ]
+  %.sink71.i.i114.i.i185 = phi float [ %811, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i193 ], [ %802, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i184 ]
   %.sink.i.i115.i.i186 = phi i64 [ %814, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i193 ], [ %804, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i184 ]
   %.1.i.i116.i.i187 = phi i64 [ %796, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i193 ], [ %795, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i184 ]
   %824 = getelementptr inbounds nuw float, ptr %571, i64 %.056.i.i111.i.i182
-  store float %.sink63.i.i114.i.i185, ptr %824, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i185, ptr %824, align 4, !tbaa !138
   %825 = getelementptr inbounds nuw i64, ptr %572, i64 %.056.i.i111.i.i182
   store i64 %.sink.i.i115.i.i186, ptr %825, align 8, !tbaa !16
   %826 = shl i64 %.1.i.i116.i.i187, 1
@@ -51686,11 +51686,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i169: ; preds = %866
   br i1 %870, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i173, label %871
 
 871:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i169, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i178
-  %.sink63.i.i131.i.i170 = phi float [ %859, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i178 ], [ %850, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i169 ]
+  %.sink71.i.i131.i.i170 = phi float [ %859, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i178 ], [ %850, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i169 ]
   %.sink.i.i132.i.i171 = phi i64 [ %862, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i178 ], [ %852, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i169 ]
   %.1.i.i133.i.i172 = phi i64 [ %844, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i178 ], [ %843, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i169 ]
   %872 = getelementptr inbounds nuw float, ptr %571, i64 %.056.i.i128.i.i167
-  store float %.sink63.i.i131.i.i170, ptr %872, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i170, ptr %872, align 4, !tbaa !138
   %873 = getelementptr inbounds nuw i64, ptr %572, i64 %.056.i.i128.i.i167
   store i64 %.sink.i.i132.i.i171, ptr %873, align 8, !tbaa !16
   %874 = shl i64 %.1.i.i133.i.i172, 1
@@ -51784,11 +51784,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i156: ; preds = %914
   br i1 %918, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i160, label %919
 
 919:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i156, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i163
-  %.sink63.i.i148.i.i157 = phi float [ %907, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i163 ], [ %898, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i156 ]
+  %.sink71.i.i148.i.i157 = phi float [ %907, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i163 ], [ %898, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i156 ]
   %.sink.i.i149.i.i158 = phi i64 [ %910, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i163 ], [ %900, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i156 ]
   %.1.i.i150.i.i159 = phi i64 [ %892, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i163 ], [ %891, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i156 ]
   %920 = getelementptr inbounds nuw float, ptr %571, i64 %.056.i.i145.i.i154
-  store float %.sink63.i.i148.i.i157, ptr %920, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i157, ptr %920, align 4, !tbaa !138
   %921 = getelementptr inbounds nuw i64, ptr %572, i64 %.056.i.i145.i.i154
   store i64 %.sink.i.i149.i.i158, ptr %921, align 8, !tbaa !16
   %922 = shl i64 %.1.i.i150.i.i159, 1
@@ -51954,11 +51954,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i105: ; preds = %994
   br i1 %998, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i109, label %999
 
 999:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i105, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i112
-  %.sink63.i.i168.i.i106 = phi float [ %987, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i112 ], [ %978, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i105 ]
+  %.sink71.i.i168.i.i106 = phi float [ %987, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i112 ], [ %978, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i105 ]
   %.sink.i.i169.i.i107 = phi i64 [ %990, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i112 ], [ %980, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i105 ]
   %.1.i.i170.i.i108 = phi i64 [ %972, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i112 ], [ %971, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i105 ]
   %1000 = getelementptr inbounds nuw float, ptr %571, i64 %.056.i.i165.i.i103
-  store float %.sink63.i.i168.i.i106, ptr %1000, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i106, ptr %1000, align 4, !tbaa !138
   %1001 = getelementptr inbounds nuw i64, ptr %572, i64 %.056.i.i165.i.i103
   store i64 %.sink.i.i169.i.i107, ptr %1001, align 8, !tbaa !16
   %1002 = shl i64 %.1.i.i170.i.i108, 1
@@ -52097,11 +52097,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i91: ; preds = %1070
   br i1 %1074, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i95, label %1075
 
 1075:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i91, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i98
-  %.sink63.i.i194.i.i92 = phi float [ %1063, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i98 ], [ %1054, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i91 ]
+  %.sink71.i.i194.i.i92 = phi float [ %1063, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i98 ], [ %1054, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i91 ]
   %.sink.i.i195.i.i93 = phi i64 [ %1066, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i98 ], [ %1056, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i91 ]
   %.1.i.i196.i.i94 = phi i64 [ %1048, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i98 ], [ %1047, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i91 ]
   %1076 = getelementptr inbounds nuw float, ptr %939, i64 %.056.i.i191.i.i89
-  store float %.sink63.i.i194.i.i92, ptr %1076, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i92, ptr %1076, align 4, !tbaa !138
   %1077 = getelementptr inbounds nuw i64, ptr %940, i64 %.056.i.i191.i.i89
   store i64 %.sink.i.i195.i.i93, ptr %1077, align 8, !tbaa !16
   %1078 = shl i64 %.1.i.i196.i.i94, 1
@@ -52170,7 +52170,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %1148
 
 .preheader227.i.i:                                ; preds = %1493
-  %1112 = zext i32 %.188.i.i222 to i64
+  %1112 = zext nneg i32 %.188.i.i222 to i64
   %.not248.i.i = icmp eq i32 %.188.i.i222, 0
   br i1 %.not248.i.i, label %.preheader.i.i239, label %.lr.ph241.i.i
 
@@ -52522,11 +52522,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i360:   ; preds = %1331
   br i1 %1335, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i364, label %1336
 
 1336:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i360, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i369
-  %.sink63.i.i.i.i361 = phi float [ %1324, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i369 ], [ %1315, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i360 ]
+  %.sink71.i.i.i.i361 = phi float [ %1324, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i369 ], [ %1315, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i360 ]
   %.sink.i.i.i.i362 = phi i64 [ %1327, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i369 ], [ %1317, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i360 ]
   %.1.i.i.i.i363 = phi i64 [ %1309, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i369 ], [ %1308, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i360 ]
   %1337 = getelementptr inbounds nuw float, ptr %1108, i64 %.056.i.i.i.i358
-  store float %.sink63.i.i.i.i361, ptr %1337, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i361, ptr %1337, align 4, !tbaa !138
   %1338 = getelementptr inbounds nuw i64, ptr %1109, i64 %.056.i.i.i.i358
   store i64 %.sink.i.i.i.i362, ptr %1338, align 8, !tbaa !16
   %1339 = shl i64 %.1.i.i.i.i363, 1
@@ -52620,11 +52620,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i347: ; preds = %1379
   br i1 %1383, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i351, label %1384
 
 1384:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i347, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i354
-  %.sink63.i.i114.i.i348 = phi float [ %1372, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i354 ], [ %1363, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i347 ]
+  %.sink71.i.i114.i.i348 = phi float [ %1372, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i354 ], [ %1363, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i347 ]
   %.sink.i.i115.i.i349 = phi i64 [ %1375, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i354 ], [ %1365, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i347 ]
   %.1.i.i116.i.i350 = phi i64 [ %1357, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i354 ], [ %1356, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i347 ]
   %1385 = getelementptr inbounds nuw float, ptr %1108, i64 %.056.i.i111.i.i345
-  store float %.sink63.i.i114.i.i348, ptr %1385, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i348, ptr %1385, align 4, !tbaa !138
   %1386 = getelementptr inbounds nuw i64, ptr %1109, i64 %.056.i.i111.i.i345
   store i64 %.sink.i.i115.i.i349, ptr %1386, align 8, !tbaa !16
   %1387 = shl i64 %.1.i.i116.i.i350, 1
@@ -52718,11 +52718,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i334: ; preds = %1427
   br i1 %1431, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i338, label %1432
 
 1432:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i334, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i341
-  %.sink63.i.i131.i.i335 = phi float [ %1420, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i341 ], [ %1411, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i334 ]
+  %.sink71.i.i131.i.i335 = phi float [ %1420, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i341 ], [ %1411, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i334 ]
   %.sink.i.i132.i.i336 = phi i64 [ %1423, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i341 ], [ %1413, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i334 ]
   %.1.i.i133.i.i337 = phi i64 [ %1405, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i341 ], [ %1404, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i334 ]
   %1433 = getelementptr inbounds nuw float, ptr %1108, i64 %.056.i.i128.i.i332
-  store float %.sink63.i.i131.i.i335, ptr %1433, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i335, ptr %1433, align 4, !tbaa !138
   %1434 = getelementptr inbounds nuw i64, ptr %1109, i64 %.056.i.i128.i.i332
   store i64 %.sink.i.i132.i.i336, ptr %1434, align 8, !tbaa !16
   %1435 = shl i64 %.1.i.i133.i.i337, 1
@@ -52816,11 +52816,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i321: ; preds = %1475
   br i1 %1479, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i325, label %1480
 
 1480:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i321, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i328
-  %.sink63.i.i148.i.i322 = phi float [ %1468, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i328 ], [ %1459, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i321 ]
+  %.sink71.i.i148.i.i322 = phi float [ %1468, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i328 ], [ %1459, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i321 ]
   %.sink.i.i149.i.i323 = phi i64 [ %1471, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i328 ], [ %1461, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i321 ]
   %.1.i.i150.i.i324 = phi i64 [ %1453, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i328 ], [ %1452, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i321 ]
   %1481 = getelementptr inbounds nuw float, ptr %1108, i64 %.056.i.i145.i.i319
-  store float %.sink63.i.i148.i.i322, ptr %1481, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i322, ptr %1481, align 4, !tbaa !138
   %1482 = getelementptr inbounds nuw i64, ptr %1109, i64 %.056.i.i145.i.i319
   store i64 %.sink.i.i149.i.i323, ptr %1482, align 8, !tbaa !16
   %1483 = shl i64 %.1.i.i150.i.i324, 1
@@ -52986,11 +52986,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i276: ; preds = %1555
   br i1 %1559, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i280, label %1560
 
 1560:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i276, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i283
-  %.sink63.i.i168.i.i277 = phi float [ %1548, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i283 ], [ %1539, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i276 ]
+  %.sink71.i.i168.i.i277 = phi float [ %1548, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i283 ], [ %1539, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i276 ]
   %.sink.i.i169.i.i278 = phi i64 [ %1551, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i283 ], [ %1541, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i276 ]
   %.1.i.i170.i.i279 = phi i64 [ %1533, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i283 ], [ %1532, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i276 ]
   %1561 = getelementptr inbounds nuw float, ptr %1108, i64 %.056.i.i165.i.i274
-  store float %.sink63.i.i168.i.i277, ptr %1561, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i277, ptr %1561, align 4, !tbaa !138
   %1562 = getelementptr inbounds nuw i64, ptr %1109, i64 %.056.i.i165.i.i274
   store i64 %.sink.i.i169.i.i278, ptr %1562, align 8, !tbaa !16
   %1563 = shl i64 %.1.i.i170.i.i279, 1
@@ -53135,11 +53135,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i262: ; preds = %1637
   br i1 %1641, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i266, label %1642
 
 1642:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i262, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i269
-  %.sink63.i.i194.i.i263 = phi float [ %1630, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i269 ], [ %1621, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i262 ]
+  %.sink71.i.i194.i.i263 = phi float [ %1630, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i269 ], [ %1621, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i262 ]
   %.sink.i.i195.i.i264 = phi i64 [ %1633, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i269 ], [ %1623, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i262 ]
   %.1.i.i196.i.i265 = phi i64 [ %1615, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i269 ], [ %1614, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i262 ]
   %1643 = getelementptr inbounds nuw float, ptr %1500, i64 %.056.i.i191.i.i260
-  store float %.sink63.i.i194.i.i263, ptr %1643, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i263, ptr %1643, align 4, !tbaa !138
   %1644 = getelementptr inbounds nuw i64, ptr %1501, i64 %.056.i.i191.i.i260
   store i64 %.sink.i.i195.i.i264, ptr %1644, align 8, !tbaa !16
   %1645 = shl i64 %.1.i.i196.i.i265, 1
@@ -53210,7 +53210,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %1717
 
 .preheader231.i.i:                                ; preds = %2082
-  %1681 = zext i32 %.188.i.i383 to i64
+  %1681 = zext nneg i32 %.188.i.i383 to i64
   %.not252.i.i = icmp eq i32 %.188.i.i383, 0
   br i1 %.not252.i.i, label %.preheader.i.i400, label %.lr.ph245.i.i
 
@@ -53582,11 +53582,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i521:   ; preds = %1920
   br i1 %1924, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i525, label %1925
 
 1925:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i521, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i530
-  %.sink63.i.i.i.i522 = phi float [ %1913, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i530 ], [ %1904, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i521 ]
+  %.sink71.i.i.i.i522 = phi float [ %1913, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i530 ], [ %1904, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i521 ]
   %.sink.i.i.i.i523 = phi i64 [ %1916, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i530 ], [ %1906, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i521 ]
   %.1.i.i.i.i524 = phi i64 [ %1898, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i530 ], [ %1897, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i521 ]
   %1926 = getelementptr inbounds nuw float, ptr %1677, i64 %.056.i.i.i.i519
-  store float %.sink63.i.i.i.i522, ptr %1926, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i522, ptr %1926, align 4, !tbaa !138
   %1927 = getelementptr inbounds nuw i64, ptr %1678, i64 %.056.i.i.i.i519
   store i64 %.sink.i.i.i.i523, ptr %1927, align 8, !tbaa !16
   %1928 = shl i64 %.1.i.i.i.i524, 1
@@ -53680,11 +53680,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i508: ; preds = %1968
   br i1 %1972, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i512, label %1973
 
 1973:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i508, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i515
-  %.sink63.i.i114.i.i509 = phi float [ %1961, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i515 ], [ %1952, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i508 ]
+  %.sink71.i.i114.i.i509 = phi float [ %1961, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i515 ], [ %1952, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i508 ]
   %.sink.i.i115.i.i510 = phi i64 [ %1964, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i515 ], [ %1954, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i508 ]
   %.1.i.i116.i.i511 = phi i64 [ %1946, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i515 ], [ %1945, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i508 ]
   %1974 = getelementptr inbounds nuw float, ptr %1677, i64 %.056.i.i111.i.i506
-  store float %.sink63.i.i114.i.i509, ptr %1974, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i509, ptr %1974, align 4, !tbaa !138
   %1975 = getelementptr inbounds nuw i64, ptr %1678, i64 %.056.i.i111.i.i506
   store i64 %.sink.i.i115.i.i510, ptr %1975, align 8, !tbaa !16
   %1976 = shl i64 %.1.i.i116.i.i511, 1
@@ -53778,11 +53778,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i495: ; preds = %2016
   br i1 %2020, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i499, label %2021
 
 2021:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i495, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i502
-  %.sink63.i.i131.i.i496 = phi float [ %2009, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i502 ], [ %2000, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i495 ]
+  %.sink71.i.i131.i.i496 = phi float [ %2009, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i502 ], [ %2000, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i495 ]
   %.sink.i.i132.i.i497 = phi i64 [ %2012, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i502 ], [ %2002, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i495 ]
   %.1.i.i133.i.i498 = phi i64 [ %1994, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i502 ], [ %1993, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i495 ]
   %2022 = getelementptr inbounds nuw float, ptr %1677, i64 %.056.i.i128.i.i493
-  store float %.sink63.i.i131.i.i496, ptr %2022, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i496, ptr %2022, align 4, !tbaa !138
   %2023 = getelementptr inbounds nuw i64, ptr %1678, i64 %.056.i.i128.i.i493
   store i64 %.sink.i.i132.i.i497, ptr %2023, align 8, !tbaa !16
   %2024 = shl i64 %.1.i.i133.i.i498, 1
@@ -53876,11 +53876,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i482: ; preds = %2064
   br i1 %2068, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i486, label %2069
 
 2069:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i482, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i489
-  %.sink63.i.i148.i.i483 = phi float [ %2057, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i489 ], [ %2048, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i482 ]
+  %.sink71.i.i148.i.i483 = phi float [ %2057, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i489 ], [ %2048, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i482 ]
   %.sink.i.i149.i.i484 = phi i64 [ %2060, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i489 ], [ %2050, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i482 ]
   %.1.i.i150.i.i485 = phi i64 [ %2042, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i489 ], [ %2041, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i482 ]
   %2070 = getelementptr inbounds nuw float, ptr %1677, i64 %.056.i.i145.i.i480
-  store float %.sink63.i.i148.i.i483, ptr %2070, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i483, ptr %2070, align 4, !tbaa !138
   %2071 = getelementptr inbounds nuw i64, ptr %1678, i64 %.056.i.i145.i.i480
   store i64 %.sink.i.i149.i.i484, ptr %2071, align 8, !tbaa !16
   %2072 = shl i64 %.1.i.i150.i.i485, 1
@@ -54046,11 +54046,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i437: ; preds = %2144
   br i1 %2148, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i441, label %2149
 
 2149:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i437, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i444
-  %.sink63.i.i168.i.i438 = phi float [ %2137, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i444 ], [ %2128, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i437 ]
+  %.sink71.i.i168.i.i438 = phi float [ %2137, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i444 ], [ %2128, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i437 ]
   %.sink.i.i169.i.i439 = phi i64 [ %2140, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i444 ], [ %2130, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i437 ]
   %.1.i.i170.i.i440 = phi i64 [ %2122, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i444 ], [ %2121, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i437 ]
   %2150 = getelementptr inbounds nuw float, ptr %1677, i64 %.056.i.i165.i.i435
-  store float %.sink63.i.i168.i.i438, ptr %2150, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i438, ptr %2150, align 4, !tbaa !138
   %2151 = getelementptr inbounds nuw i64, ptr %1678, i64 %.056.i.i165.i.i435
   store i64 %.sink.i.i169.i.i439, ptr %2151, align 8, !tbaa !16
   %2152 = shl i64 %.1.i.i170.i.i440, 1
@@ -54200,11 +54200,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i423: ; preds = %2231
   br i1 %2235, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i427, label %2236
 
 2236:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i423, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i430
-  %.sink63.i.i194.i.i424 = phi float [ %2224, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i430 ], [ %2215, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i423 ]
+  %.sink71.i.i194.i.i424 = phi float [ %2224, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i430 ], [ %2215, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i423 ]
   %.sink.i.i195.i.i425 = phi i64 [ %2227, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i430 ], [ %2217, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i423 ]
   %.1.i.i196.i.i426 = phi i64 [ %2209, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i430 ], [ %2208, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i423 ]
   %2237 = getelementptr inbounds nuw float, ptr %2089, i64 %.056.i.i191.i.i421
-  store float %.sink63.i.i194.i.i424, ptr %2237, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i424, ptr %2237, align 4, !tbaa !138
   %2238 = getelementptr inbounds nuw i64, ptr %2090, i64 %.056.i.i191.i.i421
   store i64 %.sink.i.i195.i.i425, ptr %2238, align 8, !tbaa !16
   %2239 = shl i64 %.1.i.i196.i.i426, 1
@@ -54277,7 +54277,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %2313
 
 .preheader235.i.i:                                ; preds = %2706
-  %2277 = zext i32 %.188.i.i544 to i64
+  %2277 = zext nneg i32 %.188.i.i544 to i64
   %.not256.i.i = icmp eq i32 %.188.i.i544, 0
   br i1 %.not256.i.i, label %.preheader.i.i561, label %.lr.ph249.i.i
 
@@ -54677,11 +54677,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i682:   ; preds = %2544
   br i1 %2548, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i686, label %2549
 
 2549:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i682, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i691
-  %.sink63.i.i.i.i683 = phi float [ %2537, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i691 ], [ %2528, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i682 ]
+  %.sink71.i.i.i.i683 = phi float [ %2537, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i691 ], [ %2528, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i682 ]
   %.sink.i.i.i.i684 = phi i64 [ %2540, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i691 ], [ %2530, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i682 ]
   %.1.i.i.i.i685 = phi i64 [ %2522, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i691 ], [ %2521, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i682 ]
   %2550 = getelementptr inbounds nuw float, ptr %2273, i64 %.056.i.i.i.i680
-  store float %.sink63.i.i.i.i683, ptr %2550, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i683, ptr %2550, align 4, !tbaa !138
   %2551 = getelementptr inbounds nuw i64, ptr %2274, i64 %.056.i.i.i.i680
   store i64 %.sink.i.i.i.i684, ptr %2551, align 8, !tbaa !16
   %2552 = shl i64 %.1.i.i.i.i685, 1
@@ -54775,11 +54775,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i669: ; preds = %2592
   br i1 %2596, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i673, label %2597
 
 2597:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i669, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i676
-  %.sink63.i.i114.i.i670 = phi float [ %2585, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i676 ], [ %2576, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i669 ]
+  %.sink71.i.i114.i.i670 = phi float [ %2585, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i676 ], [ %2576, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i669 ]
   %.sink.i.i115.i.i671 = phi i64 [ %2588, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i676 ], [ %2578, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i669 ]
   %.1.i.i116.i.i672 = phi i64 [ %2570, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i676 ], [ %2569, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i669 ]
   %2598 = getelementptr inbounds nuw float, ptr %2273, i64 %.056.i.i111.i.i667
-  store float %.sink63.i.i114.i.i670, ptr %2598, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i670, ptr %2598, align 4, !tbaa !138
   %2599 = getelementptr inbounds nuw i64, ptr %2274, i64 %.056.i.i111.i.i667
   store i64 %.sink.i.i115.i.i671, ptr %2599, align 8, !tbaa !16
   %2600 = shl i64 %.1.i.i116.i.i672, 1
@@ -54873,11 +54873,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i656: ; preds = %2640
   br i1 %2644, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i660, label %2645
 
 2645:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i656, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i663
-  %.sink63.i.i131.i.i657 = phi float [ %2633, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i663 ], [ %2624, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i656 ]
+  %.sink71.i.i131.i.i657 = phi float [ %2633, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i663 ], [ %2624, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i656 ]
   %.sink.i.i132.i.i658 = phi i64 [ %2636, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i663 ], [ %2626, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i656 ]
   %.1.i.i133.i.i659 = phi i64 [ %2618, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i663 ], [ %2617, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i656 ]
   %2646 = getelementptr inbounds nuw float, ptr %2273, i64 %.056.i.i128.i.i654
-  store float %.sink63.i.i131.i.i657, ptr %2646, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i657, ptr %2646, align 4, !tbaa !138
   %2647 = getelementptr inbounds nuw i64, ptr %2274, i64 %.056.i.i128.i.i654
   store i64 %.sink.i.i132.i.i658, ptr %2647, align 8, !tbaa !16
   %2648 = shl i64 %.1.i.i133.i.i659, 1
@@ -54971,11 +54971,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i643: ; preds = %2688
   br i1 %2692, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i647, label %2693
 
 2693:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i643, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i650
-  %.sink63.i.i148.i.i644 = phi float [ %2681, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i650 ], [ %2672, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i643 ]
+  %.sink71.i.i148.i.i644 = phi float [ %2681, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i650 ], [ %2672, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i643 ]
   %.sink.i.i149.i.i645 = phi i64 [ %2684, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i650 ], [ %2674, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i643 ]
   %.1.i.i150.i.i646 = phi i64 [ %2666, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i650 ], [ %2665, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i643 ]
   %2694 = getelementptr inbounds nuw float, ptr %2273, i64 %.056.i.i145.i.i641
-  store float %.sink63.i.i148.i.i644, ptr %2694, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i644, ptr %2694, align 4, !tbaa !138
   %2695 = getelementptr inbounds nuw i64, ptr %2274, i64 %.056.i.i145.i.i641
   store i64 %.sink.i.i149.i.i645, ptr %2695, align 8, !tbaa !16
   %2696 = shl i64 %.1.i.i150.i.i646, 1
@@ -55141,11 +55141,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i598: ; preds = %2768
   br i1 %2772, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i602, label %2773
 
 2773:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i598, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i605
-  %.sink63.i.i168.i.i599 = phi float [ %2761, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i605 ], [ %2752, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i598 ]
+  %.sink71.i.i168.i.i599 = phi float [ %2761, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i605 ], [ %2752, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i598 ]
   %.sink.i.i169.i.i600 = phi i64 [ %2764, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i605 ], [ %2754, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i598 ]
   %.1.i.i170.i.i601 = phi i64 [ %2746, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i605 ], [ %2745, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i598 ]
   %2774 = getelementptr inbounds nuw float, ptr %2273, i64 %.056.i.i165.i.i596
-  store float %.sink63.i.i168.i.i599, ptr %2774, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i599, ptr %2774, align 4, !tbaa !138
   %2775 = getelementptr inbounds nuw i64, ptr %2274, i64 %.056.i.i165.i.i596
   store i64 %.sink.i.i169.i.i600, ptr %2775, align 8, !tbaa !16
   %2776 = shl i64 %.1.i.i170.i.i601, 1
@@ -55302,11 +55302,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i584: ; preds = %2862
   br i1 %2866, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i588, label %2867
 
 2867:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i584, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i591
-  %.sink63.i.i194.i.i585 = phi float [ %2855, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i591 ], [ %2846, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i584 ]
+  %.sink71.i.i194.i.i585 = phi float [ %2855, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i591 ], [ %2846, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i584 ]
   %.sink.i.i195.i.i586 = phi i64 [ %2858, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i591 ], [ %2848, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i584 ]
   %.1.i.i196.i.i587 = phi i64 [ %2840, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i591 ], [ %2839, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i584 ]
   %2868 = getelementptr inbounds nuw float, ptr %2713, i64 %.056.i.i191.i.i582
-  store float %.sink63.i.i194.i.i585, ptr %2868, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i585, ptr %2868, align 4, !tbaa !138
   %2869 = getelementptr inbounds nuw i64, ptr %2714, i64 %.056.i.i191.i.i582
   store i64 %.sink.i.i195.i.i586, ptr %2869, align 8, !tbaa !16
   %2870 = shl i64 %.1.i.i196.i.i587, 1
@@ -55387,7 +55387,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %2952
 
 .preheader251.i.i:                                ; preds = %3441
-  %2916 = zext i32 %.188.i.i705 to i64
+  %2916 = zext nneg i32 %.188.i.i705 to i64
   %.not272.i.i = icmp eq i32 %.188.i.i705, 0
   br i1 %.not272.i.i, label %.preheader.i.i722, label %.lr.ph265.i.i
 
@@ -55883,11 +55883,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i839:   ; preds = %3279
   br i1 %3283, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i843, label %3284
 
 3284:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i839, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i847
-  %.sink63.i.i.i.i840 = phi float [ %3272, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i847 ], [ %3263, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i839 ]
+  %.sink71.i.i.i.i840 = phi float [ %3272, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i847 ], [ %3263, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i839 ]
   %.sink.i.i.i.i841 = phi i64 [ %3275, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i847 ], [ %3265, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i839 ]
   %.1.i.i.i.i842 = phi i64 [ %3257, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i847 ], [ %3256, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i839 ]
   %3285 = getelementptr inbounds nuw float, ptr %2912, i64 %.056.i.i.i.i837
-  store float %.sink63.i.i.i.i840, ptr %3285, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i840, ptr %3285, align 4, !tbaa !138
   %3286 = getelementptr inbounds nuw i64, ptr %2913, i64 %.056.i.i.i.i837
   store i64 %.sink.i.i.i.i841, ptr %3286, align 8, !tbaa !16
   %3287 = shl i64 %.1.i.i.i.i842, 1
@@ -55981,11 +55981,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i826: ; preds = %3327
   br i1 %3331, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i830, label %3332
 
 3332:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i826, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i833
-  %.sink63.i.i114.i.i827 = phi float [ %3320, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i833 ], [ %3311, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i826 ]
+  %.sink71.i.i114.i.i827 = phi float [ %3320, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i833 ], [ %3311, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i826 ]
   %.sink.i.i115.i.i828 = phi i64 [ %3323, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i833 ], [ %3313, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i826 ]
   %.1.i.i116.i.i829 = phi i64 [ %3305, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i833 ], [ %3304, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i826 ]
   %3333 = getelementptr inbounds nuw float, ptr %2912, i64 %.056.i.i111.i.i824
-  store float %.sink63.i.i114.i.i827, ptr %3333, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i827, ptr %3333, align 4, !tbaa !138
   %3334 = getelementptr inbounds nuw i64, ptr %2913, i64 %.056.i.i111.i.i824
   store i64 %.sink.i.i115.i.i828, ptr %3334, align 8, !tbaa !16
   %3335 = shl i64 %.1.i.i116.i.i829, 1
@@ -56079,11 +56079,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i813: ; preds = %3375
   br i1 %3379, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i817, label %3380
 
 3380:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i813, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i820
-  %.sink63.i.i131.i.i814 = phi float [ %3368, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i820 ], [ %3359, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i813 ]
+  %.sink71.i.i131.i.i814 = phi float [ %3368, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i820 ], [ %3359, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i813 ]
   %.sink.i.i132.i.i815 = phi i64 [ %3371, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i820 ], [ %3361, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i813 ]
   %.1.i.i133.i.i816 = phi i64 [ %3353, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i820 ], [ %3352, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i813 ]
   %3381 = getelementptr inbounds nuw float, ptr %2912, i64 %.056.i.i128.i.i811
-  store float %.sink63.i.i131.i.i814, ptr %3381, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i814, ptr %3381, align 4, !tbaa !138
   %3382 = getelementptr inbounds nuw i64, ptr %2913, i64 %.056.i.i128.i.i811
   store i64 %.sink.i.i132.i.i815, ptr %3382, align 8, !tbaa !16
   %3383 = shl i64 %.1.i.i133.i.i816, 1
@@ -56177,11 +56177,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i800: ; preds = %3423
   br i1 %3427, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i804, label %3428
 
 3428:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i800, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i807
-  %.sink63.i.i148.i.i801 = phi float [ %3416, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i807 ], [ %3407, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i800 ]
+  %.sink71.i.i148.i.i801 = phi float [ %3416, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i807 ], [ %3407, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i800 ]
   %.sink.i.i149.i.i802 = phi i64 [ %3419, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i807 ], [ %3409, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i800 ]
   %.1.i.i150.i.i803 = phi i64 [ %3401, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i807 ], [ %3400, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i800 ]
   %3429 = getelementptr inbounds nuw float, ptr %2912, i64 %.056.i.i145.i.i798
-  store float %.sink63.i.i148.i.i801, ptr %3429, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i801, ptr %3429, align 4, !tbaa !138
   %3430 = getelementptr inbounds nuw i64, ptr %2913, i64 %.056.i.i145.i.i798
   store i64 %.sink.i.i149.i.i802, ptr %3430, align 8, !tbaa !16
   %3431 = shl i64 %.1.i.i150.i.i803, 1
@@ -56347,11 +56347,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i759: ; preds = %3503
   br i1 %3507, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i763, label %3508
 
 3508:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i759, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i766
-  %.sink63.i.i168.i.i760 = phi float [ %3496, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i766 ], [ %3487, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i759 ]
+  %.sink71.i.i168.i.i760 = phi float [ %3496, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i766 ], [ %3487, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i759 ]
   %.sink.i.i169.i.i761 = phi i64 [ %3499, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i766 ], [ %3489, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i759 ]
   %.1.i.i170.i.i762 = phi i64 [ %3481, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i766 ], [ %3480, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i759 ]
   %3509 = getelementptr inbounds nuw float, ptr %2912, i64 %.056.i.i165.i.i757
-  store float %.sink63.i.i168.i.i760, ptr %3509, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i760, ptr %3509, align 4, !tbaa !138
   %3510 = getelementptr inbounds nuw i64, ptr %2913, i64 %.056.i.i165.i.i757
   store i64 %.sink.i.i169.i.i761, ptr %3510, align 8, !tbaa !16
   %3511 = shl i64 %.1.i.i170.i.i762, 1
@@ -56532,11 +56532,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i745: ; preds = %3621
   br i1 %3625, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i749, label %3626
 
 3626:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i745, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i752
-  %.sink63.i.i194.i.i746 = phi float [ %3614, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i752 ], [ %3605, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i745 ]
+  %.sink71.i.i194.i.i746 = phi float [ %3614, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i752 ], [ %3605, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i745 ]
   %.sink.i.i195.i.i747 = phi i64 [ %3617, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i752 ], [ %3607, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i745 ]
   %.1.i.i196.i.i748 = phi i64 [ %3599, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i752 ], [ %3598, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i745 ]
   %3627 = getelementptr inbounds nuw float, ptr %3448, i64 %.056.i.i191.i.i743
-  store float %.sink63.i.i194.i.i746, ptr %3627, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i746, ptr %3627, align 4, !tbaa !138
   %3628 = getelementptr inbounds nuw i64, ptr %3449, i64 %.056.i.i191.i.i743
   store i64 %.sink.i.i195.i.i747, ptr %3628, align 8, !tbaa !16
   %3629 = shl i64 %.1.i.i196.i.i748, 1
@@ -56610,7 +56610,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %3700
 
 .preheader219.i.i:                                ; preds = %4009
-  %3664 = zext i32 %.188.i.i861 to i64
+  %3664 = zext nneg i32 %.188.i.i861 to i64
   %.not240.i.i = icmp eq i32 %.188.i.i861, 0
   br i1 %.not240.i.i, label %.preheader.i.i878, label %.lr.ph233.i.i
 
@@ -56926,11 +56926,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1000:  ; preds = %3847
   br i1 %3851, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i1004, label %3852
 
 3852:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1000, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i1008
-  %.sink63.i.i.i.i1001 = phi float [ %3840, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i1008 ], [ %3831, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1000 ]
+  %.sink71.i.i.i.i1001 = phi float [ %3840, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i1008 ], [ %3831, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1000 ]
   %.sink.i.i.i.i1002 = phi i64 [ %3843, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i1008 ], [ %3833, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1000 ]
   %.1.i.i.i.i1003 = phi i64 [ %3825, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i1008 ], [ %3824, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1000 ]
   %3853 = getelementptr inbounds nuw float, ptr %3660, i64 %.056.i.i.i.i998
-  store float %.sink63.i.i.i.i1001, ptr %3853, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i1001, ptr %3853, align 4, !tbaa !138
   %3854 = getelementptr inbounds nuw i64, ptr %3661, i64 %.056.i.i.i.i998
   store i64 %.sink.i.i.i.i1002, ptr %3854, align 8, !tbaa !16
   %3855 = shl i64 %.1.i.i.i.i1003, 1
@@ -57024,11 +57024,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i987: ; preds = %3895
   br i1 %3899, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i117.i.i991, label %3900
 
 3900:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i987, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i994
-  %.sink63.i.i114.i.i988 = phi float [ %3888, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i994 ], [ %3879, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i987 ]
+  %.sink71.i.i114.i.i988 = phi float [ %3888, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i994 ], [ %3879, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i987 ]
   %.sink.i.i115.i.i989 = phi i64 [ %3891, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i994 ], [ %3881, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i987 ]
   %.1.i.i116.i.i990 = phi i64 [ %3873, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i120.i.i994 ], [ %3872, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i113.i.i987 ]
   %3901 = getelementptr inbounds nuw float, ptr %3660, i64 %.056.i.i111.i.i985
-  store float %.sink63.i.i114.i.i988, ptr %3901, align 4, !tbaa !138
+  store float %.sink71.i.i114.i.i988, ptr %3901, align 4, !tbaa !138
   %3902 = getelementptr inbounds nuw i64, ptr %3661, i64 %.056.i.i111.i.i985
   store i64 %.sink.i.i115.i.i989, ptr %3902, align 8, !tbaa !16
   %3903 = shl i64 %.1.i.i116.i.i990, 1
@@ -57122,11 +57122,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i973: ; preds = %3943
   br i1 %3947, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i134.i.i977, label %3948
 
 3948:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i973, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i981
-  %.sink63.i.i131.i.i974 = phi float [ %3936, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i981 ], [ %3927, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i973 ]
+  %.sink71.i.i131.i.i974 = phi float [ %3936, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i981 ], [ %3927, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i973 ]
   %.sink.i.i132.i.i975 = phi i64 [ %3939, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i981 ], [ %3929, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i973 ]
   %.1.i.i133.i.i976 = phi i64 [ %3921, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i137.i.i981 ], [ %3920, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i130.i.i973 ]
   %3949 = getelementptr inbounds nuw float, ptr %3660, i64 %.056.i.i128.i.i971
-  store float %.sink63.i.i131.i.i974, ptr %3949, align 4, !tbaa !138
+  store float %.sink71.i.i131.i.i974, ptr %3949, align 4, !tbaa !138
   %3950 = getelementptr inbounds nuw i64, ptr %3661, i64 %.056.i.i128.i.i971
   store i64 %.sink.i.i132.i.i975, ptr %3950, align 8, !tbaa !16
   %3951 = shl i64 %.1.i.i133.i.i976, 1
@@ -57220,11 +57220,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i960: ; preds = %3991
   br i1 %3995, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i151.i.i964, label %3996
 
 3996:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i960, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i967
-  %.sink63.i.i148.i.i961 = phi float [ %3984, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i967 ], [ %3975, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i960 ]
+  %.sink71.i.i148.i.i961 = phi float [ %3984, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i967 ], [ %3975, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i960 ]
   %.sink.i.i149.i.i962 = phi i64 [ %3987, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i967 ], [ %3977, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i960 ]
   %.1.i.i150.i.i963 = phi i64 [ %3969, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i154.i.i967 ], [ %3968, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i147.i.i960 ]
   %3997 = getelementptr inbounds nuw float, ptr %3660, i64 %.056.i.i145.i.i958
-  store float %.sink63.i.i148.i.i961, ptr %3997, align 4, !tbaa !138
+  store float %.sink71.i.i148.i.i961, ptr %3997, align 4, !tbaa !138
   %3998 = getelementptr inbounds nuw i64, ptr %3661, i64 %.056.i.i145.i.i958
   store i64 %.sink.i.i149.i.i962, ptr %3998, align 8, !tbaa !16
   %3999 = shl i64 %.1.i.i150.i.i963, 1
@@ -57390,11 +57390,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i915: ; preds = %4071
   br i1 %4075, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i171.i.loopexit.i919, label %4076
 
 4076:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i915, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i922
-  %.sink63.i.i168.i.i916 = phi float [ %4064, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i922 ], [ %4055, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i915 ]
+  %.sink71.i.i168.i.i916 = phi float [ %4064, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i922 ], [ %4055, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i915 ]
   %.sink.i.i169.i.i917 = phi i64 [ %4067, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i922 ], [ %4057, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i915 ]
   %.1.i.i170.i.i918 = phi i64 [ %4049, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i174.i.i922 ], [ %4048, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i167.i.i915 ]
   %4077 = getelementptr inbounds nuw float, ptr %3660, i64 %.056.i.i165.i.i913
-  store float %.sink63.i.i168.i.i916, ptr %4077, align 4, !tbaa !138
+  store float %.sink71.i.i168.i.i916, ptr %4077, align 4, !tbaa !138
   %4078 = getelementptr inbounds nuw i64, ptr %3661, i64 %.056.i.i165.i.i913
   store i64 %.sink.i.i169.i.i917, ptr %4078, align 8, !tbaa !16
   %4079 = shl i64 %.1.i.i170.i.i918, 1
@@ -57530,11 +57530,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i901: ; preds = %4144
   br i1 %4148, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i197.i.i905, label %4149
 
 4149:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i901, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i908
-  %.sink63.i.i194.i.i902 = phi float [ %4137, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i908 ], [ %4128, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i901 ]
+  %.sink71.i.i194.i.i902 = phi float [ %4137, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i908 ], [ %4128, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i901 ]
   %.sink.i.i195.i.i903 = phi i64 [ %4140, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i908 ], [ %4130, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i901 ]
   %.1.i.i196.i.i904 = phi i64 [ %4122, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i200.i.i908 ], [ %4121, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i193.i.i901 ]
   %4150 = getelementptr inbounds nuw float, ptr %4016, i64 %.056.i.i191.i.i899
-  store float %.sink63.i.i194.i.i902, ptr %4150, align 4, !tbaa !138
+  store float %.sink71.i.i194.i.i902, ptr %4150, align 4, !tbaa !138
   %4151 = getelementptr inbounds nuw i64, ptr %4017, i64 %.056.i.i191.i.i899
   store i64 %.sink.i.i195.i.i903, ptr %4151, align 8, !tbaa !16
   %4152 = shl i64 %.1.i.i196.i.i904, 1
@@ -57936,11 +57936,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i:        ; preds = %117
   br i1 %121, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i, label %122
 
 122:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i
-  %.sink63.i.i.i = phi float [ %110, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %101, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
+  %.sink71.i.i.i = phi float [ %110, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %101, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
   %.sink.i.i.i = phi i64 [ %113, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %103, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
   %.1.i.i.i = phi i64 [ %95, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %94, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
   %123 = getelementptr inbounds nuw float, ptr %46, i64 %.056.i.i.i
-  store float %.sink63.i.i.i, ptr %123, align 4, !tbaa !138
+  store float %.sink71.i.i.i, ptr %123, align 4, !tbaa !138
   %124 = getelementptr inbounds nuw i64, ptr %47, i64 %.056.i.i.i
   store i64 %.sink.i.i.i, ptr %124, align 8, !tbaa !16
   %125 = shl i64 %.1.i.i.i, 1
@@ -58038,11 +58038,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i70.i:      ; preds = %169
   br i1 %173, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i74.i, label %174
 
 174:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i70.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i77.i
-  %.sink63.i.i71.i = phi float [ %162, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i77.i ], [ %153, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i70.i ]
+  %.sink71.i.i71.i = phi float [ %162, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i77.i ], [ %153, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i70.i ]
   %.sink.i.i72.i = phi i64 [ %165, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i77.i ], [ %155, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i70.i ]
   %.1.i.i73.i = phi i64 [ %147, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i77.i ], [ %146, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i70.i ]
   %175 = getelementptr inbounds nuw float, ptr %46, i64 %.056.i.i68.i
-  store float %.sink63.i.i71.i, ptr %175, align 4, !tbaa !138
+  store float %.sink71.i.i71.i, ptr %175, align 4, !tbaa !138
   %176 = getelementptr inbounds nuw i64, ptr %47, i64 %.056.i.i68.i
   store i64 %.sink.i.i72.i, ptr %176, align 8, !tbaa !16
   %177 = shl i64 %.1.i.i73.i, 1
@@ -58140,11 +58140,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i87.i:      ; preds = %221
   br i1 %225, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i91.i, label %226
 
 226:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i87.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i94.i
-  %.sink63.i.i88.i = phi float [ %214, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i94.i ], [ %205, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i87.i ]
+  %.sink71.i.i88.i = phi float [ %214, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i94.i ], [ %205, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i87.i ]
   %.sink.i.i89.i = phi i64 [ %217, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i94.i ], [ %207, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i87.i ]
   %.1.i.i90.i = phi i64 [ %199, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i94.i ], [ %198, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i87.i ]
   %227 = getelementptr inbounds nuw float, ptr %46, i64 %.056.i.i85.i
-  store float %.sink63.i.i88.i, ptr %227, align 4, !tbaa !138
+  store float %.sink71.i.i88.i, ptr %227, align 4, !tbaa !138
   %228 = getelementptr inbounds nuw i64, ptr %47, i64 %.056.i.i85.i
   store i64 %.sink.i.i89.i, ptr %228, align 8, !tbaa !16
   %229 = shl i64 %.1.i.i90.i, 1
@@ -58242,11 +58242,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i:     ; preds = %273
   br i1 %277, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i, label %278
 
 278:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i
-  %.sink63.i.i105.i = phi float [ %266, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i ], [ %257, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i ]
+  %.sink71.i.i105.i = phi float [ %266, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i ], [ %257, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i ]
   %.sink.i.i106.i = phi i64 [ %269, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i ], [ %259, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i ]
   %.1.i.i107.i = phi i64 [ %251, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i ], [ %250, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i ]
   %279 = getelementptr inbounds nuw float, ptr %46, i64 %.056.i.i102.i
-  store float %.sink63.i.i105.i, ptr %279, align 4, !tbaa !138
+  store float %.sink71.i.i105.i, ptr %279, align 4, !tbaa !138
   %280 = getelementptr inbounds nuw i64, ptr %47, i64 %.056.i.i102.i
   store i64 %.sink.i.i106.i, ptr %280, align 8, !tbaa !16
   %281 = shl i64 %.1.i.i107.i, 1
@@ -58474,11 +58474,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i122.i:     ; preds = %386
   br i1 %390, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i126.i, label %391
 
 391:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i122.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i129.i
-  %.sink63.i.i123.i = phi float [ %379, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i129.i ], [ %370, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i122.i ]
+  %.sink71.i.i123.i = phi float [ %379, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i129.i ], [ %370, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i122.i ]
   %.sink.i.i124.i = phi i64 [ %382, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i129.i ], [ %372, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i122.i ]
   %.1.i.i125.i = phi i64 [ %364, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i129.i ], [ %363, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i122.i ]
   %392 = getelementptr inbounds nuw float, ptr %46, i64 %.056.i.i120.i
-  store float %.sink63.i.i123.i, ptr %392, align 4, !tbaa !138
+  store float %.sink71.i.i123.i, ptr %392, align 4, !tbaa !138
   %393 = getelementptr inbounds nuw i64, ptr %47, i64 %.056.i.i120.i
   store i64 %.sink.i.i124.i, ptr %393, align 8, !tbaa !16
   %394 = shl i64 %.1.i.i125.i, 1
@@ -58688,11 +58688,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i171.i:     ; preds = %492
   br i1 %496, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i175.i, label %497
 
 497:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i171.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i178.i
-  %.sink63.i.i172.i = phi float [ %485, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i178.i ], [ %476, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i171.i ]
+  %.sink71.i.i172.i = phi float [ %485, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i178.i ], [ %476, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i171.i ]
   %.sink.i.i173.i = phi i64 [ %488, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i178.i ], [ %478, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i171.i ]
   %.1.i.i174.i = phi i64 [ %470, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i178.i ], [ %469, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i171.i ]
   %498 = getelementptr inbounds nuw float, ptr %46, i64 %.056.i.i169.i
-  store float %.sink63.i.i172.i, ptr %498, align 4, !tbaa !138
+  store float %.sink71.i.i172.i, ptr %498, align 4, !tbaa !138
   %499 = getelementptr inbounds nuw i64, ptr %47, i64 %.056.i.i169.i
   store i64 %.sink.i.i173.i, ptr %499, align 8, !tbaa !16
   %500 = shl i64 %.1.i.i174.i, 1
@@ -58902,11 +58902,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i220.i:     ; preds = %599
   br i1 %603, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i224.i, label %604
 
 604:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i220.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i227.i
-  %.sink63.i.i221.i = phi float [ %592, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i227.i ], [ %583, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i220.i ]
+  %.sink71.i.i221.i = phi float [ %592, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i227.i ], [ %583, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i220.i ]
   %.sink.i.i222.i = phi i64 [ %595, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i227.i ], [ %585, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i220.i ]
   %.1.i.i223.i = phi i64 [ %577, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i227.i ], [ %576, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i220.i ]
   %605 = getelementptr inbounds nuw float, ptr %46, i64 %.056.i.i218.i
-  store float %.sink63.i.i221.i, ptr %605, align 4, !tbaa !138
+  store float %.sink71.i.i221.i, ptr %605, align 4, !tbaa !138
   %606 = getelementptr inbounds nuw i64, ptr %47, i64 %.056.i.i218.i
   store i64 %.sink.i.i222.i, ptr %606, align 8, !tbaa !16
   %607 = shl i64 %.1.i.i223.i, 1
@@ -59047,11 +59047,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i33:      ; preds = %675
   br i1 %679, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i37, label %680
 
 680:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i33, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i40
-  %.sink63.i.i.i34 = phi float [ %668, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i40 ], [ %659, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i33 ]
+  %.sink71.i.i.i34 = phi float [ %668, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i40 ], [ %659, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i33 ]
   %.sink.i.i.i35 = phi i64 [ %671, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i40 ], [ %661, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i33 ]
   %.1.i.i.i36 = phi i64 [ %653, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i40 ], [ %652, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i33 ]
   %681 = getelementptr inbounds nuw float, ptr %619, i64 %.056.i.i.i31
-  store float %.sink63.i.i.i34, ptr %681, align 4, !tbaa !138
+  store float %.sink71.i.i.i34, ptr %681, align 4, !tbaa !138
   %682 = getelementptr inbounds nuw i64, ptr %620, i64 %.056.i.i.i31
   store i64 %.sink.i.i.i35, ptr %682, align 8, !tbaa !16
   %683 = shl i64 %.1.i.i.i36, 1
@@ -59297,11 +59297,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i56:      ; preds = %813
   br i1 %817, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i60, label %818
 
 818:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i56, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i63
-  %.sink63.i.i.i57 = phi float [ %806, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i63 ], [ %797, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i56 ]
+  %.sink71.i.i.i57 = phi float [ %806, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i63 ], [ %797, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i56 ]
   %.sink.i.i.i58 = phi i64 [ %809, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i63 ], [ %799, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i56 ]
   %.1.i.i.i59 = phi i64 [ %791, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i63 ], [ %790, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i56 ]
   %819 = getelementptr inbounds nuw float, ptr %767, i64 %.056.i.i.i54
-  store float %.sink63.i.i.i57, ptr %819, align 4, !tbaa !138
+  store float %.sink71.i.i.i57, ptr %819, align 4, !tbaa !138
   %820 = getelementptr inbounds nuw i64, ptr %768, i64 %.056.i.i.i54
   store i64 %.sink.i.i.i58, ptr %820, align 8, !tbaa !16
   %821 = shl i64 %.1.i.i.i59, 1
@@ -59504,7 +59504,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0E
   br label %94
 
 .preheader152.i.i.i.i:                            ; preds = %224
-  %93 = zext i32 %.188.i.i.i.i to i64
+  %93 = zext nneg i32 %.188.i.i.i.i to i64
   %.not173.i.i.i.i = icmp eq i32 %.188.i.i.i.i, 0
   br i1 %.not173.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph166.i.i.i.i
 
@@ -60065,7 +60065,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %402
 
 .preheader152.i.i39.i.i:                          ; preds = %536
-  %401 = zext i32 %.188.i.i37.i.i to i64
+  %401 = zext nneg i32 %.188.i.i37.i.i to i64
   %.not173.i.i40.i.i = icmp eq i32 %.188.i.i37.i.i, 0
   br i1 %.not173.i.i40.i.i, label %.preheader.i.i66.i.i, label %.lr.ph166.i.i42.i.i
 
@@ -60633,7 +60633,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %717
 
 .preheader156.i.i.i.i:                            ; preds = %875
-  %716 = zext i32 %.188.i.i137.i.i to i64
+  %716 = zext nneg i32 %.188.i.i137.i.i to i64
   %.not177.i.i.i.i = icmp eq i32 %.188.i.i137.i.i, 0
   br i1 %.not177.i.i.i.i, label %.preheader.i.i161.i.i, label %.lr.ph170.i.i.i.i
 
@@ -61233,7 +61233,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %1064
 
 .preheader160.i.i.i.i:                            ; preds = %1242
-  %1063 = zext i32 %.188.i.i226.i.i to i64
+  %1063 = zext nneg i32 %.188.i.i226.i.i to i64
   %.not181.i.i.i.i = icmp eq i32 %.188.i.i226.i.i, 0
   br i1 %.not181.i.i.i.i, label %.preheader.i.i250.i.i, label %.lr.ph174.i.i.i.i
 
@@ -61860,7 +61860,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %1438
 
 .preheader164.i.i.i.i:                            ; preds = %1644
-  %1437 = zext i32 %.188.i.i315.i.i to i64
+  %1437 = zext nneg i32 %.188.i.i315.i.i to i64
   %.not185.i.i.i.i = icmp eq i32 %.188.i.i315.i.i, 0
   br i1 %.not185.i.i.i.i, label %.preheader.i.i339.i.i, label %.lr.ph178.i.i.i.i
 
@@ -62530,7 +62530,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %1855
 
 .preheader180.i.i.i.i:                            ; preds = %2157
-  %1854 = zext i32 %.188.i.i404.i.i to i64
+  %1854 = zext nneg i32 %.188.i.i404.i.i to i64
   %.not201.i.i.i.i = icmp eq i32 %.188.i.i404.i.i, 0
   br i1 %.not201.i.i.i.i, label %.preheader.i.i428.i.i, label %.lr.ph194.i.i.i.i
 
@@ -63313,7 +63313,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %2381
 
 .preheader148.i.i.i.i:                            ; preds = %2503
-  %2380 = zext i32 %.188.i.i493.i.i to i64
+  %2380 = zext nneg i32 %.188.i.i493.i.i to i64
   %.not169.i.i.i.i = icmp eq i32 %.188.i.i493.i.i, 0
   br i1 %.not169.i.i.i.i, label %.preheader.i.i517.i.i, label %.lr.ph162.i.i.i.i
 
@@ -64921,7 +64921,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   br label %79
 
 .preheader228.i.i:                                ; preds = %372
-  %73 = zext i32 %.188.i.i to i64
+  %73 = zext nneg i32 %.188.i.i to i64
   %.not249.i.i = icmp eq i32 %.188.i.i, 0
   br i1 %.not249.i.i, label %.preheader.i.i, label %.lr.ph242.i.i
 
@@ -65129,11 +65129,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i:      ; preds = %207
   br i1 %211, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i, label %212
 
 212:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i
-  %.sink63.i.i.i.i = phi float [ %200, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %191, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
+  %.sink71.i.i.i.i = phi float [ %200, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %191, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
   %.sink.i.i.i.i = phi i64 [ %203, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %193, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
   %.1.i.i.i.i = phi i64 [ %185, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %184, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
   %213 = getelementptr inbounds nuw float, ptr %69, i64 %.056.i.i.i.i
-  store float %.sink63.i.i.i.i, ptr %213, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i, ptr %213, align 4, !tbaa !138
   %214 = getelementptr inbounds nuw i64, ptr %70, i64 %.056.i.i.i.i
   store i64 %.sink.i.i.i.i, ptr %214, align 8, !tbaa !16
   %215 = shl i64 %.1.i.i.i.i, 1
@@ -65228,11 +65228,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i:   ; preds = %256
   br i1 %260, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i116.i.i, label %261
 
 261:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i
-  %.sink63.i.i113.i.i = phi float [ %249, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i ], [ %240, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i ]
+  %.sink71.i.i113.i.i = phi float [ %249, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i ], [ %240, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i ]
   %.sink.i.i114.i.i = phi i64 [ %252, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i ], [ %242, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i ]
   %.1.i.i115.i.i = phi i64 [ %234, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i ], [ %233, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i ]
   %262 = getelementptr inbounds nuw float, ptr %69, i64 %.056.i.i110.i.i
-  store float %.sink63.i.i113.i.i, ptr %262, align 4, !tbaa !138
+  store float %.sink71.i.i113.i.i, ptr %262, align 4, !tbaa !138
   %263 = getelementptr inbounds nuw i64, ptr %70, i64 %.056.i.i110.i.i
   store i64 %.sink.i.i114.i.i, ptr %263, align 8, !tbaa !16
   %264 = shl i64 %.1.i.i115.i.i, 1
@@ -65327,11 +65327,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i:   ; preds = %305
   br i1 %309, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i133.i.i, label %310
 
 310:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i
-  %.sink63.i.i130.i.i = phi float [ %298, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i ], [ %289, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i ]
+  %.sink71.i.i130.i.i = phi float [ %298, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i ], [ %289, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i ]
   %.sink.i.i131.i.i = phi i64 [ %301, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i ], [ %291, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i ]
   %.1.i.i132.i.i = phi i64 [ %283, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i ], [ %282, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i ]
   %311 = getelementptr inbounds nuw float, ptr %69, i64 %.056.i.i127.i.i
-  store float %.sink63.i.i130.i.i, ptr %311, align 4, !tbaa !138
+  store float %.sink71.i.i130.i.i, ptr %311, align 4, !tbaa !138
   %312 = getelementptr inbounds nuw i64, ptr %70, i64 %.056.i.i127.i.i
   store i64 %.sink.i.i131.i.i, ptr %312, align 8, !tbaa !16
   %313 = shl i64 %.1.i.i132.i.i, 1
@@ -65426,11 +65426,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i:   ; preds = %354
   br i1 %358, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i150.i.i, label %359
 
 359:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i
-  %.sink63.i.i147.i.i = phi float [ %347, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i ], [ %338, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i ]
+  %.sink71.i.i147.i.i = phi float [ %347, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i ], [ %338, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i ]
   %.sink.i.i148.i.i = phi i64 [ %350, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i ], [ %340, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i ]
   %.1.i.i149.i.i = phi i64 [ %332, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i ], [ %331, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i ]
   %360 = getelementptr inbounds nuw float, ptr %69, i64 %.056.i.i144.i.i
-  store float %.sink63.i.i147.i.i, ptr %360, align 4, !tbaa !138
+  store float %.sink71.i.i147.i.i, ptr %360, align 4, !tbaa !138
   %361 = getelementptr inbounds nuw i64, ptr %70, i64 %.056.i.i144.i.i
   store i64 %.sink.i.i148.i.i, ptr %361, align 8, !tbaa !16
   %362 = shl i64 %.1.i.i149.i.i, 1
@@ -65679,11 +65679,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i:   ; preds = %474
   br i1 %478, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i168.i.i, label %479
 
 479:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i
-  %.sink63.i.i165.i.i = phi float [ %467, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i ], [ %458, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i ]
+  %.sink71.i.i165.i.i = phi float [ %467, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i ], [ %458, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i ]
   %.sink.i.i166.i.i = phi i64 [ %470, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i ], [ %460, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i ]
   %.1.i.i167.i.i = phi i64 [ %452, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i ], [ %451, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i ]
   %480 = getelementptr inbounds nuw float, ptr %69, i64 %.056.i.i162.i.i
-  store float %.sink63.i.i165.i.i, ptr %480, align 4, !tbaa !138
+  store float %.sink71.i.i165.i.i, ptr %480, align 4, !tbaa !138
   %481 = getelementptr inbounds nuw i64, ptr %70, i64 %.056.i.i162.i.i
   store i64 %.sink.i.i166.i.i, ptr %481, align 8, !tbaa !16
   %482 = shl i64 %.1.i.i167.i.i, 1
@@ -65909,11 +65909,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i:   ; preds = %591
   br i1 %595, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i217.i.i, label %596
 
 596:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i
-  %.sink63.i.i214.i.i = phi float [ %584, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i ], [ %575, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i ]
+  %.sink71.i.i214.i.i = phi float [ %584, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i ], [ %575, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i ]
   %.sink.i.i215.i.i = phi i64 [ %587, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i ], [ %577, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i ]
   %.1.i.i216.i.i = phi i64 [ %569, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i ], [ %568, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i ]
   %597 = getelementptr inbounds nuw float, ptr %380, i64 %.056.i.i211.i.i
-  store float %.sink63.i.i214.i.i, ptr %597, align 4, !tbaa !138
+  store float %.sink71.i.i214.i.i, ptr %597, align 4, !tbaa !138
   %598 = getelementptr inbounds nuw i64, ptr %381, i64 %.056.i.i211.i.i
   store i64 %.sink.i.i215.i.i, ptr %598, align 8, !tbaa !16
   %599 = shl i64 %.1.i.i216.i.i, 1
@@ -65980,7 +65980,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %637
 
 .preheader228.i.i43:                              ; preds = %934
-  %631 = zext i32 %.188.i.i41 to i64
+  %631 = zext nneg i32 %.188.i.i41 to i64
   %.not249.i.i44 = icmp eq i32 %.188.i.i41, 0
   br i1 %.not249.i.i44, label %.preheader.i.i69, label %.lr.ph242.i.i45
 
@@ -66192,11 +66192,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i205:   ; preds = %769
   br i1 %773, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i209, label %774
 
 774:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i205, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i214
-  %.sink63.i.i.i.i206 = phi float [ %762, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i214 ], [ %753, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i205 ]
+  %.sink71.i.i.i.i206 = phi float [ %762, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i214 ], [ %753, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i205 ]
   %.sink.i.i.i.i207 = phi i64 [ %765, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i214 ], [ %755, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i205 ]
   %.1.i.i.i.i208 = phi i64 [ %747, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i214 ], [ %746, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i205 ]
   %775 = getelementptr inbounds nuw float, ptr %627, i64 %.056.i.i.i.i203
-  store float %.sink63.i.i.i.i206, ptr %775, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i206, ptr %775, align 4, !tbaa !138
   %776 = getelementptr inbounds nuw i64, ptr %628, i64 %.056.i.i.i.i203
   store i64 %.sink.i.i.i.i207, ptr %776, align 8, !tbaa !16
   %777 = shl i64 %.1.i.i.i.i208, 1
@@ -66291,11 +66291,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i190: ; preds = %818
   br i1 %822, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i116.i.i194, label %823
 
 823:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i190, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i199
-  %.sink63.i.i113.i.i191 = phi float [ %811, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i199 ], [ %802, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i190 ]
+  %.sink71.i.i113.i.i191 = phi float [ %811, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i199 ], [ %802, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i190 ]
   %.sink.i.i114.i.i192 = phi i64 [ %814, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i199 ], [ %804, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i190 ]
   %.1.i.i115.i.i193 = phi i64 [ %796, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i199 ], [ %795, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i190 ]
   %824 = getelementptr inbounds nuw float, ptr %627, i64 %.056.i.i110.i.i188
-  store float %.sink63.i.i113.i.i191, ptr %824, align 4, !tbaa !138
+  store float %.sink71.i.i113.i.i191, ptr %824, align 4, !tbaa !138
   %825 = getelementptr inbounds nuw i64, ptr %628, i64 %.056.i.i110.i.i188
   store i64 %.sink.i.i114.i.i192, ptr %825, align 8, !tbaa !16
   %826 = shl i64 %.1.i.i115.i.i193, 1
@@ -66390,11 +66390,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i175: ; preds = %867
   br i1 %871, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i133.i.i179, label %872
 
 872:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i175, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i184
-  %.sink63.i.i130.i.i176 = phi float [ %860, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i184 ], [ %851, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i175 ]
+  %.sink71.i.i130.i.i176 = phi float [ %860, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i184 ], [ %851, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i175 ]
   %.sink.i.i131.i.i177 = phi i64 [ %863, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i184 ], [ %853, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i175 ]
   %.1.i.i132.i.i178 = phi i64 [ %845, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i184 ], [ %844, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i175 ]
   %873 = getelementptr inbounds nuw float, ptr %627, i64 %.056.i.i127.i.i173
-  store float %.sink63.i.i130.i.i176, ptr %873, align 4, !tbaa !138
+  store float %.sink71.i.i130.i.i176, ptr %873, align 4, !tbaa !138
   %874 = getelementptr inbounds nuw i64, ptr %628, i64 %.056.i.i127.i.i173
   store i64 %.sink.i.i131.i.i177, ptr %874, align 8, !tbaa !16
   %875 = shl i64 %.1.i.i132.i.i178, 1
@@ -66489,11 +66489,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i162: ; preds = %916
   br i1 %920, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i150.i.i166, label %921
 
 921:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i162, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i169
-  %.sink63.i.i147.i.i163 = phi float [ %909, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i169 ], [ %900, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i162 ]
+  %.sink71.i.i147.i.i163 = phi float [ %909, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i169 ], [ %900, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i162 ]
   %.sink.i.i148.i.i164 = phi i64 [ %912, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i169 ], [ %902, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i162 ]
   %.1.i.i149.i.i165 = phi i64 [ %894, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i169 ], [ %893, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i162 ]
   %922 = getelementptr inbounds nuw float, ptr %627, i64 %.056.i.i144.i.i160
-  store float %.sink63.i.i147.i.i163, ptr %922, align 4, !tbaa !138
+  store float %.sink71.i.i147.i.i163, ptr %922, align 4, !tbaa !138
   %923 = getelementptr inbounds nuw i64, ptr %628, i64 %.056.i.i144.i.i160
   store i64 %.sink.i.i148.i.i164, ptr %923, align 8, !tbaa !16
   %924 = shl i64 %.1.i.i149.i.i165, 1
@@ -66742,11 +66742,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i132: ; preds = %1036
   br i1 %1040, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i168.i.i136, label %1041
 
 1041:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i132, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i139
-  %.sink63.i.i165.i.i133 = phi float [ %1029, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i139 ], [ %1020, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i132 ]
+  %.sink71.i.i165.i.i133 = phi float [ %1029, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i139 ], [ %1020, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i132 ]
   %.sink.i.i166.i.i134 = phi i64 [ %1032, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i139 ], [ %1022, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i132 ]
   %.1.i.i167.i.i135 = phi i64 [ %1014, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i139 ], [ %1013, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i132 ]
   %1042 = getelementptr inbounds nuw float, ptr %627, i64 %.056.i.i162.i.i130
-  store float %.sink63.i.i165.i.i133, ptr %1042, align 4, !tbaa !138
+  store float %.sink71.i.i165.i.i133, ptr %1042, align 4, !tbaa !138
   %1043 = getelementptr inbounds nuw i64, ptr %628, i64 %.056.i.i162.i.i130
   store i64 %.sink.i.i166.i.i134, ptr %1043, align 8, !tbaa !16
   %1044 = shl i64 %.1.i.i167.i.i135, 1
@@ -66973,11 +66973,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i106: ; preds = %1154
   br i1 %1158, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i217.i.i110, label %1159
 
 1159:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i106, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i113
-  %.sink63.i.i214.i.i107 = phi float [ %1147, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i113 ], [ %1138, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i106 ]
+  %.sink71.i.i214.i.i107 = phi float [ %1147, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i113 ], [ %1138, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i106 ]
   %.sink.i.i215.i.i108 = phi i64 [ %1150, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i113 ], [ %1140, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i106 ]
   %.1.i.i216.i.i109 = phi i64 [ %1132, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i113 ], [ %1131, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i106 ]
   %1160 = getelementptr inbounds nuw float, ptr %942, i64 %.056.i.i211.i.i104
-  store float %.sink63.i.i214.i.i107, ptr %1160, align 4, !tbaa !138
+  store float %.sink71.i.i214.i.i107, ptr %1160, align 4, !tbaa !138
   %1161 = getelementptr inbounds nuw i64, ptr %943, i64 %.056.i.i211.i.i104
   store i64 %.sink.i.i215.i.i108, ptr %1161, align 8, !tbaa !16
   %1162 = shl i64 %.1.i.i216.i.i109, 1
@@ -67046,7 +67046,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %1202
 
 .preheader232.i.i:                                ; preds = %1523
-  %1196 = zext i32 %.188.i.i227 to i64
+  %1196 = zext nneg i32 %.188.i.i227 to i64
   %.not253.i.i = icmp eq i32 %.188.i.i227, 0
   br i1 %.not253.i.i, label %.preheader.i.i251, label %.lr.ph246.i.i
 
@@ -67282,11 +67282,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i379:   ; preds = %1358
   br i1 %1362, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i383, label %1363
 
 1363:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i379, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i388
-  %.sink63.i.i.i.i380 = phi float [ %1351, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i388 ], [ %1342, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i379 ]
+  %.sink71.i.i.i.i380 = phi float [ %1351, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i388 ], [ %1342, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i379 ]
   %.sink.i.i.i.i381 = phi i64 [ %1354, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i388 ], [ %1344, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i379 ]
   %.1.i.i.i.i382 = phi i64 [ %1336, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i388 ], [ %1335, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i379 ]
   %1364 = getelementptr inbounds nuw float, ptr %1192, i64 %.056.i.i.i.i377
-  store float %.sink63.i.i.i.i380, ptr %1364, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i380, ptr %1364, align 4, !tbaa !138
   %1365 = getelementptr inbounds nuw i64, ptr %1193, i64 %.056.i.i.i.i377
   store i64 %.sink.i.i.i.i381, ptr %1365, align 8, !tbaa !16
   %1366 = shl i64 %.1.i.i.i.i382, 1
@@ -67381,11 +67381,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i366: ; preds = %1407
   br i1 %1411, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i116.i.i370, label %1412
 
 1412:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i366, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i373
-  %.sink63.i.i113.i.i367 = phi float [ %1400, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i373 ], [ %1391, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i366 ]
+  %.sink71.i.i113.i.i367 = phi float [ %1400, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i373 ], [ %1391, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i366 ]
   %.sink.i.i114.i.i368 = phi i64 [ %1403, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i373 ], [ %1393, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i366 ]
   %.1.i.i115.i.i369 = phi i64 [ %1385, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i373 ], [ %1384, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i366 ]
   %1413 = getelementptr inbounds nuw float, ptr %1192, i64 %.056.i.i110.i.i364
-  store float %.sink63.i.i113.i.i367, ptr %1413, align 4, !tbaa !138
+  store float %.sink71.i.i113.i.i367, ptr %1413, align 4, !tbaa !138
   %1414 = getelementptr inbounds nuw i64, ptr %1193, i64 %.056.i.i110.i.i364
   store i64 %.sink.i.i114.i.i368, ptr %1414, align 8, !tbaa !16
   %1415 = shl i64 %.1.i.i115.i.i369, 1
@@ -67480,11 +67480,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i353: ; preds = %1456
   br i1 %1460, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i133.i.i357, label %1461
 
 1461:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i353, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i360
-  %.sink63.i.i130.i.i354 = phi float [ %1449, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i360 ], [ %1440, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i353 ]
+  %.sink71.i.i130.i.i354 = phi float [ %1449, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i360 ], [ %1440, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i353 ]
   %.sink.i.i131.i.i355 = phi i64 [ %1452, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i360 ], [ %1442, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i353 ]
   %.1.i.i132.i.i356 = phi i64 [ %1434, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i360 ], [ %1433, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i353 ]
   %1462 = getelementptr inbounds nuw float, ptr %1192, i64 %.056.i.i127.i.i351
-  store float %.sink63.i.i130.i.i354, ptr %1462, align 4, !tbaa !138
+  store float %.sink71.i.i130.i.i354, ptr %1462, align 4, !tbaa !138
   %1463 = getelementptr inbounds nuw i64, ptr %1193, i64 %.056.i.i127.i.i351
   store i64 %.sink.i.i131.i.i355, ptr %1463, align 8, !tbaa !16
   %1464 = shl i64 %.1.i.i132.i.i356, 1
@@ -67579,11 +67579,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i340: ; preds = %1505
   br i1 %1509, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i150.i.i344, label %1510
 
 1510:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i340, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i347
-  %.sink63.i.i147.i.i341 = phi float [ %1498, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i347 ], [ %1489, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i340 ]
+  %.sink71.i.i147.i.i341 = phi float [ %1498, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i347 ], [ %1489, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i340 ]
   %.sink.i.i148.i.i342 = phi i64 [ %1501, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i347 ], [ %1491, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i340 ]
   %.1.i.i149.i.i343 = phi i64 [ %1483, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i347 ], [ %1482, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i340 ]
   %1511 = getelementptr inbounds nuw float, ptr %1192, i64 %.056.i.i144.i.i338
-  store float %.sink63.i.i147.i.i341, ptr %1511, align 4, !tbaa !138
+  store float %.sink71.i.i147.i.i341, ptr %1511, align 4, !tbaa !138
   %1512 = getelementptr inbounds nuw i64, ptr %1193, i64 %.056.i.i144.i.i338
   store i64 %.sink.i.i148.i.i342, ptr %1512, align 8, !tbaa !16
   %1513 = shl i64 %.1.i.i149.i.i343, 1
@@ -67832,11 +67832,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i310: ; preds = %1625
   br i1 %1629, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i168.i.i314, label %1630
 
 1630:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i310, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i317
-  %.sink63.i.i165.i.i311 = phi float [ %1618, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i317 ], [ %1609, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i310 ]
+  %.sink71.i.i165.i.i311 = phi float [ %1618, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i317 ], [ %1609, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i310 ]
   %.sink.i.i166.i.i312 = phi i64 [ %1621, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i317 ], [ %1611, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i310 ]
   %.1.i.i167.i.i313 = phi i64 [ %1603, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i317 ], [ %1602, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i310 ]
   %1631 = getelementptr inbounds nuw float, ptr %1192, i64 %.056.i.i162.i.i308
-  store float %.sink63.i.i165.i.i311, ptr %1631, align 4, !tbaa !138
+  store float %.sink71.i.i165.i.i311, ptr %1631, align 4, !tbaa !138
   %1632 = getelementptr inbounds nuw i64, ptr %1193, i64 %.056.i.i162.i.i308
   store i64 %.sink.i.i166.i.i312, ptr %1632, align 8, !tbaa !16
   %1633 = shl i64 %.1.i.i167.i.i313, 1
@@ -68069,11 +68069,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i284: ; preds = %1749
   br i1 %1753, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i217.i.i288, label %1754
 
 1754:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i284, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i291
-  %.sink63.i.i214.i.i285 = phi float [ %1742, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i291 ], [ %1733, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i284 ]
+  %.sink71.i.i214.i.i285 = phi float [ %1742, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i291 ], [ %1733, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i284 ]
   %.sink.i.i215.i.i286 = phi i64 [ %1745, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i291 ], [ %1735, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i284 ]
   %.1.i.i216.i.i287 = phi i64 [ %1727, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i291 ], [ %1726, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i284 ]
   %1755 = getelementptr inbounds nuw float, ptr %1531, i64 %.056.i.i211.i.i282
-  store float %.sink63.i.i214.i.i285, ptr %1755, align 4, !tbaa !138
+  store float %.sink71.i.i214.i.i285, ptr %1755, align 4, !tbaa !138
   %1756 = getelementptr inbounds nuw i64, ptr %1532, i64 %.056.i.i211.i.i282
   store i64 %.sink.i.i215.i.i286, ptr %1756, align 8, !tbaa !16
   %1757 = shl i64 %.1.i.i216.i.i287, 1
@@ -68144,7 +68144,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %1799
 
 .preheader236.i.i:                                ; preds = %2140
-  %1793 = zext i32 %.188.i.i401 to i64
+  %1793 = zext nneg i32 %.188.i.i401 to i64
   %.not257.i.i = icmp eq i32 %.188.i.i401, 0
   br i1 %.not257.i.i, label %.preheader.i.i425, label %.lr.ph250.i.i
 
@@ -68400,11 +68400,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i553:   ; preds = %1975
   br i1 %1979, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i557, label %1980
 
 1980:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i553, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i562
-  %.sink63.i.i.i.i554 = phi float [ %1968, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i562 ], [ %1959, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i553 ]
+  %.sink71.i.i.i.i554 = phi float [ %1968, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i562 ], [ %1959, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i553 ]
   %.sink.i.i.i.i555 = phi i64 [ %1971, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i562 ], [ %1961, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i553 ]
   %.1.i.i.i.i556 = phi i64 [ %1953, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i562 ], [ %1952, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i553 ]
   %1981 = getelementptr inbounds nuw float, ptr %1789, i64 %.056.i.i.i.i551
-  store float %.sink63.i.i.i.i554, ptr %1981, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i554, ptr %1981, align 4, !tbaa !138
   %1982 = getelementptr inbounds nuw i64, ptr %1790, i64 %.056.i.i.i.i551
   store i64 %.sink.i.i.i.i555, ptr %1982, align 8, !tbaa !16
   %1983 = shl i64 %.1.i.i.i.i556, 1
@@ -68499,11 +68499,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i540: ; preds = %2024
   br i1 %2028, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i116.i.i544, label %2029
 
 2029:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i540, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i547
-  %.sink63.i.i113.i.i541 = phi float [ %2017, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i547 ], [ %2008, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i540 ]
+  %.sink71.i.i113.i.i541 = phi float [ %2017, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i547 ], [ %2008, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i540 ]
   %.sink.i.i114.i.i542 = phi i64 [ %2020, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i547 ], [ %2010, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i540 ]
   %.1.i.i115.i.i543 = phi i64 [ %2002, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i547 ], [ %2001, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i540 ]
   %2030 = getelementptr inbounds nuw float, ptr %1789, i64 %.056.i.i110.i.i538
-  store float %.sink63.i.i113.i.i541, ptr %2030, align 4, !tbaa !138
+  store float %.sink71.i.i113.i.i541, ptr %2030, align 4, !tbaa !138
   %2031 = getelementptr inbounds nuw i64, ptr %1790, i64 %.056.i.i110.i.i538
   store i64 %.sink.i.i114.i.i542, ptr %2031, align 8, !tbaa !16
   %2032 = shl i64 %.1.i.i115.i.i543, 1
@@ -68598,11 +68598,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i527: ; preds = %2073
   br i1 %2077, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i133.i.i531, label %2078
 
 2078:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i527, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i534
-  %.sink63.i.i130.i.i528 = phi float [ %2066, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i534 ], [ %2057, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i527 ]
+  %.sink71.i.i130.i.i528 = phi float [ %2066, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i534 ], [ %2057, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i527 ]
   %.sink.i.i131.i.i529 = phi i64 [ %2069, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i534 ], [ %2059, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i527 ]
   %.1.i.i132.i.i530 = phi i64 [ %2051, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i534 ], [ %2050, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i527 ]
   %2079 = getelementptr inbounds nuw float, ptr %1789, i64 %.056.i.i127.i.i525
-  store float %.sink63.i.i130.i.i528, ptr %2079, align 4, !tbaa !138
+  store float %.sink71.i.i130.i.i528, ptr %2079, align 4, !tbaa !138
   %2080 = getelementptr inbounds nuw i64, ptr %1790, i64 %.056.i.i127.i.i525
   store i64 %.sink.i.i131.i.i529, ptr %2080, align 8, !tbaa !16
   %2081 = shl i64 %.1.i.i132.i.i530, 1
@@ -68697,11 +68697,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i514: ; preds = %2122
   br i1 %2126, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i150.i.i518, label %2127
 
 2127:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i514, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i521
-  %.sink63.i.i147.i.i515 = phi float [ %2115, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i521 ], [ %2106, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i514 ]
+  %.sink71.i.i147.i.i515 = phi float [ %2115, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i521 ], [ %2106, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i514 ]
   %.sink.i.i148.i.i516 = phi i64 [ %2118, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i521 ], [ %2108, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i514 ]
   %.1.i.i149.i.i517 = phi i64 [ %2100, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i521 ], [ %2099, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i514 ]
   %2128 = getelementptr inbounds nuw float, ptr %1789, i64 %.056.i.i144.i.i512
-  store float %.sink63.i.i147.i.i515, ptr %2128, align 4, !tbaa !138
+  store float %.sink71.i.i147.i.i515, ptr %2128, align 4, !tbaa !138
   %2129 = getelementptr inbounds nuw i64, ptr %1790, i64 %.056.i.i144.i.i512
   store i64 %.sink.i.i148.i.i516, ptr %2129, align 8, !tbaa !16
   %2130 = shl i64 %.1.i.i149.i.i517, 1
@@ -68950,11 +68950,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i484: ; preds = %2242
   br i1 %2246, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i168.i.i488, label %2247
 
 2247:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i484, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i491
-  %.sink63.i.i165.i.i485 = phi float [ %2235, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i491 ], [ %2226, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i484 ]
+  %.sink71.i.i165.i.i485 = phi float [ %2235, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i491 ], [ %2226, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i484 ]
   %.sink.i.i166.i.i486 = phi i64 [ %2238, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i491 ], [ %2228, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i484 ]
   %.1.i.i167.i.i487 = phi i64 [ %2220, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i491 ], [ %2219, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i484 ]
   %2248 = getelementptr inbounds nuw float, ptr %1789, i64 %.056.i.i162.i.i482
-  store float %.sink63.i.i165.i.i485, ptr %2248, align 4, !tbaa !138
+  store float %.sink71.i.i165.i.i485, ptr %2248, align 4, !tbaa !138
   %2249 = getelementptr inbounds nuw i64, ptr %1790, i64 %.056.i.i162.i.i482
   store i64 %.sink.i.i166.i.i486, ptr %2249, align 8, !tbaa !16
   %2250 = shl i64 %.1.i.i167.i.i487, 1
@@ -69192,11 +69192,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i458: ; preds = %2371
   br i1 %2375, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i217.i.i462, label %2376
 
 2376:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i458, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i465
-  %.sink63.i.i214.i.i459 = phi float [ %2364, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i465 ], [ %2355, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i458 ]
+  %.sink71.i.i214.i.i459 = phi float [ %2364, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i465 ], [ %2355, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i458 ]
   %.sink.i.i215.i.i460 = phi i64 [ %2367, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i465 ], [ %2357, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i458 ]
   %.1.i.i216.i.i461 = phi i64 [ %2349, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i465 ], [ %2348, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i458 ]
   %2377 = getelementptr inbounds nuw float, ptr %2148, i64 %.056.i.i211.i.i456
-  store float %.sink63.i.i214.i.i459, ptr %2377, align 4, !tbaa !138
+  store float %.sink71.i.i214.i.i459, ptr %2377, align 4, !tbaa !138
   %2378 = getelementptr inbounds nuw i64, ptr %2149, i64 %.056.i.i211.i.i456
   store i64 %.sink.i.i215.i.i460, ptr %2378, align 8, !tbaa !16
   %2379 = shl i64 %.1.i.i216.i.i461, 1
@@ -69269,7 +69269,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %2423
 
 .preheader240.i.i:                                ; preds = %2792
-  %2417 = zext i32 %.188.i.i575 to i64
+  %2417 = zext nneg i32 %.188.i.i575 to i64
   %.not261.i.i = icmp eq i32 %.188.i.i575, 0
   br i1 %.not261.i.i, label %.preheader.i.i599, label %.lr.ph254.i.i
 
@@ -69553,11 +69553,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i727:   ; preds = %2627
   br i1 %2631, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i731, label %2632
 
 2632:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i727, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i736
-  %.sink63.i.i.i.i728 = phi float [ %2620, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i736 ], [ %2611, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i727 ]
+  %.sink71.i.i.i.i728 = phi float [ %2620, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i736 ], [ %2611, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i727 ]
   %.sink.i.i.i.i729 = phi i64 [ %2623, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i736 ], [ %2613, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i727 ]
   %.1.i.i.i.i730 = phi i64 [ %2605, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i736 ], [ %2604, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i727 ]
   %2633 = getelementptr inbounds nuw float, ptr %2413, i64 %.056.i.i.i.i725
-  store float %.sink63.i.i.i.i728, ptr %2633, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i728, ptr %2633, align 4, !tbaa !138
   %2634 = getelementptr inbounds nuw i64, ptr %2414, i64 %.056.i.i.i.i725
   store i64 %.sink.i.i.i.i729, ptr %2634, align 8, !tbaa !16
   %2635 = shl i64 %.1.i.i.i.i730, 1
@@ -69652,11 +69652,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i714: ; preds = %2676
   br i1 %2680, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i116.i.i718, label %2681
 
 2681:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i714, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i721
-  %.sink63.i.i113.i.i715 = phi float [ %2669, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i721 ], [ %2660, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i714 ]
+  %.sink71.i.i113.i.i715 = phi float [ %2669, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i721 ], [ %2660, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i714 ]
   %.sink.i.i114.i.i716 = phi i64 [ %2672, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i721 ], [ %2662, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i714 ]
   %.1.i.i115.i.i717 = phi i64 [ %2654, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i721 ], [ %2653, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i714 ]
   %2682 = getelementptr inbounds nuw float, ptr %2413, i64 %.056.i.i110.i.i712
-  store float %.sink63.i.i113.i.i715, ptr %2682, align 4, !tbaa !138
+  store float %.sink71.i.i113.i.i715, ptr %2682, align 4, !tbaa !138
   %2683 = getelementptr inbounds nuw i64, ptr %2414, i64 %.056.i.i110.i.i712
   store i64 %.sink.i.i114.i.i716, ptr %2683, align 8, !tbaa !16
   %2684 = shl i64 %.1.i.i115.i.i717, 1
@@ -69751,11 +69751,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i701: ; preds = %2725
   br i1 %2729, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i133.i.i705, label %2730
 
 2730:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i701, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i708
-  %.sink63.i.i130.i.i702 = phi float [ %2718, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i708 ], [ %2709, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i701 ]
+  %.sink71.i.i130.i.i702 = phi float [ %2718, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i708 ], [ %2709, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i701 ]
   %.sink.i.i131.i.i703 = phi i64 [ %2721, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i708 ], [ %2711, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i701 ]
   %.1.i.i132.i.i704 = phi i64 [ %2703, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i708 ], [ %2702, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i701 ]
   %2731 = getelementptr inbounds nuw float, ptr %2413, i64 %.056.i.i127.i.i699
-  store float %.sink63.i.i130.i.i702, ptr %2731, align 4, !tbaa !138
+  store float %.sink71.i.i130.i.i702, ptr %2731, align 4, !tbaa !138
   %2732 = getelementptr inbounds nuw i64, ptr %2414, i64 %.056.i.i127.i.i699
   store i64 %.sink.i.i131.i.i703, ptr %2732, align 8, !tbaa !16
   %2733 = shl i64 %.1.i.i132.i.i704, 1
@@ -69850,11 +69850,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i688: ; preds = %2774
   br i1 %2778, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i150.i.i692, label %2779
 
 2779:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i688, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i695
-  %.sink63.i.i147.i.i689 = phi float [ %2767, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i695 ], [ %2758, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i688 ]
+  %.sink71.i.i147.i.i689 = phi float [ %2767, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i695 ], [ %2758, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i688 ]
   %.sink.i.i148.i.i690 = phi i64 [ %2770, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i695 ], [ %2760, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i688 ]
   %.1.i.i149.i.i691 = phi i64 [ %2752, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i695 ], [ %2751, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i688 ]
   %2780 = getelementptr inbounds nuw float, ptr %2413, i64 %.056.i.i144.i.i686
-  store float %.sink63.i.i147.i.i689, ptr %2780, align 4, !tbaa !138
+  store float %.sink71.i.i147.i.i689, ptr %2780, align 4, !tbaa !138
   %2781 = getelementptr inbounds nuw i64, ptr %2414, i64 %.056.i.i144.i.i686
   store i64 %.sink.i.i148.i.i690, ptr %2781, align 8, !tbaa !16
   %2782 = shl i64 %.1.i.i149.i.i691, 1
@@ -70103,11 +70103,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i658: ; preds = %2894
   br i1 %2898, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i168.i.i662, label %2899
 
 2899:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i658, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i665
-  %.sink63.i.i165.i.i659 = phi float [ %2887, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i665 ], [ %2878, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i658 ]
+  %.sink71.i.i165.i.i659 = phi float [ %2887, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i665 ], [ %2878, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i658 ]
   %.sink.i.i166.i.i660 = phi i64 [ %2890, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i665 ], [ %2880, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i658 ]
   %.1.i.i167.i.i661 = phi i64 [ %2872, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i665 ], [ %2871, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i658 ]
   %2900 = getelementptr inbounds nuw float, ptr %2413, i64 %.056.i.i162.i.i656
-  store float %.sink63.i.i165.i.i659, ptr %2900, align 4, !tbaa !138
+  store float %.sink71.i.i165.i.i659, ptr %2900, align 4, !tbaa !138
   %2901 = getelementptr inbounds nuw i64, ptr %2414, i64 %.056.i.i162.i.i656
   store i64 %.sink.i.i166.i.i660, ptr %2901, align 8, !tbaa !16
   %2902 = shl i64 %.1.i.i167.i.i661, 1
@@ -70352,11 +70352,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i632: ; preds = %3030
   br i1 %3034, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i217.i.i636, label %3035
 
 3035:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i632, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i639
-  %.sink63.i.i214.i.i633 = phi float [ %3023, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i639 ], [ %3014, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i632 ]
+  %.sink71.i.i214.i.i633 = phi float [ %3023, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i639 ], [ %3014, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i632 ]
   %.sink.i.i215.i.i634 = phi i64 [ %3026, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i639 ], [ %3016, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i632 ]
   %.1.i.i216.i.i635 = phi i64 [ %3008, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i639 ], [ %3007, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i632 ]
   %3036 = getelementptr inbounds nuw float, ptr %2800, i64 %.056.i.i211.i.i630
-  store float %.sink63.i.i214.i.i633, ptr %3036, align 4, !tbaa !138
+  store float %.sink71.i.i214.i.i633, ptr %3036, align 4, !tbaa !138
   %3037 = getelementptr inbounds nuw i64, ptr %2801, i64 %.056.i.i211.i.i630
   store i64 %.sink.i.i215.i.i634, ptr %3037, align 8, !tbaa !16
   %3038 = shl i64 %.1.i.i216.i.i635, 1
@@ -70437,7 +70437,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %3090
 
 .preheader256.i.i:                                ; preds = %3555
-  %3084 = zext i32 %.188.i.i749 to i64
+  %3084 = zext nneg i32 %.188.i.i749 to i64
   %.not277.i.i = icmp eq i32 %.188.i.i749, 0
   br i1 %.not277.i.i, label %.preheader.i.i773, label %.lr.ph270.i.i
 
@@ -70817,11 +70817,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i901:   ; preds = %3390
   br i1 %3394, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i905, label %3395
 
 3395:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i901, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i909
-  %.sink63.i.i.i.i902 = phi float [ %3383, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i909 ], [ %3374, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i901 ]
+  %.sink71.i.i.i.i902 = phi float [ %3383, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i909 ], [ %3374, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i901 ]
   %.sink.i.i.i.i903 = phi i64 [ %3386, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i909 ], [ %3376, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i901 ]
   %.1.i.i.i.i904 = phi i64 [ %3368, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i909 ], [ %3367, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i901 ]
   %3396 = getelementptr inbounds nuw float, ptr %3080, i64 %.056.i.i.i.i899
-  store float %.sink63.i.i.i.i902, ptr %3396, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i902, ptr %3396, align 4, !tbaa !138
   %3397 = getelementptr inbounds nuw i64, ptr %3081, i64 %.056.i.i.i.i899
   store i64 %.sink.i.i.i.i903, ptr %3397, align 8, !tbaa !16
   %3398 = shl i64 %.1.i.i.i.i904, 1
@@ -70916,11 +70916,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i888: ; preds = %3439
   br i1 %3443, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i116.i.i892, label %3444
 
 3444:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i888, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i895
-  %.sink63.i.i113.i.i889 = phi float [ %3432, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i895 ], [ %3423, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i888 ]
+  %.sink71.i.i113.i.i889 = phi float [ %3432, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i895 ], [ %3423, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i888 ]
   %.sink.i.i114.i.i890 = phi i64 [ %3435, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i895 ], [ %3425, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i888 ]
   %.1.i.i115.i.i891 = phi i64 [ %3417, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i895 ], [ %3416, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i888 ]
   %3445 = getelementptr inbounds nuw float, ptr %3080, i64 %.056.i.i110.i.i886
-  store float %.sink63.i.i113.i.i889, ptr %3445, align 4, !tbaa !138
+  store float %.sink71.i.i113.i.i889, ptr %3445, align 4, !tbaa !138
   %3446 = getelementptr inbounds nuw i64, ptr %3081, i64 %.056.i.i110.i.i886
   store i64 %.sink.i.i114.i.i890, ptr %3446, align 8, !tbaa !16
   %3447 = shl i64 %.1.i.i115.i.i891, 1
@@ -71015,11 +71015,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i875: ; preds = %3488
   br i1 %3492, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i133.i.i879, label %3493
 
 3493:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i875, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i882
-  %.sink63.i.i130.i.i876 = phi float [ %3481, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i882 ], [ %3472, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i875 ]
+  %.sink71.i.i130.i.i876 = phi float [ %3481, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i882 ], [ %3472, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i875 ]
   %.sink.i.i131.i.i877 = phi i64 [ %3484, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i882 ], [ %3474, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i875 ]
   %.1.i.i132.i.i878 = phi i64 [ %3466, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i882 ], [ %3465, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i875 ]
   %3494 = getelementptr inbounds nuw float, ptr %3080, i64 %.056.i.i127.i.i873
-  store float %.sink63.i.i130.i.i876, ptr %3494, align 4, !tbaa !138
+  store float %.sink71.i.i130.i.i876, ptr %3494, align 4, !tbaa !138
   %3495 = getelementptr inbounds nuw i64, ptr %3081, i64 %.056.i.i127.i.i873
   store i64 %.sink.i.i131.i.i877, ptr %3495, align 8, !tbaa !16
   %3496 = shl i64 %.1.i.i132.i.i878, 1
@@ -71114,11 +71114,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i862: ; preds = %3537
   br i1 %3541, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i150.i.i866, label %3542
 
 3542:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i862, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i869
-  %.sink63.i.i147.i.i863 = phi float [ %3530, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i869 ], [ %3521, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i862 ]
+  %.sink71.i.i147.i.i863 = phi float [ %3530, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i869 ], [ %3521, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i862 ]
   %.sink.i.i148.i.i864 = phi i64 [ %3533, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i869 ], [ %3523, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i862 ]
   %.1.i.i149.i.i865 = phi i64 [ %3515, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i869 ], [ %3514, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i862 ]
   %3543 = getelementptr inbounds nuw float, ptr %3080, i64 %.056.i.i144.i.i860
-  store float %.sink63.i.i147.i.i863, ptr %3543, align 4, !tbaa !138
+  store float %.sink71.i.i147.i.i863, ptr %3543, align 4, !tbaa !138
   %3544 = getelementptr inbounds nuw i64, ptr %3081, i64 %.056.i.i144.i.i860
   store i64 %.sink.i.i148.i.i864, ptr %3544, align 8, !tbaa !16
   %3545 = shl i64 %.1.i.i149.i.i865, 1
@@ -71367,11 +71367,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i832: ; preds = %3657
   br i1 %3661, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i168.i.i836, label %3662
 
 3662:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i832, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i839
-  %.sink63.i.i165.i.i833 = phi float [ %3650, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i839 ], [ %3641, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i832 ]
+  %.sink71.i.i165.i.i833 = phi float [ %3650, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i839 ], [ %3641, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i832 ]
   %.sink.i.i166.i.i834 = phi i64 [ %3653, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i839 ], [ %3643, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i832 ]
   %.1.i.i167.i.i835 = phi i64 [ %3635, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i839 ], [ %3634, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i832 ]
   %3663 = getelementptr inbounds nuw float, ptr %3080, i64 %.056.i.i162.i.i830
-  store float %.sink63.i.i165.i.i833, ptr %3663, align 4, !tbaa !138
+  store float %.sink71.i.i165.i.i833, ptr %3663, align 4, !tbaa !138
   %3664 = getelementptr inbounds nuw i64, ptr %3081, i64 %.056.i.i162.i.i830
   store i64 %.sink.i.i166.i.i834, ptr %3664, align 8, !tbaa !16
   %3665 = shl i64 %.1.i.i167.i.i835, 1
@@ -71640,11 +71640,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i806: ; preds = %3817
   br i1 %3821, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i217.i.i810, label %3822
 
 3822:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i806, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i813
-  %.sink63.i.i214.i.i807 = phi float [ %3810, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i813 ], [ %3801, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i806 ]
+  %.sink71.i.i214.i.i807 = phi float [ %3810, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i813 ], [ %3801, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i806 ]
   %.sink.i.i215.i.i808 = phi i64 [ %3813, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i813 ], [ %3803, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i806 ]
   %.1.i.i216.i.i809 = phi i64 [ %3795, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i813 ], [ %3794, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i806 ]
   %3823 = getelementptr inbounds nuw float, ptr %3563, i64 %.056.i.i211.i.i804
-  store float %.sink63.i.i214.i.i807, ptr %3823, align 4, !tbaa !138
+  store float %.sink71.i.i214.i.i807, ptr %3823, align 4, !tbaa !138
   %3824 = getelementptr inbounds nuw i64, ptr %3564, i64 %.056.i.i211.i.i804
   store i64 %.sink.i.i215.i.i808, ptr %3824, align 8, !tbaa !16
   %3825 = shl i64 %.1.i.i216.i.i809, 1
@@ -71718,7 +71718,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %3866
 
 .preheader224.i.i:                                ; preds = %4151
-  %3860 = zext i32 %.188.i.i922 to i64
+  %3860 = zext nneg i32 %.188.i.i922 to i64
   %.not245.i.i = icmp eq i32 %.188.i.i922, 0
   br i1 %.not245.i.i, label %.preheader.i.i946, label %.lr.ph238.i.i
 
@@ -71918,11 +71918,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1075:  ; preds = %3986
   br i1 %3990, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i1079, label %3991
 
 3991:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1075, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i1083
-  %.sink63.i.i.i.i1076 = phi float [ %3979, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i1083 ], [ %3970, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1075 ]
+  %.sink71.i.i.i.i1076 = phi float [ %3979, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i1083 ], [ %3970, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1075 ]
   %.sink.i.i.i.i1077 = phi i64 [ %3982, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i1083 ], [ %3972, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1075 ]
   %.1.i.i.i.i1078 = phi i64 [ %3964, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i1083 ], [ %3963, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1075 ]
   %3992 = getelementptr inbounds nuw float, ptr %3856, i64 %.056.i.i.i.i1073
-  store float %.sink63.i.i.i.i1076, ptr %3992, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i1076, ptr %3992, align 4, !tbaa !138
   %3993 = getelementptr inbounds nuw i64, ptr %3857, i64 %.056.i.i.i.i1073
   store i64 %.sink.i.i.i.i1077, ptr %3993, align 8, !tbaa !16
   %3994 = shl i64 %.1.i.i.i.i1078, 1
@@ -72017,11 +72017,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i1062: ; preds = %4035
   br i1 %4039, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i116.i.i1066, label %4040
 
 4040:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i1062, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i1069
-  %.sink63.i.i113.i.i1063 = phi float [ %4028, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i1069 ], [ %4019, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i1062 ]
+  %.sink71.i.i113.i.i1063 = phi float [ %4028, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i1069 ], [ %4019, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i1062 ]
   %.sink.i.i114.i.i1064 = phi i64 [ %4031, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i1069 ], [ %4021, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i1062 ]
   %.1.i.i115.i.i1065 = phi i64 [ %4013, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i119.i.i1069 ], [ %4012, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i112.i.i1062 ]
   %4041 = getelementptr inbounds nuw float, ptr %3856, i64 %.056.i.i110.i.i1060
-  store float %.sink63.i.i113.i.i1063, ptr %4041, align 4, !tbaa !138
+  store float %.sink71.i.i113.i.i1063, ptr %4041, align 4, !tbaa !138
   %4042 = getelementptr inbounds nuw i64, ptr %3857, i64 %.056.i.i110.i.i1060
   store i64 %.sink.i.i114.i.i1064, ptr %4042, align 8, !tbaa !16
   %4043 = shl i64 %.1.i.i115.i.i1065, 1
@@ -72116,11 +72116,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i1048: ; preds = %4084
   br i1 %4088, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i133.i.i1052, label %4089
 
 4089:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i1048, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i1056
-  %.sink63.i.i130.i.i1049 = phi float [ %4077, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i1056 ], [ %4068, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i1048 ]
+  %.sink71.i.i130.i.i1049 = phi float [ %4077, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i1056 ], [ %4068, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i1048 ]
   %.sink.i.i131.i.i1050 = phi i64 [ %4080, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i1056 ], [ %4070, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i1048 ]
   %.1.i.i132.i.i1051 = phi i64 [ %4062, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i136.i.i1056 ], [ %4061, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i129.i.i1048 ]
   %4090 = getelementptr inbounds nuw float, ptr %3856, i64 %.056.i.i127.i.i1046
-  store float %.sink63.i.i130.i.i1049, ptr %4090, align 4, !tbaa !138
+  store float %.sink71.i.i130.i.i1049, ptr %4090, align 4, !tbaa !138
   %4091 = getelementptr inbounds nuw i64, ptr %3857, i64 %.056.i.i127.i.i1046
   store i64 %.sink.i.i131.i.i1050, ptr %4091, align 8, !tbaa !16
   %4092 = shl i64 %.1.i.i132.i.i1051, 1
@@ -72215,11 +72215,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i1035: ; preds = %4133
   br i1 %4137, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i150.i.i1039, label %4138
 
 4138:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i1035, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i1042
-  %.sink63.i.i147.i.i1036 = phi float [ %4126, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i1042 ], [ %4117, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i1035 ]
+  %.sink71.i.i147.i.i1036 = phi float [ %4126, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i1042 ], [ %4117, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i1035 ]
   %.sink.i.i148.i.i1037 = phi i64 [ %4129, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i1042 ], [ %4119, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i1035 ]
   %.1.i.i149.i.i1038 = phi i64 [ %4111, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i153.i.i1042 ], [ %4110, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i146.i.i1035 ]
   %4139 = getelementptr inbounds nuw float, ptr %3856, i64 %.056.i.i144.i.i1033
-  store float %.sink63.i.i147.i.i1036, ptr %4139, align 4, !tbaa !138
+  store float %.sink71.i.i147.i.i1036, ptr %4139, align 4, !tbaa !138
   %4140 = getelementptr inbounds nuw i64, ptr %3857, i64 %.056.i.i144.i.i1033
   store i64 %.sink.i.i148.i.i1037, ptr %4140, align 8, !tbaa !16
   %4141 = shl i64 %.1.i.i149.i.i1038, 1
@@ -72468,11 +72468,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i1005: ; preds = %4253
   br i1 %4257, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i168.i.i1009, label %4258
 
 4258:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i1005, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i1012
-  %.sink63.i.i165.i.i1006 = phi float [ %4246, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i1012 ], [ %4237, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i1005 ]
+  %.sink71.i.i165.i.i1006 = phi float [ %4246, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i1012 ], [ %4237, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i1005 ]
   %.sink.i.i166.i.i1007 = phi i64 [ %4249, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i1012 ], [ %4239, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i1005 ]
   %.1.i.i167.i.i1008 = phi i64 [ %4231, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i171.i.i1012 ], [ %4230, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i164.i.i1005 ]
   %4259 = getelementptr inbounds nuw float, ptr %3856, i64 %.056.i.i162.i.i1003
-  store float %.sink63.i.i165.i.i1006, ptr %4259, align 4, !tbaa !138
+  store float %.sink71.i.i165.i.i1006, ptr %4259, align 4, !tbaa !138
   %4260 = getelementptr inbounds nuw i64, ptr %3857, i64 %.056.i.i162.i.i1003
   store i64 %.sink.i.i166.i.i1007, ptr %4260, align 8, !tbaa !16
   %4261 = shl i64 %.1.i.i167.i.i1008, 1
@@ -72696,11 +72696,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i979: ; preds = %4368
   br i1 %4372, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i217.i.i983, label %4373
 
 4373:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i979, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i986
-  %.sink63.i.i214.i.i980 = phi float [ %4361, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i986 ], [ %4352, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i979 ]
+  %.sink71.i.i214.i.i980 = phi float [ %4361, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i986 ], [ %4352, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i979 ]
   %.sink.i.i215.i.i981 = phi i64 [ %4364, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i986 ], [ %4354, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i979 ]
   %.1.i.i216.i.i982 = phi i64 [ %4346, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i220.i.i986 ], [ %4345, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i213.i.i979 ]
   %4374 = getelementptr inbounds nuw float, ptr %4159, i64 %.056.i.i211.i.i977
-  store float %.sink63.i.i214.i.i980, ptr %4374, align 4, !tbaa !138
+  store float %.sink71.i.i214.i.i980, ptr %4374, align 4, !tbaa !138
   %4375 = getelementptr inbounds nuw i64, ptr %4160, i64 %.056.i.i211.i.i977
   store i64 %.sink.i.i215.i.i981, ptr %4375, align 8, !tbaa !16
   %4376 = shl i64 %.1.i.i216.i.i982, 1
@@ -73461,11 +73461,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i:        ; preds = %117
   br i1 %121, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i, label %122
 
 122:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i
-  %.sink63.i.i.i = phi float [ %110, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %101, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
+  %.sink71.i.i.i = phi float [ %110, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %101, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
   %.sink.i.i.i = phi i64 [ %113, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %103, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
   %.1.i.i.i = phi i64 [ %95, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %94, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
   %123 = getelementptr inbounds nuw float, ptr %46, i64 %.056.i.i.i
-  store float %.sink63.i.i.i, ptr %123, align 4, !tbaa !138
+  store float %.sink71.i.i.i, ptr %123, align 4, !tbaa !138
   %124 = getelementptr inbounds nuw i64, ptr %47, i64 %.056.i.i.i
   store i64 %.sink.i.i.i, ptr %124, align 8, !tbaa !16
   %125 = shl i64 %.1.i.i.i, 1
@@ -73563,11 +73563,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i70.i:      ; preds = %169
   br i1 %173, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i74.i, label %174
 
 174:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i70.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i77.i
-  %.sink63.i.i71.i = phi float [ %162, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i77.i ], [ %153, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i70.i ]
+  %.sink71.i.i71.i = phi float [ %162, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i77.i ], [ %153, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i70.i ]
   %.sink.i.i72.i = phi i64 [ %165, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i77.i ], [ %155, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i70.i ]
   %.1.i.i73.i = phi i64 [ %147, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i77.i ], [ %146, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i70.i ]
   %175 = getelementptr inbounds nuw float, ptr %46, i64 %.056.i.i68.i
-  store float %.sink63.i.i71.i, ptr %175, align 4, !tbaa !138
+  store float %.sink71.i.i71.i, ptr %175, align 4, !tbaa !138
   %176 = getelementptr inbounds nuw i64, ptr %47, i64 %.056.i.i68.i
   store i64 %.sink.i.i72.i, ptr %176, align 8, !tbaa !16
   %177 = shl i64 %.1.i.i73.i, 1
@@ -73665,11 +73665,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i87.i:      ; preds = %221
   br i1 %225, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i91.i, label %226
 
 226:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i87.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i94.i
-  %.sink63.i.i88.i = phi float [ %214, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i94.i ], [ %205, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i87.i ]
+  %.sink71.i.i88.i = phi float [ %214, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i94.i ], [ %205, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i87.i ]
   %.sink.i.i89.i = phi i64 [ %217, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i94.i ], [ %207, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i87.i ]
   %.1.i.i90.i = phi i64 [ %199, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i94.i ], [ %198, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i87.i ]
   %227 = getelementptr inbounds nuw float, ptr %46, i64 %.056.i.i85.i
-  store float %.sink63.i.i88.i, ptr %227, align 4, !tbaa !138
+  store float %.sink71.i.i88.i, ptr %227, align 4, !tbaa !138
   %228 = getelementptr inbounds nuw i64, ptr %47, i64 %.056.i.i85.i
   store i64 %.sink.i.i89.i, ptr %228, align 8, !tbaa !16
   %229 = shl i64 %.1.i.i90.i, 1
@@ -73767,11 +73767,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i:     ; preds = %273
   br i1 %277, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i, label %278
 
 278:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i
-  %.sink63.i.i105.i = phi float [ %266, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i ], [ %257, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i ]
+  %.sink71.i.i105.i = phi float [ %266, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i ], [ %257, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i ]
   %.sink.i.i106.i = phi i64 [ %269, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i ], [ %259, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i ]
   %.1.i.i107.i = phi i64 [ %251, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i ], [ %250, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i ]
   %279 = getelementptr inbounds nuw float, ptr %46, i64 %.056.i.i102.i
-  store float %.sink63.i.i105.i, ptr %279, align 4, !tbaa !138
+  store float %.sink71.i.i105.i, ptr %279, align 4, !tbaa !138
   %280 = getelementptr inbounds nuw i64, ptr %47, i64 %.056.i.i102.i
   store i64 %.sink.i.i106.i, ptr %280, align 8, !tbaa !16
   %281 = shl i64 %.1.i.i107.i, 1
@@ -73999,11 +73999,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i122.i:     ; preds = %386
   br i1 %390, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i126.i, label %391
 
 391:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i122.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i129.i
-  %.sink63.i.i123.i = phi float [ %379, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i129.i ], [ %370, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i122.i ]
+  %.sink71.i.i123.i = phi float [ %379, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i129.i ], [ %370, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i122.i ]
   %.sink.i.i124.i = phi i64 [ %382, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i129.i ], [ %372, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i122.i ]
   %.1.i.i125.i = phi i64 [ %364, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i129.i ], [ %363, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i122.i ]
   %392 = getelementptr inbounds nuw float, ptr %46, i64 %.056.i.i120.i
-  store float %.sink63.i.i123.i, ptr %392, align 4, !tbaa !138
+  store float %.sink71.i.i123.i, ptr %392, align 4, !tbaa !138
   %393 = getelementptr inbounds nuw i64, ptr %47, i64 %.056.i.i120.i
   store i64 %.sink.i.i124.i, ptr %393, align 8, !tbaa !16
   %394 = shl i64 %.1.i.i125.i, 1
@@ -74213,11 +74213,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i171.i:     ; preds = %492
   br i1 %496, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i175.i, label %497
 
 497:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i171.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i178.i
-  %.sink63.i.i172.i = phi float [ %485, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i178.i ], [ %476, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i171.i ]
+  %.sink71.i.i172.i = phi float [ %485, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i178.i ], [ %476, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i171.i ]
   %.sink.i.i173.i = phi i64 [ %488, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i178.i ], [ %478, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i171.i ]
   %.1.i.i174.i = phi i64 [ %470, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i178.i ], [ %469, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i171.i ]
   %498 = getelementptr inbounds nuw float, ptr %46, i64 %.056.i.i169.i
-  store float %.sink63.i.i172.i, ptr %498, align 4, !tbaa !138
+  store float %.sink71.i.i172.i, ptr %498, align 4, !tbaa !138
   %499 = getelementptr inbounds nuw i64, ptr %47, i64 %.056.i.i169.i
   store i64 %.sink.i.i173.i, ptr %499, align 8, !tbaa !16
   %500 = shl i64 %.1.i.i174.i, 1
@@ -74427,11 +74427,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i220.i:     ; preds = %599
   br i1 %603, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i224.i, label %604
 
 604:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i220.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i227.i
-  %.sink63.i.i221.i = phi float [ %592, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i227.i ], [ %583, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i220.i ]
+  %.sink71.i.i221.i = phi float [ %592, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i227.i ], [ %583, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i220.i ]
   %.sink.i.i222.i = phi i64 [ %595, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i227.i ], [ %585, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i220.i ]
   %.1.i.i223.i = phi i64 [ %577, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i227.i ], [ %576, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i220.i ]
   %605 = getelementptr inbounds nuw float, ptr %46, i64 %.056.i.i218.i
-  store float %.sink63.i.i221.i, ptr %605, align 4, !tbaa !138
+  store float %.sink71.i.i221.i, ptr %605, align 4, !tbaa !138
   %606 = getelementptr inbounds nuw i64, ptr %47, i64 %.056.i.i218.i
   store i64 %.sink.i.i222.i, ptr %606, align 8, !tbaa !16
   %607 = shl i64 %.1.i.i223.i, 1
@@ -74572,11 +74572,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i33:      ; preds = %675
   br i1 %679, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i37, label %680
 
 680:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i33, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i40
-  %.sink63.i.i.i34 = phi float [ %668, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i40 ], [ %659, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i33 ]
+  %.sink71.i.i.i34 = phi float [ %668, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i40 ], [ %659, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i33 ]
   %.sink.i.i.i35 = phi i64 [ %671, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i40 ], [ %661, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i33 ]
   %.1.i.i.i36 = phi i64 [ %653, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i40 ], [ %652, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i33 ]
   %681 = getelementptr inbounds nuw float, ptr %619, i64 %.056.i.i.i31
-  store float %.sink63.i.i.i34, ptr %681, align 4, !tbaa !138
+  store float %.sink71.i.i.i34, ptr %681, align 4, !tbaa !138
   %682 = getelementptr inbounds nuw i64, ptr %620, i64 %.056.i.i.i31
   store i64 %.sink.i.i.i35, ptr %682, align 8, !tbaa !16
   %683 = shl i64 %.1.i.i.i36, 1
@@ -74819,11 +74819,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i56:      ; preds = %807
   br i1 %811, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i60, label %812
 
 812:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i56, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i63
-  %.sink63.i.i.i57 = phi float [ %800, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i63 ], [ %791, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i56 ]
+  %.sink71.i.i.i57 = phi float [ %800, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i63 ], [ %791, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i56 ]
   %.sink.i.i.i58 = phi i64 [ %803, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i63 ], [ %793, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i56 ]
   %.1.i.i.i59 = phi i64 [ %785, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i63 ], [ %784, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i56 ]
   %813 = getelementptr inbounds nuw float, ptr %763, i64 %.056.i.i.i54
-  store float %.sink63.i.i.i57, ptr %813, align 4, !tbaa !138
+  store float %.sink71.i.i.i57, ptr %813, align 4, !tbaa !138
   %814 = getelementptr inbounds nuw i64, ptr %764, i64 %.056.i.i.i54
   store i64 %.sink.i.i.i58, ptr %814, align 8, !tbaa !16
   %815 = shl i64 %.1.i.i.i59, 1
@@ -75026,7 +75026,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1E
   br label %94
 
 .preheader152.i.i.i.i:                            ; preds = %224
-  %93 = zext i32 %.188.i.i.i.i to i64
+  %93 = zext nneg i32 %.188.i.i.i.i to i64
   %.not173.i.i.i.i = icmp eq i32 %.188.i.i.i.i, 0
   br i1 %.not173.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph166.i.i.i.i
 
@@ -75587,7 +75587,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %402
 
 .preheader152.i.i39.i.i:                          ; preds = %536
-  %401 = zext i32 %.188.i.i37.i.i to i64
+  %401 = zext nneg i32 %.188.i.i37.i.i to i64
   %.not173.i.i40.i.i = icmp eq i32 %.188.i.i37.i.i, 0
   br i1 %.not173.i.i40.i.i, label %.preheader.i.i66.i.i, label %.lr.ph166.i.i42.i.i
 
@@ -76155,7 +76155,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %717
 
 .preheader156.i.i.i.i:                            ; preds = %875
-  %716 = zext i32 %.188.i.i137.i.i to i64
+  %716 = zext nneg i32 %.188.i.i137.i.i to i64
   %.not177.i.i.i.i = icmp eq i32 %.188.i.i137.i.i, 0
   br i1 %.not177.i.i.i.i, label %.preheader.i.i161.i.i, label %.lr.ph170.i.i.i.i
 
@@ -76755,7 +76755,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %1064
 
 .preheader160.i.i.i.i:                            ; preds = %1242
-  %1063 = zext i32 %.188.i.i226.i.i to i64
+  %1063 = zext nneg i32 %.188.i.i226.i.i to i64
   %.not181.i.i.i.i = icmp eq i32 %.188.i.i226.i.i, 0
   br i1 %.not181.i.i.i.i, label %.preheader.i.i250.i.i, label %.lr.ph174.i.i.i.i
 
@@ -77382,7 +77382,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %1438
 
 .preheader164.i.i.i.i:                            ; preds = %1644
-  %1437 = zext i32 %.188.i.i315.i.i to i64
+  %1437 = zext nneg i32 %.188.i.i315.i.i to i64
   %.not185.i.i.i.i = icmp eq i32 %.188.i.i315.i.i, 0
   br i1 %.not185.i.i.i.i, label %.preheader.i.i339.i.i, label %.lr.ph178.i.i.i.i
 
@@ -78052,7 +78052,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %1855
 
 .preheader180.i.i.i.i:                            ; preds = %2157
-  %1854 = zext i32 %.188.i.i404.i.i to i64
+  %1854 = zext nneg i32 %.188.i.i404.i.i to i64
   %.not201.i.i.i.i = icmp eq i32 %.188.i.i404.i.i, 0
   br i1 %.not201.i.i.i.i, label %.preheader.i.i428.i.i, label %.lr.ph194.i.i.i.i
 
@@ -78835,7 +78835,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %2381
 
 .preheader148.i.i.i.i:                            ; preds = %2503
-  %2380 = zext i32 %.188.i.i493.i.i to i64
+  %2380 = zext nneg i32 %.188.i.i493.i.i to i64
   %.not169.i.i.i.i = icmp eq i32 %.188.i.i493.i.i, 0
   br i1 %.not169.i.i.i.i, label %.preheader.i.i517.i.i, label %.lr.ph162.i.i.i.i
 
@@ -80440,7 +80440,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   br label %79
 
 .preheader228.i.i:                                ; preds = %372
-  %73 = zext i32 %.188.i.i to i64
+  %73 = zext nneg i32 %.188.i.i to i64
   %.not249.i.i = icmp eq i32 %.188.i.i, 0
   br i1 %.not249.i.i, label %.preheader.i.i, label %.lr.ph242.i.i
 
@@ -80648,11 +80648,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i:      ; preds = %207
   br i1 %211, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i, label %212
 
 212:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i
-  %.sink63.i.i.i.i = phi float [ %200, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %191, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
+  %.sink71.i.i.i.i = phi float [ %200, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %191, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
   %.sink.i.i.i.i = phi i64 [ %203, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %193, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
   %.1.i.i.i.i = phi i64 [ %185, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %184, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
   %213 = getelementptr inbounds nuw float, ptr %69, i64 %.056.i.i.i.i
-  store float %.sink63.i.i.i.i, ptr %213, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i, ptr %213, align 4, !tbaa !138
   %214 = getelementptr inbounds nuw i64, ptr %70, i64 %.056.i.i.i.i
   store i64 %.sink.i.i.i.i, ptr %214, align 8, !tbaa !16
   %215 = shl i64 %.1.i.i.i.i, 1
@@ -80747,11 +80747,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i:   ; preds = %256
   br i1 %260, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i116.i.i, label %261
 
 261:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i
-  %.sink63.i.i113.i.i = phi float [ %249, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i ], [ %240, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i ]
+  %.sink71.i.i113.i.i = phi float [ %249, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i ], [ %240, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i ]
   %.sink.i.i114.i.i = phi i64 [ %252, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i ], [ %242, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i ]
   %.1.i.i115.i.i = phi i64 [ %234, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i ], [ %233, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i ]
   %262 = getelementptr inbounds nuw float, ptr %69, i64 %.056.i.i110.i.i
-  store float %.sink63.i.i113.i.i, ptr %262, align 4, !tbaa !138
+  store float %.sink71.i.i113.i.i, ptr %262, align 4, !tbaa !138
   %263 = getelementptr inbounds nuw i64, ptr %70, i64 %.056.i.i110.i.i
   store i64 %.sink.i.i114.i.i, ptr %263, align 8, !tbaa !16
   %264 = shl i64 %.1.i.i115.i.i, 1
@@ -80846,11 +80846,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i:   ; preds = %305
   br i1 %309, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i133.i.i, label %310
 
 310:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i
-  %.sink63.i.i130.i.i = phi float [ %298, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i ], [ %289, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i ]
+  %.sink71.i.i130.i.i = phi float [ %298, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i ], [ %289, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i ]
   %.sink.i.i131.i.i = phi i64 [ %301, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i ], [ %291, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i ]
   %.1.i.i132.i.i = phi i64 [ %283, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i ], [ %282, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i ]
   %311 = getelementptr inbounds nuw float, ptr %69, i64 %.056.i.i127.i.i
-  store float %.sink63.i.i130.i.i, ptr %311, align 4, !tbaa !138
+  store float %.sink71.i.i130.i.i, ptr %311, align 4, !tbaa !138
   %312 = getelementptr inbounds nuw i64, ptr %70, i64 %.056.i.i127.i.i
   store i64 %.sink.i.i131.i.i, ptr %312, align 8, !tbaa !16
   %313 = shl i64 %.1.i.i132.i.i, 1
@@ -80945,11 +80945,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i:   ; preds = %354
   br i1 %358, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i150.i.i, label %359
 
 359:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i
-  %.sink63.i.i147.i.i = phi float [ %347, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i ], [ %338, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i ]
+  %.sink71.i.i147.i.i = phi float [ %347, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i ], [ %338, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i ]
   %.sink.i.i148.i.i = phi i64 [ %350, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i ], [ %340, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i ]
   %.1.i.i149.i.i = phi i64 [ %332, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i ], [ %331, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i ]
   %360 = getelementptr inbounds nuw float, ptr %69, i64 %.056.i.i144.i.i
-  store float %.sink63.i.i147.i.i, ptr %360, align 4, !tbaa !138
+  store float %.sink71.i.i147.i.i, ptr %360, align 4, !tbaa !138
   %361 = getelementptr inbounds nuw i64, ptr %70, i64 %.056.i.i144.i.i
   store i64 %.sink.i.i148.i.i, ptr %361, align 8, !tbaa !16
   %362 = shl i64 %.1.i.i149.i.i, 1
@@ -81198,11 +81198,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i:   ; preds = %474
   br i1 %478, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i168.i.i, label %479
 
 479:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i
-  %.sink63.i.i165.i.i = phi float [ %467, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i ], [ %458, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i ]
+  %.sink71.i.i165.i.i = phi float [ %467, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i ], [ %458, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i ]
   %.sink.i.i166.i.i = phi i64 [ %470, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i ], [ %460, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i ]
   %.1.i.i167.i.i = phi i64 [ %452, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i ], [ %451, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i ]
   %480 = getelementptr inbounds nuw float, ptr %69, i64 %.056.i.i162.i.i
-  store float %.sink63.i.i165.i.i, ptr %480, align 4, !tbaa !138
+  store float %.sink71.i.i165.i.i, ptr %480, align 4, !tbaa !138
   %481 = getelementptr inbounds nuw i64, ptr %70, i64 %.056.i.i162.i.i
   store i64 %.sink.i.i166.i.i, ptr %481, align 8, !tbaa !16
   %482 = shl i64 %.1.i.i167.i.i, 1
@@ -81428,11 +81428,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i:   ; preds = %591
   br i1 %595, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i217.i.i, label %596
 
 596:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i
-  %.sink63.i.i214.i.i = phi float [ %584, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i ], [ %575, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i ]
+  %.sink71.i.i214.i.i = phi float [ %584, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i ], [ %575, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i ]
   %.sink.i.i215.i.i = phi i64 [ %587, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i ], [ %577, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i ]
   %.1.i.i216.i.i = phi i64 [ %569, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i ], [ %568, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i ]
   %597 = getelementptr inbounds nuw float, ptr %380, i64 %.056.i.i211.i.i
-  store float %.sink63.i.i214.i.i, ptr %597, align 4, !tbaa !138
+  store float %.sink71.i.i214.i.i, ptr %597, align 4, !tbaa !138
   %598 = getelementptr inbounds nuw i64, ptr %381, i64 %.056.i.i211.i.i
   store i64 %.sink.i.i215.i.i, ptr %598, align 8, !tbaa !16
   %599 = shl i64 %.1.i.i216.i.i, 1
@@ -81499,7 +81499,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %637
 
 .preheader228.i.i43:                              ; preds = %934
-  %631 = zext i32 %.188.i.i41 to i64
+  %631 = zext nneg i32 %.188.i.i41 to i64
   %.not249.i.i44 = icmp eq i32 %.188.i.i41, 0
   br i1 %.not249.i.i44, label %.preheader.i.i69, label %.lr.ph242.i.i45
 
@@ -81711,11 +81711,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i205:   ; preds = %769
   br i1 %773, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i209, label %774
 
 774:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i205, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i214
-  %.sink63.i.i.i.i206 = phi float [ %762, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i214 ], [ %753, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i205 ]
+  %.sink71.i.i.i.i206 = phi float [ %762, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i214 ], [ %753, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i205 ]
   %.sink.i.i.i.i207 = phi i64 [ %765, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i214 ], [ %755, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i205 ]
   %.1.i.i.i.i208 = phi i64 [ %747, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i214 ], [ %746, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i205 ]
   %775 = getelementptr inbounds nuw float, ptr %627, i64 %.056.i.i.i.i203
-  store float %.sink63.i.i.i.i206, ptr %775, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i206, ptr %775, align 4, !tbaa !138
   %776 = getelementptr inbounds nuw i64, ptr %628, i64 %.056.i.i.i.i203
   store i64 %.sink.i.i.i.i207, ptr %776, align 8, !tbaa !16
   %777 = shl i64 %.1.i.i.i.i208, 1
@@ -81810,11 +81810,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i190: ; preds = %818
   br i1 %822, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i116.i.i194, label %823
 
 823:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i190, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i199
-  %.sink63.i.i113.i.i191 = phi float [ %811, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i199 ], [ %802, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i190 ]
+  %.sink71.i.i113.i.i191 = phi float [ %811, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i199 ], [ %802, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i190 ]
   %.sink.i.i114.i.i192 = phi i64 [ %814, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i199 ], [ %804, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i190 ]
   %.1.i.i115.i.i193 = phi i64 [ %796, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i199 ], [ %795, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i190 ]
   %824 = getelementptr inbounds nuw float, ptr %627, i64 %.056.i.i110.i.i188
-  store float %.sink63.i.i113.i.i191, ptr %824, align 4, !tbaa !138
+  store float %.sink71.i.i113.i.i191, ptr %824, align 4, !tbaa !138
   %825 = getelementptr inbounds nuw i64, ptr %628, i64 %.056.i.i110.i.i188
   store i64 %.sink.i.i114.i.i192, ptr %825, align 8, !tbaa !16
   %826 = shl i64 %.1.i.i115.i.i193, 1
@@ -81909,11 +81909,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i175: ; preds = %867
   br i1 %871, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i133.i.i179, label %872
 
 872:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i175, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i184
-  %.sink63.i.i130.i.i176 = phi float [ %860, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i184 ], [ %851, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i175 ]
+  %.sink71.i.i130.i.i176 = phi float [ %860, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i184 ], [ %851, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i175 ]
   %.sink.i.i131.i.i177 = phi i64 [ %863, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i184 ], [ %853, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i175 ]
   %.1.i.i132.i.i178 = phi i64 [ %845, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i184 ], [ %844, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i175 ]
   %873 = getelementptr inbounds nuw float, ptr %627, i64 %.056.i.i127.i.i173
-  store float %.sink63.i.i130.i.i176, ptr %873, align 4, !tbaa !138
+  store float %.sink71.i.i130.i.i176, ptr %873, align 4, !tbaa !138
   %874 = getelementptr inbounds nuw i64, ptr %628, i64 %.056.i.i127.i.i173
   store i64 %.sink.i.i131.i.i177, ptr %874, align 8, !tbaa !16
   %875 = shl i64 %.1.i.i132.i.i178, 1
@@ -82008,11 +82008,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i162: ; preds = %916
   br i1 %920, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i150.i.i166, label %921
 
 921:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i162, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i169
-  %.sink63.i.i147.i.i163 = phi float [ %909, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i169 ], [ %900, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i162 ]
+  %.sink71.i.i147.i.i163 = phi float [ %909, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i169 ], [ %900, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i162 ]
   %.sink.i.i148.i.i164 = phi i64 [ %912, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i169 ], [ %902, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i162 ]
   %.1.i.i149.i.i165 = phi i64 [ %894, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i169 ], [ %893, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i162 ]
   %922 = getelementptr inbounds nuw float, ptr %627, i64 %.056.i.i144.i.i160
-  store float %.sink63.i.i147.i.i163, ptr %922, align 4, !tbaa !138
+  store float %.sink71.i.i147.i.i163, ptr %922, align 4, !tbaa !138
   %923 = getelementptr inbounds nuw i64, ptr %628, i64 %.056.i.i144.i.i160
   store i64 %.sink.i.i148.i.i164, ptr %923, align 8, !tbaa !16
   %924 = shl i64 %.1.i.i149.i.i165, 1
@@ -82261,11 +82261,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i132: ; preds = %1036
   br i1 %1040, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i168.i.i136, label %1041
 
 1041:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i132, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i139
-  %.sink63.i.i165.i.i133 = phi float [ %1029, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i139 ], [ %1020, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i132 ]
+  %.sink71.i.i165.i.i133 = phi float [ %1029, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i139 ], [ %1020, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i132 ]
   %.sink.i.i166.i.i134 = phi i64 [ %1032, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i139 ], [ %1022, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i132 ]
   %.1.i.i167.i.i135 = phi i64 [ %1014, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i139 ], [ %1013, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i132 ]
   %1042 = getelementptr inbounds nuw float, ptr %627, i64 %.056.i.i162.i.i130
-  store float %.sink63.i.i165.i.i133, ptr %1042, align 4, !tbaa !138
+  store float %.sink71.i.i165.i.i133, ptr %1042, align 4, !tbaa !138
   %1043 = getelementptr inbounds nuw i64, ptr %628, i64 %.056.i.i162.i.i130
   store i64 %.sink.i.i166.i.i134, ptr %1043, align 8, !tbaa !16
   %1044 = shl i64 %.1.i.i167.i.i135, 1
@@ -82492,11 +82492,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i106: ; preds = %1154
   br i1 %1158, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i217.i.i110, label %1159
 
 1159:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i106, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i113
-  %.sink63.i.i214.i.i107 = phi float [ %1147, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i113 ], [ %1138, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i106 ]
+  %.sink71.i.i214.i.i107 = phi float [ %1147, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i113 ], [ %1138, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i106 ]
   %.sink.i.i215.i.i108 = phi i64 [ %1150, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i113 ], [ %1140, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i106 ]
   %.1.i.i216.i.i109 = phi i64 [ %1132, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i113 ], [ %1131, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i106 ]
   %1160 = getelementptr inbounds nuw float, ptr %942, i64 %.056.i.i211.i.i104
-  store float %.sink63.i.i214.i.i107, ptr %1160, align 4, !tbaa !138
+  store float %.sink71.i.i214.i.i107, ptr %1160, align 4, !tbaa !138
   %1161 = getelementptr inbounds nuw i64, ptr %943, i64 %.056.i.i211.i.i104
   store i64 %.sink.i.i215.i.i108, ptr %1161, align 8, !tbaa !16
   %1162 = shl i64 %.1.i.i216.i.i109, 1
@@ -82565,7 +82565,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %1202
 
 .preheader232.i.i:                                ; preds = %1523
-  %1196 = zext i32 %.188.i.i227 to i64
+  %1196 = zext nneg i32 %.188.i.i227 to i64
   %.not253.i.i = icmp eq i32 %.188.i.i227, 0
   br i1 %.not253.i.i, label %.preheader.i.i251, label %.lr.ph246.i.i
 
@@ -82801,11 +82801,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i379:   ; preds = %1358
   br i1 %1362, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i383, label %1363
 
 1363:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i379, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i388
-  %.sink63.i.i.i.i380 = phi float [ %1351, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i388 ], [ %1342, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i379 ]
+  %.sink71.i.i.i.i380 = phi float [ %1351, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i388 ], [ %1342, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i379 ]
   %.sink.i.i.i.i381 = phi i64 [ %1354, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i388 ], [ %1344, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i379 ]
   %.1.i.i.i.i382 = phi i64 [ %1336, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i388 ], [ %1335, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i379 ]
   %1364 = getelementptr inbounds nuw float, ptr %1192, i64 %.056.i.i.i.i377
-  store float %.sink63.i.i.i.i380, ptr %1364, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i380, ptr %1364, align 4, !tbaa !138
   %1365 = getelementptr inbounds nuw i64, ptr %1193, i64 %.056.i.i.i.i377
   store i64 %.sink.i.i.i.i381, ptr %1365, align 8, !tbaa !16
   %1366 = shl i64 %.1.i.i.i.i382, 1
@@ -82900,11 +82900,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i366: ; preds = %1407
   br i1 %1411, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i116.i.i370, label %1412
 
 1412:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i366, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i373
-  %.sink63.i.i113.i.i367 = phi float [ %1400, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i373 ], [ %1391, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i366 ]
+  %.sink71.i.i113.i.i367 = phi float [ %1400, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i373 ], [ %1391, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i366 ]
   %.sink.i.i114.i.i368 = phi i64 [ %1403, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i373 ], [ %1393, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i366 ]
   %.1.i.i115.i.i369 = phi i64 [ %1385, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i373 ], [ %1384, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i366 ]
   %1413 = getelementptr inbounds nuw float, ptr %1192, i64 %.056.i.i110.i.i364
-  store float %.sink63.i.i113.i.i367, ptr %1413, align 4, !tbaa !138
+  store float %.sink71.i.i113.i.i367, ptr %1413, align 4, !tbaa !138
   %1414 = getelementptr inbounds nuw i64, ptr %1193, i64 %.056.i.i110.i.i364
   store i64 %.sink.i.i114.i.i368, ptr %1414, align 8, !tbaa !16
   %1415 = shl i64 %.1.i.i115.i.i369, 1
@@ -82999,11 +82999,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i353: ; preds = %1456
   br i1 %1460, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i133.i.i357, label %1461
 
 1461:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i353, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i360
-  %.sink63.i.i130.i.i354 = phi float [ %1449, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i360 ], [ %1440, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i353 ]
+  %.sink71.i.i130.i.i354 = phi float [ %1449, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i360 ], [ %1440, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i353 ]
   %.sink.i.i131.i.i355 = phi i64 [ %1452, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i360 ], [ %1442, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i353 ]
   %.1.i.i132.i.i356 = phi i64 [ %1434, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i360 ], [ %1433, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i353 ]
   %1462 = getelementptr inbounds nuw float, ptr %1192, i64 %.056.i.i127.i.i351
-  store float %.sink63.i.i130.i.i354, ptr %1462, align 4, !tbaa !138
+  store float %.sink71.i.i130.i.i354, ptr %1462, align 4, !tbaa !138
   %1463 = getelementptr inbounds nuw i64, ptr %1193, i64 %.056.i.i127.i.i351
   store i64 %.sink.i.i131.i.i355, ptr %1463, align 8, !tbaa !16
   %1464 = shl i64 %.1.i.i132.i.i356, 1
@@ -83098,11 +83098,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i340: ; preds = %1505
   br i1 %1509, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i150.i.i344, label %1510
 
 1510:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i340, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i347
-  %.sink63.i.i147.i.i341 = phi float [ %1498, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i347 ], [ %1489, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i340 ]
+  %.sink71.i.i147.i.i341 = phi float [ %1498, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i347 ], [ %1489, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i340 ]
   %.sink.i.i148.i.i342 = phi i64 [ %1501, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i347 ], [ %1491, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i340 ]
   %.1.i.i149.i.i343 = phi i64 [ %1483, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i347 ], [ %1482, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i340 ]
   %1511 = getelementptr inbounds nuw float, ptr %1192, i64 %.056.i.i144.i.i338
-  store float %.sink63.i.i147.i.i341, ptr %1511, align 4, !tbaa !138
+  store float %.sink71.i.i147.i.i341, ptr %1511, align 4, !tbaa !138
   %1512 = getelementptr inbounds nuw i64, ptr %1193, i64 %.056.i.i144.i.i338
   store i64 %.sink.i.i148.i.i342, ptr %1512, align 8, !tbaa !16
   %1513 = shl i64 %.1.i.i149.i.i343, 1
@@ -83351,11 +83351,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i310: ; preds = %1625
   br i1 %1629, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i168.i.i314, label %1630
 
 1630:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i310, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i317
-  %.sink63.i.i165.i.i311 = phi float [ %1618, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i317 ], [ %1609, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i310 ]
+  %.sink71.i.i165.i.i311 = phi float [ %1618, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i317 ], [ %1609, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i310 ]
   %.sink.i.i166.i.i312 = phi i64 [ %1621, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i317 ], [ %1611, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i310 ]
   %.1.i.i167.i.i313 = phi i64 [ %1603, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i317 ], [ %1602, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i310 ]
   %1631 = getelementptr inbounds nuw float, ptr %1192, i64 %.056.i.i162.i.i308
-  store float %.sink63.i.i165.i.i311, ptr %1631, align 4, !tbaa !138
+  store float %.sink71.i.i165.i.i311, ptr %1631, align 4, !tbaa !138
   %1632 = getelementptr inbounds nuw i64, ptr %1193, i64 %.056.i.i162.i.i308
   store i64 %.sink.i.i166.i.i312, ptr %1632, align 8, !tbaa !16
   %1633 = shl i64 %.1.i.i167.i.i313, 1
@@ -83588,11 +83588,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i284: ; preds = %1749
   br i1 %1753, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i217.i.i288, label %1754
 
 1754:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i284, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i291
-  %.sink63.i.i214.i.i285 = phi float [ %1742, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i291 ], [ %1733, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i284 ]
+  %.sink71.i.i214.i.i285 = phi float [ %1742, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i291 ], [ %1733, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i284 ]
   %.sink.i.i215.i.i286 = phi i64 [ %1745, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i291 ], [ %1735, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i284 ]
   %.1.i.i216.i.i287 = phi i64 [ %1727, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i291 ], [ %1726, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i284 ]
   %1755 = getelementptr inbounds nuw float, ptr %1531, i64 %.056.i.i211.i.i282
-  store float %.sink63.i.i214.i.i285, ptr %1755, align 4, !tbaa !138
+  store float %.sink71.i.i214.i.i285, ptr %1755, align 4, !tbaa !138
   %1756 = getelementptr inbounds nuw i64, ptr %1532, i64 %.056.i.i211.i.i282
   store i64 %.sink.i.i215.i.i286, ptr %1756, align 8, !tbaa !16
   %1757 = shl i64 %.1.i.i216.i.i287, 1
@@ -83663,7 +83663,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %1799
 
 .preheader236.i.i:                                ; preds = %2140
-  %1793 = zext i32 %.188.i.i401 to i64
+  %1793 = zext nneg i32 %.188.i.i401 to i64
   %.not257.i.i = icmp eq i32 %.188.i.i401, 0
   br i1 %.not257.i.i, label %.preheader.i.i425, label %.lr.ph250.i.i
 
@@ -83919,11 +83919,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i553:   ; preds = %1975
   br i1 %1979, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i557, label %1980
 
 1980:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i553, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i562
-  %.sink63.i.i.i.i554 = phi float [ %1968, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i562 ], [ %1959, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i553 ]
+  %.sink71.i.i.i.i554 = phi float [ %1968, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i562 ], [ %1959, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i553 ]
   %.sink.i.i.i.i555 = phi i64 [ %1971, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i562 ], [ %1961, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i553 ]
   %.1.i.i.i.i556 = phi i64 [ %1953, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i562 ], [ %1952, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i553 ]
   %1981 = getelementptr inbounds nuw float, ptr %1789, i64 %.056.i.i.i.i551
-  store float %.sink63.i.i.i.i554, ptr %1981, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i554, ptr %1981, align 4, !tbaa !138
   %1982 = getelementptr inbounds nuw i64, ptr %1790, i64 %.056.i.i.i.i551
   store i64 %.sink.i.i.i.i555, ptr %1982, align 8, !tbaa !16
   %1983 = shl i64 %.1.i.i.i.i556, 1
@@ -84018,11 +84018,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i540: ; preds = %2024
   br i1 %2028, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i116.i.i544, label %2029
 
 2029:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i540, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i547
-  %.sink63.i.i113.i.i541 = phi float [ %2017, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i547 ], [ %2008, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i540 ]
+  %.sink71.i.i113.i.i541 = phi float [ %2017, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i547 ], [ %2008, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i540 ]
   %.sink.i.i114.i.i542 = phi i64 [ %2020, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i547 ], [ %2010, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i540 ]
   %.1.i.i115.i.i543 = phi i64 [ %2002, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i547 ], [ %2001, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i540 ]
   %2030 = getelementptr inbounds nuw float, ptr %1789, i64 %.056.i.i110.i.i538
-  store float %.sink63.i.i113.i.i541, ptr %2030, align 4, !tbaa !138
+  store float %.sink71.i.i113.i.i541, ptr %2030, align 4, !tbaa !138
   %2031 = getelementptr inbounds nuw i64, ptr %1790, i64 %.056.i.i110.i.i538
   store i64 %.sink.i.i114.i.i542, ptr %2031, align 8, !tbaa !16
   %2032 = shl i64 %.1.i.i115.i.i543, 1
@@ -84117,11 +84117,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i527: ; preds = %2073
   br i1 %2077, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i133.i.i531, label %2078
 
 2078:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i527, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i534
-  %.sink63.i.i130.i.i528 = phi float [ %2066, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i534 ], [ %2057, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i527 ]
+  %.sink71.i.i130.i.i528 = phi float [ %2066, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i534 ], [ %2057, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i527 ]
   %.sink.i.i131.i.i529 = phi i64 [ %2069, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i534 ], [ %2059, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i527 ]
   %.1.i.i132.i.i530 = phi i64 [ %2051, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i534 ], [ %2050, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i527 ]
   %2079 = getelementptr inbounds nuw float, ptr %1789, i64 %.056.i.i127.i.i525
-  store float %.sink63.i.i130.i.i528, ptr %2079, align 4, !tbaa !138
+  store float %.sink71.i.i130.i.i528, ptr %2079, align 4, !tbaa !138
   %2080 = getelementptr inbounds nuw i64, ptr %1790, i64 %.056.i.i127.i.i525
   store i64 %.sink.i.i131.i.i529, ptr %2080, align 8, !tbaa !16
   %2081 = shl i64 %.1.i.i132.i.i530, 1
@@ -84216,11 +84216,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i514: ; preds = %2122
   br i1 %2126, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i150.i.i518, label %2127
 
 2127:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i514, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i521
-  %.sink63.i.i147.i.i515 = phi float [ %2115, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i521 ], [ %2106, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i514 ]
+  %.sink71.i.i147.i.i515 = phi float [ %2115, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i521 ], [ %2106, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i514 ]
   %.sink.i.i148.i.i516 = phi i64 [ %2118, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i521 ], [ %2108, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i514 ]
   %.1.i.i149.i.i517 = phi i64 [ %2100, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i521 ], [ %2099, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i514 ]
   %2128 = getelementptr inbounds nuw float, ptr %1789, i64 %.056.i.i144.i.i512
-  store float %.sink63.i.i147.i.i515, ptr %2128, align 4, !tbaa !138
+  store float %.sink71.i.i147.i.i515, ptr %2128, align 4, !tbaa !138
   %2129 = getelementptr inbounds nuw i64, ptr %1790, i64 %.056.i.i144.i.i512
   store i64 %.sink.i.i148.i.i516, ptr %2129, align 8, !tbaa !16
   %2130 = shl i64 %.1.i.i149.i.i517, 1
@@ -84469,11 +84469,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i484: ; preds = %2242
   br i1 %2246, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i168.i.i488, label %2247
 
 2247:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i484, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i491
-  %.sink63.i.i165.i.i485 = phi float [ %2235, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i491 ], [ %2226, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i484 ]
+  %.sink71.i.i165.i.i485 = phi float [ %2235, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i491 ], [ %2226, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i484 ]
   %.sink.i.i166.i.i486 = phi i64 [ %2238, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i491 ], [ %2228, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i484 ]
   %.1.i.i167.i.i487 = phi i64 [ %2220, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i491 ], [ %2219, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i484 ]
   %2248 = getelementptr inbounds nuw float, ptr %1789, i64 %.056.i.i162.i.i482
-  store float %.sink63.i.i165.i.i485, ptr %2248, align 4, !tbaa !138
+  store float %.sink71.i.i165.i.i485, ptr %2248, align 4, !tbaa !138
   %2249 = getelementptr inbounds nuw i64, ptr %1790, i64 %.056.i.i162.i.i482
   store i64 %.sink.i.i166.i.i486, ptr %2249, align 8, !tbaa !16
   %2250 = shl i64 %.1.i.i167.i.i487, 1
@@ -84711,11 +84711,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i458: ; preds = %2371
   br i1 %2375, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i217.i.i462, label %2376
 
 2376:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i458, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i465
-  %.sink63.i.i214.i.i459 = phi float [ %2364, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i465 ], [ %2355, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i458 ]
+  %.sink71.i.i214.i.i459 = phi float [ %2364, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i465 ], [ %2355, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i458 ]
   %.sink.i.i215.i.i460 = phi i64 [ %2367, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i465 ], [ %2357, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i458 ]
   %.1.i.i216.i.i461 = phi i64 [ %2349, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i465 ], [ %2348, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i458 ]
   %2377 = getelementptr inbounds nuw float, ptr %2148, i64 %.056.i.i211.i.i456
-  store float %.sink63.i.i214.i.i459, ptr %2377, align 4, !tbaa !138
+  store float %.sink71.i.i214.i.i459, ptr %2377, align 4, !tbaa !138
   %2378 = getelementptr inbounds nuw i64, ptr %2149, i64 %.056.i.i211.i.i456
   store i64 %.sink.i.i215.i.i460, ptr %2378, align 8, !tbaa !16
   %2379 = shl i64 %.1.i.i216.i.i461, 1
@@ -84788,7 +84788,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %2423
 
 .preheader240.i.i:                                ; preds = %2792
-  %2417 = zext i32 %.188.i.i575 to i64
+  %2417 = zext nneg i32 %.188.i.i575 to i64
   %.not261.i.i = icmp eq i32 %.188.i.i575, 0
   br i1 %.not261.i.i, label %.preheader.i.i599, label %.lr.ph254.i.i
 
@@ -85072,11 +85072,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i727:   ; preds = %2627
   br i1 %2631, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i731, label %2632
 
 2632:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i727, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i736
-  %.sink63.i.i.i.i728 = phi float [ %2620, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i736 ], [ %2611, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i727 ]
+  %.sink71.i.i.i.i728 = phi float [ %2620, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i736 ], [ %2611, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i727 ]
   %.sink.i.i.i.i729 = phi i64 [ %2623, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i736 ], [ %2613, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i727 ]
   %.1.i.i.i.i730 = phi i64 [ %2605, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i736 ], [ %2604, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i727 ]
   %2633 = getelementptr inbounds nuw float, ptr %2413, i64 %.056.i.i.i.i725
-  store float %.sink63.i.i.i.i728, ptr %2633, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i728, ptr %2633, align 4, !tbaa !138
   %2634 = getelementptr inbounds nuw i64, ptr %2414, i64 %.056.i.i.i.i725
   store i64 %.sink.i.i.i.i729, ptr %2634, align 8, !tbaa !16
   %2635 = shl i64 %.1.i.i.i.i730, 1
@@ -85171,11 +85171,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i714: ; preds = %2676
   br i1 %2680, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i116.i.i718, label %2681
 
 2681:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i714, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i721
-  %.sink63.i.i113.i.i715 = phi float [ %2669, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i721 ], [ %2660, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i714 ]
+  %.sink71.i.i113.i.i715 = phi float [ %2669, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i721 ], [ %2660, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i714 ]
   %.sink.i.i114.i.i716 = phi i64 [ %2672, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i721 ], [ %2662, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i714 ]
   %.1.i.i115.i.i717 = phi i64 [ %2654, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i721 ], [ %2653, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i714 ]
   %2682 = getelementptr inbounds nuw float, ptr %2413, i64 %.056.i.i110.i.i712
-  store float %.sink63.i.i113.i.i715, ptr %2682, align 4, !tbaa !138
+  store float %.sink71.i.i113.i.i715, ptr %2682, align 4, !tbaa !138
   %2683 = getelementptr inbounds nuw i64, ptr %2414, i64 %.056.i.i110.i.i712
   store i64 %.sink.i.i114.i.i716, ptr %2683, align 8, !tbaa !16
   %2684 = shl i64 %.1.i.i115.i.i717, 1
@@ -85270,11 +85270,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i701: ; preds = %2725
   br i1 %2729, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i133.i.i705, label %2730
 
 2730:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i701, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i708
-  %.sink63.i.i130.i.i702 = phi float [ %2718, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i708 ], [ %2709, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i701 ]
+  %.sink71.i.i130.i.i702 = phi float [ %2718, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i708 ], [ %2709, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i701 ]
   %.sink.i.i131.i.i703 = phi i64 [ %2721, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i708 ], [ %2711, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i701 ]
   %.1.i.i132.i.i704 = phi i64 [ %2703, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i708 ], [ %2702, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i701 ]
   %2731 = getelementptr inbounds nuw float, ptr %2413, i64 %.056.i.i127.i.i699
-  store float %.sink63.i.i130.i.i702, ptr %2731, align 4, !tbaa !138
+  store float %.sink71.i.i130.i.i702, ptr %2731, align 4, !tbaa !138
   %2732 = getelementptr inbounds nuw i64, ptr %2414, i64 %.056.i.i127.i.i699
   store i64 %.sink.i.i131.i.i703, ptr %2732, align 8, !tbaa !16
   %2733 = shl i64 %.1.i.i132.i.i704, 1
@@ -85369,11 +85369,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i688: ; preds = %2774
   br i1 %2778, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i150.i.i692, label %2779
 
 2779:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i688, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i695
-  %.sink63.i.i147.i.i689 = phi float [ %2767, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i695 ], [ %2758, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i688 ]
+  %.sink71.i.i147.i.i689 = phi float [ %2767, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i695 ], [ %2758, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i688 ]
   %.sink.i.i148.i.i690 = phi i64 [ %2770, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i695 ], [ %2760, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i688 ]
   %.1.i.i149.i.i691 = phi i64 [ %2752, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i695 ], [ %2751, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i688 ]
   %2780 = getelementptr inbounds nuw float, ptr %2413, i64 %.056.i.i144.i.i686
-  store float %.sink63.i.i147.i.i689, ptr %2780, align 4, !tbaa !138
+  store float %.sink71.i.i147.i.i689, ptr %2780, align 4, !tbaa !138
   %2781 = getelementptr inbounds nuw i64, ptr %2414, i64 %.056.i.i144.i.i686
   store i64 %.sink.i.i148.i.i690, ptr %2781, align 8, !tbaa !16
   %2782 = shl i64 %.1.i.i149.i.i691, 1
@@ -85622,11 +85622,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i658: ; preds = %2894
   br i1 %2898, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i168.i.i662, label %2899
 
 2899:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i658, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i665
-  %.sink63.i.i165.i.i659 = phi float [ %2887, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i665 ], [ %2878, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i658 ]
+  %.sink71.i.i165.i.i659 = phi float [ %2887, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i665 ], [ %2878, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i658 ]
   %.sink.i.i166.i.i660 = phi i64 [ %2890, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i665 ], [ %2880, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i658 ]
   %.1.i.i167.i.i661 = phi i64 [ %2872, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i665 ], [ %2871, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i658 ]
   %2900 = getelementptr inbounds nuw float, ptr %2413, i64 %.056.i.i162.i.i656
-  store float %.sink63.i.i165.i.i659, ptr %2900, align 4, !tbaa !138
+  store float %.sink71.i.i165.i.i659, ptr %2900, align 4, !tbaa !138
   %2901 = getelementptr inbounds nuw i64, ptr %2414, i64 %.056.i.i162.i.i656
   store i64 %.sink.i.i166.i.i660, ptr %2901, align 8, !tbaa !16
   %2902 = shl i64 %.1.i.i167.i.i661, 1
@@ -85871,11 +85871,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i632: ; preds = %3030
   br i1 %3034, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i217.i.i636, label %3035
 
 3035:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i632, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i639
-  %.sink63.i.i214.i.i633 = phi float [ %3023, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i639 ], [ %3014, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i632 ]
+  %.sink71.i.i214.i.i633 = phi float [ %3023, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i639 ], [ %3014, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i632 ]
   %.sink.i.i215.i.i634 = phi i64 [ %3026, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i639 ], [ %3016, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i632 ]
   %.1.i.i216.i.i635 = phi i64 [ %3008, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i639 ], [ %3007, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i632 ]
   %3036 = getelementptr inbounds nuw float, ptr %2800, i64 %.056.i.i211.i.i630
-  store float %.sink63.i.i214.i.i633, ptr %3036, align 4, !tbaa !138
+  store float %.sink71.i.i214.i.i633, ptr %3036, align 4, !tbaa !138
   %3037 = getelementptr inbounds nuw i64, ptr %2801, i64 %.056.i.i211.i.i630
   store i64 %.sink.i.i215.i.i634, ptr %3037, align 8, !tbaa !16
   %3038 = shl i64 %.1.i.i216.i.i635, 1
@@ -85956,7 +85956,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %3090
 
 .preheader256.i.i:                                ; preds = %3555
-  %3084 = zext i32 %.188.i.i749 to i64
+  %3084 = zext nneg i32 %.188.i.i749 to i64
   %.not277.i.i = icmp eq i32 %.188.i.i749, 0
   br i1 %.not277.i.i, label %.preheader.i.i773, label %.lr.ph270.i.i
 
@@ -86336,11 +86336,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i901:   ; preds = %3390
   br i1 %3394, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i905, label %3395
 
 3395:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i901, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i909
-  %.sink63.i.i.i.i902 = phi float [ %3383, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i909 ], [ %3374, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i901 ]
+  %.sink71.i.i.i.i902 = phi float [ %3383, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i909 ], [ %3374, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i901 ]
   %.sink.i.i.i.i903 = phi i64 [ %3386, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i909 ], [ %3376, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i901 ]
   %.1.i.i.i.i904 = phi i64 [ %3368, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i909 ], [ %3367, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i901 ]
   %3396 = getelementptr inbounds nuw float, ptr %3080, i64 %.056.i.i.i.i899
-  store float %.sink63.i.i.i.i902, ptr %3396, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i902, ptr %3396, align 4, !tbaa !138
   %3397 = getelementptr inbounds nuw i64, ptr %3081, i64 %.056.i.i.i.i899
   store i64 %.sink.i.i.i.i903, ptr %3397, align 8, !tbaa !16
   %3398 = shl i64 %.1.i.i.i.i904, 1
@@ -86435,11 +86435,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i888: ; preds = %3439
   br i1 %3443, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i116.i.i892, label %3444
 
 3444:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i888, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i895
-  %.sink63.i.i113.i.i889 = phi float [ %3432, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i895 ], [ %3423, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i888 ]
+  %.sink71.i.i113.i.i889 = phi float [ %3432, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i895 ], [ %3423, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i888 ]
   %.sink.i.i114.i.i890 = phi i64 [ %3435, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i895 ], [ %3425, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i888 ]
   %.1.i.i115.i.i891 = phi i64 [ %3417, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i895 ], [ %3416, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i888 ]
   %3445 = getelementptr inbounds nuw float, ptr %3080, i64 %.056.i.i110.i.i886
-  store float %.sink63.i.i113.i.i889, ptr %3445, align 4, !tbaa !138
+  store float %.sink71.i.i113.i.i889, ptr %3445, align 4, !tbaa !138
   %3446 = getelementptr inbounds nuw i64, ptr %3081, i64 %.056.i.i110.i.i886
   store i64 %.sink.i.i114.i.i890, ptr %3446, align 8, !tbaa !16
   %3447 = shl i64 %.1.i.i115.i.i891, 1
@@ -86534,11 +86534,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i875: ; preds = %3488
   br i1 %3492, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i133.i.i879, label %3493
 
 3493:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i875, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i882
-  %.sink63.i.i130.i.i876 = phi float [ %3481, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i882 ], [ %3472, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i875 ]
+  %.sink71.i.i130.i.i876 = phi float [ %3481, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i882 ], [ %3472, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i875 ]
   %.sink.i.i131.i.i877 = phi i64 [ %3484, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i882 ], [ %3474, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i875 ]
   %.1.i.i132.i.i878 = phi i64 [ %3466, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i882 ], [ %3465, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i875 ]
   %3494 = getelementptr inbounds nuw float, ptr %3080, i64 %.056.i.i127.i.i873
-  store float %.sink63.i.i130.i.i876, ptr %3494, align 4, !tbaa !138
+  store float %.sink71.i.i130.i.i876, ptr %3494, align 4, !tbaa !138
   %3495 = getelementptr inbounds nuw i64, ptr %3081, i64 %.056.i.i127.i.i873
   store i64 %.sink.i.i131.i.i877, ptr %3495, align 8, !tbaa !16
   %3496 = shl i64 %.1.i.i132.i.i878, 1
@@ -86633,11 +86633,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i862: ; preds = %3537
   br i1 %3541, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i150.i.i866, label %3542
 
 3542:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i862, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i869
-  %.sink63.i.i147.i.i863 = phi float [ %3530, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i869 ], [ %3521, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i862 ]
+  %.sink71.i.i147.i.i863 = phi float [ %3530, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i869 ], [ %3521, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i862 ]
   %.sink.i.i148.i.i864 = phi i64 [ %3533, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i869 ], [ %3523, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i862 ]
   %.1.i.i149.i.i865 = phi i64 [ %3515, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i869 ], [ %3514, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i862 ]
   %3543 = getelementptr inbounds nuw float, ptr %3080, i64 %.056.i.i144.i.i860
-  store float %.sink63.i.i147.i.i863, ptr %3543, align 4, !tbaa !138
+  store float %.sink71.i.i147.i.i863, ptr %3543, align 4, !tbaa !138
   %3544 = getelementptr inbounds nuw i64, ptr %3081, i64 %.056.i.i144.i.i860
   store i64 %.sink.i.i148.i.i864, ptr %3544, align 8, !tbaa !16
   %3545 = shl i64 %.1.i.i149.i.i865, 1
@@ -86886,11 +86886,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i832: ; preds = %3657
   br i1 %3661, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i168.i.i836, label %3662
 
 3662:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i832, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i839
-  %.sink63.i.i165.i.i833 = phi float [ %3650, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i839 ], [ %3641, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i832 ]
+  %.sink71.i.i165.i.i833 = phi float [ %3650, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i839 ], [ %3641, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i832 ]
   %.sink.i.i166.i.i834 = phi i64 [ %3653, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i839 ], [ %3643, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i832 ]
   %.1.i.i167.i.i835 = phi i64 [ %3635, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i839 ], [ %3634, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i832 ]
   %3663 = getelementptr inbounds nuw float, ptr %3080, i64 %.056.i.i162.i.i830
-  store float %.sink63.i.i165.i.i833, ptr %3663, align 4, !tbaa !138
+  store float %.sink71.i.i165.i.i833, ptr %3663, align 4, !tbaa !138
   %3664 = getelementptr inbounds nuw i64, ptr %3081, i64 %.056.i.i162.i.i830
   store i64 %.sink.i.i166.i.i834, ptr %3664, align 8, !tbaa !16
   %3665 = shl i64 %.1.i.i167.i.i835, 1
@@ -87159,11 +87159,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i806: ; preds = %3817
   br i1 %3821, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i217.i.i810, label %3822
 
 3822:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i806, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i813
-  %.sink63.i.i214.i.i807 = phi float [ %3810, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i813 ], [ %3801, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i806 ]
+  %.sink71.i.i214.i.i807 = phi float [ %3810, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i813 ], [ %3801, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i806 ]
   %.sink.i.i215.i.i808 = phi i64 [ %3813, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i813 ], [ %3803, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i806 ]
   %.1.i.i216.i.i809 = phi i64 [ %3795, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i813 ], [ %3794, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i806 ]
   %3823 = getelementptr inbounds nuw float, ptr %3563, i64 %.056.i.i211.i.i804
-  store float %.sink63.i.i214.i.i807, ptr %3823, align 4, !tbaa !138
+  store float %.sink71.i.i214.i.i807, ptr %3823, align 4, !tbaa !138
   %3824 = getelementptr inbounds nuw i64, ptr %3564, i64 %.056.i.i211.i.i804
   store i64 %.sink.i.i215.i.i808, ptr %3824, align 8, !tbaa !16
   %3825 = shl i64 %.1.i.i216.i.i809, 1
@@ -87237,7 +87237,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %3866
 
 .preheader224.i.i:                                ; preds = %4151
-  %3860 = zext i32 %.188.i.i922 to i64
+  %3860 = zext nneg i32 %.188.i.i922 to i64
   %.not245.i.i = icmp eq i32 %.188.i.i922, 0
   br i1 %.not245.i.i, label %.preheader.i.i946, label %.lr.ph238.i.i
 
@@ -87437,11 +87437,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1075:  ; preds = %3986
   br i1 %3990, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i1079, label %3991
 
 3991:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1075, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i1083
-  %.sink63.i.i.i.i1076 = phi float [ %3979, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i1083 ], [ %3970, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1075 ]
+  %.sink71.i.i.i.i1076 = phi float [ %3979, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i1083 ], [ %3970, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1075 ]
   %.sink.i.i.i.i1077 = phi i64 [ %3982, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i1083 ], [ %3972, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1075 ]
   %.1.i.i.i.i1078 = phi i64 [ %3964, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i1083 ], [ %3963, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1075 ]
   %3992 = getelementptr inbounds nuw float, ptr %3856, i64 %.056.i.i.i.i1073
-  store float %.sink63.i.i.i.i1076, ptr %3992, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i1076, ptr %3992, align 4, !tbaa !138
   %3993 = getelementptr inbounds nuw i64, ptr %3857, i64 %.056.i.i.i.i1073
   store i64 %.sink.i.i.i.i1077, ptr %3993, align 8, !tbaa !16
   %3994 = shl i64 %.1.i.i.i.i1078, 1
@@ -87536,11 +87536,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i1062: ; preds = %4035
   br i1 %4039, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i116.i.i1066, label %4040
 
 4040:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i1062, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i1069
-  %.sink63.i.i113.i.i1063 = phi float [ %4028, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i1069 ], [ %4019, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i1062 ]
+  %.sink71.i.i113.i.i1063 = phi float [ %4028, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i1069 ], [ %4019, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i1062 ]
   %.sink.i.i114.i.i1064 = phi i64 [ %4031, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i1069 ], [ %4021, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i1062 ]
   %.1.i.i115.i.i1065 = phi i64 [ %4013, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i119.i.i1069 ], [ %4012, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i112.i.i1062 ]
   %4041 = getelementptr inbounds nuw float, ptr %3856, i64 %.056.i.i110.i.i1060
-  store float %.sink63.i.i113.i.i1063, ptr %4041, align 4, !tbaa !138
+  store float %.sink71.i.i113.i.i1063, ptr %4041, align 4, !tbaa !138
   %4042 = getelementptr inbounds nuw i64, ptr %3857, i64 %.056.i.i110.i.i1060
   store i64 %.sink.i.i114.i.i1064, ptr %4042, align 8, !tbaa !16
   %4043 = shl i64 %.1.i.i115.i.i1065, 1
@@ -87635,11 +87635,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i1048: ; preds = %4084
   br i1 %4088, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i133.i.i1052, label %4089
 
 4089:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i1048, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i1056
-  %.sink63.i.i130.i.i1049 = phi float [ %4077, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i1056 ], [ %4068, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i1048 ]
+  %.sink71.i.i130.i.i1049 = phi float [ %4077, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i1056 ], [ %4068, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i1048 ]
   %.sink.i.i131.i.i1050 = phi i64 [ %4080, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i1056 ], [ %4070, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i1048 ]
   %.1.i.i132.i.i1051 = phi i64 [ %4062, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i136.i.i1056 ], [ %4061, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i129.i.i1048 ]
   %4090 = getelementptr inbounds nuw float, ptr %3856, i64 %.056.i.i127.i.i1046
-  store float %.sink63.i.i130.i.i1049, ptr %4090, align 4, !tbaa !138
+  store float %.sink71.i.i130.i.i1049, ptr %4090, align 4, !tbaa !138
   %4091 = getelementptr inbounds nuw i64, ptr %3857, i64 %.056.i.i127.i.i1046
   store i64 %.sink.i.i131.i.i1050, ptr %4091, align 8, !tbaa !16
   %4092 = shl i64 %.1.i.i132.i.i1051, 1
@@ -87734,11 +87734,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i1035: ; preds = %4133
   br i1 %4137, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i150.i.i1039, label %4138
 
 4138:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i1035, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i1042
-  %.sink63.i.i147.i.i1036 = phi float [ %4126, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i1042 ], [ %4117, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i1035 ]
+  %.sink71.i.i147.i.i1036 = phi float [ %4126, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i1042 ], [ %4117, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i1035 ]
   %.sink.i.i148.i.i1037 = phi i64 [ %4129, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i1042 ], [ %4119, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i1035 ]
   %.1.i.i149.i.i1038 = phi i64 [ %4111, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i153.i.i1042 ], [ %4110, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i146.i.i1035 ]
   %4139 = getelementptr inbounds nuw float, ptr %3856, i64 %.056.i.i144.i.i1033
-  store float %.sink63.i.i147.i.i1036, ptr %4139, align 4, !tbaa !138
+  store float %.sink71.i.i147.i.i1036, ptr %4139, align 4, !tbaa !138
   %4140 = getelementptr inbounds nuw i64, ptr %3857, i64 %.056.i.i144.i.i1033
   store i64 %.sink.i.i148.i.i1037, ptr %4140, align 8, !tbaa !16
   %4141 = shl i64 %.1.i.i149.i.i1038, 1
@@ -87987,11 +87987,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i1005: ; preds = %4253
   br i1 %4257, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i168.i.i1009, label %4258
 
 4258:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i1005, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i1012
-  %.sink63.i.i165.i.i1006 = phi float [ %4246, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i1012 ], [ %4237, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i1005 ]
+  %.sink71.i.i165.i.i1006 = phi float [ %4246, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i1012 ], [ %4237, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i1005 ]
   %.sink.i.i166.i.i1007 = phi i64 [ %4249, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i1012 ], [ %4239, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i1005 ]
   %.1.i.i167.i.i1008 = phi i64 [ %4231, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i171.i.i1012 ], [ %4230, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i164.i.i1005 ]
   %4259 = getelementptr inbounds nuw float, ptr %3856, i64 %.056.i.i162.i.i1003
-  store float %.sink63.i.i165.i.i1006, ptr %4259, align 4, !tbaa !138
+  store float %.sink71.i.i165.i.i1006, ptr %4259, align 4, !tbaa !138
   %4260 = getelementptr inbounds nuw i64, ptr %3857, i64 %.056.i.i162.i.i1003
   store i64 %.sink.i.i166.i.i1007, ptr %4260, align 8, !tbaa !16
   %4261 = shl i64 %.1.i.i167.i.i1008, 1
@@ -88215,11 +88215,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i979: ; preds = %4368
   br i1 %4372, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i217.i.i983, label %4373
 
 4373:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i979, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i986
-  %.sink63.i.i214.i.i980 = phi float [ %4361, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i986 ], [ %4352, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i979 ]
+  %.sink71.i.i214.i.i980 = phi float [ %4361, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i986 ], [ %4352, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i979 ]
   %.sink.i.i215.i.i981 = phi i64 [ %4364, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i986 ], [ %4354, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i979 ]
   %.1.i.i216.i.i982 = phi i64 [ %4346, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i220.i.i986 ], [ %4345, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i213.i.i979 ]
   %4374 = getelementptr inbounds nuw float, ptr %4159, i64 %.056.i.i211.i.i977
-  store float %.sink63.i.i214.i.i980, ptr %4374, align 4, !tbaa !138
+  store float %.sink71.i.i214.i.i980, ptr %4374, align 4, !tbaa !138
   %4375 = getelementptr inbounds nuw i64, ptr %4160, i64 %.056.i.i211.i.i977
   store i64 %.sink.i.i215.i.i981, ptr %4375, align 8, !tbaa !16
   %4376 = shl i64 %.1.i.i216.i.i982, 1
@@ -88585,11 +88585,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i:        ; preds = %140
   br i1 %144, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i, label %145
 
 145:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i
-  %.sink63.i.i.i = phi float [ %133, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %124, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
+  %.sink71.i.i.i = phi float [ %133, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %124, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
   %.sink.i.i.i = phi i64 [ %136, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %126, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
   %.1.i.i.i = phi i64 [ %118, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %117, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
   %146 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i.i
-  store float %.sink63.i.i.i, ptr %146, align 4, !tbaa !138
+  store float %.sink71.i.i.i, ptr %146, align 4, !tbaa !138
   %147 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i.i
   store i64 %.sink.i.i.i, ptr %147, align 8, !tbaa !16
   %148 = shl i64 %.1.i.i.i, 1
@@ -88685,11 +88685,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i70.i:      ; preds = %190
   br i1 %194, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i74.i, label %195
 
 195:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i70.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i77.i
-  %.sink63.i.i71.i = phi float [ %183, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i77.i ], [ %174, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i70.i ]
+  %.sink71.i.i71.i = phi float [ %183, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i77.i ], [ %174, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i70.i ]
   %.sink.i.i72.i = phi i64 [ %186, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i77.i ], [ %176, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i70.i ]
   %.1.i.i73.i = phi i64 [ %168, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i77.i ], [ %167, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i70.i ]
   %196 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i68.i
-  store float %.sink63.i.i71.i, ptr %196, align 4, !tbaa !138
+  store float %.sink71.i.i71.i, ptr %196, align 4, !tbaa !138
   %197 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i68.i
   store i64 %.sink.i.i72.i, ptr %197, align 8, !tbaa !16
   %198 = shl i64 %.1.i.i73.i, 1
@@ -88785,11 +88785,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i87.i:      ; preds = %240
   br i1 %244, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i91.i, label %245
 
 245:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i87.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i94.i
-  %.sink63.i.i88.i = phi float [ %233, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i94.i ], [ %224, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i87.i ]
+  %.sink71.i.i88.i = phi float [ %233, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i94.i ], [ %224, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i87.i ]
   %.sink.i.i89.i = phi i64 [ %236, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i94.i ], [ %226, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i87.i ]
   %.1.i.i90.i = phi i64 [ %218, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i94.i ], [ %217, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i87.i ]
   %246 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i85.i
-  store float %.sink63.i.i88.i, ptr %246, align 4, !tbaa !138
+  store float %.sink71.i.i88.i, ptr %246, align 4, !tbaa !138
   %247 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i85.i
   store i64 %.sink.i.i89.i, ptr %247, align 8, !tbaa !16
   %248 = shl i64 %.1.i.i90.i, 1
@@ -88885,11 +88885,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i:     ; preds = %290
   br i1 %294, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i, label %295
 
 295:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i
-  %.sink63.i.i105.i = phi float [ %283, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i ], [ %274, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i ]
+  %.sink71.i.i105.i = phi float [ %283, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i ], [ %274, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i ]
   %.sink.i.i106.i = phi i64 [ %286, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i ], [ %276, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i ]
   %.1.i.i107.i = phi i64 [ %268, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i ], [ %267, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i ]
   %296 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i102.i
-  store float %.sink63.i.i105.i, ptr %296, align 4, !tbaa !138
+  store float %.sink71.i.i105.i, ptr %296, align 4, !tbaa !138
   %297 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i102.i
   store i64 %.sink.i.i106.i, ptr %297, align 8, !tbaa !16
   %298 = shl i64 %.1.i.i107.i, 1
@@ -89021,11 +89021,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i124.i:     ; preds = %358
   br i1 %362, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i128.i, label %363
 
 363:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i124.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i131.i
-  %.sink63.i.i125.i = phi float [ %351, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i131.i ], [ %342, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i124.i ]
+  %.sink71.i.i125.i = phi float [ %351, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i131.i ], [ %342, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i124.i ]
   %.sink.i.i126.i = phi i64 [ %354, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i131.i ], [ %344, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i124.i ]
   %.1.i.i127.i = phi i64 [ %336, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i131.i ], [ %335, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i124.i ]
   %364 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i122.i
-  store float %.sink63.i.i125.i, ptr %364, align 4, !tbaa !138
+  store float %.sink71.i.i125.i, ptr %364, align 4, !tbaa !138
   %365 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i122.i
   store i64 %.sink.i.i126.i, ptr %365, align 8, !tbaa !16
   %366 = shl i64 %.1.i.i127.i, 1
@@ -89155,11 +89155,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i150.i:     ; preds = %425
   br i1 %429, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i154.i, label %430
 
 430:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i150.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i157.i
-  %.sink63.i.i151.i = phi float [ %418, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i157.i ], [ %409, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i150.i ]
+  %.sink71.i.i151.i = phi float [ %418, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i157.i ], [ %409, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i150.i ]
   %.sink.i.i152.i = phi i64 [ %421, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i157.i ], [ %411, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i150.i ]
   %.1.i.i153.i = phi i64 [ %403, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i157.i ], [ %402, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i150.i ]
   %431 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i148.i
-  store float %.sink63.i.i151.i, ptr %431, align 4, !tbaa !138
+  store float %.sink71.i.i151.i, ptr %431, align 4, !tbaa !138
   %432 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i148.i
   store i64 %.sink.i.i152.i, ptr %432, align 8, !tbaa !16
   %433 = shl i64 %.1.i.i153.i, 1
@@ -89289,11 +89289,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i176.i:     ; preds = %493
   br i1 %497, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i180.i, label %498
 
 498:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i176.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i183.i
-  %.sink63.i.i177.i = phi float [ %486, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i183.i ], [ %477, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i176.i ]
+  %.sink71.i.i177.i = phi float [ %486, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i183.i ], [ %477, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i176.i ]
   %.sink.i.i178.i = phi i64 [ %489, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i183.i ], [ %479, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i176.i ]
   %.1.i.i179.i = phi i64 [ %471, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i183.i ], [ %470, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i176.i ]
   %499 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i174.i
-  store float %.sink63.i.i177.i, ptr %499, align 4, !tbaa !138
+  store float %.sink71.i.i177.i, ptr %499, align 4, !tbaa !138
   %500 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i174.i
   store i64 %.sink.i.i178.i, ptr %500, align 8, !tbaa !16
   %501 = shl i64 %.1.i.i179.i, 1
@@ -89421,11 +89421,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i30:      ; preds = %560
   br i1 %564, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i34, label %565
 
 565:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i30, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i37
-  %.sink63.i.i.i31 = phi float [ %553, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i37 ], [ %544, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i30 ]
+  %.sink71.i.i.i31 = phi float [ %553, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i37 ], [ %544, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i30 ]
   %.sink.i.i.i32 = phi i64 [ %556, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i37 ], [ %546, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i30 ]
   %.1.i.i.i33 = phi i64 [ %538, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i37 ], [ %537, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i30 ]
   %566 = getelementptr inbounds nuw float, ptr %517, i64 %.056.i.i.i28
-  store float %.sink63.i.i.i31, ptr %566, align 4, !tbaa !138
+  store float %.sink71.i.i.i31, ptr %566, align 4, !tbaa !138
   %567 = getelementptr inbounds nuw i64, ptr %518, i64 %.056.i.i.i28
   store i64 %.sink.i.i.i32, ptr %567, align 8, !tbaa !16
   %568 = shl i64 %.1.i.i.i33, 1
@@ -89601,11 +89601,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i52:      ; preds = %664
   br i1 %668, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i56, label %669
 
 669:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i52, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i59
-  %.sink63.i.i.i53 = phi float [ %657, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i59 ], [ %648, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i52 ]
+  %.sink71.i.i.i53 = phi float [ %657, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i59 ], [ %648, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i52 ]
   %.sink.i.i.i54 = phi i64 [ %660, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i59 ], [ %650, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i52 ]
   %.1.i.i.i55 = phi i64 [ %642, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i59 ], [ %641, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i52 ]
   %670 = getelementptr inbounds nuw float, ptr %618, i64 %.056.i.i.i50
-  store float %.sink63.i.i.i53, ptr %670, align 4, !tbaa !138
+  store float %.sink71.i.i.i53, ptr %670, align 4, !tbaa !138
   %671 = getelementptr inbounds nuw i64, ptr %619, i64 %.056.i.i.i50
   store i64 %.sink.i.i.i54, ptr %671, align 8, !tbaa !16
   %672 = shl i64 %.1.i.i.i55, 1
@@ -89776,7 +89776,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0E
   br label %90
 
 .preheader138.i.i.i.i:                            ; preds = %232
-  %60 = zext i32 %.188.i.i.i.i to i64
+  %60 = zext nneg i32 %.188.i.i.i.i to i64
   %.not159.i.i.i.i = icmp eq i32 %.188.i.i.i.i, 0
   br i1 %.not159.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph152.i.preheader.i.i.i
 
@@ -90277,7 +90277,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %361
 
 .preheader138.i.i39.i.i:                          ; preds = %507
-  %331 = zext i32 %.188.i.i37.i.i to i64
+  %331 = zext nneg i32 %.188.i.i37.i.i to i64
   %.not159.i.i40.i.i = icmp eq i32 %.188.i.i37.i.i, 0
   br i1 %.not159.i.i40.i.i, label %.preheader.i.i58.i.i, label %.lr.ph152.i.preheader.i41.i.i
 
@@ -90785,7 +90785,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %639
 
 .preheader142.i.i.i.i:                            ; preds = %809
-  %609 = zext i32 %.188.i.i125.i.i to i64
+  %609 = zext nneg i32 %.188.i.i125.i.i to i64
   %.not163.i.i.i.i = icmp eq i32 %.188.i.i125.i.i, 0
   br i1 %.not163.i.i.i.i, label %.preheader.i.i141.i.i, label %.lr.ph156.i.preheader.i.i.i
 
@@ -91325,7 +91325,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %949
 
 .preheader146.i.i.i.i:                            ; preds = %1139
-  %919 = zext i32 %.188.i.i196.i.i to i64
+  %919 = zext nneg i32 %.188.i.i196.i.i to i64
   %.not167.i.i.i.i = icmp eq i32 %.188.i.i196.i.i, 0
   br i1 %.not167.i.i.i.i, label %.preheader.i.i212.i.i, label %.lr.ph160.i.preheader.i.i.i
 
@@ -91892,7 +91892,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %1286
 
 .preheader150.i.i.i.i:                            ; preds = %1504
-  %1256 = zext i32 %.188.i.i266.i.i to i64
+  %1256 = zext nneg i32 %.188.i.i266.i.i to i64
   %.not171.i.i.i.i = icmp eq i32 %.188.i.i266.i.i, 0
   br i1 %.not171.i.i.i.i, label %.preheader.i.i283.i.i, label %.lr.ph164.i.preheader.i.i.i
 
@@ -92502,7 +92502,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %1666
 
 .preheader166.i.i.i.i:                            ; preds = %1980
-  %1636 = zext i32 %.188.i.i337.i.i to i64
+  %1636 = zext nneg i32 %.188.i.i337.i.i to i64
   %.not187.i.i.i.i = icmp eq i32 %.188.i.i337.i.i, 0
   br i1 %.not187.i.i.i.i, label %.preheader.i.i354.i.i, label %.lr.ph180.i.preheader.i.i.i
 
@@ -93225,7 +93225,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %2155
 
 .preheader134.i.i.i.i:                            ; preds = %2289
-  %2125 = zext i32 %.188.i.i405.i.i to i64
+  %2125 = zext nneg i32 %.188.i.i405.i.i to i64
   %.not155.i.i.i.i = icmp eq i32 %.188.i.i405.i.i, 0
   br i1 %.not155.i.i.i.i, label %.preheader.i.i421.i.i, label %.lr.ph148.i.preheader.i.i.i
 
@@ -94499,7 +94499,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   br label %79
 
 .preheader214.i.i:                                ; preds = %364
-  %48 = zext i32 %.188.i.i to i64
+  %48 = zext nneg i32 %.188.i.i to i64
   %.not235.i.i = icmp eq i32 %.188.i.i, 0
   br i1 %.not235.i.i, label %.preheader.i.i, label %.lr.ph228.i.preheader.i
 
@@ -94776,11 +94776,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i:      ; preds = %202
   br i1 %206, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i, label %207
 
 207:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i
-  %.sink63.i.i.i.i = phi float [ %195, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %186, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
+  %.sink71.i.i.i.i = phi float [ %195, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %186, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
   %.sink.i.i.i.i = phi i64 [ %198, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %188, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
   %.1.i.i.i.i = phi i64 [ %180, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %179, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
   %208 = getelementptr inbounds nuw float, ptr %40, i64 %.056.i.i.i.i
-  store float %.sink63.i.i.i.i, ptr %208, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i, ptr %208, align 4, !tbaa !138
   %209 = getelementptr inbounds nuw i64, ptr %41, i64 %.056.i.i.i.i
   store i64 %.sink.i.i.i.i, ptr %209, align 8, !tbaa !16
   %210 = shl i64 %.1.i.i.i.i, 1
@@ -94874,11 +94874,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i:   ; preds = %250
   br i1 %254, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i, label %255
 
 255:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i
-  %.sink63.i.i105.i.i = phi float [ %243, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i ], [ %234, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i ]
+  %.sink71.i.i105.i.i = phi float [ %243, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i ], [ %234, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i ]
   %.sink.i.i106.i.i = phi i64 [ %246, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i ], [ %236, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i ]
   %.1.i.i107.i.i = phi i64 [ %228, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i ], [ %227, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i ]
   %256 = getelementptr inbounds nuw float, ptr %40, i64 %.056.i.i102.i.i
-  store float %.sink63.i.i105.i.i, ptr %256, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i, ptr %256, align 4, !tbaa !138
   %257 = getelementptr inbounds nuw i64, ptr %41, i64 %.056.i.i102.i.i
   store i64 %.sink.i.i106.i.i, ptr %257, align 8, !tbaa !16
   %258 = shl i64 %.1.i.i107.i.i, 1
@@ -94972,11 +94972,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i:   ; preds = %298
   br i1 %302, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i, label %303
 
 303:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i
-  %.sink63.i.i122.i.i = phi float [ %291, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i ], [ %282, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i ]
+  %.sink71.i.i122.i.i = phi float [ %291, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i ], [ %282, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i ]
   %.sink.i.i123.i.i = phi i64 [ %294, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i ], [ %284, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i ]
   %.1.i.i124.i.i = phi i64 [ %276, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i ], [ %275, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i ]
   %304 = getelementptr inbounds nuw float, ptr %40, i64 %.056.i.i119.i.i
-  store float %.sink63.i.i122.i.i, ptr %304, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i, ptr %304, align 4, !tbaa !138
   %305 = getelementptr inbounds nuw i64, ptr %41, i64 %.056.i.i119.i.i
   store i64 %.sink.i.i123.i.i, ptr %305, align 8, !tbaa !16
   %306 = shl i64 %.1.i.i124.i.i, 1
@@ -95070,11 +95070,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i:   ; preds = %346
   br i1 %350, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i, label %351
 
 351:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i
-  %.sink63.i.i139.i.i = phi float [ %339, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i ], [ %330, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i ]
+  %.sink71.i.i139.i.i = phi float [ %339, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i ], [ %330, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i ]
   %.sink.i.i140.i.i = phi i64 [ %342, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i ], [ %332, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i ]
   %.1.i.i141.i.i = phi i64 [ %324, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i ], [ %323, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i ]
   %352 = getelementptr inbounds nuw float, ptr %40, i64 %.056.i.i136.i.i
-  store float %.sink63.i.i139.i.i, ptr %352, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i, ptr %352, align 4, !tbaa !138
   %353 = getelementptr inbounds nuw i64, ptr %41, i64 %.056.i.i136.i.i
   store i64 %.sink.i.i140.i.i, ptr %353, align 8, !tbaa !16
   %354 = shl i64 %.1.i.i141.i.i, 1
@@ -95245,11 +95245,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i:   ; preds = %430
   br i1 %434, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i, label %435
 
 435:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i
-  %.sink63.i.i159.i.i = phi float [ %423, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i ], [ %414, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i ]
+  %.sink71.i.i159.i.i = phi float [ %423, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i ], [ %414, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i ]
   %.sink.i.i160.i.i = phi i64 [ %426, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i ], [ %416, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i ]
   %.1.i.i161.i.i = phi i64 [ %408, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i ], [ %407, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i ]
   %436 = getelementptr inbounds nuw float, ptr %40, i64 %.056.i.i156.i.i
-  store float %.sink63.i.i159.i.i, ptr %436, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i, ptr %436, align 4, !tbaa !138
   %437 = getelementptr inbounds nuw i64, ptr %41, i64 %.056.i.i156.i.i
   store i64 %.sink.i.i160.i.i, ptr %437, align 8, !tbaa !16
   %438 = shl i64 %.1.i.i161.i.i, 1
@@ -95384,11 +95384,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i:   ; preds = %501
   br i1 %505, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i, label %506
 
 506:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i
-  %.sink63.i.i185.i.i = phi float [ %494, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i ], [ %485, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i ]
+  %.sink71.i.i185.i.i = phi float [ %494, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i ], [ %485, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i ]
   %.sink.i.i186.i.i = phi i64 [ %497, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i ], [ %487, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i ]
   %.1.i.i187.i.i = phi i64 [ %479, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i ], [ %478, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i ]
   %507 = getelementptr inbounds nuw float, ptr %374, i64 %.056.i.i182.i.i
-  store float %.sink63.i.i185.i.i, ptr %507, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i, ptr %507, align 4, !tbaa !138
   %508 = getelementptr inbounds nuw i64, ptr %375, i64 %.056.i.i182.i.i
   store i64 %.sink.i.i186.i.i, ptr %508, align 8, !tbaa !16
   %509 = shl i64 %.1.i.i187.i.i, 1
@@ -95458,7 +95458,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %575
 
 .preheader214.i.i42:                              ; preds = %864
-  %544 = zext i32 %.188.i.i40 to i64
+  %544 = zext nneg i32 %.188.i.i40 to i64
   %.not235.i.i43 = icmp eq i32 %.188.i.i40, 0
   br i1 %.not235.i.i43, label %.preheader.i.i62, label %.lr.ph228.i.preheader.i44
 
@@ -95739,11 +95739,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i195:   ; preds = %702
   br i1 %706, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i199, label %707
 
 707:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i195, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i204
-  %.sink63.i.i.i.i196 = phi float [ %695, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i204 ], [ %686, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i195 ]
+  %.sink71.i.i.i.i196 = phi float [ %695, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i204 ], [ %686, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i195 ]
   %.sink.i.i.i.i197 = phi i64 [ %698, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i204 ], [ %688, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i195 ]
   %.1.i.i.i.i198 = phi i64 [ %680, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i204 ], [ %679, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i195 ]
   %708 = getelementptr inbounds nuw float, ptr %536, i64 %.056.i.i.i.i193
-  store float %.sink63.i.i.i.i196, ptr %708, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i196, ptr %708, align 4, !tbaa !138
   %709 = getelementptr inbounds nuw i64, ptr %537, i64 %.056.i.i.i.i193
   store i64 %.sink.i.i.i.i197, ptr %709, align 8, !tbaa !16
   %710 = shl i64 %.1.i.i.i.i198, 1
@@ -95837,11 +95837,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i180: ; preds = %750
   br i1 %754, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i184, label %755
 
 755:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i180, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i189
-  %.sink63.i.i105.i.i181 = phi float [ %743, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i189 ], [ %734, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i180 ]
+  %.sink71.i.i105.i.i181 = phi float [ %743, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i189 ], [ %734, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i180 ]
   %.sink.i.i106.i.i182 = phi i64 [ %746, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i189 ], [ %736, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i180 ]
   %.1.i.i107.i.i183 = phi i64 [ %728, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i189 ], [ %727, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i180 ]
   %756 = getelementptr inbounds nuw float, ptr %536, i64 %.056.i.i102.i.i178
-  store float %.sink63.i.i105.i.i181, ptr %756, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i181, ptr %756, align 4, !tbaa !138
   %757 = getelementptr inbounds nuw i64, ptr %537, i64 %.056.i.i102.i.i178
   store i64 %.sink.i.i106.i.i182, ptr %757, align 8, !tbaa !16
   %758 = shl i64 %.1.i.i107.i.i183, 1
@@ -95935,11 +95935,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i165: ; preds = %798
   br i1 %802, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i169, label %803
 
 803:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i165, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i174
-  %.sink63.i.i122.i.i166 = phi float [ %791, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i174 ], [ %782, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i165 ]
+  %.sink71.i.i122.i.i166 = phi float [ %791, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i174 ], [ %782, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i165 ]
   %.sink.i.i123.i.i167 = phi i64 [ %794, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i174 ], [ %784, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i165 ]
   %.1.i.i124.i.i168 = phi i64 [ %776, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i174 ], [ %775, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i165 ]
   %804 = getelementptr inbounds nuw float, ptr %536, i64 %.056.i.i119.i.i163
-  store float %.sink63.i.i122.i.i166, ptr %804, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i166, ptr %804, align 4, !tbaa !138
   %805 = getelementptr inbounds nuw i64, ptr %537, i64 %.056.i.i119.i.i163
   store i64 %.sink.i.i123.i.i167, ptr %805, align 8, !tbaa !16
   %806 = shl i64 %.1.i.i124.i.i168, 1
@@ -96033,11 +96033,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i152: ; preds = %846
   br i1 %850, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i156, label %851
 
 851:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i152, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i159
-  %.sink63.i.i139.i.i153 = phi float [ %839, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i159 ], [ %830, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i152 ]
+  %.sink71.i.i139.i.i153 = phi float [ %839, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i159 ], [ %830, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i152 ]
   %.sink.i.i140.i.i154 = phi i64 [ %842, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i159 ], [ %832, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i152 ]
   %.1.i.i141.i.i155 = phi i64 [ %824, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i159 ], [ %823, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i152 ]
   %852 = getelementptr inbounds nuw float, ptr %536, i64 %.056.i.i136.i.i150
-  store float %.sink63.i.i139.i.i153, ptr %852, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i153, ptr %852, align 4, !tbaa !138
   %853 = getelementptr inbounds nuw i64, ptr %537, i64 %.056.i.i136.i.i150
   store i64 %.sink.i.i140.i.i154, ptr %853, align 8, !tbaa !16
   %854 = shl i64 %.1.i.i141.i.i155, 1
@@ -96208,11 +96208,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i101: ; preds = %930
   br i1 %934, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i105, label %935
 
 935:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i101, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i108
-  %.sink63.i.i159.i.i102 = phi float [ %923, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i108 ], [ %914, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i101 ]
+  %.sink71.i.i159.i.i102 = phi float [ %923, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i108 ], [ %914, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i101 ]
   %.sink.i.i160.i.i103 = phi i64 [ %926, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i108 ], [ %916, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i101 ]
   %.1.i.i161.i.i104 = phi i64 [ %908, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i108 ], [ %907, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i101 ]
   %936 = getelementptr inbounds nuw float, ptr %536, i64 %.056.i.i156.i.i99
-  store float %.sink63.i.i159.i.i102, ptr %936, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i102, ptr %936, align 4, !tbaa !138
   %937 = getelementptr inbounds nuw i64, ptr %537, i64 %.056.i.i156.i.i99
   store i64 %.sink.i.i160.i.i103, ptr %937, align 8, !tbaa !16
   %938 = shl i64 %.1.i.i161.i.i104, 1
@@ -96348,11 +96348,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i87: ; preds = %1002
   br i1 %1006, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i91, label %1007
 
 1007:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i87, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i94
-  %.sink63.i.i185.i.i88 = phi float [ %995, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i94 ], [ %986, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i87 ]
+  %.sink71.i.i185.i.i88 = phi float [ %995, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i94 ], [ %986, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i87 ]
   %.sink.i.i186.i.i89 = phi i64 [ %998, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i94 ], [ %988, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i87 ]
   %.1.i.i187.i.i90 = phi i64 [ %980, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i94 ], [ %979, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i87 ]
   %1008 = getelementptr inbounds nuw float, ptr %874, i64 %.056.i.i182.i.i85
-  store float %.sink63.i.i185.i.i88, ptr %1008, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i88, ptr %1008, align 4, !tbaa !138
   %1009 = getelementptr inbounds nuw i64, ptr %875, i64 %.056.i.i182.i.i85
   store i64 %.sink.i.i186.i.i89, ptr %1009, align 8, !tbaa !16
   %1010 = shl i64 %.1.i.i187.i.i90, 1
@@ -96424,7 +96424,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %1078
 
 .preheader218.i.i:                                ; preds = %1391
-  %1047 = zext i32 %.188.i.i216 to i64
+  %1047 = zext nneg i32 %.188.i.i216 to i64
   %.not239.i.i = icmp eq i32 %.188.i.i216, 0
   br i1 %.not239.i.i, label %.preheader.i.i233, label %.lr.ph232.i.preheader.i
 
@@ -96729,11 +96729,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i352:   ; preds = %1229
   br i1 %1233, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i356, label %1234
 
 1234:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i352, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i361
-  %.sink63.i.i.i.i353 = phi float [ %1222, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i361 ], [ %1213, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i352 ]
+  %.sink71.i.i.i.i353 = phi float [ %1222, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i361 ], [ %1213, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i352 ]
   %.sink.i.i.i.i354 = phi i64 [ %1225, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i361 ], [ %1215, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i352 ]
   %.1.i.i.i.i355 = phi i64 [ %1207, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i361 ], [ %1206, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i352 ]
   %1235 = getelementptr inbounds nuw float, ptr %1039, i64 %.056.i.i.i.i350
-  store float %.sink63.i.i.i.i353, ptr %1235, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i353, ptr %1235, align 4, !tbaa !138
   %1236 = getelementptr inbounds nuw i64, ptr %1040, i64 %.056.i.i.i.i350
   store i64 %.sink.i.i.i.i354, ptr %1236, align 8, !tbaa !16
   %1237 = shl i64 %.1.i.i.i.i355, 1
@@ -96827,11 +96827,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i339: ; preds = %1277
   br i1 %1281, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i343, label %1282
 
 1282:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i339, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i346
-  %.sink63.i.i105.i.i340 = phi float [ %1270, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i346 ], [ %1261, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i339 ]
+  %.sink71.i.i105.i.i340 = phi float [ %1270, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i346 ], [ %1261, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i339 ]
   %.sink.i.i106.i.i341 = phi i64 [ %1273, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i346 ], [ %1263, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i339 ]
   %.1.i.i107.i.i342 = phi i64 [ %1255, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i346 ], [ %1254, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i339 ]
   %1283 = getelementptr inbounds nuw float, ptr %1039, i64 %.056.i.i102.i.i337
-  store float %.sink63.i.i105.i.i340, ptr %1283, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i340, ptr %1283, align 4, !tbaa !138
   %1284 = getelementptr inbounds nuw i64, ptr %1040, i64 %.056.i.i102.i.i337
   store i64 %.sink.i.i106.i.i341, ptr %1284, align 8, !tbaa !16
   %1285 = shl i64 %.1.i.i107.i.i342, 1
@@ -96925,11 +96925,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i326: ; preds = %1325
   br i1 %1329, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i330, label %1330
 
 1330:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i326, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i333
-  %.sink63.i.i122.i.i327 = phi float [ %1318, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i333 ], [ %1309, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i326 ]
+  %.sink71.i.i122.i.i327 = phi float [ %1318, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i333 ], [ %1309, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i326 ]
   %.sink.i.i123.i.i328 = phi i64 [ %1321, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i333 ], [ %1311, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i326 ]
   %.1.i.i124.i.i329 = phi i64 [ %1303, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i333 ], [ %1302, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i326 ]
   %1331 = getelementptr inbounds nuw float, ptr %1039, i64 %.056.i.i119.i.i324
-  store float %.sink63.i.i122.i.i327, ptr %1331, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i327, ptr %1331, align 4, !tbaa !138
   %1332 = getelementptr inbounds nuw i64, ptr %1040, i64 %.056.i.i119.i.i324
   store i64 %.sink.i.i123.i.i328, ptr %1332, align 8, !tbaa !16
   %1333 = shl i64 %.1.i.i124.i.i329, 1
@@ -97023,11 +97023,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i313: ; preds = %1373
   br i1 %1377, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i317, label %1378
 
 1378:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i313, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i320
-  %.sink63.i.i139.i.i314 = phi float [ %1366, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i320 ], [ %1357, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i313 ]
+  %.sink71.i.i139.i.i314 = phi float [ %1366, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i320 ], [ %1357, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i313 ]
   %.sink.i.i140.i.i315 = phi i64 [ %1369, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i320 ], [ %1359, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i313 ]
   %.1.i.i141.i.i316 = phi i64 [ %1351, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i320 ], [ %1350, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i313 ]
   %1379 = getelementptr inbounds nuw float, ptr %1039, i64 %.056.i.i136.i.i311
-  store float %.sink63.i.i139.i.i314, ptr %1379, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i314, ptr %1379, align 4, !tbaa !138
   %1380 = getelementptr inbounds nuw i64, ptr %1040, i64 %.056.i.i136.i.i311
   store i64 %.sink.i.i140.i.i315, ptr %1380, align 8, !tbaa !16
   %1381 = shl i64 %.1.i.i141.i.i316, 1
@@ -97198,11 +97198,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i268: ; preds = %1457
   br i1 %1461, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i272, label %1462
 
 1462:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i268, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i275
-  %.sink63.i.i159.i.i269 = phi float [ %1450, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i275 ], [ %1441, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i268 ]
+  %.sink71.i.i159.i.i269 = phi float [ %1450, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i275 ], [ %1441, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i268 ]
   %.sink.i.i160.i.i270 = phi i64 [ %1453, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i275 ], [ %1443, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i268 ]
   %.1.i.i161.i.i271 = phi i64 [ %1435, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i275 ], [ %1434, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i268 ]
   %1463 = getelementptr inbounds nuw float, ptr %1039, i64 %.056.i.i156.i.i266
-  store float %.sink63.i.i159.i.i269, ptr %1463, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i269, ptr %1463, align 4, !tbaa !138
   %1464 = getelementptr inbounds nuw i64, ptr %1040, i64 %.056.i.i156.i.i266
   store i64 %.sink.i.i160.i.i270, ptr %1464, align 8, !tbaa !16
   %1465 = shl i64 %.1.i.i161.i.i271, 1
@@ -97344,11 +97344,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i254: ; preds = %1535
   br i1 %1539, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i258, label %1540
 
 1540:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i254, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i261
-  %.sink63.i.i185.i.i255 = phi float [ %1528, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i261 ], [ %1519, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i254 ]
+  %.sink71.i.i185.i.i255 = phi float [ %1528, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i261 ], [ %1519, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i254 ]
   %.sink.i.i186.i.i256 = phi i64 [ %1531, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i261 ], [ %1521, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i254 ]
   %.1.i.i187.i.i257 = phi i64 [ %1513, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i261 ], [ %1512, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i254 ]
   %1541 = getelementptr inbounds nuw float, ptr %1401, i64 %.056.i.i182.i.i252
-  store float %.sink63.i.i185.i.i255, ptr %1541, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i255, ptr %1541, align 4, !tbaa !138
   %1542 = getelementptr inbounds nuw i64, ptr %1402, i64 %.056.i.i182.i.i252
   store i64 %.sink.i.i186.i.i256, ptr %1542, align 8, !tbaa !16
   %1543 = shl i64 %.1.i.i187.i.i257, 1
@@ -97422,7 +97422,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %1613
 
 .preheader222.i.i:                                ; preds = %1946
-  %1582 = zext i32 %.188.i.i373 to i64
+  %1582 = zext nneg i32 %.188.i.i373 to i64
   %.not243.i.i = icmp eq i32 %.188.i.i373, 0
   br i1 %.not243.i.i, label %.preheader.i.i390, label %.lr.ph236.i.preheader.i
 
@@ -97747,11 +97747,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i509:   ; preds = %1784
   br i1 %1788, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i513, label %1789
 
 1789:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i509, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i518
-  %.sink63.i.i.i.i510 = phi float [ %1777, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i518 ], [ %1768, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i509 ]
+  %.sink71.i.i.i.i510 = phi float [ %1777, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i518 ], [ %1768, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i509 ]
   %.sink.i.i.i.i511 = phi i64 [ %1780, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i518 ], [ %1770, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i509 ]
   %.1.i.i.i.i512 = phi i64 [ %1762, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i518 ], [ %1761, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i509 ]
   %1790 = getelementptr inbounds nuw float, ptr %1574, i64 %.056.i.i.i.i507
-  store float %.sink63.i.i.i.i510, ptr %1790, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i510, ptr %1790, align 4, !tbaa !138
   %1791 = getelementptr inbounds nuw i64, ptr %1575, i64 %.056.i.i.i.i507
   store i64 %.sink.i.i.i.i511, ptr %1791, align 8, !tbaa !16
   %1792 = shl i64 %.1.i.i.i.i512, 1
@@ -97845,11 +97845,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i496: ; preds = %1832
   br i1 %1836, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i500, label %1837
 
 1837:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i496, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i503
-  %.sink63.i.i105.i.i497 = phi float [ %1825, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i503 ], [ %1816, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i496 ]
+  %.sink71.i.i105.i.i497 = phi float [ %1825, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i503 ], [ %1816, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i496 ]
   %.sink.i.i106.i.i498 = phi i64 [ %1828, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i503 ], [ %1818, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i496 ]
   %.1.i.i107.i.i499 = phi i64 [ %1810, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i503 ], [ %1809, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i496 ]
   %1838 = getelementptr inbounds nuw float, ptr %1574, i64 %.056.i.i102.i.i494
-  store float %.sink63.i.i105.i.i497, ptr %1838, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i497, ptr %1838, align 4, !tbaa !138
   %1839 = getelementptr inbounds nuw i64, ptr %1575, i64 %.056.i.i102.i.i494
   store i64 %.sink.i.i106.i.i498, ptr %1839, align 8, !tbaa !16
   %1840 = shl i64 %.1.i.i107.i.i499, 1
@@ -97943,11 +97943,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i483: ; preds = %1880
   br i1 %1884, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i487, label %1885
 
 1885:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i483, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i490
-  %.sink63.i.i122.i.i484 = phi float [ %1873, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i490 ], [ %1864, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i483 ]
+  %.sink71.i.i122.i.i484 = phi float [ %1873, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i490 ], [ %1864, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i483 ]
   %.sink.i.i123.i.i485 = phi i64 [ %1876, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i490 ], [ %1866, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i483 ]
   %.1.i.i124.i.i486 = phi i64 [ %1858, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i490 ], [ %1857, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i483 ]
   %1886 = getelementptr inbounds nuw float, ptr %1574, i64 %.056.i.i119.i.i481
-  store float %.sink63.i.i122.i.i484, ptr %1886, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i484, ptr %1886, align 4, !tbaa !138
   %1887 = getelementptr inbounds nuw i64, ptr %1575, i64 %.056.i.i119.i.i481
   store i64 %.sink.i.i123.i.i485, ptr %1887, align 8, !tbaa !16
   %1888 = shl i64 %.1.i.i124.i.i486, 1
@@ -98041,11 +98041,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i470: ; preds = %1928
   br i1 %1932, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i474, label %1933
 
 1933:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i470, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i477
-  %.sink63.i.i139.i.i471 = phi float [ %1921, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i477 ], [ %1912, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i470 ]
+  %.sink71.i.i139.i.i471 = phi float [ %1921, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i477 ], [ %1912, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i470 ]
   %.sink.i.i140.i.i472 = phi i64 [ %1924, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i477 ], [ %1914, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i470 ]
   %.1.i.i141.i.i473 = phi i64 [ %1906, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i477 ], [ %1905, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i470 ]
   %1934 = getelementptr inbounds nuw float, ptr %1574, i64 %.056.i.i136.i.i468
-  store float %.sink63.i.i139.i.i471, ptr %1934, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i471, ptr %1934, align 4, !tbaa !138
   %1935 = getelementptr inbounds nuw i64, ptr %1575, i64 %.056.i.i136.i.i468
   store i64 %.sink.i.i140.i.i472, ptr %1935, align 8, !tbaa !16
   %1936 = shl i64 %.1.i.i141.i.i473, 1
@@ -98216,11 +98216,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i425: ; preds = %2012
   br i1 %2016, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i429, label %2017
 
 2017:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i425, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i432
-  %.sink63.i.i159.i.i426 = phi float [ %2005, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i432 ], [ %1996, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i425 ]
+  %.sink71.i.i159.i.i426 = phi float [ %2005, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i432 ], [ %1996, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i425 ]
   %.sink.i.i160.i.i427 = phi i64 [ %2008, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i432 ], [ %1998, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i425 ]
   %.1.i.i161.i.i428 = phi i64 [ %1990, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i432 ], [ %1989, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i425 ]
   %2018 = getelementptr inbounds nuw float, ptr %1574, i64 %.056.i.i156.i.i423
-  store float %.sink63.i.i159.i.i426, ptr %2018, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i426, ptr %2018, align 4, !tbaa !138
   %2019 = getelementptr inbounds nuw i64, ptr %1575, i64 %.056.i.i156.i.i423
   store i64 %.sink.i.i160.i.i427, ptr %2019, align 8, !tbaa !16
   %2020 = shl i64 %.1.i.i161.i.i428, 1
@@ -98367,11 +98367,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i411: ; preds = %2095
   br i1 %2099, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i415, label %2100
 
 2100:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i411, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i418
-  %.sink63.i.i185.i.i412 = phi float [ %2088, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i418 ], [ %2079, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i411 ]
+  %.sink71.i.i185.i.i412 = phi float [ %2088, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i418 ], [ %2079, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i411 ]
   %.sink.i.i186.i.i413 = phi i64 [ %2091, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i418 ], [ %2081, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i411 ]
   %.1.i.i187.i.i414 = phi i64 [ %2073, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i418 ], [ %2072, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i411 ]
   %2101 = getelementptr inbounds nuw float, ptr %1956, i64 %.056.i.i182.i.i409
-  store float %.sink63.i.i185.i.i412, ptr %2101, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i412, ptr %2101, align 4, !tbaa !138
   %2102 = getelementptr inbounds nuw i64, ptr %1957, i64 %.056.i.i182.i.i409
   store i64 %.sink.i.i186.i.i413, ptr %2102, align 8, !tbaa !16
   %2103 = shl i64 %.1.i.i187.i.i414, 1
@@ -98447,7 +98447,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %2175
 
 .preheader226.i.i:                                ; preds = %2536
-  %2144 = zext i32 %.188.i.i529 to i64
+  %2144 = zext nneg i32 %.188.i.i529 to i64
   %.not247.i.i = icmp eq i32 %.188.i.i529, 0
   br i1 %.not247.i.i, label %.preheader.i.i547, label %.lr.ph240.i.preheader.i
 
@@ -98800,11 +98800,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i666:   ; preds = %2374
   br i1 %2378, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i670, label %2379
 
 2379:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i666, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i675
-  %.sink63.i.i.i.i667 = phi float [ %2367, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i675 ], [ %2358, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i666 ]
+  %.sink71.i.i.i.i667 = phi float [ %2367, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i675 ], [ %2358, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i666 ]
   %.sink.i.i.i.i668 = phi i64 [ %2370, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i675 ], [ %2360, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i666 ]
   %.1.i.i.i.i669 = phi i64 [ %2352, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i675 ], [ %2351, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i666 ]
   %2380 = getelementptr inbounds nuw float, ptr %2136, i64 %.056.i.i.i.i664
-  store float %.sink63.i.i.i.i667, ptr %2380, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i667, ptr %2380, align 4, !tbaa !138
   %2381 = getelementptr inbounds nuw i64, ptr %2137, i64 %.056.i.i.i.i664
   store i64 %.sink.i.i.i.i668, ptr %2381, align 8, !tbaa !16
   %2382 = shl i64 %.1.i.i.i.i669, 1
@@ -98898,11 +98898,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i653: ; preds = %2422
   br i1 %2426, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i657, label %2427
 
 2427:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i653, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i660
-  %.sink63.i.i105.i.i654 = phi float [ %2415, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i660 ], [ %2406, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i653 ]
+  %.sink71.i.i105.i.i654 = phi float [ %2415, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i660 ], [ %2406, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i653 ]
   %.sink.i.i106.i.i655 = phi i64 [ %2418, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i660 ], [ %2408, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i653 ]
   %.1.i.i107.i.i656 = phi i64 [ %2400, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i660 ], [ %2399, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i653 ]
   %2428 = getelementptr inbounds nuw float, ptr %2136, i64 %.056.i.i102.i.i651
-  store float %.sink63.i.i105.i.i654, ptr %2428, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i654, ptr %2428, align 4, !tbaa !138
   %2429 = getelementptr inbounds nuw i64, ptr %2137, i64 %.056.i.i102.i.i651
   store i64 %.sink.i.i106.i.i655, ptr %2429, align 8, !tbaa !16
   %2430 = shl i64 %.1.i.i107.i.i656, 1
@@ -98996,11 +98996,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i640: ; preds = %2470
   br i1 %2474, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i644, label %2475
 
 2475:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i640, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i647
-  %.sink63.i.i122.i.i641 = phi float [ %2463, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i647 ], [ %2454, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i640 ]
+  %.sink71.i.i122.i.i641 = phi float [ %2463, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i647 ], [ %2454, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i640 ]
   %.sink.i.i123.i.i642 = phi i64 [ %2466, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i647 ], [ %2456, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i640 ]
   %.1.i.i124.i.i643 = phi i64 [ %2448, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i647 ], [ %2447, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i640 ]
   %2476 = getelementptr inbounds nuw float, ptr %2136, i64 %.056.i.i119.i.i638
-  store float %.sink63.i.i122.i.i641, ptr %2476, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i641, ptr %2476, align 4, !tbaa !138
   %2477 = getelementptr inbounds nuw i64, ptr %2137, i64 %.056.i.i119.i.i638
   store i64 %.sink.i.i123.i.i642, ptr %2477, align 8, !tbaa !16
   %2478 = shl i64 %.1.i.i124.i.i643, 1
@@ -99094,11 +99094,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i627: ; preds = %2518
   br i1 %2522, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i631, label %2523
 
 2523:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i627, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i634
-  %.sink63.i.i139.i.i628 = phi float [ %2511, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i634 ], [ %2502, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i627 ]
+  %.sink71.i.i139.i.i628 = phi float [ %2511, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i634 ], [ %2502, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i627 ]
   %.sink.i.i140.i.i629 = phi i64 [ %2514, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i634 ], [ %2504, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i627 ]
   %.1.i.i141.i.i630 = phi i64 [ %2496, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i634 ], [ %2495, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i627 ]
   %2524 = getelementptr inbounds nuw float, ptr %2136, i64 %.056.i.i136.i.i625
-  store float %.sink63.i.i139.i.i628, ptr %2524, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i628, ptr %2524, align 4, !tbaa !138
   %2525 = getelementptr inbounds nuw i64, ptr %2137, i64 %.056.i.i136.i.i625
   store i64 %.sink.i.i140.i.i629, ptr %2525, align 8, !tbaa !16
   %2526 = shl i64 %.1.i.i141.i.i630, 1
@@ -99269,11 +99269,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i582: ; preds = %2602
   br i1 %2606, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i586, label %2607
 
 2607:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i582, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i589
-  %.sink63.i.i159.i.i583 = phi float [ %2595, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i589 ], [ %2586, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i582 ]
+  %.sink71.i.i159.i.i583 = phi float [ %2595, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i589 ], [ %2586, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i582 ]
   %.sink.i.i160.i.i584 = phi i64 [ %2598, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i589 ], [ %2588, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i582 ]
   %.1.i.i161.i.i585 = phi i64 [ %2580, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i589 ], [ %2579, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i582 ]
   %2608 = getelementptr inbounds nuw float, ptr %2136, i64 %.056.i.i156.i.i580
-  store float %.sink63.i.i159.i.i583, ptr %2608, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i583, ptr %2608, align 4, !tbaa !138
   %2609 = getelementptr inbounds nuw i64, ptr %2137, i64 %.056.i.i156.i.i580
   store i64 %.sink.i.i160.i.i584, ptr %2609, align 8, !tbaa !16
   %2610 = shl i64 %.1.i.i161.i.i585, 1
@@ -99427,11 +99427,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i568: ; preds = %2692
   br i1 %2696, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i572, label %2697
 
 2697:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i568, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i575
-  %.sink63.i.i185.i.i569 = phi float [ %2685, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i575 ], [ %2676, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i568 ]
+  %.sink71.i.i185.i.i569 = phi float [ %2685, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i575 ], [ %2676, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i568 ]
   %.sink.i.i186.i.i570 = phi i64 [ %2688, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i575 ], [ %2678, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i568 ]
   %.1.i.i187.i.i571 = phi i64 [ %2670, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i575 ], [ %2669, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i568 ]
   %2698 = getelementptr inbounds nuw float, ptr %2546, i64 %.056.i.i182.i.i566
-  store float %.sink63.i.i185.i.i569, ptr %2698, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i569, ptr %2698, align 4, !tbaa !138
   %2699 = getelementptr inbounds nuw i64, ptr %2547, i64 %.056.i.i182.i.i566
   store i64 %.sink.i.i186.i.i570, ptr %2699, align 8, !tbaa !16
   %2700 = shl i64 %.1.i.i187.i.i571, 1
@@ -99515,7 +99515,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %2780
 
 .preheader242.i.i:                                ; preds = %3237
-  %2749 = zext i32 %.188.i.i686 to i64
+  %2749 = zext nneg i32 %.188.i.i686 to i64
   %.not263.i.i = icmp eq i32 %.188.i.i686, 0
   br i1 %.not263.i.i, label %.preheader.i.i704, label %.lr.ph256.i.preheader.i
 
@@ -99964,11 +99964,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i819:   ; preds = %3075
   br i1 %3079, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i823, label %3080
 
 3080:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i819, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i827
-  %.sink63.i.i.i.i820 = phi float [ %3068, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i827 ], [ %3059, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i819 ]
+  %.sink71.i.i.i.i820 = phi float [ %3068, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i827 ], [ %3059, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i819 ]
   %.sink.i.i.i.i821 = phi i64 [ %3071, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i827 ], [ %3061, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i819 ]
   %.1.i.i.i.i822 = phi i64 [ %3053, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i827 ], [ %3052, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i819 ]
   %3081 = getelementptr inbounds nuw float, ptr %2741, i64 %.056.i.i.i.i817
-  store float %.sink63.i.i.i.i820, ptr %3081, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i820, ptr %3081, align 4, !tbaa !138
   %3082 = getelementptr inbounds nuw i64, ptr %2742, i64 %.056.i.i.i.i817
   store i64 %.sink.i.i.i.i821, ptr %3082, align 8, !tbaa !16
   %3083 = shl i64 %.1.i.i.i.i822, 1
@@ -100062,11 +100062,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i806: ; preds = %3123
   br i1 %3127, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i810, label %3128
 
 3128:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i806, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i813
-  %.sink63.i.i105.i.i807 = phi float [ %3116, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i813 ], [ %3107, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i806 ]
+  %.sink71.i.i105.i.i807 = phi float [ %3116, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i813 ], [ %3107, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i806 ]
   %.sink.i.i106.i.i808 = phi i64 [ %3119, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i813 ], [ %3109, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i806 ]
   %.1.i.i107.i.i809 = phi i64 [ %3101, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i813 ], [ %3100, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i806 ]
   %3129 = getelementptr inbounds nuw float, ptr %2741, i64 %.056.i.i102.i.i804
-  store float %.sink63.i.i105.i.i807, ptr %3129, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i807, ptr %3129, align 4, !tbaa !138
   %3130 = getelementptr inbounds nuw i64, ptr %2742, i64 %.056.i.i102.i.i804
   store i64 %.sink.i.i106.i.i808, ptr %3130, align 8, !tbaa !16
   %3131 = shl i64 %.1.i.i107.i.i809, 1
@@ -100160,11 +100160,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i793: ; preds = %3171
   br i1 %3175, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i797, label %3176
 
 3176:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i793, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i800
-  %.sink63.i.i122.i.i794 = phi float [ %3164, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i800 ], [ %3155, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i793 ]
+  %.sink71.i.i122.i.i794 = phi float [ %3164, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i800 ], [ %3155, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i793 ]
   %.sink.i.i123.i.i795 = phi i64 [ %3167, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i800 ], [ %3157, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i793 ]
   %.1.i.i124.i.i796 = phi i64 [ %3149, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i800 ], [ %3148, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i793 ]
   %3177 = getelementptr inbounds nuw float, ptr %2741, i64 %.056.i.i119.i.i791
-  store float %.sink63.i.i122.i.i794, ptr %3177, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i794, ptr %3177, align 4, !tbaa !138
   %3178 = getelementptr inbounds nuw i64, ptr %2742, i64 %.056.i.i119.i.i791
   store i64 %.sink.i.i123.i.i795, ptr %3178, align 8, !tbaa !16
   %3179 = shl i64 %.1.i.i124.i.i796, 1
@@ -100258,11 +100258,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i780: ; preds = %3219
   br i1 %3223, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i784, label %3224
 
 3224:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i780, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i787
-  %.sink63.i.i139.i.i781 = phi float [ %3212, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i787 ], [ %3203, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i780 ]
+  %.sink71.i.i139.i.i781 = phi float [ %3212, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i787 ], [ %3203, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i780 ]
   %.sink.i.i140.i.i782 = phi i64 [ %3215, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i787 ], [ %3205, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i780 ]
   %.1.i.i141.i.i783 = phi i64 [ %3197, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i787 ], [ %3196, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i780 ]
   %3225 = getelementptr inbounds nuw float, ptr %2741, i64 %.056.i.i136.i.i778
-  store float %.sink63.i.i139.i.i781, ptr %3225, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i781, ptr %3225, align 4, !tbaa !138
   %3226 = getelementptr inbounds nuw i64, ptr %2742, i64 %.056.i.i136.i.i778
   store i64 %.sink.i.i140.i.i782, ptr %3226, align 8, !tbaa !16
   %3227 = shl i64 %.1.i.i141.i.i783, 1
@@ -100433,11 +100433,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i739: ; preds = %3303
   br i1 %3307, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i743, label %3308
 
 3308:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i739, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i746
-  %.sink63.i.i159.i.i740 = phi float [ %3296, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i746 ], [ %3287, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i739 ]
+  %.sink71.i.i159.i.i740 = phi float [ %3296, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i746 ], [ %3287, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i739 ]
   %.sink.i.i160.i.i741 = phi i64 [ %3299, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i746 ], [ %3289, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i739 ]
   %.1.i.i161.i.i742 = phi i64 [ %3281, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i746 ], [ %3280, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i739 ]
   %3309 = getelementptr inbounds nuw float, ptr %2741, i64 %.056.i.i156.i.i737
-  store float %.sink63.i.i159.i.i740, ptr %3309, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i740, ptr %3309, align 4, !tbaa !138
   %3310 = getelementptr inbounds nuw i64, ptr %2742, i64 %.056.i.i156.i.i737
   store i64 %.sink.i.i160.i.i741, ptr %3310, align 8, !tbaa !16
   %3311 = shl i64 %.1.i.i161.i.i742, 1
@@ -100615,11 +100615,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i725: ; preds = %3417
   br i1 %3421, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i729, label %3422
 
 3422:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i725, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i732
-  %.sink63.i.i185.i.i726 = phi float [ %3410, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i732 ], [ %3401, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i725 ]
+  %.sink71.i.i185.i.i726 = phi float [ %3410, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i732 ], [ %3401, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i725 ]
   %.sink.i.i186.i.i727 = phi i64 [ %3413, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i732 ], [ %3403, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i725 ]
   %.1.i.i187.i.i728 = phi i64 [ %3395, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i732 ], [ %3394, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i725 ]
   %3423 = getelementptr inbounds nuw float, ptr %3247, i64 %.056.i.i182.i.i723
-  store float %.sink63.i.i185.i.i726, ptr %3423, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i726, ptr %3423, align 4, !tbaa !138
   %3424 = getelementptr inbounds nuw i64, ptr %3248, i64 %.056.i.i182.i.i723
   store i64 %.sink.i.i186.i.i727, ptr %3424, align 8, !tbaa !16
   %3425 = shl i64 %.1.i.i187.i.i728, 1
@@ -100693,7 +100693,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   br label %3496
 
 .preheader210.i.i:                                ; preds = %3778
-  %3460 = zext i32 %.188.i.i839 to i64
+  %3460 = zext nneg i32 %.188.i.i839 to i64
   %.not231.i.i = icmp eq i32 %.188.i.i839, 0
   br i1 %.not231.i.i, label %.preheader.i.i856, label %.lr.ph224.i.i
 
@@ -100972,11 +100972,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i976:   ; preds = %3616
   br i1 %3620, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i980, label %3621
 
 3621:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i976, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i984
-  %.sink63.i.i.i.i977 = phi float [ %3609, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i984 ], [ %3600, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i976 ]
+  %.sink71.i.i.i.i977 = phi float [ %3609, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i984 ], [ %3600, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i976 ]
   %.sink.i.i.i.i978 = phi i64 [ %3612, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i984 ], [ %3602, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i976 ]
   %.1.i.i.i.i979 = phi i64 [ %3594, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i984 ], [ %3593, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i976 ]
   %3622 = getelementptr inbounds nuw float, ptr %3457, i64 %.056.i.i.i.i974
-  store float %.sink63.i.i.i.i977, ptr %3622, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i977, ptr %3622, align 4, !tbaa !138
   %3623 = getelementptr inbounds nuw i64, ptr %3458, i64 %.056.i.i.i.i974
   store i64 %.sink.i.i.i.i978, ptr %3623, align 8, !tbaa !16
   %3624 = shl i64 %.1.i.i.i.i979, 1
@@ -101070,11 +101070,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i963: ; preds = %3664
   br i1 %3668, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i967, label %3669
 
 3669:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i963, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i970
-  %.sink63.i.i105.i.i964 = phi float [ %3657, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i970 ], [ %3648, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i963 ]
+  %.sink71.i.i105.i.i964 = phi float [ %3657, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i970 ], [ %3648, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i963 ]
   %.sink.i.i106.i.i965 = phi i64 [ %3660, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i970 ], [ %3650, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i963 ]
   %.1.i.i107.i.i966 = phi i64 [ %3642, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i970 ], [ %3641, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i963 ]
   %3670 = getelementptr inbounds nuw float, ptr %3457, i64 %.056.i.i102.i.i961
-  store float %.sink63.i.i105.i.i964, ptr %3670, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i964, ptr %3670, align 4, !tbaa !138
   %3671 = getelementptr inbounds nuw i64, ptr %3458, i64 %.056.i.i102.i.i961
   store i64 %.sink.i.i106.i.i965, ptr %3671, align 8, !tbaa !16
   %3672 = shl i64 %.1.i.i107.i.i966, 1
@@ -101168,11 +101168,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i949: ; preds = %3712
   br i1 %3716, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i953, label %3717
 
 3717:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i949, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i957
-  %.sink63.i.i122.i.i950 = phi float [ %3705, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i957 ], [ %3696, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i949 ]
+  %.sink71.i.i122.i.i950 = phi float [ %3705, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i957 ], [ %3696, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i949 ]
   %.sink.i.i123.i.i951 = phi i64 [ %3708, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i957 ], [ %3698, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i949 ]
   %.1.i.i124.i.i952 = phi i64 [ %3690, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i957 ], [ %3689, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i949 ]
   %3718 = getelementptr inbounds nuw float, ptr %3457, i64 %.056.i.i119.i.i947
-  store float %.sink63.i.i122.i.i950, ptr %3718, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i950, ptr %3718, align 4, !tbaa !138
   %3719 = getelementptr inbounds nuw i64, ptr %3458, i64 %.056.i.i119.i.i947
   store i64 %.sink.i.i123.i.i951, ptr %3719, align 8, !tbaa !16
   %3720 = shl i64 %.1.i.i124.i.i952, 1
@@ -101266,11 +101266,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i936: ; preds = %3760
   br i1 %3764, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i940, label %3765
 
 3765:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i936, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i943
-  %.sink63.i.i139.i.i937 = phi float [ %3753, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i943 ], [ %3744, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i936 ]
+  %.sink71.i.i139.i.i937 = phi float [ %3753, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i943 ], [ %3744, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i936 ]
   %.sink.i.i140.i.i938 = phi i64 [ %3756, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i943 ], [ %3746, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i936 ]
   %.1.i.i141.i.i939 = phi i64 [ %3738, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i943 ], [ %3737, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i936 ]
   %3766 = getelementptr inbounds nuw float, ptr %3457, i64 %.056.i.i136.i.i934
-  store float %.sink63.i.i139.i.i937, ptr %3766, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i937, ptr %3766, align 4, !tbaa !138
   %3767 = getelementptr inbounds nuw i64, ptr %3458, i64 %.056.i.i136.i.i934
   store i64 %.sink.i.i140.i.i938, ptr %3767, align 8, !tbaa !16
   %3768 = shl i64 %.1.i.i141.i.i939, 1
@@ -101438,11 +101438,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i891: ; preds = %3841
   br i1 %3845, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i895, label %3846
 
 3846:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i891, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i898
-  %.sink63.i.i159.i.i892 = phi float [ %3834, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i898 ], [ %3825, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i891 ]
+  %.sink71.i.i159.i.i892 = phi float [ %3834, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i898 ], [ %3825, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i891 ]
   %.sink.i.i160.i.i893 = phi i64 [ %3837, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i898 ], [ %3827, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i891 ]
   %.1.i.i161.i.i894 = phi i64 [ %3819, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i898 ], [ %3818, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i891 ]
   %3847 = getelementptr inbounds nuw float, ptr %3457, i64 %.056.i.i156.i.i889
-  store float %.sink63.i.i159.i.i892, ptr %3847, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i892, ptr %3847, align 4, !tbaa !138
   %3848 = getelementptr inbounds nuw i64, ptr %3458, i64 %.056.i.i156.i.i889
   store i64 %.sink.i.i160.i.i893, ptr %3848, align 8, !tbaa !16
   %3849 = shl i64 %.1.i.i161.i.i894, 1
@@ -101582,11 +101582,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i877: ; preds = %3914
   br i1 %3918, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i881, label %3919
 
 3919:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i877, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i884
-  %.sink63.i.i185.i.i878 = phi float [ %3907, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i884 ], [ %3898, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i877 ]
+  %.sink71.i.i185.i.i878 = phi float [ %3907, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i884 ], [ %3898, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i877 ]
   %.sink.i.i186.i.i879 = phi i64 [ %3910, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i884 ], [ %3900, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i877 ]
   %.1.i.i187.i.i880 = phi i64 [ %3892, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i884 ], [ %3891, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i877 ]
   %3920 = getelementptr inbounds nuw float, ptr %3786, i64 %.056.i.i182.i.i875
-  store float %.sink63.i.i185.i.i878, ptr %3920, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i878, ptr %3920, align 4, !tbaa !138
   %3921 = getelementptr inbounds nuw i64, ptr %3787, i64 %.056.i.i182.i.i875
   store i64 %.sink.i.i186.i.i879, ptr %3921, align 8, !tbaa !16
   %3922 = shl i64 %.1.i.i187.i.i880, 1
@@ -101952,11 +101952,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i:        ; preds = %140
   br i1 %144, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i, label %145
 
 145:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i
-  %.sink63.i.i.i = phi float [ %133, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %124, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
+  %.sink71.i.i.i = phi float [ %133, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %124, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
   %.sink.i.i.i = phi i64 [ %136, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %126, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
   %.1.i.i.i = phi i64 [ %118, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %117, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
   %146 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i.i
-  store float %.sink63.i.i.i, ptr %146, align 4, !tbaa !138
+  store float %.sink71.i.i.i, ptr %146, align 4, !tbaa !138
   %147 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i.i
   store i64 %.sink.i.i.i, ptr %147, align 8, !tbaa !16
   %148 = shl i64 %.1.i.i.i, 1
@@ -102052,11 +102052,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i70.i:      ; preds = %190
   br i1 %194, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i74.i, label %195
 
 195:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i70.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i77.i
-  %.sink63.i.i71.i = phi float [ %183, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i77.i ], [ %174, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i70.i ]
+  %.sink71.i.i71.i = phi float [ %183, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i77.i ], [ %174, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i70.i ]
   %.sink.i.i72.i = phi i64 [ %186, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i77.i ], [ %176, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i70.i ]
   %.1.i.i73.i = phi i64 [ %168, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i77.i ], [ %167, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i70.i ]
   %196 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i68.i
-  store float %.sink63.i.i71.i, ptr %196, align 4, !tbaa !138
+  store float %.sink71.i.i71.i, ptr %196, align 4, !tbaa !138
   %197 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i68.i
   store i64 %.sink.i.i72.i, ptr %197, align 8, !tbaa !16
   %198 = shl i64 %.1.i.i73.i, 1
@@ -102152,11 +102152,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i87.i:      ; preds = %240
   br i1 %244, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i91.i, label %245
 
 245:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i87.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i94.i
-  %.sink63.i.i88.i = phi float [ %233, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i94.i ], [ %224, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i87.i ]
+  %.sink71.i.i88.i = phi float [ %233, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i94.i ], [ %224, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i87.i ]
   %.sink.i.i89.i = phi i64 [ %236, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i94.i ], [ %226, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i87.i ]
   %.1.i.i90.i = phi i64 [ %218, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i94.i ], [ %217, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i87.i ]
   %246 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i85.i
-  store float %.sink63.i.i88.i, ptr %246, align 4, !tbaa !138
+  store float %.sink71.i.i88.i, ptr %246, align 4, !tbaa !138
   %247 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i85.i
   store i64 %.sink.i.i89.i, ptr %247, align 8, !tbaa !16
   %248 = shl i64 %.1.i.i90.i, 1
@@ -102252,11 +102252,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i:     ; preds = %290
   br i1 %294, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i, label %295
 
 295:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i
-  %.sink63.i.i105.i = phi float [ %283, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i ], [ %274, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i ]
+  %.sink71.i.i105.i = phi float [ %283, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i ], [ %274, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i ]
   %.sink.i.i106.i = phi i64 [ %286, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i ], [ %276, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i ]
   %.1.i.i107.i = phi i64 [ %268, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i ], [ %267, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i ]
   %296 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i102.i
-  store float %.sink63.i.i105.i, ptr %296, align 4, !tbaa !138
+  store float %.sink71.i.i105.i, ptr %296, align 4, !tbaa !138
   %297 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i102.i
   store i64 %.sink.i.i106.i, ptr %297, align 8, !tbaa !16
   %298 = shl i64 %.1.i.i107.i, 1
@@ -102388,11 +102388,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i124.i:     ; preds = %358
   br i1 %362, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i128.i, label %363
 
 363:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i124.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i131.i
-  %.sink63.i.i125.i = phi float [ %351, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i131.i ], [ %342, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i124.i ]
+  %.sink71.i.i125.i = phi float [ %351, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i131.i ], [ %342, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i124.i ]
   %.sink.i.i126.i = phi i64 [ %354, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i131.i ], [ %344, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i124.i ]
   %.1.i.i127.i = phi i64 [ %336, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i131.i ], [ %335, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i124.i ]
   %364 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i122.i
-  store float %.sink63.i.i125.i, ptr %364, align 4, !tbaa !138
+  store float %.sink71.i.i125.i, ptr %364, align 4, !tbaa !138
   %365 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i122.i
   store i64 %.sink.i.i126.i, ptr %365, align 8, !tbaa !16
   %366 = shl i64 %.1.i.i127.i, 1
@@ -102522,11 +102522,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i150.i:     ; preds = %425
   br i1 %429, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i154.i, label %430
 
 430:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i150.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i157.i
-  %.sink63.i.i151.i = phi float [ %418, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i157.i ], [ %409, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i150.i ]
+  %.sink71.i.i151.i = phi float [ %418, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i157.i ], [ %409, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i150.i ]
   %.sink.i.i152.i = phi i64 [ %421, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i157.i ], [ %411, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i150.i ]
   %.1.i.i153.i = phi i64 [ %403, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i157.i ], [ %402, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i150.i ]
   %431 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i148.i
-  store float %.sink63.i.i151.i, ptr %431, align 4, !tbaa !138
+  store float %.sink71.i.i151.i, ptr %431, align 4, !tbaa !138
   %432 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i148.i
   store i64 %.sink.i.i152.i, ptr %432, align 8, !tbaa !16
   %433 = shl i64 %.1.i.i153.i, 1
@@ -102656,11 +102656,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i176.i:     ; preds = %493
   br i1 %497, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i180.i, label %498
 
 498:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i176.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i183.i
-  %.sink63.i.i177.i = phi float [ %486, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i183.i ], [ %477, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i176.i ]
+  %.sink71.i.i177.i = phi float [ %486, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i183.i ], [ %477, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i176.i ]
   %.sink.i.i178.i = phi i64 [ %489, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i183.i ], [ %479, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i176.i ]
   %.1.i.i179.i = phi i64 [ %471, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i183.i ], [ %470, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i176.i ]
   %499 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i174.i
-  store float %.sink63.i.i177.i, ptr %499, align 4, !tbaa !138
+  store float %.sink71.i.i177.i, ptr %499, align 4, !tbaa !138
   %500 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i174.i
   store i64 %.sink.i.i178.i, ptr %500, align 8, !tbaa !16
   %501 = shl i64 %.1.i.i179.i, 1
@@ -102788,11 +102788,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i30:      ; preds = %560
   br i1 %564, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i34, label %565
 
 565:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i30, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i37
-  %.sink63.i.i.i31 = phi float [ %553, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i37 ], [ %544, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i30 ]
+  %.sink71.i.i.i31 = phi float [ %553, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i37 ], [ %544, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i30 ]
   %.sink.i.i.i32 = phi i64 [ %556, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i37 ], [ %546, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i30 ]
   %.1.i.i.i33 = phi i64 [ %538, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i37 ], [ %537, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i30 ]
   %566 = getelementptr inbounds nuw float, ptr %517, i64 %.056.i.i.i28
-  store float %.sink63.i.i.i31, ptr %566, align 4, !tbaa !138
+  store float %.sink71.i.i.i31, ptr %566, align 4, !tbaa !138
   %567 = getelementptr inbounds nuw i64, ptr %518, i64 %.056.i.i.i28
   store i64 %.sink.i.i.i32, ptr %567, align 8, !tbaa !16
   %568 = shl i64 %.1.i.i.i33, 1
@@ -102965,11 +102965,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i52:      ; preds = %658
   br i1 %662, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i56, label %663
 
 663:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i52, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i59
-  %.sink63.i.i.i53 = phi float [ %651, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i59 ], [ %642, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i52 ]
+  %.sink71.i.i.i53 = phi float [ %651, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i59 ], [ %642, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i52 ]
   %.sink.i.i.i54 = phi i64 [ %654, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i59 ], [ %644, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i52 ]
   %.1.i.i.i55 = phi i64 [ %636, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i59 ], [ %635, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i52 ]
   %664 = getelementptr inbounds nuw float, ptr %614, i64 %.056.i.i.i50
-  store float %.sink63.i.i.i53, ptr %664, align 4, !tbaa !138
+  store float %.sink71.i.i.i53, ptr %664, align 4, !tbaa !138
   %665 = getelementptr inbounds nuw i64, ptr %615, i64 %.056.i.i.i50
   store i64 %.sink.i.i.i54, ptr %665, align 8, !tbaa !16
   %666 = shl i64 %.1.i.i.i55, 1
@@ -103140,7 +103140,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1E
   br label %90
 
 .preheader138.i.i.i.i:                            ; preds = %232
-  %60 = zext i32 %.188.i.i.i.i to i64
+  %60 = zext nneg i32 %.188.i.i.i.i to i64
   %.not159.i.i.i.i = icmp eq i32 %.188.i.i.i.i, 0
   br i1 %.not159.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph152.i.preheader.i.i.i
 
@@ -103641,7 +103641,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %361
 
 .preheader138.i.i39.i.i:                          ; preds = %507
-  %331 = zext i32 %.188.i.i37.i.i to i64
+  %331 = zext nneg i32 %.188.i.i37.i.i to i64
   %.not159.i.i40.i.i = icmp eq i32 %.188.i.i37.i.i, 0
   br i1 %.not159.i.i40.i.i, label %.preheader.i.i58.i.i, label %.lr.ph152.i.preheader.i41.i.i
 
@@ -104149,7 +104149,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %639
 
 .preheader142.i.i.i.i:                            ; preds = %809
-  %609 = zext i32 %.188.i.i125.i.i to i64
+  %609 = zext nneg i32 %.188.i.i125.i.i to i64
   %.not163.i.i.i.i = icmp eq i32 %.188.i.i125.i.i, 0
   br i1 %.not163.i.i.i.i, label %.preheader.i.i141.i.i, label %.lr.ph156.i.preheader.i.i.i
 
@@ -104689,7 +104689,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %949
 
 .preheader146.i.i.i.i:                            ; preds = %1139
-  %919 = zext i32 %.188.i.i196.i.i to i64
+  %919 = zext nneg i32 %.188.i.i196.i.i to i64
   %.not167.i.i.i.i = icmp eq i32 %.188.i.i196.i.i, 0
   br i1 %.not167.i.i.i.i, label %.preheader.i.i212.i.i, label %.lr.ph160.i.preheader.i.i.i
 
@@ -105256,7 +105256,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %1286
 
 .preheader150.i.i.i.i:                            ; preds = %1504
-  %1256 = zext i32 %.188.i.i266.i.i to i64
+  %1256 = zext nneg i32 %.188.i.i266.i.i to i64
   %.not171.i.i.i.i = icmp eq i32 %.188.i.i266.i.i, 0
   br i1 %.not171.i.i.i.i, label %.preheader.i.i283.i.i, label %.lr.ph164.i.preheader.i.i.i
 
@@ -105866,7 +105866,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %1666
 
 .preheader166.i.i.i.i:                            ; preds = %1980
-  %1636 = zext i32 %.188.i.i337.i.i to i64
+  %1636 = zext nneg i32 %.188.i.i337.i.i to i64
   %.not187.i.i.i.i = icmp eq i32 %.188.i.i337.i.i, 0
   br i1 %.not187.i.i.i.i, label %.preheader.i.i354.i.i, label %.lr.ph180.i.preheader.i.i.i
 
@@ -106589,7 +106589,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %2155
 
 .preheader134.i.i.i.i:                            ; preds = %2289
-  %2125 = zext i32 %.188.i.i405.i.i to i64
+  %2125 = zext nneg i32 %.188.i.i405.i.i to i64
   %.not155.i.i.i.i = icmp eq i32 %.188.i.i405.i.i, 0
   br i1 %.not155.i.i.i.i, label %.preheader.i.i421.i.i, label %.lr.ph148.i.preheader.i.i.i
 
@@ -107860,7 +107860,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   br label %79
 
 .preheader214.i.i:                                ; preds = %364
-  %48 = zext i32 %.188.i.i to i64
+  %48 = zext nneg i32 %.188.i.i to i64
   %.not235.i.i = icmp eq i32 %.188.i.i, 0
   br i1 %.not235.i.i, label %.preheader.i.i, label %.lr.ph228.i.preheader.i
 
@@ -108137,11 +108137,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i:      ; preds = %202
   br i1 %206, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i, label %207
 
 207:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i
-  %.sink63.i.i.i.i = phi float [ %195, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %186, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
+  %.sink71.i.i.i.i = phi float [ %195, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %186, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
   %.sink.i.i.i.i = phi i64 [ %198, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %188, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
   %.1.i.i.i.i = phi i64 [ %180, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %179, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
   %208 = getelementptr inbounds nuw float, ptr %40, i64 %.056.i.i.i.i
-  store float %.sink63.i.i.i.i, ptr %208, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i, ptr %208, align 4, !tbaa !138
   %209 = getelementptr inbounds nuw i64, ptr %41, i64 %.056.i.i.i.i
   store i64 %.sink.i.i.i.i, ptr %209, align 8, !tbaa !16
   %210 = shl i64 %.1.i.i.i.i, 1
@@ -108235,11 +108235,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i:   ; preds = %250
   br i1 %254, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i, label %255
 
 255:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i
-  %.sink63.i.i105.i.i = phi float [ %243, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i ], [ %234, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i ]
+  %.sink71.i.i105.i.i = phi float [ %243, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i ], [ %234, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i ]
   %.sink.i.i106.i.i = phi i64 [ %246, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i ], [ %236, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i ]
   %.1.i.i107.i.i = phi i64 [ %228, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i ], [ %227, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i ]
   %256 = getelementptr inbounds nuw float, ptr %40, i64 %.056.i.i102.i.i
-  store float %.sink63.i.i105.i.i, ptr %256, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i, ptr %256, align 4, !tbaa !138
   %257 = getelementptr inbounds nuw i64, ptr %41, i64 %.056.i.i102.i.i
   store i64 %.sink.i.i106.i.i, ptr %257, align 8, !tbaa !16
   %258 = shl i64 %.1.i.i107.i.i, 1
@@ -108333,11 +108333,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i:   ; preds = %298
   br i1 %302, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i, label %303
 
 303:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i
-  %.sink63.i.i122.i.i = phi float [ %291, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i ], [ %282, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i ]
+  %.sink71.i.i122.i.i = phi float [ %291, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i ], [ %282, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i ]
   %.sink.i.i123.i.i = phi i64 [ %294, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i ], [ %284, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i ]
   %.1.i.i124.i.i = phi i64 [ %276, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i ], [ %275, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i ]
   %304 = getelementptr inbounds nuw float, ptr %40, i64 %.056.i.i119.i.i
-  store float %.sink63.i.i122.i.i, ptr %304, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i, ptr %304, align 4, !tbaa !138
   %305 = getelementptr inbounds nuw i64, ptr %41, i64 %.056.i.i119.i.i
   store i64 %.sink.i.i123.i.i, ptr %305, align 8, !tbaa !16
   %306 = shl i64 %.1.i.i124.i.i, 1
@@ -108431,11 +108431,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i:   ; preds = %346
   br i1 %350, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i, label %351
 
 351:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i
-  %.sink63.i.i139.i.i = phi float [ %339, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i ], [ %330, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i ]
+  %.sink71.i.i139.i.i = phi float [ %339, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i ], [ %330, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i ]
   %.sink.i.i140.i.i = phi i64 [ %342, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i ], [ %332, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i ]
   %.1.i.i141.i.i = phi i64 [ %324, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i ], [ %323, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i ]
   %352 = getelementptr inbounds nuw float, ptr %40, i64 %.056.i.i136.i.i
-  store float %.sink63.i.i139.i.i, ptr %352, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i, ptr %352, align 4, !tbaa !138
   %353 = getelementptr inbounds nuw i64, ptr %41, i64 %.056.i.i136.i.i
   store i64 %.sink.i.i140.i.i, ptr %353, align 8, !tbaa !16
   %354 = shl i64 %.1.i.i141.i.i, 1
@@ -108606,11 +108606,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i:   ; preds = %430
   br i1 %434, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i, label %435
 
 435:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i
-  %.sink63.i.i159.i.i = phi float [ %423, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i ], [ %414, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i ]
+  %.sink71.i.i159.i.i = phi float [ %423, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i ], [ %414, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i ]
   %.sink.i.i160.i.i = phi i64 [ %426, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i ], [ %416, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i ]
   %.1.i.i161.i.i = phi i64 [ %408, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i ], [ %407, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i ]
   %436 = getelementptr inbounds nuw float, ptr %40, i64 %.056.i.i156.i.i
-  store float %.sink63.i.i159.i.i, ptr %436, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i, ptr %436, align 4, !tbaa !138
   %437 = getelementptr inbounds nuw i64, ptr %41, i64 %.056.i.i156.i.i
   store i64 %.sink.i.i160.i.i, ptr %437, align 8, !tbaa !16
   %438 = shl i64 %.1.i.i161.i.i, 1
@@ -108745,11 +108745,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i:   ; preds = %501
   br i1 %505, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i, label %506
 
 506:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i
-  %.sink63.i.i185.i.i = phi float [ %494, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i ], [ %485, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i ]
+  %.sink71.i.i185.i.i = phi float [ %494, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i ], [ %485, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i ]
   %.sink.i.i186.i.i = phi i64 [ %497, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i ], [ %487, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i ]
   %.1.i.i187.i.i = phi i64 [ %479, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i ], [ %478, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i ]
   %507 = getelementptr inbounds nuw float, ptr %374, i64 %.056.i.i182.i.i
-  store float %.sink63.i.i185.i.i, ptr %507, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i, ptr %507, align 4, !tbaa !138
   %508 = getelementptr inbounds nuw i64, ptr %375, i64 %.056.i.i182.i.i
   store i64 %.sink.i.i186.i.i, ptr %508, align 8, !tbaa !16
   %509 = shl i64 %.1.i.i187.i.i, 1
@@ -108819,7 +108819,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %575
 
 .preheader214.i.i42:                              ; preds = %864
-  %544 = zext i32 %.188.i.i40 to i64
+  %544 = zext nneg i32 %.188.i.i40 to i64
   %.not235.i.i43 = icmp eq i32 %.188.i.i40, 0
   br i1 %.not235.i.i43, label %.preheader.i.i62, label %.lr.ph228.i.preheader.i44
 
@@ -109100,11 +109100,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i195:   ; preds = %702
   br i1 %706, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i199, label %707
 
 707:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i195, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i204
-  %.sink63.i.i.i.i196 = phi float [ %695, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i204 ], [ %686, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i195 ]
+  %.sink71.i.i.i.i196 = phi float [ %695, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i204 ], [ %686, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i195 ]
   %.sink.i.i.i.i197 = phi i64 [ %698, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i204 ], [ %688, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i195 ]
   %.1.i.i.i.i198 = phi i64 [ %680, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i204 ], [ %679, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i195 ]
   %708 = getelementptr inbounds nuw float, ptr %536, i64 %.056.i.i.i.i193
-  store float %.sink63.i.i.i.i196, ptr %708, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i196, ptr %708, align 4, !tbaa !138
   %709 = getelementptr inbounds nuw i64, ptr %537, i64 %.056.i.i.i.i193
   store i64 %.sink.i.i.i.i197, ptr %709, align 8, !tbaa !16
   %710 = shl i64 %.1.i.i.i.i198, 1
@@ -109198,11 +109198,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i180: ; preds = %750
   br i1 %754, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i184, label %755
 
 755:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i180, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i189
-  %.sink63.i.i105.i.i181 = phi float [ %743, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i189 ], [ %734, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i180 ]
+  %.sink71.i.i105.i.i181 = phi float [ %743, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i189 ], [ %734, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i180 ]
   %.sink.i.i106.i.i182 = phi i64 [ %746, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i189 ], [ %736, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i180 ]
   %.1.i.i107.i.i183 = phi i64 [ %728, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i189 ], [ %727, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i180 ]
   %756 = getelementptr inbounds nuw float, ptr %536, i64 %.056.i.i102.i.i178
-  store float %.sink63.i.i105.i.i181, ptr %756, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i181, ptr %756, align 4, !tbaa !138
   %757 = getelementptr inbounds nuw i64, ptr %537, i64 %.056.i.i102.i.i178
   store i64 %.sink.i.i106.i.i182, ptr %757, align 8, !tbaa !16
   %758 = shl i64 %.1.i.i107.i.i183, 1
@@ -109296,11 +109296,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i165: ; preds = %798
   br i1 %802, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i169, label %803
 
 803:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i165, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i174
-  %.sink63.i.i122.i.i166 = phi float [ %791, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i174 ], [ %782, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i165 ]
+  %.sink71.i.i122.i.i166 = phi float [ %791, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i174 ], [ %782, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i165 ]
   %.sink.i.i123.i.i167 = phi i64 [ %794, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i174 ], [ %784, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i165 ]
   %.1.i.i124.i.i168 = phi i64 [ %776, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i174 ], [ %775, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i165 ]
   %804 = getelementptr inbounds nuw float, ptr %536, i64 %.056.i.i119.i.i163
-  store float %.sink63.i.i122.i.i166, ptr %804, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i166, ptr %804, align 4, !tbaa !138
   %805 = getelementptr inbounds nuw i64, ptr %537, i64 %.056.i.i119.i.i163
   store i64 %.sink.i.i123.i.i167, ptr %805, align 8, !tbaa !16
   %806 = shl i64 %.1.i.i124.i.i168, 1
@@ -109394,11 +109394,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i152: ; preds = %846
   br i1 %850, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i156, label %851
 
 851:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i152, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i159
-  %.sink63.i.i139.i.i153 = phi float [ %839, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i159 ], [ %830, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i152 ]
+  %.sink71.i.i139.i.i153 = phi float [ %839, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i159 ], [ %830, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i152 ]
   %.sink.i.i140.i.i154 = phi i64 [ %842, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i159 ], [ %832, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i152 ]
   %.1.i.i141.i.i155 = phi i64 [ %824, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i159 ], [ %823, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i152 ]
   %852 = getelementptr inbounds nuw float, ptr %536, i64 %.056.i.i136.i.i150
-  store float %.sink63.i.i139.i.i153, ptr %852, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i153, ptr %852, align 4, !tbaa !138
   %853 = getelementptr inbounds nuw i64, ptr %537, i64 %.056.i.i136.i.i150
   store i64 %.sink.i.i140.i.i154, ptr %853, align 8, !tbaa !16
   %854 = shl i64 %.1.i.i141.i.i155, 1
@@ -109569,11 +109569,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i101: ; preds = %930
   br i1 %934, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i105, label %935
 
 935:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i101, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i108
-  %.sink63.i.i159.i.i102 = phi float [ %923, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i108 ], [ %914, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i101 ]
+  %.sink71.i.i159.i.i102 = phi float [ %923, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i108 ], [ %914, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i101 ]
   %.sink.i.i160.i.i103 = phi i64 [ %926, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i108 ], [ %916, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i101 ]
   %.1.i.i161.i.i104 = phi i64 [ %908, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i108 ], [ %907, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i101 ]
   %936 = getelementptr inbounds nuw float, ptr %536, i64 %.056.i.i156.i.i99
-  store float %.sink63.i.i159.i.i102, ptr %936, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i102, ptr %936, align 4, !tbaa !138
   %937 = getelementptr inbounds nuw i64, ptr %537, i64 %.056.i.i156.i.i99
   store i64 %.sink.i.i160.i.i103, ptr %937, align 8, !tbaa !16
   %938 = shl i64 %.1.i.i161.i.i104, 1
@@ -109709,11 +109709,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i87: ; preds = %1002
   br i1 %1006, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i91, label %1007
 
 1007:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i87, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i94
-  %.sink63.i.i185.i.i88 = phi float [ %995, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i94 ], [ %986, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i87 ]
+  %.sink71.i.i185.i.i88 = phi float [ %995, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i94 ], [ %986, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i87 ]
   %.sink.i.i186.i.i89 = phi i64 [ %998, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i94 ], [ %988, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i87 ]
   %.1.i.i187.i.i90 = phi i64 [ %980, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i94 ], [ %979, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i87 ]
   %1008 = getelementptr inbounds nuw float, ptr %874, i64 %.056.i.i182.i.i85
-  store float %.sink63.i.i185.i.i88, ptr %1008, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i88, ptr %1008, align 4, !tbaa !138
   %1009 = getelementptr inbounds nuw i64, ptr %875, i64 %.056.i.i182.i.i85
   store i64 %.sink.i.i186.i.i89, ptr %1009, align 8, !tbaa !16
   %1010 = shl i64 %.1.i.i187.i.i90, 1
@@ -109785,7 +109785,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %1078
 
 .preheader218.i.i:                                ; preds = %1391
-  %1047 = zext i32 %.188.i.i216 to i64
+  %1047 = zext nneg i32 %.188.i.i216 to i64
   %.not239.i.i = icmp eq i32 %.188.i.i216, 0
   br i1 %.not239.i.i, label %.preheader.i.i233, label %.lr.ph232.i.preheader.i
 
@@ -110090,11 +110090,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i352:   ; preds = %1229
   br i1 %1233, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i356, label %1234
 
 1234:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i352, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i361
-  %.sink63.i.i.i.i353 = phi float [ %1222, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i361 ], [ %1213, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i352 ]
+  %.sink71.i.i.i.i353 = phi float [ %1222, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i361 ], [ %1213, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i352 ]
   %.sink.i.i.i.i354 = phi i64 [ %1225, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i361 ], [ %1215, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i352 ]
   %.1.i.i.i.i355 = phi i64 [ %1207, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i361 ], [ %1206, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i352 ]
   %1235 = getelementptr inbounds nuw float, ptr %1039, i64 %.056.i.i.i.i350
-  store float %.sink63.i.i.i.i353, ptr %1235, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i353, ptr %1235, align 4, !tbaa !138
   %1236 = getelementptr inbounds nuw i64, ptr %1040, i64 %.056.i.i.i.i350
   store i64 %.sink.i.i.i.i354, ptr %1236, align 8, !tbaa !16
   %1237 = shl i64 %.1.i.i.i.i355, 1
@@ -110188,11 +110188,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i339: ; preds = %1277
   br i1 %1281, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i343, label %1282
 
 1282:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i339, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i346
-  %.sink63.i.i105.i.i340 = phi float [ %1270, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i346 ], [ %1261, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i339 ]
+  %.sink71.i.i105.i.i340 = phi float [ %1270, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i346 ], [ %1261, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i339 ]
   %.sink.i.i106.i.i341 = phi i64 [ %1273, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i346 ], [ %1263, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i339 ]
   %.1.i.i107.i.i342 = phi i64 [ %1255, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i346 ], [ %1254, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i339 ]
   %1283 = getelementptr inbounds nuw float, ptr %1039, i64 %.056.i.i102.i.i337
-  store float %.sink63.i.i105.i.i340, ptr %1283, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i340, ptr %1283, align 4, !tbaa !138
   %1284 = getelementptr inbounds nuw i64, ptr %1040, i64 %.056.i.i102.i.i337
   store i64 %.sink.i.i106.i.i341, ptr %1284, align 8, !tbaa !16
   %1285 = shl i64 %.1.i.i107.i.i342, 1
@@ -110286,11 +110286,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i326: ; preds = %1325
   br i1 %1329, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i330, label %1330
 
 1330:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i326, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i333
-  %.sink63.i.i122.i.i327 = phi float [ %1318, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i333 ], [ %1309, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i326 ]
+  %.sink71.i.i122.i.i327 = phi float [ %1318, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i333 ], [ %1309, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i326 ]
   %.sink.i.i123.i.i328 = phi i64 [ %1321, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i333 ], [ %1311, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i326 ]
   %.1.i.i124.i.i329 = phi i64 [ %1303, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i333 ], [ %1302, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i326 ]
   %1331 = getelementptr inbounds nuw float, ptr %1039, i64 %.056.i.i119.i.i324
-  store float %.sink63.i.i122.i.i327, ptr %1331, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i327, ptr %1331, align 4, !tbaa !138
   %1332 = getelementptr inbounds nuw i64, ptr %1040, i64 %.056.i.i119.i.i324
   store i64 %.sink.i.i123.i.i328, ptr %1332, align 8, !tbaa !16
   %1333 = shl i64 %.1.i.i124.i.i329, 1
@@ -110384,11 +110384,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i313: ; preds = %1373
   br i1 %1377, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i317, label %1378
 
 1378:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i313, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i320
-  %.sink63.i.i139.i.i314 = phi float [ %1366, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i320 ], [ %1357, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i313 ]
+  %.sink71.i.i139.i.i314 = phi float [ %1366, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i320 ], [ %1357, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i313 ]
   %.sink.i.i140.i.i315 = phi i64 [ %1369, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i320 ], [ %1359, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i313 ]
   %.1.i.i141.i.i316 = phi i64 [ %1351, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i320 ], [ %1350, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i313 ]
   %1379 = getelementptr inbounds nuw float, ptr %1039, i64 %.056.i.i136.i.i311
-  store float %.sink63.i.i139.i.i314, ptr %1379, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i314, ptr %1379, align 4, !tbaa !138
   %1380 = getelementptr inbounds nuw i64, ptr %1040, i64 %.056.i.i136.i.i311
   store i64 %.sink.i.i140.i.i315, ptr %1380, align 8, !tbaa !16
   %1381 = shl i64 %.1.i.i141.i.i316, 1
@@ -110559,11 +110559,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i268: ; preds = %1457
   br i1 %1461, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i272, label %1462
 
 1462:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i268, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i275
-  %.sink63.i.i159.i.i269 = phi float [ %1450, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i275 ], [ %1441, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i268 ]
+  %.sink71.i.i159.i.i269 = phi float [ %1450, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i275 ], [ %1441, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i268 ]
   %.sink.i.i160.i.i270 = phi i64 [ %1453, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i275 ], [ %1443, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i268 ]
   %.1.i.i161.i.i271 = phi i64 [ %1435, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i275 ], [ %1434, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i268 ]
   %1463 = getelementptr inbounds nuw float, ptr %1039, i64 %.056.i.i156.i.i266
-  store float %.sink63.i.i159.i.i269, ptr %1463, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i269, ptr %1463, align 4, !tbaa !138
   %1464 = getelementptr inbounds nuw i64, ptr %1040, i64 %.056.i.i156.i.i266
   store i64 %.sink.i.i160.i.i270, ptr %1464, align 8, !tbaa !16
   %1465 = shl i64 %.1.i.i161.i.i271, 1
@@ -110705,11 +110705,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i254: ; preds = %1535
   br i1 %1539, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i258, label %1540
 
 1540:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i254, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i261
-  %.sink63.i.i185.i.i255 = phi float [ %1528, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i261 ], [ %1519, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i254 ]
+  %.sink71.i.i185.i.i255 = phi float [ %1528, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i261 ], [ %1519, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i254 ]
   %.sink.i.i186.i.i256 = phi i64 [ %1531, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i261 ], [ %1521, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i254 ]
   %.1.i.i187.i.i257 = phi i64 [ %1513, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i261 ], [ %1512, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i254 ]
   %1541 = getelementptr inbounds nuw float, ptr %1401, i64 %.056.i.i182.i.i252
-  store float %.sink63.i.i185.i.i255, ptr %1541, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i255, ptr %1541, align 4, !tbaa !138
   %1542 = getelementptr inbounds nuw i64, ptr %1402, i64 %.056.i.i182.i.i252
   store i64 %.sink.i.i186.i.i256, ptr %1542, align 8, !tbaa !16
   %1543 = shl i64 %.1.i.i187.i.i257, 1
@@ -110783,7 +110783,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %1613
 
 .preheader222.i.i:                                ; preds = %1946
-  %1582 = zext i32 %.188.i.i373 to i64
+  %1582 = zext nneg i32 %.188.i.i373 to i64
   %.not243.i.i = icmp eq i32 %.188.i.i373, 0
   br i1 %.not243.i.i, label %.preheader.i.i390, label %.lr.ph236.i.preheader.i
 
@@ -111108,11 +111108,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i509:   ; preds = %1784
   br i1 %1788, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i513, label %1789
 
 1789:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i509, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i518
-  %.sink63.i.i.i.i510 = phi float [ %1777, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i518 ], [ %1768, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i509 ]
+  %.sink71.i.i.i.i510 = phi float [ %1777, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i518 ], [ %1768, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i509 ]
   %.sink.i.i.i.i511 = phi i64 [ %1780, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i518 ], [ %1770, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i509 ]
   %.1.i.i.i.i512 = phi i64 [ %1762, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i518 ], [ %1761, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i509 ]
   %1790 = getelementptr inbounds nuw float, ptr %1574, i64 %.056.i.i.i.i507
-  store float %.sink63.i.i.i.i510, ptr %1790, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i510, ptr %1790, align 4, !tbaa !138
   %1791 = getelementptr inbounds nuw i64, ptr %1575, i64 %.056.i.i.i.i507
   store i64 %.sink.i.i.i.i511, ptr %1791, align 8, !tbaa !16
   %1792 = shl i64 %.1.i.i.i.i512, 1
@@ -111206,11 +111206,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i496: ; preds = %1832
   br i1 %1836, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i500, label %1837
 
 1837:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i496, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i503
-  %.sink63.i.i105.i.i497 = phi float [ %1825, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i503 ], [ %1816, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i496 ]
+  %.sink71.i.i105.i.i497 = phi float [ %1825, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i503 ], [ %1816, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i496 ]
   %.sink.i.i106.i.i498 = phi i64 [ %1828, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i503 ], [ %1818, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i496 ]
   %.1.i.i107.i.i499 = phi i64 [ %1810, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i503 ], [ %1809, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i496 ]
   %1838 = getelementptr inbounds nuw float, ptr %1574, i64 %.056.i.i102.i.i494
-  store float %.sink63.i.i105.i.i497, ptr %1838, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i497, ptr %1838, align 4, !tbaa !138
   %1839 = getelementptr inbounds nuw i64, ptr %1575, i64 %.056.i.i102.i.i494
   store i64 %.sink.i.i106.i.i498, ptr %1839, align 8, !tbaa !16
   %1840 = shl i64 %.1.i.i107.i.i499, 1
@@ -111304,11 +111304,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i483: ; preds = %1880
   br i1 %1884, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i487, label %1885
 
 1885:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i483, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i490
-  %.sink63.i.i122.i.i484 = phi float [ %1873, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i490 ], [ %1864, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i483 ]
+  %.sink71.i.i122.i.i484 = phi float [ %1873, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i490 ], [ %1864, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i483 ]
   %.sink.i.i123.i.i485 = phi i64 [ %1876, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i490 ], [ %1866, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i483 ]
   %.1.i.i124.i.i486 = phi i64 [ %1858, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i490 ], [ %1857, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i483 ]
   %1886 = getelementptr inbounds nuw float, ptr %1574, i64 %.056.i.i119.i.i481
-  store float %.sink63.i.i122.i.i484, ptr %1886, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i484, ptr %1886, align 4, !tbaa !138
   %1887 = getelementptr inbounds nuw i64, ptr %1575, i64 %.056.i.i119.i.i481
   store i64 %.sink.i.i123.i.i485, ptr %1887, align 8, !tbaa !16
   %1888 = shl i64 %.1.i.i124.i.i486, 1
@@ -111402,11 +111402,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i470: ; preds = %1928
   br i1 %1932, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i474, label %1933
 
 1933:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i470, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i477
-  %.sink63.i.i139.i.i471 = phi float [ %1921, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i477 ], [ %1912, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i470 ]
+  %.sink71.i.i139.i.i471 = phi float [ %1921, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i477 ], [ %1912, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i470 ]
   %.sink.i.i140.i.i472 = phi i64 [ %1924, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i477 ], [ %1914, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i470 ]
   %.1.i.i141.i.i473 = phi i64 [ %1906, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i477 ], [ %1905, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i470 ]
   %1934 = getelementptr inbounds nuw float, ptr %1574, i64 %.056.i.i136.i.i468
-  store float %.sink63.i.i139.i.i471, ptr %1934, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i471, ptr %1934, align 4, !tbaa !138
   %1935 = getelementptr inbounds nuw i64, ptr %1575, i64 %.056.i.i136.i.i468
   store i64 %.sink.i.i140.i.i472, ptr %1935, align 8, !tbaa !16
   %1936 = shl i64 %.1.i.i141.i.i473, 1
@@ -111577,11 +111577,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i425: ; preds = %2012
   br i1 %2016, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i429, label %2017
 
 2017:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i425, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i432
-  %.sink63.i.i159.i.i426 = phi float [ %2005, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i432 ], [ %1996, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i425 ]
+  %.sink71.i.i159.i.i426 = phi float [ %2005, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i432 ], [ %1996, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i425 ]
   %.sink.i.i160.i.i427 = phi i64 [ %2008, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i432 ], [ %1998, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i425 ]
   %.1.i.i161.i.i428 = phi i64 [ %1990, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i432 ], [ %1989, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i425 ]
   %2018 = getelementptr inbounds nuw float, ptr %1574, i64 %.056.i.i156.i.i423
-  store float %.sink63.i.i159.i.i426, ptr %2018, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i426, ptr %2018, align 4, !tbaa !138
   %2019 = getelementptr inbounds nuw i64, ptr %1575, i64 %.056.i.i156.i.i423
   store i64 %.sink.i.i160.i.i427, ptr %2019, align 8, !tbaa !16
   %2020 = shl i64 %.1.i.i161.i.i428, 1
@@ -111728,11 +111728,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i411: ; preds = %2095
   br i1 %2099, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i415, label %2100
 
 2100:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i411, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i418
-  %.sink63.i.i185.i.i412 = phi float [ %2088, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i418 ], [ %2079, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i411 ]
+  %.sink71.i.i185.i.i412 = phi float [ %2088, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i418 ], [ %2079, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i411 ]
   %.sink.i.i186.i.i413 = phi i64 [ %2091, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i418 ], [ %2081, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i411 ]
   %.1.i.i187.i.i414 = phi i64 [ %2073, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i418 ], [ %2072, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i411 ]
   %2101 = getelementptr inbounds nuw float, ptr %1956, i64 %.056.i.i182.i.i409
-  store float %.sink63.i.i185.i.i412, ptr %2101, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i412, ptr %2101, align 4, !tbaa !138
   %2102 = getelementptr inbounds nuw i64, ptr %1957, i64 %.056.i.i182.i.i409
   store i64 %.sink.i.i186.i.i413, ptr %2102, align 8, !tbaa !16
   %2103 = shl i64 %.1.i.i187.i.i414, 1
@@ -111808,7 +111808,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %2175
 
 .preheader226.i.i:                                ; preds = %2536
-  %2144 = zext i32 %.188.i.i529 to i64
+  %2144 = zext nneg i32 %.188.i.i529 to i64
   %.not247.i.i = icmp eq i32 %.188.i.i529, 0
   br i1 %.not247.i.i, label %.preheader.i.i547, label %.lr.ph240.i.preheader.i
 
@@ -112161,11 +112161,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i666:   ; preds = %2374
   br i1 %2378, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i670, label %2379
 
 2379:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i666, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i675
-  %.sink63.i.i.i.i667 = phi float [ %2367, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i675 ], [ %2358, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i666 ]
+  %.sink71.i.i.i.i667 = phi float [ %2367, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i675 ], [ %2358, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i666 ]
   %.sink.i.i.i.i668 = phi i64 [ %2370, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i675 ], [ %2360, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i666 ]
   %.1.i.i.i.i669 = phi i64 [ %2352, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i675 ], [ %2351, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i666 ]
   %2380 = getelementptr inbounds nuw float, ptr %2136, i64 %.056.i.i.i.i664
-  store float %.sink63.i.i.i.i667, ptr %2380, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i667, ptr %2380, align 4, !tbaa !138
   %2381 = getelementptr inbounds nuw i64, ptr %2137, i64 %.056.i.i.i.i664
   store i64 %.sink.i.i.i.i668, ptr %2381, align 8, !tbaa !16
   %2382 = shl i64 %.1.i.i.i.i669, 1
@@ -112259,11 +112259,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i653: ; preds = %2422
   br i1 %2426, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i657, label %2427
 
 2427:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i653, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i660
-  %.sink63.i.i105.i.i654 = phi float [ %2415, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i660 ], [ %2406, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i653 ]
+  %.sink71.i.i105.i.i654 = phi float [ %2415, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i660 ], [ %2406, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i653 ]
   %.sink.i.i106.i.i655 = phi i64 [ %2418, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i660 ], [ %2408, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i653 ]
   %.1.i.i107.i.i656 = phi i64 [ %2400, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i660 ], [ %2399, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i653 ]
   %2428 = getelementptr inbounds nuw float, ptr %2136, i64 %.056.i.i102.i.i651
-  store float %.sink63.i.i105.i.i654, ptr %2428, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i654, ptr %2428, align 4, !tbaa !138
   %2429 = getelementptr inbounds nuw i64, ptr %2137, i64 %.056.i.i102.i.i651
   store i64 %.sink.i.i106.i.i655, ptr %2429, align 8, !tbaa !16
   %2430 = shl i64 %.1.i.i107.i.i656, 1
@@ -112357,11 +112357,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i640: ; preds = %2470
   br i1 %2474, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i644, label %2475
 
 2475:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i640, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i647
-  %.sink63.i.i122.i.i641 = phi float [ %2463, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i647 ], [ %2454, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i640 ]
+  %.sink71.i.i122.i.i641 = phi float [ %2463, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i647 ], [ %2454, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i640 ]
   %.sink.i.i123.i.i642 = phi i64 [ %2466, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i647 ], [ %2456, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i640 ]
   %.1.i.i124.i.i643 = phi i64 [ %2448, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i647 ], [ %2447, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i640 ]
   %2476 = getelementptr inbounds nuw float, ptr %2136, i64 %.056.i.i119.i.i638
-  store float %.sink63.i.i122.i.i641, ptr %2476, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i641, ptr %2476, align 4, !tbaa !138
   %2477 = getelementptr inbounds nuw i64, ptr %2137, i64 %.056.i.i119.i.i638
   store i64 %.sink.i.i123.i.i642, ptr %2477, align 8, !tbaa !16
   %2478 = shl i64 %.1.i.i124.i.i643, 1
@@ -112455,11 +112455,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i627: ; preds = %2518
   br i1 %2522, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i631, label %2523
 
 2523:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i627, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i634
-  %.sink63.i.i139.i.i628 = phi float [ %2511, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i634 ], [ %2502, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i627 ]
+  %.sink71.i.i139.i.i628 = phi float [ %2511, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i634 ], [ %2502, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i627 ]
   %.sink.i.i140.i.i629 = phi i64 [ %2514, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i634 ], [ %2504, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i627 ]
   %.1.i.i141.i.i630 = phi i64 [ %2496, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i634 ], [ %2495, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i627 ]
   %2524 = getelementptr inbounds nuw float, ptr %2136, i64 %.056.i.i136.i.i625
-  store float %.sink63.i.i139.i.i628, ptr %2524, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i628, ptr %2524, align 4, !tbaa !138
   %2525 = getelementptr inbounds nuw i64, ptr %2137, i64 %.056.i.i136.i.i625
   store i64 %.sink.i.i140.i.i629, ptr %2525, align 8, !tbaa !16
   %2526 = shl i64 %.1.i.i141.i.i630, 1
@@ -112630,11 +112630,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i582: ; preds = %2602
   br i1 %2606, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i586, label %2607
 
 2607:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i582, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i589
-  %.sink63.i.i159.i.i583 = phi float [ %2595, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i589 ], [ %2586, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i582 ]
+  %.sink71.i.i159.i.i583 = phi float [ %2595, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i589 ], [ %2586, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i582 ]
   %.sink.i.i160.i.i584 = phi i64 [ %2598, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i589 ], [ %2588, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i582 ]
   %.1.i.i161.i.i585 = phi i64 [ %2580, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i589 ], [ %2579, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i582 ]
   %2608 = getelementptr inbounds nuw float, ptr %2136, i64 %.056.i.i156.i.i580
-  store float %.sink63.i.i159.i.i583, ptr %2608, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i583, ptr %2608, align 4, !tbaa !138
   %2609 = getelementptr inbounds nuw i64, ptr %2137, i64 %.056.i.i156.i.i580
   store i64 %.sink.i.i160.i.i584, ptr %2609, align 8, !tbaa !16
   %2610 = shl i64 %.1.i.i161.i.i585, 1
@@ -112788,11 +112788,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i568: ; preds = %2692
   br i1 %2696, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i572, label %2697
 
 2697:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i568, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i575
-  %.sink63.i.i185.i.i569 = phi float [ %2685, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i575 ], [ %2676, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i568 ]
+  %.sink71.i.i185.i.i569 = phi float [ %2685, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i575 ], [ %2676, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i568 ]
   %.sink.i.i186.i.i570 = phi i64 [ %2688, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i575 ], [ %2678, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i568 ]
   %.1.i.i187.i.i571 = phi i64 [ %2670, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i575 ], [ %2669, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i568 ]
   %2698 = getelementptr inbounds nuw float, ptr %2546, i64 %.056.i.i182.i.i566
-  store float %.sink63.i.i185.i.i569, ptr %2698, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i569, ptr %2698, align 4, !tbaa !138
   %2699 = getelementptr inbounds nuw i64, ptr %2547, i64 %.056.i.i182.i.i566
   store i64 %.sink.i.i186.i.i570, ptr %2699, align 8, !tbaa !16
   %2700 = shl i64 %.1.i.i187.i.i571, 1
@@ -112876,7 +112876,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %2780
 
 .preheader242.i.i:                                ; preds = %3237
-  %2749 = zext i32 %.188.i.i686 to i64
+  %2749 = zext nneg i32 %.188.i.i686 to i64
   %.not263.i.i = icmp eq i32 %.188.i.i686, 0
   br i1 %.not263.i.i, label %.preheader.i.i704, label %.lr.ph256.i.preheader.i
 
@@ -113325,11 +113325,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i819:   ; preds = %3075
   br i1 %3079, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i823, label %3080
 
 3080:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i819, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i827
-  %.sink63.i.i.i.i820 = phi float [ %3068, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i827 ], [ %3059, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i819 ]
+  %.sink71.i.i.i.i820 = phi float [ %3068, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i827 ], [ %3059, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i819 ]
   %.sink.i.i.i.i821 = phi i64 [ %3071, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i827 ], [ %3061, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i819 ]
   %.1.i.i.i.i822 = phi i64 [ %3053, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i827 ], [ %3052, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i819 ]
   %3081 = getelementptr inbounds nuw float, ptr %2741, i64 %.056.i.i.i.i817
-  store float %.sink63.i.i.i.i820, ptr %3081, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i820, ptr %3081, align 4, !tbaa !138
   %3082 = getelementptr inbounds nuw i64, ptr %2742, i64 %.056.i.i.i.i817
   store i64 %.sink.i.i.i.i821, ptr %3082, align 8, !tbaa !16
   %3083 = shl i64 %.1.i.i.i.i822, 1
@@ -113423,11 +113423,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i806: ; preds = %3123
   br i1 %3127, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i810, label %3128
 
 3128:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i806, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i813
-  %.sink63.i.i105.i.i807 = phi float [ %3116, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i813 ], [ %3107, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i806 ]
+  %.sink71.i.i105.i.i807 = phi float [ %3116, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i813 ], [ %3107, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i806 ]
   %.sink.i.i106.i.i808 = phi i64 [ %3119, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i813 ], [ %3109, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i806 ]
   %.1.i.i107.i.i809 = phi i64 [ %3101, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i813 ], [ %3100, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i806 ]
   %3129 = getelementptr inbounds nuw float, ptr %2741, i64 %.056.i.i102.i.i804
-  store float %.sink63.i.i105.i.i807, ptr %3129, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i807, ptr %3129, align 4, !tbaa !138
   %3130 = getelementptr inbounds nuw i64, ptr %2742, i64 %.056.i.i102.i.i804
   store i64 %.sink.i.i106.i.i808, ptr %3130, align 8, !tbaa !16
   %3131 = shl i64 %.1.i.i107.i.i809, 1
@@ -113521,11 +113521,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i793: ; preds = %3171
   br i1 %3175, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i797, label %3176
 
 3176:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i793, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i800
-  %.sink63.i.i122.i.i794 = phi float [ %3164, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i800 ], [ %3155, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i793 ]
+  %.sink71.i.i122.i.i794 = phi float [ %3164, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i800 ], [ %3155, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i793 ]
   %.sink.i.i123.i.i795 = phi i64 [ %3167, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i800 ], [ %3157, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i793 ]
   %.1.i.i124.i.i796 = phi i64 [ %3149, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i800 ], [ %3148, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i793 ]
   %3177 = getelementptr inbounds nuw float, ptr %2741, i64 %.056.i.i119.i.i791
-  store float %.sink63.i.i122.i.i794, ptr %3177, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i794, ptr %3177, align 4, !tbaa !138
   %3178 = getelementptr inbounds nuw i64, ptr %2742, i64 %.056.i.i119.i.i791
   store i64 %.sink.i.i123.i.i795, ptr %3178, align 8, !tbaa !16
   %3179 = shl i64 %.1.i.i124.i.i796, 1
@@ -113619,11 +113619,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i780: ; preds = %3219
   br i1 %3223, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i784, label %3224
 
 3224:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i780, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i787
-  %.sink63.i.i139.i.i781 = phi float [ %3212, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i787 ], [ %3203, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i780 ]
+  %.sink71.i.i139.i.i781 = phi float [ %3212, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i787 ], [ %3203, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i780 ]
   %.sink.i.i140.i.i782 = phi i64 [ %3215, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i787 ], [ %3205, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i780 ]
   %.1.i.i141.i.i783 = phi i64 [ %3197, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i787 ], [ %3196, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i780 ]
   %3225 = getelementptr inbounds nuw float, ptr %2741, i64 %.056.i.i136.i.i778
-  store float %.sink63.i.i139.i.i781, ptr %3225, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i781, ptr %3225, align 4, !tbaa !138
   %3226 = getelementptr inbounds nuw i64, ptr %2742, i64 %.056.i.i136.i.i778
   store i64 %.sink.i.i140.i.i782, ptr %3226, align 8, !tbaa !16
   %3227 = shl i64 %.1.i.i141.i.i783, 1
@@ -113794,11 +113794,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i739: ; preds = %3303
   br i1 %3307, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i743, label %3308
 
 3308:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i739, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i746
-  %.sink63.i.i159.i.i740 = phi float [ %3296, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i746 ], [ %3287, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i739 ]
+  %.sink71.i.i159.i.i740 = phi float [ %3296, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i746 ], [ %3287, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i739 ]
   %.sink.i.i160.i.i741 = phi i64 [ %3299, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i746 ], [ %3289, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i739 ]
   %.1.i.i161.i.i742 = phi i64 [ %3281, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i746 ], [ %3280, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i739 ]
   %3309 = getelementptr inbounds nuw float, ptr %2741, i64 %.056.i.i156.i.i737
-  store float %.sink63.i.i159.i.i740, ptr %3309, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i740, ptr %3309, align 4, !tbaa !138
   %3310 = getelementptr inbounds nuw i64, ptr %2742, i64 %.056.i.i156.i.i737
   store i64 %.sink.i.i160.i.i741, ptr %3310, align 8, !tbaa !16
   %3311 = shl i64 %.1.i.i161.i.i742, 1
@@ -113976,11 +113976,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i725: ; preds = %3417
   br i1 %3421, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i729, label %3422
 
 3422:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i725, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i732
-  %.sink63.i.i185.i.i726 = phi float [ %3410, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i732 ], [ %3401, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i725 ]
+  %.sink71.i.i185.i.i726 = phi float [ %3410, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i732 ], [ %3401, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i725 ]
   %.sink.i.i186.i.i727 = phi i64 [ %3413, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i732 ], [ %3403, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i725 ]
   %.1.i.i187.i.i728 = phi i64 [ %3395, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i732 ], [ %3394, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i725 ]
   %3423 = getelementptr inbounds nuw float, ptr %3247, i64 %.056.i.i182.i.i723
-  store float %.sink63.i.i185.i.i726, ptr %3423, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i726, ptr %3423, align 4, !tbaa !138
   %3424 = getelementptr inbounds nuw i64, ptr %3248, i64 %.056.i.i182.i.i723
   store i64 %.sink.i.i186.i.i727, ptr %3424, align 8, !tbaa !16
   %3425 = shl i64 %.1.i.i187.i.i728, 1
@@ -114054,7 +114054,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   br label %3496
 
 .preheader210.i.i:                                ; preds = %3778
-  %3460 = zext i32 %.188.i.i839 to i64
+  %3460 = zext nneg i32 %.188.i.i839 to i64
   %.not231.i.i = icmp eq i32 %.188.i.i839, 0
   br i1 %.not231.i.i, label %.preheader.i.i856, label %.lr.ph224.i.i
 
@@ -114333,11 +114333,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i976:   ; preds = %3616
   br i1 %3620, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i980, label %3621
 
 3621:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i976, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i984
-  %.sink63.i.i.i.i977 = phi float [ %3609, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i984 ], [ %3600, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i976 ]
+  %.sink71.i.i.i.i977 = phi float [ %3609, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i984 ], [ %3600, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i976 ]
   %.sink.i.i.i.i978 = phi i64 [ %3612, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i984 ], [ %3602, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i976 ]
   %.1.i.i.i.i979 = phi i64 [ %3594, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i984 ], [ %3593, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i976 ]
   %3622 = getelementptr inbounds nuw float, ptr %3457, i64 %.056.i.i.i.i974
-  store float %.sink63.i.i.i.i977, ptr %3622, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i977, ptr %3622, align 4, !tbaa !138
   %3623 = getelementptr inbounds nuw i64, ptr %3458, i64 %.056.i.i.i.i974
   store i64 %.sink.i.i.i.i978, ptr %3623, align 8, !tbaa !16
   %3624 = shl i64 %.1.i.i.i.i979, 1
@@ -114431,11 +114431,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i963: ; preds = %3664
   br i1 %3668, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i967, label %3669
 
 3669:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i963, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i970
-  %.sink63.i.i105.i.i964 = phi float [ %3657, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i970 ], [ %3648, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i963 ]
+  %.sink71.i.i105.i.i964 = phi float [ %3657, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i970 ], [ %3648, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i963 ]
   %.sink.i.i106.i.i965 = phi i64 [ %3660, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i970 ], [ %3650, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i963 ]
   %.1.i.i107.i.i966 = phi i64 [ %3642, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i970 ], [ %3641, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i963 ]
   %3670 = getelementptr inbounds nuw float, ptr %3457, i64 %.056.i.i102.i.i961
-  store float %.sink63.i.i105.i.i964, ptr %3670, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i964, ptr %3670, align 4, !tbaa !138
   %3671 = getelementptr inbounds nuw i64, ptr %3458, i64 %.056.i.i102.i.i961
   store i64 %.sink.i.i106.i.i965, ptr %3671, align 8, !tbaa !16
   %3672 = shl i64 %.1.i.i107.i.i966, 1
@@ -114529,11 +114529,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i949: ; preds = %3712
   br i1 %3716, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i953, label %3717
 
 3717:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i949, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i957
-  %.sink63.i.i122.i.i950 = phi float [ %3705, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i957 ], [ %3696, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i949 ]
+  %.sink71.i.i122.i.i950 = phi float [ %3705, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i957 ], [ %3696, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i949 ]
   %.sink.i.i123.i.i951 = phi i64 [ %3708, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i957 ], [ %3698, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i949 ]
   %.1.i.i124.i.i952 = phi i64 [ %3690, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i957 ], [ %3689, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i949 ]
   %3718 = getelementptr inbounds nuw float, ptr %3457, i64 %.056.i.i119.i.i947
-  store float %.sink63.i.i122.i.i950, ptr %3718, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i950, ptr %3718, align 4, !tbaa !138
   %3719 = getelementptr inbounds nuw i64, ptr %3458, i64 %.056.i.i119.i.i947
   store i64 %.sink.i.i123.i.i951, ptr %3719, align 8, !tbaa !16
   %3720 = shl i64 %.1.i.i124.i.i952, 1
@@ -114627,11 +114627,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i936: ; preds = %3760
   br i1 %3764, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i940, label %3765
 
 3765:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i936, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i943
-  %.sink63.i.i139.i.i937 = phi float [ %3753, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i943 ], [ %3744, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i936 ]
+  %.sink71.i.i139.i.i937 = phi float [ %3753, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i943 ], [ %3744, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i936 ]
   %.sink.i.i140.i.i938 = phi i64 [ %3756, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i943 ], [ %3746, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i936 ]
   %.1.i.i141.i.i939 = phi i64 [ %3738, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i943 ], [ %3737, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i936 ]
   %3766 = getelementptr inbounds nuw float, ptr %3457, i64 %.056.i.i136.i.i934
-  store float %.sink63.i.i139.i.i937, ptr %3766, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i937, ptr %3766, align 4, !tbaa !138
   %3767 = getelementptr inbounds nuw i64, ptr %3458, i64 %.056.i.i136.i.i934
   store i64 %.sink.i.i140.i.i938, ptr %3767, align 8, !tbaa !16
   %3768 = shl i64 %.1.i.i141.i.i939, 1
@@ -114799,11 +114799,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i891: ; preds = %3841
   br i1 %3845, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i895, label %3846
 
 3846:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i891, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i898
-  %.sink63.i.i159.i.i892 = phi float [ %3834, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i898 ], [ %3825, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i891 ]
+  %.sink71.i.i159.i.i892 = phi float [ %3834, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i898 ], [ %3825, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i891 ]
   %.sink.i.i160.i.i893 = phi i64 [ %3837, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i898 ], [ %3827, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i891 ]
   %.1.i.i161.i.i894 = phi i64 [ %3819, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i898 ], [ %3818, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i891 ]
   %3847 = getelementptr inbounds nuw float, ptr %3457, i64 %.056.i.i156.i.i889
-  store float %.sink63.i.i159.i.i892, ptr %3847, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i892, ptr %3847, align 4, !tbaa !138
   %3848 = getelementptr inbounds nuw i64, ptr %3458, i64 %.056.i.i156.i.i889
   store i64 %.sink.i.i160.i.i893, ptr %3848, align 8, !tbaa !16
   %3849 = shl i64 %.1.i.i161.i.i894, 1
@@ -114943,11 +114943,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i877: ; preds = %3914
   br i1 %3918, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i881, label %3919
 
 3919:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i877, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i884
-  %.sink63.i.i185.i.i878 = phi float [ %3907, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i884 ], [ %3898, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i877 ]
+  %.sink71.i.i185.i.i878 = phi float [ %3907, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i884 ], [ %3898, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i877 ]
   %.sink.i.i186.i.i879 = phi i64 [ %3910, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i884 ], [ %3900, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i877 ]
   %.1.i.i187.i.i880 = phi i64 [ %3892, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i884 ], [ %3891, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i877 ]
   %3920 = getelementptr inbounds nuw float, ptr %3786, i64 %.056.i.i182.i.i875
-  store float %.sink63.i.i185.i.i878, ptr %3920, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i878, ptr %3920, align 4, !tbaa !138
   %3921 = getelementptr inbounds nuw i64, ptr %3787, i64 %.056.i.i182.i.i875
   store i64 %.sink.i.i186.i.i879, ptr %3921, align 8, !tbaa !16
   %3922 = shl i64 %.1.i.i187.i.i880, 1
@@ -115313,11 +115313,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i:        ; preds = %140
   br i1 %144, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i, label %145
 
 145:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i
-  %.sink63.i.i.i = phi float [ %133, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %124, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
+  %.sink71.i.i.i = phi float [ %133, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %124, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
   %.sink.i.i.i = phi i64 [ %136, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %126, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
   %.1.i.i.i = phi i64 [ %118, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %117, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
   %146 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i.i
-  store float %.sink63.i.i.i, ptr %146, align 4, !tbaa !138
+  store float %.sink71.i.i.i, ptr %146, align 4, !tbaa !138
   %147 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i.i
   store i64 %.sink.i.i.i, ptr %147, align 8, !tbaa !16
   %148 = shl i64 %.1.i.i.i, 1
@@ -115413,11 +115413,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i70.i:      ; preds = %190
   br i1 %194, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i74.i, label %195
 
 195:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i70.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i77.i
-  %.sink63.i.i71.i = phi float [ %183, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i77.i ], [ %174, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i70.i ]
+  %.sink71.i.i71.i = phi float [ %183, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i77.i ], [ %174, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i70.i ]
   %.sink.i.i72.i = phi i64 [ %186, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i77.i ], [ %176, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i70.i ]
   %.1.i.i73.i = phi i64 [ %168, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i77.i ], [ %167, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i70.i ]
   %196 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i68.i
-  store float %.sink63.i.i71.i, ptr %196, align 4, !tbaa !138
+  store float %.sink71.i.i71.i, ptr %196, align 4, !tbaa !138
   %197 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i68.i
   store i64 %.sink.i.i72.i, ptr %197, align 8, !tbaa !16
   %198 = shl i64 %.1.i.i73.i, 1
@@ -115513,11 +115513,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i87.i:      ; preds = %240
   br i1 %244, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i91.i, label %245
 
 245:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i87.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i94.i
-  %.sink63.i.i88.i = phi float [ %233, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i94.i ], [ %224, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i87.i ]
+  %.sink71.i.i88.i = phi float [ %233, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i94.i ], [ %224, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i87.i ]
   %.sink.i.i89.i = phi i64 [ %236, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i94.i ], [ %226, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i87.i ]
   %.1.i.i90.i = phi i64 [ %218, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i94.i ], [ %217, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i87.i ]
   %246 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i85.i
-  store float %.sink63.i.i88.i, ptr %246, align 4, !tbaa !138
+  store float %.sink71.i.i88.i, ptr %246, align 4, !tbaa !138
   %247 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i85.i
   store i64 %.sink.i.i89.i, ptr %247, align 8, !tbaa !16
   %248 = shl i64 %.1.i.i90.i, 1
@@ -115613,11 +115613,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i:     ; preds = %290
   br i1 %294, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i, label %295
 
 295:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i
-  %.sink63.i.i105.i = phi float [ %283, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i ], [ %274, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i ]
+  %.sink71.i.i105.i = phi float [ %283, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i ], [ %274, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i ]
   %.sink.i.i106.i = phi i64 [ %286, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i ], [ %276, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i ]
   %.1.i.i107.i = phi i64 [ %268, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i ], [ %267, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i ]
   %296 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i102.i
-  store float %.sink63.i.i105.i, ptr %296, align 4, !tbaa !138
+  store float %.sink71.i.i105.i, ptr %296, align 4, !tbaa !138
   %297 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i102.i
   store i64 %.sink.i.i106.i, ptr %297, align 8, !tbaa !16
   %298 = shl i64 %.1.i.i107.i, 1
@@ -115749,11 +115749,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i124.i:     ; preds = %358
   br i1 %362, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i128.i, label %363
 
 363:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i124.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i131.i
-  %.sink63.i.i125.i = phi float [ %351, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i131.i ], [ %342, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i124.i ]
+  %.sink71.i.i125.i = phi float [ %351, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i131.i ], [ %342, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i124.i ]
   %.sink.i.i126.i = phi i64 [ %354, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i131.i ], [ %344, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i124.i ]
   %.1.i.i127.i = phi i64 [ %336, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i131.i ], [ %335, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i124.i ]
   %364 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i122.i
-  store float %.sink63.i.i125.i, ptr %364, align 4, !tbaa !138
+  store float %.sink71.i.i125.i, ptr %364, align 4, !tbaa !138
   %365 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i122.i
   store i64 %.sink.i.i126.i, ptr %365, align 8, !tbaa !16
   %366 = shl i64 %.1.i.i127.i, 1
@@ -115883,11 +115883,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i150.i:     ; preds = %425
   br i1 %429, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i154.i, label %430
 
 430:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i150.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i157.i
-  %.sink63.i.i151.i = phi float [ %418, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i157.i ], [ %409, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i150.i ]
+  %.sink71.i.i151.i = phi float [ %418, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i157.i ], [ %409, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i150.i ]
   %.sink.i.i152.i = phi i64 [ %421, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i157.i ], [ %411, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i150.i ]
   %.1.i.i153.i = phi i64 [ %403, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i157.i ], [ %402, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i150.i ]
   %431 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i148.i
-  store float %.sink63.i.i151.i, ptr %431, align 4, !tbaa !138
+  store float %.sink71.i.i151.i, ptr %431, align 4, !tbaa !138
   %432 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i148.i
   store i64 %.sink.i.i152.i, ptr %432, align 8, !tbaa !16
   %433 = shl i64 %.1.i.i153.i, 1
@@ -116017,11 +116017,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i176.i:     ; preds = %493
   br i1 %497, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i180.i, label %498
 
 498:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i176.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i183.i
-  %.sink63.i.i177.i = phi float [ %486, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i183.i ], [ %477, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i176.i ]
+  %.sink71.i.i177.i = phi float [ %486, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i183.i ], [ %477, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i176.i ]
   %.sink.i.i178.i = phi i64 [ %489, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i183.i ], [ %479, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i176.i ]
   %.1.i.i179.i = phi i64 [ %471, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i183.i ], [ %470, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i176.i ]
   %499 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i174.i
-  store float %.sink63.i.i177.i, ptr %499, align 4, !tbaa !138
+  store float %.sink71.i.i177.i, ptr %499, align 4, !tbaa !138
   %500 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i174.i
   store i64 %.sink.i.i178.i, ptr %500, align 8, !tbaa !16
   %501 = shl i64 %.1.i.i179.i, 1
@@ -116149,11 +116149,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i30:      ; preds = %560
   br i1 %564, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i34, label %565
 
 565:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i30, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i37
-  %.sink63.i.i.i31 = phi float [ %553, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i37 ], [ %544, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i30 ]
+  %.sink71.i.i.i31 = phi float [ %553, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i37 ], [ %544, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i30 ]
   %.sink.i.i.i32 = phi i64 [ %556, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i37 ], [ %546, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i30 ]
   %.1.i.i.i33 = phi i64 [ %538, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i37 ], [ %537, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i30 ]
   %566 = getelementptr inbounds nuw float, ptr %517, i64 %.056.i.i.i28
-  store float %.sink63.i.i.i31, ptr %566, align 4, !tbaa !138
+  store float %.sink71.i.i.i31, ptr %566, align 4, !tbaa !138
   %567 = getelementptr inbounds nuw i64, ptr %518, i64 %.056.i.i.i28
   store i64 %.sink.i.i.i32, ptr %567, align 8, !tbaa !16
   %568 = shl i64 %.1.i.i.i33, 1
@@ -116329,11 +116329,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i52:      ; preds = %664
   br i1 %668, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i56, label %669
 
 669:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i52, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i59
-  %.sink63.i.i.i53 = phi float [ %657, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i59 ], [ %648, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i52 ]
+  %.sink71.i.i.i53 = phi float [ %657, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i59 ], [ %648, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i52 ]
   %.sink.i.i.i54 = phi i64 [ %660, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i59 ], [ %650, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i52 ]
   %.1.i.i.i55 = phi i64 [ %642, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i59 ], [ %641, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i52 ]
   %670 = getelementptr inbounds nuw float, ptr %618, i64 %.056.i.i.i50
-  store float %.sink63.i.i.i53, ptr %670, align 4, !tbaa !138
+  store float %.sink71.i.i.i53, ptr %670, align 4, !tbaa !138
   %671 = getelementptr inbounds nuw i64, ptr %619, i64 %.056.i.i.i50
   store i64 %.sink.i.i.i54, ptr %671, align 8, !tbaa !16
   %672 = shl i64 %.1.i.i.i55, 1
@@ -116504,7 +116504,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0E
   br label %90
 
 .preheader138.i.i.i.i:                            ; preds = %232
-  %60 = zext i32 %.188.i.i.i.i to i64
+  %60 = zext nneg i32 %.188.i.i.i.i to i64
   %.not159.i.i.i.i = icmp eq i32 %.188.i.i.i.i, 0
   br i1 %.not159.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph152.i.preheader.i.i.i
 
@@ -117005,7 +117005,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %361
 
 .preheader138.i.i39.i.i:                          ; preds = %507
-  %331 = zext i32 %.188.i.i37.i.i to i64
+  %331 = zext nneg i32 %.188.i.i37.i.i to i64
   %.not159.i.i40.i.i = icmp eq i32 %.188.i.i37.i.i, 0
   br i1 %.not159.i.i40.i.i, label %.preheader.i.i58.i.i, label %.lr.ph152.i.preheader.i41.i.i
 
@@ -117513,7 +117513,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %639
 
 .preheader142.i.i.i.i:                            ; preds = %809
-  %609 = zext i32 %.188.i.i125.i.i to i64
+  %609 = zext nneg i32 %.188.i.i125.i.i to i64
   %.not163.i.i.i.i = icmp eq i32 %.188.i.i125.i.i, 0
   br i1 %.not163.i.i.i.i, label %.preheader.i.i141.i.i, label %.lr.ph156.i.preheader.i.i.i
 
@@ -118053,7 +118053,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %949
 
 .preheader146.i.i.i.i:                            ; preds = %1139
-  %919 = zext i32 %.188.i.i196.i.i to i64
+  %919 = zext nneg i32 %.188.i.i196.i.i to i64
   %.not167.i.i.i.i = icmp eq i32 %.188.i.i196.i.i, 0
   br i1 %.not167.i.i.i.i, label %.preheader.i.i212.i.i, label %.lr.ph160.i.preheader.i.i.i
 
@@ -118620,7 +118620,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %1286
 
 .preheader150.i.i.i.i:                            ; preds = %1504
-  %1256 = zext i32 %.188.i.i266.i.i to i64
+  %1256 = zext nneg i32 %.188.i.i266.i.i to i64
   %.not171.i.i.i.i = icmp eq i32 %.188.i.i266.i.i, 0
   br i1 %.not171.i.i.i.i, label %.preheader.i.i283.i.i, label %.lr.ph164.i.preheader.i.i.i
 
@@ -119230,7 +119230,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %1666
 
 .preheader166.i.i.i.i:                            ; preds = %1980
-  %1636 = zext i32 %.188.i.i337.i.i to i64
+  %1636 = zext nneg i32 %.188.i.i337.i.i to i64
   %.not187.i.i.i.i = icmp eq i32 %.188.i.i337.i.i, 0
   br i1 %.not187.i.i.i.i, label %.preheader.i.i354.i.i, label %.lr.ph180.i.preheader.i.i.i
 
@@ -119953,7 +119953,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %2155
 
 .preheader134.i.i.i.i:                            ; preds = %2289
-  %2125 = zext i32 %.188.i.i405.i.i to i64
+  %2125 = zext nneg i32 %.188.i.i405.i.i to i64
   %.not155.i.i.i.i = icmp eq i32 %.188.i.i405.i.i, 0
   br i1 %.not155.i.i.i.i, label %.preheader.i.i421.i.i, label %.lr.ph148.i.preheader.i.i.i
 
@@ -121227,7 +121227,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   br label %79
 
 .preheader214.i.i:                                ; preds = %364
-  %48 = zext i32 %.188.i.i to i64
+  %48 = zext nneg i32 %.188.i.i to i64
   %.not235.i.i = icmp eq i32 %.188.i.i, 0
   br i1 %.not235.i.i, label %.preheader.i.i, label %.lr.ph228.i.preheader.i
 
@@ -121504,11 +121504,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i:      ; preds = %202
   br i1 %206, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i, label %207
 
 207:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i
-  %.sink63.i.i.i.i = phi float [ %195, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %186, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
+  %.sink71.i.i.i.i = phi float [ %195, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %186, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
   %.sink.i.i.i.i = phi i64 [ %198, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %188, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
   %.1.i.i.i.i = phi i64 [ %180, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %179, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
   %208 = getelementptr inbounds nuw float, ptr %40, i64 %.056.i.i.i.i
-  store float %.sink63.i.i.i.i, ptr %208, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i, ptr %208, align 4, !tbaa !138
   %209 = getelementptr inbounds nuw i64, ptr %41, i64 %.056.i.i.i.i
   store i64 %.sink.i.i.i.i, ptr %209, align 8, !tbaa !16
   %210 = shl i64 %.1.i.i.i.i, 1
@@ -121602,11 +121602,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i:   ; preds = %250
   br i1 %254, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i, label %255
 
 255:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i
-  %.sink63.i.i105.i.i = phi float [ %243, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i ], [ %234, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i ]
+  %.sink71.i.i105.i.i = phi float [ %243, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i ], [ %234, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i ]
   %.sink.i.i106.i.i = phi i64 [ %246, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i ], [ %236, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i ]
   %.1.i.i107.i.i = phi i64 [ %228, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i ], [ %227, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i ]
   %256 = getelementptr inbounds nuw float, ptr %40, i64 %.056.i.i102.i.i
-  store float %.sink63.i.i105.i.i, ptr %256, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i, ptr %256, align 4, !tbaa !138
   %257 = getelementptr inbounds nuw i64, ptr %41, i64 %.056.i.i102.i.i
   store i64 %.sink.i.i106.i.i, ptr %257, align 8, !tbaa !16
   %258 = shl i64 %.1.i.i107.i.i, 1
@@ -121700,11 +121700,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i:   ; preds = %298
   br i1 %302, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i, label %303
 
 303:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i
-  %.sink63.i.i122.i.i = phi float [ %291, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i ], [ %282, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i ]
+  %.sink71.i.i122.i.i = phi float [ %291, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i ], [ %282, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i ]
   %.sink.i.i123.i.i = phi i64 [ %294, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i ], [ %284, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i ]
   %.1.i.i124.i.i = phi i64 [ %276, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i ], [ %275, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i ]
   %304 = getelementptr inbounds nuw float, ptr %40, i64 %.056.i.i119.i.i
-  store float %.sink63.i.i122.i.i, ptr %304, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i, ptr %304, align 4, !tbaa !138
   %305 = getelementptr inbounds nuw i64, ptr %41, i64 %.056.i.i119.i.i
   store i64 %.sink.i.i123.i.i, ptr %305, align 8, !tbaa !16
   %306 = shl i64 %.1.i.i124.i.i, 1
@@ -121798,11 +121798,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i:   ; preds = %346
   br i1 %350, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i, label %351
 
 351:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i
-  %.sink63.i.i139.i.i = phi float [ %339, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i ], [ %330, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i ]
+  %.sink71.i.i139.i.i = phi float [ %339, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i ], [ %330, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i ]
   %.sink.i.i140.i.i = phi i64 [ %342, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i ], [ %332, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i ]
   %.1.i.i141.i.i = phi i64 [ %324, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i ], [ %323, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i ]
   %352 = getelementptr inbounds nuw float, ptr %40, i64 %.056.i.i136.i.i
-  store float %.sink63.i.i139.i.i, ptr %352, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i, ptr %352, align 4, !tbaa !138
   %353 = getelementptr inbounds nuw i64, ptr %41, i64 %.056.i.i136.i.i
   store i64 %.sink.i.i140.i.i, ptr %353, align 8, !tbaa !16
   %354 = shl i64 %.1.i.i141.i.i, 1
@@ -121973,11 +121973,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i:   ; preds = %430
   br i1 %434, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i, label %435
 
 435:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i
-  %.sink63.i.i159.i.i = phi float [ %423, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i ], [ %414, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i ]
+  %.sink71.i.i159.i.i = phi float [ %423, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i ], [ %414, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i ]
   %.sink.i.i160.i.i = phi i64 [ %426, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i ], [ %416, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i ]
   %.1.i.i161.i.i = phi i64 [ %408, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i ], [ %407, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i ]
   %436 = getelementptr inbounds nuw float, ptr %40, i64 %.056.i.i156.i.i
-  store float %.sink63.i.i159.i.i, ptr %436, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i, ptr %436, align 4, !tbaa !138
   %437 = getelementptr inbounds nuw i64, ptr %41, i64 %.056.i.i156.i.i
   store i64 %.sink.i.i160.i.i, ptr %437, align 8, !tbaa !16
   %438 = shl i64 %.1.i.i161.i.i, 1
@@ -122112,11 +122112,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i:   ; preds = %501
   br i1 %505, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i, label %506
 
 506:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i
-  %.sink63.i.i185.i.i = phi float [ %494, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i ], [ %485, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i ]
+  %.sink71.i.i185.i.i = phi float [ %494, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i ], [ %485, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i ]
   %.sink.i.i186.i.i = phi i64 [ %497, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i ], [ %487, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i ]
   %.1.i.i187.i.i = phi i64 [ %479, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i ], [ %478, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i ]
   %507 = getelementptr inbounds nuw float, ptr %374, i64 %.056.i.i182.i.i
-  store float %.sink63.i.i185.i.i, ptr %507, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i, ptr %507, align 4, !tbaa !138
   %508 = getelementptr inbounds nuw i64, ptr %375, i64 %.056.i.i182.i.i
   store i64 %.sink.i.i186.i.i, ptr %508, align 8, !tbaa !16
   %509 = shl i64 %.1.i.i187.i.i, 1
@@ -122186,7 +122186,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %575
 
 .preheader214.i.i42:                              ; preds = %864
-  %544 = zext i32 %.188.i.i40 to i64
+  %544 = zext nneg i32 %.188.i.i40 to i64
   %.not235.i.i43 = icmp eq i32 %.188.i.i40, 0
   br i1 %.not235.i.i43, label %.preheader.i.i62, label %.lr.ph228.i.preheader.i44
 
@@ -122467,11 +122467,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i195:   ; preds = %702
   br i1 %706, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i199, label %707
 
 707:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i195, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i204
-  %.sink63.i.i.i.i196 = phi float [ %695, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i204 ], [ %686, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i195 ]
+  %.sink71.i.i.i.i196 = phi float [ %695, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i204 ], [ %686, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i195 ]
   %.sink.i.i.i.i197 = phi i64 [ %698, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i204 ], [ %688, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i195 ]
   %.1.i.i.i.i198 = phi i64 [ %680, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i204 ], [ %679, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i195 ]
   %708 = getelementptr inbounds nuw float, ptr %536, i64 %.056.i.i.i.i193
-  store float %.sink63.i.i.i.i196, ptr %708, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i196, ptr %708, align 4, !tbaa !138
   %709 = getelementptr inbounds nuw i64, ptr %537, i64 %.056.i.i.i.i193
   store i64 %.sink.i.i.i.i197, ptr %709, align 8, !tbaa !16
   %710 = shl i64 %.1.i.i.i.i198, 1
@@ -122565,11 +122565,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i180: ; preds = %750
   br i1 %754, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i184, label %755
 
 755:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i180, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i189
-  %.sink63.i.i105.i.i181 = phi float [ %743, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i189 ], [ %734, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i180 ]
+  %.sink71.i.i105.i.i181 = phi float [ %743, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i189 ], [ %734, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i180 ]
   %.sink.i.i106.i.i182 = phi i64 [ %746, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i189 ], [ %736, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i180 ]
   %.1.i.i107.i.i183 = phi i64 [ %728, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i189 ], [ %727, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i180 ]
   %756 = getelementptr inbounds nuw float, ptr %536, i64 %.056.i.i102.i.i178
-  store float %.sink63.i.i105.i.i181, ptr %756, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i181, ptr %756, align 4, !tbaa !138
   %757 = getelementptr inbounds nuw i64, ptr %537, i64 %.056.i.i102.i.i178
   store i64 %.sink.i.i106.i.i182, ptr %757, align 8, !tbaa !16
   %758 = shl i64 %.1.i.i107.i.i183, 1
@@ -122663,11 +122663,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i165: ; preds = %798
   br i1 %802, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i169, label %803
 
 803:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i165, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i174
-  %.sink63.i.i122.i.i166 = phi float [ %791, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i174 ], [ %782, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i165 ]
+  %.sink71.i.i122.i.i166 = phi float [ %791, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i174 ], [ %782, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i165 ]
   %.sink.i.i123.i.i167 = phi i64 [ %794, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i174 ], [ %784, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i165 ]
   %.1.i.i124.i.i168 = phi i64 [ %776, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i174 ], [ %775, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i165 ]
   %804 = getelementptr inbounds nuw float, ptr %536, i64 %.056.i.i119.i.i163
-  store float %.sink63.i.i122.i.i166, ptr %804, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i166, ptr %804, align 4, !tbaa !138
   %805 = getelementptr inbounds nuw i64, ptr %537, i64 %.056.i.i119.i.i163
   store i64 %.sink.i.i123.i.i167, ptr %805, align 8, !tbaa !16
   %806 = shl i64 %.1.i.i124.i.i168, 1
@@ -122761,11 +122761,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i152: ; preds = %846
   br i1 %850, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i156, label %851
 
 851:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i152, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i159
-  %.sink63.i.i139.i.i153 = phi float [ %839, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i159 ], [ %830, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i152 ]
+  %.sink71.i.i139.i.i153 = phi float [ %839, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i159 ], [ %830, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i152 ]
   %.sink.i.i140.i.i154 = phi i64 [ %842, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i159 ], [ %832, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i152 ]
   %.1.i.i141.i.i155 = phi i64 [ %824, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i159 ], [ %823, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i152 ]
   %852 = getelementptr inbounds nuw float, ptr %536, i64 %.056.i.i136.i.i150
-  store float %.sink63.i.i139.i.i153, ptr %852, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i153, ptr %852, align 4, !tbaa !138
   %853 = getelementptr inbounds nuw i64, ptr %537, i64 %.056.i.i136.i.i150
   store i64 %.sink.i.i140.i.i154, ptr %853, align 8, !tbaa !16
   %854 = shl i64 %.1.i.i141.i.i155, 1
@@ -122936,11 +122936,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i101: ; preds = %930
   br i1 %934, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i105, label %935
 
 935:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i101, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i108
-  %.sink63.i.i159.i.i102 = phi float [ %923, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i108 ], [ %914, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i101 ]
+  %.sink71.i.i159.i.i102 = phi float [ %923, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i108 ], [ %914, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i101 ]
   %.sink.i.i160.i.i103 = phi i64 [ %926, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i108 ], [ %916, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i101 ]
   %.1.i.i161.i.i104 = phi i64 [ %908, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i108 ], [ %907, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i101 ]
   %936 = getelementptr inbounds nuw float, ptr %536, i64 %.056.i.i156.i.i99
-  store float %.sink63.i.i159.i.i102, ptr %936, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i102, ptr %936, align 4, !tbaa !138
   %937 = getelementptr inbounds nuw i64, ptr %537, i64 %.056.i.i156.i.i99
   store i64 %.sink.i.i160.i.i103, ptr %937, align 8, !tbaa !16
   %938 = shl i64 %.1.i.i161.i.i104, 1
@@ -123076,11 +123076,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i87: ; preds = %1002
   br i1 %1006, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i91, label %1007
 
 1007:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i87, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i94
-  %.sink63.i.i185.i.i88 = phi float [ %995, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i94 ], [ %986, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i87 ]
+  %.sink71.i.i185.i.i88 = phi float [ %995, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i94 ], [ %986, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i87 ]
   %.sink.i.i186.i.i89 = phi i64 [ %998, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i94 ], [ %988, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i87 ]
   %.1.i.i187.i.i90 = phi i64 [ %980, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i94 ], [ %979, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i87 ]
   %1008 = getelementptr inbounds nuw float, ptr %874, i64 %.056.i.i182.i.i85
-  store float %.sink63.i.i185.i.i88, ptr %1008, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i88, ptr %1008, align 4, !tbaa !138
   %1009 = getelementptr inbounds nuw i64, ptr %875, i64 %.056.i.i182.i.i85
   store i64 %.sink.i.i186.i.i89, ptr %1009, align 8, !tbaa !16
   %1010 = shl i64 %.1.i.i187.i.i90, 1
@@ -123152,7 +123152,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %1078
 
 .preheader218.i.i:                                ; preds = %1391
-  %1047 = zext i32 %.188.i.i216 to i64
+  %1047 = zext nneg i32 %.188.i.i216 to i64
   %.not239.i.i = icmp eq i32 %.188.i.i216, 0
   br i1 %.not239.i.i, label %.preheader.i.i233, label %.lr.ph232.i.preheader.i
 
@@ -123457,11 +123457,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i352:   ; preds = %1229
   br i1 %1233, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i356, label %1234
 
 1234:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i352, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i361
-  %.sink63.i.i.i.i353 = phi float [ %1222, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i361 ], [ %1213, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i352 ]
+  %.sink71.i.i.i.i353 = phi float [ %1222, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i361 ], [ %1213, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i352 ]
   %.sink.i.i.i.i354 = phi i64 [ %1225, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i361 ], [ %1215, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i352 ]
   %.1.i.i.i.i355 = phi i64 [ %1207, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i361 ], [ %1206, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i352 ]
   %1235 = getelementptr inbounds nuw float, ptr %1039, i64 %.056.i.i.i.i350
-  store float %.sink63.i.i.i.i353, ptr %1235, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i353, ptr %1235, align 4, !tbaa !138
   %1236 = getelementptr inbounds nuw i64, ptr %1040, i64 %.056.i.i.i.i350
   store i64 %.sink.i.i.i.i354, ptr %1236, align 8, !tbaa !16
   %1237 = shl i64 %.1.i.i.i.i355, 1
@@ -123555,11 +123555,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i339: ; preds = %1277
   br i1 %1281, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i343, label %1282
 
 1282:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i339, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i346
-  %.sink63.i.i105.i.i340 = phi float [ %1270, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i346 ], [ %1261, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i339 ]
+  %.sink71.i.i105.i.i340 = phi float [ %1270, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i346 ], [ %1261, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i339 ]
   %.sink.i.i106.i.i341 = phi i64 [ %1273, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i346 ], [ %1263, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i339 ]
   %.1.i.i107.i.i342 = phi i64 [ %1255, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i346 ], [ %1254, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i339 ]
   %1283 = getelementptr inbounds nuw float, ptr %1039, i64 %.056.i.i102.i.i337
-  store float %.sink63.i.i105.i.i340, ptr %1283, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i340, ptr %1283, align 4, !tbaa !138
   %1284 = getelementptr inbounds nuw i64, ptr %1040, i64 %.056.i.i102.i.i337
   store i64 %.sink.i.i106.i.i341, ptr %1284, align 8, !tbaa !16
   %1285 = shl i64 %.1.i.i107.i.i342, 1
@@ -123653,11 +123653,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i326: ; preds = %1325
   br i1 %1329, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i330, label %1330
 
 1330:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i326, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i333
-  %.sink63.i.i122.i.i327 = phi float [ %1318, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i333 ], [ %1309, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i326 ]
+  %.sink71.i.i122.i.i327 = phi float [ %1318, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i333 ], [ %1309, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i326 ]
   %.sink.i.i123.i.i328 = phi i64 [ %1321, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i333 ], [ %1311, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i326 ]
   %.1.i.i124.i.i329 = phi i64 [ %1303, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i333 ], [ %1302, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i326 ]
   %1331 = getelementptr inbounds nuw float, ptr %1039, i64 %.056.i.i119.i.i324
-  store float %.sink63.i.i122.i.i327, ptr %1331, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i327, ptr %1331, align 4, !tbaa !138
   %1332 = getelementptr inbounds nuw i64, ptr %1040, i64 %.056.i.i119.i.i324
   store i64 %.sink.i.i123.i.i328, ptr %1332, align 8, !tbaa !16
   %1333 = shl i64 %.1.i.i124.i.i329, 1
@@ -123751,11 +123751,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i313: ; preds = %1373
   br i1 %1377, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i317, label %1378
 
 1378:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i313, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i320
-  %.sink63.i.i139.i.i314 = phi float [ %1366, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i320 ], [ %1357, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i313 ]
+  %.sink71.i.i139.i.i314 = phi float [ %1366, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i320 ], [ %1357, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i313 ]
   %.sink.i.i140.i.i315 = phi i64 [ %1369, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i320 ], [ %1359, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i313 ]
   %.1.i.i141.i.i316 = phi i64 [ %1351, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i320 ], [ %1350, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i313 ]
   %1379 = getelementptr inbounds nuw float, ptr %1039, i64 %.056.i.i136.i.i311
-  store float %.sink63.i.i139.i.i314, ptr %1379, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i314, ptr %1379, align 4, !tbaa !138
   %1380 = getelementptr inbounds nuw i64, ptr %1040, i64 %.056.i.i136.i.i311
   store i64 %.sink.i.i140.i.i315, ptr %1380, align 8, !tbaa !16
   %1381 = shl i64 %.1.i.i141.i.i316, 1
@@ -123926,11 +123926,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i268: ; preds = %1457
   br i1 %1461, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i272, label %1462
 
 1462:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i268, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i275
-  %.sink63.i.i159.i.i269 = phi float [ %1450, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i275 ], [ %1441, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i268 ]
+  %.sink71.i.i159.i.i269 = phi float [ %1450, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i275 ], [ %1441, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i268 ]
   %.sink.i.i160.i.i270 = phi i64 [ %1453, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i275 ], [ %1443, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i268 ]
   %.1.i.i161.i.i271 = phi i64 [ %1435, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i275 ], [ %1434, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i268 ]
   %1463 = getelementptr inbounds nuw float, ptr %1039, i64 %.056.i.i156.i.i266
-  store float %.sink63.i.i159.i.i269, ptr %1463, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i269, ptr %1463, align 4, !tbaa !138
   %1464 = getelementptr inbounds nuw i64, ptr %1040, i64 %.056.i.i156.i.i266
   store i64 %.sink.i.i160.i.i270, ptr %1464, align 8, !tbaa !16
   %1465 = shl i64 %.1.i.i161.i.i271, 1
@@ -124072,11 +124072,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i254: ; preds = %1535
   br i1 %1539, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i258, label %1540
 
 1540:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i254, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i261
-  %.sink63.i.i185.i.i255 = phi float [ %1528, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i261 ], [ %1519, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i254 ]
+  %.sink71.i.i185.i.i255 = phi float [ %1528, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i261 ], [ %1519, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i254 ]
   %.sink.i.i186.i.i256 = phi i64 [ %1531, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i261 ], [ %1521, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i254 ]
   %.1.i.i187.i.i257 = phi i64 [ %1513, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i261 ], [ %1512, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i254 ]
   %1541 = getelementptr inbounds nuw float, ptr %1401, i64 %.056.i.i182.i.i252
-  store float %.sink63.i.i185.i.i255, ptr %1541, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i255, ptr %1541, align 4, !tbaa !138
   %1542 = getelementptr inbounds nuw i64, ptr %1402, i64 %.056.i.i182.i.i252
   store i64 %.sink.i.i186.i.i256, ptr %1542, align 8, !tbaa !16
   %1543 = shl i64 %.1.i.i187.i.i257, 1
@@ -124150,7 +124150,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %1613
 
 .preheader222.i.i:                                ; preds = %1946
-  %1582 = zext i32 %.188.i.i373 to i64
+  %1582 = zext nneg i32 %.188.i.i373 to i64
   %.not243.i.i = icmp eq i32 %.188.i.i373, 0
   br i1 %.not243.i.i, label %.preheader.i.i390, label %.lr.ph236.i.preheader.i
 
@@ -124475,11 +124475,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i509:   ; preds = %1784
   br i1 %1788, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i513, label %1789
 
 1789:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i509, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i518
-  %.sink63.i.i.i.i510 = phi float [ %1777, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i518 ], [ %1768, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i509 ]
+  %.sink71.i.i.i.i510 = phi float [ %1777, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i518 ], [ %1768, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i509 ]
   %.sink.i.i.i.i511 = phi i64 [ %1780, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i518 ], [ %1770, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i509 ]
   %.1.i.i.i.i512 = phi i64 [ %1762, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i518 ], [ %1761, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i509 ]
   %1790 = getelementptr inbounds nuw float, ptr %1574, i64 %.056.i.i.i.i507
-  store float %.sink63.i.i.i.i510, ptr %1790, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i510, ptr %1790, align 4, !tbaa !138
   %1791 = getelementptr inbounds nuw i64, ptr %1575, i64 %.056.i.i.i.i507
   store i64 %.sink.i.i.i.i511, ptr %1791, align 8, !tbaa !16
   %1792 = shl i64 %.1.i.i.i.i512, 1
@@ -124573,11 +124573,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i496: ; preds = %1832
   br i1 %1836, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i500, label %1837
 
 1837:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i496, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i503
-  %.sink63.i.i105.i.i497 = phi float [ %1825, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i503 ], [ %1816, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i496 ]
+  %.sink71.i.i105.i.i497 = phi float [ %1825, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i503 ], [ %1816, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i496 ]
   %.sink.i.i106.i.i498 = phi i64 [ %1828, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i503 ], [ %1818, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i496 ]
   %.1.i.i107.i.i499 = phi i64 [ %1810, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i503 ], [ %1809, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i496 ]
   %1838 = getelementptr inbounds nuw float, ptr %1574, i64 %.056.i.i102.i.i494
-  store float %.sink63.i.i105.i.i497, ptr %1838, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i497, ptr %1838, align 4, !tbaa !138
   %1839 = getelementptr inbounds nuw i64, ptr %1575, i64 %.056.i.i102.i.i494
   store i64 %.sink.i.i106.i.i498, ptr %1839, align 8, !tbaa !16
   %1840 = shl i64 %.1.i.i107.i.i499, 1
@@ -124671,11 +124671,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i483: ; preds = %1880
   br i1 %1884, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i487, label %1885
 
 1885:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i483, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i490
-  %.sink63.i.i122.i.i484 = phi float [ %1873, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i490 ], [ %1864, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i483 ]
+  %.sink71.i.i122.i.i484 = phi float [ %1873, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i490 ], [ %1864, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i483 ]
   %.sink.i.i123.i.i485 = phi i64 [ %1876, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i490 ], [ %1866, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i483 ]
   %.1.i.i124.i.i486 = phi i64 [ %1858, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i490 ], [ %1857, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i483 ]
   %1886 = getelementptr inbounds nuw float, ptr %1574, i64 %.056.i.i119.i.i481
-  store float %.sink63.i.i122.i.i484, ptr %1886, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i484, ptr %1886, align 4, !tbaa !138
   %1887 = getelementptr inbounds nuw i64, ptr %1575, i64 %.056.i.i119.i.i481
   store i64 %.sink.i.i123.i.i485, ptr %1887, align 8, !tbaa !16
   %1888 = shl i64 %.1.i.i124.i.i486, 1
@@ -124769,11 +124769,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i470: ; preds = %1928
   br i1 %1932, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i474, label %1933
 
 1933:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i470, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i477
-  %.sink63.i.i139.i.i471 = phi float [ %1921, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i477 ], [ %1912, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i470 ]
+  %.sink71.i.i139.i.i471 = phi float [ %1921, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i477 ], [ %1912, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i470 ]
   %.sink.i.i140.i.i472 = phi i64 [ %1924, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i477 ], [ %1914, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i470 ]
   %.1.i.i141.i.i473 = phi i64 [ %1906, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i477 ], [ %1905, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i470 ]
   %1934 = getelementptr inbounds nuw float, ptr %1574, i64 %.056.i.i136.i.i468
-  store float %.sink63.i.i139.i.i471, ptr %1934, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i471, ptr %1934, align 4, !tbaa !138
   %1935 = getelementptr inbounds nuw i64, ptr %1575, i64 %.056.i.i136.i.i468
   store i64 %.sink.i.i140.i.i472, ptr %1935, align 8, !tbaa !16
   %1936 = shl i64 %.1.i.i141.i.i473, 1
@@ -124944,11 +124944,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i425: ; preds = %2012
   br i1 %2016, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i429, label %2017
 
 2017:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i425, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i432
-  %.sink63.i.i159.i.i426 = phi float [ %2005, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i432 ], [ %1996, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i425 ]
+  %.sink71.i.i159.i.i426 = phi float [ %2005, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i432 ], [ %1996, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i425 ]
   %.sink.i.i160.i.i427 = phi i64 [ %2008, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i432 ], [ %1998, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i425 ]
   %.1.i.i161.i.i428 = phi i64 [ %1990, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i432 ], [ %1989, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i425 ]
   %2018 = getelementptr inbounds nuw float, ptr %1574, i64 %.056.i.i156.i.i423
-  store float %.sink63.i.i159.i.i426, ptr %2018, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i426, ptr %2018, align 4, !tbaa !138
   %2019 = getelementptr inbounds nuw i64, ptr %1575, i64 %.056.i.i156.i.i423
   store i64 %.sink.i.i160.i.i427, ptr %2019, align 8, !tbaa !16
   %2020 = shl i64 %.1.i.i161.i.i428, 1
@@ -125095,11 +125095,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i411: ; preds = %2095
   br i1 %2099, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i415, label %2100
 
 2100:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i411, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i418
-  %.sink63.i.i185.i.i412 = phi float [ %2088, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i418 ], [ %2079, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i411 ]
+  %.sink71.i.i185.i.i412 = phi float [ %2088, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i418 ], [ %2079, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i411 ]
   %.sink.i.i186.i.i413 = phi i64 [ %2091, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i418 ], [ %2081, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i411 ]
   %.1.i.i187.i.i414 = phi i64 [ %2073, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i418 ], [ %2072, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i411 ]
   %2101 = getelementptr inbounds nuw float, ptr %1956, i64 %.056.i.i182.i.i409
-  store float %.sink63.i.i185.i.i412, ptr %2101, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i412, ptr %2101, align 4, !tbaa !138
   %2102 = getelementptr inbounds nuw i64, ptr %1957, i64 %.056.i.i182.i.i409
   store i64 %.sink.i.i186.i.i413, ptr %2102, align 8, !tbaa !16
   %2103 = shl i64 %.1.i.i187.i.i414, 1
@@ -125175,7 +125175,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %2175
 
 .preheader226.i.i:                                ; preds = %2536
-  %2144 = zext i32 %.188.i.i529 to i64
+  %2144 = zext nneg i32 %.188.i.i529 to i64
   %.not247.i.i = icmp eq i32 %.188.i.i529, 0
   br i1 %.not247.i.i, label %.preheader.i.i547, label %.lr.ph240.i.preheader.i
 
@@ -125528,11 +125528,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i666:   ; preds = %2374
   br i1 %2378, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i670, label %2379
 
 2379:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i666, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i675
-  %.sink63.i.i.i.i667 = phi float [ %2367, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i675 ], [ %2358, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i666 ]
+  %.sink71.i.i.i.i667 = phi float [ %2367, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i675 ], [ %2358, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i666 ]
   %.sink.i.i.i.i668 = phi i64 [ %2370, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i675 ], [ %2360, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i666 ]
   %.1.i.i.i.i669 = phi i64 [ %2352, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i675 ], [ %2351, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i666 ]
   %2380 = getelementptr inbounds nuw float, ptr %2136, i64 %.056.i.i.i.i664
-  store float %.sink63.i.i.i.i667, ptr %2380, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i667, ptr %2380, align 4, !tbaa !138
   %2381 = getelementptr inbounds nuw i64, ptr %2137, i64 %.056.i.i.i.i664
   store i64 %.sink.i.i.i.i668, ptr %2381, align 8, !tbaa !16
   %2382 = shl i64 %.1.i.i.i.i669, 1
@@ -125626,11 +125626,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i653: ; preds = %2422
   br i1 %2426, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i657, label %2427
 
 2427:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i653, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i660
-  %.sink63.i.i105.i.i654 = phi float [ %2415, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i660 ], [ %2406, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i653 ]
+  %.sink71.i.i105.i.i654 = phi float [ %2415, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i660 ], [ %2406, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i653 ]
   %.sink.i.i106.i.i655 = phi i64 [ %2418, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i660 ], [ %2408, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i653 ]
   %.1.i.i107.i.i656 = phi i64 [ %2400, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i660 ], [ %2399, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i653 ]
   %2428 = getelementptr inbounds nuw float, ptr %2136, i64 %.056.i.i102.i.i651
-  store float %.sink63.i.i105.i.i654, ptr %2428, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i654, ptr %2428, align 4, !tbaa !138
   %2429 = getelementptr inbounds nuw i64, ptr %2137, i64 %.056.i.i102.i.i651
   store i64 %.sink.i.i106.i.i655, ptr %2429, align 8, !tbaa !16
   %2430 = shl i64 %.1.i.i107.i.i656, 1
@@ -125724,11 +125724,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i640: ; preds = %2470
   br i1 %2474, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i644, label %2475
 
 2475:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i640, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i647
-  %.sink63.i.i122.i.i641 = phi float [ %2463, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i647 ], [ %2454, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i640 ]
+  %.sink71.i.i122.i.i641 = phi float [ %2463, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i647 ], [ %2454, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i640 ]
   %.sink.i.i123.i.i642 = phi i64 [ %2466, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i647 ], [ %2456, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i640 ]
   %.1.i.i124.i.i643 = phi i64 [ %2448, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i647 ], [ %2447, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i640 ]
   %2476 = getelementptr inbounds nuw float, ptr %2136, i64 %.056.i.i119.i.i638
-  store float %.sink63.i.i122.i.i641, ptr %2476, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i641, ptr %2476, align 4, !tbaa !138
   %2477 = getelementptr inbounds nuw i64, ptr %2137, i64 %.056.i.i119.i.i638
   store i64 %.sink.i.i123.i.i642, ptr %2477, align 8, !tbaa !16
   %2478 = shl i64 %.1.i.i124.i.i643, 1
@@ -125822,11 +125822,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i627: ; preds = %2518
   br i1 %2522, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i631, label %2523
 
 2523:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i627, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i634
-  %.sink63.i.i139.i.i628 = phi float [ %2511, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i634 ], [ %2502, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i627 ]
+  %.sink71.i.i139.i.i628 = phi float [ %2511, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i634 ], [ %2502, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i627 ]
   %.sink.i.i140.i.i629 = phi i64 [ %2514, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i634 ], [ %2504, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i627 ]
   %.1.i.i141.i.i630 = phi i64 [ %2496, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i634 ], [ %2495, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i627 ]
   %2524 = getelementptr inbounds nuw float, ptr %2136, i64 %.056.i.i136.i.i625
-  store float %.sink63.i.i139.i.i628, ptr %2524, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i628, ptr %2524, align 4, !tbaa !138
   %2525 = getelementptr inbounds nuw i64, ptr %2137, i64 %.056.i.i136.i.i625
   store i64 %.sink.i.i140.i.i629, ptr %2525, align 8, !tbaa !16
   %2526 = shl i64 %.1.i.i141.i.i630, 1
@@ -125997,11 +125997,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i582: ; preds = %2602
   br i1 %2606, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i586, label %2607
 
 2607:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i582, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i589
-  %.sink63.i.i159.i.i583 = phi float [ %2595, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i589 ], [ %2586, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i582 ]
+  %.sink71.i.i159.i.i583 = phi float [ %2595, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i589 ], [ %2586, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i582 ]
   %.sink.i.i160.i.i584 = phi i64 [ %2598, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i589 ], [ %2588, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i582 ]
   %.1.i.i161.i.i585 = phi i64 [ %2580, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i589 ], [ %2579, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i582 ]
   %2608 = getelementptr inbounds nuw float, ptr %2136, i64 %.056.i.i156.i.i580
-  store float %.sink63.i.i159.i.i583, ptr %2608, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i583, ptr %2608, align 4, !tbaa !138
   %2609 = getelementptr inbounds nuw i64, ptr %2137, i64 %.056.i.i156.i.i580
   store i64 %.sink.i.i160.i.i584, ptr %2609, align 8, !tbaa !16
   %2610 = shl i64 %.1.i.i161.i.i585, 1
@@ -126155,11 +126155,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i568: ; preds = %2692
   br i1 %2696, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i572, label %2697
 
 2697:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i568, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i575
-  %.sink63.i.i185.i.i569 = phi float [ %2685, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i575 ], [ %2676, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i568 ]
+  %.sink71.i.i185.i.i569 = phi float [ %2685, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i575 ], [ %2676, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i568 ]
   %.sink.i.i186.i.i570 = phi i64 [ %2688, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i575 ], [ %2678, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i568 ]
   %.1.i.i187.i.i571 = phi i64 [ %2670, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i575 ], [ %2669, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i568 ]
   %2698 = getelementptr inbounds nuw float, ptr %2546, i64 %.056.i.i182.i.i566
-  store float %.sink63.i.i185.i.i569, ptr %2698, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i569, ptr %2698, align 4, !tbaa !138
   %2699 = getelementptr inbounds nuw i64, ptr %2547, i64 %.056.i.i182.i.i566
   store i64 %.sink.i.i186.i.i570, ptr %2699, align 8, !tbaa !16
   %2700 = shl i64 %.1.i.i187.i.i571, 1
@@ -126243,7 +126243,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %2780
 
 .preheader242.i.i:                                ; preds = %3237
-  %2749 = zext i32 %.188.i.i686 to i64
+  %2749 = zext nneg i32 %.188.i.i686 to i64
   %.not263.i.i = icmp eq i32 %.188.i.i686, 0
   br i1 %.not263.i.i, label %.preheader.i.i704, label %.lr.ph256.i.preheader.i
 
@@ -126692,11 +126692,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i819:   ; preds = %3075
   br i1 %3079, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i823, label %3080
 
 3080:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i819, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i827
-  %.sink63.i.i.i.i820 = phi float [ %3068, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i827 ], [ %3059, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i819 ]
+  %.sink71.i.i.i.i820 = phi float [ %3068, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i827 ], [ %3059, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i819 ]
   %.sink.i.i.i.i821 = phi i64 [ %3071, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i827 ], [ %3061, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i819 ]
   %.1.i.i.i.i822 = phi i64 [ %3053, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i827 ], [ %3052, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i819 ]
   %3081 = getelementptr inbounds nuw float, ptr %2741, i64 %.056.i.i.i.i817
-  store float %.sink63.i.i.i.i820, ptr %3081, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i820, ptr %3081, align 4, !tbaa !138
   %3082 = getelementptr inbounds nuw i64, ptr %2742, i64 %.056.i.i.i.i817
   store i64 %.sink.i.i.i.i821, ptr %3082, align 8, !tbaa !16
   %3083 = shl i64 %.1.i.i.i.i822, 1
@@ -126790,11 +126790,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i806: ; preds = %3123
   br i1 %3127, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i810, label %3128
 
 3128:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i806, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i813
-  %.sink63.i.i105.i.i807 = phi float [ %3116, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i813 ], [ %3107, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i806 ]
+  %.sink71.i.i105.i.i807 = phi float [ %3116, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i813 ], [ %3107, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i806 ]
   %.sink.i.i106.i.i808 = phi i64 [ %3119, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i813 ], [ %3109, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i806 ]
   %.1.i.i107.i.i809 = phi i64 [ %3101, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i813 ], [ %3100, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i806 ]
   %3129 = getelementptr inbounds nuw float, ptr %2741, i64 %.056.i.i102.i.i804
-  store float %.sink63.i.i105.i.i807, ptr %3129, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i807, ptr %3129, align 4, !tbaa !138
   %3130 = getelementptr inbounds nuw i64, ptr %2742, i64 %.056.i.i102.i.i804
   store i64 %.sink.i.i106.i.i808, ptr %3130, align 8, !tbaa !16
   %3131 = shl i64 %.1.i.i107.i.i809, 1
@@ -126888,11 +126888,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i793: ; preds = %3171
   br i1 %3175, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i797, label %3176
 
 3176:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i793, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i800
-  %.sink63.i.i122.i.i794 = phi float [ %3164, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i800 ], [ %3155, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i793 ]
+  %.sink71.i.i122.i.i794 = phi float [ %3164, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i800 ], [ %3155, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i793 ]
   %.sink.i.i123.i.i795 = phi i64 [ %3167, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i800 ], [ %3157, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i793 ]
   %.1.i.i124.i.i796 = phi i64 [ %3149, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i800 ], [ %3148, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i793 ]
   %3177 = getelementptr inbounds nuw float, ptr %2741, i64 %.056.i.i119.i.i791
-  store float %.sink63.i.i122.i.i794, ptr %3177, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i794, ptr %3177, align 4, !tbaa !138
   %3178 = getelementptr inbounds nuw i64, ptr %2742, i64 %.056.i.i119.i.i791
   store i64 %.sink.i.i123.i.i795, ptr %3178, align 8, !tbaa !16
   %3179 = shl i64 %.1.i.i124.i.i796, 1
@@ -126986,11 +126986,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i780: ; preds = %3219
   br i1 %3223, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i784, label %3224
 
 3224:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i780, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i787
-  %.sink63.i.i139.i.i781 = phi float [ %3212, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i787 ], [ %3203, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i780 ]
+  %.sink71.i.i139.i.i781 = phi float [ %3212, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i787 ], [ %3203, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i780 ]
   %.sink.i.i140.i.i782 = phi i64 [ %3215, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i787 ], [ %3205, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i780 ]
   %.1.i.i141.i.i783 = phi i64 [ %3197, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i787 ], [ %3196, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i780 ]
   %3225 = getelementptr inbounds nuw float, ptr %2741, i64 %.056.i.i136.i.i778
-  store float %.sink63.i.i139.i.i781, ptr %3225, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i781, ptr %3225, align 4, !tbaa !138
   %3226 = getelementptr inbounds nuw i64, ptr %2742, i64 %.056.i.i136.i.i778
   store i64 %.sink.i.i140.i.i782, ptr %3226, align 8, !tbaa !16
   %3227 = shl i64 %.1.i.i141.i.i783, 1
@@ -127161,11 +127161,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i739: ; preds = %3303
   br i1 %3307, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i743, label %3308
 
 3308:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i739, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i746
-  %.sink63.i.i159.i.i740 = phi float [ %3296, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i746 ], [ %3287, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i739 ]
+  %.sink71.i.i159.i.i740 = phi float [ %3296, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i746 ], [ %3287, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i739 ]
   %.sink.i.i160.i.i741 = phi i64 [ %3299, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i746 ], [ %3289, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i739 ]
   %.1.i.i161.i.i742 = phi i64 [ %3281, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i746 ], [ %3280, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i739 ]
   %3309 = getelementptr inbounds nuw float, ptr %2741, i64 %.056.i.i156.i.i737
-  store float %.sink63.i.i159.i.i740, ptr %3309, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i740, ptr %3309, align 4, !tbaa !138
   %3310 = getelementptr inbounds nuw i64, ptr %2742, i64 %.056.i.i156.i.i737
   store i64 %.sink.i.i160.i.i741, ptr %3310, align 8, !tbaa !16
   %3311 = shl i64 %.1.i.i161.i.i742, 1
@@ -127343,11 +127343,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i725: ; preds = %3417
   br i1 %3421, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i729, label %3422
 
 3422:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i725, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i732
-  %.sink63.i.i185.i.i726 = phi float [ %3410, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i732 ], [ %3401, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i725 ]
+  %.sink71.i.i185.i.i726 = phi float [ %3410, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i732 ], [ %3401, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i725 ]
   %.sink.i.i186.i.i727 = phi i64 [ %3413, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i732 ], [ %3403, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i725 ]
   %.1.i.i187.i.i728 = phi i64 [ %3395, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i732 ], [ %3394, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i725 ]
   %3423 = getelementptr inbounds nuw float, ptr %3247, i64 %.056.i.i182.i.i723
-  store float %.sink63.i.i185.i.i726, ptr %3423, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i726, ptr %3423, align 4, !tbaa !138
   %3424 = getelementptr inbounds nuw i64, ptr %3248, i64 %.056.i.i182.i.i723
   store i64 %.sink.i.i186.i.i727, ptr %3424, align 8, !tbaa !16
   %3425 = shl i64 %.1.i.i187.i.i728, 1
@@ -127421,7 +127421,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   br label %3496
 
 .preheader210.i.i:                                ; preds = %3778
-  %3460 = zext i32 %.188.i.i839 to i64
+  %3460 = zext nneg i32 %.188.i.i839 to i64
   %.not231.i.i = icmp eq i32 %.188.i.i839, 0
   br i1 %.not231.i.i, label %.preheader.i.i856, label %.lr.ph224.i.i
 
@@ -127700,11 +127700,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i976:   ; preds = %3616
   br i1 %3620, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i980, label %3621
 
 3621:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i976, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i984
-  %.sink63.i.i.i.i977 = phi float [ %3609, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i984 ], [ %3600, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i976 ]
+  %.sink71.i.i.i.i977 = phi float [ %3609, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i984 ], [ %3600, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i976 ]
   %.sink.i.i.i.i978 = phi i64 [ %3612, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i984 ], [ %3602, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i976 ]
   %.1.i.i.i.i979 = phi i64 [ %3594, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i984 ], [ %3593, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i976 ]
   %3622 = getelementptr inbounds nuw float, ptr %3457, i64 %.056.i.i.i.i974
-  store float %.sink63.i.i.i.i977, ptr %3622, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i977, ptr %3622, align 4, !tbaa !138
   %3623 = getelementptr inbounds nuw i64, ptr %3458, i64 %.056.i.i.i.i974
   store i64 %.sink.i.i.i.i978, ptr %3623, align 8, !tbaa !16
   %3624 = shl i64 %.1.i.i.i.i979, 1
@@ -127798,11 +127798,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i963: ; preds = %3664
   br i1 %3668, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i967, label %3669
 
 3669:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i963, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i970
-  %.sink63.i.i105.i.i964 = phi float [ %3657, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i970 ], [ %3648, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i963 ]
+  %.sink71.i.i105.i.i964 = phi float [ %3657, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i970 ], [ %3648, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i963 ]
   %.sink.i.i106.i.i965 = phi i64 [ %3660, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i970 ], [ %3650, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i963 ]
   %.1.i.i107.i.i966 = phi i64 [ %3642, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i111.i.i970 ], [ %3641, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i104.i.i963 ]
   %3670 = getelementptr inbounds nuw float, ptr %3457, i64 %.056.i.i102.i.i961
-  store float %.sink63.i.i105.i.i964, ptr %3670, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i964, ptr %3670, align 4, !tbaa !138
   %3671 = getelementptr inbounds nuw i64, ptr %3458, i64 %.056.i.i102.i.i961
   store i64 %.sink.i.i106.i.i965, ptr %3671, align 8, !tbaa !16
   %3672 = shl i64 %.1.i.i107.i.i966, 1
@@ -127896,11 +127896,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i949: ; preds = %3712
   br i1 %3716, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i953, label %3717
 
 3717:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i949, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i957
-  %.sink63.i.i122.i.i950 = phi float [ %3705, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i957 ], [ %3696, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i949 ]
+  %.sink71.i.i122.i.i950 = phi float [ %3705, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i957 ], [ %3696, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i949 ]
   %.sink.i.i123.i.i951 = phi i64 [ %3708, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i957 ], [ %3698, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i949 ]
   %.1.i.i124.i.i952 = phi i64 [ %3690, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i.i957 ], [ %3689, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i.i949 ]
   %3718 = getelementptr inbounds nuw float, ptr %3457, i64 %.056.i.i119.i.i947
-  store float %.sink63.i.i122.i.i950, ptr %3718, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i950, ptr %3718, align 4, !tbaa !138
   %3719 = getelementptr inbounds nuw i64, ptr %3458, i64 %.056.i.i119.i.i947
   store i64 %.sink.i.i123.i.i951, ptr %3719, align 8, !tbaa !16
   %3720 = shl i64 %.1.i.i124.i.i952, 1
@@ -127994,11 +127994,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i936: ; preds = %3760
   br i1 %3764, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i940, label %3765
 
 3765:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i936, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i943
-  %.sink63.i.i139.i.i937 = phi float [ %3753, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i943 ], [ %3744, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i936 ]
+  %.sink71.i.i139.i.i937 = phi float [ %3753, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i943 ], [ %3744, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i936 ]
   %.sink.i.i140.i.i938 = phi i64 [ %3756, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i943 ], [ %3746, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i936 ]
   %.1.i.i141.i.i939 = phi i64 [ %3738, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i145.i.i943 ], [ %3737, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i138.i.i936 ]
   %3766 = getelementptr inbounds nuw float, ptr %3457, i64 %.056.i.i136.i.i934
-  store float %.sink63.i.i139.i.i937, ptr %3766, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i937, ptr %3766, align 4, !tbaa !138
   %3767 = getelementptr inbounds nuw i64, ptr %3458, i64 %.056.i.i136.i.i934
   store i64 %.sink.i.i140.i.i938, ptr %3767, align 8, !tbaa !16
   %3768 = shl i64 %.1.i.i141.i.i939, 1
@@ -128166,11 +128166,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i891: ; preds = %3841
   br i1 %3845, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i895, label %3846
 
 3846:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i891, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i898
-  %.sink63.i.i159.i.i892 = phi float [ %3834, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i898 ], [ %3825, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i891 ]
+  %.sink71.i.i159.i.i892 = phi float [ %3834, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i898 ], [ %3825, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i891 ]
   %.sink.i.i160.i.i893 = phi i64 [ %3837, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i898 ], [ %3827, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i891 ]
   %.1.i.i161.i.i894 = phi i64 [ %3819, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i165.i.i898 ], [ %3818, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i158.i.i891 ]
   %3847 = getelementptr inbounds nuw float, ptr %3457, i64 %.056.i.i156.i.i889
-  store float %.sink63.i.i159.i.i892, ptr %3847, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i892, ptr %3847, align 4, !tbaa !138
   %3848 = getelementptr inbounds nuw i64, ptr %3458, i64 %.056.i.i156.i.i889
   store i64 %.sink.i.i160.i.i893, ptr %3848, align 8, !tbaa !16
   %3849 = shl i64 %.1.i.i161.i.i894, 1
@@ -128310,11 +128310,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i877: ; preds = %3914
   br i1 %3918, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i881, label %3919
 
 3919:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i877, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i884
-  %.sink63.i.i185.i.i878 = phi float [ %3907, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i884 ], [ %3898, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i877 ]
+  %.sink71.i.i185.i.i878 = phi float [ %3907, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i884 ], [ %3898, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i877 ]
   %.sink.i.i186.i.i879 = phi i64 [ %3910, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i884 ], [ %3900, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i877 ]
   %.1.i.i187.i.i880 = phi i64 [ %3892, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i191.i.i884 ], [ %3891, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i184.i.i877 ]
   %3920 = getelementptr inbounds nuw float, ptr %3786, i64 %.056.i.i182.i.i875
-  store float %.sink63.i.i185.i.i878, ptr %3920, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i878, ptr %3920, align 4, !tbaa !138
   %3921 = getelementptr inbounds nuw i64, ptr %3787, i64 %.056.i.i182.i.i875
   store i64 %.sink.i.i186.i.i879, ptr %3921, align 8, !tbaa !16
   %3922 = shl i64 %.1.i.i187.i.i880, 1
@@ -128680,11 +128680,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i:        ; preds = %140
   br i1 %144, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i, label %145
 
 145:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i
-  %.sink63.i.i.i = phi float [ %133, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %124, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
+  %.sink71.i.i.i = phi float [ %133, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %124, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
   %.sink.i.i.i = phi i64 [ %136, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %126, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
   %.1.i.i.i = phi i64 [ %118, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %117, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
   %146 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i.i
-  store float %.sink63.i.i.i, ptr %146, align 4, !tbaa !138
+  store float %.sink71.i.i.i, ptr %146, align 4, !tbaa !138
   %147 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i.i
   store i64 %.sink.i.i.i, ptr %147, align 8, !tbaa !16
   %148 = shl i64 %.1.i.i.i, 1
@@ -128780,11 +128780,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i70.i:      ; preds = %190
   br i1 %194, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i74.i, label %195
 
 195:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i70.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i77.i
-  %.sink63.i.i71.i = phi float [ %183, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i77.i ], [ %174, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i70.i ]
+  %.sink71.i.i71.i = phi float [ %183, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i77.i ], [ %174, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i70.i ]
   %.sink.i.i72.i = phi i64 [ %186, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i77.i ], [ %176, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i70.i ]
   %.1.i.i73.i = phi i64 [ %168, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i77.i ], [ %167, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i70.i ]
   %196 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i68.i
-  store float %.sink63.i.i71.i, ptr %196, align 4, !tbaa !138
+  store float %.sink71.i.i71.i, ptr %196, align 4, !tbaa !138
   %197 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i68.i
   store i64 %.sink.i.i72.i, ptr %197, align 8, !tbaa !16
   %198 = shl i64 %.1.i.i73.i, 1
@@ -128880,11 +128880,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i87.i:      ; preds = %240
   br i1 %244, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i91.i, label %245
 
 245:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i87.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i94.i
-  %.sink63.i.i88.i = phi float [ %233, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i94.i ], [ %224, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i87.i ]
+  %.sink71.i.i88.i = phi float [ %233, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i94.i ], [ %224, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i87.i ]
   %.sink.i.i89.i = phi i64 [ %236, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i94.i ], [ %226, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i87.i ]
   %.1.i.i90.i = phi i64 [ %218, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i94.i ], [ %217, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i87.i ]
   %246 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i85.i
-  store float %.sink63.i.i88.i, ptr %246, align 4, !tbaa !138
+  store float %.sink71.i.i88.i, ptr %246, align 4, !tbaa !138
   %247 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i85.i
   store i64 %.sink.i.i89.i, ptr %247, align 8, !tbaa !16
   %248 = shl i64 %.1.i.i90.i, 1
@@ -128980,11 +128980,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i:     ; preds = %290
   br i1 %294, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i, label %295
 
 295:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i
-  %.sink63.i.i105.i = phi float [ %283, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i ], [ %274, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i ]
+  %.sink71.i.i105.i = phi float [ %283, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i ], [ %274, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i ]
   %.sink.i.i106.i = phi i64 [ %286, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i ], [ %276, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i ]
   %.1.i.i107.i = phi i64 [ %268, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i ], [ %267, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i ]
   %296 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i102.i
-  store float %.sink63.i.i105.i, ptr %296, align 4, !tbaa !138
+  store float %.sink71.i.i105.i, ptr %296, align 4, !tbaa !138
   %297 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i102.i
   store i64 %.sink.i.i106.i, ptr %297, align 8, !tbaa !16
   %298 = shl i64 %.1.i.i107.i, 1
@@ -129116,11 +129116,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i124.i:     ; preds = %358
   br i1 %362, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i128.i, label %363
 
 363:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i124.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i131.i
-  %.sink63.i.i125.i = phi float [ %351, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i131.i ], [ %342, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i124.i ]
+  %.sink71.i.i125.i = phi float [ %351, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i131.i ], [ %342, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i124.i ]
   %.sink.i.i126.i = phi i64 [ %354, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i131.i ], [ %344, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i124.i ]
   %.1.i.i127.i = phi i64 [ %336, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i131.i ], [ %335, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i124.i ]
   %364 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i122.i
-  store float %.sink63.i.i125.i, ptr %364, align 4, !tbaa !138
+  store float %.sink71.i.i125.i, ptr %364, align 4, !tbaa !138
   %365 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i122.i
   store i64 %.sink.i.i126.i, ptr %365, align 8, !tbaa !16
   %366 = shl i64 %.1.i.i127.i, 1
@@ -129250,11 +129250,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i150.i:     ; preds = %425
   br i1 %429, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i154.i, label %430
 
 430:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i150.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i157.i
-  %.sink63.i.i151.i = phi float [ %418, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i157.i ], [ %409, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i150.i ]
+  %.sink71.i.i151.i = phi float [ %418, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i157.i ], [ %409, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i150.i ]
   %.sink.i.i152.i = phi i64 [ %421, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i157.i ], [ %411, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i150.i ]
   %.1.i.i153.i = phi i64 [ %403, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i157.i ], [ %402, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i150.i ]
   %431 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i148.i
-  store float %.sink63.i.i151.i, ptr %431, align 4, !tbaa !138
+  store float %.sink71.i.i151.i, ptr %431, align 4, !tbaa !138
   %432 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i148.i
   store i64 %.sink.i.i152.i, ptr %432, align 8, !tbaa !16
   %433 = shl i64 %.1.i.i153.i, 1
@@ -129384,11 +129384,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i176.i:     ; preds = %493
   br i1 %497, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i180.i, label %498
 
 498:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i176.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i183.i
-  %.sink63.i.i177.i = phi float [ %486, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i183.i ], [ %477, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i176.i ]
+  %.sink71.i.i177.i = phi float [ %486, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i183.i ], [ %477, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i176.i ]
   %.sink.i.i178.i = phi i64 [ %489, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i183.i ], [ %479, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i176.i ]
   %.1.i.i179.i = phi i64 [ %471, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i183.i ], [ %470, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i176.i ]
   %499 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i174.i
-  store float %.sink63.i.i177.i, ptr %499, align 4, !tbaa !138
+  store float %.sink71.i.i177.i, ptr %499, align 4, !tbaa !138
   %500 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i174.i
   store i64 %.sink.i.i178.i, ptr %500, align 8, !tbaa !16
   %501 = shl i64 %.1.i.i179.i, 1
@@ -129516,11 +129516,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i30:      ; preds = %560
   br i1 %564, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i34, label %565
 
 565:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i30, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i37
-  %.sink63.i.i.i31 = phi float [ %553, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i37 ], [ %544, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i30 ]
+  %.sink71.i.i.i31 = phi float [ %553, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i37 ], [ %544, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i30 ]
   %.sink.i.i.i32 = phi i64 [ %556, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i37 ], [ %546, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i30 ]
   %.1.i.i.i33 = phi i64 [ %538, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i37 ], [ %537, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i30 ]
   %566 = getelementptr inbounds nuw float, ptr %517, i64 %.056.i.i.i28
-  store float %.sink63.i.i.i31, ptr %566, align 4, !tbaa !138
+  store float %.sink71.i.i.i31, ptr %566, align 4, !tbaa !138
   %567 = getelementptr inbounds nuw i64, ptr %518, i64 %.056.i.i.i28
   store i64 %.sink.i.i.i32, ptr %567, align 8, !tbaa !16
   %568 = shl i64 %.1.i.i.i33, 1
@@ -129693,11 +129693,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i52:      ; preds = %658
   br i1 %662, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i56, label %663
 
 663:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i52, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i59
-  %.sink63.i.i.i53 = phi float [ %651, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i59 ], [ %642, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i52 ]
+  %.sink71.i.i.i53 = phi float [ %651, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i59 ], [ %642, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i52 ]
   %.sink.i.i.i54 = phi i64 [ %654, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i59 ], [ %644, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i52 ]
   %.1.i.i.i55 = phi i64 [ %636, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i59 ], [ %635, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i52 ]
   %664 = getelementptr inbounds nuw float, ptr %614, i64 %.056.i.i.i50
-  store float %.sink63.i.i.i53, ptr %664, align 4, !tbaa !138
+  store float %.sink71.i.i.i53, ptr %664, align 4, !tbaa !138
   %665 = getelementptr inbounds nuw i64, ptr %615, i64 %.056.i.i.i50
   store i64 %.sink.i.i.i54, ptr %665, align 8, !tbaa !16
   %666 = shl i64 %.1.i.i.i55, 1
@@ -129868,7 +129868,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1E
   br label %90
 
 .preheader138.i.i.i.i:                            ; preds = %232
-  %60 = zext i32 %.188.i.i.i.i to i64
+  %60 = zext nneg i32 %.188.i.i.i.i to i64
   %.not159.i.i.i.i = icmp eq i32 %.188.i.i.i.i, 0
   br i1 %.not159.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph152.i.preheader.i.i.i
 
@@ -130369,7 +130369,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %361
 
 .preheader138.i.i39.i.i:                          ; preds = %507
-  %331 = zext i32 %.188.i.i37.i.i to i64
+  %331 = zext nneg i32 %.188.i.i37.i.i to i64
   %.not159.i.i40.i.i = icmp eq i32 %.188.i.i37.i.i, 0
   br i1 %.not159.i.i40.i.i, label %.preheader.i.i58.i.i, label %.lr.ph152.i.preheader.i41.i.i
 
@@ -130877,7 +130877,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %639
 
 .preheader142.i.i.i.i:                            ; preds = %809
-  %609 = zext i32 %.188.i.i125.i.i to i64
+  %609 = zext nneg i32 %.188.i.i125.i.i to i64
   %.not163.i.i.i.i = icmp eq i32 %.188.i.i125.i.i, 0
   br i1 %.not163.i.i.i.i, label %.preheader.i.i141.i.i, label %.lr.ph156.i.preheader.i.i.i
 
@@ -131417,7 +131417,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %949
 
 .preheader146.i.i.i.i:                            ; preds = %1139
-  %919 = zext i32 %.188.i.i196.i.i to i64
+  %919 = zext nneg i32 %.188.i.i196.i.i to i64
   %.not167.i.i.i.i = icmp eq i32 %.188.i.i196.i.i, 0
   br i1 %.not167.i.i.i.i, label %.preheader.i.i212.i.i, label %.lr.ph160.i.preheader.i.i.i
 
@@ -131984,7 +131984,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %1286
 
 .preheader150.i.i.i.i:                            ; preds = %1504
-  %1256 = zext i32 %.188.i.i266.i.i to i64
+  %1256 = zext nneg i32 %.188.i.i266.i.i to i64
   %.not171.i.i.i.i = icmp eq i32 %.188.i.i266.i.i, 0
   br i1 %.not171.i.i.i.i, label %.preheader.i.i283.i.i, label %.lr.ph164.i.preheader.i.i.i
 
@@ -132594,7 +132594,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %1666
 
 .preheader166.i.i.i.i:                            ; preds = %1980
-  %1636 = zext i32 %.188.i.i337.i.i to i64
+  %1636 = zext nneg i32 %.188.i.i337.i.i to i64
   %.not187.i.i.i.i = icmp eq i32 %.188.i.i337.i.i, 0
   br i1 %.not187.i.i.i.i, label %.preheader.i.i354.i.i, label %.lr.ph180.i.preheader.i.i.i
 
@@ -133317,7 +133317,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %2155
 
 .preheader134.i.i.i.i:                            ; preds = %2289
-  %2125 = zext i32 %.188.i.i405.i.i to i64
+  %2125 = zext nneg i32 %.188.i.i405.i.i to i64
   %.not155.i.i.i.i = icmp eq i32 %.188.i.i405.i.i, 0
   br i1 %.not155.i.i.i.i, label %.preheader.i.i421.i.i, label %.lr.ph148.i.preheader.i.i.i
 
@@ -134588,7 +134588,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   br label %79
 
 .preheader214.i.i:                                ; preds = %364
-  %48 = zext i32 %.188.i.i to i64
+  %48 = zext nneg i32 %.188.i.i to i64
   %.not235.i.i = icmp eq i32 %.188.i.i, 0
   br i1 %.not235.i.i, label %.preheader.i.i, label %.lr.ph228.i.preheader.i
 
@@ -134865,11 +134865,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i:      ; preds = %202
   br i1 %206, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i, label %207
 
 207:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i
-  %.sink63.i.i.i.i = phi float [ %195, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %186, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
+  %.sink71.i.i.i.i = phi float [ %195, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %186, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
   %.sink.i.i.i.i = phi i64 [ %198, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %188, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
   %.1.i.i.i.i = phi i64 [ %180, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %179, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
   %208 = getelementptr inbounds nuw float, ptr %40, i64 %.056.i.i.i.i
-  store float %.sink63.i.i.i.i, ptr %208, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i, ptr %208, align 4, !tbaa !138
   %209 = getelementptr inbounds nuw i64, ptr %41, i64 %.056.i.i.i.i
   store i64 %.sink.i.i.i.i, ptr %209, align 8, !tbaa !16
   %210 = shl i64 %.1.i.i.i.i, 1
@@ -134963,11 +134963,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i:   ; preds = %250
   br i1 %254, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i, label %255
 
 255:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i
-  %.sink63.i.i105.i.i = phi float [ %243, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i ], [ %234, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i ]
+  %.sink71.i.i105.i.i = phi float [ %243, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i ], [ %234, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i ]
   %.sink.i.i106.i.i = phi i64 [ %246, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i ], [ %236, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i ]
   %.1.i.i107.i.i = phi i64 [ %228, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i ], [ %227, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i ]
   %256 = getelementptr inbounds nuw float, ptr %40, i64 %.056.i.i102.i.i
-  store float %.sink63.i.i105.i.i, ptr %256, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i, ptr %256, align 4, !tbaa !138
   %257 = getelementptr inbounds nuw i64, ptr %41, i64 %.056.i.i102.i.i
   store i64 %.sink.i.i106.i.i, ptr %257, align 8, !tbaa !16
   %258 = shl i64 %.1.i.i107.i.i, 1
@@ -135061,11 +135061,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i:   ; preds = %298
   br i1 %302, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i, label %303
 
 303:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i
-  %.sink63.i.i122.i.i = phi float [ %291, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i ], [ %282, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i ]
+  %.sink71.i.i122.i.i = phi float [ %291, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i ], [ %282, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i ]
   %.sink.i.i123.i.i = phi i64 [ %294, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i ], [ %284, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i ]
   %.1.i.i124.i.i = phi i64 [ %276, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i ], [ %275, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i ]
   %304 = getelementptr inbounds nuw float, ptr %40, i64 %.056.i.i119.i.i
-  store float %.sink63.i.i122.i.i, ptr %304, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i, ptr %304, align 4, !tbaa !138
   %305 = getelementptr inbounds nuw i64, ptr %41, i64 %.056.i.i119.i.i
   store i64 %.sink.i.i123.i.i, ptr %305, align 8, !tbaa !16
   %306 = shl i64 %.1.i.i124.i.i, 1
@@ -135159,11 +135159,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i:   ; preds = %346
   br i1 %350, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i, label %351
 
 351:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i
-  %.sink63.i.i139.i.i = phi float [ %339, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i ], [ %330, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i ]
+  %.sink71.i.i139.i.i = phi float [ %339, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i ], [ %330, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i ]
   %.sink.i.i140.i.i = phi i64 [ %342, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i ], [ %332, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i ]
   %.1.i.i141.i.i = phi i64 [ %324, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i ], [ %323, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i ]
   %352 = getelementptr inbounds nuw float, ptr %40, i64 %.056.i.i136.i.i
-  store float %.sink63.i.i139.i.i, ptr %352, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i, ptr %352, align 4, !tbaa !138
   %353 = getelementptr inbounds nuw i64, ptr %41, i64 %.056.i.i136.i.i
   store i64 %.sink.i.i140.i.i, ptr %353, align 8, !tbaa !16
   %354 = shl i64 %.1.i.i141.i.i, 1
@@ -135334,11 +135334,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i:   ; preds = %430
   br i1 %434, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i, label %435
 
 435:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i
-  %.sink63.i.i159.i.i = phi float [ %423, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i ], [ %414, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i ]
+  %.sink71.i.i159.i.i = phi float [ %423, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i ], [ %414, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i ]
   %.sink.i.i160.i.i = phi i64 [ %426, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i ], [ %416, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i ]
   %.1.i.i161.i.i = phi i64 [ %408, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i ], [ %407, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i ]
   %436 = getelementptr inbounds nuw float, ptr %40, i64 %.056.i.i156.i.i
-  store float %.sink63.i.i159.i.i, ptr %436, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i, ptr %436, align 4, !tbaa !138
   %437 = getelementptr inbounds nuw i64, ptr %41, i64 %.056.i.i156.i.i
   store i64 %.sink.i.i160.i.i, ptr %437, align 8, !tbaa !16
   %438 = shl i64 %.1.i.i161.i.i, 1
@@ -135473,11 +135473,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i:   ; preds = %501
   br i1 %505, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i, label %506
 
 506:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i
-  %.sink63.i.i185.i.i = phi float [ %494, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i ], [ %485, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i ]
+  %.sink71.i.i185.i.i = phi float [ %494, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i ], [ %485, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i ]
   %.sink.i.i186.i.i = phi i64 [ %497, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i ], [ %487, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i ]
   %.1.i.i187.i.i = phi i64 [ %479, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i ], [ %478, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i ]
   %507 = getelementptr inbounds nuw float, ptr %374, i64 %.056.i.i182.i.i
-  store float %.sink63.i.i185.i.i, ptr %507, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i, ptr %507, align 4, !tbaa !138
   %508 = getelementptr inbounds nuw i64, ptr %375, i64 %.056.i.i182.i.i
   store i64 %.sink.i.i186.i.i, ptr %508, align 8, !tbaa !16
   %509 = shl i64 %.1.i.i187.i.i, 1
@@ -135547,7 +135547,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %575
 
 .preheader214.i.i42:                              ; preds = %864
-  %544 = zext i32 %.188.i.i40 to i64
+  %544 = zext nneg i32 %.188.i.i40 to i64
   %.not235.i.i43 = icmp eq i32 %.188.i.i40, 0
   br i1 %.not235.i.i43, label %.preheader.i.i62, label %.lr.ph228.i.preheader.i44
 
@@ -135828,11 +135828,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i195:   ; preds = %702
   br i1 %706, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i199, label %707
 
 707:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i195, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i204
-  %.sink63.i.i.i.i196 = phi float [ %695, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i204 ], [ %686, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i195 ]
+  %.sink71.i.i.i.i196 = phi float [ %695, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i204 ], [ %686, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i195 ]
   %.sink.i.i.i.i197 = phi i64 [ %698, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i204 ], [ %688, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i195 ]
   %.1.i.i.i.i198 = phi i64 [ %680, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i204 ], [ %679, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i195 ]
   %708 = getelementptr inbounds nuw float, ptr %536, i64 %.056.i.i.i.i193
-  store float %.sink63.i.i.i.i196, ptr %708, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i196, ptr %708, align 4, !tbaa !138
   %709 = getelementptr inbounds nuw i64, ptr %537, i64 %.056.i.i.i.i193
   store i64 %.sink.i.i.i.i197, ptr %709, align 8, !tbaa !16
   %710 = shl i64 %.1.i.i.i.i198, 1
@@ -135926,11 +135926,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i180: ; preds = %750
   br i1 %754, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i184, label %755
 
 755:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i180, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i189
-  %.sink63.i.i105.i.i181 = phi float [ %743, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i189 ], [ %734, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i180 ]
+  %.sink71.i.i105.i.i181 = phi float [ %743, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i189 ], [ %734, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i180 ]
   %.sink.i.i106.i.i182 = phi i64 [ %746, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i189 ], [ %736, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i180 ]
   %.1.i.i107.i.i183 = phi i64 [ %728, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i189 ], [ %727, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i180 ]
   %756 = getelementptr inbounds nuw float, ptr %536, i64 %.056.i.i102.i.i178
-  store float %.sink63.i.i105.i.i181, ptr %756, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i181, ptr %756, align 4, !tbaa !138
   %757 = getelementptr inbounds nuw i64, ptr %537, i64 %.056.i.i102.i.i178
   store i64 %.sink.i.i106.i.i182, ptr %757, align 8, !tbaa !16
   %758 = shl i64 %.1.i.i107.i.i183, 1
@@ -136024,11 +136024,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i165: ; preds = %798
   br i1 %802, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i169, label %803
 
 803:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i165, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i174
-  %.sink63.i.i122.i.i166 = phi float [ %791, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i174 ], [ %782, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i165 ]
+  %.sink71.i.i122.i.i166 = phi float [ %791, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i174 ], [ %782, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i165 ]
   %.sink.i.i123.i.i167 = phi i64 [ %794, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i174 ], [ %784, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i165 ]
   %.1.i.i124.i.i168 = phi i64 [ %776, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i174 ], [ %775, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i165 ]
   %804 = getelementptr inbounds nuw float, ptr %536, i64 %.056.i.i119.i.i163
-  store float %.sink63.i.i122.i.i166, ptr %804, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i166, ptr %804, align 4, !tbaa !138
   %805 = getelementptr inbounds nuw i64, ptr %537, i64 %.056.i.i119.i.i163
   store i64 %.sink.i.i123.i.i167, ptr %805, align 8, !tbaa !16
   %806 = shl i64 %.1.i.i124.i.i168, 1
@@ -136122,11 +136122,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i152: ; preds = %846
   br i1 %850, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i156, label %851
 
 851:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i152, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i159
-  %.sink63.i.i139.i.i153 = phi float [ %839, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i159 ], [ %830, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i152 ]
+  %.sink71.i.i139.i.i153 = phi float [ %839, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i159 ], [ %830, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i152 ]
   %.sink.i.i140.i.i154 = phi i64 [ %842, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i159 ], [ %832, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i152 ]
   %.1.i.i141.i.i155 = phi i64 [ %824, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i159 ], [ %823, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i152 ]
   %852 = getelementptr inbounds nuw float, ptr %536, i64 %.056.i.i136.i.i150
-  store float %.sink63.i.i139.i.i153, ptr %852, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i153, ptr %852, align 4, !tbaa !138
   %853 = getelementptr inbounds nuw i64, ptr %537, i64 %.056.i.i136.i.i150
   store i64 %.sink.i.i140.i.i154, ptr %853, align 8, !tbaa !16
   %854 = shl i64 %.1.i.i141.i.i155, 1
@@ -136297,11 +136297,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i101: ; preds = %930
   br i1 %934, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i105, label %935
 
 935:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i101, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i108
-  %.sink63.i.i159.i.i102 = phi float [ %923, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i108 ], [ %914, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i101 ]
+  %.sink71.i.i159.i.i102 = phi float [ %923, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i108 ], [ %914, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i101 ]
   %.sink.i.i160.i.i103 = phi i64 [ %926, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i108 ], [ %916, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i101 ]
   %.1.i.i161.i.i104 = phi i64 [ %908, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i108 ], [ %907, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i101 ]
   %936 = getelementptr inbounds nuw float, ptr %536, i64 %.056.i.i156.i.i99
-  store float %.sink63.i.i159.i.i102, ptr %936, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i102, ptr %936, align 4, !tbaa !138
   %937 = getelementptr inbounds nuw i64, ptr %537, i64 %.056.i.i156.i.i99
   store i64 %.sink.i.i160.i.i103, ptr %937, align 8, !tbaa !16
   %938 = shl i64 %.1.i.i161.i.i104, 1
@@ -136437,11 +136437,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i87: ; preds = %1002
   br i1 %1006, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i91, label %1007
 
 1007:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i87, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i94
-  %.sink63.i.i185.i.i88 = phi float [ %995, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i94 ], [ %986, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i87 ]
+  %.sink71.i.i185.i.i88 = phi float [ %995, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i94 ], [ %986, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i87 ]
   %.sink.i.i186.i.i89 = phi i64 [ %998, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i94 ], [ %988, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i87 ]
   %.1.i.i187.i.i90 = phi i64 [ %980, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i94 ], [ %979, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i87 ]
   %1008 = getelementptr inbounds nuw float, ptr %874, i64 %.056.i.i182.i.i85
-  store float %.sink63.i.i185.i.i88, ptr %1008, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i88, ptr %1008, align 4, !tbaa !138
   %1009 = getelementptr inbounds nuw i64, ptr %875, i64 %.056.i.i182.i.i85
   store i64 %.sink.i.i186.i.i89, ptr %1009, align 8, !tbaa !16
   %1010 = shl i64 %.1.i.i187.i.i90, 1
@@ -136513,7 +136513,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %1078
 
 .preheader218.i.i:                                ; preds = %1391
-  %1047 = zext i32 %.188.i.i216 to i64
+  %1047 = zext nneg i32 %.188.i.i216 to i64
   %.not239.i.i = icmp eq i32 %.188.i.i216, 0
   br i1 %.not239.i.i, label %.preheader.i.i233, label %.lr.ph232.i.preheader.i
 
@@ -136818,11 +136818,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i352:   ; preds = %1229
   br i1 %1233, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i356, label %1234
 
 1234:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i352, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i361
-  %.sink63.i.i.i.i353 = phi float [ %1222, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i361 ], [ %1213, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i352 ]
+  %.sink71.i.i.i.i353 = phi float [ %1222, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i361 ], [ %1213, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i352 ]
   %.sink.i.i.i.i354 = phi i64 [ %1225, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i361 ], [ %1215, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i352 ]
   %.1.i.i.i.i355 = phi i64 [ %1207, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i361 ], [ %1206, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i352 ]
   %1235 = getelementptr inbounds nuw float, ptr %1039, i64 %.056.i.i.i.i350
-  store float %.sink63.i.i.i.i353, ptr %1235, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i353, ptr %1235, align 4, !tbaa !138
   %1236 = getelementptr inbounds nuw i64, ptr %1040, i64 %.056.i.i.i.i350
   store i64 %.sink.i.i.i.i354, ptr %1236, align 8, !tbaa !16
   %1237 = shl i64 %.1.i.i.i.i355, 1
@@ -136916,11 +136916,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i339: ; preds = %1277
   br i1 %1281, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i343, label %1282
 
 1282:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i339, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i346
-  %.sink63.i.i105.i.i340 = phi float [ %1270, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i346 ], [ %1261, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i339 ]
+  %.sink71.i.i105.i.i340 = phi float [ %1270, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i346 ], [ %1261, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i339 ]
   %.sink.i.i106.i.i341 = phi i64 [ %1273, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i346 ], [ %1263, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i339 ]
   %.1.i.i107.i.i342 = phi i64 [ %1255, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i346 ], [ %1254, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i339 ]
   %1283 = getelementptr inbounds nuw float, ptr %1039, i64 %.056.i.i102.i.i337
-  store float %.sink63.i.i105.i.i340, ptr %1283, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i340, ptr %1283, align 4, !tbaa !138
   %1284 = getelementptr inbounds nuw i64, ptr %1040, i64 %.056.i.i102.i.i337
   store i64 %.sink.i.i106.i.i341, ptr %1284, align 8, !tbaa !16
   %1285 = shl i64 %.1.i.i107.i.i342, 1
@@ -137014,11 +137014,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i326: ; preds = %1325
   br i1 %1329, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i330, label %1330
 
 1330:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i326, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i333
-  %.sink63.i.i122.i.i327 = phi float [ %1318, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i333 ], [ %1309, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i326 ]
+  %.sink71.i.i122.i.i327 = phi float [ %1318, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i333 ], [ %1309, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i326 ]
   %.sink.i.i123.i.i328 = phi i64 [ %1321, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i333 ], [ %1311, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i326 ]
   %.1.i.i124.i.i329 = phi i64 [ %1303, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i333 ], [ %1302, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i326 ]
   %1331 = getelementptr inbounds nuw float, ptr %1039, i64 %.056.i.i119.i.i324
-  store float %.sink63.i.i122.i.i327, ptr %1331, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i327, ptr %1331, align 4, !tbaa !138
   %1332 = getelementptr inbounds nuw i64, ptr %1040, i64 %.056.i.i119.i.i324
   store i64 %.sink.i.i123.i.i328, ptr %1332, align 8, !tbaa !16
   %1333 = shl i64 %.1.i.i124.i.i329, 1
@@ -137112,11 +137112,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i313: ; preds = %1373
   br i1 %1377, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i317, label %1378
 
 1378:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i313, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i320
-  %.sink63.i.i139.i.i314 = phi float [ %1366, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i320 ], [ %1357, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i313 ]
+  %.sink71.i.i139.i.i314 = phi float [ %1366, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i320 ], [ %1357, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i313 ]
   %.sink.i.i140.i.i315 = phi i64 [ %1369, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i320 ], [ %1359, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i313 ]
   %.1.i.i141.i.i316 = phi i64 [ %1351, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i320 ], [ %1350, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i313 ]
   %1379 = getelementptr inbounds nuw float, ptr %1039, i64 %.056.i.i136.i.i311
-  store float %.sink63.i.i139.i.i314, ptr %1379, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i314, ptr %1379, align 4, !tbaa !138
   %1380 = getelementptr inbounds nuw i64, ptr %1040, i64 %.056.i.i136.i.i311
   store i64 %.sink.i.i140.i.i315, ptr %1380, align 8, !tbaa !16
   %1381 = shl i64 %.1.i.i141.i.i316, 1
@@ -137287,11 +137287,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i268: ; preds = %1457
   br i1 %1461, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i272, label %1462
 
 1462:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i268, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i275
-  %.sink63.i.i159.i.i269 = phi float [ %1450, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i275 ], [ %1441, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i268 ]
+  %.sink71.i.i159.i.i269 = phi float [ %1450, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i275 ], [ %1441, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i268 ]
   %.sink.i.i160.i.i270 = phi i64 [ %1453, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i275 ], [ %1443, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i268 ]
   %.1.i.i161.i.i271 = phi i64 [ %1435, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i275 ], [ %1434, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i268 ]
   %1463 = getelementptr inbounds nuw float, ptr %1039, i64 %.056.i.i156.i.i266
-  store float %.sink63.i.i159.i.i269, ptr %1463, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i269, ptr %1463, align 4, !tbaa !138
   %1464 = getelementptr inbounds nuw i64, ptr %1040, i64 %.056.i.i156.i.i266
   store i64 %.sink.i.i160.i.i270, ptr %1464, align 8, !tbaa !16
   %1465 = shl i64 %.1.i.i161.i.i271, 1
@@ -137433,11 +137433,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i254: ; preds = %1535
   br i1 %1539, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i258, label %1540
 
 1540:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i254, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i261
-  %.sink63.i.i185.i.i255 = phi float [ %1528, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i261 ], [ %1519, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i254 ]
+  %.sink71.i.i185.i.i255 = phi float [ %1528, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i261 ], [ %1519, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i254 ]
   %.sink.i.i186.i.i256 = phi i64 [ %1531, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i261 ], [ %1521, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i254 ]
   %.1.i.i187.i.i257 = phi i64 [ %1513, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i261 ], [ %1512, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i254 ]
   %1541 = getelementptr inbounds nuw float, ptr %1401, i64 %.056.i.i182.i.i252
-  store float %.sink63.i.i185.i.i255, ptr %1541, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i255, ptr %1541, align 4, !tbaa !138
   %1542 = getelementptr inbounds nuw i64, ptr %1402, i64 %.056.i.i182.i.i252
   store i64 %.sink.i.i186.i.i256, ptr %1542, align 8, !tbaa !16
   %1543 = shl i64 %.1.i.i187.i.i257, 1
@@ -137511,7 +137511,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %1613
 
 .preheader222.i.i:                                ; preds = %1946
-  %1582 = zext i32 %.188.i.i373 to i64
+  %1582 = zext nneg i32 %.188.i.i373 to i64
   %.not243.i.i = icmp eq i32 %.188.i.i373, 0
   br i1 %.not243.i.i, label %.preheader.i.i390, label %.lr.ph236.i.preheader.i
 
@@ -137836,11 +137836,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i509:   ; preds = %1784
   br i1 %1788, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i513, label %1789
 
 1789:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i509, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i518
-  %.sink63.i.i.i.i510 = phi float [ %1777, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i518 ], [ %1768, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i509 ]
+  %.sink71.i.i.i.i510 = phi float [ %1777, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i518 ], [ %1768, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i509 ]
   %.sink.i.i.i.i511 = phi i64 [ %1780, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i518 ], [ %1770, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i509 ]
   %.1.i.i.i.i512 = phi i64 [ %1762, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i518 ], [ %1761, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i509 ]
   %1790 = getelementptr inbounds nuw float, ptr %1574, i64 %.056.i.i.i.i507
-  store float %.sink63.i.i.i.i510, ptr %1790, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i510, ptr %1790, align 4, !tbaa !138
   %1791 = getelementptr inbounds nuw i64, ptr %1575, i64 %.056.i.i.i.i507
   store i64 %.sink.i.i.i.i511, ptr %1791, align 8, !tbaa !16
   %1792 = shl i64 %.1.i.i.i.i512, 1
@@ -137934,11 +137934,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i496: ; preds = %1832
   br i1 %1836, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i500, label %1837
 
 1837:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i496, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i503
-  %.sink63.i.i105.i.i497 = phi float [ %1825, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i503 ], [ %1816, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i496 ]
+  %.sink71.i.i105.i.i497 = phi float [ %1825, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i503 ], [ %1816, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i496 ]
   %.sink.i.i106.i.i498 = phi i64 [ %1828, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i503 ], [ %1818, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i496 ]
   %.1.i.i107.i.i499 = phi i64 [ %1810, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i503 ], [ %1809, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i496 ]
   %1838 = getelementptr inbounds nuw float, ptr %1574, i64 %.056.i.i102.i.i494
-  store float %.sink63.i.i105.i.i497, ptr %1838, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i497, ptr %1838, align 4, !tbaa !138
   %1839 = getelementptr inbounds nuw i64, ptr %1575, i64 %.056.i.i102.i.i494
   store i64 %.sink.i.i106.i.i498, ptr %1839, align 8, !tbaa !16
   %1840 = shl i64 %.1.i.i107.i.i499, 1
@@ -138032,11 +138032,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i483: ; preds = %1880
   br i1 %1884, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i487, label %1885
 
 1885:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i483, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i490
-  %.sink63.i.i122.i.i484 = phi float [ %1873, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i490 ], [ %1864, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i483 ]
+  %.sink71.i.i122.i.i484 = phi float [ %1873, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i490 ], [ %1864, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i483 ]
   %.sink.i.i123.i.i485 = phi i64 [ %1876, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i490 ], [ %1866, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i483 ]
   %.1.i.i124.i.i486 = phi i64 [ %1858, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i490 ], [ %1857, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i483 ]
   %1886 = getelementptr inbounds nuw float, ptr %1574, i64 %.056.i.i119.i.i481
-  store float %.sink63.i.i122.i.i484, ptr %1886, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i484, ptr %1886, align 4, !tbaa !138
   %1887 = getelementptr inbounds nuw i64, ptr %1575, i64 %.056.i.i119.i.i481
   store i64 %.sink.i.i123.i.i485, ptr %1887, align 8, !tbaa !16
   %1888 = shl i64 %.1.i.i124.i.i486, 1
@@ -138130,11 +138130,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i470: ; preds = %1928
   br i1 %1932, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i474, label %1933
 
 1933:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i470, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i477
-  %.sink63.i.i139.i.i471 = phi float [ %1921, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i477 ], [ %1912, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i470 ]
+  %.sink71.i.i139.i.i471 = phi float [ %1921, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i477 ], [ %1912, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i470 ]
   %.sink.i.i140.i.i472 = phi i64 [ %1924, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i477 ], [ %1914, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i470 ]
   %.1.i.i141.i.i473 = phi i64 [ %1906, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i477 ], [ %1905, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i470 ]
   %1934 = getelementptr inbounds nuw float, ptr %1574, i64 %.056.i.i136.i.i468
-  store float %.sink63.i.i139.i.i471, ptr %1934, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i471, ptr %1934, align 4, !tbaa !138
   %1935 = getelementptr inbounds nuw i64, ptr %1575, i64 %.056.i.i136.i.i468
   store i64 %.sink.i.i140.i.i472, ptr %1935, align 8, !tbaa !16
   %1936 = shl i64 %.1.i.i141.i.i473, 1
@@ -138305,11 +138305,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i425: ; preds = %2012
   br i1 %2016, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i429, label %2017
 
 2017:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i425, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i432
-  %.sink63.i.i159.i.i426 = phi float [ %2005, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i432 ], [ %1996, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i425 ]
+  %.sink71.i.i159.i.i426 = phi float [ %2005, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i432 ], [ %1996, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i425 ]
   %.sink.i.i160.i.i427 = phi i64 [ %2008, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i432 ], [ %1998, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i425 ]
   %.1.i.i161.i.i428 = phi i64 [ %1990, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i432 ], [ %1989, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i425 ]
   %2018 = getelementptr inbounds nuw float, ptr %1574, i64 %.056.i.i156.i.i423
-  store float %.sink63.i.i159.i.i426, ptr %2018, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i426, ptr %2018, align 4, !tbaa !138
   %2019 = getelementptr inbounds nuw i64, ptr %1575, i64 %.056.i.i156.i.i423
   store i64 %.sink.i.i160.i.i427, ptr %2019, align 8, !tbaa !16
   %2020 = shl i64 %.1.i.i161.i.i428, 1
@@ -138456,11 +138456,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i411: ; preds = %2095
   br i1 %2099, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i415, label %2100
 
 2100:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i411, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i418
-  %.sink63.i.i185.i.i412 = phi float [ %2088, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i418 ], [ %2079, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i411 ]
+  %.sink71.i.i185.i.i412 = phi float [ %2088, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i418 ], [ %2079, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i411 ]
   %.sink.i.i186.i.i413 = phi i64 [ %2091, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i418 ], [ %2081, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i411 ]
   %.1.i.i187.i.i414 = phi i64 [ %2073, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i418 ], [ %2072, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i411 ]
   %2101 = getelementptr inbounds nuw float, ptr %1956, i64 %.056.i.i182.i.i409
-  store float %.sink63.i.i185.i.i412, ptr %2101, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i412, ptr %2101, align 4, !tbaa !138
   %2102 = getelementptr inbounds nuw i64, ptr %1957, i64 %.056.i.i182.i.i409
   store i64 %.sink.i.i186.i.i413, ptr %2102, align 8, !tbaa !16
   %2103 = shl i64 %.1.i.i187.i.i414, 1
@@ -138536,7 +138536,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %2175
 
 .preheader226.i.i:                                ; preds = %2536
-  %2144 = zext i32 %.188.i.i529 to i64
+  %2144 = zext nneg i32 %.188.i.i529 to i64
   %.not247.i.i = icmp eq i32 %.188.i.i529, 0
   br i1 %.not247.i.i, label %.preheader.i.i547, label %.lr.ph240.i.preheader.i
 
@@ -138889,11 +138889,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i666:   ; preds = %2374
   br i1 %2378, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i670, label %2379
 
 2379:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i666, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i675
-  %.sink63.i.i.i.i667 = phi float [ %2367, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i675 ], [ %2358, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i666 ]
+  %.sink71.i.i.i.i667 = phi float [ %2367, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i675 ], [ %2358, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i666 ]
   %.sink.i.i.i.i668 = phi i64 [ %2370, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i675 ], [ %2360, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i666 ]
   %.1.i.i.i.i669 = phi i64 [ %2352, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i675 ], [ %2351, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i666 ]
   %2380 = getelementptr inbounds nuw float, ptr %2136, i64 %.056.i.i.i.i664
-  store float %.sink63.i.i.i.i667, ptr %2380, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i667, ptr %2380, align 4, !tbaa !138
   %2381 = getelementptr inbounds nuw i64, ptr %2137, i64 %.056.i.i.i.i664
   store i64 %.sink.i.i.i.i668, ptr %2381, align 8, !tbaa !16
   %2382 = shl i64 %.1.i.i.i.i669, 1
@@ -138987,11 +138987,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i653: ; preds = %2422
   br i1 %2426, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i657, label %2427
 
 2427:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i653, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i660
-  %.sink63.i.i105.i.i654 = phi float [ %2415, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i660 ], [ %2406, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i653 ]
+  %.sink71.i.i105.i.i654 = phi float [ %2415, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i660 ], [ %2406, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i653 ]
   %.sink.i.i106.i.i655 = phi i64 [ %2418, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i660 ], [ %2408, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i653 ]
   %.1.i.i107.i.i656 = phi i64 [ %2400, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i660 ], [ %2399, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i653 ]
   %2428 = getelementptr inbounds nuw float, ptr %2136, i64 %.056.i.i102.i.i651
-  store float %.sink63.i.i105.i.i654, ptr %2428, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i654, ptr %2428, align 4, !tbaa !138
   %2429 = getelementptr inbounds nuw i64, ptr %2137, i64 %.056.i.i102.i.i651
   store i64 %.sink.i.i106.i.i655, ptr %2429, align 8, !tbaa !16
   %2430 = shl i64 %.1.i.i107.i.i656, 1
@@ -139085,11 +139085,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i640: ; preds = %2470
   br i1 %2474, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i644, label %2475
 
 2475:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i640, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i647
-  %.sink63.i.i122.i.i641 = phi float [ %2463, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i647 ], [ %2454, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i640 ]
+  %.sink71.i.i122.i.i641 = phi float [ %2463, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i647 ], [ %2454, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i640 ]
   %.sink.i.i123.i.i642 = phi i64 [ %2466, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i647 ], [ %2456, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i640 ]
   %.1.i.i124.i.i643 = phi i64 [ %2448, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i647 ], [ %2447, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i640 ]
   %2476 = getelementptr inbounds nuw float, ptr %2136, i64 %.056.i.i119.i.i638
-  store float %.sink63.i.i122.i.i641, ptr %2476, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i641, ptr %2476, align 4, !tbaa !138
   %2477 = getelementptr inbounds nuw i64, ptr %2137, i64 %.056.i.i119.i.i638
   store i64 %.sink.i.i123.i.i642, ptr %2477, align 8, !tbaa !16
   %2478 = shl i64 %.1.i.i124.i.i643, 1
@@ -139183,11 +139183,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i627: ; preds = %2518
   br i1 %2522, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i631, label %2523
 
 2523:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i627, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i634
-  %.sink63.i.i139.i.i628 = phi float [ %2511, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i634 ], [ %2502, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i627 ]
+  %.sink71.i.i139.i.i628 = phi float [ %2511, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i634 ], [ %2502, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i627 ]
   %.sink.i.i140.i.i629 = phi i64 [ %2514, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i634 ], [ %2504, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i627 ]
   %.1.i.i141.i.i630 = phi i64 [ %2496, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i634 ], [ %2495, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i627 ]
   %2524 = getelementptr inbounds nuw float, ptr %2136, i64 %.056.i.i136.i.i625
-  store float %.sink63.i.i139.i.i628, ptr %2524, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i628, ptr %2524, align 4, !tbaa !138
   %2525 = getelementptr inbounds nuw i64, ptr %2137, i64 %.056.i.i136.i.i625
   store i64 %.sink.i.i140.i.i629, ptr %2525, align 8, !tbaa !16
   %2526 = shl i64 %.1.i.i141.i.i630, 1
@@ -139358,11 +139358,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i582: ; preds = %2602
   br i1 %2606, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i586, label %2607
 
 2607:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i582, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i589
-  %.sink63.i.i159.i.i583 = phi float [ %2595, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i589 ], [ %2586, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i582 ]
+  %.sink71.i.i159.i.i583 = phi float [ %2595, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i589 ], [ %2586, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i582 ]
   %.sink.i.i160.i.i584 = phi i64 [ %2598, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i589 ], [ %2588, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i582 ]
   %.1.i.i161.i.i585 = phi i64 [ %2580, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i589 ], [ %2579, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i582 ]
   %2608 = getelementptr inbounds nuw float, ptr %2136, i64 %.056.i.i156.i.i580
-  store float %.sink63.i.i159.i.i583, ptr %2608, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i583, ptr %2608, align 4, !tbaa !138
   %2609 = getelementptr inbounds nuw i64, ptr %2137, i64 %.056.i.i156.i.i580
   store i64 %.sink.i.i160.i.i584, ptr %2609, align 8, !tbaa !16
   %2610 = shl i64 %.1.i.i161.i.i585, 1
@@ -139516,11 +139516,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i568: ; preds = %2692
   br i1 %2696, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i572, label %2697
 
 2697:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i568, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i575
-  %.sink63.i.i185.i.i569 = phi float [ %2685, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i575 ], [ %2676, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i568 ]
+  %.sink71.i.i185.i.i569 = phi float [ %2685, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i575 ], [ %2676, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i568 ]
   %.sink.i.i186.i.i570 = phi i64 [ %2688, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i575 ], [ %2678, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i568 ]
   %.1.i.i187.i.i571 = phi i64 [ %2670, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i575 ], [ %2669, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i568 ]
   %2698 = getelementptr inbounds nuw float, ptr %2546, i64 %.056.i.i182.i.i566
-  store float %.sink63.i.i185.i.i569, ptr %2698, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i569, ptr %2698, align 4, !tbaa !138
   %2699 = getelementptr inbounds nuw i64, ptr %2547, i64 %.056.i.i182.i.i566
   store i64 %.sink.i.i186.i.i570, ptr %2699, align 8, !tbaa !16
   %2700 = shl i64 %.1.i.i187.i.i571, 1
@@ -139604,7 +139604,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %2780
 
 .preheader242.i.i:                                ; preds = %3237
-  %2749 = zext i32 %.188.i.i686 to i64
+  %2749 = zext nneg i32 %.188.i.i686 to i64
   %.not263.i.i = icmp eq i32 %.188.i.i686, 0
   br i1 %.not263.i.i, label %.preheader.i.i704, label %.lr.ph256.i.preheader.i
 
@@ -140053,11 +140053,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i819:   ; preds = %3075
   br i1 %3079, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i823, label %3080
 
 3080:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i819, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i827
-  %.sink63.i.i.i.i820 = phi float [ %3068, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i827 ], [ %3059, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i819 ]
+  %.sink71.i.i.i.i820 = phi float [ %3068, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i827 ], [ %3059, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i819 ]
   %.sink.i.i.i.i821 = phi i64 [ %3071, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i827 ], [ %3061, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i819 ]
   %.1.i.i.i.i822 = phi i64 [ %3053, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i827 ], [ %3052, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i819 ]
   %3081 = getelementptr inbounds nuw float, ptr %2741, i64 %.056.i.i.i.i817
-  store float %.sink63.i.i.i.i820, ptr %3081, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i820, ptr %3081, align 4, !tbaa !138
   %3082 = getelementptr inbounds nuw i64, ptr %2742, i64 %.056.i.i.i.i817
   store i64 %.sink.i.i.i.i821, ptr %3082, align 8, !tbaa !16
   %3083 = shl i64 %.1.i.i.i.i822, 1
@@ -140151,11 +140151,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i806: ; preds = %3123
   br i1 %3127, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i810, label %3128
 
 3128:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i806, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i813
-  %.sink63.i.i105.i.i807 = phi float [ %3116, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i813 ], [ %3107, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i806 ]
+  %.sink71.i.i105.i.i807 = phi float [ %3116, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i813 ], [ %3107, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i806 ]
   %.sink.i.i106.i.i808 = phi i64 [ %3119, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i813 ], [ %3109, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i806 ]
   %.1.i.i107.i.i809 = phi i64 [ %3101, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i813 ], [ %3100, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i806 ]
   %3129 = getelementptr inbounds nuw float, ptr %2741, i64 %.056.i.i102.i.i804
-  store float %.sink63.i.i105.i.i807, ptr %3129, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i807, ptr %3129, align 4, !tbaa !138
   %3130 = getelementptr inbounds nuw i64, ptr %2742, i64 %.056.i.i102.i.i804
   store i64 %.sink.i.i106.i.i808, ptr %3130, align 8, !tbaa !16
   %3131 = shl i64 %.1.i.i107.i.i809, 1
@@ -140249,11 +140249,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i793: ; preds = %3171
   br i1 %3175, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i797, label %3176
 
 3176:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i793, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i800
-  %.sink63.i.i122.i.i794 = phi float [ %3164, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i800 ], [ %3155, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i793 ]
+  %.sink71.i.i122.i.i794 = phi float [ %3164, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i800 ], [ %3155, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i793 ]
   %.sink.i.i123.i.i795 = phi i64 [ %3167, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i800 ], [ %3157, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i793 ]
   %.1.i.i124.i.i796 = phi i64 [ %3149, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i800 ], [ %3148, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i793 ]
   %3177 = getelementptr inbounds nuw float, ptr %2741, i64 %.056.i.i119.i.i791
-  store float %.sink63.i.i122.i.i794, ptr %3177, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i794, ptr %3177, align 4, !tbaa !138
   %3178 = getelementptr inbounds nuw i64, ptr %2742, i64 %.056.i.i119.i.i791
   store i64 %.sink.i.i123.i.i795, ptr %3178, align 8, !tbaa !16
   %3179 = shl i64 %.1.i.i124.i.i796, 1
@@ -140347,11 +140347,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i780: ; preds = %3219
   br i1 %3223, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i784, label %3224
 
 3224:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i780, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i787
-  %.sink63.i.i139.i.i781 = phi float [ %3212, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i787 ], [ %3203, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i780 ]
+  %.sink71.i.i139.i.i781 = phi float [ %3212, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i787 ], [ %3203, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i780 ]
   %.sink.i.i140.i.i782 = phi i64 [ %3215, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i787 ], [ %3205, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i780 ]
   %.1.i.i141.i.i783 = phi i64 [ %3197, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i787 ], [ %3196, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i780 ]
   %3225 = getelementptr inbounds nuw float, ptr %2741, i64 %.056.i.i136.i.i778
-  store float %.sink63.i.i139.i.i781, ptr %3225, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i781, ptr %3225, align 4, !tbaa !138
   %3226 = getelementptr inbounds nuw i64, ptr %2742, i64 %.056.i.i136.i.i778
   store i64 %.sink.i.i140.i.i782, ptr %3226, align 8, !tbaa !16
   %3227 = shl i64 %.1.i.i141.i.i783, 1
@@ -140522,11 +140522,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i739: ; preds = %3303
   br i1 %3307, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i743, label %3308
 
 3308:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i739, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i746
-  %.sink63.i.i159.i.i740 = phi float [ %3296, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i746 ], [ %3287, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i739 ]
+  %.sink71.i.i159.i.i740 = phi float [ %3296, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i746 ], [ %3287, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i739 ]
   %.sink.i.i160.i.i741 = phi i64 [ %3299, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i746 ], [ %3289, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i739 ]
   %.1.i.i161.i.i742 = phi i64 [ %3281, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i746 ], [ %3280, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i739 ]
   %3309 = getelementptr inbounds nuw float, ptr %2741, i64 %.056.i.i156.i.i737
-  store float %.sink63.i.i159.i.i740, ptr %3309, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i740, ptr %3309, align 4, !tbaa !138
   %3310 = getelementptr inbounds nuw i64, ptr %2742, i64 %.056.i.i156.i.i737
   store i64 %.sink.i.i160.i.i741, ptr %3310, align 8, !tbaa !16
   %3311 = shl i64 %.1.i.i161.i.i742, 1
@@ -140704,11 +140704,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i725: ; preds = %3417
   br i1 %3421, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i729, label %3422
 
 3422:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i725, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i732
-  %.sink63.i.i185.i.i726 = phi float [ %3410, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i732 ], [ %3401, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i725 ]
+  %.sink71.i.i185.i.i726 = phi float [ %3410, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i732 ], [ %3401, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i725 ]
   %.sink.i.i186.i.i727 = phi i64 [ %3413, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i732 ], [ %3403, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i725 ]
   %.1.i.i187.i.i728 = phi i64 [ %3395, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i732 ], [ %3394, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i725 ]
   %3423 = getelementptr inbounds nuw float, ptr %3247, i64 %.056.i.i182.i.i723
-  store float %.sink63.i.i185.i.i726, ptr %3423, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i726, ptr %3423, align 4, !tbaa !138
   %3424 = getelementptr inbounds nuw i64, ptr %3248, i64 %.056.i.i182.i.i723
   store i64 %.sink.i.i186.i.i727, ptr %3424, align 8, !tbaa !16
   %3425 = shl i64 %.1.i.i187.i.i728, 1
@@ -140782,7 +140782,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   br label %3496
 
 .preheader210.i.i:                                ; preds = %3778
-  %3460 = zext i32 %.188.i.i839 to i64
+  %3460 = zext nneg i32 %.188.i.i839 to i64
   %.not231.i.i = icmp eq i32 %.188.i.i839, 0
   br i1 %.not231.i.i, label %.preheader.i.i856, label %.lr.ph224.i.i
 
@@ -141061,11 +141061,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i976:   ; preds = %3616
   br i1 %3620, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i980, label %3621
 
 3621:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i976, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i984
-  %.sink63.i.i.i.i977 = phi float [ %3609, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i984 ], [ %3600, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i976 ]
+  %.sink71.i.i.i.i977 = phi float [ %3609, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i984 ], [ %3600, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i976 ]
   %.sink.i.i.i.i978 = phi i64 [ %3612, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i984 ], [ %3602, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i976 ]
   %.1.i.i.i.i979 = phi i64 [ %3594, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i984 ], [ %3593, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i976 ]
   %3622 = getelementptr inbounds nuw float, ptr %3457, i64 %.056.i.i.i.i974
-  store float %.sink63.i.i.i.i977, ptr %3622, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i977, ptr %3622, align 4, !tbaa !138
   %3623 = getelementptr inbounds nuw i64, ptr %3458, i64 %.056.i.i.i.i974
   store i64 %.sink.i.i.i.i978, ptr %3623, align 8, !tbaa !16
   %3624 = shl i64 %.1.i.i.i.i979, 1
@@ -141159,11 +141159,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i963: ; preds = %3664
   br i1 %3668, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i108.i.i967, label %3669
 
 3669:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i963, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i970
-  %.sink63.i.i105.i.i964 = phi float [ %3657, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i970 ], [ %3648, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i963 ]
+  %.sink71.i.i105.i.i964 = phi float [ %3657, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i970 ], [ %3648, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i963 ]
   %.sink.i.i106.i.i965 = phi i64 [ %3660, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i970 ], [ %3650, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i963 ]
   %.1.i.i107.i.i966 = phi i64 [ %3642, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i111.i.i970 ], [ %3641, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i104.i.i963 ]
   %3670 = getelementptr inbounds nuw float, ptr %3457, i64 %.056.i.i102.i.i961
-  store float %.sink63.i.i105.i.i964, ptr %3670, align 4, !tbaa !138
+  store float %.sink71.i.i105.i.i964, ptr %3670, align 4, !tbaa !138
   %3671 = getelementptr inbounds nuw i64, ptr %3458, i64 %.056.i.i102.i.i961
   store i64 %.sink.i.i106.i.i965, ptr %3671, align 8, !tbaa !16
   %3672 = shl i64 %.1.i.i107.i.i966, 1
@@ -141257,11 +141257,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i949: ; preds = %3712
   br i1 %3716, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i.i953, label %3717
 
 3717:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i949, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i957
-  %.sink63.i.i122.i.i950 = phi float [ %3705, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i957 ], [ %3696, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i949 ]
+  %.sink71.i.i122.i.i950 = phi float [ %3705, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i957 ], [ %3696, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i949 ]
   %.sink.i.i123.i.i951 = phi i64 [ %3708, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i957 ], [ %3698, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i949 ]
   %.1.i.i124.i.i952 = phi i64 [ %3690, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i.i957 ], [ %3689, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i.i949 ]
   %3718 = getelementptr inbounds nuw float, ptr %3457, i64 %.056.i.i119.i.i947
-  store float %.sink63.i.i122.i.i950, ptr %3718, align 4, !tbaa !138
+  store float %.sink71.i.i122.i.i950, ptr %3718, align 4, !tbaa !138
   %3719 = getelementptr inbounds nuw i64, ptr %3458, i64 %.056.i.i119.i.i947
   store i64 %.sink.i.i123.i.i951, ptr %3719, align 8, !tbaa !16
   %3720 = shl i64 %.1.i.i124.i.i952, 1
@@ -141355,11 +141355,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i936: ; preds = %3760
   br i1 %3764, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i142.i.i940, label %3765
 
 3765:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i936, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i943
-  %.sink63.i.i139.i.i937 = phi float [ %3753, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i943 ], [ %3744, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i936 ]
+  %.sink71.i.i139.i.i937 = phi float [ %3753, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i943 ], [ %3744, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i936 ]
   %.sink.i.i140.i.i938 = phi i64 [ %3756, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i943 ], [ %3746, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i936 ]
   %.1.i.i141.i.i939 = phi i64 [ %3738, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i145.i.i943 ], [ %3737, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i138.i.i936 ]
   %3766 = getelementptr inbounds nuw float, ptr %3457, i64 %.056.i.i136.i.i934
-  store float %.sink63.i.i139.i.i937, ptr %3766, align 4, !tbaa !138
+  store float %.sink71.i.i139.i.i937, ptr %3766, align 4, !tbaa !138
   %3767 = getelementptr inbounds nuw i64, ptr %3458, i64 %.056.i.i136.i.i934
   store i64 %.sink.i.i140.i.i938, ptr %3767, align 8, !tbaa !16
   %3768 = shl i64 %.1.i.i141.i.i939, 1
@@ -141527,11 +141527,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i891: ; preds = %3841
   br i1 %3845, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i162.i.loopexit.i895, label %3846
 
 3846:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i891, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i898
-  %.sink63.i.i159.i.i892 = phi float [ %3834, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i898 ], [ %3825, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i891 ]
+  %.sink71.i.i159.i.i892 = phi float [ %3834, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i898 ], [ %3825, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i891 ]
   %.sink.i.i160.i.i893 = phi i64 [ %3837, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i898 ], [ %3827, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i891 ]
   %.1.i.i161.i.i894 = phi i64 [ %3819, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i165.i.i898 ], [ %3818, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i158.i.i891 ]
   %3847 = getelementptr inbounds nuw float, ptr %3457, i64 %.056.i.i156.i.i889
-  store float %.sink63.i.i159.i.i892, ptr %3847, align 4, !tbaa !138
+  store float %.sink71.i.i159.i.i892, ptr %3847, align 4, !tbaa !138
   %3848 = getelementptr inbounds nuw i64, ptr %3458, i64 %.056.i.i156.i.i889
   store i64 %.sink.i.i160.i.i893, ptr %3848, align 8, !tbaa !16
   %3849 = shl i64 %.1.i.i161.i.i894, 1
@@ -141671,11 +141671,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i877: ; preds = %3914
   br i1 %3918, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i188.i.i881, label %3919
 
 3919:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i877, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i884
-  %.sink63.i.i185.i.i878 = phi float [ %3907, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i884 ], [ %3898, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i877 ]
+  %.sink71.i.i185.i.i878 = phi float [ %3907, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i884 ], [ %3898, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i877 ]
   %.sink.i.i186.i.i879 = phi i64 [ %3910, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i884 ], [ %3900, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i877 ]
   %.1.i.i187.i.i880 = phi i64 [ %3892, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i191.i.i884 ], [ %3891, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i184.i.i877 ]
   %3920 = getelementptr inbounds nuw float, ptr %3786, i64 %.056.i.i182.i.i875
-  store float %.sink63.i.i185.i.i878, ptr %3920, align 4, !tbaa !138
+  store float %.sink71.i.i185.i.i878, ptr %3920, align 4, !tbaa !138
   %3921 = getelementptr inbounds nuw i64, ptr %3787, i64 %.056.i.i182.i.i875
   store i64 %.sink.i.i186.i.i879, ptr %3921, align 8, !tbaa !16
   %3922 = shl i64 %.1.i.i187.i.i880, 1
@@ -142075,11 +142075,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i:        ; preds = %115
   br i1 %119, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i, label %120
 
 120:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i
-  %.sink63.i.i.i = phi float [ %108, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %99, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
+  %.sink71.i.i.i = phi float [ %108, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %99, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
   %.sink.i.i.i = phi i64 [ %111, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %101, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
   %.1.i.i.i = phi i64 [ %93, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i ], [ %92, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i ]
   %121 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i.i
-  store float %.sink63.i.i.i, ptr %121, align 4, !tbaa !138
+  store float %.sink71.i.i.i, ptr %121, align 4, !tbaa !138
   %122 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i.i
   store i64 %.sink.i.i.i, ptr %122, align 8, !tbaa !16
   %123 = shl i64 %.1.i.i.i, 1
@@ -142177,11 +142177,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i69.i:      ; preds = %167
   br i1 %171, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i73.i, label %172
 
 172:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i69.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i76.i
-  %.sink63.i.i70.i = phi float [ %160, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i76.i ], [ %151, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i69.i ]
+  %.sink71.i.i70.i = phi float [ %160, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i76.i ], [ %151, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i69.i ]
   %.sink.i.i71.i = phi i64 [ %163, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i76.i ], [ %153, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i69.i ]
   %.1.i.i72.i = phi i64 [ %145, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i76.i ], [ %144, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i69.i ]
   %173 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i67.i
-  store float %.sink63.i.i70.i, ptr %173, align 4, !tbaa !138
+  store float %.sink71.i.i70.i, ptr %173, align 4, !tbaa !138
   %174 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i67.i
   store i64 %.sink.i.i71.i, ptr %174, align 8, !tbaa !16
   %175 = shl i64 %.1.i.i72.i, 1
@@ -142279,11 +142279,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i86.i:      ; preds = %219
   br i1 %223, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i90.i, label %224
 
 224:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i86.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i93.i
-  %.sink63.i.i87.i = phi float [ %212, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i93.i ], [ %203, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i86.i ]
+  %.sink71.i.i87.i = phi float [ %212, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i93.i ], [ %203, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i86.i ]
   %.sink.i.i88.i = phi i64 [ %215, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i93.i ], [ %205, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i86.i ]
   %.1.i.i89.i = phi i64 [ %197, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i93.i ], [ %196, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i86.i ]
   %225 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i84.i
-  store float %.sink63.i.i87.i, ptr %225, align 4, !tbaa !138
+  store float %.sink71.i.i87.i, ptr %225, align 4, !tbaa !138
   %226 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i84.i
   store i64 %.sink.i.i88.i, ptr %226, align 8, !tbaa !16
   %227 = shl i64 %.1.i.i89.i, 1
@@ -142381,11 +142381,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i:     ; preds = %271
   br i1 %275, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i, label %276
 
 276:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i
-  %.sink63.i.i104.i = phi float [ %264, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i ], [ %255, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i ]
+  %.sink71.i.i104.i = phi float [ %264, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i ], [ %255, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i ]
   %.sink.i.i105.i = phi i64 [ %267, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i ], [ %257, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i ]
   %.1.i.i106.i = phi i64 [ %249, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i ], [ %248, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i ]
   %277 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i101.i
-  store float %.sink63.i.i104.i, ptr %277, align 4, !tbaa !138
+  store float %.sink71.i.i104.i, ptr %277, align 4, !tbaa !138
   %278 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i101.i
   store i64 %.sink.i.i105.i, ptr %278, align 8, !tbaa !16
   %279 = shl i64 %.1.i.i106.i, 1
@@ -142609,11 +142609,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i:     ; preds = %384
   br i1 %388, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i, label %389
 
 389:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i
-  %.sink63.i.i122.i = phi float [ %377, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i ], [ %368, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i ]
+  %.sink71.i.i122.i = phi float [ %377, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i ], [ %368, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i ]
   %.sink.i.i123.i = phi i64 [ %380, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i ], [ %370, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i ]
   %.1.i.i124.i = phi i64 [ %362, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i128.i ], [ %361, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i121.i ]
   %390 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i119.i
-  store float %.sink63.i.i122.i, ptr %390, align 4, !tbaa !138
+  store float %.sink71.i.i122.i, ptr %390, align 4, !tbaa !138
   %391 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i119.i
   store i64 %.sink.i.i123.i, ptr %391, align 8, !tbaa !16
   %392 = shl i64 %.1.i.i124.i, 1
@@ -142822,11 +142822,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i170.i:     ; preds = %490
   br i1 %494, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i174.i, label %495
 
 495:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i170.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i177.i
-  %.sink63.i.i171.i = phi float [ %483, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i177.i ], [ %474, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i170.i ]
+  %.sink71.i.i171.i = phi float [ %483, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i177.i ], [ %474, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i170.i ]
   %.sink.i.i172.i = phi i64 [ %486, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i177.i ], [ %476, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i170.i ]
   %.1.i.i173.i = phi i64 [ %468, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i177.i ], [ %467, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i170.i ]
   %496 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i168.i
-  store float %.sink63.i.i171.i, ptr %496, align 4, !tbaa !138
+  store float %.sink71.i.i171.i, ptr %496, align 4, !tbaa !138
   %497 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i168.i
   store i64 %.sink.i.i172.i, ptr %497, align 8, !tbaa !16
   %498 = shl i64 %.1.i.i173.i, 1
@@ -143035,11 +143035,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i219.i:     ; preds = %596
   br i1 %600, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i223.i, label %601
 
 601:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i219.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i226.i
-  %.sink63.i.i220.i = phi float [ %589, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i226.i ], [ %580, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i219.i ]
+  %.sink71.i.i220.i = phi float [ %589, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i226.i ], [ %580, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i219.i ]
   %.sink.i.i221.i = phi i64 [ %592, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i226.i ], [ %582, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i219.i ]
   %.1.i.i222.i = phi i64 [ %574, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i226.i ], [ %573, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i219.i ]
   %602 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i217.i
-  store float %.sink63.i.i220.i, ptr %602, align 4, !tbaa !138
+  store float %.sink71.i.i220.i, ptr %602, align 4, !tbaa !138
   %603 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i217.i
   store i64 %.sink.i.i221.i, ptr %603, align 8, !tbaa !16
   %604 = shl i64 %.1.i.i222.i, 1
@@ -143174,11 +143174,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i30:      ; preds = %669
   br i1 %673, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i34, label %674
 
 674:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i30, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i37
-  %.sink63.i.i.i31 = phi float [ %662, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i37 ], [ %653, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i30 ]
+  %.sink71.i.i.i31 = phi float [ %662, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i37 ], [ %653, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i30 ]
   %.sink.i.i.i32 = phi i64 [ %665, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i37 ], [ %655, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i30 ]
   %.1.i.i.i33 = phi i64 [ %647, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i37 ], [ %646, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i30 ]
   %675 = getelementptr inbounds nuw float, ptr %621, i64 %.056.i.i.i28
-  store float %.sink63.i.i.i31, ptr %675, align 4, !tbaa !138
+  store float %.sink71.i.i.i31, ptr %675, align 4, !tbaa !138
   %676 = getelementptr inbounds nuw i64, ptr %622, i64 %.056.i.i.i28
   store i64 %.sink.i.i.i32, ptr %676, align 8, !tbaa !16
   %677 = shl i64 %.1.i.i.i33, 1
@@ -143430,11 +143430,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i52:      ; preds = %807
   br i1 %811, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i56, label %812
 
 812:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i52, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i59
-  %.sink63.i.i.i53 = phi float [ %800, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i59 ], [ %791, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i52 ]
+  %.sink71.i.i.i53 = phi float [ %800, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i59 ], [ %791, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i52 ]
   %.sink.i.i.i54 = phi i64 [ %803, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i59 ], [ %793, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i52 ]
   %.1.i.i.i55 = phi i64 [ %785, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i59 ], [ %784, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i52 ]
   %813 = getelementptr inbounds nuw float, ptr %761, i64 %.056.i.i.i50
-  store float %.sink63.i.i.i53, ptr %813, align 4, !tbaa !138
+  store float %.sink71.i.i.i53, ptr %813, align 4, !tbaa !138
   %814 = getelementptr inbounds nuw i64, ptr %762, i64 %.056.i.i.i50
   store i64 %.sink.i.i.i54, ptr %814, align 8, !tbaa !16
   %815 = shl i64 %.1.i.i.i55, 1
@@ -143637,7 +143637,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0E
   br label %93
 
 .preheader143.i.i.i.i:                            ; preds = %211
-  %92 = zext i32 %.188.i.i.i.i to i64
+  %92 = zext nneg i32 %.188.i.i.i.i to i64
   %.not164.i.i.i.i = icmp eq i32 %.188.i.i.i.i, 0
   br i1 %.not164.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph157.i.i.i.i
 
@@ -144200,7 +144200,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %390
 
 .preheader143.i.i38.i.i:                          ; preds = %512
-  %389 = zext i32 %.188.i.i36.i.i to i64
+  %389 = zext nneg i32 %.188.i.i36.i.i to i64
   %.not164.i.i39.i.i = icmp eq i32 %.188.i.i36.i.i, 0
   br i1 %.not164.i.i39.i.i, label %.preheader.i.i64.i.i, label %.lr.ph157.i.i40.i.i
 
@@ -144770,7 +144770,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %694
 
 .preheader147.i.i.i.i:                            ; preds = %840
-  %693 = zext i32 %.188.i.i132.i.i to i64
+  %693 = zext nneg i32 %.188.i.i132.i.i to i64
   %.not168.i.i.i.i = icmp eq i32 %.188.i.i132.i.i, 0
   br i1 %.not168.i.i.i.i, label %.preheader.i.i156.i.i, label %.lr.ph161.i.i.i.i
 
@@ -145372,7 +145372,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %1030
 
 .preheader151.i.i.i.i:                            ; preds = %1196
-  %1029 = zext i32 %.188.i.i218.i.i to i64
+  %1029 = zext nneg i32 %.188.i.i218.i.i to i64
   %.not172.i.i.i.i = icmp eq i32 %.188.i.i218.i.i, 0
   br i1 %.not172.i.i.i.i, label %.preheader.i.i242.i.i, label %.lr.ph165.i.i.i.i
 
@@ -146001,7 +146001,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %1393
 
 .preheader155.i.i.i.i:                            ; preds = %1587
-  %1392 = zext i32 %.188.i.i304.i.i to i64
+  %1392 = zext nneg i32 %.188.i.i304.i.i to i64
   %.not176.i.i.i.i = icmp eq i32 %.188.i.i304.i.i, 0
   br i1 %.not176.i.i.i.i, label %.preheader.i.i328.i.i, label %.lr.ph169.i.i.i.i
 
@@ -146673,7 +146673,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %1799
 
 .preheader171.i.i.i.i:                            ; preds = %2089
-  %1798 = zext i32 %.188.i.i390.i.i to i64
+  %1798 = zext nneg i32 %.188.i.i390.i.i to i64
   %.not192.i.i.i.i = icmp eq i32 %.188.i.i390.i.i, 0
   br i1 %.not192.i.i.i.i, label %.preheader.i.i415.i.i, label %.lr.ph185.i.i.i.i
 
@@ -147458,7 +147458,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %2314
 
 .preheader139.i.i.i.i:                            ; preds = %2424
-  %2313 = zext i32 %.188.i.i477.i.i to i64
+  %2313 = zext nneg i32 %.188.i.i477.i.i to i64
   %.not160.i.i.i.i = icmp eq i32 %.188.i.i477.i.i, 0
   br i1 %.not160.i.i.i.i, label %.preheader.i.i501.i.i, label %.lr.ph153.i.i.i.i
 
@@ -149094,7 +149094,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   br label %79
 
 .preheader219.i.i:                                ; preds = %345
-  %73 = zext i32 %.188.i.i to i64
+  %73 = zext nneg i32 %.188.i.i to i64
   %.not240.i.i = icmp eq i32 %.188.i.i, 0
   br i1 %.not240.i.i, label %.preheader.i.i, label %.lr.ph233.i.i
 
@@ -149265,11 +149265,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i:      ; preds = %180
   br i1 %184, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i, label %185
 
 185:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i
-  %.sink63.i.i.i.i = phi float [ %173, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %164, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
+  %.sink71.i.i.i.i = phi float [ %173, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %164, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
   %.sink.i.i.i.i = phi i64 [ %176, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %166, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
   %.1.i.i.i.i = phi i64 [ %158, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i ], [ %157, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i ]
   %186 = getelementptr inbounds nuw float, ptr %70, i64 %.056.i.i.i.i
-  store float %.sink63.i.i.i.i, ptr %186, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i, ptr %186, align 4, !tbaa !138
   %187 = getelementptr inbounds nuw i64, ptr %71, i64 %.056.i.i.i.i
   store i64 %.sink.i.i.i.i, ptr %187, align 8, !tbaa !16
   %188 = shl i64 %.1.i.i.i.i, 1
@@ -149364,11 +149364,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i:   ; preds = %229
   br i1 %233, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i.i, label %234
 
 234:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i
-  %.sink63.i.i104.i.i = phi float [ %222, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i ], [ %213, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i ]
+  %.sink71.i.i104.i.i = phi float [ %222, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i ], [ %213, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i ]
   %.sink.i.i105.i.i = phi i64 [ %225, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i ], [ %215, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i ]
   %.1.i.i106.i.i = phi i64 [ %207, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i ], [ %206, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i ]
   %235 = getelementptr inbounds nuw float, ptr %70, i64 %.056.i.i101.i.i
-  store float %.sink63.i.i104.i.i, ptr %235, align 4, !tbaa !138
+  store float %.sink71.i.i104.i.i, ptr %235, align 4, !tbaa !138
   %236 = getelementptr inbounds nuw i64, ptr %71, i64 %.056.i.i101.i.i
   store i64 %.sink.i.i105.i.i, ptr %236, align 8, !tbaa !16
   %237 = shl i64 %.1.i.i106.i.i, 1
@@ -149463,11 +149463,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i:   ; preds = %278
   br i1 %282, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i124.i.i, label %283
 
 283:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i
-  %.sink63.i.i121.i.i = phi float [ %271, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i ], [ %262, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i ]
+  %.sink71.i.i121.i.i = phi float [ %271, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i ], [ %262, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i ]
   %.sink.i.i122.i.i = phi i64 [ %274, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i ], [ %264, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i ]
   %.1.i.i123.i.i = phi i64 [ %256, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i ], [ %255, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i ]
   %284 = getelementptr inbounds nuw float, ptr %70, i64 %.056.i.i118.i.i
-  store float %.sink63.i.i121.i.i, ptr %284, align 4, !tbaa !138
+  store float %.sink71.i.i121.i.i, ptr %284, align 4, !tbaa !138
   %285 = getelementptr inbounds nuw i64, ptr %71, i64 %.056.i.i118.i.i
   store i64 %.sink.i.i122.i.i, ptr %285, align 8, !tbaa !16
   %286 = shl i64 %.1.i.i123.i.i, 1
@@ -149562,11 +149562,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i:   ; preds = %327
   br i1 %331, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i141.i.i, label %332
 
 332:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i
-  %.sink63.i.i138.i.i = phi float [ %320, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i ], [ %311, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i ]
+  %.sink71.i.i138.i.i = phi float [ %320, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i ], [ %311, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i ]
   %.sink.i.i139.i.i = phi i64 [ %323, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i ], [ %313, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i ]
   %.1.i.i140.i.i = phi i64 [ %305, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i ], [ %304, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i ]
   %333 = getelementptr inbounds nuw float, ptr %70, i64 %.056.i.i135.i.i
-  store float %.sink63.i.i138.i.i, ptr %333, align 4, !tbaa !138
+  store float %.sink71.i.i138.i.i, ptr %333, align 4, !tbaa !138
   %334 = getelementptr inbounds nuw i64, ptr %71, i64 %.056.i.i135.i.i
   store i64 %.sink.i.i139.i.i, ptr %334, align 8, !tbaa !16
   %335 = shl i64 %.1.i.i140.i.i, 1
@@ -149819,11 +149819,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i:   ; preds = %451
   br i1 %455, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i159.i.i, label %456
 
 456:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i
-  %.sink63.i.i156.i.i = phi float [ %444, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i ], [ %435, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i ]
+  %.sink71.i.i156.i.i = phi float [ %444, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i ], [ %435, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i ]
   %.sink.i.i157.i.i = phi i64 [ %447, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i ], [ %437, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i ]
   %.1.i.i158.i.i = phi i64 [ %429, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i ], [ %428, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i ]
   %457 = getelementptr inbounds nuw float, ptr %70, i64 %.056.i.i153.i.i
-  store float %.sink63.i.i156.i.i, ptr %457, align 4, !tbaa !138
+  store float %.sink71.i.i156.i.i, ptr %457, align 4, !tbaa !138
   %458 = getelementptr inbounds nuw i64, ptr %71, i64 %.056.i.i153.i.i
   store i64 %.sink.i.i157.i.i, ptr %458, align 8, !tbaa !16
   %459 = shl i64 %.1.i.i158.i.i, 1
@@ -150038,11 +150038,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i:   ; preds = %559
   br i1 %563, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i208.i.i, label %564
 
 564:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i
-  %.sink63.i.i205.i.i = phi float [ %552, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i ], [ %543, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i ]
+  %.sink71.i.i205.i.i = phi float [ %552, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i ], [ %543, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i ]
   %.sink.i.i206.i.i = phi i64 [ %555, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i ], [ %545, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i ]
   %.1.i.i207.i.i = phi i64 [ %537, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i ], [ %536, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i ]
   %565 = getelementptr inbounds nuw float, ptr %356, i64 %.056.i.i202.i.i
-  store float %.sink63.i.i205.i.i, ptr %565, align 4, !tbaa !138
+  store float %.sink71.i.i205.i.i, ptr %565, align 4, !tbaa !138
   %566 = getelementptr inbounds nuw i64, ptr %357, i64 %.056.i.i202.i.i
   store i64 %.sink.i.i206.i.i, ptr %566, align 8, !tbaa !16
   %567 = shl i64 %.1.i.i207.i.i, 1
@@ -150109,7 +150109,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %605
 
 .preheader219.i.i41:                              ; preds = %875
-  %599 = zext i32 %.188.i.i39 to i64
+  %599 = zext nneg i32 %.188.i.i39 to i64
   %.not240.i.i42 = icmp eq i32 %.188.i.i39, 0
   br i1 %.not240.i.i42, label %.preheader.i.i67, label %.lr.ph233.i.i43
 
@@ -150284,11 +150284,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i201:   ; preds = %710
   br i1 %714, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i205, label %715
 
 715:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i201, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i210
-  %.sink63.i.i.i.i202 = phi float [ %703, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i210 ], [ %694, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i201 ]
+  %.sink71.i.i.i.i202 = phi float [ %703, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i210 ], [ %694, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i201 ]
   %.sink.i.i.i.i203 = phi i64 [ %706, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i210 ], [ %696, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i201 ]
   %.1.i.i.i.i204 = phi i64 [ %688, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i210 ], [ %687, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i201 ]
   %716 = getelementptr inbounds nuw float, ptr %596, i64 %.056.i.i.i.i199
-  store float %.sink63.i.i.i.i202, ptr %716, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i202, ptr %716, align 4, !tbaa !138
   %717 = getelementptr inbounds nuw i64, ptr %597, i64 %.056.i.i.i.i199
   store i64 %.sink.i.i.i.i203, ptr %717, align 8, !tbaa !16
   %718 = shl i64 %.1.i.i.i.i204, 1
@@ -150383,11 +150383,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i186: ; preds = %759
   br i1 %763, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i.i190, label %764
 
 764:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i186, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i195
-  %.sink63.i.i104.i.i187 = phi float [ %752, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i195 ], [ %743, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i186 ]
+  %.sink71.i.i104.i.i187 = phi float [ %752, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i195 ], [ %743, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i186 ]
   %.sink.i.i105.i.i188 = phi i64 [ %755, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i195 ], [ %745, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i186 ]
   %.1.i.i106.i.i189 = phi i64 [ %737, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i195 ], [ %736, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i186 ]
   %765 = getelementptr inbounds nuw float, ptr %596, i64 %.056.i.i101.i.i184
-  store float %.sink63.i.i104.i.i187, ptr %765, align 4, !tbaa !138
+  store float %.sink71.i.i104.i.i187, ptr %765, align 4, !tbaa !138
   %766 = getelementptr inbounds nuw i64, ptr %597, i64 %.056.i.i101.i.i184
   store i64 %.sink.i.i105.i.i188, ptr %766, align 8, !tbaa !16
   %767 = shl i64 %.1.i.i106.i.i189, 1
@@ -150482,11 +150482,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i171: ; preds = %808
   br i1 %812, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i124.i.i175, label %813
 
 813:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i171, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i180
-  %.sink63.i.i121.i.i172 = phi float [ %801, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i180 ], [ %792, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i171 ]
+  %.sink71.i.i121.i.i172 = phi float [ %801, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i180 ], [ %792, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i171 ]
   %.sink.i.i122.i.i173 = phi i64 [ %804, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i180 ], [ %794, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i171 ]
   %.1.i.i123.i.i174 = phi i64 [ %786, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i180 ], [ %785, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i171 ]
   %814 = getelementptr inbounds nuw float, ptr %596, i64 %.056.i.i118.i.i169
-  store float %.sink63.i.i121.i.i172, ptr %814, align 4, !tbaa !138
+  store float %.sink71.i.i121.i.i172, ptr %814, align 4, !tbaa !138
   %815 = getelementptr inbounds nuw i64, ptr %597, i64 %.056.i.i118.i.i169
   store i64 %.sink.i.i122.i.i173, ptr %815, align 8, !tbaa !16
   %816 = shl i64 %.1.i.i123.i.i174, 1
@@ -150581,11 +150581,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i158: ; preds = %857
   br i1 %861, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i141.i.i162, label %862
 
 862:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i158, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i165
-  %.sink63.i.i138.i.i159 = phi float [ %850, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i165 ], [ %841, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i158 ]
+  %.sink71.i.i138.i.i159 = phi float [ %850, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i165 ], [ %841, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i158 ]
   %.sink.i.i139.i.i160 = phi i64 [ %853, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i165 ], [ %843, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i158 ]
   %.1.i.i140.i.i161 = phi i64 [ %835, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i165 ], [ %834, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i158 ]
   %863 = getelementptr inbounds nuw float, ptr %596, i64 %.056.i.i135.i.i156
-  store float %.sink63.i.i138.i.i159, ptr %863, align 4, !tbaa !138
+  store float %.sink71.i.i138.i.i159, ptr %863, align 4, !tbaa !138
   %864 = getelementptr inbounds nuw i64, ptr %597, i64 %.056.i.i135.i.i156
   store i64 %.sink.i.i139.i.i160, ptr %864, align 8, !tbaa !16
   %865 = shl i64 %.1.i.i140.i.i161, 1
@@ -150838,11 +150838,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i128: ; preds = %981
   br i1 %985, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i159.i.i132, label %986
 
 986:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i128, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i135
-  %.sink63.i.i156.i.i129 = phi float [ %974, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i135 ], [ %965, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i128 ]
+  %.sink71.i.i156.i.i129 = phi float [ %974, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i135 ], [ %965, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i128 ]
   %.sink.i.i157.i.i130 = phi i64 [ %977, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i135 ], [ %967, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i128 ]
   %.1.i.i158.i.i131 = phi i64 [ %959, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i135 ], [ %958, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i128 ]
   %987 = getelementptr inbounds nuw float, ptr %596, i64 %.056.i.i153.i.i126
-  store float %.sink63.i.i156.i.i129, ptr %987, align 4, !tbaa !138
+  store float %.sink71.i.i156.i.i129, ptr %987, align 4, !tbaa !138
   %988 = getelementptr inbounds nuw i64, ptr %597, i64 %.056.i.i153.i.i126
   store i64 %.sink.i.i157.i.i130, ptr %988, align 8, !tbaa !16
   %989 = shl i64 %.1.i.i158.i.i131, 1
@@ -151058,11 +151058,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i102: ; preds = %1090
   br i1 %1094, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i208.i.i106, label %1095
 
 1095:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i102, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i109
-  %.sink63.i.i205.i.i103 = phi float [ %1083, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i109 ], [ %1074, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i102 ]
+  %.sink71.i.i205.i.i103 = phi float [ %1083, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i109 ], [ %1074, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i102 ]
   %.sink.i.i206.i.i104 = phi i64 [ %1086, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i109 ], [ %1076, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i102 ]
   %.1.i.i207.i.i105 = phi i64 [ %1068, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i109 ], [ %1067, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i102 ]
   %1096 = getelementptr inbounds nuw float, ptr %886, i64 %.056.i.i202.i.i100
-  store float %.sink63.i.i205.i.i103, ptr %1096, align 4, !tbaa !138
+  store float %.sink71.i.i205.i.i103, ptr %1096, align 4, !tbaa !138
   %1097 = getelementptr inbounds nuw i64, ptr %887, i64 %.056.i.i202.i.i100
   store i64 %.sink.i.i206.i.i104, ptr %1097, align 8, !tbaa !16
   %1098 = shl i64 %.1.i.i207.i.i105, 1
@@ -151131,7 +151131,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %1138
 
 .preheader223.i.i:                                ; preds = %1432
-  %1132 = zext i32 %.188.i.i221 to i64
+  %1132 = zext nneg i32 %.188.i.i221 to i64
   %.not244.i.i = icmp eq i32 %.188.i.i221, 0
   br i1 %.not244.i.i, label %.preheader.i.i245, label %.lr.ph237.i.i
 
@@ -151330,11 +151330,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i371:   ; preds = %1267
   br i1 %1271, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i375, label %1272
 
 1272:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i371, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i380
-  %.sink63.i.i.i.i372 = phi float [ %1260, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i380 ], [ %1251, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i371 ]
+  %.sink71.i.i.i.i372 = phi float [ %1260, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i380 ], [ %1251, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i371 ]
   %.sink.i.i.i.i373 = phi i64 [ %1263, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i380 ], [ %1253, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i371 ]
   %.1.i.i.i.i374 = phi i64 [ %1245, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i380 ], [ %1244, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i371 ]
   %1273 = getelementptr inbounds nuw float, ptr %1129, i64 %.056.i.i.i.i369
-  store float %.sink63.i.i.i.i372, ptr %1273, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i372, ptr %1273, align 4, !tbaa !138
   %1274 = getelementptr inbounds nuw i64, ptr %1130, i64 %.056.i.i.i.i369
   store i64 %.sink.i.i.i.i373, ptr %1274, align 8, !tbaa !16
   %1275 = shl i64 %.1.i.i.i.i374, 1
@@ -151429,11 +151429,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i358: ; preds = %1316
   br i1 %1320, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i.i362, label %1321
 
 1321:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i358, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i365
-  %.sink63.i.i104.i.i359 = phi float [ %1309, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i365 ], [ %1300, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i358 ]
+  %.sink71.i.i104.i.i359 = phi float [ %1309, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i365 ], [ %1300, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i358 ]
   %.sink.i.i105.i.i360 = phi i64 [ %1312, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i365 ], [ %1302, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i358 ]
   %.1.i.i106.i.i361 = phi i64 [ %1294, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i365 ], [ %1293, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i358 ]
   %1322 = getelementptr inbounds nuw float, ptr %1129, i64 %.056.i.i101.i.i356
-  store float %.sink63.i.i104.i.i359, ptr %1322, align 4, !tbaa !138
+  store float %.sink71.i.i104.i.i359, ptr %1322, align 4, !tbaa !138
   %1323 = getelementptr inbounds nuw i64, ptr %1130, i64 %.056.i.i101.i.i356
   store i64 %.sink.i.i105.i.i360, ptr %1323, align 8, !tbaa !16
   %1324 = shl i64 %.1.i.i106.i.i361, 1
@@ -151528,11 +151528,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i345: ; preds = %1365
   br i1 %1369, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i124.i.i349, label %1370
 
 1370:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i345, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i352
-  %.sink63.i.i121.i.i346 = phi float [ %1358, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i352 ], [ %1349, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i345 ]
+  %.sink71.i.i121.i.i346 = phi float [ %1358, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i352 ], [ %1349, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i345 ]
   %.sink.i.i122.i.i347 = phi i64 [ %1361, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i352 ], [ %1351, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i345 ]
   %.1.i.i123.i.i348 = phi i64 [ %1343, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i352 ], [ %1342, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i345 ]
   %1371 = getelementptr inbounds nuw float, ptr %1129, i64 %.056.i.i118.i.i343
-  store float %.sink63.i.i121.i.i346, ptr %1371, align 4, !tbaa !138
+  store float %.sink71.i.i121.i.i346, ptr %1371, align 4, !tbaa !138
   %1372 = getelementptr inbounds nuw i64, ptr %1130, i64 %.056.i.i118.i.i343
   store i64 %.sink.i.i122.i.i347, ptr %1372, align 8, !tbaa !16
   %1373 = shl i64 %.1.i.i123.i.i348, 1
@@ -151627,11 +151627,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i332: ; preds = %1414
   br i1 %1418, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i141.i.i336, label %1419
 
 1419:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i332, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i339
-  %.sink63.i.i138.i.i333 = phi float [ %1407, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i339 ], [ %1398, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i332 ]
+  %.sink71.i.i138.i.i333 = phi float [ %1407, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i339 ], [ %1398, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i332 ]
   %.sink.i.i139.i.i334 = phi i64 [ %1410, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i339 ], [ %1400, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i332 ]
   %.1.i.i140.i.i335 = phi i64 [ %1392, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i339 ], [ %1391, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i332 ]
   %1420 = getelementptr inbounds nuw float, ptr %1129, i64 %.056.i.i135.i.i330
-  store float %.sink63.i.i138.i.i333, ptr %1420, align 4, !tbaa !138
+  store float %.sink71.i.i138.i.i333, ptr %1420, align 4, !tbaa !138
   %1421 = getelementptr inbounds nuw i64, ptr %1130, i64 %.056.i.i135.i.i330
   store i64 %.sink.i.i139.i.i334, ptr %1421, align 8, !tbaa !16
   %1422 = shl i64 %.1.i.i140.i.i335, 1
@@ -151884,11 +151884,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i302: ; preds = %1538
   br i1 %1542, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i159.i.i306, label %1543
 
 1543:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i302, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i309
-  %.sink63.i.i156.i.i303 = phi float [ %1531, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i309 ], [ %1522, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i302 ]
+  %.sink71.i.i156.i.i303 = phi float [ %1531, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i309 ], [ %1522, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i302 ]
   %.sink.i.i157.i.i304 = phi i64 [ %1534, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i309 ], [ %1524, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i302 ]
   %.1.i.i158.i.i305 = phi i64 [ %1516, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i309 ], [ %1515, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i302 ]
   %1544 = getelementptr inbounds nuw float, ptr %1129, i64 %.056.i.i153.i.i300
-  store float %.sink63.i.i156.i.i303, ptr %1544, align 4, !tbaa !138
+  store float %.sink71.i.i156.i.i303, ptr %1544, align 4, !tbaa !138
   %1545 = getelementptr inbounds nuw i64, ptr %1130, i64 %.056.i.i153.i.i300
   store i64 %.sink.i.i157.i.i304, ptr %1545, align 8, !tbaa !16
   %1546 = shl i64 %.1.i.i158.i.i305, 1
@@ -152110,11 +152110,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i276: ; preds = %1653
   br i1 %1657, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i208.i.i280, label %1658
 
 1658:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i276, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i283
-  %.sink63.i.i205.i.i277 = phi float [ %1646, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i283 ], [ %1637, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i276 ]
+  %.sink71.i.i205.i.i277 = phi float [ %1646, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i283 ], [ %1637, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i276 ]
   %.sink.i.i206.i.i278 = phi i64 [ %1649, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i283 ], [ %1639, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i276 ]
   %.1.i.i207.i.i279 = phi i64 [ %1631, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i283 ], [ %1630, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i276 ]
   %1659 = getelementptr inbounds nuw float, ptr %1443, i64 %.056.i.i202.i.i274
-  store float %.sink63.i.i205.i.i277, ptr %1659, align 4, !tbaa !138
+  store float %.sink71.i.i205.i.i277, ptr %1659, align 4, !tbaa !138
   %1660 = getelementptr inbounds nuw i64, ptr %1444, i64 %.056.i.i202.i.i274
   store i64 %.sink.i.i206.i.i278, ptr %1660, align 8, !tbaa !16
   %1661 = shl i64 %.1.i.i207.i.i279, 1
@@ -152185,7 +152185,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %1703
 
 .preheader227.i.i:                                ; preds = %2017
-  %1697 = zext i32 %.188.i.i391 to i64
+  %1697 = zext nneg i32 %.188.i.i391 to i64
   %.not248.i.i = icmp eq i32 %.188.i.i391, 0
   br i1 %.not248.i.i, label %.preheader.i.i415, label %.lr.ph241.i.i
 
@@ -152404,11 +152404,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i541:   ; preds = %1852
   br i1 %1856, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i545, label %1857
 
 1857:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i541, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i550
-  %.sink63.i.i.i.i542 = phi float [ %1845, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i550 ], [ %1836, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i541 ]
+  %.sink71.i.i.i.i542 = phi float [ %1845, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i550 ], [ %1836, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i541 ]
   %.sink.i.i.i.i543 = phi i64 [ %1848, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i550 ], [ %1838, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i541 ]
   %.1.i.i.i.i544 = phi i64 [ %1830, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i550 ], [ %1829, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i541 ]
   %1858 = getelementptr inbounds nuw float, ptr %1694, i64 %.056.i.i.i.i539
-  store float %.sink63.i.i.i.i542, ptr %1858, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i542, ptr %1858, align 4, !tbaa !138
   %1859 = getelementptr inbounds nuw i64, ptr %1695, i64 %.056.i.i.i.i539
   store i64 %.sink.i.i.i.i543, ptr %1859, align 8, !tbaa !16
   %1860 = shl i64 %.1.i.i.i.i544, 1
@@ -152503,11 +152503,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i528: ; preds = %1901
   br i1 %1905, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i.i532, label %1906
 
 1906:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i528, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i535
-  %.sink63.i.i104.i.i529 = phi float [ %1894, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i535 ], [ %1885, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i528 ]
+  %.sink71.i.i104.i.i529 = phi float [ %1894, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i535 ], [ %1885, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i528 ]
   %.sink.i.i105.i.i530 = phi i64 [ %1897, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i535 ], [ %1887, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i528 ]
   %.1.i.i106.i.i531 = phi i64 [ %1879, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i535 ], [ %1878, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i528 ]
   %1907 = getelementptr inbounds nuw float, ptr %1694, i64 %.056.i.i101.i.i526
-  store float %.sink63.i.i104.i.i529, ptr %1907, align 4, !tbaa !138
+  store float %.sink71.i.i104.i.i529, ptr %1907, align 4, !tbaa !138
   %1908 = getelementptr inbounds nuw i64, ptr %1695, i64 %.056.i.i101.i.i526
   store i64 %.sink.i.i105.i.i530, ptr %1908, align 8, !tbaa !16
   %1909 = shl i64 %.1.i.i106.i.i531, 1
@@ -152602,11 +152602,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i515: ; preds = %1950
   br i1 %1954, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i124.i.i519, label %1955
 
 1955:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i515, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i522
-  %.sink63.i.i121.i.i516 = phi float [ %1943, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i522 ], [ %1934, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i515 ]
+  %.sink71.i.i121.i.i516 = phi float [ %1943, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i522 ], [ %1934, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i515 ]
   %.sink.i.i122.i.i517 = phi i64 [ %1946, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i522 ], [ %1936, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i515 ]
   %.1.i.i123.i.i518 = phi i64 [ %1928, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i522 ], [ %1927, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i515 ]
   %1956 = getelementptr inbounds nuw float, ptr %1694, i64 %.056.i.i118.i.i513
-  store float %.sink63.i.i121.i.i516, ptr %1956, align 4, !tbaa !138
+  store float %.sink71.i.i121.i.i516, ptr %1956, align 4, !tbaa !138
   %1957 = getelementptr inbounds nuw i64, ptr %1695, i64 %.056.i.i118.i.i513
   store i64 %.sink.i.i122.i.i517, ptr %1957, align 8, !tbaa !16
   %1958 = shl i64 %.1.i.i123.i.i518, 1
@@ -152701,11 +152701,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i502: ; preds = %1999
   br i1 %2003, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i141.i.i506, label %2004
 
 2004:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i502, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i509
-  %.sink63.i.i138.i.i503 = phi float [ %1992, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i509 ], [ %1983, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i502 ]
+  %.sink71.i.i138.i.i503 = phi float [ %1992, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i509 ], [ %1983, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i502 ]
   %.sink.i.i139.i.i504 = phi i64 [ %1995, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i509 ], [ %1985, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i502 ]
   %.1.i.i140.i.i505 = phi i64 [ %1977, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i509 ], [ %1976, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i502 ]
   %2005 = getelementptr inbounds nuw float, ptr %1694, i64 %.056.i.i135.i.i500
-  store float %.sink63.i.i138.i.i503, ptr %2005, align 4, !tbaa !138
+  store float %.sink71.i.i138.i.i503, ptr %2005, align 4, !tbaa !138
   %2006 = getelementptr inbounds nuw i64, ptr %1695, i64 %.056.i.i135.i.i500
   store i64 %.sink.i.i139.i.i504, ptr %2006, align 8, !tbaa !16
   %2007 = shl i64 %.1.i.i140.i.i505, 1
@@ -152958,11 +152958,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i472: ; preds = %2123
   br i1 %2127, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i159.i.i476, label %2128
 
 2128:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i472, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i479
-  %.sink63.i.i156.i.i473 = phi float [ %2116, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i479 ], [ %2107, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i472 ]
+  %.sink71.i.i156.i.i473 = phi float [ %2116, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i479 ], [ %2107, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i472 ]
   %.sink.i.i157.i.i474 = phi i64 [ %2119, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i479 ], [ %2109, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i472 ]
   %.1.i.i158.i.i475 = phi i64 [ %2101, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i479 ], [ %2100, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i472 ]
   %2129 = getelementptr inbounds nuw float, ptr %1694, i64 %.056.i.i153.i.i470
-  store float %.sink63.i.i156.i.i473, ptr %2129, align 4, !tbaa !138
+  store float %.sink71.i.i156.i.i473, ptr %2129, align 4, !tbaa !138
   %2130 = getelementptr inbounds nuw i64, ptr %1695, i64 %.056.i.i153.i.i470
   store i64 %.sink.i.i157.i.i474, ptr %2130, align 8, !tbaa !16
   %2131 = shl i64 %.1.i.i158.i.i475, 1
@@ -153189,11 +153189,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i446: ; preds = %2243
   br i1 %2247, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i208.i.i450, label %2248
 
 2248:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i446, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i453
-  %.sink63.i.i205.i.i447 = phi float [ %2236, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i453 ], [ %2227, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i446 ]
+  %.sink71.i.i205.i.i447 = phi float [ %2236, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i453 ], [ %2227, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i446 ]
   %.sink.i.i206.i.i448 = phi i64 [ %2239, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i453 ], [ %2229, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i446 ]
   %.1.i.i207.i.i449 = phi i64 [ %2221, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i453 ], [ %2220, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i446 ]
   %2249 = getelementptr inbounds nuw float, ptr %2028, i64 %.056.i.i202.i.i444
-  store float %.sink63.i.i205.i.i447, ptr %2249, align 4, !tbaa !138
+  store float %.sink71.i.i205.i.i447, ptr %2249, align 4, !tbaa !138
   %2250 = getelementptr inbounds nuw i64, ptr %2029, i64 %.056.i.i202.i.i444
   store i64 %.sink.i.i206.i.i448, ptr %2250, align 8, !tbaa !16
   %2251 = shl i64 %.1.i.i207.i.i449, 1
@@ -153266,7 +153266,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %2295
 
 .preheader231.i.i:                                ; preds = %2637
-  %2289 = zext i32 %.188.i.i561 to i64
+  %2289 = zext nneg i32 %.188.i.i561 to i64
   %.not252.i.i = icmp eq i32 %.188.i.i561, 0
   br i1 %.not252.i.i, label %.preheader.i.i585, label %.lr.ph245.i.i
 
@@ -153513,11 +153513,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i711:   ; preds = %2472
   br i1 %2476, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i715, label %2477
 
 2477:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i711, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i720
-  %.sink63.i.i.i.i712 = phi float [ %2465, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i720 ], [ %2456, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i711 ]
+  %.sink71.i.i.i.i712 = phi float [ %2465, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i720 ], [ %2456, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i711 ]
   %.sink.i.i.i.i713 = phi i64 [ %2468, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i720 ], [ %2458, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i711 ]
   %.1.i.i.i.i714 = phi i64 [ %2450, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i720 ], [ %2449, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i711 ]
   %2478 = getelementptr inbounds nuw float, ptr %2286, i64 %.056.i.i.i.i709
-  store float %.sink63.i.i.i.i712, ptr %2478, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i712, ptr %2478, align 4, !tbaa !138
   %2479 = getelementptr inbounds nuw i64, ptr %2287, i64 %.056.i.i.i.i709
   store i64 %.sink.i.i.i.i713, ptr %2479, align 8, !tbaa !16
   %2480 = shl i64 %.1.i.i.i.i714, 1
@@ -153612,11 +153612,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i698: ; preds = %2521
   br i1 %2525, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i.i702, label %2526
 
 2526:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i698, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i705
-  %.sink63.i.i104.i.i699 = phi float [ %2514, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i705 ], [ %2505, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i698 ]
+  %.sink71.i.i104.i.i699 = phi float [ %2514, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i705 ], [ %2505, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i698 ]
   %.sink.i.i105.i.i700 = phi i64 [ %2517, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i705 ], [ %2507, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i698 ]
   %.1.i.i106.i.i701 = phi i64 [ %2499, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i705 ], [ %2498, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i698 ]
   %2527 = getelementptr inbounds nuw float, ptr %2286, i64 %.056.i.i101.i.i696
-  store float %.sink63.i.i104.i.i699, ptr %2527, align 4, !tbaa !138
+  store float %.sink71.i.i104.i.i699, ptr %2527, align 4, !tbaa !138
   %2528 = getelementptr inbounds nuw i64, ptr %2287, i64 %.056.i.i101.i.i696
   store i64 %.sink.i.i105.i.i700, ptr %2528, align 8, !tbaa !16
   %2529 = shl i64 %.1.i.i106.i.i701, 1
@@ -153711,11 +153711,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i685: ; preds = %2570
   br i1 %2574, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i124.i.i689, label %2575
 
 2575:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i685, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i692
-  %.sink63.i.i121.i.i686 = phi float [ %2563, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i692 ], [ %2554, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i685 ]
+  %.sink71.i.i121.i.i686 = phi float [ %2563, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i692 ], [ %2554, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i685 ]
   %.sink.i.i122.i.i687 = phi i64 [ %2566, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i692 ], [ %2556, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i685 ]
   %.1.i.i123.i.i688 = phi i64 [ %2548, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i692 ], [ %2547, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i685 ]
   %2576 = getelementptr inbounds nuw float, ptr %2286, i64 %.056.i.i118.i.i683
-  store float %.sink63.i.i121.i.i686, ptr %2576, align 4, !tbaa !138
+  store float %.sink71.i.i121.i.i686, ptr %2576, align 4, !tbaa !138
   %2577 = getelementptr inbounds nuw i64, ptr %2287, i64 %.056.i.i118.i.i683
   store i64 %.sink.i.i122.i.i687, ptr %2577, align 8, !tbaa !16
   %2578 = shl i64 %.1.i.i123.i.i688, 1
@@ -153810,11 +153810,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i672: ; preds = %2619
   br i1 %2623, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i141.i.i676, label %2624
 
 2624:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i672, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i679
-  %.sink63.i.i138.i.i673 = phi float [ %2612, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i679 ], [ %2603, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i672 ]
+  %.sink71.i.i138.i.i673 = phi float [ %2612, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i679 ], [ %2603, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i672 ]
   %.sink.i.i139.i.i674 = phi i64 [ %2615, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i679 ], [ %2605, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i672 ]
   %.1.i.i140.i.i675 = phi i64 [ %2597, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i679 ], [ %2596, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i672 ]
   %2625 = getelementptr inbounds nuw float, ptr %2286, i64 %.056.i.i135.i.i670
-  store float %.sink63.i.i138.i.i673, ptr %2625, align 4, !tbaa !138
+  store float %.sink71.i.i138.i.i673, ptr %2625, align 4, !tbaa !138
   %2626 = getelementptr inbounds nuw i64, ptr %2287, i64 %.056.i.i135.i.i670
   store i64 %.sink.i.i139.i.i674, ptr %2626, align 8, !tbaa !16
   %2627 = shl i64 %.1.i.i140.i.i675, 1
@@ -154067,11 +154067,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i642: ; preds = %2743
   br i1 %2747, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i159.i.i646, label %2748
 
 2748:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i642, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i649
-  %.sink63.i.i156.i.i643 = phi float [ %2736, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i649 ], [ %2727, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i642 ]
+  %.sink71.i.i156.i.i643 = phi float [ %2736, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i649 ], [ %2727, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i642 ]
   %.sink.i.i157.i.i644 = phi i64 [ %2739, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i649 ], [ %2729, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i642 ]
   %.1.i.i158.i.i645 = phi i64 [ %2721, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i649 ], [ %2720, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i642 ]
   %2749 = getelementptr inbounds nuw float, ptr %2286, i64 %.056.i.i153.i.i640
-  store float %.sink63.i.i156.i.i643, ptr %2749, align 4, !tbaa !138
+  store float %.sink71.i.i156.i.i643, ptr %2749, align 4, !tbaa !138
   %2750 = getelementptr inbounds nuw i64, ptr %2287, i64 %.056.i.i153.i.i640
   store i64 %.sink.i.i157.i.i644, ptr %2750, align 8, !tbaa !16
   %2751 = shl i64 %.1.i.i158.i.i645, 1
@@ -154305,11 +154305,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i616: ; preds = %2870
   br i1 %2874, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i208.i.i620, label %2875
 
 2875:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i616, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i623
-  %.sink63.i.i205.i.i617 = phi float [ %2863, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i623 ], [ %2854, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i616 ]
+  %.sink71.i.i205.i.i617 = phi float [ %2863, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i623 ], [ %2854, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i616 ]
   %.sink.i.i206.i.i618 = phi i64 [ %2866, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i623 ], [ %2856, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i616 ]
   %.1.i.i207.i.i619 = phi i64 [ %2848, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i623 ], [ %2847, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i616 ]
   %2876 = getelementptr inbounds nuw float, ptr %2648, i64 %.056.i.i202.i.i614
-  store float %.sink63.i.i205.i.i617, ptr %2876, align 4, !tbaa !138
+  store float %.sink71.i.i205.i.i617, ptr %2876, align 4, !tbaa !138
   %2877 = getelementptr inbounds nuw i64, ptr %2649, i64 %.056.i.i202.i.i614
   store i64 %.sink.i.i206.i.i618, ptr %2877, align 8, !tbaa !16
   %2878 = shl i64 %.1.i.i207.i.i619, 1
@@ -154390,7 +154390,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %2930
 
 .preheader247.i.i:                                ; preds = %3368
-  %2924 = zext i32 %.188.i.i731 to i64
+  %2924 = zext nneg i32 %.188.i.i731 to i64
   %.not268.i.i = icmp eq i32 %.188.i.i731, 0
   br i1 %.not268.i.i, label %.preheader.i.i757, label %.lr.ph261.i.i
 
@@ -154733,11 +154733,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i883:   ; preds = %3203
   br i1 %3207, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i887, label %3208
 
 3208:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i883, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i891
-  %.sink63.i.i.i.i884 = phi float [ %3196, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i891 ], [ %3187, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i883 ]
+  %.sink71.i.i.i.i884 = phi float [ %3196, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i891 ], [ %3187, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i883 ]
   %.sink.i.i.i.i885 = phi i64 [ %3199, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i891 ], [ %3189, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i883 ]
   %.1.i.i.i.i886 = phi i64 [ %3181, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i891 ], [ %3180, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i883 ]
   %3209 = getelementptr inbounds nuw float, ptr %2921, i64 %.056.i.i.i.i881
-  store float %.sink63.i.i.i.i884, ptr %3209, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i884, ptr %3209, align 4, !tbaa !138
   %3210 = getelementptr inbounds nuw i64, ptr %2922, i64 %.056.i.i.i.i881
   store i64 %.sink.i.i.i.i885, ptr %3210, align 8, !tbaa !16
   %3211 = shl i64 %.1.i.i.i.i886, 1
@@ -154832,11 +154832,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i870: ; preds = %3252
   br i1 %3256, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i.i874, label %3257
 
 3257:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i870, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i877
-  %.sink63.i.i104.i.i871 = phi float [ %3245, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i877 ], [ %3236, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i870 ]
+  %.sink71.i.i104.i.i871 = phi float [ %3245, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i877 ], [ %3236, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i870 ]
   %.sink.i.i105.i.i872 = phi i64 [ %3248, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i877 ], [ %3238, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i870 ]
   %.1.i.i106.i.i873 = phi i64 [ %3230, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i877 ], [ %3229, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i870 ]
   %3258 = getelementptr inbounds nuw float, ptr %2921, i64 %.056.i.i101.i.i868
-  store float %.sink63.i.i104.i.i871, ptr %3258, align 4, !tbaa !138
+  store float %.sink71.i.i104.i.i871, ptr %3258, align 4, !tbaa !138
   %3259 = getelementptr inbounds nuw i64, ptr %2922, i64 %.056.i.i101.i.i868
   store i64 %.sink.i.i105.i.i872, ptr %3259, align 8, !tbaa !16
   %3260 = shl i64 %.1.i.i106.i.i873, 1
@@ -154931,11 +154931,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i857: ; preds = %3301
   br i1 %3305, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i124.i.i861, label %3306
 
 3306:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i857, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i864
-  %.sink63.i.i121.i.i858 = phi float [ %3294, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i864 ], [ %3285, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i857 ]
+  %.sink71.i.i121.i.i858 = phi float [ %3294, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i864 ], [ %3285, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i857 ]
   %.sink.i.i122.i.i859 = phi i64 [ %3297, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i864 ], [ %3287, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i857 ]
   %.1.i.i123.i.i860 = phi i64 [ %3279, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i864 ], [ %3278, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i857 ]
   %3307 = getelementptr inbounds nuw float, ptr %2921, i64 %.056.i.i118.i.i855
-  store float %.sink63.i.i121.i.i858, ptr %3307, align 4, !tbaa !138
+  store float %.sink71.i.i121.i.i858, ptr %3307, align 4, !tbaa !138
   %3308 = getelementptr inbounds nuw i64, ptr %2922, i64 %.056.i.i118.i.i855
   store i64 %.sink.i.i122.i.i859, ptr %3308, align 8, !tbaa !16
   %3309 = shl i64 %.1.i.i123.i.i860, 1
@@ -155030,11 +155030,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i844: ; preds = %3350
   br i1 %3354, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i141.i.i848, label %3355
 
 3355:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i844, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i851
-  %.sink63.i.i138.i.i845 = phi float [ %3343, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i851 ], [ %3334, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i844 ]
+  %.sink71.i.i138.i.i845 = phi float [ %3343, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i851 ], [ %3334, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i844 ]
   %.sink.i.i139.i.i846 = phi i64 [ %3346, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i851 ], [ %3336, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i844 ]
   %.1.i.i140.i.i847 = phi i64 [ %3328, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i851 ], [ %3327, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i844 ]
   %3356 = getelementptr inbounds nuw float, ptr %2921, i64 %.056.i.i135.i.i842
-  store float %.sink63.i.i138.i.i845, ptr %3356, align 4, !tbaa !138
+  store float %.sink71.i.i138.i.i845, ptr %3356, align 4, !tbaa !138
   %3357 = getelementptr inbounds nuw i64, ptr %2922, i64 %.056.i.i135.i.i842
   store i64 %.sink.i.i139.i.i846, ptr %3357, align 8, !tbaa !16
   %3358 = shl i64 %.1.i.i140.i.i847, 1
@@ -155287,11 +155287,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i814: ; preds = %3474
   br i1 %3478, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i159.i.i818, label %3479
 
 3479:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i814, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i821
-  %.sink63.i.i156.i.i815 = phi float [ %3467, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i821 ], [ %3458, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i814 ]
+  %.sink71.i.i156.i.i815 = phi float [ %3467, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i821 ], [ %3458, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i814 ]
   %.sink.i.i157.i.i816 = phi i64 [ %3470, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i821 ], [ %3460, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i814 ]
   %.1.i.i158.i.i817 = phi i64 [ %3452, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i821 ], [ %3451, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i814 ]
   %3480 = getelementptr inbounds nuw float, ptr %2921, i64 %.056.i.i153.i.i812
-  store float %.sink63.i.i156.i.i815, ptr %3480, align 4, !tbaa !138
+  store float %.sink71.i.i156.i.i815, ptr %3480, align 4, !tbaa !138
   %3481 = getelementptr inbounds nuw i64, ptr %2922, i64 %.056.i.i153.i.i812
   store i64 %.sink.i.i157.i.i816, ptr %3481, align 8, !tbaa !16
   %3482 = shl i64 %.1.i.i158.i.i817, 1
@@ -155549,11 +155549,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i788: ; preds = %3625
   br i1 %3629, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i208.i.i792, label %3630
 
 3630:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i788, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i795
-  %.sink63.i.i205.i.i789 = phi float [ %3618, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i795 ], [ %3609, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i788 ]
+  %.sink71.i.i205.i.i789 = phi float [ %3618, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i795 ], [ %3609, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i788 ]
   %.sink.i.i206.i.i790 = phi i64 [ %3621, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i795 ], [ %3611, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i788 ]
   %.1.i.i207.i.i791 = phi i64 [ %3603, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i795 ], [ %3602, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i788 ]
   %3631 = getelementptr inbounds nuw float, ptr %3379, i64 %.056.i.i202.i.i786
-  store float %.sink63.i.i205.i.i789, ptr %3631, align 4, !tbaa !138
+  store float %.sink71.i.i205.i.i789, ptr %3631, align 4, !tbaa !138
   %3632 = getelementptr inbounds nuw i64, ptr %3380, i64 %.056.i.i202.i.i786
   store i64 %.sink.i.i206.i.i790, ptr %3632, align 8, !tbaa !16
   %3633 = shl i64 %.1.i.i207.i.i791, 1
@@ -155627,7 +155627,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   br label %3674
 
 .preheader215.i.i:                                ; preds = %3932
-  %3668 = zext i32 %.188.i.i902 to i64
+  %3668 = zext nneg i32 %.188.i.i902 to i64
   %.not236.i.i = icmp eq i32 %.188.i.i902, 0
   br i1 %.not236.i.i, label %.preheader.i.i926, label %.lr.ph229.i.i
 
@@ -155790,11 +155790,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1053:  ; preds = %3767
   br i1 %3771, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i1057, label %3772
 
 3772:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1053, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i1061
-  %.sink63.i.i.i.i1054 = phi float [ %3760, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i1061 ], [ %3751, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1053 ]
+  %.sink71.i.i.i.i1054 = phi float [ %3760, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i1061 ], [ %3751, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1053 ]
   %.sink.i.i.i.i1055 = phi i64 [ %3763, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i1061 ], [ %3753, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1053 ]
   %.1.i.i.i.i1056 = phi i64 [ %3745, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i.i.i1061 ], [ %3744, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i.i.i1053 ]
   %3773 = getelementptr inbounds nuw float, ptr %3665, i64 %.056.i.i.i.i1051
-  store float %.sink63.i.i.i.i1054, ptr %3773, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i1054, ptr %3773, align 4, !tbaa !138
   %3774 = getelementptr inbounds nuw i64, ptr %3666, i64 %.056.i.i.i.i1051
   store i64 %.sink.i.i.i.i1055, ptr %3774, align 8, !tbaa !16
   %3775 = shl i64 %.1.i.i.i.i1056, 1
@@ -155889,11 +155889,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i1040: ; preds = %3816
   br i1 %3820, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i.i1044, label %3821
 
 3821:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i1040, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i1047
-  %.sink63.i.i104.i.i1041 = phi float [ %3809, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i1047 ], [ %3800, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i1040 ]
+  %.sink71.i.i104.i.i1041 = phi float [ %3809, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i1047 ], [ %3800, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i1040 ]
   %.sink.i.i105.i.i1042 = phi i64 [ %3812, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i1047 ], [ %3802, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i1040 ]
   %.1.i.i106.i.i1043 = phi i64 [ %3794, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i110.i.i1047 ], [ %3793, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i103.i.i1040 ]
   %3822 = getelementptr inbounds nuw float, ptr %3665, i64 %.056.i.i101.i.i1038
-  store float %.sink63.i.i104.i.i1041, ptr %3822, align 4, !tbaa !138
+  store float %.sink71.i.i104.i.i1041, ptr %3822, align 4, !tbaa !138
   %3823 = getelementptr inbounds nuw i64, ptr %3666, i64 %.056.i.i101.i.i1038
   store i64 %.sink.i.i105.i.i1042, ptr %3823, align 8, !tbaa !16
   %3824 = shl i64 %.1.i.i106.i.i1043, 1
@@ -155988,11 +155988,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i1026: ; preds = %3865
   br i1 %3869, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i124.i.i1030, label %3870
 
 3870:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i1026, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i1034
-  %.sink63.i.i121.i.i1027 = phi float [ %3858, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i1034 ], [ %3849, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i1026 ]
+  %.sink71.i.i121.i.i1027 = phi float [ %3858, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i1034 ], [ %3849, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i1026 ]
   %.sink.i.i122.i.i1028 = phi i64 [ %3861, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i1034 ], [ %3851, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i1026 ]
   %.1.i.i123.i.i1029 = phi i64 [ %3843, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i127.i.i1034 ], [ %3842, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i120.i.i1026 ]
   %3871 = getelementptr inbounds nuw float, ptr %3665, i64 %.056.i.i118.i.i1024
-  store float %.sink63.i.i121.i.i1027, ptr %3871, align 4, !tbaa !138
+  store float %.sink71.i.i121.i.i1027, ptr %3871, align 4, !tbaa !138
   %3872 = getelementptr inbounds nuw i64, ptr %3666, i64 %.056.i.i118.i.i1024
   store i64 %.sink.i.i122.i.i1028, ptr %3872, align 8, !tbaa !16
   %3873 = shl i64 %.1.i.i123.i.i1029, 1
@@ -156087,11 +156087,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i1013: ; preds = %3914
   br i1 %3918, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i141.i.i1017, label %3919
 
 3919:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i1013, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i1020
-  %.sink63.i.i138.i.i1014 = phi float [ %3907, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i1020 ], [ %3898, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i1013 ]
+  %.sink71.i.i138.i.i1014 = phi float [ %3907, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i1020 ], [ %3898, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i1013 ]
   %.sink.i.i139.i.i1015 = phi i64 [ %3910, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i1020 ], [ %3900, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i1013 ]
   %.1.i.i140.i.i1016 = phi i64 [ %3892, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i144.i.i1020 ], [ %3891, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i137.i.i1013 ]
   %3920 = getelementptr inbounds nuw float, ptr %3665, i64 %.056.i.i135.i.i1011
-  store float %.sink63.i.i138.i.i1014, ptr %3920, align 4, !tbaa !138
+  store float %.sink71.i.i138.i.i1014, ptr %3920, align 4, !tbaa !138
   %3921 = getelementptr inbounds nuw i64, ptr %3666, i64 %.056.i.i135.i.i1011
   store i64 %.sink.i.i139.i.i1015, ptr %3921, align 8, !tbaa !16
   %3922 = shl i64 %.1.i.i140.i.i1016, 1
@@ -156340,11 +156340,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i983: ; preds = %4034
   br i1 %4038, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i159.i.i987, label %4039
 
 4039:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i983, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i990
-  %.sink63.i.i156.i.i984 = phi float [ %4027, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i990 ], [ %4018, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i983 ]
+  %.sink71.i.i156.i.i984 = phi float [ %4027, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i990 ], [ %4018, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i983 ]
   %.sink.i.i157.i.i985 = phi i64 [ %4030, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i990 ], [ %4020, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i983 ]
   %.1.i.i158.i.i986 = phi i64 [ %4012, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i162.i.i990 ], [ %4011, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i155.i.i983 ]
   %4040 = getelementptr inbounds nuw float, ptr %3665, i64 %.056.i.i153.i.i981
-  store float %.sink63.i.i156.i.i984, ptr %4040, align 4, !tbaa !138
+  store float %.sink71.i.i156.i.i984, ptr %4040, align 4, !tbaa !138
   %4041 = getelementptr inbounds nuw i64, ptr %3666, i64 %.056.i.i153.i.i981
   store i64 %.sink.i.i157.i.i985, ptr %4041, align 8, !tbaa !16
   %4042 = shl i64 %.1.i.i158.i.i986, 1
@@ -156561,11 +156561,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i957: ; preds = %4144
   br i1 %4148, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i208.i.i961, label %4149
 
 4149:                                             ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i957, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i964
-  %.sink63.i.i205.i.i958 = phi float [ %4137, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i964 ], [ %4128, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i957 ]
+  %.sink71.i.i205.i.i958 = phi float [ %4137, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i964 ], [ %4128, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i957 ]
   %.sink.i.i206.i.i959 = phi i64 [ %4140, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i964 ], [ %4130, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i957 ]
   %.1.i.i207.i.i960 = phi i64 [ %4122, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i211.i.i964 ], [ %4121, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i204.i.i957 ]
   %4150 = getelementptr inbounds nuw float, ptr %3940, i64 %.056.i.i202.i.i955
-  store float %.sink63.i.i205.i.i958, ptr %4150, align 4, !tbaa !138
+  store float %.sink71.i.i205.i.i958, ptr %4150, align 4, !tbaa !138
   %4151 = getelementptr inbounds nuw i64, ptr %3941, i64 %.056.i.i202.i.i955
   store i64 %.sink.i.i206.i.i959, ptr %4151, align 8, !tbaa !16
   %4152 = shl i64 %.1.i.i207.i.i960, 1
@@ -156965,11 +156965,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i:        ; preds = %115
   br i1 %119, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i, label %120
 
 120:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i
-  %.sink63.i.i.i = phi float [ %108, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %99, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
+  %.sink71.i.i.i = phi float [ %108, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %99, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
   %.sink.i.i.i = phi i64 [ %111, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %101, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
   %.1.i.i.i = phi i64 [ %93, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i ], [ %92, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i ]
   %121 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i.i
-  store float %.sink63.i.i.i, ptr %121, align 4, !tbaa !138
+  store float %.sink71.i.i.i, ptr %121, align 4, !tbaa !138
   %122 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i.i
   store i64 %.sink.i.i.i, ptr %122, align 8, !tbaa !16
   %123 = shl i64 %.1.i.i.i, 1
@@ -157067,11 +157067,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i69.i:      ; preds = %167
   br i1 %171, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i73.i, label %172
 
 172:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i69.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i76.i
-  %.sink63.i.i70.i = phi float [ %160, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i76.i ], [ %151, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i69.i ]
+  %.sink71.i.i70.i = phi float [ %160, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i76.i ], [ %151, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i69.i ]
   %.sink.i.i71.i = phi i64 [ %163, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i76.i ], [ %153, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i69.i ]
   %.1.i.i72.i = phi i64 [ %145, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i76.i ], [ %144, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i69.i ]
   %173 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i67.i
-  store float %.sink63.i.i70.i, ptr %173, align 4, !tbaa !138
+  store float %.sink71.i.i70.i, ptr %173, align 4, !tbaa !138
   %174 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i67.i
   store i64 %.sink.i.i71.i, ptr %174, align 8, !tbaa !16
   %175 = shl i64 %.1.i.i72.i, 1
@@ -157169,11 +157169,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i86.i:      ; preds = %219
   br i1 %223, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i90.i, label %224
 
 224:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i86.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i93.i
-  %.sink63.i.i87.i = phi float [ %212, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i93.i ], [ %203, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i86.i ]
+  %.sink71.i.i87.i = phi float [ %212, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i93.i ], [ %203, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i86.i ]
   %.sink.i.i88.i = phi i64 [ %215, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i93.i ], [ %205, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i86.i ]
   %.1.i.i89.i = phi i64 [ %197, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i93.i ], [ %196, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i86.i ]
   %225 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i84.i
-  store float %.sink63.i.i87.i, ptr %225, align 4, !tbaa !138
+  store float %.sink71.i.i87.i, ptr %225, align 4, !tbaa !138
   %226 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i84.i
   store i64 %.sink.i.i88.i, ptr %226, align 8, !tbaa !16
   %227 = shl i64 %.1.i.i89.i, 1
@@ -157271,11 +157271,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i:     ; preds = %271
   br i1 %275, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i, label %276
 
 276:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i
-  %.sink63.i.i104.i = phi float [ %264, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i ], [ %255, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i ]
+  %.sink71.i.i104.i = phi float [ %264, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i ], [ %255, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i ]
   %.sink.i.i105.i = phi i64 [ %267, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i ], [ %257, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i ]
   %.1.i.i106.i = phi i64 [ %249, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i ], [ %248, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i ]
   %277 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i101.i
-  store float %.sink63.i.i104.i, ptr %277, align 4, !tbaa !138
+  store float %.sink71.i.i104.i, ptr %277, align 4, !tbaa !138
   %278 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i101.i
   store i64 %.sink.i.i105.i, ptr %278, align 8, !tbaa !16
   %279 = shl i64 %.1.i.i106.i, 1
@@ -157499,11 +157499,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i:     ; preds = %384
   br i1 %388, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i125.i, label %389
 
 389:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i
-  %.sink63.i.i122.i = phi float [ %377, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i ], [ %368, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i ]
+  %.sink71.i.i122.i = phi float [ %377, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i ], [ %368, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i ]
   %.sink.i.i123.i = phi i64 [ %380, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i ], [ %370, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i ]
   %.1.i.i124.i = phi i64 [ %362, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i128.i ], [ %361, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i121.i ]
   %390 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i119.i
-  store float %.sink63.i.i122.i, ptr %390, align 4, !tbaa !138
+  store float %.sink71.i.i122.i, ptr %390, align 4, !tbaa !138
   %391 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i119.i
   store i64 %.sink.i.i123.i, ptr %391, align 8, !tbaa !16
   %392 = shl i64 %.1.i.i124.i, 1
@@ -157712,11 +157712,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i170.i:     ; preds = %490
   br i1 %494, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i174.i, label %495
 
 495:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i170.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i177.i
-  %.sink63.i.i171.i = phi float [ %483, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i177.i ], [ %474, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i170.i ]
+  %.sink71.i.i171.i = phi float [ %483, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i177.i ], [ %474, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i170.i ]
   %.sink.i.i172.i = phi i64 [ %486, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i177.i ], [ %476, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i170.i ]
   %.1.i.i173.i = phi i64 [ %468, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i177.i ], [ %467, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i170.i ]
   %496 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i168.i
-  store float %.sink63.i.i171.i, ptr %496, align 4, !tbaa !138
+  store float %.sink71.i.i171.i, ptr %496, align 4, !tbaa !138
   %497 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i168.i
   store i64 %.sink.i.i172.i, ptr %497, align 8, !tbaa !16
   %498 = shl i64 %.1.i.i173.i, 1
@@ -157925,11 +157925,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i219.i:     ; preds = %596
   br i1 %600, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i223.i, label %601
 
 601:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i219.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i226.i
-  %.sink63.i.i220.i = phi float [ %589, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i226.i ], [ %580, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i219.i ]
+  %.sink71.i.i220.i = phi float [ %589, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i226.i ], [ %580, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i219.i ]
   %.sink.i.i221.i = phi i64 [ %592, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i226.i ], [ %582, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i219.i ]
   %.1.i.i222.i = phi i64 [ %574, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i226.i ], [ %573, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i219.i ]
   %602 = getelementptr inbounds nuw float, ptr %47, i64 %.056.i.i217.i
-  store float %.sink63.i.i220.i, ptr %602, align 4, !tbaa !138
+  store float %.sink71.i.i220.i, ptr %602, align 4, !tbaa !138
   %603 = getelementptr inbounds nuw i64, ptr %48, i64 %.056.i.i217.i
   store i64 %.sink.i.i221.i, ptr %603, align 8, !tbaa !16
   %604 = shl i64 %.1.i.i222.i, 1
@@ -158064,11 +158064,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i30:      ; preds = %669
   br i1 %673, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i34, label %674
 
 674:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i30, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i37
-  %.sink63.i.i.i31 = phi float [ %662, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i37 ], [ %653, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i30 ]
+  %.sink71.i.i.i31 = phi float [ %662, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i37 ], [ %653, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i30 ]
   %.sink.i.i.i32 = phi i64 [ %665, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i37 ], [ %655, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i30 ]
   %.1.i.i.i33 = phi i64 [ %647, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i37 ], [ %646, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i30 ]
   %675 = getelementptr inbounds nuw float, ptr %621, i64 %.056.i.i.i28
-  store float %.sink63.i.i.i31, ptr %675, align 4, !tbaa !138
+  store float %.sink71.i.i.i31, ptr %675, align 4, !tbaa !138
   %676 = getelementptr inbounds nuw i64, ptr %622, i64 %.056.i.i.i28
   store i64 %.sink.i.i.i32, ptr %676, align 8, !tbaa !16
   %677 = shl i64 %.1.i.i.i33, 1
@@ -158317,11 +158317,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i52:      ; preds = %801
   br i1 %805, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i56, label %806
 
 806:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i52, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i59
-  %.sink63.i.i.i53 = phi float [ %794, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i59 ], [ %785, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i52 ]
+  %.sink71.i.i.i53 = phi float [ %794, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i59 ], [ %785, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i52 ]
   %.sink.i.i.i54 = phi i64 [ %797, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i59 ], [ %787, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i52 ]
   %.1.i.i.i55 = phi i64 [ %779, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i59 ], [ %778, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i52 ]
   %807 = getelementptr inbounds nuw float, ptr %757, i64 %.056.i.i.i50
-  store float %.sink63.i.i.i53, ptr %807, align 4, !tbaa !138
+  store float %.sink71.i.i.i53, ptr %807, align 4, !tbaa !138
   %808 = getelementptr inbounds nuw i64, ptr %758, i64 %.056.i.i.i50
   store i64 %.sink.i.i.i54, ptr %808, align 8, !tbaa !16
   %809 = shl i64 %.1.i.i.i55, 1
@@ -158524,7 +158524,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1E
   br label %93
 
 .preheader143.i.i.i.i:                            ; preds = %211
-  %92 = zext i32 %.188.i.i.i.i to i64
+  %92 = zext nneg i32 %.188.i.i.i.i to i64
   %.not164.i.i.i.i = icmp eq i32 %.188.i.i.i.i, 0
   br i1 %.not164.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph157.i.i.i.i
 
@@ -159087,7 +159087,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %390
 
 .preheader143.i.i38.i.i:                          ; preds = %512
-  %389 = zext i32 %.188.i.i36.i.i to i64
+  %389 = zext nneg i32 %.188.i.i36.i.i to i64
   %.not164.i.i39.i.i = icmp eq i32 %.188.i.i36.i.i, 0
   br i1 %.not164.i.i39.i.i, label %.preheader.i.i64.i.i, label %.lr.ph157.i.i40.i.i
 
@@ -159657,7 +159657,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %694
 
 .preheader147.i.i.i.i:                            ; preds = %840
-  %693 = zext i32 %.188.i.i132.i.i to i64
+  %693 = zext nneg i32 %.188.i.i132.i.i to i64
   %.not168.i.i.i.i = icmp eq i32 %.188.i.i132.i.i, 0
   br i1 %.not168.i.i.i.i, label %.preheader.i.i156.i.i, label %.lr.ph161.i.i.i.i
 
@@ -160259,7 +160259,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %1030
 
 .preheader151.i.i.i.i:                            ; preds = %1196
-  %1029 = zext i32 %.188.i.i218.i.i to i64
+  %1029 = zext nneg i32 %.188.i.i218.i.i to i64
   %.not172.i.i.i.i = icmp eq i32 %.188.i.i218.i.i, 0
   br i1 %.not172.i.i.i.i, label %.preheader.i.i242.i.i, label %.lr.ph165.i.i.i.i
 
@@ -160888,7 +160888,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %1393
 
 .preheader155.i.i.i.i:                            ; preds = %1587
-  %1392 = zext i32 %.188.i.i304.i.i to i64
+  %1392 = zext nneg i32 %.188.i.i304.i.i to i64
   %.not176.i.i.i.i = icmp eq i32 %.188.i.i304.i.i, 0
   br i1 %.not176.i.i.i.i, label %.preheader.i.i328.i.i, label %.lr.ph169.i.i.i.i
 
@@ -161560,7 +161560,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %1799
 
 .preheader171.i.i.i.i:                            ; preds = %2089
-  %1798 = zext i32 %.188.i.i390.i.i to i64
+  %1798 = zext nneg i32 %.188.i.i390.i.i to i64
   %.not192.i.i.i.i = icmp eq i32 %.188.i.i390.i.i, 0
   br i1 %.not192.i.i.i.i, label %.preheader.i.i415.i.i, label %.lr.ph185.i.i.i.i
 
@@ -162345,7 +162345,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %2314
 
 .preheader139.i.i.i.i:                            ; preds = %2424
-  %2313 = zext i32 %.188.i.i477.i.i to i64
+  %2313 = zext nneg i32 %.188.i.i477.i.i to i64
   %.not160.i.i.i.i = icmp eq i32 %.188.i.i477.i.i, 0
   br i1 %.not160.i.i.i.i, label %.preheader.i.i501.i.i, label %.lr.ph153.i.i.i.i
 
@@ -163978,7 +163978,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   br label %79
 
 .preheader219.i.i:                                ; preds = %345
-  %73 = zext i32 %.188.i.i to i64
+  %73 = zext nneg i32 %.188.i.i to i64
   %.not240.i.i = icmp eq i32 %.188.i.i, 0
   br i1 %.not240.i.i, label %.preheader.i.i, label %.lr.ph233.i.i
 
@@ -164149,11 +164149,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i:      ; preds = %180
   br i1 %184, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i, label %185
 
 185:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i
-  %.sink63.i.i.i.i = phi float [ %173, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %164, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
+  %.sink71.i.i.i.i = phi float [ %173, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %164, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
   %.sink.i.i.i.i = phi i64 [ %176, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %166, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
   %.1.i.i.i.i = phi i64 [ %158, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i ], [ %157, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i ]
   %186 = getelementptr inbounds nuw float, ptr %70, i64 %.056.i.i.i.i
-  store float %.sink63.i.i.i.i, ptr %186, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i, ptr %186, align 4, !tbaa !138
   %187 = getelementptr inbounds nuw i64, ptr %71, i64 %.056.i.i.i.i
   store i64 %.sink.i.i.i.i, ptr %187, align 8, !tbaa !16
   %188 = shl i64 %.1.i.i.i.i, 1
@@ -164248,11 +164248,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i:   ; preds = %229
   br i1 %233, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i.i, label %234
 
 234:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i
-  %.sink63.i.i104.i.i = phi float [ %222, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i ], [ %213, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i ]
+  %.sink71.i.i104.i.i = phi float [ %222, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i ], [ %213, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i ]
   %.sink.i.i105.i.i = phi i64 [ %225, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i ], [ %215, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i ]
   %.1.i.i106.i.i = phi i64 [ %207, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i ], [ %206, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i ]
   %235 = getelementptr inbounds nuw float, ptr %70, i64 %.056.i.i101.i.i
-  store float %.sink63.i.i104.i.i, ptr %235, align 4, !tbaa !138
+  store float %.sink71.i.i104.i.i, ptr %235, align 4, !tbaa !138
   %236 = getelementptr inbounds nuw i64, ptr %71, i64 %.056.i.i101.i.i
   store i64 %.sink.i.i105.i.i, ptr %236, align 8, !tbaa !16
   %237 = shl i64 %.1.i.i106.i.i, 1
@@ -164347,11 +164347,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i:   ; preds = %278
   br i1 %282, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i124.i.i, label %283
 
 283:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i
-  %.sink63.i.i121.i.i = phi float [ %271, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i ], [ %262, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i ]
+  %.sink71.i.i121.i.i = phi float [ %271, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i ], [ %262, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i ]
   %.sink.i.i122.i.i = phi i64 [ %274, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i ], [ %264, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i ]
   %.1.i.i123.i.i = phi i64 [ %256, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i ], [ %255, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i ]
   %284 = getelementptr inbounds nuw float, ptr %70, i64 %.056.i.i118.i.i
-  store float %.sink63.i.i121.i.i, ptr %284, align 4, !tbaa !138
+  store float %.sink71.i.i121.i.i, ptr %284, align 4, !tbaa !138
   %285 = getelementptr inbounds nuw i64, ptr %71, i64 %.056.i.i118.i.i
   store i64 %.sink.i.i122.i.i, ptr %285, align 8, !tbaa !16
   %286 = shl i64 %.1.i.i123.i.i, 1
@@ -164446,11 +164446,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i:   ; preds = %327
   br i1 %331, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i141.i.i, label %332
 
 332:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i
-  %.sink63.i.i138.i.i = phi float [ %320, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i ], [ %311, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i ]
+  %.sink71.i.i138.i.i = phi float [ %320, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i ], [ %311, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i ]
   %.sink.i.i139.i.i = phi i64 [ %323, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i ], [ %313, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i ]
   %.1.i.i140.i.i = phi i64 [ %305, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i ], [ %304, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i ]
   %333 = getelementptr inbounds nuw float, ptr %70, i64 %.056.i.i135.i.i
-  store float %.sink63.i.i138.i.i, ptr %333, align 4, !tbaa !138
+  store float %.sink71.i.i138.i.i, ptr %333, align 4, !tbaa !138
   %334 = getelementptr inbounds nuw i64, ptr %71, i64 %.056.i.i135.i.i
   store i64 %.sink.i.i139.i.i, ptr %334, align 8, !tbaa !16
   %335 = shl i64 %.1.i.i140.i.i, 1
@@ -164703,11 +164703,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i:   ; preds = %451
   br i1 %455, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i159.i.i, label %456
 
 456:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i
-  %.sink63.i.i156.i.i = phi float [ %444, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i ], [ %435, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i ]
+  %.sink71.i.i156.i.i = phi float [ %444, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i ], [ %435, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i ]
   %.sink.i.i157.i.i = phi i64 [ %447, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i ], [ %437, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i ]
   %.1.i.i158.i.i = phi i64 [ %429, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i ], [ %428, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i ]
   %457 = getelementptr inbounds nuw float, ptr %70, i64 %.056.i.i153.i.i
-  store float %.sink63.i.i156.i.i, ptr %457, align 4, !tbaa !138
+  store float %.sink71.i.i156.i.i, ptr %457, align 4, !tbaa !138
   %458 = getelementptr inbounds nuw i64, ptr %71, i64 %.056.i.i153.i.i
   store i64 %.sink.i.i157.i.i, ptr %458, align 8, !tbaa !16
   %459 = shl i64 %.1.i.i158.i.i, 1
@@ -164922,11 +164922,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i:   ; preds = %559
   br i1 %563, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i208.i.i, label %564
 
 564:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i
-  %.sink63.i.i205.i.i = phi float [ %552, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i ], [ %543, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i ]
+  %.sink71.i.i205.i.i = phi float [ %552, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i ], [ %543, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i ]
   %.sink.i.i206.i.i = phi i64 [ %555, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i ], [ %545, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i ]
   %.1.i.i207.i.i = phi i64 [ %537, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i ], [ %536, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i ]
   %565 = getelementptr inbounds nuw float, ptr %356, i64 %.056.i.i202.i.i
-  store float %.sink63.i.i205.i.i, ptr %565, align 4, !tbaa !138
+  store float %.sink71.i.i205.i.i, ptr %565, align 4, !tbaa !138
   %566 = getelementptr inbounds nuw i64, ptr %357, i64 %.056.i.i202.i.i
   store i64 %.sink.i.i206.i.i, ptr %566, align 8, !tbaa !16
   %567 = shl i64 %.1.i.i207.i.i, 1
@@ -164993,7 +164993,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %605
 
 .preheader219.i.i41:                              ; preds = %875
-  %599 = zext i32 %.188.i.i39 to i64
+  %599 = zext nneg i32 %.188.i.i39 to i64
   %.not240.i.i42 = icmp eq i32 %.188.i.i39, 0
   br i1 %.not240.i.i42, label %.preheader.i.i67, label %.lr.ph233.i.i43
 
@@ -165168,11 +165168,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i201:   ; preds = %710
   br i1 %714, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i205, label %715
 
 715:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i201, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i210
-  %.sink63.i.i.i.i202 = phi float [ %703, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i210 ], [ %694, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i201 ]
+  %.sink71.i.i.i.i202 = phi float [ %703, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i210 ], [ %694, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i201 ]
   %.sink.i.i.i.i203 = phi i64 [ %706, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i210 ], [ %696, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i201 ]
   %.1.i.i.i.i204 = phi i64 [ %688, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i210 ], [ %687, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i201 ]
   %716 = getelementptr inbounds nuw float, ptr %596, i64 %.056.i.i.i.i199
-  store float %.sink63.i.i.i.i202, ptr %716, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i202, ptr %716, align 4, !tbaa !138
   %717 = getelementptr inbounds nuw i64, ptr %597, i64 %.056.i.i.i.i199
   store i64 %.sink.i.i.i.i203, ptr %717, align 8, !tbaa !16
   %718 = shl i64 %.1.i.i.i.i204, 1
@@ -165267,11 +165267,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i186: ; preds = %759
   br i1 %763, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i.i190, label %764
 
 764:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i186, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i195
-  %.sink63.i.i104.i.i187 = phi float [ %752, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i195 ], [ %743, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i186 ]
+  %.sink71.i.i104.i.i187 = phi float [ %752, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i195 ], [ %743, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i186 ]
   %.sink.i.i105.i.i188 = phi i64 [ %755, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i195 ], [ %745, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i186 ]
   %.1.i.i106.i.i189 = phi i64 [ %737, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i195 ], [ %736, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i186 ]
   %765 = getelementptr inbounds nuw float, ptr %596, i64 %.056.i.i101.i.i184
-  store float %.sink63.i.i104.i.i187, ptr %765, align 4, !tbaa !138
+  store float %.sink71.i.i104.i.i187, ptr %765, align 4, !tbaa !138
   %766 = getelementptr inbounds nuw i64, ptr %597, i64 %.056.i.i101.i.i184
   store i64 %.sink.i.i105.i.i188, ptr %766, align 8, !tbaa !16
   %767 = shl i64 %.1.i.i106.i.i189, 1
@@ -165366,11 +165366,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i171: ; preds = %808
   br i1 %812, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i124.i.i175, label %813
 
 813:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i171, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i180
-  %.sink63.i.i121.i.i172 = phi float [ %801, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i180 ], [ %792, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i171 ]
+  %.sink71.i.i121.i.i172 = phi float [ %801, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i180 ], [ %792, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i171 ]
   %.sink.i.i122.i.i173 = phi i64 [ %804, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i180 ], [ %794, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i171 ]
   %.1.i.i123.i.i174 = phi i64 [ %786, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i180 ], [ %785, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i171 ]
   %814 = getelementptr inbounds nuw float, ptr %596, i64 %.056.i.i118.i.i169
-  store float %.sink63.i.i121.i.i172, ptr %814, align 4, !tbaa !138
+  store float %.sink71.i.i121.i.i172, ptr %814, align 4, !tbaa !138
   %815 = getelementptr inbounds nuw i64, ptr %597, i64 %.056.i.i118.i.i169
   store i64 %.sink.i.i122.i.i173, ptr %815, align 8, !tbaa !16
   %816 = shl i64 %.1.i.i123.i.i174, 1
@@ -165465,11 +165465,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i158: ; preds = %857
   br i1 %861, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i141.i.i162, label %862
 
 862:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i158, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i165
-  %.sink63.i.i138.i.i159 = phi float [ %850, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i165 ], [ %841, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i158 ]
+  %.sink71.i.i138.i.i159 = phi float [ %850, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i165 ], [ %841, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i158 ]
   %.sink.i.i139.i.i160 = phi i64 [ %853, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i165 ], [ %843, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i158 ]
   %.1.i.i140.i.i161 = phi i64 [ %835, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i165 ], [ %834, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i158 ]
   %863 = getelementptr inbounds nuw float, ptr %596, i64 %.056.i.i135.i.i156
-  store float %.sink63.i.i138.i.i159, ptr %863, align 4, !tbaa !138
+  store float %.sink71.i.i138.i.i159, ptr %863, align 4, !tbaa !138
   %864 = getelementptr inbounds nuw i64, ptr %597, i64 %.056.i.i135.i.i156
   store i64 %.sink.i.i139.i.i160, ptr %864, align 8, !tbaa !16
   %865 = shl i64 %.1.i.i140.i.i161, 1
@@ -165722,11 +165722,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i128: ; preds = %981
   br i1 %985, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i159.i.i132, label %986
 
 986:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i128, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i135
-  %.sink63.i.i156.i.i129 = phi float [ %974, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i135 ], [ %965, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i128 ]
+  %.sink71.i.i156.i.i129 = phi float [ %974, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i135 ], [ %965, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i128 ]
   %.sink.i.i157.i.i130 = phi i64 [ %977, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i135 ], [ %967, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i128 ]
   %.1.i.i158.i.i131 = phi i64 [ %959, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i135 ], [ %958, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i128 ]
   %987 = getelementptr inbounds nuw float, ptr %596, i64 %.056.i.i153.i.i126
-  store float %.sink63.i.i156.i.i129, ptr %987, align 4, !tbaa !138
+  store float %.sink71.i.i156.i.i129, ptr %987, align 4, !tbaa !138
   %988 = getelementptr inbounds nuw i64, ptr %597, i64 %.056.i.i153.i.i126
   store i64 %.sink.i.i157.i.i130, ptr %988, align 8, !tbaa !16
   %989 = shl i64 %.1.i.i158.i.i131, 1
@@ -165942,11 +165942,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i102: ; preds = %1090
   br i1 %1094, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i208.i.i106, label %1095
 
 1095:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i102, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i109
-  %.sink63.i.i205.i.i103 = phi float [ %1083, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i109 ], [ %1074, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i102 ]
+  %.sink71.i.i205.i.i103 = phi float [ %1083, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i109 ], [ %1074, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i102 ]
   %.sink.i.i206.i.i104 = phi i64 [ %1086, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i109 ], [ %1076, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i102 ]
   %.1.i.i207.i.i105 = phi i64 [ %1068, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i109 ], [ %1067, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i102 ]
   %1096 = getelementptr inbounds nuw float, ptr %886, i64 %.056.i.i202.i.i100
-  store float %.sink63.i.i205.i.i103, ptr %1096, align 4, !tbaa !138
+  store float %.sink71.i.i205.i.i103, ptr %1096, align 4, !tbaa !138
   %1097 = getelementptr inbounds nuw i64, ptr %887, i64 %.056.i.i202.i.i100
   store i64 %.sink.i.i206.i.i104, ptr %1097, align 8, !tbaa !16
   %1098 = shl i64 %.1.i.i207.i.i105, 1
@@ -166015,7 +166015,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %1138
 
 .preheader223.i.i:                                ; preds = %1432
-  %1132 = zext i32 %.188.i.i221 to i64
+  %1132 = zext nneg i32 %.188.i.i221 to i64
   %.not244.i.i = icmp eq i32 %.188.i.i221, 0
   br i1 %.not244.i.i, label %.preheader.i.i245, label %.lr.ph237.i.i
 
@@ -166214,11 +166214,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i371:   ; preds = %1267
   br i1 %1271, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i375, label %1272
 
 1272:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i371, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i380
-  %.sink63.i.i.i.i372 = phi float [ %1260, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i380 ], [ %1251, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i371 ]
+  %.sink71.i.i.i.i372 = phi float [ %1260, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i380 ], [ %1251, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i371 ]
   %.sink.i.i.i.i373 = phi i64 [ %1263, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i380 ], [ %1253, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i371 ]
   %.1.i.i.i.i374 = phi i64 [ %1245, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i380 ], [ %1244, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i371 ]
   %1273 = getelementptr inbounds nuw float, ptr %1129, i64 %.056.i.i.i.i369
-  store float %.sink63.i.i.i.i372, ptr %1273, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i372, ptr %1273, align 4, !tbaa !138
   %1274 = getelementptr inbounds nuw i64, ptr %1130, i64 %.056.i.i.i.i369
   store i64 %.sink.i.i.i.i373, ptr %1274, align 8, !tbaa !16
   %1275 = shl i64 %.1.i.i.i.i374, 1
@@ -166313,11 +166313,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i358: ; preds = %1316
   br i1 %1320, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i.i362, label %1321
 
 1321:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i358, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i365
-  %.sink63.i.i104.i.i359 = phi float [ %1309, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i365 ], [ %1300, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i358 ]
+  %.sink71.i.i104.i.i359 = phi float [ %1309, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i365 ], [ %1300, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i358 ]
   %.sink.i.i105.i.i360 = phi i64 [ %1312, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i365 ], [ %1302, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i358 ]
   %.1.i.i106.i.i361 = phi i64 [ %1294, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i365 ], [ %1293, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i358 ]
   %1322 = getelementptr inbounds nuw float, ptr %1129, i64 %.056.i.i101.i.i356
-  store float %.sink63.i.i104.i.i359, ptr %1322, align 4, !tbaa !138
+  store float %.sink71.i.i104.i.i359, ptr %1322, align 4, !tbaa !138
   %1323 = getelementptr inbounds nuw i64, ptr %1130, i64 %.056.i.i101.i.i356
   store i64 %.sink.i.i105.i.i360, ptr %1323, align 8, !tbaa !16
   %1324 = shl i64 %.1.i.i106.i.i361, 1
@@ -166412,11 +166412,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i345: ; preds = %1365
   br i1 %1369, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i124.i.i349, label %1370
 
 1370:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i345, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i352
-  %.sink63.i.i121.i.i346 = phi float [ %1358, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i352 ], [ %1349, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i345 ]
+  %.sink71.i.i121.i.i346 = phi float [ %1358, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i352 ], [ %1349, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i345 ]
   %.sink.i.i122.i.i347 = phi i64 [ %1361, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i352 ], [ %1351, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i345 ]
   %.1.i.i123.i.i348 = phi i64 [ %1343, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i352 ], [ %1342, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i345 ]
   %1371 = getelementptr inbounds nuw float, ptr %1129, i64 %.056.i.i118.i.i343
-  store float %.sink63.i.i121.i.i346, ptr %1371, align 4, !tbaa !138
+  store float %.sink71.i.i121.i.i346, ptr %1371, align 4, !tbaa !138
   %1372 = getelementptr inbounds nuw i64, ptr %1130, i64 %.056.i.i118.i.i343
   store i64 %.sink.i.i122.i.i347, ptr %1372, align 8, !tbaa !16
   %1373 = shl i64 %.1.i.i123.i.i348, 1
@@ -166511,11 +166511,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i332: ; preds = %1414
   br i1 %1418, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i141.i.i336, label %1419
 
 1419:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i332, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i339
-  %.sink63.i.i138.i.i333 = phi float [ %1407, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i339 ], [ %1398, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i332 ]
+  %.sink71.i.i138.i.i333 = phi float [ %1407, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i339 ], [ %1398, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i332 ]
   %.sink.i.i139.i.i334 = phi i64 [ %1410, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i339 ], [ %1400, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i332 ]
   %.1.i.i140.i.i335 = phi i64 [ %1392, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i339 ], [ %1391, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i332 ]
   %1420 = getelementptr inbounds nuw float, ptr %1129, i64 %.056.i.i135.i.i330
-  store float %.sink63.i.i138.i.i333, ptr %1420, align 4, !tbaa !138
+  store float %.sink71.i.i138.i.i333, ptr %1420, align 4, !tbaa !138
   %1421 = getelementptr inbounds nuw i64, ptr %1130, i64 %.056.i.i135.i.i330
   store i64 %.sink.i.i139.i.i334, ptr %1421, align 8, !tbaa !16
   %1422 = shl i64 %.1.i.i140.i.i335, 1
@@ -166768,11 +166768,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i302: ; preds = %1538
   br i1 %1542, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i159.i.i306, label %1543
 
 1543:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i302, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i309
-  %.sink63.i.i156.i.i303 = phi float [ %1531, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i309 ], [ %1522, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i302 ]
+  %.sink71.i.i156.i.i303 = phi float [ %1531, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i309 ], [ %1522, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i302 ]
   %.sink.i.i157.i.i304 = phi i64 [ %1534, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i309 ], [ %1524, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i302 ]
   %.1.i.i158.i.i305 = phi i64 [ %1516, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i309 ], [ %1515, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i302 ]
   %1544 = getelementptr inbounds nuw float, ptr %1129, i64 %.056.i.i153.i.i300
-  store float %.sink63.i.i156.i.i303, ptr %1544, align 4, !tbaa !138
+  store float %.sink71.i.i156.i.i303, ptr %1544, align 4, !tbaa !138
   %1545 = getelementptr inbounds nuw i64, ptr %1130, i64 %.056.i.i153.i.i300
   store i64 %.sink.i.i157.i.i304, ptr %1545, align 8, !tbaa !16
   %1546 = shl i64 %.1.i.i158.i.i305, 1
@@ -166994,11 +166994,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i276: ; preds = %1653
   br i1 %1657, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i208.i.i280, label %1658
 
 1658:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i276, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i283
-  %.sink63.i.i205.i.i277 = phi float [ %1646, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i283 ], [ %1637, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i276 ]
+  %.sink71.i.i205.i.i277 = phi float [ %1646, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i283 ], [ %1637, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i276 ]
   %.sink.i.i206.i.i278 = phi i64 [ %1649, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i283 ], [ %1639, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i276 ]
   %.1.i.i207.i.i279 = phi i64 [ %1631, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i283 ], [ %1630, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i276 ]
   %1659 = getelementptr inbounds nuw float, ptr %1443, i64 %.056.i.i202.i.i274
-  store float %.sink63.i.i205.i.i277, ptr %1659, align 4, !tbaa !138
+  store float %.sink71.i.i205.i.i277, ptr %1659, align 4, !tbaa !138
   %1660 = getelementptr inbounds nuw i64, ptr %1444, i64 %.056.i.i202.i.i274
   store i64 %.sink.i.i206.i.i278, ptr %1660, align 8, !tbaa !16
   %1661 = shl i64 %.1.i.i207.i.i279, 1
@@ -167069,7 +167069,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %1703
 
 .preheader227.i.i:                                ; preds = %2017
-  %1697 = zext i32 %.188.i.i391 to i64
+  %1697 = zext nneg i32 %.188.i.i391 to i64
   %.not248.i.i = icmp eq i32 %.188.i.i391, 0
   br i1 %.not248.i.i, label %.preheader.i.i415, label %.lr.ph241.i.i
 
@@ -167288,11 +167288,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i541:   ; preds = %1852
   br i1 %1856, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i545, label %1857
 
 1857:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i541, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i550
-  %.sink63.i.i.i.i542 = phi float [ %1845, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i550 ], [ %1836, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i541 ]
+  %.sink71.i.i.i.i542 = phi float [ %1845, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i550 ], [ %1836, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i541 ]
   %.sink.i.i.i.i543 = phi i64 [ %1848, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i550 ], [ %1838, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i541 ]
   %.1.i.i.i.i544 = phi i64 [ %1830, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i550 ], [ %1829, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i541 ]
   %1858 = getelementptr inbounds nuw float, ptr %1694, i64 %.056.i.i.i.i539
-  store float %.sink63.i.i.i.i542, ptr %1858, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i542, ptr %1858, align 4, !tbaa !138
   %1859 = getelementptr inbounds nuw i64, ptr %1695, i64 %.056.i.i.i.i539
   store i64 %.sink.i.i.i.i543, ptr %1859, align 8, !tbaa !16
   %1860 = shl i64 %.1.i.i.i.i544, 1
@@ -167387,11 +167387,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i528: ; preds = %1901
   br i1 %1905, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i.i532, label %1906
 
 1906:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i528, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i535
-  %.sink63.i.i104.i.i529 = phi float [ %1894, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i535 ], [ %1885, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i528 ]
+  %.sink71.i.i104.i.i529 = phi float [ %1894, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i535 ], [ %1885, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i528 ]
   %.sink.i.i105.i.i530 = phi i64 [ %1897, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i535 ], [ %1887, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i528 ]
   %.1.i.i106.i.i531 = phi i64 [ %1879, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i535 ], [ %1878, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i528 ]
   %1907 = getelementptr inbounds nuw float, ptr %1694, i64 %.056.i.i101.i.i526
-  store float %.sink63.i.i104.i.i529, ptr %1907, align 4, !tbaa !138
+  store float %.sink71.i.i104.i.i529, ptr %1907, align 4, !tbaa !138
   %1908 = getelementptr inbounds nuw i64, ptr %1695, i64 %.056.i.i101.i.i526
   store i64 %.sink.i.i105.i.i530, ptr %1908, align 8, !tbaa !16
   %1909 = shl i64 %.1.i.i106.i.i531, 1
@@ -167486,11 +167486,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i515: ; preds = %1950
   br i1 %1954, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i124.i.i519, label %1955
 
 1955:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i515, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i522
-  %.sink63.i.i121.i.i516 = phi float [ %1943, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i522 ], [ %1934, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i515 ]
+  %.sink71.i.i121.i.i516 = phi float [ %1943, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i522 ], [ %1934, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i515 ]
   %.sink.i.i122.i.i517 = phi i64 [ %1946, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i522 ], [ %1936, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i515 ]
   %.1.i.i123.i.i518 = phi i64 [ %1928, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i522 ], [ %1927, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i515 ]
   %1956 = getelementptr inbounds nuw float, ptr %1694, i64 %.056.i.i118.i.i513
-  store float %.sink63.i.i121.i.i516, ptr %1956, align 4, !tbaa !138
+  store float %.sink71.i.i121.i.i516, ptr %1956, align 4, !tbaa !138
   %1957 = getelementptr inbounds nuw i64, ptr %1695, i64 %.056.i.i118.i.i513
   store i64 %.sink.i.i122.i.i517, ptr %1957, align 8, !tbaa !16
   %1958 = shl i64 %.1.i.i123.i.i518, 1
@@ -167585,11 +167585,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i502: ; preds = %1999
   br i1 %2003, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i141.i.i506, label %2004
 
 2004:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i502, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i509
-  %.sink63.i.i138.i.i503 = phi float [ %1992, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i509 ], [ %1983, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i502 ]
+  %.sink71.i.i138.i.i503 = phi float [ %1992, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i509 ], [ %1983, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i502 ]
   %.sink.i.i139.i.i504 = phi i64 [ %1995, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i509 ], [ %1985, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i502 ]
   %.1.i.i140.i.i505 = phi i64 [ %1977, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i509 ], [ %1976, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i502 ]
   %2005 = getelementptr inbounds nuw float, ptr %1694, i64 %.056.i.i135.i.i500
-  store float %.sink63.i.i138.i.i503, ptr %2005, align 4, !tbaa !138
+  store float %.sink71.i.i138.i.i503, ptr %2005, align 4, !tbaa !138
   %2006 = getelementptr inbounds nuw i64, ptr %1695, i64 %.056.i.i135.i.i500
   store i64 %.sink.i.i139.i.i504, ptr %2006, align 8, !tbaa !16
   %2007 = shl i64 %.1.i.i140.i.i505, 1
@@ -167842,11 +167842,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i472: ; preds = %2123
   br i1 %2127, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i159.i.i476, label %2128
 
 2128:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i472, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i479
-  %.sink63.i.i156.i.i473 = phi float [ %2116, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i479 ], [ %2107, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i472 ]
+  %.sink71.i.i156.i.i473 = phi float [ %2116, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i479 ], [ %2107, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i472 ]
   %.sink.i.i157.i.i474 = phi i64 [ %2119, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i479 ], [ %2109, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i472 ]
   %.1.i.i158.i.i475 = phi i64 [ %2101, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i479 ], [ %2100, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i472 ]
   %2129 = getelementptr inbounds nuw float, ptr %1694, i64 %.056.i.i153.i.i470
-  store float %.sink63.i.i156.i.i473, ptr %2129, align 4, !tbaa !138
+  store float %.sink71.i.i156.i.i473, ptr %2129, align 4, !tbaa !138
   %2130 = getelementptr inbounds nuw i64, ptr %1695, i64 %.056.i.i153.i.i470
   store i64 %.sink.i.i157.i.i474, ptr %2130, align 8, !tbaa !16
   %2131 = shl i64 %.1.i.i158.i.i475, 1
@@ -168073,11 +168073,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i446: ; preds = %2243
   br i1 %2247, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i208.i.i450, label %2248
 
 2248:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i446, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i453
-  %.sink63.i.i205.i.i447 = phi float [ %2236, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i453 ], [ %2227, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i446 ]
+  %.sink71.i.i205.i.i447 = phi float [ %2236, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i453 ], [ %2227, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i446 ]
   %.sink.i.i206.i.i448 = phi i64 [ %2239, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i453 ], [ %2229, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i446 ]
   %.1.i.i207.i.i449 = phi i64 [ %2221, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i453 ], [ %2220, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i446 ]
   %2249 = getelementptr inbounds nuw float, ptr %2028, i64 %.056.i.i202.i.i444
-  store float %.sink63.i.i205.i.i447, ptr %2249, align 4, !tbaa !138
+  store float %.sink71.i.i205.i.i447, ptr %2249, align 4, !tbaa !138
   %2250 = getelementptr inbounds nuw i64, ptr %2029, i64 %.056.i.i202.i.i444
   store i64 %.sink.i.i206.i.i448, ptr %2250, align 8, !tbaa !16
   %2251 = shl i64 %.1.i.i207.i.i449, 1
@@ -168150,7 +168150,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %2295
 
 .preheader231.i.i:                                ; preds = %2637
-  %2289 = zext i32 %.188.i.i561 to i64
+  %2289 = zext nneg i32 %.188.i.i561 to i64
   %.not252.i.i = icmp eq i32 %.188.i.i561, 0
   br i1 %.not252.i.i, label %.preheader.i.i585, label %.lr.ph245.i.i
 
@@ -168397,11 +168397,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i711:   ; preds = %2472
   br i1 %2476, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i715, label %2477
 
 2477:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i711, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i720
-  %.sink63.i.i.i.i712 = phi float [ %2465, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i720 ], [ %2456, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i711 ]
+  %.sink71.i.i.i.i712 = phi float [ %2465, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i720 ], [ %2456, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i711 ]
   %.sink.i.i.i.i713 = phi i64 [ %2468, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i720 ], [ %2458, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i711 ]
   %.1.i.i.i.i714 = phi i64 [ %2450, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i720 ], [ %2449, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i711 ]
   %2478 = getelementptr inbounds nuw float, ptr %2286, i64 %.056.i.i.i.i709
-  store float %.sink63.i.i.i.i712, ptr %2478, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i712, ptr %2478, align 4, !tbaa !138
   %2479 = getelementptr inbounds nuw i64, ptr %2287, i64 %.056.i.i.i.i709
   store i64 %.sink.i.i.i.i713, ptr %2479, align 8, !tbaa !16
   %2480 = shl i64 %.1.i.i.i.i714, 1
@@ -168496,11 +168496,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i698: ; preds = %2521
   br i1 %2525, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i.i702, label %2526
 
 2526:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i698, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i705
-  %.sink63.i.i104.i.i699 = phi float [ %2514, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i705 ], [ %2505, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i698 ]
+  %.sink71.i.i104.i.i699 = phi float [ %2514, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i705 ], [ %2505, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i698 ]
   %.sink.i.i105.i.i700 = phi i64 [ %2517, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i705 ], [ %2507, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i698 ]
   %.1.i.i106.i.i701 = phi i64 [ %2499, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i705 ], [ %2498, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i698 ]
   %2527 = getelementptr inbounds nuw float, ptr %2286, i64 %.056.i.i101.i.i696
-  store float %.sink63.i.i104.i.i699, ptr %2527, align 4, !tbaa !138
+  store float %.sink71.i.i104.i.i699, ptr %2527, align 4, !tbaa !138
   %2528 = getelementptr inbounds nuw i64, ptr %2287, i64 %.056.i.i101.i.i696
   store i64 %.sink.i.i105.i.i700, ptr %2528, align 8, !tbaa !16
   %2529 = shl i64 %.1.i.i106.i.i701, 1
@@ -168595,11 +168595,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i685: ; preds = %2570
   br i1 %2574, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i124.i.i689, label %2575
 
 2575:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i685, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i692
-  %.sink63.i.i121.i.i686 = phi float [ %2563, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i692 ], [ %2554, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i685 ]
+  %.sink71.i.i121.i.i686 = phi float [ %2563, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i692 ], [ %2554, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i685 ]
   %.sink.i.i122.i.i687 = phi i64 [ %2566, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i692 ], [ %2556, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i685 ]
   %.1.i.i123.i.i688 = phi i64 [ %2548, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i692 ], [ %2547, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i685 ]
   %2576 = getelementptr inbounds nuw float, ptr %2286, i64 %.056.i.i118.i.i683
-  store float %.sink63.i.i121.i.i686, ptr %2576, align 4, !tbaa !138
+  store float %.sink71.i.i121.i.i686, ptr %2576, align 4, !tbaa !138
   %2577 = getelementptr inbounds nuw i64, ptr %2287, i64 %.056.i.i118.i.i683
   store i64 %.sink.i.i122.i.i687, ptr %2577, align 8, !tbaa !16
   %2578 = shl i64 %.1.i.i123.i.i688, 1
@@ -168694,11 +168694,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i672: ; preds = %2619
   br i1 %2623, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i141.i.i676, label %2624
 
 2624:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i672, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i679
-  %.sink63.i.i138.i.i673 = phi float [ %2612, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i679 ], [ %2603, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i672 ]
+  %.sink71.i.i138.i.i673 = phi float [ %2612, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i679 ], [ %2603, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i672 ]
   %.sink.i.i139.i.i674 = phi i64 [ %2615, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i679 ], [ %2605, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i672 ]
   %.1.i.i140.i.i675 = phi i64 [ %2597, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i679 ], [ %2596, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i672 ]
   %2625 = getelementptr inbounds nuw float, ptr %2286, i64 %.056.i.i135.i.i670
-  store float %.sink63.i.i138.i.i673, ptr %2625, align 4, !tbaa !138
+  store float %.sink71.i.i138.i.i673, ptr %2625, align 4, !tbaa !138
   %2626 = getelementptr inbounds nuw i64, ptr %2287, i64 %.056.i.i135.i.i670
   store i64 %.sink.i.i139.i.i674, ptr %2626, align 8, !tbaa !16
   %2627 = shl i64 %.1.i.i140.i.i675, 1
@@ -168951,11 +168951,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i642: ; preds = %2743
   br i1 %2747, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i159.i.i646, label %2748
 
 2748:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i642, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i649
-  %.sink63.i.i156.i.i643 = phi float [ %2736, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i649 ], [ %2727, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i642 ]
+  %.sink71.i.i156.i.i643 = phi float [ %2736, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i649 ], [ %2727, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i642 ]
   %.sink.i.i157.i.i644 = phi i64 [ %2739, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i649 ], [ %2729, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i642 ]
   %.1.i.i158.i.i645 = phi i64 [ %2721, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i649 ], [ %2720, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i642 ]
   %2749 = getelementptr inbounds nuw float, ptr %2286, i64 %.056.i.i153.i.i640
-  store float %.sink63.i.i156.i.i643, ptr %2749, align 4, !tbaa !138
+  store float %.sink71.i.i156.i.i643, ptr %2749, align 4, !tbaa !138
   %2750 = getelementptr inbounds nuw i64, ptr %2287, i64 %.056.i.i153.i.i640
   store i64 %.sink.i.i157.i.i644, ptr %2750, align 8, !tbaa !16
   %2751 = shl i64 %.1.i.i158.i.i645, 1
@@ -169189,11 +169189,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i616: ; preds = %2870
   br i1 %2874, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i208.i.i620, label %2875
 
 2875:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i616, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i623
-  %.sink63.i.i205.i.i617 = phi float [ %2863, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i623 ], [ %2854, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i616 ]
+  %.sink71.i.i205.i.i617 = phi float [ %2863, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i623 ], [ %2854, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i616 ]
   %.sink.i.i206.i.i618 = phi i64 [ %2866, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i623 ], [ %2856, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i616 ]
   %.1.i.i207.i.i619 = phi i64 [ %2848, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i623 ], [ %2847, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i616 ]
   %2876 = getelementptr inbounds nuw float, ptr %2648, i64 %.056.i.i202.i.i614
-  store float %.sink63.i.i205.i.i617, ptr %2876, align 4, !tbaa !138
+  store float %.sink71.i.i205.i.i617, ptr %2876, align 4, !tbaa !138
   %2877 = getelementptr inbounds nuw i64, ptr %2649, i64 %.056.i.i202.i.i614
   store i64 %.sink.i.i206.i.i618, ptr %2877, align 8, !tbaa !16
   %2878 = shl i64 %.1.i.i207.i.i619, 1
@@ -169274,7 +169274,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %2930
 
 .preheader247.i.i:                                ; preds = %3368
-  %2924 = zext i32 %.188.i.i731 to i64
+  %2924 = zext nneg i32 %.188.i.i731 to i64
   %.not268.i.i = icmp eq i32 %.188.i.i731, 0
   br i1 %.not268.i.i, label %.preheader.i.i757, label %.lr.ph261.i.i
 
@@ -169617,11 +169617,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i883:   ; preds = %3203
   br i1 %3207, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i887, label %3208
 
 3208:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i883, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i891
-  %.sink63.i.i.i.i884 = phi float [ %3196, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i891 ], [ %3187, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i883 ]
+  %.sink71.i.i.i.i884 = phi float [ %3196, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i891 ], [ %3187, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i883 ]
   %.sink.i.i.i.i885 = phi i64 [ %3199, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i891 ], [ %3189, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i883 ]
   %.1.i.i.i.i886 = phi i64 [ %3181, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i891 ], [ %3180, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i883 ]
   %3209 = getelementptr inbounds nuw float, ptr %2921, i64 %.056.i.i.i.i881
-  store float %.sink63.i.i.i.i884, ptr %3209, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i884, ptr %3209, align 4, !tbaa !138
   %3210 = getelementptr inbounds nuw i64, ptr %2922, i64 %.056.i.i.i.i881
   store i64 %.sink.i.i.i.i885, ptr %3210, align 8, !tbaa !16
   %3211 = shl i64 %.1.i.i.i.i886, 1
@@ -169716,11 +169716,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i870: ; preds = %3252
   br i1 %3256, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i.i874, label %3257
 
 3257:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i870, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i877
-  %.sink63.i.i104.i.i871 = phi float [ %3245, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i877 ], [ %3236, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i870 ]
+  %.sink71.i.i104.i.i871 = phi float [ %3245, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i877 ], [ %3236, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i870 ]
   %.sink.i.i105.i.i872 = phi i64 [ %3248, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i877 ], [ %3238, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i870 ]
   %.1.i.i106.i.i873 = phi i64 [ %3230, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i877 ], [ %3229, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i870 ]
   %3258 = getelementptr inbounds nuw float, ptr %2921, i64 %.056.i.i101.i.i868
-  store float %.sink63.i.i104.i.i871, ptr %3258, align 4, !tbaa !138
+  store float %.sink71.i.i104.i.i871, ptr %3258, align 4, !tbaa !138
   %3259 = getelementptr inbounds nuw i64, ptr %2922, i64 %.056.i.i101.i.i868
   store i64 %.sink.i.i105.i.i872, ptr %3259, align 8, !tbaa !16
   %3260 = shl i64 %.1.i.i106.i.i873, 1
@@ -169815,11 +169815,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i857: ; preds = %3301
   br i1 %3305, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i124.i.i861, label %3306
 
 3306:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i857, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i864
-  %.sink63.i.i121.i.i858 = phi float [ %3294, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i864 ], [ %3285, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i857 ]
+  %.sink71.i.i121.i.i858 = phi float [ %3294, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i864 ], [ %3285, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i857 ]
   %.sink.i.i122.i.i859 = phi i64 [ %3297, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i864 ], [ %3287, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i857 ]
   %.1.i.i123.i.i860 = phi i64 [ %3279, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i864 ], [ %3278, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i857 ]
   %3307 = getelementptr inbounds nuw float, ptr %2921, i64 %.056.i.i118.i.i855
-  store float %.sink63.i.i121.i.i858, ptr %3307, align 4, !tbaa !138
+  store float %.sink71.i.i121.i.i858, ptr %3307, align 4, !tbaa !138
   %3308 = getelementptr inbounds nuw i64, ptr %2922, i64 %.056.i.i118.i.i855
   store i64 %.sink.i.i122.i.i859, ptr %3308, align 8, !tbaa !16
   %3309 = shl i64 %.1.i.i123.i.i860, 1
@@ -169914,11 +169914,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i844: ; preds = %3350
   br i1 %3354, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i141.i.i848, label %3355
 
 3355:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i844, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i851
-  %.sink63.i.i138.i.i845 = phi float [ %3343, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i851 ], [ %3334, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i844 ]
+  %.sink71.i.i138.i.i845 = phi float [ %3343, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i851 ], [ %3334, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i844 ]
   %.sink.i.i139.i.i846 = phi i64 [ %3346, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i851 ], [ %3336, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i844 ]
   %.1.i.i140.i.i847 = phi i64 [ %3328, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i851 ], [ %3327, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i844 ]
   %3356 = getelementptr inbounds nuw float, ptr %2921, i64 %.056.i.i135.i.i842
-  store float %.sink63.i.i138.i.i845, ptr %3356, align 4, !tbaa !138
+  store float %.sink71.i.i138.i.i845, ptr %3356, align 4, !tbaa !138
   %3357 = getelementptr inbounds nuw i64, ptr %2922, i64 %.056.i.i135.i.i842
   store i64 %.sink.i.i139.i.i846, ptr %3357, align 8, !tbaa !16
   %3358 = shl i64 %.1.i.i140.i.i847, 1
@@ -170171,11 +170171,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i814: ; preds = %3474
   br i1 %3478, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i159.i.i818, label %3479
 
 3479:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i814, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i821
-  %.sink63.i.i156.i.i815 = phi float [ %3467, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i821 ], [ %3458, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i814 ]
+  %.sink71.i.i156.i.i815 = phi float [ %3467, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i821 ], [ %3458, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i814 ]
   %.sink.i.i157.i.i816 = phi i64 [ %3470, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i821 ], [ %3460, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i814 ]
   %.1.i.i158.i.i817 = phi i64 [ %3452, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i821 ], [ %3451, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i814 ]
   %3480 = getelementptr inbounds nuw float, ptr %2921, i64 %.056.i.i153.i.i812
-  store float %.sink63.i.i156.i.i815, ptr %3480, align 4, !tbaa !138
+  store float %.sink71.i.i156.i.i815, ptr %3480, align 4, !tbaa !138
   %3481 = getelementptr inbounds nuw i64, ptr %2922, i64 %.056.i.i153.i.i812
   store i64 %.sink.i.i157.i.i816, ptr %3481, align 8, !tbaa !16
   %3482 = shl i64 %.1.i.i158.i.i817, 1
@@ -170433,11 +170433,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i788: ; preds = %3625
   br i1 %3629, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i208.i.i792, label %3630
 
 3630:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i788, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i795
-  %.sink63.i.i205.i.i789 = phi float [ %3618, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i795 ], [ %3609, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i788 ]
+  %.sink71.i.i205.i.i789 = phi float [ %3618, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i795 ], [ %3609, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i788 ]
   %.sink.i.i206.i.i790 = phi i64 [ %3621, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i795 ], [ %3611, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i788 ]
   %.1.i.i207.i.i791 = phi i64 [ %3603, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i795 ], [ %3602, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i788 ]
   %3631 = getelementptr inbounds nuw float, ptr %3379, i64 %.056.i.i202.i.i786
-  store float %.sink63.i.i205.i.i789, ptr %3631, align 4, !tbaa !138
+  store float %.sink71.i.i205.i.i789, ptr %3631, align 4, !tbaa !138
   %3632 = getelementptr inbounds nuw i64, ptr %3380, i64 %.056.i.i202.i.i786
   store i64 %.sink.i.i206.i.i790, ptr %3632, align 8, !tbaa !16
   %3633 = shl i64 %.1.i.i207.i.i791, 1
@@ -170511,7 +170511,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   br label %3674
 
 .preheader215.i.i:                                ; preds = %3932
-  %3668 = zext i32 %.188.i.i902 to i64
+  %3668 = zext nneg i32 %.188.i.i902 to i64
   %.not236.i.i = icmp eq i32 %.188.i.i902, 0
   br i1 %.not236.i.i, label %.preheader.i.i926, label %.lr.ph229.i.i
 
@@ -170674,11 +170674,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1053:  ; preds = %3767
   br i1 %3771, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i1057, label %3772
 
 3772:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1053, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i1061
-  %.sink63.i.i.i.i1054 = phi float [ %3760, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i1061 ], [ %3751, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1053 ]
+  %.sink71.i.i.i.i1054 = phi float [ %3760, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i1061 ], [ %3751, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1053 ]
   %.sink.i.i.i.i1055 = phi i64 [ %3763, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i1061 ], [ %3753, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1053 ]
   %.1.i.i.i.i1056 = phi i64 [ %3745, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i.i.i1061 ], [ %3744, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i.i.i1053 ]
   %3773 = getelementptr inbounds nuw float, ptr %3665, i64 %.056.i.i.i.i1051
-  store float %.sink63.i.i.i.i1054, ptr %3773, align 4, !tbaa !138
+  store float %.sink71.i.i.i.i1054, ptr %3773, align 4, !tbaa !138
   %3774 = getelementptr inbounds nuw i64, ptr %3666, i64 %.056.i.i.i.i1051
   store i64 %.sink.i.i.i.i1055, ptr %3774, align 8, !tbaa !16
   %3775 = shl i64 %.1.i.i.i.i1056, 1
@@ -170773,11 +170773,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i1040: ; preds = %3816
   br i1 %3820, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i107.i.i1044, label %3821
 
 3821:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i1040, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i1047
-  %.sink63.i.i104.i.i1041 = phi float [ %3809, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i1047 ], [ %3800, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i1040 ]
+  %.sink71.i.i104.i.i1041 = phi float [ %3809, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i1047 ], [ %3800, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i1040 ]
   %.sink.i.i105.i.i1042 = phi i64 [ %3812, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i1047 ], [ %3802, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i1040 ]
   %.1.i.i106.i.i1043 = phi i64 [ %3794, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i110.i.i1047 ], [ %3793, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i103.i.i1040 ]
   %3822 = getelementptr inbounds nuw float, ptr %3665, i64 %.056.i.i101.i.i1038
-  store float %.sink63.i.i104.i.i1041, ptr %3822, align 4, !tbaa !138
+  store float %.sink71.i.i104.i.i1041, ptr %3822, align 4, !tbaa !138
   %3823 = getelementptr inbounds nuw i64, ptr %3666, i64 %.056.i.i101.i.i1038
   store i64 %.sink.i.i105.i.i1042, ptr %3823, align 8, !tbaa !16
   %3824 = shl i64 %.1.i.i106.i.i1043, 1
@@ -170872,11 +170872,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i1026: ; preds = %3865
   br i1 %3869, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i124.i.i1030, label %3870
 
 3870:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i1026, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i1034
-  %.sink63.i.i121.i.i1027 = phi float [ %3858, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i1034 ], [ %3849, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i1026 ]
+  %.sink71.i.i121.i.i1027 = phi float [ %3858, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i1034 ], [ %3849, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i1026 ]
   %.sink.i.i122.i.i1028 = phi i64 [ %3861, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i1034 ], [ %3851, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i1026 ]
   %.1.i.i123.i.i1029 = phi i64 [ %3843, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i127.i.i1034 ], [ %3842, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i120.i.i1026 ]
   %3871 = getelementptr inbounds nuw float, ptr %3665, i64 %.056.i.i118.i.i1024
-  store float %.sink63.i.i121.i.i1027, ptr %3871, align 4, !tbaa !138
+  store float %.sink71.i.i121.i.i1027, ptr %3871, align 4, !tbaa !138
   %3872 = getelementptr inbounds nuw i64, ptr %3666, i64 %.056.i.i118.i.i1024
   store i64 %.sink.i.i122.i.i1028, ptr %3872, align 8, !tbaa !16
   %3873 = shl i64 %.1.i.i123.i.i1029, 1
@@ -170971,11 +170971,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i1013: ; preds = %3914
   br i1 %3918, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i141.i.i1017, label %3919
 
 3919:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i1013, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i1020
-  %.sink63.i.i138.i.i1014 = phi float [ %3907, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i1020 ], [ %3898, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i1013 ]
+  %.sink71.i.i138.i.i1014 = phi float [ %3907, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i1020 ], [ %3898, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i1013 ]
   %.sink.i.i139.i.i1015 = phi i64 [ %3910, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i1020 ], [ %3900, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i1013 ]
   %.1.i.i140.i.i1016 = phi i64 [ %3892, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i144.i.i1020 ], [ %3891, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i137.i.i1013 ]
   %3920 = getelementptr inbounds nuw float, ptr %3665, i64 %.056.i.i135.i.i1011
-  store float %.sink63.i.i138.i.i1014, ptr %3920, align 4, !tbaa !138
+  store float %.sink71.i.i138.i.i1014, ptr %3920, align 4, !tbaa !138
   %3921 = getelementptr inbounds nuw i64, ptr %3666, i64 %.056.i.i135.i.i1011
   store i64 %.sink.i.i139.i.i1015, ptr %3921, align 8, !tbaa !16
   %3922 = shl i64 %.1.i.i140.i.i1016, 1
@@ -171224,11 +171224,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i983: ; preds = %4034
   br i1 %4038, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i159.i.i987, label %4039
 
 4039:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i983, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i990
-  %.sink63.i.i156.i.i984 = phi float [ %4027, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i990 ], [ %4018, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i983 ]
+  %.sink71.i.i156.i.i984 = phi float [ %4027, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i990 ], [ %4018, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i983 ]
   %.sink.i.i157.i.i985 = phi i64 [ %4030, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i990 ], [ %4020, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i983 ]
   %.1.i.i158.i.i986 = phi i64 [ %4012, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i162.i.i990 ], [ %4011, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i155.i.i983 ]
   %4040 = getelementptr inbounds nuw float, ptr %3665, i64 %.056.i.i153.i.i981
-  store float %.sink63.i.i156.i.i984, ptr %4040, align 4, !tbaa !138
+  store float %.sink71.i.i156.i.i984, ptr %4040, align 4, !tbaa !138
   %4041 = getelementptr inbounds nuw i64, ptr %3666, i64 %.056.i.i153.i.i981
   store i64 %.sink.i.i157.i.i985, ptr %4041, align 8, !tbaa !16
   %4042 = shl i64 %.1.i.i158.i.i986, 1
@@ -171445,11 +171445,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i957: ; preds = %4144
   br i1 %4148, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i208.i.i961, label %4149
 
 4149:                                             ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i957, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i964
-  %.sink63.i.i205.i.i958 = phi float [ %4137, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i964 ], [ %4128, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i957 ]
+  %.sink71.i.i205.i.i958 = phi float [ %4137, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i964 ], [ %4128, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i957 ]
   %.sink.i.i206.i.i959 = phi i64 [ %4140, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i964 ], [ %4130, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i957 ]
   %.1.i.i207.i.i960 = phi i64 [ %4122, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i211.i.i964 ], [ %4121, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i204.i.i957 ]
   %4150 = getelementptr inbounds nuw float, ptr %3940, i64 %.056.i.i202.i.i955
-  store float %.sink63.i.i205.i.i958, ptr %4150, align 4, !tbaa !138
+  store float %.sink71.i.i205.i.i958, ptr %4150, align 4, !tbaa !138
   %4151 = getelementptr inbounds nuw i64, ptr %3941, i64 %.056.i.i202.i.i955
   store i64 %.sink.i.i206.i.i959, ptr %4151, align 8, !tbaa !16
   %4152 = shl i64 %.1.i.i207.i.i960, 1
@@ -171582,9 +171582,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc56
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %.0.i.i.i.i.i183 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %.0.i.i.i.i.i.ph, %._crit_edge.loopexit ]
-  %.sroa.075.1179 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %16, %._crit_edge.loopexit ]
-  %.sroa.16.1175 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %23, %._crit_edge.loopexit ]
+  %.0.i.i.i.i.i185 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %.0.i.i.i.i.i.ph, %._crit_edge.loopexit ]
+  %.sroa.075.1181 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %16, %._crit_edge.loopexit ]
+  %.sroa.16.1177 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %23, %._crit_edge.loopexit ]
   %24 = load ptr, ptr %6, align 8, !tbaa !137
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
@@ -171603,22 +171603,22 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc56
 
 _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %._crit_edge
   %31 = load i64, ptr %7, align 8, !tbaa !54
-  %.not.i.i = icmp eq ptr %.sroa.075.1179, %.0.i.i.i.i.i183
+  %.not.i.i = icmp eq ptr %.sroa.075.1181, %.0.i.i.i.i.i185
   br i1 %.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5faiss7CodeCmpEEvT_S9_T0_.exit, label %32
 
 32:                                               ; preds = %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit
-  %33 = ptrtoint ptr %.0.i.i.i.i.i183 to i64
-  %34 = ptrtoint ptr %.sroa.075.1179 to i64
+  %33 = ptrtoint ptr %.0.i.i.i.i.i185 to i64
+  %34 = ptrtoint ptr %.sroa.075.1181 to i64
   %35 = sub i64 %33, %34
   %36 = ashr exact i64 %35, 2
   %37 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %36, i1 true)
   %38 = shl nuw nsw i64 %37, 1
   %39 = xor i64 %38, 126
-  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIN5faiss7CodeCmpEEEEvT_SC_T0_T1_(ptr %.sroa.075.1179, ptr %.0.i.i.i.i.i183, i64 noundef %39, ptr %28, i64 %31)
+  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIN5faiss7CodeCmpEEEEvT_SC_T0_T1_(ptr %.sroa.075.1181, ptr %.0.i.i.i.i.i185, i64 noundef %39, ptr %28, i64 %31)
           to label %.noexc58 unwind label %65
 
 .noexc58:                                         ; preds = %32
-  invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5faiss7CodeCmpEEEEvT_SC_T0_(ptr %.sroa.075.1179, ptr %.0.i.i.i.i.i183, ptr %28, i64 %31)
+  invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN5faiss7CodeCmpEEEEvT_SC_T0_(ptr %.sroa.075.1181, ptr %.0.i.i.i.i.i185, ptr %28, i64 %31)
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5faiss7CodeCmpEEvT_S9_T0_.exit unwind label %65
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5faiss7CodeCmpEEvT_S9_T0_.exit: ; preds = %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit, %.noexc58
@@ -171662,13 +171662,13 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit:      ; preds = %_ZN5faiss13Inverted
   unreachable
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit:   ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit
-  %.not.i.i.i = icmp eq ptr %.sroa.075.1179, null
+  %.not.i.i.i = icmp eq ptr %.sroa.075.1181, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %57
 
 57:                                               ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit
-  %58 = ptrtoint ptr %.sroa.075.1179 to i64
-  %59 = sub i64 %.sroa.16.1175, %58
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.075.1179, i64 noundef %59) #33
+  %58 = ptrtoint ptr %.sroa.075.1181 to i64
+  %59 = sub i64 %.sroa.16.1177, %58
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.075.1181, i64 noundef %59) #33
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit, %57
@@ -171702,9 +171702,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZN5faiss13Inverted
 
 71:                                               ; preds = %.lr.ph124
   %72 = zext nneg i32 %.039122 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %.sroa.075.1179, i64 %72
+  %73 = getelementptr inbounds nuw i32, ptr %.sroa.075.1181, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !146
-  %75 = getelementptr inbounds nuw i32, ptr %.sroa.075.1179, i64 %indvars.iv167
+  %75 = getelementptr inbounds nuw i32, ptr %.sroa.075.1181, i64 %indvars.iv167
   %76 = load i32, ptr %75, align 4, !tbaa !146
   %77 = sext i32 %74 to i64
   %78 = mul i64 %31, %77
@@ -171772,13 +171772,13 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit: ; preds = %.lr.ph124, %71, %97
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit61: ; preds = %104, %63
   %.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %.pn, %104 ]
-  %.not.i.i.i62 = icmp eq ptr %.sroa.075.1179, null
+  %.not.i.i.i62 = icmp eq ptr %.sroa.075.1181, null
   br i1 %.not.i.i.i62, label %_ZNSt6vectorIiSaIiEED2Ev.exit63, label %111
 
 111:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit61
-  %112 = ptrtoint ptr %.sroa.075.1179 to i64
-  %113 = sub i64 %.sroa.16.1175, %112
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.075.1179, i64 noundef %113) #33
+  %112 = ptrtoint ptr %.sroa.075.1181 to i64
+  %113 = sub i64 %.sroa.16.1177, %112
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.075.1181, i64 noundef %113) #33
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit63
 
 _ZNSt6vectorIiSaIiEED2Ev.exit63:                  ; preds = %111, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit61
@@ -172187,7 +172187,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6
   %15 = icmp eq i64 %14, 0
   %16 = lshr exact i64 %10, 1
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds i32, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
   %19 = getelementptr inbounds nuw i32, ptr %0, i64 %16
   br label %20
 
@@ -172249,7 +172249,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6
   %.019.i.i = phi i64 [ %.1.i, %.lr.ph.i.i ], [ %.0920.i.i, %59 ]
   %.0920.in.i.i = add nsw i64 %.019.i.i, -1
   %.0920.i.i = sdiv i64 %.0920.in.i.i, 2
-  %52 = getelementptr inbounds i32, ptr %0, i64 %.0920.i.i
+  %52 = getelementptr inbounds nuw i32, ptr %0, i64 %.0920.i.i
   %53 = load i32, ptr %52, align 4, !tbaa !146
   %54 = sext i32 %53 to i64
   %55 = mul i64 %.sroa.2.0.copyload, %54
@@ -172259,14 +172259,14 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6
   br i1 %58, label %59, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIN5faiss7CodeCmpEEEEvT_T0_SD_T1_T2_.exit
 
 59:                                               ; preds = %51
-  %60 = getelementptr inbounds i32, ptr %0, i64 %.019.i.i
+  %60 = getelementptr inbounds nuw i32, ptr %0, i64 %.019.i.i
   store i32 %53, ptr %60, align 4, !tbaa !146
   %61 = icmp sgt i64 %.0920.i.i, %.09
   br i1 %61, label %51, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIN5faiss7CodeCmpEEEEvT_T0_SD_T1_T2_.exit, !llvm.loop !4336
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIN5faiss7CodeCmpEEEEvT_T0_SD_T1_T2_.exit: ; preds = %51, %59, %46
   %.0.lcssa.i.i = phi i64 [ %.1.i, %46 ], [ %.0920.i.i, %59 ], [ %.019.i.i, %51 ]
-  %62 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i
+  %62 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa.i.i
   store i32 %22, ptr %62, align 4, !tbaa !146
   %.not = icmp eq i64 %.09, 0
   %63 = add nsw i64 %.09, -1

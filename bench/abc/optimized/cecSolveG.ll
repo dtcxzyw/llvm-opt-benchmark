@@ -965,11 +965,11 @@ Vec_PtrPush.exit.i45:                             ; preds = %171, %Vec_PtrGrow.e
   br label %Vec_PtrPushUnique.exit.sink.split
 
 Vec_PtrPushUnique.exit.sink.split:                ; preds = %Vec_PtrPush.exit.i, %Vec_PtrPush.exit.i45
-  %.sink80 = phi i32 [ %174, %Vec_PtrPush.exit.i45 ], [ %60, %Vec_PtrPush.exit.i ]
-  %.sink78 = phi ptr [ %173, %Vec_PtrPush.exit.i45 ], [ %59, %Vec_PtrPush.exit.i ]
+  %.sink91 = phi i32 [ %174, %Vec_PtrPush.exit.i45 ], [ %60, %Vec_PtrPush.exit.i ]
+  %.sink89 = phi ptr [ %173, %Vec_PtrPush.exit.i45 ], [ %59, %Vec_PtrPush.exit.i ]
   %.sink = phi ptr [ %140, %Vec_PtrPush.exit.i45 ], [ %.tr.lcssa, %Vec_PtrPush.exit.i ]
-  %176 = sext i32 %.sink80 to i64
-  %177 = getelementptr inbounds ptr, ptr %.sink78, i64 %176
+  %176 = sext i32 %.sink91 to i64
+  %177 = getelementptr inbounds ptr, ptr %.sink89, i64 %176
   store ptr %.sink, ptr %177, align 8, !tbaa !42
   br label %Vec_PtrPushUnique.exit
 
@@ -1306,7 +1306,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %67, label %.lr.ph174, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %62
-  %.pre207213 = load ptr, ptr %66, align 8, !tbaa !41
+  %.pre207227 = load ptr, ptr %66, align 8, !tbaa !41
   br label %.critedge6
 
 .lr.ph174:                                        ; preds = %62
@@ -1901,13 +1901,13 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsXor.exit.l
   br i1 %exitcond.not, label %.critedge6.thread, label %Gia_ObjIsXor.exit, !llvm.loop !56
 
 .critedge6:                                       ; preds = %.critedge.thread, %.critedge
-  %.pre207214 = phi ptr [ %.pre207213, %.critedge.thread ], [ %.pre207, %.critedge ]
-  %.not.i = icmp eq ptr %.pre207214, null
+  %.pre207228 = phi ptr [ %.pre207227, %.critedge.thread ], [ %.pre207, %.critedge ]
+  %.not.i = icmp eq ptr %.pre207228, null
   br i1 %.not.i, label %Vec_PtrFree.exit, label %.critedge6.thread
 
 .critedge6.thread:                                ; preds = %Gia_ObjIsXor.exit, %.critedge6
-  %.pre207214217 = phi ptr [ %.pre207214, %.critedge6 ], [ %.pre207, %Gia_ObjIsXor.exit ]
-  tail call void @free(ptr noundef nonnull %.pre207214217) #8
+  %.pre207228231 = phi ptr [ %.pre207228, %.critedge6 ], [ %.pre207, %Gia_ObjIsXor.exit ]
+  tail call void @free(ptr noundef nonnull %.pre207228231) #8
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge6, %.critedge6.thread

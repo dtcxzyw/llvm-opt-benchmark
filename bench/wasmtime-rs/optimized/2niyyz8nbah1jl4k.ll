@@ -2096,7 +2096,7 @@ _ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E
   store i32 %.sroa.6.0.sink.i, ptr %.sink.i.sroa.phi, align 8, !alias.scope !136, !noalias !139
   %.sroa.6266.0..sroa.6266.0..sroa.6266.0..sroa.6266.8. = load i32, ptr %.sroa.6266, align 8, !range !141, !noundef !28
   %75 = icmp eq i32 %.sroa.6266.0..sroa.6266.0..sroa.6266.0..sroa.6266.8., 12
-  br i1 %75, label %.loopexit874, label %76
+  br i1 %75, label %.loopexit880, label %76
 
 76:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h919c5bfc1330593fE.exit"
   %77 = icmp ne ptr %.sroa.0265.1, null
@@ -2167,7 +2167,7 @@ _ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !142
   br label %"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$9get_range17h5f19fd97a3087a56E.exit"
 
-.loopexit874:                                     ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h919c5bfc1330593fE.exit", %"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$wiggle..GuestPtr$LT$wiggle..GuestPtr$LT$u8$GT$$GT$$C$wiggle..error..GuestError$GT$$GT$17h1152e41d8769ae20E.exit"
+.loopexit880:                                     ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h919c5bfc1330593fE.exit", %"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$wiggle..GuestPtr$LT$wiggle..GuestPtr$LT$u8$GT$$GT$$C$wiggle..error..GuestError$GT$$GT$17h1152e41d8769ae20E.exit"
   %.0 = phi ptr [ %.4422, %"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$wiggle..GuestPtr$LT$wiggle..GuestPtr$LT$u8$GT$$GT$$C$wiggle..error..GuestError$GT$$GT$17h1152e41d8769ae20E.exit" ], [ null, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h919c5bfc1330593fE.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6266)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12270)
@@ -2578,7 +2578,7 @@ _ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E
 "_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$wiggle..GuestPtr$LT$wiggle..GuestPtr$LT$u8$GT$$GT$$C$wiggle..error..GuestError$GT$$GT$17h1152e41d8769ae20E.exit": ; preds = %146, %163, %170, %168
   %.4422 = phi ptr [ %.4.ph, %168 ], [ %.4.ph, %170 ], [ %164, %163 ], [ %147, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  br label %.loopexit874
+  br label %.loopexit880
 
 168:                                              ; preds = %131, %165, %167
   %.4.ph = phi ptr [ %.1, %167 ], [ %116, %131 ], [ %135, %165 ]
@@ -5226,7 +5226,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8, !range !27, !noundef !28
-  switch i8 %6, label %default.unreachable34 [
+  switch i8 %6, label %default.unreachable35 [
     i8 0, label %8
     i8 1, label %18
     i8 2, label %19
@@ -5240,7 +5240,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %.pre33 = load ptr, ptr %.phi.trans.insert32, align 8, !alias.scope !359, !noalias !364
   br label %20
 
-default.unreachable34:                            ; preds = %3
+default.unreachable35:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %39, %7
@@ -5396,7 +5396,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8, !range !27, !noundef !28
-  switch i8 %6, label %default.unreachable34 [
+  switch i8 %6, label %default.unreachable35 [
     i8 0, label %8
     i8 1, label %18
     i8 2, label %19
@@ -5410,7 +5410,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %.pre33 = load ptr, ptr %.phi.trans.insert32, align 8, !alias.scope !379, !noalias !384
   br label %20
 
-default.unreachable34:                            ; preds = %3
+default.unreachable35:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %39, %7
@@ -5566,7 +5566,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8, !range !27, !noundef !28
-  switch i8 %6, label %default.unreachable34 [
+  switch i8 %6, label %default.unreachable35 [
     i8 0, label %8
     i8 1, label %18
     i8 2, label %19
@@ -5580,7 +5580,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %.pre33 = load ptr, ptr %.phi.trans.insert32, align 8, !alias.scope !399, !noalias !404
   br label %20
 
-default.unreachable34:                            ; preds = %3
+default.unreachable35:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %39, %7
@@ -5736,7 +5736,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8, !range !27, !noundef !28
-  switch i8 %6, label %default.unreachable34 [
+  switch i8 %6, label %default.unreachable35 [
     i8 0, label %8
     i8 1, label %18
     i8 2, label %19
@@ -5750,7 +5750,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %.pre33 = load ptr, ptr %.phi.trans.insert32, align 8, !alias.scope !419, !noalias !424
   br label %20
 
-default.unreachable34:                            ; preds = %3
+default.unreachable35:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %39, %7
@@ -5906,7 +5906,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8, !range !27, !noundef !28
-  switch i8 %6, label %default.unreachable34 [
+  switch i8 %6, label %default.unreachable35 [
     i8 0, label %8
     i8 1, label %18
     i8 2, label %19
@@ -5920,7 +5920,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %.pre33 = load ptr, ptr %.phi.trans.insert32, align 8, !alias.scope !439, !noalias !444
   br label %20
 
-default.unreachable34:                            ; preds = %3
+default.unreachable35:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %39, %7
@@ -6076,7 +6076,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8, !range !27, !noundef !28
-  switch i8 %6, label %default.unreachable34 [
+  switch i8 %6, label %default.unreachable35 [
     i8 0, label %8
     i8 1, label %18
     i8 2, label %19
@@ -6090,7 +6090,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %.pre33 = load ptr, ptr %.phi.trans.insert32, align 8, !alias.scope !459, !noalias !464
   br label %20
 
-default.unreachable34:                            ; preds = %3
+default.unreachable35:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %39, %7
@@ -6246,7 +6246,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8, !range !27, !noundef !28
-  switch i8 %6, label %default.unreachable34 [
+  switch i8 %6, label %default.unreachable35 [
     i8 0, label %8
     i8 1, label %18
     i8 2, label %19
@@ -6260,7 +6260,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %.pre33 = load ptr, ptr %.phi.trans.insert32, align 8, !alias.scope !479, !noalias !484
   br label %20
 
-default.unreachable34:                            ; preds = %3
+default.unreachable35:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %39, %7

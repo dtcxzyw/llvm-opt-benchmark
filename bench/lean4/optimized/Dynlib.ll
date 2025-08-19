@@ -767,7 +767,7 @@ define noundef ptr @l_List_foldl___at___private_Lake_Config_Dynlib_0__Lake_reprD
 
 6:                                                ; preds = %lean_alloc_ctor.exit, %3
   %.038 = phi ptr [ %2, %3 ], [ %29, %lean_alloc_ctor.exit ]
-  %.0 = phi ptr [ %1, %3 ], [ %.sink81, %lean_alloc_ctor.exit ]
+  %.0 = phi ptr [ %1, %3 ], [ %.sink88, %lean_alloc_ctor.exit ]
   %7 = ptrtoint ptr %.038 to i64
   %8 = and i64 %7, 1
   %.not.i46 = icmp eq i64 %8, 0
@@ -980,15 +980,15 @@ lean_alloc_ctor.exit58:                           ; preds = %lean_inc.exit43
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_alloc_ctor.exit58, %lean_inc.exit
-  %.sink81 = phi ptr [ %42, %lean_inc.exit ], [ %82, %lean_alloc_ctor.exit58 ]
-  %.sink76 = phi ptr [ %.038, %lean_inc.exit ], [ %75, %lean_alloc_ctor.exit58 ]
+  %.sink88 = phi ptr [ %42, %lean_inc.exit ], [ %82, %lean_alloc_ctor.exit58 ]
+  %.sink83 = phi ptr [ %.038, %lean_inc.exit ], [ %75, %lean_alloc_ctor.exit58 ]
   %.sink = phi ptr [ %41, %lean_inc.exit ], [ %81, %lean_alloc_ctor.exit58 ]
-  %85 = getelementptr inbounds nuw i8, ptr %.sink81, i64 4
-  store i32 1, ptr %.sink81, align 4, !tbaa !8
+  %85 = getelementptr inbounds nuw i8, ptr %.sink88, i64 4
+  store i32 1, ptr %.sink88, align 4, !tbaa !8
   store i32 84017176, ptr %85, align 4
-  %86 = getelementptr inbounds nuw i8, ptr %.sink81, i64 8
-  store ptr %.sink76, ptr %86, align 8, !tbaa !4
-  %87 = getelementptr inbounds nuw i8, ptr %.sink81, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %.sink88, i64 8
+  store ptr %.sink83, ptr %86, align 8, !tbaa !4
+  %87 = getelementptr inbounds nuw i8, ptr %.sink88, i64 16
   store ptr %.sink, ptr %87, align 8, !tbaa !4
   br label %6
 }
@@ -2212,18 +2212,18 @@ _init_l_Lake_instReprDynlib___closed__1.exit:     ; preds = %_init_l___private_L
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_instReprDynlib___closed__1.exit, %3
-  %.sink21 = phi ptr [ %4, %3 ], [ %184, %_init_l_Lake_instReprDynlib___closed__1.exit ]
-  %187 = getelementptr inbounds nuw i8, ptr %.sink21, i64 4
-  store i32 1, ptr %.sink21, align 4, !tbaa !8
+  %.sink43 = phi ptr [ %4, %3 ], [ %184, %_init_l_Lake_instReprDynlib___closed__1.exit ]
+  %187 = getelementptr inbounds nuw i8, ptr %.sink43, i64 4
+  store i32 1, ptr %.sink43, align 4, !tbaa !8
   store i32 131096, ptr %187, align 4
-  %188 = getelementptr inbounds nuw i8, ptr %.sink21, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %.sink43, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %188, align 8, !tbaa !4
-  %189 = getelementptr inbounds nuw i8, ptr %.sink21, i64 16
+  %189 = getelementptr inbounds nuw i8, ptr %.sink43, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %189, align 8, !tbaa !4
   br label %190
 
 190:                                              ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink21, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink43, %.sink.split ]
   ret ptr %.0
 }
 

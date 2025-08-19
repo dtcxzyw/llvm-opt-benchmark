@@ -914,9 +914,9 @@ raknet_get_session_state.exit.i.i:                ; preds = %211, %206
   br label %259
 
 .sink.split.i:                                    ; preds = %247, %246, %183
-  %.sink12.i = phi i32 [ %182, %183 ], [ %.3.i.i, %246 ], [ %182, %247 ]
+  %.sink22.i = phi i32 [ %182, %183 ], [ %.3.i.i, %246 ], [ %182, %247 ]
   %248 = call i32 @proto_item_get_len(ptr noundef nonnull %96)
-  %249 = add i32 %248, %.sink12.i
+  %249 = add i32 %248, %.sink22.i
   call void @proto_item_set_len(ptr noundef nonnull %96, i32 noundef %249)
   br label %250
 

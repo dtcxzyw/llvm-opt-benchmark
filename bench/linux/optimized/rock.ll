@@ -909,7 +909,7 @@ rock_check_overflow.exit:                         ; preds = %92
   %256 = load i8, ptr %255, align 1
   %257 = zext i8 %256 to i32
   %258 = add nsw i32 %236, -2
-  %259 = sub i32 %258, %257
+  %259 = sub nsw i32 %258, %257
   %260 = icmp slt i32 %259, 2
   br i1 %260, label %269, label %279
 
@@ -921,7 +921,7 @@ rock_check_overflow.exit:                         ; preds = %92
   %264 = load i8, ptr %263, align 1
   %265 = zext i8 %264 to i32
   %266 = add nsw i32 %236, -2
-  %267 = sub i32 %266, %265
+  %267 = sub nsw i32 %266, %265
   %268 = icmp slt i32 %267, 2
   br i1 %268, label %269, label %.thread8
 
@@ -1420,7 +1420,7 @@ rock_check_overflow.exit:                         ; preds = %96
   %173 = load i8, ptr %172, align 1
   %174 = zext i8 %173 to i32
   %175 = add nsw i32 %138, -2
-  %176 = sub i32 %175, %174
+  %176 = sub nsw i32 %175, %174
   %177 = icmp slt i32 %176, 2
   br i1 %177, label %185, label %197
 
@@ -1431,7 +1431,7 @@ rock_check_overflow.exit:                         ; preds = %96
   %180 = load i8, ptr %179, align 1
   %181 = zext i8 %180 to i32
   %182 = add nsw i32 %138, -2
-  %183 = sub i32 %182, %181
+  %183 = sub nsw i32 %182, %181
   %184 = icmp slt i32 %183, 2
   br i1 %184, label %.thread13, label %205
 

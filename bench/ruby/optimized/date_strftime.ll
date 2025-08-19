@@ -573,11 +573,11 @@ upcase.exit1451:                                  ; preds = %217, %209
 235:                                              ; preds = %.preheader1571, %.preheader1571
   %236 = icmp eq i8 %46, 71
   %237 = load ptr, ptr %35, align 8, !tbaa !11
-  %.sink2417.in.idx = select i1 %236, i64 32, i64 0
-  %.sink2417.in = getelementptr inbounds nuw i8, ptr %237, i64 %.sink2417.in.idx
-  %.sink2417 = load ptr, ptr %.sink2417.in, align 8, !tbaa !26
+  %.sink2479.in.idx = select i1 %236, i64 32, i64 0
+  %.sink2479.in = getelementptr inbounds nuw i8, ptr %237, i64 %.sink2479.in.idx
+  %.sink2479 = load ptr, ptr %.sink2479.in, align 8, !tbaa !26
   %238 = load ptr, ptr %3, align 8, !tbaa !17
-  %239 = call i64 %.sink2417(ptr noundef %238) #11
+  %239 = call i64 %.sink2479(ptr noundef %238) #11
   %240 = and i64 %239, 1
   %.not1556 = icmp eq i64 %240, 0
   br i1 %.not1556, label %256, label %241
@@ -630,8 +630,8 @@ upcase.exit1451:                                  ; preds = %217, %209
   br label %266
 
 266:                                              ; preds = %264, %262
-  %.sink2418 = phi i64 [ %265, %264 ], [ %263, %262 ]
-  %267 = call i64 @rb_str_format(i32 noundef 2, ptr noundef nonnull %7, i64 noundef %.sink2418) #11
+  %.sink2480 = phi i64 [ %265, %264 ], [ %263, %262 ]
+  %267 = call i64 @rb_str_format(i32 noundef 2, ptr noundef nonnull %7, i64 noundef %.sink2480) #11
   store i64 %267, ptr %8, align 8, !tbaa !20
   %268 = call ptr @rb_string_value_cstr(ptr noundef nonnull %8) #11
   %269 = ptrtoint ptr %.010291870 to i64
@@ -646,11 +646,11 @@ upcase.exit1451:                                  ; preds = %217, %209
 273:                                              ; preds = %.preheader1571, %.preheader1571
   %274 = icmp eq i8 %46, 103
   %275 = load ptr, ptr %35, align 8, !tbaa !11
-  %.sink2420.in.idx = select i1 %274, i64 32, i64 0
-  %.sink2420.in = getelementptr inbounds nuw i8, ptr %275, i64 %.sink2420.in.idx
-  %.sink2420 = load ptr, ptr %.sink2420.in, align 8, !tbaa !26
+  %.sink2482.in.idx = select i1 %274, i64 32, i64 0
+  %.sink2482.in = getelementptr inbounds nuw i8, ptr %275, i64 %.sink2482.in.idx
+  %.sink2482 = load ptr, ptr %.sink2482.in, align 8, !tbaa !26
   %276 = load ptr, ptr %3, align 8, !tbaa !17
-  %277 = call i64 %.sink2420(ptr noundef %276) #11
+  %277 = call i64 %.sink2482(ptr noundef %276) #11
   %278 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %277, i64 noundef 37, i32 noundef 1, i64 noundef 201) #11
   %279 = and i64 %278, 1
   %.not.i1452 = icmp eq i64 %279, 0
@@ -1098,8 +1098,8 @@ rbimpl_intern_const.exit1459:                     ; preds = %.lr.ph.i1457, %._cr
   br label %519
 
 519:                                              ; preds = %517, %515
-  %.sink2421 = phi i64 [ %518, %517 ], [ %516, %515 ]
-  %520 = call i64 @rb_str_format(i32 noundef 2, ptr noundef nonnull %11, i64 noundef %.sink2421) #11
+  %.sink2483 = phi i64 [ %518, %517 ], [ %516, %515 ]
+  %520 = call i64 @rb_str_format(i32 noundef 2, ptr noundef nonnull %11, i64 noundef %.sink2483) #11
   store i64 %520, ptr %12, align 8, !tbaa !20
   %521 = call ptr @rb_string_value_cstr(ptr noundef nonnull %12) #11
   %522 = ptrtoint ptr %.010291870 to i64
@@ -1325,8 +1325,8 @@ upcase.exit1467:                                  ; preds = %568, %560
   br label %637
 
 637:                                              ; preds = %635, %633
-  %.sink2422 = phi i64 [ %636, %635 ], [ %634, %633 ]
-  %638 = call i64 @rb_str_format(i32 noundef 2, ptr noundef nonnull %13, i64 noundef %.sink2422) #11
+  %.sink2484 = phi i64 [ %636, %635 ], [ %634, %633 ]
+  %638 = call i64 @rb_str_format(i32 noundef 2, ptr noundef nonnull %13, i64 noundef %.sink2484) #11
   store i64 %638, ptr %14, align 8, !tbaa !20
   %639 = call ptr @rb_string_value_cstr(ptr noundef nonnull %14) #11
   %640 = ptrtoint ptr %.010291870 to i64
@@ -1408,8 +1408,8 @@ upcase.exit1471:                                  ; preds = %656, %648
   %675 = icmp eq i8 %46, 85
   %676 = load ptr, ptr %35, align 8, !tbaa !11
   %677 = load ptr, ptr %3, align 8, !tbaa !17
-  %.2426 = select i1 %675, i64 56, i64 64
-  %678 = getelementptr inbounds nuw i8, ptr %676, i64 %.2426
+  %.2488 = select i1 %675, i64 56, i64 64
+  %678 = getelementptr inbounds nuw i8, ptr %676, i64 %.2488
   %679 = load ptr, ptr %678, align 8, !tbaa !26
   %680 = call i32 %679(ptr noundef %677) #11
   %681 = icmp slt i32 %.01057, 1

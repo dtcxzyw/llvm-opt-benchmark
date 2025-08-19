@@ -13503,7 +13503,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.149.0.i.i.i.i.i = phi i64 [ %55, %68 ], [ %.sroa.149.0.i.i.i.i.i.ph, %.preheader62.i.i.i.i.i.preheader ]
   %.sroa.03.0.i.i.i.i.i = phi ptr [ %54, %68 ], [ %.sroa.03.0.i.i.i.i.i.ph, %.preheader62.i.i.i.i.i.preheader ]
   %.not.i.i.i.i.i = icmp eq i64 %.sroa.149.0.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i, label %.loopexit30.i.i.i.i, label %53
+  br i1 %.not.i.i.i.i.i, label %.loopexit34.i.i.i.i, label %53
 
 51:                                               ; preds = %46
   %52 = icmp ult i64 %43, 9
@@ -13552,7 +13552,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.03.173.i.i.i.i.i, i64 1
   %80 = add i32 %74, %77
   %.not58.i.i.i.i.i = icmp eq i64 %78, 0
-  br i1 %.not58.i.i.i.i.i, label %.loopexit30.i.i.i.i, label %.lr.ph.i.i.i.i.i
+  br i1 %.not58.i.i.i.i.i, label %.loopexit34.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 81:                                               ; preds = %.loopexit.i.i.i.i
   %82 = landingpad { ptr, i32 }
@@ -13575,11 +13575,11 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 .noexc.i.i.i.i:                                   ; preds = %.loopexit.i.i.i.i
   unreachable
 
-.loopexit30.i.i.i.i:                              ; preds = %.preheader62.i.i.i.i.i, %76
+.loopexit34.i.i.i.i:                              ; preds = %.preheader62.i.i.i.i.i, %76
   %.sroa.016.1.i.i.i.i.i = phi i32 [ %80, %76 ], [ %.sroa.016.0.i.i.i.i.i, %.preheader62.i.i.i.i.i ]
   br i1 %.not9.i.i.i.i, label %"_ZN11polars_pipe9executors5sinks4sort3ooc8sort_ooc28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb8c457c0cd43696cE.exit.i.i.i", label %86
 
-86:                                               ; preds = %.loopexit30.i.i.i.i
+86:                                               ; preds = %.loopexit34.i.i.i.i
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h64d2df84c65d19bdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %"_ZN11polars_pipe9executors5sinks4sort3ooc8sort_ooc28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb8c457c0cd43696cE.exit.i.i.i" unwind label %.loopexit.i, !noalias !2550
 
@@ -13593,7 +13593,7 @@ common.resume.i.i:                                ; preds = %.body.i.i.i, %21
   %common.resume.op.i.i = phi { ptr, i32 } [ %.pn.pn.i.i.i.i, %21 ], [ %96, %.body.i.i.i ]
   resume { ptr, i32 } %common.resume.op.i.i
 
-"_ZN11polars_pipe9executors5sinks4sort3ooc8sort_ooc28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb8c457c0cd43696cE.exit.i.i.i": ; preds = %86, %.loopexit30.i.i.i.i
+"_ZN11polars_pipe9executors5sinks4sort3ooc8sort_ooc28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb8c457c0cd43696cE.exit.i.i.i": ; preds = %86, %.loopexit34.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2546
   %.sroa.4.i.sroa.3.4.copyload.i.i.i = load i64, ptr %8, align 8, !noalias !2546
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !noalias !2538
@@ -19171,7 +19171,7 @@ define internal fastcc void @_ZN11polars_core9datatypes5dtype8DataType12try_to_a
   %18 = alloca [2 x i8], align 2
   store i16 %2, ptr %18, align 2
   %19 = load i8, ptr %1, align 16, !range !2509, !noundef !8
-  switch i8 %19, label %default.unreachable125 [
+  switch i8 %19, label %default.unreachable127 [
     i8 0, label %20
     i8 1, label %22
     i8 2, label %24
@@ -19202,7 +19202,7 @@ define internal fastcc void @_ZN11polars_core9datatypes5dtype8DataType12try_to_a
     i8 27, label %110
   ], !prof !3638
 
-default.unreachable125:                           ; preds = %110, %3
+default.unreachable127:                           ; preds = %110, %3
   unreachable
 
 20:                                               ; preds = %3
@@ -19494,7 +19494,7 @@ common.resume:                                    ; preds = %147, %98, %84
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %112 = load i128, ptr %111, align 16, !range !3660, !noundef !8
   %113 = trunc nuw nsw i128 %112 to i64
-  switch i64 %113, label %default.unreachable125 [
+  switch i64 %113, label %default.unreachable127 [
     i64 0, label %142
     i64 1, label %157
     i64 2, label %145
@@ -21821,7 +21821,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !3664, !noundef !8
-  switch i8 %23, label %default.unreachable61 [
+  switch i8 %23, label %default.unreachable66 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -21863,7 +21863,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %228
   ]
 
-default.unreachable61:                            ; preds = %2
+default.unreachable66:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2
@@ -22641,7 +22641,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
   %5 = alloca [24 x i8], align 8
   %.sroa.03 = alloca [23 x i8], align 8
   %6 = load i8, ptr %1, align 16, !range !2509, !noundef !8
-  switch i8 %6, label %default.unreachable23 [
+  switch i8 %6, label %default.unreachable25 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
@@ -22672,7 +22672,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
     i8 27, label %74
   ]
 
-default.unreachable23:                            ; preds = %2
+default.unreachable25:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2

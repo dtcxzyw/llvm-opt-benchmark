@@ -18,8 +18,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef initializes((0, 8)) %11, ptr noundef %12, ptr noundef initializes((0, 4)) %13) local_unnamed_addr #0 {
-  %.sroa.0330 = alloca ptr, align 16
-  %.sroa.4331 = alloca ptr, align 8
+  %.sroa.0337 = alloca ptr, align 16
+  %.sroa.4338 = alloca ptr, align 8
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [2 x i8], align 1
@@ -28,8 +28,8 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %20 = alloca i32, align 4
   %21 = alloca i32, align 4
   %22 = alloca [2401 x double], align 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0330)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4331)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0337)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4338)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -113,8 +113,8 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %65 = icmp slt i32 %64, 1
   %66 = icmp samesign ugt i32 %49, %64
   %or.cond289 = and i1 %47, %66
-  %or.cond325 = select i1 %65, i1 true, i1 %or.cond289
-  br i1 %or.cond325, label %.thread.sink.split, label %67
+  %or.cond332 = select i1 %65, i1 true, i1 %or.cond289
+  br i1 %or.cond332, label %.thread.sink.split, label %67
 
 67:                                               ; preds = %63
   %68 = load i32, ptr %12, align 4, !tbaa !3
@@ -237,8 +237,8 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %171
 
 117:                                              ; preds = %104
-  store ptr %0, ptr %.sroa.0330, align 16, !tbaa !12
-  store ptr %1, ptr %.sroa.4331, align 8, !tbaa !12
+  store ptr %0, ptr %.sroa.0337, align 16, !tbaa !12
+  store ptr %1, ptr %.sroa.4338, align 8, !tbaa !12
   br label %120
 
 .preheader:                                       ; preds = %._crit_edge303
@@ -252,7 +252,7 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 120:                                              ; preds = %117, %._crit_edge303
   %121 = phi i1 [ true, %117 ], [ false, %._crit_edge303 ]
-  %indvars.iv319.sroa.phi = phi ptr [ %.sroa.0330, %117 ], [ %.sroa.4331, %._crit_edge303 ]
+  %indvars.iv319.sroa.phi = phi ptr [ %.sroa.0337, %117 ], [ %.sroa.4338, %._crit_edge303 ]
   %.0306 = phi ptr [ %17, %117 ], [ %.1.lcssa, %._crit_edge303 ]
   %.0234305 = phi i32 [ 2, %117 ], [ %122, %._crit_edge303 ]
   %spec.select277 = tail call i32 @llvm.smin.i32(i32 %.0234305, i32 1)
@@ -381,8 +381,8 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0330)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4331)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0337)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4338)
   ret void
 }
 

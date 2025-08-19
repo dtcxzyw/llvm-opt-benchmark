@@ -47,9 +47,9 @@ define zeroext i1 @nxsched_remove_readytorun(ptr noundef captures(none) %0, i1 n
 24:                                               ; preds = %18
   %25 = and i8 %8, 4
   %.not29 = icmp ne i8 %25, 0
-  br i1 %.not29, label %27, label %.thread37
+  br i1 %.not29, label %27, label %.thread38
 
-.thread37:                                        ; preds = %24
+.thread38:                                        ; preds = %24
   %26 = load ptr, ptr %0, align 8
   br label %31
 
@@ -62,8 +62,8 @@ define zeroext i1 @nxsched_remove_readytorun(ptr noundef captures(none) %0, i1 n
   %.not30 = icmp eq ptr %.pr.pre, null
   br i1 %.not30, label %31, label %33
 
-31:                                               ; preds = %.thread37, %27
-  %32 = phi ptr [ %26, %.thread37 ], [ %30, %27 ]
+31:                                               ; preds = %.thread38, %27
+  %32 = phi ptr [ %26, %.thread38 ], [ %30, %27 ]
   store ptr %32, ptr %19, align 8
   br label %36
 

@@ -762,10 +762,10 @@ define dso_local range(i32 0, 2) i32 @lua_getinfo(ptr noundef %0, ptr noundef re
   br label %funcinfo.exit.i
 
 funcinfo.exit.i:                                  ; preds = %75, %55
-  %.sink30.i.i = phi ptr [ %83, %75 ], [ @.str.12, %55 ]
+  %.sink32.i.i = phi ptr [ %83, %75 ], [ @.str.12, %55 ]
   %84 = phi i64 [ %76, %75 ], [ 4, %55 ]
   %85 = phi ptr [ %77, %75 ], [ @.str.11, %55 ]
-  store ptr %.sink30.i.i, ptr %47, align 8, !tbaa !65
+  store ptr %.sink32.i.i, ptr %47, align 8, !tbaa !65
   tail call void @luaO_chunkid(ptr noundef nonnull %48, ptr noundef %85, i64 noundef %84) #13
   br label %170
 
@@ -2198,31 +2198,31 @@ getbaseline.exit.i36.i:                           ; preds = %.critedge.i.i34.i, 
 
 luaG_getfuncline.exit48.i:                        ; preds = %.lr.ph.i43.i, %getbaseline.exit.i36.i
   %.07.i40.i = phi i32 [ %.017.i.i39.i, %getbaseline.exit.i36.i ], [ %125, %.lr.ph.i43.i ]
-  %.not84 = icmp eq i32 %.07.i.i, %.07.i40.i
-  br i1 %.not84, label %changedline.exit.thread, label %._crit_edge
+  %.not92 = icmp eq i32 %.07.i.i, %.07.i40.i
+  br i1 %.not92, label %changedline.exit.thread, label %._crit_edge
 
 changedline.exit:                                 ; preds = %72
-  %.not83 = icmp eq i32 %74, 0
-  br i1 %.not83, label %changedline.exit.thread, label %.thread76
+  %.not91 = icmp eq i32 %74, 0
+  br i1 %.not91, label %changedline.exit.thread, label %.thread84
 
 ._crit_edge:                                      ; preds = %47, %luaG_getfuncline.exit48.i
   %126 = icmp eq ptr %62, null
-  br i1 %126, label %luaG_getfuncline.exit, label %.thread76
+  br i1 %126, label %luaG_getfuncline.exit, label %.thread84
 
-.thread76:                                        ; preds = %changedline.exit, %._crit_edge
+.thread84:                                        ; preds = %changedline.exit, %._crit_edge
   %127 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %128 = load i32, ptr %127, align 8, !tbaa !19
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %134, label %130
 
-130:                                              ; preds = %.thread76
+130:                                              ; preds = %.thread84
   %131 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %132 = load ptr, ptr %131, align 8, !tbaa !20
   %133 = load i32, ptr %132, align 4, !tbaa !21
   %.not63 = icmp slt i32 %133, %59
   br i1 %.not63, label %136, label %134
 
-134:                                              ; preds = %130, %.thread76
+134:                                              ; preds = %130, %.thread84
   %135 = getelementptr inbounds nuw i8, ptr %10, i64 44
   br label %getbaseline.exit.i
 

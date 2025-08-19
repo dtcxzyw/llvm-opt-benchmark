@@ -3173,10 +3173,10 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h24104f58da47f60bE"(
   ret void
 
 .critedge.thread:                                 ; preds = %26, %.critedge
-  %.0.lcssa16 = phi ptr [ %15, %.critedge ], [ %27, %26 ]
+  %.0.lcssa17 = phi ptr [ %15, %.critedge ], [ %27, %26 ]
   %23 = phi i64 [ %12, %.critedge ], [ %29, %26 ]
   %24 = load i8, ptr %5, align 1, !range !10, !noundef !3
-  store i8 %24, ptr %.0.lcssa16, align 1
+  store i8 %24, ptr %.0.lcssa17, align 1
   %25 = add i64 %23, 1
   store i64 %25, ptr %16, align 8
   br label %22

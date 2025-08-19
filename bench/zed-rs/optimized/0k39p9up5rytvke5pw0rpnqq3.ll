@@ -1647,8 +1647,8 @@ _ZN10async_task5utils14abort_on_panic17h2ecd2ec6bcaf4666E.exit: ; preds = %26
 34:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8
-  %.sroa.2.0..sroa_idx307 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %10, ptr %.sroa.2.0..sroa_idx307, align 8
+  %.sroa.2.0..sroa_idx318 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %10, ptr %.sroa.2.0..sroa_idx318, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %11, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -2591,10 +2591,10 @@ _ZN10async_task5utils14abort_on_panic17h7abcc0b4e67a7d16E.exit: ; preds = %24
   br label %57
 
 57:                                               ; preds = %55, %51, %47
-  %.sink246 = phi ptr [ null, %55 ], [ %52, %51 ], [ null, %47 ]
+  %.sink253 = phi ptr [ null, %55 ], [ %52, %51 ], [ null, %47 ]
   %.sink = phi ptr [ %56, %55 ], [ %53, %51 ], [ %48, %47 ]
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %.sink246, ptr %58, align 8
+  store ptr %.sink253, ptr %58, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.sink, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 0, ptr %4, align 8
@@ -3515,10 +3515,10 @@ _ZN4core3ops8function6FnOnce9call_once17ha4b195595280ebbcE.llvm.4397313270946039
   br label %110
 
 110:                                              ; preds = %108, %104, %100
-  %.sink252 = phi ptr [ null, %108 ], [ %105, %104 ], [ null, %100 ]
+  %.sink263 = phi ptr [ null, %108 ], [ %105, %104 ], [ null, %100 ]
   %.sink = phi ptr [ %109, %108 ], [ %106, %104 ], [ %101, %100 ]
   %111 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %.sink252, ptr %111, align 8
+  store ptr %.sink263, ptr %111, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %.sink, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 0, ptr %8, align 8
@@ -4263,8 +4263,8 @@ _ZN10async_task5utils14abort_on_panic17hd58c601fb3d1d3ddE.exit: ; preds = %27, %
 47:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  %.sroa.2.0..sroa_idx314 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %6, ptr %.sroa.2.0..sroa_idx314, align 8
+  %.sroa.2.0..sroa_idx330 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %6, ptr %.sroa.2.0..sroa_idx330, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %7, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -5107,8 +5107,8 @@ _ZN10async_task5utils14abort_on_panic17h54eca9feb7a64858E.exit: ; preds = %22
 29:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  %.sroa.2.0..sroa_idx301 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %6, ptr %.sroa.2.0..sroa_idx301, align 8
+  %.sroa.2.0..sroa_idx308 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %6, ptr %.sroa.2.0..sroa_idx308, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %7, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24

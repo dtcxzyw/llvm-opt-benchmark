@@ -81,8 +81,8 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
 
 ._crit_edge195:                                   ; preds = %.lr.ph194
   %46 = add nsw i32 %3, -1
-  %.not290 = icmp eq i32 %3, 1
-  br i1 %.not290, label %.preheader, label %.lr.ph198.preheader
+  %.not293 = icmp eq i32 %3, 1
+  br i1 %.not293, label %.preheader, label %.lr.ph198.preheader
 
 .lr.ph198.preheader:                              ; preds = %._crit_edge195
   %47 = zext nneg i32 %46 to i64

@@ -663,8 +663,8 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefinerD2Ev(ptr noundef nonnull
   %53 = ptrtoint ptr %52 to i64
   %54 = ptrtoint ptr %51 to i64
   %55 = sub i64 %53, %54
-  %sext26 = shl i64 %55, 29
-  %56 = ashr i64 %sext26, 32
+  %sext30 = shl i64 %55, 29
+  %56 = ashr i64 %sext30, 32
   %57 = icmp slt i64 %indvars.iv.next20, %56
   br i1 %57, label %.lr.ph17, label %._crit_edge, !llvm.loop !13
 
@@ -876,8 +876,8 @@ _ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner19initializeInventoryEv.exit: ; preds
   %83 = ptrtoint ptr %82 to i64
   %84 = ptrtoint ptr %81 to i64
   %85 = sub i64 %83, %84
-  %sext38 = shl i64 %85, 29
-  %86 = ashr i64 %sext38, 32
+  %sext43 = shl i64 %85, 29
+  %86 = ashr i64 %sext43, 32
   %87 = icmp slt i64 %indvars.iv.next31, %86
   br i1 %87, label %.lr.ph20, label %._crit_edge21, !llvm.loop !15
 
@@ -929,16 +929,16 @@ define linkonce_odr void @_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelE
 19:                                               ; preds = %3
   store ptr null, ptr %5, align 8
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPPN10OpenSubdiv6v3_6_03Vtr8internal5LevelEmS5_ET_S7_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPPN10OpenSubdiv6v3_6_03Vtr8internal5LevelEmS5_ET_S7_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPPN10OpenSubdiv6v3_6_03Vtr8internal5LevelEmS5_ET_S7_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false)
-  %.idx.i.i.i.i.i = shl nsw i64 %21, 3
-  %25 = getelementptr inbounds i8, ptr %20, i64 %.idx.i.i.i.i.i
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPPN10OpenSubdiv6v3_6_03Vtr8internal5LevelEmS5_ET_S7_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN10OpenSubdiv6v3_6_03Vtr8internal5LevelEmS5_ET_S7_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN10OpenSubdiv6v3_6_03Vtr8internal5LevelEmS5_ET_S7_T0_RKT1_.exit.loopexit.i.i.i
@@ -991,7 +991,7 @@ _ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE11_S_relocateEPS5_
 
 _ZNSt12_Vector_baseIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE13_M_deallocateEPS5_m.exit36: ; preds = %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %40
   store ptr %32, ptr %0, align 8
-  %42 = getelementptr inbounds ptr, ptr %33, i64 %1
+  %42 = getelementptr inbounds nuw ptr, ptr %33, i64 %1
   store ptr %42, ptr %4, align 8
   %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %30
   store ptr %43, ptr %11, align 8
@@ -1244,7 +1244,7 @@ define linkonce_odr void @_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far13TopologyLevelES
   br i1 %.not28.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = mul i64 %12, 24
+  %22 = mul nuw nsw i64 %12, 24
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %22
   store ptr %scevgep.i.i.i.i, ptr %3, align 8
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far13TopologyLevelESaIS3_EE17_M_default_appendEm.exit
@@ -2199,8 +2199,8 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8intern
   %.not21.i = icmp eq i16 %126, 0
   %127 = and i16 %.val.pre.pre.i, 1
   %.not22.i = icmp eq i16 %127, 0
-  %or.cond27.i = select i1 %.not21.i, i1 true, i1 %.not22.i
-  br i1 %or.cond27.i, label %128, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_139doesFaceHaveDistinctFaceVaryingFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit
+  %or.cond28.i = select i1 %.not21.i, i1 true, i1 %.not22.i
+  br i1 %or.cond28.i, label %128, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_139doesFaceHaveDistinctFaceVaryingFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit
 
 128:                                              ; preds = %125
   %129 = call fastcc noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpFaceHaveFeaturesENS0_3Vtr8internal5Level4VTagEPS6_iRKNS1_8internal11FeatureMaskE(i16 %120, ptr noundef %6, i32 noundef %112, i16 %.val.pre.pre.i)

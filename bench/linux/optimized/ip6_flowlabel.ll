@@ -1805,12 +1805,12 @@ define internal ptr @ip6fl_seq_start(ptr noundef readonly captures(none) %0, ptr
   store ptr %13, ptr %14, align 8
   tail call void @__rcu_read_lock() #13
   %15 = load i64, ptr %1, align 8
-  %.fr27 = freeze i64 %15
-  %16 = icmp eq i64 %.fr27, 0
+  %.fr34 = freeze i64 %15
+  %16 = icmp eq i64 %.fr34, 0
   br i1 %16, label %.thread11, label %17
 
 17:                                               ; preds = %2
-  %18 = add i64 %.fr27, -1
+  %18 = add i64 %.fr34, -1
   %19 = load ptr, ptr %3, align 8
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16

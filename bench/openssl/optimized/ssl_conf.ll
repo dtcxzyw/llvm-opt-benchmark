@@ -441,8 +441,8 @@ define range(i32 -3, 3) i32 @SSL_CONF_cmd_argv(ptr noundef %0, ptr noundef captu
   br i1 %12, label %.thread29, label %.thread32
 
 .thread32:                                        ; preds = %.thread31
-  %.not33 = icmp eq i32 %5, 1
-  br i1 %.not33, label %18, label %13
+  %.not39 = icmp eq i32 %5, 1
+  br i1 %.not39, label %18, label %13
 
 13:                                               ; preds = %.thread, %.thread32
   %14 = phi ptr [ %10, %.thread32 ], [ %7, %.thread ]

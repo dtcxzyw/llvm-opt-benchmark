@@ -1449,25 +1449,25 @@ define internal fastcc void @php_libxml_internal_error_handler_ex(i32 noundef %0
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !33
   %14 = icmp eq i8 %13, 10
-  br i1 %14, label %.lr.ph30, label %.critedge
+  br i1 %14, label %.lr.ph40, label %.critedge
 
-.lr.ph:                                           ; preds = %.lr.ph30
+.lr.ph:                                           ; preds = %.lr.ph40
   %15 = load ptr, ptr %8, align 8, !tbaa !8
   %16 = add i64 %21, -1
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !33
   %19 = icmp eq i8 %18, 10
-  br i1 %19, label %.lr.ph30, label %.critedge
+  br i1 %19, label %.lr.ph40, label %.critedge
 
-.lr.ph30:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph40:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %20 = phi ptr [ %17, %.lr.ph ], [ %12, %.lr.ph.preheader ]
   %21 = phi i64 [ %16, %.lr.ph ], [ %11, %.lr.ph.preheader ]
   store i8 0, ptr %20, align 1, !tbaa !33
   %.not = icmp eq i64 %21, 0
   br i1 %.not, label %.critedge, label %.lr.ph
 
-.critedge:                                        ; preds = %.lr.ph30, %.lr.ph, %.lr.ph.preheader, %6
-  %.014.lcssa = phi i1 [ false, %6 ], [ false, %.lr.ph.preheader ], [ true, %.lr.ph ], [ true, %.lr.ph30 ]
+.critedge:                                        ; preds = %.lr.ph40, %.lr.ph, %.lr.ph.preheader, %6
+  %.014.lcssa = phi i1 [ false, %6 ], [ false, %.lr.ph.preheader ], [ true, %.lr.ph ], [ true, %.lr.ph40 ]
   %22 = load ptr, ptr %8, align 8, !tbaa !8
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 16), align 8, !tbaa !81
   %.not.i = icmp eq ptr %23, null
@@ -1851,9 +1851,9 @@ zend_string_alloc.exit.i:                         ; preds = %26
   br label %38
 
 38:                                               ; preds = %zend_string_alloc.exit.i, %26
-  %.sink89.i = phi i32 [ 262, %zend_string_alloc.exit.i ], [ 1, %26 ]
+  %.sink100.i = phi i32 [ 262, %zend_string_alloc.exit.i ], [ 1, %26 ]
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 %.sink89.i, ptr %39, align 8, !tbaa !33
+  store i32 %.sink100.i, ptr %39, align 8, !tbaa !33
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %41 = tail call ptr @_zend_new_array_0() #18
   store ptr %41, ptr %40, align 16, !tbaa !33

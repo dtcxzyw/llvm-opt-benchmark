@@ -1725,7 +1725,7 @@ Abc_ZddUniqueCreate.exit:                         ; preds = %80, %Abc_ZddCacheLo
   %115 = load ptr, ptr %13, align 8, !tbaa !31
   %116 = load i32, ptr %19, align 4, !tbaa !30
   %117 = and i32 %116, %18
-  %118 = zext i32 %117 to i64
+  %118 = zext nneg i32 %117 to i64
   %119 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %115, i64 %118
   store i32 %1, ptr %119, align 4, !tbaa !42
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
@@ -1919,7 +1919,7 @@ Abc_ZddUniqueCreate.exit:                         ; preds = %81, %47, %99
   %116 = load ptr, ptr %13, align 8, !tbaa !31
   %117 = load i32, ptr %19, align 4, !tbaa !30
   %118 = and i32 %117, %18
-  %119 = zext i32 %118 to i64
+  %119 = zext nneg i32 %118 to i64
   %120 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %116, i64 %119
   store i32 %1, ptr %120, align 4, !tbaa !42
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
@@ -1942,7 +1942,7 @@ Abc_ZddUniqueCreate.exit:                         ; preds = %81, %47, %99
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @Abc_ZddCountPaths(ptr noundef %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = icmp slt i32 %1, 2
-  br i1 %3, label %common.ret16, label %4
+  br i1 %3, label %common.ret17, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1978,11 +1978,11 @@ Abc_ZddCacheLookup.exit:                          ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %28 = load i32, ptr %27, align 4, !tbaa !46
   %29 = icmp sgt i32 %28, -1
-  br i1 %29, label %common.ret16, label %Abc_ZddCacheLookup.exit.thread
+  br i1 %29, label %common.ret17, label %Abc_ZddCacheLookup.exit.thread
 
-common.ret16:                                     ; preds = %Abc_ZddCacheLookup.exit, %2, %Abc_ZddCacheLookup.exit.thread
-  %common.ret16.op = phi i32 [ %39, %Abc_ZddCacheLookup.exit.thread ], [ %1, %2 ], [ %28, %Abc_ZddCacheLookup.exit ]
-  ret i32 %common.ret16.op
+common.ret17:                                     ; preds = %Abc_ZddCacheLookup.exit, %2, %Abc_ZddCacheLookup.exit.thread
+  %common.ret17.op = phi i32 [ %39, %Abc_ZddCacheLookup.exit.thread ], [ %1, %2 ], [ %28, %Abc_ZddCacheLookup.exit ]
+  ret i32 %common.ret17.op
 
 Abc_ZddCacheLookup.exit.thread:                   ; preds = %4, %19, %23, %Abc_ZddCacheLookup.exit
   %30 = getelementptr i8, ptr %0, i64 48
@@ -2012,7 +2012,7 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %4, %19, %23, %Abc_Z
   %49 = load i32, ptr %48, align 4, !tbaa !41
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %48, align 4, !tbaa !41
-  br label %common.ret16
+  br label %common.ret17
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -3255,7 +3255,7 @@ define i32 @Abc_ZddPerm2Comb(ptr noundef captures(none) %0, i32 noundef %1, ptr 
 .lr.ph.preheader:                                 ; preds = %3
   %5 = add nsw i32 %1, -1
   %wide.trip.count35 = zext nneg i32 %1 to i64
-  %wide.trip.count = zext i32 %5 to i64
+  %wide.trip.count = zext nneg i32 %5 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
@@ -3898,14 +3898,14 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %26
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %69, %71, %61, %63
-  %.sink98 = phi ptr [ %62, %61 ], [ %64, %63 ], [ %70, %69 ], [ %72, %71 ]
+  %.sink106 = phi ptr [ %62, %61 ], [ %64, %63 ], [ %70, %69 ], [ %72, %71 ]
   %.sink = phi i32 [ 16, %61 ], [ 16, %63 ], [ %66, %69 ], [ %66, %71 ]
-  store ptr %.sink98, ptr %31, align 8, !tbaa !49
+  store ptr %.sink106, ptr %31, align 8, !tbaa !49
   store i32 %.sink, ptr %23, align 8, !tbaa !84
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %41
-  %.pre.i92 = phi ptr [ %35, %41 ], [ %.sink98, %Vec_IntPush.exit.sink.split ]
+  %.pre.i92 = phi ptr [ %35, %41 ], [ %.sink106, %Vec_IntPush.exit.sink.split ]
   %73 = add nsw i32 %55, 1
   store i32 %73, ptr %25, align 4, !tbaa !47
   %74 = sext i32 %55 to i64
@@ -4171,12 +4171,12 @@ Abc_ZddPerm2Comb.exit:                            ; preds = %35
   br i1 %exitcond86.not, label %.lr.ph.preheader.i67, label %45, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %.thread.i, %38
-  %putchar.i6091 = tail call i32 @putchar(i32 10)
+  %putchar.i6092 = tail call i32 @putchar(i32 10)
   %putchar.i65 = tail call i32 @putchar(i32 123)
   br label %Abc_ZddPermPrint.exit73
 
 .lr.ph.preheader.i67:                             ; preds = %45
-  %putchar.i6592 = tail call i32 @putchar(i32 123)
+  %putchar.i6593 = tail call i32 @putchar(i32 123)
   %wide.trip.count.i68 = zext nneg i32 %.1.i to i64
   br label %.lr.ph.i69
 

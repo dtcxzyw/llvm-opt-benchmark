@@ -446,8 +446,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit44:                 ; preds = %97
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit46.sink.split
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit46.sink.split: ; preds = %97, %103
-  %.sink82 = phi ptr [ %8, %103 ], [ %7, %97 ]
-  store ptr null, ptr %.sink82, align 8, !tbaa !196
+  %.sink95 = phi ptr [ %8, %103 ], [ %7, %97 ]
+  store ptr null, ptr %.sink95, align 8, !tbaa !196
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit46
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit46: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit46.sink.split, %_ZN4llvm8DebugLocC2ERKS0_.exit44

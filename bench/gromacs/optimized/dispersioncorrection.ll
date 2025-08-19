@@ -366,8 +366,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.0219.us.us = phi i64 [ %131, %127 ], [ %124, %126 ]
   %133 = sitofp i64 %.0219.us.us to float
   %134 = add nuw nsw i64 %indvars.iv452, %125
-  %.idx494 = mul nuw nsw i64 %134, 12
-  %135 = getelementptr inbounds nuw i8, ptr %118, i64 %.idx494
+  %.idx516 = mul nuw nsw i64 %134, 12
+  %135 = getelementptr inbounds nuw i8, ptr %118, i64 %.idx516
   %136 = load float, ptr %135, align 4, !tbaa !159
   %137 = fmul float %136, %133
   %.pn230.in.us.us = fpext float %137 to double
@@ -819,8 +819,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %exitcond479.not, label %._crit_edge369, label %.lr.ph368.split.us.split, !llvm.loop !193
 
 .lr.ph368.split:                                  ; preds = %.lr.ph368
-  %brmerge506 = select i1 %280, i1 true, i1 %or.cond.not421
-  br i1 %brmerge506, label %._crit_edge369, label %.split387.us
+  %brmerge528 = select i1 %280, i1 true, i1 %or.cond.not421
+  br i1 %brmerge528, label %._crit_edge369, label %.split387.us
 
 ._crit_edge369:                                   ; preds = %._crit_edge355.split.us382, %._crit_edge355.split.us.us.us, %.lr.ph368.split, %270
   %.4209.lcssa = phi i64 [ %.3208400, %270 ], [ %.3208400, %.lr.ph368.split ], [ %298, %._crit_edge355.split.us.us.us ], [ %316, %._crit_edge355.split.us382 ]

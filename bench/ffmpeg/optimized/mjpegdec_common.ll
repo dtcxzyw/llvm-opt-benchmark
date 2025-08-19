@@ -24,7 +24,7 @@ define i32 @ff_mjpeg_build_vlc(ptr noundef %0, ptr noundef readonly captures(non
 
 .lr.ph.i:                                         ; preds = %8
   %14 = trunc i64 %indvars.iv20.i to i8
-  %15 = sext i32 %.017.i to i64
+  %15 = zext nneg i32 %.017.i to i64
   %scevgep.i = getelementptr i8, ptr %6, i64 %15
   %16 = xor i32 %.017.i, -1
   %17 = add i32 %.01215.i, %16

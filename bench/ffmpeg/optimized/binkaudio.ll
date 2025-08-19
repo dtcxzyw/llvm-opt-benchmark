@@ -126,8 +126,8 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
   %69 = sitofp i32 %58 to double
   %70 = tail call nsz double @llvm.sqrt.f64(double %69)
   %71 = fmul nsz double %70, 3.276800e+04
-  %.108 = select i1 %39, double 2.000000e+00, double %69
-  %72 = fdiv nsz double %.108, %71
+  %.113 = select i1 %39, double 2.000000e+00, double %69
+  %72 = fdiv nsz double %.113, %71
   %73 = fptrunc double %72 to float
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store float %73, ptr %74, align 8, !tbaa !48
@@ -829,12 +829,12 @@ define internal range(i32 -2147483648, 1) i32 @binkaudio_receive_frame(ptr nound
   br i1 %345, label %.lr.ph216.i, label %._crit_edge217.i.loopexit, !llvm.loop !87
 
 346:                                              ; preds = %._crit_edge217.i, %335
-  %.sink267.i = phi i64 [ 4, %335 ], [ 8, %._crit_edge217.i ]
+  %.sink276.i = phi i64 [ 4, %335 ], [ 8, %._crit_edge217.i ]
   %347 = load ptr, ptr %25, align 8, !tbaa !88
   %348 = load ptr, ptr %26, align 8, !tbaa !89
   %gep.i = getelementptr ptr, ptr %invariant.gep.sink.i, i64 %indvars.iv242.i
   %349 = load ptr, ptr %gep.i, align 8, !tbaa !90
-  call void %347(ptr noundef %348, ptr noundef %349, ptr noundef nonnull %4, i64 noundef %.sink267.i) #10
+  call void %347(ptr noundef %348, ptr noundef %349, ptr noundef nonnull %4, i64 noundef %.sink276.i) #10
   %indvars.iv.next243.i = add nuw nsw i64 %indvars.iv242.i, 1
   %exitcond246.not.i = icmp eq i64 %indvars.iv.next243.i, %wide.trip.count245.i
   br i1 %exitcond246.not.i, label %.preheader178.i, label %81, !llvm.loop !92

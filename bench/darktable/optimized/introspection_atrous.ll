@@ -3298,8 +3298,8 @@ dt_draw_curve_calc_values.exit451:                ; preds = %373
   %413 = fpext reassoc nsz arcp contract afn float %412 to double
   call void @cairo_line_to(ptr noundef %63, double noundef %409, double noundef %413) #20
   %indvars.iv.next505 = add nsw i64 %indvars.iv504, -1
-  %.not531 = icmp eq i64 %indvars.iv504, 0
-  br i1 %.not531, label %.loopexit, label %404
+  %.not533 = icmp eq i64 %indvars.iv504, 0
+  br i1 %.not533, label %.loopexit, label %404
 
 414:                                              ; preds = %349
   call void @cairo_move_to(ptr noundef %63, double noundef 0.000000e+00, double noundef 0.000000e+00) #20
@@ -3584,8 +3584,8 @@ dt_draw_curve_calc_values.exit460:                ; preds = %434, %dt_draw_curve
   %582 = fpext reassoc nsz arcp contract afn float %581 to double
   call void @cairo_line_to(ptr noundef %63, double noundef %578, double noundef %582) #20
   %indvars.iv.next525 = add nsw i64 %indvars.iv524, -1
-  %.not532 = icmp eq i64 %indvars.iv524, 0
-  br i1 %.not532, label %548, label %573
+  %.not534 = icmp eq i64 %indvars.iv524, 0
+  br i1 %.not534, label %548, label %573
 
 583:                                              ; preds = %548, %.thread
   call void @cairo_set_operator(ptr noundef %63, i32 noundef 1) #20
@@ -3714,13 +3714,13 @@ switch.lookup:                                    ; preds = %624
   %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.area_draw, i64 0, i64 %654
   %switch.load = load ptr, ptr %switch.gep, align 8
   %655 = zext nneg i32 %652 to i64
-  %switch.gep547 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.area_draw.5, i64 0, i64 %655
-  %switch.load548 = load ptr, ptr %switch.gep547, align 8
+  %switch.gep549 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.area_draw.5, i64 0, i64 %655
+  %switch.load550 = load ptr, ptr %switch.gep549, align 8
   br label %656
 
 656:                                              ; preds = %624, %switch.lookup
   %.str.82.sink = phi ptr [ %switch.load, %switch.lookup ], [ @.str.82, %624 ]
-  %.str.83.sink = phi ptr [ %switch.load548, %switch.lookup ], [ @.str.83, %624 ]
+  %.str.83.sink = phi ptr [ %switch.load550, %switch.lookup ], [ @.str.83, %624 ]
   %657 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.82.sink, i32 noundef 5) #20
   call void @pango_layout_set_text(ptr noundef %631, ptr noundef %657, i32 noundef -1) #20
   call void @pango_layout_get_pixel_extents(ptr noundef %631, ptr noundef nonnull %8, ptr noundef null) #20

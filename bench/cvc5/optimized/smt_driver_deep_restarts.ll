@@ -825,8 +825,8 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %_ZNSt13unordered_
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 96
   %161 = load ptr, ptr %160, align 8, !tbaa !77
   %162 = icmp eq ptr %157, %161
-  %.not186213 = icmp eq ptr %157, null
-  %.not186 = or i1 %162, %.not186213
+  %.not186238 = icmp eq ptr %157, null
+  %.not186 = or i1 %162, %.not186238
   br i1 %.not186, label %select.unfold._crit_edge, label %103
 
 163:                                              ; preds = %select.unfold._crit_edge

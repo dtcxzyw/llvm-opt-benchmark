@@ -436,8 +436,8 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
   %32 = getelementptr inbounds [14 x i8], ptr %3, i64 0, i64 %31
   store i8 %30, ptr %32, align 1, !tbaa !23
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not106 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not106, label %.preheader, label %.lr.ph, !llvm.loop !27
+  %.not111 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not111, label %.preheader, label %.lr.ph, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph72.preheader, %.preheader, %._crit_edge102
   %33 = lshr i16 %17, 4
@@ -458,7 +458,7 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
   %37 = getelementptr inbounds nuw [14 x i8], ptr %3, i64 0, i64 %indvars.iv94
   %38 = load i8, ptr %37, align 1, !tbaa !23
   %.not67 = icmp eq i8 %38, 0
-  br i1 %.not67, label %.critedge.loopexit.split.loop.exit103, label %39
+  br i1 %.not67, label %.critedge.loopexit.split.loop.exit108, label %39
 
 39:                                               ; preds = %.lr.ph75
   store i8 %38, ptr %.15874, align 1, !tbaa !23
@@ -467,13 +467,13 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
   %exitcond.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph75, !llvm.loop !28
 
-.critedge.loopexit.split.loop.exit103:            ; preds = %.lr.ph75
+.critedge.loopexit.split.loop.exit108:            ; preds = %.lr.ph75
   %41 = trunc nuw nsw i64 %indvars.iv94 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %39, %.critedge.loopexit.split.loop.exit103, %.loopexit
-  %.262.lcssa = phi i32 [ 0, %.loopexit ], [ %41, %.critedge.loopexit.split.loop.exit103 ], [ %36, %39 ]
-  %.158.lcssa = phi ptr [ %.057, %.loopexit ], [ %.15874, %.critedge.loopexit.split.loop.exit103 ], [ %40, %39 ]
+.critedge:                                        ; preds = %39, %.critedge.loopexit.split.loop.exit108, %.loopexit
+  %.262.lcssa = phi i32 [ 0, %.loopexit ], [ %41, %.critedge.loopexit.split.loop.exit108 ], [ %36, %39 ]
+  %.158.lcssa = phi ptr [ %.057, %.loopexit ], [ %.15874, %.critedge.loopexit.split.loop.exit108 ], [ %40, %39 ]
   %42 = and i16 %17, 240
   %.not68 = icmp eq i16 %42, 0
   br i1 %.not68, label %.critedge2, label %43
@@ -642,10 +642,10 @@ define void @lv_spinbox_set_range(ptr noundef %0, i32 noundef %1, i32 noundef %2
   store i32 %1, ptr %6, align 8, !tbaa !21
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load i32, ptr %7, align 8, !tbaa !3
-  %.not16 = icmp sgt i32 %8, %2
+  %.not19 = icmp sgt i32 %8, %2
   %9 = tail call i32 @llvm.smin.i32(i32 %8, i32 %2)
-  %.not17 = icmp slt i32 %9, %1
-  %10 = or i1 %.not16, %.not17
+  %.not20 = icmp slt i32 %9, %1
+  %10 = or i1 %.not19, %.not20
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %4

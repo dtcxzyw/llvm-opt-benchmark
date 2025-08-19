@@ -1079,8 +1079,8 @@ define noalias noundef ptr @csc_symperm(ptr noundef readonly captures(none) %0, 
   br i1 %.not105, label %csc_cumsum.exit, label %.lr.ph.i
 
 ._crit_edge.thread:                               ; preds = %36
-  %.not105147 = icmp eq ptr %38, null
-  br i1 %.not105147, label %csc_done.exit.sink.split, label %._crit_edge.i
+  %.not105205 = icmp eq ptr %38, null
+  br i1 %.not105205, label %csc_done.exit.sink.split, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
   %.026.i = phi i64 [ %80, %.lr.ph.i ], [ 0, %._crit_edge ]

@@ -1325,14 +1325,14 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserve
   br i1 %13, label %._crit_edge.thread.i, label %19
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %2
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %2 ]
+  %.019.lcssa29.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %2 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %.019.lcssa28.i, %15
+  %16 = icmp eq ptr %.019.lcssa29.i, %15
   br i1 %16, label %select.unfold, label %17
 
 17:                                               ; preds = %._crit_edge.thread.i
-  %18 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #22
+  %18 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i) #22
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %18, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.pre18 = load ptr, ptr %1, align 8
@@ -1345,13 +1345,13 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserve
 19:                                               ; preds = %17, %._crit_edge.i
   %.pre-phi25 = phi i64 [ %.pre24, %17 ], [ %7, %._crit_edge.i ]
   %.pre-phi21 = phi i64 [ %.pre20, %17 ], [ %12, %._crit_edge.i ]
-  %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %17 ], [ %.02024.i, %._crit_edge.i ]
+  %.019.lcssa28.i = phi ptr [ %.019.lcssa29.i, %17 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %18, %17 ], [ %.02024.i, %._crit_edge.i ]
   %20 = icmp ult i64 %.pre-phi21, %.pre-phi25
   br i1 %20, label %select.unfold, label %46
 
 select.unfold:                                    ; preds = %19, %._crit_edge.thread.i
-  %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %.019.lcssa29.i, %19 ]
+  %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %.019.lcssa28.i, %19 ]
   %21 = icmp eq ptr %.sroa.4.0.i.ph, %4
   br i1 %21, label %._crit_edge.i6, label %22
 
@@ -2015,8 +2015,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %117, %122
   store i64 65535, ptr %142, align 8, !alias.scope !10
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr %146, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !10
-  %.not118 = icmp eq i16 %148, -1
-  br i1 %.not118, label %.loopexit, label %.lr.ph106
+  %.not130 = icmp eq i16 %148, -1
+  br i1 %.not130, label %.loopexit, label %.lr.ph106
 
 .lr.ph106:                                        ; preds = %._crit_edge
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -3760,8 +3760,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit43: ; preds = %87, %92
   store i64 65535, ptr %112, align 8, !alias.scope !23
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr %116, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !23
-  %.not113 = icmp eq i16 %118, -1
-  br i1 %.not113, label %.loopexit, label %.lr.ph101
+  %.not125 = icmp eq i16 %118, -1
+  br i1 %.not125, label %.loopexit, label %.lr.ph101
 
 .lr.ph101:                                        ; preds = %._crit_edge
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4722,8 +4722,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit44: ; preds = %95, %100
   store i64 65535, ptr %120, align 8, !alias.scope !29
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr %124, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !29
-  %.not114 = icmp eq i16 %126, -1
-  br i1 %.not114, label %.loopexit, label %.lr.ph102
+  %.not126 = icmp eq i16 %126, -1
+  br i1 %.not126, label %.loopexit, label %.lr.ph102
 
 .lr.ph102:                                        ; preds = %._crit_edge
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -5814,8 +5814,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit43: ; preds = %87, %92
   store i64 65535, ptr %112, align 8, !alias.scope !46
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr %116, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !46
-  %.not113 = icmp eq i16 %118, -1
-  br i1 %.not113, label %.loopexit, label %.lr.ph101
+  %.not125 = icmp eq i16 %118, -1
+  br i1 %.not125, label %.loopexit, label %.lr.ph101
 
 .lr.ph101:                                        ; preds = %._crit_edge
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 56

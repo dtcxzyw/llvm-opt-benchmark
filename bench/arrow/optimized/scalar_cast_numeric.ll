@@ -15330,18 +15330,18 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit199.
   %4627 = load ptr, ptr %.sroa.0537.0571.i676, align 8, !tbaa !140, !noalias !273
   %4628 = getelementptr inbounds nuw i8, ptr %4627, i64 40
   %4629 = load i32, ptr %4628, align 8, !tbaa !82, !noalias !273
-  %switch.tableidx1951 = add i32 %4629, -2
-  %4630 = icmp ult i32 %switch.tableidx1951, 8
-  br i1 %4630, label %switch.lookup1950, label %_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_13Decimal64TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i
+  %switch.tableidx2480 = add i32 %4629, -2
+  %4630 = icmp ult i32 %switch.tableidx2480, 8
+  br i1 %4630, label %switch.lookup2479, label %_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_13Decimal64TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i
 
-switch.lookup1950:                                ; preds = %4626
-  %4631 = zext nneg i32 %switch.tableidx1951 to i64
-  %switch.gep1952 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5arrow7compute8internal15GetNumericCastsEv.680, i64 0, i64 %4631
-  %switch.load1953 = load ptr, ptr %switch.gep1952, align 8
+switch.lookup2479:                                ; preds = %4626
+  %4631 = zext nneg i32 %switch.tableidx2480 to i64
+  %switch.gep2481 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5arrow7compute8internal15GetNumericCastsEv.680, i64 0, i64 %4631
+  %switch.load2482 = load ptr, ptr %switch.gep2481, align 8
   br label %_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_13Decimal64TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i
 
-_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_13Decimal64TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i: ; preds = %4626, %switch.lookup1950
-  %.0.i.i677 = phi ptr [ %switch.load1953, %switch.lookup1950 ], [ null, %4626 ]
+_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_13Decimal64TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i: ; preds = %4626, %switch.lookup2479
+  %.0.i.i677 = phi ptr [ %switch.load2482, %switch.lookup2479 ], [ null, %4626 ]
   %4632 = load ptr, ptr %281, align 8, !tbaa !235, !alias.scope !273
   call void @llvm.lifetime.start.p0(ptr nonnull %117), !noalias !273
   store ptr %4627, ptr %118, align 8, !tbaa !140, !noalias !273
@@ -19180,18 +19180,18 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit199.
   %6169 = load ptr, ptr %.sroa.0537.0571.i1099, align 8, !tbaa !140, !noalias !280
   %6170 = getelementptr inbounds nuw i8, ptr %6169, i64 40
   %6171 = load i32, ptr %6170, align 8, !tbaa !82, !noalias !280
-  %switch.tableidx1955 = add i32 %6171, -2
-  %6172 = icmp ult i32 %switch.tableidx1955, 8
-  br i1 %6172, label %switch.lookup1954, label %_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_14Decimal128TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i
+  %switch.tableidx2484 = add i32 %6171, -2
+  %6172 = icmp ult i32 %switch.tableidx2484, 8
+  br i1 %6172, label %switch.lookup2483, label %_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_14Decimal128TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i
 
-switch.lookup1954:                                ; preds = %6168
-  %6173 = zext nneg i32 %switch.tableidx1955 to i64
-  %switch.gep1956 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5arrow7compute8internal15GetNumericCastsEv.681, i64 0, i64 %6173
-  %switch.load1957 = load ptr, ptr %switch.gep1956, align 8
+switch.lookup2483:                                ; preds = %6168
+  %6173 = zext nneg i32 %switch.tableidx2484 to i64
+  %switch.gep2485 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5arrow7compute8internal15GetNumericCastsEv.681, i64 0, i64 %6173
+  %switch.load2486 = load ptr, ptr %switch.gep2485, align 8
   br label %_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_14Decimal128TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i
 
-_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_14Decimal128TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i: ; preds = %6168, %switch.lookup1954
-  %.0.i.i1100 = phi ptr [ %switch.load1957, %switch.lookup1954 ], [ null, %6168 ]
+_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_14Decimal128TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i: ; preds = %6168, %switch.lookup2483
+  %.0.i.i1100 = phi ptr [ %switch.load2486, %switch.lookup2483 ], [ null, %6168 ]
   %6174 = load ptr, ptr %282, align 8, !tbaa !235, !alias.scope !280
   call void @llvm.lifetime.start.p0(ptr nonnull %69), !noalias !280
   store ptr %6169, ptr %70, align 8, !tbaa !140, !noalias !280
@@ -23030,18 +23030,18 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit199.
   %7711 = load ptr, ptr %.sroa.0537.0571.i1522, align 8, !tbaa !140, !noalias !287
   %7712 = getelementptr inbounds nuw i8, ptr %7711, i64 40
   %7713 = load i32, ptr %7712, align 8, !tbaa !82, !noalias !287
-  %switch.tableidx1959 = add i32 %7713, -2
-  %7714 = icmp ult i32 %switch.tableidx1959, 8
-  br i1 %7714, label %switch.lookup1958, label %_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_14Decimal256TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i
+  %switch.tableidx2488 = add i32 %7713, -2
+  %7714 = icmp ult i32 %switch.tableidx2488, 8
+  br i1 %7714, label %switch.lookup2487, label %_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_14Decimal256TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i
 
-switch.lookup1958:                                ; preds = %7710
-  %7715 = zext nneg i32 %switch.tableidx1959 to i64
-  %switch.gep1960 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5arrow7compute8internal15GetNumericCastsEv.682, i64 0, i64 %7715
-  %switch.load1961 = load ptr, ptr %switch.gep1960, align 8
+switch.lookup2487:                                ; preds = %7710
+  %7715 = zext nneg i32 %switch.tableidx2488 to i64
+  %switch.gep2489 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5arrow7compute8internal15GetNumericCastsEv.682, i64 0, i64 %7715
+  %switch.load2490 = load ptr, ptr %switch.gep2489, align 8
   br label %_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_14Decimal256TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i
 
-_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_14Decimal256TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i: ; preds = %7710, %switch.lookup1958
-  %.0.i.i1523 = phi ptr [ %switch.load1961, %switch.lookup1958 ], [ null, %7710 ]
+_ZN5arrow7compute8internal15GenerateIntegerITtTpTyENS1_11CastFunctorENS_14Decimal256TypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i: ; preds = %7710, %switch.lookup2487
+  %.0.i.i1523 = phi ptr [ %switch.load2490, %switch.lookup2487 ], [ null, %7710 ]
   %7716 = load ptr, ptr %283, align 8, !tbaa !235, !alias.scope !287
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !287
   store ptr %7711, ptr %22, align 8, !tbaa !140, !noalias !287
@@ -79972,7 +79972,7 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %51, %47, %
   %55 = load ptr, ptr %0, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %55, %42
   %or.cond = select i1 %54, i1 true, i1 %.not.i.i.i.i.i.i.i.i.i
-  br i1 %or.cond, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i, label %56
+  br i1 %or.cond, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i, label %56
 
 56:                                               ; preds = %52
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -79981,16 +79981,16 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %51, %47, %
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i:    ; preds = %56
   %.pr.pre.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i.i.i.i = icmp eq ptr %.pr.pre.i.i.i.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i.i.i.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i.i.i.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i, %52
+_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i, %52
   %57 = phi ptr [ %.pr.pre.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i ], [ %42, %52 ]
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1
   %59 = load i8, ptr %58, align 1, !tbaa !226, !range !49, !noundef !50
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i, label %61
 
-61:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i
+61:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %63 = load ptr, ptr %62, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %63, null
@@ -80064,8 +80064,8 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef 56) #30
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i
 
-_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i
-  %.sroa.0.08.i.i.i.i.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i
+  %.sroa.0.08.i.i.i.i.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %94 = getelementptr inbounds nuw i8, ptr %.4, i64 4
   store i32 %.sroa.0.08.i.i.i.i.i.i.i.i, ptr %.4, align 4
@@ -80158,7 +80158,7 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i30.i.i.i.i: ; preds = %127, %12
   %131 = load ptr, ptr %0, align 8
   %.not.i.i.i.i.i28.i.i.i.i = icmp eq ptr %131, %118
   %or.cond17 = select i1 %130, i1 true, i1 %.not.i.i.i.i.i28.i.i.i.i
-  br i1 %or.cond17, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i, label %132
+  br i1 %or.cond17, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i, label %132
 
 132:                                              ; preds = %128
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -80167,16 +80167,16 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i30.i.i.i.i: ; preds = %127, %12
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i:  ; preds = %132
   %.pr.pre.i.i.i.i32.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i33.i.i.i.i = icmp eq ptr %.pr.pre.i.i.i.i32.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i33.i.i.i.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i33.i.i.i.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i, %128
+_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i, %128
   %133 = phi ptr [ %.pr.pre.i.i.i.i32.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i ], [ %118, %128 ]
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 1
   %135 = load i8, ptr %134, align 1, !tbaa !226, !range !49, !noundef !50
   %136 = trunc nuw i8 %135 to i1
   br i1 %136, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i, label %137
 
-137:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i
+137:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i
   %138 = getelementptr inbounds nuw i8, ptr %133, i64 48
   %139 = load ptr, ptr %138, align 8, !tbaa !141
   %.not.i.i.i.i41.i.i.i.i = icmp eq ptr %139, null
@@ -80250,8 +80250,8 @@ _ZN5arrow6Status5StateD2Ev.exit.i47.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %133, i64 noundef 56) #30
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i
 
-_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i47.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i37.i.i.i.i
-  %.sroa.0.08.i.i.i.i36.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.i.i.i.i38.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i37.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i47.i.i.i.i ]
+_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i47.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i37.i.i.i.i
+  %.sroa.0.08.i.i.i.i36.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.i.i.i.i38.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i37.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i47.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %170
 
@@ -80425,7 +80425,7 @@ _ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i: ; preds = %.noexc10
   %47 = load ptr, ptr %0, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %47, %42
   %or.cond = select i1 %46, i1 true, i1 %.not.i.i.i.i.i.i.i.i.i
-  br i1 %or.cond, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i, label %48
+  br i1 %or.cond, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i, label %48
 
 48:                                               ; preds = %44
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -80455,16 +80455,16 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %56, %52, %
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i:    ; preds = %48
   %.pr.pre.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i.i.i.i = icmp eq ptr %.pr.pre.i.i.i.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i.i.i.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i.i.i.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i, %44
+_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i, %44
   %57 = phi ptr [ %.pr.pre.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i ], [ %42, %44 ]
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1
   %59 = load i8, ptr %58, align 1, !tbaa !226, !range !49, !noundef !50
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i, label %61
 
-61:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i
+61:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %63 = load ptr, ptr %62, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %63, null
@@ -80538,8 +80538,8 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef 56) #30
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i
 
-_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i
-  %.sroa.0.08.i.i.i.i.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i
+  %.sroa.0.08.i.i.i.i.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %94 = getelementptr inbounds nuw i8, ptr %.4, i64 4
   store i32 %.sroa.0.08.i.i.i.i.i.i.i.i, ptr %.4, align 4
@@ -80611,7 +80611,7 @@ _ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i37.i.i.i.i: ; preds = %.noexc11
   %123 = load ptr, ptr %0, align 8
   %.not.i.i.i.i.i28.i.i.i.i = icmp eq ptr %123, %118
   %or.cond17 = select i1 %122, i1 true, i1 %.not.i.i.i.i.i28.i.i.i.i
-  br i1 %or.cond17, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i, label %124
+  br i1 %or.cond17, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i, label %124
 
 124:                                              ; preds = %120
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -80641,16 +80641,16 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i30.i.i.i.i: ; preds = %132, %12
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i:  ; preds = %124
   %.pr.pre.i.i.i.i32.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i33.i.i.i.i = icmp eq ptr %.pr.pre.i.i.i.i32.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i33.i.i.i.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i33.i.i.i.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i, %120
+_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i, %120
   %133 = phi ptr [ %.pr.pre.i.i.i.i32.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i ], [ %118, %120 ]
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 1
   %135 = load i8, ptr %134, align 1, !tbaa !226, !range !49, !noundef !50
   %136 = trunc nuw i8 %135 to i1
   br i1 %136, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i, label %137
 
-137:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i
+137:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i
   %138 = getelementptr inbounds nuw i8, ptr %133, i64 48
   %139 = load ptr, ptr %138, align 8, !tbaa !141
   %.not.i.i.i.i41.i.i.i.i = icmp eq ptr %139, null
@@ -80724,8 +80724,8 @@ _ZN5arrow6Status5StateD2Ev.exit.i47.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %133, i64 noundef 56) #30
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i
 
-_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i47.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i37.i.i.i.i
-  %.sroa.0.08.i.i.i.i36.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.i.i.i.i38.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i37.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i47.i.i.i.i ]
+_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i47.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i37.i.i.i.i
+  %.sroa.0.08.i.i.i.i36.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.i.i.i.i38.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i37.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i47.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %170
 
@@ -82287,7 +82287,7 @@ _ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i: ; preds = %_ZNK5arrow
 58:                                               ; preds = %_ZNK5arrow9Decimal327RescaleEii.exit.i.i.i.i.i
   %59 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %59, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, label %60
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, label %60
 
 60:                                               ; preds = %58
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -82317,16 +82317,16 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i: ; preds = %68, %64, %61
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %60
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
   %69 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %58 ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
   %71 = load i8, ptr %70, align 1, !tbaa !226, !range !49, !noundef !50
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %73
 
-73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i
+73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 48
   %75 = load ptr, ptr %74, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %75, null
@@ -82400,11 +82400,11 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.09.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
+  %.sroa.0.011.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %106 = getelementptr inbounds nuw i8, ptr %.4, i64 4
-  store i32 %.sroa.0.09.i.i.i.i.i, ptr %.4, align 4
+  store i32 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 4
   %107 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %108 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %107, %41
@@ -82514,7 +82514,7 @@ _ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i: ; preds = %_ZNK5arr
 142:                                              ; preds = %_ZNK5arrow9Decimal327RescaleEii.exit.i29.i.i.i.i
   %143 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i31.i.i.i.i = icmp eq ptr %143, %.pr.i30.i.i.i.i
-  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, label %144
+  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, label %144
 
 144:                                              ; preds = %142
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -82544,16 +82544,16 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i: ; preds = %152, %148, %14
 _ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i:        ; preds = %144
   %.pre.i35.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i36.i.i.i.i = icmp eq ptr %.pre.i35.i.i.i.i, null
-  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
   %153 = phi ptr [ %.pre.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ %.pr.i30.i.i.i.i, %142 ]
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 1
   %155 = load i8, ptr %154, align 1, !tbaa !226, !range !49, !noundef !50
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %157
 
-157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i
+157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 48
   %159 = load ptr, ptr %158, align 8, !tbaa !141
   %.not.i.i.i.i44.i.i.i.i = icmp eq ptr %159, null
@@ -82627,15 +82627,15 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %153, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.09.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
+  %.sroa.0.011.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %190
 
 190:                                              ; preds = %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, %.lr.ph.i.i.i.i
-  %.sroa.0.09.i38.sink.i.i.i.i = phi i32 [ %.sroa.0.09.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.011.i38.sink.i.i.i.i = phi i32 [ %.sroa.0.011.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
   %191 = getelementptr inbounds nuw i8, ptr %.2, i64 4
-  store i32 %.sroa.0.09.i38.sink.i.i.i.i, ptr %.2, align 4
+  store i32 %.sroa.0.011.i38.sink.i.i.i.i, ptr %.2, align 4
   %192 = add i64 %.411.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %192, %112
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !531
@@ -82959,7 +82959,7 @@ _ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i: ; preds = %_ZNK5arrow
 58:                                               ; preds = %_ZNK5arrow9Decimal327RescaleEii.exit.i.i.i.i.i
   %59 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %59, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, label %60
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, label %60
 
 60:                                               ; preds = %58
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -82989,16 +82989,16 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i: ; preds = %68, %64, %61
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %60
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
   %69 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %58 ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
   %71 = load i8, ptr %70, align 1, !tbaa !226, !range !49, !noundef !50
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %73
 
-73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i
+73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 48
   %75 = load ptr, ptr %74, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %75, null
@@ -83072,11 +83072,11 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.09.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
+  %.sroa.0.011.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %106 = getelementptr inbounds nuw i8, ptr %.4, i64 4
-  store i32 %.sroa.0.09.i.i.i.i.i, ptr %.4, align 4
+  store i32 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 4
   %107 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %108 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %107, %41
@@ -83186,7 +83186,7 @@ _ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i: ; preds = %_ZNK5arr
 142:                                              ; preds = %_ZNK5arrow9Decimal327RescaleEii.exit.i29.i.i.i.i
   %143 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i31.i.i.i.i = icmp eq ptr %143, %.pr.i30.i.i.i.i
-  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, label %144
+  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, label %144
 
 144:                                              ; preds = %142
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -83216,16 +83216,16 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i: ; preds = %152, %148, %14
 _ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i:        ; preds = %144
   %.pre.i35.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i36.i.i.i.i = icmp eq ptr %.pre.i35.i.i.i.i, null
-  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
   %153 = phi ptr [ %.pre.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ %.pr.i30.i.i.i.i, %142 ]
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 1
   %155 = load i8, ptr %154, align 1, !tbaa !226, !range !49, !noundef !50
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %157
 
-157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i
+157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 48
   %159 = load ptr, ptr %158, align 8, !tbaa !141
   %.not.i.i.i.i44.i.i.i.i = icmp eq ptr %159, null
@@ -83299,15 +83299,15 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %153, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.09.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
+  %.sroa.0.011.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %190
 
 190:                                              ; preds = %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, %.lr.ph.i.i.i.i
-  %.sroa.0.09.i38.sink.i.i.i.i = phi i32 [ %.sroa.0.09.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.011.i38.sink.i.i.i.i = phi i32 [ %.sroa.0.011.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
   %191 = getelementptr inbounds nuw i8, ptr %.2, i64 4
-  store i32 %.sroa.0.09.i38.sink.i.i.i.i, ptr %.2, align 4
+  store i32 %.sroa.0.011.i38.sink.i.i.i.i, ptr %.2, align 4
   %192 = add i64 %.411.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %192, %112
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !551
@@ -83516,7 +83516,7 @@ _ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i: ; preds = %_ZNK5arrow
 57:                                               ; preds = %_ZNK5arrow9Decimal327RescaleEii.exit.i.i.i.i.i
   %58 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %58, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, label %59
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, label %59
 
 59:                                               ; preds = %57
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -83546,16 +83546,16 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i: ; preds = %67, %63, %60
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %59
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %57
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %57
   %68 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %57 ]
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 1
   %70 = load i8, ptr %69, align 1, !tbaa !226, !range !49, !noundef !50
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %72
 
-72:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i
+72:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %74 = load ptr, ptr %73, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %74, null
@@ -83629,11 +83629,11 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %68, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.09.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i ], [ %55, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
+  %.sroa.0.011.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %55, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %105 = getelementptr inbounds nuw i8, ptr %.4, i64 4
-  store i32 %.sroa.0.09.i.i.i.i.i, ptr %.4, align 4
+  store i32 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 4
   %106 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %107 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %106, %41
@@ -83742,7 +83742,7 @@ _ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i: ; preds = %_ZNK5arr
 140:                                              ; preds = %_ZNK5arrow9Decimal327RescaleEii.exit.i29.i.i.i.i
   %141 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i31.i.i.i.i = icmp eq ptr %141, %.pr.i30.i.i.i.i
-  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, label %142
+  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, label %142
 
 142:                                              ; preds = %140
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -83772,16 +83772,16 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i: ; preds = %150, %146, %14
 _ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i:        ; preds = %142
   %.pre.i35.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i36.i.i.i.i = icmp eq ptr %.pre.i35.i.i.i.i, null
-  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %140
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %140
   %151 = phi ptr [ %.pre.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ %.pr.i30.i.i.i.i, %140 ]
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 1
   %153 = load i8, ptr %152, align 1, !tbaa !226, !range !49, !noundef !50
   %154 = trunc nuw i8 %153 to i1
   br i1 %154, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %155
 
-155:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i
+155:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i
   %156 = getelementptr inbounds nuw i8, ptr %151, i64 48
   %157 = load ptr, ptr %156, align 8, !tbaa !141
   %.not.i.i.i.i44.i.i.i.i = icmp eq ptr %157, null
@@ -83855,15 +83855,15 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %151, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.09.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i ], [ %138, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
+  %.sroa.0.011.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %138, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %188
 
 188:                                              ; preds = %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, %.lr.ph.i.i.i.i
-  %.sroa.0.09.i38.sink.i.i.i.i = phi i32 [ %.sroa.0.09.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.011.i38.sink.i.i.i.i = phi i32 [ %.sroa.0.011.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
   %189 = getelementptr inbounds nuw i8, ptr %.2, i64 4
-  store i32 %.sroa.0.09.i38.sink.i.i.i.i, ptr %.2, align 4
+  store i32 %.sroa.0.011.i38.sink.i.i.i.i, ptr %.2, align 4
   %190 = add i64 %.411.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %190, %111
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !571
@@ -84073,7 +84073,7 @@ _ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i: ; preds = %_ZNK5arrow
 58:                                               ; preds = %_ZNK5arrow9Decimal327RescaleEii.exit.i.i.i.i.i
   %59 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %59, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, label %60
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, label %60
 
 60:                                               ; preds = %58
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -84103,16 +84103,16 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i: ; preds = %68, %64, %61
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %60
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
   %69 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %58 ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
   %71 = load i8, ptr %70, align 1, !tbaa !226, !range !49, !noundef !50
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %73
 
-73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i
+73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 48
   %75 = load ptr, ptr %74, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %75, null
@@ -84186,11 +84186,11 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.09.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
+  %.sroa.0.011.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %106 = getelementptr inbounds nuw i8, ptr %.4, i64 4
-  store i32 %.sroa.0.09.i.i.i.i.i, ptr %.4, align 4
+  store i32 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 4
   %107 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %108 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %107, %41
@@ -84300,7 +84300,7 @@ _ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i: ; preds = %_ZNK5arr
 142:                                              ; preds = %_ZNK5arrow9Decimal327RescaleEii.exit.i29.i.i.i.i
   %143 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i31.i.i.i.i = icmp eq ptr %143, %.pr.i30.i.i.i.i
-  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, label %144
+  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, label %144
 
 144:                                              ; preds = %142
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -84330,16 +84330,16 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i: ; preds = %152, %148, %14
 _ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i:        ; preds = %144
   %.pre.i35.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i36.i.i.i.i = icmp eq ptr %.pre.i35.i.i.i.i, null
-  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
   %153 = phi ptr [ %.pre.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ %.pr.i30.i.i.i.i, %142 ]
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 1
   %155 = load i8, ptr %154, align 1, !tbaa !226, !range !49, !noundef !50
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %157
 
-157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i
+157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 48
   %159 = load ptr, ptr %158, align 8, !tbaa !141
   %.not.i.i.i.i44.i.i.i.i = icmp eq ptr %159, null
@@ -84413,15 +84413,15 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %153, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.09.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
+  %.sroa.0.011.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %190
 
 190:                                              ; preds = %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, %.lr.ph.i.i.i.i
-  %.sroa.0.09.i38.sink.i.i.i.i = phi i32 [ %.sroa.0.09.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.011.i38.sink.i.i.i.i = phi i32 [ %.sroa.0.011.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
   %191 = getelementptr inbounds nuw i8, ptr %.2, i64 4
-  store i32 %.sroa.0.09.i38.sink.i.i.i.i, ptr %.2, align 4
+  store i32 %.sroa.0.011.i38.sink.i.i.i.i, ptr %.2, align 4
   %192 = add i64 %.411.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %192, %112
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !591
@@ -84631,7 +84631,7 @@ _ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i: ; preds = %_ZNK5arrow
 58:                                               ; preds = %_ZNK5arrow9Decimal327RescaleEii.exit.i.i.i.i.i
   %59 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %59, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, label %60
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, label %60
 
 60:                                               ; preds = %58
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -84661,16 +84661,16 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i: ; preds = %68, %64, %61
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %60
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
   %69 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %58 ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
   %71 = load i8, ptr %70, align 1, !tbaa !226, !range !49, !noundef !50
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %73
 
-73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i
+73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 48
   %75 = load ptr, ptr %74, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %75, null
@@ -84744,11 +84744,11 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.09.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
+  %.sroa.0.011.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %106 = getelementptr inbounds nuw i8, ptr %.4, i64 4
-  store i32 %.sroa.0.09.i.i.i.i.i, ptr %.4, align 4
+  store i32 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 4
   %107 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %108 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %107, %41
@@ -84858,7 +84858,7 @@ _ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i: ; preds = %_ZNK5arr
 142:                                              ; preds = %_ZNK5arrow9Decimal327RescaleEii.exit.i29.i.i.i.i
   %143 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i31.i.i.i.i = icmp eq ptr %143, %.pr.i30.i.i.i.i
-  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, label %144
+  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, label %144
 
 144:                                              ; preds = %142
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -84888,16 +84888,16 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i: ; preds = %152, %148, %14
 _ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i:        ; preds = %144
   %.pre.i35.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i36.i.i.i.i = icmp eq ptr %.pre.i35.i.i.i.i, null
-  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
   %153 = phi ptr [ %.pre.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ %.pr.i30.i.i.i.i, %142 ]
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 1
   %155 = load i8, ptr %154, align 1, !tbaa !226, !range !49, !noundef !50
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %157
 
-157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i
+157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 48
   %159 = load ptr, ptr %158, align 8, !tbaa !141
   %.not.i.i.i.i44.i.i.i.i = icmp eq ptr %159, null
@@ -84971,15 +84971,15 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %153, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.09.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
+  %.sroa.0.011.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %190
 
 190:                                              ; preds = %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, %.lr.ph.i.i.i.i
-  %.sroa.0.09.i38.sink.i.i.i.i = phi i32 [ %.sroa.0.09.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.011.i38.sink.i.i.i.i = phi i32 [ %.sroa.0.011.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
   %191 = getelementptr inbounds nuw i8, ptr %.2, i64 4
-  store i32 %.sroa.0.09.i38.sink.i.i.i.i, ptr %.2, align 4
+  store i32 %.sroa.0.011.i38.sink.i.i.i.i, ptr %.2, align 4
   %192 = add i64 %.411.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %192, %112
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !611
@@ -85189,7 +85189,7 @@ _ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i: ; preds = %_ZNK5arrow
 58:                                               ; preds = %_ZNK5arrow9Decimal327RescaleEii.exit.i.i.i.i.i
   %59 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %59, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, label %60
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, label %60
 
 60:                                               ; preds = %58
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -85219,16 +85219,16 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i: ; preds = %68, %64, %61
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %60
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
   %69 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %58 ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
   %71 = load i8, ptr %70, align 1, !tbaa !226, !range !49, !noundef !50
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %73
 
-73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i
+73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 48
   %75 = load ptr, ptr %74, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %75, null
@@ -85302,11 +85302,11 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.09.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
+  %.sroa.0.011.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %106 = getelementptr inbounds nuw i8, ptr %.4, i64 4
-  store i32 %.sroa.0.09.i.i.i.i.i, ptr %.4, align 4
+  store i32 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 4
   %107 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %108 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %107, %41
@@ -85416,7 +85416,7 @@ _ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i: ; preds = %_ZNK5arr
 142:                                              ; preds = %_ZNK5arrow9Decimal327RescaleEii.exit.i29.i.i.i.i
   %143 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i31.i.i.i.i = icmp eq ptr %143, %.pr.i30.i.i.i.i
-  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, label %144
+  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, label %144
 
 144:                                              ; preds = %142
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -85446,16 +85446,16 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i: ; preds = %152, %148, %14
 _ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i:        ; preds = %144
   %.pre.i35.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i36.i.i.i.i = icmp eq ptr %.pre.i35.i.i.i.i, null
-  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
   %153 = phi ptr [ %.pre.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ %.pr.i30.i.i.i.i, %142 ]
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 1
   %155 = load i8, ptr %154, align 1, !tbaa !226, !range !49, !noundef !50
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %157
 
-157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i
+157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 48
   %159 = load ptr, ptr %158, align 8, !tbaa !141
   %.not.i.i.i.i44.i.i.i.i = icmp eq ptr %159, null
@@ -85529,15 +85529,15 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %153, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.09.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
+  %.sroa.0.011.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %190
 
 190:                                              ; preds = %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, %.lr.ph.i.i.i.i
-  %.sroa.0.09.i38.sink.i.i.i.i = phi i32 [ %.sroa.0.09.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.011.i38.sink.i.i.i.i = phi i32 [ %.sroa.0.011.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
   %191 = getelementptr inbounds nuw i8, ptr %.2, i64 4
-  store i32 %.sroa.0.09.i38.sink.i.i.i.i, ptr %.2, align 4
+  store i32 %.sroa.0.011.i38.sink.i.i.i.i, ptr %.2, align 4
   %192 = add i64 %.411.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %192, %112
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !631
@@ -85746,7 +85746,7 @@ _ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i: ; preds = %_ZNK5arrow
 57:                                               ; preds = %_ZNK5arrow9Decimal327RescaleEii.exit.i.i.i.i.i
   %58 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %58, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, label %59
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, label %59
 
 59:                                               ; preds = %57
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -85776,16 +85776,16 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i: ; preds = %67, %63, %60
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %59
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %57
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %57
   %68 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %57 ]
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 1
   %70 = load i8, ptr %69, align 1, !tbaa !226, !range !49, !noundef !50
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %72
 
-72:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i
+72:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %74 = load ptr, ptr %73, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %74, null
@@ -85859,11 +85859,11 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %68, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.09.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i ], [ %55, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
+  %.sroa.0.011.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %55, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %105 = getelementptr inbounds nuw i8, ptr %.4, i64 4
-  store i32 %.sroa.0.09.i.i.i.i.i, ptr %.4, align 4
+  store i32 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 4
   %106 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %107 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %106, %41
@@ -85972,7 +85972,7 @@ _ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i: ; preds = %_ZNK5arr
 140:                                              ; preds = %_ZNK5arrow9Decimal327RescaleEii.exit.i29.i.i.i.i
   %141 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i31.i.i.i.i = icmp eq ptr %141, %.pr.i30.i.i.i.i
-  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, label %142
+  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, label %142
 
 142:                                              ; preds = %140
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -86002,16 +86002,16 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i: ; preds = %150, %146, %14
 _ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i:        ; preds = %142
   %.pre.i35.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i36.i.i.i.i = icmp eq ptr %.pre.i35.i.i.i.i, null
-  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %140
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %140
   %151 = phi ptr [ %.pre.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ %.pr.i30.i.i.i.i, %140 ]
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 1
   %153 = load i8, ptr %152, align 1, !tbaa !226, !range !49, !noundef !50
   %154 = trunc nuw i8 %153 to i1
   br i1 %154, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %155
 
-155:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i
+155:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i
   %156 = getelementptr inbounds nuw i8, ptr %151, i64 48
   %157 = load ptr, ptr %156, align 8, !tbaa !141
   %.not.i.i.i.i44.i.i.i.i = icmp eq ptr %157, null
@@ -86085,15 +86085,15 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %151, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.09.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i ], [ %138, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
+  %.sroa.0.011.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %138, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %188
 
 188:                                              ; preds = %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, %.lr.ph.i.i.i.i
-  %.sroa.0.09.i38.sink.i.i.i.i = phi i32 [ %.sroa.0.09.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.011.i38.sink.i.i.i.i = phi i32 [ %.sroa.0.011.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
   %189 = getelementptr inbounds nuw i8, ptr %.2, i64 4
-  store i32 %.sroa.0.09.i38.sink.i.i.i.i, ptr %.2, align 4
+  store i32 %.sroa.0.011.i38.sink.i.i.i.i, ptr %.2, align 4
   %190 = add i64 %.411.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %190, %111
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !651
@@ -86303,7 +86303,7 @@ _ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i: ; preds = %_ZNK5arrow
 58:                                               ; preds = %_ZNK5arrow9Decimal327RescaleEii.exit.i.i.i.i.i
   %59 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %59, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, label %60
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, label %60
 
 60:                                               ; preds = %58
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -86333,16 +86333,16 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i: ; preds = %68, %64, %61
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %60
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
   %69 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %58 ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
   %71 = load i8, ptr %70, align 1, !tbaa !226, !range !49, !noundef !50
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %73
 
-73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i
+73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 48
   %75 = load ptr, ptr %74, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %75, null
@@ -86416,11 +86416,11 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.09.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
+  %.sroa.0.011.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %106 = getelementptr inbounds nuw i8, ptr %.4, i64 4
-  store i32 %.sroa.0.09.i.i.i.i.i, ptr %.4, align 4
+  store i32 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 4
   %107 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %108 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %107, %41
@@ -86530,7 +86530,7 @@ _ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i: ; preds = %_ZNK5arr
 142:                                              ; preds = %_ZNK5arrow9Decimal327RescaleEii.exit.i29.i.i.i.i
   %143 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i31.i.i.i.i = icmp eq ptr %143, %.pr.i30.i.i.i.i
-  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, label %144
+  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, label %144
 
 144:                                              ; preds = %142
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -86560,16 +86560,16 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i: ; preds = %152, %148, %14
 _ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i:        ; preds = %144
   %.pre.i35.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i36.i.i.i.i = icmp eq ptr %.pre.i35.i.i.i.i, null
-  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
   %153 = phi ptr [ %.pre.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ %.pr.i30.i.i.i.i, %142 ]
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 1
   %155 = load i8, ptr %154, align 1, !tbaa !226, !range !49, !noundef !50
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %157
 
-157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i
+157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 48
   %159 = load ptr, ptr %158, align 8, !tbaa !141
   %.not.i.i.i.i44.i.i.i.i = icmp eq ptr %159, null
@@ -86643,15 +86643,15 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %153, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.09.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
+  %.sroa.0.011.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %190
 
 190:                                              ; preds = %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, %.lr.ph.i.i.i.i
-  %.sroa.0.09.i38.sink.i.i.i.i = phi i32 [ %.sroa.0.09.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.011.i38.sink.i.i.i.i = phi i32 [ %.sroa.0.011.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
   %191 = getelementptr inbounds nuw i8, ptr %.2, i64 4
-  store i32 %.sroa.0.09.i38.sink.i.i.i.i, ptr %.2, align 4
+  store i32 %.sroa.0.011.i38.sink.i.i.i.i, ptr %.2, align 4
   %192 = add i64 %.411.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %192, %112
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !671
@@ -91920,7 +91920,7 @@ _ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %51, %47, %
   %55 = load ptr, ptr %0, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %55, %42
   %or.cond = select i1 %54, i1 true, i1 %.not.i.i.i.i.i.i.i.i.i
-  br i1 %or.cond, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i, label %56
+  br i1 %or.cond, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i, label %56
 
 56:                                               ; preds = %52
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -91929,16 +91929,16 @@ _ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %51, %47, %
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i:    ; preds = %56
   %.pr.pre.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i.i.i.i = icmp eq ptr %.pr.pre.i.i.i.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i.i.i.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i.i.i.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i, %52
+_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i, %52
   %57 = phi ptr [ %.pr.pre.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i ], [ %42, %52 ]
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1
   %59 = load i8, ptr %58, align 1, !tbaa !226, !range !49, !noundef !50
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i, label %61
 
-61:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i
+61:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %63 = load ptr, ptr %62, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %63, null
@@ -92012,8 +92012,8 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef 56) #30
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i
 
-_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i
-  %.sroa.0.08.i.i.i.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i
+  %.sroa.0.08.i.i.i.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %94 = getelementptr inbounds nuw i8, ptr %.4, i64 8
   store i64 %.sroa.0.08.i.i.i.i.i.i.i.i, ptr %.4, align 8
@@ -92106,7 +92106,7 @@ _ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i30.i.i.i.i: ; preds = %127, %12
   %131 = load ptr, ptr %0, align 8
   %.not.i.i.i.i.i28.i.i.i.i = icmp eq ptr %131, %118
   %or.cond17 = select i1 %130, i1 true, i1 %.not.i.i.i.i.i28.i.i.i.i
-  br i1 %or.cond17, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i, label %132
+  br i1 %or.cond17, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i, label %132
 
 132:                                              ; preds = %128
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -92115,16 +92115,16 @@ _ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i30.i.i.i.i: ; preds = %127, %12
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i:  ; preds = %132
   %.pr.pre.i.i.i.i32.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i33.i.i.i.i = icmp eq ptr %.pr.pre.i.i.i.i32.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i33.i.i.i.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i33.i.i.i.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i, %128
+_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i, %128
   %133 = phi ptr [ %.pr.pre.i.i.i.i32.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i ], [ %118, %128 ]
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 1
   %135 = load i8, ptr %134, align 1, !tbaa !226, !range !49, !noundef !50
   %136 = trunc nuw i8 %135 to i1
   br i1 %136, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i, label %137
 
-137:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i
+137:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i
   %138 = getelementptr inbounds nuw i8, ptr %133, i64 48
   %139 = load ptr, ptr %138, align 8, !tbaa !141
   %.not.i.i.i.i41.i.i.i.i = icmp eq ptr %139, null
@@ -92198,8 +92198,8 @@ _ZN5arrow6Status5StateD2Ev.exit.i47.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %133, i64 noundef 56) #30
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i
 
-_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i47.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i37.i.i.i.i
-  %.sroa.0.08.i.i.i.i36.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i38.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i37.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i47.i.i.i.i ]
+_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i47.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i37.i.i.i.i
+  %.sroa.0.08.i.i.i.i36.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i38.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i37.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i47.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %170
 
@@ -92371,7 +92371,7 @@ _ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i: ; preds = %.noexc10
   %47 = load ptr, ptr %0, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %47, %42
   %or.cond = select i1 %46, i1 true, i1 %.not.i.i.i.i.i.i.i.i.i
-  br i1 %or.cond, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i, label %48
+  br i1 %or.cond, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i, label %48
 
 48:                                               ; preds = %44
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -92401,16 +92401,16 @@ _ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %56, %52, %
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i:    ; preds = %48
   %.pr.pre.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i.i.i.i = icmp eq ptr %.pr.pre.i.i.i.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i.i.i.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i.i.i.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i, %44
+_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i, %44
   %57 = phi ptr [ %.pr.pre.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i ], [ %42, %44 ]
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1
   %59 = load i8, ptr %58, align 1, !tbaa !226, !range !49, !noundef !50
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i, label %61
 
-61:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i
+61:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %63 = load ptr, ptr %62, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %63, null
@@ -92484,8 +92484,8 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef 56) #30
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i
 
-_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i
-  %.sroa.0.08.i.i.i.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i
+  %.sroa.0.08.i.i.i.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %94 = getelementptr inbounds nuw i8, ptr %.4, i64 8
   store i64 %.sroa.0.08.i.i.i.i.i.i.i.i, ptr %.4, align 8
@@ -92557,7 +92557,7 @@ _ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i37.i.i.i.i: ; preds = %.noexc11
   %123 = load ptr, ptr %0, align 8
   %.not.i.i.i.i.i28.i.i.i.i = icmp eq ptr %123, %118
   %or.cond17 = select i1 %122, i1 true, i1 %.not.i.i.i.i.i28.i.i.i.i
-  br i1 %or.cond17, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i, label %124
+  br i1 %or.cond17, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i, label %124
 
 124:                                              ; preds = %120
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -92587,16 +92587,16 @@ _ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i30.i.i.i.i: ; preds = %132, %12
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i:  ; preds = %124
   %.pr.pre.i.i.i.i32.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i33.i.i.i.i = icmp eq ptr %.pr.pre.i.i.i.i32.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i33.i.i.i.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i33.i.i.i.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i, %120
+_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i, %120
   %133 = phi ptr [ %.pr.pre.i.i.i.i32.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i ], [ %118, %120 ]
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 1
   %135 = load i8, ptr %134, align 1, !tbaa !226, !range !49, !noundef !50
   %136 = trunc nuw i8 %135 to i1
   br i1 %136, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i, label %137
 
-137:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i
+137:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i
   %138 = getelementptr inbounds nuw i8, ptr %133, i64 48
   %139 = load ptr, ptr %138, align 8, !tbaa !141
   %.not.i.i.i.i41.i.i.i.i = icmp eq ptr %139, null
@@ -92670,8 +92670,8 @@ _ZN5arrow6Status5StateD2Ev.exit.i47.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %133, i64 noundef 56) #30
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i
 
-_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i47.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i37.i.i.i.i
-  %.sroa.0.08.i.i.i.i36.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i38.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i37.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i34.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i47.i.i.i.i ]
+_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit39.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i47.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i37.i.i.i.i
+  %.sroa.0.08.i.i.i.i36.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i38.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i37.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i34.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i47.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %170
 
@@ -93930,7 +93930,7 @@ _ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i: ; preds = %_ZNK5arrow
 58:                                               ; preds = %_ZNK5arrow9Decimal647RescaleEii.exit.i.i.i.i.i
   %59 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %59, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, label %60
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, label %60
 
 60:                                               ; preds = %58
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -93960,16 +93960,16 @@ _ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i: ; preds = %68, %64, %61
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %60
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
   %69 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %58 ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
   %71 = load i8, ptr %70, align 1, !tbaa !226, !range !49, !noundef !50
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %73
 
-73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i
+73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 48
   %75 = load ptr, ptr %74, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %75, null
@@ -94043,11 +94043,11 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.09.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %106 = getelementptr inbounds nuw i8, ptr %.4, i64 8
-  store i64 %.sroa.0.09.i.i.i.i.i, ptr %.4, align 8
+  store i64 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 8
   %107 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %108 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %107, %41
@@ -94157,7 +94157,7 @@ _ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i: ; preds = %_ZNK5arr
 142:                                              ; preds = %_ZNK5arrow9Decimal647RescaleEii.exit.i29.i.i.i.i
   %143 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i31.i.i.i.i = icmp eq ptr %143, %.pr.i30.i.i.i.i
-  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, label %144
+  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, label %144
 
 144:                                              ; preds = %142
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -94187,16 +94187,16 @@ _ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i: ; preds = %152, %148, %14
 _ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i:        ; preds = %144
   %.pre.i35.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i36.i.i.i.i = icmp eq ptr %.pre.i35.i.i.i.i, null
-  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
   %153 = phi ptr [ %.pre.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ %.pr.i30.i.i.i.i, %142 ]
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 1
   %155 = load i8, ptr %154, align 1, !tbaa !226, !range !49, !noundef !50
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %157
 
-157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i
+157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 48
   %159 = load ptr, ptr %158, align 8, !tbaa !141
   %.not.i.i.i.i44.i.i.i.i = icmp eq ptr %159, null
@@ -94270,15 +94270,15 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %153, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.09.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
+  %.sroa.0.011.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %190
 
 190:                                              ; preds = %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, %.lr.ph.i.i.i.i
-  %.sroa.0.09.i38.sink.i.i.i.i = phi i64 [ %.sroa.0.09.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.011.i38.sink.i.i.i.i = phi i64 [ %.sroa.0.011.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
   %191 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  store i64 %.sroa.0.09.i38.sink.i.i.i.i, ptr %.2, align 8
+  store i64 %.sroa.0.011.i38.sink.i.i.i.i, ptr %.2, align 8
   %192 = add i64 %.411.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %192, %112
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !919
@@ -94602,7 +94602,7 @@ _ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i: ; preds = %_ZNK5arrow
 58:                                               ; preds = %_ZNK5arrow9Decimal647RescaleEii.exit.i.i.i.i.i
   %59 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %59, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, label %60
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, label %60
 
 60:                                               ; preds = %58
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -94632,16 +94632,16 @@ _ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i: ; preds = %68, %64, %61
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %60
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
   %69 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %58 ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
   %71 = load i8, ptr %70, align 1, !tbaa !226, !range !49, !noundef !50
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %73
 
-73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i
+73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 48
   %75 = load ptr, ptr %74, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %75, null
@@ -94715,11 +94715,11 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.09.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %106 = getelementptr inbounds nuw i8, ptr %.4, i64 8
-  store i64 %.sroa.0.09.i.i.i.i.i, ptr %.4, align 8
+  store i64 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 8
   %107 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %108 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %107, %41
@@ -94829,7 +94829,7 @@ _ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i: ; preds = %_ZNK5arr
 142:                                              ; preds = %_ZNK5arrow9Decimal647RescaleEii.exit.i29.i.i.i.i
   %143 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i31.i.i.i.i = icmp eq ptr %143, %.pr.i30.i.i.i.i
-  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, label %144
+  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, label %144
 
 144:                                              ; preds = %142
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -94859,16 +94859,16 @@ _ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i: ; preds = %152, %148, %14
 _ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i:        ; preds = %144
   %.pre.i35.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i36.i.i.i.i = icmp eq ptr %.pre.i35.i.i.i.i, null
-  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
   %153 = phi ptr [ %.pre.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ %.pr.i30.i.i.i.i, %142 ]
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 1
   %155 = load i8, ptr %154, align 1, !tbaa !226, !range !49, !noundef !50
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %157
 
-157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i
+157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 48
   %159 = load ptr, ptr %158, align 8, !tbaa !141
   %.not.i.i.i.i44.i.i.i.i = icmp eq ptr %159, null
@@ -94942,15 +94942,15 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %153, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.09.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
+  %.sroa.0.011.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %190
 
 190:                                              ; preds = %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, %.lr.ph.i.i.i.i
-  %.sroa.0.09.i38.sink.i.i.i.i = phi i64 [ %.sroa.0.09.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.011.i38.sink.i.i.i.i = phi i64 [ %.sroa.0.011.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
   %191 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  store i64 %.sroa.0.09.i38.sink.i.i.i.i, ptr %.2, align 8
+  store i64 %.sroa.0.011.i38.sink.i.i.i.i, ptr %.2, align 8
   %192 = add i64 %.411.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %192, %112
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !939
@@ -95160,7 +95160,7 @@ _ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i: ; preds = %_ZNK5arrow
 58:                                               ; preds = %_ZNK5arrow9Decimal647RescaleEii.exit.i.i.i.i.i
   %59 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %59, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, label %60
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, label %60
 
 60:                                               ; preds = %58
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -95190,16 +95190,16 @@ _ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i: ; preds = %68, %64, %61
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %60
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
   %69 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %58 ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
   %71 = load i8, ptr %70, align 1, !tbaa !226, !range !49, !noundef !50
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %73
 
-73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i
+73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 48
   %75 = load ptr, ptr %74, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %75, null
@@ -95273,11 +95273,11 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.09.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %106 = getelementptr inbounds nuw i8, ptr %.4, i64 8
-  store i64 %.sroa.0.09.i.i.i.i.i, ptr %.4, align 8
+  store i64 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 8
   %107 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %108 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %107, %41
@@ -95387,7 +95387,7 @@ _ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i: ; preds = %_ZNK5arr
 142:                                              ; preds = %_ZNK5arrow9Decimal647RescaleEii.exit.i29.i.i.i.i
   %143 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i31.i.i.i.i = icmp eq ptr %143, %.pr.i30.i.i.i.i
-  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, label %144
+  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, label %144
 
 144:                                              ; preds = %142
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -95417,16 +95417,16 @@ _ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i: ; preds = %152, %148, %14
 _ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i:        ; preds = %144
   %.pre.i35.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i36.i.i.i.i = icmp eq ptr %.pre.i35.i.i.i.i, null
-  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
   %153 = phi ptr [ %.pre.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ %.pr.i30.i.i.i.i, %142 ]
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 1
   %155 = load i8, ptr %154, align 1, !tbaa !226, !range !49, !noundef !50
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %157
 
-157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i
+157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 48
   %159 = load ptr, ptr %158, align 8, !tbaa !141
   %.not.i.i.i.i44.i.i.i.i = icmp eq ptr %159, null
@@ -95500,15 +95500,15 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %153, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.09.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
+  %.sroa.0.011.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %190
 
 190:                                              ; preds = %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, %.lr.ph.i.i.i.i
-  %.sroa.0.09.i38.sink.i.i.i.i = phi i64 [ %.sroa.0.09.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.011.i38.sink.i.i.i.i = phi i64 [ %.sroa.0.011.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
   %191 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  store i64 %.sroa.0.09.i38.sink.i.i.i.i, ptr %.2, align 8
+  store i64 %.sroa.0.011.i38.sink.i.i.i.i, ptr %.2, align 8
   %192 = add i64 %.411.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %192, %112
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !959
@@ -95717,7 +95717,7 @@ _ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i: ; preds = %_ZNK5arrow
 57:                                               ; preds = %_ZNK5arrow9Decimal647RescaleEii.exit.i.i.i.i.i
   %58 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %58, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, label %59
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, label %59
 
 59:                                               ; preds = %57
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -95747,16 +95747,16 @@ _ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i: ; preds = %67, %63, %60
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %59
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %57
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %57
   %68 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %57 ]
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 1
   %70 = load i8, ptr %69, align 1, !tbaa !226, !range !49, !noundef !50
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %72
 
-72:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i
+72:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %74 = load ptr, ptr %73, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %74, null
@@ -95830,11 +95830,11 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %68, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.09.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i ], [ %55, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %55, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %105 = getelementptr inbounds nuw i8, ptr %.4, i64 8
-  store i64 %.sroa.0.09.i.i.i.i.i, ptr %.4, align 8
+  store i64 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 8
   %106 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %107 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %106, %41
@@ -95943,7 +95943,7 @@ _ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i: ; preds = %_ZNK5arr
 140:                                              ; preds = %_ZNK5arrow9Decimal647RescaleEii.exit.i29.i.i.i.i
   %141 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i31.i.i.i.i = icmp eq ptr %141, %.pr.i30.i.i.i.i
-  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, label %142
+  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, label %142
 
 142:                                              ; preds = %140
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -95973,16 +95973,16 @@ _ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i: ; preds = %150, %146, %14
 _ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i:        ; preds = %142
   %.pre.i35.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i36.i.i.i.i = icmp eq ptr %.pre.i35.i.i.i.i, null
-  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %140
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %140
   %151 = phi ptr [ %.pre.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ %.pr.i30.i.i.i.i, %140 ]
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 1
   %153 = load i8, ptr %152, align 1, !tbaa !226, !range !49, !noundef !50
   %154 = trunc nuw i8 %153 to i1
   br i1 %154, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %155
 
-155:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i
+155:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i
   %156 = getelementptr inbounds nuw i8, ptr %151, i64 48
   %157 = load ptr, ptr %156, align 8, !tbaa !141
   %.not.i.i.i.i44.i.i.i.i = icmp eq ptr %157, null
@@ -96056,15 +96056,15 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %151, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.09.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i ], [ %138, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
+  %.sroa.0.011.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %138, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %188
 
 188:                                              ; preds = %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, %.lr.ph.i.i.i.i
-  %.sroa.0.09.i38.sink.i.i.i.i = phi i64 [ %.sroa.0.09.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.011.i38.sink.i.i.i.i = phi i64 [ %.sroa.0.011.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
   %189 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  store i64 %.sroa.0.09.i38.sink.i.i.i.i, ptr %.2, align 8
+  store i64 %.sroa.0.011.i38.sink.i.i.i.i, ptr %.2, align 8
   %190 = add i64 %.411.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %190, %111
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !979
@@ -96274,7 +96274,7 @@ _ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i: ; preds = %_ZNK5arrow
 58:                                               ; preds = %_ZNK5arrow9Decimal647RescaleEii.exit.i.i.i.i.i
   %59 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %59, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, label %60
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, label %60
 
 60:                                               ; preds = %58
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -96304,16 +96304,16 @@ _ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i: ; preds = %68, %64, %61
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %60
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
   %69 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %58 ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
   %71 = load i8, ptr %70, align 1, !tbaa !226, !range !49, !noundef !50
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %73
 
-73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i
+73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 48
   %75 = load ptr, ptr %74, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %75, null
@@ -96387,11 +96387,11 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.09.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %106 = getelementptr inbounds nuw i8, ptr %.4, i64 8
-  store i64 %.sroa.0.09.i.i.i.i.i, ptr %.4, align 8
+  store i64 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 8
   %107 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %108 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %107, %41
@@ -96501,7 +96501,7 @@ _ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i: ; preds = %_ZNK5arr
 142:                                              ; preds = %_ZNK5arrow9Decimal647RescaleEii.exit.i29.i.i.i.i
   %143 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i31.i.i.i.i = icmp eq ptr %143, %.pr.i30.i.i.i.i
-  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, label %144
+  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, label %144
 
 144:                                              ; preds = %142
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -96531,16 +96531,16 @@ _ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i: ; preds = %152, %148, %14
 _ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i:        ; preds = %144
   %.pre.i35.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i36.i.i.i.i = icmp eq ptr %.pre.i35.i.i.i.i, null
-  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
   %153 = phi ptr [ %.pre.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ %.pr.i30.i.i.i.i, %142 ]
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 1
   %155 = load i8, ptr %154, align 1, !tbaa !226, !range !49, !noundef !50
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %157
 
-157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i
+157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 48
   %159 = load ptr, ptr %158, align 8, !tbaa !141
   %.not.i.i.i.i44.i.i.i.i = icmp eq ptr %159, null
@@ -96614,15 +96614,15 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %153, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.09.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
+  %.sroa.0.011.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %190
 
 190:                                              ; preds = %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, %.lr.ph.i.i.i.i
-  %.sroa.0.09.i38.sink.i.i.i.i = phi i64 [ %.sroa.0.09.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.011.i38.sink.i.i.i.i = phi i64 [ %.sroa.0.011.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
   %191 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  store i64 %.sroa.0.09.i38.sink.i.i.i.i, ptr %.2, align 8
+  store i64 %.sroa.0.011.i38.sink.i.i.i.i, ptr %.2, align 8
   %192 = add i64 %.411.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %192, %112
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !999
@@ -96832,7 +96832,7 @@ _ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i: ; preds = %_ZNK5arrow
 58:                                               ; preds = %_ZNK5arrow9Decimal647RescaleEii.exit.i.i.i.i.i
   %59 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %59, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, label %60
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, label %60
 
 60:                                               ; preds = %58
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -96862,16 +96862,16 @@ _ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i: ; preds = %68, %64, %61
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %60
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
   %69 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %58 ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
   %71 = load i8, ptr %70, align 1, !tbaa !226, !range !49, !noundef !50
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %73
 
-73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i
+73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 48
   %75 = load ptr, ptr %74, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %75, null
@@ -96945,11 +96945,11 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.09.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %106 = getelementptr inbounds nuw i8, ptr %.4, i64 8
-  store i64 %.sroa.0.09.i.i.i.i.i, ptr %.4, align 8
+  store i64 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 8
   %107 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %108 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %107, %41
@@ -97059,7 +97059,7 @@ _ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i: ; preds = %_ZNK5arr
 142:                                              ; preds = %_ZNK5arrow9Decimal647RescaleEii.exit.i29.i.i.i.i
   %143 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i31.i.i.i.i = icmp eq ptr %143, %.pr.i30.i.i.i.i
-  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, label %144
+  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, label %144
 
 144:                                              ; preds = %142
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -97089,16 +97089,16 @@ _ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i: ; preds = %152, %148, %14
 _ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i:        ; preds = %144
   %.pre.i35.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i36.i.i.i.i = icmp eq ptr %.pre.i35.i.i.i.i, null
-  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
   %153 = phi ptr [ %.pre.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ %.pr.i30.i.i.i.i, %142 ]
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 1
   %155 = load i8, ptr %154, align 1, !tbaa !226, !range !49, !noundef !50
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %157
 
-157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i
+157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 48
   %159 = load ptr, ptr %158, align 8, !tbaa !141
   %.not.i.i.i.i44.i.i.i.i = icmp eq ptr %159, null
@@ -97172,15 +97172,15 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %153, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.09.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
+  %.sroa.0.011.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %190
 
 190:                                              ; preds = %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, %.lr.ph.i.i.i.i
-  %.sroa.0.09.i38.sink.i.i.i.i = phi i64 [ %.sroa.0.09.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.011.i38.sink.i.i.i.i = phi i64 [ %.sroa.0.011.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
   %191 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  store i64 %.sroa.0.09.i38.sink.i.i.i.i, ptr %.2, align 8
+  store i64 %.sroa.0.011.i38.sink.i.i.i.i, ptr %.2, align 8
   %192 = add i64 %.411.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %192, %112
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1019
@@ -97390,7 +97390,7 @@ _ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i: ; preds = %_ZNK5arrow
 58:                                               ; preds = %_ZNK5arrow9Decimal647RescaleEii.exit.i.i.i.i.i
   %59 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %59, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, label %60
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, label %60
 
 60:                                               ; preds = %58
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -97420,16 +97420,16 @@ _ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i: ; preds = %68, %64, %61
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %60
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %58
   %69 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %58 ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
   %71 = load i8, ptr %70, align 1, !tbaa !226, !range !49, !noundef !50
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %73
 
-73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i
+73:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 48
   %75 = load ptr, ptr %74, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %75, null
@@ -97503,11 +97503,11 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.09.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %106 = getelementptr inbounds nuw i8, ptr %.4, i64 8
-  store i64 %.sroa.0.09.i.i.i.i.i, ptr %.4, align 8
+  store i64 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 8
   %107 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %108 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %107, %41
@@ -97617,7 +97617,7 @@ _ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i: ; preds = %_ZNK5arr
 142:                                              ; preds = %_ZNK5arrow9Decimal647RescaleEii.exit.i29.i.i.i.i
   %143 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i31.i.i.i.i = icmp eq ptr %143, %.pr.i30.i.i.i.i
-  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, label %144
+  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, label %144
 
 144:                                              ; preds = %142
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -97647,16 +97647,16 @@ _ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i: ; preds = %152, %148, %14
 _ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i:        ; preds = %144
   %.pre.i35.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i36.i.i.i.i = icmp eq ptr %.pre.i35.i.i.i.i, null
-  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %142
   %153 = phi ptr [ %.pre.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ %.pr.i30.i.i.i.i, %142 ]
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 1
   %155 = load i8, ptr %154, align 1, !tbaa !226, !range !49, !noundef !50
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %157
 
-157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i
+157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 48
   %159 = load ptr, ptr %158, align 8, !tbaa !141
   %.not.i.i.i.i44.i.i.i.i = icmp eq ptr %159, null
@@ -97730,15 +97730,15 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %153, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.09.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
+  %.sroa.0.011.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %140, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %190
 
 190:                                              ; preds = %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, %.lr.ph.i.i.i.i
-  %.sroa.0.09.i38.sink.i.i.i.i = phi i64 [ %.sroa.0.09.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.011.i38.sink.i.i.i.i = phi i64 [ %.sroa.0.011.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
   %191 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  store i64 %.sroa.0.09.i38.sink.i.i.i.i, ptr %.2, align 8
+  store i64 %.sroa.0.011.i38.sink.i.i.i.i, ptr %.2, align 8
   %192 = add i64 %.411.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %192, %112
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1039
@@ -97947,7 +97947,7 @@ _ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i: ; preds = %_ZNK5arrow
 57:                                               ; preds = %_ZNK5arrow9Decimal647RescaleEii.exit.i.i.i.i.i
   %58 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %58, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, label %59
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, label %59
 
 59:                                               ; preds = %57
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -97977,16 +97977,16 @@ _ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i: ; preds = %67, %63, %60
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %59
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %57
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %57
   %68 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %57 ]
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 1
   %70 = load i8, ptr %69, align 1, !tbaa !226, !range !49, !noundef !50
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %72
 
-72:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i
+72:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %74 = load ptr, ptr %73, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %74, null
@@ -98060,11 +98060,11 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %68, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.09.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i.i.i.i.i ], [ %55, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %55, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %105 = getelementptr inbounds nuw i8, ptr %.4, i64 8
-  store i64 %.sroa.0.09.i.i.i.i.i, ptr %.4, align 8
+  store i64 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 8
   %106 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %107 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %106, %41
@@ -98173,7 +98173,7 @@ _ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i: ; preds = %_ZNK5arr
 140:                                              ; preds = %_ZNK5arrow9Decimal647RescaleEii.exit.i29.i.i.i.i
   %141 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i31.i.i.i.i = icmp eq ptr %141, %.pr.i30.i.i.i.i
-  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, label %142
+  br i1 %.not.i.i31.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, label %142
 
 142:                                              ; preds = %140
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -98203,16 +98203,16 @@ _ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i: ; preds = %150, %146, %14
 _ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i:        ; preds = %142
   %.pre.i35.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i36.i.i.i.i = icmp eq ptr %.pre.i35.i.i.i.i, null
-  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %140
+_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %140
   %151 = phi ptr [ %.pre.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ %.pr.i30.i.i.i.i, %140 ]
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 1
   %153 = load i8, ptr %152, align 1, !tbaa !226, !range !49, !noundef !50
   %154 = trunc nuw i8 %153 to i1
   br i1 %154, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, label %155
 
-155:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i
+155:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i
   %156 = getelementptr inbounds nuw i8, ptr %151, i64 48
   %157 = load ptr, ptr %156, align 8, !tbaa !141
   %.not.i.i.i.i44.i.i.i.i = icmp eq ptr %157, null
@@ -98286,15 +98286,15 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %151, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.09.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread10.i37.i.i.i.i ], [ %138, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
+  %.sroa.0.011.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %138, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %188
 
 188:                                              ; preds = %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i, %.lr.ph.i.i.i.i
-  %.sroa.0.09.i38.sink.i.i.i.i = phi i64 [ %.sroa.0.09.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.0.011.i38.sink.i.i.i.i = phi i64 [ %.sroa.0.011.i38.i.i.i.i, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
   %189 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  store i64 %.sroa.0.09.i38.sink.i.i.i.i, ptr %.2, align 8
+  store i64 %.sroa.0.011.i38.sink.i.i.i.i, ptr %.2, align 8
   %190 = add i64 %.411.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %190, %111
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1059
@@ -103825,9 +103825,9 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
 .noexc10:                                         ; preds = %.lr.ph19.i.i.i.i
   %42 = load ptr, ptr %7, align 8, !tbaa !70
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i.i.i.i, label %44, !prof !225
+  br i1 %43, label %_ZN5arrow6StatusaSERKS0_.exit.thread15.i.i.i.i.i.i.i.i, label %44, !prof !225
 
-_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i.i.i.i: ; preds = %.noexc10
+_ZN5arrow6StatusaSERKS0_.exit.thread15.i.i.i.i.i.i.i.i: ; preds = %.noexc10
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %30, align 8
   %.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i
@@ -103951,14 +103951,14 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef 56) #30
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i
 
-_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i.i.i.i
-  %.sroa.3.012.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i ], [ %.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
-  %.sroa.0.010.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread15.i.i.i.i.i.i.i.i
+  %.sroa.3.014.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i ], [ %.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread15.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.012.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread15.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %94 = getelementptr inbounds nuw i8, ptr %.5, i64 16
-  store i64 %.sroa.0.010.i.i.i.i.i.i.i.i, ptr %.5, align 8
+  store i64 %.sroa.0.012.i.i.i.i.i.i.i.i, ptr %.5, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.5, i64 8
-  store i64 %.sroa.3.012.i.i.i.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8
+  store i64 %.sroa.3.014.i.i.i.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8
   %95 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %96 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %95, %37
@@ -104015,9 +104015,9 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7comp
 .noexc11:                                         ; preds = %113
   %118 = load ptr, ptr %6, align 8, !tbaa !70
   %119 = icmp eq ptr %118, null
-  br i1 %119, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i38.i.i.i.i, label %120, !prof !225
+  br i1 %119, label %_ZN5arrow6StatusaSERKS0_.exit.thread15.i.i.i.i38.i.i.i.i, label %120, !prof !225
 
-_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i38.i.i.i.i: ; preds = %.noexc11
+_ZN5arrow6StatusaSERKS0_.exit.thread15.i.i.i.i38.i.i.i.i: ; preds = %.noexc11
   %.sroa.0.0.copyload.i.i.i.i.i39.i.i.i.i = load i64, ptr %29, align 8
   %.sroa.2.0.copyload.i.i.i.i.i41.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i40.i.i.i.i, align 8
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit42.i.i.i.i
@@ -104141,13 +104141,13 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %133, i64 noundef 56) #30
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit42.i.i.i.i
 
-_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit42.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i34.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i38.i.i.i.i
-  %.sroa.3.012.i.i.i.i35.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i34.i.i.i.i ], [ %.sroa.2.0.copyload.i.i.i.i.i41.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
-  %.sroa.0.010.i.i.i.i36.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i34.i.i.i.i ], [ %.sroa.0.0.copyload.i.i.i.i.i39.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit42.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i34.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread15.i.i.i.i38.i.i.i.i
+  %.sroa.3.014.i.i.i.i35.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i34.i.i.i.i ], [ %.sroa.2.0.copyload.i.i.i.i.i41.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread15.i.i.i.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+  %.sroa.0.012.i.i.i.i36.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i34.i.i.i.i ], [ %.sroa.0.0.copyload.i.i.i.i.i39.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread15.i.i.i.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  store i64 %.sroa.0.010.i.i.i.i36.i.i.i.i, ptr %.2, align 8
+  store i64 %.sroa.0.012.i.i.i.i36.i.i.i.i, ptr %.2, align 8
   %.sroa.4.0..sroa_idx.i.i.i37.i.i.i.i = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  store i64 %.sroa.3.012.i.i.i.i35.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i37.i.i.i.i, align 8
+  store i64 %.sroa.3.014.i.i.i.i35.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i37.i.i.i.i, align 8
   br label %171
 
 170:                                              ; preds = %.lr.ph.i.i.i.i
@@ -104310,9 +104310,9 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
 .noexc10:                                         ; preds = %.lr.ph19.i.i.i.i
   %42 = load ptr, ptr %7, align 8, !tbaa !70
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i.i.i.i, label %44, !prof !225
+  br i1 %43, label %_ZN5arrow6StatusaSERKS0_.exit.thread15.i.i.i.i.i.i.i.i, label %44, !prof !225
 
-_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i.i.i.i: ; preds = %.noexc10
+_ZN5arrow6StatusaSERKS0_.exit.thread15.i.i.i.i.i.i.i.i: ; preds = %.noexc10
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %30, align 8
   %.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i
@@ -104436,14 +104436,14 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef 56) #30
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i
 
-_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i.i.i.i
-  %.sroa.3.012.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i ], [ %.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
-  %.sroa.0.010.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread15.i.i.i.i.i.i.i.i
+  %.sroa.3.014.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i ], [ %.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread15.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.012.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread15.i.i.i.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %94 = getelementptr inbounds nuw i8, ptr %.5, i64 16
-  store i64 %.sroa.0.010.i.i.i.i.i.i.i.i, ptr %.5, align 8
+  store i64 %.sroa.0.012.i.i.i.i.i.i.i.i, ptr %.5, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.5, i64 8
-  store i64 %.sroa.3.012.i.i.i.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8
+  store i64 %.sroa.3.014.i.i.i.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8
   %95 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %96 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %95, %37
@@ -104500,9 +104500,9 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7co
 .noexc11:                                         ; preds = %113
   %118 = load ptr, ptr %6, align 8, !tbaa !70
   %119 = icmp eq ptr %118, null
-  br i1 %119, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i38.i.i.i.i, label %120, !prof !225
+  br i1 %119, label %_ZN5arrow6StatusaSERKS0_.exit.thread15.i.i.i.i38.i.i.i.i, label %120, !prof !225
 
-_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i38.i.i.i.i: ; preds = %.noexc11
+_ZN5arrow6StatusaSERKS0_.exit.thread15.i.i.i.i38.i.i.i.i: ; preds = %.noexc11
   %.sroa.0.0.copyload.i.i.i.i.i39.i.i.i.i = load i64, ptr %29, align 8
   %.sroa.2.0.copyload.i.i.i.i.i41.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i40.i.i.i.i, align 8
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit42.i.i.i.i
@@ -104626,13 +104626,13 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %133, i64 noundef 56) #30
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit42.i.i.i.i
 
-_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit42.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i34.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i38.i.i.i.i
-  %.sroa.3.012.i.i.i.i35.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i34.i.i.i.i ], [ %.sroa.2.0.copyload.i.i.i.i.i41.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
-  %.sroa.0.010.i.i.i.i36.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i34.i.i.i.i ], [ %.sroa.0.0.copyload.i.i.i.i.i39.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit42.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i34.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread15.i.i.i.i38.i.i.i.i
+  %.sroa.3.014.i.i.i.i35.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i34.i.i.i.i ], [ %.sroa.2.0.copyload.i.i.i.i.i41.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread15.i.i.i.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+  %.sroa.0.012.i.i.i.i36.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i31.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i34.i.i.i.i ], [ %.sroa.0.0.copyload.i.i.i.i.i39.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread15.i.i.i.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  store i64 %.sroa.0.010.i.i.i.i36.i.i.i.i, ptr %.2, align 8
+  store i64 %.sroa.0.012.i.i.i.i36.i.i.i.i, ptr %.2, align 8
   %.sroa.4.0..sroa_idx.i.i.i37.i.i.i.i = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  store i64 %.sroa.3.012.i.i.i.i35.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i37.i.i.i.i, align 8
+  store i64 %.sroa.3.014.i.i.i.i35.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i37.i.i.i.i, align 8
   br label %171
 
 170:                                              ; preds = %.lr.ph.i.i.i.i
@@ -105900,7 +105900,7 @@ _ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i:   ; preds = %_ZNK5arrow10Decimal
 61:                                               ; preds = %_ZNK5arrow10Decimal1287RescaleEii.exit.i.i.i.i.i
   %62 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %62, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, label %63
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, label %63
 
 63:                                               ; preds = %61
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -105930,16 +105930,16 @@ _ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i: ; preds = %71, %67, %64
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %63
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %61
+_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %61
   %72 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %61 ]
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %74 = load i8, ptr %73, align 1, !tbaa !226, !range !49, !noundef !50
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %76
 
-76:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i
+76:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %78 = load ptr, ptr %77, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %78, null
@@ -106013,14 +106013,14 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i
-  %.sroa.3.010.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
-  %.sroa.0.09.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i
+  %.sroa.3.012.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %109 = getelementptr inbounds nuw i8, ptr %.5, i64 16
-  store i64 %.sroa.0.09.i.i.i.i.i, ptr %.5, align 8
+  store i64 %.sroa.0.011.i.i.i.i.i, ptr %.5, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.5, i64 8
-  store i64 %.sroa.3.010.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8
+  store i64 %.sroa.3.012.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8
   %110 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %111 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %110, %45
@@ -106134,7 +106134,7 @@ _ZN5arrow6StatusaSERKS0_.exit.thread.i45.i.i.i.i: ; preds = %_ZNK5arrow10Decimal
 144:                                              ; preds = %_ZNK5arrow10Decimal1287RescaleEii.exit.i32.i.i.i.i
   %145 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i34.i.i.i.i = icmp eq ptr %145, %.pr.i33.i.i.i.i
-  br i1 %.not.i.i34.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i40.i.i.i.i, label %146
+  br i1 %.not.i.i34.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i40.i.i.i.i, label %146
 
 146:                                              ; preds = %144
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -106164,16 +106164,16 @@ _ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i36.i.i.i.i: ; preds = %154, %150, %
 _ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i:        ; preds = %146
   %.pre.i38.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i39.i.i.i.i = icmp eq ptr %.pre.i38.i.i.i.i, null
-  br i1 %.not.i.i4.i39.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit50.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i40.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i39.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit50.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i40.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread11.i40.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i, %144
+_ZN5arrow6StatusaSERKS0_.exit.thread13.i40.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i, %144
   %155 = phi ptr [ %.pre.i38.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i ], [ %.pr.i33.i.i.i.i, %144 ]
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 1
   %157 = load i8, ptr %156, align 1, !tbaa !226, !range !49, !noundef !50
   %158 = trunc nuw i8 %157 to i1
   br i1 %158, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit50.i.i.i.i, label %159
 
-159:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i40.i.i.i.i
+159:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread13.i40.i.i.i.i
   %160 = getelementptr inbounds nuw i8, ptr %155, i64 48
   %161 = load ptr, ptr %160, align 8, !tbaa !141
   %.not.i.i.i.i51.i.i.i.i = icmp eq ptr %161, null
@@ -106247,13 +106247,13 @@ _ZN5arrow6Status5StateD2Ev.exit.i57.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %155, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit50.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit50.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i57.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i40.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i45.i.i.i.i
-  %.sroa.3.010.i41.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i48.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i45.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i40.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i57.i.i.i.i ]
-  %.sroa.0.09.i42.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i46.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i45.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i40.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i57.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit50.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i57.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i40.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i45.i.i.i.i
+  %.sroa.3.012.i41.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i48.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i45.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i40.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i57.i.i.i.i ]
+  %.sroa.0.011.i42.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i46.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i45.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i40.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i57.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  store i64 %.sroa.0.09.i42.i.i.i.i, ptr %.2, align 8
+  store i64 %.sroa.0.011.i42.i.i.i.i, ptr %.2, align 8
   %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  store i64 %.sroa.3.010.i41.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i, align 8
+  store i64 %.sroa.3.012.i41.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i, align 8
   br label %193
 
 192:                                              ; preds = %.lr.ph.i.i.i.i
@@ -106479,7 +106479,7 @@ _ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i:   ; preds = %_ZNK5arrow10Decimal
 61:                                               ; preds = %_ZNK5arrow10Decimal1287RescaleEii.exit.i.i.i.i.i
   %62 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %62, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, label %63
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, label %63
 
 63:                                               ; preds = %61
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -106509,16 +106509,16 @@ _ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i: ; preds = %71, %67, %64
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %63
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %61
+_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %61
   %72 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %61 ]
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %74 = load i8, ptr %73, align 1, !tbaa !226, !range !49, !noundef !50
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %76
 
-76:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i
+76:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %78 = load ptr, ptr %77, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %78, null
@@ -106592,14 +106592,14 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i
-  %.sroa.3.010.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
-  %.sroa.0.09.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i
+  %.sroa.3.012.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %109 = getelementptr inbounds nuw i8, ptr %.5, i64 16
-  store i64 %.sroa.0.09.i.i.i.i.i, ptr %.5, align 8
+  store i64 %.sroa.0.011.i.i.i.i.i, ptr %.5, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.5, i64 8
-  store i64 %.sroa.3.010.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8
+  store i64 %.sroa.3.012.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8
   %110 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %111 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %110, %45
@@ -106713,7 +106713,7 @@ _ZN5arrow6StatusaSERKS0_.exit.thread.i45.i.i.i.i: ; preds = %_ZNK5arrow10Decimal
 144:                                              ; preds = %_ZNK5arrow10Decimal1287RescaleEii.exit.i32.i.i.i.i
   %145 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i34.i.i.i.i = icmp eq ptr %145, %.pr.i33.i.i.i.i
-  br i1 %.not.i.i34.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i40.i.i.i.i, label %146
+  br i1 %.not.i.i34.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i40.i.i.i.i, label %146
 
 146:                                              ; preds = %144
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -106743,16 +106743,16 @@ _ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i36.i.i.i.i: ; preds = %154, %150, %
 _ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i:        ; preds = %146
   %.pre.i38.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i39.i.i.i.i = icmp eq ptr %.pre.i38.i.i.i.i, null
-  br i1 %.not.i.i4.i39.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit50.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i40.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i39.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit50.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i40.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread11.i40.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i, %144
+_ZN5arrow6StatusaSERKS0_.exit.thread13.i40.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i, %144
   %155 = phi ptr [ %.pre.i38.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i ], [ %.pr.i33.i.i.i.i, %144 ]
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 1
   %157 = load i8, ptr %156, align 1, !tbaa !226, !range !49, !noundef !50
   %158 = trunc nuw i8 %157 to i1
   br i1 %158, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit50.i.i.i.i, label %159
 
-159:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i40.i.i.i.i
+159:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread13.i40.i.i.i.i
   %160 = getelementptr inbounds nuw i8, ptr %155, i64 48
   %161 = load ptr, ptr %160, align 8, !tbaa !141
   %.not.i.i.i.i51.i.i.i.i = icmp eq ptr %161, null
@@ -106826,13 +106826,13 @@ _ZN5arrow6Status5StateD2Ev.exit.i57.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %155, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit50.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit50.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i57.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i40.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i45.i.i.i.i
-  %.sroa.3.010.i41.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i48.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i45.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i40.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i57.i.i.i.i ]
-  %.sroa.0.09.i42.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i46.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i45.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i40.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i57.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit50.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i57.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i40.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i45.i.i.i.i
+  %.sroa.3.012.i41.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i48.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i45.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i40.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i57.i.i.i.i ]
+  %.sroa.0.011.i42.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i46.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i45.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i40.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i57.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  store i64 %.sroa.0.09.i42.i.i.i.i, ptr %.2, align 8
+  store i64 %.sroa.0.011.i42.i.i.i.i, ptr %.2, align 8
   %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  store i64 %.sroa.3.010.i41.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i, align 8
+  store i64 %.sroa.3.012.i41.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i, align 8
   br label %193
 
 192:                                              ; preds = %.lr.ph.i.i.i.i
@@ -107058,7 +107058,7 @@ _ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i:   ; preds = %_ZNK5arrow10Decimal
 61:                                               ; preds = %_ZNK5arrow10Decimal1287RescaleEii.exit.i.i.i.i.i
   %62 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %62, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, label %63
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, label %63
 
 63:                                               ; preds = %61
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -107088,16 +107088,16 @@ _ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i: ; preds = %71, %67, %64
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %63
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %61
+_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %61
   %72 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %61 ]
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %74 = load i8, ptr %73, align 1, !tbaa !226, !range !49, !noundef !50
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %76
 
-76:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i
+76:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %78 = load ptr, ptr %77, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %78, null
@@ -107171,14 +107171,14 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i
-  %.sroa.3.010.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
-  %.sroa.0.09.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i
+  %.sroa.3.012.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %109 = getelementptr inbounds nuw i8, ptr %.5, i64 16
-  store i64 %.sroa.0.09.i.i.i.i.i, ptr %.5, align 8
+  store i64 %.sroa.0.011.i.i.i.i.i, ptr %.5, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.5, i64 8
-  store i64 %.sroa.3.010.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8
+  store i64 %.sroa.3.012.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8
   %110 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %111 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %110, %45
@@ -107292,7 +107292,7 @@ _ZN5arrow6StatusaSERKS0_.exit.thread.i45.i.i.i.i: ; preds = %_ZNK5arrow10Decimal
 144:                                              ; preds = %_ZNK5arrow10Decimal1287RescaleEii.exit.i32.i.i.i.i
   %145 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i34.i.i.i.i = icmp eq ptr %145, %.pr.i33.i.i.i.i
-  br i1 %.not.i.i34.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i40.i.i.i.i, label %146
+  br i1 %.not.i.i34.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i40.i.i.i.i, label %146
 
 146:                                              ; preds = %144
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -107322,16 +107322,16 @@ _ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i36.i.i.i.i: ; preds = %154, %150, %
 _ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i:        ; preds = %146
   %.pre.i38.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i39.i.i.i.i = icmp eq ptr %.pre.i38.i.i.i.i, null
-  br i1 %.not.i.i4.i39.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit50.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i40.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i39.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit50.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i40.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread11.i40.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i, %144
+_ZN5arrow6StatusaSERKS0_.exit.thread13.i40.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i, %144
   %155 = phi ptr [ %.pre.i38.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i ], [ %.pr.i33.i.i.i.i, %144 ]
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 1
   %157 = load i8, ptr %156, align 1, !tbaa !226, !range !49, !noundef !50
   %158 = trunc nuw i8 %157 to i1
   br i1 %158, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit50.i.i.i.i, label %159
 
-159:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i40.i.i.i.i
+159:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread13.i40.i.i.i.i
   %160 = getelementptr inbounds nuw i8, ptr %155, i64 48
   %161 = load ptr, ptr %160, align 8, !tbaa !141
   %.not.i.i.i.i51.i.i.i.i = icmp eq ptr %161, null
@@ -107405,13 +107405,13 @@ _ZN5arrow6Status5StateD2Ev.exit.i57.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %155, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit50.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit50.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i57.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i40.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i45.i.i.i.i
-  %.sroa.3.010.i41.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i48.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i45.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i40.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i57.i.i.i.i ]
-  %.sroa.0.09.i42.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i46.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i45.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i40.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i57.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit50.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i57.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i40.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i45.i.i.i.i
+  %.sroa.3.012.i41.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i48.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i45.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i40.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i57.i.i.i.i ]
+  %.sroa.0.011.i42.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i46.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i45.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i37.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i40.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i57.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  store i64 %.sroa.0.09.i42.i.i.i.i, ptr %.2, align 8
+  store i64 %.sroa.0.011.i42.i.i.i.i, ptr %.2, align 8
   %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  store i64 %.sroa.3.010.i41.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i, align 8
+  store i64 %.sroa.3.012.i41.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i, align 8
   br label %193
 
 192:                                              ; preds = %.lr.ph.i.i.i.i
@@ -107635,7 +107635,7 @@ _ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i:   ; preds = %_ZNK5arrow10Decimal
 60:                                               ; preds = %_ZNK5arrow10Decimal1287RescaleEii.exit.i.i.i.i.i
   %61 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %61, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, label %62
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, label %62
 
 62:                                               ; preds = %60
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -107665,16 +107665,16 @@ _ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i: ; preds = %70, %66, %63
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %62
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %60
+_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %60
   %71 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %60 ]
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
   %73 = load i8, ptr %72, align 1, !tbaa !226, !range !49, !noundef !50
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %75
 
-75:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i
+75:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 48
   %77 = load ptr, ptr %76, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %77, null
@@ -107748,14 +107748,14 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i
-  %.sroa.3.010.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
-  %.sroa.0.09.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i
+  %.sroa.3.012.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %108 = getelementptr inbounds nuw i8, ptr %.5, i64 16
-  store i64 %.sroa.0.09.i.i.i.i.i, ptr %.5, align 8
+  store i64 %.sroa.0.011.i.i.i.i.i, ptr %.5, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.5, i64 8
-  store i64 %.sroa.3.010.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8
+  store i64 %.sroa.3.012.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8
   %109 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %110 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %109, %45
@@ -107867,7 +107867,7 @@ _ZN5arrow6StatusaSERKS0_.exit.thread.i44.i.i.i.i: ; preds = %_ZNK5arrow10Decimal
 142:                                              ; preds = %_ZNK5arrow10Decimal1287RescaleEii.exit.i31.i.i.i.i
   %143 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i33.i.i.i.i = icmp eq ptr %143, %.pr.i32.i.i.i.i
-  br i1 %.not.i.i33.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i39.i.i.i.i, label %144
+  br i1 %.not.i.i33.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i39.i.i.i.i, label %144
 
 144:                                              ; preds = %142
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -107897,16 +107897,16 @@ _ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i35.i.i.i.i: ; preds = %152, %148, %
 _ZN5arrow6StatusaSERKS0_.exit.i36.i.i.i.i:        ; preds = %144
   %.pre.i37.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i38.i.i.i.i = icmp eq ptr %.pre.i37.i.i.i.i, null
-  br i1 %.not.i.i4.i38.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit49.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i39.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i38.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit49.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i39.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread11.i39.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i36.i.i.i.i, %142
+_ZN5arrow6StatusaSERKS0_.exit.thread13.i39.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i36.i.i.i.i, %142
   %153 = phi ptr [ %.pre.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i36.i.i.i.i ], [ %.pr.i32.i.i.i.i, %142 ]
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 1
   %155 = load i8, ptr %154, align 1, !tbaa !226, !range !49, !noundef !50
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit49.i.i.i.i, label %157
 
-157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i39.i.i.i.i
+157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread13.i39.i.i.i.i
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 48
   %159 = load ptr, ptr %158, align 8, !tbaa !141
   %.not.i.i.i.i50.i.i.i.i = icmp eq ptr %159, null
@@ -107980,13 +107980,13 @@ _ZN5arrow6Status5StateD2Ev.exit.i56.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %153, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit49.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit49.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i56.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i39.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i36.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i44.i.i.i.i
-  %.sroa.3.010.i40.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i47.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i44.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i36.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i56.i.i.i.i ]
-  %.sroa.0.09.i41.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i45.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i44.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i36.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i56.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit49.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i56.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i39.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i36.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i44.i.i.i.i
+  %.sroa.3.012.i40.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i47.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i44.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i36.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i56.i.i.i.i ]
+  %.sroa.0.011.i41.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i45.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i44.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i36.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i56.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  store i64 %.sroa.0.09.i41.i.i.i.i, ptr %.2, align 8
+  store i64 %.sroa.0.011.i41.i.i.i.i, ptr %.2, align 8
   %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  store i64 %.sroa.3.010.i40.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i, align 8
+  store i64 %.sroa.3.012.i40.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i, align 8
   br label %191
 
 190:                                              ; preds = %.lr.ph.i.i.i.i
@@ -108210,7 +108210,7 @@ _ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i:   ; preds = %_ZNK5arrow10Decimal
 61:                                               ; preds = %_ZNK5arrow10Decimal1287RescaleEii.exit.i.i.i.i.i
   %62 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %62, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, label %63
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, label %63
 
 63:                                               ; preds = %61
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -108240,16 +108240,16 @@ _ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i: ; preds = %71, %67, %64
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %63
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %61
+_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %61
   %72 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %61 ]
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %74 = load i8, ptr %73, align 1, !tbaa !226, !range !49, !noundef !50
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %76
 
-76:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i
+76:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %78 = load ptr, ptr %77, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %78, null
@@ -108323,14 +108323,14 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i
-  %.sroa.3.010.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
-  %.sroa.0.09.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i
+  %.sroa.3.012.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %109 = getelementptr inbounds nuw i8, ptr %.5, i64 16
-  store i64 %.sroa.0.09.i.i.i.i.i, ptr %.5, align 8
+  store i64 %.sroa.0.011.i.i.i.i.i, ptr %.5, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.5, i64 8
-  store i64 %.sroa.3.010.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8
+  store i64 %.sroa.3.012.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8
   %110 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %111 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %110, %45
@@ -108442,7 +108442,7 @@ _ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i: ; preds = %_ZNK5arrow10Decimal
 144:                                              ; preds = %_ZNK5arrow10Decimal1287RescaleEii.exit.i30.i.i.i.i
   %145 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i32.i.i.i.i = icmp eq ptr %145, %.pr.i31.i.i.i.i
-  br i1 %.not.i.i32.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i, label %146
+  br i1 %.not.i.i32.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i, label %146
 
 146:                                              ; preds = %144
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -108472,16 +108472,16 @@ _ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i34.i.i.i.i: ; preds = %154, %150, %
 _ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i:        ; preds = %146
   %.pre.i36.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i37.i.i.i.i = icmp eq ptr %.pre.i36.i.i.i.i, null
-  br i1 %.not.i.i4.i37.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i37.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i, %144
+_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i, %144
   %155 = phi ptr [ %.pre.i36.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i ], [ %.pr.i31.i.i.i.i, %144 ]
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 1
   %157 = load i8, ptr %156, align 1, !tbaa !226, !range !49, !noundef !50
   %158 = trunc nuw i8 %157 to i1
   br i1 %158, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i, label %159
 
-159:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i
+159:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i
   %160 = getelementptr inbounds nuw i8, ptr %155, i64 48
   %161 = load ptr, ptr %160, align 8, !tbaa !141
   %.not.i.i.i.i49.i.i.i.i = icmp eq ptr %161, null
@@ -108555,13 +108555,13 @@ _ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %155, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i
-  %.sroa.3.010.i39.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i46.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i ]
-  %.sroa.0.09.i40.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i44.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i
+  %.sroa.3.012.i39.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i46.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i ]
+  %.sroa.0.011.i40.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i44.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  store i64 %.sroa.0.09.i40.i.i.i.i, ptr %.2, align 8
+  store i64 %.sroa.0.011.i40.i.i.i.i, ptr %.2, align 8
   %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  store i64 %.sroa.3.010.i39.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i, align 8
+  store i64 %.sroa.3.012.i39.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i, align 8
   br label %193
 
 192:                                              ; preds = %.lr.ph.i.i.i.i
@@ -108785,7 +108785,7 @@ _ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i:   ; preds = %_ZNK5arrow10Decimal
 61:                                               ; preds = %_ZNK5arrow10Decimal1287RescaleEii.exit.i.i.i.i.i
   %62 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %62, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, label %63
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, label %63
 
 63:                                               ; preds = %61
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -108815,16 +108815,16 @@ _ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i: ; preds = %71, %67, %64
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %63
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %61
+_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %61
   %72 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %61 ]
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %74 = load i8, ptr %73, align 1, !tbaa !226, !range !49, !noundef !50
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %76
 
-76:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i
+76:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %78 = load ptr, ptr %77, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %78, null
@@ -108898,14 +108898,14 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i
-  %.sroa.3.010.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
-  %.sroa.0.09.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i
+  %.sroa.3.012.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %109 = getelementptr inbounds nuw i8, ptr %.5, i64 16
-  store i64 %.sroa.0.09.i.i.i.i.i, ptr %.5, align 8
+  store i64 %.sroa.0.011.i.i.i.i.i, ptr %.5, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.5, i64 8
-  store i64 %.sroa.3.010.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8
+  store i64 %.sroa.3.012.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8
   %110 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %111 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %110, %45
@@ -109017,7 +109017,7 @@ _ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i: ; preds = %_ZNK5arrow10Decimal
 144:                                              ; preds = %_ZNK5arrow10Decimal1287RescaleEii.exit.i30.i.i.i.i
   %145 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i32.i.i.i.i = icmp eq ptr %145, %.pr.i31.i.i.i.i
-  br i1 %.not.i.i32.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i, label %146
+  br i1 %.not.i.i32.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i, label %146
 
 146:                                              ; preds = %144
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -109047,16 +109047,16 @@ _ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i34.i.i.i.i: ; preds = %154, %150, %
 _ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i:        ; preds = %146
   %.pre.i36.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i37.i.i.i.i = icmp eq ptr %.pre.i36.i.i.i.i, null
-  br i1 %.not.i.i4.i37.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i37.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i, %144
+_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i, %144
   %155 = phi ptr [ %.pre.i36.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i ], [ %.pr.i31.i.i.i.i, %144 ]
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 1
   %157 = load i8, ptr %156, align 1, !tbaa !226, !range !49, !noundef !50
   %158 = trunc nuw i8 %157 to i1
   br i1 %158, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i, label %159
 
-159:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i
+159:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i
   %160 = getelementptr inbounds nuw i8, ptr %155, i64 48
   %161 = load ptr, ptr %160, align 8, !tbaa !141
   %.not.i.i.i.i49.i.i.i.i = icmp eq ptr %161, null
@@ -109130,13 +109130,13 @@ _ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %155, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i
-  %.sroa.3.010.i39.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i46.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i ]
-  %.sroa.0.09.i40.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i44.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i
+  %.sroa.3.012.i39.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i46.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i ]
+  %.sroa.0.011.i40.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i44.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  store i64 %.sroa.0.09.i40.i.i.i.i, ptr %.2, align 8
+  store i64 %.sroa.0.011.i40.i.i.i.i, ptr %.2, align 8
   %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  store i64 %.sroa.3.010.i39.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i, align 8
+  store i64 %.sroa.3.012.i39.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i, align 8
   br label %193
 
 192:                                              ; preds = %.lr.ph.i.i.i.i
@@ -109360,7 +109360,7 @@ _ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i:   ; preds = %_ZNK5arrow10Decimal
 61:                                               ; preds = %_ZNK5arrow10Decimal1287RescaleEii.exit.i.i.i.i.i
   %62 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %62, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, label %63
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, label %63
 
 63:                                               ; preds = %61
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -109390,16 +109390,16 @@ _ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i: ; preds = %71, %67, %64
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %63
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %61
+_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %61
   %72 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %61 ]
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %74 = load i8, ptr %73, align 1, !tbaa !226, !range !49, !noundef !50
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %76
 
-76:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i
+76:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %78 = load ptr, ptr %77, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %78, null
@@ -109473,14 +109473,14 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i
-  %.sroa.3.010.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
-  %.sroa.0.09.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i
+  %.sroa.3.012.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %109 = getelementptr inbounds nuw i8, ptr %.5, i64 16
-  store i64 %.sroa.0.09.i.i.i.i.i, ptr %.5, align 8
+  store i64 %.sroa.0.011.i.i.i.i.i, ptr %.5, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.5, i64 8
-  store i64 %.sroa.3.010.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8
+  store i64 %.sroa.3.012.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8
   %110 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %111 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %110, %45
@@ -109592,7 +109592,7 @@ _ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i: ; preds = %_ZNK5arrow10Decimal
 144:                                              ; preds = %_ZNK5arrow10Decimal1287RescaleEii.exit.i30.i.i.i.i
   %145 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i32.i.i.i.i = icmp eq ptr %145, %.pr.i31.i.i.i.i
-  br i1 %.not.i.i32.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i, label %146
+  br i1 %.not.i.i32.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i, label %146
 
 146:                                              ; preds = %144
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -109622,16 +109622,16 @@ _ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i34.i.i.i.i: ; preds = %154, %150, %
 _ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i:        ; preds = %146
   %.pre.i36.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i37.i.i.i.i = icmp eq ptr %.pre.i36.i.i.i.i, null
-  br i1 %.not.i.i4.i37.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i37.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i, %144
+_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i, %144
   %155 = phi ptr [ %.pre.i36.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i ], [ %.pr.i31.i.i.i.i, %144 ]
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 1
   %157 = load i8, ptr %156, align 1, !tbaa !226, !range !49, !noundef !50
   %158 = trunc nuw i8 %157 to i1
   br i1 %158, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i, label %159
 
-159:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i
+159:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i
   %160 = getelementptr inbounds nuw i8, ptr %155, i64 48
   %161 = load ptr, ptr %160, align 8, !tbaa !141
   %.not.i.i.i.i49.i.i.i.i = icmp eq ptr %161, null
@@ -109705,13 +109705,13 @@ _ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %155, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i
-  %.sroa.3.010.i39.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i46.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i ]
-  %.sroa.0.09.i40.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i44.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i
+  %.sroa.3.012.i39.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i46.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i ]
+  %.sroa.0.011.i40.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i44.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  store i64 %.sroa.0.09.i40.i.i.i.i, ptr %.2, align 8
+  store i64 %.sroa.0.011.i40.i.i.i.i, ptr %.2, align 8
   %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  store i64 %.sroa.3.010.i39.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i, align 8
+  store i64 %.sroa.3.012.i39.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i, align 8
   br label %193
 
 192:                                              ; preds = %.lr.ph.i.i.i.i
@@ -109934,7 +109934,7 @@ _ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i:   ; preds = %_ZNK5arrow10Decimal
 60:                                               ; preds = %_ZNK5arrow10Decimal1287RescaleEii.exit.i.i.i.i.i
   %61 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i.i.i.i.i = icmp eq ptr %61, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, label %62
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, label %62
 
 62:                                               ; preds = %60
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -109964,16 +109964,16 @@ _ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i: ; preds = %70, %66, %63
 _ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i:          ; preds = %62
   %.pre.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !70
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %60
+_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %60
   %71 = phi ptr [ %.pre.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ %.pr.i.i.i.i.i, %60 ]
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
   %73 = load i8, ptr %72, align 1, !tbaa !226, !range !49, !noundef !50
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %75
 
-75:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i
+75:                                               ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 48
   %77 = load ptr, ptr %76, align 8, !tbaa !141
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %77, null
@@ -110047,14 +110047,14 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i
-  %.sroa.3.010.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
-  %.sroa.0.09.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i
+  %.sroa.3.012.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %108 = getelementptr inbounds nuw i8, ptr %.5, i64 16
-  store i64 %.sroa.0.09.i.i.i.i.i, ptr %.5, align 8
+  store i64 %.sroa.0.011.i.i.i.i.i, ptr %.5, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.5, i64 8
-  store i64 %.sroa.3.010.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8
+  store i64 %.sroa.3.012.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8
   %109 = add nuw nsw i64 %.02318.i.i.i.i, 1
   %110 = add nsw i64 %.117.i.i.i.i, 1
   %exitcond28.not.i.i.i.i = icmp eq i64 %109, %45
@@ -110165,7 +110165,7 @@ _ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i: ; preds = %_ZNK5arrow10Decimal
 142:                                              ; preds = %_ZNK5arrow10Decimal1287RescaleEii.exit.i30.i.i.i.i
   %143 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i.i32.i.i.i.i = icmp eq ptr %143, %.pr.i31.i.i.i.i
-  br i1 %.not.i.i32.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i, label %144
+  br i1 %.not.i.i32.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i, label %144
 
 144:                                              ; preds = %142
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -110195,16 +110195,16 @@ _ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i34.i.i.i.i: ; preds = %152, %148, %
 _ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i:        ; preds = %144
   %.pre.i36.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !70
   %.not.i.i4.i37.i.i.i.i = icmp eq ptr %.pre.i36.i.i.i.i, null
-  br i1 %.not.i.i4.i37.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i, !prof !443
+  br i1 %.not.i.i4.i37.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i, label %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i, !prof !443
 
-_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i, %142
+_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i: ; preds = %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i, %142
   %153 = phi ptr [ %.pre.i36.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i ], [ %.pr.i31.i.i.i.i, %142 ]
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 1
   %155 = load i8, ptr %154, align 1, !tbaa !226, !range !49, !noundef !50
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i, label %157
 
-157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i
+157:                                              ; preds = %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 48
   %159 = load ptr, ptr %158, align 8, !tbaa !141
   %.not.i.i.i.i49.i.i.i.i = icmp eq ptr %159, null
@@ -110278,13 +110278,13 @@ _ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i:      ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZdlPvm(ptr noundef nonnull %153, i64 noundef 56) #30
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i
 
-_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i
-  %.sroa.3.010.i39.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i46.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i ]
-  %.sroa.0.09.i40.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i44.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread11.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i ]
+_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit48.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i
+  %.sroa.3.012.i39.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i46.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i ]
+  %.sroa.0.011.i40.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i44.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread.i43.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i35.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread13.i38.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i55.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  store i64 %.sroa.0.09.i40.i.i.i.i, ptr %.2, align 8
+  store i64 %.sroa.0.011.i40.i.i.i.i, ptr %.2, align 8
   %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  store i64 %.sroa.3.010.i39.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i, align 8
+  store i64 %.sroa.3.012.i39.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i28.i.i.i.i, align 8
   br label %191
 
 190:                                              ; preds = %.lr.ph.i.i.i.i
@@ -115805,7 +115805,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   %47 = load ptr, ptr %0, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %47, %42
   %or.cond = select i1 %46, i1 true, i1 %.not.i.i.i.i.i.i.i.i.i
-  br i1 %or.cond, label %.thread8.i.i.i.i.i.i.i.i, label %48
+  br i1 %or.cond, label %.thread10.i.i.i.i.i.i.i.i, label %48
 
 48:                                               ; preds = %44
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -115832,7 +115832,7 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %56, %52,
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1564
   br label %.body
 
-.thread8.i.i.i.i.i.i.i.i:                         ; preds = %44
+.thread10.i.i.i.i.i.i.i.i:                        ; preds = %44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !1564
   br label %58
 
@@ -115842,8 +115842,8 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %56, %52,
   %.not.i.i4.i.i.i.i.i.i.i.i = icmp eq ptr %.pre.pre.i.i.i.i.i.i.i.i, null
   br i1 %.not.i.i4.i.i.i.i.i.i.i.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal256TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i, label %58, !prof !443
 
-58:                                               ; preds = %57, %.thread8.i.i.i.i.i.i.i.i
-  %59 = phi ptr [ %42, %.thread8.i.i.i.i.i.i.i.i ], [ %.pre.pre.i.i.i.i.i.i.i.i, %57 ]
+58:                                               ; preds = %57, %.thread10.i.i.i.i.i.i.i.i
+  %59 = phi ptr [ %42, %.thread10.i.i.i.i.i.i.i.i ], [ %.pre.pre.i.i.i.i.i.i.i.i, %57 ]
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 1
   %61 = load i8, ptr %60, align 1, !tbaa !226, !range !49, !noalias !1564, !noundef !50
   %62 = trunc nuw i8 %61 to i1
@@ -115998,7 +115998,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7comp
   %125 = load ptr, ptr %0, align 8
   %.not.i.i.i.i.i29.i.i.i.i = icmp eq ptr %125, %120
   %or.cond19 = select i1 %124, i1 true, i1 %.not.i.i.i.i.i29.i.i.i.i
-  br i1 %or.cond19, label %.thread8.i.i.i.i35.i.i.i.i, label %126
+  br i1 %or.cond19, label %.thread10.i.i.i.i35.i.i.i.i, label %126
 
 126:                                              ; preds = %122
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -116025,7 +116025,7 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i31.i.i.i.i: ; preds = %134, %
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1568
   br label %.body
 
-.thread8.i.i.i.i35.i.i.i.i:                       ; preds = %122
+.thread10.i.i.i.i35.i.i.i.i:                      ; preds = %122
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i28.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !1568
   br label %136
 
@@ -116035,8 +116035,8 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i31.i.i.i.i: ; preds = %134, %
   %.not.i.i4.i.i.i.i33.i.i.i.i = icmp eq ptr %.pre.pre.i.i.i.i32.i.i.i.i, null
   br i1 %.not.i.i4.i.i.i.i33.i.i.i.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal256TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit37.i.i.i.i, label %136, !prof !443
 
-136:                                              ; preds = %135, %.thread8.i.i.i.i35.i.i.i.i
-  %137 = phi ptr [ %120, %.thread8.i.i.i.i35.i.i.i.i ], [ %.pre.pre.i.i.i.i32.i.i.i.i, %135 ]
+136:                                              ; preds = %135, %.thread10.i.i.i.i35.i.i.i.i
+  %137 = phi ptr [ %120, %.thread10.i.i.i.i35.i.i.i.i ], [ %.pre.pre.i.i.i.i32.i.i.i.i, %135 ]
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 1
   %139 = load i8, ptr %138, align 1, !tbaa !226, !range !49, !noalias !1568, !noundef !50
   %140 = trunc nuw i8 %139 to i1
@@ -116296,7 +116296,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   %47 = load ptr, ptr %0, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %47, %42
   %or.cond = select i1 %46, i1 true, i1 %.not.i.i.i.i.i.i.i.i.i
-  br i1 %or.cond, label %.thread8.i.i.i.i.i.i.i.i, label %48
+  br i1 %or.cond, label %.thread10.i.i.i.i.i.i.i.i, label %48
 
 48:                                               ; preds = %44
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -116323,7 +116323,7 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %56, %52,
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1576
   br label %.body
 
-.thread8.i.i.i.i.i.i.i.i:                         ; preds = %44
+.thread10.i.i.i.i.i.i.i.i:                        ; preds = %44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !1576
   br label %58
 
@@ -116333,8 +116333,8 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %56, %52,
   %.not.i.i4.i.i.i.i.i.i.i.i = icmp eq ptr %.pre.pre.i.i.i.i.i.i.i.i, null
   br i1 %.not.i.i4.i.i.i.i.i.i.i.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal256TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i, label %58, !prof !443
 
-58:                                               ; preds = %57, %.thread8.i.i.i.i.i.i.i.i
-  %59 = phi ptr [ %42, %.thread8.i.i.i.i.i.i.i.i ], [ %.pre.pre.i.i.i.i.i.i.i.i, %57 ]
+58:                                               ; preds = %57, %.thread10.i.i.i.i.i.i.i.i
+  %59 = phi ptr [ %42, %.thread10.i.i.i.i.i.i.i.i ], [ %.pre.pre.i.i.i.i.i.i.i.i, %57 ]
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 1
   %61 = load i8, ptr %60, align 1, !tbaa !226, !range !49, !noalias !1576, !noundef !50
   %62 = trunc nuw i8 %61 to i1
@@ -116489,7 +116489,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7co
   %125 = load ptr, ptr %0, align 8
   %.not.i.i.i.i.i29.i.i.i.i = icmp eq ptr %125, %120
   %or.cond19 = select i1 %124, i1 true, i1 %.not.i.i.i.i.i29.i.i.i.i
-  br i1 %or.cond19, label %.thread8.i.i.i.i35.i.i.i.i, label %126
+  br i1 %or.cond19, label %.thread10.i.i.i.i35.i.i.i.i, label %126
 
 126:                                              ; preds = %122
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -116516,7 +116516,7 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i31.i.i.i.i: ; preds = %134, %
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1580
   br label %.body
 
-.thread8.i.i.i.i35.i.i.i.i:                       ; preds = %122
+.thread10.i.i.i.i35.i.i.i.i:                      ; preds = %122
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i28.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !1580
   br label %136
 
@@ -116526,8 +116526,8 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i31.i.i.i.i: ; preds = %134, %
   %.not.i.i4.i.i.i.i33.i.i.i.i = icmp eq ptr %.pre.pre.i.i.i.i32.i.i.i.i, null
   br i1 %.not.i.i4.i.i.i.i33.i.i.i.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal256TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit37.i.i.i.i, label %136, !prof !443
 
-136:                                              ; preds = %135, %.thread8.i.i.i.i35.i.i.i.i
-  %137 = phi ptr [ %120, %.thread8.i.i.i.i35.i.i.i.i ], [ %.pre.pre.i.i.i.i32.i.i.i.i, %135 ]
+136:                                              ; preds = %135, %.thread10.i.i.i.i35.i.i.i.i
+  %137 = phi ptr [ %120, %.thread10.i.i.i.i35.i.i.i.i ], [ %.pre.pre.i.i.i.i32.i.i.i.i, %135 ]
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 1
   %139 = load i8, ptr %138, align 1, !tbaa !226, !range !49, !noalias !1580, !noundef !50
   %140 = trunc nuw i8 %139 to i1
@@ -117885,9 +117885,9 @@ _ZNK5arrow10Decimal2567RescaleEii.exit.i.i.i.i.i: ; preds = %60, %56, %54
 62:                                               ; preds = %_ZNK5arrow10Decimal2567RescaleEii.exit.i.i.i.i.i
   %63 = load ptr, ptr %0, align 8, !tbaa !70, !noalias !1636
   %.not.i.i.i.i.i.i = icmp eq ptr %63, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %.thread8.i.i.i.i.i, label %64
+  br i1 %.not.i.i.i.i.i.i, label %.thread10.i.i.i.i.i, label %64
 
-.thread8.i.i.i.i.i:                               ; preds = %62
+.thread10.i.i.i.i.i:                              ; preds = %62
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !1636
   br label %74
 
@@ -117922,8 +117922,8 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i: ; preds = %72, %68, %65
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.pre.i.i.i.i.i, null
   br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %74, !prof !443
 
-74:                                               ; preds = %73, %.thread8.i.i.i.i.i
-  %75 = phi ptr [ %.pr.i.i.i.i.i, %.thread8.i.i.i.i.i ], [ %.pre.pre.i.i.i.i.i, %73 ]
+74:                                               ; preds = %73, %.thread10.i.i.i.i.i
+  %75 = phi ptr [ %.pr.i.i.i.i.i, %.thread10.i.i.i.i.i ], [ %.pre.pre.i.i.i.i.i, %73 ]
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 1
   %77 = load i8, ptr %76, align 1, !tbaa !226, !range !49, !noalias !1636, !noundef !50
   %78 = trunc nuw i8 %77 to i1
@@ -118128,9 +118128,9 @@ _ZNK5arrow10Decimal2567RescaleEii.exit.i30.i.i.i.i: ; preds = %146, %142, %140
 148:                                              ; preds = %_ZNK5arrow10Decimal2567RescaleEii.exit.i30.i.i.i.i
   %149 = load ptr, ptr %0, align 8, !tbaa !70, !noalias !1650
   %.not.i.i32.i.i.i.i = icmp eq ptr %149, %.pr.i31.i.i.i.i
-  br i1 %.not.i.i32.i.i.i.i, label %.thread8.i38.i.i.i.i, label %150
+  br i1 %.not.i.i32.i.i.i.i, label %.thread10.i38.i.i.i.i, label %150
 
-.thread8.i38.i.i.i.i:                             ; preds = %148
+.thread10.i38.i.i.i.i:                            ; preds = %148
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !1650
   br label %160
 
@@ -118165,8 +118165,8 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i34.i.i.i.i: ; preds = %158, %154, %
   %.not.i.i4.i36.i.i.i.i = icmp eq ptr %.pre.pre.i35.i.i.i.i, null
   br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit42.i.i.i.i, label %160, !prof !443
 
-160:                                              ; preds = %159, %.thread8.i38.i.i.i.i
-  %161 = phi ptr [ %.pr.i31.i.i.i.i, %.thread8.i38.i.i.i.i ], [ %.pre.pre.i35.i.i.i.i, %159 ]
+160:                                              ; preds = %159, %.thread10.i38.i.i.i.i
+  %161 = phi ptr [ %.pr.i31.i.i.i.i, %.thread10.i38.i.i.i.i ], [ %.pre.pre.i35.i.i.i.i, %159 ]
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 1
   %163 = load i8, ptr %162, align 1, !tbaa !226, !range !49, !noalias !1650, !noundef !50
   %164 = trunc nuw i8 %163 to i1
@@ -118482,9 +118482,9 @@ _ZNK5arrow10Decimal2567RescaleEii.exit.i.i.i.i.i: ; preds = %60, %56, %54
 62:                                               ; preds = %_ZNK5arrow10Decimal2567RescaleEii.exit.i.i.i.i.i
   %63 = load ptr, ptr %0, align 8, !tbaa !70, !noalias !1668
   %.not.i.i.i.i.i.i = icmp eq ptr %63, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %.thread8.i.i.i.i.i, label %64
+  br i1 %.not.i.i.i.i.i.i, label %.thread10.i.i.i.i.i, label %64
 
-.thread8.i.i.i.i.i:                               ; preds = %62
+.thread10.i.i.i.i.i:                              ; preds = %62
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !1668
   br label %74
 
@@ -118519,8 +118519,8 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i: ; preds = %72, %68, %65
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.pre.i.i.i.i.i, null
   br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %74, !prof !443
 
-74:                                               ; preds = %73, %.thread8.i.i.i.i.i
-  %75 = phi ptr [ %.pr.i.i.i.i.i, %.thread8.i.i.i.i.i ], [ %.pre.pre.i.i.i.i.i, %73 ]
+74:                                               ; preds = %73, %.thread10.i.i.i.i.i
+  %75 = phi ptr [ %.pr.i.i.i.i.i, %.thread10.i.i.i.i.i ], [ %.pre.pre.i.i.i.i.i, %73 ]
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 1
   %77 = load i8, ptr %76, align 1, !tbaa !226, !range !49, !noalias !1668, !noundef !50
   %78 = trunc nuw i8 %77 to i1
@@ -118725,9 +118725,9 @@ _ZNK5arrow10Decimal2567RescaleEii.exit.i30.i.i.i.i: ; preds = %146, %142, %140
 148:                                              ; preds = %_ZNK5arrow10Decimal2567RescaleEii.exit.i30.i.i.i.i
   %149 = load ptr, ptr %0, align 8, !tbaa !70, !noalias !1682
   %.not.i.i32.i.i.i.i = icmp eq ptr %149, %.pr.i31.i.i.i.i
-  br i1 %.not.i.i32.i.i.i.i, label %.thread8.i38.i.i.i.i, label %150
+  br i1 %.not.i.i32.i.i.i.i, label %.thread10.i38.i.i.i.i, label %150
 
-.thread8.i38.i.i.i.i:                             ; preds = %148
+.thread10.i38.i.i.i.i:                            ; preds = %148
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !1682
   br label %160
 
@@ -118762,8 +118762,8 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i34.i.i.i.i: ; preds = %158, %154, %
   %.not.i.i4.i36.i.i.i.i = icmp eq ptr %.pre.pre.i35.i.i.i.i, null
   br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit42.i.i.i.i, label %160, !prof !443
 
-160:                                              ; preds = %159, %.thread8.i38.i.i.i.i
-  %161 = phi ptr [ %.pr.i31.i.i.i.i, %.thread8.i38.i.i.i.i ], [ %.pre.pre.i35.i.i.i.i, %159 ]
+160:                                              ; preds = %159, %.thread10.i38.i.i.i.i
+  %161 = phi ptr [ %.pr.i31.i.i.i.i, %.thread10.i38.i.i.i.i ], [ %.pre.pre.i35.i.i.i.i, %159 ]
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 1
   %163 = load i8, ptr %162, align 1, !tbaa !226, !range !49, !noalias !1682, !noundef !50
   %164 = trunc nuw i8 %163 to i1
@@ -119079,9 +119079,9 @@ _ZNK5arrow10Decimal2567RescaleEii.exit.i.i.i.i.i: ; preds = %60, %56, %54
 62:                                               ; preds = %_ZNK5arrow10Decimal2567RescaleEii.exit.i.i.i.i.i
   %63 = load ptr, ptr %0, align 8, !tbaa !70, !noalias !1700
   %.not.i.i.i.i.i.i = icmp eq ptr %63, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %.thread8.i.i.i.i.i, label %64
+  br i1 %.not.i.i.i.i.i.i, label %.thread10.i.i.i.i.i, label %64
 
-.thread8.i.i.i.i.i:                               ; preds = %62
+.thread10.i.i.i.i.i:                              ; preds = %62
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !1700
   br label %74
 
@@ -119116,8 +119116,8 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i: ; preds = %72, %68, %65
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.pre.i.i.i.i.i, null
   br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %74, !prof !443
 
-74:                                               ; preds = %73, %.thread8.i.i.i.i.i
-  %75 = phi ptr [ %.pr.i.i.i.i.i, %.thread8.i.i.i.i.i ], [ %.pre.pre.i.i.i.i.i, %73 ]
+74:                                               ; preds = %73, %.thread10.i.i.i.i.i
+  %75 = phi ptr [ %.pr.i.i.i.i.i, %.thread10.i.i.i.i.i ], [ %.pre.pre.i.i.i.i.i, %73 ]
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 1
   %77 = load i8, ptr %76, align 1, !tbaa !226, !range !49, !noalias !1700, !noundef !50
   %78 = trunc nuw i8 %77 to i1
@@ -119322,9 +119322,9 @@ _ZNK5arrow10Decimal2567RescaleEii.exit.i30.i.i.i.i: ; preds = %146, %142, %140
 148:                                              ; preds = %_ZNK5arrow10Decimal2567RescaleEii.exit.i30.i.i.i.i
   %149 = load ptr, ptr %0, align 8, !tbaa !70, !noalias !1714
   %.not.i.i32.i.i.i.i = icmp eq ptr %149, %.pr.i31.i.i.i.i
-  br i1 %.not.i.i32.i.i.i.i, label %.thread8.i38.i.i.i.i, label %150
+  br i1 %.not.i.i32.i.i.i.i, label %.thread10.i38.i.i.i.i, label %150
 
-.thread8.i38.i.i.i.i:                             ; preds = %148
+.thread10.i38.i.i.i.i:                            ; preds = %148
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !1714
   br label %160
 
@@ -119359,8 +119359,8 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i34.i.i.i.i: ; preds = %158, %154, %
   %.not.i.i4.i36.i.i.i.i = icmp eq ptr %.pre.pre.i35.i.i.i.i, null
   br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit42.i.i.i.i, label %160, !prof !443
 
-160:                                              ; preds = %159, %.thread8.i38.i.i.i.i
-  %161 = phi ptr [ %.pr.i31.i.i.i.i, %.thread8.i38.i.i.i.i ], [ %.pre.pre.i35.i.i.i.i, %159 ]
+160:                                              ; preds = %159, %.thread10.i38.i.i.i.i
+  %161 = phi ptr [ %.pr.i31.i.i.i.i, %.thread10.i38.i.i.i.i ], [ %.pre.pre.i35.i.i.i.i, %159 ]
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 1
   %163 = load i8, ptr %162, align 1, !tbaa !226, !range !49, !noalias !1714, !noundef !50
   %164 = trunc nuw i8 %163 to i1
@@ -119675,9 +119675,9 @@ _ZNK5arrow10Decimal2567RescaleEii.exit.i.i.i.i.i: ; preds = %59, %55, %53
 61:                                               ; preds = %_ZNK5arrow10Decimal2567RescaleEii.exit.i.i.i.i.i
   %62 = load ptr, ptr %0, align 8, !tbaa !70, !noalias !1732
   %.not.i.i.i.i.i.i = icmp eq ptr %62, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %.thread8.i.i.i.i.i, label %63
+  br i1 %.not.i.i.i.i.i.i, label %.thread10.i.i.i.i.i, label %63
 
-.thread8.i.i.i.i.i:                               ; preds = %61
+.thread10.i.i.i.i.i:                              ; preds = %61
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !1732
   br label %73
 
@@ -119712,8 +119712,8 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i: ; preds = %71, %67, %64
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.pre.i.i.i.i.i, null
   br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %73, !prof !443
 
-73:                                               ; preds = %72, %.thread8.i.i.i.i.i
-  %74 = phi ptr [ %.pr.i.i.i.i.i, %.thread8.i.i.i.i.i ], [ %.pre.pre.i.i.i.i.i, %72 ]
+73:                                               ; preds = %72, %.thread10.i.i.i.i.i
+  %74 = phi ptr [ %.pr.i.i.i.i.i, %.thread10.i.i.i.i.i ], [ %.pre.pre.i.i.i.i.i, %72 ]
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 1
   %76 = load i8, ptr %75, align 1, !tbaa !226, !range !49, !noalias !1732, !noundef !50
   %77 = trunc nuw i8 %76 to i1
@@ -119917,9 +119917,9 @@ _ZNK5arrow10Decimal2567RescaleEii.exit.i30.i.i.i.i: ; preds = %144, %140, %138
 146:                                              ; preds = %_ZNK5arrow10Decimal2567RescaleEii.exit.i30.i.i.i.i
   %147 = load ptr, ptr %0, align 8, !tbaa !70, !noalias !1746
   %.not.i.i32.i.i.i.i = icmp eq ptr %147, %.pr.i31.i.i.i.i
-  br i1 %.not.i.i32.i.i.i.i, label %.thread8.i38.i.i.i.i, label %148
+  br i1 %.not.i.i32.i.i.i.i, label %.thread10.i38.i.i.i.i, label %148
 
-.thread8.i38.i.i.i.i:                             ; preds = %146
+.thread10.i38.i.i.i.i:                            ; preds = %146
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !1746
   br label %158
 
@@ -119954,8 +119954,8 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i34.i.i.i.i: ; preds = %156, %152, %
   %.not.i.i4.i36.i.i.i.i = icmp eq ptr %.pre.pre.i35.i.i.i.i, null
   br i1 %.not.i.i4.i36.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit42.i.i.i.i, label %158, !prof !443
 
-158:                                              ; preds = %157, %.thread8.i38.i.i.i.i
-  %159 = phi ptr [ %.pr.i31.i.i.i.i, %.thread8.i38.i.i.i.i ], [ %.pre.pre.i35.i.i.i.i, %157 ]
+158:                                              ; preds = %157, %.thread10.i38.i.i.i.i
+  %159 = phi ptr [ %.pr.i31.i.i.i.i, %.thread10.i38.i.i.i.i ], [ %.pre.pre.i35.i.i.i.i, %157 ]
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 1
   %161 = load i8, ptr %160, align 1, !tbaa !226, !range !49, !noalias !1746, !noundef !50
   %162 = trunc nuw i8 %161 to i1
@@ -120263,9 +120263,9 @@ _ZNK5arrow10Decimal2567RescaleEii.exit.i.i.i.i.i: ; preds = %59, %55, %53
 61:                                               ; preds = %_ZNK5arrow10Decimal2567RescaleEii.exit.i.i.i.i.i
   %62 = load ptr, ptr %0, align 8, !tbaa !70, !noalias !1764
   %.not.i.i.i.i.i.i = icmp eq ptr %62, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %.thread8.i.i.i.i.i, label %63
+  br i1 %.not.i.i.i.i.i.i, label %.thread10.i.i.i.i.i, label %63
 
-.thread8.i.i.i.i.i:                               ; preds = %61
+.thread10.i.i.i.i.i:                              ; preds = %61
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !1764
   br label %73
 
@@ -120300,8 +120300,8 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i: ; preds = %71, %67, %64
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.pre.i.i.i.i.i, null
   br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %73, !prof !443
 
-73:                                               ; preds = %72, %.thread8.i.i.i.i.i
-  %74 = phi ptr [ %.pr.i.i.i.i.i, %.thread8.i.i.i.i.i ], [ %.pre.pre.i.i.i.i.i, %72 ]
+73:                                               ; preds = %72, %.thread10.i.i.i.i.i
+  %74 = phi ptr [ %.pr.i.i.i.i.i, %.thread10.i.i.i.i.i ], [ %.pre.pre.i.i.i.i.i, %72 ]
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 1
   %76 = load i8, ptr %75, align 1, !tbaa !226, !range !49, !noalias !1764, !noundef !50
   %77 = trunc nuw i8 %76 to i1
@@ -120498,9 +120498,9 @@ _ZNK5arrow10Decimal2567RescaleEii.exit.i29.i.i.i.i: ; preds = %144, %140, %138
 146:                                              ; preds = %_ZNK5arrow10Decimal2567RescaleEii.exit.i29.i.i.i.i
   %147 = load ptr, ptr %0, align 8, !tbaa !70, !noalias !1778
   %.not.i.i31.i.i.i.i = icmp eq ptr %147, %.pr.i30.i.i.i.i
-  br i1 %.not.i.i31.i.i.i.i, label %.thread8.i37.i.i.i.i, label %148
+  br i1 %.not.i.i31.i.i.i.i, label %.thread10.i37.i.i.i.i, label %148
 
-.thread8.i37.i.i.i.i:                             ; preds = %146
+.thread10.i37.i.i.i.i:                            ; preds = %146
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !1778
   br label %158
 
@@ -120535,8 +120535,8 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i33.i.i.i.i: ; preds = %156, %152, %
   %.not.i.i4.i35.i.i.i.i = icmp eq ptr %.pre.pre.i34.i.i.i.i, null
   br i1 %.not.i.i4.i35.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit40.i.i.i.i, label %158, !prof !443
 
-158:                                              ; preds = %157, %.thread8.i37.i.i.i.i
-  %159 = phi ptr [ %.pr.i30.i.i.i.i, %.thread8.i37.i.i.i.i ], [ %.pre.pre.i34.i.i.i.i, %157 ]
+158:                                              ; preds = %157, %.thread10.i37.i.i.i.i
+  %159 = phi ptr [ %.pr.i30.i.i.i.i, %.thread10.i37.i.i.i.i ], [ %.pre.pre.i34.i.i.i.i, %157 ]
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 1
   %161 = load i8, ptr %160, align 1, !tbaa !226, !range !49, !noalias !1778, !noundef !50
   %162 = trunc nuw i8 %161 to i1
@@ -120844,9 +120844,9 @@ _ZNK5arrow10Decimal2567RescaleEii.exit.i.i.i.i.i: ; preds = %59, %55, %53
 61:                                               ; preds = %_ZNK5arrow10Decimal2567RescaleEii.exit.i.i.i.i.i
   %62 = load ptr, ptr %0, align 8, !tbaa !70, !noalias !1796
   %.not.i.i.i.i.i.i = icmp eq ptr %62, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %.thread8.i.i.i.i.i, label %63
+  br i1 %.not.i.i.i.i.i.i, label %.thread10.i.i.i.i.i, label %63
 
-.thread8.i.i.i.i.i:                               ; preds = %61
+.thread10.i.i.i.i.i:                              ; preds = %61
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !1796
   br label %73
 
@@ -120881,8 +120881,8 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i: ; preds = %71, %67, %64
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.pre.i.i.i.i.i, null
   br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %73, !prof !443
 
-73:                                               ; preds = %72, %.thread8.i.i.i.i.i
-  %74 = phi ptr [ %.pr.i.i.i.i.i, %.thread8.i.i.i.i.i ], [ %.pre.pre.i.i.i.i.i, %72 ]
+73:                                               ; preds = %72, %.thread10.i.i.i.i.i
+  %74 = phi ptr [ %.pr.i.i.i.i.i, %.thread10.i.i.i.i.i ], [ %.pre.pre.i.i.i.i.i, %72 ]
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 1
   %76 = load i8, ptr %75, align 1, !tbaa !226, !range !49, !noalias !1796, !noundef !50
   %77 = trunc nuw i8 %76 to i1
@@ -121079,9 +121079,9 @@ _ZNK5arrow10Decimal2567RescaleEii.exit.i29.i.i.i.i: ; preds = %144, %140, %138
 146:                                              ; preds = %_ZNK5arrow10Decimal2567RescaleEii.exit.i29.i.i.i.i
   %147 = load ptr, ptr %0, align 8, !tbaa !70, !noalias !1810
   %.not.i.i31.i.i.i.i = icmp eq ptr %147, %.pr.i30.i.i.i.i
-  br i1 %.not.i.i31.i.i.i.i, label %.thread8.i37.i.i.i.i, label %148
+  br i1 %.not.i.i31.i.i.i.i, label %.thread10.i37.i.i.i.i, label %148
 
-.thread8.i37.i.i.i.i:                             ; preds = %146
+.thread10.i37.i.i.i.i:                            ; preds = %146
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !1810
   br label %158
 
@@ -121116,8 +121116,8 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i33.i.i.i.i: ; preds = %156, %152, %
   %.not.i.i4.i35.i.i.i.i = icmp eq ptr %.pre.pre.i34.i.i.i.i, null
   br i1 %.not.i.i4.i35.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit40.i.i.i.i, label %158, !prof !443
 
-158:                                              ; preds = %157, %.thread8.i37.i.i.i.i
-  %159 = phi ptr [ %.pr.i30.i.i.i.i, %.thread8.i37.i.i.i.i ], [ %.pre.pre.i34.i.i.i.i, %157 ]
+158:                                              ; preds = %157, %.thread10.i37.i.i.i.i
+  %159 = phi ptr [ %.pr.i30.i.i.i.i, %.thread10.i37.i.i.i.i ], [ %.pre.pre.i34.i.i.i.i, %157 ]
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 1
   %161 = load i8, ptr %160, align 1, !tbaa !226, !range !49, !noalias !1810, !noundef !50
   %162 = trunc nuw i8 %161 to i1
@@ -121425,9 +121425,9 @@ _ZNK5arrow10Decimal2567RescaleEii.exit.i.i.i.i.i: ; preds = %59, %55, %53
 61:                                               ; preds = %_ZNK5arrow10Decimal2567RescaleEii.exit.i.i.i.i.i
   %62 = load ptr, ptr %0, align 8, !tbaa !70, !noalias !1828
   %.not.i.i.i.i.i.i = icmp eq ptr %62, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %.thread8.i.i.i.i.i, label %63
+  br i1 %.not.i.i.i.i.i.i, label %.thread10.i.i.i.i.i, label %63
 
-.thread8.i.i.i.i.i:                               ; preds = %61
+.thread10.i.i.i.i.i:                              ; preds = %61
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !1828
   br label %73
 
@@ -121462,8 +121462,8 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i: ; preds = %71, %67, %64
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.pre.i.i.i.i.i, null
   br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %73, !prof !443
 
-73:                                               ; preds = %72, %.thread8.i.i.i.i.i
-  %74 = phi ptr [ %.pr.i.i.i.i.i, %.thread8.i.i.i.i.i ], [ %.pre.pre.i.i.i.i.i, %72 ]
+73:                                               ; preds = %72, %.thread10.i.i.i.i.i
+  %74 = phi ptr [ %.pr.i.i.i.i.i, %.thread10.i.i.i.i.i ], [ %.pre.pre.i.i.i.i.i, %72 ]
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 1
   %76 = load i8, ptr %75, align 1, !tbaa !226, !range !49, !noalias !1828, !noundef !50
   %77 = trunc nuw i8 %76 to i1
@@ -121660,9 +121660,9 @@ _ZNK5arrow10Decimal2567RescaleEii.exit.i29.i.i.i.i: ; preds = %144, %140, %138
 146:                                              ; preds = %_ZNK5arrow10Decimal2567RescaleEii.exit.i29.i.i.i.i
   %147 = load ptr, ptr %0, align 8, !tbaa !70, !noalias !1842
   %.not.i.i31.i.i.i.i = icmp eq ptr %147, %.pr.i30.i.i.i.i
-  br i1 %.not.i.i31.i.i.i.i, label %.thread8.i37.i.i.i.i, label %148
+  br i1 %.not.i.i31.i.i.i.i, label %.thread10.i37.i.i.i.i, label %148
 
-.thread8.i37.i.i.i.i:                             ; preds = %146
+.thread10.i37.i.i.i.i:                            ; preds = %146
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !1842
   br label %158
 
@@ -121697,8 +121697,8 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i33.i.i.i.i: ; preds = %156, %152, %
   %.not.i.i4.i35.i.i.i.i = icmp eq ptr %.pre.pre.i34.i.i.i.i, null
   br i1 %.not.i.i4.i35.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit40.i.i.i.i, label %158, !prof !443
 
-158:                                              ; preds = %157, %.thread8.i37.i.i.i.i
-  %159 = phi ptr [ %.pr.i30.i.i.i.i, %.thread8.i37.i.i.i.i ], [ %.pre.pre.i34.i.i.i.i, %157 ]
+158:                                              ; preds = %157, %.thread10.i37.i.i.i.i
+  %159 = phi ptr [ %.pr.i30.i.i.i.i, %.thread10.i37.i.i.i.i ], [ %.pre.pre.i34.i.i.i.i, %157 ]
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 1
   %161 = load i8, ptr %160, align 1, !tbaa !226, !range !49, !noalias !1842, !noundef !50
   %162 = trunc nuw i8 %161 to i1
@@ -122005,9 +122005,9 @@ _ZNK5arrow10Decimal2567RescaleEii.exit.i.i.i.i.i: ; preds = %58, %54, %52
 60:                                               ; preds = %_ZNK5arrow10Decimal2567RescaleEii.exit.i.i.i.i.i
   %61 = load ptr, ptr %0, align 8, !tbaa !70, !noalias !1860
   %.not.i.i.i.i.i.i = icmp eq ptr %61, %.pr.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %.thread8.i.i.i.i.i, label %62
+  br i1 %.not.i.i.i.i.i.i, label %.thread10.i.i.i.i.i, label %62
 
-.thread8.i.i.i.i.i:                               ; preds = %60
+.thread10.i.i.i.i.i:                              ; preds = %60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !1860
   br label %72
 
@@ -122042,8 +122042,8 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i: ; preds = %70, %66, %63
   %.not.i.i4.i.i.i.i.i = icmp eq ptr %.pre.pre.i.i.i.i.i, null
   br i1 %.not.i.i4.i.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, label %72, !prof !443
 
-72:                                               ; preds = %71, %.thread8.i.i.i.i.i
-  %73 = phi ptr [ %.pr.i.i.i.i.i, %.thread8.i.i.i.i.i ], [ %.pre.pre.i.i.i.i.i, %71 ]
+72:                                               ; preds = %71, %.thread10.i.i.i.i.i
+  %73 = phi ptr [ %.pr.i.i.i.i.i, %.thread10.i.i.i.i.i ], [ %.pre.pre.i.i.i.i.i, %71 ]
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 1
   %75 = load i8, ptr %74, align 1, !tbaa !226, !range !49, !noalias !1860, !noundef !50
   %76 = trunc nuw i8 %75 to i1
@@ -122239,9 +122239,9 @@ _ZNK5arrow10Decimal2567RescaleEii.exit.i29.i.i.i.i: ; preds = %142, %138, %136
 144:                                              ; preds = %_ZNK5arrow10Decimal2567RescaleEii.exit.i29.i.i.i.i
   %145 = load ptr, ptr %0, align 8, !tbaa !70, !noalias !1874
   %.not.i.i31.i.i.i.i = icmp eq ptr %145, %.pr.i30.i.i.i.i
-  br i1 %.not.i.i31.i.i.i.i, label %.thread8.i37.i.i.i.i, label %146
+  br i1 %.not.i.i31.i.i.i.i, label %.thread10.i37.i.i.i.i, label %146
 
-.thread8.i37.i.i.i.i:                             ; preds = %144
+.thread10.i37.i.i.i.i:                            ; preds = %144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !1874
   br label %156
 
@@ -122276,8 +122276,8 @@ _ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i33.i.i.i.i: ; preds = %154, %150, %
   %.not.i.i4.i35.i.i.i.i = icmp eq ptr %.pre.pre.i34.i.i.i.i, null
   br i1 %.not.i.i4.i35.i.i.i.i, label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit40.i.i.i.i, label %156, !prof !443
 
-156:                                              ; preds = %155, %.thread8.i37.i.i.i.i
-  %157 = phi ptr [ %.pr.i30.i.i.i.i, %.thread8.i37.i.i.i.i ], [ %.pre.pre.i34.i.i.i.i, %155 ]
+156:                                              ; preds = %155, %.thread10.i37.i.i.i.i
+  %157 = phi ptr [ %.pr.i30.i.i.i.i, %.thread10.i37.i.i.i.i ], [ %.pre.pre.i34.i.i.i.i, %155 ]
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 1
   %159 = load i8, ptr %158, align 1, !tbaa !226, !range !49, !noalias !1874, !noundef !50
   %160 = trunc nuw i8 %159 to i1
@@ -134567,7 +134567,7 @@ _ZZN5arrow7compute8internal10applicator11ScalarUnaryINS_8Int8TypeENS_11BooleanTy
   %.sroa.10.2.i = phi i8 [ %41, %39 ], [ %.sroa.10.1.i, %36 ], [ %.sroa.10.1.i, %32 ]
   %.sroa.1419.1.i = phi i64 [ %37, %39 ], [ %37, %36 ], [ %.sroa.1419.0.i, %32 ]
   %.sroa.17.1.i = phi i64 [ 0, %39 ], [ 0, %36 ], [ %33, %32 ]
-  %42 = trunc i64 %.sroa.17.0.i to i32
+  %42 = trunc nsw i64 %.sroa.17.0.i to i32
   %43 = zext i8 %.sroa.10.1.i to i32
   %44 = lshr i32 %43, %42
   %45 = trunc nuw i32 %44 to i8
@@ -142006,7 +142006,7 @@ _ZZN5arrow7compute8internal10applicator11ScalarUnaryINS_9Int16TypeENS_11BooleanT
   %.sroa.1419.1.i = phi i64 [ %40, %42 ], [ %40, %39 ], [ %.sroa.1419.0.i, %32 ]
   %45 = phi i64 [ 0, %42 ], [ 0, %39 ], [ %36, %32 ]
   %46 = phi i8 [ %44, %42 ], [ %35, %39 ], [ %35, %32 ]
-  %47 = trunc i64 %34 to i32
+  %47 = trunc nsw i64 %34 to i32
   %48 = zext i8 %35 to i32
   %49 = lshr i32 %48, %47
   %50 = trunc nuw nsw i32 %49 to i16
@@ -149288,7 +149288,7 @@ _ZZN5arrow7compute8internal10applicator11ScalarUnaryINS_9Int32TypeENS_11BooleanT
   %.sroa.1419.1.i = phi i64 [ %40, %42 ], [ %40, %39 ], [ %.sroa.1419.0.i, %32 ]
   %45 = phi i64 [ 0, %42 ], [ 0, %39 ], [ %36, %32 ]
   %46 = phi i8 [ %44, %42 ], [ %35, %39 ], [ %35, %32 ]
-  %47 = trunc i64 %34 to i32
+  %47 = trunc nsw i64 %34 to i32
   %48 = zext i8 %35 to i32
   %49 = lshr i32 %48, %47
   %50 = and i32 %49, 1
@@ -156615,7 +156615,7 @@ _ZZN5arrow7compute8internal10applicator11ScalarUnaryINS_9Int64TypeENS_11BooleanT
   %.sroa.1419.1.i = phi i64 [ %38, %40 ], [ %38, %37 ], [ %.sroa.1419.0.i, %32 ]
   %.sroa.17.1.i = phi i64 [ 0, %40 ], [ 0, %37 ], [ %34, %32 ]
   %43 = phi i8 [ %42, %40 ], [ %33, %37 ], [ %33, %32 ]
-  %44 = trunc i64 %.sroa.17.0.i to i32
+  %44 = trunc nsw i64 %.sroa.17.0.i to i32
   %45 = zext i8 %33 to i32
   %46 = lshr i32 %45, %44
   %47 = and i32 %46, 1
@@ -164113,7 +164113,7 @@ _ZZN5arrow7compute8internal10applicator11ScalarUnaryINS_9UInt8TypeENS_11BooleanT
   %.sroa.10.2.i = phi i8 [ %41, %39 ], [ %.sroa.10.1.i, %36 ], [ %.sroa.10.1.i, %32 ]
   %.sroa.1419.1.i = phi i64 [ %37, %39 ], [ %37, %36 ], [ %.sroa.1419.0.i, %32 ]
   %.sroa.17.1.i = phi i64 [ 0, %39 ], [ 0, %36 ], [ %33, %32 ]
-  %42 = trunc i64 %.sroa.17.0.i to i32
+  %42 = trunc nsw i64 %.sroa.17.0.i to i32
   %43 = zext i8 %.sroa.10.1.i to i32
   %44 = lshr i32 %43, %42
   %45 = trunc nuw i32 %44 to i8
@@ -171301,7 +171301,7 @@ _ZZN5arrow7compute8internal10applicator11ScalarUnaryINS_10UInt16TypeENS_11Boolea
   %.sroa.1419.1.i = phi i64 [ %40, %42 ], [ %40, %39 ], [ %.sroa.1419.0.i, %32 ]
   %45 = phi i64 [ 0, %42 ], [ 0, %39 ], [ %36, %32 ]
   %46 = phi i8 [ %44, %42 ], [ %35, %39 ], [ %35, %32 ]
-  %47 = trunc i64 %34 to i32
+  %47 = trunc nsw i64 %34 to i32
   %48 = zext i8 %35 to i32
   %49 = lshr i32 %48, %47
   %50 = trunc nuw nsw i32 %49 to i16
@@ -178532,7 +178532,7 @@ _ZZN5arrow7compute8internal10applicator11ScalarUnaryINS_10UInt32TypeENS_11Boolea
   %.sroa.1419.1.i = phi i64 [ %40, %42 ], [ %40, %39 ], [ %.sroa.1419.0.i, %32 ]
   %45 = phi i64 [ 0, %42 ], [ 0, %39 ], [ %36, %32 ]
   %46 = phi i8 [ %44, %42 ], [ %35, %39 ], [ %35, %32 ]
-  %47 = trunc i64 %34 to i32
+  %47 = trunc nsw i64 %34 to i32
   %48 = zext i8 %35 to i32
   %49 = lshr i32 %48, %47
   %50 = and i32 %49, 1
@@ -179238,20 +179238,20 @@ _ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_strin
 
 314:                                              ; preds = %312
   %315 = icmp ugt i32 %304, 2
-  br i1 %315, label %316, label %.preheader74
+  br i1 %315, label %316, label %.preheader115
 
-.preheader74:                                     ; preds = %319, %316, %314
+.preheader115:                                    ; preds = %319, %316, %314
   br label %344
 
 316:                                              ; preds = %314
   %317 = load i8, ptr %301, align 1, !tbaa !142
   %318 = icmp eq i8 %317, 48
-  br i1 %318, label %319, label %.preheader74
+  br i1 %318, label %319, label %.preheader115
 
 319:                                              ; preds = %316
   %320 = getelementptr inbounds nuw i8, ptr %301, i64 1
   %321 = load i8, ptr %320, align 1, !tbaa !142
-  switch i8 %321, label %.preheader74 [
+  switch i8 %321, label %.preheader115 [
     i8 120, label %322
     i8 88, label %322
   ]
@@ -179303,9 +179303,9 @@ _ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_strin
   %exitcond.not.i.i.i71.i.i.i.i = icmp eq i64 %.03046.i.i.i64.i.i.i.i, %324
   br i1 %exitcond.not.i.i.i71.i.i.i.i, label %_ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit35.i.i.i.i, label %.lr.ph.i.i.i63.i.i.i.i, !llvm.loop !2971
 
-344:                                              ; preds = %.preheader74, %347
-  %.01722.i.i56.i.i.i.i = phi i64 [ %348, %347 ], [ %305, %.preheader74 ]
-  %.01821.i.i57.i.i.i.i = phi ptr [ %349, %347 ], [ %301, %.preheader74 ]
+344:                                              ; preds = %.preheader115, %347
+  %.01722.i.i56.i.i.i.i = phi i64 [ %348, %347 ], [ %305, %.preheader115 ]
+  %.01821.i.i57.i.i.i.i = phi ptr [ %349, %347 ], [ %301, %.preheader115 ]
   %345 = load i8, ptr %.01821.i.i57.i.i.i.i, align 1, !tbaa !142
   %346 = icmp eq i8 %345, 48
   br i1 %346, label %347, label %.critedge.i.i58.i.i.i.i
@@ -180415,20 +180415,20 @@ _ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_strin
 
 309:                                              ; preds = %307
   %310 = icmp ugt i64 %300, 2
-  br i1 %310, label %311, label %.preheader74
+  br i1 %310, label %311, label %.preheader117
 
-.preheader74:                                     ; preds = %314, %311, %309
+.preheader117:                                    ; preds = %314, %311, %309
   br label %339
 
 311:                                              ; preds = %309
   %312 = load i8, ptr %297, align 1, !tbaa !142
   %313 = icmp eq i8 %312, 48
-  br i1 %313, label %314, label %.preheader74
+  br i1 %313, label %314, label %.preheader117
 
 314:                                              ; preds = %311
   %315 = getelementptr inbounds nuw i8, ptr %297, i64 1
   %316 = load i8, ptr %315, align 1, !tbaa !142
-  switch i8 %316, label %.preheader74 [
+  switch i8 %316, label %.preheader117 [
     i8 120, label %317
     i8 88, label %317
   ]
@@ -180480,9 +180480,9 @@ _ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_strin
   %exitcond.not.i.i.i71.i.i.i.i = icmp eq i64 %.03046.i.i.i64.i.i.i.i, %319
   br i1 %exitcond.not.i.i.i71.i.i.i.i, label %_ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit35.i.i.i.i, label %.lr.ph.i.i.i63.i.i.i.i, !llvm.loop !2971
 
-339:                                              ; preds = %.preheader74, %342
-  %.01722.i.i56.i.i.i.i = phi i64 [ %343, %342 ], [ %300, %.preheader74 ]
-  %.01821.i.i57.i.i.i.i = phi ptr [ %344, %342 ], [ %297, %.preheader74 ]
+339:                                              ; preds = %.preheader117, %342
+  %.01722.i.i56.i.i.i.i = phi i64 [ %343, %342 ], [ %300, %.preheader117 ]
+  %.01821.i.i57.i.i.i.i = phi ptr [ %344, %342 ], [ %297, %.preheader117 ]
   %340 = load i8, ptr %.01821.i.i57.i.i.i.i, align 1, !tbaa !142
   %341 = icmp eq i8 %340, 48
   br i1 %341, label %342, label %.critedge.i.i58.i.i.i.i
@@ -181651,20 +181651,20 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS
 
 344:                                              ; preds = %342
   %345 = icmp ugt i32 %314, 2
-  br i1 %345, label %346, label %.preheader75
+  br i1 %345, label %346, label %.preheader118
 
-.preheader75:                                     ; preds = %349, %346, %344
+.preheader118:                                    ; preds = %349, %346, %344
   br label %374
 
 346:                                              ; preds = %344
   %347 = load i8, ptr %334, align 1, !tbaa !142
   %348 = icmp eq i8 %347, 48
-  br i1 %348, label %349, label %.preheader75
+  br i1 %348, label %349, label %.preheader118
 
 349:                                              ; preds = %346
   %350 = getelementptr inbounds nuw i8, ptr %334, i64 1
   %351 = load i8, ptr %350, align 1, !tbaa !142
-  switch i8 %351, label %.preheader75 [
+  switch i8 %351, label %.preheader118 [
     i8 120, label %352
     i8 88, label %352
   ]
@@ -181716,9 +181716,9 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS
   %exitcond.not.i.i.i72.i.i.i.i = icmp eq i64 %.03046.i.i.i65.i.i.i.i, %354
   br i1 %exitcond.not.i.i.i72.i.i.i.i, label %_ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit36.i.i.i.i, label %.lr.ph.i.i.i64.i.i.i.i, !llvm.loop !2971
 
-374:                                              ; preds = %.preheader75, %377
-  %.01722.i.i57.i.i.i.i = phi i64 [ %378, %377 ], [ %335, %.preheader75 ]
-  %.01821.i.i58.i.i.i.i = phi ptr [ %379, %377 ], [ %334, %.preheader75 ]
+374:                                              ; preds = %.preheader118, %377
+  %.01722.i.i57.i.i.i.i = phi i64 [ %378, %377 ], [ %335, %.preheader118 ]
+  %.01821.i.i58.i.i.i.i = phi ptr [ %379, %377 ], [ %334, %.preheader118 ]
   %375 = load i8, ptr %.01821.i.i58.i.i.i.i, align 1, !tbaa !142
   %376 = icmp eq i8 %375, 48
   br i1 %376, label %377, label %.critedge.i.i59.i.i.i.i
@@ -188299,7 +188299,7 @@ _ZZN5arrow7compute8internal10applicator11ScalarUnaryINS_10UInt64TypeENS_11Boolea
   %.sroa.1419.1.i = phi i64 [ %38, %40 ], [ %38, %37 ], [ %.sroa.1419.0.i, %32 ]
   %.sroa.17.1.i = phi i64 [ 0, %40 ], [ 0, %37 ], [ %34, %32 ]
   %43 = phi i8 [ %42, %40 ], [ %33, %37 ], [ %33, %32 ]
-  %44 = trunc i64 %.sroa.17.0.i to i32
+  %44 = trunc nsw i64 %.sroa.17.0.i to i32
   %45 = zext i8 %33 to i32
   %46 = lshr i32 %45, %44
   %47 = and i32 %46, 1
@@ -197121,8 +197121,8 @@ _ZZN5arrow7compute8internal10applicator11ScalarUnaryINS_9FloatTypeENS_11BooleanT
   %.sroa.1419.1.i = phi i64 [ %40, %42 ], [ %40, %39 ], [ %.sroa.1419.0.i, %32 ]
   %45 = phi i64 [ 0, %42 ], [ 0, %39 ], [ %36, %32 ]
   %46 = phi i8 [ %44, %42 ], [ %35, %39 ], [ %35, %32 ]
-  %47 = trunc i64 %34 to i32
-  %48 = shl nuw i32 1, %47
+  %47 = trunc nsw i64 %34 to i32
+  %48 = shl nuw nsw i32 1, %47
   %49 = zext i8 %35 to i32
   %50 = and i32 %48, %49
   %.not.i.i.i = icmp eq i32 %50, 0
@@ -198890,8 +198890,8 @@ _ZZN5arrow7compute8internal10applicator11ScalarUnaryINS_10DoubleTypeENS_11Boolea
   %.sroa.1419.1.i = phi i64 [ %40, %42 ], [ %40, %39 ], [ %.sroa.1419.0.i, %32 ]
   %45 = phi i64 [ 0, %42 ], [ 0, %39 ], [ %36, %32 ]
   %46 = phi i8 [ %44, %42 ], [ %35, %39 ], [ %35, %32 ]
-  %47 = trunc i64 %34 to i32
-  %48 = shl nuw i32 1, %47
+  %47 = trunc nsw i64 %34 to i32
+  %48 = shl nuw nsw i32 1, %47
   %49 = zext i8 %35 to i32
   %50 = and i32 %48, %49
   %.not.i.i.i = icmp eq i32 %50, 0

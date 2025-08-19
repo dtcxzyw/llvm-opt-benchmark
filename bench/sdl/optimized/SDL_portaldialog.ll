@@ -566,7 +566,7 @@ DBus_AppendByteArray.exit:                        ; preds = %234
   %264 = load ptr, ptr %58, align 8
   %265 = call ptr %263(ptr noundef %264, ptr noundef nonnull %70, i32 noundef 2147483647, ptr noundef null) #5
   %.not143 = icmp eq ptr %265, null
-  br i1 %.not143, label %.thread152, label %266
+  br i1 %.not143, label %.thread172, label %266
 
 266:                                              ; preds = %259
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
@@ -577,11 +577,11 @@ DBus_AppendByteArray.exit:                        ; preds = %234
   %271 = load ptr, ptr %270, align 8
   %272 = call i32 %271(ptr noundef nonnull %44) #5
   %273 = icmp eq i32 %272, 111
-  br i1 %273, label %274, label %.thread154
+  br i1 %273, label %274, label %.thread174
 
-.thread154:                                       ; preds = %266
+.thread174:                                       ; preds = %266
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
-  br label %.thread152
+  br label %.thread172
 
 274:                                              ; preds = %266
   %275 = getelementptr inbounds nuw i8, ptr %58, i64 288
@@ -590,9 +590,9 @@ DBus_AppendByteArray.exit:                        ; preds = %234
   %.pre.pre = load ptr, ptr %42, align 8
   %277 = icmp eq ptr %.pre.pre, null
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
-  br i1 %277, label %.thread152, label %279
+  br i1 %277, label %.thread172, label %279
 
-.thread152:                                       ; preds = %259, %.thread154, %274
+.thread172:                                       ; preds = %259, %.thread174, %274
   %278 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.34) #5
   call void %1(ptr noundef %2, ptr noundef null, i32 noundef -1) #5
   br label %312
@@ -659,7 +659,7 @@ DBus_AppendByteArray.exit:                        ; preds = %234
   call void %310(ptr noundef %311) #5
   br label %312
 
-312:                                              ; preds = %304, %303, %297, %289, %.thread152
+312:                                              ; preds = %304, %303, %297, %289, %.thread172
   %313 = getelementptr inbounds nuw i8, ptr %58, i64 312
   %314 = load ptr, ptr %313, align 8
   call void %314(ptr noundef %265) #5
@@ -719,7 +719,7 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr noundef %0, ptr noun
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %1, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50) #5
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %135, label %17
+  br i1 %.not, label %132, label %17
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 184
@@ -728,7 +728,7 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr noundef %0, ptr noun
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 %19(ptr noundef %1, ptr noundef %21) #5
   %.not95 = icmp eq i32 %22, 0
-  br i1 %.not95, label %135, label %23
+  br i1 %.not95, label %132, label %23
 
 23:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -867,7 +867,7 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr noundef %0, ptr noun
   %83 = load ptr, ptr %27, align 8
   %84 = call i32 %83(ptr noundef nonnull %8) #5
   %85 = icmp eq i32 %84, 115
-  br i1 %85, label %.lr.ph142, label %.thread156
+  br i1 %85, label %.lr.ph142, label %._crit_edge
 
 86:                                               ; preds = %80
   %87 = load ptr, ptr %2, align 8
@@ -876,10 +876,10 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr noundef %0, ptr noun
   call void %87(ptr noundef %89, ptr noundef null, i32 noundef -1) #5
   br label %.thread124
 
-.lr.ph142:                                        ; preds = %.preheader132, %106
-  %.077141 = phi i64 [ %.178, %106 ], [ 2, %.preheader132 ]
-  %.183140 = phi ptr [ %.284, %106 ], [ %82, %.preheader132 ]
-  %.188139 = phi i64 [ %110, %106 ], [ 0, %.preheader132 ]
+.lr.ph142:                                        ; preds = %.preheader132, %109
+  %.077141 = phi i64 [ %.178, %109 ], [ 2, %.preheader132 ]
+  %.183140 = phi ptr [ %.284, %109 ], [ %82, %.preheader132 ]
+  %.188139 = phi i64 [ %113, %109 ], [ 0, %.preheader132 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8
   %90 = add i64 %.077141, -1
@@ -891,7 +891,7 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr noundef %0, ptr noun
   %93 = shl i64 %92, 3
   %94 = call ptr @SDL_realloc_REAL(ptr noundef %.183140, i64 noundef %93) #7
   %.not108.not = icmp eq ptr %94, null
-  br i1 %.not108.not, label %.thread114, label %95
+  br i1 %.not108.not, label %.thread118, label %95
 
 95:                                               ; preds = %91, %.lr.ph142
   %.284 = phi ptr [ %.183140, %.lr.ph142 ], [ %94, %91 ]
@@ -905,95 +905,91 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr noundef %0, ptr noun
   %101 = load ptr, ptr %12, align 8
   %102 = call i32 @SDL_URIToLocal(ptr noundef %101, ptr noundef %100) #5
   %.not109 = icmp eq i32 %102, 0
-  br i1 %.not109, label %103, label %106
+  br i1 %.not109, label %103, label %109
 
 103:                                              ; preds = %95
   call void @SDL_free_REAL(ptr noundef %100) #5
   %104 = load ptr, ptr %12, align 8
   %105 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.52, ptr noundef %104) #5
-  br label %.thread114
+  br label %.thread118
 
-106:                                              ; preds = %95
-  %107 = getelementptr inbounds nuw ptr, ptr %.284, i64 %.188139
-  store ptr %100, ptr %107, align 8
-  %108 = load ptr, ptr %45, align 8
-  %109 = call i32 %108(ptr noundef nonnull %8) #5
-  %110 = add i64 %.188139, 1
+.thread118:                                       ; preds = %91, %103
+  %.486.ph = phi ptr [ %.284, %103 ], [ %.183140, %91 ]
+  %106 = load ptr, ptr %2, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %108 = load ptr, ptr %107, align 8
+  call void %106(ptr noundef %108, ptr noundef null, i32 noundef -1) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %111 = load ptr, ptr %27, align 8
-  %112 = call i32 %111(ptr noundef nonnull %8) #5
-  %113 = icmp eq i32 %112, 115
-  br i1 %113, label %.lr.ph142, label %.thread156
+  br label %.preheader
 
-.thread156:                                       ; preds = %106, %.preheader132
-  %.188.lcssa = phi i64 [ 0, %.preheader132 ], [ %110, %106 ]
-  %.183.lcssa = phi ptr [ %82, %.preheader132 ], [ %.284, %106 ]
-  %114 = getelementptr inbounds nuw ptr, ptr %.183.lcssa, i64 %.188.lcssa
-  store ptr null, ptr %114, align 8
-  %115 = load ptr, ptr %2, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %117 = load ptr, ptr %116, align 8
-  call void %115(ptr noundef %117, ptr noundef nonnull %.183.lcssa, i32 noundef -1) #5
-  %118 = getelementptr inbounds nuw i8, ptr %13, i64 88
-  %119 = load ptr, ptr %118, align 8
-  %120 = call i32 %119(ptr noundef %0, ptr noundef nonnull @DBus_MessageFilter, ptr noundef nonnull %2) #5
+109:                                              ; preds = %95
+  %110 = getelementptr inbounds nuw ptr, ptr %.284, i64 %.188139
+  store ptr %100, ptr %110, align 8
+  %111 = load ptr, ptr %45, align 8
+  %112 = call i32 %111(ptr noundef nonnull %8) #5
+  %113 = add i64 %.188139, 1
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  %114 = load ptr, ptr %27, align 8
+  %115 = call i32 %114(ptr noundef nonnull %8) #5
+  %116 = icmp eq i32 %115, 115
+  br i1 %116, label %.lr.ph142, label %._crit_edge
+
+._crit_edge:                                      ; preds = %109, %.preheader132
+  %.188.lcssa = phi i64 [ 0, %.preheader132 ], [ %113, %109 ]
+  %.183.lcssa = phi ptr [ %82, %.preheader132 ], [ %.284, %109 ]
+  %117 = getelementptr inbounds nuw ptr, ptr %.183.lcssa, i64 %.188.lcssa
+  store ptr null, ptr %117, align 8
+  %118 = load ptr, ptr %2, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %120 = load ptr, ptr %119, align 8
+  call void %118(ptr noundef %120, ptr noundef nonnull %.183.lcssa, i32 noundef -1) #5
   br label %.preheader
 
 .thread124:                                       ; preds = %35, %40, %86
   %121 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %122 = load ptr, ptr %121, align 8
   %123 = call i32 %122(ptr noundef %0, ptr noundef nonnull @DBus_MessageFilter, ptr noundef nonnull %2) #5
-  br label %133
+  br label %130
 
-.thread114:                                       ; preds = %91, %103
-  %.486.ph = phi ptr [ %.284, %103 ], [ %.183140, %91 ]
-  %124 = load ptr, ptr %2, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %126 = load ptr, ptr %125, align 8
-  call void %124(ptr noundef %126, ptr noundef null, i32 noundef -1) #5
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %127 = getelementptr inbounds nuw i8, ptr %13, i64 88
-  %128 = load ptr, ptr %127, align 8
-  %129 = call i32 %128(ptr noundef %0, ptr noundef nonnull @DBus_MessageFilter, ptr noundef nonnull %2) #5
-  %.not110 = icmp eq ptr %.486.ph, null
-  br i1 %.not110, label %133, label %.preheader
-
-.preheader:                                       ; preds = %.thread156, %.thread114
-  %.082161 = phi ptr [ %.183.lcssa, %.thread156 ], [ %.486.ph, %.thread114 ]
-  %.188137160 = phi i64 [ %.188.lcssa, %.thread156 ], [ %.188139, %.thread114 ]
-  %.not147 = icmp eq i64 %.188137160, 0
+.preheader:                                       ; preds = %._crit_edge, %.thread118
+  %.188137 = phi i64 [ %.188.lcssa, %._crit_edge ], [ %.188139, %.thread118 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge ], [ %.486.ph, %.thread118 ]
+  %124 = getelementptr inbounds nuw i8, ptr %13, i64 88
+  %125 = load ptr, ptr %124, align 8
+  %126 = call i32 %125(ptr noundef %0, ptr noundef nonnull @DBus_MessageFilter, ptr noundef nonnull %2) #5
+  %.not147 = icmp eq i64 %.188137, 0
   br i1 %.not147, label %._crit_edge146, label %.lr.ph145
 
 ._crit_edge146:                                   ; preds = %.lr.ph145, %.preheader
-  call void @SDL_free_REAL(ptr noundef nonnull %.082161) #5
-  br label %133
+  call void @SDL_free_REAL(ptr noundef nonnull %.082) #5
+  br label %130
 
 .lr.ph145:                                        ; preds = %.preheader, %.lr.ph145
-  %.0144 = phi i64 [ %132, %.lr.ph145 ], [ 0, %.preheader ]
-  %130 = getelementptr inbounds nuw ptr, ptr %.082161, i64 %.0144
-  %131 = load ptr, ptr %130, align 8
-  call void @SDL_free_REAL(ptr noundef %131) #5
-  %132 = add nuw i64 %.0144, 1
-  %exitcond.not = icmp eq i64 %132, %.188137160
+  %.0144 = phi i64 [ %129, %.lr.ph145 ], [ 0, %.preheader ]
+  %127 = getelementptr inbounds nuw ptr, ptr %.082, i64 %.0144
+  %128 = load ptr, ptr %127, align 8
+  call void @SDL_free_REAL(ptr noundef %128) #5
+  %129 = add nuw i64 %.0144, 1
+  %exitcond.not = icmp eq i64 %129, %.188137
   br i1 %exitcond.not, label %._crit_edge146, label %.lr.ph145, !llvm.loop !6
 
-133:                                              ; preds = %.thread114, %._crit_edge146, %.thread124
-  %134 = load ptr, ptr %20, align 8
-  call void @SDL_free_REAL(ptr noundef %134) #5
+130:                                              ; preds = %._crit_edge146, %.thread124
+  %131 = load ptr, ptr %20, align 8
+  call void @SDL_free_REAL(ptr noundef %131) #5
   call void @SDL_free_REAL(ptr noundef nonnull %2) #5
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.thread, %76, %73, %.loopexit, %48, %44, %23, %133
-  %.1.ph = phi i32 [ 0, %133 ], [ 1, %23 ], [ 1, %44 ], [ 1, %48 ], [ 1, %.loopexit ], [ 1, %73 ], [ 1, %76 ], [ 1, %.thread ]
+.sink.split:                                      ; preds = %.thread, %76, %73, %.loopexit, %48, %44, %23, %130
+  %.1.ph = phi i32 [ 0, %130 ], [ 1, %23 ], [ 1, %44 ], [ 1, %48 ], [ 1, %.loopexit ], [ 1, %73 ], [ 1, %76 ], [ 1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %135
+  br label %132
 
-135:                                              ; preds = %.sink.split, %17, %3
+132:                                              ; preds = %.sink.split, %17, %3
   %.1 = phi i32 [ 1, %3 ], [ 1, %17 ], [ %.1.ph, %.sink.split ]
   ret i32 %.1
 }

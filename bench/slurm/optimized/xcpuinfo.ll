@@ -369,9 +369,9 @@ _check_full_access.exit:                          ; preds = %55, %59
   br i1 %122, label %.lr.ph76.i, label %._crit_edge77.i, !llvm.loop !16
 
 .sink.split.i:                                    ; preds = %.thread61.i, %._crit_edge81.i, %65
-  %.sink95.i = phi ptr [ %67, %._crit_edge81.i ], [ %66, %65 ], [ %66, %.thread61.i ]
+  %.sink97.i = phi ptr [ %67, %._crit_edge81.i ], [ %66, %65 ], [ %66, %.thread61.i ]
   %.sink.i = phi ptr [ %66, %._crit_edge81.i ], [ %67, %65 ], [ %67, %.thread61.i ]
-  call void @hwloc_bitmap_free(ptr noundef %.sink95.i) #12
+  call void @hwloc_bitmap_free(ptr noundef %.sink97.i) #12
   call void @hwloc_bitmap_free(ptr noundef %.sink.i) #12
   br label %_remove_ecores.exit
 
@@ -1306,14 +1306,14 @@ thread-pre-split:                                 ; preds = %19
   br i1 %.not20, label %69, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %._crit_edge, %28, %thread-pre-split
-  %.035 = phi i32 [ -1, %thread-pre-split ], [ 0, %._crit_edge ], [ -1, %28 ]
-  %.not2233 = phi i1 [ false, %thread-pre-split ], [ true, %._crit_edge ], [ false, %28 ]
+  %.038 = phi i32 [ -1, %thread-pre-split ], [ 0, %._crit_edge ], [ -1, %28 ]
+  %.not2236 = phi i1 [ false, %thread-pre-split ], [ true, %._crit_edge ], [ false, %28 ]
   call void @slurm_bit_free(ptr noundef nonnull %3) #12
   br label %69
 
 69:                                               ; preds = %thread-pre-split.thread, %thread-pre-split
-  %.036 = phi i32 [ %.035, %thread-pre-split.thread ], [ -1, %thread-pre-split ]
-  %.not2234 = phi i1 [ %.not2233, %thread-pre-split.thread ], [ false, %thread-pre-split ]
+  %.039 = phi i32 [ %.038, %thread-pre-split.thread ], [ -1, %thread-pre-split ]
+  %.not2237 = phi i1 [ %.not2236, %thread-pre-split.thread ], [ false, %thread-pre-split ]
   store ptr null, ptr %3, align 8
   %.not21 = icmp eq ptr %25, null
   br i1 %.not21, label %71, label %70
@@ -1324,7 +1324,7 @@ thread-pre-split.thread:                          ; preds = %._crit_edge, %28, %
 
 71:                                               ; preds = %70, %69
   store ptr null, ptr %4, align 8
-  br i1 %.not2234, label %74, label %72
+  br i1 %.not2237, label %74, label %72
 
 72:                                               ; preds = %71
   %73 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.24, ptr noundef nonnull @__func__.xcpuinfo_abs_to_mac) #12
@@ -1333,7 +1333,7 @@ thread-pre-split.thread:                          ; preds = %._crit_edge, %28, %
 74:                                               ; preds = %72, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.036
+  ret i32 %.039
 }
 
 declare i32 @bit_unfmt(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -1535,14 +1535,14 @@ thread-pre-split:                                 ; preds = %._crit_edge47, %20
   br i1 %.not35, label %104, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %32, %thread-pre-split
-  %.062 = phi i32 [ %.0, %thread-pre-split ], [ -1, %32 ]
-  %.not3860 = phi i1 [ %or.cond, %thread-pre-split ], [ false, %32 ]
+  %.071 = phi i32 [ %.0, %thread-pre-split ], [ -1, %32 ]
+  %.not3869 = phi i1 [ %or.cond, %thread-pre-split ], [ false, %32 ]
   call void @slurm_bit_free(ptr noundef nonnull %3) #12
   br label %104
 
 104:                                              ; preds = %thread-pre-split.thread, %thread-pre-split
-  %.063 = phi i32 [ %.062, %thread-pre-split.thread ], [ %.0, %thread-pre-split ]
-  %.not3861 = phi i1 [ %.not3860, %thread-pre-split.thread ], [ %or.cond, %thread-pre-split ]
+  %.072 = phi i32 [ %.071, %thread-pre-split.thread ], [ %.0, %thread-pre-split ]
+  %.not3870 = phi i1 [ %.not3869, %thread-pre-split.thread ], [ %or.cond, %thread-pre-split ]
   store ptr null, ptr %3, align 8
   %.not36 = icmp eq ptr %26, null
   br i1 %.not36, label %106, label %105
@@ -1562,7 +1562,7 @@ thread-pre-split.thread:                          ; preds = %32, %thread-pre-spl
 
 108:                                              ; preds = %107, %106
   store ptr null, ptr %5, align 8
-  br i1 %.not3861, label %111, label %109
+  br i1 %.not3870, label %111, label %109
 
 109:                                              ; preds = %108
   %110 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__.xcpuinfo_mac_to_abs) #12
@@ -1572,7 +1572,7 @@ thread-pre-split.thread:                          ; preds = %32, %thread-pre-spl
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.063
+  ret i32 %.072
 }
 
 ; Function Attrs: nounwind uwtable

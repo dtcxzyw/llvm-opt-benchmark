@@ -1474,8 +1474,8 @@ _ZNK20b3AlignedObjectArrayIP17b3TypedConstraintE16findLinearSearchERKS1_.exit.i:
   %19 = ashr exact i64 %sext.i, 29
   %20 = getelementptr inbounds i8, ptr %9, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !114
-  %22 = sext i32 %18 to i64
-  %23 = getelementptr inbounds ptr, ptr %9, i64 %22
+  %22 = zext nneg i32 %18 to i64
+  %23 = getelementptr inbounds nuw ptr, ptr %9, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !114
   store ptr %24, ptr %20, align 8, !tbaa !114
   store ptr %21, ptr %23, align 8, !tbaa !114
@@ -1528,11 +1528,11 @@ define dso_local void @_ZN22b3GpuRigidBodyPipeline21removeConstraintByUidEi(ptr 
   %25 = add nsw i32 %14, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %3, ptr noundef nonnull align 16 dereferenceable(80) %20, i64 80, i1 false)
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.b3GpuGenericConstraint, ptr %17, i64 %26
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr inbounds nuw %struct.b3GpuGenericConstraint, ptr %17, i64 %26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %20, ptr noundef nonnull align 16 dereferenceable(80) %27, i64 80, i1 false)
   %28 = load ptr, ptr %16, align 8, !tbaa !30
-  %29 = getelementptr inbounds %struct.b3GpuGenericConstraint, ptr %28, i64 %26
+  %29 = getelementptr inbounds nuw %struct.b3GpuGenericConstraint, ptr %28, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %29, ptr noundef nonnull align 16 dereferenceable(80) %3, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = load ptr, ptr %4, align 8, !tbaa !40

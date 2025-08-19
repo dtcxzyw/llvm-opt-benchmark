@@ -1275,19 +1275,19 @@ define i32 @Fxch_SCHashTableRemove(ptr noundef captures(none) %0, ptr noundef re
   %38 = getelementptr inbounds nuw %struct.Fxch_SubCube_t_, ptr %.pre, i64 %indvars.iv, i32 1
   %39 = load i32, ptr %38, align 4, !tbaa !25
   %40 = icmp eq i32 %39, %3
-  br i1 %40, label %._crit_edge.split.loop.exit174, label %41
+  br i1 %40, label %._crit_edge.split.loop.exit178, label %41
 
 41:                                               ; preds = %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !52
 
-._crit_edge.split.loop.exit174:                   ; preds = %37
+._crit_edge.split.loop.exit178:                   ; preds = %37
   %42 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %41, %._crit_edge.split.loop.exit174
-  %.085.lcssa = phi i32 [ %42, %._crit_edge.split.loop.exit174 ], [ %33, %41 ]
+._crit_edge:                                      ; preds = %41, %._crit_edge.split.loop.exit178
+  %.085.lcssa = phi i32 [ %42, %._crit_edge.split.loop.exit178 ], [ %33, %41 ]
   %43 = zext i32 %.085.lcssa to i64
   %44 = getelementptr inbounds nuw %struct.Fxch_SubCube_t_, ptr %.pre, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
@@ -1449,8 +1449,8 @@ define i32 @Fxch_SCHashTableRemove(ptr noundef captures(none) %0, ptr noundef re
   %136 = icmp eq i32 %132, %135
   %.pre161 = load i32, ptr %45, align 4, !tbaa !25
   %137 = icmp eq i32 %134, %.pre161
-  %or.cond176 = select i1 %136, i1 %137, i1 false
-  br i1 %or.cond176, label %141, label %138
+  %or.cond180 = select i1 %136, i1 %137, i1 false
+  br i1 %or.cond180, label %141, label %138
 
 138:                                              ; preds = %129
   %139 = icmp eq i32 %132, %.pre161

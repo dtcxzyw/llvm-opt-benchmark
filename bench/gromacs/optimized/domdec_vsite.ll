@@ -736,9 +736,9 @@ _ZNSt12_Vector_baseIN3gmx9HashedMapIiE9hashEntryESaIS3_EE13_M_deallocateEPS3_m.e
   br label %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i
 
 _ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i: ; preds = %_ZNSt12_Vector_baseIN3gmx9HashedMapIiE9hashEntryESaIS3_EE13_M_deallocateEPS3_m.exit41.i, %.lr.ph.i.i.i.i.preheader, %150, %149, %.critedge.i.i
-  %.1.lcssa35.i.i = phi i64 [ -1, %150 ], [ 0, %149 ], [ %.1.lcssa.i.i, %.critedge.i.i ], [ %115, %.lr.ph.i.i.i.i.preheader ], [ %115, %_ZNSt12_Vector_baseIN3gmx9HashedMapIiE9hashEntryESaIS3_EE13_M_deallocateEPS3_m.exit41.i ]
+  %.1.lcssa39.i.i = phi i64 [ -1, %150 ], [ 0, %149 ], [ %.1.lcssa.i.i, %.critedge.i.i ], [ %115, %.lr.ph.i.i.i.i.preheader ], [ %115, %_ZNSt12_Vector_baseIN3gmx9HashedMapIiE9hashEntryESaIS3_EE13_M_deallocateEPS3_m.exit41.i ]
   %151 = phi ptr [ %100, %150 ], [ %100, %149 ], [ %100, %.critedge.i.i ], [ %.pre.i.i.pre, %.lr.ph.i.i.i.i.preheader ], [ %140, %_ZNSt12_Vector_baseIN3gmx9HashedMapIiE9hashEntryESaIS3_EE13_M_deallocateEPS3_m.exit41.i ]
-  %152 = trunc i64 %.1.lcssa35.i.i to i32
+  %152 = trunc i64 %.1.lcssa39.i.i to i32
   %153 = getelementptr inbounds nuw %"struct.gmx::HashedMap<int>::hashEntry", ptr %151, i64 %104, i32 2
   store i32 %152, ptr %153, align 4, !tbaa !45
   %154 = add i32 %152, 1
@@ -747,7 +747,7 @@ _ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i: ; preds = 
 
 _ZN3gmx9HashedMapIiE6insertEiRKi.exit:            ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i
   %155 = phi ptr [ %151, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i ], [ %100, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %.020.i.i = phi i64 [ %.1.lcssa35.i.i, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i ], [ %99, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+  %.020.i.i = phi i64 [ %.1.lcssa39.i.i, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i ], [ %99, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %156 = getelementptr inbounds nuw %"struct.gmx::HashedMap<int>::hashEntry", ptr %155, i64 %.020.i.i
   store i32 %57, ptr %156, align 4, !tbaa !43
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 4

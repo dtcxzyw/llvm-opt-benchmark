@@ -470,7 +470,7 @@ define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErro
 declare void @uprv_free_77(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7711ICU_Utility12parseIntegerERKNS_13UnicodeStringERii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define noundef range(i32 0, -2147483648) i32 @_ZN6icu_7711ICU_Utility12parseIntegerERKNS_13UnicodeStringERii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = load i32, ptr %1, align 4, !tbaa !12
   %5 = icmp slt i32 %4, %2
   br i1 %5, label %6, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread

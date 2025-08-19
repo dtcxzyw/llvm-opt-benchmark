@@ -407,9 +407,9 @@ thread-pre-split:                                 ; preds = %._crit_edge112, %qu
   br label %.sink.split
 
 .sink.split:                                      ; preds = %116, %82, %.loopexit.i, %._crit_edge
-  %.sink133 = phi ptr [ %137, %._crit_edge ], [ %.078, %82 ], [ %88, %.loopexit.i ], [ %88, %116 ]
+  %.sink141 = phi ptr [ %137, %._crit_edge ], [ %.078, %82 ], [ %88, %.loopexit.i ], [ %88, %116 ]
   %139 = tail call ptr @palloc(i64 noundef 32) #13
-  %140 = ptrtoint ptr %.sink133 to i64
+  %140 = ptrtoint ptr %.sink141 to i64
   store i64 %140, ptr %139, align 8
   %141 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %142 = load ptr, ptr %141, align 8

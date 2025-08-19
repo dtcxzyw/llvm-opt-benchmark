@@ -162,9 +162,9 @@ if.end24:                                         ; preds = %if.else22, %if.then
   br label %return
 
 return:                                           ; preds = %if.end.i, %_ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit, %if.end24
-  %retval.0.i18 = phi ptr [ %cond.i, %if.end24 ], [ %cond.i, %_ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit ], [ %arrayidx24.i, %if.end.i ]
+  %retval.0.i21 = phi ptr [ %cond.i, %if.end24 ], [ %cond.i, %_ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit ], [ %arrayidx24.i, %if.end.i ]
   %retval.sroa.3.0 = phi i8 [ 1, %if.end24 ], [ 0, %_ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit ], [ 0, %if.end.i ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.0.i18, 0
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.0.i21, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1
   ret { ptr, i8 } %.fca.1.insert
 }

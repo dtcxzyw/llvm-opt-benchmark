@@ -228,10 +228,10 @@ define internal range(i32 0, 2) i32 @tdes_wrap_update(ptr noundef %0, ptr nounde
   br i1 %.not, label %.sink.split, label %12
 
 .sink.split:                                      ; preds = %10, %8
-  %.sink12 = phi i32 [ 158, %8 ], [ 163, %10 ]
+  %.sink14 = phi i32 [ 158, %8 ], [ 163, %10 ]
   %.sink = phi i32 [ 106, %8 ], [ 102, %10 ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink12, ptr noundef nonnull @__func__.tdes_wrap_update) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink14, ptr noundef nonnull @__func__.tdes_wrap_update) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #4
   br label %12
 

@@ -42,20 +42,20 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .outer:                                           ; preds = %8, %2
   %.ph = phi i8 [ 0, %2 ], [ 1, %8 ]
-  %.ph73 = phi i32 [ 0, %2 ], [ %.ph76, %8 ]
-  %.ph74 = phi i32 [ 0, %2 ], [ %.ph79, %8 ]
-  br label %.outer75
-
-.outer75:                                         ; preds = %.outer, %10
-  %.ph76 = phi i32 [ %.ph73, %.outer ], [ %spec.select, %10 ]
-  %.ph77 = phi i32 [ %.ph74, %.outer ], [ %.ph79, %10 ]
+  %.ph76 = phi i32 [ 0, %2 ], [ %.ph79, %8 ]
+  %.ph77 = phi i32 [ 0, %2 ], [ %.ph82, %8 ]
   br label %.outer78
 
-.outer78:                                         ; preds = %.outer75, %15
-  %.ph79 = phi i32 [ %.ph77, %.outer75 ], [ %spec.select24, %15 ]
+.outer78:                                         ; preds = %.outer, %10
+  %.ph79 = phi i32 [ %.ph76, %.outer ], [ %spec.select, %10 ]
+  %.ph80 = phi i32 [ %.ph77, %.outer ], [ %.ph82, %10 ]
+  br label %.outer81
+
+.outer81:                                         ; preds = %.outer78, %15
+  %.ph82 = phi i32 [ %.ph80, %.outer78 ], [ %spec.select24, %15 ]
   br label %8
 
-8:                                                ; preds = %.outer78, %openFile.exit.i
+8:                                                ; preds = %.outer81, %openFile.exit.i
   %9 = tail call i32 @getopt(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str) #10
   switch i32 %9, label %45 [
     i32 -1, label %48
@@ -72,16 +72,16 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %12 = tail call i64 @strtol(ptr noundef nonnull captures(none) %11, ptr noundef null, i32 noundef 10) #10
   %13 = trunc i64 %12 to i32
   %14 = icmp sgt i32 %13, 0
-  %spec.select = select i1 %14, i32 %13, i32 %.ph76
-  br label %.outer75, !llvm.loop !11
+  %spec.select = select i1 %14, i32 %13, i32 %.ph79
+  br label %.outer78, !llvm.loop !11
 
 15:                                               ; preds = %8
   %16 = load ptr, ptr @optarg, align 8, !tbaa !4
   %17 = tail call i64 @strtol(ptr noundef nonnull captures(none) %16, ptr noundef null, i32 noundef 10) #10
   %18 = trunc i64 %17 to i32
   %19 = icmp sgt i32 %18, 0
-  %spec.select24 = select i1 %19, i32 %18, i32 %.ph79
-  br label %.outer78, !llvm.loop !11
+  %spec.select24 = select i1 %19, i32 %18, i32 %.ph82
+  br label %.outer81, !llvm.loop !11
 
 20:                                               ; preds = %8
   %21 = load ptr, ptr @outFile, align 8, !tbaa !13
@@ -141,11 +141,11 @@ openFile.exit.i:                                  ; preds = %24
   unreachable
 
 48:                                               ; preds = %8
-  store i32 %.ph79, ptr %6, align 4
-  store i32 %.ph76, ptr %7, align 4
+  store i32 %.ph82, ptr %6, align 4
+  store i32 %.ph79, ptr %7, align 4
   store i8 %.ph, ptr %4, align 4
   %49 = trunc nuw i8 %.ph to i1
-  %50 = icmp slt i32 %.ph76, 1
+  %50 = icmp slt i32 %.ph79, 1
   %or.cond = select i1 %49, i1 %50, i1 false
   br i1 %or.cond, label %51, label %55
 

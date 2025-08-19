@@ -383,8 +383,8 @@ define range(i32 0, 2) i32 @Cudd_DumpBlifBody(ptr noundef %0, i32 noundef %1, pt
   %45 = ptrtoint ptr %44 to i64
   %46 = and i64 %45, 1
   %.not = icmp eq i64 %46, 0
-  %.str.13..str.1070 = select i1 %.not, ptr @.str.13, ptr @.str.10
-  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull %.str.13..str.1070, ptr noundef nonnull %12) #10
+  %.str.13..str.1072 = select i1 %.not, ptr @.str.13, ptr @.str.10
+  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull %.str.13..str.1072, ptr noundef nonnull %12) #10
   %48 = icmp eq i32 %47, -1
   br i1 %48, label %.sink.split, label %34
 
@@ -405,7 +405,7 @@ declare i32 @st__ptrcmp(ptr noundef, ptr noundef) #2
 declare i32 @st__ptrhash(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ddDoDumpBlif(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @ddDoDumpBlif(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = tail call i32 @st__lookup(ptr noundef nonnull %3, ptr noundef %1, ptr noundef null) #10
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %69, label %9
@@ -430,6 +430,7 @@ define internal fastcc range(i32 0, 2) i32 @ddDoDumpBlif(ptr noundef %0, ptr nou
   %20 = udiv i64 %19, 40
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.62, i64 noundef %20) #10
   %22 = icmp ne i32 %21, -1
+  %. = zext i1 %22 to i32
   br label %69
 
 23:                                               ; preds = %14
@@ -445,6 +446,7 @@ define internal fastcc range(i32 0, 2) i32 @ddDoDumpBlif(ptr noundef %0, ptr nou
   %30 = select i1 %.not72, ptr @.str.12, ptr @.str.64
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.63, i64 noundef %29, ptr noundef nonnull %30) #10
   %32 = icmp ne i32 %31, -1
+  %.73 = zext i1 %32 to i32
   br label %69
 
 33:                                               ; preds = %23
@@ -456,8 +458,8 @@ define internal fastcc range(i32 0, 2) i32 @ddDoDumpBlif(ptr noundef %0, ptr nou
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !28
   %39 = tail call fastcc i32 @ddDoDumpBlif(ptr noundef nonnull %0, ptr noundef %38, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
-  %.not.not = icmp eq i32 %39, 0
-  br i1 %.not.not, label %69, label %40
+  %.not = icmp eq i32 %39, 1
+  br i1 %.not, label %40, label %69
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -466,8 +468,8 @@ define internal fastcc range(i32 0, 2) i32 @ddDoDumpBlif(ptr noundef %0, ptr nou
   %44 = and i64 %43, -2
   %45 = inttoptr i64 %44 to ptr
   %46 = tail call fastcc i32 @ddDoDumpBlif(ptr noundef nonnull %0, ptr noundef %45, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
-  %.not67.not = icmp eq i32 %46, 0
-  br i1 %.not67.not, label %69, label %47
+  %.not67 = icmp eq i32 %46, 1
+  br i1 %.not67, label %47, label %69
 
 47:                                               ; preds = %40
   %.not68 = icmp eq ptr %4, null
@@ -506,11 +508,11 @@ define internal fastcc range(i32 0, 2) i32 @ddDoDumpBlif(ptr noundef %0, ptr nou
   %.str.69.sink = select i1 %.not69, ptr %.str.70..str.69, ptr %.str.68..str.67
   %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull %.str.69.sink, i64 noundef %63, i64 noundef %64, i64 noundef %66) #10
   %68 = icmp ne i32 %67, -1
+  %.74 = zext i1 %68 to i32
   br label %69
 
 69:                                               ; preds = %58, %56, %40, %36, %33, %27, %18, %11, %9, %6
-  %.062.shrunk = phi i1 [ true, %6 ], [ false, %9 ], [ false, %11 ], [ %22, %18 ], [ %32, %27 ], [ false, %33 ], [ false, %36 ], [ false, %40 ], [ false, %56 ], [ %68, %58 ]
-  %.062 = zext i1 %.062.shrunk to i32
+  %.062 = phi i32 [ 1, %6 ], [ 0, %9 ], [ 0, %11 ], [ %., %18 ], [ %.73, %27 ], [ 0, %33 ], [ %39, %36 ], [ %46, %40 ], [ 0, %56 ], [ %.74, %58 ]
   ret i32 %.062
 }
 
@@ -546,7 +548,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %.preheader288
   %18 = tail call ptr @Cudd_VectorSupport(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1) #10
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.thread.thread419, label %20
+  br i1 %19, label %.thread.thread437, label %20
 
 20:                                               ; preds = %._crit_edge
   %21 = ptrtoint ptr %18 to i64
@@ -578,7 +580,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %18) #10
   %34 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #10
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.thread.thread419, label %.preheader286
+  br i1 %35, label %.thread.thread437, label %.preheader286
 
 .preheader286:                                    ; preds = %._crit_edge294
   %36 = icmp sgt i32 %1, 0
@@ -1136,7 +1138,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   call void @free(ptr noundef %12) #10
   br label %275
 
-.thread.thread419:                                ; preds = %._crit_edge294, %._crit_edge
+.thread.thread437:                                ; preds = %._crit_edge294, %._crit_edge
   tail call void @free(ptr noundef nonnull %12) #10
   br label %275
 
@@ -1145,8 +1147,8 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   call void @st__free_table(ptr noundef nonnull %34) #10
   br label %275
 
-275:                                              ; preds = %.thread.thread419, %.thread271, %.thread.thread, %64, %61, %274
-  %.0209 = phi i32 [ 1, %274 ], [ 0, %61 ], [ 0, %64 ], [ 0, %.thread.thread ], [ 0, %.thread271 ], [ 0, %.thread.thread419 ]
+275:                                              ; preds = %.thread.thread437, %.thread271, %.thread.thread, %64, %61, %274
+  %.0209 = phi i32 [ 1, %274 ], [ 0, %61 ], [ 0, %64 ], [ 0, %.thread.thread ], [ 0, %.thread271 ], [ 0, %.thread.thread437 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0209
 }
@@ -1320,7 +1322,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDaVinci(ptr noundef readnone captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ddDoDumpDaVinci(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @ddDoDumpDaVinci(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = ptrtoint ptr %0 to i64
   %7 = and i64 %4, %6
   %8 = udiv i64 %7, 40
@@ -1332,6 +1334,7 @@ define internal fastcc range(i32 0, 2) i32 @ddDoDumpDaVinci(ptr noundef %0, ptr 
   %12 = inttoptr i64 %8 to ptr
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.71, ptr noundef %12) #10
   %14 = icmp ne i32 %13, -1
+  %. = zext i1 %14 to i32
   br label %65
 
 15:                                               ; preds = %5
@@ -1356,6 +1359,7 @@ define internal fastcc range(i32 0, 2) i32 @ddDoDumpDaVinci(ptr noundef %0, ptr 
   %28 = load double, ptr %27, align 8, !tbaa !28
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.72, ptr noundef %26, double noundef %28) #10
   %30 = icmp ne i32 %29, -1
+  %.55 = zext i1 %30 to i32
   br label %65
 
 31:                                               ; preds = %20
@@ -1384,8 +1388,8 @@ define internal fastcc range(i32 0, 2) i32 @ddDoDumpDaVinci(ptr noundef %0, ptr 
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !28
   %47 = tail call fastcc i32 @ddDoDumpDaVinci(ptr noundef %46, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4)
-  %.not52.not = icmp eq i32 %47, 0
-  br i1 %.not52.not, label %65, label %48
+  %.not52 = icmp eq i32 %47, 1
+  br i1 %.not52, label %48, label %65
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1404,17 +1408,17 @@ define internal fastcc range(i32 0, 2) i32 @ddDoDumpDaVinci(ptr noundef %0, ptr 
   %59 = and i64 %58, -2
   %60 = inttoptr i64 %59 to ptr
   %61 = tail call fastcc i32 @ddDoDumpDaVinci(ptr noundef %60, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4)
-  %.not54.not = icmp eq i32 %61, 0
-  br i1 %.not54.not, label %65, label %62
+  %.not54 = icmp eq i32 %61, 1
+  br i1 %.not54, label %62, label %65
 
 62:                                               ; preds = %56
   %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.78) #10
   %64 = icmp ne i32 %63, -1
+  %.56 = zext i1 %64 to i32
   br label %65
 
 65:                                               ; preds = %62, %56, %48, %44, %41, %25, %17, %15, %11
-  %.0.shrunk = phi i1 [ %14, %11 ], [ false, %15 ], [ false, %17 ], [ %30, %25 ], [ false, %41 ], [ false, %44 ], [ false, %48 ], [ false, %56 ], [ %64, %62 ]
-  %.0 = zext i1 %.0.shrunk to i32
+  %.0 = phi i32 [ %., %11 ], [ 0, %15 ], [ 0, %17 ], [ %.55, %25 ], [ 0, %41 ], [ %47, %44 ], [ 0, %48 ], [ %61, %56 ], [ %.56, %62 ]
   ret i32 %.0
 }
 
@@ -1735,7 +1739,7 @@ define range(i32 0, 2) i32 @Cudd_DumpDDcal(ptr noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ddDoDumpDDcal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @ddDoDumpDDcal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = ptrtoint ptr %1 to i64
   %8 = and i64 %5, %7
   %9 = udiv i64 %8, 40
@@ -1777,14 +1781,15 @@ define internal fastcc range(i32 0, 2) i32 @ddDoDumpDDcal(ptr noundef %0, ptr no
   %31 = load double, ptr %30, align 8, !tbaa !28
   %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.79, ptr noundef %29, double noundef %31) #10
   %33 = icmp ne i32 %32, -1
+  %. = zext i1 %33 to i32
   br label %74
 
 34:                                               ; preds = %17
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !28
   %37 = tail call fastcc i32 @ddDoDumpDDcal(ptr noundef %0, ptr noundef %36, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5)
-  %.not.not = icmp eq i32 %37, 0
-  br i1 %.not.not, label %74, label %38
+  %.not = icmp eq i32 %37, 1
+  br i1 %.not, label %38, label %74
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1793,8 +1798,8 @@ define internal fastcc range(i32 0, 2) i32 @ddDoDumpDDcal(ptr noundef %0, ptr no
   %42 = and i64 %41, -2
   %43 = inttoptr i64 %42 to ptr
   %44 = tail call fastcc i32 @ddDoDumpDDcal(ptr noundef %0, ptr noundef %43, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5)
-  %.not61.not = icmp eq i32 %44, 0
-  br i1 %.not61.not, label %74, label %45
+  %.not61 = icmp eq i32 %44, 1
+  br i1 %.not61, label %45, label %74
 
 45:                                               ; preds = %38
   %46 = ptrtoint ptr %36 to i64
@@ -1835,11 +1840,11 @@ define internal fastcc range(i32 0, 2) i32 @ddDoDumpDDcal(ptr noundef %0, ptr no
 72:                                               ; preds = %64, %53
   %.056 = phi i32 [ %63, %53 ], [ %71, %64 ]
   %73 = icmp ne i32 %.056, -1
+  %.67 = zext i1 %73 to i32
   br label %74
 
 74:                                               ; preds = %72, %38, %34, %28, %25, %14, %12, %6
-  %.0.shrunk = phi i1 [ true, %6 ], [ false, %12 ], [ false, %14 ], [ false, %25 ], [ %33, %28 ], [ false, %34 ], [ false, %38 ], [ %73, %72 ]
-  %.0 = zext i1 %.0.shrunk to i32
+  %.0 = phi i32 [ 1, %6 ], [ 0, %12 ], [ 0, %14 ], [ 0, %25 ], [ %., %28 ], [ %37, %34 ], [ %44, %38 ], [ %.67, %72 ]
   ret i32 %.0
 }
 

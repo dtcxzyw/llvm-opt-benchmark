@@ -562,7 +562,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr noundef readonly 
   %209 = icmp eq i32 %.010171878, 2
   %210 = icmp eq i8 %57, 80
   %or.cond50 = select i1 %209, i1 %210, i1 false
-  %.2070 = select i1 %or.cond50, i8 9, i8 26
+  %.2153 = select i1 %or.cond50, i8 9, i8 26
   br label %.thread.sink.split
 
 211:                                              ; preds = %204
@@ -590,7 +590,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr noundef readonly 
 221:                                              ; preds = %219
   %222 = icmp eq i32 %.010171878, 2
   %or.cond65 = select i1 %222, i1 %216, i1 false
-  %.2071 = select i1 %or.cond65, i8 19, i8 26
+  %.2154 = select i1 %or.cond65, i8 19, i8 26
   br label %.thread.sink.split
 
 223:                                              ; preds = %204
@@ -638,7 +638,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr noundef readonly 
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %235, %232, %.critedge1309, %.critedge, %227, %224, %221, %219, %217, %214, %211, %208, %205, %194, %.critedge1310.thread
-  %.sink = phi i8 [ 26, %.critedge1310.thread ], [ 26, %194 ], [ 20, %205 ], [ %.2070, %208 ], [ 12, %211 ], [ 13, %214 ], [ 21, %217 ], [ 22, %219 ], [ %.2071, %221 ], [ 14, %224 ], [ 4, %227 ], [ 5, %.critedge ], [ 16, %.critedge1309 ], [ 25, %232 ], [ 15, %235 ]
+  %.sink = phi i8 [ 26, %.critedge1310.thread ], [ 26, %194 ], [ 20, %205 ], [ %.2153, %208 ], [ 12, %211 ], [ 13, %214 ], [ 21, %217 ], [ 22, %219 ], [ %.2154, %221 ], [ 14, %224 ], [ 4, %227 ], [ 5, %.critedge ], [ 16, %.critedge1309 ], [ 25, %232 ], [ 15, %235 ]
   %.21024.ph = phi i32 [ 18, %.critedge1310.thread ], [ 19, %194 ], [ 18, %205 ], [ 18, %208 ], [ 18, %211 ], [ 18, %214 ], [ 18, %217 ], [ 18, %219 ], [ 18, %221 ], [ 18, %224 ], [ 18, %227 ], [ 18, %.critedge ], [ 18, %.critedge1309 ], [ 18, %232 ], [ 18, %235 ]
   store i8 %.sink, ptr %46, align 2, !tbaa !20
   br label %.thread

@@ -5447,9 +5447,9 @@ make_closure.exit:                                ; preds = %2511, %2518
   %2528 = getelementptr inbounds nuw i8, ptr %2525, i64 12
   %2529 = load i32, ptr %2528, align 4, !tbaa !18
   %.not.i1656 = icmp eq i32 %.08.i.i1643, %.val.i1655
-  br i1 %.not.i1656, label %2532, label %.loopexit.thread22.i
+  br i1 %.not.i1656, label %2532, label %.loopexit.thread23.i
 
-.loopexit.thread22.i:                             ; preds = %2523
+.loopexit.thread23.i:                             ; preds = %2523
   %2530 = getelementptr inbounds i8, ptr %2525, i64 -4
   %2531 = load i32, ptr %2530, align 4, !tbaa !18
   br label %frame_pop.exit
@@ -5520,8 +5520,8 @@ make_closure.exit:                                ; preds = %2511, %2518
   store i32 %2566, ptr %24, align 4, !tbaa !15
   br label %frame_pop.exit
 
-frame_pop.exit:                                   ; preds = %.loopexit.thread22.i, %.loopexit.i, %2556
-  %2567 = phi i32 [ %2555, %.loopexit.i ], [ %2558, %2556 ], [ %2531, %.loopexit.thread22.i ]
+frame_pop.exit:                                   ; preds = %.loopexit.thread23.i, %.loopexit.i, %2556
+  %2567 = phi i32 [ %2555, %.loopexit.i ], [ %2558, %2556 ], [ %2531, %.loopexit.thread23.i ]
   store i32 %2567, ptr %20, align 8, !tbaa !20
   br label %2568
 
@@ -5638,9 +5638,9 @@ stack_pop.exit1679:                               ; preds = %2607, %2613
 
 2624:                                             ; preds = %stack_pop.exit1679
   %.not.i1683 = icmp eq i32 %.val836, %.val.i1682
-  br i1 %.not.i1683, label %2627, label %.loopexit.thread22.i1684
+  br i1 %.not.i1683, label %2627, label %.loopexit.thread23.i1684
 
-.loopexit.thread22.i1684:                         ; preds = %2624
+.loopexit.thread23.i1684:                         ; preds = %2624
   %2625 = getelementptr inbounds i8, ptr %2621, i64 -4
   %2626 = load i32, ptr %2625, align 4, !tbaa !18
   br label %frame_pop.exit1698
@@ -5712,10 +5712,10 @@ stack_pop.exit1679:                               ; preds = %2607, %2613
   store i32 %2661, ptr %24, align 4, !tbaa !15
   br label %frame_pop.exit1698
 
-frame_pop.exit1698:                               ; preds = %.loopexit.thread22.i1684, %.loopexit.i1693, %2651
-  %.val.pre.i.i1699 = phi ptr [ %.val.i.pre.i1695, %.loopexit.i1693 ], [ %.val.pre.i.i16991875, %2651 ], [ %.val835, %.loopexit.thread22.i1684 ]
-  %2662 = phi i32 [ %.pre18.i1696, %.loopexit.i1693 ], [ %2661, %2651 ], [ %.val.i1682, %.loopexit.thread22.i1684 ]
-  %2663 = phi i32 [ %2650, %.loopexit.i1693 ], [ %2653, %2651 ], [ %2626, %.loopexit.thread22.i1684 ]
+frame_pop.exit1698:                               ; preds = %.loopexit.thread23.i1684, %.loopexit.i1693, %2651
+  %.val.pre.i.i1699 = phi ptr [ %.val.i.pre.i1695, %.loopexit.i1693 ], [ %.val.pre.i.i16991875, %2651 ], [ %.val835, %.loopexit.thread23.i1684 ]
+  %2662 = phi i32 [ %.pre18.i1696, %.loopexit.i1693 ], [ %2661, %2651 ], [ %.val.i1682, %.loopexit.thread23.i1684 ]
+  %2663 = phi i32 [ %2650, %.loopexit.i1693 ], [ %2653, %2651 ], [ %2626, %.loopexit.thread23.i1684 ]
   store i32 %2663, ptr %20, align 8, !tbaa !20
   %2664 = load i32, ptr %21, align 4, !tbaa !4
   %2665 = add nsw i32 %2662, -24

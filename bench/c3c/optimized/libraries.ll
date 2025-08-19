@@ -1195,7 +1195,7 @@ define internal fastcc void @add_library_dependency(ptr noundef captures(none) %
   br i1 %.not53, label %.thread, label %9
 
 .thread:                                          ; preds = %6
-  %.pre106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 224), align 8
+  %.pre112 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 224), align 8
   br label %._crit_edge
 
 9:                                                ; preds = %6
@@ -1223,10 +1223,10 @@ define internal fastcc void @add_library_dependency(ptr noundef captures(none) %
   br i1 %17, label %23, label %12
 
 ._crit_edge:                                      ; preds = %12, %.thread, %9
-  %.pre107 = phi i32 [ %.pre106, %.thread ], [ %.pre, %9 ], [ %.pre, %12 ]
+  %.pre113 = phi i32 [ %.pre112, %.thread ], [ %.pre, %9 ], [ %.pre, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = zext i32 %.pre107 to i64
+  %20 = zext i32 %.pre113 to i64
   %21 = getelementptr inbounds nuw [25 x ptr], ptr @arch_os_target, i64 0, i64 %20
   %22 = load ptr, ptr %21, align 8
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.27, ptr noundef %19, ptr noundef %22) #9

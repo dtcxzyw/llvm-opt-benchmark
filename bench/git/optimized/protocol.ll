@@ -111,19 +111,19 @@ define dso_local range(i32 0, 3) i32 @determine_protocol_version_server() local_
   %8 = load i64, ptr %7, align 8, !tbaa !17
   %.idx = shl nuw nsw i64 %8, 4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
-  %.not29 = icmp eq i64 %8, 0
-  br i1 %.not29, label %.critedge, label %.lr.ph28
+  %.not31 = icmp eq i64 %8, 0
+  br i1 %.not31, label %.critedge, label %.lr.ph30
 
-.lr.ph28:                                         ; preds = %.lr.ph, %skip_prefix.exit
-  %.0102127 = phi ptr [ %23, %skip_prefix.exit ], [ %6, %.lr.ph ]
-  %.12226 = phi i32 [ %.2, %skip_prefix.exit ], [ 0, %.lr.ph ]
-  %10 = load ptr, ptr %.0102127, align 8, !tbaa !18
+.lr.ph30:                                         ; preds = %.lr.ph, %skip_prefix.exit
+  %.0102129 = phi ptr [ %23, %skip_prefix.exit ], [ %6, %.lr.ph ]
+  %.12228 = phi i32 [ %.2, %skip_prefix.exit ], [ 0, %.lr.ph ]
+  %10 = load ptr, ptr %.0102129, align 8, !tbaa !18
   %scevgep = getelementptr i8, ptr %10, i64 8
   br label %11
 
-11:                                               ; preds = %12, %.lr.ph28
-  %.07.i = phi ptr [ %10, %.lr.ph28 ], [ %14, %12 ]
-  %.06.i.idx = phi i64 [ 0, %.lr.ph28 ], [ %.06.i.add, %12 ]
+11:                                               ; preds = %12, %.lr.ph30
+  %.07.i = phi ptr [ %10, %.lr.ph30 ], [ %14, %12 ]
+  %.06.i.idx = phi i64 [ 0, %.lr.ph30 ], [ %.06.i.add, %12 ]
   %exitcond = icmp eq i64 %.06.i.idx, 8
   br i1 %exitcond, label %17, label %12
 
@@ -152,14 +152,14 @@ switch.lookup:                                    ; preds = %17
 
 parse_protocol_version.exit:                      ; preds = %17, %switch.lookup
   %.0.i = phi i32 [ -1, %17 ], [ %spec.select22.i, %switch.lookup ]
-  %spec.select = call i32 @llvm.smax.i32(i32 %.0.i, i32 %.12226)
+  %spec.select = call i32 @llvm.smax.i32(i32 %.0.i, i32 %.12228)
   br label %skip_prefix.exit
 
 skip_prefix.exit:                                 ; preds = %12, %parse_protocol_version.exit
-  %.2 = phi i32 [ %spec.select, %parse_protocol_version.exit ], [ %.12226, %12 ]
-  %23 = getelementptr inbounds nuw i8, ptr %.0102127, i64 16
+  %.2 = phi i32 [ %spec.select, %parse_protocol_version.exit ], [ %.12228, %12 ]
+  %23 = getelementptr inbounds nuw i8, ptr %.0102129, i64 16
   %24 = icmp ult ptr %23, %9
-  br i1 %24, label %.lr.ph28, label %.critedge
+  br i1 %24, label %.lr.ph30, label %.critedge
 
 .critedge:                                        ; preds = %skip_prefix.exit, %.lr.ph, %3
   %.1.lcssa = phi i32 [ 0, %3 ], [ 0, %.lr.ph ], [ %.2, %skip_prefix.exit ]

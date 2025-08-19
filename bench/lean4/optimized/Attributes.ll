@@ -5888,20 +5888,20 @@ lean_alloc_closure.exit80:                        ; preds = %lean_alloc_closure.
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_alloc_closure.exit80, %lean_alloc_closure.exit71
-  %.sink98 = phi ptr [ %71, %lean_alloc_closure.exit71 ], [ %125, %lean_alloc_closure.exit80 ]
-  %.sink93 = phi ptr [ %14, %lean_alloc_closure.exit71 ], [ %95, %lean_alloc_closure.exit80 ]
-  %.sink90 = phi ptr [ %55, %lean_alloc_closure.exit71 ], [ %109, %lean_alloc_closure.exit80 ]
-  %.sink87 = phi ptr [ %63, %lean_alloc_closure.exit71 ], [ %117, %lean_alloc_closure.exit80 ]
-  %128 = getelementptr inbounds nuw i8, ptr %.sink98, i64 4
-  store i32 1, ptr %.sink98, align 4, !tbaa !8
+  %.sink110 = phi ptr [ %71, %lean_alloc_closure.exit71 ], [ %125, %lean_alloc_closure.exit80 ]
+  %.sink105 = phi ptr [ %14, %lean_alloc_closure.exit71 ], [ %95, %lean_alloc_closure.exit80 ]
+  %.sink102 = phi ptr [ %55, %lean_alloc_closure.exit71 ], [ %109, %lean_alloc_closure.exit80 ]
+  %.sink99 = phi ptr [ %63, %lean_alloc_closure.exit71 ], [ %117, %lean_alloc_closure.exit80 ]
+  %128 = getelementptr inbounds nuw i8, ptr %.sink110, i64 4
+  store i32 1, ptr %.sink110, align 4, !tbaa !8
   store i32 196640, ptr %128, align 4
-  %129 = getelementptr inbounds nuw i8, ptr %.sink98, i64 8
-  store ptr %.sink93, ptr %129, align 8, !tbaa !4
-  %130 = getelementptr inbounds nuw i8, ptr %.sink98, i64 16
-  store ptr %.sink90, ptr %130, align 8, !tbaa !4
-  %131 = getelementptr inbounds nuw i8, ptr %.sink98, i64 24
-  store ptr %.sink87, ptr %131, align 8, !tbaa !4
-  %132 = tail call ptr @l_Lean_registerBuiltinAttribute(ptr noundef nonnull %.sink98, ptr noundef %0) #4
+  %129 = getelementptr inbounds nuw i8, ptr %.sink110, i64 8
+  store ptr %.sink105, ptr %129, align 8, !tbaa !4
+  %130 = getelementptr inbounds nuw i8, ptr %.sink110, i64 16
+  store ptr %.sink102, ptr %130, align 8, !tbaa !4
+  %131 = getelementptr inbounds nuw i8, ptr %.sink110, i64 24
+  store ptr %.sink99, ptr %131, align 8, !tbaa !4
+  %132 = tail call ptr @l_Lean_registerBuiltinAttribute(ptr noundef nonnull %.sink110, ptr noundef %0) #4
   ret ptr %132
 }
 
@@ -6422,18 +6422,18 @@ lean_dec_ref.exit:                                ; preds = %82, %81, %79, %_ini
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %83, %lean_dec_ref.exit ]
-  %86 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !8
+  %.sink24 = phi ptr [ %4, %3 ], [ %83, %lean_dec_ref.exit ]
+  %86 = getelementptr inbounds nuw i8, ptr %.sink24, i64 4
+  store i32 1, ptr %.sink24, align 4, !tbaa !8
   store i32 131096, ptr %86, align 4
-  %87 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.sink24, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %87, align 8, !tbaa !4
-  %88 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %.sink24, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %88, align 8, !tbaa !4
   br label %89
 
 89:                                               ; preds = %.sink.split, %72, %7
-  %.0 = phi ptr [ %8, %7 ], [ %73, %72 ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %73, %72 ], [ %.sink24, %.sink.split ]
   ret ptr %.0
 }
 

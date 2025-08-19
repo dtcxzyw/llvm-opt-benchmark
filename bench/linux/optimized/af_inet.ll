@@ -3654,17 +3654,17 @@ define internal i32 @inet_init() #6 section ".init.text" align 16 {
 28:                                               ; preds = %26, %23
   %29 = tail call i32 @inet_add_protocol(ptr noundef nonnull @igmp_protocol, i8 noundef zeroext 2) #15
   %30 = icmp slt i32 %29, 0
-  br i1 %30, label %31, label %.preheader4
+  br i1 %30, label %31, label %.preheader7
 
 31:                                               ; preds = %28
   %32 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.inet_init) #16
-  br label %.preheader4
+  br label %.preheader7
 
-.preheader4:                                      ; preds = %31, %28
+.preheader7:                                      ; preds = %31, %28
   br label %33
 
-33:                                               ; preds = %.preheader4, %33
-  %34 = phi ptr [ %36, %33 ], [ @inetsw, %.preheader4 ]
+33:                                               ; preds = %.preheader7, %33
+  %34 = phi ptr [ %36, %33 ], [ @inetsw, %.preheader7 ]
   store volatile ptr %34, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store volatile ptr %34, ptr %35, align 8

@@ -240,9 +240,9 @@ define void @_ZN3zmq8stream_t13identify_peerEPNS_6pipe_tEb(ptr noundef nonnull a
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %4, i8 0, i64 16, i1 false)
   store i8 1, ptr %7, align 8, !tbaa !103
-  br i1 %2, label %18, label %.thread26
+  br i1 %2, label %18, label %.thread30
 
-.thread26:                                        ; preds = %3
+.thread30:                                        ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2108
   %9 = load i32, ptr %8, align 4, !tbaa !97
   %10 = add i32 %9, 1
@@ -403,11 +403,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %76 = trunc i32 %68 to i8
   br i1 %66, label %77, label %_ZN3zmq6blob_t5clearEv.exit.i13
 
-77:                                               ; preds = %.thread26, %65
-  %78 = phi i8 [ %17, %.thread26 ], [ %76, %65 ]
-  %79 = phi i8 [ %16, %.thread26 ], [ %75, %65 ]
-  %80 = phi i8 [ %14, %.thread26 ], [ %73, %65 ]
-  %81 = phi i8 [ %12, %.thread26 ], [ %71, %65 ]
+77:                                               ; preds = %.thread30, %65
+  %78 = phi i8 [ %17, %.thread30 ], [ %76, %65 ]
+  %79 = phi i8 [ %16, %.thread30 ], [ %75, %65 ]
+  %80 = phi i8 [ %14, %.thread30 ], [ %73, %65 ]
+  %81 = phi i8 [ %12, %.thread30 ], [ %71, %65 ]
   %82 = load ptr, ptr %4, align 8, !tbaa !109
   tail call void @free(ptr noundef %82) #18
   br label %_ZN3zmq6blob_t5clearEv.exit.i13

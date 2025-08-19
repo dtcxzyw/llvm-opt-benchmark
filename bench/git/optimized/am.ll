@@ -1862,37 +1862,37 @@ switch.lookup:                                    ; preds = %721
   %729 = call ptr (ptr, ...) @mkpath(ptr noundef nonnull @.str.83, ptr noundef %.val70.i, ptr noundef nonnull @.str.118) #21
   call void (ptr, ptr, ...) @write_file(ptr noundef %729, ptr noundef nonnull @.str.183, ptr noundef nonnull %728) #21
   %730 = load i32, ptr %170, align 8, !tbaa !30
-  %switch.tableidx97 = add i32 %730, 1
-  %731 = icmp ult i32 %switch.tableidx97, 3
-  br i1 %731, label %switch.lookup96, label %732
+  %switch.tableidx108 = add i32 %730, 1
+  %731 = icmp ult i32 %switch.tableidx108, 3
+  br i1 %731, label %switch.lookup107, label %732
 
 732:                                              ; preds = %switch.lookup
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.85, i32 noundef 1054, ptr noundef nonnull @.str.131) #22
   unreachable
 
-switch.lookup96:                                  ; preds = %switch.lookup
-  %733 = zext nneg i32 %switch.tableidx97 to i64
-  %switch.gep98 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.cmd_am.11, i64 0, i64 %733
-  %switch.load99 = load ptr, ptr %switch.gep98, align 8
+switch.lookup107:                                 ; preds = %switch.lookup
+  %733 = zext nneg i32 %switch.tableidx108 to i64
+  %switch.gep109 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.cmd_am.11, i64 0, i64 %733
+  %switch.load110 = load ptr, ptr %switch.gep109, align 8
   %.val58.i = load ptr, ptr %33, align 8, !tbaa !23
   %734 = call ptr (ptr, ...) @mkpath(ptr noundef nonnull @.str.83, ptr noundef %.val58.i, ptr noundef nonnull @.str.24) #21
-  call void (ptr, ptr, ...) @write_file(ptr noundef %734, ptr noundef nonnull @.str.183, ptr noundef nonnull %switch.load99) #21
+  call void (ptr, ptr, ...) @write_file(ptr noundef %734, ptr noundef nonnull @.str.183, ptr noundef nonnull %switch.load110) #21
   %735 = load i32, ptr %182, align 4, !tbaa !31
   %switch.tableidx = add i32 %735, 1
   %736 = icmp ult i32 %switch.tableidx, 4
-  br i1 %736, label %switch.lookup93, label %737
+  br i1 %736, label %switch.lookup104, label %737
 
-737:                                              ; preds = %switch.lookup96
+737:                                              ; preds = %switch.lookup107
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.85, i32 noundef 1072, ptr noundef nonnull @.str.135) #22
   unreachable
 
-switch.lookup93:                                  ; preds = %switch.lookup96
+switch.lookup104:                                 ; preds = %switch.lookup107
   %738 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep94 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.cmd_am.10, i64 0, i64 %738
-  %switch.load95 = load ptr, ptr %switch.gep94, align 8
+  %switch.gep105 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.cmd_am.10, i64 0, i64 %738
+  %switch.load106 = load ptr, ptr %switch.gep105, align 8
   %.val59.i = load ptr, ptr %33, align 8, !tbaa !23
   %739 = call ptr (ptr, ...) @mkpath(ptr noundef nonnull @.str.83, ptr noundef %.val59.i, ptr noundef nonnull @.str.26) #21
-  call void (ptr, ptr, ...) @write_file(ptr noundef %739, ptr noundef nonnull @.str.183, ptr noundef nonnull %switch.load95) #21
+  call void (ptr, ptr, ...) @write_file(ptr noundef %739, ptr noundef nonnull @.str.183, ptr noundef nonnull %switch.load106) #21
   %740 = load ptr, ptr %193, align 8, !tbaa !61
   call void @sq_quote_argv(ptr noundef nonnull %28, ptr noundef %740) #21
   %741 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -1911,7 +1911,7 @@ switch.lookup93:                                  ; preds = %switch.lookup96
   %.not54.i = icmp eq i32 %747, 0
   br i1 %.not54.i, label %748, label %756
 
-748:                                              ; preds = %switch.lookup93
+748:                                              ; preds = %switch.lookup104
   %749 = call ptr @oid_to_hex(ptr noundef nonnull %27) #21
   %.val63.i = load ptr, ptr %33, align 8, !tbaa !23
   %750 = call ptr (ptr, ...) @mkpath(ptr noundef nonnull @.str.83, ptr noundef %.val63.i, ptr noundef nonnull @.str.138) #21
@@ -1926,7 +1926,7 @@ switch.lookup93:                                  ; preds = %switch.lookup96
   %755 = call i32 @refs_update_ref(ptr noundef %754, ptr noundef nonnull @.str.139, ptr noundef nonnull @.str.140, ptr noundef nonnull %27, ptr noundef null, i32 noundef 0, i32 noundef 1) #21
   br label %763
 
-756:                                              ; preds = %switch.lookup93
+756:                                              ; preds = %switch.lookup104
   %.val64.i = load ptr, ptr %33, align 8, !tbaa !23
   %757 = call ptr (ptr, ...) @mkpath(ptr noundef nonnull @.str.83, ptr noundef %.val64.i, ptr noundef nonnull @.str.138) #21
   call void (ptr, ptr, ...) @write_file(ptr noundef %757, ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.72) #21

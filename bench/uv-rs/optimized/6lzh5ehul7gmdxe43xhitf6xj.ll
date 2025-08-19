@@ -6,13 +6,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN8uv_types6builds14BuildIsolation11is_isolated17h66a4e6e4456442b6E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !3, !noundef !4
-  switch i64 %3, label %default.unreachable4 [
+  switch i64 %3, label %default.unreachable6 [
     i64 0, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h547a18ea4c78f2f7E.exit"
     i64 1, label %4
     i64 2, label %5
   ]
 
-default.unreachable4:                             ; preds = %2
+default.unreachable6:                             ; preds = %2
   unreachable
 
 4:                                                ; preds = %2
@@ -70,13 +70,13 @@ default.unreachable4:                             ; preds = %2
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define noundef align 8 dereferenceable_or_null(8) ptr @_ZN8uv_types6builds14BuildIsolation18shared_environment17h190c8f84850fb1c8E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !3, !noundef !4
-  switch i64 %3, label %default.unreachable5 [
+  switch i64 %3, label %default.unreachable7 [
     i64 0, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb7fdd286ee827d9dE.exit"
     i64 1, label %4
     i64 2, label %7
   ]
 
-default.unreachable5:                             ; preds = %2
+default.unreachable7:                             ; preds = %2
   unreachable
 
 4:                                                ; preds = %2

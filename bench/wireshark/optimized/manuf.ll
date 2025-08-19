@@ -61111,19 +61111,19 @@ define noundef zeroext i1 @ws_manuf_iter_next(ptr noundef %0, ptr noundef %1) lo
   unreachable
 
 .sink.split:                                      ; preds = %48, %57, %39
-  %.sink59 = phi i64 [ 29, %39 ], [ 77, %57 ], [ 53, %48 ]
-  %.sink56 = phi ptr [ %41, %39 ], [ %59, %57 ], [ %50, %48 ]
-  %.sink54 = phi i64 [ 32, %39 ], [ 80, %57 ], [ 56, %48 ]
-  %.sink50 = phi i64 [ 40, %39 ], [ 88, %57 ], [ 64, %48 ]
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink59
+  %.sink63 = phi i64 [ 29, %39 ], [ 77, %57 ], [ 53, %48 ]
+  %.sink60 = phi ptr [ %41, %39 ], [ %59, %57 ], [ %50, %48 ]
+  %.sink58 = phi i64 [ 32, %39 ], [ 80, %57 ], [ 56, %48 ]
+  %.sink54 = phi i64 [ 40, %39 ], [ 88, %57 ], [ 64, %48 ]
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink63
   store i8 %27, ptr %61, align 1
-  %62 = getelementptr inbounds nuw i8, ptr %.sink56, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.sink60, i64 8
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink54
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink58
   store ptr %63, ptr %64, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %.sink56, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.sink60, i64 16
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink50
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink54
   store ptr %66, ptr %67, align 8
   br label %68
 

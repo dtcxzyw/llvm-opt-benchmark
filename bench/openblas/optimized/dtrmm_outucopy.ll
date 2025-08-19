@@ -177,9 +177,9 @@ define noundef i32 @dtrmm_outucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br label %.sink.split
 
 .sink.split:                                      ; preds = %81, %82
-  %.sink174 = phi double [ %83, %82 ], [ 1.000000e+00, %81 ]
+  %.sink177 = phi double [ %83, %82 ], [ 1.000000e+00, %81 ]
   %.sink = phi double [ %85, %82 ], [ 0.000000e+00, %81 ]
-  store double %.sink174, ptr %.1131, align 8, !tbaa !3
+  store double %.sink177, ptr %.1131, align 8, !tbaa !3
   %86 = getelementptr inbounds nuw i8, ptr %.1131, i64 8
   store double %.sink, ptr %86, align 8, !tbaa !3
   br label %87

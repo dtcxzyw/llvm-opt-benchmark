@@ -4407,8 +4407,8 @@ _ZN4llvmL15getDRegFromBRegENS_10MCRegisterE.exit: ; preds = %71, %104, %105, %10
 .thread243.thread:                                ; preds = %39
   %159 = or i64 %.0100273, 67108864
   %160 = add i64 %.0122271, 3
-  %.not283 = icmp eq i64 %160, %11
-  br i1 %.not283, label %.thread, label %.outer, !llvm.loop !125
+  %.not287 = icmp eq i64 %160, %11
+  br i1 %.not287, label %.thread, label %.outer, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %.thread243
   br i1 %.088275.ph, label %.thread, label %161

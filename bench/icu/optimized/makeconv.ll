@@ -836,7 +836,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit106: ; preds = 
           cleanup
   br label %525
 
-.loopexit.split-lp:                               ; preds = %158, %161, %172, %411, %176, %182, %189, %193, %204, %219, %229, %231, %239, %.noexc115, %253, %257, %265, %.noexc119, %278, %.thread169.i, %345, %350, %355, %365, %392, %.noexc128, %._crit_edge162.thread.i, %408, %515, %519, %521
+.loopexit.split-lp:                               ; preds = %158, %161, %172, %411, %176, %182, %189, %193, %204, %219, %229, %231, %239, %.noexc115, %253, %257, %265, %.noexc119, %278, %.thread174.i, %345, %350, %355, %365, %392, %.noexc128, %._crit_edge162.thread.i, %408, %515, %519, %521
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %525
@@ -884,7 +884,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 .noexc:                                           ; preds = %182
   %184 = load i32, ptr %12, align 4, !tbaa !14
   %185 = icmp slt i32 %184, 1
-  br i1 %185, label %186, label %.thread152
+  br i1 %185, label %186, label %.thread175
 
 186:                                              ; preds = %.noexc
   %187 = load ptr, ptr %5, align 8, !tbaa !40
@@ -903,7 +903,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 
 192:                                              ; preds = %.noexc109
   store i32 7, ptr %12, align 4, !tbaa !14
-  br label %.thread152
+  br label %.thread175
 
 193:                                              ; preds = %.noexc109
   %194 = getelementptr inbounds nuw i8, ptr %190, i64 8
@@ -921,7 +921,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
   %200 = load ptr, ptr @stderr, align 8, !tbaa !20
   %201 = call i64 @fwrite(ptr nonnull @.str.27, i64 87, i64 1, ptr %200) #23
   store i32 13, ptr %12, align 4, !tbaa !14
-  br label %.thread152
+  br label %.thread175
 
 202:                                              ; preds = %.noexc110
   %203 = load i8, ptr %98, align 8, !tbaa !45
@@ -943,7 +943,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
   %210 = load ptr, ptr @stderr, align 8, !tbaa !20
   %211 = call i64 @fwrite(ptr nonnull @.str.28, i64 64, i64 1, ptr %210) #23
   store i32 13, ptr %12, align 4, !tbaa !14
-  br label %.thread152
+  br label %.thread175
 
 212:                                              ; preds = %.noexc111, %202
   %213 = load ptr, ptr %5, align 8, !tbaa !40
@@ -969,7 +969,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 
 222:                                              ; preds = %.noexc112
   store i32 13, ptr %12, align 4, !tbaa !14
-  br label %.thread152
+  br label %.thread175
 
 223:                                              ; preds = %._crit_edge165.i, %212
   %224 = phi ptr [ %.pre.i, %._crit_edge165.i ], [ %213, %212 ]
@@ -987,7 +987,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 .noexc113:                                        ; preds = %229, %223
   %.pr.i = load i32, ptr %12, align 4, !tbaa !14
   %230 = icmp sgt i32 %.pr.i, 0
-  br i1 %230, label %.thread152, label %231
+  br i1 %230, label %.thread175, label %231
 
 231:                                              ; preds = %.noexc113
   %232 = load ptr, ptr %95, align 8, !tbaa !41
@@ -1004,7 +1004,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 
 238:                                              ; preds = %.noexc114
   store i32 13, ptr %12, align 4, !tbaa !14
-  br label %.thread152
+  br label %.thread175
 
 239:                                              ; preds = %.noexc114
   %240 = load ptr, ptr %5, align 8, !tbaa !40
@@ -1041,7 +1041,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 
 256:                                              ; preds = %.noexc117
   store i32 7, ptr %12, align 4, !tbaa !14
-  br label %.thread152
+  br label %.thread175
 
 257:                                              ; preds = %.noexc117
   %258 = getelementptr inbounds nuw i8, ptr %254, i64 16
@@ -1058,7 +1058,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 
 264:                                              ; preds = %.noexc118
   store i32 13, ptr %12, align 4, !tbaa !14
-  br label %.thread152
+  br label %.thread175
 
 265:                                              ; preds = %186
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1092,7 +1092,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 275:                                              ; preds = %274
   %276 = load ptr, ptr @stderr, align 8, !tbaa !20
   %277 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %276, ptr noundef nonnull @.str.30, ptr noundef nonnull %4) #22
-  br label %.sink.split174.i
+  br label %.sink.split179.i
 
 278:                                              ; preds = %274
   %279 = load ptr, ptr %5, align 8, !tbaa !40
@@ -1102,7 +1102,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 .noexc121:                                        ; preds = %278
   store ptr %280, ptr %99, align 8, !tbaa !56
   %281 = icmp eq ptr %280, null
-  br i1 %281, label %.sink.split174.i, label %282
+  br i1 %281, label %.sink.split179.i, label %282
 
 282:                                              ; preds = %.noexc121
   %283 = load ptr, ptr %3, align 8, !tbaa !40
@@ -1172,7 +1172,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
   %.idx.i = mul nsw i64 %318, 12
   %319 = getelementptr inbounds i8, ptr %315, i64 %.idx.i
   %320 = icmp sgt i32 %317, 0
-  br i1 %320, label %.lr.ph.i, label %.thread169.i
+  br i1 %320, label %.lr.ph.i, label %.thread174.i
 
 .lr.ph.i:                                         ; preds = %312, %327
   %.0125157.i = phi i8 [ %.1126.i, %327 ], [ 0, %312 ]
@@ -1213,25 +1213,25 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 335:                                              ; preds = %334, %._crit_edge.i
   %336 = and i32 %332, 2
   %.not139.i = icmp eq i32 %336, 0
-  br i1 %.not139.i, label %.thread169.i, label %337
+  br i1 %.not139.i, label %.thread174.i, label %337
 
 337:                                              ; preds = %335
   store i8 1, ptr %108, align 1, !tbaa !69
-  br label %.thread169.i
+  br label %.thread174.i
 
-.thread169.i:                                     ; preds = %337, %335, %312
+.thread174.i:                                     ; preds = %337, %335, %312
   %338 = sext i8 %313 to i32
   %339 = invoke i32 @ucm_countChars(ptr noundef nonnull %284, ptr noundef nonnull %96, i32 noundef %338)
           to label %.noexc122 unwind label %.loopexit.split-lp
 
-.noexc122:                                        ; preds = %.thread169.i
+.noexc122:                                        ; preds = %.thread174.i
   %.not140.i = icmp eq i32 %339, 1
   br i1 %.not140.i, label %343, label %340
 
 340:                                              ; preds = %.noexc122
   %341 = load ptr, ptr @stderr, align 8, !tbaa !20
   %342 = call i64 @fwrite(ptr nonnull @.str.27, i64 87, i64 1, ptr %341) #23
-  br label %.sink.split174.i
+  br label %.sink.split179.i
 
 343:                                              ; preds = %.noexc122
   %344 = load i8, ptr %98, align 8, !tbaa !45
@@ -1249,7 +1249,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 347:                                              ; preds = %.noexc123
   %348 = load ptr, ptr @stderr, align 8, !tbaa !20
   %349 = call i64 @fwrite(ptr nonnull @.str.28, i64 64, i64 1, ptr %348) #23
-  br label %.sink.split174.i
+  br label %.sink.split179.i
 
 350:                                              ; preds = %.noexc123, %343
   %351 = load ptr, ptr %5, align 8, !tbaa !40
@@ -1260,7 +1260,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 
 .noexc124:                                        ; preds = %350
   %.not143.i = icmp eq i8 %354, 0
-  br i1 %.not143.i, label %.sink.split174.i, label %355
+  br i1 %.not143.i, label %.sink.split179.i, label %355
 
 355:                                              ; preds = %.noexc124
   %356 = load ptr, ptr %3, align 8, !tbaa !40
@@ -1273,7 +1273,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 
 .noexc125:                                        ; preds = %355
   %.not144.i = icmp eq i8 %361, 0
-  br i1 %.not144.i, label %.sink.split174.i, label %362
+  br i1 %.not144.i, label %.sink.split179.i, label %362
 
 362:                                              ; preds = %.noexc125
   %363 = load i32, ptr %299, align 4, !tbaa !60
@@ -1360,14 +1360,14 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 
 .noexc130:                                        ; preds = %._crit_edge162.thread.i
   %.not146.i = icmp eq i8 %407, 0
-  br i1 %.not146.i, label %.sink.split174.i, label %408
+  br i1 %.not146.i, label %.sink.split179.i, label %408
 
-.sink.split174.i:                                 ; preds = %.noexc130, %.noexc125, %.noexc124, %347, %340, %.noexc121, %275
-  %.sink175.i = phi i32 [ 13, %340 ], [ 13, %347 ], [ 13, %275 ], [ 7, %.noexc121 ], [ 13, %.noexc125 ], [ 13, %.noexc124 ], [ 13, %.noexc130 ]
-  store i32 %.sink175.i, ptr %12, align 4, !tbaa !14
+.sink.split179.i:                                 ; preds = %.noexc130, %.noexc125, %.noexc124, %347, %340, %.noexc121, %275
+  %.sink180.i = phi i32 [ 13, %340 ], [ 13, %347 ], [ 13, %275 ], [ 7, %.noexc121 ], [ 13, %.noexc125 ], [ 13, %.noexc124 ], [ 13, %.noexc130 ]
+  store i32 %.sink180.i, ptr %12, align 4, !tbaa !14
   br label %408
 
-408:                                              ; preds = %.sink.split174.i, %.noexc130
+408:                                              ; preds = %.sink.split179.i, %.noexc130
   invoke fastcc void @_ZL15cleanupConvDataP8ConvData(ptr noundef %3)
           to label %.noexc131 unwind label %.loopexit.split-lp
 
@@ -1377,9 +1377,9 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 
 .critedge.i:                                      ; preds = %.noexc120
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread152
+  br label %.thread175
 
-.thread152:                                       ; preds = %.critedge.i, %264, %256, %238, %.noexc113, %222, %209, %199, %192, %.noexc
+.thread175:                                       ; preds = %.critedge.i, %264, %256, %238, %.noexc113, %222, %209, %199, %192, %.noexc
   %.ph = phi i32 [ %184, %.noexc ], [ 7, %192 ], [ 13, %199 ], [ 13, %209 ], [ 13, %222 ], [ %.pr.i, %.noexc113 ], [ 13, %238 ], [ 7, %256 ], [ 13, %264 ], [ %272, %.critedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %411
@@ -1390,8 +1390,8 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
   %410 = icmp slt i32 %.pr, 1
   br i1 %410, label %422, label %411
 
-411:                                              ; preds = %.thread152, %409
-  %412 = phi i32 [ %.ph, %.thread152 ], [ %.pr, %409 ]
+411:                                              ; preds = %.thread175, %409
+  %412 = phi i32 [ %.ph, %.thread175 ], [ %.pr, %409 ]
   %413 = load ptr, ptr @stderr, align 8, !tbaa !20
   %414 = load ptr, ptr %8, align 8, !tbaa !4
   %415 = invoke ptr @u_errorName_77(i32 noundef %412)

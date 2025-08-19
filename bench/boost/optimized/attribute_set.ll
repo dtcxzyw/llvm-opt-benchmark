@@ -17,7 +17,7 @@ $_ZN5boost3log11v2_mt_posix14pool_allocatorINS1_13attribute_set4nodeEED2Ev = com
 @_ZN5boost3log11v2_mt_posix13attribute_setD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5boost3log11v2_mt_posix13attribute_setD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @_ZN5boost3log11v2_mt_posix9attribute4implnwEm(i64 noundef %0) local_unnamed_addr #0 align 2 {
+define noalias noundef nonnull ptr @_ZN5boost3log11v2_mt_posix9attribute4implnwEm(i64 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noalias ptr @malloc(i64 noundef %0) #12
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %3, label %_ZN5boost3log11v2_mt_posix3aux19stateless_allocatorIhE8allocateEmPKv.exit

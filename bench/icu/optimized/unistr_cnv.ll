@@ -260,9 +260,9 @@ define void @_ZN6icu_7713UnicodeStringC2EPKciP10UConverterR10UErrorCode(ptr noun
 
 12:                                               ; preds = %5
   %13 = icmp slt i32 %2, -1
-  br i1 %13, label %.thread27, label %14
+  br i1 %13, label %.thread30, label %14
 
-.thread27:                                        ; preds = %12
+.thread30:                                        ; preds = %12
   store i32 1, ptr %4, align 4, !tbaa !8
   br label %30
 
@@ -309,7 +309,7 @@ define void @_ZN6icu_7713UnicodeStringC2EPKciP10UConverterR10UErrorCode(ptr noun
   %29 = icmp slt i32 %.pr, 1
   br i1 %29, label %.thread, label %30
 
-30:                                               ; preds = %.thread27, %28
+30:                                               ; preds = %.thread30, %28
   invoke void @_ZN6icu_7713UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %.thread unwind label %10
 

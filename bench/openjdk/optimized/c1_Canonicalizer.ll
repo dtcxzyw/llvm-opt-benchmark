@@ -2664,7 +2664,7 @@ define hidden void @_ZN13Canonicalizer12do_CompareOpEP9CompareOp(ptr noundef non
 
 104:                                              ; preds = %102
   %105 = fcmp olt float %85, %94
-  %.53 = select i1 %105, i32 -1, i32 1
+  %.61 = select i1 %105, i32 -1, i32 1
   br label %.sink.split
 
 106:                                              ; preds = %54
@@ -2701,11 +2701,11 @@ define hidden void @_ZN13Canonicalizer12do_CompareOpEP9CompareOp(ptr noundef non
 
 131:                                              ; preds = %129
   %132 = fcmp olt double %112, %121
-  %.54 = select i1 %132, i32 -1, i32 1
+  %.62 = select i1 %132, i32 -1, i32 1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %131, %129, %104, %102, %77, %60, %32, %18, %10, %36, %22, %97, %124
-  %.sink = phi i32 [ %128, %124 ], [ %101, %97 ], [ %26, %22 ], [ %40, %36 ], [ 0, %10 ], [ 0, %18 ], [ 0, %32 ], [ 0, %60 ], [ %., %77 ], [ 0, %102 ], [ %.53, %104 ], [ 0, %129 ], [ %.54, %131 ]
+  %.sink = phi i32 [ %128, %124 ], [ %101, %97 ], [ %26, %22 ], [ %40, %36 ], [ 0, %10 ], [ 0, %18 ], [ 0, %32 ], [ 0, %60 ], [ %., %77 ], [ 0, %102 ], [ %.61, %104 ], [ 0, %129 ], [ %.62, %131 ]
   tail call void @_ZN13Canonicalizer12set_constantEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %.sink)
   br label %133
 
@@ -3437,21 +3437,21 @@ switch.lookup:                                    ; preds = %211
   %264 = tail call noundef ptr %263(ptr noundef nonnull align 8 dereferenceable(16) %260) #9
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %266 = load i32, ptr %265, align 8
-  %switch.tableidx73 = add i32 %266, -145
-  %267 = icmp ult i32 %switch.tableidx73, 3
-  br i1 %267, label %switch.lookup72, label %.critedge
+  %switch.tableidx82 = add i32 %266, -145
+  %267 = icmp ult i32 %switch.tableidx82, 3
+  br i1 %267, label %switch.lookup81, label %.critedge
 
-switch.lookup72:                                  ; preds = %257
+switch.lookup81:                                  ; preds = %257
   %268 = getelementptr inbounds nuw i8, ptr %264, i64 16
   %269 = load i32, ptr %268, align 8
-  %270 = zext nneg i32 %switch.tableidx73 to i64
+  %270 = zext nneg i32 %switch.tableidx82 to i64
   %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN13Canonicalizer10do_ConvertEP7Convert, i64 0, i64 %270
   %switch.load = load i32, ptr %switch.gep, align 4
   %271 = and i32 %switch.load, %269
   %272 = icmp eq i32 %271, 0
   br i1 %272, label %273, label %.critedge
 
-273:                                              ; preds = %switch.lookup72
+273:                                              ; preds = %switch.lookup81
   %274 = load ptr, ptr %3, align 8
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %276 = load ptr, ptr %275, align 8
@@ -3462,7 +3462,7 @@ switch.lookup72:                                  ; preds = %257
   store ptr %274, ptr %275, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %257, %277, %273, %238, %234, %231, %227, %224, %220, %.thread69, %244, %248, %switch.lookup72, %218, %225, %232, %.thread
+.critedge:                                        ; preds = %257, %277, %273, %238, %234, %231, %227, %224, %220, %.thread69, %244, %248, %switch.lookup81, %218, %225, %232, %.thread
   ret void
 }
 
@@ -5047,22 +5047,22 @@ _ZNK6Switch6lengthEv.exit:                        ; preds = %2
   %.02432 = phi i32 [ %28, %.lr.ph ], [ %.125, %44 ]
   %34 = sub nsw i32 %.02432, %.02333
   %35 = lshr i32 %34, 1
-  %36 = add nuw nsw i32 %35, %.02333
-  %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %32, i64 %37
+  %36 = add nsw i32 %35, %.02333
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds i32, ptr %32, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, %19
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %33
-  %42 = getelementptr inbounds nuw ptr, ptr %23, i64 %37
+  %42 = getelementptr inbounds ptr, ptr %23, i64 %37
   %43 = load ptr, ptr %42, align 8
   br label %.loopexit
 
 44:                                               ; preds = %33
   %45 = icmp sgt i32 %39, %19
   %46 = add nsw i32 %36, -1
-  %47 = add nuw nsw i32 %36, 1
+  %47 = add nsw i32 %36, 1
   %.125 = select i1 %45, i32 %46, i32 %.02432
   %.1 = select i1 %45, i32 %.02333, i32 %47
   %.not = icmp sgt i32 %.1, %.125

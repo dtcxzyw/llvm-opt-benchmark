@@ -286,7 +286,7 @@ parseKind.exit.thread19.i:                        ; preds = %71, %39, %skipWS.ex
 
 parseCase.exit:                                   ; preds = %86, %88
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  switch i32 %.0.i, label %default.unreachable179 [
+  switch i32 %.0.i, label %default.unreachable187 [
     i32 0, label %89
     i32 2, label %97
     i32 1, label %132
@@ -475,7 +475,7 @@ addBlock.exit:                                    ; preds = %110, %116, %101
   call fastcc void @addCase(ptr noundef %9, ptr noundef %.1118, i32 noundef %.1110, ptr noundef %.1115, i32 noundef %.1112)
   br label %bindAction.exit.backedge
 
-default.unreachable179:                           ; preds = %parseCase.exit
+default.unreachable187:                           ; preds = %parseCase.exit
   unreachable
 
 150:                                              ; preds = %parseCase.exit, %parseCase.exit

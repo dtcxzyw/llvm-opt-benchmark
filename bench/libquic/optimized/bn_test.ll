@@ -453,7 +453,7 @@ thread-pre-split.i:                               ; preds = %63, %62
   br i1 %.not.i36.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i, label %thread-pre-split.thread.i
 
 thread-pre-split.thread.i:                        ; preds = %77, %82, %117, %114, %98, %thread-pre-split.i, %121, %68
-  %.01845.i = phi i1 [ false, %thread-pre-split.i ], [ false, %121 ], [ false, %68 ], [ false, %82 ], [ true, %77 ], [ false, %114 ], [ false, %117 ], [ false, %98 ]
+  %.01851.i = phi i1 [ false, %thread-pre-split.i ], [ false, %121 ], [ false, %68 ], [ false, %82 ], [ true, %77 ], [ false, %114 ], [ false, %117 ], [ false, %98 ]
   invoke void @BN_free(ptr noundef nonnull %61)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i unwind label %124
 
@@ -465,7 +465,7 @@ thread-pre-split.thread.i:                        ; preds = %77, %82, %117, %114
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i: ; preds = %thread-pre-split.thread.i, %thread-pre-split.i
-  %.01846.i = phi i1 [ false, %thread-pre-split.i ], [ %.01845.i, %thread-pre-split.thread.i ]
+  %.01852.i = phi i1 [ false, %thread-pre-split.i ], [ %.01851.i, %thread-pre-split.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not.i37.i = icmp eq ptr %59, null
   br i1 %.not.i37.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit38.i, label %127
@@ -516,7 +516,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit38.i:
 
 138:                                              ; preds = %131, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit38.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %.01846.i, label %141, label %459
+  br i1 %.01852.i, label %141, label %459
 
 139:                                              ; preds = %_ZL7messageP8_IO_FILEPKc.exit57, %_ZL7messageP8_IO_FILEPKc.exit35, %_ZL7messageP8_IO_FILEPKc.exit
   %140 = landingpad { ptr, i32 }
@@ -715,7 +715,7 @@ thread-pre-split.i39:                             ; preds = %152, %151
   br i1 %.not.i38.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i41, label %thread-pre-split.thread.i40
 
 thread-pre-split.thread.i40:                      ; preds = %161, %166, %169, %173, %176, %183, %213, %210, %198, %thread-pre-split.i39, %217
-  %.02048.i = phi i1 [ false, %thread-pre-split.i39 ], [ false, %217 ], [ false, %183 ], [ false, %166 ], [ false, %169 ], [ false, %173 ], [ false, %176 ], [ true, %161 ], [ false, %210 ], [ false, %213 ], [ false, %198 ]
+  %.02053.i = phi i1 [ false, %thread-pre-split.i39 ], [ false, %217 ], [ false, %183 ], [ false, %166 ], [ false, %169 ], [ false, %173 ], [ false, %176 ], [ true, %161 ], [ false, %210 ], [ false, %213 ], [ false, %198 ]
   invoke void @BN_free(ptr noundef nonnull %150)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i41 unwind label %220
 
@@ -727,7 +727,7 @@ thread-pre-split.thread.i40:                      ; preds = %161, %166, %169, %1
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i41: ; preds = %thread-pre-split.thread.i40, %thread-pre-split.i39
-  %.02049.i = phi i1 [ false, %thread-pre-split.i39 ], [ %.02048.i, %thread-pre-split.thread.i40 ]
+  %.02054.i = phi i1 [ false, %thread-pre-split.i39 ], [ %.02053.i, %thread-pre-split.thread.i40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not.i39.i = icmp eq ptr %148, null
   br i1 %.not.i39.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit40.i, label %223
@@ -773,7 +773,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit40.i:
 
 233:                                              ; preds = %227, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit40.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.02049.i, label %234, label %459
+  br i1 %.02054.i, label %234, label %459
 
 234:                                              ; preds = %233
   br i1 %.not.i, label %_ZL7messageP8_IO_FILEPKc.exit57, label %235
@@ -971,7 +971,7 @@ thread-pre-split.i61:                             ; preds = %245, %244
   br i1 %.not.i32.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i63, label %thread-pre-split.thread.i62
 
 thread-pre-split.thread.i62:                      ; preds = %282, %285, %305, %297, %294, %266, %268, %280, %274, %271, %thread-pre-split.i61, %.split43.us.i, %250
-  %.01650.i = phi i1 [ false, %thread-pre-split.i61 ], [ false, %.split43.us.i ], [ false, %250 ], [ true, %266 ], [ false, %268 ], [ false, %280 ], [ false, %274 ], [ false, %271 ], [ true, %282 ], [ false, %285 ], [ false, %305 ], [ false, %297 ], [ false, %294 ]
+  %.01657.i = phi i1 [ false, %thread-pre-split.i61 ], [ false, %.split43.us.i ], [ false, %250 ], [ true, %266 ], [ false, %268 ], [ false, %280 ], [ false, %274 ], [ false, %271 ], [ true, %282 ], [ false, %285 ], [ false, %305 ], [ false, %297 ], [ false, %294 ]
   invoke void @BN_free(ptr noundef nonnull %243)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i63 unwind label %306
 
@@ -983,7 +983,7 @@ thread-pre-split.thread.i62:                      ; preds = %282, %285, %305, %2
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i63: ; preds = %thread-pre-split.thread.i62, %thread-pre-split.i61
-  %.01651.i = phi i1 [ false, %thread-pre-split.i61 ], [ %.01650.i, %thread-pre-split.thread.i62 ]
+  %.01658.i = phi i1 [ false, %thread-pre-split.i61 ], [ %.01657.i, %thread-pre-split.thread.i62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i33.i = icmp eq ptr %241, null
   br i1 %.not.i33.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit34.i, label %309
@@ -1034,7 +1034,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit34.i:
 
 320:                                              ; preds = %313, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit34.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.01651.i, label %321, label %459
+  br i1 %.01658.i, label %321, label %459
 
 321:                                              ; preds = %320
   br i1 %.not.i, label %_ZL7messageP8_IO_FILEPKc.exit78, label %322
@@ -1807,7 +1807,7 @@ thread-pre-split:                                 ; preds = %67, %70, %.preheade
   br i1 %.not.i37, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %85, %82, %53, %50, %38, %111, %thread-pre-split
-  %.12054 = phi i1 [ %.120, %thread-pre-split ], [ false, %38 ], [ false, %111 ], [ false, %50 ], [ false, %53 ], [ false, %82 ], [ false, %85 ]
+  %.12062 = phi i1 [ %.120, %thread-pre-split ], [ false, %38 ], [ false, %111 ], [ false, %50 ], [ false, %53 ], [ false, %82 ], [ false, %85 ]
   invoke void @BN_free(ptr noundef nonnull %31)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %113
 
@@ -1819,7 +1819,7 @@ thread-pre-split.thread:                          ; preds = %85, %82, %53, %50, 
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
-  %.12055 = phi i1 [ %.120, %thread-pre-split ], [ %.12054, %thread-pre-split.thread ]
+  %.12063 = phi i1 [ %.120, %thread-pre-split ], [ %.12062, %thread-pre-split.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i38 = icmp eq ptr %29, null
   br i1 %.not.i38, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit39, label %116
@@ -1873,7 +1873,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit41: ;
   resume { ptr, i32 } %.pn.pn.pn
 
 126:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE5resetEPS0_.exit, %16, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit41
-  %.019 = phi i1 [ %.12055, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit41 ], [ false, %16 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE5resetEPS0_.exit ]
+  %.019 = phi i1 [ %.12063, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit41 ], [ false, %16 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE5resetEPS0_.exit ]
   ret i1 %.019
 }
 
@@ -2219,8 +2219,8 @@ define internal fastcc noundef zeroext i1 @_ZL11test_rshiftP8_IO_FILEP10bignum_c
   store ptr %15, ptr %7, align 8, !tbaa !19
   %.not51 = icmp eq ptr %8, null
   %.not52 = icmp eq ptr %9, null
-  %or.cond70 = select i1 %.not51, i1 true, i1 %.not52
-  br i1 %or.cond70, label %thread-pre-split, label %17
+  %or.cond80 = select i1 %.not51, i1 true, i1 %.not52
+  br i1 %or.cond80, label %thread-pre-split, label %17
 
 17:                                               ; preds = %16
   %18 = icmp ne ptr %11, null
@@ -2412,7 +2412,7 @@ thread-pre-split:                                 ; preds = %65, %68, %.split, %
   br i1 %.not.i40, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %82, %79, %57, %54, %26, %23, %.split57.us, %thread-pre-split
-  %.02164 = phi i1 [ %.021, %thread-pre-split ], [ false, %26 ], [ false, %23 ], [ false, %.split57.us ], [ false, %54 ], [ false, %57 ], [ false, %79 ], [ false, %82 ]
+  %.02174 = phi i1 [ %.021, %thread-pre-split ], [ false, %26 ], [ false, %23 ], [ false, %.split57.us ], [ false, %54 ], [ false, %57 ], [ false, %79 ], [ false, %82 ]
   invoke void @BN_free(ptr noundef nonnull %15)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %88
 
@@ -2424,7 +2424,7 @@ thread-pre-split.thread:                          ; preds = %82, %79, %57, %54, 
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
-  %.02165 = phi i1 [ %.021, %thread-pre-split ], [ %.02164, %thread-pre-split.thread ]
+  %.02175 = phi i1 [ %.021, %thread-pre-split ], [ %.02174, %thread-pre-split.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i41 = icmp eq ptr %13, null
   br i1 %.not.i41, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit42, label %91
@@ -2489,7 +2489,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit46: ;
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit48: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit46, %103
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %.02165
+  ret i1 %.02175
 
 107:                                              ; preds = %.split54, %.split54.us, %35
   %.pn = phi { ptr, i32 } [ %36, %35 ], [ %69, %.split54 ], [ %61, %.split54.us ]
@@ -2807,7 +2807,7 @@ thread-pre-split:                                 ; preds = %32, %43, %15, %113,
   br i1 %.not.i80, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %55, %58, %65, %thread-pre-split
-  %.03995 = phi i1 [ %.039, %thread-pre-split ], [ false, %65 ], [ false, %58 ], [ false, %55 ]
+  %.039104 = phi i1 [ %.039, %thread-pre-split ], [ false, %65 ], [ false, %58 ], [ false, %55 ]
   invoke void @BN_free(ptr noundef nonnull %13)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %114
 
@@ -2819,7 +2819,7 @@ thread-pre-split.thread:                          ; preds = %55, %58, %65, %thre
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
-  %.03996 = phi i1 [ %.039, %thread-pre-split ], [ %.03995, %thread-pre-split.thread ]
+  %.039105 = phi i1 [ %.039, %thread-pre-split ], [ %.039104, %thread-pre-split.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i81 = icmp eq ptr %11, null
   br i1 %.not.i81, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit82, label %117
@@ -2868,7 +2868,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit84: ;
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit86: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit84, %125
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %.03996
+  ret i1 %.039105
 
 129:                                              ; preds = %73, %33
   %.pn = phi { ptr, i32 } [ %74, %73 ], [ %34, %33 ]
@@ -3158,7 +3158,7 @@ thread-pre-split:                                 ; preds = %46, %43, %52, %66, 
   br i1 %.not.i47, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %78, %81, %88, %thread-pre-split
-  %.02267 = phi i1 [ %.022, %thread-pre-split ], [ false, %88 ], [ false, %81 ], [ false, %78 ]
+  %.02278 = phi i1 [ %.022, %thread-pre-split ], [ false, %88 ], [ false, %81 ], [ false, %78 ]
   invoke void @BN_free(ptr noundef nonnull %17)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %109
 
@@ -3170,7 +3170,7 @@ thread-pre-split.thread:                          ; preds = %78, %81, %88, %thre
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
-  %.02268 = phi i1 [ %.022, %thread-pre-split ], [ %.02267, %thread-pre-split.thread ]
+  %.02279 = phi i1 [ %.022, %thread-pre-split ], [ %.02278, %thread-pre-split.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i48 = icmp eq ptr %15, null
   br i1 %.not.i48, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit49, label %112
@@ -3251,7 +3251,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55: ;
 
 _ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55, %128
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i1 %.02268
+  ret i1 %.02279
 
 132:                                              ; preds = %93, %47
   %.pn = phi { ptr, i32 } [ %94, %93 ], [ %48, %47 ]
@@ -3638,7 +3638,7 @@ thread-pre-split:                                 ; preds = %60, %57, %53, %50, 
   br i1 %.not.i73, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %102, %105, %108, %39, %32, %112, %thread-pre-split
-  %.03492 = phi i1 [ %.034, %thread-pre-split ], [ false, %112 ], [ false, %32 ], [ false, %39 ], [ false, %108 ], [ false, %105 ], [ false, %102 ]
+  %.034101 = phi i1 [ %.034, %thread-pre-split ], [ false, %112 ], [ false, %32 ], [ false, %39 ], [ false, %108 ], [ false, %105 ], [ false, %102 ]
   invoke void @BN_free(ptr noundef nonnull %15)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %144
 
@@ -3650,7 +3650,7 @@ thread-pre-split.thread:                          ; preds = %102, %105, %108, %3
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
-  %.03493 = phi i1 [ %.034, %thread-pre-split ], [ %.03492, %thread-pre-split.thread ]
+  %.034102 = phi i1 [ %.034, %thread-pre-split ], [ %.034101, %thread-pre-split.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i74 = icmp eq ptr %13, null
   br i1 %.not.i74, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit75, label %147
@@ -3715,7 +3715,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit79: ;
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit81: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit79, %159
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %.03493
+  ret i1 %.034102
 
 163:                                              ; preds = %61, %33
   %.pn = phi { ptr, i32 } [ %34, %33 ], [ %62, %61 ]
@@ -3925,7 +3925,7 @@ _ZL7puts_fpP8_IO_FILEPKc.exit55:                  ; preds = %42
   br i1 %.not.i56, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %30, %56, %53, %50, %10, %60, %.critedge
-  %.084 = phi i1 [ false, %.critedge ], [ false, %60 ], [ false, %30 ], [ false, %56 ], [ false, %53 ], [ false, %50 ], [ true, %10 ]
+  %.090 = phi i1 [ false, %.critedge ], [ false, %60 ], [ false, %30 ], [ false, %56 ], [ false, %53 ], [ false, %50 ], [ true, %10 ]
   %65 = phi ptr [ %64, %.critedge ], [ %.pr.pre.pre, %60 ], [ %.pr.pre.pre, %10 ], [ %.pr.pre.pre, %50 ], [ %.pr.pre.pre, %53 ], [ %.pr.pre.pre, %56 ], [ %.pr.pre.pre, %30 ]
   invoke void @BN_free(ptr noundef nonnull %65)
           to label %._ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit_crit_edge unwind label %66
@@ -3942,14 +3942,14 @@ _ZL7puts_fpP8_IO_FILEPKc.exit55:                  ; preds = %42
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %._ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit_crit_edge, %.critedge
-  %.085 = phi i1 [ %.084, %._ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit_crit_edge ], [ false, %.critedge ]
+  %.091 = phi i1 [ %.090, %._ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit_crit_edge ], [ false, %.critedge ]
   %.pr62 = phi ptr [ %.pr62.pre, %._ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit_crit_edge ], [ %4, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i57 = icmp eq ptr %.pr62, null
   br i1 %.not.i57, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit58, label %69
 
 69:                                               ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit
-  %.06165 = phi i1 [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread ], [ %.085, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit ]
+  %.06165 = phi i1 [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread ], [ %.091, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit ]
   %70 = phi ptr [ %4, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread ], [ %.pr62, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit ]
   invoke void @BN_free(ptr noundef nonnull %70)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit58 unwind label %71
@@ -3962,7 +3962,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit58: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %69
-  %.06166 = phi i1 [ %.085, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit ], [ %.06165, %69 ]
+  %.06166 = phi i1 [ %.091, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit ], [ %.06165, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.06166
 
@@ -4159,7 +4159,7 @@ thread-pre-split:                                 ; preds = %37, %43, %59, %17, 
   br i1 %.not.i40, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %71, %74, %24, %78, %thread-pre-split
-  %.02257 = phi i1 [ %.022, %thread-pre-split ], [ false, %78 ], [ false, %24 ], [ false, %74 ], [ false, %71 ]
+  %.02267 = phi i1 [ %.022, %thread-pre-split ], [ false, %78 ], [ false, %24 ], [ false, %74 ], [ false, %71 ]
   invoke void @BN_free(ptr noundef nonnull %15)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %81
 
@@ -4171,7 +4171,7 @@ thread-pre-split.thread:                          ; preds = %71, %74, %24, %78, 
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
-  %.02258 = phi i1 [ %.022, %thread-pre-split ], [ %.02257, %thread-pre-split.thread ]
+  %.02268 = phi i1 [ %.022, %thread-pre-split ], [ %.02267, %thread-pre-split.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i41 = icmp eq ptr %13, null
   br i1 %.not.i41, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit42, label %84
@@ -4236,7 +4236,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit46: ;
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit48: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit46, %96
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %.02258
+  ret i1 %.02268
 
 100:                                              ; preds = %44, %35
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %36, %35 ]
@@ -4568,7 +4568,7 @@ thread-pre-split:                                 ; preds = %.critedge, %50, %10
   br i1 %.not.i68, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %42, %35, %32, %thread-pre-split
-  %.03695 = phi i1 [ %.036, %thread-pre-split ], [ false, %32 ], [ false, %35 ], [ false, %42 ]
+  %.036106 = phi i1 [ %.036, %thread-pre-split ], [ false, %32 ], [ false, %35 ], [ false, %42 ]
   %124 = phi ptr [ %123, %thread-pre-split ], [ %15, %32 ], [ %15, %35 ], [ %15, %42 ]
   invoke void @BN_free(ptr noundef nonnull %124)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %125
@@ -4581,7 +4581,7 @@ thread-pre-split.thread:                          ; preds = %42, %35, %32, %thre
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
-  %.03696 = phi i1 [ %.036, %thread-pre-split ], [ %.03695, %thread-pre-split.thread ]
+  %.036107 = phi i1 [ %.036, %thread-pre-split ], [ %.036106, %thread-pre-split.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %128 = load ptr, ptr %6, align 8, !tbaa !19
   %.not.i69 = icmp eq ptr %128, null
@@ -4651,7 +4651,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit74: ;
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit76: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit74, %144
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %.03696
+  ret i1 %.036107
 
 148:                                              ; preds = %.loopexit, %.loopexit.split-lp, %51, %36
   %.pn.pn = phi { ptr, i32 } [ %37, %36 ], [ %52, %51 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -5011,7 +5011,7 @@ thread-pre-split:                                 ; preds = %82, %76, %26, %32, 
   br i1 %.not.i76, label %_ZNSt10unique_ptrI14bn_mont_ctx_st14OpenSSLDeleterIS0_XadL_Z16BN_MONT_CTX_freeEEEED2Ev.exit, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %109, %106, %102, %98, %94, %90, %85, %129, %126, %133, %53, %65, %61, %74, %71, %thread-pre-split
-  %.0104 = phi i1 [ %.0, %thread-pre-split ], [ false, %133 ], [ false, %53 ], [ false, %65 ], [ false, %61 ], [ false, %74 ], [ false, %71 ], [ false, %126 ], [ false, %129 ], [ false, %85 ], [ false, %90 ], [ false, %94 ], [ false, %98 ], [ false, %102 ], [ false, %106 ], [ false, %109 ]
+  %.0117 = phi i1 [ %.0, %thread-pre-split ], [ false, %133 ], [ false, %53 ], [ false, %65 ], [ false, %61 ], [ false, %74 ], [ false, %71 ], [ false, %126 ], [ false, %129 ], [ false, %85 ], [ false, %90 ], [ false, %94 ], [ false, %98 ], [ false, %102 ], [ false, %106 ], [ false, %109 ]
   invoke void @BN_MONT_CTX_free(ptr noundef nonnull %24)
           to label %_ZNSt10unique_ptrI14bn_mont_ctx_st14OpenSSLDeleterIS0_XadL_Z16BN_MONT_CTX_freeEEEED2Ev.exit unwind label %136
 
@@ -5023,7 +5023,7 @@ thread-pre-split.thread:                          ; preds = %109, %106, %102, %9
   unreachable
 
 _ZNSt10unique_ptrI14bn_mont_ctx_st14OpenSSLDeleterIS0_XadL_Z16BN_MONT_CTX_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
-  %.0105 = phi i1 [ %.0, %thread-pre-split ], [ %.0104, %thread-pre-split.thread ]
+  %.0118 = phi i1 [ %.0, %thread-pre-split ], [ %.0117, %thread-pre-split.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %139 = load ptr, ptr %9, align 8, !tbaa !19
   %.not.i77 = icmp eq ptr %139, null
@@ -5144,7 +5144,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit87: ;
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit89: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit87, %170
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %.0105
+  ret i1 %.0118
 
 174:                                              ; preds = %110, %56
   %.pn = phi { ptr, i32 } [ %111, %110 ], [ %57, %56 ]
@@ -5478,7 +5478,7 @@ thread-pre-split:                                 ; preds = %62, %59, %55, %93, 
   br i1 %.not.i60, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %79, %82, %85, %42, %112, %35, %32, %48, %108, %111, %89, %thread-pre-split
-  %.02977 = phi i1 [ false, %thread-pre-split ], [ false, %42 ], [ false, %112 ], [ false, %35 ], [ false, %32 ], [ false, %48 ], [ false, %108 ], [ true, %111 ], [ false, %89 ], [ false, %85 ], [ false, %82 ], [ false, %79 ]
+  %.02987 = phi i1 [ false, %thread-pre-split ], [ false, %42 ], [ false, %112 ], [ false, %35 ], [ false, %32 ], [ false, %48 ], [ false, %108 ], [ true, %111 ], [ false, %89 ], [ false, %85 ], [ false, %82 ], [ false, %79 ]
   invoke void @BN_free(ptr noundef nonnull %15)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %115
 
@@ -5490,7 +5490,7 @@ thread-pre-split.thread:                          ; preds = %79, %82, %85, %42, 
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
-  %.02978 = phi i1 [ false, %thread-pre-split ], [ %.02977, %thread-pre-split.thread ]
+  %.02988 = phi i1 [ false, %thread-pre-split ], [ %.02987, %thread-pre-split.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i61 = icmp eq ptr %13, null
   br i1 %.not.i61, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit62, label %118
@@ -5559,7 +5559,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit66: ;
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit68: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit66, %133
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %.02978
+  ret i1 %.02988
 
 137:                                              ; preds = %63, %36
   %.pn = phi { ptr, i32 } [ %37, %36 ], [ %64, %63 ]
@@ -5845,7 +5845,7 @@ thread-pre-split:                                 ; preds = %59, %72, %69, %65, 
   br i1 %.not.i55, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %89, %92, %95, %42, %52, %35, %32, %48, %58, %99, %thread-pre-split
-  %.02872 = phi i1 [ %.028, %thread-pre-split ], [ false, %99 ], [ false, %58 ], [ false, %48 ], [ false, %32 ], [ false, %35 ], [ false, %52 ], [ false, %42 ], [ false, %95 ], [ false, %92 ], [ false, %89 ]
+  %.02882 = phi i1 [ %.028, %thread-pre-split ], [ false, %99 ], [ false, %58 ], [ false, %48 ], [ false, %32 ], [ false, %35 ], [ false, %52 ], [ false, %42 ], [ false, %95 ], [ false, %92 ], [ false, %89 ]
   invoke void @BN_free(ptr noundef nonnull %15)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %102
 
@@ -5857,7 +5857,7 @@ thread-pre-split.thread:                          ; preds = %89, %92, %95, %42, 
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
-  %.02873 = phi i1 [ %.028, %thread-pre-split ], [ %.02872, %thread-pre-split.thread ]
+  %.02883 = phi i1 [ %.028, %thread-pre-split ], [ %.02882, %thread-pre-split.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i56 = icmp eq ptr %13, null
   br i1 %.not.i56, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit57, label %105
@@ -5922,7 +5922,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit61: ;
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit63: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit61, %117
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %.02873
+  ret i1 %.02883
 
 121:                                              ; preds = %73, %36
   %.pn = phi { ptr, i32 } [ %74, %73 ], [ %37, %36 ]
@@ -5992,8 +5992,8 @@ define internal fastcc noundef zeroext i1 @_ZL18test_mod_exp_mont5P8_IO_FILEP10b
   store ptr %15, ptr %6, align 8, !tbaa !19
   %.not3 = icmp eq ptr %8, null
   %.not4 = icmp eq ptr %9, null
-  %or.cond10 = select i1 %.not3, i1 true, i1 %.not4
-  br i1 %or.cond10, label %thread-pre-split, label %17
+  %or.cond18 = select i1 %.not3, i1 true, i1 %.not4
+  br i1 %or.cond18, label %thread-pre-split, label %17
 
 17:                                               ; preds = %16
   %18 = icmp ne ptr %11, null
@@ -6226,7 +6226,7 @@ thread-pre-split:                                 ; preds = %17, %16
   br i1 %.not.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %44, %57, %101, %26, %23, %40, %49, %53, %thread-pre-split
-  %.0168 = phi i1 [ false, %thread-pre-split ], [ %.117, %101 ], [ false, %57 ], [ false, %44 ], [ false, %26 ], [ false, %23 ], [ false, %40 ], [ false, %49 ], [ false, %53 ]
+  %.01616 = phi i1 [ false, %thread-pre-split ], [ %.117, %101 ], [ false, %57 ], [ false, %44 ], [ false, %26 ], [ false, %23 ], [ false, %40 ], [ false, %49 ], [ false, %53 ]
   invoke void @BN_free(ptr noundef nonnull %15)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %103
 
@@ -6238,7 +6238,7 @@ thread-pre-split.thread:                          ; preds = %44, %57, %101, %26,
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
-  %.0169 = phi i1 [ false, %thread-pre-split ], [ %.0168, %thread-pre-split.thread ]
+  %.01617 = phi i1 [ false, %thread-pre-split ], [ %.01616, %thread-pre-split.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i40 = icmp eq ptr %13, null
   br i1 %.not.i40, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit41, label %106
@@ -6303,7 +6303,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit45: ;
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit47: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit45, %118
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i1 %.0169
+  ret i1 %.01617
 
 122:                                              ; preds = %102, %35
   %.pn.pn = phi { ptr, i32 } [ %.pn, %102 ], [ %36, %35 ]
@@ -6763,7 +6763,7 @@ thread-pre-split:                                 ; preds = %9, %8
   br i1 %.not.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %14, %50, %45, %42, %37, %34, %29, %26, %53, %thread-pre-split
-  %.0422 = phi i1 [ false, %thread-pre-split ], [ false, %14 ], [ false, %50 ], [ false, %45 ], [ false, %42 ], [ false, %37 ], [ false, %34 ], [ false, %29 ], [ false, %26 ], [ %.not14, %53 ]
+  %.0426 = phi i1 [ false, %thread-pre-split ], [ false, %14 ], [ false, %50 ], [ false, %45 ], [ false, %42 ], [ false, %37 ], [ false, %34 ], [ false, %29 ], [ false, %26 ], [ %.not14, %53 ]
   invoke void @BN_free(ptr noundef nonnull %7)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %54
 
@@ -6775,7 +6775,7 @@ thread-pre-split.thread:                          ; preds = %14, %50, %45, %42, 
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
-  %.0423 = phi i1 [ false, %thread-pre-split ], [ %.0422, %thread-pre-split.thread ]
+  %.0427 = phi i1 [ false, %thread-pre-split ], [ %.0426, %thread-pre-split.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i15 = icmp eq ptr %5, null
   br i1 %.not.i15, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit16, label %57
@@ -6808,7 +6808,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit16: ;
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit18: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit16, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret i1 %.0423
+  ret i1 %.0427
 
 65:                                               ; preds = %19, %17
   %.pn = phi { ptr, i32 } [ %20, %19 ], [ %18, %17 ]
@@ -7396,7 +7396,7 @@ thread-pre-split:                                 ; preds = %27, %10, %47, %9
   br i1 %.not.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %.critedge, %32, %thread-pre-split
-  %.013 = phi i1 [ false, %thread-pre-split ], [ false, %32 ], [ true, %.critedge ]
+  %.020 = phi i1 [ false, %thread-pre-split ], [ false, %32 ], [ true, %.critedge ]
   invoke void @BN_free(ptr noundef nonnull %8)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %60
 
@@ -7408,7 +7408,7 @@ thread-pre-split.thread:                          ; preds = %.critedge, %32, %th
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
-  %.014 = phi i1 [ false, %thread-pre-split ], [ %.013, %thread-pre-split.thread ]
+  %.021 = phi i1 [ false, %thread-pre-split ], [ %.020, %thread-pre-split.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %63 = load ptr, ptr %3, align 8, !tbaa !19
   %.not.i37 = icmp eq ptr %63, null
@@ -7444,7 +7444,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit38: ;
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit40: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit38, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i1 %.014
+  ret i1 %.021
 
 73:                                               ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit2, %.loopexit.split-lp3, %57
   %.pn.pn = phi { ptr, i32 } [ %58, %57 ], [ %lpad.loopexit4, %.loopexit2 ], [ %lpad.loopexit.split-lp5, %.loopexit.split-lp3 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -7479,9 +7479,9 @@ define internal fastcc noundef zeroext i1 @_ZL18test_bn2bin_paddedP10bignum_ctx(
   %5 = tail call ptr @BN_new()
   store ptr %5, ptr %4, align 8, !tbaa !19
   %.not1 = icmp eq ptr %5, null
-  br i1 %.not1, label %.loopexit.thread6, label %8
+  br i1 %.not1, label %.loopexit.thread7, label %8
 
-.loopexit.thread6:                                ; preds = %0
+.loopexit.thread7:                                ; preds = %0
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
   %7 = tail call i64 @fwrite(ptr nonnull @.str.81, i64 56, i64 1, ptr %6) #17
   br label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit
@@ -7679,7 +7679,7 @@ define internal fastcc noundef zeroext i1 @_ZL18test_bn2bin_paddedP10bignum_ctx(
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %25, %16, %22, %30, %78, %67, %59, %52, %45, %39, %.loopexit
-  %.0194 = phi i1 [ false, %.loopexit ], [ false, %39 ], [ false, %45 ], [ false, %52 ], [ false, %59 ], [ false, %67 ], [ false, %78 ], [ false, %30 ], [ false, %16 ], [ false, %22 ], [ true, %25 ]
+  %.0195 = phi i1 [ false, %.loopexit ], [ false, %39 ], [ false, %45 ], [ false, %52 ], [ false, %59 ], [ false, %67 ], [ false, %78 ], [ false, %30 ], [ false, %16 ], [ false, %22 ], [ true, %25 ]
   invoke void @BN_free(ptr noundef nonnull %5)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %83
 
@@ -7690,13 +7690,13 @@ define internal fastcc noundef zeroext i1 @_ZL18test_bn2bin_paddedP10bignum_ctx(
   call void @__clang_call_terminate(ptr %85) #21
   unreachable
 
-_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %.loopexit.thread6, %.loopexit.thread
-  %.0195 = phi i1 [ %.0194, %.loopexit.thread ], [ false, %.loopexit.thread6 ]
+_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %.loopexit.thread7, %.loopexit.thread
+  %.0196 = phi i1 [ %.0195, %.loopexit.thread ], [ false, %.loopexit.thread7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret i1 %.0195
+  ret i1 %.0196
 
 86:                                               ; preds = %.loopexit2, %.loopexit.split-lp, %11
   %.pn = phi { ptr, i32 } [ %12, %11 ], [ %lpad.loopexit, %.loopexit2 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]

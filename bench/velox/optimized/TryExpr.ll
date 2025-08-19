@@ -1347,8 +1347,8 @@ if.end.i.i:                                       ; preds = %if.then.i20.i.i.i.i
   br i1 %cmp.not.i.i24.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_121applyListenersOnErrorERKNS0_17SelectivityVectorERKNS1_7EvalCtxE.exit, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.end.i.i, %if.then.i23.i
-  %.pr.i.pr50.i = phi ptr [ %.pr.i.pr.pre.i, %if.end.i.i ], [ %120, %if.then.i23.i ]
-  %130 = load ptr, ptr %.pr.i.pr50.i, align 8
+  %.pr.i.pr70.i = phi ptr [ %.pr.i.pr.pre.i, %if.end.i.i ], [ %120, %if.then.i23.i ]
+  %130 = load ptr, ptr %.pr.i.pr70.i, align 8
   %tobool.not.i.i.i.i.i.i.i25.i = icmp eq ptr %130, null
   br i1 %tobool.not.i.i.i.i.i.i.i25.i, label %_ZNKSt14default_deleteIN8facebook5velox17SelectivityVectorEEclEPS2_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
@@ -1357,7 +1357,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %delete.notnull.i.i.
   br label %_ZNKSt14default_deleteIN8facebook5velox17SelectivityVectorEEclEPS2_.exit.i.i.i
 
 _ZNKSt14default_deleteIN8facebook5velox17SelectivityVectorEEclEPS2_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %delete.notnull.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.pr.i.pr50.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %.pr.i.pr70.i) #22
   br label %_ZN8facebook5velox4exec12_GLOBAL__N_121applyListenersOnErrorERKNS0_17SelectivityVectorERKNS1_7EvalCtxE.exit
 
 terminate.lpad.i.i:                               ; preds = %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i, %if.then.i.i.i.i.i31.i
@@ -5436,7 +5436,7 @@ if.then.i.i.i.i.i.i.i.i.i78:                      ; preds = %invoke.cont57
   br label %invoke.cont60
 
 invoke.cont60:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i78, %invoke.cont57
-  %add.ptr62 = getelementptr inbounds i64, ptr %add.ptr54, i64 %__n
+  %add.ptr62 = getelementptr inbounds nuw i64, ptr %add.ptr54, i64 %__n
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i82 = sub i64 %sub.ptr.rhs.cast, %sub.ptr.lhs.cast49
   %tobool.not.i.i.i.i.i.i.i.i.i83 = icmp eq ptr %1, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i83, label %invoke.cont64, label %if.then.i.i.i.i.i.i.i.i.i84

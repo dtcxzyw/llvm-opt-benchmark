@@ -1689,9 +1689,9 @@ define hidden void @_ZN4cvc58internal8decision21JustificationStrategy18getNextJu
 33:                                               ; preds = %23, %19
   %34 = phi i64 [ %20, %19 ], [ %30, %23 ]
   %.in = phi i32 [ %17, %19 ], [ %.pre521, %23 ]
-  %.sroa.0460.0524 = phi ptr [ %14, %19 ], [ %29, %23 ]
+  %.sroa.0460.0532 = phi ptr [ %14, %19 ], [ %29, %23 ]
   %35 = phi i32 [ %22, %19 ], [ %switch.select5.i, %23 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0460.0524, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0460.0532, i64 8
   %37 = and i32 %.in, 1023
   %38 = icmp eq i32 %37, 22
   %39 = icmp eq i32 %37, 24
@@ -1724,12 +1724,12 @@ define hidden void @_ZN4cvc58internal8decision21JustificationStrategy18getNextJu
   %54 = lshr i64 %53, 29
   %.idx = and i64 %54, 536870904
   %55 = add nuw nsw i64 %.idx, 24
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0460.0524, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0460.0532, i64 %55
   %.not512513 = icmp samesign eq i64 %spec.select.v.i.i, %55
   br i1 %.not512513, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %45
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0460.0524, i64 %spec.select.v.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0460.0532, i64 %spec.select.v.i.i
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 576
   br label %60
 
@@ -1858,7 +1858,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal11
   %118 = call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %117)
   %119 = icmp eq i32 %118, 2
   %spec.select.i.i269 = select i1 %119, i64 2, i64 1
-  %120 = getelementptr inbounds nuw i8, ptr %.sroa.0460.0524, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.0460.0532, i64 24
   %121 = getelementptr inbounds nuw [0 x ptr], ptr %120, i64 0, i64 %spec.select.i.i269
   %122 = load ptr, ptr %121, align 8, !tbaa !201, !noalias !316
   store ptr %122, ptr %8, align 8, !tbaa !203, !alias.scope !316
@@ -1900,7 +1900,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal11
   %140 = call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %139)
   %141 = icmp eq i32 %140, 2
   %spec.select.i.i276 = select i1 %141, i64 2, i64 1
-  %142 = getelementptr inbounds nuw i8, ptr %.sroa.0460.0524, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.0460.0532, i64 24
   %143 = getelementptr inbounds nuw [0 x ptr], ptr %142, i64 0, i64 %spec.select.i.i276
   %144 = load ptr, ptr %143, align 8, !tbaa !201, !noalias !319
   store ptr %144, ptr %9, align 8, !tbaa !203, !alias.scope !319
@@ -1965,7 +1965,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal11
   %177 = call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %176)
   %178 = icmp eq i32 %177, 2
   %spec.select.i.i286 = select i1 %178, i64 2, i64 1
-  %179 = getelementptr inbounds nuw i8, ptr %.sroa.0460.0524, i64 24
+  %179 = getelementptr inbounds nuw i8, ptr %.sroa.0460.0532, i64 24
   %180 = getelementptr inbounds nuw [0 x ptr], ptr %179, i64 0, i64 %spec.select.i.i286
   %181 = load ptr, ptr %180, align 8, !tbaa !201, !noalias !325
   store ptr %181, ptr %11, align 8, !tbaa !203, !alias.scope !325
@@ -2006,7 +2006,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal11
   %199 = select i1 %198, i32 -1, i32 %197
   %200 = call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %199)
   %201 = icmp eq i32 %200, 2
-  %202 = getelementptr inbounds nuw i8, ptr %.sroa.0460.0524, i64 24
+  %202 = getelementptr inbounds nuw i8, ptr %.sroa.0460.0532, i64 24
   %203 = zext i1 %201 to i64
   %204 = getelementptr inbounds nuw [0 x ptr], ptr %202, i64 0, i64 %203
   %205 = load ptr, ptr %204, align 8, !tbaa !201, !noalias !328
@@ -2029,8 +2029,8 @@ select.unfold:                                    ; preds = %_ZN4cvc58internal12
 .thread490:                                       ; preds = %92, %127, %112, %194, %select.unfold
   %.4110494 = phi i32 [ %.4110, %select.unfold ], [ 1, %127 ], [ 1, %112 ], [ %211, %194 ], [ %93, %92 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  store ptr %.sroa.0460.0524, ptr %13, align 8, !tbaa !205
-  %212 = load i64, ptr %.sroa.0460.0524, align 8
+  store ptr %.sroa.0460.0532, ptr %13, align 8, !tbaa !205
+  %212 = load i64, ptr %.sroa.0460.0532, align 8
   %213 = lshr i64 %212, 40
   %214 = trunc nuw nsw i64 %213 to i32
   %215 = and i32 %214, 1048575
@@ -2043,7 +2043,7 @@ select.unfold:                                    ; preds = %_ZN4cvc58internal12
   %220 = shl nuw nsw i64 %219, 40
   %221 = and i64 %212, -1152920405095219201
   %222 = or i64 %220, %221
-  store i64 %222, ptr %.sroa.0460.0524, align 8
+  store i64 %222, ptr %.sroa.0460.0532, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit301
 
 223:                                              ; preds = %.thread490
@@ -2052,8 +2052,8 @@ select.unfold:                                    ; preds = %_ZN4cvc58internal12
 
 225:                                              ; preds = %223
   %226 = or i64 %212, 1152920405095219200
-  store i64 %226, ptr %.sroa.0460.0524, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0460.0524)
+  store i64 %226, ptr %.sroa.0460.0532, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0460.0532)
           to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit301 unwind label %243
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit301: ; preds = %223, %217, %225
@@ -2124,7 +2124,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit303: ; preds = %228, %232, %238
   %254 = icmp eq i32 %253, 2
   %255 = zext i1 %254 to i64
   %spec.select.i.i362 = add i64 %.0488, %255
-  %256 = getelementptr inbounds nuw i8, ptr %.sroa.0460.0524, i64 24
+  %256 = getelementptr inbounds nuw i8, ptr %.sroa.0460.0532, i64 24
   %sext = shl i64 %spec.select.i.i362, 32
   %257 = ashr exact i64 %sext, 32
   %258 = getelementptr inbounds [0 x ptr], ptr %256, i64 0, i64 %257

@@ -429,8 +429,8 @@ define internal zeroext i1 @SW_CreateTexture(ptr readnone captures(none) %0, ptr
   %switch.maskindex = trunc nsw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 51, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond74 = select i1 %76, i1 %switch.lobit, i1 false
-  br i1 %or.cond74, label %switch.lookup, label %.thread
+  %or.cond78 = select i1 %76, i1 %switch.lobit, i1 false
+  br i1 %or.cond78, label %switch.lookup, label %.thread
 
 77:                                               ; preds = %70
   %.off63 = add nsw i32 %72, -7
@@ -440,13 +440,13 @@ define internal zeroext i1 @SW_CreateTexture(ptr readnone captures(none) %0, ptr
 78:                                               ; preds = %77
   %79 = lshr i32 %69, 20
   %80 = and i32 %79, 15
-  %switch.tableidx68 = add nsw i32 %80, -2
-  %81 = icmp ult i32 %switch.tableidx68, 5
-  %switch.maskindex71 = trunc nsw i32 %switch.tableidx68 to i8
-  %switch.shifted72 = lshr i8 27, %switch.maskindex71
-  %switch.lobit73 = trunc i8 %switch.shifted72 to i1
-  %or.cond75 = select i1 %81, i1 %switch.lobit73, i1 false
-  br i1 %or.cond75, label %switch.lookup, label %.thread
+  %switch.tableidx72 = add nsw i32 %80, -2
+  %81 = icmp ult i32 %switch.tableidx72, 5
+  %switch.maskindex75 = trunc nsw i32 %switch.tableidx72 to i8
+  %switch.shifted76 = lshr i8 27, %switch.maskindex75
+  %switch.lobit77 = trunc i8 %switch.shifted76 to i1
+  %or.cond79 = select i1 %81, i1 %switch.lobit77, i1 false
+  br i1 %or.cond79, label %switch.lookup, label %.thread
 
 .thread:                                          ; preds = %78, %73, %67, %77
   %82 = tail call zeroext i1 @SDL_SetSurfaceRLE_REAL(ptr noundef nonnull %9, i1 noundef zeroext true) #8
@@ -2053,7 +2053,7 @@ switch.lookup:                                    ; preds = %497
   %.mask218.i = and i32 %554, -268435456
   %.not217.i = icmp eq i32 %.mask218.i, 268435456
   %or.cond.i = or i1 %.not216.i, %.not217.i
-  br i1 %or.cond.i, label %555, label %.thread38.i
+  br i1 %or.cond.i, label %555, label %.thread43.i
 
 555:                                              ; preds = %553
   %556 = lshr i32 %554, 24
@@ -2065,7 +2065,7 @@ switch.lookup:                                    ; preds = %497
 558:                                              ; preds = %555
   %559 = lshr i32 %554, 20
   %560 = and i32 %559, 15
-  switch i32 %560, label %.thread38.i [
+  switch i32 %560, label %.thread43.i [
     i32 3, label %569
     i32 4, label %569
     i32 7, label %569
@@ -2075,7 +2075,7 @@ switch.lookup:                                    ; preds = %497
 561:                                              ; preds = %555
   %.off240.i = add nsw i32 %557, -7
   %switch241.i = icmp ult i32 %.off240.i, 5
-  br i1 %switch241.i, label %562, label %.thread38.i
+  br i1 %switch241.i, label %562, label %.thread43.i
 
 562:                                              ; preds = %561
   %563 = lshr i32 %554, 20
@@ -2093,12 +2093,12 @@ switch.lookup:                                    ; preds = %497
   %or.cond6.i = select i1 %566, i1 %568, i1 false
   br i1 %or.cond6.i, label %.thread10.i, label %569
 
-.thread38.i:                                      ; preds = %561, %558, %553
+.thread43.i:                                      ; preds = %561, %558, %553
   %.old.i = load i8, ptr %10, align 1
   %.old5.i = icmp eq i8 %.old.i, -1
   br i1 %.old5.i, label %.thread10.i, label %569
 
-569:                                              ; preds = %.thread38.i, %565, %562, %562, %562, %558, %558, %558, %558
+569:                                              ; preds = %.thread43.i, %565, %562, %562, %562, %558, %558, %558, %558
   %570 = load i32, ptr %453, align 4
   %571 = load i32, ptr %455, align 4
   %572 = call ptr @SDL_CreateSurface_REAL(i32 noundef %570, i32 noundef %571, i32 noundef 372645892) #8
@@ -2114,11 +2114,11 @@ switch.lookup:                                    ; preds = %497
   %576 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef nonnull %572, i32 noundef 4) #8
   br label %.thread10.i
 
-.thread10.i:                                      ; preds = %575, %.thread38.i, %565, %551, %535
-  %577 = phi i1 [ false, %575 ], [ false, %551 ], [ false, %535 ], [ true, %565 ], [ true, %.thread38.i ]
-  %578 = phi i1 [ %.not215.i, %575 ], [ %.not215.i, %551 ], [ false, %535 ], [ %.not215.i, %565 ], [ %.not215.i, %.thread38.i ]
-  %579 = phi i1 [ %.ph1.i, %575 ], [ %.ph1.i, %551 ], [ true, %535 ], [ %.ph1.i, %565 ], [ %.ph1.i, %.thread38.i ]
-  %.0183.i = phi ptr [ %572, %575 ], [ null, %551 ], [ null, %535 ], [ null, %565 ], [ null, %.thread38.i ]
+.thread10.i:                                      ; preds = %575, %.thread43.i, %565, %551, %535
+  %577 = phi i1 [ false, %575 ], [ false, %551 ], [ false, %535 ], [ true, %565 ], [ true, %.thread43.i ]
+  %578 = phi i1 [ %.not215.i, %575 ], [ %.not215.i, %551 ], [ false, %535 ], [ %.not215.i, %565 ], [ %.not215.i, %.thread43.i ]
+  %579 = phi i1 [ %.ph1.i, %575 ], [ %.ph1.i, %551 ], [ true, %535 ], [ %.ph1.i, %565 ], [ %.ph1.i, %.thread43.i ]
+  %.0183.i = phi ptr [ %572, %575 ], [ null, %551 ], [ null, %535 ], [ null, %565 ], [ null, %.thread43.i ]
   %580 = icmp ne i32 %.2.i, 0
   %or.cond12.i = or i1 %580, %578
   br i1 %or.cond12.i, label %583, label %.thread18.i
@@ -2182,7 +2182,7 @@ switch.lookup:                                    ; preds = %497
   br i1 %.not224.i, label %609, label %711
 
 609:                                              ; preds = %608, %604
-  %.018241.i = phi ptr [ %607, %604 ], [ null, %608 ]
+  %.018246.i = phi ptr [ %607, %604 ], [ null, %608 ]
   %610 = load i32, ptr %438, align 4
   %611 = load i32, ptr %15, align 4
   %612 = add nsw i32 %611, %610
@@ -2252,7 +2252,7 @@ switch.lookup:                                    ; preds = %497
 652:                                              ; preds = %609
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
-  %653 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef %.018241.i, i32 noundef 0) #8
+  %653 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef %.018246.i, i32 noundef 0) #8
   %654 = fcmp une float %445, 1.000000e+00
   %655 = fcmp une float %447, 1.000000e+00
   %or.cond.i242.i = or i1 %654, %655
@@ -2280,12 +2280,12 @@ switch.lookup:                                    ; preds = %497
   %671 = fmul float %447, %670
   %672 = fptosi float %671 to i32
   store i32 %672, ptr %61, align 4
-  %673 = call zeroext i1 @SDL_BlitSurfaceScaled_REAL(ptr noundef %.018241.i, ptr noundef null, ptr noundef %39, ptr noundef nonnull %6, i32 noundef %449) #8
+  %673 = call zeroext i1 @SDL_BlitSurfaceScaled_REAL(ptr noundef %.018246.i, ptr noundef null, ptr noundef %39, ptr noundef nonnull %6, i32 noundef %449) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %673, label %675, label %710
 
 Blit_to_Screen.exit244.i:                         ; preds = %652
-  %674 = call zeroext i1 @SDL_BlitSurface_REAL(ptr noundef %.018241.i, ptr noundef null, ptr noundef %39, ptr noundef nonnull %18) #8
+  %674 = call zeroext i1 @SDL_BlitSurface_REAL(ptr noundef %.018246.i, ptr noundef null, ptr noundef %39, ptr noundef nonnull %18) #8
   br i1 %674, label %Blit_to_Screen.exit, label %710
 
 675:                                              ; preds = %656
@@ -2344,7 +2344,7 @@ Blit_to_Screen.exit:                              ; preds = %Blit_to_Screen.exit
   br label %710
 
 710:                                              ; preds = %675, %708, %696, %Blit_to_Screen.exit, %Blit_to_Screen.exit244.i, %656
-  call void @SDL_DestroySurface_REAL(ptr noundef %.018241.i) #8
+  call void @SDL_DestroySurface_REAL(ptr noundef %.018246.i) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %Blit_to_Screen.exit.i
 
@@ -2449,8 +2449,8 @@ PrepTextureForCopy.exit335:                       ; preds = %switch.edge.i333, %
   %749 = getelementptr inbounds nuw i8, ptr %746, i64 4
   %750 = load i32, ptr %749, align 4
   %.not305 = icmp eq i32 %750, 0
-  %or.cond404 = select i1 %.not304, i1 %.not305, i1 false
-  br i1 %or.cond404, label %761, label %._crit_edge396
+  %or.cond438 = select i1 %.not304, i1 %.not305, i1 false
+  br i1 %or.cond438, label %761, label %._crit_edge396
 
 ._crit_edge396:                                   ; preds = %747
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
@@ -2526,8 +2526,8 @@ PrepTextureForCopy.exit335:                       ; preds = %switch.edge.i333, %
   %787 = getelementptr inbounds nuw i8, ptr %784, i64 4
   %788 = load i32, ptr %787, align 4
   %.not302 = icmp eq i32 %788, 0
-  %or.cond405 = select i1 %.not301, i1 %.not302, i1 false
-  br i1 %or.cond405, label %799, label %._crit_edge397
+  %or.cond439 = select i1 %.not301, i1 %.not302, i1 false
+  br i1 %or.cond439, label %799, label %._crit_edge397
 
 ._crit_edge397:                                   ; preds = %785
   call void @llvm.lifetime.start.p0(ptr nonnull %27)

@@ -304,7 +304,7 @@ _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev
   resume { ptr, i32 } %.pn.pn.pn.i
 
 84:                                               ; preds = %78, %21
-  %.198.i = phi i1 [ %.19.ph.i, %78 ], [ false, %21 ]
+  %.1912.i = phi i1 [ %.19.ph.i, %78 ], [ false, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @BIO_vfree(ptr noundef nonnull %17)
           to label %_ZL10TestCompatPKhm.exit unwind label %85
@@ -318,7 +318,7 @@ _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev
 
 _ZL10TestCompatPKhm.exit:                         ; preds = %84
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.198.i, label %88, label %89
+  br i1 %.1912.i, label %88, label %89
 
 88:                                               ; preds = %_ZL10TestCompatPKhm.exit
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)

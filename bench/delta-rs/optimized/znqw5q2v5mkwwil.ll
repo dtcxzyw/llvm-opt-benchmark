@@ -3265,8 +3265,8 @@ common.resume:                                    ; preds = %15, %22, %25, %3
   br label %common.resume
 
 .sink.split:                                      ; preds = %2, %24, %18
-  %.sink1 = phi i64 [ 48, %18 ], [ 48, %24 ], [ 64, %2 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %.8.val, i64 noundef %.sink1, i64 noundef 8) #17
+  %.sink2 = phi i64 [ 48, %18 ], [ 48, %24 ], [ 64, %2 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %.8.val, i64 noundef %.sink2, i64 noundef 8) #17
   br label %5
 
 5:                                                ; preds = %.sink.split, %0

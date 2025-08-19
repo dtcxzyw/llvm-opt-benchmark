@@ -257,7 +257,7 @@ define dso_local range(i32 0, 2) i32 @dhparam_main(i32 noundef %0, ptr noundef %
   %55 = load i32, ptr %4, align 4
   %56 = icmp ne i32 %55, 0
   %or.cond3 = select i1 %54, i1 true, i1 %56
-  br i1 %or.cond3, label %57, label %.thread235
+  br i1 %or.cond3, label %57, label %.thread243
 
 57:                                               ; preds = %53
   %58 = icmp ne i32 %.094, 0
@@ -265,12 +265,12 @@ define dso_local range(i32 0, 2) i32 @dhparam_main(i32 noundef %0, ptr noundef %
   %or.cond5 = and i1 %58, %59
   br i1 %or.cond5, label %60, label %63
 
-.thread235:                                       ; preds = %53
+.thread243:                                       ; preds = %53
   store i32 2048, ptr %4, align 4, !tbaa !9
-  %.not269 = icmp eq i32 %.094, 0
-  br i1 %.not269, label %.thread237, label %60
+  %.not277 = icmp eq i32 %.094, 0
+  br i1 %.not277, label %.thread245, label %60
 
-60:                                               ; preds = %.thread235, %57
+60:                                               ; preds = %.thread243, %57
   %61 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %62 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %61, ptr noundef nonnull @.str.52) #3
   br label %.thread
@@ -279,21 +279,21 @@ define dso_local range(i32 0, 2) i32 @dhparam_main(i32 noundef %0, ptr noundef %
   %64 = icmp eq i32 %55, 0
   %or.cond7 = or i1 %64, %59
   %spec.store.select = select i1 %or.cond7, i32 %.089, i32 2
-  br i1 %64, label %120, label %.thread237
+  br i1 %64, label %120, label %.thread245
 
-.thread237:                                       ; preds = %.thread235, %63
-  %spec.store.select240 = phi i32 [ %spec.store.select, %63 ], [ %.089, %.thread235 ]
-  %65 = phi i1 [ %58, %63 ], [ false, %.thread235 ]
+.thread245:                                       ; preds = %.thread243, %63
+  %spec.store.select248 = phi i32 [ %spec.store.select, %63 ], [ %.089, %.thread243 ]
+  %65 = phi i1 [ %58, %63 ], [ false, %.thread243 ]
   %66 = select i1 %65, ptr @.str.53, ptr @.str.54
   %.not134 = icmp eq ptr %.0102, null
   br i1 %.not134, label %70, label %67
 
-67:                                               ; preds = %.thread237
+67:                                               ; preds = %.thread245
   %68 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %69 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %68, ptr noundef nonnull @.str.55, ptr noundef nonnull %.0102) #3
   br label %70
 
-70:                                               ; preds = %67, %.thread237
+70:                                               ; preds = %67, %.thread245
   %71 = call ptr @app_get0_libctx() #3
   %72 = call ptr @app_get0_propq() #3
   %73 = call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %71, ptr noundef nonnull %66, ptr noundef %72) #3
@@ -353,7 +353,7 @@ define dso_local range(i32 0, 2) i32 @dhparam_main(i32 noundef %0, ptr noundef %
   br label %.thread
 
 104:                                              ; preds = %98
-  %105 = call i32 @EVP_PKEY_CTX_set_dh_paramgen_generator(ptr noundef nonnull %73, i32 noundef %spec.store.select240) #3
+  %105 = call i32 @EVP_PKEY_CTX_set_dh_paramgen_generator(ptr noundef nonnull %73, i32 noundef %spec.store.select248) #3
   %106 = icmp slt i32 %105, 1
   br i1 %106, label %107, label %110
 

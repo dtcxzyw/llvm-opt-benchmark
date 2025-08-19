@@ -268,10 +268,10 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br i1 %.not46, label %ossl_param_is_empty.exit.thread.sink.split, label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread.sink.split:       ; preds = %57, %43, %27, %24, %18, %16, %10, %8
-  %.sink48 = phi i32 [ 162, %8 ], [ 166, %10 ], [ 174, %16 ], [ 178, %18 ], [ 186, %24 ], [ 191, %27 ], [ 199, %43 ], [ 207, %57 ]
+  %.sink54 = phi i32 [ 162, %8 ], [ 166, %10 ], [ 174, %16 ], [ 178, %18 ], [ 186, %24 ], [ 191, %27 ], [ 199, %43 ], [ 207, %57 ]
   %.sink = phi i32 [ 103, %8 ], [ 105, %10 ], [ 103, %16 ], [ 109, %18 ], [ 103, %24 ], [ 115, %27 ], [ 103, %43 ], [ 103, %57 ]
   call void @ERR_new() #4
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink48, ptr noundef nonnull @__func__.rc4_hmac_md5_set_ctx_params) #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink54, ptr noundef nonnull @__func__.rc4_hmac_md5_set_ctx_params) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #4
   br label %ossl_param_is_empty.exit.thread
 

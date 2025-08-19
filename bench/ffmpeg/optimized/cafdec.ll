@@ -184,10 +184,10 @@ define internal range(i32 -2147483648, 1) i32 @read_header(ptr noundef %0) #1 {
   br label %77
 
 77:                                               ; preds = %75, %70
-  %.sink42.i = phi i32 [ %74, %70 ], [ %76, %75 ]
+  %.sink46.i = phi i32 [ %74, %70 ], [ %76, %75 ]
   %78 = load ptr, ptr %21, align 8, !tbaa !28
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  store i32 %.sink42.i, ptr %79, align 4, !tbaa !47
+  store i32 %.sink46.i, ptr %79, align 4, !tbaa !47
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %81 = load ptr, ptr %80, align 8, !tbaa !48
   %82 = load ptr, ptr %81, align 8, !tbaa !49
@@ -421,8 +421,8 @@ define internal range(i32 -2147483648, 1) i32 @read_header(ptr noundef %0) #1 {
   br label %read_desc_chunk.exit.thread
 
 199:                                              ; preds = %175, %167
-  %.sink121.i = phi i64 [ -48, %167 ], [ -24, %175 ]
-  %200 = add nsw i64 %.sink121.i, %102
+  %.sink125.i = phi i64 [ -48, %167 ], [ -24, %175 ]
+  %200 = add nsw i64 %.sink125.i, %102
   %201 = call i64 @avio_skip(ptr noundef %126, i64 noundef %200) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %read_kuki_chunk.exit.thread136

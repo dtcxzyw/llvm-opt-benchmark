@@ -672,14 +672,14 @@ _ZN5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb1EEC2ERKNS_25IndexIVF
   br i1 %.not.i.i.i.i.i25, label %.body26, label %common.resume.sink.split.i
 
 common.resume.sink.split.i:                       ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit9.i, %79
-  %.sink18.i = phi ptr [ %126, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i ], [ %81, %79 ]
+  %.sink29.i = phi ptr [ %126, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i ], [ %81, %79 ]
   %common.resume.op.ph.i = phi { ptr, i32 } [ %111, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i ], [ %80, %79 ]
   %82 = getelementptr inbounds nuw i8, ptr %66, i64 72
   %83 = load ptr, ptr %82, align 8, !tbaa !52
   %84 = ptrtoint ptr %83 to i64
-  %85 = ptrtoint ptr %.sink18.i to i64
+  %85 = ptrtoint ptr %.sink29.i to i64
   %86 = sub i64 %84, %85
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink18.i, i64 noundef %86) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink29.i, i64 noundef %86) #29
   br label %.body26
 
 _ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit.i: ; preds = %._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i, %65
@@ -900,14 +900,14 @@ _ZN5faiss12_GLOBAL__N_131AQInvertedListScannerDecompressILb0EEC2ERKNS_25IndexIVF
   br i1 %.not.i.i.i.i.i35, label %.body56, label %common.resume.sink.split.i36
 
 common.resume.sink.split.i36:                     ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit9.i48, %177
-  %.sink18.i37 = phi ptr [ %224, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i48 ], [ %179, %177 ]
+  %.sink29.i37 = phi ptr [ %224, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i48 ], [ %179, %177 ]
   %common.resume.op.ph.i38 = phi { ptr, i32 } [ %209, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i48 ], [ %178, %177 ]
   %180 = getelementptr inbounds nuw i8, ptr %159, i64 72
   %181 = load ptr, ptr %180, align 8, !tbaa !52
   %182 = ptrtoint ptr %181 to i64
-  %183 = ptrtoint ptr %.sink18.i37 to i64
+  %183 = ptrtoint ptr %.sink29.i37 to i64
   %184 = sub i64 %182, %183
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink18.i37, i64 noundef %184) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink29.i37, i64 noundef %184) #29
   br label %.body56
 
 _ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit.i43: ; preds = %._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i41, %158
@@ -1054,14 +1054,14 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
   br i1 %.not.i.i.i.i.i59, label %.body80, label %common.resume.sink.split.i60
 
 common.resume.sink.split.i60:                     ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit9.i72, %245
-  %.sink18.i61 = phi ptr [ %292, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i72 ], [ %247, %245 ]
+  %.sink29.i61 = phi ptr [ %292, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i72 ], [ %247, %245 ]
   %common.resume.op.ph.i62 = phi { ptr, i32 } [ %277, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i72 ], [ %246, %245 ]
   %248 = getelementptr inbounds nuw i8, ptr %227, i64 72
   %249 = load ptr, ptr %248, align 8, !tbaa !52
   %250 = ptrtoint ptr %249 to i64
-  %251 = ptrtoint ptr %.sink18.i61 to i64
+  %251 = ptrtoint ptr %.sink29.i61 to i64
   %252 = sub i64 %250, %251
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink18.i61, i64 noundef %252) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink29.i61, i64 noundef %252) #29
   br label %.body80
 
 _ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit.i67: ; preds = %._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i65, %226
@@ -1208,14 +1208,14 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
   br i1 %.not.i.i.i.i.i83, label %.body104, label %common.resume.sink.split.i84
 
 common.resume.sink.split.i84:                     ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit9.i96, %313
-  %.sink18.i85 = phi ptr [ %360, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i96 ], [ %315, %313 ]
+  %.sink29.i85 = phi ptr [ %360, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i96 ], [ %315, %313 ]
   %common.resume.op.ph.i86 = phi { ptr, i32 } [ %345, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i96 ], [ %314, %313 ]
   %316 = getelementptr inbounds nuw i8, ptr %295, i64 72
   %317 = load ptr, ptr %316, align 8, !tbaa !52
   %318 = ptrtoint ptr %317 to i64
-  %319 = ptrtoint ptr %.sink18.i85 to i64
+  %319 = ptrtoint ptr %.sink29.i85 to i64
   %320 = sub i64 %318, %319
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink18.i85, i64 noundef %320) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink29.i85, i64 noundef %320) #29
   br label %.body104
 
 _ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit.i91: ; preds = %._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i89, %294
@@ -1362,14 +1362,14 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
   br i1 %.not.i.i.i.i.i107, label %.body128, label %common.resume.sink.split.i108
 
 common.resume.sink.split.i108:                    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit9.i120, %381
-  %.sink18.i109 = phi ptr [ %428, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i120 ], [ %383, %381 ]
+  %.sink29.i109 = phi ptr [ %428, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i120 ], [ %383, %381 ]
   %common.resume.op.ph.i110 = phi { ptr, i32 } [ %413, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i120 ], [ %382, %381 ]
   %384 = getelementptr inbounds nuw i8, ptr %363, i64 72
   %385 = load ptr, ptr %384, align 8, !tbaa !52
   %386 = ptrtoint ptr %385 to i64
-  %387 = ptrtoint ptr %.sink18.i109 to i64
+  %387 = ptrtoint ptr %.sink29.i109 to i64
   %388 = sub i64 %386, %387
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink18.i109, i64 noundef %388) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink29.i109, i64 noundef %388) #29
   br label %.body128
 
 _ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit.i115: ; preds = %._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i113, %362
@@ -1516,14 +1516,14 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
   br i1 %.not.i.i.i.i.i131, label %.body152, label %common.resume.sink.split.i132
 
 common.resume.sink.split.i132:                    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit9.i144, %449
-  %.sink18.i133 = phi ptr [ %496, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i144 ], [ %451, %449 ]
+  %.sink29.i133 = phi ptr [ %496, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i144 ], [ %451, %449 ]
   %common.resume.op.ph.i134 = phi { ptr, i32 } [ %481, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i144 ], [ %450, %449 ]
   %452 = getelementptr inbounds nuw i8, ptr %431, i64 72
   %453 = load ptr, ptr %452, align 8, !tbaa !52
   %454 = ptrtoint ptr %453 to i64
-  %455 = ptrtoint ptr %.sink18.i133 to i64
+  %455 = ptrtoint ptr %.sink29.i133 to i64
   %456 = sub i64 %454, %455
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink18.i133, i64 noundef %456) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink29.i133, i64 noundef %456) #29
   br label %.body152
 
 _ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit.i139: ; preds = %._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i137, %430
@@ -1670,14 +1670,14 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
   br i1 %.not.i.i.i.i.i155, label %.body176, label %common.resume.sink.split.i156
 
 common.resume.sink.split.i156:                    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit9.i168, %517
-  %.sink18.i157 = phi ptr [ %564, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i168 ], [ %519, %517 ]
+  %.sink29.i157 = phi ptr [ %564, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i168 ], [ %519, %517 ]
   %common.resume.op.ph.i158 = phi { ptr, i32 } [ %549, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i168 ], [ %518, %517 ]
   %520 = getelementptr inbounds nuw i8, ptr %499, i64 72
   %521 = load ptr, ptr %520, align 8, !tbaa !52
   %522 = ptrtoint ptr %521 to i64
-  %523 = ptrtoint ptr %.sink18.i157 to i64
+  %523 = ptrtoint ptr %.sink29.i157 to i64
   %524 = sub i64 %522, %523
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink18.i157, i64 noundef %524) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink29.i157, i64 noundef %524) #29
   br label %.body176
 
 _ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit.i163: ; preds = %._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i161, %498
@@ -1824,14 +1824,14 @@ _ZN5faiss12_GLOBAL__N_124AQInvertedListScannerLUTILb0ELNS_17AdditiveQuantizer13S
   br i1 %.not.i.i.i.i.i179, label %.body200, label %common.resume.sink.split.i180
 
 common.resume.sink.split.i180:                    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit9.i192, %585
-  %.sink18.i181 = phi ptr [ %632, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i192 ], [ %587, %585 ]
+  %.sink29.i181 = phi ptr [ %632, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i192 ], [ %587, %585 ]
   %common.resume.op.ph.i182 = phi { ptr, i32 } [ %617, %_ZNSt6vectorIfSaIfEED2Ev.exit9.i192 ], [ %586, %585 ]
   %588 = getelementptr inbounds nuw i8, ptr %567, i64 72
   %589 = load ptr, ptr %588, align 8, !tbaa !52
   %590 = ptrtoint ptr %589 to i64
-  %591 = ptrtoint ptr %.sink18.i181 to i64
+  %591 = ptrtoint ptr %.sink29.i181 to i64
   %592 = sub i64 %590, %591
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink18.i181, i64 noundef %592) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink29.i181, i64 noundef %592) #29
   br label %.body200
 
 _ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit.i187: ; preds = %._ZN5faiss12_GLOBAL__N_121AQInvertedListScannerC2ERKNS_25IndexIVFAdditiveQuantizerEb.exit_crit_edge.i185, %566
@@ -2909,13 +2909,13 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4, !tbaa !53
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !53
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

@@ -12922,21 +12922,21 @@ lean_alloc_ctor.exit129:                          ; preds = %lean_inc.exit
   unreachable
 
 lean_alloc_ctor.exit108:                          ; preds = %lean_alloc_ctor.exit129, %lean_alloc_ctor.exit121, %lean_alloc_ctor.exit
-  %.sink149 = phi i8 [ %32, %lean_alloc_ctor.exit ], [ %101, %lean_alloc_ctor.exit121 ], [ %164, %lean_alloc_ctor.exit129 ]
-  %.sink145 = phi ptr [ %41, %lean_alloc_ctor.exit ], [ %110, %lean_alloc_ctor.exit121 ], [ %173, %lean_alloc_ctor.exit129 ]
+  %.sink164 = phi i8 [ %32, %lean_alloc_ctor.exit ], [ %101, %lean_alloc_ctor.exit121 ], [ %164, %lean_alloc_ctor.exit129 ]
+  %.sink160 = phi ptr [ %41, %lean_alloc_ctor.exit ], [ %110, %lean_alloc_ctor.exit121 ], [ %173, %lean_alloc_ctor.exit129 ]
   %.sink = phi ptr [ %35, %lean_alloc_ctor.exit ], [ %104, %lean_alloc_ctor.exit121 ], [ %167, %lean_alloc_ctor.exit129 ]
-  %176 = shl nuw nsw i8 %.sink149, 1
+  %176 = shl nuw nsw i8 %.sink164, 1
   %177 = or disjoint i8 %176, 1
   %178 = zext nneg i8 %177 to i64
   %179 = inttoptr i64 %178 to ptr
-  %180 = getelementptr inbounds nuw i8, ptr %.sink145, i64 4
-  store i32 1, ptr %.sink145, align 4, !tbaa !8
+  %180 = getelementptr inbounds nuw i8, ptr %.sink160, i64 4
+  store i32 1, ptr %.sink160, align 4, !tbaa !8
   store i32 131096, ptr %180, align 4
-  %181 = getelementptr inbounds nuw i8, ptr %.sink145, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %.sink160, i64 8
   store ptr %179, ptr %181, align 8, !tbaa !4
-  %182 = getelementptr inbounds nuw i8, ptr %.sink145, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %.sink160, i64 16
   store ptr %.sink, ptr %182, align 8, !tbaa !4
-  ret ptr %.sink145
+  ret ptr %.sink160
 }
 
 declare ptr @l_Lean_Syntax_getArgs(ptr noundef) local_unnamed_addr #1

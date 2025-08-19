@@ -1123,7 +1123,7 @@ define internal noundef i32 @vif_filter1d(ptr readnone captures(none) %0, ptr no
 
 .lr.ph171:                                        ; preds = %.loopexit139.us, %.lr.ph171.sink.split
   %79 = mul nsw i64 %indvars.iv229, %46
-  %invariant.gep240 = getelementptr float, ptr %9, i64 %79
+  %invariant.gep246 = getelementptr float, ptr %9, i64 %79
   br label %80
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader141
@@ -1201,8 +1201,8 @@ define internal noundef i32 @vif_filter1d(ptr readnone captures(none) %0, ptr no
 
 .loopexit:                                        ; preds = %105, %84, %.preheader, %90
   %.1120 = phi nsz float [ 0.000000e+00, %90 ], [ 0.000000e+00, %.preheader ], [ %89, %84 ], [ %110, %105 ]
-  %gep241 = getelementptr float, ptr %invariant.gep240, i64 %indvars.iv224
-  store float %.1120, ptr %gep241, align 4, !tbaa !81
+  %gep247 = getelementptr float, ptr %invariant.gep246, i64 %indvars.iv224
+  store float %.1120, ptr %gep247, align 4, !tbaa !81
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %exitcond228.not = icmp eq i64 %indvars.iv.next225, %39
   br i1 %exitcond228.not, label %._crit_edge, label %80, !llvm.loop !118

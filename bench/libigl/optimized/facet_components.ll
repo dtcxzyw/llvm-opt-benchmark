@@ -111,8 +111,8 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %3
   br label %34
 
 ._crit_edge209:                                   ; preds = %247, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit.thread, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit
-  %.sroa.30135.0254 = phi ptr [ %18, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit ], [ null, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit.thread ], [ %18, %247 ]
-  %.sroa.0126.0249 = phi ptr [ %16, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit ], [ null, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit.thread ], [ %16, %247 ]
+  %.sroa.30135.0283 = phi ptr [ %18, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit ], [ null, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit.thread ], [ %18, %247 ]
+  %.sroa.0126.0278 = phi ptr [ %16, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit ], [ null, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit.thread ], [ %16, %247 ]
   %.sroa.15.0.lcssa = phi ptr [ null, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit ], [ null, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit.thread ], [ %.sroa.15.1, %247 ]
   %.sroa.11.0.lcssa = phi ptr [ null, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit ], [ null, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit.thread ], [ %.sroa.11.1, %247 ]
   %.sroa.0115.0.lcssa = phi ptr [ null, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit ], [ null, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit.thread ], [ %.sroa.0115.1, %247 ]
@@ -696,16 +696,16 @@ _ZNSt5queueIlSt5dequeIlSaIlEEED2Ev.exit79:        ; preds = %_ZNSt11_Deque_baseI
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge214, %._crit_edge214.thread
-  %.not.i.i81 = icmp eq ptr %.sroa.0126.0249, null
+  %.not.i.i81 = icmp eq ptr %.sroa.0126.0278, null
   br i1 %.not.i.i81, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, label %267
 
 267:                                              ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit
-  %268 = ptrtoint ptr %.sroa.30135.0254 to i64
-  %269 = ptrtoint ptr %.sroa.0126.0249 to i64
+  %268 = ptrtoint ptr %.sroa.30135.0283 to i64
+  %269 = ptrtoint ptr %.sroa.0126.0278 to i64
   %270 = sub i64 %268, %269
   %271 = ashr exact i64 %270, 3
   %272 = sub nsw i64 0, %271
-  %273 = getelementptr inbounds i64, ptr %.sroa.30135.0254, i64 %272
+  %273 = getelementptr inbounds i64, ptr %.sroa.30135.0283, i64 %272
   call void @_ZdlPvm(ptr noundef %273, i64 noundef %270) #21
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
@@ -728,8 +728,8 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIlSaIlE
   br i1 %exitcond.not, label %._crit_edge214.thread, label %276, !llvm.loop !42
 
 281:                                              ; preds = %274, %264
-  %.sroa.30135.0253 = phi ptr [ %18, %264 ], [ %.sroa.30135.0254, %274 ]
-  %.sroa.0126.0248 = phi ptr [ %16, %264 ], [ %.sroa.0126.0249, %274 ]
+  %.sroa.30135.0282 = phi ptr [ %18, %264 ], [ %.sroa.30135.0283, %274 ]
+  %.sroa.0126.0277 = phi ptr [ %16, %264 ], [ %.sroa.0126.0278, %274 ]
   %.sroa.15.3 = phi ptr [ %.sroa.15.2, %264 ], [ %.sroa.15.0.lcssa, %274 ]
   %.sroa.0115.3 = phi ptr [ %.sroa.0115.2, %264 ], [ %.sroa.0115.0.lcssa, %274 ]
   %.pn42.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn.pn.pn.pn, %264 ], [ %275, %274 ]
@@ -744,16 +744,16 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIlSaIlE
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit83
 
 _ZNSt6vectorIlSaIlEED2Ev.exit83:                  ; preds = %281, %.thread
-  %.not.i.i84 = icmp eq ptr %.sroa.0126.0248, null
+  %.not.i.i84 = icmp eq ptr %.sroa.0126.0277, null
   br i1 %.not.i.i84, label %.body, label %285
 
 285:                                              ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit83
-  %286 = ptrtoint ptr %.sroa.30135.0253 to i64
-  %287 = ptrtoint ptr %.sroa.0126.0248 to i64
+  %286 = ptrtoint ptr %.sroa.30135.0282 to i64
+  %287 = ptrtoint ptr %.sroa.0126.0277 to i64
   %288 = sub i64 %286, %287
   %289 = ashr exact i64 %288, 3
   %290 = sub nsw i64 0, %289
-  %291 = getelementptr inbounds i64, ptr %.sroa.30135.0253, i64 %290
+  %291 = getelementptr inbounds i64, ptr %.sroa.30135.0282, i64 %290
   call void @_ZdlPvm(ptr noundef %291, i64 noundef %288) #21
   br label %.body
 

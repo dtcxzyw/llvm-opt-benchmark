@@ -324,10 +324,10 @@ _ZNSt6vectorIPN5logos9PointPairESaIS2_EE5clearEv.exit: ; preds = %4, %10
   br label %57
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %62, %.thread
-  %spec.select33.i113 = phi i32 [ %spec.select33.i111, %.thread ], [ %spec.select33.i, %62 ]
+  %spec.select33.i140 = phi i32 [ %spec.select33.i138, %.thread ], [ %spec.select33.i, %62 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %49 = load float, ptr %48, align 4, !tbaa !9
-  %50 = uitofp i32 %spec.select33.i113 to float
+  %50 = uitofp i32 %spec.select33.i140 to float
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %52 = load float, ptr %51, align 8, !tbaa !24
   %53 = call float @llvm.fmuladd.f32(float %50, float %52, float %49)
@@ -348,7 +348,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %62, %.thread
   %.reass.i = add i32 %45, %59
   %60 = icmp sgt i32 %.reass.i, %.01934.i
   %61 = trunc nuw i64 %indvars.iv.i to i32
-  %spec.select33.i111 = select i1 %60, i32 %61, i32 %.01835.i
+  %spec.select33.i138 = select i1 %60, i32 %61, i32 %.01835.i
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit.i
 
 62:                                               ; preds = %57
@@ -918,13 +918,13 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !7
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !7
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

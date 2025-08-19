@@ -307,7 +307,7 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %26, %hwloc_flsl_man
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @hwloc_bitmap_snprintf(ptr noalias noundef writeonly captures(none) %0, i64 noundef %1, ptr noalias noundef readonly captures(none) %2) local_unnamed_addr #6 {
+define range(i32 -1, -2147483648) i32 @hwloc_bitmap_snprintf(ptr noalias noundef writeonly captures(none) %0, i64 noundef %1, ptr noalias noundef readonly captures(none) %2) local_unnamed_addr #6 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %5, label %4
 
@@ -383,10 +383,10 @@ define i32 @hwloc_bitmap_snprintf(ptr noalias noundef writeonly captures(none) %
   br i1 %40, label %34, label %._crit_edge.thread, !llvm.loop !20
 
 .lr.ph145:                                        ; preds = %34, %27
-  %.076164 = phi i32 [ 1, %27 ], [ 0, %34 ]
-  %.079162 = phi i64 [ %22, %27 ], [ %1, %34 ]
-  %.094160 = phi i32 [ %9, %27 ], [ 0, %34 ]
-  %.0101158 = phi ptr [ %21, %27 ], [ %0, %34 ]
+  %.076165 = phi i32 [ 1, %27 ], [ 0, %34 ]
+  %.079163 = phi i64 [ %22, %27 ], [ %1, %34 ]
+  %.094161 = phi i32 [ %9, %27 ], [ 0, %34 ]
+  %.0101159 = phi ptr [ %21, %27 ], [ %0, %34 ]
   %.189 = phi i32 [ %.088131, %27 ], [ %.290128, %34 ]
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %42
@@ -394,13 +394,13 @@ define i32 @hwloc_bitmap_snprintf(ptr noalias noundef writeonly captures(none) %
 42:                                               ; preds = %.lr.ph145, %.thread
   %43 = phi i1 [ false, %.lr.ph145 ], [ %80, %.thread ]
   %.177144 = phi i1 [ %.not108, %.lr.ph145 ], [ false, %.thread ]
-  %.180143 = phi i64 [ %.079162, %.lr.ph145 ], [ %78, %.thread ]
+  %.180143 = phi i64 [ %.079163, %.lr.ph145 ], [ %78, %.thread ]
   %.082142 = phi i32 [ 0, %.lr.ph145 ], [ %70, %.thread ]
   %.085141 = phi i64 [ 0, %.lr.ph145 ], [ %69, %.thread ]
   %.3140 = phi i32 [ %.189, %.lr.ph145 ], [ %.4, %.thread ]
-  %.192139 = phi i32 [ %.076164, %.lr.ph145 ], [ %.293122, %.thread ]
-  %.195138 = phi i32 [ %.094160, %.lr.ph145 ], [ %68, %.thread ]
-  %.1102136 = phi ptr [ %.0101158, %.lr.ph145 ], [ %77, %.thread ]
+  %.192139 = phi i32 [ %.076165, %.lr.ph145 ], [ %.293122, %.thread ]
+  %.195138 = phi i32 [ %.094161, %.lr.ph145 ], [ %68, %.thread ]
+  %.1102136 = phi ptr [ %.0101159, %.lr.ph145 ], [ %77, %.thread ]
   br i1 %43, label %50, label %44
 
 44:                                               ; preds = %42
@@ -484,9 +484,9 @@ define i32 @hwloc_bitmap_snprintf(ptr noalias noundef writeonly captures(none) %
   br i1 %.not111, label %._crit_edge.thread, label %.critedge118
 
 ._crit_edge.thread:                               ; preds = %39, %.preheader123, %._crit_edge
-  %.180.lcssa176 = phi i64 [ %.180.lcssa, %._crit_edge ], [ %1, %.preheader123 ], [ %1, %39 ]
-  %.1102.lcssa175 = phi ptr [ %.1102.lcssa, %._crit_edge ], [ %0, %.preheader123 ], [ %0, %39 ]
-  %82 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.1102.lcssa175, i64 noundef %.180.lcssa176, ptr noundef nonnull @.str.4) #18
+  %.180.lcssa177 = phi i64 [ %.180.lcssa, %._crit_edge ], [ %1, %.preheader123 ], [ %1, %39 ]
+  %.1102.lcssa176 = phi ptr [ %.1102.lcssa, %._crit_edge ], [ %0, %.preheader123 ], [ %0, %39 ]
+  %82 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.1102.lcssa176, i64 noundef %.180.lcssa177, ptr noundef nonnull @.str.4) #18
   %spec.select = tail call i32 @llvm.smax.i32(i32 %82, i32 -1)
   br label %.critedge118
 
@@ -499,10 +499,10 @@ define i32 @hwloc_bitmap_snprintf(ptr noalias noundef writeonly captures(none) %
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @hwloc_bitmap_asprintf(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1) local_unnamed_addr #6 {
+define range(i32 -1, -2147483648) i32 @hwloc_bitmap_asprintf(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = tail call i32 @hwloc_bitmap_snprintf(ptr noundef null, i64 noundef 0, ptr noundef %1)
   %4 = add nsw i32 %3, 1
-  %5 = sext i32 %4 to i64
+  %5 = zext nneg i32 %4 to i64
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #17
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
@@ -858,7 +858,7 @@ hwloc_bitmap__zero.exit:                          ; preds = %hwloc_bitmap_reset_
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @hwloc_bitmap_list_snprintf(ptr noalias noundef writeonly captures(none) %0, i64 noundef %1, ptr noalias noundef readonly captures(none) %2) local_unnamed_addr #6 {
+define range(i32 -1, -2147483648) i32 @hwloc_bitmap_list_snprintf(ptr noalias noundef writeonly captures(none) %0, i64 noundef %1, ptr noalias noundef readonly captures(none) %2) local_unnamed_addr #6 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %5, label %4
 
@@ -1259,10 +1259,10 @@ define i32 @hwloc_bitmap_next_unset(ptr noundef readonly captures(none) %0, i32 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @hwloc_bitmap_list_asprintf(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1) local_unnamed_addr #6 {
+define range(i32 -1, -2147483648) i32 @hwloc_bitmap_list_asprintf(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = tail call i32 @hwloc_bitmap_list_snprintf(ptr noundef null, i64 noundef 0, ptr noundef %1)
   %4 = add nsw i32 %3, 1
-  %5 = sext i32 %4 to i64
+  %5 = zext nneg i32 %4 to i64
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #17
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
@@ -1634,12 +1634,12 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_set_range(ptr noundef captures(none) %
   br label %75
 
 75:                                               ; preds = %61, %50
-  %.sink66 = phi ptr [ %66, %61 ], [ %60, %50 ]
-  %.sink65 = phi i64 [ %74, %61 ], [ %58, %50 ]
+  %.sink72 = phi ptr [ %66, %61 ], [ %60, %50 ]
+  %.sink71 = phi i64 [ %74, %61 ], [ %58, %50 ]
   %76 = zext nneg i32 %43 to i64
-  %77 = getelementptr inbounds nuw i64, ptr %.sink66, i64 %76
+  %77 = getelementptr inbounds nuw i64, ptr %.sink72, i64 %76
   %78 = load i64, ptr %77, align 8, !tbaa !12
-  %79 = or i64 %78, %.sink65
+  %79 = or i64 %78, %.sink71
   store i64 %79, ptr %77, align 8, !tbaa !12
   %.158 = add nuw nsw i32 %48, 1
   %80 = icmp samesign ult i32 %.158, %43
@@ -1649,7 +1649,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_set_range(ptr noundef captures(none) %
   %81 = lshr i32 %1, 3
   %82 = and i32 %81, 536870904
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr nuw i8, ptr %.sink66, i64 %83
+  %84 = getelementptr nuw i8, ptr %.sink72, i64 %83
   %scevgep = getelementptr nuw i8, ptr %84, i64 8
   %85 = add nsw i32 %43, -2
   %86 = sub nsw i32 %85, %48
@@ -1703,7 +1703,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_set(ptr noundef captures(none) %0, i32
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @hwloc_bitmap_taskset_snprintf(ptr noalias noundef writeonly captures(none) %0, i64 noundef %1, ptr noalias noundef readonly captures(none) %2) local_unnamed_addr #6 {
+define range(i32 -1, -2147483648) i32 @hwloc_bitmap_taskset_snprintf(ptr noalias noundef writeonly captures(none) %0, i64 noundef %1, ptr noalias noundef readonly captures(none) %2) local_unnamed_addr #6 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %5, label %4
 
@@ -1785,23 +1785,23 @@ define i32 @hwloc_bitmap_taskset_snprintf(ptr noalias noundef writeonly captures
   br i1 %45, label %.lr.ph127, label %._crit_edge.thread
 
 .lr.ph127:                                        ; preds = %42, %37, %29, %.critedge
-  %.169157 = phi i32 [ 0, %.critedge ], [ %.068115, %29 ], [ %.270112, %37 ], [ 0, %42 ]
-  %.087140156 = phi i64 [ %1, %.critedge ], [ %23, %29 ], [ %1, %37 ], [ %1, %42 ]
-  %.084142155 = phi ptr [ %0, %.critedge ], [ %22, %29 ], [ %0, %37 ], [ %0, %42 ]
-  %.077144154 = phi i32 [ 0, %.critedge ], [ %9, %29 ], [ 0, %37 ], [ 0, %42 ]
-  %.071146153 = phi i32 [ 0, %.critedge ], [ 1, %29 ], [ 0, %37 ], [ 0, %42 ]
+  %.169160 = phi i32 [ 0, %.critedge ], [ %.068115, %29 ], [ %.270112, %37 ], [ 0, %42 ]
+  %.087143159 = phi i64 [ %1, %.critedge ], [ %23, %29 ], [ %1, %37 ], [ %1, %42 ]
+  %.084145158 = phi ptr [ %0, %.critedge ], [ %22, %29 ], [ %0, %37 ], [ %0, %42 ]
+  %.077147157 = phi i32 [ 0, %.critedge ], [ %9, %29 ], [ 0, %37 ], [ 0, %42 ]
+  %.071149156 = phi i32 [ 0, %.critedge ], [ 1, %29 ], [ 0, %37 ], [ 0, %42 ]
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !11
-  %48 = zext nneg i32 %.169157 to i64
+  %48 = zext nneg i32 %.169160 to i64
   br label %49
 
 49:                                               ; preds = %.lr.ph127, %.thread
   %indvars.iv = phi i64 [ %48, %.lr.ph127 ], [ %indvars.iv.next, %.thread ]
-  %.172125 = phi i32 [ %.071146153, %.lr.ph127 ], [ %.273106, %.thread ]
+  %.172125 = phi i32 [ %.071149156, %.lr.ph127 ], [ %.273106, %.thread ]
   %.175124 = phi i1 [ %.not93, %.lr.ph127 ], [ false, %.thread ]
-  %.178123 = phi i32 [ %.077144154, %.lr.ph127 ], [ %66, %.thread ]
-  %.185121 = phi ptr [ %.084142155, %.lr.ph127 ], [ %73, %.thread ]
-  %.188120 = phi i64 [ %.087140156, %.lr.ph127 ], [ %74, %.thread ]
+  %.178123 = phi i32 [ %.077147157, %.lr.ph127 ], [ %66, %.thread ]
+  %.185121 = phi ptr [ %.084145158, %.lr.ph127 ], [ %73, %.thread ]
+  %.188120 = phi i64 [ %.087143159, %.lr.ph127 ], [ %74, %.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %50 = getelementptr inbounds nuw i64, ptr %47, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !12
@@ -1851,8 +1851,8 @@ define i32 @hwloc_bitmap_taskset_snprintf(ptr noalias noundef writeonly captures
   %72 = sext i32 %.283 to i64
   %73 = getelementptr inbounds i8, ptr %.185121, i64 %72
   %74 = sub nsw i64 %.188120, %72
-  %.not177 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not177, label %._crit_edge, label %49, !llvm.loop !32
+  %.not180 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not180, label %._crit_edge, label %49, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %34, %.thread, %.preheader
   %.188.lcssa = phi i64 [ %23, %.preheader ], [ %74, %.thread ], [ %23, %34 ]
@@ -1862,9 +1862,9 @@ define i32 @hwloc_bitmap_taskset_snprintf(ptr noalias noundef writeonly captures
   br i1 %.not96, label %._crit_edge.thread, label %.critedge102
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge
-  %.185.lcssa171 = phi ptr [ %.185.lcssa, %._crit_edge ], [ %0, %.critedge ]
-  %.188.lcssa170 = phi i64 [ %.188.lcssa, %._crit_edge ], [ %1, %.critedge ]
-  %75 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.185.lcssa171, i64 noundef %.188.lcssa170, ptr noundef nonnull @.str.4) #18
+  %.185.lcssa174 = phi ptr [ %.185.lcssa, %._crit_edge ], [ %0, %.critedge ]
+  %.188.lcssa173 = phi i64 [ %.188.lcssa, %._crit_edge ], [ %1, %.critedge ]
+  %75 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.185.lcssa174, i64 noundef %.188.lcssa173, ptr noundef nonnull @.str.4) #18
   %spec.select = tail call i32 @llvm.smax.i32(i32 %75, i32 -1)
   br label %.critedge102
 
@@ -1874,10 +1874,10 @@ define i32 @hwloc_bitmap_taskset_snprintf(ptr noalias noundef writeonly captures
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @hwloc_bitmap_taskset_asprintf(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1) local_unnamed_addr #6 {
+define range(i32 -1, -2147483648) i32 @hwloc_bitmap_taskset_asprintf(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = tail call i32 @hwloc_bitmap_taskset_snprintf(ptr noundef null, i64 noundef 0, ptr noundef %1)
   %4 = add nsw i32 %3, 1
-  %5 = sext i32 %4 to i64
+  %5 = zext nneg i32 %4 to i64
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #17
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
@@ -3059,13 +3059,13 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_clr_range(ptr noundef captures(none) %
   br label %76
 
 76:                                               ; preds = %61, %50
-  %.sink66 = phi ptr [ %67, %61 ], [ %60, %50 ]
-  %.sink65.in = phi i64 [ %75, %61 ], [ %58, %50 ]
-  %.sink65 = xor i64 %.sink65.in, -1
+  %.sink72 = phi ptr [ %67, %61 ], [ %60, %50 ]
+  %.sink71.in = phi i64 [ %75, %61 ], [ %58, %50 ]
+  %.sink71 = xor i64 %.sink71.in, -1
   %77 = zext nneg i32 %43 to i64
-  %78 = getelementptr inbounds nuw i64, ptr %.sink66, i64 %77
+  %78 = getelementptr inbounds nuw i64, ptr %.sink72, i64 %77
   %79 = load i64, ptr %78, align 8, !tbaa !12
-  %80 = and i64 %79, %.sink65
+  %80 = and i64 %79, %.sink71
   store i64 %80, ptr %78, align 8, !tbaa !12
   %.158 = add nuw nsw i32 %48, 1
   %81 = icmp samesign ult i32 %.158, %43
@@ -3075,7 +3075,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_clr_range(ptr noundef captures(none) %
   %82 = lshr i32 %1, 3
   %83 = and i32 %82, 536870904
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr nuw i8, ptr %.sink66, i64 %84
+  %85 = getelementptr nuw i8, ptr %.sink72, i64 %84
   %scevgep = getelementptr nuw i8, ptr %85, i64 8
   %86 = add nsw i32 %43, -2
   %87 = sub nsw i32 %86, %48
@@ -4572,8 +4572,8 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_singlify(ptr noundef captures(none) %0
 ._crit_edge.thread:                               ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !14
-  %.not33 = icmp eq i32 %16, 0
-  br i1 %.not33, label %hwloc_bitmap_set.exit, label %.thread
+  %.not35 = icmp eq i32 %16, 0
+  br i1 %.not35, label %hwloc_bitmap_set.exit, label %.thread
 
 17:                                               ; preds = %._crit_edge
   br i1 %12, label %.thread, label %18
@@ -4905,7 +4905,7 @@ define i32 @hwloc_bitmap_weight(ptr noundef readonly captures(none) %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 5) i32 @hwloc_bitmap_compare_inclusion(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
+define i32 @hwloc_bitmap_compare_inclusion(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
   %3 = load i32, ptr %0, align 8, !tbaa !3
   %4 = load i32, ptr %1, align 8, !tbaa !3
   %. = tail call i32 @llvm.umax.i32(i32 %3, i32 %4)

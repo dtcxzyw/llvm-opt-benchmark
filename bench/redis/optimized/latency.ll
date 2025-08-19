@@ -381,7 +381,7 @@ define dso_local void @analyzeLatencyForEvent(ptr noundef %0, ptr noundef captur
 
 49:                                               ; preds = %44
   %.not77 = icmp eq i32 %48, 0
-  br i1 %.not77, label %.preheader89, label %50
+  br i1 %.not77, label %.preheader98, label %50
 
 50:                                               ; preds = %49
   %51 = zext i32 %48 to i64
@@ -394,14 +394,14 @@ define dso_local void @analyzeLatencyForEvent(ptr noundef %0, ptr noundef captur
   %57 = icmp eq i64 %54, %55
   %spec.store.select = select i1 %57, i64 1, i64 %56
   store i64 %spec.store.select, ptr %12, align 8
-  br label %.preheader89
+  br label %.preheader98
 
-.preheader89:                                     ; preds = %50, %49
+.preheader98:                                     ; preds = %50, %49
   br label %58
 
-58:                                               ; preds = %.preheader89, %70
-  %indvars.iv85 = phi i64 [ %indvars.iv.next86, %70 ], [ 0, %.preheader89 ]
-  %.283 = phi i64 [ %.3, %70 ], [ 0, %.preheader89 ]
+58:                                               ; preds = %.preheader98, %70
+  %indvars.iv85 = phi i64 [ %indvars.iv.next86, %70 ], [ 0, %.preheader98 ]
+  %.283 = phi i64 [ %.3, %70 ], [ 0, %.preheader98 ]
   %59 = getelementptr inbounds nuw [160 x %struct.latencySample], ptr %13, i64 0, i64 %indvars.iv85
   %60 = load i32, ptr %59, align 4, !tbaa !41
   %61 = icmp eq i32 %60, 0

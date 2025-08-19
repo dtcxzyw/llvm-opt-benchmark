@@ -99,7 +99,7 @@ module asm ".previous\09\09\09\09\09"
 define internal i32 @cmos_init() #0 section ".init.text" align 16 {
   %1 = tail call i32 @pnp_register_driver(ptr noundef nonnull @cmos_pnp_driver) #9
   %2 = icmp eq i32 %1, 0
-  br i1 %2, label %3, label %.thread3
+  br i1 %2, label %3, label %.thread4
 
 3:                                                ; preds = %0
   store i1 true, ptr @pnp_driver_registered, align 1
@@ -107,12 +107,12 @@ define internal i32 @cmos_init() #0 section ".init.text" align 16 {
   %5 = icmp eq ptr %4, null
   br i1 %5, label %8, label %12
 
-.thread3:                                         ; preds = %0
+.thread4:                                         ; preds = %0
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 8), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %.thread2
 
-8:                                                ; preds = %.thread3, %3
+8:                                                ; preds = %.thread4, %3
   %9 = tail call i32 @__platform_driver_probe(ptr noundef nonnull @cmos_platform_driver, ptr noundef nonnull @cmos_platform_probe, ptr noundef null) #9
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.thread, label %.thread2
@@ -121,8 +121,8 @@ define internal i32 @cmos_init() #0 section ".init.text" align 16 {
   store i1 true, ptr @platform_driver_registered, align 1
   br label %12
 
-.thread2:                                         ; preds = %.thread3, %8
-  %.ph = phi i32 [ %9, %8 ], [ %1, %.thread3 ]
+.thread2:                                         ; preds = %.thread4, %8
+  %.ph = phi i32 [ %9, %8 ], [ %1, %.thread4 ]
   %.pr = load i1, ptr @pnp_driver_registered, align 1
   br i1 %.pr, label %11, label %12
 

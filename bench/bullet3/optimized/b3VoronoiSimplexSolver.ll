@@ -316,9 +316,9 @@ _ZN25b3SubSimplexClosestResult7isValidEv.exit:    ; preds = %7
   br label %.thread.i
 
 .thread.i:                                        ; preds = %39, %62, %67
-  %.sink386 = phi i8 [ 3, %67 ], [ 2, %62 ], [ 1, %39 ]
+  %.sink390 = phi i8 [ 3, %67 ], [ 2, %62 ], [ 1, %39 ]
   %69 = phi float [ %68, %67 ], [ 1.000000e+00, %62 ], [ 0.000000e+00, %39 ]
-  %70 = or disjoint i8 %12, %.sink386
+  %70 = or disjoint i8 %12, %.sink390
   store i8 %70, ptr %10, align 16
   %71 = fsub float 1.000000e+00, %69
   store float %71, ptr %9, align 4, !tbaa !21
@@ -1165,13 +1165,13 @@ define dso_local noundef zeroext i1 @_ZN22b3VoronoiSimplexSolver22closestPtPoint
   br label %159
 
 159:                                              ; preds = %61, %70, %102, %138, %124, %93, %47
-  %.sink288 = phi float [ 0.000000e+00, %61 ], [ %80, %70 ], [ %112, %102 ], [ %158, %138 ], [ 0.000000e+00, %124 ], [ 0.000000e+00, %93 ], [ 1.000000e+00, %47 ]
-  %.sink286 = phi float [ 1.000000e+00, %61 ], [ %72, %70 ], [ 0.000000e+00, %102 ], [ %142, %138 ], [ %137, %124 ], [ 0.000000e+00, %93 ], [ 0.000000e+00, %47 ]
+  %.sink293 = phi float [ 0.000000e+00, %61 ], [ %80, %70 ], [ %112, %102 ], [ %158, %138 ], [ 0.000000e+00, %124 ], [ 0.000000e+00, %93 ], [ 1.000000e+00, %47 ]
+  %.sink291 = phi float [ 1.000000e+00, %61 ], [ %72, %70 ], [ 0.000000e+00, %102 ], [ %142, %138 ], [ %137, %124 ], [ 0.000000e+00, %93 ], [ 0.000000e+00, %47 ]
   %.sink = phi float [ 0.000000e+00, %61 ], [ 0.000000e+00, %70 ], [ %104, %102 ], [ %143, %138 ], [ %126, %124 ], [ 1.000000e+00, %93 ], [ 0.000000e+00, %47 ]
   %160 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store float %.sink288, ptr %160, align 4, !tbaa !21
+  store float %.sink293, ptr %160, align 4, !tbaa !21
   %161 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store float %.sink286, ptr %161, align 8, !tbaa !21
+  store float %.sink291, ptr %161, align 8, !tbaa !21
   %162 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store float %.sink, ptr %162, align 4, !tbaa !21
   %163 = getelementptr inbounds nuw i8, ptr %5, i64 32

@@ -256,7 +256,7 @@ define dso_local void @_ZN3dap13ContentReader4readB5cxx11Ev(ptr dead_on_unwind n
 
 7:                                                ; preds = %2
   %8 = tail call noundef zeroext i1 @_ZN3dap13ContentReader5matchEPKhm(ptr noundef nonnull align 8 dereferenceable(100) %1, ptr noundef nonnull @.str, i64 noundef 15)
-  br i1 %8, label %.preheader53, label %9
+  br i1 %8, label %.preheader65, label %9
 
 9:                                                ; preds = %7
   %10 = load i32, ptr %4, align 8, !tbaa !16, !noalias !46
@@ -281,12 +281,12 @@ define dso_local void @_ZN3dap13ContentReader4readB5cxx11Ev(ptr dead_on_unwind n
 
 22:                                               ; preds = %2
   %23 = tail call noundef zeroext i1 @_ZN3dap13ContentReader4scanEPKhm(ptr noundef nonnull align 8 dereferenceable(100) %1, ptr noundef nonnull @.str, i64 noundef 15)
-  br i1 %23, label %.preheader53, label %.loopexit.sink.split
+  br i1 %23, label %.preheader65, label %.loopexit.sink.split
 
-.preheader53:                                     ; preds = %22, %7
+.preheader65:                                     ; preds = %22, %7
   br label %24
 
-24:                                               ; preds = %.preheader53, %24
+24:                                               ; preds = %.preheader65, %24
   %25 = tail call noundef signext i8 @_ZN3dap13ContentReader8matchAnyEPKc(ptr noundef nonnull align 8 dereferenceable(100) %1, ptr noundef nonnull @.str.2)
   %.not = icmp eq i8 %25, 0
   br i1 %.not, label %.preheader47, label %24, !llvm.loop !49

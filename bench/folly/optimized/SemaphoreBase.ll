@@ -237,8 +237,8 @@ define noundef zeroext i1 @_ZN5folly6fibers13SemaphoreBase10signalSlowEl(ptr nou
   br i1 %17, label %40, label %.critedge.i.i.i.i.i.i.sink.split, !prof !15
 
 .critedge.i.i.i.i.i.i.sink.split:                 ; preds = %14, %23
-  %.sink48 = phi { i32, i1 } [ %30, %23 ], [ %16, %14 ]
-  %18 = extractvalue { i32, i1 } %.sink48, 0
+  %.sink50 = phi { i32, i1 } [ %30, %23 ], [ %16, %14 ]
+  %18 = extractvalue { i32, i1 } %.sink50, 0
   store i32 %18, ptr %4, align 4, !noalias !7
   br label %.critedge.i.i.i.i.i.i
 
@@ -890,8 +890,8 @@ define void @_ZN5folly6fibers13SemaphoreBase11wait_commonEl(ptr noundef nonnull 
   br i1 %23, label %.noexc, label %.critedge.i.i.i.i.i.i.i.sink.split, !prof !15
 
 .critedge.i.i.i.i.i.i.i.sink.split:               ; preds = %20, %28
-  %.sink21 = phi { i32, i1 } [ %35, %28 ], [ %22, %20 ]
-  %24 = extractvalue { i32, i1 } %.sink21, 0
+  %.sink23 = phi { i32, i1 } [ %35, %28 ], [ %22, %20 ]
+  %24 = extractvalue { i32, i1 } %.sink23, 0
   store i32 %24, ptr %4, align 4
   br label %.critedge.i.i.i.i.i.i.i
 
@@ -1040,8 +1040,8 @@ define noundef zeroext i1 @_ZN5folly6fibers13SemaphoreBase15try_wait_commonERNS1
   br i1 %21, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockExclusiveImplINS3_11WaitForeverEEEbRjjRT_.exit, label %.critedge.i.i.i.i.i.i.i.sink.split, !prof !15
 
 .critedge.i.i.i.i.i.i.i.sink.split:               ; preds = %18, %27
-  %.sink24 = phi { i32, i1 } [ %34, %27 ], [ %20, %18 ]
-  %22 = extractvalue { i32, i1 } %.sink24, 0
+  %.sink26 = phi { i32, i1 } [ %34, %27 ], [ %20, %18 ]
+  %22 = extractvalue { i32, i1 } %.sink26, 0
   store i32 %22, ptr %5, align 4, !noalias !46
   br label %.critedge.i.i.i.i.i.i.i
 
@@ -1289,8 +1289,8 @@ _ZSt11make_uniqueIN5folly6fibers12_GLOBAL__N_112FutureWaiterEJRlEENSt8__detail9_
   br i1 %46, label %.noexc13, label %.critedge.i.i.i.i.i.i.i.sink.split, !prof !15
 
 .critedge.i.i.i.i.i.i.i.sink.split:               ; preds = %43, %52
-  %.sink136 = phi { i32, i1 } [ %59, %52 ], [ %45, %43 ]
-  %47 = extractvalue { i32, i1 } %.sink136, 0
+  %.sink142 = phi { i32, i1 } [ %59, %52 ], [ %45, %43 ]
+  %47 = extractvalue { i32, i1 } %.sink142, 0
   store i32 %47, ptr %5, align 4
   br label %.critedge.i.i.i.i.i.i.i
 

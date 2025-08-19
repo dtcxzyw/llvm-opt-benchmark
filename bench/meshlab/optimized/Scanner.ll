@@ -632,12 +632,12 @@ _ZN14VrmlTranslator6Buffer7CanSeekEv.exit:        ; preds = %24
   br label %_ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit.thread.sink.split
 
 _ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit.thread.sink.split: ; preds = %1, %15, %55
-  %.sink10 = phi i32 [ %58, %55 ], [ %23, %15 ], [ %3, %1 ]
+  %.sink15 = phi i32 [ %58, %55 ], [ %23, %15 ], [ %3, %1 ]
   %.sink.in = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sink = load ptr, ptr %.sink.in, align 8
-  %59 = add nsw i32 %.sink10, 1
+  %59 = add nsw i32 %.sink15, 1
   store i32 %59, ptr %2, align 8
-  %60 = sext i32 %.sink10 to i64
+  %60 = sext i32 %.sink15 to i64
   %61 = getelementptr inbounds i8, ptr %.sink, i64 %60
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
@@ -1279,13 +1279,13 @@ _ZN14VrmlTranslator6Buffer7CanSeekEv.exit:        ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 2147483647, ptr %19, align 4
   %20 = icmp sgt i32 %.fr, 0
-  %spec.select12 = select i1 %20, i32 %spec.select, i32 1024
+  %spec.select14 = select i1 %20, i32 %spec.select, i32 1024
   br label %21
 
 21:                                               ; preds = %11, %.thread
   %22 = phi i32 [ 0, %.thread ], [ %spec.select, %11 ]
   %23 = phi i32 [ 0, %.thread ], [ %.fr, %11 ]
-  %24 = phi i32 [ 1024, %.thread ], [ %spec.select12, %11 ]
+  %24 = phi i32 [ 1024, %.thread ], [ %spec.select14, %11 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %24, ptr %25, align 8
   %26 = zext nneg i32 %24 to i64
@@ -3612,7 +3612,7 @@ tailrecurse:                                      ; preds = %47, %1
   br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit
 
 _ZN14VrmlTranslator7Scanner6NextChEv.exit:        ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit.backedge, %tailrecurse
-  %9 = phi i32 [ %.pre, %tailrecurse ], [ %.be425, %_ZN14VrmlTranslator7Scanner6NextChEv.exit.backedge ]
+  %9 = phi i32 [ %.pre, %tailrecurse ], [ %.be451, %_ZN14VrmlTranslator7Scanner6NextChEv.exit.backedge ]
   switch i32 %9, label %.loopexit [
     i32 32, label %.critedge
     i32 10, label %.critedge
@@ -3635,7 +3635,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit:        ; preds = %_ZN14VrmlTranslator
   br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit.backedge
 
 _ZN14VrmlTranslator7Scanner6NextChEv.exit.backedge: ; preds = %12, %39, %44
-  %.be425 = phi i32 [ %14, %12 ], [ %40, %39 ], [ %40, %44 ]
+  %.be451 = phi i32 [ %14, %12 ], [ %40, %39 ], [ %40, %44 ]
   br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit, !llvm.loop !27
 
 16:                                               ; preds = %.critedge
@@ -4435,7 +4435,7 @@ switch.early.test321:                             ; preds = %.preheader337
   br label %669
 
 _ZN14VrmlTranslator7Scanner5AddChEv.exit252:      ; preds = %_ZN14VrmlTranslator7Scanner5AddChEv.exit252.backedge, %.preheader343
-  %311 = phi i32 [ %.pre396, %.preheader343 ], [ %.be421, %_ZN14VrmlTranslator7Scanner5AddChEv.exit252.backedge ]
+  %311 = phi i32 [ %.pre396, %.preheader343 ], [ %.be447, %_ZN14VrmlTranslator7Scanner5AddChEv.exit252.backedge ]
   %312 = icmp slt i32 %311, 34
   br i1 %312, label %316, label %313
 
@@ -4507,7 +4507,7 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit252:      ; preds = %_ZN14VrmlTranslator
   br label %_ZN14VrmlTranslator7Scanner5AddChEv.exit252.backedge
 
 _ZN14VrmlTranslator7Scanner5AddChEv.exit252.backedge: ; preds = %341, %368, %373
-  %.be421 = phi i32 [ %343, %341 ], [ %369, %368 ], [ %369, %373 ]
+  %.be447 = phi i32 [ %343, %341 ], [ %369, %368 ], [ %369, %373 ]
   br label %_ZN14VrmlTranslator7Scanner5AddChEv.exit252
 
 345:                                              ; preds = %332
@@ -4564,8 +4564,8 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit252.backedge: ; preds = %341, %368, %373
 
 376:                                              ; preds = %313
   switch i32 %311, label %377 [
-    i32 34, label %.sink.split409
-    i32 92, label %.sink.split410
+    i32 34, label %.sink.split435
+    i32 92, label %.sink.split436
   ]
 
 377:                                              ; preds = %376
@@ -4652,8 +4652,8 @@ switch.early.test323:                             ; preds = %398
     i32 67, label %400
     i32 66, label %400
     i32 65, label %400
-    i32 34, label %.sink.split409
-    i32 92, label %.sink.split410
+    i32 34, label %.sink.split435
+    i32 92, label %.sink.split436
   ]
 
 400:                                              ; preds = %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %398
@@ -5067,11 +5067,11 @@ switch.early.test335:                             ; preds = %492
   store i32 %497, ptr %498, align 8
   br label %669
 
-.sink.split409:                                   ; preds = %switch.early.test323, %376, %593, %582
+.sink.split435:                                   ; preds = %switch.early.test323, %376, %593, %582
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %499
 
-499:                                              ; preds = %.sink.split409, %_ZN14VrmlTranslator11StartStates5stateEi.exit
+499:                                              ; preds = %.sink.split435, %_ZN14VrmlTranslator11StartStates5stateEi.exit
   %500 = load ptr, ptr %75, align 8
   store i32 4, ptr %500, align 8
   br label %669
@@ -5239,11 +5239,11 @@ _Z18coco_string_deleteRPw.exit253:                ; preds = %545
   tail call void @_ZdaPv(ptr noundef nonnull %552) #20
   br label %669
 
-.sink.split410:                                   ; preds = %switch.early.test323, %376, %593, %582
+.sink.split436:                                   ; preds = %switch.early.test323, %376, %593, %582
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %558
 
-558:                                              ; preds = %.sink.split410, %_ZN14VrmlTranslator11StartStates5stateEi.exit
+558:                                              ; preds = %.sink.split436, %_ZN14VrmlTranslator11StartStates5stateEi.exit
   %559 = load i32, ptr %2, align 8
   switch i32 %559, label %560 [
     i32 34, label %.preheader343.sink.split
@@ -5339,8 +5339,8 @@ switch.early.test336:                             ; preds = %570
 
 582:                                              ; preds = %576
   switch i32 %.fr386, label %583 [
-    i32 34, label %.sink.split409
-    i32 92, label %.sink.split410
+    i32 34, label %.sink.split435
+    i32 92, label %.sink.split436
   ]
 
 583:                                              ; preds = %582
@@ -5366,8 +5366,8 @@ switch.early.test336:                             ; preds = %570
 
 593:                                              ; preds = %590
   switch i32 %588, label %594 [
-    i32 34, label %.sink.split409
-    i32 92, label %.sink.split410
+    i32 34, label %.sink.split435
+    i32 92, label %.sink.split436
   ]
 
 594:                                              ; preds = %593

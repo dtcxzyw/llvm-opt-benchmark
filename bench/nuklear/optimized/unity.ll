@@ -547,7 +547,7 @@ define double @nk_strtod(ptr noundef %0, ptr noundef writeonly captures(address_
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph87, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph87, %25, %.preheader
-  %.7.lcssa97 = phi ptr [ %38, %.preheader ], [ %.6, %25 ], [ %38, %.lr.ph87 ]
+  %.7.lcssa99 = phi ptr [ %38, %.preheader ], [ %.6, %25 ], [ %38, %.lr.ph87 ]
   %.158.lcssa = phi double [ 1.000000e+00, %.preheader ], [ 1.000000e+00, %25 ], [ %40, %.lr.ph87 ]
   %42 = fdiv double %.1, %.158.lcssa
   %43 = fmul double %.1, %.158.lcssa
@@ -555,7 +555,7 @@ define double @nk_strtod(ptr noundef %0, ptr noundef writeonly captures(address_
   br label %44
 
 44:                                               ; preds = %._crit_edge, %.critedge2
-  %.5 = phi ptr [ %.7.lcssa97, %._crit_edge ], [ %.354, %.critedge2 ]
+  %.5 = phi ptr [ %.7.lcssa99, %._crit_edge ], [ %.354, %.critedge2 ]
   %.3 = phi double [ %.4, %._crit_edge ], [ %.1, %.critedge2 ]
   %45 = fmul double %.056, %.3
   %.not75 = icmp eq ptr %1, null
@@ -848,9 +848,9 @@ define range(i32 0, 2) i32 @nk_strmatch_fuzzy_text(ptr noundef readonly captures
   br label %23
 
 23:                                               ; preds = %13, %.lr.ph
-  %cond.fr132 = phi i1 [ false, %.lr.ph ], [ %22, %13 ]
+  %cond.fr136 = phi i1 [ false, %.lr.ph ], [ %22, %13 ]
   %.not118 = icmp eq ptr %.088120, null
-  br i1 %.not118, label %.thread144, label %24
+  br i1 %.not118, label %.thread148, label %24
 
 24:                                               ; preds = %23
   %25 = load i8, ptr %.088120, align 1, !tbaa !9
@@ -878,25 +878,25 @@ define range(i32 0, 2) i32 @nk_strmatch_fuzzy_text(ptr noundef readonly captures
   %41 = select i1 %or.cond.i115, i32 %40, i32 %12
   %42 = icmp eq i32 %38, %41
   %.fr = freeze i1 %42
-  %43 = or i1 %cond.fr132, %.fr
-  br i1 %43, label %44, label %.thread144
+  %43 = or i1 %cond.fr136, %.fr
+  br i1 %43, label %44, label %.thread148
 
 .critedge:                                        ; preds = %24
-  br i1 %cond.fr132, label %44, label %.thread144
+  br i1 %cond.fr136, label %44, label %.thread148
 
 44:                                               ; preds = %35, %.critedge
-  br label %.thread144
+  br label %.thread148
 
-.thread144:                                       ; preds = %35, %.critedge, %23, %44
+.thread148:                                       ; preds = %35, %.critedge, %23, %44
   %45 = phi i32 [ 0, %44 ], [ %.084121, %23 ], [ %.084121, %.critedge ], [ %.084121, %35 ]
   %46 = phi i1 [ %34, %44 ], [ false, %23 ], [ %34, %.critedge ], [ %34, %35 ]
   %47 = phi ptr [ null, %44 ], [ null, %23 ], [ %.088120, %.critedge ], [ %.088120, %35 ]
   %48 = phi i32 [ %.084121, %44 ], [ 0, %23 ], [ 0, %.critedge ], [ 0, %35 ]
   %.1 = add nsw i32 %48, %.072128
-  %or.cond7 = select i1 %cond.fr132, i1 true, i1 %46
+  %or.cond7 = select i1 %cond.fr136, i1 true, i1 %46
   br i1 %or.cond7, label %49, label %61
 
-49:                                               ; preds = %.thread144
+49:                                               ; preds = %.thread148
   %50 = icmp eq ptr %.076127, %2
   br i1 %50, label %51, label %55
 
@@ -919,7 +919,7 @@ define range(i32 0, 2) i32 @nk_strmatch_fuzzy_text(ptr noundef readonly captures
   %59 = add nuw nsw i32 %.174, 10
   %60 = select i1 %.082123, i1 true, i1 %or.cond.i116
   %.275 = select i1 %60, i32 %.174, i32 %59
-  %spec.select108.idx = zext i1 %cond.fr132 to i64
+  %spec.select108.idx = zext i1 %cond.fr136 to i64
   %spec.select108 = getelementptr inbounds nuw i8, ptr %.076127, i64 %spec.select108.idx
   %.not105 = icmp sge i32 %.275, %45
   %.not106 = icmp ne ptr %47, null
@@ -930,7 +930,7 @@ define range(i32 0, 2) i32 @nk_strmatch_fuzzy_text(ptr noundef readonly captures
   %.3 = add nsw i32 %.2, %spec.select109
   br label %63
 
-61:                                               ; preds = %.thread144
+61:                                               ; preds = %.thread148
   %62 = add nsw i32 %.1, -1
   %.pre = sext i8 %11 to i32
   br label %63
@@ -4139,7 +4139,7 @@ nk_utf_decode_byte.exit:                          ; preds = %8
 
 nk_utf_decode_byte.exit34:                        ; preds = %28
   %.not27 = icmp eq i64 %indvars.iv.i29, 0
-  br i1 %.not27, label %36, label %nk_utf_validate.exit.loopexit90
+  br i1 %.not27, label %36, label %nk_utf_validate.exit.loopexit92
 
 36:                                               ; preds = %nk_utf_decode_byte.exit34
   %37 = xor i8 %30, -1
@@ -4160,19 +4160,19 @@ nk_utf_decode_byte.exit34:                        ; preds = %28
   br i1 %22, label %nk_utf_validate.exit, label %43
 
 43:                                               ; preds = %._crit_edge.loopexit, %._crit_edge
-  %.0.lcssa89 = phi i32 [ %41, %._crit_edge.loopexit ], [ %20, %._crit_edge ]
-  store i32 %.0.lcssa89, ptr %1, align 4, !tbaa !7
+  %.0.lcssa91 = phi i32 [ %41, %._crit_edge.loopexit ], [ %20, %._crit_edge ]
+  store i32 %.0.lcssa91, ptr %1, align 4, !tbaa !7
   %44 = and i64 %indvars.iv.i, 4294967295
   %45 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !7
-  %.not.i = icmp ugt i32 %46, %.0.lcssa89
+  %.not.i = icmp ugt i32 %46, %.0.lcssa91
   br i1 %.not.i, label %52, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %44
   %49 = load i32, ptr %48, align 4, !tbaa !7
-  %50 = icmp uge i32 %.0.lcssa89, %49
-  %51 = add i32 %.0.lcssa89, -55296
+  %50 = icmp uge i32 %.0.lcssa91, %49
+  %51 = add i32 %.0.lcssa91, -55296
   %or.cond.i = icmp ult i32 %51, 2047
   %or.cond15.i = or i1 %or.cond.i, %50
   br i1 %or.cond15.i, label %52, label %nk_utf_validate.exit
@@ -4182,15 +4182,15 @@ nk_utf_decode_byte.exit34:                        ; preds = %28
   br label %nk_utf_validate.exit
 
 nk_utf_validate.exit.loopexit:                    ; preds = %35
-  %indvars83.le101 = trunc i64 %indvars.iv to i32
+  %indvars83.le103 = trunc i64 %indvars.iv to i32
   br label %nk_utf_validate.exit
 
-nk_utf_validate.exit.loopexit90:                  ; preds = %nk_utf_decode_byte.exit34
+nk_utf_validate.exit.loopexit92:                  ; preds = %nk_utf_decode_byte.exit34
   %indvars83.le = trunc i64 %indvars.iv to i32
   br label %nk_utf_validate.exit
 
-nk_utf_validate.exit:                             ; preds = %15, %nk_utf_validate.exit.loopexit90, %nk_utf_validate.exit.loopexit, %47, %52, %._crit_edge.loopexit, %._crit_edge, %nk_utf_decode_byte.exit, %3
-  %.023 = phi i32 [ 0, %3 ], [ 1, %nk_utf_decode_byte.exit ], [ 0, %._crit_edge ], [ 0, %._crit_edge.loopexit ], [ %16, %52 ], [ %16, %47 ], [ %indvars83.le101, %nk_utf_validate.exit.loopexit ], [ %indvars83.le, %nk_utf_validate.exit.loopexit90 ], [ 1, %15 ]
+nk_utf_validate.exit:                             ; preds = %15, %nk_utf_validate.exit.loopexit92, %nk_utf_validate.exit.loopexit, %47, %52, %._crit_edge.loopexit, %._crit_edge, %nk_utf_decode_byte.exit, %3
+  %.023 = phi i32 [ 0, %3 ], [ 1, %nk_utf_decode_byte.exit ], [ 0, %._crit_edge ], [ 0, %._crit_edge.loopexit ], [ %16, %52 ], [ %16, %47 ], [ %indvars83.le103, %nk_utf_validate.exit.loopexit ], [ %indvars83.le, %nk_utf_validate.exit.loopexit92 ], [ 1, %15 ]
   ret i32 %.023
 }
 
@@ -4330,7 +4330,7 @@ nk_utf_decode_byte.exit.i:                        ; preds = %7
 
 nk_utf_decode_byte.exit34.i:                      ; preds = %24
   %.not27.i = icmp eq i64 %indvars.iv.i29.i, 0
-  br i1 %.not27.i, label %32, label %nk_utf_validate.exit.loopexit90.i
+  br i1 %.not27.i, label %32, label %nk_utf_validate.exit.loopexit92.i
 
 32:                                               ; preds = %nk_utf_decode_byte.exit34.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4345,15 +4345,15 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %24
   br i1 %18, label %.loopexit, label %nk_utf_decode.exit
 
 nk_utf_validate.exit.loopexit.i:                  ; preds = %31
-  %indvars83.le101.i = trunc i64 %indvars.iv.i to i32
+  %indvars83.le103.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_validate.exit.loopexit90.i:                ; preds = %nk_utf_decode_byte.exit34.i
+nk_utf_validate.exit.loopexit92.i:                ; preds = %nk_utf_decode_byte.exit34.i
   %indvars83.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %14, %._crit_edge.loopexit.i, %._crit_edge.i, %nk_utf_decode_byte.exit.i, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit90.i
-  %.023.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ %indvars83.le101.i, %nk_utf_validate.exit.loopexit.i ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit90.i ], [ %15, %._crit_edge.i ], [ %15, %._crit_edge.loopexit.i ], [ 1, %14 ]
+nk_utf_decode.exit:                               ; preds = %14, %._crit_edge.loopexit.i, %._crit_edge.i, %nk_utf_decode_byte.exit.i, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit92.i
+  %.023.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %15, %._crit_edge.i ], [ %15, %._crit_edge.loopexit.i ], [ 1, %14 ]
   %34 = icmp ne i32 %.023.i, 0
   %35 = icmp sgt i32 %1, 0
   %36 = and i1 %34, %35
@@ -4434,7 +4434,7 @@ nk_utf_decode_byte.exit.i31:                      ; preds = %44
 
 nk_utf_decode_byte.exit34.i50:                    ; preds = %61
   %.not27.i51 = icmp eq i64 %indvars.iv.i29.i45, 0
-  br i1 %.not27.i51, label %69, label %nk_utf_validate.exit.loopexit90.i52
+  br i1 %.not27.i51, label %69, label %nk_utf_validate.exit.loopexit92.i52
 
 69:                                               ; preds = %nk_utf_decode_byte.exit34.i50
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i43, 1
@@ -4449,15 +4449,15 @@ nk_utf_decode_byte.exit34.i50:                    ; preds = %61
   br i1 %55, label %.loopexit, label %nk_utf_decode.exit58
 
 nk_utf_validate.exit.loopexit.i48:                ; preds = %68
-  %indvars83.le101.i49 = trunc i64 %indvars.iv.i43 to i32
+  %indvars83.le103.i49 = trunc i64 %indvars.iv.i43 to i32
   br label %nk_utf_decode.exit58
 
-nk_utf_validate.exit.loopexit90.i52:              ; preds = %nk_utf_decode_byte.exit34.i50
+nk_utf_validate.exit.loopexit92.i52:              ; preds = %nk_utf_decode_byte.exit34.i50
   %indvars83.le.i53 = trunc i64 %indvars.iv.i43 to i32
   br label %nk_utf_decode.exit58
 
-nk_utf_decode.exit58:                             ; preds = %51, %._crit_edge.loopexit.i56, %._crit_edge.i34, %nk_utf_decode_byte.exit.i31, %nk_utf_validate.exit.loopexit.i48, %nk_utf_validate.exit.loopexit90.i52
-  %.023.i30 = phi i32 [ 1, %nk_utf_decode_byte.exit.i31 ], [ %indvars83.le101.i49, %nk_utf_validate.exit.loopexit.i48 ], [ %indvars83.le.i53, %nk_utf_validate.exit.loopexit90.i52 ], [ %52, %._crit_edge.i34 ], [ %52, %._crit_edge.loopexit.i56 ], [ 1, %51 ]
+nk_utf_decode.exit58:                             ; preds = %51, %._crit_edge.loopexit.i56, %._crit_edge.i34, %nk_utf_decode_byte.exit.i31, %nk_utf_validate.exit.loopexit.i48, %nk_utf_validate.exit.loopexit92.i52
+  %.023.i30 = phi i32 [ 1, %nk_utf_decode_byte.exit.i31 ], [ %indvars83.le103.i49, %nk_utf_validate.exit.loopexit.i48 ], [ %indvars83.le.i53, %nk_utf_validate.exit.loopexit92.i52 ], [ %52, %._crit_edge.i34 ], [ %52, %._crit_edge.loopexit.i56 ], [ 1, %51 ]
   %71 = icmp ne i32 %.023.i30, 0
   %72 = icmp slt i32 %38, %1
   %73 = and i1 %71, %72
@@ -4519,8 +4519,8 @@ define ptr @nk_utf_at(ptr noundef readonly captures(address_is_null, ret: addres
   br i1 %.not38, label %22, label %25
 
 22:                                               ; preds = %.loopexit.thread, %.loopexit
-  %.0334356 = phi i32 [ %.03345, %.loopexit.thread ], [ %.03343, %.loopexit ]
-  %23 = sext i32 %.0334356 to i64
+  %.0334362 = phi i32 [ %.03345, %.loopexit.thread ], [ %.03343, %.loopexit ]
+  %23 = sext i32 %.0334362 to i64
   %24 = getelementptr inbounds i8, ptr %0, i64 %23
   br label %25
 
@@ -5168,9 +5168,9 @@ define void @nk_buffer_reset(ptr noundef captures(address_is_null) %0, i32 nound
   store i64 %13, ptr %11, align 8, !tbaa !48
   %14 = load i32, ptr %8, align 8, !tbaa !60
   %.not29 = icmp eq i32 %14, 0
-  %spec.select32 = select i1 %.not29, i64 %7, i64 %10
+  %spec.select33 = select i1 %.not29, i64 %7, i64 %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i64 %spec.select32, ptr %15, align 8, !tbaa !43
+  store i64 %spec.select33, ptr %15, align 8, !tbaa !43
   store i32 0, ptr %8, align 8, !tbaa !60
   br label %27
 
@@ -5624,7 +5624,7 @@ nk_utf_decode_byte.exit.i:                        ; preds = %11
 
 nk_utf_decode_byte.exit34.i:                      ; preds = %26
   %.not27.i = icmp eq i64 %indvars.iv.i29.i, 0
-  br i1 %.not27.i, label %34, label %nk_utf_validate.exit.loopexit90.i
+  br i1 %.not27.i, label %34, label %nk_utf_validate.exit.loopexit92.i
 
 34:                                               ; preds = %nk_utf_decode_byte.exit34.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -5639,15 +5639,15 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %26
   br label %nk_utf_decode.exit
 
 nk_utf_validate.exit.loopexit.i:                  ; preds = %33
-  %indvars83.le101.i = trunc i64 %indvars.iv.i to i32
+  %indvars83.le103.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_validate.exit.loopexit90.i:                ; preds = %nk_utf_decode_byte.exit34.i
+nk_utf_validate.exit.loopexit92.i:                ; preds = %nk_utf_decode_byte.exit34.i
   %indvars83.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %18, %._crit_edge.i, %nk_utf_decode_byte.exit.i, %._crit_edge.loopexit.i, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit90.i
-  %.023.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ 0, %._crit_edge.loopexit.i ], [ %indvars83.le101.i, %nk_utf_validate.exit.loopexit.i ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit90.i ], [ %19, %._crit_edge.i ], [ 1, %18 ]
+nk_utf_decode.exit:                               ; preds = %18, %._crit_edge.i, %nk_utf_decode_byte.exit.i, %._crit_edge.loopexit.i, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit92.i
+  %.023.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ 0, %._crit_edge.loopexit.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %19, %._crit_edge.i ], [ 1, %18 ]
   %36 = add nsw i32 %.023.i, %.031
   %37 = add nuw nsw i32 %.01630, 1
   %exitcond.not = icmp eq i32 %37, %2
@@ -5750,7 +5750,7 @@ nk_utf_decode_byte.exit.i:                        ; preds = %7
 
 nk_utf_decode_byte.exit34.i:                      ; preds = %25
   %.not27.i = icmp eq i64 %indvars.iv.i29.i, 0
-  br i1 %.not27.i, label %33, label %nk_utf_validate.exit.loopexit90.i
+  br i1 %.not27.i, label %33, label %nk_utf_validate.exit.loopexit92.i
 
 33:                                               ; preds = %nk_utf_decode_byte.exit34.i
   %34 = xor i8 %27, -1
@@ -5767,18 +5767,18 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %25
   br i1 %39, label %nk_str_append_text_char.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.preheader.i, %._crit_edge.loopexit.i
-  %.0.lcssa89.i = phi i32 [ %38, %._crit_edge.loopexit.i ], [ %19, %.preheader.i ]
+  %.0.lcssa91.i = phi i32 [ %38, %._crit_edge.loopexit.i ], [ %19, %.preheader.i ]
   %40 = and i64 %indvars.iv.i.i, 4294967295
   %41 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !7
-  %.not.i.i = icmp ugt i32 %42, %.0.lcssa89.i
+  %.not.i.i = icmp ugt i32 %42, %.0.lcssa91.i
   br i1 %.not.i.i, label %48, label %43
 
 43:                                               ; preds = %._crit_edge.i
   %44 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %40
   %45 = load i32, ptr %44, align 4, !tbaa !7
-  %46 = icmp uge i32 %.0.lcssa89.i, %45
-  %47 = add i32 %.0.lcssa89.i, -55296
+  %46 = icmp uge i32 %.0.lcssa91.i, %45
+  %47 = add i32 %.0.lcssa91.i, -55296
   %or.cond.i.i = icmp ult i32 %47, 2047
   %or.cond15.i.i = or i1 %or.cond.i.i, %46
   br i1 %or.cond15.i.i, label %48, label %nk_utf_decode.exit
@@ -5787,16 +5787,16 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %25
   br label %nk_utf_decode.exit
 
 nk_utf_validate.exit.loopexit.i:                  ; preds = %32
-  %indvars83.le101.i = trunc i64 %indvars.iv.i to i32
+  %indvars83.le103.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_validate.exit.loopexit90.i:                ; preds = %nk_utf_decode_byte.exit34.i
+nk_utf_validate.exit.loopexit92.i:                ; preds = %nk_utf_decode_byte.exit34.i
   %indvars83.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %14, %nk_utf_decode_byte.exit.i, %43, %48, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit90.i
-  %.1 = phi i32 [ 65533, %48 ], [ %.0.lcssa89.i, %43 ], [ 65533, %nk_utf_validate.exit.loopexit90.i ], [ 65533, %nk_utf_validate.exit.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %14 ]
-  %.023.i = phi i32 [ %15, %48 ], [ %15, %43 ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit90.i ], [ %indvars83.le101.i, %nk_utf_validate.exit.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %14 ]
+nk_utf_decode.exit:                               ; preds = %14, %nk_utf_decode_byte.exit.i, %43, %48, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit92.i
+  %.1 = phi i32 [ 65533, %48 ], [ %.0.lcssa91.i, %43 ], [ 65533, %nk_utf_validate.exit.loopexit92.i ], [ 65533, %nk_utf_validate.exit.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %14 ]
+  %.023.i = phi i32 [ %15, %48 ], [ %15, %43 ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %14 ]
   %49 = icmp ne i32 %.1, 0
   %50 = icmp ne i32 %.023.i, 0
   %51 = and i1 %49, %50
@@ -5845,7 +5845,7 @@ nk_utf_decode_byte.exit.i26:                      ; preds = %55
   %69 = add nuw nsw i32 %umin.i35, 2
   %wide.trip.count.i36 = zext nneg i32 %69 to i64
   %70 = tail call i32 @llvm.umin.i32(i32 %indvars.iv86.i20, i32 2)
-  %narrow104 = add nuw nsw i32 %70, 2
+  %narrow106 = add nuw nsw i32 %70, 2
   br label %.lr.ph.i37
 
 .lr.ph.i37:                                       ; preds = %81, %.lr.ph.preheader.i34
@@ -5872,7 +5872,7 @@ nk_utf_decode_byte.exit.i26:                      ; preds = %55
 
 nk_utf_decode_byte.exit34.i45:                    ; preds = %73
   %.not27.i46 = icmp eq i64 %indvars.iv.i29.i40, 0
-  br i1 %.not27.i46, label %81, label %nk_utf_validate.exit.loopexit90.i47
+  br i1 %.not27.i46, label %81, label %nk_utf_validate.exit.loopexit92.i47
 
 81:                                               ; preds = %nk_utf_decode_byte.exit34.i45
   %82 = xor i8 %75, -1
@@ -5885,7 +5885,7 @@ nk_utf_decode_byte.exit34.i45:                    ; preds = %73
   br i1 %exitcond.not.i50, label %._crit_edge.loopexit.i51, label %.lr.ph.i37, !llvm.loop !31
 
 ._crit_edge.loopexit.i51:                         ; preds = %81
-  %87 = icmp samesign ult i32 %narrow104, %63
+  %87 = icmp samesign ult i32 %narrow106, %63
   br i1 %87, label %nk_utf_decode.exit53.thread, label %._crit_edge.i29
 
 nk_utf_decode.exit53.thread:                      ; preds = %._crit_edge.loopexit.i51
@@ -5893,18 +5893,18 @@ nk_utf_decode.exit53.thread:                      ; preds = %._crit_edge.loopexi
   br label %._crit_edge
 
 ._crit_edge.i29:                                  ; preds = %.preheader.i28, %._crit_edge.loopexit.i51
-  %.0.lcssa89.i30 = phi i32 [ %86, %._crit_edge.loopexit.i51 ], [ %67, %.preheader.i28 ]
+  %.0.lcssa91.i30 = phi i32 [ %86, %._crit_edge.loopexit.i51 ], [ %67, %.preheader.i28 ]
   %89 = and i64 %indvars.iv.i.i21, 4294967295
   %90 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !7
-  %.not.i.i31 = icmp ugt i32 %91, %.0.lcssa89.i30
+  %.not.i.i31 = icmp ugt i32 %91, %.0.lcssa91.i30
   br i1 %.not.i.i31, label %97, label %92
 
 92:                                               ; preds = %._crit_edge.i29
   %93 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %89
   %94 = load i32, ptr %93, align 4, !tbaa !7
-  %95 = icmp uge i32 %.0.lcssa89.i30, %94
-  %96 = add i32 %.0.lcssa89.i30, -55296
+  %95 = icmp uge i32 %.0.lcssa91.i30, %94
+  %96 = add i32 %.0.lcssa91.i30, -55296
   %or.cond.i.i32 = icmp ult i32 %96, 2047
   %or.cond15.i.i33 = or i1 %or.cond.i.i32, %95
   br i1 %or.cond15.i.i33, label %97, label %nk_utf_decode.exit53
@@ -5913,16 +5913,16 @@ nk_utf_decode.exit53.thread:                      ; preds = %._crit_edge.loopexi
   br label %nk_utf_decode.exit53
 
 nk_utf_validate.exit.loopexit.i43:                ; preds = %80
-  %indvars83.le101.i44 = trunc i64 %indvars.iv.i38 to i32
+  %indvars83.le103.i44 = trunc i64 %indvars.iv.i38 to i32
   br label %nk_utf_decode.exit53
 
-nk_utf_validate.exit.loopexit90.i47:              ; preds = %nk_utf_decode_byte.exit34.i45
+nk_utf_validate.exit.loopexit92.i47:              ; preds = %nk_utf_decode_byte.exit34.i45
   %indvars83.le.i48 = trunc i64 %indvars.iv.i38 to i32
   br label %nk_utf_decode.exit53
 
-nk_utf_decode.exit53:                             ; preds = %62, %nk_utf_decode_byte.exit.i26, %92, %97, %nk_utf_validate.exit.loopexit.i43, %nk_utf_validate.exit.loopexit90.i47
-  %.2 = phi i32 [ 65533, %97 ], [ %.0.lcssa89.i30, %92 ], [ 65533, %nk_utf_validate.exit.loopexit90.i47 ], [ 65533, %nk_utf_validate.exit.loopexit.i43 ], [ 65533, %nk_utf_decode_byte.exit.i26 ], [ 65533, %62 ]
-  %.023.i25 = phi i32 [ %63, %97 ], [ %63, %92 ], [ %indvars83.le.i48, %nk_utf_validate.exit.loopexit90.i47 ], [ %indvars83.le101.i44, %nk_utf_validate.exit.loopexit.i43 ], [ 1, %nk_utf_decode_byte.exit.i26 ], [ 1, %62 ]
+nk_utf_decode.exit53:                             ; preds = %62, %nk_utf_decode_byte.exit.i26, %92, %97, %nk_utf_validate.exit.loopexit.i43, %nk_utf_validate.exit.loopexit92.i47
+  %.2 = phi i32 [ 65533, %97 ], [ %.0.lcssa91.i30, %92 ], [ 65533, %nk_utf_validate.exit.loopexit92.i47 ], [ 65533, %nk_utf_validate.exit.loopexit.i43 ], [ 65533, %nk_utf_decode_byte.exit.i26 ], [ 65533, %62 ]
+  %.023.i25 = phi i32 [ %63, %97 ], [ %63, %92 ], [ %indvars83.le.i48, %nk_utf_validate.exit.loopexit92.i47 ], [ %indvars83.le103.i44, %nk_utf_validate.exit.loopexit.i43 ], [ 1, %nk_utf_decode_byte.exit.i26 ], [ 1, %62 ]
   %98 = add nsw i32 %.023.i25, %.01675
   %99 = add nuw nsw i32 %.01576, 1
   %100 = icmp ne i32 %.2, 0
@@ -6316,8 +6316,8 @@ define i32 @nk_str_insert_at_rune(ptr noundef captures(address_is_null) %0, i32 
   br i1 %.not38.i, label %.loopexit.thread.i, label %nk_str_at_rune.exit
 
 .loopexit.thread.i:                               ; preds = %.lr.ph.i, %.loopexit.i
-  %.0334356.i = phi i32 [ %.03343.i, %.loopexit.i ], [ %.03345.i, %.lr.ph.i ]
-  %26 = sext i32 %.0334356.i to i64
+  %.0334362.i = phi i32 [ %.03343.i, %.loopexit.i ], [ %.03345.i, %.lr.ph.i ]
+  %26 = sext i32 %.0334362.i to i64
   %27 = getelementptr inbounds i8, ptr %13, i64 %26
   br label %nk_str_at_rune.exit
 
@@ -6428,8 +6428,8 @@ define ptr @nk_str_at_rune(ptr noundef readonly captures(address_is_null) %0, i3
   br i1 %.not38, label %26, label %29
 
 26:                                               ; preds = %.loopexit.thread, %.loopexit
-  %.0334356 = phi i32 [ %.03345, %.loopexit.thread ], [ %.03343, %.loopexit ]
-  %27 = sext i32 %.0334356 to i64
+  %.0334362 = phi i32 [ %.03345, %.loopexit.thread ], [ %.03343, %.loopexit ]
+  %27 = sext i32 %.0334362 to i64
   %28 = getelementptr inbounds i8, ptr %13, i64 %27
   br label %29
 
@@ -6542,7 +6542,7 @@ nk_utf_decode_byte.exit.i.i:                      ; preds = %12
 
 nk_utf_decode_byte.exit34.i.i:                    ; preds = %26
   %.not27.i.i = icmp eq i64 %indvars.iv.i29.i.i, 0
-  br i1 %.not27.i.i, label %34, label %nk_utf_validate.exit.loopexit90.i.i
+  br i1 %.not27.i.i, label %34, label %nk_utf_validate.exit.loopexit92.i.i
 
 34:                                               ; preds = %nk_utf_decode_byte.exit34.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -6557,15 +6557,15 @@ nk_utf_decode_byte.exit34.i.i:                    ; preds = %26
   br label %nk_utf_decode.exit.i
 
 nk_utf_validate.exit.loopexit.i.i:                ; preds = %33
-  %indvars83.le101.i.i = trunc i64 %indvars.iv.i.i to i32
+  %indvars83.le103.i.i = trunc i64 %indvars.iv.i.i to i32
   br label %nk_utf_decode.exit.i
 
-nk_utf_validate.exit.loopexit90.i.i:              ; preds = %nk_utf_decode_byte.exit34.i.i
+nk_utf_validate.exit.loopexit92.i.i:              ; preds = %nk_utf_decode_byte.exit34.i.i
   %indvars83.le.i.i = trunc i64 %indvars.iv.i.i to i32
   br label %nk_utf_decode.exit.i
 
-nk_utf_decode.exit.i:                             ; preds = %19, %nk_utf_validate.exit.loopexit90.i.i, %nk_utf_validate.exit.loopexit.i.i, %._crit_edge.i.i, %._crit_edge.loopexit.i.i, %nk_utf_decode_byte.exit.i.i
-  %.023.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i ], [ 0, %._crit_edge.loopexit.i.i ], [ %indvars83.le101.i.i, %nk_utf_validate.exit.loopexit.i.i ], [ %indvars83.le.i.i, %nk_utf_validate.exit.loopexit90.i.i ], [ %20, %._crit_edge.i.i ], [ 1, %19 ]
+nk_utf_decode.exit.i:                             ; preds = %19, %nk_utf_validate.exit.loopexit92.i.i, %nk_utf_validate.exit.loopexit.i.i, %._crit_edge.i.i, %._crit_edge.loopexit.i.i, %nk_utf_decode_byte.exit.i.i
+  %.023.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i ], [ 0, %._crit_edge.loopexit.i.i ], [ %indvars83.le103.i.i, %nk_utf_validate.exit.loopexit.i.i ], [ %indvars83.le.i.i, %nk_utf_validate.exit.loopexit92.i.i ], [ %20, %._crit_edge.i.i ], [ 1, %19 ]
   %36 = add nsw i32 %.023.i.i, %.031.i
   %37 = add nuw nsw i32 %.01730.i, 1
   %exitcond.not.i = icmp eq i32 %37, %3
@@ -6660,7 +6660,7 @@ nk_utf_decode_byte.exit.i:                        ; preds = %12
 
 nk_utf_decode_byte.exit34.i:                      ; preds = %27
   %.not27.i = icmp eq i64 %indvars.iv.i29.i, 0
-  br i1 %.not27.i, label %35, label %nk_utf_validate.exit.loopexit90.i
+  br i1 %.not27.i, label %35, label %nk_utf_validate.exit.loopexit92.i
 
 35:                                               ; preds = %nk_utf_decode_byte.exit34.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -6675,15 +6675,15 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %27
   br label %nk_utf_decode.exit
 
 nk_utf_validate.exit.loopexit.i:                  ; preds = %34
-  %indvars83.le101.i = trunc i64 %indvars.iv.i to i32
+  %indvars83.le103.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_validate.exit.loopexit90.i:                ; preds = %nk_utf_decode_byte.exit34.i
+nk_utf_validate.exit.loopexit92.i:                ; preds = %nk_utf_decode_byte.exit34.i
   %indvars83.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %19, %._crit_edge.i, %nk_utf_decode_byte.exit.i, %._crit_edge.loopexit.i, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit90.i
-  %.023.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ 0, %._crit_edge.loopexit.i ], [ %indvars83.le101.i, %nk_utf_validate.exit.loopexit.i ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit90.i ], [ %20, %._crit_edge.i ], [ 1, %19 ]
+nk_utf_decode.exit:                               ; preds = %19, %._crit_edge.i, %nk_utf_decode_byte.exit.i, %._crit_edge.loopexit.i, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit92.i
+  %.023.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ 0, %._crit_edge.loopexit.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %20, %._crit_edge.i ], [ 1, %19 ]
   %37 = add nsw i32 %.023.i, %.031
   %38 = add nuw nsw i32 %.01730, 1
   %exitcond.not = icmp eq i32 %38, %3
@@ -6783,7 +6783,7 @@ nk_utf_decode_byte.exit.i.i:                      ; preds = %12
 
 nk_utf_decode_byte.exit34.i.i:                    ; preds = %26
   %.not27.i.i = icmp eq i64 %indvars.iv.i29.i.i, 0
-  br i1 %.not27.i.i, label %34, label %nk_utf_validate.exit.loopexit90.i.i
+  br i1 %.not27.i.i, label %34, label %nk_utf_validate.exit.loopexit92.i.i
 
 34:                                               ; preds = %nk_utf_decode_byte.exit34.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -6798,15 +6798,15 @@ nk_utf_decode_byte.exit34.i.i:                    ; preds = %26
   br label %nk_utf_decode.exit.i
 
 nk_utf_validate.exit.loopexit.i.i:                ; preds = %33
-  %indvars83.le101.i.i = trunc i64 %indvars.iv.i.i to i32
+  %indvars83.le103.i.i = trunc i64 %indvars.iv.i.i to i32
   br label %nk_utf_decode.exit.i
 
-nk_utf_validate.exit.loopexit90.i.i:              ; preds = %nk_utf_decode_byte.exit34.i.i
+nk_utf_validate.exit.loopexit92.i.i:              ; preds = %nk_utf_decode_byte.exit34.i.i
   %indvars83.le.i.i = trunc i64 %indvars.iv.i.i to i32
   br label %nk_utf_decode.exit.i
 
-nk_utf_decode.exit.i:                             ; preds = %19, %nk_utf_validate.exit.loopexit90.i.i, %nk_utf_validate.exit.loopexit.i.i, %._crit_edge.i.i, %._crit_edge.loopexit.i.i, %nk_utf_decode_byte.exit.i.i
-  %.023.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i ], [ 0, %._crit_edge.loopexit.i.i ], [ %indvars83.le101.i.i, %nk_utf_validate.exit.loopexit.i.i ], [ %indvars83.le.i.i, %nk_utf_validate.exit.loopexit90.i.i ], [ %20, %._crit_edge.i.i ], [ 1, %19 ]
+nk_utf_decode.exit.i:                             ; preds = %19, %nk_utf_validate.exit.loopexit92.i.i, %nk_utf_validate.exit.loopexit.i.i, %._crit_edge.i.i, %._crit_edge.loopexit.i.i, %nk_utf_decode_byte.exit.i.i
+  %.023.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i ], [ 0, %._crit_edge.loopexit.i.i ], [ %indvars83.le103.i.i, %nk_utf_validate.exit.loopexit.i.i ], [ %indvars83.le.i.i, %nk_utf_validate.exit.loopexit92.i.i ], [ %20, %._crit_edge.i.i ], [ 1, %19 ]
   %36 = add nsw i32 %.023.i.i, %.031.i
   %37 = add nuw nsw i32 %.01730.i, 1
   %exitcond.not.i = icmp eq i32 %.01730.i, %5
@@ -6894,7 +6894,7 @@ nk_utf_decode_byte.exit.i:                        ; preds = %8
 
 nk_utf_decode_byte.exit34.i:                      ; preds = %26
   %.not27.i = icmp eq i64 %indvars.iv.i29.i, 0
-  br i1 %.not27.i, label %34, label %nk_utf_validate.exit.loopexit90.i
+  br i1 %.not27.i, label %34, label %nk_utf_validate.exit.loopexit92.i
 
 34:                                               ; preds = %nk_utf_decode_byte.exit34.i
   %35 = xor i8 %28, -1
@@ -6911,18 +6911,18 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %26
   br i1 %40, label %._crit_edge, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.preheader.i, %._crit_edge.loopexit.i
-  %.0.lcssa89.i = phi i32 [ %39, %._crit_edge.loopexit.i ], [ %20, %.preheader.i ]
+  %.0.lcssa91.i = phi i32 [ %39, %._crit_edge.loopexit.i ], [ %20, %.preheader.i ]
   %41 = and i64 %indvars.iv.i.i, 4294967295
   %42 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !7
-  %.not.i.i = icmp ugt i32 %43, %.0.lcssa89.i
+  %.not.i.i = icmp ugt i32 %43, %.0.lcssa91.i
   br i1 %.not.i.i, label %49, label %44
 
 44:                                               ; preds = %._crit_edge.i
   %45 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %41
   %46 = load i32, ptr %45, align 4, !tbaa !7
-  %47 = icmp uge i32 %.0.lcssa89.i, %46
-  %48 = add i32 %.0.lcssa89.i, -55296
+  %47 = icmp uge i32 %.0.lcssa91.i, %46
+  %48 = add i32 %.0.lcssa91.i, -55296
   %or.cond.i.i = icmp ult i32 %48, 2047
   %or.cond15.i.i = or i1 %or.cond.i.i, %47
   br i1 %or.cond15.i.i, label %49, label %nk_utf_decode.exit
@@ -6931,16 +6931,16 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %26
   br label %nk_utf_decode.exit
 
 nk_utf_validate.exit.loopexit.i:                  ; preds = %33
-  %indvars83.le101.i = trunc i64 %indvars.iv.i to i32
+  %indvars83.le103.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_validate.exit.loopexit90.i:                ; preds = %nk_utf_decode_byte.exit34.i
+nk_utf_validate.exit.loopexit92.i:                ; preds = %nk_utf_decode_byte.exit34.i
   %indvars83.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %15, %nk_utf_decode_byte.exit.i, %44, %49, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit90.i
-  %.1 = phi i32 [ 65533, %49 ], [ %.0.lcssa89.i, %44 ], [ 65533, %nk_utf_validate.exit.loopexit90.i ], [ 65533, %nk_utf_validate.exit.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %15 ]
-  %.023.i = phi i32 [ %16, %49 ], [ %16, %44 ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit90.i ], [ %indvars83.le101.i, %nk_utf_validate.exit.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %15 ]
+nk_utf_decode.exit:                               ; preds = %15, %nk_utf_decode_byte.exit.i, %44, %49, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit92.i
+  %.1 = phi i32 [ 65533, %49 ], [ %.0.lcssa91.i, %44 ], [ 65533, %nk_utf_validate.exit.loopexit92.i ], [ 65533, %nk_utf_validate.exit.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %15 ]
+  %.023.i = phi i32 [ %16, %49 ], [ %16, %44 ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %15 ]
   %50 = icmp ne i32 %.1, 0
   %51 = icmp ne i32 %.023.i, 0
   %52 = and i1 %50, %51
@@ -6989,7 +6989,7 @@ nk_utf_decode_byte.exit.i27:                      ; preds = %56
   %70 = add nuw nsw i32 %umin.i36, 2
   %wide.trip.count.i37 = zext nneg i32 %70 to i64
   %71 = tail call i32 @llvm.umin.i32(i32 %indvars.iv86.i21, i32 2)
-  %narrow104 = add nuw nsw i32 %71, 2
+  %narrow105 = add nuw nsw i32 %71, 2
   br label %.lr.ph.i38
 
 .lr.ph.i38:                                       ; preds = %82, %.lr.ph.preheader.i35
@@ -7016,7 +7016,7 @@ nk_utf_decode_byte.exit.i27:                      ; preds = %56
 
 nk_utf_decode_byte.exit34.i46:                    ; preds = %74
   %.not27.i47 = icmp eq i64 %indvars.iv.i29.i41, 0
-  br i1 %.not27.i47, label %82, label %nk_utf_validate.exit.loopexit90.i48
+  br i1 %.not27.i47, label %82, label %nk_utf_validate.exit.loopexit92.i48
 
 82:                                               ; preds = %nk_utf_decode_byte.exit34.i46
   %83 = xor i8 %76, -1
@@ -7029,7 +7029,7 @@ nk_utf_decode_byte.exit34.i46:                    ; preds = %74
   br i1 %exitcond.not.i51, label %._crit_edge.loopexit.i52, label %.lr.ph.i38, !llvm.loop !31
 
 ._crit_edge.loopexit.i52:                         ; preds = %82
-  %88 = icmp samesign ult i32 %narrow104, %64
+  %88 = icmp samesign ult i32 %narrow105, %64
   br i1 %88, label %nk_utf_decode.exit54.thread, label %._crit_edge.i30
 
 nk_utf_decode.exit54.thread:                      ; preds = %._crit_edge.loopexit.i52
@@ -7037,18 +7037,18 @@ nk_utf_decode.exit54.thread:                      ; preds = %._crit_edge.loopexi
   br label %._crit_edge
 
 ._crit_edge.i30:                                  ; preds = %.preheader.i29, %._crit_edge.loopexit.i52
-  %.0.lcssa89.i31 = phi i32 [ %87, %._crit_edge.loopexit.i52 ], [ %68, %.preheader.i29 ]
+  %.0.lcssa91.i31 = phi i32 [ %87, %._crit_edge.loopexit.i52 ], [ %68, %.preheader.i29 ]
   %90 = and i64 %indvars.iv.i.i22, 4294967295
   %91 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !7
-  %.not.i.i32 = icmp ugt i32 %92, %.0.lcssa89.i31
+  %.not.i.i32 = icmp ugt i32 %92, %.0.lcssa91.i31
   br i1 %.not.i.i32, label %98, label %93
 
 93:                                               ; preds = %._crit_edge.i30
   %94 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %90
   %95 = load i32, ptr %94, align 4, !tbaa !7
-  %96 = icmp uge i32 %.0.lcssa89.i31, %95
-  %97 = add i32 %.0.lcssa89.i31, -55296
+  %96 = icmp uge i32 %.0.lcssa91.i31, %95
+  %97 = add i32 %.0.lcssa91.i31, -55296
   %or.cond.i.i33 = icmp ult i32 %97, 2047
   %or.cond15.i.i34 = or i1 %or.cond.i.i33, %96
   br i1 %or.cond15.i.i34, label %98, label %nk_utf_decode.exit54
@@ -7057,16 +7057,16 @@ nk_utf_decode.exit54.thread:                      ; preds = %._crit_edge.loopexi
   br label %nk_utf_decode.exit54
 
 nk_utf_validate.exit.loopexit.i44:                ; preds = %81
-  %indvars83.le101.i45 = trunc i64 %indvars.iv.i39 to i32
+  %indvars83.le103.i45 = trunc i64 %indvars.iv.i39 to i32
   br label %nk_utf_decode.exit54
 
-nk_utf_validate.exit.loopexit90.i48:              ; preds = %nk_utf_decode_byte.exit34.i46
+nk_utf_validate.exit.loopexit92.i48:              ; preds = %nk_utf_decode_byte.exit34.i46
   %indvars83.le.i49 = trunc i64 %indvars.iv.i39 to i32
   br label %nk_utf_decode.exit54
 
-nk_utf_decode.exit54:                             ; preds = %63, %nk_utf_decode_byte.exit.i27, %93, %98, %nk_utf_validate.exit.loopexit.i44, %nk_utf_validate.exit.loopexit90.i48
-  %.2 = phi i32 [ 65533, %98 ], [ %.0.lcssa89.i31, %93 ], [ 65533, %nk_utf_validate.exit.loopexit90.i48 ], [ 65533, %nk_utf_validate.exit.loopexit.i44 ], [ 65533, %nk_utf_decode_byte.exit.i27 ], [ 65533, %63 ]
-  %.023.i26 = phi i32 [ %64, %98 ], [ %64, %93 ], [ %indvars83.le.i49, %nk_utf_validate.exit.loopexit90.i48 ], [ %indvars83.le101.i45, %nk_utf_validate.exit.loopexit.i44 ], [ 1, %nk_utf_decode_byte.exit.i27 ], [ 1, %63 ]
+nk_utf_decode.exit54:                             ; preds = %63, %nk_utf_decode_byte.exit.i27, %93, %98, %nk_utf_validate.exit.loopexit.i44, %nk_utf_validate.exit.loopexit92.i48
+  %.2 = phi i32 [ 65533, %98 ], [ %.0.lcssa91.i31, %93 ], [ 65533, %nk_utf_validate.exit.loopexit92.i48 ], [ 65533, %nk_utf_validate.exit.loopexit.i44 ], [ 65533, %nk_utf_decode_byte.exit.i27 ], [ 65533, %63 ]
+  %.023.i26 = phi i32 [ %64, %98 ], [ %64, %93 ], [ %indvars83.le.i49, %nk_utf_validate.exit.loopexit92.i48 ], [ %indvars83.le103.i45, %nk_utf_validate.exit.loopexit.i44 ], [ 1, %nk_utf_decode_byte.exit.i27 ], [ 1, %63 ]
   %99 = add nsw i32 %.023.i26, %.01775
   %100 = add nuw nsw i32 %.01676, 1
   %101 = icmp ne i32 %.2, 0
@@ -7350,8 +7350,8 @@ define void @nk_str_remove_runes(ptr noundef captures(address_is_null) %0, i32 n
   br i1 %.not38.i, label %.loopexit.thread.i, label %nk_str_at_rune.exit
 
 .loopexit.thread.i:                               ; preds = %.lr.ph.i, %.loopexit.i
-  %.0334356.i = phi i32 [ %.03343.i, %.loopexit.i ], [ %.03345.i, %.lr.ph.i ]
-  %25 = sext i32 %.0334356.i to i64
+  %.0334362.i = phi i32 [ %.03343.i, %.loopexit.i ], [ %.03345.i, %.lr.ph.i ]
+  %25 = sext i32 %.0334362.i to i64
   %26 = getelementptr inbounds i8, ptr %12, i64 %25
   %27 = ptrtoint ptr %26 to i64
   br label %nk_str_at_rune.exit
@@ -7518,8 +7518,8 @@ define void @nk_str_delete_runes(ptr noundef captures(none) %0, i32 noundef %1, 
   br i1 %.not38.i, label %nk_str_at_rune.exit, label %nk_str_delete_chars.exit
 
 nk_str_at_rune.exit:                              ; preds = %.lr.ph.i, %.loopexit.i
-  %.0334356.i = phi i32 [ %.03343.i, %.loopexit.i ], [ %.03345.i, %.lr.ph.i ]
-  %31 = sext i32 %.0334356.i to i64
+  %.0334362.i = phi i32 [ %.03343.i, %.loopexit.i ], [ %.03345.i, %.lr.ph.i ]
+  %31 = sext i32 %.0334362.i to i64
   %32 = getelementptr inbounds i8, ptr %16, i64 %31
   %.not37 = icmp eq ptr %16, null
   br i1 %.not37, label %nk_str_delete_chars.exit, label %33
@@ -7560,15 +7560,15 @@ nk_str_at_rune.exit52.thread:                     ; preds = %33, %35, %.loopexit
   br label %nk_str_delete_chars.exit
 
 nk_str_at_rune.exit52:                            ; preds = %.lr.ph.i41, %.loopexit.i46
-  %.0334356.i50 = phi i32 [ %40, %.loopexit.i46 ], [ %.03345.i44, %.lr.ph.i41 ]
+  %.0334362.i50 = phi i32 [ %40, %.loopexit.i46 ], [ %.03345.i44, %.lr.ph.i41 ]
   store ptr %16, ptr %15, align 8, !tbaa !78
-  %.not59 = icmp eq i32 %.0334356.i50, 0
+  %.not59 = icmp eq i32 %.0334362.i50, 0
   %46 = icmp ult i64 %20, %31
   %or.cond = or i1 %.not59, %46
   br i1 %or.cond, label %nk_str_delete_chars.exit, label %47
 
 47:                                               ; preds = %nk_str_at_rune.exit52
-  %48 = add nsw i32 %.0334356.i50, %.0334356.i
+  %48 = add nsw i32 %.0334362.i50, %.0334362.i
   %49 = sext i32 %48 to i64
   %50 = icmp ult i64 %20, %49
   br i1 %50, label %nk_str_delete_chars.exit, label %51
@@ -7581,7 +7581,7 @@ nk_str_at_rune.exit52:                            ; preds = %.lr.ph.i41, %.loope
   %54 = getelementptr inbounds i8, ptr %16, i64 %49
   %55 = sub nuw i64 %20, %49
   %56 = call fastcc ptr @nk_memcopy(ptr noundef nonnull %32, ptr noundef nonnull %54, i64 noundef %55)
-  %57 = sext i32 %.0334356.i50 to i64
+  %57 = sext i32 %.0334362.i50 to i64
   %58 = load i64, ptr %19, align 8, !tbaa !75
   %59 = sub i64 %58, %57
   store i64 %59, ptr %19, align 8, !tbaa !75
@@ -7590,11 +7590,11 @@ nk_str_at_rune.exit52:                            ; preds = %.lr.ph.i41, %.loope
   br label %nk_str_remove_chars.exit.i
 
 60:                                               ; preds = %51
-  %61 = icmp slt i32 %.0334356.i50, 0
+  %61 = icmp slt i32 %.0334362.i50, 0
   br i1 %61, label %nk_str_remove_chars.exit.i, label %62
 
 62:                                               ; preds = %60
-  %63 = zext nneg i32 %.0334356.i50 to i64
+  %63 = zext nneg i32 %.0334362.i50 to i64
   %64 = icmp ult i64 %20, %63
   br i1 %64, label %nk_str_remove_chars.exit.i, label %65
 
@@ -7722,8 +7722,8 @@ define ptr @nk_str_at_const(ptr noundef readonly captures(address_is_null) %0, i
   br i1 %.not38, label %26, label %29
 
 26:                                               ; preds = %.loopexit.thread, %.loopexit
-  %.0334356 = phi i32 [ %.03345, %.loopexit.thread ], [ %.03343, %.loopexit ]
-  %27 = sext i32 %.0334356 to i64
+  %.0334362 = phi i32 [ %.03345, %.loopexit.thread ], [ %.03343, %.loopexit ]
+  %27 = sext i32 %.0334362 to i64
   %28 = getelementptr inbounds i8, ptr %13, i64 %27
   br label %29
 
@@ -9323,8 +9323,8 @@ define void @nk_draw_image(ptr noundef captures(address_is_null) %0, <2 x float>
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %26 = load float, ptr %25, align 4, !tbaa !124
   %.sroa.020.4.vec.extract = extractelement <2 x float> %1, i64 1
-  %foldExtExtBinop49 = fadd <2 x float> %1, %2
-  %27 = extractelement <2 x float> %foldExtExtBinop49, i64 1
+  %foldExtExtBinop52 = fadd <2 x float> %1, %2
+  %27 = extractelement <2 x float> %foldExtExtBinop52, i64 1
   %28 = fcmp olt float %26, %27
   %29 = fadd float %16, %26
   %30 = fcmp olt float %.sroa.020.4.vec.extract, %29
@@ -9644,8 +9644,8 @@ define void @nk_push_custom(ptr noundef captures(address_is_null) %0, <2 x float
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %26 = load float, ptr %25, align 4, !tbaa !124
   %.sroa.020.4.vec.extract = extractelement <2 x float> %1, i64 1
-  %foldExtExtBinop49 = fadd <2 x float> %1, %2
-  %27 = extractelement <2 x float> %foldExtExtBinop49, i64 1
+  %foldExtExtBinop52 = fadd <2 x float> %1, %2
+  %27 = extractelement <2 x float> %foldExtExtBinop52, i64 1
   %28 = fcmp olt float %26, %27
   %29 = fadd float %16, %26
   %30 = fcmp olt float %.sroa.020.4.vec.extract, %29
@@ -9766,8 +9766,8 @@ define void @nk_draw_text(ptr noundef captures(address_is_null) %0, <2 x float> 
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %36 = load float, ptr %35, align 4, !tbaa !124
   %.sroa.0.4.vec.extract = extractelement <2 x float> %1, i64 1
-  %foldExtExtBinop146 = fadd <2 x float> %1, %2
-  %37 = extractelement <2 x float> %foldExtExtBinop146, i64 1
+  %foldExtExtBinop152 = fadd <2 x float> %1, %2
+  %37 = extractelement <2 x float> %foldExtExtBinop152, i64 1
   %38 = fcmp olt float %36, %37
   %39 = fadd float %26, %36
   %40 = fcmp olt float %.sroa.0.4.vec.extract, %39
@@ -9853,7 +9853,7 @@ nk_utf_decode_byte.exit.i:                        ; preds = %50
 
 nk_utf_decode_byte.exit34.i:                      ; preds = %70
   %.not27.i = icmp eq i64 %indvars.iv.i29.i, 0
-  br i1 %.not27.i, label %78, label %nk_utf_validate.exit.loopexit90.i
+  br i1 %.not27.i, label %78, label %nk_utf_validate.exit.loopexit92.i
 
 78:                                               ; preds = %nk_utf_decode_byte.exit34.i
   %79 = xor i8 %72, -1
@@ -9873,15 +9873,15 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %70
   br i1 %61, label %.thread96, label %nk_utf_decode.exit
 
 nk_utf_validate.exit.loopexit.i:                  ; preds = %77
-  %indvars83.le101.i = trunc i64 %indvars.iv.i to i32
+  %indvars83.le103.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_validate.exit.loopexit90.i:                ; preds = %nk_utf_decode_byte.exit34.i
+nk_utf_validate.exit.loopexit92.i:                ; preds = %nk_utf_decode_byte.exit34.i
   %indvars83.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %57, %._crit_edge.loopexit.i, %._crit_edge.i, %nk_utf_decode_byte.exit.i, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit90.i
-  %.023.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ %indvars83.le101.i, %nk_utf_validate.exit.loopexit.i ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit90.i ], [ %58, %._crit_edge.i ], [ %58, %._crit_edge.loopexit.i ], [ 1, %57 ]
+nk_utf_decode.exit:                               ; preds = %57, %._crit_edge.loopexit.i, %._crit_edge.i, %nk_utf_decode_byte.exit.i, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit92.i
+  %.023.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %58, %._crit_edge.i ], [ %58, %._crit_edge.loopexit.i ], [ 1, %57 ]
   %.not69.i = icmp ne i32 %.023.i, 0
   %85 = fcmp ogt float %.sroa.7.8.vec.extract63.pre-phi, 0.000000e+00
   %or.cond70.i = and i1 %85, %.not69.i
@@ -10434,11 +10434,7 @@ nk_buffer_mark.exit:                              ; preds = %nk_draw_list_alloc_
   store <2 x float> %.sroa.0.4.vec.insert.i671, ptr %165, align 4
   br label %.lr.ph784.preheader
 
-.preheader773:                                    ; preds = %198
-  %.not799 = icmp eq i32 %2, 0
-  br i1 %.not799, label %.critedge, label %.lr.ph787
-
-.lr.ph787:                                        ; preds = %.preheader773
+.lr.ph787:                                        ; preds = %198
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %171 = getelementptr i8, ptr %0, i64 152
   br label %229
@@ -10535,7 +10531,7 @@ nk_buffer_mark.exit:                              ; preds = %nk_draw_list_alloc_
   store i16 %220, ptr %227, align 2, !tbaa !197
   %228 = getelementptr inbounds nuw i8, ptr %.0603782, i64 24
   %exitcond804.not = icmp eq i64 %172, %.0
-  br i1 %exitcond804.not, label %.preheader773, label %.lr.ph784, !llvm.loop !252
+  br i1 %exitcond804.not, label %.lr.ph787, label %.lr.ph784, !llvm.loop !252
 
 229:                                              ; preds = %.lr.ph787, %229
   %.0601786 = phi ptr [ %94, %.lr.ph787 ], [ %238, %229 ]
@@ -10660,11 +10656,7 @@ nk_buffer_mark.exit:                              ; preds = %nk_draw_list_alloc_
   %309 = fadd float %308, 1.000000e+00
   br label %312
 
-.preheader:                                       ; preds = %339
-  %.not801 = icmp eq i32 %2, 0
-  br i1 %.not801, label %.critedge, label %.lr.ph795
-
-.lr.ph795:                                        ; preds = %.preheader
+.lr.ph795:                                        ; preds = %339
   %310 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %311 = getelementptr i8, ptr %0, i64 152
   br label %392
@@ -10795,7 +10787,7 @@ nk_buffer_mark.exit:                              ; preds = %nk_draw_list_alloc_
   store i16 %374, ptr %390, align 2, !tbaa !197
   %391 = getelementptr inbounds nuw i8, ptr %.1604789, i64 36
   %exitcond806.not = icmp eq i64 %313, %.0
-  br i1 %exitcond806.not, label %.preheader, label %312, !llvm.loop !256
+  br i1 %exitcond806.not, label %.lr.ph795, label %312, !llvm.loop !256
 
 392:                                              ; preds = %.lr.ph795, %392
   %.1602794 = phi ptr [ %94, %.lr.ph795 ], [ %404, %392 ]
@@ -10826,7 +10818,7 @@ nk_buffer_mark.exit:                              ; preds = %nk_draw_list_alloc_
   %exitcond807.not = icmp eq i64 %405, %16
   br i1 %exitcond807.not, label %.critedge, label %392, !llvm.loop !257
 
-.critedge:                                        ; preds = %229, %392, %.preheader773, %.preheader
+.critedge:                                        ; preds = %229, %392
   %406 = load ptr, ptr %41, align 8, !tbaa !236
   %.not.i730 = icmp eq ptr %406, null
   br i1 %.not.i730, label %.critedge628, label %407
@@ -11918,14 +11910,14 @@ nk_buffer_total.exit.i18:                         ; preds = %53, %51
   br label %nk_draw_list_push_command.exit.sink.split
 
 nk_draw_list_push_command.exit.sink.split:        ; preds = %49, %nk_buffer_total.exit.i18, %12, %nk_buffer_total.exit.i
-  %.sink28 = phi ptr [ %11, %nk_buffer_total.exit.i ], [ %11, %12 ], [ %48, %nk_buffer_total.exit.i18 ], [ %48, %49 ]
+  %.sink32 = phi ptr [ %11, %nk_buffer_total.exit.i ], [ %11, %12 ], [ %48, %nk_buffer_total.exit.i18 ], [ %48, %49 ]
   %.sink = phi ptr [ %8, %nk_buffer_total.exit.i ], [ %8, %12 ], [ %47, %nk_buffer_total.exit.i18 ], [ %47, %49 ]
-  store i32 0, ptr %.sink28, align 8, !tbaa !249
-  %62 = getelementptr inbounds nuw i8, ptr %.sink28, i64 4
+  store i32 0, ptr %.sink32, align 8, !tbaa !249
+  %62 = getelementptr inbounds nuw i8, ptr %.sink32, i64 4
   store <2 x float> %1, ptr %62, align 4
-  %.sroa.3.0..sroa_idx.i15 = getelementptr inbounds nuw i8, ptr %.sink28, i64 12
+  %.sroa.3.0..sroa_idx.i15 = getelementptr inbounds nuw i8, ptr %.sink32, i64 12
   store <2 x float> %2, ptr %.sroa.3.0..sroa_idx.i15, align 4
-  %63 = getelementptr inbounds nuw i8, ptr %.sink28, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %.sink32, i64 24
   store ptr %.sink, ptr %63, align 8, !tbaa !9
   %64 = load i32, ptr %4, align 8, !tbaa !243
   %65 = add i32 %64, 1
@@ -12895,13 +12887,13 @@ nk_draw_list_alloc_elements.exit:                 ; preds = %nk_draw_list_alloc_
   %.val61 = load ptr, ptr %92, align 8, !tbaa !253
   %.val62 = load i64, ptr %47, align 8, !tbaa !254
   %95 = tail call fastcc ptr @nk_draw_vertex(ptr noundef %93, ptr %.val61, i64 %.val62, <2 x float> %.sroa.0.4.vec.insert.i88, <2 x float> %94, <2 x float> %.sroa.099.4.vec.insert, <2 x float> %.sroa.5101.12.vec.insert)
-  %foldExtExtBinop110 = fadd <2 x float> %1, %2
-  %.sroa.0.4.vec.insert.i90 = shufflevector <2 x float> %foldExtExtBinop, <2 x float> %foldExtExtBinop110, <2 x i32> <i32 0, i32 3>
+  %foldExtExtBinop112 = fadd <2 x float> %1, %2
+  %.sroa.0.4.vec.insert.i90 = shufflevector <2 x float> %foldExtExtBinop, <2 x float> %foldExtExtBinop112, <2 x i32> <i32 0, i32 3>
   %96 = load <2 x float>, ptr %90, align 8
   %.val59 = load ptr, ptr %92, align 8, !tbaa !253
   %.val60 = load i64, ptr %47, align 8, !tbaa !254
   %97 = tail call fastcc ptr @nk_draw_vertex(ptr noundef %95, ptr %.val59, i64 %.val60, <2 x float> %.sroa.0.4.vec.insert.i90, <2 x float> %96, <2 x float> %.sroa.095.4.vec.insert, <2 x float> %.sroa.597.12.vec.insert)
-  %.sroa.0.4.vec.insert.i92 = shufflevector <2 x float> %1, <2 x float> %foldExtExtBinop110, <2 x i32> <i32 0, i32 3>
+  %.sroa.0.4.vec.insert.i92 = shufflevector <2 x float> %1, <2 x float> %foldExtExtBinop112, <2 x i32> <i32 0, i32 3>
   %98 = load <2 x float>, ptr %90, align 8
   %.val = load ptr, ptr %92, align 8, !tbaa !253
   %.val58 = load i64, ptr %47, align 8, !tbaa !254
@@ -13579,8 +13571,8 @@ define void @nk_draw_list_add_text(ptr noundef captures(address_is_null) %0, ptr
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %24 = load float, ptr %23, align 4, !tbaa !277
   %.sroa.044.4.vec.extract = extractelement <2 x float> %2, i64 1
-  %foldExtExtBinop231 = fadd <2 x float> %2, %3
-  %25 = extractelement <2 x float> %foldExtExtBinop231, i64 1
+  %foldExtExtBinop237 = fadd <2 x float> %2, %3
+  %25 = extractelement <2 x float> %foldExtExtBinop237, i64 1
   %26 = fcmp olt float %24, %25
   br i1 %26, label %27, label %nk_utf_decode.exit.thread
 
@@ -13661,7 +13653,7 @@ nk_utf_decode_byte.exit.i:                        ; preds = %36
 
 nk_utf_decode_byte.exit34.i:                      ; preds = %56
   %.not27.i = icmp eq i64 %indvars.iv.i29.i, 0
-  br i1 %.not27.i, label %64, label %nk_utf_validate.exit.loopexit90.i
+  br i1 %.not27.i, label %64, label %nk_utf_validate.exit.loopexit92.i
 
 64:                                               ; preds = %nk_utf_decode_byte.exit34.i
   %65 = xor i8 %58, -1
@@ -13681,18 +13673,18 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %56
   br i1 %50, label %nk_utf_decode.exit.thread, label %71
 
 71:                                               ; preds = %._crit_edge.i, %._crit_edge.loopexit.i
-  %.0.lcssa89.i = phi i32 [ %69, %._crit_edge.loopexit.i ], [ %48, %._crit_edge.i ]
+  %.0.lcssa91.i = phi i32 [ %69, %._crit_edge.loopexit.i ], [ %48, %._crit_edge.i ]
   %72 = and i64 %indvars.iv.i.i, 4294967295
   %73 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !7
-  %.not.i.i = icmp ugt i32 %74, %.0.lcssa89.i
+  %.not.i.i = icmp ugt i32 %74, %.0.lcssa91.i
   br i1 %.not.i.i, label %80, label %75
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %72
   %77 = load i32, ptr %76, align 4, !tbaa !7
-  %78 = icmp uge i32 %.0.lcssa89.i, %77
-  %79 = add i32 %.0.lcssa89.i, -55296
+  %78 = icmp uge i32 %.0.lcssa91.i, %77
+  %79 = add i32 %.0.lcssa91.i, -55296
   %or.cond.i.i = icmp ult i32 %79, 2047
   %or.cond15.i.i = or i1 %or.cond.i.i, %78
   br i1 %or.cond15.i.i, label %80, label %nk_utf_decode.exit
@@ -13701,16 +13693,16 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %56
   br label %nk_utf_decode.exit
 
 nk_utf_validate.exit.loopexit.i:                  ; preds = %63
-  %indvars83.le101.i = trunc i64 %indvars.iv.i to i32
+  %indvars83.le103.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_validate.exit.loopexit90.i:                ; preds = %nk_utf_decode_byte.exit34.i
+nk_utf_validate.exit.loopexit92.i:                ; preds = %nk_utf_decode_byte.exit34.i
   %indvars83.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %75, %80, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit90.i
-  %.2109 = phi i32 [ 65533, %80 ], [ %.0.lcssa89.i, %75 ], [ 65533, %nk_utf_validate.exit.loopexit90.i ], [ 65533, %nk_utf_validate.exit.loopexit.i ]
-  %.023.i = phi i32 [ %44, %80 ], [ %44, %75 ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit90.i ], [ %indvars83.le101.i, %nk_utf_validate.exit.loopexit.i ]
+nk_utf_decode.exit:                               ; preds = %75, %80, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit92.i
+  %.2109 = phi i32 [ 65533, %80 ], [ %.0.lcssa91.i, %75 ], [ 65533, %nk_utf_validate.exit.loopexit92.i ], [ 65533, %nk_utf_validate.exit.loopexit.i ]
+  %.023.i = phi i32 [ %44, %80 ], [ %44, %75 ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ]
   %.not = icmp eq i32 %.023.i, 0
   br i1 %.not, label %nk_utf_decode.exit.thread, label %nk_utf_decode.exit.thread114
 
@@ -13815,7 +13807,7 @@ nk_utf_decode_byte.exit.i72:                      ; preds = %101
 
 nk_utf_decode_byte.exit34.i91:                    ; preds = %121
   %.not27.i92 = icmp eq i64 %indvars.iv.i29.i86, 0
-  br i1 %.not27.i92, label %129, label %nk_utf_validate.exit.loopexit90.i93
+  br i1 %.not27.i92, label %129, label %nk_utf_validate.exit.loopexit92.i93
 
 129:                                              ; preds = %nk_utf_decode_byte.exit34.i91
   %130 = xor i8 %123, -1
@@ -13835,8 +13827,8 @@ nk_utf_decode_byte.exit34.i91:                    ; preds = %121
   br i1 %115, label %nk_utf_decode.exit99.thread, label %136
 
 136:                                              ; preds = %._crit_edge.i75, %._crit_edge.loopexit.i97
-  %.0.lcssa89.i76 = phi i32 [ %134, %._crit_edge.loopexit.i97 ], [ %113, %._crit_edge.i75 ]
-  %.2.fr = freeze i32 %.0.lcssa89.i76
+  %.0.lcssa91.i76 = phi i32 [ %134, %._crit_edge.loopexit.i97 ], [ %113, %._crit_edge.i75 ]
+  %.2.fr = freeze i32 %.0.lcssa91.i76
   %137 = and i64 %indvars.iv.i.i67, 4294967295
   %138 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %137
   %139 = load i32, ptr %138, align 4, !tbaa !7
@@ -13853,10 +13845,10 @@ nk_utf_decode_byte.exit34.i91:                    ; preds = %121
   br i1 %or.cond15.i.i79, label %nk_utf_decode.exit99.thread, label %nk_utf_decode.exit99
 
 nk_utf_validate.exit.loopexit.i89:                ; preds = %128
-  %indvars83.le101.i90 = trunc i64 %indvars.iv.i84 to i32
+  %indvars83.le103.i90 = trunc i64 %indvars.iv.i84 to i32
   br label %nk_utf_decode.exit99.thread
 
-nk_utf_validate.exit.loopexit90.i93:              ; preds = %nk_utf_decode_byte.exit34.i91
+nk_utf_validate.exit.loopexit92.i93:              ; preds = %nk_utf_decode_byte.exit34.i91
   %indvars83.le.i94 = trunc i64 %indvars.iv.i84 to i32
   br label %nk_utf_decode.exit99.thread
 
@@ -13865,10 +13857,10 @@ nk_utf_decode.exit99:                             ; preds = %140
   %spec.select = select i1 %145, i32 0, i32 %.2.fr
   br label %nk_utf_decode.exit99.thread
 
-nk_utf_decode.exit99.thread:                      ; preds = %108, %136, %140, %nk_utf_decode_byte.exit.i72, %._crit_edge.i75, %nk_utf_validate.exit.loopexit.i89, %nk_utf_validate.exit.loopexit90.i93, %._crit_edge.loopexit.i97, %nk_utf_decode.exit99
-  %.023.i71125 = phi i32 [ %109, %nk_utf_decode.exit99 ], [ %indvars83.le.i94, %nk_utf_validate.exit.loopexit90.i93 ], [ %indvars83.le101.i90, %nk_utf_validate.exit.loopexit.i89 ], [ 0, %._crit_edge.loopexit.i97 ], [ 0, %._crit_edge.i75 ], [ 1, %nk_utf_decode_byte.exit.i72 ], [ %109, %140 ], [ %109, %136 ], [ 1, %108 ]
-  %.2123 = phi i32 [ %.2.fr, %nk_utf_decode.exit99 ], [ 65533, %nk_utf_validate.exit.loopexit90.i93 ], [ 65533, %nk_utf_validate.exit.loopexit.i89 ], [ 65533, %._crit_edge.loopexit.i97 ], [ 65533, %._crit_edge.i75 ], [ 65533, %nk_utf_decode_byte.exit.i72 ], [ 65533, %140 ], [ 65533, %136 ], [ 65533, %108 ]
-  %146 = phi i32 [ %spec.select, %nk_utf_decode.exit99 ], [ 0, %nk_utf_validate.exit.loopexit90.i93 ], [ 0, %nk_utf_validate.exit.loopexit.i89 ], [ 0, %._crit_edge.loopexit.i97 ], [ 0, %._crit_edge.i75 ], [ 0, %nk_utf_decode_byte.exit.i72 ], [ 0, %140 ], [ 0, %136 ], [ 0, %108 ]
+nk_utf_decode.exit99.thread:                      ; preds = %108, %136, %140, %nk_utf_decode_byte.exit.i72, %._crit_edge.i75, %nk_utf_validate.exit.loopexit.i89, %nk_utf_validate.exit.loopexit92.i93, %._crit_edge.loopexit.i97, %nk_utf_decode.exit99
+  %.023.i71125 = phi i32 [ %109, %nk_utf_decode.exit99 ], [ %indvars83.le.i94, %nk_utf_validate.exit.loopexit92.i93 ], [ %indvars83.le103.i90, %nk_utf_validate.exit.loopexit.i89 ], [ 0, %._crit_edge.loopexit.i97 ], [ 0, %._crit_edge.i75 ], [ 1, %nk_utf_decode_byte.exit.i72 ], [ %109, %140 ], [ %109, %136 ], [ 1, %108 ]
+  %.2123 = phi i32 [ %.2.fr, %nk_utf_decode.exit99 ], [ 65533, %nk_utf_validate.exit.loopexit92.i93 ], [ 65533, %nk_utf_validate.exit.loopexit.i89 ], [ 65533, %._crit_edge.loopexit.i97 ], [ 65533, %._crit_edge.i75 ], [ 65533, %nk_utf_decode_byte.exit.i72 ], [ 65533, %140 ], [ 65533, %136 ], [ 65533, %108 ]
+  %146 = phi i32 [ %spec.select, %nk_utf_decode.exit99 ], [ 0, %nk_utf_validate.exit.loopexit92.i93 ], [ 0, %nk_utf_validate.exit.loopexit.i89 ], [ 0, %._crit_edge.loopexit.i97 ], [ 0, %._crit_edge.i75 ], [ 0, %nk_utf_decode_byte.exit.i72 ], [ 0, %140 ], [ 0, %136 ], [ 0, %108 ]
   %147 = load ptr, ptr %.in, align 8, !tbaa !279
   %148 = load ptr, ptr %1, align 8
   call void %147(ptr %148, float noundef %6, ptr noundef nonnull %9, i32 noundef %.0107159, i32 noundef %146) #55
@@ -15928,26 +15920,26 @@ stbrp__skyline_find_min_y.exit.loopexit.us.i.i:   ; preds = %68
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i
   %spec.select.i = select i1 %40, i32 1073741824, i32 0
-  br label %._crit_edge.thread193.i.i
+  br label %._crit_edge.thread211.i.i
 
 ._crit_edge.i.i:                                  ; preds = %82
   %87 = icmp eq ptr %.1.us.i.i, null
-  br i1 %87, label %._crit_edge.thread.i.i, label %._crit_edge.thread193.i.i
+  br i1 %87, label %._crit_edge.thread.i.i, label %._crit_edge.thread211.i.i
 
-._crit_edge.thread193.i.i:                        ; preds = %._crit_edge.i.i, %.lr.ph.split.i.i
-  %.0.lcssa199.i.i = phi ptr [ %.1.us.i.i, %._crit_edge.i.i ], [ %11, %.lr.ph.split.i.i ]
-  %.080.lcssa198.i.i = phi i32 [ %.181.us.i.i, %._crit_edge.i.i ], [ 0, %.lr.ph.split.i.i ]
-  %.088.lcssa197.i.i = phi i32 [ %.189.us.i.i, %._crit_edge.i.i ], [ %spec.select.i, %.lr.ph.split.i.i ]
-  %88 = load ptr, ptr %.0.lcssa199.i.i, align 8, !tbaa !397
+._crit_edge.thread211.i.i:                        ; preds = %._crit_edge.i.i, %.lr.ph.split.i.i
+  %.0.lcssa217.i.i = phi ptr [ %.1.us.i.i, %._crit_edge.i.i ], [ %11, %.lr.ph.split.i.i ]
+  %.080.lcssa216.i.i = phi i32 [ %.181.us.i.i, %._crit_edge.i.i ], [ 0, %.lr.ph.split.i.i ]
+  %.088.lcssa215.i.i = phi i32 [ %.189.us.i.i, %._crit_edge.i.i ], [ %spec.select.i, %.lr.ph.split.i.i ]
+  %88 = load ptr, ptr %.0.lcssa217.i.i, align 8, !tbaa !397
   %89 = load i32, ptr %88, align 8, !tbaa !388
   br label %._crit_edge.thread.i.i
 
-._crit_edge.thread.i.i:                           ; preds = %._crit_edge.thread193.i.i, %._crit_edge.i.i, %.._crit_edge.thread.i_crit_edge.i
-  %90 = phi i32 [ %39, %._crit_edge.thread193.i.i ], [ %39, %._crit_edge.i.i ], [ %.pre.i, %.._crit_edge.thread.i_crit_edge.i ]
-  %.0.lcssa192.i.i = phi ptr [ %.0.lcssa199.i.i, %._crit_edge.thread193.i.i ], [ null, %._crit_edge.i.i ], [ null, %.._crit_edge.thread.i_crit_edge.i ]
-  %.080.lcssa191.i.i = phi i32 [ %.080.lcssa198.i.i, %._crit_edge.thread193.i.i ], [ %.181.us.i.i, %._crit_edge.i.i ], [ 1073741824, %.._crit_edge.thread.i_crit_edge.i ]
-  %.088.lcssa190.i.i = phi i32 [ %.088.lcssa197.i.i, %._crit_edge.thread193.i.i ], [ %.189.us.i.i, %._crit_edge.i.i ], [ 1073741824, %.._crit_edge.thread.i_crit_edge.i ]
-  %91 = phi i32 [ %89, %._crit_edge.thread193.i.i ], [ 0, %._crit_edge.i.i ], [ 0, %.._crit_edge.thread.i_crit_edge.i ]
+._crit_edge.thread.i.i:                           ; preds = %._crit_edge.thread211.i.i, %._crit_edge.i.i, %.._crit_edge.thread.i_crit_edge.i
+  %90 = phi i32 [ %39, %._crit_edge.thread211.i.i ], [ %39, %._crit_edge.i.i ], [ %.pre.i, %.._crit_edge.thread.i_crit_edge.i ]
+  %.0.lcssa210.i.i = phi ptr [ %.0.lcssa217.i.i, %._crit_edge.thread211.i.i ], [ null, %._crit_edge.i.i ], [ null, %.._crit_edge.thread.i_crit_edge.i ]
+  %.080.lcssa209.i.i = phi i32 [ %.080.lcssa216.i.i, %._crit_edge.thread211.i.i ], [ %.181.us.i.i, %._crit_edge.i.i ], [ 1073741824, %.._crit_edge.thread.i_crit_edge.i ]
+  %.088.lcssa208.i.i = phi i32 [ %.088.lcssa215.i.i, %._crit_edge.thread211.i.i ], [ %.189.us.i.i, %._crit_edge.i.i ], [ 1073741824, %.._crit_edge.thread.i_crit_edge.i ]
+  %91 = phi i32 [ %89, %._crit_edge.thread211.i.i ], [ 0, %._crit_edge.i.i ], [ 0, %.._crit_edge.thread.i_crit_edge.i ]
   %92 = icmp eq i32 %90, 1
   br i1 %92, label %.preheader126.i.i, label %stbrp__skyline_find_best_pos.exit.i
 
@@ -15968,13 +15960,13 @@ stbrp__skyline_find_min_y.exit.loopexit.us.i.i:   ; preds = %68
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %144
-  %.3180.i.i = phi ptr [ %.4.i.i, %144 ], [ %.0.lcssa192.i.i, %.preheader.i.i.preheader ]
+  %.3180.i.i = phi ptr [ %.4.i.i, %144 ], [ %.0.lcssa210.i.i, %.preheader.i.i.preheader ]
   %.173179.i.i = phi ptr [ %146, %144 ], [ %.173179.i.i.ph, %.preheader.i.i.preheader ]
   %.175178.i.i = phi ptr [ %.276.i.i, %144 ], [ %35, %.preheader.i.i.preheader ]
   %.178177.i.i = phi ptr [ %.279.i.i, %144 ], [ %11, %.preheader.i.i.preheader ]
-  %.383176.i.i = phi i32 [ %.484.i.i, %144 ], [ %.080.lcssa191.i.i, %.preheader.i.i.preheader ]
+  %.383176.i.i = phi i32 [ %.484.i.i, %144 ], [ %.080.lcssa209.i.i, %.preheader.i.i.preheader ]
   %.186175.i.i = phi i32 [ %.287.i.i, %144 ], [ %91, %.preheader.i.i.preheader ]
-  %.290174.i.i = phi i32 [ %.391.i.i, %144 ], [ %.088.lcssa190.i.i, %.preheader.i.i.preheader ]
+  %.290174.i.i = phi i32 [ %.391.i.i, %144 ], [ %.088.lcssa208.i.i, %.preheader.i.i.preheader ]
   %98 = load i32, ptr %.173179.i.i, align 8, !tbaa !388
   %99 = sub nsw i32 %98, %28
   br label %100
@@ -16081,8 +16073,8 @@ stbrp__skyline_find_min_y.exit121.i.i:            ; preds = %132, %104
 
 stbrp__skyline_find_best_pos.exit.i:              ; preds = %144, %._crit_edge.thread.i.i
   %.085.i.i = phi i32 [ %91, %._crit_edge.thread.i.i ], [ %.287.i.i, %144 ]
-  %.282.i.i = phi i32 [ %.080.lcssa191.i.i, %._crit_edge.thread.i.i ], [ %.484.i.i, %144 ]
-  %.2.i.i = phi ptr [ %.0.lcssa192.i.i, %._crit_edge.thread.i.i ], [ %.4.i.i, %144 ]
+  %.282.i.i = phi i32 [ %.080.lcssa209.i.i, %._crit_edge.thread.i.i ], [ %.484.i.i, %144 ]
+  %.2.i.i = phi ptr [ %.0.lcssa210.i.i, %._crit_edge.thread.i.i ], [ %.4.i.i, %144 ]
   %147 = icmp eq ptr %.2.i.i, null
   br i1 %147, label %stbrp__skyline_pack_rectangle.exit, label %148
 
@@ -16155,13 +16147,13 @@ stbrp__skyline_find_best_pos.exit.i:              ; preds = %144, %._crit_edge.t
   br label %stbrp__skyline_pack_rectangle.exit
 
 stbrp__skyline_pack_rectangle.exit:               ; preds = %151, %148, %stbrp__skyline_find_best_pos.exit.i, %31, %23, %.critedge.i, %177, %14, %19
-  %.sink79 = phi i64 [ 16, %19 ], [ 16, %14 ], [ 12, %177 ], [ 12, %.critedge.i ], [ 16, %23 ], [ 16, %31 ], [ 16, %stbrp__skyline_find_best_pos.exit.i ], [ 16, %148 ], [ 16, %151 ]
+  %.sink103 = phi i64 [ 16, %19 ], [ 16, %14 ], [ 12, %177 ], [ 12, %.critedge.i ], [ 16, %23 ], [ 16, %31 ], [ 16, %stbrp__skyline_find_best_pos.exit.i ], [ 16, %148 ], [ 16, %151 ]
   %.085.i.i.sink = phi i32 [ 0, %19 ], [ 0, %14 ], [ %.085.i.i, %177 ], [ %.085.i.i, %.critedge.i ], [ 2147483647, %23 ], [ 2147483647, %31 ], [ 2147483647, %stbrp__skyline_find_best_pos.exit.i ], [ 2147483647, %148 ], [ 2147483647, %151 ]
-  %.sink78 = phi i64 [ 12, %19 ], [ 12, %14 ], [ 16, %177 ], [ 16, %.critedge.i ], [ 12, %23 ], [ 12, %31 ], [ 12, %stbrp__skyline_find_best_pos.exit.i ], [ 12, %148 ], [ 12, %151 ]
+  %.sink102 = phi i64 [ 12, %19 ], [ 12, %14 ], [ 16, %177 ], [ 16, %.critedge.i ], [ 12, %23 ], [ 12, %31 ], [ 12, %stbrp__skyline_find_best_pos.exit.i ], [ 12, %148 ], [ 12, %151 ]
   %.282.i.i.sink = phi i32 [ 0, %19 ], [ 0, %14 ], [ %.282.i.i, %177 ], [ %.282.i.i, %.critedge.i ], [ 2147483647, %23 ], [ 2147483647, %31 ], [ 2147483647, %stbrp__skyline_find_best_pos.exit.i ], [ 2147483647, %148 ], [ 2147483647, %151 ]
-  %178 = getelementptr inbounds nuw i8, ptr %15, i64 %.sink79
+  %178 = getelementptr inbounds nuw i8, ptr %15, i64 %.sink103
   store i32 %.085.i.i.sink, ptr %178, align 4, !tbaa !7
-  %179 = getelementptr inbounds nuw i8, ptr %15, i64 %.sink78
+  %179 = getelementptr inbounds nuw i8, ptr %15, i64 %.sink102
   store i32 %.282.i.i.sink, ptr %179, align 4, !tbaa !7
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
@@ -16895,15 +16887,15 @@ stbtt__GetGlyfOffset.exit:                        ; preds = %82
   br i1 %exitcond78.not, label %.preheader32.preheader, label %.preheader33, !llvm.loop !422
 
 .preheader32.preheader:                           ; preds = %161
-  %invariant.gep84 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %112, i64 %120
+  %invariant.gep91 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %112, i64 %120
   br label %.preheader32
 
 .preheader32:                                     ; preds = %.preheader32.preheader, %186
   %indvars.iv79 = phi i64 [ 0, %.preheader32.preheader ], [ %indvars.iv.next80, %186 ]
   %.4315.i49 = phi ptr [ %.3314.i, %.preheader32.preheader ], [ %.5316.i, %186 ]
   %.0333.i48 = phi i16 [ 0, %.preheader32.preheader ], [ %.1334.i, %186 ]
-  %gep85 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %invariant.gep84, i64 %indvars.iv79
-  %162 = getelementptr inbounds nuw i8, ptr %gep85, i64 12
+  %gep92 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %invariant.gep91, i64 %indvars.iv79
+  %162 = getelementptr inbounds nuw i8, ptr %gep92, i64 12
   %163 = load i8, ptr %162, align 2, !tbaa !418
   %164 = zext i8 %163 to i32
   %165 = and i32 %164, 4
@@ -16941,7 +16933,7 @@ stbtt__GetGlyfOffset.exit:                        ; preds = %82
 186:                                              ; preds = %176, %174, %166
   %.1334.i = phi i16 [ %173, %166 ], [ %.0333.i48, %174 ], [ %184, %176 ]
   %.5316.i = phi ptr [ %167, %166 ], [ %.4315.i49, %174 ], [ %185, %176 ]
-  %187 = getelementptr inbounds nuw i8, ptr %gep85, i64 2
+  %187 = getelementptr inbounds nuw i8, ptr %gep92, i64 2
   store i16 %.1334.i, ptr %187, align 2, !tbaa !423
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count73
@@ -20271,8 +20263,8 @@ stbtt_FlattenCurves.exit:                         ; preds = %._crit_edge137.us.i
   %143 = getelementptr inbounds %struct.stbtt__edge, ptr %125, i64 %142
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %145 = fcmp olt float %137, %139
-  %sext160.i = shl i64 %indvars.iv136.i, 32
-  %.pre145.i = ashr exact i64 %sext160.i, 32
+  %sext255.i = shl i64 %indvars.iv136.i, 32
+  %.pre145.i = ashr exact i64 %sext255.i, 32
   %..pre145.i = select i1 %145, i64 %135, i64 %.pre145.i
   %.pre145..i = select i1 %145, i64 %.pre145.i, i64 %135
   %..i = zext i1 %145 to i32
@@ -20343,12 +20335,12 @@ stbtt_FlattenCurves.exit:                         ; preds = %._crit_edge137.us.i
   %181 = getelementptr inbounds %struct.stbtt__edge, ptr %125, i64 %180
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %183 = fcmp ogt float %175, %177
-  %sext158.i = shl i64 %indvars.iv128.i, 32
-  %.pre.i = ashr exact i64 %sext158.i, 32
+  %sext253.i = shl i64 %indvars.iv128.i, 32
+  %.pre.i = ashr exact i64 %sext253.i, 32
   %..pre.i = select i1 %183, i64 %173, i64 %.pre.i
   %.pre..i = select i1 %183, i64 %.pre.i, i64 %173
-  %.168.i = zext i1 %183 to i32
-  store i32 %.168.i, ptr %182, align 4, !tbaa !464
+  %.263.i = zext i1 %183 to i32
+  store i32 %.263.i, ptr %182, align 4, !tbaa !464
   %184 = getelementptr inbounds %struct.stbtt__point, ptr %166, i64 %..pre.i
   %185 = load float, ptr %184, align 4, !tbaa !457
   %186 = tail call float @llvm.fmuladd.f32(float %185, float %4, float %6)
@@ -20597,8 +20589,8 @@ stbtt__sort_edges.exit.i:                         ; preds = %218, %._crit_edge11
   %.sroa.0.4.i.i = phi ptr [ %280, %.thread.i.i.i.i ], [ %.sroa.0.1115.i.i, %._crit_edge.i.i.i.i ]
   %283 = phi i32 [ 799, %.thread.i.i.i.i ], [ %278, %._crit_edge.i.i.i.i ]
   %284 = getelementptr inbounds nuw i8, ptr %.sroa.0.4.i.i, i64 8
-  %285 = sext i32 %283 to i64
-  %286 = shl nsw i64 %285, 5
+  %285 = zext nneg i32 %283 to i64
+  %286 = shl nuw nsw i64 %285, 5
   %287 = getelementptr inbounds nuw i8, ptr %284, i64 %286
   br label %288
 
@@ -20639,8 +20631,8 @@ stbtt__sort_edges.exit.i:                         ; preds = %218, %._crit_edge11
   store float %290, ptr %311, align 4, !tbaa !479
   store ptr null, ptr %.023.i.ph.i.i.i, align 8, !tbaa !481
   %312 = fcmp olt float %290, %246
-  %or.cond152.i.i = select i1 %or.cond.i.i, i1 %312, i1 false
-  br i1 %or.cond152.i.i, label %313, label %314
+  %or.cond237.i.i = select i1 %or.cond.i.i, i1 %312, i1 false
+  br i1 %or.cond237.i.i, label %313, label %314
 
 313:                                              ; preds = %288
   store float %246, ptr %311, align 4, !tbaa !479
@@ -25279,7 +25271,7 @@ define range(i32 0, 2) i32 @stbtt_InitFont(ptr noundef captures(none) initialize
   br i1 %exitcond.not.i140.i, label %stbtt__find_table.exit142.i, label %61, !llvm.loop !450
 
 stbtt__find_table.exit142.i:                      ; preds = %99, %80, %3
-  %.2.i347.i = phi i32 [ %.2.i.i, %80 ], [ 0, %3 ], [ %.2.i.i, %99 ]
+  %.2.i343.i = phi i32 [ %.2.i.i, %80 ], [ 0, %3 ], [ %.2.i.i, %99 ]
   %.2.i141.i = phi i32 [ %98, %80 ], [ 0, %3 ], [ 0, %99 ]
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.2.i141.i, ptr %100, align 8, !tbaa !416
@@ -25715,14 +25707,14 @@ stbtt__find_table.exit208.i:                      ; preds = %364, %345, %stbtt__
   %.2.i207.i = phi i32 [ %363, %345 ], [ 0, %stbtt__find_table.exit197.i ], [ 0, %364 ]
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %.2.i207.i, ptr %365, align 8, !tbaa !442
-  %.not.i = icmp eq i32 %.2.i347.i, 0
+  %.not.i = icmp eq i32 %.2.i343.i, 0
   %.not112.i = icmp eq i32 %144, 0
-  %or.cond352.i = select i1 %.not.i, i1 true, i1 %.not112.i
+  %or.cond348.i = select i1 %.not.i, i1 true, i1 %.not112.i
   %.not113.i = icmp eq i32 %.2.i174.i, 0
-  %or.cond353.i = select i1 %or.cond352.i, i1 true, i1 %.not113.i
+  %or.cond349.i = select i1 %or.cond348.i, i1 true, i1 %.not113.i
   %.not114.i = icmp eq i32 %.2.i185.i, 0
-  %or.cond354.i = select i1 %or.cond353.i, i1 true, i1 %.not114.i
-  br i1 %or.cond354.i, label %stbtt_InitFont_internal.exit, label %366
+  %or.cond350.i = select i1 %or.cond349.i, i1 true, i1 %.not114.i
+  br i1 %or.cond350.i, label %stbtt_InitFont_internal.exit, label %366
 
 366:                                              ; preds = %stbtt__find_table.exit208.i
   %.not115.i = icmp eq i32 %.2.i163.i, 0
@@ -25730,7 +25722,7 @@ stbtt__find_table.exit208.i:                      ; preds = %364, %345, %stbtt__
 
 367:                                              ; preds = %366
   %.not120.i = icmp eq i32 %.2.i141.i, 0
-  br i1 %.not120.i, label %stbtt_InitFont_internal.exit, label %715
+  br i1 %.not120.i, label %stbtt_InitFont_internal.exit, label %710
 
 368:                                              ; preds = %366
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -25850,7 +25842,7 @@ stbtt__buf_get8.exit.i:                           ; preds = %423, %411
 429:                                              ; preds = %stbtt__buf_get8.exit.i.i.i, %stbtt__buf_get8.exit.i
   %430 = phi i32 [ %428, %stbtt__buf_get8.exit.i ], [ %439, %stbtt__buf_get8.exit.i.i.i ]
   %431 = phi i32 [ %428, %stbtt__buf_get8.exit.i ], [ %440, %stbtt__buf_get8.exit.i.i.i ]
-  %.07.i.i.i = phi i32 [ 0, %stbtt__buf_get8.exit.i ], [ %442, %stbtt__buf_get8.exit.i.i.i ]
+  %exitcond.not.i.i.i = phi i1 [ false, %stbtt__buf_get8.exit.i ], [ true, %stbtt__buf_get8.exit.i.i.i ]
   %.056.i.i.i = phi i32 [ 0, %stbtt__buf_get8.exit.i ], [ %441, %stbtt__buf_get8.exit.i.i.i ]
   %432 = shl i32 %.056.i.i.i, 8
   %.not.i.i.i.i = icmp slt i32 %431, %420
@@ -25869,616 +25861,606 @@ stbtt__buf_get8.exit.i.i.i:                       ; preds = %433, %429
   %440 = phi i32 [ %434, %433 ], [ %431, %429 ]
   %.0.i.i.i.i = phi i32 [ %438, %433 ], [ 0, %429 ]
   %441 = or disjoint i32 %.0.i.i.i.i, %432
-  %442 = add nuw nsw i32 %.07.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i32 %442, 2
   br i1 %exitcond.not.i.i.i, label %stbtt__buf_get.exit.i.i, label %429, !llvm.loop !574
 
 stbtt__buf_get.exit.i.i:                          ; preds = %stbtt__buf_get8.exit.i.i.i
   %.not.i221.i = icmp eq i32 %441, 0
-  br i1 %.not.i221.i, label %stbtt__cff_get_index.exit.i, label %443
+  br i1 %.not.i221.i, label %stbtt__cff_get_index.exit.i, label %442
 
-443:                                              ; preds = %stbtt__buf_get.exit.i.i
+442:                                              ; preds = %stbtt__buf_get.exit.i.i
   %.not.i.i.i = icmp slt i32 %440, %420
-  br i1 %.not.i.i.i, label %444, label %stbtt__buf_get8.exit.i.i
+  br i1 %.not.i.i.i, label %443, label %stbtt__buf_get8.exit.i.i
 
-444:                                              ; preds = %443
-  %445 = add nsw i32 %440, 1
-  %446 = sext i32 %440 to i64
-  %447 = getelementptr inbounds i8, ptr %.pre.i, i64 %446
-  %448 = load i8, ptr %447, align 1, !tbaa !9
-  %449 = zext i8 %448 to i32
+443:                                              ; preds = %442
+  %444 = add nsw i32 %440, 1
+  %445 = sext i32 %440 to i64
+  %446 = getelementptr inbounds i8, ptr %.pre.i, i64 %445
+  %447 = load i8, ptr %446, align 1, !tbaa !9
+  %448 = zext i8 %447 to i32
   br label %stbtt__buf_get8.exit.i.i
 
-stbtt__buf_get8.exit.i.i:                         ; preds = %444, %443
-  %450 = phi i32 [ %445, %444 ], [ %440, %443 ]
-  %.0.i.i.i = phi i32 [ %449, %444 ], [ 0, %443 ]
-  %451 = mul nsw i32 %.0.i.i.i, %441
-  %452 = add nsw i32 %451, %450
-  %453 = icmp slt i32 %452, 0
-  %454 = tail call i32 @llvm.smin.i32(i32 %452, i32 %420)
-  %..i.i.i.i = select i1 %453, i32 %420, i32 %454
+stbtt__buf_get8.exit.i.i:                         ; preds = %443, %442
+  %449 = phi i32 [ %444, %443 ], [ %440, %442 ]
+  %.0.i.i.i = phi i32 [ %448, %443 ], [ 0, %442 ]
+  %450 = mul nsw i32 %.0.i.i.i, %441
+  %451 = add nsw i32 %450, %449
+  %452 = icmp slt i32 %451, 0
+  %453 = tail call i32 @llvm.smin.i32(i32 %451, i32 %420)
+  %..i.i.i.i = select i1 %452, i32 %420, i32 %453
   %.not.i13.i.i = icmp eq i32 %.0.i.i.i, 0
   br i1 %.not.i13.i.i, label %stbtt__buf_get.exit21.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %stbtt__buf_get8.exit.i.i, %stbtt__buf_get8.exit.i18.i.i
-  %455 = phi i32 [ %463, %stbtt__buf_get8.exit.i18.i.i ], [ %..i.i.i.i, %stbtt__buf_get8.exit.i.i ]
-  %.07.i15.i.i = phi i32 [ %465, %stbtt__buf_get8.exit.i18.i.i ], [ 0, %stbtt__buf_get8.exit.i.i ]
-  %.056.i16.i.i = phi i32 [ %464, %stbtt__buf_get8.exit.i18.i.i ], [ 0, %stbtt__buf_get8.exit.i.i ]
-  %456 = shl i32 %.056.i16.i.i, 8
-  %.not.i.i17.i.i = icmp slt i32 %455, %420
-  br i1 %.not.i.i17.i.i, label %457, label %stbtt__buf_get8.exit.i18.i.i
+  %454 = phi i32 [ %462, %stbtt__buf_get8.exit.i18.i.i ], [ %..i.i.i.i, %stbtt__buf_get8.exit.i.i ]
+  %.07.i15.i.i = phi i32 [ %464, %stbtt__buf_get8.exit.i18.i.i ], [ 0, %stbtt__buf_get8.exit.i.i ]
+  %.056.i16.i.i = phi i32 [ %463, %stbtt__buf_get8.exit.i18.i.i ], [ 0, %stbtt__buf_get8.exit.i.i ]
+  %455 = shl i32 %.056.i16.i.i, 8
+  %.not.i.i17.i.i = icmp slt i32 %454, %420
+  br i1 %.not.i.i17.i.i, label %456, label %stbtt__buf_get8.exit.i18.i.i
 
-457:                                              ; preds = %.lr.ph.i.i.i
-  %458 = add nsw i32 %455, 1
-  %459 = sext i32 %455 to i64
-  %460 = getelementptr inbounds i8, ptr %.pre.i, i64 %459
-  %461 = load i8, ptr %460, align 1, !tbaa !9
-  %462 = zext i8 %461 to i32
+456:                                              ; preds = %.lr.ph.i.i.i
+  %457 = add nsw i32 %454, 1
+  %458 = sext i32 %454 to i64
+  %459 = getelementptr inbounds i8, ptr %.pre.i, i64 %458
+  %460 = load i8, ptr %459, align 1, !tbaa !9
+  %461 = zext i8 %460 to i32
   br label %stbtt__buf_get8.exit.i18.i.i
 
-stbtt__buf_get8.exit.i18.i.i:                     ; preds = %457, %.lr.ph.i.i.i
-  %463 = phi i32 [ %458, %457 ], [ %455, %.lr.ph.i.i.i ]
-  %.0.i.i19.i.i = phi i32 [ %462, %457 ], [ 0, %.lr.ph.i.i.i ]
-  %464 = or disjoint i32 %.0.i.i19.i.i, %456
-  %465 = add nuw nsw i32 %.07.i15.i.i, 1
-  %exitcond.not.i20.i.i = icmp eq i32 %465, %.0.i.i.i
+stbtt__buf_get8.exit.i18.i.i:                     ; preds = %456, %.lr.ph.i.i.i
+  %462 = phi i32 [ %457, %456 ], [ %454, %.lr.ph.i.i.i ]
+  %.0.i.i19.i.i = phi i32 [ %461, %456 ], [ 0, %.lr.ph.i.i.i ]
+  %463 = or disjoint i32 %.0.i.i19.i.i, %455
+  %464 = add nuw nsw i32 %.07.i15.i.i, 1
+  %exitcond.not.i20.i.i = icmp eq i32 %464, %.0.i.i.i
   br i1 %exitcond.not.i20.i.i, label %stbtt__buf_get.exit21.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !574
 
 stbtt__buf_get.exit21.loopexit.i.i:               ; preds = %stbtt__buf_get8.exit.i18.i.i
-  %466 = add i32 %464, -1
+  %465 = add i32 %463, -1
   br label %stbtt__buf_get.exit21.i.i
 
 stbtt__buf_get.exit21.i.i:                        ; preds = %stbtt__buf_get.exit21.loopexit.i.i, %stbtt__buf_get8.exit.i.i
-  %467 = phi i32 [ %..i.i.i.i, %stbtt__buf_get8.exit.i.i ], [ %463, %stbtt__buf_get.exit21.loopexit.i.i ]
-  %.05.lcssa.i.i.i = phi i32 [ -1, %stbtt__buf_get8.exit.i.i ], [ %466, %stbtt__buf_get.exit21.loopexit.i.i ]
-  %468 = add nsw i32 %.05.lcssa.i.i.i, %467
-  %469 = icmp slt i32 %468, 0
-  %470 = tail call i32 @llvm.smin.i32(i32 %468, i32 %420)
-  %..i.i22.i.i = select i1 %469, i32 %420, i32 %470
+  %466 = phi i32 [ %..i.i.i.i, %stbtt__buf_get8.exit.i.i ], [ %462, %stbtt__buf_get.exit21.loopexit.i.i ]
+  %.05.lcssa.i.i.i = phi i32 [ -1, %stbtt__buf_get8.exit.i.i ], [ %465, %stbtt__buf_get.exit21.loopexit.i.i ]
+  %467 = add nsw i32 %.05.lcssa.i.i.i, %466
+  %468 = icmp slt i32 %467, 0
+  %469 = tail call i32 @llvm.smin.i32(i32 %467, i32 %420)
+  %..i.i22.i.i = select i1 %468, i32 %420, i32 %469
   br label %stbtt__cff_get_index.exit.i
 
 stbtt__cff_get_index.exit.i:                      ; preds = %stbtt__buf_get.exit21.i.i, %stbtt__buf_get.exit.i.i
-  %471 = phi i32 [ %..i.i22.i.i, %stbtt__buf_get.exit21.i.i ], [ %439, %stbtt__buf_get.exit.i.i ]
-  br label %472
+  %470 = phi i32 [ %..i.i22.i.i, %stbtt__buf_get.exit21.i.i ], [ %439, %stbtt__buf_get.exit.i.i ]
+  br label %471
 
-472:                                              ; preds = %stbtt__buf_get8.exit.i.i225.i, %stbtt__cff_get_index.exit.i
-  %473 = phi i32 [ %471, %stbtt__cff_get_index.exit.i ], [ %482, %stbtt__buf_get8.exit.i.i225.i ]
-  %474 = phi i32 [ %471, %stbtt__cff_get_index.exit.i ], [ %483, %stbtt__buf_get8.exit.i.i225.i ]
-  %.07.i.i222.i = phi i32 [ 0, %stbtt__cff_get_index.exit.i ], [ %485, %stbtt__buf_get8.exit.i.i225.i ]
-  %.056.i.i223.i = phi i32 [ 0, %stbtt__cff_get_index.exit.i ], [ %484, %stbtt__buf_get8.exit.i.i225.i ]
-  %475 = shl i32 %.056.i.i223.i, 8
-  %.not.i.i.i224.i = icmp slt i32 %474, %420
-  br i1 %.not.i.i.i224.i, label %476, label %stbtt__buf_get8.exit.i.i225.i
+471:                                              ; preds = %stbtt__buf_get8.exit.i.i225.i, %stbtt__cff_get_index.exit.i
+  %472 = phi i32 [ %470, %stbtt__cff_get_index.exit.i ], [ %481, %stbtt__buf_get8.exit.i.i225.i ]
+  %473 = phi i32 [ %470, %stbtt__cff_get_index.exit.i ], [ %482, %stbtt__buf_get8.exit.i.i225.i ]
+  %exitcond.not.i.i222.i = phi i1 [ false, %stbtt__cff_get_index.exit.i ], [ true, %stbtt__buf_get8.exit.i.i225.i ]
+  %.056.i.i223.i = phi i32 [ 0, %stbtt__cff_get_index.exit.i ], [ %483, %stbtt__buf_get8.exit.i.i225.i ]
+  %474 = shl i32 %.056.i.i223.i, 8
+  %.not.i.i.i224.i = icmp slt i32 %473, %420
+  br i1 %.not.i.i.i224.i, label %475, label %stbtt__buf_get8.exit.i.i225.i
 
-476:                                              ; preds = %472
-  %477 = add nsw i32 %474, 1
-  %478 = sext i32 %474 to i64
-  %479 = getelementptr inbounds i8, ptr %.pre.i, i64 %478
-  %480 = load i8, ptr %479, align 1, !tbaa !9
-  %481 = zext i8 %480 to i32
+475:                                              ; preds = %471
+  %476 = add nsw i32 %473, 1
+  %477 = sext i32 %473 to i64
+  %478 = getelementptr inbounds i8, ptr %.pre.i, i64 %477
+  %479 = load i8, ptr %478, align 1, !tbaa !9
+  %480 = zext i8 %479 to i32
   br label %stbtt__buf_get8.exit.i.i225.i
 
-stbtt__buf_get8.exit.i.i225.i:                    ; preds = %476, %472
-  %482 = phi i32 [ %477, %476 ], [ %473, %472 ]
-  %483 = phi i32 [ %477, %476 ], [ %474, %472 ]
-  %.0.i.i.i226.i = phi i32 [ %481, %476 ], [ 0, %472 ]
-  %484 = or disjoint i32 %.0.i.i.i226.i, %475
-  %485 = add nuw nsw i32 %.07.i.i222.i, 1
-  %exitcond.not.i.i227.i = icmp eq i32 %485, 2
-  br i1 %exitcond.not.i.i227.i, label %stbtt__buf_get.exit.i228.i, label %472, !llvm.loop !574
+stbtt__buf_get8.exit.i.i225.i:                    ; preds = %475, %471
+  %481 = phi i32 [ %476, %475 ], [ %472, %471 ]
+  %482 = phi i32 [ %476, %475 ], [ %473, %471 ]
+  %.0.i.i.i226.i = phi i32 [ %480, %475 ], [ 0, %471 ]
+  %483 = or disjoint i32 %.0.i.i.i226.i, %474
+  br i1 %exitcond.not.i.i222.i, label %stbtt__buf_get.exit.i227.i, label %471, !llvm.loop !574
 
-stbtt__buf_get.exit.i228.i:                       ; preds = %stbtt__buf_get8.exit.i.i225.i
-  %.not.i229.i = icmp eq i32 %484, 0
-  br i1 %.not.i229.i, label %514, label %486
+stbtt__buf_get.exit.i227.i:                       ; preds = %stbtt__buf_get8.exit.i.i225.i
+  %.not.i228.i = icmp eq i32 %483, 0
+  br i1 %.not.i228.i, label %512, label %484
 
-486:                                              ; preds = %stbtt__buf_get.exit.i228.i
-  %.not.i.i230.i = icmp slt i32 %483, %420
-  br i1 %.not.i.i230.i, label %487, label %stbtt__buf_get8.exit.i231.i
+484:                                              ; preds = %stbtt__buf_get.exit.i227.i
+  %.not.i.i229.i = icmp slt i32 %482, %420
+  br i1 %.not.i.i229.i, label %485, label %stbtt__buf_get8.exit.i230.i
 
-487:                                              ; preds = %486
-  %488 = add nsw i32 %483, 1
-  %489 = sext i32 %483 to i64
-  %490 = getelementptr inbounds i8, ptr %.pre.i, i64 %489
-  %491 = load i8, ptr %490, align 1, !tbaa !9
-  %492 = zext i8 %491 to i32
-  br label %stbtt__buf_get8.exit.i231.i
+485:                                              ; preds = %484
+  %486 = add nsw i32 %482, 1
+  %487 = sext i32 %482 to i64
+  %488 = getelementptr inbounds i8, ptr %.pre.i, i64 %487
+  %489 = load i8, ptr %488, align 1, !tbaa !9
+  %490 = zext i8 %489 to i32
+  br label %stbtt__buf_get8.exit.i230.i
 
-stbtt__buf_get8.exit.i231.i:                      ; preds = %487, %486
-  %493 = phi i32 [ %488, %487 ], [ %483, %486 ]
-  %.0.i.i232.i = phi i32 [ %492, %487 ], [ 0, %486 ]
-  %494 = mul nsw i32 %.0.i.i232.i, %484
-  %495 = add nsw i32 %494, %493
-  %496 = icmp slt i32 %495, 0
-  %497 = tail call i32 @llvm.smin.i32(i32 %495, i32 %420)
-  %..i.i.i233.i = select i1 %496, i32 %420, i32 %497
-  %.not.i13.i234.i = icmp eq i32 %.0.i.i232.i, 0
-  br i1 %.not.i13.i234.i, label %stbtt__buf_get.exit21.i243.i, label %.lr.ph.i.i235.i
+stbtt__buf_get8.exit.i230.i:                      ; preds = %485, %484
+  %491 = phi i32 [ %486, %485 ], [ %482, %484 ]
+  %.0.i.i231.i = phi i32 [ %490, %485 ], [ 0, %484 ]
+  %492 = mul nsw i32 %.0.i.i231.i, %483
+  %493 = add nsw i32 %492, %491
+  %494 = icmp slt i32 %493, 0
+  %495 = tail call i32 @llvm.smin.i32(i32 %493, i32 %420)
+  %..i.i.i232.i = select i1 %494, i32 %420, i32 %495
+  %.not.i13.i233.i = icmp eq i32 %.0.i.i231.i, 0
+  br i1 %.not.i13.i233.i, label %stbtt__buf_get.exit21.i242.i, label %.lr.ph.i.i234.i
 
-.lr.ph.i.i235.i:                                  ; preds = %stbtt__buf_get8.exit.i231.i, %stbtt__buf_get8.exit.i18.i239.i
-  %498 = phi i32 [ %506, %stbtt__buf_get8.exit.i18.i239.i ], [ %..i.i.i233.i, %stbtt__buf_get8.exit.i231.i ]
-  %.07.i15.i236.i = phi i32 [ %508, %stbtt__buf_get8.exit.i18.i239.i ], [ 0, %stbtt__buf_get8.exit.i231.i ]
-  %.056.i16.i237.i = phi i32 [ %507, %stbtt__buf_get8.exit.i18.i239.i ], [ 0, %stbtt__buf_get8.exit.i231.i ]
-  %499 = shl i32 %.056.i16.i237.i, 8
-  %.not.i.i17.i238.i = icmp slt i32 %498, %420
-  br i1 %.not.i.i17.i238.i, label %500, label %stbtt__buf_get8.exit.i18.i239.i
+.lr.ph.i.i234.i:                                  ; preds = %stbtt__buf_get8.exit.i230.i, %stbtt__buf_get8.exit.i18.i238.i
+  %496 = phi i32 [ %504, %stbtt__buf_get8.exit.i18.i238.i ], [ %..i.i.i232.i, %stbtt__buf_get8.exit.i230.i ]
+  %.07.i15.i235.i = phi i32 [ %506, %stbtt__buf_get8.exit.i18.i238.i ], [ 0, %stbtt__buf_get8.exit.i230.i ]
+  %.056.i16.i236.i = phi i32 [ %505, %stbtt__buf_get8.exit.i18.i238.i ], [ 0, %stbtt__buf_get8.exit.i230.i ]
+  %497 = shl i32 %.056.i16.i236.i, 8
+  %.not.i.i17.i237.i = icmp slt i32 %496, %420
+  br i1 %.not.i.i17.i237.i, label %498, label %stbtt__buf_get8.exit.i18.i238.i
 
-500:                                              ; preds = %.lr.ph.i.i235.i
-  %501 = add nsw i32 %498, 1
-  %502 = sext i32 %498 to i64
-  %503 = getelementptr inbounds i8, ptr %.pre.i, i64 %502
-  %504 = load i8, ptr %503, align 1, !tbaa !9
-  %505 = zext i8 %504 to i32
-  br label %stbtt__buf_get8.exit.i18.i239.i
+498:                                              ; preds = %.lr.ph.i.i234.i
+  %499 = add nsw i32 %496, 1
+  %500 = sext i32 %496 to i64
+  %501 = getelementptr inbounds i8, ptr %.pre.i, i64 %500
+  %502 = load i8, ptr %501, align 1, !tbaa !9
+  %503 = zext i8 %502 to i32
+  br label %stbtt__buf_get8.exit.i18.i238.i
 
-stbtt__buf_get8.exit.i18.i239.i:                  ; preds = %500, %.lr.ph.i.i235.i
-  %506 = phi i32 [ %501, %500 ], [ %498, %.lr.ph.i.i235.i ]
-  %.0.i.i19.i240.i = phi i32 [ %505, %500 ], [ 0, %.lr.ph.i.i235.i ]
-  %507 = or disjoint i32 %.0.i.i19.i240.i, %499
-  %508 = add nuw nsw i32 %.07.i15.i236.i, 1
-  %exitcond.not.i20.i241.i = icmp eq i32 %508, %.0.i.i232.i
-  br i1 %exitcond.not.i20.i241.i, label %stbtt__buf_get.exit21.loopexit.i242.i, label %.lr.ph.i.i235.i, !llvm.loop !574
+stbtt__buf_get8.exit.i18.i238.i:                  ; preds = %498, %.lr.ph.i.i234.i
+  %504 = phi i32 [ %499, %498 ], [ %496, %.lr.ph.i.i234.i ]
+  %.0.i.i19.i239.i = phi i32 [ %503, %498 ], [ 0, %.lr.ph.i.i234.i ]
+  %505 = or disjoint i32 %.0.i.i19.i239.i, %497
+  %506 = add nuw nsw i32 %.07.i15.i235.i, 1
+  %exitcond.not.i20.i240.i = icmp eq i32 %506, %.0.i.i231.i
+  br i1 %exitcond.not.i20.i240.i, label %stbtt__buf_get.exit21.loopexit.i241.i, label %.lr.ph.i.i234.i, !llvm.loop !574
 
-stbtt__buf_get.exit21.loopexit.i242.i:            ; preds = %stbtt__buf_get8.exit.i18.i239.i
-  %509 = add i32 %507, -1
-  br label %stbtt__buf_get.exit21.i243.i
+stbtt__buf_get.exit21.loopexit.i241.i:            ; preds = %stbtt__buf_get8.exit.i18.i238.i
+  %507 = add i32 %505, -1
+  br label %stbtt__buf_get.exit21.i242.i
 
-stbtt__buf_get.exit21.i243.i:                     ; preds = %stbtt__buf_get.exit21.loopexit.i242.i, %stbtt__buf_get8.exit.i231.i
-  %510 = phi i32 [ %..i.i.i233.i, %stbtt__buf_get8.exit.i231.i ], [ %506, %stbtt__buf_get.exit21.loopexit.i242.i ]
-  %.05.lcssa.i.i244.i = phi i32 [ -1, %stbtt__buf_get8.exit.i231.i ], [ %509, %stbtt__buf_get.exit21.loopexit.i242.i ]
-  %511 = add nsw i32 %.05.lcssa.i.i244.i, %510
-  %512 = icmp slt i32 %511, 0
-  %513 = tail call i32 @llvm.smin.i32(i32 %511, i32 %420)
-  %..i.i22.i245.i = select i1 %512, i32 %420, i32 %513
-  br label %514
+stbtt__buf_get.exit21.i242.i:                     ; preds = %stbtt__buf_get.exit21.loopexit.i241.i, %stbtt__buf_get8.exit.i230.i
+  %508 = phi i32 [ %..i.i.i232.i, %stbtt__buf_get8.exit.i230.i ], [ %504, %stbtt__buf_get.exit21.loopexit.i241.i ]
+  %.05.lcssa.i.i243.i = phi i32 [ -1, %stbtt__buf_get8.exit.i230.i ], [ %507, %stbtt__buf_get.exit21.loopexit.i241.i ]
+  %509 = add nsw i32 %.05.lcssa.i.i243.i, %508
+  %510 = icmp slt i32 %509, 0
+  %511 = tail call i32 @llvm.smin.i32(i32 %509, i32 %420)
+  %..i.i22.i244.i = select i1 %510, i32 %420, i32 %511
+  br label %512
 
-514:                                              ; preds = %stbtt__buf_get.exit21.i243.i, %stbtt__buf_get.exit.i228.i
-  %515 = phi i32 [ %..i.i22.i245.i, %stbtt__buf_get.exit21.i243.i ], [ %482, %stbtt__buf_get.exit.i228.i ]
-  %516 = phi i32 [ %..i.i22.i245.i, %stbtt__buf_get.exit21.i243.i ], [ %483, %stbtt__buf_get.exit.i228.i ]
-  %517 = sub nsw i32 %516, %471
-  %518 = or i32 %517, %471
-  %or.cond.not.i.i246.i = icmp sgt i32 %518, -1
-  br i1 %or.cond.not.i.i246.i, label %519, label %stbtt__cff_get_index.exit252.i
+512:                                              ; preds = %stbtt__buf_get.exit21.i242.i, %stbtt__buf_get.exit.i227.i
+  %513 = phi i32 [ %..i.i22.i244.i, %stbtt__buf_get.exit21.i242.i ], [ %481, %stbtt__buf_get.exit.i227.i ]
+  %514 = phi i32 [ %..i.i22.i244.i, %stbtt__buf_get.exit21.i242.i ], [ %482, %stbtt__buf_get.exit.i227.i ]
+  %515 = sub nsw i32 %514, %470
+  %516 = or i32 %515, %470
+  %or.cond.not.i.i245.i = icmp sgt i32 %516, -1
+  br i1 %or.cond.not.i.i245.i, label %517, label %stbtt__cff_get_index.exit251.i
 
-519:                                              ; preds = %514
-  %520 = icmp sgt i32 %471, %420
-  %521 = icmp sgt i32 %516, %420
-  %or.cond.i.i251.i = or i1 %520, %521
-  br i1 %or.cond.i.i251.i, label %stbtt__cff_get_index.exit252.i, label %522
+517:                                              ; preds = %512
+  %518 = icmp sgt i32 %470, %420
+  %519 = icmp sgt i32 %514, %420
+  %or.cond.i.i250.i = or i1 %518, %519
+  br i1 %or.cond.i.i250.i, label %stbtt__cff_get_index.exit251.i, label %520
 
-522:                                              ; preds = %519
-  %523 = zext nneg i32 %471 to i64
-  %524 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %523
-  br label %stbtt__cff_get_index.exit252.i
+520:                                              ; preds = %517
+  %521 = zext nneg i32 %470 to i64
+  %522 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %521
+  br label %stbtt__cff_get_index.exit251.i
 
-stbtt__cff_get_index.exit252.i:                   ; preds = %522, %519, %514
-  %.sroa.0.0.i.i247.i = phi ptr [ null, %514 ], [ null, %519 ], [ %524, %522 ]
-  %.sroa.5.0.i.i248.i = phi i32 [ 0, %514 ], [ 0, %519 ], [ %517, %522 ]
-  br label %525
+stbtt__cff_get_index.exit251.i:                   ; preds = %520, %517, %512
+  %.sroa.0.0.i.i246.i = phi ptr [ null, %512 ], [ null, %517 ], [ %522, %520 ]
+  %.sroa.5.0.i.i247.i = phi i32 [ 0, %512 ], [ 0, %517 ], [ %515, %520 ]
+  br label %523
 
-525:                                              ; preds = %stbtt__buf_get8.exit.i.i256.i, %stbtt__cff_get_index.exit252.i
-  %.sroa.6.0.i.i = phi i32 [ 0, %stbtt__cff_get_index.exit252.i ], [ %.sroa.6.1.i.i, %stbtt__buf_get8.exit.i.i256.i ]
-  %526 = phi i32 [ 0, %stbtt__cff_get_index.exit252.i ], [ %534, %stbtt__buf_get8.exit.i.i256.i ]
-  %.07.i.i253.i = phi i32 [ 0, %stbtt__cff_get_index.exit252.i ], [ %536, %stbtt__buf_get8.exit.i.i256.i ]
-  %.056.i.i254.i = phi i32 [ 0, %stbtt__cff_get_index.exit252.i ], [ %535, %stbtt__buf_get8.exit.i.i256.i ]
-  %527 = shl i32 %.056.i.i254.i, 8
-  %.not.i.i.i255.i = icmp slt i32 %526, %.sroa.5.0.i.i248.i
-  br i1 %.not.i.i.i255.i, label %528, label %stbtt__buf_get8.exit.i.i256.i
+523:                                              ; preds = %stbtt__buf_get8.exit.i.i255.i, %stbtt__cff_get_index.exit251.i
+  %.sroa.6.0.i.i = phi i32 [ 0, %stbtt__cff_get_index.exit251.i ], [ %.sroa.6.1.i.i, %stbtt__buf_get8.exit.i.i255.i ]
+  %524 = phi i32 [ 0, %stbtt__cff_get_index.exit251.i ], [ %532, %stbtt__buf_get8.exit.i.i255.i ]
+  %exitcond.not.i.i252.i = phi i1 [ false, %stbtt__cff_get_index.exit251.i ], [ true, %stbtt__buf_get8.exit.i.i255.i ]
+  %.056.i.i253.i = phi i32 [ 0, %stbtt__cff_get_index.exit251.i ], [ %533, %stbtt__buf_get8.exit.i.i255.i ]
+  %525 = shl i32 %.056.i.i253.i, 8
+  %.not.i.i.i254.i = icmp slt i32 %524, %.sroa.5.0.i.i247.i
+  br i1 %.not.i.i.i254.i, label %526, label %stbtt__buf_get8.exit.i.i255.i
 
-528:                                              ; preds = %525
-  %529 = add nsw i32 %526, 1
-  %530 = sext i32 %526 to i64
-  %531 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i247.i, i64 %530
-  %532 = load i8, ptr %531, align 1, !tbaa !9
-  %533 = zext i8 %532 to i32
-  br label %stbtt__buf_get8.exit.i.i256.i
+526:                                              ; preds = %523
+  %527 = add nsw i32 %524, 1
+  %528 = sext i32 %524 to i64
+  %529 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i246.i, i64 %528
+  %530 = load i8, ptr %529, align 1, !tbaa !9
+  %531 = zext i8 %530 to i32
+  br label %stbtt__buf_get8.exit.i.i255.i
 
-stbtt__buf_get8.exit.i.i256.i:                    ; preds = %528, %525
-  %.sroa.6.1.i.i = phi i32 [ %529, %528 ], [ %.sroa.6.0.i.i, %525 ]
-  %534 = phi i32 [ %529, %528 ], [ %526, %525 ]
-  %.0.i.i.i257.i = phi i32 [ %533, %528 ], [ 0, %525 ]
-  %535 = or disjoint i32 %.0.i.i.i257.i, %527
-  %536 = add nuw nsw i32 %.07.i.i253.i, 1
-  %exitcond.not.i.i258.i = icmp eq i32 %536, 2
-  br i1 %exitcond.not.i.i258.i, label %stbtt__buf_get.exit.i259.i, label %525, !llvm.loop !574
+stbtt__buf_get8.exit.i.i255.i:                    ; preds = %526, %523
+  %.sroa.6.1.i.i = phi i32 [ %527, %526 ], [ %.sroa.6.0.i.i, %523 ]
+  %532 = phi i32 [ %527, %526 ], [ %524, %523 ]
+  %.0.i.i.i256.i = phi i32 [ %531, %526 ], [ 0, %523 ]
+  %533 = or disjoint i32 %.0.i.i.i256.i, %525
+  br i1 %exitcond.not.i.i252.i, label %stbtt__buf_get.exit.i257.i, label %523, !llvm.loop !574
 
-stbtt__buf_get.exit.i259.i:                       ; preds = %stbtt__buf_get8.exit.i.i256.i
-  %.not.i.i260.i = icmp slt i32 %.sroa.6.1.i.i, %.sroa.5.0.i.i248.i
-  br i1 %.not.i.i260.i, label %stbtt__buf_get8.exit.i267.i, label %stbtt__buf_get.exit28.i.i
+stbtt__buf_get.exit.i257.i:                       ; preds = %stbtt__buf_get8.exit.i.i255.i
+  %.not.i.i258.i = icmp slt i32 %.sroa.6.1.i.i, %.sroa.5.0.i.i247.i
+  br i1 %.not.i.i258.i, label %stbtt__buf_get8.exit.i265.i, label %stbtt__buf_get.exit28.i.i
 
-stbtt__buf_get8.exit.i267.i:                      ; preds = %stbtt__buf_get.exit.i259.i
-  %537 = sext i32 %.sroa.6.1.i.i to i64
-  %538 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i247.i, i64 %537
-  %539 = load i8, ptr %538, align 1, !tbaa !9
-  %540 = zext i8 %539 to i32
-  %.not.i9.i.i = icmp eq i8 %539, 0
+stbtt__buf_get8.exit.i265.i:                      ; preds = %stbtt__buf_get.exit.i257.i
+  %534 = sext i32 %.sroa.6.1.i.i to i64
+  %535 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i246.i, i64 %534
+  %536 = load i8, ptr %535, align 1, !tbaa !9
+  %537 = zext i8 %536 to i32
+  %.not.i9.i.i = icmp eq i8 %536, 0
   br i1 %.not.i9.i.i, label %stbtt__buf_get.exit28.i.i, label %.lr.ph.i.preheader.i.i
 
-.lr.ph.i.preheader.i.i:                           ; preds = %stbtt__buf_get8.exit.i267.i
-  %541 = add nsw i32 %.sroa.6.1.i.i, 1
-  %542 = icmp slt i32 %.sroa.6.1.i.i, -1
-  %..i.i.i268.i = select i1 %542, i32 %.sroa.5.0.i.i248.i, i32 %541
-  br label %.lr.ph.i.i269.i
+.lr.ph.i.preheader.i.i:                           ; preds = %stbtt__buf_get8.exit.i265.i
+  %538 = add nsw i32 %.sroa.6.1.i.i, 1
+  %539 = icmp slt i32 %.sroa.6.1.i.i, -1
+  %..i.i.i266.i = select i1 %539, i32 %.sroa.5.0.i.i247.i, i32 %538
+  br label %.lr.ph.i.i267.i
 
-.lr.ph.i.i269.i:                                  ; preds = %stbtt__buf_get8.exit.i14.i.i, %.lr.ph.i.preheader.i.i
-  %.sroa.6.3.i.i = phi i32 [ %.sroa.6.4.i.i, %stbtt__buf_get8.exit.i14.i.i ], [ %..i.i.i268.i, %.lr.ph.i.preheader.i.i ]
-  %543 = phi i32 [ %551, %stbtt__buf_get8.exit.i14.i.i ], [ %..i.i.i268.i, %.lr.ph.i.preheader.i.i ]
-  %.07.i11.i.i = phi i32 [ %553, %stbtt__buf_get8.exit.i14.i.i ], [ 0, %.lr.ph.i.preheader.i.i ]
-  %.056.i12.i.i = phi i32 [ %552, %stbtt__buf_get8.exit.i14.i.i ], [ 0, %.lr.ph.i.preheader.i.i ]
-  %544 = shl i32 %.056.i12.i.i, 8
-  %.not.i.i13.i.i = icmp slt i32 %543, %.sroa.5.0.i.i248.i
-  br i1 %.not.i.i13.i.i, label %545, label %stbtt__buf_get8.exit.i14.i.i
+.lr.ph.i.i267.i:                                  ; preds = %stbtt__buf_get8.exit.i14.i.i, %.lr.ph.i.preheader.i.i
+  %.sroa.6.3.i.i = phi i32 [ %.sroa.6.4.i.i, %stbtt__buf_get8.exit.i14.i.i ], [ %..i.i.i266.i, %.lr.ph.i.preheader.i.i ]
+  %540 = phi i32 [ %548, %stbtt__buf_get8.exit.i14.i.i ], [ %..i.i.i266.i, %.lr.ph.i.preheader.i.i ]
+  %.07.i11.i.i = phi i32 [ %550, %stbtt__buf_get8.exit.i14.i.i ], [ 0, %.lr.ph.i.preheader.i.i ]
+  %.056.i12.i.i = phi i32 [ %549, %stbtt__buf_get8.exit.i14.i.i ], [ 0, %.lr.ph.i.preheader.i.i ]
+  %541 = shl i32 %.056.i12.i.i, 8
+  %.not.i.i13.i.i = icmp slt i32 %540, %.sroa.5.0.i.i247.i
+  br i1 %.not.i.i13.i.i, label %542, label %stbtt__buf_get8.exit.i14.i.i
 
-545:                                              ; preds = %.lr.ph.i.i269.i
-  %546 = add nsw i32 %543, 1
-  %547 = sext i32 %543 to i64
-  %548 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i247.i, i64 %547
-  %549 = load i8, ptr %548, align 1, !tbaa !9
-  %550 = zext i8 %549 to i32
+542:                                              ; preds = %.lr.ph.i.i267.i
+  %543 = add nsw i32 %540, 1
+  %544 = sext i32 %540 to i64
+  %545 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i246.i, i64 %544
+  %546 = load i8, ptr %545, align 1, !tbaa !9
+  %547 = zext i8 %546 to i32
   br label %stbtt__buf_get8.exit.i14.i.i
 
-stbtt__buf_get8.exit.i14.i.i:                     ; preds = %545, %.lr.ph.i.i269.i
-  %.sroa.6.4.i.i = phi i32 [ %546, %545 ], [ %.sroa.6.3.i.i, %.lr.ph.i.i269.i ]
-  %551 = phi i32 [ %546, %545 ], [ %543, %.lr.ph.i.i269.i ]
-  %.0.i.i15.i.i = phi i32 [ %550, %545 ], [ 0, %.lr.ph.i.i269.i ]
-  %552 = or disjoint i32 %.0.i.i15.i.i, %544
-  %553 = add nuw nsw i32 %.07.i11.i.i, 1
-  %exitcond.not.i16.i.i = icmp eq i32 %553, %540
-  br i1 %exitcond.not.i16.i.i, label %.lr.ph.i19.i.i, label %.lr.ph.i.i269.i, !llvm.loop !574
+stbtt__buf_get8.exit.i14.i.i:                     ; preds = %542, %.lr.ph.i.i267.i
+  %.sroa.6.4.i.i = phi i32 [ %543, %542 ], [ %.sroa.6.3.i.i, %.lr.ph.i.i267.i ]
+  %548 = phi i32 [ %543, %542 ], [ %540, %.lr.ph.i.i267.i ]
+  %.0.i.i15.i.i = phi i32 [ %547, %542 ], [ 0, %.lr.ph.i.i267.i ]
+  %549 = or disjoint i32 %.0.i.i15.i.i, %541
+  %550 = add nuw nsw i32 %.07.i11.i.i, 1
+  %exitcond.not.i16.i.i = icmp eq i32 %550, %537
+  br i1 %exitcond.not.i16.i.i, label %.lr.ph.i19.i.i, label %.lr.ph.i.i267.i, !llvm.loop !574
 
 .lr.ph.i19.i.i:                                   ; preds = %stbtt__buf_get8.exit.i14.i.i, %stbtt__buf_get8.exit.i24.i.i
-  %554 = phi i32 [ %562, %stbtt__buf_get8.exit.i24.i.i ], [ %.sroa.6.4.i.i, %stbtt__buf_get8.exit.i14.i.i ]
-  %.07.i21.i.i = phi i32 [ %564, %stbtt__buf_get8.exit.i24.i.i ], [ 0, %stbtt__buf_get8.exit.i14.i.i ]
-  %.056.i22.i.i = phi i32 [ %563, %stbtt__buf_get8.exit.i24.i.i ], [ 0, %stbtt__buf_get8.exit.i14.i.i ]
-  %555 = shl i32 %.056.i22.i.i, 8
-  %.not.i.i23.i.i = icmp slt i32 %554, %.sroa.5.0.i.i248.i
-  br i1 %.not.i.i23.i.i, label %556, label %stbtt__buf_get8.exit.i24.i.i
+  %551 = phi i32 [ %559, %stbtt__buf_get8.exit.i24.i.i ], [ %.sroa.6.4.i.i, %stbtt__buf_get8.exit.i14.i.i ]
+  %.07.i21.i.i = phi i32 [ %561, %stbtt__buf_get8.exit.i24.i.i ], [ 0, %stbtt__buf_get8.exit.i14.i.i ]
+  %.056.i22.i.i = phi i32 [ %560, %stbtt__buf_get8.exit.i24.i.i ], [ 0, %stbtt__buf_get8.exit.i14.i.i ]
+  %552 = shl i32 %.056.i22.i.i, 8
+  %.not.i.i23.i.i = icmp slt i32 %551, %.sroa.5.0.i.i247.i
+  br i1 %.not.i.i23.i.i, label %553, label %stbtt__buf_get8.exit.i24.i.i
 
-556:                                              ; preds = %.lr.ph.i19.i.i
-  %557 = add nsw i32 %554, 1
-  %558 = sext i32 %554 to i64
-  %559 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i247.i, i64 %558
-  %560 = load i8, ptr %559, align 1, !tbaa !9
-  %561 = zext i8 %560 to i32
+553:                                              ; preds = %.lr.ph.i19.i.i
+  %554 = add nsw i32 %551, 1
+  %555 = sext i32 %551 to i64
+  %556 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i246.i, i64 %555
+  %557 = load i8, ptr %556, align 1, !tbaa !9
+  %558 = zext i8 %557 to i32
   br label %stbtt__buf_get8.exit.i24.i.i
 
-stbtt__buf_get8.exit.i24.i.i:                     ; preds = %556, %.lr.ph.i19.i.i
-  %562 = phi i32 [ %557, %556 ], [ %554, %.lr.ph.i19.i.i ]
-  %.0.i.i25.i.i = phi i32 [ %561, %556 ], [ 0, %.lr.ph.i19.i.i ]
-  %563 = or disjoint i32 %.0.i.i25.i.i, %555
-  %564 = add nuw nsw i32 %.07.i21.i.i, 1
-  %exitcond.not.i26.i.i = icmp eq i32 %564, %540
+stbtt__buf_get8.exit.i24.i.i:                     ; preds = %553, %.lr.ph.i19.i.i
+  %559 = phi i32 [ %554, %553 ], [ %551, %.lr.ph.i19.i.i ]
+  %.0.i.i25.i.i = phi i32 [ %558, %553 ], [ 0, %.lr.ph.i19.i.i ]
+  %560 = or disjoint i32 %.0.i.i25.i.i, %552
+  %561 = add nuw nsw i32 %.07.i21.i.i, 1
+  %exitcond.not.i26.i.i = icmp eq i32 %561, %537
   br i1 %exitcond.not.i26.i.i, label %stbtt__buf_get.exit28.i.i, label %.lr.ph.i19.i.i, !llvm.loop !574
 
-stbtt__buf_get.exit28.i.i:                        ; preds = %stbtt__buf_get8.exit.i24.i.i, %stbtt__buf_get8.exit.i267.i, %stbtt__buf_get.exit.i259.i
-  %.0.i50.i.i = phi i32 [ 0, %stbtt__buf_get8.exit.i267.i ], [ 0, %stbtt__buf_get.exit.i259.i ], [ %540, %stbtt__buf_get8.exit.i24.i.i ]
-  %.05.lcssa.i42.i.i = phi i32 [ 0, %stbtt__buf_get8.exit.i267.i ], [ 0, %stbtt__buf_get.exit.i259.i ], [ %552, %stbtt__buf_get8.exit.i24.i.i ]
-  %.05.lcssa.i27.i.i = phi i32 [ 0, %stbtt__buf_get8.exit.i267.i ], [ 0, %stbtt__buf_get.exit.i259.i ], [ %563, %stbtt__buf_get8.exit.i24.i.i ]
-  %565 = add nsw i32 %535, 1
-  %566 = mul nsw i32 %.0.i50.i.i, %565
-  %567 = add nsw i32 %566, 2
-  %568 = add nsw i32 %567, %.05.lcssa.i42.i.i
-  %569 = sub nsw i32 %.05.lcssa.i27.i.i, %.05.lcssa.i42.i.i
-  %570 = or i32 %569, %568
-  %or.cond.not.i.i261.i = icmp sgt i32 %570, -1
-  br i1 %or.cond.not.i.i261.i, label %571, label %stbtt__cff_index_get.exit.i
+stbtt__buf_get.exit28.i.i:                        ; preds = %stbtt__buf_get8.exit.i24.i.i, %stbtt__buf_get8.exit.i265.i, %stbtt__buf_get.exit.i257.i
+  %.0.i59.i.i = phi i32 [ 0, %stbtt__buf_get8.exit.i265.i ], [ 0, %stbtt__buf_get.exit.i257.i ], [ %537, %stbtt__buf_get8.exit.i24.i.i ]
+  %.05.lcssa.i42.i.i = phi i32 [ 0, %stbtt__buf_get8.exit.i265.i ], [ 0, %stbtt__buf_get.exit.i257.i ], [ %549, %stbtt__buf_get8.exit.i24.i.i ]
+  %.05.lcssa.i27.i.i = phi i32 [ 0, %stbtt__buf_get8.exit.i265.i ], [ 0, %stbtt__buf_get.exit.i257.i ], [ %560, %stbtt__buf_get8.exit.i24.i.i ]
+  %562 = add nsw i32 %533, 1
+  %563 = mul nsw i32 %.0.i59.i.i, %562
+  %564 = add nsw i32 %563, 2
+  %565 = add nsw i32 %564, %.05.lcssa.i42.i.i
+  %566 = sub nsw i32 %.05.lcssa.i27.i.i, %.05.lcssa.i42.i.i
+  %567 = or i32 %566, %565
+  %or.cond.not.i.i259.i = icmp sgt i32 %567, -1
+  br i1 %or.cond.not.i.i259.i, label %568, label %stbtt__cff_index_get.exit.i
 
-571:                                              ; preds = %stbtt__buf_get.exit28.i.i
-  %572 = icmp sgt i32 %568, %.sroa.5.0.i.i248.i
-  %573 = sub nsw i32 %.sroa.5.0.i.i248.i, %568
-  %574 = icmp sgt i32 %569, %573
-  %or.cond.i.i266.i = select i1 %572, i1 true, i1 %574
-  br i1 %or.cond.i.i266.i, label %stbtt__cff_index_get.exit.i, label %575
+568:                                              ; preds = %stbtt__buf_get.exit28.i.i
+  %569 = icmp sgt i32 %565, %.sroa.5.0.i.i247.i
+  %570 = sub nsw i32 %.sroa.5.0.i.i247.i, %565
+  %571 = icmp sgt i32 %566, %570
+  %or.cond.i.i264.i = select i1 %569, i1 true, i1 %571
+  br i1 %or.cond.i.i264.i, label %stbtt__cff_index_get.exit.i, label %572
 
-575:                                              ; preds = %571
-  %576 = zext nneg i32 %568 to i64
-  %577 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i247.i, i64 %576
-  %578 = zext nneg i32 %569 to i64
-  %579 = shl nuw nsw i64 %578, 32
+572:                                              ; preds = %568
+  %573 = zext nneg i32 %565 to i64
+  %574 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i246.i, i64 %573
+  %575 = zext nneg i32 %566 to i64
+  %576 = shl nuw nsw i64 %575, 32
   br label %stbtt__cff_index_get.exit.i
 
-stbtt__cff_index_get.exit.i:                      ; preds = %575, %571, %stbtt__buf_get.exit28.i.i
-  %.sroa.0.0.i.i262.i = phi ptr [ null, %stbtt__buf_get.exit28.i.i ], [ null, %571 ], [ %577, %575 ]
-  %.sroa.5.0.i.i263.i = phi i64 [ 0, %stbtt__buf_get.exit28.i.i ], [ 0, %571 ], [ %579, %575 ]
-  store ptr %.sroa.0.0.i.i262.i, ptr %5, align 8, !tbaa !13
+stbtt__cff_index_get.exit.i:                      ; preds = %572, %568, %stbtt__buf_get.exit28.i.i
+  %.sroa.0.0.i.i260.i = phi ptr [ null, %stbtt__buf_get.exit28.i.i ], [ null, %568 ], [ %574, %572 ]
+  %.sroa.5.0.i.i261.i = phi i64 [ 0, %stbtt__buf_get.exit28.i.i ], [ 0, %568 ], [ %576, %572 ]
+  store ptr %.sroa.0.0.i.i260.i, ptr %5, align 8, !tbaa !13
   %.sroa.414.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %.sroa.5.0.i.i263.i, ptr %.sroa.414.0..sroa_idx.i, align 8
-  br label %580
+  store i64 %.sroa.5.0.i.i261.i, ptr %.sroa.414.0..sroa_idx.i, align 8
+  br label %577
 
-580:                                              ; preds = %stbtt__buf_get8.exit.i.i273.i, %stbtt__cff_index_get.exit.i
-  %581 = phi i32 [ %515, %stbtt__cff_index_get.exit.i ], [ %590, %stbtt__buf_get8.exit.i.i273.i ]
-  %582 = phi i32 [ %515, %stbtt__cff_index_get.exit.i ], [ %591, %stbtt__buf_get8.exit.i.i273.i ]
-  %.07.i.i270.i = phi i32 [ 0, %stbtt__cff_index_get.exit.i ], [ %593, %stbtt__buf_get8.exit.i.i273.i ]
-  %.056.i.i271.i = phi i32 [ 0, %stbtt__cff_index_get.exit.i ], [ %592, %stbtt__buf_get8.exit.i.i273.i ]
-  %583 = shl i32 %.056.i.i271.i, 8
-  %.not.i.i.i272.i = icmp slt i32 %582, %420
-  br i1 %.not.i.i.i272.i, label %584, label %stbtt__buf_get8.exit.i.i273.i
+577:                                              ; preds = %stbtt__buf_get8.exit.i.i271.i, %stbtt__cff_index_get.exit.i
+  %578 = phi i32 [ %513, %stbtt__cff_index_get.exit.i ], [ %587, %stbtt__buf_get8.exit.i.i271.i ]
+  %579 = phi i32 [ %513, %stbtt__cff_index_get.exit.i ], [ %588, %stbtt__buf_get8.exit.i.i271.i ]
+  %exitcond.not.i.i268.i = phi i1 [ false, %stbtt__cff_index_get.exit.i ], [ true, %stbtt__buf_get8.exit.i.i271.i ]
+  %.056.i.i269.i = phi i32 [ 0, %stbtt__cff_index_get.exit.i ], [ %589, %stbtt__buf_get8.exit.i.i271.i ]
+  %580 = shl i32 %.056.i.i269.i, 8
+  %.not.i.i.i270.i = icmp slt i32 %579, %420
+  br i1 %.not.i.i.i270.i, label %581, label %stbtt__buf_get8.exit.i.i271.i
 
-584:                                              ; preds = %580
-  %585 = add nsw i32 %582, 1
-  %586 = sext i32 %582 to i64
-  %587 = getelementptr inbounds i8, ptr %.pre.i, i64 %586
-  %588 = load i8, ptr %587, align 1, !tbaa !9
-  %589 = zext i8 %588 to i32
-  br label %stbtt__buf_get8.exit.i.i273.i
+581:                                              ; preds = %577
+  %582 = add nsw i32 %579, 1
+  %583 = sext i32 %579 to i64
+  %584 = getelementptr inbounds i8, ptr %.pre.i, i64 %583
+  %585 = load i8, ptr %584, align 1, !tbaa !9
+  %586 = zext i8 %585 to i32
+  br label %stbtt__buf_get8.exit.i.i271.i
 
-stbtt__buf_get8.exit.i.i273.i:                    ; preds = %584, %580
-  %590 = phi i32 [ %585, %584 ], [ %581, %580 ]
-  %591 = phi i32 [ %585, %584 ], [ %582, %580 ]
-  %.0.i.i.i274.i = phi i32 [ %589, %584 ], [ 0, %580 ]
-  %592 = or disjoint i32 %.0.i.i.i274.i, %583
-  %593 = add nuw nsw i32 %.07.i.i270.i, 1
-  %exitcond.not.i.i275.i = icmp eq i32 %593, 2
-  br i1 %exitcond.not.i.i275.i, label %stbtt__buf_get.exit.i276.i, label %580, !llvm.loop !574
+stbtt__buf_get8.exit.i.i271.i:                    ; preds = %581, %577
+  %587 = phi i32 [ %582, %581 ], [ %578, %577 ]
+  %588 = phi i32 [ %582, %581 ], [ %579, %577 ]
+  %.0.i.i.i272.i = phi i32 [ %586, %581 ], [ 0, %577 ]
+  %589 = or disjoint i32 %.0.i.i.i272.i, %580
+  br i1 %exitcond.not.i.i268.i, label %stbtt__buf_get.exit.i273.i, label %577, !llvm.loop !574
 
-stbtt__buf_get.exit.i276.i:                       ; preds = %stbtt__buf_get8.exit.i.i273.i
-  %.not.i277.i = icmp eq i32 %592, 0
-  br i1 %.not.i277.i, label %stbtt__cff_get_index.exit300.i, label %594
+stbtt__buf_get.exit.i273.i:                       ; preds = %stbtt__buf_get8.exit.i.i271.i
+  %.not.i274.i = icmp eq i32 %589, 0
+  br i1 %.not.i274.i, label %stbtt__cff_get_index.exit297.i, label %590
 
-594:                                              ; preds = %stbtt__buf_get.exit.i276.i
-  %.not.i.i278.i = icmp slt i32 %591, %420
-  br i1 %.not.i.i278.i, label %595, label %stbtt__buf_get8.exit.i279.i
+590:                                              ; preds = %stbtt__buf_get.exit.i273.i
+  %.not.i.i275.i = icmp slt i32 %588, %420
+  br i1 %.not.i.i275.i, label %591, label %stbtt__buf_get8.exit.i276.i
 
-595:                                              ; preds = %594
-  %596 = add nsw i32 %591, 1
-  %597 = sext i32 %591 to i64
-  %598 = getelementptr inbounds i8, ptr %.pre.i, i64 %597
-  %599 = load i8, ptr %598, align 1, !tbaa !9
-  %600 = zext i8 %599 to i32
-  br label %stbtt__buf_get8.exit.i279.i
+591:                                              ; preds = %590
+  %592 = add nsw i32 %588, 1
+  %593 = sext i32 %588 to i64
+  %594 = getelementptr inbounds i8, ptr %.pre.i, i64 %593
+  %595 = load i8, ptr %594, align 1, !tbaa !9
+  %596 = zext i8 %595 to i32
+  br label %stbtt__buf_get8.exit.i276.i
 
-stbtt__buf_get8.exit.i279.i:                      ; preds = %595, %594
-  %601 = phi i32 [ %596, %595 ], [ %591, %594 ]
-  %.0.i.i280.i = phi i32 [ %600, %595 ], [ 0, %594 ]
-  %602 = mul nsw i32 %.0.i.i280.i, %592
-  %603 = add nsw i32 %602, %601
-  %604 = icmp slt i32 %603, 0
-  %605 = tail call i32 @llvm.smin.i32(i32 %603, i32 %420)
-  %..i.i.i281.i = select i1 %604, i32 %420, i32 %605
-  %.not.i13.i282.i = icmp eq i32 %.0.i.i280.i, 0
-  br i1 %.not.i13.i282.i, label %stbtt__buf_get.exit21.i291.i, label %.lr.ph.i.i283.i
+stbtt__buf_get8.exit.i276.i:                      ; preds = %591, %590
+  %597 = phi i32 [ %592, %591 ], [ %588, %590 ]
+  %.0.i.i277.i = phi i32 [ %596, %591 ], [ 0, %590 ]
+  %598 = mul nsw i32 %.0.i.i277.i, %589
+  %599 = add nsw i32 %598, %597
+  %600 = icmp slt i32 %599, 0
+  %601 = tail call i32 @llvm.smin.i32(i32 %599, i32 %420)
+  %..i.i.i278.i = select i1 %600, i32 %420, i32 %601
+  %.not.i13.i279.i = icmp eq i32 %.0.i.i277.i, 0
+  br i1 %.not.i13.i279.i, label %stbtt__buf_get.exit21.i288.i, label %.lr.ph.i.i280.i
 
-.lr.ph.i.i283.i:                                  ; preds = %stbtt__buf_get8.exit.i279.i, %stbtt__buf_get8.exit.i18.i287.i
-  %606 = phi i32 [ %614, %stbtt__buf_get8.exit.i18.i287.i ], [ %..i.i.i281.i, %stbtt__buf_get8.exit.i279.i ]
-  %.07.i15.i284.i = phi i32 [ %616, %stbtt__buf_get8.exit.i18.i287.i ], [ 0, %stbtt__buf_get8.exit.i279.i ]
-  %.056.i16.i285.i = phi i32 [ %615, %stbtt__buf_get8.exit.i18.i287.i ], [ 0, %stbtt__buf_get8.exit.i279.i ]
-  %607 = shl i32 %.056.i16.i285.i, 8
-  %.not.i.i17.i286.i = icmp slt i32 %606, %420
-  br i1 %.not.i.i17.i286.i, label %608, label %stbtt__buf_get8.exit.i18.i287.i
+.lr.ph.i.i280.i:                                  ; preds = %stbtt__buf_get8.exit.i276.i, %stbtt__buf_get8.exit.i18.i284.i
+  %602 = phi i32 [ %610, %stbtt__buf_get8.exit.i18.i284.i ], [ %..i.i.i278.i, %stbtt__buf_get8.exit.i276.i ]
+  %.07.i15.i281.i = phi i32 [ %612, %stbtt__buf_get8.exit.i18.i284.i ], [ 0, %stbtt__buf_get8.exit.i276.i ]
+  %.056.i16.i282.i = phi i32 [ %611, %stbtt__buf_get8.exit.i18.i284.i ], [ 0, %stbtt__buf_get8.exit.i276.i ]
+  %603 = shl i32 %.056.i16.i282.i, 8
+  %.not.i.i17.i283.i = icmp slt i32 %602, %420
+  br i1 %.not.i.i17.i283.i, label %604, label %stbtt__buf_get8.exit.i18.i284.i
 
-608:                                              ; preds = %.lr.ph.i.i283.i
-  %609 = add nsw i32 %606, 1
-  %610 = sext i32 %606 to i64
-  %611 = getelementptr inbounds i8, ptr %.pre.i, i64 %610
-  %612 = load i8, ptr %611, align 1, !tbaa !9
-  %613 = zext i8 %612 to i32
-  br label %stbtt__buf_get8.exit.i18.i287.i
+604:                                              ; preds = %.lr.ph.i.i280.i
+  %605 = add nsw i32 %602, 1
+  %606 = sext i32 %602 to i64
+  %607 = getelementptr inbounds i8, ptr %.pre.i, i64 %606
+  %608 = load i8, ptr %607, align 1, !tbaa !9
+  %609 = zext i8 %608 to i32
+  br label %stbtt__buf_get8.exit.i18.i284.i
 
-stbtt__buf_get8.exit.i18.i287.i:                  ; preds = %608, %.lr.ph.i.i283.i
-  %614 = phi i32 [ %609, %608 ], [ %606, %.lr.ph.i.i283.i ]
-  %.0.i.i19.i288.i = phi i32 [ %613, %608 ], [ 0, %.lr.ph.i.i283.i ]
-  %615 = or disjoint i32 %.0.i.i19.i288.i, %607
-  %616 = add nuw nsw i32 %.07.i15.i284.i, 1
-  %exitcond.not.i20.i289.i = icmp eq i32 %616, %.0.i.i280.i
-  br i1 %exitcond.not.i20.i289.i, label %stbtt__buf_get.exit21.loopexit.i290.i, label %.lr.ph.i.i283.i, !llvm.loop !574
+stbtt__buf_get8.exit.i18.i284.i:                  ; preds = %604, %.lr.ph.i.i280.i
+  %610 = phi i32 [ %605, %604 ], [ %602, %.lr.ph.i.i280.i ]
+  %.0.i.i19.i285.i = phi i32 [ %609, %604 ], [ 0, %.lr.ph.i.i280.i ]
+  %611 = or disjoint i32 %.0.i.i19.i285.i, %603
+  %612 = add nuw nsw i32 %.07.i15.i281.i, 1
+  %exitcond.not.i20.i286.i = icmp eq i32 %612, %.0.i.i277.i
+  br i1 %exitcond.not.i20.i286.i, label %stbtt__buf_get.exit21.loopexit.i287.i, label %.lr.ph.i.i280.i, !llvm.loop !574
 
-stbtt__buf_get.exit21.loopexit.i290.i:            ; preds = %stbtt__buf_get8.exit.i18.i287.i
-  %617 = add i32 %615, -1
-  br label %stbtt__buf_get.exit21.i291.i
+stbtt__buf_get.exit21.loopexit.i287.i:            ; preds = %stbtt__buf_get8.exit.i18.i284.i
+  %613 = add i32 %611, -1
+  br label %stbtt__buf_get.exit21.i288.i
 
-stbtt__buf_get.exit21.i291.i:                     ; preds = %stbtt__buf_get.exit21.loopexit.i290.i, %stbtt__buf_get8.exit.i279.i
-  %618 = phi i32 [ %..i.i.i281.i, %stbtt__buf_get8.exit.i279.i ], [ %614, %stbtt__buf_get.exit21.loopexit.i290.i ]
-  %.05.lcssa.i.i292.i = phi i32 [ -1, %stbtt__buf_get8.exit.i279.i ], [ %617, %stbtt__buf_get.exit21.loopexit.i290.i ]
-  %619 = add nsw i32 %.05.lcssa.i.i292.i, %618
-  %620 = icmp slt i32 %619, 0
-  %621 = tail call i32 @llvm.smin.i32(i32 %619, i32 %420)
-  %..i.i22.i293.i = select i1 %620, i32 %420, i32 %621
-  br label %stbtt__cff_get_index.exit300.i
+stbtt__buf_get.exit21.i288.i:                     ; preds = %stbtt__buf_get.exit21.loopexit.i287.i, %stbtt__buf_get8.exit.i276.i
+  %614 = phi i32 [ %..i.i.i278.i, %stbtt__buf_get8.exit.i276.i ], [ %610, %stbtt__buf_get.exit21.loopexit.i287.i ]
+  %.05.lcssa.i.i289.i = phi i32 [ -1, %stbtt__buf_get8.exit.i276.i ], [ %613, %stbtt__buf_get.exit21.loopexit.i287.i ]
+  %615 = add nsw i32 %.05.lcssa.i.i289.i, %614
+  %616 = icmp slt i32 %615, 0
+  %617 = tail call i32 @llvm.smin.i32(i32 %615, i32 %420)
+  %..i.i22.i290.i = select i1 %616, i32 %420, i32 %617
+  br label %stbtt__cff_get_index.exit297.i
 
-stbtt__cff_get_index.exit300.i:                   ; preds = %stbtt__buf_get.exit21.i291.i, %stbtt__buf_get.exit.i276.i
-  %622 = phi i32 [ %..i.i22.i293.i, %stbtt__buf_get.exit21.i291.i ], [ %590, %stbtt__buf_get.exit.i276.i ]
-  br label %623
+stbtt__cff_get_index.exit297.i:                   ; preds = %stbtt__buf_get.exit21.i288.i, %stbtt__buf_get.exit.i273.i
+  %618 = phi i32 [ %..i.i22.i290.i, %stbtt__buf_get.exit21.i288.i ], [ %587, %stbtt__buf_get.exit.i273.i ]
+  br label %619
 
-623:                                              ; preds = %stbtt__buf_get8.exit.i.i304.i, %stbtt__cff_get_index.exit300.i
-  %624 = phi i32 [ %622, %stbtt__cff_get_index.exit300.i ], [ %633, %stbtt__buf_get8.exit.i.i304.i ]
-  %625 = phi i32 [ %622, %stbtt__cff_get_index.exit300.i ], [ %634, %stbtt__buf_get8.exit.i.i304.i ]
-  %.07.i.i301.i = phi i32 [ 0, %stbtt__cff_get_index.exit300.i ], [ %636, %stbtt__buf_get8.exit.i.i304.i ]
-  %.056.i.i302.i = phi i32 [ 0, %stbtt__cff_get_index.exit300.i ], [ %635, %stbtt__buf_get8.exit.i.i304.i ]
-  %626 = shl i32 %.056.i.i302.i, 8
-  %.not.i.i.i303.i = icmp slt i32 %625, %420
-  br i1 %.not.i.i.i303.i, label %627, label %stbtt__buf_get8.exit.i.i304.i
+619:                                              ; preds = %stbtt__buf_get8.exit.i.i301.i, %stbtt__cff_get_index.exit297.i
+  %620 = phi i32 [ %618, %stbtt__cff_get_index.exit297.i ], [ %629, %stbtt__buf_get8.exit.i.i301.i ]
+  %621 = phi i32 [ %618, %stbtt__cff_get_index.exit297.i ], [ %630, %stbtt__buf_get8.exit.i.i301.i ]
+  %exitcond.not.i.i298.i = phi i1 [ false, %stbtt__cff_get_index.exit297.i ], [ true, %stbtt__buf_get8.exit.i.i301.i ]
+  %.056.i.i299.i = phi i32 [ 0, %stbtt__cff_get_index.exit297.i ], [ %631, %stbtt__buf_get8.exit.i.i301.i ]
+  %622 = shl i32 %.056.i.i299.i, 8
+  %.not.i.i.i300.i = icmp slt i32 %621, %420
+  br i1 %.not.i.i.i300.i, label %623, label %stbtt__buf_get8.exit.i.i301.i
 
-627:                                              ; preds = %623
-  %628 = add nsw i32 %625, 1
-  %629 = sext i32 %625 to i64
-  %630 = getelementptr inbounds i8, ptr %.pre.i, i64 %629
-  %631 = load i8, ptr %630, align 1, !tbaa !9
-  %632 = zext i8 %631 to i32
-  br label %stbtt__buf_get8.exit.i.i304.i
+623:                                              ; preds = %619
+  %624 = add nsw i32 %621, 1
+  %625 = sext i32 %621 to i64
+  %626 = getelementptr inbounds i8, ptr %.pre.i, i64 %625
+  %627 = load i8, ptr %626, align 1, !tbaa !9
+  %628 = zext i8 %627 to i32
+  br label %stbtt__buf_get8.exit.i.i301.i
 
-stbtt__buf_get8.exit.i.i304.i:                    ; preds = %627, %623
-  %633 = phi i32 [ %628, %627 ], [ %624, %623 ]
-  %634 = phi i32 [ %628, %627 ], [ %625, %623 ]
-  %.0.i.i.i305.i = phi i32 [ %632, %627 ], [ 0, %623 ]
-  %635 = or disjoint i32 %.0.i.i.i305.i, %626
-  %636 = add nuw nsw i32 %.07.i.i301.i, 1
-  %exitcond.not.i.i306.i = icmp eq i32 %636, 2
-  br i1 %exitcond.not.i.i306.i, label %stbtt__buf_get.exit.i307.i, label %623, !llvm.loop !574
+stbtt__buf_get8.exit.i.i301.i:                    ; preds = %623, %619
+  %629 = phi i32 [ %624, %623 ], [ %620, %619 ]
+  %630 = phi i32 [ %624, %623 ], [ %621, %619 ]
+  %.0.i.i.i302.i = phi i32 [ %628, %623 ], [ 0, %619 ]
+  %631 = or disjoint i32 %.0.i.i.i302.i, %622
+  br i1 %exitcond.not.i.i298.i, label %stbtt__buf_get.exit.i303.i, label %619, !llvm.loop !574
 
-stbtt__buf_get.exit.i307.i:                       ; preds = %stbtt__buf_get8.exit.i.i304.i
-  %637 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 %633, ptr %416, align 8
-  %.not.i308.i = icmp eq i32 %635, 0
-  br i1 %.not.i308.i, label %666, label %638
+stbtt__buf_get.exit.i303.i:                       ; preds = %stbtt__buf_get8.exit.i.i301.i
+  %632 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i32 %629, ptr %416, align 8
+  %.not.i304.i = icmp eq i32 %631, 0
+  br i1 %.not.i304.i, label %661, label %633
 
-638:                                              ; preds = %stbtt__buf_get.exit.i307.i
-  %.not.i.i309.i = icmp slt i32 %634, %420
-  br i1 %.not.i.i309.i, label %639, label %stbtt__buf_get8.exit.i310.i
+633:                                              ; preds = %stbtt__buf_get.exit.i303.i
+  %.not.i.i305.i = icmp slt i32 %630, %420
+  br i1 %.not.i.i305.i, label %634, label %stbtt__buf_get8.exit.i306.i
 
-639:                                              ; preds = %638
-  %640 = add nsw i32 %634, 1
-  %641 = sext i32 %634 to i64
-  %642 = getelementptr inbounds i8, ptr %.pre.i, i64 %641
-  %643 = load i8, ptr %642, align 1, !tbaa !9
-  %644 = zext i8 %643 to i32
-  br label %stbtt__buf_get8.exit.i310.i
+634:                                              ; preds = %633
+  %635 = add nsw i32 %630, 1
+  %636 = sext i32 %630 to i64
+  %637 = getelementptr inbounds i8, ptr %.pre.i, i64 %636
+  %638 = load i8, ptr %637, align 1, !tbaa !9
+  %639 = zext i8 %638 to i32
+  br label %stbtt__buf_get8.exit.i306.i
 
-stbtt__buf_get8.exit.i310.i:                      ; preds = %639, %638
-  %645 = phi i32 [ %640, %639 ], [ %634, %638 ]
-  %.0.i.i311.i = phi i32 [ %644, %639 ], [ 0, %638 ]
-  %646 = mul nsw i32 %.0.i.i311.i, %635
-  %647 = add nsw i32 %646, %645
-  %648 = icmp slt i32 %647, 0
-  %649 = tail call i32 @llvm.smin.i32(i32 %647, i32 %420)
-  %..i.i.i312.i = select i1 %648, i32 %420, i32 %649
-  %.not.i13.i313.i = icmp eq i32 %.0.i.i311.i, 0
-  br i1 %.not.i13.i313.i, label %stbtt__buf_get.exit21.i322.i, label %.lr.ph.i.i314.i
+stbtt__buf_get8.exit.i306.i:                      ; preds = %634, %633
+  %640 = phi i32 [ %635, %634 ], [ %630, %633 ]
+  %.0.i.i307.i = phi i32 [ %639, %634 ], [ 0, %633 ]
+  %641 = mul nsw i32 %.0.i.i307.i, %631
+  %642 = add nsw i32 %641, %640
+  %643 = icmp slt i32 %642, 0
+  %644 = tail call i32 @llvm.smin.i32(i32 %642, i32 %420)
+  %..i.i.i308.i = select i1 %643, i32 %420, i32 %644
+  %.not.i13.i309.i = icmp eq i32 %.0.i.i307.i, 0
+  br i1 %.not.i13.i309.i, label %stbtt__buf_get.exit21.i318.i, label %.lr.ph.i.i310.i
 
-.lr.ph.i.i314.i:                                  ; preds = %stbtt__buf_get8.exit.i310.i, %stbtt__buf_get8.exit.i18.i318.i
-  %650 = phi i32 [ %658, %stbtt__buf_get8.exit.i18.i318.i ], [ %..i.i.i312.i, %stbtt__buf_get8.exit.i310.i ]
-  %.07.i15.i315.i = phi i32 [ %660, %stbtt__buf_get8.exit.i18.i318.i ], [ 0, %stbtt__buf_get8.exit.i310.i ]
-  %.056.i16.i316.i = phi i32 [ %659, %stbtt__buf_get8.exit.i18.i318.i ], [ 0, %stbtt__buf_get8.exit.i310.i ]
-  %651 = shl i32 %.056.i16.i316.i, 8
-  %.not.i.i17.i317.i = icmp slt i32 %650, %420
-  br i1 %.not.i.i17.i317.i, label %652, label %stbtt__buf_get8.exit.i18.i318.i
+.lr.ph.i.i310.i:                                  ; preds = %stbtt__buf_get8.exit.i306.i, %stbtt__buf_get8.exit.i18.i314.i
+  %645 = phi i32 [ %653, %stbtt__buf_get8.exit.i18.i314.i ], [ %..i.i.i308.i, %stbtt__buf_get8.exit.i306.i ]
+  %.07.i15.i311.i = phi i32 [ %655, %stbtt__buf_get8.exit.i18.i314.i ], [ 0, %stbtt__buf_get8.exit.i306.i ]
+  %.056.i16.i312.i = phi i32 [ %654, %stbtt__buf_get8.exit.i18.i314.i ], [ 0, %stbtt__buf_get8.exit.i306.i ]
+  %646 = shl i32 %.056.i16.i312.i, 8
+  %.not.i.i17.i313.i = icmp slt i32 %645, %420
+  br i1 %.not.i.i17.i313.i, label %647, label %stbtt__buf_get8.exit.i18.i314.i
 
-652:                                              ; preds = %.lr.ph.i.i314.i
-  %653 = add nsw i32 %650, 1
-  %654 = sext i32 %650 to i64
-  %655 = getelementptr inbounds i8, ptr %.pre.i, i64 %654
-  %656 = load i8, ptr %655, align 1, !tbaa !9
-  %657 = zext i8 %656 to i32
-  br label %stbtt__buf_get8.exit.i18.i318.i
+647:                                              ; preds = %.lr.ph.i.i310.i
+  %648 = add nsw i32 %645, 1
+  %649 = sext i32 %645 to i64
+  %650 = getelementptr inbounds i8, ptr %.pre.i, i64 %649
+  %651 = load i8, ptr %650, align 1, !tbaa !9
+  %652 = zext i8 %651 to i32
+  br label %stbtt__buf_get8.exit.i18.i314.i
 
-stbtt__buf_get8.exit.i18.i318.i:                  ; preds = %652, %.lr.ph.i.i314.i
-  %658 = phi i32 [ %653, %652 ], [ %650, %.lr.ph.i.i314.i ]
-  %.0.i.i19.i319.i = phi i32 [ %657, %652 ], [ 0, %.lr.ph.i.i314.i ]
-  %659 = or disjoint i32 %.0.i.i19.i319.i, %651
-  %660 = add nuw nsw i32 %.07.i15.i315.i, 1
-  %exitcond.not.i20.i320.i = icmp eq i32 %660, %.0.i.i311.i
-  br i1 %exitcond.not.i20.i320.i, label %stbtt__buf_get.exit21.loopexit.i321.i, label %.lr.ph.i.i314.i, !llvm.loop !574
+stbtt__buf_get8.exit.i18.i314.i:                  ; preds = %647, %.lr.ph.i.i310.i
+  %653 = phi i32 [ %648, %647 ], [ %645, %.lr.ph.i.i310.i ]
+  %.0.i.i19.i315.i = phi i32 [ %652, %647 ], [ 0, %.lr.ph.i.i310.i ]
+  %654 = or disjoint i32 %.0.i.i19.i315.i, %646
+  %655 = add nuw nsw i32 %.07.i15.i311.i, 1
+  %exitcond.not.i20.i316.i = icmp eq i32 %655, %.0.i.i307.i
+  br i1 %exitcond.not.i20.i316.i, label %stbtt__buf_get.exit21.loopexit.i317.i, label %.lr.ph.i.i310.i, !llvm.loop !574
 
-stbtt__buf_get.exit21.loopexit.i321.i:            ; preds = %stbtt__buf_get8.exit.i18.i318.i
-  %661 = add i32 %659, -1
-  br label %stbtt__buf_get.exit21.i322.i
+stbtt__buf_get.exit21.loopexit.i317.i:            ; preds = %stbtt__buf_get8.exit.i18.i314.i
+  %656 = add i32 %654, -1
+  br label %stbtt__buf_get.exit21.i318.i
 
-stbtt__buf_get.exit21.i322.i:                     ; preds = %stbtt__buf_get.exit21.loopexit.i321.i, %stbtt__buf_get8.exit.i310.i
-  %662 = phi i32 [ %..i.i.i312.i, %stbtt__buf_get8.exit.i310.i ], [ %658, %stbtt__buf_get.exit21.loopexit.i321.i ]
-  %.05.lcssa.i.i323.i = phi i32 [ -1, %stbtt__buf_get8.exit.i310.i ], [ %661, %stbtt__buf_get.exit21.loopexit.i321.i ]
-  %663 = add nsw i32 %.05.lcssa.i.i323.i, %662
-  %664 = icmp slt i32 %663, 0
-  %665 = tail call i32 @llvm.smin.i32(i32 %663, i32 %420)
-  %..i.i22.i324.i = select i1 %664, i32 %420, i32 %665
-  store i32 %..i.i22.i324.i, ptr %416, align 8, !tbaa !572
-  br label %666
+stbtt__buf_get.exit21.i318.i:                     ; preds = %stbtt__buf_get.exit21.loopexit.i317.i, %stbtt__buf_get8.exit.i306.i
+  %657 = phi i32 [ %..i.i.i308.i, %stbtt__buf_get8.exit.i306.i ], [ %653, %stbtt__buf_get.exit21.loopexit.i317.i ]
+  %.05.lcssa.i.i319.i = phi i32 [ -1, %stbtt__buf_get8.exit.i306.i ], [ %656, %stbtt__buf_get.exit21.loopexit.i317.i ]
+  %658 = add nsw i32 %.05.lcssa.i.i319.i, %657
+  %659 = icmp slt i32 %658, 0
+  %660 = tail call i32 @llvm.smin.i32(i32 %658, i32 %420)
+  %..i.i22.i320.i = select i1 %659, i32 %420, i32 %660
+  store i32 %..i.i22.i320.i, ptr %416, align 8, !tbaa !572
+  br label %661
 
-666:                                              ; preds = %stbtt__buf_get.exit21.i322.i, %stbtt__buf_get.exit.i307.i
-  %667 = phi i32 [ %..i.i22.i324.i, %stbtt__buf_get.exit21.i322.i ], [ %634, %stbtt__buf_get.exit.i307.i ]
-  %668 = sub nsw i32 %667, %622
-  %669 = or i32 %668, %622
-  %or.cond.not.i.i325.i = icmp sgt i32 %669, -1
-  br i1 %or.cond.not.i.i325.i, label %670, label %stbtt__cff_get_index.exit331.i
+661:                                              ; preds = %stbtt__buf_get.exit21.i318.i, %stbtt__buf_get.exit.i303.i
+  %662 = phi i32 [ %..i.i22.i320.i, %stbtt__buf_get.exit21.i318.i ], [ %630, %stbtt__buf_get.exit.i303.i ]
+  %663 = sub nsw i32 %662, %618
+  %664 = or i32 %663, %618
+  %or.cond.not.i.i321.i = icmp sgt i32 %664, -1
+  br i1 %or.cond.not.i.i321.i, label %665, label %stbtt__cff_get_index.exit327.i
 
-670:                                              ; preds = %666
-  %671 = icmp sgt i32 %622, %420
-  %672 = icmp sgt i32 %667, %420
-  %or.cond.i.i330.i = or i1 %671, %672
-  br i1 %or.cond.i.i330.i, label %stbtt__cff_get_index.exit331.i, label %673
+665:                                              ; preds = %661
+  %666 = icmp sgt i32 %618, %420
+  %667 = icmp sgt i32 %662, %420
+  %or.cond.i.i326.i = or i1 %666, %667
+  br i1 %or.cond.i.i326.i, label %stbtt__cff_get_index.exit327.i, label %668
 
-673:                                              ; preds = %670
-  %674 = zext nneg i32 %622 to i64
-  %675 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %674
-  %676 = zext nneg i32 %668 to i64
-  %677 = shl nuw nsw i64 %676, 32
-  br label %stbtt__cff_get_index.exit331.i
+668:                                              ; preds = %665
+  %669 = zext nneg i32 %618 to i64
+  %670 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %669
+  %671 = zext nneg i32 %663 to i64
+  %672 = shl nuw nsw i64 %671, 32
+  br label %stbtt__cff_get_index.exit327.i
 
-stbtt__cff_get_index.exit331.i:                   ; preds = %673, %670, %666
-  %.sroa.0.0.i.i326.i = phi ptr [ null, %666 ], [ null, %670 ], [ %675, %673 ]
-  %.sroa.5.0.i.i327.i = phi i64 [ 0, %666 ], [ 0, %670 ], [ %677, %673 ]
-  store ptr %.sroa.0.0.i.i326.i, ptr %637, align 8, !tbaa !13
+stbtt__cff_get_index.exit327.i:                   ; preds = %668, %665, %661
+  %.sroa.0.0.i.i322.i = phi ptr [ null, %661 ], [ null, %665 ], [ %670, %668 ]
+  %.sroa.5.0.i.i323.i = phi i64 [ 0, %661 ], [ 0, %665 ], [ %672, %668 ]
+  store ptr %.sroa.0.0.i.i322.i, ptr %632, align 8, !tbaa !13
   %.sroa.411.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 %.sroa.5.0.i.i327.i, ptr %.sroa.411.0..sroa_idx.i, align 8
+  store i64 %.sroa.5.0.i.i323.i, ptr %.sroa.411.0..sroa_idx.i, align 8
   call fastcc void @stbtt__dict_get_ints(ptr noundef %5, i32 noundef 17, i32 noundef 1, ptr noundef %7)
   call fastcc void @stbtt__dict_get_ints(ptr noundef %5, i32 noundef 262, i32 noundef 1, ptr noundef %6)
   call fastcc void @stbtt__dict_get_ints(ptr noundef %5, i32 noundef 292, i32 noundef 1, ptr noundef %8)
   call fastcc void @stbtt__dict_get_ints(ptr noundef %5, i32 noundef 293, i32 noundef 1, ptr noundef %9)
-  %678 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %679 = load i64, ptr %416, align 8
-  %680 = load ptr, ptr %5, align 8
-  %681 = load i64, ptr %.sroa.414.0..sroa_idx.i, align 8
-  %682 = tail call fastcc { ptr, i64 } @stbtt__get_subrs(ptr %.pre.i, i64 %679, ptr %680, i64 %681)
-  %683 = extractvalue { ptr, i64 } %682, 0
-  %684 = extractvalue { ptr, i64 } %682, 1
-  store ptr %683, ptr %678, align 8, !tbaa !13
+  %673 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %674 = load i64, ptr %416, align 8
+  %675 = load ptr, ptr %5, align 8
+  %676 = load i64, ptr %.sroa.414.0..sroa_idx.i, align 8
+  %677 = tail call fastcc { ptr, i64 } @stbtt__get_subrs(ptr %.pre.i, i64 %674, ptr %675, i64 %676)
+  %678 = extractvalue { ptr, i64 } %677, 0
+  %679 = extractvalue { ptr, i64 } %677, 1
+  store ptr %678, ptr %673, align 8, !tbaa !13
   %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i64 %684, ptr %.sroa.49.0..sroa_idx.i, align 8
-  %685 = load i32, ptr %6, align 4, !tbaa !7
-  %.not117.i = icmp ne i32 %685, 2
-  %686 = load i32, ptr %7, align 4
-  %687 = icmp eq i32 %686, 0
-  %or.cond.i = select i1 %.not117.i, i1 true, i1 %687
-  br i1 %or.cond.i, label %stbtt__find_table.exit219.thread.i, label %688
+  store i64 %679, ptr %.sroa.49.0..sroa_idx.i, align 8
+  %680 = load i32, ptr %6, align 4, !tbaa !7
+  %.not117.i = icmp ne i32 %680, 2
+  %681 = load i32, ptr %7, align 4
+  %682 = icmp eq i32 %681, 0
+  %or.cond.i = select i1 %.not117.i, i1 true, i1 %682
+  br i1 %or.cond.i, label %stbtt__find_table.exit219.thread.i, label %683
 
-688:                                              ; preds = %stbtt__cff_get_index.exit331.i
-  %689 = lshr i64 %679, 32
-  %690 = trunc nuw i64 %689 to i32
-  %691 = load i32, ptr %8, align 4, !tbaa !7
-  %.not118.i = icmp eq i32 %691, 0
-  br i1 %.not118.i, label %.critedge.i, label %692
+683:                                              ; preds = %stbtt__cff_get_index.exit327.i
+  %684 = lshr i64 %674, 32
+  %685 = trunc nuw i64 %684 to i32
+  %686 = load i32, ptr %8, align 4, !tbaa !7
+  %.not118.i = icmp eq i32 %686, 0
+  br i1 %.not118.i, label %.critedge.i, label %687
 
-692:                                              ; preds = %688
-  %693 = load i32, ptr %9, align 4, !tbaa !7
-  %.not119.i = icmp eq i32 %693, 0
+687:                                              ; preds = %683
+  %688 = load i32, ptr %9, align 4, !tbaa !7
+  %.not119.i = icmp eq i32 %688, 0
   br i1 %.not119.i, label %stbtt__find_table.exit219.thread.i, label %stbtt__buf_range.exit.i
 
-stbtt__buf_range.exit.i:                          ; preds = %692
-  %694 = icmp slt i32 %691, 0
-  %695 = tail call i32 @llvm.smin.i32(i32 %691, i32 %420)
-  %..i.i = select i1 %694, i32 %420, i32 %695
+stbtt__buf_range.exit.i:                          ; preds = %687
+  %689 = icmp slt i32 %686, 0
+  %690 = tail call i32 @llvm.smin.i32(i32 %686, i32 %420)
+  %..i.i = select i1 %689, i32 %420, i32 %690
   store i32 %..i.i, ptr %416, align 8, !tbaa !572
-  %696 = call fastcc { ptr, i64 } @stbtt__cff_get_index(ptr noundef %4)
-  %697 = extractvalue { ptr, i64 } %696, 0
-  %698 = extractvalue { ptr, i64 } %696, 1
-  store ptr %697, ptr %412, align 8, !tbaa !13
-  store i64 %698, ptr %.sroa.424.0..sroa_idx.i, align 8
-  %699 = load i32, ptr %419, align 4, !tbaa !573
-  %700 = sub i32 %699, %693
-  %701 = or i32 %700, %693
-  %or.cond.not.i.i = icmp slt i32 %701, 0
-  %702 = icmp sgt i32 %693, %699
-  %or.cond356.i = or i1 %702, %or.cond.not.i.i
-  %703 = load ptr, ptr %4, align 8
-  %704 = zext nneg i32 %693 to i64
-  %705 = getelementptr inbounds nuw i8, ptr %703, i64 %704
-  %706 = zext nneg i32 %700 to i64
-  %707 = shl nuw nsw i64 %706, 32
-  %.sroa.0.0.i.i = select i1 %or.cond356.i, ptr null, ptr %705
-  %.sroa.5.0.i.i = select i1 %or.cond356.i, i64 0, i64 %707
+  %691 = call fastcc { ptr, i64 } @stbtt__cff_get_index(ptr noundef %4)
+  %692 = extractvalue { ptr, i64 } %691, 0
+  %693 = extractvalue { ptr, i64 } %691, 1
+  store ptr %692, ptr %412, align 8, !tbaa !13
+  store i64 %693, ptr %.sroa.424.0..sroa_idx.i, align 8
+  %694 = load i32, ptr %419, align 4, !tbaa !573
+  %695 = sub i32 %694, %688
+  %696 = or i32 %695, %688
+  %or.cond.not.i.i = icmp slt i32 %696, 0
+  %697 = icmp sgt i32 %688, %694
+  %or.cond352.i = or i1 %697, %or.cond.not.i.i
+  %698 = load ptr, ptr %4, align 8
+  %699 = zext nneg i32 %688 to i64
+  %700 = getelementptr inbounds nuw i8, ptr %698, i64 %699
+  %701 = zext nneg i32 %695 to i64
+  %702 = shl nuw nsw i64 %701, 32
+  %.sroa.0.0.i.i = select i1 %or.cond352.i, ptr null, ptr %700
+  %.sroa.5.0.i.i = select i1 %or.cond352.i, i64 0, i64 %702
   store ptr %.sroa.0.0.i.i, ptr %413, align 8, !tbaa !13
   store i64 %.sroa.5.0.i.i, ptr %.sroa.422.0..sroa_idx.i, align 8
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %stbtt__buf_range.exit.i, %688
-  %708 = phi i32 [ %699, %stbtt__buf_range.exit.i ], [ %690, %688 ]
-  %709 = icmp slt i32 %686, 0
-  %710 = tail call i32 @llvm.smin.i32(i32 %686, i32 %708)
-  %..i334.i = select i1 %709, i32 %708, i32 %710
-  store i32 %..i334.i, ptr %416, align 8, !tbaa !572
-  %711 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %712 = call fastcc { ptr, i64 } @stbtt__cff_get_index(ptr noundef %4)
-  %713 = extractvalue { ptr, i64 } %712, 0
-  %714 = extractvalue { ptr, i64 } %712, 1
-  store ptr %713, ptr %711, align 8, !tbaa !13
+.critedge.i:                                      ; preds = %stbtt__buf_range.exit.i, %683
+  %703 = phi i32 [ %694, %stbtt__buf_range.exit.i ], [ %685, %683 ]
+  %704 = icmp slt i32 %681, 0
+  %705 = tail call i32 @llvm.smin.i32(i32 %681, i32 %703)
+  %..i330.i = select i1 %704, i32 %703, i32 %705
+  store i32 %..i330.i, ptr %416, align 8, !tbaa !572
+  %706 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %707 = call fastcc { ptr, i64 } @stbtt__cff_get_index(ptr noundef %4)
+  %708 = extractvalue { ptr, i64 } %707, 0
+  %709 = extractvalue { ptr, i64 } %707, 1
+  store ptr %708, ptr %706, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %714, ptr %.sroa.4.0..sroa_idx.i, align 8
+  store i64 %709, ptr %.sroa.4.0..sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %715
+  br label %710
 
-stbtt__find_table.exit219.thread.i:               ; preds = %392, %692, %stbtt__cff_get_index.exit331.i, %stbtt__find_table.exit219.i, %368
+stbtt__find_table.exit219.thread.i:               ; preds = %392, %687, %stbtt__cff_get_index.exit327.i, %stbtt__find_table.exit219.i, %368
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -26487,199 +26469,199 @@ stbtt__find_table.exit219.thread.i:               ; preds = %392, %692, %stbtt__
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %stbtt_InitFont_internal.exit
 
-715:                                              ; preds = %.critedge.i, %367
-  %.val.i335.i = load i8, ptr %15, align 1, !tbaa !9
-  %.val25.i336.i = load i8, ptr %16, align 1, !tbaa !9
-  %716 = zext i8 %.val.i335.i to i32
-  %717 = shl nuw nsw i32 %716, 8
-  %718 = zext i8 %.val25.i336.i to i32
-  %719 = or disjoint i32 %717, %718
-  %.not.i337.i = icmp eq i32 %719, 0
-  br i1 %.not.i337.i, label %stbtt__find_table.exit345.thread.i, label %.lr.ph.i338.i
+710:                                              ; preds = %.critedge.i, %367
+  %.val.i331.i = load i8, ptr %15, align 1, !tbaa !9
+  %.val25.i332.i = load i8, ptr %16, align 1, !tbaa !9
+  %711 = zext i8 %.val.i331.i to i32
+  %712 = shl nuw nsw i32 %711, 8
+  %713 = zext i8 %.val25.i332.i to i32
+  %714 = or disjoint i32 %712, %713
+  %.not.i333.i = icmp eq i32 %714, 0
+  br i1 %.not.i333.i, label %stbtt__find_table.exit341.thread.i, label %.lr.ph.i334.i
 
-.lr.ph.i338.i:                                    ; preds = %715
-  %wide.trip.count.i339.i = zext nneg i32 %719 to i64
-  br label %720
+.lr.ph.i334.i:                                    ; preds = %710
+  %wide.trip.count.i335.i = zext nneg i32 %714 to i64
+  br label %715
 
-720:                                              ; preds = %739, %.lr.ph.i338.i
-  %indvars.iv.i340.i = phi i64 [ 0, %.lr.ph.i338.i ], [ %indvars.iv.next.i342.i, %739 ]
-  %indvars.iv.tr.i341.i = trunc i64 %indvars.iv.i340.i to i32
-  %721 = shl i32 %indvars.iv.tr.i341.i, 4
-  %722 = add i32 %721, %21
-  %723 = zext i32 %722 to i64
-  %724 = getelementptr inbounds nuw i8, ptr %1, i64 %723
-  %725 = load i8, ptr %724, align 1, !tbaa !9
-  %726 = icmp eq i8 %725, 109
-  br i1 %726, label %727, label %739
+715:                                              ; preds = %734, %.lr.ph.i334.i
+  %indvars.iv.i336.i = phi i64 [ 0, %.lr.ph.i334.i ], [ %indvars.iv.next.i338.i, %734 ]
+  %indvars.iv.tr.i337.i = trunc i64 %indvars.iv.i336.i to i32
+  %716 = shl i32 %indvars.iv.tr.i337.i, 4
+  %717 = add i32 %716, %21
+  %718 = zext i32 %717 to i64
+  %719 = getelementptr inbounds nuw i8, ptr %1, i64 %718
+  %720 = load i8, ptr %719, align 1, !tbaa !9
+  %721 = icmp eq i8 %720, 109
+  br i1 %721, label %722, label %734
 
-727:                                              ; preds = %720
-  %728 = getelementptr inbounds nuw i8, ptr %724, i64 1
-  %729 = load i8, ptr %728, align 1, !tbaa !9
-  %730 = icmp eq i8 %729, 97
-  br i1 %730, label %731, label %739
+722:                                              ; preds = %715
+  %723 = getelementptr inbounds nuw i8, ptr %719, i64 1
+  %724 = load i8, ptr %723, align 1, !tbaa !9
+  %725 = icmp eq i8 %724, 97
+  br i1 %725, label %726, label %734
 
-731:                                              ; preds = %727
-  %732 = getelementptr inbounds nuw i8, ptr %724, i64 2
-  %733 = load i8, ptr %732, align 1, !tbaa !9
-  %734 = icmp eq i8 %733, 120
-  br i1 %734, label %735, label %739
+726:                                              ; preds = %722
+  %727 = getelementptr inbounds nuw i8, ptr %719, i64 2
+  %728 = load i8, ptr %727, align 1, !tbaa !9
+  %729 = icmp eq i8 %728, 120
+  br i1 %729, label %730, label %734
 
-735:                                              ; preds = %731
-  %736 = getelementptr inbounds nuw i8, ptr %724, i64 3
-  %737 = load i8, ptr %736, align 1, !tbaa !9
-  %738 = icmp eq i8 %737, 112
-  br i1 %738, label %stbtt__find_table.exit345.i, label %739
+730:                                              ; preds = %726
+  %731 = getelementptr inbounds nuw i8, ptr %719, i64 3
+  %732 = load i8, ptr %731, align 1, !tbaa !9
+  %733 = icmp eq i8 %732, 112
+  br i1 %733, label %stbtt__find_table.exit341.i, label %734
 
-739:                                              ; preds = %735, %731, %727, %720
-  %indvars.iv.next.i342.i = add nuw nsw i64 %indvars.iv.i340.i, 1
-  %exitcond.not.i343.i = icmp eq i64 %indvars.iv.next.i342.i, %wide.trip.count.i339.i
-  br i1 %exitcond.not.i343.i, label %stbtt__find_table.exit345.thread.i, label %720, !llvm.loop !450
+734:                                              ; preds = %730, %726, %722, %715
+  %indvars.iv.next.i338.i = add nuw nsw i64 %indvars.iv.i336.i, 1
+  %exitcond.not.i339.i = icmp eq i64 %indvars.iv.next.i338.i, %wide.trip.count.i335.i
+  br i1 %exitcond.not.i339.i, label %stbtt__find_table.exit341.thread.i, label %715, !llvm.loop !450
 
-stbtt__find_table.exit345.i:                      ; preds = %735
-  %740 = getelementptr inbounds nuw i8, ptr %724, i64 8
-  %741 = load i8, ptr %740, align 1, !tbaa !9
-  %742 = zext i8 %741 to i32
-  %743 = shl nuw i32 %742, 24
-  %744 = getelementptr inbounds nuw i8, ptr %724, i64 9
+stbtt__find_table.exit341.i:                      ; preds = %730
+  %735 = getelementptr inbounds nuw i8, ptr %719, i64 8
+  %736 = load i8, ptr %735, align 1, !tbaa !9
+  %737 = zext i8 %736 to i32
+  %738 = shl nuw i32 %737, 24
+  %739 = getelementptr inbounds nuw i8, ptr %719, i64 9
+  %740 = load i8, ptr %739, align 1, !tbaa !9
+  %741 = zext i8 %740 to i32
+  %742 = shl nuw nsw i32 %741, 16
+  %743 = or disjoint i32 %742, %738
+  %744 = getelementptr inbounds nuw i8, ptr %719, i64 10
   %745 = load i8, ptr %744, align 1, !tbaa !9
   %746 = zext i8 %745 to i32
-  %747 = shl nuw nsw i32 %746, 16
-  %748 = or disjoint i32 %747, %743
-  %749 = getelementptr inbounds nuw i8, ptr %724, i64 10
+  %747 = shl nuw nsw i32 %746, 8
+  %748 = or disjoint i32 %743, %747
+  %749 = getelementptr inbounds nuw i8, ptr %719, i64 11
   %750 = load i8, ptr %749, align 1, !tbaa !9
   %751 = zext i8 %750 to i32
-  %752 = shl nuw nsw i32 %751, 8
-  %753 = or disjoint i32 %748, %752
-  %754 = getelementptr inbounds nuw i8, ptr %724, i64 11
-  %755 = load i8, ptr %754, align 1, !tbaa !9
-  %756 = zext i8 %755 to i32
-  %757 = or disjoint i32 %753, %756
-  %.not121.i = icmp eq i32 %757, 0
-  br i1 %.not121.i, label %stbtt__find_table.exit345.thread.i, label %758
+  %752 = or disjoint i32 %748, %751
+  %.not121.i = icmp eq i32 %752, 0
+  br i1 %.not121.i, label %stbtt__find_table.exit341.thread.i, label %753
 
-758:                                              ; preds = %stbtt__find_table.exit345.i
-  %759 = zext i32 %757 to i64
-  %760 = getelementptr inbounds nuw i8, ptr %1, i64 %759
-  %761 = getelementptr inbounds nuw i8, ptr %760, i64 4
-  %.val130.i = load i8, ptr %761, align 1, !tbaa !9
-  %762 = getelementptr i8, ptr %760, i64 5
-  %.val131.i = load i8, ptr %762, align 1, !tbaa !9
-  %763 = zext i8 %.val130.i to i32
-  %764 = shl nuw nsw i32 %763, 8
-  %765 = zext i8 %.val131.i to i32
-  %766 = or disjoint i32 %764, %765
-  br label %stbtt__find_table.exit345.thread.i
+753:                                              ; preds = %stbtt__find_table.exit341.i
+  %754 = zext i32 %752 to i64
+  %755 = getelementptr inbounds nuw i8, ptr %1, i64 %754
+  %756 = getelementptr inbounds nuw i8, ptr %755, i64 4
+  %.val130.i = load i8, ptr %756, align 1, !tbaa !9
+  %757 = getelementptr i8, ptr %755, i64 5
+  %.val131.i = load i8, ptr %757, align 1, !tbaa !9
+  %758 = zext i8 %.val130.i to i32
+  %759 = shl nuw nsw i32 %758, 8
+  %760 = zext i8 %.val131.i to i32
+  %761 = or disjoint i32 %759, %760
+  br label %stbtt__find_table.exit341.thread.i
 
-stbtt__find_table.exit345.thread.i:               ; preds = %739, %758, %stbtt__find_table.exit345.i, %715
-  %.sink.i = phi i32 [ %766, %758 ], [ 65535, %715 ], [ 65535, %stbtt__find_table.exit345.i ], [ 65535, %739 ]
-  %767 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sink.i, ptr %767, align 4, !tbaa !413
-  %768 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 -1, ptr %768, align 4, !tbaa !452
-  %769 = zext i32 %.2.i347.i to i64
-  %770 = getelementptr inbounds nuw i8, ptr %1, i64 %769
-  %771 = getelementptr inbounds nuw i8, ptr %770, i64 2
-  %.val128.i = load i8, ptr %771, align 1, !tbaa !9
-  %772 = getelementptr i8, ptr %770, i64 3
-  %.val129.i = load i8, ptr %772, align 1, !tbaa !9
-  %773 = zext i8 %.val128.i to i32
-  %774 = shl nuw nsw i32 %773, 8
-  %775 = zext i8 %.val129.i to i32
-  %776 = or disjoint i32 %774, %775
-  %777 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %777, align 8, !tbaa !409
-  %.not411.i = icmp eq i32 %776, 0
-  br i1 %.not411.i, label %stbtt_InitFont_internal.exit, label %.lr.ph.i
+stbtt__find_table.exit341.thread.i:               ; preds = %734, %753, %stbtt__find_table.exit341.i, %710
+  %.sink.i = phi i32 [ %761, %753 ], [ 65535, %710 ], [ 65535, %stbtt__find_table.exit341.i ], [ 65535, %734 ]
+  %762 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %.sink.i, ptr %762, align 4, !tbaa !413
+  %763 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 -1, ptr %763, align 4, !tbaa !452
+  %764 = zext i32 %.2.i343.i to i64
+  %765 = getelementptr inbounds nuw i8, ptr %1, i64 %764
+  %766 = getelementptr inbounds nuw i8, ptr %765, i64 2
+  %.val128.i = load i8, ptr %766, align 1, !tbaa !9
+  %767 = getelementptr i8, ptr %765, i64 3
+  %.val129.i = load i8, ptr %767, align 1, !tbaa !9
+  %768 = zext i8 %.val128.i to i32
+  %769 = shl nuw nsw i32 %768, 8
+  %770 = zext i8 %.val129.i to i32
+  %771 = or disjoint i32 %769, %770
+  %772 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %772, align 8, !tbaa !409
+  %.not407.i = icmp eq i32 %771, 0
+  br i1 %.not407.i, label %stbtt_InitFont_internal.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %stbtt__find_table.exit345.thread.i
-  %778 = add i32 %.2.i347.i, 4
-  %wide.trip.count.i = zext nneg i32 %776 to i64
-  br label %779
+.lr.ph.i:                                         ; preds = %stbtt__find_table.exit341.thread.i
+  %773 = add i32 %.2.i343.i, 4
+  %wide.trip.count.i = zext nneg i32 %771 to i64
+  br label %774
 
-779:                                              ; preds = %816, %.lr.ph.i
-  %780 = phi i32 [ 0, %.lr.ph.i ], [ %817, %816 ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %816 ]
+774:                                              ; preds = %811, %.lr.ph.i
+  %775 = phi i32 [ 0, %.lr.ph.i ], [ %812, %811 ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %811 ]
   %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
-  %781 = shl i32 %indvars.iv.tr.i, 3
-  %782 = add i32 %778, %781
-  %783 = zext i32 %782 to i64
-  %784 = getelementptr inbounds nuw i8, ptr %1, i64 %783
-  %.val126.i = load i8, ptr %784, align 1, !tbaa !9
-  %785 = getelementptr i8, ptr %784, i64 1
-  %.val127.i = load i8, ptr %785, align 1, !tbaa !9
-  %786 = zext i8 %.val126.i to i16
-  %787 = shl nuw i16 %786, 8
-  %788 = zext i8 %.val127.i to i16
-  %789 = or disjoint i16 %787, %788
-  switch i16 %789, label %816 [
-    i16 3, label %790
+  %776 = shl i32 %indvars.iv.tr.i, 3
+  %777 = add i32 %773, %776
+  %778 = zext i32 %777 to i64
+  %779 = getelementptr inbounds nuw i8, ptr %1, i64 %778
+  %.val126.i = load i8, ptr %779, align 1, !tbaa !9
+  %780 = getelementptr i8, ptr %779, i64 1
+  %.val127.i = load i8, ptr %780, align 1, !tbaa !9
+  %781 = zext i8 %.val126.i to i16
+  %782 = shl nuw i16 %781, 8
+  %783 = zext i8 %.val127.i to i16
+  %784 = or disjoint i16 %782, %783
+  switch i16 %784, label %811 [
+    i16 3, label %785
     i16 0, label %.sink.split.i
   ]
 
-790:                                              ; preds = %779
-  %791 = getelementptr inbounds nuw i8, ptr %784, i64 2
-  %.val124.i = load i8, ptr %791, align 1, !tbaa !9
-  %792 = getelementptr i8, ptr %784, i64 3
-  %.val125.i = load i8, ptr %792, align 1, !tbaa !9
-  %793 = zext i8 %.val124.i to i16
-  %794 = shl nuw i16 %793, 8
-  %795 = zext i8 %.val125.i to i16
-  %796 = or disjoint i16 %794, %795
-  switch i16 %796, label %816 [
+785:                                              ; preds = %774
+  %786 = getelementptr inbounds nuw i8, ptr %779, i64 2
+  %.val124.i = load i8, ptr %786, align 1, !tbaa !9
+  %787 = getelementptr i8, ptr %779, i64 3
+  %.val125.i = load i8, ptr %787, align 1, !tbaa !9
+  %788 = zext i8 %.val124.i to i16
+  %789 = shl nuw i16 %788, 8
+  %790 = zext i8 %.val125.i to i16
+  %791 = or disjoint i16 %789, %790
+  switch i16 %791, label %811 [
     i16 1, label %.sink.split.i
     i16 10, label %.sink.split.i
   ]
 
-.sink.split.i:                                    ; preds = %790, %790, %779
-  %797 = getelementptr inbounds nuw i8, ptr %784, i64 4
-  %798 = load i8, ptr %797, align 1, !tbaa !9
-  %799 = zext i8 %798 to i32
-  %800 = shl nuw i32 %799, 24
-  %801 = getelementptr inbounds nuw i8, ptr %784, i64 5
+.sink.split.i:                                    ; preds = %785, %785, %774
+  %792 = getelementptr inbounds nuw i8, ptr %779, i64 4
+  %793 = load i8, ptr %792, align 1, !tbaa !9
+  %794 = zext i8 %793 to i32
+  %795 = shl nuw i32 %794, 24
+  %796 = getelementptr inbounds nuw i8, ptr %779, i64 5
+  %797 = load i8, ptr %796, align 1, !tbaa !9
+  %798 = zext i8 %797 to i32
+  %799 = shl nuw nsw i32 %798, 16
+  %800 = or disjoint i32 %799, %795
+  %801 = getelementptr inbounds nuw i8, ptr %779, i64 6
   %802 = load i8, ptr %801, align 1, !tbaa !9
   %803 = zext i8 %802 to i32
-  %804 = shl nuw nsw i32 %803, 16
-  %805 = or disjoint i32 %804, %800
-  %806 = getelementptr inbounds nuw i8, ptr %784, i64 6
+  %804 = shl nuw nsw i32 %803, 8
+  %805 = or disjoint i32 %800, %804
+  %806 = getelementptr inbounds nuw i8, ptr %779, i64 7
   %807 = load i8, ptr %806, align 1, !tbaa !9
   %808 = zext i8 %807 to i32
-  %809 = shl nuw nsw i32 %808, 8
-  %810 = or disjoint i32 %805, %809
-  %811 = getelementptr inbounds nuw i8, ptr %784, i64 7
-  %812 = load i8, ptr %811, align 1, !tbaa !9
-  %813 = zext i8 %812 to i32
-  %814 = or disjoint i32 %810, %813
-  %815 = add i32 %814, %.2.i347.i
-  store i32 %815, ptr %777, align 8, !tbaa !409
-  br label %816
+  %809 = or disjoint i32 %805, %808
+  %810 = add i32 %809, %.2.i343.i
+  store i32 %810, ptr %772, align 8, !tbaa !409
+  br label %811
 
-816:                                              ; preds = %.sink.split.i, %790, %779
-  %817 = phi i32 [ %780, %790 ], [ %780, %779 ], [ %815, %.sink.split.i ]
+811:                                              ; preds = %.sink.split.i, %785, %774
+  %812 = phi i32 [ %775, %785 ], [ %775, %774 ], [ %810, %.sink.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %779, !llvm.loop !575
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %774, !llvm.loop !575
 
-._crit_edge.i:                                    ; preds = %816
-  %818 = icmp eq i32 %817, 0
-  br i1 %818, label %stbtt_InitFont_internal.exit, label %819
+._crit_edge.i:                                    ; preds = %811
+  %813 = icmp eq i32 %812, 0
+  br i1 %813, label %stbtt_InitFont_internal.exit, label %814
 
-819:                                              ; preds = %._crit_edge.i
-  %820 = sext i32 %144 to i64
-  %821 = getelementptr inbounds i8, ptr %1, i64 %820
-  %822 = getelementptr inbounds nuw i8, ptr %821, i64 50
-  %.val.i = load i8, ptr %822, align 1, !tbaa !9
-  %823 = getelementptr i8, ptr %821, i64 51
-  %.val123.i = load i8, ptr %823, align 1, !tbaa !9
-  %824 = zext i8 %.val.i to i32
-  %825 = shl nuw nsw i32 %824, 8
-  %826 = zext i8 %.val123.i to i32
-  %827 = or disjoint i32 %825, %826
-  %828 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %827, ptr %828, align 4, !tbaa !414
+814:                                              ; preds = %._crit_edge.i
+  %815 = sext i32 %144 to i64
+  %816 = getelementptr inbounds i8, ptr %1, i64 %815
+  %817 = getelementptr inbounds nuw i8, ptr %816, i64 50
+  %.val.i = load i8, ptr %817, align 1, !tbaa !9
+  %818 = getelementptr i8, ptr %816, i64 51
+  %.val123.i = load i8, ptr %818, align 1, !tbaa !9
+  %819 = zext i8 %.val.i to i32
+  %820 = shl nuw nsw i32 %819, 8
+  %821 = zext i8 %.val123.i to i32
+  %822 = or disjoint i32 %820, %821
+  %823 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i32 %822, ptr %823, align 4, !tbaa !414
   br label %stbtt_InitFont_internal.exit
 
-stbtt_InitFont_internal.exit:                     ; preds = %stbtt__find_table.exit208.i, %367, %stbtt__find_table.exit219.thread.i, %stbtt__find_table.exit345.thread.i, %._crit_edge.i, %819
-  %.0.i = phi i32 [ 1, %819 ], [ 0, %stbtt__find_table.exit219.thread.i ], [ 0, %stbtt__find_table.exit208.i ], [ 0, %367 ], [ 0, %._crit_edge.i ], [ 0, %stbtt__find_table.exit345.thread.i ]
+stbtt_InitFont_internal.exit:                     ; preds = %stbtt__find_table.exit208.i, %367, %stbtt__find_table.exit219.thread.i, %stbtt__find_table.exit341.thread.i, %._crit_edge.i, %814
+  %.0.i = phi i32 [ 1, %814 ], [ 0, %stbtt__find_table.exit219.thread.i ], [ 0, %stbtt__find_table.exit208.i ], [ 0, %367 ], [ 0, %._crit_edge.i ], [ 0, %stbtt__find_table.exit341.thread.i ]
   ret i32 %.0.i
 }
 
@@ -30744,8 +30726,8 @@ nk_range_glyph_count.exit:                        ; preds = %.lr.ph.i, %13, %nk_
   %.0149227 = phi i32 [ 0, %.preheader.lr.ph ], [ %126, %158 ]
   %.0151226 = phi i32 [ 0, %.preheader.lr.ph ], [ %104, %158 ]
   %.0153225 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next249, %158 ]
-  %sext251 = shl i64 %.0153225, 32
-  %82 = ashr exact i64 %sext251, 32
+  %sext266 = shl i64 %.0153225, 32
+  %82 = ashr exact i64 %sext266, 32
   br label %83
 
 83:                                               ; preds = %.preheader, %._crit_edge224
@@ -31093,8 +31075,8 @@ stbtt_PackSetOversampling.exit:                   ; preds = %46, %48
   %.2177 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next188, %220 ]
   %.0131176 = phi i32 [ 0, %.preheader.lr.ph ], [ %217, %220 ]
   %.1134175 = phi ptr [ %6, %.preheader.lr.ph ], [ %222, %220 ]
-  %sext193 = shl i64 %.2177, 32
-  %78 = ashr exact i64 %sext193, 32
+  %sext208 = shl i64 %.2177, 32
+  %78 = ashr exact i64 %sext208, 32
   br label %79
 
 79:                                               ; preds = %.preheader, %._crit_edge173
@@ -31346,8 +31328,8 @@ define internal fastcc void @nk_font_bake_custom_data(ptr noundef writeonly capt
   %10 = add nsw i32 %.05, %9
   %11 = mul nsw i32 %10, %1
   %12 = add i32 %11, %8
-  %sext12 = shl i64 %.0324, 32
-  %13 = ashr exact i64 %sext12, 32
+  %sext14 = shl i64 %.0324, 32
+  %13 = ashr exact i64 %sext14, 32
   br label %14
 
 14:                                               ; preds = %.preheader, %14
@@ -31924,7 +31906,7 @@ nk_utf_decode_byte.exit.i:                        ; preds = %6
 
 nk_utf_decode_byte.exit34.i:                      ; preds = %24
   %.not27.i = icmp eq i64 %indvars.iv.i29.i, 0
-  br i1 %.not27.i, label %32, label %nk_utf_validate.exit.loopexit90.i
+  br i1 %.not27.i, label %32, label %nk_utf_validate.exit.loopexit92.i
 
 32:                                               ; preds = %nk_utf_decode_byte.exit34.i
   %33 = xor i8 %26, -1
@@ -31941,18 +31923,18 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %24
   br i1 %38, label %nk_utf_decode.exit.thread, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.preheader.i, %._crit_edge.loopexit.i
-  %.0.lcssa89.i = phi i32 [ %37, %._crit_edge.loopexit.i ], [ %18, %.preheader.i ]
+  %.0.lcssa91.i = phi i32 [ %37, %._crit_edge.loopexit.i ], [ %18, %.preheader.i ]
   %39 = and i64 %indvars.iv.i.i, 4294967295
   %40 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !7
-  %.not.i.i = icmp ugt i32 %41, %.0.lcssa89.i
+  %.not.i.i = icmp ugt i32 %41, %.0.lcssa91.i
   br i1 %.not.i.i, label %47, label %42
 
 42:                                               ; preds = %._crit_edge.i
   %43 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %39
   %44 = load i32, ptr %43, align 4, !tbaa !7
-  %45 = icmp uge i32 %.0.lcssa89.i, %44
-  %46 = add i32 %.0.lcssa89.i, -55296
+  %45 = icmp uge i32 %.0.lcssa91.i, %44
+  %46 = add i32 %.0.lcssa91.i, -55296
   %or.cond.i.i = icmp ult i32 %46, 2047
   %or.cond15.i.i = or i1 %or.cond.i.i, %45
   br i1 %or.cond15.i.i, label %47, label %nk_utf_decode.exit
@@ -31961,16 +31943,16 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %24
   br label %nk_utf_decode.exit
 
 nk_utf_validate.exit.loopexit.i:                  ; preds = %31
-  %indvars83.le101.i = trunc i64 %indvars.iv.i to i32
+  %indvars83.le103.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_validate.exit.loopexit90.i:                ; preds = %nk_utf_decode_byte.exit34.i
+nk_utf_validate.exit.loopexit92.i:                ; preds = %nk_utf_decode_byte.exit34.i
   %indvars83.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %42, %47, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit90.i
-  %.0 = phi i32 [ 65533, %47 ], [ %.0.lcssa89.i, %42 ], [ 65533, %nk_utf_validate.exit.loopexit90.i ], [ 65533, %nk_utf_validate.exit.loopexit.i ]
-  %.023.i = phi i32 [ %14, %47 ], [ %14, %42 ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit90.i ], [ %indvars83.le101.i, %nk_utf_validate.exit.loopexit.i ]
+nk_utf_decode.exit:                               ; preds = %42, %47, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit92.i
+  %.0 = phi i32 [ 65533, %47 ], [ %.0.lcssa91.i, %42 ], [ 65533, %nk_utf_validate.exit.loopexit92.i ], [ 65533, %nk_utf_validate.exit.loopexit.i ]
+  %.023.i = phi i32 [ %14, %47 ], [ %14, %42 ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ]
   %.not11 = icmp eq i32 %.023.i, 0
   br i1 %.not11, label %nk_utf_decode.exit.thread, label %nk_utf_decode.exit.thread27
 
@@ -32194,8 +32176,8 @@ define range(i32 0, 2) i32 @nk_input_has_mouse_click_in_rect(ptr noundef readonl
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %15 = load float, ptr %14, align 4, !tbaa !737
   %16 = fcmp ole float %.sroa.0.4.vec.extract, %15
-  %foldExtExtBinop18 = fadd <2 x float> %2, %3
-  %17 = extractelement <2 x float> %foldExtExtBinop18, i64 1
+  %foldExtExtBinop19 = fadd <2 x float> %2, %3
+  %17 = extractelement <2 x float> %foldExtExtBinop19, i64 1
   %18 = fcmp olt float %15, %17
   %or.cond16 = select i1 %16, i1 %18, i1 false
   %spec.select = zext i1 %or.cond16 to i32
@@ -32230,8 +32212,8 @@ define range(i32 0, 2) i32 @nk_input_has_mouse_click_in_button_rect(ptr noundef 
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %15 = load float, ptr %14, align 4, !tbaa !737
   %16 = fcmp ole float %.sroa.0.4.vec.extract, %15
-  %foldExtExtBinop18 = fadd <2 x float> %2, %3
-  %17 = extractelement <2 x float> %foldExtExtBinop18, i64 1
+  %foldExtExtBinop19 = fadd <2 x float> %2, %3
+  %17 = extractelement <2 x float> %foldExtExtBinop19, i64 1
   %18 = fcmp olt float %15, %17
   %or.cond16 = select i1 %16, i1 %18, i1 false
   %spec.select = zext i1 %or.cond16 to i32
@@ -32266,8 +32248,8 @@ nk_input_has_mouse_click_in_rect.exit:            ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %15 = load float, ptr %14, align 4, !tbaa !737
   %16 = fcmp ugt float %.sroa.0.4.vec.extract.i, %15
-  %foldExtExtBinop14 = fadd <2 x float> %2, %3
-  %17 = extractelement <2 x float> %foldExtExtBinop14, i64 1
+  %foldExtExtBinop15 = fadd <2 x float> %2, %3
+  %17 = extractelement <2 x float> %foldExtExtBinop15, i64 1
   %18 = fcmp uge float %15, %17
   %or.cond16.i.not = select i1 %16, i1 true, i1 %18
   br i1 %or.cond16.i.not, label %nk_input_has_mouse_click_in_rect.exit.thread, label %19
@@ -32309,8 +32291,8 @@ nk_input_has_mouse_click_in_rect.exit.i:          ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %14 = load float, ptr %13, align 4, !tbaa !737
   %15 = fcmp ugt float %.sroa.0.4.vec.extract.i.i, %14
-  %foldExtExtBinop12 = fadd <2 x float> %2, %3
-  %16 = extractelement <2 x float> %foldExtExtBinop12, i64 1
+  %foldExtExtBinop13 = fadd <2 x float> %2, %3
+  %16 = extractelement <2 x float> %foldExtExtBinop13, i64 1
   %17 = fcmp uge float %14, %16
   %or.cond16.i.not.i = select i1 %15, i1 true, i1 %17
   br i1 %or.cond16.i.not.i, label %nk_input_has_mouse_click_down_in_rect.exit.thread, label %nk_input_has_mouse_click_down_in_rect.exit
@@ -32359,8 +32341,8 @@ nk_input_has_mouse_click_in_rect.exit.i:          ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %15 = load float, ptr %14, align 4, !tbaa !737
   %16 = fcmp ugt float %.sroa.0.4.vec.extract.i.i, %15
-  %foldExtExtBinop13 = fadd <2 x float> %2, %3
-  %17 = extractelement <2 x float> %foldExtExtBinop13, i64 1
+  %foldExtExtBinop14 = fadd <2 x float> %2, %3
+  %17 = extractelement <2 x float> %foldExtExtBinop14, i64 1
   %18 = fcmp uge float %15, %17
   %or.cond16.i.not.i = select i1 %16, i1 true, i1 %18
   br i1 %or.cond16.i.not.i, label %nk_input_has_mouse_click_down_in_rect.exit.thread, label %nk_input_has_mouse_click_down_in_rect.exit
@@ -32470,8 +32452,8 @@ define range(i32 0, 2) i32 @nk_input_is_mouse_hovering_rect(ptr noundef readonly
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %10
-  %foldExtExtBinop14 = fadd <2 x float> %1, %2
-  %15 = extractelement <2 x float> %foldExtExtBinop14, i64 1
+  %foldExtExtBinop16 = fadd <2 x float> %1, %2
+  %15 = extractelement <2 x float> %foldExtExtBinop16, i64 1
   %16 = fcmp olt float %12, %15
   %17 = zext i1 %16 to i32
   br label %18
@@ -32505,8 +32487,8 @@ define range(i32 0, 2) i32 @nk_input_is_mouse_prev_hovering_rect(ptr noundef rea
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %10
-  %foldExtExtBinop14 = fadd <2 x float> %1, %2
-  %15 = extractelement <2 x float> %foldExtExtBinop14, i64 1
+  %foldExtExtBinop16 = fadd <2 x float> %1, %2
+  %15 = extractelement <2 x float> %foldExtExtBinop16, i64 1
   %16 = fcmp olt float %12, %15
   %17 = zext i1 %16 to i32
   br label %18
@@ -32537,8 +32519,8 @@ define range(i32 0, 2) i32 @nk_input_mouse_clicked(ptr noundef readonly captures
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %13 = load float, ptr %12, align 4, !tbaa !724
   %14 = fcmp ugt float %.sroa.0.4.vec.extract.i, %13
-  %foldExtExtBinop14 = fadd <2 x float> %2, %3
-  %15 = extractelement <2 x float> %foldExtExtBinop14, i64 1
+  %foldExtExtBinop17 = fadd <2 x float> %2, %3
+  %15 = extractelement <2 x float> %foldExtExtBinop17, i64 1
   %16 = fcmp uge float %13, %15
   %or.cond = select i1 %14, i1 true, i1 %16
   br i1 %or.cond, label %nk_input_is_mouse_click_in_rect.exit, label %17
@@ -36009,11 +35991,11 @@ nk_free_table.exit:                               ; preds = %nk_link_page_elemen
 .thread.i:                                        ; preds = %129
   %140 = load ptr, ptr %34, align 8, !tbaa !879
   %141 = icmp eq ptr %.06194, %140
-  %.not4143.i = icmp eq ptr %140, null
-  %or.cond44.i = or i1 %141, %.not4143.i
-  br i1 %or.cond44.i, label %.thread45.i, label %nk_remove_window.exit
+  %.not4150.i = icmp eq ptr %140, null
+  %or.cond51.i = or i1 %141, %.not4150.i
+  br i1 %or.cond51.i, label %.thread52.i, label %nk_remove_window.exit
 
-.thread45.i:                                      ; preds = %.thread.i
+.thread52.i:                                      ; preds = %.thread.i
   store ptr null, ptr %34, align 8, !tbaa !879
   br label %nk_remove_window.exit
 
@@ -36029,7 +36011,7 @@ nk_free_table.exit:                               ; preds = %nk_link_page_elemen
   store i32 %146, ptr %144, align 8, !tbaa !361
   br label %nk_remove_window.exit
 
-nk_remove_window.exit:                            ; preds = %136, %.thread.i, %.thread45.i, %142, %143
+nk_remove_window.exit:                            ; preds = %136, %.thread.i, %.thread52.i, %142, %143
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %116, i8 0, i64 16, i1 false)
   %147 = load i32, ptr %39, align 8, !tbaa !294
   %148 = add i32 %147, -1
@@ -36307,11 +36289,11 @@ define internal fastcc void @nk_remove_window(ptr noundef nonnull captures(none)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 18512
   %34 = load ptr, ptr %33, align 8, !tbaa !879
   %35 = icmp eq ptr %1, %34
-  %.not4143 = icmp eq ptr %34, null
-  %or.cond44 = or i1 %35, %.not4143
-  br i1 %or.cond44, label %.thread45, label %41
+  %.not4150 = icmp eq ptr %34, null
+  %or.cond51 = or i1 %35, %.not4150
+  br i1 %or.cond51, label %.thread52, label %41
 
-.thread45:                                        ; preds = %.thread
+.thread52:                                        ; preds = %.thread
   store ptr null, ptr %33, align 8, !tbaa !879
   br label %41
 
@@ -36327,7 +36309,7 @@ define internal fastcc void @nk_remove_window(ptr noundef nonnull captures(none)
   store i32 %40, ptr %38, align 8, !tbaa !361
   br label %41
 
-41:                                               ; preds = %.thread45, %.thread, %28, %36, %37
+41:                                               ; preds = %.thread52, %.thread, %28, %36, %37
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 18536
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
@@ -36613,8 +36595,8 @@ nk_find_window.exit:                              ; preds = %43, %nk_strlen.exit
   %.not241 = icmp eq ptr %112, null
   %113 = and i32 %104, 8192
   %.not242 = icmp eq i32 %113, 0
-  %or.cond373 = select i1 %.not241, i1 %.not242, i1 false
-  br i1 %or.cond373, label %114, label %116
+  %or.cond388 = select i1 %.not241, i1 %.not242, i1 false
+  br i1 %or.cond388, label %114, label %116
 
 114:                                              ; preds = %108
   store ptr %.01224.i, ptr %111, align 8, !tbaa !879
@@ -36705,8 +36687,8 @@ nk_input_has_mouse_click_in_rect.exit.i:          ; preds = %149
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %157 = load float, ptr %156, align 4, !tbaa !737
   %158 = fcmp ugt float %.sroa.0.4.vec.extract.i.i, %157
-  %foldExtExtBinop381 = fadd <2 x float> %.sroa.16.0, %.sroa.018.0
-  %159 = extractelement <2 x float> %foldExtExtBinop381, i64 1
+  %foldExtExtBinop396 = fadd <2 x float> %.sroa.16.0, %.sroa.018.0
+  %159 = extractelement <2 x float> %foldExtExtBinop396, i64 1
   %160 = fcmp uge float %157, %159
   %or.cond16.i.not.i = select i1 %158, i1 true, i1 %160
   br i1 %or.cond16.i.not.i, label %nk_input_has_mouse_click_down_in_rect.exit.thread, label %nk_input_has_mouse_click_down_in_rect.exit
@@ -36744,8 +36726,8 @@ nk_input_is_mouse_hovering_rect.exit.thread:      ; preds = %nk_input_has_mouse_
   br label %.thread
 
 nk_input_is_mouse_hovering_rect.exit:             ; preds = %172
-  %foldExtExtBinop383 = fadd <2 x float> %.sroa.16.0, %.sroa.018.0
-  %177 = extractelement <2 x float> %foldExtExtBinop383, i64 1
+  %foldExtExtBinop398 = fadd <2 x float> %.sroa.16.0, %.sroa.018.0
+  %177 = extractelement <2 x float> %foldExtExtBinop398, i64 1
   %178 = fcmp olt float %174, %177
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 18512
   %180 = load ptr, ptr %179, align 8, !tbaa !879
@@ -36801,8 +36783,8 @@ nk_input_is_mouse_hovering_rect.exit:             ; preds = %172
   %.sroa.012.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i304, %192 ], [ %.sroa.012.0.copyload, %191 ]
   %.sroa.012.0.vec.extract = extractelement <2 x float> %.sroa.012.0, i64 0
   %199 = fcmp olt float %.sroa.012.0.vec.extract, %154
-  %foldExtExtBinop385 = fadd <2 x float> %.sroa.817.0, %.sroa.012.0
-  %200 = extractelement <2 x float> %foldExtExtBinop385, i64 0
+  %foldExtExtBinop400 = fadd <2 x float> %.sroa.817.0, %.sroa.012.0
+  %200 = extractelement <2 x float> %foldExtExtBinop400, i64 0
   %201 = fcmp olt float %.sroa.0.0.vec.extract.i.i, %200
   %or.cond272 = select i1 %199, i1 %201, i1 false
   br i1 %or.cond272, label %202, label %207
@@ -36810,8 +36792,8 @@ nk_input_is_mouse_hovering_rect.exit:             ; preds = %172
 202:                                              ; preds = %198
   %.sroa.012.4.vec.extract = extractelement <2 x float> %.sroa.012.0, i64 1
   %203 = fcmp olt float %.sroa.012.4.vec.extract, %177
-  %foldExtExtBinop387 = fadd <2 x float> %.sroa.817.0, %.sroa.012.0
-  %204 = extractelement <2 x float> %foldExtExtBinop387, i64 1
+  %foldExtExtBinop402 = fadd <2 x float> %.sroa.817.0, %.sroa.012.0
+  %204 = extractelement <2 x float> %foldExtExtBinop402, i64 1
   %205 = fcmp olt float %.sroa.0.4.vec.extract.i, %204
   %or.cond274 = select i1 %203, i1 %205, i1 false
   %206 = and i32 %188, 8192
@@ -36886,8 +36868,8 @@ nk_input_is_mouse_hovering_rect.exit:             ; preds = %172
 .lr.ph361:                                        ; preds = %.preheader
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %.sroa.018.4.vec.extract34 = extractelement <2 x float> %.sroa.018.0, i64 1
-  %foldExtExtBinop389 = fadd <2 x float> %.sroa.16.0, %.sroa.018.0
-  %238 = extractelement <2 x float> %foldExtExtBinop389, i64 1
+  %foldExtExtBinop404 = fadd <2 x float> %.sroa.16.0, %.sroa.018.0
+  %238 = extractelement <2 x float> %foldExtExtBinop404, i64 1
   br label %239
 
 239:                                              ; preds = %.lr.ph361, %286
@@ -36922,8 +36904,8 @@ nk_input_is_mouse_hovering_rect.exit:             ; preds = %172
   %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i310, %245 ], [ %.sroa.0.0.copyload, %244 ]
   %.sroa.0.0.vec.extract = extractelement <2 x float> %.sroa.0.0, i64 0
   %252 = fcmp ole float %.sroa.0.0.vec.extract, %169
-  %foldExtExtBinop391 = fadd <2 x float> %.sroa.8.0, %.sroa.0.0
-  %253 = extractelement <2 x float> %foldExtExtBinop391, i64 0
+  %foldExtExtBinop406 = fadd <2 x float> %.sroa.8.0, %.sroa.0.0
+  %253 = extractelement <2 x float> %foldExtExtBinop406, i64 0
   %254 = fcmp olt float %169, %253
   %or.cond276 = select i1 %252, i1 %254, i1 false
   br i1 %or.cond276, label %255, label %261
@@ -36932,8 +36914,8 @@ nk_input_is_mouse_hovering_rect.exit:             ; preds = %172
   %.sroa.0.4.vec.extract = extractelement <2 x float> %.sroa.0.0, i64 1
   %256 = load float, ptr %237, align 4, !tbaa !345
   %257 = fcmp ole float %.sroa.0.4.vec.extract, %256
-  %foldExtExtBinop393 = fadd <2 x float> %.sroa.8.0, %.sroa.0.0
-  %258 = extractelement <2 x float> %foldExtExtBinop393, i64 1
+  %foldExtExtBinop408 = fadd <2 x float> %.sroa.8.0, %.sroa.0.0
+  %258 = extractelement <2 x float> %foldExtExtBinop408, i64 1
   %259 = fcmp olt float %256, %258
   %or.cond278 = select i1 %257, i1 %259, i1 false
   %260 = and i32 %241, 8192
@@ -37043,8 +37025,8 @@ nk_input_is_mouse_hovering_rect.exit:             ; preds = %172
   %.not268 = icmp ne ptr %307, %.0219
   %308 = and i32 %305, 256
   %.not269 = icmp eq i32 %308, 0
-  %or.cond374 = select i1 %.not268, i1 %.not269, i1 false
-  br i1 %or.cond374, label %309, label %311
+  %or.cond389 = select i1 %.not268, i1 %.not269, i1 false
+  br i1 %or.cond389, label %309, label %311
 
 309:                                              ; preds = %304
   %310 = or i32 %305, 4096
@@ -37799,13 +37781,13 @@ nk_layout_reset_min_row_height.exit:              ; preds = %128, %138, %141
   %or.cond449 = select i1 %211, i1 true, i1 %213
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 8896
   %spec.select = select i1 %or.cond449, i64 9420, i64 9424
-  %spec.select464 = select i1 %or.cond449, ptr %35, ptr %214
+  %spec.select476 = select i1 %or.cond449, ptr %35, ptr %214
   br label %nk_input_is_mouse_hovering_rect.exit.thread
 
 nk_input_is_mouse_hovering_rect.exit.thread:      ; preds = %208, %202, %200
-  %.sink462 = phi i64 [ 9428, %200 ], [ 9420, %202 ], [ %spec.select, %208 ]
-  %.0356 = phi ptr [ %201, %200 ], [ %35, %202 ], [ %spec.select464, %208 ]
-  %215 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink462
+  %.sink474 = phi i64 [ 9428, %200 ], [ 9420, %202 ], [ %spec.select, %208 ]
+  %.0356 = phi ptr [ %201, %200 ], [ %35, %202 ], [ %spec.select476, %208 ]
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink474
   %.sroa.9.0 = load i32, ptr %215, align 4
   %216 = fadd float %190, 1.000000e+00
   %.sroa.23.12.vec.insert142 = insertelement <2 x float> %.sroa.23.8.vec.insert, float %216, i64 1
@@ -37892,8 +37874,8 @@ nk_input_is_mouse_hovering_rect.exit.thread:      ; preds = %208, %202, %200
   %.pre459.pre = load i32, ptr %17, align 8, !tbaa !361
   %260 = and i32 %.pre459.pre, 4096
   %.not383 = icmp eq i32 %260, 0
-  %or.cond463 = select i1 %.not382, i1 %.not383, i1 false
-  br i1 %or.cond463, label %261, label %265
+  %or.cond475 = select i1 %.not382, i1 %.not383, i1 false
+  br i1 %or.cond475, label %261, label %265
 
 261:                                              ; preds = %254
   %262 = load i32, ptr %97, align 4, !tbaa !910
@@ -38030,8 +38012,8 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader4
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 9452
   %324 = load float, ptr %323, align 4, !tbaa !930
   %325 = tail call float @llvm.fmuladd.f32(float %324, float 2.000000e+00, float %314)
-  %foldExtExtBinop466 = fadd <2 x float> %.sroa.068.2, %.sroa.23.2
-  %326 = extractelement <2 x float> %foldExtExtBinop466, i64 0
+  %foldExtExtBinop478 = fadd <2 x float> %.sroa.068.2, %.sroa.23.2
+  %326 = extractelement <2 x float> %foldExtExtBinop478, i64 0
   %327 = fsub float %326, %318
   %328 = fcmp olt float %325, %327
   %. = select i1 %328, float %325, float %327
@@ -38534,8 +38516,8 @@ nk_panel_get_padding.exit.i:                      ; preds = %78, %77, %76, %75, 
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %179 = load float, ptr %178, align 4, !tbaa !724
   %180 = fcmp ugt float %170, %179
-  %foldExtExtBinop22 = fadd <2 x float> %166, %168
-  %181 = extractelement <2 x float> %foldExtExtBinop22, i64 1
+  %foldExtExtBinop55 = fadd <2 x float> %166, %168
+  %181 = extractelement <2 x float> %foldExtExtBinop55, i64 1
   %182 = fcmp uge float %179, %181
   %or.cond518.i = select i1 %180, i1 true, i1 %182
   br i1 %or.cond518.i, label %nk_input_is_mouse_hovering_rect.exit.thread.i, label %183
@@ -38905,8 +38887,8 @@ nk_do_scrollbarh.exit.i:                          ; preds = %353, %349, %257
   %394 = getelementptr inbounds nuw i8, ptr %0, i64 324
   %395 = load float, ptr %394, align 4, !tbaa !722
   %396 = fcmp ole float %.sroa.0.0.vec.extract.i.i.i, %395
-  %foldExtExtBinop24 = fadd <2 x float> %.sroa.0.0.copyload.i.i, %.sroa.4.0.i.i
-  %397 = extractelement <2 x float> %foldExtExtBinop24, i64 0
+  %foldExtExtBinop57 = fadd <2 x float> %.sroa.0.0.copyload.i.i, %.sroa.4.0.i.i
+  %397 = extractelement <2 x float> %foldExtExtBinop57, i64 0
   %398 = fcmp olt float %395, %397
   %or.cond.i.i.i = select i1 %396, i1 %398, i1 false
   br i1 %or.cond.i.i.i, label %399, label %nk_window_is_hovered.exit.thread.i
@@ -38919,8 +38901,8 @@ nk_do_scrollbarh.exit.i:                          ; preds = %353, %349, %257
   br i1 %402, label %nk_window_is_hovered.exit.thread.i, label %nk_window_is_hovered.exit.i
 
 nk_window_is_hovered.exit.i:                      ; preds = %399
-  %foldExtExtBinop26 = fadd <2 x float> %.sroa.0.0.copyload.i.i, %.sroa.4.0.i.i
-  %403 = extractelement <2 x float> %foldExtExtBinop26, i64 1
+  %foldExtExtBinop59 = fadd <2 x float> %.sroa.0.0.copyload.i.i, %.sroa.4.0.i.i
+  %403 = extractelement <2 x float> %foldExtExtBinop59, i64 1
   %404 = fcmp olt float %401, %403
   %or.cond7.i = select i1 %375, i1 %404, i1 false
   br i1 %or.cond7.i, label %410, label %nk_window_is_hovered.exit.thread.i
@@ -39902,8 +39884,8 @@ define range(i32 0, 2) i32 @nk_window_is_hovered(ptr noundef readonly captures(a
   br i1 %30, label %nk_input_is_mouse_hovering_rect.exit, label %31
 
 31:                                               ; preds = %27
-  %foldExtExtBinop13 = fadd <2 x float> %.sroa.0.0.copyload, %.sroa.4.0
-  %32 = extractelement <2 x float> %foldExtExtBinop13, i64 1
+  %foldExtExtBinop16 = fadd <2 x float> %.sroa.0.0.copyload, %.sroa.4.0
+  %32 = extractelement <2 x float> %foldExtExtBinop16, i64 1
   %33 = fcmp olt float %29, %32
   %34 = zext i1 %33 to i32
   br label %nk_input_is_mouse_hovering_rect.exit
@@ -39969,8 +39951,8 @@ define range(i32 0, 2) i32 @nk_window_is_any_hovered(ptr noundef readonly captur
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %20, i64 1
   %28 = load float, ptr %5, align 4, !tbaa !724
   %29 = fcmp ugt float %.sroa.0.4.vec.extract.i, %28
-  %foldExtExtBinop66 = fadd <2 x float> %20, %22
-  %30 = extractelement <2 x float> %foldExtExtBinop66, i64 1
+  %foldExtExtBinop68 = fadd <2 x float> %20, %22
+  %30 = extractelement <2 x float> %foldExtExtBinop68, i64 1
   %31 = fcmp uge float %28, %30
   %or.cond = select i1 %29, i1 true, i1 %31
   br i1 %or.cond, label %nk_input_is_mouse_hovering_rect.exit.thread, label %.loopexit
@@ -39985,8 +39967,8 @@ nk_input_is_mouse_hovering_rect.exit.thread:      ; preds = %27, %18, %15, %12
   %.sroa.0.0.vec.extract.i38 = extractelement <2 x float> %34, i64 0
   %37 = load float, ptr %4, align 4, !tbaa !722
   %38 = fcmp ole float %.sroa.0.0.vec.extract.i38, %37
-  %foldExtExtBinop68 = fadd <2 x float> %34, %36
-  %39 = extractelement <2 x float> %foldExtExtBinop68, i64 0
+  %foldExtExtBinop70 = fadd <2 x float> %34, %36
+  %39 = extractelement <2 x float> %foldExtExtBinop70, i64 0
   %40 = fcmp olt float %37, %39
   %or.cond.i40 = select i1 %38, i1 %40, i1 false
   br i1 %.not26, label %52, label %41
@@ -40015,8 +39997,8 @@ nk_input_is_mouse_hovering_rect.exit.thread:      ; preds = %27, %18, %15, %12
   %.sroa.0.4.vec.extract.i42 = extractelement <2 x float> %34, i64 1
   %54 = load float, ptr %5, align 4, !tbaa !724
   %55 = fcmp ugt float %.sroa.0.4.vec.extract.i42, %54
-  %foldExtExtBinop70 = fadd <2 x float> %34, %36
-  %56 = extractelement <2 x float> %foldExtExtBinop70, i64 1
+  %foldExtExtBinop72 = fadd <2 x float> %34, %36
+  %56 = extractelement <2 x float> %foldExtExtBinop72, i64 1
   %57 = fcmp uge float %54, %56
   %or.cond55 = select i1 %55, i1 true, i1 %57
   br i1 %or.cond55, label %nk_input_is_mouse_hovering_rect.exit36.thread, label %.loopexit
@@ -40092,8 +40074,8 @@ define range(i32 0, 2) i32 @nk_item_is_any_active(ptr noundef readonly captures(
   %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %20, i64 1
   %27 = load float, ptr %5, align 4, !tbaa !724
   %28 = fcmp ugt float %.sroa.0.4.vec.extract.i.i, %27
-  %foldExtExtBinop5 = fadd <2 x float> %20, %22
-  %29 = extractelement <2 x float> %foldExtExtBinop5, i64 1
+  %foldExtExtBinop6 = fadd <2 x float> %20, %22
+  %29 = extractelement <2 x float> %foldExtExtBinop6, i64 1
   %30 = fcmp uge float %27, %29
   %or.cond.i = select i1 %28, i1 true, i1 %30
   br i1 %or.cond.i, label %nk_input_is_mouse_hovering_rect.exit.thread.i, label %nk_window_is_any_hovered.exit
@@ -40108,8 +40090,8 @@ nk_input_is_mouse_hovering_rect.exit.thread.i:    ; preds = %.nk_input_is_mouse_
   %36 = load <2 x float>, ptr %35, align 4
   %.sroa.0.0.vec.extract.i38.i = extractelement <2 x float> %34, i64 0
   %37 = fcmp ole float %.sroa.0.0.vec.extract.i38.i, %31
-  %foldExtExtBinop7 = fadd <2 x float> %34, %36
-  %38 = extractelement <2 x float> %foldExtExtBinop7, i64 0
+  %foldExtExtBinop8 = fadd <2 x float> %34, %36
+  %38 = extractelement <2 x float> %foldExtExtBinop8, i64 0
   %39 = fcmp olt float %31, %38
   %or.cond.i40.i = select i1 %37, i1 %39, i1 false
   br i1 %.not26.i, label %51, label %40
@@ -40138,8 +40120,8 @@ nk_input_is_mouse_hovering_rect.exit.thread.i:    ; preds = %.nk_input_is_mouse_
   %.sroa.0.4.vec.extract.i42.i = extractelement <2 x float> %34, i64 1
   %53 = load float, ptr %5, align 4, !tbaa !724
   %54 = fcmp ugt float %.sroa.0.4.vec.extract.i42.i, %53
-  %foldExtExtBinop9 = fadd <2 x float> %34, %36
-  %55 = extractelement <2 x float> %foldExtExtBinop9, i64 1
+  %foldExtExtBinop10 = fadd <2 x float> %34, %36
+  %55 = extractelement <2 x float> %foldExtExtBinop10, i64 1
   %56 = fcmp uge float %53, %55
   %or.cond55.i = select i1 %54, i1 true, i1 %56
   br i1 %or.cond55.i, label %nk_input_is_mouse_hovering_rect.exit36.thread.i, label %nk_window_is_any_hovered.exit
@@ -42089,8 +42071,8 @@ define range(i32 0, 2) i32 @nk_contextual_begin(ptr noundef %0, i32 noundef %1, 
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %37 = load float, ptr %36, align 4, !tbaa !724
   %38 = fcmp ugt float %.sroa.0.4.vec.extract.i.i, %37
-  %foldExtExtBinop69 = fadd <2 x float> %3, %4
-  %39 = extractelement <2 x float> %foldExtExtBinop69, i64 1
+  %foldExtExtBinop75 = fadd <2 x float> %3, %4
+  %39 = extractelement <2 x float> %foldExtExtBinop75, i64 1
   %40 = fcmp uge float %37, %39
   %or.cond.i = select i1 %38, i1 true, i1 %40
   br i1 %or.cond.i, label %nk_input_mouse_clicked.exit, label %41
@@ -42278,8 +42260,8 @@ nk_input_is_mouse_pressed.exit:                   ; preds = %31, %34
   br i1 %43, label %nk_input_is_mouse_hovering_rect.exit, label %44
 
 44:                                               ; preds = %40
-  %foldExtExtBinop103 = fadd <2 x float> %2, %3
-  %45 = extractelement <2 x float> %foldExtExtBinop103, i64 1
+  %foldExtExtBinop110 = fadd <2 x float> %2, %3
+  %45 = extractelement <2 x float> %foldExtExtBinop110, i64 1
   %46 = fcmp uge float %42, %45
   br label %nk_input_is_mouse_hovering_rect.exit
 
@@ -42287,8 +42269,8 @@ nk_input_is_mouse_hovering_rect.exit:             ; preds = %nk_input_is_mouse_p
   %.0.i79 = phi i1 [ true, %nk_input_is_mouse_pressed.exit ], [ true, %40 ], [ %46, %44 ]
   %.sroa.0.0.vec.extract.i80 = extractelement <2 x float> %4, i64 0
   %47 = fcmp ole float %.sroa.0.0.vec.extract.i80, %36
-  %foldExtExtBinop105 = fadd <2 x float> %4, %5
-  %48 = extractelement <2 x float> %foldExtExtBinop105, i64 0
+  %foldExtExtBinop112 = fadd <2 x float> %4, %5
+  %48 = extractelement <2 x float> %foldExtExtBinop112, i64 0
   %49 = fcmp olt float %36, %48
   %or.cond.i82 = select i1 %47, i1 %49, i1 false
   br i1 %or.cond.i82, label %50, label %nk_input_is_mouse_hovering_rect.exit86
@@ -42301,8 +42283,8 @@ nk_input_is_mouse_hovering_rect.exit:             ; preds = %nk_input_is_mouse_p
   br i1 %53, label %nk_input_is_mouse_hovering_rect.exit86, label %54
 
 54:                                               ; preds = %50
-  %foldExtExtBinop107 = fadd <2 x float> %4, %5
-  %55 = extractelement <2 x float> %foldExtExtBinop107, i64 1
+  %foldExtExtBinop114 = fadd <2 x float> %4, %5
+  %55 = extractelement <2 x float> %foldExtExtBinop114, i64 1
   %56 = fcmp olt float %52, %55
   br label %nk_input_is_mouse_hovering_rect.exit86
 
@@ -43786,8 +43768,8 @@ nk_input_is_mouse_pressed.exit:                   ; preds = %48, %45
   br i1 %58, label %nk_input_is_mouse_hovering_rect.exit.thread, label %nk_input_is_mouse_hovering_rect.exit
 
 nk_input_is_mouse_hovering_rect.exit:             ; preds = %55
-  %foldExtExtBinop36 = fadd <2 x float> %.sroa.03.0, %.sroa.7.0
-  %59 = extractelement <2 x float> %foldExtExtBinop36, i64 1
+  %foldExtExtBinop40 = fadd <2 x float> %.sroa.03.0, %.sroa.7.0
+  %59 = extractelement <2 x float> %foldExtExtBinop40, i64 1
   %60 = fcmp olt float %57, %59
   %or.cond = select i1 %49, i1 %60, i1 false
   br i1 %or.cond, label %61, label %nk_input_is_mouse_hovering_rect.exit.thread
@@ -45098,8 +45080,8 @@ nk_input_is_mouse_pressed.exit.i:                 ; preds = %48, %45
   br i1 %58, label %nk_input_is_mouse_hovering_rect.exit.thread.i, label %nk_input_is_mouse_hovering_rect.exit.i
 
 nk_input_is_mouse_hovering_rect.exit.i:           ; preds = %55
-  %foldExtExtBinop2 = fadd <2 x float> %.sroa.03.0.i, %.sroa.7.0.i
-  %59 = extractelement <2 x float> %foldExtExtBinop2, i64 1
+  %foldExtExtBinop6 = fadd <2 x float> %.sroa.03.0.i, %.sroa.7.0.i
+  %59 = extractelement <2 x float> %foldExtExtBinop6, i64 1
   %60 = fcmp olt float %57, %59
   %or.cond.i = select i1 %49, i1 %60, i1 false
   br i1 %or.cond.i, label %61, label %nk_input_is_mouse_hovering_rect.exit.thread.i
@@ -46802,16 +46784,16 @@ thread-pre-split:                                 ; preds = %151
 
 167:                                              ; preds = %thread-pre-split, %164
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 8388
-  %.205 = select i1 %71, i64 7520, i64 7952
+  %.215 = select i1 %71, i64 7520, i64 7952
   br label %171
 
 169:                                              ; preds = %thread-pre-split, %164
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 8384
-  %.206 = select i1 %71, i64 7736, i64 8168
+  %.216 = select i1 %71, i64 7736, i64 8168
   br label %171
 
 171:                                              ; preds = %169, %167
-  %.sink = phi i64 [ %.205, %167 ], [ %.206, %169 ]
+  %.sink = phi i64 [ %.215, %167 ], [ %.216, %169 ]
   %.0121.in = phi ptr [ %168, %167 ], [ %170, %169 ]
   %.0121 = load i32, ptr %.0121.in, align 4, !tbaa !7
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
@@ -47577,8 +47559,8 @@ nk_rgb_factor.exit187.i:                          ; preds = %171, %170
   br label %184
 
 184:                                              ; preds = %nk_rgb_factor.exit187.i, %nk_rgb_factor.exit157.i, %nk_rgb_factor.exit.i, %103, %nk_layout_reset_min_row_height.exit.i
-  %.198.i = phi i64 [ 7736, %nk_rgb_factor.exit187.i ], [ 7736, %nk_rgb_factor.exit157.i ], [ 7736, %nk_rgb_factor.exit.i ], [ 7736, %103 ], [ 8168, %nk_layout_reset_min_row_height.exit.i ]
-  %.197.i = phi i64 [ 7520, %nk_rgb_factor.exit187.i ], [ 7520, %nk_rgb_factor.exit157.i ], [ 7520, %nk_rgb_factor.exit.i ], [ 7520, %103 ], [ 7952, %nk_layout_reset_min_row_height.exit.i ]
+  %.211.i = phi i64 [ 7736, %nk_rgb_factor.exit187.i ], [ 7736, %nk_rgb_factor.exit157.i ], [ 7736, %nk_rgb_factor.exit.i ], [ 7736, %103 ], [ 8168, %nk_layout_reset_min_row_height.exit.i ]
+  %.210.i = phi i64 [ 7520, %nk_rgb_factor.exit187.i ], [ 7520, %nk_rgb_factor.exit157.i ], [ 7520, %nk_rgb_factor.exit.i ], [ 7520, %103 ], [ 7952, %nk_layout_reset_min_row_height.exit.i ]
   %185 = load i32, ptr %69, align 4, !tbaa !910
   %186 = and i32 %185, 4096
   %.not141.i = icmp eq i32 %186, 0
@@ -47587,7 +47569,7 @@ nk_rgb_factor.exit187.i:                          ; preds = %171, %170
   %188 = select i1 %or.cond.i, ptr %0, ptr null
   %189 = load i32, ptr %.0, align 4, !tbaa !7
   %190 = icmp eq i32 %189, 1
-  %.sink.i = select i1 %190, i64 %.197.i, i64 %.198.i
+  %.sink.i = select i1 %190, i64 %.210.i, i64 %.211.i
   %.0130.in.i.v = select i1 %190, i64 8388, i64 8384
   %.0130.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0130.in.i.v
   %.0130.i = load i32, ptr %.0130.in.i, align 4, !tbaa !7
@@ -49451,8 +49433,8 @@ nk_layout_peek.exit:                              ; preds = %31, %33
   br i1 %63, label %nk_input_is_mouse_hovering_rect.exit, label %64
 
 64:                                               ; preds = %60
-  %foldExtExtBinop28 = fadd <2 x float> %53, %54
-  %65 = extractelement <2 x float> %foldExtExtBinop28, i64 1
+  %foldExtExtBinop31 = fadd <2 x float> %53, %54
+  %65 = extractelement <2 x float> %foldExtExtBinop31, i64 1
   %66 = fcmp olt float %62, %65
   %67 = zext i1 %66 to i32
   br label %nk_input_is_mouse_hovering_rect.exit
@@ -49680,8 +49662,8 @@ nk_input_has_mouse_click_in_rect.exit.i:          ; preds = %54
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %65 = load float, ptr %64, align 4, !tbaa !737
   %66 = fcmp ugt float %.sroa.0.4.vec.extract.i.i, %65
-  %foldExtExtBinop30 = fadd <2 x float> %55, %56
-  %67 = extractelement <2 x float> %foldExtExtBinop30, i64 1
+  %foldExtExtBinop32 = fadd <2 x float> %55, %56
+  %67 = extractelement <2 x float> %foldExtExtBinop32, i64 1
   %68 = fcmp uge float %65, %67
   %or.cond16.i.not.i = select i1 %66, i1 true, i1 %68
   br i1 %or.cond16.i.not.i, label %nk_input_has_mouse_click_down_in_rect.exit, label %69
@@ -50265,8 +50247,8 @@ nk_rgb_factor.exit:                               ; preds = %21, %22
 81:                                               ; preds = %79
   %.sroa.099.0.vec.extract111.i = extractelement <2 x float> %37, i64 0
   %82 = fadd float %.sroa.01.0.copyload, %.sroa.099.0.vec.extract111.i
-  %foldExtExtBinop19 = fadd <2 x float> %37, %39
-  %83 = extractelement <2 x float> %foldExtExtBinop19, i64 0
+  %foldExtExtBinop23 = fadd <2 x float> %37, %39
+  %83 = extractelement <2 x float> %foldExtExtBinop23, i64 0
   %84 = tail call float @llvm.fmuladd.f32(float %.sroa.01.0.copyload, float 2.000000e+00, float %52)
   %85 = fsub float %83, %84
   %86 = fcmp olt float %82, %85
@@ -50434,7 +50416,7 @@ nk_text_clamp.exit.thread.thread.i:               ; preds = %nk_rgb_factor.exit
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.loopexit.i.i, %.lr.ph.i.i
-  %.05177.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %spec.select222.i, %.loopexit.i.i ]
+  %.05177.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %spec.select232.i, %.loopexit.i.i ]
   %.05575.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %59, %.loopexit.i.i ]
   %.06072.i.i = phi i32 [ %54, %.lr.ph.i.i ], [ %68, %.loopexit.i.i ]
   %59 = add nsw i32 %.06072.i.i, %.05575.i.i
@@ -50445,7 +50427,7 @@ nk_text_clamp.exit.thread.thread.i:               ; preds = %nk_rgb_factor.exit
   %64 = load i32, ptr %6, align 4
   %.fr = freeze i32 %64
   %.not65.i.i = icmp eq i32 %.fr, 32
-  %spec.select222.i = select i1 %.not65.i.i, i32 %59, i32 %.05177.i.i
+  %spec.select232.i = select i1 %.not65.i.i, i32 %59, i32 %.05177.i.i
   %65 = sext i32 %59 to i64
   %66 = getelementptr inbounds i8, ptr %1, i64 %65
   %67 = sub nsw i32 %2, %59
@@ -50458,8 +50440,8 @@ nk_text_clamp.exit.thread.thread.i:               ; preds = %nk_rgb_factor.exit
   br i1 %or.cond66.i.i, label %.loopexit.i.i, label %nk_text_clamp.exit.thread.i, !llvm.loop !214
 
 nk_text_clamp.exit.thread.i:                      ; preds = %.loopexit.i.i
-  %.not64.i.i = icmp eq i32 %spec.select222.i, 0
-  %spec.select.i = select i1 %.not64.i.i, i32 %59, i32 %spec.select222.i
+  %.not64.i.i = icmp eq i32 %spec.select232.i, 0
+  %spec.select.i = select i1 %.not64.i.i, i32 %59, i32 %spec.select232.i
   %71 = select i1 %70, i32 %spec.select.i, i32 %59
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not18 = icmp eq i32 %71, 0
@@ -50534,12 +50516,12 @@ nk_text_clamp.exit111.thread.thread.i:            ; preds = %80
   %107 = load ptr, ptr %37, align 8
   %108 = call float %106(ptr %107, float noundef %97, ptr noundef %101, i32 noundef %103) #55
   %.not65.i110.us.i = icmp eq i32 %.promoted.i.fr, 32
-  %spec.select223.i = select i1 %.not65.i110.us.i, i32 %103, i32 0
+  %spec.select233.i = select i1 %.not65.i110.us.i, i32 %103, i32 0
   br label %nk_utf_decode.exit.thread.i, !llvm.loop !1114
 
 .lr.ph.i86.i:                                     ; preds = %.lr.ph.i86.preheader.i, %nk_utf_decode.exit.i
   %109 = phi i32 [ %166, %nk_utf_decode.exit.i ], [ %.promoted.i.fr, %.lr.ph.i86.preheader.i ]
-  %.05177.i89.i = phi i32 [ %spec.select224.i, %nk_utf_decode.exit.i ], [ 0, %.lr.ph.i86.preheader.i ]
+  %.05177.i89.i = phi i32 [ %spec.select234.i, %nk_utf_decode.exit.i ], [ 0, %.lr.ph.i86.preheader.i ]
   %.05575.i91.i = phi i32 [ %110, %nk_utf_decode.exit.i ], [ 0, %.lr.ph.i86.preheader.i ]
   %.06072.i94.i = phi i32 [ %.023.i.i, %nk_utf_decode.exit.i ], [ %103, %.lr.ph.i86.preheader.i ]
   %110 = add nsw i32 %.06072.i94.i, %.05575.i91.i
@@ -50547,9 +50529,9 @@ nk_text_clamp.exit111.thread.thread.i:            ; preds = %80
   %112 = load float, ptr %51, align 8, !tbaa !213
   %113 = load ptr, ptr %37, align 8
   %114 = call float %111(ptr %113, float noundef %112, ptr noundef nonnull %101, i32 noundef %110) #55
-  %.fr80 = freeze i32 %109
-  %.not65.i110.i = icmp eq i32 %.fr80, 32
-  %spec.select224.i = select i1 %.not65.i110.i, i32 %110, i32 %.05177.i89.i
+  %.fr91 = freeze i32 %109
+  %.not65.i110.i = icmp eq i32 %.fr91, 32
+  %spec.select234.i = select i1 %.not65.i110.i, i32 %110, i32 %.05177.i89.i
   %115 = sext i32 %110 to i64
   %116 = getelementptr inbounds i8, ptr %101, i64 %115
   %117 = sub i32 %102, %110
@@ -50623,7 +50605,7 @@ nk_utf_decode_byte.exit.i.i:                      ; preds = %120
 
 nk_utf_decode_byte.exit34.i.i:                    ; preds = %140
   %.not27.i.i = icmp eq i64 %indvars.iv.i29.i.i, 0
-  br i1 %.not27.i.i, label %148, label %nk_utf_validate.exit.loopexit90.i.i
+  br i1 %.not27.i.i, label %148, label %nk_utf_validate.exit.loopexit92.i.i
 
 148:                                              ; preds = %nk_utf_decode_byte.exit34.i.i
   %149 = xor i8 %142, -1
@@ -50643,18 +50625,18 @@ nk_utf_decode_byte.exit34.i.i:                    ; preds = %140
   br i1 %134, label %nk_utf_decode.exit.thread.i, label %155
 
 155:                                              ; preds = %._crit_edge.i.i, %._crit_edge.loopexit.i.i
-  %.0.lcssa89.i.i = phi i32 [ %153, %._crit_edge.loopexit.i.i ], [ %132, %._crit_edge.i.i ]
+  %.0.lcssa91.i.i = phi i32 [ %153, %._crit_edge.loopexit.i.i ], [ %132, %._crit_edge.i.i ]
   %156 = and i64 %indvars.iv.i.i.i, 4294967295
   %157 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !7
-  %.not.i.i.i = icmp ugt i32 %158, %.0.lcssa89.i.i
+  %.not.i.i.i = icmp ugt i32 %158, %.0.lcssa91.i.i
   br i1 %.not.i.i.i, label %164, label %159
 
 159:                                              ; preds = %155
   %160 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %156
   %161 = load i32, ptr %160, align 4, !tbaa !7
-  %162 = icmp uge i32 %.0.lcssa89.i.i, %161
-  %163 = add i32 %.0.lcssa89.i.i, -55296
+  %162 = icmp uge i32 %.0.lcssa91.i.i, %161
+  %163 = add i32 %.0.lcssa91.i.i, -55296
   %or.cond.i.i.i = icmp ult i32 %163, 2047
   %or.cond15.i.i.i = or i1 %or.cond.i.i.i, %162
   br i1 %or.cond15.i.i.i, label %164, label %nk_utf_decode.exit.i
@@ -50663,22 +50645,22 @@ nk_utf_decode_byte.exit34.i.i:                    ; preds = %140
   br label %nk_utf_decode.exit.i
 
 nk_utf_validate.exit.loopexit.i.i:                ; preds = %147
-  %indvars83.le101.i.i = trunc i64 %indvars.iv.i.i to i32
+  %indvars83.le103.i.i = trunc i64 %indvars.iv.i.i to i32
   br label %nk_utf_decode.exit.i
 
-nk_utf_validate.exit.loopexit90.i.i:              ; preds = %nk_utf_decode_byte.exit34.i.i
+nk_utf_validate.exit.loopexit92.i.i:              ; preds = %nk_utf_decode_byte.exit34.i.i
   %indvars83.le.i.i = trunc i64 %indvars.iv.i.i to i32
   br label %nk_utf_decode.exit.i
 
 nk_utf_decode.exit.thread.i:                      ; preds = %._crit_edge.i.i, %._crit_edge.loopexit.i.i, %.lr.ph.i86.i, %.lr.ph.i86.preheader.split.us.i
-  %.us-phi174.i = phi i32 [ %spec.select223.i, %.lr.ph.i86.preheader.split.us.i ], [ %spec.select224.i, %.lr.ph.i86.i ], [ %spec.select224.i, %._crit_edge.loopexit.i.i ], [ %spec.select224.i, %._crit_edge.i.i ]
+  %.us-phi174.i = phi i32 [ %spec.select233.i, %.lr.ph.i86.preheader.split.us.i ], [ %spec.select234.i, %.lr.ph.i86.i ], [ %spec.select234.i, %._crit_edge.loopexit.i.i ], [ %spec.select234.i, %._crit_edge.i.i ]
   %.us-phi175.i = phi i32 [ %103, %.lr.ph.i86.preheader.split.us.i ], [ %110, %._crit_edge.i.i ], [ %110, %._crit_edge.loopexit.i.i ], [ %102, %.lr.ph.i86.i ]
   %165 = icmp slt i32 %.us-phi175.i, %102
   br label %nk_text_clamp.exit111.thread.i
 
-nk_utf_decode.exit.i:                             ; preds = %127, %nk_utf_validate.exit.loopexit90.i.i, %nk_utf_validate.exit.loopexit.i.i, %164, %159, %nk_utf_decode_byte.exit.i.i
-  %166 = phi i32 [ 65533, %nk_utf_decode_byte.exit.i.i ], [ 65533, %164 ], [ %.0.lcssa89.i.i, %159 ], [ 65533, %nk_utf_validate.exit.loopexit.i.i ], [ 65533, %nk_utf_validate.exit.loopexit90.i.i ], [ 65533, %127 ]
-  %.023.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i ], [ %128, %164 ], [ %128, %159 ], [ %indvars83.le101.i.i, %nk_utf_validate.exit.loopexit.i.i ], [ %indvars83.le.i.i, %nk_utf_validate.exit.loopexit90.i.i ], [ 1, %127 ]
+nk_utf_decode.exit.i:                             ; preds = %127, %nk_utf_validate.exit.loopexit92.i.i, %nk_utf_validate.exit.loopexit.i.i, %164, %159, %nk_utf_decode_byte.exit.i.i
+  %166 = phi i32 [ 65533, %nk_utf_decode_byte.exit.i.i ], [ 65533, %164 ], [ %.0.lcssa91.i.i, %159 ], [ 65533, %nk_utf_validate.exit.loopexit.i.i ], [ 65533, %nk_utf_validate.exit.loopexit92.i.i ], [ 65533, %127 ]
+  %.023.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i ], [ %128, %164 ], [ %128, %159 ], [ %indvars83.le103.i.i, %nk_utf_validate.exit.loopexit.i.i ], [ %indvars83.le.i.i, %nk_utf_validate.exit.loopexit92.i.i ], [ 1, %127 ]
   %.not.i107.i = icmp ne i32 %.023.i.i, 0
   %167 = fcmp olt float %114, %50
   %or.cond.i108.i = select i1 %.not.i107.i, i1 %167, i1 false
@@ -50687,7 +50669,7 @@ nk_utf_decode.exit.i:                             ; preds = %127, %nk_utf_valida
   br i1 %or.cond66.i109.i, label %.lr.ph.i86.i, label %nk_text_clamp.exit111.thread.i, !llvm.loop !214
 
 nk_text_clamp.exit111.thread.i:                   ; preds = %nk_utf_decode.exit.i, %nk_utf_decode.exit.thread.i
-  %.152.i101160.i = phi i32 [ %.us-phi174.i, %nk_utf_decode.exit.thread.i ], [ %spec.select224.i, %nk_utf_decode.exit.i ]
+  %.152.i101160.i = phi i32 [ %.us-phi174.i, %nk_utf_decode.exit.thread.i ], [ %spec.select234.i, %nk_utf_decode.exit.i ]
   %169 = phi i32 [ %.us-phi175.i, %nk_utf_decode.exit.thread.i ], [ %110, %nk_utf_decode.exit.i ]
   %.lcssa.i81.i = phi i1 [ %165, %nk_utf_decode.exit.thread.i ], [ %168, %nk_utf_decode.exit.i ]
   %.not64.i82.i = icmp eq i32 %.152.i101160.i, 0
@@ -52800,9 +52782,9 @@ define internal fastcc void @nk_do_toggle(ptr noundef nonnull captures(none) %0,
   store i32 %..i, ptr %0, align 4, !tbaa !7
   %92 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %0, <2 x float> %.sroa.0.4.vec.insert, <2 x float> %.sroa.5.12.vec.insert, ptr noundef readonly %9, i32 noundef 0)
   %.not16.i = icmp eq i32 %92, 0
-  br i1 %.not16.i, label %94, label %.thread41.i
+  br i1 %.not16.i, label %94, label %.thread44.i
 
-.thread41.i:                                      ; preds = %77
+.thread44.i:                                      ; preds = %77
   store i32 34, ptr %0, align 4, !tbaa !7
   %.not17.i = icmp eq i32 %89, 0
   %93 = zext i1 %.not17.i to i32
@@ -52840,9 +52822,9 @@ nk_input_is_mouse_prev_hovering_rect.exit.thread.i: ; preds = %103, %97, %96
   %109 = or i32 %.pre.i, 8
   br label %nk_input_is_mouse_prev_hovering_rect.exit28.thread.sink.split.i
 
-110:                                              ; preds = %94, %.thread41.i
-  %.046.i = phi i32 [ %93, %.thread41.i ], [ %89, %94 ]
-  %111 = phi i32 [ 34, %.thread41.i ], [ %.pre.i, %94 ]
+110:                                              ; preds = %94, %.thread44.i
+  %.049.i = phi i32 [ %93, %.thread44.i ], [ %89, %94 ]
+  %111 = phi i32 [ 34, %.thread44.i ], [ %.pre.i, %94 ]
   %.not.i21.i = icmp eq ptr %9, null
   br i1 %.not.i21.i, label %nk_toggle_behavior.exit, label %..thread_crit_edge.i
 
@@ -52853,7 +52835,7 @@ nk_input_is_mouse_prev_hovering_rect.exit.thread.i: ; preds = %103, %97, %96
   br label %.thread.i
 
 .thread.i:                                        ; preds = %..thread_crit_edge.i, %103
-  %.045.i = phi i32 [ %.046.i, %..thread_crit_edge.i ], [ %89, %103 ]
+  %.048.i = phi i32 [ %.049.i, %..thread_crit_edge.i ], [ %89, %103 ]
   %112 = phi i32 [ %111, %..thread_crit_edge.i ], [ %.pre.i, %103 ]
   %.pre-phi.i = phi float [ %.pre40.i, %..thread_crit_edge.i ], [ %101, %103 ]
   %113 = phi float [ %.pre37.i, %..thread_crit_edge.i ], [ %99, %103 ]
@@ -52877,13 +52859,13 @@ nk_input_is_mouse_prev_hovering_rect.exit.thread.i: ; preds = %103, %97, %96
 
 nk_input_is_mouse_prev_hovering_rect.exit28.thread.sink.split.i: ; preds = %122, %nk_input_is_mouse_prev_hovering_rect.exit.thread.i
   %.sink.i = phi i32 [ %123, %122 ], [ %109, %nk_input_is_mouse_prev_hovering_rect.exit.thread.i ]
-  %.044.ph.i = phi i32 [ %.045.i, %122 ], [ %89, %nk_input_is_mouse_prev_hovering_rect.exit.thread.i ]
+  %.047.ph.i = phi i32 [ %.048.i, %122 ], [ %89, %nk_input_is_mouse_prev_hovering_rect.exit.thread.i ]
   store i32 %.sink.i, ptr %0, align 4, !tbaa !7
   br label %nk_toggle_behavior.exit
 
 nk_toggle_behavior.exit:                          ; preds = %110, %.thread.i, %116, %nk_input_is_mouse_prev_hovering_rect.exit28.thread.sink.split.i
-  %.044.i = phi i32 [ %.045.i, %116 ], [ %.045.i, %.thread.i ], [ %.046.i, %110 ], [ %.044.ph.i, %nk_input_is_mouse_prev_hovering_rect.exit28.thread.sink.split.i ]
-  store i32 %.044.i, ptr %4, align 4, !tbaa !7
+  %.047.i = phi i32 [ %.048.i, %116 ], [ %.048.i, %.thread.i ], [ %.049.i, %110 ], [ %.047.ph.i, %nk_input_is_mouse_prev_hovering_rect.exit28.thread.sink.split.i ]
+  store i32 %.047.i, ptr %4, align 4, !tbaa !7
   %124 = getelementptr inbounds nuw i8, ptr %8, i64 272
   %125 = load ptr, ptr %124, align 8, !tbaa !1127
   %.not132 = icmp eq ptr %125, null
@@ -52920,10 +52902,10 @@ nk_toggle_behavior.exit:                          ; preds = %110, %.thread.i, %1
   br label %141
 
 141:                                              ; preds = %139, %137, %135
-  %.sink2.i = phi i64 [ 168, %139 ], [ 168, %135 ], [ 128, %137 ]
+  %.sink7.i = phi i64 [ 168, %139 ], [ 168, %135 ], [ 128, %137 ]
   %.sink.i141 = phi i64 [ 216, %139 ], [ 212, %135 ], [ 208, %137 ]
   %.0.i = phi ptr [ %140, %139 ], [ %136, %135 ], [ %8, %137 ]
-  %142 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink2.i
+  %142 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink7.i
   %143 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink.i141
   %.sroa.8.0.i = load i32, ptr %143, align 4
   %144 = getelementptr inbounds nuw i8, ptr %8, i64 252
@@ -53241,10 +53223,10 @@ nk_rgb_factor.exit108.i:                          ; preds = %275
   br label %295
 
 295:                                              ; preds = %293, %291, %289
-  %.sink10.i = phi i64 [ 168, %293 ], [ 168, %289 ], [ 128, %291 ]
+  %.sink15.i = phi i64 [ 168, %293 ], [ 168, %289 ], [ 128, %291 ]
   %.sink.i143 = phi i64 [ 216, %293 ], [ 212, %289 ], [ 208, %291 ]
   %.0.i144 = phi ptr [ %294, %293 ], [ %290, %289 ], [ %8, %291 ]
-  %296 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink10.i
+  %296 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink15.i
   %297 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink.i143
   %.sroa.8.0.i145 = load i32, ptr %297, align 4
   %298 = getelementptr inbounds nuw i8, ptr %8, i64 252
@@ -56000,9 +55982,9 @@ nk_input_has_mouse_click_in_rect.exit.i.i.i:      ; preds = %98
   %108 = fcmp ole float %93, %107
   %109 = fadd float %89, %93
   %110 = fcmp olt float %107, %109
-  %or.cond16.i.not.i.not132.i.i = select i1 %108, i1 %110, i1 false
+  %or.cond16.i.not.i.not135.i.i = select i1 %108, i1 %110, i1 false
   %111 = icmp eq i32 %105, 1
-  %or.cond.i.i = select i1 %or.cond16.i.not.i.not132.i.i, i1 %111, i1 false
+  %or.cond.i.i = select i1 %or.cond16.i.not.i.not135.i.i, i1 %111, i1 false
   br i1 %or.cond.i.i, label %112, label %.thread91.i.i
 
 112:                                              ; preds = %nk_input_has_mouse_click_in_rect.exit.i.i.i
@@ -56055,9 +56037,9 @@ nk_input_has_mouse_click_in_rect.exit.i.i.i:      ; preds = %98
   %146 = fadd float %.sroa.0131.4.vec.extract.i, %.sroa.21.12.vec.extract.i
   %147 = fcmp uge float %144, %146
   %or.cond122.i.i = select i1 %145, i1 true, i1 %147
-  br i1 %or.cond122.i.i, label %nk_input_is_mouse_hovering_rect.exit.thread.i.i, label %nk_input_is_mouse_hovering_rect.exit.thread.thread129.i.i
+  br i1 %or.cond122.i.i, label %nk_input_is_mouse_hovering_rect.exit.thread.i.i, label %nk_input_is_mouse_hovering_rect.exit.thread.thread132.i.i
 
-nk_input_is_mouse_hovering_rect.exit.thread.thread129.i.i: ; preds = %142
+nk_input_is_mouse_hovering_rect.exit.thread.thread132.i.i: ; preds = %142
   store i32 18, ptr %26, align 4, !tbaa !7
   %148 = getelementptr inbounds nuw i8, ptr %24, i64 332
   %149 = load float, ptr %148, align 4, !tbaa !723
@@ -56072,7 +56054,7 @@ nk_input_is_mouse_hovering_rect.exit.thread.i.i:  ; preds = %142, %.thread91.i.i
   %152 = or i32 %136, 64
   br label %.thread105.i.i
 
-153:                                              ; preds = %nk_input_is_mouse_hovering_rect.exit.thread.thread129.i.i
+153:                                              ; preds = %nk_input_is_mouse_hovering_rect.exit.thread.thread132.i.i
   %154 = getelementptr inbounds nuw i8, ptr %24, i64 336
   %155 = load float, ptr %154, align 4, !tbaa !725
   %156 = fcmp ugt float %.sroa.0131.4.vec.extract.i, %155
@@ -56098,8 +56080,8 @@ nk_input_is_mouse_hovering_rect.exit.thread.i.i:  ; preds = %142, %.thread91.i.i
   %or.cond126.i.i = select i1 %166, i1 true, i1 %168
   br i1 %or.cond126.i.i, label %nk_slider_behavior.exit.i, label %nk_input_is_mouse_prev_hovering_rect.exit88.thread.sink.split.i.i
 
-nk_input_is_mouse_prev_hovering_rect.exit88.thread.sink.split.i.i: ; preds = %163, %153, %nk_input_is_mouse_hovering_rect.exit.thread.thread129.i.i
-  %.sink.i.i = phi i32 [ 26, %153 ], [ 26, %nk_input_is_mouse_hovering_rect.exit.thread.thread129.i.i ], [ %159, %163 ]
+nk_input_is_mouse_prev_hovering_rect.exit88.thread.sink.split.i.i: ; preds = %163, %153, %nk_input_is_mouse_hovering_rect.exit.thread.thread132.i.i
+  %.sink.i.i = phi i32 [ 26, %153 ], [ 26, %nk_input_is_mouse_hovering_rect.exit.thread.thread132.i.i ], [ %159, %163 ]
   store i32 %.sink.i.i, ptr %26, align 4, !tbaa !7
   br label %nk_slider_behavior.exit.i
 
@@ -56142,10 +56124,10 @@ nk_slider_behavior.exit.i:                        ; preds = %nk_input_is_mouse_p
   br label %186
 
 186:                                              ; preds = %184, %182, %180
-  %.sink185.i.i = phi i64 [ 128, %184 ], [ 132, %180 ], [ 124, %182 ]
+  %.sink190.i.i = phi i64 [ 128, %184 ], [ 132, %180 ], [ 124, %182 ]
   %.sink.i110.i = phi i64 [ 184, %184 ], [ 224, %180 ], [ 144, %182 ]
   %.0.i.i = phi ptr [ %185, %184 ], [ %181, %180 ], [ %28, %182 ]
-  %187 = getelementptr inbounds nuw i8, ptr %28, i64 %.sink185.i.i
+  %187 = getelementptr inbounds nuw i8, ptr %28, i64 %.sink190.i.i
   %188 = getelementptr inbounds nuw i8, ptr %28, i64 %.sink.i110.i
   %.sroa.010.0.i.i = load i32, ptr %187, align 4
   %.sroa.017.0.vec.insert.i.i = insertelement <2 x float> poison, float %74, i64 0
@@ -56630,8 +56612,8 @@ define range(i32 0, 2) i32 @nk_knob_float(ptr noundef captures(address) %0, floa
   %73 = getelementptr inbounds nuw i8, ptr %24, i64 268
   %74 = load float, ptr %73, align 4, !tbaa !736
   %75 = fcmp ole float %.sroa.062.0.vec.extract.i.i, %74
-  %foldExtExtBinop42 = fadd <2 x float> %.sroa.16.0.i, %.sroa.0.0.i
-  %76 = extractelement <2 x float> %foldExtExtBinop42, i64 0
+  %foldExtExtBinop65 = fadd <2 x float> %.sroa.16.0.i, %.sroa.0.0.i
+  %76 = extractelement <2 x float> %foldExtExtBinop65, i64 0
   %77 = fcmp olt float %74, %76
   %or.cond.i.i.i.i = select i1 %75, i1 %77, i1 false
   br i1 %or.cond.i.i.i.i, label %nk_input_has_mouse_click_in_rect.exit.i.i.i, label %nk_input_has_mouse_click_down_in_rect.exit.thread.i.i
@@ -56805,19 +56787,19 @@ nk_input_has_mouse_click_down_in_rect.exit.thread.i.i: ; preds = %nk_atan2.exit.
   %185 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %186 = load i32, ptr %185, align 4, !tbaa !734
   %.not84.i.i = icmp eq i32 %186, 0
-  br i1 %.not84.i.i, label %nk_input_is_mouse_hovering_rect.exit.thread.thread145.i.i, label %187
+  br i1 %.not84.i.i, label %nk_input_is_mouse_hovering_rect.exit.thread.thread152.i.i, label %187
 
 187:                                              ; preds = %184
   %188 = getelementptr inbounds nuw i8, ptr %24, i64 92
   %189 = load i32, ptr %188, align 4, !tbaa !728
   %.not85.i.i = icmp eq i32 %189, 0
-  br i1 %.not85.i.i, label %nk_input_is_mouse_hovering_rect.exit.thread.thread145.i.i, label %190
+  br i1 %.not85.i.i, label %nk_input_is_mouse_hovering_rect.exit.thread.thread152.i.i, label %190
 
 190:                                              ; preds = %187, %182
   %191 = fsub float %.3.i.i, %4
-  br label %nk_input_is_mouse_hovering_rect.exit.thread.thread145.i.i
+  br label %nk_input_is_mouse_hovering_rect.exit.thread.thread152.i.i
 
-nk_input_is_mouse_hovering_rect.exit.thread.thread145.i.i: ; preds = %190, %187, %184
+nk_input_is_mouse_hovering_rect.exit.thread.thread152.i.i: ; preds = %190, %187, %184
   %.2.i.i = phi float [ %191, %190 ], [ %.3.i.i, %187 ], [ %.3.i.i, %184 ]
   %192 = fcmp olt float %.2.i.i, %56
   %193 = select i1 %192, float %.2.i.i, float %56
@@ -56836,7 +56818,7 @@ nk_input_is_mouse_hovering_rect.exit.thread.i.i:  ; preds = %164, %nk_input_has_
   %199 = or i32 %159, 64
   br label %.thread119.i.i
 
-200:                                              ; preds = %nk_input_is_mouse_hovering_rect.exit.thread.thread145.i.i
+200:                                              ; preds = %nk_input_is_mouse_hovering_rect.exit.thread.thread152.i.i
   %201 = getelementptr inbounds nuw i8, ptr %24, i64 336
   %202 = load float, ptr %201, align 4, !tbaa !725
   %203 = fcmp ugt float %.sroa.062.4.vec.extract.i.i, %202
@@ -56846,7 +56828,7 @@ nk_input_is_mouse_hovering_rect.exit.thread.i.i:  ; preds = %164, %nk_input_has_
 
 .thread119.i.i:                                   ; preds = %200, %nk_input_is_mouse_hovering_rect.exit.thread.i.i
   %205 = phi i32 [ %159, %nk_input_is_mouse_hovering_rect.exit.thread.i.i ], [ 18, %200 ]
-  %.1148.i.i = phi float [ %.0.ph.i.i, %nk_input_is_mouse_hovering_rect.exit.thread.i.i ], [ %.89.i.i, %200 ]
+  %.1155.i.i = phi float [ %.0.ph.i.i, %nk_input_is_mouse_hovering_rect.exit.thread.i.i ], [ %.89.i.i, %200 ]
   %206 = phi i32 [ %199, %nk_input_is_mouse_hovering_rect.exit.thread.i.i ], [ 82, %200 ]
   %207 = phi float [ %.pre.i.i, %nk_input_is_mouse_hovering_rect.exit.thread.i.i ], [ %196, %200 ]
   %208 = fcmp ole float %.sroa.062.0.vec.extract.i.i, %207
@@ -56863,15 +56845,15 @@ nk_input_is_mouse_hovering_rect.exit.thread.i.i:  ; preds = %164, %nk_input_has_
   %or.cond140.i.i = select i1 %213, i1 true, i1 %215
   br i1 %or.cond140.i.i, label %nk_knob_behavior.exit.i, label %nk_input_is_mouse_prev_hovering_rect.exit108.thread.sink.split.i.i
 
-nk_input_is_mouse_prev_hovering_rect.exit108.thread.sink.split.i.i: ; preds = %210, %200, %nk_input_is_mouse_hovering_rect.exit.thread.thread145.i.i
-  %.sink.i.i = phi i32 [ 26, %200 ], [ 26, %nk_input_is_mouse_hovering_rect.exit.thread.thread145.i.i ], [ %206, %210 ]
-  %.1124.ph.i.i = phi float [ %.89.i.i, %200 ], [ %.89.i.i, %nk_input_is_mouse_hovering_rect.exit.thread.thread145.i.i ], [ %.1148.i.i, %210 ]
+nk_input_is_mouse_prev_hovering_rect.exit108.thread.sink.split.i.i: ; preds = %210, %200, %nk_input_is_mouse_hovering_rect.exit.thread.thread152.i.i
+  %.sink.i.i = phi i32 [ 26, %200 ], [ 26, %nk_input_is_mouse_hovering_rect.exit.thread.thread152.i.i ], [ %206, %210 ]
+  %.1124.ph.i.i = phi float [ %.89.i.i, %200 ], [ %.89.i.i, %nk_input_is_mouse_hovering_rect.exit.thread.thread152.i.i ], [ %.1155.i.i, %210 ]
   store i32 %.sink.i.i, ptr %26, align 4, !tbaa !7
   br label %nk_knob_behavior.exit.i
 
 nk_knob_behavior.exit.i:                          ; preds = %nk_input_is_mouse_prev_hovering_rect.exit108.thread.sink.split.i.i, %210, %.thread119.i.i, %54
   %216 = phi i32 [ %205, %210 ], [ %205, %.thread119.i.i ], [ %..i.i, %54 ], [ %.sink.i.i, %nk_input_is_mouse_prev_hovering_rect.exit108.thread.sink.split.i.i ]
-  %.1124.i.i = phi float [ %.1148.i.i, %210 ], [ %.1148.i.i, %.thread119.i.i ], [ %..i, %54 ], [ %.1124.ph.i.i, %nk_input_is_mouse_prev_hovering_rect.exit108.thread.sink.split.i.i ]
+  %.1124.i.i = phi float [ %.1155.i.i, %210 ], [ %.1155.i.i, %.thread119.i.i ], [ %..i, %54 ], [ %.1124.ph.i.i, %nk_input_is_mouse_prev_hovering_rect.exit108.thread.sink.split.i.i ]
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 3000
   %218 = load ptr, ptr %217, align 8, !tbaa !1143
   %.not.i = icmp eq ptr %218, null
@@ -56904,10 +56886,10 @@ nk_knob_behavior.exit.i:                          ; preds = %nk_input_is_mouse_p
   br label %231
 
 231:                                              ; preds = %229, %227, %225
-  %.sink195.i.i = phi i64 [ 128, %229 ], [ 132, %225 ], [ 124, %227 ]
+  %.sink202.i.i = phi i64 [ 128, %229 ], [ 132, %225 ], [ 124, %227 ]
   %.sink.i73.i = phi i64 [ 144, %229 ], [ 148, %225 ], [ 140, %227 ]
   %.0.i.i = phi ptr [ %230, %229 ], [ %226, %225 ], [ %29, %227 ]
-  %232 = getelementptr inbounds nuw i8, ptr %29, i64 %.sink195.i.i
+  %232 = getelementptr inbounds nuw i8, ptr %29, i64 %.sink202.i.i
   %233 = getelementptr inbounds nuw i8, ptr %29, i64 %.sink.i73.i
   %.sroa.039.0.i.i = load i32, ptr %232, align 4
   %.sroa.036.0.i.i = load i32, ptr %233, align 4
@@ -57505,8 +57487,8 @@ nk_input_is_mouse_hovering_rect.exit.thread.i.i:  ; preds = %82, %76, %70
   br i1 %or.cond98.i.i, label %nk_progress_behavior.exit.i, label %nk_input_is_mouse_prev_hovering_rect.exit86.thread.sink.split.i.i
 
 nk_input_is_mouse_prev_hovering_rect.exit86.thread.sink.split.i.i: ; preds = %111, %103, %100
-  %.sink100.i.i = phi i32 [ 8, %103 ], [ 8, %100 ], [ 64, %111 ]
-  %117 = or i32 %.sink100.i.i, %98
+  %.sink102.i.i = phi i32 [ 8, %103 ], [ 8, %100 ], [ 64, %111 ]
+  %117 = or i32 %.sink102.i.i, %98
   store i32 %117, ptr %23, align 4, !tbaa !7
   br label %nk_progress_behavior.exit.i
 
@@ -57535,9 +57517,9 @@ nk_progress_behavior.exit.i:                      ; preds = %nk_input_is_mouse_p
   %129 = and i32 %127, 16
   %.not55.i.i = icmp eq i32 %129, 0
   %spec.select.i54.i = select i1 %.not55.i.i, i64 128, i64 168
-  %spec.select5.idx.i.i = select i1 %.not55.i.i, i64 0, i64 40
+  %spec.select9.idx.i.i = select i1 %.not55.i.i, i64 0, i64 40
   %.sink.i.i = select i1 %.not.i.i, i64 %spec.select.i54.i, i64 208
-  %.0.v.i.i = select i1 %.not.i.i, i64 %spec.select5.idx.i.i, i64 80
+  %.0.v.i.i = select i1 %.not.i.i, i64 %spec.select9.idx.i.i, i64 80
   %.0.i55.i = getelementptr inbounds nuw i8, ptr %25, i64 %.0.v.i.i
   %130 = getelementptr inbounds nuw i8, ptr %25, i64 %.sink.i.i
   %131 = load i32, ptr %.0.i55.i, align 8, !tbaa !820
@@ -57935,22 +57917,22 @@ nk_textedit_createundo.exit.i:                    ; preds = %.loopexit.i.i
   %52 = icmp eq ptr %47, null
   %or.cond.i = or i1 %51, %52
   %.not.i35.i = icmp eq i32 %50, %49
-  %or.cond68.i = or i1 %or.cond.i, %.not.i35.i
-  br i1 %or.cond68.i, label %nk_str_rune_at.exit.i, label %.lr.ph36.preheader.i
+  %or.cond75.i = or i1 %or.cond.i, %.not.i35.i
+  br i1 %or.cond75.i, label %nk_str_rune_at.exit.i, label %.lr.ph36.preheader.i
 
 .lr.ph36.preheader.i:                             ; preds = %.lr.ph.i.i12.preheader.i
   %53 = trunc nsw i64 %44 to i32
   br label %.lr.ph36.i
 
 .lr.ph.i.i12.i:                                   ; preds = %71, %nk_utf_decode.exit.i, %nk_utf_decode_byte.exit.i.i
-  %.023.i56.i = phi i32 [ %.023.i.i, %nk_utf_decode.exit.i ], [ 1, %nk_utf_decode_byte.exit.i.i ], [ 1, %71 ]
+  %.023.i63.i = phi i32 [ %.023.i.i, %nk_utf_decode.exit.i ], [ 1, %nk_utf_decode_byte.exit.i.i ], [ 1, %71 ]
   %54 = phi i32 [ %109, %nk_utf_decode.exit.i ], [ 65533, %nk_utf_decode_byte.exit.i.i ], [ 65533, %71 ]
   %55 = icmp eq i32 %60, %53
   br i1 %55, label %nk_str_rune_at.exit.i, label %56, !llvm.loop !85
 
 56:                                               ; preds = %.lr.ph.i.i12.i
   %57 = add nuw nsw i32 %60, 1
-  %58 = add nsw i32 %.023.i56.i, %59
+  %58 = add nsw i32 %.023.i63.i, %59
   %.not.i.i = icmp eq i32 %58, %49
   br i1 %.not.i.i, label %nk_str_rune_at.exit.i, label %.lr.ph36.i, !llvm.loop !85
 
@@ -58026,7 +58008,7 @@ nk_utf_decode_byte.exit.i.i:                      ; preds = %64
 
 nk_utf_decode_byte.exit34.i.i:                    ; preds = %84
   %.not27.i.i = icmp eq i64 %indvars.iv.i29.i.i, 0
-  br i1 %.not27.i.i, label %92, label %nk_utf_validate.exit.loopexit90.i.i
+  br i1 %.not27.i.i, label %92, label %nk_utf_validate.exit.loopexit92.i.i
 
 92:                                               ; preds = %nk_utf_decode_byte.exit34.i.i
   %93 = xor i8 %86, -1
@@ -58046,18 +58028,18 @@ nk_utf_decode_byte.exit34.i.i:                    ; preds = %84
   br i1 %78, label %nk_str_rune_at.exit.i, label %99
 
 99:                                               ; preds = %._crit_edge.i.i, %._crit_edge.loopexit.i.i
-  %.0.lcssa89.i.i = phi i32 [ %97, %._crit_edge.loopexit.i.i ], [ %76, %._crit_edge.i.i ]
+  %.0.lcssa91.i.i = phi i32 [ %97, %._crit_edge.loopexit.i.i ], [ %76, %._crit_edge.i.i ]
   %100 = and i64 %indvars.iv.i.i.i, 4294967295
   %101 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !7
-  %.not.i.i13.i = icmp ugt i32 %102, %.0.lcssa89.i.i
+  %.not.i.i13.i = icmp ugt i32 %102, %.0.lcssa91.i.i
   br i1 %.not.i.i13.i, label %108, label %103
 
 103:                                              ; preds = %99
   %104 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %100
   %105 = load i32, ptr %104, align 4, !tbaa !7
-  %106 = icmp uge i32 %.0.lcssa89.i.i, %105
-  %107 = add i32 %.0.lcssa89.i.i, -55296
+  %106 = icmp uge i32 %.0.lcssa91.i.i, %105
+  %107 = add i32 %.0.lcssa91.i.i, -55296
   %or.cond.i.i.i = icmp ult i32 %107, 2047
   %or.cond15.i.i.i = or i1 %or.cond.i.i.i, %106
   br i1 %or.cond15.i.i.i, label %108, label %nk_utf_decode.exit.i
@@ -58066,16 +58048,16 @@ nk_utf_decode_byte.exit34.i.i:                    ; preds = %84
   br label %nk_utf_decode.exit.i
 
 nk_utf_validate.exit.loopexit.i.i:                ; preds = %91
-  %indvars83.le101.i.i = trunc i64 %indvars.iv.i.i to i32
+  %indvars83.le103.i.i = trunc i64 %indvars.iv.i.i to i32
   br label %nk_utf_decode.exit.i
 
-nk_utf_validate.exit.loopexit90.i.i:              ; preds = %nk_utf_decode_byte.exit34.i.i
+nk_utf_validate.exit.loopexit92.i.i:              ; preds = %nk_utf_decode_byte.exit34.i.i
   %indvars83.le.i.i = trunc i64 %indvars.iv.i.i to i32
   br label %nk_utf_decode.exit.i
 
-nk_utf_decode.exit.i:                             ; preds = %nk_utf_validate.exit.loopexit90.i.i, %nk_utf_validate.exit.loopexit.i.i, %108, %103
-  %109 = phi i32 [ 65533, %108 ], [ %.0.lcssa89.i.i, %103 ], [ 65533, %nk_utf_validate.exit.loopexit.i.i ], [ 65533, %nk_utf_validate.exit.loopexit90.i.i ]
-  %.023.i.i = phi i32 [ %72, %108 ], [ %72, %103 ], [ %indvars83.le101.i.i, %nk_utf_validate.exit.loopexit.i.i ], [ %indvars83.le.i.i, %nk_utf_validate.exit.loopexit90.i.i ]
+nk_utf_decode.exit.i:                             ; preds = %nk_utf_validate.exit.loopexit92.i.i, %nk_utf_validate.exit.loopexit.i.i, %108, %103
+  %109 = phi i32 [ 65533, %108 ], [ %.0.lcssa91.i.i, %103 ], [ 65533, %nk_utf_validate.exit.loopexit.i.i ], [ 65533, %nk_utf_validate.exit.loopexit92.i.i ]
+  %.023.i.i = phi i32 [ %72, %108 ], [ %72, %103 ], [ %indvars83.le103.i.i, %nk_utf_validate.exit.loopexit.i.i ], [ %indvars83.le.i.i, %nk_utf_validate.exit.loopexit92.i.i ]
   %.not.i.i.i = icmp eq i32 %.023.i.i, 0
   br i1 %.not.i.i.i, label %nk_utf_decode.exit.nk_str_rune_at.exit.loopexit_crit_edge.i, label %.lr.ph.i.i12.i, !llvm.loop !85
 
@@ -58535,7 +58517,7 @@ nk_utf_decode_byte.exit.i.i.i:                    ; preds = %71
 
 nk_utf_decode_byte.exit34.i.i.i:                  ; preds = %85
   %.not27.i.i.i = icmp eq i64 %indvars.iv.i29.i.i.i, 0
-  br i1 %.not27.i.i.i, label %93, label %nk_utf_validate.exit.loopexit90.i.i.i
+  br i1 %.not27.i.i.i, label %93, label %nk_utf_validate.exit.loopexit92.i.i.i
 
 93:                                               ; preds = %nk_utf_decode_byte.exit34.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -58550,15 +58532,15 @@ nk_utf_decode_byte.exit34.i.i.i:                  ; preds = %85
   br label %nk_utf_decode.exit.i.i
 
 nk_utf_validate.exit.loopexit.i.i.i:              ; preds = %92
-  %indvars83.le101.i.i.i = trunc i64 %indvars.iv.i.i.i to i32
+  %indvars83.le103.i.i.i = trunc i64 %indvars.iv.i.i.i to i32
   br label %nk_utf_decode.exit.i.i
 
-nk_utf_validate.exit.loopexit90.i.i.i:            ; preds = %nk_utf_decode_byte.exit34.i.i.i
+nk_utf_validate.exit.loopexit92.i.i.i:            ; preds = %nk_utf_decode_byte.exit34.i.i.i
   %indvars83.le.i.i.i = trunc i64 %indvars.iv.i.i.i to i32
   br label %nk_utf_decode.exit.i.i
 
-nk_utf_decode.exit.i.i:                           ; preds = %78, %nk_utf_validate.exit.loopexit90.i.i.i, %nk_utf_validate.exit.loopexit.i.i.i, %._crit_edge.i.i.i, %._crit_edge.loopexit.i.i.i, %nk_utf_decode_byte.exit.i.i.i
-  %.023.i.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i.i ], [ 0, %._crit_edge.loopexit.i.i.i ], [ %indvars83.le101.i.i.i, %nk_utf_validate.exit.loopexit.i.i.i ], [ %indvars83.le.i.i.i, %nk_utf_validate.exit.loopexit90.i.i.i ], [ %79, %._crit_edge.i.i.i ], [ 1, %78 ]
+nk_utf_decode.exit.i.i:                           ; preds = %78, %nk_utf_validate.exit.loopexit92.i.i.i, %nk_utf_validate.exit.loopexit.i.i.i, %._crit_edge.i.i.i, %._crit_edge.loopexit.i.i.i, %nk_utf_decode_byte.exit.i.i.i
+  %.023.i.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i.i ], [ 0, %._crit_edge.loopexit.i.i.i ], [ %indvars83.le103.i.i.i, %nk_utf_validate.exit.loopexit.i.i.i ], [ %indvars83.le.i.i.i, %nk_utf_validate.exit.loopexit92.i.i.i ], [ %79, %._crit_edge.i.i.i ], [ 1, %78 ]
   %95 = add nsw i32 %.023.i.i.i, %.031.i.i
   %96 = add nuw nsw i32 %.01730.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %96, %2
@@ -58712,7 +58694,7 @@ nk_utf_decode_byte.exit.i:                        ; preds = %13
 
 nk_utf_decode_byte.exit34.i:                      ; preds = %33
   %.not27.i = icmp eq i64 %indvars.iv.i29.i, 0
-  br i1 %.not27.i, label %41, label %nk_utf_validate.exit.loopexit90.i
+  br i1 %.not27.i, label %41, label %nk_utf_validate.exit.loopexit92.i
 
 41:                                               ; preds = %nk_utf_decode_byte.exit34.i
   %42 = xor i8 %35, -1
@@ -58732,18 +58714,18 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %33
   br i1 %27, label %.loopexit, label %48
 
 48:                                               ; preds = %._crit_edge.i, %._crit_edge.loopexit.i
-  %.0.lcssa89.i = phi i32 [ %46, %._crit_edge.loopexit.i ], [ %25, %._crit_edge.i ]
+  %.0.lcssa91.i = phi i32 [ %46, %._crit_edge.loopexit.i ], [ %25, %._crit_edge.i ]
   %49 = and i64 %indvars.iv.i.i, 4294967295
   %50 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !7
-  %.not.i.i = icmp ugt i32 %51, %.0.lcssa89.i
+  %.not.i.i = icmp ugt i32 %51, %.0.lcssa91.i
   br i1 %.not.i.i, label %57, label %52
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %49
   %54 = load i32, ptr %53, align 4, !tbaa !7
-  %55 = icmp uge i32 %.0.lcssa89.i, %54
-  %56 = add i32 %.0.lcssa89.i, -55296
+  %55 = icmp uge i32 %.0.lcssa91.i, %54
+  %56 = add i32 %.0.lcssa91.i, -55296
   %or.cond.i.i = icmp ult i32 %56, 2047
   %or.cond15.i.i = or i1 %or.cond.i.i, %55
   br i1 %or.cond15.i.i, label %57, label %nk_utf_decode.exit
@@ -58752,16 +58734,16 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %33
   br label %nk_utf_decode.exit
 
 nk_utf_validate.exit.loopexit.i:                  ; preds = %40
-  %indvars83.le101.i = trunc i64 %indvars.iv.i to i32
+  %indvars83.le103.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_validate.exit.loopexit90.i:                ; preds = %nk_utf_decode_byte.exit34.i
+nk_utf_validate.exit.loopexit92.i:                ; preds = %nk_utf_decode_byte.exit34.i
   %indvars83.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %20, %nk_utf_decode_byte.exit.i, %52, %57, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit90.i
-  %.1 = phi i32 [ 65533, %57 ], [ %.0.lcssa89.i, %52 ], [ 65533, %nk_utf_validate.exit.loopexit90.i ], [ 65533, %nk_utf_validate.exit.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %20 ]
-  %.023.i = phi i32 [ %21, %57 ], [ %21, %52 ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit90.i ], [ %indvars83.le101.i, %nk_utf_validate.exit.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %20 ]
+nk_utf_decode.exit:                               ; preds = %20, %nk_utf_decode_byte.exit.i, %52, %57, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit92.i
+  %.1 = phi i32 [ 65533, %57 ], [ %.0.lcssa91.i, %52 ], [ 65533, %nk_utf_validate.exit.loopexit92.i ], [ 65533, %nk_utf_validate.exit.loopexit.i ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %20 ]
+  %.023.i = phi i32 [ %21, %57 ], [ %21, %52 ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %20 ]
   %58 = icmp sgt i32 %2, 0
   %59 = icmp ne i32 %.023.i, 0
   %60 = and i1 %59, %58
@@ -58891,8 +58873,8 @@ nk_textedit_createundo.exit.split.split.i:        ; preds = %nk_textedit_createu
   %119 = icmp eq ptr %.fr44.i, null
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i175 = icmp eq i32 %116, 0
-  %or.cond432 = select i1 %119, i1 true, i1 %.not.i175
-  br i1 %or.cond432, label %nk_textedit_makeundo_replace.exit, label %120
+  %or.cond456 = select i1 %119, i1 true, i1 %.not.i175
+  br i1 %or.cond456, label %nk_textedit_makeundo_replace.exit, label %120
 
 120:                                              ; preds = %nk_textedit_createundo.exit.split.split.i
   store i32 65533, ptr %4, align 4, !tbaa !7
@@ -58962,7 +58944,7 @@ nk_utf_decode_byte.exit.i183:                     ; preds = %122
 
 nk_utf_decode_byte.exit34.i202:                   ; preds = %142
   %.not27.i203 = icmp eq i64 %indvars.iv.i29.i197, 0
-  br i1 %.not27.i203, label %150, label %nk_utf_validate.exit.loopexit90.i204
+  br i1 %.not27.i203, label %150, label %nk_utf_validate.exit.loopexit92.i204
 
 150:                                              ; preds = %nk_utf_decode_byte.exit34.i202
   %151 = xor i8 %144, -1
@@ -58982,19 +58964,19 @@ nk_utf_decode_byte.exit34.i202:                   ; preds = %142
   br i1 %136, label %nk_textedit_makeundo_replace.exit, label %157
 
 157:                                              ; preds = %._crit_edge.i186, %._crit_edge.loopexit.i208
-  %.0.lcssa89.i187 = phi i32 [ %155, %._crit_edge.loopexit.i208 ], [ %134, %._crit_edge.i186 ]
-  store i32 %.0.lcssa89.i187, ptr %4, align 4, !tbaa !7
+  %.0.lcssa91.i187 = phi i32 [ %155, %._crit_edge.loopexit.i208 ], [ %134, %._crit_edge.i186 ]
+  store i32 %.0.lcssa91.i187, ptr %4, align 4, !tbaa !7
   %158 = and i64 %indvars.iv.i.i178, 4294967295
   %159 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %158
   %160 = load i32, ptr %159, align 4, !tbaa !7
-  %.not.i.i188 = icmp ugt i32 %160, %.0.lcssa89.i187
+  %.not.i.i188 = icmp ugt i32 %160, %.0.lcssa91.i187
   br i1 %.not.i.i188, label %166, label %161
 
 161:                                              ; preds = %157
   %162 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %158
   %163 = load i32, ptr %162, align 4, !tbaa !7
-  %164 = icmp uge i32 %.0.lcssa89.i187, %163
-  %165 = add i32 %.0.lcssa89.i187, -55296
+  %164 = icmp uge i32 %.0.lcssa91.i187, %163
+  %165 = add i32 %.0.lcssa91.i187, -55296
   %or.cond.i.i189 = icmp ult i32 %165, 2047
   %or.cond15.i.i190 = or i1 %or.cond.i.i189, %164
   br i1 %or.cond15.i.i190, label %166, label %nk_utf_decode.exit210
@@ -59004,16 +58986,16 @@ nk_utf_decode_byte.exit34.i202:                   ; preds = %142
   br label %nk_utf_decode.exit210
 
 nk_utf_validate.exit.loopexit.i200:               ; preds = %149
-  %indvars83.le101.i201 = trunc i64 %indvars.iv.i195 to i32
+  %indvars83.le103.i201 = trunc i64 %indvars.iv.i195 to i32
   br label %nk_utf_decode.exit210
 
-nk_utf_validate.exit.loopexit90.i204:             ; preds = %nk_utf_decode_byte.exit34.i202
+nk_utf_validate.exit.loopexit92.i204:             ; preds = %nk_utf_decode_byte.exit34.i202
   %indvars83.le.i205 = trunc i64 %indvars.iv.i195 to i32
   br label %nk_utf_decode.exit210
 
-nk_utf_decode.exit210:                            ; preds = %161, %166, %nk_utf_validate.exit.loopexit.i200, %nk_utf_validate.exit.loopexit90.i204
-  %.promoted.i374 = phi i32 [ 65533, %166 ], [ %.0.lcssa89.i187, %161 ], [ 65533, %nk_utf_validate.exit.loopexit.i200 ], [ 65533, %nk_utf_validate.exit.loopexit90.i204 ]
-  %.023.i182 = phi i32 [ %130, %166 ], [ %130, %161 ], [ %indvars83.le101.i201, %nk_utf_validate.exit.loopexit.i200 ], [ %indvars83.le.i205, %nk_utf_validate.exit.loopexit90.i204 ]
+nk_utf_decode.exit210:                            ; preds = %161, %166, %nk_utf_validate.exit.loopexit.i200, %nk_utf_validate.exit.loopexit92.i204
+  %.promoted.i374 = phi i32 [ 65533, %166 ], [ %.0.lcssa91.i187, %161 ], [ 65533, %nk_utf_validate.exit.loopexit.i200 ], [ 65533, %nk_utf_validate.exit.loopexit92.i204 ]
+  %.023.i182 = phi i32 [ %130, %166 ], [ %130, %161 ], [ %indvars83.le103.i201, %nk_utf_validate.exit.loopexit.i200 ], [ %indvars83.le.i205, %nk_utf_validate.exit.loopexit92.i204 ]
   %.not44.i.i.i = icmp eq i32 %.023.i182, 0
   br i1 %.not44.i.i.i, label %nk_textedit_makeundo_replace.exit, label %.lr.ph.i.i13.preheader.i
 
@@ -59024,14 +59006,14 @@ nk_utf_decode.exit210:                            ; preds = %161, %166, %nk_utf_
   br i1 %.not.i34.i, label %nk_textedit_makeundo_replace.exit, label %.lr.ph35.i
 
 .lr.ph.i.i13.i:                                   ; preds = %184, %nk_utf_decode.exit.i, %nk_utf_decode_byte.exit.i.i
-  %.023.i60.i = phi i32 [ %.023.i.i, %nk_utf_decode.exit.i ], [ 1, %nk_utf_decode_byte.exit.i.i ], [ 1, %184 ]
+  %.023.i67.i = phi i32 [ %.023.i.i, %nk_utf_decode.exit.i ], [ 1, %nk_utf_decode_byte.exit.i.i ], [ 1, %184 ]
   %167 = phi i32 [ %222, %nk_utf_decode.exit.i ], [ 65533, %nk_utf_decode_byte.exit.i.i ], [ 65533, %184 ]
   %168 = icmp eq i32 %173, %88
   br i1 %168, label %nk_textedit_makeundo_replace.exit, label %169, !llvm.loop !85
 
 169:                                              ; preds = %.lr.ph.i.i13.i
   %170 = add nuw nsw i32 %173, 1
-  %171 = add nsw i32 %.023.i60.i, %172
+  %171 = add nsw i32 %.023.i67.i, %172
   %.not.i.i59 = icmp eq i32 %171, %116
   br i1 %.not.i.i59, label %nk_textedit_makeundo_replace.exit, label %.lr.ph35.i, !llvm.loop !85
 
@@ -59107,7 +59089,7 @@ nk_utf_decode_byte.exit.i.i:                      ; preds = %177
 
 nk_utf_decode_byte.exit34.i.i:                    ; preds = %197
   %.not27.i.i = icmp eq i64 %indvars.iv.i29.i.i, 0
-  br i1 %.not27.i.i, label %205, label %nk_utf_validate.exit.loopexit90.i.i
+  br i1 %.not27.i.i, label %205, label %nk_utf_validate.exit.loopexit92.i.i
 
 205:                                              ; preds = %nk_utf_decode_byte.exit34.i.i
   %206 = xor i8 %199, -1
@@ -59127,18 +59109,18 @@ nk_utf_decode_byte.exit34.i.i:                    ; preds = %197
   br i1 %191, label %nk_textedit_makeundo_replace.exit, label %212
 
 212:                                              ; preds = %._crit_edge.i.i, %._crit_edge.loopexit.i.i
-  %.0.lcssa89.i.i = phi i32 [ %210, %._crit_edge.loopexit.i.i ], [ %189, %._crit_edge.i.i ]
+  %.0.lcssa91.i.i = phi i32 [ %210, %._crit_edge.loopexit.i.i ], [ %189, %._crit_edge.i.i ]
   %213 = and i64 %indvars.iv.i.i.i, 4294967295
   %214 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %213
   %215 = load i32, ptr %214, align 4, !tbaa !7
-  %.not.i.i14.i = icmp ugt i32 %215, %.0.lcssa89.i.i
+  %.not.i.i14.i = icmp ugt i32 %215, %.0.lcssa91.i.i
   br i1 %.not.i.i14.i, label %221, label %216
 
 216:                                              ; preds = %212
   %217 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %213
   %218 = load i32, ptr %217, align 4, !tbaa !7
-  %219 = icmp uge i32 %.0.lcssa89.i.i, %218
-  %220 = add i32 %.0.lcssa89.i.i, -55296
+  %219 = icmp uge i32 %.0.lcssa91.i.i, %218
+  %220 = add i32 %.0.lcssa91.i.i, -55296
   %or.cond.i.i.i = icmp ult i32 %220, 2047
   %or.cond15.i.i.i = or i1 %or.cond.i.i.i, %219
   br i1 %or.cond15.i.i.i, label %221, label %nk_utf_decode.exit.i
@@ -59147,16 +59129,16 @@ nk_utf_decode_byte.exit34.i.i:                    ; preds = %197
   br label %nk_utf_decode.exit.i
 
 nk_utf_validate.exit.loopexit.i.i:                ; preds = %204
-  %indvars83.le101.i.i = trunc i64 %indvars.iv.i.i60 to i32
+  %indvars83.le103.i.i = trunc i64 %indvars.iv.i.i60 to i32
   br label %nk_utf_decode.exit.i
 
-nk_utf_validate.exit.loopexit90.i.i:              ; preds = %nk_utf_decode_byte.exit34.i.i
+nk_utf_validate.exit.loopexit92.i.i:              ; preds = %nk_utf_decode_byte.exit34.i.i
   %indvars83.le.i.i = trunc i64 %indvars.iv.i.i60 to i32
   br label %nk_utf_decode.exit.i
 
-nk_utf_decode.exit.i:                             ; preds = %nk_utf_validate.exit.loopexit90.i.i, %nk_utf_validate.exit.loopexit.i.i, %221, %216
-  %222 = phi i32 [ 65533, %221 ], [ %.0.lcssa89.i.i, %216 ], [ 65533, %nk_utf_validate.exit.loopexit.i.i ], [ 65533, %nk_utf_validate.exit.loopexit90.i.i ]
-  %.023.i.i = phi i32 [ %185, %221 ], [ %185, %216 ], [ %indvars83.le101.i.i, %nk_utf_validate.exit.loopexit.i.i ], [ %indvars83.le.i.i, %nk_utf_validate.exit.loopexit90.i.i ]
+nk_utf_decode.exit.i:                             ; preds = %nk_utf_validate.exit.loopexit92.i.i, %nk_utf_validate.exit.loopexit.i.i, %221, %216
+  %222 = phi i32 [ 65533, %221 ], [ %.0.lcssa91.i.i, %216 ], [ 65533, %nk_utf_validate.exit.loopexit.i.i ], [ 65533, %nk_utf_validate.exit.loopexit92.i.i ]
+  %.023.i.i = phi i32 [ %185, %221 ], [ %185, %216 ], [ %indvars83.le103.i.i, %nk_utf_validate.exit.loopexit.i.i ], [ %indvars83.le.i.i, %nk_utf_validate.exit.loopexit92.i.i ]
   %.not.i.i.i = icmp eq i32 %.023.i.i, 0
   br i1 %.not.i.i.i, label %nk_utf_decode.exit.nk_str_rune_at.exit.loopexit_crit_edge.i, label %.lr.ph.i.i13.i, !llvm.loop !85
 
@@ -59237,7 +59219,7 @@ nk_utf_decode_byte.exit.i.i75:                    ; preds = %230
 
 nk_utf_decode_byte.exit34.i.i89:                  ; preds = %244
   %.not27.i.i90 = icmp eq i64 %indvars.iv.i29.i.i84, 0
-  br i1 %.not27.i.i90, label %252, label %nk_utf_validate.exit.loopexit90.i.i91
+  br i1 %.not27.i.i90, label %252, label %nk_utf_validate.exit.loopexit92.i.i91
 
 252:                                              ; preds = %nk_utf_decode_byte.exit34.i.i89
   %indvars.iv.next.i.i93 = add nuw nsw i64 %indvars.iv.i.i83, 1
@@ -59252,15 +59234,15 @@ nk_utf_decode_byte.exit34.i.i89:                  ; preds = %244
   br label %nk_utf_decode.exit.i71
 
 nk_utf_validate.exit.loopexit.i.i87:              ; preds = %251
-  %indvars83.le101.i.i88 = trunc i64 %indvars.iv.i.i83 to i32
+  %indvars83.le103.i.i88 = trunc i64 %indvars.iv.i.i83 to i32
   br label %nk_utf_decode.exit.i71
 
-nk_utf_validate.exit.loopexit90.i.i91:            ; preds = %nk_utf_decode_byte.exit34.i.i89
+nk_utf_validate.exit.loopexit92.i.i91:            ; preds = %nk_utf_decode_byte.exit34.i.i89
   %indvars83.le.i.i92 = trunc i64 %indvars.iv.i.i83 to i32
   br label %nk_utf_decode.exit.i71
 
-nk_utf_decode.exit.i71:                           ; preds = %237, %nk_utf_validate.exit.loopexit90.i.i91, %nk_utf_validate.exit.loopexit.i.i87, %._crit_edge.i.i78, %._crit_edge.loopexit.i.i95, %nk_utf_decode_byte.exit.i.i75
-  %.023.i.i72 = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i75 ], [ 0, %._crit_edge.loopexit.i.i95 ], [ %indvars83.le101.i.i88, %nk_utf_validate.exit.loopexit.i.i87 ], [ %indvars83.le.i.i92, %nk_utf_validate.exit.loopexit90.i.i91 ], [ %238, %._crit_edge.i.i78 ], [ 1, %237 ]
+nk_utf_decode.exit.i71:                           ; preds = %237, %nk_utf_validate.exit.loopexit92.i.i91, %nk_utf_validate.exit.loopexit.i.i87, %._crit_edge.i.i78, %._crit_edge.loopexit.i.i95, %nk_utf_decode_byte.exit.i.i75
+  %.023.i.i72 = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i75 ], [ 0, %._crit_edge.loopexit.i.i95 ], [ %indvars83.le103.i.i88, %nk_utf_validate.exit.loopexit.i.i87 ], [ %indvars83.le.i.i92, %nk_utf_validate.exit.loopexit92.i.i91 ], [ %238, %._crit_edge.i.i78 ], [ 1, %237 ]
   %254 = call i32 @nk_str_insert_at_rune(ptr noundef nonnull %67, i32 noundef %226, ptr noundef nonnull %228, i32 noundef %.023.i.i72)
   %255 = load i32, ptr %66, align 8, !tbaa !1167
   %256 = add nsw i32 %255, 1
@@ -59401,7 +59383,7 @@ nk_utf_decode_byte.exit.i.i114:                   ; preds = %289
 
 nk_utf_decode_byte.exit34.i.i129:                 ; preds = %303
   %.not27.i.i130 = icmp eq i64 %indvars.iv.i29.i.i124, 0
-  br i1 %.not27.i.i130, label %311, label %nk_utf_validate.exit.loopexit90.i.i131
+  br i1 %.not27.i.i130, label %311, label %nk_utf_validate.exit.loopexit92.i.i131
 
 311:                                              ; preds = %nk_utf_decode_byte.exit34.i.i129
   %indvars.iv.next.i.i133 = add nuw nsw i64 %indvars.iv.i.i123, 1
@@ -59416,15 +59398,15 @@ nk_utf_decode_byte.exit34.i.i129:                 ; preds = %303
   br label %nk_utf_decode.exit.i110
 
 nk_utf_validate.exit.loopexit.i.i127:             ; preds = %310
-  %indvars83.le101.i.i128 = trunc i64 %indvars.iv.i.i123 to i32
+  %indvars83.le103.i.i128 = trunc i64 %indvars.iv.i.i123 to i32
   br label %nk_utf_decode.exit.i110
 
-nk_utf_validate.exit.loopexit90.i.i131:           ; preds = %nk_utf_decode_byte.exit34.i.i129
+nk_utf_validate.exit.loopexit92.i.i131:           ; preds = %nk_utf_decode_byte.exit34.i.i129
   %indvars83.le.i.i132 = trunc i64 %indvars.iv.i.i123 to i32
   br label %nk_utf_decode.exit.i110
 
-nk_utf_decode.exit.i110:                          ; preds = %296, %nk_utf_validate.exit.loopexit90.i.i131, %nk_utf_validate.exit.loopexit.i.i127, %._crit_edge.i.i117, %._crit_edge.loopexit.i.i135, %nk_utf_decode_byte.exit.i.i114
-  %.023.i.i111 = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i114 ], [ 0, %._crit_edge.loopexit.i.i135 ], [ %indvars83.le101.i.i128, %nk_utf_validate.exit.loopexit.i.i127 ], [ %indvars83.le.i.i132, %nk_utf_validate.exit.loopexit90.i.i131 ], [ %297, %._crit_edge.i.i117 ], [ 1, %296 ]
+nk_utf_decode.exit.i110:                          ; preds = %296, %nk_utf_validate.exit.loopexit92.i.i131, %nk_utf_validate.exit.loopexit.i.i127, %._crit_edge.i.i117, %._crit_edge.loopexit.i.i135, %nk_utf_decode_byte.exit.i.i114
+  %.023.i.i111 = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i114 ], [ 0, %._crit_edge.loopexit.i.i135 ], [ %indvars83.le103.i.i128, %nk_utf_validate.exit.loopexit.i.i127 ], [ %indvars83.le.i.i132, %nk_utf_validate.exit.loopexit92.i.i131 ], [ %297, %._crit_edge.i.i117 ], [ 1, %296 ]
   %313 = call i32 @nk_str_insert_at_rune(ptr noundef nonnull %67, i32 noundef %285, ptr noundef nonnull %287, i32 noundef %.023.i.i111)
   %314 = load i32, ptr %66, align 8, !tbaa !1167
   store i16 99, ptr %70, align 2, !tbaa !1152
@@ -59548,7 +59530,7 @@ nk_utf_decode_byte.exit.i147:                     ; preds = %340
 
 nk_utf_decode_byte.exit34.i166:                   ; preds = %360
   %.not27.i167 = icmp eq i64 %indvars.iv.i29.i161, 0
-  br i1 %.not27.i167, label %368, label %nk_utf_validate.exit.loopexit90.i168
+  br i1 %.not27.i167, label %368, label %nk_utf_validate.exit.loopexit92.i168
 
 368:                                              ; preds = %nk_utf_decode_byte.exit34.i166
   %369 = xor i8 %362, -1
@@ -59568,18 +59550,18 @@ nk_utf_decode_byte.exit34.i166:                   ; preds = %360
   br i1 %354, label %.loopexit, label %375
 
 375:                                              ; preds = %._crit_edge.i150, %._crit_edge.loopexit.i172
-  %.0.lcssa89.i151 = phi i32 [ %373, %._crit_edge.loopexit.i172 ], [ %352, %._crit_edge.i150 ]
+  %.0.lcssa91.i151 = phi i32 [ %373, %._crit_edge.loopexit.i172 ], [ %352, %._crit_edge.i150 ]
   %376 = and i64 %indvars.iv.i.i142, 4294967295
   %377 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %376
   %378 = load i32, ptr %377, align 4, !tbaa !7
-  %.not.i.i152 = icmp ugt i32 %378, %.0.lcssa89.i151
+  %.not.i.i152 = icmp ugt i32 %378, %.0.lcssa91.i151
   br i1 %.not.i.i152, label %384, label %379
 
 379:                                              ; preds = %375
   %380 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %376
   %381 = load i32, ptr %380, align 4, !tbaa !7
-  %382 = icmp uge i32 %.0.lcssa89.i151, %381
-  %383 = add i32 %.0.lcssa89.i151, -55296
+  %382 = icmp uge i32 %.0.lcssa91.i151, %381
+  %383 = add i32 %.0.lcssa91.i151, -55296
   %or.cond.i.i153 = icmp ult i32 %383, 2047
   %or.cond15.i.i154 = or i1 %or.cond.i.i153, %382
   br i1 %or.cond15.i.i154, label %384, label %nk_utf_decode.exit174
@@ -59588,16 +59570,16 @@ nk_utf_decode_byte.exit34.i166:                   ; preds = %360
   br label %nk_utf_decode.exit174
 
 nk_utf_validate.exit.loopexit.i164:               ; preds = %367
-  %indvars83.le101.i165 = trunc i64 %indvars.iv.i159 to i32
+  %indvars83.le103.i165 = trunc i64 %indvars.iv.i159 to i32
   br label %nk_utf_decode.exit174
 
-nk_utf_validate.exit.loopexit90.i168:             ; preds = %nk_utf_decode_byte.exit34.i166
+nk_utf_validate.exit.loopexit92.i168:             ; preds = %nk_utf_decode_byte.exit34.i166
   %indvars83.le.i169 = trunc i64 %indvars.iv.i159 to i32
   br label %nk_utf_decode.exit174
 
-nk_utf_decode.exit174:                            ; preds = %347, %nk_utf_decode_byte.exit.i147, %379, %384, %nk_utf_validate.exit.loopexit.i164, %nk_utf_validate.exit.loopexit90.i168
-  %.2 = phi i32 [ 65533, %384 ], [ %.0.lcssa89.i151, %379 ], [ 65533, %nk_utf_validate.exit.loopexit90.i168 ], [ 65533, %nk_utf_validate.exit.loopexit.i164 ], [ 65533, %nk_utf_decode_byte.exit.i147 ], [ 65533, %347 ]
-  %.023.i146 = phi i32 [ %348, %384 ], [ %348, %379 ], [ %indvars83.le.i169, %nk_utf_validate.exit.loopexit90.i168 ], [ %indvars83.le101.i165, %nk_utf_validate.exit.loopexit.i164 ], [ 1, %nk_utf_decode_byte.exit.i147 ], [ 1, %347 ]
+nk_utf_decode.exit174:                            ; preds = %347, %nk_utf_decode_byte.exit.i147, %379, %384, %nk_utf_validate.exit.loopexit.i164, %nk_utf_validate.exit.loopexit92.i168
+  %.2 = phi i32 [ 65533, %384 ], [ %.0.lcssa91.i151, %379 ], [ 65533, %nk_utf_validate.exit.loopexit92.i168 ], [ 65533, %nk_utf_validate.exit.loopexit.i164 ], [ 65533, %nk_utf_decode_byte.exit.i147 ], [ 65533, %347 ]
+  %.023.i146 = phi i32 [ %348, %384 ], [ %348, %379 ], [ %indvars83.le.i169, %nk_utf_validate.exit.loopexit92.i168 ], [ %indvars83.le103.i165, %nk_utf_validate.exit.loopexit.i164 ], [ 1, %nk_utf_decode_byte.exit.i147 ], [ 1, %347 ]
   %385 = icmp slt i32 %334, %2
   %386 = icmp ne i32 %.023.i146, 0
   %387 = and i1 %386, %385
@@ -60721,9 +60703,9 @@ define range(i32 0, 32) i32 @nk_edit_string(ptr noundef %0, i32 noundef %1, ptr 
   br label %70
 
 70:                                               ; preds = %10, %38, %60
-  %.sink87 = phi i8 [ 1, %60 ], [ 0, %38 ], [ 0, %10 ]
+  %.sink91 = phi i8 [ 1, %60 ], [ 0, %38 ], [ 0, %10 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 13153
-  store i8 %.sink87, ptr %71, align 1, !tbaa !1192
+  store i8 %.sink91, ptr %71, align 1, !tbaa !1192
   %72 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
   %73 = load i32, ptr %3, align 4, !tbaa !7
   %74 = add nsw i32 %72, -1
@@ -61054,8 +61036,8 @@ define internal fastcc range(i32 1, 32) i32 @nk_do_edit(ptr noundef nonnull capt
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 324
   %73 = load float, ptr %72, align 4, !tbaa !722
   %74 = fcmp ole float %.sroa.0645.0.vec.extract, %73
-  %foldExtExtBinop1549 = fadd <2 x float> %2, %3
-  %75 = extractelement <2 x float> %foldExtExtBinop1549, i64 0
+  %foldExtExtBinop1588 = fadd <2 x float> %2, %3
+  %75 = extractelement <2 x float> %foldExtExtBinop1588, i64 0
   %76 = fcmp olt float %73, %75
   %or.cond.i = select i1 %74, i1 %76, i1 false
   br i1 %or.cond.i, label %77, label %85
@@ -61511,8 +61493,8 @@ nk_input_is_key_pressed.exit810:                  ; preds = %253, %254, %256
   br i1 %.not38.i, label %.loopexit.thread.i, label %nk_str_at_const.exit
 
 .loopexit.thread.i:                               ; preds = %.lr.ph.i, %.loopexit.i
-  %.0334356.i = phi i32 [ %.03343.i, %.loopexit.i ], [ %.03345.i, %.lr.ph.i ]
-  %280 = sext i32 %.0334356.i to i64
+  %.0334362.i = phi i32 [ %.03343.i, %.loopexit.i ], [ %.03345.i, %.lr.ph.i ]
+  %280 = sext i32 %.0334362.i to i64
   %281 = getelementptr inbounds i8, ptr %267, i64 %280
   br label %nk_str_at_const.exit
 
@@ -61698,15 +61680,15 @@ nk_input_is_key_pressed.exit825.thread:           ; preds = %342, %341, %345, %n
 349:                                              ; preds = %347
   %350 = load i32, ptr %0, align 4, !tbaa !7
   %351 = and i32 %350, 2
-  %.1487 = or disjoint i32 %351, 4
+  %.1526 = or disjoint i32 %351, 4
   br label %352
 
 352:                                              ; preds = %349, %347
-  %.sink1485 = phi i32 [ 34, %347 ], [ %.1487, %349 ]
+  %.sink1524 = phi i32 [ 34, %347 ], [ %.1526, %349 ]
   %.not755 = icmp eq i32 %.0677.in, 0
-  %353 = or i32 %.sink1485, 18
-  %spec.select1547 = select i1 %.not755, i32 %.sink1485, i32 %353
-  store i32 %spec.select1547, ptr %0, align 4, !tbaa !7
+  %353 = or i32 %.sink1524, 18
+  %spec.select1586 = select i1 %.not755, i32 %.sink1524, i32 %353
+  store i32 %spec.select1586, ptr %0, align 4, !tbaa !7
   %354 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %355 = load i32, ptr %354, align 8, !tbaa !69
   %.not6.i = icmp eq i32 %355, 0
@@ -61731,10 +61713,10 @@ nk_input_is_key_pressed.exit825.thread:           ; preds = %342, %341, %345, %n
 nk_str_len_char.exit:                             ; preds = %352, %362
   %.0.i8271195 = phi ptr [ %.0.i827.ph, %362 ], [ null, %352 ]
   %.0.i830 = phi i32 [ %363, %362 ], [ 0, %352 ]
-  %364 = and i32 %spec.select1547, 32
+  %364 = and i32 %spec.select1586, 32
   %.not756 = icmp eq i32 %364, 0
   %365 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %366 = and i32 %spec.select1547, 16
+  %366 = and i32 %spec.select1586, 16
   %.not757 = icmp eq i32 %366, 0
   %367 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %spec.select785 = select i1 %.not757, ptr %7, ptr %367
@@ -61963,7 +61945,7 @@ nk_utf_decode_byte.exit.i:                        ; preds = %442
 
 nk_utf_decode_byte.exit34.i:                      ; preds = %462
   %.not27.i = icmp eq i64 %indvars.iv.i29.i, 0
-  br i1 %.not27.i, label %470, label %nk_utf_validate.exit.loopexit90.i
+  br i1 %.not27.i, label %470, label %nk_utf_validate.exit.loopexit92.i
 
 470:                                              ; preds = %nk_utf_decode_byte.exit34.i
   %471 = xor i8 %464, -1
@@ -61983,18 +61965,18 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %462
   br i1 %456, label %nk_utf_decode.exit, label %477
 
 477:                                              ; preds = %._crit_edge.i874, %._crit_edge.loopexit.i
-  %.0.lcssa89.i = phi i32 [ %475, %._crit_edge.loopexit.i ], [ %454, %._crit_edge.i874 ]
+  %.0.lcssa91.i = phi i32 [ %475, %._crit_edge.loopexit.i ], [ %454, %._crit_edge.i874 ]
   %478 = and i64 %indvars.iv.i.i, 4294967295
   %479 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %478
   %480 = load i32, ptr %479, align 4, !tbaa !7
-  %.not.i.i875 = icmp ugt i32 %480, %.0.lcssa89.i
+  %.not.i.i875 = icmp ugt i32 %480, %.0.lcssa91.i
   br i1 %.not.i.i875, label %486, label %481
 
 481:                                              ; preds = %477
   %482 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %478
   %483 = load i32, ptr %482, align 4, !tbaa !7
-  %484 = icmp uge i32 %.0.lcssa89.i, %483
-  %485 = add i32 %.0.lcssa89.i, -55296
+  %484 = icmp uge i32 %.0.lcssa91.i, %483
+  %485 = add i32 %.0.lcssa91.i, -55296
   %or.cond.i.i = icmp ult i32 %485, 2047
   %or.cond15.i.i = or i1 %or.cond.i.i, %484
   br i1 %or.cond15.i.i, label %486, label %nk_utf_decode.exit
@@ -62003,16 +61985,16 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %462
   br label %nk_utf_decode.exit
 
 nk_utf_validate.exit.loopexit.i:                  ; preds = %469
-  %indvars83.le101.i = trunc i64 %indvars.iv.i to i32
+  %indvars83.le103.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_validate.exit.loopexit90.i:                ; preds = %nk_utf_decode_byte.exit34.i
+nk_utf_validate.exit.loopexit92.i:                ; preds = %nk_utf_decode_byte.exit34.i
   %indvars83.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %449, %nk_utf_decode_byte.exit.i, %._crit_edge.loopexit.i, %._crit_edge.i874, %481, %486, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit90.i
-  %.11170 = phi i32 [ 65533, %._crit_edge.loopexit.i ], [ 65533, %486 ], [ %.0.lcssa89.i, %481 ], [ 65533, %nk_utf_validate.exit.loopexit90.i ], [ 65533, %nk_utf_validate.exit.loopexit.i ], [ 65533, %._crit_edge.i874 ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %449 ]
-  %.023.i = phi i32 [ 0, %._crit_edge.loopexit.i ], [ %450, %486 ], [ %450, %481 ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit90.i ], [ %indvars83.le101.i, %nk_utf_validate.exit.loopexit.i ], [ 0, %._crit_edge.i874 ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %449 ]
+nk_utf_decode.exit:                               ; preds = %449, %nk_utf_decode_byte.exit.i, %._crit_edge.loopexit.i, %._crit_edge.i874, %481, %486, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit92.i
+  %.11170 = phi i32 [ 65533, %._crit_edge.loopexit.i ], [ 65533, %486 ], [ %.0.lcssa91.i, %481 ], [ 65533, %nk_utf_validate.exit.loopexit92.i ], [ 65533, %nk_utf_validate.exit.loopexit.i ], [ 65533, %._crit_edge.i874 ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %449 ]
+  %.023.i = phi i32 [ 0, %._crit_edge.loopexit.i ], [ %450, %486 ], [ %450, %481 ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ 0, %._crit_edge.i874 ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %449 ]
   %487 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %488 = load ptr, ptr %487, align 8, !tbaa !211
   %489 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -62025,7 +62007,7 @@ nk_utf_decode.exit:                               ; preds = %449, %nk_utf_decode
   br i1 %495, label %.lr.ph.lr.ph, label %.outer._crit_edge.thread
 
 .outer._crit_edge.thread:                         ; preds = %nk_utf_decode.exit
-  %.sroa.0190.4.vec.insert1413 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %50, i64 1
+  %.sroa.0190.4.vec.insert1452 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %50, i64 1
   br label %661
 
 .lr.ph.lr.ph:                                     ; preds = %nk_utf_decode.exit
@@ -62233,7 +62215,7 @@ nk_utf_decode_byte.exit.i885:                     ; preds = %546
 
 nk_utf_decode_byte.exit34.i904:                   ; preds = %566
   %.not27.i905 = icmp eq i64 %indvars.iv.i29.i899, 0
-  br i1 %.not27.i905, label %574, label %nk_utf_validate.exit.loopexit90.i906
+  br i1 %.not27.i905, label %574, label %nk_utf_validate.exit.loopexit92.i906
 
 574:                                              ; preds = %nk_utf_decode_byte.exit34.i904
   %575 = xor i8 %568, -1
@@ -62253,18 +62235,18 @@ nk_utf_decode_byte.exit34.i904:                   ; preds = %566
   br i1 %560, label %nk_utf_decode.exit912, label %581
 
 581:                                              ; preds = %._crit_edge.i888, %._crit_edge.loopexit.i910
-  %.0.lcssa89.i889 = phi i32 [ %579, %._crit_edge.loopexit.i910 ], [ %558, %._crit_edge.i888 ]
+  %.0.lcssa91.i889 = phi i32 [ %579, %._crit_edge.loopexit.i910 ], [ %558, %._crit_edge.i888 ]
   %582 = and i64 %indvars.iv.i.i880, 4294967295
   %583 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %582
   %584 = load i32, ptr %583, align 4, !tbaa !7
-  %.not.i.i890 = icmp ugt i32 %584, %.0.lcssa89.i889
+  %.not.i.i890 = icmp ugt i32 %584, %.0.lcssa91.i889
   br i1 %.not.i.i890, label %590, label %585
 
 585:                                              ; preds = %581
   %586 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %582
   %587 = load i32, ptr %586, align 4, !tbaa !7
-  %588 = icmp uge i32 %.0.lcssa89.i889, %587
-  %589 = add i32 %.0.lcssa89.i889, -55296
+  %588 = icmp uge i32 %.0.lcssa91.i889, %587
+  %589 = add i32 %.0.lcssa91.i889, -55296
   %or.cond.i.i891 = icmp ult i32 %589, 2047
   %or.cond15.i.i892 = or i1 %or.cond.i.i891, %588
   br i1 %or.cond15.i.i892, label %590, label %nk_utf_decode.exit912
@@ -62273,16 +62255,16 @@ nk_utf_decode_byte.exit34.i904:                   ; preds = %566
   br label %nk_utf_decode.exit912
 
 nk_utf_validate.exit.loopexit.i902:               ; preds = %573
-  %indvars83.le101.i903 = trunc i64 %indvars.iv.i897 to i32
+  %indvars83.le103.i903 = trunc i64 %indvars.iv.i897 to i32
   br label %nk_utf_decode.exit912
 
-nk_utf_validate.exit.loopexit90.i906:             ; preds = %nk_utf_decode_byte.exit34.i904
+nk_utf_validate.exit.loopexit92.i906:             ; preds = %nk_utf_decode_byte.exit34.i904
   %indvars83.le.i907 = trunc i64 %indvars.iv.i897 to i32
   br label %nk_utf_decode.exit912
 
-nk_utf_decode.exit912:                            ; preds = %553, %535, %nk_utf_decode_byte.exit.i885, %._crit_edge.loopexit.i910, %._crit_edge.i888, %585, %590, %nk_utf_validate.exit.loopexit.i902, %nk_utf_validate.exit.loopexit90.i906
-  %.21171 = phi i32 [ 10, %535 ], [ 65533, %._crit_edge.loopexit.i910 ], [ 65533, %590 ], [ %.0.lcssa89.i889, %585 ], [ 65533, %nk_utf_validate.exit.loopexit90.i906 ], [ 65533, %nk_utf_validate.exit.loopexit.i902 ], [ 65533, %._crit_edge.i888 ], [ 65533, %nk_utf_decode_byte.exit.i885 ], [ 65533, %553 ]
-  %.023.i884 = phi i32 [ 0, %535 ], [ 0, %._crit_edge.loopexit.i910 ], [ %554, %590 ], [ %554, %585 ], [ %indvars83.le.i907, %nk_utf_validate.exit.loopexit90.i906 ], [ %indvars83.le101.i903, %nk_utf_validate.exit.loopexit.i902 ], [ 0, %._crit_edge.i888 ], [ 1, %nk_utf_decode_byte.exit.i885 ], [ 1, %553 ]
+nk_utf_decode.exit912:                            ; preds = %553, %535, %nk_utf_decode_byte.exit.i885, %._crit_edge.loopexit.i910, %._crit_edge.i888, %585, %590, %nk_utf_validate.exit.loopexit.i902, %nk_utf_validate.exit.loopexit92.i906
+  %.21171 = phi i32 [ 10, %535 ], [ 65533, %._crit_edge.loopexit.i910 ], [ 65533, %590 ], [ %.0.lcssa91.i889, %585 ], [ 65533, %nk_utf_validate.exit.loopexit92.i906 ], [ 65533, %nk_utf_validate.exit.loopexit.i902 ], [ 65533, %._crit_edge.i888 ], [ 65533, %nk_utf_decode_byte.exit.i885 ], [ 65533, %553 ]
+  %.023.i884 = phi i32 [ 0, %535 ], [ 0, %._crit_edge.loopexit.i910 ], [ %554, %590 ], [ %554, %585 ], [ %indvars83.le.i907, %nk_utf_validate.exit.loopexit92.i906 ], [ %indvars83.le103.i903, %nk_utf_validate.exit.loopexit.i902 ], [ 0, %._crit_edge.i888 ], [ 1, %nk_utf_decode_byte.exit.i885 ], [ 1, %553 ]
   %591 = load ptr, ptr %487, align 8, !tbaa !211
   %592 = load float, ptr %489, align 8, !tbaa !213
   %593 = load ptr, ptr %9, align 8
@@ -62369,7 +62351,7 @@ nk_utf_decode_byte.exit.i921:                     ; preds = %607
 
 nk_utf_decode_byte.exit34.i940:                   ; preds = %627
   %.not27.i941 = icmp eq i64 %indvars.iv.i29.i935, 0
-  br i1 %.not27.i941, label %635, label %nk_utf_validate.exit.loopexit90.i942
+  br i1 %.not27.i941, label %635, label %nk_utf_validate.exit.loopexit92.i942
 
 635:                                              ; preds = %nk_utf_decode_byte.exit34.i940
   %636 = xor i8 %629, -1
@@ -62389,18 +62371,18 @@ nk_utf_decode_byte.exit34.i940:                   ; preds = %627
   br i1 %621, label %nk_utf_decode.exit948, label %642
 
 642:                                              ; preds = %._crit_edge.i924, %._crit_edge.loopexit.i946
-  %.0.lcssa89.i925 = phi i32 [ %640, %._crit_edge.loopexit.i946 ], [ %619, %._crit_edge.i924 ]
+  %.0.lcssa91.i925 = phi i32 [ %640, %._crit_edge.loopexit.i946 ], [ %619, %._crit_edge.i924 ]
   %643 = and i64 %indvars.iv.i.i916, 4294967295
   %644 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %643
   %645 = load i32, ptr %644, align 4, !tbaa !7
-  %.not.i.i926 = icmp ugt i32 %645, %.0.lcssa89.i925
+  %.not.i.i926 = icmp ugt i32 %645, %.0.lcssa91.i925
   br i1 %.not.i.i926, label %651, label %646
 
 646:                                              ; preds = %642
   %647 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %643
   %648 = load i32, ptr %647, align 4, !tbaa !7
-  %649 = icmp uge i32 %.0.lcssa89.i925, %648
-  %650 = add i32 %.0.lcssa89.i925, -55296
+  %649 = icmp uge i32 %.0.lcssa91.i925, %648
+  %650 = add i32 %.0.lcssa91.i925, -55296
   %or.cond.i.i927 = icmp ult i32 %650, 2047
   %or.cond15.i.i928 = or i1 %or.cond.i.i927, %649
   br i1 %or.cond15.i.i928, label %651, label %nk_utf_decode.exit948
@@ -62409,16 +62391,16 @@ nk_utf_decode_byte.exit34.i940:                   ; preds = %627
   br label %nk_utf_decode.exit948
 
 nk_utf_validate.exit.loopexit.i938:               ; preds = %634
-  %indvars83.le101.i939 = trunc i64 %indvars.iv.i933 to i32
+  %indvars83.le103.i939 = trunc i64 %indvars.iv.i933 to i32
   br label %nk_utf_decode.exit948
 
-nk_utf_validate.exit.loopexit90.i942:             ; preds = %nk_utf_decode_byte.exit34.i940
+nk_utf_validate.exit.loopexit92.i942:             ; preds = %nk_utf_decode_byte.exit34.i940
   %indvars83.le.i943 = trunc i64 %indvars.iv.i933 to i32
   br label %nk_utf_decode.exit948
 
-nk_utf_decode.exit948:                            ; preds = %614, %598, %nk_utf_decode_byte.exit.i921, %._crit_edge.loopexit.i946, %._crit_edge.i924, %646, %651, %nk_utf_validate.exit.loopexit.i938, %nk_utf_validate.exit.loopexit90.i942
-  %.31172 = phi i32 [ %.01276, %598 ], [ 65533, %._crit_edge.loopexit.i946 ], [ 65533, %651 ], [ %.0.lcssa89.i925, %646 ], [ 65533, %nk_utf_validate.exit.loopexit90.i942 ], [ 65533, %nk_utf_validate.exit.loopexit.i938 ], [ 65533, %._crit_edge.i924 ], [ 65533, %nk_utf_decode_byte.exit.i921 ], [ 65533, %614 ]
-  %.023.i920 = phi i32 [ 0, %598 ], [ 0, %._crit_edge.loopexit.i946 ], [ %615, %651 ], [ %615, %646 ], [ %indvars83.le.i943, %nk_utf_validate.exit.loopexit90.i942 ], [ %indvars83.le101.i939, %nk_utf_validate.exit.loopexit.i938 ], [ 0, %._crit_edge.i924 ], [ 1, %nk_utf_decode_byte.exit.i921 ], [ 1, %614 ]
+nk_utf_decode.exit948:                            ; preds = %614, %598, %nk_utf_decode_byte.exit.i921, %._crit_edge.loopexit.i946, %._crit_edge.i924, %646, %651, %nk_utf_validate.exit.loopexit.i938, %nk_utf_validate.exit.loopexit92.i942
+  %.31172 = phi i32 [ %.01276, %598 ], [ 65533, %._crit_edge.loopexit.i946 ], [ 65533, %651 ], [ %.0.lcssa91.i925, %646 ], [ 65533, %nk_utf_validate.exit.loopexit92.i942 ], [ 65533, %nk_utf_validate.exit.loopexit.i938 ], [ 65533, %._crit_edge.i924 ], [ 65533, %nk_utf_decode_byte.exit.i921 ], [ 65533, %614 ]
+  %.023.i920 = phi i32 [ 0, %598 ], [ 0, %._crit_edge.loopexit.i946 ], [ %615, %651 ], [ %615, %646 ], [ %indvars83.le.i943, %nk_utf_validate.exit.loopexit92.i942 ], [ %indvars83.le103.i939, %nk_utf_validate.exit.loopexit.i938 ], [ 0, %._crit_edge.i924 ], [ 1, %nk_utf_decode_byte.exit.i921 ], [ 1, %614 ]
   %652 = load ptr, ptr %487, align 8, !tbaa !211
   %653 = load float, ptr %489, align 8, !tbaa !213
   %654 = load ptr, ptr %9, align 8
@@ -62439,14 +62421,14 @@ nk_utf_decode.exit948:                            ; preds = %614, %598, %nk_utf_
   br i1 %.not761, label %661, label %669
 
 661:                                              ; preds = %.outer._crit_edge.thread, %.outer._crit_edge
-  %.sroa.0190.4.vec.insert1421 = phi <2 x float> [ %.sroa.0190.4.vec.insert1413, %.outer._crit_edge.thread ], [ %.sroa.0190.4.vec.insert, %.outer._crit_edge ]
+  %.sroa.0190.4.vec.insert1460 = phi <2 x float> [ %.sroa.0190.4.vec.insert1452, %.outer._crit_edge.thread ], [ %.sroa.0190.4.vec.insert, %.outer._crit_edge ]
   %662 = phi float [ %50, %.outer._crit_edge.thread ], [ %660, %.outer._crit_edge ]
-  %.1690.lcssa1420 = phi ptr [ null, %.outer._crit_edge.thread ], [ %.2691, %.outer._crit_edge ]
-  %.1694.lcssa1419 = phi ptr [ null, %.outer._crit_edge.thread ], [ %.2695, %.outer._crit_edge ]
-  %.sroa.0144.1.lcssa1418 = phi <2 x float> [ zeroinitializer, %.outer._crit_edge.thread ], [ %.sroa.0144.2, %.outer._crit_edge ]
-  %.sroa.0141.1.lcssa1417 = phi <2 x float> [ zeroinitializer, %.outer._crit_edge.thread ], [ %.sroa.0141.2, %.outer._crit_edge ]
-  %.sroa.0138.1.lcssa1416 = phi <2 x float> [ zeroinitializer, %.outer._crit_edge.thread ], [ %.sroa.0138.2, %.outer._crit_edge ]
-  %.0698.lcssa1415 = phi float [ 0.000000e+00, %.outer._crit_edge.thread ], [ %.0698.lcssa, %.outer._crit_edge ]
+  %.1690.lcssa1459 = phi ptr [ null, %.outer._crit_edge.thread ], [ %.2691, %.outer._crit_edge ]
+  %.1694.lcssa1458 = phi ptr [ null, %.outer._crit_edge.thread ], [ %.2695, %.outer._crit_edge ]
+  %.sroa.0144.1.lcssa1457 = phi <2 x float> [ zeroinitializer, %.outer._crit_edge.thread ], [ %.sroa.0144.2, %.outer._crit_edge ]
+  %.sroa.0141.1.lcssa1456 = phi <2 x float> [ zeroinitializer, %.outer._crit_edge.thread ], [ %.sroa.0141.2, %.outer._crit_edge ]
+  %.sroa.0138.1.lcssa1455 = phi <2 x float> [ zeroinitializer, %.outer._crit_edge.thread ], [ %.sroa.0138.2, %.outer._crit_edge ]
+  %.0698.lcssa1454 = phi float [ 0.000000e+00, %.outer._crit_edge.thread ], [ %.0698.lcssa, %.outer._crit_edge ]
   %663 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %664 = load i32, ptr %663, align 8, !tbaa !1167
   %665 = load i32, ptr %354, align 8, !tbaa !1164
@@ -62454,19 +62436,19 @@ nk_utf_decode.exit948:                            ; preds = %614, %598, %nk_utf_
   br i1 %666, label %667, label %669
 
 667:                                              ; preds = %661
-  %.sroa.0144.0.vec.insert146 = insertelement <2 x float> poison, float %.0698.lcssa1415, i64 0
+  %.sroa.0144.0.vec.insert146 = insertelement <2 x float> poison, float %.0698.lcssa1454, i64 0
   %668 = fsub float %662, %50
   %.sroa.0144.4.vec.insert163 = insertelement <2 x float> %.sroa.0144.0.vec.insert146, float %668, i64 1
   br label %669
 
 669:                                              ; preds = %.outer._crit_edge, %661, %667, %432
-  %.sroa.0138.0 = phi <2 x float> [ zeroinitializer, %432 ], [ %.sroa.0138.1.lcssa1416, %667 ], [ %.sroa.0138.1.lcssa1416, %661 ], [ %.sroa.0138.2, %.outer._crit_edge ]
-  %.sroa.0141.0 = phi <2 x float> [ zeroinitializer, %432 ], [ %.sroa.0141.1.lcssa1417, %667 ], [ %.sroa.0141.1.lcssa1417, %661 ], [ %.sroa.0141.2, %.outer._crit_edge ]
-  %.sroa.0144.0 = phi <2 x float> [ zeroinitializer, %432 ], [ %.sroa.0144.4.vec.insert163, %667 ], [ %.sroa.0144.1.lcssa1418, %661 ], [ %.sroa.0144.2, %.outer._crit_edge ]
-  %.0693 = phi ptr [ null, %432 ], [ %.1694.lcssa1419, %667 ], [ %.1694.lcssa1419, %661 ], [ %.2695, %.outer._crit_edge ]
-  %.0689 = phi ptr [ null, %432 ], [ %.1690.lcssa1420, %667 ], [ %.1690.lcssa1420, %661 ], [ %.2691, %.outer._crit_edge ]
+  %.sroa.0138.0 = phi <2 x float> [ zeroinitializer, %432 ], [ %.sroa.0138.1.lcssa1455, %667 ], [ %.sroa.0138.1.lcssa1455, %661 ], [ %.sroa.0138.2, %.outer._crit_edge ]
+  %.sroa.0141.0 = phi <2 x float> [ zeroinitializer, %432 ], [ %.sroa.0141.1.lcssa1456, %667 ], [ %.sroa.0141.1.lcssa1456, %661 ], [ %.sroa.0141.2, %.outer._crit_edge ]
+  %.sroa.0144.0 = phi <2 x float> [ zeroinitializer, %432 ], [ %.sroa.0144.4.vec.insert163, %667 ], [ %.sroa.0144.1.lcssa1457, %661 ], [ %.sroa.0144.2, %.outer._crit_edge ]
+  %.0693 = phi ptr [ null, %432 ], [ %.1694.lcssa1458, %667 ], [ %.1694.lcssa1458, %661 ], [ %.2695, %.outer._crit_edge ]
+  %.0689 = phi ptr [ null, %432 ], [ %.1690.lcssa1459, %667 ], [ %.1690.lcssa1459, %661 ], [ %.2691, %.outer._crit_edge ]
   %.0686 = phi ptr [ null, %432 ], [ null, %667 ], [ null, %661 ], [ %.2688, %.outer._crit_edge ]
-  %.sroa.0190.0 = phi <2 x float> [ zeroinitializer, %432 ], [ %.sroa.0190.4.vec.insert1421, %667 ], [ %.sroa.0190.4.vec.insert1421, %661 ], [ %.sroa.0190.4.vec.insert, %.outer._crit_edge ]
+  %.sroa.0190.0 = phi <2 x float> [ zeroinitializer, %432 ], [ %.sroa.0190.4.vec.insert1460, %667 ], [ %.sroa.0190.4.vec.insert1460, %661 ], [ %.sroa.0190.4.vec.insert, %.outer._crit_edge ]
   br i1 %.0680, label %711, label %670
 
 670:                                              ; preds = %669
@@ -62555,8 +62537,8 @@ nk_utf_decode.exit948:                            ; preds = %614, %598, %nk_utf_
 .thread1196:                                      ; preds = %..thread1196_crit_edge, %705, %709
   %712 = phi float [ %.pre1397, %..thread1196_crit_edge ], [ %706, %705 ], [ %707, %709 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %foldExtExtBinop1551 = fadd <2 x float> %2, %3
-  %713 = extractelement <2 x float> %foldExtExtBinop1551, i64 0
+  %foldExtExtBinop1590 = fadd <2 x float> %2, %3
+  %713 = extractelement <2 x float> %foldExtExtBinop1590, i64 0
   %714 = load float, ptr %25, align 4, !tbaa !778
   %715 = fsub float %713, %714
   %716 = getelementptr inbounds nuw i8, ptr %7, i64 936
@@ -62797,11 +62779,11 @@ nk_str_len_char.exit999:                          ; preds = %819, %827
   %833 = load float, ptr %832, align 4, !tbaa !1191
   %834 = fsub float %31, %833
   call fastcc void @nk_edit_draw_text(ptr noundef %1, ptr noundef %7, float noundef %831, float noundef %834, float noundef 0.000000e+00, ptr noundef %.0.i9941200, i32 noundef %.0.i998, float noundef %50, ptr noundef %9, i32 %.sroa.075.0, i32 %.sroa.070.0, i32 noundef 0)
-  br label %.thread1424
+  br label %.thread1463
 
 835:                                              ; preds = %nk_rgb_factor.exit990
   %836 = icmp sgt i32 %., 0
-  br i1 %836, label %837, label %.thread1422
+  br i1 %836, label %837, label %.thread1461
 
 837:                                              ; preds = %835
   %838 = load i32, ptr %354, align 8, !tbaa !69
@@ -62835,13 +62817,13 @@ nk_str_len_char.exit999:                          ; preds = %819, %827
   %.pre1398 = load i32, ptr %433, align 4, !tbaa !1165
   %.pre1399 = load i32, ptr %435, align 8, !tbaa !1166
   %856 = icmp eq i32 %.pre1398, %.pre1399
-  br i1 %856, label %.thread1424, label %.thread1422
+  br i1 %856, label %.thread1463, label %.thread1461
 
-.thread1422:                                      ; preds = %835, %845
+.thread1461:                                      ; preds = %835, %845
   %.not767 = icmp eq ptr %.0693, null
   br i1 %.not767, label %857, label %868
 
-857:                                              ; preds = %.thread1422
+857:                                              ; preds = %.thread1461
   %858 = load i32, ptr %354, align 8, !tbaa !69
   %.not6.i1006 = icmp eq i32 %858, 0
   br i1 %.not6.i1006, label %nk_str_len_char.exit1013, label %859
@@ -62869,8 +62851,8 @@ nk_str_len_char.exit1013:                         ; preds = %857, %865
   %867 = getelementptr inbounds i8, ptr %.0.i10081203, i64 %.0.i1012
   br label %868
 
-868:                                              ; preds = %.thread1422, %nk_str_len_char.exit1013
-  %.4697 = phi ptr [ %.0693, %.thread1422 ], [ %867, %nk_str_len_char.exit1013 ]
+868:                                              ; preds = %.thread1461, %nk_str_len_char.exit1013
+  %.4697 = phi ptr [ %.0693, %.thread1461 ], [ %867, %nk_str_len_char.exit1013 ]
   %869 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %870 = load float, ptr %869, align 8, !tbaa !1189
   %871 = fsub float %27, %870
@@ -62888,12 +62870,12 @@ nk_str_len_char.exit1013:                         ; preds = %857, %865
   %.pre1400 = load i32, ptr %433, align 4, !tbaa !1165
   %.pre1401 = load i32, ptr %435, align 8, !tbaa !1166
   %880 = icmp eq i32 %.pre1400, %.pre1401
-  br i1 %880, label %.thread1424, label %881
+  br i1 %880, label %.thread1463, label %881
 
 881:                                              ; preds = %868
   %882 = load i32, ptr %354, align 8, !tbaa !1164
   %883 = icmp slt i32 %437, %882
-  br i1 %883, label %884, label %.thread1424
+  br i1 %883, label %884, label %.thread1463
 
 884:                                              ; preds = %881
   %.not6.i1015 = icmp eq i32 %882, 0
@@ -62934,15 +62916,15 @@ nk_str_len_char.exit1022:                         ; preds = %884, %891
   %903 = sub i64 %901, %902
   %904 = trunc i64 %903 to i32
   call fastcc void @nk_edit_draw_text(ptr noundef %1, ptr noundef %7, float noundef %896, float noundef %900, float noundef %.sroa.0138.0.vec.extract, ptr noundef %.4697, i32 noundef %904, float noundef %50, ptr noundef %9, i32 %.sroa.075.0, i32 %.sroa.070.0, i32 noundef 1)
-  br label %.thread1424
+  br label %.thread1463
 
-.thread1424:                                      ; preds = %845, %868, %881, %nk_str_len_char.exit1022, %nk_str_len_char.exit999
+.thread1463:                                      ; preds = %845, %868, %881, %nk_str_len_char.exit1022, %nk_str_len_char.exit999
   %905 = load i32, ptr %433, align 4, !tbaa !1165
   %906 = load i32, ptr %435, align 8, !tbaa !1166
   %907 = icmp eq i32 %905, %906
   br i1 %907, label %908, label %1077
 
-908:                                              ; preds = %.thread1424
+908:                                              ; preds = %.thread1463
   %909 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %910 = load i32, ptr %909, align 8, !tbaa !1167
   %911 = load i32, ptr %354, align 8, !tbaa !69
@@ -63002,7 +62984,7 @@ nk_utf_decode_byte.exit.i1068:                    ; preds = %.split704
   %929 = add nuw nsw i32 %umin.i1077, 2
   %wide.trip.count.i1078 = zext nneg i32 %929 to i64
   %930 = call i32 @llvm.umin.i32(i32 %indvars.iv86.i1062, i32 2)
-  %narrow1402 = add nuw nsw i32 %930, 2
+  %narrow1441 = add nuw nsw i32 %930, 2
   br label %.lr.ph.i1079
 
 .lr.ph.i1079:                                     ; preds = %941, %.lr.ph.preheader.i1076
@@ -63028,7 +63010,7 @@ nk_utf_decode_byte.exit.i1068:                    ; preds = %.split704
 
 nk_utf_decode_byte.exit34.i1087:                  ; preds = %933
   %.not27.i1088 = icmp eq i64 %indvars.iv.i29.i1082, 0
-  br i1 %.not27.i1088, label %941, label %nk_utf_validate.exit.loopexit90.i1089
+  br i1 %.not27.i1088, label %941, label %nk_utf_validate.exit.loopexit92.i1089
 
 941:                                              ; preds = %nk_utf_decode_byte.exit34.i1087
   %indvars.iv.next.i1091 = add nuw nsw i64 %indvars.iv.i1080, 1
@@ -63036,17 +63018,17 @@ nk_utf_decode_byte.exit34.i1087:                  ; preds = %933
   br i1 %exitcond.not.i1092, label %._crit_edge.loopexit.i1093, label %.lr.ph.i1079, !llvm.loop !31
 
 ._crit_edge.loopexit.i1093:                       ; preds = %941
-  %942 = icmp samesign ult i32 %narrow1402, %926
+  %942 = icmp samesign ult i32 %narrow1441, %926
   br i1 %942, label %.split, label %._crit_edge.i1071
 
 ._crit_edge.i1071:                                ; preds = %.preheader.i1070, %._crit_edge.loopexit.i1093
   br label %.split
 
 nk_utf_validate.exit.loopexit.i1085:              ; preds = %940
-  %indvars83.le101.i1086 = trunc i64 %indvars.iv.i1080 to i32
+  %indvars83.le103.i1086 = trunc i64 %indvars.iv.i1080 to i32
   br label %.split
 
-nk_utf_validate.exit.loopexit90.i1089:            ; preds = %nk_utf_decode_byte.exit34.i1087
+nk_utf_validate.exit.loopexit92.i1089:            ; preds = %nk_utf_decode_byte.exit34.i1087
   %indvars83.le.i1090 = trunc i64 %indvars.iv.i1080 to i32
   br label %.split
 
@@ -63075,8 +63057,8 @@ nk_utf_validate.exit.loopexit90.i1089:            ; preds = %nk_utf_decode_byte.
   call void @nk_fill_rect(ptr noundef nonnull %1, <2 x float> %.sroa.034.4.vec.insert38, <2 x float> %.sroa.7.12.vec.insert, float noundef 0.000000e+00, i32 %.sroa.011.0.insert.insert.i968)
   br label %1077
 
-.split:                                           ; preds = %925, %._crit_edge.i1071, %nk_utf_validate.exit.loopexit90.i1089, %nk_utf_validate.exit.loopexit.i1085, %._crit_edge.loopexit.i1093, %nk_utf_decode_byte.exit.i1068, %915
-  %phi.call = phi i32 [ 0, %915 ], [ 1, %nk_utf_decode_byte.exit.i1068 ], [ 0, %._crit_edge.loopexit.i1093 ], [ %indvars83.le101.i1086, %nk_utf_validate.exit.loopexit.i1085 ], [ %indvars83.le.i1090, %nk_utf_validate.exit.loopexit90.i1089 ], [ %926, %._crit_edge.i1071 ], [ 1, %925 ]
+.split:                                           ; preds = %925, %._crit_edge.i1071, %nk_utf_validate.exit.loopexit92.i1089, %nk_utf_validate.exit.loopexit.i1085, %._crit_edge.loopexit.i1093, %nk_utf_decode_byte.exit.i1068, %915
+  %phi.call = phi i32 [ 0, %915 ], [ 1, %nk_utf_decode_byte.exit.i1068 ], [ 0, %._crit_edge.loopexit.i1093 ], [ %indvars83.le103.i1086, %nk_utf_validate.exit.loopexit.i1085 ], [ %indvars83.le.i1090, %nk_utf_validate.exit.loopexit92.i1089 ], [ %926, %._crit_edge.i1071 ], [ 1, %925 ]
   %.sroa.0144.0.vec.extract161 = extractelement <2 x float> %.sroa.0144.0, i64 0
   %959 = fadd float %27, %.sroa.0144.0.vec.extract161
   %960 = getelementptr inbounds nuw i8, ptr %6, i64 160
@@ -63197,11 +63179,11 @@ nk_push_scissor.exit1112:                         ; preds = %nk_str_get_const.ex
   %.not759 = icmp eq i32 %1032, 0
   %1033 = and i32 %1031, 16
   %.not760 = icmp eq i32 %1033, 0
-  %.1488 = select i1 %.not760, i64 896, i64 900
-  %.1489 = select i1 %.not760, ptr %7, ptr %367
-  %.sink1486 = select i1 %.not759, i64 %.1488, i64 904
-  %.0674 = select i1 %.not759, ptr %.1489, ptr %365
-  %1034 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink1486
+  %.1527 = select i1 %.not760, i64 896, i64 900
+  %.1528 = select i1 %.not760, ptr %7, ptr %367
+  %.sink1525 = select i1 %.not759, i64 %.1527, i64 904
+  %.0674 = select i1 %.not759, ptr %.1528, ptr %365
+  %1034 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink1525
   %.sroa.018.0 = load i32, ptr %1034, align 4
   %1035 = load i32, ptr %.0674, align 8, !tbaa !820
   %1036 = icmp eq i32 %1035, 1
@@ -63302,7 +63284,7 @@ nk_rgb_factor.exit1148:                           ; preds = %1057, %1058
   call fastcc void @nk_edit_draw_text(ptr noundef %1, ptr noundef %7, float noundef %1073, float noundef %1076, float noundef 0.000000e+00, ptr noundef %.0.i1104, i32 noundef %.0.i10991208, float noundef %50, ptr noundef %9, i32 %.sroa.011.0.insert.insert.i1126, i32 %.sroa.011.0.insert.insert.i1144, i32 noundef 0)
   br label %1077
 
-1077:                                             ; preds = %.thread1424, %.split, %943, %nk_rgb_factor.exit1148
+1077:                                             ; preds = %.thread1463, %.split, %943, %nk_rgb_factor.exit1148
   store float %.sroa.01162.0.vec.extract, ptr %51, align 8, !tbaa !86
   %1078 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store float %.sroa.01162.4.vec.extract, ptr %1078, align 4, !tbaa !90
@@ -63980,11 +63962,11 @@ nk_input_has_mouse_click_in_rect.exit.i.i46.i.i:  ; preds = %.thread54.i.i
   %256 = fcmp olt float %253, %255
   %or.cond16.i.not.i.not.i.i.i = select i1 %254, i1 %256, i1 false
   %257 = icmp eq i32 %248, 1
-  %spec.select135.i.i.i = select i1 %or.cond16.i.not.i.not.i.i.i, i1 %257, i1 false
+  %spec.select136.i.i.i = select i1 %or.cond16.i.not.i.not.i.i.i, i1 %257, i1 false
   br label %258
 
 258:                                              ; preds = %nk_input_has_mouse_click_in_rect.exit.i.i46.i.i, %.thread54.i.i
-  %.0.i.i.i.i = phi i1 [ false, %.thread54.i.i ], [ %spec.select135.i.i.i, %nk_input_has_mouse_click_in_rect.exit.i.i46.i.i ]
+  %.0.i.i.i.i = phi i1 [ false, %.thread54.i.i ], [ %spec.select136.i.i.i, %nk_input_has_mouse_click_in_rect.exit.i.i46.i.i ]
   %259 = load i32, ptr %63, align 4, !tbaa !7
   %260 = and i32 %259, 2
   %..i.i.i = or disjoint i32 %260, 4
@@ -64162,9 +64144,9 @@ nk_property_behavior.exit.i:                      ; preds = %.sink.split.i.i, %n
   %347 = and i32 %345, 16
   %.not44.i.i = icmp eq i32 %347, 0
   %spec.select.i443.i = select i1 %.not44.i.i, i64 124, i64 128
-  %spec.select6.idx.i.i = select i1 %.not44.i.i, i64 0, i64 40
+  %spec.select8.idx.i.i = select i1 %.not44.i.i, i64 0, i64 40
   %.sink.i444.i = select i1 %.not.i442.i, i64 %spec.select.i443.i, i64 132
-  %.0.v.i.i = select i1 %.not.i442.i, i64 %spec.select6.idx.i.i, i64 80
+  %.0.v.i.i = select i1 %.not.i442.i, i64 %spec.select8.idx.i.i, i64 80
   %.0.i445.i = getelementptr inbounds nuw i8, ptr %65, i64 %.0.v.i.i
   %348 = getelementptr inbounds nuw i8, ptr %65, i64 %.sink.i444.i
   %.sroa.9.0.i.i = load i32, ptr %348, align 4
@@ -64640,13 +64622,13 @@ nk_draw_property.exit.i:                          ; preds = %nk_widget_text.exit
 
 nk_input_is_key_pressed.exit.thread.i:            ; preds = %551
   %.not398.i = icmp ne i32 %.0328.i, 0
-  %or.cond645.i = and i1 %.not398.i, %.not396.i
-  br i1 %or.cond645.i, label %.thread.i, label %nk_do_property.exit
+  %or.cond661.i = and i1 %.not398.i, %.not396.i
+  br i1 %or.cond661.i, label %.thread.i, label %nk_do_property.exit
 
 nk_input_is_key_pressed.exit.thread.thread.i:     ; preds = %603, %602
   store i8 0, ptr %571, align 1, !tbaa !1192
-  %.not398615.i = icmp eq i32 %.0328.i, 0
-  br i1 %.not398615.i, label %nk_do_property.exit.thread, label %.thread.i
+  %.not398631.i = icmp eq i32 %.0328.i, 0
+  br i1 %.not398631.i, label %nk_do_property.exit.thread, label %.thread.i
 
 .thread.i:                                        ; preds = %nk_input_is_key_pressed.exit.thread.thread.i, %nk_input_is_key_pressed.exit.thread.i
   store i32 0, ptr %.088, align 4, !tbaa !7
@@ -65938,12 +65920,12 @@ nk_input_is_mouse_hovering_rect.exit.i:           ; preds = %60
   %67 = fcmp ole float %45, %56
   %68 = fadd float %45, 4.000000e+00
   %69 = fcmp olt float %56, %68
-  %or.cond.i.not151.not155.i = and i1 %67, %69
+  %or.cond.i.not156.not160.i = and i1 %67, %69
   %70 = fcmp ole float %46, %63
   %71 = fadd float %46, 4.000000e+00
   %72 = fcmp olt float %63, %71
   %73 = and i1 %70, %72
-  %narrow.i = select i1 %or.cond.i.not151.not155.i, i1 %73, i1 false
+  %narrow.i = select i1 %or.cond.i.not156.not160.i, i1 %73, i1 false
   %.0.i.i = zext i1 %narrow.i to i32
   %74 = load i32, ptr %54, align 4, !tbaa !735
   %.not132.i = icmp eq i32 %74, 0
@@ -66360,13 +66342,13 @@ define void @nk_plot(ptr noundef readonly captures(address_is_null) %0, i32 noun
 
 .lr.ph53.preheader:                               ; preds = %.preheader
   %wide.trip.count59 = zext nneg i32 %3 to i64
-  %invariant.gep61 = getelementptr float, ptr %2, i64 %10
+  %invariant.gep65 = getelementptr float, ptr %2, i64 %10
   br label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %.lr.ph53.preheader, %.lr.ph53
   %indvars.iv56 = phi i64 [ 0, %.lr.ph53.preheader ], [ %indvars.iv.next57, %.lr.ph53 ]
-  %gep62 = getelementptr float, ptr %invariant.gep61, i64 %indvars.iv56
-  %23 = load float, ptr %gep62, align 4, !tbaa !3
+  %gep66 = getelementptr float, ptr %invariant.gep65, i64 %indvars.iv56
+  %23 = load float, ptr %gep66, align 4, !tbaa !3
   %24 = tail call range(i32 0, 4) i32 @nk_chart_push_slot(ptr noundef nonnull readonly %0, float noundef %23, i32 noundef 0)
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
@@ -66781,9 +66763,9 @@ nk_hsva_colorfv.exit.i.i:                         ; preds = %132, %113
   %149 = fadd float %.sroa.10124.12.vec.extract.i, %32
   %150 = fcmp uge float %147, %149
   %or.cond.i.i = select i1 %148, i1 true, i1 %150
-  br i1 %or.cond.i.i, label %nk_input_is_mouse_hovering_rect.exit.thread.i.i, label %nk_input_is_mouse_hovering_rect.exit.thread.thread26.i.i
+  br i1 %or.cond.i.i, label %nk_input_is_mouse_hovering_rect.exit.thread.i.i, label %nk_input_is_mouse_hovering_rect.exit.thread.thread30.i.i
 
-nk_input_is_mouse_hovering_rect.exit.thread.thread26.i.i: ; preds = %145
+nk_input_is_mouse_hovering_rect.exit.thread.thread30.i.i: ; preds = %145
   store i32 18, ptr %22, align 4, !tbaa !7
   br label %153
 
@@ -66802,8 +66784,8 @@ nk_input_is_mouse_hovering_rect.exit.thread.thread.i.i: ; preds = %137
   %.not968.i.i = icmp eq i32 %152, 0
   br i1 %.not968.i.i, label %nk_color_picker_behavior.exit.i, label %nk_input_is_mouse_prev_hovering_rect.exit.thread.i.i
 
-153:                                              ; preds = %nk_input_is_mouse_hovering_rect.exit.thread.i.i, %nk_input_is_mouse_hovering_rect.exit.thread.thread26.i.i
-  %154 = phi i32 [ 18, %nk_input_is_mouse_hovering_rect.exit.thread.thread26.i.i ], [ %138, %nk_input_is_mouse_hovering_rect.exit.thread.i.i ]
+153:                                              ; preds = %nk_input_is_mouse_hovering_rect.exit.thread.i.i, %nk_input_is_mouse_hovering_rect.exit.thread.thread30.i.i
+  %154 = phi i32 [ 18, %nk_input_is_mouse_hovering_rect.exit.thread.thread30.i.i ], [ %138, %nk_input_is_mouse_hovering_rect.exit.thread.i.i ]
   %155 = getelementptr inbounds nuw i8, ptr %21, i64 332
   %156 = load float, ptr %155, align 4, !tbaa !723
   %157 = fcmp ole float %.sroa.0112.0.vec.extract.i, %156
@@ -67353,10 +67335,10 @@ define range(i32 0, 2) i32 @nk_combo_begin_text(ptr noundef %0, ptr noundef %1, 
   %38 = and i32 %32, 16
   %.not102 = icmp eq i32 %38, 0
   %. = select i1 %.not102, i64 8432, i64 8472
-  %.182 = select i1 %.not102, i64 8556, i64 8560
-  %.sink179 = select i1 %.not101, i64 %., i64 8512
-  %.sink = select i1 %.not101, i64 %.182, i64 8564
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink179
+  %.190 = select i1 %.not102, i64 8556, i64 8560
+  %.sink187 = select i1 %.not101, i64 %., i64 8512
+  %.sink = select i1 %.not101, i64 %.190, i64 8564
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink187
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %.sroa.9.0 = load i32, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8844
@@ -67536,9 +67518,9 @@ nk_rgb_factor.exit166:                            ; preds = %96, %97
   %111 = load i32, ptr %27, align 8, !tbaa !877
   %112 = and i32 %111, 16
   %.not103 = icmp eq i32 %112, 0
-  %.183 = select i1 %.not100, i64 8808, i64 8800
-  %.sink180 = select i1 %.not103, i64 %.183, i64 8804
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink180
+  %.191 = select i1 %.not100, i64 8808, i64 8800
+  %.sink188 = select i1 %.not103, i64 %.191, i64 8804
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink188
   %.092 = load i32, ptr %113, align 4, !tbaa !7
   %.not105 = icmp eq i32 %.092, 0
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 8828
@@ -67593,7 +67575,7 @@ nk_rgb_factor.exit166:                            ; preds = %96, %97
   br label %150
 
 150:                                              ; preds = %148, %142
-  %.sink181 = phi float [ %149, %148 ], [ %147, %142 ]
+  %.sink189 = phi float [ %149, %148 ], [ %147, %142 ]
   %151 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %152 = load ptr, ptr %16, align 8, !tbaa !835
   %153 = fcmp olt float %141, 0.000000e+00
@@ -67606,8 +67588,8 @@ nk_rgb_factor.exit166:                            ; preds = %96, %97
   %159 = tail call float %157(ptr %158, float noundef %155, ptr noundef nonnull %1, i32 noundef %2) #55
   %160 = fadd float %137, 0.000000e+00
   %161 = insertelement <2 x float> poison, float %160, i64 0
-  %162 = fcmp ogt float %.sink181, 0.000000e+00
-  %163 = select i1 %162, float %.sink181, float 0.000000e+00
+  %162 = fcmp ogt float %.sink189, 0.000000e+00
+  %163 = select i1 %162, float %.sink189, float 0.000000e+00
   %164 = insertelement <2 x float> poison, float %163, i64 0
   %165 = fmul float %..sroa.14.12.vec.extract.i, 5.000000e-01
   %166 = fadd float %140, %165
@@ -67700,8 +67682,8 @@ nk_draw_button_symbol.exit:                       ; preds = %187, %188
 206:                                              ; preds = %203
   %207 = getelementptr inbounds nuw i8, ptr %9, i64 288
   %208 = load ptr, ptr %207, align 8, !tbaa !882
-  %foldExtExtBinop185 = fadd <2 x float> %28, %30
-  %209 = extractelement <2 x float> %foldExtExtBinop185, i64 1
+  %foldExtExtBinop193 = fadd <2 x float> %28, %30
+  %209 = extractelement <2 x float> %foldExtExtBinop193, i64 1
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 9580
   %211 = load float, ptr %210, align 4, !tbaa !1256
   %212 = fsub float %209, %211
@@ -67779,8 +67761,8 @@ define internal fastcc i32 @nk_button_behavior(ptr noundef nonnull captures(none
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 328
   %16 = load float, ptr %15, align 4, !tbaa !724
   %17 = fcmp ugt float %.sroa.0.4.vec.extract.i, %16
-  %foldExtExtBinop79 = fadd <2 x float> %1, %2
-  %18 = extractelement <2 x float> %foldExtExtBinop79, i64 1
+  %foldExtExtBinop83 = fadd <2 x float> %1, %2
+  %18 = extractelement <2 x float> %foldExtExtBinop83, i64 1
   %19 = fcmp uge float %16, %18
   %or.cond = select i1 %17, i1 true, i1 %19
   br i1 %or.cond, label %nk_input_is_mouse_pressed.exit, label %nk_input_is_mouse_down.exit
@@ -67845,8 +67827,8 @@ nk_input_is_mouse_pressed.exit:                   ; preds = %30, %nk_input_is_mo
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %44 = load float, ptr %43, align 4, !tbaa !725
   %45 = fcmp ugt float %.sroa.0.4.vec.extract.i53, %44
-  %foldExtExtBinop81 = fadd <2 x float> %1, %2
-  %46 = extractelement <2 x float> %foldExtExtBinop81, i64 1
+  %foldExtExtBinop85 = fadd <2 x float> %1, %2
+  %46 = extractelement <2 x float> %foldExtExtBinop85, i64 1
   %47 = fcmp uge float %44, %46
   %or.cond74 = select i1 %45, i1 true, i1 %47
   br i1 %or.cond74, label %nk_input_is_mouse_prev_hovering_rect.exit62.thread.sink.split, label %nk_input_is_mouse_pressed.exit._crit_edge
@@ -67862,15 +67844,15 @@ nk_input_is_mouse_pressed.exit._crit_edge:        ; preds = %nk_input_is_mouse_p
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %52 = load float, ptr %51, align 4, !tbaa !725
   %53 = fcmp ugt float %.sroa.0.4.vec.extract.i60, %52
-  %foldExtExtBinop83 = fadd <2 x float> %1, %2
-  %54 = extractelement <2 x float> %foldExtExtBinop83, i64 1
+  %foldExtExtBinop87 = fadd <2 x float> %1, %2
+  %54 = extractelement <2 x float> %foldExtExtBinop87, i64 1
   %55 = fcmp uge float %52, %54
   %or.cond76 = select i1 %53, i1 true, i1 %55
   br i1 %or.cond76, label %nk_input_is_mouse_prev_hovering_rect.exit62.thread, label %nk_input_is_mouse_prev_hovering_rect.exit62.thread.sink.split
 
 nk_input_is_mouse_prev_hovering_rect.exit62.thread.sink.split: ; preds = %50, %39, %42
-  %.sink77 = phi i32 [ 8, %42 ], [ 8, %39 ], [ 64, %50 ]
-  %56 = or i32 %37, %.sink77
+  %.sink81 = phi i32 [ 8, %42 ], [ 8, %39 ], [ 64, %50 ]
+  %56 = or i32 %37, %.sink81
   store i32 %56, ptr %0, align 4, !tbaa !7
   br label %nk_input_is_mouse_prev_hovering_rect.exit62.thread
 
@@ -68099,9 +68081,9 @@ nk_rgb_factor.exit136:                            ; preds = %84, %85
   %99 = load i32, ptr %24, align 8, !tbaa !877
   %100 = and i32 %99, 16
   %.not91 = icmp eq i32 %100, 0
-  %.166 = select i1 %.not88, i64 8808, i64 8800
-  %.sink164 = select i1 %.not91, i64 %.166, i64 8804
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink164
+  %.174 = select i1 %.not88, i64 8808, i64 8800
+  %.sink172 = select i1 %.not91, i64 %.174, i64 8804
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink172
   %.080 = load i32, ptr %101, align 4, !tbaa !7
   %.not93 = icmp eq i32 %.080, 0
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 8828
@@ -68158,8 +68140,8 @@ nk_rgb_factor.exit136:                            ; preds = %84, %85
   br label %139
 
 139:                                              ; preds = %137, %131
-  %.sink165 = phi float [ %138, %137 ], [ %136, %131 ]
-  %140 = insertelement <2 x float> poison, float %.sink165, i64 0
+  %.sink173 = phi float [ %138, %137 ], [ %136, %131 ]
+  %140 = insertelement <2 x float> poison, float %.sink173, i64 0
   %.sroa.6.8.vec.insert12 = insertelement <2 x float> %140, float %126, i64 1
   %141 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 8844
@@ -68283,8 +68265,8 @@ nk_draw_button_symbol.exit:                       ; preds = %173, %174
 192:                                              ; preds = %189
   %193 = getelementptr inbounds nuw i8, ptr %8, i64 288
   %194 = load ptr, ptr %193, align 8, !tbaa !882
-  %foldExtExtBinop168 = fadd <2 x float> %25, %27
-  %195 = extractelement <2 x float> %foldExtExtBinop168, i64 1
+  %foldExtExtBinop176 = fadd <2 x float> %25, %27
+  %195 = extractelement <2 x float> %foldExtExtBinop176, i64 1
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 9580
   %197 = load float, ptr %196, align 4, !tbaa !1256
   %198 = fsub float %195, %197
@@ -68705,8 +68687,8 @@ nk_draw_button_symbol.exit:                       ; preds = %162, %163
 180:                                              ; preds = %177
   %181 = getelementptr inbounds nuw i8, ptr %8, i64 288
   %182 = load ptr, ptr %181, align 8, !tbaa !882
-  %foldExtExtBinop168 = fadd <2 x float> %25, %27
-  %183 = extractelement <2 x float> %foldExtExtBinop168, i64 1
+  %foldExtExtBinop175 = fadd <2 x float> %25, %27
+  %183 = extractelement <2 x float> %foldExtExtBinop175, i64 1
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 9580
   %185 = load float, ptr %184, align 4, !tbaa !1256
   %186 = fsub float %183, %185
@@ -69121,16 +69103,16 @@ define range(i32 0, 2) i32 @nk_combo_begin_symbol_text(ptr noundef %0, ptr nound
   %36 = and i32 %30, 16
   %.not116 = icmp eq i32 %36, 0
   %. = select i1 %.not116, i64 8432, i64 8472
-  %.215 = select i1 %.not116, i64 8568, i64 8572
-  %.216 = select i1 %.not116, i64 8556, i64 8560
+  %.222 = select i1 %.not116, i64 8568, i64 8572
+  %.223 = select i1 %.not116, i64 8556, i64 8560
   br label %37
 
 37:                                               ; preds = %35, %17
-  %.sink213 = phi i64 [ 8512, %17 ], [ %., %35 ]
-  %.sink212 = phi i64 [ 8576, %17 ], [ %.215, %35 ]
-  %.sink = phi i64 [ 8564, %17 ], [ %.216, %35 ]
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink213
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink212
+  %.sink220 = phi i64 [ 8512, %17 ], [ %., %35 ]
+  %.sink219 = phi i64 [ 8576, %17 ], [ %.222, %35 ]
+  %.sink = phi i64 [ 8564, %17 ], [ %.223, %35 ]
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink220
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink219
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %.sroa.023.0 = load i32, ptr %39, align 4
   %.sroa.10.0 = load i32, ptr %40, align 4
@@ -69349,9 +69331,9 @@ nk_rgb_factor.exit197:                            ; preds = %110, %111
   %125 = load i32, ptr %25, align 8, !tbaa !877
   %126 = and i32 %125, 16
   %.not117 = icmp eq i32 %126, 0
-  %.217 = select i1 %.not114, i64 8808, i64 8800
-  %.sink214 = select i1 %.not117, i64 %.217, i64 8804
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink214
+  %.224 = select i1 %.not114, i64 8808, i64 8800
+  %.sink221 = select i1 %.not117, i64 %.224, i64 8804
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink221
   %.0105 = load i32, ptr %127, align 4, !tbaa !7
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 8828
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 8832
@@ -69504,8 +69486,8 @@ nk_draw_button_symbol.exit:                       ; preds = %161, %162
 220:                                              ; preds = %217
   %221 = getelementptr inbounds nuw i8, ptr %10, i64 288
   %222 = load ptr, ptr %221, align 8, !tbaa !882
-  %foldExtExtBinop219 = fadd <2 x float> %26, %28
-  %223 = extractelement <2 x float> %foldExtExtBinop219, i64 1
+  %foldExtExtBinop226 = fadd <2 x float> %26, %28
+  %223 = extractelement <2 x float> %foldExtExtBinop226, i64 1
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 9580
   %225 = load float, ptr %224, align 4, !tbaa !1256
   %226 = fsub float %223, %225
@@ -69609,8 +69591,8 @@ define range(i32 0, 2) i32 @nk_combo_begin_image(ptr noundef %0, ptr noundef rea
   %35 = and i32 %29, 16
   %.not85 = icmp eq i32 %35, 0
   %. = select i1 %.not85, i64 8432, i64 8472
-  %.sink153 = select i1 %.not84, i64 %., i64 8512
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink153
+  %.sink160 = select i1 %.not84, i64 %., i64 8512
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink160
   %37 = load i32, ptr %36, align 8, !tbaa !820
   switch i32 %37, label %nk_rgb_factor.exit143 [
     i32 1, label %nk_rgb_factor.exit
@@ -69755,9 +69737,9 @@ nk_rgb_factor.exit143:                            ; preds = %nk_rgb_factor.exit1
   %98 = load i32, ptr %24, align 8, !tbaa !877
   %99 = and i32 %98, 16
   %.not86 = icmp eq i32 %99, 0
-  %.155 = select i1 %.not83, i64 8808, i64 8800
-  %.sink154 = select i1 %.not86, i64 %.155, i64 8804
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink154
+  %.162 = select i1 %.not83, i64 8808, i64 8800
+  %.sink161 = select i1 %.not86, i64 %.162, i64 8804
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink161
   %.075 = load i32, ptr %100, align 4, !tbaa !7
   %.not88 = icmp eq i32 %.075, 0
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8832
@@ -69894,8 +69876,8 @@ nk_draw_button_symbol.exit:                       ; preds = %153, %154
 172:                                              ; preds = %169
   %173 = getelementptr inbounds nuw i8, ptr %8, i64 288
   %174 = load ptr, ptr %173, align 8, !tbaa !882
-  %foldExtExtBinop157 = fadd <2 x float> %25, %27
-  %175 = extractelement <2 x float> %foldExtExtBinop157, i64 1
+  %foldExtExtBinop164 = fadd <2 x float> %25, %27
+  %175 = extractelement <2 x float> %foldExtExtBinop164, i64 1
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 9580
   %177 = load float, ptr %176, align 4, !tbaa !1256
   %178 = fsub float %175, %177
@@ -69998,10 +69980,10 @@ define range(i32 0, 2) i32 @nk_combo_begin_image_text(ptr noundef %0, ptr nounde
   %35 = and i32 %30, 16
   %.not114 = icmp eq i32 %35, 0
   %. = select i1 %.not114, i64 8432, i64 8472
-  %.209 = select i1 %.not114, i64 8556, i64 8560
-  %.sink204 = select i1 %.not113, i64 %., i64 8512
-  %.sink = select i1 %.not113, i64 %.209, i64 8564
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink204
+  %.216 = select i1 %.not114, i64 8556, i64 8560
+  %.sink211 = select i1 %.not113, i64 %., i64 8512
+  %.sink = select i1 %.not113, i64 %.216, i64 8564
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink211
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %.sroa.9.0 = load i32, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8844
@@ -70181,9 +70163,9 @@ nk_rgb_factor.exit178:                            ; preds = %93, %94
   %108 = load i32, ptr %25, align 8, !tbaa !877
   %109 = and i32 %108, 16
   %.not115 = icmp eq i32 %109, 0
-  %.210 = select i1 %.not112, i64 8808, i64 8800
-  %.sink205 = select i1 %.not115, i64 %.210, i64 8804
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink205
+  %.217 = select i1 %.not112, i64 8808, i64 8800
+  %.sink212 = select i1 %.not115, i64 %.217, i64 8804
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink212
   %.0104 = load i32, ptr %110, align 4, !tbaa !7
   %.not117 = icmp eq i32 %.0104, 0
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 8828
@@ -70279,7 +70261,7 @@ nk_draw_button_symbol.exit:                       ; preds = %145, %146
   br label %nk_rgb_factor.exit190
 
 nk_rgb_factor.exit190:                            ; preds = %nk_draw_button_symbol.exit, %107
-  %.211 = phi float [ %119, %nk_draw_button_symbol.exit ], [ %116, %107 ]
+  %.218 = phi float [ %119, %nk_draw_button_symbol.exit ], [ %116, %107 ]
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 8820
   %160 = load float, ptr %159, align 4, !tbaa !1253
   %161 = fadd float %33, %160
@@ -70313,7 +70295,7 @@ nk_rgb_factor.exit190:                            ; preds = %nk_draw_button_symb
   %179 = load float, ptr %162, align 4, !tbaa !1254
   %180 = fadd float %34, %179
   %181 = tail call float @llvm.fmuladd.f32(float %179, float -2.000000e+00, float %32)
-  %182 = fsub float %.211, %177
+  %182 = fsub float %.218, %177
   %183 = fsub float %182, %178
   %184 = load ptr, ptr %15, align 8, !tbaa !822
   %185 = fcmp olt float %181, 0.000000e+00
@@ -70355,8 +70337,8 @@ nk_rgb_factor.exit190:                            ; preds = %nk_draw_button_symb
 209:                                              ; preds = %206
   %210 = getelementptr inbounds nuw i8, ptr %10, i64 288
   %211 = load ptr, ptr %210, align 8, !tbaa !882
-  %foldExtExtBinop213 = fadd <2 x float> %26, %28
-  %212 = extractelement <2 x float> %foldExtExtBinop213, i64 1
+  %foldExtExtBinop220 = fadd <2 x float> %26, %28
+  %212 = extractelement <2 x float> %foldExtExtBinop220, i64 1
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 9580
   %214 = load float, ptr %213, align 4, !tbaa !1256
   %215 = fsub float %212, %214
@@ -70811,8 +70793,8 @@ nk_input_is_mouse_pressed.exit.i:                 ; preds = %48, %45
   br i1 %58, label %nk_input_is_mouse_hovering_rect.exit.thread.i, label %nk_input_is_mouse_hovering_rect.exit.i
 
 nk_input_is_mouse_hovering_rect.exit.i:           ; preds = %55
-  %foldExtExtBinop2 = fadd <2 x float> %.sroa.03.0.i, %.sroa.7.0.i
-  %59 = extractelement <2 x float> %foldExtExtBinop2, i64 1
+  %foldExtExtBinop6 = fadd <2 x float> %.sroa.03.0.i, %.sroa.7.0.i
+  %59 = extractelement <2 x float> %foldExtExtBinop6, i64 1
   %60 = fcmp olt float %57, %59
   %or.cond.i = select i1 %49, i1 %60, i1 false
   br i1 %or.cond.i, label %61, label %nk_input_is_mouse_hovering_rect.exit.thread.i
@@ -71166,8 +71148,8 @@ nk_input_is_mouse_pressed.exit.i.i:               ; preds = %128, %125
   br i1 %138, label %nk_input_is_mouse_hovering_rect.exit.thread.i.i, label %nk_input_is_mouse_hovering_rect.exit.i.i
 
 nk_input_is_mouse_hovering_rect.exit.i.i:         ; preds = %135
-  %foldExtExtBinop48 = fadd <2 x float> %.sroa.03.0.i.i, %.sroa.7.0.i.i
-  %139 = extractelement <2 x float> %foldExtExtBinop48, i64 1
+  %foldExtExtBinop58 = fadd <2 x float> %.sroa.03.0.i.i, %.sroa.7.0.i.i
+  %139 = extractelement <2 x float> %foldExtExtBinop58, i64 1
   %140 = fcmp olt float %137, %139
   %or.cond.i.i = select i1 %129, i1 %140, i1 false
   br i1 %or.cond.i.i, label %141, label %nk_input_is_mouse_hovering_rect.exit.thread.i.i
@@ -71592,8 +71574,8 @@ nk_input_is_mouse_pressed.exit.i.i:               ; preds = %177, %174
   br i1 %187, label %nk_input_is_mouse_hovering_rect.exit.thread.i.i, label %nk_input_is_mouse_hovering_rect.exit.i.i
 
 nk_input_is_mouse_hovering_rect.exit.i.i:         ; preds = %184
-  %foldExtExtBinop118 = fadd <2 x float> %.sroa.03.0.i.i, %.sroa.7.0.i.i
-  %188 = extractelement <2 x float> %foldExtExtBinop118, i64 1
+  %foldExtExtBinop132 = fadd <2 x float> %.sroa.03.0.i.i, %.sroa.7.0.i.i
+  %188 = extractelement <2 x float> %foldExtExtBinop132, i64 1
   %189 = fcmp olt float %186, %188
   %or.cond.i.i = select i1 %178, i1 %189, i1 false
   br i1 %or.cond.i.i, label %190, label %nk_input_is_mouse_hovering_rect.exit.thread.i.i
@@ -71920,8 +71902,8 @@ nk_input_is_mouse_pressed.exit.i.i:               ; preds = %126, %123
   br i1 %136, label %nk_input_is_mouse_hovering_rect.exit.thread.i.i, label %nk_input_is_mouse_hovering_rect.exit.i.i
 
 nk_input_is_mouse_hovering_rect.exit.i.i:         ; preds = %133
-  %foldExtExtBinop45 = fadd <2 x float> %.sroa.03.0.i.i, %.sroa.7.0.i.i
-  %137 = extractelement <2 x float> %foldExtExtBinop45, i64 1
+  %foldExtExtBinop55 = fadd <2 x float> %.sroa.03.0.i.i, %.sroa.7.0.i.i
+  %137 = extractelement <2 x float> %foldExtExtBinop55, i64 1
   %138 = fcmp olt float %135, %137
   %or.cond.i.i = select i1 %127, i1 %138, i1 false
   br i1 %or.cond.i.i, label %139, label %nk_input_is_mouse_hovering_rect.exit.thread.i.i
@@ -72174,9 +72156,9 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader,
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 168
   %35 = load ptr, ptr %34, align 8, !tbaa !825
   %.not17.i.i = icmp eq ptr %35, null
-  br i1 %.not17.i.i, label %.thread39, label %38
+  br i1 %.not17.i.i, label %.thread45, label %38
 
-.thread39:                                        ; preds = %33
+.thread45:                                        ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 444
   %37 = load i32, ptr %36, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -72255,15 +72237,15 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader,
   %.not16.i = icmp eq ptr %.pr.pre, null
   br i1 %.not16.i, label %.thread31, label %74
 
-74:                                               ; preds = %.thread39, %65
-  %75 = phi i32 [ %37, %.thread39 ], [ %73, %65 ]
-  %.pr42 = phi ptr [ %32, %.thread39 ], [ %.pr.pre, %65 ]
-  %76 = getelementptr inbounds nuw i8, ptr %.pr42, i64 168
+74:                                               ; preds = %.thread45, %65
+  %75 = phi i32 [ %37, %.thread45 ], [ %73, %65 ]
+  %.pr48 = phi ptr [ %32, %.thread45 ], [ %.pr.pre, %65 ]
+  %76 = getelementptr inbounds nuw i8, ptr %.pr48, i64 168
   %77 = load ptr, ptr %76, align 8, !tbaa !825
   %.not17.i = icmp eq ptr %77, null
-  br i1 %.not17.i, label %.thread43, label %78
+  br i1 %.not17.i, label %.thread49, label %78
 
-.thread43:                                        ; preds = %74
+.thread49:                                        ; preds = %74
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %nk_popup_close.exit.i
 
@@ -72320,7 +72302,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader,
   %.sroa.3.0.insert.insert.i.i = or disjoint i32 %.sroa.512.0.insert.insert.i.i, %.sroa.3.0.insert.shift.i.i
   %.sroa.011.0.insert.ext.i.i = zext i8 %.sroa.011.0.i.i to i32
   %.sroa.011.0.insert.insert.i.i = or disjoint i32 %.sroa.3.0.insert.insert.i.i, %.sroa.011.0.insert.ext.i.i
-  %100 = getelementptr inbounds nuw i8, ptr %.pr42, i64 104
+  %100 = getelementptr inbounds nuw i8, ptr %.pr48, i64 104
   %101 = load ptr, ptr %13, align 8, !tbaa !822
   %102 = load <2 x float>, ptr %3, align 8
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -72361,12 +72343,12 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader,
   %.not6.i = icmp eq ptr %.pr30.pre, null
   br i1 %.not6.i, label %nk_tooltip_end.exit, label %nk_popup_close.exit.i
 
-nk_popup_close.exit.i:                            ; preds = %.thread43, %99
-  %.pr3046 = phi ptr [ %.pr42, %.thread43 ], [ %.pr30.pre, %99 ]
-  %127 = load i32, ptr %.pr3046, align 8, !tbaa !362
+nk_popup_close.exit.i:                            ; preds = %.thread49, %99
+  %.pr3052 = phi ptr [ %.pr48, %.thread49 ], [ %.pr30.pre, %99 ]
+  %127 = load i32, ptr %.pr3052, align 8, !tbaa !362
   %128 = add i32 %127, -1
-  store i32 %128, ptr %.pr3046, align 8, !tbaa !362
-  %129 = getelementptr inbounds nuw i8, ptr %.pr3046, i64 72
+  store i32 %128, ptr %.pr3052, align 8, !tbaa !362
+  %129 = getelementptr inbounds nuw i8, ptr %.pr3052, i64 72
   %130 = load i32, ptr %129, align 8, !tbaa !361
   %131 = or i32 %130, 8192
   store i32 %131, ptr %129, align 8, !tbaa !361
@@ -72559,1821 +72541,2166 @@ define internal fastcc range(i32 0, 2) i32 @stbtt__run_charstring(ptr noundef re
   %5 = alloca [10 x %struct.stbtt__buf], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %9 = load i64, ptr %8, align 8
-  %10 = tail call fastcc { ptr, i64 } @stbtt__cff_index_get(ptr %7, i64 %9, i32 noundef %1)
-  %11 = extractvalue { ptr, i64 } %10, 1
-  %.sroa.10.8.extract.trunc480 = trunc i64 %11 to i32
-  %.sroa.10.12.extract.shift411481 = lshr i64 %11, 32
-  %.sroa.10.12.extract.trunc412482 = trunc nuw i64 %.sroa.10.12.extract.shift411481 to i32
-  %12 = icmp slt i32 %.sroa.10.8.extract.trunc480, %.sroa.10.12.extract.trunc412482
-  br i1 %12, label %stbtt__buf_get8.exit.lr.ph, label %.critedge
-
-stbtt__buf_get8.exit.lr.ph:                       ; preds = %3
-  %13 = extractvalue { ptr, i64 } %10, 0
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %.sroa.073.0.copyload = load ptr, ptr %6, align 8, !tbaa !13
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %.sroa.073.0.copyload = load ptr, ptr %14, align 8, !tbaa !13
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %10 = load i64, ptr %9, align 8
+  %.sroa.18.8.extract.shift.i = lshr i64 %10, 32
+  %.sroa.18.8.extract.trunc.i = trunc nuw i64 %.sroa.18.8.extract.shift.i to i32
+  %11 = tail call i32 @llvm.smin.i32(i32 %.sroa.18.8.extract.trunc.i, i32 0)
+  br label %12
+
+12:                                               ; preds = %stbtt__buf_get8.exit.i.i, %3
+  %.sroa.6.0.i = phi i32 [ %11, %3 ], [ %.sroa.6.1.i, %stbtt__buf_get8.exit.i.i ]
+  %13 = phi i32 [ %11, %3 ], [ %21, %stbtt__buf_get8.exit.i.i ]
+  %exitcond.not.i.i = phi i1 [ false, %3 ], [ true, %stbtt__buf_get8.exit.i.i ]
+  %.056.i.i = phi i32 [ 0, %3 ], [ %22, %stbtt__buf_get8.exit.i.i ]
+  %14 = shl i32 %.056.i.i, 8
+  %.not.i.i.i = icmp slt i32 %13, %.sroa.18.8.extract.trunc.i
+  br i1 %.not.i.i.i, label %15, label %stbtt__buf_get8.exit.i.i
+
+15:                                               ; preds = %12
+  %16 = add nsw i32 %13, 1
+  %17 = sext i32 %13 to i64
+  %18 = getelementptr inbounds i8, ptr %8, i64 %17
+  %19 = load i8, ptr %18, align 1, !tbaa !9
+  %20 = zext i8 %19 to i32
+  br label %stbtt__buf_get8.exit.i.i
+
+stbtt__buf_get8.exit.i.i:                         ; preds = %15, %12
+  %.sroa.6.1.i = phi i32 [ %16, %15 ], [ %.sroa.6.0.i, %12 ]
+  %21 = phi i32 [ %16, %15 ], [ %13, %12 ]
+  %.0.i.i.i = phi i32 [ %20, %15 ], [ 0, %12 ]
+  %22 = or disjoint i32 %.0.i.i.i, %14
+  br i1 %exitcond.not.i.i, label %stbtt__buf_get.exit.i, label %12, !llvm.loop !574
+
+stbtt__buf_get.exit.i:                            ; preds = %stbtt__buf_get8.exit.i.i
+  %.not.i.i = icmp slt i32 %.sroa.6.1.i, %.sroa.18.8.extract.trunc.i
+  br i1 %.not.i.i, label %stbtt__buf_get8.exit.i, label %stbtt__buf_get.exit28.i
+
+stbtt__buf_get8.exit.i:                           ; preds = %stbtt__buf_get.exit.i
+  %23 = sext i32 %.sroa.6.1.i to i64
+  %24 = getelementptr inbounds i8, ptr %8, i64 %23
+  %25 = load i8, ptr %24, align 1, !tbaa !9
+  %26 = zext i8 %25 to i32
+  %.not.i9.i = icmp eq i8 %25, 0
+  br i1 %.not.i9.i, label %stbtt__buf_get.exit28.i, label %.lr.ph.i.preheader.i
+
+.lr.ph.i.preheader.i:                             ; preds = %stbtt__buf_get8.exit.i
+  %27 = add nsw i32 %.sroa.6.1.i, 1
+  %28 = mul nsw i32 %1, %26
+  %29 = add nsw i32 %27, %28
+  %30 = icmp slt i32 %29, 0
+  %31 = tail call i32 @llvm.smin.i32(i32 %29, i32 %.sroa.18.8.extract.trunc.i)
+  %..i.i.i = select i1 %30, i32 %.sroa.18.8.extract.trunc.i, i32 %31
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %stbtt__buf_get8.exit.i14.i, %.lr.ph.i.preheader.i
+  %.sroa.6.3.i = phi i32 [ %.sroa.6.4.i, %stbtt__buf_get8.exit.i14.i ], [ %..i.i.i, %.lr.ph.i.preheader.i ]
+  %32 = phi i32 [ %40, %stbtt__buf_get8.exit.i14.i ], [ %..i.i.i, %.lr.ph.i.preheader.i ]
+  %.07.i11.i = phi i32 [ %42, %stbtt__buf_get8.exit.i14.i ], [ 0, %.lr.ph.i.preheader.i ]
+  %.056.i12.i = phi i32 [ %41, %stbtt__buf_get8.exit.i14.i ], [ 0, %.lr.ph.i.preheader.i ]
+  %33 = shl i32 %.056.i12.i, 8
+  %.not.i.i13.i = icmp slt i32 %32, %.sroa.18.8.extract.trunc.i
+  br i1 %.not.i.i13.i, label %34, label %stbtt__buf_get8.exit.i14.i
+
+34:                                               ; preds = %.lr.ph.i.i
+  %35 = add nsw i32 %32, 1
+  %36 = sext i32 %32 to i64
+  %37 = getelementptr inbounds i8, ptr %8, i64 %36
+  %38 = load i8, ptr %37, align 1, !tbaa !9
+  %39 = zext i8 %38 to i32
+  br label %stbtt__buf_get8.exit.i14.i
+
+stbtt__buf_get8.exit.i14.i:                       ; preds = %34, %.lr.ph.i.i
+  %.sroa.6.4.i = phi i32 [ %35, %34 ], [ %.sroa.6.3.i, %.lr.ph.i.i ]
+  %40 = phi i32 [ %35, %34 ], [ %32, %.lr.ph.i.i ]
+  %.0.i.i15.i = phi i32 [ %39, %34 ], [ 0, %.lr.ph.i.i ]
+  %41 = or disjoint i32 %.0.i.i15.i, %33
+  %42 = add nuw nsw i32 %.07.i11.i, 1
+  %exitcond.not.i16.i = icmp eq i32 %42, %26
+  br i1 %exitcond.not.i16.i, label %.lr.ph.i19.i, label %.lr.ph.i.i, !llvm.loop !574
+
+.lr.ph.i19.i:                                     ; preds = %stbtt__buf_get8.exit.i14.i, %stbtt__buf_get8.exit.i24.i
+  %43 = phi i32 [ %51, %stbtt__buf_get8.exit.i24.i ], [ %.sroa.6.4.i, %stbtt__buf_get8.exit.i14.i ]
+  %.07.i21.i = phi i32 [ %53, %stbtt__buf_get8.exit.i24.i ], [ 0, %stbtt__buf_get8.exit.i14.i ]
+  %.056.i22.i = phi i32 [ %52, %stbtt__buf_get8.exit.i24.i ], [ 0, %stbtt__buf_get8.exit.i14.i ]
+  %44 = shl i32 %.056.i22.i, 8
+  %.not.i.i23.i = icmp slt i32 %43, %.sroa.18.8.extract.trunc.i
+  br i1 %.not.i.i23.i, label %45, label %stbtt__buf_get8.exit.i24.i
+
+45:                                               ; preds = %.lr.ph.i19.i
+  %46 = add nsw i32 %43, 1
+  %47 = sext i32 %43 to i64
+  %48 = getelementptr inbounds i8, ptr %8, i64 %47
+  %49 = load i8, ptr %48, align 1, !tbaa !9
+  %50 = zext i8 %49 to i32
+  br label %stbtt__buf_get8.exit.i24.i
+
+stbtt__buf_get8.exit.i24.i:                       ; preds = %45, %.lr.ph.i19.i
+  %51 = phi i32 [ %46, %45 ], [ %43, %.lr.ph.i19.i ]
+  %.0.i.i25.i = phi i32 [ %50, %45 ], [ 0, %.lr.ph.i19.i ]
+  %52 = or disjoint i32 %.0.i.i25.i, %44
+  %53 = add nuw nsw i32 %.07.i21.i, 1
+  %exitcond.not.i26.i = icmp eq i32 %53, %26
+  br i1 %exitcond.not.i26.i, label %stbtt__buf_get.exit28.i, label %.lr.ph.i19.i, !llvm.loop !574
+
+stbtt__buf_get.exit28.i:                          ; preds = %stbtt__buf_get8.exit.i24.i, %stbtt__buf_get8.exit.i, %stbtt__buf_get.exit.i
+  %.0.i59.i = phi i32 [ 0, %stbtt__buf_get8.exit.i ], [ 0, %stbtt__buf_get.exit.i ], [ %26, %stbtt__buf_get8.exit.i24.i ]
+  %.05.lcssa.i42.i = phi i32 [ 0, %stbtt__buf_get8.exit.i ], [ 0, %stbtt__buf_get.exit.i ], [ %41, %stbtt__buf_get8.exit.i24.i ]
+  %.05.lcssa.i27.i = phi i32 [ 0, %stbtt__buf_get8.exit.i ], [ 0, %stbtt__buf_get.exit.i ], [ %52, %stbtt__buf_get8.exit.i24.i ]
+  %54 = add nsw i32 %22, 1
+  %55 = mul nsw i32 %.0.i59.i, %54
+  %56 = add nsw i32 %55, 2
+  %57 = add nsw i32 %56, %.05.lcssa.i42.i
+  %58 = sub nsw i32 %.05.lcssa.i27.i, %.05.lcssa.i42.i
+  %59 = or i32 %58, %57
+  %or.cond.not.i.i = icmp sgt i32 %59, -1
+  br i1 %or.cond.not.i.i, label %60, label %.critedge
+
+60:                                               ; preds = %stbtt__buf_get.exit28.i
+  %61 = icmp sgt i32 %57, %.sroa.18.8.extract.trunc.i
+  %62 = sub nsw i32 %.sroa.18.8.extract.trunc.i, %57
+  %63 = icmp sgt i32 %58, %62
+  %or.cond.i.i = select i1 %61, i1 true, i1 %63
+  %.not576 = icmp eq i32 %.05.lcssa.i27.i, %.05.lcssa.i42.i
+  %or.cond = or i1 %or.cond.i.i, %.not576
+  br i1 %or.cond, label %.critedge, label %stbtt__buf_get8.exit.lr.ph
+
+stbtt__buf_get8.exit.lr.ph:                       ; preds = %60
+  %64 = zext nneg i32 %58 to i64
+  %65 = shl nuw nsw i64 %64, 32
+  %66 = zext nneg i32 %57 to i64
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 %66
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 44
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.sroa.3.0..sroa_idx62 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.phi.trans.insert.i309 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %.phi.trans.insert.i311 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 40
   br label %stbtt__buf_get8.exit
 
 stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exit.lr.ph, %.thread
-  %.0232493 = phi i32 [ 1, %stbtt__buf_get8.exit.lr.ph ], [ %.1233451, %.thread ]
-  %.0234492 = phi i32 [ 0, %stbtt__buf_get8.exit.lr.ph ], [ %.2236450, %.thread ]
-  %.0239491 = phi i32 [ 0, %stbtt__buf_get8.exit.lr.ph ], [ %.1240449, %.thread ]
-  %.0241488 = phi i32 [ 0, %stbtt__buf_get8.exit.lr.ph ], [ %814, %.thread ]
-  %.0248487 = phi i32 [ 0, %stbtt__buf_get8.exit.lr.ph ], [ %.2250448, %.thread ]
-  %.sroa.5.0486 = phi i64 [ %.sroa.5.0.copyload, %stbtt__buf_get8.exit.lr.ph ], [ %.sroa.5.2447, %.thread ]
-  %.sroa.073.0485 = phi ptr [ %.sroa.073.0.copyload, %stbtt__buf_get8.exit.lr.ph ], [ %.sroa.073.2446, %.thread ]
-  %.sroa.0.0431484 = phi ptr [ %13, %stbtt__buf_get8.exit.lr.ph ], [ %.sroa.0.1445, %.thread ]
-  %.sroa.10.0483 = phi i64 [ %11, %stbtt__buf_get8.exit.lr.ph ], [ %.sroa.10.1444, %.thread ]
-  %41 = add i64 %.sroa.10.0483, 1
-  %.sroa.10.8.insert.ext = and i64 %41, 4294967295
-  %.sroa.10.8.insert.mask362 = and i64 %.sroa.10.0483, -4294967296
-  %.sroa.10.8.insert.insert363 = or disjoint i64 %.sroa.10.8.insert.ext, %.sroa.10.8.insert.mask362
-  %sext = shl i64 %.sroa.10.0483, 32
-  %42 = ashr exact i64 %sext, 32
-  %43 = getelementptr inbounds i8, ptr %.sroa.0.0431484, i64 %42
-  %44 = load i8, ptr %43, align 1, !tbaa !9
-  switch i8 %44, label %728 [
-    i8 19, label %45
-    i8 20, label %45
-    i8 1, label %55
-    i8 3, label %55
-    i8 18, label %55
-    i8 23, label %55
-    i8 21, label %58
-    i8 4, label %69
-    i8 22, label %76
-    i8 5, label %83
-    i8 7, label %136
-    i8 6, label %138
-    i8 31, label %238
-    i8 30, label %240
-    i8 8, label %292
-    i8 24, label %314
-    i8 25, label %387
-    i8 26, label %465
-    i8 27, label %465
-    i8 10, label %494
-    i8 29, label %563
-    i8 11, label %602
-    i8 14, label %608
-    i8 12, label %655
+  %.0232551 = phi i32 [ 1, %stbtt__buf_get8.exit.lr.ph ], [ %.1233494, %.thread ]
+  %.0234550 = phi i32 [ 0, %stbtt__buf_get8.exit.lr.ph ], [ %.2236493, %.thread ]
+  %.0239549 = phi i32 [ 0, %stbtt__buf_get8.exit.lr.ph ], [ %.1240492, %.thread ]
+  %.0241546 = phi i32 [ 0, %stbtt__buf_get8.exit.lr.ph ], [ %1032, %.thread ]
+  %.0248545 = phi i32 [ 0, %stbtt__buf_get8.exit.lr.ph ], [ %.2250491, %.thread ]
+  %.sroa.5.0544 = phi i64 [ %.sroa.5.0.copyload, %stbtt__buf_get8.exit.lr.ph ], [ %.sroa.5.2490, %.thread ]
+  %.sroa.073.0543 = phi ptr [ %.sroa.073.0.copyload, %stbtt__buf_get8.exit.lr.ph ], [ %.sroa.073.2489, %.thread ]
+  %.sroa.0.0474542 = phi ptr [ %67, %stbtt__buf_get8.exit.lr.ph ], [ %.sroa.0.1488, %.thread ]
+  %.sroa.10.0541 = phi i64 [ %65, %stbtt__buf_get8.exit.lr.ph ], [ %.sroa.10.1487, %.thread ]
+  %94 = add i64 %.sroa.10.0541, 1
+  %.sroa.10.8.insert.ext = and i64 %94, 4294967295
+  %.sroa.10.8.insert.mask405 = and i64 %.sroa.10.0541, -4294967296
+  %.sroa.10.8.insert.insert406 = or disjoint i64 %.sroa.10.8.insert.ext, %.sroa.10.8.insert.mask405
+  %sext = shl i64 %.sroa.10.0541, 32
+  %95 = ashr exact i64 %sext, 32
+  %96 = getelementptr inbounds i8, ptr %.sroa.0.0474542, i64 %95
+  %97 = load i8, ptr %96, align 1, !tbaa !9
+  switch i8 %97, label %947 [
+    i8 19, label %98
+    i8 20, label %98
+    i8 1, label %108
+    i8 3, label %108
+    i8 18, label %108
+    i8 23, label %108
+    i8 21, label %111
+    i8 4, label %122
+    i8 22, label %129
+    i8 5, label %136
+    i8 7, label %189
+    i8 6, label %191
+    i8 31, label %291
+    i8 30, label %293
+    i8 8, label %345
+    i8 24, label %367
+    i8 25, label %442
+    i8 26, label %520
+    i8 27, label %520
+    i8 10, label %549
+    i8 29, label %729
+    i8 11, label %821
+    i8 14, label %827
+    i8 12, label %874
   ]
 
-45:                                               ; preds = %stbtt__buf_get8.exit, %stbtt__buf_get8.exit
-  %.not274 = icmp eq i32 %.0232493, 0
-  br i1 %.not274, label %49, label %46
+98:                                               ; preds = %stbtt__buf_get8.exit, %stbtt__buf_get8.exit
+  %.not274 = icmp eq i32 %.0232551, 0
+  br i1 %.not274, label %102, label %99
 
-46:                                               ; preds = %45
-  %47 = sdiv i32 %.0241488, 2
-  %48 = add nsw i32 %.0234492, %47
-  br label %49
+99:                                               ; preds = %98
+  %100 = sdiv i32 %.0241546, 2
+  %101 = add nsw i32 %.0234550, %100
+  br label %102
 
-49:                                               ; preds = %46, %45
-  %.1235 = phi i32 [ %48, %46 ], [ %.0234492, %45 ]
-  %50 = add nsw i32 %.1235, 7
-  %51 = sdiv i32 %50, 8
-  %.sroa.10.8.extract.trunc365 = trunc i64 %41 to i32
-  %52 = add nsw i32 %51, %.sroa.10.8.extract.trunc365
-  %.sroa.10.12.extract.shift417 = lshr i64 %.sroa.10.0483, 32
-  %.sroa.10.12.extract.trunc418 = trunc nuw i64 %.sroa.10.12.extract.shift417 to i32
-  %53 = icmp slt i32 %52, 0
-  %54 = tail call i32 @llvm.smin.i32(i32 %52, i32 %.sroa.10.12.extract.trunc418)
-  %..i.i = select i1 %53, i32 %.sroa.10.12.extract.trunc418, i32 %54
-  %.sroa.10.8.insert.ext367 = zext i32 %..i.i to i64
-  %.sroa.10.8.insert.insert369 = or disjoint i64 %.sroa.10.8.insert.mask362, %.sroa.10.8.insert.ext367
+102:                                              ; preds = %99, %98
+  %.1235 = phi i32 [ %101, %99 ], [ %.0234550, %98 ]
+  %103 = add nsw i32 %.1235, 7
+  %104 = sdiv i32 %103, 8
+  %.sroa.10.8.extract.trunc408 = trunc i64 %94 to i32
+  %105 = add nsw i32 %104, %.sroa.10.8.extract.trunc408
+  %.sroa.10.12.extract.shift460 = lshr i64 %.sroa.10.0541, 32
+  %.sroa.10.12.extract.trunc461 = trunc nuw i64 %.sroa.10.12.extract.shift460 to i32
+  %106 = icmp slt i32 %105, 0
+  %107 = tail call i32 @llvm.smin.i32(i32 %105, i32 %.sroa.10.12.extract.trunc461)
+  %..i.i = select i1 %106, i32 %.sroa.10.12.extract.trunc461, i32 %107
+  %.sroa.10.8.insert.ext410 = zext i32 %..i.i to i64
+  %.sroa.10.8.insert.insert412 = or disjoint i64 %.sroa.10.8.insert.mask405, %.sroa.10.8.insert.ext410
   br label %.thread
 
-55:                                               ; preds = %stbtt__buf_get8.exit, %stbtt__buf_get8.exit, %stbtt__buf_get8.exit, %stbtt__buf_get8.exit
-  %56 = sdiv i32 %.0241488, 2
-  %57 = add nsw i32 %.0234492, %56
+108:                                              ; preds = %stbtt__buf_get8.exit, %stbtt__buf_get8.exit, %stbtt__buf_get8.exit, %stbtt__buf_get8.exit
+  %109 = sdiv i32 %.0241546, 2
+  %110 = add nsw i32 %.0234550, %109
   br label %.thread
 
-58:                                               ; preds = %stbtt__buf_get8.exit
-  %59 = icmp slt i32 %.0241488, 2
-  br i1 %59, label %.critedge, label %60
+111:                                              ; preds = %stbtt__buf_get8.exit
+  %112 = icmp slt i32 %.0241546, 2
+  br i1 %112, label %.critedge, label %113
 
-60:                                               ; preds = %58
-  %61 = add nsw i32 %.0241488, -2
-  %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %62
-  %64 = load float, ptr %63, align 4, !tbaa !3
-  %65 = add nsw i32 %.0241488, -1
-  %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %66
-  %68 = load float, ptr %67, align 4, !tbaa !3
-  tail call fastcc void @stbtt__csctx_rmove_to(ptr noundef %2, float noundef %64, float noundef %68)
+113:                                              ; preds = %111
+  %114 = add nsw i32 %.0241546, -2
+  %115 = zext nneg i32 %114 to i64
+  %116 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %115
+  %117 = load float, ptr %116, align 4, !tbaa !3
+  %118 = add nsw i32 %.0241546, -1
+  %119 = zext nneg i32 %118 to i64
+  %120 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %119
+  %121 = load float, ptr %120, align 4, !tbaa !3
+  tail call fastcc void @stbtt__csctx_rmove_to(ptr noundef %2, float noundef %117, float noundef %121)
   br label %.thread
 
-69:                                               ; preds = %stbtt__buf_get8.exit
-  %70 = icmp slt i32 %.0241488, 1
-  br i1 %70, label %.critedge, label %71
+122:                                              ; preds = %stbtt__buf_get8.exit
+  %123 = icmp slt i32 %.0241546, 1
+  br i1 %123, label %.critedge, label %124
 
-71:                                               ; preds = %69
-  %72 = add nsw i32 %.0241488, -1
-  %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %73
-  %75 = load float, ptr %74, align 4, !tbaa !3
-  tail call fastcc void @stbtt__csctx_rmove_to(ptr noundef %2, float noundef 0.000000e+00, float noundef %75)
+124:                                              ; preds = %122
+  %125 = add nsw i32 %.0241546, -1
+  %126 = zext nneg i32 %125 to i64
+  %127 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %126
+  %128 = load float, ptr %127, align 4, !tbaa !3
+  tail call fastcc void @stbtt__csctx_rmove_to(ptr noundef %2, float noundef 0.000000e+00, float noundef %128)
   br label %.thread
 
-76:                                               ; preds = %stbtt__buf_get8.exit
-  %77 = icmp slt i32 %.0241488, 1
-  br i1 %77, label %.critedge, label %78
+129:                                              ; preds = %stbtt__buf_get8.exit
+  %130 = icmp slt i32 %.0241546, 1
+  br i1 %130, label %.critedge, label %131
 
-78:                                               ; preds = %76
-  %79 = add nsw i32 %.0241488, -1
-  %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %80
-  %82 = load float, ptr %81, align 4, !tbaa !3
-  tail call fastcc void @stbtt__csctx_rmove_to(ptr noundef %2, float noundef %82, float noundef 0.000000e+00)
+131:                                              ; preds = %129
+  %132 = add nsw i32 %.0241546, -1
+  %133 = zext nneg i32 %132 to i64
+  %134 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %133
+  %135 = load float, ptr %134, align 4, !tbaa !3
+  tail call fastcc void @stbtt__csctx_rmove_to(ptr noundef %2, float noundef %135, float noundef 0.000000e+00)
   br label %.thread
-
-83:                                               ; preds = %stbtt__buf_get8.exit
-  %84 = icmp slt i32 %.0241488, 2
-  br i1 %84, label %.critedge, label %.preheader456.preheader
-
-.preheader456.preheader:                          ; preds = %83
-  %85 = zext nneg i32 %.0241488 to i64
-  br label %.preheader456
-
-.preheader456:                                    ; preds = %.preheader456.preheader, %stbtt__csctx_rline_to.exit
-  %indvars.iv541 = phi i64 [ 0, %.preheader456.preheader ], [ %indvars.iv.next542, %stbtt__csctx_rline_to.exit ]
-  %86 = or disjoint i64 %indvars.iv541, 1
-  %87 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv541
-  %88 = load float, ptr %87, align 8, !tbaa !3
-  %89 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %86
-  %90 = load float, ptr %89, align 4, !tbaa !3
-  %91 = load float, ptr %33, align 8, !tbaa !1264
-  %92 = fadd float %88, %91
-  store float %92, ptr %33, align 8, !tbaa !1264
-  %93 = load float, ptr %34, align 4, !tbaa !1265
-  %94 = fadd float %90, %93
-  store float %94, ptr %34, align 4, !tbaa !1265
-  %95 = fptosi float %92 to i32
-  %96 = fptosi float %94 to i32
-  %97 = load i32, ptr %2, align 8, !tbaa !1266
-  %.not.i.i = icmp eq i32 %97, 0
-  br i1 %.not.i.i, label %122, label %98
-
-98:                                               ; preds = %.preheader456
-  %99 = load i32, ptr %35, align 4, !tbaa !1267
-  %100 = icmp slt i32 %99, %95
-  br i1 %100, label %103, label %101
-
-101:                                              ; preds = %98
-  %102 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not.i.i.i = icmp eq i32 %102, 0
-  br i1 %.not.i.i.i, label %103, label %104
-
-103:                                              ; preds = %101, %98
-  store i32 %95, ptr %35, align 4, !tbaa !1267
-  br label %104
-
-104:                                              ; preds = %103, %101
-  %105 = load i32, ptr %37, align 4, !tbaa !1269
-  %106 = icmp slt i32 %105, %96
-  br i1 %106, label %109, label %107
-
-107:                                              ; preds = %104
-  %108 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not20.i.i.i = icmp eq i32 %108, 0
-  br i1 %.not20.i.i.i, label %109, label %110
-
-109:                                              ; preds = %107, %104
-  store i32 %96, ptr %37, align 4, !tbaa !1269
-  br label %110
-
-110:                                              ; preds = %109, %107
-  %111 = load i32, ptr %38, align 8, !tbaa !1270
-  %112 = icmp sgt i32 %111, %95
-  br i1 %112, label %115, label %113
-
-113:                                              ; preds = %110
-  %114 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not21.i.i.i = icmp eq i32 %114, 0
-  br i1 %.not21.i.i.i, label %115, label %116
-
-115:                                              ; preds = %113, %110
-  store i32 %95, ptr %38, align 8, !tbaa !1270
-  br label %116
-
-116:                                              ; preds = %115, %113
-  %117 = load i32, ptr %39, align 8, !tbaa !1271
-  %118 = icmp sgt i32 %117, %96
-  br i1 %118, label %121, label %119
-
-119:                                              ; preds = %116
-  %120 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not22.i.i.i = icmp eq i32 %120, 0
-  br i1 %.not22.i.i.i, label %121, label %stbtt__track_vertex.exit.i.i
-
-121:                                              ; preds = %119, %116
-  store i32 %96, ptr %39, align 8, !tbaa !1271
-  br label %stbtt__track_vertex.exit.i.i
-
-stbtt__track_vertex.exit.i.i:                     ; preds = %121, %119
-  store i32 1, ptr %36, align 4, !tbaa !1268
-  %.pre.i = load i32, ptr %.phi.trans.insert.i309, align 8, !tbaa !431
-  br label %stbtt__csctx_rline_to.exit
-
-122:                                              ; preds = %.preheader456
-  %123 = load ptr, ptr %40, align 8, !tbaa !433
-  %124 = load i32, ptr %.phi.trans.insert.i309, align 8, !tbaa !431
-  %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds %struct.stbtt_vertex, ptr %123, i64 %125
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 12
-  store i8 2, ptr %127, align 2, !tbaa !418
-  %128 = trunc i32 %95 to i16
-  store i16 %128, ptr %126, align 2, !tbaa !421
-  %129 = trunc i32 %96 to i16
-  %130 = getelementptr inbounds nuw i8, ptr %126, i64 2
-  store i16 %129, ptr %130, align 2, !tbaa !423
-  %131 = getelementptr inbounds nuw i8, ptr %126, i64 4
-  store i64 0, ptr %131, align 2
-  br label %stbtt__csctx_rline_to.exit
-
-stbtt__csctx_rline_to.exit:                       ; preds = %stbtt__track_vertex.exit.i.i, %122
-  %132 = phi i32 [ %.pre.i, %stbtt__track_vertex.exit.i.i ], [ %124, %122 ]
-  %133 = add nsw i32 %132, 1
-  store i32 %133, ptr %.phi.trans.insert.i309, align 8, !tbaa !431
-  %indvars.iv.next542 = add nuw nsw i64 %indvars.iv541, 2
-  %134 = or disjoint i64 %indvars.iv.next542, 1
-  %135 = icmp samesign ult i64 %134, %85
-  br i1 %135, label %.preheader456, label %.thread, !llvm.loop !1272
 
 136:                                              ; preds = %stbtt__buf_get8.exit
-  %137 = icmp slt i32 %.0241488, 1
-  br i1 %137, label %.critedge, label %189
+  %137 = icmp slt i32 %.0241546, 2
+  br i1 %137, label %.critedge, label %.preheader500.preheader
 
-138:                                              ; preds = %stbtt__buf_get8.exit
-  %139 = icmp slt i32 %.0241488, 1
-  br i1 %139, label %.critedge, label %140
+.preheader500.preheader:                          ; preds = %136
+  %138 = zext nneg i32 %.0241546 to i64
+  br label %.preheader500
 
-140:                                              ; preds = %138, %stbtt__csctx_rline_to.exit293
-  %.2246 = phi i32 [ %237, %stbtt__csctx_rline_to.exit293 ], [ 0, %138 ]
-  %.not273 = icmp slt i32 %.2246, %.0241488
-  br i1 %.not273, label %141, label %.thread
+.preheader500:                                    ; preds = %.preheader500.preheader, %stbtt__csctx_rline_to.exit
+  %indvars.iv612 = phi i64 [ 0, %.preheader500.preheader ], [ %indvars.iv.next613, %stbtt__csctx_rline_to.exit ]
+  %139 = or disjoint i64 %indvars.iv612, 1
+  %140 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv612
+  %141 = load float, ptr %140, align 8, !tbaa !3
+  %142 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %139
+  %143 = load float, ptr %142, align 4, !tbaa !3
+  %144 = load float, ptr %86, align 8, !tbaa !1264
+  %145 = fadd float %141, %144
+  store float %145, ptr %86, align 8, !tbaa !1264
+  %146 = load float, ptr %87, align 4, !tbaa !1265
+  %147 = fadd float %143, %146
+  store float %147, ptr %87, align 4, !tbaa !1265
+  %148 = fptosi float %145 to i32
+  %149 = fptosi float %147 to i32
+  %150 = load i32, ptr %2, align 8, !tbaa !1266
+  %.not.i.i276 = icmp eq i32 %150, 0
+  br i1 %.not.i.i276, label %175, label %151
 
-141:                                              ; preds = %140
-  %142 = sext i32 %.2246 to i64
-  %143 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %142
-  %144 = load float, ptr %143, align 4, !tbaa !3
-  %145 = load float, ptr %33, align 8, !tbaa !1264
-  %146 = fadd float %144, %145
-  store float %146, ptr %33, align 8, !tbaa !1264
-  %147 = load float, ptr %34, align 4, !tbaa !1265
-  %148 = fadd float %147, 0.000000e+00
-  store float %148, ptr %34, align 4, !tbaa !1265
-  %149 = fptosi float %146 to i32
-  %150 = fptosi float %148 to i32
-  %151 = load i32, ptr %2, align 8, !tbaa !1266
-  %.not.i.i276 = icmp eq i32 %151, 0
-  br i1 %.not.i.i276, label %176, label %152
+151:                                              ; preds = %.preheader500
+  %152 = load i32, ptr %88, align 4, !tbaa !1267
+  %153 = icmp slt i32 %152, %148
+  br i1 %153, label %156, label %154
 
-152:                                              ; preds = %141
-  %153 = load i32, ptr %35, align 4, !tbaa !1267
-  %154 = icmp slt i32 %153, %149
-  br i1 %154, label %157, label %155
+154:                                              ; preds = %151
+  %155 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not.i.i.i277 = icmp eq i32 %155, 0
+  br i1 %.not.i.i.i277, label %156, label %157
 
-155:                                              ; preds = %152
-  %156 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not.i.i.i277 = icmp eq i32 %156, 0
-  br i1 %.not.i.i.i277, label %157, label %158
+156:                                              ; preds = %154, %151
+  store i32 %148, ptr %88, align 4, !tbaa !1267
+  br label %157
 
-157:                                              ; preds = %155, %152
-  store i32 %149, ptr %35, align 4, !tbaa !1267
-  br label %158
+157:                                              ; preds = %156, %154
+  %158 = load i32, ptr %90, align 4, !tbaa !1269
+  %159 = icmp slt i32 %158, %149
+  br i1 %159, label %162, label %160
 
-158:                                              ; preds = %157, %155
-  %159 = load i32, ptr %37, align 4, !tbaa !1269
-  %160 = icmp slt i32 %159, %150
-  br i1 %160, label %163, label %161
+160:                                              ; preds = %157
+  %161 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not20.i.i.i = icmp eq i32 %161, 0
+  br i1 %.not20.i.i.i, label %162, label %163
 
-161:                                              ; preds = %158
-  %162 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not20.i.i.i278 = icmp eq i32 %162, 0
-  br i1 %.not20.i.i.i278, label %163, label %164
+162:                                              ; preds = %160, %157
+  store i32 %149, ptr %90, align 4, !tbaa !1269
+  br label %163
 
-163:                                              ; preds = %161, %158
-  store i32 %150, ptr %37, align 4, !tbaa !1269
-  br label %164
+163:                                              ; preds = %162, %160
+  %164 = load i32, ptr %91, align 8, !tbaa !1270
+  %165 = icmp sgt i32 %164, %148
+  br i1 %165, label %168, label %166
 
-164:                                              ; preds = %163, %161
-  %165 = load i32, ptr %38, align 8, !tbaa !1270
-  %166 = icmp sgt i32 %165, %149
-  br i1 %166, label %169, label %167
+166:                                              ; preds = %163
+  %167 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not21.i.i.i = icmp eq i32 %167, 0
+  br i1 %.not21.i.i.i, label %168, label %169
 
-167:                                              ; preds = %164
-  %168 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not21.i.i.i279 = icmp eq i32 %168, 0
-  br i1 %.not21.i.i.i279, label %169, label %170
+168:                                              ; preds = %166, %163
+  store i32 %148, ptr %91, align 8, !tbaa !1270
+  br label %169
 
-169:                                              ; preds = %167, %164
-  store i32 %149, ptr %38, align 8, !tbaa !1270
-  br label %170
+169:                                              ; preds = %168, %166
+  %170 = load i32, ptr %92, align 8, !tbaa !1271
+  %171 = icmp sgt i32 %170, %149
+  br i1 %171, label %174, label %172
 
-170:                                              ; preds = %169, %167
-  %171 = load i32, ptr %39, align 8, !tbaa !1271
-  %172 = icmp sgt i32 %171, %150
-  br i1 %172, label %175, label %173
+172:                                              ; preds = %169
+  %173 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not22.i.i.i = icmp eq i32 %173, 0
+  br i1 %.not22.i.i.i, label %174, label %stbtt__track_vertex.exit.i.i
 
-173:                                              ; preds = %170
-  %174 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not22.i.i.i280 = icmp eq i32 %174, 0
-  br i1 %.not22.i.i.i280, label %175, label %stbtt__track_vertex.exit.i.i281
+174:                                              ; preds = %172, %169
+  store i32 %149, ptr %92, align 8, !tbaa !1271
+  br label %stbtt__track_vertex.exit.i.i
 
-175:                                              ; preds = %173, %170
-  store i32 %150, ptr %39, align 8, !tbaa !1271
-  br label %stbtt__track_vertex.exit.i.i281
+stbtt__track_vertex.exit.i.i:                     ; preds = %174, %172
+  store i32 1, ptr %89, align 4, !tbaa !1268
+  %.pre.i = load i32, ptr %.phi.trans.insert.i311, align 8, !tbaa !431
+  br label %stbtt__csctx_rline_to.exit
 
-stbtt__track_vertex.exit.i.i281:                  ; preds = %175, %173
-  store i32 1, ptr %36, align 4, !tbaa !1268
-  %.pre.i283 = load i32, ptr %.phi.trans.insert.i309, align 8, !tbaa !431
-  br label %stbtt__csctx_rline_to.exit284
-
-176:                                              ; preds = %141
-  %177 = load ptr, ptr %40, align 8, !tbaa !433
-  %178 = load i32, ptr %.phi.trans.insert.i309, align 8, !tbaa !431
-  %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds %struct.stbtt_vertex, ptr %177, i64 %179
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 12
-  store i8 2, ptr %181, align 2, !tbaa !418
+175:                                              ; preds = %.preheader500
+  %176 = load ptr, ptr %93, align 8, !tbaa !433
+  %177 = load i32, ptr %.phi.trans.insert.i311, align 8, !tbaa !431
+  %178 = sext i32 %177 to i64
+  %179 = getelementptr inbounds %struct.stbtt_vertex, ptr %176, i64 %178
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 12
+  store i8 2, ptr %180, align 2, !tbaa !418
+  %181 = trunc i32 %148 to i16
+  store i16 %181, ptr %179, align 2, !tbaa !421
   %182 = trunc i32 %149 to i16
-  store i16 %182, ptr %180, align 2, !tbaa !421
-  %183 = trunc i32 %150 to i16
-  %184 = getelementptr inbounds nuw i8, ptr %180, i64 2
-  store i16 %183, ptr %184, align 2, !tbaa !423
-  %185 = getelementptr inbounds nuw i8, ptr %180, i64 4
-  store i64 0, ptr %185, align 2
-  br label %stbtt__csctx_rline_to.exit284
+  %183 = getelementptr inbounds nuw i8, ptr %179, i64 2
+  store i16 %182, ptr %183, align 2, !tbaa !423
+  %184 = getelementptr inbounds nuw i8, ptr %179, i64 4
+  store i64 0, ptr %184, align 2
+  br label %stbtt__csctx_rline_to.exit
 
-stbtt__csctx_rline_to.exit284:                    ; preds = %stbtt__track_vertex.exit.i.i281, %176
-  %186 = phi i32 [ %.pre.i283, %stbtt__track_vertex.exit.i.i281 ], [ %178, %176 ]
-  %187 = add nsw i32 %186, 1
-  store i32 %187, ptr %.phi.trans.insert.i309, align 8, !tbaa !431
-  %188 = add nsw i32 %.2246, 1
-  br label %189
+stbtt__csctx_rline_to.exit:                       ; preds = %stbtt__track_vertex.exit.i.i, %175
+  %185 = phi i32 [ %.pre.i, %stbtt__track_vertex.exit.i.i ], [ %177, %175 ]
+  %186 = add nsw i32 %185, 1
+  store i32 %186, ptr %.phi.trans.insert.i311, align 8, !tbaa !431
+  %indvars.iv.next613 = add nuw nsw i64 %indvars.iv612, 2
+  %187 = or disjoint i64 %indvars.iv.next613, 1
+  %188 = icmp samesign ult i64 %187, %138
+  br i1 %188, label %.preheader500, label %.thread, !llvm.loop !1272
 
-189:                                              ; preds = %136, %stbtt__csctx_rline_to.exit284
-  %.1245 = phi i32 [ 0, %136 ], [ %188, %stbtt__csctx_rline_to.exit284 ]
-  %.not272 = icmp slt i32 %.1245, %.0241488
-  br i1 %.not272, label %190, label %.thread
+189:                                              ; preds = %stbtt__buf_get8.exit
+  %190 = icmp slt i32 %.0241546, 1
+  br i1 %190, label %.critedge, label %242
 
-190:                                              ; preds = %189
-  %191 = sext i32 %.1245 to i64
-  %192 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %191
-  %193 = load float, ptr %192, align 4, !tbaa !3
-  %194 = load float, ptr %33, align 8, !tbaa !1264
-  %195 = fadd float %194, 0.000000e+00
-  store float %195, ptr %33, align 8, !tbaa !1264
-  %196 = load float, ptr %34, align 4, !tbaa !1265
-  %197 = fadd float %193, %196
-  store float %197, ptr %34, align 4, !tbaa !1265
-  %198 = fptosi float %195 to i32
-  %199 = fptosi float %197 to i32
-  %200 = load i32, ptr %2, align 8, !tbaa !1266
-  %.not.i.i285 = icmp eq i32 %200, 0
-  br i1 %.not.i.i285, label %225, label %201
+191:                                              ; preds = %stbtt__buf_get8.exit
+  %192 = icmp slt i32 %.0241546, 1
+  br i1 %192, label %.critedge, label %193
 
-201:                                              ; preds = %190
-  %202 = load i32, ptr %35, align 4, !tbaa !1267
-  %203 = icmp slt i32 %202, %198
-  br i1 %203, label %206, label %204
+193:                                              ; preds = %191, %stbtt__csctx_rline_to.exit295
+  %.2246 = phi i32 [ %290, %stbtt__csctx_rline_to.exit295 ], [ 0, %191 ]
+  %.not273 = icmp slt i32 %.2246, %.0241546
+  br i1 %.not273, label %194, label %.thread
 
-204:                                              ; preds = %201
-  %205 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not.i.i.i286 = icmp eq i32 %205, 0
-  br i1 %.not.i.i.i286, label %206, label %207
+194:                                              ; preds = %193
+  %195 = sext i32 %.2246 to i64
+  %196 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %195
+  %197 = load float, ptr %196, align 4, !tbaa !3
+  %198 = load float, ptr %86, align 8, !tbaa !1264
+  %199 = fadd float %197, %198
+  store float %199, ptr %86, align 8, !tbaa !1264
+  %200 = load float, ptr %87, align 4, !tbaa !1265
+  %201 = fadd float %200, 0.000000e+00
+  store float %201, ptr %87, align 4, !tbaa !1265
+  %202 = fptosi float %199 to i32
+  %203 = fptosi float %201 to i32
+  %204 = load i32, ptr %2, align 8, !tbaa !1266
+  %.not.i.i278 = icmp eq i32 %204, 0
+  br i1 %.not.i.i278, label %229, label %205
 
-206:                                              ; preds = %204, %201
-  store i32 %198, ptr %35, align 4, !tbaa !1267
-  br label %207
+205:                                              ; preds = %194
+  %206 = load i32, ptr %88, align 4, !tbaa !1267
+  %207 = icmp slt i32 %206, %202
+  br i1 %207, label %210, label %208
 
-207:                                              ; preds = %206, %204
-  %208 = load i32, ptr %37, align 4, !tbaa !1269
-  %209 = icmp slt i32 %208, %199
-  br i1 %209, label %212, label %210
+208:                                              ; preds = %205
+  %209 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not.i.i.i279 = icmp eq i32 %209, 0
+  br i1 %.not.i.i.i279, label %210, label %211
 
-210:                                              ; preds = %207
-  %211 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not20.i.i.i287 = icmp eq i32 %211, 0
-  br i1 %.not20.i.i.i287, label %212, label %213
+210:                                              ; preds = %208, %205
+  store i32 %202, ptr %88, align 4, !tbaa !1267
+  br label %211
 
-212:                                              ; preds = %210, %207
-  store i32 %199, ptr %37, align 4, !tbaa !1269
-  br label %213
+211:                                              ; preds = %210, %208
+  %212 = load i32, ptr %90, align 4, !tbaa !1269
+  %213 = icmp slt i32 %212, %203
+  br i1 %213, label %216, label %214
 
-213:                                              ; preds = %212, %210
-  %214 = load i32, ptr %38, align 8, !tbaa !1270
-  %215 = icmp sgt i32 %214, %198
-  br i1 %215, label %218, label %216
+214:                                              ; preds = %211
+  %215 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not20.i.i.i280 = icmp eq i32 %215, 0
+  br i1 %.not20.i.i.i280, label %216, label %217
 
-216:                                              ; preds = %213
-  %217 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not21.i.i.i288 = icmp eq i32 %217, 0
-  br i1 %.not21.i.i.i288, label %218, label %219
+216:                                              ; preds = %214, %211
+  store i32 %203, ptr %90, align 4, !tbaa !1269
+  br label %217
 
-218:                                              ; preds = %216, %213
-  store i32 %198, ptr %38, align 8, !tbaa !1270
-  br label %219
+217:                                              ; preds = %216, %214
+  %218 = load i32, ptr %91, align 8, !tbaa !1270
+  %219 = icmp sgt i32 %218, %202
+  br i1 %219, label %222, label %220
 
-219:                                              ; preds = %218, %216
-  %220 = load i32, ptr %39, align 8, !tbaa !1271
-  %221 = icmp sgt i32 %220, %199
-  br i1 %221, label %224, label %222
+220:                                              ; preds = %217
+  %221 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not21.i.i.i281 = icmp eq i32 %221, 0
+  br i1 %.not21.i.i.i281, label %222, label %223
 
-222:                                              ; preds = %219
-  %223 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not22.i.i.i289 = icmp eq i32 %223, 0
-  br i1 %.not22.i.i.i289, label %224, label %stbtt__track_vertex.exit.i.i290
+222:                                              ; preds = %220, %217
+  store i32 %202, ptr %91, align 8, !tbaa !1270
+  br label %223
 
-224:                                              ; preds = %222, %219
-  store i32 %199, ptr %39, align 8, !tbaa !1271
-  br label %stbtt__track_vertex.exit.i.i290
+223:                                              ; preds = %222, %220
+  %224 = load i32, ptr %92, align 8, !tbaa !1271
+  %225 = icmp sgt i32 %224, %203
+  br i1 %225, label %228, label %226
 
-stbtt__track_vertex.exit.i.i290:                  ; preds = %224, %222
-  store i32 1, ptr %36, align 4, !tbaa !1268
-  %.pre.i292 = load i32, ptr %.phi.trans.insert.i309, align 8, !tbaa !431
-  br label %stbtt__csctx_rline_to.exit293
+226:                                              ; preds = %223
+  %227 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not22.i.i.i282 = icmp eq i32 %227, 0
+  br i1 %.not22.i.i.i282, label %228, label %stbtt__track_vertex.exit.i.i283
 
-225:                                              ; preds = %190
-  %226 = load ptr, ptr %40, align 8, !tbaa !433
-  %227 = load i32, ptr %.phi.trans.insert.i309, align 8, !tbaa !431
-  %228 = sext i32 %227 to i64
-  %229 = getelementptr inbounds %struct.stbtt_vertex, ptr %226, i64 %228
-  %230 = getelementptr inbounds nuw i8, ptr %229, i64 12
-  store i8 2, ptr %230, align 2, !tbaa !418
-  %231 = trunc i32 %198 to i16
-  store i16 %231, ptr %229, align 2, !tbaa !421
-  %232 = trunc i32 %199 to i16
-  %233 = getelementptr inbounds nuw i8, ptr %229, i64 2
-  store i16 %232, ptr %233, align 2, !tbaa !423
-  %234 = getelementptr inbounds nuw i8, ptr %229, i64 4
-  store i64 0, ptr %234, align 2
-  br label %stbtt__csctx_rline_to.exit293
+228:                                              ; preds = %226, %223
+  store i32 %203, ptr %92, align 8, !tbaa !1271
+  br label %stbtt__track_vertex.exit.i.i283
 
-stbtt__csctx_rline_to.exit293:                    ; preds = %stbtt__track_vertex.exit.i.i290, %225
-  %235 = phi i32 [ %.pre.i292, %stbtt__track_vertex.exit.i.i290 ], [ %227, %225 ]
-  %236 = add nsw i32 %235, 1
-  store i32 %236, ptr %.phi.trans.insert.i309, align 8, !tbaa !431
-  %237 = add nsw i32 %.1245, 1
-  br label %140
+stbtt__track_vertex.exit.i.i283:                  ; preds = %228, %226
+  store i32 1, ptr %89, align 4, !tbaa !1268
+  %.pre.i285 = load i32, ptr %.phi.trans.insert.i311, align 8, !tbaa !431
+  br label %stbtt__csctx_rline_to.exit286
 
-238:                                              ; preds = %stbtt__buf_get8.exit
-  %239 = icmp slt i32 %.0241488, 4
-  br i1 %239, label %.critedge, label %267
+229:                                              ; preds = %194
+  %230 = load ptr, ptr %93, align 8, !tbaa !433
+  %231 = load i32, ptr %.phi.trans.insert.i311, align 8, !tbaa !431
+  %232 = sext i32 %231 to i64
+  %233 = getelementptr inbounds %struct.stbtt_vertex, ptr %230, i64 %232
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 12
+  store i8 2, ptr %234, align 2, !tbaa !418
+  %235 = trunc i32 %202 to i16
+  store i16 %235, ptr %233, align 2, !tbaa !421
+  %236 = trunc i32 %203 to i16
+  %237 = getelementptr inbounds nuw i8, ptr %233, i64 2
+  store i16 %236, ptr %237, align 2, !tbaa !423
+  %238 = getelementptr inbounds nuw i8, ptr %233, i64 4
+  store i64 0, ptr %238, align 2
+  br label %stbtt__csctx_rline_to.exit286
 
-240:                                              ; preds = %stbtt__buf_get8.exit
-  %241 = icmp slt i32 %.0241488, 4
-  br i1 %241, label %.critedge, label %242
-
-242:                                              ; preds = %240, %._crit_edge545
-  %.4 = phi i32 [ %283, %._crit_edge545 ], [ 0, %240 ]
-  %243 = add nsw i32 %.4, 3
-  %.not271 = icmp slt i32 %243, %.0241488
-  br i1 %.not271, label %244, label %.thread
-
-244:                                              ; preds = %242
-  %245 = sext i32 %.4 to i64
-  %246 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %245
-  %247 = load float, ptr %246, align 4, !tbaa !3
-  %248 = add nsw i32 %.4, 1
-  %249 = sext i32 %248 to i64
-  %250 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %249
-  %251 = load float, ptr %250, align 4, !tbaa !3
-  %252 = add nsw i32 %.4, 2
-  %253 = sext i32 %252 to i64
-  %254 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %253
-  %255 = load float, ptr %254, align 4, !tbaa !3
-  %256 = sext i32 %243 to i64
-  %257 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %256
-  %258 = load float, ptr %257, align 4, !tbaa !3
-  %259 = sub nsw i32 %.0241488, %.4
-  %260 = icmp eq i32 %259, 5
-  %261 = add nsw i32 %.4, 4
-  br i1 %260, label %262, label %._crit_edge544
-
-262:                                              ; preds = %244
-  %263 = sext i32 %261 to i64
-  %264 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %263
-  %265 = load float, ptr %264, align 4, !tbaa !3
-  br label %._crit_edge544
-
-._crit_edge544:                                   ; preds = %244, %262
-  %266 = phi float [ %265, %262 ], [ 0.000000e+00, %244 ]
-  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef 0.000000e+00, float noundef %247, float noundef %251, float noundef %255, float noundef %258, float noundef %266)
-  br label %267
-
-267:                                              ; preds = %238, %._crit_edge544
-  %.3247 = phi i32 [ 0, %238 ], [ %261, %._crit_edge544 ]
-  %268 = add nsw i32 %.3247, 3
-  %.not270 = icmp slt i32 %268, %.0241488
-  br i1 %.not270, label %269, label %.thread
-
-269:                                              ; preds = %267
-  %270 = sext i32 %.3247 to i64
-  %271 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %270
-  %272 = load float, ptr %271, align 4, !tbaa !3
-  %273 = add nsw i32 %.3247, 1
-  %274 = sext i32 %273 to i64
-  %275 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %274
-  %276 = load float, ptr %275, align 4, !tbaa !3
-  %277 = add nsw i32 %.3247, 2
-  %278 = sext i32 %277 to i64
-  %279 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %278
-  %280 = load float, ptr %279, align 4, !tbaa !3
-  %281 = sub nsw i32 %.0241488, %.3247
-  %282 = icmp eq i32 %281, 5
-  %283 = add nsw i32 %.3247, 4
-  br i1 %282, label %284, label %._crit_edge545
-
-284:                                              ; preds = %269
-  %285 = sext i32 %283 to i64
-  %286 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %285
-  %287 = load float, ptr %286, align 4, !tbaa !3
-  br label %._crit_edge545
-
-._crit_edge545:                                   ; preds = %269, %284
-  %288 = phi float [ %287, %284 ], [ 0.000000e+00, %269 ]
-  %289 = sext i32 %268 to i64
-  %290 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %289
-  %291 = load float, ptr %290, align 4, !tbaa !3
-  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %272, float noundef 0.000000e+00, float noundef %276, float noundef %280, float noundef %288, float noundef %291)
+stbtt__csctx_rline_to.exit286:                    ; preds = %stbtt__track_vertex.exit.i.i283, %229
+  %239 = phi i32 [ %.pre.i285, %stbtt__track_vertex.exit.i.i283 ], [ %231, %229 ]
+  %240 = add nsw i32 %239, 1
+  store i32 %240, ptr %.phi.trans.insert.i311, align 8, !tbaa !431
+  %241 = add nsw i32 %.2246, 1
   br label %242
 
-292:                                              ; preds = %stbtt__buf_get8.exit
-  %293 = icmp slt i32 %.0241488, 6
-  br i1 %293, label %.critedge, label %.preheader457.preheader
+242:                                              ; preds = %189, %stbtt__csctx_rline_to.exit286
+  %.1245 = phi i32 [ 0, %189 ], [ %241, %stbtt__csctx_rline_to.exit286 ]
+  %.not272 = icmp slt i32 %.1245, %.0241546
+  br i1 %.not272, label %243, label %.thread
 
-.preheader457.preheader:                          ; preds = %292
-  %294 = zext nneg i32 %.0241488 to i64
-  br label %.preheader457
+243:                                              ; preds = %242
+  %244 = sext i32 %.1245 to i64
+  %245 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %244
+  %246 = load float, ptr %245, align 4, !tbaa !3
+  %247 = load float, ptr %86, align 8, !tbaa !1264
+  %248 = fadd float %247, 0.000000e+00
+  store float %248, ptr %86, align 8, !tbaa !1264
+  %249 = load float, ptr %87, align 4, !tbaa !1265
+  %250 = fadd float %246, %249
+  store float %250, ptr %87, align 4, !tbaa !1265
+  %251 = fptosi float %248 to i32
+  %252 = fptosi float %250 to i32
+  %253 = load i32, ptr %2, align 8, !tbaa !1266
+  %.not.i.i287 = icmp eq i32 %253, 0
+  br i1 %.not.i.i287, label %278, label %254
 
-.preheader457:                                    ; preds = %.preheader457.preheader, %.preheader457
-  %indvars.iv538 = phi i64 [ 0, %.preheader457.preheader ], [ %indvars.iv.next539, %.preheader457 ]
-  %295 = add nuw nsw i64 %indvars.iv538, 5
-  %296 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv538
-  %297 = load float, ptr %296, align 8, !tbaa !3
-  %298 = or disjoint i64 %indvars.iv538, 1
-  %299 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %298
+254:                                              ; preds = %243
+  %255 = load i32, ptr %88, align 4, !tbaa !1267
+  %256 = icmp slt i32 %255, %251
+  br i1 %256, label %259, label %257
+
+257:                                              ; preds = %254
+  %258 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not.i.i.i288 = icmp eq i32 %258, 0
+  br i1 %.not.i.i.i288, label %259, label %260
+
+259:                                              ; preds = %257, %254
+  store i32 %251, ptr %88, align 4, !tbaa !1267
+  br label %260
+
+260:                                              ; preds = %259, %257
+  %261 = load i32, ptr %90, align 4, !tbaa !1269
+  %262 = icmp slt i32 %261, %252
+  br i1 %262, label %265, label %263
+
+263:                                              ; preds = %260
+  %264 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not20.i.i.i289 = icmp eq i32 %264, 0
+  br i1 %.not20.i.i.i289, label %265, label %266
+
+265:                                              ; preds = %263, %260
+  store i32 %252, ptr %90, align 4, !tbaa !1269
+  br label %266
+
+266:                                              ; preds = %265, %263
+  %267 = load i32, ptr %91, align 8, !tbaa !1270
+  %268 = icmp sgt i32 %267, %251
+  br i1 %268, label %271, label %269
+
+269:                                              ; preds = %266
+  %270 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not21.i.i.i290 = icmp eq i32 %270, 0
+  br i1 %.not21.i.i.i290, label %271, label %272
+
+271:                                              ; preds = %269, %266
+  store i32 %251, ptr %91, align 8, !tbaa !1270
+  br label %272
+
+272:                                              ; preds = %271, %269
+  %273 = load i32, ptr %92, align 8, !tbaa !1271
+  %274 = icmp sgt i32 %273, %252
+  br i1 %274, label %277, label %275
+
+275:                                              ; preds = %272
+  %276 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not22.i.i.i291 = icmp eq i32 %276, 0
+  br i1 %.not22.i.i.i291, label %277, label %stbtt__track_vertex.exit.i.i292
+
+277:                                              ; preds = %275, %272
+  store i32 %252, ptr %92, align 8, !tbaa !1271
+  br label %stbtt__track_vertex.exit.i.i292
+
+stbtt__track_vertex.exit.i.i292:                  ; preds = %277, %275
+  store i32 1, ptr %89, align 4, !tbaa !1268
+  %.pre.i294 = load i32, ptr %.phi.trans.insert.i311, align 8, !tbaa !431
+  br label %stbtt__csctx_rline_to.exit295
+
+278:                                              ; preds = %243
+  %279 = load ptr, ptr %93, align 8, !tbaa !433
+  %280 = load i32, ptr %.phi.trans.insert.i311, align 8, !tbaa !431
+  %281 = sext i32 %280 to i64
+  %282 = getelementptr inbounds %struct.stbtt_vertex, ptr %279, i64 %281
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 12
+  store i8 2, ptr %283, align 2, !tbaa !418
+  %284 = trunc i32 %251 to i16
+  store i16 %284, ptr %282, align 2, !tbaa !421
+  %285 = trunc i32 %252 to i16
+  %286 = getelementptr inbounds nuw i8, ptr %282, i64 2
+  store i16 %285, ptr %286, align 2, !tbaa !423
+  %287 = getelementptr inbounds nuw i8, ptr %282, i64 4
+  store i64 0, ptr %287, align 2
+  br label %stbtt__csctx_rline_to.exit295
+
+stbtt__csctx_rline_to.exit295:                    ; preds = %stbtt__track_vertex.exit.i.i292, %278
+  %288 = phi i32 [ %.pre.i294, %stbtt__track_vertex.exit.i.i292 ], [ %280, %278 ]
+  %289 = add nsw i32 %288, 1
+  store i32 %289, ptr %.phi.trans.insert.i311, align 8, !tbaa !431
+  %290 = add nsw i32 %.1245, 1
+  br label %193
+
+291:                                              ; preds = %stbtt__buf_get8.exit
+  %292 = icmp slt i32 %.0241546, 4
+  br i1 %292, label %.critedge, label %320
+
+293:                                              ; preds = %stbtt__buf_get8.exit
+  %294 = icmp slt i32 %.0241546, 4
+  br i1 %294, label %.critedge, label %295
+
+295:                                              ; preds = %293, %._crit_edge616
+  %.4 = phi i32 [ %336, %._crit_edge616 ], [ 0, %293 ]
+  %296 = add nsw i32 %.4, 3
+  %.not271 = icmp slt i32 %296, %.0241546
+  br i1 %.not271, label %297, label %.thread
+
+297:                                              ; preds = %295
+  %298 = sext i32 %.4 to i64
+  %299 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %298
   %300 = load float, ptr %299, align 4, !tbaa !3
-  %301 = add nuw nsw i64 %indvars.iv538, 2
-  %302 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %301
-  %303 = load float, ptr %302, align 8, !tbaa !3
-  %304 = add nuw nsw i64 %indvars.iv538, 3
-  %305 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %304
-  %306 = load float, ptr %305, align 4, !tbaa !3
-  %307 = add nuw nsw i64 %indvars.iv538, 4
-  %308 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %307
-  %309 = load float, ptr %308, align 8, !tbaa !3
-  %310 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %295
+  %301 = add nsw i32 %.4, 1
+  %302 = sext i32 %301 to i64
+  %303 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %302
+  %304 = load float, ptr %303, align 4, !tbaa !3
+  %305 = add nsw i32 %.4, 2
+  %306 = sext i32 %305 to i64
+  %307 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %306
+  %308 = load float, ptr %307, align 4, !tbaa !3
+  %309 = sext i32 %296 to i64
+  %310 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %309
   %311 = load float, ptr %310, align 4, !tbaa !3
-  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %297, float noundef %300, float noundef %303, float noundef %306, float noundef %309, float noundef %311)
-  %indvars.iv.next539 = add nuw nsw i64 %indvars.iv538, 6
-  %312 = add nuw nsw i64 %indvars.iv538, 11
-  %313 = icmp samesign ult i64 %312, %294
-  br i1 %313, label %.preheader457, label %.thread, !llvm.loop !1273
+  %312 = sub nsw i32 %.0241546, %.4
+  %313 = icmp eq i32 %312, 5
+  %314 = add nsw i32 %.4, 4
+  br i1 %313, label %315, label %._crit_edge615
 
-314:                                              ; preds = %stbtt__buf_get8.exit
-  %315 = icmp slt i32 %.0241488, 8
-  br i1 %315, label %.critedge, label %.lr.ph475.preheader
+315:                                              ; preds = %297
+  %316 = sext i32 %314 to i64
+  %317 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %316
+  %318 = load float, ptr %317, align 4, !tbaa !3
+  br label %._crit_edge615
 
-.lr.ph475.preheader:                              ; preds = %314
-  %316 = zext nneg i32 %.0241488 to i64
-  %invariant.op = add nsw i64 %316, -13
-  br label %.lr.ph475
+._crit_edge615:                                   ; preds = %297, %315
+  %319 = phi float [ %318, %315 ], [ 0.000000e+00, %297 ]
+  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef 0.000000e+00, float noundef %300, float noundef %304, float noundef %308, float noundef %311, float noundef %319)
+  br label %320
 
-.lr.ph475:                                        ; preds = %.lr.ph475.preheader, %.lr.ph475
-  %indvars.iv535 = phi i64 [ 0, %.lr.ph475.preheader ], [ %indvars.iv.next536, %.lr.ph475 ]
-  %317 = add nuw nsw i64 %indvars.iv535, 5
-  %318 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv535
-  %319 = load float, ptr %318, align 8, !tbaa !3
-  %320 = or disjoint i64 %indvars.iv535, 1
-  %321 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %320
-  %322 = load float, ptr %321, align 4, !tbaa !3
-  %323 = add nuw nsw i64 %indvars.iv535, 2
-  %324 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %323
-  %325 = load float, ptr %324, align 8, !tbaa !3
-  %326 = add nuw nsw i64 %indvars.iv535, 3
-  %327 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %326
-  %328 = load float, ptr %327, align 4, !tbaa !3
-  %329 = add nuw nsw i64 %indvars.iv535, 4
-  %330 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %329
-  %331 = load float, ptr %330, align 8, !tbaa !3
-  %332 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %317
+320:                                              ; preds = %291, %._crit_edge615
+  %.3247 = phi i32 [ 0, %291 ], [ %314, %._crit_edge615 ]
+  %321 = add nsw i32 %.3247, 3
+  %.not270 = icmp slt i32 %321, %.0241546
+  br i1 %.not270, label %322, label %.thread
+
+322:                                              ; preds = %320
+  %323 = sext i32 %.3247 to i64
+  %324 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %323
+  %325 = load float, ptr %324, align 4, !tbaa !3
+  %326 = add nsw i32 %.3247, 1
+  %327 = sext i32 %326 to i64
+  %328 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %327
+  %329 = load float, ptr %328, align 4, !tbaa !3
+  %330 = add nsw i32 %.3247, 2
+  %331 = sext i32 %330 to i64
+  %332 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %331
   %333 = load float, ptr %332, align 4, !tbaa !3
-  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %319, float noundef %322, float noundef %325, float noundef %328, float noundef %331, float noundef %333)
-  %indvars.iv.next536 = add nuw nsw i64 %indvars.iv535, 6
-  %334 = icmp slt i64 %indvars.iv535, %invariant.op
-  br i1 %334, label %.lr.ph475, label %._crit_edge476, !llvm.loop !1274
+  %334 = sub nsw i32 %.0241546, %.3247
+  %335 = icmp eq i32 %334, 5
+  %336 = add nsw i32 %.3247, 4
+  br i1 %335, label %337, label %._crit_edge616
 
-._crit_edge476:                                   ; preds = %.lr.ph475
-  %335 = trunc nuw nsw i64 %indvars.iv.next536 to i32
-  %336 = or disjoint i32 %335, 1
-  %.not269 = icmp slt i32 %336, %.0241488
-  br i1 %.not269, label %337, label %.critedge
+337:                                              ; preds = %322
+  %338 = sext i32 %336 to i64
+  %339 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %338
+  %340 = load float, ptr %339, align 4, !tbaa !3
+  br label %._crit_edge616
 
-337:                                              ; preds = %._crit_edge476
-  %338 = and i64 %indvars.iv.next536, 4294967294
-  %339 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %338
-  %340 = load float, ptr %339, align 8, !tbaa !3
-  %341 = zext nneg i32 %336 to i64
-  %342 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %341
-  %343 = load float, ptr %342, align 4, !tbaa !3
-  %344 = load float, ptr %33, align 8, !tbaa !1264
-  %345 = fadd float %340, %344
-  store float %345, ptr %33, align 8, !tbaa !1264
-  %346 = load float, ptr %34, align 4, !tbaa !1265
-  %347 = fadd float %343, %346
-  store float %347, ptr %34, align 4, !tbaa !1265
-  %348 = fptosi float %345 to i32
-  %349 = fptosi float %347 to i32
-  %350 = load i32, ptr %2, align 8, !tbaa !1266
-  %.not.i.i294 = icmp eq i32 %350, 0
-  br i1 %.not.i.i294, label %375, label %351
+._crit_edge616:                                   ; preds = %322, %337
+  %341 = phi float [ %340, %337 ], [ 0.000000e+00, %322 ]
+  %342 = sext i32 %321 to i64
+  %343 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %342
+  %344 = load float, ptr %343, align 4, !tbaa !3
+  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %325, float noundef 0.000000e+00, float noundef %329, float noundef %333, float noundef %341, float noundef %344)
+  br label %295
 
-351:                                              ; preds = %337
-  %352 = load i32, ptr %35, align 4, !tbaa !1267
-  %353 = icmp slt i32 %352, %348
-  br i1 %353, label %356, label %354
+345:                                              ; preds = %stbtt__buf_get8.exit
+  %346 = icmp slt i32 %.0241546, 6
+  br i1 %346, label %.critedge, label %.preheader501.preheader
 
-354:                                              ; preds = %351
-  %355 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not.i.i.i295 = icmp eq i32 %355, 0
-  br i1 %.not.i.i.i295, label %356, label %357
+.preheader501.preheader:                          ; preds = %345
+  %347 = zext nneg i32 %.0241546 to i64
+  br label %.preheader501
 
-356:                                              ; preds = %354, %351
-  store i32 %348, ptr %35, align 4, !tbaa !1267
-  br label %357
+.preheader501:                                    ; preds = %.preheader501.preheader, %.preheader501
+  %indvars.iv609 = phi i64 [ 0, %.preheader501.preheader ], [ %indvars.iv.next610, %.preheader501 ]
+  %348 = add nuw nsw i64 %indvars.iv609, 5
+  %349 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv609
+  %350 = load float, ptr %349, align 8, !tbaa !3
+  %351 = or disjoint i64 %indvars.iv609, 1
+  %352 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %351
+  %353 = load float, ptr %352, align 4, !tbaa !3
+  %354 = add nuw nsw i64 %indvars.iv609, 2
+  %355 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %354
+  %356 = load float, ptr %355, align 8, !tbaa !3
+  %357 = add nuw nsw i64 %indvars.iv609, 3
+  %358 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %357
+  %359 = load float, ptr %358, align 4, !tbaa !3
+  %360 = add nuw nsw i64 %indvars.iv609, 4
+  %361 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %360
+  %362 = load float, ptr %361, align 8, !tbaa !3
+  %363 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %348
+  %364 = load float, ptr %363, align 4, !tbaa !3
+  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %350, float noundef %353, float noundef %356, float noundef %359, float noundef %362, float noundef %364)
+  %indvars.iv.next610 = add nuw nsw i64 %indvars.iv609, 6
+  %365 = add nuw nsw i64 %indvars.iv609, 11
+  %366 = icmp samesign ult i64 %365, %347
+  br i1 %366, label %.preheader501, label %.thread, !llvm.loop !1273
 
-357:                                              ; preds = %356, %354
-  %358 = load i32, ptr %37, align 4, !tbaa !1269
-  %359 = icmp slt i32 %358, %349
-  br i1 %359, label %362, label %360
+367:                                              ; preds = %stbtt__buf_get8.exit
+  %368 = icmp slt i32 %.0241546, 8
+  br i1 %368, label %.critedge, label %.lr.ph533.preheader
 
-360:                                              ; preds = %357
-  %361 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not20.i.i.i296 = icmp eq i32 %361, 0
-  br i1 %.not20.i.i.i296, label %362, label %363
+.lr.ph533.preheader:                              ; preds = %367
+  %369 = add nsw i32 %.0241546, -2
+  %370 = zext nneg i32 %369 to i64
+  br label %.lr.ph533
 
-362:                                              ; preds = %360, %357
-  store i32 %349, ptr %37, align 4, !tbaa !1269
-  br label %363
+.lr.ph533:                                        ; preds = %.lr.ph533.preheader, %.lr.ph533
+  %indvars.iv606 = phi i64 [ 0, %.lr.ph533.preheader ], [ %indvars.iv.next607, %.lr.ph533 ]
+  %371 = add nuw nsw i64 %indvars.iv606, 5
+  %372 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv606
+  %373 = load float, ptr %372, align 8, !tbaa !3
+  %374 = or disjoint i64 %indvars.iv606, 1
+  %375 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %374
+  %376 = load float, ptr %375, align 4, !tbaa !3
+  %377 = add nuw nsw i64 %indvars.iv606, 2
+  %378 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %377
+  %379 = load float, ptr %378, align 8, !tbaa !3
+  %380 = add nuw nsw i64 %indvars.iv606, 3
+  %381 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %380
+  %382 = load float, ptr %381, align 4, !tbaa !3
+  %383 = add nuw nsw i64 %indvars.iv606, 4
+  %384 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %383
+  %385 = load float, ptr %384, align 8, !tbaa !3
+  %386 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %371
+  %387 = load float, ptr %386, align 4, !tbaa !3
+  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %373, float noundef %376, float noundef %379, float noundef %382, float noundef %385, float noundef %387)
+  %indvars.iv.next607 = add nuw nsw i64 %indvars.iv606, 6
+  %388 = add nuw nsw i64 %indvars.iv606, 11
+  %389 = icmp samesign ult i64 %388, %370
+  br i1 %389, label %.lr.ph533, label %._crit_edge534, !llvm.loop !1274
 
-363:                                              ; preds = %362, %360
-  %364 = load i32, ptr %38, align 8, !tbaa !1270
-  %365 = icmp sgt i32 %364, %348
-  br i1 %365, label %368, label %366
+._crit_edge534:                                   ; preds = %.lr.ph533
+  %390 = trunc nuw nsw i64 %indvars.iv.next607 to i32
+  %391 = or disjoint i32 %390, 1
+  %.not269 = icmp slt i32 %391, %.0241546
+  br i1 %.not269, label %392, label %.critedge
 
-366:                                              ; preds = %363
-  %367 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not21.i.i.i297 = icmp eq i32 %367, 0
-  br i1 %.not21.i.i.i297, label %368, label %369
+392:                                              ; preds = %._crit_edge534
+  %393 = and i64 %indvars.iv.next607, 4294967294
+  %394 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %393
+  %395 = load float, ptr %394, align 8, !tbaa !3
+  %396 = zext nneg i32 %391 to i64
+  %397 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %396
+  %398 = load float, ptr %397, align 4, !tbaa !3
+  %399 = load float, ptr %86, align 8, !tbaa !1264
+  %400 = fadd float %395, %399
+  store float %400, ptr %86, align 8, !tbaa !1264
+  %401 = load float, ptr %87, align 4, !tbaa !1265
+  %402 = fadd float %398, %401
+  store float %402, ptr %87, align 4, !tbaa !1265
+  %403 = fptosi float %400 to i32
+  %404 = fptosi float %402 to i32
+  %405 = load i32, ptr %2, align 8, !tbaa !1266
+  %.not.i.i296 = icmp eq i32 %405, 0
+  br i1 %.not.i.i296, label %430, label %406
 
-368:                                              ; preds = %366, %363
-  store i32 %348, ptr %38, align 8, !tbaa !1270
-  br label %369
+406:                                              ; preds = %392
+  %407 = load i32, ptr %88, align 4, !tbaa !1267
+  %408 = icmp slt i32 %407, %403
+  br i1 %408, label %411, label %409
 
-369:                                              ; preds = %368, %366
-  %370 = load i32, ptr %39, align 8, !tbaa !1271
-  %371 = icmp sgt i32 %370, %349
-  br i1 %371, label %374, label %372
+409:                                              ; preds = %406
+  %410 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not.i.i.i297 = icmp eq i32 %410, 0
+  br i1 %.not.i.i.i297, label %411, label %412
 
-372:                                              ; preds = %369
-  %373 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not22.i.i.i298 = icmp eq i32 %373, 0
-  br i1 %.not22.i.i.i298, label %374, label %stbtt__track_vertex.exit.i.i299
+411:                                              ; preds = %409, %406
+  store i32 %403, ptr %88, align 4, !tbaa !1267
+  br label %412
 
-374:                                              ; preds = %372, %369
-  store i32 %349, ptr %39, align 8, !tbaa !1271
-  br label %stbtt__track_vertex.exit.i.i299
+412:                                              ; preds = %411, %409
+  %413 = load i32, ptr %90, align 4, !tbaa !1269
+  %414 = icmp slt i32 %413, %404
+  br i1 %414, label %417, label %415
 
-stbtt__track_vertex.exit.i.i299:                  ; preds = %374, %372
-  store i32 1, ptr %36, align 4, !tbaa !1268
-  %.pre.i301 = load i32, ptr %.phi.trans.insert.i309, align 8, !tbaa !431
-  br label %stbtt__csctx_rline_to.exit302
+415:                                              ; preds = %412
+  %416 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not20.i.i.i298 = icmp eq i32 %416, 0
+  br i1 %.not20.i.i.i298, label %417, label %418
 
-375:                                              ; preds = %337
-  %376 = load ptr, ptr %40, align 8, !tbaa !433
-  %377 = load i32, ptr %.phi.trans.insert.i309, align 8, !tbaa !431
-  %378 = sext i32 %377 to i64
-  %379 = getelementptr inbounds %struct.stbtt_vertex, ptr %376, i64 %378
-  %380 = getelementptr inbounds nuw i8, ptr %379, i64 12
-  store i8 2, ptr %380, align 2, !tbaa !418
-  %381 = trunc i32 %348 to i16
-  store i16 %381, ptr %379, align 2, !tbaa !421
-  %382 = trunc i32 %349 to i16
-  %383 = getelementptr inbounds nuw i8, ptr %379, i64 2
-  store i16 %382, ptr %383, align 2, !tbaa !423
-  %384 = getelementptr inbounds nuw i8, ptr %379, i64 4
-  store i64 0, ptr %384, align 2
-  br label %stbtt__csctx_rline_to.exit302
+417:                                              ; preds = %415, %412
+  store i32 %404, ptr %90, align 4, !tbaa !1269
+  br label %418
 
-stbtt__csctx_rline_to.exit302:                    ; preds = %stbtt__track_vertex.exit.i.i299, %375
-  %385 = phi i32 [ %.pre.i301, %stbtt__track_vertex.exit.i.i299 ], [ %377, %375 ]
-  %386 = add nsw i32 %385, 1
-  store i32 %386, ptr %.phi.trans.insert.i309, align 8, !tbaa !431
+418:                                              ; preds = %417, %415
+  %419 = load i32, ptr %91, align 8, !tbaa !1270
+  %420 = icmp sgt i32 %419, %403
+  br i1 %420, label %423, label %421
+
+421:                                              ; preds = %418
+  %422 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not21.i.i.i299 = icmp eq i32 %422, 0
+  br i1 %.not21.i.i.i299, label %423, label %424
+
+423:                                              ; preds = %421, %418
+  store i32 %403, ptr %91, align 8, !tbaa !1270
+  br label %424
+
+424:                                              ; preds = %423, %421
+  %425 = load i32, ptr %92, align 8, !tbaa !1271
+  %426 = icmp sgt i32 %425, %404
+  br i1 %426, label %429, label %427
+
+427:                                              ; preds = %424
+  %428 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not22.i.i.i300 = icmp eq i32 %428, 0
+  br i1 %.not22.i.i.i300, label %429, label %stbtt__track_vertex.exit.i.i301
+
+429:                                              ; preds = %427, %424
+  store i32 %404, ptr %92, align 8, !tbaa !1271
+  br label %stbtt__track_vertex.exit.i.i301
+
+stbtt__track_vertex.exit.i.i301:                  ; preds = %429, %427
+  store i32 1, ptr %89, align 4, !tbaa !1268
+  %.pre.i303 = load i32, ptr %.phi.trans.insert.i311, align 8, !tbaa !431
+  br label %stbtt__csctx_rline_to.exit304
+
+430:                                              ; preds = %392
+  %431 = load ptr, ptr %93, align 8, !tbaa !433
+  %432 = load i32, ptr %.phi.trans.insert.i311, align 8, !tbaa !431
+  %433 = sext i32 %432 to i64
+  %434 = getelementptr inbounds %struct.stbtt_vertex, ptr %431, i64 %433
+  %435 = getelementptr inbounds nuw i8, ptr %434, i64 12
+  store i8 2, ptr %435, align 2, !tbaa !418
+  %436 = trunc i32 %403 to i16
+  store i16 %436, ptr %434, align 2, !tbaa !421
+  %437 = trunc i32 %404 to i16
+  %438 = getelementptr inbounds nuw i8, ptr %434, i64 2
+  store i16 %437, ptr %438, align 2, !tbaa !423
+  %439 = getelementptr inbounds nuw i8, ptr %434, i64 4
+  store i64 0, ptr %439, align 2
+  br label %stbtt__csctx_rline_to.exit304
+
+stbtt__csctx_rline_to.exit304:                    ; preds = %stbtt__track_vertex.exit.i.i301, %430
+  %440 = phi i32 [ %.pre.i303, %stbtt__track_vertex.exit.i.i301 ], [ %432, %430 ]
+  %441 = add nsw i32 %440, 1
+  store i32 %441, ptr %.phi.trans.insert.i311, align 8, !tbaa !431
   br label %.thread
 
-387:                                              ; preds = %stbtt__buf_get8.exit
-  %388 = icmp slt i32 %.0241488, 8
-  br i1 %388, label %.critedge, label %.lr.ph472.preheader
+442:                                              ; preds = %stbtt__buf_get8.exit
+  %443 = icmp slt i32 %.0241546, 8
+  br i1 %443, label %.critedge, label %.lr.ph530.preheader
 
-.lr.ph472.preheader:                              ; preds = %387
-  %389 = add nsw i32 %.0241488, -6
-  %390 = zext nneg i32 %389 to i64
-  br label %.lr.ph472
+.lr.ph530.preheader:                              ; preds = %442
+  %444 = add nsw i32 %.0241546, -6
+  %445 = zext nneg i32 %444 to i64
+  br label %.lr.ph530
 
-.lr.ph472:                                        ; preds = %.lr.ph472.preheader, %stbtt__csctx_rline_to.exit311
-  %indvars.iv532 = phi i64 [ 0, %.lr.ph472.preheader ], [ %indvars.iv.next533, %stbtt__csctx_rline_to.exit311 ]
-  %391 = or disjoint i64 %indvars.iv532, 1
-  %392 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv532
-  %393 = load float, ptr %392, align 8, !tbaa !3
-  %394 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %391
-  %395 = load float, ptr %394, align 4, !tbaa !3
-  %396 = load float, ptr %33, align 8, !tbaa !1264
-  %397 = fadd float %393, %396
-  store float %397, ptr %33, align 8, !tbaa !1264
-  %398 = load float, ptr %34, align 4, !tbaa !1265
-  %399 = fadd float %395, %398
-  store float %399, ptr %34, align 4, !tbaa !1265
-  %400 = fptosi float %397 to i32
-  %401 = fptosi float %399 to i32
-  %402 = load i32, ptr %2, align 8, !tbaa !1266
-  %.not.i.i303 = icmp eq i32 %402, 0
-  br i1 %.not.i.i303, label %427, label %403
+.lr.ph530:                                        ; preds = %.lr.ph530.preheader, %stbtt__csctx_rline_to.exit313
+  %indvars.iv603 = phi i64 [ 0, %.lr.ph530.preheader ], [ %indvars.iv.next604, %stbtt__csctx_rline_to.exit313 ]
+  %446 = or disjoint i64 %indvars.iv603, 1
+  %447 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv603
+  %448 = load float, ptr %447, align 8, !tbaa !3
+  %449 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %446
+  %450 = load float, ptr %449, align 4, !tbaa !3
+  %451 = load float, ptr %86, align 8, !tbaa !1264
+  %452 = fadd float %448, %451
+  store float %452, ptr %86, align 8, !tbaa !1264
+  %453 = load float, ptr %87, align 4, !tbaa !1265
+  %454 = fadd float %450, %453
+  store float %454, ptr %87, align 4, !tbaa !1265
+  %455 = fptosi float %452 to i32
+  %456 = fptosi float %454 to i32
+  %457 = load i32, ptr %2, align 8, !tbaa !1266
+  %.not.i.i305 = icmp eq i32 %457, 0
+  br i1 %.not.i.i305, label %482, label %458
 
-403:                                              ; preds = %.lr.ph472
-  %404 = load i32, ptr %35, align 4, !tbaa !1267
-  %405 = icmp slt i32 %404, %400
-  br i1 %405, label %408, label %406
+458:                                              ; preds = %.lr.ph530
+  %459 = load i32, ptr %88, align 4, !tbaa !1267
+  %460 = icmp slt i32 %459, %455
+  br i1 %460, label %463, label %461
 
-406:                                              ; preds = %403
-  %407 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not.i.i.i304 = icmp eq i32 %407, 0
-  br i1 %.not.i.i.i304, label %408, label %409
+461:                                              ; preds = %458
+  %462 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not.i.i.i306 = icmp eq i32 %462, 0
+  br i1 %.not.i.i.i306, label %463, label %464
 
-408:                                              ; preds = %406, %403
-  store i32 %400, ptr %35, align 4, !tbaa !1267
-  br label %409
+463:                                              ; preds = %461, %458
+  store i32 %455, ptr %88, align 4, !tbaa !1267
+  br label %464
 
-409:                                              ; preds = %408, %406
-  %410 = load i32, ptr %37, align 4, !tbaa !1269
-  %411 = icmp slt i32 %410, %401
-  br i1 %411, label %414, label %412
+464:                                              ; preds = %463, %461
+  %465 = load i32, ptr %90, align 4, !tbaa !1269
+  %466 = icmp slt i32 %465, %456
+  br i1 %466, label %469, label %467
 
-412:                                              ; preds = %409
-  %413 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not20.i.i.i305 = icmp eq i32 %413, 0
-  br i1 %.not20.i.i.i305, label %414, label %415
+467:                                              ; preds = %464
+  %468 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not20.i.i.i307 = icmp eq i32 %468, 0
+  br i1 %.not20.i.i.i307, label %469, label %470
 
-414:                                              ; preds = %412, %409
-  store i32 %401, ptr %37, align 4, !tbaa !1269
-  br label %415
+469:                                              ; preds = %467, %464
+  store i32 %456, ptr %90, align 4, !tbaa !1269
+  br label %470
 
-415:                                              ; preds = %414, %412
-  %416 = load i32, ptr %38, align 8, !tbaa !1270
-  %417 = icmp sgt i32 %416, %400
-  br i1 %417, label %420, label %418
+470:                                              ; preds = %469, %467
+  %471 = load i32, ptr %91, align 8, !tbaa !1270
+  %472 = icmp sgt i32 %471, %455
+  br i1 %472, label %475, label %473
 
-418:                                              ; preds = %415
-  %419 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not21.i.i.i306 = icmp eq i32 %419, 0
-  br i1 %.not21.i.i.i306, label %420, label %421
+473:                                              ; preds = %470
+  %474 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not21.i.i.i308 = icmp eq i32 %474, 0
+  br i1 %.not21.i.i.i308, label %475, label %476
 
-420:                                              ; preds = %418, %415
-  store i32 %400, ptr %38, align 8, !tbaa !1270
-  br label %421
+475:                                              ; preds = %473, %470
+  store i32 %455, ptr %91, align 8, !tbaa !1270
+  br label %476
 
-421:                                              ; preds = %420, %418
-  %422 = load i32, ptr %39, align 8, !tbaa !1271
-  %423 = icmp sgt i32 %422, %401
-  br i1 %423, label %426, label %424
+476:                                              ; preds = %475, %473
+  %477 = load i32, ptr %92, align 8, !tbaa !1271
+  %478 = icmp sgt i32 %477, %456
+  br i1 %478, label %481, label %479
 
-424:                                              ; preds = %421
-  %425 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not22.i.i.i307 = icmp eq i32 %425, 0
-  br i1 %.not22.i.i.i307, label %426, label %stbtt__track_vertex.exit.i.i308
+479:                                              ; preds = %476
+  %480 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not22.i.i.i309 = icmp eq i32 %480, 0
+  br i1 %.not22.i.i.i309, label %481, label %stbtt__track_vertex.exit.i.i310
 
-426:                                              ; preds = %424, %421
-  store i32 %401, ptr %39, align 8, !tbaa !1271
-  br label %stbtt__track_vertex.exit.i.i308
+481:                                              ; preds = %479, %476
+  store i32 %456, ptr %92, align 8, !tbaa !1271
+  br label %stbtt__track_vertex.exit.i.i310
 
-stbtt__track_vertex.exit.i.i308:                  ; preds = %426, %424
-  store i32 1, ptr %36, align 4, !tbaa !1268
-  %.pre.i310 = load i32, ptr %.phi.trans.insert.i309, align 8, !tbaa !431
-  br label %stbtt__csctx_rline_to.exit311
+stbtt__track_vertex.exit.i.i310:                  ; preds = %481, %479
+  store i32 1, ptr %89, align 4, !tbaa !1268
+  %.pre.i312 = load i32, ptr %.phi.trans.insert.i311, align 8, !tbaa !431
+  br label %stbtt__csctx_rline_to.exit313
 
-427:                                              ; preds = %.lr.ph472
-  %428 = load ptr, ptr %40, align 8, !tbaa !433
-  %429 = load i32, ptr %.phi.trans.insert.i309, align 8, !tbaa !431
-  %430 = sext i32 %429 to i64
-  %431 = getelementptr inbounds %struct.stbtt_vertex, ptr %428, i64 %430
-  %432 = getelementptr inbounds nuw i8, ptr %431, i64 12
-  store i8 2, ptr %432, align 2, !tbaa !418
-  %433 = trunc i32 %400 to i16
-  store i16 %433, ptr %431, align 2, !tbaa !421
-  %434 = trunc i32 %401 to i16
-  %435 = getelementptr inbounds nuw i8, ptr %431, i64 2
-  store i16 %434, ptr %435, align 2, !tbaa !423
-  %436 = getelementptr inbounds nuw i8, ptr %431, i64 4
-  store i64 0, ptr %436, align 2
-  br label %stbtt__csctx_rline_to.exit311
+482:                                              ; preds = %.lr.ph530
+  %483 = load ptr, ptr %93, align 8, !tbaa !433
+  %484 = load i32, ptr %.phi.trans.insert.i311, align 8, !tbaa !431
+  %485 = sext i32 %484 to i64
+  %486 = getelementptr inbounds %struct.stbtt_vertex, ptr %483, i64 %485
+  %487 = getelementptr inbounds nuw i8, ptr %486, i64 12
+  store i8 2, ptr %487, align 2, !tbaa !418
+  %488 = trunc i32 %455 to i16
+  store i16 %488, ptr %486, align 2, !tbaa !421
+  %489 = trunc i32 %456 to i16
+  %490 = getelementptr inbounds nuw i8, ptr %486, i64 2
+  store i16 %489, ptr %490, align 2, !tbaa !423
+  %491 = getelementptr inbounds nuw i8, ptr %486, i64 4
+  store i64 0, ptr %491, align 2
+  br label %stbtt__csctx_rline_to.exit313
 
-stbtt__csctx_rline_to.exit311:                    ; preds = %stbtt__track_vertex.exit.i.i308, %427
-  %437 = phi i32 [ %.pre.i310, %stbtt__track_vertex.exit.i.i308 ], [ %429, %427 ]
-  %438 = add nsw i32 %437, 1
-  store i32 %438, ptr %.phi.trans.insert.i309, align 8, !tbaa !431
-  %indvars.iv.next533 = add nuw nsw i64 %indvars.iv532, 2
-  %439 = or disjoint i64 %indvars.iv.next533, 1
-  %440 = icmp samesign ult i64 %439, %390
-  br i1 %440, label %.lr.ph472, label %._crit_edge, !llvm.loop !1275
+stbtt__csctx_rline_to.exit313:                    ; preds = %stbtt__track_vertex.exit.i.i310, %482
+  %492 = phi i32 [ %.pre.i312, %stbtt__track_vertex.exit.i.i310 ], [ %484, %482 ]
+  %493 = add nsw i32 %492, 1
+  store i32 %493, ptr %.phi.trans.insert.i311, align 8, !tbaa !431
+  %indvars.iv.next604 = add nuw nsw i64 %indvars.iv603, 2
+  %494 = or disjoint i64 %indvars.iv.next604, 1
+  %495 = icmp samesign ult i64 %494, %445
+  br i1 %495, label %.lr.ph530, label %._crit_edge, !llvm.loop !1275
 
-._crit_edge:                                      ; preds = %stbtt__csctx_rline_to.exit311
-  %441 = trunc nuw nsw i64 %indvars.iv.next533 to i32
-  %442 = add nuw nsw i32 %441, 5
-  %.not268 = icmp slt i32 %442, %.0241488
-  br i1 %.not268, label %443, label %.critedge
+._crit_edge:                                      ; preds = %stbtt__csctx_rline_to.exit313
+  %496 = trunc nuw nsw i64 %indvars.iv.next604 to i32
+  %497 = add nuw nsw i32 %496, 5
+  %.not268 = icmp slt i32 %497, %.0241546
+  br i1 %.not268, label %498, label %.critedge
 
-443:                                              ; preds = %._crit_edge
-  %444 = and i64 %indvars.iv.next533, 4294967294
-  %445 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %444
-  %446 = load float, ptr %445, align 8, !tbaa !3
-  %447 = and i64 %439, 4294967295
-  %448 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %447
-  %449 = load float, ptr %448, align 4, !tbaa !3
-  %450 = add nuw i64 %indvars.iv532, 4
-  %451 = and i64 %450, 4294967294
-  %452 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %451
-  %453 = load float, ptr %452, align 8, !tbaa !3
-  %454 = add nuw i64 %indvars.iv532, 5
-  %455 = and i64 %454, 4294967295
-  %456 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %455
-  %457 = load float, ptr %456, align 4, !tbaa !3
-  %458 = add nuw i64 %indvars.iv532, 6
-  %459 = and i64 %458, 4294967294
-  %460 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %459
-  %461 = load float, ptr %460, align 8, !tbaa !3
-  %462 = zext nneg i32 %442 to i64
-  %463 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %462
-  %464 = load float, ptr %463, align 4, !tbaa !3
-  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %446, float noundef %449, float noundef %453, float noundef %457, float noundef %461, float noundef %464)
+498:                                              ; preds = %._crit_edge
+  %499 = and i64 %indvars.iv.next604, 4294967294
+  %500 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %499
+  %501 = load float, ptr %500, align 8, !tbaa !3
+  %502 = and i64 %494, 4294967295
+  %503 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %502
+  %504 = load float, ptr %503, align 4, !tbaa !3
+  %505 = add nuw i64 %indvars.iv603, 4
+  %506 = and i64 %505, 4294967294
+  %507 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %506
+  %508 = load float, ptr %507, align 8, !tbaa !3
+  %509 = add nuw i64 %indvars.iv603, 5
+  %510 = and i64 %509, 4294967295
+  %511 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %510
+  %512 = load float, ptr %511, align 4, !tbaa !3
+  %513 = add nuw i64 %indvars.iv603, 6
+  %514 = and i64 %513, 4294967294
+  %515 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %514
+  %516 = load float, ptr %515, align 8, !tbaa !3
+  %517 = zext nneg i32 %497 to i64
+  %518 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %517
+  %519 = load float, ptr %518, align 4, !tbaa !3
+  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %501, float noundef %504, float noundef %508, float noundef %512, float noundef %516, float noundef %519)
   br label %.thread
 
-465:                                              ; preds = %stbtt__buf_get8.exit, %stbtt__buf_get8.exit
-  %466 = icmp slt i32 %.0241488, 4
-  br i1 %466, label %.critedge, label %467
+520:                                              ; preds = %stbtt__buf_get8.exit, %stbtt__buf_get8.exit
+  %521 = icmp slt i32 %.0241546, 4
+  br i1 %521, label %.critedge, label %522
 
-467:                                              ; preds = %465
-  %468 = and i32 %.0241488, 1
-  %469 = add nuw nsw i32 %468, 3
-  %470 = icmp samesign ult i32 %469, %.0241488
-  br i1 %470, label %.lr.ph, label %.thread
+522:                                              ; preds = %520
+  %523 = and i32 %.0241546, 1
+  %524 = add nuw nsw i32 %523, 3
+  %525 = icmp samesign ult i32 %524, %.0241546
+  br i1 %525, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %467
-  %.not267.not = icmp eq i32 %468, 0
-  %471 = load float, ptr %4, align 16
-  %.0253 = select i1 %.not267.not, float 0.000000e+00, float %471
-  %472 = icmp eq i8 %44, 27
-  %473 = and i32 %.0241488, 1
-  %474 = zext nneg i32 %473 to i64
-  br label %475
+.lr.ph:                                           ; preds = %522
+  %.not267.not = icmp eq i32 %523, 0
+  %526 = load float, ptr %4, align 16
+  %.0253 = select i1 %.not267.not, float 0.000000e+00, float %526
+  %527 = icmp eq i8 %97, 27
+  %528 = and i32 %.0241546, 1
+  %529 = zext nneg i32 %528 to i64
+  br label %530
 
-475:                                              ; preds = %.lr.ph, %490
-  %indvars.iv = phi i64 [ %474, %.lr.ph ], [ %indvars.iv.next, %490 ]
-  %476 = phi i32 [ %469, %.lr.ph ], [ %492, %490 ]
-  %.1254469 = phi float [ %.0253, %.lr.ph ], [ 0.000000e+00, %490 ]
-  %477 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv
-  %478 = load float, ptr %477, align 4, !tbaa !3
-  %479 = add nuw nsw i64 %indvars.iv, 1
-  %480 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %479
-  %481 = load float, ptr %480, align 4, !tbaa !3
-  %482 = add nuw nsw i64 %indvars.iv, 2
-  %483 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %482
-  %484 = load float, ptr %483, align 4, !tbaa !3
-  %485 = zext nneg i32 %476 to i64
-  %486 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %485
-  %487 = load float, ptr %486, align 4, !tbaa !3
-  br i1 %472, label %488, label %489
+530:                                              ; preds = %.lr.ph, %545
+  %indvars.iv = phi i64 [ %529, %.lr.ph ], [ %indvars.iv.next, %545 ]
+  %531 = phi i32 [ %524, %.lr.ph ], [ %547, %545 ]
+  %.1254527 = phi float [ %.0253, %.lr.ph ], [ 0.000000e+00, %545 ]
+  %532 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv
+  %533 = load float, ptr %532, align 4, !tbaa !3
+  %534 = add nuw nsw i64 %indvars.iv, 1
+  %535 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %534
+  %536 = load float, ptr %535, align 4, !tbaa !3
+  %537 = add nuw nsw i64 %indvars.iv, 2
+  %538 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %537
+  %539 = load float, ptr %538, align 4, !tbaa !3
+  %540 = zext nneg i32 %531 to i64
+  %541 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %540
+  %542 = load float, ptr %541, align 4, !tbaa !3
+  br i1 %527, label %543, label %544
 
-488:                                              ; preds = %475
-  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %478, float noundef %.1254469, float noundef %481, float noundef %484, float noundef %487, float noundef 0.000000e+00)
-  br label %490
+543:                                              ; preds = %530
+  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %533, float noundef %.1254527, float noundef %536, float noundef %539, float noundef %542, float noundef 0.000000e+00)
+  br label %545
 
-489:                                              ; preds = %475
-  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %.1254469, float noundef %478, float noundef %481, float noundef %484, float noundef 0.000000e+00, float noundef %487)
-  br label %490
+544:                                              ; preds = %530
+  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %.1254527, float noundef %533, float noundef %536, float noundef %539, float noundef 0.000000e+00, float noundef %542)
+  br label %545
 
-490:                                              ; preds = %489, %488
+545:                                              ; preds = %544, %543
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %491 = trunc i64 %indvars.iv to i32
-  %492 = add i32 %491, 7
-  %493 = icmp slt i32 %492, %.0241488
-  br i1 %493, label %475, label %.thread, !llvm.loop !1276
+  %546 = trunc i64 %indvars.iv to i32
+  %547 = add i32 %546, 7
+  %548 = icmp slt i32 %547, %.0241546
+  br i1 %548, label %530, label %.thread, !llvm.loop !1276
 
-494:                                              ; preds = %stbtt__buf_get8.exit
-  %.not = icmp eq i32 %.0248487, 0
-  br i1 %.not, label %495, label %563
+549:                                              ; preds = %stbtt__buf_get8.exit
+  %.not = icmp eq i32 %.0248545, 0
+  br i1 %.not, label %550, label %729
 
-495:                                              ; preds = %494
-  %496 = load i32, ptr %26, align 4, !tbaa !1277
-  %.not266 = icmp eq i32 %496, 0
-  br i1 %.not266, label %563, label %497
+550:                                              ; preds = %549
+  %551 = load i32, ptr %79, align 4, !tbaa !1277
+  %.not266 = icmp eq i32 %551, 0
+  br i1 %.not266, label %729, label %552
 
-497:                                              ; preds = %495
-  %.sroa.0.0.copyload.i = load ptr, ptr %27, align 8, !tbaa !13
-  %498 = tail call i32 @llvm.smin.i32(i32 %496, i32 0)
-  %.not.i.i312 = icmp sgt i32 %496, 0
-  br i1 %.not.i.i312, label %stbtt__buf_get8.exit.i, label %stbtt__buf_get8.exit.thread.i
+552:                                              ; preds = %550
+  %.sroa.0.0.copyload.i = load ptr, ptr %80, align 8, !tbaa !13
+  %553 = tail call i32 @llvm.smin.i32(i32 %551, i32 0)
+  %.not.i.i314 = icmp sgt i32 %551, 0
+  br i1 %.not.i.i314, label %stbtt__buf_get8.exit.i316, label %stbtt__buf_get8.exit.thread.i
 
-stbtt__buf_get8.exit.i:                           ; preds = %497
-  %499 = zext nneg i32 %498 to i64
-  %500 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %499
-  %501 = load i8, ptr %500, align 1, !tbaa !9
-  switch i8 %501, label %stbtt__cid_get_glyph_subrs.exit [
+stbtt__buf_get8.exit.i316:                        ; preds = %552
+  %554 = zext nneg i32 %553 to i64
+  %555 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %554
+  %556 = load i8, ptr %555, align 1, !tbaa !9
+  switch i8 %556, label %.split22.i [
     i8 0, label %stbtt__buf_get8.exit.thread.i
     i8 3, label %.preheader.i
   ]
 
-stbtt__buf_get8.exit.thread.i:                    ; preds = %stbtt__buf_get8.exit.i, %497
-  %.sroa.9.164.i = phi i32 [ 1, %stbtt__buf_get8.exit.i ], [ %498, %497 ]
-  %502 = add nsw i32 %.sroa.9.164.i, %1
-  %503 = icmp slt i32 %502, 0
-  %504 = tail call i32 @llvm.smin.i32(i32 %502, i32 %496)
-  %..i.i.i = select i1 %503, i32 %496, i32 %504
-  %.not.i25.i = icmp slt i32 %..i.i.i, %496
-  br i1 %.not.i25.i, label %505, label %stbtt__cid_get_glyph_subrs.exit
+stbtt__buf_get8.exit.thread.i:                    ; preds = %stbtt__buf_get8.exit.i316, %552
+  %.sroa.9.1109.i = phi i32 [ 1, %stbtt__buf_get8.exit.i316 ], [ %553, %552 ]
+  %557 = add nsw i32 %.sroa.9.1109.i, %1
+  %558 = icmp slt i32 %557, 0
+  %559 = tail call i32 @llvm.smin.i32(i32 %557, i32 %551)
+  %..i.i.i315 = select i1 %558, i32 %551, i32 %559
+  %.not.i25.i = icmp slt i32 %..i.i.i315, %551
+  br i1 %.not.i25.i, label %560, label %.split.i
 
-505:                                              ; preds = %stbtt__buf_get8.exit.thread.i
-  %506 = sext i32 %..i.i.i to i64
-  %507 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 %506
-  %508 = load i8, ptr %507, align 1, !tbaa !9
-  %509 = zext i8 %508 to i32
-  br label %stbtt__cid_get_glyph_subrs.exit
+560:                                              ; preds = %stbtt__buf_get8.exit.thread.i
+  %561 = sext i32 %..i.i.i315 to i64
+  %562 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 %561
+  %563 = load i8, ptr %562, align 1, !tbaa !9
+  %564 = zext i8 %563 to i32
+  br label %.split.i
 
-.preheader.i:                                     ; preds = %stbtt__buf_get8.exit.i, %stbtt__buf_get8.exit.i.i
-  %.sroa.9.2.i = phi i32 [ %.sroa.9.3.i, %stbtt__buf_get8.exit.i.i ], [ 1, %stbtt__buf_get8.exit.i ]
-  %510 = phi i32 [ %518, %stbtt__buf_get8.exit.i.i ], [ 1, %stbtt__buf_get8.exit.i ]
-  %.07.i.i = phi i32 [ %520, %stbtt__buf_get8.exit.i.i ], [ 0, %stbtt__buf_get8.exit.i ]
-  %.056.i.i = phi i32 [ %519, %stbtt__buf_get8.exit.i.i ], [ 0, %stbtt__buf_get8.exit.i ]
-  %511 = shl i32 %.056.i.i, 8
-  %.not.i.i.i313 = icmp slt i32 %510, %496
-  br i1 %.not.i.i.i313, label %512, label %stbtt__buf_get8.exit.i.i
+.preheader.i:                                     ; preds = %stbtt__buf_get8.exit.i316, %stbtt__buf_get8.exit.i.i320
+  %.sroa.9.2.i = phi i32 [ %.sroa.9.3.i, %stbtt__buf_get8.exit.i.i320 ], [ 1, %stbtt__buf_get8.exit.i316 ]
+  %565 = phi i32 [ %573, %stbtt__buf_get8.exit.i.i320 ], [ 1, %stbtt__buf_get8.exit.i316 ]
+  %exitcond.not.i.i317 = phi i1 [ true, %stbtt__buf_get8.exit.i.i320 ], [ false, %stbtt__buf_get8.exit.i316 ]
+  %.056.i.i318 = phi i32 [ %574, %stbtt__buf_get8.exit.i.i320 ], [ 0, %stbtt__buf_get8.exit.i316 ]
+  %566 = shl i32 %.056.i.i318, 8
+  %.not.i.i.i319 = icmp slt i32 %565, %551
+  br i1 %.not.i.i.i319, label %567, label %stbtt__buf_get8.exit.i.i320
 
-512:                                              ; preds = %.preheader.i
-  %513 = add nsw i32 %510, 1
-  %514 = sext i32 %510 to i64
-  %515 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 %514
-  %516 = load i8, ptr %515, align 1, !tbaa !9
-  %517 = zext i8 %516 to i32
-  br label %stbtt__buf_get8.exit.i.i
+567:                                              ; preds = %.preheader.i
+  %568 = add nsw i32 %565, 1
+  %569 = sext i32 %565 to i64
+  %570 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 %569
+  %571 = load i8, ptr %570, align 1, !tbaa !9
+  %572 = zext i8 %571 to i32
+  br label %stbtt__buf_get8.exit.i.i320
 
-stbtt__buf_get8.exit.i.i:                         ; preds = %512, %.preheader.i
-  %.sroa.9.3.i = phi i32 [ %513, %512 ], [ %.sroa.9.2.i, %.preheader.i ]
-  %518 = phi i32 [ %513, %512 ], [ %510, %.preheader.i ]
-  %.0.i.i.i = phi i32 [ %517, %512 ], [ 0, %.preheader.i ]
-  %519 = or disjoint i32 %.0.i.i.i, %511
-  %520 = add nuw nsw i32 %.07.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %520, 2
-  br i1 %exitcond.not.i.i, label %stbtt__buf_get.exit.i, label %.preheader.i, !llvm.loop !574
+stbtt__buf_get8.exit.i.i320:                      ; preds = %567, %.preheader.i
+  %.sroa.9.3.i = phi i32 [ %568, %567 ], [ %.sroa.9.2.i, %.preheader.i ]
+  %573 = phi i32 [ %568, %567 ], [ %565, %.preheader.i ]
+  %.0.i.i.i321 = phi i32 [ %572, %567 ], [ 0, %.preheader.i ]
+  %574 = or disjoint i32 %.0.i.i.i321, %566
+  br i1 %exitcond.not.i.i317, label %stbtt__buf_get.exit.i322, label %.preheader.i, !llvm.loop !574
 
-stbtt__buf_get.exit.i:                            ; preds = %stbtt__buf_get8.exit.i.i, %stbtt__buf_get8.exit.i32.i
-  %.sroa.9.4.i = phi i32 [ %.sroa.9.5.i, %stbtt__buf_get8.exit.i32.i ], [ %.sroa.9.3.i, %stbtt__buf_get8.exit.i.i ]
-  %521 = phi i32 [ %529, %stbtt__buf_get8.exit.i32.i ], [ %.sroa.9.3.i, %stbtt__buf_get8.exit.i.i ]
-  %.07.i29.i = phi i32 [ %531, %stbtt__buf_get8.exit.i32.i ], [ 0, %stbtt__buf_get8.exit.i.i ]
-  %.056.i30.i = phi i32 [ %530, %stbtt__buf_get8.exit.i32.i ], [ 0, %stbtt__buf_get8.exit.i.i ]
-  %522 = shl i32 %.056.i30.i, 8
-  %.not.i.i31.i = icmp slt i32 %521, %496
-  br i1 %.not.i.i31.i, label %523, label %stbtt__buf_get8.exit.i32.i
+stbtt__buf_get.exit.i322:                         ; preds = %stbtt__buf_get8.exit.i.i320, %stbtt__buf_get8.exit.i32.i
+  %.sroa.9.4.i = phi i32 [ %.sroa.9.5.i, %stbtt__buf_get8.exit.i32.i ], [ %.sroa.9.3.i, %stbtt__buf_get8.exit.i.i320 ]
+  %575 = phi i32 [ %583, %stbtt__buf_get8.exit.i32.i ], [ %.sroa.9.3.i, %stbtt__buf_get8.exit.i.i320 ]
+  %exitcond.not.i34.i = phi i1 [ true, %stbtt__buf_get8.exit.i32.i ], [ false, %stbtt__buf_get8.exit.i.i320 ]
+  %.056.i30.i = phi i32 [ %584, %stbtt__buf_get8.exit.i32.i ], [ 0, %stbtt__buf_get8.exit.i.i320 ]
+  %576 = shl i32 %.056.i30.i, 8
+  %.not.i.i31.i = icmp slt i32 %575, %551
+  br i1 %.not.i.i31.i, label %577, label %stbtt__buf_get8.exit.i32.i
 
-523:                                              ; preds = %stbtt__buf_get.exit.i
-  %524 = add nsw i32 %521, 1
-  %525 = sext i32 %521 to i64
-  %526 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 %525
-  %527 = load i8, ptr %526, align 1, !tbaa !9
-  %528 = zext i8 %527 to i32
+577:                                              ; preds = %stbtt__buf_get.exit.i322
+  %578 = add nsw i32 %575, 1
+  %579 = sext i32 %575 to i64
+  %580 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 %579
+  %581 = load i8, ptr %580, align 1, !tbaa !9
+  %582 = zext i8 %581 to i32
   br label %stbtt__buf_get8.exit.i32.i
 
-stbtt__buf_get8.exit.i32.i:                       ; preds = %523, %stbtt__buf_get.exit.i
-  %.sroa.9.5.i = phi i32 [ %524, %523 ], [ %.sroa.9.4.i, %stbtt__buf_get.exit.i ]
-  %529 = phi i32 [ %524, %523 ], [ %521, %stbtt__buf_get.exit.i ]
-  %.0.i.i33.i = phi i32 [ %528, %523 ], [ 0, %stbtt__buf_get.exit.i ]
-  %530 = or disjoint i32 %.0.i.i33.i, %522
-  %531 = add nuw nsw i32 %.07.i29.i, 1
-  %exitcond.not.i34.i = icmp eq i32 %531, 2
-  br i1 %exitcond.not.i34.i, label %stbtt__buf_get.exit35.preheader.i, label %stbtt__buf_get.exit.i, !llvm.loop !574
+stbtt__buf_get8.exit.i32.i:                       ; preds = %577, %stbtt__buf_get.exit.i322
+  %.sroa.9.5.i = phi i32 [ %578, %577 ], [ %.sroa.9.4.i, %stbtt__buf_get.exit.i322 ]
+  %583 = phi i32 [ %578, %577 ], [ %575, %stbtt__buf_get.exit.i322 ]
+  %.0.i.i33.i = phi i32 [ %582, %577 ], [ 0, %stbtt__buf_get.exit.i322 ]
+  %584 = or disjoint i32 %.0.i.i33.i, %576
+  br i1 %exitcond.not.i34.i, label %stbtt__buf_get.exit35.preheader.i, label %stbtt__buf_get.exit.i322, !llvm.loop !574
 
 stbtt__buf_get.exit35.preheader.i:                ; preds = %stbtt__buf_get8.exit.i32.i
-  %532 = icmp sgt i32 %519, 0
-  br i1 %532, label %.lr.ph.i, label %stbtt__cid_get_glyph_subrs.exit
+  %585 = icmp sgt i32 %574, 0
+  br i1 %585, label %.lr.ph.i, label %.split22.i
 
 stbtt__buf_get.exit35.i:                          ; preds = %stbtt__buf_get.exit46.i
-  %533 = add nuw nsw i32 %.02069.i, 1
-  %exitcond.not.i = icmp eq i32 %533, %519
-  br i1 %exitcond.not.i, label %stbtt__cid_get_glyph_subrs.exit, label %.lr.ph.i, !llvm.loop !1278
+  %586 = add nuw nsw i32 %.020120.i, 1
+  %exitcond.not.i = icmp eq i32 %586, %574
+  br i1 %exitcond.not.i, label %.split22.i, label %.lr.ph.i, !llvm.loop !1278
 
 .lr.ph.i:                                         ; preds = %stbtt__buf_get.exit35.preheader.i, %stbtt__buf_get.exit35.i
-  %.070.i = phi i32 [ %550, %stbtt__buf_get.exit35.i ], [ %530, %stbtt__buf_get.exit35.preheader.i ]
-  %.02069.i = phi i32 [ %533, %stbtt__buf_get.exit35.i ], [ 0, %stbtt__buf_get.exit35.preheader.i ]
-  %.sroa.9.068.i = phi i32 [ %.sroa.9.8.i, %stbtt__buf_get.exit35.i ], [ %.sroa.9.5.i, %stbtt__buf_get.exit35.preheader.i ]
-  %.not.i36.i = icmp slt i32 %.sroa.9.068.i, %496
-  br i1 %.not.i36.i, label %534, label %stbtt__buf_get8.exit38.i
+  %.0121.i = phi i32 [ %603, %stbtt__buf_get.exit35.i ], [ %584, %stbtt__buf_get.exit35.preheader.i ]
+  %.020120.i = phi i32 [ %586, %stbtt__buf_get.exit35.i ], [ 0, %stbtt__buf_get.exit35.preheader.i ]
+  %.sroa.9.0119.i = phi i32 [ %.sroa.9.8.i, %stbtt__buf_get.exit35.i ], [ %.sroa.9.5.i, %stbtt__buf_get.exit35.preheader.i ]
+  %.not.i36.i = icmp slt i32 %.sroa.9.0119.i, %551
+  br i1 %.not.i36.i, label %587, label %stbtt__buf_get8.exit38.i
 
-534:                                              ; preds = %.lr.ph.i
-  %535 = add nsw i32 %.sroa.9.068.i, 1
-  %536 = sext i32 %.sroa.9.068.i to i64
-  %537 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 %536
-  %538 = load i8, ptr %537, align 1, !tbaa !9
-  %539 = zext i8 %538 to i32
+587:                                              ; preds = %.lr.ph.i
+  %588 = add nsw i32 %.sroa.9.0119.i, 1
+  %589 = sext i32 %.sroa.9.0119.i to i64
+  %590 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 %589
+  %591 = load i8, ptr %590, align 1, !tbaa !9
+  %592 = zext i8 %591 to i32
   br label %stbtt__buf_get8.exit38.i
 
-stbtt__buf_get8.exit38.i:                         ; preds = %534, %.lr.ph.i
-  %.sroa.9.6.i = phi i32 [ %535, %534 ], [ %.sroa.9.068.i, %.lr.ph.i ]
-  %.0.i37.i = phi i32 [ %539, %534 ], [ 0, %.lr.ph.i ]
-  br label %540
+stbtt__buf_get8.exit38.i:                         ; preds = %587, %.lr.ph.i
+  %.sroa.9.6.i = phi i32 [ %588, %587 ], [ %.sroa.9.0119.i, %.lr.ph.i ]
+  %.0.i37.i = phi i32 [ %592, %587 ], [ 0, %.lr.ph.i ]
+  br label %593
 
-540:                                              ; preds = %stbtt__buf_get8.exit.i43.i, %stbtt__buf_get8.exit38.i
+593:                                              ; preds = %stbtt__buf_get8.exit.i43.i, %stbtt__buf_get8.exit38.i
   %.sroa.9.7.i = phi i32 [ %.sroa.9.6.i, %stbtt__buf_get8.exit38.i ], [ %.sroa.9.8.i, %stbtt__buf_get8.exit.i43.i ]
-  %541 = phi i32 [ %.sroa.9.6.i, %stbtt__buf_get8.exit38.i ], [ %549, %stbtt__buf_get8.exit.i43.i ]
-  %.07.i40.i = phi i32 [ 0, %stbtt__buf_get8.exit38.i ], [ %551, %stbtt__buf_get8.exit.i43.i ]
-  %.056.i41.i = phi i32 [ 0, %stbtt__buf_get8.exit38.i ], [ %550, %stbtt__buf_get8.exit.i43.i ]
-  %542 = shl i32 %.056.i41.i, 8
-  %.not.i.i42.i = icmp slt i32 %541, %496
-  br i1 %.not.i.i42.i, label %543, label %stbtt__buf_get8.exit.i43.i
+  %594 = phi i32 [ %.sroa.9.6.i, %stbtt__buf_get8.exit38.i ], [ %602, %stbtt__buf_get8.exit.i43.i ]
+  %exitcond.not.i45.i = phi i1 [ false, %stbtt__buf_get8.exit38.i ], [ true, %stbtt__buf_get8.exit.i43.i ]
+  %.056.i41.i = phi i32 [ 0, %stbtt__buf_get8.exit38.i ], [ %603, %stbtt__buf_get8.exit.i43.i ]
+  %595 = shl i32 %.056.i41.i, 8
+  %.not.i.i42.i = icmp slt i32 %594, %551
+  br i1 %.not.i.i42.i, label %596, label %stbtt__buf_get8.exit.i43.i
 
-543:                                              ; preds = %540
-  %544 = add nsw i32 %541, 1
-  %545 = sext i32 %541 to i64
-  %546 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 %545
-  %547 = load i8, ptr %546, align 1, !tbaa !9
-  %548 = zext i8 %547 to i32
+596:                                              ; preds = %593
+  %597 = add nsw i32 %594, 1
+  %598 = sext i32 %594 to i64
+  %599 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 %598
+  %600 = load i8, ptr %599, align 1, !tbaa !9
+  %601 = zext i8 %600 to i32
   br label %stbtt__buf_get8.exit.i43.i
 
-stbtt__buf_get8.exit.i43.i:                       ; preds = %543, %540
-  %.sroa.9.8.i = phi i32 [ %544, %543 ], [ %.sroa.9.7.i, %540 ]
-  %549 = phi i32 [ %544, %543 ], [ %541, %540 ]
-  %.0.i.i44.i = phi i32 [ %548, %543 ], [ 0, %540 ]
-  %550 = or disjoint i32 %.0.i.i44.i, %542
-  %551 = add nuw nsw i32 %.07.i40.i, 1
-  %exitcond.not.i45.i = icmp eq i32 %551, 2
-  br i1 %exitcond.not.i45.i, label %stbtt__buf_get.exit46.i, label %540, !llvm.loop !574
+stbtt__buf_get8.exit.i43.i:                       ; preds = %596, %593
+  %.sroa.9.8.i = phi i32 [ %597, %596 ], [ %.sroa.9.7.i, %593 ]
+  %602 = phi i32 [ %597, %596 ], [ %594, %593 ]
+  %.0.i.i44.i = phi i32 [ %601, %596 ], [ 0, %593 ]
+  %603 = or disjoint i32 %.0.i.i44.i, %595
+  br i1 %exitcond.not.i45.i, label %stbtt__buf_get.exit46.i, label %593, !llvm.loop !574
 
 stbtt__buf_get.exit46.i:                          ; preds = %stbtt__buf_get8.exit.i43.i
-  %.not.i314 = icmp sge i32 %1, %.070.i
-  %552 = icmp slt i32 %1, %550
-  %or.cond.i = select i1 %.not.i314, i1 %552, i1 false
-  br i1 %or.cond.i, label %stbtt__cid_get_glyph_subrs.exit, label %stbtt__buf_get.exit35.i
+  %.not.i323 = icmp sge i32 %1, %.0121.i
+  %604 = icmp slt i32 %1, %603
+  %or.cond.i = select i1 %.not.i323, i1 %604, i1 false
+  br i1 %or.cond.i, label %.split.i, label %stbtt__buf_get.exit35.i
 
-stbtt__cid_get_glyph_subrs.exit:                  ; preds = %stbtt__buf_get.exit35.i, %stbtt__buf_get.exit46.i, %stbtt__buf_get8.exit.i, %stbtt__buf_get8.exit.thread.i, %505, %stbtt__buf_get.exit35.preheader.i
-  %.019.sink.i = phi i32 [ %509, %505 ], [ 0, %stbtt__buf_get8.exit.thread.i ], [ -1, %stbtt__buf_get.exit35.preheader.i ], [ -1, %stbtt__buf_get8.exit.i ], [ -1, %stbtt__buf_get.exit35.i ], [ %.0.i37.i, %stbtt__buf_get.exit46.i ]
-  %553 = load ptr, ptr %28, align 8
-  %554 = load i64, ptr %29, align 8
-  %555 = tail call fastcc { ptr, i64 } @stbtt__cff_index_get(ptr %553, i64 %554, i32 noundef %.019.sink.i)
-  %556 = extractvalue { ptr, i64 } %555, 0
-  %557 = extractvalue { ptr, i64 } %555, 1
-  %558 = load ptr, ptr %30, align 8
-  %559 = load i64, ptr %31, align 8
-  %560 = tail call fastcc { ptr, i64 } @stbtt__get_subrs(ptr %558, i64 %559, ptr %556, i64 %557)
-  %561 = extractvalue { ptr, i64 } %560, 0
-  %562 = extractvalue { ptr, i64 } %560, 1
-  br label %563
+.split.i:                                         ; preds = %stbtt__buf_get.exit46.i, %560, %stbtt__buf_get8.exit.thread.i
+  %.019.i = phi i32 [ %564, %560 ], [ 0, %stbtt__buf_get8.exit.thread.i ], [ %.0.i37.i, %stbtt__buf_get.exit46.i ]
+  %605 = load ptr, ptr %81, align 8
+  %606 = load i64, ptr %82, align 8
+  %.sroa.18.8.extract.shift.i.i = lshr i64 %606, 32
+  %.sroa.18.8.extract.trunc.i.i = trunc nuw i64 %.sroa.18.8.extract.shift.i.i to i32
+  %607 = tail call i32 @llvm.smin.i32(i32 %.sroa.18.8.extract.trunc.i.i, i32 0)
+  br label %608
 
-563:                                              ; preds = %495, %stbtt__cid_get_glyph_subrs.exit, %494, %stbtt__buf_get8.exit
-  %.sroa.073.1 = phi ptr [ %.sroa.073.0485, %494 ], [ %.sroa.073.0485, %stbtt__buf_get8.exit ], [ %561, %stbtt__cid_get_glyph_subrs.exit ], [ %.sroa.073.0485, %495 ]
-  %.sroa.5.1 = phi i64 [ %.sroa.5.0486, %494 ], [ %.sroa.5.0486, %stbtt__buf_get8.exit ], [ %562, %stbtt__cid_get_glyph_subrs.exit ], [ %.sroa.5.0486, %495 ]
-  %.1249 = phi i32 [ 1, %494 ], [ %.0248487, %stbtt__buf_get8.exit ], [ 1, %stbtt__cid_get_glyph_subrs.exit ], [ 1, %495 ]
-  %564 = icmp slt i32 %.0241488, 1
-  br i1 %564, label %.critedge, label %565
+608:                                              ; preds = %stbtt__buf_get8.exit.i.i.i, %.split.i
+  %.sroa.6.0.i.i = phi i32 [ %607, %.split.i ], [ %.sroa.6.1.i.i, %stbtt__buf_get8.exit.i.i.i ]
+  %609 = phi i32 [ %607, %.split.i ], [ %617, %stbtt__buf_get8.exit.i.i.i ]
+  %exitcond.not.i.i.i = phi i1 [ false, %.split.i ], [ true, %stbtt__buf_get8.exit.i.i.i ]
+  %.056.i.i.i = phi i32 [ 0, %.split.i ], [ %618, %stbtt__buf_get8.exit.i.i.i ]
+  %610 = shl i32 %.056.i.i.i, 8
+  %.not.i.i.i.i = icmp slt i32 %609, %.sroa.18.8.extract.trunc.i.i
+  br i1 %.not.i.i.i.i, label %611, label %stbtt__buf_get8.exit.i.i.i
 
-565:                                              ; preds = %563
-  %566 = add nsw i32 %.0241488, -1
-  %567 = zext nneg i32 %566 to i64
-  %568 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %567
-  %569 = load float, ptr %568, align 4, !tbaa !3
-  %570 = fptosi float %569 to i32
-  %571 = icmp sgt i32 %.0239491, 9
-  br i1 %571, label %.critedge, label %572
-
-572:                                              ; preds = %565
-  %573 = add nsw i32 %.0239491, 1
-  %574 = sext i32 %.0239491 to i64
-  %575 = getelementptr inbounds [10 x %struct.stbtt__buf], ptr %5, i64 0, i64 %574
-  store ptr %.sroa.0.0431484, ptr %575, align 16, !tbaa !13
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %575, i64 8
-  store i64 %.sroa.10.8.insert.insert363, ptr %.sroa.10.0..sroa_idx, align 8
-  %576 = icmp eq i8 %44, 10
-  br i1 %576, label %578, label %577
-
-577:                                              ; preds = %572
-  %.sroa.0.0.copyload61 = load ptr, ptr %32, align 8, !tbaa !13
-  %.sroa.3.0.copyload63 = load i64, ptr %.sroa.3.0..sroa_idx62, align 8
-  br label %578
-
-578:                                              ; preds = %572, %577
-  %.sroa.3.0 = phi i64 [ %.sroa.3.0.copyload63, %577 ], [ %.sroa.5.1, %572 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload61, %577 ], [ %.sroa.073.1, %572 ]
-  %.sroa.7.8.extract.shift.i = lshr i64 %.sroa.3.0, 32
-  %.sroa.7.8.extract.trunc.i = trunc nuw i64 %.sroa.7.8.extract.shift.i to i32
-  %579 = tail call i32 @llvm.smin.i32(i32 %.sroa.7.8.extract.trunc.i, i32 0)
-  br label %580
-
-580:                                              ; preds = %stbtt__buf_get8.exit.i.i.i, %578
-  %.sroa.3.0.i = phi i32 [ %579, %578 ], [ %.sroa.3.1.i, %stbtt__buf_get8.exit.i.i.i ]
-  %581 = phi i32 [ %579, %578 ], [ %589, %stbtt__buf_get8.exit.i.i.i ]
-  %.07.i.i.i = phi i32 [ 0, %578 ], [ %591, %stbtt__buf_get8.exit.i.i.i ]
-  %.056.i.i.i = phi i32 [ 0, %578 ], [ %590, %stbtt__buf_get8.exit.i.i.i ]
-  %582 = shl i32 %.056.i.i.i, 8
-  %.not.i.i.i.i = icmp slt i32 %581, %.sroa.7.8.extract.trunc.i
-  br i1 %.not.i.i.i.i, label %583, label %stbtt__buf_get8.exit.i.i.i
-
-583:                                              ; preds = %580
-  %584 = add nsw i32 %581, 1
-  %585 = sext i32 %581 to i64
-  %586 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %585
-  %587 = load i8, ptr %586, align 1, !tbaa !9
-  %588 = zext i8 %587 to i32
+611:                                              ; preds = %608
+  %612 = add nsw i32 %609, 1
+  %613 = sext i32 %609 to i64
+  %614 = getelementptr inbounds i8, ptr %605, i64 %613
+  %615 = load i8, ptr %614, align 1, !tbaa !9
+  %616 = zext i8 %615 to i32
   br label %stbtt__buf_get8.exit.i.i.i
 
-stbtt__buf_get8.exit.i.i.i:                       ; preds = %583, %580
-  %.sroa.3.1.i = phi i32 [ %584, %583 ], [ %.sroa.3.0.i, %580 ]
-  %589 = phi i32 [ %584, %583 ], [ %581, %580 ]
-  %.0.i.i.i.i = phi i32 [ %588, %583 ], [ 0, %580 ]
-  %590 = or disjoint i32 %.0.i.i.i.i, %582
-  %591 = add nuw nsw i32 %.07.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i32 %591, 2
-  br i1 %exitcond.not.i.i.i, label %stbtt__cff_index_count.exit.i, label %580, !llvm.loop !574
+stbtt__buf_get8.exit.i.i.i:                       ; preds = %611, %608
+  %.sroa.6.1.i.i = phi i32 [ %612, %611 ], [ %.sroa.6.0.i.i, %608 ]
+  %617 = phi i32 [ %612, %611 ], [ %609, %608 ]
+  %.0.i.i.i.i = phi i32 [ %616, %611 ], [ 0, %608 ]
+  %618 = or disjoint i32 %.0.i.i.i.i, %610
+  br i1 %exitcond.not.i.i.i, label %stbtt__buf_get.exit.i.i, label %608, !llvm.loop !574
 
-stbtt__cff_index_count.exit.i:                    ; preds = %stbtt__buf_get8.exit.i.i.i
-  %592 = icmp sgt i32 %590, 33899
-  %593 = icmp sgt i32 %590, 1239
-  %spec.select.i = select i1 %593, i32 1131, i32 107
-  %.0.i315 = select i1 %592, i32 32768, i32 %spec.select.i
-  %594 = add nsw i32 %.0.i315, %570
-  %595 = icmp sgt i32 %594, -1
-  %.not.i316 = icmp slt i32 %594, %590
-  %or.cond.i317 = and i1 %595, %.not.i316
-  br i1 %or.cond.i317, label %596, label %stbtt__get_subr.exit
+stbtt__buf_get.exit.i.i:                          ; preds = %stbtt__buf_get8.exit.i.i.i
+  %.not.i.i47.i = icmp slt i32 %.sroa.6.1.i.i, %.sroa.18.8.extract.trunc.i.i
+  br i1 %.not.i.i47.i, label %stbtt__buf_get8.exit.i48.i, label %stbtt__buf_get.exit28.i.i
 
-596:                                              ; preds = %stbtt__cff_index_count.exit.i
-  %.sroa.7.8.insert.shift.i = and i64 %.sroa.3.0, -4294967296
-  %.sroa.3.8.insert.ext.i = zext i32 %.sroa.3.1.i to i64
-  %.sroa.3.8.insert.insert.i = or disjoint i64 %.sroa.7.8.insert.shift.i, %.sroa.3.8.insert.ext.i
-  %597 = tail call fastcc { ptr, i64 } @stbtt__cff_index_get(ptr readonly %.sroa.0.0, i64 %.sroa.3.8.insert.insert.i, i32 noundef %594)
+stbtt__buf_get8.exit.i48.i:                       ; preds = %stbtt__buf_get.exit.i.i
+  %619 = sext i32 %.sroa.6.1.i.i to i64
+  %620 = getelementptr inbounds i8, ptr %605, i64 %619
+  %621 = load i8, ptr %620, align 1, !tbaa !9
+  %622 = zext i8 %621 to i32
+  %.not.i9.i.i = icmp eq i8 %621, 0
+  br i1 %.not.i9.i.i, label %stbtt__buf_get.exit28.i.i, label %.lr.ph.i.preheader.i.i
+
+.lr.ph.i.preheader.i.i:                           ; preds = %stbtt__buf_get8.exit.i48.i
+  %623 = add nsw i32 %.sroa.6.1.i.i, 1
+  %624 = mul nuw nsw i32 %.019.i, %622
+  %625 = add nsw i32 %623, %624
+  %626 = icmp slt i32 %625, 0
+  %627 = tail call i32 @llvm.smin.i32(i32 %625, i32 %.sroa.18.8.extract.trunc.i.i)
+  %..i.i.i.i = select i1 %626, i32 %.sroa.18.8.extract.trunc.i.i, i32 %627
+  br label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %stbtt__buf_get8.exit.i14.i.i, %.lr.ph.i.preheader.i.i
+  %.sroa.6.3.i.i = phi i32 [ %.sroa.6.4.i.i, %stbtt__buf_get8.exit.i14.i.i ], [ %..i.i.i.i, %.lr.ph.i.preheader.i.i ]
+  %628 = phi i32 [ %636, %stbtt__buf_get8.exit.i14.i.i ], [ %..i.i.i.i, %.lr.ph.i.preheader.i.i ]
+  %.07.i11.i.i = phi i32 [ %638, %stbtt__buf_get8.exit.i14.i.i ], [ 0, %.lr.ph.i.preheader.i.i ]
+  %.056.i12.i.i = phi i32 [ %637, %stbtt__buf_get8.exit.i14.i.i ], [ 0, %.lr.ph.i.preheader.i.i ]
+  %629 = shl i32 %.056.i12.i.i, 8
+  %.not.i.i13.i.i = icmp slt i32 %628, %.sroa.18.8.extract.trunc.i.i
+  br i1 %.not.i.i13.i.i, label %630, label %stbtt__buf_get8.exit.i14.i.i
+
+630:                                              ; preds = %.lr.ph.i.i.i
+  %631 = add nsw i32 %628, 1
+  %632 = sext i32 %628 to i64
+  %633 = getelementptr inbounds i8, ptr %605, i64 %632
+  %634 = load i8, ptr %633, align 1, !tbaa !9
+  %635 = zext i8 %634 to i32
+  br label %stbtt__buf_get8.exit.i14.i.i
+
+stbtt__buf_get8.exit.i14.i.i:                     ; preds = %630, %.lr.ph.i.i.i
+  %.sroa.6.4.i.i = phi i32 [ %631, %630 ], [ %.sroa.6.3.i.i, %.lr.ph.i.i.i ]
+  %636 = phi i32 [ %631, %630 ], [ %628, %.lr.ph.i.i.i ]
+  %.0.i.i15.i.i = phi i32 [ %635, %630 ], [ 0, %.lr.ph.i.i.i ]
+  %637 = or disjoint i32 %.0.i.i15.i.i, %629
+  %638 = add nuw nsw i32 %.07.i11.i.i, 1
+  %exitcond.not.i16.i.i = icmp eq i32 %638, %622
+  br i1 %exitcond.not.i16.i.i, label %.lr.ph.i19.i.i, label %.lr.ph.i.i.i, !llvm.loop !574
+
+.lr.ph.i19.i.i:                                   ; preds = %stbtt__buf_get8.exit.i14.i.i, %stbtt__buf_get8.exit.i24.i.i
+  %639 = phi i32 [ %647, %stbtt__buf_get8.exit.i24.i.i ], [ %.sroa.6.4.i.i, %stbtt__buf_get8.exit.i14.i.i ]
+  %.07.i21.i.i = phi i32 [ %649, %stbtt__buf_get8.exit.i24.i.i ], [ 0, %stbtt__buf_get8.exit.i14.i.i ]
+  %.056.i22.i.i = phi i32 [ %648, %stbtt__buf_get8.exit.i24.i.i ], [ 0, %stbtt__buf_get8.exit.i14.i.i ]
+  %640 = shl i32 %.056.i22.i.i, 8
+  %.not.i.i23.i.i = icmp slt i32 %639, %.sroa.18.8.extract.trunc.i.i
+  br i1 %.not.i.i23.i.i, label %641, label %stbtt__buf_get8.exit.i24.i.i
+
+641:                                              ; preds = %.lr.ph.i19.i.i
+  %642 = add nsw i32 %639, 1
+  %643 = sext i32 %639 to i64
+  %644 = getelementptr inbounds i8, ptr %605, i64 %643
+  %645 = load i8, ptr %644, align 1, !tbaa !9
+  %646 = zext i8 %645 to i32
+  br label %stbtt__buf_get8.exit.i24.i.i
+
+stbtt__buf_get8.exit.i24.i.i:                     ; preds = %641, %.lr.ph.i19.i.i
+  %647 = phi i32 [ %642, %641 ], [ %639, %.lr.ph.i19.i.i ]
+  %.0.i.i25.i.i = phi i32 [ %646, %641 ], [ 0, %.lr.ph.i19.i.i ]
+  %648 = or disjoint i32 %.0.i.i25.i.i, %640
+  %649 = add nuw nsw i32 %.07.i21.i.i, 1
+  %exitcond.not.i26.i.i = icmp eq i32 %649, %622
+  br i1 %exitcond.not.i26.i.i, label %stbtt__buf_get.exit28.i.i, label %.lr.ph.i19.i.i, !llvm.loop !574
+
+stbtt__buf_get.exit28.i.i:                        ; preds = %stbtt__buf_get8.exit.i24.i.i, %stbtt__buf_get8.exit.i48.i, %stbtt__buf_get.exit.i.i
+  %.0.i59.i.i = phi i32 [ 0, %stbtt__buf_get8.exit.i48.i ], [ 0, %stbtt__buf_get.exit.i.i ], [ %622, %stbtt__buf_get8.exit.i24.i.i ]
+  %.05.lcssa.i42.i.i = phi i32 [ 0, %stbtt__buf_get8.exit.i48.i ], [ 0, %stbtt__buf_get.exit.i.i ], [ %637, %stbtt__buf_get8.exit.i24.i.i ]
+  %.05.lcssa.i27.i.i = phi i32 [ 0, %stbtt__buf_get8.exit.i48.i ], [ 0, %stbtt__buf_get.exit.i.i ], [ %648, %stbtt__buf_get8.exit.i24.i.i ]
+  %650 = add nsw i32 %618, 1
+  %651 = mul nsw i32 %.0.i59.i.i, %650
+  %652 = add nsw i32 %651, 2
+  %653 = add nsw i32 %652, %.05.lcssa.i42.i.i
+  %654 = sub nsw i32 %.05.lcssa.i27.i.i, %.05.lcssa.i42.i.i
+  %655 = or i32 %654, %653
+  %or.cond.not.i.i.i = icmp sgt i32 %655, -1
+  br i1 %or.cond.not.i.i.i, label %656, label %stbtt__cid_get_glyph_subrs.exit
+
+656:                                              ; preds = %stbtt__buf_get.exit28.i.i
+  %657 = icmp sgt i32 %653, %.sroa.18.8.extract.trunc.i.i
+  %658 = sub nsw i32 %.sroa.18.8.extract.trunc.i.i, %653
+  %659 = icmp sgt i32 %654, %658
+  %or.cond.i.i.i = select i1 %657, i1 true, i1 %659
+  br i1 %or.cond.i.i.i, label %stbtt__cid_get_glyph_subrs.exit, label %660
+
+660:                                              ; preds = %656
+  %661 = zext nneg i32 %653 to i64
+  %662 = getelementptr inbounds nuw i8, ptr %605, i64 %661
+  %663 = zext nneg i32 %654 to i64
+  %664 = shl nuw nsw i64 %663, 32
+  br label %stbtt__cid_get_glyph_subrs.exit
+
+.split22.i:                                       ; preds = %stbtt__buf_get.exit35.i, %stbtt__buf_get.exit35.preheader.i, %stbtt__buf_get8.exit.i316
+  %665 = load ptr, ptr %81, align 8
+  %666 = load i64, ptr %82, align 8
+  %.sroa.18.8.extract.shift.i49.i = lshr i64 %666, 32
+  %.sroa.18.8.extract.trunc.i50.i = trunc nuw i64 %.sroa.18.8.extract.shift.i49.i to i32
+  %667 = tail call i32 @llvm.smin.i32(i32 %.sroa.18.8.extract.trunc.i50.i, i32 0)
+  br label %668
+
+668:                                              ; preds = %stbtt__buf_get8.exit.i.i55.i, %.split22.i
+  %.sroa.6.0.i51.i = phi i32 [ %667, %.split22.i ], [ %.sroa.6.1.i56.i, %stbtt__buf_get8.exit.i.i55.i ]
+  %669 = phi i32 [ %667, %.split22.i ], [ %677, %stbtt__buf_get8.exit.i.i55.i ]
+  %exitcond.not.i.i52.i = phi i1 [ false, %.split22.i ], [ true, %stbtt__buf_get8.exit.i.i55.i ]
+  %.056.i.i53.i = phi i32 [ 0, %.split22.i ], [ %678, %stbtt__buf_get8.exit.i.i55.i ]
+  %670 = shl i32 %.056.i.i53.i, 8
+  %.not.i.i.i54.i = icmp slt i32 %669, %.sroa.18.8.extract.trunc.i50.i
+  br i1 %.not.i.i.i54.i, label %671, label %stbtt__buf_get8.exit.i.i55.i
+
+671:                                              ; preds = %668
+  %672 = add nsw i32 %669, 1
+  %673 = sext i32 %669 to i64
+  %674 = getelementptr inbounds i8, ptr %665, i64 %673
+  %675 = load i8, ptr %674, align 1, !tbaa !9
+  %676 = zext i8 %675 to i32
+  br label %stbtt__buf_get8.exit.i.i55.i
+
+stbtt__buf_get8.exit.i.i55.i:                     ; preds = %671, %668
+  %.sroa.6.1.i56.i = phi i32 [ %672, %671 ], [ %.sroa.6.0.i51.i, %668 ]
+  %677 = phi i32 [ %672, %671 ], [ %669, %668 ]
+  %.0.i.i.i57.i = phi i32 [ %676, %671 ], [ 0, %668 ]
+  %678 = or disjoint i32 %.0.i.i.i57.i, %670
+  br i1 %exitcond.not.i.i52.i, label %stbtt__buf_get.exit.i58.i, label %668, !llvm.loop !574
+
+stbtt__buf_get.exit.i58.i:                        ; preds = %stbtt__buf_get8.exit.i.i55.i
+  %.not.i.i59.i = icmp slt i32 %.sroa.6.1.i56.i, %.sroa.18.8.extract.trunc.i50.i
+  br i1 %.not.i.i59.i, label %stbtt__buf_get8.exit.i70.i, label %stbtt__buf_get.exit28.i60.i
+
+stbtt__buf_get8.exit.i70.i:                       ; preds = %stbtt__buf_get.exit.i58.i
+  %679 = sext i32 %.sroa.6.1.i56.i to i64
+  %680 = getelementptr inbounds i8, ptr %665, i64 %679
+  %681 = load i8, ptr %680, align 1, !tbaa !9
+  %682 = zext i8 %681 to i32
+  %.not.i9.i71.i = icmp eq i8 %681, 0
+  br i1 %.not.i9.i71.i, label %stbtt__buf_get.exit28.i60.i, label %.lr.ph.i.preheader.i72.i
+
+.lr.ph.i.preheader.i72.i:                         ; preds = %stbtt__buf_get8.exit.i70.i
+  %683 = add nsw i32 %.sroa.6.1.i56.i, 1
+  %684 = sub i32 %683, %682
+  %685 = icmp slt i32 %684, 0
+  %686 = tail call i32 @llvm.smin.i32(i32 %684, i32 %.sroa.18.8.extract.trunc.i50.i)
+  %..i.i.i73.i = select i1 %685, i32 %.sroa.18.8.extract.trunc.i50.i, i32 %686
+  br label %.lr.ph.i.i74.i
+
+.lr.ph.i.i74.i:                                   ; preds = %stbtt__buf_get8.exit.i14.i79.i, %.lr.ph.i.preheader.i72.i
+  %.sroa.6.3.i75.i = phi i32 [ %.sroa.6.4.i80.i, %stbtt__buf_get8.exit.i14.i79.i ], [ %..i.i.i73.i, %.lr.ph.i.preheader.i72.i ]
+  %687 = phi i32 [ %695, %stbtt__buf_get8.exit.i14.i79.i ], [ %..i.i.i73.i, %.lr.ph.i.preheader.i72.i ]
+  %.07.i11.i76.i = phi i32 [ %697, %stbtt__buf_get8.exit.i14.i79.i ], [ 0, %.lr.ph.i.preheader.i72.i ]
+  %.056.i12.i77.i = phi i32 [ %696, %stbtt__buf_get8.exit.i14.i79.i ], [ 0, %.lr.ph.i.preheader.i72.i ]
+  %688 = shl i32 %.056.i12.i77.i, 8
+  %.not.i.i13.i78.i = icmp slt i32 %687, %.sroa.18.8.extract.trunc.i50.i
+  br i1 %.not.i.i13.i78.i, label %689, label %stbtt__buf_get8.exit.i14.i79.i
+
+689:                                              ; preds = %.lr.ph.i.i74.i
+  %690 = add nsw i32 %687, 1
+  %691 = sext i32 %687 to i64
+  %692 = getelementptr inbounds i8, ptr %665, i64 %691
+  %693 = load i8, ptr %692, align 1, !tbaa !9
+  %694 = zext i8 %693 to i32
+  br label %stbtt__buf_get8.exit.i14.i79.i
+
+stbtt__buf_get8.exit.i14.i79.i:                   ; preds = %689, %.lr.ph.i.i74.i
+  %.sroa.6.4.i80.i = phi i32 [ %690, %689 ], [ %.sroa.6.3.i75.i, %.lr.ph.i.i74.i ]
+  %695 = phi i32 [ %690, %689 ], [ %687, %.lr.ph.i.i74.i ]
+  %.0.i.i15.i81.i = phi i32 [ %694, %689 ], [ 0, %.lr.ph.i.i74.i ]
+  %696 = or disjoint i32 %.0.i.i15.i81.i, %688
+  %697 = add nuw nsw i32 %.07.i11.i76.i, 1
+  %exitcond.not.i16.i82.i = icmp eq i32 %697, %682
+  br i1 %exitcond.not.i16.i82.i, label %.lr.ph.i19.i84.i, label %.lr.ph.i.i74.i, !llvm.loop !574
+
+.lr.ph.i19.i84.i:                                 ; preds = %stbtt__buf_get8.exit.i14.i79.i, %stbtt__buf_get8.exit.i24.i88.i
+  %698 = phi i32 [ %706, %stbtt__buf_get8.exit.i24.i88.i ], [ %.sroa.6.4.i80.i, %stbtt__buf_get8.exit.i14.i79.i ]
+  %.07.i21.i85.i = phi i32 [ %708, %stbtt__buf_get8.exit.i24.i88.i ], [ 0, %stbtt__buf_get8.exit.i14.i79.i ]
+  %.056.i22.i86.i = phi i32 [ %707, %stbtt__buf_get8.exit.i24.i88.i ], [ 0, %stbtt__buf_get8.exit.i14.i79.i ]
+  %699 = shl i32 %.056.i22.i86.i, 8
+  %.not.i.i23.i87.i = icmp slt i32 %698, %.sroa.18.8.extract.trunc.i50.i
+  br i1 %.not.i.i23.i87.i, label %700, label %stbtt__buf_get8.exit.i24.i88.i
+
+700:                                              ; preds = %.lr.ph.i19.i84.i
+  %701 = add nsw i32 %698, 1
+  %702 = sext i32 %698 to i64
+  %703 = getelementptr inbounds i8, ptr %665, i64 %702
+  %704 = load i8, ptr %703, align 1, !tbaa !9
+  %705 = zext i8 %704 to i32
+  br label %stbtt__buf_get8.exit.i24.i88.i
+
+stbtt__buf_get8.exit.i24.i88.i:                   ; preds = %700, %.lr.ph.i19.i84.i
+  %706 = phi i32 [ %701, %700 ], [ %698, %.lr.ph.i19.i84.i ]
+  %.0.i.i25.i89.i = phi i32 [ %705, %700 ], [ 0, %.lr.ph.i19.i84.i ]
+  %707 = or disjoint i32 %.0.i.i25.i89.i, %699
+  %708 = add nuw nsw i32 %.07.i21.i85.i, 1
+  %exitcond.not.i26.i90.i = icmp eq i32 %708, %682
+  br i1 %exitcond.not.i26.i90.i, label %stbtt__buf_get.exit28.i60.i, label %.lr.ph.i19.i84.i, !llvm.loop !574
+
+stbtt__buf_get.exit28.i60.i:                      ; preds = %stbtt__buf_get8.exit.i24.i88.i, %stbtt__buf_get8.exit.i70.i, %stbtt__buf_get.exit.i58.i
+  %.0.i59.i61.i = phi i32 [ 0, %stbtt__buf_get8.exit.i70.i ], [ 0, %stbtt__buf_get.exit.i58.i ], [ %682, %stbtt__buf_get8.exit.i24.i88.i ]
+  %.05.lcssa.i42.i62.i = phi i32 [ 0, %stbtt__buf_get8.exit.i70.i ], [ 0, %stbtt__buf_get.exit.i58.i ], [ %696, %stbtt__buf_get8.exit.i24.i88.i ]
+  %.05.lcssa.i27.i63.i = phi i32 [ 0, %stbtt__buf_get8.exit.i70.i ], [ 0, %stbtt__buf_get.exit.i58.i ], [ %707, %stbtt__buf_get8.exit.i24.i88.i ]
+  %709 = add nsw i32 %678, 1
+  %710 = mul nsw i32 %.0.i59.i61.i, %709
+  %711 = add nsw i32 %710, 2
+  %712 = add nsw i32 %711, %.05.lcssa.i42.i62.i
+  %713 = sub nsw i32 %.05.lcssa.i27.i63.i, %.05.lcssa.i42.i62.i
+  %714 = or i32 %713, %712
+  %or.cond.not.i.i64.i = icmp sgt i32 %714, -1
+  br i1 %or.cond.not.i.i64.i, label %715, label %stbtt__cid_get_glyph_subrs.exit
+
+715:                                              ; preds = %stbtt__buf_get.exit28.i60.i
+  %716 = icmp sgt i32 %712, %.sroa.18.8.extract.trunc.i50.i
+  %717 = sub nsw i32 %.sroa.18.8.extract.trunc.i50.i, %712
+  %718 = icmp sgt i32 %713, %717
+  %or.cond.i.i69.i = select i1 %716, i1 true, i1 %718
+  br i1 %or.cond.i.i69.i, label %stbtt__cid_get_glyph_subrs.exit, label %719
+
+719:                                              ; preds = %715
+  %720 = zext nneg i32 %712 to i64
+  %721 = getelementptr inbounds nuw i8, ptr %665, i64 %720
+  %722 = zext nneg i32 %713 to i64
+  %723 = shl nuw nsw i64 %722, 32
+  br label %stbtt__cid_get_glyph_subrs.exit
+
+stbtt__cid_get_glyph_subrs.exit:                  ; preds = %stbtt__buf_get.exit28.i.i, %656, %660, %stbtt__buf_get.exit28.i60.i, %715, %719
+  %.sroa.0.0.i.i.pn.i = phi ptr [ null, %stbtt__buf_get.exit28.i.i ], [ null, %656 ], [ %662, %660 ], [ null, %stbtt__buf_get.exit28.i60.i ], [ null, %715 ], [ %721, %719 ]
+  %.sroa.5.0.i.i.pn.i = phi i64 [ 0, %stbtt__buf_get.exit28.i.i ], [ 0, %656 ], [ %664, %660 ], [ 0, %stbtt__buf_get.exit28.i60.i ], [ 0, %715 ], [ %723, %719 ]
+  %724 = load ptr, ptr %83, align 8
+  %725 = load i64, ptr %84, align 8
+  %726 = tail call fastcc { ptr, i64 } @stbtt__get_subrs(ptr %724, i64 %725, ptr %.sroa.0.0.i.i.pn.i, i64 %.sroa.5.0.i.i.pn.i)
+  %727 = extractvalue { ptr, i64 } %726, 0
+  %728 = extractvalue { ptr, i64 } %726, 1
+  br label %729
+
+729:                                              ; preds = %550, %stbtt__cid_get_glyph_subrs.exit, %549, %stbtt__buf_get8.exit
+  %.sroa.073.1 = phi ptr [ %.sroa.073.0543, %549 ], [ %.sroa.073.0543, %stbtt__buf_get8.exit ], [ %727, %stbtt__cid_get_glyph_subrs.exit ], [ %.sroa.073.0543, %550 ]
+  %.sroa.5.1 = phi i64 [ %.sroa.5.0544, %549 ], [ %.sroa.5.0544, %stbtt__buf_get8.exit ], [ %728, %stbtt__cid_get_glyph_subrs.exit ], [ %.sroa.5.0544, %550 ]
+  %.1249 = phi i32 [ 1, %549 ], [ %.0248545, %stbtt__buf_get8.exit ], [ 1, %stbtt__cid_get_glyph_subrs.exit ], [ 1, %550 ]
+  %730 = icmp slt i32 %.0241546, 1
+  br i1 %730, label %.critedge, label %731
+
+731:                                              ; preds = %729
+  %732 = add nsw i32 %.0241546, -1
+  %733 = zext nneg i32 %732 to i64
+  %734 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %733
+  %735 = load float, ptr %734, align 4, !tbaa !3
+  %736 = fptosi float %735 to i32
+  %737 = icmp sgt i32 %.0239549, 9
+  br i1 %737, label %.critedge, label %738
+
+738:                                              ; preds = %731
+  %739 = add nsw i32 %.0239549, 1
+  %740 = sext i32 %.0239549 to i64
+  %741 = getelementptr inbounds [10 x %struct.stbtt__buf], ptr %5, i64 0, i64 %740
+  store ptr %.sroa.0.0474542, ptr %741, align 16, !tbaa !13
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %741, i64 8
+  store i64 %.sroa.10.8.insert.insert406, ptr %.sroa.10.0..sroa_idx, align 8
+  %742 = icmp eq i8 %97, 10
+  br i1 %742, label %744, label %743
+
+743:                                              ; preds = %738
+  %.sroa.0.0.copyload61 = load ptr, ptr %85, align 8, !tbaa !13
+  %.sroa.3.0.copyload63 = load i64, ptr %.sroa.3.0..sroa_idx62, align 8
+  br label %744
+
+744:                                              ; preds = %738, %743
+  %.sroa.3.0 = phi i64 [ %.sroa.3.0.copyload63, %743 ], [ %.sroa.5.1, %738 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload61, %743 ], [ %.sroa.073.1, %738 ]
+  %.sroa.7.8.extract.shift.i = lshr i64 %.sroa.3.0, 32
+  %.sroa.7.8.extract.trunc.i = trunc nuw i64 %.sroa.7.8.extract.shift.i to i32
+  %745 = tail call i32 @llvm.smin.i32(i32 %.sroa.7.8.extract.trunc.i, i32 0)
+  br label %746
+
+746:                                              ; preds = %stbtt__buf_get8.exit.i.i.i327, %744
+  %747 = phi i32 [ %745, %744 ], [ %755, %stbtt__buf_get8.exit.i.i.i327 ]
+  %exitcond.not.i.i.i324 = phi i1 [ false, %744 ], [ true, %stbtt__buf_get8.exit.i.i.i327 ]
+  %.056.i.i.i325 = phi i32 [ 0, %744 ], [ %756, %stbtt__buf_get8.exit.i.i.i327 ]
+  %748 = shl i32 %.056.i.i.i325, 8
+  %.not.i.i.i.i326 = icmp slt i32 %747, %.sroa.7.8.extract.trunc.i
+  br i1 %.not.i.i.i.i326, label %749, label %stbtt__buf_get8.exit.i.i.i327
+
+749:                                              ; preds = %746
+  %750 = add nsw i32 %747, 1
+  %751 = sext i32 %747 to i64
+  %752 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %751
+  %753 = load i8, ptr %752, align 1, !tbaa !9
+  %754 = zext i8 %753 to i32
+  br label %stbtt__buf_get8.exit.i.i.i327
+
+stbtt__buf_get8.exit.i.i.i327:                    ; preds = %749, %746
+  %755 = phi i32 [ %750, %749 ], [ %747, %746 ]
+  %.0.i.i.i.i328 = phi i32 [ %754, %749 ], [ 0, %746 ]
+  %756 = or disjoint i32 %.0.i.i.i.i328, %748
+  br i1 %exitcond.not.i.i.i324, label %stbtt__cff_index_count.exit.i, label %746, !llvm.loop !574
+
+stbtt__cff_index_count.exit.i:                    ; preds = %stbtt__buf_get8.exit.i.i.i327
+  %757 = icmp sgt i32 %756, 33899
+  %758 = icmp sgt i32 %756, 1239
+  %spec.select.i = select i1 %758, i32 1131, i32 107
+  %.0.i329 = select i1 %757, i32 32768, i32 %spec.select.i
+  %759 = add nsw i32 %.0.i329, %736
+  %760 = icmp sgt i32 %759, -1
+  %.not.i330 = icmp slt i32 %759, %756
+  %or.cond.i331 = and i1 %760, %.not.i330
+  br i1 %or.cond.i331, label %.preheader506, label %stbtt__get_subr.exit
+
+.preheader506:                                    ; preds = %stbtt__cff_index_count.exit.i, %stbtt__buf_get8.exit.i.i14.i
+  %.sroa.6.0.i.i332 = phi i32 [ %.sroa.6.1.i.i333, %stbtt__buf_get8.exit.i.i14.i ], [ %745, %stbtt__cff_index_count.exit.i ]
+  %761 = phi i32 [ %769, %stbtt__buf_get8.exit.i.i14.i ], [ %745, %stbtt__cff_index_count.exit.i ]
+  %exitcond.not.i.i11.i = phi i1 [ true, %stbtt__buf_get8.exit.i.i14.i ], [ false, %stbtt__cff_index_count.exit.i ]
+  %.056.i.i12.i = phi i32 [ %770, %stbtt__buf_get8.exit.i.i14.i ], [ 0, %stbtt__cff_index_count.exit.i ]
+  %762 = shl i32 %.056.i.i12.i, 8
+  %.not.i.i.i13.i = icmp slt i32 %761, %.sroa.7.8.extract.trunc.i
+  br i1 %.not.i.i.i13.i, label %763, label %stbtt__buf_get8.exit.i.i14.i
+
+763:                                              ; preds = %.preheader506
+  %764 = add nsw i32 %761, 1
+  %765 = sext i32 %761 to i64
+  %766 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %765
+  %767 = load i8, ptr %766, align 1, !tbaa !9
+  %768 = zext i8 %767 to i32
+  br label %stbtt__buf_get8.exit.i.i14.i
+
+stbtt__buf_get8.exit.i.i14.i:                     ; preds = %763, %.preheader506
+  %.sroa.6.1.i.i333 = phi i32 [ %764, %763 ], [ %.sroa.6.0.i.i332, %.preheader506 ]
+  %769 = phi i32 [ %764, %763 ], [ %761, %.preheader506 ]
+  %.0.i.i.i15.i = phi i32 [ %768, %763 ], [ 0, %.preheader506 ]
+  %770 = or disjoint i32 %.0.i.i.i15.i, %762
+  br i1 %exitcond.not.i.i11.i, label %stbtt__buf_get.exit.i.i334, label %.preheader506, !llvm.loop !574
+
+stbtt__buf_get.exit.i.i334:                       ; preds = %stbtt__buf_get8.exit.i.i14.i
+  %.not.i.i.i335 = icmp slt i32 %.sroa.6.1.i.i333, %.sroa.7.8.extract.trunc.i
+  br i1 %.not.i.i.i335, label %stbtt__buf_get8.exit.i.i342, label %stbtt__buf_get.exit28.i.i336
+
+stbtt__buf_get8.exit.i.i342:                      ; preds = %stbtt__buf_get.exit.i.i334
+  %771 = sext i32 %.sroa.6.1.i.i333 to i64
+  %772 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %771
+  %773 = load i8, ptr %772, align 1, !tbaa !9
+  %774 = zext i8 %773 to i32
+  %.not.i9.i.i343 = icmp eq i8 %773, 0
+  br i1 %.not.i9.i.i343, label %stbtt__buf_get.exit28.i.i336, label %.lr.ph.i.preheader.i.i344
+
+.lr.ph.i.preheader.i.i344:                        ; preds = %stbtt__buf_get8.exit.i.i342
+  %775 = add nsw i32 %.sroa.6.1.i.i333, 1
+  %776 = mul nuw nsw i32 %759, %774
+  %777 = add nsw i32 %775, %776
+  %778 = icmp slt i32 %777, 0
+  %779 = tail call i32 @llvm.smin.i32(i32 %777, i32 %.sroa.7.8.extract.trunc.i)
+  %..i.i.i.i345 = select i1 %778, i32 %.sroa.7.8.extract.trunc.i, i32 %779
+  br label %.lr.ph.i.i.i346
+
+.lr.ph.i.i.i346:                                  ; preds = %stbtt__buf_get8.exit.i14.i.i351, %.lr.ph.i.preheader.i.i344
+  %.sroa.6.3.i.i347 = phi i32 [ %.sroa.6.4.i.i352, %stbtt__buf_get8.exit.i14.i.i351 ], [ %..i.i.i.i345, %.lr.ph.i.preheader.i.i344 ]
+  %780 = phi i32 [ %788, %stbtt__buf_get8.exit.i14.i.i351 ], [ %..i.i.i.i345, %.lr.ph.i.preheader.i.i344 ]
+  %.07.i11.i.i348 = phi i32 [ %790, %stbtt__buf_get8.exit.i14.i.i351 ], [ 0, %.lr.ph.i.preheader.i.i344 ]
+  %.056.i12.i.i349 = phi i32 [ %789, %stbtt__buf_get8.exit.i14.i.i351 ], [ 0, %.lr.ph.i.preheader.i.i344 ]
+  %781 = shl i32 %.056.i12.i.i349, 8
+  %.not.i.i13.i.i350 = icmp slt i32 %780, %.sroa.7.8.extract.trunc.i
+  br i1 %.not.i.i13.i.i350, label %782, label %stbtt__buf_get8.exit.i14.i.i351
+
+782:                                              ; preds = %.lr.ph.i.i.i346
+  %783 = add nsw i32 %780, 1
+  %784 = sext i32 %780 to i64
+  %785 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %784
+  %786 = load i8, ptr %785, align 1, !tbaa !9
+  %787 = zext i8 %786 to i32
+  br label %stbtt__buf_get8.exit.i14.i.i351
+
+stbtt__buf_get8.exit.i14.i.i351:                  ; preds = %782, %.lr.ph.i.i.i346
+  %.sroa.6.4.i.i352 = phi i32 [ %783, %782 ], [ %.sroa.6.3.i.i347, %.lr.ph.i.i.i346 ]
+  %788 = phi i32 [ %783, %782 ], [ %780, %.lr.ph.i.i.i346 ]
+  %.0.i.i15.i.i353 = phi i32 [ %787, %782 ], [ 0, %.lr.ph.i.i.i346 ]
+  %789 = or disjoint i32 %.0.i.i15.i.i353, %781
+  %790 = add nuw nsw i32 %.07.i11.i.i348, 1
+  %exitcond.not.i16.i.i354 = icmp eq i32 %790, %774
+  br i1 %exitcond.not.i16.i.i354, label %.lr.ph.i19.i.i356, label %.lr.ph.i.i.i346, !llvm.loop !574
+
+.lr.ph.i19.i.i356:                                ; preds = %stbtt__buf_get8.exit.i14.i.i351, %stbtt__buf_get8.exit.i24.i.i360
+  %791 = phi i32 [ %799, %stbtt__buf_get8.exit.i24.i.i360 ], [ %.sroa.6.4.i.i352, %stbtt__buf_get8.exit.i14.i.i351 ]
+  %.07.i21.i.i357 = phi i32 [ %801, %stbtt__buf_get8.exit.i24.i.i360 ], [ 0, %stbtt__buf_get8.exit.i14.i.i351 ]
+  %.056.i22.i.i358 = phi i32 [ %800, %stbtt__buf_get8.exit.i24.i.i360 ], [ 0, %stbtt__buf_get8.exit.i14.i.i351 ]
+  %792 = shl i32 %.056.i22.i.i358, 8
+  %.not.i.i23.i.i359 = icmp slt i32 %791, %.sroa.7.8.extract.trunc.i
+  br i1 %.not.i.i23.i.i359, label %793, label %stbtt__buf_get8.exit.i24.i.i360
+
+793:                                              ; preds = %.lr.ph.i19.i.i356
+  %794 = add nsw i32 %791, 1
+  %795 = sext i32 %791 to i64
+  %796 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %795
+  %797 = load i8, ptr %796, align 1, !tbaa !9
+  %798 = zext i8 %797 to i32
+  br label %stbtt__buf_get8.exit.i24.i.i360
+
+stbtt__buf_get8.exit.i24.i.i360:                  ; preds = %793, %.lr.ph.i19.i.i356
+  %799 = phi i32 [ %794, %793 ], [ %791, %.lr.ph.i19.i.i356 ]
+  %.0.i.i25.i.i361 = phi i32 [ %798, %793 ], [ 0, %.lr.ph.i19.i.i356 ]
+  %800 = or disjoint i32 %.0.i.i25.i.i361, %792
+  %801 = add nuw nsw i32 %.07.i21.i.i357, 1
+  %exitcond.not.i26.i.i362 = icmp eq i32 %801, %774
+  br i1 %exitcond.not.i26.i.i362, label %stbtt__buf_get.exit28.i.i336, label %.lr.ph.i19.i.i356, !llvm.loop !574
+
+stbtt__buf_get.exit28.i.i336:                     ; preds = %stbtt__buf_get8.exit.i24.i.i360, %stbtt__buf_get8.exit.i.i342, %stbtt__buf_get.exit.i.i334
+  %.0.i59.i.i337 = phi i32 [ 0, %stbtt__buf_get8.exit.i.i342 ], [ 0, %stbtt__buf_get.exit.i.i334 ], [ %774, %stbtt__buf_get8.exit.i24.i.i360 ]
+  %.05.lcssa.i42.i.i338 = phi i32 [ 0, %stbtt__buf_get8.exit.i.i342 ], [ 0, %stbtt__buf_get.exit.i.i334 ], [ %789, %stbtt__buf_get8.exit.i24.i.i360 ]
+  %.05.lcssa.i27.i.i339 = phi i32 [ 0, %stbtt__buf_get8.exit.i.i342 ], [ 0, %stbtt__buf_get.exit.i.i334 ], [ %800, %stbtt__buf_get8.exit.i24.i.i360 ]
+  %802 = add nsw i32 %770, 1
+  %803 = mul nsw i32 %.0.i59.i.i337, %802
+  %804 = add nsw i32 %803, 2
+  %805 = add nsw i32 %804, %.05.lcssa.i42.i.i338
+  %806 = sub nsw i32 %.05.lcssa.i27.i.i339, %.05.lcssa.i42.i.i338
+  %807 = or i32 %806, %805
+  %or.cond.not.i.i.i340 = icmp sgt i32 %807, -1
+  br i1 %or.cond.not.i.i.i340, label %808, label %stbtt__cff_index_get.exit.i
+
+808:                                              ; preds = %stbtt__buf_get.exit28.i.i336
+  %809 = icmp sgt i32 %805, %.sroa.7.8.extract.trunc.i
+  %810 = sub nsw i32 %.sroa.7.8.extract.trunc.i, %805
+  %811 = icmp sgt i32 %806, %810
+  %or.cond.i.i.i341 = select i1 %809, i1 true, i1 %811
+  br i1 %or.cond.i.i.i341, label %stbtt__cff_index_get.exit.i, label %812
+
+812:                                              ; preds = %808
+  %813 = zext nneg i32 %805 to i64
+  %814 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 %813
+  %815 = zext nneg i32 %806 to i64
+  %816 = shl nuw nsw i64 %815, 32
+  br label %stbtt__cff_index_get.exit.i
+
+stbtt__cff_index_get.exit.i:                      ; preds = %812, %808, %stbtt__buf_get.exit28.i.i336
+  %.sroa.0.0.i.i.i = phi ptr [ null, %stbtt__buf_get.exit28.i.i336 ], [ null, %808 ], [ %814, %812 ]
+  %.sroa.5.0.i.i.i = phi i64 [ 0, %stbtt__buf_get.exit28.i.i336 ], [ 0, %808 ], [ %816, %812 ]
+  %.fca.0.insert.i.i.i = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.i.i, 0
+  %.fca.1.insert.i.i.i = insertvalue { ptr, i64 } %.fca.0.insert.i.i.i, i64 %.sroa.5.0.i.i.i, 1
   br label %stbtt__get_subr.exit
 
-stbtt__get_subr.exit:                             ; preds = %stbtt__cff_index_count.exit.i, %596
-  %.pn.i = phi { ptr, i64 } [ %597, %596 ], [ zeroinitializer, %stbtt__cff_index_count.exit.i ]
-  %598 = extractvalue { ptr, i64 } %.pn.i, 1
-  %599 = icmp ult i64 %598, 4294967296
-  br i1 %599, label %.critedge, label %600
+stbtt__get_subr.exit:                             ; preds = %stbtt__cff_index_count.exit.i, %stbtt__cff_index_get.exit.i
+  %.pn.i = phi { ptr, i64 } [ %.fca.1.insert.i.i.i, %stbtt__cff_index_get.exit.i ], [ zeroinitializer, %stbtt__cff_index_count.exit.i ]
+  %817 = extractvalue { ptr, i64 } %.pn.i, 1
+  %818 = icmp ult i64 %817, 4294967296
+  br i1 %818, label %.critedge, label %819
 
-600:                                              ; preds = %stbtt__get_subr.exit
-  %601 = extractvalue { ptr, i64 } %.pn.i, 0
-  %.sroa.10.8.insert.mask = and i64 %598, -4294967296
+819:                                              ; preds = %stbtt__get_subr.exit
+  %820 = extractvalue { ptr, i64 } %.pn.i, 0
+  %.sroa.10.8.insert.mask = and i64 %817, -4294967296
   br label %.thread
 
-602:                                              ; preds = %stbtt__buf_get8.exit
-  %603 = icmp slt i32 %.0239491, 1
-  br i1 %603, label %.critedge, label %604
+821:                                              ; preds = %stbtt__buf_get8.exit
+  %822 = icmp slt i32 %.0239549, 1
+  br i1 %822, label %.critedge, label %823
 
-604:                                              ; preds = %602
-  %605 = add nsw i32 %.0239491, -1
-  %606 = zext nneg i32 %605 to i64
-  %607 = getelementptr inbounds nuw [10 x %struct.stbtt__buf], ptr %5, i64 0, i64 %606
-  %.sroa.0.0.copyload356 = load ptr, ptr %607, align 16, !tbaa !13
-  %.sroa.10.0..sroa_idx357 = getelementptr inbounds nuw i8, ptr %607, i64 8
-  %.sroa.10.0.copyload358 = load i64, ptr %.sroa.10.0..sroa_idx357, align 8
+823:                                              ; preds = %821
+  %824 = add nsw i32 %.0239549, -1
+  %825 = zext nneg i32 %824 to i64
+  %826 = getelementptr inbounds nuw [10 x %struct.stbtt__buf], ptr %5, i64 0, i64 %825
+  %.sroa.0.0.copyload399 = load ptr, ptr %826, align 16, !tbaa !13
+  %.sroa.10.0..sroa_idx400 = getelementptr inbounds nuw i8, ptr %826, i64 8
+  %.sroa.10.0.copyload401 = load i64, ptr %.sroa.10.0..sroa_idx400, align 8
   br label %.thread
 
-608:                                              ; preds = %stbtt__buf_get8.exit
-  %609 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %610 = load float, ptr %609, align 8, !tbaa !1279
-  %611 = load float, ptr %33, align 8, !tbaa !1264
-  %612 = fcmp une float %610, %611
-  %.phi.trans.insert.i318 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %.pre.i319 = load float, ptr %.phi.trans.insert.i318, align 4, !tbaa !1280
-  br i1 %612, label %._crit_edge.i, label %613
+827:                                              ; preds = %stbtt__buf_get8.exit
+  %828 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %829 = load float, ptr %828, align 8, !tbaa !1279
+  %830 = load float, ptr %86, align 8, !tbaa !1264
+  %831 = fcmp une float %829, %830
+  %.phi.trans.insert.i363 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %.pre.i364 = load float, ptr %.phi.trans.insert.i363, align 4, !tbaa !1280
+  br i1 %831, label %._crit_edge.i, label %832
 
-613:                                              ; preds = %608
-  %614 = load float, ptr %34, align 4, !tbaa !1265
-  %615 = fcmp une float %.pre.i319, %614
-  br i1 %615, label %._crit_edge.i, label %.critedge
+832:                                              ; preds = %827
+  %833 = load float, ptr %87, align 4, !tbaa !1265
+  %834 = fcmp une float %.pre.i364, %833
+  br i1 %834, label %._crit_edge.i, label %.critedge
 
-._crit_edge.i:                                    ; preds = %613, %608
-  %616 = fptosi float %610 to i32
-  %617 = fptosi float %.pre.i319 to i32
-  %618 = load i32, ptr %2, align 8, !tbaa !1266
-  %.not.i.i320 = icmp eq i32 %618, 0
-  br i1 %.not.i.i320, label %643, label %619
+._crit_edge.i:                                    ; preds = %832, %827
+  %835 = fptosi float %829 to i32
+  %836 = fptosi float %.pre.i364 to i32
+  %837 = load i32, ptr %2, align 8, !tbaa !1266
+  %.not.i.i365 = icmp eq i32 %837, 0
+  br i1 %.not.i.i365, label %862, label %838
 
-619:                                              ; preds = %._crit_edge.i
-  %620 = load i32, ptr %35, align 4, !tbaa !1267
-  %621 = icmp slt i32 %620, %616
-  br i1 %621, label %624, label %622
+838:                                              ; preds = %._crit_edge.i
+  %839 = load i32, ptr %88, align 4, !tbaa !1267
+  %840 = icmp slt i32 %839, %835
+  br i1 %840, label %843, label %841
 
-622:                                              ; preds = %619
-  %623 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not.i.i.i321 = icmp eq i32 %623, 0
-  br i1 %.not.i.i.i321, label %624, label %625
+841:                                              ; preds = %838
+  %842 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not.i.i.i366 = icmp eq i32 %842, 0
+  br i1 %.not.i.i.i366, label %843, label %844
 
-624:                                              ; preds = %622, %619
-  store i32 %616, ptr %35, align 4, !tbaa !1267
-  br label %625
+843:                                              ; preds = %841, %838
+  store i32 %835, ptr %88, align 4, !tbaa !1267
+  br label %844
 
-625:                                              ; preds = %624, %622
-  %626 = load i32, ptr %37, align 4, !tbaa !1269
-  %627 = icmp slt i32 %626, %617
-  br i1 %627, label %630, label %628
+844:                                              ; preds = %843, %841
+  %845 = load i32, ptr %90, align 4, !tbaa !1269
+  %846 = icmp slt i32 %845, %836
+  br i1 %846, label %849, label %847
 
-628:                                              ; preds = %625
-  %629 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not20.i.i.i322 = icmp eq i32 %629, 0
-  br i1 %.not20.i.i.i322, label %630, label %631
+847:                                              ; preds = %844
+  %848 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not20.i.i.i367 = icmp eq i32 %848, 0
+  br i1 %.not20.i.i.i367, label %849, label %850
 
-630:                                              ; preds = %628, %625
-  store i32 %617, ptr %37, align 4, !tbaa !1269
-  br label %631
+849:                                              ; preds = %847, %844
+  store i32 %836, ptr %90, align 4, !tbaa !1269
+  br label %850
 
-631:                                              ; preds = %630, %628
-  %632 = load i32, ptr %38, align 8, !tbaa !1270
-  %633 = icmp sgt i32 %632, %616
-  br i1 %633, label %636, label %634
+850:                                              ; preds = %849, %847
+  %851 = load i32, ptr %91, align 8, !tbaa !1270
+  %852 = icmp sgt i32 %851, %835
+  br i1 %852, label %855, label %853
 
-634:                                              ; preds = %631
-  %635 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not21.i.i.i323 = icmp eq i32 %635, 0
-  br i1 %.not21.i.i.i323, label %636, label %637
+853:                                              ; preds = %850
+  %854 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not21.i.i.i368 = icmp eq i32 %854, 0
+  br i1 %.not21.i.i.i368, label %855, label %856
 
-636:                                              ; preds = %634, %631
-  store i32 %616, ptr %38, align 8, !tbaa !1270
-  br label %637
+855:                                              ; preds = %853, %850
+  store i32 %835, ptr %91, align 8, !tbaa !1270
+  br label %856
 
-637:                                              ; preds = %636, %634
-  %638 = load i32, ptr %39, align 8, !tbaa !1271
-  %639 = icmp sgt i32 %638, %617
-  br i1 %639, label %642, label %640
+856:                                              ; preds = %855, %853
+  %857 = load i32, ptr %92, align 8, !tbaa !1271
+  %858 = icmp sgt i32 %857, %836
+  br i1 %858, label %861, label %859
 
-640:                                              ; preds = %637
-  %641 = load i32, ptr %36, align 4, !tbaa !1268
-  %.not22.i.i.i324 = icmp eq i32 %641, 0
-  br i1 %.not22.i.i.i324, label %642, label %stbtt__track_vertex.exit.i.i325
+859:                                              ; preds = %856
+  %860 = load i32, ptr %89, align 4, !tbaa !1268
+  %.not22.i.i.i369 = icmp eq i32 %860, 0
+  br i1 %.not22.i.i.i369, label %861, label %stbtt__track_vertex.exit.i.i370
 
-642:                                              ; preds = %640, %637
-  store i32 %617, ptr %39, align 8, !tbaa !1271
-  br label %stbtt__track_vertex.exit.i.i325
+861:                                              ; preds = %859, %856
+  store i32 %836, ptr %92, align 8, !tbaa !1271
+  br label %stbtt__track_vertex.exit.i.i370
 
-stbtt__track_vertex.exit.i.i325:                  ; preds = %642, %640
-  store i32 1, ptr %36, align 4, !tbaa !1268
-  %.pre8.i = load i32, ptr %.phi.trans.insert.i309, align 8, !tbaa !431
+stbtt__track_vertex.exit.i.i370:                  ; preds = %861, %859
+  store i32 1, ptr %89, align 4, !tbaa !1268
+  %.pre8.i = load i32, ptr %.phi.trans.insert.i311, align 8, !tbaa !431
   br label %stbtt__csctx_v.exit.i
 
-643:                                              ; preds = %._crit_edge.i
-  %644 = load ptr, ptr %40, align 8, !tbaa !433
-  %645 = load i32, ptr %.phi.trans.insert.i309, align 8, !tbaa !431
-  %646 = sext i32 %645 to i64
-  %647 = getelementptr inbounds %struct.stbtt_vertex, ptr %644, i64 %646
-  %648 = getelementptr inbounds nuw i8, ptr %647, i64 12
-  store i8 2, ptr %648, align 2, !tbaa !418
-  %649 = trunc i32 %616 to i16
-  store i16 %649, ptr %647, align 2, !tbaa !421
-  %650 = trunc i32 %617 to i16
-  %651 = getelementptr inbounds nuw i8, ptr %647, i64 2
-  store i16 %650, ptr %651, align 2, !tbaa !423
-  %652 = getelementptr inbounds nuw i8, ptr %647, i64 4
-  store i64 0, ptr %652, align 2
+862:                                              ; preds = %._crit_edge.i
+  %863 = load ptr, ptr %93, align 8, !tbaa !433
+  %864 = load i32, ptr %.phi.trans.insert.i311, align 8, !tbaa !431
+  %865 = sext i32 %864 to i64
+  %866 = getelementptr inbounds %struct.stbtt_vertex, ptr %863, i64 %865
+  %867 = getelementptr inbounds nuw i8, ptr %866, i64 12
+  store i8 2, ptr %867, align 2, !tbaa !418
+  %868 = trunc i32 %835 to i16
+  store i16 %868, ptr %866, align 2, !tbaa !421
+  %869 = trunc i32 %836 to i16
+  %870 = getelementptr inbounds nuw i8, ptr %866, i64 2
+  store i16 %869, ptr %870, align 2, !tbaa !423
+  %871 = getelementptr inbounds nuw i8, ptr %866, i64 4
+  store i64 0, ptr %871, align 2
   br label %stbtt__csctx_v.exit.i
 
-stbtt__csctx_v.exit.i:                            ; preds = %643, %stbtt__track_vertex.exit.i.i325
-  %653 = phi i32 [ %.pre8.i, %stbtt__track_vertex.exit.i.i325 ], [ %645, %643 ]
-  %654 = add nsw i32 %653, 1
-  store i32 %654, ptr %.phi.trans.insert.i309, align 8, !tbaa !431
+stbtt__csctx_v.exit.i:                            ; preds = %862, %stbtt__track_vertex.exit.i.i370
+  %872 = phi i32 [ %.pre8.i, %stbtt__track_vertex.exit.i.i370 ], [ %864, %862 ]
+  %873 = add nsw i32 %872, 1
+  store i32 %873, ptr %.phi.trans.insert.i311, align 8, !tbaa !431
   br label %.critedge
 
-655:                                              ; preds = %stbtt__buf_get8.exit
-  %.sroa.10.8.extract.trunc371 = trunc i64 %41 to i32
-  %.sroa.10.12.extract.shift420 = lshr i64 %.sroa.10.0483, 32
-  %.sroa.10.12.extract.trunc421 = trunc nuw i64 %.sroa.10.12.extract.shift420 to i32
-  %.not.i326 = icmp slt i32 %.sroa.10.8.extract.trunc371, %.sroa.10.12.extract.trunc421
-  br i1 %.not.i326, label %stbtt__buf_get8.exit328, label %.critedge
+874:                                              ; preds = %stbtt__buf_get8.exit
+  %.sroa.10.8.extract.trunc414 = trunc i64 %94 to i32
+  %.sroa.10.12.extract.shift463 = lshr i64 %.sroa.10.0541, 32
+  %.sroa.10.12.extract.trunc464 = trunc nuw i64 %.sroa.10.12.extract.shift463 to i32
+  %.not.i371 = icmp slt i32 %.sroa.10.8.extract.trunc414, %.sroa.10.12.extract.trunc464
+  br i1 %.not.i371, label %stbtt__buf_get8.exit373, label %.critedge
 
-stbtt__buf_get8.exit328:                          ; preds = %655
-  %656 = add i64 %.sroa.10.0483, 2
-  %.sroa.10.8.insert.ext373 = and i64 %656, 4294967295
-  %.sroa.10.8.insert.insert375 = or disjoint i64 %.sroa.10.8.insert.ext373, %.sroa.10.8.insert.mask362
-  %sext452 = shl i64 %41, 32
-  %657 = ashr exact i64 %sext452, 32
-  %658 = getelementptr inbounds i8, ptr %.sroa.0.0431484, i64 %657
-  %659 = load i8, ptr %658, align 1, !tbaa !9
-  switch i8 %659, label %.critedge [
-    i8 34, label %660
-    i8 35, label %671
-    i8 36, label %686
-    i8 37, label %701
+stbtt__buf_get8.exit373:                          ; preds = %874
+  %875 = add i64 %.sroa.10.0541, 2
+  %.sroa.10.8.insert.ext416 = and i64 %875, 4294967295
+  %.sroa.10.8.insert.insert418 = or disjoint i64 %.sroa.10.8.insert.ext416, %.sroa.10.8.insert.mask405
+  %sext495 = shl i64 %94, 32
+  %876 = ashr exact i64 %sext495, 32
+  %877 = getelementptr inbounds i8, ptr %.sroa.0.0474542, i64 %876
+  %878 = load i8, ptr %877, align 1, !tbaa !9
+  switch i8 %878, label %.critedge [
+    i8 34, label %879
+    i8 35, label %890
+    i8 36, label %905
+    i8 37, label %920
   ]
 
-660:                                              ; preds = %stbtt__buf_get8.exit328
-  %661 = icmp slt i32 %.0241488, 7
-  br i1 %661, label %.critedge, label %662
+879:                                              ; preds = %stbtt__buf_get8.exit373
+  %880 = icmp slt i32 %.0241546, 7
+  br i1 %880, label %.critedge, label %881
 
-662:                                              ; preds = %660
-  %663 = load float, ptr %4, align 16, !tbaa !3
-  %664 = load float, ptr %15, align 4, !tbaa !3
-  %665 = load float, ptr %16, align 8, !tbaa !3
-  %666 = load float, ptr %17, align 4, !tbaa !3
-  %667 = load float, ptr %18, align 16, !tbaa !3
-  %668 = load float, ptr %19, align 4, !tbaa !3
-  %669 = load float, ptr %20, align 8, !tbaa !3
-  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %663, float noundef 0.000000e+00, float noundef %664, float noundef %665, float noundef %666, float noundef 0.000000e+00)
-  %670 = fneg float %665
-  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %667, float noundef 0.000000e+00, float noundef %668, float noundef %670, float noundef %669, float noundef 0.000000e+00)
+881:                                              ; preds = %879
+  %882 = load float, ptr %4, align 16, !tbaa !3
+  %883 = load float, ptr %68, align 4, !tbaa !3
+  %884 = load float, ptr %69, align 8, !tbaa !3
+  %885 = load float, ptr %70, align 4, !tbaa !3
+  %886 = load float, ptr %71, align 16, !tbaa !3
+  %887 = load float, ptr %72, align 4, !tbaa !3
+  %888 = load float, ptr %73, align 8, !tbaa !3
+  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %882, float noundef 0.000000e+00, float noundef %883, float noundef %884, float noundef %885, float noundef 0.000000e+00)
+  %889 = fneg float %884
+  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %886, float noundef 0.000000e+00, float noundef %887, float noundef %889, float noundef %888, float noundef 0.000000e+00)
   br label %.thread
 
-671:                                              ; preds = %stbtt__buf_get8.exit328
-  %672 = icmp slt i32 %.0241488, 13
-  br i1 %672, label %.critedge, label %673
+890:                                              ; preds = %stbtt__buf_get8.exit373
+  %891 = icmp slt i32 %.0241546, 13
+  br i1 %891, label %.critedge, label %892
 
-673:                                              ; preds = %671
-  %674 = load float, ptr %4, align 16, !tbaa !3
-  %675 = load float, ptr %15, align 4, !tbaa !3
-  %676 = load float, ptr %16, align 8, !tbaa !3
-  %677 = load float, ptr %17, align 4, !tbaa !3
-  %678 = load float, ptr %18, align 16, !tbaa !3
-  %679 = load float, ptr %19, align 4, !tbaa !3
-  %680 = load float, ptr %20, align 8, !tbaa !3
-  %681 = load float, ptr %21, align 4, !tbaa !3
-  %682 = load float, ptr %22, align 16, !tbaa !3
-  %683 = load float, ptr %23, align 4, !tbaa !3
-  %684 = load float, ptr %24, align 8, !tbaa !3
-  %685 = load float, ptr %25, align 4, !tbaa !3
-  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %674, float noundef %675, float noundef %676, float noundef %677, float noundef %678, float noundef %679)
-  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %680, float noundef %681, float noundef %682, float noundef %683, float noundef %684, float noundef %685)
+892:                                              ; preds = %890
+  %893 = load float, ptr %4, align 16, !tbaa !3
+  %894 = load float, ptr %68, align 4, !tbaa !3
+  %895 = load float, ptr %69, align 8, !tbaa !3
+  %896 = load float, ptr %70, align 4, !tbaa !3
+  %897 = load float, ptr %71, align 16, !tbaa !3
+  %898 = load float, ptr %72, align 4, !tbaa !3
+  %899 = load float, ptr %73, align 8, !tbaa !3
+  %900 = load float, ptr %74, align 4, !tbaa !3
+  %901 = load float, ptr %75, align 16, !tbaa !3
+  %902 = load float, ptr %76, align 4, !tbaa !3
+  %903 = load float, ptr %77, align 8, !tbaa !3
+  %904 = load float, ptr %78, align 4, !tbaa !3
+  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %893, float noundef %894, float noundef %895, float noundef %896, float noundef %897, float noundef %898)
+  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %899, float noundef %900, float noundef %901, float noundef %902, float noundef %903, float noundef %904)
   br label %.thread
 
-686:                                              ; preds = %stbtt__buf_get8.exit328
-  %687 = icmp slt i32 %.0241488, 9
-  br i1 %687, label %.critedge, label %688
+905:                                              ; preds = %stbtt__buf_get8.exit373
+  %906 = icmp slt i32 %.0241546, 9
+  br i1 %906, label %.critedge, label %907
 
-688:                                              ; preds = %686
-  %689 = load float, ptr %4, align 16, !tbaa !3
-  %690 = load float, ptr %15, align 4, !tbaa !3
-  %691 = load float, ptr %16, align 8, !tbaa !3
-  %692 = load float, ptr %17, align 4, !tbaa !3
-  %693 = load float, ptr %18, align 16, !tbaa !3
-  %694 = load float, ptr %19, align 4, !tbaa !3
-  %695 = load float, ptr %20, align 8, !tbaa !3
-  %696 = load float, ptr %21, align 4, !tbaa !3
-  %697 = load float, ptr %22, align 16, !tbaa !3
-  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %689, float noundef %690, float noundef %691, float noundef %692, float noundef %693, float noundef 0.000000e+00)
-  %698 = fadd float %690, %692
-  %699 = fadd float %698, %696
-  %700 = fneg float %699
-  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %694, float noundef 0.000000e+00, float noundef %695, float noundef %696, float noundef %697, float noundef %700)
+907:                                              ; preds = %905
+  %908 = load float, ptr %4, align 16, !tbaa !3
+  %909 = load float, ptr %68, align 4, !tbaa !3
+  %910 = load float, ptr %69, align 8, !tbaa !3
+  %911 = load float, ptr %70, align 4, !tbaa !3
+  %912 = load float, ptr %71, align 16, !tbaa !3
+  %913 = load float, ptr %72, align 4, !tbaa !3
+  %914 = load float, ptr %73, align 8, !tbaa !3
+  %915 = load float, ptr %74, align 4, !tbaa !3
+  %916 = load float, ptr %75, align 16, !tbaa !3
+  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %908, float noundef %909, float noundef %910, float noundef %911, float noundef %912, float noundef 0.000000e+00)
+  %917 = fadd float %909, %911
+  %918 = fadd float %917, %915
+  %919 = fneg float %918
+  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %913, float noundef 0.000000e+00, float noundef %914, float noundef %915, float noundef %916, float noundef %919)
   br label %.thread
 
-701:                                              ; preds = %stbtt__buf_get8.exit328
-  %702 = icmp slt i32 %.0241488, 11
-  br i1 %702, label %.critedge, label %703
+920:                                              ; preds = %stbtt__buf_get8.exit373
+  %921 = icmp slt i32 %.0241546, 11
+  br i1 %921, label %.critedge, label %922
 
-703:                                              ; preds = %701
-  %704 = load float, ptr %4, align 16, !tbaa !3
-  %705 = load float, ptr %15, align 4, !tbaa !3
-  %706 = load float, ptr %16, align 8, !tbaa !3
-  %707 = load float, ptr %17, align 4, !tbaa !3
-  %708 = load float, ptr %18, align 16, !tbaa !3
-  %709 = load float, ptr %19, align 4, !tbaa !3
-  %710 = load float, ptr %20, align 8, !tbaa !3
-  %711 = load float, ptr %21, align 4, !tbaa !3
-  %712 = load float, ptr %22, align 16, !tbaa !3
-  %713 = load float, ptr %23, align 4, !tbaa !3
-  %714 = load float, ptr %24, align 8, !tbaa !3
-  %715 = fadd float %704, %706
-  %716 = fadd float %715, %708
-  %717 = fadd float %716, %710
-  %718 = fadd float %717, %712
-  %719 = fadd float %705, %707
-  %720 = fadd float %719, %709
-  %721 = fadd float %720, %711
-  %722 = fadd float %721, %713
-  %723 = tail call float @llvm.fabs.f32(float %718)
-  %724 = tail call float @llvm.fabs.f32(float %722)
-  %725 = fcmp ogt float %723, %724
-  %726 = fneg float %722
-  %727 = fneg float %718
-  %.0238 = select i1 %725, float %714, float %727
-  %.0237 = select i1 %725, float %726, float %714
-  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %704, float noundef %705, float noundef %706, float noundef %707, float noundef %708, float noundef %709)
-  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %710, float noundef %711, float noundef %712, float noundef %713, float noundef %.0238, float noundef %.0237)
+922:                                              ; preds = %920
+  %923 = load float, ptr %4, align 16, !tbaa !3
+  %924 = load float, ptr %68, align 4, !tbaa !3
+  %925 = load float, ptr %69, align 8, !tbaa !3
+  %926 = load float, ptr %70, align 4, !tbaa !3
+  %927 = load float, ptr %71, align 16, !tbaa !3
+  %928 = load float, ptr %72, align 4, !tbaa !3
+  %929 = load float, ptr %73, align 8, !tbaa !3
+  %930 = load float, ptr %74, align 4, !tbaa !3
+  %931 = load float, ptr %75, align 16, !tbaa !3
+  %932 = load float, ptr %76, align 4, !tbaa !3
+  %933 = load float, ptr %77, align 8, !tbaa !3
+  %934 = fadd float %923, %925
+  %935 = fadd float %934, %927
+  %936 = fadd float %935, %929
+  %937 = fadd float %936, %931
+  %938 = fadd float %924, %926
+  %939 = fadd float %938, %928
+  %940 = fadd float %939, %930
+  %941 = fadd float %940, %932
+  %942 = tail call float @llvm.fabs.f32(float %937)
+  %943 = tail call float @llvm.fabs.f32(float %941)
+  %944 = fcmp ogt float %942, %943
+  %945 = fneg float %941
+  %946 = fneg float %937
+  %.0238 = select i1 %944, float %933, float %946
+  %.0237 = select i1 %944, float %945, float %933
+  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %923, float noundef %924, float noundef %925, float noundef %926, float noundef %927, float noundef %928)
+  tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %929, float noundef %930, float noundef %931, float noundef %932, float noundef %.0238, float noundef %.0237)
   br label %.thread
 
-728:                                              ; preds = %stbtt__buf_get8.exit
-  %729 = icmp ne i8 %44, 28
-  %730 = icmp ult i8 %44, 32
-  %or.cond3 = and i1 %730, %729
-  br i1 %or.cond3, label %.critedge, label %731
+947:                                              ; preds = %stbtt__buf_get8.exit
+  %948 = icmp ne i8 %97, 28
+  %949 = icmp ult i8 %97, 32
+  %or.cond3 = and i1 %949, %948
+  br i1 %or.cond3, label %.critedge, label %950
 
-731:                                              ; preds = %728
-  %732 = icmp eq i8 %44, -1
-  br i1 %732, label %733, label %748
+950:                                              ; preds = %947
+  %951 = icmp eq i8 %97, -1
+  br i1 %951, label %952, label %967
 
-733:                                              ; preds = %731
-  %.sroa.10.12.extract.shift423 = lshr i64 %.sroa.10.0483, 32
-  %.sroa.10.12.extract.trunc424 = trunc nuw i64 %.sroa.10.12.extract.shift423 to i32
-  %.sroa.10.8.extract.trunc377 = trunc i64 %41 to i32
-  br label %734
+952:                                              ; preds = %950
+  %.sroa.10.12.extract.shift466 = lshr i64 %.sroa.10.0541, 32
+  %.sroa.10.12.extract.trunc467 = trunc nuw i64 %.sroa.10.12.extract.shift466 to i32
+  %.sroa.10.8.extract.trunc420 = trunc i64 %94 to i32
+  br label %953
 
-734:                                              ; preds = %stbtt__buf_get8.exit.i331, %733
-  %.sroa.10.5 = phi i64 [ %.sroa.10.8.insert.insert363, %733 ], [ %.sroa.10.6, %stbtt__buf_get8.exit.i331 ]
-  %735 = phi i32 [ %.sroa.10.8.extract.trunc377, %733 ], [ %743, %stbtt__buf_get8.exit.i331 ]
-  %.07.i = phi i32 [ 0, %733 ], [ %745, %stbtt__buf_get8.exit.i331 ]
-  %.056.i = phi i32 [ 0, %733 ], [ %744, %stbtt__buf_get8.exit.i331 ]
-  %736 = shl i32 %.056.i, 8
-  %.not.i.i330 = icmp slt i32 %735, %.sroa.10.12.extract.trunc424
-  br i1 %.not.i.i330, label %737, label %stbtt__buf_get8.exit.i331
+953:                                              ; preds = %stbtt__buf_get8.exit.i376, %952
+  %.sroa.10.5 = phi i64 [ %.sroa.10.8.insert.insert406, %952 ], [ %.sroa.10.6, %stbtt__buf_get8.exit.i376 ]
+  %954 = phi i32 [ %.sroa.10.8.extract.trunc420, %952 ], [ %962, %stbtt__buf_get8.exit.i376 ]
+  %.07.i = phi i32 [ 0, %952 ], [ %964, %stbtt__buf_get8.exit.i376 ]
+  %.056.i = phi i32 [ 0, %952 ], [ %963, %stbtt__buf_get8.exit.i376 ]
+  %955 = shl i32 %.056.i, 8
+  %.not.i.i375 = icmp slt i32 %954, %.sroa.10.12.extract.trunc467
+  br i1 %.not.i.i375, label %956, label %stbtt__buf_get8.exit.i376
 
-737:                                              ; preds = %734
-  %738 = add nsw i32 %735, 1
-  %.sroa.10.8.insert.ext379 = zext i32 %738 to i64
-  %.sroa.10.8.insert.mask380 = and i64 %.sroa.10.5, -4294967296
-  %.sroa.10.8.insert.insert381 = or disjoint i64 %.sroa.10.8.insert.mask380, %.sroa.10.8.insert.ext379
-  %739 = sext i32 %735 to i64
-  %740 = getelementptr inbounds i8, ptr %.sroa.0.0431484, i64 %739
-  %741 = load i8, ptr %740, align 1, !tbaa !9
-  %742 = zext i8 %741 to i32
-  br label %stbtt__buf_get8.exit.i331
+956:                                              ; preds = %953
+  %957 = add nsw i32 %954, 1
+  %.sroa.10.8.insert.ext422 = zext i32 %957 to i64
+  %.sroa.10.8.insert.mask423 = and i64 %.sroa.10.5, -4294967296
+  %.sroa.10.8.insert.insert424 = or disjoint i64 %.sroa.10.8.insert.mask423, %.sroa.10.8.insert.ext422
+  %958 = sext i32 %954 to i64
+  %959 = getelementptr inbounds i8, ptr %.sroa.0.0474542, i64 %958
+  %960 = load i8, ptr %959, align 1, !tbaa !9
+  %961 = zext i8 %960 to i32
+  br label %stbtt__buf_get8.exit.i376
 
-stbtt__buf_get8.exit.i331:                        ; preds = %737, %734
-  %.sroa.10.6 = phi i64 [ %.sroa.10.8.insert.insert381, %737 ], [ %.sroa.10.5, %734 ]
-  %743 = phi i32 [ %738, %737 ], [ %735, %734 ]
-  %.0.i.i = phi i32 [ %742, %737 ], [ 0, %734 ]
-  %744 = or disjoint i32 %.0.i.i, %736
-  %745 = add nuw nsw i32 %.07.i, 1
-  %exitcond.not.i332 = icmp eq i32 %745, 4
-  br i1 %exitcond.not.i332, label %stbtt__buf_get.exit, label %734, !llvm.loop !574
+stbtt__buf_get8.exit.i376:                        ; preds = %956, %953
+  %.sroa.10.6 = phi i64 [ %.sroa.10.8.insert.insert424, %956 ], [ %.sroa.10.5, %953 ]
+  %962 = phi i32 [ %957, %956 ], [ %954, %953 ]
+  %.0.i.i = phi i32 [ %961, %956 ], [ 0, %953 ]
+  %963 = or disjoint i32 %.0.i.i, %955
+  %964 = add nuw nsw i32 %.07.i, 1
+  %exitcond.not.i377 = icmp eq i32 %964, 4
+  br i1 %exitcond.not.i377, label %stbtt__buf_get.exit, label %953, !llvm.loop !574
 
-stbtt__buf_get.exit:                              ; preds = %stbtt__buf_get8.exit.i331
-  %746 = sitofp i32 %744 to float
-  %747 = fmul float %746, 0x3EF0000000000000
-  br label %808
+stbtt__buf_get.exit:                              ; preds = %stbtt__buf_get8.exit.i376
+  %965 = sitofp i32 %963 to float
+  %966 = fmul float %965, 0x3EF0000000000000
+  br label %1026
 
-748:                                              ; preds = %731
-  %.sroa.10.8.extract.trunc383 = trunc i64 %41 to i32
-  %749 = add nsw i32 %.sroa.10.8.extract.trunc383, -1
-  %.sroa.10.12.extract.shift426 = lshr i64 %.sroa.10.0483, 32
-  %.sroa.10.12.extract.trunc427 = trunc nuw i64 %.sroa.10.12.extract.shift426 to i32
-  %750 = icmp slt i32 %.sroa.10.8.extract.trunc383, 1
-  %751 = tail call i32 @llvm.smin.i32(i32 %749, i32 %.sroa.10.12.extract.trunc427)
-  %..i.i334 = select i1 %750, i32 %.sroa.10.12.extract.trunc427, i32 %751
-  %.sroa.10.8.insert.ext385 = zext i32 %..i.i334 to i64
-  %.sroa.10.8.insert.insert387 = or disjoint i64 %.sroa.10.8.insert.mask362, %.sroa.10.8.insert.ext385
-  %.not.i.i335 = icmp slt i32 %..i.i334, %.sroa.10.12.extract.trunc427
-  br i1 %.not.i.i335, label %stbtt__buf_get8.exit.i338, label %stbtt__cff_int.exit
+967:                                              ; preds = %950
+  %.sroa.10.8.extract.trunc426 = trunc i64 %94 to i32
+  %968 = add nsw i32 %.sroa.10.8.extract.trunc426, -1
+  %.sroa.10.12.extract.shift469 = lshr i64 %.sroa.10.0541, 32
+  %.sroa.10.12.extract.trunc470 = trunc nuw i64 %.sroa.10.12.extract.shift469 to i32
+  %969 = icmp slt i32 %.sroa.10.8.extract.trunc426, 1
+  %970 = tail call i32 @llvm.smin.i32(i32 %968, i32 %.sroa.10.12.extract.trunc470)
+  %..i.i379 = select i1 %969, i32 %.sroa.10.12.extract.trunc470, i32 %970
+  %.sroa.10.8.insert.ext428 = zext i32 %..i.i379 to i64
+  %.sroa.10.8.insert.insert430 = or disjoint i64 %.sroa.10.8.insert.mask405, %.sroa.10.8.insert.ext428
+  %.not.i.i380 = icmp slt i32 %..i.i379, %.sroa.10.12.extract.trunc470
+  br i1 %.not.i.i380, label %stbtt__buf_get8.exit.i383, label %stbtt__cff_int.exit
 
-stbtt__buf_get8.exit.i338:                        ; preds = %748
-  %752 = add nsw i32 %..i.i334, 1
-  %.sroa.10.8.insert.ext391 = zext i32 %752 to i64
-  %.sroa.10.8.insert.insert393 = or disjoint i64 %.sroa.10.8.insert.mask362, %.sroa.10.8.insert.ext391
-  %753 = sext i32 %..i.i334 to i64
-  %754 = getelementptr inbounds i8, ptr %.sroa.0.0431484, i64 %753
-  %755 = load i8, ptr %754, align 1, !tbaa !9
-  %756 = zext i8 %755 to i16
-  %757 = add i8 %755, -32
-  %or.cond.i339 = icmp ult i8 %757, -41
-  br i1 %or.cond.i339, label %758, label %760
+stbtt__buf_get8.exit.i383:                        ; preds = %967
+  %971 = add nsw i32 %..i.i379, 1
+  %.sroa.10.8.insert.ext434 = zext i32 %971 to i64
+  %.sroa.10.8.insert.insert436 = or disjoint i64 %.sroa.10.8.insert.mask405, %.sroa.10.8.insert.ext434
+  %972 = sext i32 %..i.i379 to i64
+  %973 = getelementptr inbounds i8, ptr %.sroa.0.0474542, i64 %972
+  %974 = load i8, ptr %973, align 1, !tbaa !9
+  %975 = zext i8 %974 to i16
+  %976 = add i8 %974, -32
+  %or.cond.i384 = icmp ult i8 %976, -41
+  br i1 %or.cond.i384, label %977, label %979
 
-758:                                              ; preds = %stbtt__buf_get8.exit.i338
-  %759 = add nsw i16 %756, -139
+977:                                              ; preds = %stbtt__buf_get8.exit.i383
+  %978 = add nsw i16 %975, -139
   br label %stbtt__cff_int.exit
 
-760:                                              ; preds = %stbtt__buf_get8.exit.i338
-  %761 = add nsw i8 %755, 9
-  %or.cond3.i = icmp samesign ult i8 %761, 4
-  br i1 %or.cond3.i, label %762, label %772
+979:                                              ; preds = %stbtt__buf_get8.exit.i383
+  %980 = add nsw i8 %974, 9
+  %or.cond3.i = icmp samesign ult i8 %980, 4
+  br i1 %or.cond3.i, label %981, label %991
 
-762:                                              ; preds = %760
-  %763 = shl nuw i16 %756, 8
-  %.not.i22.i = icmp slt i32 %752, %.sroa.10.12.extract.trunc427
-  br i1 %.not.i22.i, label %764, label %stbtt__buf_get8.exit24.i
+981:                                              ; preds = %979
+  %982 = shl nuw i16 %975, 8
+  %.not.i22.i = icmp slt i32 %971, %.sroa.10.12.extract.trunc470
+  br i1 %.not.i22.i, label %983, label %stbtt__buf_get8.exit24.i
 
-764:                                              ; preds = %762
-  %765 = add nsw i32 %..i.i334, 2
-  %.sroa.10.8.insert.ext407 = zext i32 %765 to i64
-  %.sroa.10.8.insert.insert409 = or disjoint i64 %.sroa.10.8.insert.mask362, %.sroa.10.8.insert.ext407
-  %766 = sext i32 %752 to i64
-  %767 = getelementptr inbounds i8, ptr %.sroa.0.0431484, i64 %766
-  %768 = load i8, ptr %767, align 1, !tbaa !9
-  %769 = zext i8 %768 to i16
+983:                                              ; preds = %981
+  %984 = add nsw i32 %..i.i379, 2
+  %.sroa.10.8.insert.ext450 = zext i32 %984 to i64
+  %.sroa.10.8.insert.insert452 = or disjoint i64 %.sroa.10.8.insert.mask405, %.sroa.10.8.insert.ext450
+  %985 = sext i32 %971 to i64
+  %986 = getelementptr inbounds i8, ptr %.sroa.0.0474542, i64 %985
+  %987 = load i8, ptr %986, align 1, !tbaa !9
+  %988 = zext i8 %987 to i16
   br label %stbtt__buf_get8.exit24.i
 
-stbtt__buf_get8.exit24.i:                         ; preds = %764, %762
-  %.sroa.10.12 = phi i64 [ %.sroa.10.8.insert.insert409, %764 ], [ %.sroa.10.8.insert.insert393, %762 ]
-  %.0.i23.i = phi i16 [ %769, %764 ], [ 0, %762 ]
-  %770 = add nsw i16 %763, 2412
-  %771 = add nsw i16 %770, %.0.i23.i
+stbtt__buf_get8.exit24.i:                         ; preds = %983, %981
+  %.sroa.10.12 = phi i64 [ %.sroa.10.8.insert.insert452, %983 ], [ %.sroa.10.8.insert.insert436, %981 ]
+  %.0.i23.i = phi i16 [ %988, %983 ], [ 0, %981 ]
+  %989 = add nsw i16 %982, 2412
+  %990 = add nsw i16 %989, %.0.i23.i
   br label %stbtt__cff_int.exit
 
-772:                                              ; preds = %760
-  %773 = add nsw i8 %755, 5
-  %or.cond5.i = icmp samesign ult i8 %773, 4
-  br i1 %or.cond5.i, label %774, label %784
+991:                                              ; preds = %979
+  %992 = add nsw i8 %974, 5
+  %or.cond5.i = icmp samesign ult i8 %992, 4
+  br i1 %or.cond5.i, label %993, label %1003
 
-774:                                              ; preds = %772
-  %.not.i25.i352 = icmp slt i32 %752, %.sroa.10.12.extract.trunc427
-  br i1 %.not.i25.i352, label %775, label %stbtt__buf_get8.exit27.i
+993:                                              ; preds = %991
+  %.not.i25.i395 = icmp slt i32 %971, %.sroa.10.12.extract.trunc470
+  br i1 %.not.i25.i395, label %994, label %stbtt__buf_get8.exit27.i
 
-775:                                              ; preds = %774
-  %776 = add nsw i32 %..i.i334, 2
-  %.sroa.10.8.insert.ext403 = zext i32 %776 to i64
-  %.sroa.10.8.insert.insert405 = or disjoint i64 %.sroa.10.8.insert.mask362, %.sroa.10.8.insert.ext403
-  %777 = sext i32 %752 to i64
-  %778 = getelementptr inbounds i8, ptr %.sroa.0.0431484, i64 %777
-  %779 = load i8, ptr %778, align 1, !tbaa !9
-  %780 = zext i8 %779 to i16
+994:                                              ; preds = %993
+  %995 = add nsw i32 %..i.i379, 2
+  %.sroa.10.8.insert.ext446 = zext i32 %995 to i64
+  %.sroa.10.8.insert.insert448 = or disjoint i64 %.sroa.10.8.insert.mask405, %.sroa.10.8.insert.ext446
+  %996 = sext i32 %971 to i64
+  %997 = getelementptr inbounds i8, ptr %.sroa.0.0474542, i64 %996
+  %998 = load i8, ptr %997, align 1, !tbaa !9
+  %999 = zext i8 %998 to i16
   br label %stbtt__buf_get8.exit27.i
 
-stbtt__buf_get8.exit27.i:                         ; preds = %775, %774
-  %.sroa.10.11 = phi i64 [ %.sroa.10.8.insert.insert405, %775 ], [ %.sroa.10.8.insert.insert393, %774 ]
-  %.0.i26.i = phi i16 [ %780, %775 ], [ 0, %774 ]
-  %781 = shl nuw i16 %756, 8
-  %782 = or disjoint i16 %781, %.0.i26.i
-  %783 = sub nsw i16 -1388, %782
+stbtt__buf_get8.exit27.i:                         ; preds = %994, %993
+  %.sroa.10.11 = phi i64 [ %.sroa.10.8.insert.insert448, %994 ], [ %.sroa.10.8.insert.insert436, %993 ]
+  %.0.i26.i = phi i16 [ %999, %994 ], [ 0, %993 ]
+  %1000 = shl nuw i16 %975, 8
+  %1001 = or disjoint i16 %1000, %.0.i26.i
+  %1002 = sub nsw i16 -1388, %1001
   br label %stbtt__cff_int.exit
 
-784:                                              ; preds = %772
-  switch i8 %755, label %stbtt__cff_int.exit [
+1003:                                             ; preds = %991
+  switch i8 %974, label %stbtt__cff_int.exit [
     i8 28, label %.preheader
-    i8 29, label %.preheader454
+    i8 29, label %.preheader498
   ]
 
-.preheader:                                       ; preds = %784, %stbtt__buf_get8.exit.i.i349
-  %.sroa.10.9 = phi i64 [ %.sroa.10.10, %stbtt__buf_get8.exit.i.i349 ], [ %.sroa.10.8.insert.insert393, %784 ]
-  %785 = phi i32 [ %793, %stbtt__buf_get8.exit.i.i349 ], [ %752, %784 ]
-  %.07.i.i346 = phi i32 [ %795, %stbtt__buf_get8.exit.i.i349 ], [ 0, %784 ]
-  %.056.i.i347 = phi i16 [ %794, %stbtt__buf_get8.exit.i.i349 ], [ 0, %784 ]
-  %786 = shl i16 %.056.i.i347, 8
-  %.not.i.i.i348 = icmp slt i32 %785, %.sroa.10.12.extract.trunc427
-  br i1 %.not.i.i.i348, label %787, label %stbtt__buf_get8.exit.i.i349
+.preheader:                                       ; preds = %1003, %stbtt__buf_get8.exit.i.i393
+  %.sroa.10.9 = phi i64 [ %.sroa.10.10, %stbtt__buf_get8.exit.i.i393 ], [ %.sroa.10.8.insert.insert436, %1003 ]
+  %1004 = phi i32 [ %1012, %stbtt__buf_get8.exit.i.i393 ], [ %971, %1003 ]
+  %exitcond.not.i.i390 = phi i1 [ true, %stbtt__buf_get8.exit.i.i393 ], [ false, %1003 ]
+  %.056.i.i391 = phi i16 [ %1013, %stbtt__buf_get8.exit.i.i393 ], [ 0, %1003 ]
+  %1005 = shl i16 %.056.i.i391, 8
+  %.not.i.i.i392 = icmp slt i32 %1004, %.sroa.10.12.extract.trunc470
+  br i1 %.not.i.i.i392, label %1006, label %stbtt__buf_get8.exit.i.i393
 
-787:                                              ; preds = %.preheader
-  %788 = add nsw i32 %785, 1
-  %.sroa.10.8.insert.ext399 = zext i32 %788 to i64
-  %.sroa.10.8.insert.mask400 = and i64 %.sroa.10.9, -4294967296
-  %.sroa.10.8.insert.insert401 = or disjoint i64 %.sroa.10.8.insert.mask400, %.sroa.10.8.insert.ext399
-  %789 = sext i32 %785 to i64
-  %790 = getelementptr inbounds i8, ptr %.sroa.0.0431484, i64 %789
-  %791 = load i8, ptr %790, align 1, !tbaa !9
-  %792 = zext i8 %791 to i16
-  br label %stbtt__buf_get8.exit.i.i349
+1006:                                             ; preds = %.preheader
+  %1007 = add nsw i32 %1004, 1
+  %.sroa.10.8.insert.ext442 = zext i32 %1007 to i64
+  %.sroa.10.8.insert.mask443 = and i64 %.sroa.10.9, -4294967296
+  %.sroa.10.8.insert.insert444 = or disjoint i64 %.sroa.10.8.insert.mask443, %.sroa.10.8.insert.ext442
+  %1008 = sext i32 %1004 to i64
+  %1009 = getelementptr inbounds i8, ptr %.sroa.0.0474542, i64 %1008
+  %1010 = load i8, ptr %1009, align 1, !tbaa !9
+  %1011 = zext i8 %1010 to i16
+  br label %stbtt__buf_get8.exit.i.i393
 
-stbtt__buf_get8.exit.i.i349:                      ; preds = %787, %.preheader
-  %.sroa.10.10 = phi i64 [ %.sroa.10.8.insert.insert401, %787 ], [ %.sroa.10.9, %.preheader ]
-  %793 = phi i32 [ %788, %787 ], [ %785, %.preheader ]
-  %.0.i.i.i350 = phi i16 [ %792, %787 ], [ 0, %.preheader ]
-  %794 = or disjoint i16 %.0.i.i.i350, %786
-  %795 = add nuw nsw i32 %.07.i.i346, 1
-  %exitcond.not.i.i351 = icmp eq i32 %795, 2
-  br i1 %exitcond.not.i.i351, label %stbtt__cff_int.exit, label %.preheader, !llvm.loop !574
+stbtt__buf_get8.exit.i.i393:                      ; preds = %1006, %.preheader
+  %.sroa.10.10 = phi i64 [ %.sroa.10.8.insert.insert444, %1006 ], [ %.sroa.10.9, %.preheader ]
+  %1012 = phi i32 [ %1007, %1006 ], [ %1004, %.preheader ]
+  %.0.i.i.i394 = phi i16 [ %1011, %1006 ], [ 0, %.preheader ]
+  %1013 = or disjoint i16 %.0.i.i.i394, %1005
+  br i1 %exitcond.not.i.i390, label %stbtt__cff_int.exit, label %.preheader, !llvm.loop !574
 
-.preheader454:                                    ; preds = %784, %stbtt__buf_get8.exit.i32.i343
-  %.sroa.10.7 = phi i64 [ %.sroa.10.8, %stbtt__buf_get8.exit.i32.i343 ], [ %.sroa.10.8.insert.insert393, %784 ]
-  %796 = phi i32 [ %804, %stbtt__buf_get8.exit.i32.i343 ], [ %752, %784 ]
-  %.07.i29.i340 = phi i32 [ %806, %stbtt__buf_get8.exit.i32.i343 ], [ 0, %784 ]
-  %.056.i30.i341 = phi i16 [ %805, %stbtt__buf_get8.exit.i32.i343 ], [ 0, %784 ]
-  %797 = shl i16 %.056.i30.i341, 8
-  %.not.i.i31.i342 = icmp slt i32 %796, %.sroa.10.12.extract.trunc427
-  br i1 %.not.i.i31.i342, label %798, label %stbtt__buf_get8.exit.i32.i343
+.preheader498:                                    ; preds = %1003, %stbtt__buf_get8.exit.i32.i387
+  %.sroa.10.7 = phi i64 [ %.sroa.10.8, %stbtt__buf_get8.exit.i32.i387 ], [ %.sroa.10.8.insert.insert436, %1003 ]
+  %1014 = phi i32 [ %1022, %stbtt__buf_get8.exit.i32.i387 ], [ %971, %1003 ]
+  %.07.i29.i = phi i32 [ %1024, %stbtt__buf_get8.exit.i32.i387 ], [ 0, %1003 ]
+  %.056.i30.i385 = phi i16 [ %1023, %stbtt__buf_get8.exit.i32.i387 ], [ 0, %1003 ]
+  %1015 = shl i16 %.056.i30.i385, 8
+  %.not.i.i31.i386 = icmp slt i32 %1014, %.sroa.10.12.extract.trunc470
+  br i1 %.not.i.i31.i386, label %1016, label %stbtt__buf_get8.exit.i32.i387
 
-798:                                              ; preds = %.preheader454
-  %799 = add nsw i32 %796, 1
-  %.sroa.10.8.insert.ext395 = zext i32 %799 to i64
-  %.sroa.10.8.insert.mask396 = and i64 %.sroa.10.7, -4294967296
-  %.sroa.10.8.insert.insert397 = or disjoint i64 %.sroa.10.8.insert.mask396, %.sroa.10.8.insert.ext395
-  %800 = sext i32 %796 to i64
-  %801 = getelementptr inbounds i8, ptr %.sroa.0.0431484, i64 %800
-  %802 = load i8, ptr %801, align 1, !tbaa !9
-  %803 = zext i8 %802 to i16
-  br label %stbtt__buf_get8.exit.i32.i343
+1016:                                             ; preds = %.preheader498
+  %1017 = add nsw i32 %1014, 1
+  %.sroa.10.8.insert.ext438 = zext i32 %1017 to i64
+  %.sroa.10.8.insert.mask439 = and i64 %.sroa.10.7, -4294967296
+  %.sroa.10.8.insert.insert440 = or disjoint i64 %.sroa.10.8.insert.mask439, %.sroa.10.8.insert.ext438
+  %1018 = sext i32 %1014 to i64
+  %1019 = getelementptr inbounds i8, ptr %.sroa.0.0474542, i64 %1018
+  %1020 = load i8, ptr %1019, align 1, !tbaa !9
+  %1021 = zext i8 %1020 to i16
+  br label %stbtt__buf_get8.exit.i32.i387
 
-stbtt__buf_get8.exit.i32.i343:                    ; preds = %798, %.preheader454
-  %.sroa.10.8 = phi i64 [ %.sroa.10.8.insert.insert397, %798 ], [ %.sroa.10.7, %.preheader454 ]
-  %804 = phi i32 [ %799, %798 ], [ %796, %.preheader454 ]
-  %.0.i.i33.i344 = phi i16 [ %803, %798 ], [ 0, %.preheader454 ]
-  %805 = or disjoint i16 %.0.i.i33.i344, %797
-  %806 = add nuw nsw i32 %.07.i29.i340, 1
-  %exitcond.not.i34.i345 = icmp eq i32 %806, 4
-  br i1 %exitcond.not.i34.i345, label %stbtt__cff_int.exit, label %.preheader454, !llvm.loop !574
+stbtt__buf_get8.exit.i32.i387:                    ; preds = %1016, %.preheader498
+  %.sroa.10.8 = phi i64 [ %.sroa.10.8.insert.insert440, %1016 ], [ %.sroa.10.7, %.preheader498 ]
+  %1022 = phi i32 [ %1017, %1016 ], [ %1014, %.preheader498 ]
+  %.0.i.i33.i388 = phi i16 [ %1021, %1016 ], [ 0, %.preheader498 ]
+  %1023 = or disjoint i16 %.0.i.i33.i388, %1015
+  %1024 = add nuw nsw i32 %.07.i29.i, 1
+  %exitcond.not.i34.i389 = icmp eq i32 %1024, 4
+  br i1 %exitcond.not.i34.i389, label %stbtt__cff_int.exit, label %.preheader498, !llvm.loop !574
 
-stbtt__cff_int.exit:                              ; preds = %stbtt__buf_get8.exit.i32.i343, %stbtt__buf_get8.exit.i.i349, %748, %758, %stbtt__buf_get8.exit24.i, %stbtt__buf_get8.exit27.i, %784
-  %.sroa.10.13 = phi i64 [ %.sroa.10.8.insert.insert393, %758 ], [ %.sroa.10.12, %stbtt__buf_get8.exit24.i ], [ %.sroa.10.11, %stbtt__buf_get8.exit27.i ], [ %.sroa.10.8.insert.insert393, %784 ], [ %.sroa.10.8.insert.insert387, %748 ], [ %.sroa.10.10, %stbtt__buf_get8.exit.i.i349 ], [ %.sroa.10.8, %stbtt__buf_get8.exit.i32.i343 ]
-  %.0.i337 = phi i16 [ %759, %758 ], [ %771, %stbtt__buf_get8.exit24.i ], [ %783, %stbtt__buf_get8.exit27.i ], [ 0, %784 ], [ 0, %748 ], [ %794, %stbtt__buf_get8.exit.i.i349 ], [ %805, %stbtt__buf_get8.exit.i32.i343 ]
-  %807 = sitofp i16 %.0.i337 to float
-  br label %808
+stbtt__cff_int.exit:                              ; preds = %stbtt__buf_get8.exit.i32.i387, %stbtt__buf_get8.exit.i.i393, %967, %977, %stbtt__buf_get8.exit24.i, %stbtt__buf_get8.exit27.i, %1003
+  %.sroa.10.13 = phi i64 [ %.sroa.10.8.insert.insert436, %977 ], [ %.sroa.10.12, %stbtt__buf_get8.exit24.i ], [ %.sroa.10.11, %stbtt__buf_get8.exit27.i ], [ %.sroa.10.8.insert.insert436, %1003 ], [ %.sroa.10.8.insert.insert430, %967 ], [ %.sroa.10.10, %stbtt__buf_get8.exit.i.i393 ], [ %.sroa.10.8, %stbtt__buf_get8.exit.i32.i387 ]
+  %.0.i382 = phi i16 [ %978, %977 ], [ %990, %stbtt__buf_get8.exit24.i ], [ %1002, %stbtt__buf_get8.exit27.i ], [ 0, %1003 ], [ 0, %967 ], [ %1013, %stbtt__buf_get8.exit.i.i393 ], [ %1023, %stbtt__buf_get8.exit.i32.i387 ]
+  %1025 = sitofp i16 %.0.i382 to float
+  br label %1026
 
-808:                                              ; preds = %stbtt__cff_int.exit, %stbtt__buf_get.exit
+1026:                                             ; preds = %stbtt__cff_int.exit, %stbtt__buf_get.exit
   %.sroa.10.2 = phi i64 [ %.sroa.10.6, %stbtt__buf_get.exit ], [ %.sroa.10.13, %stbtt__cff_int.exit ]
-  %.2255 = phi float [ %747, %stbtt__buf_get.exit ], [ %807, %stbtt__cff_int.exit ]
-  %809 = icmp sgt i32 %.0241488, 47
-  br i1 %809, label %.critedge, label %810
+  %.2255 = phi float [ %966, %stbtt__buf_get.exit ], [ %1025, %stbtt__cff_int.exit ]
+  %1027 = icmp sgt i32 %.0241546, 47
+  br i1 %1027, label %.critedge, label %1028
 
-810:                                              ; preds = %808
-  %811 = add nsw i32 %.0241488, 1
-  %812 = sext i32 %.0241488 to i64
-  %813 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %812
-  store float %.2255, ptr %813, align 4, !tbaa !3
+1028:                                             ; preds = %1026
+  %1029 = add nsw i32 %.0241546, 1
+  %1030 = sext i32 %.0241546 to i64
+  %1031 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %1030
+  store float %.2255, ptr %1031, align 4, !tbaa !3
   br label %.thread
 
-.thread:                                          ; preds = %490, %.preheader457, %stbtt__csctx_rline_to.exit, %467, %703, %688, %673, %662, %443, %stbtt__csctx_rline_to.exit302, %242, %267, %140, %189, %78, %71, %60, %55, %49, %810, %604, %600
-  %.1233451 = phi i32 [ %.0232493, %810 ], [ %.0232493, %600 ], [ %.0232493, %604 ], [ %.0232493, %703 ], [ %.0232493, %688 ], [ %.0232493, %673 ], [ %.0232493, %662 ], [ %.0232493, %443 ], [ %.0232493, %stbtt__csctx_rline_to.exit302 ], [ %.0232493, %242 ], [ %.0232493, %267 ], [ %.0232493, %140 ], [ %.0232493, %189 ], [ 0, %78 ], [ 0, %71 ], [ 0, %60 ], [ %.0232493, %55 ], [ 0, %49 ], [ %.0232493, %467 ], [ %.0232493, %stbtt__csctx_rline_to.exit ], [ %.0232493, %.preheader457 ], [ %.0232493, %490 ]
-  %.2236450 = phi i32 [ %.0234492, %810 ], [ %.0234492, %600 ], [ %.0234492, %604 ], [ %.0234492, %703 ], [ %.0234492, %688 ], [ %.0234492, %673 ], [ %.0234492, %662 ], [ %.0234492, %443 ], [ %.0234492, %stbtt__csctx_rline_to.exit302 ], [ %.0234492, %242 ], [ %.0234492, %267 ], [ %.0234492, %140 ], [ %.0234492, %189 ], [ %.0234492, %78 ], [ %.0234492, %71 ], [ %.0234492, %60 ], [ %57, %55 ], [ %.1235, %49 ], [ %.0234492, %467 ], [ %.0234492, %stbtt__csctx_rline_to.exit ], [ %.0234492, %.preheader457 ], [ %.0234492, %490 ]
-  %.1240449 = phi i32 [ %.0239491, %810 ], [ %573, %600 ], [ %605, %604 ], [ %.0239491, %703 ], [ %.0239491, %688 ], [ %.0239491, %673 ], [ %.0239491, %662 ], [ %.0239491, %443 ], [ %.0239491, %stbtt__csctx_rline_to.exit302 ], [ %.0239491, %242 ], [ %.0239491, %267 ], [ %.0239491, %140 ], [ %.0239491, %189 ], [ %.0239491, %78 ], [ %.0239491, %71 ], [ %.0239491, %60 ], [ %.0239491, %55 ], [ %.0239491, %49 ], [ %.0239491, %467 ], [ %.0239491, %stbtt__csctx_rline_to.exit ], [ %.0239491, %.preheader457 ], [ %.0239491, %490 ]
-  %.2250448 = phi i32 [ %.0248487, %810 ], [ %.1249, %600 ], [ %.0248487, %604 ], [ %.0248487, %703 ], [ %.0248487, %688 ], [ %.0248487, %673 ], [ %.0248487, %662 ], [ %.0248487, %443 ], [ %.0248487, %stbtt__csctx_rline_to.exit302 ], [ %.0248487, %242 ], [ %.0248487, %267 ], [ %.0248487, %140 ], [ %.0248487, %189 ], [ %.0248487, %78 ], [ %.0248487, %71 ], [ %.0248487, %60 ], [ %.0248487, %55 ], [ %.0248487, %49 ], [ %.0248487, %467 ], [ %.0248487, %stbtt__csctx_rline_to.exit ], [ %.0248487, %.preheader457 ], [ %.0248487, %490 ]
-  %.sroa.5.2447 = phi i64 [ %.sroa.5.0486, %810 ], [ %.sroa.5.1, %600 ], [ %.sroa.5.0486, %604 ], [ %.sroa.5.0486, %703 ], [ %.sroa.5.0486, %688 ], [ %.sroa.5.0486, %673 ], [ %.sroa.5.0486, %662 ], [ %.sroa.5.0486, %443 ], [ %.sroa.5.0486, %stbtt__csctx_rline_to.exit302 ], [ %.sroa.5.0486, %242 ], [ %.sroa.5.0486, %267 ], [ %.sroa.5.0486, %140 ], [ %.sroa.5.0486, %189 ], [ %.sroa.5.0486, %78 ], [ %.sroa.5.0486, %71 ], [ %.sroa.5.0486, %60 ], [ %.sroa.5.0486, %55 ], [ %.sroa.5.0486, %49 ], [ %.sroa.5.0486, %467 ], [ %.sroa.5.0486, %stbtt__csctx_rline_to.exit ], [ %.sroa.5.0486, %.preheader457 ], [ %.sroa.5.0486, %490 ]
-  %.sroa.073.2446 = phi ptr [ %.sroa.073.0485, %810 ], [ %.sroa.073.1, %600 ], [ %.sroa.073.0485, %604 ], [ %.sroa.073.0485, %703 ], [ %.sroa.073.0485, %688 ], [ %.sroa.073.0485, %673 ], [ %.sroa.073.0485, %662 ], [ %.sroa.073.0485, %443 ], [ %.sroa.073.0485, %stbtt__csctx_rline_to.exit302 ], [ %.sroa.073.0485, %242 ], [ %.sroa.073.0485, %267 ], [ %.sroa.073.0485, %140 ], [ %.sroa.073.0485, %189 ], [ %.sroa.073.0485, %78 ], [ %.sroa.073.0485, %71 ], [ %.sroa.073.0485, %60 ], [ %.sroa.073.0485, %55 ], [ %.sroa.073.0485, %49 ], [ %.sroa.073.0485, %467 ], [ %.sroa.073.0485, %stbtt__csctx_rline_to.exit ], [ %.sroa.073.0485, %.preheader457 ], [ %.sroa.073.0485, %490 ]
-  %.sroa.0.1445 = phi ptr [ %.sroa.0.0431484, %810 ], [ %601, %600 ], [ %.sroa.0.0.copyload356, %604 ], [ %.sroa.0.0431484, %703 ], [ %.sroa.0.0431484, %688 ], [ %.sroa.0.0431484, %673 ], [ %.sroa.0.0431484, %662 ], [ %.sroa.0.0431484, %443 ], [ %.sroa.0.0431484, %stbtt__csctx_rline_to.exit302 ], [ %.sroa.0.0431484, %242 ], [ %.sroa.0.0431484, %267 ], [ %.sroa.0.0431484, %140 ], [ %.sroa.0.0431484, %189 ], [ %.sroa.0.0431484, %78 ], [ %.sroa.0.0431484, %71 ], [ %.sroa.0.0431484, %60 ], [ %.sroa.0.0431484, %55 ], [ %.sroa.0.0431484, %49 ], [ %.sroa.0.0431484, %467 ], [ %.sroa.0.0431484, %stbtt__csctx_rline_to.exit ], [ %.sroa.0.0431484, %.preheader457 ], [ %.sroa.0.0431484, %490 ]
-  %.sroa.10.1444 = phi i64 [ %.sroa.10.2, %810 ], [ %.sroa.10.8.insert.mask, %600 ], [ %.sroa.10.0.copyload358, %604 ], [ %.sroa.10.8.insert.insert375, %703 ], [ %.sroa.10.8.insert.insert375, %688 ], [ %.sroa.10.8.insert.insert375, %673 ], [ %.sroa.10.8.insert.insert375, %662 ], [ %.sroa.10.8.insert.insert363, %443 ], [ %.sroa.10.8.insert.insert363, %stbtt__csctx_rline_to.exit302 ], [ %.sroa.10.8.insert.insert363, %242 ], [ %.sroa.10.8.insert.insert363, %267 ], [ %.sroa.10.8.insert.insert363, %140 ], [ %.sroa.10.8.insert.insert363, %189 ], [ %.sroa.10.8.insert.insert363, %78 ], [ %.sroa.10.8.insert.insert363, %71 ], [ %.sroa.10.8.insert.insert363, %60 ], [ %.sroa.10.8.insert.insert363, %55 ], [ %.sroa.10.8.insert.insert369, %49 ], [ %.sroa.10.8.insert.insert363, %467 ], [ %.sroa.10.8.insert.insert363, %stbtt__csctx_rline_to.exit ], [ %.sroa.10.8.insert.insert363, %.preheader457 ], [ %.sroa.10.8.insert.insert363, %490 ]
-  %814 = phi i32 [ %811, %810 ], [ %566, %600 ], [ %.0241488, %604 ], [ 0, %703 ], [ 0, %688 ], [ 0, %673 ], [ 0, %662 ], [ 0, %443 ], [ 0, %stbtt__csctx_rline_to.exit302 ], [ 0, %242 ], [ 0, %267 ], [ 0, %140 ], [ 0, %189 ], [ 0, %78 ], [ 0, %71 ], [ 0, %60 ], [ 0, %55 ], [ 0, %49 ], [ 0, %467 ], [ 0, %stbtt__csctx_rline_to.exit ], [ 0, %.preheader457 ], [ 0, %490 ]
-  %.sroa.10.8.extract.trunc = trunc i64 %.sroa.10.1444 to i32
-  %.sroa.10.12.extract.shift411 = lshr i64 %.sroa.10.1444, 32
-  %.sroa.10.12.extract.trunc412 = trunc nuw i64 %.sroa.10.12.extract.shift411 to i32
-  %815 = icmp slt i32 %.sroa.10.8.extract.trunc, %.sroa.10.12.extract.trunc412
-  br i1 %815, label %stbtt__buf_get8.exit, label %.critedge, !llvm.loop !1281
+.thread:                                          ; preds = %545, %.preheader501, %stbtt__csctx_rline_to.exit, %522, %922, %907, %892, %881, %498, %stbtt__csctx_rline_to.exit304, %295, %320, %193, %242, %131, %124, %113, %108, %102, %1028, %823, %819
+  %.1233494 = phi i32 [ %.0232551, %1028 ], [ %.0232551, %819 ], [ %.0232551, %823 ], [ %.0232551, %922 ], [ %.0232551, %907 ], [ %.0232551, %892 ], [ %.0232551, %881 ], [ %.0232551, %498 ], [ %.0232551, %stbtt__csctx_rline_to.exit304 ], [ %.0232551, %295 ], [ %.0232551, %320 ], [ %.0232551, %193 ], [ %.0232551, %242 ], [ 0, %131 ], [ 0, %124 ], [ 0, %113 ], [ %.0232551, %108 ], [ 0, %102 ], [ %.0232551, %522 ], [ %.0232551, %stbtt__csctx_rline_to.exit ], [ %.0232551, %.preheader501 ], [ %.0232551, %545 ]
+  %.2236493 = phi i32 [ %.0234550, %1028 ], [ %.0234550, %819 ], [ %.0234550, %823 ], [ %.0234550, %922 ], [ %.0234550, %907 ], [ %.0234550, %892 ], [ %.0234550, %881 ], [ %.0234550, %498 ], [ %.0234550, %stbtt__csctx_rline_to.exit304 ], [ %.0234550, %295 ], [ %.0234550, %320 ], [ %.0234550, %193 ], [ %.0234550, %242 ], [ %.0234550, %131 ], [ %.0234550, %124 ], [ %.0234550, %113 ], [ %110, %108 ], [ %.1235, %102 ], [ %.0234550, %522 ], [ %.0234550, %stbtt__csctx_rline_to.exit ], [ %.0234550, %.preheader501 ], [ %.0234550, %545 ]
+  %.1240492 = phi i32 [ %.0239549, %1028 ], [ %739, %819 ], [ %824, %823 ], [ %.0239549, %922 ], [ %.0239549, %907 ], [ %.0239549, %892 ], [ %.0239549, %881 ], [ %.0239549, %498 ], [ %.0239549, %stbtt__csctx_rline_to.exit304 ], [ %.0239549, %295 ], [ %.0239549, %320 ], [ %.0239549, %193 ], [ %.0239549, %242 ], [ %.0239549, %131 ], [ %.0239549, %124 ], [ %.0239549, %113 ], [ %.0239549, %108 ], [ %.0239549, %102 ], [ %.0239549, %522 ], [ %.0239549, %stbtt__csctx_rline_to.exit ], [ %.0239549, %.preheader501 ], [ %.0239549, %545 ]
+  %.2250491 = phi i32 [ %.0248545, %1028 ], [ %.1249, %819 ], [ %.0248545, %823 ], [ %.0248545, %922 ], [ %.0248545, %907 ], [ %.0248545, %892 ], [ %.0248545, %881 ], [ %.0248545, %498 ], [ %.0248545, %stbtt__csctx_rline_to.exit304 ], [ %.0248545, %295 ], [ %.0248545, %320 ], [ %.0248545, %193 ], [ %.0248545, %242 ], [ %.0248545, %131 ], [ %.0248545, %124 ], [ %.0248545, %113 ], [ %.0248545, %108 ], [ %.0248545, %102 ], [ %.0248545, %522 ], [ %.0248545, %stbtt__csctx_rline_to.exit ], [ %.0248545, %.preheader501 ], [ %.0248545, %545 ]
+  %.sroa.5.2490 = phi i64 [ %.sroa.5.0544, %1028 ], [ %.sroa.5.1, %819 ], [ %.sroa.5.0544, %823 ], [ %.sroa.5.0544, %922 ], [ %.sroa.5.0544, %907 ], [ %.sroa.5.0544, %892 ], [ %.sroa.5.0544, %881 ], [ %.sroa.5.0544, %498 ], [ %.sroa.5.0544, %stbtt__csctx_rline_to.exit304 ], [ %.sroa.5.0544, %295 ], [ %.sroa.5.0544, %320 ], [ %.sroa.5.0544, %193 ], [ %.sroa.5.0544, %242 ], [ %.sroa.5.0544, %131 ], [ %.sroa.5.0544, %124 ], [ %.sroa.5.0544, %113 ], [ %.sroa.5.0544, %108 ], [ %.sroa.5.0544, %102 ], [ %.sroa.5.0544, %522 ], [ %.sroa.5.0544, %stbtt__csctx_rline_to.exit ], [ %.sroa.5.0544, %.preheader501 ], [ %.sroa.5.0544, %545 ]
+  %.sroa.073.2489 = phi ptr [ %.sroa.073.0543, %1028 ], [ %.sroa.073.1, %819 ], [ %.sroa.073.0543, %823 ], [ %.sroa.073.0543, %922 ], [ %.sroa.073.0543, %907 ], [ %.sroa.073.0543, %892 ], [ %.sroa.073.0543, %881 ], [ %.sroa.073.0543, %498 ], [ %.sroa.073.0543, %stbtt__csctx_rline_to.exit304 ], [ %.sroa.073.0543, %295 ], [ %.sroa.073.0543, %320 ], [ %.sroa.073.0543, %193 ], [ %.sroa.073.0543, %242 ], [ %.sroa.073.0543, %131 ], [ %.sroa.073.0543, %124 ], [ %.sroa.073.0543, %113 ], [ %.sroa.073.0543, %108 ], [ %.sroa.073.0543, %102 ], [ %.sroa.073.0543, %522 ], [ %.sroa.073.0543, %stbtt__csctx_rline_to.exit ], [ %.sroa.073.0543, %.preheader501 ], [ %.sroa.073.0543, %545 ]
+  %.sroa.0.1488 = phi ptr [ %.sroa.0.0474542, %1028 ], [ %820, %819 ], [ %.sroa.0.0.copyload399, %823 ], [ %.sroa.0.0474542, %922 ], [ %.sroa.0.0474542, %907 ], [ %.sroa.0.0474542, %892 ], [ %.sroa.0.0474542, %881 ], [ %.sroa.0.0474542, %498 ], [ %.sroa.0.0474542, %stbtt__csctx_rline_to.exit304 ], [ %.sroa.0.0474542, %295 ], [ %.sroa.0.0474542, %320 ], [ %.sroa.0.0474542, %193 ], [ %.sroa.0.0474542, %242 ], [ %.sroa.0.0474542, %131 ], [ %.sroa.0.0474542, %124 ], [ %.sroa.0.0474542, %113 ], [ %.sroa.0.0474542, %108 ], [ %.sroa.0.0474542, %102 ], [ %.sroa.0.0474542, %522 ], [ %.sroa.0.0474542, %stbtt__csctx_rline_to.exit ], [ %.sroa.0.0474542, %.preheader501 ], [ %.sroa.0.0474542, %545 ]
+  %.sroa.10.1487 = phi i64 [ %.sroa.10.2, %1028 ], [ %.sroa.10.8.insert.mask, %819 ], [ %.sroa.10.0.copyload401, %823 ], [ %.sroa.10.8.insert.insert418, %922 ], [ %.sroa.10.8.insert.insert418, %907 ], [ %.sroa.10.8.insert.insert418, %892 ], [ %.sroa.10.8.insert.insert418, %881 ], [ %.sroa.10.8.insert.insert406, %498 ], [ %.sroa.10.8.insert.insert406, %stbtt__csctx_rline_to.exit304 ], [ %.sroa.10.8.insert.insert406, %295 ], [ %.sroa.10.8.insert.insert406, %320 ], [ %.sroa.10.8.insert.insert406, %193 ], [ %.sroa.10.8.insert.insert406, %242 ], [ %.sroa.10.8.insert.insert406, %131 ], [ %.sroa.10.8.insert.insert406, %124 ], [ %.sroa.10.8.insert.insert406, %113 ], [ %.sroa.10.8.insert.insert406, %108 ], [ %.sroa.10.8.insert.insert412, %102 ], [ %.sroa.10.8.insert.insert406, %522 ], [ %.sroa.10.8.insert.insert406, %stbtt__csctx_rline_to.exit ], [ %.sroa.10.8.insert.insert406, %.preheader501 ], [ %.sroa.10.8.insert.insert406, %545 ]
+  %1032 = phi i32 [ %1029, %1028 ], [ %732, %819 ], [ %.0241546, %823 ], [ 0, %922 ], [ 0, %907 ], [ 0, %892 ], [ 0, %881 ], [ 0, %498 ], [ 0, %stbtt__csctx_rline_to.exit304 ], [ 0, %295 ], [ 0, %320 ], [ 0, %193 ], [ 0, %242 ], [ 0, %131 ], [ 0, %124 ], [ 0, %113 ], [ 0, %108 ], [ 0, %102 ], [ 0, %522 ], [ 0, %stbtt__csctx_rline_to.exit ], [ 0, %.preheader501 ], [ 0, %545 ]
+  %.sroa.10.8.extract.trunc = trunc i64 %.sroa.10.1487 to i32
+  %.sroa.10.12.extract.shift454 = lshr i64 %.sroa.10.1487, 32
+  %.sroa.10.12.extract.trunc455 = trunc nuw i64 %.sroa.10.12.extract.shift454 to i32
+  %1033 = icmp slt i32 %.sroa.10.8.extract.trunc, %.sroa.10.12.extract.trunc455
+  br i1 %1033, label %stbtt__buf_get8.exit, label %.critedge, !llvm.loop !1281
 
-.critedge:                                        ; preds = %58, %69, %76, %83, %136, %138, %238, %240, %292, %314, %._crit_edge476, %387, %._crit_edge, %465, %563, %565, %stbtt__get_subr.exit, %602, %728, %808, %.thread, %stbtt__buf_get8.exit328, %701, %686, %671, %660, %655, %3, %stbtt__csctx_v.exit.i, %613
-  %.2 = phi i32 [ 1, %613 ], [ 1, %stbtt__csctx_v.exit.i ], [ 0, %3 ], [ 0, %655 ], [ 0, %660 ], [ 0, %671 ], [ 0, %686 ], [ 0, %701 ], [ 0, %stbtt__buf_get8.exit328 ], [ 0, %.thread ], [ 0, %808 ], [ 0, %728 ], [ 0, %602 ], [ 0, %stbtt__get_subr.exit ], [ 0, %565 ], [ 0, %563 ], [ 0, %465 ], [ 0, %._crit_edge ], [ 0, %387 ], [ 0, %._crit_edge476 ], [ 0, %314 ], [ 0, %292 ], [ 0, %240 ], [ 0, %238 ], [ 0, %138 ], [ 0, %136 ], [ 0, %83 ], [ 0, %76 ], [ 0, %69 ], [ 0, %58 ]
+.critedge:                                        ; preds = %111, %122, %129, %136, %189, %191, %291, %293, %345, %367, %._crit_edge534, %442, %._crit_edge, %520, %729, %731, %stbtt__get_subr.exit, %821, %947, %1026, %.thread, %stbtt__buf_get8.exit373, %920, %905, %890, %879, %874, %60, %stbtt__buf_get.exit28.i, %stbtt__csctx_v.exit.i, %832
+  %.2 = phi i32 [ 1, %832 ], [ 1, %stbtt__csctx_v.exit.i ], [ 0, %stbtt__buf_get.exit28.i ], [ 0, %60 ], [ 0, %874 ], [ 0, %879 ], [ 0, %890 ], [ 0, %905 ], [ 0, %920 ], [ 0, %stbtt__buf_get8.exit373 ], [ 0, %.thread ], [ 0, %1026 ], [ 0, %947 ], [ 0, %821 ], [ 0, %stbtt__get_subr.exit ], [ 0, %731 ], [ 0, %729 ], [ 0, %520 ], [ 0, %._crit_edge ], [ 0, %442 ], [ 0, %._crit_edge534 ], [ 0, %367 ], [ 0, %345 ], [ 0, %293 ], [ 0, %291 ], [ 0, %191 ], [ 0, %189 ], [ 0, %136 ], [ 0, %129 ], [ 0, %122 ], [ 0, %111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2
-}
-
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc { ptr, i64 } @stbtt__cff_index_get(ptr %0, i64 %1, i32 noundef %2) unnamed_addr #6 {
-  %.sroa.18.8.extract.shift = lshr i64 %1, 32
-  %.sroa.18.8.extract.trunc = trunc nuw i64 %.sroa.18.8.extract.shift to i32
-  %4 = tail call i32 @llvm.smin.i32(i32 %.sroa.18.8.extract.trunc, i32 0)
-  br label %5
-
-5:                                                ; preds = %stbtt__buf_get8.exit.i, %3
-  %.sroa.6.0 = phi i32 [ %4, %3 ], [ %.sroa.6.1, %stbtt__buf_get8.exit.i ]
-  %6 = phi i32 [ %4, %3 ], [ %14, %stbtt__buf_get8.exit.i ]
-  %.07.i = phi i32 [ 0, %3 ], [ %16, %stbtt__buf_get8.exit.i ]
-  %.056.i = phi i32 [ 0, %3 ], [ %15, %stbtt__buf_get8.exit.i ]
-  %7 = shl i32 %.056.i, 8
-  %.not.i.i = icmp slt i32 %6, %.sroa.18.8.extract.trunc
-  br i1 %.not.i.i, label %8, label %stbtt__buf_get8.exit.i
-
-8:                                                ; preds = %5
-  %9 = add nsw i32 %6, 1
-  %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 %10
-  %12 = load i8, ptr %11, align 1, !tbaa !9
-  %13 = zext i8 %12 to i32
-  br label %stbtt__buf_get8.exit.i
-
-stbtt__buf_get8.exit.i:                           ; preds = %8, %5
-  %.sroa.6.1 = phi i32 [ %9, %8 ], [ %.sroa.6.0, %5 ]
-  %14 = phi i32 [ %9, %8 ], [ %6, %5 ]
-  %.0.i.i = phi i32 [ %13, %8 ], [ 0, %5 ]
-  %15 = or disjoint i32 %.0.i.i, %7
-  %16 = add nuw nsw i32 %.07.i, 1
-  %exitcond.not.i = icmp eq i32 %16, 2
-  br i1 %exitcond.not.i, label %stbtt__buf_get.exit, label %5, !llvm.loop !574
-
-stbtt__buf_get.exit:                              ; preds = %stbtt__buf_get8.exit.i
-  %.not.i = icmp slt i32 %.sroa.6.1, %.sroa.18.8.extract.trunc
-  br i1 %.not.i, label %stbtt__buf_get8.exit, label %stbtt__buf_get.exit28
-
-stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get.exit
-  %17 = sext i32 %.sroa.6.1 to i64
-  %18 = getelementptr inbounds i8, ptr %0, i64 %17
-  %19 = load i8, ptr %18, align 1, !tbaa !9
-  %20 = zext i8 %19 to i32
-  %.not.i9 = icmp eq i8 %19, 0
-  br i1 %.not.i9, label %stbtt__buf_get.exit28, label %.lr.ph.i.preheader
-
-.lr.ph.i.preheader:                               ; preds = %stbtt__buf_get8.exit
-  %21 = add nsw i32 %.sroa.6.1, 1
-  %22 = mul nsw i32 %2, %20
-  %23 = add nsw i32 %22, %21
-  %24 = icmp slt i32 %23, 0
-  %25 = tail call i32 @llvm.smin.i32(i32 %23, i32 %.sroa.18.8.extract.trunc)
-  %..i.i = select i1 %24, i32 %.sroa.18.8.extract.trunc, i32 %25
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %stbtt__buf_get8.exit.i14
-  %.sroa.6.3 = phi i32 [ %.sroa.6.4, %stbtt__buf_get8.exit.i14 ], [ %..i.i, %.lr.ph.i.preheader ]
-  %26 = phi i32 [ %34, %stbtt__buf_get8.exit.i14 ], [ %..i.i, %.lr.ph.i.preheader ]
-  %.07.i11 = phi i32 [ %36, %stbtt__buf_get8.exit.i14 ], [ 0, %.lr.ph.i.preheader ]
-  %.056.i12 = phi i32 [ %35, %stbtt__buf_get8.exit.i14 ], [ 0, %.lr.ph.i.preheader ]
-  %27 = shl i32 %.056.i12, 8
-  %.not.i.i13 = icmp slt i32 %26, %.sroa.18.8.extract.trunc
-  br i1 %.not.i.i13, label %28, label %stbtt__buf_get8.exit.i14
-
-28:                                               ; preds = %.lr.ph.i
-  %29 = add nsw i32 %26, 1
-  %30 = sext i32 %26 to i64
-  %31 = getelementptr inbounds i8, ptr %0, i64 %30
-  %32 = load i8, ptr %31, align 1, !tbaa !9
-  %33 = zext i8 %32 to i32
-  br label %stbtt__buf_get8.exit.i14
-
-stbtt__buf_get8.exit.i14:                         ; preds = %28, %.lr.ph.i
-  %.sroa.6.4 = phi i32 [ %29, %28 ], [ %.sroa.6.3, %.lr.ph.i ]
-  %34 = phi i32 [ %29, %28 ], [ %26, %.lr.ph.i ]
-  %.0.i.i15 = phi i32 [ %33, %28 ], [ 0, %.lr.ph.i ]
-  %35 = or disjoint i32 %.0.i.i15, %27
-  %36 = add nuw nsw i32 %.07.i11, 1
-  %exitcond.not.i16 = icmp eq i32 %36, %20
-  br i1 %exitcond.not.i16, label %.lr.ph.i19, label %.lr.ph.i, !llvm.loop !574
-
-.lr.ph.i19:                                       ; preds = %stbtt__buf_get8.exit.i14, %stbtt__buf_get8.exit.i24
-  %37 = phi i32 [ %45, %stbtt__buf_get8.exit.i24 ], [ %.sroa.6.4, %stbtt__buf_get8.exit.i14 ]
-  %.07.i21 = phi i32 [ %47, %stbtt__buf_get8.exit.i24 ], [ 0, %stbtt__buf_get8.exit.i14 ]
-  %.056.i22 = phi i32 [ %46, %stbtt__buf_get8.exit.i24 ], [ 0, %stbtt__buf_get8.exit.i14 ]
-  %38 = shl i32 %.056.i22, 8
-  %.not.i.i23 = icmp slt i32 %37, %.sroa.18.8.extract.trunc
-  br i1 %.not.i.i23, label %39, label %stbtt__buf_get8.exit.i24
-
-39:                                               ; preds = %.lr.ph.i19
-  %40 = add nsw i32 %37, 1
-  %41 = sext i32 %37 to i64
-  %42 = getelementptr inbounds i8, ptr %0, i64 %41
-  %43 = load i8, ptr %42, align 1, !tbaa !9
-  %44 = zext i8 %43 to i32
-  br label %stbtt__buf_get8.exit.i24
-
-stbtt__buf_get8.exit.i24:                         ; preds = %39, %.lr.ph.i19
-  %45 = phi i32 [ %40, %39 ], [ %37, %.lr.ph.i19 ]
-  %.0.i.i25 = phi i32 [ %44, %39 ], [ 0, %.lr.ph.i19 ]
-  %46 = or disjoint i32 %.0.i.i25, %38
-  %47 = add nuw nsw i32 %.07.i21, 1
-  %exitcond.not.i26 = icmp eq i32 %47, %20
-  br i1 %exitcond.not.i26, label %stbtt__buf_get.exit28, label %.lr.ph.i19, !llvm.loop !574
-
-stbtt__buf_get.exit28:                            ; preds = %stbtt__buf_get8.exit.i24, %stbtt__buf_get.exit, %stbtt__buf_get8.exit
-  %.0.i50 = phi i32 [ 0, %stbtt__buf_get8.exit ], [ 0, %stbtt__buf_get.exit ], [ %20, %stbtt__buf_get8.exit.i24 ]
-  %.05.lcssa.i42 = phi i32 [ 0, %stbtt__buf_get8.exit ], [ 0, %stbtt__buf_get.exit ], [ %35, %stbtt__buf_get8.exit.i24 ]
-  %.05.lcssa.i27 = phi i32 [ 0, %stbtt__buf_get8.exit ], [ 0, %stbtt__buf_get.exit ], [ %46, %stbtt__buf_get8.exit.i24 ]
-  %48 = add nsw i32 %15, 1
-  %49 = mul nsw i32 %.0.i50, %48
-  %50 = add nsw i32 %49, 2
-  %51 = add nsw i32 %50, %.05.lcssa.i42
-  %52 = sub nsw i32 %.05.lcssa.i27, %.05.lcssa.i42
-  %53 = or i32 %52, %51
-  %or.cond.not.i = icmp sgt i32 %53, -1
-  br i1 %or.cond.not.i, label %54, label %stbtt__buf_range.exit
-
-54:                                               ; preds = %stbtt__buf_get.exit28
-  %55 = icmp sgt i32 %51, %.sroa.18.8.extract.trunc
-  %56 = sub nsw i32 %.sroa.18.8.extract.trunc, %51
-  %57 = icmp sgt i32 %52, %56
-  %or.cond.i = select i1 %55, i1 true, i1 %57
-  br i1 %or.cond.i, label %stbtt__buf_range.exit, label %58
-
-58:                                               ; preds = %54
-  %59 = zext nneg i32 %51 to i64
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 %59
-  %61 = zext nneg i32 %52 to i64
-  %62 = shl nuw nsw i64 %61, 32
-  br label %stbtt__buf_range.exit
-
-stbtt__buf_range.exit:                            ; preds = %stbtt__buf_get.exit28, %54, %58
-  %.sroa.0.0.i = phi ptr [ null, %stbtt__buf_get.exit28 ], [ null, %54 ], [ %60, %58 ]
-  %.sroa.5.0.i = phi i64 [ 0, %stbtt__buf_get.exit28 ], [ 0, %54 ], [ %62, %58 ]
-  %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %.sroa.5.0.i, 1
-  ret { ptr, i64 } %.fca.1.insert.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -74840,7 +75167,7 @@ define internal fastcc { ptr, i64 } @stbtt__get_subrs(ptr %0, i64 %1, ptr %2, i6
   %13 = load i32, ptr %7, align 8
   %14 = icmp ne i32 %13, 0
   %or.cond = select i1 %12, i1 %14, i1 false
-  br i1 %or.cond, label %15, label %79
+  br i1 %or.cond, label %15, label %78
 
 15:                                               ; preds = %4
   %16 = or i32 %13, %11
@@ -74870,7 +75197,7 @@ stbtt__buf_range.exit:                            ; preds = %15, %17, %21
   call fastcc void @stbtt__dict_get_ints(ptr noundef %8, i32 noundef 19, i32 noundef 1, ptr noundef %6)
   %26 = load i32, ptr %6, align 4, !tbaa !7
   %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %79, label %27
+  br i1 %.not, label %78, label %27
 
 27:                                               ; preds = %stbtt__buf_range.exit
   %28 = add i32 %26, %11
@@ -74881,7 +75208,7 @@ stbtt__buf_range.exit:                            ; preds = %15, %17, %21
 
 31:                                               ; preds = %stbtt__buf_get8.exit.i.i, %27
   %32 = phi i32 [ %..i, %27 ], [ %40, %stbtt__buf_get8.exit.i.i ]
-  %.07.i.i = phi i32 [ 0, %27 ], [ %42, %stbtt__buf_get8.exit.i.i ]
+  %exitcond.not.i.i = phi i1 [ false, %27 ], [ true, %stbtt__buf_get8.exit.i.i ]
   %.056.i.i = phi i32 [ 0, %27 ], [ %41, %stbtt__buf_get8.exit.i.i ]
   %33 = shl i32 %.056.i.i, 8
   %.not.i.i.i = icmp slt i32 %32, %.sroa.13.8.extract.trunc
@@ -74899,92 +75226,90 @@ stbtt__buf_get8.exit.i.i:                         ; preds = %34, %31
   %40 = phi i32 [ %35, %34 ], [ %32, %31 ]
   %.0.i.i.i = phi i32 [ %39, %34 ], [ 0, %31 ]
   %41 = or disjoint i32 %.0.i.i.i, %33
-  %42 = add nuw nsw i32 %.07.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %42, 2
   br i1 %exitcond.not.i.i, label %stbtt__buf_get.exit.i, label %31, !llvm.loop !574
 
 stbtt__buf_get.exit.i:                            ; preds = %stbtt__buf_get8.exit.i.i
   %.not.i = icmp eq i32 %41, 0
-  br i1 %.not.i, label %stbtt__cff_get_index.exit, label %43
+  br i1 %.not.i, label %stbtt__cff_get_index.exit, label %42
 
-43:                                               ; preds = %stbtt__buf_get.exit.i
+42:                                               ; preds = %stbtt__buf_get.exit.i
   %.not.i.i = icmp slt i32 %40, %.sroa.13.8.extract.trunc
-  br i1 %.not.i.i, label %44, label %stbtt__buf_get8.exit.i
+  br i1 %.not.i.i, label %43, label %stbtt__buf_get8.exit.i
 
-44:                                               ; preds = %43
-  %45 = add nsw i32 %40, 1
-  %46 = sext i32 %40 to i64
-  %47 = getelementptr inbounds i8, ptr %0, i64 %46
-  %48 = load i8, ptr %47, align 1, !tbaa !9
-  %49 = zext i8 %48 to i32
+43:                                               ; preds = %42
+  %44 = add nsw i32 %40, 1
+  %45 = sext i32 %40 to i64
+  %46 = getelementptr inbounds i8, ptr %0, i64 %45
+  %47 = load i8, ptr %46, align 1, !tbaa !9
+  %48 = zext i8 %47 to i32
   br label %stbtt__buf_get8.exit.i
 
-stbtt__buf_get8.exit.i:                           ; preds = %44, %43
-  %50 = phi i32 [ %45, %44 ], [ %40, %43 ]
-  %.0.i.i = phi i32 [ %49, %44 ], [ 0, %43 ]
-  %51 = mul nsw i32 %.0.i.i, %41
-  %52 = add nsw i32 %51, %50
-  %53 = icmp slt i32 %52, 0
-  %54 = tail call i32 @llvm.smin.i32(i32 %52, i32 %.sroa.13.8.extract.trunc)
-  %..i.i.i = select i1 %53, i32 %.sroa.13.8.extract.trunc, i32 %54
+stbtt__buf_get8.exit.i:                           ; preds = %43, %42
+  %49 = phi i32 [ %44, %43 ], [ %40, %42 ]
+  %.0.i.i = phi i32 [ %48, %43 ], [ 0, %42 ]
+  %50 = mul nsw i32 %.0.i.i, %41
+  %51 = add nsw i32 %50, %49
+  %52 = icmp slt i32 %51, 0
+  %53 = tail call i32 @llvm.smin.i32(i32 %51, i32 %.sroa.13.8.extract.trunc)
+  %..i.i.i = select i1 %52, i32 %.sroa.13.8.extract.trunc, i32 %53
   %.not.i13.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i13.i, label %stbtt__buf_get.exit21.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %stbtt__buf_get8.exit.i, %stbtt__buf_get8.exit.i18.i
-  %55 = phi i32 [ %63, %stbtt__buf_get8.exit.i18.i ], [ %..i.i.i, %stbtt__buf_get8.exit.i ]
-  %.07.i15.i = phi i32 [ %65, %stbtt__buf_get8.exit.i18.i ], [ 0, %stbtt__buf_get8.exit.i ]
-  %.056.i16.i = phi i32 [ %64, %stbtt__buf_get8.exit.i18.i ], [ 0, %stbtt__buf_get8.exit.i ]
-  %56 = shl i32 %.056.i16.i, 8
-  %.not.i.i17.i = icmp slt i32 %55, %.sroa.13.8.extract.trunc
-  br i1 %.not.i.i17.i, label %57, label %stbtt__buf_get8.exit.i18.i
+  %54 = phi i32 [ %62, %stbtt__buf_get8.exit.i18.i ], [ %..i.i.i, %stbtt__buf_get8.exit.i ]
+  %.07.i15.i = phi i32 [ %64, %stbtt__buf_get8.exit.i18.i ], [ 0, %stbtt__buf_get8.exit.i ]
+  %.056.i16.i = phi i32 [ %63, %stbtt__buf_get8.exit.i18.i ], [ 0, %stbtt__buf_get8.exit.i ]
+  %55 = shl i32 %.056.i16.i, 8
+  %.not.i.i17.i = icmp slt i32 %54, %.sroa.13.8.extract.trunc
+  br i1 %.not.i.i17.i, label %56, label %stbtt__buf_get8.exit.i18.i
 
-57:                                               ; preds = %.lr.ph.i.i
-  %58 = add nsw i32 %55, 1
-  %59 = sext i32 %55 to i64
-  %60 = getelementptr inbounds i8, ptr %0, i64 %59
-  %61 = load i8, ptr %60, align 1, !tbaa !9
-  %62 = zext i8 %61 to i32
+56:                                               ; preds = %.lr.ph.i.i
+  %57 = add nsw i32 %54, 1
+  %58 = sext i32 %54 to i64
+  %59 = getelementptr inbounds i8, ptr %0, i64 %58
+  %60 = load i8, ptr %59, align 1, !tbaa !9
+  %61 = zext i8 %60 to i32
   br label %stbtt__buf_get8.exit.i18.i
 
-stbtt__buf_get8.exit.i18.i:                       ; preds = %57, %.lr.ph.i.i
-  %63 = phi i32 [ %58, %57 ], [ %55, %.lr.ph.i.i ]
-  %.0.i.i19.i = phi i32 [ %62, %57 ], [ 0, %.lr.ph.i.i ]
-  %64 = or disjoint i32 %.0.i.i19.i, %56
-  %65 = add nuw nsw i32 %.07.i15.i, 1
-  %exitcond.not.i20.i = icmp eq i32 %65, %.0.i.i
+stbtt__buf_get8.exit.i18.i:                       ; preds = %56, %.lr.ph.i.i
+  %62 = phi i32 [ %57, %56 ], [ %54, %.lr.ph.i.i ]
+  %.0.i.i19.i = phi i32 [ %61, %56 ], [ 0, %.lr.ph.i.i ]
+  %63 = or disjoint i32 %.0.i.i19.i, %55
+  %64 = add nuw nsw i32 %.07.i15.i, 1
+  %exitcond.not.i20.i = icmp eq i32 %64, %.0.i.i
   br i1 %exitcond.not.i20.i, label %stbtt__buf_get.exit21.loopexit.i, label %.lr.ph.i.i, !llvm.loop !574
 
 stbtt__buf_get.exit21.loopexit.i:                 ; preds = %stbtt__buf_get8.exit.i18.i
-  %66 = add i32 %64, -1
+  %65 = add i32 %63, -1
   br label %stbtt__buf_get.exit21.i
 
 stbtt__buf_get.exit21.i:                          ; preds = %stbtt__buf_get.exit21.loopexit.i, %stbtt__buf_get8.exit.i
-  %67 = phi i32 [ %..i.i.i, %stbtt__buf_get8.exit.i ], [ %63, %stbtt__buf_get.exit21.loopexit.i ]
-  %.05.lcssa.i.i = phi i32 [ -1, %stbtt__buf_get8.exit.i ], [ %66, %stbtt__buf_get.exit21.loopexit.i ]
-  %68 = add nsw i32 %.05.lcssa.i.i, %67
-  %69 = icmp slt i32 %68, 0
-  %70 = tail call i32 @llvm.smin.i32(i32 %68, i32 %.sroa.13.8.extract.trunc)
-  %..i.i22.i = select i1 %69, i32 %.sroa.13.8.extract.trunc, i32 %70
+  %66 = phi i32 [ %..i.i.i, %stbtt__buf_get8.exit.i ], [ %62, %stbtt__buf_get.exit21.loopexit.i ]
+  %.05.lcssa.i.i = phi i32 [ -1, %stbtt__buf_get8.exit.i ], [ %65, %stbtt__buf_get.exit21.loopexit.i ]
+  %67 = add nsw i32 %.05.lcssa.i.i, %66
+  %68 = icmp slt i32 %67, 0
+  %69 = tail call i32 @llvm.smin.i32(i32 %67, i32 %.sroa.13.8.extract.trunc)
+  %..i.i22.i = select i1 %68, i32 %.sroa.13.8.extract.trunc, i32 %69
   br label %stbtt__cff_get_index.exit
 
 stbtt__cff_get_index.exit:                        ; preds = %stbtt__buf_get.exit21.i, %stbtt__buf_get.exit.i
-  %71 = phi i32 [ %..i.i22.i, %stbtt__buf_get.exit21.i ], [ %40, %stbtt__buf_get.exit.i ]
-  %72 = sub nsw i32 %71, %..i
-  %73 = or i32 %72, %..i
-  %or.cond.not.i.i = icmp slt i32 %73, 0
-  %74 = icmp sgt i32 %71, %.sroa.13.8.extract.trunc
-  %or.cond14 = select i1 %or.cond.not.i.i, i1 true, i1 %74
-  %75 = zext nneg i32 %..i to i64
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 %75
-  %77 = zext nneg i32 %72 to i64
-  %78 = shl nuw nsw i64 %77, 32
-  %.sroa.0.0.i.i = select i1 %or.cond14, ptr null, ptr %76
-  %.sroa.5.0.i.i = select i1 %or.cond14, i64 0, i64 %78
+  %70 = phi i32 [ %..i.i22.i, %stbtt__buf_get.exit21.i ], [ %40, %stbtt__buf_get.exit.i ]
+  %71 = sub nsw i32 %70, %..i
+  %72 = or i32 %71, %..i
+  %or.cond.not.i.i = icmp slt i32 %72, 0
+  %73 = icmp sgt i32 %70, %.sroa.13.8.extract.trunc
+  %or.cond14 = select i1 %or.cond.not.i.i, i1 true, i1 %73
+  %74 = zext nneg i32 %..i to i64
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 %74
+  %76 = zext nneg i32 %71 to i64
+  %77 = shl nuw nsw i64 %76, 32
+  %.sroa.0.0.i.i = select i1 %or.cond14, ptr null, ptr %75
+  %.sroa.5.0.i.i = select i1 %or.cond14, i64 0, i64 %77
   %.fca.0.insert.i.i = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.i, 0
   %.fca.1.insert.i.i = insertvalue { ptr, i64 } %.fca.0.insert.i.i, i64 %.sroa.5.0.i.i, 1
-  br label %79
+  br label %78
 
-79:                                               ; preds = %stbtt__buf_range.exit, %4, %stbtt__cff_get_index.exit
+78:                                               ; preds = %stbtt__buf_range.exit, %4, %stbtt__cff_get_index.exit
   %.pn = phi { ptr, i64 } [ %.fca.1.insert.i.i, %stbtt__cff_get_index.exit ], [ zeroinitializer, %4 ], [ zeroinitializer, %stbtt__buf_range.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -75085,7 +75410,7 @@ stbtt__buf_get8.exit.i34.i:                       ; preds = %stbtt__buf_peek8.ex
 
 .preheader.i:                                     ; preds = %36, %stbtt__buf_get8.exit.i.i.i
   %37 = phi i32 [ %40, %stbtt__buf_get8.exit.i.i.i ], [ %17, %36 ]
-  %.07.i.i.i = phi i32 [ %41, %stbtt__buf_get8.exit.i.i.i ], [ 0, %36 ]
+  %exitcond.not.i.i.i = phi i1 [ true, %stbtt__buf_get8.exit.i.i.i ], [ false, %36 ]
   %.not.i.i.i.i = icmp slt i32 %37, %6
   br i1 %.not.i.i.i.i, label %38, label %stbtt__buf_get8.exit.i.i.i
 
@@ -75096,243 +75421,239 @@ stbtt__buf_get8.exit.i34.i:                       ; preds = %stbtt__buf_peek8.ex
 
 stbtt__buf_get8.exit.i.i.i:                       ; preds = %38, %.preheader.i
   %40 = phi i32 [ %39, %38 ], [ %37, %.preheader.i ]
-  %41 = add nuw nsw i32 %.07.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i32 %41, 2
   br i1 %exitcond.not.i.i.i, label %stbtt__cff_skip_operand.exit.i, label %.preheader.i, !llvm.loop !574
 
 .preheader45.i:                                   ; preds = %36, %stbtt__buf_get8.exit.i32.i.i
-  %42 = phi i32 [ %45, %stbtt__buf_get8.exit.i32.i.i ], [ %17, %36 ]
-  %.07.i29.i.i = phi i32 [ %46, %stbtt__buf_get8.exit.i32.i.i ], [ 0, %36 ]
-  %.not.i.i31.i.i = icmp slt i32 %42, %6
-  br i1 %.not.i.i31.i.i, label %43, label %stbtt__buf_get8.exit.i32.i.i
+  %41 = phi i32 [ %44, %stbtt__buf_get8.exit.i32.i.i ], [ %17, %36 ]
+  %.07.i29.i.i = phi i32 [ %45, %stbtt__buf_get8.exit.i32.i.i ], [ 0, %36 ]
+  %.not.i.i31.i.i = icmp slt i32 %41, %6
+  br i1 %.not.i.i31.i.i, label %42, label %stbtt__buf_get8.exit.i32.i.i
 
-43:                                               ; preds = %.preheader45.i
-  %44 = add nsw i32 %42, 1
-  store i32 %44, ptr %8, align 8, !tbaa !572
+42:                                               ; preds = %.preheader45.i
+  %43 = add nsw i32 %41, 1
+  store i32 %43, ptr %8, align 8, !tbaa !572
   br label %stbtt__buf_get8.exit.i32.i.i
 
-stbtt__buf_get8.exit.i32.i.i:                     ; preds = %43, %.preheader45.i
-  %45 = phi i32 [ %44, %43 ], [ %42, %.preheader45.i ]
-  %46 = add nuw nsw i32 %.07.i29.i.i, 1
-  %exitcond.not.i34.i.i = icmp eq i32 %46, 4
+stbtt__buf_get8.exit.i32.i.i:                     ; preds = %42, %.preheader45.i
+  %44 = phi i32 [ %43, %42 ], [ %41, %.preheader45.i ]
+  %45 = add nuw nsw i32 %.07.i29.i.i, 1
+  %exitcond.not.i34.i.i = icmp eq i32 %45, 4
   br i1 %exitcond.not.i34.i.i, label %stbtt__cff_skip_operand.exit.i, label %.preheader45.i, !llvm.loop !574
 
 stbtt__cff_skip_operand.exit.sink.split.i:        ; preds = %35, %32
-  %47 = add nsw i32 %11, 2
-  store i32 %47, ptr %8, align 8, !tbaa !572
+  %46 = add nsw i32 %11, 2
+  store i32 %46, ptr %8, align 8, !tbaa !572
   br label %stbtt__cff_skip_operand.exit.i
 
 stbtt__cff_skip_operand.exit.i:                   ; preds = %stbtt__buf_get8.exit.i32.i.i, %stbtt__buf_get8.exit.i.i.i, %stbtt__buf_get8.exit.i.i, %stbtt__cff_skip_operand.exit.sink.split.i, %36, %35, %32, %stbtt__buf_get8.exit.i34.i
-  %.promoted57.i = phi i32 [ %17, %35 ], [ %17, %32 ], [ %17, %stbtt__buf_get8.exit.i34.i ], [ %17, %36 ], [ %47, %stbtt__cff_skip_operand.exit.sink.split.i ], [ %indvars.i, %stbtt__buf_get8.exit.i.i ], [ %40, %stbtt__buf_get8.exit.i.i.i ], [ %45, %stbtt__buf_get8.exit.i32.i.i ]
+  %.promoted57.i = phi i32 [ %17, %35 ], [ %17, %32 ], [ %17, %stbtt__buf_get8.exit.i34.i ], [ %17, %36 ], [ %46, %stbtt__cff_skip_operand.exit.sink.split.i ], [ %indvars.i, %stbtt__buf_get8.exit.i.i ], [ %40, %stbtt__buf_get8.exit.i.i.i ], [ %44, %stbtt__buf_get8.exit.i32.i.i ]
   %.not.i.i = icmp slt i32 %.promoted57.i, %6
   br i1 %.not.i.i, label %stbtt__buf_peek8.exit.i, label %.thread38.i, !llvm.loop !1284
 
 stbtt__buf_get8.exit.i:                           ; preds = %stbtt__buf_peek8.exit.i
-  %48 = add nsw i32 %11, 1
-  store i32 %48, ptr %8, align 8, !tbaa !572
-  %49 = load i8, ptr %13, align 1, !tbaa !9
-  %50 = zext i8 %49 to i32
-  %51 = icmp eq i8 %49, 12
-  br i1 %51, label %52, label %stbtt__buf_get8.exit24.i
+  %47 = add nsw i32 %11, 1
+  store i32 %47, ptr %8, align 8, !tbaa !572
+  %48 = load i8, ptr %13, align 1, !tbaa !9
+  %49 = zext i8 %48 to i32
+  %50 = icmp eq i8 %48, 12
+  br i1 %50, label %51, label %stbtt__buf_get8.exit24.i
 
-52:                                               ; preds = %stbtt__buf_get8.exit.i
-  %.not.i22.i = icmp slt i32 %48, %6
-  br i1 %.not.i22.i, label %53, label %stbtt__buf_get8.exit24.i
+51:                                               ; preds = %stbtt__buf_get8.exit.i
+  %.not.i22.i = icmp slt i32 %47, %6
+  br i1 %.not.i22.i, label %52, label %stbtt__buf_get8.exit24.i
 
-53:                                               ; preds = %52
-  %54 = add nsw i32 %11, 2
-  store i32 %54, ptr %8, align 8, !tbaa !572
-  %55 = sext i32 %48 to i64
-  %56 = getelementptr inbounds i8, ptr %10, i64 %55
-  %57 = load i8, ptr %56, align 1, !tbaa !9
-  %58 = zext i8 %57 to i32
-  %59 = or disjoint i32 %58, 256
+52:                                               ; preds = %51
+  %53 = add nsw i32 %11, 2
+  store i32 %53, ptr %8, align 8, !tbaa !572
+  %54 = sext i32 %47 to i64
+  %55 = getelementptr inbounds i8, ptr %10, i64 %54
+  %56 = load i8, ptr %55, align 1, !tbaa !9
+  %57 = zext i8 %56 to i32
+  %58 = or disjoint i32 %57, 256
   br label %stbtt__buf_get8.exit24.i
 
-stbtt__buf_get8.exit24.i:                         ; preds = %53, %52, %stbtt__buf_get8.exit.i
-  %.promoted56.i = phi i32 [ %48, %stbtt__buf_get8.exit.i ], [ %54, %53 ], [ %48, %52 ]
-  %.017.i = phi i32 [ %50, %stbtt__buf_get8.exit.i ], [ %59, %53 ], [ 256, %52 ]
-  %60 = icmp eq i32 %.017.i, %1
-  br i1 %60, label %61, label %.thread38.i
+stbtt__buf_get8.exit24.i:                         ; preds = %52, %51, %stbtt__buf_get8.exit.i
+  %.promoted56.i = phi i32 [ %47, %stbtt__buf_get8.exit.i ], [ %53, %52 ], [ %47, %51 ]
+  %.017.i = phi i32 [ %49, %stbtt__buf_get8.exit.i ], [ %58, %52 ], [ 256, %51 ]
+  %59 = icmp eq i32 %.017.i, %1
+  br i1 %59, label %60, label %.thread38.i
 
-61:                                               ; preds = %stbtt__buf_get8.exit24.i
-  %62 = sub nsw i32 %11, %.promoted5560.i
-  %63 = or i32 %62, %.promoted5560.i
-  %or.cond.not.i.i = icmp slt i32 %63, 0
+60:                                               ; preds = %stbtt__buf_get8.exit24.i
+  %61 = sub nsw i32 %11, %.promoted5560.i
+  %62 = or i32 %61, %.promoted5560.i
+  %or.cond.not.i.i = icmp slt i32 %62, 0
   br i1 %or.cond.not.i.i, label %._crit_edge, label %stbtt__dict_get.exit
 
 .thread38.i:                                      ; preds = %stbtt__cff_skip_operand.exit.i, %stbtt__buf_get8.exit24.i, %.preheader47.i
   %.promoted53.i = phi i32 [ %.promoted56.i, %stbtt__buf_get8.exit24.i ], [ %.promoted5560.i, %.preheader47.i ], [ %.promoted57.i, %stbtt__cff_skip_operand.exit.i ]
-  %64 = icmp slt i32 %.promoted53.i, %6
-  br i1 %64, label %.preheader47.i, label %._crit_edge
+  %63 = icmp slt i32 %.promoted53.i, %6
+  br i1 %63, label %.preheader47.i, label %._crit_edge
 
-stbtt__dict_get.exit:                             ; preds = %61
-  %65 = zext nneg i32 %.promoted5560.i to i64
-  %66 = getelementptr inbounds nuw i8, ptr %10, i64 %65
+stbtt__dict_get.exit:                             ; preds = %60
+  %64 = zext nneg i32 %.promoted5560.i to i64
+  %65 = getelementptr inbounds nuw i8, ptr %10, i64 %64
   %.not = icmp eq i32 %11, %.promoted5560.i
   br i1 %.not, label %._crit_edge, label %stbtt__buf_get8.exit.i7.preheader
 
 stbtt__buf_get8.exit.i7.preheader:                ; preds = %stbtt__dict_get.exit
-  %67 = zext nneg i32 %62 to i64
-  %68 = shl nuw nsw i64 %67, 32
-  %69 = zext nneg i32 %2 to i64
+  %66 = zext nneg i32 %61 to i64
+  %67 = shl nuw nsw i64 %66, 32
+  %68 = zext nneg i32 %2 to i64
   br label %stbtt__buf_get8.exit.i7
 
 stbtt__buf_get8.exit.i7:                          ; preds = %stbtt__buf_get8.exit.i7.preheader, %stbtt__cff_int.exit
-  %indvars.iv = phi i64 [ 0, %stbtt__buf_get8.exit.i7.preheader ], [ %indvars.iv.next, %stbtt__cff_int.exit ]
-  %.sroa.4.12.extract.trunc58 = phi i32 [ %62, %stbtt__buf_get8.exit.i7.preheader ], [ %.sroa.4.12.extract.trunc, %stbtt__cff_int.exit ]
+  %indvars.iv = phi i64 [ 0, %stbtt__buf_get8.exit.i7.preheader ], [ 1, %stbtt__cff_int.exit ]
+  %.sroa.4.12.extract.trunc58 = phi i32 [ %61, %stbtt__buf_get8.exit.i7.preheader ], [ %.sroa.4.12.extract.trunc, %stbtt__cff_int.exit ]
   %.sroa.4.8.extract.trunc57 = phi i32 [ 0, %stbtt__buf_get8.exit.i7.preheader ], [ %.sroa.4.8.extract.trunc, %stbtt__cff_int.exit ]
-  %.sroa.4.055 = phi i64 [ %68, %stbtt__buf_get8.exit.i7.preheader ], [ %.sroa.4.7, %stbtt__cff_int.exit ]
-  %70 = add nsw i32 %.sroa.4.8.extract.trunc57, 1
-  %.sroa.4.8.insert.ext = zext i32 %70 to i64
+  %.sroa.4.055 = phi i64 [ %67, %stbtt__buf_get8.exit.i7.preheader ], [ %.sroa.4.7, %stbtt__cff_int.exit ]
+  %69 = add nsw i32 %.sroa.4.8.extract.trunc57, 1
+  %.sroa.4.8.insert.ext = zext i32 %69 to i64
   %.sroa.4.8.insert.mask = and i64 %.sroa.4.055, -4294967296
   %.sroa.4.8.insert.insert = or disjoint i64 %.sroa.4.8.insert.mask, %.sroa.4.8.insert.ext
   %sext = shl i64 %.sroa.4.055, 32
-  %71 = ashr exact i64 %sext, 32
-  %72 = getelementptr inbounds i8, ptr %66, i64 %71
-  %73 = load i8, ptr %72, align 1, !tbaa !9
-  %74 = zext i8 %73 to i32
-  %75 = add i8 %73, -32
-  %or.cond.i = icmp ult i8 %75, -41
-  br i1 %or.cond.i, label %76, label %78
+  %70 = ashr exact i64 %sext, 32
+  %71 = getelementptr inbounds i8, ptr %65, i64 %70
+  %72 = load i8, ptr %71, align 1, !tbaa !9
+  %73 = zext i8 %72 to i32
+  %74 = add i8 %72, -32
+  %or.cond.i = icmp ult i8 %74, -41
+  br i1 %or.cond.i, label %75, label %77
 
-76:                                               ; preds = %stbtt__buf_get8.exit.i7
-  %77 = add nsw i32 %74, -139
+75:                                               ; preds = %stbtt__buf_get8.exit.i7
+  %76 = add nsw i32 %73, -139
   br label %stbtt__cff_int.exit
 
-78:                                               ; preds = %stbtt__buf_get8.exit.i7
-  %79 = add nsw i8 %73, 9
-  %or.cond3.i = icmp samesign ult i8 %79, 4
-  br i1 %or.cond3.i, label %80, label %90
+77:                                               ; preds = %stbtt__buf_get8.exit.i7
+  %78 = add nsw i8 %72, 9
+  %or.cond3.i = icmp samesign ult i8 %78, 4
+  br i1 %or.cond3.i, label %79, label %89
 
-80:                                               ; preds = %78
-  %81 = shl nuw nsw i32 %74, 8
-  %.not.i22.i10 = icmp slt i32 %70, %.sroa.4.12.extract.trunc58
-  br i1 %.not.i22.i10, label %82, label %stbtt__buf_get8.exit24.i11
+79:                                               ; preds = %77
+  %80 = shl nuw nsw i32 %73, 8
+  %.not.i22.i10 = icmp slt i32 %69, %.sroa.4.12.extract.trunc58
+  br i1 %.not.i22.i10, label %81, label %stbtt__buf_get8.exit24.i11
 
-82:                                               ; preds = %80
-  %83 = add i64 %.sroa.4.055, 2
-  %.sroa.4.8.insert.ext27 = and i64 %83, 4294967295
+81:                                               ; preds = %79
+  %82 = add nuw i64 %.sroa.4.055, 2
+  %.sroa.4.8.insert.ext27 = and i64 %82, 4294967295
   %.sroa.4.8.insert.insert29 = or disjoint i64 %.sroa.4.8.insert.ext27, %.sroa.4.8.insert.mask
-  %84 = sext i32 %70 to i64
-  %85 = getelementptr inbounds i8, ptr %66, i64 %84
-  %86 = load i8, ptr %85, align 1, !tbaa !9
-  %87 = zext i8 %86 to i32
+  %83 = sext i32 %69 to i64
+  %84 = getelementptr inbounds i8, ptr %65, i64 %83
+  %85 = load i8, ptr %84, align 1, !tbaa !9
+  %86 = zext i8 %85 to i32
   br label %stbtt__buf_get8.exit24.i11
 
-stbtt__buf_get8.exit24.i11:                       ; preds = %82, %80
-  %.sroa.4.6 = phi i64 [ %.sroa.4.8.insert.insert29, %82 ], [ %.sroa.4.8.insert.insert, %80 ]
-  %.0.i23.i = phi i32 [ %87, %82 ], [ 0, %80 ]
-  %88 = add nsw i32 %81, -63124
-  %89 = add nuw nsw i32 %88, %.0.i23.i
+stbtt__buf_get8.exit24.i11:                       ; preds = %81, %79
+  %.sroa.4.6 = phi i64 [ %.sroa.4.8.insert.insert29, %81 ], [ %.sroa.4.8.insert.insert, %79 ]
+  %.0.i23.i = phi i32 [ %86, %81 ], [ 0, %79 ]
+  %87 = add nsw i32 %80, -63124
+  %88 = add nuw nsw i32 %87, %.0.i23.i
   br label %stbtt__cff_int.exit
 
-90:                                               ; preds = %78
-  %91 = add nsw i8 %73, 5
-  %or.cond5.i = icmp samesign ult i8 %91, 4
-  br i1 %or.cond5.i, label %92, label %102
+89:                                               ; preds = %77
+  %90 = add nsw i8 %72, 5
+  %or.cond5.i = icmp samesign ult i8 %90, 4
+  br i1 %or.cond5.i, label %91, label %101
 
-92:                                               ; preds = %90
-  %.not.i25.i = icmp slt i32 %70, %.sroa.4.12.extract.trunc58
-  br i1 %.not.i25.i, label %93, label %stbtt__buf_get8.exit27.i
+91:                                               ; preds = %89
+  %.not.i25.i = icmp slt i32 %69, %.sroa.4.12.extract.trunc58
+  br i1 %.not.i25.i, label %92, label %stbtt__buf_get8.exit27.i
 
-93:                                               ; preds = %92
-  %94 = add i64 %.sroa.4.055, 2
-  %.sroa.4.8.insert.ext23 = and i64 %94, 4294967295
+92:                                               ; preds = %91
+  %93 = add nuw i64 %.sroa.4.055, 2
+  %.sroa.4.8.insert.ext23 = and i64 %93, 4294967295
   %.sroa.4.8.insert.insert25 = or disjoint i64 %.sroa.4.8.insert.ext23, %.sroa.4.8.insert.mask
-  %95 = sext i32 %70 to i64
-  %96 = getelementptr inbounds i8, ptr %66, i64 %95
-  %97 = load i8, ptr %96, align 1, !tbaa !9
-  %98 = zext i8 %97 to i32
+  %94 = sext i32 %69 to i64
+  %95 = getelementptr inbounds i8, ptr %65, i64 %94
+  %96 = load i8, ptr %95, align 1, !tbaa !9
+  %97 = zext i8 %96 to i32
   br label %stbtt__buf_get8.exit27.i
 
-stbtt__buf_get8.exit27.i:                         ; preds = %93, %92
-  %.sroa.4.5 = phi i64 [ %.sroa.4.8.insert.insert25, %93 ], [ %.sroa.4.8.insert.insert, %92 ]
-  %.0.i26.i = phi i32 [ %98, %93 ], [ 0, %92 ]
-  %99 = shl nuw nsw i32 %74, 8
-  %100 = or disjoint i32 %99, %.0.i26.i
-  %101 = sub nsw i32 64148, %100
+stbtt__buf_get8.exit27.i:                         ; preds = %92, %91
+  %.sroa.4.5 = phi i64 [ %.sroa.4.8.insert.insert25, %92 ], [ %.sroa.4.8.insert.insert, %91 ]
+  %.0.i26.i = phi i32 [ %97, %92 ], [ 0, %91 ]
+  %98 = shl nuw nsw i32 %73, 8
+  %99 = or disjoint i32 %98, %.0.i26.i
+  %100 = sub nsw i32 64148, %99
   br label %stbtt__cff_int.exit
 
-102:                                              ; preds = %90
-  switch i8 %73, label %stbtt__cff_int.exit [
+101:                                              ; preds = %89
+  switch i8 %72, label %stbtt__cff_int.exit [
     i8 28, label %.preheader
     i8 29, label %.preheader34
   ]
 
-.preheader:                                       ; preds = %102, %stbtt__buf_get8.exit.i.i8
-  %.sroa.4.3 = phi i64 [ %.sroa.4.4, %stbtt__buf_get8.exit.i.i8 ], [ %.sroa.4.8.insert.insert, %102 ]
-  %103 = phi i32 [ %111, %stbtt__buf_get8.exit.i.i8 ], [ %70, %102 ]
-  %.07.i.i = phi i32 [ %113, %stbtt__buf_get8.exit.i.i8 ], [ 0, %102 ]
-  %.056.i.i = phi i32 [ %112, %stbtt__buf_get8.exit.i.i8 ], [ 0, %102 ]
-  %104 = shl i32 %.056.i.i, 8
-  %.not.i.i.i = icmp slt i32 %103, %.sroa.4.12.extract.trunc58
-  br i1 %.not.i.i.i, label %105, label %stbtt__buf_get8.exit.i.i8
+.preheader:                                       ; preds = %101, %stbtt__buf_get8.exit.i.i9
+  %.sroa.4.3 = phi i64 [ %.sroa.4.4, %stbtt__buf_get8.exit.i.i9 ], [ %.sroa.4.8.insert.insert, %101 ]
+  %102 = phi i32 [ %110, %stbtt__buf_get8.exit.i.i9 ], [ %69, %101 ]
+  %exitcond.not.i.i8 = phi i1 [ true, %stbtt__buf_get8.exit.i.i9 ], [ false, %101 ]
+  %.056.i.i = phi i32 [ %111, %stbtt__buf_get8.exit.i.i9 ], [ 0, %101 ]
+  %103 = shl i32 %.056.i.i, 8
+  %.not.i.i.i = icmp slt i32 %102, %.sroa.4.12.extract.trunc58
+  br i1 %.not.i.i.i, label %104, label %stbtt__buf_get8.exit.i.i9
 
-105:                                              ; preds = %.preheader
-  %106 = add nsw i32 %103, 1
-  %.sroa.4.8.insert.ext19 = zext i32 %106 to i64
+104:                                              ; preds = %.preheader
+  %105 = add nsw i32 %102, 1
+  %.sroa.4.8.insert.ext19 = zext i32 %105 to i64
   %.sroa.4.8.insert.mask20 = and i64 %.sroa.4.3, -4294967296
   %.sroa.4.8.insert.insert21 = or disjoint i64 %.sroa.4.8.insert.mask20, %.sroa.4.8.insert.ext19
-  %107 = sext i32 %103 to i64
-  %108 = getelementptr inbounds i8, ptr %66, i64 %107
-  %109 = load i8, ptr %108, align 1, !tbaa !9
-  %110 = zext i8 %109 to i32
-  br label %stbtt__buf_get8.exit.i.i8
+  %106 = sext i32 %102 to i64
+  %107 = getelementptr inbounds i8, ptr %65, i64 %106
+  %108 = load i8, ptr %107, align 1, !tbaa !9
+  %109 = zext i8 %108 to i32
+  br label %stbtt__buf_get8.exit.i.i9
 
-stbtt__buf_get8.exit.i.i8:                        ; preds = %105, %.preheader
-  %.sroa.4.4 = phi i64 [ %.sroa.4.8.insert.insert21, %105 ], [ %.sroa.4.3, %.preheader ]
-  %111 = phi i32 [ %106, %105 ], [ %103, %.preheader ]
-  %.0.i.i.i = phi i32 [ %110, %105 ], [ 0, %.preheader ]
-  %112 = or disjoint i32 %.0.i.i.i, %104
-  %113 = add nuw nsw i32 %.07.i.i, 1
-  %exitcond.not.i.i9 = icmp eq i32 %113, 2
-  br i1 %exitcond.not.i.i9, label %stbtt__cff_int.exit, label %.preheader, !llvm.loop !574
+stbtt__buf_get8.exit.i.i9:                        ; preds = %104, %.preheader
+  %.sroa.4.4 = phi i64 [ %.sroa.4.8.insert.insert21, %104 ], [ %.sroa.4.3, %.preheader ]
+  %110 = phi i32 [ %105, %104 ], [ %102, %.preheader ]
+  %.0.i.i.i = phi i32 [ %109, %104 ], [ 0, %.preheader ]
+  %111 = or disjoint i32 %.0.i.i.i, %103
+  br i1 %exitcond.not.i.i8, label %stbtt__cff_int.exit, label %.preheader, !llvm.loop !574
 
-.preheader34:                                     ; preds = %102, %stbtt__buf_get8.exit.i32.i
-  %.sroa.4.1 = phi i64 [ %.sroa.4.2, %stbtt__buf_get8.exit.i32.i ], [ %.sroa.4.8.insert.insert, %102 ]
-  %114 = phi i32 [ %122, %stbtt__buf_get8.exit.i32.i ], [ %70, %102 ]
-  %.07.i29.i = phi i32 [ %124, %stbtt__buf_get8.exit.i32.i ], [ 0, %102 ]
-  %.056.i30.i = phi i32 [ %123, %stbtt__buf_get8.exit.i32.i ], [ 0, %102 ]
-  %115 = shl i32 %.056.i30.i, 8
-  %.not.i.i31.i = icmp slt i32 %114, %.sroa.4.12.extract.trunc58
-  br i1 %.not.i.i31.i, label %116, label %stbtt__buf_get8.exit.i32.i
+.preheader34:                                     ; preds = %101, %stbtt__buf_get8.exit.i32.i
+  %.sroa.4.1 = phi i64 [ %.sroa.4.2, %stbtt__buf_get8.exit.i32.i ], [ %.sroa.4.8.insert.insert, %101 ]
+  %112 = phi i32 [ %120, %stbtt__buf_get8.exit.i32.i ], [ %69, %101 ]
+  %.07.i29.i = phi i32 [ %122, %stbtt__buf_get8.exit.i32.i ], [ 0, %101 ]
+  %.056.i30.i = phi i32 [ %121, %stbtt__buf_get8.exit.i32.i ], [ 0, %101 ]
+  %113 = shl i32 %.056.i30.i, 8
+  %.not.i.i31.i = icmp slt i32 %112, %.sroa.4.12.extract.trunc58
+  br i1 %.not.i.i31.i, label %114, label %stbtt__buf_get8.exit.i32.i
 
-116:                                              ; preds = %.preheader34
-  %117 = add nsw i32 %114, 1
-  %.sroa.4.8.insert.ext15 = zext i32 %117 to i64
+114:                                              ; preds = %.preheader34
+  %115 = add nsw i32 %112, 1
+  %.sroa.4.8.insert.ext15 = zext i32 %115 to i64
   %.sroa.4.8.insert.mask16 = and i64 %.sroa.4.1, -4294967296
   %.sroa.4.8.insert.insert17 = or disjoint i64 %.sroa.4.8.insert.mask16, %.sroa.4.8.insert.ext15
-  %118 = sext i32 %114 to i64
-  %119 = getelementptr inbounds i8, ptr %66, i64 %118
-  %120 = load i8, ptr %119, align 1, !tbaa !9
-  %121 = zext i8 %120 to i32
+  %116 = sext i32 %112 to i64
+  %117 = getelementptr inbounds i8, ptr %65, i64 %116
+  %118 = load i8, ptr %117, align 1, !tbaa !9
+  %119 = zext i8 %118 to i32
   br label %stbtt__buf_get8.exit.i32.i
 
-stbtt__buf_get8.exit.i32.i:                       ; preds = %116, %.preheader34
-  %.sroa.4.2 = phi i64 [ %.sroa.4.8.insert.insert17, %116 ], [ %.sroa.4.1, %.preheader34 ]
-  %122 = phi i32 [ %117, %116 ], [ %114, %.preheader34 ]
-  %.0.i.i33.i = phi i32 [ %121, %116 ], [ 0, %.preheader34 ]
-  %123 = or disjoint i32 %.0.i.i33.i, %115
-  %124 = add nuw nsw i32 %.07.i29.i, 1
-  %exitcond.not.i34.i = icmp eq i32 %124, 4
+stbtt__buf_get8.exit.i32.i:                       ; preds = %114, %.preheader34
+  %.sroa.4.2 = phi i64 [ %.sroa.4.8.insert.insert17, %114 ], [ %.sroa.4.1, %.preheader34 ]
+  %120 = phi i32 [ %115, %114 ], [ %112, %.preheader34 ]
+  %.0.i.i33.i = phi i32 [ %119, %114 ], [ 0, %.preheader34 ]
+  %121 = or disjoint i32 %.0.i.i33.i, %113
+  %122 = add nuw nsw i32 %.07.i29.i, 1
+  %exitcond.not.i34.i = icmp eq i32 %122, 4
   br i1 %exitcond.not.i34.i, label %stbtt__cff_int.exit, label %.preheader34, !llvm.loop !574
 
-stbtt__cff_int.exit:                              ; preds = %stbtt__buf_get8.exit.i32.i, %stbtt__buf_get8.exit.i.i8, %76, %stbtt__buf_get8.exit24.i11, %stbtt__buf_get8.exit27.i, %102
-  %.sroa.4.7 = phi i64 [ %.sroa.4.8.insert.insert, %76 ], [ %.sroa.4.6, %stbtt__buf_get8.exit24.i11 ], [ %.sroa.4.5, %stbtt__buf_get8.exit27.i ], [ %.sroa.4.8.insert.insert, %102 ], [ %.sroa.4.4, %stbtt__buf_get8.exit.i.i8 ], [ %.sroa.4.2, %stbtt__buf_get8.exit.i32.i ]
-  %.0.i = phi i32 [ %77, %76 ], [ %89, %stbtt__buf_get8.exit24.i11 ], [ %101, %stbtt__buf_get8.exit27.i ], [ 0, %102 ], [ %112, %stbtt__buf_get8.exit.i.i8 ], [ %123, %stbtt__buf_get8.exit.i32.i ]
-  %125 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %.0.i, ptr %125, align 4, !tbaa !7
+stbtt__cff_int.exit:                              ; preds = %stbtt__buf_get8.exit.i32.i, %stbtt__buf_get8.exit.i.i9, %75, %stbtt__buf_get8.exit24.i11, %stbtt__buf_get8.exit27.i, %101
+  %.sroa.4.7 = phi i64 [ %.sroa.4.8.insert.insert, %75 ], [ %.sroa.4.6, %stbtt__buf_get8.exit24.i11 ], [ %.sroa.4.5, %stbtt__buf_get8.exit27.i ], [ %.sroa.4.8.insert.insert, %101 ], [ %.sroa.4.4, %stbtt__buf_get8.exit.i.i9 ], [ %.sroa.4.2, %stbtt__buf_get8.exit.i32.i ]
+  %.0.i = phi i32 [ %76, %75 ], [ %88, %stbtt__buf_get8.exit24.i11 ], [ %100, %stbtt__buf_get8.exit27.i ], [ 0, %101 ], [ %111, %stbtt__buf_get8.exit.i.i9 ], [ %121, %stbtt__buf_get8.exit.i32.i ]
+  %123 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  store i32 %.0.i, ptr %123, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %126 = icmp samesign ult i64 %indvars.iv.next, %69
+  %124 = icmp samesign ult i64 %indvars.iv.next, %68
   %.sroa.4.8.extract.trunc = trunc i64 %.sroa.4.7 to i32
   %.sroa.4.12.extract.shift = lshr i64 %.sroa.4.7, 32
-  %.sroa.4.12.extract.trunc = trunc nuw i64 %.sroa.4.12.extract.shift to i32
-  %127 = icmp slt i32 %.sroa.4.8.extract.trunc, %.sroa.4.12.extract.trunc
-  %128 = select i1 %126, i1 %127, i1 false
-  br i1 %128, label %stbtt__buf_get8.exit.i7, label %._crit_edge, !llvm.loop !1285
+  %.sroa.4.12.extract.trunc = trunc nuw nsw i64 %.sroa.4.12.extract.shift to i32
+  %125 = icmp slt i32 %.sroa.4.8.extract.trunc, %.sroa.4.12.extract.trunc
+  %126 = select i1 %124, i1 %125, i1 false
+  br i1 %126, label %stbtt__buf_get8.exit.i7, label %._crit_edge, !llvm.loop !1285
 
-._crit_edge:                                      ; preds = %.thread38.i, %21, %stbtt__cff_int.exit, %4, %61, %stbtt__dict_get.exit
+._crit_edge:                                      ; preds = %.thread38.i, %21, %stbtt__cff_int.exit, %4, %60, %stbtt__dict_get.exit
   ret void
 }
 
@@ -75346,7 +75667,7 @@ define internal fastcc { ptr, i64 } @stbtt__cff_get_index(ptr noundef nonnull ca
 
 6:                                                ; preds = %stbtt__buf_get8.exit.i, %1
   %7 = phi i32 [ %3, %1 ], [ %16, %stbtt__buf_get8.exit.i ]
-  %.07.i = phi i32 [ 0, %1 ], [ %18, %stbtt__buf_get8.exit.i ]
+  %exitcond.not.i = phi i1 [ false, %1 ], [ true, %stbtt__buf_get8.exit.i ]
   %.056.i = phi i32 [ 0, %1 ], [ %17, %stbtt__buf_get8.exit.i ]
   %8 = shl i32 %.056.i, 8
   %.not.i.i = icmp slt i32 %7, %5
@@ -75366,103 +75687,101 @@ stbtt__buf_get8.exit.i:                           ; preds = %9, %6
   %16 = phi i32 [ %11, %9 ], [ %7, %6 ]
   %.0.i.i = phi i32 [ %15, %9 ], [ 0, %6 ]
   %17 = or disjoint i32 %.0.i.i, %8
-  %18 = add nuw nsw i32 %.07.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 2
   br i1 %exitcond.not.i, label %stbtt__buf_get.exit, label %6, !llvm.loop !574
 
 stbtt__buf_get.exit:                              ; preds = %stbtt__buf_get8.exit.i
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %49, label %19
+  br i1 %.not, label %48, label %18
 
-19:                                               ; preds = %stbtt__buf_get.exit
+18:                                               ; preds = %stbtt__buf_get.exit
   %.not.i = icmp slt i32 %16, %5
-  br i1 %.not.i, label %20, label %stbtt__buf_get8.exit
+  br i1 %.not.i, label %19, label %stbtt__buf_get8.exit
 
-20:                                               ; preds = %19
-  %21 = load ptr, ptr %0, align 8, !tbaa !1282
-  %22 = add nsw i32 %16, 1
-  store i32 %22, ptr %2, align 8, !tbaa !572
-  %23 = sext i32 %16 to i64
-  %24 = getelementptr inbounds i8, ptr %21, i64 %23
-  %25 = load i8, ptr %24, align 1, !tbaa !9
-  %26 = zext i8 %25 to i32
+19:                                               ; preds = %18
+  %20 = load ptr, ptr %0, align 8, !tbaa !1282
+  %21 = add nsw i32 %16, 1
+  store i32 %21, ptr %2, align 8, !tbaa !572
+  %22 = sext i32 %16 to i64
+  %23 = getelementptr inbounds i8, ptr %20, i64 %22
+  %24 = load i8, ptr %23, align 1, !tbaa !9
+  %25 = zext i8 %24 to i32
   br label %stbtt__buf_get8.exit
 
-stbtt__buf_get8.exit:                             ; preds = %19, %20
-  %27 = phi i32 [ %22, %20 ], [ %16, %19 ]
-  %.0.i = phi i32 [ %26, %20 ], [ 0, %19 ]
-  %28 = mul nsw i32 %.0.i, %17
-  %29 = add nsw i32 %27, %28
-  %30 = icmp slt i32 %29, 0
-  %31 = tail call i32 @llvm.smin.i32(i32 %29, i32 %5)
-  %..i.i = select i1 %30, i32 %5, i32 %31
+stbtt__buf_get8.exit:                             ; preds = %18, %19
+  %26 = phi i32 [ %21, %19 ], [ %16, %18 ]
+  %.0.i = phi i32 [ %25, %19 ], [ 0, %18 ]
+  %27 = mul nsw i32 %.0.i, %17
+  %28 = add nsw i32 %26, %27
+  %29 = icmp slt i32 %28, 0
+  %30 = tail call i32 @llvm.smin.i32(i32 %28, i32 %5)
+  %..i.i = select i1 %29, i32 %5, i32 %30
   %.not.i13 = icmp eq i32 %.0.i, 0
   br i1 %.not.i13, label %stbtt__buf_get.exit21, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %stbtt__buf_get8.exit, %stbtt__buf_get8.exit.i18
-  %32 = phi i32 [ %41, %stbtt__buf_get8.exit.i18 ], [ %..i.i, %stbtt__buf_get8.exit ]
-  %.07.i15 = phi i32 [ %43, %stbtt__buf_get8.exit.i18 ], [ 0, %stbtt__buf_get8.exit ]
-  %.056.i16 = phi i32 [ %42, %stbtt__buf_get8.exit.i18 ], [ 0, %stbtt__buf_get8.exit ]
-  %33 = shl i32 %.056.i16, 8
-  %.not.i.i17 = icmp slt i32 %32, %5
-  br i1 %.not.i.i17, label %34, label %stbtt__buf_get8.exit.i18
+  %31 = phi i32 [ %40, %stbtt__buf_get8.exit.i18 ], [ %..i.i, %stbtt__buf_get8.exit ]
+  %.07.i15 = phi i32 [ %42, %stbtt__buf_get8.exit.i18 ], [ 0, %stbtt__buf_get8.exit ]
+  %.056.i16 = phi i32 [ %41, %stbtt__buf_get8.exit.i18 ], [ 0, %stbtt__buf_get8.exit ]
+  %32 = shl i32 %.056.i16, 8
+  %.not.i.i17 = icmp slt i32 %31, %5
+  br i1 %.not.i.i17, label %33, label %stbtt__buf_get8.exit.i18
 
-34:                                               ; preds = %.lr.ph.i
-  %35 = load ptr, ptr %0, align 8, !tbaa !1282
-  %36 = add nsw i32 %32, 1
-  store i32 %36, ptr %2, align 8, !tbaa !572
-  %37 = sext i32 %32 to i64
-  %38 = getelementptr inbounds i8, ptr %35, i64 %37
-  %39 = load i8, ptr %38, align 1, !tbaa !9
-  %40 = zext i8 %39 to i32
+33:                                               ; preds = %.lr.ph.i
+  %34 = load ptr, ptr %0, align 8, !tbaa !1282
+  %35 = add nsw i32 %31, 1
+  store i32 %35, ptr %2, align 8, !tbaa !572
+  %36 = sext i32 %31 to i64
+  %37 = getelementptr inbounds i8, ptr %34, i64 %36
+  %38 = load i8, ptr %37, align 1, !tbaa !9
+  %39 = zext i8 %38 to i32
   br label %stbtt__buf_get8.exit.i18
 
-stbtt__buf_get8.exit.i18:                         ; preds = %34, %.lr.ph.i
-  %41 = phi i32 [ %36, %34 ], [ %32, %.lr.ph.i ]
-  %.0.i.i19 = phi i32 [ %40, %34 ], [ 0, %.lr.ph.i ]
-  %42 = or disjoint i32 %.0.i.i19, %33
-  %43 = add nuw nsw i32 %.07.i15, 1
-  %exitcond.not.i20 = icmp eq i32 %43, %.0.i
+stbtt__buf_get8.exit.i18:                         ; preds = %33, %.lr.ph.i
+  %40 = phi i32 [ %35, %33 ], [ %31, %.lr.ph.i ]
+  %.0.i.i19 = phi i32 [ %39, %33 ], [ 0, %.lr.ph.i ]
+  %41 = or disjoint i32 %.0.i.i19, %32
+  %42 = add nuw nsw i32 %.07.i15, 1
+  %exitcond.not.i20 = icmp eq i32 %42, %.0.i
   br i1 %exitcond.not.i20, label %stbtt__buf_get.exit21.loopexit, label %.lr.ph.i, !llvm.loop !574
 
 stbtt__buf_get.exit21.loopexit:                   ; preds = %stbtt__buf_get8.exit.i18
-  %44 = add i32 %42, -1
+  %43 = add i32 %41, -1
   br label %stbtt__buf_get.exit21
 
 stbtt__buf_get.exit21:                            ; preds = %stbtt__buf_get.exit21.loopexit, %stbtt__buf_get8.exit
-  %45 = phi i32 [ %..i.i, %stbtt__buf_get8.exit ], [ %41, %stbtt__buf_get.exit21.loopexit ]
-  %.05.lcssa.i = phi i32 [ -1, %stbtt__buf_get8.exit ], [ %44, %stbtt__buf_get.exit21.loopexit ]
-  %46 = add nsw i32 %.05.lcssa.i, %45
-  %47 = icmp slt i32 %46, 0
-  %48 = tail call i32 @llvm.smin.i32(i32 %46, i32 %5)
-  %..i.i22 = select i1 %47, i32 %5, i32 %48
+  %44 = phi i32 [ %..i.i, %stbtt__buf_get8.exit ], [ %40, %stbtt__buf_get.exit21.loopexit ]
+  %.05.lcssa.i = phi i32 [ -1, %stbtt__buf_get8.exit ], [ %43, %stbtt__buf_get.exit21.loopexit ]
+  %45 = add nsw i32 %.05.lcssa.i, %44
+  %46 = icmp slt i32 %45, 0
+  %47 = tail call i32 @llvm.smin.i32(i32 %45, i32 %5)
+  %..i.i22 = select i1 %46, i32 %5, i32 %47
   store i32 %..i.i22, ptr %2, align 8, !tbaa !572
-  br label %49
+  br label %48
 
-49:                                               ; preds = %stbtt__buf_get.exit21, %stbtt__buf_get.exit
-  %50 = phi i32 [ %..i.i22, %stbtt__buf_get.exit21 ], [ %16, %stbtt__buf_get.exit ]
-  %51 = sub nsw i32 %50, %3
-  %52 = or i32 %51, %3
-  %or.cond.not.i = icmp sgt i32 %52, -1
-  br i1 %or.cond.not.i, label %53, label %stbtt__buf_range.exit
+48:                                               ; preds = %stbtt__buf_get.exit21, %stbtt__buf_get.exit
+  %49 = phi i32 [ %..i.i22, %stbtt__buf_get.exit21 ], [ %16, %stbtt__buf_get.exit ]
+  %50 = sub nsw i32 %49, %3
+  %51 = or i32 %50, %3
+  %or.cond.not.i = icmp sgt i32 %51, -1
+  br i1 %or.cond.not.i, label %52, label %stbtt__buf_range.exit
 
-53:                                               ; preds = %49
-  %54 = icmp sgt i32 %3, %5
-  %55 = icmp sgt i32 %50, %5
-  %or.cond.i = or i1 %54, %55
-  br i1 %or.cond.i, label %stbtt__buf_range.exit, label %56
+52:                                               ; preds = %48
+  %53 = icmp sgt i32 %3, %5
+  %54 = icmp sgt i32 %49, %5
+  %or.cond.i = or i1 %53, %54
+  br i1 %or.cond.i, label %stbtt__buf_range.exit, label %55
 
-56:                                               ; preds = %53
-  %57 = load ptr, ptr %0, align 8, !tbaa !1282
-  %58 = zext nneg i32 %3 to i64
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 %58
-  %60 = zext nneg i32 %51 to i64
-  %61 = shl nuw nsw i64 %60, 32
+55:                                               ; preds = %52
+  %56 = load ptr, ptr %0, align 8, !tbaa !1282
+  %57 = zext nneg i32 %3 to i64
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 %57
+  %59 = zext nneg i32 %50 to i64
+  %60 = shl nuw nsw i64 %59, 32
   br label %stbtt__buf_range.exit
 
-stbtt__buf_range.exit:                            ; preds = %49, %53, %56
-  %.sroa.0.0.i = phi ptr [ null, %49 ], [ null, %53 ], [ %59, %56 ]
-  %.sroa.5.0.i = phi i64 [ 0, %49 ], [ 0, %53 ], [ %61, %56 ]
+stbtt__buf_range.exit:                            ; preds = %48, %52, %55
+  %.sroa.0.0.i = phi ptr [ null, %48 ], [ null, %52 ], [ %58, %55 ]
+  %.sroa.5.0.i = phi i64 [ 0, %48 ], [ 0, %52 ], [ %60, %55 ]
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %.sroa.5.0.i, 1
   ret { ptr, i64 } %.fca.1.insert.i
@@ -75637,7 +75956,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   %26 = fmul float %25, 5.000000e-01
   %27 = fadd float %.tr5164, %.tr5366
   %28 = fmul float %27, 5.000000e-01
-  %29 = add i32 %.tr5767, 1
+  %29 = add nsw i32 %.tr5767, 1
   tail call fastcc void @stbtt__tesselate_curve(ptr noundef %0, ptr noundef %1, float noundef %.tr5063, float noundef %.tr5164, float noundef %26, float noundef %28, float noundef %14, float noundef %15, float noundef %8, i32 noundef %29)
   %30 = fadd float %6, %.tr5265
   %31 = fmul float %30, 5.000000e-01
@@ -75673,36 +75992,36 @@ stbtt__add_point.exit:                            ; preds = %36, %38
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @stbtt__tesselate_cubic(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, i32 noundef %11) unnamed_addr #45 {
   %smax = tail call i32 @llvm.smax.i32(i32 %11, i32 17)
-  %exitcond107 = icmp sgt i32 %11, 16
-  br i1 %exitcond107, label %.loopexit, label %.lr.ph
+  %exitcond108 = icmp sgt i32 %11, 16
+  br i1 %exitcond108, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %tailrecurse
-  %.tr106114 = phi i32 [ %63, %tailrecurse ], [ %11, %12 ]
-  %.tr102113 = phi float [ %50, %tailrecurse ], [ %7, %12 ]
-  %.tr101112 = phi float [ %48, %tailrecurse ], [ %6, %12 ]
-  %.tr100111 = phi float [ %58, %tailrecurse ], [ %5, %12 ]
-  %.tr99110 = phi float [ %56, %tailrecurse ], [ %4, %12 ]
-  %.tr98109 = phi float [ %62, %tailrecurse ], [ %3, %12 ]
-  %.tr97108 = phi float [ %60, %tailrecurse ], [ %2, %12 ]
-  %13 = fsub float %8, %.tr97108
-  %14 = fsub float %9, %.tr98109
+  %.tr106115 = phi i32 [ %63, %tailrecurse ], [ %11, %12 ]
+  %.tr102114 = phi float [ %50, %tailrecurse ], [ %7, %12 ]
+  %.tr101113 = phi float [ %48, %tailrecurse ], [ %6, %12 ]
+  %.tr100112 = phi float [ %58, %tailrecurse ], [ %5, %12 ]
+  %.tr99111 = phi float [ %56, %tailrecurse ], [ %4, %12 ]
+  %.tr98110 = phi float [ %62, %tailrecurse ], [ %3, %12 ]
+  %.tr97109 = phi float [ %60, %tailrecurse ], [ %2, %12 ]
+  %13 = fsub float %8, %.tr97109
+  %14 = fsub float %9, %.tr98110
   %15 = fmul float %14, %14
   %16 = tail call float @llvm.fmuladd.f32(float %13, float %13, float %15)
   %sqrt = tail call float @llvm.sqrt.f32(float %16)
-  %17 = fsub float %8, %.tr101112
-  %18 = fsub float %9, %.tr102113
+  %17 = fsub float %8, %.tr101113
+  %18 = fsub float %9, %.tr102114
   %19 = fmul float %18, %18
   %20 = tail call float @llvm.fmuladd.f32(float %17, float %17, float %19)
   %21 = fpext float %20 to double
   %sqrt93 = tail call double @llvm.sqrt.f64(double %21)
-  %22 = fsub float %.tr101112, %.tr99110
-  %23 = fsub float %.tr102113, %.tr100111
+  %22 = fsub float %.tr101113, %.tr99111
+  %23 = fsub float %.tr102114, %.tr100112
   %24 = fmul float %23, %23
   %25 = tail call float @llvm.fmuladd.f32(float %22, float %22, float %24)
   %26 = fpext float %25 to double
   %sqrt94 = tail call double @llvm.sqrt.f64(double %26)
-  %27 = fsub float %.tr99110, %.tr97108
-  %28 = fsub float %.tr100111, %.tr98109
+  %27 = fsub float %.tr99111, %.tr97109
+  %28 = fsub float %.tr100112, %.tr98110
   %29 = fmul float %28, %28
   %30 = tail call float @llvm.fmuladd.f32(float %27, float %27, float %29)
   %31 = fpext float %30 to double
@@ -75717,17 +76036,17 @@ define internal fastcc void @stbtt__tesselate_cubic(ptr noundef writeonly captur
   br i1 %38, label %tailrecurse, label %64
 
 tailrecurse:                                      ; preds = %.lr.ph
-  %39 = fadd float %.tr97108, %.tr99110
+  %39 = fadd float %.tr97109, %.tr99111
   %40 = fmul float %39, 5.000000e-01
-  %41 = fadd float %.tr98109, %.tr100111
+  %41 = fadd float %.tr98110, %.tr100112
   %42 = fmul float %41, 5.000000e-01
-  %43 = fadd float %.tr99110, %.tr101112
+  %43 = fadd float %.tr99111, %.tr101113
   %44 = fmul float %43, 5.000000e-01
-  %45 = fadd float %.tr100111, %.tr102113
+  %45 = fadd float %.tr100112, %.tr102114
   %46 = fmul float %45, 5.000000e-01
-  %47 = fadd float %8, %.tr101112
+  %47 = fadd float %8, %.tr101113
   %48 = fmul float %47, 5.000000e-01
-  %49 = fadd float %9, %.tr102113
+  %49 = fadd float %9, %.tr102114
   %50 = fmul float %49, 5.000000e-01
   %51 = fadd float %40, %44
   %52 = fmul float %51, 5.000000e-01
@@ -75741,8 +76060,8 @@ tailrecurse:                                      ; preds = %.lr.ph
   %60 = fmul float %59, 5.000000e-01
   %61 = fadd float %54, %58
   %62 = fmul float %61, 5.000000e-01
-  %63 = add i32 %.tr106114, 1
-  tail call fastcc void @stbtt__tesselate_cubic(ptr noundef %0, ptr noundef %1, float noundef %.tr97108, float noundef %.tr98109, float noundef %40, float noundef %42, float noundef %52, float noundef %54, float noundef %60, float noundef %62, float noundef %10, i32 noundef %63)
+  %63 = add i32 %.tr106115, 1
+  tail call fastcc void @stbtt__tesselate_cubic(ptr noundef %0, ptr noundef %1, float noundef %.tr97109, float noundef %.tr98110, float noundef %40, float noundef %42, float noundef %52, float noundef %54, float noundef %60, float noundef %62, float noundef %10, i32 noundef %63)
   %exitcond = icmp eq i32 %63, %smax
   br i1 %exitcond, label %.loopexit, label %.lr.ph
 
@@ -76490,7 +76809,7 @@ nk_utf_decode_byte.exit.i:                        ; preds = %13
 
 nk_utf_decode_byte.exit34.i:                      ; preds = %33
   %.not27.i = icmp eq i64 %indvars.iv.i29.i, 0
-  br i1 %.not27.i, label %41, label %nk_utf_validate.exit.loopexit90.i
+  br i1 %.not27.i, label %41, label %nk_utf_validate.exit.loopexit92.i
 
 41:                                               ; preds = %nk_utf_decode_byte.exit34.i
   %42 = xor i8 %35, -1
@@ -76510,18 +76829,18 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %33
   br i1 %27, label %nk_utf_decode.exit.thread, label %48
 
 48:                                               ; preds = %._crit_edge.i, %._crit_edge.loopexit.i
-  %.0.lcssa89.i = phi i32 [ %46, %._crit_edge.loopexit.i ], [ %25, %._crit_edge.i ]
+  %.0.lcssa91.i = phi i32 [ %46, %._crit_edge.loopexit.i ], [ %25, %._crit_edge.i ]
   %49 = and i64 %indvars.iv.i.i, 4294967295
   %50 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !7
-  %.not.i.i = icmp ugt i32 %51, %.0.lcssa89.i
+  %.not.i.i = icmp ugt i32 %51, %.0.lcssa91.i
   br i1 %.not.i.i, label %57, label %52
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %49
   %54 = load i32, ptr %53, align 4, !tbaa !7
-  %55 = icmp uge i32 %.0.lcssa89.i, %54
-  %56 = add i32 %.0.lcssa89.i, -55296
+  %55 = icmp uge i32 %.0.lcssa91.i, %54
+  %56 = add i32 %.0.lcssa91.i, -55296
   %or.cond.i.i = icmp ult i32 %56, 2047
   %or.cond15.i.i = or i1 %or.cond.i.i, %55
   br i1 %or.cond15.i.i, label %57, label %nk_utf_decode.exit
@@ -76530,16 +76849,16 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %33
   br label %nk_utf_decode.exit
 
 nk_utf_validate.exit.loopexit.i:                  ; preds = %40
-  %indvars83.le101.i = trunc i64 %indvars.iv.i to i32
+  %indvars83.le103.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_validate.exit.loopexit90.i:                ; preds = %nk_utf_decode_byte.exit34.i
+nk_utf_validate.exit.loopexit92.i:                ; preds = %nk_utf_decode_byte.exit34.i
   %indvars83.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %52, %57, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit90.i
-  %.284 = phi i32 [ 65533, %57 ], [ %.0.lcssa89.i, %52 ], [ 65533, %nk_utf_validate.exit.loopexit90.i ], [ 65533, %nk_utf_validate.exit.loopexit.i ]
-  %.023.i = phi i32 [ %21, %57 ], [ %21, %52 ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit90.i ], [ %indvars83.le101.i, %nk_utf_validate.exit.loopexit.i ]
+nk_utf_decode.exit:                               ; preds = %52, %57, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit92.i
+  %.284 = phi i32 [ 65533, %57 ], [ %.0.lcssa91.i, %52 ], [ 65533, %nk_utf_validate.exit.loopexit92.i ], [ 65533, %nk_utf_validate.exit.loopexit.i ]
+  %.023.i = phi i32 [ %21, %57 ], [ %21, %52 ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ]
   %.not = icmp eq i32 %.023.i, 0
   br i1 %.not, label %nk_utf_decode.exit.thread, label %.preheader
 
@@ -76561,7 +76880,7 @@ nk_utf_decode.exit:                               ; preds = %52, %57, %nk_utf_va
 66:                                               ; preds = %.lr.ph, %.loopexit
   %.027124 = phi i32 [ %.023.i, %.lr.ph ], [ %143, %.loopexit ]
   %.030123 = phi float [ 0.000000e+00, %.lr.ph ], [ %93, %.loopexit ]
-  %.082122 = phi i32 [ %.284, %.lr.ph ], [ %.0.lcssa89.i58, %.loopexit ]
+  %.082122 = phi i32 [ %.284, %.lr.ph ], [ %.0.lcssa91.i58, %.loopexit ]
   br label %67
 
 67:                                               ; preds = %._crit_edge.i39, %66
@@ -76719,18 +77038,18 @@ nk_utf_decode_byte.exit34.i73:                    ; preds = %119
   br i1 %113, label %nk_utf_decode.exit.thread, label %134
 
 134:                                              ; preds = %._crit_edge.i57, %._crit_edge.loopexit.i79
-  %.0.lcssa89.i58 = phi i32 [ %132, %._crit_edge.loopexit.i79 ], [ %111, %._crit_edge.i57 ]
+  %.0.lcssa91.i58 = phi i32 [ %132, %._crit_edge.loopexit.i79 ], [ %111, %._crit_edge.i57 ]
   %135 = and i64 %indvars.iv.i.i49, 4294967295
   %136 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !7
-  %.not.i.i59 = icmp ugt i32 %137, %.0.lcssa89.i58
+  %.not.i.i59 = icmp ugt i32 %137, %.0.lcssa91.i58
   br i1 %.not.i.i59, label %nk_utf_decode.exit.thread, label %138
 
 138:                                              ; preds = %134
   %139 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %135
   %140 = load i32, ptr %139, align 4, !tbaa !7
-  %141 = icmp uge i32 %.0.lcssa89.i58, %140
-  %142 = add i32 %.0.lcssa89.i58, -55296
+  %141 = icmp uge i32 %.0.lcssa91.i58, %140
+  %142 = add i32 %.0.lcssa91.i58, -55296
   %or.cond.i.i60 = icmp ult i32 %142, 2047
   %or.cond15.i.i61 = or i1 %or.cond.i.i60, %141
   br i1 %or.cond15.i.i61, label %nk_utf_decode.exit.thread, label %.loopexit
@@ -76740,7 +77059,7 @@ nk_utf_decode_byte.exit34.i73:                    ; preds = %119
   %144 = icmp sgt i32 %143, %3
   %145 = icmp eq i64 %indvars.iv.i.i49, 0
   %.not98 = or i1 %145, %144
-  %146 = icmp eq i32 %.0.lcssa89.i58, 65533
+  %146 = icmp eq i32 %.0.lcssa91.i58, 65533
   %or.cond95 = or i1 %.not98, %146
   br i1 %or.cond95, label %nk_utf_decode.exit.thread, label %66
 
@@ -77075,8 +77394,8 @@ nk_input_has_mouse_click_in_rect.exit.i:          ; preds = %13
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %28 = load float, ptr %27, align 4, !tbaa !737
   %29 = fcmp ugt float %.sroa.0.4.vec.extract.i.i, %28
-  %foldExtExtBinop50 = fadd <2 x float> %18, %20
-  %30 = extractelement <2 x float> %foldExtExtBinop50, i64 1
+  %foldExtExtBinop54 = fadd <2 x float> %18, %20
+  %30 = extractelement <2 x float> %foldExtExtBinop54, i64 1
   %31 = fcmp uge float %28, %30
   %or.cond16.i.not.i = select i1 %29, i1 true, i1 %31
   %32 = icmp ne i32 %15, 1
@@ -77092,8 +77411,8 @@ nk_input_has_mouse_click_in_rect.exit.i:          ; preds = %13
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 324
   %38 = load float, ptr %37, align 4, !tbaa !722
   %39 = fcmp ole float %.sroa.0.0.vec.extract.i, %38
-  %foldExtExtBinop52 = fadd <2 x float> %34, %36
-  %40 = extractelement <2 x float> %foldExtExtBinop52, i64 0
+  %foldExtExtBinop56 = fadd <2 x float> %34, %36
+  %40 = extractelement <2 x float> %foldExtExtBinop56, i64 0
   %41 = fcmp olt float %38, %40
   %or.cond.i = select i1 %39, i1 %41, i1 false
   %42 = extractelement <2 x float> %36, i64 1
@@ -77105,8 +77424,8 @@ nk_input_has_mouse_click_in_rect.exit.i:          ; preds = %13
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %46 = load float, ptr %45, align 4, !tbaa !724
   %47 = fcmp ugt float %.sroa.0.4.vec.extract.i, %46
-  %foldExtExtBinop54 = fadd <2 x float> %34, %36
-  %48 = extractelement <2 x float> %foldExtExtBinop54, i64 1
+  %foldExtExtBinop58 = fadd <2 x float> %34, %36
+  %48 = extractelement <2 x float> %foldExtExtBinop58, i64 1
   %49 = fcmp uge float %46, %48
   %or.cond24 = select i1 %47, i1 true, i1 %49
   br i1 %or.cond24, label %nk_input_is_mouse_hovering_rect.exit.thread, label %50
@@ -77340,8 +77659,8 @@ nk_input_is_key_pressed.exit226:                  ; preds = %152, %153
 
 nk_input_is_key_pressed.exit231.thread.thread:    ; preds = %57, %72
   %.1.ph = phi float [ %82, %72 ], [ %66, %57 ]
-  %.pre41 = load <2 x float>, ptr %3, align 4
-  %.pre3142 = load <2 x float>, ptr %35, align 4
+  %.pre45 = load <2 x float>, ptr %3, align 4
+  %.pre3146 = load <2 x float>, ptr %35, align 4
   br label %nk_input_is_key_pressed.exit231.thread._crit_edge
 
 nk_input_is_key_pressed.exit231.thread:           ; preds = %162, %161, %141, %146, %136, %140, %106, %.thread, %131, %156, %155, %164, %.thread13, %126
@@ -77353,15 +77672,15 @@ nk_input_is_key_pressed.exit231.thread:           ; preds = %162, %161, %141, %1
   br i1 %.not200, label %nk_input_is_key_pressed.exit231.thread._crit_edge, label %168
 
 nk_input_is_key_pressed.exit231.thread._crit_edge: ; preds = %nk_input_is_key_pressed.exit231.thread.thread, %nk_input_is_key_pressed.exit231.thread
-  %.pre3148 = phi <2 x float> [ %.pre3142, %nk_input_is_key_pressed.exit231.thread.thread ], [ %.pre31, %nk_input_is_key_pressed.exit231.thread ]
-  %.pre46 = phi <2 x float> [ %.pre41, %nk_input_is_key_pressed.exit231.thread.thread ], [ %.pre, %nk_input_is_key_pressed.exit231.thread ]
-  %.144 = phi float [ %.1.ph, %nk_input_is_key_pressed.exit231.thread.thread ], [ %.1, %nk_input_is_key_pressed.exit231.thread ]
+  %.pre3152 = phi <2 x float> [ %.pre3146, %nk_input_is_key_pressed.exit231.thread.thread ], [ %.pre31, %nk_input_is_key_pressed.exit231.thread ]
+  %.pre50 = phi <2 x float> [ %.pre45, %nk_input_is_key_pressed.exit231.thread.thread ], [ %.pre, %nk_input_is_key_pressed.exit231.thread ]
+  %.148 = phi float [ %.1.ph, %nk_input_is_key_pressed.exit231.thread.thread ], [ %.1, %nk_input_is_key_pressed.exit231.thread ]
   %167 = phi i32 [ 34, %nk_input_is_key_pressed.exit231.thread.thread ], [ %51, %nk_input_is_key_pressed.exit231.thread ]
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 332
   %.pre32 = load float, ptr %.phi.trans.insert, align 4, !tbaa !723
-  %.pre33 = extractelement <2 x float> %.pre46, i64 0
-  %foldExtExtBinop56 = fadd <2 x float> %.pre46, %.pre3148
-  %.pre35 = extractelement <2 x float> %foldExtExtBinop56, i64 0
+  %.pre33 = extractelement <2 x float> %.pre50, i64 0
+  %foldExtExtBinop60 = fadd <2 x float> %.pre50, %.pre3152
+  %.pre35 = extractelement <2 x float> %foldExtExtBinop60, i64 0
   br label %181
 
 168:                                              ; preds = %nk_input_is_key_pressed.exit231.thread
@@ -77369,8 +77688,8 @@ nk_input_is_key_pressed.exit231.thread._crit_edge: ; preds = %nk_input_is_key_pr
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 332
   %170 = load float, ptr %169, align 4, !tbaa !723
   %171 = fcmp ole float %.sroa.0.0.vec.extract.i233, %170
-  %foldExtExtBinop58 = fadd <2 x float> %.pre, %.pre31
-  %172 = extractelement <2 x float> %foldExtExtBinop58, i64 0
+  %foldExtExtBinop62 = fadd <2 x float> %.pre, %.pre31
+  %172 = extractelement <2 x float> %foldExtExtBinop62, i64 0
   %173 = fcmp olt float %170, %172
   %or.cond.i235 = select i1 %171, i1 %173, i1 false
   br i1 %or.cond.i235, label %174, label %nk_input_is_mouse_prev_hovering_rect.exit.thread
@@ -77380,8 +77699,8 @@ nk_input_is_key_pressed.exit231.thread._crit_edge: ; preds = %nk_input_is_key_pr
   %175 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %176 = load float, ptr %175, align 4, !tbaa !725
   %177 = fcmp ugt float %.sroa.0.4.vec.extract.i237, %176
-  %foldExtExtBinop60 = fadd <2 x float> %.pre, %.pre31
-  %178 = extractelement <2 x float> %foldExtExtBinop60, i64 1
+  %foldExtExtBinop64 = fadd <2 x float> %.pre, %.pre31
+  %178 = extractelement <2 x float> %foldExtExtBinop64, i64 1
   %179 = fcmp uge float %176, %178
   %or.cond28 = select i1 %177, i1 true, i1 %179
   br i1 %or.cond28, label %nk_input_is_mouse_prev_hovering_rect.exit.thread, label %181
@@ -77391,9 +77710,9 @@ nk_input_is_mouse_prev_hovering_rect.exit.thread: ; preds = %174, %168
   br label %nk_input_is_mouse_prev_hovering_rect.exit246.thread.sink.split
 
 181:                                              ; preds = %nk_input_is_key_pressed.exit231.thread._crit_edge, %174
-  %.pre3147 = phi <2 x float> [ %.pre3148, %nk_input_is_key_pressed.exit231.thread._crit_edge ], [ %.pre31, %174 ]
-  %.pre45 = phi <2 x float> [ %.pre46, %nk_input_is_key_pressed.exit231.thread._crit_edge ], [ %.pre, %174 ]
-  %.143 = phi float [ %.144, %nk_input_is_key_pressed.exit231.thread._crit_edge ], [ %.1, %174 ]
+  %.pre3151 = phi <2 x float> [ %.pre3152, %nk_input_is_key_pressed.exit231.thread._crit_edge ], [ %.pre31, %174 ]
+  %.pre49 = phi <2 x float> [ %.pre50, %nk_input_is_key_pressed.exit231.thread._crit_edge ], [ %.pre, %174 ]
+  %.147 = phi float [ %.148, %nk_input_is_key_pressed.exit231.thread._crit_edge ], [ %.1, %174 ]
   %182 = phi i32 [ %167, %nk_input_is_key_pressed.exit231.thread._crit_edge ], [ %51, %174 ]
   %.pre-phi = phi float [ %.pre35, %nk_input_is_key_pressed.exit231.thread._crit_edge ], [ %172, %174 ]
   %.sroa.0.0.vec.extract.i240.pre-phi = phi float [ %.pre33, %nk_input_is_key_pressed.exit231.thread._crit_edge ], [ %.sroa.0.0.vec.extract.i233, %174 ]
@@ -77404,12 +77723,12 @@ nk_input_is_mouse_prev_hovering_rect.exit.thread: ; preds = %174, %168
   br i1 %or.cond.i242, label %186, label %nk_input_is_mouse_prev_hovering_rect.exit246.thread
 
 186:                                              ; preds = %181
-  %.sroa.0.4.vec.extract.i244 = extractelement <2 x float> %.pre45, i64 1
+  %.sroa.0.4.vec.extract.i244 = extractelement <2 x float> %.pre49, i64 1
   %187 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %188 = load float, ptr %187, align 4, !tbaa !725
   %189 = fcmp ugt float %.sroa.0.4.vec.extract.i244, %188
-  %foldExtExtBinop62 = fadd <2 x float> %.pre45, %.pre3147
-  %190 = extractelement <2 x float> %foldExtExtBinop62, i64 1
+  %foldExtExtBinop66 = fadd <2 x float> %.pre49, %.pre3151
+  %190 = extractelement <2 x float> %foldExtExtBinop66, i64 1
   %191 = fcmp uge float %188, %190
   %or.cond30 = select i1 %189, i1 true, i1 %191
   br i1 %or.cond30, label %nk_input_is_mouse_prev_hovering_rect.exit246.thread, label %192
@@ -77420,12 +77739,12 @@ nk_input_is_mouse_prev_hovering_rect.exit.thread: ; preds = %174, %168
 
 nk_input_is_mouse_prev_hovering_rect.exit246.thread.sink.split: ; preds = %192, %nk_input_is_mouse_prev_hovering_rect.exit.thread
   %.sink = phi i32 [ %180, %nk_input_is_mouse_prev_hovering_rect.exit.thread ], [ %193, %192 ]
-  %.0.ph = phi float [ %.1, %nk_input_is_mouse_prev_hovering_rect.exit.thread ], [ %.143, %192 ]
+  %.0.ph = phi float [ %.1, %nk_input_is_mouse_prev_hovering_rect.exit.thread ], [ %.147, %192 ]
   store i32 %.sink, ptr %0, align 4, !tbaa !7
   br label %nk_input_is_mouse_prev_hovering_rect.exit246.thread
 
 nk_input_is_mouse_prev_hovering_rect.exit246.thread: ; preds = %nk_input_is_mouse_prev_hovering_rect.exit246.thread.sink.split, %186, %181, %9
-  %.0 = phi float [ %5, %9 ], [ %.143, %181 ], [ %.143, %186 ], [ %.0.ph, %nk_input_is_mouse_prev_hovering_rect.exit246.thread.sink.split ]
+  %.0 = phi float [ %5, %9 ], [ %.147, %181 ], [ %.147, %186 ], [ %.0.ph, %nk_input_is_mouse_prev_hovering_rect.exit246.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret float %.0
 }
@@ -77978,7 +78297,7 @@ define internal fastcc void @nk_draw_selectable(ptr noundef nonnull captures(add
   %18 = and i32 %1, 16
   %.not56 = icmp eq i32 %18, 0
   %spec.select = select i1 %.not56, i64 240, i64 244
-  %spec.select5.idx = select i1 %.not56, i64 0, i64 40
+  %spec.select10.idx = select i1 %.not56, i64 0, i64 40
   br label %22
 
 19:                                               ; preds = %11
@@ -77988,13 +78307,13 @@ define internal fastcc void @nk_draw_selectable(ptr noundef nonnull captures(add
   %21 = and i32 %1, 16
   %.not58 = icmp eq i32 %21, 0
   %. = select i1 %.not58, i64 120, i64 160
-  %.6 = select i1 %.not58, i64 252, i64 256
+  %.11 = select i1 %.not58, i64 252, i64 256
   br label %22
 
 22:                                               ; preds = %20, %19, %16, %17
-  %spec.select5.idx.sink = phi i64 [ %spec.select5.idx, %17 ], [ 80, %16 ], [ 200, %19 ], [ %., %20 ]
-  %.sink = phi i64 [ %spec.select, %17 ], [ 248, %16 ], [ 260, %19 ], [ %.6, %20 ]
-  %spec.select5 = getelementptr inbounds nuw i8, ptr %2, i64 %spec.select5.idx.sink
+  %spec.select10.idx.sink = phi i64 [ %spec.select10.idx, %17 ], [ 80, %16 ], [ 200, %19 ], [ %., %20 ]
+  %.sink = phi i64 [ %spec.select, %17 ], [ 248, %16 ], [ 260, %19 ], [ %.11, %20 ]
+  %spec.select10 = getelementptr inbounds nuw i8, ptr %2, i64 %spec.select10.idx.sink
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink
   %.sroa.11.0 = load i32, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 300
@@ -78038,7 +78357,7 @@ nk_rgb_factor.exit:                               ; preds = %27, %28
   %.sroa.3.0.insert.insert.i = or disjoint i32 %.sroa.512.0.insert.insert.i, %.sroa.3.0.insert.shift.i
   %.sroa.011.0.insert.ext.i = zext i8 %.sroa.011.0.i to i32
   %.sroa.011.0.insert.insert.i = or disjoint i32 %.sroa.3.0.insert.insert.i, %.sroa.011.0.insert.ext.i
-  %41 = load i32, ptr %spec.select5, align 8, !tbaa !820
+  %41 = load i32, ptr %spec.select10, align 8, !tbaa !820
   switch i32 %41, label %55 [
     i32 1, label %nk_rgb_factor.exit72
     i32 2, label %nk_rgb_factor.exit84
@@ -78046,7 +78365,7 @@ nk_rgb_factor.exit:                               ; preds = %27, %28
   ]
 
 nk_rgb_factor.exit72:                             ; preds = %nk_rgb_factor.exit
-  %42 = getelementptr inbounds nuw i8, ptr %spec.select5, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %spec.select10, i64 8
   %43 = fmul float %25, 2.550000e+02
   %44 = fptoui float %43 to i8
   %45 = zext i8 %44 to i32
@@ -78060,7 +78379,7 @@ nk_rgb_factor.exit72:                             ; preds = %nk_rgb_factor.exit
   br label %55
 
 nk_rgb_factor.exit84:                             ; preds = %nk_rgb_factor.exit
-  %46 = getelementptr inbounds nuw i8, ptr %spec.select5, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %spec.select10, i64 8
   %47 = fmul float %25, 2.550000e+02
   %48 = fptoui float %47 to i8
   %49 = zext i8 %48 to i32
@@ -78074,7 +78393,7 @@ nk_rgb_factor.exit84:                             ; preds = %nk_rgb_factor.exit
   br label %55
 
 50:                                               ; preds = %nk_rgb_factor.exit
-  %51 = getelementptr inbounds nuw i8, ptr %spec.select5, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %spec.select10, i64 8
   %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %54 = load float, ptr %53, align 8, !tbaa !753
@@ -78190,8 +78509,8 @@ nk_rgb_factor.exit96:                             ; preds = %56
 111:                                              ; preds = %109
   %.sroa.099.0.vec.extract111.i = extractelement <2 x float> %.0.val, i64 0
   %112 = fadd float %.sroa.099.0.vec.extract111.i, %13
-  %foldExtExtBinop8 = fadd <2 x float> %.0.val, %.8.val
-  %113 = extractelement <2 x float> %foldExtExtBinop8, i64 0
+  %foldExtExtBinop13 = fadd <2 x float> %.0.val, %.8.val
+  %113 = extractelement <2 x float> %foldExtExtBinop13, i64 0
   %114 = tail call float @llvm.fmuladd.f32(float %13, float 2.000000e+00, float %82)
   %115 = fsub float %113, %114
   %116 = fcmp olt float %112, %115
@@ -79060,8 +79379,8 @@ nk_textedit_clamp.exit329:                        ; preds = %249, %257
 
 .loopexit.thread.i.i:                             ; preds = %.lr.ph.i.i, %.loopexit.i.i
   %.0.i330 = phi i32 [ 0, %.loopexit.i.i ], [ %.03246.i.i, %.lr.ph.i.i ]
-  %.0334356.i.i = phi i32 [ %.03343.i.i, %.loopexit.i.i ], [ %.03345.i.i, %.lr.ph.i.i ]
-  %297 = sext i32 %.0334356.i.i to i64
+  %.0334362.i.i = phi i32 [ %.03343.i.i, %.loopexit.i.i ], [ %.03345.i.i, %.lr.ph.i.i ]
+  %297 = sext i32 %.0334362.i.i to i64
   %298 = getelementptr inbounds i8, ptr %285, i64 %297
   br label %nk_textedit_get_width.exit
 
@@ -79329,8 +79648,8 @@ nk_textedit_clamp.exit339:                        ; preds = %371, %379
 
 .loopexit.thread.i.i352:                          ; preds = %.lr.ph.i.i341, %.loopexit.i.i346
   %.0.i353 = phi i32 [ 0, %.loopexit.i.i346 ], [ %.03246.i.i343, %.lr.ph.i.i341 ]
-  %.0334356.i.i354 = phi i32 [ %.03343.i.i347, %.loopexit.i.i346 ], [ %.03345.i.i344, %.lr.ph.i.i341 ]
-  %418 = sext i32 %.0334356.i.i354 to i64
+  %.0334362.i.i354 = phi i32 [ %.03343.i.i347, %.loopexit.i.i346 ], [ %.03345.i.i344, %.lr.ph.i.i341 ]
+  %418 = sext i32 %.0334362.i.i354 to i64
   %419 = getelementptr inbounds i8, ptr %406, i64 %418
   br label %nk_textedit_get_width.exit355
 
@@ -80009,7 +80328,7 @@ nk_utf_decode_byte.exit.i:                        ; preds = %14
 
 nk_utf_decode_byte.exit34.i:                      ; preds = %34
   %.not27.i = icmp eq i64 %indvars.iv.i29.i, 0
-  br i1 %.not27.i, label %42, label %nk_utf_validate.exit.loopexit90.i
+  br i1 %.not27.i, label %42, label %nk_utf_validate.exit.loopexit92.i
 
 42:                                               ; preds = %nk_utf_decode_byte.exit34.i
   %43 = xor i8 %36, -1
@@ -80029,18 +80348,18 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %34
   br i1 %28, label %nk_utf_decode.exit.thread, label %49
 
 49:                                               ; preds = %._crit_edge.i, %._crit_edge.loopexit.i
-  %.0.lcssa89.i = phi i32 [ %47, %._crit_edge.loopexit.i ], [ %26, %._crit_edge.i ]
+  %.0.lcssa91.i = phi i32 [ %47, %._crit_edge.loopexit.i ], [ %26, %._crit_edge.i ]
   %50 = and i64 %indvars.iv.i.i, 4294967295
   %51 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !7
-  %.not.i.i = icmp ugt i32 %52, %.0.lcssa89.i
+  %.not.i.i = icmp ugt i32 %52, %.0.lcssa91.i
   br i1 %.not.i.i, label %58, label %53
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %50
   %55 = load i32, ptr %54, align 4, !tbaa !7
-  %56 = icmp uge i32 %.0.lcssa89.i, %55
-  %57 = add i32 %.0.lcssa89.i, -55296
+  %56 = icmp uge i32 %.0.lcssa91.i, %55
+  %57 = add i32 %.0.lcssa91.i, -55296
   %or.cond.i.i = icmp ult i32 %57, 2047
   %or.cond15.i.i = or i1 %or.cond.i.i, %56
   br i1 %or.cond15.i.i, label %58, label %nk_utf_decode.exit
@@ -80049,16 +80368,16 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %34
   br label %nk_utf_decode.exit
 
 nk_utf_validate.exit.loopexit.i:                  ; preds = %41
-  %indvars83.le101.i = trunc i64 %indvars.iv.i to i32
+  %indvars83.le103.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_validate.exit.loopexit90.i:                ; preds = %nk_utf_decode_byte.exit34.i
+nk_utf_validate.exit.loopexit92.i:                ; preds = %nk_utf_decode_byte.exit34.i
   %indvars83.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %53, %58, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit90.i
-  %.1171 = phi i32 [ 65533, %58 ], [ %.0.lcssa89.i, %53 ], [ 65533, %nk_utf_validate.exit.loopexit90.i ], [ 65533, %nk_utf_validate.exit.loopexit.i ]
-  %.023.i = phi i32 [ %22, %58 ], [ %22, %53 ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit90.i ], [ %indvars83.le101.i, %nk_utf_validate.exit.loopexit.i ]
+nk_utf_decode.exit:                               ; preds = %53, %58, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit92.i
+  %.1171 = phi i32 [ 65533, %58 ], [ %.0.lcssa91.i, %53 ], [ 65533, %nk_utf_validate.exit.loopexit92.i ], [ 65533, %nk_utf_validate.exit.loopexit.i ]
+  %.023.i = phi i32 [ %22, %58 ], [ %22, %53 ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ]
   %.not = icmp eq i32 %.023.i, 0
   br i1 %.not, label %nk_utf_decode.exit.thread, label %.lr.ph.preheader
 
@@ -80192,7 +80511,7 @@ nk_utf_decode_byte.exit.i105:                     ; preds = %87
 
 nk_utf_decode_byte.exit34.i124:                   ; preds = %109
   %.not27.i125 = icmp eq i64 %indvars.iv.i29.i119, 0
-  br i1 %.not27.i125, label %117, label %nk_utf_validate.exit.loopexit90.i126
+  br i1 %.not27.i125, label %117, label %nk_utf_validate.exit.loopexit92.i126
 
 117:                                              ; preds = %nk_utf_decode_byte.exit34.i124
   %118 = xor i8 %111, -1
@@ -80212,18 +80531,18 @@ nk_utf_decode_byte.exit34.i124:                   ; preds = %109
   br i1 %101, label %.loopexit, label %124
 
 124:                                              ; preds = %._crit_edge.i108, %._crit_edge.loopexit.i130
-  %.0.lcssa89.i109 = phi i32 [ %122, %._crit_edge.loopexit.i130 ], [ %99, %._crit_edge.i108 ]
+  %.0.lcssa91.i109 = phi i32 [ %122, %._crit_edge.loopexit.i130 ], [ %99, %._crit_edge.i108 ]
   %125 = and i64 %indvars.iv.i.i100, 4294967295
   %126 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %125
   %127 = load i32, ptr %126, align 4, !tbaa !7
-  %.not.i.i110 = icmp ugt i32 %127, %.0.lcssa89.i109
+  %.not.i.i110 = icmp ugt i32 %127, %.0.lcssa91.i109
   br i1 %.not.i.i110, label %133, label %128
 
 128:                                              ; preds = %124
   %129 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %125
   %130 = load i32, ptr %129, align 4, !tbaa !7
-  %131 = icmp uge i32 %.0.lcssa89.i109, %130
-  %132 = add i32 %.0.lcssa89.i109, -55296
+  %131 = icmp uge i32 %.0.lcssa91.i109, %130
+  %132 = add i32 %.0.lcssa91.i109, -55296
   %or.cond.i.i111 = icmp ult i32 %132, 2047
   %or.cond15.i.i112 = or i1 %or.cond.i.i111, %131
   br i1 %or.cond15.i.i112, label %133, label %nk_utf_decode.exit132
@@ -80232,16 +80551,16 @@ nk_utf_decode_byte.exit34.i124:                   ; preds = %109
   br label %nk_utf_decode.exit132
 
 nk_utf_validate.exit.loopexit.i122:               ; preds = %116
-  %indvars83.le101.i123 = trunc i64 %indvars.iv.i117 to i32
+  %indvars83.le103.i123 = trunc i64 %indvars.iv.i117 to i32
   br label %nk_utf_decode.exit132
 
-nk_utf_validate.exit.loopexit90.i126:             ; preds = %nk_utf_decode_byte.exit34.i124
+nk_utf_validate.exit.loopexit92.i126:             ; preds = %nk_utf_decode_byte.exit34.i124
   %indvars83.le.i127 = trunc i64 %indvars.iv.i117 to i32
   br label %nk_utf_decode.exit132
 
-nk_utf_decode.exit132:                            ; preds = %94, %nk_utf_decode_byte.exit.i105, %128, %133, %nk_utf_validate.exit.loopexit.i122, %nk_utf_validate.exit.loopexit90.i126
-  %.2 = phi i32 [ 65533, %133 ], [ %.0.lcssa89.i109, %128 ], [ 65533, %nk_utf_validate.exit.loopexit90.i126 ], [ 65533, %nk_utf_validate.exit.loopexit.i122 ], [ 65533, %nk_utf_decode_byte.exit.i105 ], [ 65533, %94 ]
-  %.023.i104 = phi i32 [ %95, %133 ], [ %95, %128 ], [ %indvars83.le.i127, %nk_utf_validate.exit.loopexit90.i126 ], [ %indvars83.le101.i123, %nk_utf_validate.exit.loopexit.i122 ], [ 1, %nk_utf_decode_byte.exit.i105 ], [ 1, %94 ]
+nk_utf_decode.exit132:                            ; preds = %94, %nk_utf_decode_byte.exit.i105, %128, %133, %nk_utf_validate.exit.loopexit.i122, %nk_utf_validate.exit.loopexit92.i126
+  %.2 = phi i32 [ 65533, %133 ], [ %.0.lcssa91.i109, %128 ], [ 65533, %nk_utf_validate.exit.loopexit92.i126 ], [ 65533, %nk_utf_validate.exit.loopexit.i122 ], [ 65533, %nk_utf_decode_byte.exit.i105 ], [ 65533, %94 ]
+  %.023.i104 = phi i32 [ %95, %133 ], [ %95, %128 ], [ %indvars83.le.i127, %nk_utf_validate.exit.loopexit92.i126 ], [ %indvars83.le103.i123, %nk_utf_validate.exit.loopexit.i122 ], [ 1, %nk_utf_decode_byte.exit.i105 ], [ 1, %94 ]
   %134 = icmp slt i64 %indvars.iv.next279, %66
   %135 = icmp ne i32 %.023.i104, 0
   %136 = and i1 %135, %134
@@ -80332,7 +80651,7 @@ nk_utf_decode_byte.exit.i141:                     ; preds = %148
 
 nk_utf_decode_byte.exit34.i160:                   ; preds = %170
   %.not27.i161 = icmp eq i64 %indvars.iv.i29.i155, 0
-  br i1 %.not27.i161, label %178, label %nk_utf_validate.exit.loopexit90.i162
+  br i1 %.not27.i161, label %178, label %nk_utf_validate.exit.loopexit92.i162
 
 178:                                              ; preds = %nk_utf_decode_byte.exit34.i160
   %179 = xor i8 %172, -1
@@ -80352,18 +80671,18 @@ nk_utf_decode_byte.exit34.i160:                   ; preds = %170
   br i1 %162, label %nk_utf_decode.exit168, label %185
 
 185:                                              ; preds = %._crit_edge.i144, %._crit_edge.loopexit.i166
-  %.0.lcssa89.i145 = phi i32 [ %183, %._crit_edge.loopexit.i166 ], [ %160, %._crit_edge.i144 ]
+  %.0.lcssa91.i145 = phi i32 [ %183, %._crit_edge.loopexit.i166 ], [ %160, %._crit_edge.i144 ]
   %186 = and i64 %indvars.iv.i.i136, 4294967295
   %187 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %186
   %188 = load i32, ptr %187, align 4, !tbaa !7
-  %.not.i.i146 = icmp ugt i32 %188, %.0.lcssa89.i145
+  %.not.i.i146 = icmp ugt i32 %188, %.0.lcssa91.i145
   br i1 %.not.i.i146, label %194, label %189
 
 189:                                              ; preds = %185
   %190 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %186
   %191 = load i32, ptr %190, align 4, !tbaa !7
-  %192 = icmp uge i32 %.0.lcssa89.i145, %191
-  %193 = add i32 %.0.lcssa89.i145, -55296
+  %192 = icmp uge i32 %.0.lcssa91.i145, %191
+  %193 = add i32 %.0.lcssa91.i145, -55296
   %or.cond.i.i147 = icmp ult i32 %193, 2047
   %or.cond15.i.i148 = or i1 %or.cond.i.i147, %192
   br i1 %or.cond15.i.i148, label %194, label %nk_utf_decode.exit168
@@ -80372,16 +80691,16 @@ nk_utf_decode_byte.exit34.i160:                   ; preds = %170
   br label %nk_utf_decode.exit168
 
 nk_utf_validate.exit.loopexit.i158:               ; preds = %177
-  %indvars83.le101.i159 = trunc i64 %indvars.iv.i153 to i32
+  %indvars83.le103.i159 = trunc i64 %indvars.iv.i153 to i32
   br label %nk_utf_decode.exit168
 
-nk_utf_validate.exit.loopexit90.i162:             ; preds = %nk_utf_decode_byte.exit34.i160
+nk_utf_validate.exit.loopexit92.i162:             ; preds = %nk_utf_decode_byte.exit34.i160
   %indvars83.le.i163 = trunc i64 %indvars.iv.i153 to i32
   br label %nk_utf_decode.exit168
 
-nk_utf_decode.exit168:                            ; preds = %155, %137, %nk_utf_decode_byte.exit.i141, %._crit_edge.loopexit.i166, %._crit_edge.i144, %189, %194, %nk_utf_validate.exit.loopexit.i158, %nk_utf_validate.exit.loopexit90.i162
-  %.3 = phi i32 [ %.0170219, %137 ], [ 65533, %._crit_edge.loopexit.i166 ], [ 65533, %194 ], [ %.0.lcssa89.i145, %189 ], [ 65533, %nk_utf_validate.exit.loopexit90.i162 ], [ 65533, %nk_utf_validate.exit.loopexit.i158 ], [ 65533, %._crit_edge.i144 ], [ 65533, %nk_utf_decode_byte.exit.i141 ], [ 65533, %155 ]
-  %.023.i140 = phi i32 [ 0, %137 ], [ 0, %._crit_edge.loopexit.i166 ], [ %156, %194 ], [ %156, %189 ], [ %indvars83.le.i163, %nk_utf_validate.exit.loopexit90.i162 ], [ %indvars83.le101.i159, %nk_utf_validate.exit.loopexit.i158 ], [ 0, %._crit_edge.i144 ], [ 1, %nk_utf_decode_byte.exit.i141 ], [ 1, %155 ]
+nk_utf_decode.exit168:                            ; preds = %155, %137, %nk_utf_decode_byte.exit.i141, %._crit_edge.loopexit.i166, %._crit_edge.i144, %189, %194, %nk_utf_validate.exit.loopexit.i158, %nk_utf_validate.exit.loopexit92.i162
+  %.3 = phi i32 [ %.0170219, %137 ], [ 65533, %._crit_edge.loopexit.i166 ], [ 65533, %194 ], [ %.0.lcssa91.i145, %189 ], [ 65533, %nk_utf_validate.exit.loopexit92.i162 ], [ 65533, %nk_utf_validate.exit.loopexit.i158 ], [ 65533, %._crit_edge.i144 ], [ 65533, %nk_utf_decode_byte.exit.i141 ], [ 65533, %155 ]
+  %.023.i140 = phi i32 [ 0, %137 ], [ 0, %._crit_edge.loopexit.i166 ], [ %156, %194 ], [ %156, %189 ], [ %indvars83.le.i163, %nk_utf_validate.exit.loopexit92.i162 ], [ %indvars83.le103.i159, %nk_utf_validate.exit.loopexit.i158 ], [ 0, %._crit_edge.i144 ], [ 1, %nk_utf_decode_byte.exit.i141 ], [ 1, %155 ]
   %195 = load ptr, ptr %59, align 8, !tbaa !211
   %196 = load float, ptr %61, align 8, !tbaa !213
   %197 = load ptr, ptr %0, align 8
@@ -80541,7 +80860,7 @@ nk_utf_decode_byte.exit.i:                        ; preds = %34
 
 nk_utf_decode_byte.exit34.i:                      ; preds = %54
   %.not27.i = icmp eq i64 %indvars.iv.i29.i, 0
-  br i1 %.not27.i, label %62, label %nk_utf_validate.exit.loopexit90.i
+  br i1 %.not27.i, label %62, label %nk_utf_validate.exit.loopexit92.i
 
 62:                                               ; preds = %nk_utf_decode_byte.exit34.i
   %63 = xor i8 %56, -1
@@ -80561,18 +80880,18 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %54
   br i1 %48, label %nk_utf_decode.exit.thread, label %69
 
 69:                                               ; preds = %._crit_edge.i, %._crit_edge.loopexit.i
-  %.0.lcssa89.i = phi i32 [ %67, %._crit_edge.loopexit.i ], [ %46, %._crit_edge.i ]
+  %.0.lcssa91.i = phi i32 [ %67, %._crit_edge.loopexit.i ], [ %46, %._crit_edge.i ]
   %70 = and i64 %indvars.iv.i.i, 4294967295
   %71 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !7
-  %.not.i.i = icmp ugt i32 %72, %.0.lcssa89.i
+  %.not.i.i = icmp ugt i32 %72, %.0.lcssa91.i
   br i1 %.not.i.i, label %78, label %73
 
 73:                                               ; preds = %69
   %74 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %70
   %75 = load i32, ptr %74, align 4, !tbaa !7
-  %76 = icmp uge i32 %.0.lcssa89.i, %75
-  %77 = add i32 %.0.lcssa89.i, -55296
+  %76 = icmp uge i32 %.0.lcssa91.i, %75
+  %77 = add i32 %.0.lcssa91.i, -55296
   %or.cond.i.i = icmp ult i32 %77, 2047
   %or.cond15.i.i = or i1 %or.cond.i.i, %76
   br i1 %or.cond15.i.i, label %78, label %nk_utf_decode.exit
@@ -80581,22 +80900,22 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %54
   br label %nk_utf_decode.exit
 
 nk_utf_validate.exit.loopexit.i:                  ; preds = %61
-  %indvars83.le101.i = trunc i64 %indvars.iv.i to i32
+  %indvars83.le103.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_validate.exit.loopexit90.i:                ; preds = %nk_utf_decode_byte.exit34.i
+nk_utf_validate.exit.loopexit92.i:                ; preds = %nk_utf_decode_byte.exit34.i
   %indvars83.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %73, %78, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit90.i
-  %.1 = phi i32 [ 65533, %78 ], [ %.0.lcssa89.i, %73 ], [ 65533, %nk_utf_validate.exit.loopexit90.i ], [ 65533, %nk_utf_validate.exit.loopexit.i ]
-  %.023.i = phi i32 [ %42, %78 ], [ %42, %73 ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit90.i ], [ %indvars83.le101.i, %nk_utf_validate.exit.loopexit.i ]
+nk_utf_decode.exit:                               ; preds = %73, %78, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit92.i
+  %.1 = phi i32 [ 65533, %78 ], [ %.0.lcssa91.i, %73 ], [ 65533, %nk_utf_validate.exit.loopexit92.i ], [ 65533, %nk_utf_validate.exit.loopexit.i ]
+  %.023.i = phi i32 [ %42, %78 ], [ %42, %73 ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ]
   %.not = icmp eq i32 %.023.i, 0
   br i1 %.not, label %nk_utf_decode.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %41, %nk_utf_decode_byte.exit.i, %nk_utf_decode.exit
-  %.023.i436 = phi i32 [ %.023.i, %nk_utf_decode.exit ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %41 ]
-  %.1435 = phi i32 [ %.1, %nk_utf_decode.exit ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %41 ]
+  %.023.i443 = phi i32 [ %.023.i, %nk_utf_decode.exit ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %41 ]
+  %.1442 = phi i32 [ %.1, %nk_utf_decode.exit ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %41 ]
   %79 = icmp sgt i32 %6, 0
   br i1 %79, label %.lr.ph.lr.ph.lr.ph, label %nk_utf_decode.exit.thread
 
@@ -80615,12 +80934,12 @@ nk_utf_decode.exit:                               ; preds = %73, %78, %nk_utf_va
   br label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %.lr.ph.lr.ph.lr.ph, %nk_utf_decode.exit171
-  %.0.ph.ph340 = phi i32 [ %.023.i436, %.lr.ph.lr.ph.lr.ph ], [ %.023.i143, %nk_utf_decode.exit171 ]
+  %.0.ph.ph340 = phi i32 [ %.023.i443, %.lr.ph.lr.ph.lr.ph ], [ %.023.i143, %nk_utf_decode.exit171 ]
   %.0102.ph.ph339 = phi i32 [ 0, %.lr.ph.lr.ph.lr.ph ], [ %133, %nk_utf_decode.exit171 ]
   %.0103.ph.ph338 = phi float [ 0.000000e+00, %.lr.ph.lr.ph.lr.ph ], [ %136, %nk_utf_decode.exit171 ]
   %.0104.ph.ph337 = phi ptr [ %5, %.lr.ph.lr.ph.lr.ph ], [ %135, %nk_utf_decode.exit171 ]
   %.0105.ph.ph336 = phi i32 [ 0, %.lr.ph.lr.ph.lr.ph ], [ %132, %nk_utf_decode.exit171 ]
-  %.0259.ph.ph335 = phi i32 [ %.1435, %.lr.ph.lr.ph.lr.ph ], [ %.2, %nk_utf_decode.exit171 ]
+  %.0259.ph.ph335 = phi i32 [ %.1442, %.lr.ph.lr.ph.lr.ph ], [ %.2, %nk_utf_decode.exit171 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %nk_utf_decode.exit243
@@ -80781,7 +81100,7 @@ nk_utf_decode_byte.exit.i144:                     ; preds = %140
 
 nk_utf_decode_byte.exit34.i163:                   ; preds = %161
   %.not27.i164 = icmp eq i64 %indvars.iv.i29.i158, 0
-  br i1 %.not27.i164, label %169, label %nk_utf_validate.exit.loopexit90.i165
+  br i1 %.not27.i164, label %169, label %nk_utf_validate.exit.loopexit92.i165
 
 169:                                              ; preds = %nk_utf_decode_byte.exit34.i163
   %170 = xor i8 %163, -1
@@ -80801,18 +81120,18 @@ nk_utf_decode_byte.exit34.i163:                   ; preds = %161
   br i1 %154, label %nk_utf_decode.exit.thread, label %176
 
 176:                                              ; preds = %._crit_edge.i147, %._crit_edge.loopexit.i169
-  %.0.lcssa89.i148 = phi i32 [ %174, %._crit_edge.loopexit.i169 ], [ %152, %._crit_edge.i147 ]
+  %.0.lcssa91.i148 = phi i32 [ %174, %._crit_edge.loopexit.i169 ], [ %152, %._crit_edge.i147 ]
   %177 = and i64 %indvars.iv.i.i139, 4294967295
   %178 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %177
   %179 = load i32, ptr %178, align 4, !tbaa !7
-  %.not.i.i149 = icmp ugt i32 %179, %.0.lcssa89.i148
+  %.not.i.i149 = icmp ugt i32 %179, %.0.lcssa91.i148
   br i1 %.not.i.i149, label %185, label %180
 
 180:                                              ; preds = %176
   %181 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %177
   %182 = load i32, ptr %181, align 4, !tbaa !7
-  %183 = icmp uge i32 %.0.lcssa89.i148, %182
-  %184 = add i32 %.0.lcssa89.i148, -55296
+  %183 = icmp uge i32 %.0.lcssa91.i148, %182
+  %184 = add i32 %.0.lcssa91.i148, -55296
   %or.cond.i.i150 = icmp ult i32 %184, 2047
   %or.cond15.i.i151 = or i1 %or.cond.i.i150, %183
   br i1 %or.cond15.i.i151, label %185, label %nk_utf_decode.exit171
@@ -80821,16 +81140,16 @@ nk_utf_decode_byte.exit34.i163:                   ; preds = %161
   br label %nk_utf_decode.exit171
 
 nk_utf_validate.exit.loopexit.i161:               ; preds = %168
-  %indvars83.le101.i162 = trunc i64 %indvars.iv.i156 to i32
+  %indvars83.le103.i162 = trunc i64 %indvars.iv.i156 to i32
   br label %nk_utf_decode.exit171
 
-nk_utf_validate.exit.loopexit90.i165:             ; preds = %nk_utf_decode_byte.exit34.i163
+nk_utf_validate.exit.loopexit92.i165:             ; preds = %nk_utf_decode_byte.exit34.i163
   %indvars83.le.i166 = trunc i64 %indvars.iv.i156 to i32
   br label %nk_utf_decode.exit171
 
-nk_utf_decode.exit171:                            ; preds = %147, %nk_utf_decode_byte.exit.i144, %180, %185, %nk_utf_validate.exit.loopexit.i161, %nk_utf_validate.exit.loopexit90.i165
-  %.2 = phi i32 [ 65533, %185 ], [ %.0.lcssa89.i148, %180 ], [ 65533, %nk_utf_validate.exit.loopexit90.i165 ], [ 65533, %nk_utf_validate.exit.loopexit.i161 ], [ 65533, %nk_utf_decode_byte.exit.i144 ], [ 65533, %147 ]
-  %.023.i143 = phi i32 [ %148, %185 ], [ %148, %180 ], [ %indvars83.le.i166, %nk_utf_validate.exit.loopexit90.i165 ], [ %indvars83.le101.i162, %nk_utf_validate.exit.loopexit.i161 ], [ 1, %nk_utf_decode_byte.exit.i144 ], [ 1, %147 ]
+nk_utf_decode.exit171:                            ; preds = %147, %nk_utf_decode_byte.exit.i144, %180, %185, %nk_utf_validate.exit.loopexit.i161, %nk_utf_validate.exit.loopexit92.i165
+  %.2 = phi i32 [ 65533, %185 ], [ %.0.lcssa91.i148, %180 ], [ 65533, %nk_utf_validate.exit.loopexit92.i165 ], [ 65533, %nk_utf_validate.exit.loopexit.i161 ], [ 65533, %nk_utf_decode_byte.exit.i144 ], [ 65533, %147 ]
+  %.023.i143 = phi i32 [ %148, %185 ], [ %148, %180 ], [ %indvars83.le.i166, %nk_utf_validate.exit.loopexit92.i165 ], [ %indvars83.le103.i162, %nk_utf_validate.exit.loopexit.i161 ], [ 1, %nk_utf_decode_byte.exit.i144 ], [ 1, %147 ]
   %186 = icmp slt i32 %132, %6
   %187 = icmp ne i32 %.023.i143, 0
   %188 = and i1 %186, %187
@@ -80914,7 +81233,7 @@ nk_utf_decode_byte.exit.i180:                     ; preds = %195
 
 nk_utf_decode_byte.exit34.i199:                   ; preds = %217
   %.not27.i200 = icmp eq i64 %indvars.iv.i29.i194, 0
-  br i1 %.not27.i200, label %225, label %nk_utf_validate.exit.loopexit90.i201
+  br i1 %.not27.i200, label %225, label %nk_utf_validate.exit.loopexit92.i201
 
 225:                                              ; preds = %nk_utf_decode_byte.exit34.i199
   %226 = xor i8 %219, -1
@@ -80934,18 +81253,18 @@ nk_utf_decode_byte.exit34.i199:                   ; preds = %217
   br i1 %209, label %.outer._crit_edge, label %232
 
 232:                                              ; preds = %._crit_edge.i183, %._crit_edge.loopexit.i205
-  %.0.lcssa89.i184 = phi i32 [ %230, %._crit_edge.loopexit.i205 ], [ %207, %._crit_edge.i183 ]
+  %.0.lcssa91.i184 = phi i32 [ %230, %._crit_edge.loopexit.i205 ], [ %207, %._crit_edge.i183 ]
   %233 = and i64 %indvars.iv.i.i175, 4294967295
   %234 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %233
   %235 = load i32, ptr %234, align 4, !tbaa !7
-  %.not.i.i185 = icmp ugt i32 %235, %.0.lcssa89.i184
+  %.not.i.i185 = icmp ugt i32 %235, %.0.lcssa91.i184
   br i1 %.not.i.i185, label %241, label %236
 
 236:                                              ; preds = %232
   %237 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %233
   %238 = load i32, ptr %237, align 4, !tbaa !7
-  %239 = icmp uge i32 %.0.lcssa89.i184, %238
-  %240 = add i32 %.0.lcssa89.i184, -55296
+  %239 = icmp uge i32 %.0.lcssa91.i184, %238
+  %240 = add i32 %.0.lcssa91.i184, -55296
   %or.cond.i.i186 = icmp ult i32 %240, 2047
   %or.cond15.i.i187 = or i1 %or.cond.i.i186, %239
   br i1 %or.cond15.i.i187, label %241, label %nk_utf_decode.exit207
@@ -80954,16 +81273,16 @@ nk_utf_decode_byte.exit34.i199:                   ; preds = %217
   br label %nk_utf_decode.exit207
 
 nk_utf_validate.exit.loopexit.i197:               ; preds = %224
-  %indvars83.le101.i198 = trunc i64 %indvars.iv.i192 to i32
+  %indvars83.le103.i198 = trunc i64 %indvars.iv.i192 to i32
   br label %nk_utf_decode.exit207
 
-nk_utf_validate.exit.loopexit90.i201:             ; preds = %nk_utf_decode_byte.exit34.i199
+nk_utf_validate.exit.loopexit92.i201:             ; preds = %nk_utf_decode_byte.exit34.i199
   %indvars83.le.i202 = trunc i64 %indvars.iv.i192 to i32
   br label %nk_utf_decode.exit207
 
-nk_utf_decode.exit207:                            ; preds = %202, %nk_utf_decode_byte.exit.i180, %236, %241, %nk_utf_validate.exit.loopexit.i197, %nk_utf_validate.exit.loopexit90.i201
-  %.3 = phi i32 [ 65533, %241 ], [ %.0.lcssa89.i184, %236 ], [ 65533, %nk_utf_validate.exit.loopexit90.i201 ], [ 65533, %nk_utf_validate.exit.loopexit.i197 ], [ 65533, %nk_utf_decode_byte.exit.i180 ], [ 65533, %202 ]
-  %.023.i179 = phi i32 [ %203, %241 ], [ %203, %236 ], [ %indvars83.le.i202, %nk_utf_validate.exit.loopexit90.i201 ], [ %indvars83.le101.i198, %nk_utf_validate.exit.loopexit.i197 ], [ 1, %nk_utf_decode_byte.exit.i180 ], [ 1, %202 ]
+nk_utf_decode.exit207:                            ; preds = %202, %nk_utf_decode_byte.exit.i180, %236, %241, %nk_utf_validate.exit.loopexit.i197, %nk_utf_validate.exit.loopexit92.i201
+  %.3 = phi i32 [ 65533, %241 ], [ %.0.lcssa91.i184, %236 ], [ 65533, %nk_utf_validate.exit.loopexit92.i201 ], [ 65533, %nk_utf_validate.exit.loopexit.i197 ], [ 65533, %nk_utf_decode_byte.exit.i180 ], [ 65533, %202 ]
+  %.023.i179 = phi i32 [ %203, %241 ], [ %203, %236 ], [ %indvars83.le.i202, %nk_utf_validate.exit.loopexit92.i201 ], [ %indvars83.le103.i198, %nk_utf_validate.exit.loopexit.i197 ], [ 1, %nk_utf_decode_byte.exit.i180 ], [ 1, %202 ]
   %242 = icmp slt i64 %indvars.iv.next413, %87
   %243 = icmp ne i32 %.023.i179, 0
   %244 = and i1 %242, %243
@@ -80975,8 +81294,8 @@ nk_utf_decode.exit207:                            ; preds = %202, %nk_utf_decode
   %246 = trunc nsw i64 %indvars.iv412 to i32
   %247 = load ptr, ptr %80, align 8, !tbaa !211
   %248 = load float, ptr %81, align 8, !tbaa !213
-  %sext430 = shl i64 %indvars.iv412, 32
-  %249 = ashr exact i64 %sext430, 32
+  %sext437 = shl i64 %indvars.iv412, 32
+  %249 = ashr exact i64 %sext437, 32
   %250 = getelementptr inbounds i8, ptr %5, i64 %249
   %251 = load ptr, ptr %8, align 8
   %252 = tail call float %247(ptr %251, float noundef %248, ptr noundef nonnull %250, i32 noundef %.0311) #55
@@ -81058,7 +81377,7 @@ nk_utf_decode_byte.exit.i216:                     ; preds = %260
 
 nk_utf_decode_byte.exit34.i235:                   ; preds = %282
   %.not27.i236 = icmp eq i64 %indvars.iv.i29.i230, 0
-  br i1 %.not27.i236, label %290, label %nk_utf_validate.exit.loopexit90.i237
+  br i1 %.not27.i236, label %290, label %nk_utf_validate.exit.loopexit92.i237
 
 290:                                              ; preds = %nk_utf_decode_byte.exit34.i235
   %291 = xor i8 %284, -1
@@ -81078,18 +81397,18 @@ nk_utf_decode_byte.exit34.i235:                   ; preds = %282
   br i1 %274, label %.outer._crit_edge, label %297
 
 297:                                              ; preds = %._crit_edge.i219, %._crit_edge.loopexit.i241
-  %.0.lcssa89.i220 = phi i32 [ %295, %._crit_edge.loopexit.i241 ], [ %272, %._crit_edge.i219 ]
+  %.0.lcssa91.i220 = phi i32 [ %295, %._crit_edge.loopexit.i241 ], [ %272, %._crit_edge.i219 ]
   %298 = and i64 %indvars.iv.i.i211, 4294967295
   %299 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmin, i64 0, i64 %298
   %300 = load i32, ptr %299, align 4, !tbaa !7
-  %.not.i.i221 = icmp ugt i32 %300, %.0.lcssa89.i220
+  %.not.i.i221 = icmp ugt i32 %300, %.0.lcssa91.i220
   br i1 %.not.i.i221, label %306, label %301
 
 301:                                              ; preds = %297
   %302 = getelementptr inbounds nuw [5 x i32], ptr @nk_utfmax, i64 0, i64 %298
   %303 = load i32, ptr %302, align 4, !tbaa !7
-  %304 = icmp uge i32 %.0.lcssa89.i220, %303
-  %305 = add i32 %.0.lcssa89.i220, -55296
+  %304 = icmp uge i32 %.0.lcssa91.i220, %303
+  %305 = add i32 %.0.lcssa91.i220, -55296
   %or.cond.i.i222 = icmp ult i32 %305, 2047
   %or.cond15.i.i223 = or i1 %or.cond.i.i222, %304
   br i1 %or.cond15.i.i223, label %306, label %nk_utf_decode.exit243
@@ -81098,16 +81417,16 @@ nk_utf_decode_byte.exit34.i235:                   ; preds = %282
   br label %nk_utf_decode.exit243
 
 nk_utf_validate.exit.loopexit.i233:               ; preds = %289
-  %indvars83.le101.i234 = trunc i64 %indvars.iv.i228 to i32
+  %indvars83.le103.i234 = trunc i64 %indvars.iv.i228 to i32
   br label %nk_utf_decode.exit243
 
-nk_utf_validate.exit.loopexit90.i237:             ; preds = %nk_utf_decode_byte.exit34.i235
+nk_utf_validate.exit.loopexit92.i237:             ; preds = %nk_utf_decode_byte.exit34.i235
   %indvars83.le.i238 = trunc i64 %indvars.iv.i228 to i32
   br label %nk_utf_decode.exit243
 
-nk_utf_decode.exit243:                            ; preds = %267, %nk_utf_decode_byte.exit.i216, %301, %306, %nk_utf_validate.exit.loopexit.i233, %nk_utf_validate.exit.loopexit90.i237
-  %.4 = phi i32 [ 65533, %306 ], [ %.0.lcssa89.i220, %301 ], [ 65533, %nk_utf_validate.exit.loopexit90.i237 ], [ 65533, %nk_utf_validate.exit.loopexit.i233 ], [ 65533, %nk_utf_decode_byte.exit.i216 ], [ 65533, %267 ]
-  %.023.i215 = phi i32 [ %268, %306 ], [ %268, %301 ], [ %indvars83.le.i238, %nk_utf_validate.exit.loopexit90.i237 ], [ %indvars83.le101.i234, %nk_utf_validate.exit.loopexit.i233 ], [ 1, %nk_utf_decode_byte.exit.i216 ], [ 1, %267 ]
+nk_utf_decode.exit243:                            ; preds = %267, %nk_utf_decode_byte.exit.i216, %301, %306, %nk_utf_validate.exit.loopexit.i233, %nk_utf_validate.exit.loopexit92.i237
+  %.4 = phi i32 [ 65533, %306 ], [ %.0.lcssa91.i220, %301 ], [ 65533, %nk_utf_validate.exit.loopexit92.i237 ], [ 65533, %nk_utf_validate.exit.loopexit.i233 ], [ 65533, %nk_utf_decode_byte.exit.i216 ], [ 65533, %267 ]
+  %.023.i215 = phi i32 [ %268, %306 ], [ %268, %301 ], [ %indvars83.le.i238, %nk_utf_validate.exit.loopexit92.i237 ], [ %indvars83.le103.i234, %nk_utf_validate.exit.loopexit.i233 ], [ 1, %nk_utf_decode_byte.exit.i216 ], [ 1, %267 ]
   %307 = icmp slt i32 %254, %6
   %308 = icmp ne i32 %.023.i215, 0
   %309 = and i1 %307, %308
@@ -81282,8 +81601,8 @@ define internal fastcc i32 @nk_textedit_locate_coord(ptr noundef readonly captur
 
 .loopexit.thread.i.i:                             ; preds = %.lr.ph.i.i, %.loopexit.i.i
   %.0.i = phi i32 [ 0, %.loopexit.i.i ], [ %.03246.i.i, %.lr.ph.i.i ]
-  %.0334356.i.i = phi i32 [ %.03343.i.i, %.loopexit.i.i ], [ %.03345.i.i, %.lr.ph.i.i ]
-  %59 = sext i32 %.0334356.i.i to i64
+  %.0334362.i.i = phi i32 [ %.03343.i.i, %.loopexit.i.i ], [ %.03345.i.i, %.lr.ph.i.i ]
+  %59 = sext i32 %.0334362.i.i to i64
   %60 = getelementptr inbounds i8, ptr %47, i64 %59
   br label %nk_textedit_get_width.exit
 
@@ -81316,55 +81635,45 @@ nk_textedit_get_width.exit:                       ; preds = %.loopexit.i.i, %.lo
 
 .loopexit:                                        ; preds = %73, %38
   %.148 = phi i32 [ %.04774, %38 ], [ %18, %73 ]
-  %75 = add nsw i32 %18, %.148
+  %75 = add nuw nsw i32 %18, %.148
   %76 = add nsw i32 %75, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !7
-  %77 = icmp slt i32 %75, 1
-  br i1 %77, label %nk_str_rune_at.exit.thread, label %78
-
-nk_str_rune_at.exit.thread:                       ; preds = %.loopexit
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %94
-
-78:                                               ; preds = %.loopexit
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %80 = load ptr, ptr %79, align 8, !tbaa !78
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %82 = load i64, ptr %81, align 8, !tbaa !75
-  %83 = trunc i64 %82 to i32
-  %84 = call i32 @nk_utf_decode(ptr noundef %80, ptr noundef nonnull %6, i32 noundef %83)
-  %.not44.i.i57 = icmp eq i32 %84, 0
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %78 = load ptr, ptr %77, align 8, !tbaa !78
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %80 = load i64, ptr %79, align 8, !tbaa !75
+  %81 = trunc i64 %80 to i32
+  %82 = call i32 @nk_utf_decode(ptr noundef %78, ptr noundef nonnull %6, i32 noundef %81)
+  %.not44.i.i57 = icmp eq i32 %82, 0
   br i1 %.not44.i.i57, label %nk_str_rune_at.exit, label %.lr.ph.i.i58
 
-.lr.ph.i.i58:                                     ; preds = %78, %86
-  %.03147.i.i59 = phi i32 [ %87, %86 ], [ 0, %78 ]
-  %.03246.i.i60 = phi i32 [ %92, %86 ], [ %84, %78 ]
-  %.03345.i.i61 = phi i32 [ %88, %86 ], [ 0, %78 ]
-  %85 = icmp eq i32 %.03147.i.i59, %76
-  br i1 %85, label %nk_str_rune_at.exit, label %86
+.lr.ph.i.i58:                                     ; preds = %.loopexit, %84
+  %.03147.i.i59 = phi i32 [ %85, %84 ], [ 0, %.loopexit ]
+  %.03246.i.i60 = phi i32 [ %90, %84 ], [ %82, %.loopexit ]
+  %.03345.i.i61 = phi i32 [ %86, %84 ], [ 0, %.loopexit ]
+  %83 = icmp eq i32 %.03147.i.i59, %76
+  br i1 %83, label %nk_str_rune_at.exit, label %84
 
-86:                                               ; preds = %.lr.ph.i.i58
-  %87 = add nuw nsw i32 %.03147.i.i59, 1
-  %88 = add nsw i32 %.03345.i.i61, %.03246.i.i60
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i8, ptr %80, i64 %89
-  %91 = sub nsw i32 %83, %88
-  %92 = call i32 @nk_utf_decode(ptr noundef %90, ptr noundef nonnull %6, i32 noundef %91)
-  %.not.i.i62 = icmp eq i32 %92, 0
+84:                                               ; preds = %.lr.ph.i.i58
+  %85 = add nuw nsw i32 %.03147.i.i59, 1
+  %86 = add nsw i32 %.03345.i.i61, %.03246.i.i60
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds i8, ptr %78, i64 %87
+  %89 = sub nsw i32 %81, %86
+  %90 = call i32 @nk_utf_decode(ptr noundef %88, ptr noundef nonnull %6, i32 noundef %89)
+  %.not.i.i62 = icmp eq i32 %90, 0
   br i1 %.not.i.i62, label %nk_str_rune_at.exit, label %.lr.ph.i.i58, !llvm.loop !85
 
-nk_str_rune_at.exit:                              ; preds = %.lr.ph.i.i58, %86, %78
+nk_str_rune_at.exit:                              ; preds = %.lr.ph.i.i58, %84, %.loopexit
   %.pr = load i32, ptr %6, align 4, !tbaa !7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %93 = icmp eq i32 %.pr, 10
-  br i1 %93, label %.thread63, label %94
-
-94:                                               ; preds = %nk_str_rune_at.exit.thread, %nk_str_rune_at.exit
+  %91 = icmp eq i32 %.pr, 10
+  %spec.select = select i1 %91, i32 %76, i32 %75
   br label %.thread63
 
-.thread63:                                        ; preds = %17, %22, %30, %5, %71, %67, %nk_str_rune_at.exit, %35, %94
-  %.0 = phi i32 [ %75, %94 ], [ %.04774, %35 ], [ %76, %nk_str_rune_at.exit ], [ %46, %67 ], [ %72, %71 ], [ %10, %5 ], [ %10, %17 ], [ 0, %22 ], [ %10, %30 ]
+.thread63:                                        ; preds = %17, %22, %30, %nk_str_rune_at.exit, %5, %71, %67, %35
+  %.0 = phi i32 [ %.04774, %35 ], [ %46, %67 ], [ %72, %71 ], [ %10, %5 ], [ %spec.select, %nk_str_rune_at.exit ], [ %10, %17 ], [ 0, %22 ], [ %10, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -81436,8 +81745,8 @@ nk_str_get_const.exit:                            ; preds = %5, %11, %14
   br i1 %.not38.i, label %.loopexit.thread.i, label %nk_str_at_const.exit
 
 .loopexit.thread.i:                               ; preds = %.lr.ph.i, %.loopexit.i
-  %.0334356.i = phi i32 [ %.03343.i, %.loopexit.i ], [ %.03345.i, %.lr.ph.i ]
-  %35 = sext i32 %.0334356.i to i64
+  %.0334362.i = phi i32 [ %.03343.i, %.loopexit.i ], [ %.03345.i, %.lr.ph.i ]
+  %35 = sext i32 %.0334362.i to i64
   %36 = getelementptr inbounds i8, ptr %22, i64 %35
   br label %nk_str_at_const.exit
 
@@ -81777,7 +82086,7 @@ nk_utf_decode_byte.exit.i:                        ; preds = %84
 
 nk_utf_decode_byte.exit34.i:                      ; preds = %104
   %.not27.i = icmp eq i64 %indvars.iv.i29.i, 0
-  br i1 %.not27.i, label %112, label %nk_utf_validate.exit.loopexit90.i
+  br i1 %.not27.i, label %112, label %nk_utf_validate.exit.loopexit92.i
 
 112:                                              ; preds = %nk_utf_decode_byte.exit34.i
   %113 = xor i8 %106, -1
@@ -81797,15 +82106,15 @@ nk_utf_decode_byte.exit34.i:                      ; preds = %104
   br i1 %95, label %.loopexit.i.i, label %nk_utf_decode.exit
 
 nk_utf_validate.exit.loopexit.i:                  ; preds = %111
-  %indvars83.le101.i = trunc i64 %indvars.iv.i to i32
+  %indvars83.le103.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_validate.exit.loopexit90.i:                ; preds = %nk_utf_decode_byte.exit34.i
+nk_utf_validate.exit.loopexit92.i:                ; preds = %nk_utf_decode_byte.exit34.i
   %indvars83.le.i = trunc i64 %indvars.iv.i to i32
   br label %nk_utf_decode.exit
 
-nk_utf_decode.exit:                               ; preds = %91, %._crit_edge.loopexit.i, %._crit_edge.i, %nk_utf_decode_byte.exit.i, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit90.i
-  %.023.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ %indvars83.le101.i, %nk_utf_validate.exit.loopexit.i ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit90.i ], [ %92, %._crit_edge.i ], [ %92, %._crit_edge.loopexit.i ], [ 1, %91 ]
+nk_utf_decode.exit:                               ; preds = %91, %._crit_edge.loopexit.i, %._crit_edge.i, %nk_utf_decode_byte.exit.i, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit92.i
+  %.023.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %92, %._crit_edge.i ], [ %92, %._crit_edge.loopexit.i ], [ 1, %91 ]
   %.not.i.i57 = icmp eq i32 %.023.i, 0
   br i1 %.not.i.i57, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !85
 
@@ -81817,8 +82126,8 @@ nk_utf_decode.exit:                               ; preds = %91, %._crit_edge.lo
 
 .loopexit.thread.i.i:                             ; preds = %.lr.ph.i.i, %.lr.ph.i.i.preheader.split.us, %.loopexit.i.i
   %.0.i = phi i32 [ 0, %.loopexit.i.i ], [ %72, %.lr.ph.i.i.preheader.split.us ], [ %.03246.i.i, %.lr.ph.i.i ]
-  %.0334356.i.i = phi i32 [ %.03343.i.i, %.loopexit.i.i ], [ 0, %.lr.ph.i.i.preheader.split.us ], [ %.03345.i.i, %.lr.ph.i.i ]
-  %119 = sext i32 %.0334356.i.i to i64
+  %.0334362.i.i = phi i32 [ %.03343.i.i, %.loopexit.i.i ], [ 0, %.lr.ph.i.i.preheader.split.us ], [ %.03345.i.i, %.lr.ph.i.i ]
+  %119 = sext i32 %.0334362.i.i to i64
   %120 = getelementptr inbounds i8, ptr %69, i64 %119
   br label %nk_textedit_get_width.exit
 
@@ -82073,23 +82382,23 @@ nk_pow.exit112:                                   ; preds = %.lr.ph.i104, %34
   %66 = getelementptr inbounds nuw i8, ptr %.382, i64 1
   store i8 101, ptr %.382, align 1, !tbaa !9
   %67 = icmp sgt i32 %.083117, 0
-  br i1 %67, label %.thread141, label %68
+  br i1 %67, label %.thread143, label %68
 
-.thread141:                                       ; preds = %65
+.thread143:                                       ; preds = %65
   store i8 43, ptr %66, align 1, !tbaa !9
-  %.5144 = getelementptr inbounds nuw i8, ptr %.382, i64 2
+  %.5146 = getelementptr inbounds nuw i8, ptr %.382, i64 2
   br label %.lr.ph.preheader
 
 68:                                               ; preds = %65
   %69 = sub nsw i32 0, %.083117
   store i8 45, ptr %66, align 1, !tbaa !9
   %.5 = getelementptr inbounds nuw i8, ptr %.382, i64 2
-  %.not151 = icmp eq i32 %.083117, 0
-  br i1 %.not151, label %.loopexit, label %.lr.ph.preheader
+  %.not153 = icmp eq i32 %.083117, 0
+  br i1 %.not153, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.thread141, %68
-  %.6127.ph = phi ptr [ %.5, %68 ], [ %.5144, %.thread141 ]
-  %.285126.ph = phi i32 [ %69, %68 ], [ %.083117, %.thread141 ]
+.lr.ph.preheader:                                 ; preds = %.thread143, %68
+  %.6127.ph = phi ptr [ %.5, %68 ], [ %.5146, %.thread143 ]
+  %.285126.ph = phi i32 [ %69, %68 ], [ %.083117, %.thread143 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -82110,8 +82419,8 @@ nk_pow.exit112:                                   ; preds = %.lr.ph.i104, %34
   %76 = zext nneg i32 %75 to i64
   %77 = sub nsw i64 0, %76
   %78 = getelementptr inbounds i8, ptr %73, i64 %77
-  %.not152 = icmp eq i32 %.490125, 0
-  br i1 %.not152, label %.loopexit, label %.lr.ph133.preheader
+  %.not154 = icmp eq i32 %.490125, 0
+  br i1 %.not154, label %.loopexit, label %.lr.ph133.preheader
 
 .lr.ph133.preheader:                              ; preds = %._crit_edge
   %79 = zext nneg i32 %.490125 to i64

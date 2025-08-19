@@ -742,13 +742,13 @@ define hidden { i64, i64 } @_ZN4core5slice5index5range17h9d0f5e4d23a57f3eE(ptr n
   %.val = load i64, ptr %0, align 8, !range !135, !noundef !13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val24 = load ptr, ptr %4, align 8
-  switch i64 %.val, label %default.unreachable27 [
+  switch i64 %.val, label %default.unreachable28 [
     i64 0, label %5
     i64 1, label %8
     i64 2, label %14
   ]
 
-default.unreachable27:                            ; preds = %14, %3
+default.unreachable28:                            ; preds = %14, %3
   unreachable
 
 5:                                                ; preds = %3
@@ -772,7 +772,7 @@ default.unreachable27:                            ; preds = %14, %3
   %.val25 = load i64, ptr %15, align 8, !range !135, !noundef !13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val26 = load ptr, ptr %16, align 8
-  switch i64 %.val25, label %default.unreachable27 [
+  switch i64 %.val25, label %default.unreachable28 [
     i64 0, label %18
     i64 1, label %24
     i64 2, label %28

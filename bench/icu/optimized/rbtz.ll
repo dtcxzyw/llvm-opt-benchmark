@@ -280,7 +280,7 @@ define void @_ZN6icu_7717RuleBasedTimeZone8completeER10UErrorCode(ptr noundef no
   %.not175254 = icmp eq ptr %20, null
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load ptr, ptr %21, align 8, !tbaa !6
-  br i1 %.not175254, label %.thread448, label %30
+  br i1 %.not175254, label %.thread470, label %30
 
 23:                                               ; preds = %16
   store i32 27, ptr %1, align 4, !tbaa !21
@@ -626,9 +626,9 @@ _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %_ZN6icu_7712LocalPo
   %175 = load i32, ptr %1, align 4
   %176 = icmp sgt i32 %175, 0
   %or.cond.i206 = select i1 %174, i1 true, i1 %176
-  br i1 %or.cond.i206, label %_ZN6icu_7712LocalPointerINS_10TransitionEEC2EPS1_R10UErrorCode.exit, label %.thread447
+  br i1 %or.cond.i206, label %_ZN6icu_7712LocalPointerINS_10TransitionEEC2EPS1_R10UErrorCode.exit, label %.thread469
 
-.thread447:                                       ; preds = %172
+.thread469:                                       ; preds = %172
   store i32 7, ptr %1, align 4, !tbaa !21
   br label %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207.thread
 
@@ -659,7 +659,7 @@ _ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit: ; preds = %179
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %173) #14
   br label %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207.thread
 
-_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207.thread: ; preds = %164, %161, %.thread447, %183, %185, %168
+_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit207.thread: ; preds = %164, %161, %.thread469, %183, %185, %168
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #14
@@ -732,18 +732,18 @@ _ZN6icu_7711LocalMemoryIbED2Ev.exit208._crit_edge: ; preds = %_ZN6icu_7711LocalM
   %.0115 = phi double [ %.1116, %_ZN6icu_7711LocalMemoryIbED2Ev.exit208._crit_edge ], [ 0xC384763B62073280, %30 ]
   %.0 = phi ptr [ %.1, %_ZN6icu_7711LocalMemoryIbED2Ev.exit208._crit_edge ], [ %31, %30 ]
   %.not194 = icmp eq ptr %197, null
-  br i1 %.not194, label %.thread342, label %.thread448
+  br i1 %.not194, label %.thread342, label %.thread470
 
-.thread448:                                       ; preds = %.thread, %196
-  %.0453 = phi ptr [ %.0, %196 ], [ %22, %.thread ]
-  %.0115452 = phi double [ %.0115, %196 ], [ 0xC384763B62073280, %.thread ]
+.thread470:                                       ; preds = %.thread, %196
+  %.0475 = phi ptr [ %.0, %196 ], [ %22, %.thread ]
+  %.0115474 = phi double [ %.0115, %196 ], [ 0xC384763B62073280, %.thread ]
   %198 = phi ptr [ %197, %196 ], [ %15, %.thread ]
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %200 = load ptr, ptr %199, align 8, !tbaa !17
   %201 = icmp eq ptr %200, null
   br i1 %201, label %202, label %217
 
-202:                                              ; preds = %.thread448
+202:                                              ; preds = %.thread470
   %203 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 40) #14
   %204 = icmp eq ptr %203, null
   br i1 %204, label %206, label %205
@@ -784,25 +784,25 @@ _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit211: ; preds = %_ZN6icu_7712Local
   %.pre445 = load ptr, ptr %14, align 8, !tbaa !20
   br label %217
 
-217:                                              ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit211, %.thread448
-  %218 = phi ptr [ %.pre445, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit211 ], [ %198, %.thread448 ]
+217:                                              ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit211, %.thread470
+  %218 = phi ptr [ %.pre445, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit211 ], [ %198, %.thread470 ]
   %219 = call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %218, i32 noundef 0)
   %220 = load ptr, ptr %14, align 8, !tbaa !20
   %221 = call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %220, i32 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %222 = call noundef i32 @_ZNK6icu_7712TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %.0453)
-  %223 = call noundef i32 @_ZNK6icu_7712TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %.0453)
+  %222 = call noundef i32 @_ZNK6icu_7712TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %.0475)
+  %223 = call noundef i32 @_ZNK6icu_7712TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %.0475)
   %224 = load ptr, ptr %219, align 8, !tbaa !3
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 72
   %226 = load ptr, ptr %225, align 8
-  %227 = call noundef signext i8 %226(ptr noundef nonnull align 8 dereferenceable(80) %219, double noundef %.0115452, i32 noundef %222, i32 noundef %223, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %228 = call noundef i32 @_ZNK6icu_7712TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %.0453)
-  %229 = call noundef i32 @_ZNK6icu_7712TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %.0453)
+  %227 = call noundef signext i8 %226(ptr noundef nonnull align 8 dereferenceable(80) %219, double noundef %.0115474, i32 noundef %222, i32 noundef %223, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %228 = call noundef i32 @_ZNK6icu_7712TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %.0475)
+  %229 = call noundef i32 @_ZNK6icu_7712TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %.0475)
   %230 = load ptr, ptr %221, align 8, !tbaa !3
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 72
   %232 = load ptr, ptr %231, align 8
-  %233 = call noundef signext i8 %232(ptr noundef nonnull align 8 dereferenceable(80) %221, double noundef %.0115452, i32 noundef %228, i32 noundef %229, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %233 = call noundef signext i8 %232(ptr noundef nonnull align 8 dereferenceable(80) %221, double noundef %.0115474, i32 noundef %228, i32 noundef %229, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %7)
   %234 = icmp ne i8 %227, 0
   %235 = icmp ne i8 %233, 0
   %or.cond = and i1 %234, %235
@@ -830,9 +830,9 @@ _ZN6icu_7712LocalPointerINS_10TransitionEEC2EPS1_R10UErrorCode.exit213: ; preds 
   %245 = load i32, ptr %1, align 4
   %246 = icmp sgt i32 %245, 0
   %or.cond.i214 = select i1 %244, i1 true, i1 %246
-  br i1 %or.cond.i214, label %_ZN6icu_7712LocalPointerINS_10TransitionEEC2EPS1_R10UErrorCode.exit215, label %.thread455
+  br i1 %or.cond.i214, label %_ZN6icu_7712LocalPointerINS_10TransitionEEC2EPS1_R10UErrorCode.exit215, label %.thread477
 
-.thread455:                                       ; preds = %_ZN6icu_7712LocalPointerINS_10TransitionEEC2EPS1_R10UErrorCode.exit213
+.thread477:                                       ; preds = %_ZN6icu_7712LocalPointerINS_10TransitionEEC2EPS1_R10UErrorCode.exit213
   store i32 7, ptr %1, align 4, !tbaa !21
   br label %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit217
 
@@ -856,7 +856,7 @@ _ZN6icu_7712LocalPointerINS_10TransitionEEC2EPS1_R10UErrorCode.exit215: ; preds 
 
 256:                                              ; preds = %250
   store double %251, ptr %238, align 8, !tbaa !39
-  store ptr %.0453, ptr %254, align 8, !tbaa !42
+  store ptr %.0475, ptr %254, align 8, !tbaa !42
   store ptr %219, ptr %255, align 8, !tbaa !43
   %257 = load double, ptr %6, align 8, !tbaa !34
   %258 = invoke noundef i32 @_ZNK6icu_7712TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %219)
@@ -875,7 +875,7 @@ _ZN6icu_7712LocalPointerINS_10TransitionEEC2EPS1_R10UErrorCode.exit215: ; preds 
 
 266:                                              ; preds = %250
   store double %252, ptr %238, align 8, !tbaa !39
-  store ptr %.0453, ptr %254, align 8, !tbaa !42
+  store ptr %.0475, ptr %254, align 8, !tbaa !42
   store ptr %221, ptr %255, align 8, !tbaa !43
   %267 = load double, ptr %7, align 8, !tbaa !34
   %268 = invoke noundef i32 @_ZNK6icu_7712TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %221)
@@ -893,10 +893,10 @@ _ZN6icu_7712LocalPointerINS_10TransitionEEC2EPS1_R10UErrorCode.exit215: ; preds 
           to label %276 unwind label %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread335
 
 276:                                              ; preds = %271, %261
-  %.sink494 = phi ptr [ %219, %261 ], [ %221, %271 ]
+  %.sink516 = phi ptr [ %219, %261 ], [ %221, %271 ]
   %.sink = phi ptr [ %221, %261 ], [ %219, %271 ]
   %277 = getelementptr inbounds nuw i8, ptr %243, i64 8
-  store ptr %.sink494, ptr %277, align 8, !tbaa !42
+  store ptr %.sink516, ptr %277, align 8, !tbaa !42
   %278 = getelementptr inbounds nuw i8, ptr %243, i64 16
   store ptr %.sink, ptr %278, align 8, !tbaa !43
   %279 = load ptr, ptr %199, align 8, !tbaa !17
@@ -921,7 +921,7 @@ _ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit216.thread: ; preds = %280
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %243) #14
   br label %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit217
 
-_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit217: ; preds = %.thread455, %282, %284
+_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit217: ; preds = %.thread477, %282, %284
   %285 = icmp eq ptr %238, null
   br i1 %285, label %_ZN6icu_7712LocalPointerINS_10TransitionEED2Ev.exit218.thread, label %286
 
@@ -2336,18 +2336,18 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717RuleBasedTimeZone8findNex
   %58 = load double, ptr %57, align 8, !tbaa !39
   %59 = fcmp olt double %58, %1
   %60 = fcmp oeq double %58, %1
-  %or.cond93114 = and i1 %.not, %60
-  %or.cond95115 = or i1 %59, %or.cond93114
-  br i1 %or.cond95115, label %._crit_edge.loopexit, label %.lr.ph117
+  %or.cond93119 = and i1 %.not, %60
+  %or.cond95120 = or i1 %59, %or.cond93119
+  br i1 %or.cond95120, label %._crit_edge.loopexit, label %.lr.ph122
 
-.lr.ph117:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph122:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %61 = phi ptr [ %65, %.lr.ph ], [ %57, %.lr.ph.preheader ]
-  %.079108116 = phi i32 [ %63, %.lr.ph ], [ %55, %.lr.ph.preheader ]
-  %62 = icmp sgt i32 %.079108116, 1
+  %.079108121 = phi i32 [ %63, %.lr.ph ], [ %55, %.lr.ph.preheader ]
+  %62 = icmp sgt i32 %.079108121, 1
   br i1 %62, label %.lr.ph, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !52
 
-.lr.ph:                                           ; preds = %.lr.ph117
-  %63 = add nsw i32 %.079108116, -1
+.lr.ph:                                           ; preds = %.lr.ph122
+  %63 = add nsw i32 %.079108121, -1
   %64 = load ptr, ptr %9, align 8, !tbaa !17
   %65 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %64, i32 noundef %63)
   %66 = load double, ptr %65, align 8, !tbaa !39
@@ -2355,9 +2355,9 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717RuleBasedTimeZone8findNex
   %68 = fcmp oeq double %66, %1
   %or.cond93 = and i1 %.not, %68
   %or.cond95 = or i1 %67, %or.cond93
-  br i1 %or.cond95, label %._crit_edge.loopexit, label %.lr.ph117, !llvm.loop !52
+  br i1 %or.cond95, label %._crit_edge.loopexit, label %.lr.ph122, !llvm.loop !52
 
-.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph117
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph122
   br label %._crit_edge.loopexit, !llvm.loop !52
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph, %.._crit_edge.loopexit_crit_edge, %.lr.ph.preheader
@@ -2768,10 +2768,10 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717RuleBasedTimeZone8findPre
   %.pre = load double, ptr %7, align 8, !tbaa !34
   %51 = load double, ptr %8, align 8
   %52 = fcmp ogt double %.pre, %51
-  %or.cond108 = select i1 %.not86, i1 true, i1 %52
-  %.sroa.0.2 = select i1 %or.cond108, double %.pre, double %51
-  %.sroa.10.2 = select i1 %or.cond108, ptr %36, ptr %34
-  %.sroa.15.2 = select i1 %or.cond108, ptr %34, ptr %36
+  %or.cond113 = select i1 %.not86, i1 true, i1 %52
+  %.sroa.0.2 = select i1 %or.cond113, double %.pre, double %51
+  %.sroa.10.2 = select i1 %or.cond113, ptr %36, ptr %34
+  %.sroa.15.2 = select i1 %or.cond113, ptr %34, ptr %36
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %64
@@ -2802,8 +2802,8 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717RuleBasedTimeZone8findPre
   %or.cond101 = or i1 %60, %or.cond91
   %62 = add nsw i32 %.075102, -1
   %63 = icmp slt i32 %.075102, 1
-  %or.cond110.not = or i1 %63, %or.cond101
-  br i1 %or.cond110.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  %or.cond115.not = or i1 %63, %or.cond101
+  br i1 %or.cond115.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph, %54
   %.sroa.0.0.copyload37 = phi double [ %25, %54 ], [ %59, %.lr.ph ]

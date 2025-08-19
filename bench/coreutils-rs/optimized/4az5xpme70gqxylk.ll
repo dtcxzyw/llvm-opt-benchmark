@@ -1586,11 +1586,11 @@ common.resume:                                    ; preds = %51, %39, %21
   br i1 %trunc.i, label %55, label %35
 
 32:                                               ; preds = %55, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h33e92ad04ca067a5E.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h72058b6cfe267dbdE.exit"
-  %.sink20 = phi ptr [ %58, %55 ], [ %48, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h33e92ad04ca067a5E.exit" ], [ %18, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h72058b6cfe267dbdE.exit" ]
+  %.sink21 = phi ptr [ %58, %55 ], [ %48, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h33e92ad04ca067a5E.exit" ], [ %18, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h72058b6cfe267dbdE.exit" ]
   %anon.124a0a28030e15ae3ea2a413966596d7.3.sink = phi ptr [ @anon.124a0a28030e15ae3ea2a413966596d7.3, %55 ], [ @anon.124a0a28030e15ae3ea2a413966596d7.35, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h33e92ad04ca067a5E.exit" ], [ @anon.124a0a28030e15ae3ea2a413966596d7.34, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h72058b6cfe267dbdE.exit" ]
   %.sink = phi i64 [ 1, %55 ], [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h33e92ad04ca067a5E.exit" ], [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h72058b6cfe267dbdE.exit" ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink20, ptr %33, align 8
+  store ptr %.sink21, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %anon.124a0a28030e15ae3ea2a413966596d7.3.sink, ptr %34, align 8
   store i64 %.sink, ptr %0, align 8

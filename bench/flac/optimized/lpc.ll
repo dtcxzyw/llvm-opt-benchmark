@@ -4271,8 +4271,8 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   %66 = load i32, ptr %65, align 4, !tbaa !3
   %67 = load i32, ptr %2, align 4, !tbaa !3
   %wide.trip.count697 = zext nneg i32 %1 to i64
-  %scevgep728 = getelementptr i8, ptr %5, i64 -4
-  %load_initial729 = load i32, ptr %scevgep728, align 4
+  %scevgep743 = getelementptr i8, ptr %5, i64 -4
+  %load_initial744 = load i32, ptr %scevgep743, align 4
   br label %142
 
 .preheader:                                       ; preds = %45
@@ -4366,7 +4366,7 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   br i1 %exitcond703.not, label %.loopexit, label %91, !llvm.loop !78
 
 142:                                              ; preds = %.lr.ph628, %142
-  %store_forwarded730 = phi i32 [ %load_initial729, %.lr.ph628 ], [ %188, %142 ]
+  %store_forwarded745 = phi i32 [ %load_initial744, %.lr.ph628 ], [ %188, %142 ]
   %indvars.iv694 = phi i64 [ 0, %.lr.ph628 ], [ %indvars.iv.next695, %142 ]
   %143 = getelementptr i32, ptr %5, i64 %indvars.iv694
   %144 = getelementptr i8, ptr %143, i64 -44
@@ -4408,7 +4408,7 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   %180 = load i32, ptr %179, align 4, !tbaa !3
   %181 = mul nsw i32 %180, %66
   %182 = add nsw i32 %178, %181
-  %183 = mul nsw i32 %store_forwarded730, %67
+  %183 = mul nsw i32 %store_forwarded745, %67
   %184 = add nsw i32 %182, %183
   %185 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv694
   %186 = load i32, ptr %185, align 4, !tbaa !3
@@ -4445,8 +4445,8 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   %206 = load i32, ptr %205, align 4, !tbaa !3
   %207 = load i32, ptr %2, align 4, !tbaa !3
   %wide.trip.count687 = zext nneg i32 %1 to i64
-  %scevgep734 = getelementptr i8, ptr %5, i64 -4
-  %load_initial735 = load i32, ptr %scevgep734, align 4
+  %scevgep749 = getelementptr i8, ptr %5, i64 -4
+  %load_initial750 = load i32, ptr %scevgep749, align 4
   br label %270
 
 .preheader584:                                    ; preds = %189
@@ -4473,12 +4473,12 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   %225 = load i32, ptr %224, align 4, !tbaa !3
   %226 = load i32, ptr %2, align 4, !tbaa !3
   %wide.trip.count692 = zext nneg i32 %1 to i64
-  %scevgep731 = getelementptr i8, ptr %5, i64 -4
-  %load_initial732 = load i32, ptr %scevgep731, align 4
+  %scevgep746 = getelementptr i8, ptr %5, i64 -4
+  %load_initial747 = load i32, ptr %scevgep746, align 4
   br label %227
 
 227:                                              ; preds = %.lr.ph626, %227
-  %store_forwarded733 = phi i32 [ %load_initial732, %.lr.ph626 ], [ %269, %227 ]
+  %store_forwarded748 = phi i32 [ %load_initial747, %.lr.ph626 ], [ %269, %227 ]
   %indvars.iv689 = phi i64 [ 0, %.lr.ph626 ], [ %indvars.iv.next690, %227 ]
   %228 = getelementptr i32, ptr %5, i64 %indvars.iv689
   %229 = getelementptr i8, ptr %228, i64 -40
@@ -4516,7 +4516,7 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   %261 = load i32, ptr %260, align 4, !tbaa !3
   %262 = mul nsw i32 %261, %225
   %263 = add nsw i32 %259, %262
-  %264 = mul nsw i32 %store_forwarded733, %226
+  %264 = mul nsw i32 %store_forwarded748, %226
   %265 = add nsw i32 %263, %264
   %266 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv689
   %267 = load i32, ptr %266, align 4, !tbaa !3
@@ -4528,7 +4528,7 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   br i1 %exitcond693.not, label %.loopexit, label %227, !llvm.loop !80
 
 270:                                              ; preds = %.lr.ph624, %270
-  %store_forwarded736 = phi i32 [ %load_initial735, %.lr.ph624 ], [ %308, %270 ]
+  %store_forwarded751 = phi i32 [ %load_initial750, %.lr.ph624 ], [ %308, %270 ]
   %indvars.iv684 = phi i64 [ 0, %.lr.ph624 ], [ %indvars.iv.next685, %270 ]
   %271 = getelementptr i32, ptr %5, i64 %indvars.iv684
   %272 = getelementptr i8, ptr %271, i64 -36
@@ -4562,7 +4562,7 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   %300 = load i32, ptr %299, align 4, !tbaa !3
   %301 = mul nsw i32 %300, %206
   %302 = add nsw i32 %298, %301
-  %303 = mul nsw i32 %store_forwarded736, %207
+  %303 = mul nsw i32 %store_forwarded751, %207
   %304 = add nsw i32 %302, %303
   %305 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv684
   %306 = load i32, ptr %305, align 4, !tbaa !3
@@ -4603,8 +4603,8 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   %326 = load i32, ptr %325, align 4, !tbaa !3
   %327 = load i32, ptr %2, align 4, !tbaa !3
   %wide.trip.count677 = zext nneg i32 %1 to i64
-  %scevgep740 = getelementptr i8, ptr %5, i64 -4
-  %load_initial741 = load i32, ptr %scevgep740, align 4
+  %scevgep755 = getelementptr i8, ptr %5, i64 -4
+  %load_initial756 = load i32, ptr %scevgep755, align 4
   br label %378
 
 .preheader588:                                    ; preds = %313
@@ -4627,12 +4627,12 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   %341 = load i32, ptr %340, align 4, !tbaa !3
   %342 = load i32, ptr %2, align 4, !tbaa !3
   %wide.trip.count682 = zext nneg i32 %1 to i64
-  %scevgep737 = getelementptr i8, ptr %5, i64 -4
-  %load_initial738 = load i32, ptr %scevgep737, align 4
+  %scevgep752 = getelementptr i8, ptr %5, i64 -4
+  %load_initial753 = load i32, ptr %scevgep752, align 4
   br label %343
 
 343:                                              ; preds = %.lr.ph622, %343
-  %store_forwarded739 = phi i32 [ %load_initial738, %.lr.ph622 ], [ %377, %343 ]
+  %store_forwarded754 = phi i32 [ %load_initial753, %.lr.ph622 ], [ %377, %343 ]
   %indvars.iv679 = phi i64 [ 0, %.lr.ph622 ], [ %indvars.iv.next680, %343 ]
   %344 = getelementptr i32, ptr %5, i64 %indvars.iv679
   %345 = getelementptr i8, ptr %344, i64 -32
@@ -4662,7 +4662,7 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   %369 = load i32, ptr %368, align 4, !tbaa !3
   %370 = mul nsw i32 %369, %341
   %371 = add nsw i32 %367, %370
-  %372 = mul nsw i32 %store_forwarded739, %342
+  %372 = mul nsw i32 %store_forwarded754, %342
   %373 = add nsw i32 %371, %372
   %374 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv679
   %375 = load i32, ptr %374, align 4, !tbaa !3
@@ -4674,7 +4674,7 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   br i1 %exitcond683.not, label %.loopexit, label %343, !llvm.loop !82
 
 378:                                              ; preds = %.lr.ph620, %378
-  %store_forwarded742 = phi i32 [ %load_initial741, %.lr.ph620 ], [ %408, %378 ]
+  %store_forwarded757 = phi i32 [ %load_initial756, %.lr.ph620 ], [ %408, %378 ]
   %indvars.iv674 = phi i64 [ 0, %.lr.ph620 ], [ %indvars.iv.next675, %378 ]
   %379 = getelementptr i32, ptr %5, i64 %indvars.iv674
   %380 = getelementptr i8, ptr %379, i64 -28
@@ -4700,7 +4700,7 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   %400 = load i32, ptr %399, align 4, !tbaa !3
   %401 = mul nsw i32 %400, %326
   %402 = add nsw i32 %398, %401
-  %403 = mul nsw i32 %store_forwarded742, %327
+  %403 = mul nsw i32 %store_forwarded757, %327
   %404 = add nsw i32 %402, %403
   %405 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv674
   %406 = load i32, ptr %405, align 4, !tbaa !3
@@ -4729,8 +4729,8 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   %418 = load i32, ptr %417, align 4, !tbaa !3
   %419 = load i32, ptr %2, align 4, !tbaa !3
   %wide.trip.count667 = zext nneg i32 %1 to i64
-  %scevgep746 = getelementptr i8, ptr %5, i64 -4
-  %load_initial747 = load i32, ptr %scevgep746, align 4
+  %scevgep761 = getelementptr i8, ptr %5, i64 -4
+  %load_initial762 = load i32, ptr %scevgep761, align 4
   br label %458
 
 .preheader592:                                    ; preds = %409
@@ -4749,12 +4749,12 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   %429 = load i32, ptr %428, align 4, !tbaa !3
   %430 = load i32, ptr %2, align 4, !tbaa !3
   %wide.trip.count672 = zext nneg i32 %1 to i64
-  %scevgep743 = getelementptr i8, ptr %5, i64 -4
-  %load_initial744 = load i32, ptr %scevgep743, align 4
+  %scevgep758 = getelementptr i8, ptr %5, i64 -4
+  %load_initial759 = load i32, ptr %scevgep758, align 4
   br label %431
 
 431:                                              ; preds = %.lr.ph618, %431
-  %store_forwarded745 = phi i32 [ %load_initial744, %.lr.ph618 ], [ %457, %431 ]
+  %store_forwarded760 = phi i32 [ %load_initial759, %.lr.ph618 ], [ %457, %431 ]
   %indvars.iv669 = phi i64 [ 0, %.lr.ph618 ], [ %indvars.iv.next670, %431 ]
   %432 = getelementptr i32, ptr %5, i64 %indvars.iv669
   %433 = getelementptr i8, ptr %432, i64 -24
@@ -4776,7 +4776,7 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   %449 = load i32, ptr %448, align 4, !tbaa !3
   %450 = mul nsw i32 %449, %429
   %451 = add nsw i32 %447, %450
-  %452 = mul nsw i32 %store_forwarded745, %430
+  %452 = mul nsw i32 %store_forwarded760, %430
   %453 = add nsw i32 %451, %452
   %454 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv669
   %455 = load i32, ptr %454, align 4, !tbaa !3
@@ -4788,7 +4788,7 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   br i1 %exitcond673.not, label %.loopexit, label %431, !llvm.loop !84
 
 458:                                              ; preds = %.lr.ph616, %458
-  %store_forwarded748 = phi i32 [ %load_initial747, %.lr.ph616 ], [ %480, %458 ]
+  %store_forwarded763 = phi i32 [ %load_initial762, %.lr.ph616 ], [ %480, %458 ]
   %indvars.iv664 = phi i64 [ 0, %.lr.ph616 ], [ %indvars.iv.next665, %458 ]
   %459 = getelementptr i32, ptr %5, i64 %indvars.iv664
   %460 = getelementptr i8, ptr %459, i64 -20
@@ -4806,7 +4806,7 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   %472 = load i32, ptr %471, align 4, !tbaa !3
   %473 = mul nsw i32 %472, %418
   %474 = add nsw i32 %470, %473
-  %475 = mul nsw i32 %store_forwarded748, %419
+  %475 = mul nsw i32 %store_forwarded763, %419
   %476 = add nsw i32 %474, %475
   %477 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv664
   %478 = load i32, ptr %477, align 4, !tbaa !3
@@ -4835,8 +4835,8 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   %488 = load i32, ptr %487, align 4, !tbaa !3
   %489 = load i32, ptr %2, align 4, !tbaa !3
   %wide.trip.count657 = zext nneg i32 %1 to i64
-  %scevgep752 = getelementptr i8, ptr %5, i64 -4
-  %load_initial753 = load i32, ptr %scevgep752, align 4
+  %scevgep767 = getelementptr i8, ptr %5, i64 -4
+  %load_initial768 = load i32, ptr %scevgep767, align 4
   br label %516
 
 .preheader596:                                    ; preds = %483
@@ -4851,12 +4851,12 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   %495 = load i32, ptr %494, align 4, !tbaa !3
   %496 = load i32, ptr %2, align 4, !tbaa !3
   %wide.trip.count662 = zext nneg i32 %1 to i64
-  %scevgep749 = getelementptr i8, ptr %5, i64 -4
-  %load_initial750 = load i32, ptr %scevgep749, align 4
+  %scevgep764 = getelementptr i8, ptr %5, i64 -4
+  %load_initial765 = load i32, ptr %scevgep764, align 4
   br label %497
 
 497:                                              ; preds = %.lr.ph614, %497
-  %store_forwarded751 = phi i32 [ %load_initial750, %.lr.ph614 ], [ %515, %497 ]
+  %store_forwarded766 = phi i32 [ %load_initial765, %.lr.ph614 ], [ %515, %497 ]
   %indvars.iv659 = phi i64 [ 0, %.lr.ph614 ], [ %indvars.iv.next660, %497 ]
   %498 = getelementptr i32, ptr %5, i64 %indvars.iv659
   %499 = getelementptr i8, ptr %498, i64 -16
@@ -4870,7 +4870,7 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   %507 = load i32, ptr %506, align 4, !tbaa !3
   %508 = mul nsw i32 %507, %495
   %509 = add nsw i32 %505, %508
-  %510 = mul nsw i32 %store_forwarded751, %496
+  %510 = mul nsw i32 %store_forwarded766, %496
   %511 = add nsw i32 %509, %510
   %512 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv659
   %513 = load i32, ptr %512, align 4, !tbaa !3
@@ -4882,7 +4882,7 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   br i1 %exitcond663.not, label %.loopexit, label %497, !llvm.loop !86
 
 516:                                              ; preds = %.lr.ph612, %516
-  %store_forwarded754 = phi i32 [ %load_initial753, %.lr.ph612 ], [ %530, %516 ]
+  %store_forwarded769 = phi i32 [ %load_initial768, %.lr.ph612 ], [ %530, %516 ]
   %indvars.iv654 = phi i64 [ 0, %.lr.ph612 ], [ %indvars.iv.next655, %516 ]
   %517 = getelementptr i32, ptr %5, i64 %indvars.iv654
   %518 = getelementptr i8, ptr %517, i64 -12
@@ -4892,7 +4892,7 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   %522 = load i32, ptr %521, align 4, !tbaa !3
   %523 = mul nsw i32 %522, %488
   %524 = add nsw i32 %523, %520
-  %525 = mul nsw i32 %store_forwarded754, %489
+  %525 = mul nsw i32 %store_forwarded769, %489
   %526 = add nsw i32 %524, %525
   %527 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv654
   %528 = load i32, ptr %527, align 4, !tbaa !3
@@ -4913,8 +4913,8 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
 .lr.ph608:                                        ; preds = %.preheader602
   %533 = load i32, ptr %2, align 4, !tbaa !3
   %wide.trip.count647 = zext nneg i32 %1 to i64
-  %scevgep758 = getelementptr i8, ptr %5, i64 -4
-  %load_initial759 = load i32, ptr %scevgep758, align 4
+  %scevgep773 = getelementptr i8, ptr %5, i64 -4
+  %load_initial774 = load i32, ptr %scevgep773, align 4
   br label %548
 
 .preheader600:                                    ; preds = %531
@@ -4925,18 +4925,18 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   %535 = load i32, ptr %534, align 4, !tbaa !3
   %536 = load i32, ptr %2, align 4, !tbaa !3
   %wide.trip.count652 = zext nneg i32 %1 to i64
-  %scevgep755 = getelementptr i8, ptr %5, i64 -4
-  %load_initial756 = load i32, ptr %scevgep755, align 4
+  %scevgep770 = getelementptr i8, ptr %5, i64 -4
+  %load_initial771 = load i32, ptr %scevgep770, align 4
   br label %537
 
 537:                                              ; preds = %.lr.ph610, %537
-  %store_forwarded757 = phi i32 [ %load_initial756, %.lr.ph610 ], [ %547, %537 ]
+  %store_forwarded772 = phi i32 [ %load_initial771, %.lr.ph610 ], [ %547, %537 ]
   %indvars.iv649 = phi i64 [ 0, %.lr.ph610 ], [ %indvars.iv.next650, %537 ]
   %538 = getelementptr i32, ptr %5, i64 %indvars.iv649
   %539 = getelementptr i8, ptr %538, i64 -8
   %540 = load i32, ptr %539, align 4, !tbaa !3
   %541 = mul nsw i32 %540, %535
-  %542 = mul nsw i32 %store_forwarded757, %536
+  %542 = mul nsw i32 %store_forwarded772, %536
   %543 = add nsw i32 %542, %541
   %544 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv649
   %545 = load i32, ptr %544, align 4, !tbaa !3
@@ -4948,12 +4948,12 @@ define hidden void @FLAC__lpc_restore_signal(ptr noalias noundef readonly captur
   br i1 %exitcond653.not, label %.loopexit, label %537, !llvm.loop !88
 
 548:                                              ; preds = %.lr.ph608, %548
-  %store_forwarded760 = phi i32 [ %load_initial759, %.lr.ph608 ], [ %554, %548 ]
+  %store_forwarded775 = phi i32 [ %load_initial774, %.lr.ph608 ], [ %554, %548 ]
   %indvars.iv644 = phi i64 [ 0, %.lr.ph608 ], [ %indvars.iv.next645, %548 ]
   %549 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv644
   %550 = load i32, ptr %549, align 4, !tbaa !3
   %551 = getelementptr i32, ptr %5, i64 %indvars.iv644
-  %552 = mul nsw i32 %store_forwarded760, %533
+  %552 = mul nsw i32 %store_forwarded775, %533
   %553 = ashr i32 %552, %4
   %554 = add nsw i32 %553, %550
   store i32 %554, ptr %551, align 4, !tbaa !3
@@ -5356,8 +5356,8 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   %79 = sext i32 %78 to i64
   %80 = zext nneg i32 %4 to i64
   %wide.trip.count697 = zext nneg i32 %1 to i64
-  %scevgep728 = getelementptr i8, ptr %5, i64 -4
-  %load_initial729 = load i32, ptr %scevgep728, align 4
+  %scevgep743 = getelementptr i8, ptr %5, i64 -4
+  %load_initial744 = load i32, ptr %scevgep743, align 4
   br label %181
 
 .preheader:                                       ; preds = %46
@@ -5477,7 +5477,7 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   br i1 %exitcond703.not, label %.loopexit, label %117, !llvm.loop !91
 
 181:                                              ; preds = %.lr.ph628, %181
-  %store_forwarded730 = phi i32 [ %load_initial729, %.lr.ph628 ], [ %239, %181 ]
+  %store_forwarded745 = phi i32 [ %load_initial744, %.lr.ph628 ], [ %239, %181 ]
   %indvars.iv694 = phi i64 [ 0, %.lr.ph628 ], [ %indvars.iv.next695, %181 ]
   %182 = getelementptr i32, ptr %5, i64 %indvars.iv694
   %183 = getelementptr i8, ptr %182, i64 -44
@@ -5529,7 +5529,7 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   %229 = sext i32 %228 to i64
   %230 = mul nsw i64 %229, %77
   %231 = add nsw i64 %226, %230
-  %232 = sext i32 %store_forwarded730 to i64
+  %232 = sext i32 %store_forwarded745 to i64
   %233 = mul nsw i64 %232, %79
   %234 = add nsw i64 %231, %233
   %235 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv694
@@ -5578,8 +5578,8 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   %267 = sext i32 %266 to i64
   %268 = zext nneg i32 %4 to i64
   %wide.trip.count687 = zext nneg i32 %1 to i64
-  %scevgep734 = getelementptr i8, ptr %5, i64 -4
-  %load_initial735 = load i32, ptr %scevgep734, align 4
+  %scevgep749 = getelementptr i8, ptr %5, i64 -4
+  %load_initial750 = load i32, ptr %scevgep749, align 4
   br label %353
 
 .preheader584:                                    ; preds = %240
@@ -5617,12 +5617,12 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   %297 = sext i32 %296 to i64
   %298 = zext nneg i32 %4 to i64
   %wide.trip.count692 = zext nneg i32 %1 to i64
-  %scevgep731 = getelementptr i8, ptr %5, i64 -4
-  %load_initial732 = load i32, ptr %scevgep731, align 4
+  %scevgep746 = getelementptr i8, ptr %5, i64 -4
+  %load_initial747 = load i32, ptr %scevgep746, align 4
   br label %299
 
 299:                                              ; preds = %.lr.ph626, %299
-  %store_forwarded733 = phi i32 [ %load_initial732, %.lr.ph626 ], [ %352, %299 ]
+  %store_forwarded748 = phi i32 [ %load_initial747, %.lr.ph626 ], [ %352, %299 ]
   %indvars.iv689 = phi i64 [ 0, %.lr.ph626 ], [ %indvars.iv.next690, %299 ]
   %300 = getelementptr i32, ptr %5, i64 %indvars.iv689
   %301 = getelementptr i8, ptr %300, i64 -40
@@ -5669,7 +5669,7 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   %342 = sext i32 %341 to i64
   %343 = mul nsw i64 %342, %295
   %344 = add nsw i64 %339, %343
-  %345 = sext i32 %store_forwarded733 to i64
+  %345 = sext i32 %store_forwarded748 to i64
   %346 = mul nsw i64 %345, %297
   %347 = add nsw i64 %344, %346
   %348 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv689
@@ -5683,7 +5683,7 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   br i1 %exitcond693.not, label %.loopexit, label %299, !llvm.loop !93
 
 353:                                              ; preds = %.lr.ph624, %353
-  %store_forwarded736 = phi i32 [ %load_initial735, %.lr.ph624 ], [ %401, %353 ]
+  %store_forwarded751 = phi i32 [ %load_initial750, %.lr.ph624 ], [ %401, %353 ]
   %indvars.iv684 = phi i64 [ 0, %.lr.ph624 ], [ %indvars.iv.next685, %353 ]
   %354 = getelementptr i32, ptr %5, i64 %indvars.iv684
   %355 = getelementptr i8, ptr %354, i64 -36
@@ -5725,7 +5725,7 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   %391 = sext i32 %390 to i64
   %392 = mul nsw i64 %391, %265
   %393 = add nsw i64 %388, %392
-  %394 = sext i32 %store_forwarded736 to i64
+  %394 = sext i32 %store_forwarded751 to i64
   %395 = mul nsw i64 %394, %267
   %396 = add nsw i64 %393, %395
   %397 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv684
@@ -5776,8 +5776,8 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   %427 = sext i32 %426 to i64
   %428 = zext nneg i32 %4 to i64
   %wide.trip.count677 = zext nneg i32 %1 to i64
-  %scevgep740 = getelementptr i8, ptr %5, i64 -4
-  %load_initial741 = load i32, ptr %scevgep740, align 4
+  %scevgep755 = getelementptr i8, ptr %5, i64 -4
+  %load_initial756 = load i32, ptr %scevgep755, align 4
   br label %497
 
 .preheader588:                                    ; preds = %406
@@ -5809,12 +5809,12 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   %451 = sext i32 %450 to i64
   %452 = zext nneg i32 %4 to i64
   %wide.trip.count682 = zext nneg i32 %1 to i64
-  %scevgep737 = getelementptr i8, ptr %5, i64 -4
-  %load_initial738 = load i32, ptr %scevgep737, align 4
+  %scevgep752 = getelementptr i8, ptr %5, i64 -4
+  %load_initial753 = load i32, ptr %scevgep752, align 4
   br label %453
 
 453:                                              ; preds = %.lr.ph622, %453
-  %store_forwarded739 = phi i32 [ %load_initial738, %.lr.ph622 ], [ %496, %453 ]
+  %store_forwarded754 = phi i32 [ %load_initial753, %.lr.ph622 ], [ %496, %453 ]
   %indvars.iv679 = phi i64 [ 0, %.lr.ph622 ], [ %indvars.iv.next680, %453 ]
   %454 = getelementptr i32, ptr %5, i64 %indvars.iv679
   %455 = getelementptr i8, ptr %454, i64 -32
@@ -5851,7 +5851,7 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   %486 = sext i32 %485 to i64
   %487 = mul nsw i64 %486, %449
   %488 = add nsw i64 %483, %487
-  %489 = sext i32 %store_forwarded739 to i64
+  %489 = sext i32 %store_forwarded754 to i64
   %490 = mul nsw i64 %489, %451
   %491 = add nsw i64 %488, %490
   %492 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv679
@@ -5865,7 +5865,7 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   br i1 %exitcond683.not, label %.loopexit, label %453, !llvm.loop !95
 
 497:                                              ; preds = %.lr.ph620, %497
-  %store_forwarded742 = phi i32 [ %load_initial741, %.lr.ph620 ], [ %535, %497 ]
+  %store_forwarded757 = phi i32 [ %load_initial756, %.lr.ph620 ], [ %535, %497 ]
   %indvars.iv674 = phi i64 [ 0, %.lr.ph620 ], [ %indvars.iv.next675, %497 ]
   %498 = getelementptr i32, ptr %5, i64 %indvars.iv674
   %499 = getelementptr i8, ptr %498, i64 -28
@@ -5897,7 +5897,7 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   %525 = sext i32 %524 to i64
   %526 = mul nsw i64 %525, %425
   %527 = add nsw i64 %522, %526
-  %528 = sext i32 %store_forwarded742 to i64
+  %528 = sext i32 %store_forwarded757 to i64
   %529 = mul nsw i64 %528, %427
   %530 = add nsw i64 %527, %529
   %531 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv674
@@ -5934,8 +5934,8 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   %551 = sext i32 %550 to i64
   %552 = zext nneg i32 %4 to i64
   %wide.trip.count667 = zext nneg i32 %1 to i64
-  %scevgep746 = getelementptr i8, ptr %5, i64 -4
-  %load_initial747 = load i32, ptr %scevgep746, align 4
+  %scevgep761 = getelementptr i8, ptr %5, i64 -4
+  %load_initial762 = load i32, ptr %scevgep761, align 4
   br label %605
 
 .preheader592:                                    ; preds = %536
@@ -5961,12 +5961,12 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   %569 = sext i32 %568 to i64
   %570 = zext nneg i32 %4 to i64
   %wide.trip.count672 = zext nneg i32 %1 to i64
-  %scevgep743 = getelementptr i8, ptr %5, i64 -4
-  %load_initial744 = load i32, ptr %scevgep743, align 4
+  %scevgep758 = getelementptr i8, ptr %5, i64 -4
+  %load_initial759 = load i32, ptr %scevgep758, align 4
   br label %571
 
 571:                                              ; preds = %.lr.ph618, %571
-  %store_forwarded745 = phi i32 [ %load_initial744, %.lr.ph618 ], [ %604, %571 ]
+  %store_forwarded760 = phi i32 [ %load_initial759, %.lr.ph618 ], [ %604, %571 ]
   %indvars.iv669 = phi i64 [ 0, %.lr.ph618 ], [ %indvars.iv.next670, %571 ]
   %572 = getelementptr i32, ptr %5, i64 %indvars.iv669
   %573 = getelementptr i8, ptr %572, i64 -24
@@ -5993,7 +5993,7 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   %594 = sext i32 %593 to i64
   %595 = mul nsw i64 %594, %567
   %596 = add nsw i64 %591, %595
-  %597 = sext i32 %store_forwarded745 to i64
+  %597 = sext i32 %store_forwarded760 to i64
   %598 = mul nsw i64 %597, %569
   %599 = add nsw i64 %596, %598
   %600 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv669
@@ -6007,7 +6007,7 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   br i1 %exitcond673.not, label %.loopexit, label %571, !llvm.loop !97
 
 605:                                              ; preds = %.lr.ph616, %605
-  %store_forwarded748 = phi i32 [ %load_initial747, %.lr.ph616 ], [ %633, %605 ]
+  %store_forwarded763 = phi i32 [ %load_initial762, %.lr.ph616 ], [ %633, %605 ]
   %indvars.iv664 = phi i64 [ 0, %.lr.ph616 ], [ %indvars.iv.next665, %605 ]
   %606 = getelementptr i32, ptr %5, i64 %indvars.iv664
   %607 = getelementptr i8, ptr %606, i64 -20
@@ -6029,7 +6029,7 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   %623 = sext i32 %622 to i64
   %624 = mul nsw i64 %623, %549
   %625 = add nsw i64 %620, %624
-  %626 = sext i32 %store_forwarded748 to i64
+  %626 = sext i32 %store_forwarded763 to i64
   %627 = mul nsw i64 %626, %551
   %628 = add nsw i64 %625, %627
   %629 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv664
@@ -6064,8 +6064,8 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   %645 = sext i32 %644 to i64
   %646 = zext nneg i32 %4 to i64
   %wide.trip.count657 = zext nneg i32 %1 to i64
-  %scevgep752 = getelementptr i8, ptr %5, i64 -4
-  %load_initial753 = load i32, ptr %scevgep752, align 4
+  %scevgep767 = getelementptr i8, ptr %5, i64 -4
+  %load_initial768 = load i32, ptr %scevgep767, align 4
   br label %683
 
 .preheader596:                                    ; preds = %636
@@ -6085,12 +6085,12 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   %657 = sext i32 %656 to i64
   %658 = zext nneg i32 %4 to i64
   %wide.trip.count662 = zext nneg i32 %1 to i64
-  %scevgep749 = getelementptr i8, ptr %5, i64 -4
-  %load_initial750 = load i32, ptr %scevgep749, align 4
+  %scevgep764 = getelementptr i8, ptr %5, i64 -4
+  %load_initial765 = load i32, ptr %scevgep764, align 4
   br label %659
 
 659:                                              ; preds = %.lr.ph614, %659
-  %store_forwarded751 = phi i32 [ %load_initial750, %.lr.ph614 ], [ %682, %659 ]
+  %store_forwarded766 = phi i32 [ %load_initial765, %.lr.ph614 ], [ %682, %659 ]
   %indvars.iv659 = phi i64 [ 0, %.lr.ph614 ], [ %indvars.iv.next660, %659 ]
   %660 = getelementptr i32, ptr %5, i64 %indvars.iv659
   %661 = getelementptr i8, ptr %660, i64 -16
@@ -6107,7 +6107,7 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   %672 = sext i32 %671 to i64
   %673 = mul nsw i64 %672, %655
   %674 = add nsw i64 %669, %673
-  %675 = sext i32 %store_forwarded751 to i64
+  %675 = sext i32 %store_forwarded766 to i64
   %676 = mul nsw i64 %675, %657
   %677 = add nsw i64 %674, %676
   %678 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv659
@@ -6121,7 +6121,7 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   br i1 %exitcond663.not, label %.loopexit, label %659, !llvm.loop !99
 
 683:                                              ; preds = %.lr.ph612, %683
-  %store_forwarded754 = phi i32 [ %load_initial753, %.lr.ph612 ], [ %701, %683 ]
+  %store_forwarded769 = phi i32 [ %load_initial768, %.lr.ph612 ], [ %701, %683 ]
   %indvars.iv654 = phi i64 [ 0, %.lr.ph612 ], [ %indvars.iv.next655, %683 ]
   %684 = getelementptr i32, ptr %5, i64 %indvars.iv654
   %685 = getelementptr i8, ptr %684, i64 -12
@@ -6133,7 +6133,7 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   %691 = sext i32 %690 to i64
   %692 = mul nsw i64 %691, %643
   %693 = add nsw i64 %692, %688
-  %694 = sext i32 %store_forwarded754 to i64
+  %694 = sext i32 %store_forwarded769 to i64
   %695 = mul nsw i64 %694, %645
   %696 = add nsw i64 %693, %695
   %697 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv654
@@ -6158,8 +6158,8 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   %705 = sext i32 %704 to i64
   %706 = zext nneg i32 %4 to i64
   %wide.trip.count647 = zext nneg i32 %1 to i64
-  %scevgep758 = getelementptr i8, ptr %5, i64 -4
-  %load_initial759 = load i32, ptr %scevgep758, align 4
+  %scevgep773 = getelementptr i8, ptr %5, i64 -4
+  %load_initial774 = load i32, ptr %scevgep773, align 4
   br label %727
 
 .preheader600:                                    ; preds = %702
@@ -6173,19 +6173,19 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   %711 = sext i32 %710 to i64
   %712 = zext nneg i32 %4 to i64
   %wide.trip.count652 = zext nneg i32 %1 to i64
-  %scevgep755 = getelementptr i8, ptr %5, i64 -4
-  %load_initial756 = load i32, ptr %scevgep755, align 4
+  %scevgep770 = getelementptr i8, ptr %5, i64 -4
+  %load_initial771 = load i32, ptr %scevgep770, align 4
   br label %713
 
 713:                                              ; preds = %.lr.ph610, %713
-  %store_forwarded757 = phi i32 [ %load_initial756, %.lr.ph610 ], [ %726, %713 ]
+  %store_forwarded772 = phi i32 [ %load_initial771, %.lr.ph610 ], [ %726, %713 ]
   %indvars.iv649 = phi i64 [ 0, %.lr.ph610 ], [ %indvars.iv.next650, %713 ]
   %714 = getelementptr i32, ptr %5, i64 %indvars.iv649
   %715 = getelementptr i8, ptr %714, i64 -8
   %716 = load i32, ptr %715, align 4, !tbaa !3
   %717 = sext i32 %716 to i64
   %718 = mul nsw i64 %717, %709
-  %719 = sext i32 %store_forwarded757 to i64
+  %719 = sext i32 %store_forwarded772 to i64
   %720 = mul nsw i64 %719, %711
   %721 = add nsw i64 %720, %718
   %722 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv649
@@ -6199,12 +6199,12 @@ define hidden void @FLAC__lpc_restore_signal_wide(ptr noalias noundef readonly c
   br i1 %exitcond653.not, label %.loopexit, label %713, !llvm.loop !101
 
 727:                                              ; preds = %.lr.ph608, %727
-  %store_forwarded760 = phi i32 [ %load_initial759, %.lr.ph608 ], [ %735, %727 ]
+  %store_forwarded775 = phi i32 [ %load_initial774, %.lr.ph608 ], [ %735, %727 ]
   %indvars.iv644 = phi i64 [ 0, %.lr.ph608 ], [ %indvars.iv.next645, %727 ]
   %728 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv644
   %729 = load i32, ptr %728, align 4, !tbaa !3
   %730 = getelementptr i32, ptr %5, i64 %indvars.iv644
-  %731 = sext i32 %store_forwarded760 to i64
+  %731 = sext i32 %store_forwarded775 to i64
   %732 = mul nsw i64 %731, %705
   %733 = ashr i64 %732, %706
   %734 = trunc i64 %733 to i32

@@ -441,8 +441,8 @@ define hidden noundef i64 @"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb44d68f7f349af3fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.713)
-  %.not77 = icmp eq i64 %114, 0
-  br i1 %.not77, label %118, label %73
+  %.not88 = icmp eq i64 %114, 0
+  br i1 %.not88, label %118, label %73
 
 115:                                              ; preds = %59
   %116 = icmp eq i64 %63, -9223372036854775808

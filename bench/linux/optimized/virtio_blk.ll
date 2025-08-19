@@ -1630,7 +1630,7 @@ define internal void @virtio_queue_rqs(ptr noundef captures(address_is_null) %0)
 .thread7:                                         ; preds = %.thread7.backedge, %9
   %11 = phi ptr [ %7, %9 ], [ %14, %.thread7.backedge ]
   %12 = phi ptr [ null, %9 ], [ %.be, %.thread7.backedge ]
-  %13 = phi ptr [ null, %9 ], [ %.be10, %.thread7.backedge ]
+  %13 = phi ptr [ null, %9 ], [ %.be15, %.thread7.backedge ]
   %.in = getelementptr inbounds nuw i8, ptr %11, i64 72
   %14 = load ptr, ptr %.in, align 8
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1674,7 +1674,7 @@ define internal void @virtio_queue_rqs(ptr noundef captures(address_is_null) %0)
 
 .thread7.backedge:                                ; preds = %38, %112
   %.be = phi ptr [ %36, %38 ], [ null, %112 ]
-  %.be10 = phi ptr [ %35, %38 ], [ %113, %112 ]
+  %.be15 = phi ptr [ %35, %38 ], [ %113, %112 ]
   br label %.thread7, !llvm.loop !21
 
 44:                                               ; preds = %38, %34
@@ -1954,7 +1954,7 @@ define internal i32 @virtblk_poll(ptr noundef readonly captures(none) %0, ptr no
   %90 = getelementptr i8, ptr %23, i64 -126
   %91 = load i16, ptr %90, align 2
   %92 = icmp eq i16 %91, 0
-  br i1 %92, label %.thread7, label %93
+  br i1 %92, label %.thread11, label %93
 
 93:                                               ; preds = %83, %89
   %94 = getelementptr i8, ptr %23, i64 40
@@ -1962,7 +1962,7 @@ define internal i32 @virtblk_poll(ptr noundef readonly captures(none) %0, ptr no
   %.pre5 = load i32, ptr %85, align 4
   %.pre6 = and i32 %.pre5, 262144
   %95 = icmp eq i32 %.pre6, 0
-  br i1 %95, label %.thread7, label %96
+  br i1 %95, label %.thread11, label %96
 
 96:                                               ; preds = %93
   %97 = getelementptr i8, ptr %23, i64 -88
@@ -1979,22 +1979,22 @@ define internal i32 @virtblk_poll(ptr noundef readonly captures(none) %0, ptr no
   %108 = zext i32 %107 to i64
   %109 = getelementptr i8, ptr %105, i64 %108
   call void @kfree(ptr noundef %109) #14
-  br label %.thread7
+  br label %.thread11
 
-.thread7:                                         ; preds = %89, %96, %93
+.thread11:                                        ; preds = %89, %96, %93
   %110 = getelementptr i8, ptr %23, i64 -224
   %111 = load i32, ptr %110, align 8
   %112 = and i32 %111, 255
   %113 = icmp eq i32 %112, 7
   br i1 %113, label %114, label %117
 
-114:                                              ; preds = %.thread7
+114:                                              ; preds = %.thread11
   %115 = load i64, ptr %75, align 8
   %116 = getelementptr i8, ptr %23, i64 -200
   store i64 %115, ptr %116, align 8
   br label %117
 
-117:                                              ; preds = %114, %.thread7
+117:                                              ; preds = %114, %.thread11
   call void @blk_mq_end_request(ptr noundef %25, i8 noundef zeroext %84) #14
   br label %118
 
@@ -2503,8 +2503,8 @@ define internal void @virtblk_complete_batch(ptr noundef %0) #2 align 16 {
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %3, %.thread4
-  %6 = phi ptr [ %33, %.thread4 ], [ %4, %3 ]
+.preheader:                                       ; preds = %3, %.thread6
+  %6 = phi ptr [ %33, %.thread6 ], [ %4, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 262144
@@ -2515,7 +2515,7 @@ define internal void @virtblk_complete_batch(ptr noundef %0) #2 align 16 {
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 122
   %13 = load i16, ptr %12, align 2
   %14 = icmp eq i16 %13, 0
-  br i1 %14, label %.thread4, label %15
+  br i1 %14, label %.thread6, label %15
 
 15:                                               ; preds = %.preheader, %11
   %16 = getelementptr i8, ptr %6, i64 288
@@ -2523,7 +2523,7 @@ define internal void @virtblk_complete_batch(ptr noundef %0) #2 align 16 {
   %.pre = load i32, ptr %7, align 4
   %.pre3 = and i32 %.pre, 262144
   %17 = icmp eq i32 %.pre3, 0
-  br i1 %17, label %.thread4, label %18
+  br i1 %17, label %.thread6, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 160
@@ -2540,15 +2540,15 @@ define internal void @virtblk_complete_batch(ptr noundef %0) #2 align 16 {
   %30 = zext i32 %29 to i64
   %31 = getelementptr i8, ptr %27, i64 %30
   tail call void @kfree(ptr noundef %31) #14
-  br label %.thread4
+  br label %.thread6
 
-.thread4:                                         ; preds = %11, %18, %15
+.thread6:                                         ; preds = %11, %18, %15
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.thread, label %.preheader, !llvm.loop !36
 
-.thread:                                          ; preds = %.thread4, %1, %3
+.thread:                                          ; preds = %.thread6, %1, %3
   tail call void @blk_mq_end_request_batch(ptr noundef %0) #14
   ret void
 }

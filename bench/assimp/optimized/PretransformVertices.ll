@@ -1000,8 +1000,8 @@ switch.lookup:                                    ; preds = %.loopexit
   br label %394
 
 394:                                              ; preds = %.loopexit, %switch.lookup
-  %.sink284 = phi i32 [ %switch.load, %switch.lookup ], [ 8, %.loopexit ]
-  %395 = or i32 %391, %.sink284
+  %.sink290 = phi i32 [ %switch.load, %switch.lookup ], [ 8, %.loopexit ]
+  %395 = or i32 %391, %.sink290
   store i32 %395, ptr %5, align 8
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %396 = load i32, ptr %331, align 8
@@ -2966,8 +2966,8 @@ _ZL22appendNewMeshesToSceneP7aiSceneRSt6vectorIP6aiMeshSaIS3_EE.exit: ; preds = 
   %211 = load i32, ptr %210, align 8
   %212 = zext i32 %211 to i64
   %213 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.not848 = icmp eq i32 %211, 0
-  br i1 %.not848, label %_ZNSt6vectorIP6aiMeshSaIS1_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i
+  %.not893 = icmp eq i32 %211, 0
+  br i1 %.not893, label %_ZNSt6vectorIP6aiMeshSaIS1_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i: ; preds = %209
   %214 = shl nuw nsw i64 %212, 4
@@ -3656,7 +3656,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit379:                 ; preds = %.loopexit.split-lp,
   br i1 %.not.i.i383, label %_ZNSt7__cxx1110_List_baseIjSaIjEED2Ev.exit384, label %.lr.ph.i.i381, !llvm.loop !32
 
 _ZNSt7__cxx1110_List_baseIjSaIjEED2Ev.exit384:    ; preds = %.lr.ph.i.i381, %_ZNSt6vectorIjSaIjEED2Ev.exit379.thread, %_ZNSt6vectorIjSaIjEED2Ev.exit379
-  %.pn.pn.pn.pn.pn851 = phi { ptr, i32 } [ %232, %_ZNSt6vectorIjSaIjEED2Ev.exit379.thread ], [ %.pn.pn.pn.pn, %_ZNSt6vectorIjSaIjEED2Ev.exit379 ], [ %.pn.pn.pn.pn, %.lr.ph.i.i381 ]
+  %.pn.pn.pn.pn.pn896 = phi { ptr, i32 } [ %232, %_ZNSt6vectorIjSaIjEED2Ev.exit379.thread ], [ %.pn.pn.pn.pn, %_ZNSt6vectorIjSaIjEED2Ev.exit379 ], [ %.pn.pn.pn.pn, %.lr.ph.i.i381 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %925
 
@@ -4024,8 +4024,8 @@ _ZN8aiStringaSERKS_.exit.thread:                  ; preds = %702
   %.not341 = icmp eq i32 %.pre841, 0
   %.pre844 = load i32, ptr %481, align 8
   %.not342 = icmp eq i32 %.pre844, 0
-  %or.cond892 = select i1 %.not341, i1 %.not342, i1 false
-  br i1 %or.cond892, label %714, label %723
+  %or.cond937 = select i1 %.not341, i1 %.not342, i1 false
+  br i1 %or.cond937, label %714, label %723
 
 714:                                              ; preds = %713
   %715 = getelementptr inbounds nuw i8, ptr %700, i64 1120
@@ -4366,8 +4366,8 @@ _ZN8aiStringaSERKS_.exit413:                      ; preds = %798, %808
   %foldExtExtBinop = fsub <2 x float> %.sroa.0459.0.lcssa, %.sroa.0471.0.lcssa
   %854 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.0471.4.vec.extract = extractelement <2 x float> %.sroa.0471.0.lcssa, i64 1
-  %foldExtExtBinop934 = fsub <2 x float> %.sroa.0459.0.lcssa, %.sroa.0471.0.lcssa
-  %855 = extractelement <2 x float> %foldExtExtBinop934, i64 1
+  %foldExtExtBinop979 = fsub <2 x float> %.sroa.0459.0.lcssa, %.sroa.0471.0.lcssa
+  %855 = extractelement <2 x float> %foldExtExtBinop979, i64 1
   %856 = fsub float %.sroa.12.0.lcssa, %.sroa.14.0.lcssa
   %857 = fmul float %854, 5.000000e-01
   %858 = fmul float %855, 5.000000e-01
@@ -4513,7 +4513,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit:           ; preds = %916, %918
   ret void
 
 925:                                              ; preds = %719, %721, %816, %818, %791, %793, %764, %766, %736, %914, %697, %593, %_ZNSt7__cxx1110_List_baseIjSaIjEED2Ev.exit384, %207, %188
-  %.pn357 = phi { ptr, i32 } [ %208, %207 ], [ %594, %593 ], [ %698, %697 ], [ %189, %188 ], [ %915, %914 ], [ %.pn.pn.pn.pn.pn851, %_ZNSt7__cxx1110_List_baseIjSaIjEED2Ev.exit384 ], [ %720, %719 ], [ %722, %721 ], [ %737, %736 ], [ %765, %764 ], [ %767, %766 ], [ %794, %793 ], [ %792, %791 ], [ %819, %818 ], [ %817, %816 ]
+  %.pn357 = phi { ptr, i32 } [ %208, %207 ], [ %594, %593 ], [ %698, %697 ], [ %189, %188 ], [ %915, %914 ], [ %.pn.pn.pn.pn.pn896, %_ZNSt7__cxx1110_List_baseIjSaIjEED2Ev.exit384 ], [ %720, %719 ], [ %722, %721 ], [ %737, %736 ], [ %765, %764 ], [ %767, %766 ], [ %794, %793 ], [ %792, %791 ], [ %819, %818 ], [ %817, %816 ]
   %926 = load ptr, ptr %7, align 8
   %.not.i.i.i440 = icmp eq ptr %926, null
   br i1 %.not.i.i.i440, label %_ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit441, label %927

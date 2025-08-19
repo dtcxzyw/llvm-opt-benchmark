@@ -6537,9 +6537,9 @@ define internal i64 @show_cons_active(ptr readnone captures(none) %0, ptr readno
   %28 = getelementptr [16 x ptr], ptr %4, i64 0, i64 %27
   store ptr %12, ptr %28, align 8
   %29 = icmp ugt i32 %11, 14
-  br i1 %29, label %.thread8, label %30
+  br i1 %29, label %.thread12, label %30
 
-.thread8:                                         ; preds = %25
+.thread12:                                        ; preds = %25
   tail call void @console_lock() #21
   br label %.preheader.preheader
 
@@ -6558,8 +6558,8 @@ define internal i64 @show_cons_active(ptr readnone captures(none) %0, ptr readno
   %39 = icmp eq i32 %31, 0
   br i1 %39, label %.loopexit, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %.thread8, %38
-  %40 = phi i32 [ %26, %.thread8 ], [ %31, %38 ]
+.preheader.preheader:                             ; preds = %.thread12, %38
+  %40 = phi i32 [ %26, %.thread12 ], [ %31, %38 ]
   %41 = zext nneg i32 %40 to i64
   br label %.preheader
 

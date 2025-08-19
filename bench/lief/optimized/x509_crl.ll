@@ -469,25 +469,25 @@ define internal fastcc i32 @x509_get_entries(ptr noundef nonnull %0, ptr noundef
   %17 = zext i8 %16 to i32
   store i32 %17, ptr %2, align 8, !tbaa !41
   %18 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %6, i32 noundef 48) #11
-  %.not4973 = icmp eq i32 %18, 0
-  br i1 %.not4973, label %.lr.ph75, label %.thread
+  %.not4983 = icmp eq i32 %18, 0
+  br i1 %.not4983, label %.lr.ph85, label %.thread
 
-.lr.ph75:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0386374 = phi ptr [ %53, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+.lr.ph85:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0386384 = phi ptr [ %53, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %19 = load ptr, ptr %0, align 8, !tbaa !21
-  %20 = getelementptr inbounds nuw i8, ptr %.0386374, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.0386384, i64 16
   store ptr %19, ptr %20, align 8, !tbaa !42
   %21 = load i64, ptr %6, align 8, !tbaa !24
-  %22 = getelementptr inbounds nuw i8, ptr %.0386374, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.0386384, i64 8
   store i64 %21, ptr %22, align 8, !tbaa !43
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 %21
-  %24 = getelementptr inbounds nuw i8, ptr %.0386374, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.0386384, i64 24
   %25 = call i32 @mbedtls_x509_get_serial(ptr noundef nonnull %0, ptr noundef %23, ptr noundef nonnull %24) #11
   %.not50 = icmp eq i32 %25, 0
   br i1 %.not50, label %26, label %.thread
 
-26:                                               ; preds = %.lr.ph75
-  %27 = getelementptr inbounds nuw i8, ptr %.0386374, i64 48
+26:                                               ; preds = %.lr.ph85
+  %27 = getelementptr inbounds nuw i8, ptr %.0386384, i64 48
   %28 = call i32 @mbedtls_x509_get_time(ptr noundef nonnull %0, ptr noundef %23, ptr noundef nonnull %27) #11
   %.not51 = icmp eq i32 %28, 0
   br i1 %.not51, label %29, label %.thread
@@ -500,13 +500,13 @@ define internal fastcc i32 @x509_get_entries(ptr noundef nonnull %0, ptr noundef
   br i1 %.not.i, label %31, label %x509_get_crl_entry_ext.exit.thread
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw i8, ptr %.0386374, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %.0386384, i64 72
   %33 = load i8, ptr %30, align 1, !tbaa !40
   %34 = zext i8 %33 to i32
   store i32 %34, ptr %32, align 8, !tbaa !44
-  %35 = getelementptr inbounds nuw i8, ptr %.0386374, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %.0386384, i64 88
   store ptr %30, ptr %35, align 8, !tbaa !33
-  %36 = getelementptr inbounds nuw i8, ptr %.0386374, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %.0386384, i64 80
   %37 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef nonnull %36, i32 noundef 48) #11
   switch i32 %37, label %x509_get_crl_entry_ext.exit [
     i32 0, label %39
@@ -564,13 +564,13 @@ x509_get_crl_entry_ext.exit:                      ; preds = %.lr.ph.i, %31
 
 52:                                               ; preds = %49
   %53 = call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 1, i64 noundef 104) #10
-  %54 = getelementptr inbounds nuw i8, ptr %.0386374, i64 96
+  %54 = getelementptr inbounds nuw i8, ptr %.0386384, i64 96
   store ptr %53, ptr %54, align 8, !tbaa !37
   %55 = icmp eq ptr %53, null
   br i1 %55, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %52, %x509_get_crl_entry_ext.exit, %26, %.lr.ph75, %.lr.ph, %.lr.ph.preheader, %x509_get_crl_entry_ext.exit.thread55
-  %.2.ph = phi i32 [ -9574, %x509_get_crl_entry_ext.exit.thread55 ], [ %18, %.lr.ph.preheader ], [ %58, %.lr.ph ], [ %25, %.lr.ph75 ], [ %28, %26 ], [ %.0.i, %x509_get_crl_entry_ext.exit ], [ -10368, %52 ]
+.thread:                                          ; preds = %52, %x509_get_crl_entry_ext.exit, %26, %.lr.ph85, %.lr.ph, %.lr.ph.preheader, %x509_get_crl_entry_ext.exit.thread55
+  %.2.ph = phi i32 [ -9574, %x509_get_crl_entry_ext.exit.thread55 ], [ %18, %.lr.ph.preheader ], [ %58, %.lr.ph ], [ %25, %.lr.ph85 ], [ %28, %26 ], [ %.0.i, %x509_get_crl_entry_ext.exit ], [ -10368, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
@@ -582,7 +582,7 @@ x509_get_crl_entry_ext.exit:                      ; preds = %.lr.ph.i, %31
   store i32 %57, ptr %53, align 8, !tbaa !41
   %58 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %6, i32 noundef 48) #11
   %.not49 = icmp eq i32 %58, 0
-  br i1 %.not49, label %.lr.ph75, label %.thread
+  br i1 %.not49, label %.lr.ph85, label %.thread
 
 .loopexit.loopexit:                               ; preds = %49
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -725,27 +725,27 @@ define hidden i32 @mbedtls_x509_crl_parse(ptr noundef %0, ptr noundef %1, i64 no
   %10 = getelementptr i8, ptr %1, i64 %2
   %11 = getelementptr i8, ptr %10, i64 -1
   %12 = load i8, ptr %11, align 1, !tbaa !40
-  %.not84 = icmp eq i8 %12, 0
-  br i1 %.not84, label %.lr.ph88, label %.thread
+  %.not89 = icmp eq i8 %12, 0
+  br i1 %.not89, label %.lr.ph93, label %.thread
 
 13:                                               ; preds = %27
-  %14 = getelementptr inbounds nuw i8, ptr %.0234787, i64 %21
+  %14 = getelementptr inbounds nuw i8, ptr %.0234792, i64 %21
   call void @mbedtls_pem_init(ptr noundef nonnull %5) #11
-  %15 = getelementptr i8, ptr %.0234787, i64 %.0214886
+  %15 = getelementptr i8, ptr %.0234792, i64 %.0214891
   %16 = getelementptr i8, ptr %15, i64 -1
   %17 = load i8, ptr %16, align 1, !tbaa !40
   %.not = icmp eq i8 %17, 0
-  br i1 %.not, label %.lr.ph88, label %.thread
+  br i1 %.not, label %.lr.ph93, label %.thread
 
-.lr.ph88:                                         ; preds = %.lr.ph, %13
-  %.0234787 = phi ptr [ %14, %13 ], [ %1, %.lr.ph ]
-  %.0214886 = phi i64 [ %28, %13 ], [ %2, %.lr.ph ]
-  %.not284985 = phi i1 [ false, %13 ], [ true, %.lr.ph ]
-  %18 = call i32 @mbedtls_pem_read_buffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull %.0234787, ptr noundef null, i64 noundef 0, ptr noundef nonnull %4) #11
+.lr.ph93:                                         ; preds = %.lr.ph, %13
+  %.0234792 = phi ptr [ %14, %13 ], [ %1, %.lr.ph ]
+  %.0214891 = phi i64 [ %28, %13 ], [ %2, %.lr.ph ]
+  %.not284990 = phi i1 [ false, %13 ], [ true, %.lr.ph ]
+  %18 = call i32 @mbedtls_pem_read_buffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull %.0234792, ptr noundef null, i64 noundef 0, ptr noundef nonnull %4) #11
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %.thread
 
-20:                                               ; preds = %.lr.ph88
+20:                                               ; preds = %.lr.ph93
   %21 = load i64, ptr %4, align 8, !tbaa !24
   %22 = load ptr, ptr %5, align 8, !tbaa !47
   %23 = load i64, ptr %9, align 8, !tbaa !49
@@ -757,11 +757,11 @@ define hidden i32 @mbedtls_x509_crl_parse(ptr noundef %0, ptr noundef %1, i64 no
   call void @mbedtls_pem_free(ptr noundef nonnull %5) #11
   br label %.thread37
 
-.thread:                                          ; preds = %13, %.lr.ph88, %.lr.ph
-  %.not2849.lcssa = phi i1 [ true, %.lr.ph ], [ false, %13 ], [ %.not284985, %.lr.ph88 ]
-  %.02148.lcssa = phi i64 [ %2, %.lr.ph ], [ %28, %13 ], [ %.0214886, %.lr.ph88 ]
-  %.02347.lcssa = phi ptr [ %1, %.lr.ph ], [ %14, %13 ], [ %.0234787, %.lr.ph88 ]
-  %.02031 = phi i32 [ -4224, %.lr.ph ], [ -4224, %13 ], [ %18, %.lr.ph88 ]
+.thread:                                          ; preds = %13, %.lr.ph93, %.lr.ph
+  %.not2849.lcssa = phi i1 [ true, %.lr.ph ], [ false, %13 ], [ %.not284990, %.lr.ph93 ]
+  %.02148.lcssa = phi i64 [ %2, %.lr.ph ], [ %28, %13 ], [ %.0214891, %.lr.ph93 ]
+  %.02347.lcssa = phi ptr [ %1, %.lr.ph ], [ %14, %13 ], [ %.0234792, %.lr.ph93 ]
+  %.02031 = phi i32 [ -4224, %.lr.ph ], [ -4224, %13 ], [ %18, %.lr.ph93 ]
   br i1 %.not2849.lcssa, label %.thread.thread, label %26
 
 26:                                               ; preds = %.thread
@@ -769,16 +769,16 @@ define hidden i32 @mbedtls_x509_crl_parse(ptr noundef %0, ptr noundef %1, i64 no
   br label %.thread37
 
 27:                                               ; preds = %20
-  %28 = sub i64 %.0214886, %21
+  %28 = sub i64 %.0214891, %21
   call void @mbedtls_pem_free(ptr noundef nonnull %5) #11
   %29 = icmp ugt i64 %28, 1
   br i1 %29, label %13, label %.thread37, !llvm.loop !50
 
 .thread.thread:                                   ; preds = %.preheader, %.thread
-  %.021.lcssa69 = phi i64 [ %.02148.lcssa, %.thread ], [ 0, %.preheader ]
-  %.023.lcssa68 = phi ptr [ %.02347.lcssa, %.thread ], [ %1, %.preheader ]
+  %.021.lcssa74 = phi i64 [ %.02148.lcssa, %.thread ], [ 0, %.preheader ]
+  %.023.lcssa73 = phi ptr [ %.02347.lcssa, %.thread ], [ %1, %.preheader ]
   call void @mbedtls_pem_free(ptr noundef nonnull %5) #11
-  %30 = call i32 @mbedtls_x509_crl_parse_der(ptr noundef %0, ptr noundef nonnull %.023.lcssa68, i64 noundef %.021.lcssa69)
+  %30 = call i32 @mbedtls_x509_crl_parse_der(ptr noundef %0, ptr noundef nonnull %.023.lcssa73, i64 noundef %.021.lcssa74)
   br label %.thread37
 
 .thread37:                                        ; preds = %27, %3, %.thread.thread, %26, %25

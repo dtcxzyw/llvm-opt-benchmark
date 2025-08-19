@@ -1133,11 +1133,11 @@ define internal fastcc void @dissect_drbd_message(ptr noundef %0, ptr noundef %1
   %37 = load i32, ptr %35, align 8
   %38 = load i32, ptr %36, align 8
   %39 = icmp sgt i32 %37, %38
-  br i1 %39, label %.thread35.i, label %40
+  br i1 %39, label %.thread40.i, label %40
 
 40:                                               ; preds = %28
   %41 = icmp slt i32 %37, %38
-  br i1 %41, label %.thread35.i, label %42
+  br i1 %41, label %.thread40.i, label %42
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 212
@@ -1145,15 +1145,15 @@ define internal fastcc void @dissect_drbd_message(ptr noundef %0, ptr noundef %1
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %46 = load i32, ptr %45, align 4
   %47 = icmp sgt i32 %44, %46
-  br i1 %47, label %.thread35.i, label %48
+  br i1 %47, label %.thread40.i, label %48
 
 48:                                               ; preds = %42
   %49 = icmp slt i32 %44, %46
-  br i1 %49, label %.thread35.i, label %50
+  br i1 %49, label %.thread40.i, label %50
 
 50:                                               ; preds = %48
   %51 = icmp eq i32 %44, 0
-  br i1 %51, label %.thread35.i, label %cmp_address.exit.i
+  br i1 %51, label %.thread40.i, label %cmp_address.exit.i
 
 cmp_address.exit.i:                               ; preds = %50
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -1166,9 +1166,9 @@ cmp_address.exit.i:                               ; preds = %50
   %58 = icmp slt i32 %.fr.i, 0
   %spec.select = select i1 %58, ptr %36, ptr %35
   %spec.select57 = select i1 %58, ptr %35, ptr %36
-  br label %.thread35.i
+  br label %.thread40.i
 
-.thread35.i:                                      ; preds = %cmp_address.exit.i, %50, %48, %42, %40, %28
+.thread40.i:                                      ; preds = %cmp_address.exit.i, %50, %48, %42, %40, %28
   %59 = phi ptr [ %35, %50 ], [ %35, %42 ], [ %35, %28 ], [ %36, %48 ], [ %36, %40 ], [ %spec.select, %cmp_address.exit.i ]
   %60 = phi ptr [ %36, %50 ], [ %36, %42 ], [ %36, %28 ], [ %35, %48 ], [ %35, %40 ], [ %spec.select57, %cmp_address.exit.i ]
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -1177,13 +1177,13 @@ cmp_address.exit.i:                               ; preds = %50
   %.not.i = icmp eq ptr %63, null
   br i1 %.not.i, label %64, label %find_drbd_conversation.exit
 
-64:                                               ; preds = %.thread35.i
+64:                                               ; preds = %.thread40.i
   %65 = load i32, ptr %61, align 4
   %66 = tail call ptr @conversation_new(i32 noundef %65, ptr noundef nonnull %60, ptr noundef nonnull %59, i32 noundef 2, i32 noundef %..i, i32 noundef 0, i32 noundef 10)
   br label %find_drbd_conversation.exit
 
-find_drbd_conversation.exit:                      ; preds = %.thread35.i, %64
-  %.0.i = phi ptr [ %63, %.thread35.i ], [ %66, %64 ]
+find_drbd_conversation.exit:                      ; preds = %.thread40.i, %64
+  %.0.i = phi ptr [ %63, %.thread40.i ], [ %66, %64 ]
   %67 = load i32, ptr @proto_drbd, align 4
   %68 = tail call ptr @conversation_get_proto_data(ptr noundef %.0.i, i32 noundef %67)
   %.not47 = icmp eq ptr %68, null

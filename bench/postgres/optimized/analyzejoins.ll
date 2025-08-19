@@ -39,12 +39,12 @@ define dso_local ptr @remove_useless_joins(ptr noundef %0, ptr noundef readonly 
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i32, ptr %12, align 4
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph101, label %._crit_edge
+  br i1 %15, label %.lr.ph109, label %._crit_edge
 
-.lr.ph101:                                        ; preds = %.lr.ph, %.thread
-  %indvars.iv98 = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %.lr.ph ]
+.lr.ph109:                                        ; preds = %.lr.ph, %.thread
+  %indvars.iv106 = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %.lr.ph ]
   %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv98
+  %17 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv106
   %18 = load ptr, ptr %17, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -53,7 +53,7 @@ define dso_local ptr @remove_useless_joins(ptr noundef %0, ptr noundef readonly 
   %.not.i = icmp eq i32 %20, 1
   br i1 %.not.i, label %21, label %join_is_removable.exit.thread
 
-21:                                               ; preds = %.lr.ph101
+21:                                               ; preds = %.lr.ph109
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = call zeroext i1 @bms_get_singleton_member(ptr noundef %23, ptr noundef nonnull %3) #7
@@ -140,11 +140,11 @@ define dso_local ptr @remove_useless_joins(ptr noundef %0, ptr noundef readonly 
   %71 = trunc nuw i8 %70 to i1
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 200
   %73 = load ptr, ptr %72, align 8
-  %.not42.i.i = icmp eq ptr %73, null
+  %.not44.i.i = icmp eq ptr %73, null
   br i1 %71, label %query_supports_distinctness.exit.i.i, label %74
 
 74:                                               ; preds = %60
-  br i1 %.not42.i.i, label %75, label %.loopexit.i
+  br i1 %.not44.i.i, label %75, label %.loopexit.i
 
 75:                                               ; preds = %74
   %76 = getelementptr inbounds nuw i8, ptr %68, i64 160
@@ -177,7 +177,7 @@ define dso_local ptr @remove_useless_joins(ptr noundef %0, ptr noundef readonly 
   br i1 %.not12.i.not.i.i, label %join_is_removable.exit.thread, label %.loopexit.i
 
 query_supports_distinctness.exit.i.i:             ; preds = %60
-  br i1 %.not42.i.i, label %join_is_removable.exit.thread, label %.loopexit.i
+  br i1 %.not44.i.i, label %join_is_removable.exit.thread, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %56, %query_supports_distinctness.exit.i.i, %88, %85, %81, %78, %75, %74
   %91 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -371,7 +371,7 @@ clause_sides_match_join.exit.thread:              ; preds = %200, %197, %204, %1
   %209 = icmp slt i64 %indvars.iv.next106.i, %208
   br i1 %209, label %.lr.ph98.i, label %join_is_removable.exit
 
-join_is_removable.exit.thread:                    ; preds = %.critedge.i.i, %111, %146, %142, %138, %.lr.ph89.i, %.lr.ph101, %21, %25, %31, %query_supports_distinctness.exit.i.i, %88, %.lr.ph.i.i, %38, %35
+join_is_removable.exit.thread:                    ; preds = %.critedge.i.i, %111, %146, %142, %138, %.lr.ph89.i, %.lr.ph109, %21, %25, %31, %query_supports_distinctness.exit.i.i, %88, %.lr.ph.i.i, %38, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
@@ -382,7 +382,7 @@ join_is_removable.exit:                           ; preds = %clause_sides_match_
   br i1 %210, label %211, label %.thread
 
 211:                                              ; preds = %join_is_removable.exit
-  %212 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv98
+  %212 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv106
   %213 = load ptr, ptr %22, align 8
   %214 = call i32 @bms_singleton_member(ptr noundef %213) #7
   %215 = call ptr @find_base_rel(ptr noundef nonnull %0, i32 noundef %214) #7
@@ -468,11 +468,11 @@ remove_leftjoinrel_from_query.exit:               ; preds = %247, %211, %.lr.ph.
 
 .thread:                                          ; preds = %join_is_removable.exit, %join_is_removable.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv98, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv106, 1
   %259 = load i32, ptr %12, align 4
   %260 = sext i32 %259 to i64
   %261 = icmp slt i64 %indvars.iv.next, %260
-  br i1 %261, label %.lr.ph101, label %._crit_edge
+  br i1 %261, label %.lr.ph109, label %._crit_edge
 
 .critedge:                                        ; preds = %remove_leftjoinrel_from_query.exit
   %262 = load ptr, ptr %5, align 8
@@ -683,11 +683,11 @@ define dso_local void @reduce_unique_semijoins(ptr noundef %0) local_unnamed_add
   %63 = trunc nuw i8 %62 to i1
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 200
   %65 = load ptr, ptr %64, align 8
-  %.not42.i = icmp eq ptr %65, null
+  %.not44.i = icmp eq ptr %65, null
   br i1 %63, label %query_supports_distinctness.exit.i, label %66
 
 66:                                               ; preds = %52
-  br i1 %.not42.i, label %67, label %.loopexit
+  br i1 %.not44.i, label %67, label %.loopexit
 
 67:                                               ; preds = %66
   %68 = getelementptr inbounds nuw i8, ptr %60, i64 160
@@ -720,7 +720,7 @@ define dso_local void @reduce_unique_semijoins(ptr noundef %0) local_unnamed_add
   br i1 %.not12.i.not.i, label %rel_supports_distinctness.exit, label %.loopexit
 
 query_supports_distinctness.exit.i:               ; preds = %52
-  br i1 %.not42.i, label %rel_supports_distinctness.exit, label %.loopexit
+  br i1 %.not44.i, label %rel_supports_distinctness.exit, label %.loopexit
 
 .loopexit:                                        ; preds = %48, %query_supports_distinctness.exit.i, %77, %73, %70, %67, %66, %80
   %83 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1311,11 +1311,11 @@ define dso_local noundef zeroext i1 @innerrel_is_unique_ext(ptr noundef %0, ptr 
   %53 = trunc nuw i8 %52 to i1
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 200
   %55 = load ptr, ptr %54, align 8
-  %.not42.i = icmp eq ptr %55, null
+  %.not44.i = icmp eq ptr %55, null
   br i1 %53, label %query_supports_distinctness.exit.i, label %56
 
 56:                                               ; preds = %41
-  br i1 %.not42.i, label %57, label %.loopexit
+  br i1 %.not44.i, label %57, label %.loopexit
 
 57:                                               ; preds = %56
   %58 = getelementptr inbounds nuw i8, ptr %50, i64 160
@@ -1348,7 +1348,7 @@ define dso_local noundef zeroext i1 @innerrel_is_unique_ext(ptr noundef %0, ptr 
   br i1 %.not12.i.not.i, label %rel_supports_distinctness.exit, label %.loopexit
 
 query_supports_distinctness.exit.i:               ; preds = %41
-  br i1 %.not42.i, label %rel_supports_distinctness.exit, label %.loopexit
+  br i1 %.not44.i, label %rel_supports_distinctness.exit, label %.loopexit
 
 .loopexit:                                        ; preds = %37, %query_supports_distinctness.exit.i, %67, %63, %60, %57, %56, %70
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 280
@@ -2030,8 +2030,8 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
   br i1 %.not108.i, label %.critedge110.thread.i, label %match_unique_clauses.exit.i, !llvm.loop !17
 
 .critedge110.thread.i:                            ; preds = %167, %.critedge110.i, %.lr.ph168.i, %.critedge219.i
-  %.192246.i = phi ptr [ %.293.i, %167 ], [ %.293.i, %.critedge110.i ], [ null, %.critedge219.i ], [ null, %.lr.ph168.i ]
-  %.195245.i = phi ptr [ %.296.i, %167 ], [ %.296.i, %.critedge110.i ], [ null, %.critedge219.i ], [ null, %.lr.ph168.i ]
+  %.192264.i = phi ptr [ %.293.i, %167 ], [ %.293.i, %.critedge110.i ], [ null, %.critedge219.i ], [ null, %.lr.ph168.i ]
+  %.195263.i = phi ptr [ %.296.i, %167 ], [ %.296.i, %.critedge110.i ], [ null, %.critedge219.i ], [ null, %.lr.ph168.i ]
   %172 = call ptr @bms_add_member(ptr noundef null, i32 noundef %107) #7
   %173 = call ptr @bms_add_member(ptr noundef %172, i32 noundef %118) #7
   %174 = load ptr, ptr %114, align 8
@@ -2936,24 +2936,24 @@ update_eclasses.exit.i.i:                         ; preds = %.lr.ph150.i.i.i, %.
   br i1 %.not146.not.i.i, label %631, label %._crit_edge219.i.i, !llvm.loop !22
 
 ._crit_edge219.i.i:                               ; preds = %631, %.critedge152.i.i
-  %.not147.i.i = icmp eq ptr %.192246.i, null
+  %.not147.i.i = icmp eq ptr %.192264.i, null
   br i1 %.not147.i.i, label %match_unique_clauses.exit.thread127.i, label %656
 
 656:                                              ; preds = %._crit_edge219.i.i
-  %.not148.i.i = icmp eq ptr %.195245.i, null
+  %.not148.i.i = icmp eq ptr %.195263.i, null
   br i1 %.not148.i.i, label %660, label %657
 
 657:                                              ; preds = %656
   %658 = load ptr, ptr %78, align 8
-  %659 = call ptr @list_delete_ptr(ptr noundef %658, ptr noundef nonnull %.192246.i) #7
+  %659 = call ptr @list_delete_ptr(ptr noundef %658, ptr noundef nonnull %.192264.i) #7
   store ptr %659, ptr %78, align 8
   br label %match_unique_clauses.exit.thread127.i
 
 660:                                              ; preds = %656
   %661 = load i32, ptr %178, align 8
-  %662 = getelementptr inbounds nuw i8, ptr %.192246.i, i64 8
+  %662 = getelementptr inbounds nuw i8, ptr %.192264.i, i64 8
   store i32 %661, ptr %662, align 4
-  %663 = getelementptr inbounds nuw i8, ptr %.192246.i, i64 4
+  %663 = getelementptr inbounds nuw i8, ptr %.192264.i, i64 4
   store i32 %661, ptr %663, align 4
   br label %match_unique_clauses.exit.thread127.i
 
@@ -3096,14 +3096,14 @@ define internal fastcc noundef zeroext i1 @rel_is_distinct_for(ptr noundef %0, p
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %24 = load i32, ptr %22, align 4
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph74, label %.critedge
+  br i1 %25, label %.lr.ph77, label %.critedge
 
-.lr.ph74:                                         ; preds = %.lr.ph, %.thread
-  %.0416473 = phi ptr [ %.142, %.thread ], [ null, %.lr.ph ]
-  %.0386572 = phi ptr [ %.139, %.thread ], [ null, %.lr.ph ]
-  %indvars.iv71 = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %.lr.ph ]
+.lr.ph77:                                         ; preds = %.lr.ph, %.thread
+  %.0416476 = phi ptr [ %.142, %.thread ], [ null, %.lr.ph ]
+  %.0386575 = phi ptr [ %.139, %.thread ], [ null, %.lr.ph ]
+  %indvars.iv74 = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %.lr.ph ]
   %26 = load ptr, ptr %23, align 8
-  %27 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv71
+  %27 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv74
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
@@ -3123,7 +3123,7 @@ define internal fastcc noundef zeroext i1 @rel_is_distinct_for(ptr noundef %0, p
   %37 = tail call zeroext i1 @query_is_distinct_for(ptr noundef %21, ptr noundef %.038.lcssa, ptr noundef %.041.lcssa)
   br i1 %37, label %72, label %71
 
-38:                                               ; preds = %.lr.ph74
+38:                                               ; preds = %.lr.ph77
   br i1 %.not.i.i, label %.thread, label %list_length.exit.i
 
 list_length.exit.i:                               ; preds = %38
@@ -3138,7 +3138,7 @@ list_length.exit.i:                               ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   br label %get_rightop.exit
 
-45:                                               ; preds = %.lr.ph74
+45:                                               ; preds = %.lr.ph77
   br i1 %.not.i.i, label %.thread, label %46
 
 46:                                               ; preds = %45
@@ -3189,18 +3189,18 @@ thread-pre-split:                                 ; preds = %51
   %63 = getelementptr inbounds nuw i8, ptr %.162, i64 8
   %64 = load i16, ptr %63, align 8
   %65 = sext i16 %64 to i32
-  %66 = tail call ptr @lappend_int(ptr noundef %.0386572, i32 noundef %65) #7
-  %67 = tail call ptr @lappend_oid(ptr noundef %.0416473, i32 noundef %32) #7
+  %66 = tail call ptr @lappend_int(ptr noundef %.0386575, i32 noundef %65) #7
+  %67 = tail call ptr @lappend_oid(ptr noundef %.0416476, i32 noundef %32) #7
   br label %.thread
 
 .thread:                                          ; preds = %45, %38, %list_length.exit.i, %get_rightop.exit, %51, %.thread59, %56, %59, %62
-  %.142 = phi ptr [ %67, %62 ], [ %.0416473, %59 ], [ %.0416473, %56 ], [ %.0416473, %.thread59 ], [ %.0416473, %51 ], [ %.0416473, %get_rightop.exit ], [ %.0416473, %list_length.exit.i ], [ %.0416473, %38 ], [ %.0416473, %45 ]
-  %.139 = phi ptr [ %66, %62 ], [ %.0386572, %59 ], [ %.0386572, %56 ], [ %.0386572, %.thread59 ], [ %.0386572, %51 ], [ %.0386572, %get_rightop.exit ], [ %.0386572, %list_length.exit.i ], [ %.0386572, %38 ], [ %.0386572, %45 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv71, 1
+  %.142 = phi ptr [ %67, %62 ], [ %.0416476, %59 ], [ %.0416476, %56 ], [ %.0416476, %.thread59 ], [ %.0416476, %51 ], [ %.0416476, %get_rightop.exit ], [ %.0416476, %list_length.exit.i ], [ %.0416476, %38 ], [ %.0416476, %45 ]
+  %.139 = phi ptr [ %66, %62 ], [ %.0386575, %59 ], [ %.0386575, %56 ], [ %.0386575, %.thread59 ], [ %.0386575, %51 ], [ %.0386575, %get_rightop.exit ], [ %.0386575, %list_length.exit.i ], [ %.0386575, %38 ], [ %.0386575, %45 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv74, 1
   %68 = load i32, ptr %22, align 4
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %.lr.ph74, label %.critedge
+  br i1 %70, label %.lr.ph77, label %.critedge
 
 71:                                               ; preds = %.critedge, %7, %10
   br label %72
@@ -3252,12 +3252,12 @@ define internal fastcc void @remove_rel_from_query(ptr noundef captures(none) %0
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = load i32, ptr %22, align 4
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph37, label %.critedge
+  br i1 %25, label %.lr.ph46, label %.critedge
 
-.lr.ph37:                                         ; preds = %.lr.ph, %76
-  %indvars.iv36 = phi i64 [ %indvars.iv.next, %76 ], [ 0, %.lr.ph ]
+.lr.ph46:                                         ; preds = %.lr.ph, %76
+  %indvars.iv45 = phi i64 [ %indvars.iv.next, %76 ], [ 0, %.lr.ph ]
   %26 = load ptr, ptr %23, align 8
-  %27 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv36
+  %27 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv45
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
@@ -3299,7 +3299,7 @@ define internal fastcc void @remove_rel_from_query(ptr noundef captures(none) %0
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 288
   br label %80
 
-52:                                               ; preds = %.lr.ph37
+52:                                               ; preds = %.lr.ph46
   %53 = load ptr, ptr %29, align 8
   %54 = tail call ptr @bms_del_member(ptr noundef %53, i32 noundef %9) #7
   store ptr %54, ptr %29, align 8
@@ -3330,18 +3330,18 @@ define internal fastcc void @remove_rel_from_query(ptr noundef captures(none) %0
   store ptr %72, ptr %70, align 8
   br label %76
 
-73:                                               ; preds = %.lr.ph37
+73:                                               ; preds = %.lr.ph46
   %74 = getelementptr inbounds nuw i8, ptr %28, i64 96
   %75 = load ptr, ptr %74, align 8
   tail call void @ChangeVarNodes(ptr noundef %75, i32 noundef %.112.val, i32 noundef %1, i32 noundef 0) #7
   br label %76
 
 76:                                               ; preds = %73, %52
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv36, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv45, 1
   %77 = load i32, ptr %22, align 4
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next, %78
-  br i1 %79, label %.lr.ph37, label %.critedge
+  br i1 %79, label %.lr.ph46, label %.critedge
 
 80:                                               ; preds = %.lr.ph8, %139
   %.sroa.7.07 = phi i32 [ 0, %.lr.ph8 ], [ %.sroa.7.1, %139 ]
@@ -3374,7 +3374,7 @@ define internal fastcc void @remove_rel_from_query(ptr noundef captures(none) %0
   %.not51.i = icmp eq i32 %9, -1
   %97 = load i32, ptr %95, align 4
   %98 = icmp sgt i32 %97, 0
-  br i1 %98, label %.lr.ph39, label %.critedge180
+  br i1 %98, label %.lr.ph48, label %.critedge180
 
 99:                                               ; preds = %84
   %100 = getelementptr inbounds nuw i8, ptr %89, i64 16
@@ -3447,10 +3447,10 @@ define internal fastcc void @remove_rel_from_query(ptr noundef captures(none) %0
   %.not173 = icmp eq ptr %.sroa.041.1, null
   br i1 %.not173, label %.critedge178, label %80, !llvm.loop !26
 
-.lr.ph39:                                         ; preds = %.lr.ph11, %228
-  %indvars.iv2138 = phi i64 [ %indvars.iv.next22, %228 ], [ 0, %.lr.ph11 ]
+.lr.ph48:                                         ; preds = %.lr.ph11, %228
+  %indvars.iv2147 = phi i64 [ %indvars.iv.next22, %228 ], [ 0, %.lr.ph11 ]
   %140 = load ptr, ptr %96, align 8
-  %141 = getelementptr inbounds nuw %union.ListCell, ptr %140, i64 %indvars.iv2138
+  %141 = getelementptr inbounds nuw %union.ListCell, ptr %140, i64 %indvars.iv2147
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 48
   %144 = load ptr, ptr %143, align 8
@@ -3469,12 +3469,12 @@ define internal fastcc void @remove_rel_from_query(ptr noundef captures(none) %0
   %150 = icmp sgt i32 %1, 0
   br label %232
 
-151:                                              ; preds = %.lr.ph39
+151:                                              ; preds = %.lr.ph48
   %152 = load ptr, ptr %143, align 8
   %153 = tail call zeroext i1 @bms_is_member(i32 noundef %9, ptr noundef %152) #7
   br i1 %153, label %154, label %228
 
-154:                                              ; preds = %151, %.lr.ph39
+154:                                              ; preds = %151, %.lr.ph48
   %155 = load ptr, ptr %143, align 8
   %156 = tail call ptr @adjust_relid_set(ptr noundef %155, i32 noundef %.112.val, i32 noundef %1) #7
   store ptr %156, ptr %143, align 8
@@ -3626,11 +3626,11 @@ remove_rel_from_eclass.exit:                      ; preds = %.lr.ph63.i, %.lr.ph
   br label %228
 
 228:                                              ; preds = %remove_rel_from_eclass.exit, %151
-  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv2138, 1
+  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv2147, 1
   %229 = load i32, ptr %95, align 4
   %230 = sext i32 %229 to i64
   %231 = icmp slt i64 %indvars.iv.next22, %230
-  br i1 %231, label %.lr.ph39, label %.critedge180
+  br i1 %231, label %.lr.ph48, label %.critedge180
 
 232:                                              ; preds = %.lr.ph16, %262
   %indvars.iv27 = phi i64 [ 1, %.lr.ph16 ], [ %indvars.iv.next28, %262 ]
@@ -3737,17 +3737,17 @@ define internal fastcc void @remove_rel_from_restrictinfo(ptr noundef %0, i32 no
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = load i32, ptr %20, align 4
   %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.lr.ph60, label %.critedge
+  br i1 %23, label %.lr.ph62, label %.critedge
 
-.lr.ph60:                                         ; preds = %.lr.ph53, %.critedge47
-  %indvars.iv5659 = phi i64 [ %indvars.iv.next57, %.critedge47 ], [ 0, %.lr.ph53 ]
+.lr.ph62:                                         ; preds = %.lr.ph53, %.critedge47
+  %indvars.iv5661 = phi i64 [ %indvars.iv.next57, %.critedge47 ], [ 0, %.lr.ph53 ]
   %24 = load ptr, ptr %21, align 8
-  %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv5659
+  %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv5661
   %26 = load ptr, ptr %25, align 8
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %is_andclause.exit.thread, label %27
 
-27:                                               ; preds = %.lr.ph60
+27:                                               ; preds = %.lr.ph62
   %28 = load i32, ptr %26, align 4
   %29 = icmp eq i32 %28, 21
   br i1 %29, label %is_andclause.exit, label %is_andclause.exit.thread
@@ -3783,16 +3783,16 @@ is_andclause.exit:                                ; preds = %27
   %45 = icmp slt i64 %indvars.iv.next, %44
   br i1 %45, label %.lr.ph51, label %.critedge47
 
-is_andclause.exit.thread:                         ; preds = %.lr.ph60, %27, %is_andclause.exit
+is_andclause.exit.thread:                         ; preds = %.lr.ph62, %27, %is_andclause.exit
   tail call fastcc void @remove_rel_from_restrictinfo(ptr noundef %26, i32 noundef %1, i32 noundef %2)
   br label %.critedge47
 
 .critedge47:                                      ; preds = %.lr.ph51, %33, %.lr.ph, %is_andclause.exit.thread
-  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv5659, 1
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv5661, 1
   %46 = load i32, ptr %20, align 4
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next57, %47
-  br i1 %48, label %.lr.ph60, label %.critedge
+  br i1 %48, label %.lr.ph62, label %.critedge
 
 .critedge:                                        ; preds = %.critedge47, %.lr.ph53, %15, %3
   ret void

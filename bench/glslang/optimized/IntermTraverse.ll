@@ -445,11 +445,11 @@ _ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit: ; preds = %22
   br label %.thread34
 
 .sink.split:                                      ; preds = %.thread31, %.thread28
-  %.sink41 = phi ptr [ %67, %.thread28 ], [ %85, %.thread31 ]
-  %91 = load ptr, ptr %.sink41, align 8
+  %.sink47 = phi ptr [ %67, %.thread28 ], [ %85, %.thread31 ]
+  %91 = load ptr, ptr %.sink47, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %93 = load ptr, ptr %92, align 8
-  tail call void %93(ptr noundef nonnull align 8 dereferenceable(32) %.sink41, ptr noundef nonnull %1) #7
+  tail call void %93(ptr noundef nonnull align 8 dereferenceable(32) %.sink47, ptr noundef nonnull %1) #7
   br label %94
 
 94:                                               ; preds = %.sink.split, %.thread28, %.thread31
@@ -972,11 +972,11 @@ _ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit: ; preds = %22
   br i1 %.not19, label %85, label %.sink.split
 
 .sink.split:                                      ; preds = %79, %64
-  %.sink27 = phi ptr [ %66, %64 ], [ %81, %79 ]
-  %82 = load ptr, ptr %.sink27, align 8
+  %.sink33 = phi ptr [ %66, %64 ], [ %81, %79 ]
+  %82 = load ptr, ptr %.sink33, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load ptr, ptr %83, align 8
-  tail call void %84(ptr noundef nonnull align 8 dereferenceable(32) %.sink27, ptr noundef nonnull %1) #7
+  tail call void %84(ptr noundef nonnull align 8 dereferenceable(32) %.sink33, ptr noundef nonnull %1) #7
   br label %85
 
 85:                                               ; preds = %.sink.split, %79
@@ -1160,11 +1160,11 @@ _ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit: ; preds = %22
   br i1 %.not22, label %87, label %.sink.split
 
 .sink.split:                                      ; preds = %81, %64
-  %.sink31 = phi ptr [ %66, %64 ], [ %83, %81 ]
-  %84 = load ptr, ptr %.sink31, align 8
+  %.sink39 = phi ptr [ %66, %64 ], [ %83, %81 ]
+  %84 = load ptr, ptr %.sink39, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load ptr, ptr %85, align 8
-  tail call void %86(ptr noundef nonnull align 8 dereferenceable(32) %.sink31, ptr noundef nonnull %1) #7
+  tail call void %86(ptr noundef nonnull align 8 dereferenceable(32) %.sink39, ptr noundef nonnull %1) #7
   br label %87
 
 87:                                               ; preds = %.sink.split, %64, %81
@@ -1406,14 +1406,14 @@ _ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit: ; preds = %22
   %48 = load i8, ptr %47, align 1
   %49 = trunc i8 %48 to i1
   %. = select i1 %49, i64 40, i64 32
-  %.27 = select i1 %49, i64 32, i64 40
+  %.29 = select i1 %49, i64 32, i64 40
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   tail call void %54(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull %1) #7
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 %.27
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 %.29
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16

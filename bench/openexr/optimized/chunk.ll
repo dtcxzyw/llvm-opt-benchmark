@@ -351,7 +351,7 @@ define internal fastcc i32 @reconstruct_chunk_table(ptr noundef %0, ptr noundef 
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %26 = load i64, ptr %25, align 8, !tbaa !31
   %27 = icmp sgt i64 %26, 0
-  %spec.select132 = select i1 %27, i64 %26, i64 -1
+  %spec.select139 = select i1 %27, i64 %26, i64 -1
   br label %49
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
@@ -409,8 +409,8 @@ define internal fastcc i32 @reconstruct_chunk_table(ptr noundef %0, ptr noundef 
   br i1 %exitcond.not, label %._crit_edge108, label %44, !llvm.loop !42
 
 49:                                               ; preds = %._crit_edge.thread, %._crit_edge108
-  %spec.select135 = phi i64 [ %spec.select, %._crit_edge108 ], [ %spec.select132, %._crit_edge.thread ]
-  %.065.lcssa134 = phi i32 [ %29, %._crit_edge108 ], [ 0, %._crit_edge.thread ]
+  %spec.select142 = phi i64 [ %spec.select, %._crit_edge108 ], [ %spec.select139, %._crit_edge.thread ]
+  %.065.lcssa141 = phi i32 [ %29, %._crit_edge108 ], [ 0, %._crit_edge.thread ]
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 244
   %51 = load i32, ptr %50, align 4, !tbaa !29
   %52 = sext i32 %51 to i64
@@ -451,7 +451,7 @@ define internal fastcc i32 @reconstruct_chunk_table(ptr noundef %0, ptr noundef 
   %73 = load i64, ptr %72, align 8, !tbaa !28
   %74 = load i64, ptr %7, align 8, !tbaa !28
   %.not83 = icmp uge i64 %73, %74
-  %75 = icmp ult i64 %73, %spec.select135
+  %75 = icmp ult i64 %73, %spec.select142
   %or.cond85 = select i1 %.not83, i1 %75, i1 false
   %spec.store.select99 = select i1 %or.cond85, i64 %73, i64 %74
   store i64 %spec.store.select99, ptr %7, align 8
@@ -462,7 +462,7 @@ define internal fastcc i32 @reconstruct_chunk_table(ptr noundef %0, ptr noundef 
   %79 = add i32 %71, %.neg
   %.066 = select i1 %77, i32 %79, i32 %78
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %80 = call fastcc i32 @extract_chunk_leader(ptr noundef %0, ptr noundef nonnull readonly %1, i32 noundef %.065.lcssa134, i64 noundef %spec.store.select99, ptr noundef nonnull %7, ptr noundef %4)
+  %80 = call fastcc i32 @extract_chunk_leader(ptr noundef %0, ptr noundef nonnull readonly %1, i32 noundef %.065.lcssa141, i64 noundef %spec.store.select99, ptr noundef nonnull %7, ptr noundef %4)
   %.not.i = icmp eq i32 %80, 0
   br i1 %.not.i, label %81, label %read_and_validate_chunk_leader.exit.thread93
 
@@ -541,8 +541,8 @@ read_and_validate_chunk_leader.exit:              ; preds = %98, %102
   %113 = icmp sgt i32 %.08892, -1
   %.pre = load i32, ptr %50, align 4, !tbaa !29
   %114 = icmp slt i32 %.08892, %.pre
-  %or.cond140 = select i1 %113, i1 %114, i1 false
-  br i1 %or.cond140, label %115, label %121
+  %or.cond147 = select i1 %113, i1 %114, i1 false
+  br i1 %or.cond147, label %115, label %121
 
 115:                                              ; preds = %111
   %116 = zext nneg i32 %.08892 to i64
@@ -566,14 +566,14 @@ read_and_validate_chunk_leader.exit:              ; preds = %98, %102
   br label %124
 
 124:                                              ; preds = %._crit_edge117.thread, %._crit_edge117
-  %.069.lcssa138 = phi i32 [ 0, %._crit_edge117.thread ], [ %.1, %._crit_edge117 ]
+  %.069.lcssa145 = phi i32 [ 0, %._crit_edge117.thread ], [ %.1, %._crit_edge117 ]
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %126 = load ptr, ptr %125, align 8, !tbaa !34
   tail call void %126(ptr noundef nonnull %56) #8
   br label %127
 
 127:                                              ; preds = %49, %._crit_edge108, %._crit_edge, %124
-  %.064 = phi i32 [ %.069.lcssa138, %124 ], [ %37, %._crit_edge ], [ %43, %._crit_edge108 ], [ 1, %49 ]
+  %.064 = phi i32 [ %.069.lcssa145, %124 ], [ %37, %._crit_edge ], [ %43, %._crit_edge108 ], [ 1, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -658,7 +658,7 @@ define i32 @exr_chunk_default_initialize(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %40, label %43, label %97
 
 43:                                               ; preds = %38
-  br i1 %.not175, label %44, label %.thread187
+  br i1 %.not175, label %44, label %.thread204
 
 44:                                               ; preds = %35, %35, %43
   %45 = getelementptr inbounds nuw i8, ptr %23, i64 240
@@ -741,12 +741,12 @@ define i32 @exr_chunk_default_initialize(ptr noundef %0, i32 noundef %1, ptr nou
   br label %.sink.split
 
 .sink.split:                                      ; preds = %80, %88
-  %.sink190 = phi i32 [ %90, %88 ], [ %81, %80 ]
-  store i32 %.sink190, ptr %78, align 4, !tbaa !60
+  %.sink207 = phi i32 [ %90, %88 ], [ %81, %80 ]
+  store i32 %.sink207, ptr %78, align 4, !tbaa !60
   br label %91
 
 91:                                               ; preds = %.sink.split, %82
-  %92 = phi i32 [ %47, %82 ], [ %.sink190, %.sink.split ]
+  %92 = phi i32 [ %47, %82 ], [ %.sink207, %.sink.split ]
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i8 0, ptr %93, align 4, !tbaa !61
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 21
@@ -757,9 +757,9 @@ define i32 @exr_chunk_default_initialize(ptr noundef %0, i32 noundef %1, ptr nou
   br label %.thread
 
 97:                                               ; preds = %38
-  br i1 %.not175, label %.thread, label %.thread187
+  br i1 %.not175, label %.thread, label %.thread204
 
-.thread187:                                       ; preds = %43, %97
+.thread204:                                       ; preds = %43, %97
   %98 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %99 = load ptr, ptr %98, align 8, !tbaa !45
   %100 = load i32, ptr %99, align 1, !tbaa !64
@@ -776,7 +776,7 @@ define i32 @exr_chunk_default_initialize(ptr noundef %0, i32 noundef %1, ptr nou
   %.not177 = icmp eq i32 %109, 0
   br i1 %.not177, label %110, label %.thread
 
-110:                                              ; preds = %.thread187
+110:                                              ; preds = %.thread204
   %111 = getelementptr inbounds nuw i8, ptr %23, i64 216
   %112 = load ptr, ptr %111, align 8, !tbaa !68
   %113 = sext i32 %3 to i64
@@ -843,9 +843,9 @@ define i32 @exr_chunk_default_initialize(ptr noundef %0, i32 noundef %1, ptr nou
   br label %155
 
 155:                                              ; preds = %150, %153
-  %.sink191 = phi i8 [ %154, %153 ], [ 1, %150 ]
+  %.sink208 = phi i8 [ %154, %153 ], [ 1, %150 ]
   %156 = getelementptr inbounds nuw i8, ptr %5, i64 22
-  store i8 %.sink191, ptr %156, align 2, !tbaa !54
+  store i8 %.sink208, ptr %156, align 2, !tbaa !54
   %157 = getelementptr inbounds nuw i8, ptr %23, i64 176
   %158 = load i32, ptr %157, align 8, !tbaa !55
   %159 = trunc i32 %158 to i8
@@ -907,8 +907,8 @@ define i32 @exr_chunk_default_initialize(ptr noundef %0, i32 noundef %1, ptr nou
   store i64 %.0149.lcssa, ptr %190, align 8, !tbaa !63
   br label %.thread
 
-.thread:                                          ; preds = %155, %.thread187, %._crit_edge, %91, %97, %53, %57, %18, %8, %6, %14
-  %.0 = phi i32 [ %17, %14 ], [ 3, %6 ], [ 2, %8 ], [ 3, %18 ], [ 3, %57 ], [ 3, %53 ], [ 0, %91 ], [ 0, %97 ], [ 0, %._crit_edge ], [ 17, %155 ], [ %109, %.thread187 ]
+.thread:                                          ; preds = %155, %.thread204, %._crit_edge, %91, %97, %53, %57, %18, %8, %6, %14
+  %.0 = phi i32 [ %17, %14 ], [ 3, %6 ], [ 2, %8 ], [ 3, %18 ], [ 3, %57 ], [ 3, %53 ], [ 0, %91 ], [ 0, %97 ], [ 0, %._crit_edge ], [ 17, %155 ], [ %109, %.thread204 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -1340,9 +1340,9 @@ define internal fastcc i32 @validate_and_compute_tile_chunk_off(ptr noundef %0, 
   br label %127
 
 ._crit_edge176:                                   ; preds = %104, %.lr.ph175, %.preheader163, %.preheader
-  %.sink200 = phi i32 [ %55, %.preheader ], [ %84, %.preheader163 ], [ %55, %.lr.ph175 ], [ %84, %104 ]
+  %.sink214 = phi i32 [ %55, %.preheader ], [ %84, %.preheader163 ], [ %55, %.lr.ph175 ], [ %84, %104 ]
   %.4.lcssa.sink = phi i64 [ 0, %.preheader ], [ %.2.lcssa, %.preheader163 ], [ %70, %.lr.ph175 ], [ %109, %104 ]
-  %114 = mul nsw i32 %.sink200, %3
+  %114 = mul nsw i32 %.sink214, %3
   %115 = add nuw nsw i32 %114, %2
   %116 = zext nneg i32 %115 to i64
   %117 = add nsw i64 %.4.lcssa.sink, %116
@@ -1479,8 +1479,8 @@ define i32 @exr_read_scanline_chunk_info(ptr noundef %0, i32 noundef %1, i32 nou
   %.phi.trans.insert247 = getelementptr inbounds nuw i8, ptr %30, i64 244
   %.pre248 = load i32, ptr %.phi.trans.insert247, align 4, !tbaa !29
   %.not226 = icmp slt i32 %.0197, %.pre248
-  %or.cond249 = select i1 %61, i1 %.not226, i1 false
-  br i1 %or.cond249, label %65, label %._crit_edge246
+  %or.cond274 = select i1 %61, i1 %.not226, i1 false
+  br i1 %or.cond274, label %65, label %._crit_edge246
 
 ._crit_edge246:                                   ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1767,8 +1767,8 @@ define i32 @exr_read_scanline_chunk_info(ptr noundef %0, i32 noundef %1, i32 nou
   %226 = phi i64 [ %152, %185 ], [ %203, %213 ], [ %152, %184 ]
   %227 = icmp ne i64 %226, 0
   %.not236 = icmp eq i64 %225, 0
-  %or.cond250 = select i1 %227, i1 true, i1 %.not236
-  br i1 %or.cond250, label %232, label %228
+  %or.cond275 = select i1 %227, i1 true, i1 %.not236
+  br i1 %or.cond275, label %232, label %228
 
 228:                                              ; preds = %.thread
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2154,7 +2154,7 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   %225 = load i64, ptr %224, align 16
   %226 = icmp ne i64 %225, 0
   %or.cond5 = select i1 %223, i1 true, i1 %226
-  br i1 %or.cond5, label %227, label %.thread342
+  br i1 %or.cond5, label %227, label %.thread374
 
 227:                                              ; preds = %214, %222, %211
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2164,9 +2164,9 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
 
 231:                                              ; preds = %218
   %or.cond8 = icmp ugt i64 %221, 2147483647
-  br i1 %or.cond8, label %237, label %.thread342
+  br i1 %or.cond8, label %237, label %.thread374
 
-.thread342:                                       ; preds = %222, %231
+.thread374:                                       ; preds = %222, %231
   %232 = phi i64 [ %221, %231 ], [ 0, %222 ]
   %233 = icmp eq i64 %232, 0
   %234 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -2175,14 +2175,14 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   %or.cond11 = select i1 %233, i1 %236, i1 false
   br i1 %or.cond11, label %237, label %242
 
-237:                                              ; preds = %.thread342, %231
-  %238 = phi i64 [ 0, %.thread342 ], [ %221, %231 ]
+237:                                              ; preds = %.thread374, %231
+  %238 = phi i64 [ 0, %.thread374 ], [ %221, %231 ]
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %240 = load ptr, ptr %239, align 8, !tbaa !23
   %241 = call i32 (ptr, i32, ptr, ...) %240(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.26, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %93, i64 noundef %238) #8
   br label %.thread
 
-242:                                              ; preds = %.thread342
+242:                                              ; preds = %.thread374
   %or.cond14 = icmp ugt i64 %235, 2147483647
   br i1 %or.cond14, label %246, label %243
 
@@ -2262,8 +2262,8 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   %.pre = load i64, ptr %11, align 8, !tbaa !28
   %282 = add i64 %.pre, %272
   %.not324 = icmp ugt i64 %282, %141
-  %or.cond344 = select i1 %151, i1 %.not324, i1 false
-  br i1 %or.cond344, label %.thread333, label %286
+  %or.cond376 = select i1 %151, i1 %.not324, i1 false
+  br i1 %or.cond376, label %.thread333, label %286
 
 .thread333:                                       ; preds = %281
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2288,8 +2288,8 @@ define i32 @exr_read_tile_chunk_info(ptr noundef %0, i32 noundef %1, i32 noundef
   %294 = phi i64 [ %232, %266 ], [ %287, %286 ]
   %295 = icmp ne i64 %294, 0
   %.not327 = icmp eq i64 %293, 0
-  %or.cond345 = select i1 %295, i1 true, i1 %.not327
-  br i1 %or.cond345, label %300, label %296
+  %or.cond377 = select i1 %295, i1 true, i1 %.not327
+  br i1 %or.cond377, label %300, label %296
 
 296:                                              ; preds = %292
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2379,8 +2379,8 @@ define i32 @exr_read_chunk(ptr noundef %0, i32 noundef %1, ptr noundef readonly 
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %27, i64 244
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !29
   %.not67 = icmp slt i32 %42, %.pre
-  %or.cond72 = select i1 %43, i1 %.not67, i1 false
-  br i1 %or.cond72, label %47, label %._crit_edge
+  %or.cond81 = select i1 %43, i1 %.not67, i1 false
+  br i1 %or.cond81, label %47, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3129,8 +3129,8 @@ define internal fastcc i32 @write_scan_chunk(ptr noundef nonnull %0, i32 noundef
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %14 = load i8, ptr %0, align 8, !tbaa !3
-  %.sink174.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sink174.sroa.gep175 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %.sink187.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink187.sroa.gep188 = getelementptr inbounds nuw i8, ptr %10, i64 4
   switch i8 %14, label %19 [
     i8 3, label %23
     i8 1, label %15
@@ -3222,8 +3222,8 @@ define internal fastcc i32 @write_scan_chunk(ptr noundef nonnull %0, i32 noundef
   %.phi.trans.insert170 = getelementptr inbounds nuw i8, ptr %2, i64 156
   %.pre171 = load i32, ptr %.phi.trans.insert170, align 4, !tbaa !99
   %65 = icmp sgt i32 %3, %.pre171
-  %or.cond172 = select i1 %64, i1 true, i1 %65
-  br i1 %or.cond172, label %._crit_edge169, label %69
+  %or.cond185 = select i1 %64, i1 true, i1 %65
+  br i1 %or.cond185, label %._crit_edge169, label %69
 
 ._crit_edge169:                                   ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3261,8 +3261,8 @@ define internal fastcc i32 @write_scan_chunk(ptr noundef nonnull %0, i32 noundef
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 244
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !29
   %.not158 = icmp slt i32 %.0139, %.pre
-  %or.cond173 = select i1 %85, i1 %.not158, i1 false
-  br i1 %or.cond173, label %89, label %._crit_edge
+  %or.cond186 = select i1 %85, i1 %.not158, i1 false
+  br i1 %or.cond186, label %89, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %84
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3306,9 +3306,9 @@ define internal fastcc i32 @write_scan_chunk(ptr noundef nonnull %0, i32 noundef
   br i1 %53, label %106, label %.sink.split
 
 .sink.split:                                      ; preds = %105, %103
-  %.sink174.sroa.phi = phi ptr [ %.sink174.sroa.gep, %103 ], [ %.sink174.sroa.gep175, %105 ]
+  %.sink187.sroa.phi = phi ptr [ %.sink187.sroa.gep, %103 ], [ %.sink187.sroa.gep188, %105 ]
   %.0.ph = phi i64 [ 12, %103 ], [ 8, %105 ]
-  store i32 %52, ptr %.sink174.sroa.phi, align 4, !tbaa !48
+  store i32 %52, ptr %.sink187.sroa.phi, align 4, !tbaa !48
   br label %106
 
 106:                                              ; preds = %.sink.split, %105, %103
@@ -3634,8 +3634,8 @@ define internal fastcc i32 @write_tile_chunk(ptr noundef nonnull %0, i32 noundef
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 244
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !29
   %.not138 = icmp slt i32 %68, %.pre
-  %or.cond151 = select i1 %69, i1 %.not138, i1 false
-  br i1 %or.cond151, label %73, label %._crit_edge
+  %or.cond164 = select i1 %69, i1 %.not138, i1 false
+  br i1 %or.cond164, label %73, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -4069,12 +4069,12 @@ define internal fastcc i32 @extract_chunk_leader(ptr noundef %0, ptr noundef rea
   br label %58
 
 58:                                               ; preds = %40, %40, %42
-  %.sink105 = phi i32 [ %53, %42 ], [ %.072, %40 ], [ %.072, %40 ]
-  %.sink103 = phi i64 [ 16, %42 ], [ 4, %40 ], [ 4, %40 ]
-  %59 = zext nneg i32 %.sink105 to i64
+  %.sink113 = phi i32 [ %53, %42 ], [ %.072, %40 ], [ %.072, %40 ]
+  %.sink111 = phi i64 [ 16, %42 ], [ 4, %40 ], [ 4, %40 ]
+  %59 = zext nneg i32 %.sink113 to i64
   %60 = getelementptr inbounds nuw [6 x i32], ptr %7, i64 0, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !48
-  %62 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink103
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink111
   store i32 %61, ptr %62, align 4, !tbaa !45
   %63 = load i32, ptr %13, align 4, !tbaa !44
   %64 = and i32 %63, -2
@@ -4147,7 +4147,7 @@ define internal fastcc i32 @extract_chunk_leader(ptr noundef %0, ptr noundef rea
   br label %114
 
 99:                                               ; preds = %58
-  %100 = add nuw nsw i32 %.sink105, 1
+  %100 = add nuw nsw i32 %.sink113, 1
   %101 = zext nneg i32 %100 to i64
   %102 = getelementptr inbounds nuw [6 x i32], ptr %7, i64 0, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !48

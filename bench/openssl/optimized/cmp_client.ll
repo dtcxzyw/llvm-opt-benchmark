@@ -171,10 +171,10 @@ save_senderNonce_if_waiting.exit:                 ; preds = %22, %is_crep_with_w
   br i1 %.not20, label %save_senderNonce_if_waiting.exit.thread, label %save_senderNonce_if_waiting.exit.thread.sink.split
 
 save_senderNonce_if_waiting.exit.thread.sink.split: ; preds = %38, %34
-  %.sink23 = phi i32 [ 439, %34 ], [ 444, %38 ]
+  %.sink24 = phi i32 [ 439, %34 ], [ 444, %38 ]
   %.sink = phi i32 [ 172, %34 ], [ 133, %38 ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink23, ptr noundef nonnull @__func__.send_receive_also_delayed) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink24, ptr noundef nonnull @__func__.send_receive_also_delayed) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef %.sink, ptr noundef null) #4
   br label %save_senderNonce_if_waiting.exit.thread
 
@@ -984,10 +984,10 @@ define internal fastcc range(i32 -1, 2) i32 @cert_response(ptr noundef nonnull %
   br label %88
 
 85:                                               ; preds = %77, %76, %70, %66
-  %.sink20.i = phi i32 [ 549, %77 ], [ 529, %70 ], [ 519, %66 ], [ 541, %76 ]
+  %.sink22.i = phi i32 [ 549, %77 ], [ 529, %70 ], [ 519, %66 ], [ 541, %76 ]
   %.sink.i = phi i32 [ 186, %77 ], [ 182, %70 ], [ 162, %66 ], [ 176, %76 ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink20.i, ptr noundef nonnull @__func__.get1_cert_status) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink22.i, ptr noundef nonnull @__func__.get1_cert_status) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef %.sink.i, ptr noundef null) #4
   %86 = call ptr @OSSL_CMP_CTX_snprint_PKIStatus(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef 1024) #4
   %.not19.i = icmp eq ptr %86, null
@@ -1369,10 +1369,10 @@ define range(i32 0, 2) i32 @OSSL_CMP_exec_RR_ses(ptr noundef %0) local_unnamed_a
   br i1 %.not48, label %84, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %80, %74, %71, %68, %57, %40, %50, %51
-  %.sink55 = phi i32 [ 969, %51 ], [ 966, %50 ], [ 952, %40 ], [ 983, %57 ], [ 988, %68 ], [ 994, %71 ], [ 1002, %74 ], [ 1011, %80 ]
+  %.sink59 = phi i32 [ 969, %51 ], [ 966, %50 ], [ 952, %40 ], [ 983, %57 ], [ 988, %68 ], [ 994, %71 ], [ 1002, %74 ], [ 1011, %80 ]
   %.sink = phi i32 [ 186, %51 ], [ 185, %50 ], [ 182, %40 ], [ 188, %57 ], [ 165, %68 ], [ 187, %71 ], [ 173, %74 ], [ 188, %80 ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink55, ptr noundef nonnull @__func__.OSSL_CMP_exec_RR_ses) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink59, ptr noundef nonnull @__func__.OSSL_CMP_exec_RR_ses) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef %.sink, ptr noundef null) #4
   br label %.thread
 

@@ -217,13 +217,13 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix5sinks26basic_text_ostream_backe
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !27
   %24 = icmp eq ptr %23, %12
-  br i1 %24, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit18, label %25
+  br i1 %24, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit23, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 48
   %27 = load ptr, ptr %26, align 8, !tbaa !27
   %28 = icmp eq ptr %27, %12
-  br i1 %28, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit20, label %29
+  br i1 %28, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit25, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 64
@@ -287,16 +287,16 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_S
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 16
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit18: ; preds = %21
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit23: ; preds = %21
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 32
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit20: ; preds = %25
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit25: ; preds = %25
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 48
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit: ; preds = %14, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit18, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit20, %34, %40, %46
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %34 ], [ %.sroa.032.1.i.i.i, %40 ], [ %spec.select.i.i.i, %46 ], [ %50, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit ], [ %51, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit18 ], [ %52, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit20 ], [ %.sroa.032.051.i.i.i, %14 ]
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit: ; preds = %14, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit23, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit25, %34, %40, %46
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %34 ], [ %.sroa.032.1.i.i.i, %40 ], [ %spec.select.i.i.i, %46 ], [ %50, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit ], [ %51, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit23 ], [ %52, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit25 ], [ %.sroa.032.051.i.i.i, %14 ]
   %53 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %6
   br i1 %53, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.thread, label %_ZNSt6vectorIN5boost10shared_ptrISoEESaIS2_EE9push_backERKS2_.exit
 
@@ -372,13 +372,13 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix5sinks26basic_text_ostream_backe
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !27
   %24 = icmp eq ptr %23, %12
-  br i1 %24, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit20, label %25
+  br i1 %24, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit23, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 48
   %27 = load ptr, ptr %26, align 8, !tbaa !27
   %28 = icmp eq ptr %27, %12
-  br i1 %28, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit22, label %29
+  br i1 %28, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit25, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 64
@@ -442,16 +442,16 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_S
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 16
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit20: ; preds = %21
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit23: ; preds = %21
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 32
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit22: ; preds = %25
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit25: ; preds = %25
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 48
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit: ; preds = %14, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit20, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit22, %34, %40, %46
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %34 ], [ %.sroa.032.1.i.i.i, %40 ], [ %spec.select.i.i.i, %46 ], [ %50, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit ], [ %51, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit20 ], [ %52, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit22 ], [ %.sroa.032.051.i.i.i, %14 ]
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit: ; preds = %14, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit23, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit25, %34, %40, %46
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %34 ], [ %.sroa.032.1.i.i.i, %40 ], [ %spec.select.i.i.i, %46 ], [ %50, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit ], [ %51, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit23 ], [ %52, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.loopexit.split.loop.exit25 ], [ %.sroa.032.051.i.i.i, %14 ]
   %.not = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %6
   br i1 %.not, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISoEESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.thread, label %53
 
@@ -517,8 +517,8 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix5sinks26basic_text_ostream_backe
   br i1 %.not2021, label %._crit_edge, label %.lr.ph
 
 .thread:                                          ; preds = %3
-  %.not202125 = icmp eq ptr %8, %10
-  br i1 %.not202125, label %._crit_edge, label %.lr.ph.split.preheader
+  %.not202131 = icmp eq ptr %8, %10
+  br i1 %.not202131, label %._crit_edge, label %.lr.ph.split.preheader
 
 .lr.ph:                                           ; preds = %21
   br i1 %.0, label %.lr.ph.split.us, label %.lr.ph.split.preheader
@@ -799,13 +799,13 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix5sinks26basic_text_ostream_backe
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !61
   %24 = icmp eq ptr %23, %12
-  br i1 %24, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit18, label %25
+  br i1 %24, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit23, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 48
   %27 = load ptr, ptr %26, align 8, !tbaa !61
   %28 = icmp eq ptr %27, %12
-  br i1 %28, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit20, label %29
+  br i1 %28, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit25, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 64
@@ -869,16 +869,16 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamI
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 16
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit18: ; preds = %21
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit23: ; preds = %21
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 32
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit20: ; preds = %25
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit25: ; preds = %25
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 48
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit: ; preds = %14, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit18, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit20, %34, %40, %46
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %34 ], [ %.sroa.032.1.i.i.i, %40 ], [ %spec.select.i.i.i, %46 ], [ %50, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit ], [ %51, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit18 ], [ %52, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit20 ], [ %.sroa.032.051.i.i.i, %14 ]
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit: ; preds = %14, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit23, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit25, %34, %40, %46
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %34 ], [ %.sroa.032.1.i.i.i, %40 ], [ %spec.select.i.i.i, %46 ], [ %50, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit ], [ %51, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit23 ], [ %52, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit25 ], [ %.sroa.032.051.i.i.i, %14 ]
   %53 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %6
   br i1 %53, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.thread, label %_ZNSt6vectorIN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESaIS6_EE9push_backERKS6_.exit
 
@@ -954,13 +954,13 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix5sinks26basic_text_ostream_backe
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !61
   %24 = icmp eq ptr %23, %12
-  br i1 %24, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit20, label %25
+  br i1 %24, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit23, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 48
   %27 = load ptr, ptr %26, align 8, !tbaa !61
   %28 = icmp eq ptr %27, %12
-  br i1 %28, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit22, label %29
+  br i1 %28, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit25, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 64
@@ -1024,16 +1024,16 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamI
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 16
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit20: ; preds = %21
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit23: ; preds = %21
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 32
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit22: ; preds = %25
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit25: ; preds = %25
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 48
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit: ; preds = %14, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit20, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit22, %34, %40, %46
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %34 ], [ %.sroa.032.1.i.i.i, %40 ], [ %spec.select.i.i.i, %46 ], [ %50, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit ], [ %51, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit20 ], [ %52, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit22 ], [ %.sroa.032.051.i.i.i, %14 ]
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit: ; preds = %14, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit23, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit25, %34, %40, %46
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %34 ], [ %.sroa.032.1.i.i.i, %40 ], [ %spec.select.i.i.i, %46 ], [ %50, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit ], [ %51, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit23 ], [ %52, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.loopexit.split.loop.exit25 ], [ %.sroa.032.051.i.i.i, %14 ]
   %.not = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %6
   br i1 %.not, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrISt13basic_ostreamIwSt11char_traitsIwEEEESt6vectorIS8_SaIS8_EEEES8_ET_SE_SE_RKT0_.exit.thread, label %53
 
@@ -1099,8 +1099,8 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix5sinks26basic_text_ostream_backe
   br i1 %.not2021, label %._crit_edge, label %.lr.ph
 
 .thread:                                          ; preds = %3
-  %.not202125 = icmp eq ptr %8, %10
-  br i1 %.not202125, label %._crit_edge, label %.lr.ph.split.preheader
+  %.not202131 = icmp eq ptr %8, %10
+  br i1 %.not202131, label %._crit_edge, label %.lr.ph.split.preheader
 
 .lr.ph:                                           ; preds = %21
   br i1 %.0, label %.lr.ph.split.us, label %.lr.ph.split.preheader

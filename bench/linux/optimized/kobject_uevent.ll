@@ -321,20 +321,20 @@ define dso_local i32 @kobject_uevent_env(ptr noundef %0, i32 noundef %1, ptr nou
   %5 = getelementptr [8 x ptr], ptr @kobject_actions, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq i32 %1, 1
-  br i1 %7, label %8, label %.preheader32
+  br i1 %7, label %8, label %.preheader49
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %10 = load i8, ptr %9, align 4
   %11 = or i8 %10, 8
   store i8 %11, ptr %9, align 4
-  br label %.preheader32
+  br label %.preheader49
 
-.preheader32:                                     ; preds = %8, %3
+.preheader49:                                     ; preds = %8, %3
   br label %12
 
-12:                                               ; preds = %.preheader32, %17
-  %13 = phi ptr [ %19, %17 ], [ %0, %.preheader32 ]
+12:                                               ; preds = %.preheader49, %17
+  %13 = phi ptr [ %19, %17 ], [ %0, %.preheader49 ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null

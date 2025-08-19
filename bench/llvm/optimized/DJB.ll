@@ -41,7 +41,7 @@ define dso_local noundef i32 @_ZN4llvm18caseFoldingDjbHashENS_9StringRefEj(ptr %
   br i1 %.not.i, label %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread, label %.lr.ph.i
 
 _ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread: ; preds = %.lr.ph.i
-  %.sroa.015.0.extract.trunc28 = select i1 %20, i32 %18, i32 0
+  %.sroa.015.0.extract.trunc31 = select i1 %20, i32 %18, i32 0
   br i1 %20, label %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread
@@ -118,7 +118,7 @@ _ZN4llvm7djbHashENS_9StringRefEj.exit:            ; preds = %.lr.ph.i12, %_ZL13f
   br label %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit
 
 _ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit: ; preds = %3, %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread, %._crit_edge
-  %.1 = phi i32 [ %.0.lcssa.i, %._crit_edge ], [ %.sroa.015.0.extract.trunc28, %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread ], [ %2, %3 ]
+  %.1 = phi i32 [ %.0.lcssa.i, %._crit_edge ], [ %.sroa.015.0.extract.trunc31, %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread ], [ %2, %3 ]
   ret i32 %.1
 }
 

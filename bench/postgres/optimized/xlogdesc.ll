@@ -528,7 +528,7 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   br i1 %117, label %118, label %130
 
 118:                                              ; preds = %110
-  br i1 %.not72, label %.sink.split84, label %119
+  br i1 %.not72, label %.sink.split87, label %119
 
 119:                                              ; preds = %118
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 44
@@ -538,9 +538,9 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   %124 = add i32 %123, %122
   store i32 %124, ptr %4, align 4
   %.pre = load ptr, ptr %11, align 8
-  br label %.sink.split84
+  br label %.sink.split87
 
-.sink.split84:                                    ; preds = %119, %118
+.sink.split87:                                    ; preds = %119, %118
   %125 = phi ptr [ %.pre, %119 ], [ %111, %118 ]
   %.idx = shl nsw i64 %113, 6
   %126 = getelementptr i8, ptr %125, i64 118
@@ -551,7 +551,7 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   call void @appendStringInfoString(ptr noundef %3, ptr noundef nonnull %.str.43..str.44) #4
   br label %130
 
-130:                                              ; preds = %.sink.split84, %110, %.lr.ph.split
+130:                                              ; preds = %.sink.split87, %110, %.lr.ph.split
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

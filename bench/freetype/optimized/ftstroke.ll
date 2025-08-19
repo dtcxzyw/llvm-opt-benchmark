@@ -283,8 +283,8 @@ define i32 @FT_Stroker_LineTo(ptr noundef captures(address_is_null) %0, ptr noun
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %52 = add nsw i32 %.03955, -1
   %53 = getelementptr inbounds nuw i8, ptr %.04154, i64 48
-  %.not58 = icmp eq i32 %.03955, 0
-  br i1 %.not58, label %54, label %38, !llvm.loop !43
+  %.not62 = icmp eq i32 %.03955, 0
+  br i1 %.not62, label %54, label %38, !llvm.loop !43
 
 54:                                               ; preds = %47
   store i64 %24, ptr %0, align 8, !tbaa !45
@@ -1119,7 +1119,7 @@ ft_conic_is_small_enough.exit:                    ; preds = %81, %78, %79, %83
   %117 = call i64 @FT_Angle_Diff(i64 noundef %116, i64 noundef %.0172) #10
   %118 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %117, i1 true)
   %119 = icmp samesign ugt i64 %118, 491520
-  br i1 %119, label %120, label %.thread214
+  br i1 %119, label %120, label %.thread222
 
 120:                                              ; preds = %115
   %121 = getelementptr inbounds nuw i8, ptr %.0114.ptr, i64 32
@@ -1134,9 +1134,9 @@ ft_conic_is_small_enough.exit:                    ; preds = %81, %78, %79, %83
 124:                                              ; preds = %120, %111, %113
   %.3 = phi i32 [ %112, %111 ], [ %114, %113 ], [ %122, %120 ]
   %.not145 = icmp eq i32 %.3, 0
-  br i1 %.not145, label %.thread214, label %.thread186
+  br i1 %.not145, label %.thread222, label %.thread186
 
-.thread214:                                       ; preds = %115, %124
+.thread222:                                       ; preds = %115, %124
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %125 = call i64 @FT_Angle_Diff(i64 noundef %.0172, i64 noundef %.0170) #10
@@ -1149,7 +1149,7 @@ ft_conic_is_small_enough.exit:                    ; preds = %81, %78, %79, %83
   %.not146 = icmp eq i8 %131, 0
   br i1 %.not146, label %143, label %132
 
-132:                                              ; preds = %.thread214
+132:                                              ; preds = %.thread222
   %133 = load i64, ptr %.0114.ptr, align 8, !tbaa !37
   %134 = getelementptr inbounds nuw i8, ptr %.0114.ptr, i64 32
   %135 = load i64, ptr %134, align 8, !tbaa !37
@@ -1162,8 +1162,8 @@ ft_conic_is_small_enough.exit:                    ; preds = %81, %78, %79, %83
   %142 = call i64 @FT_Atan2(i64 noundef %136, i64 noundef %141) #10
   br label %143
 
-143:                                              ; preds = %132, %.thread214
-  %.0123 = phi i64 [ %142, %132 ], [ 0, %.thread214 ]
+143:                                              ; preds = %132, %.thread222
+  %.0123 = phi i64 [ %142, %132 ], [ 0, %.thread222 ]
   %144 = getelementptr inbounds nuw i8, ptr %.0114.ptr, i64 16
   %145 = getelementptr inbounds nuw i8, ptr %.0114.ptr, i64 24
   %146 = getelementptr inbounds nuw i8, ptr %.0114.ptr, i64 8
@@ -1700,7 +1700,7 @@ ft_cubic_is_small_enough.exit:                    ; preds = %118, %112, %106, %1
   %169 = call i64 @FT_Angle_Diff(i64 noundef %168, i64 noundef %.0206) #10
   %170 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %169, i1 true)
   %171 = icmp samesign ugt i64 %170, 368640
-  br i1 %171, label %172, label %.thread253
+  br i1 %171, label %172, label %.thread262
 
 172:                                              ; preds = %167
   %173 = getelementptr inbounds nuw i8, ptr %.0133.ptr, i64 48
@@ -1715,9 +1715,9 @@ ft_cubic_is_small_enough.exit:                    ; preds = %118, %112, %106, %1
 176:                                              ; preds = %172, %163, %165
   %.3 = phi i32 [ %164, %163 ], [ %166, %165 ], [ %174, %172 ]
   %.not167 = icmp eq i32 %.3, 0
-  br i1 %.not167, label %.thread253, label %.thread220
+  br i1 %.not167, label %.thread262, label %.thread220
 
-.thread253:                                       ; preds = %167, %176
+.thread262:                                       ; preds = %167, %176
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1741,7 +1741,7 @@ ft_cubic_is_small_enough.exit:                    ; preds = %118, %112, %106, %1
   %.not168 = icmp eq i8 %193, 0
   br i1 %.not168, label %205, label %194
 
-194:                                              ; preds = %.thread253
+194:                                              ; preds = %.thread262
   %195 = load i64, ptr %.0133.ptr, align 8, !tbaa !37
   %196 = getelementptr inbounds nuw i8, ptr %.0133.ptr, i64 48
   %197 = load i64, ptr %196, align 8, !tbaa !37
@@ -1754,8 +1754,8 @@ ft_cubic_is_small_enough.exit:                    ; preds = %118, %112, %106, %1
   %204 = call i64 @FT_Atan2(i64 noundef %198, i64 noundef %203) #10
   br label %205
 
-205:                                              ; preds = %194, %.thread253
-  %.0142 = phi i64 [ %204, %194 ], [ 0, %.thread253 ]
+205:                                              ; preds = %194, %.thread262
+  %.0142 = phi i64 [ %204, %194 ], [ 0, %.thread262 ]
   %206 = getelementptr inbounds nuw i8, ptr %.0133.ptr, i64 32
   %207 = getelementptr inbounds nuw i8, ptr %.0133.ptr, i64 40
   %208 = getelementptr inbounds nuw i8, ptr %.0133.ptr, i64 16
@@ -2399,7 +2399,7 @@ ft_stroke_border_close.exit54:                    ; preds = %142, %143
 .lr.ph.preheader.i59:                             ; preds = %173
   %189 = load ptr, ptr %175, align 8, !tbaa !34
   %.04956.i = getelementptr inbounds nuw i8, ptr %189, i64 %187
-  %.04855.i = getelementptr inbounds i8, ptr %189, i64 %186
+  %.04855.i = getelementptr inbounds nuw i8, ptr %189, i64 %186
   br label %.lr.ph.i60
 
 .lr.ph.i60:                                       ; preds = %.lr.ph.i60, %.lr.ph.preheader.i59
@@ -2424,7 +2424,7 @@ ft_stroke_border_close.exit54:                    ; preds = %142, %143
 .lr.ph64.preheader.i:                             ; preds = %._crit_edge.i57
   %194 = load ptr, ptr %181, align 8, !tbaa !35
   %.04760.i = getelementptr inbounds nuw i8, ptr %194, i64 %192
-  %.059.i = getelementptr inbounds i8, ptr %194, i64 %191
+  %.059.i = getelementptr inbounds nuw i8, ptr %194, i64 %191
   br label %.lr.ph64.i
 
 .lr.ph64.i:                                       ; preds = %.lr.ph64.i, %.lr.ph64.preheader.i
@@ -2593,14 +2593,14 @@ define range(i32 0, 7) i32 @FT_Stroker_GetBorderCounts(ptr noundef captures(addr
   br i1 %.not30.not.i, label %._crit_edge.thread.i, label %ft_stroke_border_get_counts.exit
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %7
-  %.022.lcssa47.i = phi i32 [ %spec.select.i, %._crit_edge.i ], [ 0, %7 ]
+  %.022.lcssa48.i = phi i32 [ %spec.select.i, %._crit_edge.i ], [ 0, %7 ]
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i8 1, ptr %22, align 8, !tbaa !25
   br label %ft_stroke_border_get_counts.exit
 
 ft_stroke_border_get_counts.exit:                 ; preds = %.lr.ph.i, %._crit_edge.thread.i, %._crit_edge.i, %4
   %.016 = phi i32 [ 0, %4 ], [ %11, %._crit_edge.thread.i ], [ 0, %._crit_edge.i ], [ 0, %.lr.ph.i ]
-  %.015 = phi i32 [ 0, %4 ], [ %.022.lcssa47.i, %._crit_edge.thread.i ], [ 0, %._crit_edge.i ], [ 0, %.lr.ph.i ]
+  %.015 = phi i32 [ 0, %4 ], [ %.022.lcssa48.i, %._crit_edge.thread.i ], [ 0, %._crit_edge.i ], [ 0, %.lr.ph.i ]
   %.0 = phi i32 [ 6, %4 ], [ 0, %._crit_edge.thread.i ], [ 0, %._crit_edge.i ], [ 0, %.lr.ph.i ]
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %24, label %23
@@ -2663,14 +2663,14 @@ define range(i32 0, 7) i32 @FT_Stroker_GetCounts(ptr noundef captures(address_is
   br i1 %.not30.not.i, label %._crit_edge.thread.i, label %ft_stroke_border_get_counts.exit
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %4
-  %.022.lcssa47.i = phi i32 [ %spec.select.i, %._crit_edge.i ], [ 0, %4 ]
+  %.022.lcssa48.i = phi i32 [ %spec.select.i, %._crit_edge.i ], [ 0, %4 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i8 1, ptr %17, align 8, !tbaa !25
   br label %ft_stroke_border_get_counts.exit
 
 ft_stroke_border_get_counts.exit:                 ; preds = %.lr.ph.i, %._crit_edge.i, %._crit_edge.thread.i
   %.126.i = phi i32 [ %6, %._crit_edge.thread.i ], [ 0, %._crit_edge.i ], [ 0, %.lr.ph.i ]
-  %.224.i = phi i32 [ %.022.lcssa47.i, %._crit_edge.thread.i ], [ 0, %._crit_edge.i ], [ 0, %.lr.ph.i ]
+  %.224.i = phi i32 [ %.022.lcssa48.i, %._crit_edge.thread.i ], [ 0, %._crit_edge.i ], [ 0, %.lr.ph.i ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %19 = load i32, ptr %18, align 8, !tbaa !33
   %.not35.i20 = icmp eq i32 %19, 0
@@ -2707,14 +2707,14 @@ ft_stroke_border_get_counts.exit:                 ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not30.not.i30, label %._crit_edge.thread.i35, label %ft_stroke_border_get_counts.exit38
 
 ._crit_edge.thread.i35:                           ; preds = %._crit_edge.i34, %ft_stroke_border_get_counts.exit
-  %.022.lcssa47.i36 = phi i32 [ %spec.select.i32, %._crit_edge.i34 ], [ 0, %ft_stroke_border_get_counts.exit ]
+  %.022.lcssa48.i36 = phi i32 [ %spec.select.i32, %._crit_edge.i34 ], [ 0, %ft_stroke_border_get_counts.exit ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i8 1, ptr %30, align 8, !tbaa !25
   br label %ft_stroke_border_get_counts.exit38
 
 ft_stroke_border_get_counts.exit38:               ; preds = %.lr.ph.i22, %._crit_edge.i34, %._crit_edge.thread.i35
   %.126.i28 = phi i32 [ %19, %._crit_edge.thread.i35 ], [ 0, %._crit_edge.i34 ], [ 0, %.lr.ph.i22 ]
-  %.224.i29 = phi i32 [ %.022.lcssa47.i36, %._crit_edge.thread.i35 ], [ 0, %._crit_edge.i34 ], [ 0, %.lr.ph.i22 ]
+  %.224.i29 = phi i32 [ %.022.lcssa48.i36, %._crit_edge.thread.i35 ], [ 0, %._crit_edge.i34 ], [ 0, %.lr.ph.i22 ]
   %31 = add i32 %.126.i28, %.126.i
   %32 = add i32 %.224.i29, %.224.i
   br label %33
@@ -3286,15 +3286,15 @@ FT_Stroker_BeginSubPath.exit:                     ; preds = %68, %70
   %88 = load i64, ptr %87, align 8, !tbaa !39
   store i64 %88, ptr %31, align 8, !tbaa !39
   %89 = icmp ult ptr %75, %.092
-  br i1 %89, label %.lr.ph214, label %._crit_edge
+  br i1 %89, label %.lr.ph223, label %._crit_edge
 
-.lr.ph214:                                        ; preds = %85, %select.unfold
-  %.290213 = phi ptr [ %91, %select.unfold ], [ %76, %85 ]
-  %.296212 = phi ptr [ %90, %select.unfold ], [ %75, %85 ]
+.lr.ph223:                                        ; preds = %85, %select.unfold
+  %.290222 = phi ptr [ %91, %select.unfold ], [ %76, %85 ]
+  %.296221 = phi ptr [ %90, %select.unfold ], [ %75, %85 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %90 = getelementptr inbounds nuw i8, ptr %.296212, i64 16
-  %91 = getelementptr inbounds nuw i8, ptr %.290213, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %.296221, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %.290222, i64 1
   %92 = load i8, ptr %91, align 1, !tbaa !49
   %93 = and i8 %92, 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %90, i64 16, i1 false), !tbaa.struct !46
@@ -3303,12 +3303,12 @@ FT_Stroker_BeginSubPath.exit:                     ; preds = %68, %70
     i8 0, label %96
   ]
 
-.thread134:                                       ; preds = %.lr.ph214
+.thread134:                                       ; preds = %.lr.ph223
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %FT_Stroker_BeginSubPath.exit.thread
 
-94:                                               ; preds = %.lr.ph214
+94:                                               ; preds = %.lr.ph223
   %95 = call i32 @FT_Stroker_ConicTo(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %7)
   %.not118 = icmp eq i32 %95, 0
   br i1 %.not118, label %select.unfold.thread, label %.thread, !llvm.loop !75
@@ -3318,7 +3318,7 @@ select.unfold.thread:                             ; preds = %94
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.backedge
 
-96:                                               ; preds = %.lr.ph214
+96:                                               ; preds = %.lr.ph223
   %97 = load i64, ptr %4, align 8, !tbaa !37
   %98 = load i64, ptr %7, align 8, !tbaa !37
   %99 = add nsw i64 %98, %97
@@ -3344,7 +3344,7 @@ select.unfold:                                    ; preds = %96
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %106 = icmp ult ptr %90, %.092
-  br i1 %106, label %.lr.ph214, label %._crit_edge
+  br i1 %106, label %.lr.ph223, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %85, %select.unfold
   %107 = call i32 @FT_Stroker_ConicTo(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5)
@@ -3495,14 +3495,14 @@ define i32 @FT_Glyph_Stroke(ptr noundef captures(address_is_null) %0, ptr nounde
   br i1 %.not30.not.i.i, label %._crit_edge.thread.i.i, label %ft_stroke_border_get_counts.exit.i
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %17
-  %.022.lcssa47.i.i = phi i32 [ %spec.select.i.i, %._crit_edge.i.i ], [ 0, %17 ]
+  %.022.lcssa48.i.i = phi i32 [ %spec.select.i.i, %._crit_edge.i.i ], [ 0, %17 ]
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store i8 1, ptr %30, align 8, !tbaa !25
   br label %ft_stroke_border_get_counts.exit.i
 
 ft_stroke_border_get_counts.exit.i:               ; preds = %.lr.ph.i.i, %._crit_edge.thread.i.i, %._crit_edge.i.i
   %.126.i.i = phi i32 [ %19, %._crit_edge.thread.i.i ], [ 0, %._crit_edge.i.i ], [ 0, %.lr.ph.i.i ]
-  %.224.i.i = phi i32 [ %.022.lcssa47.i.i, %._crit_edge.thread.i.i ], [ 0, %._crit_edge.i.i ], [ 0, %.lr.ph.i.i ]
+  %.224.i.i = phi i32 [ %.022.lcssa48.i.i, %._crit_edge.thread.i.i ], [ 0, %._crit_edge.i.i ], [ 0, %.lr.ph.i.i ]
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %32 = load i32, ptr %31, align 8, !tbaa !33
   %.not35.i20.i = icmp eq i32 %32, 0
@@ -3539,14 +3539,14 @@ ft_stroke_border_get_counts.exit.i:               ; preds = %.lr.ph.i.i, %._crit
   br i1 %.not30.not.i30.i, label %._crit_edge.thread.i35.i, label %ft_stroke_border_get_counts.exit38.i
 
 ._crit_edge.thread.i35.i:                         ; preds = %._crit_edge.i34.i, %ft_stroke_border_get_counts.exit.i
-  %.022.lcssa47.i36.i = phi i32 [ %spec.select.i32.i, %._crit_edge.i34.i ], [ 0, %ft_stroke_border_get_counts.exit.i ]
+  %.022.lcssa48.i36.i = phi i32 [ %spec.select.i32.i, %._crit_edge.i34.i ], [ 0, %ft_stroke_border_get_counts.exit.i ]
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store i8 1, ptr %43, align 8, !tbaa !25
   br label %ft_stroke_border_get_counts.exit38.i
 
 ft_stroke_border_get_counts.exit38.i:             ; preds = %.lr.ph.i22.i, %._crit_edge.thread.i35.i, %._crit_edge.i34.i
   %.126.i28.i = phi i32 [ %32, %._crit_edge.thread.i35.i ], [ 0, %._crit_edge.i34.i ], [ 0, %.lr.ph.i22.i ]
-  %.224.i29.i = phi i32 [ %.022.lcssa47.i36.i, %._crit_edge.thread.i35.i ], [ 0, %._crit_edge.i34.i ], [ 0, %.lr.ph.i22.i ]
+  %.224.i29.i = phi i32 [ %.022.lcssa48.i36.i, %._crit_edge.thread.i35.i ], [ 0, %._crit_edge.i34.i ], [ 0, %.lr.ph.i22.i ]
   %44 = add i32 %.126.i28.i, %.126.i.i
   %45 = add i32 %.224.i29.i, %.224.i.i
   br label %FT_Stroker_GetCounts.exit
@@ -3679,14 +3679,14 @@ define i32 @FT_Glyph_StrokeBorder(ptr noundef captures(address_is_null) %0, ptr 
   br i1 %.not30.not.i.i, label %._crit_edge.thread.i.i, label %FT_Stroker_GetBorderCounts.exit
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %21
-  %.022.lcssa47.i.i = phi i32 [ %spec.select.i.i, %._crit_edge.i.i ], [ 0, %21 ]
+  %.022.lcssa48.i.i = phi i32 [ %spec.select.i.i, %._crit_edge.i.i ], [ 0, %21 ]
   %36 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store i8 1, ptr %36, align 8, !tbaa !25
   br label %FT_Stroker_GetBorderCounts.exit
 
 FT_Stroker_GetBorderCounts.exit:                  ; preds = %.lr.ph.i.i, %19, %._crit_edge.i.i, %._crit_edge.thread.i.i
   %.016.i = phi i32 [ 0, %19 ], [ %25, %._crit_edge.thread.i.i ], [ 0, %._crit_edge.i.i ], [ 0, %.lr.ph.i.i ]
-  %.015.i = phi i32 [ 0, %19 ], [ %.022.lcssa47.i.i, %._crit_edge.thread.i.i ], [ 0, %._crit_edge.i.i ], [ 0, %.lr.ph.i.i ]
+  %.015.i = phi i32 [ 0, %19 ], [ %.022.lcssa48.i.i, %._crit_edge.thread.i.i ], [ 0, %._crit_edge.i.i ], [ 0, %.lr.ph.i.i ]
   %37 = load ptr, ptr %.040, align 8, !tbaa !82
   %38 = call i32 @FT_Outline_Done(ptr noundef %37, ptr noundef nonnull %15) #10
   %39 = load ptr, ptr %.040, align 8, !tbaa !82

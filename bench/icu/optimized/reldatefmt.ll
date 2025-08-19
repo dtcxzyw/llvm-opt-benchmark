@@ -1975,13 +1975,13 @@ _ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit60.thre
 56:                                               ; preds = %_ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit60.thread
   %57 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 32) #20
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %.critedge.thread98, label %59
+  br i1 %58, label %.critedge.thread107, label %59
 
 59:                                               ; preds = %56
   invoke void @_ZN6icu_7719SharedBreakIteratorC1EPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %2)
           to label %61 unwind label %.thread
 
-.critedge.thread98:                               ; preds = %56
+.critedge.thread107:                              ; preds = %56
   store i32 7, ptr %3, align 4, !tbaa !13
   br label %64
 
@@ -2000,8 +2000,8 @@ _ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit60.thre
   %63 = icmp eq ptr %2, null
   br i1 %63, label %_ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit, label %64
 
-64:                                               ; preds = %.critedge.thread98, %.critedge
-  %.sroa.069.0100 = phi ptr [ null, %.critedge.thread98 ], [ %1, %.critedge ]
+64:                                               ; preds = %.critedge.thread107, %.critedge
+  %.sroa.069.0109 = phi ptr [ null, %.critedge.thread107 ], [ %1, %.critedge ]
   %65 = load ptr, ptr %2, align 8, !tbaa !15
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
@@ -2009,7 +2009,7 @@ _ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit60.thre
   br label %_ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit
 
 _ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit: ; preds = %.critedge, %64
-  %.sroa.069.083 = phi ptr [ %1, %.critedge ], [ %.sroa.069.0100, %64 ]
+  %.sroa.069.083 = phi ptr [ %1, %.critedge ], [ %.sroa.069.0109, %64 ]
   %68 = icmp eq ptr %.sroa.069.083, null
   br i1 %68, label %_ZN6icu_7712LocalPointerINS_12NumberFormatEED2Ev.exit, label %69
 
@@ -2030,8 +2030,8 @@ _ZN6icu_7712LocalPointerINS_12NumberFormatEED2Ev.exit: ; preds = %61, %52, %.noe
   br i1 %74, label %_ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit63, label %75
 
 75:                                               ; preds = %.thread, %73
-  %.pn45.pn105 = phi { ptr, i32 } [ %60, %.thread ], [ %.pn45.pn, %73 ]
-  %.sroa.069.1104 = phi ptr [ null, %.thread ], [ %.sroa.069.1, %73 ]
+  %.pn45.pn114 = phi { ptr, i32 } [ %60, %.thread ], [ %.pn45.pn, %73 ]
+  %.sroa.069.1113 = phi ptr [ null, %.thread ], [ %.sroa.069.1, %73 ]
   %76 = load ptr, ptr %2, align 8, !tbaa !15
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load ptr, ptr %77, align 8
@@ -2039,8 +2039,8 @@ _ZN6icu_7712LocalPointerINS_12NumberFormatEED2Ev.exit: ; preds = %61, %52, %.noe
   br label %_ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit63
 
 _ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit63: ; preds = %75, %73
-  %.sroa.069.188 = phi ptr [ %.sroa.069.1, %73 ], [ %.sroa.069.1104, %75 ]
-  %.pn45.pn.pn = phi { ptr, i32 } [ %.pn45.pn, %73 ], [ %.pn45.pn105, %75 ]
+  %.sroa.069.188 = phi ptr [ %.sroa.069.1, %73 ], [ %.sroa.069.1113, %75 ]
+  %.pn45.pn.pn = phi { ptr, i32 } [ %.pn45.pn, %73 ], [ %.pn45.pn114, %75 ]
   %79 = icmp eq ptr %.sroa.069.188, null
   br i1 %79, label %_ZN6icu_7712LocalPointerINS_12NumberFormatEED2Ev.exit64, label %_ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit63.thread
 
@@ -2784,13 +2784,13 @@ _ZNK6icu_7725RelativeDateTimeFormatter23checkNoAdjustForContextER10UErrorCode.ex
 17:                                               ; preds = %_ZNK6icu_7725RelativeDateTimeFormatter23checkNoAdjustForContextER10UErrorCode.exit
   %18 = load i32, ptr %4, align 4
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.thread35, label %20
+  br i1 %19, label %.thread37, label %20
 
 20:                                               ; preds = %17
   store i32 7, ptr %4, align 4, !tbaa !13
-  br label %.thread35
+  br label %.thread37
 
-.thread35:                                        ; preds = %20, %17
+.thread37:                                        ; preds = %20, %17
   %.ph = phi i32 [ 7, %20 ], [ %18, %17 ]
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_7725FormattedRelativeDateTimeE, i64 16), ptr %0, align 8, !tbaa !15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2871,7 +2871,7 @@ _ZN6icu_7712LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit: ; preds 
   %.pn = phi { ptr, i32 } [ %26, %_ZN6icu_7712LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit ], [ %25, %24 ]
   resume { ptr, i32 } %.pn
 
-_ZN6icu_7712LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit25: ; preds = %.thread35, %46, %.thread33, %11
+_ZN6icu_7712LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit25: ; preds = %.thread37, %46, %.thread33, %11
   ret void
 }
 
@@ -3131,13 +3131,13 @@ _ZNK6icu_7725RelativeDateTimeFormatter23checkNoAdjustForContextER10UErrorCode.ex
 16:                                               ; preds = %_ZNK6icu_7725RelativeDateTimeFormatter23checkNoAdjustForContextER10UErrorCode.exit
   %17 = load i32, ptr %4, align 4
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.thread34, label %19
+  br i1 %18, label %.thread36, label %19
 
 19:                                               ; preds = %16
   store i32 7, ptr %4, align 4, !tbaa !13
-  br label %.thread34
+  br label %.thread36
 
-.thread34:                                        ; preds = %19, %16
+.thread36:                                        ; preds = %19, %16
   %.ph = phi i32 [ 7, %19 ], [ %17, %16 ]
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_7725FormattedRelativeDateTimeE, i64 16), ptr %0, align 8, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3218,7 +3218,7 @@ _ZN6icu_7712LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit: ; preds 
   %.pn = phi { ptr, i32 } [ %25, %_ZN6icu_7712LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit ], [ %24, %23 ]
   resume { ptr, i32 } %.pn
 
-_ZN6icu_7712LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit24: ; preds = %.thread34, %45, %.thread32, %10
+_ZN6icu_7712LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit24: ; preds = %.thread36, %45, %.thread32, %10
   ret void
 }
 
@@ -3422,13 +3422,13 @@ _ZNK6icu_7725RelativeDateTimeFormatter23checkNoAdjustForContextER10UErrorCode.ex
 16:                                               ; preds = %_ZNK6icu_7725RelativeDateTimeFormatter23checkNoAdjustForContextER10UErrorCode.exit
   %17 = load i32, ptr %4, align 4
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.thread34, label %19
+  br i1 %18, label %.thread36, label %19
 
 19:                                               ; preds = %16
   store i32 7, ptr %4, align 4, !tbaa !13
-  br label %.thread34
+  br label %.thread36
 
-.thread34:                                        ; preds = %19, %16
+.thread36:                                        ; preds = %19, %16
   %.ph = phi i32 [ 7, %19 ], [ %17, %16 ]
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_7725FormattedRelativeDateTimeE, i64 16), ptr %0, align 8, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3509,7 +3509,7 @@ _ZN6icu_7712LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit: ; preds 
   %.pn = phi { ptr, i32 } [ %25, %_ZN6icu_7712LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit ], [ %24, %23 ]
   resume { ptr, i32 } %.pn
 
-_ZN6icu_7712LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit24: ; preds = %.thread34, %45, %.thread32, %10
+_ZN6icu_7712LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit24: ; preds = %.thread36, %45, %.thread32, %10
   ret void
 }
 
@@ -3594,7 +3594,7 @@ define void @_ZNK6icu_7725RelativeDateTimeFormatter18formatRelativeImplEd21URela
   br label %35
 
 25:                                               ; preds = %19
-  br i1 %20, label %.thread34, label %.thread
+  br i1 %20, label %.thread35, label %.thread
 
 26:                                               ; preds = %19
   br label %35
@@ -3625,25 +3625,25 @@ define void @_ZNK6icu_7725RelativeDateTimeFormatter18formatRelativeImplEd21URela
 
 35:                                               ; preds = %19, %34, %33, %32, %31, %30, %29, %28, %27, %26, %24, %23, %22, %21
   %.0 = phi i64 [ 12, %21 ], [ 9, %22 ], [ 8, %23 ], [ 7, %24 ], [ 0, %26 ], [ 1, %27 ], [ 2, %28 ], [ 3, %29 ], [ 4, %30 ], [ 5, %31 ], [ 6, %32 ], [ 13, %33 ], [ 14, %34 ], [ 10, %19 ]
-  br i1 %.not, label %.thread, label %.thread34
+  br i1 %.not, label %.thread, label %.thread35
 
-.thread34:                                        ; preds = %25, %35
-  %.039 = phi i64 [ %.0, %35 ], [ 11, %25 ]
-  %.238 = phi i64 [ %.024, %35 ], [ 5, %25 ]
+.thread35:                                        ; preds = %25, %35
+  %.040 = phi i64 [ %.0, %35 ], [ 11, %25 ]
+  %.239 = phi i64 [ %.024, %35 ], [ 5, %25 ]
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !87
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i32, ptr %39, align 8, !tbaa !86
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %invariant.gep.i.i = getelementptr [15 x [6 x %"class.icu_77::UnicodeString"]], ptr %41, i64 0, i64 %.039
-  %42 = and i64 %.238, 4294967295
+  %invariant.gep.i.i = getelementptr [15 x [6 x %"class.icu_77::UnicodeString"]], ptr %41, i64 0, i64 %.040
+  %42 = and i64 %.239, 4294967295
   %invariant.gep14.i.i = getelementptr [6 x %"class.icu_77::UnicodeString"], ptr %invariant.gep.i.i, i64 0, i64 %42
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 23128
   br label %44
 
-44:                                               ; preds = %49, %.thread34
-  %.0.i.i = phi i32 [ %40, %.thread34 ], [ %51, %49 ]
+44:                                               ; preds = %49, %.thread35
+  %.0.i.i = phi i32 [ %40, %.thread35 ], [ %51, %49 ]
   %45 = sext i32 %.0.i.i to i64
   %gep15.i.i = getelementptr [3 x [15 x [6 x %"class.icu_77::UnicodeString"]]], ptr %invariant.gep14.i.i, i64 0, i64 %45
   %46 = getelementptr inbounds nuw i8, ptr %gep15.i.i, i64 8
@@ -4171,13 +4171,13 @@ _ZNK6icu_7725RelativeDateTimeFormatter23checkNoAdjustForContextER10UErrorCode.ex
 20:                                               ; preds = %_ZNK6icu_7725RelativeDateTimeFormatter23checkNoAdjustForContextER10UErrorCode.exit.i
   %21 = load i32, ptr %4, align 4, !noalias !115
   %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.thread34.i, label %23
+  br i1 %22, label %.thread36.i, label %23
 
 23:                                               ; preds = %20
   store i32 7, ptr %4, align 4, !tbaa !13, !noalias !115
-  br label %.thread34.i
+  br label %.thread36.i
 
-.thread34.i:                                      ; preds = %23, %20
+.thread36.i:                                      ; preds = %23, %20
   %.ph.i = phi i32 [ 7, %23 ], [ %21, %20 ]
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_7725FormattedRelativeDateTimeE, i64 16), ptr %6, align 8, !tbaa !15, !alias.scope !115
   br label %_ZNK6icu_7725RelativeDateTimeFormatter15doFormatToValueIMS0_KFvd21URelativeDateTimeUnitRNS_29FormattedRelativeDateTimeDataER10UErrorCodeEJdS2_EEENS_25FormattedRelativeDateTimeET_S6_DpT0_.exit
@@ -4226,9 +4226,9 @@ _ZN6icu_7712LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit.i: ; pred
   %.pn.i = phi { ptr, i32 } [ %27, %_ZN6icu_7712LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit.i ], [ %26, %25 ]
   resume { ptr, i32 } %.pn.i
 
-_ZNK6icu_7725RelativeDateTimeFormatter15doFormatToValueIMS0_KFvd21URelativeDateTimeUnitRNS_29FormattedRelativeDateTimeDataER10UErrorCodeEJdS2_EEENS_25FormattedRelativeDateTimeET_S6_DpT0_.exit: ; preds = %16, %.thread34.i, %.thread32.i, %34
-  %36 = phi i32 [ 16, %16 ], [ %.ph.i, %.thread34.i ], [ 0, %.thread32.i ], [ %.pre.i, %34 ]
-  %37 = phi ptr [ null, %16 ], [ null, %.thread34.i ], [ %17, %.thread32.i ], [ null, %34 ]
+_ZNK6icu_7725RelativeDateTimeFormatter15doFormatToValueIMS0_KFvd21URelativeDateTimeUnitRNS_29FormattedRelativeDateTimeDataER10UErrorCodeEJdS2_EEENS_25FormattedRelativeDateTimeET_S6_DpT0_.exit: ; preds = %16, %.thread36.i, %.thread32.i, %34
+  %36 = phi i32 [ 16, %16 ], [ %.ph.i, %.thread36.i ], [ 0, %.thread32.i ], [ %.pre.i, %34 ]
+  %37 = phi ptr [ null, %16 ], [ null, %.thread36.i ], [ %17, %.thread32.i ], [ null, %34 ]
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   %39 = load ptr, ptr %38, align 8, !tbaa !55
   %40 = icmp eq ptr %39, null
@@ -4392,13 +4392,13 @@ _ZNK6icu_7725RelativeDateTimeFormatter23checkNoAdjustForContextER10UErrorCode.ex
 20:                                               ; preds = %_ZNK6icu_7725RelativeDateTimeFormatter23checkNoAdjustForContextER10UErrorCode.exit.i
   %21 = load i32, ptr %4, align 4, !noalias !118
   %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.thread34.i, label %23
+  br i1 %22, label %.thread36.i, label %23
 
 23:                                               ; preds = %20
   store i32 7, ptr %4, align 4, !tbaa !13, !noalias !118
-  br label %.thread34.i
+  br label %.thread36.i
 
-.thread34.i:                                      ; preds = %23, %20
+.thread36.i:                                      ; preds = %23, %20
   %.ph.i = phi i32 [ 7, %23 ], [ %21, %20 ]
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_7725FormattedRelativeDateTimeE, i64 16), ptr %6, align 8, !tbaa !15, !alias.scope !118
   br label %_ZNK6icu_7725RelativeDateTimeFormatter15doFormatToValueIMS0_KFvd21URelativeDateTimeUnitRNS_29FormattedRelativeDateTimeDataER10UErrorCodeEJdS2_EEENS_25FormattedRelativeDateTimeET_S6_DpT0_.exit
@@ -4447,9 +4447,9 @@ _ZN6icu_7712LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit.i: ; pred
   %.pn.i = phi { ptr, i32 } [ %27, %_ZN6icu_7712LocalPointerINS_29FormattedRelativeDateTimeDataEED2Ev.exit.i ], [ %26, %25 ]
   resume { ptr, i32 } %.pn.i
 
-_ZNK6icu_7725RelativeDateTimeFormatter15doFormatToValueIMS0_KFvd21URelativeDateTimeUnitRNS_29FormattedRelativeDateTimeDataER10UErrorCodeEJdS2_EEENS_25FormattedRelativeDateTimeET_S6_DpT0_.exit: ; preds = %16, %.thread34.i, %.thread32.i, %34
-  %36 = phi i32 [ 16, %16 ], [ %.ph.i, %.thread34.i ], [ 0, %.thread32.i ], [ %.pre.i, %34 ]
-  %37 = phi ptr [ null, %16 ], [ null, %.thread34.i ], [ %17, %.thread32.i ], [ null, %34 ]
+_ZNK6icu_7725RelativeDateTimeFormatter15doFormatToValueIMS0_KFvd21URelativeDateTimeUnitRNS_29FormattedRelativeDateTimeDataER10UErrorCodeEJdS2_EEENS_25FormattedRelativeDateTimeET_S6_DpT0_.exit: ; preds = %16, %.thread36.i, %.thread32.i, %34
+  %36 = phi i32 [ 16, %16 ], [ %.ph.i, %.thread36.i ], [ 0, %.thread32.i ], [ %.pre.i, %34 ]
+  %37 = phi ptr [ null, %16 ], [ null, %.thread36.i ], [ %17, %.thread32.i ], [ null, %34 ]
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   %39 = load ptr, ptr %38, align 8, !tbaa !55
   %40 = icmp eq ptr %39, null
@@ -5359,27 +5359,27 @@ _ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit.i18.i: ; preds =
 _ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.thread.i.i: ; preds = %305, %select.unfold.thread.i.i, %select.unfold.i.i
   %.0.i.ph44.i.i = phi i64 [ %.0.i.ph.i15.i, %select.unfold.i.i ], [ 2, %select.unfold.thread.i.i ], [ %.0.i.ph454851.i.i, %305 ]
   %.pr.i.i = phi i32 [ %283, %select.unfold.i.i ], [ %284, %select.unfold.thread.i.i ], [ %.pr.pr.pre.i.i, %305 ]
-  %switch.tableidx49 = add i32 %.pr.i.i, -1
-  %308 = icmp ult i32 %switch.tableidx49, 14
-  br i1 %308, label %switch.lookup48, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i
+  %switch.tableidx54 = add i32 %.pr.i.i, -1
+  %308 = icmp ult i32 %switch.tableidx54, 14
+  br i1 %308, label %switch.lookup53, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i
 
-switch.lookup48:                                  ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.thread.i.i
-  %309 = zext nneg i32 %switch.tableidx49 to i64
-  %switch.gep50 = getelementptr inbounds nuw [14 x i64], ptr @switch.table._ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode.1, i64 0, i64 %309
-  %switch.load51 = load i64, ptr %switch.gep50, align 8
+switch.lookup53:                                  ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.thread.i.i
+  %309 = zext nneg i32 %switch.tableidx54 to i64
+  %switch.gep55 = getelementptr inbounds nuw [14 x i64], ptr @switch.table._ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode.1, i64 0, i64 %309
+  %switch.load56 = load i64, ptr %switch.gep55, align 8
   %310 = load ptr, ptr %40, align 8, !tbaa !125
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 24
   %312 = load i32, ptr %38, align 4, !tbaa !128
   %313 = zext i32 %312 to i64
   %314 = getelementptr inbounds nuw [3 x [15 x [6 x %"class.icu_77::UnicodeString"]]], ptr %311, i64 0, i64 %313
-  %315 = getelementptr inbounds nuw [15 x [6 x %"class.icu_77::UnicodeString"]], ptr %314, i64 0, i64 %switch.load51
+  %315 = getelementptr inbounds nuw [15 x [6 x %"class.icu_77::UnicodeString"]], ptr %314, i64 0, i64 %switch.load56
   %316 = getelementptr inbounds nuw [6 x %"class.icu_77::UnicodeString"], ptr %315, i64 0, i64 %.0.i.ph44.i.i
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 8
   %318 = load i16, ptr %317, align 8, !tbaa !32
   %319 = icmp ugt i16 %318, 31
   br i1 %319, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i, label %320
 
-320:                                              ; preds = %switch.lookup48
+320:                                              ; preds = %switch.lookup53
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !136
@@ -5426,7 +5426,7 @@ _ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit31.i.i: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %common.resume
 
-_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i: ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.thread.i.i, %331, %switch.lookup48, %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.tail.thread.i.i, %sub_0.i.i, %sub_120.i.i.i, %.tail14.i.i.i, %.tail10.i.i.i, %.tail5.i.i.i, %.tail.i.i.i, %sub_1.i.i.i, %263, %.lr.ph.i.i
+_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink14keyToDirectionEPKc.exit.i.i: ; preds = %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.thread.i.i, %331, %switch.lookup53, %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink18relUnitFromGenericENS1_10RelAbsUnitE.exit.tail.thread.i.i, %sub_0.i.i, %sub_120.i.i.i, %.tail14.i.i.i, %.tail10.i.i.i, %.tail5.i.i.i, %.tail.i.i.i, %sub_1.i.i.i, %263, %.lr.ph.i.i
   %335 = add nuw nsw i32 %.02140.i.i, 1
   %336 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %18, i32 noundef %335, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %.not24.i.i = icmp eq i8 %336, 0
@@ -5457,18 +5457,18 @@ _ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink20consumeTableRelativeEPKcRNS_13
 346:                                              ; preds = %340
   %347 = load i32, ptr %39, align 8, !tbaa !129
   %348 = icmp ult i32 %347, 15
-  br i1 %348, label %switch.lookup52, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink24consumeTableRelativeTimeEPKcRNS_13ResourceValueER10UErrorCode.exit.i
+  br i1 %348, label %switch.lookup57, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink24consumeTableRelativeTimeEPKcRNS_13ResourceValueER10UErrorCode.exit.i
 
-switch.lookup52:                                  ; preds = %346
+switch.lookup57:                                  ; preds = %346
   %349 = zext nneg i32 %347 to i64
-  %switch.gep53 = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode.2, i64 0, i64 %349
-  %switch.load54 = load i64, ptr %switch.gep53, align 8
+  %switch.gep58 = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode.2, i64 0, i64 %349
+  %switch.load59 = load i64, ptr %switch.gep58, align 8
   %350 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %12, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %.not1117.i.i = icmp eq i8 %350, 0
   br i1 %.not1117.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink24consumeTableRelativeTimeEPKcRNS_13ResourceValueER10UErrorCode.exit.i, label %.lr.ph.i20.i
 
-.lr.ph.i20.i:                                     ; preds = %switch.lookup52, %412
-  %.018.i.i = phi i32 [ %413, %412 ], [ 0, %switch.lookup52 ]
+.lr.ph.i20.i:                                     ; preds = %switch.lookup57, %412
+  %.018.i.i = phi i32 [ %413, %412 ], [ 0, %switch.lookup57 ]
   %351 = load ptr, ptr %11, align 8, !tbaa !121
   %352 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %351, ptr noundef nonnull dereferenceable(5) @.str.26) #23
   %353 = icmp eq i32 %352, 0
@@ -5519,7 +5519,7 @@ switch.lookup52:                                  ; preds = %346
   %376 = load i32, ptr %38, align 4, !tbaa !128
   %377 = zext i32 %376 to i64
   %378 = getelementptr inbounds nuw [3 x [15 x [2 x [8 x ptr]]]], ptr %375, i64 0, i64 %377
-  %379 = getelementptr inbounds nuw [15 x [2 x [8 x ptr]]], ptr %378, i64 0, i64 %switch.load54
+  %379 = getelementptr inbounds nuw [15 x [2 x [8 x ptr]]], ptr %378, i64 0, i64 %switch.load59
   %380 = load i32, ptr %41, align 8, !tbaa !140
   %381 = sext i32 %380 to i64
   %382 = getelementptr inbounds [2 x [8 x ptr]], ptr %379, i64 0, i64 %381
@@ -5624,7 +5624,7 @@ _ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink17consumeTimeDetailEiPKcRNS_13Re
   %.not11.i.i = icmp eq i8 %414, 0
   br i1 %.not11.i.i, label %_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink24consumeTableRelativeTimeEPKcRNS_13ResourceValueER10UErrorCode.exit.i, label %.lr.ph.i20.i, !llvm.loop !145
 
-_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink24consumeTableRelativeTimeEPKcRNS_13ResourceValueER10UErrorCode.exit.i: ; preds = %412, %346, %switch.lookup52, %340
+_ZN6icu_7712_GLOBAL__N_122RelDateTimeFmtDataSink24consumeTableRelativeTimeEPKcRNS_13ResourceValueER10UErrorCode.exit.i: ; preds = %412, %346, %switch.lookup57, %340
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %415

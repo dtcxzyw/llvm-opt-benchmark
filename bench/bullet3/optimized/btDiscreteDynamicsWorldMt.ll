@@ -295,139 +295,134 @@ define dso_local void @_ZN24btConstraintSolverPoolMtC2Ei(ptr noundef nonnull ali
   store i32 %1, ptr %11, align 8, !tbaa !41
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %39, %2
-  %17 = phi ptr [ null, %2 ], [ %40, %39 ]
+._crit_edge:                                      ; preds = %38, %2
+  %17 = phi ptr [ null, %2 ], [ %39, %38 ]
   invoke void @_ZN24btConstraintSolverPoolMt4initEPP18btConstraintSolveri(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull %17, i32 noundef %1)
-          to label %54 unwind label %18
+          to label %53 unwind label %18
 
 18:                                               ; preds = %13, %._crit_edge
   %19 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN35btSequentialImpulseConstraintSolverdlEPv.exit
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %39
-  %20 = phi ptr [ %40, %39 ], [ %16, %.lr.ph.preheader ]
-  %21 = phi i32 [ %41, %39 ], [ %1, %.lr.ph.preheader ]
-  %.pre.i = phi i32 [ %45, %39 ], [ 0, %.lr.ph.preheader ]
-  %.023 = phi i32 [ %46, %39 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %38
+  %20 = phi ptr [ %39, %38 ], [ %16, %.lr.ph.preheader ]
+  %21 = phi i32 [ %40, %38 ], [ %1, %.lr.ph.preheader ]
+  %.pre.i = phi i32 [ %44, %38 ], [ 0, %.lr.ph.preheader ]
+  %.023 = phi i32 [ %45, %38 ], [ 0, %.lr.ph.preheader ]
   %22 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 408, i32 noundef 16)
-          to label %_ZN35btSequentialImpulseConstraintSolvernwEm.exit unwind label %47
+          to label %_ZN35btSequentialImpulseConstraintSolvernwEm.exit unwind label %46
 
 _ZN35btSequentialImpulseConstraintSolvernwEm.exit: ; preds = %.lr.ph
   invoke void @_ZN35btSequentialImpulseConstraintSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(408) %22)
-          to label %23 unwind label %49
+          to label %23 unwind label %48
 
 23:                                               ; preds = %_ZN35btSequentialImpulseConstraintSolvernwEm.exit
   %24 = icmp eq i32 %.pre.i, %21
-  br i1 %24, label %25, label %39
+  br i1 %24, label %25, label %38
 
 25:                                               ; preds = %23
   %.not.i.i19 = icmp eq i32 %21, 0
-  %26 = shl nsw i32 %21, 1
+  %26 = shl nuw nsw i32 %21, 1
   %27 = select i1 %.not.i.i19, i32 1, i32 %26
   %28 = icmp slt i32 %21, %27
-  br i1 %28, label %29, label %39
+  br i1 %28, label %29, label %38
 
 29:                                               ; preds = %25
-  %.not.i.i.i = icmp eq i32 %27, 0
-  br i1 %.not.i.i.i, label %_ZN20btAlignedObjectArrayIP18btConstraintSolverE8allocateEi.exit.i.i, label %30
+  %30 = zext nneg i32 %27 to i64
+  %31 = shl nuw nsw i64 %30, 3
+  %32 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %31, i32 noundef 16)
+          to label %_ZN20btAlignedObjectArrayIP18btConstraintSolverE8allocateEi.exit.i.i unwind label %46
 
-30:                                               ; preds = %29
-  %31 = sext i32 %27 to i64
-  %32 = shl nsw i64 %31, 3
-  %33 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %32, i32 noundef 16)
-          to label %_ZN20btAlignedObjectArrayIP18btConstraintSolverE8allocateEi.exit.i.i unwind label %47
-
-_ZN20btAlignedObjectArrayIP18btConstraintSolverE8allocateEi.exit.i.i: ; preds = %30, %29
-  %.0.i.i.i = phi ptr [ null, %29 ], [ %33, %30 ]
-  %34 = icmp sgt i32 %21, 0
-  br i1 %34, label %.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIP18btConstraintSolverE4copyEiiPS1_.exit.i.i
+_ZN20btAlignedObjectArrayIP18btConstraintSolverE8allocateEi.exit.i.i: ; preds = %29
+  %33 = icmp sgt i32 %21, 0
+  br i1 %33, label %.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIP18btConstraintSolverE4copyEiiPS1_.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN20btAlignedObjectArrayIP18btConstraintSolverE8allocateEi.exit.i.i
   %wide.trip.count.i.i.i = zext nneg i32 %21 to i64
-  br label %35
+  br label %34
 
-35:                                               ; preds = %35, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %35 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %37 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i.i.i
-  %38 = load ptr, ptr %37, align 8, !tbaa !20
-  store ptr %38, ptr %36, align 8, !tbaa !20
+34:                                               ; preds = %34, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %34 ]
+  %35 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i.i.i
+  %36 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i.i.i
+  %37 = load ptr, ptr %36, align 8, !tbaa !20
+  store ptr %37, ptr %35, align 8, !tbaa !20
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIP18btConstraintSolverE4copyEiiPS1_.exit.thread.i.i, label %35, !llvm.loop !42
+  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIP18btConstraintSolverE4copyEiiPS1_.exit.thread.i.i, label %34, !llvm.loop !42
 
 _ZNK20btAlignedObjectArrayIP18btConstraintSolverE4copyEiiPS1_.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayIP18btConstraintSolverE8allocateEi.exit.i.i
   %.not.i5.i.i.not = icmp eq ptr %20, null
   br i1 %.not.i5.i.i.not, label %_ZN20btAlignedObjectArrayIP18btConstraintSolverE10deallocateEv.exit.i.i, label %_ZNK20btAlignedObjectArrayIP18btConstraintSolverE4copyEiiPS1_.exit.thread.i.i
 
-_ZNK20btAlignedObjectArrayIP18btConstraintSolverE4copyEiiPS1_.exit.thread.i.i: ; preds = %35, %_ZNK20btAlignedObjectArrayIP18btConstraintSolverE4copyEiiPS1_.exit.i.i
+_ZNK20btAlignedObjectArrayIP18btConstraintSolverE4copyEiiPS1_.exit.thread.i.i: ; preds = %34, %_ZNK20btAlignedObjectArrayIP18btConstraintSolverE4copyEiiPS1_.exit.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %20)
-          to label %.noexc21 unwind label %47
+          to label %.noexc21 unwind label %46
 
 .noexc21:                                         ; preds = %_ZNK20btAlignedObjectArrayIP18btConstraintSolverE4copyEiiPS1_.exit.thread.i.i
   %.pre2.pre.pre.i = load i32, ptr %10, align 4, !tbaa !40
   br label %_ZN20btAlignedObjectArrayIP18btConstraintSolverE10deallocateEv.exit.i.i
 
 _ZN20btAlignedObjectArrayIP18btConstraintSolverE10deallocateEv.exit.i.i: ; preds = %.noexc21, %_ZNK20btAlignedObjectArrayIP18btConstraintSolverE4copyEiiPS1_.exit.i.i
-  %.pre2.i = phi i32 [ %21, %_ZNK20btAlignedObjectArrayIP18btConstraintSolverE4copyEiiPS1_.exit.i.i ], [ %.pre2.pre.pre.i, %.noexc21 ]
+  %.pre2.i = phi i32 [ 0, %_ZNK20btAlignedObjectArrayIP18btConstraintSolverE4copyEiiPS1_.exit.i.i ], [ %.pre2.pre.pre.i, %.noexc21 ]
   store i8 1, ptr %8, align 8, !tbaa !35
-  store ptr %.0.i.i.i, ptr %9, align 8, !tbaa !39
+  store ptr %32, ptr %9, align 8, !tbaa !39
   store i32 %27, ptr %11, align 8, !tbaa !41
-  br label %39
+  br label %38
 
-39:                                               ; preds = %_ZN20btAlignedObjectArrayIP18btConstraintSolverE10deallocateEv.exit.i.i, %25, %23
-  %40 = phi ptr [ %.0.i.i.i, %_ZN20btAlignedObjectArrayIP18btConstraintSolverE10deallocateEv.exit.i.i ], [ %20, %25 ], [ %20, %23 ]
-  %41 = phi i32 [ %27, %_ZN20btAlignedObjectArrayIP18btConstraintSolverE10deallocateEv.exit.i.i ], [ %21, %25 ], [ %21, %23 ]
-  %42 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIP18btConstraintSolverE10deallocateEv.exit.i.i ], [ %21, %25 ], [ %.pre.i, %23 ]
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds ptr, ptr %40, i64 %43
-  store ptr %22, ptr %44, align 8, !tbaa !20
-  %45 = add nsw i32 %42, 1
-  store i32 %45, ptr %10, align 4, !tbaa !40
-  %46 = add nuw nsw i32 %.023, 1
-  %exitcond.not = icmp eq i32 %46, %1
+38:                                               ; preds = %_ZN20btAlignedObjectArrayIP18btConstraintSolverE10deallocateEv.exit.i.i, %25, %23
+  %39 = phi ptr [ %32, %_ZN20btAlignedObjectArrayIP18btConstraintSolverE10deallocateEv.exit.i.i ], [ %20, %25 ], [ %20, %23 ]
+  %40 = phi i32 [ %27, %_ZN20btAlignedObjectArrayIP18btConstraintSolverE10deallocateEv.exit.i.i ], [ %21, %25 ], [ %21, %23 ]
+  %41 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIP18btConstraintSolverE10deallocateEv.exit.i.i ], [ %21, %25 ], [ %.pre.i, %23 ]
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds ptr, ptr %39, i64 %42
+  store ptr %22, ptr %43, align 8, !tbaa !20
+  %44 = add nsw i32 %41, 1
+  store i32 %44, ptr %10, align 4, !tbaa !40
+  %45 = add nuw nsw i32 %.023, 1
+  %exitcond.not = icmp eq i32 %45, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
-47:                                               ; preds = %_ZNK20btAlignedObjectArrayIP18btConstraintSolverE4copyEiiPS1_.exit.thread.i.i, %30, %.lr.ph
-  %48 = landingpad { ptr, i32 }
+46:                                               ; preds = %_ZNK20btAlignedObjectArrayIP18btConstraintSolverE4copyEiiPS1_.exit.thread.i.i, %29, %.lr.ph
+  %47 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN35btSequentialImpulseConstraintSolverdlEPv.exit
 
-49:                                               ; preds = %_ZN35btSequentialImpulseConstraintSolvernwEm.exit
-  %50 = landingpad { ptr, i32 }
+48:                                               ; preds = %_ZN35btSequentialImpulseConstraintSolvernwEm.exit
+  %49 = landingpad { ptr, i32 }
           cleanup
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %22)
-          to label %_ZN35btSequentialImpulseConstraintSolverdlEPv.exit unwind label %51
+          to label %_ZN35btSequentialImpulseConstraintSolverdlEPv.exit unwind label %50
 
-51:                                               ; preds = %49
-  %52 = landingpad { ptr, i32 }
+50:                                               ; preds = %48
+  %51 = landingpad { ptr, i32 }
           catch ptr null
-  %53 = extractvalue { ptr, i32 } %52, 0
-  tail call void @__clang_call_terminate(ptr %53) #11
+  %52 = extractvalue { ptr, i32 } %51, 0
+  tail call void @__clang_call_terminate(ptr %52) #11
   unreachable
 
-54:                                               ; preds = %._crit_edge
+53:                                               ; preds = %._crit_edge
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %17)
-          to label %_ZN20btAlignedObjectArrayIP18btConstraintSolverED2Ev.exit unwind label %55
+          to label %_ZN20btAlignedObjectArrayIP18btConstraintSolverED2Ev.exit unwind label %54
 
-55:                                               ; preds = %54
-  %56 = landingpad { ptr, i32 }
+54:                                               ; preds = %53
+  %55 = landingpad { ptr, i32 }
           catch ptr null
-  %57 = extractvalue { ptr, i32 } %56, 0
-  tail call void @__clang_call_terminate(ptr %57) #11
+  %56 = extractvalue { ptr, i32 } %55, 0
+  tail call void @__clang_call_terminate(ptr %56) #11
   unreachable
 
-_ZN20btAlignedObjectArrayIP18btConstraintSolverED2Ev.exit: ; preds = %54
+_ZN20btAlignedObjectArrayIP18btConstraintSolverED2Ev.exit: ; preds = %53
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-_ZN35btSequentialImpulseConstraintSolverdlEPv.exit: ; preds = %47, %49, %18
-  %.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %48, %47 ], [ %50, %49 ]
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+_ZN35btSequentialImpulseConstraintSolverdlEPv.exit: ; preds = %46, %48, %18
+  %.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %47, %46 ], [ %49, %48 ]
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN20btAlignedObjectArrayIP18btConstraintSolverED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %58) #12
+  call void @_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %57) #12
   resume { ptr, i32 } %.pn.pn
 }
 

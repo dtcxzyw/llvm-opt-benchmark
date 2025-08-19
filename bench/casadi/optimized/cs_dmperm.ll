@@ -108,8 +108,8 @@ define ptr @cs_dmperm(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 .loopexit.i:                                      ; preds = %79, %.lr.ph62.i
   %.3.lcssa.i = phi i32 [ %.260.i, %.lr.ph62.i ], [ %.4.i, %79 ]
-  %51 = sext i32 %.3.lcssa.i to i64
-  %52 = icmp slt i64 %indvars.iv.next69.i, %51
+  %51 = zext nneg i32 %.3.lcssa.i to i64
+  %52 = icmp samesign ult i64 %indvars.iv.next69.i, %51
   br i1 %52, label %.lr.ph62.i, label %cs_bfs.exit, !llvm.loop !23
 
 .lr.ph62.i:                                       ; preds = %45, %.loopexit.i
@@ -153,9 +153,9 @@ define ptr @cs_dmperm(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 75:                                               ; preds = %68
   store i32 1, ptr %72, align 4, !tbaa !18
-  %76 = add nsw i32 %.355.i, 1
-  %77 = sext i32 %.355.i to i64
-  %78 = getelementptr inbounds i32, ptr %16, i64 %77
+  %76 = add nuw nsw i32 %.355.i, 1
+  %77 = zext nneg i32 %.355.i to i64
+  %78 = getelementptr inbounds nuw i32, ptr %16, i64 %77
   store i32 %70, ptr %78, align 4, !tbaa !18
   br label %79
 
@@ -217,8 +217,8 @@ cs_bfs.exit:                                      ; preds = %.loopexit.i, %45, %
 
 .loopexit.i240:                                   ; preds = %129, %.lr.ph62.i236
   %.3.lcssa.i241 = phi i32 [ %.260.i238, %.lr.ph62.i236 ], [ %.4.i246, %129 ]
-  %101 = sext i32 %.3.lcssa.i241 to i64
-  %102 = icmp slt i64 %indvars.iv.next69.i239, %101
+  %101 = zext nneg i32 %.3.lcssa.i241 to i64
+  %102 = icmp samesign ult i64 %indvars.iv.next69.i239, %101
   br i1 %102, label %.lr.ph62.i236, label %._crit_edge63.i235, !llvm.loop !23
 
 .lr.ph62.i236:                                    ; preds = %.thread.i, %.loopexit.i240
@@ -262,9 +262,9 @@ cs_bfs.exit:                                      ; preds = %.loopexit.i, %45, %
 
 125:                                              ; preds = %118
   store i32 3, ptr %122, align 4, !tbaa !18
-  %126 = add nsw i32 %.355.i245, 1
-  %127 = sext i32 %.355.i245 to i64
-  %128 = getelementptr inbounds i32, ptr %14, i64 %127
+  %126 = add nuw nsw i32 %.355.i245, 1
+  %127 = zext nneg i32 %.355.i245 to i64
+  %128 = getelementptr inbounds nuw i32, ptr %14, i64 %127
   store i32 %120, ptr %128, align 4, !tbaa !18
   br label %129
 
@@ -506,8 +506,8 @@ cs_unmatched.exit307:                             ; preds = %207, %cs_matched.ex
   %225 = sub i32 %222, %224
   %226 = icmp slt i32 %224, 1
   %.not224328 = icmp sgt i32 %224, %222
-  %or.cond383 = select i1 %226, i1 true, i1 %.not224328
-  br i1 %or.cond383, label %.loopexit322, label %.lr.ph330.preheader
+  %or.cond403 = select i1 %226, i1 true, i1 %.not224328
+  br i1 %or.cond403, label %.loopexit322, label %.lr.ph330.preheader
 
 .lr.ph330.preheader:                              ; preds = %218
   %227 = zext nneg i32 %224 to i64

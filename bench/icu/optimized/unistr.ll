@@ -4188,8 +4188,8 @@ define noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnu
   %.phi.trans.insert58 = getelementptr inbounds i16, ptr %17, i64 %.phi.trans.insert
   %.pre = load i16, ptr %.phi.trans.insert58, align 2, !tbaa !10
   %.not.us = icmp eq i16 %.pre, 0
-  %or.cond62 = select i1 %20, i1 %.not.us, i1 false
-  br i1 %or.cond62, label %.critedge, label %.critedge2.us
+  %or.cond65 = select i1 %20, i1 %.not.us, i1 false
+  br i1 %or.cond65, label %.critedge, label %.critedge2.us
 
 .critedge2.us:                                    ; preds = %.preheader.split.us
   %21 = add nsw i32 %.151.us, 1
@@ -4363,8 +4363,8 @@ define noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorC
   %.not = icmp ne i32 %2, 0
   %.pre22.pre = load ptr, ptr %1, align 8, !tbaa !30
   %20 = icmp eq ptr %.pre22.pre, null
-  %or.cond23 = select i1 %.not, i1 %20, i1 false
-  br i1 %or.cond23, label %21, label %22
+  %or.cond26 = select i1 %.not, i1 %20, i1 false
+  br i1 %or.cond26, label %21, label %22
 
 21:                                               ; preds = %19, %15
   store i32 1, ptr %3, align 4, !tbaa !23
@@ -4381,8 +4381,8 @@ define noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorC
   %.not19 = icmp sgt i32 %12, %2
   %or.cond21 = or i1 %28, %.not19
   %.not20 = icmp eq ptr %27, %.pre22.pre
-  %or.cond24 = select i1 %or.cond21, i1 true, i1 %.not20
-  br i1 %or.cond24, label %31, label %29
+  %or.cond27 = select i1 %or.cond21, i1 true, i1 %.not20
+  br i1 %or.cond27, label %31, label %29
 
 29:                                               ; preds = %22
   %30 = tail call ptr @u_memcpy_77(ptr noundef %.pre22.pre, ptr noundef %27, i32 noundef %12)
@@ -4769,15 +4769,15 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %15, %27, %29
   %.0.i = phi ptr [ %28, %27 ], [ %31, %29 ], [ null, %15 ]
   %32 = call ptr @u_strToUTF8WithSub_77(ptr noundef %21, i32 noundef %22, ptr noundef nonnull %5, ptr noundef %.0.i, i32 noundef %14, i32 noundef 65533, ptr noundef null, ptr noundef nonnull %6)
   %33 = load i32, ptr %6, align 4, !tbaa !23
-  %.not33 = icmp eq i32 %33, 15
-  br i1 %.not33, label %34, label %50
+  %.not36 = icmp eq i32 %33, 15
+  br i1 %.not36, label %34, label %50
 
 34:                                               ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit
   %35 = load i32, ptr %5, align 4, !tbaa !8
   %36 = sext i32 %35 to i64
   %37 = call noalias ptr @uprv_malloc_77(i64 noundef %36) #26
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.thread29, label %38
+  br i1 %.not18, label %.thread32, label %38
 
 38:                                               ; preds = %34
   store i32 0, ptr %6, align 4, !tbaa !23
@@ -4823,23 +4823,23 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit24:    ; preds = %38, %44, %46
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %60 = load ptr, ptr %59, align 8
   call void %60(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br i1 %.not33, label %62, label %.thread29
+  br i1 %.not36, label %62, label %.thread32
 
 61:                                               ; preds = %50
-  br i1 %.not33, label %62, label %.thread29
+  br i1 %.not36, label %62, label %.thread32
 
 62:                                               ; preds = %53, %61
   call void @uprv_free_77(ptr noundef %.0)
-  br label %.thread29
+  br label %.thread32
 
-.thread29:                                        ; preds = %34, %53, %62, %61
+.thread32:                                        ; preds = %34, %53, %62, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %63
 
-63:                                               ; preds = %.thread29, %2
+63:                                               ; preds = %.thread32, %2
   ret void
 }
 
@@ -5452,14 +5452,14 @@ define noundef ptr @_ZN6icu_7713UnicodeString19getTerminatedBufferEv(ptr noundef
   br label %.sink.split
 
 .sink.split:                                      ; preds = %28, %31, %38
-  %.sink22 = phi ptr [ %42, %38 ], [ %10, %31 ], [ %10, %28 ]
+  %.sink23 = phi ptr [ %42, %38 ], [ %10, %31 ], [ %10, %28 ]
   %43 = sext i32 %16 to i64
-  %44 = getelementptr inbounds i16, ptr %.sink22, i64 %43
+  %44 = getelementptr inbounds i16, ptr %.sink23, i64 %43
   store i16 0, ptr %44, align 2, !tbaa !10
   br label %45
 
 45:                                               ; preds = %.sink.split, %23, %.thread, %35, %1
-  %.0 = phi ptr [ null, %1 ], [ %10, %23 ], [ null, %.thread ], [ null, %35 ], [ %.sink22, %.sink.split ]
+  %.0 = phi ptr [ null, %1 ], [ %10, %23 ], [ null, %.thread ], [ null, %35 ], [ %.sink23, %.sink.split ]
   ret ptr %.0
 }
 
@@ -6013,14 +6013,14 @@ _ZL12us_arrayCopyPKDsiPDsii.exit:                 ; preds = %150, %152
   br i1 %162, label %_ZL12us_arrayCopyPKDsiPDsii.exit93.sink.split, label %_ZL12us_arrayCopyPKDsiPDsii.exit93
 
 _ZL12us_arrayCopyPKDsiPDsii.exit93.sink.split:    ; preds = %159, %_ZL12us_arrayCopyPKDsiPDsii.exit
-  %.sink143 = phi i32 [ %155, %_ZL12us_arrayCopyPKDsiPDsii.exit ], [ %160, %159 ]
-  %.sink141 = phi i32 [ %156, %_ZL12us_arrayCopyPKDsiPDsii.exit ], [ %161, %159 ]
+  %.sink156 = phi i32 [ %155, %_ZL12us_arrayCopyPKDsiPDsii.exit ], [ %160, %159 ]
+  %.sink154 = phi i32 [ %156, %_ZL12us_arrayCopyPKDsiPDsii.exit ], [ %161, %159 ]
   %163 = add nsw i32 %.2, %.055
   %164 = sext i32 %163 to i64
   %165 = getelementptr inbounds i16, ptr %149, i64 %164
-  %166 = sext i32 %.sink143 to i64
+  %166 = sext i32 %.sink156 to i64
   %167 = getelementptr inbounds i16, ptr %.056, i64 %166
-  %168 = shl nuw i32 %.sink141, 1
+  %168 = shl nuw i32 %.sink154, 1
   %169 = zext i32 %168 to i64
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %165, ptr noundef nonnull readonly align 2 dereferenceable(1) %167, i64 %169, i1 false)
   br label %_ZL12us_arrayCopyPKDsiPDsii.exit93

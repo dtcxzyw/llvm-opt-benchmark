@@ -878,7 +878,7 @@ get_protocol_config.exit.thread:                  ; preds = %45, %43, %41, %39
 get_protocol_config.exit:                         ; preds = %parse_protocol_config.exit.i, %parse_protocol_config.exit22.i, %47
   %.0.i = phi i32 [ %.0.i21.i, %parse_protocol_config.exit22.i ], [ %.0.i.i, %parse_protocol_config.exit.i ], [ %..i, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  switch i32 %.0.i, label %default.unreachable11 [
+  switch i32 %.0.i, label %default.unreachable14 [
     i32 2, label %54
     i32 0, label %49
     i32 1, label %50
@@ -895,7 +895,7 @@ get_protocol_config.exit:                         ; preds = %parse_protocol_conf
   %53 = call i32 @git_env_bool(ptr noundef nonnull @.str.4, i32 noundef 1) #21
   br label %54
 
-default.unreachable11:                            ; preds = %get_protocol_config.exit
+default.unreachable14:                            ; preds = %get_protocol_config.exit
   unreachable
 
 54:                                               ; preds = %get_protocol_config.exit.thread, %50, %52, %get_protocol_config.exit, %49, %12

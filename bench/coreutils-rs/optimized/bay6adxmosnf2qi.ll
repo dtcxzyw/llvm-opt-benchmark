@@ -1049,8 +1049,8 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hd033c5b97f9f6
   %14 = trunc i32 %1 to i8
   %15 = and i8 %14, 63
   %16 = or disjoint i8 %15, -128
-  %.sroa.0.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %16, ptr %.sroa.0.1..sroa_idx11, align 1, !alias.scope !185
+  %.sroa.0.1..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %16, ptr %.sroa.0.1..sroa_idx12, align 1, !alias.scope !185
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
 
 17:                                               ; preds = %6
@@ -1062,13 +1062,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hd033c5b97f9f6
   %22 = trunc i32 %21 to i8
   %23 = and i8 %22, 63
   %24 = or disjoint i8 %23, -128
-  %.sroa.0.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %24, ptr %.sroa.0.1..sroa_idx10, align 1, !alias.scope !185
+  %.sroa.0.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %24, ptr %.sroa.0.1..sroa_idx11, align 1, !alias.scope !185
   %25 = trunc i32 %1 to i8
   %26 = and i8 %25, 63
   %27 = or disjoint i8 %26, -128
-  %.sroa.0.2..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
-  store i8 %27, ptr %.sroa.0.2..sroa_idx12, align 2, !alias.scope !185
+  %.sroa.0.2..sroa_idx13 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
+  store i8 %27, ptr %.sroa.0.2..sroa_idx13, align 2, !alias.scope !185
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
 
 28:                                               ; preds = %6

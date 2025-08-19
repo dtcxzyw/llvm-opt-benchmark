@@ -234,10 +234,10 @@ async_release_job.exit68:                         ; preds = %57, %58
   br label %async_ctx_new.exit.thread
 
 .backedge:                                        ; preds = %48, %125
-  %.sink118 = phi ptr [ %129, %125 ], [ %51, %48 ]
+  %.sink134 = phi ptr [ %129, %125 ], [ %51, %48 ]
   %63 = load ptr, ptr %24, align 8, !tbaa !3
   tail call fastcc void @async_fibre_swapcontext(ptr noundef nonnull %.0, ptr noundef %63)
-  %64 = tail call ptr @OSSL_LIB_CTX_set0_default(ptr noundef %.sink118) #8
+  %64 = tail call ptr @OSSL_LIB_CTX_set0_default(ptr noundef %.sink134) #8
   %65 = load ptr, ptr %24, align 8, !tbaa !3
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 1208
   store ptr %64, ptr %66, align 8, !tbaa !35
@@ -580,12 +580,12 @@ async_job_free.exit:                              ; preds = %22
   br i1 %cond.i, label %async_empty_pool.exit, label %.split.i, !llvm.loop !38
 
 .split.i:                                         ; preds = %.split5.i, %.split.i
-  %.sink14.i = phi ptr [ %39, %.split.i ], [ %35, %.split5.i ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sink14.i, i64 1184
+  %.sink16.i = phi ptr [ %39, %.split.i ], [ %35, %.split5.i ]
+  %36 = getelementptr inbounds nuw i8, ptr %.sink16.i, i64 1184
   %37 = load ptr, ptr %36, align 8, !tbaa !24
   tail call void @CRYPTO_free(ptr noundef %37, ptr noundef nonnull @.str, i32 noundef 94) #8
-  tail call void @async_fibre_free(ptr noundef nonnull %.sink14.i) #8
-  tail call void @CRYPTO_free(ptr noundef nonnull %.sink14.i, ptr noundef nonnull @.str, i32 noundef 96) #8
+  tail call void @async_fibre_free(ptr noundef nonnull %.sink16.i) #8
+  tail call void @CRYPTO_free(ptr noundef nonnull %.sink16.i, ptr noundef nonnull @.str, i32 noundef 96) #8
   %38 = load ptr, ptr %10, align 8, !tbaa !32
   %39 = tail call ptr @OPENSSL_sk_pop(ptr noundef %38) #8
   %cond10.i = icmp eq ptr %39, null
@@ -621,12 +621,12 @@ define internal void @async_delete_thread_state(ptr readnone captures(none) %0) 
   br i1 %cond.i, label %async_empty_pool.exit, label %.split.i, !llvm.loop !38
 
 .split.i:                                         ; preds = %.split5.i, %.split.i
-  %.sink14.i = phi ptr [ %10, %.split.i ], [ %6, %.split5.i ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sink14.i, i64 1184
+  %.sink16.i = phi ptr [ %10, %.split.i ], [ %6, %.split5.i ]
+  %7 = getelementptr inbounds nuw i8, ptr %.sink16.i, i64 1184
   %8 = load ptr, ptr %7, align 8, !tbaa !24
   tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 94) #8
-  tail call void @async_fibre_free(ptr noundef nonnull %.sink14.i) #8
-  tail call void @CRYPTO_free(ptr noundef nonnull %.sink14.i, ptr noundef nonnull @.str, i32 noundef 96) #8
+  tail call void @async_fibre_free(ptr noundef nonnull %.sink16.i) #8
+  tail call void @CRYPTO_free(ptr noundef nonnull %.sink16.i, ptr noundef nonnull @.str, i32 noundef 96) #8
   %9 = load ptr, ptr %2, align 8, !tbaa !32
   %10 = tail call ptr @OPENSSL_sk_pop(ptr noundef %9) #8
   %cond10.i = icmp eq ptr %10, null

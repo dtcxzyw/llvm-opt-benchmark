@@ -2307,10 +2307,10 @@ _Py_NewRef.exit88:                                ; preds = %40, %43
   br i1 %48, label %Py_DECREF.exit78.thread.sink.split, label %Py_DECREF.exit78.thread
 
 Py_DECREF.exit78.thread.sink.split:               ; preds = %46, %36
-  %.054.lcssa131.sink = phi ptr [ %.054, %36 ], [ %10, %46 ]
+  %.054.lcssa150.sink = phi ptr [ %.054, %36 ], [ %10, %46 ]
   %.056.ph = phi ptr [ %10, %36 ], [ %.054.val85, %46 ]
   %.155.ph = phi ptr [ %33, %36 ], [ %.054, %46 ]
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.054.lcssa131.sink) #17
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.054.lcssa150.sink) #17
   br label %Py_DECREF.exit78.thread
 
 Py_DECREF.exit78.thread:                          ; preds = %22, %_Py_NewRef.exit, %Py_DECREF.exit78.thread.sink.split, %34, %36, %46, %_Py_NewRef.exit88, %39
@@ -5856,8 +5856,8 @@ _PyErr_Clear.exit136:                             ; preds = %141, %138, %136, %1
   br i1 %152, label %Py_DECREF.exit98.sink.split, label %Py_DECREF.exit98
 
 Py_DECREF.exit98.sink.split:                      ; preds = %150, %143
-  %.sink157 = phi ptr [ %131, %143 ], [ %147, %150 ]
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.sink157) #17
+  %.sink208 = phi ptr [ %131, %143 ], [ %147, %150 ]
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.sink208) #17
   br label %Py_DECREF.exit98
 
 Py_DECREF.exit98:                                 ; preds = %Py_DECREF.exit98.sink.split, %150, %148, %146, %143, %_PyErr_Clear.exit136, %Py_XDECREF.exit130
@@ -5953,8 +5953,8 @@ _PyErr_Clear.exit145:                             ; preds = %177, %174, %172, %1
   br i1 %188, label %_PyErr_Clear.exit142.sink.split, label %_PyErr_Clear.exit142
 
 _PyErr_Clear.exit142.sink.split:                  ; preds = %186, %179, %162
-  %.sink158 = phi ptr [ %159, %162 ], [ %167, %179 ], [ %183, %186 ]
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.sink158) #17
+  %.sink209 = phi ptr [ %159, %162 ], [ %167, %179 ], [ %183, %186 ]
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.sink209) #17
   br label %_PyErr_Clear.exit142
 
 _PyErr_Clear.exit142:                             ; preds = %_PyErr_Clear.exit142.sink.split, %186, %184, %182, %179, %_PyErr_Clear.exit145, %162, %160, %158, %165
@@ -6010,8 +6010,8 @@ _PyErr_Clear.exit151.thread:                      ; preds = %203, %201, %193, %1
   br label %_PyErr_SetRaisedException.exit
 
 _PyErr_Clear.exit151.sink.split:                  ; preds = %205, %195
-  %.sink159 = phi ptr [ %192, %195 ], [ %202, %205 ]
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.sink159) #17
+  %.sink210 = phi ptr [ %192, %195 ], [ %202, %205 ]
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.sink210) #17
   br label %_PyErr_Clear.exit151
 
 _PyErr_Clear.exit151:                             ; preds = %_PyErr_Clear.exit151.sink.split, %205, %195, %199, %198, %Py_DECREF.exit98

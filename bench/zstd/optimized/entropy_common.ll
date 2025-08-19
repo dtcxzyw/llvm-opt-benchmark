@@ -223,7 +223,7 @@ define i64 @FSE_readNCount_bmi2(ptr noundef writeonly captures(none) %0, ptr nou
   %.7151.i.i = add nuw nsw i32 %.pn.i.i, %.1145.i.i
   %87 = add nsw i32 %.0.i.i, -1
   %88 = icmp sgt i32 %.0.i.i, 0
-  %89 = sub i32 1, %.0.i.i
+  %89 = sub nsw i32 1, %.0.i.i
   %.2163.i.i.p = select i1 %88, i32 %89, i32 %87
   %.2163.i.i = add i32 %.2163.i.i.p, %.0161.i.i
   %90 = trunc i32 %87 to i16
@@ -490,7 +490,7 @@ define internal fastcc i64 @FSE_readNCount_body_bmi2(ptr noundef writeonly captu
   %.7151.i = add nuw nsw i32 %.pn.i, %.1145.i
   %83 = add nsw i32 %.0.i, -1
   %84 = icmp sgt i32 %.0.i, 0
-  %85 = sub i32 1, %.0.i
+  %85 = sub nsw i32 1, %.0.i
   %.2163.i.p = select i1 %84, i32 %85, i32 %83
   %.2163.i = add i32 %.2163.i.p, %.0161.i
   %86 = trunc i32 %83 to i16
@@ -591,7 +591,7 @@ define i64 @FSE_readNCount(ptr noundef writeonly captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 1, 0) i64 @HUF_readStats(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #1 {
+define range(i64 -119, -9223372036854775808) i64 @HUF_readStats(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #1 {
   %8 = alloca [219 x i32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef nonnull %8, i64 noundef 876, i32 noundef 0)
@@ -600,7 +600,7 @@ define range(i64 1, 0) i64 @HUF_readStats(ptr noundef %0, i64 noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 1, 0) i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, i32 noundef %9) local_unnamed_addr #1 {
+define range(i64 -119, -9223372036854775808) i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, i32 noundef %9) local_unnamed_addr #1 {
   %11 = and i32 %9, 1
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %14, label %12
@@ -750,7 +750,7 @@ HUF_readStats_body_default.exit:                  ; preds = %.lr.ph13.i, %80, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 1, 0) i64 @HUF_readStats_body_bmi2(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8) unnamed_addr #4 {
+define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats_body_bmi2(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8) unnamed_addr #4 {
   %.not.i = icmp eq i64 %6, 0
   br i1 %.not.i, label %HUF_readStats_body.exit, label %10
 

@@ -87,16 +87,16 @@ define dso_local noundef ptr @_ZN4llvm19PeelSingleBlockLoopENS_17LoopPeelDirecti
   br label %35
 
 35:                                               ; preds = %28, %.preheader.i.i.i.preheader
-  %.sink366 = phi ptr [ %34, %.preheader.i.i.i.preheader ], [ %1, %28 ]
+  %.sink400 = phi ptr [ %34, %.preheader.i.i.i.preheader ], [ %1, %28 ]
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 320
   tail call void @_ZN4llvm21ilist_callback_traitsINS_17MachineBasicBlockEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef %31) #7
-  %37 = load ptr, ptr %.sink366, align 8, !tbaa !64
+  %37 = load ptr, ptr %.sink400, align 8, !tbaa !64
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store ptr %.sink366, ptr %38, align 8, !tbaa !63
+  store ptr %.sink400, ptr %38, align 8, !tbaa !63
   store ptr %37, ptr %31, align 8, !tbaa !64
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %31, ptr %39, align 8, !tbaa !63
-  store ptr %31, ptr %.sink366, align 8, !tbaa !64
+  store ptr %31, ptr %.sink400, align 8, !tbaa !64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, i8 0, i64 20, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 48
@@ -729,10 +729,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6
   br label %329
 
 329:                                              ; preds = %322, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit194.thread
-  %spec.select.sink369 = phi i32 [ %spec.select, %322 ], [ %spec.select267, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit194.thread ]
-  %330 = add nuw nsw i32 %spec.select.sink369, 1
+  %spec.select.sink403 = phi i32 [ %spec.select, %322 ], [ %spec.select267, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit194.thread ]
+  %330 = add nuw nsw i32 %spec.select.sink403, 1
   call void @_ZN4llvm12MachineInstr13removeOperandEj(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0232.0, i32 noundef %330) #7
-  call void @_ZN4llvm12MachineInstr13removeOperandEj(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0232.0, i32 noundef %spec.select.sink369) #7
+  call void @_ZN4llvm12MachineInstr13removeOperandEj(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0232.0, i32 noundef %spec.select.sink403) #7
   %.0.copyload.i.i.i.i.i.i.i.i.i198 = load i64, ptr %.sroa.0232.0, align 8
   %331 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i198, 4
   %.not.i.i.i199 = icmp eq i64 %331, 0

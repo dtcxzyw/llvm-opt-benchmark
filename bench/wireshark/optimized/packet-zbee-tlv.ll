@@ -1984,7 +1984,7 @@ define internal fastcc noundef i32 @dissect_zbee_tlv_nwk_channel_list(ptr nounde
   br i1 %.not42.i, label %.critedge.i, label %38
 
 38:                                               ; preds = %.lr.ph.i
-  %39 = add i32 %.445.i, 1
+  %39 = add nuw nsw i32 %.445.i, 1
   %exitcond51.not.i = icmp eq i32 %39, 32
   br i1 %exitcond51.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !16
 

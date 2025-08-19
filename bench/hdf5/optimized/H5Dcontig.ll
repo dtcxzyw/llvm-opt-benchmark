@@ -541,9 +541,9 @@ define internal range(i32 -1, 1) i32 @H5D__contig_io_init(ptr noundef captures(n
 118:                                              ; preds = %115
   %119 = load i8, ptr %5, align 1, !tbaa !3, !range !7, !noundef !8
   %120 = trunc nuw i8 %119 to i1
-  br i1 %120, label %.thread.thread136, label %.thread
+  br i1 %120, label %.thread.thread141, label %.thread
 
-.thread.thread136:                                ; preds = %118
+.thread.thread141:                                ; preds = %118
   store i8 1, ptr %86, align 4, !tbaa !81
   %121 = load i64, ptr %6, align 8, !tbaa !48
   %122 = mul i64 %121, %113
@@ -570,7 +570,7 @@ define internal range(i32 -1, 1) i32 @H5D__contig_io_init(ptr noundef captures(n
   store i64 %130, ptr %128, align 8, !tbaa !98
   br label %.thread112
 
-.thread112:                                       ; preds = %.thread.thread136, %._crit_edge, %99, %.thread.thread
+.thread112:                                       ; preds = %.thread.thread141, %._crit_edge, %99, %.thread.thread
   store ptr %58, ptr %26, align 8, !tbaa !51
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %132 = load i64, ptr %131, align 8, !tbaa !99

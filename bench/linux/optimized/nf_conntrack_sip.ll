@@ -3349,9 +3349,9 @@ define internal i32 @process_invite_request(ptr noundef %0, i32 noundef %1, i32 
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %.thread10, label %23, !prof !28
+  br i1 %20, label %.thread12, label %23, !prof !28
 
-.thread10:                                        ; preds = %17
+.thread12:                                        ; preds = %17
   %21 = zext i8 %15 to i64
   %22 = getelementptr i8, ptr %12, i64 %21
   br label %26
@@ -3362,30 +3362,30 @@ define internal i32 @process_invite_request(ptr noundef %0, i32 noundef %1, i32 
   %25 = icmp eq ptr %.pr.pre, null
   br i1 %25, label %.thread, label %26
 
-26:                                               ; preds = %.thread10, %23
-  %.ph14 = phi ptr [ %22, %.thread10 ], [ %24, %23 ]
-  %.pr13 = phi ptr [ %12, %.thread10 ], [ %.pr.pre, %23 ]
-  %.pr7 = load i8, ptr %.pr13, align 1
+26:                                               ; preds = %.thread12, %23
+  %.ph16 = phi ptr [ %22, %.thread12 ], [ %24, %23 ]
+  %.pr15 = phi ptr [ %12, %.thread12 ], [ %.pr.pre, %23 ]
+  %.pr7 = load i8, ptr %.pr15, align 1
   %27 = icmp eq i8 %.pr7, 0
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw i8, ptr %.pr13, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.pr15, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %34, label %32, !prof !28
 
 32:                                               ; preds = %28
-  %33 = tail call ptr @__nf_ct_ext_find(ptr noundef nonnull %.pr13, i8 noundef zeroext 0) #14
+  %33 = tail call ptr @__nf_ct_ext_find(ptr noundef nonnull %.pr15, i8 noundef zeroext 0) #14
   br label %.thread
 
 34:                                               ; preds = %28
   %35 = zext i8 %.pr7 to i64
-  %36 = getelementptr i8, ptr %.pr13, i64 %35
+  %36 = getelementptr i8, ptr %.pr15, i64 %35
   br label %.thread
 
 .thread:                                          ; preds = %14, %6, %34, %32, %26, %23
-  %37 = phi ptr [ %.ph14, %32 ], [ %.ph14, %34 ], [ %.ph14, %26 ], [ %24, %23 ], [ null, %6 ], [ null, %14 ]
+  %37 = phi ptr [ %.ph16, %32 ], [ %.ph16, %34 ], [ %.ph16, %26 ], [ %24, %23 ], [ null, %6 ], [ null, %14 ]
   %38 = phi ptr [ %33, %32 ], [ %36, %34 ], [ null, %26 ], [ null, %23 ], [ null, %6 ], [ null, %14 ]
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @nf_conntrack_expect_lock) #14
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -3965,7 +3965,7 @@ select.unfold:                                    ; preds = %122, %105
   br i1 %239, label %240, label %.thread28
 
 240:                                              ; preds = %236
-  br i1 %195, label %241, label %.thread75
+  br i1 %195, label %241, label %.thread94
 
 241:                                              ; preds = %240
   %242 = getelementptr inbounds nuw i8, ptr %194, i64 168
@@ -4003,9 +4003,9 @@ select.unfold:                                    ; preds = %122, %105
   store i16 %265, ptr %60, align 4
   %266 = call ptr @__nf_ct_expect_find(ptr noundef %140, ptr noundef nonnull @nf_ct_zone_dflt, ptr noundef nonnull %9) #14
   %267 = icmp eq ptr %266, null
-  br i1 %267, label %.thread28.thread73, label %.lr.ph, !llvm.loop !36
+  br i1 %267, label %.thread28.thread92, label %.lr.ph, !llvm.loop !36
 
-.thread28.thread73:                               ; preds = %263
+.thread28.thread92:                               ; preds = %263
   %268 = load i16, ptr %60, align 4
   %269 = and i16 %268, -257
   store i16 %269, ptr %10, align 2
@@ -4021,13 +4021,13 @@ select.unfold:                                    ; preds = %122, %105
   store i16 %273, ptr %11, align 2
   br i1 %195, label %.thread33, label %274
 
-274:                                              ; preds = %.thread28.thread73, %.thread28
-  %275 = phi i16 [ %272, %.thread28 ], [ %269, %.thread28.thread73 ]
+274:                                              ; preds = %.thread28.thread92, %.thread28
+  %275 = phi i16 [ %272, %.thread28 ], [ %269, %.thread28.thread92 ]
   %276 = load volatile ptr, ptr @nf_nat_sip_hooks, align 8
   %277 = icmp eq ptr %276, null
   br i1 %277, label %.thread33, label %283
 
-.thread75:                                        ; preds = %240
+.thread94:                                        ; preds = %240
   %278 = load i16, ptr %60, align 4
   %279 = and i16 %278, -257
   store i16 %279, ptr %10, align 2
@@ -4037,10 +4037,10 @@ select.unfold:                                    ; preds = %122, %105
   %282 = icmp eq ptr %281, null
   br i1 %282, label %.thread30, label %283
 
-283:                                              ; preds = %.thread75, %274
-  %284 = phi ptr [ %281, %.thread75 ], [ %276, %274 ]
-  %285 = phi i1 [ false, %.thread75 ], [ true, %274 ]
-  %286 = phi i16 [ %279, %.thread75 ], [ %275, %274 ]
+283:                                              ; preds = %.thread94, %274
+  %284 = phi ptr [ %281, %.thread94 ], [ %276, %274 ]
+  %285 = phi i1 [ false, %.thread94 ], [ true, %274 ]
+  %286 = phi i16 [ %279, %.thread94 ], [ %275, %274 ]
   %287 = getelementptr inbounds nuw i8, ptr %284, i64 32
   %288 = load ptr, ptr %287, align 8
   %289 = call i16 @llvm.bswap.i16(i16 %286)
@@ -4123,7 +4123,7 @@ select.unfold:                                    ; preds = %122, %105
   call void @nf_ct_expect_put(ptr noundef nonnull %293) #14
   br label %325
 
-.thread30:                                        ; preds = %253, %259, %.thread75, %178, %145
+.thread30:                                        ; preds = %253, %259, %.thread94, %178, %145
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

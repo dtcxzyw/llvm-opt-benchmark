@@ -3738,9 +3738,9 @@ gss_wrap_req_integ.exit:                          ; preds = %32, %37, %44, %55, 
   %99 = getelementptr inbounds nuw i8, ptr %82, i64 60
   %100 = load i32, ptr %99, align 4
   %101 = icmp eq i32 %100, 0
-  br i1 %101, label %.thread15.i, label %111
+  br i1 %101, label %.thread23.i, label %111
 
-.thread15.i:                                      ; preds = %98
+.thread23.i:                                      ; preds = %98
   %102 = getelementptr inbounds nuw i8, ptr %82, i64 180
   store i32 0, ptr %102, align 4
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %82, i64 184
@@ -3788,7 +3788,7 @@ gss_wrap_req_integ.exit:                          ; preds = %32, %37, %44, %55, 
 129:                                              ; preds = %123
   %130 = load i32, ptr %120, align 4
   %131 = icmp sgt i32 %130, 0
-  br i1 %131, label %.preheader6.i, label %.loopexit16.i
+  br i1 %131, label %.preheader6.i, label %.loopexit24.i
 
 .preheader6.i:                                    ; preds = %129, %140
   %132 = phi i64 [ %141, %140 ], [ 0, %129 ]
@@ -3807,7 +3807,7 @@ gss_wrap_req_integ.exit:                          ; preds = %32, %37, %44, %55, 
   %142 = load i32, ptr %120, align 4
   %143 = sext i32 %142 to i64
   %144 = icmp slt i64 %141, %143
-  br i1 %144, label %.preheader6.i, label %.loopexit16.i, !llvm.loop !78
+  br i1 %144, label %.preheader6.i, label %.loopexit24.i, !llvm.loop !78
 
 145:                                              ; preds = %.preheader6.i
   %146 = trunc i64 %132 to i32
@@ -3837,7 +3837,7 @@ gss_wrap_req_integ.exit:                          ; preds = %32, %37, %44, %55, 
   store ptr null, ptr %94, align 8
   br label %gss_wrap_req_priv.exit
 
-.loopexit16.i:                                    ; preds = %140, %129
+.loopexit24.i:                                    ; preds = %140, %129
   %157 = phi i32 [ %130, %129 ], [ %142, %140 ]
   %158 = phi ptr [ %126, %129 ], [ %136, %140 ]
   store ptr @priv_release_snd_buf, ptr %94, align 8
@@ -3856,15 +3856,15 @@ gss_wrap_req_integ.exit:                          ; preds = %32, %37, %44, %55, 
   store i32 %168, ptr %112, align 8
   br i1 %159, label %169, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %.loopexit16.i
+._crit_edge.i:                                    ; preds = %.loopexit24.i
   %.phi.trans.insert12.i = getelementptr inbounds nuw i8, ptr %82, i64 32
   %.pre13.i = load i64, ptr %.phi.trans.insert12.i, align 8
   br label %176
 
-169:                                              ; preds = %.loopexit16.i, %.thread15.i
-  %170 = phi ptr [ %109, %.thread15.i ], [ %167, %.loopexit16.i ]
-  %171 = phi ptr [ %.pre10.i, %.thread15.i ], [ %158, %.loopexit16.i ]
-  %172 = phi i64 [ -1, %.thread15.i ], [ %161, %.loopexit16.i ]
+169:                                              ; preds = %.loopexit24.i, %.thread23.i
+  %170 = phi ptr [ %109, %.thread23.i ], [ %167, %.loopexit24.i ]
+  %171 = phi ptr [ %.pre10.i, %.thread23.i ], [ %158, %.loopexit24.i ]
+  %172 = phi i64 [ -1, %.thread23.i ], [ %161, %.loopexit24.i ]
   %173 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %174 = load i64, ptr %173, align 8
   %175 = icmp eq i64 %174, 0

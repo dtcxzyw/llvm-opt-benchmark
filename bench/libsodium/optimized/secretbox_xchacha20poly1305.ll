@@ -174,14 +174,14 @@ define dso_local range(i32 -1, 1) i32 @crypto_secretbox_xchacha20poly1305_open_d
   br i1 %.not60, label %.sink.split, label %._crit_edge59
 
 ._crit_edge59:                                    ; preds = %26, %.thread
-  %.04564 = phi ptr [ %0, %.thread ], [ %1, %26 ]
+  %.04565 = phi ptr [ %0, %.thread ], [ %1, %26 ]
   %scevgep62 = getelementptr inbounds nuw i8, ptr %7, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 16 %scevgep62, i64 %spec.store.select, i1 false)
   br i1 %10, label %27, label %.sink.split
 
 27:                                               ; preds = %._crit_edge59
   %28 = getelementptr i8, ptr %0, i64 %spec.store.select
-  %29 = getelementptr i8, ptr %.04564, i64 %spec.store.select
+  %29 = getelementptr i8, ptr %.04565, i64 %spec.store.select
   %30 = sub nuw i64 %3, %spec.store.select
   %31 = call i32 @crypto_stream_chacha20_xor_ic(ptr noundef %28, ptr noundef %29, i64 noundef %30, ptr noundef %11, i64 noundef 1, ptr noundef nonnull %8) #8
   br label %.sink.split

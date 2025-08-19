@@ -1026,10 +1026,10 @@ define internal i32 @nf_log_proc_dostring(ptr noundef readonly captures(none) %0
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %25, %42
-  %.sink9 = phi i64 [ %29, %42 ], [ %26, %25 ]
+  %.sink12 = phi i64 [ %29, %42 ], [ %26, %25 ]
   %.lcssa.sink = phi ptr [ %34, %42 ], [ null, %25 ]
   %43 = getelementptr inbounds nuw i8, ptr %13, i64 2248
-  %44 = getelementptr [11 x ptr], ptr %43, i64 0, i64 %.sink9
+  %44 = getelementptr [11 x ptr], ptr %43, i64 0, i64 %.sink12
   store volatile ptr %.lcssa.sink, ptr %44, align 8
   br label %.thread
 

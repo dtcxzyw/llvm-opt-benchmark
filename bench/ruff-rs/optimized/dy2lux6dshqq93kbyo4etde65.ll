@@ -1078,9 +1078,9 @@ define hidden void @"_ZN6flate23zio19Writer$LT$W$C$D$GT$17write_with_status17h03
   br label %52
 
 52:                                               ; preds = %50, %.critedge, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit.thread21"
-  %.lcssa45.sink = phi i8 [ %44, %50 ], [ 3, %.critedge ], [ 3, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit.thread21" ]
+  %.lcssa48.sink = phi i8 [ %44, %50 ], [ 3, %.critedge ], [ 3, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit.thread21" ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.lcssa45.sink, ptr %53, align 8
+  store i8 %.lcssa48.sink, ptr %53, align 8
   ret void
 }
 

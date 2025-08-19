@@ -940,7 +940,7 @@ _ZNSt6vectorIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEESaIS4_EED2Ev.exit: 
 
 39:                                               ; preds = %._crit_edge
   %40 = icmp sgt i64 %.pre72, 0
-  br i1 %40, label %.lr.ph.i.i.i.i.i, label %.loopexit.i.i.i
+  br i1 %40, label %.lr.ph.i.i.i.i.i, label %.loopexit23.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %39, %select.unfold.i.i.i.i.i
   %.010.i.i.in.in.i.i.i = phi i64 [ %.010.i.i.i.i.i, %select.unfold.i.i.i.i.i ], [ %.pre72, %39 ]
@@ -953,13 +953,13 @@ _ZNSt6vectorIN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEESaIS4_EED2Ev.exit: 
 
 select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
   %.not14.i.i.i.i.i = icmp samesign ult i64 %.010.i.i.in.in.i.i.i, 3
-  br i1 %.not14.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !405
+  br i1 %.not14.i.i.i.i.i, label %.loopexit23.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !405
 
 43:                                               ; preds = %.lr.ph.i.i.i.i.i
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 %41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %.pre, i64 32, i1 false)
   %.not18.i.i.i.i.i.i = icmp eq i64 %.010.i.i.i.i.i, 1
-  br i1 %.not18.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i
+  br i1 %.not18.i.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %43
   %.01317.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %42, i64 32
@@ -972,9 +972,13 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
   %45 = getelementptr inbounds nuw i8, ptr %.019.i.i.i.i.i.i, i64 32
   %.013.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01320.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %.013.i.i.i.i.i.i, %44
-  br i1 %.not.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !406
+  br i1 %.not.i.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !406
 
-._crit_edge.i.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i.i, %43
+.loopexit23.i.i.i:                                ; preds = %select.unfold.i.i.i.i.i, %39
+  call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImN5clang12StmtSequenceEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SG_T0_(ptr %.pre, ptr %.pre66)
+  br label %49
+
+.loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i.i, %43
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %42, %43 ], [ %45, %.lr.ph.i.i.i.i.i.i ]
   %46 = load i64, ptr %.0.lcssa.i.i.i.i.i.i, align 8, !tbaa !407
   store i64 %46, ptr %.pre, align 8, !tbaa !408
@@ -984,13 +988,9 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
   call void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairImN5clang12StmtSequenceEESt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SG_T0_T1_T2_(ptr nonnull %.pre, ptr %.pre66, ptr noundef nonnull %42, i64 noundef %.010.i.i.i.i.i)
   br label %49
 
-.loopexit.i.i.i:                                  ; preds = %select.unfold.i.i.i.i.i, %39
-  call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImN5clang12StmtSequenceEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SG_T0_(ptr %.pre, ptr %.pre66)
-  br label %49
-
-49:                                               ; preds = %.loopexit.i.i.i, %._crit_edge.i.i.i.i.i.i
-  %.sroa.3.021.i.i.i = phi i64 [ %41, %._crit_edge.i.i.i.i.i.i ], [ 0, %.loopexit.i.i.i ]
-  %.sroa.7.019.i.i.i = phi ptr [ %42, %._crit_edge.i.i.i.i.i.i ], [ null, %.loopexit.i.i.i ]
+49:                                               ; preds = %.loopexit.i.i.i, %.loopexit23.i.i.i
+  %.sroa.3.021.i.i.i = phi i64 [ %41, %.loopexit.i.i.i ], [ 0, %.loopexit23.i.i.i ]
+  %.sroa.7.019.i.i.i = phi ptr [ %42, %.loopexit.i.i.i ], [ null, %.loopexit23.i.i.i ]
   call void @_ZdlPvm(ptr noundef %.sroa.7.019.i.i.i, i64 noundef %.sroa.3.021.i.i.i) #21
   br label %_ZN4llvm11stable_sortIRSt6vectorISt4pairImN5clang12StmtSequenceEESaIS5_EENS_10less_firstEEEvOT_T0_.exit
 
@@ -10804,12 +10804,12 @@ define linkonce_odr void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iter
 
 8:                                                ; preds = %2
   %9 = icmp eq ptr %0, %1
-  br i1 %9, label %common.ret25, label %.preheader.i
+  br i1 %9, label %common.ret30, label %.preheader.i
 
 .preheader.i:                                     ; preds = %8
   %.sroa.08.017.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.not18.i = icmp eq ptr %.sroa.08.017.i, %1
-  br i1 %.not18.i, label %common.ret25, label %.lr.ph.i
+  br i1 %.not18.i, label %common.ret30, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10889,9 +10889,9 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairImN5clang
 37:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairImN5clang12StmtSequenceEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIN4llvm10less_firstEEEEvT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairImN5clang12StmtSequenceEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
   %.sroa.08.0.i = getelementptr inbounds nuw i8, ptr %.sroa.08.020.i, i64 32
   %.not.i = icmp eq ptr %.sroa.08.0.i, %1
-  br i1 %.not.i, label %common.ret25, label %11, !llvm.loop !580
+  br i1 %.not.i, label %common.ret30, label %11, !llvm.loop !580
 
-common.ret25:                                     ; preds = %.preheader.i, %8, %37, %38
+common.ret30:                                     ; preds = %.preheader.i, %8, %37, %38
   ret void
 
 38:                                               ; preds = %2
@@ -10903,7 +10903,7 @@ common.ret25:                                     ; preds = %.preheader.i, %8, %
   %42 = sub i64 %3, %41
   %43 = ashr exact i64 %42, 5
   tail call void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN5clang12StmtSequenceEESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SG_SG_T0_SH_T1_(ptr %0, ptr %40, ptr %1, i64 noundef %39, i64 noundef %43)
-  br label %common.ret25
+  br label %common.ret30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

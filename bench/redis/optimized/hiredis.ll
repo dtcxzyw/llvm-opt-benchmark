@@ -282,9 +282,9 @@ bulklen.exit:                                     ; preds = %63, %26, %hi_sdslen
 93:                                               ; preds = %15
   %94 = load i32, ptr %2, align 8
   %95 = icmp ult i32 %94, 41
-  br i1 %95, label %99, label %.thread385
+  br i1 %95, label %99, label %.thread413
 
-.thread385:                                       ; preds = %93
+.thread413:                                       ; preds = %93
   %96 = load ptr, ptr %10, align 8
   %97 = getelementptr i8, ptr %96, i64 8
   store ptr %97, ptr %10, align 8
@@ -309,8 +309,8 @@ bulklen.exit:                                     ; preds = %63, %26, %hi_sdslen
   store i32 %110, ptr %2, align 8
   br label %115
 
-111:                                              ; preds = %.thread385, %99
-  %112 = phi ptr [ %98, %.thread385 ], [ %104, %99 ]
+111:                                              ; preds = %.thread413, %99
+  %112 = phi ptr [ %98, %.thread413 ], [ %104, %99 ]
   %113 = load ptr, ptr %10, align 8
   %114 = getelementptr i8, ptr %113, i64 8
   store ptr %114, ptr %10, align 8

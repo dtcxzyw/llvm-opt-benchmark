@@ -203,9 +203,9 @@ define dso_local void @backlight_force_update(ptr noundef %0, i32 noundef %1) #0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !5
   %switch.selectcmp = icmp eq i32 %1, 0
   %switch.select = select i1 %switch.selectcmp, ptr @.str.10, ptr @.str.11
-  %switch.selectcmp3 = icmp eq i32 %1, 1
-  %switch.select4 = select i1 %switch.selectcmp3, ptr @.str.9, ptr %switch.select
-  store ptr %switch.select4, ptr %3, align 16
+  %switch.selectcmp5 = icmp eq i32 %1, 1
+  %switch.select6 = select i1 %switch.selectcmp5, ptr @.str.9, ptr %switch.select
+  store ptr %switch.select6, ptr %3, align 16
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 144

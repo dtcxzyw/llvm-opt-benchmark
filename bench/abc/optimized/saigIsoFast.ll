@@ -150,11 +150,11 @@ define void @Iso_StoCollectInfo_rec(ptr noundef %0, ptr noundef readonly capture
 11:                                               ; preds = %6
   %.not63 = icmp eq i32 %2, 0
   %. = select i1 %.not63, i32 32, i32 8
-  %.126 = select i1 %.not63, i32 96, i32 24
-  %.127 = select i1 %.not63, i32 -97, i32 -25
+  %.134 = select i1 %.not63, i32 96, i32 24
+  %.135 = select i1 %.not63, i32 -97, i32 -25
   %12 = add i32 %10, %.
-  %13 = and i32 %12, %.126
-  %14 = and i32 %10, %.127
+  %13 = and i32 %12, %.134
+  %14 = and i32 %10, %.135
   %15 = or disjoint i32 %13, %14
   store i32 %15, ptr %9, align 4
   br label %178
@@ -162,12 +162,12 @@ define void @Iso_StoCollectInfo_rec(ptr noundef %0, ptr noundef readonly capture
 16:                                               ; preds = %6
   %17 = or disjoint i32 %10, 65536
   %.not58 = icmp eq i32 %2, 0
-  %.128 = select i1 %.not58, i32 32, i32 8
-  %.129 = select i1 %.not58, i32 96, i32 24
-  %.130 = select i1 %.not58, i32 130975, i32 131047
-  %18 = add nuw nsw i32 %10, %.128
-  %19 = and i32 %18, %.129
-  %20 = and i32 %17, %.130
+  %.136 = select i1 %.not58, i32 32, i32 8
+  %.137 = select i1 %.not58, i32 96, i32 24
+  %.138 = select i1 %.not58, i32 130975, i32 131047
+  %18 = add nuw nsw i32 %10, %.136
+  %19 = and i32 %18, %.137
+  %20 = and i32 %17, %.138
   %21 = or disjoint i32 %20, %19
   store i32 %21, ptr %9, align 4
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -242,12 +242,12 @@ define void @Iso_StoCollectInfo_rec(ptr noundef %0, ptr noundef readonly capture
   %65 = and i32 %64, 16777215
   %66 = icmp samesign ult i32 %58, %65
   %spec.select = select i1 %66, ptr %53, ptr %60
-  %spec.select136 = select i1 %66, ptr %31, ptr %27
+  %spec.select144 = select i1 %66, ptr %31, ptr %27
   br label %67
 
 67:                                               ; preds = %51, %._crit_edge, %._crit_edge96
   %.pre-phi102.sink = phi ptr [ %.pre97, %._crit_edge96 ], [ %.pre101, %._crit_edge ], [ %spec.select, %51 ]
-  %.val77.sink.in = phi ptr [ %31, %._crit_edge96 ], [ %27, %._crit_edge ], [ %spec.select136, %51 ]
+  %.val77.sink.in = phi ptr [ %31, %._crit_edge96 ], [ %27, %._crit_edge ], [ %spec.select144, %51 ]
   %68 = lshr i64 %.val74, 32
   %69 = trunc nuw i64 %68 to i32
   %70 = getelementptr inbounds nuw i8, ptr %.pre-phi102.sink, i64 24
@@ -260,9 +260,9 @@ define void @Iso_StoCollectInfo_rec(ptr noundef %0, ptr noundef readonly capture
   %77 = and i32 %37, 130171
   %78 = or disjoint i32 %76, %77
   store i32 %78, ptr %9, align 4
-  %.sink118.in.in = load i64, ptr %22, align 8
-  %.sink118.in = lshr i64 %.sink118.in.in, 32
-  %.sink118 = trunc nuw i64 %.sink118.in to i32
+  %.sink126.in.in = load i64, ptr %22, align 8
+  %.sink126.in = lshr i64 %.sink126.in.in, 32
+  %.sink126 = trunc nuw i64 %.sink126.in to i32
   %.val77.sink = load ptr, ptr %.val77.sink.in, align 8, !tbaa !41
   %79 = ptrtoint ptr %.val77.sink to i64
   %80 = and i64 %79, -2
@@ -271,7 +271,7 @@ define void @Iso_StoCollectInfo_rec(ptr noundef %0, ptr noundef readonly capture
   %83 = load i64, ptr %82, align 8
   %84 = lshr i64 %83, 32
   %85 = trunc nuw i64 %84 to i32
-  %86 = sub i32 %.sink118, %85
+  %86 = sub i32 %.sink126, %85
   %87 = shl i32 %86, 10
   %88 = and i32 %87, 7168
   %89 = and i32 %78, 123899
@@ -881,14 +881,14 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge4, %172
   br label %Vec_IntPush.exit159.sink.split
 
 Vec_IntPush.exit159.sink.split:                   ; preds = %208, %210, %200, %202
-  %.sink192 = phi ptr [ %201, %200 ], [ %203, %202 ], [ %209, %208 ], [ %211, %210 ]
+  %.sink201 = phi ptr [ %201, %200 ], [ %203, %202 ], [ %209, %208 ], [ %211, %210 ]
   %.sink = phi i32 [ 16, %200 ], [ 16, %202 ], [ %205, %208 ], [ %205, %210 ]
-  store ptr %.sink192, ptr %177, align 8, !tbaa !30
+  store ptr %.sink201, ptr %177, align 8, !tbaa !30
   store i32 %.sink, ptr %169, align 8, !tbaa !28
   br label %Vec_IntPush.exit159
 
 Vec_IntPush.exit159:                              ; preds = %Vec_IntPush.exit159.sink.split, %.lr.ph171
-  %.pre.i155189 = phi ptr [ %180, %.lr.ph171 ], [ %.sink192, %Vec_IntPush.exit159.sink.split ]
+  %.pre.i155189 = phi ptr [ %180, %.lr.ph171 ], [ %.sink201, %Vec_IntPush.exit159.sink.split ]
   %212 = add nsw i32 %194, 1
   store i32 %212, ptr %171, align 4, !tbaa !31
   %213 = sext i32 %194 to i64
@@ -1566,8 +1566,8 @@ Abc_Clock.exit114:                                ; preds = %Vec_VecFree.exit, %
 
 .critedge4.thread:                                ; preds = %Abc_Clock.exit114
   %267 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef 0)
-  %.pre157162 = load ptr, ptr %125, align 8, !tbaa !35
-  %.not.i9.i117 = icmp eq ptr %.pre157162, null
+  %.pre157181 = load ptr, ptr %125, align 8, !tbaa !35
+  %.not.i9.i117 = icmp eq ptr %.pre157181, null
   br i1 %.not.i9.i117, label %Vec_VecFree.exit128, label %.critedge.i116.thread
 
 .lr.ph144:                                        ; preds = %Abc_Clock.exit114
@@ -1632,8 +1632,8 @@ Vec_PtrFree.exit.i124:                            ; preds = %285, %282
   br i1 %exitcond155.not, label %.critedge.i116.thread, label %.lr.ph.i118, !llvm.loop !59
 
 .critedge.i116.thread:                            ; preds = %286, %.critedge4.thread
-  %.pre157163166 = phi ptr [ %.pre157162, %.critedge4.thread ], [ %.pre157, %286 ]
-  call void @free(ptr noundef nonnull %.pre157163166) #19
+  %.pre157182185 = phi ptr [ %.pre157181, %.critedge4.thread ], [ %.pre157, %286 ]
+  call void @free(ptr noundef nonnull %.pre157182185) #19
   br label %Vec_VecFree.exit128
 
 Vec_VecFree.exit128:                              ; preds = %.critedge4.thread, %.critedge.i116.thread

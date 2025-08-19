@@ -279,17 +279,17 @@ _ZNK5clang5Scope23getMSLastManglingNumberEv.exit45: ; preds = %73, %75
   %115 = icmp eq i32 %112, 8
   %116 = and i32 %2, 262144
   %.not40 = icmp ne i32 %116, 0
-  %or.cond42.not50 = or i1 %.not40, %115
+  %or.cond42.not53 = or i1 %.not40, %115
   %.not.i = icmp eq ptr %82, null
-  %or.cond47 = or i1 %or.cond42.not50, %.not.i
-  br i1 %or.cond47, label %_ZN5clang5Scope25incrementMSManglingNumberEv.exit, label %117
+  %or.cond50 = or i1 %or.cond42.not53, %.not.i
+  br i1 %or.cond50, label %_ZN5clang5Scope25incrementMSManglingNumberEv.exit, label %117
 
 .critedge:                                        ; preds = %108
   %.old = and i32 %2, 262144
   %.not40.old = icmp ne i32 %.old, 0
   %.not.i.old = icmp eq ptr %82, null
-  %or.cond48 = or i1 %.not40.old, %.not.i.old
-  br i1 %or.cond48, label %_ZN5clang5Scope25incrementMSManglingNumberEv.exit, label %117
+  %or.cond51 = or i1 %.not40.old, %.not.i.old
+  br i1 %or.cond51, label %_ZN5clang5Scope25incrementMSManglingNumberEv.exit, label %117
 
 117:                                              ; preds = %.critedge, %114
   %118 = getelementptr inbounds nuw i8, ptr %82, i64 14
@@ -552,8 +552,8 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i
   br label %"_ZZN5clang5Scope19updateNRVOCandidateEPNS_7VarDeclEENK3$_0clEPS0_.exit"
 
 "_ZZN5clang5Scope19updateNRVOCandidateEPNS_7VarDeclEENK3$_0clEPS0_.exit": ; preds = %.lr.ph.i.i6.i, %_ZNK4llvm15SmallPtrSetImplIPN5clang7VarDeclEE8containsEPKS2_.exit.thread.thread.i, %33, %34, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i, %52, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
-  %.1.i.i57.i = phi i1 [ false, %33 ], [ false, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i ], [ false, %34 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPN5clang7VarDeclEE8containsEPKS2_.exit.thread.thread.i ], [ true, %52 ], [ true, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ true, %.lr.ph.i.i6.i ]
-  %55 = or i1 %.0813, %.1.i.i57.i
+  %.1.i.i79.i = phi i1 [ false, %33 ], [ false, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i ], [ false, %34 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPN5clang7VarDeclEE8containsEPKS2_.exit.thread.thread.i ], [ true, %52 ], [ true, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ true, %.lr.ph.i.i6.i ]
+  %55 = or i1 %.0813, %.1.i.i79.i
   %56 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %57 = load i32, ptr %56, align 8, !tbaa !30
   %58 = and i32 %57, 128

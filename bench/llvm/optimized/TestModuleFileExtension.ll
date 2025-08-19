@@ -633,9 +633,9 @@ _ZN4llvm15BitstreamCursor12ReadBlockEndEv.exit.i: ; preds = %95, %92
   call void @_ZN4llvm21SimpleBitstreamCursor7ReadVBREj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.34") align 8 %5, ptr noundef nonnull align 8 dereferenceable(344) %16, i32 noundef 8), !noalias !90
   %101 = load i8, ptr %71, align 8, !noalias !90
   %102 = trunc i8 %101 to i1
-  br i1 %102, label %_ZN4llvm15BitstreamCursor7advanceEj.exit.thread103, label %_ZN4llvm15BitstreamCursor7advanceEj.exit
+  br i1 %102, label %_ZN4llvm15BitstreamCursor7advanceEj.exit.thread118, label %_ZN4llvm15BitstreamCursor7advanceEj.exit
 
-_ZN4llvm15BitstreamCursor7advanceEj.exit.thread103: ; preds = %100
+_ZN4llvm15BitstreamCursor7advanceEj.exit.thread118: ; preds = %100
   %103 = load i64, ptr %5, align 8, !tbaa !99, !noalias !101
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !90
   br label %_ZN4llvm8ExpectedINS_14BitstreamEntryEE9takeErrorEv.exit
@@ -650,9 +650,9 @@ _ZN4llvm15BitstreamCursor7advanceEj.exit.thread103: ; preds = %100
   call void @_ZN4llvm15BitstreamCursor16ReadAbbrevRecordEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %6, ptr noundef nonnull align 8 dereferenceable(344) %16) #16, !noalias !90
   %105 = load ptr, ptr %6, align 8, !tbaa !104, !noalias !90
   %.not39.not.i = icmp eq ptr %105, null
-  br i1 %.not39.not.i, label %_ZN4llvm8ExpectedIjED2Ev.exit24.i, label %_ZN4llvm8ExpectedIjED2Ev.exit24.thread52.i
+  br i1 %.not39.not.i, label %_ZN4llvm8ExpectedIjED2Ev.exit24.i, label %_ZN4llvm8ExpectedIjED2Ev.exit24.thread55.i
 
-_ZN4llvm8ExpectedIjED2Ev.exit24.thread52.i:       ; preds = %104
+_ZN4llvm8ExpectedIjED2Ev.exit24.thread55.i:       ; preds = %104
   %106 = ptrtoint ptr %105 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !90
   br label %_ZN4llvm8ExpectedINS_14BitstreamEntryEE9takeErrorEv.exit
@@ -679,8 +679,8 @@ _ZN4llvm15BitstreamCursor7advanceEj.exit:         ; preds = %100
   br label %_ZN4llvm15BitstreamCursor7advanceEj.exit.thread
 
 _ZN4llvm15BitstreamCursor7advanceEj.exit.thread:  ; preds = %.split.i, %_ZN4llvm15BitstreamCursor7advanceEj.exit
-  %.sroa.032.393 = phi i64 [ %.sroa.0.0.insert.insert.i.i, %_ZN4llvm15BitstreamCursor7advanceEj.exit ], [ %.sroa.0.0.insert.insert.i19.i, %.split.i ]
-  %114 = and i64 %.sroa.032.393, 4294967295
+  %.sroa.032.3108 = phi i64 [ %.sroa.0.0.insert.insert.i.i, %_ZN4llvm15BitstreamCursor7advanceEj.exit ], [ %.sroa.0.0.insert.insert.i19.i, %.split.i ]
+  %114 = and i64 %.sroa.032.3108, 4294967295
   %.not.i = icmp eq i64 %114, 2
   br i1 %.not.i, label %115, label %_ZN4llvm5ErrorD2Ev.exit
 
@@ -706,8 +706,8 @@ _ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.i: ; preds = %115
   %123 = select i1 %119, i1 %122, i1 false
   br i1 %123, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit21, label %_ZN4llvm15BitstreamCursor8ReadCodeEv.exit.i.backedge
 
-_ZN4llvm8ExpectedINS_14BitstreamEntryEE9takeErrorEv.exit: ; preds = %_ZN4llvm15BitstreamCursor8ReadCodeEv.exit.i, %_ZN4llvm8ExpectedIjED2Ev.exit24.thread52.i, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.i.thread49, %_ZN4llvm15BitstreamCursor7advanceEj.exit.thread103
-  %.sroa.025.34044.ph = phi i64 [ %103, %_ZN4llvm15BitstreamCursor7advanceEj.exit.thread103 ], [ %117, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.i.thread49 ], [ %106, %_ZN4llvm8ExpectedIjED2Ev.exit24.thread52.i ], [ %88, %_ZN4llvm15BitstreamCursor8ReadCodeEv.exit.i ]
+_ZN4llvm8ExpectedINS_14BitstreamEntryEE9takeErrorEv.exit: ; preds = %_ZN4llvm15BitstreamCursor8ReadCodeEv.exit.i, %_ZN4llvm8ExpectedIjED2Ev.exit24.thread55.i, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.i.thread49, %_ZN4llvm15BitstreamCursor7advanceEj.exit.thread118
+  %.sroa.025.34044.ph = phi i64 [ %103, %_ZN4llvm15BitstreamCursor7advanceEj.exit.thread118 ], [ %117, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.i.thread49 ], [ %106, %_ZN4llvm8ExpectedIjED2Ev.exit24.thread55.i ], [ %88, %_ZN4llvm15BitstreamCursor8ReadCodeEv.exit.i ]
   %124 = icmp eq i64 %.sroa.025.34044.ph, 0
   br i1 %124, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit21, label %125
 
@@ -720,12 +720,12 @@ _ZN4llvm8ExpectedINS_14BitstreamEntryEE9takeErrorEv.exit: ; preds = %_ZN4llvm15B
   br label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit21
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm15BitstreamCursor7advanceEj.exit.thread
-  %130 = and i64 %.sroa.032.393, 4294967295
+  %130 = and i64 %.sroa.032.3108, 4294967295
   %switch = icmp eq i64 %130, 2
   br i1 %switch, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit21, label %131
 
 131:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %.sroa.025.4.extract.shift = lshr i64 %.sroa.032.393, 32
+  %.sroa.025.4.extract.shift = lshr i64 %.sroa.032.3108, 32
   %.sroa.025.4.extract.trunc = trunc nuw i64 %.sroa.025.4.extract.shift to i32
   store i32 0, ptr %65, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1845,9 +1845,9 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit20:         ; preds = %71, %_ZN4llvm15Bits
   unreachable
 
 _ZNK4llvm15BitCodeAbbrevOp15hasEncodingDataEv.exit.sink.split: ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit20, %_ZN4llvm15BitstreamWriter4EmitEjj.exit20, %_ZN4llvm15BitstreamWriter4EmitEjj.exit
-  %.sink25 = phi i32 [ 8, %_ZN4llvm15BitstreamWriter4EmitEjj.exit ], [ 5, %_ZN4llvm15BitstreamWriter4EmitEjj.exit20 ], [ 5, %_ZN4llvm15BitstreamWriter4EmitEjj.exit20 ]
+  %.sink30 = phi i32 [ 8, %_ZN4llvm15BitstreamWriter4EmitEjj.exit ], [ 5, %_ZN4llvm15BitstreamWriter4EmitEjj.exit20 ], [ 5, %_ZN4llvm15BitstreamWriter4EmitEjj.exit20 ]
   %101 = load i64, ptr %39, align 8, !tbaa !617
-  tail call void @_ZN4llvm15BitstreamWriter9EmitVBR64Emj(ptr noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %101, i32 noundef %.sink25)
+  tail call void @_ZN4llvm15BitstreamWriter9EmitVBR64Emj(ptr noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %101, i32 noundef %.sink30)
   br label %_ZNK4llvm15BitCodeAbbrevOp15hasEncodingDataEv.exit
 
 _ZNK4llvm15BitCodeAbbrevOp15hasEncodingDataEv.exit: ; preds = %_ZNK4llvm15BitCodeAbbrevOp15hasEncodingDataEv.exit.sink.split, %_ZN4llvm15BitstreamWriter4EmitEjj.exit20, %_ZN4llvm15BitstreamWriter4EmitEjj.exit20, %_ZN4llvm15BitstreamWriter4EmitEjj.exit20
@@ -2067,7 +2067,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit:           ; preds = %15, %_ZN4llvm15Bits
   br i1 %.not, label %._crit_edge, label %15, !llvm.loop !621
 
 ._crit_edge:                                      ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit
-  %45 = trunc nuw i64 %44 to i32
+  %45 = trunc nuw nsw i64 %44 to i32
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %47 = shl i32 %45, %storemerge6.i
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -5813,7 +5813,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %79 = load ptr, ptr %78, align 8, !tbaa !56
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %81 = icmp eq ptr %79, %80
-  br i1 %81, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %81, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -5824,13 +5824,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %86 = icmp eq ptr %85, %56
   br i1 %86, label %89, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
   %87 = load ptr, ptr %5, align 8, !tbaa !56
   %88 = icmp eq ptr %87, %56
   br i1 %88, label %89, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-89:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %90 = phi ptr [ %87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %85, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+89:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %90 = phi ptr [ %87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %85, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %91 = load i64, ptr %70, align 8, !tbaa !59
   %92 = icmp ult i64 %91, 16
   call void @llvm.assume(i1 %92)
@@ -5870,7 +5870,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %102, ptr %80, align 8, !tbaa !33
   br label %108
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %103 = load i64, ptr %80, align 8, !tbaa !33
   store ptr %87, ptr %78, align 8, !tbaa !56
   %104 = load i64, ptr %70, align 8, !tbaa !59

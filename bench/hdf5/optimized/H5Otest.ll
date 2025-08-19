@@ -818,14 +818,14 @@ define range(i32 -1, 1) i32 @H5O__check_msg_marked_test(i64 noundef %0, i1 nound
   %28 = load ptr, ptr %27, align 8, !tbaa !36
   %29 = load i32, ptr %28, align 8, !tbaa !40
   %30 = icmp eq i32 %29, 25
-  br i1 %30, label %.lr.ph._crit_edge, label %.lr.ph51
+  br i1 %30, label %.lr.ph._crit_edge, label %.lr.ph55
 
-.lr.ph:                                           ; preds = %.lr.ph51
-  %31 = getelementptr inbounds nuw i8, ptr %.0213650, i64 48
+.lr.ph:                                           ; preds = %.lr.ph55
+  %31 = getelementptr inbounds nuw i8, ptr %.0213654, i64 48
   %32 = load ptr, ptr %31, align 8, !tbaa !36
   %33 = load i32, ptr %32, align 8, !tbaa !40
   %34 = icmp eq i32 %33, 25
-  br i1 %34, label %.lr.ph._crit_edge, label %.lr.ph51, !llvm.loop !42
+  br i1 %34, label %.lr.ph._crit_edge, label %.lr.ph55, !llvm.loop !42
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi i64 [ 0, %.lr.ph.preheader ], [ %44, %.lr.ph ]
@@ -843,16 +843,16 @@ define range(i32 -1, 1) i32 @H5O__check_msg_marked_test(i64 noundef %0, i1 nound
   %42 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__check_msg_marked_test, i32 noundef 486, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.13) #4
   br label %51
 
-.lr.ph51:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0213650 = phi ptr [ %31, %.lr.ph ], [ %27, %.lr.ph.preheader ]
-  %.0203749 = phi i32 [ %43, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %43 = add i32 %.0203749, 1
+.lr.ph55:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0213654 = phi ptr [ %31, %.lr.ph ], [ %27, %.lr.ph.preheader ]
+  %.0203753 = phi i32 [ %43, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %43 = add i32 %.0203753, 1
   %44 = zext i32 %43 to i64
   %45 = icmp ugt i64 %25, %44
   br i1 %45, label %.lr.ph, label %.loopexit, !llvm.loop !42
 
-.loopexit:                                        ; preds = %.lr.ph51, %.lr.ph._crit_edge
-  %46 = phi i64 [ %.lcssa, %.lr.ph._crit_edge ], [ %44, %.lr.ph51 ]
+.loopexit:                                        ; preds = %.lr.ph55, %.lr.ph._crit_edge
+  %46 = phi i64 [ %.lcssa, %.lr.ph._crit_edge ], [ %44, %.lr.ph55 ]
   %47 = icmp eq i64 %25, %46
   br i1 %47, label %.loopexit.thread, label %51
 
@@ -1056,14 +1056,14 @@ define range(i32 -1, 1) i32 @H5O__msg_get_chunkno_test(i64 noundef %0, i32 nound
   %33 = load ptr, ptr %32, align 8, !tbaa !36
   %34 = load i32, ptr %33, align 8, !tbaa !40
   %35 = icmp eq i32 %34, %1
-  br i1 %35, label %.lr.ph._crit_edge, label %.lr.ph61
+  br i1 %35, label %.lr.ph._crit_edge, label %.lr.ph66
 
-.lr.ph:                                           ; preds = %.lr.ph61
-  %36 = getelementptr inbounds nuw i8, ptr %.0254760, i64 48
+.lr.ph:                                           ; preds = %.lr.ph66
+  %36 = getelementptr inbounds nuw i8, ptr %.0254765, i64 48
   %37 = load ptr, ptr %36, align 8, !tbaa !36
   %38 = load i32, ptr %37, align 8, !tbaa !40
   %39 = icmp eq i32 %38, %1
-  br i1 %39, label %.lr.ph._crit_edge, label %.lr.ph61, !llvm.loop !54
+  br i1 %39, label %.lr.ph._crit_edge, label %.lr.ph66, !llvm.loop !54
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi i64 [ 0, %.lr.ph.preheader ], [ %43, %.lr.ph ]
@@ -1073,16 +1073,16 @@ define range(i32 -1, 1) i32 @H5O__msg_get_chunkno_test(i64 noundef %0, i32 nound
   store i32 %41, ptr %2, align 4, !tbaa !53
   br label %.loopexit
 
-.lr.ph61:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0254760 = phi ptr [ %36, %.lr.ph ], [ %32, %.lr.ph.preheader ]
-  %.0244859 = phi i32 [ %42, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %42 = add i32 %.0244859, 1
+.lr.ph66:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0254765 = phi ptr [ %36, %.lr.ph ], [ %32, %.lr.ph.preheader ]
+  %.0244864 = phi i32 [ %42, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %42 = add i32 %.0244864, 1
   %43 = zext i32 %42 to i64
   %44 = icmp ugt i64 %30, %43
   br i1 %44, label %.lr.ph, label %.loopexit, !llvm.loop !54
 
-.loopexit:                                        ; preds = %.lr.ph61, %.lr.ph._crit_edge
-  %45 = phi i64 [ %.lcssa, %.lr.ph._crit_edge ], [ %43, %.lr.ph61 ]
+.loopexit:                                        ; preds = %.lr.ph66, %.lr.ph._crit_edge
+  %45 = phi i64 [ %.lcssa, %.lr.ph._crit_edge ], [ %43, %.lr.ph66 ]
   %46 = icmp eq i64 %30, %45
   br i1 %46, label %.loopexit.thread, label %50
 

@@ -304,8 +304,8 @@ define i32 @QRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr n
   %12 = load ptr, ptr %11, align 8, !tbaa !8
   %13 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv159
   %14 = load double, ptr %13, align 8, !tbaa !10
-  %.idx169 = shl nuw nsw i64 %indvars.iv152, 4
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx169
+  %.idx171 = shl nuw nsw i64 %indvars.iv152, 4
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx171
   %16 = load double, ptr %15, align 8, !tbaa !10
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load double, ptr %17, align 8, !tbaa !10
@@ -359,8 +359,8 @@ define i32 @QRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr n
 51:                                               ; preds = %._crit_edge148, %37, %44
   %.0138 = phi double [ %41, %37 ], [ %50, %44 ], [ 0.000000e+00, %._crit_edge148 ]
   %.0133 = phi double [ %43, %37 ], [ %48, %44 ], [ 1.000000e+00, %._crit_edge148 ]
-  %.idx170 = shl nuw nsw i64 %indvars.iv159, 4
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx170
+  %.idx172 = shl nuw nsw i64 %indvars.iv159, 4
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx172
   store double %.0133, ptr %52, align 8, !tbaa !10
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store double %.0138, ptr %53, align 8, !tbaa !10
@@ -497,15 +497,15 @@ define range(i32 0, -2147483648) i32 @QRsol(i32 noundef %0, ptr noundef readonly
 
 .lr.ph56.preheader:                               ; preds = %.lr.ph
   %6 = zext nneg i32 %0 to i64
-  %indvars.iv.next7078 = add nsw i64 %6, -1
-  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next7078
+  %indvars.iv.next7080 = add nsw i64 %6, -1
+  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next7080
   %8 = load ptr, ptr %7, align 8, !tbaa !8
-  %9 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.next7078
+  %9 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.next7080
   %10 = load double, ptr %9, align 8, !tbaa !10
   %11 = fcmp oeq double %10, 0.000000e+00
-  br i1 %11, label %._crit_edge, label %.lr.ph82
+  br i1 %11, label %._crit_edge, label %.lr.ph84
 
-.lr.ph82:                                         ; preds = %.lr.ph56.preheader
+.lr.ph84:                                         ; preds = %.lr.ph56.preheader
   %12 = add nsw i32 %0, -1
   %13 = zext nneg i32 %12 to i64
   br label %32
@@ -533,25 +533,25 @@ define range(i32 0, -2147483648) i32 @QRsol(i32 noundef %0, ptr noundef readonly
   br i1 %exitcond.not, label %.lr.ph56.preheader, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph52
-  %indvars.iv.next68 = add nsw i64 %indvars.iv6780, -1
-  %indvars.iv.next70 = add nsw i64 %indvars.iv.next7081, -1
+  %indvars.iv.next68 = add nsw i64 %indvars.iv6782, -1
+  %indvars.iv.next70 = add nsw i64 %indvars.iv.next7083, -1
   %27 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next70
   %28 = load ptr, ptr %27, align 8, !tbaa !8
   %29 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv.next70
   %30 = load double, ptr %29, align 8, !tbaa !10
   %31 = fcmp oeq double %30, 0.000000e+00
-  br i1 %31, label %.lr.ph56.._crit_edge.loopexit.split.loop.exit75_crit_edge, label %32, !llvm.loop !23
+  br i1 %31, label %.lr.ph56.._crit_edge.loopexit.split.loop.exit77_crit_edge, label %32, !llvm.loop !23
 
-32:                                               ; preds = %.lr.ph82, %.loopexit
-  %33 = phi double [ %10, %.lr.ph82 ], [ %30, %.loopexit ]
-  %indvars.iv.next7081 = phi i64 [ %indvars.iv.next7078, %.lr.ph82 ], [ %indvars.iv.next70, %.loopexit ]
-  %indvars.iv6780 = phi i64 [ %13, %.lr.ph82 ], [ %indvars.iv.next68, %.loopexit ]
-  %indvars.iv6979 = phi i64 [ %6, %.lr.ph82 ], [ %indvars.iv.next7081, %.loopexit ]
-  %34 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.next7081
+32:                                               ; preds = %.lr.ph84, %.loopexit
+  %33 = phi double [ %10, %.lr.ph84 ], [ %30, %.loopexit ]
+  %indvars.iv.next7083 = phi i64 [ %indvars.iv.next7080, %.lr.ph84 ], [ %indvars.iv.next70, %.loopexit ]
+  %indvars.iv6782 = phi i64 [ %13, %.lr.ph84 ], [ %indvars.iv.next68, %.loopexit ]
+  %indvars.iv6981 = phi i64 [ %6, %.lr.ph84 ], [ %indvars.iv.next7083, %.loopexit ]
+  %34 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.next7083
   %35 = load double, ptr %34, align 8, !tbaa !10
   %36 = fdiv double %35, %33
   store double %36, ptr %34, align 8, !tbaa !10
-  %37 = icmp samesign ugt i64 %indvars.iv6979, 1
+  %37 = icmp samesign ugt i64 %indvars.iv6981, 1
   br i1 %37, label %.lr.ph52, label %._crit_edge
 
 .lr.ph52:                                         ; preds = %32, %.lr.ph52
@@ -559,7 +559,7 @@ define range(i32 0, -2147483648) i32 @QRsol(i32 noundef %0, ptr noundef readonly
   %38 = load double, ptr %34, align 8, !tbaa !10
   %39 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv60
   %40 = load ptr, ptr %39, align 8, !tbaa !8
-  %41 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv.next7081
+  %41 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv.next7083
   %42 = load double, ptr %41, align 8, !tbaa !10
   %43 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv60
   %44 = load double, ptr %43, align 8, !tbaa !10
@@ -567,15 +567,15 @@ define range(i32 0, -2147483648) i32 @QRsol(i32 noundef %0, ptr noundef readonly
   %46 = tail call double @llvm.fmuladd.f64(double %45, double %42, double %44)
   store double %46, ptr %43, align 8, !tbaa !10
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %exitcond66.not = icmp eq i64 %indvars.iv.next61, %indvars.iv6780
+  %exitcond66.not = icmp eq i64 %indvars.iv.next61, %indvars.iv6782
   br i1 %exitcond66.not, label %.loopexit, label %.lr.ph52, !llvm.loop !24
 
-.lr.ph56.._crit_edge.loopexit.split.loop.exit75_crit_edge: ; preds = %.loopexit
-  %47 = trunc nuw nsw i64 %indvars.iv.next7081 to i32
+.lr.ph56.._crit_edge.loopexit.split.loop.exit77_crit_edge: ; preds = %.loopexit
+  %47 = trunc nuw nsw i64 %indvars.iv.next7083 to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %32, %.lr.ph56.preheader, %.lr.ph56.._crit_edge.loopexit.split.loop.exit75_crit_edge, %4
-  %.0 = phi i32 [ 0, %4 ], [ %47, %.lr.ph56.._crit_edge.loopexit.split.loop.exit75_crit_edge ], [ %0, %.lr.ph56.preheader ], [ 0, %32 ]
+._crit_edge:                                      ; preds = %32, %.lr.ph56.preheader, %.lr.ph56.._crit_edge.loopexit.split.loop.exit77_crit_edge, %4
+  %.0 = phi i32 [ 0, %4 ], [ %47, %.lr.ph56.._crit_edge.loopexit.split.loop.exit77_crit_edge ], [ %0, %.lr.ph56.preheader ], [ 0, %32 ]
   ret i32 %.0
 }
 

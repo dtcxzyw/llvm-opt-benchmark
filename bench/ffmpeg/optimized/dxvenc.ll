@@ -694,7 +694,7 @@ ht_delete.exit:                                   ; preds = %.lr.ph.i185, %144, 
 167:                                              ; preds = %173
   %168 = add nuw nsw i64 %.01520.i190, 1
   %exitcond.not.i191 = icmp eq i64 %.01520.i190, %166
-  br i1 %exitcond.not.i191, label %.sink.split278, label %.lr.ph.i189, !llvm.loop !61
+  br i1 %exitcond.not.i191, label %.sink.split291, label %.lr.ph.i189, !llvm.loop !61
 
 .lr.ph.i189:                                      ; preds = %167, %161
   %.01520.i190 = phi i64 [ %168, %167 ], [ %165, %161 ]
@@ -715,7 +715,7 @@ ht_lookup_and_upsert.exit197.thread225:           ; preds = %173
   %175 = getelementptr inbounds nuw i8, ptr %170, i64 4
   store i32 %153, ptr %170, align 4, !tbaa !62
   store i32 %149, ptr %175, align 4, !tbaa !57
-  br label %.sink.split278
+  br label %.sink.split291
 
 ht_lookup_and_upsert.exit197:                     ; preds = %.lr.ph.i189
   %.phi.trans.insert.i195.le = getelementptr inbounds nuw i8, ptr %170, i64 4
@@ -725,11 +725,11 @@ ht_lookup_and_upsert.exit197:                     ; preds = %.lr.ph.i189
   %176 = sub i32 %149, %.pre.i196.fr
   br i1 %.not136, label %177, label %178
 
-.sink.split278:                                   ; preds = %167, %ht_lookup_and_upsert.exit197.thread225
+.sink.split291:                                   ; preds = %167, %ht_lookup_and_upsert.exit197.thread225
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %177
 
-177:                                              ; preds = %.sink.split278, %ht_lookup_and_upsert.exit197
+177:                                              ; preds = %.sink.split291, %ht_lookup_and_upsert.exit197
   br label %178
 
 178:                                              ; preds = %177, %ht_lookup_and_upsert.exit197, %154
@@ -1043,7 +1043,7 @@ bytestream2_put_le16.exit155:                     ; preds = %307
   %.139 = zext i1 %329 to i32
   %330 = load i32, ptr %.3, align 1, !tbaa !44
   %331 = shl nuw nsw i32 %.3126, 1
-  %332 = shl nuw i32 %.139, %331
+  %332 = shl nuw nsw i32 %.139, %331
   %333 = or i32 %330, %332
   store i32 %333, ptr %.3, align 1, !tbaa !44
   br i1 %.not135, label %334, label %bytestream2_put_le32.exit148

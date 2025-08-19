@@ -1160,14 +1160,14 @@ _Py_NewRef.exit25:                                ; preds = %21, %26
   br i1 %38, label %_Py_NewRef.exit24, label %_Py_NewRef.exit24.sink.split
 
 _Py_NewRef.exit24.sink.split:                     ; preds = %34, %31, %_Py_NewRef.exit23
-  %.sink29 = phi i32 [ %19, %_Py_NewRef.exit23 ], [ %32, %31 ], [ %37, %34 ]
-  %.sink28 = phi ptr [ @_Py_NoneStruct, %_Py_NewRef.exit23 ], [ @_Py_NoneStruct, %31 ], [ %36, %34 ]
-  %39 = add nuw i32 %.sink29, 1
-  store i32 %39, ptr %.sink28, align 8, !tbaa !12
+  %.sink37 = phi i32 [ %19, %_Py_NewRef.exit23 ], [ %32, %31 ], [ %37, %34 ]
+  %.sink36 = phi ptr [ @_Py_NoneStruct, %_Py_NewRef.exit23 ], [ @_Py_NoneStruct, %31 ], [ %36, %34 ]
+  %39 = add nuw i32 %.sink37, 1
+  store i32 %39, ptr %.sink36, align 8, !tbaa !12
   br label %_Py_NewRef.exit24
 
 _Py_NewRef.exit24:                                ; preds = %_Py_NewRef.exit24.sink.split, %34, %31, %_Py_NewRef.exit23
-  %_Py_NoneStruct.sink = phi ptr [ @_Py_NoneStruct, %_Py_NewRef.exit23 ], [ @_Py_NoneStruct, %31 ], [ %36, %34 ], [ %.sink28, %_Py_NewRef.exit24.sink.split ]
+  %_Py_NoneStruct.sink = phi ptr [ @_Py_NoneStruct, %_Py_NewRef.exit23 ], [ @_Py_NoneStruct, %31 ], [ %36, %34 ], [ %.sink36, %_Py_NewRef.exit24.sink.split ]
   %40 = getelementptr i8, ptr %2, i64 40
   store ptr %_Py_NoneStruct.sink, ptr %40, align 8, !tbaa !16
   %41 = tail call i64 @PyObject_Hash(ptr noundef nonnull %2) #6
@@ -2765,11 +2765,11 @@ define internal ptr @range_reverse(ptr noundef readonly captures(none) %0, ptr r
 
 get_len_of_range.exit:                            ; preds = %32, %30
   %.sink = phi i64 [ %5, %30 ], [ %12, %32 ]
-  %.sink72 = phi i64 [ %12, %30 ], [ %5, %32 ]
-  %.sink71 = phi i64 [ %19, %30 ], [ %20, %32 ]
+  %.sink84 = phi i64 [ %12, %30 ], [ %5, %32 ]
+  %.sink83 = phi i64 [ %19, %30 ], [ %20, %32 ]
   %35 = xor i64 %.sink, -1
-  %36 = add i64 %.sink72, %35
-  %37 = udiv i64 %36, %.sink71
+  %36 = add i64 %.sink84, %35
+  %37 = udiv i64 %36, %.sink83
   %.0.i = add i64 %37, 1
   %38 = icmp slt i64 %.0.i, 0
   br i1 %38, label %48, label %get_len_of_range.exit.thread

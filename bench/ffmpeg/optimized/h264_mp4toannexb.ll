@@ -138,14 +138,14 @@ define internal i32 @h264_mp4toannexb_filter(ptr noundef %0, ptr noundef %1) #0 
 
 .split363.us:                                     ; preds = %30
   %46 = icmp slt i32 %34, 0
-  %.not379 = icmp eq i32 %34, 0
+  %.not395 = icmp eq i32 %34, 0
   br label %._crit_edge.thread.i.us
 
 ._crit_edge.thread.i.us:                          ; preds = %.thread.i.us, %.split363.us
   br i1 %46, label %.thread350, label %.thread.i.us
 
 .thread.i.us:                                     ; preds = %._crit_edge.thread.i.us
-  br i1 %.not379, label %h264_mp4toannexb_filter_ps.exit.preheader, label %._crit_edge.thread.i.us, !llvm.loop !34
+  br i1 %.not395, label %h264_mp4toannexb_filter_ps.exit.preheader, label %._crit_edge.thread.i.us, !llvm.loop !34
 
 .split363thread-pre-split:                        ; preds = %.thread.i
   %.pr = load i8, ptr %37, align 8, !tbaa !33
@@ -547,7 +547,7 @@ count_or_copy.exit212:                            ; preds = %._crit_edge.i210, %
   br i1 %.not188, label %202, label %203
 
 202:                                              ; preds = %200
-  br i1 %.not.i191, label %.thread293, label %.thread384
+  br i1 %.not.i191, label %.thread293, label %.thread400
 
 203:                                              ; preds = %200
   br i1 %.not.i191, label %._crit_edge.i215, label %204
@@ -577,17 +577,17 @@ count_or_copy.exit217:                            ; preds = %._crit_edge.i215, %
   %or.cond24 = icmp ult i8 %210, 2
   br i1 %or.cond24, label %.split160, label %.split
 
-.thread384:                                       ; preds = %202
+.thread400:                                       ; preds = %202
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.10) #7
   %211 = add nsw i8 %136, -7
-  %or.cond24388 = icmp ult i8 %211, 2
-  br i1 %or.cond24388, label %.split160.thread, label %.split.thread401
+  %or.cond24404 = icmp ult i8 %211, 2
+  br i1 %or.cond24404, label %.split160.thread, label %.split.thread417
 
-.split.thread401:                                 ; preds = %.thread384
+.split.thread417:                                 ; preds = %.thread400
   %212 = icmp eq i64 %.3261, 0
-  %spec.select21.i405 = select i1 %212, i8 4, i8 3
-  %213 = zext nneg i8 %spec.select21.i405 to i32
-  %214 = zext nneg i8 %spec.select21.i405 to i64
+  %spec.select21.i421 = select i1 %212, i8 4, i8 3
+  %213 = zext nneg i8 %spec.select21.i421 to i32
+  %214 = zext nneg i8 %spec.select21.i421 to i64
   %215 = getelementptr inbounds nuw i8, ptr %.4270, i64 %214
   %216 = sext i32 %132 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %215, ptr noundef nonnull readonly align 1 dereferenceable(1) %119, i64 %216, i1 false)
@@ -614,22 +614,22 @@ count_or_copy.exit217:                            ; preds = %._crit_edge.i215, %
   %.pre24.i221 = sext i32 %.pre22.i to i64
   br label %count_or_copy.exit222
 
-.split160.thread:                                 ; preds = %.thread384, %.split160
-  %.7273389400 = phi ptr [ %.7273, %.split160 ], [ %.4270, %.thread384 ]
-  %.6264391399 = phi i64 [ %.6264, %.split160 ], [ %.3261, %.thread384 ]
-  %.6393398 = phi i8 [ %.6, %.split160 ], [ %.5141292, %.thread384 ]
-  %219 = getelementptr inbounds nuw i8, ptr %.7273389400, i64 4
+.split160.thread:                                 ; preds = %.thread400, %.split160
+  %.7273405416 = phi ptr [ %.7273, %.split160 ], [ %.4270, %.thread400 ]
+  %.6264407415 = phi i64 [ %.6264, %.split160 ], [ %.3261, %.thread400 ]
+  %.6409414 = phi i8 [ %.6, %.split160 ], [ %.5141292, %.thread400 ]
+  %219 = getelementptr inbounds nuw i8, ptr %.7273405416, i64 4
   %220 = sext i32 %132 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %219, ptr noundef nonnull readonly align 1 dereferenceable(1) %119, i64 %220, i1 false)
-  store i32 16777216, ptr %.7273389400, align 1, !tbaa !21
+  store i32 16777216, ptr %.7273405416, align 1, !tbaa !21
   %221 = add nsw i32 %132, 4
   %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds i8, ptr %.7273389400, i64 %222
+  %223 = getelementptr inbounds i8, ptr %.7273405416, i64 %222
   br label %count_or_copy.exit222
 
 count_or_copy.exit222:                            ; preds = %._crit_edge.i220, %.split160.thread
-  %.6264300311 = phi i64 [ %.6264300312, %._crit_edge.i220 ], [ %.6264391399, %.split160.thread ]
-  %.6304309 = phi i8 [ %.6304310, %._crit_edge.i220 ], [ %.6393398, %.split160.thread ]
+  %.6264300311 = phi i64 [ %.6264300312, %._crit_edge.i220 ], [ %.6264407415, %.split160.thread ]
+  %.6304309 = phi i8 [ %.6304310, %._crit_edge.i220 ], [ %.6409414, %.split160.thread ]
   %.16 = phi ptr [ %.7273298313, %._crit_edge.i220 ], [ %223, %.split160.thread ]
   %.pre-phi25.i219 = phi i64 [ %.pre24.i221, %._crit_edge.i220 ], [ %222, %.split160.thread ]
   %224 = add i64 %.pre-phi25.i219, %.6264300311
@@ -658,38 +658,38 @@ count_or_copy.exit222:                            ; preds = %._crit_edge.i220, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %229, ptr noundef nonnull readonly align 1 dereferenceable(1) %119, i64 %230, i1 false)
   br i1 %225, label %231, label %233
 
-231:                                              ; preds = %.split.thread401, %226
-  %232 = phi i32 [ %213, %.split.thread401 ], [ %227, %226 ]
-  %.6394406418 = phi i8 [ %.5141292, %.split.thread401 ], [ %.6, %226 ]
-  %.7273390408412 = phi ptr [ %.4270, %.split.thread401 ], [ %.7273, %226 ]
-  store i32 16777216, ptr %.7273390408412, align 1, !tbaa !21
+231:                                              ; preds = %.split.thread417, %226
+  %232 = phi i32 [ %213, %.split.thread417 ], [ %227, %226 ]
+  %.6410422434 = phi i8 [ %.5141292, %.split.thread417 ], [ %.6, %226 ]
+  %.7273406424428 = phi ptr [ %.4270, %.split.thread417 ], [ %.7273, %226 ]
+  store i32 16777216, ptr %.7273406424428, align 1, !tbaa !21
   br label %237
 
-233:                                              ; preds = %.split.thread401, %226
-  %234 = phi i32 [ %213, %.split.thread401 ], [ %227, %226 ]
-  %.6394406417 = phi i8 [ %.5141292, %.split.thread401 ], [ %.6, %226 ]
-  %.6264392407414 = phi i64 [ %.3261, %.split.thread401 ], [ %.6264, %226 ]
-  %.7273390408410 = phi ptr [ %.4270, %.split.thread401 ], [ %.7273, %226 ]
-  %235 = getelementptr inbounds nuw i8, ptr %.7273390408410, i64 1
+233:                                              ; preds = %.split.thread417, %226
+  %234 = phi i32 [ %213, %.split.thread417 ], [ %227, %226 ]
+  %.6410422433 = phi i8 [ %.5141292, %.split.thread417 ], [ %.6, %226 ]
+  %.6264408423430 = phi i64 [ %.3261, %.split.thread417 ], [ %.6264, %226 ]
+  %.7273406424426 = phi ptr [ %.4270, %.split.thread417 ], [ %.7273, %226 ]
+  %235 = getelementptr inbounds nuw i8, ptr %.7273406424426, i64 1
   store i8 0, ptr %235, align 1, !tbaa !21
-  store i8 0, ptr %.7273390408410, align 1, !tbaa !21
-  %236 = getelementptr inbounds nuw i8, ptr %.7273390408410, i64 2
+  store i8 0, ptr %.7273406424426, align 1, !tbaa !21
+  %236 = getelementptr inbounds nuw i8, ptr %.7273406424426, i64 2
   store i8 1, ptr %236, align 1, !tbaa !21
   br label %237
 
 237:                                              ; preds = %233, %231
   %238 = phi i32 [ %234, %233 ], [ %232, %231 ]
-  %.6394406416 = phi i8 [ %.6394406417, %233 ], [ %.6394406418, %231 ]
-  %.6264392407413 = phi i64 [ %.6264392407414, %233 ], [ 0, %231 ]
-  %.7273390408411 = phi ptr [ %.7273390408410, %233 ], [ %.7273390408412, %231 ]
+  %.6410422432 = phi i8 [ %.6410422433, %233 ], [ %.6410422434, %231 ]
+  %.6264408423429 = phi i64 [ %.6264408423430, %233 ], [ 0, %231 ]
+  %.7273406424427 = phi ptr [ %.7273406424426, %233 ], [ %.7273406424428, %231 ]
   %239 = add nsw i32 %132, %238
   %240 = sext i32 %239 to i64
-  %241 = getelementptr inbounds i8, ptr %.7273390408411, i64 %240
+  %241 = getelementptr inbounds i8, ptr %.7273406424427, i64 %240
   br label %count_or_copy.exit228
 
 count_or_copy.exit228:                            ; preds = %._crit_edge.i225, %237
-  %.6264301321 = phi i64 [ %.6264301322, %._crit_edge.i225 ], [ %.6264392407413, %237 ]
-  %.6303319 = phi i8 [ %.6303320, %._crit_edge.i225 ], [ %.6394406416, %237 ]
+  %.6264301321 = phi i64 [ %.6264301322, %._crit_edge.i225 ], [ %.6264408423429, %237 ]
+  %.6303319 = phi i8 [ %.6303320, %._crit_edge.i225 ], [ %.6410422432, %237 ]
   %.17 = phi ptr [ %.7273299323, %._crit_edge.i225 ], [ %241, %237 ]
   %.pre-phi25.i224 = phi i64 [ %.pre24.i227, %._crit_edge.i225 ], [ %240, %237 ]
   %242 = add i64 %.pre-phi25.i224, %.6264301321

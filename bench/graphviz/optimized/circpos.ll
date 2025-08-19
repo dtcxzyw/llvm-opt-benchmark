@@ -325,9 +325,9 @@ getInfo.exit.loopexit.i:                          ; preds = %96
   br i1 %131, label %.lr.ph101.i, label %129, !llvm.loop !65
 
 .lr.ph101.sink.split.i:                           ; preds = %105, %._crit_edge.i
-  %.sink134.i = phi i64 [ 96, %105 ], [ 40, %._crit_edge.i ]
+  %.sink149.i = phi i64 [ 96, %105 ], [ 40, %._crit_edge.i ]
   %.sink.i = phi double [ %128, %105 ], [ 1.000000e+00, %._crit_edge.i ]
-  %168 = getelementptr inbounds nuw i8, ptr %16, i64 %.sink134.i
+  %168 = getelementptr inbounds nuw i8, ptr %16, i64 %.sink149.i
   store double %.sink.i, ptr %168, align 8, !tbaa !64
   br label %.lr.ph101.i
 
@@ -645,7 +645,7 @@ positionChildren.exit.i:                          ; preds = %340, %337, %._crit_
   br i1 %exitcond114.not.i, label %._crit_edge102.i, label %170, !llvm.loop !76
 
 ._crit_edge102.i:                                 ; preds = %positionChildren.exit.i, %.preheader.i, %gv_calloc.exit.i
-  %.077.lcssa117126.i = phi double [ %.077.lcssa.i, %.preheader.i ], [ 0.000000e+00, %gv_calloc.exit.i ], [ %.077.lcssa.i, %positionChildren.exit.i ]
+  %.077.lcssa132141.i = phi double [ %.077.lcssa.i, %.preheader.i ], [ 0.000000e+00, %gv_calloc.exit.i ], [ %.077.lcssa.i, %positionChildren.exit.i ]
   %.sroa.10.0.lcssa.i = phi double [ -1.000000e+00, %.preheader.i ], [ -1.000000e+00, %gv_calloc.exit.i ], [ %.081.lcssa.i.i, %positionChildren.exit.i ]
   %.sroa.4.0.lcssa.i = phi double [ %24, %.preheader.i ], [ %24, %gv_calloc.exit.i ], [ %347, %positionChildren.exit.i ]
   %.sroa.14.0.lcssa.i = phi double [ -1.000000e+00, %.preheader.i ], [ -1.000000e+00, %gv_calloc.exit.i ], [ %.080.lcssa.i.i, %positionChildren.exit.i ]
@@ -655,7 +655,7 @@ positionChildren.exit.i:                          ; preds = %340, %337, %._crit_
 
 349:                                              ; preds = %._crit_edge102.i
   %350 = fmul double %2, 5.000000e-01
-  %351 = fadd double %350, %.077.lcssa117126.i
+  %351 = fadd double %350, %.077.lcssa132141.i
   %352 = fneg double %351
   call fastcc void @applyDelta(ptr noundef nonnull %1, double noundef %352, double noundef 0.000000e+00, double noundef 0.000000e+00)
   %353 = load double, ptr %23, align 8, !tbaa !30

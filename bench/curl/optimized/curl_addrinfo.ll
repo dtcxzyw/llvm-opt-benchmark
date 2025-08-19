@@ -91,7 +91,7 @@ define hidden i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr nound
   %28 = add i64 %27, %.059
   %29 = call ptr %26(i64 noundef %28) #8
   %.not79 = icmp eq ptr %29, null
-  br i1 %.not79, label %._crit_edge.thread123, label %30
+  br i1 %.not79, label %._crit_edge.thread128, label %30
 
 30:                                               ; preds = %25
   %31 = load i32, ptr %.060102, align 8, !tbaa !23
@@ -151,20 +151,20 @@ define hidden i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr nound
   %.not83 = icmp eq ptr %.pre, null
   br i1 %.not83, label %.thread, label %54
 
-._crit_edge.thread123:                            ; preds = %25
-  %.pre127 = load ptr, ptr %5, align 8, !tbaa !16
-  %.not83128 = icmp eq ptr %.pre127, null
-  br i1 %.not83128, label %55, label %.thread133
+._crit_edge.thread128:                            ; preds = %25
+  %.pre132 = load ptr, ptr %5, align 8, !tbaa !16
+  %.not83133 = icmp eq ptr %.pre132, null
+  br i1 %.not83133, label %55, label %.thread138
 
-.thread133:                                       ; preds = %._crit_edge.thread123
-  call void @freeaddrinfo(ptr noundef nonnull %.pre127) #8
+.thread138:                                       ; preds = %._crit_edge.thread128
+  call void @freeaddrinfo(ptr noundef nonnull %.pre132) #8
   br label %55
 
 54:                                               ; preds = %._crit_edge
   call void @freeaddrinfo(ptr noundef nonnull %.pre) #8
   br label %.thread
 
-55:                                               ; preds = %._crit_edge.thread123, %.thread133
+55:                                               ; preds = %._crit_edge.thread128, %.thread138
   %.not5.i = icmp eq ptr %.063100, null
   br i1 %.not5.i, label %Curl_freeaddrinfo.exit, label %.lr.ph.i
 
@@ -178,13 +178,13 @@ define hidden i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not.i, label %Curl_freeaddrinfo.exit, label %.lr.ph.i, !llvm.loop !13
 
 .thread:                                          ; preds = %._crit_edge, %54, %.preheader
-  %.063.lcssa114120 = phi ptr [ %.265.ph, %54 ], [ null, %.preheader ], [ %.265.ph, %._crit_edge ]
-  %.not85 = icmp eq ptr %.063.lcssa114120, null
+  %.063.lcssa119125 = phi ptr [ %.265.ph, %54 ], [ null, %.preheader ], [ %.265.ph, %._crit_edge ]
+  %.not85 = icmp eq ptr %.063.lcssa119125, null
   %spec.select87 = select i1 %.not85, i32 -2, i32 0
   br label %Curl_freeaddrinfo.exit
 
 Curl_freeaddrinfo.exit:                           ; preds = %.lr.ph.i, %55, %.thread
-  %.4 = phi ptr [ %.063.lcssa114120, %.thread ], [ null, %55 ], [ null, %.lr.ph.i ]
+  %.4 = phi ptr [ %.063.lcssa119125, %.thread ], [ null, %55 ], [ null, %.lr.ph.i ]
   %.3 = phi i32 [ %spec.select87, %.thread ], [ -10, %55 ], [ -10, %.lr.ph.i ]
   store ptr %.4, ptr %3, align 8, !tbaa !15
   br label %59

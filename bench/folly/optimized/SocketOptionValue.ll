@@ -353,7 +353,7 @@ _ZNK5folly17SocketOptionValue6hasIntEv.exit:      ; preds = %9, %11
   %spec.select.i.i.i = phi i64 [ 2, %9 ], [ %.1.i.i.i, %11 ]
   %12 = zext i8 %4 to i64
   %13 = icmp eq i64 %spec.select.i.i.i, %12
-  br i1 %13, label %14, label %.preheader46
+  br i1 %13, label %14, label %.preheader47
 
 14:                                               ; preds = %_ZNK5folly17SocketOptionValue6hasIntEv.exit
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -381,15 +381,15 @@ _ZNK5folly17SocketOptionValue6hasIntEv.exit16:    ; preds = %21, %23
   %spec.select.i.i.i15 = phi i64 [ 2, %21 ], [ %.1.i.i.i14, %23 ]
   %24 = zext i8 %16 to i64
   %25 = icmp eq i64 %spec.select.i.i.i15, %24
-  br i1 %25, label %.preheader46, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+  br i1 %25, label %.preheader47, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
-.preheader46:                                     ; preds = %_ZNK5folly17SocketOptionValue6hasIntEv.exit16, %_ZNK5folly17SocketOptionValue6hasIntEv.exit
+.preheader47:                                     ; preds = %_ZNK5folly17SocketOptionValue6hasIntEv.exit16, %_ZNK5folly17SocketOptionValue6hasIntEv.exit
   br label %26
 
-26:                                               ; preds = %.preheader46, %32
-  %.not.i.i.i17 = phi i1 [ false, %32 ], [ true, %.preheader46 ]
-  %.0813.i.i.i18 = phi i64 [ 1, %32 ], [ 0, %.preheader46 ]
-  %.0912.i.i.i19 = phi i64 [ %.1.i.i.i20, %32 ], [ 2, %.preheader46 ]
+26:                                               ; preds = %.preheader47, %32
+  %.not.i.i.i17 = phi i1 [ false, %32 ], [ true, %.preheader47 ]
+  %.0813.i.i.i18 = phi i64 [ 1, %32 ], [ 0, %.preheader47 ]
+  %.0912.i.i.i19 = phi i64 [ %.1.i.i.i20, %32 ], [ 2, %.preheader47 ]
   %27 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 0, i64 %.0813.i.i.i18
   %28 = load i8, ptr %27, align 1, !tbaa !20, !range !22, !noundef !23
   %29 = trunc nuw i8 %28 to i1

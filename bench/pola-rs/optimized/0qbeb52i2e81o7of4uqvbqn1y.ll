@@ -80153,14 +80153,14 @@ define internal fastcc void @"_ZN13polars_stream7execute12run_subgraph28_$u7b$$u
   %4 = alloca [64 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %6 = load i8, ptr %5, align 8, !range !752, !noundef !7
-  switch i8 %6, label %default.unreachable19 [
+  switch i8 %6, label %default.unreachable20 [
     i8 0, label %7
     i8 1, label %18
     i8 2, label %19
     i8 3, label %22
   ]
 
-default.unreachable19:                            ; preds = %3
+default.unreachable20:                            ; preds = %3
   unreachable
 
 7:                                                ; preds = %3
@@ -80319,14 +80319,14 @@ define internal fastcc void @"_ZN13polars_stream5nodes8group_by16GroupBySinkStat
   %4 = alloca [64 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %6 = load i8, ptr %5, align 8, !range !752, !noundef !7
-  switch i8 %6, label %default.unreachable19 [
+  switch i8 %6, label %default.unreachable20 [
     i8 0, label %7
     i8 1, label %18
     i8 2, label %19
     i8 3, label %22
   ]
 
-default.unreachable19:                            ; preds = %3
+default.unreachable20:                            ; preds = %3
   unreachable
 
 7:                                                ; preds = %3
@@ -80595,7 +80595,7 @@ define internal fastcc void @"_ZN13polars_stream5nodes10io_sources17multi_file_r
   %11 = alloca [72 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i8, ptr %12, align 8, !range !760, !noundef !7
-  switch i8 %13, label %default.unreachable10 [
+  switch i8 %13, label %default.unreachable12 [
     i8 0, label %14
     i8 1, label %35
     i8 2, label %36
@@ -80603,7 +80603,7 @@ define internal fastcc void @"_ZN13polars_stream5nodes10io_sources17multi_file_r
     i8 4, label %17
   ]
 
-default.unreachable10:                            ; preds = %92, %68, %65, %50, %3
+default.unreachable12:                            ; preds = %92, %68, %65, %50, %3
   unreachable
 
 14:                                               ; preds = %3
@@ -80728,7 +80728,7 @@ common.ret:                                       ; preds = %142, %46, %44
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %52 = load i8, ptr %51, align 8, !range !752, !noalias !6073, !noundef !7
-  switch i8 %52, label %default.unreachable10 [
+  switch i8 %52, label %default.unreachable12 [
     i8 0, label %53
     i8 1, label %61
     i8 2, label %62
@@ -80788,7 +80788,7 @@ common.ret:                                       ; preds = %142, %46, %44
 65:                                               ; preds = %59, %56
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %67 = load i8, ptr %66, align 8, !range !752, !noalias !6081, !noundef !7
-  switch i8 %67, label %default.unreachable10 [
+  switch i8 %67, label %default.unreachable12 [
     i8 0, label %68
     i8 1, label %88
     i8 2, label %89
@@ -80801,7 +80801,7 @@ common.ret:                                       ; preds = %142, %46, %44
   %71 = load ptr, ptr %69, align 8, !noalias !6081, !nonnull !7, !align !740, !noundef !7
   store ptr %71, ptr %70, align 8, !noalias !6081
   %72 = load i64, ptr %71, align 8, !range !6, !noalias !6081, !noundef !7
-  switch i64 %72, label %default.unreachable10 [
+  switch i64 %72, label %default.unreachable12 [
     i64 0, label %80
     i64 1, label %73
     i64 2, label %77
@@ -80872,7 +80872,7 @@ common.ret:                                       ; preds = %142, %46, %44
   %.pre37.i.i = load i8, ptr %.phi.trans.insert36.i.i, align 8, !range !752, !noalias !6090
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !6081
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6094)
-  switch i8 %.pre37.i.i, label %default.unreachable10 [
+  switch i8 %.pre37.i.i, label %default.unreachable12 [
     i8 0, label %._crit_edge.i
     i8 1, label %97
     i8 2, label %98
@@ -81342,14 +81342,14 @@ define internal fastcc void @"_ZN13polars_stream5nodes5joins9equi_join11select_k
   %21 = alloca [160 x i8], align 16
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 153
   %23 = load i8, ptr %22, align 1, !range !752, !noundef !7
-  switch i8 %23, label %default.unreachable77 [
+  switch i8 %23, label %default.unreachable81 [
     i8 0, label %29
     i8 1, label %54
     i8 2, label %55
     i8 3, label %24
   ]
 
-default.unreachable77:                            ; preds = %58, %3
+default.unreachable81:                            ; preds = %58, %3
   unreachable
 
 24:                                               ; preds = %3
@@ -81438,7 +81438,7 @@ default.unreachable77:                            ; preds = %58, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i)
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 123
   %61 = load i8, ptr %60, align 1, !range !752, !noalias !6138, !noundef !7
-  switch i8 %61, label %default.unreachable77 [
+  switch i8 %61, label %default.unreachable81 [
     i8 0, label %62
     i8 1, label %173
     i8 2, label %174
@@ -82170,14 +82170,14 @@ define internal fastcc void @"_ZN13polars_stream5nodes5joins9equi_join11SampleSt
   %4 = alloca [64 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %6 = load i8, ptr %5, align 8, !range !752, !noundef !7
-  switch i8 %6, label %default.unreachable19 [
+  switch i8 %6, label %default.unreachable20 [
     i8 0, label %7
     i8 1, label %18
     i8 2, label %19
     i8 3, label %22
   ]
 
-default.unreachable19:                            ; preds = %3
+default.unreachable20:                            ; preds = %3
   unreachable
 
 7:                                                ; preds = %3
@@ -82964,7 +82964,7 @@ define internal void @"_ZN13polars_stream5nodes10io_sources17multi_file_reader16
   %12 = alloca [64 x i8], align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %14 = load i8, ptr %13, align 1, !range !760, !noundef !7
-  switch i8 %14, label %default.unreachable66 [
+  switch i8 %14, label %default.unreachable68 [
     i8 0, label %18
     i8 1, label %117
     i8 2, label %118
@@ -82972,7 +82972,7 @@ define internal void @"_ZN13polars_stream5nodes10io_sources17multi_file_reader16
     i8 4, label %16
   ]
 
-default.unreachable66:                            ; preds = %3
+default.unreachable68:                            ; preds = %3
   unreachable
 
 15:                                               ; preds = %3
@@ -83445,7 +83445,7 @@ define internal void @"_ZN13polars_stream5nodes10io_sources17multi_file_reader16
   %12 = alloca [64 x i8], align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %14 = load i8, ptr %13, align 1, !range !760, !noundef !7
-  switch i8 %14, label %default.unreachable66 [
+  switch i8 %14, label %default.unreachable68 [
     i8 0, label %18
     i8 1, label %117
     i8 2, label %118
@@ -83453,7 +83453,7 @@ define internal void @"_ZN13polars_stream5nodes10io_sources17multi_file_reader16
     i8 4, label %16
   ]
 
-default.unreachable66:                            ; preds = %3
+default.unreachable68:                            ; preds = %3
   unreachable
 
 15:                                               ; preds = %3
@@ -83926,7 +83926,7 @@ define internal void @"_ZN13polars_stream5nodes10io_sources17multi_file_reader16
   %12 = alloca [64 x i8], align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %14 = load i8, ptr %13, align 1, !range !760, !noundef !7
-  switch i8 %14, label %default.unreachable66 [
+  switch i8 %14, label %default.unreachable68 [
     i8 0, label %18
     i8 1, label %117
     i8 2, label %118
@@ -83934,7 +83934,7 @@ define internal void @"_ZN13polars_stream5nodes10io_sources17multi_file_reader16
     i8 4, label %16
   ]
 
-default.unreachable66:                            ; preds = %3
+default.unreachable68:                            ; preds = %3
   unreachable
 
 15:                                               ; preds = %3
@@ -84545,7 +84545,7 @@ define internal void @"_ZN13polars_stream5nodes10io_sources17multi_file_reader16
   %18 = alloca [64 x i8], align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %20 = load i8, ptr %19, align 8, !range !753, !noundef !7
-  switch i8 %20, label %default.unreachable88 [
+  switch i8 %20, label %default.unreachable92 [
     i8 0, label %25
     i8 1, label %127
     i8 2, label %128
@@ -84555,7 +84555,7 @@ define internal void @"_ZN13polars_stream5nodes10io_sources17multi_file_reader16
     i8 6, label %23
   ]
 
-default.unreachable88:                            ; preds = %3
+default.unreachable92:                            ; preds = %3
   unreachable
 
 21:                                               ; preds = %3
@@ -85251,7 +85251,7 @@ define internal void @"_ZN13polars_stream5nodes10io_sources17multi_file_reader16
   %18 = alloca [64 x i8], align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %20 = load i8, ptr %19, align 8, !range !753, !noundef !7
-  switch i8 %20, label %default.unreachable88 [
+  switch i8 %20, label %default.unreachable92 [
     i8 0, label %25
     i8 1, label %127
     i8 2, label %128
@@ -85261,7 +85261,7 @@ define internal void @"_ZN13polars_stream5nodes10io_sources17multi_file_reader16
     i8 6, label %23
   ]
 
-default.unreachable88:                            ; preds = %3
+default.unreachable92:                            ; preds = %3
   unreachable
 
 21:                                               ; preds = %3
@@ -85957,7 +85957,7 @@ define internal void @"_ZN13polars_stream5nodes10io_sources17multi_file_reader16
   %18 = alloca [64 x i8], align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %20 = load i8, ptr %19, align 8, !range !753, !noundef !7
-  switch i8 %20, label %default.unreachable88 [
+  switch i8 %20, label %default.unreachable92 [
     i8 0, label %25
     i8 1, label %127
     i8 2, label %128
@@ -85967,7 +85967,7 @@ define internal void @"_ZN13polars_stream5nodes10io_sources17multi_file_reader16
     i8 6, label %23
   ]
 
-default.unreachable88:                            ; preds = %3
+default.unreachable92:                            ; preds = %3
   unreachable
 
 21:                                               ; preds = %3

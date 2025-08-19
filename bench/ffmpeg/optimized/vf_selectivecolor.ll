@@ -233,13 +233,13 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   br label %.preheader.i
 
 thread-pre-split.i:                               ; preds = %67
-  %.pr22.i = load i64, ptr %3, align 8, !tbaa !48
-  %55 = icmp ult i64 %.pr22.i, 2
+  %.pr34.i = load i64, ptr %3, align 8, !tbaa !48
+  %55 = icmp ult i64 %.pr34.i, 2
   br i1 %55, label %parse_psfile.exit.thread65.loopexit83, label %.lr.ph
 
 .lr.ph:                                           ; preds = %46, %thread-pre-split.i
   %indvars.iv.i78 = phi i64 [ %indvars.iv.next.i, %thread-pre-split.i ], [ 0, %46 ]
-  %56 = phi i64 [ %.pr22.i, %thread-pre-split.i ], [ %52, %46 ]
+  %56 = phi i64 [ %.pr34.i, %thread-pre-split.i ], [ %52, %46 ]
   %57 = load ptr, ptr %2, align 8, !tbaa !50
   %58 = load i16, ptr %57, align 1, !tbaa !51
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 2
@@ -307,7 +307,7 @@ parse_psfile.exit.thread65.loopexit83:            ; preds = %thread-pre-split.i
 
 parse_psfile.exit.thread65:                       ; preds = %69, %parse_psfile.exit.thread65.loopexit83, %46, %33, %43
   %85 = phi ptr [ %.pre92, %43 ], [ %.pre91, %33 ], [ %51, %46 ], [ %.pre, %parse_psfile.exit.thread65.loopexit83 ], [ %71, %69 ]
-  %.ph = phi i64 [ %44, %43 ], [ %34, %33 ], [ %52, %46 ], [ %.pr22.i, %parse_psfile.exit.thread65.loopexit83 ], [ %70, %69 ]
+  %.ph = phi i64 [ %44, %43 ], [ %34, %33 ], [ %52, %46 ], [ %.pr34.i, %parse_psfile.exit.thread65.loopexit83 ], [ %70, %69 ]
   call void @av_file_unmap(ptr noundef %85, i64 noundef %.ph) #10
   br label %.loopexit.sink.split
 
@@ -1116,8 +1116,8 @@ define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72
   store i16 %.0.i223, ptr %193, align 2, !tbaa !75
   %.pre24 = load i32, ptr %46, align 8, !tbaa !46
   %194 = icmp eq i32 %.pre24, 4
-  %or.cond25 = select i1 %50, i1 %194, i1 false
-  br i1 %or.cond25, label %195, label %199
+  %or.cond29 = select i1 %50, i1 %194, i1 false
+  br i1 %or.cond29, label %195, label %199
 
 195:                                              ; preds = %181
   %196 = getelementptr inbounds i16, ptr %.019916, i64 %56

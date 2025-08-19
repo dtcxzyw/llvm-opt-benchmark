@@ -971,13 +971,13 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i: ; preds = %._crit_edge
   br label %_ZN4llvm15SmallPtrSetImplIPKN5clang14IdentifierInfoEE6insertES4_.exit.i.i.sink.split
 
 _ZN4llvm15SmallPtrSetImplIPKN5clang14IdentifierInfoEE6insertES4_.exit.i.i.sink.split: ; preds = %59, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i
-  %.ph6 = phi i8 [ 1, %59 ], [ %.pre.fr.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i ]
+  %.ph13 = phi i8 [ 1, %59 ], [ %.pre.fr.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i ]
   %62 = load i32, ptr %29, align 4, !noalias !567
   br label %_ZN4llvm15SmallPtrSetImplIPKN5clang14IdentifierInfoEE6insertES4_.exit.i.i
 
 _ZN4llvm15SmallPtrSetImplIPKN5clang14IdentifierInfoEE6insertES4_.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm15SmallPtrSetImplIPKN5clang14IdentifierInfoEE6insertES4_.exit.i.i.sink.split
   %63 = phi i32 [ %62, %_ZN4llvm15SmallPtrSetImplIPKN5clang14IdentifierInfoEE6insertES4_.exit.i.i.sink.split ], [ %52, %.lr.ph.i.i.i.i ]
-  %64 = phi i8 [ %.ph6, %_ZN4llvm15SmallPtrSetImplIPKN5clang14IdentifierInfoEE6insertES4_.exit.i.i.sink.split ], [ 1, %.lr.ph.i.i.i.i ]
+  %64 = phi i8 [ %.ph13, %_ZN4llvm15SmallPtrSetImplIPKN5clang14IdentifierInfoEE6insertES4_.exit.i.i.sink.split ], [ 1, %.lr.ph.i.i.i.i ]
   %65 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !9
   %.not.i.i = icmp eq ptr %66, null
@@ -1051,7 +1051,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_112VforkChecker9reportBugEPKcRN5cl
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.0.copyload.i.i.i.i6.i = load i64, ptr %15, align 8
+  %.0.copyload.i.i.i.i7.i = load i64, ptr %15, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !85
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i
@@ -1068,7 +1068,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_112VforkChecker9reportBugEPKcRN5cl
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i: ; preds = %14, %16
-  %.in.in = phi i64 [ %.0.copyload.i.i.i.i.i, %16 ], [ %.0.copyload.i.i.i.i6.i, %14 ]
+  %.in.in = phi i64 [ %.0.copyload.i.i.i.i.i, %16 ], [ %.0.copyload.i.i.i.i7.i, %14 ]
   %19 = phi ptr [ %17, %16 ], [ %11, %14 ]
   %.in = and i64 %.in.in, -8
   %20 = inttoptr i64 %.in to ptr
@@ -1894,7 +1894,7 @@ _ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_ED2Ev.exi
   br i1 %.not.i.i.i32.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit34.i, label %100
 
 100:                                              ; preds = %97, %.thread.i.i
-  %.not.i.i29116.i = phi i1 [ true, %97 ], [ false, %.thread.i.i ]
+  %.not.i.i29127.i = phi i1 [ true, %97 ], [ false, %.thread.i.i ]
   %101 = phi ptr [ %94, %97 ], [ %95, %.thread.i.i ]
   %102 = phi ptr [ null, %97 ], [ %96, %.thread.i.i ]
   %.sroa.081.0.i = phi ptr [ %.pr.i.i, %97 ], [ %96, %.thread.i.i ]
@@ -1937,14 +1937,14 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i: ; pre
 
 _ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i, %100
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.081.0.i) #18
-  br i1 %.not.i.i29116.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit34.i, label %116
+  br i1 %.not.i.i29127.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit34.i, label %116
 
 116:                                              ; preds = %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %102) #18
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit34.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit34.i: ; preds = %116, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i, %97
-  %.not.i.i29118.i = phi i1 [ true, %97 ], [ true, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i ], [ false, %116 ]
+  %.not.i.i29129.i = phi i1 [ true, %97 ], [ true, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i ], [ false, %116 ]
   %117 = phi ptr [ %94, %97 ], [ %101, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i ], [ %101, %116 ]
   %118 = phi ptr [ null, %97 ], [ %102, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i ], [ %102, %116 ]
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 8
@@ -2031,7 +2031,7 @@ _ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit51.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit51.i: ; preds = %141, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit47.i, %124
-  br i1 %.not.i.i29118.i, label %_ZNK12_GLOBAL__N_112VforkChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %142
+  br i1 %.not.i.i29129.i, label %_ZNK12_GLOBAL__N_112VforkChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %142
 
 142:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit51.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %118) #18

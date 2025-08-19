@@ -270,7 +270,7 @@ define internal i32 @hwloc_nolibxml_import_diff(ptr noundef %0, ptr noundef read
   %17 = getelementptr i8, ptr %15, i64 %14
   %18 = getelementptr i8, ptr %17, i64 -1
   store i8 0, ptr %18, align 1, !tbaa !14
-  br label %.preheader75
+  br label %.preheader78
 
 19:                                               ; preds = %6
   %20 = call fastcc i32 @hwloc_nolibxml_read_file(ptr noundef %1, ptr noundef %8, ptr noundef %9)
@@ -279,14 +279,14 @@ define internal i32 @hwloc_nolibxml_import_diff(ptr noundef %0, ptr noundef read
 
 ._crit_edge69:                                    ; preds = %19
   %.pre = load ptr, ptr %8, align 8, !tbaa !21
-  br label %.preheader75
+  br label %.preheader78
 
-.preheader75:                                     ; preds = %._crit_edge69, %16
+.preheader78:                                     ; preds = %._crit_edge69, %16
   %.041.ph = phi ptr [ %15, %16 ], [ %.pre, %._crit_edge69 ]
   br label %22
 
-22:                                               ; preds = %.preheader75, %.critedge
-  %.041 = phi ptr [ %27, %.critedge ], [ %.041.ph, %.preheader75 ]
+22:                                               ; preds = %.preheader78, %.critedge
+  %.041 = phi ptr [ %27, %.critedge ], [ %.041.ph, %.preheader78 ]
   %23 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.041, ptr noundef nonnull dereferenceable(7) @.str.3, i64 noundef 6) #24
   %.not49 = icmp eq i32 %23, 0
   br i1 %.not49, label %.critedge, label %24
@@ -960,13 +960,13 @@ sub_1:                                            ; preds = %sub_0
 
 .tail.thread.thread:                              ; preds = %sub_1
   %39 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(6) @.str.14, i64 noundef 5) #24
-  %.not89123 = icmp eq i32 %39, 0
-  br i1 %.not89123, label %41, label %.tail98.thread
+  %.not89125 = icmp eq i32 %39, 0
+  br i1 %.not89125, label %41, label %.tail98.thread
 
 .thread:                                          ; preds = %.tail
   %40 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(6) @.str.14, i64 noundef 5) #24
-  %.not89116 = icmp eq i32 %40, 0
-  br i1 %.not89116, label %41, label %.tail98.thread
+  %.not89118 = icmp eq i32 %40, 0
+  br i1 %.not89118, label %41, label %.tail98.thread
 
 41:                                               ; preds = %.tail.thread.thread, %.thread, %.tail.thread
   %42 = add i64 %.080, 5

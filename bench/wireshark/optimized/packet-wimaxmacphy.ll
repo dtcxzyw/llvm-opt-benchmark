@@ -1212,13 +1212,13 @@ define internal i32 @dissect_wimaxmacphy(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.sink.split.i.i.i.i
 
 .sink.split.i.i.i.i:                              ; preds = %186, %178, %170, %153
-  %.sink7.i.i.i.i = phi i32 [ 18, %170 ], [ 18, %178 ], [ 14, %186 ], [ 14, %153 ]
+  %.sink8.i.i.i.i = phi i32 [ 18, %170 ], [ 18, %178 ], [ 14, %186 ], [ 14, %153 ]
   %hf_wimaxmacphy_burst_opt_aas_reserved.sink.i.i.i.i = phi ptr [ @hf_wimaxmacphy_burst_opt_aas_reserved, %170 ], [ @hf_wimaxmacphy_dl_burst_opt_mimo_reserved, %178 ], [ @hf_wimaxmacphy_burst_papr_reserved, %186 ], [ @hf_wimaxmacphy_dl_burst_map_reserved, %153 ]
-  %.sink4.i.i.i.i = phi ptr [ %172, %170 ], [ %180, %178 ], [ %188, %186 ], [ %155, %153 ]
+  %.sink5.i.i.i.i = phi ptr [ %172, %170 ], [ %180, %178 ], [ %188, %186 ], [ %155, %153 ]
   %.sink.i.i.i.i = phi i32 [ 20, %170 ], [ 20, %178 ], [ 16, %186 ], [ 16, %153 ]
-  %194 = add i32 %.sink7.i.i.i.i, %.12.i.i.i
+  %194 = add i32 %.sink8.i.i.i.i, %.12.i.i.i
   %195 = load i32, ptr %hf_wimaxmacphy_burst_opt_aas_reserved.sink.i.i.i.i, align 4
-  %196 = call ptr @proto_tree_add_item(ptr noundef %.sink4.i.i.i.i, i32 noundef %195, ptr noundef %0, i32 noundef %194, i32 noundef 2, i32 noundef 0)
+  %196 = call ptr @proto_tree_add_item(ptr noundef %.sink5.i.i.i.i, i32 noundef %195, ptr noundef %0, i32 noundef %194, i32 noundef 2, i32 noundef 0)
   %197 = add i32 %.sink.i.i.i.i, %.12.i.i.i
   br label %198
 

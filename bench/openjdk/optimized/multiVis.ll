@@ -953,8 +953,8 @@ define internal fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef nonnul
   br label %19
 
 19:                                               ; preds = %16, %14
-  %.sink136 = phi i64 [ %18, %16 ], [ %15, %14 ]
-  %20 = tail call noalias ptr @malloc(i64 noundef %.sink136) #10
+  %.sink145 = phi i64 [ %18, %16 ], [ %15, %14 ]
+  %20 = tail call noalias ptr @malloc(i64 noundef %.sink145) #10
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %20, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 48

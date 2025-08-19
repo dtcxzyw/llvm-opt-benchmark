@@ -216,8 +216,8 @@ get_riff.exit:                                    ; preds = %33
   %48 = icmp slt i64 %45, 1
   %.pre = load i64, ptr %27, align 8, !tbaa !33
   %49 = icmp slt i64 %45, %.pre
-  %or.cond959 = select i1 %48, i1 true, i1 %49
-  br i1 %or.cond959, label %50, label %52
+  %or.cond1011 = select i1 %48, i1 true, i1 %49
+  br i1 %or.cond1011, label %50, label %52
 
 50:                                               ; preds = %42
   %51 = icmp eq i64 %.pre, 8
@@ -679,14 +679,14 @@ avi_metadata_creation_time.exit:                  ; preds = %177, %178, %183
 .sink.split:                                      ; preds = %268
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.15, i32 noundef %278, i32 noundef %276) #14
   %.not672 = icmp eq i32 %.0566806, 0
-  %.963 = select i1 %.not672, i32 25, i32 1000000
+  %.1015 = select i1 %.not672, i32 25, i32 1000000
   %..0566806 = call i32 @llvm.umax.i32(i32 %.0566806, i32 1)
-  store i32 %.963, ptr %277, align 8, !tbaa !63
+  store i32 %.1015, ptr %277, align 8, !tbaa !63
   store i32 %..0566806, ptr %275, align 4, !tbaa !59
   br label %279
 
 279:                                              ; preds = %.sink.split, %268
-  %280 = phi i32 [ %276, %268 ], [ %.963, %.sink.split ]
+  %280 = phi i32 [ %276, %268 ], [ %.1015, %.sink.split ]
   %281 = phi i32 [ %278, %268 ], [ %..0566806, %.sink.split ]
   call void @avpriv_set_pts_info(ptr noundef nonnull %217, i32 noundef 64, i32 noundef %281, i32 noundef %280) #14
   %282 = call i32 @avio_rl32(ptr noundef %22) #14
@@ -1029,7 +1029,7 @@ avi_metadata_creation_time.exit:                  ; preds = %177, %178, %183
   %450 = getelementptr inbounds nuw i8, ptr %449, i64 4
   store i32 %448, ptr %450, align 4, !tbaa !79
   %.not661 = icmp eq i32 %448, 0
-  br i1 %.not661, label %451, label %.thread912
+  br i1 %.not661, label %451, label %.thread964
 
 451:                                              ; preds = %443
   %452 = call i32 @ff_codec_get_id(ptr noundef nonnull @ff_codec_movvideo_tags, i32 noundef %377) #14
@@ -1047,16 +1047,16 @@ avi_metadata_creation_time.exit:                  ; preds = %177, %178, %183
   %.phi.trans.insert905 = getelementptr inbounds nuw i8, ptr %.pre904, i64 4
   %.pre906 = load i32, ptr %.phi.trans.insert905, align 4, !tbaa !79
   %.not663 = icmp eq i32 %.pre906, 0
-  br i1 %.not663, label %.thread, label %.thread912
+  br i1 %.not663, label %.thread, label %.thread964
 
 .thread:                                          ; preds = %451, %455
   %457 = call i32 @ff_codec_get_id(ptr noundef nonnull @ff_codec_bmp_tags_unofficial, i32 noundef %377) #14
   %458 = load ptr, ptr %362, align 8, !tbaa !73
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 4
   store i32 %457, ptr %459, align 4, !tbaa !79
-  br label %.thread912
+  br label %.thread964
 
-.thread912:                                       ; preds = %443, %.thread, %455
+.thread964:                                       ; preds = %443, %.thread, %455
   %460 = phi i32 [ %457, %.thread ], [ %.pre906, %455 ], [ %448, %443 ]
   %461 = phi ptr [ %458, %.thread ], [ %.pre904, %455 ], [ %449, %443 ]
   %462 = getelementptr inbounds nuw i8, ptr %361, i64 808
@@ -1065,7 +1065,7 @@ avi_metadata_creation_time.exit:                  ; preds = %177, %178, %183
   %464 = icmp eq i32 %460, 12
   br i1 %464, label %465, label %471
 
-465:                                              ; preds = %.thread912
+465:                                              ; preds = %.thread964
   %466 = getelementptr inbounds nuw i8, ptr %.0575804, i64 16
   %467 = load i32, ptr %466, align 8, !tbaa !65
   %468 = icmp eq i32 %467, 1145656920
@@ -1076,7 +1076,7 @@ avi_metadata_creation_time.exit:                  ; preds = %177, %178, %183
   store i32 1145656920, ptr %470, align 8, !tbaa !80
   br label %471
 
-471:                                              ; preds = %469, %465, %.thread912
+471:                                              ; preds = %469, %465, %.thread964
   %472 = getelementptr inbounds nuw i8, ptr %461, i64 8
   %473 = load i32, ptr %472, align 8, !tbaa !80
   %474 = icmp eq i32 %473, 1213420374
@@ -1265,9 +1265,9 @@ avi_metadata_creation_time.exit:                  ; preds = %177, %178, %183
 554:                                              ; preds = %552, %.thread727
   %.pr = phi i32 [ 81922, %552 ], [ %545, %.thread727 ]
   %.not653 = icmp eq i32 %.0586798, 0
-  br i1 %.not653, label %555, label %.thread914
+  br i1 %.not653, label %555, label %.thread966
 
-.thread914:                                       ; preds = %554
+.thread966:                                       ; preds = %554
   store i32 69651, ptr %544, align 4, !tbaa !79
   store i32 0, ptr %528, align 4, !tbaa !98
   br label %.thread735
@@ -1352,7 +1352,7 @@ avi_metadata_creation_time.exit:                  ; preds = %177, %178, %183
   %585 = call i64 @avio_skip(ptr noundef %22, i64 noundef %584) #14
   br label %.thread735
 
-.thread735:                                       ; preds = %.thread914, %560, %562, %365, %570, %573, %576, %581, %577, %519, %378, %370, %567, %564
+.thread735:                                       ; preds = %.thread966, %560, %562, %365, %570, %573, %576, %581, %577, %519, %378, %370, %567, %564
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %avi_read_nikon.exit
 
@@ -3264,7 +3264,7 @@ define internal range(i32 -1094995529, 1) i32 @avi_read_seek(ptr noundef %0, i32
 .lr.ph156:                                        ; preds = %.preheader
   %81 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %invariant.op169 = or i32 %3, 1
+  %invariant.op172 = or i32 %3, 1
   br label %136
 
 83:                                               ; preds = %.lr.ph, %seek_subtitle.exit
@@ -3385,8 +3385,8 @@ seek_subtitle.exit:                               ; preds = %105, %101, %109, %1
   %159 = load i32, ptr %158, align 8, !tbaa !74
   %.not133 = icmp eq i32 %159, 0
   %160 = select i1 %.not133, i32 0, i32 4
-  %.reass170 = or i32 %160, %invariant.op169
-  %161 = tail call i32 @av_index_search_timestamp(ptr noundef nonnull %140, i64 noundef %156, i32 noundef %.reass170) #14
+  %.reass173 = or i32 %160, %invariant.op172
+  %161 = tail call i32 @av_index_search_timestamp(ptr noundef nonnull %140, i64 noundef %156, i32 noundef %.reass173) #14
   %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %161, i32 0)
   %162 = load i32, ptr %82, align 8, !tbaa !45
   %.fr160 = freeze i32 %162
@@ -3428,10 +3428,10 @@ seek_subtitle.exit:                               ; preds = %105, %101, %109, %1
   br i1 %180, label %136, label %._crit_edge, !llvm.loop !156
 
 ._crit_edge:                                      ; preds = %177, %74, %.preheader
-  %.0120.lcssa168 = phi i64 [ %.1121, %.preheader ], [ %57, %74 ], [ %.1121, %177 ]
+  %.0120.lcssa171 = phi i64 [ %.1121, %.preheader ], [ %57, %74 ], [ %.1121, %177 ]
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %182 = load ptr, ptr %181, align 8, !tbaa !29
-  %183 = tail call i64 @avio_seek(ptr noundef %182, i64 noundef %.0120.lcssa168, i32 noundef 0) #14
+  %183 = tail call i64 @avio_seek(ptr noundef %182, i64 noundef %.0120.lcssa171, i32 noundef 0) #14
   %184 = icmp slt i64 %183, 0
   br i1 %184, label %185, label %186
 
@@ -3579,8 +3579,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_odml_index(ptr nounde
 
 49:                                               ; preds = %46, %40
   %.0118 = phi i64 [ %12, %40 ], [ %43, %46 ]
-  %.not157 = icmp eq i32 %10, 0
-  br i1 %.not157, label %._crit_edge, label %.lr.ph
+  %.not169 = icmp eq i32 %10, 0
+  br i1 %.not169, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %49
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -4211,7 +4211,7 @@ define internal fastcc i32 @avi_sync(ptr noundef %0, i32 noundef range(i32 0, 2)
   %.24..24..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.12..12..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %.4..4.scevgep.sroa_idx416 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.4..4.scevgep.sroa_idx425 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader.lr.ph.lr.ph, %.thread221
@@ -4258,7 +4258,7 @@ define internal fastcc i32 @avi_sync(ptr noundef %0, i32 noundef range(i32 0, 2)
 
 38:                                               ; preds = %.preheader
   %39 = icmp eq i32 %.0..0., 105
-  %.4..4. = load i32, ptr %.4..4.scevgep.sroa_idx416, align 4
+  %.4..4. = load i32, ptr %.4..4.scevgep.sroa_idx425, align 4
   %40 = icmp eq i32 %.4..4., 120
   %or.cond5 = select i1 %39, i1 %40, i1 false
   br i1 %or.cond5, label %41, label %44

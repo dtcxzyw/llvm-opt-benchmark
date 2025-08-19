@@ -2365,8 +2365,8 @@ define hidden void @_ZNK8rawspeed10OrfDecoder8parseCFAEv(ptr noundef nonnull rea
   %28 = icmp sgt i32 %27, 0
   %29 = load i32, ptr %2, align 4
   %30 = icmp sgt i32 %29, 0
-  %or.cond37 = select i1 %28, i1 %30, i1 false
-  br i1 %or.cond37, label %.preheader, label %._crit_edge25
+  %or.cond43 = select i1 %28, i1 %30, i1 false
+  br i1 %or.cond43, label %.preheader, label %._crit_edge25
 
 .preheader:                                       ; preds = %23, %._crit_edge
   %31 = phi i32 [ %35, %._crit_edge ], [ %27, %23 ]

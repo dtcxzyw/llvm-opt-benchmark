@@ -1246,8 +1246,8 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   br label %.loopexit
 
 .loopexit210:                                     ; preds = %._crit_edge.i103, %._crit_edge.thread, %._crit_edge
-  %.not126.i311 = phi i1 [ true, %._crit_edge ], [ true, %._crit_edge.thread ], [ false, %._crit_edge.i103 ]
-  %.sroa.0.0.lcssa303 = phi ptr [ null, %._crit_edge ], [ null, %._crit_edge.thread ], [ %192, %._crit_edge.i103 ]
+  %.not126.i348 = phi i1 [ true, %._crit_edge ], [ true, %._crit_edge.thread ], [ false, %._crit_edge.i103 ]
+  %.sroa.0.0.lcssa340 = phi ptr [ null, %._crit_edge ], [ null, %._crit_edge.thread ], [ %192, %._crit_edge.i103 ]
   %.sroa.14.5.ph = phi ptr [ null, %._crit_edge ], [ null, %._crit_edge.thread ], [ %.sroa.14.3, %._crit_edge.i103 ]
   %.sroa.10.5.ph = phi ptr [ null, %._crit_edge ], [ null, %._crit_edge.thread ], [ %.sroa.10.3, %._crit_edge.i103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
@@ -1446,7 +1446,7 @@ _ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i: ; preds = %348, %296, %330, %
   br label %359
 
 359:                                              ; preds = %356, %353
-  %360 = load ptr, ptr %.sroa.0.0.lcssa303, align 8, !tbaa !37
+  %360 = load ptr, ptr %.sroa.0.0.lcssa340, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16384) %14, i8 0, i64 16384, i1 false)
   %361 = call signext i8 @T_FileStream_file_exists(ptr noundef nonnull %18)
@@ -1578,7 +1578,7 @@ _ZL19pkg_installFileModePKcS0_S0_.exit.i:         ; preds = %403, %365
   br label %413
 
 413:                                              ; preds = %410, %404
-  %414 = load ptr, ptr %.sroa.0.0.lcssa303, align 8, !tbaa !37
+  %414 = load ptr, ptr %.sroa.0.0.lcssa340, align 8, !tbaa !37
   %415 = call i32 @writePackageDatFile(ptr noundef nonnull %21, ptr noundef %.sroa.66.0, ptr noundef %.sroa.45.0, ptr noundef %414, ptr noundef null, i8 noundef signext 108)
   %.not167.i = icmp eq i32 %415, 0
   br i1 %.not167.i, label %419, label %416
@@ -2119,7 +2119,7 @@ _ZL26pkg_createWithAssemblyCodePKccS0_.exit.i:    ; preds = %640
   br i1 %683, label %684, label %686
 
 684:                                              ; preds = %.lr.ph.i224.i
-  %685 = load ptr, ptr %.sroa.0.0.lcssa303, align 8, !tbaa !37
+  %685 = load ptr, ptr %.sroa.0.0.lcssa340, align 8, !tbaa !37
   call void @createCommonDataFile(ptr noundef nonnull %.sroa.38135.0, ptr noundef nonnull %144, ptr noundef %.sroa.29.0, ptr noundef null, ptr noundef %.sroa.45.0, ptr noundef %.sroa.66.0, ptr noundef %685, i32 noundef 0, i8 noundef signext 1, i8 noundef signext %165, ptr noundef nonnull %5)
   store i8 0, ptr %678, align 1, !tbaa !22
   br label %719
@@ -2453,9 +2453,9 @@ _ZL23pkg_destroyOptMatchArchPc.exit.i:            ; preds = %787, %785, %_ZL22pk
   br label %858
 
 851:                                              ; preds = %846, %838, %827
-  %.sink288.i = phi i32 [ %829, %827 ], [ %840, %838 ], [ %848, %846 ]
+  %.sink323.i = phi i32 [ %829, %827 ], [ %840, %838 ], [ %848, %846 ]
   %852 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %853 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %852, ptr noundef nonnull @.str.110, i32 noundef %.sink288.i) #24
+  %853 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %852, ptr noundef nonnull @.str.110, i32 noundef %.sink323.i) #24
   %854 = load ptr, ptr @stderr, align 8, !tbaa !20
   %855 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %854, ptr noundef nonnull @.str.144, ptr noundef nonnull %3) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2553,10 +2553,10 @@ _ZL18pkg_executeOptionsP12UPKGOptions_.exit:      ; preds = %352, %_ZL19pkg_inst
   br label %885
 
 885:                                              ; preds = %884, %883
-  br i1 %.not126.i311, label %887, label %886
+  br i1 %.not126.i348, label %887, label %886
 
 886:                                              ; preds = %885
-  call void @pkg_deleteList(ptr noundef nonnull %.sroa.0.0.lcssa303)
+  call void @pkg_deleteList(ptr noundef nonnull %.sroa.0.0.lcssa340)
   br label %887
 
 887:                                              ; preds = %886, %885
@@ -2833,11 +2833,11 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZL23pkg_generateLibraryFil
   br i1 %.not.i43, label %_ZL10runCommandPKca.exit42.thread, label %_ZL10runCommandPKca.exit42
 
 _ZL10runCommandPKca.exit42:                       ; preds = %117, %54, %43
-  %.sink54 = phi i32 [ %45, %43 ], [ %56, %54 ], [ %119, %117 ]
+  %.sink61 = phi i32 [ %45, %43 ], [ %56, %54 ], [ %119, %117 ]
   %.230 = phi ptr [ %.129, %43 ], [ %.129, %54 ], [ %.3, %117 ]
   %.1 = phi i8 [ %.0, %43 ], [ %.0, %54 ], [ %.2, %117 ]
   %120 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %120, ptr noundef nonnull @.str.110, i32 noundef %.sink54) #24
+  %121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %120, ptr noundef nonnull @.str.110, i32 noundef %.sink61) #24
   %122 = load ptr, ptr @stderr, align 8, !tbaa !20
   %123 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.141, ptr noundef nonnull %.230) #24
   br label %_ZL10runCommandPKca.exit42.thread
@@ -3039,7 +3039,7 @@ _ZN6icu_778internal16LocalOpenPointerI8_IO_FILEXadL_Z6pcloseEEED2Ev.exit: ; pred
   br label %.thread
 
 .thread:                                          ; preds = %24, %21
-  %.07 = phi i8 [ 0, %24 ], [ 1, %21 ]
+  %.08 = phi i8 [ 0, %24 ], [ 1, %21 ]
   %28 = call noundef i32 @pclose(ptr noundef nonnull %20)
   br label %_ZN6icu_778internal16LocalOpenPointerI8_IO_FILEXadL_Z6pcloseEEED2Ev.exit14
 
@@ -3051,11 +3051,11 @@ _ZN6icu_778internal16LocalOpenPointerI8_IO_FILEXadL_Z6pcloseEEED2Ev.exit14.crite
   br label %_ZN6icu_778internal16LocalOpenPointerI8_IO_FILEXadL_Z6pcloseEEED2Ev.exit14
 
 _ZN6icu_778internal16LocalOpenPointerI8_IO_FILEXadL_Z6pcloseEEED2Ev.exit14: ; preds = %_ZN6icu_778internal16LocalOpenPointerI8_IO_FILEXadL_Z6pcloseEEED2Ev.exit14.critedge, %.thread
-  %.08 = phi i8 [ %.07, %.thread ], [ 0, %_ZN6icu_778internal16LocalOpenPointerI8_IO_FILEXadL_Z6pcloseEEED2Ev.exit14.critedge ]
+  %.09 = phi i8 [ %.08, %.thread ], [ 0, %_ZN6icu_778internal16LocalOpenPointerI8_IO_FILEXadL_Z6pcloseEEED2Ev.exit14.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %3) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i8 %.08
+  ret i8 %.09
 }
 
 declare void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #8

@@ -861,13 +861,13 @@ define hidden void @_ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii(ptr nound
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
   br i1 %exitcond70.not, label %.lr.ph.us56.preheader, label %.lr.ph.us, !llvm.loop !58
 
-.preheader.thread85:                              ; preds = %.lr.ph49.split
-  %.not5286 = icmp slt i32 %3, 0
-  br i1 %.not5286, label %._crit_edge55, label %.lr.ph.us56.preheader
+.preheader.thread86:                              ; preds = %.lr.ph49.split
+  %.not5287 = icmp slt i32 %3, 0
+  br i1 %.not5287, label %._crit_edge55, label %.lr.ph.us56.preheader
 
 .preheader.thread:                                ; preds = %5
-  %.not5284 = icmp slt i32 %3, 0
-  br i1 %.not5284, label %._crit_edge55, label %.lr.ph54.split.preheader
+  %.not5285 = icmp slt i32 %3, 0
+  br i1 %.not5285, label %._crit_edge55, label %.lr.ph54.split.preheader
 
 .lr.ph54.split.preheader:                         ; preds = %.preheader.thread
   %23 = zext i32 %6 to i64
@@ -875,7 +875,7 @@ define hidden void @_ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii(ptr nound
   tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 0, i64 %24, i1 false), !tbaa !54
   br label %._crit_edge55
 
-.lr.ph.us56.preheader:                            ; preds = %._crit_edge.us, %.preheader.thread85
+.lr.ph.us56.preheader:                            ; preds = %._crit_edge.us, %.preheader.thread86
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 168
   %25 = load ptr, ptr %.in, align 8
   %26 = zext i32 %6 to i64
@@ -887,7 +887,7 @@ define hidden void @_ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii(ptr nound
   %27 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv79
   store i32 0, ptr %27, align 4, !tbaa !54
   %invariant.gep = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv79
-  %invariant.gep88 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv79
+  %invariant.gep89 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv79
   br label %28
 
 28:                                               ; preds = %.lr.ph.us56, %28
@@ -899,8 +899,8 @@ define hidden void @_ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii(ptr nound
   %31 = add nsw i32 %30, %.03950.us
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %32 = mul nuw nsw i64 %indvars.iv.next75, %26
-  %gep89 = getelementptr inbounds nuw i32, ptr %invariant.gep88, i64 %32
-  store i32 %31, ptr %gep89, align 4, !tbaa !54
+  %gep90 = getelementptr inbounds nuw i32, ptr %invariant.gep89, i64 %32
+  store i32 %31, ptr %gep90, align 4, !tbaa !54
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
   br i1 %exitcond78.not, label %._crit_edge.us57, label %28, !llvm.loop !59
 
@@ -916,9 +916,9 @@ define hidden void @_ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii(ptr nound
   store i32 0, ptr %34, align 4, !tbaa !54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.thread85, label %.lr.ph49.split, !llvm.loop !58
+  br i1 %exitcond.not, label %.preheader.thread86, label %.lr.ph49.split, !llvm.loop !58
 
-._crit_edge55:                                    ; preds = %._crit_edge.us57, %.preheader.thread85, %.preheader.thread, %.lr.ph54.split.preheader
+._crit_edge55:                                    ; preds = %._crit_edge.us57, %.preheader.thread86, %.preheader.thread, %.lr.ph54.split.preheader
   ret void
 }
 
@@ -1212,8 +1212,8 @@ _ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj.exit: ; preds = %.loopexit.i,
   tail call void @llvm.memset.p0.i64(ptr align 1 %2, i8 0, i64 %114, i1 false)
   %115 = icmp sgt i32 %108, 5
   %116 = icmp sgt i32 %109, 5
-  %or.cond120 = and i1 %115, %116
-  br i1 %or.cond120, label %.lr.ph82.us.preheader, label %.loopexit
+  %or.cond138 = and i1 %115, %116
+  br i1 %or.cond138, label %.lr.ph82.us.preheader, label %.loopexit
 
 .lr.ph82.us.preheader:                            ; preds = %_ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj.exit
   %.pre = load i32, ptr %8, align 8, !tbaa !22
@@ -1594,8 +1594,8 @@ _ZN5zxing19FastWindowBinarizer15calcBlockTotalsEPiS1_ii.exit: ; preds = %..loope
   %89 = add nsw i32 %88, %.03950.us.i
   %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
   %90 = mul nuw nsw i64 %indvars.iv.next75.i, %74
-  %gep89.i = getelementptr inbounds nuw i32, ptr %85, i64 %90
-  store i32 %89, ptr %gep89.i, align 4, !tbaa !54
+  %gep90.i = getelementptr inbounds nuw i32, ptr %85, i64 %90
+  store i32 %89, ptr %gep90.i, align 4, !tbaa !54
   %exitcond78.not.i = icmp eq i64 %indvars.iv.next75.i, %wide.trip.count59.i
   br i1 %exitcond78.not.i, label %._crit_edge.us57.i, label %86, !llvm.loop !59
 

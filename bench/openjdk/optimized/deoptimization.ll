@@ -3705,14 +3705,14 @@ _ZNK6HandleclEv.exit:                             ; preds = %_ZNK6HandleclEv.exi
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 209
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 3
-  br i1 %51, label %52, label %.thread81
+  br i1 %51, label %52, label %.thread83
 
 52:                                               ; preds = %47
   %53 = load ptr, ptr %35, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load ptr, ptr %54, align 8
   %56 = tail call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(8) %35) #22
-  br i1 %56, label %57, label %.thread81
+  br i1 %56, label %57, label %.thread83
 
 57:                                               ; preds = %52
   %58 = call noundef ptr @_ZN14Deoptimization14get_cached_boxEP18AutoBoxObjectValueP5frameP11RegisterMapRbP10JavaThread(ptr noundef nonnull %35, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %4)
@@ -3729,10 +3729,10 @@ _ZNK6HandleclEv.exit:                             ; preds = %_ZNK6HandleclEv.exi
   %62 = trunc i8 %61 to i1
   %spec.select = select i1 %62, i1 true, i1 %.05980
   %63 = trunc i8 %61 to i1
-  br i1 %63, label %100, label %.thread81
+  br i1 %63, label %100, label %.thread83
 
-.thread81:                                        ; preds = %47, %52, %60
-  %.183 = phi i1 [ %spec.select, %60 ], [ %.05980, %52 ], [ %.05980, %47 ]
+.thread83:                                        ; preds = %47, %52, %60
+  %.185 = phi i1 [ %spec.select, %60 ], [ %.05980, %52 ], [ %.05980, %47 ]
   %64 = load i8, ptr %31, align 4
   %65 = and i8 %64, 1
   store i8 1, ptr %31, align 4
@@ -3740,7 +3740,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %_ZNK6HandleclEv.exi
   %67 = trunc i8 %66 to i1
   br i1 %67, label %68, label %72
 
-68:                                               ; preds = %.thread81
+68:                                               ; preds = %.thread83
   %69 = tail call noundef zeroext i1 @_ZN13VectorSupport9is_vectorEP5Klass(ptr noundef nonnull %43) #22
   br i1 %69, label %70, label %72
 
@@ -3748,7 +3748,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %_ZNK6HandleclEv.exi
   %71 = tail call noundef ptr @_ZN13VectorSupport15allocate_vectorEP13InstanceKlassP5frameP11RegisterMapP11ObjectValueP10JavaThread(ptr noundef nonnull %43, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %35, ptr noundef nonnull %4) #22
   br label %74
 
-72:                                               ; preds = %68, %.thread81
+72:                                               ; preds = %68, %.thread83
   %73 = tail call noundef ptr @_ZN13InstanceKlass17allocate_instanceEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(464) %43, ptr noundef nonnull %4) #22
   br label %74
 
@@ -3797,7 +3797,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %_ZNK6HandleclEv.exi
 
 100:                                              ; preds = %75, %.thread, %76, %92, %60, %74
   %.263 = phi ptr [ null, %60 ], [ %.162, %74 ], [ %91, %76 ], [ %99, %92 ], [ %58, %.thread ], [ null, %75 ]
-  %.2 = phi i1 [ %spec.select, %60 ], [ %.183, %74 ], [ %.05980, %76 ], [ %.05980, %92 ], [ %.05980, %.thread ], [ %.05980, %75 ]
+  %.2 = phi i1 [ %spec.select, %60 ], [ %.185, %74 ], [ %.05980, %76 ], [ %.05980, %92 ], [ %.05980, %.thread ], [ %.05980, %75 ]
   %101 = icmp eq ptr %.263, null
   %spec.select66 = select i1 %101, i1 true, i1 %.2
   tail call void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28) %4) #22
@@ -3829,8 +3829,8 @@ _ZNK6HandleclEv.exit67:                           ; preds = %._crit_edge.thread
   br label %111
 
 111:                                              ; preds = %_ZNK6HandleclEv.exit67, %._crit_edge.thread, %108
-  %.059.lcssa85 = phi i1 [ false, %_ZNK6HandleclEv.exit67 ], [ false, %._crit_edge.thread ], [ true, %108 ]
-  ret i1 %.059.lcssa85
+  %.059.lcssa87 = phi i1 [ false, %_ZNK6HandleclEv.exit67 ], [ false, %._crit_edge.thread ], [ true, %108 ]
+  ret i1 %.059.lcssa87
 }
 
 declare noundef zeroext i1 @_ZN13VectorSupport9is_vectorEP5Klass(ptr noundef) local_unnamed_addr #2
@@ -4620,7 +4620,7 @@ _ZNK6HandleclEv.exit.i:                           ; preds = %188, %185
   %203 = load ptr, ptr %177, align 8
   %204 = load ptr, ptr %203, align 8
   %205 = call noundef zeroext i1 %204(ptr noundef nonnull align 8 dereferenceable(8) %177) #22
-  br i1 %205, label %206, label %.thread105.i
+  br i1 %205, label %206, label %.thread120.i
 
 206:                                              ; preds = %202
   %207 = getelementptr inbounds nuw i8, ptr %177, i64 8
@@ -4633,15 +4633,15 @@ _ZNK6HandleclEv.exit.i:                           ; preds = %188, %185
   %212 = call noundef zeroext i1 %211(ptr noundef nonnull align 8 dereferenceable(8) %177) #22
   br i1 %212, label %217, label %232
 
-.thread105.i:                                     ; preds = %202
+.thread120.i:                                     ; preds = %202
   %213 = load ptr, ptr %177, align 8
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 40
   %215 = load ptr, ptr %214, align 8
   %216 = call noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(8) %177) #22
   br i1 %216, label %217, label %.thread.i
 
-217:                                              ; preds = %.thread105.i, %206
-  %.169107.i = phi i1 [ false, %.thread105.i ], [ %or.cond.i, %206 ]
+217:                                              ; preds = %.thread120.i, %206
+  %.169122.i = phi i1 [ false, %.thread120.i ], [ %or.cond.i, %206 ]
   %218 = add nsw i32 %.094.i, 1
   %219 = load ptr, ptr %22, align 8
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 104
@@ -4658,13 +4658,13 @@ _ZNK6HandleclEv.exit.i:                           ; preds = %188, %185
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 48
   %230 = load ptr, ptr %229, align 8
   %231 = call noundef zeroext i1 %230(ptr noundef nonnull align 8 dereferenceable(8) %222) #22
-  %or.cond83.i = select i1 %231, i1 true, i1 %.169107.i
+  %or.cond83.i = select i1 %231, i1 true, i1 %.169122.i
   br i1 %or.cond83.i, label %.thread81.i, label %.thread.i
 
 232:                                              ; preds = %206
   br i1 %or.cond.i, label %.thread81.i, label %.thread.i
 
-.thread.i:                                        ; preds = %232, %227, %.thread105.i, %197, %193
+.thread.i:                                        ; preds = %232, %227, %.thread120.i, %197, %193
   %233 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %234 = load i32, ptr %233, align 8
   %235 = sext i32 %182 to i64
@@ -7510,8 +7510,8 @@ _ZN10MethodData14inc_trap_countEi.exit:           ; preds = %19, %21
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 497, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond68 = select i1 %36, i1 %switch.lobit, i1 false
-  br i1 %or.cond68, label %switch.lookup, label %_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit
+  %or.cond74 = select i1 %36, i1 %switch.lobit, i1 false
+  br i1 %or.cond74, label %switch.lookup, label %_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit
 
 switch.lookup:                                    ; preds = %35
   %37 = zext nneg i32 %switch.tableidx to i64
@@ -9503,14 +9503,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #22, !srcloc !44
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #22, !srcloc !44
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -9644,14 +9644,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i18.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i19.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i18 = or i64 %.0.i.i18.in, 48
+  %.0.i.i19 = or i64 %.0.i.i19.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i17.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i18, i64 %.0.i17.i, ptr nonnull %0) #22, !srcloc !44
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i19, i64 %.0.i17.i, ptr nonnull %0) #22, !srcloc !44
   %71 = icmp eq i64 %70, %.0.i17.i
   br i1 %71, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %72
 

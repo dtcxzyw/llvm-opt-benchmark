@@ -589,11 +589,11 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i101: ; preds = %198, %192, %189
   br i1 %206, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit95, !prof !14
 
 .invoke:                                          ; preds = %205, %153
-  %.sink607 = phi i64 [ %148, %153 ], [ %200, %205 ]
-  %.sink606 = phi ptr [ %147, %153 ], [ %199, %205 ]
-  %207 = or i64 %.sink607, 1152920405095219200
-  store i64 %207, ptr %.sink606, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink606)
+  %.sink665 = phi i64 [ %148, %153 ], [ %200, %205 ]
+  %.sink664 = phi ptr [ %147, %153 ], [ %199, %205 ]
+  %207 = or i64 %.sink665, 1152920405095219200
+  store i64 %207, ptr %.sink664, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink664)
           to label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit95 unwind label %165
 
 208:                                              ; preds = %176
@@ -927,15 +927,15 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit135: ; preds = %_ZNSt6vectorIN4cvc
   br label %355
 
 _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit95.sink.split: ; preds = %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i108, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i101, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i92
-  %.sink613 = phi i32 [ %151, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i92 ], [ %203, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i101 ], [ %234, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i108 ]
+  %.sink671 = phi i32 [ %151, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i92 ], [ %203, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i101 ], [ %234, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i108 ]
   %.sink = phi i64 [ %148, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i92 ], [ %200, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i101 ], [ %231, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i108 ]
-  %.sink608 = phi ptr [ %147, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i92 ], [ %199, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i101 ], [ %230, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i108 ]
-  %334 = add nuw nsw i32 %.sink613, 1
+  %.sink666 = phi ptr [ %147, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i92 ], [ %199, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i101 ], [ %230, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i108 ]
+  %334 = add nuw nsw i32 %.sink671, 1
   %335 = zext nneg i32 %334 to i64
   %336 = shl nuw nsw i64 %335, 40
   %337 = and i64 %.sink, -1152920405095219201
   %338 = or i64 %336, %337
-  store i64 %338, ptr %.sink608, align 8
+  store i64 %338, ptr %.sink666, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit95
 
 _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit95: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit135, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit95.sink.split, %.invoke, %271, %236, %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS2_ILb1EEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEEixERSA_.exit105, %238, %205, %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS2_ILb1EEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEEixERSA_.exit98, %153, %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS2_ILb1EEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEEixERSA_.exit89

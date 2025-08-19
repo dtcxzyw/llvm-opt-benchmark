@@ -146,8 +146,8 @@ sub_1:                                            ; preds = %24
   %54 = icmp ne i32 %50, -1
   %55 = and i32 %38, 16
   %.not29 = icmp eq i32 %55, 0
-  %or.cond43 = or i1 %54, %.not29
-  br i1 %or.cond43, label %57, label %56
+  %or.cond45 = or i1 %54, %.not29
+  br i1 %or.cond45, label %57, label %56
 
 56:                                               ; preds = %53
   call void @diff_merges_set_dense_combined_if_unset(ptr noundef nonnull %5) #5

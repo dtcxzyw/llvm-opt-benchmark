@@ -511,29 +511,29 @@ define dso_local void @gpu_common_parse_gpu_freq(ptr noundef %0, ptr noundef wri
 22:                                               ; preds = %.sink.split, %20
   %23 = load i32, ptr %11, align 4
   %.not21 = icmp eq i32 %23, 0
-  br i1 %.not21, label %24, label %.sink.split25
+  br i1 %.not21, label %24, label %.sink.split32
 
 24:                                               ; preds = %22
   %25 = load i32, ptr %12, align 4
   %.not22 = icmp eq i32 %25, 0
-  br i1 %.not22, label %26, label %.sink.split25
+  br i1 %.not22, label %26, label %.sink.split32
 
 26:                                               ; preds = %24
   %27 = load i32, ptr %7, align 4
   %.not23 = icmp eq i32 %27, 0
-  br i1 %.not23, label %28, label %.sink.split25
+  br i1 %.not23, label %28, label %.sink.split32
 
 28:                                               ; preds = %26
   %29 = load i32, ptr %8, align 4
   %.not24 = icmp eq i32 %29, 0
-  br i1 %.not24, label %30, label %.sink.split25
+  br i1 %.not24, label %30, label %.sink.split32
 
-.sink.split25:                                    ; preds = %28, %26, %24, %22
-  %.sink26 = phi i32 [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ]
-  store i32 %.sink26, ptr %2, align 4
+.sink.split32:                                    ; preds = %28, %26, %24, %22
+  %.sink33 = phi i32 [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ]
+  store i32 %.sink33, ptr %2, align 4
   br label %30
 
-30:                                               ; preds = %.sink.split25, %28
+30:                                               ; preds = %.sink.split32, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

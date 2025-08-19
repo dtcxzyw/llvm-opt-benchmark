@@ -653,9 +653,9 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_io_submi
   %13 = zext i32 %12 to i64
   %14 = tail call i64 @llvm.umin.i64(i64 %13, i64 %1)
   %15 = icmp samesign ugt i64 %14, 2
-  br i1 %15, label %.thread20, label %16
+  br i1 %15, label %.thread24, label %16
 
-.thread20:                                        ; preds = %10
+.thread24:                                        ; preds = %10
   call void @blk_start_plug(ptr noundef nonnull %4) #14
   br label %.preheader.preheader
 
@@ -663,7 +663,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_io_submi
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %.thread3, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %.thread20, %16
+.preheader.preheader:                             ; preds = %.thread24, %16
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %32

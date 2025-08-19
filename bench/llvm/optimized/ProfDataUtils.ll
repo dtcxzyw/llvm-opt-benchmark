@@ -1984,8 +1984,8 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %_ZN4llvmeqENS_9Stri
 _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
   %65 = getelementptr inbounds i8, ptr %15, i64 -24
   %66 = load i32, ptr %65, align 8, !tbaa !3
-  %.not40132 = icmp eq i32 %66, 0
-  br i1 %.not40132, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread123, label %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i
+  %.not40149 = icmp eq i32 %66, 0
+  br i1 %.not40149, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread123, label %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i
 
 _ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i:  ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)

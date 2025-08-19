@@ -2634,8 +2634,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev29BuildColorSpaceToReferenceOpsERNS_
   br i1 %49, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %46
-  %50 = shl i64 %37, 2
-  %51 = add i64 %50, -4
+  %50 = shl nuw nsw i64 %37, 2
+  %51 = add nsw i64 %50, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %47, i8 0, i64 %51, i1 false), !tbaa !87
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %48, 2
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i.i.i.i.i.i
@@ -3961,8 +3961,8 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policy
 134:                                              ; preds = %128
   %135 = sext i32 %133 to i64
   %136 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.not44 = icmp eq i32 %133, 0
-  br i1 %.not44, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.thread, label %137
+  %.not54 = icmp eq i32 %133, 0
+  br i1 %.not54, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.thread, label %137
 
 137:                                              ; preds = %134
   %138 = getelementptr inbounds nuw i8, ptr %10, i64 24

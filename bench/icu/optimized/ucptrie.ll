@@ -68,10 +68,10 @@ define noalias noundef ptr @ucptrie_openFromBinary_77(i32 noundef %0, i32 nounde
 37:                                               ; preds = %26
   %38 = icmp slt i32 %0, 0
   %39 = icmp slt i32 %1, 0
-  %.not113121 = icmp eq i32 %0, %31
-  %.not113 = or i1 %38, %.not113121
-  %.not114122 = icmp eq i32 %1, %32
-  %.not114 = or i1 %39, %.not114122
+  %.not113126 = icmp eq i32 %0, %31
+  %.not113 = or i1 %38, %.not113126
+  %.not114127 = icmp eq i32 %1, %32
+  %.not114 = or i1 %39, %.not114127
   %or.cond117 = and i1 %.not114, %.not113
   br i1 %or.cond117, label %41, label %40
 
@@ -178,7 +178,7 @@ define noalias noundef ptr @ucptrie_openFromBinary_77(i32 noundef %0, i32 nounde
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store ptr %90, ptr %92, align 8, !tbaa !21
   %93 = sext i32 %spec.select118 to i64
-  switch i32 %32, label %default.unreachable [
+  switch i32 %32, label %default.unreachable125 [
     i32 0, label %94
     i32 1, label %98
     i32 2, label %101
@@ -201,7 +201,7 @@ define noalias noundef ptr @ucptrie_openFromBinary_77(i32 noundef %0, i32 nounde
   %104 = zext i8 %103 to i32
   br label %105
 
-default.unreachable:                              ; preds = %86
+default.unreachable125:                           ; preds = %86
   unreachable
 
 105:                                              ; preds = %101, %98, %94
@@ -1142,15 +1142,15 @@ _ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit290: ; preds = %169, %172
 .thread:                                          ; preds = %_ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit
   %178 = add nsw i32 %.4188, 1
   %179 = and i32 %178, %93
-  %.not273378489 = icmp eq i32 %179, 0
-  br i1 %.not273378489, label %.loopexit, label %.lr.ph.split.preheader
+  %.not273378495 = icmp eq i32 %179, 0
+  br i1 %.not273378495, label %.loopexit, label %.lr.ph.split.preheader
 
 .lr.ph:                                           ; preds = %175
   br i1 %.not266, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.thread, %.lr.ph
-  %.11249490495 = phi i32 [ %.11249, %.lr.ph ], [ %.5243, %.thread ]
-  %.11206491494 = phi i32 [ %.11206, %.lr.ph ], [ %.0.i285, %.thread ]
+  %.11249496501 = phi i32 [ %.11249, %.lr.ph ], [ %.5243, %.thread ]
+  %.11206497500 = phi i32 [ %.11206, %.lr.ph ], [ %.0.i285, %.thread ]
   %180 = phi i32 [ %176, %.lr.ph ], [ %178, %.thread ]
   %181 = zext nneg i32 %144 to i64
   br label %.lr.ph.split
@@ -1251,7 +1251,7 @@ _ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us419: ;
   %indvars.iv = phi i64 [ %181, %.lr.ph.split.preheader ], [ %indvars.iv.next, %233 ]
   %216 = phi i32 [ %180, %.lr.ph.split.preheader ], [ %234, %233 ]
   %.9193380 = phi i32 [ %.4188, %.lr.ph.split.preheader ], [ %216, %233 ]
-  %.12207379 = phi i32 [ %.11206491494, %.lr.ph.split.preheader ], [ %.13208, %233 ]
+  %.12207379 = phi i32 [ %.11206497500, %.lr.ph.split.preheader ], [ %.13208, %233 ]
   %.sroa.06.0.copyload = load ptr, ptr %45, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   switch i8 %9, label %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292 [
@@ -1293,7 +1293,7 @@ _ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292: ; preds = 
 
 _ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit295: ; preds = %228, %231
   %.0.i294 = phi i32 [ %232, %231 ], [ %.0171, %228 ]
-  %.not275 = icmp eq i32 %.0.i294, %.11249490495
+  %.not275 = icmp eq i32 %.0.i294, %.11249496501
   br i1 %.not275, label %233, label %.thread322
 
 233:                                              ; preds = %_ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit295, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292
@@ -1304,7 +1304,7 @@ _ZN12_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES1_.exit295: ; preds = %228, %231
   br i1 %.not273, label %.loopexit, label %.lr.ph.split, !llvm.loop !31
 
 .loopexit:                                        ; preds = %233, %.lr.ph435, %.lr.ph431, %.lr.ph427, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us419, %.thread, %175, %126, %139
-  %.12250 = phi i32 [ %.5243, %126 ], [ %.0171, %139 ], [ %.11249, %175 ], [ %.5243, %.thread ], [ %.11249, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us419 ], [ %.11249, %.lr.ph427 ], [ %.11249, %.lr.ph431 ], [ %.11249, %.lr.ph435 ], [ %.11249490495, %233 ]
+  %.12250 = phi i32 [ %.5243, %126 ], [ %.0171, %139 ], [ %.11249, %175 ], [ %.5243, %.thread ], [ %.11249, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us419 ], [ %.11249, %.lr.ph427 ], [ %.11249, %.lr.ph431 ], [ %.11249, %.lr.ph435 ], [ %.11249496501, %233 ]
   %.12237 = phi i8 [ %.5230, %126 ], [ 1, %139 ], [ 1, %175 ], [ 1, %.thread ], [ 1, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us419 ], [ 1, %.lr.ph427 ], [ 1, %.lr.ph431 ], [ 1, %.lr.ph435 ], [ 1, %233 ]
   %.14 = phi i32 [ %.5200, %126 ], [ %.8203, %139 ], [ %.11206, %175 ], [ %.0.i285, %.thread ], [ -1, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us419 ], [ %.11206, %.lr.ph427 ], [ %.11206, %.lr.ph431 ], [ %.11206, %.lr.ph435 ], [ %.13208, %233 ]
   %.10194 = phi i32 [ %127, %126 ], [ %141, %139 ], [ %176, %175 ], [ %178, %.thread ], [ %214, %_ZN12_GLOBAL__N_18getValueE11UCPTrieData17UCPTrieValueWidthi.exit292.us.us419 ], [ %191, %.lr.ph427 ], [ %200, %.lr.ph431 ], [ %211, %.lr.ph435 ], [ %234, %233 ]
@@ -1422,7 +1422,7 @@ define i32 @ucptrie_toBinary_77(ptr noundef readonly captures(none) %0, ptr noun
   %22 = load i32, ptr %21, align 8, !tbaa !35
   %23 = shl nsw i32 %22, 1
   %24 = add nsw i32 %23, 16
-  switch i8 %11, label %default.unreachable [
+  switch i8 %11, label %default.unreachable75 [
     i8 0, label %25
     i8 1, label %31
     i8 2, label %36
@@ -1449,7 +1449,7 @@ define i32 @ucptrie_toBinary_77(ptr noundef readonly captures(none) %0, ptr noun
   %39 = add nsw i32 %38, %24
   br label %40
 
-default.unreachable:                              ; preds = %44, %20
+default.unreachable75:                            ; preds = %44, %20
   unreachable
 
 40:                                               ; preds = %36, %31, %25
@@ -1506,7 +1506,7 @@ default.unreachable:                              ; preds = %44, %20
   %77 = shl nsw i32 %76, 1
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds i8, ptr %73, i64 %78
-  switch i8 %11, label %default.unreachable [
+  switch i8 %11, label %default.unreachable75 [
     i8 0, label %80
     i8 1, label %86
     i8 2, label %92

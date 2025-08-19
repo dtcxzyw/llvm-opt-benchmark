@@ -6119,21 +6119,21 @@ lean_dec.exit:                                    ; preds = %225, %224, %222, %l
   br i1 %exitcond.not, label %._crit_edge, label %54
 
 .sink.split:                                      ; preds = %lean_dec.exit, %lean_dec.exit85
-  %.sink190 = phi ptr [ %51, %lean_dec.exit85 ], [ %226, %lean_dec.exit ]
+  %.sink219 = phi ptr [ %51, %lean_dec.exit85 ], [ %226, %lean_dec.exit ]
   %.sink = phi i32 [ 131096, %lean_dec.exit85 ], [ 16908312, %lean_dec.exit ]
   %.063.lcssa.sink = phi ptr [ %.063.lcssa, %lean_dec.exit85 ], [ %200, %lean_dec.exit ]
   %.066.lcssa.sink = phi ptr [ %.066.lcssa, %lean_dec.exit85 ], [ %202, %lean_dec.exit ]
-  %230 = getelementptr inbounds nuw i8, ptr %.sink190, i64 4
-  store i32 1, ptr %.sink190, align 4, !tbaa !4
+  %230 = getelementptr inbounds nuw i8, ptr %.sink219, i64 4
+  store i32 1, ptr %.sink219, align 4, !tbaa !4
   store i32 %.sink, ptr %230, align 4
-  %231 = getelementptr inbounds nuw i8, ptr %.sink190, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %.sink219, i64 8
   store ptr %.063.lcssa.sink, ptr %231, align 8, !tbaa !10
-  %232 = getelementptr inbounds nuw i8, ptr %.sink190, i64 16
+  %232 = getelementptr inbounds nuw i8, ptr %.sink219, i64 16
   store ptr %.066.lcssa.sink, ptr %232, align 8, !tbaa !10
   br label %233
 
 233:                                              ; preds = %.sink.split, %lean_dec.exit79
-  %.1.ph = phi ptr [ %105, %lean_dec.exit79 ], [ %.sink190, %.sink.split ]
+  %.1.ph = phi ptr [ %105, %lean_dec.exit79 ], [ %.sink219, %.sink.split ]
   ret ptr %.1.ph
 }
 
@@ -7776,18 +7776,18 @@ _init_l_Lean_Meta_mkPackedPPRodInstance___closed__2.exit: ; preds = %_init_l_Lea
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Meta_mkPackedPPRodInstance___closed__2.exit, %3
-  %.sink33 = phi ptr [ %4, %3 ], [ %133, %_init_l_Lean_Meta_mkPackedPPRodInstance___closed__2.exit ]
-  %136 = getelementptr inbounds nuw i8, ptr %.sink33, i64 4
-  store i32 1, ptr %.sink33, align 4, !tbaa !4
+  %.sink44 = phi ptr [ %4, %3 ], [ %133, %_init_l_Lean_Meta_mkPackedPPRodInstance___closed__2.exit ]
+  %136 = getelementptr inbounds nuw i8, ptr %.sink44, i64 4
+  store i32 1, ptr %.sink44, align 4, !tbaa !4
   store i32 131096, ptr %136, align 4
-  %137 = getelementptr inbounds nuw i8, ptr %.sink33, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %.sink44, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %137, align 8, !tbaa !10
-  %138 = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %.sink44, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %138, align 8, !tbaa !10
   br label %139
 
 139:                                              ; preds = %.sink.split, %lean_dec_ref.exit20, %lean_dec_ref.exit18, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit18 ], [ %38, %lean_dec_ref.exit20 ], [ %.sink33, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit18 ], [ %38, %lean_dec_ref.exit20 ], [ %.sink44, %.sink.split ]
   ret ptr %.0
 }
 

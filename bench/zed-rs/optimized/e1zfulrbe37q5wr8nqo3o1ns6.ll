@@ -26220,10 +26220,10 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$theme..settings..ThemeSelect
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4affba63fc225a80E.exit.sink.split": ; preds = %5, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4affba63fc225a80E.exit2"
   %.sink = phi i64 [ 32, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4affba63fc225a80E.exit2" ], [ 8, %5 ]
-  %.sink7 = phi i64 [ %3, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4affba63fc225a80E.exit2" ], [ %6, %5 ]
+  %.sink9 = phi i64 [ %3, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4affba63fc225a80E.exit2" ], [ %6, %5 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %14 = load ptr, ptr %13, align 8, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %14, i64 noundef %.sink7, i64 noundef 1) #27, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %14, i64 noundef %.sink9, i64 noundef 1) #27, !noalias !4
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4affba63fc225a80E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4affba63fc225a80E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4affba63fc225a80E.exit.sink.split", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4affba63fc225a80E.exit2", %5
@@ -33162,10 +33162,10 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$theme..settings..ThemeSettin
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4affba63fc225a80E.exit.sink.split.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4affba63fc225a80E.exit2.i.i", %96
   %.sink.i.i = phi i64 [ 32, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4affba63fc225a80E.exit2.i.i" ], [ 8, %96 ]
-  %.sink7.i.i = phi i64 [ %92, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4affba63fc225a80E.exit2.i.i" ], [ %97, %96 ]
+  %.sink9.i.i = phi i64 [ %92, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4affba63fc225a80E.exit2.i.i" ], [ %97, %96 ]
   %104 = getelementptr inbounds nuw i8, ptr %90, i64 %.sink.i.i
   %105 = load ptr, ptr %104, align 8, !alias.scope !10902, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %105, i64 noundef %.sink7.i.i, i64 noundef 1) #27, !noalias !10902
+  tail call void @__rust_dealloc(ptr noundef nonnull %105, i64 noundef %.sink9.i.i, i64 noundef 1) #27, !noalias !10902
   br label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$theme..settings..ThemeSelection$GT$$GT$17hb906676139eb0dd8E.llvm.1860926721951506806.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4affba63fc225a80E.exit2.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.1860926721951506806.exit.i.i1.i.i1.i.i", %99
@@ -40865,10 +40865,10 @@ define hidden void @"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$them
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4affba63fc225a80E.exit.sink.split.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4affba63fc225a80E.exit2.i", %7
   %.sink.i = phi i64 [ 32, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4affba63fc225a80E.exit2.i" ], [ 8, %7 ]
-  %.sink7.i = phi i64 [ %3, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4affba63fc225a80E.exit2.i" ], [ %8, %7 ]
+  %.sink9.i = phi i64 [ %3, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4affba63fc225a80E.exit2.i" ], [ %8, %7 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
   %16 = load ptr, ptr %15, align 8, !alias.scope !13567, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %.sink7.i, i64 noundef 1) #27, !noalias !13567
+  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %.sink9.i, i64 noundef 1) #27, !noalias !13567
   br label %"_ZN4core3ptr52drop_in_place$LT$theme..settings..ThemeSelection$GT$17hd014979f4067be60E.llvm.1860926721951506806.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4affba63fc225a80E.exit2.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.1860926721951506806.exit.i.i1.i.i1.i", %10

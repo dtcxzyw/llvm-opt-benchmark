@@ -566,8 +566,8 @@ _ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %6, %19
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %36
   %.sroa.224.0.copyload = load ptr, ptr %.sroa.224.0..sroa_idx, align 8, !tbaa !72
-  %lhsc168 = load i8, ptr %.sroa.224.0.copyload, align 1
-  %38 = icmp eq i8 %lhsc168, 32
+  %lhsc206 = load i8, ptr %.sroa.224.0.copyload, align 1
+  %38 = icmp eq i8 %lhsc206, 32
   br i1 %38, label %39, label %.thread114
 
 .thread114:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %36
@@ -685,10 +685,10 @@ _ZNSt6vectorImSaImEE7reserveEm.exit:              ; preds = %54, %_ZNSt12_Vector
   %91 = getelementptr inbounds nuw i8, ptr %13, i64 16
   br label %92
 
-92:                                               ; preds = %87, %.critedge.thread169
-  %.042149 = phi i8 [ %90, %87 ], [ %spec.select, %.critedge.thread169 ]
-  %.sroa.12.3148 = phi ptr [ %.sroa.12.0.ph, %87 ], [ %201, %.critedge.thread169 ]
-  %.sroa.0104.3147 = phi i64 [ %.sroa.0104.0.ph, %87 ], [ %202, %.critedge.thread169 ]
+92:                                               ; preds = %87, %.critedge.thread207
+  %.042149 = phi i8 [ %90, %87 ], [ %spec.select, %.critedge.thread207 ]
+  %.sroa.12.3148 = phi ptr [ %.sroa.12.0.ph, %87 ], [ %201, %.critedge.thread207 ]
+  %.sroa.0104.3147 = phi i64 [ %.sroa.0104.0.ph, %87 ], [ %202, %.critedge.thread207 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @_ZNK13sentencepiece10normalizer10Normalizer15NormalizePrefixESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %13, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 %.sroa.0104.3147, ptr %.sroa.12.3148)
   %.sroa.099.0.copyload = load i64, ptr %13, align 8, !tbaa !71
@@ -709,11 +709,11 @@ _ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit: ; p
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.8101.0141, i64 1
   %95 = add i64 %.sroa.099.0140, -1
   %.not.i.i57 = icmp eq i64 %95, 0
-  br i1 %.not.i.i57, label %.critedge.thread169, label %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i, !llvm.loop !105
+  br i1 %.not.i.i57, label %.critedge.thread207, label %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i, !llvm.loop !105
 
 .critedge:                                        ; preds = %92
   %96 = icmp eq i64 %.sroa.099.0.copyload, 0
-  br i1 %96, label %.critedge.thread169, label %.lr.ph146.preheader
+  br i1 %96, label %.critedge.thread207, label %.lr.ph146.preheader
 
 .lr.ph146.preheader:                              ; preds = %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i, %.critedge
   %.sroa.8101.1130 = phi ptr [ %.sroa.8101.0.copyload, %.critedge ], [ %.sroa.8101.0141, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i ]
@@ -726,7 +726,7 @@ _ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit: ; preds = 
   %lhsc131 = load i8, ptr %98, align 1
   %99 = icmp eq i8 %lhsc131, 32
   %100 = zext i1 %99 to i8
-  br label %.critedge.thread169
+  br label %.critedge.thread207
 
 .lr.ph146:                                        ; preds = %.lr.ph146.preheader, %_ZNSt6vectorImSaImEE9push_backEOm.exit67
   %.045144 = phi i64 [ %196, %_ZNSt6vectorImSaImEE9push_backEOm.exit67 ], [ 0, %.lr.ph146.preheader ]
@@ -934,7 +934,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit67:         ; preds = %_ZNSt6vectorImSaImE
   %exitcond.not = icmp eq i64 %196, %.sroa.099.1129
   br i1 %exitcond.not, label %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit, label %.lr.ph146, !llvm.loop !109
 
-.critedge.thread169:                              ; preds = %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit, %.critedge
+.critedge.thread207:                              ; preds = %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit, %.critedge
   %.143 = phi i8 [ %.042149, %.critedge ], [ %100, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit ], [ %.042149, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit ]
   %197 = load i32, ptr %91, align 8, !tbaa !86
   %198 = load i32, ptr %9, align 4, !tbaa !82
@@ -952,7 +952,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit67:         ; preds = %_ZNSt6vectorImSaImE
   %207 = icmp eq i64 %202, 0
   br i1 %207, label %208, label %92, !llvm.loop !110
 
-208:                                              ; preds = %.critedge.thread169
+208:                                              ; preds = %.critedge.thread207
   br i1 %206, label %209, label %.critedge55
 
 209:                                              ; preds = %208
@@ -1509,8 +1509,8 @@ _ZNK5Darts15DoubleArrayImplIvvivE18commonPrefixSearchINS1_16result_pair_typeEEEm
   %.phi.trans.insert55 = getelementptr inbounds nuw [32 x %"struct.Darts::DoubleArrayImpl<void, void, int, void>::result_pair_type"], ptr %6, i64 0, i64 %.01551, i32 1
   %.pre = load i64, ptr %.phi.trans.insert55, align 8, !tbaa !130
   %62 = icmp ugt i64 %.pre, %.152
-  %or.cond58 = select i1 %61, i1 true, i1 %62
-  br i1 %or.cond58, label %.lr.ph._crit_edge, label %65
+  %or.cond63 = select i1 %61, i1 true, i1 %62
+  br i1 %or.cond63, label %.lr.ph._crit_edge, label %65
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
   %63 = getelementptr inbounds nuw [32 x %"struct.Darts::DoubleArrayImpl<void, void, int, void>::result_pair_type"], ptr %6, i64 0, i64 %.01551
@@ -3072,13 +3072,13 @@ define linkonce_odr void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 8, !tbaa !71
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !71
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -3443,19 +3443,19 @@ _ZN5Darts7Details9AutoArrayIcE5resetEPc.exit:     ; preds = %.loopexit30
   %22 = load i64, ptr %21, align 8, !tbaa !203
   %.not23 = icmp eq i64 %22, 0
   %.pre = load ptr, ptr %0, align 8, !tbaa !180
-  br i1 %.not23, label %.loopexit, label %.preheader33
+  br i1 %.not23, label %.loopexit, label %.preheader35
 
-.preheader33:                                     ; preds = %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit, %.preheader33
-  %.031 = phi i64 [ %26, %.preheader33 ], [ 0, %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit ]
+.preheader35:                                     ; preds = %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit, %.preheader35
+  %.031 = phi i64 [ %26, %.preheader35 ], [ 0, %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit ]
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 %.031
   %24 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.031
   %25 = load i8, ptr %24, align 1, !tbaa !81
   store i8 %25, ptr %23, align 1, !tbaa !81
   %26 = add nuw i64 %.031, 1
   %exitcond.not = icmp eq i64 %26, %22
-  br i1 %exitcond.not, label %.loopexit.thread, label %.preheader33, !llvm.loop !211
+  br i1 %exitcond.not, label %.loopexit.thread, label %.preheader35, !llvm.loop !211
 
-.loopexit.thread:                                 ; preds = %.preheader33
+.loopexit.thread:                                 ; preds = %.preheader35
   store ptr %8, ptr %0, align 8, !tbaa !180
   store i64 %.017, ptr %3, align 8, !tbaa !206
   br label %27
@@ -3568,19 +3568,19 @@ _ZN5Darts7Details9AutoArrayIcE5resetEPc.exit:     ; preds = %.loopexit30
   %23 = load i64, ptr %22, align 8, !tbaa !179
   %.not23 = icmp eq i64 %23, 0
   %.pre = load ptr, ptr %0, align 8, !tbaa !180
-  br i1 %.not23, label %.loopexit, label %.preheader33
+  br i1 %.not23, label %.loopexit, label %.preheader35
 
-.preheader33:                                     ; preds = %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit, %.preheader33
-  %.031 = phi i64 [ %27, %.preheader33 ], [ 0, %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit ]
+.preheader35:                                     ; preds = %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit, %.preheader35
+  %.031 = phi i64 [ %27, %.preheader35 ], [ 0, %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit ]
   %24 = getelementptr inbounds nuw %"class.Darts::Details::DoubleArrayBuilderUnit", ptr %9, i64 %.031
   %25 = getelementptr inbounds nuw %"class.Darts::Details::DoubleArrayBuilderUnit", ptr %.pre, i64 %.031
   %26 = load i32, ptr %25, align 4, !tbaa !82
   store i32 %26, ptr %24, align 4, !tbaa !82
   %27 = add nuw i64 %.031, 1
   %exitcond.not = icmp eq i64 %27, %23
-  br i1 %exitcond.not, label %.loopexit.thread, label %.preheader33, !llvm.loop !214
+  br i1 %exitcond.not, label %.loopexit.thread, label %.preheader35, !llvm.loop !214
 
-.loopexit.thread:                                 ; preds = %.preheader33
+.loopexit.thread:                                 ; preds = %.preheader35
   store ptr %9, ptr %0, align 8, !tbaa !180
   store i64 %.017, ptr %3, align 8, !tbaa !212
   br label %28
@@ -4595,19 +4595,19 @@ _ZN5Darts7Details9AutoArrayIcE5resetEPc.exit:     ; preds = %.loopexit30
   %23 = load i64, ptr %22, align 8, !tbaa !235
   %.not23 = icmp eq i64 %23, 0
   %.pre = load ptr, ptr %0, align 8, !tbaa !180
-  br i1 %.not23, label %.loopexit, label %.preheader33
+  br i1 %.not23, label %.loopexit, label %.preheader35
 
-.preheader33:                                     ; preds = %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit, %.preheader33
-  %.031 = phi i64 [ %27, %.preheader33 ], [ 0, %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit ]
+.preheader35:                                     ; preds = %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit, %.preheader35
+  %.031 = phi i64 [ %27, %.preheader35 ], [ 0, %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit ]
   %24 = getelementptr inbounds nuw i32, ptr %9, i64 %.031
   %25 = getelementptr inbounds nuw i32, ptr %.pre, i64 %.031
   %26 = load i32, ptr %25, align 4, !tbaa !82
   store i32 %26, ptr %24, align 4, !tbaa !82
   %27 = add nuw i64 %.031, 1
   %exitcond.not = icmp eq i64 %27, %23
-  br i1 %exitcond.not, label %.loopexit.thread, label %.preheader33, !llvm.loop !239
+  br i1 %exitcond.not, label %.loopexit.thread, label %.preheader35, !llvm.loop !239
 
-.loopexit.thread:                                 ; preds = %.preheader33
+.loopexit.thread:                                 ; preds = %.preheader35
   store ptr %9, ptr %0, align 8, !tbaa !180
   store i64 %.017, ptr %3, align 8, !tbaa !237
   br label %28
@@ -4690,19 +4690,19 @@ _ZN5Darts7Details9AutoArrayIcE5resetEPc.exit:     ; preds = %.loopexit30
   %23 = load i64, ptr %22, align 8, !tbaa !215
   %.not23 = icmp eq i64 %23, 0
   %.pre = load ptr, ptr %0, align 8, !tbaa !180
-  br i1 %.not23, label %.loopexit, label %.preheader33
+  br i1 %.not23, label %.loopexit, label %.preheader35
 
-.preheader33:                                     ; preds = %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit, %.preheader33
-  %.031 = phi i64 [ %27, %.preheader33 ], [ 0, %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit ]
+.preheader35:                                     ; preds = %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit, %.preheader35
+  %.031 = phi i64 [ %27, %.preheader35 ], [ 0, %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit ]
   %24 = getelementptr inbounds nuw %"class.Darts::Details::DawgUnit", ptr %9, i64 %.031
   %25 = getelementptr inbounds nuw %"class.Darts::Details::DawgUnit", ptr %.pre, i64 %.031
   %26 = load i32, ptr %25, align 4, !tbaa !228
   store i32 %26, ptr %24, align 4, !tbaa !228
   %27 = add nuw i64 %.031, 1
   %exitcond.not = icmp eq i64 %27, %23
-  br i1 %exitcond.not, label %.loopexit.thread, label %.preheader33, !llvm.loop !242
+  br i1 %exitcond.not, label %.loopexit.thread, label %.preheader35, !llvm.loop !242
 
-.loopexit.thread:                                 ; preds = %.preheader33
+.loopexit.thread:                                 ; preds = %.preheader35
   store ptr %9, ptr %0, align 8, !tbaa !180
   store i64 %.017, ptr %3, align 8, !tbaa !240
   br label %28
@@ -4785,18 +4785,18 @@ _ZN5Darts7Details9AutoArrayIcE5resetEPc.exit:     ; preds = %.loopexit30
   %23 = load i64, ptr %22, align 8, !tbaa !233
   %.not23 = icmp eq i64 %23, 0
   %.pre = load ptr, ptr %0, align 8, !tbaa !180
-  br i1 %.not23, label %.loopexit, label %.preheader33
+  br i1 %.not23, label %.loopexit, label %.preheader35
 
-.preheader33:                                     ; preds = %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit, %.preheader33
-  %.031 = phi i64 [ %26, %.preheader33 ], [ 0, %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit ]
+.preheader35:                                     ; preds = %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit, %.preheader35
+  %.031 = phi i64 [ %26, %.preheader35 ], [ 0, %_ZN5Darts7Details9AutoArrayIcE5resetEPc.exit ]
   %24 = getelementptr inbounds nuw %"class.Darts::Details::DawgNode", ptr %9, i64 %.031
   %25 = getelementptr inbounds nuw %"class.Darts::Details::DawgNode", ptr %.pre, i64 %.031
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %24, ptr noundef nonnull align 4 dereferenceable(12) %25, i64 12, i1 false), !tbaa.struct !245
   %26 = add nuw i64 %.031, 1
   %exitcond.not = icmp eq i64 %26, %23
-  br i1 %exitcond.not, label %.loopexit.thread, label %.preheader33, !llvm.loop !246
+  br i1 %exitcond.not, label %.loopexit.thread, label %.preheader35, !llvm.loop !246
 
-.loopexit.thread:                                 ; preds = %.preheader33
+.loopexit.thread:                                 ; preds = %.preheader35
   store ptr %9, ptr %0, align 8, !tbaa !180
   store i64 %.017, ptr %3, align 8, !tbaa !243
   br label %27
@@ -5415,8 +5415,8 @@ define linkonce_odr void @_ZN5Darts7Details11DawgBuilder5flushEj(ptr noundef non
 ._crit_edge.thread:                               ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %39 = call noundef i32 @_ZNK5Darts7Details11DawgBuilder9find_nodeEjPj(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %28, ptr noundef nonnull %3)
-  %.not36138 = icmp eq i32 %39, 0
-  br i1 %.not36138, label %._crit_edge114, label %45
+  %.not36161 = icmp eq i32 %39, 0
+  br i1 %.not36161, label %._crit_edge114, label %45
 
 .preheader89:                                     ; preds = %._crit_edge
   %.not127 = icmp eq i32 %41, 0
@@ -5452,7 +5452,7 @@ define linkonce_odr void @_ZN5Darts7Details11DawgBuilder5flushEj(ptr noundef non
   br label %.lr.ph113.preheader
 
 .lr.ph113.preheader:                              ; preds = %.preheader88, %.preheader89
-  %.030.lcssa145 = phi i32 [ %57, %.preheader88 ], [ 0, %.preheader89 ]
+  %.030.lcssa168 = phi i32 [ %57, %.preheader88 ], [ 0, %.preheader89 ]
   %.pre = load ptr, ptr %0, align 8, !tbaa !180
   br label %.lr.ph113
 
@@ -5779,7 +5779,7 @@ _ZN5Darts7Details11DawgBuilder11append_unitEv.exit: ; preds = %159, %.loopexit.i
 .lr.ph113:                                        ; preds = %.lr.ph113.preheader, %_ZNK5Darts7Details8DawgNode4unitEv.exit
   %173 = phi ptr [ %199, %_ZNK5Darts7Details8DawgNode4unitEv.exit ], [ %.pre, %.lr.ph113.preheader ]
   %.028112 = phi i32 [ %201, %_ZNK5Darts7Details8DawgNode4unitEv.exit ], [ %28, %.lr.ph113.preheader ]
-  %.1111 = phi i32 [ %198, %_ZNK5Darts7Details8DawgNode4unitEv.exit ], [ %.030.lcssa145, %.lr.ph113.preheader ]
+  %.1111 = phi i32 [ %198, %_ZNK5Darts7Details8DawgNode4unitEv.exit ], [ %.030.lcssa168, %.lr.ph113.preheader ]
   %174 = zext i32 %.028112 to i64
   %175 = getelementptr inbounds nuw %"class.Darts::Details::DawgNode", ptr %173, i64 %174
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
@@ -6661,21 +6661,21 @@ define linkonce_odr void @_ZN5Darts7Details18DoubleArrayBuilder12expand_unitsEv(
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars = trunc i64 %indvars.iv.next to i32
   %.not.i = icmp eq i32 %13, %indvars
-  br i1 %.not.i, label %.split.loop.exit60, label %17, !llvm.loop !230
+  br i1 %.not.i, label %.split.loop.exit68, label %17, !llvm.loop !230
 
 .split.loop.exit:                                 ; preds = %17
   %23 = trunc nuw i64 %indvars.iv to i32
-  br label %.split.loop.exit60
+  br label %.split.loop.exit68
 
-.split.loop.exit60:                               ; preds = %22, %.split.loop.exit
+.split.loop.exit68:                               ; preds = %22, %.split.loop.exit
   %.018.i = phi i32 [ %23, %.split.loop.exit ], [ 0, %22 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %25
 
-25:                                               ; preds = %.split.loop.exit60, %65
-  %.pre57 = phi ptr [ %15, %.split.loop.exit60 ], [ %.pre58, %65 ]
-  %26 = phi ptr [ %15, %.split.loop.exit60 ], [ %66, %65 ]
-  %indvars.iv48 = phi i64 [ %16, %.split.loop.exit60 ], [ %indvars.iv.next49, %65 ]
+25:                                               ; preds = %.split.loop.exit68, %65
+  %.pre57 = phi ptr [ %15, %.split.loop.exit68 ], [ %.pre58, %65 ]
+  %26 = phi ptr [ %15, %.split.loop.exit68 ], [ %66, %65 ]
+  %indvars.iv48 = phi i64 [ %16, %.split.loop.exit68 ], [ %indvars.iv.next49, %65 ]
   %27 = and i64 %indvars.iv48, 4095
   %28 = getelementptr inbounds nuw %"class.Darts::Details::DoubleArrayBuilderExtraUnit", ptr %26, i64 %27, i32 2
   %29 = load i8, ptr %28, align 4, !tbaa !224, !range !49, !noundef !50
@@ -6944,8 +6944,8 @@ _ZN5Darts7Details8AutoPoolIhE6appendERKh.exit:    ; preds = %15, %23
   %32 = and i32 %31, 1
   %.not.i = icmp eq i32 %32, 0
   %33 = add i32 %.044, 1
-  %.not67 = icmp eq i32 %33, 0
-  %.not = or i1 %.not.i, %.not67
+  %.not78 = icmp eq i32 %33, 0
+  %.not = or i1 %.not.i, %.not78
   br i1 %.not, label %select.unfold._crit_edge, label %15
 
 select.unfold._crit_edge:                         ; preds = %_ZN5Darts7Details8AutoPoolIhE6appendERKh.exit, %_ZN5Darts7Details8AutoPoolIhE6resizeEm.exit
@@ -7033,8 +7033,8 @@ _ZNK5Darts7Details18DoubleArrayBuilder15is_valid_offsetEjj.exit.thread.us.i: ; p
   %81 = trunc nuw i8 %80 to i1
   %82 = add nuw i64 %.016.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %82, %.fr.i
-  %or.cond19.i.i = select i1 %81, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond19.i.i, label %_ZNK5Darts7Details18DoubleArrayBuilder15is_valid_offsetEjj.exit.i, label %.lr.ph.i.i, !llvm.loop !276
+  %or.cond20.i.i = select i1 %81, i1 true, i1 %exitcond.not.i.i
+  br i1 %or.cond20.i.i, label %_ZNK5Darts7Details18DoubleArrayBuilder15is_valid_offsetEjj.exit.i, label %.lr.ph.i.i, !llvm.loop !276
 
 _ZNK5Darts7Details18DoubleArrayBuilder15is_valid_offsetEjj.exit.i: ; preds = %.lr.ph.i.i
   br i1 %81, label %_ZNK5Darts7Details18DoubleArrayBuilder15is_valid_offsetEjj.exit.thread.i, label %_ZNK5Darts7Details18DoubleArrayBuilder17find_valid_offsetEj.exit
@@ -7484,8 +7484,8 @@ _ZNK5Darts7Details18DoubleArrayBuilder15is_valid_offsetEjj.exit.thread.us.i: ; p
   %61 = trunc nuw i8 %60 to i1
   %62 = add nuw i64 %.016.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %62, %.fr.i
-  %or.cond19.i.i = select i1 %61, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond19.i.i, label %_ZNK5Darts7Details18DoubleArrayBuilder15is_valid_offsetEjj.exit.i, label %.lr.ph.i.i, !llvm.loop !276
+  %or.cond20.i.i = select i1 %61, i1 true, i1 %exitcond.not.i.i
+  br i1 %or.cond20.i.i, label %_ZNK5Darts7Details18DoubleArrayBuilder15is_valid_offsetEjj.exit.i, label %.lr.ph.i.i, !llvm.loop !276
 
 _ZNK5Darts7Details18DoubleArrayBuilder15is_valid_offsetEjj.exit.i: ; preds = %.lr.ph.i.i
   br i1 %61, label %_ZNK5Darts7Details18DoubleArrayBuilder15is_valid_offsetEjj.exit.thread.i, label %_ZNK5Darts7Details18DoubleArrayBuilder17find_valid_offsetEj.exit

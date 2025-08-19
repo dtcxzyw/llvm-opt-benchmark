@@ -161,9 +161,9 @@ define dso_local i32 @group_cache_lookup(i32 noundef %0, i32 noundef %1, ptr nou
   br i1 %43, label %.sink.split.i, label %45
 
 .sink.split.i:                                    ; preds = %41, %40
-  %.sink42.i = phi ptr [ %28, %40 ], [ %15, %41 ]
+  %.sink51.i = phi ptr [ %28, %40 ], [ %15, %41 ]
   %.str.6.sink.i = phi ptr [ @.str.5, %40 ], [ @.str.6, %41 ]
-  %44 = load i32, ptr %.sink42.i, align 8
+  %44 = load i32, ptr %.sink51.i, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull %.str.6.sink.i, ptr noundef nonnull @__func__._group_cache_lookup_internal, i32 noundef %44) #10
   br label %45
 

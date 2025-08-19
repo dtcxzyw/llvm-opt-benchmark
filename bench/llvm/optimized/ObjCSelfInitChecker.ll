@@ -1240,10 +1240,10 @@ _ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i.i._ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i.thre
 _ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i.thread.i.i.i: ; preds = %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i.i._ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i.thread.i_crit_edge.i.i, %210
   %213 = phi ptr [ %.pre.i.i, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i.i._ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i.thread.i_crit_edge.i.i ], [ %204, %210 ]
   %214 = phi i32 [ %.pre.i.i.i, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i.i._ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i.thread.i_crit_edge.i.i ], [ %.pr.i.i.i, %210 ]
-  %.pre3.pre510.i.i.i = phi ptr [ %.pre3.pre5.pre.i.i.i, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i.i._ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i.thread.i_crit_edge.i.i ], [ %.pre4.i.i.i, %210 ]
+  %.pre3.pre515.i.i.i = phi ptr [ %.pre3.pre5.pre.i.i.i, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i.i._ZSt4moveIPmS0_ET0_T_S2_S1_.exit35.i.thread.i_crit_edge.i.i ], [ %.pre4.i.i.i, %210 ]
   %215 = zext i32 %214 to i64
   %gepdiff.i.i.i.i = shl nuw nsw i64 %215, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %213, ptr align 8 %.pre3.pre510.i.i.i, i64 %gepdiff.i.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %213, ptr align 8 %.pre3.pre515.i.i.i, i64 %gepdiff.i.i.i.i, i1 false)
   %.pre3.pre.i.i.i = load ptr, ptr %6, align 8, !tbaa !77, !noalias !74
   br label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.exit.i.i.i.i
 
@@ -2006,17 +2006,17 @@ _ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N
   br label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit
 
 _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_112SelfFlagEnumEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS5_S7_E.exit, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_112SelfFlagEnumEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit, %39
-  %.1.i10 = phi i32 [ %37, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_112SelfFlagEnumEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit ], [ %37, %39 ], [ %35, %_ZN4llvm16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_112SelfFlagEnumEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS5_S7_E.exit ]
+  %.1.i12 = phi i32 [ %37, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_112SelfFlagEnumEEEE13computeDigestEPSA_SB_RKSt4pairIS6_S8_E.exit ], [ %37, %39 ], [ %35, %_ZN4llvm16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_112SelfFlagEnumEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIS5_S7_E.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %.1.i10, ptr %40, align 8, !tbaa !105
+  store i32 %.1.i12, ptr %40, align 8, !tbaa !105
   %41 = load i32, ptr %3, align 8
   %42 = or i32 %41, 536870912
   store i32 %42, ptr %3, align 8
   br label %43
 
 43:                                               ; preds = %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, %5
-  %.0 = phi i32 [ %7, %5 ], [ %.1.i10, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit ]
+  %.0 = phi i32 [ %7, %5 ], [ %.1.i12, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit ]
   ret i32 %.0
 }
 
@@ -4098,8 +4098,8 @@ _ZL13isInvalidSelfPKN5clang4ExprERNS_4ento14CheckerContextE.exit: ; preds = %16
 34:                                               ; preds = %_ZL13isInvalidSelfPKN5clang4ExprERNS_4ento14CheckerContextE.exit
   %35 = load ptr, ptr %10, align 8, !tbaa !109
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.0.copyload.i.i.i.i6.i = load i64, ptr %36, align 8
-  %37 = and i64 %.0.copyload.i.i.i.i6.i, -8
+  %.0.copyload.i.i.i.i7.i = load i64, ptr %36, align 8
+  %37 = and i64 %.0.copyload.i.i.i.i7.i, -8
   %38 = inttoptr i64 %37 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 56

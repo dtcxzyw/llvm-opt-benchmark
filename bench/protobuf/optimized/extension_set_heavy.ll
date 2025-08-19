@@ -2073,17 +2073,17 @@ invoke.cont2:                                     ; preds = %if.then.i24, %if.th
   br i1 %cmp6.not, label %cleanup87, label %if.end
 
 lpad.loopexit:                                    ; preds = %if.end78, %if.end8.i.i, %if.end6.i
-  %lpad.loopexit159 = landingpad { ptr, i32 }
+  %lpad.loopexit161 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then46
-  %lpad.loopexit162 = landingpad { ptr, i32 }
+  %lpad.loopexit164 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %call.i.noexc, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %call.i10.i.noexc, %if.else.i27, %if.then.i29, %invoke.cont30, %cond.false, %cond.true, %if.else.i
-  %lpad.loopexit.split-lp163 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp165 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -2433,7 +2433,7 @@ cleanup87:                                        ; preds = %invoke.cont, %invok
   ret ptr %retval.1
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad55
-  %.pn = phi { ptr, i32 } [ %44, %lpad55 ], [ %lpad.loopexit159, %lpad.loopexit ], [ %lpad.loopexit162, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp163, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %44, %lpad55 ], [ %lpad.loopexit161, %lpad.loopexit ], [ %lpad.loopexit164, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp165, %lpad.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %payload) #18
   resume { ptr, i32 } %.pn
 }

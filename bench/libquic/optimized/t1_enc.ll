@@ -728,9 +728,9 @@ define internal fastcc range(i32 0, 2) i32 @tls1_P_hash(ptr noundef captures(non
   %48 = load i32, ptr %17, align 4, !tbaa !66
   %49 = zext i32 %48 to i64
   %50 = icmp ult i64 %.03560, %49
-  br i1 %50, label %.thread72, label %52
+  br i1 %50, label %.thread73, label %52
 
-.thread72:                                        ; preds = %47
+.thread73:                                        ; preds = %47
   %51 = trunc nuw i64 %.03560 to i32
   store i32 %51, ptr %17, align 4, !tbaa !66
   br label %.lr.ph.preheader
@@ -739,8 +739,8 @@ define internal fastcc range(i32 0, 2) i32 @tls1_P_hash(ptr noundef captures(non
   %.not70 = icmp eq i32 %48, 0
   br i1 %.not70, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.thread72, %52
-  %53 = phi i32 [ %51, %.thread72 ], [ %48, %52 ]
+.lr.ph.preheader:                                 ; preds = %.thread73, %52
+  %53 = phi i32 [ %51, %.thread73 ], [ %48, %52 ]
   %wide.trip.count = zext i32 %53 to i64
   br label %.lr.ph
 

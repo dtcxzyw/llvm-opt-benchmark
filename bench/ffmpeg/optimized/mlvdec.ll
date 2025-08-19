@@ -383,8 +383,8 @@ define internal range(i32 -2147483648, 1) i32 @read_header(ptr noundef %0) #1 {
   %138 = sext i32 %137 to i64
   %139 = getelementptr inbounds nuw i8, ptr %.0133, i64 48
   store i64 %138, ptr %139, align 8, !tbaa !62
-  %.not153169 = icmp eq i32 %133, 0
-  br i1 %.not153169, label %144, label %.thread159.thread
+  %.not153178 = icmp eq i32 %133, 0
+  br i1 %.not153178, label %144, label %.thread159.thread
 
 .thread159:                                       ; preds = %.thread161
   %140 = getelementptr inbounds nuw i8, ptr %.0133, i64 328
@@ -398,14 +398,14 @@ define internal range(i32 -2147483648, 1) i32 @read_header(ptr noundef %0) #1 {
 .thread159.thread:                                ; preds = %.thread160.thread
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0133, i64 328
   %.pre168 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !50
-  %.not154170 = icmp eq i32 %.pre168, 0
-  br i1 %.not154170, label %144, label %.thread171
+  %.not154179 = icmp eq i32 %.pre168, 0
+  br i1 %.not154179, label %144, label %.thread180
 
 144:                                              ; preds = %.thread159.thread, %.thread160.thread, %.thread159, %.thread160
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.12) #11
   br label %.critedge
 
-.thread171:                                       ; preds = %.thread159.thread
+.thread180:                                       ; preds = %.thread159.thread
   %145 = getelementptr inbounds nuw i8, ptr %.0132, i64 320
   %146 = load ptr, ptr %145, align 8, !tbaa !63
   %147 = load i64, ptr %146, align 8, !tbaa !64
@@ -430,8 +430,8 @@ define internal range(i32 -2147483648, 1) i32 @read_header(ptr noundef %0) #1 {
   %160 = call i64 @avio_seek(ptr noundef %8, i64 noundef %159, i32 noundef 0) #11
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread161, %96, %.thread171, %156, %.thread157, %83, %59, %27, %1, %144
-  %.0 = phi i32 [ -1094995529, %144 ], [ -1094995529, %1 ], [ -12, %27 ], [ -12, %59 ], [ %89, %83 ], [ 0, %.thread157 ], [ 0, %156 ], [ 0, %.thread171 ], [ -12, %96 ], [ 0, %.thread161 ]
+.critedge:                                        ; preds = %.thread161, %96, %.thread180, %156, %.thread157, %83, %59, %27, %1, %144
+  %.0 = phi i32 [ -1094995529, %144 ], [ -1094995529, %1 ], [ -12, %27 ], [ -12, %59 ], [ %89, %83 ], [ 0, %.thread157 ], [ 0, %156 ], [ 0, %.thread180 ], [ -12, %96 ], [ 0, %.thread161 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

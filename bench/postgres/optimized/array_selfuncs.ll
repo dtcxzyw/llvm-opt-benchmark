@@ -306,8 +306,8 @@ floor_log2.exit:                                  ; preds = %18, %20
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %87 ], [ 0, %.lr.ph77 ]
   %.15575.us = phi double [ %.256.us, %87 ], [ %.054, %.lr.ph77 ]
   %.074.us = phi i32 [ %.165.us, %87 ], [ 0, %.lr.ph77 ]
-  %.not95 = icmp eq i64 %indvars.iv89, 0
-  br i1 %.not95, label %54, label %45
+  %.not102 = icmp eq i64 %indvars.iv89, 0
+  br i1 %.not102, label %54, label %45
 
 45:                                               ; preds = %.lr.ph77.split.us
   %46 = getelementptr i64, ptr %4, i64 %indvars.iv89
@@ -398,8 +398,8 @@ find_next_mcelem.exit.us.thread:                  ; preds = %66, %54, %find_next
   %indvars.iv85 = phi i64 [ %indvars.iv.next86, %128 ], [ 0, %.lr.ph77 ]
   %.15575 = phi double [ %.256, %128 ], [ %.054, %.lr.ph77 ]
   %.074 = phi i32 [ %.165, %128 ], [ 0, %.lr.ph77 ]
-  %.not94 = icmp eq i64 %indvars.iv85, 0
-  br i1 %.not94, label %.preheader, label %88
+  %.not101 = icmp eq i64 %indvars.iv85, 0
+  br i1 %.not101, label %.preheader, label %88
 
 88:                                               ; preds = %.lr.ph77.split
   %89 = getelementptr i64, ptr %4, i64 %indvars.iv85
@@ -552,8 +552,8 @@ define internal fastcc double @mcelem_array_contained_selec(ptr noundef readonly
   %.0119203 = phi i32 [ 0, %.lr.ph206 ], [ %.1120, %80 ]
   %.0122202 = phi float [ %26, %.lr.ph206 ], [ %.1123, %80 ]
   %.0129201 = phi float [ 1.000000e+00, %.lr.ph206 ], [ %.1130, %80 ]
-  %.not253 = icmp eq i64 %indvars.iv235, 0
-  br i1 %.not253, label %48, label %39
+  %.not266 = icmp eq i64 %indvars.iv235, 0
+  br i1 %.not266, label %48, label %39
 
 39:                                               ; preds = %38
   %40 = getelementptr i64, ptr %4, i64 %indvars.iv235
@@ -948,8 +948,8 @@ calc_distr.exit170:                               ; preds = %._crit_edge87.i, %c
   %202 = ashr exact i64 %sext.i180, 30
   %203 = getelementptr inbounds i8, ptr %6, i64 %202
   %204 = load float, ptr %203, align 4
-  %sext68.i = add i64 %sext.i180, -4294967296
-  %205 = ashr exact i64 %sext68.i, 30
+  %sext71.i = add i64 %sext.i180, -4294967296
+  %205 = ashr exact i64 %sext71.i, 30
   %206 = getelementptr inbounds i8, ptr %6, i64 %205
   %207 = load float, ptr %206, align 4
   %208 = fsub float %204, %207
@@ -1374,9 +1374,9 @@ define internal fastcc double @mcelem_array_selec(ptr noundef %0, ptr noundef %1
   br i1 %or.cond, label %51, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %9, %._crit_edge
-  %.038.lcssa51 = phi i32 [ %.1, %._crit_edge ], [ 0, %9 ]
+  %.038.lcssa52 = phi i32 [ %.1, %._crit_edge ], [ 0, %9 ]
   %37 = load ptr, ptr %11, align 8
-  %38 = sext i32 %.038.lcssa51 to i64
+  %38 = sext i32 %.038.lcssa52 to i64
   call void @qsort_arg(ptr noundef %37, i64 noundef %38, i64 noundef 8, ptr noundef nonnull @element_compare, ptr noundef nonnull %1) #10
   %39 = and i32 %8, -2
   %or.cond3 = icmp eq i32 %39, 2750
@@ -1384,7 +1384,7 @@ define internal fastcc double @mcelem_array_selec(ptr noundef %0, ptr noundef %1
 
 40:                                               ; preds = %._crit_edge.thread
   %41 = load ptr, ptr %11, align 8
-  %42 = call fastcc double @mcelem_array_contain_overlap_selec(ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %41, i32 noundef %.038.lcssa51, i32 noundef %8, ptr noundef nonnull %1)
+  %42 = call fastcc double @mcelem_array_contain_overlap_selec(ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %41, i32 noundef %.038.lcssa52, i32 noundef %8, ptr noundef nonnull %1)
   br label %51
 
 43:                                               ; preds = %._crit_edge.thread
@@ -1393,7 +1393,7 @@ define internal fastcc double @mcelem_array_selec(ptr noundef %0, ptr noundef %1
 
 45:                                               ; preds = %43
   %46 = load ptr, ptr %11, align 8
-  %47 = call fastcc double @mcelem_array_contained_selec(ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %46, i32 noundef %.038.lcssa51, ptr noundef %6, i32 noundef %7, ptr noundef nonnull %1)
+  %47 = call fastcc double @mcelem_array_contained_selec(ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %46, i32 noundef %.038.lcssa52, ptr noundef %6, i32 noundef %7, ptr noundef nonnull %1)
   br label %51
 
 48:                                               ; preds = %43

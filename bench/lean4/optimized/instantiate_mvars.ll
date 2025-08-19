@@ -301,7 +301,7 @@ _ZNK4lean10object_ref10to_obj_argEv.exit6:        ; preds = %_ZNK4lean10object_r
 declare ptr @lean_get_lmvar_assignment(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_instantiate_level_mvars(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noalias nonnull ptr @lean_instantiate_level_mvars(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.lean::object_ref", align 8
   %4 = alloca %"class.lean::level", align 8
   %5 = alloca %"class.lean::instantiate_lmvars_fn", align 8
@@ -1042,7 +1042,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %0, %6, %8, %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_instantiate_expr_mvars(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noalias nonnull ptr @lean_instantiate_expr_mvars(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.lean::object_ref", align 8
   %4 = alloca %"class.lean::expr", align 8
   %5 = alloca %"class.lean::instantiate_mvars_fn", align 8
@@ -7461,13 +7461,13 @@ _ZN4lean7rb_treeINS_4nameENS_14name_quick_cmpEE9node_cell7deallocEv.exit.i.i39: 
 define linkonce_odr hidden void @_ZN4lean7rb_treeINS_4nameENS_14name_quick_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !261
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %common.ret1, label %3
+  br i1 %.not, label %common.ret2, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %5 = atomicrmw sub ptr %4, i32 1 acq_rel, align 4
   %6 = icmp eq i32 %5, 1
-  br i1 %6, label %7, label %common.ret1
+  br i1 %6, label %7, label %common.ret2
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -7502,7 +7502,7 @@ define linkonce_odr hidden void @_ZN4lean7rb_treeINS_4nameENS_14name_quick_cmpEE
   tail call void @__clang_call_terminate(ptr %21) #16
   unreachable
 
-common.ret1:                                      ; preds = %3, %1, %_ZN4lean10object_refD2Ev.exit
+common.ret2:                                      ; preds = %3, %1, %_ZN4lean10object_refD2Ev.exit
   ret void
 
 _ZN4lean10object_refD2Ev.exit:                    ; preds = %7, %15, %17, %18
@@ -7510,7 +7510,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %7, %15, %17, %18
   tail call void @_ZN4lean7rb_treeINS_4nameENS_14name_quick_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #18
   tail call void @_ZN4lean7rb_treeINS_4nameENS_14name_quick_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 32) #17
-  br label %common.ret1
+  br label %common.ret2
 }
 
 ; Function Attrs: mustprogress uwtable

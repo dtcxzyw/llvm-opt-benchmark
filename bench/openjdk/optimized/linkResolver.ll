@@ -2457,7 +2457,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %94, %101
 _ZN12methodHandleC2EP6ThreadP6Method.exit.thread: ; preds = %_ZN12LinkResolver24lookup_method_in_klassesERK8LinkInfobb.exit, %_ZN12LinkResolver24lookup_method_in_klassesERK8LinkInfobb.exit.thread85, %_ZN12methodHandleC2EP6ThreadP6Method.exit
   %116 = load i32, ptr %65, align 4
   %117 = icmp sgt i32 %116, 4
-  br i1 %117, label %.thread96, label %118
+  br i1 %117, label %.thread108, label %118
 
 118:                                              ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit.thread
   %119 = load ptr, ptr %10, align 8
@@ -2509,9 +2509,9 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #11
   %.pr88.pre = load ptr, ptr %6, align 8
   %147 = icmp eq ptr %.pr88.pre, null
-  br i1 %147, label %.thread96, label %.thread
+  br i1 %147, label %.thread108, label %.thread
 
-.thread96:                                        ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit.thread, %145
+.thread108:                                       ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit.thread, %145
   %148 = getelementptr inbounds nuw i8, ptr %2, i64 800
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 24
@@ -2536,12 +2536,12 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %.not.i.i.i.i47 = icmp eq ptr %162, null
   br i1 %.not.i.i.i.i47, label %164, label %163
 
-163:                                              ; preds = %.thread96
+163:                                              ; preds = %.thread108
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %149, i64 noundef %157) #11
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %151) #11
   br label %164
 
-164:                                              ; preds = %163, %.thread96
+164:                                              ; preds = %163, %.thread108
   %165 = load ptr, ptr %152, align 8
   %.not8.i.i.i.i48 = icmp eq ptr %165, %153
   br i1 %.not8.i.i.i.i48, label %_ZN12ResourceMarkD2Ev.exit49, label %166

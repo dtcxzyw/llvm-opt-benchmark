@@ -1295,7 +1295,7 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl24computePix
   %41 = icmp eq i64 %indvars.iv238, %38
   %42 = add nsw i64 %indvars.iv238, -1
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
-  %43 = mul i64 %indvars.iv238, %39
+  %43 = mul nuw nsw i64 %indvars.iv238, %39
   %44 = trunc nsw i64 %42 to i32
   br label %45
 
@@ -1532,9 +1532,9 @@ _ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4wrapEff.exit151.us: ; pr
   %163 = call float @llvm.fmuladd.f32(float %94, float %94, float %162)
   %164 = call float @llvm.fmuladd.f32(float %140, float %140, float %163)
   %165 = call float @llvm.fmuladd.f32(float %161, float %161, float %164)
-  %166 = add i64 %indvars.iv, %43
+  %166 = add nuw nsw i64 %indvars.iv, %43
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %167 = trunc i64 %166 to i32
+  %167 = trunc nsw i64 %166 to i32
   invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelC1Efibfi(ptr noundef nonnull align 4 dereferenceable(29) %10, float noundef %75, i32 noundef %167, i1 noundef zeroext true, float noundef %165, i32 noundef 0)
           to label %168 unwind label %.loopexit.split.us
 
@@ -1609,7 +1609,7 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_E
   br label %228
 
 193:                                              ; preds = %63
-  %194 = add i64 %indvars.iv, %43
+  %194 = add nuw nsw i64 %indvars.iv, %43
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %195 = load ptr, ptr %30, align 8, !tbaa !111
   %196 = load ptr, ptr %31, align 8, !tbaa !112
@@ -1618,7 +1618,7 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_E
   %199 = getelementptr inbounds nuw i8, ptr %195, i64 %198
   %200 = getelementptr inbounds nuw float, ptr %199, i64 %indvars.iv
   %201 = load float, ptr %200, align 4, !tbaa !17
-  %202 = trunc i64 %194 to i32
+  %202 = trunc nsw i64 %194 to i32
   invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelC1Efibfi(ptr noundef nonnull align 4 dereferenceable(29) %9, float noundef %201, i32 noundef %202, i1 noundef zeroext true, float noundef 0x4063BD3CC0000000, i32 noundef 0)
           to label %203 unwind label %.loopexit211.split.us
 
@@ -1699,7 +1699,7 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_E
   br label %297
 
 229:                                              ; preds = %54, %53
-  %230 = add i64 %indvars.iv, %43
+  %230 = add nuw nsw i64 %indvars.iv, %43
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %231 = load ptr, ptr %30, align 8, !tbaa !111
   %232 = load ptr, ptr %31, align 8, !tbaa !112
@@ -1708,7 +1708,7 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_E
   %235 = getelementptr inbounds nuw i8, ptr %231, i64 %234
   %236 = getelementptr inbounds nuw float, ptr %235, i64 %indvars.iv
   %237 = load float, ptr %236, align 4, !tbaa !17
-  %238 = trunc i64 %230 to i32
+  %238 = trunc nsw i64 %230 to i32
   call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelC1Efibfi(ptr noundef nonnull align 4 dereferenceable(29) %4, float noundef %237, i32 noundef %238, i1 noundef zeroext true, float noundef 0x4063BD3CC0000000, i32 noundef 0)
   %239 = load ptr, ptr %33, align 8, !tbaa !121
   %240 = load ptr, ptr %34, align 8, !tbaa !122
@@ -1777,7 +1777,7 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_E
   br label %297
 
 263:                                              ; preds = %45
-  %264 = add i64 %indvars.iv, %43
+  %264 = add nuw nsw i64 %indvars.iv, %43
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %265 = load ptr, ptr %30, align 8, !tbaa !111
   %266 = load ptr, ptr %31, align 8, !tbaa !112
@@ -1786,7 +1786,7 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_E
   %269 = getelementptr inbounds nuw i8, ptr %265, i64 %268
   %270 = getelementptr inbounds nuw float, ptr %269, i64 %indvars.iv
   %271 = load float, ptr %270, align 4, !tbaa !17
-  %272 = trunc i64 %264 to i32
+  %272 = trunc nsw i64 %264 to i32
   call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelC1Efibfi(ptr noundef nonnull align 4 dereferenceable(29) %11, float noundef %271, i32 noundef %272, i1 noundef zeroext false, float noundef 0x4063BD3CC0000000, i32 noundef 0)
   %273 = load ptr, ptr %33, align 8, !tbaa !121
   %274 = load ptr, ptr %34, align 8, !tbaa !122
@@ -2219,17 +2219,17 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE
   br label %80
 
 80:                                               ; preds = %76, %72
-  %.sink221 = phi ptr [ %59, %76 ], [ %54, %72 ]
+  %.sink229 = phi ptr [ %59, %76 ], [ %54, %72 ]
   %81 = phi i64 [ %53, %76 ], [ %58, %72 ]
-  %.sink216 = phi i32 [ %79, %76 ], [ %75, %72 ]
+  %.sink224 = phi i32 [ %79, %76 ], [ %75, %72 ]
   %.sink = phi i32 [ %52, %76 ], [ %50, %72 ]
-  %.sink219.in = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %44, i64 %81, i32 7
-  %.sink219 = load i32, ptr %.sink219.in, align 4, !tbaa !30
-  %82 = getelementptr inbounds nuw i8, ptr %.sink221, i64 24
-  store i32 %.sink219, ptr %82, align 4, !tbaa !30
-  %83 = getelementptr inbounds nuw i8, ptr %.sink221, i64 16
-  store i32 %.sink216, ptr %83, align 4, !tbaa !28
-  %84 = sext i32 %.sink219 to i64
+  %.sink227.in = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %44, i64 %81, i32 7
+  %.sink227 = load i32, ptr %.sink227.in, align 4, !tbaa !30
+  %82 = getelementptr inbounds nuw i8, ptr %.sink229, i64 24
+  store i32 %.sink227, ptr %82, align 4, !tbaa !30
+  %83 = getelementptr inbounds nuw i8, ptr %.sink229, i64 16
+  store i32 %.sink224, ptr %83, align 4, !tbaa !28
+  %84 = sext i32 %.sink227 to i64
   %85 = getelementptr inbounds nuw i32, ptr %.sroa.0164.0, i64 %84
   store i32 %.sink, ptr %85, align 4, !tbaa !16
   %86 = getelementptr inbounds nuw i8, ptr %54, i64 20

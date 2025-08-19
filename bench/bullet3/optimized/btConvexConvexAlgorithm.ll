@@ -479,8 +479,8 @@ define dso_local void @_ZN23btConvexConvexAlgorithm16processCollisionEPK24btColl
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %107 = load ptr, ptr %106, align 8, !tbaa !39
   %. = select i1 %.not1.i, ptr %107, ptr %103
-  %.547 = select i1 %.not1.i, ptr %103, ptr %107
-  %.sink.i = getelementptr inbounds nuw i8, ptr %.547, i64 8
+  %.568 = select i1 %.not1.i, ptr %103, ptr %107
+  %.sink.i = getelementptr inbounds nuw i8, ptr %.568, i64 8
   %108 = getelementptr inbounds nuw i8, ptr %., i64 8
   call void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880) %95, ptr noundef nonnull align 4 dereferenceable(64) %.sink.i, ptr noundef nonnull align 4 dereferenceable(64) %108)
   br label %_ZN16btManifoldResult20refreshContactPointsEv.exit
@@ -540,10 +540,10 @@ define dso_local void @_ZN23btConvexConvexAlgorithm16processCollisionEPK24btColl
   %151 = load ptr, ptr %150, align 8, !tbaa !65
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %153 = load ptr, ptr %152, align 8, !tbaa !39
-  %.548 = select i1 %.not1.i275, ptr %153, ptr %149
-  %.549 = select i1 %.not1.i275, ptr %149, ptr %153
-  %.sink.i279 = getelementptr inbounds nuw i8, ptr %.549, i64 8
-  %154 = getelementptr inbounds nuw i8, ptr %.548, i64 8
+  %.569 = select i1 %.not1.i275, ptr %153, ptr %149
+  %.570 = select i1 %.not1.i275, ptr %149, ptr %153
+  %.sink.i279 = getelementptr inbounds nuw i8, ptr %.570, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %.569, i64 8
   call void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880) %141, ptr noundef nonnull align 4 dereferenceable(64) %.sink.i279, ptr noundef nonnull align 4 dereferenceable(64) %154)
   br label %_ZN16btManifoldResult20refreshContactPointsEv.exit
 
@@ -608,10 +608,10 @@ define dso_local void @_ZN23btConvexConvexAlgorithm16processCollisionEPK24btColl
   %201 = load ptr, ptr %200, align 8, !tbaa !65
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
   %203 = load ptr, ptr %202, align 8, !tbaa !39
-  %.550 = select i1 %.not1.i282, ptr %203, ptr %199
-  %.551 = select i1 %.not1.i282, ptr %199, ptr %203
-  %.sink.i286 = getelementptr inbounds nuw i8, ptr %.551, i64 8
-  %204 = getelementptr inbounds nuw i8, ptr %.550, i64 8
+  %.571 = select i1 %.not1.i282, ptr %203, ptr %199
+  %.572 = select i1 %.not1.i282, ptr %199, ptr %203
+  %.sink.i286 = getelementptr inbounds nuw i8, ptr %.572, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %.571, i64 8
   call void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880) %191, ptr noundef nonnull align 4 dereferenceable(64) %.sink.i286, ptr noundef nonnull align 4 dereferenceable(64) %204)
   br label %_ZN16btManifoldResult20refreshContactPointsEv.exit
 
@@ -851,10 +851,10 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i: ; preds = %319, %_
   %343 = load ptr, ptr %342, align 8, !tbaa !65
   %344 = getelementptr inbounds nuw i8, ptr %343, i64 16
   %345 = load ptr, ptr %344, align 8, !tbaa !39
-  %.552 = select i1 %.not1.i289, ptr %345, ptr %341
-  %.553 = select i1 %.not1.i289, ptr %341, ptr %345
-  %.sink.i293 = getelementptr inbounds nuw i8, ptr %.553, i64 8
-  %346 = getelementptr inbounds nuw i8, ptr %.552, i64 8
+  %.573 = select i1 %.not1.i289, ptr %345, ptr %341
+  %.574 = select i1 %.not1.i289, ptr %341, ptr %345
+  %.sink.i293 = getelementptr inbounds nuw i8, ptr %.574, i64 8
+  %346 = getelementptr inbounds nuw i8, ptr %.573, i64 8
   invoke void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880) %333, ptr noundef nonnull align 4 dereferenceable(64) %.sink.i293, ptr noundef nonnull align 4 dereferenceable(64) %346)
           to label %_ZN16btManifoldResult20refreshContactPointsEv.exit295 unwind label %291
 
@@ -1498,14 +1498,14 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %633, %626
   %650 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %651 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %652 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  %.559 = select i1 %648, ptr %8, ptr %238
-  %.560 = select i1 %648, ptr %231, ptr %240
-  %.561 = select i1 %648, ptr %233, ptr %242
-  %.562 = select i1 %648, ptr %235, ptr %244
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %29, ptr noundef nonnull align 4 dereferenceable(64) %.559, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %650, ptr noundef nonnull align 4 dereferenceable(16) %.560, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %651, ptr noundef nonnull align 4 dereferenceable(16) %.561, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %652, ptr noundef nonnull align 4 dereferenceable(16) %.562, i64 16, i1 false)
+  %.580 = select i1 %648, ptr %8, ptr %238
+  %.581 = select i1 %648, ptr %231, ptr %240
+  %.582 = select i1 %648, ptr %233, ptr %242
+  %.583 = select i1 %648, ptr %235, ptr %244
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %29, ptr noundef nonnull align 4 dereferenceable(64) %.580, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %650, ptr noundef nonnull align 4 dereferenceable(16) %.581, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %651, ptr noundef nonnull align 4 dereferenceable(16) %.582, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %652, ptr noundef nonnull align 4 dereferenceable(16) %.583, i64 16, i1 false)
   %653 = load i32, ptr %599, align 4, !tbaa !34
   %654 = icmp sgt i32 %653, 0
   br i1 %654, label %.lr.ph535, label %._crit_edge536
@@ -1923,10 +1923,10 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %633, %626
   %956 = load ptr, ptr %955, align 8, !tbaa !65
   %957 = getelementptr inbounds nuw i8, ptr %956, i64 16
   %958 = load ptr, ptr %957, align 8, !tbaa !39
-  %.557 = select i1 %.not1.i368, ptr %958, ptr %954
-  %.558 = select i1 %.not1.i368, ptr %954, ptr %958
-  %.sink.i372 = getelementptr inbounds nuw i8, ptr %.558, i64 8
-  %959 = getelementptr inbounds nuw i8, ptr %.557, i64 8
+  %.578 = select i1 %.not1.i368, ptr %958, ptr %954
+  %.579 = select i1 %.not1.i368, ptr %954, ptr %958
+  %.sink.i372 = getelementptr inbounds nuw i8, ptr %.579, i64 8
+  %959 = getelementptr inbounds nuw i8, ptr %.578, i64 8
   call void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880) %946, ptr noundef nonnull align 4 dereferenceable(64) %.sink.i372, ptr noundef nonnull align 4 dereferenceable(64) %959)
   br label %_ZN16btManifoldResult20refreshContactPointsEv.exit
 
@@ -2556,13 +2556,13 @@ _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i.i.i: ; preds = %_ZN20btAlignedO
   %.not.i5.i.i.i.i = icmp ne ptr %28, null
   %33 = load i8, ptr %17, align 8, !range !36
   %34 = trunc nuw i8 %33 to i1
-  %or.cond27.i.i.i = select i1 %.not.i5.i.i.i.i, i1 %34, i1 false
-  br i1 %or.cond27.i.i.i, label %35, label %.lr.ph.i.i.i
+  %or.cond29.i.i.i = select i1 %.not.i5.i.i.i.i, i1 %34, i1 false
+  br i1 %or.cond29.i.i.i, label %35, label %.lr.ph.i.i.i
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i.i.i: ; preds = %29
-  %.old25.i.i.i = load i8, ptr %17, align 8, !tbaa !97, !range !36, !noundef !37
-  %.old26.i.i.i = trunc nuw i8 %.old25.i.i.i to i1
-  br i1 %.old26.i.i.i, label %35, label %.lr.ph.i.i.i
+  %.old27.i.i.i = load i8, ptr %17, align 8, !tbaa !97, !range !36, !noundef !37
+  %.old28.i.i.i = trunc nuw i8 %.old27.i.i.i to i1
+  br i1 %.old28.i.i.i, label %35, label %.lr.ph.i.i.i
 
 35:                                               ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i.i.i, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %28)
@@ -3075,9 +3075,9 @@ _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; pred
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i: ; preds = %27
   %.old.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.old5.i = load i8, ptr %.old.i, align 8, !tbaa !158, !range !36, !noundef !37
-  %.old6.i = trunc nuw i8 %.old5.i to i1
-  br i1 %.old6.i, label %34, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
+  %.old8.i = load i8, ptr %.old.i, align 8, !tbaa !158, !range !36, !noundef !37
+  %.old9.i = trunc nuw i8 %.old8.i to i1
+  br i1 %.old9.i, label %34, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
 34:                                               ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %26)
@@ -3614,13 +3614,13 @@ _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i.i.i.i: ; preds = %_ZN20btAligne
   %.not.i5.i.i.i.i.i = icmp ne ptr %30, null
   %35 = load i8, ptr %19, align 8, !range !36
   %36 = trunc nuw i8 %35 to i1
-  %or.cond27.i.i.i.i = select i1 %.not.i5.i.i.i.i.i, i1 %36, i1 false
-  br i1 %or.cond27.i.i.i.i, label %37, label %.lr.ph.i.i.i.i
+  %or.cond29.i.i.i.i = select i1 %.not.i5.i.i.i.i.i, i1 %36, i1 false
+  br i1 %or.cond29.i.i.i.i, label %37, label %.lr.ph.i.i.i.i
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i.i.i.i: ; preds = %31
-  %.old25.i.i.i.i = load i8, ptr %19, align 8, !tbaa !97, !range !36, !noundef !37
-  %.old26.i.i.i.i = trunc nuw i8 %.old25.i.i.i.i to i1
-  br i1 %.old26.i.i.i.i, label %37, label %.lr.ph.i.i.i.i
+  %.old27.i.i.i.i = load i8, ptr %19, align 8, !tbaa !97, !range !36, !noundef !37
+  %.old28.i.i.i.i = trunc nuw i8 %.old27.i.i.i.i to i1
+  br i1 %.old28.i.i.i.i, label %37, label %.lr.ph.i.i.i.i
 
 37:                                               ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i.i.i.i, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i.i.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %30)

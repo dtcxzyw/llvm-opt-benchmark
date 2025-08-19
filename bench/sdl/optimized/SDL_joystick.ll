@@ -420,8 +420,8 @@ define hidden void @SDL_QuitJoysticks() local_unnamed_addr #1 {
   %19 = load ptr, ptr %18, align 8
   tail call void %19() #13
   %indvars.iv.next66 = add nsw i64 %indvars.iv65, -1
-  %.not68 = icmp eq i64 %indvars.iv65, 0
-  br i1 %.not68, label %20, label %.preheader, !llvm.loop !7
+  %.not107 = icmp eq i64 %indvars.iv65, 0
+  br i1 %.not107, label %20, label %.preheader, !llvm.loop !7
 
 20:                                               ; preds = %.preheader
   %21 = load ptr, ptr @SDL_joystick_players, align 8
@@ -2486,15 +2486,15 @@ CleanupSensorFusion.exit:                         ; preds = %51, %.thread.i, %63
 
 .lr.ph.preheader:                                 ; preds = %CleanupSensorFusion.exit
   %69 = icmp eq ptr %0, %.052
-  br i1 %69, label %.lr.ph._crit_edge, label %.lr.ph66
+  br i1 %69, label %.lr.ph._crit_edge, label %.lr.ph69
 
-.lr.ph:                                           ; preds = %.lr.ph66
+.lr.ph:                                           ; preds = %.lr.ph69
   %70 = icmp eq ptr %0, %.0
-  br i1 %70, label %.lr.ph._crit_edge, label %.lr.ph66, !llvm.loop !21
+  br i1 %70, label %.lr.ph._crit_edge, label %.lr.ph69, !llvm.loop !21
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.055.lcssa = phi ptr [ %.052, %.lr.ph.preheader ], [ %.0, %.lr.ph ]
-  %.03754.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.05565, %.lr.ph ]
+  %.03754.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.05568, %.lr.ph ]
   %.not41 = icmp eq ptr %.03754.lcssa, null
   br i1 %.not41, label %75, label %71
 
@@ -2511,14 +2511,14 @@ CleanupSensorFusion.exit:                         ; preds = %51, %.thread.i, %63
   store ptr %77, ptr @SDL_joysticks, align 8
   br label %.loopexit
 
-.lr.ph66:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.05565 = phi ptr [ %.0, %.lr.ph ], [ %.052, %.lr.ph.preheader ]
-  %78 = getelementptr inbounds nuw i8, ptr %.05565, i64 344
+.lr.ph69:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.05568 = phi ptr [ %.0, %.lr.ph ], [ %.052, %.lr.ph.preheader ]
+  %78 = getelementptr inbounds nuw i8, ptr %.05568, i64 344
   %.0 = load ptr, ptr %78, align 8
   %.not40 = icmp eq ptr %.0, null
   br i1 %.not40, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
-.loopexit:                                        ; preds = %.lr.ph66, %CleanupSensorFusion.exit, %71, %75
+.loopexit:                                        ; preds = %.lr.ph69, %CleanupSensorFusion.exit, %71, %75
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %80 = load ptr, ptr %79, align 8
   tail call void @SDL_free_REAL(ptr noundef %80) #13
@@ -7366,9 +7366,9 @@ SendSteamHandleUpdateEvents.exit:                 ; preds = %50, %11, %4
   %88 = load i64, ptr %87, align 8
   %89 = add i64 %88, -1
   %or.cond67.not = icmp ult i64 %89, %66
-  br i1 %or.cond67.not, label %.thread89, label %92
+  br i1 %or.cond67.not, label %.thread97, label %92
 
-.thread89:                                        ; preds = %86
+.thread97:                                        ; preds = %86
   %90 = call zeroext i1 @SDL_RumbleJoystickTriggers_REAL(ptr noundef nonnull %.075, i16 noundef zeroext 0, i16 noundef zeroext 0, i32 noundef 0)
   %91 = getelementptr inbounds nuw i8, ptr %.075, i64 200
   store i64 0, ptr %91, align 8
@@ -7396,7 +7396,7 @@ SendSteamHandleUpdateEvents.exit:                 ; preds = %50, %11, %4
   store i64 %spec.store.select69, ptr %96, align 8
   br label %106
 
-106:                                              ; preds = %.thread89, %95, %92, %.lr.ph
+106:                                              ; preds = %.thread97, %95, %92, %.lr.ph
   %107 = getelementptr inbounds nuw i8, ptr %.075, i64 344
   %.0 = load ptr, ptr %107, align 8
   %.not55 = icmp eq ptr %.0, null
@@ -10238,7 +10238,7 @@ define internal fastcc void @SDL_LoadVIDPIDListFromHint(ptr noundef %0, ptr noun
   br i1 %.not27, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %6, %9
-  %.044 = phi ptr [ %11, %9 ], [ null, %6 ]
+  %.051 = phi ptr [ %11, %9 ], [ null, %6 ]
   %12 = phi ptr [ %11, %9 ], [ %0, %6 ]
   %13 = tail call ptr @SDL_strstr_REAL(ptr noundef nonnull %12, ptr noundef nonnull @.str.45) #13
   store ptr %13, ptr %5, align 8
@@ -10296,11 +10296,11 @@ define internal fastcc void @SDL_LoadVIDPIDListFromHint(ptr noundef %0, ptr noun
   br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %34, %.lr.ph, %28, %.preheader
-  %.not31 = icmp eq ptr %.044, null
+  %.not31 = icmp eq ptr %.051, null
   br i1 %.not31, label %.thread, label %42
 
 42:                                               ; preds = %._crit_edge
-  call void @SDL_free_REAL(ptr noundef nonnull %.044) #13
+  call void @SDL_free_REAL(ptr noundef nonnull %.051) #13
   br label %.thread
 
 .thread:                                          ; preds = %4, %._crit_edge, %42, %9

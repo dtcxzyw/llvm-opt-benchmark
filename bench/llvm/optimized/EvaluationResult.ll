@@ -2786,12 +2786,12 @@ _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %30
   %40 = zext i32 %22 to i64
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -8
-  %.0.i1.i24.sink.in = select i1 %spec.select.i.i.i, ptr %38, ptr %42
-  %.0.i1.i24.sink = load ptr, ptr %.0.i1.i24.sink.in, align 8, !tbaa !80
-  %43 = getelementptr inbounds nuw i8, ptr %.0.i1.i24.sink, i64 8
-  %.0.shrunk.i25 = load i32, ptr %43, align 4, !tbaa !120
-  %.0.i626 = zext i32 %.0.shrunk.i25 to i64
-  %44 = mul i64 %2, %.0.i626
+  %.0.i1.i26.sink.in = select i1 %spec.select.i.i.i, ptr %38, ptr %42
+  %.0.i1.i26.sink = load ptr, ptr %.0.i1.i26.sink.in, align 8, !tbaa !80
+  %43 = getelementptr inbounds nuw i8, ptr %.0.i1.i26.sink, i64 8
+  %.0.shrunk.i27 = load i32, ptr %43, align 4, !tbaa !120
+  %.0.i628 = zext i32 %.0.shrunk.i27 to i64
+  %44 = mul i64 %2, %.0.i628
   %45 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %46 = load ptr, ptr %45, align 8, !tbaa !72
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
@@ -2816,8 +2816,8 @@ _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %30
 
 .thread4.i:                                       ; preds = %..thread4_crit_edge.i, %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
   %55 = phi i64 [ %54, %..thread4_crit_edge.i ], [ %44, %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i ]
-  %.pre.i1321 = phi ptr [ %.pre.i.i, %..thread4_crit_edge.i ], [ %31, %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i ]
-  %56 = getelementptr inbounds nuw i8, ptr %.pre.i1321, i64 32
+  %.pre.i1323 = phi ptr [ %.pre.i.i, %..thread4_crit_edge.i ], [ %31, %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i ]
+  %56 = getelementptr inbounds nuw i8, ptr %.pre.i1323, i64 32
   %.pre = zext i32 %22 to i64
   br label %_ZNK5clang6interp7Pointer12getFieldDescEv.exit
 
@@ -2830,7 +2830,7 @@ _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %30
 
 _ZNK5clang6interp7Pointer12getFieldDescEv.exit:   ; preds = %.thread4.i, %57
   %62 = phi i64 [ %55, %.thread4.i ], [ %44, %57 ]
-  %.pre.i1320 = phi ptr [ %.pre.i1321, %.thread4.i ], [ %31, %57 ]
+  %.pre.i1322 = phi ptr [ %.pre.i1323, %.thread4.i ], [ %31, %57 ]
   %.pre-phi = phi i64 [ %.pre, %.thread4.i ], [ %59, %57 ]
   %.0.i8.in = phi ptr [ %56, %.thread4.i ], [ %61, %57 ]
   %.0.i8 = load ptr, ptr %.0.i8.in, align 8, !tbaa !80
@@ -2840,7 +2840,7 @@ _ZNK5clang6interp7Pointer12getFieldDescEv.exit:   ; preds = %.thread4.i, %57
   %.0.v = select i1 %.not, i64 32, i64 16
   %.0 = add i64 %62, %.pre-phi
   %65 = add i64 %.0, %.0.v
-  tail call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %.pre.i1320, i32 noundef %22, i64 noundef %65) #13
+  tail call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %.pre.i1322, i32 noundef %22, i64 noundef %65) #13
   br label %66
 
 66:                                               ; preds = %_ZNK5clang6interp7Pointer12getFieldDescEv.exit, %_ZNK5clang6interp7Pointer11getDeclDescEv.exit, %15, %7
@@ -3151,13 +3151,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang6interp5BlockENS_6detail13DenseSetE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %62, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %61, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %62, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %61, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %63 = zext i32 %.sink28 to i64
-  %64 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink26, i64 %63
-  store ptr %.sink25, ptr %0, align 8
+  %63 = zext i32 %.sink32 to i64
+  %64 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink30, i64 %63
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %64, ptr %.sroa.4.0..sroa_idx, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16

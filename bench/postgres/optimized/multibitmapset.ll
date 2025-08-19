@@ -71,18 +71,18 @@ define dso_local ptr @mbms_add_members(ptr noundef %0, ptr noundef readonly capt
   br i1 %.not.i26, label %.split.us.preheader, label %.split
 
 .split.us.preheader:                              ; preds = %2
-  %.not.i.us46 = icmp eq ptr %0, null
-  br i1 %.not.i.us46, label %.thread, label %list_length.exit.us
+  %.not.i.us48 = icmp eq ptr %0, null
+  br i1 %.not.i.us48, label %.thread, label %list_length.exit.us
 
 list_length.exit.us:                              ; preds = %.split.us.preheader, %.split.us
-  %.0.us47 = phi ptr [ %7, %.split.us ], [ %0, %.split.us.preheader ]
-  %4 = getelementptr inbounds nuw i8, ptr %.0.us47, i64 4
+  %.0.us49 = phi ptr [ %7, %.split.us ], [ %0, %.split.us.preheader ]
+  %4 = getelementptr inbounds nuw i8, ptr %.0.us49, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %.split.us, label %.thread
 
 .split.us:                                        ; preds = %list_length.exit.us
-  %7 = tail call ptr @lappend(ptr noundef nonnull %.0.us47, ptr noundef null) #5
+  %7 = tail call ptr @lappend(ptr noundef nonnull %.0.us49, ptr noundef null) #5
   %.not.i.us = icmp eq ptr %7, null
   br i1 %.not.i.us, label %.thread, label %list_length.exit.us, !llvm.loop !6
 
@@ -140,8 +140,8 @@ list_length.exit.thread:                          ; preds = %.split
   br i1 %34, label %35, label %.thread
 
 .thread:                                          ; preds = %list_length.exit, %25, %30, %.split.us, %list_length.exit.us, %.split.us.preheader
-  %.us-phi2838 = phi ptr [ null, %.split.us.preheader ], [ %.0.us47, %list_length.exit.us ], [ null, %.split.us ], [ %.0, %30 ], [ %.0, %25 ], [ %.0, %list_length.exit ]
-  ret ptr %.us-phi2838
+  %.us-phi2840 = phi ptr [ null, %.split.us.preheader ], [ %.0.us49, %list_length.exit.us ], [ null, %.split.us ], [ %.0, %30 ], [ %.0, %25 ], [ %.0, %list_length.exit ]
+  ret ptr %.us-phi2840
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds nuw %union.ListCell, ptr %31, i64 %indvars.iv

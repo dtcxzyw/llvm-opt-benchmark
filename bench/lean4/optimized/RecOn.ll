@@ -2678,7 +2678,7 @@ lean_nat_add.exit160:                             ; preds = %136, %132, %.crited
   br label %lean_nat_add.exit157
 
 149:                                              ; preds = %141
-  %150 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %143) #4
+  %150 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #4
   br label %lean_nat_add.exit157
 
 .critedge.i155:                                   ; preds = %lean_nat_add.exit160
@@ -12304,18 +12304,18 @@ _init_l_Lean_setReducibilityStatus___at_mkRecOn___spec__3___closed__4.exit: ; pr
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_setReducibilityStatus___at_mkRecOn___spec__3___closed__4.exit, %3
-  %.sink33 = phi ptr [ %4, %3 ], [ %82, %_init_l_Lean_setReducibilityStatus___at_mkRecOn___spec__3___closed__4.exit ]
-  %85 = getelementptr inbounds nuw i8, ptr %.sink33, i64 4
-  store i32 1, ptr %.sink33, align 4, !tbaa !4
+  %.sink45 = phi ptr [ %4, %3 ], [ %82, %_init_l_Lean_setReducibilityStatus___at_mkRecOn___spec__3___closed__4.exit ]
+  %85 = getelementptr inbounds nuw i8, ptr %.sink45, i64 4
+  store i32 1, ptr %.sink45, align 4, !tbaa !4
   store i32 131096, ptr %85, align 4
-  %86 = getelementptr inbounds nuw i8, ptr %.sink33, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.sink45, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %86, align 8, !tbaa !9
-  %87 = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %.sink45, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %87, align 8, !tbaa !9
   br label %88
 
 88:                                               ; preds = %.sink.split, %lean_dec_ref.exit18, %lean_dec_ref.exit20, %lean_dec_ref.exit22, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit22 ], [ %28, %lean_dec_ref.exit20 ], [ %38, %lean_dec_ref.exit18 ], [ %.sink33, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit22 ], [ %28, %lean_dec_ref.exit20 ], [ %38, %lean_dec_ref.exit18 ], [ %.sink45, %.sink.split ]
   ret ptr %.0
 }
 

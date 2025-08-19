@@ -479,26 +479,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit618: ;
   %.not581 = icmp eq ptr %.0414, null
   br label %145
 
-145:                                              ; preds = %.backedge1605, %.preheader817
-  %.sroa.0299.1 = phi float [ %.sroa.0299.0, %.preheader817 ], [ %.sroa.0299.1.be, %.backedge1605 ]
-  %.sroa.3300.1 = phi float [ %.sroa.3300.0, %.preheader817 ], [ %.sroa.3300.1.be, %.backedge1605 ]
-  %.1517 = phi float [ 0.000000e+00, %.preheader817 ], [ %.1517.be, %.backedge1605 ]
-  %.1514 = phi i1 [ %.0513, %.preheader817 ], [ %.1514.be, %.backedge1605 ]
-  %.1511 = phi i1 [ %.0510, %.preheader817 ], [ %.1511.be, %.backedge1605 ]
-  %.1495 = phi i8 [ %.0494, %.preheader817 ], [ %.1495.be, %.backedge1605 ]
-  %.1472 = phi i8 [ %.0471, %.preheader817 ], [ %.1472.be, %.backedge1605 ]
-  %.1461 = phi i8 [ %.0460, %.preheader817 ], [ %.1461.be, %.backedge1605 ]
-  %.1455 = phi i1 [ %.0454, %.preheader817 ], [ %.1455.be, %.backedge1605 ]
-  %.1410 = phi i1 [ false, %.preheader817 ], [ %.1410.be, %.backedge1605 ]
-  %.0407 = phi i32 [ 0, %.preheader817 ], [ %.0407.be, %.backedge1605 ]
-  %.0405 = phi i1 [ false, %.preheader817 ], [ %.0405.be, %.backedge1605 ]
-  %.0403 = phi i1 [ false, %.preheader817 ], [ %.0403.be, %.backedge1605 ]
-  %.sroa.0330.1 = phi float [ %.sroa.0330.0, %.preheader817 ], [ %.sroa.0330.1.be, %.backedge1605 ]
-  %.sroa.7.1 = phi float [ %.sroa.7.0, %.preheader817 ], [ %.sroa.7.1.be, %.backedge1605 ]
-  %.sroa.3334.1 = phi i32 [ %.sroa.3334.0, %.preheader817 ], [ %.sroa.3334.1.be, %.backedge1605 ]
-  %.sroa.0333.1 = phi i32 [ %.sroa.0333.0, %.preheader817 ], [ %.sroa.0333.1.be, %.backedge1605 ]
-  %.sroa.7340.1 = phi i32 [ %.sroa.7340.0, %.preheader817 ], [ %.sroa.7340.1.be, %.backedge1605 ]
-  %.sroa.0335.1 = phi i32 [ %.sroa.0335.0, %.preheader817 ], [ %.sroa.0335.1.be, %.backedge1605 ]
+145:                                              ; preds = %.backedge1627, %.preheader817
+  %.sroa.0299.1 = phi float [ %.sroa.0299.0, %.preheader817 ], [ %.sroa.0299.1.be, %.backedge1627 ]
+  %.sroa.3300.1 = phi float [ %.sroa.3300.0, %.preheader817 ], [ %.sroa.3300.1.be, %.backedge1627 ]
+  %.1517 = phi float [ 0.000000e+00, %.preheader817 ], [ %.1517.be, %.backedge1627 ]
+  %.1514 = phi i1 [ %.0513, %.preheader817 ], [ %.1514.be, %.backedge1627 ]
+  %.1511 = phi i1 [ %.0510, %.preheader817 ], [ %.1511.be, %.backedge1627 ]
+  %.1495 = phi i8 [ %.0494, %.preheader817 ], [ %.1495.be, %.backedge1627 ]
+  %.1472 = phi i8 [ %.0471, %.preheader817 ], [ %.1472.be, %.backedge1627 ]
+  %.1461 = phi i8 [ %.0460, %.preheader817 ], [ %.1461.be, %.backedge1627 ]
+  %.1455 = phi i1 [ %.0454, %.preheader817 ], [ %.1455.be, %.backedge1627 ]
+  %.1410 = phi i1 [ false, %.preheader817 ], [ %.1410.be, %.backedge1627 ]
+  %.0407 = phi i32 [ 0, %.preheader817 ], [ %.0407.be, %.backedge1627 ]
+  %.0405 = phi i1 [ false, %.preheader817 ], [ %.0405.be, %.backedge1627 ]
+  %.0403 = phi i1 [ false, %.preheader817 ], [ %.0403.be, %.backedge1627 ]
+  %.sroa.0330.1 = phi float [ %.sroa.0330.0, %.preheader817 ], [ %.sroa.0330.1.be, %.backedge1627 ]
+  %.sroa.7.1 = phi float [ %.sroa.7.0, %.preheader817 ], [ %.sroa.7.1.be, %.backedge1627 ]
+  %.sroa.3334.1 = phi i32 [ %.sroa.3334.0, %.preheader817 ], [ %.sroa.3334.1.be, %.backedge1627 ]
+  %.sroa.0333.1 = phi i32 [ %.sroa.0333.0, %.preheader817 ], [ %.sroa.0333.1.be, %.backedge1627 ]
+  %.sroa.7340.1 = phi i32 [ %.sroa.7340.0, %.preheader817 ], [ %.sroa.7340.1.be, %.backedge1627 ]
+  %.sroa.0335.1 = phi i32 [ %.sroa.0335.0, %.preheader817 ], [ %.sroa.0335.1.be, %.backedge1627 ]
   %146 = invoke i32 @SDL_PollEvent(ptr noundef nonnull %22)
           to label %147 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -508,7 +508,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit618: ;
 
 148:                                              ; preds = %147
   %149 = load i32, ptr %22, align 8
-  switch i32 %149, label %.backedge1605 [
+  switch i32 %149, label %.backedge1627 [
     i32 768, label %160
     i32 1027, label %205
     i32 1025, label %218
@@ -610,7 +610,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit618: ;
 160:                                              ; preds = %148
   %161 = load i32, ptr %105, align 4
   switch i32 %161, label %.fold.split [
-    i32 27, label %.backedge1605
+    i32 27, label %.backedge1627
     i32 116, label %162
     i32 9, label %171
     i32 32, label %173
@@ -644,7 +644,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit623: ;
 166:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit623
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #22
-  br label %.backedge1605
+  br label %.backedge1627
 
 167:                                              ; preds = %.noexc619, %162
   %168 = landingpad { ptr, i32 }
@@ -664,20 +664,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit623: ;
 
 171:                                              ; preds = %160
   %172 = xor i8 %.1495, 1
-  br label %.backedge1605
+  br label %.backedge1627
 
 173:                                              ; preds = %160
-  br i1 %.not581, label %.backedge1605, label %.invoke
+  br i1 %.not581, label %.backedge1627, label %.invoke
 
 .invoke:                                          ; preds = %173, %177
-  %.sink1421 = phi i64 [ 56, %177 ], [ 48, %173 ]
+  %.sink1443 = phi i64 [ 56, %177 ], [ 48, %173 ]
   %174 = load ptr, ptr %.0414, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 %.sink1421
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 %.sink1443
   %176 = load ptr, ptr %175, align 8
   invoke void %176(ptr noundef nonnull align 8 dereferenceable(200) %.0414)
-          to label %.backedge1605 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.backedge1627 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.backedge1605:                                    ; preds = %.invoke, %237, %225, %160, %.fold.split, %148, %233, %230, %226, %218, %221, %211, %209, %216, %214, %171, %177, %178, %202, %173, %166, %249
+.backedge1627:                                    ; preds = %.invoke, %237, %225, %160, %.fold.split, %148, %233, %230, %226, %218, %221, %211, %209, %216, %214, %171, %177, %178, %202, %173, %166, %249
   %.sroa.0299.1.be = phi float [ %.sroa.0299.1, %148 ], [ %.sroa.0299.1, %166 ], [ %.sroa.0299.1, %171 ], [ %.sroa.0299.1, %173 ], [ %.sroa.0299.1, %177 ], [ %.sroa.0299.1, %202 ], [ %.sroa.0299.1, %178 ], [ %.sroa.0299.1, %209 ], [ %.sroa.0299.1, %211 ], [ %.sroa.0299.1, %214 ], [ %.sroa.0299.1, %216 ], [ %.sroa.0299.1, %218 ], [ %.sroa.0330.1, %221 ], [ %.sroa.0299.1, %226 ], [ %.sroa.0299.1, %230 ], [ %.sroa.0299.1, %233 ], [ %.sroa.0299.1, %249 ], [ %.sroa.0299.1, %160 ], [ %.sroa.0299.1, %.fold.split ], [ %.sroa.0299.1, %225 ], [ %.sroa.0299.1, %237 ], [ %.sroa.0299.1, %.invoke ]
   %.sroa.3300.1.be = phi float [ %.sroa.3300.1, %148 ], [ %.sroa.3300.1, %166 ], [ %.sroa.3300.1, %171 ], [ %.sroa.3300.1, %173 ], [ %.sroa.3300.1, %177 ], [ %.sroa.3300.1, %202 ], [ %.sroa.3300.1, %178 ], [ %.sroa.3300.1, %209 ], [ %.sroa.3300.1, %211 ], [ %.sroa.3300.1, %214 ], [ %.sroa.3300.1, %216 ], [ %.sroa.3300.1, %218 ], [ %.sroa.7.1, %221 ], [ %.sroa.3300.1, %226 ], [ %.sroa.3300.1, %230 ], [ %.sroa.3300.1, %233 ], [ %.sroa.3300.1, %249 ], [ %.sroa.3300.1, %160 ], [ %.sroa.3300.1, %.fold.split ], [ %.sroa.3300.1, %225 ], [ %.sroa.3300.1, %237 ], [ %.sroa.3300.1, %.invoke ]
   %.1517.be = phi float [ %.1517, %148 ], [ %.1517, %166 ], [ %.1517, %171 ], [ %.1517, %173 ], [ %.1517, %177 ], [ %.1517, %202 ], [ %.1517, %178 ], [ %.1517, %209 ], [ %212, %211 ], [ %.1517, %214 ], [ %217, %216 ], [ %.1517, %218 ], [ %.1517, %221 ], [ %.1517, %226 ], [ %.1517, %230 ], [ %.1517, %233 ], [ %.1517, %249 ], [ %.1517, %160 ], [ %.1517, %.fold.split ], [ %.1517, %225 ], [ %.1517, %237 ], [ %.1517, %.invoke ]
@@ -700,10 +700,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit623: ;
   br label %145, !llvm.loop !5
 
 177:                                              ; preds = %160
-  br i1 %.not581, label %.backedge1605, label %.invoke
+  br i1 %.not581, label %.backedge1627, label %.invoke
 
 178:                                              ; preds = %160
-  br i1 %or.cond5, label %179, label %.backedge1605
+  br i1 %or.cond5, label %179, label %.backedge1627
 
 179:                                              ; preds = %178
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %14)
@@ -755,7 +755,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 202:                                              ; preds = %200
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #22
-  br label %.backedge1605
+  br label %.backedge1627
 
 203:                                              ; preds = %200, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit
   %204 = landingpad { ptr, i32 }
@@ -773,31 +773,31 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 209:                                              ; preds = %208
   %210 = add nsw i32 %.0407, 1
-  br label %.backedge1605
+  br label %.backedge1627
 
 211:                                              ; preds = %208
   %212 = fadd float %.1517, 1.000000e+00
-  br label %.backedge1605
+  br label %.backedge1627
 
 213:                                              ; preds = %205
   br i1 %141, label %214, label %216
 
 214:                                              ; preds = %213
   %215 = add nsw i32 %.0407, -1
-  br label %.backedge1605
+  br label %.backedge1627
 
 216:                                              ; preds = %213
   %217 = fadd float %.1517, -1.000000e+00
-  br label %.backedge1605
+  br label %.backedge1627
 
 218:                                              ; preds = %148
   %219 = load i8, ptr %108, align 8
   %220 = icmp ne i8 %219, 3
   %or.cond37 = select i1 %220, i1 true, i1 %141
-  br i1 %or.cond37, label %.backedge1605, label %221
+  br i1 %or.cond37, label %.backedge1627, label %221
 
 221:                                              ; preds = %218
-  br label %.backedge1605
+  br label %.backedge1627
 
 222:                                              ; preds = %148
   %223 = load i8, ptr %108, align 8
@@ -809,12 +809,12 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %not.or.cond39 = xor i1 %or.cond39, true
   %spec.select = select i1 %not.or.cond39, i1 true, i1 %.0405
   %spec.select591 = select i1 %not.or.cond39, i1 true, i1 %.0403
-  br label %.backedge1605
+  br label %.backedge1627
 
 226:                                              ; preds = %222
   %227 = icmp ne i8 %223, 1
   %or.cond41 = select i1 %227, i1 true, i1 %141
-  br i1 %or.cond41, label %.backedge1605, label %228
+  br i1 %or.cond41, label %.backedge1627, label %228
 
 228:                                              ; preds = %226
   %229 = invoke i32 @SDL_GetModState()
@@ -823,13 +823,13 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 230:                                              ; preds = %228
   %231 = and i32 %229, 3
   %232 = icmp ne i32 %231, 0
-  br label %.backedge1605
+  br label %.backedge1627
 
 233:                                              ; preds = %148
   %234 = load i32, ptr %105, align 4
   %235 = load i32, ptr %107, align 8
   %236 = sub i32 %106, %235
-  br i1 %.1514, label %237, label %.backedge1605
+  br i1 %.1514, label %237, label %.backedge1627
 
 237:                                              ; preds = %233
   %238 = sub nsw i32 %234, %.sroa.0333.1
@@ -844,13 +844,13 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %247 = add nuw nsw i32 %246, %245
   %248 = icmp samesign ugt i32 %247, 9
   %spec.select592 = select i1 %248, i1 true, i1 %.1511
-  br label %.backedge1605
+  br label %.backedge1627
 
 249:                                              ; preds = %148
-  br label %.backedge1605
+  br label %.backedge1627
 
 .fold.split:                                      ; preds = %160
-  br label %.backedge1605
+  br label %.backedge1627
 
 250:                                              ; preds = %147
   %251 = invoke i32 @SDL_GetMouseState(ptr noundef null, ptr noundef null)
@@ -1630,7 +1630,7 @@ _ZN9rcContext8resetLogEv.exit:                    ; preds = %569, %572
 
 605:                                              ; preds = %602
   %.not580 = icmp eq ptr %604, null
-  br i1 %.not580, label %.thread1223, label %606
+  br i1 %.not580, label %.thread1245, label %606
 
 606:                                              ; preds = %605
   %607 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %598)
@@ -1642,19 +1642,19 @@ _ZN9rcContext8resetLogEv.exit:                    ; preds = %569, %572
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %609, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %608, %.thread1223
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %608 ], [ %indvars.iv.next1225, %.thread1223 ]
-  %.03941014.be = phi ptr [ %.1395, %608 ], [ null, %.thread1223 ]
+.backedge.backedge:                               ; preds = %608, %.thread1245
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %608 ], [ %indvars.iv.next1247, %.thread1245 ]
+  %.03941014.be = phi ptr [ %.1395, %608 ], [ null, %.thread1245 ]
   br label %.backedge, !llvm.loop !8
 
-.thread1223:                                      ; preds = %605
-  %indvars.iv.next1225 = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not1226 = icmp eq i64 %indvars.iv.next1225, 3
-  br i1 %exitcond.not1226, label %.thread1228, label %.backedge.backedge
+.thread1245:                                      ; preds = %605
+  %indvars.iv.next1247 = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not1248 = icmp eq i64 %indvars.iv.next1247, 3
+  br i1 %exitcond.not1248, label %.thread1250, label %.backedge.backedge
 
 609:                                              ; preds = %608
   %.not569 = icmp eq ptr %.1395, null
-  br i1 %.not569, label %.thread1228, label %610
+  br i1 %.not569, label %.thread1250, label %610
 
 610:                                              ; preds = %609
   br i1 %.not581, label %615, label %611
@@ -1678,11 +1678,11 @@ _ZN9rcContext8resetLogEv.exit:                    ; preds = %569, %572
   invoke void %620(ptr noundef nonnull align 8 dereferenceable(200) %.1395, ptr noundef nonnull %.0422)
           to label %.thread689.thread unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.thread1228:                                      ; preds = %.thread1223, %609
+.thread1250:                                      ; preds = %.thread1245, %609
   %or.cond15 = select i1 %143, i1 true, i1 %142
   br i1 %or.cond15, label %.thread689, label %657
 
-.thread689:                                       ; preds = %.thread1228
+.thread689:                                       ; preds = %.thread1250
   br i1 %143, label %.thread689.thread, label %.thread697
 
 .thread689.thread:                                ; preds = %617, %.thread689
@@ -1742,15 +1742,15 @@ _ZN9rcContext8resetLogEv.exit:                    ; preds = %569, %572
   invoke void @glFogf(i32 noundef 2916, float noundef %656)
           to label %657 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-657:                                              ; preds = %655, %.thread1228
-  %.2416695 = phi ptr [ %.2416696776, %655 ], [ null, %.thread1228 ]
-  %.7467693 = phi i8 [ %.7467694778, %655 ], [ 1, %.thread1228 ]
-  %.2527 = phi float [ %.3528, %655 ], [ %.0525, %.thread1228 ]
-  %.sroa.19.2 = phi float [ %.sroa.19.3, %655 ], [ %472, %.thread1228 ]
-  %.sroa.9.2 = phi float [ %.sroa.9.3, %655 ], [ %475, %.thread1228 ]
-  %.sroa.0322.2 = phi float [ %.sroa.0322.3, %655 ], [ %466, %.thread1228 ]
-  %.sroa.0330.4 = phi float [ 4.500000e+01, %655 ], [ %.sroa.0330.1, %.thread1228 ]
-  %.sroa.7.4 = phi float [ -4.500000e+01, %655 ], [ %.sroa.7.1, %.thread1228 ]
+657:                                              ; preds = %655, %.thread1250
+  %.2416695 = phi ptr [ %.2416696776, %655 ], [ null, %.thread1250 ]
+  %.7467693 = phi i8 [ %.7467694778, %655 ], [ 1, %.thread1250 ]
+  %.2527 = phi float [ %.3528, %655 ], [ %.0525, %.thread1250 ]
+  %.sroa.19.2 = phi float [ %.sroa.19.3, %655 ], [ %472, %.thread1250 ]
+  %.sroa.9.2 = phi float [ %.sroa.9.3, %655 ], [ %475, %.thread1250 ]
+  %.sroa.0322.2 = phi float [ %.sroa.0322.3, %655 ], [ %466, %.thread1250 ]
+  %.sroa.0330.4 = phi float [ 4.500000e+01, %655 ], [ %.sroa.0330.1, %.thread1250 ]
+  %.sroa.7.4 = phi float [ -4.500000e+01, %655 ], [ %.sroa.7.1, %.thread1250 ]
   invoke void @_Z18imguiEndScrollAreav()
           to label %658 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 

@@ -1084,32 +1084,32 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly captures(addr
   %24 = load i32, ptr %8, align 4
   %25 = sext i32 %24 to i64
   %.not = icmp slt i64 %indvars.iv.next, %25
-  br i1 %.not, label %.lr.ph.split, label %.thread99, !llvm.loop !6
+  br i1 %.not, label %.lr.ph.split, label %.thread102, !llvm.loop !6
 
 .critedge:                                        ; preds = %.preheader
-  br i1 %2, label %.thread110, label %.critedge47.thread
+  br i1 %2, label %.thread113, label %.critedge47.thread
 
-.thread110:                                       ; preds = %.critedge
+.thread113:                                       ; preds = %.critedge
   tail call void @pgstat_progress_update_param(i32 noundef 3, i64 noundef 0) #8
-  br label %.critedge47.thread107
+  br label %.critedge47.thread110
 
 26:                                               ; preds = %.lr.ph.split.us
   %27 = sext i32 %.137.us to i64
   call void @pgstat_progress_update_param(i32 noundef 3, i64 noundef %27) #8
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.not42 = icmp eq ptr %15, null
-  br i1 %.not42, label %.critedge47.thread107, label %.lr.ph63.split.us.split
+  br i1 %.not42, label %.critedge47.thread110, label %.lr.ph63.split.us.split
 
-.thread99:                                        ; preds = %.lr.ph.split
+.thread102:                                       ; preds = %.lr.ph.split
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %.not42101 = icmp eq ptr %23, null
-  br i1 %.not42101, label %.critedge47.thread, label %.lr.ph63.split.split
+  %.not42104 = icmp eq ptr %23, null
+  br i1 %.not42104, label %.critedge47.thread, label %.lr.ph63.split.split
 
 .lr.ph63.split.us.split:                          ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %31 = load i32, ptr %28, align 4
   %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %.lr.ph72, label %.critedge47.thread107
+  br i1 %32, label %.lr.ph72, label %.critedge47.thread110
 
 .lr.ph72:                                         ; preds = %.lr.ph63.split.us.split, %._crit_edge.split.us.us
   %33 = phi i32 [ %39, %._crit_edge.split.us.us ], [ %31, %.lr.ph63.split.us.split ]
@@ -1162,7 +1162,7 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly captures(addr
   %.not44.us.us = icmp eq i32 %55, 0
   br i1 %.not44.us.us, label %._crit_edge.split.us.us.loopexit, label %.lr.ph57.us, !llvm.loop !8
 
-.lr.ph63.split.split:                             ; preds = %.thread99
+.lr.ph63.split.split:                             ; preds = %.thread102
   %56 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %57 = load i32, ptr %29, align 4
   %58 = icmp sgt i32 %57, 0
@@ -1180,8 +1180,8 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly captures(addr
   br i1 %.not4454, label %._crit_edge.split, label %.lr.ph57
 
 .critedge47:                                      ; preds = %._crit_edge.split, %._crit_edge.split.us.us
-  %.0.lcssa9198 = phi ptr [ %15, %._crit_edge.split.us.us ], [ %23, %._crit_edge.split ]
-  br i1 %2, label %.critedge47.thread107, label %.critedge47.thread
+  %.0.lcssa94101 = phi ptr [ %15, %._crit_edge.split.us.us ], [ %23, %._crit_edge.split ]
+  br i1 %2, label %.critedge47.thread110, label %.critedge47.thread
 
 .lr.ph57:                                         ; preds = %.lr.ph69, %.lr.ph57
   %.03456 = phi ptr [ %67, %.lr.ph57 ], [ %62, %.lr.ph69 ]
@@ -1204,8 +1204,8 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly captures(addr
   %72 = icmp slt i64 %indvars.iv.next82, %71
   br i1 %72, label %.lr.ph69, label %.critedge47
 
-.critedge47.thread107:                            ; preds = %26, %.thread110, %.lr.ph63.split.us.split, %.critedge47
-  %.0.lcssa9198109 = phi ptr [ %.0.lcssa9198, %.critedge47 ], [ %15, %.lr.ph63.split.us.split ], [ null, %.thread110 ], [ null, %26 ]
+.critedge47.thread110:                            ; preds = %26, %.thread113, %.lr.ph63.split.us.split, %.critedge47
+  %.0.lcssa94101112 = phi ptr [ %.0.lcssa94101, %.critedge47 ], [ %15, %.lr.ph63.split.us.split ], [ null, %.thread113 ], [ null, %26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) @__const.WaitForLockersMultiple.index, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1215,9 +1215,9 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly captures(addr
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge47.thread
 
-.critedge47.thread:                               ; preds = %.critedge, %.lr.ph63.split.split, %.thread99, %.critedge47.thread107, %.critedge47
-  %.0.lcssa9198106 = phi ptr [ %.0.lcssa9198109, %.critedge47.thread107 ], [ %.0.lcssa9198, %.critedge47 ], [ null, %.thread99 ], [ %23, %.lr.ph63.split.split ], [ null, %.critedge ]
-  call void @list_free_deep(ptr noundef %.0.lcssa9198106) #8
+.critedge47.thread:                               ; preds = %.critedge, %.lr.ph63.split.split, %.thread102, %.critedge47.thread110, %.critedge47
+  %.0.lcssa94101109 = phi ptr [ %.0.lcssa94101112, %.critedge47.thread110 ], [ %.0.lcssa94101, %.critedge47 ], [ null, %.thread102 ], [ %23, %.lr.ph63.split.split ], [ null, %.critedge ]
+  call void @list_free_deep(ptr noundef %.0.lcssa94101109) #8
   br label %73
 
 73:                                               ; preds = %3, %.critedge47.thread

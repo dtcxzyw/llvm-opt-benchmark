@@ -5210,9 +5210,9 @@ define internal void @_ZN12_GLOBAL__N_118AArch64ELFStreamer5resetEv(ptr noundef 
 
 21:                                               ; preds = %16, %9
   %22 = phi ptr [ %13, %16 ], [ %10, %9 ]
-  %.val71924.i = phi i32 [ %.val717.i, %16 ], [ %.val7.i, %9 ]
+  %.val72024.i = phi i32 [ %.val717.i, %16 ], [ %.val7.i, %9 ]
   %.0.i.i.i = phi i32 [ %.sroa.speculated.i.i.i, %16 ], [ 0, %9 ]
-  %23 = icmp eq i32 %.0.i.i.i, %.val71924.i
+  %23 = icmp eq i32 %.0.i.i.i, %.val72024.i
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %21
@@ -5220,7 +5220,7 @@ define internal void @_ZN12_GLOBAL__N_118AArch64ELFStreamer5resetEv(ptr noundef 
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 6628
   store i32 0, ptr %25, align 4, !tbaa !343
   %.val.i.i.i.i = load ptr, ptr %3, align 8, !tbaa !338
-  %26 = zext nneg i32 %.val71924.i to i64
+  %26 = zext nneg i32 %.val72024.i to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %26, 4
   %27 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 %.idx.i.i.i.i
   br label %.lr.ph.i.i.i.i
@@ -5234,7 +5234,7 @@ define internal void @_ZN12_GLOBAL__N_118AArch64ELFStreamer5resetEv(ptr noundef 
 
 29:                                               ; preds = %21
   %30 = load ptr, ptr %3, align 8, !tbaa !338
-  %31 = zext i32 %.val71924.i to i64
+  %31 = zext i32 %.val72024.i to i64
   %32 = shl nuw nsw i64 %31, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %30, i64 noundef %32, i64 noundef 8) #14
   %33 = icmp eq i32 %.0.i.i.i, 0
@@ -5284,12 +5284,12 @@ define internal void @_ZN12_GLOBAL__N_118AArch64ELFStreamer5resetEv(ptr noundef 
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEN12_GLOBAL__N_118AArch64ELFStreamer16ElfMappingSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E5clearEv.exit
 
 59:                                               ; preds = %.thread.i, %9
-  %.val720.i = phi i32 [ %.val717.i, %.thread.i ], [ %.val7.i, %9 ]
+  %.val719.i = phi i32 [ %.val717.i, %.thread.i ], [ %.val7.i, %9 ]
   %.val.i = load ptr, ptr %3, align 8, !tbaa !338
-  %60 = zext i32 %.val720.i to i64
+  %60 = zext i32 %.val719.i to i64
   %.idx.i = shl nuw nsw i64 %60, 4
   %61 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i
-  %.not14.i = icmp eq i32 %.val720.i, 0
+  %.not14.i = icmp eq i32 %.val719.i, 0
   br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %59
@@ -6486,13 +6486,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9MCSectionESt4pairImPNS_8MCSymbolEENS_12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %63, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %62, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %63, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %62, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %64 = zext i32 %.sink28 to i64
-  %65 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink26, i64 %64
-  store ptr %.sink25, ptr %0, align 8
+  %64 = zext i32 %.sink32 to i64
+  %65 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %64
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %65, ptr %.sroa.4.0..sroa_idx, align 8
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16

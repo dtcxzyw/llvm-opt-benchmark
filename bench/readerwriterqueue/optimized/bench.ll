@@ -1433,19 +1433,19 @@ _ZN10moodycamel17ReaderWriterQueueIiLm512EE7enqueueERKi.exit: ; preds = %51
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %76, %70, %66
-  %.032.sink41.i = phi ptr [ %.0.i.i.i.i.i, %76 ], [ %.0.i.i.i16.i, %70 ], [ %.0.i.i.i.i, %66 ]
-  %.033.sink39.i = phi i64 [ %79, %76 ], [ %75, %70 ], [ %62, %66 ]
-  %83 = getelementptr inbounds nuw i8, ptr %.032.sink41.i, i64 136
+  %.032.sink43.i = phi ptr [ %.0.i.i.i.i.i, %76 ], [ %.0.i.i.i16.i, %70 ], [ %.0.i.i.i.i, %66 ]
+  %.033.sink41.i = phi i64 [ %79, %76 ], [ %75, %70 ], [ %62, %66 ]
+  %83 = getelementptr inbounds nuw i8, ptr %.032.sink43.i, i64 136
   %84 = load ptr, ptr %83, align 8, !tbaa !69
-  %85 = shl i64 %.033.sink39.i, 2
+  %85 = shl i64 %.033.sink41.i, 2
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !4
-  %88 = add i64 %.033.sink39.i, 1
-  %89 = getelementptr inbounds nuw i8, ptr %.032.sink41.i, i64 144
+  %88 = add i64 %.033.sink41.i, 1
+  %89 = getelementptr inbounds nuw i8, ptr %.032.sink43.i, i64 144
   %90 = load i64, ptr %89, align 8, !tbaa !70
   %91 = and i64 %90, %88
   fence release
-  store atomic i64 %91, ptr %.032.sink41.i monotonic, align 8
+  store atomic i64 %91, ptr %.032.sink43.i monotonic, align 8
   br label %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit
 
 _ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit: ; preds = %.sink.split.i, %67
@@ -1607,19 +1607,19 @@ _ZN10moodycamel17ReaderWriterQueueIiLm512EE7enqueueERKi.exit134: ; preds = %114
   br label %.sink.split.i137
 
 .sink.split.i137:                                 ; preds = %146, %140, %137
-  %.032.sink41.i138 = phi ptr [ %.0.i.i.i.i.i145, %146 ], [ %.0.i.i.i16.i143, %140 ], [ %.0.i.i.i.i135, %137 ]
-  %.033.sink39.i139 = phi i64 [ %149, %146 ], [ %145, %140 ], [ %133, %137 ]
-  %153 = getelementptr inbounds nuw i8, ptr %.032.sink41.i138, i64 136
+  %.032.sink43.i138 = phi ptr [ %.0.i.i.i.i.i145, %146 ], [ %.0.i.i.i16.i143, %140 ], [ %.0.i.i.i.i135, %137 ]
+  %.033.sink41.i139 = phi i64 [ %149, %146 ], [ %145, %140 ], [ %133, %137 ]
+  %153 = getelementptr inbounds nuw i8, ptr %.032.sink43.i138, i64 136
   %154 = load ptr, ptr %153, align 8, !tbaa !69
-  %155 = shl i64 %.033.sink39.i139, 2
+  %155 = shl i64 %.033.sink41.i139, 2
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 %155
   %157 = load i32, ptr %156, align 4, !tbaa !4
-  %158 = add i64 %.033.sink39.i139, 1
-  %159 = getelementptr inbounds nuw i8, ptr %.032.sink41.i138, i64 144
+  %158 = add i64 %.033.sink41.i139, 1
+  %159 = getelementptr inbounds nuw i8, ptr %.032.sink43.i138, i64 144
   %160 = load i64, ptr %159, align 8, !tbaa !70
   %161 = and i64 %160, %158
   fence release
-  store atomic i64 %161, ptr %.032.sink41.i138 monotonic, align 8
+  store atomic i64 %161, ptr %.032.sink43.i138 monotonic, align 8
   br label %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit146
 
 _ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit146: ; preds = %.sink.split.i137, %138
@@ -1928,14 +1928,14 @@ _ZN10moodycamel17ReaderWriterQueueIiLm512EE7enqueueERKi.exit172: ; preds = %240
   br label %.sink.split.i175
 
 .sink.split.i175:                                 ; preds = %263, %257, %254
-  %.032.sink41.i176 = phi ptr [ %.0.i.i.i.i.i183, %263 ], [ %.0.i.i.i16.i181, %257 ], [ %.0.i.i.i.i173, %254 ]
-  %.033.sink39.i177 = phi i64 [ %266, %263 ], [ %262, %257 ], [ %250, %254 ]
-  %270 = add i64 %.033.sink39.i177, 1
-  %271 = getelementptr inbounds nuw i8, ptr %.032.sink41.i176, i64 144
+  %.032.sink43.i176 = phi ptr [ %.0.i.i.i.i.i183, %263 ], [ %.0.i.i.i16.i181, %257 ], [ %.0.i.i.i.i173, %254 ]
+  %.033.sink41.i177 = phi i64 [ %266, %263 ], [ %262, %257 ], [ %250, %254 ]
+  %270 = add i64 %.033.sink41.i177, 1
+  %271 = getelementptr inbounds nuw i8, ptr %.032.sink43.i176, i64 144
   %272 = load i64, ptr %271, align 8, !tbaa !70
   %273 = and i64 %272, %270
   fence release
-  store atomic i64 %273, ptr %.032.sink41.i176 monotonic, align 8
+  store atomic i64 %273, ptr %.032.sink43.i176 monotonic, align 8
   br label %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit184
 
 _ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit184: ; preds = %.sink.split.i175, %255, %_ZN10moodycamel17ReaderWriterQueueIiLm512EE7enqueueERKi.exit172
@@ -1997,14 +1997,14 @@ _ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit184: ; pred
   br label %.sink.split.i187
 
 .sink.split.i187:                                 ; preds = %292, %286, %283
-  %.032.sink41.i188 = phi ptr [ %.0.i.i.i.i.i195, %292 ], [ %.0.i.i.i16.i193, %286 ], [ %.0.i.i.i.i185, %283 ]
-  %.033.sink39.i189 = phi i64 [ %295, %292 ], [ %291, %286 ], [ %279, %283 ]
-  %299 = add i64 %.033.sink39.i189, 1
-  %300 = getelementptr inbounds nuw i8, ptr %.032.sink41.i188, i64 144
+  %.032.sink43.i188 = phi ptr [ %.0.i.i.i.i.i195, %292 ], [ %.0.i.i.i16.i193, %286 ], [ %.0.i.i.i.i185, %283 ]
+  %.033.sink41.i189 = phi i64 [ %295, %292 ], [ %291, %286 ], [ %279, %283 ]
+  %299 = add i64 %.033.sink41.i189, 1
+  %300 = getelementptr inbounds nuw i8, ptr %.032.sink43.i188, i64 144
   %301 = load i64, ptr %300, align 8, !tbaa !70
   %302 = and i64 %301, %299
   fence release
-  store atomic i64 %302, ptr %.032.sink41.i188 monotonic, align 8
+  store atomic i64 %302, ptr %.032.sink43.i188 monotonic, align 8
   br label %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit196
 
 _ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit196: ; preds = %.sink.split.i187, %284
@@ -2185,20 +2185,20 @@ _ZN12SimpleThreadC2IZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd
   br label %.sink.split.i214
 
 .sink.split.i214:                                 ; preds = %354, %348, %344
-  %.032.sink41.i215 = phi ptr [ %.0.i.i.i.i.i222, %354 ], [ %.0.i.i.i16.i220, %348 ], [ %.0.i.i.i.i212, %344 ]
-  %.033.sink39.i216 = phi i64 [ %357, %354 ], [ %353, %348 ], [ %340, %344 ]
-  %361 = getelementptr inbounds nuw i8, ptr %.032.sink41.i215, i64 136
+  %.032.sink43.i215 = phi ptr [ %.0.i.i.i.i.i222, %354 ], [ %.0.i.i.i16.i220, %348 ], [ %.0.i.i.i.i212, %344 ]
+  %.033.sink41.i216 = phi i64 [ %357, %354 ], [ %353, %348 ], [ %340, %344 ]
+  %361 = getelementptr inbounds nuw i8, ptr %.032.sink43.i215, i64 136
   %362 = load ptr, ptr %361, align 8, !tbaa !69
-  %363 = shl i64 %.033.sink39.i216, 2
+  %363 = shl i64 %.033.sink41.i216, 2
   %364 = getelementptr inbounds nuw i8, ptr %362, i64 %363
   %365 = load i32, ptr %364, align 4, !tbaa !4
   store i32 %365, ptr %22, align 4, !tbaa !4
-  %366 = add i64 %.033.sink39.i216, 1
-  %367 = getelementptr inbounds nuw i8, ptr %.032.sink41.i215, i64 144
+  %366 = add i64 %.033.sink41.i216, 1
+  %367 = getelementptr inbounds nuw i8, ptr %.032.sink43.i215, i64 144
   %368 = load i64, ptr %367, align 8, !tbaa !70
   %369 = and i64 %368, %366
   fence release
-  store atomic i64 %369, ptr %.032.sink41.i215 monotonic, align 8
+  store atomic i64 %369, ptr %.032.sink43.i215 monotonic, align 8
   br label %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit223
 
 _ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit223: ; preds = %.sink.split.i214, %345
@@ -2416,20 +2416,20 @@ _ZN12SimpleThreadC2IZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd
   br label %.sink.split.i241
 
 .sink.split.i241:                                 ; preds = %432, %426, %422
-  %.032.sink41.i242 = phi ptr [ %.0.i.i.i.i.i249, %432 ], [ %.0.i.i.i16.i247, %426 ], [ %.0.i.i.i.i239, %422 ]
-  %.033.sink39.i243 = phi i64 [ %435, %432 ], [ %431, %426 ], [ %418, %422 ]
-  %439 = getelementptr inbounds nuw i8, ptr %.032.sink41.i242, i64 136
+  %.032.sink43.i242 = phi ptr [ %.0.i.i.i.i.i249, %432 ], [ %.0.i.i.i16.i247, %426 ], [ %.0.i.i.i.i239, %422 ]
+  %.033.sink41.i243 = phi i64 [ %435, %432 ], [ %431, %426 ], [ %418, %422 ]
+  %439 = getelementptr inbounds nuw i8, ptr %.032.sink43.i242, i64 136
   %440 = load ptr, ptr %439, align 8, !tbaa !69
-  %441 = shl i64 %.033.sink39.i243, 2
+  %441 = shl i64 %.033.sink41.i243, 2
   %442 = getelementptr inbounds nuw i8, ptr %440, i64 %441
   %443 = load i32, ptr %442, align 4, !tbaa !4
   store i32 %443, ptr %29, align 4, !tbaa !4
-  %444 = add i64 %.033.sink39.i243, 1
-  %445 = getelementptr inbounds nuw i8, ptr %.032.sink41.i242, i64 144
+  %444 = add i64 %.033.sink41.i243, 1
+  %445 = getelementptr inbounds nuw i8, ptr %.032.sink43.i242, i64 144
   %446 = load i64, ptr %445, align 8, !tbaa !70
   %447 = and i64 %446, %444
   fence release
-  store atomic i64 %447, ptr %.032.sink41.i242 monotonic, align 8
+  store atomic i64 %447, ptr %.032.sink43.i242 monotonic, align 8
   br label %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit250
 
 _ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit250: ; preds = %.sink.split.i241, %423
@@ -2631,20 +2631,20 @@ _ZN12SimpleThreadC2IZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd
   br label %.sink.split.i267
 
 .sink.split.i267:                                 ; preds = %508, %502, %498
-  %.032.sink41.i268 = phi ptr [ %.0.i.i.i.i.i275, %508 ], [ %.0.i.i.i16.i273, %502 ], [ %.0.i.i.i.i265, %498 ]
-  %.033.sink39.i269 = phi i64 [ %511, %508 ], [ %507, %502 ], [ %494, %498 ]
-  %515 = getelementptr inbounds nuw i8, ptr %.032.sink41.i268, i64 136
+  %.032.sink43.i268 = phi ptr [ %.0.i.i.i.i.i275, %508 ], [ %.0.i.i.i16.i273, %502 ], [ %.0.i.i.i.i265, %498 ]
+  %.033.sink41.i269 = phi i64 [ %511, %508 ], [ %507, %502 ], [ %494, %498 ]
+  %515 = getelementptr inbounds nuw i8, ptr %.032.sink43.i268, i64 136
   %516 = load ptr, ptr %515, align 8, !tbaa !69
-  %517 = shl i64 %.033.sink39.i269, 2
+  %517 = shl i64 %.033.sink41.i269, 2
   %518 = getelementptr inbounds nuw i8, ptr %516, i64 %517
   %519 = load i32, ptr %518, align 4, !tbaa !4
   store i32 %519, ptr %33, align 4, !tbaa !4
-  %520 = add i64 %.033.sink39.i269, 1
-  %521 = getelementptr inbounds nuw i8, ptr %.032.sink41.i268, i64 144
+  %520 = add i64 %.033.sink41.i269, 1
+  %521 = getelementptr inbounds nuw i8, ptr %.032.sink43.i268, i64 144
   %522 = load i64, ptr %521, align 8, !tbaa !70
   %523 = and i64 %522, %520
   fence release
-  store atomic i64 %523, ptr %.032.sink41.i268 monotonic, align 8
+  store atomic i64 %523, ptr %.032.sink43.i268 monotonic, align 8
   br label %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit276
 
 _ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit276: ; preds = %.sink.split.i267, %499
@@ -2845,20 +2845,20 @@ _ZN12SimpleThreadC2IZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd
   br label %.sink.split.i293
 
 .sink.split.i293:                                 ; preds = %579, %573, %569
-  %.032.sink41.i294 = phi ptr [ %.0.i.i.i.i.i301, %579 ], [ %.0.i.i.i16.i299, %573 ], [ %.0.i.i.i.i291, %569 ]
-  %.033.sink39.i295 = phi i64 [ %582, %579 ], [ %578, %573 ], [ %565, %569 ]
-  %586 = getelementptr inbounds nuw i8, ptr %.032.sink41.i294, i64 136
+  %.032.sink43.i294 = phi ptr [ %.0.i.i.i.i.i301, %579 ], [ %.0.i.i.i16.i299, %573 ], [ %.0.i.i.i.i291, %569 ]
+  %.033.sink41.i295 = phi i64 [ %582, %579 ], [ %578, %573 ], [ %565, %569 ]
+  %586 = getelementptr inbounds nuw i8, ptr %.032.sink43.i294, i64 136
   %587 = load ptr, ptr %586, align 8, !tbaa !69
-  %588 = shl i64 %.033.sink39.i295, 2
+  %588 = shl i64 %.033.sink41.i295, 2
   %589 = getelementptr inbounds nuw i8, ptr %587, i64 %588
   %590 = load i32, ptr %589, align 4, !tbaa !4
   store i32 %590, ptr %39, align 4, !tbaa !4
-  %591 = add i64 %.033.sink39.i295, 1
-  %592 = getelementptr inbounds nuw i8, ptr %.032.sink41.i294, i64 144
+  %591 = add i64 %.033.sink41.i295, 1
+  %592 = getelementptr inbounds nuw i8, ptr %.032.sink43.i294, i64 144
   %593 = load i64, ptr %592, align 8, !tbaa !70
   %594 = and i64 %593, %591
   fence release
-  store atomic i64 %594, ptr %.032.sink41.i294 monotonic, align 8
+  store atomic i64 %594, ptr %.032.sink43.i294 monotonic, align 8
   br label %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit302
 
 _ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit302: ; preds = %.sink.split.i293, %570
@@ -5139,27 +5139,27 @@ _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm48271ELm0
 
 211:                                              ; preds = %_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEiRT_.exit
   %.not.i.i206 = icmp eq ptr %.sroa.20.0402, %.sroa.31.0403
-  br i1 %.not.i.i206, label %212, label %.sink.split427
+  br i1 %.not.i.i206, label %212, label %.sink.split457
 
 212:                                              ; preds = %211
   %.sroa.0340.0..sroa.0340.0..sroa.0340.0..sroa.0340.0.343 = load volatile ptr, ptr %.sroa.0340, align 8, !tbaa !115
   fence syncscope("singlethread") seq_cst
   %.not7.i.i208 = icmp eq ptr %.sroa.31.0403, %.sroa.0340.0..sroa.0340.0..sroa.0340.0..sroa.0340.0.343
-  br i1 %.not7.i.i208, label %213, label %.sink.split427
+  br i1 %.not7.i.i208, label %213, label %.sink.split457
 
 213:                                              ; preds = %212
   %214 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
           to label %216 unwind label %219
 
-.sink.split427:                                   ; preds = %212, %211
+.sink.split457:                                   ; preds = %212, %211
   %.sroa.31.4.ph = phi ptr [ %.sroa.31.0403, %211 ], [ %.sroa.0340.0..sroa.0340.0..sroa.0340.0..sroa.0340.0.343, %212 ]
   %215 = load ptr, ptr %.sroa.20.0402, align 8, !tbaa !110
   br label %216
 
-216:                                              ; preds = %.sink.split427, %213
-  %.sroa.20.5 = phi ptr [ %.sroa.20.0402, %213 ], [ %215, %.sink.split427 ]
-  %.sroa.31.4 = phi ptr [ %.sroa.31.0403, %213 ], [ %.sroa.31.4.ph, %.sink.split427 ]
-  %.0.i.i207 = phi ptr [ %214, %213 ], [ %.sroa.20.0402, %.sink.split427 ]
+216:                                              ; preds = %.sink.split457, %213
+  %.sroa.20.5 = phi ptr [ %.sroa.20.0402, %213 ], [ %215, %.sink.split457 ]
+  %.sroa.31.4 = phi ptr [ %.sroa.31.0403, %213 ], [ %.sroa.31.4.ph, %.sink.split457 ]
+  %.0.i.i207 = phi ptr [ %214, %213 ], [ %.sroa.20.0402, %.sink.split457 ]
   store ptr null, ptr %.0.i.i207, align 8, !tbaa !110
   %217 = getelementptr inbounds nuw i8, ptr %.0.i.i207, i64 8
   store i32 %.0104405, ptr %217, align 8, !tbaa !116
@@ -6308,7 +6308,7 @@ _ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit: ; preds = %53, %54
 
 63:                                               ; preds = %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit131
   %64 = invoke { i64, i64 } @_ZN10moodycamel13getSystemTimeEv()
-          to label %.preheader278 unwind label %75
+          to label %.preheader293 unwind label %75
 
 _ZN5folly21ProducerConsumerQueueIiEC2Ej.exit128.preheader: ; preds = %59, %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit131
   %.092264 = phi i64 [ %70, %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit131 ], [ 0, %59 ]
@@ -6343,7 +6343,7 @@ _ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit131: ; preds = %_ZN
           cleanup
   br label %88
 
-.preheader278:                                    ; preds = %63, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit133
+.preheader293:                                    ; preds = %63, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit133
   %.093268 = phi i32 [ %83, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit133 ], [ 0, %63 ]
   %.094267 = phi i64 [ %84, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit133 ], [ 0, %63 ]
   %.sroa.11.0266 = phi i32 [ %.sroa.11.1, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit133 ], [ 0, %63 ]
@@ -6351,7 +6351,7 @@ _ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit131: ; preds = %_ZN
   %.not254 = icmp eq i32 %.sroa.11.0266, %.sroa.15.1
   br i1 %.not254, label %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit133, label %77
 
-77:                                               ; preds = %.preheader278
+77:                                               ; preds = %.preheader293
   %78 = add nsw i32 %.sroa.11.0266, 1
   %79 = icmp eq i32 %78, 100001
   %spec.store.select.i132 = select i1 %79, i32 0, i32 %78
@@ -6360,13 +6360,13 @@ _ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit131: ; preds = %_ZN
   %82 = load i32, ptr %81, align 4, !tbaa !4
   br label %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit133
 
-_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit133: ; preds = %.preheader278, %77
-  %.1 = phi i32 [ %82, %77 ], [ %.0246265, %.preheader278 ]
-  %.sroa.11.1 = phi i32 [ %spec.store.select.i132, %77 ], [ %.sroa.15.1, %.preheader278 ]
+_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit133: ; preds = %.preheader293, %77
+  %.1 = phi i32 [ %82, %77 ], [ %.0246265, %.preheader293 ]
+  %.sroa.11.1 = phi i32 [ %spec.store.select.i132, %77 ], [ %.sroa.15.1, %.preheader293 ]
   %83 = add nsw i32 %.1, %.093268
   %84 = add nuw nsw i64 %.094267, 1
   %.not118 = icmp eq i64 %84, 100000
-  br i1 %.not118, label %71, label %.preheader278, !llvm.loop !131
+  br i1 %.not118, label %71, label %.preheader293, !llvm.loop !131
 
 85:                                               ; preds = %71
   store volatile i32 %83, ptr %5, align 4, !tbaa !4
@@ -7597,19 +7597,19 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   br label %29
 
 29:                                               ; preds = %22, %16, %12
-  %.032.sink41.i.i.i = phi ptr [ %.0.i.i.i.i.i.i.i, %22 ], [ %.0.i.i.i16.i.i.i, %16 ], [ %.0.i.i.i.i.i.i, %12 ]
-  %.033.sink39.i.i.i = phi i64 [ %25, %22 ], [ %21, %16 ], [ %8, %12 ]
-  %30 = getelementptr inbounds nuw i8, ptr %.032.sink41.i.i.i, i64 136
+  %.032.sink43.i.i.i = phi ptr [ %.0.i.i.i.i.i.i.i, %22 ], [ %.0.i.i.i16.i.i.i, %16 ], [ %.0.i.i.i.i.i.i, %12 ]
+  %.033.sink41.i.i.i = phi i64 [ %25, %22 ], [ %21, %16 ], [ %8, %12 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.032.sink43.i.i.i, i64 136
   %31 = load ptr, ptr %30, align 8, !tbaa !69
-  %32 = shl i64 %.033.sink39.i.i.i, 2
+  %32 = shl i64 %.033.sink41.i.i.i, 2
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !4
-  %35 = add i64 %.033.sink39.i.i.i, 1
-  %36 = getelementptr inbounds nuw i8, ptr %.032.sink41.i.i.i, i64 144
+  %35 = add i64 %.033.sink41.i.i.i, 1
+  %36 = getelementptr inbounds nuw i8, ptr %.032.sink43.i.i.i, i64 144
   %37 = load i64, ptr %36, align 8, !tbaa !70
   %38 = and i64 %37, %35
   fence release
-  store atomic i64 %38, ptr %.032.sink41.i.i.i monotonic, align 8
+  store atomic i64 %38, ptr %.032.sink43.i.i.i monotonic, align 8
   %39 = load ptr, ptr %2, align 8, !tbaa !149
   %40 = load i32, ptr %39, align 4, !tbaa !4
   %41 = add nsw i32 %40, %34
@@ -7824,20 +7824,20 @@ define linkonce_odr dso_local void @_ZNK7details10ArgWrapperIvvvE12callCallbackI
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %32, %26, %22
-  %.032.sink41.i.i = phi ptr [ %.0.i.i.i.i.i.i, %32 ], [ %.0.i.i.i16.i.i, %26 ], [ %.0.i.i.i.i.i, %22 ]
-  %.033.sink39.i.i = phi i64 [ %35, %32 ], [ %31, %26 ], [ %18, %22 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.032.sink41.i.i, i64 136
+  %.032.sink43.i.i = phi ptr [ %.0.i.i.i.i.i.i, %32 ], [ %.0.i.i.i16.i.i, %26 ], [ %.0.i.i.i.i.i, %22 ]
+  %.033.sink41.i.i = phi i64 [ %35, %32 ], [ %31, %26 ], [ %18, %22 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.032.sink43.i.i, i64 136
   %40 = load ptr, ptr %39, align 8, !tbaa !69
-  %41 = shl i64 %.033.sink39.i.i, 2
+  %41 = shl i64 %.033.sink41.i.i, 2
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !4
   store i32 %43, ptr %14, align 4, !tbaa !4
-  %44 = add i64 %.033.sink39.i.i, 1
-  %45 = getelementptr inbounds nuw i8, ptr %.032.sink41.i.i, i64 144
+  %44 = add i64 %.033.sink41.i.i, 1
+  %45 = getelementptr inbounds nuw i8, ptr %.032.sink43.i.i, i64 144
   %46 = load i64, ptr %45, align 8, !tbaa !70
   %47 = and i64 %46, %44
   fence release
-  store atomic i64 %47, ptr %.032.sink41.i.i monotonic, align 8
+  store atomic i64 %47, ptr %.032.sink43.i.i monotonic, align 8
   br label %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i
 
 _ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i: ; preds = %.sink.split.i.i, %23
@@ -7943,20 +7943,20 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   br label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %23, %17, %13
-  %.032.sink41.i.i.i = phi ptr [ %.0.i.i.i.i.i.i.i, %23 ], [ %.0.i.i.i16.i.i.i, %17 ], [ %.0.i.i.i.i.i.i, %13 ]
-  %.033.sink39.i.i.i = phi i64 [ %26, %23 ], [ %22, %17 ], [ %9, %13 ]
-  %30 = getelementptr inbounds nuw i8, ptr %.032.sink41.i.i.i, i64 136
+  %.032.sink43.i.i.i = phi ptr [ %.0.i.i.i.i.i.i.i, %23 ], [ %.0.i.i.i16.i.i.i, %17 ], [ %.0.i.i.i.i.i.i, %13 ]
+  %.033.sink41.i.i.i = phi i64 [ %26, %23 ], [ %22, %17 ], [ %9, %13 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.032.sink43.i.i.i, i64 136
   %31 = load ptr, ptr %30, align 8, !tbaa !69
-  %32 = shl i64 %.033.sink39.i.i.i, 2
+  %32 = shl i64 %.033.sink41.i.i.i, 2
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !4
   store i32 %34, ptr %5, align 4, !tbaa !4
-  %35 = add i64 %.033.sink39.i.i.i, 1
-  %36 = getelementptr inbounds nuw i8, ptr %.032.sink41.i.i.i, i64 144
+  %35 = add i64 %.033.sink41.i.i.i, 1
+  %36 = getelementptr inbounds nuw i8, ptr %.032.sink43.i.i.i, i64 144
   %37 = load i64, ptr %36, align 8, !tbaa !70
   %38 = and i64 %37, %35
   fence release
-  store atomic i64 %38, ptr %.032.sink41.i.i.i monotonic, align 8
+  store atomic i64 %38, ptr %.032.sink43.i.i.i monotonic, align 8
   br label %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i.i
 
 _ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i.i: ; preds = %.sink.split.i.i.i, %14
@@ -8072,20 +8072,20 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   br label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %23, %17, %13
-  %.032.sink41.i.i.i = phi ptr [ %.0.i.i.i.i.i.i.i, %23 ], [ %.0.i.i.i16.i.i.i, %17 ], [ %.0.i.i.i.i.i.i, %13 ]
-  %.033.sink39.i.i.i = phi i64 [ %26, %23 ], [ %22, %17 ], [ %9, %13 ]
-  %30 = getelementptr inbounds nuw i8, ptr %.032.sink41.i.i.i, i64 136
+  %.032.sink43.i.i.i = phi ptr [ %.0.i.i.i.i.i.i.i, %23 ], [ %.0.i.i.i16.i.i.i, %17 ], [ %.0.i.i.i.i.i.i, %13 ]
+  %.033.sink41.i.i.i = phi i64 [ %26, %23 ], [ %22, %17 ], [ %9, %13 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.032.sink43.i.i.i, i64 136
   %31 = load ptr, ptr %30, align 8, !tbaa !69
-  %32 = shl i64 %.033.sink39.i.i.i, 2
+  %32 = shl i64 %.033.sink41.i.i.i, 2
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !4
   store i32 %34, ptr %5, align 4, !tbaa !4
-  %35 = add i64 %.033.sink39.i.i.i, 1
-  %36 = getelementptr inbounds nuw i8, ptr %.032.sink41.i.i.i, i64 144
+  %35 = add i64 %.033.sink41.i.i.i, 1
+  %36 = getelementptr inbounds nuw i8, ptr %.032.sink43.i.i.i, i64 144
   %37 = load i64, ptr %36, align 8, !tbaa !70
   %38 = and i64 %37, %35
   fence release
-  store atomic i64 %38, ptr %.032.sink41.i.i.i monotonic, align 8
+  store atomic i64 %38, ptr %.032.sink43.i.i.i monotonic, align 8
   br label %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i.i
 
 _ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i.i: ; preds = %.sink.split.i.i.i, %14
@@ -8213,20 +8213,20 @@ define linkonce_odr dso_local void @_ZNK7details10ArgWrapperIvvvE12callCallbackI
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %36, %30, %26
-  %.032.sink41.i.i = phi ptr [ %.0.i.i.i.i.i.i, %36 ], [ %.0.i.i.i16.i.i, %30 ], [ %.0.i.i.i.i.i, %26 ]
-  %.033.sink39.i.i = phi i64 [ %39, %36 ], [ %35, %30 ], [ %22, %26 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.032.sink41.i.i, i64 136
+  %.032.sink43.i.i = phi ptr [ %.0.i.i.i.i.i.i, %36 ], [ %.0.i.i.i16.i.i, %30 ], [ %.0.i.i.i.i.i, %26 ]
+  %.033.sink41.i.i = phi i64 [ %39, %36 ], [ %35, %30 ], [ %22, %26 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.032.sink43.i.i, i64 136
   %44 = load ptr, ptr %43, align 8, !tbaa !69
-  %45 = shl i64 %.033.sink39.i.i, 2
+  %45 = shl i64 %.033.sink41.i.i, 2
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !4
   store i32 %47, ptr %18, align 4, !tbaa !4
-  %48 = add i64 %.033.sink39.i.i, 1
-  %49 = getelementptr inbounds nuw i8, ptr %.032.sink41.i.i, i64 144
+  %48 = add i64 %.033.sink41.i.i, 1
+  %49 = getelementptr inbounds nuw i8, ptr %.032.sink43.i.i, i64 144
   %50 = load i64, ptr %49, align 8, !tbaa !70
   %51 = and i64 %50, %48
   fence release
-  store atomic i64 %51, ptr %.032.sink41.i.i monotonic, align 8
+  store atomic i64 %51, ptr %.032.sink43.i.i monotonic, align 8
   br label %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i
 
 _ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i: ; preds = %.sink.split.i.i, %27
@@ -8492,19 +8492,19 @@ _ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread: ; preds = %19, %21, %15
   %36 = add nsw i64 %35, %33
   store i64 %36, ptr %34, align 8, !tbaa !202
   %37 = icmp sgt i64 %36, 999999999
-  br i1 %37, label %38, label %.preheader24
+  br i1 %37, label %38, label %.preheader26
 
 38:                                               ; preds = %26
   %39 = add nsw i64 %36, -1000000000
   store i64 %39, ptr %34, align 8, !tbaa !202
   %40 = add nsw i64 %31, 1
   store i64 %40, ptr %3, align 8, !tbaa !200
-  br label %.preheader24
+  br label %.preheader26
 
-.preheader24:                                     ; preds = %38, %26
+.preheader26:                                     ; preds = %38, %26
   br label %41
 
-41:                                               ; preds = %.preheader24, %44
+41:                                               ; preds = %.preheader26, %44
   %42 = call i32 @sem_timedwait(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull %3)
   %43 = icmp eq i32 %42, -1
   br i1 %43, label %44, label %_ZN10moodycamel9spsc_sema9Semaphore10timed_waitEm.exit
@@ -10918,7 +10918,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIPdN9__gnu_cxx5__ops15_Iter
 
 .split.preheader:                                 ; preds = %9
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds double, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw double, ptr %0, i64 %17
   %19 = getelementptr inbounds nuw double, ptr %0, i64 %16
   br label %.split
 
@@ -10956,20 +10956,20 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIPdN9__gnu_cxx5__ops15_Iter
   %.01317.i.i.us = phi i64 [ %.018.i.i.us, %40 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.018.in.i.i.us = add nsw i64 %.01317.i.i.us, -1
   %.018.i.i.us = sdiv i64 %.018.in.i.i.us, 2
-  %37 = getelementptr inbounds double, ptr %0, i64 %.018.i.i.us
+  %37 = getelementptr inbounds nuw double, ptr %0, i64 %.018.i.i.us
   %38 = load double, ptr %37, align 8, !tbaa !10
   %39 = fcmp olt double %38, %21
   br i1 %39, label %40, label %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us
 
 40:                                               ; preds = %.lr.ph.i.i.us
-  %41 = getelementptr inbounds double, ptr %0, i64 %.01317.i.i.us
+  %41 = getelementptr inbounds nuw double, ptr %0, i64 %.01317.i.i.us
   store double %38, ptr %41, align 8, !tbaa !10
   %42 = icmp sgt i64 %.018.i.i.us, %.013.us
   br i1 %42, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us, !llvm.loop !342
 
 _ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %40, %.split.us, %._crit_edge.i.us
   %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.018.i.i.us, %40 ], [ %.01317.i.i.us, %.lr.ph.i.i.us ]
-  %43 = getelementptr inbounds double, ptr %0, i64 %.013.lcssa.i.i.us
+  %43 = getelementptr inbounds nuw double, ptr %0, i64 %.013.lcssa.i.i.us
   store double %21, ptr %43, align 8, !tbaa !10
   %.not.us = icmp eq i64 %.013.us, 0
   %44 = add nsw i64 %.013.us, -1
@@ -11020,20 +11020,20 @@ _ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %.01317.i.i = phi i64 [ %.018.i.i, %69 ], [ %.128.i, %64 ]
   %.018.in.i.i = add nsw i64 %.01317.i.i, -1
   %.018.i.i = sdiv i64 %.018.in.i.i, 2
-  %66 = getelementptr inbounds double, ptr %0, i64 %.018.i.i
+  %66 = getelementptr inbounds nuw double, ptr %0, i64 %.018.i.i
   %67 = load double, ptr %66, align 8, !tbaa !10
   %68 = fcmp olt double %67, %46
   br i1 %68, label %69, label %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 
 69:                                               ; preds = %.lr.ph.i.i
-  %70 = getelementptr inbounds double, ptr %0, i64 %.01317.i.i
+  %70 = getelementptr inbounds nuw double, ptr %0, i64 %.01317.i.i
   store double %67, ptr %70, align 8, !tbaa !10
   %71 = icmp sgt i64 %.018.i.i, %.013
   br i1 %71, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit, !llvm.loop !342
 
 _ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit: ; preds = %.lr.ph.i.i, %69, %64
   %.013.lcssa.i.i = phi i64 [ %.128.i, %64 ], [ %.018.i.i, %69 ], [ %.01317.i.i, %.lr.ph.i.i ]
-  %72 = getelementptr inbounds double, ptr %0, i64 %.013.lcssa.i.i
+  %72 = getelementptr inbounds nuw double, ptr %0, i64 %.013.lcssa.i.i
   store double %46, ptr %72, align 8, !tbaa !10
   %.not = icmp eq i64 %.013, 0
   %73 = add nsw i64 %.013, -1

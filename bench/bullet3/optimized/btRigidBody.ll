@@ -737,10 +737,10 @@ define linkonce_odr dso_local void @_ZN15btTransformUtil18integrateTransformERK1
   br label %51
 
 51:                                               ; preds = %46, %38
-  %.sink82 = phi float [ %50, %46 ], [ %45, %38 ]
-  %52 = fmul float %25, %.sink82
-  %53 = fmul float %27, %.sink82
-  %54 = fmul float %31, %.sink82
+  %.sink84 = phi float [ %50, %46 ], [ %45, %38 ]
+  %52 = fmul float %25, %.sink84
+  %53 = fmul float %27, %.sink84
+  %54 = fmul float %31, %.sink84
   %55 = fmul float %3, %.1
   %56 = fmul float %55, 5.000000e-01
   %57 = tail call noundef float @cosf(float noundef %56) #24, !tbaa !68
@@ -2316,9 +2316,9 @@ _ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.i.i: ; preds =
 
 _ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.thread.i.i: ; preds = %31
   %.old.i = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %.old5.i = load i8, ptr %.old.i, align 8, !tbaa !7, !range !46, !noundef !47
-  %.old6.i = trunc nuw i8 %.old5.i to i1
-  br i1 %.old6.i, label %38, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv.exit.i.i
+  %.old8.i = load i8, ptr %.old.i, align 8, !tbaa !7, !range !46, !noundef !47
+  %.old9.i = trunc nuw i8 %.old8.i to i1
+  br i1 %.old9.i, label %38, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv.exit.i.i
 
 38:                                               ; preds = %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %30)
@@ -2407,9 +2407,9 @@ _ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.i.i.i: ; pred
 
 _ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.thread.i.i.i: ; preds = %70
   %.old.i.i = getelementptr inbounds nuw i8, ptr %47, i64 344
-  %.old5.i.i = load i8, ptr %.old.i.i, align 8, !tbaa !107, !range !46, !noundef !47
-  %.old6.i.i = trunc nuw i8 %.old5.i.i to i1
-  br i1 %.old6.i.i, label %77, label %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i
+  %.old8.i.i = load i8, ptr %.old.i.i, align 8, !tbaa !107, !range !46, !noundef !47
+  %.old9.i.i = trunc nuw i8 %.old8.i.i to i1
+  br i1 %.old9.i.i, label %77, label %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i
 
 77:                                               ; preds = %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.thread.i.i.i, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.i.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %69)
@@ -2493,9 +2493,9 @@ _ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.i.i.i12: ; pr
 
 _ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.thread.i.i.i23: ; preds = %104
   %.old.i.i24 = getelementptr inbounds nuw i8, ptr %49, i64 344
-  %.old5.i.i25 = load i8, ptr %.old.i.i24, align 8, !tbaa !107, !range !46, !noundef !47
-  %.old6.i.i26 = trunc nuw i8 %.old5.i.i25 to i1
-  br i1 %.old6.i.i26, label %111, label %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i15
+  %.old8.i.i25 = load i8, ptr %.old.i.i24, align 8, !tbaa !107, !range !46, !noundef !47
+  %.old9.i.i26 = trunc nuw i8 %.old8.i.i25 to i1
+  br i1 %.old9.i.i26, label %111, label %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i15
 
 111:                                              ; preds = %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.thread.i.i.i23, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.i.i.i12
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %103)
@@ -2523,10 +2523,10 @@ _ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit27: ; preds = %85, %91
 
 .sink.split:                                      ; preds = %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit27, %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit
   %.sink = phi i32 [ %79, %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit ], [ %113, %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit27 ]
-  %.sink36 = phi ptr [ %47, %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit ], [ %49, %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit27 ]
+  %.sink51 = phi ptr [ %47, %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit ], [ %49, %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit27 ]
   %119 = icmp sgt i32 %.sink, -1
   %120 = zext i1 %119 to i32
-  %121 = getelementptr inbounds nuw i8, ptr %.sink36, i64 312
+  %121 = getelementptr inbounds nuw i8, ptr %.sink51, i64 312
   store i32 %120, ptr %121, align 8, !tbaa !108
   br label %122
 
@@ -2587,8 +2587,8 @@ _ZNK20btAlignedObjectArrayIP17btTypedConstraintE16findLinearSearchERKS1_.exit.i:
   %23 = ashr exact i64 %sext.i, 29
   %24 = getelementptr inbounds i8, ptr %7, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !90
-  %26 = sext i32 %22 to i64
-  %27 = getelementptr inbounds ptr, ptr %7, i64 %26
+  %26 = zext nneg i32 %22 to i64
+  %27 = getelementptr inbounds nuw ptr, ptr %7, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !90
   store ptr %28, ptr %24, align 8, !tbaa !90
   store ptr %25, ptr %27, align 8, !tbaa !90
@@ -2638,8 +2638,8 @@ _ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i
   %49 = ashr exact i64 %sext.i.i, 29
   %50 = getelementptr inbounds i8, ptr %39, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !104
-  %52 = sext i32 %48 to i64
-  %53 = getelementptr inbounds ptr, ptr %39, i64 %52
+  %52 = zext nneg i32 %48 to i64
+  %53 = getelementptr inbounds nuw ptr, ptr %39, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !104
   store ptr %54, ptr %50, align 8, !tbaa !104
   store ptr %51, ptr %53, align 8, !tbaa !104
@@ -2682,8 +2682,8 @@ _ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i
   %71 = ashr exact i64 %sext.i.i12, 29
   %72 = getelementptr inbounds i8, ptr %61, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !104
-  %74 = sext i32 %70 to i64
-  %75 = getelementptr inbounds ptr, ptr %61, i64 %74
+  %74 = zext nneg i32 %70 to i64
+  %75 = getelementptr inbounds nuw ptr, ptr %61, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !104
   store ptr %76, ptr %72, align 8, !tbaa !104
   store ptr %73, ptr %75, align 8, !tbaa !104
@@ -2692,10 +2692,10 @@ _ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i
   br label %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE16findLinearSearchERKS1_.exit.thread.sink.split
 
 _ZNK20btAlignedObjectArrayIP17btTypedConstraintE16findLinearSearchERKS1_.exit.thread.sink.split: ; preds = %66, %44, %69, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i11, %56, %47, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i, %34
-  %.sink31 = phi ptr [ %30, %34 ], [ %30, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ %30, %47 ], [ %32, %56 ], [ %32, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i11 ], [ %32, %69 ], [ %30, %44 ], [ %32, %66 ]
+  %.sink35 = phi ptr [ %30, %34 ], [ %30, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ %30, %47 ], [ %32, %56 ], [ %32, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i11 ], [ %32, %69 ], [ %30, %44 ], [ %32, %66 ]
   %.sink.shrunk = phi i1 [ false, %34 ], [ true, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i ], [ %55, %47 ], [ false, %56 ], [ true, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE16findLinearSearchERKS2_.exit.i.i11 ], [ %77, %69 ], [ true, %44 ], [ true, %66 ]
   %.sink = zext i1 %.sink.shrunk to i32
-  %78 = getelementptr inbounds nuw i8, ptr %.sink31, i64 312
+  %78 = getelementptr inbounds nuw i8, ptr %.sink35, i64 312
   store i32 %.sink, ptr %78, align 8, !tbaa !108
   br label %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE16findLinearSearchERKS1_.exit.thread
 

@@ -563,13 +563,13 @@ WaveFreeChunkData.exit.i163.i:                    ; preds = %141, %139
 199:                                              ; preds = %196
   %200 = load i32, ptr %129, align 8
   %201 = icmp eq i32 %200, 1
-  br i1 %201, label %.thread275.i, label %202
+  br i1 %201, label %.thread283.i, label %202
 
 202:                                              ; preds = %199
   %203 = load i32, ptr %73, align 8
   switch i32 %203, label %204 [
-    i32 4, label %.thread275.i
-    i32 0, label %.thread275.i
+    i32 4, label %.thread283.i
+    i32 0, label %.thread283.i
   ]
 
 204:                                              ; preds = %202, %196, %188
@@ -583,7 +583,7 @@ WaveFreeChunkData.exit.i163.i:                    ; preds = %141, %139
   %212 = icmp ugt i64 %.0138.i, %211
   br i1 %212, label %131, label %.loopexit.i.loopexit, !llvm.loop !3
 
-.thread275.i:                                     ; preds = %202, %202, %199
+.thread283.i:                                     ; preds = %202, %202, %199
   %213 = load i64, ptr %106, align 8
   %214 = load i32, ptr %118, align 4
   %215 = zext i32 %214 to i64
@@ -651,9 +651,9 @@ WaveFreeChunkData.exit.i163.i:                    ; preds = %141, %139
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %237
 
-237:                                              ; preds = %236, %227, %222, %.thread275.i
-  %238 = phi i64 [ %216, %.thread275.i ], [ %226, %236 ], [ %226, %227 ], [ %226, %222 ]
-  %.sroa.9.1206211277.i = phi i32 [ %.sroa.9.2.i, %.thread275.i ], [ %.sroa.9.0227.i, %236 ], [ %.sroa.9.0227.i, %227 ], [ %.sroa.9.0227.i, %222 ]
+237:                                              ; preds = %236, %227, %222, %.thread283.i
+  %238 = phi i64 [ %216, %.thread283.i ], [ %226, %236 ], [ %226, %227 ], [ %226, %222 ]
+  %.sroa.9.1206211285.i = phi i32 [ %.sroa.9.2.i, %.thread283.i ], [ %.sroa.9.0227.i, %236 ], [ %.sroa.9.0227.i, %227 ], [ %.sroa.9.0227.i, %222 ]
   store i32 544501094, ptr %11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %118, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.8.i, i64 28, i1 false)
   %239 = load ptr, ptr %126, align 8
@@ -721,7 +721,7 @@ WaveReadPartialChunkData.exit.i:                  ; preds = %245
   br i1 %260, label %261, label %WaveLoad.exit.thread
 
 261:                                              ; preds = %259
-  %262 = zext i32 %.sroa.9.1206211277.i to i64
+  %262 = zext i32 %.sroa.9.1206211285.i to i64
   %263 = call fastcc zeroext i1 @WaveCheckFormat(ptr noundef nonnull %11, i64 noundef %262)
   br i1 %263, label %264, label %WaveLoad.exit.thread
 
@@ -736,9 +736,9 @@ WaveReadPartialChunkData.exit.i:                  ; preds = %245
 
 WaveFreeChunkData.exit.i:                         ; preds = %266, %264
   store i32 1635017060, ptr %11, align 8
-  store i32 %.sroa.9.1206211277.i, ptr %118, align 4
+  store i32 %.sroa.9.1206211285.i, ptr %118, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %106, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.i, i64 24, i1 false)
-  %.not155.i = icmp eq i32 %.sroa.9.1206211277.i, 0
+  %.not155.i = icmp eq i32 %.sroa.9.1206211285.i, 0
   br i1 %.not155.i, label %271, label %267
 
 267:                                              ; preds = %WaveFreeChunkData.exit.i
@@ -1911,7 +1911,7 @@ MS_ADPCM_DecodeBlockHeader.exit:                  ; preds = %63
   br i1 %94, label %.loopexit, label %.preheader.lr.ph.i
 
 .preheader.lr.ph.i:                               ; preds = %93
-  %95 = sub i64 %.sroa.22.1101, %spec.select.i
+  %95 = sub nsw i64 %.sroa.22.1101, %spec.select.i
   br i1 %.not69.i, label %.loopexit, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.preheader.lr.ph.i, %._crit_edge.us.i
@@ -2182,7 +2182,7 @@ IMA_ADPCM_DecodeBlockHeader.exit:                 ; preds = %.lr.ph.i, %57
   %67 = sub nsw i64 %51, %23
   %spec.select.i = tail call i64 @llvm.smin.i64(i64 %46, i64 %66)
   %68 = add nsw i64 %spec.select.i, 7
-  %69 = sdiv i64 %68, 8
+  %69 = lshr i64 %68, 3
   %70 = mul i64 %69, %23
   %.not103 = icmp ult i64 %67, %70
   br i1 %.not103, label %71, label %78
@@ -2194,7 +2194,7 @@ IMA_ADPCM_DecodeBlockHeader.exit:                 ; preds = %.lr.ph.i, %57
   %75 = shl nuw nsw i64 %73, 1
   %76 = and i64 %75, 6
   %77 = select i1 %74, i64 %76, i64 0
-  %.2.i = add nsw i64 %77, %72
+  %.2.i = add nuw nsw i64 %77, %72
   br label %78
 
 78:                                               ; preds = %71, %IMA_ADPCM_DecodeBlockHeader.exit

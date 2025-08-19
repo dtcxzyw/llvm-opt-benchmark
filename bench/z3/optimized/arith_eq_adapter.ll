@@ -1627,8 +1627,8 @@ define hidden void @_ZN3smt16arith_eq_adapter8reset_ehEv(ptr noundef nonnull ali
   %23 = icmp ugt i32 %12, 16
   %24 = mul i32 %12, 3
   %25 = icmp ugt i32 %22, %24
-  %or.cond16.i.i = select i1 %23, i1 %25, i1 false
-  br i1 %or.cond16.i.i, label %26, label %._crit_edge.thread.i.i
+  %or.cond18.i.i = select i1 %23, i1 %25, i1 false
+  br i1 %or.cond18.i.i, label %26, label %._crit_edge.thread.i.i
 
 26:                                               ; preds = %._crit_edge.i.i
   %27 = icmp eq ptr %10, null
@@ -2954,7 +2954,7 @@ _ZNK6vectorI9parameterLb0EjE4sizeEv.exit:         ; preds = %46
   %.idx.i.i.i = shl nuw nsw i64 %58, 4
   %59 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i.i.i
   %60 = icmp eq i32 %55, 0
-  br i1 %60, label %_ZSt20uninitialized_move_nIP9parameterjS1_ESt4pairIT_T1_ES3_T0_S4_.exit.thread40, label %.lr.ph.i.i.i.i.i.i
+  br i1 %60, label %_ZSt20uninitialized_move_nIP9parameterjS1_ESt4pairIT_T1_ES3_T0_S4_.exit.thread48, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNK6vectorI9parameterLb0EjE4sizeEv.exit, %_ZSt10_ConstructI9parameterJS0_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %.08.i.i.i.i.i.i = phi ptr [ %66, %_ZSt10_ConstructI9parameterJS0_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %57, %_ZNK6vectorI9parameterLb0EjE4sizeEv.exit ]
@@ -2974,15 +2974,15 @@ _ZSt10_ConstructI9parameterJS0_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %64, %.l
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i, i64 16
   %66 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 16
   %67 = icmp eq ptr %65, %59
-  br i1 %67, label %_ZSt20uninitialized_move_nIP9parameterjS1_ESt4pairIT_T1_ES3_T0_S4_.exit.thread40, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !674
+  br i1 %67, label %_ZSt20uninitialized_move_nIP9parameterjS1_ESt4pairIT_T1_ES3_T0_S4_.exit.thread48, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !674
 
-_ZSt20uninitialized_move_nIP9parameterjS1_ESt4pairIT_T1_ES3_T0_S4_.exit.thread40: ; preds = %_ZSt10_ConstructI9parameterJS0_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %_ZNK6vectorI9parameterLb0EjE4sizeEv.exit
+_ZSt20uninitialized_move_nIP9parameterjS1_ESt4pairIT_T1_ES3_T0_S4_.exit.thread48: ; preds = %_ZSt10_ConstructI9parameterJS0_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %_ZNK6vectorI9parameterLb0EjE4sizeEv.exit
   %68 = getelementptr inbounds i8, ptr %50, i64 -8
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %68)
   br label %_ZN6vectorI9parameterLb0EjE7destroyEv.exit
 
-_ZN6vectorI9parameterLb0EjE7destroyEv.exit:       ; preds = %_ZSt20uninitialized_move_nIP9parameterjS1_ESt4pairIT_T1_ES3_T0_S4_.exit.thread, %_ZSt20uninitialized_move_nIP9parameterjS1_ESt4pairIT_T1_ES3_T0_S4_.exit.thread40
-  %69 = phi ptr [ %53, %_ZSt20uninitialized_move_nIP9parameterjS1_ESt4pairIT_T1_ES3_T0_S4_.exit.thread ], [ %57, %_ZSt20uninitialized_move_nIP9parameterjS1_ESt4pairIT_T1_ES3_T0_S4_.exit.thread40 ]
+_ZN6vectorI9parameterLb0EjE7destroyEv.exit:       ; preds = %_ZSt20uninitialized_move_nIP9parameterjS1_ESt4pairIT_T1_ES3_T0_S4_.exit.thread, %_ZSt20uninitialized_move_nIP9parameterjS1_ESt4pairIT_T1_ES3_T0_S4_.exit.thread48
+  %69 = phi ptr [ %53, %_ZSt20uninitialized_move_nIP9parameterjS1_ESt4pairIT_T1_ES3_T0_S4_.exit.thread ], [ %57, %_ZSt20uninitialized_move_nIP9parameterjS1_ESt4pairIT_T1_ES3_T0_S4_.exit.thread48 ]
   store ptr %69, ptr %0, align 8, !tbaa !164
   store i32 %15, ptr %49, align 4, !tbaa !53
   br label %70

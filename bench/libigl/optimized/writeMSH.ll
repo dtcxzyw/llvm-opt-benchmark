@@ -233,7 +233,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl8writeMSHIN5Eigen6MatrixIdL
 97:                                               ; preds = %94
   %98 = tail call ptr @__cxa_allocate_exception(i64 16) #17
   invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull @.str.6)
-          to label %.invoke503 unwind label %99
+          to label %.invoke583 unwind label %99
 
 99:                                               ; preds = %97
   %100 = landingpad { ptr, i32 }
@@ -242,7 +242,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl8writeMSHIN5Eigen6MatrixIdL
   tail call void @__cxa_free_exception(ptr nonnull %98) #17
   br label %645
 
-101:                                              ; preds = %.invoke503
+101:                                              ; preds = %.invoke583
   %102 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
@@ -258,14 +258,14 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl8writeMSHIN5Eigen6MatrixIdL
 107:                                              ; preds = %103
   %108 = tail call ptr @__cxa_allocate_exception(i64 16) #17
   invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef nonnull @.str.7)
-          to label %.invoke503 unwind label %110
+          to label %.invoke583 unwind label %110
 
-.invoke503:                                       ; preds = %97, %107
+.invoke583:                                       ; preds = %97, %107
   %109 = phi ptr [ %108, %107 ], [ %98, %97 ]
   invoke void @__cxa_throw(ptr nonnull %109, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #18
-          to label %.cont504 unwind label %101
+          to label %.cont584 unwind label %101
 
-.cont504:                                         ; preds = %.invoke503
+.cont584:                                         ; preds = %.invoke583
   unreachable
 
 110:                                              ; preds = %107
@@ -372,7 +372,7 @@ _ZN3igl8internal17append_mat_to_vecIdN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE
 145:                                              ; preds = %_ZN3igl8internal17append_mat_to_vecIdN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEvRSt6vectorIT_SaIS6_EERKNS2_10MatrixBaseIT0_EE.exit
   %146 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %147 = icmp ugt i64 %144, 2305843009213693951
-  br i1 %147, label %.invoke506, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
+  br i1 %147, label %.invoke586, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i:  ; preds = %145
   %148 = shl nuw nsw i64 %144, 2
@@ -402,8 +402,8 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %_ZN3igl8internal17a
   %.pr = phi ptr [ null, %_ZN3igl8internal17append_mat_to_vecIdN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEvRSt6vectorIT_SaIS6_EERKNS2_10MatrixBaseIT0_EE.exit ], [ %149, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i ]
   %155 = icmp sgt i64 %141, 0
   %156 = icmp sgt i64 %143, 0
-  %or.cond505 = and i1 %155, %156
-  br i1 %or.cond505, label %.preheader.lr.ph.split.us.i116, label %_ZN3igl8internal17append_mat_to_vecIiN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEEEEvRSt6vectorIT_SaIS6_EERKNS2_10MatrixBaseIT0_EE.exit
+  %or.cond585 = and i1 %155, %156
+  br i1 %or.cond585, label %.preheader.lr.ph.split.us.i116, label %_ZN3igl8internal17append_mat_to_vecIiN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEEEEvRSt6vectorIT_SaIS6_EERKNS2_10MatrixBaseIT0_EE.exit
 
 .preheader.lr.ph.split.us.i116:                   ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
   %157 = load ptr, ptr %2, align 8, !tbaa !40
@@ -457,13 +457,13 @@ _ZN3igl8internal17append_mat_to_vecIiN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE
   tail call void @llvm.assume(i1 %179)
   %180 = xor i64 %168, 2305843009213693951
   %181 = icmp ult i64 %180, %173
-  br i1 %181, label %.invoke506, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i305
+  br i1 %181, label %.invoke586, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i305
 
-.invoke506:                                       ; preds = %177, %145
+.invoke586:                                       ; preds = %177, %145
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #18
-          to label %.cont507 unwind label %266
+          to label %.cont587 unwind label %266
 
-.cont507:                                         ; preds = %.invoke506
+.cont587:                                         ; preds = %.invoke586
   unreachable
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i305: ; preds = %177
@@ -689,8 +689,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i157: ; preds = %_ZNSt6vectorIi
 251:                                              ; preds = %247
   %252 = load i64, ptr %140, align 8, !tbaa !19
   %253 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %.not497 = icmp eq i64 %252, 0
-  br i1 %.not497, label %_ZN3igl8internal17append_mat_to_vecIiN5Eigen14CwiseNullaryOpINS2_8internal18scalar_constant_opIiEENS2_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEEEvRSt6vectorIT_SaISB_EERKNS2_10MatrixBaseIT0_EE.exit, label %254
+  %.not577 = icmp eq i64 %252, 0
+  br i1 %.not577, label %_ZN3igl8internal17append_mat_to_vecIiN5Eigen14CwiseNullaryOpINS2_8internal18scalar_constant_opIiEENS2_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEEEvRSt6vectorIT_SaISB_EERKNS2_10MatrixBaseIT0_EE.exit, label %254
 
 254:                                              ; preds = %251
   %255 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -734,7 +734,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i323: ; preds = %.noexc329
           catch ptr @_ZTISt9exception
   br label %637
 
-266:                                              ; preds = %.invoke506, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i305, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
+266:                                              ; preds = %.invoke586, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i305, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
   %267 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
@@ -776,7 +776,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i323: ; preds = %.noexc329
   %279 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %280 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %281 = icmp ugt i64 %249, 2305843009213693951
-  br i1 %281, label %.invoke508, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i337
+  br i1 %281, label %.invoke588, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i337
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i337: ; preds = %278
   %282 = shl nuw nsw i64 %249, 2
@@ -814,7 +814,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i339: ; preds = %.noexc345
   %exitcond.not.i178 = icmp eq i64 %indvars.iv.next.i177, %249
   br i1 %exitcond.not.i178, label %_ZN3igl8internal17append_mat_to_vecIiN5Eigen14CwiseNullaryOpINS2_8internal18scalar_constant_opIiEENS2_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEEEvRSt6vectorIT_SaISB_EERKNS2_10MatrixBaseIT0_EE.exit, label %.preheader.i174, !llvm.loop !47
 
-293:                                              ; preds = %.invoke508, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i369, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i337
+293:                                              ; preds = %.invoke588, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i369, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i337
   %294 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
@@ -949,13 +949,13 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i183:          ; preds = %_ZSt8_DestroyIPiiEv
   call void @llvm.assume(i1 %349)
   %350 = xor i64 %344, 2305843009213693951
   %351 = icmp ult i64 %350, %298
-  br i1 %351, label %.invoke508, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i369
+  br i1 %351, label %.invoke588, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i369
 
-.invoke508:                                       ; preds = %278, %347
+.invoke588:                                       ; preds = %278, %347
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #18
-          to label %.cont509 unwind label %293
+          to label %.cont589 unwind label %293
 
-.cont509:                                         ; preds = %.invoke508
+.cont589:                                         ; preds = %.invoke588
   unreachable
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i369: ; preds = %347
@@ -1361,13 +1361,13 @@ _ZNSt6vectorIdSaIdEED2Ev.exit237:                 ; preds = %_ZNSt6vectorIiSaIiE
 
 497:                                              ; preds = %489
   %498 = icmp ugt i64 %496, 1152921504606846975
-  br i1 %498, label %.invoke510, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i401
+  br i1 %498, label %.invoke590, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i401
 
-.invoke510:                                       ; preds = %532, %497
+.invoke590:                                       ; preds = %532, %497
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #18
-          to label %.cont511 unwind label %.loopexit.split-lp
+          to label %.cont591 unwind label %.loopexit.split-lp
 
-.cont511:                                         ; preds = %.invoke510
+.cont591:                                         ; preds = %.invoke590
   unreachable
 
 _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i401: ; preds = %497
@@ -1459,7 +1459,7 @@ _ZN3igl8internal17append_mat_to_vecIdN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE
   call void @llvm.assume(i1 %533)
   %534 = xor i64 %523, 1152921504606846975
   %535 = icmp ult i64 %534, %528
-  br i1 %535, label %.invoke510, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i417
+  br i1 %535, label %.invoke590, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i417
 
 _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i417: ; preds = %532
   %.sroa.speculated.i.i418 = call i64 @llvm.umax.i64(i64 %523, i64 %528)
@@ -1580,7 +1580,7 @@ _ZN3igl8internal17append_mat_to_vecIdN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE
           catch ptr @_ZTISt9exception
   br label %596
 
-.loopexit.split-lp:                               ; preds = %.invoke510, %578
+.loopexit.split-lp:                               ; preds = %.invoke590, %578
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception

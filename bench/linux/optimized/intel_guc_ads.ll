@@ -595,7 +595,7 @@ guc_mmio_reg_add.exit:                            ; preds = %.preheader.i, %.pre
   %192 = load i32, ptr %186, align 1
   %193 = load i32, ptr %191, align 1
   %194 = icmp ugt i32 %192, %193
-  br i1 %194, label %guc_mmio_reg_add.exit14, label %.lr.ph53
+  br i1 %194, label %guc_mmio_reg_add.exit14, label %.lr.ph96
 
 .thread4.i13:                                     ; preds = %._crit_edge37, %178, %176
   %195 = phi ptr [ %183, %._crit_edge37 ], [ %150, %176 ], [ %150, %178 ]
@@ -604,14 +604,14 @@ guc_mmio_reg_add.exit:                            ; preds = %.preheader.i, %.pre
   %198 = trunc i64 %197 to i32
   br label %guc_mmio_reg_add.exit14
 
-.preheader.i12:                                   ; preds = %.lr.ph53
+.preheader.i12:                                   ; preds = %.lr.ph96
   %199 = getelementptr i8, ptr %203, i64 -16
   %200 = load i32, ptr %203, align 1
   %201 = load i32, ptr %199, align 1
   %202 = icmp ugt i32 %200, %201
-  br i1 %202, label %guc_mmio_reg_add.exit14, label %.lr.ph53, !llvm.loop !22
+  br i1 %202, label %guc_mmio_reg_add.exit14, label %.lr.ph96, !llvm.loop !22
 
-.lr.ph53:                                         ; preds = %.preheader.i12.preheader, %.preheader.i12
+.lr.ph96:                                         ; preds = %.preheader.i12.preheader, %.preheader.i12
   %203 = phi ptr [ %199, %.preheader.i12 ], [ %191, %.preheader.i12.preheader ]
   %204 = phi ptr [ %203, %.preheader.i12 ], [ %186, %.preheader.i12.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -623,7 +623,7 @@ guc_mmio_reg_add.exit:                            ; preds = %.preheader.i, %.pre
   %206 = icmp ugt ptr %203, %205
   br i1 %206, label %.preheader.i12, label %.guc_mmio_reg_add.exit14.loopexit_crit_edge, !llvm.loop !22
 
-.guc_mmio_reg_add.exit14.loopexit_crit_edge:      ; preds = %.lr.ph53
+.guc_mmio_reg_add.exit14.loopexit_crit_edge:      ; preds = %.lr.ph96
   br label %guc_mmio_reg_add.exit14, !llvm.loop !22
 
 guc_mmio_reg_add.exit14:                          ; preds = %.preheader.i12, %.preheader.i12.preheader, %.guc_mmio_reg_add.exit14.loopexit_crit_edge, %149, %188, %.thread4.i13

@@ -860,12 +860,12 @@ gv_calloc.exit:                                   ; preds = %topdictsize.exit
   br label %52
 
 52:                                               ; preds = %48, %50
-  %.sink47 = phi ptr [ %49, %48 ], [ %51, %50 ]
+  %.sink52 = phi ptr [ %49, %48 ], [ %51, %50 ]
   %53 = load ptr, ptr %39, align 8, !tbaa !35
   %54 = load i32, ptr %47, align 8, !tbaa !36
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds ptr, ptr %53, i64 %55
-  store ptr %.sink47, ptr %56, align 8, !tbaa !15
+  store ptr %.sink52, ptr %56, align 8, !tbaa !15
   %57 = load ptr, ptr %.0.i, align 8, !tbaa !25
   %58 = tail call ptr %57(ptr noundef nonnull %.0.i, ptr noundef nonnull %.043, i32 noundef 8) #12
   %.not = icmp eq ptr %58, null

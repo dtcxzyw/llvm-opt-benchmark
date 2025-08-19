@@ -1527,21 +1527,21 @@ list_length.exit:                                 ; preds = %4, %5
   %15 = getelementptr i8, ptr %0, i64 4
   %16 = load i32, ptr %12, align 4
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.lr.ph140, label %.critedge96
+  br i1 %17, label %.lr.ph146, label %.critedge96
 
-.lr.ph140:                                        ; preds = %.lr.ph114, %.critedge98
-  %indvars.iv133139 = phi i64 [ %indvars.iv.next134, %.critedge98 ], [ 0, %.lr.ph114 ]
+.lr.ph146:                                        ; preds = %.lr.ph114, %.critedge98
+  %indvars.iv133145 = phi i64 [ %indvars.iv.next134, %.critedge98 ], [ 0, %.lr.ph114 ]
   %18 = load ptr, ptr %13, align 8
-  %19 = getelementptr inbounds nuw %union.ListCell, ptr %18, i64 %indvars.iv133139
+  %19 = getelementptr inbounds nuw %union.ListCell, ptr %18, i64 %indvars.iv133145
   %20 = load ptr, ptr %19, align 8
   br i1 %.not.i, label %list_head.exit, label %21
 
-21:                                               ; preds = %.lr.ph140
+21:                                               ; preds = %.lr.ph146
   %22 = load ptr, ptr %14, align 8
   br label %list_head.exit
 
-list_head.exit:                                   ; preds = %.lr.ph140, %21
-  %23 = phi ptr [ %22, %21 ], [ null, %.lr.ph140 ]
+list_head.exit:                                   ; preds = %.lr.ph146, %21
+  %23 = phi ptr [ %22, %21 ], [ null, %.lr.ph146 ]
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %.not92 = icmp eq ptr %20, null
   br i1 %.not92, label %.critedge98, label %.lr.ph
@@ -1562,8 +1562,8 @@ list_head.exit:                                   ; preds = %.lr.ph140, %21
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %34 = or i1 %.not91, %.not90
-  %brmerge138 = or i1 %34, %.not.i
-  br i1 %brmerge138, label %.critedge, label %.critedge96.split.split.split
+  %brmerge144 = or i1 %34, %.not.i
+  br i1 %brmerge144, label %.critedge, label %.critedge96.split.split.split
 
 .lr.ph112:                                        ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ %indvars.iv.next, %57 ], [ 0, %.lr.ph ]
@@ -1579,11 +1579,11 @@ list_head.exit:                                   ; preds = %.lr.ph140, %21
   br i1 %42, label %list_head.exit102, label %55
 
 .critedge98:                                      ; preds = %57, %.lr.ph, %list_head.exit
-  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133139, 1
+  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133145, 1
   %43 = load i32, ptr %12, align 4
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next134, %44
-  br i1 %45, label %.lr.ph140, label %.critedge96
+  br i1 %45, label %.lr.ph146, label %.critedge96
 
 list_head.exit102:                                ; preds = %.lr.ph112
   %46 = load ptr, ptr %38, align 8
@@ -1735,7 +1735,7 @@ define internal fastcc void @build_setop_child_paths(ptr noundef %0, ptr noundef
   br i1 %.not, label %.lr.ph.split.us.split, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  br i1 %25, label %.lr.ph123, label %.critedge
+  br i1 %25, label %.lr.ph131, label %.critedge
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph
   br i1 %25, label %.lr.ph111, label %.critedge
@@ -1771,10 +1771,10 @@ define internal fastcc void @build_setop_child_paths(ptr noundef %0, ptr noundef
   %43 = icmp slt i64 %indvars.iv.next115, %42
   br i1 %43, label %.lr.ph111, label %.critedge
 
-.lr.ph123:                                        ; preds = %.lr.ph.split.preheader, %.lr.ph.split
-  %indvars.iv122 = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
+.lr.ph131:                                        ; preds = %.lr.ph.split.preheader, %.lr.ph.split
+  %indvars.iv130 = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
   %44 = load ptr, ptr %22, align 8
-  %45 = getelementptr inbounds nuw %union.ListCell, ptr %44, i64 %indvars.iv122
+  %45 = getelementptr inbounds nuw %union.ListCell, ptr %44, i64 %indvars.iv130
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1786,7 +1786,7 @@ define internal fastcc void @build_setop_child_paths(ptr noundef %0, ptr noundef
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %87, label %98
 
-51:                                               ; preds = %.lr.ph123
+51:                                               ; preds = %.lr.ph131
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 72
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %46, i64 16
@@ -1797,7 +1797,7 @@ define internal fastcc void @build_setop_child_paths(ptr noundef %0, ptr noundef
   call void @add_path(ptr noundef nonnull %1, ptr noundef %58) #7
   br label %59
 
-59:                                               ; preds = %51, %.lr.ph123
+59:                                               ; preds = %51, %.lr.ph131
   %60 = getelementptr inbounds nuw i8, ptr %46, i64 72
   %61 = load ptr, ptr %60, align 8
   %62 = call zeroext i1 @pathkeys_count_contained_in(ptr noundef %11, ptr noundef %61, ptr noundef nonnull %7) #7
@@ -1853,11 +1853,11 @@ define internal fastcc void @build_setop_child_paths(ptr noundef %0, ptr noundef
 
 .lr.ph.split:                                     ; preds = %67, %.thread, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv122, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv130, 1
   %84 = load i32, ptr %21, align 4
   %85 = sext i32 %84 to i64
   %86 = icmp slt i64 %indvars.iv.next, %85
-  br i1 %86, label %.lr.ph123, label %.critedge
+  br i1 %86, label %.lr.ph131, label %.critedge
 
 87:                                               ; preds = %.critedge
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 104

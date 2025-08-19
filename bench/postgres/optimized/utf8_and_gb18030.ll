@@ -63,7 +63,7 @@ declare i32 @LocalToUtf(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr 
 define internal range(i32 -260013952, 15728640) i32 @conv_18030_to_utf8(i32 noundef %0) #0 {
   %2 = add i32 %0, 2127506640
   %or.cond = icmp ult i32 %2, 381442
-  br i1 %or.cond, label %3, label %46
+  br i1 %or.cond, label %3, label %39
 
 3:                                                ; preds = %1
   %4 = lshr i32 %0, 16
@@ -93,315 +93,301 @@ define internal range(i32 -260013952, 15728640) i32 @conv_18030_to_utf8(i32 noun
 
 23:                                               ; preds = %15
   %24 = icmp ult i32 %13, 65536
-  br i1 %24, label %25, label %34
+  %25 = shl nsw i32 %13, 4
+  %26 = shl nsw i32 %13, 2
+  %27 = and i32 %26, 16128
+  %28 = and i32 %13, 63
+  br i1 %24, label %29, label %34
 
-25:                                               ; preds = %23
-  %26 = shl nuw nsw i32 %13, 4
-  %27 = and i32 %26, 983040
-  %28 = shl nuw nsw i32 %13, 2
-  %29 = and i32 %28, 16128
-  %30 = and i32 %13, 63
-  %31 = or disjoint i32 %30, %29
-  %32 = or disjoint i32 %31, %27
+29:                                               ; preds = %23
+  %30 = and i32 %25, 983040
+  %31 = or disjoint i32 %27, %30
+  %32 = or disjoint i32 %31, %28
   %33 = or disjoint i32 %32, 14712960
   br label %unicode_to_utf8word.exit
 
 34:                                               ; preds = %23
-  %35 = shl nsw i32 %13, 6
-  %36 = and i32 %35, 117440512
-  %37 = shl nsw i32 %13, 4
-  %38 = and i32 %37, 4128768
-  %39 = shl nsw i32 %13, 2
-  %40 = and i32 %39, 16128
-  %41 = and i32 %13, 63
-  %42 = or disjoint i32 %41, %38
-  %43 = or disjoint i32 %42, %36
-  %44 = or disjoint i32 %43, %40
-  %45 = or disjoint i32 %44, -260013952
+  %35 = and i32 %25, 4128768
+  %36 = or disjoint i32 %28, %35
+  %37 = or disjoint i32 %36, %27
+  %38 = or disjoint i32 %37, -142573440
   br label %unicode_to_utf8word.exit
 
-46:                                               ; preds = %1
-  %47 = add i32 %0, 2127058887
-  %or.cond3 = icmp ult i32 %47, 87296
-  br i1 %or.cond3, label %48, label %92
+39:                                               ; preds = %1
+  %40 = add i32 %0, 2127058887
+  %or.cond3 = icmp ult i32 %40, 87296
+  br i1 %or.cond3, label %41, label %78
 
-48:                                               ; preds = %46
-  %49 = lshr i32 %0, 16
-  %50 = and i32 %49, 63
-  %51 = lshr i32 %0, 8
-  %52 = and i32 %51, 255
-  %53 = and i32 %0, 255
-  %54 = mul nuw nsw i32 %50, 1260
-  %55 = mul nuw nsw i32 %52, 10
-  %56 = add nuw nsw i32 %53, -61818
-  %57 = add nsw i32 %56, %54
-  %58 = add nsw i32 %57, %55
-  %59 = add nsw i32 %58, 576
-  %60 = icmp ult i32 %59, 128
-  br i1 %60, label %unicode_to_utf8word.exit, label %61
+41:                                               ; preds = %39
+  %42 = lshr i32 %0, 16
+  %43 = and i32 %42, 63
+  %44 = lshr i32 %0, 8
+  %45 = and i32 %44, 255
+  %46 = and i32 %0, 255
+  %47 = mul nuw nsw i32 %43, 1260
+  %48 = mul nuw nsw i32 %45, 10
+  %49 = add nuw nsw i32 %46, -61818
+  %50 = add nsw i32 %49, %47
+  %51 = add nsw i32 %50, %48
+  %52 = add nsw i32 %51, 576
+  %53 = icmp ult i32 %52, 128
+  br i1 %53, label %unicode_to_utf8word.exit, label %54
 
-61:                                               ; preds = %48
-  %62 = icmp ult i32 %59, 2048
-  br i1 %62, label %63, label %69
+54:                                               ; preds = %41
+  %55 = icmp ult i32 %52, 2048
+  br i1 %55, label %56, label %62
 
-63:                                               ; preds = %61
-  %64 = shl nuw nsw i32 %59, 2
-  %65 = and i32 %64, 7936
-  %66 = and i32 %58, 63
-  %67 = or disjoint i32 %66, %65
-  %68 = or disjoint i32 %67, 49280
+56:                                               ; preds = %54
+  %57 = shl nuw nsw i32 %52, 2
+  %58 = and i32 %57, 7936
+  %59 = and i32 %51, 63
+  %60 = or disjoint i32 %59, %58
+  %61 = or disjoint i32 %60, 49280
   br label %unicode_to_utf8word.exit
 
-69:                                               ; preds = %61
-  %70 = icmp ult i32 %59, 65536
-  br i1 %70, label %71, label %80
+62:                                               ; preds = %54
+  %63 = icmp ult i32 %52, 65536
+  %64 = shl nsw i32 %52, 4
+  %65 = shl nsw i32 %52, 2
+  %66 = and i32 %65, 16128
+  %67 = and i32 %51, 63
+  br i1 %63, label %68, label %73
 
-71:                                               ; preds = %69
-  %72 = shl nuw nsw i32 %59, 4
-  %73 = and i32 %72, 983040
-  %74 = shl nuw nsw i32 %59, 2
-  %75 = and i32 %74, 16128
-  %76 = and i32 %58, 63
-  %77 = or disjoint i32 %76, %75
-  %78 = or disjoint i32 %77, %73
-  %79 = or disjoint i32 %78, 14712960
+68:                                               ; preds = %62
+  %69 = and i32 %64, 983040
+  %70 = or disjoint i32 %66, %69
+  %71 = or disjoint i32 %70, %67
+  %72 = or disjoint i32 %71, 14712960
   br label %unicode_to_utf8word.exit
 
-80:                                               ; preds = %69
-  %81 = shl nsw i32 %59, 6
-  %82 = and i32 %81, 117440512
-  %83 = shl nsw i32 %59, 4
-  %84 = and i32 %83, 4128768
-  %85 = shl nsw i32 %59, 2
-  %86 = and i32 %85, 16128
-  %87 = and i32 %58, 63
-  %88 = or disjoint i32 %87, %84
-  %89 = or disjoint i32 %88, %82
-  %90 = or disjoint i32 %89, %86
-  %91 = or disjoint i32 %90, -260013952
+73:                                               ; preds = %62
+  %74 = and i32 %64, 4128768
+  %75 = or disjoint i32 %67, %74
+  %76 = or disjoint i32 %75, %66
+  %77 = or disjoint i32 %76, -142573440
   br label %unicode_to_utf8word.exit
 
-92:                                               ; preds = %46
-  %93 = add i32 %0, 2110740941
-  %or.cond5 = icmp ult i32 %93, 19461
-  br i1 %or.cond5, label %94, label %109
+78:                                               ; preds = %39
+  %79 = add i32 %0, 2110740941
+  %or.cond5 = icmp ult i32 %79, 19461
+  br i1 %or.cond5, label %80, label %95
 
-94:                                               ; preds = %92
-  %95 = lshr i32 %0, 8
-  %96 = and i32 %95, 255
-  %97 = and i32 %0, 255
-  %98 = mul nuw nsw i32 %96, 10
-  %99 = add nuw nsw i32 %97, 12140
-  %100 = add nuw nsw i32 %99, %98
-  %101 = shl nuw nsw i32 %100, 4
-  %102 = and i32 %101, 458752
-  %103 = shl nuw nsw i32 %100, 2
-  %104 = and i32 %103, 16128
-  %105 = and i32 %100, 63
-  %106 = or disjoint i32 %105, %104
-  %107 = or disjoint i32 %106, %102
-  %108 = or disjoint i32 %107, 14712960
+80:                                               ; preds = %78
+  %81 = lshr i32 %0, 8
+  %82 = and i32 %81, 255
+  %83 = and i32 %0, 255
+  %84 = mul nuw nsw i32 %82, 10
+  %85 = add nuw nsw i32 %83, 12140
+  %86 = add nuw nsw i32 %85, %84
+  %87 = shl nuw nsw i32 %86, 4
+  %88 = and i32 %87, 458752
+  %89 = shl nuw nsw i32 %86, 2
+  %90 = and i32 %89, 16128
+  %91 = and i32 %86, 63
+  %92 = or disjoint i32 %91, %90
+  %93 = or disjoint i32 %92, %88
+  %94 = or disjoint i32 %93, 14712960
   br label %unicode_to_utf8word.exit
 
-109:                                              ; preds = %92
-  %110 = add i32 %0, 2110663624
-  %or.cond7 = icmp ult i32 %110, 56059
-  br i1 %or.cond7, label %111, label %130
+95:                                               ; preds = %78
+  %96 = add i32 %0, 2110663624
+  %or.cond7 = icmp ult i32 %96, 56059
+  br i1 %or.cond7, label %97, label %116
 
-111:                                              ; preds = %109
-  %112 = lshr i32 %0, 16
-  %113 = and i32 %112, 51
-  %114 = lshr i32 %0, 8
-  %115 = and i32 %114, 255
-  %116 = and i32 %0, 255
-  %117 = mul nuw nsw i32 %113, 1260
-  %118 = mul nuw nsw i32 %115, 10
-  %119 = add nuw nsw i32 %116, -48331
-  %120 = add nsw i32 %119, %117
-  %121 = add nuw nsw i32 %120, %118
-  %122 = shl nuw nsw i32 %121, 4
-  %123 = and i32 %122, 983040
-  %124 = shl nuw nsw i32 %121, 2
-  %125 = and i32 %124, 16128
-  %126 = and i32 %121, 63
-  %127 = or disjoint i32 %126, %125
-  %128 = or disjoint i32 %127, %123
-  %129 = or disjoint i32 %128, 14712960
+97:                                               ; preds = %95
+  %98 = lshr i32 %0, 16
+  %99 = and i32 %98, 51
+  %100 = lshr i32 %0, 8
+  %101 = and i32 %100, 255
+  %102 = and i32 %0, 255
+  %103 = mul nuw nsw i32 %99, 1260
+  %104 = mul nuw nsw i32 %101, 10
+  %105 = add nuw nsw i32 %102, -48331
+  %106 = add nsw i32 %105, %103
+  %107 = add nuw nsw i32 %106, %104
+  %108 = shl nuw nsw i32 %107, 4
+  %109 = and i32 %108, 983040
+  %110 = shl nuw nsw i32 %107, 2
+  %111 = and i32 %110, 16128
+  %112 = and i32 %107, 63
+  %113 = or disjoint i32 %112, %111
+  %114 = or disjoint i32 %113, %109
+  %115 = or disjoint i32 %114, 14712960
   br label %unicode_to_utf8word.exit
 
-130:                                              ; preds = %109
-  %131 = add i32 %0, 2110600905
-  %or.cond9 = icmp ult i32 %131, 12033
-  br i1 %or.cond9, label %132, label %147
+116:                                              ; preds = %95
+  %117 = add i32 %0, 2110600905
+  %or.cond9 = icmp ult i32 %117, 12033
+  br i1 %or.cond9, label %118, label %133
 
-132:                                              ; preds = %130
-  %133 = lshr i32 %0, 8
-  %134 = and i32 %133, 255
-  %135 = and i32 %0, 255
-  %136 = mul nuw nsw i32 %134, 10
-  %137 = add nuw nsw i32 %135, 14671
-  %138 = add nuw nsw i32 %137, %136
-  %139 = shl nuw nsw i32 %138, 4
-  %140 = and i32 %139, 458752
-  %141 = shl nuw nsw i32 %138, 2
-  %142 = and i32 %141, 16128
-  %143 = and i32 %138, 63
-  %144 = or disjoint i32 %143, %142
-  %145 = or disjoint i32 %144, %140
-  %146 = or disjoint i32 %145, 14712960
+118:                                              ; preds = %116
+  %119 = lshr i32 %0, 8
+  %120 = and i32 %119, 255
+  %121 = and i32 %0, 255
+  %122 = mul nuw nsw i32 %120, 10
+  %123 = add nuw nsw i32 %121, 14671
+  %124 = add nuw nsw i32 %123, %122
+  %125 = shl nuw nsw i32 %124, 4
+  %126 = and i32 %125, 458752
+  %127 = shl nuw nsw i32 %124, 2
+  %128 = and i32 %127, 16128
+  %129 = and i32 %124, 63
+  %130 = or disjoint i32 %129, %128
+  %131 = or disjoint i32 %130, %126
+  %132 = or disjoint i32 %131, 14712960
   br label %unicode_to_utf8word.exit
 
-147:                                              ; preds = %130
-  %148 = add i32 %0, 2110545095
-  %or.cond11 = icmp ult i32 %148, 9721
-  br i1 %or.cond11, label %149, label %157
+133:                                              ; preds = %116
+  %134 = add i32 %0, 2110545095
+  %or.cond11 = icmp ult i32 %134, 9721
+  br i1 %or.cond11, label %135, label %143
 
-149:                                              ; preds = %147
-  %150 = lshr i32 %0, 8
-  %151 = and i32 %150, 255
-  %152 = and i32 %0, 255
-  %153 = mul nuw nsw i32 %151, 10
-  %154 = add nuw nsw i32 %152, 15936
-  %155 = add nuw nsw i32 %154, %153
+135:                                              ; preds = %133
+  %136 = lshr i32 %0, 8
+  %137 = and i32 %136, 255
+  %138 = and i32 %0, 255
+  %139 = mul nuw nsw i32 %137, 10
+  %140 = add nuw nsw i32 %138, 15936
+  %141 = add nuw nsw i32 %140, %139
+  %142 = tail call fastcc i32 @unicode_to_utf8word(i32 noundef %141)
+  br label %unicode_to_utf8word.exit
+
+143:                                              ; preds = %133
+  %144 = add i32 %0, 2110527432
+  %or.cond13 = icmp ult i32 %144, 44545
+  br i1 %or.cond13, label %145, label %157
+
+145:                                              ; preds = %143
+  %146 = lshr i32 %0, 16
+  %147 = and i32 %146, 55
+  %148 = lshr i32 %0, 8
+  %149 = and i32 %148, 255
+  %150 = and i32 %0, 255
+  %151 = mul nuw nsw i32 %147, 1260
+  %152 = mul nuw nsw i32 %149, 10
+  %153 = add nuw nsw i32 %150, -48318
+  %154 = add nsw i32 %153, %151
+  %155 = add nuw nsw i32 %154, %152
   %156 = tail call fastcc i32 @unicode_to_utf8word(i32 noundef %155)
   br label %unicode_to_utf8word.exit
 
-157:                                              ; preds = %147
-  %158 = add i32 %0, 2110527432
-  %or.cond13 = icmp ult i32 %158, 44545
-  br i1 %or.cond13, label %159, label %171
+157:                                              ; preds = %143
+  %158 = add i32 %0, 2110480079
+  %or.cond15 = icmp ult i32 %158, 17923
+  br i1 %or.cond15, label %159, label %167
 
 159:                                              ; preds = %157
-  %160 = lshr i32 %0, 16
-  %161 = and i32 %160, 55
-  %162 = lshr i32 %0, 8
-  %163 = and i32 %162, 255
-  %164 = and i32 %0, 255
-  %165 = mul nuw nsw i32 %161, 1260
-  %166 = mul nuw nsw i32 %163, 10
-  %167 = add nuw nsw i32 %164, -48318
-  %168 = add nsw i32 %167, %165
-  %169 = add nuw nsw i32 %168, %166
-  %170 = tail call fastcc i32 @unicode_to_utf8word(i32 noundef %169)
+  %160 = lshr i32 %0, 8
+  %161 = and i32 %160, 255
+  %162 = and i32 %0, 255
+  %163 = mul nuw nsw i32 %161, 10
+  %164 = add nuw nsw i32 %162, 17213
+  %165 = add nuw nsw i32 %164, %163
+  %166 = tail call fastcc i32 @unicode_to_utf8word(i32 noundef %165)
   br label %unicode_to_utf8word.exit
 
-171:                                              ; preds = %157
-  %172 = add i32 %0, 2110480079
-  %or.cond15 = icmp ult i32 %172, 17923
-  br i1 %or.cond15, label %173, label %181
+167:                                              ; preds = %157
+  %168 = add i32 %0, 2110419149
+  %or.cond17 = icmp ult i32 %168, 16857094
+  br i1 %or.cond17, label %169, label %184
 
-173:                                              ; preds = %171
-  %174 = lshr i32 %0, 8
-  %175 = and i32 %174, 255
-  %176 = and i32 %0, 255
-  %177 = mul nuw nsw i32 %175, 10
-  %178 = add nuw nsw i32 %176, 17213
-  %179 = add nuw nsw i32 %178, %177
-  %180 = tail call fastcc i32 @unicode_to_utf8word(i32 noundef %179)
+169:                                              ; preds = %167
+  %170 = lshr i32 %0, 24
+  %171 = lshr i32 %0, 16
+  %172 = and i32 %171, 255
+  %173 = lshr i32 %0, 8
+  %174 = and i32 %173, 255
+  %175 = and i32 %0, 255
+  %176 = mul nuw nsw i32 %170, 12600
+  %177 = mul nuw nsw i32 %172, 1260
+  %178 = mul nuw nsw i32 %174, 10
+  %179 = add nuw nsw i32 %175, -1665391
+  %180 = add nuw nsw i32 %179, %176
+  %181 = add nsw i32 %180, %177
+  %182 = add nsw i32 %181, %178
+  %183 = tail call fastcc i32 @unicode_to_utf8word(i32 noundef %182)
   br label %unicode_to_utf8word.exit
 
-181:                                              ; preds = %171
-  %182 = add i32 %0, 2110419149
-  %or.cond17 = icmp ult i32 %182, 16857094
-  br i1 %or.cond17, label %183, label %198
+184:                                              ; preds = %167
+  %185 = add i32 %0, 2093559760
+  %or.cond19 = icmp ult i32 %185, 16364805
+  br i1 %or.cond19, label %186, label %201
 
-183:                                              ; preds = %181
-  %184 = lshr i32 %0, 24
-  %185 = lshr i32 %0, 16
-  %186 = and i32 %185, 255
-  %187 = lshr i32 %0, 8
-  %188 = and i32 %187, 255
-  %189 = and i32 %0, 255
-  %190 = mul nuw nsw i32 %184, 12600
-  %191 = mul nuw nsw i32 %186, 1260
-  %192 = mul nuw nsw i32 %188, 10
-  %193 = add nuw nsw i32 %189, -1665391
-  %194 = add nuw nsw i32 %193, %190
-  %195 = add nsw i32 %194, %191
-  %196 = add nsw i32 %195, %192
-  %197 = tail call fastcc i32 @unicode_to_utf8word(i32 noundef %196)
+186:                                              ; preds = %184
+  %187 = lshr i32 %0, 24
+  %188 = lshr i32 %0, 16
+  %189 = and i32 %188, 255
+  %190 = lshr i32 %0, 8
+  %191 = and i32 %190, 255
+  %192 = and i32 %0, 255
+  %193 = mul nuw nsw i32 %187, 12600
+  %194 = mul nuw nsw i32 %189, 1260
+  %195 = mul nuw nsw i32 %191, 10
+  %196 = add nuw nsw i32 %192, -1661275
+  %197 = add nsw i32 %196, %193
+  %198 = add nsw i32 %197, %194
+  %199 = add nsw i32 %198, %195
+  %200 = tail call fastcc i32 @unicode_to_utf8word(i32 noundef %199)
   br label %unicode_to_utf8word.exit
 
-198:                                              ; preds = %181
-  %199 = add i32 %0, 2093559760
-  %or.cond19 = icmp ult i32 %199, 16364805
-  br i1 %or.cond19, label %200, label %215
+201:                                              ; preds = %184
+  %202 = add i32 %0, 2077189064
+  %or.cond21 = icmp ult i32 %202, 59648
+  br i1 %or.cond21, label %203, label %215
 
-200:                                              ; preds = %198
-  %201 = lshr i32 %0, 24
-  %202 = lshr i32 %0, 16
-  %203 = and i32 %202, 255
-  %204 = lshr i32 %0, 8
-  %205 = and i32 %204, 255
-  %206 = and i32 %0, 255
-  %207 = mul nuw nsw i32 %201, 12600
-  %208 = mul nuw nsw i32 %203, 1260
-  %209 = mul nuw nsw i32 %205, 10
-  %210 = add nuw nsw i32 %206, -1661275
-  %211 = add nsw i32 %210, %207
-  %212 = add nsw i32 %211, %208
-  %213 = add nsw i32 %212, %209
+203:                                              ; preds = %201
+  %204 = lshr i32 %0, 16
+  %205 = and i32 %204, 49
+  %206 = lshr i32 %0, 8
+  %207 = and i32 %206, 255
+  %208 = and i32 %0, 255
+  %209 = mul nuw nsw i32 %205, 1260
+  %210 = mul nuw nsw i32 %207, 10
+  %211 = add nuw nsw i32 %208, 1946
+  %212 = add nuw nsw i32 %211, %209
+  %213 = add nuw nsw i32 %212, %210
   %214 = tail call fastcc i32 @unicode_to_utf8word(i32 noundef %213)
   br label %unicode_to_utf8word.exit
 
-215:                                              ; preds = %198
-  %216 = add i32 %0, 2077189064
-  %or.cond21 = icmp ult i32 %216, 59648
-  br i1 %or.cond21, label %217, label %229
+215:                                              ; preds = %201
+  %216 = add i32 %0, 2077121996
+  %or.cond23 = icmp ult i32 %216, 518
+  br i1 %or.cond23, label %217, label %225
 
 217:                                              ; preds = %215
-  %218 = lshr i32 %0, 16
-  %219 = and i32 %218, 49
-  %220 = lshr i32 %0, 8
-  %221 = and i32 %220, 255
-  %222 = and i32 %0, 255
-  %223 = mul nuw nsw i32 %219, 1260
-  %224 = mul nuw nsw i32 %221, 10
-  %225 = add nuw nsw i32 %222, 1946
-  %226 = add nuw nsw i32 %225, %223
-  %227 = add nuw nsw i32 %226, %224
-  %228 = tail call fastcc i32 @unicode_to_utf8word(i32 noundef %227)
+  %218 = lshr i32 %0, 8
+  %219 = and i32 %218, 167
+  %220 = and i32 %0, 255
+  %221 = mul nuw nsw i32 %219, 10
+  %222 = add nuw nsw i32 %220, 63838
+  %223 = add nuw nsw i32 %222, %221
+  %224 = tail call fastcc i32 @unicode_to_utf8word(i32 noundef %223)
   br label %unicode_to_utf8word.exit
 
-229:                                              ; preds = %215
-  %230 = add i32 %0, 2077121996
-  %or.cond23 = icmp ult i32 %230, 518
-  br i1 %or.cond23, label %231, label %239
+225:                                              ; preds = %215
+  %226 = add i32 %0, 1875869392
+  %or.cond25 = icmp ult i32 %226, 1392646406
+  br i1 %or.cond25, label %227, label %unicode_to_utf8word.exit
 
-231:                                              ; preds = %229
-  %232 = lshr i32 %0, 8
-  %233 = and i32 %232, 167
-  %234 = and i32 %0, 255
-  %235 = mul nuw nsw i32 %233, 10
-  %236 = add nuw nsw i32 %234, 63838
-  %237 = add nuw nsw i32 %236, %235
-  %238 = tail call fastcc i32 @unicode_to_utf8word(i32 noundef %237)
+227:                                              ; preds = %225
+  %228 = lshr i32 %0, 24
+  %229 = lshr i32 %0, 16
+  %230 = and i32 %229, 255
+  %231 = lshr i32 %0, 8
+  %232 = and i32 %231, 255
+  %233 = and i32 %0, 255
+  %234 = mul nuw nsw i32 %228, 12600
+  %235 = mul nuw nsw i32 %230, 1260
+  %236 = mul nuw nsw i32 %232, 10
+  %237 = add nuw nsw i32 %233, -1810682
+  %238 = add nsw i32 %237, %234
+  %239 = add nuw nsw i32 %238, %235
+  %240 = add nuw nsw i32 %239, %236
+  %241 = tail call fastcc i32 @unicode_to_utf8word(i32 noundef %240)
   br label %unicode_to_utf8word.exit
 
-239:                                              ; preds = %229
-  %240 = add i32 %0, 1875869392
-  %or.cond25 = icmp ult i32 %240, 1392646406
-  br i1 %or.cond25, label %241, label %unicode_to_utf8word.exit
-
-241:                                              ; preds = %239
-  %242 = lshr i32 %0, 24
-  %243 = lshr i32 %0, 16
-  %244 = and i32 %243, 255
-  %245 = lshr i32 %0, 8
-  %246 = and i32 %245, 255
-  %247 = and i32 %0, 255
-  %248 = mul nuw nsw i32 %242, 12600
-  %249 = mul nuw nsw i32 %244, 1260
-  %250 = mul nuw nsw i32 %246, 10
-  %251 = add nuw nsw i32 %247, -1810682
-  %252 = add nsw i32 %251, %248
-  %253 = add nuw nsw i32 %252, %249
-  %254 = add nuw nsw i32 %253, %250
-  %255 = tail call fastcc i32 @unicode_to_utf8word(i32 noundef %254)
-  br label %unicode_to_utf8word.exit
-
-unicode_to_utf8word.exit:                         ; preds = %132, %111, %94, %80, %71, %63, %48, %34, %25, %17, %3, %239, %241, %231, %217, %200, %183, %173, %159, %149
-  %.0 = phi i32 [ %156, %149 ], [ %170, %159 ], [ %180, %173 ], [ %197, %183 ], [ %214, %200 ], [ %228, %217 ], [ %238, %231 ], [ %255, %241 ], [ 0, %239 ], [ %22, %17 ], [ %33, %25 ], [ %45, %34 ], [ %13, %3 ], [ %68, %63 ], [ %79, %71 ], [ %91, %80 ], [ %59, %48 ], [ %108, %94 ], [ %129, %111 ], [ %146, %132 ]
+unicode_to_utf8word.exit:                         ; preds = %118, %97, %80, %73, %68, %56, %41, %34, %29, %17, %3, %225, %227, %217, %203, %186, %169, %159, %145, %135
+  %.0 = phi i32 [ %142, %135 ], [ %156, %145 ], [ %166, %159 ], [ %183, %169 ], [ %200, %186 ], [ %214, %203 ], [ %224, %217 ], [ %241, %227 ], [ 0, %225 ], [ %22, %17 ], [ %33, %29 ], [ %38, %34 ], [ %13, %3 ], [ %61, %56 ], [ %72, %68 ], [ %77, %73 ], [ %52, %41 ], [ %94, %80 ], [ %115, %97 ], [ %132, %118 ]
   ret i32 %.0
 }
 

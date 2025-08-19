@@ -239,11 +239,11 @@ define hidden range(i32 -1, 2) i32 @erf_open(ptr noundef captures(none) %0, ptr 
   br i1 %or.cond3, label %14, label %.lr.ph109
 
 14:                                               ; preds = %10
-  %.not127 = icmp eq i32 %12, 0
-  br i1 %.not127, label %.loopexit93, label %.lr.ph109
+  %.not130 = icmp eq i32 %12, 0
+  br i1 %.not130, label %.loopexit93, label %.lr.ph109
 
 .lr.ph109:                                        ; preds = %10, %3, %14
-  %.070119 = phi i32 [ %12, %14 ], [ 20, %3 ], [ 20, %10 ]
+  %.070122 = phi i32 [ %12, %14 ], [ 20, %3 ], [ 20, %10 ]
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %17
@@ -420,7 +420,7 @@ define hidden range(i32 -1, 2) i32 @erf_open(ptr noundef captures(none) %0, ptr 
   %.174 = phi i32 [ %.073105, %32 ], [ %.073105, %37 ], [ 1, %83 ], [ 1, %78 ]
   %.172 = phi i64 [ %.071106, %32 ], [ %.071106, %37 ], [ %40, %83 ], [ %40, %78 ]
   %86 = add nuw nsw i32 %.068107, 1
-  %exitcond.not = icmp eq i32 %86, %.070119
+  %exitcond.not = icmp eq i32 %86, %.070122
   br i1 %exitcond.not, label %.loopexit93, label %17, !llvm.loop !9
 
 .loopexit93:                                      ; preds = %85, %14, %20, %22
@@ -630,7 +630,7 @@ erf_get_source_from_header.exit.i:                ; preds = %.lr.ph.i.i
   %86 = icmp eq i8 %.0195.i, 0
   %87 = lshr i64 %72, 48
   %88 = trunc i64 %87 to i8
-  %.1196283.i = select i1 %86, i8 %88, i8 %.0195.i
+  %.1196355.i = select i1 %86, i8 %88, i8 %.0195.i
   %89 = icmp eq i64 %85, 0
   br i1 %89, label %90, label %erf_get_source_from_header.exit.thread.i
 
@@ -640,7 +640,7 @@ erf_get_source_from_header.exit.i:                ; preds = %.lr.ph.i.i
   br label %erf_get_source_from_header.exit.thread.i
 
 erf_get_source_from_header.exit.thread.i:         ; preds = %.thread.i.i, %90, %erf_get_source_from_header.exit.i, %67
-  %.3198201.i = phi i8 [ %.1196283.i, %90 ], [ %.1196283.i, %erf_get_source_from_header.exit.i ], [ 0, %67 ], [ %.2197.i, %.thread.i.i ]
+  %.3198201.i = phi i8 [ %.1196355.i, %90 ], [ %.1196355.i, %erf_get_source_from_header.exit.i ], [ 0, %67 ], [ %.2197.i, %.thread.i.i ]
   %.0193.i = phi i64 [ %92, %90 ], [ %85, %erf_get_source_from_header.exit.i ], [ -1, %67 ], [ -1, %.thread.i.i ]
   %.val.i = load ptr, ptr %64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1023,8 +1023,8 @@ erf_meta_read_tag.exit116.thread.i:               ; preds = %200, %188, %181
   br i1 %289, label %.lr.ph15.i.i, label %.loopexit.i.i, !llvm.loop !15
 
 .loopexit.i.i:                                    ; preds = %286, %.preheader.i.i, %.critedge.i.i, %.preheader7.i.i
-  %.060.lcssa21.i.i = phi ptr [ %.060.lcssa.i.i, %.preheader.i.i ], [ null, %.critedge.i.i ], [ null, %.preheader7.i.i ], [ %.060.lcssa.i.i, %286 ]
-  call void @g_free(ptr noundef %.060.lcssa21.i.i)
+  %.060.lcssa31.i.i = phi ptr [ %.060.lcssa.i.i, %.preheader.i.i ], [ null, %.critedge.i.i ], [ null, %.preheader7.i.i ], [ %.060.lcssa.i.i, %286 ]
+  call void @g_free(ptr noundef %.060.lcssa31.i.i)
   %.pre277.i = load ptr, ptr %11, align 8
   %.pre278.i = load i32, ptr %21, align 8
   br label %.backedge.i
@@ -1612,7 +1612,7 @@ erf_meta_read_tag.exit116.thread.i:               ; preds = %200, %188, %181
 
 .critedge.thread.i.i:                             ; preds = %.lr.ph.i149.i, %.critedge.i156.i..critedge.i156..critedge.thread.i_crit_edge.i_crit_edge, %506
   %591 = phi ptr [ %493, %506 ], [ %.pre.i.pre, %.critedge.i156.i..critedge.i156..critedge.thread.i_crit_edge.i_crit_edge ], [ %493, %.lr.ph.i149.i ]
-  %.sroa.18175.4201245.i.i = phi ptr [ null, %506 ], [ %538, %.critedge.i156.i..critedge.i156..critedge.thread.i_crit_edge.i_crit_edge ], [ null, %.lr.ph.i149.i ]
+  %.sroa.18175.4201265.i.i = phi ptr [ null, %506 ], [ %538, %.critedge.i156.i..critedge.i156..critedge.thread.i_crit_edge.i_crit_edge ], [ null, %.lr.ph.i149.i ]
   %592 = load i64, ptr %591, align 8
   %593 = getelementptr inbounds nuw i8, ptr %591, i64 8
   %594 = load i8, ptr %593, align 8
@@ -1622,7 +1622,7 @@ erf_meta_read_tag.exit116.thread.i:               ; preds = %200, %188, %181
   br i1 %597, label %populate_interface_info.exit.i, label %598
 
 598:                                              ; preds = %.critedge.thread.i.i, %500
-  %.sroa.18175.1.i.i = phi ptr [ %.sroa.18175.4201245.i.i, %.critedge.thread.i.i ], [ null, %500 ]
+  %.sroa.18175.1.i.i = phi ptr [ %.sroa.18175.4201265.i.i, %.critedge.thread.i.i ], [ null, %500 ]
   %.0123.i.i = phi i32 [ %596, %.critedge.thread.i.i ], [ %504, %500 ]
   %599 = icmp sgt i32 %.0123.i.i, -1
   br i1 %599, label %604, label %600
@@ -1674,7 +1674,7 @@ erf_meta_read_tag.exit116.thread.i:               ; preds = %200, %188, %181
   %627 = getelementptr inbounds nuw i8, ptr %610, i64 20
   %628 = getelementptr inbounds nuw i8, ptr %503, i64 28
   %629 = getelementptr inbounds nuw i8, ptr %503, i64 16
-  %630 = trunc nuw i32 %498 to i8
+  %630 = trunc nuw nsw i32 %498 to i8
   %631 = getelementptr inbounds nuw i8, ptr %503, i64 8
   %632 = getelementptr i8, ptr %623, i64 2
   %.val23.i160.i246.i = load i8, ptr %632, align 1
@@ -2545,7 +2545,7 @@ define hidden i32 @erf_populate_interface_from_header(ptr noundef captures(addre
   %25 = icmp eq i8 %.013, 0
   %26 = lshr i64 %20, 48
   %27 = trunc i64 %26 to i8
-  %.120 = select i1 %25, i8 %27, i8 %.013
+  %.121 = select i1 %25, i8 %27, i8 %.013
   br label %erf_get_source_from_header.exit
 
 28:                                               ; preds = %17
@@ -2567,7 +2567,7 @@ define hidden i32 @erf_populate_interface_from_header(ptr noundef captures(addre
 
 erf_get_source_from_header.exit:                  ; preds = %.thread.i, %.thread, %6
   %.317 = phi i64 [ -1, %6 ], [ %24, %.thread ], [ -1, %.thread.i ]
-  %.3 = phi i8 [ 0, %6 ], [ %.120, %.thread ], [ %.2, %.thread.i ]
+  %.3 = phi i8 [ 0, %6 ], [ %.121, %.thread ], [ %.2, %.thread.i ]
   %37 = tail call fastcc i32 @erf_populate_interface(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %.317, i8 noundef zeroext %.3, i8 noundef zeroext %12, ptr noundef %3, ptr noundef %4)
   br label %38
 
@@ -4406,7 +4406,7 @@ wtap_wtap_encap_to_erf_encap.exit.thread:         ; preds = %41, %wtap_wtap_enca
   br i1 %185, label %erf_update_host_id_ext_hdrs_list.exit, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %135
-  %.047.lcssa77.i = phi i8 [ %.148.i, %._crit_edge.i ], [ 0, %135 ]
+  %.047.lcssa80.i = phi i8 [ %.148.i, %._crit_edge.i ], [ 0, %135 ]
   %186 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %187 = load i64, ptr %186, align 8
   %188 = icmp eq i64 %187, -1
@@ -4414,13 +4414,13 @@ wtap_wtap_encap_to_erf_encap.exit.thread:         ; preds = %41, %wtap_wtap_enca
   %189 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %190 = load i64, ptr %189, align 8
   %191 = icmp ne i64 %spec.select.i, %190
-  %192 = icmp ne i8 %.047.lcssa77.i, 0
+  %192 = icmp ne i8 %.047.lcssa80.i, 0
   %or.cond5.i = select i1 %191, i1 true, i1 %192
   br i1 %or.cond5.i, label %193, label %erf_update_host_id_ext_hdrs_list.exit
 
 193:                                              ; preds = %._crit_edge.thread.i
   %194 = and i64 %spec.select.i, 281474976710655
-  %195 = zext i8 %.047.lcssa77.i to i64
+  %195 = zext i8 %.047.lcssa80.i to i64
   %196 = shl nuw nsw i64 %195, 48
   %197 = or disjoint i64 %194, %196
   %198 = or disjoint i64 %197, 1224979098644774912
@@ -4523,7 +4523,7 @@ erf_update_host_id_ext_hdrs_list.exit:            ; preds = %129, %._crit_edge.i
 
 245:                                              ; preds = %237
   %246 = icmp ugt i16 %231, 3
-  br i1 %246, label %247, label %.thread77.i
+  br i1 %246, label %247, label %.thread87.i
 
 247:                                              ; preds = %245
   %.val.i = load i8, ptr %243, align 1
@@ -4534,9 +4534,9 @@ erf_update_host_id_ext_hdrs_list.exit:            ; preds = %129, %._crit_edge.i
   %251 = zext i8 %.val33.i to i16
   %252 = or disjoint i16 %250, %251
   %.not31.i = icmp sgt i16 %250, -1
-  br i1 %.not31.i, label %.thread77.i, label %260
+  br i1 %.not31.i, label %.thread87.i, label %260
 
-.thread77.i:                                      ; preds = %247, %245
+.thread87.i:                                      ; preds = %247, %245
   %253 = phi i16 [ %252, %247 ], [ 0, %245 ]
   %254 = icmp eq i16 %242, -256
   %spec.select.i186 = select i1 %254, i8 1, i8 %.02334.i
@@ -4552,11 +4552,11 @@ erf_update_host_id_ext_hdrs_list.exit:            ; preds = %129, %._crit_edge.i
   %or.cond5.i183 = select i1 %258, i1 %259, i1 false
   br i1 %or.cond5.i183, label %268, label %260
 
-260:                                              ; preds = %257, %255, %.thread77.i, %247
-  %261 = phi i16 [ %252, %247 ], [ %222, %257 ], [ %222, %255 ], [ %253, %.thread77.i ]
-  %262 = phi i16 [ %242, %247 ], [ -256, %257 ], [ %223, %255 ], [ %242, %.thread77.i ]
-  %.124.i = phi i8 [ %.02334.i, %247 ], [ %.02334.i, %257 ], [ %.02334.i, %255 ], [ %spec.select.i186, %.thread77.i ]
-  %.1.i = phi i1 [ %.02235.i, %247 ], [ %.02235.i, %257 ], [ %.02235.i, %255 ], [ true, %.thread77.i ]
+260:                                              ; preds = %257, %255, %.thread87.i, %247
+  %261 = phi i16 [ %252, %247 ], [ %222, %257 ], [ %222, %255 ], [ %253, %.thread87.i ]
+  %262 = phi i16 [ %242, %247 ], [ -256, %257 ], [ %223, %255 ], [ %242, %.thread87.i ]
+  %.124.i = phi i8 [ %.02334.i, %247 ], [ %.02334.i, %257 ], [ %.02334.i, %255 ], [ %spec.select.i186, %.thread87.i ]
+  %.1.i = phi i1 [ %.02235.i, %247 ], [ %.02235.i, %257 ], [ %.02235.i, %255 ], [ true, %.thread87.i ]
   %263 = zext nneg i32 %235 to i64
   %264 = getelementptr i8, ptr %224, i64 %263
   %265 = sub i32 %225, %235
@@ -4772,16 +4772,16 @@ erf_dump_priv_compare_capture_comment.exit:       ; preds = %216, %268, %.thread
   br i1 %370, label %371, label %.critedge
 
 371:                                              ; preds = %366
-  br i1 %.2156, label %372, label %.preheader215
+  br i1 %.2156, label %372, label %.preheader235
 
 372:                                              ; preds = %371
   %373 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 4, ptr noundef %3)
-  br i1 %373, label %.preheader215, label %.critedge
+  br i1 %373, label %.preheader235, label %.critedge
 
-.preheader215:                                    ; preds = %372, %371
+.preheader235:                                    ; preds = %372, %371
   br label %374
 
-374:                                              ; preds = %.preheader215, %377
+374:                                              ; preds = %.preheader235, %377
   %375 = load i64, ptr %359, align 8
   %376 = icmp slt i64 %375, %364
   br i1 %376, label %377, label %379
@@ -5439,9 +5439,9 @@ define internal fastcc noundef zeroext i1 @erf_write_anchor_meta_update_phdr(ptr
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i8, ptr %16, align 8
   %18 = icmp slt i8 %17, 0
-  br i1 %18, label %.lr.ph, label %.thread175
+  br i1 %18, label %.lr.ph, label %.thread180
 
-.thread175:                                       ; preds = %5
+.thread180:                                       ; preds = %5
   %19 = icmp eq i64 %spec.select, %11
   br label %54
 
@@ -5516,24 +5516,24 @@ define internal fastcc noundef zeroext i1 @erf_write_anchor_meta_update_phdr(ptr
   %51 = and i32 %50, 255
   %.not116 = icmp eq i8 %.190, 0
   %52 = icmp eq i64 %spec.select, %11
-  %spec.select122191 = select i1 %52, i8 1, i8 %.195
+  %spec.select122196 = select i1 %52, i8 1, i8 %.195
   %..190.lcssa = select i1 %.not116, i8 %44, i8 %.190
-  %spec.select200 = select i1 %45, i8 %.195, i8 %spec.select122191
-  %53 = trunc nuw i8 %spec.select200 to i1
+  %spec.select205 = select i1 %45, i8 %.195, i8 %spec.select122196
+  %53 = trunc nuw i8 %spec.select205 to i1
   br label %54
 
-54:                                               ; preds = %._crit_edge, %.thread175
-  %55 = phi i8 [ 0, %.thread175 ], [ %..190.lcssa, %._crit_edge ]
-  %.0105.lcssa161190 = phi i64 [ -1, %.thread175 ], [ %.1106, %._crit_edge ]
-  %.0104.lcssa163189 = phi i8 [ 0, %.thread175 ], [ %44, %._crit_edge ]
-  %.0101.lcssa165188 = phi i64 [ 0, %.thread175 ], [ %49, %._crit_edge ]
-  %.098.lcssa167187 = phi i1 [ false, %.thread175 ], [ %45, %._crit_edge ]
-  %.092.lcssa171186 = phi i1 [ false, %.thread175 ], [ %48, %._crit_edge ]
-  %.088.lcssa173185 = phi i64 [ 0, %.thread175 ], [ %47, %._crit_edge ]
-  %56 = phi i32 [ 0, %.thread175 ], [ %51, %._crit_edge ]
-  %57 = phi i1 [ %19, %.thread175 ], [ %53, %._crit_edge ]
+54:                                               ; preds = %._crit_edge, %.thread180
+  %55 = phi i8 [ 0, %.thread180 ], [ %..190.lcssa, %._crit_edge ]
+  %.0105.lcssa166195 = phi i64 [ -1, %.thread180 ], [ %.1106, %._crit_edge ]
+  %.0104.lcssa168194 = phi i8 [ 0, %.thread180 ], [ %44, %._crit_edge ]
+  %.0101.lcssa170193 = phi i64 [ 0, %.thread180 ], [ %49, %._crit_edge ]
+  %.098.lcssa172192 = phi i1 [ false, %.thread180 ], [ %45, %._crit_edge ]
+  %.092.lcssa176191 = phi i1 [ false, %.thread180 ], [ %48, %._crit_edge ]
+  %.088.lcssa178190 = phi i64 [ 0, %.thread180 ], [ %47, %._crit_edge ]
+  %56 = phi i32 [ 0, %.thread180 ], [ %51, %._crit_edge ]
+  %57 = phi i1 [ %19, %.thread180 ], [ %53, %._crit_edge ]
   %58 = select i1 %57, i32 1, i32 2
-  %not. = xor i1 %.098.lcssa167187, true
+  %not. = xor i1 %.098.lcssa172192, true
   %59 = zext i1 %not. to i32
   %60 = add nuw nsw i32 %58, %59
   %61 = add nuw nsw i32 %60, %56
@@ -5584,12 +5584,12 @@ define internal fastcc noundef zeroext i1 @erf_write_anchor_meta_update_phdr(ptr
   %91 = or disjoint i64 %87, %90
   %92 = lshr i64 %91, 16
   %93 = or disjoint i64 %92, 1297036692682702848
-  %94 = icmp ult i8 %55, %.0104.lcssa163189
+  %94 = icmp ult i8 %55, %.0104.lcssa168194
   br i1 %94, label %.preheader, label %106
 
 .preheader:                                       ; preds = %82
   %95 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %96 = zext nneg i8 %.0104.lcssa163189 to i64
+  %96 = zext nneg i8 %.0104.lcssa168194 to i64
   br label %97
 
 97:                                               ; preds = %.preheader, %97
@@ -5611,11 +5611,11 @@ define internal fastcc noundef zeroext i1 @erf_write_anchor_meta_update_phdr(ptr
 
 106:                                              ; preds = %104, %82
   %.0100 = phi i64 [ %105, %104 ], [ %93, %82 ]
-  br i1 %.098.lcssa167187, label %116, label %107
+  br i1 %.098.lcssa172192, label %116, label %107
 
 107:                                              ; preds = %106
   %108 = and i64 %spec.select, 281474976710655
-  %109 = or disjoint i64 %.088.lcssa173185, %108
+  %109 = or disjoint i64 %.088.lcssa178190, %108
   %110 = or disjoint i64 %109, 1224979098644774912
   %111 = or disjoint i64 %109, -7998392938210000896
   %112 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -5626,7 +5626,7 @@ define internal fastcc noundef zeroext i1 @erf_write_anchor_meta_update_phdr(ptr
   br label %116
 
 116:                                              ; preds = %107, %106
-  %.3108 = phi i64 [ %.0105.lcssa161190, %106 ], [ %110, %107 ]
+  %.3108 = phi i64 [ %.0105.lcssa166195, %106 ], [ %110, %107 ]
   %.4 = phi i8 [ %55, %106 ], [ %113, %107 ]
   br i1 %57, label %123, label %117
 
@@ -5692,11 +5692,11 @@ define internal fastcc noundef zeroext i1 @erf_write_anchor_meta_update_phdr(ptr
 erf_append_ext_hdr_to_list.exit125:               ; preds = %140, %144
   %151 = call ptr @g_array_append_vals(ptr noundef nonnull %127, ptr noundef nonnull %7, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.092.lcssa171186, label %152, label %163
+  br i1 %.092.lcssa176191, label %152, label %163
 
 erf_append_ext_hdr_to_list.exit125.thread:        ; preds = %123
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.092.lcssa171186, label %.thread, label %163
+  br i1 %.092.lcssa176191, label %.thread, label %163
 
 .thread:                                          ; preds = %erf_append_ext_hdr_to_list.exit125.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -5704,7 +5704,7 @@ erf_append_ext_hdr_to_list.exit125.thread:        ; preds = %123
 
 152:                                              ; preds = %erf_append_ext_hdr_to_list.exit125
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i64 %.0101.lcssa165188, ptr %6, align 8
+  store i64 %.0101.lcssa170193, ptr %6, align 8
   %153 = load i32, ptr %131, align 8
   %.not8.i127 = icmp eq i32 %153, 0
   br i1 %.not8.i127, label %161, label %154

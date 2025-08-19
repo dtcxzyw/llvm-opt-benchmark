@@ -143,10 +143,10 @@ bytestream2_get_be32.exit.thread:                 ; preds = %bytestream2_get_be3
   switch i32 %.0.i, label %93 [
     i32 1414283600, label %38
     i32 1414482003, label %82
-    i32 541149014, label %.thread168
+    i32 541149014, label %.thread199
   ]
 
-.thread168:                                       ; preds = %bytestream2_get_be32.exit.thread
+.thread199:                                       ; preds = %bytestream2_get_be32.exit.thread
   %35 = ptrtoint ptr %.sroa.0.5100 to i64
   %36 = sub i64 %15, %35
   %37 = trunc i64 %36 to i32
@@ -258,9 +258,9 @@ bytestream2_get_le32.exit73:                      ; preds = %84, %86
   %100 = icmp sgt i32 %99, 8
   br i1 %100, label %20, label %._crit_edge, !llvm.loop !50
 
-._crit_edge:                                      ; preds = %96, %.thread168, %bytestream2_init.exit
-  %.sroa.0.0.lcssa = phi ptr [ %12, %bytestream2_init.exit ], [ %.sroa.0.5100, %.thread168 ], [ %.sroa.0.1, %96 ]
-  %.lcssa130 = phi i32 [ %6, %bytestream2_init.exit ], [ %37, %.thread168 ], [ %99, %96 ]
+._crit_edge:                                      ; preds = %96, %.thread199, %bytestream2_init.exit
+  %.sroa.0.0.lcssa = phi ptr [ %12, %bytestream2_init.exit ], [ %.sroa.0.5100, %.thread199 ], [ %.sroa.0.1, %96 ]
+  %.lcssa130 = phi i32 [ %6, %bytestream2_init.exit ], [ %37, %.thread199 ], [ %99, %96 ]
   %101 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %102 = load i32, ptr %101, align 8, !tbaa !44
   %103 = icmp slt i32 %102, 1

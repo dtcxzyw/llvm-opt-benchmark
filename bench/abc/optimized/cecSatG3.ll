@@ -123,14 +123,14 @@ Vec_WrdStartRandom.exit:                          ; preds = %.lr.ph.i, %Vec_WrdS
   %invariant.gep = getelementptr i32, ptr %12, i64 %28
   %29 = and i32 %.02332, 31
   %30 = shl nuw i32 1, %29
-  %invariant.gep38 = getelementptr i32, ptr %.val27, i64 %23
+  %invariant.gep41 = getelementptr i32, ptr %.val27, i64 %23
   br label %31
 
 31:                                               ; preds = %.lr.ph, %45
   %32 = phi i32 [ %25, %.lr.ph ], [ %46, %45 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %gep39 = getelementptr i32, ptr %invariant.gep38, i64 %indvars.iv
-  %33 = load i32, ptr %gep39, align 4, !tbaa !20
+  %gep42 = getelementptr i32, ptr %invariant.gep41, i64 %indvars.iv
+  %33 = load i32, ptr %gep42, align 4, !tbaa !20
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %45, label %34
 
@@ -2315,9 +2315,9 @@ Vec_IntPush.exit9.sink.split.i:                   ; preds = %Vec_IntPush.exit.i
   %87 = shl nuw nsw i32 %83, 1
   %88 = zext nneg i32 %87 to i64
   %89 = shl nuw nsw i64 %88, 2
-  %.sink29 = select i1 %86, i64 64, i64 %89
+  %.sink38 = select i1 %86, i64 64, i64 %89
   %.sink.i = select i1 %86, i32 16, i32 %87
-  %90 = tail call ptr @realloc(ptr noundef nonnull %78, i64 noundef %.sink29) #28
+  %90 = tail call ptr @realloc(ptr noundef nonnull %78, i64 noundef %.sink38) #28
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   store ptr %90, ptr %91, align 8, !tbaa !19
   store i32 %.sink.i, ptr %47, align 8, !tbaa !70
@@ -5344,9 +5344,9 @@ Vec_IntPush.exit36.sink.split:                    ; preds = %.lr.ph
   %47 = shl nuw nsw i32 %43, 1
   %48 = zext nneg i32 %47 to i64
   %49 = shl nuw nsw i64 %48, 2
-  %.sink59 = select i1 %46, i64 64, i64 %49
+  %.sink64 = select i1 %46, i64 64, i64 %49
   %.sink = select i1 %46, i32 16, i32 %47
-  %50 = tail call ptr @realloc(ptr noundef nonnull %42, i64 noundef %.sink59) #28
+  %50 = tail call ptr @realloc(ptr noundef nonnull %42, i64 noundef %.sink64) #28
   store ptr %50, ptr %5, align 8, !tbaa !19
   store i32 %.sink, ptr %2, align 8, !tbaa !70
   br label %Vec_IntPush.exit36
@@ -8519,35 +8519,35 @@ define void @Cec5_FlushCache2Pattern(ptr noundef readonly captures(none) %0) loc
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
-  %16 = phi i32 [ %10, %.lr.ph.lr.ph ], [ %.lcssa43, %.outer ]
+  %16 = phi i32 [ %10, %.lr.ph.lr.ph ], [ %.lcssa46, %.outer ]
   %17 = phi i32 [ %10, %.lr.ph.lr.ph ], [ %.lcssa, %.outer ]
   %.0.ph23 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %indvars.iv.next.lcssa, %.outer ]
   %.013.ph22 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %51, %.outer ]
   %sext = shl i64 %.0.ph23, 32
   %18 = ashr exact i64 %sext, 32
-  %indvars.iv.next48 = add nsw i64 %18, 1
+  %indvars.iv.next51 = add nsw i64 %18, 1
   %19 = getelementptr inbounds i32, ptr %13, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !20
   %21 = icmp sgt i32 %20, -1
-  br i1 %21, label %.lr.ph50.preheader, label %.outer
+  br i1 %21, label %.lr.ph53.preheader, label %.outer
 
-.lr.ph50.preheader:                               ; preds = %.lr.ph
+.lr.ph53.preheader:                               ; preds = %.lr.ph
   %.val6.i = load ptr, ptr %15, align 8, !tbaa !138
   %22 = getelementptr i8, ptr %.val6.i, i64 8
   %.val6.val.i = load ptr, ptr %22, align 8, !tbaa !10
-  br label %.lr.ph50
+  br label %.lr.ph53
 
 23:                                               ; preds = %Cec5_ObjSimSetInputBit.exit
-  %indvars.iv.next = add nsw i64 %indvars.iv.next49, 1
-  %24 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next49
+  %indvars.iv.next = add nsw i64 %indvars.iv.next52, 1
+  %24 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next52
   %25 = load i32, ptr %24, align 4, !tbaa !20
   %26 = icmp sgt i32 %25, -1
-  br i1 %26, label %.lr.ph50, label %.outer, !llvm.loop !211
+  br i1 %26, label %.lr.ph53, label %.outer, !llvm.loop !211
 
-.lr.ph50:                                         ; preds = %.lr.ph50.preheader, %23
-  %27 = phi i32 [ %25, %23 ], [ %20, %.lr.ph50.preheader ]
-  %indvars.iv.next49 = phi i64 [ %indvars.iv.next, %23 ], [ %indvars.iv.next48, %.lr.ph50.preheader ]
-  %28 = phi i32 [ %45, %23 ], [ %16, %.lr.ph50.preheader ]
+.lr.ph53:                                         ; preds = %.lr.ph53.preheader, %23
+  %27 = phi i32 [ %25, %23 ], [ %20, %.lr.ph53.preheader ]
+  %indvars.iv.next52 = phi i64 [ %indvars.iv.next, %23 ], [ %indvars.iv.next51, %.lr.ph53.preheader ]
+  %28 = phi i32 [ %45, %23 ], [ %16, %.lr.ph53.preheader ]
   %29 = lshr i32 %27, 1
   %.val.i = load i32, ptr %14, align 8, !tbaa !137
   %30 = mul nsw i32 %.val.i, %29
@@ -8565,23 +8565,23 @@ define void @Cec5_FlushCache2Pattern(ptr noundef readonly captures(none) %0) loc
   %.not.i = icmp eq i32 %41, 0
   br i1 %.not.i, label %Cec5_ObjSimSetInputBit.exit, label %42
 
-42:                                               ; preds = %.lr.ph50
+42:                                               ; preds = %.lr.ph53
   %43 = shl nuw i32 1, %38
   %44 = xor i32 %43, %37
   store i32 %44, ptr %36, align 4, !tbaa !20
   %.pre = load i32, ptr %9, align 4, !tbaa !16
   br label %Cec5_ObjSimSetInputBit.exit
 
-Cec5_ObjSimSetInputBit.exit:                      ; preds = %.lr.ph50, %42
-  %45 = phi i32 [ %28, %.lr.ph50 ], [ %.pre, %42 ]
+Cec5_ObjSimSetInputBit.exit:                      ; preds = %.lr.ph53, %42
+  %45 = phi i32 [ %28, %.lr.ph53 ], [ %.pre, %42 ]
   %46 = sext i32 %45 to i64
-  %47 = icmp slt i64 %indvars.iv.next49, %46
+  %47 = icmp slt i64 %indvars.iv.next52, %46
   br i1 %47, label %23, label %.outer._crit_edge.loopexit, !llvm.loop !211
 
 .outer:                                           ; preds = %23, %.lr.ph
-  %.lcssa43 = phi i32 [ %16, %.lr.ph ], [ %45, %23 ]
+  %.lcssa46 = phi i32 [ %16, %.lr.ph ], [ %45, %23 ]
   %.lcssa = phi i32 [ %17, %.lr.ph ], [ %45, %23 ]
-  %indvars.iv.next.lcssa = phi i64 [ %indvars.iv.next48, %.lr.ph ], [ %indvars.iv.next, %23 ]
+  %indvars.iv.next.lcssa = phi i64 [ %indvars.iv.next51, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %48 = trunc nsw i64 %indvars.iv.next.lcssa to i32
   %49 = load i32, ptr %4, align 4, !tbaa !161
   %50 = add nsw i32 %49, -1
@@ -9756,9 +9756,9 @@ Abc_Clock.exit154:                                ; preds = %401, %404
 
 411:                                              ; preds = %Abc_Clock.exit154, %Abc_Clock.exit152
   %.0.i153.sink = phi i64 [ %.0.i153, %Abc_Clock.exit154 ], [ %.0.i151, %Abc_Clock.exit152 ]
-  %.sink214 = phi i64 [ 296, %Abc_Clock.exit154 ], [ 280, %Abc_Clock.exit152 ]
+  %.sink239 = phi i64 [ 296, %Abc_Clock.exit154 ], [ 280, %Abc_Clock.exit152 ]
   %412 = add i64 %.0.i153.sink, %.0.i.neg187
-  %413 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink214
+  %413 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink239
   %414 = load i64, ptr %413, align 8, !tbaa !12
   %415 = add nsw i64 %412, %414
   store i64 %415, ptr %413, align 8, !tbaa !12
@@ -12531,9 +12531,9 @@ Abc_Clock.exit114:                                ; preds = %207, %210
 
 217:                                              ; preds = %Abc_Clock.exit114, %Abc_Clock.exit112
   %.0.i113.sink = phi i64 [ %.0.i113, %Abc_Clock.exit114 ], [ %.0.i111, %Abc_Clock.exit112 ]
-  %.sink164 = phi i64 [ 296, %Abc_Clock.exit114 ], [ 280, %Abc_Clock.exit112 ]
+  %.sink176 = phi i64 [ 296, %Abc_Clock.exit114 ], [ 280, %Abc_Clock.exit112 ]
   %218 = add i64 %.0.i113.sink, %.0.i.neg141
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink164
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink176
   %220 = load i64, ptr %219, align 8, !tbaa !12
   %221 = add nsw i64 %218, %220
   store i64 %221, ptr %219, align 8, !tbaa !12

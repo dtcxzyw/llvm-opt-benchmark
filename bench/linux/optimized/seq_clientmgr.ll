@@ -2561,8 +2561,8 @@ define internal i32 @snd_seq_ioctl_subscribe_port(ptr noundef %0, ptr noundef %1
 
 ._crit_edge:                                      ; preds = %32
   %.old = and i32 %.pre, 33
-  %.old30 = icmp eq i32 %.old, 33
-  br i1 %.old30, label %._crit_edge28, label %61
+  %.old35 = icmp eq i32 %.old, 33
+  br i1 %.old35, label %._crit_edge28, label %61
 
 ._crit_edge28:                                    ; preds = %37, %26, %._crit_edge
   %44 = icmp eq i32 %28, %.pre29
@@ -2690,8 +2690,8 @@ define internal i32 @snd_seq_ioctl_unsubscribe_port(ptr noundef %0, ptr noundef 
 
 ._crit_edge:                                      ; preds = %32
   %.old = and i32 %.pre, 33
-  %.old32 = icmp eq i32 %.old, 33
-  br i1 %.old32, label %._crit_edge30, label %.thread
+  %.old37 = icmp eq i32 %.old, 33
+  br i1 %.old37, label %._crit_edge30, label %.thread
 
 ._crit_edge30:                                    ; preds = %37, %26, %._crit_edge
   %44 = icmp eq i32 %28, %.pre31
@@ -4197,12 +4197,12 @@ thread-pre-split:                                 ; preds = %73, %77, %59
 
 .sink.split:                                      ; preds = %101, %93
   %.sink = phi ptr [ %95, %93 ], [ %104, %101 ]
-  %.ph38 = phi i32 [ %90, %93 ], [ 28, %101 ]
+  %.ph45 = phi i32 [ %90, %93 ], [ 28, %101 ]
   store ptr %.sink, ptr %31, align 4
   br label %105
 
 105:                                              ; preds = %.sink.split, %96
-  %106 = phi i32 [ 28, %96 ], [ %.ph38, %.sink.split ]
+  %106 = phi i32 [ 28, %96 ], [ %.ph45, %.sink.split ]
   %107 = load i32, ptr %32, align 8
   %108 = lshr i32 %107, 11
   %109 = and i32 %108, 1

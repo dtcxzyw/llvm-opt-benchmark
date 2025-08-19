@@ -188,8 +188,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Softmax_x86_avx51215for
 .lr.ph4480:                                       ; preds = %.lr.ph4480.preheader, %.lr.ph4480
   %indvars.iv5058 = phi i64 [ 0, %.lr.ph4480.preheader ], [ %indvars.iv.next5059, %.lr.ph4480 ]
   %.015414478 = phi <16 x float> [ splat (float 0xC7EFFFFFE0000000), %.lr.ph4480.preheader ], [ %113, %.lr.ph4480 ]
-  %.idx5200 = shl nsw i64 %indvars.iv5058, 6
-  %111 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx5200
+  %.idx5499 = shl nsw i64 %indvars.iv5058, 6
+  %111 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx5499
   %112 = load <16 x float>, ptr %111, align 64, !tbaa !33
   %113 = tail call fast noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> nofpclass(nan inf) %.015414478, <16 x float> nofpclass(nan inf) %112, i32 4)
   %indvars.iv.next5059 = add nuw nsw i64 %indvars.iv5058, 1
@@ -212,8 +212,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Softmax_x86_avx51215for
 123:                                              ; preds = %._crit_edge4481, %123
   %indvars.iv5063 = phi i64 [ 0, %._crit_edge4481 ], [ %indvars.iv.next5064, %123 ]
   %.015434484 = phi <16 x float> [ zeroinitializer, %._crit_edge4481 ], [ %149, %123 ]
-  %.idx5201 = shl nsw i64 %indvars.iv5063, 6
-  %124 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx5201
+  %.idx5500 = shl nsw i64 %indvars.iv5063, 6
+  %124 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx5500
   %125 = load <16 x float>, ptr %124, align 64, !tbaa !33
   %126 = fsub fast <16 x float> %125, %94
   %127 = tail call fast noundef <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float> nofpclass(nan inf) %126, <16 x float> nofpclass(nan inf) %96, i32 4)
@@ -246,8 +246,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Softmax_x86_avx51215for
 
 .lr.ph4491:                                       ; preds = %.lr.ph4491.preheader, %.lr.ph4491
   %indvars.iv5068 = phi i64 [ 0, %.lr.ph4491.preheader ], [ %indvars.iv.next5069, %.lr.ph4491 ]
-  %.idx5202 = shl nsw i64 %indvars.iv5068, 6
-  %150 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx5202
+  %.idx5501 = shl nsw i64 %indvars.iv5068, 6
+  %150 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx5501
   %151 = load <16 x float>, ptr %150, align 64, !tbaa !33
   %152 = fmul fast <16 x float> %151, %122
   store <16 x float> %152, ptr %150, align 64, !tbaa !33
@@ -1438,9 +1438,9 @@ _ZN4ncnn3MatD2Ev.exit2114:                        ; preds = %1042, %1040, %1048,
   %1059 = phi i1 [ false, %.loopexit4253.thread ], [ %154, %_ZN4ncnn3MatD2Ev.exit2112 ], [ %154, %.loopexit4253 ]
   %1060 = icmp eq i32 %79, 1
   %or.cond14 = select i1 %1059, i1 %1060, i1 false
-  br i1 %or.cond14, label %.thread5204, label %1067
+  br i1 %or.cond14, label %.thread5503, label %1067
 
-.thread5204:                                      ; preds = %1057
+.thread5503:                                      ; preds = %1057
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %1061 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %1062 = load i32, ptr %1061, align 4, !tbaa !31
@@ -1455,7 +1455,7 @@ _ZN4ncnn3MatD2Ev.exit2114:                        ; preds = %1042, %1040, %1048,
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 3, ptr nonnull @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERKNS_6OptionE.omp_outlined, ptr nonnull %7, ptr nonnull %1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread5206
+  br label %.thread5505
 
 1067:                                             ; preds = %1057
   %1068 = icmp eq i32 %70, 3
@@ -2856,7 +2856,7 @@ _ZN4ncnn3MatD2Ev.exit2123:                        ; preds = %2053, %_ZN4ncnn3Mat
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %2035, label %.thread5206, label %5497
+  br i1 %2035, label %.thread5505, label %5497
 
 2068:                                             ; preds = %_ZN4ncnn3MatD2Ev.exit2121, %1984
   %.pn1898 = phi { ptr, i32 } [ %2010, %_ZN4ncnn3MatD2Ev.exit2121 ], [ %1985, %1984 ]
@@ -2904,7 +2904,7 @@ _ZN4ncnn3MatD2Ev.exit2124:                        ; preds = %2070, %2068, %2076,
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %5498
 
-.thread5206:                                      ; preds = %.thread5204, %_ZN4ncnn3MatD2Ev.exit2123
+.thread5505:                                      ; preds = %.thread5503, %_ZN4ncnn3MatD2Ev.exit2123
   br label %5497
 
 2085:                                             ; preds = %1961
@@ -2961,8 +2961,8 @@ _ZN4ncnn3MatD2Ev.exit2124:                        ; preds = %2070, %2068, %2076,
 .lr.ph4376:                                       ; preds = %.lr.ph4376.preheader, %.lr.ph4376
   %indvars.iv4992 = phi i64 [ 0, %.lr.ph4376.preheader ], [ %indvars.iv.next4993, %.lr.ph4376 ]
   %.017404374 = phi <8 x float> [ splat (float 0xC7EFFFFFE0000000), %.lr.ph4376.preheader ], [ %2110, %.lr.ph4376 ]
-  %.idx5197 = shl nsw i64 %indvars.iv4992, 5
-  %2108 = getelementptr inbounds nuw i8, ptr %2100, i64 %.idx5197
+  %.idx5496 = shl nsw i64 %indvars.iv4992, 5
+  %2108 = getelementptr inbounds nuw i8, ptr %2100, i64 %.idx5496
   %2109 = load <8 x float>, ptr %2108, align 32, !tbaa !33
   %2110 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> nofpclass(nan inf) %.017404374, <8 x float> nofpclass(nan inf) %2109)
   %indvars.iv.next4993 = add nuw nsw i64 %indvars.iv4992, 1
@@ -2983,8 +2983,8 @@ _ZN4ncnn3MatD2Ev.exit2124:                        ; preds = %2070, %2068, %2076,
 .lr.ph4382:                                       ; preds = %.lr.ph4382.preheader, %.lr.ph4382
   %indvars.iv4997 = phi i64 [ 0, %.lr.ph4382.preheader ], [ %indvars.iv.next4998, %.lr.ph4382 ]
   %.017424380 = phi <8 x float> [ zeroinitializer, %.lr.ph4382.preheader ], [ %2144, %.lr.ph4382 ]
-  %.idx5198 = shl nsw i64 %indvars.iv4997, 5
-  %2118 = getelementptr inbounds nuw i8, ptr %2100, i64 %.idx5198
+  %.idx5497 = shl nsw i64 %indvars.iv4997, 5
+  %2118 = getelementptr inbounds nuw i8, ptr %2100, i64 %.idx5497
   %2119 = load <8 x float>, ptr %2118, align 32, !tbaa !33
   %2120 = fsub fast <8 x float> %2119, %2107
   %2121 = tail call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> nofpclass(nan inf) %2120, <8 x float> splat (float 0x40561814A0000000))
@@ -3018,8 +3018,8 @@ _ZN4ncnn3MatD2Ev.exit2124:                        ; preds = %2070, %2068, %2076,
 
 .lr.ph4387:                                       ; preds = %.lr.ph4387.preheader, %.lr.ph4387
   %indvars.iv5002 = phi i64 [ 0, %.lr.ph4387.preheader ], [ %indvars.iv.next5003, %.lr.ph4387 ]
-  %.idx5199 = shl nsw i64 %indvars.iv5002, 5
-  %2145 = getelementptr inbounds nuw i8, ptr %2100, i64 %.idx5199
+  %.idx5498 = shl nsw i64 %indvars.iv5002, 5
+  %2145 = getelementptr inbounds nuw i8, ptr %2100, i64 %.idx5498
   %2146 = load <8 x float>, ptr %2145, align 32, !tbaa !33
   %2147 = fmul fast <8 x float> %2146, %2117
   store <8 x float> %2147, ptr %2145, align 32, !tbaa !33
@@ -3845,9 +3845,9 @@ _ZN4ncnn3MatD2Ev.exit2128:                        ; preds = %2680, %2678, %2686,
   %2697 = phi i1 [ false, %.loopexit4259.thread ], [ %2149, %_ZN4ncnn3MatD2Ev.exit2126 ], [ %2149, %.loopexit4259 ]
   %2698 = icmp eq i32 %79, 1
   %or.cond24 = select i1 %2697, i1 %2698, i1 false
-  br i1 %or.cond24, label %.thread5211, label %2705
+  br i1 %or.cond24, label %.thread5510, label %2705
 
-.thread5211:                                      ; preds = %2695
+.thread5510:                                      ; preds = %2695
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %2699 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %2700 = load i32, ptr %2699, align 4, !tbaa !31
@@ -3862,7 +3862,7 @@ _ZN4ncnn3MatD2Ev.exit2128:                        ; preds = %2680, %2678, %2686,
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 3, ptr nonnull @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERKNS_6OptionE.omp_outlined.6, ptr nonnull %23, ptr nonnull %1, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %.thread5214
+  br label %.thread5513
 
 2705:                                             ; preds = %2695
   %2706 = icmp eq i32 %70, 3
@@ -4898,7 +4898,7 @@ _ZN4ncnn3MatD2Ev.exit2137:                        ; preds = %3334, %_ZN4ncnn3Mat
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  br i1 %3316, label %.thread5214, label %5497
+  br i1 %3316, label %.thread5513, label %5497
 
 3349:                                             ; preds = %_ZN4ncnn3MatD2Ev.exit2135, %3265
   %.pn1882 = phi { ptr, i32 } [ %3291, %_ZN4ncnn3MatD2Ev.exit2135 ], [ %3266, %3265 ]
@@ -4946,7 +4946,7 @@ _ZN4ncnn3MatD2Ev.exit2138:                        ; preds = %3351, %3349, %3357,
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %5498
 
-.thread5214:                                      ; preds = %.thread5211, %_ZN4ncnn3MatD2Ev.exit2137
+.thread5513:                                      ; preds = %.thread5510, %_ZN4ncnn3MatD2Ev.exit2137
   br label %5497
 
 3366:                                             ; preds = %3242
@@ -5021,8 +5021,8 @@ _ZN4ncnn3MatD2Ev.exit2138:                        ; preds = %3351, %3349, %3357,
 .lr.ph4278:                                       ; preds = %.lr.ph4278.preheader, %.lr.ph4278
   %indvars.iv4931 = phi i64 [ 0, %.lr.ph4278.preheader ], [ %indvars.iv.next4932, %.lr.ph4278 ]
   %.017974276 = phi <4 x float> [ zeroinitializer, %.lr.ph4278.preheader ], [ %3423, %.lr.ph4278 ]
-  %.idx5195 = shl nsw i64 %indvars.iv4931, 4
-  %3395 = getelementptr inbounds nuw i8, ptr %3381, i64 %.idx5195
+  %.idx5494 = shl nsw i64 %indvars.iv4931, 4
+  %3395 = getelementptr inbounds nuw i8, ptr %3381, i64 %.idx5494
   %3396 = load <4 x float>, ptr %3395, align 16, !tbaa !33
   %3397 = fsub fast <4 x float> %3396, %3386
   %3398 = tail call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %3397, <4 x float> splat (float 0x40561814A0000000))
@@ -5058,8 +5058,8 @@ _ZN4ncnn3MatD2Ev.exit2138:                        ; preds = %3351, %3349, %3357,
 
 .lr.ph4283:                                       ; preds = %.lr.ph4283.preheader, %.lr.ph4283
   %indvars.iv4936 = phi i64 [ 0, %.lr.ph4283.preheader ], [ %indvars.iv.next4937, %.lr.ph4283 ]
-  %.idx5196 = shl nsw i64 %indvars.iv4936, 4
-  %3424 = getelementptr inbounds nuw i8, ptr %3381, i64 %.idx5196
+  %.idx5495 = shl nsw i64 %indvars.iv4936, 4
+  %3424 = getelementptr inbounds nuw i8, ptr %3381, i64 %.idx5495
   %3425 = load <4 x float>, ptr %3424, align 16, !tbaa !33
   %3426 = fmul fast <4 x float> %3425, %3394
   store <4 x float> %3426, ptr %3424, align 16, !tbaa !33
@@ -5717,9 +5717,9 @@ _ZN4ncnn3MatD2Ev.exit2142:                        ; preds = %3795, %3793, %3801,
   %3812 = phi i1 [ false, %.loopexit4265.thread ], [ %3428, %_ZN4ncnn3MatD2Ev.exit2140 ], [ %3428, %.loopexit4265 ]
   %3813 = icmp eq i32 %79, 1
   %or.cond34 = select i1 %3812, i1 %3813, i1 false
-  br i1 %or.cond34, label %.thread5219, label %3820
+  br i1 %or.cond34, label %.thread5518, label %3820
 
-.thread5219:                                      ; preds = %3810
+.thread5518:                                      ; preds = %3810
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %3814 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %3815 = load i32, ptr %3814, align 4, !tbaa !31
@@ -5734,7 +5734,7 @@ _ZN4ncnn3MatD2Ev.exit2142:                        ; preds = %3795, %3793, %3801,
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 3, ptr nonnull @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERKNS_6OptionE.omp_outlined.12, ptr nonnull %39, ptr nonnull %1, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  br label %.thread5222
+  br label %.thread5521
 
 3820:                                             ; preds = %3810
   %3821 = icmp eq i32 %70, 3
@@ -6602,7 +6602,7 @@ _ZN4ncnn3MatD2Ev.exit2151:                        ; preds = %4285, %_ZN4ncnn3Mat
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
-  br i1 %4267, label %.thread5222, label %5497
+  br i1 %4267, label %.thread5521, label %5497
 
 4300:                                             ; preds = %_ZN4ncnn3MatD2Ev.exit2149, %4216
   %.pn1866 = phi { ptr, i32 } [ %4242, %_ZN4ncnn3MatD2Ev.exit2149 ], [ %4217, %4216 ]
@@ -6650,7 +6650,7 @@ _ZN4ncnn3MatD2Ev.exit2152:                        ; preds = %4302, %4300, %4308,
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %5498
 
-.thread5222:                                      ; preds = %.thread5219, %_ZN4ncnn3MatD2Ev.exit2151
+.thread5521:                                      ; preds = %.thread5518, %_ZN4ncnn3MatD2Ev.exit2151
   br label %5497
 
 4317:                                             ; preds = %4193
@@ -7010,13 +7010,13 @@ _ZN4ncnn3MatD2Ev.exit2152:                        ; preds = %4302, %4300, %4308,
   %4532 = fadd fast <4 x float> %4531, %.01756.lcssa
   %shift = shufflevector <4 x float> %4451, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd fast <4 x float> %4451, %shift
-  %shift5390 = shufflevector <4 x float> %4492, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop5391 = fadd fast <4 x float> %foldExtExtBinop, %shift5390
-  %foldExtExtBinop5393 = fadd fast <4 x float> %foldExtExtBinop5391, %4492
-  %shift5395 = shufflevector <4 x float> %4532, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop5396 = fadd fast <4 x float> %foldExtExtBinop5393, %shift5395
-  %foldExtExtBinop5398 = fadd fast <4 x float> %foldExtExtBinop5396, %4532
-  %4533 = extractelement <4 x float> %foldExtExtBinop5398, i64 0
+  %shift5689 = shufflevector <4 x float> %4492, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop5690 = fadd fast <4 x float> %foldExtExtBinop, %shift5689
+  %foldExtExtBinop5692 = fadd fast <4 x float> %foldExtExtBinop5690, %4492
+  %shift5694 = shufflevector <4 x float> %4532, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop5695 = fadd fast <4 x float> %foldExtExtBinop5692, %shift5694
+  %foldExtExtBinop5697 = fadd fast <4 x float> %foldExtExtBinop5695, %4532
+  %4533 = extractelement <4 x float> %foldExtExtBinop5697, i64 0
   %4534 = icmp slt i32 %.21768.lcssa, %4331
   br i1 %4534, label %.lr.ph4632.preheader, label %._crit_edge4633
 
@@ -7848,9 +7848,9 @@ _ZN4ncnn3MatD2Ev.exit2156:                        ; preds = %4926, %4924, %4932,
   %4943 = phi i1 [ false, %.loopexit.thread ], [ %4585, %_ZN4ncnn3MatD2Ev.exit2154 ], [ %4585, %.loopexit ]
   %4944 = icmp eq i32 %79, 1
   %or.cond44 = select i1 %4943, i1 %4944, i1 false
-  br i1 %or.cond44, label %.thread5225, label %4951
+  br i1 %or.cond44, label %.thread5524, label %4951
 
-.thread5225:                                      ; preds = %4941
+.thread5524:                                      ; preds = %4941
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %4945 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %4946 = load i32, ptr %4945, align 4, !tbaa !31
@@ -7865,7 +7865,7 @@ _ZN4ncnn3MatD2Ev.exit2156:                        ; preds = %4926, %4924, %4932,
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 3, ptr nonnull @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERKNS_6OptionE.omp_outlined.18, ptr nonnull %55, ptr nonnull %1, ptr nonnull %54)
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
-  br label %.thread5228
+  br label %.thread5527
 
 4951:                                             ; preds = %4941
   %4952 = icmp eq i32 %70, 3
@@ -8618,7 +8618,7 @@ _ZN4ncnn3MatD2Ev.exit2165:                        ; preds = %5262, %_ZN4ncnn3Mat
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
-  br i1 %5244, label %.thread5228, label %5497
+  br i1 %5244, label %.thread5527, label %5497
 
 5277:                                             ; preds = %_ZN4ncnn3MatD2Ev.exit2163, %5193
   %.pn1854 = phi { ptr, i32 } [ %5219, %_ZN4ncnn3MatD2Ev.exit2163 ], [ %5194, %5193 ]
@@ -8666,7 +8666,7 @@ _ZN4ncnn3MatD2Ev.exit2166:                        ; preds = %5279, %5277, %5285,
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %5498
 
-.thread5228:                                      ; preds = %.thread5225, %_ZN4ncnn3MatD2Ev.exit2165
+.thread5527:                                      ; preds = %.thread5524, %_ZN4ncnn3MatD2Ev.exit2165
   br label %5497
 
 5294:                                             ; preds = %5170
@@ -9220,8 +9220,8 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %5482, %.critedge192
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %5497
 
-5497:                                             ; preds = %.thread5228, %.thread5222, %.thread5214, %.thread5206, %5294, %5296, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit2100, %_ZN4ncnn3MatD2Ev.exit2101, %4317, %4319, %_ZN4ncnn3MatD2Ev.exit2102, %_ZN4ncnn3MatD2Ev.exit2103, %_ZN4ncnn3MatD2Ev.exit2104, %3366, %3368, %_ZN4ncnn3MatD2Ev.exit2105, %_ZN4ncnn3MatD2Ev.exit2106, %_ZN4ncnn3MatD2Ev.exit2107, %2085, %2087, %_ZN4ncnn3MatD2Ev.exit2108, %_ZN4ncnn3MatD2Ev.exit2109, %_ZN4ncnn3MatD2Ev.exit2110, %_ZN4ncnn3MatD2Ev.exit2112, %_ZN4ncnn3MatD2Ev.exit2118, %_ZN4ncnn3MatD2Ev.exit2123, %_ZN4ncnn3MatD2Ev.exit2126, %_ZN4ncnn3MatD2Ev.exit2132, %_ZN4ncnn3MatD2Ev.exit2137, %_ZN4ncnn3MatD2Ev.exit2140, %_ZN4ncnn3MatD2Ev.exit2146, %_ZN4ncnn3MatD2Ev.exit2151, %_ZN4ncnn3MatD2Ev.exit2154, %_ZN4ncnn3MatD2Ev.exit2160, %_ZN4ncnn3MatD2Ev.exit2165
-  %.3 = phi i32 [ -100, %_ZN4ncnn3MatD2Ev.exit2123 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2118 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2112 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2137 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2132 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2126 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2151 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2146 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2140 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2165 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2160 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2154 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2110 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2109 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2108 ], [ 0, %2087 ], [ 0, %2085 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2107 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2106 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2105 ], [ 0, %3368 ], [ 0, %3366 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2104 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2103 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2102 ], [ 0, %4319 ], [ 0, %4317 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2101 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2100 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ 0, %5296 ], [ 0, %5294 ], [ 0, %.thread5206 ], [ 0, %.thread5214 ], [ 0, %.thread5222 ], [ 0, %.thread5228 ]
+5497:                                             ; preds = %.thread5527, %.thread5521, %.thread5513, %.thread5505, %5294, %5296, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit2100, %_ZN4ncnn3MatD2Ev.exit2101, %4317, %4319, %_ZN4ncnn3MatD2Ev.exit2102, %_ZN4ncnn3MatD2Ev.exit2103, %_ZN4ncnn3MatD2Ev.exit2104, %3366, %3368, %_ZN4ncnn3MatD2Ev.exit2105, %_ZN4ncnn3MatD2Ev.exit2106, %_ZN4ncnn3MatD2Ev.exit2107, %2085, %2087, %_ZN4ncnn3MatD2Ev.exit2108, %_ZN4ncnn3MatD2Ev.exit2109, %_ZN4ncnn3MatD2Ev.exit2110, %_ZN4ncnn3MatD2Ev.exit2112, %_ZN4ncnn3MatD2Ev.exit2118, %_ZN4ncnn3MatD2Ev.exit2123, %_ZN4ncnn3MatD2Ev.exit2126, %_ZN4ncnn3MatD2Ev.exit2132, %_ZN4ncnn3MatD2Ev.exit2137, %_ZN4ncnn3MatD2Ev.exit2140, %_ZN4ncnn3MatD2Ev.exit2146, %_ZN4ncnn3MatD2Ev.exit2151, %_ZN4ncnn3MatD2Ev.exit2154, %_ZN4ncnn3MatD2Ev.exit2160, %_ZN4ncnn3MatD2Ev.exit2165
+  %.3 = phi i32 [ -100, %_ZN4ncnn3MatD2Ev.exit2123 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2118 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2112 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2137 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2132 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2126 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2151 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2146 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2140 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2165 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2160 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2154 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2110 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2109 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2108 ], [ 0, %2087 ], [ 0, %2085 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2107 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2106 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2105 ], [ 0, %3368 ], [ 0, %3366 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2104 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2103 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2102 ], [ 0, %4319 ], [ 0, %4317 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2101 ], [ -100, %_ZN4ncnn3MatD2Ev.exit2100 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ 0, %5296 ], [ 0, %5294 ], [ 0, %.thread5505 ], [ 0, %.thread5513 ], [ 0, %.thread5521 ], [ 0, %.thread5527 ]
   ret i32 %.3
 
 5498:                                             ; preds = %_ZN4ncnn3MatD2Ev.exit2166, %_ZN4ncnn3MatD2Ev.exit2162, %_ZN4ncnn3MatD2Ev.exit2156, %_ZN4ncnn3MatD2Ev.exit2152, %_ZN4ncnn3MatD2Ev.exit2148, %_ZN4ncnn3MatD2Ev.exit2142, %_ZN4ncnn3MatD2Ev.exit2138, %_ZN4ncnn3MatD2Ev.exit2134, %_ZN4ncnn3MatD2Ev.exit2128, %_ZN4ncnn3MatD2Ev.exit2124, %_ZN4ncnn3MatD2Ev.exit2120, %_ZN4ncnn3MatD2Ev.exit2114
@@ -9336,8 +9336,8 @@ define internal void @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERK
 .lr.ph51:                                         ; preds = %.lr.ph, %.lr.ph51
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.lr.ph51 ], [ 0, %.lr.ph ]
   %.04249 = phi <16 x float> [ %78, %.lr.ph51 ], [ zeroinitializer, %.lr.ph ]
-  %.idx72 = shl nsw i64 %indvars.iv62, 6
-  %53 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx72
+  %.idx76 = shl nsw i64 %indvars.iv62, 6
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx76
   %54 = load <16 x float>, ptr %53, align 64, !tbaa !33
   %55 = fsub fast <16 x float> %54, %50
   %56 = call fast noundef <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float> nofpclass(nan inf) %55, <16 x float> nofpclass(nan inf) %21, i32 4)
@@ -9379,8 +9379,8 @@ define internal void @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERK
 
 .lr.ph54:                                         ; preds = %.lr.ph54.preheader, %.lr.ph54
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %.lr.ph54 ], [ 0, %.lr.ph54.preheader ]
-  %.idx73 = shl nsw i64 %indvars.iv65, 6
-  %83 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx73
+  %.idx77 = shl nsw i64 %indvars.iv65, 6
+  %83 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx77
   %84 = load <16 x float>, ptr %83, align 64, !tbaa !33
   %85 = fmul fast <16 x float> %84, %52
   store <16 x float> %85, ptr %83, align 64, !tbaa !33
@@ -10076,8 +10076,8 @@ define internal void @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERK
 .lr.ph67:                                         ; preds = %.lr.ph, %.lr.ph67
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %.lr.ph67 ], [ 0, %.lr.ph ]
   %.04665 = phi <16 x float> [ %82, %.lr.ph67 ], [ zeroinitializer, %.lr.ph ]
-  %.idx93 = shl nsw i64 %indvars.iv83, 6
-  %57 = getelementptr inbounds nuw i8, ptr %.04773, i64 %.idx93
+  %.idx101 = shl nsw i64 %indvars.iv83, 6
+  %57 = getelementptr inbounds nuw i8, ptr %.04773, i64 %.idx101
   %58 = load <16 x float>, ptr %57, align 64, !tbaa !33
   %59 = fsub fast <16 x float> %58, %54
   %60 = call fast noundef <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float> nofpclass(nan inf) %59, <16 x float> nofpclass(nan inf) %22, i32 4)
@@ -10122,8 +10122,8 @@ define internal void @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERK
 
 .lr.ph70:                                         ; preds = %.lr.ph70.preheader, %.lr.ph70
   %indvars.iv86 = phi i64 [ %indvars.iv.next87, %.lr.ph70 ], [ 0, %.lr.ph70.preheader ]
-  %.idx94 = shl nsw i64 %indvars.iv86, 6
-  %93 = getelementptr inbounds nuw i8, ptr %.04773, i64 %.idx94
+  %.idx102 = shl nsw i64 %indvars.iv86, 6
+  %93 = getelementptr inbounds nuw i8, ptr %.04773, i64 %.idx102
   %94 = load <16 x float>, ptr %93, align 64, !tbaa !33
   %95 = fmul fast <16 x float> %94, %56
   store <16 x float> %95, ptr %93, align 64, !tbaa !33
@@ -10221,8 +10221,8 @@ define internal void @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERK
 .lr.ph81:                                         ; preds = %.lr.ph, %.lr.ph81
   %indvars.iv92 = phi i64 [ %indvars.iv.next93, %.lr.ph81 ], [ 0, %.lr.ph ]
   %.04279 = phi <8 x float> [ %63, %.lr.ph81 ], [ zeroinitializer, %.lr.ph ]
-  %.idx102 = shl nsw i64 %indvars.iv92, 5
-  %37 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx102
+  %.idx106 = shl nsw i64 %indvars.iv92, 5
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx106
   %38 = load <8 x float>, ptr %37, align 32, !tbaa !33
   %39 = fsub fast <8 x float> %38, %34
   %40 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> nofpclass(nan inf) %39, <8 x float> splat (float 0x40561814A0000000))
@@ -10265,8 +10265,8 @@ define internal void @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERK
 
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %.lr.ph84
   %indvars.iv95 = phi i64 [ %indvars.iv.next96, %.lr.ph84 ], [ 0, %.lr.ph84.preheader ]
-  %.idx103 = shl nsw i64 %indvars.iv95, 5
-  %68 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx103
+  %.idx107 = shl nsw i64 %indvars.iv95, 5
+  %68 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx107
   %69 = load <8 x float>, ptr %68, align 32, !tbaa !33
   %70 = fmul fast <8 x float> %69, %36
   store <8 x float> %70, ptr %68, align 32, !tbaa !33
@@ -10902,8 +10902,8 @@ define internal void @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERK
 .lr.ph97:                                         ; preds = %.lr.ph, %.lr.ph97
   %indvars.iv113 = phi i64 [ %indvars.iv.next114, %.lr.ph97 ], [ 0, %.lr.ph ]
   %.04695 = phi <8 x float> [ %67, %.lr.ph97 ], [ zeroinitializer, %.lr.ph ]
-  %.idx123 = shl nsw i64 %indvars.iv113, 5
-  %41 = getelementptr inbounds nuw i8, ptr %.047103, i64 %.idx123
+  %.idx131 = shl nsw i64 %indvars.iv113, 5
+  %41 = getelementptr inbounds nuw i8, ptr %.047103, i64 %.idx131
   %42 = load <8 x float>, ptr %41, align 32, !tbaa !33
   %43 = fsub fast <8 x float> %42, %38
   %44 = call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> nofpclass(nan inf) %43, <8 x float> splat (float 0x40561814A0000000))
@@ -10949,8 +10949,8 @@ define internal void @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERK
 
 .lr.ph100:                                        ; preds = %.lr.ph100.preheader, %.lr.ph100
   %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.lr.ph100 ], [ 0, %.lr.ph100.preheader ]
-  %.idx124 = shl nsw i64 %indvars.iv116, 5
-  %78 = getelementptr inbounds nuw i8, ptr %.047103, i64 %.idx124
+  %.idx132 = shl nsw i64 %indvars.iv116, 5
+  %78 = getelementptr inbounds nuw i8, ptr %.047103, i64 %.idx132
   %79 = load <8 x float>, ptr %78, align 32, !tbaa !33
   %80 = fmul fast <8 x float> %79, %40
   store <8 x float> %80, ptr %78, align 32, !tbaa !33
@@ -11048,8 +11048,8 @@ define internal void @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERK
 .lr.ph78:                                         ; preds = %.lr.ph, %.lr.ph78
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %.lr.ph78 ], [ 0, %.lr.ph ]
   %.04276 = phi <4 x float> [ %65, %.lr.ph78 ], [ zeroinitializer, %.lr.ph ]
-  %.idx99 = shl nsw i64 %indvars.iv89, 4
-  %37 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx99
+  %.idx103 = shl nsw i64 %indvars.iv89, 4
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx103
   %38 = load <4 x float>, ptr %37, align 16, !tbaa !33
   %39 = fsub fast <4 x float> %38, %34
   %40 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %39, <4 x float> splat (float 0x40561814A0000000))
@@ -11094,8 +11094,8 @@ define internal void @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERK
 
 .lr.ph81:                                         ; preds = %.lr.ph81.preheader, %.lr.ph81
   %indvars.iv92 = phi i64 [ %indvars.iv.next93, %.lr.ph81 ], [ 0, %.lr.ph81.preheader ]
-  %.idx100 = shl nsw i64 %indvars.iv92, 4
-  %70 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx100
+  %.idx104 = shl nsw i64 %indvars.iv92, 4
+  %70 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx104
   %71 = load <4 x float>, ptr %70, align 16, !tbaa !33
   %72 = fmul fast <4 x float> %71, %36
   store <4 x float> %72, ptr %70, align 16, !tbaa !33
@@ -11733,8 +11733,8 @@ define internal void @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERK
 .lr.ph94:                                         ; preds = %.lr.ph, %.lr.ph94
   %indvars.iv110 = phi i64 [ %indvars.iv.next111, %.lr.ph94 ], [ 0, %.lr.ph ]
   %.04692 = phi <4 x float> [ %69, %.lr.ph94 ], [ zeroinitializer, %.lr.ph ]
-  %.idx120 = shl nsw i64 %indvars.iv110, 4
-  %41 = getelementptr inbounds nuw i8, ptr %.047100, i64 %.idx120
+  %.idx128 = shl nsw i64 %indvars.iv110, 4
+  %41 = getelementptr inbounds nuw i8, ptr %.047100, i64 %.idx128
   %42 = load <4 x float>, ptr %41, align 16, !tbaa !33
   %43 = fsub fast <4 x float> %42, %38
   %44 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %43, <4 x float> splat (float 0x40561814A0000000))
@@ -11782,8 +11782,8 @@ define internal void @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERK
 
 .lr.ph97:                                         ; preds = %.lr.ph97.preheader, %.lr.ph97
   %indvars.iv113 = phi i64 [ %indvars.iv.next114, %.lr.ph97 ], [ 0, %.lr.ph97.preheader ]
-  %.idx121 = shl nsw i64 %indvars.iv113, 4
-  %80 = getelementptr inbounds nuw i8, ptr %.047100, i64 %.idx121
+  %.idx129 = shl nsw i64 %indvars.iv113, 4
+  %80 = getelementptr inbounds nuw i8, ptr %.047100, i64 %.idx129
   %81 = load <4 x float>, ptr %80, align 16, !tbaa !33
   %82 = fmul fast <4 x float> %81, %40
   store <4 x float> %82, ptr %80, align 16, !tbaa !33
@@ -12183,13 +12183,13 @@ define internal void @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERK
   %235 = fadd fast <4 x float> %234, %.0135.lcssa
   %shift = shufflevector <4 x float> %150, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd fast <4 x float> %150, %shift
-  %shift381 = shufflevector <4 x float> %193, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop382 = fadd fast <4 x float> %foldExtExtBinop, %shift381
-  %foldExtExtBinop384 = fadd fast <4 x float> %foldExtExtBinop382, %193
-  %shift386 = shufflevector <4 x float> %235, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop387 = fadd fast <4 x float> %foldExtExtBinop384, %shift386
-  %foldExtExtBinop389 = fadd fast <4 x float> %foldExtExtBinop387, %235
-  %236 = extractelement <4 x float> %foldExtExtBinop389, i64 0
+  %shift395 = shufflevector <4 x float> %193, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop396 = fadd fast <4 x float> %foldExtExtBinop, %shift395
+  %foldExtExtBinop398 = fadd fast <4 x float> %foldExtExtBinop396, %193
+  %shift400 = shufflevector <4 x float> %235, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop401 = fadd fast <4 x float> %foldExtExtBinop398, %shift400
+  %foldExtExtBinop403 = fadd fast <4 x float> %foldExtExtBinop401, %235
+  %236 = extractelement <4 x float> %foldExtExtBinop403, i64 0
   %237 = icmp slt i32 %.2133.lcssa, %233
   br i1 %237, label %.lr.ph274.preheader, label %._crit_edge275
 
@@ -13850,13 +13850,13 @@ define internal void @_ZNK4ncnn18Softmax_x86_avx51215forward_inplaceERNS_3MatERK
   %239 = fadd fast <4 x float> %238, %.0136.lcssa
   %shift = shufflevector <4 x float> %154, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd fast <4 x float> %154, %shift
-  %shift401 = shufflevector <4 x float> %197, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop402 = fadd fast <4 x float> %foldExtExtBinop, %shift401
-  %foldExtExtBinop404 = fadd fast <4 x float> %foldExtExtBinop402, %197
-  %shift406 = shufflevector <4 x float> %239, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop407 = fadd fast <4 x float> %foldExtExtBinop404, %shift406
-  %foldExtExtBinop409 = fadd fast <4 x float> %foldExtExtBinop407, %239
-  %240 = extractelement <4 x float> %foldExtExtBinop409, i64 0
+  %shift419 = shufflevector <4 x float> %197, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop420 = fadd fast <4 x float> %foldExtExtBinop, %shift419
+  %foldExtExtBinop422 = fadd fast <4 x float> %foldExtExtBinop420, %197
+  %shift424 = shufflevector <4 x float> %239, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop425 = fadd fast <4 x float> %foldExtExtBinop422, %shift424
+  %foldExtExtBinop427 = fadd fast <4 x float> %foldExtExtBinop425, %239
+  %240 = extractelement <4 x float> %foldExtExtBinop427, i64 0
   %241 = icmp slt i32 %.2141.lcssa, %237
   br i1 %241, label %.lr.ph290.preheader, label %._crit_edge291
 

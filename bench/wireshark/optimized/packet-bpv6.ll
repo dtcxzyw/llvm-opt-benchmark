@@ -2344,9 +2344,9 @@ evaluate_sdnv.exit.i55:                           ; preds = %947, %946, %933
   store i64 0, ptr %25, align 8
   %974 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef %970, i32 noundef 10, ptr noundef nonnull %25, i32 noundef 16)
   %975 = icmp eq i32 %974, 0
-  br i1 %975, label %evaluate_sdnv.exit404.thread581.i, label %976
+  br i1 %975, label %evaluate_sdnv.exit404.thread615.i, label %976
 
-evaluate_sdnv.exit404.thread581.i:                ; preds = %973
+evaluate_sdnv.exit404.thread615.i:                ; preds = %973
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %.loopexit536.i
 
@@ -2369,7 +2369,7 @@ evaluate_sdnv.exit404.i:                          ; preds = %976
   br i1 %.not.i57, label %.loopexit536.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %evaluate_sdnv.exit404.i, %evaluate_sdnv.exit404.thread.i
-  %.0.i403580.i = phi i32 [ 2147483647, %evaluate_sdnv.exit404.thread.i ], [ %981, %evaluate_sdnv.exit404.i ]
+  %.0.i403614.i = phi i32 [ 2147483647, %evaluate_sdnv.exit404.thread.i ], [ %981, %evaluate_sdnv.exit404.i ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %997, %.lr.ph.preheader.i
@@ -2423,12 +2423,12 @@ evaluate_sdnv.exit408.i:                          ; preds = %988
   %998 = add i32 %991, %989
   %999 = add i32 %991, %990
   %1000 = add nuw nsw i32 %.0373548.i, 1
-  %exitcond.not.i = icmp eq i32 %1000, %.0.i403580.i
+  %exitcond.not.i = icmp eq i32 %1000, %.0.i403614.i
   br i1 %exitcond.not.i, label %.loopexit536.i, label %.lr.ph.i, !llvm.loop !8
 
-.loopexit536.i:                                   ; preds = %997, %evaluate_sdnv.exit408.i, %evaluate_sdnv.exit406.i, %evaluate_sdnv.exit404.i, %evaluate_sdnv.exit404.thread581.i, %evaluate_sdnv.exit.i55
-  %.0369.i = phi i32 [ %971, %evaluate_sdnv.exit.i55 ], [ %.1370549.i, %evaluate_sdnv.exit406.i ], [ %990, %evaluate_sdnv.exit408.i ], [ %980, %evaluate_sdnv.exit404.i ], [ %971, %evaluate_sdnv.exit404.thread581.i ], [ %999, %997 ]
-  %.0356.i = phi i32 [ %970, %evaluate_sdnv.exit.i55 ], [ %.1357550.i, %evaluate_sdnv.exit406.i ], [ %989, %evaluate_sdnv.exit408.i ], [ %979, %evaluate_sdnv.exit404.i ], [ %970, %evaluate_sdnv.exit404.thread581.i ], [ %998, %997 ]
+.loopexit536.i:                                   ; preds = %997, %evaluate_sdnv.exit408.i, %evaluate_sdnv.exit406.i, %evaluate_sdnv.exit404.i, %evaluate_sdnv.exit404.thread615.i, %evaluate_sdnv.exit.i55
+  %.0369.i = phi i32 [ %971, %evaluate_sdnv.exit.i55 ], [ %.1370549.i, %evaluate_sdnv.exit406.i ], [ %990, %evaluate_sdnv.exit408.i ], [ %980, %evaluate_sdnv.exit404.i ], [ %971, %evaluate_sdnv.exit404.thread615.i ], [ %999, %997 ]
+  %.0356.i = phi i32 [ %970, %evaluate_sdnv.exit.i55 ], [ %.1357550.i, %evaluate_sdnv.exit406.i ], [ %989, %evaluate_sdnv.exit408.i ], [ %979, %evaluate_sdnv.exit404.i ], [ %970, %evaluate_sdnv.exit404.thread615.i ], [ %998, %997 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 0, ptr %22, align 8
   %1001 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef %.0356.i, i32 noundef 10, ptr noundef nonnull %22, i32 noundef 16)

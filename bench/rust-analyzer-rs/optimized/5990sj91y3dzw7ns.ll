@@ -3994,7 +3994,7 @@ _ZN3std7process7Command11current_dir17h7a15ac82f1872ebdE.exit60.i: ; preds = %.n
           cleanup
   br label %.body400
 
-.loopexit.split-lp1006:                           ; preds = %.invoke1038
+.loopexit.split-lp1006:                           ; preds = %.invoke1095
   %lpad.loopexit.split-lp1008 = landingpad { ptr, i32 }
           cleanup
   br label %.body400
@@ -4076,13 +4076,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(ptr nonnull %109)
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
   %.not970 = icmp eq i64 %564, 0
-  br i1 %.not970, label %.invoke1038, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
+  br i1 %.not970, label %.invoke1095, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
-.invoke1038:                                      ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit", %559
+.invoke1095:                                      ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit", %559
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.2fcc40fc2ef42a1851e1e137bb29833c.78, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2fcc40fc2ef42a1851e1e137bb29833c.94) #22
-          to label %.cont1039 unwind label %.loopexit.split-lp1006
+          to label %.cont1096 unwind label %.loopexit.split-lp1006
 
-.cont1039:                                        ; preds = %.invoke1038
+.cont1096:                                        ; preds = %.invoke1095
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %559
@@ -4099,7 +4099,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   store i64 0, ptr %204, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %106)
   %.not971 = icmp eq i64 %564, 1
-  br i1 %.not971, label %.invoke1038, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit409"
+  br i1 %.not971, label %.invoke1095, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit409"
 
 569:                                              ; preds = %753, %713
   unreachable
@@ -4217,7 +4217,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit412
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
   call void @llvm.lifetime.start.p0(ptr nonnull %99)
   %.not972 = icmp eq i64 %596, 0
-  br i1 %.not972, label %.invoke1040, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit419"
+  br i1 %.not972, label %.invoke1097, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit419"
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit419": ; preds = %591
   store ptr %594, ptr %99, align 8
@@ -4233,13 +4233,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit412
   store i64 0, ptr %213, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %97)
   %.not973 = icmp eq i64 %596, 1
-  br i1 %.not973, label %.invoke1040, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit425"
+  br i1 %.not973, label %.invoke1097, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit425"
 
-.invoke1040:                                      ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit419", %591
+.invoke1097:                                      ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit419", %591
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.2fcc40fc2ef42a1851e1e137bb29833c.78, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2fcc40fc2ef42a1851e1e137bb29833c.98) #22
-          to label %.cont1041 unwind label %.loopexit.split-lp1011
+          to label %.cont1098 unwind label %.loopexit.split-lp1011
 
-.cont1041:                                        ; preds = %.invoke1040
+.cont1098:                                        ; preds = %.invoke1097
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit425": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit419"
@@ -4320,7 +4320,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit412
           cleanup
   br label %614
 
-.loopexit.split-lp1011:                           ; preds = %.invoke1040
+.loopexit.split-lp1011:                           ; preds = %.invoke1097
   %lpad.loopexit.split-lp1013 = landingpad { ptr, i32 }
           cleanup
   br label %614
@@ -4960,7 +4960,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit506
           cleanup
   br label %766
 
-.loopexit.split-lp1016:                           ; preds = %.invoke1042
+.loopexit.split-lp1016:                           ; preds = %.invoke1099
   %lpad.loopexit.split-lp1018 = landingpad { ptr, i32 }
           cleanup
   br label %766
@@ -5040,13 +5040,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit518
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
   %.not976 = icmp eq i64 %789, 0
-  br i1 %.not976, label %.invoke1042, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit531"
+  br i1 %.not976, label %.invoke1099, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit531"
 
-.invoke1042:                                      ; preds = %794, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit531", %784
+.invoke1099:                                      ; preds = %794, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit531", %784
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.2fcc40fc2ef42a1851e1e137bb29833c.78, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2fcc40fc2ef42a1851e1e137bb29833c.117) #22
-          to label %.cont1043 unwind label %.loopexit.split-lp1016
+          to label %.cont1100 unwind label %.loopexit.split-lp1016
 
-.cont1043:                                        ; preds = %.invoke1042
+.cont1100:                                        ; preds = %.invoke1099
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit531": ; preds = %784
@@ -5063,7 +5063,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit518
   store i64 0, ptr %238, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %73)
   %.not977 = icmp eq i64 %789, 1
-  br i1 %.not977, label %.invoke1042, label %794
+  br i1 %.not977, label %.invoke1099, label %794
 
 794:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit531"
   store ptr %787, ptr %73, align 8
@@ -5073,7 +5073,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit518
   store i64 1, ptr %.sroa.8723.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
   %795 = icmp ugt i64 %789, 2
-  br i1 %795, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit543", label %.invoke1042
+  br i1 %795, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit543", label %.invoke1099
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit543": ; preds = %794
   store ptr %787, ptr %72, align 8
@@ -5431,7 +5431,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit554
   call void @llvm.lifetime.start.p0(ptr nonnull %70)
   call void @llvm.lifetime.start.p0(ptr nonnull %69)
   %.not978 = icmp eq i64 %897, 0
-  br i1 %.not978, label %.invoke1044, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit562"
+  br i1 %.not978, label %.invoke1101, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit562"
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit562": ; preds = %892
   store ptr %895, ptr %69, align 8
@@ -5447,7 +5447,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit554
   store i64 0, ptr %262, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
   %.not979 = icmp eq i64 %897, 1
-  br i1 %.not979, label %.invoke1044, label %902
+  br i1 %.not979, label %.invoke1101, label %902
 
 902:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit562"
   store ptr %895, ptr %67, align 8
@@ -5457,13 +5457,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit554
   store i64 1, ptr %.sroa.8758.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   %903 = icmp ugt i64 %897, 2
-  br i1 %903, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit574", label %.invoke1044
+  br i1 %903, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit574", label %.invoke1101
 
-.invoke1044:                                      ; preds = %902, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit562", %892
+.invoke1101:                                      ; preds = %902, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit562", %892
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.2fcc40fc2ef42a1851e1e137bb29833c.78, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2fcc40fc2ef42a1851e1e137bb29833c.120) #22
-          to label %.cont1045 unwind label %.loopexit.split-lp1021
+          to label %.cont1102 unwind label %.loopexit.split-lp1021
 
-.cont1045:                                        ; preds = %.invoke1044
+.cont1102:                                        ; preds = %.invoke1101
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit574": ; preds = %902
@@ -5526,7 +5526,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit554
           cleanup
   br label %912
 
-.loopexit.split-lp1021:                           ; preds = %.invoke1044
+.loopexit.split-lp1021:                           ; preds = %.invoke1101
   %lpad.loopexit.split-lp1023 = landingpad { ptr, i32 }
           cleanup
   br label %912
@@ -5576,8 +5576,8 @@ define internal fastcc void @_ZN8flycheck13FlycheckActor20cancel_check_process17
   %.sroa.5 = alloca [18 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %.sroa.0.0.copyload = load i64, ptr %0, align 8
-  %.sroa.5.0..sroa_idx79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(144) %.sroa.5.0..sroa_idx79, i64 144, i1 false)
+  %.sroa.5.0..sroa_idx81 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(144) %.sroa.5.0..sroa_idx81, i64 144, i1 false)
   store i64 2, ptr %0, align 8
   %.not = icmp eq i64 %.sroa.0.0.copyload, 2
   br i1 %.not, label %51, label %11
@@ -5585,8 +5585,8 @@ define internal fastcc void @_ZN8flycheck13FlycheckActor20cancel_check_process17
 11:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 %.sroa.0.0.copyload, ptr %10, align 8
-  %.sroa.5.0..sroa_idx80 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.5.0..sroa_idx80, ptr noundef nonnull align 8 dereferenceable(144) %.sroa.5, i64 144, i1 false)
+  %.sroa.5.0..sroa_idx82 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.5.0..sroa_idx82, ptr noundef nonnull align 8 dereferenceable(144) %.sroa.5, i64 144, i1 false)
   %12 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8
   %13 = icmp eq i64 %12, 5
   br i1 %13, label %.critedge36, label %14

@@ -70,7 +70,7 @@ define noundef ptr @pqueue_insert(ptr noundef captures(none) %0, ptr noundef %1)
 
 .preheader._crit_edge:                            ; preds = %.preheader, %.preheader.preheader
   %.02638.lcssa = phi ptr [ %3, %.preheader.preheader ], [ %18, %.preheader ]
-  %.02737.lcssa = phi ptr [ null, %.preheader.preheader ], [ %.0263854, %.preheader ]
+  %.02737.lcssa = phi ptr [ null, %.preheader.preheader ], [ %.0263857, %.preheader ]
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %.02638.lcssa, ptr %10, align 8, !tbaa !9
   %11 = icmp eq ptr %.02737.lcssa, null
@@ -87,18 +87,18 @@ define noundef ptr @pqueue_insert(ptr noundef captures(none) %0, ptr noundef %1)
 
 .lr.ph:                                           ; preds = %.preheader.preheader, %.preheader
   %15 = phi i32 [ %8, %.preheader ], [ %5, %.preheader.preheader ]
-  %.0263854 = phi ptr [ %18, %.preheader ], [ %3, %.preheader.preheader ]
+  %.0263857 = phi ptr [ %18, %.preheader ], [ %3, %.preheader.preheader ]
   %.not32 = icmp eq i32 %15, 0
   br i1 %.not32, label %.thread, label %16
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds nuw i8, ptr %.0263854, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.0263857, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !9
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %19, label %.preheader, !llvm.loop !13
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw i8, ptr %.0263854, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.0263857, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %21, align 8, !tbaa !9
   store ptr %1, ptr %20, align 8, !tbaa !9

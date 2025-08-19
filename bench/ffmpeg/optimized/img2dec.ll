@@ -439,8 +439,8 @@ thread-pre-split:                                 ; preds = %103, %61
   ]
 
 108:                                              ; preds = %thread-pre-split.thread, %thread-pre-split
-  %.0208266 = phi i32 [ 1, %thread-pre-split.thread ], [ %.0208, %thread-pre-split ]
-  %.0209265 = phi i32 [ 1, %thread-pre-split.thread ], [ %.0209, %thread-pre-split ]
+  %.0208288 = phi i32 [ 1, %thread-pre-split.thread ], [ %.0208, %thread-pre-split ]
+  %.0209287 = phi i32 [ 1, %thread-pre-split.thread ], [ %.0209, %thread-pre-split ]
   %109 = getelementptr inbounds nuw i8, ptr %7, i64 1104
   %110 = load i32, ptr %109, align 8, !tbaa !71
   %.not180 = icmp eq i32 %110, 0
@@ -553,8 +553,8 @@ find_image_range.exit:                            ; preds = %122
   br label %.critedge
 
 .thread222:                                       ; preds = %thread-pre-split, %108, %.thread215, %find_image_range.exit.thread229, %152, %find_image_range.exit
-  %.1210 = phi i32 [ 1, %find_image_range.exit ], [ 0, %152 ], [ %.2211.ph, %find_image_range.exit.thread229 ], [ %.0209265, %108 ], [ 1, %.thread215 ], [ %.0209, %thread-pre-split ]
-  %.1 = phi i32 [ 1, %find_image_range.exit ], [ %155, %152 ], [ %.2.ph, %find_image_range.exit.thread229 ], [ %.0208266, %108 ], [ 1, %.thread215 ], [ %.0208, %thread-pre-split ]
+  %.1210 = phi i32 [ 1, %find_image_range.exit ], [ 0, %152 ], [ %.2211.ph, %find_image_range.exit.thread229 ], [ %.0209287, %108 ], [ 1, %.thread215 ], [ %.0209, %thread-pre-split ]
+  %.1 = phi i32 [ 1, %find_image_range.exit ], [ %155, %152 ], [ %.2.ph, %find_image_range.exit.thread229 ], [ %.0208288, %108 ], [ 1, %.thread215 ], [ %.0208, %thread-pre-split ]
   %158 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %.1210, ptr %158, align 8, !tbaa !77
   %159 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -884,8 +884,8 @@ define i32 @ff_img_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   %.phi.trans.insert219 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %.pre220 = load i32, ptr %.phi.trans.insert219, align 4, !tbaa !78
   %26 = icmp sgt i32 %.pre, %.pre220
-  %or.cond233 = select i1 %.not157, i1 %26, i1 false
-  br i1 %or.cond233, label %27, label %._crit_edge
+  %or.cond249 = select i1 %.not157, i1 %26, i1 false
+  br i1 %or.cond249, label %27, label %._crit_edge
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1229,9 +1229,9 @@ infer_size.exit:                                  ; preds = %125, %.infer_size.e
 195:                                              ; preds = %171
   %196 = load i32, ptr %21, align 4, !tbaa !55
   %.not174 = icmp eq i32 %196, 0
-  br i1 %.not174, label %.thread227, label %.thread190
+  br i1 %.not174, label %.thread243, label %.thread190
 
-.thread227:                                       ; preds = %195
+.thread243:                                       ; preds = %195
   %197 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %198 = load i64, ptr %197, align 8, !tbaa !118
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1260,7 +1260,7 @@ infer_size.exit:                                  ; preds = %125, %.infer_size.e
   %.not178 = icmp eq i32 %.pr192, 0
   br i1 %.not178, label %.thread193, label %226
 
-.thread193:                                       ; preds = %.thread227, %200, %.thread190
+.thread193:                                       ; preds = %.thread243, %200, %.thread190
   %212 = getelementptr inbounds nuw i8, ptr %15, i64 1200
   %213 = load i32, ptr %212, align 8, !tbaa !120
   %214 = icmp eq i32 %213, 1
@@ -2030,10 +2030,10 @@ define internal range(i32 0, 52) i32 @jpeg_probe(ptr noundef readonly captures(n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %17, %35
-  %.sink74 = phi i32 [ 1718188101, %35 ], [ 1179207242, %17 ]
+  %.sink75 = phi i32 [ 1718188101, %35 ], [ 1179207242, %17 ]
   %36 = getelementptr i8, ptr %15, i64 4
   %37 = load i32, ptr %36, align 1, !tbaa !68
-  %38 = icmp eq i32 %37, %.sink74
+  %38 = icmp eq i32 %37, %.sink75
   %spec.select = select i1 %38, i32 1, i32 %.04469
   br label %39
 

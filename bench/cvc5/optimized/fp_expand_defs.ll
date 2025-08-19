@@ -3414,23 +3414,23 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit260: ; preds = %898
   br i1 %916, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit262, !prof !30
 
 .invoke:                                          ; preds = %915, %906
-  %.sink313 = phi i64 [ %901, %906 ], [ %910, %915 ]
-  %.sink312 = phi ptr [ %899, %906 ], [ %909, %915 ]
-  %917 = or i64 %.sink313, 1152920405095219200
-  store i64 %917, ptr %.sink312, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink312)
+  %.sink353 = phi i64 [ %901, %906 ], [ %910, %915 ]
+  %.sink352 = phi ptr [ %899, %906 ], [ %909, %915 ]
+  %917 = or i64 %.sink353, 1152920405095219200
+  store i64 %917, ptr %.sink352, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink352)
           to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit262 unwind label %224
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit262.sink.split: ; preds = %908, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit260
-  %.sink319 = phi i32 [ %904, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit260 ], [ %913, %908 ]
+  %.sink359 = phi i32 [ %904, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit260 ], [ %913, %908 ]
   %.sink = phi i64 [ %901, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit260 ], [ %910, %908 ]
-  %.sink314 = phi ptr [ %899, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit260 ], [ %909, %908 ]
-  %918 = add nuw nsw i32 %.sink319, 1
+  %.sink354 = phi ptr [ %899, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit260 ], [ %909, %908 ]
+  %918 = add nuw nsw i32 %.sink359, 1
   %919 = zext nneg i32 %918 to i64
   %920 = shl nuw nsw i64 %919, 40
   %921 = and i64 %.sink, -1152920405095219201
   %922 = or i64 %920, %921
-  store i64 %922, ptr %.sink314, align 8
+  store i64 %922, ptr %.sink354, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit262
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit262: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit262.sink.split, %.invoke, %915, %906

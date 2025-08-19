@@ -819,17 +819,17 @@ define hidden range(i32 0, 134217728) i32 @zdp_parse_chanmask(ptr noundef %0, pt
   %12 = load i32, ptr %2, align 4
   %13 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %12, i32 noundef 4, i32 noundef %9, ptr noundef nonnull @.str.116)
   %14 = icmp eq i32 %9, 0
-  br i1 %14, label %15, label %.preheader51
+  br i1 %14, label %15, label %.preheader52
 
 15:                                               ; preds = %5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.117)
-  br label %.preheader51
+  br label %.preheader52
 
-.preheader51:                                     ; preds = %15, %5
+.preheader52:                                     ; preds = %15, %5
   br label %16
 
-16:                                               ; preds = %.preheader51, %19
-  %.043 = phi i32 [ %20, %19 ], [ 0, %.preheader51 ]
+16:                                               ; preds = %.preheader52, %19
+  %.043 = phi i32 [ %20, %19 ], [ 0, %.preheader52 ]
   %17 = shl nuw i32 1, %.043
   %18 = and i32 %17, %9
   %.not = icmp eq i32 %18, 0

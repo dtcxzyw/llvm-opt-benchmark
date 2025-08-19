@@ -2435,7 +2435,7 @@ _ZN6memchr4arch7generic6memchr4Iter4next17h0e0fa9f53ae3598bE.exit358.thread: ; p
   br i1 %152, label %213, label %212
 
 153:                                              ; preds = %150
-  %154 = getelementptr inbounds i8, ptr %1, i64 %45
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 %45
   %155 = load i8, ptr %154, align 1, !alias.scope !546, !noundef !3
   %156 = icmp sgt i8 %155, -65
   br i1 %156, label %213, label %212
@@ -2461,7 +2461,7 @@ _ZN6memchr4arch7generic6memchr4Iter4next17h0e0fa9f53ae3598bE.exit.thread: ; pred
   br i1 %161, label %172, label %171
 
 162:                                              ; preds = %159
-  %163 = getelementptr inbounds i8, ptr %1, i64 %45
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 %45
   %164 = load i8, ptr %163, align 1, !alias.scope !549, !noundef !3
   %165 = icmp sgt i8 %164, -65
   br i1 %165, label %172, label %171
@@ -2621,7 +2621,7 @@ common.resume:                                    ; preds = %300, %166, %411, %4
   br i1 %224, label %230, label %229
 
 225:                                              ; preds = %222
-  %226 = getelementptr inbounds i8, ptr %1, i64 %54
+  %226 = getelementptr inbounds nuw i8, ptr %1, i64 %54
   %227 = load i8, ptr %226, align 1, !alias.scope !555, !noundef !3
   %228 = icmp sgt i8 %227, -65
   br i1 %228, label %230, label %229
@@ -2660,7 +2660,7 @@ common.resume:                                    ; preds = %300, %166, %411, %4
   br i1 %243, label %249, label %248
 
 244:                                              ; preds = %241
-  %245 = getelementptr inbounds i8, ptr %1, i64 %77
+  %245 = getelementptr inbounds nuw i8, ptr %1, i64 %77
   %246 = load i8, ptr %245, align 1, !alias.scope !558, !noundef !3
   %247 = icmp sgt i8 %246, -65
   br i1 %247, label %249, label %248
@@ -2699,7 +2699,7 @@ common.resume:                                    ; preds = %300, %166, %411, %4
   br i1 %262, label %268, label %267
 
 263:                                              ; preds = %260
-  %264 = getelementptr inbounds i8, ptr %1, i64 %100
+  %264 = getelementptr inbounds nuw i8, ptr %1, i64 %100
   %265 = load i8, ptr %264, align 1, !alias.scope !561, !noundef !3
   %266 = icmp sgt i8 %265, -65
   br i1 %266, label %268, label %267
@@ -2734,7 +2734,7 @@ common.resume:                                    ; preds = %300, %166, %411, %4
   br i1 %280, label %292, label %281, !prof !15
 
 281:                                              ; preds = %279
-  %282 = getelementptr inbounds i8, ptr %1, i64 %54
+  %282 = getelementptr inbounds nuw i8, ptr %1, i64 %54
   %283 = load atomic ptr, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h3666e979bf05393bE monotonic, align 8, !noalias !567, !nonnull !3, !noundef !3
   %284 = tail call { i64, ptr } %283(i8 noundef 46, ptr noundef nonnull readonly align 1 %282, ptr noundef nonnull readonly %38), !noalias !567
   %285 = extractvalue { i64, ptr } %284, 0
@@ -3003,8 +3003,8 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17h6727559d40f5155cE.exit: 
   br label %353
 
 353:                                              ; preds = %397, %352
-  %.not659 = phi i1 [ true, %397 ], [ false, %352 ]
-  %.sroa.6.0657 = phi i8 [ 8, %397 ], [ %.sroa.496.0.copyload, %352 ]
+  %.not690 = phi i1 [ true, %397 ], [ false, %352 ]
+  %.sroa.6.0688 = phi i8 [ 8, %397 ], [ %.sroa.496.0.copyload, %352 ]
   %.sroa.0129.0 = phi ptr [ %390, %397 ], [ %.sroa.095.sroa.0.0.copyload, %352 ]
   %.sroa.4134.0 = phi i16 [ undef, %397 ], [ %.sroa.699.0.copyload, %352 ]
   %354 = load ptr, ptr %32, align 8, !nonnull !3, !noundef !3
@@ -3017,11 +3017,11 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17h6727559d40f5155cE.exit: 
   %.sroa.5128.sroa.4.0..sroa.5128.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %.sroa.5128.sroa.4.0..sroa.5128.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(13) %.sroa.3131, i64 13, i1 false)
   %.sroa.5128.sroa.5.0..sroa.5128.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 53
-  store i8 %.sroa.6.0657, ptr %.sroa.5128.sroa.5.0..sroa.5128.0..sroa_idx.sroa_idx, align 1
+  store i8 %.sroa.6.0688, ptr %.sroa.5128.sroa.5.0..sroa.5128.0..sroa_idx.sroa_idx, align 1
   %.sroa.5128.sroa.6.0..sroa.5128.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 54
   store i16 %.sroa.4134.0, ptr %.sroa.5128.sroa.6.0..sroa.5128.0..sroa_idx.sroa_idx, align 2
   store i8 11, ptr %0, align 8
-  br i1 %.not659, label %398, label %399
+  br i1 %.not690, label %398, label %399
 
 356:                                              ; preds = %.thread622.thread, %.thread622
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
@@ -4027,13 +4027,13 @@ common.resume:                                    ; preds = %52, %63, %24, %35
   br i1 %44, label %46, label %69
 
 45:                                               ; preds = %"_ZN109_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u20$core..convert..TryFrom$LT$$RF$url..Url$GT$$GT$8try_from28_$u7b$$u7b$closure$u7d$$u7d$17h1e21ae3e5bd196dfE.exit", %"_ZN109_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u20$core..convert..TryFrom$LT$$RF$url..Url$GT$$GT$8try_from28_$u7b$$u7b$closure$u7d$$u7d$17h94396455d15ac103E.exit"
-  %.sink112 = phi i64 [ %59, %"_ZN109_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u20$core..convert..TryFrom$LT$$RF$url..Url$GT$$GT$8try_from28_$u7b$$u7b$closure$u7d$$u7d$17h1e21ae3e5bd196dfE.exit" ], [ %31, %"_ZN109_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u20$core..convert..TryFrom$LT$$RF$url..Url$GT$$GT$8try_from28_$u7b$$u7b$closure$u7d$$u7d$17h94396455d15ac103E.exit" ]
-  %.sink111 = phi ptr [ %67, %"_ZN109_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u20$core..convert..TryFrom$LT$$RF$url..Url$GT$$GT$8try_from28_$u7b$$u7b$closure$u7d$$u7d$17h1e21ae3e5bd196dfE.exit" ], [ %39, %"_ZN109_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u20$core..convert..TryFrom$LT$$RF$url..Url$GT$$GT$8try_from28_$u7b$$u7b$closure$u7d$$u7d$17h94396455d15ac103E.exit" ]
+  %.sink113 = phi i64 [ %59, %"_ZN109_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u20$core..convert..TryFrom$LT$$RF$url..Url$GT$$GT$8try_from28_$u7b$$u7b$closure$u7d$$u7d$17h1e21ae3e5bd196dfE.exit" ], [ %31, %"_ZN109_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u20$core..convert..TryFrom$LT$$RF$url..Url$GT$$GT$8try_from28_$u7b$$u7b$closure$u7d$$u7d$17h94396455d15ac103E.exit" ]
+  %.sink112 = phi ptr [ %67, %"_ZN109_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u20$core..convert..TryFrom$LT$$RF$url..Url$GT$$GT$8try_from28_$u7b$$u7b$closure$u7d$$u7d$17h1e21ae3e5bd196dfE.exit" ], [ %39, %"_ZN109_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u20$core..convert..TryFrom$LT$$RF$url..Url$GT$$GT$8try_from28_$u7b$$u7b$closure$u7d$$u7d$17h94396455d15ac103E.exit" ]
   %.sink = phi i64 [ 27, %"_ZN109_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u20$core..convert..TryFrom$LT$$RF$url..Url$GT$$GT$8try_from28_$u7b$$u7b$closure$u7d$$u7d$17h1e21ae3e5bd196dfE.exit" ], [ 20, %"_ZN109_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u20$core..convert..TryFrom$LT$$RF$url..Url$GT$$GT$8try_from28_$u7b$$u7b$closure$u7d$$u7d$17h94396455d15ac103E.exit" ]
   %.sroa.554.sroa.2.0..sroa.554.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sink112, ptr %.sroa.554.sroa.2.0..sroa.554.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sink113, ptr %.sroa.554.sroa.2.0..sroa.554.0..sroa_idx.sroa_idx, align 8
   %.sroa.554.sroa.3.0..sroa.554.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.sink111, ptr %.sroa.554.sroa.3.0..sroa.554.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sink112, ptr %.sroa.554.sroa.3.0..sroa.554.0..sroa_idx.sroa_idx, align 8
   %.sroa.554.sroa.4.0..sroa.554.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.sink, ptr %.sroa.554.sroa.4.0..sroa.554.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %14)

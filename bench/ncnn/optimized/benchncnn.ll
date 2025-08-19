@@ -3061,18 +3061,18 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4nc
   br label %.thread
 
 ._crit_edge968.thread:                            ; preds = %2, %79, %74, %68, %._crit_edge, %.thread789, %658, %._crit_edge968
-  %.not101999 = phi i1 [ false, %658 ], [ true, %._crit_edge968 ], [ true, %.thread789 ], [ true, %._crit_edge ], [ true, %68 ], [ true, %74 ], [ true, %79 ], [ true, %2 ]
-  %.096.lcssa998 = phi ptr [ %.197, %658 ], [ null, %._crit_edge968 ], [ null, %.thread789 ], [ null, %._crit_edge ], [ null, %68 ], [ null, %74 ], [ null, %79 ], [ null, %2 ]
-  %.092797981997 = phi i32 [ %83, %658 ], [ %83, %._crit_edge968 ], [ %83, %.thread789 ], [ -1, %._crit_edge ], [ -1, %68 ], [ -1, %74 ], [ %83, %79 ], [ -1, %2 ]
-  %.090779785796982996 = phi i32 [ %72, %658 ], [ %72, %._crit_edge968 ], [ %72, %.thread789 ], [ %49, %._crit_edge ], [ %72, %68 ], [ %72, %74 ], [ %72, %79 ], [ %49, %2 ]
-  %.089773778786795983995 = phi i32 [ %67, %658 ], [ %67, %._crit_edge968 ], [ %67, %.thread789 ], [ %67, %._crit_edge ], [ %67, %68 ], [ %67, %74 ], [ %67, %79 ], [ 4, %2 ]
-  %.091787794984994 = phi i32 [ %78, %658 ], [ %78, %._crit_edge968 ], [ %78, %.thread789 ], [ 2, %._crit_edge ], [ 2, %68 ], [ %78, %74 ], [ %78, %79 ], [ 2, %2 ]
-  %.099985993.shrunk = phi i1 [ %89, %658 ], [ %89, %._crit_edge968 ], [ %89, %.thread789 ], [ true, %._crit_edge ], [ true, %68 ], [ true, %74 ], [ true, %79 ], [ true, %2 ]
-  %.099985993 = zext i1 %.099985993.shrunk to i8
-  %666 = icmp ne i32 %.092797981997, -1
+  %.not1011303 = phi i1 [ false, %658 ], [ true, %._crit_edge968 ], [ true, %.thread789 ], [ true, %._crit_edge ], [ true, %68 ], [ true, %74 ], [ true, %79 ], [ true, %2 ]
+  %.096.lcssa1302 = phi ptr [ %.197, %658 ], [ null, %._crit_edge968 ], [ null, %.thread789 ], [ null, %._crit_edge ], [ null, %68 ], [ null, %74 ], [ null, %79 ], [ null, %2 ]
+  %.09279712851301 = phi i32 [ %83, %658 ], [ %83, %._crit_edge968 ], [ %83, %.thread789 ], [ -1, %._crit_edge ], [ -1, %68 ], [ -1, %74 ], [ %83, %79 ], [ -1, %2 ]
+  %.09077978579612861300 = phi i32 [ %72, %658 ], [ %72, %._crit_edge968 ], [ %72, %.thread789 ], [ %49, %._crit_edge ], [ %72, %68 ], [ %72, %74 ], [ %72, %79 ], [ %49, %2 ]
+  %.08977377878679512871299 = phi i32 [ %67, %658 ], [ %67, %._crit_edge968 ], [ %67, %.thread789 ], [ %67, %._crit_edge ], [ %67, %68 ], [ %67, %74 ], [ %67, %79 ], [ 4, %2 ]
+  %.09178779412881298 = phi i32 [ %78, %658 ], [ %78, %._crit_edge968 ], [ %78, %.thread789 ], [ 2, %._crit_edge ], [ 2, %68 ], [ %78, %74 ], [ %78, %79 ], [ 2, %2 ]
+  %.09912891297.shrunk = phi i1 [ %89, %658 ], [ %89, %._crit_edge968 ], [ %89, %.thread789 ], [ true, %._crit_edge ], [ true, %68 ], [ true, %74 ], [ true, %79 ], [ true, %2 ]
+  %.09912891297 = zext i1 %.09912891297.shrunk to i8
+  %666 = icmp ne i32 %.09279712851301, -1
   %667 = zext i1 %666 to i8
-  store i8 %.099985993, ptr @_ZL21g_enable_cooling_down, align 1, !tbaa !6
-  store i32 %.089773778786795983995, ptr @_ZL12g_loop_count, align 4, !tbaa !10
+  store i8 %.09912891297, ptr @_ZL21g_enable_cooling_down, align 1, !tbaa !6
+  store i32 %.08977377878679512871299, ptr @_ZL12g_loop_count, align 4, !tbaa !10
   invoke void @_ZN4ncnn21UnlockedPoolAllocator22set_size_compare_ratioEf(ptr noundef nonnull align 8 dereferenceable(16) @_ZL21g_blob_pool_allocator, float noundef 0.000000e+00)
           to label %668 unwind label %706
 
@@ -3081,7 +3081,7 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4nc
           to label %669 unwind label %706
 
 669:                                              ; preds = %668
-  %670 = invoke noundef i32 @_ZN4ncnn17set_cpu_powersaveEi(i32 noundef %.091787794984994)
+  %670 = invoke noundef i32 @_ZN4ncnn17set_cpu_powersaveEi(i32 noundef %.09178779412881298)
           to label %671 unwind label %706
 
 671:                                              ; preds = %669
@@ -3089,7 +3089,7 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4nc
           to label %672 unwind label %706
 
 672:                                              ; preds = %671
-  invoke void @_ZN4ncnn19set_omp_num_threadsEi(i32 noundef %.090779785796982996)
+  invoke void @_ZN4ncnn19set_omp_num_threadsEi(i32 noundef %.09077978579612861300)
           to label %673 unwind label %706
 
 673:                                              ; preds = %672
@@ -3100,7 +3100,7 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4nc
 674:                                              ; preds = %673
   store i8 1, ptr %13, align 8, !tbaa !82
   %675 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 %.090779785796982996, ptr %675, align 4, !tbaa !84
+  store i32 %.09077978579612861300, ptr %675, align 4, !tbaa !84
   %676 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @_ZL21g_blob_pool_allocator, ptr %676, align 8, !tbaa !85
   %677 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -3133,7 +3133,7 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4nc
   %691 = load i32, ptr @_ZL12g_loop_count, align 4, !tbaa !10
   %692 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %690, ptr noundef nonnull @.str.13, i32 noundef %691) #25
   %693 = load ptr, ptr @stderr, align 8, !tbaa !28
-  %694 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %693, ptr noundef nonnull @.str.14, i32 noundef %.090779785796982996) #25
+  %694 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %693, ptr noundef nonnull @.str.14, i32 noundef %.09077978579612861300) #25
   %695 = load ptr, ptr @stderr, align 8, !tbaa !28
   %696 = invoke noundef i32 @_ZN4ncnn17get_cpu_powersaveEv()
           to label %697 unwind label %708
@@ -3141,15 +3141,15 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4nc
 697:                                              ; preds = %674
   %698 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %695, ptr noundef nonnull @.str.15, i32 noundef %696) #25
   %699 = load ptr, ptr @stderr, align 8, !tbaa !28
-  %700 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %699, ptr noundef nonnull @.str.16, i32 noundef %.092797981997) #25
+  %700 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %699, ptr noundef nonnull @.str.16, i32 noundef %.09279712851301) #25
   %701 = load ptr, ptr @stderr, align 8, !tbaa !28
   %702 = load i8, ptr @_ZL21g_enable_cooling_down, align 1, !tbaa !6, !range !17, !noundef !18
   %703 = zext nneg i8 %702 to i32
   %704 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %701, ptr noundef nonnull @.str.17, i32 noundef %703) #25
-  br i1 %.not101999, label %710, label %705
+  br i1 %.not1011303, label %710, label %705
 
 705:                                              ; preds = %697
-  invoke void @_Z9benchmarkPKcRKSt6vectorIN4ncnn3MatESaIS3_EERKNS2_6OptionEb(ptr noundef nonnull %.096.lcssa998, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(64) %13, i1 noundef zeroext false)
+  invoke void @_Z9benchmarkPKcRKSt6vectorIN4ncnn3MatESaIS3_EERKNS2_6OptionEb(ptr noundef nonnull %.096.lcssa1302, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(64) %13, i1 noundef zeroext false)
           to label %2111 unwind label %708
 
 706:                                              ; preds = %672, %671, %669, %668, %._crit_edge968.thread

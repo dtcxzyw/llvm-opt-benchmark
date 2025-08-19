@@ -890,8 +890,8 @@ define dso_local noundef zeroext i1 @_Z7fixLineiRNSt7__cxx1112basic_stringIcSt11
 
 21:                                               ; preds = %19
   %22 = add i64 %18, -1
-  %or.cond75 = icmp ult i64 %18, 2
-  br i1 %or.cond75, label %.critedge2, label %.lr.ph56, !llvm.loop !30
+  %or.cond83 = icmp ult i64 %18, 2
+  br i1 %or.cond83, label %.critedge2, label %.lr.ph56, !llvm.loop !30
 
 .critedge2:                                       ; preds = %.lr.ph56, %21
   %.pre70 = load i64, ptr %4, align 8, !tbaa !17
@@ -910,8 +910,8 @@ define dso_local noundef zeroext i1 @_Z7fixLineiRNSt7__cxx1112basic_stringIcSt11
 
 26:                                               ; preds = %24
   %27 = add i64 %23, -1
-  %or.cond76 = icmp ult i64 %23, 2
-  br i1 %or.cond76, label %.critedge4, label %.lr.ph61, !llvm.loop !31
+  %or.cond84 = icmp ult i64 %23, 2
+  br i1 %or.cond84, label %.critedge4, label %.lr.ph61, !llvm.loop !31
 
 .critedge4:                                       ; preds = %14, %19, %.lr.ph61, %26, %24, %.preheader, %.critedge, %.critedge2, %10, %8
   %.034 = phi i1 [ false, %8 ], [ true, %10 ], [ false, %.critedge2 ], [ false, %.critedge ], [ false, %.preheader ], [ false, %.lr.ph61 ], [ false, %26 ], [ true, %24 ], [ true, %19 ], [ true, %14 ]

@@ -1229,19 +1229,19 @@ define internal fastcc void @_presets_show_edit_dialog(ptr noundef initializes((
   %391 = getelementptr inbounds nuw [22 x float], ptr @dt_gui_presets_exposure_value, i64 0, i64 %indvars.iv346
   %392 = load float, ptr %391, align 4, !tbaa !115
   %393 = fcmp reassoc nsz arcp contract afn olt float %392, %389
-  br i1 %393, label %394, label %.critedge.split.loop.exit366
+  br i1 %393, label %394, label %.critedge.split.loop.exit368
 
 394:                                              ; preds = %390
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
   %exitcond349.not = icmp eq i64 %indvars.iv.next347, 22
   br i1 %exitcond349.not, label %.critedge, label %390
 
-.critedge.split.loop.exit366:                     ; preds = %390
+.critedge.split.loop.exit368:                     ; preds = %390
   %395 = trunc nuw nsw i64 %indvars.iv346 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %394, %.critedge.split.loop.exit366
-  %.0294.lcssa = phi i32 [ %395, %.critedge.split.loop.exit366 ], [ 22, %394 ]
+.critedge:                                        ; preds = %394, %.critedge.split.loop.exit368
+  %.0294.lcssa = phi i32 [ %395, %.critedge.split.loop.exit368 ], [ 22, %394 ]
   %396 = load ptr, ptr %189, align 8, !tbaa !106
   call void @dt_bauhaus_combobox_set(ptr noundef %396, i32 noundef %.0294.lcssa) #16
   %397 = load ptr, ptr %6, align 8, !tbaa !56
@@ -1254,19 +1254,19 @@ define internal fastcc void @_presets_show_edit_dialog(ptr noundef initializes((
   %401 = getelementptr inbounds nuw [22 x float], ptr @dt_gui_presets_exposure_value, i64 0, i64 %indvars.iv350
   %402 = load float, ptr %401, align 4, !tbaa !115
   %403 = fcmp reassoc nsz arcp contract afn olt float %402, %399
-  br i1 %403, label %404, label %.critedge2.split.loop.exit368
+  br i1 %403, label %404, label %.critedge2.split.loop.exit370
 
 404:                                              ; preds = %400
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
   %exitcond353.not = icmp eq i64 %indvars.iv.next351, 22
   br i1 %exitcond353.not, label %.critedge2, label %400
 
-.critedge2.split.loop.exit368:                    ; preds = %400
+.critedge2.split.loop.exit370:                    ; preds = %400
   %405 = trunc nuw nsw i64 %indvars.iv350 to i32
   br label %.critedge2
 
-.critedge2:                                       ; preds = %404, %.critedge2.split.loop.exit368
-  %.1.lcssa = phi i32 [ %405, %.critedge2.split.loop.exit368 ], [ 22, %404 ]
+.critedge2:                                       ; preds = %404, %.critedge2.split.loop.exit370
+  %.1.lcssa = phi i32 [ %405, %.critedge2.split.loop.exit370 ], [ 22, %404 ]
   %406 = load ptr, ptr %191, align 8, !tbaa !107
   call void @dt_bauhaus_combobox_set(ptr noundef %406, i32 noundef %.1.lcssa) #16
   %407 = load ptr, ptr %6, align 8, !tbaa !56
@@ -1279,19 +1279,19 @@ define internal fastcc void @_presets_show_edit_dialog(ptr noundef initializes((
   %411 = getelementptr inbounds nuw [19 x float], ptr @dt_gui_presets_aperture_value, i64 0, i64 %indvars.iv354
   %412 = load float, ptr %411, align 4, !tbaa !115
   %413 = fcmp reassoc nsz arcp contract afn olt float %412, %409
-  br i1 %413, label %414, label %.critedge4.split.loop.exit370
+  br i1 %413, label %414, label %.critedge4.split.loop.exit372
 
 414:                                              ; preds = %410
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
   %exitcond357.not = icmp eq i64 %indvars.iv.next355, 19
   br i1 %exitcond357.not, label %.critedge4, label %410
 
-.critedge4.split.loop.exit370:                    ; preds = %410
+.critedge4.split.loop.exit372:                    ; preds = %410
   %415 = trunc nuw nsw i64 %indvars.iv354 to i32
   br label %.critedge4
 
-.critedge4:                                       ; preds = %414, %.critedge4.split.loop.exit370
-  %.2.lcssa = phi i32 [ %415, %.critedge4.split.loop.exit370 ], [ 19, %414 ]
+.critedge4:                                       ; preds = %414, %.critedge4.split.loop.exit372
+  %.2.lcssa = phi i32 [ %415, %.critedge4.split.loop.exit372 ], [ 19, %414 ]
   %416 = load ptr, ptr %213, align 8, !tbaa !109
   call void @dt_bauhaus_combobox_set(ptr noundef %416, i32 noundef %.2.lcssa) #16
   %417 = load ptr, ptr %6, align 8, !tbaa !56
@@ -1304,19 +1304,19 @@ define internal fastcc void @_presets_show_edit_dialog(ptr noundef initializes((
   %421 = getelementptr inbounds nuw [19 x float], ptr @dt_gui_presets_aperture_value, i64 0, i64 %indvars.iv358
   %422 = load float, ptr %421, align 4, !tbaa !115
   %423 = fcmp reassoc nsz arcp contract afn olt float %422, %419
-  br i1 %423, label %424, label %.critedge6.split.loop.exit372
+  br i1 %423, label %424, label %.critedge6.split.loop.exit374
 
 424:                                              ; preds = %420
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
   %exitcond361.not = icmp eq i64 %indvars.iv.next359, 19
   br i1 %exitcond361.not, label %.critedge6, label %420
 
-.critedge6.split.loop.exit372:                    ; preds = %420
+.critedge6.split.loop.exit374:                    ; preds = %420
   %425 = trunc nuw nsw i64 %indvars.iv358 to i32
   br label %.critedge6
 
-.critedge6:                                       ; preds = %424, %.critedge6.split.loop.exit372
-  %.3.lcssa = phi i32 [ %425, %.critedge6.split.loop.exit372 ], [ 19, %424 ]
+.critedge6:                                       ; preds = %424, %.critedge6.split.loop.exit374
+  %.3.lcssa = phi i32 [ %425, %.critedge6.split.loop.exit374 ], [ 19, %424 ]
   %426 = load ptr, ptr %215, align 8, !tbaa !110
   call void @dt_bauhaus_combobox_set(ptr noundef %426, i32 noundef %.3.lcssa) #16
   %427 = load ptr, ptr %240, align 8, !tbaa !111
@@ -1679,10 +1679,10 @@ define void @dt_gui_presets_apply_preset(ptr noundef %0, ptr noundef %1) local_u
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 696
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !118
   %71 = icmp eq i32 %56, %.pre
-  %or.cond61 = select i1 %.not53, i1 %71, i1 false
+  %or.cond64 = select i1 %.not53, i1 %71, i1 false
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 680
   %73 = load ptr, ptr %72, align 8, !tbaa !119
-  br i1 %or.cond61, label %76, label %._crit_edge
+  br i1 %or.cond64, label %76, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %52
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 688
@@ -1691,9 +1691,9 @@ define void @dt_gui_presets_apply_preset(ptr noundef %0, ptr noundef %1) local_u
 
 76:                                               ; preds = %52, %._crit_edge
   %.pre.sink = phi i32 [ %.pre, %._crit_edge ], [ %56, %52 ]
-  %.sink62 = phi ptr [ %75, %._crit_edge ], [ %54, %52 ]
+  %.sink65 = phi ptr [ %75, %._crit_edge ], [ %54, %52 ]
   %77 = sext i32 %.pre.sink to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %73, ptr align 1 %.sink62, i64 %77, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %73, ptr align 1 %.sink65, i64 %77, i1 false)
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 672
   store i32 %58, ptr %78, align 16, !tbaa !121
   %79 = call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.54) #16
@@ -3077,9 +3077,9 @@ define ptr @dt_gui_presets_popup_menu_show_for_module(ptr noundef %0) local_unna
   %166 = load ptr, ptr %2, align 8, !tbaa !56
   %167 = call i32 @sqlite3_step(ptr noundef %166) #16
   %168 = icmp eq i32 %167, 100
-  br i1 %168, label %.lr.ph, label %.thread245
+  br i1 %168, label %.lr.ph, label %.thread250
 
-.thread245:                                       ; preds = %165
+.thread250:                                       ; preds = %165
   %169 = load ptr, ptr %2, align 8, !tbaa !56
   %170 = call i32 @sqlite3_finalize(ptr noundef %169) #16
   br label %297
@@ -3321,8 +3321,8 @@ define ptr @dt_gui_presets_popup_menu_show_for_module(ptr noundef %0) local_unna
   call void @gtk_menu_shell_append(ptr noundef %296, ptr noundef %293) #16
   br label %328
 
-297:                                              ; preds = %.thread245, %284
-  %.0169.lcssa237244248 = phi i1 [ false, %.thread245 ], [ %276, %284 ]
+297:                                              ; preds = %.thread250, %284
+  %.0169.lcssa242249253 = phi i1 [ false, %.thread250 ], [ %276, %284 ]
   %298 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.91, i32 noundef 5) #16
   %299 = call ptr @gtk_menu_item_new_with_label(ptr noundef %298) #16
   %300 = call ptr @g_type_check_instance_cast(ptr noundef %299, i64 noundef 80) #16
@@ -3334,7 +3334,7 @@ define ptr @dt_gui_presets_popup_menu_show_for_module(ptr noundef %0) local_unna
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 88
   %306 = load ptr, ptr %305, align 8, !tbaa !169
   %307 = icmp ne ptr %306, null
-  %or.cond7 = select i1 %307, i1 %.0169.lcssa237244248, i1 false
+  %or.cond7 = select i1 %307, i1 %.0169.lcssa242249253, i1 false
   br i1 %or.cond7, label %308, label %328
 
 308:                                              ; preds = %297
@@ -5117,12 +5117,12 @@ define internal void @_edit_preset_response(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not184, label %236, label %.sink.split
 
 .sink.split:                                      ; preds = %228, %226
-  %.sink230 = phi i32 [ 332, %226 ], [ 336, %228 ]
+  %.sink236 = phi i32 [ 332, %226 ], [ 336, %228 ]
   %231 = load ptr, ptr @stderr, align 8, !tbaa !54
   %232 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !53
   %233 = call ptr @dt_database_get(ptr noundef %232) #16
   %234 = call ptr @sqlite3_errmsg(ptr noundef %233) #16
-  %235 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %231, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.43, i32 noundef %.sink230, ptr noundef nonnull @__FUNCTION__._edit_preset_response, ptr noundef %234) #17
+  %235 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %231, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.43, i32 noundef %.sink236, ptr noundef nonnull @__FUNCTION__._edit_preset_response, ptr noundef %234) #17
   br label %236
 
 236:                                              ; preds = %.sink.split, %228, %226
@@ -5491,12 +5491,12 @@ define internal void @_edit_preset_response(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not206, label %.thread219, label %.thread219.sink.split
 
 .thread219.sink.split:                            ; preds = %478, %466
-  %.sink234 = phi i32 [ 401, %466 ], [ 407, %478 ]
+  %.sink240 = phi i32 [ 401, %466 ], [ 407, %478 ]
   %481 = load ptr, ptr @stderr, align 8, !tbaa !54
   %482 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !53
   %483 = call ptr @dt_database_get(ptr noundef %482) #16
   %484 = call ptr @sqlite3_errmsg(ptr noundef %483) #16
-  %485 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %481, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.43, i32 noundef %.sink234, ptr noundef nonnull @__FUNCTION__._edit_preset_response, ptr noundef %484) #17
+  %485 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %481, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.43, i32 noundef %.sink240, ptr noundef nonnull @__FUNCTION__._edit_preset_response, ptr noundef %484) #17
   br label %.thread219
 
 .thread219:                                       ; preds = %.thread219.sink.split, %377, %478, %466, %430

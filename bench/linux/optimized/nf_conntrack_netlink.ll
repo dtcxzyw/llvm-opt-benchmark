@@ -913,9 +913,9 @@ define internal fastcc i32 @ctnetlink_create_expect(ptr noundef %0, ptr noundef 
   br label %104
 
 104:                                              ; preds = %92, %101
-  %.sink34 = phi ptr [ %103, %101 ], [ null, %92 ]
+  %.sink54 = phi ptr [ %103, %101 ], [ null, %92 ]
   %105 = getelementptr inbounds nuw i8, ptr %81, i64 104
-  store ptr %.sink34, ptr %105, align 8
+  store ptr %.sink54, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %81, i64 100
   store i32 %80, ptr %106, align 4
   %107 = getelementptr inbounds nuw i8, ptr %81, i64 120
@@ -1013,12 +1013,12 @@ define internal fastcc i32 @ctnetlink_create_expect(ptr noundef %0, ptr noundef 
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %43, %.thread31, %157
-  %.ph36 = phi i32 [ %156, %.thread31 ], [ %158, %157 ], [ %spec.select, %43 ]
+  %.ph56 = phi i32 [ %156, %.thread31 ], [ %158, %157 ], [ %spec.select, %43 ]
   call void @__rcu_read_unlock() #16
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %40
-  %159 = phi i32 [ -95, %40 ], [ %.ph36, %.thread.sink.split ]
+  %159 = phi i32 [ -95, %40 ], [ %.ph56, %.thread.sink.split ]
   %160 = icmp eq ptr %29, null
   br i1 %160, label %.thread33, label %161
 

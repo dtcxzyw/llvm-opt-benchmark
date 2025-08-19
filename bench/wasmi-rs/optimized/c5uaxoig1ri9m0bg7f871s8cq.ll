@@ -87,9 +87,9 @@ define void @_ZN10wasmi_core5table5Table3new17hcd9450d9ae3c6b5fE(ptr dead_on_unw
   br i1 %45, label %33, label %46
 
 46:                                               ; preds = %43, %37
-  %.sink38 = phi i64 [ 16, %37 ], [ 8, %43 ]
+  %.sink42 = phi i64 [ 16, %37 ], [ 8, %43 ]
   %.sink = phi i64 [ %41, %37 ], [ 3, %43 ]
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink38
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink42
   store i64 %.sink, ptr %47, align 8
   store i64 2, ptr %0, align 8
   br label %48

@@ -596,8 +596,8 @@ _ZNKSt8functionIFvbEEclEb.exit70:                 ; preds = %109
   %126 = trunc i8 %26 to i1
   %127 = and i32 %24, 16
   %.not49 = icmp ne i32 %127, 0
-  %or.cond132.not = or i1 %.not49, %126
-  br i1 %or.cond132.not, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i.critedge, label %154
+  %or.cond146.not = or i1 %.not49, %126
+  br i1 %or.cond146.not, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i.critedge, label %154
 
 _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i.critedge: ; preds = %125
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -733,15 +733,15 @@ define hidden void @_ZN7nanogui6Button4drawEP10NVGcontext(ptr noundef nonnull al
   br i1 %26, label %.thread.sink.split, label %.thread
 
 .thread.sink.split:                               ; preds = %23, %2, %19
-  %.sink158 = phi i64 [ 296, %19 ], [ 296, %2 ], [ 232, %23 ]
-  %.sink156 = phi i64 [ 304, %19 ], [ 304, %2 ], [ 240, %23 ]
-  %.sink155 = phi i64 [ 312, %19 ], [ 312, %2 ], [ 248, %23 ]
+  %.sink162 = phi i64 [ 296, %19 ], [ 296, %2 ], [ 232, %23 ]
+  %.sink160 = phi i64 [ 304, %19 ], [ 304, %2 ], [ 240, %23 ]
+  %.sink159 = phi i64 [ 312, %19 ], [ 312, %2 ], [ 248, %23 ]
   %.sink = phi i64 [ 320, %19 ], [ 320, %2 ], [ 256, %23 ]
-  %27 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink158
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink162
   %.sroa.051.0.copyload53 = load <2 x float>, ptr %27, align 4
-  %.sroa.454.0..sroa_idx57 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink156
+  %.sroa.454.0..sroa_idx57 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink160
   %.sroa.454.0.copyload58 = load <2 x float>, ptr %.sroa.454.0..sroa_idx57, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink155
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink159
   %.sroa.041.0.copyload43 = load <2 x float>, ptr %28, align 4
   %.sroa.444.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink
   %.sroa.444.0.copyload48 = load <2 x float>, ptr %.sroa.444.0..sroa_idx47, align 4
@@ -785,8 +785,8 @@ define hidden void @_ZN7nanogui6Button4drawEP10NVGcontext(ptr noundef nonnull al
   %55 = load <4 x float>, ptr %54, align 8
   %.sroa.0139.4.vec.insert = shufflevector <4 x float> %55, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %56 = shufflevector <4 x float> %55, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
-  %.sroa.3.12.vec.insert159 = insertelement <2 x float> %56, float 1.000000e+00, i64 1
-  tail call void @nvgFillColor(ptr noundef %1, <2 x float> %.sroa.0139.4.vec.insert, <2 x float> %.sroa.3.12.vec.insert159)
+  %.sroa.3.12.vec.insert163 = insertelement <2 x float> %56, float 1.000000e+00, i64 1
+  tail call void @nvgFillColor(ptr noundef %1, <2 x float> %.sroa.0139.4.vec.insert, <2 x float> %.sroa.3.12.vec.insert163)
   tail call void @nvgFill(ptr noundef %1)
   %57 = load i8, ptr %12, align 8
   %58 = trunc i8 %57 to i1

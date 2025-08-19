@@ -214,8 +214,8 @@ define dso_local float @float4in_internal(ptr noundef %0, ptr noundef writeonly 
   %26 = icmp ne ptr %25, %.05776
   %.pr = load i32, ptr %23, align 4
   %.not65 = icmp eq i32 %.pr, 0
-  %or.cond91 = select i1 %26, i1 %.not65, i1 false
-  br i1 %or.cond91, label %66, label %thread-pre-split
+  %or.cond97 = select i1 %26, i1 %.not65, i1 false
+  br i1 %or.cond97, label %66, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %.critedge
   %27 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05776, ptr noundef nonnull @.str.6, i64 noundef 3) #20
@@ -287,9 +287,9 @@ thread-pre-split:                                 ; preds = %.critedge
   br label %.critedge71
 
 .sink.split:                                      ; preds = %44, %41, %38, %35, %32, %29, %thread-pre-split
-  %.sink90 = phi i64 [ 3, %thread-pre-split ], [ 8, %29 ], [ 9, %32 ], [ 9, %35 ], [ 3, %38 ], [ 4, %41 ], [ 4, %44 ]
+  %.sink96 = phi i64 [ 3, %thread-pre-split ], [ 8, %29 ], [ 9, %32 ], [ 9, %35 ], [ 3, %38 ], [ 4, %41 ], [ 4, %44 ]
   %.058.ph = phi float [ 0x7FF8000000000000, %thread-pre-split ], [ 0x7FF0000000000000, %29 ], [ 0x7FF0000000000000, %32 ], [ 0xFFF0000000000000, %35 ], [ 0x7FF0000000000000, %38 ], [ 0x7FF0000000000000, %41 ], [ 0xFFF0000000000000, %44 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.05776, i64 %.sink90
+  %65 = getelementptr inbounds nuw i8, ptr %.05776, i64 %.sink96
   store ptr %65, ptr %6, align 8
   br label %66
 
@@ -493,8 +493,8 @@ define dso_local double @float8in_internal(ptr noundef %0, ptr noundef writeonly
   %26 = icmp ne ptr %25, %.05776
   %.pr = load i32, ptr %23, align 4
   %.not65 = icmp eq i32 %.pr, 0
-  %or.cond91 = select i1 %26, i1 %.not65, i1 false
-  br i1 %or.cond91, label %66, label %thread-pre-split
+  %or.cond97 = select i1 %26, i1 %.not65, i1 false
+  br i1 %or.cond97, label %66, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %.critedge
   %27 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05776, ptr noundef nonnull @.str.6, i64 noundef 3) #20
@@ -566,9 +566,9 @@ thread-pre-split:                                 ; preds = %.critedge
   br label %.critedge71
 
 .sink.split:                                      ; preds = %44, %41, %38, %35, %32, %29, %thread-pre-split
-  %.sink90 = phi i64 [ 3, %thread-pre-split ], [ 8, %29 ], [ 9, %32 ], [ 9, %35 ], [ 3, %38 ], [ 4, %41 ], [ 4, %44 ]
+  %.sink96 = phi i64 [ 3, %thread-pre-split ], [ 8, %29 ], [ 9, %32 ], [ 9, %35 ], [ 3, %38 ], [ 4, %41 ], [ 4, %44 ]
   %.058.ph = phi double [ 0x7FF8000000000000, %thread-pre-split ], [ 0x7FF0000000000000, %29 ], [ 0x7FF0000000000000, %32 ], [ 0xFFF0000000000000, %35 ], [ 0x7FF0000000000000, %38 ], [ 0x7FF0000000000000, %41 ], [ 0xFFF0000000000000, %44 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.05776, i64 %.sink90
+  %65 = getelementptr inbounds nuw i8, ptr %.05776, i64 %.sink96
   store ptr %65, ptr %6, align 8
   br label %66
 
@@ -4932,8 +4932,8 @@ check_float8_array.exit:                          ; preds = %19
   br label %94
 
 89:                                               ; preds = %82, %77
-  %.082111 = select i1 %57, double 0x7FF8000000000000, double %49
-  %.083112 = select i1 %61, double 0x7FF8000000000000, double %51
+  %.082112 = select i1 %57, double 0x7FF8000000000000, double %49
+  %.083113 = select i1 %61, double 0x7FF8000000000000, double %51
   br label %94
 
 90:                                               ; preds = %check_float8_array.exit
@@ -4950,8 +4950,8 @@ check_float8_array.exit:                          ; preds = %19
 
 94:                                               ; preds = %88, %90, %41, %93, %89
   %.085 = phi double [ 0x7FF8000000000000, %89 ], [ %53, %88 ], [ 0x7FF8000000000000, %93 ], [ %53, %41 ], [ %.186, %90 ]
-  %.184 = phi double [ %.083112, %89 ], [ %.083, %88 ], [ 0x7FF8000000000000, %93 ], [ %51, %41 ], [ %34, %90 ]
-  %.1 = phi double [ %.082111, %89 ], [ %.082, %88 ], [ %.2, %93 ], [ %49, %41 ], [ %.2, %90 ]
+  %.184 = phi double [ %.083113, %89 ], [ %.083, %88 ], [ 0x7FF8000000000000, %93 ], [ %51, %41 ], [ %34, %90 ]
+  %.1 = phi double [ %.082112, %89 ], [ %.082, %88 ], [ %.2, %93 ], [ %49, %41 ], [ %.2, %90 ]
   %95 = tail call i32 @AggCheckCallContext(ptr noundef nonnull %0, ptr noundef null) #20
   %.not = icmp eq i32 %95, 0
   br i1 %.not, label %97, label %96
@@ -6663,8 +6663,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @width_bucket_float8(ptr
   br label %95
 
 95:                                               ; preds = %88, %85
-  %.sink64 = phi double [ %94, %88 ], [ %87, %85 ]
-  %96 = fmul double %.sink64, %84
+  %.sink68 = phi double [ %94, %88 ], [ %87, %85 ]
+  %96 = fmul double %.sink68, %84
   %storemerge = fptosi double %96 to i32
   %97 = add nsw i32 %10, -1
   %spec.select63 = tail call i32 @llvm.smin.i32(i32 %storemerge, i32 %97)

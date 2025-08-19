@@ -3020,8 +3020,8 @@ common.resume.i.i.i:                              ; preds = %91, %common.resume.
   unreachable
 
 "_ZN4core3ptr61drop_in_place$LT$http..response..Response$LT$$LP$$RP$$GT$$GT$17hd31f0bb144bc6848E.exit.sink.split.i.i.i": ; preds = %99, %24
-  %.sink4.i.i.i = phi ptr [ %22, %24 ], [ %97, %99 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sink4.i.i.i, i64 noundef 32, i64 noundef 8) #21, !noalias !4
+  %.sink5.i.i.i = phi ptr [ %22, %24 ], [ %97, %99 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sink5.i.i.i, i64 noundef 32, i64 noundef 8) #21, !noalias !4
   br label %"_ZN4core3ptr92drop_in_place$LT$h2..proto..streams..buffer..Slot$LT$h2..proto..streams..recv..Event$GT$$GT$17h0cc912dae7a3bf45E.exit"
 
 105:                                              ; preds = %4
@@ -10724,14 +10724,14 @@ common.resume:                                    ; preds = %2, %13
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr44drop_in_place$LT$hyper..body..body..Kind$GT$17h4d8f300ce6bf8ea3E.llvm.9135219245553044050"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !561, !noundef !4
-  switch i64 %2, label %default.unreachable7 [
+  switch i64 %2, label %default.unreachable12 [
     i64 0, label %24
     i64 1, label %36
     i64 2, label %51
     i64 3, label %3
   ]
 
-default.unreachable7:                             ; preds = %1
+default.unreachable12:                            ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -15239,7 +15239,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$parquet..data_type..FixedLen
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr58drop_in_place$LT$parquet..file..statistics..Statistics$GT$17h62e8786e557fb0e6E.llvm.9135219245553044050"(ptr noalias noundef align 8 dereferenceable(120) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !6383, !noundef !4
-  switch i64 %2, label %default.unreachable1 [
+  switch i64 %2, label %default.unreachable6 [
     i64 0, label %"_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..ValueStatistics$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hb708d77724a234daE.llvm.9135219245553044050.exit"
     i64 1, label %"_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..ValueStatistics$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hb708d77724a234daE.llvm.9135219245553044050.exit"
     i64 2, label %"_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..ValueStatistics$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hb708d77724a234daE.llvm.9135219245553044050.exit"
@@ -15250,7 +15250,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$parquet..file..statistics..S
     i64 7, label %3
   ]
 
-default.unreachable1:                             ; preds = %1
+default.unreachable6:                             ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -15335,8 +15335,8 @@ common.resume:                                    ; preds = %67, %72, %76, %19, 
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..ValueStatistics$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hb708d77724a234daE.llvm.9135219245553044050.exit.sink.split": ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$parquet..data_type..ByteArray$GT$$GT$17he6d37ce89891e60cE.llvm.9135219245553044050.exit.i", %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hf9155bd0ca794cceE.llvm.9135219245553044050.exit.i"
-  %.sink7 = phi ptr [ %40, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hf9155bd0ca794cceE.llvm.9135219245553044050.exit.i" ], [ %88, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$parquet..data_type..ByteArray$GT$$GT$17he6d37ce89891e60cE.llvm.9135219245553044050.exit.i" ]
-  %44 = getelementptr inbounds nuw i8, ptr %.sink7, i64 16
+  %.sink12 = phi ptr [ %40, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hf9155bd0ca794cceE.llvm.9135219245553044050.exit.i" ], [ %88, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$parquet..data_type..ByteArray$GT$$GT$17he6d37ce89891e60cE.llvm.9135219245553044050.exit.i" ]
+  %44 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
   %45 = load ptr, ptr %44, align 8, !noalias !4, !nonnull !4, !noundef !4
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -15415,8 +15415,8 @@ common.resume:                                    ; preds = %67, %72, %76, %19, 
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, null
-  %or.cond12 = select i1 %86, i1 true, i1 %89
-  br i1 %or.cond12, label %"_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..ValueStatistics$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hb708d77724a234daE.llvm.9135219245553044050.exit", label %"_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..ValueStatistics$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hb708d77724a234daE.llvm.9135219245553044050.exit.sink.split"
+  %or.cond17 = select i1 %86, i1 true, i1 %89
+  br i1 %or.cond17, label %"_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..ValueStatistics$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hb708d77724a234daE.llvm.9135219245553044050.exit", label %"_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..ValueStatistics$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hb708d77724a234daE.llvm.9135219245553044050.exit.sink.split"
 
 90:                                               ; preds = %76
   %91 = landingpad { ptr, i32 }
@@ -19700,12 +19700,12 @@ default.unreachable:                              ; preds = %248
   unreachable
 
 common.resume.sink.split.i:                       ; preds = %1246, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i297.i", %1115, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i238.i", %983, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i179.i", %851, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i120.i", %720, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i61.i", %588, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i.i"
-  %.sink407.i = phi i64 [ 120, %588 ], [ 120, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i.i" ], [ 336, %720 ], [ 336, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i61.i" ], [ 392, %851 ], [ 392, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i120.i" ], [ 368, %983 ], [ 368, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i179.i" ], [ 336, %1115 ], [ 336, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i238.i" ], [ 392, %1246 ], [ 392, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i297.i" ]
-  %.sink406.i = phi i64 [ 528, %588 ], [ 528, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i.i" ], [ 552, %720 ], [ 552, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i61.i" ], [ 608, %851 ], [ 608, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i120.i" ], [ 584, %983 ], [ 584, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i179.i" ], [ 552, %1115 ], [ 552, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i238.i" ], [ 608, %1246 ], [ 608, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i297.i" ]
+  %.sink498.i = phi i64 [ 120, %588 ], [ 120, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i.i" ], [ 336, %720 ], [ 336, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i61.i" ], [ 392, %851 ], [ 392, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i120.i" ], [ 368, %983 ], [ 368, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i179.i" ], [ 336, %1115 ], [ 336, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i238.i" ], [ 392, %1246 ], [ 392, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i297.i" ]
+  %.sink497.i = phi i64 [ 528, %588 ], [ 528, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i.i" ], [ 552, %720 ], [ 552, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i61.i" ], [ 608, %851 ], [ 608, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i120.i" ], [ 584, %983 ], [ 584, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i179.i" ], [ 552, %1115 ], [ 552, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i238.i" ], [ 608, %1246 ], [ 608, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i297.i" ]
   %common.resume.op.ph.i = phi { ptr, i32 } [ %589, %588 ], [ %.pn8.i9.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i.i" ], [ %721, %720 ], [ %.pn8.i59.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i61.i" ], [ %852, %851 ], [ %.pn8.i118.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i120.i" ], [ %984, %983 ], [ %.pn8.i177.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i179.i" ], [ %1116, %1115 ], [ %.pn8.i236.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i238.i" ], [ %1247, %1246 ], [ %.pn8.i295.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i297.i" ]
-  %477 = getelementptr inbounds nuw i8, ptr %249, i64 %.sink407.i
+  %477 = getelementptr inbounds nuw i8, ptr %249, i64 %.sink498.i
   call fastcc void @"_ZN4core3ptr64drop_in_place$LT$parquet..file..metadata..ColumnIndexBuilder$GT$17heb3001986e201a24E"(ptr noalias noundef align 8 dereferenceable(104) %477) #24
-  %478 = getelementptr inbounds nuw i8, ptr %249, i64 %.sink406.i
+  %478 = getelementptr inbounds nuw i8, ptr %249, i64 %.sink497.i
   call fastcc void @"_ZN4core3ptr64drop_in_place$LT$parquet..file..metadata..OffsetIndexBuilder$GT$17hcda5715598bbc27bE"(ptr noalias noundef align 8 dereferenceable(80) %478) #24
   br label %common.resume
 
@@ -32126,13 +32126,13 @@ define hidden void @"_ZN82_$LT$futures_channel..mpsc..Receiver$LT$T$GT$$u20$as$u
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$12next_message17h74280a26ffadf9fbE"(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   %9 = load i64, ptr %2, align 8, !range !986, !noundef !4
-  switch i64 %9, label %default.unreachable17 [
+  switch i64 %9, label %default.unreachable19 [
     i64 2, label %10
     i64 0, label %"_ZN4core3ptr148drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$hyper..error..Error$GT$$GT$$GT$$GT$17h46857a008b569f36E.exit"
     i64 1, label %.thread16
   ]
 
-default.unreachable17:                            ; preds = %8
+default.unreachable19:                            ; preds = %8
   unreachable
 
 10:                                               ; preds = %8

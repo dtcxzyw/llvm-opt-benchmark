@@ -264,12 +264,12 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr noundef readonly captures
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %5 = load ptr, ptr %4, align 8
   switch i32 %2, label %9 [
-    i32 1, label %.thread58
+    i32 1, label %.thread64
     i32 0, label %8
     i32 2, label %8
   ]
 
-.thread58:                                        ; preds = %3
+.thread64:                                        ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %.split.us.preheader
@@ -287,11 +287,11 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr noundef readonly captures
     i32 2, label %.split.us26
   ]
 
-.split.us.preheader:                              ; preds = %.thread58, %9
-  %13 = phi ptr [ %7, %.thread58 ], [ %12, %9 ]
-  %14 = phi ptr [ %6, %.thread58 ], [ %11, %9 ]
-  %15 = phi i32 [ 0, %.thread58 ], [ %10, %9 ]
-  %16 = phi i32 [ -1, %.thread58 ], [ 0, %9 ]
+.split.us.preheader:                              ; preds = %.thread64, %9
+  %13 = phi ptr [ %7, %.thread64 ], [ %12, %9 ]
+  %14 = phi ptr [ %6, %.thread64 ], [ %11, %9 ]
+  %15 = phi i32 [ 0, %.thread64 ], [ %10, %9 ]
+  %16 = phi i32 [ -1, %.thread64 ], [ 0, %9 ]
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %43

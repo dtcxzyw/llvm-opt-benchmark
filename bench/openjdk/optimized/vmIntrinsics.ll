@@ -931,7 +931,7 @@ define hidden noundef zeroext i1 @_ZN12vmIntrinsics20is_disabled_by_flagsE13vmIn
   %13 = phi ptr [ %50, %_ZN12vmIntrinsics7find_idEPKc.exit.thread ], [ %9, %6 ]
   %14 = load ptr, ptr @_ZL23vm_intrinsic_name_table, align 16
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.preheader.i, label %.preheader82
+  br i1 %15, label %.preheader.i, label %.preheader85
 
 .preheader.i:                                     ; preds = %.lr.ph, %.preheader.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i ], [ 1, %.lr.ph ]
@@ -947,13 +947,13 @@ define hidden noundef zeroext i1 @_ZN12vmIntrinsics20is_disabled_by_flagsE13vmIn
 
 _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i: ; preds = %.preheader.i
   store ptr @.str, ptr @_ZL23vm_intrinsic_name_table, align 16
-  br label %.preheader82
+  br label %.preheader85
 
-.preheader82:                                     ; preds = %_ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i, %.lr.ph
+.preheader85:                                     ; preds = %_ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i, %.lr.ph
   br label %20
 
-20:                                               ; preds = %.preheader82, %25
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %25 ], [ 1, %.preheader82 ]
+20:                                               ; preds = %.preheader85, %25
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %25 ], [ 1, %.preheader85 ]
   %21 = getelementptr inbounds nuw ptr, ptr @_ZL23vm_intrinsic_name_table, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %22) #9

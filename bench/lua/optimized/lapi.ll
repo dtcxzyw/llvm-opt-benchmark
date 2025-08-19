@@ -3615,9 +3615,9 @@ index2value.exit:                                 ; preds = %8, %14, %20, %27, %
   %70 = load i8, ptr %69, align 1, !tbaa !20
   %71 = and i8 %70, 15
   %72 = icmp eq i8 %71, 0
-  br i1 %72, label %.thread, label %.thread35
+  br i1 %72, label %.thread, label %.thread40
 
-.thread35:                                        ; preds = %65
+.thread40:                                        ; preds = %65
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %74 = load ptr, ptr %73, align 8, !tbaa !20
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
@@ -3652,8 +3652,8 @@ index2value.exit:                                 ; preds = %8, %14, %20, %27, %
   %.pre30 = and i8 %90, 15
   br label %91
 
-91:                                               ; preds = %.thread35, %.thread, %82
-  %.pre-phi31 = phi i8 [ %.pre30, %.thread ], [ %.pre, %82 ], [ %71, %.thread35 ]
+91:                                               ; preds = %.thread40, %.thread, %82
+  %.pre-phi31 = phi i8 [ %.pre30, %.thread ], [ %.pre, %82 ], [ %71, %.thread40 ]
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %93 = load ptr, ptr %92, align 8, !tbaa !20
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 16

@@ -799,13 +799,13 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !35
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !35
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -1527,8 +1527,8 @@ define void @_ZN17gmx_reverse_top_t4ImplC2ERK10gmx_mtop_tbRK17ReverseTopOptions(
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %23 = load ptr, ptr %22, align 8, !tbaa !156
   %24 = load ptr, ptr %21, align 8, !tbaa !157
-  %.not92 = icmp eq ptr %23, %24
-  br i1 %.not92, label %_ZNSt6vectorI15reverse_ilist_tSaIS0_EE6resizeEm.exit.thread, label %25
+  %.not112 = icmp eq ptr %23, %24
+  br i1 %.not112, label %_ZNSt6vectorI15reverse_ilist_tSaIS0_EE6resizeEm.exit.thread, label %25
 
 _ZNSt6vectorI15reverse_ilist_tSaIS0_EE6resizeEm.exit.thread: ; preds = %4
   store i32 0, ptr %15, align 8, !tbaa !158
@@ -1939,7 +1939,7 @@ define linkonce_odr void @_ZNSt6vectorI15reverse_ilist_tSaIS0_EE17_M_default_app
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIP15reverse_ilist_tmS0_ET_S2_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIP15reverse_ilist_tmS0_ET_S2_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 56
+  %19 = mul nuw nsw i64 %1, 56
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !75

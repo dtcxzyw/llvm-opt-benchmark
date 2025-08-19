@@ -2539,19 +2539,19 @@ define internal ptr @_io__IOBase_readlines(ptr noundef %0, ptr noundef readonly 
 .thread:                                          ; preds = %7
   %15 = tail call ptr @PyList_New(i64 noundef 0) #6
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %_io__IOBase_readlines_impl.exit, label %.thread14
+  br i1 %16, label %_io__IOBase_readlines_impl.exit, label %.thread27
 
 17:                                               ; preds = %12
   %18 = icmp slt i64 %.pre, 1
-  br i1 %18, label %.thread14, label %27
+  br i1 %18, label %.thread27, label %27
 
-.thread14:                                        ; preds = %.thread, %17
+.thread27:                                        ; preds = %.thread, %17
   %19 = phi ptr [ %13, %17 ], [ %15, %.thread ]
   %20 = call ptr (ptr, ptr, ...) @PyObject_CallMethodObjArgs(ptr noundef nonnull %19, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 55512), ptr noundef %0, ptr noundef null) #6
   %21 = icmp eq ptr %20, null
   br i1 %21, label %Py_XDECREF.exit.i, label %22
 
-22:                                               ; preds = %.thread14
+22:                                               ; preds = %.thread27
   %23 = load i32, ptr %20, align 8, !tbaa !9
   %.not.i46.i = icmp sgt i32 %23, -1
   br i1 %.not.i46.i, label %24, label %_io__IOBase_readlines_impl.exit
@@ -2650,8 +2650,8 @@ select.unfold.i:                                  ; preds = %51, %32
   call void @_Py_Dealloc(ptr noundef nonnull %28) #6
   br label %Py_XDECREF.exit.i
 
-Py_XDECREF.exit.i:                                ; preds = %63, %60, %.critedge.thread63.i, %27, %.thread14
-  %64 = phi ptr [ %13, %63 ], [ %13, %60 ], [ %13, %.critedge.thread63.i ], [ %13, %27 ], [ %19, %.thread14 ]
+Py_XDECREF.exit.i:                                ; preds = %63, %60, %.critedge.thread63.i, %27, %.thread27
+  %64 = phi ptr [ %13, %63 ], [ %13, %60 ], [ %13, %.critedge.thread63.i ], [ %13, %27 ], [ %19, %.thread27 ]
   %65 = load i32, ptr %64, align 8, !tbaa !9
   %.not.i.i = icmp sgt i32 %65, -1
   br i1 %.not.i.i, label %66, label %_io__IOBase_readlines_impl.exit

@@ -468,9 +468,9 @@ bytestream2_put_buffer.exit.us.i:                 ; preds = %144, %.lr.ph151.spl
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %196, %194, %191
-  %.sink187.i = phi i64 [ 1, %194 ], [ 2, %196 ], [ 1, %191 ]
+  %.sink196.i = phi i64 [ 1, %194 ], [ 2, %196 ], [ 1, %191 ]
   %200 = load ptr, ptr %158, align 8, !tbaa !45
-  %201 = getelementptr inbounds nuw i8, ptr %200, i64 %.sink187.i
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 %.sink196.i
   store ptr %201, ptr %158, align 8, !tbaa !45
   br label %202
 

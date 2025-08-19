@@ -454,7 +454,7 @@ interpolate_bilinear.exit.i:                      ; preds = %._crit_edge.us.i.i,
   %233 = getelementptr inbounds nuw float, ptr %232, i64 %196
   %234 = getelementptr inbounds nuw float, ptr %232, i64 %198
   %235 = fmul reassoc nsz arcp contract afn float %269, 2.000000e+00
-  br i1 %231, label %.critedge47, label %.critedge51
+  br i1 %231, label %.critedge64, label %.critedge68
 
 236:                                              ; preds = %236, %205
   %.0289310.i.i = phi float [ 1.000000e+00, %205 ], [ %269, %236 ]
@@ -480,11 +480,11 @@ interpolate_bilinear.exit.i:                      ; preds = %._crit_edge.us.i.i,
   %255 = fadd reassoc nsz arcp contract afn float %254, %252
   %256 = fsub reassoc nsz arcp contract afn float %248, %219
   %257 = fadd reassoc nsz arcp contract afn float %256, %253
-  %.sink335.i.i = select i1 %226, float %257, float %255
-  %.sink334.i.i = select i1 %226, float %252, float %248
-  %258 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %.sink335.i.i)
+  %.sink344.i.i = select i1 %226, float %257, float %255
+  %.sink343.i.i = select i1 %226, float %252, float %248
+  %258 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %.sink344.i.i)
   %259 = fsub reassoc nsz arcp contract afn float %.sink.i.i, %244
-  %260 = fadd reassoc nsz arcp contract afn float %259, %.sink334.i.i
+  %260 = fadd reassoc nsz arcp contract afn float %259, %.sink343.i.i
   %261 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %260)
   %262 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %261, float 0x3FB99999A0000000)
   %263 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %262
@@ -496,7 +496,7 @@ interpolate_bilinear.exit.i:                      ; preds = %._crit_edge.us.i.i,
   %269 = fdiv reassoc nsz arcp contract afn float %268, %267
   br i1 %237, label %236, label %227
 
-.critedge47:                                      ; preds = %227
+.critedge64:                                      ; preds = %227
   %scevgep327.i.i = getelementptr i8, ptr %129, i64 %228
   %270 = load float, ptr %233, align 4, !tbaa !60, !alias.scope !64, !noalias !70
   %271 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %270, float 0x3EB0C6F7A0000000)
@@ -528,7 +528,7 @@ interpolate_bilinear.exit.i:                      ; preds = %._crit_edge.us.i.i,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %scevgep327.i.i, i8 0, i64 16, i1 false), !tbaa !60, !noalias !70
   br label %314
 
-.critedge51:                                      ; preds = %227
+.critedge68:                                      ; preds = %227
   %scevgep.i.i = getelementptr i8, ptr %128, i64 %228
   %292 = load float, ptr %233, align 4, !tbaa !60, !alias.scope !64, !noalias !70
   %293 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %292, float 0x3EB0C6F7A0000000)
@@ -560,7 +560,7 @@ interpolate_bilinear.exit.i:                      ; preds = %._crit_edge.us.i.i,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %scevgep.i.i, i8 0, i64 16, i1 false), !tbaa !60, !noalias !70
   br label %314
 
-314:                                              ; preds = %.critedge51, %.critedge47
+314:                                              ; preds = %.critedge68, %.critedge64
   %315 = add nuw i64 %.0288317.i.i, 1
   %exitcond328.not.i.i = icmp eq i64 %315, %52
   br i1 %exitcond328.not.i.i, label %._crit_edge320.i.i, label %205

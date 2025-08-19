@@ -1103,10 +1103,10 @@ define internal noundef i32 @filter_channels_fltp(ptr noundef readonly captures(
   %87 = getelementptr inbounds nuw [17 x [20 x %struct.BiquadCoeffs]], ptr %32, i64 0, i64 %indvars.iv246
   %smax = tail call i32 @llvm.smax.i32(i32 %82, i32 0)
   %wide.trip.count = zext nneg i32 %smax to i64
-  %exitcond.not285 = icmp slt i32 %82, 1
-  br i1 %exitcond.not285, label %.lr.ph203, label %.lr.ph287.preheader
+  %exitcond.not288 = icmp slt i32 %82, 1
+  br i1 %exitcond.not288, label %.lr.ph203, label %.lr.ph290.preheader
 
-.lr.ph287.preheader:                              ; preds = %.lr.ph
+.lr.ph290.preheader:                              ; preds = %.lr.ph
   %88 = load ptr, ptr %83, align 8, !tbaa !49
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 96
   %90 = load ptr, ptr %89, align 8, !tbaa !89
@@ -1118,15 +1118,15 @@ define internal noundef i32 @filter_channels_fltp(ptr noundef readonly captures(
   %96 = getelementptr inbounds ptr, ptr %95, i64 %indvars.iv261
   %97 = load ptr, ptr %96, align 8, !tbaa !20
   %98 = getelementptr inbounds float, ptr %97, i64 %37
-  br label %.lr.ph287
+  br label %.lr.ph290
 
 .lr.ph203:                                        ; preds = %biquad_process_fltp.exit, %.lr.ph
   %99 = getelementptr inbounds nuw float, ptr %57, i64 %85
   %100 = getelementptr inbounds nuw [17 x [20 x %struct.BiquadCoeffs]], ptr %38, i64 0, i64 %indvars.iv246
-  %exitcond234.not288 = icmp slt i32 %82, 1
-  br i1 %exitcond234.not288, label %.critedge2, label %.lr.ph290.preheader
+  %exitcond234.not291 = icmp slt i32 %82, 1
+  br i1 %exitcond234.not291, label %.critedge2, label %.lr.ph293.preheader
 
-.lr.ph290.preheader:                              ; preds = %.lr.ph203
+.lr.ph293.preheader:                              ; preds = %.lr.ph203
   %101 = load ptr, ptr %83, align 8, !tbaa !49
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 96
   %103 = load ptr, ptr %102, align 8, !tbaa !89
@@ -1134,15 +1134,15 @@ define internal noundef i32 @filter_channels_fltp(ptr noundef readonly captures(
   %105 = load ptr, ptr %104, align 8, !tbaa !20
   %106 = getelementptr float, ptr %105, i64 %39
   %107 = getelementptr i8, ptr %106, i64 -4
-  br label %.lr.ph290
+  br label %.lr.ph293
 
-.lr.ph287:                                        ; preds = %.lr.ph287.preheader, %biquad_process_fltp.exit
-  %indvars.iv286 = phi i64 [ %indvars.iv.next, %biquad_process_fltp.exit ], [ 0, %.lr.ph287.preheader ]
-  %108 = icmp eq i64 %indvars.iv286, 0
+.lr.ph290:                                        ; preds = %.lr.ph290.preheader, %biquad_process_fltp.exit
+  %indvars.iv289 = phi i64 [ %indvars.iv.next, %biquad_process_fltp.exit ], [ 0, %.lr.ph290.preheader ]
+  %108 = icmp eq i64 %indvars.iv289, 0
   %109 = select i1 %108, ptr %92, ptr %97
-  %.idx268 = shl nuw nsw i64 %indvars.iv286, 3
-  %110 = getelementptr inbounds nuw i8, ptr %86, i64 %.idx268
-  %111 = getelementptr inbounds nuw [20 x %struct.BiquadCoeffs], ptr %87, i64 0, i64 %indvars.iv286, i32 1
+  %.idx271 = shl nuw nsw i64 %indvars.iv289, 3
+  %110 = getelementptr inbounds nuw i8, ptr %86, i64 %.idx271
+  %111 = getelementptr inbounds nuw [20 x %struct.BiquadCoeffs], ptr %87, i64 0, i64 %indvars.iv289, i32 1
   %112 = load float, ptr %111, align 4, !tbaa !27
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %114 = load float, ptr %113, align 4, !tbaa !27
@@ -1157,15 +1157,15 @@ define internal noundef i32 @filter_channels_fltp(ptr noundef readonly captures(
   %123 = load float, ptr %122, align 4, !tbaa !27
   br i1 %33, label %.lr.ph.i, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph287
-  %.067.lcssa.i = phi float [ %123, %.lr.ph287 ], [ %139, %.lr.ph.i ]
-  %.0.lcssa.i = phi float [ %121, %.lr.ph287 ], [ %137, %.lr.ph.i ]
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph290
+  %.067.lcssa.i = phi float [ %123, %.lr.ph290 ], [ %139, %.lr.ph.i ]
+  %.0.lcssa.i = phi float [ %121, %.lr.ph290 ], [ %137, %.lr.ph.i ]
   br i1 %.not.i, label %biquad_process_fltp.exit, label %143
 
-.lr.ph.i:                                         ; preds = %.lr.ph287, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph287 ]
-  %.074.i = phi float [ %137, %.lr.ph.i ], [ %121, %.lr.ph287 ]
-  %.06773.i = phi float [ %139, %.lr.ph.i ], [ %123, %.lr.ph287 ]
+.lr.ph.i:                                         ; preds = %.lr.ph290, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph290 ]
+  %.074.i = phi float [ %137, %.lr.ph.i ], [ %121, %.lr.ph290 ]
+  %.06773.i = phi float [ %139, %.lr.ph.i ], [ %123, %.lr.ph290 ]
   %124 = or disjoint i64 %indvars.iv.i, 1
   %125 = getelementptr inbounds nuw float, ptr %109, i64 %indvars.iv.i
   %126 = load float, ptr %125, align 4, !tbaa !27
@@ -1206,9 +1206,9 @@ biquad_process_fltp.exit:                         ; preds = %._crit_edge.i, %143
   %.1.i = phi nsz float [ %148, %143 ], [ %.0.lcssa.i, %._crit_edge.i ]
   store float %.1.i, ptr %110, align 4, !tbaa !27
   store float %.168.i, ptr %122, align 4, !tbaa !27
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv286, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv289, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph203, label %.lr.ph287
+  br i1 %exitcond.not, label %.lr.ph203, label %.lr.ph290
 
 .critedge2:                                       ; preds = %biquad_process_fltp.exit159, %.lr.ph203, %.preheader
   %151 = trunc i64 %indvars.iv246 to i32
@@ -1225,11 +1225,11 @@ biquad_process_fltp.exit:                         ; preds = %._crit_edge.i, %143
   %wide.trip.count238 = sext i32 %155 to i64
   br label %196
 
-.lr.ph290:                                        ; preds = %.lr.ph290.preheader, %biquad_process_fltp.exit159
-  %indvars.iv229289 = phi i64 [ %indvars.iv.next230, %biquad_process_fltp.exit159 ], [ 0, %.lr.ph290.preheader ]
-  %.idx267 = shl nuw nsw i64 %indvars.iv229289, 3
-  %159 = getelementptr inbounds nuw i8, ptr %99, i64 %.idx267
-  %160 = getelementptr inbounds nuw [20 x %struct.BiquadCoeffs], ptr %100, i64 0, i64 %indvars.iv229289, i32 1
+.lr.ph293:                                        ; preds = %.lr.ph293.preheader, %biquad_process_fltp.exit159
+  %indvars.iv229292 = phi i64 [ %indvars.iv.next230, %biquad_process_fltp.exit159 ], [ 0, %.lr.ph293.preheader ]
+  %.idx270 = shl nuw nsw i64 %indvars.iv229292, 3
+  %159 = getelementptr inbounds nuw i8, ptr %99, i64 %.idx270
+  %160 = getelementptr inbounds nuw [20 x %struct.BiquadCoeffs], ptr %100, i64 0, i64 %indvars.iv229292, i32 1
   %161 = load float, ptr %160, align 4, !tbaa !27
   %162 = getelementptr inbounds nuw i8, ptr %160, i64 4
   %163 = load float, ptr %162, align 4, !tbaa !27
@@ -1244,15 +1244,15 @@ biquad_process_fltp.exit:                         ; preds = %._crit_edge.i, %143
   %172 = load float, ptr %171, align 4, !tbaa !27
   br i1 %33, label %.lr.ph.i154, label %._crit_edge.i147
 
-._crit_edge.i147:                                 ; preds = %.lr.ph.i154, %.lr.ph290
-  %.067.lcssa.i148 = phi float [ %172, %.lr.ph290 ], [ %186, %.lr.ph.i154 ]
-  %.0.lcssa.i149 = phi float [ %170, %.lr.ph290 ], [ %184, %.lr.ph.i154 ]
+._crit_edge.i147:                                 ; preds = %.lr.ph.i154, %.lr.ph293
+  %.067.lcssa.i148 = phi float [ %172, %.lr.ph293 ], [ %186, %.lr.ph.i154 ]
+  %.0.lcssa.i149 = phi float [ %170, %.lr.ph293 ], [ %184, %.lr.ph.i154 ]
   br i1 %.not.i, label %biquad_process_fltp.exit159, label %189
 
-.lr.ph.i154:                                      ; preds = %.lr.ph290, %.lr.ph.i154
-  %indvars.iv.i155 = phi i64 [ %indvars.iv.next.i158, %.lr.ph.i154 ], [ 0, %.lr.ph290 ]
-  %.074.i156 = phi float [ %184, %.lr.ph.i154 ], [ %170, %.lr.ph290 ]
-  %.06773.i157 = phi float [ %186, %.lr.ph.i154 ], [ %172, %.lr.ph290 ]
+.lr.ph.i154:                                      ; preds = %.lr.ph293, %.lr.ph.i154
+  %indvars.iv.i155 = phi i64 [ %indvars.iv.next.i158, %.lr.ph.i154 ], [ 0, %.lr.ph293 ]
+  %.074.i156 = phi float [ %184, %.lr.ph.i154 ], [ %170, %.lr.ph293 ]
+  %.06773.i157 = phi float [ %186, %.lr.ph.i154 ], [ %172, %.lr.ph293 ]
   %173 = getelementptr inbounds nuw float, ptr %105, i64 %indvars.iv.i155
   %174 = load float, ptr %173, align 4, !tbaa !27
   %175 = tail call nsz float @llvm.fmuladd.f32(float %174, float %161, float %.074.i156)
@@ -1289,9 +1289,9 @@ biquad_process_fltp.exit159:                      ; preds = %._crit_edge.i147, %
   %.1.i152 = phi nsz float [ %193, %189 ], [ %.0.lcssa.i149, %._crit_edge.i147 ]
   store float %.1.i152, ptr %159, align 4, !tbaa !27
   store float %.168.i151, ptr %171, align 4, !tbaa !27
-  %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229289, 1
+  %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229292, 1
   %exitcond234.not = icmp eq i64 %indvars.iv.next230, %wide.trip.count
-  br i1 %exitcond234.not, label %.critedge2, label %.lr.ph290
+  br i1 %exitcond234.not, label %.critedge2, label %.lr.ph293
 
 .loopexit:                                        ; preds = %biquad_process_fltp.exit185, %247
   %indvars.iv.next243 = add i64 %indvars.iv242, 1
@@ -1404,8 +1404,8 @@ biquad_process_fltp.exit172:                      ; preds = %._crit_edge.i160, %
 
 262:                                              ; preds = %.lr.ph206, %biquad_process_fltp.exit185
   %indvars.iv235 = phi i64 [ %46, %.lr.ph206 ], [ %indvars.iv.next236, %biquad_process_fltp.exit185 ]
-  %.idx266 = shl nsw i64 %indvars.iv235, 3
-  %263 = getelementptr inbounds i8, ptr %257, i64 %.idx266
+  %.idx269 = shl nsw i64 %indvars.iv235, 3
+  %263 = getelementptr inbounds i8, ptr %257, i64 %.idx269
   %264 = getelementptr inbounds [20 x %struct.BiquadCoeffs], ptr %259, i64 0, i64 %indvars.iv235, i32 1
   %265 = load float, ptr %264, align 4, !tbaa !27
   %266 = getelementptr inbounds nuw i8, ptr %264, i64 4
@@ -1630,10 +1630,10 @@ define internal noundef i32 @filter_channels_dblp(ptr noundef readonly captures(
   %88 = getelementptr inbounds nuw [17 x [20 x %struct.BiquadCoeffs]], ptr %32, i64 0, i64 %indvars.iv246
   %smax = tail call i32 @llvm.smax.i32(i32 %83, i32 0)
   %wide.trip.count = zext nneg i32 %smax to i64
-  %exitcond.not284 = icmp slt i32 %83, 1
-  br i1 %exitcond.not284, label %.lr.ph203, label %.lr.ph286.preheader
+  %exitcond.not287 = icmp slt i32 %83, 1
+  br i1 %exitcond.not287, label %.lr.ph203, label %.lr.ph289.preheader
 
-.lr.ph286.preheader:                              ; preds = %.lr.ph
+.lr.ph289.preheader:                              ; preds = %.lr.ph
   %89 = load ptr, ptr %84, align 8, !tbaa !49
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 96
   %91 = load ptr, ptr %90, align 8, !tbaa !89
@@ -1645,15 +1645,15 @@ define internal noundef i32 @filter_channels_dblp(ptr noundef readonly captures(
   %97 = getelementptr inbounds ptr, ptr %96, i64 %indvars.iv261
   %98 = load ptr, ptr %97, align 8, !tbaa !20
   %99 = getelementptr inbounds double, ptr %98, i64 %37
-  br label %.lr.ph286
+  br label %.lr.ph289
 
 .lr.ph203:                                        ; preds = %biquad_process_dblp.exit, %.lr.ph
   %100 = getelementptr inbounds nuw double, ptr %56, i64 %86
   %101 = getelementptr inbounds nuw [17 x [20 x %struct.BiquadCoeffs]], ptr %38, i64 0, i64 %indvars.iv246
-  %exitcond234.not287 = icmp slt i32 %83, 1
-  br i1 %exitcond234.not287, label %.critedge2, label %.lr.ph289.preheader
+  %exitcond234.not290 = icmp slt i32 %83, 1
+  br i1 %exitcond234.not290, label %.critedge2, label %.lr.ph292.preheader
 
-.lr.ph289.preheader:                              ; preds = %.lr.ph203
+.lr.ph292.preheader:                              ; preds = %.lr.ph203
   %102 = load ptr, ptr %84, align 8, !tbaa !49
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 96
   %104 = load ptr, ptr %103, align 8, !tbaa !89
@@ -1661,15 +1661,15 @@ define internal noundef i32 @filter_channels_dblp(ptr noundef readonly captures(
   %106 = load ptr, ptr %105, align 8, !tbaa !20
   %107 = getelementptr double, ptr %106, i64 %39
   %108 = getelementptr i8, ptr %107, i64 -8
-  br label %.lr.ph289
+  br label %.lr.ph292
 
-.lr.ph286:                                        ; preds = %.lr.ph286.preheader, %biquad_process_dblp.exit
-  %indvars.iv285 = phi i64 [ %indvars.iv.next, %biquad_process_dblp.exit ], [ 0, %.lr.ph286.preheader ]
-  %109 = icmp eq i64 %indvars.iv285, 0
+.lr.ph289:                                        ; preds = %.lr.ph289.preheader, %biquad_process_dblp.exit
+  %indvars.iv288 = phi i64 [ %indvars.iv.next, %biquad_process_dblp.exit ], [ 0, %.lr.ph289.preheader ]
+  %109 = icmp eq i64 %indvars.iv288, 0
   %110 = select i1 %109, ptr %93, ptr %98
-  %.idx267 = shl nuw nsw i64 %indvars.iv285, 4
-  %111 = getelementptr inbounds nuw i8, ptr %87, i64 %.idx267
-  %112 = getelementptr inbounds nuw [20 x %struct.BiquadCoeffs], ptr %88, i64 0, i64 %indvars.iv285
+  %.idx270 = shl nuw nsw i64 %indvars.iv288, 4
+  %111 = getelementptr inbounds nuw i8, ptr %87, i64 %.idx270
+  %112 = getelementptr inbounds nuw [20 x %struct.BiquadCoeffs], ptr %88, i64 0, i64 %indvars.iv288
   %113 = load double, ptr %112, align 8, !tbaa !80
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %115 = load double, ptr %114, align 8, !tbaa !80
@@ -1684,15 +1684,15 @@ define internal noundef i32 @filter_channels_dblp(ptr noundef readonly captures(
   %124 = load double, ptr %123, align 8, !tbaa !80
   br i1 %33, label %.lr.ph.i, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph286
-  %.067.lcssa.i = phi double [ %124, %.lr.ph286 ], [ %140, %.lr.ph.i ]
-  %.0.lcssa.i = phi double [ %122, %.lr.ph286 ], [ %138, %.lr.ph.i ]
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph289
+  %.067.lcssa.i = phi double [ %124, %.lr.ph289 ], [ %140, %.lr.ph.i ]
+  %.0.lcssa.i = phi double [ %122, %.lr.ph289 ], [ %138, %.lr.ph.i ]
   br i1 %.not.i, label %biquad_process_dblp.exit, label %144
 
-.lr.ph.i:                                         ; preds = %.lr.ph286, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph286 ]
-  %.074.i = phi double [ %138, %.lr.ph.i ], [ %122, %.lr.ph286 ]
-  %.06773.i = phi double [ %140, %.lr.ph.i ], [ %124, %.lr.ph286 ]
+.lr.ph.i:                                         ; preds = %.lr.ph289, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph289 ]
+  %.074.i = phi double [ %138, %.lr.ph.i ], [ %122, %.lr.ph289 ]
+  %.06773.i = phi double [ %140, %.lr.ph.i ], [ %124, %.lr.ph289 ]
   %125 = or disjoint i64 %indvars.iv.i, 1
   %126 = getelementptr inbounds nuw double, ptr %110, i64 %indvars.iv.i
   %127 = load double, ptr %126, align 8, !tbaa !80
@@ -1733,9 +1733,9 @@ biquad_process_dblp.exit:                         ; preds = %._crit_edge.i, %144
   %.1.i = phi nsz double [ %149, %144 ], [ %.0.lcssa.i, %._crit_edge.i ]
   store double %.1.i, ptr %111, align 8, !tbaa !80
   store double %.168.i, ptr %123, align 8, !tbaa !80
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv285, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv288, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph203, label %.lr.ph286
+  br i1 %exitcond.not, label %.lr.ph203, label %.lr.ph289
 
 .critedge2:                                       ; preds = %biquad_process_dblp.exit159, %.lr.ph203, %.preheader
   %152 = trunc i64 %indvars.iv246 to i32
@@ -1752,11 +1752,11 @@ biquad_process_dblp.exit:                         ; preds = %._crit_edge.i, %144
   %wide.trip.count238 = sext i32 %156 to i64
   br label %197
 
-.lr.ph289:                                        ; preds = %.lr.ph289.preheader, %biquad_process_dblp.exit159
-  %indvars.iv229288 = phi i64 [ %indvars.iv.next230, %biquad_process_dblp.exit159 ], [ 0, %.lr.ph289.preheader ]
-  %.idx266 = shl nuw nsw i64 %indvars.iv229288, 4
-  %160 = getelementptr inbounds nuw i8, ptr %100, i64 %.idx266
-  %161 = getelementptr inbounds nuw [20 x %struct.BiquadCoeffs], ptr %101, i64 0, i64 %indvars.iv229288
+.lr.ph292:                                        ; preds = %.lr.ph292.preheader, %biquad_process_dblp.exit159
+  %indvars.iv229291 = phi i64 [ %indvars.iv.next230, %biquad_process_dblp.exit159 ], [ 0, %.lr.ph292.preheader ]
+  %.idx269 = shl nuw nsw i64 %indvars.iv229291, 4
+  %160 = getelementptr inbounds nuw i8, ptr %100, i64 %.idx269
+  %161 = getelementptr inbounds nuw [20 x %struct.BiquadCoeffs], ptr %101, i64 0, i64 %indvars.iv229291
   %162 = load double, ptr %161, align 8, !tbaa !80
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %164 = load double, ptr %163, align 8, !tbaa !80
@@ -1771,15 +1771,15 @@ biquad_process_dblp.exit:                         ; preds = %._crit_edge.i, %144
   %173 = load double, ptr %172, align 8, !tbaa !80
   br i1 %33, label %.lr.ph.i154, label %._crit_edge.i147
 
-._crit_edge.i147:                                 ; preds = %.lr.ph.i154, %.lr.ph289
-  %.067.lcssa.i148 = phi double [ %173, %.lr.ph289 ], [ %187, %.lr.ph.i154 ]
-  %.0.lcssa.i149 = phi double [ %171, %.lr.ph289 ], [ %185, %.lr.ph.i154 ]
+._crit_edge.i147:                                 ; preds = %.lr.ph.i154, %.lr.ph292
+  %.067.lcssa.i148 = phi double [ %173, %.lr.ph292 ], [ %187, %.lr.ph.i154 ]
+  %.0.lcssa.i149 = phi double [ %171, %.lr.ph292 ], [ %185, %.lr.ph.i154 ]
   br i1 %.not.i, label %biquad_process_dblp.exit159, label %190
 
-.lr.ph.i154:                                      ; preds = %.lr.ph289, %.lr.ph.i154
-  %indvars.iv.i155 = phi i64 [ %indvars.iv.next.i158, %.lr.ph.i154 ], [ 0, %.lr.ph289 ]
-  %.074.i156 = phi double [ %185, %.lr.ph.i154 ], [ %171, %.lr.ph289 ]
-  %.06773.i157 = phi double [ %187, %.lr.ph.i154 ], [ %173, %.lr.ph289 ]
+.lr.ph.i154:                                      ; preds = %.lr.ph292, %.lr.ph.i154
+  %indvars.iv.i155 = phi i64 [ %indvars.iv.next.i158, %.lr.ph.i154 ], [ 0, %.lr.ph292 ]
+  %.074.i156 = phi double [ %185, %.lr.ph.i154 ], [ %171, %.lr.ph292 ]
+  %.06773.i157 = phi double [ %187, %.lr.ph.i154 ], [ %173, %.lr.ph292 ]
   %174 = getelementptr inbounds nuw double, ptr %106, i64 %indvars.iv.i155
   %175 = load double, ptr %174, align 8, !tbaa !80
   %176 = tail call nsz double @llvm.fmuladd.f64(double %175, double %162, double %.074.i156)
@@ -1816,9 +1816,9 @@ biquad_process_dblp.exit159:                      ; preds = %._crit_edge.i147, %
   %.1.i152 = phi nsz double [ %194, %190 ], [ %.0.lcssa.i149, %._crit_edge.i147 ]
   store double %.1.i152, ptr %160, align 8, !tbaa !80
   store double %.168.i151, ptr %172, align 8, !tbaa !80
-  %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229288, 1
+  %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229291, 1
   %exitcond234.not = icmp eq i64 %indvars.iv.next230, %wide.trip.count
-  br i1 %exitcond234.not, label %.critedge2, label %.lr.ph289
+  br i1 %exitcond234.not, label %.critedge2, label %.lr.ph292
 
 .loopexit:                                        ; preds = %biquad_process_dblp.exit185, %248
   %indvars.iv.next243 = add i64 %indvars.iv242, 1

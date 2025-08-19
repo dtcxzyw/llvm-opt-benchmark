@@ -186,13 +186,13 @@ decode_recovery_flag.exit:                        ; preds = %2, %24
   br label %sps_derive.exit.i.i.i
 
 .thread44.sink.split.i.i.i.i.i.i:                 ; preds = %89, %85, %81
-  %.sink127 = phi i8 [ %83, %81 ], [ %87, %85 ], [ %91, %89 ]
+  %.sink185 = phi i8 [ %83, %81 ], [ %87, %85 ], [ %91, %89 ]
   %switch.table.ff_vvc_decode_frame_ps.19.sink = phi ptr [ @switch.table.ff_vvc_decode_frame_ps, %81 ], [ @switch.table.ff_vvc_decode_frame_ps.18, %85 ], [ @switch.table.ff_vvc_decode_frame_ps.19, %89 ]
-  %98 = zext nneg i8 %.sink127 to i64
-  %switch.gep125 = getelementptr inbounds nuw [4 x i32], ptr %switch.table.ff_vvc_decode_frame_ps.19.sink, i64 0, i64 %98
-  %switch.load126 = load i32, ptr %switch.gep125, align 4
+  %98 = zext nneg i8 %.sink185 to i64
+  %switch.gep183 = getelementptr inbounds nuw [4 x i32], ptr %switch.table.ff_vvc_decode_frame_ps.19.sink, i64 0, i64 %98
+  %switch.load184 = load i32, ptr %switch.gep183, align 4
   %99 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  store i32 %switch.load126, ptr %99, align 8, !tbaa !68
+  store i32 %switch.load184, ptr %99, align 8, !tbaa !68
   br label %.thread44.i.i.i.i.i.i
 
 .thread44.i.i.i.i.i.i:                            ; preds = %89, %85, %81, %.thread44.sink.split.i.i.i.i.i.i
@@ -436,8 +436,8 @@ sps_ladf.exit.i.i.i.i:                            ; preds = %183, %173, %sps_int
 .lr.ph.i25.i.i.i.i:                               ; preds = %.critedge115.i.i.i.i.i
   %250 = sub nsw i32 0, %210
   %251 = zext nneg i32 %248 to i64
-  %scevgep120 = getelementptr i8, ptr %scevgep, i64 %251
-  %load_initial = load i8, ptr %scevgep120, align 1
+  %scevgep178 = getelementptr i8, ptr %scevgep, i64 %251
+  %load_initial = load i8, ptr %scevgep178, align 1
   br label %253
 
 .preheader.i.i.i.i.i:                             ; preds = %253, %.critedge115.i.i.i.i.i
@@ -456,8 +456,8 @@ sps_ladf.exit.i.i.i.i:                            ; preds = %183, %173, %sps_int
   %257 = getelementptr inbounds nuw [111 x i8], ptr %242, i64 0, i64 %indvars.iv135.i.i.i.i.i
   store i8 %256, ptr %257, align 1, !tbaa !69
   %indvars.iv.next136.i.i.i.i.i = add nsw i64 %indvars.iv135.i.i.i.i.i, -1
-  %.not154.i.i.i.i.i = icmp eq i64 %indvars.iv135.i.i.i.i.i, 0
-  br i1 %.not154.i.i.i.i.i, label %.preheader.i.i.i.i.i, label %253, !llvm.loop !105
+  %.not157.i.i.i.i.i = icmp eq i64 %indvars.iv135.i.i.i.i.i, 0
+  br i1 %.not157.i.i.i.i.i, label %.preheader.i.i.i.i.i, label %253, !llvm.loop !105
 
 .loopexit.i.i.i.i.i:                              ; preds = %289, %267
   %exitcond145.not.i.i.i.i.i = icmp eq i64 %indvars.iv141.i.i.i.i.i, %213
@@ -3060,7 +3060,7 @@ aps_decode_alf.exit:                              ; preds = %11, %alf_derive.exi
   br i1 %167, label %.split.preheader.i.i, label %.split.us.preheader.i.i
 
 .split.us.preheader.i.i:                          ; preds = %162, %160
-  %.1128.i.i = phi i32 [ %166, %162 ], [ 0, %160 ]
+  %.1129.i.i = phi i32 [ %166, %162 ], [ 0, %160 ]
   %wide.trip.count.i.i = zext nneg i32 %151 to i64
   %169 = getelementptr inbounds nuw [28 x [64 x i8]], ptr %137, i64 0, i64 %indvars.iv123.i.i
   br label %.split.us.i.i
@@ -3071,7 +3071,7 @@ aps_decode_alf.exit:                              ; preds = %11, %alf_derive.exi
 
 .split.us.i.i:                                    ; preds = %.split.us.i.i, %.split.us.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.split.us.preheader.i.i ], [ %indvars.iv.next.i.i, %.split.us.i.i ]
-  %.186106.us.i.i = phi i32 [ %.1128.i.i, %.split.us.preheader.i.i ], [ %173, %.split.us.i.i ]
+  %.186106.us.i.i = phi i32 [ %.1129.i.i, %.split.us.preheader.i.i ], [ %173, %.split.us.i.i ]
   %170 = getelementptr inbounds nuw [64 x i8], ptr %169, i64 0, i64 %indvars.iv.i.i
   %171 = load i8, ptr %170, align 1, !tbaa !69
   %172 = sext i8 %171 to i32
@@ -3110,7 +3110,7 @@ aps_decode_alf.exit:                              ; preds = %11, %alf_derive.exi
   br i1 %exitcond116.not.i.i, label %.loopexit.i.i, label %.split.i.i, !llvm.loop !284
 
 .loopexit.i.i:                                    ; preds = %.split.us.i.i, %186, %157, %153
-  %.084.i.i = phi i32 [ 0, %157 ], [ 0, %153 ], [ %166, %186 ], [ %.1128.i.i, %.split.us.i.i ]
+  %.084.i.i = phi i32 [ 0, %157 ], [ 0, %153 ], [ %166, %186 ], [ %.1129.i.i, %.split.us.i.i ]
   %188 = icmp samesign ugt i64 %indvars.iv123.i.i, 13
   br i1 %188, label %189, label %212
 

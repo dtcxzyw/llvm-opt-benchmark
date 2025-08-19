@@ -431,11 +431,11 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit58:  ; preds = %.thread72, %131
   br label %154
 
 _ZNSt10unique_ptrIN5draco35MeshEdgebreakerEncoderImplInterfaceESt14default_deleteIS1_EED2Ev.exit.sink.split: ; preds = %141, %122
-  %.sink78 = phi ptr [ %123, %122 ], [ %142, %141 ]
-  %145 = load ptr, ptr %.sink78, align 8, !tbaa !3
+  %.sink91 = phi ptr [ %123, %122 ], [ %142, %141 ]
+  %145 = load ptr, ptr %.sink91, align 8, !tbaa !3
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = load ptr, ptr %146, align 8
-  call void %147(ptr noundef nonnull align 8 dereferenceable(8) %.sink78) #15
+  call void %147(ptr noundef nonnull align 8 dereferenceable(8) %.sink91) #15
   br label %_ZNSt10unique_ptrIN5draco35MeshEdgebreakerEncoderImplInterfaceESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5draco35MeshEdgebreakerEncoderImplInterfaceESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5draco35MeshEdgebreakerEncoderImplInterfaceESt14default_deleteIS1_EED2Ev.exit.sink.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48, %106
@@ -878,9 +878,9 @@ _ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
 113:                                              ; preds = %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i
   %114 = urem i32 %.sroa.0.0.in.sroa.speculate.load..i.i, 3
   %.not.i5.i = icmp eq i32 %114, 0
-  br i1 %.not.i5.i, label %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit, label %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread208
+  br i1 %.not.i5.i, label %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit, label %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread214
 
-_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread208: ; preds = %113
+_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread214: ; preds = %113
   %115 = add i32 %.sroa.0.0.in.sroa.speculate.load..i.i, -1
   br label %.lr.ph166
 
@@ -889,13 +889,13 @@ _ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE
   %.not135161 = icmp eq i32 %116, -1
   br i1 %.not135161, label %_ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i.i, label %.lr.ph166
 
-.lr.ph166:                                        ; preds = %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread208, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
-  %.sroa.01.0.i6.i211 = phi i32 [ %115, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread208 ], [ %116, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ]
+.lr.ph166:                                        ; preds = %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread214, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
+  %.sroa.01.0.i6.i217 = phi i32 [ %115, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread214 ], [ %116, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ]
   br i1 %.fr, label %.lr.ph166.split.us, label %.lr.ph166.split
 
 .lr.ph166.split.us:                               ; preds = %.lr.ph166, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit91.us
   %.056165.us = phi i64 [ %135, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit91.us ], [ 0, %.lr.ph166 ]
-  %.sroa.0100.0164.us = phi i32 [ %147, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit91.us ], [ %.sroa.01.0.i6.i211, %.lr.ph166 ]
+  %.sroa.0100.0164.us = phi i32 [ %147, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit91.us ], [ %.sroa.01.0.i6.i217, %.lr.ph166 ]
   %.sroa.0106.0163.us = phi i32 [ %.sroa.0100.0164.us, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit91.us ], [ %.sroa.0.0.copyload.i.i, %.lr.ph166 ]
   %.sroa.0107.0162.us = phi i32 [ %.sroa.0107.1128.us, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit91.us ], [ %.sroa.0.0.i.i, %.lr.ph166 ]
   %117 = icmp slt i32 %.sroa.0100.0164.us, 0
@@ -984,7 +984,7 @@ _ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE
 
 .lr.ph166.split:                                  ; preds = %.lr.ph166, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit91
   %.056165 = phi i64 [ %160, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit91 ], [ 0, %.lr.ph166 ]
-  %.sroa.0100.0164 = phi i32 [ %172, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit91 ], [ %.sroa.01.0.i6.i211, %.lr.ph166 ]
+  %.sroa.0100.0164 = phi i32 [ %172, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit91 ], [ %.sroa.01.0.i6.i217, %.lr.ph166 ]
   %.sroa.0107.0162 = phi i32 [ %.sroa.0.0.i.i79, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit91 ], [ %.sroa.0.0.i.i, %.lr.ph166 ]
   %150 = icmp slt i32 %.sroa.0100.0164, 0
   br i1 %150, label %_ZNK5draco4Mesh15CornerToPointIdENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit80, label %151
@@ -1034,8 +1034,8 @@ _ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
 _ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit91: ; preds = %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i85
   %171 = urem i32 %.sroa.0.0.in.sroa.speculate.load..i.i87, 3
   %.not.i5.i88 = icmp eq i32 %171, 0
-  %.226 = select i1 %.not.i5.i88, i32 2, i32 -1
-  %172 = add i32 %.sroa.0.0.in.sroa.speculate.load..i.i87, %.226
+  %.232 = select i1 %.not.i5.i88, i32 2, i32 -1
+  %172 = add i32 %.sroa.0.0.in.sroa.speculate.load..i.i87, %.232
   %.not135 = icmp eq i32 %172, -1
   br i1 %.not135, label %_ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i.i, label %.lr.ph166.split
 

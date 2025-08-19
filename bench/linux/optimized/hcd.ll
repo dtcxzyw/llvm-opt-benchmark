@@ -1310,19 +1310,19 @@ define dso_local i32 @usb_hcd_submit_urb(ptr noundef %0, i32 noundef %1) local_u
   %78 = add i64 %76, 250
   %79 = sub i64 %78, %77
   %80 = tail call i32 @mod_timer(ptr noundef nonnull %74, i64 noundef %79) #18
-  br label %.thread29
+  br label %.thread37
 
 81:                                               ; preds = %61
   %82 = load i64, ptr %57, align 8
   %83 = and i64 %82, 8
   %84 = icmp eq i64 %83, 0
-  br i1 %84, label %.thread29, label %85
+  br i1 %84, label %.thread37, label %85
 
 85:                                               ; preds = %81
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %87 = load volatile i64, ptr @jiffies, align 64
   %88 = tail call i32 @mod_timer(ptr noundef nonnull %86, i64 noundef %87) #18
-  br label %.thread29
+  br label %.thread37
 
 89:                                               ; preds = %22
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1333,14 +1333,14 @@ define dso_local i32 @usb_hcd_submit_urb(ptr noundef %0, i32 noundef %1) local_u
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %94 = load volatile i32, ptr %93, align 4
   %95 = icmp eq i32 %94, 0
-  br i1 %95, label %96, label %.thread28, !prof !9
+  br i1 %95, label %96, label %.thread36, !prof !9
 
 96:                                               ; preds = %89
   %97 = load ptr, ptr %23, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 68
   %99 = load i32, ptr %98, align 4
   %100 = icmp eq i32 %99, 0
-  br i1 %100, label %.thread28, label %101, !prof !5
+  br i1 %100, label %.thread36, label %101, !prof !5
 
 101:                                              ; preds = %96
   %102 = load ptr, ptr %3, align 8
@@ -1348,14 +1348,14 @@ define dso_local i32 @usb_hcd_submit_urb(ptr noundef %0, i32 noundef %1) local_u
   %104 = load i16, ptr %103, align 1
   %105 = and i16 %104, 1
   %106 = icmp eq i16 %105, 0
-  br i1 %106, label %.thread28, label %107, !prof !5
+  br i1 %106, label %.thread36, label %107, !prof !5
 
 107:                                              ; preds = %101
   %108 = getelementptr inbounds nuw i8, ptr %6, i64 328
   %109 = load i64, ptr %108, align 8
   %110 = and i64 %109, 32
   %111 = icmp eq i64 %110, 0
-  br i1 %111, label %.thread28, label %.critedge
+  br i1 %111, label %.thread36, label %.critedge
 
 .critedge:                                        ; preds = %107
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1394,7 +1394,7 @@ define dso_local i32 @usb_hcd_submit_urb(ptr noundef %0, i32 noundef %1) local_u
   %137 = icmp ult i32 %136, %134
   br i1 %137, label %.thread22, label %139
 
-.thread28:                                        ; preds = %89, %96, %101, %107
+.thread36:                                        ; preds = %89, %96, %101, %107
   %138 = phi i32 [ -1, %89 ], [ -2, %96 ], [ -113, %101 ], [ -108, %107 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @hcd_urb_list_lock) #18
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @hcd_root_hub_lock) #18
@@ -1711,7 +1711,7 @@ define dso_local i32 @usb_hcd_submit_urb(ptr noundef %0, i32 noundef %1) local_u
   tail call void @usb_hcd_unmap_urb_for_dma(ptr noundef %6, ptr noundef %0)
   br label %.thread25
 
-.thread29:                                        ; preds = %81, %85, %73
+.thread37:                                        ; preds = %81, %85, %73
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @hcd_root_hub_lock, i64 noundef %31) #18
   br label %.thread27
 
@@ -1720,8 +1720,8 @@ define dso_local i32 @usb_hcd_submit_urb(ptr noundef %0, i32 noundef %1) local_u
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @hcd_root_hub_lock, i64 noundef %31) #18
   br label %.thread25
 
-.thread25:                                        ; preds = %298, %.thread28, %297, %296, %22, %282
-  %300 = phi i32 [ %299, %298 ], [ %289, %297 ], [ %289, %296 ], [ -22, %22 ], [ %283, %282 ], [ %138, %.thread28 ]
+.thread25:                                        ; preds = %298, %.thread36, %297, %296, %22, %282
+  %300 = phi i32 [ %299, %298 ], [ %289, %297 ], [ %289, %296 ], [ -22, %22 ], [ %283, %282 ], [ %138, %.thread36 ]
   %301 = load i32, ptr %11, align 8
   %302 = icmp eq i32 %301, 0
   br i1 %302, label %307, label %303
@@ -1757,8 +1757,8 @@ define dso_local i32 @usb_hcd_submit_urb(ptr noundef %0, i32 noundef %1) local_u
   tail call void @usb_free_urb(ptr noundef %0) #18
   br label %.thread27
 
-.thread27:                                        ; preds = %.thread29, %267, %285, %318
-  %319 = phi i32 [ %300, %318 ], [ 0, %285 ], [ 0, %267 ], [ 0, %.thread29 ]
+.thread27:                                        ; preds = %.thread37, %267, %285, %318
+  %319 = phi i32 [ %300, %318 ], [ 0, %285 ], [ 0, %267 ], [ 0, %.thread37 ]
   ret i32 %319
 }
 
@@ -4117,7 +4117,7 @@ define internal fastcc range(i32 0, 255) i32 @rh_string(i32 noundef range(i32 0,
   %5 = alloca [100 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %5, i8 0, i64 100, i1 false), !annotation !6
-  switch i32 %0, label %default.unreachable3 [
+  switch i32 %0, label %default.unreachable5 [
     i32 0, label %6
     i32 1, label %9
     i32 2, label %12
@@ -4147,7 +4147,7 @@ define internal fastcc range(i32 0, 255) i32 @rh_string(i32 noundef range(i32 0,
   %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 100, ptr noundef nonnull @.str.20, ptr noundef nonnull @init_uts_ns, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_uts_ns, i64 130), ptr noundef %18) #18
   br label %20
 
-default.unreachable3:                             ; preds = %4
+default.unreachable5:                             ; preds = %4
   unreachable
 
 20:                                               ; preds = %15, %12, %9

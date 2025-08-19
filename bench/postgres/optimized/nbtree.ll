@@ -945,7 +945,7 @@ define dso_local noundef zeroext i1 @_bt_parallel_seize(ptr noundef readonly cap
 46:                                               ; preds = %44, %.split.us
   %47 = load i32, ptr %33, align 4
   switch i32 %47, label %..thread.us_crit_edge [
-    i32 4, label %.thread72
+    i32 4, label %.thread75
     i32 3, label %68
     i32 1, label %48
     i32 2, label %.fold.split.us
@@ -988,7 +988,7 @@ define dso_local noundef zeroext i1 @_bt_parallel_seize(ptr noundef readonly cap
 68:                                               ; preds = %46
   %69 = load i32, ptr %31, align 4
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %.thread72, label %.thread.us
+  br i1 %70, label %.thread75, label %.thread.us
 
 .thread.us:                                       ; preds = %..thread.us_crit_edge, %68
   %71 = phi i32 [ %.pre70, %..thread.us_crit_edge ], [ %69, %68 ]
@@ -996,9 +996,9 @@ define dso_local noundef zeroext i1 @_bt_parallel_seize(ptr noundef readonly cap
   store i32 %71, ptr %1, align 4
   %72 = load i32, ptr %41, align 4
   store i32 %72, ptr %2, align 4
-  br label %.thread72
+  br label %.thread75
 
-.thread72:                                        ; preds = %46, %68, %.thread.us
+.thread75:                                        ; preds = %46, %68, %.thread.us
   %.159.us.ph = phi i1 [ true, %68 ], [ false, %.thread.us ], [ false, %46 ]
   %.257.us.ph = phi i1 [ false, %68 ], [ true, %.thread.us ], [ false, %46 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
@@ -1076,8 +1076,8 @@ define dso_local noundef zeroext i1 @_bt_parallel_seize(ptr noundef readonly cap
   %87 = tail call zeroext i1 @ConditionVariableCancelSleep() #8
   br i1 %.159.ph, label %88, label %_bt_parallel_done.exit
 
-88:                                               ; preds = %.thread72, %.split66.us.loopexit68
-  %.us-phi6787 = phi i1 [ %.257.ph, %.split66.us.loopexit68 ], [ %.257.us.ph, %.thread72 ]
+88:                                               ; preds = %.thread75, %.split66.us.loopexit68
+  %.us-phi6790 = phi i1 [ %.257.ph, %.split66.us.loopexit68 ], [ %.257.us.ph, %.thread75 ]
   %89 = load ptr, ptr %7, align 8
   %90 = icmp eq ptr %89, null
   br i1 %90, label %_bt_parallel_done.exit, label %91
@@ -1121,8 +1121,8 @@ define dso_local noundef zeroext i1 @_bt_parallel_seize(ptr noundef readonly cap
   store i8 0, ptr %100, align 4
   br label %_bt_parallel_done.exit
 
-_bt_parallel_done.exit:                           ; preds = %.loopexit.us, %.thread72, %.split66.us.loopexit68, %.critedge.i, %107, %91, %88, %14
-  %.0 = phi i1 [ false, %14 ], [ true, %.loopexit.us ], [ %.us-phi6787, %88 ], [ %.us-phi6787, %91 ], [ %.us-phi6787, %107 ], [ %.us-phi6787, %.critedge.i ], [ %.257.ph, %.split66.us.loopexit68 ], [ %.257.us.ph, %.thread72 ]
+_bt_parallel_done.exit:                           ; preds = %.loopexit.us, %.thread75, %.split66.us.loopexit68, %.critedge.i, %107, %91, %88, %14
+  %.0 = phi i1 [ false, %14 ], [ true, %.loopexit.us ], [ %.us-phi6790, %88 ], [ %.us-phi6790, %91 ], [ %.us-phi6790, %107 ], [ %.us-phi6790, %.critedge.i ], [ %.257.ph, %.split66.us.loopexit68 ], [ %.257.us.ph, %.thread75 ]
   ret i1 %.0
 }
 

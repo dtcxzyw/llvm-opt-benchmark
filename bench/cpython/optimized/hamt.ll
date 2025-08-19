@@ -1470,15 +1470,15 @@ hamt_node_collision_find_index.exit:              ; preds = %154
 
 .preheader.i:                                     ; preds = %225
   %229 = icmp sgt i64 %.val69.i, 0
-  br i1 %229, label %.lr.ph.i62, label %.preheader
+  br i1 %229, label %.lr.ph.i100, label %.preheader
 
-.lr.ph.i62:                                       ; preds = %.preheader.i
+.lr.ph.i100:                                      ; preds = %.preheader.i
   %230 = getelementptr inbounds nuw i8, ptr %227, i64 32
   %231 = shl nuw i64 %.val69.i, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %230, i8 0, i64 %231, i1 false), !tbaa !110
   br label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph.i62, %.preheader.i
+.preheader:                                       ; preds = %.lr.ph.i100, %.preheader.i
   %232 = getelementptr inbounds nuw i8, ptr %227, i64 16
   store i64 %.val69.i, ptr %232, align 8, !tbaa !109
   %233 = getelementptr inbounds nuw i8, ptr %227, i64 24
@@ -1979,11 +1979,11 @@ _Py_XNewRef.exit.i38:                             ; preds = %122, %119, %116
   br i1 %126, label %116, label %.loopexit, !llvm.loop !114
 
 .loopexit:                                        ; preds = %_Py_XNewRef.exit.i38, %hamt_node_bitmap_new.exit.i, %Py_DECREF.exit71.i
-  %.013.i24.i = phi ptr [ %83, %hamt_node_bitmap_new.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89016), %Py_DECREF.exit71.i ], [ %83, %_Py_XNewRef.exit.i38 ]
+  %.013.i27.i = phi ptr [ %83, %hamt_node_bitmap_new.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89016), %Py_DECREF.exit71.i ], [ %83, %_Py_XNewRef.exit.i38 ]
   %127 = load i32, ptr %13, align 8, !tbaa !106
-  %128 = getelementptr inbounds nuw i8, ptr %.013.i24.i, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %.013.i27.i, i64 24
   store i32 %127, ptr %128, align 8, !tbaa !106
-  %129 = getelementptr inbounds nuw i8, ptr %.013.i24.i, i64 32
+  %129 = getelementptr inbounds nuw i8, ptr %.013.i27.i, i64 32
   %130 = getelementptr [1 x ptr], ptr %129, i64 0, i64 %27
   %131 = load ptr, ptr %130, align 8, !tbaa !110
   store ptr %35, ptr %130, align 8, !tbaa !110
@@ -2002,7 +2002,7 @@ _Py_XNewRef.exit.i38:                             ; preds = %122, %119, %116
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %136, %133, %.loopexit
-  store ptr %.013.i24.i, ptr %4, align 8, !tbaa !18
+  store ptr %.013.i27.i, ptr %4, align 8, !tbaa !18
   br label %Py_DECREF.exit71.i.thread
 
 Py_DECREF.exit71.i.thread:                        ; preds = %82, %47, %49, %52, %Py_DECREF.exit67.i, %Py_DECREF.exit.i, %29
@@ -2425,14 +2425,14 @@ _Py_NewRef.exit44:                                ; preds = %329, %334
   br i1 %346, label %_Py_NewRef.exit43, label %_Py_NewRef.exit43.sink.split
 
 _Py_NewRef.exit43.sink.split:                     ; preds = %343, %339, %_Py_NewRef.exit44
-  %.sink66 = phi i32 [ %337, %_Py_NewRef.exit44 ], [ %341, %339 ], [ %345, %343 ]
-  %.sink65 = phi ptr [ %331, %_Py_NewRef.exit44 ], [ %315, %339 ], [ %315, %343 ]
-  %347 = add nuw i32 %.sink66, 1
-  store i32 %347, ptr %.sink65, align 8, !tbaa !15
+  %.sink120 = phi i32 [ %337, %_Py_NewRef.exit44 ], [ %341, %339 ], [ %345, %343 ]
+  %.sink119 = phi ptr [ %331, %_Py_NewRef.exit44 ], [ %315, %339 ], [ %315, %343 ]
+  %347 = add nuw i32 %.sink120, 1
+  store i32 %347, ptr %.sink119, align 8, !tbaa !15
   br label %_Py_NewRef.exit43
 
 _Py_NewRef.exit43:                                ; preds = %_Py_NewRef.exit43.sink.split, %343, %339, %_Py_NewRef.exit44
-  %.sink = phi ptr [ %331, %_Py_NewRef.exit44 ], [ %315, %339 ], [ %315, %343 ], [ %.sink65, %_Py_NewRef.exit43.sink.split ]
+  %.sink = phi ptr [ %331, %_Py_NewRef.exit44 ], [ %315, %339 ], [ %315, %343 ], [ %.sink119, %_Py_NewRef.exit43.sink.split ]
   %348 = add i64 %.077.i56, 1
   %349 = getelementptr [1 x ptr], ptr %308, i64 0, i64 %348
   store ptr %.sink, ptr %349, align 8, !tbaa !110
@@ -2578,14 +2578,14 @@ _Py_NewRef.exit51.i:                              ; preds = %416, %412
   br i1 %421, label %_Py_NewRef.exit50.i, label %_Py_NewRef.exit50.sink.split.i
 
 _Py_NewRef.exit50.sink.split.i:                   ; preds = %_Py_NewRef.exit51.i, %_Py_NewRef.exit.i
-  %.sink80.i = phi i32 [ %410, %_Py_NewRef.exit.i ], [ %420, %_Py_NewRef.exit51.i ]
-  %.sink79.i = phi ptr [ %409, %_Py_NewRef.exit.i ], [ %419, %_Py_NewRef.exit51.i ]
-  %422 = add nuw i32 %.sink80.i, 1
-  store i32 %422, ptr %.sink79.i, align 8, !tbaa !15
+  %.sink94.i = phi i32 [ %410, %_Py_NewRef.exit.i ], [ %420, %_Py_NewRef.exit51.i ]
+  %.sink93.i = phi ptr [ %409, %_Py_NewRef.exit.i ], [ %419, %_Py_NewRef.exit51.i ]
+  %422 = add nuw i32 %.sink94.i, 1
+  store i32 %422, ptr %.sink93.i, align 8, !tbaa !15
   br label %_Py_NewRef.exit50.i
 
 _Py_NewRef.exit50.i:                              ; preds = %_Py_NewRef.exit50.sink.split.i, %_Py_NewRef.exit51.i, %_Py_NewRef.exit.i
-  %.sink.i = phi ptr [ %409, %_Py_NewRef.exit.i ], [ %419, %_Py_NewRef.exit51.i ], [ %.sink79.i, %_Py_NewRef.exit50.sink.split.i ]
+  %.sink.i = phi ptr [ %409, %_Py_NewRef.exit.i ], [ %419, %_Py_NewRef.exit51.i ], [ %.sink93.i, %_Py_NewRef.exit50.sink.split.i ]
   %423 = getelementptr i8, ptr %371, i64 40
   store ptr %.sink.i, ptr %423, align 8, !tbaa !110
   %424 = lshr i32 %2, %1
@@ -2705,8 +2705,8 @@ _Py_NewRef.exit55.i:                              ; preds = %479, %474
   br i1 %484, label %474, label %hamt_node_collision_find_index.exit.thread60.sink.split.i, !llvm.loop !119
 
 hamt_node_collision_find_index.exit.thread60.sink.split.i: ; preds = %_Py_NewRef.exit55.i, %._crit_edge.i, %_Py_NewRef.exit50.i
-  %.sink77.i = phi ptr [ %371, %_Py_NewRef.exit50.i ], [ %430, %._crit_edge.i ], [ %430, %_Py_NewRef.exit55.i ]
-  store ptr %.sink77.i, ptr %4, align 8, !tbaa !18
+  %.sink91.i = phi ptr [ %371, %_Py_NewRef.exit50.i ], [ %430, %._crit_edge.i ], [ %430, %_Py_NewRef.exit55.i ]
+  store ptr %.sink91.i, ptr %4, align 8, !tbaa !18
   br label %hamt_node_bitmap_without.exit
 
 hamt_node_bitmap_without.exit:                    ; preds = %366, %359, %hamt_node_collision_find_index.exit.thread60.sink.split.i, %427, %370, %hamt_node_collision_find_index.exit.i, %355, %352, %Py_DECREF.exit94.i, %217, %hamt_node_bitmap_clone_without.exit, %142, %140, %137, %Py_DECREF.exit71.i.thread, %9
@@ -2906,7 +2906,7 @@ define hidden range(i32 -1, 2) i32 @_PyHamt_Eq(ptr noundef readonly captures(add
 20:                                               ; preds = %17
   %21 = load ptr, ptr %4, align 8, !tbaa !110
   %22 = call fastcc i32 @hamt_find(ptr noundef %1, ptr noundef %21, ptr noundef nonnull %6)
-  switch i32 %22, label %default.unreachable24 [
+  switch i32 %22, label %default.unreachable27 [
     i32 0, label %.thread19.loopexit
     i32 1, label %.thread19
     i32 2, label %23
@@ -2923,7 +2923,7 @@ define hidden range(i32 -1, 2) i32 @_PyHamt_Eq(ptr noundef readonly captures(add
   %.not22 = icmp eq i32 %26, 0
   br i1 %.not22, label %.thread19, label %17, !llvm.loop !120
 
-default.unreachable24:                            ; preds = %20
+default.unreachable27:                            ; preds = %20
   unreachable
 
 .thread19.loopexit:                               ; preds = %20
@@ -3036,7 +3036,7 @@ tailrecurse.backedge:                             ; preds = %18, %27, %45, %52, 
   %48 = getelementptr [32 x ptr], ptr %44, i64 0, i64 %.035.i35
   %49 = load ptr, ptr %48, align 8, !tbaa !18
   %.not.i16 = icmp eq ptr %49, null
-  %50 = add i64 %.035.i35, 1
+  %50 = add nsw i64 %.035.i35, 1
   br i1 %.not.i16, label %51, label %52
 
 51:                                               ; preds = %47
@@ -4104,11 +4104,11 @@ _Py_XNewRef.exit.i:                               ; preds = %87, %84, %81
   br i1 %91, label %81, label %.loopexit, !llvm.loop !114
 
 .loopexit:                                        ; preds = %_Py_XNewRef.exit.i, %hamt_node_bitmap_new.exit.i, %44
-  %.013.i24.i = phi ptr [ %48, %hamt_node_bitmap_new.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89016), %44 ], [ %48, %_Py_XNewRef.exit.i ]
+  %.013.i27.i = phi ptr [ %48, %hamt_node_bitmap_new.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89016), %44 ], [ %48, %_Py_XNewRef.exit.i ]
   %92 = load i32, ptr %11, align 8, !tbaa !106
-  %93 = getelementptr inbounds nuw i8, ptr %.013.i24.i, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %.013.i27.i, i64 24
   store i32 %92, ptr %93, align 8, !tbaa !106
-  %94 = getelementptr inbounds nuw i8, ptr %.013.i24.i, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %.013.i27.i, i64 32
   %95 = getelementptr [1 x ptr], ptr %94, i64 0, i64 %24
   %96 = load ptr, ptr %95, align 8, !tbaa !110
   store ptr %30, ptr %95, align 8, !tbaa !110
@@ -4238,11 +4238,11 @@ _Py_XNewRef.exit.i204:                            ; preds = %157, %154, %151
   br i1 %161, label %151, label %.loopexit278, !llvm.loop !114
 
 .loopexit278:                                     ; preds = %_Py_XNewRef.exit.i204, %hamt_node_bitmap_new.exit.i194, %114
-  %.013.i24.i197 = phi ptr [ %118, %hamt_node_bitmap_new.exit.i194 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89016), %114 ], [ %118, %_Py_XNewRef.exit.i204 ]
+  %.013.i27.i197 = phi ptr [ %118, %hamt_node_bitmap_new.exit.i194 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89016), %114 ], [ %118, %_Py_XNewRef.exit.i204 ]
   %162 = load i32, ptr %11, align 8, !tbaa !106
-  %163 = getelementptr inbounds nuw i8, ptr %.013.i24.i197, i64 24
+  %163 = getelementptr inbounds nuw i8, ptr %.013.i27.i197, i64 24
   store i32 %162, ptr %163, align 8, !tbaa !106
-  %164 = getelementptr inbounds nuw i8, ptr %.013.i24.i197, i64 32
+  %164 = getelementptr inbounds nuw i8, ptr %.013.i27.i197, i64 32
   %165 = getelementptr [1 x ptr], ptr %164, i64 0, i64 %24
   %166 = load ptr, ptr %165, align 8, !tbaa !110
   %167 = load i32, ptr %4, align 8, !tbaa !15
@@ -4523,11 +4523,11 @@ _Py_XNewRef.exit.i220:                            ; preds = %293, %290, %287
   br label %_Py_NewRef.exit
 
 .loopexit279:                                     ; preds = %_Py_XNewRef.exit.i220, %hamt_node_bitmap_new.exit.i210, %250
-  %.013.i24.i213 = phi ptr [ %254, %hamt_node_bitmap_new.exit.i210 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89016), %250 ], [ %254, %_Py_XNewRef.exit.i220 ]
+  %.013.i27.i213 = phi ptr [ %254, %hamt_node_bitmap_new.exit.i210 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89016), %250 ], [ %254, %_Py_XNewRef.exit.i220 ]
   %304 = load i32, ptr %11, align 8, !tbaa !106
-  %305 = getelementptr inbounds nuw i8, ptr %.013.i24.i213, i64 24
+  %305 = getelementptr inbounds nuw i8, ptr %.013.i27.i213, i64 24
   store i32 %304, ptr %305, align 8, !tbaa !106
-  %306 = getelementptr inbounds nuw i8, ptr %.013.i24.i213, i64 32
+  %306 = getelementptr inbounds nuw i8, ptr %.013.i27.i213, i64 32
   %307 = getelementptr [1 x ptr], ptr %306, i64 0, i64 %21
   %308 = load ptr, ptr %307, align 8, !tbaa !110
   store ptr null, ptr %307, align 8, !tbaa !110
@@ -4876,7 +4876,7 @@ _Py_XNewRef.exit239:                              ; preds = %471, %474, %477
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %Py_XDECREF.exit, %408, %324, %185, %176, %117, %47, %407, %404, %402, %303, %300, %298, %hamt_node_new_bitmap_or_collision.exit.thread257, %175, %172, %_Py_NewRef.exit208, %112, %109, %101, %98, %.loopexit, %42, %Py_DECREF.exit186, %._crit_edge284, %28, %hamt_node_new_bitmap_or_collision.exit, %Py_DECREF.exit, %102
-  %.7 = phi ptr [ null, %28 ], [ null, %102 ], [ null, %hamt_node_new_bitmap_or_collision.exit ], [ %.013.i24.i213, %Py_DECREF.exit ], [ %.0158.ph, %Py_XDECREF.exit ], [ %414, %._crit_edge284 ], [ %0, %Py_DECREF.exit186 ], [ %0, %42 ], [ %.013.i24.i, %.loopexit ], [ %.013.i24.i, %98 ], [ %.013.i24.i, %101 ], [ %0, %109 ], [ %0, %112 ], [ %.013.i24.i197, %_Py_NewRef.exit208 ], [ %.013.i24.i197, %172 ], [ %.013.i24.i197, %175 ], [ null, %hamt_node_new_bitmap_or_collision.exit.thread257 ], [ null, %298 ], [ null, %300 ], [ null, %303 ], [ null, %402 ], [ null, %404 ], [ null, %407 ], [ null, %47 ], [ null, %117 ], [ null, %176 ], [ null, %185 ], [ null, %324 ], [ null, %408 ]
+  %.7 = phi ptr [ null, %28 ], [ null, %102 ], [ null, %hamt_node_new_bitmap_or_collision.exit ], [ %.013.i27.i213, %Py_DECREF.exit ], [ %.0158.ph, %Py_XDECREF.exit ], [ %414, %._crit_edge284 ], [ %0, %Py_DECREF.exit186 ], [ %0, %42 ], [ %.013.i27.i, %.loopexit ], [ %.013.i27.i, %98 ], [ %.013.i27.i, %101 ], [ %0, %109 ], [ %0, %112 ], [ %.013.i27.i197, %_Py_NewRef.exit208 ], [ %.013.i27.i197, %172 ], [ %.013.i27.i197, %175 ], [ null, %hamt_node_new_bitmap_or_collision.exit.thread257 ], [ null, %298 ], [ null, %300 ], [ null, %303 ], [ null, %402 ], [ null, %404 ], [ null, %407 ], [ null, %47 ], [ null, %117 ], [ null, %176 ], [ null, %185 ], [ null, %324 ], [ null, %408 ]
   ret ptr %.7
 }
 
@@ -4971,15 +4971,15 @@ _Py_XNewRef.exit:                                 ; preds = %39, %42, %45
   br i1 %49, label %39, label %._crit_edge, !llvm.loop !114
 
 ._crit_edge:                                      ; preds = %_Py_XNewRef.exit, %1, %hamt_node_bitmap_new.exit
-  %.013.i24 = phi ptr [ %5, %hamt_node_bitmap_new.exit ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89016), %1 ], [ %5, %_Py_XNewRef.exit ]
+  %.013.i27 = phi ptr [ %5, %hamt_node_bitmap_new.exit ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 89016), %1 ], [ %5, %_Py_XNewRef.exit ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = load i32, ptr %50, align 8, !tbaa !106
-  %52 = getelementptr inbounds nuw i8, ptr %.013.i24, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %.013.i27, i64 24
   store i32 %51, ptr %52, align 8, !tbaa !106
   br label %hamt_node_bitmap_new.exit.thread
 
 hamt_node_bitmap_new.exit.thread:                 ; preds = %4, %._crit_edge
-  %.012 = phi ptr [ %.013.i24, %._crit_edge ], [ null, %4 ]
+  %.012 = phi ptr [ %.013.i27, %._crit_edge ], [ null, %4 ]
   ret ptr %.012
 }
 
@@ -5290,14 +5290,14 @@ default.unreachable:                              ; preds = %7
   unreachable
 
 _Py_NewRef.exit.sink.split:                       ; preds = %17, %10
-  %.sink7 = phi i32 [ %12, %10 ], [ %18, %17 ]
-  %.sink6 = phi ptr [ %11, %10 ], [ %15, %17 ]
-  %20 = add nuw i32 %.sink7, 1
-  store i32 %20, ptr %.sink6, align 8, !tbaa !15
+  %.sink10 = phi i32 [ %12, %10 ], [ %18, %17 ]
+  %.sink9 = phi ptr [ %11, %10 ], [ %15, %17 ]
+  %20 = add nuw i32 %.sink10, 1
+  store i32 %20, ptr %.sink9, align 8, !tbaa !15
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit.sink.split, %17, %10, %14, %7
-  %.1 = phi ptr [ null, %7 ], [ @_Py_NoneStruct, %14 ], [ %11, %10 ], [ %15, %17 ], [ %.sink6, %_Py_NewRef.exit.sink.split ]
+  %.1 = phi ptr [ null, %7 ], [ @_Py_NoneStruct, %14 ], [ %11, %10 ], [ %15, %17 ], [ %.sink9, %_Py_NewRef.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %21
 

@@ -2528,11 +2528,11 @@ bytestream2_get_le16.exit:                        ; preds = %bytestream2_get_le3
   br label %87
 
 87:                                               ; preds = %85, %83, %80
-  %.sink20 = phi i32 [ %86, %85 ], [ %84, %83 ], [ %82, %80 ]
+  %.sink30 = phi i32 [ %86, %85 ], [ %84, %83 ], [ %82, %80 ]
   %.sink = phi i32 [ 4, %85 ], [ 2, %83 ], [ 1, %80 ]
   %.048 = phi i32 [ 121, %85 ], [ 39, %83 ], [ 11, %80 ]
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 84
-  store i32 %.sink20, ptr %88, align 4, !tbaa !49
+  store i32 %.sink30, ptr %88, align 4, !tbaa !49
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i32 %.sink, ptr %89, align 8, !tbaa !55
   %90 = tail call i32 @ff_set_dimensions(ptr noundef nonnull %0, i32 noundef %.0.i56, i32 noundef %.0.i54) #8

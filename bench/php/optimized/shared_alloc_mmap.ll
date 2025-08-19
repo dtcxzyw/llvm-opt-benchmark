@@ -106,7 +106,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   %41 = sub i64 %38, %.343.i
   %42 = icmp ult i64 %41, 4294967295
   %or.cond.i = and i1 %.not57.i, %42
-  br i1 %or.cond.i, label %.thread100, label %47
+  br i1 %or.cond.i, label %.thread114, label %47
 
 43:                                               ; preds = %29
   %44 = sub i64 %.pre-phi, %.04567.i
@@ -115,7 +115,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
 
 46:                                               ; preds = %43
   %.not55.i = icmp ugt i64 %.pre-phi, %.pre.i
-  br i1 %.not55.i, label %._crit_edge.i, label %.thread100
+  br i1 %.not55.i, label %._crit_edge.i, label %.thread114
 
 ._crit_edge.i:                                    ; preds = %46
   %.pre78.i = load i64, ptr %6, align 8, !tbaa !19
@@ -139,7 +139,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   %.not51.i = icmp eq ptr %53, null
   br i1 %.not51.i, label %55, label %.lr.ph.i
 
-.thread100:                                       ; preds = %40, %46
+.thread114:                                       ; preds = %40, %46
   %.141.i.ph = phi i64 [ %.03769.i, %46 ], [ %.343.i, %40 ]
   %54 = call i32 @fclose(ptr noundef nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -156,8 +156,8 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   %.not = icmp eq i64 %.141.i, -1
   br i1 %.not, label %.thread, label %57
 
-57:                                               ; preds = %.thread100, %55
-  %.in = phi i64 [ %.141.i.ph, %.thread100 ], [ %.141.i, %55 ]
+57:                                               ; preds = %.thread114, %55
+  %.in = phi i64 [ %.141.i.ph, %.thread114 ], [ %.141.i, %55 ]
   %58 = inttoptr i64 %.in to ptr
   %59 = icmp ugt i64 %0, 2097151
   %60 = and i64 %0, 2097151

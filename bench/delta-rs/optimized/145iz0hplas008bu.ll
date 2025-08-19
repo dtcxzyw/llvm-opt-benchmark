@@ -4257,14 +4257,14 @@ define internal void @"_ZN92_$LT$deltalake_mount..file..MountFileStorageBackend$
   %.sroa.946 = alloca [8 x i32], align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %16 = load i8, ptr %15, align 8, !range !5, !noundef !4
-  switch i8 %16, label %default.unreachable57 [
+  switch i8 %16, label %default.unreachable61 [
     i8 0, label %18
     i8 1, label %42
     i8 2, label %43
     i8 3, label %44
   ]
 
-default.unreachable57:                            ; preds = %44, %3
+default.unreachable61:                            ; preds = %44, %3
   unreachable
 
 common.ret:                                       ; preds = %121, %17
@@ -4363,7 +4363,7 @@ common.ret:                                       ; preds = %121, %17
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  switch i8 %.pre, label %default.unreachable57 [
+  switch i8 %.pre, label %default.unreachable61 [
     i8 0, label %47
     i8 1, label %.invoke
     i8 2, label %94

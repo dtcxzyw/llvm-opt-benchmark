@@ -422,7 +422,7 @@ build_vlc.exit:                                   ; preds = %159
   br i1 %207, label %.preheader.lr.ph, label %._crit_edge.._crit_edge447_crit_edge
 
 ._crit_edge.._crit_edge447_crit_edge:             ; preds = %190, %._crit_edge
-  %.pre521526 = phi ptr [ %.pre521, %._crit_edge ], [ %194, %190 ]
+  %.pre521552 = phi ptr [ %.pre521, %._crit_edge ], [ %194, %190 ]
   %208 = phi i32 [ %205, %._crit_edge ], [ %192, %190 ]
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.pre522 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !52
@@ -450,9 +450,9 @@ build_vlc.exit:                                   ; preds = %159
 .lr.ph437.preheader:                              ; preds = %.preheader
   %218 = load i32, ptr %191, align 4, !tbaa !50
   %219 = icmp slt i32 %.1307445, %218
-  br i1 %219, label %.lr.ph599, label %.critedge
+  br i1 %219, label %.lr.ph625, label %.critedge
 
-.lr.ph599:                                        ; preds = %.lr.ph437.preheader
+.lr.ph625:                                        ; preds = %.lr.ph437.preheader
   %220 = shl nuw nsw i32 %216, 1
   br label %222
 
@@ -460,23 +460,23 @@ build_vlc.exit:                                   ; preds = %159
   %221 = icmp slt i32 %.6312, %574
   br i1 %221, label %222, label %.critedge, !llvm.loop !54
 
-222:                                              ; preds = %.lr.ph599, %.lr.ph437
-  %.sroa.14.3433598 = phi i32 [ %.sroa.14.2444, %.lr.ph599 ], [ %.sroa.14.4, %.lr.ph437 ]
-  %.2308434597 = phi i32 [ %.1307445, %.lr.ph599 ], [ %.6312, %.lr.ph437 ]
-  %.2300435596 = phi ptr [ %.1299446, %.lr.ph599 ], [ %.6304, %.lr.ph437 ]
-  %.1288436595 = phi i32 [ 0, %.lr.ph599 ], [ %.5292, %.lr.ph437 ]
-  %223 = phi i32 [ %220, %.lr.ph599 ], [ %572, %.lr.ph437 ]
-  %.not411 = icmp sgt i32 %.018.i.i369, %.sroa.14.3433598
+222:                                              ; preds = %.lr.ph625, %.lr.ph437
+  %.sroa.14.3433624 = phi i32 [ %.sroa.14.2444, %.lr.ph625 ], [ %.sroa.14.4, %.lr.ph437 ]
+  %.2308434623 = phi i32 [ %.1307445, %.lr.ph625 ], [ %.6312, %.lr.ph437 ]
+  %.2300435622 = phi ptr [ %.1299446, %.lr.ph625 ], [ %.6304, %.lr.ph437 ]
+  %.1288436621 = phi i32 [ 0, %.lr.ph625 ], [ %.5292, %.lr.ph437 ]
+  %223 = phi i32 [ %220, %.lr.ph625 ], [ %572, %.lr.ph437 ]
+  %.not411 = icmp sgt i32 %.018.i.i369, %.sroa.14.3433624
   br i1 %.not411, label %224, label %.loopexit
 
 224:                                              ; preds = %222
-  %225 = lshr i32 %.sroa.14.3433598, 3
+  %225 = lshr i32 %.sroa.14.3433624, 3
   %226 = zext nneg i32 %225 to i64
   %227 = getelementptr inbounds nuw i8, ptr %183, i64 %226
   %228 = load i8, ptr %227, align 1, !tbaa !31
-  %spec.select.i = add nsw i32 %.sroa.14.3433598, 1
+  %spec.select.i = add nsw i32 %.sroa.14.3433624, 1
   %229 = zext i8 %228 to i32
-  %230 = and i32 %.sroa.14.3433598, 7
+  %230 = and i32 %.sroa.14.3433624, 7
   %231 = lshr exact i32 128, %230
   %232 = and i32 %231, %229
   %.not337 = icmp eq i32 %232, 0
@@ -503,7 +503,7 @@ build_vlc.exit:                                   ; preds = %159
   br i1 %250, label %251, label %get_vlc2.exit
 
 251:                                              ; preds = %242
-  %252 = add i32 %.sroa.14.3433598, 11
+  %252 = add i32 %.sroa.14.3433624, 11
   %253 = call i32 @llvm.umin.i32(i32 %189, i32 %252)
   %254 = lshr i32 %253, 3
   %255 = zext nneg i32 %254 to i64
@@ -564,8 +564,8 @@ get_vlc2.exit:                                    ; preds = %242, %251, %272
   %298 = zext nneg i32 %.062.i to i64
   %299 = getelementptr inbounds nuw [226 x i8], ptr @table_y1, i64 0, i64 %298
   %300 = load i8, ptr %299, align 1, !tbaa !31
-  %301 = sext i32 %.1288436595 to i64
-  %302 = getelementptr inbounds i8, ptr %.2300435596, i64 %301
+  %301 = sext i32 %.1288436621 to i64
+  %302 = getelementptr inbounds i8, ptr %.2300435622, i64 %301
   store i8 %300, ptr %302, align 1, !tbaa !31
   %303 = getelementptr inbounds nuw [226 x i8], ptr @table_u, i64 0, i64 %298
   %304 = load i8, ptr %303, align 1, !tbaa !31
@@ -579,12 +579,12 @@ get_vlc2.exit:                                    ; preds = %242, %251, %272
   %310 = load i8, ptr %309, align 1, !tbaa !31
   %311 = getelementptr i8, ptr %302, i64 3
   store i8 %310, ptr %311, align 1, !tbaa !31
-  %312 = add nsw i32 %.1288436595, 4
+  %312 = add nsw i32 %.1288436621, 4
   br label %.thread401
 
 313:                                              ; preds = %295
   %314 = shl nuw nsw i32 %.062.i, 2
-  %315 = add i32 %.1288436595, -892
+  %315 = add i32 %.1288436621, -892
   %316 = add i32 %315, %314
   %.not344 = icmp slt i32 %316, %223
   br i1 %.not344, label %.thread401, label %317
@@ -592,11 +592,11 @@ get_vlc2.exit:                                    ; preds = %242, %251, %272
 317:                                              ; preds = %313
   %318 = sdiv i32 %316, %223
   %319 = srem i32 %316, %223
-  %320 = add nsw i32 %318, %.2308434597
+  %320 = add nsw i32 %318, %.2308434623
   %321 = load i32, ptr %211, align 8, !tbaa !39
   %322 = mul nsw i32 %321, %318
   %323 = sext i32 %322 to i64
-  %324 = getelementptr inbounds i8, ptr %.2300435596, i64 %323
+  %324 = getelementptr inbounds i8, ptr %.2300435622, i64 %323
   br label %.thread401
 
 325:                                              ; preds = %224
@@ -611,7 +611,7 @@ get_vlc2.exit:                                    ; preds = %242, %251, %272
   br i1 %333, label %334, label %get_vlc2.exit349
 
 334:                                              ; preds = %325
-  %335 = add i32 %.sroa.14.3433598, 11
+  %335 = add i32 %.sroa.14.3433624, 11
   %336 = call i32 @llvm.umin.i32(i32 %189, i32 %335)
   %337 = lshr i32 %336, 3
   %338 = zext nneg i32 %337 to i64
@@ -881,8 +881,8 @@ get_vlc2.exit361:                                 ; preds = %get_vlc2.exit357, %
   %558 = add i32 %.0.i360, %.064.i358
   %559 = call i32 @llvm.umin.i32(i32 %189, i32 %558)
   %560 = trunc i32 %.062.i347 to i8
-  %561 = sext i32 %.1288436595 to i64
-  %562 = getelementptr inbounds i8, ptr %.2300435596, i64 %561
+  %561 = sext i32 %.1288436621 to i64
+  %562 = getelementptr inbounds i8, ptr %.2300435622, i64 %561
   store i8 %560, ptr %562, align 1, !tbaa !31
   %563 = trunc i32 %.062.i351 to i8
   %564 = getelementptr i8, ptr %562, i64 1
@@ -894,13 +894,13 @@ get_vlc2.exit361:                                 ; preds = %get_vlc2.exit357, %
   %568 = trunc i32 %.062.i359 to i8
   %569 = getelementptr i8, ptr %562, i64 3
   store i8 %568, ptr %569, align 1, !tbaa !31
-  %570 = add nsw i32 %.1288436595, 4
+  %570 = add nsw i32 %.1288436621, 4
   br label %.thread401
 
 .thread401:                                       ; preds = %317, %313, %297, %.thread406
   %.sroa.14.4 = phi i32 [ %559, %.thread406 ], [ %293, %297 ], [ %293, %313 ], [ %293, %317 ]
-  %.6312 = phi i32 [ %.2308434597, %.thread406 ], [ %.2308434597, %297 ], [ %.2308434597, %313 ], [ %320, %317 ]
-  %.6304 = phi ptr [ %.2300435596, %.thread406 ], [ %.2300435596, %297 ], [ %.2300435596, %313 ], [ %324, %317 ]
+  %.6312 = phi i32 [ %.2308434623, %.thread406 ], [ %.2308434623, %297 ], [ %.2308434623, %313 ], [ %320, %317 ]
+  %.6304 = phi ptr [ %.2300435622, %.thread406 ], [ %.2300435622, %297 ], [ %.2300435622, %313 ], [ %324, %317 ]
   %.5292 = phi i32 [ %570, %.thread406 ], [ %312, %297 ], [ %316, %313 ], [ %319, %317 ]
   %571 = load i32, ptr %209, align 8, !tbaa !52
   %572 = shl nsw i32 %571, 1
@@ -931,7 +931,7 @@ get_vlc2.exit361:                                 ; preds = %get_vlc2.exit357, %
 ._crit_edge447:                                   ; preds = %._crit_edge.._crit_edge447_crit_edge, %._crit_edge447.loopexit
   %582 = phi i32 [ %575, %._crit_edge447.loopexit ], [ %208, %._crit_edge.._crit_edge447_crit_edge ]
   %583 = phi i32 [ %576, %._crit_edge447.loopexit ], [ %.pre522, %._crit_edge.._crit_edge447_crit_edge ]
-  %584 = phi ptr [ %.pre520, %._crit_edge447.loopexit ], [ %.pre521526, %._crit_edge.._crit_edge447_crit_edge ]
+  %584 = phi ptr [ %.pre520, %._crit_edge447.loopexit ], [ %.pre521552, %._crit_edge.._crit_edge447_crit_edge ]
   %585 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %586 = icmp sgt i32 %583, 0
   br i1 %586, label %.lr.ph453, label %._crit_edge454

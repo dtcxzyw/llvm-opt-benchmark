@@ -346,14 +346,14 @@ define hidden void @av1_convolve_2d_sobel_y_c(ptr noundef readonly captures(none
   %indvars.iv90 = phi i64 [ 0, %.preheader56.us.preheader ], [ %indvars.iv.next91, %._crit_edge.us69 ]
   %41 = add nsw i64 %indvars.iv90, -1
   %42 = mul nsw i64 %indvars.iv90, %40
-  %invariant.gep98 = getelementptr double, ptr %2, i64 %42
+  %invariant.gep99 = getelementptr double, ptr %2, i64 %42
   br label %.preheader.us
 
 43:                                               ; preds = %46
   %44 = sitofp i16 %53 to double
   %45 = fmul double %7, %44
-  %gep99 = getelementptr double, ptr %invariant.gep98, i64 %indvars.iv85
-  store double %45, ptr %gep99, align 8
+  %gep100 = getelementptr double, ptr %invariant.gep99, i64 %indvars.iv85
+  store double %45, ptr %gep100, align 8
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
   br i1 %exitcond89.not, label %._crit_edge.us69, label %.preheader.us, !llvm.loop !14
@@ -365,8 +365,8 @@ define hidden void @av1_convolve_2d_sobel_y_c(ptr noundef readonly captures(none
   %48 = load i16, ptr %47, align 2
   %49 = add nsw i64 %41, %indvars.iv82
   %50 = mul nsw i64 %49, %35
-  %gep97 = getelementptr i16, ptr %invariant.gep96, i64 %50
-  %51 = load i16, ptr %gep97, align 2
+  %gep98 = getelementptr i16, ptr %invariant.gep97, i64 %50
+  %51 = load i16, ptr %gep98, align 2
   %52 = mul i16 %51, %48
   %53 = add i16 %52, %.04864.us
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
@@ -375,7 +375,7 @@ define hidden void @av1_convolve_2d_sobel_y_c(ptr noundef readonly captures(none
 
 .preheader.us:                                    ; preds = %.preheader56.us, %43
   %indvars.iv85 = phi i64 [ 0, %.preheader56.us ], [ %indvars.iv.next86, %43 ]
-  %invariant.gep96 = getelementptr i16, ptr %36, i64 %indvars.iv85
+  %invariant.gep97 = getelementptr i16, ptr %36, i64 %indvars.iv85
   br label %46
 
 ._crit_edge.us69:                                 ; preds = %43
@@ -540,7 +540,7 @@ define hidden void @av1_convolve_2d_sr_c(ptr noundef readonly captures(none) %0,
   %86 = sub nsw i64 %indvars.iv149, %85
   %87 = add nsw i64 %86, 1
   %88 = mul nsw i64 %indvars.iv149, %84
-  %invariant.gep159 = getelementptr i8, ptr %2, i64 %88
+  %invariant.gep161 = getelementptr i8, ptr %2, i64 %88
   br label %89
 
 89:                                               ; preds = %.preheader.us, %._crit_edge106.us
@@ -551,7 +551,7 @@ define hidden void @av1_convolve_2d_sr_c(ptr noundef readonly captures(none) %0,
 
 .lr.ph.us.preheader:                              ; preds = %89
   %wide.trip.count142 = zext i16 %90 to i64
-  %invariant.gep157 = getelementptr i16, ptr %72, i64 %indvars.iv144
+  %invariant.gep159 = getelementptr i16, ptr %72, i64 %indvars.iv144
   br label %.lr.ph.us
 
 ._crit_edge106.us:                                ; preds = %.lr.ph.us, %89
@@ -574,8 +574,8 @@ define hidden void @av1_convolve_2d_sr_c(ptr noundef readonly captures(none) %0,
   %102 = tail call i32 @llvm.smax.i32(i32 %101, i32 0)
   %103 = tail call i32 @llvm.umin.i32(i32 %102, i32 255)
   %104 = trunc nuw i32 %103 to i8
-  %gep160 = getelementptr i8, ptr %invariant.gep159, i64 %indvars.iv144
-  store i8 %104, ptr %gep160, align 1
+  %gep162 = getelementptr i8, ptr %invariant.gep161, i64 %indvars.iv144
+  store i8 %104, ptr %gep162, align 1
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count147
   br i1 %exitcond148.not, label %._crit_edge109.us, label %89, !llvm.loop !20
@@ -588,8 +588,8 @@ define hidden void @av1_convolve_2d_sr_c(ptr noundef readonly captures(none) %0,
   %107 = sext i16 %106 to i32
   %108 = add nsw i64 %87, %indvars.iv139
   %109 = mul nsw i64 %108, %83
-  %gep158 = getelementptr i16, ptr %invariant.gep157, i64 %109
-  %110 = load i16, ptr %gep158, align 2
+  %gep160 = getelementptr i16, ptr %invariant.gep159, i64 %109
+  %110 = load i16, ptr %gep160, align 2
   %111 = sext i16 %110 to i32
   %112 = mul nsw i32 %111, %107
   %113 = add nsw i32 %112, %.074103.us
@@ -635,7 +635,7 @@ define hidden void @av1_convolve_y_sr_c(ptr noundef readonly captures(none) %0, 
   %22 = sub nsw i64 %indvars.iv45, %21
   %23 = add nsw i64 %22, 1
   %24 = mul nsw i64 %indvars.iv45, %20
-  %invariant.gep52 = getelementptr i8, ptr %2, i64 %24
+  %invariant.gep53 = getelementptr i8, ptr %2, i64 %24
   br label %.preheader.us
 
 ._crit_edge.us.loopexit:                          ; preds = %.lr.ph.us
@@ -648,8 +648,8 @@ define hidden void @av1_convolve_y_sr_c(ptr noundef readonly captures(none) %0, 
 
 ._crit_edge.us:                                   ; preds = %._crit_edge.us.loopexit, %.preheader.us
   %.025.lcssa.us = phi i8 [ 0, %.preheader.us ], [ %29, %._crit_edge.us.loopexit ]
-  %gep53 = getelementptr i8, ptr %invariant.gep52, i64 %indvars.iv40
-  store i8 %.025.lcssa.us, ptr %gep53, align 1
+  %gep54 = getelementptr i8, ptr %invariant.gep53, i64 %indvars.iv40
+  store i8 %.025.lcssa.us, ptr %gep54, align 1
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count43
   br i1 %exitcond44.not, label %._crit_edge34.us, label %.preheader.us, !llvm.loop !23
@@ -728,7 +728,7 @@ define hidden void @av1_convolve_x_sr_c(ptr noundef readonly captures(none) %0, 
   %reass.sub = sub i32 %28, %22
   %29 = add i32 %reass.sub, 1
   %30 = mul nsw i64 %indvars.iv50, %26
-  %invariant.gep55 = getelementptr i8, ptr %2, i64 %30
+  %invariant.gep56 = getelementptr i8, ptr %2, i64 %30
   br label %.preheader.us
 
 ._crit_edge.us:                                   ; preds = %41, %.preheader.us
@@ -743,8 +743,8 @@ define hidden void @av1_convolve_x_sr_c(ptr noundef readonly captures(none) %0, 
   %38 = tail call i32 @llvm.smax.i32(i32 %37, i32 0)
   %39 = tail call i32 @llvm.umin.i32(i32 %38, i32 255)
   %40 = trunc nuw i32 %39 to i8
-  %gep56 = getelementptr i8, ptr %invariant.gep55, i64 %indvars.iv45
-  store i8 %40, ptr %gep56, align 1
+  %gep57 = getelementptr i8, ptr %invariant.gep56, i64 %indvars.iv45
+  store i8 %40, ptr %gep57, align 1
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count48
   br i1 %exitcond49.not, label %._crit_edge40.us, label %.preheader.us, !llvm.loop !26
@@ -949,9 +949,9 @@ define hidden void @av1_dist_wtd_convolve_2d_c(ptr noundef readonly captures(non
   %95 = add nsw i64 %94, 1
   %96 = mul nsw i64 %indvars.iv173, %91
   %97 = mul nsw i64 %indvars.iv173, %92
-  %invariant.gep183 = getelementptr i16, ptr %14, i64 %96
-  %invariant.gep185 = getelementptr i8, ptr %2, i64 %97
-  %invariant.gep187 = getelementptr i16, ptr %14, i64 %96
+  %invariant.gep185 = getelementptr i16, ptr %14, i64 %96
+  %invariant.gep187 = getelementptr i8, ptr %2, i64 %97
+  %invariant.gep189 = getelementptr i16, ptr %14, i64 %96
   br label %98
 
 98:                                               ; preds = %.preheader.us, %133
@@ -962,7 +962,7 @@ define hidden void @av1_dist_wtd_convolve_2d_c(ptr noundef readonly captures(non
 
 .lr.ph.us.preheader:                              ; preds = %98
   %wide.trip.count166 = zext i16 %99 to i64
-  %invariant.gep181 = getelementptr i16, ptr %76, i64 %indvars.iv168
+  %invariant.gep183 = getelementptr i16, ptr %76, i64 %indvars.iv168
   br label %.lr.ph.us
 
 ._crit_edge130.us:                                ; preds = %.lr.ph.us, %98
@@ -977,8 +977,8 @@ define hidden void @av1_dist_wtd_convolve_2d_c(ptr noundef readonly captures(non
   br i1 %.not.us, label %131, label %106
 
 106:                                              ; preds = %._crit_edge130.us
-  %gep184 = getelementptr i16, ptr %invariant.gep183, i64 %indvars.iv168
-  %107 = load i16, ptr %gep184, align 2
+  %gep186 = getelementptr i16, ptr %invariant.gep185, i64 %indvars.iv168
+  %107 = load i16, ptr %gep186, align 2
   %108 = zext i16 %107 to i32
   %109 = load i32, ptr %85, align 4
   %.not104.us = icmp eq i32 %109, 0
@@ -1013,14 +1013,14 @@ define hidden void @av1_dist_wtd_convolve_2d_c(ptr noundef readonly captures(non
   %128 = tail call i32 @llvm.smax.i32(i32 %127, i32 0)
   %129 = tail call i32 @llvm.umin.i32(i32 %128, i32 255)
   %130 = trunc nuw i32 %129 to i8
-  %gep186 = getelementptr i8, ptr %invariant.gep185, i64 %indvars.iv168
-  store i8 %130, ptr %gep186, align 1
+  %gep188 = getelementptr i8, ptr %invariant.gep187, i64 %indvars.iv168
+  store i8 %130, ptr %gep188, align 1
   br label %133
 
 131:                                              ; preds = %._crit_edge130.us
   %132 = trunc i32 %104 to i16
-  %gep188 = getelementptr i16, ptr %invariant.gep187, i64 %indvars.iv168
-  store i16 %132, ptr %gep188, align 2
+  %gep190 = getelementptr i16, ptr %invariant.gep189, i64 %indvars.iv168
+  store i16 %132, ptr %gep190, align 2
   br label %133
 
 133:                                              ; preds = %131, %122
@@ -1036,8 +1036,8 @@ define hidden void @av1_dist_wtd_convolve_2d_c(ptr noundef readonly captures(non
   %136 = sext i16 %135 to i32
   %137 = add nsw i64 %95, %indvars.iv163
   %138 = mul nsw i64 %137, %90
-  %gep182 = getelementptr i16, ptr %invariant.gep181, i64 %138
-  %139 = load i16, ptr %gep182, align 2
+  %gep184 = getelementptr i16, ptr %invariant.gep183, i64 %138
+  %139 = load i16, ptr %gep184, align 2
   %140 = sext i16 %139 to i32
   %141 = mul nsw i32 %140, %136
   %142 = add nsw i32 %141, %.097127.us
@@ -1109,9 +1109,9 @@ define hidden void @av1_dist_wtd_convolve_y_c(ptr noundef readonly captures(none
   %47 = add nsw i64 %46, 1
   %48 = mul nsw i64 %indvars.iv87, %43
   %49 = mul nsw i64 %indvars.iv87, %44
-  %invariant.gep94 = getelementptr i16, ptr %11, i64 %48
-  %invariant.gep96 = getelementptr i8, ptr %2, i64 %49
-  %invariant.gep98 = getelementptr i16, ptr %11, i64 %48
+  %invariant.gep95 = getelementptr i16, ptr %11, i64 %48
+  %invariant.gep97 = getelementptr i8, ptr %2, i64 %49
+  %invariant.gep99 = getelementptr i16, ptr %11, i64 %48
   br label %.preheader.us
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.us, %.preheader.us
@@ -1128,8 +1128,8 @@ define hidden void @av1_dist_wtd_convolve_y_c(ptr noundef readonly captures(none
   br i1 %.not.us, label %78, label %58
 
 58:                                               ; preds = %._crit_edge.us
-  %gep95 = getelementptr i16, ptr %invariant.gep94, i64 %indvars.iv82
-  %59 = load i16, ptr %gep95, align 2
+  %gep96 = getelementptr i16, ptr %invariant.gep95, i64 %indvars.iv82
+  %59 = load i16, ptr %gep96, align 2
   %60 = zext i16 %59 to i32
   %61 = load i32, ptr %35, align 4
   %.not68.us = icmp eq i32 %61, 0
@@ -1156,14 +1156,14 @@ define hidden void @av1_dist_wtd_convolve_y_c(ptr noundef readonly captures(none
   %75 = tail call i32 @llvm.smax.i32(i32 %74, i32 0)
   %76 = tail call i32 @llvm.umin.i32(i32 %75, i32 255)
   %77 = trunc nuw i32 %76 to i8
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %indvars.iv82
-  store i8 %77, ptr %gep97, align 1
+  %gep98 = getelementptr i8, ptr %invariant.gep97, i64 %indvars.iv82
+  store i8 %77, ptr %gep98, align 1
   br label %80
 
 78:                                               ; preds = %._crit_edge.us
   %79 = trunc i32 %56 to i16
-  %gep99 = getelementptr i16, ptr %invariant.gep98, i64 %indvars.iv82
-  store i16 %79, ptr %gep99, align 2
+  %gep100 = getelementptr i16, ptr %invariant.gep99, i64 %indvars.iv82
+  store i16 %79, ptr %gep100, align 2
   br label %80
 
 80:                                               ; preds = %78, %72
@@ -1264,9 +1264,9 @@ define hidden void @av1_dist_wtd_convolve_x_c(ptr noundef readonly captures(none
   %47 = add i32 %reass.sub, 1
   %48 = mul nsw i64 %indvars.iv86, %43
   %49 = mul nsw i64 %indvars.iv86, %44
-  %invariant.gep91 = getelementptr i16, ptr %11, i64 %48
-  %invariant.gep93 = getelementptr i8, ptr %2, i64 %49
-  %invariant.gep95 = getelementptr i16, ptr %11, i64 %48
+  %invariant.gep92 = getelementptr i16, ptr %11, i64 %48
+  %invariant.gep94 = getelementptr i8, ptr %2, i64 %49
+  %invariant.gep96 = getelementptr i16, ptr %11, i64 %48
   br label %.preheader.us
 
 ._crit_edge.us:                                   ; preds = %81, %.preheader.us
@@ -1283,8 +1283,8 @@ define hidden void @av1_dist_wtd_convolve_x_c(ptr noundef readonly captures(none
   br i1 %.not.us, label %78, label %58
 
 58:                                               ; preds = %._crit_edge.us
-  %gep92 = getelementptr i16, ptr %invariant.gep91, i64 %indvars.iv81
-  %59 = load i16, ptr %gep92, align 2
+  %gep93 = getelementptr i16, ptr %invariant.gep92, i64 %indvars.iv81
+  %59 = load i16, ptr %gep93, align 2
   %60 = zext i16 %59 to i32
   %61 = load i32, ptr %37, align 4
   %.not68.us = icmp eq i32 %61, 0
@@ -1311,14 +1311,14 @@ define hidden void @av1_dist_wtd_convolve_x_c(ptr noundef readonly captures(none
   %75 = tail call i32 @llvm.smax.i32(i32 %74, i32 0)
   %76 = tail call i32 @llvm.umin.i32(i32 %75, i32 255)
   %77 = trunc nuw i32 %76 to i8
-  %gep94 = getelementptr i8, ptr %invariant.gep93, i64 %indvars.iv81
-  store i8 %77, ptr %gep94, align 1
+  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %indvars.iv81
+  store i8 %77, ptr %gep95, align 1
   br label %80
 
 78:                                               ; preds = %._crit_edge.us
   %79 = trunc i32 %56 to i16
-  %gep96 = getelementptr i16, ptr %invariant.gep95, i64 %indvars.iv81
-  store i16 %79, ptr %gep96, align 2
+  %gep97 = getelementptr i16, ptr %invariant.gep96, i64 %indvars.iv81
+  store i16 %79, ptr %gep97, align 2
   br label %80
 
 80:                                               ; preds = %78, %72
@@ -1408,9 +1408,9 @@ define hidden void @av1_dist_wtd_convolve_2d_copy_c(ptr noundef readonly capture
   %35 = mul nsw i64 %indvars.iv57, %32
   %36 = mul nsw i64 %indvars.iv57, %33
   %invariant.gep = getelementptr i8, ptr %0, i64 %34
-  %invariant.gep62 = getelementptr i16, ptr %9, i64 %35
-  %invariant.gep64 = getelementptr i8, ptr %2, i64 %36
-  %invariant.gep66 = getelementptr i16, ptr %9, i64 %35
+  %invariant.gep63 = getelementptr i16, ptr %9, i64 %35
+  %invariant.gep65 = getelementptr i8, ptr %2, i64 %36
+  %invariant.gep67 = getelementptr i16, ptr %9, i64 %35
   br label %37
 
 37:                                               ; preds = %.preheader.us, %67
@@ -1425,8 +1425,8 @@ define hidden void @av1_dist_wtd_convolve_2d_copy_c(ptr noundef readonly capture
   br i1 %.not.us, label %65, label %43
 
 43:                                               ; preds = %37
-  %gep63 = getelementptr i16, ptr %invariant.gep62, i64 %indvars.iv
-  %44 = load i16, ptr %gep63, align 2
+  %gep64 = getelementptr i16, ptr %invariant.gep63, i64 %indvars.iv
+  %44 = load i16, ptr %gep64, align 2
   %45 = zext i16 %44 to i32
   %46 = load i32, ptr %25, align 4
   %.not51.us = icmp eq i32 %46, 0
@@ -1455,14 +1455,14 @@ define hidden void @av1_dist_wtd_convolve_2d_copy_c(ptr noundef readonly capture
   %62 = tail call i32 @llvm.smax.i32(i32 %61, i32 0)
   %63 = tail call i32 @llvm.umin.i32(i32 %62, i32 255)
   %64 = trunc nuw i32 %63 to i8
-  %gep65 = getelementptr i8, ptr %invariant.gep64, i64 %indvars.iv
-  store i8 %64, ptr %gep65, align 1
+  %gep66 = getelementptr i8, ptr %invariant.gep65, i64 %indvars.iv
+  store i8 %64, ptr %gep66, align 1
   br label %67
 
 65:                                               ; preds = %37
   %66 = trunc i32 %41 to i16
-  %gep67 = getelementptr i16, ptr %invariant.gep66, i64 %indvars.iv
-  store i16 %66, ptr %gep67, align 2
+  %gep68 = getelementptr i16, ptr %invariant.gep67, i64 %indvars.iv
+  store i16 %66, ptr %gep68, align 2
   br label %67
 
 67:                                               ; preds = %65, %59
@@ -1645,9 +1645,9 @@ define hidden void @av1_convolve_2d_scale_c(ptr noundef readonly captures(none) 
   %indvars.iv211 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next212, %._crit_edge170.us ]
   %.0132171.us = phi ptr [ %97, %.preheader.us.preheader ], [ %173, %._crit_edge170.us ]
   %invariant.gep = getelementptr i16, ptr %24, i64 %indvars.iv211
-  %invariant.gep218 = getelementptr i8, ptr %2, i64 %indvars.iv211
-  %invariant.gep220 = getelementptr i16, ptr %24, i64 %indvars.iv211
-  %invariant.gep222 = getelementptr i8, ptr %2, i64 %indvars.iv211
+  %invariant.gep220 = getelementptr i8, ptr %2, i64 %indvars.iv211
+  %invariant.gep222 = getelementptr i16, ptr %24, i64 %indvars.iv211
+  %invariant.gep224 = getelementptr i8, ptr %2, i64 %indvars.iv211
   br label %102
 
 102:                                              ; preds = %.preheader.us, %161
@@ -1728,13 +1728,13 @@ define hidden void @av1_convolve_2d_scale_c(ptr noundef readonly captures(none) 
   %146 = tail call i32 @llvm.umin.i32(i32 %145, i32 255)
   %147 = trunc nuw i32 %146 to i8
   %148 = mul nsw i64 %indvars.iv206, %101
-  %gep219 = getelementptr i8, ptr %invariant.gep218, i64 %148
-  store i8 %147, ptr %gep219, align 1
+  %gep221 = getelementptr i8, ptr %invariant.gep220, i64 %148
+  store i8 %147, ptr %gep221, align 1
   br label %161
 
 149:                                              ; preds = %120
-  %gep221 = getelementptr i16, ptr %invariant.gep220, i64 %122
-  store i16 %118, ptr %gep221, align 2
+  %gep223 = getelementptr i16, ptr %invariant.gep222, i64 %122
+  store i16 %118, ptr %gep223, align 2
   br label %161
 
 150:                                              ; preds = %._crit_edge166.us
@@ -1751,8 +1751,8 @@ define hidden void @av1_convolve_2d_scale_c(ptr noundef readonly captures(none) 
   %158 = tail call i32 @llvm.umin.i32(i32 %157, i32 255)
   %159 = trunc nuw i32 %158 to i8
   %160 = mul nsw i64 %indvars.iv206, %101
-  %gep223 = getelementptr i8, ptr %invariant.gep222, i64 %160
-  store i8 %159, ptr %gep223, align 1
+  %gep225 = getelementptr i8, ptr %invariant.gep224, i64 %160
+  store i8 %159, ptr %gep225, align 1
   br label %161
 
 161:                                              ; preds = %150, %149, %139
@@ -1849,7 +1849,7 @@ define hidden void @av1_convolve_2d_facade(ptr noundef %0, i32 noundef %1, ptr n
   %45 = trunc i64 %indvars.iv50.i to i32
   %46 = mul i32 %1, %45
   %47 = mul nsw i64 %indvars.iv50.i, %44
-  %invariant.gep55.i = getelementptr i8, ptr %2, i64 %47
+  %invariant.gep56.i = getelementptr i8, ptr %2, i64 %47
   %reass.sub114 = sub i32 %46, %43
   %48 = add i32 %reass.sub114, 1
   br label %.preheader.us.i
@@ -1866,8 +1866,8 @@ define hidden void @av1_convolve_2d_facade(ptr noundef %0, i32 noundef %1, ptr n
   %56 = tail call i32 @llvm.smax.i32(i32 %55, i32 0)
   %57 = tail call i32 @llvm.umin.i32(i32 %56, i32 255)
   %58 = trunc nuw i32 %57 to i8
-  %gep56.i = getelementptr i8, ptr %invariant.gep55.i, i64 %indvars.iv45.i
-  store i8 %58, ptr %gep56.i, align 1
+  %gep57.i = getelementptr i8, ptr %invariant.gep56.i, i64 %indvars.iv45.i
+  store i8 %58, ptr %gep57.i, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond49.not.i = icmp eq i64 %indvars.iv.next46.i, %wide.trip.count48.i
   br i1 %exitcond49.not.i, label %._crit_edge40.us.i, label %.preheader.us.i, !llvm.loop !26
@@ -1935,7 +1935,7 @@ define hidden void @av1_convolve_2d_facade(ptr noundef %0, i32 noundef %1, ptr n
 .preheader30.us.i:                                ; preds = %._crit_edge34.us.i, %.preheader30.us.preheader.i
   %indvars.iv45.i77 = phi i64 [ 0, %.preheader30.us.preheader.i ], [ %indvars.iv.next46.i88, %._crit_edge34.us.i ]
   %86 = mul nsw i64 %indvars.iv45.i77, %84
-  %invariant.gep52.i = getelementptr i8, ptr %2, i64 %86
+  %invariant.gep53.i = getelementptr i8, ptr %2, i64 %86
   %reass.sub113 = sub nsw i64 %indvars.iv45.i77, %85
   %87 = add nsw i64 %reass.sub113, 1
   br label %.preheader.us.i78
@@ -1950,8 +1950,8 @@ define hidden void @av1_convolve_2d_facade(ptr noundef %0, i32 noundef %1, ptr n
 
 ._crit_edge.us.i87:                               ; preds = %.preheader.us.i78, %._crit_edge.us.loopexit.i
   %.025.lcssa.us.i = phi i8 [ 0, %.preheader.us.i78 ], [ %92, %._crit_edge.us.loopexit.i ]
-  %gep53.i = getelementptr i8, ptr %invariant.gep52.i, i64 %indvars.iv40.i
-  store i8 %.025.lcssa.us.i, ptr %gep53.i, align 1
+  %gep54.i = getelementptr i8, ptr %invariant.gep53.i, i64 %indvars.iv40.i
+  store i8 %.025.lcssa.us.i, ptr %gep54.i, align 1
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %wide.trip.count43.i
   br i1 %exitcond44.not.i, label %._crit_edge34.us.i, label %.preheader.us.i78, !llvm.loop !23
@@ -2052,8 +2052,8 @@ define hidden void @av1_convolve_2d_facade(ptr noundef %0, i32 noundef %1, ptr n
   %139 = mul nsw i64 %indvars.iv57.i.i, %136
   %140 = mul nsw i64 %indvars.iv57.i.i, %137
   %invariant.gep.i.i = getelementptr i8, ptr %0, i64 %138
-  %invariant.gep62.i.i = getelementptr i16, ptr %113, i64 %139
-  %invariant.gep64.i.i = getelementptr i8, ptr %2, i64 %140
+  %invariant.gep63.i.i = getelementptr i16, ptr %113, i64 %139
+  %invariant.gep65.i.i = getelementptr i8, ptr %2, i64 %140
   br label %141
 
 141:                                              ; preds = %171, %.preheader.us.i.i
@@ -2068,8 +2068,8 @@ define hidden void @av1_convolve_2d_facade(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not.us.i.i, label %169, label %147
 
 147:                                              ; preds = %141
-  %gep63.i.i = getelementptr i16, ptr %invariant.gep62.i.i, i64 %indvars.iv.i.i
-  %148 = load i16, ptr %gep63.i.i, align 2
+  %gep64.i.i = getelementptr i16, ptr %invariant.gep63.i.i, i64 %indvars.iv.i.i
+  %148 = load i16, ptr %gep64.i.i, align 2
   %149 = zext i16 %148 to i32
   %150 = load i32, ptr %129, align 4
   %.not51.us.i.i = icmp eq i32 %150, 0
@@ -2098,14 +2098,14 @@ define hidden void @av1_convolve_2d_facade(ptr noundef %0, i32 noundef %1, ptr n
   %166 = tail call i32 @llvm.smax.i32(i32 %165, i32 0)
   %167 = tail call i32 @llvm.umin.i32(i32 %166, i32 255)
   %168 = trunc nuw i32 %167 to i8
-  %gep65.i.i = getelementptr i8, ptr %invariant.gep64.i.i, i64 %indvars.iv.i.i
-  store i8 %168, ptr %gep65.i.i, align 1
+  %gep66.i.i = getelementptr i8, ptr %invariant.gep65.i.i, i64 %indvars.iv.i.i
+  store i8 %168, ptr %gep66.i.i, align 1
   br label %171
 
 169:                                              ; preds = %141
   %170 = trunc i32 %145 to i16
-  %gep67.i.i = getelementptr i16, ptr %invariant.gep62.i.i, i64 %indvars.iv.i.i
-  store i16 %170, ptr %gep67.i.i, align 2
+  %gep68.i.i = getelementptr i16, ptr %invariant.gep63.i.i, i64 %indvars.iv.i.i
+  store i16 %170, ptr %gep68.i.i, align 2
   br label %171
 
 171:                                              ; preds = %169, %163
@@ -2185,7 +2185,7 @@ define hidden void @av1_convolve_2d_facade(ptr noundef %0, i32 noundef %1, ptr n
   %198 = trunc i64 %indvars.iv50.i.i to i32
   %199 = mul i32 %1, %198
   %200 = mul nsw i64 %indvars.iv50.i.i, %197
-  %invariant.gep55.i.i = getelementptr i8, ptr %2, i64 %200
+  %invariant.gep56.i.i = getelementptr i8, ptr %2, i64 %200
   %reass.sub = sub i32 %199, %196
   %201 = add i32 %reass.sub, 1
   br label %.preheader.us.i.i92
@@ -2202,8 +2202,8 @@ define hidden void @av1_convolve_2d_facade(ptr noundef %0, i32 noundef %1, ptr n
   %209 = tail call i32 @llvm.smax.i32(i32 %208, i32 0)
   %210 = tail call i32 @llvm.umin.i32(i32 %209, i32 255)
   %211 = trunc nuw i32 %210 to i8
-  %gep56.i.i = getelementptr i8, ptr %invariant.gep55.i.i, i64 %indvars.iv45.i.i
-  store i8 %211, ptr %gep56.i.i, align 1
+  %gep57.i.i = getelementptr i8, ptr %invariant.gep56.i.i, i64 %indvars.iv45.i.i
+  store i8 %211, ptr %gep57.i.i, align 1
   %indvars.iv.next46.i.i = add nuw nsw i64 %indvars.iv45.i.i, 1
   %exitcond49.not.i.i = icmp eq i64 %indvars.iv.next46.i.i, %wide.trip.count48.i.i
   br i1 %exitcond49.not.i.i, label %._crit_edge40.us.i.i, label %.preheader.us.i.i92, !llvm.loop !26
@@ -2272,7 +2272,7 @@ define hidden void @av1_convolve_2d_facade(ptr noundef %0, i32 noundef %1, ptr n
 .preheader30.us.i.i:                              ; preds = %._crit_edge34.us.i.i, %.preheader30.us.preheader.i.i
   %indvars.iv45.i49.i = phi i64 [ 0, %.preheader30.us.preheader.i.i ], [ %indvars.iv.next46.i60.i, %._crit_edge34.us.i.i ]
   %239 = mul nsw i64 %indvars.iv45.i49.i, %237
-  %invariant.gep52.i.i = getelementptr i8, ptr %2, i64 %239
+  %invariant.gep53.i.i = getelementptr i8, ptr %2, i64 %239
   %reass.sub112 = sub nsw i64 %indvars.iv45.i49.i, %238
   %240 = add nsw i64 %reass.sub112, 1
   br label %.preheader.us.i50.i
@@ -2287,8 +2287,8 @@ define hidden void @av1_convolve_2d_facade(ptr noundef %0, i32 noundef %1, ptr n
 
 ._crit_edge.us.i59.i:                             ; preds = %.preheader.us.i50.i, %._crit_edge.us.loopexit.i.i
   %.025.lcssa.us.i.i = phi i8 [ 0, %.preheader.us.i50.i ], [ %245, %._crit_edge.us.loopexit.i.i ]
-  %gep53.i.i = getelementptr i8, ptr %invariant.gep52.i.i, i64 %indvars.iv40.i.i
-  store i8 %.025.lcssa.us.i.i, ptr %gep53.i.i, align 1
+  %gep54.i.i = getelementptr i8, ptr %invariant.gep53.i.i, i64 %indvars.iv40.i.i
+  store i8 %.025.lcssa.us.i.i, ptr %gep54.i.i, align 1
   %indvars.iv.next41.i.i = add nuw nsw i64 %indvars.iv40.i.i, 1
   %exitcond44.not.i.i = icmp eq i64 %indvars.iv.next41.i.i, %wide.trip.count43.i.i
   br i1 %exitcond44.not.i.i, label %._crit_edge34.us.i.i, label %.preheader.us.i50.i, !llvm.loop !23
@@ -2371,7 +2371,7 @@ define hidden void @av1_highbd_convolve_x_sr_c(ptr noundef readonly captures(non
   %reass.sub = sub i32 %29, %23
   %30 = add i32 %reass.sub, 1
   %31 = mul nsw i64 %indvars.iv51, %27
-  %invariant.gep56 = getelementptr i16, ptr %2, i64 %31
+  %invariant.gep57 = getelementptr i16, ptr %2, i64 %31
   br label %.preheader.us
 
 ._crit_edge.us:                                   ; preds = %46, %.preheader.us
@@ -2404,8 +2404,8 @@ define hidden void @av1_highbd_convolve_x_sr_c(ptr noundef readonly captures(non
 clip_pixel_highbd.exit.us:                        ; preds = %44, %42, %40
   %.0.in.i.us = phi i32 [ %45, %44 ], [ %43, %42 ], [ %41, %40 ]
   %.0.i.us = trunc nuw nsw i32 %.0.in.i.us to i16
-  %gep57 = getelementptr i16, ptr %invariant.gep56, i64 %indvars.iv46
-  store i16 %.0.i.us, ptr %gep57, align 2
+  %gep58 = getelementptr i16, ptr %invariant.gep57, i64 %indvars.iv46
+  store i16 %.0.i.us, ptr %gep58, align 2
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
   br i1 %exitcond50.not, label %._crit_edge41.us, label %.preheader.us, !llvm.loop !49
@@ -2477,7 +2477,7 @@ define hidden void @av1_highbd_convolve_y_sr_c(ptr noundef readonly captures(non
   %23 = sub nsw i64 %indvars.iv46, %22
   %24 = add nsw i64 %23, 1
   %25 = mul nsw i64 %indvars.iv46, %21
-  %invariant.gep53 = getelementptr i16, ptr %2, i64 %25
+  %invariant.gep54 = getelementptr i16, ptr %2, i64 %25
   br label %.preheader.us
 
 ._crit_edge.us.loopexit:                          ; preds = %.lr.ph.us
@@ -2508,8 +2508,8 @@ define hidden void @av1_highbd_convolve_y_sr_c(ptr noundef readonly captures(non
 clip_pixel_highbd.exit.us:                        ; preds = %33, %31, %29
   %.0.in.i.us = phi i32 [ %34, %33 ], [ %32, %31 ], [ %30, %29 ]
   %.0.i.us = trunc nuw nsw i32 %.0.in.i.us to i16
-  %gep54 = getelementptr i16, ptr %invariant.gep53, i64 %indvars.iv41
-  store i16 %.0.i.us, ptr %gep54, align 2
+  %gep55 = getelementptr i16, ptr %invariant.gep54, i64 %indvars.iv41
+  store i16 %.0.i.us, ptr %gep55, align 2
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
   br i1 %exitcond45.not, label %._crit_edge35.us, label %.preheader.us, !llvm.loop !52
@@ -2707,7 +2707,7 @@ define hidden void @av1_highbd_convolve_2d_sr_c(ptr noundef readonly captures(no
   %91 = sub nsw i64 %indvars.iv151, %90
   %92 = add nsw i64 %91, 1
   %93 = mul nsw i64 %indvars.iv151, %89
-  %invariant.gep161 = getelementptr i16, ptr %2, i64 %93
+  %invariant.gep163 = getelementptr i16, ptr %2, i64 %93
   br label %94
 
 94:                                               ; preds = %.preheader.us, %clip_pixel_highbd.exit.us
@@ -2718,7 +2718,7 @@ define hidden void @av1_highbd_convolve_2d_sr_c(ptr noundef readonly captures(no
 
 .lr.ph.us.preheader:                              ; preds = %94
   %wide.trip.count144 = zext i16 %95 to i64
-  %invariant.gep159 = getelementptr i16, ptr %76, i64 %indvars.iv146
+  %invariant.gep161 = getelementptr i16, ptr %76, i64 %indvars.iv146
   br label %.lr.ph.us
 
 ._crit_edge108.us:                                ; preds = %.lr.ph.us, %94
@@ -2757,8 +2757,8 @@ define hidden void @av1_highbd_convolve_2d_sr_c(ptr noundef readonly captures(no
 clip_pixel_highbd.exit.us:                        ; preds = %111, %109, %107
   %.0.in.i.us = phi i32 [ %112, %111 ], [ %110, %109 ], [ %108, %107 ]
   %.0.i.us = trunc nuw nsw i32 %.0.in.i.us to i16
-  %gep162 = getelementptr i16, ptr %invariant.gep161, i64 %indvars.iv146
-  store i16 %.0.i.us, ptr %gep162, align 2
+  %gep164 = getelementptr i16, ptr %invariant.gep163, i64 %indvars.iv146
+  store i16 %.0.i.us, ptr %gep164, align 2
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
   br i1 %exitcond150.not, label %._crit_edge111.us, label %94, !llvm.loop !58
@@ -2771,8 +2771,8 @@ clip_pixel_highbd.exit.us:                        ; preds = %111, %109, %107
   %115 = sext i16 %114 to i32
   %116 = add nsw i64 %92, %indvars.iv141
   %117 = mul nsw i64 %116, %88
-  %gep160 = getelementptr i16, ptr %invariant.gep159, i64 %117
-  %118 = load i16, ptr %gep160, align 2
+  %gep162 = getelementptr i16, ptr %invariant.gep161, i64 %117
+  %118 = load i16, ptr %gep162, align 2
   %119 = sext i16 %118 to i32
   %120 = mul nsw i32 %119, %115
   %121 = add nsw i32 %120, %.077105.us
@@ -2954,9 +2954,9 @@ define hidden void @av1_highbd_dist_wtd_convolve_2d_c(ptr noundef readonly captu
   %100 = add nsw i64 %99, 1
   %101 = mul nsw i64 %indvars.iv175, %96
   %102 = mul nsw i64 %indvars.iv175, %97
-  %invariant.gep185 = getelementptr i16, ptr %15, i64 %101
-  %invariant.gep187 = getelementptr i16, ptr %2, i64 %102
-  %invariant.gep189 = getelementptr i16, ptr %15, i64 %101
+  %invariant.gep187 = getelementptr i16, ptr %15, i64 %101
+  %invariant.gep189 = getelementptr i16, ptr %2, i64 %102
+  %invariant.gep191 = getelementptr i16, ptr %15, i64 %101
   br label %103
 
 103:                                              ; preds = %.preheader.us, %clip_pixel_highbd.exit.us
@@ -2967,7 +2967,7 @@ define hidden void @av1_highbd_dist_wtd_convolve_2d_c(ptr noundef readonly captu
 
 .lr.ph.us.preheader:                              ; preds = %103
   %wide.trip.count168 = zext i16 %104 to i64
-  %invariant.gep183 = getelementptr i16, ptr %80, i64 %indvars.iv170
+  %invariant.gep185 = getelementptr i16, ptr %80, i64 %indvars.iv170
   br label %.lr.ph.us
 
 ._crit_edge132.us:                                ; preds = %.lr.ph.us, %103
@@ -2982,8 +2982,8 @@ define hidden void @av1_highbd_dist_wtd_convolve_2d_c(ptr noundef readonly captu
   br i1 %.not.us, label %clip_pixel_highbd.exit.us, label %111
 
 111:                                              ; preds = %._crit_edge132.us
-  %gep186 = getelementptr i16, ptr %invariant.gep185, i64 %indvars.iv170
-  %112 = load i16, ptr %gep186, align 2
+  %gep188 = getelementptr i16, ptr %invariant.gep187, i64 %indvars.iv170
+  %112 = load i16, ptr %gep188, align 2
   %113 = zext i16 %112 to i32
   %114 = load i32, ptr %90, align 4
   %.not107.us = icmp eq i32 %114, 0
@@ -3034,11 +3034,11 @@ define hidden void @av1_highbd_dist_wtd_convolve_2d_c(ptr noundef readonly captu
   br label %clip_pixel_highbd.exit.us
 
 clip_pixel_highbd.exit.us:                        ; preds = %._crit_edge132.us, %134, %136, %138
-  %.sink191 = phi i32 [ %139, %138 ], [ %137, %136 ], [ %135, %134 ], [ %109, %._crit_edge132.us ]
-  %invariant.gep189.sink = phi ptr [ %invariant.gep187, %138 ], [ %invariant.gep187, %136 ], [ %invariant.gep187, %134 ], [ %invariant.gep189, %._crit_edge132.us ]
-  %140 = trunc i32 %.sink191 to i16
-  %gep190 = getelementptr i16, ptr %invariant.gep189.sink, i64 %indvars.iv170
-  store i16 %140, ptr %gep190, align 2
+  %.sink193 = phi i32 [ %139, %138 ], [ %137, %136 ], [ %135, %134 ], [ %109, %._crit_edge132.us ]
+  %invariant.gep191.sink = phi ptr [ %invariant.gep189, %138 ], [ %invariant.gep189, %136 ], [ %invariant.gep189, %134 ], [ %invariant.gep191, %._crit_edge132.us ]
+  %140 = trunc i32 %.sink193 to i16
+  %gep192 = getelementptr i16, ptr %invariant.gep191.sink, i64 %indvars.iv170
+  store i16 %140, ptr %gep192, align 2
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %exitcond174.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count173
   br i1 %exitcond174.not, label %._crit_edge135.us, label %103, !llvm.loop !64
@@ -3051,8 +3051,8 @@ clip_pixel_highbd.exit.us:                        ; preds = %._crit_edge132.us, 
   %143 = sext i16 %142 to i32
   %144 = add nsw i64 %100, %indvars.iv165
   %145 = mul nsw i64 %144, %95
-  %gep184 = getelementptr i16, ptr %invariant.gep183, i64 %145
-  %146 = load i16, ptr %gep184, align 2
+  %gep186 = getelementptr i16, ptr %invariant.gep185, i64 %145
+  %146 = load i16, ptr %gep186, align 2
   %147 = sext i16 %146 to i32
   %148 = mul nsw i32 %147, %143
   %149 = add nsw i32 %148, %.099130.us
@@ -3126,9 +3126,9 @@ define hidden void @av1_highbd_dist_wtd_convolve_x_c(ptr noundef readonly captur
   %49 = add i32 %reass.sub, 1
   %50 = mul nsw i64 %indvars.iv89, %45
   %51 = mul nsw i64 %indvars.iv89, %46
-  %invariant.gep94 = getelementptr i16, ptr %12, i64 %50
-  %invariant.gep96 = getelementptr i16, ptr %2, i64 %51
-  %invariant.gep98 = getelementptr i16, ptr %12, i64 %50
+  %invariant.gep95 = getelementptr i16, ptr %12, i64 %50
+  %invariant.gep97 = getelementptr i16, ptr %2, i64 %51
+  %invariant.gep99 = getelementptr i16, ptr %12, i64 %50
   br label %.preheader.us
 
 ._crit_edge.us:                                   ; preds = %85, %.preheader.us
@@ -3145,8 +3145,8 @@ define hidden void @av1_highbd_dist_wtd_convolve_x_c(ptr noundef readonly captur
   br i1 %.not.us, label %clip_pixel_highbd.exit.us, label %60
 
 60:                                               ; preds = %._crit_edge.us
-  %gep95 = getelementptr i16, ptr %invariant.gep94, i64 %indvars.iv84
-  %61 = load i16, ptr %gep95, align 2
+  %gep96 = getelementptr i16, ptr %invariant.gep95, i64 %indvars.iv84
+  %61 = load i16, ptr %gep96, align 2
   %62 = zext i16 %61 to i32
   %63 = load i32, ptr %39, align 4
   %.not70.us = icmp eq i32 %63, 0
@@ -3189,11 +3189,11 @@ define hidden void @av1_highbd_dist_wtd_convolve_x_c(ptr noundef readonly captur
   br label %clip_pixel_highbd.exit.us
 
 clip_pixel_highbd.exit.us:                        ; preds = %._crit_edge.us, %78, %80, %82
-  %.sink100 = phi i32 [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ %58, %._crit_edge.us ]
-  %invariant.gep98.sink = phi ptr [ %invariant.gep96, %82 ], [ %invariant.gep96, %80 ], [ %invariant.gep96, %78 ], [ %invariant.gep98, %._crit_edge.us ]
-  %84 = trunc i32 %.sink100 to i16
-  %gep99 = getelementptr i16, ptr %invariant.gep98.sink, i64 %indvars.iv84
-  store i16 %84, ptr %gep99, align 2
+  %.sink101 = phi i32 [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ %58, %._crit_edge.us ]
+  %invariant.gep99.sink = phi ptr [ %invariant.gep97, %82 ], [ %invariant.gep97, %80 ], [ %invariant.gep97, %78 ], [ %invariant.gep99, %._crit_edge.us ]
+  %84 = trunc i32 %.sink101 to i16
+  %gep100 = getelementptr i16, ptr %invariant.gep99.sink, i64 %indvars.iv84
+  store i16 %84, ptr %gep100, align 2
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
   br i1 %exitcond88.not, label %._crit_edge79.us, label %.preheader.us, !llvm.loop !67
@@ -3292,9 +3292,9 @@ define hidden void @av1_highbd_dist_wtd_convolve_y_c(ptr noundef readonly captur
   %49 = add nsw i64 %48, 1
   %50 = mul nsw i64 %indvars.iv90, %45
   %51 = mul nsw i64 %indvars.iv90, %46
-  %invariant.gep97 = getelementptr i16, ptr %12, i64 %50
-  %invariant.gep99 = getelementptr i16, ptr %2, i64 %51
-  %invariant.gep101 = getelementptr i16, ptr %12, i64 %50
+  %invariant.gep98 = getelementptr i16, ptr %12, i64 %50
+  %invariant.gep100 = getelementptr i16, ptr %2, i64 %51
+  %invariant.gep102 = getelementptr i16, ptr %12, i64 %50
   br label %.preheader.us
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.us, %.preheader.us
@@ -3311,8 +3311,8 @@ define hidden void @av1_highbd_dist_wtd_convolve_y_c(ptr noundef readonly captur
   br i1 %.not.us, label %clip_pixel_highbd.exit.us, label %60
 
 60:                                               ; preds = %._crit_edge.us
-  %gep98 = getelementptr i16, ptr %invariant.gep97, i64 %indvars.iv85
-  %61 = load i16, ptr %gep98, align 2
+  %gep99 = getelementptr i16, ptr %invariant.gep98, i64 %indvars.iv85
+  %61 = load i16, ptr %gep99, align 2
   %62 = zext i16 %61 to i32
   %63 = load i32, ptr %37, align 4
   %.not70.us = icmp eq i32 %63, 0
@@ -3355,11 +3355,11 @@ define hidden void @av1_highbd_dist_wtd_convolve_y_c(ptr noundef readonly captur
   br label %clip_pixel_highbd.exit.us
 
 clip_pixel_highbd.exit.us:                        ; preds = %._crit_edge.us, %78, %80, %82
-  %.sink103 = phi i32 [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ %58, %._crit_edge.us ]
-  %invariant.gep101.sink = phi ptr [ %invariant.gep99, %82 ], [ %invariant.gep99, %80 ], [ %invariant.gep99, %78 ], [ %invariant.gep101, %._crit_edge.us ]
-  %84 = trunc i32 %.sink103 to i16
-  %gep102 = getelementptr i16, ptr %invariant.gep101.sink, i64 %indvars.iv85
-  store i16 %84, ptr %gep102, align 2
+  %.sink104 = phi i32 [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ %58, %._crit_edge.us ]
+  %invariant.gep102.sink = phi ptr [ %invariant.gep100, %82 ], [ %invariant.gep100, %80 ], [ %invariant.gep100, %78 ], [ %invariant.gep102, %._crit_edge.us ]
+  %84 = trunc i32 %.sink104 to i16
+  %gep103 = getelementptr i16, ptr %invariant.gep102.sink, i64 %indvars.iv85
+  store i16 %84, ptr %gep103, align 2
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
   br i1 %exitcond89.not, label %._crit_edge79.us, label %.preheader.us, !llvm.loop !70
@@ -3446,9 +3446,9 @@ define hidden void @av1_highbd_dist_wtd_convolve_2d_copy_c(ptr noundef readonly 
   %37 = mul nsw i64 %indvars.iv60, %34
   %38 = mul nsw i64 %indvars.iv60, %35
   %invariant.gep = getelementptr i16, ptr %0, i64 %36
-  %invariant.gep65 = getelementptr i16, ptr %10, i64 %37
-  %invariant.gep67 = getelementptr i16, ptr %2, i64 %38
-  %invariant.gep69 = getelementptr i16, ptr %10, i64 %37
+  %invariant.gep66 = getelementptr i16, ptr %10, i64 %37
+  %invariant.gep68 = getelementptr i16, ptr %2, i64 %38
+  %invariant.gep70 = getelementptr i16, ptr %10, i64 %37
   br label %39
 
 39:                                               ; preds = %.preheader.us, %clip_pixel_highbd.exit.us
@@ -3463,8 +3463,8 @@ define hidden void @av1_highbd_dist_wtd_convolve_2d_copy_c(ptr noundef readonly 
   br i1 %.not.us, label %clip_pixel_highbd.exit.us, label %45
 
 45:                                               ; preds = %39
-  %gep66 = getelementptr i16, ptr %invariant.gep65, i64 %indvars.iv
-  %46 = load i16, ptr %gep66, align 2
+  %gep67 = getelementptr i16, ptr %invariant.gep66, i64 %indvars.iv
+  %46 = load i16, ptr %gep67, align 2
   %47 = zext i16 %46 to i32
   %48 = load i32, ptr %27, align 4
   %.not53.us = icmp eq i32 %48, 0
@@ -3509,11 +3509,11 @@ define hidden void @av1_highbd_dist_wtd_convolve_2d_copy_c(ptr noundef readonly 
   br label %clip_pixel_highbd.exit.us
 
 clip_pixel_highbd.exit.us:                        ; preds = %39, %65, %67, %69
-  %.sink71 = phi i32 [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %43, %39 ]
-  %invariant.gep69.sink = phi ptr [ %invariant.gep67, %69 ], [ %invariant.gep67, %67 ], [ %invariant.gep67, %65 ], [ %invariant.gep69, %39 ]
-  %71 = trunc i32 %.sink71 to i16
-  %gep70 = getelementptr i16, ptr %invariant.gep69.sink, i64 %indvars.iv
-  store i16 %71, ptr %gep70, align 2
+  %.sink72 = phi i32 [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %43, %39 ]
+  %invariant.gep70.sink = phi ptr [ %invariant.gep68, %69 ], [ %invariant.gep68, %67 ], [ %invariant.gep68, %65 ], [ %invariant.gep70, %39 ]
+  %71 = trunc i32 %.sink72 to i16
+  %gep71 = getelementptr i16, ptr %invariant.gep70.sink, i64 %indvars.iv
+  store i16 %71, ptr %gep71, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %39, !llvm.loop !73
@@ -3696,9 +3696,9 @@ define hidden void @av1_highbd_convolve_2d_scale_c(ptr noundef readonly captures
   %indvars.iv218 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next219, %._crit_edge177.us ]
   %.0136178.us = phi ptr [ %101, %.preheader.us.preheader ], [ %185, %._crit_edge177.us ]
   %invariant.gep = getelementptr i16, ptr %27, i64 %indvars.iv218
-  %invariant.gep225 = getelementptr i16, ptr %2, i64 %indvars.iv218
-  %invariant.gep227 = getelementptr i16, ptr %27, i64 %indvars.iv218
-  %invariant.gep229 = getelementptr i16, ptr %2, i64 %indvars.iv218
+  %invariant.gep227 = getelementptr i16, ptr %2, i64 %indvars.iv218
+  %invariant.gep229 = getelementptr i16, ptr %27, i64 %indvars.iv218
+  %invariant.gep231 = getelementptr i16, ptr %2, i64 %indvars.iv218
   br label %106
 
 106:                                              ; preds = %.preheader.us, %173
@@ -3797,13 +3797,13 @@ clip_pixel_highbd.exit.us:                        ; preds = %154, %152, %150
   %.0.in.i.us = phi i32 [ %155, %154 ], [ %153, %152 ], [ %151, %150 ]
   %.0.i.us = trunc nuw nsw i32 %.0.in.i.us to i16
   %156 = mul nsw i64 %indvars.iv213, %105
-  %gep226 = getelementptr i16, ptr %invariant.gep225, i64 %156
-  store i16 %.0.i.us, ptr %gep226, align 2
+  %gep228 = getelementptr i16, ptr %invariant.gep227, i64 %156
+  store i16 %.0.i.us, ptr %gep228, align 2
   br label %173
 
 157:                                              ; preds = %124
-  %gep228 = getelementptr i16, ptr %invariant.gep227, i64 %126
-  store i16 %122, ptr %gep228, align 2
+  %gep230 = getelementptr i16, ptr %invariant.gep229, i64 %126
+  store i16 %122, ptr %gep230, align 2
   br label %173
 
 158:                                              ; preds = %._crit_edge173.us
@@ -3838,8 +3838,8 @@ clip_pixel_highbd.exit150.us:                     ; preds = %170, %168, %166
   %.0.in.i148.us = phi i32 [ %171, %170 ], [ %169, %168 ], [ %167, %166 ]
   %.0.i149.us = trunc nuw nsw i32 %.0.in.i148.us to i16
   %172 = mul nsw i64 %indvars.iv213, %105
-  %gep230 = getelementptr i16, ptr %invariant.gep229, i64 %172
-  store i16 %.0.i149.us, ptr %gep230, align 2
+  %gep232 = getelementptr i16, ptr %invariant.gep231, i64 %172
+  store i16 %.0.i149.us, ptr %gep232, align 2
   br label %173
 
 173:                                              ; preds = %clip_pixel_highbd.exit150.us, %157, %clip_pixel_highbd.exit.us
@@ -3970,8 +3970,8 @@ define hidden void @av1_highbd_convolve_2d_facade(ptr noundef %0, i32 noundef %1
   %71 = mul nsw i64 %indvars.iv60.i.i, %68
   %72 = mul nsw i64 %indvars.iv60.i.i, %69
   %invariant.gep.i.i = getelementptr i16, ptr %17, i64 %70
-  %invariant.gep65.i.i = getelementptr i16, ptr %44, i64 %71
-  %invariant.gep67.i.i = getelementptr i16, ptr %35, i64 %72
+  %invariant.gep66.i.i = getelementptr i16, ptr %44, i64 %71
+  %invariant.gep68.i.i = getelementptr i16, ptr %35, i64 %72
   br label %73
 
 73:                                               ; preds = %clip_pixel_highbd.exit.us.i.i, %.preheader.us.i.i
@@ -3986,8 +3986,8 @@ define hidden void @av1_highbd_convolve_2d_facade(ptr noundef %0, i32 noundef %1
   br i1 %.not.us.i.i, label %clip_pixel_highbd.exit.us.i.i, label %79
 
 79:                                               ; preds = %73
-  %gep66.i.i = getelementptr i16, ptr %invariant.gep65.i.i, i64 %indvars.iv.i.i
-  %80 = load i16, ptr %gep66.i.i, align 2
+  %gep67.i.i = getelementptr i16, ptr %invariant.gep66.i.i, i64 %indvars.iv.i.i
+  %80 = load i16, ptr %gep67.i.i, align 2
   %81 = zext i16 %80 to i32
   %82 = load i32, ptr %61, align 4
   %.not53.us.i.i = icmp eq i32 %82, 0
@@ -4032,11 +4032,11 @@ define hidden void @av1_highbd_convolve_2d_facade(ptr noundef %0, i32 noundef %1
   br label %clip_pixel_highbd.exit.us.i.i
 
 clip_pixel_highbd.exit.us.i.i:                    ; preds = %103, %101, %99, %73
-  %.sink71.i.i = phi i32 [ %104, %103 ], [ %102, %101 ], [ %100, %99 ], [ %77, %73 ]
-  %invariant.gep69.sink.i.i = phi ptr [ %invariant.gep67.i.i, %103 ], [ %invariant.gep67.i.i, %101 ], [ %invariant.gep67.i.i, %99 ], [ %invariant.gep65.i.i, %73 ]
-  %105 = trunc i32 %.sink71.i.i to i16
-  %gep70.i.i = getelementptr i16, ptr %invariant.gep69.sink.i.i, i64 %indvars.iv.i.i
-  store i16 %105, ptr %gep70.i.i, align 2
+  %.sink72.i.i = phi i32 [ %104, %103 ], [ %102, %101 ], [ %100, %99 ], [ %77, %73 ]
+  %invariant.gep70.sink.i.i = phi ptr [ %invariant.gep68.i.i, %103 ], [ %invariant.gep68.i.i, %101 ], [ %invariant.gep68.i.i, %99 ], [ %invariant.gep66.i.i, %73 ]
+  %105 = trunc i32 %.sink72.i.i to i16
+  %gep71.i.i = getelementptr i16, ptr %invariant.gep70.sink.i.i, i64 %indvars.iv.i.i
+  store i16 %105, ptr %gep71.i.i, align 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %73, !llvm.loop !73
@@ -4115,7 +4115,7 @@ clip_pixel_highbd.exit.us.i.i:                    ; preds = %103, %101, %99, %73
   %134 = trunc i64 %indvars.iv51.i.i to i32
   %135 = mul i32 %1, %134
   %136 = mul nsw i64 %indvars.iv51.i.i, %133
-  %invariant.gep56.i.i = getelementptr i16, ptr %35, i64 %136
+  %invariant.gep57.i.i = getelementptr i16, ptr %35, i64 %136
   %reass.sub = sub i32 %135, %132
   %137 = add i32 %reass.sub, 1
   br label %.preheader.us.i.i55
@@ -4150,8 +4150,8 @@ clip_pixel_highbd.exit.us.i.i:                    ; preds = %103, %101, %99, %73
 clip_pixel_highbd.exit.us.i.i63:                  ; preds = %150, %148, %146
   %.0.in.i.us.i.i = phi i32 [ %151, %150 ], [ %149, %148 ], [ %147, %146 ]
   %.0.i.us.i.i = trunc nuw nsw i32 %.0.in.i.us.i.i to i16
-  %gep57.i.i = getelementptr i16, ptr %invariant.gep56.i.i, i64 %indvars.iv46.i.i
-  store i16 %.0.i.us.i.i, ptr %gep57.i.i, align 2
+  %gep58.i.i = getelementptr i16, ptr %invariant.gep57.i.i, i64 %indvars.iv46.i.i
+  store i16 %.0.i.us.i.i, ptr %gep58.i.i, align 2
   %indvars.iv.next47.i.i = add nuw nsw i64 %indvars.iv46.i.i, 1
   %exitcond50.not.i.i = icmp eq i64 %indvars.iv.next47.i.i, %wide.trip.count49.i.i
   br i1 %exitcond50.not.i.i, label %._crit_edge41.us.i.i, label %.preheader.us.i.i55, !llvm.loop !49
@@ -4220,7 +4220,7 @@ clip_pixel_highbd.exit.us.i.i63:                  ; preds = %150, %148, %146
 .preheader31.us.i.i:                              ; preds = %._crit_edge35.us.i.i, %.preheader31.us.preheader.i.i
   %indvars.iv46.i52.i = phi i64 [ 0, %.preheader31.us.preheader.i.i ], [ %indvars.iv.next47.i66.i, %._crit_edge35.us.i.i ]
   %179 = mul nsw i64 %indvars.iv46.i52.i, %177
-  %invariant.gep53.i.i = getelementptr i16, ptr %35, i64 %179
+  %invariant.gep54.i.i = getelementptr i16, ptr %35, i64 %179
   %reass.sub71 = sub nsw i64 %indvars.iv46.i52.i, %178
   %180 = add nsw i64 %reass.sub71, 1
   br label %.preheader.us.i53.i
@@ -4253,8 +4253,8 @@ clip_pixel_highbd.exit.us.i.i63:                  ; preds = %150, %148, %146
 clip_pixel_highbd.exit.us.i63.i:                  ; preds = %188, %186, %184
   %.0.in.i.us.i64.i = phi i32 [ %189, %188 ], [ %187, %186 ], [ %185, %184 ]
   %.0.i.us.i65.i = trunc nuw nsw i32 %.0.in.i.us.i64.i to i16
-  %gep54.i.i = getelementptr i16, ptr %invariant.gep53.i.i, i64 %indvars.iv41.i.i
-  store i16 %.0.i.us.i65.i, ptr %gep54.i.i, align 2
+  %gep55.i.i = getelementptr i16, ptr %invariant.gep54.i.i, i64 %indvars.iv41.i.i
+  store i16 %.0.i.us.i65.i, ptr %gep55.i.i, align 2
   %indvars.iv.next42.i.i = add nuw nsw i64 %indvars.iv41.i.i, 1
   %exitcond45.not.i.i = icmp eq i64 %indvars.iv.next42.i.i, %wide.trip.count44.i.i
   br i1 %exitcond45.not.i.i, label %._crit_edge35.us.i.i, label %.preheader.us.i53.i, !llvm.loop !52

@@ -16458,7 +16458,7 @@ _ZN14ruff_workspace9pyproject20parse_pyproject_toml17h15654e06f760e702E.exit._cr
   %167 = getelementptr inbounds nuw i8, ptr %25, i64 4713
   br i1 %166, label %169, label %168
 
-.thread73:                                        ; preds = %169, %181
+.thread78:                                        ; preds = %169, %181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4720) %0, ptr noundef nonnull align 8 dereferenceable(4720) %25, i64 4720, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %182
@@ -16466,17 +16466,17 @@ _ZN14ruff_workspace9pyproject20parse_pyproject_toml17h15654e06f760e702E.exit._cr
 168:                                              ; preds = %165
   %.phi.trans.insert68 = getelementptr inbounds nuw i8, ptr %27, i64 4720
   %.pre69 = load i64, ptr %.phi.trans.insert68, align 8, !range !33
-  %.not75 = icmp eq i64 %.pre69, -9223372036854775807
+  %.not80 = icmp eq i64 %.pre69, -9223372036854775807
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4720) %0, ptr noundef nonnull align 8 dereferenceable(4720) %25, i64 4720, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  br i1 %.not75, label %182, label %183
+  br i1 %.not80, label %182, label %183
 
 169:                                              ; preds = %.thread, %165
   %170 = phi ptr [ %164, %.thread ], [ %167, %165 ]
   %171 = getelementptr inbounds nuw i8, ptr %27, i64 4720
   %172 = load i64, ptr %171, align 8, !range !33, !noundef !4
-  %switch76 = icmp slt i64 %172, -9223372036854775806
-  br i1 %switch76, label %.thread73, label %173
+  %switch81 = icmp slt i64 %172, -9223372036854775806
+  br i1 %switch81, label %.thread78, label %173
 
 173:                                              ; preds = %169
   %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 4728
@@ -16510,9 +16510,9 @@ _ZN14ruff_workspace9pyproject20parse_pyproject_toml17h15654e06f760e702E.exit._cr
 
 181:                                              ; preds = %177
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  br label %.thread73
+  br label %.thread78
 
-182:                                              ; preds = %.thread73, %183, %168
+182:                                              ; preds = %.thread78, %183, %168
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %185
 

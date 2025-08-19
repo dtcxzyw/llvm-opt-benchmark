@@ -39,14 +39,14 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmi_core..trap..TrapReason$GT$17h9f0a6920397a32e3E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !3, !noundef !4
-  switch i8 %2, label %default.unreachable4 [
+  switch i8 %2, label %default.unreachable6 [
     i8 0, label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$wasmi_core..host_error..HostError$GT$$GT$17h8bf24043a8b1ee6aE.exit"
     i8 1, label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$wasmi_core..host_error..HostError$GT$$GT$17h8bf24043a8b1ee6aE.exit"
     i8 2, label %29
     i8 3, label %3
   ]
 
-default.unreachable4:                             ; preds = %1
+default.unreachable6:                             ; preds = %1
   unreachable
 
 3:                                                ; preds = %1

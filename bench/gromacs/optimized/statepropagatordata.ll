@@ -3690,14 +3690,14 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc10
   br i1 %.not.i.i.i11, label %.body, label %.body.sink.split
 
 .body.sink.split:                                 ; preds = %42, %15
-  %.sink18 = phi ptr [ %17, %15 ], [ %44, %42 ]
+  %.sink20 = phi ptr [ %17, %15 ], [ %44, %42 ]
   %.pn.ph = phi { ptr, i32 } [ %16, %15 ], [ %43, %42 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %46 = load ptr, ptr %45, align 8, !tbaa !417
   %47 = ptrtoint ptr %46 to i64
-  %48 = ptrtoint ptr %.sink18 to i64
+  %48 = ptrtoint ptr %.sink20 to i64
   %49 = sub i64 %47, %48
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink18, i64 noundef %49) #38
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink20, i64 noundef %49) #38
   br label %.body
 
 .body:                                            ; preds = %.body.sink.split, %42, %15
@@ -3956,7 +3956,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_N
   br i1 %.not28, label %22, label %20
 
 20:                                               ; preds = %3
-  %21 = mul i64 %1, 12
+  %21 = mul nuw nsw i64 %1, 12
   %scevgep.i = getelementptr i8, ptr %6, i64 %21
   store ptr %scevgep.i, ptr %5, align 8, !tbaa !407
   br label %39
@@ -6512,11 +6512,11 @@ _Z11do_per_stepll.exit52.thread:                  ; preds = %_Z11do_per_stepll.e
   br i1 %189, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.sink.split, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 
 _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.sink.split: ; preds = %185, %122
-  %.sink93 = phi ptr [ %94, %122 ], [ %157, %185 ]
+  %.sink105 = phi ptr [ %94, %122 ], [ %157, %185 ]
   %.sink = phi i64 [ %103, %122 ], [ %166, %185 ]
-  %190 = getelementptr inbounds nuw i8, ptr %.sink93, i64 2612
+  %190 = getelementptr inbounds nuw i8, ptr %.sink105, i64 2612
   store i32 47, ptr %190, align 4, !tbaa !193
-  %191 = getelementptr inbounds nuw i8, ptr %.sink93, i64 2616
+  %191 = getelementptr inbounds nuw i8, ptr %.sink105, i64 2616
   store i64 %.sink, ptr %191, align 8, !tbaa !195
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 
@@ -8521,18 +8521,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !588
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #41
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #41
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !97
@@ -8566,7 +8566,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

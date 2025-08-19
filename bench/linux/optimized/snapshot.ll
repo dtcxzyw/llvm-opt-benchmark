@@ -896,8 +896,8 @@ define internal fastcc range(i32 -12, 1) i32 @memory_bm_create(ptr noundef %0, i
   br label %168
 
 165:                                              ; preds = %160, %161
-  %.sink174 = phi i32 [ 1, %161 ], [ 0, %160 ]
-  %166 = call fastcc ptr @get_image_page(i32 noundef %1, i32 noundef %.sink174)
+  %.sink226 = phi i32 [ 1, %161 ], [ 0, %160 ]
+  %166 = call fastcc ptr @get_image_page(i32 noundef %1, i32 noundef %.sink226)
   %167 = icmp eq ptr %166, null
   br i1 %167, label %.thread53, label %168
 
@@ -964,8 +964,8 @@ define internal fastcc range(i32 -12, 1) i32 @memory_bm_create(ptr noundef %0, i
   br label %204
 
 201:                                              ; preds = %196, %197
-  %.sink175 = phi i32 [ 1, %197 ], [ 0, %196 ]
-  %202 = call fastcc ptr @get_image_page(i32 noundef %1, i32 noundef %.sink175)
+  %.sink227 = phi i32 [ 1, %197 ], [ 0, %196 ]
+  %202 = call fastcc ptr @get_image_page(i32 noundef %1, i32 noundef %.sink227)
   %203 = icmp eq ptr %202, null
   br i1 %203, label %.thread53, label %204
 
@@ -1048,8 +1048,8 @@ define internal fastcc range(i32 -12, 1) i32 @memory_bm_create(ptr noundef %0, i
   br label %255
 
 252:                                              ; preds = %247, %248
-  %.sink176 = phi i32 [ 1, %248 ], [ 0, %247 ]
-  %253 = call fastcc ptr @get_image_page(i32 noundef %1, i32 noundef %.sink176)
+  %.sink228 = phi i32 [ 1, %248 ], [ 0, %247 ]
+  %253 = call fastcc ptr @get_image_page(i32 noundef %1, i32 noundef %.sink228)
   %254 = icmp eq ptr %253, null
   br i1 %254, label %.thread53, label %255
 
@@ -3075,14 +3075,14 @@ define dso_local void @clear_or_poison_free_pages() local_unnamed_addr #3 align 
   br label %151
 
 ._crit_edge:                                      ; preds = %151, %.thread15
-  %.lcssa63 = phi i64 [ %146, %.thread15 ], [ %164, %151 ]
-  %.lcssa61 = phi i64 [ %148, %.thread15 ], [ %166, %151 ]
+  %.lcssa77 = phi i64 [ %146, %.thread15 ], [ %164, %151 ]
+  %.lcssa75 = phi i64 [ %148, %.thread15 ], [ %166, %151 ]
   %.lcssa = phi ptr [ %150, %.thread15 ], [ %168, %151 ]
-  %183 = trunc i64 %.lcssa63 to i32
+  %183 = trunc i64 %.lcssa77 to i32
   %184 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 48
   %185 = load i64, ptr %184, align 8
   %186 = load i64, ptr %11, align 8
-  %187 = add i64 %185, %.lcssa61
+  %187 = add i64 %185, %.lcssa75
   %188 = add i64 %187, %186
   %189 = add i32 %183, 1
   store i32 %189, ptr %13, align 8
@@ -3231,14 +3231,14 @@ define dso_local void @swsusp_free() local_unnamed_addr #3 align 16 {
   br i1 %60, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %44, %23
-  %.lcssa135 = phi i64 [ %39, %23 ], [ %57, %44 ]
-  %.lcssa133 = phi i64 [ %41, %23 ], [ %59, %44 ]
+  %.lcssa157 = phi i64 [ %39, %23 ], [ %57, %44 ]
+  %.lcssa155 = phi i64 [ %41, %23 ], [ %59, %44 ]
   %.lcssa = phi ptr [ %43, %23 ], [ %61, %44 ]
-  %62 = trunc i64 %.lcssa135 to i32
+  %62 = trunc i64 %.lcssa157 to i32
   %63 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 48
   %64 = load i64, ptr %63, align 8
   %65 = load i64, ptr %26, align 8
-  %66 = add i64 %64, %.lcssa133
+  %66 = add i64 %64, %.lcssa155
   %67 = add i64 %66, %65
   %68 = add i32 %62, 1
   store i32 %68, ptr %28, align 8
@@ -3298,7 +3298,7 @@ define dso_local void @swsusp_free() local_unnamed_addr #3 align 16 {
   %102 = ashr exact i64 %101, 32
   %103 = icmp ult i64 %102, %97
   %104 = load ptr, ptr %86, align 8
-  br i1 %103, label %._crit_edge159, label %.lr.ph158
+  br i1 %103, label %._crit_edge181, label %.lr.ph180
 
 105:                                              ; preds = %141, %135
   %106 = phi ptr [ %133, %135 ], [ %143, %141 ]
@@ -3320,23 +3320,23 @@ define dso_local void @swsusp_free() local_unnamed_addr #3 align 16 {
   %120 = ashr exact i64 %119, 32
   %121 = icmp ult i64 %120, %115
   %122 = load ptr, ptr %86, align 8
-  br i1 %121, label %._crit_edge159, label %.lr.ph158
+  br i1 %121, label %._crit_edge181, label %.lr.ph180
 
-._crit_edge159:                                   ; preds = %105, %.loopexit36
-  %.lcssa141 = phi i64 [ %100, %.loopexit36 ], [ %118, %105 ]
-  %.lcssa139 = phi i64 [ %102, %.loopexit36 ], [ %120, %105 ]
-  %.lcssa137 = phi ptr [ %104, %.loopexit36 ], [ %122, %105 ]
-  %123 = trunc i64 %.lcssa141 to i32
-  %124 = getelementptr inbounds nuw i8, ptr %.lcssa137, i64 48
+._crit_edge181:                                   ; preds = %105, %.loopexit36
+  %.lcssa163 = phi i64 [ %100, %.loopexit36 ], [ %118, %105 ]
+  %.lcssa161 = phi i64 [ %102, %.loopexit36 ], [ %120, %105 ]
+  %.lcssa159 = phi ptr [ %104, %.loopexit36 ], [ %122, %105 ]
+  %123 = trunc i64 %.lcssa163 to i32
+  %124 = getelementptr inbounds nuw i8, ptr %.lcssa159, i64 48
   %125 = load i64, ptr %124, align 8
   %126 = load i64, ptr %87, align 8
-  %127 = add i64 %125, %.lcssa139
+  %127 = add i64 %125, %.lcssa161
   %128 = add i64 %127, %126
   %129 = add i32 %123, 1
   store i32 %129, ptr %89, align 8
   br label %.loopexit35
 
-.lr.ph158:                                        ; preds = %.loopexit36, %105
+.lr.ph180:                                        ; preds = %.loopexit36, %105
   %130 = phi ptr [ %122, %105 ], [ %104, %.loopexit36 ]
   %131 = load ptr, ptr %88, align 8
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 32
@@ -3344,13 +3344,13 @@ define dso_local void @swsusp_free() local_unnamed_addr #3 align 16 {
   %134 = icmp eq ptr %133, %132
   br i1 %134, label %138, label %135
 
-135:                                              ; preds = %.lr.ph158
+135:                                              ; preds = %.lr.ph180
   store ptr %133, ptr %88, align 8
   %136 = load i64, ptr %87, align 8
   %137 = add i64 %136, 32768
   br label %105
 
-138:                                              ; preds = %.lr.ph158
+138:                                              ; preds = %.lr.ph180
   %139 = load ptr, ptr %130, align 8
   %140 = icmp eq ptr %139, %85
   br i1 %140, label %.loopexit35, label %141
@@ -3362,8 +3362,8 @@ define dso_local void @swsusp_free() local_unnamed_addr #3 align 16 {
   store ptr %143, ptr %88, align 8
   br label %105
 
-.loopexit35:                                      ; preds = %138, %._crit_edge159
-  %144 = phi i64 [ %128, %._crit_edge159 ], [ -1, %138 ]
+.loopexit35:                                      ; preds = %138, %._crit_edge181
+  %144 = phi i64 [ %128, %._crit_edge181 ], [ -1, %138 ]
   %145 = getelementptr inbounds nuw i8, ptr %85, i64 48
   store i64 %144, ptr %145, align 8
   br label %146
@@ -3399,7 +3399,7 @@ define dso_local void @swsusp_free() local_unnamed_addr #3 align 16 {
   %168 = ashr exact i64 %167, 32
   %169 = icmp ult i64 %168, %163
   %170 = load ptr, ptr %152, align 8
-  br i1 %169, label %._crit_edge165, label %.lr.ph164
+  br i1 %169, label %._crit_edge187, label %.lr.ph186
 
 171:                                              ; preds = %207, %201
   %172 = phi ptr [ %199, %201 ], [ %209, %207 ]
@@ -3421,23 +3421,23 @@ define dso_local void @swsusp_free() local_unnamed_addr #3 align 16 {
   %186 = ashr exact i64 %185, 32
   %187 = icmp ult i64 %186, %181
   %188 = load ptr, ptr %152, align 8
-  br i1 %187, label %._crit_edge165, label %.lr.ph164
+  br i1 %187, label %._crit_edge187, label %.lr.ph186
 
-._crit_edge165:                                   ; preds = %171, %150
-  %.lcssa147 = phi i64 [ %166, %150 ], [ %184, %171 ]
-  %.lcssa145 = phi i64 [ %168, %150 ], [ %186, %171 ]
-  %.lcssa143 = phi ptr [ %170, %150 ], [ %188, %171 ]
-  %189 = trunc i64 %.lcssa147 to i32
-  %190 = getelementptr inbounds nuw i8, ptr %.lcssa143, i64 48
+._crit_edge187:                                   ; preds = %171, %150
+  %.lcssa169 = phi i64 [ %166, %150 ], [ %184, %171 ]
+  %.lcssa167 = phi i64 [ %168, %150 ], [ %186, %171 ]
+  %.lcssa165 = phi ptr [ %170, %150 ], [ %188, %171 ]
+  %189 = trunc i64 %.lcssa169 to i32
+  %190 = getelementptr inbounds nuw i8, ptr %.lcssa165, i64 48
   %191 = load i64, ptr %190, align 8
   %192 = load i64, ptr %153, align 8
-  %193 = add i64 %191, %.lcssa145
+  %193 = add i64 %191, %.lcssa167
   %194 = add i64 %193, %192
   %195 = add i32 %189, 1
   store i32 %195, ptr %155, align 8
   br label %.loopexit34
 
-.lr.ph164:                                        ; preds = %150, %171
+.lr.ph186:                                        ; preds = %150, %171
   %196 = phi ptr [ %188, %171 ], [ %170, %150 ]
   %197 = load ptr, ptr %154, align 8
   %198 = getelementptr inbounds nuw i8, ptr %196, i64 32
@@ -3445,13 +3445,13 @@ define dso_local void @swsusp_free() local_unnamed_addr #3 align 16 {
   %200 = icmp eq ptr %199, %198
   br i1 %200, label %204, label %201
 
-201:                                              ; preds = %.lr.ph164
+201:                                              ; preds = %.lr.ph186
   store ptr %199, ptr %154, align 8
   %202 = load i64, ptr %153, align 8
   %203 = add i64 %202, 32768
   br label %171
 
-204:                                              ; preds = %.lr.ph164
+204:                                              ; preds = %.lr.ph186
   %205 = load ptr, ptr %196, align 8
   %206 = icmp eq ptr %205, %151
   br i1 %206, label %.loopexit34, label %207
@@ -3463,8 +3463,8 @@ define dso_local void @swsusp_free() local_unnamed_addr #3 align 16 {
   store ptr %209, ptr %154, align 8
   br label %171
 
-.loopexit34:                                      ; preds = %204, %._crit_edge165
-  %210 = phi i64 [ %194, %._crit_edge165 ], [ -1, %204 ]
+.loopexit34:                                      ; preds = %204, %._crit_edge187
+  %210 = phi i64 [ %194, %._crit_edge187 ], [ -1, %204 ]
   %211 = getelementptr inbounds nuw i8, ptr %151, i64 48
   store i64 %210, ptr %211, align 8
   br label %212
@@ -3499,7 +3499,7 @@ define dso_local void @swsusp_free() local_unnamed_addr #3 align 16 {
   %233 = ashr exact i64 %232, 32
   %234 = icmp ult i64 %233, %228
   %235 = load ptr, ptr %217, align 8
-  br i1 %234, label %._crit_edge171, label %.lr.ph170
+  br i1 %234, label %._crit_edge193, label %.lr.ph192
 
 236:                                              ; preds = %272, %266
   %237 = phi ptr [ %264, %266 ], [ %274, %272 ]
@@ -3521,23 +3521,23 @@ define dso_local void @swsusp_free() local_unnamed_addr #3 align 16 {
   %251 = ashr exact i64 %250, 32
   %252 = icmp ult i64 %251, %246
   %253 = load ptr, ptr %217, align 8
-  br i1 %252, label %._crit_edge171, label %.lr.ph170
+  br i1 %252, label %._crit_edge193, label %.lr.ph192
 
-._crit_edge171:                                   ; preds = %236, %215
-  %.lcssa153 = phi i64 [ %231, %215 ], [ %249, %236 ]
-  %.lcssa151 = phi i64 [ %233, %215 ], [ %251, %236 ]
-  %.lcssa149 = phi ptr [ %235, %215 ], [ %253, %236 ]
-  %254 = trunc i64 %.lcssa153 to i32
-  %255 = getelementptr inbounds nuw i8, ptr %.lcssa149, i64 48
+._crit_edge193:                                   ; preds = %236, %215
+  %.lcssa175 = phi i64 [ %231, %215 ], [ %249, %236 ]
+  %.lcssa173 = phi i64 [ %233, %215 ], [ %251, %236 ]
+  %.lcssa171 = phi ptr [ %235, %215 ], [ %253, %236 ]
+  %254 = trunc i64 %.lcssa175 to i32
+  %255 = getelementptr inbounds nuw i8, ptr %.lcssa171, i64 48
   %256 = load i64, ptr %255, align 8
   %257 = load i64, ptr %218, align 8
-  %258 = add i64 %256, %.lcssa151
+  %258 = add i64 %256, %.lcssa173
   %259 = add i64 %258, %257
   %260 = add i32 %254, 1
   store i32 %260, ptr %220, align 8
   br label %.loopexit
 
-.lr.ph170:                                        ; preds = %215, %236
+.lr.ph192:                                        ; preds = %215, %236
   %261 = phi ptr [ %253, %236 ], [ %235, %215 ]
   %262 = load ptr, ptr %219, align 8
   %263 = getelementptr inbounds nuw i8, ptr %261, i64 32
@@ -3545,13 +3545,13 @@ define dso_local void @swsusp_free() local_unnamed_addr #3 align 16 {
   %265 = icmp eq ptr %264, %263
   br i1 %265, label %269, label %266
 
-266:                                              ; preds = %.lr.ph170
+266:                                              ; preds = %.lr.ph192
   store ptr %264, ptr %219, align 8
   %267 = load i64, ptr %218, align 8
   %268 = add i64 %267, 32768
   br label %236
 
-269:                                              ; preds = %.lr.ph170
+269:                                              ; preds = %.lr.ph192
   %270 = load ptr, ptr %261, align 8
   %271 = icmp eq ptr %270, %216
   br i1 %271, label %.loopexit, label %272
@@ -3563,8 +3563,8 @@ define dso_local void @swsusp_free() local_unnamed_addr #3 align 16 {
   store ptr %274, ptr %219, align 8
   br label %236
 
-.loopexit:                                        ; preds = %269, %._crit_edge171
-  %275 = phi i64 [ %259, %._crit_edge171 ], [ -1, %269 ]
+.loopexit:                                        ; preds = %269, %._crit_edge193
+  %275 = phi i64 [ %259, %._crit_edge193 ], [ -1, %269 ]
   %276 = getelementptr inbounds nuw i8, ptr %216, i64 48
   store i64 %275, ptr %276, align 8
   br label %277
@@ -4223,14 +4223,14 @@ preallocate_image_memory.exit23:                  ; preds = %.lr.ph.i22, %223, %
   br i1 %307, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %291, %.preheader
-  %.lcssa90 = phi i64 [ %286, %.preheader ], [ %304, %291 ]
-  %.lcssa88 = phi i64 [ %288, %.preheader ], [ %306, %291 ]
+  %.lcssa126 = phi i64 [ %286, %.preheader ], [ %304, %291 ]
+  %.lcssa124 = phi i64 [ %288, %.preheader ], [ %306, %291 ]
   %.lcssa = phi ptr [ %290, %.preheader ], [ %308, %291 ]
-  %309 = trunc i64 %.lcssa90 to i32
+  %309 = trunc i64 %.lcssa126 to i32
   %310 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 48
   %311 = load i64, ptr %310, align 8
   %312 = load i64, ptr getelementptr inbounds nuw (i8, ptr @copy_bm, i64 40), align 8
-  %313 = add i64 %311, %.lcssa88
+  %313 = add i64 %311, %.lcssa124
   %314 = add i64 %313, %312
   %315 = add i32 %309, 1
   store i32 %315, ptr getelementptr inbounds nuw (i8, ptr @copy_bm, i64 56), align 8
@@ -4762,15 +4762,15 @@ define dso_local noundef range(i32 -12, 1) i32 @swsusp_save() local_unnamed_addr
   br label %178
 
 .loopexit52.sink.split:                           ; preds = %182, %423, %440
-  %.lcssa206.sink = phi i64 [ %453, %440 ], [ %435, %423 ], [ %195, %182 ]
-  %.lcssa202.sink = phi ptr [ %457, %440 ], [ %439, %423 ], [ %199, %182 ]
-  %.lcssa204.sink = phi i64 [ %455, %440 ], [ %437, %423 ], [ %197, %182 ]
-  %.ph235 = phi i32 [ %424, %440 ], [ %424, %423 ], [ 0, %182 ]
-  %214 = trunc i64 %.lcssa206.sink to i32
-  %215 = getelementptr inbounds nuw i8, ptr %.lcssa202.sink, i64 48
+  %.lcssa244.sink = phi i64 [ %453, %440 ], [ %435, %423 ], [ %195, %182 ]
+  %.lcssa240.sink = phi ptr [ %457, %440 ], [ %439, %423 ], [ %199, %182 ]
+  %.lcssa242.sink = phi i64 [ %455, %440 ], [ %437, %423 ], [ %197, %182 ]
+  %.ph273 = phi i32 [ %424, %440 ], [ %424, %423 ], [ 0, %182 ]
+  %214 = trunc i64 %.lcssa244.sink to i32
+  %215 = getelementptr inbounds nuw i8, ptr %.lcssa240.sink, i64 48
   %216 = load i64, ptr %215, align 8
   %217 = load i64, ptr getelementptr inbounds nuw (i8, ptr @copy_bm, i64 40), align 8
-  %218 = add i64 %216, %.lcssa204.sink
+  %218 = add i64 %216, %.lcssa242.sink
   %219 = add i64 %218, %217
   %220 = add i32 %214, 1
   store i32 %220, ptr getelementptr inbounds nuw (i8, ptr @copy_bm, i64 56), align 8
@@ -4778,12 +4778,12 @@ define dso_local noundef range(i32 -12, 1) i32 @swsusp_save() local_unnamed_addr
 
 .loopexit52.preheader:                            ; preds = %208, %.loopexit52.sink.split
   %.ph = phi i64 [ %219, %.loopexit52.sink.split ], [ -1, %208 ]
-  %.ph240 = phi i32 [ %.ph235, %.loopexit52.sink.split ], [ 0, %208 ]
+  %.ph278 = phi i32 [ %.ph273, %.loopexit52.sink.split ], [ 0, %208 ]
   br label %.loopexit52
 
 .loopexit52:                                      ; preds = %466, %.loopexit52.preheader
   %221 = phi i64 [ %.ph, %.loopexit52.preheader ], [ -1, %466 ]
-  %222 = phi i32 [ %.ph240, %.loopexit52.preheader ], [ %424, %466 ]
+  %222 = phi i32 [ %.ph278, %.loopexit52.preheader ], [ %424, %466 ]
   store i64 %221, ptr getelementptr inbounds nuw (i8, ptr @copy_bm, i64 48), align 8
   br label %223
 
@@ -4862,14 +4862,14 @@ define dso_local noundef range(i32 -12, 1) i32 @swsusp_save() local_unnamed_addr
   br label %239
 
 ._crit_edge:                                      ; preds = %239, %223
-  %.lcssa193 = phi i64 [ %234, %223 ], [ %252, %239 ]
-  %.lcssa191 = phi i64 [ %236, %223 ], [ %254, %239 ]
+  %.lcssa231 = phi i64 [ %234, %223 ], [ %252, %239 ]
+  %.lcssa229 = phi i64 [ %236, %223 ], [ %254, %239 ]
   %.lcssa = phi ptr [ %238, %223 ], [ %256, %239 ]
-  %271 = trunc i64 %.lcssa193 to i32
+  %271 = trunc i64 %.lcssa231 to i32
   %272 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 48
   %273 = load i64, ptr %272, align 8
   %274 = load i64, ptr getelementptr inbounds nuw (i8, ptr @orig_bm, i64 40), align 8
-  %275 = add i64 %273, %.lcssa191
+  %275 = add i64 %273, %.lcssa229
   %276 = add i64 %275, %274
   %277 = add i32 %271, 1
   store i32 %277, ptr getelementptr inbounds nuw (i8, ptr @orig_bm, i64 56), align 8
@@ -5123,7 +5123,7 @@ define dso_local noundef range(i32 -12, 1) i32 @swsusp_save() local_unnamed_addr
   %437 = ashr exact i64 %436, 32
   %438 = icmp ult i64 %437, %432
   %439 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @copy_bm, i64 24), align 8
-  br i1 %438, label %.loopexit52.sink.split, label %.lr.ph230, !llvm.loop !70
+  br i1 %438, label %.loopexit52.sink.split, label %.lr.ph268, !llvm.loop !70
 
 440:                                              ; preds = %469, %463
   %441 = phi ptr [ %461, %463 ], [ %471, %469 ]
@@ -5145,9 +5145,9 @@ define dso_local noundef range(i32 -12, 1) i32 @swsusp_save() local_unnamed_addr
   %455 = ashr exact i64 %454, 32
   %456 = icmp ult i64 %455, %450
   %457 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @copy_bm, i64 24), align 8
-  br i1 %456, label %.loopexit52.sink.split, label %.lr.ph230, !llvm.loop !70
+  br i1 %456, label %.loopexit52.sink.split, label %.lr.ph268, !llvm.loop !70
 
-.lr.ph230:                                        ; preds = %423, %440
+.lr.ph268:                                        ; preds = %423, %440
   %458 = phi ptr [ %457, %440 ], [ %439, %423 ]
   %459 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @copy_bm, i64 32), align 8
   %460 = getelementptr inbounds nuw i8, ptr %458, i64 32
@@ -5155,13 +5155,13 @@ define dso_local noundef range(i32 -12, 1) i32 @swsusp_save() local_unnamed_addr
   %462 = icmp eq ptr %461, %460
   br i1 %462, label %466, label %463
 
-463:                                              ; preds = %.lr.ph230
+463:                                              ; preds = %.lr.ph268
   store ptr %461, ptr getelementptr inbounds nuw (i8, ptr @copy_bm, i64 32), align 8
   %464 = load i64, ptr getelementptr inbounds nuw (i8, ptr @copy_bm, i64 40), align 8
   %465 = add i64 %464, 32768
   br label %440
 
-466:                                              ; preds = %.lr.ph230
+466:                                              ; preds = %.lr.ph268
   %467 = load ptr, ptr %458, align 8
   %468 = icmp eq ptr %467, @copy_bm
   br i1 %468, label %.loopexit52, label %469, !llvm.loop !70
@@ -5351,7 +5351,7 @@ define dso_local i32 @snapshot_read_next(ptr noundef captures(none) %0) local_un
   %90 = ashr exact i64 %89, 32
   %91 = icmp ult i64 %90, %85
   %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @orig_bm, i64 24), align 8
-  br i1 %91, label %._crit_edge92, label %.lr.ph
+  br i1 %91, label %._crit_edge109, label %.lr.ph
 
 93:                                               ; preds = %123, %116
   %94 = phi ptr [ %114, %116 ], [ %125, %123 ]
@@ -5373,7 +5373,7 @@ define dso_local i32 @snapshot_read_next(ptr noundef captures(none) %0) local_un
   %108 = ashr exact i64 %107, 32
   %109 = icmp ult i64 %108, %103
   %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @orig_bm, i64 24), align 8
-  br i1 %109, label %._crit_edge92, label %.lr.ph
+  br i1 %109, label %._crit_edge109, label %.lr.ph
 
 .lr.ph:                                           ; preds = %76, %93
   %111 = phi ptr [ %110, %93 ], [ %92, %76 ]
@@ -5407,15 +5407,15 @@ define dso_local i32 @snapshot_read_next(ptr noundef captures(none) %0) local_un
   store ptr %125, ptr getelementptr inbounds nuw (i8, ptr @orig_bm, i64 32), align 8
   br label %93
 
-._crit_edge92:                                    ; preds = %93, %76
-  %.lcssa86 = phi i64 [ %88, %76 ], [ %106, %93 ]
-  %.lcssa84 = phi i64 [ %90, %76 ], [ %108, %93 ]
-  %.lcssa82 = phi ptr [ %92, %76 ], [ %110, %93 ]
-  %126 = trunc i64 %.lcssa86 to i32
-  %127 = getelementptr inbounds nuw i8, ptr %.lcssa82, i64 48
+._crit_edge109:                                   ; preds = %93, %76
+  %.lcssa103 = phi i64 [ %88, %76 ], [ %106, %93 ]
+  %.lcssa101 = phi i64 [ %90, %76 ], [ %108, %93 ]
+  %.lcssa99 = phi ptr [ %92, %76 ], [ %110, %93 ]
+  %126 = trunc i64 %.lcssa103 to i32
+  %127 = getelementptr inbounds nuw i8, ptr %.lcssa99, i64 48
   %128 = load i64, ptr %127, align 8
   %129 = load i64, ptr getelementptr inbounds nuw (i8, ptr @orig_bm, i64 40), align 8
-  %130 = add i64 %128, %.lcssa84
+  %130 = add i64 %128, %.lcssa101
   %131 = add i64 %130, %129
   %132 = add i32 %126, 1
   store i32 %132, ptr getelementptr inbounds nuw (i8, ptr @orig_bm, i64 56), align 8
@@ -5425,7 +5425,7 @@ define dso_local i32 @snapshot_read_next(ptr noundef captures(none) %0) local_un
   %134 = icmp eq i64 %131, -1
   br i1 %134, label %.loopexit22, label %135, !prof !68
 
-135:                                              ; preds = %._crit_edge92
+135:                                              ; preds = %._crit_edge109
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !annotation !6
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -5483,7 +5483,7 @@ define dso_local i32 @snapshot_read_next(ptr noundef captures(none) %0) local_un
   %166 = ashr exact i64 %165, 32
   %167 = icmp ult i64 %166, %161
   %168 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @copy_bm, i64 24), align 8
-  br i1 %167, label %._crit_edge97, label %.lr.ph96
+  br i1 %167, label %._crit_edge114, label %.lr.ph113
 
 169:                                              ; preds = %205, %199
   %170 = phi ptr [ %197, %199 ], [ %207, %205 ]
@@ -5505,23 +5505,23 @@ define dso_local i32 @snapshot_read_next(ptr noundef captures(none) %0) local_un
   %184 = ashr exact i64 %183, 32
   %185 = icmp ult i64 %184, %179
   %186 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @copy_bm, i64 24), align 8
-  br i1 %185, label %._crit_edge97, label %.lr.ph96
+  br i1 %185, label %._crit_edge114, label %.lr.ph113
 
-._crit_edge97:                                    ; preds = %169, %152
-  %.lcssa80 = phi i64 [ %164, %152 ], [ %182, %169 ]
-  %.lcssa78 = phi i64 [ %166, %152 ], [ %184, %169 ]
-  %.lcssa76 = phi ptr [ %168, %152 ], [ %186, %169 ]
-  %187 = trunc i64 %.lcssa80 to i32
-  %188 = getelementptr inbounds nuw i8, ptr %.lcssa76, i64 48
+._crit_edge114:                                   ; preds = %169, %152
+  %.lcssa97 = phi i64 [ %164, %152 ], [ %182, %169 ]
+  %.lcssa95 = phi i64 [ %166, %152 ], [ %184, %169 ]
+  %.lcssa93 = phi ptr [ %168, %152 ], [ %186, %169 ]
+  %187 = trunc i64 %.lcssa97 to i32
+  %188 = getelementptr inbounds nuw i8, ptr %.lcssa93, i64 48
   %189 = load i64, ptr %188, align 8
   %190 = load i64, ptr getelementptr inbounds nuw (i8, ptr @copy_bm, i64 40), align 8
-  %191 = add i64 %189, %.lcssa78
+  %191 = add i64 %189, %.lcssa95
   %192 = add i64 %191, %190
   %193 = add i32 %187, 1
   store i32 %193, ptr getelementptr inbounds nuw (i8, ptr @copy_bm, i64 56), align 8
   br label %.loopexit
 
-.lr.ph96:                                         ; preds = %152, %169
+.lr.ph113:                                        ; preds = %152, %169
   %194 = phi ptr [ %186, %169 ], [ %168, %152 ]
   %195 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @copy_bm, i64 32), align 8
   %196 = getelementptr inbounds nuw i8, ptr %194, i64 32
@@ -5529,13 +5529,13 @@ define dso_local i32 @snapshot_read_next(ptr noundef captures(none) %0) local_un
   %198 = icmp eq ptr %197, %196
   br i1 %198, label %202, label %199
 
-199:                                              ; preds = %.lr.ph96
+199:                                              ; preds = %.lr.ph113
   store ptr %197, ptr getelementptr inbounds nuw (i8, ptr @copy_bm, i64 32), align 8
   %200 = load i64, ptr getelementptr inbounds nuw (i8, ptr @copy_bm, i64 40), align 8
   %201 = add i64 %200, 32768
   br label %169
 
-202:                                              ; preds = %.lr.ph96
+202:                                              ; preds = %.lr.ph113
   %203 = load ptr, ptr %194, align 8
   %204 = icmp eq ptr %203, @copy_bm
   br i1 %204, label %.loopexit, label %205
@@ -5547,8 +5547,8 @@ define dso_local i32 @snapshot_read_next(ptr noundef captures(none) %0) local_un
   store ptr %207, ptr getelementptr inbounds nuw (i8, ptr @copy_bm, i64 32), align 8
   br label %169
 
-.loopexit:                                        ; preds = %202, %._crit_edge97
-  %208 = phi i64 [ %192, %._crit_edge97 ], [ -1, %202 ]
+.loopexit:                                        ; preds = %202, %._crit_edge114
+  %208 = phi i64 [ %192, %._crit_edge114 ], [ -1, %202 ]
   store i64 %208, ptr getelementptr inbounds nuw (i8, ptr @copy_bm, i64 48), align 8
   %209 = load i64, ptr @vmemmap_base, align 8
   %.idx = shl i64 %208, 6
@@ -5562,7 +5562,7 @@ define dso_local i32 @snapshot_read_next(ptr noundef captures(none) %0) local_un
   store ptr %215, ptr %216, align 8
   br label %.loopexit22
 
-.loopexit22:                                      ; preds = %149, %._crit_edge92, %.thread15, %.loopexit, %59
+.loopexit22:                                      ; preds = %149, %._crit_edge109, %.thread15, %.loopexit, %59
   %217 = load i32, ptr %0, align 8
   %218 = add i32 %217, 1
   store i32 %218, ptr %0, align 8
@@ -6410,14 +6410,14 @@ define dso_local i32 @snapshot_write_next(ptr noundef captures(none) %0) local_u
   br label %357
 
 ._crit_edge:                                      ; preds = %357, %.preheader124
-  %.lcssa246 = phi i64 [ %352, %.preheader124 ], [ %370, %357 ]
-  %.lcssa244 = phi i64 [ %354, %.preheader124 ], [ %372, %357 ]
-  %.lcssa242 = phi ptr [ %356, %.preheader124 ], [ %374, %357 ]
-  %390 = trunc i64 %.lcssa246 to i32
-  %391 = getelementptr inbounds nuw i8, ptr %.lcssa242, i64 48
+  %.lcssa322 = phi i64 [ %352, %.preheader124 ], [ %370, %357 ]
+  %.lcssa320 = phi i64 [ %354, %.preheader124 ], [ %372, %357 ]
+  %.lcssa318 = phi ptr [ %356, %.preheader124 ], [ %374, %357 ]
+  %390 = trunc i64 %.lcssa322 to i32
+  %391 = getelementptr inbounds nuw i8, ptr %.lcssa318, i64 48
   %392 = load i64, ptr %391, align 8
   %393 = load i64, ptr %339, align 8
-  %394 = add i64 %392, %.lcssa244
+  %394 = add i64 %392, %.lcssa320
   %395 = add i64 %394, %393
   %396 = add i32 %390, 1
   store i32 %396, ptr %341, align 8
@@ -7230,7 +7230,7 @@ define internal fastcc ptr @get_buffer() unnamed_addr #3 align 16 {
   %17 = ashr exact i64 %16, 32
   %18 = icmp ult i64 %17, %12
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @orig_bm, i64 24), align 8
-  br i1 %18, label %._crit_edge42, label %.lr.ph
+  br i1 %18, label %._crit_edge51, label %.lr.ph
 
 20:                                               ; preds = %49, %43
   %21 = phi ptr [ %41, %43 ], [ %51, %49 ]
@@ -7252,7 +7252,7 @@ define internal fastcc ptr @get_buffer() unnamed_addr #3 align 16 {
   %35 = ashr exact i64 %34, 32
   %36 = icmp ult i64 %35, %30
   %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @orig_bm, i64 24), align 8
-  br i1 %36, label %._crit_edge42, label %.lr.ph
+  br i1 %36, label %._crit_edge51, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %20
   %38 = phi ptr [ %37, %20 ], [ %19, %0 ]
@@ -7284,15 +7284,15 @@ define internal fastcc ptr @get_buffer() unnamed_addr #3 align 16 {
   store ptr %51, ptr getelementptr inbounds nuw (i8, ptr @orig_bm, i64 32), align 8
   br label %20
 
-._crit_edge42:                                    ; preds = %20, %0
-  %.lcssa39 = phi i64 [ %15, %0 ], [ %33, %20 ]
-  %.lcssa37 = phi i64 [ %17, %0 ], [ %35, %20 ]
+._crit_edge51:                                    ; preds = %20, %0
+  %.lcssa48 = phi i64 [ %15, %0 ], [ %33, %20 ]
+  %.lcssa46 = phi i64 [ %17, %0 ], [ %35, %20 ]
   %.lcssa = phi ptr [ %19, %0 ], [ %37, %20 ]
-  %52 = trunc i64 %.lcssa39 to i32
+  %52 = trunc i64 %.lcssa48 to i32
   %53 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 48
   %54 = load i64, ptr %53, align 8
   %55 = load i64, ptr getelementptr inbounds nuw (i8, ptr @orig_bm, i64 40), align 8
-  %56 = add i64 %54, %.lcssa37
+  %56 = add i64 %54, %.lcssa46
   %57 = add i64 %56, %55
   %58 = add i32 %52, 1
   store i32 %58, ptr getelementptr inbounds nuw (i8, ptr @orig_bm, i64 56), align 8
@@ -7300,7 +7300,7 @@ define internal fastcc ptr @get_buffer() unnamed_addr #3 align 16 {
   %59 = icmp eq i64 %57, -1
   br i1 %59, label %151, label %60
 
-60:                                               ; preds = %._crit_edge42
+60:                                               ; preds = %._crit_edge51
   %61 = load i64, ptr @vmemmap_base, align 8
   %62 = inttoptr i64 %61 to ptr
   %63 = getelementptr %struct.page, ptr %62, i64 %57
@@ -7406,10 +7406,10 @@ define internal fastcc ptr @get_buffer() unnamed_addr #3 align 16 {
   br label %119
 
 114:                                              ; preds = %108, %110
-  %.sink34 = phi i32 [ 1, %110 ], [ 0, %108 ]
+  %.sink43 = phi i32 [ 1, %110 ], [ 0, %108 ]
   %115 = load i1, ptr @snapshot_write_next.ca.2, align 8
   %116 = select i1 %115, i32 2080, i32 0
-  %117 = tail call fastcc ptr @get_image_page(i32 noundef %116, i32 noundef %.sink34)
+  %117 = tail call fastcc ptr @get_image_page(i32 noundef %116, i32 noundef %.sink43)
   %118 = icmp eq ptr %117, null
   br i1 %118, label %.thread11, label %119
 
@@ -7472,8 +7472,8 @@ define internal fastcc ptr @get_buffer() unnamed_addr #3 align 16 {
   %150 = load ptr, ptr %127, align 8
   br label %151
 
-151:                                              ; preds = %.thread, %147, %142, %.thread11, %97, %._crit_edge42
-  %152 = phi ptr [ %103, %97 ], [ %150, %147 ], [ inttoptr (i64 -12 to ptr), %.thread11 ], [ inttoptr (i64 -14 to ptr), %._crit_edge42 ], [ inttoptr (i64 -12 to ptr), %142 ], [ inttoptr (i64 -14 to ptr), %.thread ]
+151:                                              ; preds = %.thread, %147, %142, %.thread11, %97, %._crit_edge51
+  %152 = phi ptr [ %103, %97 ], [ %150, %147 ], [ inttoptr (i64 -12 to ptr), %.thread11 ], [ inttoptr (i64 -14 to ptr), %._crit_edge51 ], [ inttoptr (i64 -12 to ptr), %142 ], [ inttoptr (i64 -14 to ptr), %.thread ]
   ret ptr %152
 }
 
@@ -8406,21 +8406,21 @@ define internal fastcc ptr @saveable_page(ptr noundef nonnull readnone captures(
 
 70:                                               ; preds = %67
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #20
-          to label %.thread20 [label %.thread20, label %71], !srcloc !24
+          to label %.thread31 [label %.thread31, label %71], !srcloc !24
 
 71:                                               ; preds = %70
   %72 = icmp ult i64 %1, 17179869184
-  br i1 %72, label %.thread20, label %.thread
+  br i1 %72, label %.thread31, label %.thread
 
-.thread20:                                        ; preds = %70, %70, %71
+.thread31:                                        ; preds = %70, %70, %71
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #20
           to label %74 [label %74, label %73], !srcloc !24
 
-73:                                               ; preds = %.thread20
+73:                                               ; preds = %.thread31
   br label %74
 
-74:                                               ; preds = %73, %.thread20, %.thread20
-  %75 = phi i64 [ 2048, %73 ], [ 131072, %.thread20 ], [ 131072, %.thread20 ]
+74:                                               ; preds = %73, %.thread31, %.thread31
+  %75 = phi i64 [ 2048, %73 ], [ 131072, %.thread31 ], [ 131072, %.thread31 ]
   %76 = icmp samesign ult i64 %15, %75
   br i1 %76, label %77, label %87, !prof !8
 
@@ -8920,14 +8920,14 @@ define internal fastcc void @duplicate_memory_bitmap(ptr noundef captures(addres
   br label %81
 
 ._crit_edge:                                      ; preds = %81, %62
-  %.lcssa54 = phi i64 [ %76, %62 ], [ %94, %81 ]
-  %.lcssa52 = phi i64 [ %78, %62 ], [ %96, %81 ]
+  %.lcssa61 = phi i64 [ %76, %62 ], [ %94, %81 ]
+  %.lcssa59 = phi i64 [ %78, %62 ], [ %96, %81 ]
   %.lcssa = phi ptr [ %80, %62 ], [ %98, %81 ]
-  %113 = trunc i64 %.lcssa54 to i32
+  %113 = trunc i64 %.lcssa61 to i32
   %114 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 48
   %115 = load i64, ptr %114, align 8
   %116 = load i64, ptr %10, align 8
-  %117 = add i64 %115, %.lcssa52
+  %117 = add i64 %115, %.lcssa59
   %118 = add i64 %117, %116
   %119 = add i32 %113, 1
   store i32 %119, ptr %12, align 8

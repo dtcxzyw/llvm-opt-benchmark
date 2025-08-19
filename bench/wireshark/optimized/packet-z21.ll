@@ -900,21 +900,21 @@ define internal i32 @dissect_z21_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   store i32 %46, ptr %7, align 4
   switch i32 %30, label %48 [
     i32 1073800752, label %.sink.split
-    i32 1073800753, label %switch.lookup1017
+    i32 1073800753, label %switch.lookup1023
   ]
 
-switch.lookup1017:                                ; preds = %42
+switch.lookup1023:                                ; preds = %42
   br label %.sink.split
 
-.sink.split:                                      ; preds = %42, %switch.lookup1017
-  %switch.table.dissect_z21_pdu.1.sink = phi ptr [ @switch.table.dissect_z21_pdu.1, %switch.lookup1017 ], [ @switch.table.dissect_z21_pdu, %42 ]
+.sink.split:                                      ; preds = %42, %switch.lookup1023
+  %switch.table.dissect_z21_pdu.1.sink = phi ptr [ @switch.table.dissect_z21_pdu.1, %switch.lookup1023 ], [ @switch.table.dissect_z21_pdu, %42 ]
   %47 = zext nneg i8 %45 to i64
-  %switch.gep1018 = getelementptr inbounds nuw [4 x i32], ptr %switch.table.dissect_z21_pdu.1.sink, i64 0, i64 %47
-  %switch.load1019 = load i32, ptr %switch.gep1018, align 4
+  %switch.gep1024 = getelementptr inbounds nuw [4 x i32], ptr %switch.table.dissect_z21_pdu.1.sink, i64 0, i64 %47
+  %switch.load1025 = load i32, ptr %switch.gep1024, align 4
   br label %48
 
 48:                                               ; preds = %.sink.split, %42, %40
-  %.2983 = phi i32 [ %30, %42 ], [ %30, %40 ], [ %switch.load1019, %.sink.split ]
+  %.2983 = phi i32 [ %30, %42 ], [ %30, %40 ], [ %switch.load1025, %.sink.split ]
   %49 = load i32, ptr @hf_z21_command, align 4
   %50 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %49, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef %.2983)
   %51 = lshr i32 %.2983, 8
@@ -986,16 +986,16 @@ update_command_field.exit:                        ; preds = %32, %48
   %71 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %70, ptr noundef %0, i32 noundef %.0980, i32 noundef 2, i32 noundef %69)
   %switch.tableidx = add i32 %.1982, -1073800208
   %72 = icmp ult i32 %switch.tableidx, 4
-  br i1 %72, label %switch.lookup1020, label %74
+  br i1 %72, label %switch.lookup1026, label %74
 
-switch.lookup1020:                                ; preds = %66
+switch.lookup1026:                                ; preds = %66
   %73 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_z21_pdu.2, i64 0, i64 %73
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %74
 
-74:                                               ; preds = %switch.lookup1020, %66
-  %.0989 = phi i32 [ 0, %66 ], [ %switch.load, %switch.lookup1020 ]
+74:                                               ; preds = %switch.lookup1026, %66
+  %.0989 = phi i32 [ 0, %66 ], [ %switch.load, %switch.lookup1026 ]
   %75 = load i32, ptr @hf_z21_speed_steps, align 4
   %76 = add nsw i32 %.0980, -1
   %77 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %75, ptr noundef %0, i32 noundef %76, i32 noundef 1, i32 noundef %.0989)

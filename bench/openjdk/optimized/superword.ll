@@ -1651,8 +1651,8 @@ _ZN15VLoopReductions14original_inputEPK4Nodej.exit.i: ; preds = %133, %.split7.i
   %141 = trunc nuw i64 %indvars.iv to i32
   %142 = icmp eq i64 %indvars.iv, 4294967295
   %.not106 = icmp eq i32 %.034.i, 0
-  %or.cond131 = select i1 %142, i1 true, i1 %.not106
-  br i1 %or.cond131, label %.thread, label %.lr.ph97
+  %or.cond146 = select i1 %142, i1 true, i1 %.not106
+  br i1 %or.cond146, label %.thread, label %.lr.ph97
 
 .lr.ph97:                                         ; preds = %140
   %143 = and i64 %indvars.iv, 4294967295
@@ -9091,30 +9091,30 @@ _ZNK9SuperWord19is_marked_reductionEPK4Node.exit.thread: ; preds = %20, %5, %_ZN
   %indvars.iv119 = phi i64 [ %indvars.iv.next120, %100 ], [ %95, %.preheader.split.us ]
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %99 = icmp samesign ult i64 %indvars.iv.next120, %94
-  br i1 %99, label %100, label %.split.loop.exit140
+  br i1 %99, label %100, label %.split.loop.exit150
 
 100:                                              ; preds = %98
   %101 = load ptr, ptr %90, align 8
   %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv.next120
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %103, %1
-  br i1 %104, label %.split.loop.exit139, label %98, !llvm.loop !76
+  br i1 %104, label %.split.loop.exit149, label %98, !llvm.loop !76
 
-.split.loop.exit139:                              ; preds = %100
+.split.loop.exit149:                              ; preds = %100
   %105 = trunc nuw i64 %indvars.iv119 to i32
   %106 = trunc nuw i64 %indvars.iv.next120 to i32
-  br label %.split.loop.exit140
+  br label %.split.loop.exit150
 
-.split.loop.exit140:                              ; preds = %98, %.split.loop.exit139
-  %.160.in.us.lcssa = phi i32 [ %105, %.split.loop.exit139 ], [ %97, %98 ]
-  %.160.us.lcssa = phi i32 [ %106, %.split.loop.exit139 ], [ %umax121, %98 ]
+.split.loop.exit150:                              ; preds = %98, %.split.loop.exit149
+  %.160.in.us.lcssa = phi i32 [ %105, %.split.loop.exit149 ], [ %97, %98 ]
+  %.160.us.lcssa = phi i32 [ %106, %.split.loop.exit149 ], [ %umax121, %98 ]
   %107 = add i32 %.0.us, 1
   %umax123 = tail call i32 @llvm.umax.i32(i32 %87, i32 %107)
   %108 = add i32 %umax123, -1
   br label %109
 
-109:                                              ; preds = %110, %.split.loop.exit140
-  %.1.in.us = phi i32 [ %.0.us, %.split.loop.exit140 ], [ %.1.us, %110 ]
+109:                                              ; preds = %110, %.split.loop.exit150
+  %.1.in.us = phi i32 [ %.0.us, %.split.loop.exit150 ], [ %.1.us, %110 ]
   %exitcond124.not = icmp eq i32 %.1.in.us, %108
   br i1 %exitcond124.not, label %116, label %110
 
@@ -9184,7 +9184,7 @@ _ZNK9SuperWord19is_marked_reductionEPK4Node.exit.thread: ; preds = %20, %5, %_ZN
   %indvars.iv = phi i64 [ %indvars.iv.next, %145 ], [ %140, %.preheader.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %144 = icmp samesign ult i64 %indvars.iv.next, %94
-  br i1 %144, label %145, label %.split.loop.exit135
+  br i1 %144, label %145, label %.split.loop.exit145
 
 145:                                              ; preds = %143
   %146 = load ptr, ptr %90, align 8
@@ -9196,9 +9196,9 @@ _ZNK9SuperWord19is_marked_reductionEPK4Node.exit.thread: ; preds = %20, %5, %_ZN
 .split.loop.exit:                                 ; preds = %145
   %150 = trunc nuw i64 %indvars.iv to i32
   %151 = trunc nuw i64 %indvars.iv.next to i32
-  br label %.split.loop.exit135
+  br label %.split.loop.exit145
 
-.split.loop.exit135:                              ; preds = %143, %.split.loop.exit
+.split.loop.exit145:                              ; preds = %143, %.split.loop.exit
   %.160.in.lcssa = phi i32 [ %150, %.split.loop.exit ], [ %142, %143 ]
   %.160.lcssa = phi i32 [ %151, %.split.loop.exit ], [ %umax, %143 ]
   %152 = add i32 %.0, 1
@@ -9206,8 +9206,8 @@ _ZNK9SuperWord19is_marked_reductionEPK4Node.exit.thread: ; preds = %20, %5, %_ZN
   %153 = add i32 %umax118, -1
   br label %154
 
-154:                                              ; preds = %155, %.split.loop.exit135
-  %.1.in = phi i32 [ %.0, %.split.loop.exit135 ], [ %.1, %155 ]
+154:                                              ; preds = %155, %.split.loop.exit145
+  %.1.in = phi i32 [ %.0, %.split.loop.exit145 ], [ %.1, %155 ]
   %exitcond.not = icmp eq i32 %.1.in, %153
   br i1 %exitcond.not, label %161, label %155
 
@@ -11016,8 +11016,8 @@ _ZNK9SuperWord19is_marked_reductionEPK4Node.exit: ; preds = %68
   %.not57 = icmp eq ptr %89, %95
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond117.not = icmp ne i64 %indvars.iv.next114, %wide.trip.count116
-  %or.cond132.not = select i1 %.not57, i1 %exitcond117.not, i1 false
-  br i1 %or.cond132.not, label %88, label %_ZNK9SuperWord8get_packEPK4Node.exit.thread, !llvm.loop !106
+  %or.cond143.not = select i1 %.not57, i1 %exitcond117.not, i1 false
+  br i1 %or.cond143.not, label %88, label %_ZNK9SuperWord8get_packEPK4Node.exit.thread, !llvm.loop !106
 
 _ZNK9SuperWord19is_marked_reductionEPK4Node.exit.thread: ; preds = %68, %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11230,8 +11230,8 @@ _ZNK9SuperWord8get_packEPK4Node.exit70.thread:    ; preds = %_ZNK5VLoop5in_bbEPK
   %.not = icmp eq ptr %239, %168
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond133.not = select i1 %.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond133.not, label %.lr.ph, label %_ZNK9SuperWord8get_packEPK4Node.exit.thread, !llvm.loop !108
+  %or.cond144.not = select i1 %.not, i1 %exitcond.not, i1 false
+  br i1 %or.cond144.not, label %.lr.ph, label %_ZNK9SuperWord8get_packEPK4Node.exit.thread, !llvm.loop !108
 
 240:                                              ; preds = %_ZNK9SuperWord8get_packEPK4Node.exit70
   %241 = tail call noundef zeroext i1 @_ZNK9SuperWord37is_velt_basic_type_compatible_use_defEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull %1, ptr noundef nonnull %100)
@@ -11781,8 +11781,8 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit.i.i: ; preds = %_ZN9Node_Lis
 
 217:                                              ; preds = %.lr.ph184, %._crit_edge180
   %indvars.iv195 = phi i64 [ 0, %.lr.ph184 ], [ %indvars.iv.next196, %._crit_edge180 ]
-  %.sroa.10.0182 = phi i32 [ 2, %.lr.ph184 ], [ %.sroa.10.1.lcssa203, %._crit_edge180 ]
-  %.sroa.17.0181 = phi ptr [ %213, %.lr.ph184 ], [ %.sroa.17.1.lcssa202, %._crit_edge180 ]
+  %.sroa.10.0182 = phi i32 [ 2, %.lr.ph184 ], [ %.sroa.10.1.lcssa221, %._crit_edge180 ]
+  %.sroa.17.0181 = phi ptr [ %213, %.lr.ph184 ], [ %.sroa.17.1.lcssa220, %._crit_edge180 ]
   %218 = load ptr, ptr %216, align 8
   %219 = getelementptr inbounds nuw ptr, ptr %218, i64 %indvars.iv195
   %220 = load ptr, ptr %219, align 8
@@ -12122,8 +12122,8 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit64: ; preds = %_ZN9VectorSet8
   br i1 %exitcond194.not, label %._crit_edge180, label %.lr.ph179, !llvm.loop !115
 
 ._crit_edge180:                                   ; preds = %._crit_edge177, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit, %.preheader
-  %.sroa.10.1.lcssa203 = phi i32 [ %.sroa.10.2, %.preheader ], [ %.sroa.10.0182, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit ], [ %.sroa.10.2, %._crit_edge177 ]
-  %.sroa.17.1.lcssa202 = phi ptr [ %.sroa.17.2, %.preheader ], [ %.sroa.17.0181, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit ], [ %.sroa.17.2, %._crit_edge177 ]
+  %.sroa.10.1.lcssa221 = phi i32 [ %.sroa.10.2, %.preheader ], [ %.sroa.10.0182, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit ], [ %.sroa.10.2, %._crit_edge177 ]
+  %.sroa.17.1.lcssa220 = phi ptr [ %.sroa.17.2, %.preheader ], [ %.sroa.17.0181, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit ], [ %.sroa.17.2, %._crit_edge177 ]
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %406 = load i32, ptr %28, align 4
   %407 = sext i32 %406 to i64
@@ -13738,8 +13738,8 @@ _ZNK15VLoopReductions19is_marked_reductionEPK4Node.exit14.i.i: ; preds = %24
   %42 = icmp eq ptr %41, %9
   %43 = getelementptr inbounds nuw i8, ptr %.01118.i.i, i64 8
   %44 = icmp uge ptr %43, %40
-  %or.cond93.not = select i1 %42, i1 true, i1 %44
-  br i1 %or.cond93.not, label %_ZNK9SuperWord9reductionEPK4NodeS2_.exit, label %.lr.ph.i.i, !llvm.loop !63
+  %or.cond106.not = select i1 %42, i1 true, i1 %44
+  br i1 %or.cond106.not, label %_ZNK9SuperWord9reductionEPK4NodeS2_.exit, label %.lr.ph.i.i, !llvm.loop !63
 
 _ZNK9SuperWord9reductionEPK4NodeS2_.exit:         ; preds = %.lr.ph.i.i, %2, %_ZNK15VLoopReductions19is_marked_reductionEPK4Node.exit.i.i, %24, %_ZNK15VLoopReductions19is_marked_reductionEPK4Node.exit14.i.i, %34
   %.0.i.i = phi i1 [ false, %_ZNK15VLoopReductions19is_marked_reductionEPK4Node.exit14.i.i ], [ false, %_ZNK15VLoopReductions19is_marked_reductionEPK4Node.exit.i.i ], [ false, %2 ], [ false, %24 ], [ false, %34 ], [ %42, %.lr.ph.i.i ]
@@ -13994,11 +13994,11 @@ _ZNK9SuperWord8get_packEPK4Node.exit48:           ; preds = %_ZNK5VLoop5in_bbEPK
 
 203:                                              ; preds = %._crit_edge
   %204 = call noundef zeroext i1 @_ZNK9SuperWord21has_use_pack_supersetEPK4NodeS2_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %56, ptr noundef %59)
-  br i1 %204, label %205, label %.loopexit.loopexit71.split.loop.exit76
+  br i1 %204, label %205, label %.loopexit.loopexit84.split.loop.exit89
 
 205:                                              ; preds = %203
   %206 = call noundef zeroext i1 @_ZNK9SuperWord21has_use_pack_supersetEPK4NodeS2_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %59, ptr noundef %56)
-  br i1 %206, label %207, label %.loopexit.loopexit71.split.loop.exit78
+  br i1 %206, label %207, label %.loopexit.loopexit84.split.loop.exit91
 
 207:                                              ; preds = %._crit_edge, %205
   %indvars.iv.next69 = add nsw i64 %indvars.iv68, -1
@@ -14009,16 +14009,16 @@ _ZNK9SuperWord8get_packEPK4Node.exit48:           ; preds = %_ZNK5VLoop5in_bbEPK
   %209 = trunc nuw i64 %57 to i32
   br label %.loopexit
 
-.loopexit.loopexit71.split.loop.exit76:           ; preds = %203
+.loopexit.loopexit84.split.loop.exit89:           ; preds = %203
   %210 = trunc nuw i64 %57 to i32
   br label %.loopexit
 
-.loopexit.loopexit71.split.loop.exit78:           ; preds = %205
+.loopexit.loopexit84.split.loop.exit91:           ; preds = %205
   %211 = trunc nuw i64 %57 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %207, %.loopexit.loopexit71.split.loop.exit76, %.loopexit.loopexit71.split.loop.exit78, %.loopexit.loopexit, %_ZNK9SuperWord9reductionEPK4NodeS2_.exit
-  %.0 = phi i32 [ 0, %_ZNK9SuperWord9reductionEPK4NodeS2_.exit ], [ %209, %.loopexit.loopexit ], [ %210, %.loopexit.loopexit71.split.loop.exit76 ], [ %211, %.loopexit.loopexit71.split.loop.exit78 ], [ 0, %207 ]
+.loopexit:                                        ; preds = %207, %.loopexit.loopexit84.split.loop.exit89, %.loopexit.loopexit84.split.loop.exit91, %.loopexit.loopexit, %_ZNK9SuperWord9reductionEPK4NodeS2_.exit
+  %.0 = phi i32 [ 0, %_ZNK9SuperWord9reductionEPK4NodeS2_.exit ], [ %209, %.loopexit.loopexit ], [ %210, %.loopexit.loopexit84.split.loop.exit89 ], [ %211, %.loopexit.loopexit84.split.loop.exit91 ], [ 0, %207 ]
   ret i32 %.0
 }
 

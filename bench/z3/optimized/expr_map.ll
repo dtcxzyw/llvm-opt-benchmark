@@ -971,8 +971,8 @@ _ZN14core_hashtableIN7obj_mapI4exprP3appE13obj_map_entryE8obj_hashINS4_8key_data
   %43 = icmp ugt i32 %32, 16
   %44 = mul i32 %32, 3
   %45 = icmp ugt i32 %42, %44
-  %or.cond16.i.i = select i1 %43, i1 %45, i1 false
-  br i1 %or.cond16.i.i, label %46, label %._crit_edge.thread.i.i
+  %or.cond18.i.i = select i1 %43, i1 %45, i1 false
+  br i1 %or.cond18.i.i, label %46, label %._crit_edge.thread.i.i
 
 46:                                               ; preds = %._crit_edge.i.i
   %47 = icmp eq ptr %31, null
@@ -1141,8 +1141,8 @@ _ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataE
   %50 = icmp ugt i32 %39, 16
   %51 = mul i32 %39, 3
   %52 = icmp ugt i32 %49, %51
-  %or.cond16.i.i = select i1 %50, i1 %52, i1 false
-  br i1 %or.cond16.i.i, label %53, label %._crit_edge.thread.i.i
+  %or.cond18.i.i = select i1 %50, i1 %52, i1 false
+  br i1 %or.cond18.i.i, label %53, label %._crit_edge.thread.i.i
 
 53:                                               ; preds = %._crit_edge.i.i
   %54 = icmp eq ptr %38, null
@@ -2213,8 +2213,8 @@ _ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataE
   %31 = icmp ugt i32 %3, 16
   %32 = mul nuw nsw i32 %3, 3
   %33 = icmp ugt i32 %30, %32
-  %or.cond16.i = select i1 %31, i1 %33, i1 false
-  br i1 %or.cond16.i, label %34, label %._crit_edge.thread.i
+  %or.cond18.i = select i1 %31, i1 %33, i1 false
+  br i1 %or.cond18.i, label %34, label %._crit_edge.thread.i
 
 34:                                               ; preds = %._crit_edge.i
   %35 = icmp eq ptr %20, null
@@ -2325,8 +2325,8 @@ _ZN14core_hashtableIN7obj_mapI4exprP3appE13obj_map_entryE8obj_hashINS4_8key_data
   %31 = icmp ugt i32 %3, 16
   %32 = mul nuw nsw i32 %3, 3
   %33 = icmp ugt i32 %30, %32
-  %or.cond16.i = select i1 %31, i1 %33, i1 false
-  br i1 %or.cond16.i, label %34, label %._crit_edge.thread.i
+  %or.cond18.i = select i1 %31, i1 %33, i1 false
+  br i1 %or.cond18.i, label %34, label %._crit_edge.thread.i
 
 34:                                               ; preds = %._crit_edge.i
   %35 = icmp eq ptr %20, null

@@ -1127,8 +1127,8 @@ define dso_local i64 @zend_ini_long(ptr noundef %0, i64 noundef %1, i32 noundef 
   br i1 %.not14, label %zend_hash_str_find_ptr.exit.thread, label %zend_hash_str_find_ptr.exit.thread.sink.split
 
 zend_hash_str_find_ptr.exit.thread.sink.split:    ; preds = %14, %11
-  %.sink18 = phi ptr [ %13, %11 ], [ %16, %14 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.sink18, i64 24
+  %.sink21 = phi ptr [ %13, %11 ], [ %16, %14 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.sink21, i64 24
   %18 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %17, ptr noundef null, i32 noundef 0) #18
   br label %zend_hash_str_find_ptr.exit.thread
 
@@ -1171,8 +1171,8 @@ define dso_local double @zend_ini_double(ptr noundef %0, i64 noundef %1, i32 nou
   br i1 %.not14, label %zend_hash_str_find_ptr.exit.thread, label %zend_hash_str_find_ptr.exit.thread.sink.split
 
 zend_hash_str_find_ptr.exit.thread.sink.split:    ; preds = %14, %11
-  %.sink18 = phi ptr [ %13, %11 ], [ %16, %14 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.sink18, i64 24
+  %.sink21 = phi ptr [ %13, %11 ], [ %16, %14 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.sink21, i64 24
   %18 = tail call double @zend_strtod(ptr noundef nonnull %17, ptr noundef null) #18
   br label %zend_hash_str_find_ptr.exit.thread
 

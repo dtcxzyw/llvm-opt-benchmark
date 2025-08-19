@@ -198,7 +198,7 @@ define internal void @"_ZN107_$LT$actix_service..boxed..FactoryWrapper$LT$SF$GT$
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load i8, ptr %5, align 8, !range !25, !noundef !13
-  switch i8 %6, label %default.unreachable12 [
+  switch i8 %6, label %default.unreachable13 [
     i8 0, label %7
     i8 1, label %13
     i8 2, label %14
@@ -212,7 +212,7 @@ define internal void @"_ZN107_$LT$actix_service..boxed..FactoryWrapper$LT$SF$GT$
   %.val6.pre = load ptr, ptr %.phi.trans.insert10, align 8
   br label %15
 
-default.unreachable12:                            ; preds = %3
+default.unreachable13:                            ; preds = %3
   unreachable
 
 7:                                                ; preds = %3
@@ -354,7 +354,7 @@ define internal void @"_ZN107_$LT$actix_service..boxed..FactoryWrapper$LT$SF$GT$
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i8, ptr %6, align 8, !range !25, !noundef !13
-  switch i8 %7, label %default.unreachable15 [
+  switch i8 %7, label %default.unreachable16 [
     i8 0, label %8
     i8 1, label %14
     i8 2, label %15
@@ -368,7 +368,7 @@ define internal void @"_ZN107_$LT$actix_service..boxed..FactoryWrapper$LT$SF$GT$
   %.val5.pre = load ptr, ptr %.phi.trans.insert13, align 8
   br label %16
 
-default.unreachable15:                            ; preds = %3
+default.unreachable16:                            ; preds = %3
   unreachable
 
 8:                                                ; preds = %3
@@ -527,7 +527,7 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
   call void @"_ZN101_$LT$actix_files..chunked..ChunkedReadFile$LT$F$C$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd916606ac19ef250E"(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %5, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !62
   %8 = load i64, ptr %5, align 8, !range !63, !noalias !58, !noundef !13
   %9 = icmp eq i64 %8, 2
-  br i1 %9, label %"_ZN114_$LT$actix_http..body..body_stream..BodyStream$LT$S$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb6716af99aff2e79E.exit.thread", label %.lr.ph.i
+  br i1 %9, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -536,14 +536,14 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !noalias !58
   %14 = load i64, ptr %6, align 8, !range !64, !noalias !58, !noundef !13
-  %.not.i45 = icmp ne i64 %14, 0
+  %.not.i48 = icmp ne i64 %14, 0
   %15 = load ptr, ptr %10, align 8, !noalias !58
-  %.not3.i46 = icmp ne ptr %15, null
-  %or.cond.not8.i47 = select i1 %.not.i45, i1 %.not3.i46, i1 false
+  %.not3.i49 = icmp ne ptr %15, null
+  %or.cond.not8.i50 = select i1 %.not.i48, i1 %.not3.i49, i1 false
   %16 = load i64, ptr %11, align 8, !noalias !58
   %17 = icmp eq i64 %16, 0
-  %or.cond7.i48 = select i1 %or.cond.not8.i47, i1 %17, i1 false
-  br i1 %or.cond7.i48, label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$actix_web..error..error..Error$GT$$GT$$GT$17h8ea1fa2e3c6eccfaE.exit.i", label %"_ZN114_$LT$actix_http..body..body_stream..BodyStream$LT$S$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb6716af99aff2e79E.exit"
+  %or.cond7.i51 = select i1 %or.cond.not8.i50, i1 %17, i1 false
+  br i1 %or.cond7.i51, label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$actix_web..error..error..Error$GT$$GT$$GT$17h8ea1fa2e3c6eccfaE.exit.i", label %"_ZN114_$LT$actix_http..body..body_stream..BodyStream$LT$S$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb6716af99aff2e79E.exit"
 
 18:                                               ; preds = %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$actix_web..error..error..Error$GT$$GT$$GT$17h8ea1fa2e3c6eccfaE.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !noalias !58
@@ -556,12 +556,6 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
   %22 = icmp eq i64 %21, 0
   %or.cond7.i = select i1 %or.cond.not8.i, i1 %22, i1 false
   br i1 %or.cond7.i, label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$actix_web..error..error..Error$GT$$GT$$GT$17h8ea1fa2e3c6eccfaE.exit.i", label %"_ZN114_$LT$actix_http..body..body_stream..BodyStream$LT$S$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb6716af99aff2e79E.exit"
-
-"_ZN114_$LT$actix_http..body..body_stream..BodyStream$LT$S$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb6716af99aff2e79E.exit.thread": ; preds = %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$actix_web..error..error..Error$GT$$GT$$GT$17h8ea1fa2e3c6eccfaE.exit.i", %3
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !58
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !58
-  store i64 2, ptr %0, align 8
-  br label %53
 
 "_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$actix_web..error..error..Error$GT$$GT$$GT$17h8ea1fa2e3c6eccfaE.exit.i": ; preds = %.lr.ph.i, %18
   %23 = phi ptr [ %20, %18 ], [ %15, %.lr.ph.i ]
@@ -580,7 +574,7 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
   call void @"_ZN101_$LT$actix_files..chunked..ChunkedReadFile$LT$F$C$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd916606ac19ef250E"(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %5, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !62
   %27 = load i64, ptr %5, align 8, !range !63, !noalias !58, !noundef !13
   %28 = icmp eq i64 %27, 2
-  br i1 %28, label %"_ZN114_$LT$actix_http..body..body_stream..BodyStream$LT$S$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb6716af99aff2e79E.exit.thread", label %18
+  br i1 %28, label %.loopexit, label %18
 
 "_ZN114_$LT$actix_http..body..body_stream..BodyStream$LT$S$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb6716af99aff2e79E.exit": ; preds = %18, %.lr.ph.i
   %.sroa.032.0.copyload.lcssa = phi i64 [ %8, %.lr.ph.i ], [ %27, %18 ]
@@ -596,6 +590,12 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !58
   %cond = icmp eq i64 %.sroa.032.0.copyload.lcssa, 0
   br i1 %cond, label %29, label %30
+
+.loopexit:                                        ; preds = %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$actix_web..error..error..Error$GT$$GT$$GT$17h8ea1fa2e3c6eccfaE.exit.i", %3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !58
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !58
+  store i64 2, ptr %0, align 8
+  br label %53
 
 29:                                               ; preds = %"_ZN114_$LT$actix_http..body..body_stream..BodyStream$LT$S$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb6716af99aff2e79E.exit"
   store i64 0, ptr %0, align 8
@@ -683,7 +683,7 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %53
 
-53:                                               ; preds = %29, %32, %51, %"_ZN114_$LT$actix_http..body..body_stream..BodyStream$LT$S$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb6716af99aff2e79E.exit.thread"
+53:                                               ; preds = %29, %32, %51, %.loopexit
   ret void
 
 .body.thread:                                     ; preds = %46, %54
@@ -974,7 +974,7 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
   call void @"_ZN101_$LT$actix_files..chunked..ChunkedReadFile$LT$F$C$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd916606ac19ef250E"(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %5, ptr noundef nonnull align 8 %8, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !134
   %9 = load i64, ptr %5, align 8, !range !63, !noalias !130, !noundef !13
   %10 = icmp eq i64 %9, 2
-  br i1 %10, label %"_ZN116_$LT$actix_http..body..sized_stream..SizedStream$LT$S$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17h051d93379136f082E.exit.thread", label %.lr.ph.i
+  br i1 %10, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -983,14 +983,14 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !noalias !130
   %15 = load i64, ptr %6, align 8, !range !64, !noalias !130, !noundef !13
-  %.not.i45 = icmp ne i64 %15, 0
+  %.not.i48 = icmp ne i64 %15, 0
   %16 = load ptr, ptr %11, align 8, !noalias !130
-  %.not3.i46 = icmp ne ptr %16, null
-  %or.cond.not8.i47 = select i1 %.not.i45, i1 %.not3.i46, i1 false
+  %.not3.i49 = icmp ne ptr %16, null
+  %or.cond.not8.i50 = select i1 %.not.i48, i1 %.not3.i49, i1 false
   %17 = load i64, ptr %12, align 8, !noalias !130
   %18 = icmp eq i64 %17, 0
-  %or.cond7.i48 = select i1 %or.cond.not8.i47, i1 %18, i1 false
-  br i1 %or.cond7.i48, label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$actix_web..error..error..Error$GT$$GT$$GT$17h8ea1fa2e3c6eccfaE.exit.i", label %"_ZN116_$LT$actix_http..body..sized_stream..SizedStream$LT$S$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17h051d93379136f082E.exit"
+  %or.cond7.i51 = select i1 %or.cond.not8.i50, i1 %18, i1 false
+  br i1 %or.cond7.i51, label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$actix_web..error..error..Error$GT$$GT$$GT$17h8ea1fa2e3c6eccfaE.exit.i", label %"_ZN116_$LT$actix_http..body..sized_stream..SizedStream$LT$S$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17h051d93379136f082E.exit"
 
 19:                                               ; preds = %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$actix_web..error..error..Error$GT$$GT$$GT$17h8ea1fa2e3c6eccfaE.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !noalias !130
@@ -1003,12 +1003,6 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
   %23 = icmp eq i64 %22, 0
   %or.cond7.i = select i1 %or.cond.not8.i, i1 %23, i1 false
   br i1 %or.cond7.i, label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$actix_web..error..error..Error$GT$$GT$$GT$17h8ea1fa2e3c6eccfaE.exit.i", label %"_ZN116_$LT$actix_http..body..sized_stream..SizedStream$LT$S$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17h051d93379136f082E.exit"
-
-"_ZN116_$LT$actix_http..body..sized_stream..SizedStream$LT$S$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17h051d93379136f082E.exit.thread": ; preds = %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$actix_web..error..error..Error$GT$$GT$$GT$17h8ea1fa2e3c6eccfaE.exit.i", %3
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !130
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !130
-  store i64 2, ptr %0, align 8
-  br label %54
 
 "_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$actix_web..error..error..Error$GT$$GT$$GT$17h8ea1fa2e3c6eccfaE.exit.i": ; preds = %.lr.ph.i, %19
   %24 = phi ptr [ %21, %19 ], [ %16, %.lr.ph.i ]
@@ -1027,7 +1021,7 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
   call void @"_ZN101_$LT$actix_files..chunked..ChunkedReadFile$LT$F$C$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd916606ac19ef250E"(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %5, ptr noundef nonnull align 8 %8, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !134
   %28 = load i64, ptr %5, align 8, !range !63, !noalias !130, !noundef !13
   %29 = icmp eq i64 %28, 2
-  br i1 %29, label %"_ZN116_$LT$actix_http..body..sized_stream..SizedStream$LT$S$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17h051d93379136f082E.exit.thread", label %19
+  br i1 %29, label %.loopexit, label %19
 
 "_ZN116_$LT$actix_http..body..sized_stream..SizedStream$LT$S$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17h051d93379136f082E.exit": ; preds = %19, %.lr.ph.i
   %.sroa.032.0.copyload.lcssa = phi i64 [ %9, %.lr.ph.i ], [ %28, %19 ]
@@ -1043,6 +1037,12 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !130
   %cond = icmp eq i64 %.sroa.032.0.copyload.lcssa, 0
   br i1 %cond, label %30, label %31
+
+.loopexit:                                        ; preds = %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$actix_web..error..error..Error$GT$$GT$$GT$17h8ea1fa2e3c6eccfaE.exit.i", %3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !130
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !130
+  store i64 2, ptr %0, align 8
+  br label %54
 
 30:                                               ; preds = %"_ZN116_$LT$actix_http..body..sized_stream..SizedStream$LT$S$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17h051d93379136f082E.exit"
   store i64 0, ptr %0, align 8
@@ -1130,7 +1130,7 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
-54:                                               ; preds = %30, %33, %52, %"_ZN116_$LT$actix_http..body..sized_stream..SizedStream$LT$S$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17h051d93379136f082E.exit.thread"
+54:                                               ; preds = %30, %33, %52, %.loopexit
   ret void
 
 .body.thread:                                     ; preds = %47, %55

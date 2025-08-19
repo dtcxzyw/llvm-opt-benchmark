@@ -1496,13 +1496,13 @@ Vec_WecGrow.exit.i:                               ; preds = %101, %99
   br label %Vec_WecPushLevel.exit.sink.split
 
 Vec_WecPushLevel.exit.sink.split:                 ; preds = %115, %Vec_WecGrow.exit.i
-  %.sink159 = phi i32 [ %106, %Vec_WecGrow.exit.i ], [ %93, %115 ]
-  %.sink156 = phi ptr [ %105, %Vec_WecGrow.exit.i ], [ %118, %115 ]
+  %.sink172 = phi i32 [ %106, %Vec_WecGrow.exit.i ], [ %93, %115 ]
+  %.sink169 = phi ptr [ %105, %Vec_WecGrow.exit.i ], [ %118, %115 ]
   %.sink = phi i32 [ 16, %Vec_WecGrow.exit.i ], [ %108, %115 ]
   %.val8.pre.i154.ph = phi ptr [ %103, %Vec_WecGrow.exit.i ], [ %116, %115 ]
-  %119 = zext nneg i32 %.sink159 to i64
+  %119 = zext nneg i32 %.sink172 to i64
   %120 = shl nuw nsw i64 %119, 4
-  tail call void @llvm.memset.p0.i64(ptr align 8 %.sink156, i8 0, i64 %120, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %.sink169, i8 0, i64 %120, i1 false)
   store i32 %.sink, ptr %51, align 8, !tbaa !87
   br label %Vec_WecPushLevel.exit
 
@@ -1619,8 +1619,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %166, ptr %137, align 4, !tbaa !6
   %167 = sext i32 %165 to i64
   %168 = getelementptr inbounds i32, ptr %164, i64 %167
-  %indvars.iv143.tr155 = trunc i64 %indvars.iv143 to i32
-  %169 = shl i32 %indvars.iv143.tr155, 1
+  %indvars.iv143.tr168 = trunc i64 %indvars.iv143 to i32
+  %169 = shl i32 %indvars.iv143.tr168, 1
   %170 = or disjoint i32 %169, 1
   store i32 %170, ptr %168, align 4, !tbaa !14
   br label %201

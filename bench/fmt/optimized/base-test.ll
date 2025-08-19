@@ -12367,9 +12367,9 @@ _ZN7testing15AssertionResultD2Ev.exit123:         ; preds = %218, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %230 = load i64, ptr %82, align 8, !tbaa !12
   %231 = icmp ult i64 %230, 5
-  br i1 %231, label %232, label %.thread212
+  br i1 %231, label %232, label %.thread261
 
-.thread212:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit123
+.thread261:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit123
   store i64 5, ptr %96, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -12396,7 +12396,7 @@ _ZN7testing15AssertionResultD2Ev.exit123:         ; preds = %218, %_ZNKSt14defau
   %237 = icmp ugt i64 %.pre.i124, 4
   br i1 %237, label %238, label %239
 
-238:                                              ; preds = %.thread212, %235
+238:                                              ; preds = %.thread261, %235
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %21)
           to label %_ZN7testing8internal8EqHelper7CompareIjmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit129 unwind label %243
 
@@ -25982,9 +25982,9 @@ _ZN7testing15AssertionResultD2Ev.exit292:         ; preds = %568, %_ZNKSt14defau
   store ptr %14, ptr %51, align 8, !tbaa !558
   %580 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 4, ptr %580, align 8, !tbaa !560
-  %rhsv614 = load i32, ptr %14, align 4
-  %.not615 = icmp eq i32 %rhsv614, 1651470182
-  br i1 %.not615, label %581, label %582
+  %rhsv783 = load i32, ptr %14, align 4
+  %.not784 = icmp eq i32 %rhsv783, 1651470182
+  br i1 %.not784, label %581, label %582
 
 581:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit292
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %50)
@@ -26584,9 +26584,9 @@ _ZN7testing15AssertionResultD2Ev.exit361:         ; preds = %767, %_ZNKSt14defau
   store ptr %14, ptr %68, align 8, !tbaa !558
   %779 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i64 4, ptr %779, align 8, !tbaa !560
-  %rhsv616 = load i32, ptr %14, align 4
-  %.not617 = icmp eq i32 %rhsv616, 2021161025
-  br i1 %.not617, label %780, label %781
+  %rhsv785 = load i32, ptr %14, align 4
+  %.not786 = icmp eq i32 %rhsv785, 2021161025
+  br i1 %.not786, label %780, label %781
 
 780:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit361
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %67)
@@ -27185,9 +27185,9 @@ _ZN7testing15AssertionResultD2Ev.exit430:         ; preds = %965, %_ZNKSt14defau
   store ptr %14, ptr %85, align 8, !tbaa !558
   %977 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i64 4, ptr %977, align 8, !tbaa !560
-  %rhsv618 = load i32, ptr %14, align 4
-  %.not619 = icmp eq i32 %rhsv618, 2015380290
-  br i1 %.not619, label %978, label %979
+  %rhsv787 = load i32, ptr %14, align 4
+  %.not788 = icmp eq i32 %rhsv787, 2015380290
+  br i1 %.not788, label %978, label %979
 
 978:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit430
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %84)
@@ -27651,9 +27651,9 @@ _ZN7testing15AssertionResultD2Ev.exit485:         ; preds = %_ZN7testing15Assert
   store ptr %14, ptr %98, align 8, !tbaa !558
   %1132 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i64 4, ptr %1132, align 8, !tbaa !560
-  %rhsv620 = load i32, ptr %14, align 4
-  %.not621 = icmp eq i32 %rhsv620, 1145258561
-  br i1 %.not621, label %1133, label %1134
+  %rhsv789 = load i32, ptr %14, align 4
+  %.not790 = icmp eq i32 %rhsv789, 1145258561
+  br i1 %.not790, label %1133, label %1134
 
 1133:                                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit485
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %97)
@@ -28180,9 +28180,9 @@ _ZN7testing15AssertionResultD2Ev.exit547:         ; preds = %_ZN7testing15Assert
   store ptr %14, ptr %112, align 8, !tbaa !558
   %1309 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store i64 4, ptr %1309, align 8, !tbaa !560
-  %rhsv622 = load i32, ptr %14, align 4
-  %.not623 = icmp eq i32 %rhsv622, 707406378
-  br i1 %.not623, label %1310, label %1311
+  %rhsv791 = load i32, ptr %14, align 4
+  %.not792 = icmp eq i32 %rhsv791, 707406378
+  br i1 %.not792, label %1310, label %1311
 
 1310:                                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit547
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %111)

@@ -417,8 +417,8 @@ define range(i64 -536870909, 536870912) i64 @ossl_ec_GFp_simple_point2oct(ptr no
   %51 = sext i32 %narrow to i64
   %scevgep = getelementptr i8, ptr %3, i64 1
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %51, i1 false), !tbaa !25
-  %narrow134 = add nsw i32 %20, %.neg
-  %52 = sext i32 %narrow134 to i64
+  %narrow140 = add nsw i32 %20, %.neg
+  %52 = sext i32 %narrow140 to i64
   %53 = add nsw i64 %52, 1
   br label %._crit_edge
 

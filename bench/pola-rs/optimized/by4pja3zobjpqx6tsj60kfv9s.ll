@@ -29523,7 +29523,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h638
 .lr.ph.i39.us:                                    ; preds = %32, %.sink.split.i.us
   %33 = phi i64 [ %.sink.i.us, %.sink.split.i.us ], [ %.sroa.3064.0.us, %32 ]
   %34 = phi i64 [ %74, %.sink.split.i.us ], [ %30, %32 ]
-  %35 = phi i64 [ %.ph69.i.us, %.sink.split.i.us ], [ %.sroa.18.0.us, %32 ]
+  %35 = phi i64 [ %.ph76.i.us, %.sink.split.i.us ], [ %.sroa.18.0.us, %32 ]
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.12100.0.copyload, i64 %34
   %37 = load i8, ptr %36, align 1, !alias.scope !3438, !noalias !3443, !noundef !37
   %38 = and i8 %37, 63
@@ -29595,8 +29595,8 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h638
 
 .sink.split.i.us:                                 ; preds = %72, %69, %58
   %.sink.i.us = phi i64 [ %26, %58 ], [ 0, %69 ], [ 0, %72 ]
-  %.ph69.i.us = phi i64 [ %59, %58 ], [ %71, %69 ], [ %73, %72 ]
-  %74 = add i64 %.ph69.i.us, %24
+  %.ph76.i.us = phi i64 [ %59, %58 ], [ %71, %69 ], [ %73, %72 ]
+  %74 = add i64 %.ph76.i.us, %24
   %75 = icmp ult i64 %74, %.sroa.13101.0.copyload
   br i1 %75, label %.lr.ph.i39.us, label %.critedge21
 
@@ -30500,13 +30500,13 @@ define hidden void @"_ZN6chrono6offset20LocalResult$LT$T$GT$8and_then17hb3093e66
   %7 = alloca [12 x i8], align 4
   %8 = alloca [12 x i8], align 4
   %9 = alloca [12 x i8], align 4
-  switch i8 %1, label %default.unreachable45 [
+  switch i8 %1, label %default.unreachable47 [
     i8 0, label %10
     i8 1, label %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8c80ed9eee4bfb4aE.exit25"
     i8 2, label %16
   ]
 
-default.unreachable45:                            ; preds = %3
+default.unreachable47:                            ; preds = %3
   unreachable
 
 10:                                               ; preds = %3

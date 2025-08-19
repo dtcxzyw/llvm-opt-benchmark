@@ -448,78 +448,78 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i26:            ; preds = %20
   br i1 %22, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E8CaseImplERS2_NS_13StringLiteralE.exit65.sink.split, label %23
 
 23:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i26, %19
-  %.sroa.05.0.copyload73 = load ptr, ptr %6, align 8
-  %.sroa.26.0..sroa_idx74 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.26.0.copyload75 = load i64, ptr %.sroa.26.0..sroa_idx74, align 8
+  %.sroa.05.0.copyload74 = load ptr, ptr %6, align 8
+  %.sroa.26.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.26.0.copyload76 = load i64, ptr %.sroa.26.0..sroa_idx75, align 8
   %.sroa.01.0.copyload.i30 = load ptr, ptr %0, align 8, !tbaa !3
   %.sroa.22.0..sroa_idx.i31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.22.0.copyload.i32 = load i64, ptr %.sroa.22.0..sroa_idx.i31, align 8, !tbaa !8
-  %.not.i.i33 = icmp eq i64 %.sroa.22.0.copyload.i32, %.sroa.26.0.copyload75
+  %.not.i.i33 = icmp eq i64 %.sroa.22.0.copyload.i32, %.sroa.26.0.copyload76
   br i1 %.not.i.i33, label %24, label %27
 
 24:                                               ; preds = %23
-  %25 = icmp eq i64 %.sroa.26.0.copyload75, 0
+  %25 = icmp eq i64 %.sroa.26.0.copyload76, 0
   br i1 %25, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E8CaseImplERS2_NS_13StringLiteralE.exit65.sink.split, label %_ZN4llvmeqENS_9StringRefES0_.exit.i35
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i35:            ; preds = %24
-  %bcmp.i.i36 = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i30, ptr %.sroa.05.0.copyload73, i64 %.sroa.26.0.copyload75)
+  %bcmp.i.i36 = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i30, ptr %.sroa.05.0.copyload74, i64 %.sroa.26.0.copyload76)
   %26 = icmp eq i32 %bcmp.i.i36, 0
   br i1 %26, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E8CaseImplERS2_NS_13StringLiteralE.exit65.sink.split, label %27
 
 27:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i35, %23
-  %.sroa.03.0.copyload80 = load ptr, ptr %7, align 8
-  %.sroa.24.0..sroa_idx81 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.24.0.copyload82 = load i64, ptr %.sroa.24.0..sroa_idx81, align 8
+  %.sroa.03.0.copyload81 = load ptr, ptr %7, align 8
+  %.sroa.24.0..sroa_idx82 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.24.0.copyload83 = load i64, ptr %.sroa.24.0..sroa_idx82, align 8
   %.sroa.01.0.copyload.i39 = load ptr, ptr %0, align 8, !tbaa !3
   %.sroa.22.0..sroa_idx.i40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.22.0.copyload.i41 = load i64, ptr %.sroa.22.0..sroa_idx.i40, align 8, !tbaa !8
-  %.not.i.i42 = icmp eq i64 %.sroa.22.0.copyload.i41, %.sroa.24.0.copyload82
+  %.not.i.i42 = icmp eq i64 %.sroa.22.0.copyload.i41, %.sroa.24.0.copyload83
   br i1 %.not.i.i42, label %28, label %31
 
 28:                                               ; preds = %27
-  %29 = icmp eq i64 %.sroa.24.0.copyload82, 0
+  %29 = icmp eq i64 %.sroa.24.0.copyload83, 0
   br i1 %29, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E8CaseImplERS2_NS_13StringLiteralE.exit65.sink.split, label %_ZN4llvmeqENS_9StringRefES0_.exit.i44
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i44:            ; preds = %28
-  %bcmp.i.i45 = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i39, ptr %.sroa.03.0.copyload80, i64 %.sroa.24.0.copyload82)
+  %bcmp.i.i45 = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i39, ptr %.sroa.03.0.copyload81, i64 %.sroa.24.0.copyload83)
   %30 = icmp eq i32 %bcmp.i.i45, 0
   br i1 %30, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E8CaseImplERS2_NS_13StringLiteralE.exit65.sink.split, label %31
 
 31:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i44, %27
-  %.sroa.01.0.copyload87 = load ptr, ptr %8, align 8
-  %.sroa.22.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.22.0.copyload89 = load i64, ptr %.sroa.22.0..sroa_idx88, align 8
+  %.sroa.01.0.copyload88 = load ptr, ptr %8, align 8
+  %.sroa.22.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.22.0.copyload90 = load i64, ptr %.sroa.22.0..sroa_idx89, align 8
   %.sroa.01.0.copyload.i48 = load ptr, ptr %0, align 8, !tbaa !3
   %.sroa.22.0..sroa_idx.i49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.22.0.copyload.i50 = load i64, ptr %.sroa.22.0..sroa_idx.i49, align 8, !tbaa !8
-  %.not.i.i51 = icmp eq i64 %.sroa.22.0.copyload.i50, %.sroa.22.0.copyload89
+  %.not.i.i51 = icmp eq i64 %.sroa.22.0.copyload.i50, %.sroa.22.0.copyload90
   br i1 %.not.i.i51, label %32, label %35
 
 32:                                               ; preds = %31
-  %33 = icmp eq i64 %.sroa.22.0.copyload89, 0
+  %33 = icmp eq i64 %.sroa.22.0.copyload90, 0
   br i1 %33, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E8CaseImplERS2_NS_13StringLiteralE.exit65.sink.split, label %_ZN4llvmeqENS_9StringRefES0_.exit.i53
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i53:            ; preds = %32
-  %bcmp.i.i54 = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i48, ptr %.sroa.01.0.copyload87, i64 %.sroa.22.0.copyload89)
+  %bcmp.i.i54 = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i48, ptr %.sroa.01.0.copyload88, i64 %.sroa.22.0.copyload90)
   %34 = icmp eq i32 %bcmp.i.i54, 0
   br i1 %34, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E8CaseImplERS2_NS_13StringLiteralE.exit65.sink.split, label %35
 
 35:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i53, %31
-  %.sroa.0.0.copyload94 = load ptr, ptr %9, align 8
-  %.sroa.2.0..sroa_idx95 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.2.0.copyload96 = load i64, ptr %.sroa.2.0..sroa_idx95, align 8
+  %.sroa.0.0.copyload95 = load ptr, ptr %9, align 8
+  %.sroa.2.0..sroa_idx96 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sroa.2.0.copyload97 = load i64, ptr %.sroa.2.0..sroa_idx96, align 8
   %.sroa.01.0.copyload.i57 = load ptr, ptr %0, align 8, !tbaa !3
   %.sroa.22.0..sroa_idx.i58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.22.0.copyload.i59 = load i64, ptr %.sroa.22.0..sroa_idx.i58, align 8, !tbaa !8
-  %.not.i.i60 = icmp eq i64 %.sroa.22.0.copyload.i59, %.sroa.2.0.copyload96
+  %.not.i.i60 = icmp eq i64 %.sroa.22.0.copyload.i59, %.sroa.2.0.copyload97
   br i1 %.not.i.i60, label %36, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E8CaseImplERS2_NS_13StringLiteralE.exit65
 
 36:                                               ; preds = %35
-  %37 = icmp eq i64 %.sroa.2.0.copyload96, 0
+  %37 = icmp eq i64 %.sroa.2.0.copyload97, 0
   br i1 %37, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E8CaseImplERS2_NS_13StringLiteralE.exit65.sink.split, label %_ZN4llvmeqENS_9StringRefES0_.exit.i62
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i62:            ; preds = %36
-  %bcmp.i.i63 = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i57, ptr %.sroa.0.0.copyload94, i64 %.sroa.2.0.copyload96)
+  %bcmp.i.i63 = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i57, ptr %.sroa.0.0.copyload95, i64 %.sroa.2.0.copyload97)
   %38 = icmp eq i32 %bcmp.i.i63, 0
   br i1 %38, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E8CaseImplERS2_NS_13StringLiteralE.exit65.sink.split, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E8CaseImplERS2_NS_13StringLiteralE.exit65
 

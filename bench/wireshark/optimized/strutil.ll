@@ -813,7 +813,7 @@ define noundef zeroext i1 @rel_oid_str_to_bytes(ptr noundef readonly captures(ad
   %57 = phi i8 [ %41, %.preheader ], [ %52, %.lr.ph84 ]
   %.053.lcssa = phi i32 [ 0, %.preheader ], [ %50, %.lr.ph84 ]
   %.3.lcssa = phi ptr [ %.291, %.preheader ], [ %51, %.lr.ph84 ]
-  switch i32 %.05290, label %.preheader121 [
+  switch i32 %.05290, label %.preheader127 [
     i32 0, label %58
     i32 1, label %60
   ]
@@ -831,15 +831,15 @@ define noundef zeroext i1 @rel_oid_str_to_bytes(ptr noundef readonly captures(ad
 63:                                               ; preds = %60
   %64 = mul nuw nsw i32 %.05689, 40
   %65 = add i32 %.053.lcssa, %64
-  br label %.preheader121
+  br label %.preheader127
 
-.preheader121:                                    ; preds = %._crit_edge85, %63
+.preheader127:                                    ; preds = %._crit_edge85, %63
   %.255.ph = phi i32 [ %65, %63 ], [ %.053.lcssa, %._crit_edge85 ]
   br label %66
 
-66:                                               ; preds = %.preheader121, %66
-  %indvars.iv = phi i64 [ %indvars.iv.next, %66 ], [ 5, %.preheader121 ]
-  %.255 = phi i32 [ %70, %66 ], [ %.255.ph, %.preheader121 ]
+66:                                               ; preds = %.preheader127, %66
+  %indvars.iv = phi i64 [ %indvars.iv.next, %66 ], [ 5, %.preheader127 ]
+  %.255 = phi i32 [ %70, %66 ], [ %.255.ph, %.preheader127 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %67 = trunc i32 %.255 to i8
   %68 = or i8 %67, -128

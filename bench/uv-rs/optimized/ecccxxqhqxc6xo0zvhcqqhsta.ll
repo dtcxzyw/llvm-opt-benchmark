@@ -694,8 +694,8 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h91bb1e34b28be2a3E(ptr no
   br label %7
 
 7:                                                ; preds = %.lr.ph, %35
-  %.sroa.0.016 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.124, %35 ]
-  %.sroa.4.015 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.123, %35 ]
+  %.sroa.0.016 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.125, %35 ]
+  %.sroa.4.015 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.124, %35 ]
   %8 = call { i64, ptr } @"_ZN48_$LT$std..fs..File$u20$as$u20$std..io..Write$GT$5write17h617d25ae3ca79501E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.016, i64 noundef %.sroa.4.015)
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -777,9 +777,9 @@ _ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.1244465785203620
   br label %35
 
 35:                                               ; preds = %.thread, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h6d6b2c7e8514e93cE.exit"
-  %.sroa.0.124 = phi ptr [ %31, %.thread ], [ %.sroa.0.016, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h6d6b2c7e8514e93cE.exit" ]
-  %.sroa.4.123 = phi i64 [ %30, %.thread ], [ %.sroa.4.015, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h6d6b2c7e8514e93cE.exit" ]
-  %36 = icmp eq i64 %.sroa.4.123, 0
+  %.sroa.0.125 = phi ptr [ %31, %.thread ], [ %.sroa.0.016, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h6d6b2c7e8514e93cE.exit" ]
+  %.sroa.4.124 = phi i64 [ %30, %.thread ], [ %.sroa.4.015, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h6d6b2c7e8514e93cE.exit" ]
+  %36 = icmp eq i64 %.sroa.4.124, 0
   br i1 %36, label %.loopexit, label %7
 }
 
@@ -3667,13 +3667,13 @@ _ZN3std4path4Path4join17h53ba53907a6981e7E.exit175: ; preds = %_ZN3std4path4Path
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
   call void @llvm.lifetime.end.p0(ptr nonnull %74)
   %136 = load i8, ptr %0, align 1, !range !373, !noundef !5
-  switch i8 %136, label %default.unreachable362 [
+  switch i8 %136, label %default.unreachable378 [
     i8 0, label %137
     i8 1, label %138
     i8 2, label %139
   ]
 
-default.unreachable362:                           ; preds = %467, %380, %337, %288, %240, %177, %146, %135
+default.unreachable378:                           ; preds = %467, %380, %337, %288, %240, %177, %146, %135
   unreachable
 
 137:                                              ; preds = %135
@@ -3695,8 +3695,8 @@ default.unreachable362:                           ; preds = %467, %380, %337, %2
 
 140:                                              ; preds = %137
   %141 = load i64, ptr %47, align 8, !range !4, !noundef !5
-  %.not373 = icmp eq i64 %141, -9223372036854775808
-  br i1 %.not373, label %146, label %142
+  %.not389 = icmp eq i64 %141, -9223372036854775808
+  br i1 %.not389, label %146, label %142
 
 142:                                              ; preds = %140
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
@@ -3715,7 +3715,7 @@ default.unreachable362:                           ; preds = %467, %380, %337, %2
   %148 = load ptr, ptr %147, align 8, !alias.scope !419, !nonnull !5, !noundef !5
   %149 = ptrtoint ptr %148 to i64
   %150 = and i64 %149, 3
-  switch i64 %150, label %default.unreachable362 [
+  switch i64 %150, label %default.unreachable378 [
     i64 2, label %152
     i64 3, label %151
     i64 0, label %156
@@ -3805,7 +3805,7 @@ default.unreachable362:                           ; preds = %467, %380, %337, %2
 177:                                              ; preds = %175
   %178 = ptrtoint ptr %174 to i64
   %179 = and i64 %178, 3
-  switch i64 %179, label %default.unreachable362 [
+  switch i64 %179, label %default.unreachable378 [
     i64 2, label %181
     i64 3, label %180
     i64 0, label %185
@@ -3992,7 +3992,7 @@ _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.llvm.1244465785203620547.exit185
 240:                                              ; preds = %238
   %241 = ptrtoint ptr %237 to i64
   %242 = and i64 %241, 3
-  switch i64 %242, label %default.unreachable362 [
+  switch i64 %242, label %default.unreachable378 [
     i64 2, label %244
     i64 3, label %243
     i64 0, label %248
@@ -4175,7 +4175,7 @@ _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.llvm.1244465785203620547.exit.th
 288:                                              ; preds = %286
   %289 = ptrtoint ptr %285 to i64
   %290 = and i64 %289, 3
-  switch i64 %290, label %default.unreachable362 [
+  switch i64 %290, label %default.unreachable378 [
     i64 2, label %292
     i64 3, label %291
     i64 0, label %296
@@ -4326,8 +4326,8 @@ _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.llvm.1244465785203620547.exit202
 332:                                              ; preds = %138
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
   %333 = load i64, ptr %65, align 8, !range !4, !noundef !5
-  %.not372 = icmp eq i64 %333, -9223372036854775808
-  br i1 %.not372, label %337, label %334
+  %.not388 = icmp eq i64 %333, -9223372036854775808
+  br i1 %.not388, label %337, label %334
 
 334:                                              ; preds = %332
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
@@ -4345,7 +4345,7 @@ _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.llvm.1244465785203620547.exit202
   %339 = load ptr, ptr %338, align 8, !alias.scope !509, !nonnull !5, !noundef !5
   %340 = ptrtoint ptr %339 to i64
   %341 = and i64 %340, 3
-  switch i64 %341, label %default.unreachable362 [
+  switch i64 %341, label %default.unreachable378 [
     i64 2, label %343
     i64 3, label %342
     i64 0, label %347
@@ -4476,7 +4476,7 @@ _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.llvm.1244465785203620547.exit202
 380:                                              ; preds = %378
   %381 = ptrtoint ptr %377 to i64
   %382 = and i64 %381, 3
-  switch i64 %382, label %default.unreachable362 [
+  switch i64 %382, label %default.unreachable378 [
     i64 2, label %384
     i64 3, label %383
     i64 0, label %388
@@ -4775,7 +4775,7 @@ _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.llvm.1244465785203620547.exit221
 467:                                              ; preds = %465
   %468 = ptrtoint ptr %464 to i64
   %469 = and i64 %468, 3
-  switch i64 %469, label %default.unreachable362 [
+  switch i64 %469, label %default.unreachable378 [
     i64 2, label %471
     i64 3, label %470
     i64 0, label %475

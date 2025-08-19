@@ -932,10 +932,10 @@ define internal fastcc void @conversation_insert_into_hashtable(ptr noundef %0, 
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %21 = load ptr, ptr %5, align 8
-  %.not4164 = icmp eq ptr %21, null
-  br i1 %.not4164, label %.critedge, label %.lr.ph66, !llvm.loop !11
+  %.not4166 = icmp eq ptr %21, null
+  br i1 %.not4166, label %.critedge, label %.lr.ph68, !llvm.loop !11
 
-.lr.ph66:                                         ; preds = %.lr.ph.preheader
+.lr.ph68:                                         ; preds = %.lr.ph.preheader
   br label %23, !llvm.loop !11
 
 22:                                               ; preds = %11
@@ -944,13 +944,13 @@ define internal fastcc void @conversation_insert_into_hashtable(ptr noundef %0, 
   store ptr %1, ptr %12, align 8
   br label %34
 
-23:                                               ; preds = %.lr.ph66, %.lr.ph
-  %24 = phi ptr [ %21, %.lr.ph66 ], [ %28, %.lr.ph ]
-  %.0384265 = phi ptr [ %5, %.lr.ph66 ], [ %24, %.lr.ph ]
+23:                                               ; preds = %.lr.ph68, %.lr.ph
+  %24 = phi ptr [ %21, %.lr.ph68 ], [ %28, %.lr.ph ]
+  %.0384267 = phi ptr [ %5, %.lr.ph68 ], [ %24, %.lr.ph ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 28
   %26 = load i32, ptr %25, align 4
   %27 = icmp ugt i32 %15, %26
-  br i1 %27, label %.lr.ph, label %.critedge.thread53, !llvm.loop !11
+  br i1 %27, label %.lr.ph, label %.critedge.thread55, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %23
   %28 = load ptr, ptr %24, align 8
@@ -961,10 +961,10 @@ define internal fastcc void @conversation_insert_into_hashtable(ptr noundef %0, 
   br label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph..critedge_crit_edge, %.lr.ph.preheader
-  %.043.lcssa = phi ptr [ %.0384265, %.lr.ph..critedge_crit_edge ], [ null, %.lr.ph.preheader ]
+  %.043.lcssa = phi ptr [ %.0384267, %.lr.ph..critedge_crit_edge ], [ null, %.lr.ph.preheader ]
   %.03842.lcssa = phi ptr [ %24, %.lr.ph..critedge_crit_edge ], [ %5, %.lr.ph.preheader ]
   %29 = icmp eq ptr %.043.lcssa, null
-  br i1 %29, label %.critedge.thread, label %.critedge.thread53
+  br i1 %29, label %.critedge.thread, label %.critedge.thread55
 
 .critedge.thread:                                 ; preds = %.preheader, %.critedge
   store ptr %5, ptr %1, align 8
@@ -975,16 +975,16 @@ define internal fastcc void @conversation_insert_into_hashtable(ptr noundef %0, 
   %32 = tail call ptr @wmem_map_insert(ptr noundef %0, ptr noundef %31, ptr noundef %1)
   br label %34
 
-.critedge.thread53:                               ; preds = %23, %.critedge
-  %.0.lcssa57 = phi ptr [ %.043.lcssa, %.critedge ], [ %.0384265, %23 ]
-  %.038.lcssa56 = phi ptr [ %.03842.lcssa, %.critedge ], [ %24, %23 ]
-  store ptr %.038.lcssa56, ptr %1, align 8
+.critedge.thread55:                               ; preds = %23, %.critedge
+  %.0.lcssa59 = phi ptr [ %.043.lcssa, %.critedge ], [ %.0384267, %23 ]
+  %.038.lcssa58 = phi ptr [ %.03842.lcssa, %.critedge ], [ %24, %23 ]
+  store ptr %.038.lcssa58, ptr %1, align 8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr null, ptr %33, align 8
-  store ptr %1, ptr %.0.lcssa57, align 8
+  store ptr %1, ptr %.0.lcssa59, align 8
   br label %34
 
-34:                                               ; preds = %22, %.critedge.thread53, %.critedge.thread, %7
+34:                                               ; preds = %22, %.critedge.thread55, %.critedge.thread, %7
   ret void
 }
 
@@ -1936,16 +1936,16 @@ conversation_remove_from_hashtable.exit:          ; preds = %.lr.ph.i, %.lr.ph.i
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %85 = load ptr, ptr %84, align 8
   %. = select i1 %.not22, i64 128, i64 96
-  %.48 = select i1 %.not22, i64 96, i64 64
-  %.49 = select i1 %.not22, i64 104, i64 72
+  %.56 = select i1 %.not22, i64 96, i64 64
+  %.57 = select i1 %.not22, i64 104, i64 72
   %86 = getelementptr i8, ptr %85, i64 %.
-  %87 = getelementptr i8, ptr %85, i64 %.48
+  %87 = getelementptr i8, ptr %85, i64 %.56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %86, ptr noundef align 8 dereferenceable(32) %87, i64 32, i1 false)
   %88 = load ptr, ptr %84, align 8
-  %89 = getelementptr i8, ptr %88, i64 %.48
+  %89 = getelementptr i8, ptr %88, i64 %.56
   store i32 2, ptr %89, align 8
   %90 = load ptr, ptr %84, align 8
-  %91 = getelementptr i8, ptr %90, i64 %.49
+  %91 = getelementptr i8, ptr %90, i64 %.57
   store i32 %1, ptr %91, align 8
   %conversation_hashtable_exact_addr_port.val = load ptr, ptr @conversation_hashtable_exact_addr_port, align 8
   %conversation_hashtable_no_addr2.val = load ptr, ptr @conversation_hashtable_no_addr2, align 8
@@ -2143,10 +2143,10 @@ conversation_remove_from_hashtable.exit:          ; preds = %.lr.ph.i, %.lr.ph.i
   br label %92
 
 92:                                               ; preds = %conversation_remove_from_hashtable.exit, %88
-  %.sink43 = phi ptr [ %91, %88 ], [ %87, %conversation_remove_from_hashtable.exit ]
+  %.sink53 = phi ptr [ %91, %88 ], [ %87, %conversation_remove_from_hashtable.exit ]
   %.0.in = phi ptr [ @conversation_hashtable_exact_addr_port, %88 ], [ @conversation_hashtable_no_port2, %conversation_remove_from_hashtable.exit ]
-  %93 = getelementptr i8, ptr %.sink43, i64 96
-  %94 = getelementptr i8, ptr %.sink43, i64 64
+  %93 = getelementptr i8, ptr %.sink53, i64 96
+  %94 = getelementptr i8, ptr %.sink53, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %93, ptr noundef align 8 dereferenceable(32) %94, i64 32, i1 false)
   %.0 = load ptr, ptr %.0.in, align 8
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2259,15 +2259,11 @@ define ptr @find_conversation_full(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .critedge.i:                                      ; preds = %26, %23
   %.2.lcssa.i = phi ptr [ %.245.i, %23 ], [ %spec.select41.i, %26 ]
-  %.not40.i = icmp eq ptr %.2.lcssa.i, null
-  br i1 %.not40.i, label %conversation_lookup_hashtable.exit, label %31
-
-31:                                               ; preds = %.critedge.i
   store ptr %.2.lcssa.i, ptr %18, align 8
   br label %conversation_lookup_hashtable.exit
 
-conversation_lookup_hashtable.exit:               ; preds = %31, %.critedge.i, %14, %8, %6, %2
-  %.0 = phi ptr [ null, %2 ], [ %13, %14 ], [ %.2.lcssa.i, %31 ], [ null, %.critedge.i ], [ null, %8 ], [ null, %6 ]
+conversation_lookup_hashtable.exit:               ; preds = %.critedge.i, %14, %8, %6, %2
+  %.0 = phi ptr [ null, %2 ], [ %13, %14 ], [ %.2.lcssa.i, %.critedge.i ], [ null, %8 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -2304,7 +2300,7 @@ define ptr @find_conversation(i32 noundef %0, ptr noundef %1, ptr noundef %2, i3
 23:                                               ; preds = %7
   %24 = and i32 %6, 196624
   %.not166 = icmp eq i32 %24, 0
-  br i1 %.not166, label %25, label %.thread416
+  br i1 %.not166, label %25, label %.thread408
 
 25:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -2360,22 +2356,22 @@ define ptr @find_conversation(i32 noundef %0, ptr noundef %1, ptr noundef %2, i3
   %49 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %50 = load ptr, ptr %49, align 8
   %.not36.i.i = icmp eq ptr %50, null
-  br i1 %.not36.i.i, label %.preheader466, label %51
+  br i1 %.not36.i.i, label %.preheader557, label %51
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 28
   %53 = load i32, ptr %52, align 4
   %.not37.i.i = icmp ugt i32 %53, %0
   %spec.select.i.i = select i1 %.not37.i.i, ptr %38, ptr %50
-  br label %.preheader466
+  br label %.preheader557
 
-.preheader466:                                    ; preds = %51, %48
+.preheader557:                                    ; preds = %51, %48
   %.02644.i.i.ph = phi ptr [ %spec.select.i.i, %51 ], [ %38, %48 ]
   br label %54
 
-54:                                               ; preds = %.preheader466, %57
-  %.245.i.i = phi ptr [ %spec.select41.i.i, %57 ], [ %.02644.i.i.ph, %.preheader466 ]
-  %.02644.i.i = phi ptr [ %61, %57 ], [ %.02644.i.i.ph, %.preheader466 ]
+54:                                               ; preds = %.preheader557, %57
+  %.245.i.i = phi ptr [ %spec.select41.i.i, %57 ], [ %.02644.i.i.ph, %.preheader557 ]
+  %.02644.i.i = phi ptr [ %61, %57 ], [ %.02644.i.i.ph, %.preheader557 ]
   %55 = getelementptr inbounds nuw i8, ptr %.02644.i.i, i64 28
   %56 = load i32, ptr %55, align 4
   %.not39.i.i = icmp ugt i32 %56, %0
@@ -2392,1348 +2388,1296 @@ define ptr @find_conversation(i32 noundef %0, ptr noundef %1, ptr noundef %2, i3
 
 .critedge.i.i:                                    ; preds = %57, %54
   %.2.lcssa.i.i = phi ptr [ %.245.i.i, %54 ], [ %spec.select41.i.i, %57 ]
-  %.not40.i.i = icmp eq ptr %.2.lcssa.i.i, null
-  br i1 %.not40.i.i, label %conversation_lookup_exact.exit, label %62
-
-62:                                               ; preds = %.critedge.i.i
   store ptr %.2.lcssa.i.i, ptr %49, align 8
   br label %conversation_lookup_exact.exit
 
-conversation_lookup_exact.exit:                   ; preds = %25, %39, %45, %.critedge.i.i, %62
-  %.027.i.i = phi ptr [ %44, %45 ], [ %.2.lcssa.i.i, %62 ], [ null, %.critedge.i.i ], [ null, %39 ], [ null, %25 ]
+conversation_lookup_exact.exit:                   ; preds = %25, %39, %45, %.critedge.i.i
+  %.027.i.i = phi ptr [ %44, %45 ], [ %.2.lcssa.i.i, %.critedge.i.i ], [ null, %39 ], [ null, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 1, ptr %19, align 16
-  %63 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store i32 0, ptr %63, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
-  %65 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %65, i8 0, i64 32, i1 false)
-  store i32 2, ptr %65, align 16
-  %66 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store i32 %5, ptr %66, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  store i32 1, ptr %67, align 16
-  %68 = getelementptr inbounds nuw i8, ptr %19, i64 68
-  store i32 0, ptr %68, align 4
-  %69 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
-  %70 = getelementptr inbounds nuw i8, ptr %19, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %70, i8 0, i64 32, i1 false)
-  store i32 2, ptr %70, align 16
-  %71 = getelementptr inbounds nuw i8, ptr %19, i64 104
-  store i32 %4, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %19, i64 128
-  %73 = getelementptr inbounds nuw i8, ptr %19, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %72, i8 0, i64 32, i1 false)
-  store i32 %3, ptr %73, align 8
-  %74 = load ptr, ptr @conversation_hashtable_exact_addr_port, align 8
-  %75 = call ptr @wmem_map_lookup(ptr noundef %74, ptr noundef nonnull %19)
-  %.not.i.i197 = icmp eq ptr %75, null
-  br i1 %.not.i.i197, label %107, label %76
+  %62 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  store i32 0, ptr %62, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
+  %64 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %64, i8 0, i64 32, i1 false)
+  store i32 2, ptr %64, align 16
+  %65 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  store i32 %5, ptr %65, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %19, i64 64
+  store i32 1, ptr %66, align 16
+  %67 = getelementptr inbounds nuw i8, ptr %19, i64 68
+  store i32 0, ptr %67, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %19, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
+  %69 = getelementptr inbounds nuw i8, ptr %19, i64 96
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %69, i8 0, i64 32, i1 false)
+  store i32 2, ptr %69, align 16
+  %70 = getelementptr inbounds nuw i8, ptr %19, i64 104
+  store i32 %4, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %19, i64 128
+  %72 = getelementptr inbounds nuw i8, ptr %19, i64 136
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %71, i8 0, i64 32, i1 false)
+  store i32 %3, ptr %72, align 8
+  %73 = load ptr, ptr @conversation_hashtable_exact_addr_port, align 8
+  %74 = call ptr @wmem_map_lookup(ptr noundef %73, ptr noundef nonnull %19)
+  %.not.i.i197 = icmp eq ptr %74, null
+  br i1 %.not.i.i197, label %104, label %75
 
-76:                                               ; preds = %conversation_lookup_exact.exit
-  %77 = getelementptr inbounds nuw i8, ptr %75, i64 28
-  %78 = load i32, ptr %77, align 4
-  %.not33.i.i198 = icmp ugt i32 %78, %0
-  br i1 %.not33.i.i198, label %107, label %79
+75:                                               ; preds = %conversation_lookup_exact.exit
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 28
+  %77 = load i32, ptr %76, align 4
+  %.not33.i.i198 = icmp ugt i32 %77, %0
+  br i1 %.not33.i.i198, label %104, label %78
 
-79:                                               ; preds = %76
-  %80 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %81 = load ptr, ptr %80, align 8
-  %.not34.i.i199 = icmp eq ptr %81, null
-  br i1 %.not34.i.i199, label %85, label %82
+78:                                               ; preds = %75
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %.not34.i.i199 = icmp eq ptr %80, null
+  br i1 %.not34.i.i199, label %84, label %81
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds nuw i8, ptr %81, i64 28
-  %84 = load i32, ptr %83, align 4
-  %.not35.i.i200 = icmp ugt i32 %84, %0
-  br i1 %.not35.i.i200, label %85, label %100
+81:                                               ; preds = %78
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 28
+  %83 = load i32, ptr %82, align 4
+  %.not35.i.i200 = icmp ugt i32 %83, %0
+  br i1 %.not35.i.i200, label %84, label %conversation_lookup_exact.exit213.thread399
 
-85:                                               ; preds = %82, %79
-  %86 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %87 = load ptr, ptr %86, align 8
-  %.not36.i.i202 = icmp eq ptr %87, null
-  br i1 %.not36.i.i202, label %.preheader465, label %88
+84:                                               ; preds = %81, %78
+  %85 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %86 = load ptr, ptr %85, align 8
+  %.not36.i.i202 = icmp eq ptr %86, null
+  br i1 %.not36.i.i202, label %.preheader556, label %87
 
-88:                                               ; preds = %85
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 28
-  %90 = load i32, ptr %89, align 4
-  %.not37.i.i203 = icmp ugt i32 %90, %0
-  %spec.select.i.i204 = select i1 %.not37.i.i203, ptr %75, ptr %87
-  br label %.preheader465
+87:                                               ; preds = %84
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 28
+  %89 = load i32, ptr %88, align 4
+  %.not37.i.i203 = icmp ugt i32 %89, %0
+  %spec.select.i.i204 = select i1 %.not37.i.i203, ptr %74, ptr %86
+  br label %.preheader556
 
-.preheader465:                                    ; preds = %88, %85
-  %.02644.i.i207.ph = phi ptr [ %spec.select.i.i204, %88 ], [ %75, %85 ]
-  br label %91
+.preheader556:                                    ; preds = %87, %84
+  %.02644.i.i207.ph = phi ptr [ %spec.select.i.i204, %87 ], [ %74, %84 ]
+  br label %90
 
-91:                                               ; preds = %.preheader465, %94
-  %.245.i.i206 = phi ptr [ %spec.select41.i.i209, %94 ], [ %.02644.i.i207.ph, %.preheader465 ]
-  %.02644.i.i207 = phi ptr [ %98, %94 ], [ %.02644.i.i207.ph, %.preheader465 ]
-  %92 = getelementptr inbounds nuw i8, ptr %.02644.i.i207, i64 28
-  %93 = load i32, ptr %92, align 4
-  %.not39.i.i208 = icmp ugt i32 %93, %0
-  br i1 %.not39.i.i208, label %.critedge.i.i211, label %94
+90:                                               ; preds = %.preheader556, %93
+  %.245.i.i206 = phi ptr [ %spec.select41.i.i209, %93 ], [ %.02644.i.i207.ph, %.preheader556 ]
+  %.02644.i.i207 = phi ptr [ %97, %93 ], [ %.02644.i.i207.ph, %.preheader556 ]
+  %91 = getelementptr inbounds nuw i8, ptr %.02644.i.i207, i64 28
+  %92 = load i32, ptr %91, align 4
+  %.not39.i.i208 = icmp ugt i32 %92, %0
+  br i1 %.not39.i.i208, label %conversation_lookup_exact.exit213, label %93
 
-94:                                               ; preds = %91
-  %95 = getelementptr inbounds nuw i8, ptr %.245.i.i206, i64 28
-  %96 = load i32, ptr %95, align 4
-  %97 = icmp ugt i32 %93, %96
-  %spec.select41.i.i209 = select i1 %97, ptr %.02644.i.i207, ptr %.245.i.i206
-  %98 = load ptr, ptr %.02644.i.i207, align 8
-  %.not38.i.i210 = icmp eq ptr %98, null
-  br i1 %.not38.i.i210, label %.critedge.i.i211, label %91, !llvm.loop !13
+93:                                               ; preds = %90
+  %94 = getelementptr inbounds nuw i8, ptr %.245.i.i206, i64 28
+  %95 = load i32, ptr %94, align 4
+  %96 = icmp ugt i32 %92, %95
+  %spec.select41.i.i209 = select i1 %96, ptr %.02644.i.i207, ptr %.245.i.i206
+  %97 = load ptr, ptr %.02644.i.i207, align 8
+  %.not38.i.i210 = icmp eq ptr %97, null
+  br i1 %.not38.i.i210, label %conversation_lookup_exact.exit213, label %90, !llvm.loop !13
 
-.critedge.i.i211:                                 ; preds = %94, %91
-  %.2.lcssa.i.i212 = phi ptr [ %.245.i.i206, %91 ], [ %spec.select41.i.i209, %94 ]
-  %.not40.i.i213 = icmp eq ptr %.2.lcssa.i.i212, null
-  br i1 %.not40.i.i213, label %107, label %99
+conversation_lookup_exact.exit213:                ; preds = %90, %93
+  %.2.lcssa.i.i212 = phi ptr [ %.245.i.i206, %90 ], [ %spec.select41.i.i209, %93 ]
+  store ptr %.2.lcssa.i.i212, ptr %85, align 8
+  br label %conversation_lookup_exact.exit213.thread399
 
-99:                                               ; preds = %.critedge.i.i211
-  store ptr %.2.lcssa.i.i212, ptr %86, align 8
-  br label %100
-
-100:                                              ; preds = %99, %82
-  %.027.i.i201 = phi ptr [ %81, %82 ], [ %.2.lcssa.i.i212, %99 ]
+conversation_lookup_exact.exit213.thread399:      ; preds = %81, %conversation_lookup_exact.exit213
+  %.027.i.i201402 = phi ptr [ %.2.lcssa.i.i212, %conversation_lookup_exact.exit213 ], [ %80, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %.not168 = icmp eq ptr %.027.i.i, null
-  br i1 %.not168, label %.thread413, label %101
+  br i1 %.not168, label %.thread405, label %98
 
-101:                                              ; preds = %100
-  %102 = getelementptr inbounds nuw i8, ptr %.027.i.i201, i64 24
-  %103 = load i32, ptr %102, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 24
-  %105 = load i32, ptr %104, align 8
-  %106 = icmp ugt i32 %103, %105
-  %spec.select = select i1 %106, ptr %.027.i.i201, ptr %.027.i.i
-  br label %.thread413
+98:                                               ; preds = %conversation_lookup_exact.exit213.thread399
+  %99 = getelementptr inbounds nuw i8, ptr %.027.i.i201402, i64 24
+  %100 = load i32, ptr %99, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 24
+  %102 = load i32, ptr %101, align 8
+  %103 = icmp ugt i32 %100, %102
+  %spec.select = select i1 %103, ptr %.027.i.i201402, ptr %.027.i.i
+  br label %.thread405
 
-107:                                              ; preds = %.critedge.i.i211, %76, %conversation_lookup_exact.exit
+104:                                              ; preds = %conversation_lookup_exact.exit, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %108 = icmp eq ptr %.027.i.i, null
-  br i1 %108, label %109, label %.thread413
+  %105 = icmp eq ptr %.027.i.i, null
+  br i1 %105, label %106, label %.thread405
 
-109:                                              ; preds = %107
-  %110 = load i32, ptr %spec.store.select, align 8
-  %111 = icmp eq i32 %110, 5
-  br i1 %111, label %112, label %.thread416
+106:                                              ; preds = %104
+  %107 = load i32, ptr %spec.store.select, align 8
+  %108 = icmp eq i32 %107, 5
+  br i1 %108, label %109, label %.thread408
 
-112:                                              ; preds = %109
+109:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 1, ptr %18, align 16
-  %113 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 0, ptr %113, align 4
-  %114 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %114, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
-  %115 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %115, i8 0, i64 32, i1 false)
-  store i32 2, ptr %115, align 16
-  %116 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  store i32 %4, ptr %116, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  store i32 1, ptr %117, align 16
-  %118 = getelementptr inbounds nuw i8, ptr %18, i64 68
-  store i32 0, ptr %118, align 4
-  %119 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
-  %120 = getelementptr inbounds nuw i8, ptr %18, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %120, i8 0, i64 32, i1 false)
-  store i32 2, ptr %120, align 16
-  %121 = getelementptr inbounds nuw i8, ptr %18, i64 104
-  store i32 %5, ptr %121, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %18, i64 128
-  %123 = getelementptr inbounds nuw i8, ptr %18, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %122, i8 0, i64 32, i1 false)
-  store i32 %3, ptr %123, align 8
-  %124 = load ptr, ptr @conversation_hashtable_exact_addr_port, align 8
-  %125 = call ptr @wmem_map_lookup(ptr noundef %124, ptr noundef nonnull %18)
-  %.not.i.i215 = icmp eq ptr %125, null
-  br i1 %.not.i.i215, label %.thread420, label %126
+  %110 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i32 0, ptr %110, align 4
+  %111 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %111, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
+  %112 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %112, i8 0, i64 32, i1 false)
+  store i32 2, ptr %112, align 16
+  %113 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  store i32 %4, ptr %113, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  store i32 1, ptr %114, align 16
+  %115 = getelementptr inbounds nuw i8, ptr %18, i64 68
+  store i32 0, ptr %115, align 4
+  %116 = getelementptr inbounds nuw i8, ptr %18, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
+  %117 = getelementptr inbounds nuw i8, ptr %18, i64 96
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %117, i8 0, i64 32, i1 false)
+  store i32 2, ptr %117, align 16
+  %118 = getelementptr inbounds nuw i8, ptr %18, i64 104
+  store i32 %5, ptr %118, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %18, i64 128
+  %120 = getelementptr inbounds nuw i8, ptr %18, i64 136
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %119, i8 0, i64 32, i1 false)
+  store i32 %3, ptr %120, align 8
+  %121 = load ptr, ptr @conversation_hashtable_exact_addr_port, align 8
+  %122 = call ptr @wmem_map_lookup(ptr noundef %121, ptr noundef nonnull %18)
+  %.not.i.i214 = icmp eq ptr %122, null
+  br i1 %.not.i.i214, label %.thread412, label %123
 
-126:                                              ; preds = %112
-  %127 = getelementptr inbounds nuw i8, ptr %125, i64 28
-  %128 = load i32, ptr %127, align 4
-  %.not33.i.i216 = icmp ugt i32 %128, %0
-  br i1 %.not33.i.i216, label %.thread420, label %129
+123:                                              ; preds = %109
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 28
+  %125 = load i32, ptr %124, align 4
+  %.not33.i.i215 = icmp ugt i32 %125, %0
+  br i1 %.not33.i.i215, label %.thread412, label %126
+
+126:                                              ; preds = %123
+  %127 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %128 = load ptr, ptr %127, align 8
+  %.not34.i.i216 = icmp eq ptr %128, null
+  br i1 %.not34.i.i216, label %132, label %129
 
 129:                                              ; preds = %126
-  %130 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %131 = load ptr, ptr %130, align 8
-  %.not34.i.i217 = icmp eq ptr %131, null
-  br i1 %.not34.i.i217, label %135, label %132
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 28
+  %131 = load i32, ptr %130, align 4
+  %.not35.i.i217 = icmp ugt i32 %131, %0
+  br i1 %.not35.i.i217, label %132, label %.thread415
 
-132:                                              ; preds = %129
-  %133 = getelementptr inbounds nuw i8, ptr %131, i64 28
-  %134 = load i32, ptr %133, align 4
-  %.not35.i.i218 = icmp ugt i32 %134, %0
-  br i1 %.not35.i.i218, label %135, label %150
+.thread415:                                       ; preds = %129
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  br label %.thread405
 
-135:                                              ; preds = %132, %129
-  %136 = getelementptr inbounds nuw i8, ptr %125, i64 16
-  %137 = load ptr, ptr %136, align 8
-  %.not36.i.i220 = icmp eq ptr %137, null
-  br i1 %.not36.i.i220, label %.preheader464, label %138
+132:                                              ; preds = %129, %126
+  %133 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  %134 = load ptr, ptr %133, align 8
+  %.not36.i.i219 = icmp eq ptr %134, null
+  br i1 %.not36.i.i219, label %.preheader555, label %135
 
-138:                                              ; preds = %135
-  %139 = getelementptr inbounds nuw i8, ptr %137, i64 28
+135:                                              ; preds = %132
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 28
+  %137 = load i32, ptr %136, align 4
+  %.not37.i.i220 = icmp ugt i32 %137, %0
+  %spec.select.i.i221 = select i1 %.not37.i.i220, ptr %122, ptr %134
+  br label %.preheader555
+
+.preheader555:                                    ; preds = %135, %132
+  %.02644.i.i224.ph = phi ptr [ %spec.select.i.i221, %135 ], [ %122, %132 ]
+  br label %138
+
+138:                                              ; preds = %.preheader555, %141
+  %.245.i.i223 = phi ptr [ %spec.select41.i.i226, %141 ], [ %.02644.i.i224.ph, %.preheader555 ]
+  %.02644.i.i224 = phi ptr [ %145, %141 ], [ %.02644.i.i224.ph, %.preheader555 ]
+  %139 = getelementptr inbounds nuw i8, ptr %.02644.i.i224, i64 28
   %140 = load i32, ptr %139, align 4
-  %.not37.i.i221 = icmp ugt i32 %140, %0
-  %spec.select.i.i222 = select i1 %.not37.i.i221, ptr %125, ptr %137
-  br label %.preheader464
+  %.not39.i.i225 = icmp ugt i32 %140, %0
+  br i1 %.not39.i.i225, label %146, label %141
 
-.preheader464:                                    ; preds = %138, %135
-  %.02644.i.i225.ph = phi ptr [ %spec.select.i.i222, %138 ], [ %125, %135 ]
-  br label %141
-
-141:                                              ; preds = %.preheader464, %144
-  %.245.i.i224 = phi ptr [ %spec.select41.i.i227, %144 ], [ %.02644.i.i225.ph, %.preheader464 ]
-  %.02644.i.i225 = phi ptr [ %148, %144 ], [ %.02644.i.i225.ph, %.preheader464 ]
-  %142 = getelementptr inbounds nuw i8, ptr %.02644.i.i225, i64 28
+141:                                              ; preds = %138
+  %142 = getelementptr inbounds nuw i8, ptr %.245.i.i223, i64 28
   %143 = load i32, ptr %142, align 4
-  %.not39.i.i226 = icmp ugt i32 %143, %0
-  br i1 %.not39.i.i226, label %.critedge.i.i229, label %144
+  %144 = icmp ugt i32 %140, %143
+  %spec.select41.i.i226 = select i1 %144, ptr %.02644.i.i224, ptr %.245.i.i223
+  %145 = load ptr, ptr %.02644.i.i224, align 8
+  %.not38.i.i227 = icmp eq ptr %145, null
+  br i1 %.not38.i.i227, label %146, label %138, !llvm.loop !13
 
-144:                                              ; preds = %141
-  %145 = getelementptr inbounds nuw i8, ptr %.245.i.i224, i64 28
-  %146 = load i32, ptr %145, align 4
-  %147 = icmp ugt i32 %143, %146
-  %spec.select41.i.i227 = select i1 %147, ptr %.02644.i.i225, ptr %.245.i.i224
-  %148 = load ptr, ptr %.02644.i.i225, align 8
-  %.not38.i.i228 = icmp eq ptr %148, null
-  br i1 %.not38.i.i228, label %.critedge.i.i229, label %141, !llvm.loop !13
-
-.critedge.i.i229:                                 ; preds = %144, %141
-  %.2.lcssa.i.i230 = phi ptr [ %.245.i.i224, %141 ], [ %spec.select41.i.i227, %144 ]
-  %.not40.i.i231 = icmp eq ptr %.2.lcssa.i.i230, null
-  br i1 %.not40.i.i231, label %.thread420, label %149
-
-149:                                              ; preds = %.critedge.i.i229
-  store ptr %.2.lcssa.i.i230, ptr %136, align 8
-  br label %150
-
-.thread420:                                       ; preds = %.critedge.i.i229, %126, %112
+.thread412:                                       ; preds = %123, %109
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %.thread416
+  br label %.thread408
 
-150:                                              ; preds = %149, %132
-  %.027.i.i219 = phi ptr [ %131, %132 ], [ %.2.lcssa.i.i230, %149 ]
+146:                                              ; preds = %138, %141
+  %.2.lcssa.i.i229 = phi ptr [ %.245.i.i223, %138 ], [ %spec.select41.i.i226, %141 ]
+  store ptr %.2.lcssa.i.i229, ptr %133, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %.thread413
+  br label %.thread405
 
-.thread416:                                       ; preds = %109, %.thread420, %23
-  %151 = and i32 %6, 131088
-  %.not170 = icmp eq i32 %151, 0
-  br i1 %.not170, label %152, label %281
+.thread408:                                       ; preds = %106, %.thread412, %23
+  %147 = and i32 %6, 131088
+  %.not170 = icmp eq i32 %147, 0
+  br i1 %.not170, label %148, label %272
 
-152:                                              ; preds = %.thread416
+148:                                              ; preds = %.thread408
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 1, ptr %17, align 16
-  %153 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store i32 0, ptr %153, align 4
-  %154 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %154, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
-  %155 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %149 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  store i32 0, ptr %149, align 4
+  %150 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %150, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
+  %151 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %151, i8 0, i64 32, i1 false)
+  store i32 2, ptr %151, align 16
+  %152 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  store i32 %4, ptr %152, align 8
+  %153 = getelementptr inbounds nuw i8, ptr %17, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %153, i8 0, i64 32, i1 false)
+  store i32 2, ptr %153, align 16
+  %154 = getelementptr inbounds nuw i8, ptr %17, i64 72
+  store i32 %5, ptr %154, align 8
+  %155 = getelementptr inbounds nuw i8, ptr %17, i64 96
+  %156 = getelementptr inbounds nuw i8, ptr %17, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %155, i8 0, i64 32, i1 false)
-  store i32 2, ptr %155, align 16
-  %156 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  store i32 %4, ptr %156, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %157, i8 0, i64 32, i1 false)
-  store i32 2, ptr %157, align 16
-  %158 = getelementptr inbounds nuw i8, ptr %17, i64 72
-  store i32 %5, ptr %158, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %17, i64 96
-  %160 = getelementptr inbounds nuw i8, ptr %17, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %159, i8 0, i64 32, i1 false)
-  store i32 %3, ptr %160, align 8
-  %161 = load ptr, ptr @conversation_hashtable_no_addr2, align 8
-  %162 = call ptr @wmem_map_lookup(ptr noundef %161, ptr noundef nonnull %17)
-  %.not.i.i233 = icmp eq ptr %162, null
-  br i1 %.not.i.i233, label %187, label %163
+  store i32 %3, ptr %156, align 8
+  %157 = load ptr, ptr @conversation_hashtable_no_addr2, align 8
+  %158 = call ptr @wmem_map_lookup(ptr noundef %157, ptr noundef nonnull %17)
+  %.not.i.i231 = icmp eq ptr %158, null
+  br i1 %.not.i.i231, label %182, label %159
 
-163:                                              ; preds = %152
-  %164 = getelementptr inbounds nuw i8, ptr %162, i64 28
-  %165 = load i32, ptr %164, align 4
-  %.not33.i.i234 = icmp ugt i32 %165, %0
-  br i1 %.not33.i.i234, label %187, label %166
+159:                                              ; preds = %148
+  %160 = getelementptr inbounds nuw i8, ptr %158, i64 28
+  %161 = load i32, ptr %160, align 4
+  %.not33.i.i232 = icmp ugt i32 %161, %0
+  br i1 %.not33.i.i232, label %182, label %162
 
-166:                                              ; preds = %163
-  %167 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  %168 = load ptr, ptr %167, align 8
-  %.not34.i.i235 = icmp eq ptr %168, null
-  br i1 %.not34.i.i235, label %172, label %169
+162:                                              ; preds = %159
+  %163 = getelementptr inbounds nuw i8, ptr %158, i64 8
+  %164 = load ptr, ptr %163, align 8
+  %.not34.i.i233 = icmp eq ptr %164, null
+  br i1 %.not34.i.i233, label %168, label %165
 
-169:                                              ; preds = %166
-  %170 = getelementptr inbounds nuw i8, ptr %168, i64 28
-  %171 = load i32, ptr %170, align 4
-  %.not35.i.i236 = icmp ugt i32 %171, %0
-  br i1 %.not35.i.i236, label %172, label %.thread427
+165:                                              ; preds = %162
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 28
+  %167 = load i32, ptr %166, align 4
+  %.not35.i.i234 = icmp ugt i32 %167, %0
+  br i1 %.not35.i.i234, label %168, label %conversation_lookup_no_addr2.exit.thread419
 
-172:                                              ; preds = %169, %166
-  %173 = getelementptr inbounds nuw i8, ptr %162, i64 16
-  %174 = load ptr, ptr %173, align 8
-  %.not36.i.i238 = icmp eq ptr %174, null
-  br i1 %.not36.i.i238, label %.preheader463, label %175
-
-175:                                              ; preds = %172
-  %176 = getelementptr inbounds nuw i8, ptr %174, i64 28
-  %177 = load i32, ptr %176, align 4
-  %.not37.i.i239 = icmp ugt i32 %177, %0
-  %spec.select.i.i240 = select i1 %.not37.i.i239, ptr %162, ptr %174
-  br label %.preheader463
-
-.preheader463:                                    ; preds = %175, %172
-  %.02644.i.i243.ph = phi ptr [ %spec.select.i.i240, %175 ], [ %162, %172 ]
-  br label %178
-
-178:                                              ; preds = %.preheader463, %181
-  %.245.i.i242 = phi ptr [ %spec.select41.i.i245, %181 ], [ %.02644.i.i243.ph, %.preheader463 ]
-  %.02644.i.i243 = phi ptr [ %185, %181 ], [ %.02644.i.i243.ph, %.preheader463 ]
-  %179 = getelementptr inbounds nuw i8, ptr %.02644.i.i243, i64 28
-  %180 = load i32, ptr %179, align 4
-  %.not39.i.i244 = icmp ugt i32 %180, %0
-  br i1 %.not39.i.i244, label %.critedge.i.i247, label %181
-
-181:                                              ; preds = %178
-  %182 = getelementptr inbounds nuw i8, ptr %.245.i.i242, i64 28
-  %183 = load i32, ptr %182, align 4
-  %184 = icmp ugt i32 %180, %183
-  %spec.select41.i.i245 = select i1 %184, ptr %.02644.i.i243, ptr %.245.i.i242
-  %185 = load ptr, ptr %.02644.i.i243, align 8
-  %.not38.i.i246 = icmp eq ptr %185, null
-  br i1 %.not38.i.i246, label %.critedge.i.i247, label %178, !llvm.loop !13
-
-.critedge.i.i247:                                 ; preds = %181, %178
-  %.2.lcssa.i.i248 = phi ptr [ %.245.i.i242, %178 ], [ %spec.select41.i.i245, %181 ]
-  %.not40.i.i249 = icmp eq ptr %.2.lcssa.i.i248, null
-  br i1 %.not40.i.i249, label %187, label %186
-
-186:                                              ; preds = %.critedge.i.i247
-  store ptr %.2.lcssa.i.i248, ptr %173, align 8
-  br label %.thread427
-
-.thread427:                                       ; preds = %186, %169
-  %.027.i.i237 = phi ptr [ %168, %169 ], [ %.2.lcssa.i.i248, %186 ]
+conversation_lookup_no_addr2.exit.thread419:      ; preds = %165
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %226
+  br label %.thread422
 
-187:                                              ; preds = %.critedge.i.i247, %163, %152
+168:                                              ; preds = %165, %162
+  %169 = getelementptr inbounds nuw i8, ptr %158, i64 16
+  %170 = load ptr, ptr %169, align 8
+  %.not36.i.i236 = icmp eq ptr %170, null
+  br i1 %.not36.i.i236, label %.preheader554, label %171
+
+171:                                              ; preds = %168
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 28
+  %173 = load i32, ptr %172, align 4
+  %.not37.i.i237 = icmp ugt i32 %173, %0
+  %spec.select.i.i238 = select i1 %.not37.i.i237, ptr %158, ptr %170
+  br label %.preheader554
+
+.preheader554:                                    ; preds = %171, %168
+  %.02644.i.i241.ph = phi ptr [ %spec.select.i.i238, %171 ], [ %158, %168 ]
+  br label %174
+
+174:                                              ; preds = %.preheader554, %177
+  %.245.i.i240 = phi ptr [ %spec.select41.i.i243, %177 ], [ %.02644.i.i241.ph, %.preheader554 ]
+  %.02644.i.i241 = phi ptr [ %181, %177 ], [ %.02644.i.i241.ph, %.preheader554 ]
+  %175 = getelementptr inbounds nuw i8, ptr %.02644.i.i241, i64 28
+  %176 = load i32, ptr %175, align 4
+  %.not39.i.i242 = icmp ugt i32 %176, %0
+  br i1 %.not39.i.i242, label %conversation_lookup_no_addr2.exit, label %177
+
+177:                                              ; preds = %174
+  %178 = getelementptr inbounds nuw i8, ptr %.245.i.i240, i64 28
+  %179 = load i32, ptr %178, align 4
+  %180 = icmp ugt i32 %176, %179
+  %spec.select41.i.i243 = select i1 %180, ptr %.02644.i.i241, ptr %.245.i.i240
+  %181 = load ptr, ptr %.02644.i.i241, align 8
+  %.not38.i.i244 = icmp eq ptr %181, null
+  br i1 %.not38.i.i244, label %conversation_lookup_no_addr2.exit, label %174, !llvm.loop !13
+
+conversation_lookup_no_addr2.exit:                ; preds = %174, %177
+  %.2.lcssa.i.i246 = phi ptr [ %.245.i.i240, %174 ], [ %spec.select41.i.i243, %177 ]
+  store ptr %.2.lcssa.i.i246, ptr %169, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %188 = load i32, ptr %spec.store.select, align 8
-  %189 = icmp eq i32 %188, 5
-  br i1 %189, label %190, label %.thread424
+  br label %.thread422
 
-190:                                              ; preds = %187
+182:                                              ; preds = %148, %159
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  %183 = load i32, ptr %spec.store.select, align 8
+  %184 = icmp eq i32 %183, 5
+  br i1 %184, label %185, label %.thread426
+
+185:                                              ; preds = %182
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 1, ptr %16, align 16
-  %191 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store i32 0, ptr %191, align 4
-  %192 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %192, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
-  %193 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %193, i8 0, i64 32, i1 false)
-  store i32 2, ptr %193, align 16
-  %194 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  store i32 %4, ptr %194, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %195, i8 0, i64 32, i1 false)
-  store i32 2, ptr %195, align 16
-  %196 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  store i32 %5, ptr %196, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %16, i64 96
-  %198 = getelementptr inbounds nuw i8, ptr %16, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %197, i8 0, i64 32, i1 false)
-  store i32 %3, ptr %198, align 8
-  %199 = load ptr, ptr @conversation_hashtable_no_addr2, align 8
-  %200 = call ptr @wmem_map_lookup(ptr noundef %199, ptr noundef nonnull %16)
-  %.not.i.i250 = icmp eq ptr %200, null
-  br i1 %.not.i.i250, label %.thread432, label %201
+  %186 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  store i32 0, ptr %186, align 4
+  %187 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %187, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
+  %188 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %188, i8 0, i64 32, i1 false)
+  store i32 2, ptr %188, align 16
+  %189 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  store i32 %4, ptr %189, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %190, i8 0, i64 32, i1 false)
+  store i32 2, ptr %190, align 16
+  %191 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  store i32 %5, ptr %191, align 8
+  %192 = getelementptr inbounds nuw i8, ptr %16, i64 96
+  %193 = getelementptr inbounds nuw i8, ptr %16, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %192, i8 0, i64 32, i1 false)
+  store i32 %3, ptr %193, align 8
+  %194 = load ptr, ptr @conversation_hashtable_no_addr2, align 8
+  %195 = call ptr @wmem_map_lookup(ptr noundef %194, ptr noundef nonnull %16)
+  %.not.i.i247 = icmp eq ptr %195, null
+  br i1 %.not.i.i247, label %.thread430, label %196
 
-201:                                              ; preds = %190
-  %202 = getelementptr inbounds nuw i8, ptr %200, i64 28
-  %203 = load i32, ptr %202, align 4
-  %.not33.i.i251 = icmp ugt i32 %203, %0
-  br i1 %.not33.i.i251, label %.thread432, label %204
+196:                                              ; preds = %185
+  %197 = getelementptr inbounds nuw i8, ptr %195, i64 28
+  %198 = load i32, ptr %197, align 4
+  %.not33.i.i248 = icmp ugt i32 %198, %0
+  br i1 %.not33.i.i248, label %.thread430, label %199
 
-204:                                              ; preds = %201
-  %205 = getelementptr inbounds nuw i8, ptr %200, i64 8
-  %206 = load ptr, ptr %205, align 8
-  %.not34.i.i252 = icmp eq ptr %206, null
-  br i1 %.not34.i.i252, label %210, label %207
+199:                                              ; preds = %196
+  %200 = getelementptr inbounds nuw i8, ptr %195, i64 8
+  %201 = load ptr, ptr %200, align 8
+  %.not34.i.i249 = icmp eq ptr %201, null
+  br i1 %.not34.i.i249, label %205, label %202
 
-207:                                              ; preds = %204
-  %208 = getelementptr inbounds nuw i8, ptr %206, i64 28
-  %209 = load i32, ptr %208, align 4
-  %.not35.i.i253 = icmp ugt i32 %209, %0
-  br i1 %.not35.i.i253, label %210, label %225
+202:                                              ; preds = %199
+  %203 = getelementptr inbounds nuw i8, ptr %201, i64 28
+  %204 = load i32, ptr %203, align 4
+  %.not35.i.i250 = icmp ugt i32 %204, %0
+  br i1 %.not35.i.i250, label %205, label %.thread433
 
-210:                                              ; preds = %207, %204
-  %211 = getelementptr inbounds nuw i8, ptr %200, i64 16
-  %212 = load ptr, ptr %211, align 8
-  %.not36.i.i255 = icmp eq ptr %212, null
-  br i1 %.not36.i.i255, label %.preheader462, label %213
-
-213:                                              ; preds = %210
-  %214 = getelementptr inbounds nuw i8, ptr %212, i64 28
-  %215 = load i32, ptr %214, align 4
-  %.not37.i.i256 = icmp ugt i32 %215, %0
-  %spec.select.i.i257 = select i1 %.not37.i.i256, ptr %200, ptr %212
-  br label %.preheader462
-
-.preheader462:                                    ; preds = %213, %210
-  %.02644.i.i260.ph = phi ptr [ %spec.select.i.i257, %213 ], [ %200, %210 ]
-  br label %216
-
-216:                                              ; preds = %.preheader462, %219
-  %.245.i.i259 = phi ptr [ %spec.select41.i.i262, %219 ], [ %.02644.i.i260.ph, %.preheader462 ]
-  %.02644.i.i260 = phi ptr [ %223, %219 ], [ %.02644.i.i260.ph, %.preheader462 ]
-  %217 = getelementptr inbounds nuw i8, ptr %.02644.i.i260, i64 28
-  %218 = load i32, ptr %217, align 4
-  %.not39.i.i261 = icmp ugt i32 %218, %0
-  br i1 %.not39.i.i261, label %.critedge.i.i264, label %219
-
-219:                                              ; preds = %216
-  %220 = getelementptr inbounds nuw i8, ptr %.245.i.i259, i64 28
-  %221 = load i32, ptr %220, align 4
-  %222 = icmp ugt i32 %218, %221
-  %spec.select41.i.i262 = select i1 %222, ptr %.02644.i.i260, ptr %.245.i.i259
-  %223 = load ptr, ptr %.02644.i.i260, align 8
-  %.not38.i.i263 = icmp eq ptr %223, null
-  br i1 %.not38.i.i263, label %.critedge.i.i264, label %216, !llvm.loop !13
-
-.critedge.i.i264:                                 ; preds = %219, %216
-  %.2.lcssa.i.i265 = phi ptr [ %.245.i.i259, %216 ], [ %spec.select41.i.i262, %219 ]
-  %.not40.i.i266 = icmp eq ptr %.2.lcssa.i.i265, null
-  br i1 %.not40.i.i266, label %.thread432, label %224
-
-224:                                              ; preds = %.critedge.i.i264
-  store ptr %.2.lcssa.i.i265, ptr %211, align 8
-  br label %225
-
-.thread432:                                       ; preds = %.critedge.i.i264, %201, %190
+.thread433:                                       ; preds = %202
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %.thread424
+  br label %.thread422
 
-225:                                              ; preds = %224, %207
-  %.027.i.i254 = phi ptr [ %206, %207 ], [ %.2.lcssa.i.i265, %224 ]
+205:                                              ; preds = %202, %199
+  %206 = getelementptr inbounds nuw i8, ptr %195, i64 16
+  %207 = load ptr, ptr %206, align 8
+  %.not36.i.i252 = icmp eq ptr %207, null
+  br i1 %.not36.i.i252, label %.preheader553, label %208
+
+208:                                              ; preds = %205
+  %209 = getelementptr inbounds nuw i8, ptr %207, i64 28
+  %210 = load i32, ptr %209, align 4
+  %.not37.i.i253 = icmp ugt i32 %210, %0
+  %spec.select.i.i254 = select i1 %.not37.i.i253, ptr %195, ptr %207
+  br label %.preheader553
+
+.preheader553:                                    ; preds = %208, %205
+  %.02644.i.i257.ph = phi ptr [ %spec.select.i.i254, %208 ], [ %195, %205 ]
+  br label %211
+
+211:                                              ; preds = %.preheader553, %214
+  %.245.i.i256 = phi ptr [ %spec.select41.i.i259, %214 ], [ %.02644.i.i257.ph, %.preheader553 ]
+  %.02644.i.i257 = phi ptr [ %218, %214 ], [ %.02644.i.i257.ph, %.preheader553 ]
+  %212 = getelementptr inbounds nuw i8, ptr %.02644.i.i257, i64 28
+  %213 = load i32, ptr %212, align 4
+  %.not39.i.i258 = icmp ugt i32 %213, %0
+  br i1 %.not39.i.i258, label %219, label %214
+
+214:                                              ; preds = %211
+  %215 = getelementptr inbounds nuw i8, ptr %.245.i.i256, i64 28
+  %216 = load i32, ptr %215, align 4
+  %217 = icmp ugt i32 %213, %216
+  %spec.select41.i.i259 = select i1 %217, ptr %.02644.i.i257, ptr %.245.i.i256
+  %218 = load ptr, ptr %.02644.i.i257, align 8
+  %.not38.i.i260 = icmp eq ptr %218, null
+  br i1 %.not38.i.i260, label %219, label %211, !llvm.loop !13
+
+.thread430:                                       ; preds = %196, %185
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %226
+  br label %.thread426
 
-226:                                              ; preds = %225, %.thread427
-  %.3430 = phi ptr [ %.027.i.i237, %.thread427 ], [ %.027.i.i254, %225 ]
-  %227 = getelementptr inbounds nuw i8, ptr %.3430, i64 56
-  %228 = load i32, ptr %227, align 8
-  %229 = and i32 %228, 1
-  %230 = icmp eq i32 %229, 0
-  %231 = icmp ne i32 %3, 3
-  %or.cond = and i1 %231, %230
-  br i1 %or.cond, label %232, label %.thread413
+219:                                              ; preds = %211, %214
+  %.2.lcssa.i.i262 = phi ptr [ %.245.i.i256, %211 ], [ %spec.select41.i.i259, %214 ]
+  store ptr %.2.lcssa.i.i262, ptr %206, align 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  br label %.thread422
 
-232:                                              ; preds = %226
-  %233 = and i32 %228, 8
-  %.not176 = icmp eq i32 %233, 0
-  br i1 %.not176, label %234, label %235
+.thread422:                                       ; preds = %219, %conversation_lookup_no_addr2.exit, %conversation_lookup_no_addr2.exit.thread419, %.thread433
+  %.3425 = phi ptr [ %.2.lcssa.i.i262, %219 ], [ %201, %.thread433 ], [ %164, %conversation_lookup_no_addr2.exit.thread419 ], [ %.2.lcssa.i.i246, %conversation_lookup_no_addr2.exit ]
+  %220 = getelementptr inbounds nuw i8, ptr %.3425, i64 56
+  %221 = load i32, ptr %220, align 8
+  %222 = and i32 %221, 1
+  %223 = icmp eq i32 %222, 0
+  %224 = icmp ne i32 %3, 3
+  %or.cond = and i1 %224, %223
+  br i1 %or.cond, label %225, label %.thread405
 
-234:                                              ; preds = %232
-  call void @conversation_set_addr2(ptr noundef nonnull %.3430, ptr noundef nonnull %spec.store.select4)
-  br label %.thread413
+225:                                              ; preds = %.thread422
+  %226 = and i32 %221, 8
+  %.not176 = icmp eq i32 %226, 0
+  br i1 %.not176, label %227, label %228
 
-235:                                              ; preds = %232
-  %236 = call fastcc ptr @conversation_create_from_template(ptr noundef %.3430, ptr noundef nonnull %spec.store.select4, i32 noundef 0)
-  br label %.thread413
+227:                                              ; preds = %225
+  call void @conversation_set_addr2(ptr noundef nonnull %.3425, ptr noundef nonnull %spec.store.select4)
+  br label %.thread405
 
-.thread424:                                       ; preds = %187, %.thread432
-  %237 = and i32 %6, 65536
-  %.not172 = icmp eq i32 %237, 0
-  br i1 %.not172, label %238, label %281
+228:                                              ; preds = %225
+  %229 = call fastcc ptr @conversation_create_from_template(ptr noundef %.3425, ptr noundef nonnull %spec.store.select4, i32 noundef 0)
+  br label %.thread405
 
-238:                                              ; preds = %.thread424
+.thread426:                                       ; preds = %182, %.thread430
+  %230 = and i32 %6, 65536
+  %.not172 = icmp eq i32 %230, 0
+  br i1 %.not172, label %231, label %272
+
+231:                                              ; preds = %.thread426
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 1, ptr %15, align 16
-  %239 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 0, ptr %239, align 4
-  %240 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %240, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
-  %241 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %241, i8 0, i64 32, i1 false)
-  store i32 2, ptr %241, align 16
-  %242 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  store i32 %5, ptr %242, align 8
-  %243 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %243, i8 0, i64 32, i1 false)
-  store i32 2, ptr %243, align 16
-  %244 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  store i32 %4, ptr %244, align 8
-  %245 = getelementptr inbounds nuw i8, ptr %15, i64 96
-  %246 = getelementptr inbounds nuw i8, ptr %15, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %245, i8 0, i64 32, i1 false)
-  store i32 %3, ptr %246, align 8
-  %247 = load ptr, ptr @conversation_hashtable_no_addr2, align 8
-  %248 = call ptr @wmem_map_lookup(ptr noundef %247, ptr noundef nonnull %15)
-  %.not.i.i268 = icmp eq ptr %248, null
-  br i1 %.not.i.i268, label %conversation_lookup_no_addr2.exit285.thread, label %249
+  %232 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  store i32 0, ptr %232, align 4
+  %233 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %233, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
+  %234 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %234, i8 0, i64 32, i1 false)
+  store i32 2, ptr %234, align 16
+  %235 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store i32 %5, ptr %235, align 8
+  %236 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %236, i8 0, i64 32, i1 false)
+  store i32 2, ptr %236, align 16
+  %237 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  store i32 %4, ptr %237, align 8
+  %238 = getelementptr inbounds nuw i8, ptr %15, i64 96
+  %239 = getelementptr inbounds nuw i8, ptr %15, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %238, i8 0, i64 32, i1 false)
+  store i32 %3, ptr %239, align 8
+  %240 = load ptr, ptr @conversation_hashtable_no_addr2, align 8
+  %241 = call ptr @wmem_map_lookup(ptr noundef %240, ptr noundef nonnull %15)
+  %.not.i.i264 = icmp eq ptr %241, null
+  br i1 %.not.i.i264, label %conversation_lookup_no_addr2.exit280.thread, label %242
 
-249:                                              ; preds = %238
-  %250 = getelementptr inbounds nuw i8, ptr %248, i64 28
-  %251 = load i32, ptr %250, align 4
-  %.not33.i.i269 = icmp ugt i32 %251, %0
-  br i1 %.not33.i.i269, label %conversation_lookup_no_addr2.exit285.thread, label %252
+242:                                              ; preds = %231
+  %243 = getelementptr inbounds nuw i8, ptr %241, i64 28
+  %244 = load i32, ptr %243, align 4
+  %.not33.i.i265 = icmp ugt i32 %244, %0
+  br i1 %.not33.i.i265, label %conversation_lookup_no_addr2.exit280.thread, label %245
 
-252:                                              ; preds = %249
-  %253 = getelementptr inbounds nuw i8, ptr %248, i64 8
-  %254 = load ptr, ptr %253, align 8
-  %.not34.i.i270 = icmp eq ptr %254, null
-  br i1 %.not34.i.i270, label %258, label %255
+245:                                              ; preds = %242
+  %246 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %247 = load ptr, ptr %246, align 8
+  %.not34.i.i266 = icmp eq ptr %247, null
+  br i1 %.not34.i.i266, label %251, label %248
 
-255:                                              ; preds = %252
-  %256 = getelementptr inbounds nuw i8, ptr %254, i64 28
-  %257 = load i32, ptr %256, align 4
-  %.not35.i.i271 = icmp ugt i32 %257, %0
-  br i1 %.not35.i.i271, label %258, label %273
+248:                                              ; preds = %245
+  %249 = getelementptr inbounds nuw i8, ptr %247, i64 28
+  %250 = load i32, ptr %249, align 4
+  %.not35.i.i267 = icmp ugt i32 %250, %0
+  br i1 %.not35.i.i267, label %251, label %conversation_lookup_no_addr2.exit280.thread438
 
-258:                                              ; preds = %255, %252
-  %259 = getelementptr inbounds nuw i8, ptr %248, i64 16
-  %260 = load ptr, ptr %259, align 8
-  %.not36.i.i273 = icmp eq ptr %260, null
-  br i1 %.not36.i.i273, label %.preheader461, label %261
+251:                                              ; preds = %248, %245
+  %252 = getelementptr inbounds nuw i8, ptr %241, i64 16
+  %253 = load ptr, ptr %252, align 8
+  %.not36.i.i269 = icmp eq ptr %253, null
+  br i1 %.not36.i.i269, label %.preheader552, label %254
 
-261:                                              ; preds = %258
-  %262 = getelementptr inbounds nuw i8, ptr %260, i64 28
-  %263 = load i32, ptr %262, align 4
-  %.not37.i.i274 = icmp ugt i32 %263, %0
-  %spec.select.i.i275 = select i1 %.not37.i.i274, ptr %248, ptr %260
-  br label %.preheader461
+254:                                              ; preds = %251
+  %255 = getelementptr inbounds nuw i8, ptr %253, i64 28
+  %256 = load i32, ptr %255, align 4
+  %.not37.i.i270 = icmp ugt i32 %256, %0
+  %spec.select.i.i271 = select i1 %.not37.i.i270, ptr %241, ptr %253
+  br label %.preheader552
 
-.preheader461:                                    ; preds = %261, %258
-  %.02644.i.i278.ph = phi ptr [ %spec.select.i.i275, %261 ], [ %248, %258 ]
-  br label %264
+.preheader552:                                    ; preds = %254, %251
+  %.02644.i.i274.ph = phi ptr [ %spec.select.i.i271, %254 ], [ %241, %251 ]
+  br label %257
 
-264:                                              ; preds = %.preheader461, %267
-  %.245.i.i277 = phi ptr [ %spec.select41.i.i280, %267 ], [ %.02644.i.i278.ph, %.preheader461 ]
-  %.02644.i.i278 = phi ptr [ %271, %267 ], [ %.02644.i.i278.ph, %.preheader461 ]
-  %265 = getelementptr inbounds nuw i8, ptr %.02644.i.i278, i64 28
-  %266 = load i32, ptr %265, align 4
-  %.not39.i.i279 = icmp ugt i32 %266, %0
-  br i1 %.not39.i.i279, label %.critedge.i.i282, label %267
+257:                                              ; preds = %.preheader552, %260
+  %.245.i.i273 = phi ptr [ %spec.select41.i.i276, %260 ], [ %.02644.i.i274.ph, %.preheader552 ]
+  %.02644.i.i274 = phi ptr [ %264, %260 ], [ %.02644.i.i274.ph, %.preheader552 ]
+  %258 = getelementptr inbounds nuw i8, ptr %.02644.i.i274, i64 28
+  %259 = load i32, ptr %258, align 4
+  %.not39.i.i275 = icmp ugt i32 %259, %0
+  br i1 %.not39.i.i275, label %conversation_lookup_no_addr2.exit280, label %260
 
-267:                                              ; preds = %264
-  %268 = getelementptr inbounds nuw i8, ptr %.245.i.i277, i64 28
-  %269 = load i32, ptr %268, align 4
-  %270 = icmp ugt i32 %266, %269
-  %spec.select41.i.i280 = select i1 %270, ptr %.02644.i.i278, ptr %.245.i.i277
-  %271 = load ptr, ptr %.02644.i.i278, align 8
-  %.not38.i.i281 = icmp eq ptr %271, null
-  br i1 %.not38.i.i281, label %.critedge.i.i282, label %264, !llvm.loop !13
+260:                                              ; preds = %257
+  %261 = getelementptr inbounds nuw i8, ptr %.245.i.i273, i64 28
+  %262 = load i32, ptr %261, align 4
+  %263 = icmp ugt i32 %259, %262
+  %spec.select41.i.i276 = select i1 %263, ptr %.02644.i.i274, ptr %.245.i.i273
+  %264 = load ptr, ptr %.02644.i.i274, align 8
+  %.not38.i.i277 = icmp eq ptr %264, null
+  br i1 %.not38.i.i277, label %conversation_lookup_no_addr2.exit280, label %257, !llvm.loop !13
 
-.critedge.i.i282:                                 ; preds = %267, %264
-  %.2.lcssa.i.i283 = phi ptr [ %.245.i.i277, %264 ], [ %spec.select41.i.i280, %267 ]
-  %.not40.i.i284 = icmp eq ptr %.2.lcssa.i.i283, null
-  br i1 %.not40.i.i284, label %conversation_lookup_no_addr2.exit285.thread, label %272
-
-272:                                              ; preds = %.critedge.i.i282
-  store ptr %.2.lcssa.i.i283, ptr %259, align 8
-  br label %273
-
-conversation_lookup_no_addr2.exit285.thread:      ; preds = %.critedge.i.i282, %249, %238
+conversation_lookup_no_addr2.exit280.thread:      ; preds = %242, %231
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %281
+  br label %272
 
-273:                                              ; preds = %272, %255
-  %.027.i.i272 = phi ptr [ %254, %255 ], [ %.2.lcssa.i.i283, %272 ]
+conversation_lookup_no_addr2.exit280:             ; preds = %257, %260
+  %.2.lcssa.i.i279 = phi ptr [ %.245.i.i273, %257 ], [ %spec.select41.i.i276, %260 ]
+  store ptr %.2.lcssa.i.i279, ptr %252, align 8
+  br label %conversation_lookup_no_addr2.exit280.thread438
+
+conversation_lookup_no_addr2.exit280.thread438:   ; preds = %248, %conversation_lookup_no_addr2.exit280
+  %.027.i.i268441 = phi ptr [ %.2.lcssa.i.i279, %conversation_lookup_no_addr2.exit280 ], [ %247, %248 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.not174 = icmp eq i32 %3, 3
-  br i1 %.not174, label %.thread413, label %274
+  br i1 %.not174, label %.thread405, label %265
 
-274:                                              ; preds = %273
-  %275 = getelementptr inbounds nuw i8, ptr %.027.i.i272, i64 56
-  %276 = load i32, ptr %275, align 8
-  %277 = and i32 %276, 8
-  %.not175 = icmp eq i32 %277, 0
-  br i1 %.not175, label %278, label %279
+265:                                              ; preds = %conversation_lookup_no_addr2.exit280.thread438
+  %266 = getelementptr inbounds nuw i8, ptr %.027.i.i268441, i64 56
+  %267 = load i32, ptr %266, align 8
+  %268 = and i32 %267, 8
+  %.not175 = icmp eq i32 %268, 0
+  br i1 %.not175, label %269, label %270
 
-278:                                              ; preds = %274
-  call void @conversation_set_addr2(ptr noundef nonnull %.027.i.i272, ptr noundef nonnull %spec.store.select)
-  br label %.thread413
+269:                                              ; preds = %265
+  call void @conversation_set_addr2(ptr noundef nonnull %.027.i.i268441, ptr noundef nonnull %spec.store.select)
+  br label %.thread405
 
-279:                                              ; preds = %274
-  %280 = call fastcc ptr @conversation_create_from_template(ptr noundef %.027.i.i272, ptr noundef nonnull %spec.store.select, i32 noundef 0)
-  br label %.thread413
+270:                                              ; preds = %265
+  %271 = call fastcc ptr @conversation_create_from_template(ptr noundef %.027.i.i268441, ptr noundef nonnull %spec.store.select, i32 noundef 0)
+  br label %.thread405
 
-281:                                              ; preds = %conversation_lookup_no_addr2.exit285.thread, %.thread424, %.thread416
-  %282 = and i32 %6, 65552
-  %.not177 = icmp eq i32 %282, 0
-  br i1 %.not177, label %283, label %415
+272:                                              ; preds = %conversation_lookup_no_addr2.exit280.thread, %.thread426, %.thread408
+  %273 = and i32 %6, 65552
+  %.not177 = icmp eq i32 %273, 0
+  br i1 %.not177, label %274, label %401
 
-283:                                              ; preds = %281
+274:                                              ; preds = %272
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 1, ptr %14, align 16
-  %284 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  store i32 0, ptr %284, align 4
-  %285 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %285, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
-  %286 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %286, i8 0, i64 32, i1 false)
-  store i32 2, ptr %286, align 16
-  %287 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store i32 %4, ptr %287, align 8
-  %288 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  store i32 1, ptr %288, align 16
-  %289 = getelementptr inbounds nuw i8, ptr %14, i64 68
-  store i32 0, ptr %289, align 4
-  %290 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %290, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
-  %291 = getelementptr inbounds nuw i8, ptr %14, i64 96
-  %292 = getelementptr inbounds nuw i8, ptr %14, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %291, i8 0, i64 32, i1 false)
-  store i32 %3, ptr %292, align 8
-  %293 = load ptr, ptr @conversation_hashtable_no_port2, align 8
-  %294 = call ptr @wmem_map_lookup(ptr noundef %293, ptr noundef nonnull %14)
-  %.not.i.i286 = icmp eq ptr %294, null
-  br i1 %.not.i.i286, label %319, label %295
+  %275 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  store i32 0, ptr %275, align 4
+  %276 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %276, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
+  %277 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %277, i8 0, i64 32, i1 false)
+  store i32 2, ptr %277, align 16
+  %278 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  store i32 %4, ptr %278, align 8
+  %279 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  store i32 1, ptr %279, align 16
+  %280 = getelementptr inbounds nuw i8, ptr %14, i64 68
+  store i32 0, ptr %280, align 4
+  %281 = getelementptr inbounds nuw i8, ptr %14, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %281, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
+  %282 = getelementptr inbounds nuw i8, ptr %14, i64 96
+  %283 = getelementptr inbounds nuw i8, ptr %14, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %282, i8 0, i64 32, i1 false)
+  store i32 %3, ptr %283, align 8
+  %284 = load ptr, ptr @conversation_hashtable_no_port2, align 8
+  %285 = call ptr @wmem_map_lookup(ptr noundef %284, ptr noundef nonnull %14)
+  %.not.i.i281 = icmp eq ptr %285, null
+  br i1 %.not.i.i281, label %309, label %286
 
-295:                                              ; preds = %283
-  %296 = getelementptr inbounds nuw i8, ptr %294, i64 28
-  %297 = load i32, ptr %296, align 4
-  %.not33.i.i287 = icmp ugt i32 %297, %0
-  br i1 %.not33.i.i287, label %319, label %298
+286:                                              ; preds = %274
+  %287 = getelementptr inbounds nuw i8, ptr %285, i64 28
+  %288 = load i32, ptr %287, align 4
+  %.not33.i.i282 = icmp ugt i32 %288, %0
+  br i1 %.not33.i.i282, label %309, label %289
+
+289:                                              ; preds = %286
+  %290 = getelementptr inbounds nuw i8, ptr %285, i64 8
+  %291 = load ptr, ptr %290, align 8
+  %.not34.i.i283 = icmp eq ptr %291, null
+  br i1 %.not34.i.i283, label %295, label %292
+
+292:                                              ; preds = %289
+  %293 = getelementptr inbounds nuw i8, ptr %291, i64 28
+  %294 = load i32, ptr %293, align 4
+  %.not35.i.i284 = icmp ugt i32 %294, %0
+  br i1 %.not35.i.i284, label %295, label %conversation_lookup_no_port2.exit.thread443
+
+conversation_lookup_no_port2.exit.thread443:      ; preds = %292
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  br label %.thread446
+
+295:                                              ; preds = %292, %289
+  %296 = getelementptr inbounds nuw i8, ptr %285, i64 16
+  %297 = load ptr, ptr %296, align 8
+  %.not36.i.i286 = icmp eq ptr %297, null
+  br i1 %.not36.i.i286, label %.preheader551, label %298
 
 298:                                              ; preds = %295
-  %299 = getelementptr inbounds nuw i8, ptr %294, i64 8
-  %300 = load ptr, ptr %299, align 8
-  %.not34.i.i288 = icmp eq ptr %300, null
-  br i1 %.not34.i.i288, label %304, label %301
+  %299 = getelementptr inbounds nuw i8, ptr %297, i64 28
+  %300 = load i32, ptr %299, align 4
+  %.not37.i.i287 = icmp ugt i32 %300, %0
+  %spec.select.i.i288 = select i1 %.not37.i.i287, ptr %285, ptr %297
+  br label %.preheader551
 
-301:                                              ; preds = %298
-  %302 = getelementptr inbounds nuw i8, ptr %300, i64 28
+.preheader551:                                    ; preds = %298, %295
+  %.02644.i.i291.ph = phi ptr [ %spec.select.i.i288, %298 ], [ %285, %295 ]
+  br label %301
+
+301:                                              ; preds = %.preheader551, %304
+  %.245.i.i290 = phi ptr [ %spec.select41.i.i293, %304 ], [ %.02644.i.i291.ph, %.preheader551 ]
+  %.02644.i.i291 = phi ptr [ %308, %304 ], [ %.02644.i.i291.ph, %.preheader551 ]
+  %302 = getelementptr inbounds nuw i8, ptr %.02644.i.i291, i64 28
   %303 = load i32, ptr %302, align 4
-  %.not35.i.i289 = icmp ugt i32 %303, %0
-  br i1 %.not35.i.i289, label %304, label %.thread441
+  %.not39.i.i292 = icmp ugt i32 %303, %0
+  br i1 %.not39.i.i292, label %conversation_lookup_no_port2.exit, label %304
 
-304:                                              ; preds = %301, %298
-  %305 = getelementptr inbounds nuw i8, ptr %294, i64 16
-  %306 = load ptr, ptr %305, align 8
-  %.not36.i.i291 = icmp eq ptr %306, null
-  br i1 %.not36.i.i291, label %.preheader460, label %307
+304:                                              ; preds = %301
+  %305 = getelementptr inbounds nuw i8, ptr %.245.i.i290, i64 28
+  %306 = load i32, ptr %305, align 4
+  %307 = icmp ugt i32 %303, %306
+  %spec.select41.i.i293 = select i1 %307, ptr %.02644.i.i291, ptr %.245.i.i290
+  %308 = load ptr, ptr %.02644.i.i291, align 8
+  %.not38.i.i294 = icmp eq ptr %308, null
+  br i1 %.not38.i.i294, label %conversation_lookup_no_port2.exit, label %301, !llvm.loop !13
 
-307:                                              ; preds = %304
-  %308 = getelementptr inbounds nuw i8, ptr %306, i64 28
-  %309 = load i32, ptr %308, align 4
-  %.not37.i.i292 = icmp ugt i32 %309, %0
-  %spec.select.i.i293 = select i1 %.not37.i.i292, ptr %294, ptr %306
-  br label %.preheader460
-
-.preheader460:                                    ; preds = %307, %304
-  %.02644.i.i296.ph = phi ptr [ %spec.select.i.i293, %307 ], [ %294, %304 ]
-  br label %310
-
-310:                                              ; preds = %.preheader460, %313
-  %.245.i.i295 = phi ptr [ %spec.select41.i.i298, %313 ], [ %.02644.i.i296.ph, %.preheader460 ]
-  %.02644.i.i296 = phi ptr [ %317, %313 ], [ %.02644.i.i296.ph, %.preheader460 ]
-  %311 = getelementptr inbounds nuw i8, ptr %.02644.i.i296, i64 28
-  %312 = load i32, ptr %311, align 4
-  %.not39.i.i297 = icmp ugt i32 %312, %0
-  br i1 %.not39.i.i297, label %.critedge.i.i300, label %313
-
-313:                                              ; preds = %310
-  %314 = getelementptr inbounds nuw i8, ptr %.245.i.i295, i64 28
-  %315 = load i32, ptr %314, align 4
-  %316 = icmp ugt i32 %312, %315
-  %spec.select41.i.i298 = select i1 %316, ptr %.02644.i.i296, ptr %.245.i.i295
-  %317 = load ptr, ptr %.02644.i.i296, align 8
-  %.not38.i.i299 = icmp eq ptr %317, null
-  br i1 %.not38.i.i299, label %.critedge.i.i300, label %310, !llvm.loop !13
-
-.critedge.i.i300:                                 ; preds = %313, %310
-  %.2.lcssa.i.i301 = phi ptr [ %.245.i.i295, %310 ], [ %spec.select41.i.i298, %313 ]
-  %.not40.i.i302 = icmp eq ptr %.2.lcssa.i.i301, null
-  br i1 %.not40.i.i302, label %319, label %318
-
-318:                                              ; preds = %.critedge.i.i300
-  store ptr %.2.lcssa.i.i301, ptr %305, align 8
-  br label %.thread441
-
-.thread441:                                       ; preds = %318, %301
-  %.027.i.i290 = phi ptr [ %300, %301 ], [ %.2.lcssa.i.i301, %318 ]
+conversation_lookup_no_port2.exit:                ; preds = %301, %304
+  %.2.lcssa.i.i296 = phi ptr [ %.245.i.i290, %301 ], [ %spec.select41.i.i293, %304 ]
+  store ptr %.2.lcssa.i.i296, ptr %296, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %359
+  br label %.thread446
 
-319:                                              ; preds = %.critedge.i.i300, %295, %283
+309:                                              ; preds = %274, %286
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %320 = load i32, ptr %spec.store.select, align 8
-  %321 = icmp eq i32 %320, 5
-  br i1 %321, label %322, label %.thread438
+  %310 = load i32, ptr %spec.store.select, align 8
+  %311 = icmp eq i32 %310, 5
+  br i1 %311, label %312, label %.thread450
 
-322:                                              ; preds = %319
+312:                                              ; preds = %309
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 1, ptr %13, align 16
-  %323 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 0, ptr %323, align 4
-  %324 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %324, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
-  %325 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %325, i8 0, i64 32, i1 false)
-  store i32 2, ptr %325, align 16
-  %326 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store i32 %4, ptr %326, align 8
-  %327 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  store i32 1, ptr %327, align 16
-  %328 = getelementptr inbounds nuw i8, ptr %13, i64 68
-  store i32 0, ptr %328, align 4
-  %329 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %329, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
-  %330 = getelementptr inbounds nuw i8, ptr %13, i64 96
-  %331 = getelementptr inbounds nuw i8, ptr %13, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %330, i8 0, i64 32, i1 false)
-  store i32 %3, ptr %331, align 8
-  %332 = load ptr, ptr @conversation_hashtable_no_port2, align 8
-  %333 = call ptr @wmem_map_lookup(ptr noundef %332, ptr noundef nonnull %13)
-  %.not.i.i303 = icmp eq ptr %333, null
-  br i1 %.not.i.i303, label %.thread446, label %334
+  %313 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  store i32 0, ptr %313, align 4
+  %314 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %314, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
+  %315 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %315, i8 0, i64 32, i1 false)
+  store i32 2, ptr %315, align 16
+  %316 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  store i32 %4, ptr %316, align 8
+  %317 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  store i32 1, ptr %317, align 16
+  %318 = getelementptr inbounds nuw i8, ptr %13, i64 68
+  store i32 0, ptr %318, align 4
+  %319 = getelementptr inbounds nuw i8, ptr %13, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %319, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
+  %320 = getelementptr inbounds nuw i8, ptr %13, i64 96
+  %321 = getelementptr inbounds nuw i8, ptr %13, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %320, i8 0, i64 32, i1 false)
+  store i32 %3, ptr %321, align 8
+  %322 = load ptr, ptr @conversation_hashtable_no_port2, align 8
+  %323 = call ptr @wmem_map_lookup(ptr noundef %322, ptr noundef nonnull %13)
+  %.not.i.i297 = icmp eq ptr %323, null
+  br i1 %.not.i.i297, label %.thread454, label %324
 
-334:                                              ; preds = %322
-  %335 = getelementptr inbounds nuw i8, ptr %333, i64 28
-  %336 = load i32, ptr %335, align 4
-  %.not33.i.i304 = icmp ugt i32 %336, %0
-  br i1 %.not33.i.i304, label %.thread446, label %337
+324:                                              ; preds = %312
+  %325 = getelementptr inbounds nuw i8, ptr %323, i64 28
+  %326 = load i32, ptr %325, align 4
+  %.not33.i.i298 = icmp ugt i32 %326, %0
+  br i1 %.not33.i.i298, label %.thread454, label %327
 
-337:                                              ; preds = %334
-  %338 = getelementptr inbounds nuw i8, ptr %333, i64 8
-  %339 = load ptr, ptr %338, align 8
-  %.not34.i.i305 = icmp eq ptr %339, null
-  br i1 %.not34.i.i305, label %343, label %340
+327:                                              ; preds = %324
+  %328 = getelementptr inbounds nuw i8, ptr %323, i64 8
+  %329 = load ptr, ptr %328, align 8
+  %.not34.i.i299 = icmp eq ptr %329, null
+  br i1 %.not34.i.i299, label %333, label %330
 
-340:                                              ; preds = %337
-  %341 = getelementptr inbounds nuw i8, ptr %339, i64 28
-  %342 = load i32, ptr %341, align 4
-  %.not35.i.i306 = icmp ugt i32 %342, %0
-  br i1 %.not35.i.i306, label %343, label %358
+330:                                              ; preds = %327
+  %331 = getelementptr inbounds nuw i8, ptr %329, i64 28
+  %332 = load i32, ptr %331, align 4
+  %.not35.i.i300 = icmp ugt i32 %332, %0
+  br i1 %.not35.i.i300, label %333, label %.thread457
 
-343:                                              ; preds = %340, %337
-  %344 = getelementptr inbounds nuw i8, ptr %333, i64 16
-  %345 = load ptr, ptr %344, align 8
-  %.not36.i.i308 = icmp eq ptr %345, null
-  br i1 %.not36.i.i308, label %.preheader459, label %346
-
-346:                                              ; preds = %343
-  %347 = getelementptr inbounds nuw i8, ptr %345, i64 28
-  %348 = load i32, ptr %347, align 4
-  %.not37.i.i309 = icmp ugt i32 %348, %0
-  %spec.select.i.i310 = select i1 %.not37.i.i309, ptr %333, ptr %345
-  br label %.preheader459
-
-.preheader459:                                    ; preds = %346, %343
-  %.02644.i.i313.ph = phi ptr [ %spec.select.i.i310, %346 ], [ %333, %343 ]
-  br label %349
-
-349:                                              ; preds = %.preheader459, %352
-  %.245.i.i312 = phi ptr [ %spec.select41.i.i315, %352 ], [ %.02644.i.i313.ph, %.preheader459 ]
-  %.02644.i.i313 = phi ptr [ %356, %352 ], [ %.02644.i.i313.ph, %.preheader459 ]
-  %350 = getelementptr inbounds nuw i8, ptr %.02644.i.i313, i64 28
-  %351 = load i32, ptr %350, align 4
-  %.not39.i.i314 = icmp ugt i32 %351, %0
-  br i1 %.not39.i.i314, label %.critedge.i.i317, label %352
-
-352:                                              ; preds = %349
-  %353 = getelementptr inbounds nuw i8, ptr %.245.i.i312, i64 28
-  %354 = load i32, ptr %353, align 4
-  %355 = icmp ugt i32 %351, %354
-  %spec.select41.i.i315 = select i1 %355, ptr %.02644.i.i313, ptr %.245.i.i312
-  %356 = load ptr, ptr %.02644.i.i313, align 8
-  %.not38.i.i316 = icmp eq ptr %356, null
-  br i1 %.not38.i.i316, label %.critedge.i.i317, label %349, !llvm.loop !13
-
-.critedge.i.i317:                                 ; preds = %352, %349
-  %.2.lcssa.i.i318 = phi ptr [ %.245.i.i312, %349 ], [ %spec.select41.i.i315, %352 ]
-  %.not40.i.i319 = icmp eq ptr %.2.lcssa.i.i318, null
-  br i1 %.not40.i.i319, label %.thread446, label %357
-
-357:                                              ; preds = %.critedge.i.i317
-  store ptr %.2.lcssa.i.i318, ptr %344, align 8
-  br label %358
-
-.thread446:                                       ; preds = %.critedge.i.i317, %334, %322
+.thread457:                                       ; preds = %330
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %.thread438
+  br label %.thread446
 
-358:                                              ; preds = %357, %340
-  %.027.i.i307 = phi ptr [ %339, %340 ], [ %.2.lcssa.i.i318, %357 ]
+333:                                              ; preds = %330, %327
+  %334 = getelementptr inbounds nuw i8, ptr %323, i64 16
+  %335 = load ptr, ptr %334, align 8
+  %.not36.i.i302 = icmp eq ptr %335, null
+  br i1 %.not36.i.i302, label %.preheader550, label %336
+
+336:                                              ; preds = %333
+  %337 = getelementptr inbounds nuw i8, ptr %335, i64 28
+  %338 = load i32, ptr %337, align 4
+  %.not37.i.i303 = icmp ugt i32 %338, %0
+  %spec.select.i.i304 = select i1 %.not37.i.i303, ptr %323, ptr %335
+  br label %.preheader550
+
+.preheader550:                                    ; preds = %336, %333
+  %.02644.i.i307.ph = phi ptr [ %spec.select.i.i304, %336 ], [ %323, %333 ]
+  br label %339
+
+339:                                              ; preds = %.preheader550, %342
+  %.245.i.i306 = phi ptr [ %spec.select41.i.i309, %342 ], [ %.02644.i.i307.ph, %.preheader550 ]
+  %.02644.i.i307 = phi ptr [ %346, %342 ], [ %.02644.i.i307.ph, %.preheader550 ]
+  %340 = getelementptr inbounds nuw i8, ptr %.02644.i.i307, i64 28
+  %341 = load i32, ptr %340, align 4
+  %.not39.i.i308 = icmp ugt i32 %341, %0
+  br i1 %.not39.i.i308, label %347, label %342
+
+342:                                              ; preds = %339
+  %343 = getelementptr inbounds nuw i8, ptr %.245.i.i306, i64 28
+  %344 = load i32, ptr %343, align 4
+  %345 = icmp ugt i32 %341, %344
+  %spec.select41.i.i309 = select i1 %345, ptr %.02644.i.i307, ptr %.245.i.i306
+  %346 = load ptr, ptr %.02644.i.i307, align 8
+  %.not38.i.i310 = icmp eq ptr %346, null
+  br i1 %.not38.i.i310, label %347, label %339, !llvm.loop !13
+
+.thread454:                                       ; preds = %324, %312
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %359
+  br label %.thread450
 
-359:                                              ; preds = %358, %.thread441
-  %.4444 = phi ptr [ %.027.i.i290, %.thread441 ], [ %.027.i.i307, %358 ]
-  %360 = getelementptr inbounds nuw i8, ptr %.4444, i64 56
-  %361 = load i32, ptr %360, align 8
-  %362 = and i32 %361, 2
-  %363 = icmp eq i32 %362, 0
-  %364 = icmp ne i32 %3, 3
-  %or.cond3 = and i1 %364, %363
-  br i1 %or.cond3, label %365, label %.thread413
+347:                                              ; preds = %339, %342
+  %.2.lcssa.i.i312 = phi ptr [ %.245.i.i306, %339 ], [ %spec.select41.i.i309, %342 ]
+  store ptr %.2.lcssa.i.i312, ptr %334, align 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  br label %.thread446
 
-365:                                              ; preds = %359
-  %366 = and i32 %361, 8
-  %.not183 = icmp eq i32 %366, 0
-  br i1 %.not183, label %367, label %368
+.thread446:                                       ; preds = %347, %conversation_lookup_no_port2.exit, %conversation_lookup_no_port2.exit.thread443, %.thread457
+  %.4449 = phi ptr [ %.2.lcssa.i.i312, %347 ], [ %329, %.thread457 ], [ %291, %conversation_lookup_no_port2.exit.thread443 ], [ %.2.lcssa.i.i296, %conversation_lookup_no_port2.exit ]
+  %348 = getelementptr inbounds nuw i8, ptr %.4449, i64 56
+  %349 = load i32, ptr %348, align 8
+  %350 = and i32 %349, 2
+  %351 = icmp eq i32 %350, 0
+  %352 = icmp ne i32 %3, 3
+  %or.cond3 = and i1 %352, %351
+  br i1 %or.cond3, label %353, label %.thread405
 
-367:                                              ; preds = %365
-  call void @conversation_set_port2(ptr noundef nonnull %.4444, i32 noundef %5)
-  br label %.thread413
+353:                                              ; preds = %.thread446
+  %354 = and i32 %349, 8
+  %.not183 = icmp eq i32 %354, 0
+  br i1 %.not183, label %355, label %356
 
-368:                                              ; preds = %365
-  %369 = call fastcc ptr @conversation_create_from_template(ptr noundef %.4444, ptr noundef null, i32 noundef %5)
-  br label %.thread413
+355:                                              ; preds = %353
+  call void @conversation_set_port2(ptr noundef nonnull %.4449, i32 noundef %5)
+  br label %.thread405
 
-.thread438:                                       ; preds = %319, %.thread446
-  %370 = and i32 %6, 131072
-  %.not179 = icmp eq i32 %370, 0
-  br i1 %.not179, label %371, label %415
+356:                                              ; preds = %353
+  %357 = call fastcc ptr @conversation_create_from_template(ptr noundef %.4449, ptr noundef null, i32 noundef %5)
+  br label %.thread405
 
-371:                                              ; preds = %.thread438
+.thread450:                                       ; preds = %309, %.thread454
+  %358 = and i32 %6, 131072
+  %.not179 = icmp eq i32 %358, 0
+  br i1 %.not179, label %359, label %401
+
+359:                                              ; preds = %.thread450
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 1, ptr %12, align 16
-  %372 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 0, ptr %372, align 4
-  %373 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %373, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
-  %374 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %374, i8 0, i64 32, i1 false)
-  store i32 2, ptr %374, align 16
-  %375 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store i32 %5, ptr %375, align 8
-  %376 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  store i32 1, ptr %376, align 16
-  %377 = getelementptr inbounds nuw i8, ptr %12, i64 68
-  store i32 0, ptr %377, align 4
-  %378 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %378, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
-  %379 = getelementptr inbounds nuw i8, ptr %12, i64 96
-  %380 = getelementptr inbounds nuw i8, ptr %12, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %379, i8 0, i64 32, i1 false)
-  store i32 %3, ptr %380, align 8
-  %381 = load ptr, ptr @conversation_hashtable_no_port2, align 8
-  %382 = call ptr @wmem_map_lookup(ptr noundef %381, ptr noundef nonnull %12)
-  %.not.i.i321 = icmp eq ptr %382, null
-  br i1 %.not.i.i321, label %conversation_lookup_no_port2.exit338.thread, label %383
+  %360 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store i32 0, ptr %360, align 4
+  %361 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %361, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
+  %362 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %362, i8 0, i64 32, i1 false)
+  store i32 2, ptr %362, align 16
+  %363 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  store i32 %5, ptr %363, align 8
+  %364 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  store i32 1, ptr %364, align 16
+  %365 = getelementptr inbounds nuw i8, ptr %12, i64 68
+  store i32 0, ptr %365, align 4
+  %366 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %366, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
+  %367 = getelementptr inbounds nuw i8, ptr %12, i64 96
+  %368 = getelementptr inbounds nuw i8, ptr %12, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %367, i8 0, i64 32, i1 false)
+  store i32 %3, ptr %368, align 8
+  %369 = load ptr, ptr @conversation_hashtable_no_port2, align 8
+  %370 = call ptr @wmem_map_lookup(ptr noundef %369, ptr noundef nonnull %12)
+  %.not.i.i314 = icmp eq ptr %370, null
+  br i1 %.not.i.i314, label %conversation_lookup_no_port2.exit330.thread, label %371
 
-383:                                              ; preds = %371
+371:                                              ; preds = %359
+  %372 = getelementptr inbounds nuw i8, ptr %370, i64 28
+  %373 = load i32, ptr %372, align 4
+  %.not33.i.i315 = icmp ugt i32 %373, %0
+  br i1 %.not33.i.i315, label %conversation_lookup_no_port2.exit330.thread, label %374
+
+374:                                              ; preds = %371
+  %375 = getelementptr inbounds nuw i8, ptr %370, i64 8
+  %376 = load ptr, ptr %375, align 8
+  %.not34.i.i316 = icmp eq ptr %376, null
+  br i1 %.not34.i.i316, label %380, label %377
+
+377:                                              ; preds = %374
+  %378 = getelementptr inbounds nuw i8, ptr %376, i64 28
+  %379 = load i32, ptr %378, align 4
+  %.not35.i.i317 = icmp ugt i32 %379, %0
+  br i1 %.not35.i.i317, label %380, label %conversation_lookup_no_port2.exit330.thread462
+
+380:                                              ; preds = %377, %374
+  %381 = getelementptr inbounds nuw i8, ptr %370, i64 16
+  %382 = load ptr, ptr %381, align 8
+  %.not36.i.i319 = icmp eq ptr %382, null
+  br i1 %.not36.i.i319, label %.preheader549, label %383
+
+383:                                              ; preds = %380
   %384 = getelementptr inbounds nuw i8, ptr %382, i64 28
   %385 = load i32, ptr %384, align 4
-  %.not33.i.i322 = icmp ugt i32 %385, %0
-  br i1 %.not33.i.i322, label %conversation_lookup_no_port2.exit338.thread, label %386
+  %.not37.i.i320 = icmp ugt i32 %385, %0
+  %spec.select.i.i321 = select i1 %.not37.i.i320, ptr %370, ptr %382
+  br label %.preheader549
 
-386:                                              ; preds = %383
-  %387 = getelementptr inbounds nuw i8, ptr %382, i64 8
-  %388 = load ptr, ptr %387, align 8
-  %.not34.i.i323 = icmp eq ptr %388, null
-  br i1 %.not34.i.i323, label %392, label %389
+.preheader549:                                    ; preds = %383, %380
+  %.02644.i.i324.ph = phi ptr [ %spec.select.i.i321, %383 ], [ %370, %380 ]
+  br label %386
+
+386:                                              ; preds = %.preheader549, %389
+  %.245.i.i323 = phi ptr [ %spec.select41.i.i326, %389 ], [ %.02644.i.i324.ph, %.preheader549 ]
+  %.02644.i.i324 = phi ptr [ %393, %389 ], [ %.02644.i.i324.ph, %.preheader549 ]
+  %387 = getelementptr inbounds nuw i8, ptr %.02644.i.i324, i64 28
+  %388 = load i32, ptr %387, align 4
+  %.not39.i.i325 = icmp ugt i32 %388, %0
+  br i1 %.not39.i.i325, label %conversation_lookup_no_port2.exit330, label %389
 
 389:                                              ; preds = %386
-  %390 = getelementptr inbounds nuw i8, ptr %388, i64 28
+  %390 = getelementptr inbounds nuw i8, ptr %.245.i.i323, i64 28
   %391 = load i32, ptr %390, align 4
-  %.not35.i.i324 = icmp ugt i32 %391, %0
-  br i1 %.not35.i.i324, label %392, label %407
+  %392 = icmp ugt i32 %388, %391
+  %spec.select41.i.i326 = select i1 %392, ptr %.02644.i.i324, ptr %.245.i.i323
+  %393 = load ptr, ptr %.02644.i.i324, align 8
+  %.not38.i.i327 = icmp eq ptr %393, null
+  br i1 %.not38.i.i327, label %conversation_lookup_no_port2.exit330, label %386, !llvm.loop !13
 
-392:                                              ; preds = %389, %386
-  %393 = getelementptr inbounds nuw i8, ptr %382, i64 16
-  %394 = load ptr, ptr %393, align 8
-  %.not36.i.i326 = icmp eq ptr %394, null
-  br i1 %.not36.i.i326, label %.preheader458, label %395
-
-395:                                              ; preds = %392
-  %396 = getelementptr inbounds nuw i8, ptr %394, i64 28
-  %397 = load i32, ptr %396, align 4
-  %.not37.i.i327 = icmp ugt i32 %397, %0
-  %spec.select.i.i328 = select i1 %.not37.i.i327, ptr %382, ptr %394
-  br label %.preheader458
-
-.preheader458:                                    ; preds = %395, %392
-  %.02644.i.i331.ph = phi ptr [ %spec.select.i.i328, %395 ], [ %382, %392 ]
-  br label %398
-
-398:                                              ; preds = %.preheader458, %401
-  %.245.i.i330 = phi ptr [ %spec.select41.i.i333, %401 ], [ %.02644.i.i331.ph, %.preheader458 ]
-  %.02644.i.i331 = phi ptr [ %405, %401 ], [ %.02644.i.i331.ph, %.preheader458 ]
-  %399 = getelementptr inbounds nuw i8, ptr %.02644.i.i331, i64 28
-  %400 = load i32, ptr %399, align 4
-  %.not39.i.i332 = icmp ugt i32 %400, %0
-  br i1 %.not39.i.i332, label %.critedge.i.i335, label %401
-
-401:                                              ; preds = %398
-  %402 = getelementptr inbounds nuw i8, ptr %.245.i.i330, i64 28
-  %403 = load i32, ptr %402, align 4
-  %404 = icmp ugt i32 %400, %403
-  %spec.select41.i.i333 = select i1 %404, ptr %.02644.i.i331, ptr %.245.i.i330
-  %405 = load ptr, ptr %.02644.i.i331, align 8
-  %.not38.i.i334 = icmp eq ptr %405, null
-  br i1 %.not38.i.i334, label %.critedge.i.i335, label %398, !llvm.loop !13
-
-.critedge.i.i335:                                 ; preds = %401, %398
-  %.2.lcssa.i.i336 = phi ptr [ %.245.i.i330, %398 ], [ %spec.select41.i.i333, %401 ]
-  %.not40.i.i337 = icmp eq ptr %.2.lcssa.i.i336, null
-  br i1 %.not40.i.i337, label %conversation_lookup_no_port2.exit338.thread, label %406
-
-406:                                              ; preds = %.critedge.i.i335
-  store ptr %.2.lcssa.i.i336, ptr %393, align 8
-  br label %407
-
-conversation_lookup_no_port2.exit338.thread:      ; preds = %.critedge.i.i335, %383, %371
+conversation_lookup_no_port2.exit330.thread:      ; preds = %371, %359
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %415
+  br label %401
 
-407:                                              ; preds = %406, %389
-  %.027.i.i325 = phi ptr [ %388, %389 ], [ %.2.lcssa.i.i336, %406 ]
+conversation_lookup_no_port2.exit330:             ; preds = %386, %389
+  %.2.lcssa.i.i329 = phi ptr [ %.245.i.i323, %386 ], [ %spec.select41.i.i326, %389 ]
+  store ptr %.2.lcssa.i.i329, ptr %381, align 8
+  br label %conversation_lookup_no_port2.exit330.thread462
+
+conversation_lookup_no_port2.exit330.thread462:   ; preds = %377, %conversation_lookup_no_port2.exit330
+  %.027.i.i318465 = phi ptr [ %.2.lcssa.i.i329, %conversation_lookup_no_port2.exit330 ], [ %376, %377 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.not181 = icmp eq i32 %3, 3
-  br i1 %.not181, label %.thread413, label %408
+  br i1 %.not181, label %.thread405, label %394
 
-408:                                              ; preds = %407
-  %409 = getelementptr inbounds nuw i8, ptr %.027.i.i325, i64 56
-  %410 = load i32, ptr %409, align 8
-  %411 = and i32 %410, 8
-  %.not182 = icmp eq i32 %411, 0
-  br i1 %.not182, label %412, label %413
+394:                                              ; preds = %conversation_lookup_no_port2.exit330.thread462
+  %395 = getelementptr inbounds nuw i8, ptr %.027.i.i318465, i64 56
+  %396 = load i32, ptr %395, align 8
+  %397 = and i32 %396, 8
+  %.not182 = icmp eq i32 %397, 0
+  br i1 %.not182, label %398, label %399
 
-412:                                              ; preds = %408
-  call void @conversation_set_port2(ptr noundef nonnull %.027.i.i325, i32 noundef %4)
-  br label %.thread413
+398:                                              ; preds = %394
+  call void @conversation_set_port2(ptr noundef nonnull %.027.i.i318465, i32 noundef %4)
+  br label %.thread405
 
-413:                                              ; preds = %408
-  %414 = call fastcc ptr @conversation_create_from_template(ptr noundef %.027.i.i325, ptr noundef null, i32 noundef %4)
-  br label %.thread413
+399:                                              ; preds = %394
+  %400 = call fastcc ptr @conversation_create_from_template(ptr noundef %.027.i.i318465, ptr noundef null, i32 noundef %4)
+  br label %.thread405
 
-415:                                              ; preds = %conversation_lookup_no_port2.exit338.thread, %.thread438, %281
+401:                                              ; preds = %conversation_lookup_no_port2.exit330.thread, %.thread450, %272
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 1, ptr %11, align 16
-  %416 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 0, ptr %416, align 4
-  %417 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %417, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
-  %418 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %418, i8 0, i64 32, i1 false)
-  store i32 2, ptr %418, align 16
-  %419 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i32 %4, ptr %419, align 8
-  %420 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  %421 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %420, i8 0, i64 32, i1 false)
-  store i32 %3, ptr %421, align 8
-  %422 = load ptr, ptr @conversation_hashtable_no_addr2_or_port2, align 8
-  %423 = call ptr @wmem_map_lookup(ptr noundef %422, ptr noundef nonnull %11)
-  %.not.i.i339 = icmp eq ptr %423, null
-  br i1 %.not.i.i339, label %462, label %424
+  %402 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store i32 0, ptr %402, align 4
+  %403 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %403, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
+  %404 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %404, i8 0, i64 32, i1 false)
+  store i32 2, ptr %404, align 16
+  %405 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  store i32 %4, ptr %405, align 8
+  %406 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  %407 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %406, i8 0, i64 32, i1 false)
+  store i32 %3, ptr %407, align 8
+  %408 = load ptr, ptr @conversation_hashtable_no_addr2_or_port2, align 8
+  %409 = call ptr @wmem_map_lookup(ptr noundef %408, ptr noundef nonnull %11)
+  %.not.i.i331 = icmp eq ptr %409, null
+  br i1 %.not.i.i331, label %446, label %410
 
-424:                                              ; preds = %415
-  %425 = getelementptr inbounds nuw i8, ptr %423, i64 28
-  %426 = load i32, ptr %425, align 4
-  %.not33.i.i340 = icmp ugt i32 %426, %0
-  br i1 %.not33.i.i340, label %462, label %427
+410:                                              ; preds = %401
+  %411 = getelementptr inbounds nuw i8, ptr %409, i64 28
+  %412 = load i32, ptr %411, align 4
+  %.not33.i.i332 = icmp ugt i32 %412, %0
+  br i1 %.not33.i.i332, label %446, label %413
 
-427:                                              ; preds = %424
-  %428 = getelementptr inbounds nuw i8, ptr %423, i64 8
-  %429 = load ptr, ptr %428, align 8
-  %.not34.i.i341 = icmp eq ptr %429, null
-  br i1 %.not34.i.i341, label %433, label %430
+413:                                              ; preds = %410
+  %414 = getelementptr inbounds nuw i8, ptr %409, i64 8
+  %415 = load ptr, ptr %414, align 8
+  %.not34.i.i333 = icmp eq ptr %415, null
+  br i1 %.not34.i.i333, label %419, label %416
 
-430:                                              ; preds = %427
-  %431 = getelementptr inbounds nuw i8, ptr %429, i64 28
-  %432 = load i32, ptr %431, align 4
-  %.not35.i.i342 = icmp ugt i32 %432, %0
-  br i1 %.not35.i.i342, label %433, label %448
+416:                                              ; preds = %413
+  %417 = getelementptr inbounds nuw i8, ptr %415, i64 28
+  %418 = load i32, ptr %417, align 4
+  %.not35.i.i334 = icmp ugt i32 %418, %0
+  br i1 %.not35.i.i334, label %419, label %conversation_lookup_no_addr2_or_port2.exit.thread468
 
-433:                                              ; preds = %430, %427
-  %434 = getelementptr inbounds nuw i8, ptr %423, i64 16
-  %435 = load ptr, ptr %434, align 8
-  %.not36.i.i344 = icmp eq ptr %435, null
-  br i1 %.not36.i.i344, label %.preheader457, label %436
+419:                                              ; preds = %416, %413
+  %420 = getelementptr inbounds nuw i8, ptr %409, i64 16
+  %421 = load ptr, ptr %420, align 8
+  %.not36.i.i336 = icmp eq ptr %421, null
+  br i1 %.not36.i.i336, label %.preheader548, label %422
 
-436:                                              ; preds = %433
-  %437 = getelementptr inbounds nuw i8, ptr %435, i64 28
-  %438 = load i32, ptr %437, align 4
-  %.not37.i.i345 = icmp ugt i32 %438, %0
-  %spec.select.i.i346 = select i1 %.not37.i.i345, ptr %423, ptr %435
-  br label %.preheader457
+422:                                              ; preds = %419
+  %423 = getelementptr inbounds nuw i8, ptr %421, i64 28
+  %424 = load i32, ptr %423, align 4
+  %.not37.i.i337 = icmp ugt i32 %424, %0
+  %spec.select.i.i338 = select i1 %.not37.i.i337, ptr %409, ptr %421
+  br label %.preheader548
 
-.preheader457:                                    ; preds = %436, %433
-  %.02644.i.i349.ph = phi ptr [ %spec.select.i.i346, %436 ], [ %423, %433 ]
-  br label %439
+.preheader548:                                    ; preds = %422, %419
+  %.02644.i.i341.ph = phi ptr [ %spec.select.i.i338, %422 ], [ %409, %419 ]
+  br label %425
 
-439:                                              ; preds = %.preheader457, %442
-  %.245.i.i348 = phi ptr [ %spec.select41.i.i351, %442 ], [ %.02644.i.i349.ph, %.preheader457 ]
-  %.02644.i.i349 = phi ptr [ %446, %442 ], [ %.02644.i.i349.ph, %.preheader457 ]
-  %440 = getelementptr inbounds nuw i8, ptr %.02644.i.i349, i64 28
-  %441 = load i32, ptr %440, align 4
-  %.not39.i.i350 = icmp ugt i32 %441, %0
-  br i1 %.not39.i.i350, label %.critedge.i.i353, label %442
+425:                                              ; preds = %.preheader548, %428
+  %.245.i.i340 = phi ptr [ %spec.select41.i.i343, %428 ], [ %.02644.i.i341.ph, %.preheader548 ]
+  %.02644.i.i341 = phi ptr [ %432, %428 ], [ %.02644.i.i341.ph, %.preheader548 ]
+  %426 = getelementptr inbounds nuw i8, ptr %.02644.i.i341, i64 28
+  %427 = load i32, ptr %426, align 4
+  %.not39.i.i342 = icmp ugt i32 %427, %0
+  br i1 %.not39.i.i342, label %conversation_lookup_no_addr2_or_port2.exit, label %428
 
-442:                                              ; preds = %439
-  %443 = getelementptr inbounds nuw i8, ptr %.245.i.i348, i64 28
-  %444 = load i32, ptr %443, align 4
-  %445 = icmp ugt i32 %441, %444
-  %spec.select41.i.i351 = select i1 %445, ptr %.02644.i.i349, ptr %.245.i.i348
-  %446 = load ptr, ptr %.02644.i.i349, align 8
-  %.not38.i.i352 = icmp eq ptr %446, null
-  br i1 %.not38.i.i352, label %.critedge.i.i353, label %439, !llvm.loop !13
+428:                                              ; preds = %425
+  %429 = getelementptr inbounds nuw i8, ptr %.245.i.i340, i64 28
+  %430 = load i32, ptr %429, align 4
+  %431 = icmp ugt i32 %427, %430
+  %spec.select41.i.i343 = select i1 %431, ptr %.02644.i.i341, ptr %.245.i.i340
+  %432 = load ptr, ptr %.02644.i.i341, align 8
+  %.not38.i.i344 = icmp eq ptr %432, null
+  br i1 %.not38.i.i344, label %conversation_lookup_no_addr2_or_port2.exit, label %425, !llvm.loop !13
 
-.critedge.i.i353:                                 ; preds = %442, %439
-  %.2.lcssa.i.i354 = phi ptr [ %.245.i.i348, %439 ], [ %spec.select41.i.i351, %442 ]
-  %.not40.i.i355 = icmp eq ptr %.2.lcssa.i.i354, null
-  br i1 %.not40.i.i355, label %462, label %447
+conversation_lookup_no_addr2_or_port2.exit:       ; preds = %425, %428
+  %.2.lcssa.i.i346 = phi ptr [ %.245.i.i340, %425 ], [ %spec.select41.i.i343, %428 ]
+  store ptr %.2.lcssa.i.i346, ptr %420, align 8
+  br label %conversation_lookup_no_addr2_or_port2.exit.thread468
 
-447:                                              ; preds = %.critedge.i.i353
-  store ptr %.2.lcssa.i.i354, ptr %434, align 8
-  br label %448
-
-448:                                              ; preds = %447, %430
-  %.027.i.i343 = phi ptr [ %429, %430 ], [ %.2.lcssa.i.i354, %447 ]
+conversation_lookup_no_addr2_or_port2.exit.thread468: ; preds = %416, %conversation_lookup_no_addr2_or_port2.exit
+  %.027.i.i335471 = phi ptr [ %.2.lcssa.i.i346, %conversation_lookup_no_addr2_or_port2.exit ], [ %415, %416 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not192 = icmp eq i32 %3, 3
-  br i1 %.not192, label %.thread413, label %449
+  br i1 %.not192, label %.thread405, label %433
 
-449:                                              ; preds = %448
-  %450 = getelementptr inbounds nuw i8, ptr %.027.i.i343, i64 56
-  %451 = load i32, ptr %450, align 8
-  %452 = and i32 %451, 8
-  %.not193 = icmp eq i32 %452, 0
-  br i1 %.not193, label %453, label %460
+433:                                              ; preds = %conversation_lookup_no_addr2_or_port2.exit.thread468
+  %434 = getelementptr inbounds nuw i8, ptr %.027.i.i335471, i64 56
+  %435 = load i32, ptr %434, align 8
+  %436 = and i32 %435, 8
+  %.not193 = icmp eq i32 %436, 0
+  br i1 %.not193, label %437, label %444
 
-453:                                              ; preds = %449
-  %454 = and i32 %451, 1
-  %.not194 = icmp eq i32 %454, 0
-  br i1 %.not194, label %455, label %456
+437:                                              ; preds = %433
+  %438 = and i32 %435, 1
+  %.not194 = icmp eq i32 %438, 0
+  br i1 %.not194, label %439, label %440
 
-455:                                              ; preds = %453
-  call void @conversation_set_addr2(ptr noundef nonnull %.027.i.i343, ptr noundef nonnull %spec.store.select4)
-  %.pre = load i32, ptr %450, align 8
-  br label %456
+439:                                              ; preds = %437
+  call void @conversation_set_addr2(ptr noundef nonnull %.027.i.i335471, ptr noundef nonnull %spec.store.select4)
+  %.pre = load i32, ptr %434, align 8
+  br label %440
 
-456:                                              ; preds = %455, %453
-  %457 = phi i32 [ %.pre, %455 ], [ %451, %453 ]
-  %458 = and i32 %457, 2
-  %.not195 = icmp eq i32 %458, 0
-  br i1 %.not195, label %459, label %.thread413
+440:                                              ; preds = %439, %437
+  %441 = phi i32 [ %.pre, %439 ], [ %435, %437 ]
+  %442 = and i32 %441, 2
+  %.not195 = icmp eq i32 %442, 0
+  br i1 %.not195, label %443, label %.thread405
 
-459:                                              ; preds = %456
-  call void @conversation_set_port2(ptr noundef nonnull %.027.i.i343, i32 noundef %5)
-  br label %.thread413
+443:                                              ; preds = %440
+  call void @conversation_set_port2(ptr noundef nonnull %.027.i.i335471, i32 noundef %5)
+  br label %.thread405
 
-460:                                              ; preds = %449
-  %461 = call fastcc ptr @conversation_create_from_template(ptr noundef %.027.i.i343, ptr noundef nonnull %spec.store.select4, i32 noundef %5)
-  br label %.thread413
+444:                                              ; preds = %433
+  %445 = call fastcc ptr @conversation_create_from_template(ptr noundef %.027.i.i335471, ptr noundef nonnull %spec.store.select4, i32 noundef %5)
+  br label %.thread405
 
-462:                                              ; preds = %.critedge.i.i353, %424, %415
+446:                                              ; preds = %401, %410
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not185 = icmp eq i32 %3, 14
-  br i1 %.not185, label %541, label %463
+  br i1 %.not185, label %523, label %447
 
-463:                                              ; preds = %462
-  %464 = load i32, ptr %spec.store.select, align 8
-  %465 = icmp eq i32 %464, 5
-  br i1 %465, label %466, label %499
+447:                                              ; preds = %446
+  %448 = load i32, ptr %spec.store.select, align 8
+  %449 = icmp eq i32 %448, 5
+  br i1 %449, label %450, label %482
 
-466:                                              ; preds = %463
+450:                                              ; preds = %447
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 1, ptr %10, align 16
-  %467 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 0, ptr %467, align 4
-  %468 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %468, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
-  %469 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %469, i8 0, i64 32, i1 false)
-  store i32 2, ptr %469, align 16
-  %470 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store i32 %4, ptr %470, align 8
-  %471 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %472 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %471, i8 0, i64 32, i1 false)
-  store i32 %3, ptr %472, align 8
-  %473 = load ptr, ptr @conversation_hashtable_no_addr2_or_port2, align 8
-  %474 = call ptr @wmem_map_lookup(ptr noundef %473, ptr noundef nonnull %10)
-  %.not.i.i356 = icmp eq ptr %474, null
-  br i1 %.not.i.i356, label %conversation_lookup_no_addr2_or_port2.exit373, label %475
+  %451 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store i32 0, ptr %451, align 4
+  %452 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %452, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
+  %453 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %453, i8 0, i64 32, i1 false)
+  store i32 2, ptr %453, align 16
+  %454 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  store i32 %4, ptr %454, align 8
+  %455 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %456 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %455, i8 0, i64 32, i1 false)
+  store i32 %3, ptr %456, align 8
+  %457 = load ptr, ptr @conversation_hashtable_no_addr2_or_port2, align 8
+  %458 = call ptr @wmem_map_lookup(ptr noundef %457, ptr noundef nonnull %10)
+  %.not.i.i347 = icmp eq ptr %458, null
+  br i1 %.not.i.i347, label %conversation_lookup_no_addr2_or_port2.exit363, label %459
 
-475:                                              ; preds = %466
-  %476 = getelementptr inbounds nuw i8, ptr %474, i64 28
-  %477 = load i32, ptr %476, align 4
-  %.not33.i.i357 = icmp ugt i32 %477, %0
-  br i1 %.not33.i.i357, label %conversation_lookup_no_addr2_or_port2.exit373, label %478
+459:                                              ; preds = %450
+  %460 = getelementptr inbounds nuw i8, ptr %458, i64 28
+  %461 = load i32, ptr %460, align 4
+  %.not33.i.i348 = icmp ugt i32 %461, %0
+  br i1 %.not33.i.i348, label %conversation_lookup_no_addr2_or_port2.exit363, label %462
 
-478:                                              ; preds = %475
-  %479 = getelementptr inbounds nuw i8, ptr %474, i64 8
-  %480 = load ptr, ptr %479, align 8
-  %.not34.i.i358 = icmp eq ptr %480, null
-  br i1 %.not34.i.i358, label %484, label %481
+462:                                              ; preds = %459
+  %463 = getelementptr inbounds nuw i8, ptr %458, i64 8
+  %464 = load ptr, ptr %463, align 8
+  %.not34.i.i349 = icmp eq ptr %464, null
+  br i1 %.not34.i.i349, label %468, label %465
 
-481:                                              ; preds = %478
-  %482 = getelementptr inbounds nuw i8, ptr %480, i64 28
-  %483 = load i32, ptr %482, align 4
-  %.not35.i.i359 = icmp ugt i32 %483, %0
-  br i1 %.not35.i.i359, label %484, label %conversation_lookup_no_addr2_or_port2.exit373
+465:                                              ; preds = %462
+  %466 = getelementptr inbounds nuw i8, ptr %464, i64 28
+  %467 = load i32, ptr %466, align 4
+  %.not35.i.i350 = icmp ugt i32 %467, %0
+  br i1 %.not35.i.i350, label %468, label %conversation_lookup_no_addr2_or_port2.exit363
 
-484:                                              ; preds = %481, %478
-  %485 = getelementptr inbounds nuw i8, ptr %474, i64 16
-  %486 = load ptr, ptr %485, align 8
-  %.not36.i.i361 = icmp eq ptr %486, null
-  br i1 %.not36.i.i361, label %.preheader455, label %487
+468:                                              ; preds = %465, %462
+  %469 = getelementptr inbounds nuw i8, ptr %458, i64 16
+  %470 = load ptr, ptr %469, align 8
+  %.not36.i.i352 = icmp eq ptr %470, null
+  br i1 %.not36.i.i352, label %.preheader546, label %471
 
-487:                                              ; preds = %484
-  %488 = getelementptr inbounds nuw i8, ptr %486, i64 28
-  %489 = load i32, ptr %488, align 4
-  %.not37.i.i362 = icmp ugt i32 %489, %0
-  %spec.select.i.i363 = select i1 %.not37.i.i362, ptr %474, ptr %486
-  br label %.preheader455
+471:                                              ; preds = %468
+  %472 = getelementptr inbounds nuw i8, ptr %470, i64 28
+  %473 = load i32, ptr %472, align 4
+  %.not37.i.i353 = icmp ugt i32 %473, %0
+  %spec.select.i.i354 = select i1 %.not37.i.i353, ptr %458, ptr %470
+  br label %.preheader546
 
-.preheader455:                                    ; preds = %487, %484
-  %.02644.i.i366.ph = phi ptr [ %spec.select.i.i363, %487 ], [ %474, %484 ]
-  br label %490
+.preheader546:                                    ; preds = %471, %468
+  %.02644.i.i357.ph = phi ptr [ %spec.select.i.i354, %471 ], [ %458, %468 ]
+  br label %474
 
-490:                                              ; preds = %.preheader455, %493
-  %.245.i.i365 = phi ptr [ %spec.select41.i.i368, %493 ], [ %.02644.i.i366.ph, %.preheader455 ]
-  %.02644.i.i366 = phi ptr [ %497, %493 ], [ %.02644.i.i366.ph, %.preheader455 ]
-  %491 = getelementptr inbounds nuw i8, ptr %.02644.i.i366, i64 28
-  %492 = load i32, ptr %491, align 4
-  %.not39.i.i367 = icmp ugt i32 %492, %0
-  br i1 %.not39.i.i367, label %.critedge.i.i370, label %493
+474:                                              ; preds = %.preheader546, %477
+  %.245.i.i356 = phi ptr [ %spec.select41.i.i359, %477 ], [ %.02644.i.i357.ph, %.preheader546 ]
+  %.02644.i.i357 = phi ptr [ %481, %477 ], [ %.02644.i.i357.ph, %.preheader546 ]
+  %475 = getelementptr inbounds nuw i8, ptr %.02644.i.i357, i64 28
+  %476 = load i32, ptr %475, align 4
+  %.not39.i.i358 = icmp ugt i32 %476, %0
+  br i1 %.not39.i.i358, label %.critedge.i.i361, label %477
 
-493:                                              ; preds = %490
-  %494 = getelementptr inbounds nuw i8, ptr %.245.i.i365, i64 28
-  %495 = load i32, ptr %494, align 4
-  %496 = icmp ugt i32 %492, %495
-  %spec.select41.i.i368 = select i1 %496, ptr %.02644.i.i366, ptr %.245.i.i365
-  %497 = load ptr, ptr %.02644.i.i366, align 8
-  %.not38.i.i369 = icmp eq ptr %497, null
-  br i1 %.not38.i.i369, label %.critedge.i.i370, label %490, !llvm.loop !13
+477:                                              ; preds = %474
+  %478 = getelementptr inbounds nuw i8, ptr %.245.i.i356, i64 28
+  %479 = load i32, ptr %478, align 4
+  %480 = icmp ugt i32 %476, %479
+  %spec.select41.i.i359 = select i1 %480, ptr %.02644.i.i357, ptr %.245.i.i356
+  %481 = load ptr, ptr %.02644.i.i357, align 8
+  %.not38.i.i360 = icmp eq ptr %481, null
+  br i1 %.not38.i.i360, label %.critedge.i.i361, label %474, !llvm.loop !13
 
-.critedge.i.i370:                                 ; preds = %493, %490
-  %.2.lcssa.i.i371 = phi ptr [ %.245.i.i365, %490 ], [ %spec.select41.i.i368, %493 ]
-  %.not40.i.i372 = icmp eq ptr %.2.lcssa.i.i371, null
-  br i1 %.not40.i.i372, label %conversation_lookup_no_addr2_or_port2.exit373, label %498
+.critedge.i.i361:                                 ; preds = %477, %474
+  %.2.lcssa.i.i362 = phi ptr [ %.245.i.i356, %474 ], [ %spec.select41.i.i359, %477 ]
+  store ptr %.2.lcssa.i.i362, ptr %469, align 8
+  br label %conversation_lookup_no_addr2_or_port2.exit363
 
-498:                                              ; preds = %.critedge.i.i370
-  store ptr %.2.lcssa.i.i371, ptr %485, align 8
-  br label %conversation_lookup_no_addr2_or_port2.exit373
-
-conversation_lookup_no_addr2_or_port2.exit373:    ; preds = %466, %475, %481, %.critedge.i.i370, %498
-  %.027.i.i360 = phi ptr [ %480, %481 ], [ %.2.lcssa.i.i371, %498 ], [ null, %.critedge.i.i370 ], [ null, %475 ], [ null, %466 ]
+conversation_lookup_no_addr2_or_port2.exit363:    ; preds = %450, %459, %465, %.critedge.i.i361
+  %.027.i.i351 = phi ptr [ %464, %465 ], [ %.2.lcssa.i.i362, %.critedge.i.i361 ], [ null, %459 ], [ null, %450 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %532
+  br label %514
 
-499:                                              ; preds = %463
+482:                                              ; preds = %447
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 1, ptr %9, align 16
-  %500 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 0, ptr %500, align 4
-  %501 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %501, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
-  %502 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %502, i8 0, i64 32, i1 false)
-  store i32 2, ptr %502, align 16
-  %503 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i32 %5, ptr %503, align 8
-  %504 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %505 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %504, i8 0, i64 32, i1 false)
-  store i32 %3, ptr %505, align 8
-  %506 = load ptr, ptr @conversation_hashtable_no_addr2_or_port2, align 8
-  %507 = call ptr @wmem_map_lookup(ptr noundef %506, ptr noundef nonnull %9)
-  %.not.i.i374 = icmp eq ptr %507, null
-  br i1 %.not.i.i374, label %conversation_lookup_no_addr2_or_port2.exit391, label %508
+  %483 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 0, ptr %483, align 4
+  %484 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %484, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
+  %485 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %485, i8 0, i64 32, i1 false)
+  store i32 2, ptr %485, align 16
+  %486 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  store i32 %5, ptr %486, align 8
+  %487 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  %488 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %487, i8 0, i64 32, i1 false)
+  store i32 %3, ptr %488, align 8
+  %489 = load ptr, ptr @conversation_hashtable_no_addr2_or_port2, align 8
+  %490 = call ptr @wmem_map_lookup(ptr noundef %489, ptr noundef nonnull %9)
+  %.not.i.i364 = icmp eq ptr %490, null
+  br i1 %.not.i.i364, label %conversation_lookup_no_addr2_or_port2.exit380, label %491
 
-508:                                              ; preds = %499
-  %509 = getelementptr inbounds nuw i8, ptr %507, i64 28
-  %510 = load i32, ptr %509, align 4
-  %.not33.i.i375 = icmp ugt i32 %510, %0
-  br i1 %.not33.i.i375, label %conversation_lookup_no_addr2_or_port2.exit391, label %511
+491:                                              ; preds = %482
+  %492 = getelementptr inbounds nuw i8, ptr %490, i64 28
+  %493 = load i32, ptr %492, align 4
+  %.not33.i.i365 = icmp ugt i32 %493, %0
+  br i1 %.not33.i.i365, label %conversation_lookup_no_addr2_or_port2.exit380, label %494
 
-511:                                              ; preds = %508
-  %512 = getelementptr inbounds nuw i8, ptr %507, i64 8
-  %513 = load ptr, ptr %512, align 8
-  %.not34.i.i376 = icmp eq ptr %513, null
-  br i1 %.not34.i.i376, label %517, label %514
+494:                                              ; preds = %491
+  %495 = getelementptr inbounds nuw i8, ptr %490, i64 8
+  %496 = load ptr, ptr %495, align 8
+  %.not34.i.i366 = icmp eq ptr %496, null
+  br i1 %.not34.i.i366, label %500, label %497
 
-514:                                              ; preds = %511
-  %515 = getelementptr inbounds nuw i8, ptr %513, i64 28
-  %516 = load i32, ptr %515, align 4
-  %.not35.i.i377 = icmp ugt i32 %516, %0
-  br i1 %.not35.i.i377, label %517, label %conversation_lookup_no_addr2_or_port2.exit391
+497:                                              ; preds = %494
+  %498 = getelementptr inbounds nuw i8, ptr %496, i64 28
+  %499 = load i32, ptr %498, align 4
+  %.not35.i.i367 = icmp ugt i32 %499, %0
+  br i1 %.not35.i.i367, label %500, label %conversation_lookup_no_addr2_or_port2.exit380
 
-517:                                              ; preds = %514, %511
-  %518 = getelementptr inbounds nuw i8, ptr %507, i64 16
-  %519 = load ptr, ptr %518, align 8
-  %.not36.i.i379 = icmp eq ptr %519, null
-  br i1 %.not36.i.i379, label %.preheader456, label %520
+500:                                              ; preds = %497, %494
+  %501 = getelementptr inbounds nuw i8, ptr %490, i64 16
+  %502 = load ptr, ptr %501, align 8
+  %.not36.i.i369 = icmp eq ptr %502, null
+  br i1 %.not36.i.i369, label %.preheader547, label %503
 
-520:                                              ; preds = %517
-  %521 = getelementptr inbounds nuw i8, ptr %519, i64 28
-  %522 = load i32, ptr %521, align 4
-  %.not37.i.i380 = icmp ugt i32 %522, %0
-  %spec.select.i.i381 = select i1 %.not37.i.i380, ptr %507, ptr %519
-  br label %.preheader456
+503:                                              ; preds = %500
+  %504 = getelementptr inbounds nuw i8, ptr %502, i64 28
+  %505 = load i32, ptr %504, align 4
+  %.not37.i.i370 = icmp ugt i32 %505, %0
+  %spec.select.i.i371 = select i1 %.not37.i.i370, ptr %490, ptr %502
+  br label %.preheader547
 
-.preheader456:                                    ; preds = %520, %517
-  %.02644.i.i384.ph = phi ptr [ %spec.select.i.i381, %520 ], [ %507, %517 ]
-  br label %523
+.preheader547:                                    ; preds = %503, %500
+  %.02644.i.i374.ph = phi ptr [ %spec.select.i.i371, %503 ], [ %490, %500 ]
+  br label %506
 
-523:                                              ; preds = %.preheader456, %526
-  %.245.i.i383 = phi ptr [ %spec.select41.i.i386, %526 ], [ %.02644.i.i384.ph, %.preheader456 ]
-  %.02644.i.i384 = phi ptr [ %530, %526 ], [ %.02644.i.i384.ph, %.preheader456 ]
-  %524 = getelementptr inbounds nuw i8, ptr %.02644.i.i384, i64 28
-  %525 = load i32, ptr %524, align 4
-  %.not39.i.i385 = icmp ugt i32 %525, %0
-  br i1 %.not39.i.i385, label %.critedge.i.i388, label %526
+506:                                              ; preds = %.preheader547, %509
+  %.245.i.i373 = phi ptr [ %spec.select41.i.i376, %509 ], [ %.02644.i.i374.ph, %.preheader547 ]
+  %.02644.i.i374 = phi ptr [ %513, %509 ], [ %.02644.i.i374.ph, %.preheader547 ]
+  %507 = getelementptr inbounds nuw i8, ptr %.02644.i.i374, i64 28
+  %508 = load i32, ptr %507, align 4
+  %.not39.i.i375 = icmp ugt i32 %508, %0
+  br i1 %.not39.i.i375, label %.critedge.i.i378, label %509
 
-526:                                              ; preds = %523
-  %527 = getelementptr inbounds nuw i8, ptr %.245.i.i383, i64 28
-  %528 = load i32, ptr %527, align 4
-  %529 = icmp ugt i32 %525, %528
-  %spec.select41.i.i386 = select i1 %529, ptr %.02644.i.i384, ptr %.245.i.i383
-  %530 = load ptr, ptr %.02644.i.i384, align 8
-  %.not38.i.i387 = icmp eq ptr %530, null
-  br i1 %.not38.i.i387, label %.critedge.i.i388, label %523, !llvm.loop !13
+509:                                              ; preds = %506
+  %510 = getelementptr inbounds nuw i8, ptr %.245.i.i373, i64 28
+  %511 = load i32, ptr %510, align 4
+  %512 = icmp ugt i32 %508, %511
+  %spec.select41.i.i376 = select i1 %512, ptr %.02644.i.i374, ptr %.245.i.i373
+  %513 = load ptr, ptr %.02644.i.i374, align 8
+  %.not38.i.i377 = icmp eq ptr %513, null
+  br i1 %.not38.i.i377, label %.critedge.i.i378, label %506, !llvm.loop !13
 
-.critedge.i.i388:                                 ; preds = %526, %523
-  %.2.lcssa.i.i389 = phi ptr [ %.245.i.i383, %523 ], [ %spec.select41.i.i386, %526 ]
-  %.not40.i.i390 = icmp eq ptr %.2.lcssa.i.i389, null
-  br i1 %.not40.i.i390, label %conversation_lookup_no_addr2_or_port2.exit391, label %531
+.critedge.i.i378:                                 ; preds = %509, %506
+  %.2.lcssa.i.i379 = phi ptr [ %.245.i.i373, %506 ], [ %spec.select41.i.i376, %509 ]
+  store ptr %.2.lcssa.i.i379, ptr %501, align 8
+  br label %conversation_lookup_no_addr2_or_port2.exit380
 
-531:                                              ; preds = %.critedge.i.i388
-  store ptr %.2.lcssa.i.i389, ptr %518, align 8
-  br label %conversation_lookup_no_addr2_or_port2.exit391
-
-conversation_lookup_no_addr2_or_port2.exit391:    ; preds = %499, %508, %514, %.critedge.i.i388, %531
-  %.027.i.i378 = phi ptr [ %513, %514 ], [ %.2.lcssa.i.i389, %531 ], [ null, %.critedge.i.i388 ], [ null, %508 ], [ null, %499 ]
+conversation_lookup_no_addr2_or_port2.exit380:    ; preds = %482, %491, %497, %.critedge.i.i378
+  %.027.i.i368 = phi ptr [ %496, %497 ], [ %.2.lcssa.i.i379, %.critedge.i.i378 ], [ null, %491 ], [ null, %482 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %532
+  br label %514
 
-532:                                              ; preds = %conversation_lookup_no_addr2_or_port2.exit391, %conversation_lookup_no_addr2_or_port2.exit373
-  %.5 = phi ptr [ %.027.i.i360, %conversation_lookup_no_addr2_or_port2.exit373 ], [ %.027.i.i378, %conversation_lookup_no_addr2_or_port2.exit391 ]
+514:                                              ; preds = %conversation_lookup_no_addr2_or_port2.exit380, %conversation_lookup_no_addr2_or_port2.exit363
+  %.5 = phi ptr [ %.027.i.i351, %conversation_lookup_no_addr2_or_port2.exit363 ], [ %.027.i.i368, %conversation_lookup_no_addr2_or_port2.exit380 ]
   %.not186 = icmp eq ptr %.5, null
-  br i1 %.not186, label %541, label %533
+  br i1 %.not186, label %523, label %515
 
-533:                                              ; preds = %532
+515:                                              ; preds = %514
   %.not190 = icmp eq i32 %3, 3
-  br i1 %.not190, label %.thread413, label %534
+  br i1 %.not190, label %.thread405, label %516
 
-534:                                              ; preds = %533
-  %535 = getelementptr inbounds nuw i8, ptr %.5, i64 56
-  %536 = load i32, ptr %535, align 8
-  %537 = and i32 %536, 8
-  %.not191 = icmp eq i32 %537, 0
-  br i1 %.not191, label %538, label %539
+516:                                              ; preds = %515
+  %517 = getelementptr inbounds nuw i8, ptr %.5, i64 56
+  %518 = load i32, ptr %517, align 8
+  %519 = and i32 %518, 8
+  %.not191 = icmp eq i32 %519, 0
+  br i1 %.not191, label %520, label %521
 
-538:                                              ; preds = %534
+520:                                              ; preds = %516
   call void @conversation_set_addr2(ptr noundef nonnull %.5, ptr noundef nonnull %spec.store.select)
   call void @conversation_set_port2(ptr noundef nonnull %.5, i32 noundef %4)
-  br label %.thread413
+  br label %.thread405
 
-539:                                              ; preds = %534
-  %540 = call fastcc ptr @conversation_create_from_template(ptr noundef %.5, ptr noundef nonnull %spec.store.select, i32 noundef %4)
-  br label %.thread413
+521:                                              ; preds = %516
+  %522 = call fastcc ptr @conversation_create_from_template(ptr noundef %.5, ptr noundef nonnull %spec.store.select, i32 noundef %4)
+  br label %.thread405
 
-541:                                              ; preds = %532, %462
-  %542 = and i32 %6, 262144
-  %.not187 = icmp eq i32 %542, 0
-  br i1 %.not187, label %579, label %543
+523:                                              ; preds = %514, %446
+  %524 = and i32 %6, 262144
+  %.not187 = icmp eq i32 %524, 0
+  br i1 %.not187, label %560, label %525
 
-543:                                              ; preds = %541
+525:                                              ; preds = %523
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 1, ptr %8, align 16
-  %544 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 0, ptr %544, align 4
-  %545 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %545, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
-  %546 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i32 1, ptr %546, align 16
-  %547 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  store i32 0, ptr %547, align 4
-  %548 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %548, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
-  %549 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %550 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %549, i8 0, i64 32, i1 false)
-  store i32 %3, ptr %550, align 8
-  %551 = load ptr, ptr @conversation_hashtable_exact_addr, align 8
-  %552 = call ptr @wmem_map_lookup(ptr noundef %551, ptr noundef nonnull %8)
-  %.not.i.i392 = icmp eq ptr %552, null
-  br i1 %.not.i.i392, label %577, label %553
+  %526 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i32 0, ptr %526, align 4
+  %527 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %527, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false)
+  %528 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i32 1, ptr %528, align 16
+  %529 = getelementptr inbounds nuw i8, ptr %8, i64 36
+  store i32 0, ptr %529, align 4
+  %530 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %530, ptr noundef nonnull readonly align 8 dereferenceable(24) %spec.store.select4, i64 24, i1 false)
+  %531 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %532 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %531, i8 0, i64 32, i1 false)
+  store i32 %3, ptr %532, align 8
+  %533 = load ptr, ptr @conversation_hashtable_exact_addr, align 8
+  %534 = call ptr @wmem_map_lookup(ptr noundef %533, ptr noundef nonnull %8)
+  %.not.i.i381 = icmp eq ptr %534, null
+  br i1 %.not.i.i381, label %558, label %535
 
-553:                                              ; preds = %543
-  %554 = getelementptr inbounds nuw i8, ptr %552, i64 28
-  %555 = load i32, ptr %554, align 4
-  %.not33.i.i393 = icmp ugt i32 %555, %0
-  br i1 %.not33.i.i393, label %577, label %556
+535:                                              ; preds = %525
+  %536 = getelementptr inbounds nuw i8, ptr %534, i64 28
+  %537 = load i32, ptr %536, align 4
+  %.not33.i.i382 = icmp ugt i32 %537, %0
+  br i1 %.not33.i.i382, label %558, label %538
 
-556:                                              ; preds = %553
-  %557 = getelementptr inbounds nuw i8, ptr %552, i64 8
-  %558 = load ptr, ptr %557, align 8
-  %.not34.i.i394 = icmp eq ptr %558, null
-  br i1 %.not34.i.i394, label %562, label %559
+538:                                              ; preds = %535
+  %539 = getelementptr inbounds nuw i8, ptr %534, i64 8
+  %540 = load ptr, ptr %539, align 8
+  %.not34.i.i383 = icmp eq ptr %540, null
+  br i1 %.not34.i.i383, label %544, label %541
 
-559:                                              ; preds = %556
-  %560 = getelementptr inbounds nuw i8, ptr %558, i64 28
-  %561 = load i32, ptr %560, align 4
-  %.not35.i.i395 = icmp ugt i32 %561, %0
-  br i1 %.not35.i.i395, label %562, label %conversation_lookup_no_ports.exit
+541:                                              ; preds = %538
+  %542 = getelementptr inbounds nuw i8, ptr %540, i64 28
+  %543 = load i32, ptr %542, align 4
+  %.not35.i.i384 = icmp ugt i32 %543, %0
+  br i1 %.not35.i.i384, label %544, label %conversation_lookup_no_ports.exit.thread474
 
-562:                                              ; preds = %559, %556
-  %563 = getelementptr inbounds nuw i8, ptr %552, i64 16
-  %564 = load ptr, ptr %563, align 8
-  %.not36.i.i397 = icmp eq ptr %564, null
-  br i1 %.not36.i.i397, label %.preheader, label %565
+conversation_lookup_no_ports.exit.thread474:      ; preds = %541
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %.thread405
 
-565:                                              ; preds = %562
-  %566 = getelementptr inbounds nuw i8, ptr %564, i64 28
-  %567 = load i32, ptr %566, align 4
-  %.not37.i.i398 = icmp ugt i32 %567, %0
-  %spec.select.i.i399 = select i1 %.not37.i.i398, ptr %552, ptr %564
+544:                                              ; preds = %541, %538
+  %545 = getelementptr inbounds nuw i8, ptr %534, i64 16
+  %546 = load ptr, ptr %545, align 8
+  %.not36.i.i386 = icmp eq ptr %546, null
+  br i1 %.not36.i.i386, label %.preheader, label %547
+
+547:                                              ; preds = %544
+  %548 = getelementptr inbounds nuw i8, ptr %546, i64 28
+  %549 = load i32, ptr %548, align 4
+  %.not37.i.i387 = icmp ugt i32 %549, %0
+  %spec.select.i.i388 = select i1 %.not37.i.i387, ptr %534, ptr %546
   br label %.preheader
 
-.preheader:                                       ; preds = %565, %562
-  %.02644.i.i402.ph = phi ptr [ %spec.select.i.i399, %565 ], [ %552, %562 ]
-  br label %568
+.preheader:                                       ; preds = %547, %544
+  %.02644.i.i391.ph = phi ptr [ %spec.select.i.i388, %547 ], [ %534, %544 ]
+  br label %550
 
-568:                                              ; preds = %.preheader, %571
-  %.245.i.i401 = phi ptr [ %spec.select41.i.i404, %571 ], [ %.02644.i.i402.ph, %.preheader ]
-  %.02644.i.i402 = phi ptr [ %575, %571 ], [ %.02644.i.i402.ph, %.preheader ]
-  %569 = getelementptr inbounds nuw i8, ptr %.02644.i.i402, i64 28
-  %570 = load i32, ptr %569, align 4
-  %.not39.i.i403 = icmp ugt i32 %570, %0
-  br i1 %.not39.i.i403, label %.critedge.i.i406, label %571
+550:                                              ; preds = %.preheader, %553
+  %.245.i.i390 = phi ptr [ %spec.select41.i.i393, %553 ], [ %.02644.i.i391.ph, %.preheader ]
+  %.02644.i.i391 = phi ptr [ %557, %553 ], [ %.02644.i.i391.ph, %.preheader ]
+  %551 = getelementptr inbounds nuw i8, ptr %.02644.i.i391, i64 28
+  %552 = load i32, ptr %551, align 4
+  %.not39.i.i392 = icmp ugt i32 %552, %0
+  br i1 %.not39.i.i392, label %conversation_lookup_no_ports.exit, label %553
 
-571:                                              ; preds = %568
-  %572 = getelementptr inbounds nuw i8, ptr %.245.i.i401, i64 28
-  %573 = load i32, ptr %572, align 4
-  %574 = icmp ugt i32 %570, %573
-  %spec.select41.i.i404 = select i1 %574, ptr %.02644.i.i402, ptr %.245.i.i401
-  %575 = load ptr, ptr %.02644.i.i402, align 8
-  %.not38.i.i405 = icmp eq ptr %575, null
-  br i1 %.not38.i.i405, label %.critedge.i.i406, label %568, !llvm.loop !13
+553:                                              ; preds = %550
+  %554 = getelementptr inbounds nuw i8, ptr %.245.i.i390, i64 28
+  %555 = load i32, ptr %554, align 4
+  %556 = icmp ugt i32 %552, %555
+  %spec.select41.i.i393 = select i1 %556, ptr %.02644.i.i391, ptr %.245.i.i390
+  %557 = load ptr, ptr %.02644.i.i391, align 8
+  %.not38.i.i394 = icmp eq ptr %557, null
+  br i1 %.not38.i.i394, label %conversation_lookup_no_ports.exit, label %550, !llvm.loop !13
 
-.critedge.i.i406:                                 ; preds = %571, %568
-  %.2.lcssa.i.i407 = phi ptr [ %.245.i.i401, %568 ], [ %spec.select41.i.i404, %571 ]
-  %.not40.i.i408 = icmp eq ptr %.2.lcssa.i.i407, null
-  br i1 %.not40.i.i408, label %577, label %576
-
-576:                                              ; preds = %.critedge.i.i406
-  store ptr %.2.lcssa.i.i407, ptr %563, align 8
-  br label %conversation_lookup_no_ports.exit
-
-conversation_lookup_no_ports.exit:                ; preds = %559, %576
-  %.027.i.i396 = phi ptr [ %558, %559 ], [ %.2.lcssa.i.i407, %576 ]
+conversation_lookup_no_ports.exit:                ; preds = %550, %553
+  %.2.lcssa.i.i396 = phi ptr [ %.245.i.i390, %550 ], [ %spec.select41.i.i393, %553 ]
+  store ptr %.2.lcssa.i.i396, ptr %545, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread413
+  br label %.thread405
 
-577:                                              ; preds = %.critedge.i.i406, %553, %543
+558:                                              ; preds = %525, %535
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %578 = call fastcc ptr @conversation_lookup_no_ports(i32 noundef %0, ptr noundef nonnull %spec.store.select4, ptr noundef nonnull %spec.store.select, i32 noundef %3)
-  %.not189 = icmp eq ptr %578, null
-  br i1 %.not189, label %579, label %.thread413
+  %559 = call fastcc ptr @conversation_lookup_no_ports(i32 noundef %0, ptr noundef nonnull %spec.store.select4, ptr noundef nonnull %spec.store.select, i32 noundef %3)
+  %.not189 = icmp eq ptr %559, null
+  br i1 %.not189, label %560, label %.thread405
 
-579:                                              ; preds = %577, %541
-  br label %.thread413
+560:                                              ; preds = %558, %523
+  br label %.thread405
 
-.thread413:                                       ; preds = %100, %101, %107, %conversation_lookup_no_ports.exit, %150, %577, %533, %539, %538, %448, %456, %459, %460, %407, %413, %412, %359, %368, %367, %273, %279, %278, %226, %235, %234, %579
-  %.2 = phi ptr [ %461, %460 ], [ %.027.i.i343, %456 ], [ %.027.i.i343, %459 ], [ %.027.i.i343, %448 ], [ %540, %539 ], [ %.5, %538 ], [ %.5, %533 ], [ %.027.i.i396, %conversation_lookup_no_ports.exit ], [ %578, %577 ], [ null, %579 ], [ %369, %368 ], [ %.4444, %367 ], [ %.4444, %359 ], [ %414, %413 ], [ %.027.i.i325, %412 ], [ %.027.i.i325, %407 ], [ %236, %235 ], [ %.3430, %234 ], [ %.3430, %226 ], [ %280, %279 ], [ %.027.i.i272, %278 ], [ %.027.i.i272, %273 ], [ %.027.i.i219, %150 ], [ %.027.i.i, %107 ], [ %.027.i.i201, %100 ], [ %spec.select, %101 ]
+.thread405:                                       ; preds = %conversation_lookup_no_ports.exit, %146, %conversation_lookup_exact.exit213.thread399, %98, %104, %conversation_lookup_no_ports.exit.thread474, %.thread415, %558, %515, %521, %520, %conversation_lookup_no_addr2_or_port2.exit.thread468, %440, %443, %444, %conversation_lookup_no_port2.exit330.thread462, %399, %398, %.thread446, %356, %355, %conversation_lookup_no_addr2.exit280.thread438, %270, %269, %.thread422, %228, %227, %560
+  %.2 = phi ptr [ %445, %444 ], [ %.027.i.i335471, %440 ], [ %.027.i.i335471, %443 ], [ %.027.i.i335471, %conversation_lookup_no_addr2_or_port2.exit.thread468 ], [ %522, %521 ], [ %.5, %520 ], [ %.5, %515 ], [ %.2.lcssa.i.i396, %conversation_lookup_no_ports.exit ], [ %559, %558 ], [ null, %560 ], [ %357, %356 ], [ %.4449, %355 ], [ %.4449, %.thread446 ], [ %400, %399 ], [ %.027.i.i318465, %398 ], [ %.027.i.i318465, %conversation_lookup_no_port2.exit330.thread462 ], [ %229, %228 ], [ %.3425, %227 ], [ %.3425, %.thread422 ], [ %271, %270 ], [ %.027.i.i268441, %269 ], [ %.027.i.i268441, %conversation_lookup_no_addr2.exit280.thread438 ], [ %.2.lcssa.i.i229, %146 ], [ %128, %.thread415 ], [ %540, %conversation_lookup_no_ports.exit.thread474 ], [ %.027.i.i, %104 ], [ %.027.i.i201402, %conversation_lookup_exact.exit213.thread399 ], [ %spec.select, %98 ]
   ret ptr %.2
 }
 
@@ -3970,15 +3914,11 @@ define internal fastcc ptr @conversation_lookup_no_ports(i32 noundef %0, ptr nou
 
 .critedge.i:                                      ; preds = %33, %30
   %.2.lcssa.i = phi ptr [ %.245.i, %30 ], [ %spec.select41.i, %33 ]
-  %.not40.i = icmp eq ptr %.2.lcssa.i, null
-  br i1 %.not40.i, label %conversation_lookup_hashtable.exit, label %38
-
-38:                                               ; preds = %.critedge.i
   store ptr %.2.lcssa.i, ptr %25, align 8
   br label %conversation_lookup_hashtable.exit
 
-conversation_lookup_hashtable.exit:               ; preds = %4, %15, %21, %.critedge.i, %38
-  %.027.i = phi ptr [ %20, %21 ], [ %.2.lcssa.i, %38 ], [ null, %.critedge.i ], [ null, %15 ], [ null, %4 ]
+conversation_lookup_hashtable.exit:               ; preds = %4, %15, %21, %.critedge.i
+  %.027.i = phi ptr [ %20, %21 ], [ %.2.lcssa.i, %.critedge.i ], [ null, %15 ], [ null, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.027.i
 }
@@ -3995,7 +3935,7 @@ define ptr @find_conversation_deinterlaced(i32 noundef %0, ptr noundef readonly 
   %16 = alloca [6 x %struct.conversation_element], align 16
   %17 = and i32 %7, 983040
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %18, label %104
+  br i1 %.not, label %18, label %101
 
 18:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -4056,22 +3996,22 @@ define ptr @find_conversation_deinterlaced(i32 noundef %0, ptr noundef readonly 
   %44 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %45 = load ptr, ptr %44, align 8
   %.not36.i.i = icmp eq ptr %45, null
-  br i1 %.not36.i.i, label %.preheader223, label %46
+  br i1 %.not36.i.i, label %.preheader273, label %46
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 28
   %48 = load i32, ptr %47, align 4
   %.not37.i.i = icmp ugt i32 %48, %0
   %spec.select.i.i = select i1 %.not37.i.i, ptr %33, ptr %45
-  br label %.preheader223
+  br label %.preheader273
 
-.preheader223:                                    ; preds = %46, %43
+.preheader273:                                    ; preds = %46, %43
   %.02644.i.i.ph = phi ptr [ %spec.select.i.i, %46 ], [ %33, %43 ]
   br label %49
 
-49:                                               ; preds = %.preheader223, %52
-  %.245.i.i = phi ptr [ %spec.select41.i.i, %52 ], [ %.02644.i.i.ph, %.preheader223 ]
-  %.02644.i.i = phi ptr [ %56, %52 ], [ %.02644.i.i.ph, %.preheader223 ]
+49:                                               ; preds = %.preheader273, %52
+  %.245.i.i = phi ptr [ %spec.select41.i.i, %52 ], [ %.02644.i.i.ph, %.preheader273 ]
+  %.02644.i.i = phi ptr [ %56, %52 ], [ %.02644.i.i.ph, %.preheader273 ]
   %50 = getelementptr inbounds nuw i8, ptr %.02644.i.i, i64 28
   %51 = load i32, ptr %50, align 4
   %.not39.i.i = icmp ugt i32 %51, %0
@@ -4088,735 +4028,703 @@ define ptr @find_conversation_deinterlaced(i32 noundef %0, ptr noundef readonly 
 
 .critedge.i.i:                                    ; preds = %52, %49
   %.2.lcssa.i.i = phi ptr [ %.245.i.i, %49 ], [ %spec.select41.i.i, %52 ]
-  %.not40.i.i = icmp eq ptr %.2.lcssa.i.i, null
-  br i1 %.not40.i.i, label %conversation_lookup_exact_anc.exit, label %57
-
-57:                                               ; preds = %.critedge.i.i
   store ptr %.2.lcssa.i.i, ptr %44, align 8
   br label %conversation_lookup_exact_anc.exit
 
-conversation_lookup_exact_anc.exit:               ; preds = %18, %34, %40, %.critedge.i.i, %57
-  %.027.i.i = phi ptr [ %39, %40 ], [ %.2.lcssa.i.i, %57 ], [ null, %.critedge.i.i ], [ null, %34 ], [ null, %18 ]
+conversation_lookup_exact_anc.exit:               ; preds = %18, %34, %40, %.critedge.i.i
+  %.027.i.i = phi ptr [ %39, %40 ], [ %.2.lcssa.i.i, %.critedge.i.i ], [ null, %34 ], [ null, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 1, ptr %15, align 16
-  %58 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 0, ptr %58, align 4
-  %59 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %60 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store i32 1, ptr %60, align 16
-  %61 = getelementptr inbounds nuw i8, ptr %15, i64 36
-  store i32 0, ptr %61, align 4
-  %62 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %63 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %63, i8 0, i64 32, i1 false)
-  store i32 2, ptr %63, align 16
-  %64 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  store i32 %5, ptr %64, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %15, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %65, i8 0, i64 32, i1 false)
-  store i32 2, ptr %65, align 16
-  %66 = getelementptr inbounds nuw i8, ptr %15, i64 104
-  store i32 %4, ptr %66, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %15, i64 128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %67, i8 0, i64 32, i1 false)
-  store i32 4, ptr %67, align 16
-  %68 = getelementptr inbounds nuw i8, ptr %15, i64 136
-  store i32 %6, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %15, i64 160
-  %70 = getelementptr inbounds nuw i8, ptr %15, i64 168
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %69, i8 0, i64 32, i1 false)
-  store i32 %3, ptr %70, align 8
-  %71 = load ptr, ptr @conversation_hashtable_exact_addr_port_anc, align 8
-  %72 = call ptr @wmem_map_lookup(ptr noundef %71, ptr noundef nonnull %15)
-  %.not.i.i92 = icmp eq ptr %72, null
-  br i1 %.not.i.i92, label %conversation_lookup_exact_anc.exit109.thread, label %73
+  %57 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  store i32 0, ptr %57, align 4
+  %58 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %59 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  store i32 1, ptr %59, align 16
+  %60 = getelementptr inbounds nuw i8, ptr %15, i64 36
+  store i32 0, ptr %60, align 4
+  %61 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
+  %62 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %62, i8 0, i64 32, i1 false)
+  store i32 2, ptr %62, align 16
+  %63 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  store i32 %5, ptr %63, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %15, i64 96
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %64, i8 0, i64 32, i1 false)
+  store i32 2, ptr %64, align 16
+  %65 = getelementptr inbounds nuw i8, ptr %15, i64 104
+  store i32 %4, ptr %65, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %15, i64 128
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %66, i8 0, i64 32, i1 false)
+  store i32 4, ptr %66, align 16
+  %67 = getelementptr inbounds nuw i8, ptr %15, i64 136
+  store i32 %6, ptr %67, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %15, i64 160
+  %69 = getelementptr inbounds nuw i8, ptr %15, i64 168
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %68, i8 0, i64 32, i1 false)
+  store i32 %3, ptr %69, align 8
+  %70 = load ptr, ptr @conversation_hashtable_exact_addr_port_anc, align 8
+  %71 = call ptr @wmem_map_lookup(ptr noundef %70, ptr noundef nonnull %15)
+  %.not.i.i92 = icmp eq ptr %71, null
+  br i1 %.not.i.i92, label %conversation_lookup_exact_anc.exit108.thread, label %72
 
-73:                                               ; preds = %conversation_lookup_exact_anc.exit
-  %74 = getelementptr inbounds nuw i8, ptr %72, i64 28
-  %75 = load i32, ptr %74, align 4
-  %.not33.i.i93 = icmp ugt i32 %75, %0
-  br i1 %.not33.i.i93, label %conversation_lookup_exact_anc.exit109.thread, label %76
+72:                                               ; preds = %conversation_lookup_exact_anc.exit
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 28
+  %74 = load i32, ptr %73, align 4
+  %.not33.i.i93 = icmp ugt i32 %74, %0
+  br i1 %.not33.i.i93, label %conversation_lookup_exact_anc.exit108.thread, label %75
 
-76:                                               ; preds = %73
-  %77 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %78 = load ptr, ptr %77, align 8
-  %.not34.i.i94 = icmp eq ptr %78, null
-  br i1 %.not34.i.i94, label %82, label %79
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %77 = load ptr, ptr %76, align 8
+  %.not34.i.i94 = icmp eq ptr %77, null
+  br i1 %.not34.i.i94, label %81, label %78
 
-79:                                               ; preds = %76
-  %80 = getelementptr inbounds nuw i8, ptr %78, i64 28
-  %81 = load i32, ptr %80, align 4
-  %.not35.i.i95 = icmp ugt i32 %81, %0
-  br i1 %.not35.i.i95, label %82, label %97
+78:                                               ; preds = %75
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 28
+  %80 = load i32, ptr %79, align 4
+  %.not35.i.i95 = icmp ugt i32 %80, %0
+  br i1 %.not35.i.i95, label %81, label %conversation_lookup_exact_anc.exit108.thread210
 
-82:                                               ; preds = %79, %76
-  %83 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %84 = load ptr, ptr %83, align 8
-  %.not36.i.i97 = icmp eq ptr %84, null
-  br i1 %.not36.i.i97, label %.preheader, label %85
+81:                                               ; preds = %78, %75
+  %82 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %83 = load ptr, ptr %82, align 8
+  %.not36.i.i97 = icmp eq ptr %83, null
+  br i1 %.not36.i.i97, label %.preheader, label %84
 
-85:                                               ; preds = %82
-  %86 = getelementptr inbounds nuw i8, ptr %84, i64 28
-  %87 = load i32, ptr %86, align 4
-  %.not37.i.i98 = icmp ugt i32 %87, %0
-  %spec.select.i.i99 = select i1 %.not37.i.i98, ptr %72, ptr %84
+84:                                               ; preds = %81
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 28
+  %86 = load i32, ptr %85, align 4
+  %.not37.i.i98 = icmp ugt i32 %86, %0
+  %spec.select.i.i99 = select i1 %.not37.i.i98, ptr %71, ptr %83
   br label %.preheader
 
-.preheader:                                       ; preds = %85, %82
-  %.02644.i.i102.ph = phi ptr [ %spec.select.i.i99, %85 ], [ %72, %82 ]
-  br label %88
+.preheader:                                       ; preds = %84, %81
+  %.02644.i.i102.ph = phi ptr [ %spec.select.i.i99, %84 ], [ %71, %81 ]
+  br label %87
 
-88:                                               ; preds = %.preheader, %91
-  %.245.i.i101 = phi ptr [ %spec.select41.i.i104, %91 ], [ %.02644.i.i102.ph, %.preheader ]
-  %.02644.i.i102 = phi ptr [ %95, %91 ], [ %.02644.i.i102.ph, %.preheader ]
-  %89 = getelementptr inbounds nuw i8, ptr %.02644.i.i102, i64 28
-  %90 = load i32, ptr %89, align 4
-  %.not39.i.i103 = icmp ugt i32 %90, %0
-  br i1 %.not39.i.i103, label %.critedge.i.i106, label %91
+87:                                               ; preds = %.preheader, %90
+  %.245.i.i101 = phi ptr [ %spec.select41.i.i104, %90 ], [ %.02644.i.i102.ph, %.preheader ]
+  %.02644.i.i102 = phi ptr [ %94, %90 ], [ %.02644.i.i102.ph, %.preheader ]
+  %88 = getelementptr inbounds nuw i8, ptr %.02644.i.i102, i64 28
+  %89 = load i32, ptr %88, align 4
+  %.not39.i.i103 = icmp ugt i32 %89, %0
+  br i1 %.not39.i.i103, label %conversation_lookup_exact_anc.exit108, label %90
 
-91:                                               ; preds = %88
-  %92 = getelementptr inbounds nuw i8, ptr %.245.i.i101, i64 28
-  %93 = load i32, ptr %92, align 4
-  %94 = icmp ugt i32 %90, %93
-  %spec.select41.i.i104 = select i1 %94, ptr %.02644.i.i102, ptr %.245.i.i101
-  %95 = load ptr, ptr %.02644.i.i102, align 8
-  %.not38.i.i105 = icmp eq ptr %95, null
-  br i1 %.not38.i.i105, label %.critedge.i.i106, label %88, !llvm.loop !13
+90:                                               ; preds = %87
+  %91 = getelementptr inbounds nuw i8, ptr %.245.i.i101, i64 28
+  %92 = load i32, ptr %91, align 4
+  %93 = icmp ugt i32 %89, %92
+  %spec.select41.i.i104 = select i1 %93, ptr %.02644.i.i102, ptr %.245.i.i101
+  %94 = load ptr, ptr %.02644.i.i102, align 8
+  %.not38.i.i105 = icmp eq ptr %94, null
+  br i1 %.not38.i.i105, label %conversation_lookup_exact_anc.exit108, label %87, !llvm.loop !13
 
-.critedge.i.i106:                                 ; preds = %91, %88
-  %.2.lcssa.i.i107 = phi ptr [ %.245.i.i101, %88 ], [ %spec.select41.i.i104, %91 ]
-  %.not40.i.i108 = icmp eq ptr %.2.lcssa.i.i107, null
-  br i1 %.not40.i.i108, label %conversation_lookup_exact_anc.exit109.thread, label %96
-
-96:                                               ; preds = %.critedge.i.i106
-  store ptr %.2.lcssa.i.i107, ptr %83, align 8
-  br label %97
-
-conversation_lookup_exact_anc.exit109.thread:     ; preds = %.critedge.i.i106, %73, %conversation_lookup_exact_anc.exit
+conversation_lookup_exact_anc.exit108.thread:     ; preds = %72, %conversation_lookup_exact_anc.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %342
+  br label %330
 
-97:                                               ; preds = %96, %79
-  %.027.i.i96 = phi ptr [ %78, %79 ], [ %.2.lcssa.i.i107, %96 ]
+conversation_lookup_exact_anc.exit108:            ; preds = %87, %90
+  %.2.lcssa.i.i107 = phi ptr [ %.245.i.i101, %87 ], [ %spec.select41.i.i104, %90 ]
+  store ptr %.2.lcssa.i.i107, ptr %82, align 8
+  br label %conversation_lookup_exact_anc.exit108.thread210
+
+conversation_lookup_exact_anc.exit108.thread210:  ; preds = %78, %conversation_lookup_exact_anc.exit108
+  %.027.i.i96213 = phi ptr [ %.2.lcssa.i.i107, %conversation_lookup_exact_anc.exit108 ], [ %77, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.not80 = icmp eq ptr %.027.i.i, null
-  br i1 %.not80, label %342, label %98
+  br i1 %.not80, label %330, label %95
 
-98:                                               ; preds = %97
-  %99 = getelementptr inbounds nuw i8, ptr %.027.i.i96, i64 24
-  %100 = load i32, ptr %99, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 24
-  %102 = load i32, ptr %101, align 8
-  %103 = icmp ugt i32 %100, %102
-  %spec.select = select i1 %103, ptr %.027.i.i96, ptr %.027.i.i
-  br label %342
+95:                                               ; preds = %conversation_lookup_exact_anc.exit108.thread210
+  %96 = getelementptr inbounds nuw i8, ptr %.027.i.i96213, i64 24
+  %97 = load i32, ptr %96, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 24
+  %99 = load i32, ptr %98, align 8
+  %100 = icmp ugt i32 %97, %99
+  %spec.select = select i1 %100, ptr %.027.i.i96213, ptr %.027.i.i
+  br label %330
 
-104:                                              ; preds = %8
-  %105 = and i32 %7, 131072
-  %.not81 = icmp eq i32 %105, 0
-  br i1 %.not81, label %188, label %106
+101:                                              ; preds = %8
+  %102 = and i32 %7, 131072
+  %.not81 = icmp eq i32 %102, 0
+  br i1 %.not81, label %182, label %103
 
-106:                                              ; preds = %104
+103:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 1, ptr %14, align 16
-  %107 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  store i32 0, ptr %104, align 4
+  %105 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
+  %106 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  store i32 1, ptr %106, align 16
+  %107 = getelementptr inbounds nuw i8, ptr %14, i64 36
   store i32 0, ptr %107, align 4
-  %108 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, ptr noundef readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %109 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i32 1, ptr %109, align 16
-  %110 = getelementptr inbounds nuw i8, ptr %14, i64 36
-  store i32 0, ptr %110, align 4
-  %111 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %111, ptr noundef readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %112 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %112, i8 0, i64 32, i1 false)
-  store i32 2, ptr %112, align 16
-  %113 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  store i32 %4, ptr %113, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %14, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %114, i8 0, i64 32, i1 false)
-  store i32 4, ptr %114, align 16
-  %115 = getelementptr inbounds nuw i8, ptr %14, i64 104
-  store i32 %6, ptr %115, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %14, i64 128
-  %117 = getelementptr inbounds nuw i8, ptr %14, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %116, i8 0, i64 32, i1 false)
-  store i32 %3, ptr %117, align 8
-  %118 = load ptr, ptr @conversation_hashtable_exact_addr_port_anc, align 8
-  %119 = call ptr @wmem_map_lookup(ptr noundef %118, ptr noundef nonnull %14)
-  %.not.i.i110 = icmp eq ptr %119, null
-  br i1 %.not.i.i110, label %conversation_lookup_no_port2_anc.exit, label %120
+  %108 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, ptr noundef readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %109 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %109, i8 0, i64 32, i1 false)
+  store i32 2, ptr %109, align 16
+  %110 = getelementptr inbounds nuw i8, ptr %14, i64 72
+  store i32 %4, ptr %110, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %14, i64 96
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %111, i8 0, i64 32, i1 false)
+  store i32 4, ptr %111, align 16
+  %112 = getelementptr inbounds nuw i8, ptr %14, i64 104
+  store i32 %6, ptr %112, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %14, i64 128
+  %114 = getelementptr inbounds nuw i8, ptr %14, i64 136
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %113, i8 0, i64 32, i1 false)
+  store i32 %3, ptr %114, align 8
+  %115 = load ptr, ptr @conversation_hashtable_exact_addr_port_anc, align 8
+  %116 = call ptr @wmem_map_lookup(ptr noundef %115, ptr noundef nonnull %14)
+  %.not.i.i109 = icmp eq ptr %116, null
+  br i1 %.not.i.i109, label %conversation_lookup_no_port2_anc.exit, label %117
 
-120:                                              ; preds = %106
-  %121 = getelementptr inbounds nuw i8, ptr %119, i64 28
-  %122 = load i32, ptr %121, align 4
-  %.not33.i.i111 = icmp ugt i32 %122, %0
-  br i1 %.not33.i.i111, label %conversation_lookup_no_port2_anc.exit, label %123
+117:                                              ; preds = %103
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 28
+  %119 = load i32, ptr %118, align 4
+  %.not33.i.i110 = icmp ugt i32 %119, %0
+  br i1 %.not33.i.i110, label %conversation_lookup_no_port2_anc.exit, label %120
+
+120:                                              ; preds = %117
+  %121 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %122 = load ptr, ptr %121, align 8
+  %.not34.i.i111 = icmp eq ptr %122, null
+  br i1 %.not34.i.i111, label %126, label %123
 
 123:                                              ; preds = %120
-  %124 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  %125 = load ptr, ptr %124, align 8
-  %.not34.i.i112 = icmp eq ptr %125, null
-  br i1 %.not34.i.i112, label %129, label %126
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 28
+  %125 = load i32, ptr %124, align 4
+  %.not35.i.i112 = icmp ugt i32 %125, %0
+  br i1 %.not35.i.i112, label %126, label %conversation_lookup_no_port2_anc.exit
 
-126:                                              ; preds = %123
-  %127 = getelementptr inbounds nuw i8, ptr %125, i64 28
-  %128 = load i32, ptr %127, align 4
-  %.not35.i.i113 = icmp ugt i32 %128, %0
-  br i1 %.not35.i.i113, label %129, label %conversation_lookup_no_port2_anc.exit
+126:                                              ; preds = %123, %120
+  %127 = getelementptr inbounds nuw i8, ptr %116, i64 16
+  %128 = load ptr, ptr %127, align 8
+  %.not36.i.i114 = icmp eq ptr %128, null
+  br i1 %.not36.i.i114, label %.preheader279, label %129
 
-129:                                              ; preds = %126, %123
-  %130 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  %131 = load ptr, ptr %130, align 8
-  %.not36.i.i115 = icmp eq ptr %131, null
-  br i1 %.not36.i.i115, label %.preheader229, label %132
+129:                                              ; preds = %126
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 28
+  %131 = load i32, ptr %130, align 4
+  %.not37.i.i115 = icmp ugt i32 %131, %0
+  %spec.select.i.i116 = select i1 %.not37.i.i115, ptr %116, ptr %128
+  br label %.preheader279
 
-132:                                              ; preds = %129
-  %133 = getelementptr inbounds nuw i8, ptr %131, i64 28
+.preheader279:                                    ; preds = %129, %126
+  %.02644.i.i119.ph = phi ptr [ %spec.select.i.i116, %129 ], [ %116, %126 ]
+  br label %132
+
+132:                                              ; preds = %.preheader279, %135
+  %.245.i.i118 = phi ptr [ %spec.select41.i.i121, %135 ], [ %.02644.i.i119.ph, %.preheader279 ]
+  %.02644.i.i119 = phi ptr [ %139, %135 ], [ %.02644.i.i119.ph, %.preheader279 ]
+  %133 = getelementptr inbounds nuw i8, ptr %.02644.i.i119, i64 28
   %134 = load i32, ptr %133, align 4
-  %.not37.i.i116 = icmp ugt i32 %134, %0
-  %spec.select.i.i117 = select i1 %.not37.i.i116, ptr %119, ptr %131
-  br label %.preheader229
+  %.not39.i.i120 = icmp ugt i32 %134, %0
+  br i1 %.not39.i.i120, label %.critedge.i.i123, label %135
 
-.preheader229:                                    ; preds = %132, %129
-  %.02644.i.i120.ph = phi ptr [ %spec.select.i.i117, %132 ], [ %119, %129 ]
-  br label %135
-
-135:                                              ; preds = %.preheader229, %138
-  %.245.i.i119 = phi ptr [ %spec.select41.i.i122, %138 ], [ %.02644.i.i120.ph, %.preheader229 ]
-  %.02644.i.i120 = phi ptr [ %142, %138 ], [ %.02644.i.i120.ph, %.preheader229 ]
-  %136 = getelementptr inbounds nuw i8, ptr %.02644.i.i120, i64 28
+135:                                              ; preds = %132
+  %136 = getelementptr inbounds nuw i8, ptr %.245.i.i118, i64 28
   %137 = load i32, ptr %136, align 4
-  %.not39.i.i121 = icmp ugt i32 %137, %0
-  br i1 %.not39.i.i121, label %.critedge.i.i124, label %138
+  %138 = icmp ugt i32 %134, %137
+  %spec.select41.i.i121 = select i1 %138, ptr %.02644.i.i119, ptr %.245.i.i118
+  %139 = load ptr, ptr %.02644.i.i119, align 8
+  %.not38.i.i122 = icmp eq ptr %139, null
+  br i1 %.not38.i.i122, label %.critedge.i.i123, label %132, !llvm.loop !13
 
-138:                                              ; preds = %135
-  %139 = getelementptr inbounds nuw i8, ptr %.245.i.i119, i64 28
-  %140 = load i32, ptr %139, align 4
-  %141 = icmp ugt i32 %137, %140
-  %spec.select41.i.i122 = select i1 %141, ptr %.02644.i.i120, ptr %.245.i.i119
-  %142 = load ptr, ptr %.02644.i.i120, align 8
-  %.not38.i.i123 = icmp eq ptr %142, null
-  br i1 %.not38.i.i123, label %.critedge.i.i124, label %135, !llvm.loop !13
-
-.critedge.i.i124:                                 ; preds = %138, %135
-  %.2.lcssa.i.i125 = phi ptr [ %.245.i.i119, %135 ], [ %spec.select41.i.i122, %138 ]
-  %.not40.i.i126 = icmp eq ptr %.2.lcssa.i.i125, null
-  br i1 %.not40.i.i126, label %conversation_lookup_no_port2_anc.exit, label %143
-
-143:                                              ; preds = %.critedge.i.i124
-  store ptr %.2.lcssa.i.i125, ptr %130, align 8
+.critedge.i.i123:                                 ; preds = %135, %132
+  %.2.lcssa.i.i124 = phi ptr [ %.245.i.i118, %132 ], [ %spec.select41.i.i121, %135 ]
+  store ptr %.2.lcssa.i.i124, ptr %127, align 8
   br label %conversation_lookup_no_port2_anc.exit
 
-conversation_lookup_no_port2_anc.exit:            ; preds = %106, %120, %126, %.critedge.i.i124, %143
-  %.027.i.i114 = phi ptr [ %125, %126 ], [ %.2.lcssa.i.i125, %143 ], [ null, %.critedge.i.i124 ], [ null, %120 ], [ null, %106 ]
+conversation_lookup_no_port2_anc.exit:            ; preds = %103, %117, %123, %.critedge.i.i123
+  %.027.i.i113 = phi ptr [ %122, %123 ], [ %.2.lcssa.i.i124, %.critedge.i.i123 ], [ null, %117 ], [ null, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 1, ptr %13, align 16
-  %144 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 0, ptr %144, align 4
-  %145 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %145, ptr noundef readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %146 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store i32 1, ptr %146, align 16
-  %147 = getelementptr inbounds nuw i8, ptr %13, i64 36
-  store i32 0, ptr %147, align 4
-  %148 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %148, ptr noundef readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %149 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %140 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  store i32 0, ptr %140, align 4
+  %141 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %141, ptr noundef readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %142 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  store i32 1, ptr %142, align 16
+  %143 = getelementptr inbounds nuw i8, ptr %13, i64 36
+  store i32 0, ptr %143, align 4
+  %144 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %144, ptr noundef readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
+  %145 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %145, i8 0, i64 32, i1 false)
+  store i32 2, ptr %145, align 16
+  %146 = getelementptr inbounds nuw i8, ptr %13, i64 72
+  store i32 %5, ptr %146, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %13, i64 96
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %147, i8 0, i64 32, i1 false)
+  store i32 4, ptr %147, align 16
+  %148 = getelementptr inbounds nuw i8, ptr %13, i64 104
+  store i32 %6, ptr %148, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %13, i64 128
+  %150 = getelementptr inbounds nuw i8, ptr %13, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %149, i8 0, i64 32, i1 false)
-  store i32 2, ptr %149, align 16
-  %150 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  store i32 %5, ptr %150, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %13, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %151, i8 0, i64 32, i1 false)
-  store i32 4, ptr %151, align 16
-  %152 = getelementptr inbounds nuw i8, ptr %13, i64 104
-  store i32 %6, ptr %152, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %13, i64 128
-  %154 = getelementptr inbounds nuw i8, ptr %13, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %153, i8 0, i64 32, i1 false)
-  store i32 %3, ptr %154, align 8
-  %155 = load ptr, ptr @conversation_hashtable_exact_addr_port_anc, align 8
-  %156 = call ptr @wmem_map_lookup(ptr noundef %155, ptr noundef nonnull %13)
-  %.not.i.i127 = icmp eq ptr %156, null
-  br i1 %.not.i.i127, label %conversation_lookup_no_port2_anc.exit144.thread, label %157
+  store i32 %3, ptr %150, align 8
+  %151 = load ptr, ptr @conversation_hashtable_exact_addr_port_anc, align 8
+  %152 = call ptr @wmem_map_lookup(ptr noundef %151, ptr noundef nonnull %13)
+  %.not.i.i125 = icmp eq ptr %152, null
+  br i1 %.not.i.i125, label %conversation_lookup_no_port2_anc.exit141.thread, label %153
 
-157:                                              ; preds = %conversation_lookup_no_port2_anc.exit
-  %158 = getelementptr inbounds nuw i8, ptr %156, i64 28
-  %159 = load i32, ptr %158, align 4
-  %.not33.i.i128 = icmp ugt i32 %159, %0
-  br i1 %.not33.i.i128, label %conversation_lookup_no_port2_anc.exit144.thread, label %160
+153:                                              ; preds = %conversation_lookup_no_port2_anc.exit
+  %154 = getelementptr inbounds nuw i8, ptr %152, i64 28
+  %155 = load i32, ptr %154, align 4
+  %.not33.i.i126 = icmp ugt i32 %155, %0
+  br i1 %.not33.i.i126, label %conversation_lookup_no_port2_anc.exit141.thread, label %156
 
-160:                                              ; preds = %157
-  %161 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  %162 = load ptr, ptr %161, align 8
-  %.not34.i.i129 = icmp eq ptr %162, null
-  br i1 %.not34.i.i129, label %166, label %163
+156:                                              ; preds = %153
+  %157 = getelementptr inbounds nuw i8, ptr %152, i64 8
+  %158 = load ptr, ptr %157, align 8
+  %.not34.i.i127 = icmp eq ptr %158, null
+  br i1 %.not34.i.i127, label %162, label %159
 
-163:                                              ; preds = %160
-  %164 = getelementptr inbounds nuw i8, ptr %162, i64 28
-  %165 = load i32, ptr %164, align 4
-  %.not35.i.i130 = icmp ugt i32 %165, %0
-  br i1 %.not35.i.i130, label %166, label %181
+159:                                              ; preds = %156
+  %160 = getelementptr inbounds nuw i8, ptr %158, i64 28
+  %161 = load i32, ptr %160, align 4
+  %.not35.i.i128 = icmp ugt i32 %161, %0
+  br i1 %.not35.i.i128, label %162, label %conversation_lookup_no_port2_anc.exit141.thread216
 
-166:                                              ; preds = %163, %160
-  %167 = getelementptr inbounds nuw i8, ptr %156, i64 16
-  %168 = load ptr, ptr %167, align 8
-  %.not36.i.i132 = icmp eq ptr %168, null
-  br i1 %.not36.i.i132, label %.preheader228, label %169
+162:                                              ; preds = %159, %156
+  %163 = getelementptr inbounds nuw i8, ptr %152, i64 16
+  %164 = load ptr, ptr %163, align 8
+  %.not36.i.i130 = icmp eq ptr %164, null
+  br i1 %.not36.i.i130, label %.preheader278, label %165
 
-169:                                              ; preds = %166
-  %170 = getelementptr inbounds nuw i8, ptr %168, i64 28
-  %171 = load i32, ptr %170, align 4
-  %.not37.i.i133 = icmp ugt i32 %171, %0
-  %spec.select.i.i134 = select i1 %.not37.i.i133, ptr %156, ptr %168
-  br label %.preheader228
+165:                                              ; preds = %162
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 28
+  %167 = load i32, ptr %166, align 4
+  %.not37.i.i131 = icmp ugt i32 %167, %0
+  %spec.select.i.i132 = select i1 %.not37.i.i131, ptr %152, ptr %164
+  br label %.preheader278
 
-.preheader228:                                    ; preds = %169, %166
-  %.02644.i.i137.ph = phi ptr [ %spec.select.i.i134, %169 ], [ %156, %166 ]
-  br label %172
+.preheader278:                                    ; preds = %165, %162
+  %.02644.i.i135.ph = phi ptr [ %spec.select.i.i132, %165 ], [ %152, %162 ]
+  br label %168
 
-172:                                              ; preds = %.preheader228, %175
-  %.245.i.i136 = phi ptr [ %spec.select41.i.i139, %175 ], [ %.02644.i.i137.ph, %.preheader228 ]
-  %.02644.i.i137 = phi ptr [ %179, %175 ], [ %.02644.i.i137.ph, %.preheader228 ]
-  %173 = getelementptr inbounds nuw i8, ptr %.02644.i.i137, i64 28
-  %174 = load i32, ptr %173, align 4
-  %.not39.i.i138 = icmp ugt i32 %174, %0
-  br i1 %.not39.i.i138, label %.critedge.i.i141, label %175
+168:                                              ; preds = %.preheader278, %171
+  %.245.i.i134 = phi ptr [ %spec.select41.i.i137, %171 ], [ %.02644.i.i135.ph, %.preheader278 ]
+  %.02644.i.i135 = phi ptr [ %175, %171 ], [ %.02644.i.i135.ph, %.preheader278 ]
+  %169 = getelementptr inbounds nuw i8, ptr %.02644.i.i135, i64 28
+  %170 = load i32, ptr %169, align 4
+  %.not39.i.i136 = icmp ugt i32 %170, %0
+  br i1 %.not39.i.i136, label %conversation_lookup_no_port2_anc.exit141, label %171
 
-175:                                              ; preds = %172
-  %176 = getelementptr inbounds nuw i8, ptr %.245.i.i136, i64 28
-  %177 = load i32, ptr %176, align 4
-  %178 = icmp ugt i32 %174, %177
-  %spec.select41.i.i139 = select i1 %178, ptr %.02644.i.i137, ptr %.245.i.i136
-  %179 = load ptr, ptr %.02644.i.i137, align 8
-  %.not38.i.i140 = icmp eq ptr %179, null
-  br i1 %.not38.i.i140, label %.critedge.i.i141, label %172, !llvm.loop !13
+171:                                              ; preds = %168
+  %172 = getelementptr inbounds nuw i8, ptr %.245.i.i134, i64 28
+  %173 = load i32, ptr %172, align 4
+  %174 = icmp ugt i32 %170, %173
+  %spec.select41.i.i137 = select i1 %174, ptr %.02644.i.i135, ptr %.245.i.i134
+  %175 = load ptr, ptr %.02644.i.i135, align 8
+  %.not38.i.i138 = icmp eq ptr %175, null
+  br i1 %.not38.i.i138, label %conversation_lookup_no_port2_anc.exit141, label %168, !llvm.loop !13
 
-.critedge.i.i141:                                 ; preds = %175, %172
-  %.2.lcssa.i.i142 = phi ptr [ %.245.i.i136, %172 ], [ %spec.select41.i.i139, %175 ]
-  %.not40.i.i143 = icmp eq ptr %.2.lcssa.i.i142, null
-  br i1 %.not40.i.i143, label %conversation_lookup_no_port2_anc.exit144.thread, label %180
-
-180:                                              ; preds = %.critedge.i.i141
-  store ptr %.2.lcssa.i.i142, ptr %167, align 8
-  br label %181
-
-conversation_lookup_no_port2_anc.exit144.thread:  ; preds = %.critedge.i.i141, %157, %conversation_lookup_no_port2_anc.exit
+conversation_lookup_no_port2_anc.exit141.thread:  ; preds = %153, %conversation_lookup_no_port2_anc.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %342
+  br label %330
 
-181:                                              ; preds = %180, %163
-  %.027.i.i131 = phi ptr [ %162, %163 ], [ %.2.lcssa.i.i142, %180 ]
+conversation_lookup_no_port2_anc.exit141:         ; preds = %168, %171
+  %.2.lcssa.i.i140 = phi ptr [ %.245.i.i134, %168 ], [ %spec.select41.i.i137, %171 ]
+  store ptr %.2.lcssa.i.i140, ptr %163, align 8
+  br label %conversation_lookup_no_port2_anc.exit141.thread216
+
+conversation_lookup_no_port2_anc.exit141.thread216: ; preds = %159, %conversation_lookup_no_port2_anc.exit141
+  %.027.i.i129219 = phi ptr [ %.2.lcssa.i.i140, %conversation_lookup_no_port2_anc.exit141 ], [ %158, %159 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %.not88 = icmp eq ptr %.027.i.i114, null
-  br i1 %.not88, label %342, label %182
+  %.not88 = icmp eq ptr %.027.i.i113, null
+  br i1 %.not88, label %330, label %176
 
-182:                                              ; preds = %181
-  %183 = getelementptr inbounds nuw i8, ptr %.027.i.i131, i64 24
-  %184 = load i32, ptr %183, align 8
-  %185 = getelementptr inbounds nuw i8, ptr %.027.i.i114, i64 24
-  %186 = load i32, ptr %185, align 8
-  %187 = icmp ugt i32 %184, %186
-  %spec.select89 = select i1 %187, ptr %.027.i.i131, ptr %.027.i.i114
-  br label %342
+176:                                              ; preds = %conversation_lookup_no_port2_anc.exit141.thread216
+  %177 = getelementptr inbounds nuw i8, ptr %.027.i.i129219, i64 24
+  %178 = load i32, ptr %177, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %.027.i.i113, i64 24
+  %180 = load i32, ptr %179, align 8
+  %181 = icmp ugt i32 %178, %180
+  %spec.select89 = select i1 %181, ptr %.027.i.i129219, ptr %.027.i.i113
+  br label %330
 
-188:                                              ; preds = %104
-  %189 = and i32 %7, 524288
-  %.not82 = icmp eq i32 %189, 0
-  br i1 %.not82, label %190, label %268
+182:                                              ; preds = %101
+  %183 = and i32 %7, 524288
+  %.not82 = icmp eq i32 %183, 0
+  br i1 %.not82, label %184, label %259
 
-190:                                              ; preds = %188
+184:                                              ; preds = %182
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 1, ptr %12, align 16
-  %191 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 0, ptr %191, align 4
-  %192 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %192, ptr noundef readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %193 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i32 1, ptr %193, align 16
-  %194 = getelementptr inbounds nuw i8, ptr %12, i64 36
-  store i32 0, ptr %194, align 4
-  %195 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %195, ptr noundef readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %196 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %196, i8 0, i64 32, i1 false)
-  store i32 4, ptr %196, align 16
-  %197 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  store i32 %6, ptr %197, align 8
-  %198 = getelementptr inbounds nuw i8, ptr %12, i64 96
-  %199 = getelementptr inbounds nuw i8, ptr %12, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %198, i8 0, i64 32, i1 false)
-  store i32 %3, ptr %199, align 8
-  %200 = load ptr, ptr @conversation_hashtable_exact_addr_anc, align 8
-  %201 = call ptr @wmem_map_lookup(ptr noundef %200, ptr noundef nonnull %12)
-  %.not.i.i145 = icmp eq ptr %201, null
-  br i1 %.not.i.i145, label %conversation_lookup_no_ports_anc.exit, label %202
+  %185 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store i32 0, ptr %185, align 4
+  %186 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %186, ptr noundef readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
+  %187 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store i32 1, ptr %187, align 16
+  %188 = getelementptr inbounds nuw i8, ptr %12, i64 36
+  store i32 0, ptr %188, align 4
+  %189 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %189, ptr noundef readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %190 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %190, i8 0, i64 32, i1 false)
+  store i32 4, ptr %190, align 16
+  %191 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  store i32 %6, ptr %191, align 8
+  %192 = getelementptr inbounds nuw i8, ptr %12, i64 96
+  %193 = getelementptr inbounds nuw i8, ptr %12, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %192, i8 0, i64 32, i1 false)
+  store i32 %3, ptr %193, align 8
+  %194 = load ptr, ptr @conversation_hashtable_exact_addr_anc, align 8
+  %195 = call ptr @wmem_map_lookup(ptr noundef %194, ptr noundef nonnull %12)
+  %.not.i.i142 = icmp eq ptr %195, null
+  br i1 %.not.i.i142, label %conversation_lookup_no_ports_anc.exit, label %196
 
-202:                                              ; preds = %190
+196:                                              ; preds = %184
+  %197 = getelementptr inbounds nuw i8, ptr %195, i64 28
+  %198 = load i32, ptr %197, align 4
+  %.not33.i.i143 = icmp ugt i32 %198, %0
+  br i1 %.not33.i.i143, label %conversation_lookup_no_ports_anc.exit, label %199
+
+199:                                              ; preds = %196
+  %200 = getelementptr inbounds nuw i8, ptr %195, i64 8
+  %201 = load ptr, ptr %200, align 8
+  %.not34.i.i144 = icmp eq ptr %201, null
+  br i1 %.not34.i.i144, label %205, label %202
+
+202:                                              ; preds = %199
   %203 = getelementptr inbounds nuw i8, ptr %201, i64 28
   %204 = load i32, ptr %203, align 4
-  %.not33.i.i146 = icmp ugt i32 %204, %0
-  br i1 %.not33.i.i146, label %conversation_lookup_no_ports_anc.exit, label %205
+  %.not35.i.i145 = icmp ugt i32 %204, %0
+  br i1 %.not35.i.i145, label %205, label %conversation_lookup_no_ports_anc.exit
 
-205:                                              ; preds = %202
-  %206 = getelementptr inbounds nuw i8, ptr %201, i64 8
+205:                                              ; preds = %202, %199
+  %206 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %207 = load ptr, ptr %206, align 8
-  %.not34.i.i147 = icmp eq ptr %207, null
-  br i1 %.not34.i.i147, label %211, label %208
+  %.not36.i.i147 = icmp eq ptr %207, null
+  br i1 %.not36.i.i147, label %.preheader275, label %208
 
 208:                                              ; preds = %205
   %209 = getelementptr inbounds nuw i8, ptr %207, i64 28
   %210 = load i32, ptr %209, align 4
-  %.not35.i.i148 = icmp ugt i32 %210, %0
-  br i1 %.not35.i.i148, label %211, label %conversation_lookup_no_ports_anc.exit
+  %.not37.i.i148 = icmp ugt i32 %210, %0
+  %spec.select.i.i149 = select i1 %.not37.i.i148, ptr %195, ptr %207
+  br label %.preheader275
 
-211:                                              ; preds = %208, %205
-  %212 = getelementptr inbounds nuw i8, ptr %201, i64 16
-  %213 = load ptr, ptr %212, align 8
-  %.not36.i.i150 = icmp eq ptr %213, null
-  br i1 %.not36.i.i150, label %.preheader225, label %214
+.preheader275:                                    ; preds = %208, %205
+  %.02644.i.i152.ph = phi ptr [ %spec.select.i.i149, %208 ], [ %195, %205 ]
+  br label %211
+
+211:                                              ; preds = %.preheader275, %214
+  %.245.i.i151 = phi ptr [ %spec.select41.i.i154, %214 ], [ %.02644.i.i152.ph, %.preheader275 ]
+  %.02644.i.i152 = phi ptr [ %218, %214 ], [ %.02644.i.i152.ph, %.preheader275 ]
+  %212 = getelementptr inbounds nuw i8, ptr %.02644.i.i152, i64 28
+  %213 = load i32, ptr %212, align 4
+  %.not39.i.i153 = icmp ugt i32 %213, %0
+  br i1 %.not39.i.i153, label %.critedge.i.i156, label %214
 
 214:                                              ; preds = %211
-  %215 = getelementptr inbounds nuw i8, ptr %213, i64 28
+  %215 = getelementptr inbounds nuw i8, ptr %.245.i.i151, i64 28
   %216 = load i32, ptr %215, align 4
-  %.not37.i.i151 = icmp ugt i32 %216, %0
-  %spec.select.i.i152 = select i1 %.not37.i.i151, ptr %201, ptr %213
-  br label %.preheader225
+  %217 = icmp ugt i32 %213, %216
+  %spec.select41.i.i154 = select i1 %217, ptr %.02644.i.i152, ptr %.245.i.i151
+  %218 = load ptr, ptr %.02644.i.i152, align 8
+  %.not38.i.i155 = icmp eq ptr %218, null
+  br i1 %.not38.i.i155, label %.critedge.i.i156, label %211, !llvm.loop !13
 
-.preheader225:                                    ; preds = %214, %211
-  %.02644.i.i155.ph = phi ptr [ %spec.select.i.i152, %214 ], [ %201, %211 ]
-  br label %217
-
-217:                                              ; preds = %.preheader225, %220
-  %.245.i.i154 = phi ptr [ %spec.select41.i.i157, %220 ], [ %.02644.i.i155.ph, %.preheader225 ]
-  %.02644.i.i155 = phi ptr [ %224, %220 ], [ %.02644.i.i155.ph, %.preheader225 ]
-  %218 = getelementptr inbounds nuw i8, ptr %.02644.i.i155, i64 28
-  %219 = load i32, ptr %218, align 4
-  %.not39.i.i156 = icmp ugt i32 %219, %0
-  br i1 %.not39.i.i156, label %.critedge.i.i159, label %220
-
-220:                                              ; preds = %217
-  %221 = getelementptr inbounds nuw i8, ptr %.245.i.i154, i64 28
-  %222 = load i32, ptr %221, align 4
-  %223 = icmp ugt i32 %219, %222
-  %spec.select41.i.i157 = select i1 %223, ptr %.02644.i.i155, ptr %.245.i.i154
-  %224 = load ptr, ptr %.02644.i.i155, align 8
-  %.not38.i.i158 = icmp eq ptr %224, null
-  br i1 %.not38.i.i158, label %.critedge.i.i159, label %217, !llvm.loop !13
-
-.critedge.i.i159:                                 ; preds = %220, %217
-  %.2.lcssa.i.i160 = phi ptr [ %.245.i.i154, %217 ], [ %spec.select41.i.i157, %220 ]
-  %.not40.i.i161 = icmp eq ptr %.2.lcssa.i.i160, null
-  br i1 %.not40.i.i161, label %conversation_lookup_no_ports_anc.exit, label %225
-
-225:                                              ; preds = %.critedge.i.i159
-  store ptr %.2.lcssa.i.i160, ptr %212, align 8
+.critedge.i.i156:                                 ; preds = %214, %211
+  %.2.lcssa.i.i157 = phi ptr [ %.245.i.i151, %211 ], [ %spec.select41.i.i154, %214 ]
+  store ptr %.2.lcssa.i.i157, ptr %206, align 8
   br label %conversation_lookup_no_ports_anc.exit
 
-conversation_lookup_no_ports_anc.exit:            ; preds = %190, %202, %208, %.critedge.i.i159, %225
-  %.027.i.i149 = phi ptr [ %207, %208 ], [ %.2.lcssa.i.i160, %225 ], [ null, %.critedge.i.i159 ], [ null, %202 ], [ null, %190 ]
+conversation_lookup_no_ports_anc.exit:            ; preds = %184, %196, %202, %.critedge.i.i156
+  %.027.i.i146 = phi ptr [ %201, %202 ], [ %.2.lcssa.i.i157, %.critedge.i.i156 ], [ null, %196 ], [ null, %184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 1, ptr %11, align 16
-  %226 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 0, ptr %226, align 4
-  %227 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %227, ptr noundef readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %228 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 1, ptr %228, align 16
-  %229 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  store i32 0, ptr %229, align 4
-  %230 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %230, ptr noundef readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %231 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %231, i8 0, i64 32, i1 false)
-  store i32 4, ptr %231, align 16
-  %232 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  store i32 %6, ptr %232, align 8
-  %233 = getelementptr inbounds nuw i8, ptr %11, i64 96
-  %234 = getelementptr inbounds nuw i8, ptr %11, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %233, i8 0, i64 32, i1 false)
-  store i32 %3, ptr %234, align 8
-  %235 = load ptr, ptr @conversation_hashtable_exact_addr_anc, align 8
-  %236 = call ptr @wmem_map_lookup(ptr noundef %235, ptr noundef nonnull %11)
-  %.not.i.i162 = icmp eq ptr %236, null
-  br i1 %.not.i.i162, label %conversation_lookup_no_ports_anc.exit179.thread, label %237
+  %219 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store i32 0, ptr %219, align 4
+  %220 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %220, ptr noundef readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %221 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store i32 1, ptr %221, align 16
+  %222 = getelementptr inbounds nuw i8, ptr %11, i64 36
+  store i32 0, ptr %222, align 4
+  %223 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %223, ptr noundef readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
+  %224 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %224, i8 0, i64 32, i1 false)
+  store i32 4, ptr %224, align 16
+  %225 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  store i32 %6, ptr %225, align 8
+  %226 = getelementptr inbounds nuw i8, ptr %11, i64 96
+  %227 = getelementptr inbounds nuw i8, ptr %11, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %226, i8 0, i64 32, i1 false)
+  store i32 %3, ptr %227, align 8
+  %228 = load ptr, ptr @conversation_hashtable_exact_addr_anc, align 8
+  %229 = call ptr @wmem_map_lookup(ptr noundef %228, ptr noundef nonnull %11)
+  %.not.i.i158 = icmp eq ptr %229, null
+  br i1 %.not.i.i158, label %conversation_lookup_no_ports_anc.exit174.thread, label %230
 
-237:                                              ; preds = %conversation_lookup_no_ports_anc.exit
-  %238 = getelementptr inbounds nuw i8, ptr %236, i64 28
-  %239 = load i32, ptr %238, align 4
-  %.not33.i.i163 = icmp ugt i32 %239, %0
-  br i1 %.not33.i.i163, label %conversation_lookup_no_ports_anc.exit179.thread, label %240
+230:                                              ; preds = %conversation_lookup_no_ports_anc.exit
+  %231 = getelementptr inbounds nuw i8, ptr %229, i64 28
+  %232 = load i32, ptr %231, align 4
+  %.not33.i.i159 = icmp ugt i32 %232, %0
+  br i1 %.not33.i.i159, label %conversation_lookup_no_ports_anc.exit174.thread, label %233
 
-240:                                              ; preds = %237
-  %241 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %242 = load ptr, ptr %241, align 8
-  %.not34.i.i164 = icmp eq ptr %242, null
-  br i1 %.not34.i.i164, label %246, label %243
+233:                                              ; preds = %230
+  %234 = getelementptr inbounds nuw i8, ptr %229, i64 8
+  %235 = load ptr, ptr %234, align 8
+  %.not34.i.i160 = icmp eq ptr %235, null
+  br i1 %.not34.i.i160, label %239, label %236
 
-243:                                              ; preds = %240
-  %244 = getelementptr inbounds nuw i8, ptr %242, i64 28
-  %245 = load i32, ptr %244, align 4
-  %.not35.i.i165 = icmp ugt i32 %245, %0
-  br i1 %.not35.i.i165, label %246, label %261
+236:                                              ; preds = %233
+  %237 = getelementptr inbounds nuw i8, ptr %235, i64 28
+  %238 = load i32, ptr %237, align 4
+  %.not35.i.i161 = icmp ugt i32 %238, %0
+  br i1 %.not35.i.i161, label %239, label %conversation_lookup_no_ports_anc.exit174.thread222
 
-246:                                              ; preds = %243, %240
-  %247 = getelementptr inbounds nuw i8, ptr %236, i64 16
-  %248 = load ptr, ptr %247, align 8
-  %.not36.i.i167 = icmp eq ptr %248, null
-  br i1 %.not36.i.i167, label %.preheader224, label %249
+239:                                              ; preds = %236, %233
+  %240 = getelementptr inbounds nuw i8, ptr %229, i64 16
+  %241 = load ptr, ptr %240, align 8
+  %.not36.i.i163 = icmp eq ptr %241, null
+  br i1 %.not36.i.i163, label %.preheader274, label %242
 
-249:                                              ; preds = %246
-  %250 = getelementptr inbounds nuw i8, ptr %248, i64 28
-  %251 = load i32, ptr %250, align 4
-  %.not37.i.i168 = icmp ugt i32 %251, %0
-  %spec.select.i.i169 = select i1 %.not37.i.i168, ptr %236, ptr %248
-  br label %.preheader224
+242:                                              ; preds = %239
+  %243 = getelementptr inbounds nuw i8, ptr %241, i64 28
+  %244 = load i32, ptr %243, align 4
+  %.not37.i.i164 = icmp ugt i32 %244, %0
+  %spec.select.i.i165 = select i1 %.not37.i.i164, ptr %229, ptr %241
+  br label %.preheader274
 
-.preheader224:                                    ; preds = %249, %246
-  %.02644.i.i172.ph = phi ptr [ %spec.select.i.i169, %249 ], [ %236, %246 ]
-  br label %252
+.preheader274:                                    ; preds = %242, %239
+  %.02644.i.i168.ph = phi ptr [ %spec.select.i.i165, %242 ], [ %229, %239 ]
+  br label %245
 
-252:                                              ; preds = %.preheader224, %255
-  %.245.i.i171 = phi ptr [ %spec.select41.i.i174, %255 ], [ %.02644.i.i172.ph, %.preheader224 ]
-  %.02644.i.i172 = phi ptr [ %259, %255 ], [ %.02644.i.i172.ph, %.preheader224 ]
-  %253 = getelementptr inbounds nuw i8, ptr %.02644.i.i172, i64 28
-  %254 = load i32, ptr %253, align 4
-  %.not39.i.i173 = icmp ugt i32 %254, %0
-  br i1 %.not39.i.i173, label %.critedge.i.i176, label %255
+245:                                              ; preds = %.preheader274, %248
+  %.245.i.i167 = phi ptr [ %spec.select41.i.i170, %248 ], [ %.02644.i.i168.ph, %.preheader274 ]
+  %.02644.i.i168 = phi ptr [ %252, %248 ], [ %.02644.i.i168.ph, %.preheader274 ]
+  %246 = getelementptr inbounds nuw i8, ptr %.02644.i.i168, i64 28
+  %247 = load i32, ptr %246, align 4
+  %.not39.i.i169 = icmp ugt i32 %247, %0
+  br i1 %.not39.i.i169, label %conversation_lookup_no_ports_anc.exit174, label %248
 
-255:                                              ; preds = %252
-  %256 = getelementptr inbounds nuw i8, ptr %.245.i.i171, i64 28
-  %257 = load i32, ptr %256, align 4
-  %258 = icmp ugt i32 %254, %257
-  %spec.select41.i.i174 = select i1 %258, ptr %.02644.i.i172, ptr %.245.i.i171
-  %259 = load ptr, ptr %.02644.i.i172, align 8
-  %.not38.i.i175 = icmp eq ptr %259, null
-  br i1 %.not38.i.i175, label %.critedge.i.i176, label %252, !llvm.loop !13
+248:                                              ; preds = %245
+  %249 = getelementptr inbounds nuw i8, ptr %.245.i.i167, i64 28
+  %250 = load i32, ptr %249, align 4
+  %251 = icmp ugt i32 %247, %250
+  %spec.select41.i.i170 = select i1 %251, ptr %.02644.i.i168, ptr %.245.i.i167
+  %252 = load ptr, ptr %.02644.i.i168, align 8
+  %.not38.i.i171 = icmp eq ptr %252, null
+  br i1 %.not38.i.i171, label %conversation_lookup_no_ports_anc.exit174, label %245, !llvm.loop !13
 
-.critedge.i.i176:                                 ; preds = %255, %252
-  %.2.lcssa.i.i177 = phi ptr [ %.245.i.i171, %252 ], [ %spec.select41.i.i174, %255 ]
-  %.not40.i.i178 = icmp eq ptr %.2.lcssa.i.i177, null
-  br i1 %.not40.i.i178, label %conversation_lookup_no_ports_anc.exit179.thread, label %260
-
-260:                                              ; preds = %.critedge.i.i176
-  store ptr %.2.lcssa.i.i177, ptr %247, align 8
-  br label %261
-
-conversation_lookup_no_ports_anc.exit179.thread:  ; preds = %.critedge.i.i176, %237, %conversation_lookup_no_ports_anc.exit
+conversation_lookup_no_ports_anc.exit174.thread:  ; preds = %230, %conversation_lookup_no_ports_anc.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %342
+  br label %330
 
-261:                                              ; preds = %260, %243
-  %.027.i.i166 = phi ptr [ %242, %243 ], [ %.2.lcssa.i.i177, %260 ]
+conversation_lookup_no_ports_anc.exit174:         ; preds = %245, %248
+  %.2.lcssa.i.i173 = phi ptr [ %.245.i.i167, %245 ], [ %spec.select41.i.i170, %248 ]
+  store ptr %.2.lcssa.i.i173, ptr %240, align 8
+  br label %conversation_lookup_no_ports_anc.exit174.thread222
+
+conversation_lookup_no_ports_anc.exit174.thread222: ; preds = %236, %conversation_lookup_no_ports_anc.exit174
+  %.027.i.i162225 = phi ptr [ %.2.lcssa.i.i173, %conversation_lookup_no_ports_anc.exit174 ], [ %235, %236 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %.not84 = icmp eq ptr %.027.i.i149, null
-  br i1 %.not84, label %342, label %262
+  %.not84 = icmp eq ptr %.027.i.i146, null
+  br i1 %.not84, label %330, label %253
 
-262:                                              ; preds = %261
-  %263 = getelementptr inbounds nuw i8, ptr %.027.i.i166, i64 24
-  %264 = load i32, ptr %263, align 8
-  %265 = getelementptr inbounds nuw i8, ptr %.027.i.i149, i64 24
-  %266 = load i32, ptr %265, align 8
-  %267 = icmp ugt i32 %264, %266
-  %spec.select90 = select i1 %267, ptr %.027.i.i166, ptr %.027.i.i149
-  br label %342
+253:                                              ; preds = %conversation_lookup_no_ports_anc.exit174.thread222
+  %254 = getelementptr inbounds nuw i8, ptr %.027.i.i162225, i64 24
+  %255 = load i32, ptr %254, align 8
+  %256 = getelementptr inbounds nuw i8, ptr %.027.i.i146, i64 24
+  %257 = load i32, ptr %256, align 8
+  %258 = icmp ugt i32 %255, %257
+  %spec.select90 = select i1 %258, ptr %.027.i.i162225, ptr %.027.i.i146
+  br label %330
 
-268:                                              ; preds = %188
+259:                                              ; preds = %182
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 1, ptr %10, align 16
-  %269 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 0, ptr %269, align 4
-  %270 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %270, ptr noundef readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %271 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i32 1, ptr %271, align 16
-  %272 = getelementptr inbounds nuw i8, ptr %10, i64 36
-  store i32 0, ptr %272, align 4
-  %273 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %273, ptr noundef readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %274 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %275 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %274, i8 0, i64 32, i1 false)
-  store i32 %3, ptr %275, align 8
-  %276 = load ptr, ptr @conversation_hashtable_exact_addr_anc, align 8
-  %277 = call ptr @wmem_map_lookup(ptr noundef %276, ptr noundef nonnull %10)
-  %.not.i.i180 = icmp eq ptr %277, null
-  br i1 %.not.i.i180, label %conversation_lookup_no_anc_anc.exit, label %278
+  %260 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store i32 0, ptr %260, align 4
+  %261 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %261, ptr noundef readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
+  %262 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store i32 1, ptr %262, align 16
+  %263 = getelementptr inbounds nuw i8, ptr %10, i64 36
+  store i32 0, ptr %263, align 4
+  %264 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %264, ptr noundef readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %265 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %266 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %265, i8 0, i64 32, i1 false)
+  store i32 %3, ptr %266, align 8
+  %267 = load ptr, ptr @conversation_hashtable_exact_addr_anc, align 8
+  %268 = call ptr @wmem_map_lookup(ptr noundef %267, ptr noundef nonnull %10)
+  %.not.i.i175 = icmp eq ptr %268, null
+  br i1 %.not.i.i175, label %conversation_lookup_no_anc_anc.exit, label %269
 
-278:                                              ; preds = %268
-  %279 = getelementptr inbounds nuw i8, ptr %277, i64 28
-  %280 = load i32, ptr %279, align 4
-  %.not33.i.i181 = icmp ugt i32 %280, %0
-  br i1 %.not33.i.i181, label %conversation_lookup_no_anc_anc.exit, label %281
+269:                                              ; preds = %259
+  %270 = getelementptr inbounds nuw i8, ptr %268, i64 28
+  %271 = load i32, ptr %270, align 4
+  %.not33.i.i176 = icmp ugt i32 %271, %0
+  br i1 %.not33.i.i176, label %conversation_lookup_no_anc_anc.exit, label %272
+
+272:                                              ; preds = %269
+  %273 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %274 = load ptr, ptr %273, align 8
+  %.not34.i.i177 = icmp eq ptr %274, null
+  br i1 %.not34.i.i177, label %278, label %275
+
+275:                                              ; preds = %272
+  %276 = getelementptr inbounds nuw i8, ptr %274, i64 28
+  %277 = load i32, ptr %276, align 4
+  %.not35.i.i178 = icmp ugt i32 %277, %0
+  br i1 %.not35.i.i178, label %278, label %conversation_lookup_no_anc_anc.exit
+
+278:                                              ; preds = %275, %272
+  %279 = getelementptr inbounds nuw i8, ptr %268, i64 16
+  %280 = load ptr, ptr %279, align 8
+  %.not36.i.i180 = icmp eq ptr %280, null
+  br i1 %.not36.i.i180, label %.preheader277, label %281
 
 281:                                              ; preds = %278
-  %282 = getelementptr inbounds nuw i8, ptr %277, i64 8
-  %283 = load ptr, ptr %282, align 8
-  %.not34.i.i182 = icmp eq ptr %283, null
-  br i1 %.not34.i.i182, label %287, label %284
+  %282 = getelementptr inbounds nuw i8, ptr %280, i64 28
+  %283 = load i32, ptr %282, align 4
+  %.not37.i.i181 = icmp ugt i32 %283, %0
+  %spec.select.i.i182 = select i1 %.not37.i.i181, ptr %268, ptr %280
+  br label %.preheader277
 
-284:                                              ; preds = %281
-  %285 = getelementptr inbounds nuw i8, ptr %283, i64 28
+.preheader277:                                    ; preds = %281, %278
+  %.02644.i.i185.ph = phi ptr [ %spec.select.i.i182, %281 ], [ %268, %278 ]
+  br label %284
+
+284:                                              ; preds = %.preheader277, %287
+  %.245.i.i184 = phi ptr [ %spec.select41.i.i187, %287 ], [ %.02644.i.i185.ph, %.preheader277 ]
+  %.02644.i.i185 = phi ptr [ %291, %287 ], [ %.02644.i.i185.ph, %.preheader277 ]
+  %285 = getelementptr inbounds nuw i8, ptr %.02644.i.i185, i64 28
   %286 = load i32, ptr %285, align 4
-  %.not35.i.i183 = icmp ugt i32 %286, %0
-  br i1 %.not35.i.i183, label %287, label %conversation_lookup_no_anc_anc.exit
+  %.not39.i.i186 = icmp ugt i32 %286, %0
+  br i1 %.not39.i.i186, label %.critedge.i.i189, label %287
 
-287:                                              ; preds = %284, %281
-  %288 = getelementptr inbounds nuw i8, ptr %277, i64 16
-  %289 = load ptr, ptr %288, align 8
-  %.not36.i.i185 = icmp eq ptr %289, null
-  br i1 %.not36.i.i185, label %.preheader227, label %290
+287:                                              ; preds = %284
+  %288 = getelementptr inbounds nuw i8, ptr %.245.i.i184, i64 28
+  %289 = load i32, ptr %288, align 4
+  %290 = icmp ugt i32 %286, %289
+  %spec.select41.i.i187 = select i1 %290, ptr %.02644.i.i185, ptr %.245.i.i184
+  %291 = load ptr, ptr %.02644.i.i185, align 8
+  %.not38.i.i188 = icmp eq ptr %291, null
+  br i1 %.not38.i.i188, label %.critedge.i.i189, label %284, !llvm.loop !13
 
-290:                                              ; preds = %287
-  %291 = getelementptr inbounds nuw i8, ptr %289, i64 28
-  %292 = load i32, ptr %291, align 4
-  %.not37.i.i186 = icmp ugt i32 %292, %0
-  %spec.select.i.i187 = select i1 %.not37.i.i186, ptr %277, ptr %289
-  br label %.preheader227
-
-.preheader227:                                    ; preds = %290, %287
-  %.02644.i.i190.ph = phi ptr [ %spec.select.i.i187, %290 ], [ %277, %287 ]
-  br label %293
-
-293:                                              ; preds = %.preheader227, %296
-  %.245.i.i189 = phi ptr [ %spec.select41.i.i192, %296 ], [ %.02644.i.i190.ph, %.preheader227 ]
-  %.02644.i.i190 = phi ptr [ %300, %296 ], [ %.02644.i.i190.ph, %.preheader227 ]
-  %294 = getelementptr inbounds nuw i8, ptr %.02644.i.i190, i64 28
-  %295 = load i32, ptr %294, align 4
-  %.not39.i.i191 = icmp ugt i32 %295, %0
-  br i1 %.not39.i.i191, label %.critedge.i.i194, label %296
-
-296:                                              ; preds = %293
-  %297 = getelementptr inbounds nuw i8, ptr %.245.i.i189, i64 28
-  %298 = load i32, ptr %297, align 4
-  %299 = icmp ugt i32 %295, %298
-  %spec.select41.i.i192 = select i1 %299, ptr %.02644.i.i190, ptr %.245.i.i189
-  %300 = load ptr, ptr %.02644.i.i190, align 8
-  %.not38.i.i193 = icmp eq ptr %300, null
-  br i1 %.not38.i.i193, label %.critedge.i.i194, label %293, !llvm.loop !13
-
-.critedge.i.i194:                                 ; preds = %296, %293
-  %.2.lcssa.i.i195 = phi ptr [ %.245.i.i189, %293 ], [ %spec.select41.i.i192, %296 ]
-  %.not40.i.i196 = icmp eq ptr %.2.lcssa.i.i195, null
-  br i1 %.not40.i.i196, label %conversation_lookup_no_anc_anc.exit, label %301
-
-301:                                              ; preds = %.critedge.i.i194
-  store ptr %.2.lcssa.i.i195, ptr %288, align 8
+.critedge.i.i189:                                 ; preds = %287, %284
+  %.2.lcssa.i.i190 = phi ptr [ %.245.i.i184, %284 ], [ %spec.select41.i.i187, %287 ]
+  store ptr %.2.lcssa.i.i190, ptr %279, align 8
   br label %conversation_lookup_no_anc_anc.exit
 
-conversation_lookup_no_anc_anc.exit:              ; preds = %268, %278, %284, %.critedge.i.i194, %301
-  %.027.i.i184 = phi ptr [ %283, %284 ], [ %.2.lcssa.i.i195, %301 ], [ null, %.critedge.i.i194 ], [ null, %278 ], [ null, %268 ]
+conversation_lookup_no_anc_anc.exit:              ; preds = %259, %269, %275, %.critedge.i.i189
+  %.027.i.i179 = phi ptr [ %274, %275 ], [ %.2.lcssa.i.i190, %.critedge.i.i189 ], [ null, %269 ], [ null, %259 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 1, ptr %9, align 16
-  %302 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 0, ptr %302, align 4
-  %303 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %303, ptr noundef readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %304 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i32 1, ptr %304, align 16
-  %305 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  store i32 0, ptr %305, align 4
-  %306 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %306, ptr noundef readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %307 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %308 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %307, i8 0, i64 32, i1 false)
-  store i32 %3, ptr %308, align 8
-  %309 = load ptr, ptr @conversation_hashtable_exact_addr_anc, align 8
-  %310 = call ptr @wmem_map_lookup(ptr noundef %309, ptr noundef nonnull %9)
-  %.not.i.i197 = icmp eq ptr %310, null
-  br i1 %.not.i.i197, label %conversation_lookup_no_anc_anc.exit214.thread, label %311
+  %292 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 0, ptr %292, align 4
+  %293 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %293, ptr noundef readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %294 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store i32 1, ptr %294, align 16
+  %295 = getelementptr inbounds nuw i8, ptr %9, i64 36
+  store i32 0, ptr %295, align 4
+  %296 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %296, ptr noundef readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
+  %297 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  %298 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %297, i8 0, i64 32, i1 false)
+  store i32 %3, ptr %298, align 8
+  %299 = load ptr, ptr @conversation_hashtable_exact_addr_anc, align 8
+  %300 = call ptr @wmem_map_lookup(ptr noundef %299, ptr noundef nonnull %9)
+  %.not.i.i191 = icmp eq ptr %300, null
+  br i1 %.not.i.i191, label %conversation_lookup_no_anc_anc.exit207.thread, label %301
 
-311:                                              ; preds = %conversation_lookup_no_anc_anc.exit
-  %312 = getelementptr inbounds nuw i8, ptr %310, i64 28
-  %313 = load i32, ptr %312, align 4
-  %.not33.i.i198 = icmp ugt i32 %313, %0
-  br i1 %.not33.i.i198, label %conversation_lookup_no_anc_anc.exit214.thread, label %314
+301:                                              ; preds = %conversation_lookup_no_anc_anc.exit
+  %302 = getelementptr inbounds nuw i8, ptr %300, i64 28
+  %303 = load i32, ptr %302, align 4
+  %.not33.i.i192 = icmp ugt i32 %303, %0
+  br i1 %.not33.i.i192, label %conversation_lookup_no_anc_anc.exit207.thread, label %304
 
-314:                                              ; preds = %311
-  %315 = getelementptr inbounds nuw i8, ptr %310, i64 8
-  %316 = load ptr, ptr %315, align 8
-  %.not34.i.i199 = icmp eq ptr %316, null
-  br i1 %.not34.i.i199, label %320, label %317
+304:                                              ; preds = %301
+  %305 = getelementptr inbounds nuw i8, ptr %300, i64 8
+  %306 = load ptr, ptr %305, align 8
+  %.not34.i.i193 = icmp eq ptr %306, null
+  br i1 %.not34.i.i193, label %310, label %307
 
-317:                                              ; preds = %314
-  %318 = getelementptr inbounds nuw i8, ptr %316, i64 28
-  %319 = load i32, ptr %318, align 4
-  %.not35.i.i200 = icmp ugt i32 %319, %0
-  br i1 %.not35.i.i200, label %320, label %335
+307:                                              ; preds = %304
+  %308 = getelementptr inbounds nuw i8, ptr %306, i64 28
+  %309 = load i32, ptr %308, align 4
+  %.not35.i.i194 = icmp ugt i32 %309, %0
+  br i1 %.not35.i.i194, label %310, label %conversation_lookup_no_anc_anc.exit207.thread228
 
-320:                                              ; preds = %317, %314
-  %321 = getelementptr inbounds nuw i8, ptr %310, i64 16
-  %322 = load ptr, ptr %321, align 8
-  %.not36.i.i202 = icmp eq ptr %322, null
-  br i1 %.not36.i.i202, label %.preheader226, label %323
+310:                                              ; preds = %307, %304
+  %311 = getelementptr inbounds nuw i8, ptr %300, i64 16
+  %312 = load ptr, ptr %311, align 8
+  %.not36.i.i196 = icmp eq ptr %312, null
+  br i1 %.not36.i.i196, label %.preheader276, label %313
 
-323:                                              ; preds = %320
-  %324 = getelementptr inbounds nuw i8, ptr %322, i64 28
-  %325 = load i32, ptr %324, align 4
-  %.not37.i.i203 = icmp ugt i32 %325, %0
-  %spec.select.i.i204 = select i1 %.not37.i.i203, ptr %310, ptr %322
-  br label %.preheader226
+313:                                              ; preds = %310
+  %314 = getelementptr inbounds nuw i8, ptr %312, i64 28
+  %315 = load i32, ptr %314, align 4
+  %.not37.i.i197 = icmp ugt i32 %315, %0
+  %spec.select.i.i198 = select i1 %.not37.i.i197, ptr %300, ptr %312
+  br label %.preheader276
 
-.preheader226:                                    ; preds = %323, %320
-  %.02644.i.i207.ph = phi ptr [ %spec.select.i.i204, %323 ], [ %310, %320 ]
-  br label %326
+.preheader276:                                    ; preds = %313, %310
+  %.02644.i.i201.ph = phi ptr [ %spec.select.i.i198, %313 ], [ %300, %310 ]
+  br label %316
 
-326:                                              ; preds = %.preheader226, %329
-  %.245.i.i206 = phi ptr [ %spec.select41.i.i209, %329 ], [ %.02644.i.i207.ph, %.preheader226 ]
-  %.02644.i.i207 = phi ptr [ %333, %329 ], [ %.02644.i.i207.ph, %.preheader226 ]
-  %327 = getelementptr inbounds nuw i8, ptr %.02644.i.i207, i64 28
-  %328 = load i32, ptr %327, align 4
-  %.not39.i.i208 = icmp ugt i32 %328, %0
-  br i1 %.not39.i.i208, label %.critedge.i.i211, label %329
+316:                                              ; preds = %.preheader276, %319
+  %.245.i.i200 = phi ptr [ %spec.select41.i.i203, %319 ], [ %.02644.i.i201.ph, %.preheader276 ]
+  %.02644.i.i201 = phi ptr [ %323, %319 ], [ %.02644.i.i201.ph, %.preheader276 ]
+  %317 = getelementptr inbounds nuw i8, ptr %.02644.i.i201, i64 28
+  %318 = load i32, ptr %317, align 4
+  %.not39.i.i202 = icmp ugt i32 %318, %0
+  br i1 %.not39.i.i202, label %conversation_lookup_no_anc_anc.exit207, label %319
 
-329:                                              ; preds = %326
-  %330 = getelementptr inbounds nuw i8, ptr %.245.i.i206, i64 28
-  %331 = load i32, ptr %330, align 4
-  %332 = icmp ugt i32 %328, %331
-  %spec.select41.i.i209 = select i1 %332, ptr %.02644.i.i207, ptr %.245.i.i206
-  %333 = load ptr, ptr %.02644.i.i207, align 8
-  %.not38.i.i210 = icmp eq ptr %333, null
-  br i1 %.not38.i.i210, label %.critedge.i.i211, label %326, !llvm.loop !13
+319:                                              ; preds = %316
+  %320 = getelementptr inbounds nuw i8, ptr %.245.i.i200, i64 28
+  %321 = load i32, ptr %320, align 4
+  %322 = icmp ugt i32 %318, %321
+  %spec.select41.i.i203 = select i1 %322, ptr %.02644.i.i201, ptr %.245.i.i200
+  %323 = load ptr, ptr %.02644.i.i201, align 8
+  %.not38.i.i204 = icmp eq ptr %323, null
+  br i1 %.not38.i.i204, label %conversation_lookup_no_anc_anc.exit207, label %316, !llvm.loop !13
 
-.critedge.i.i211:                                 ; preds = %329, %326
-  %.2.lcssa.i.i212 = phi ptr [ %.245.i.i206, %326 ], [ %spec.select41.i.i209, %329 ]
-  %.not40.i.i213 = icmp eq ptr %.2.lcssa.i.i212, null
-  br i1 %.not40.i.i213, label %conversation_lookup_no_anc_anc.exit214.thread, label %334
-
-334:                                              ; preds = %.critedge.i.i211
-  store ptr %.2.lcssa.i.i212, ptr %321, align 8
-  br label %335
-
-conversation_lookup_no_anc_anc.exit214.thread:    ; preds = %.critedge.i.i211, %311, %conversation_lookup_no_anc_anc.exit
+conversation_lookup_no_anc_anc.exit207.thread:    ; preds = %301, %conversation_lookup_no_anc_anc.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %342
+  br label %330
 
-335:                                              ; preds = %334, %317
-  %.027.i.i201 = phi ptr [ %316, %317 ], [ %.2.lcssa.i.i212, %334 ]
+conversation_lookup_no_anc_anc.exit207:           ; preds = %316, %319
+  %.2.lcssa.i.i206 = phi ptr [ %.245.i.i200, %316 ], [ %spec.select41.i.i203, %319 ]
+  store ptr %.2.lcssa.i.i206, ptr %311, align 8
+  br label %conversation_lookup_no_anc_anc.exit207.thread228
+
+conversation_lookup_no_anc_anc.exit207.thread228: ; preds = %307, %conversation_lookup_no_anc_anc.exit207
+  %.027.i.i195231 = phi ptr [ %.2.lcssa.i.i206, %conversation_lookup_no_anc_anc.exit207 ], [ %306, %307 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.not86 = icmp eq ptr %.027.i.i184, null
-  br i1 %.not86, label %342, label %336
+  %.not86 = icmp eq ptr %.027.i.i179, null
+  br i1 %.not86, label %330, label %324
 
-336:                                              ; preds = %335
-  %337 = getelementptr inbounds nuw i8, ptr %.027.i.i201, i64 24
-  %338 = load i32, ptr %337, align 8
-  %339 = getelementptr inbounds nuw i8, ptr %.027.i.i184, i64 24
-  %340 = load i32, ptr %339, align 8
-  %341 = icmp ugt i32 %338, %340
-  %spec.select91 = select i1 %341, ptr %.027.i.i201, ptr %.027.i.i184
-  br label %342
+324:                                              ; preds = %conversation_lookup_no_anc_anc.exit207.thread228
+  %325 = getelementptr inbounds nuw i8, ptr %.027.i.i195231, i64 24
+  %326 = load i32, ptr %325, align 8
+  %327 = getelementptr inbounds nuw i8, ptr %.027.i.i179, i64 24
+  %328 = load i32, ptr %327, align 8
+  %329 = icmp ugt i32 %326, %328
+  %spec.select91 = select i1 %329, ptr %.027.i.i195231, ptr %.027.i.i179
+  br label %330
 
-342:                                              ; preds = %conversation_lookup_no_anc_anc.exit214.thread, %conversation_lookup_no_ports_anc.exit179.thread, %conversation_lookup_no_port2_anc.exit144.thread, %conversation_lookup_exact_anc.exit109.thread, %336, %262, %182, %98, %335, %261, %181, %97
-  %.0 = phi ptr [ %spec.select, %98 ], [ %.027.i.i96, %97 ], [ %spec.select89, %182 ], [ %.027.i.i131, %181 ], [ %spec.select90, %262 ], [ %.027.i.i166, %261 ], [ %spec.select91, %336 ], [ %.027.i.i201, %335 ], [ %.027.i.i, %conversation_lookup_exact_anc.exit109.thread ], [ %.027.i.i114, %conversation_lookup_no_port2_anc.exit144.thread ], [ %.027.i.i149, %conversation_lookup_no_ports_anc.exit179.thread ], [ %.027.i.i184, %conversation_lookup_no_anc_anc.exit214.thread ]
+330:                                              ; preds = %conversation_lookup_no_anc_anc.exit207.thread, %conversation_lookup_no_ports_anc.exit174.thread, %conversation_lookup_no_port2_anc.exit141.thread, %conversation_lookup_exact_anc.exit108.thread, %324, %253, %176, %95, %conversation_lookup_no_anc_anc.exit207.thread228, %conversation_lookup_no_ports_anc.exit174.thread222, %conversation_lookup_no_port2_anc.exit141.thread216, %conversation_lookup_exact_anc.exit108.thread210
+  %.0 = phi ptr [ %spec.select, %95 ], [ %.027.i.i96213, %conversation_lookup_exact_anc.exit108.thread210 ], [ %spec.select89, %176 ], [ %.027.i.i129219, %conversation_lookup_no_port2_anc.exit141.thread216 ], [ %spec.select90, %253 ], [ %.027.i.i162225, %conversation_lookup_no_ports_anc.exit174.thread222 ], [ %spec.select91, %324 ], [ %.027.i.i195231, %conversation_lookup_no_anc_anc.exit207.thread228 ], [ %.027.i.i, %conversation_lookup_exact_anc.exit108.thread ], [ %.027.i.i113, %conversation_lookup_no_port2_anc.exit141.thread ], [ %.027.i.i146, %conversation_lookup_no_ports_anc.exit174.thread ], [ %.027.i.i179, %conversation_lookup_no_anc_anc.exit207.thread ]
   ret ptr %.0
 }
 
@@ -4882,22 +4790,22 @@ define ptr @find_conversation_deinterlacer(i32 noundef %0, ptr noundef readonly 
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %36 = load ptr, ptr %35, align 8
   %.not36.i.i = icmp eq ptr %36, null
-  br i1 %.not36.i.i, label %.preheader43, label %37
+  br i1 %.not36.i.i, label %.preheader57, label %37
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 28
   %39 = load i32, ptr %38, align 4
   %.not37.i.i = icmp ugt i32 %39, %0
   %spec.select.i.i = select i1 %.not37.i.i, ptr %24, ptr %36
-  br label %.preheader43
+  br label %.preheader57
 
-.preheader43:                                     ; preds = %37, %34
+.preheader57:                                     ; preds = %37, %34
   %.02644.i.i.ph = phi ptr [ %spec.select.i.i, %37 ], [ %24, %34 ]
   br label %40
 
-40:                                               ; preds = %.preheader43, %43
-  %.245.i.i = phi ptr [ %spec.select41.i.i, %43 ], [ %.02644.i.i.ph, %.preheader43 ]
-  %.02644.i.i = phi ptr [ %47, %43 ], [ %.02644.i.i.ph, %.preheader43 ]
+40:                                               ; preds = %.preheader57, %43
+  %.245.i.i = phi ptr [ %spec.select41.i.i, %43 ], [ %.02644.i.i.ph, %.preheader57 ]
+  %.02644.i.i = phi ptr [ %47, %43 ], [ %.02644.i.i.ph, %.preheader57 ]
   %41 = getelementptr inbounds nuw i8, ptr %.02644.i.i, i64 28
   %42 = load i32, ptr %41, align 4
   %.not39.i.i = icmp ugt i32 %42, %0
@@ -4914,134 +4822,126 @@ define ptr @find_conversation_deinterlacer(i32 noundef %0, ptr noundef readonly 
 
 .critedge.i.i:                                    ; preds = %43, %40
   %.2.lcssa.i.i = phi ptr [ %.245.i.i, %40 ], [ %spec.select41.i.i, %43 ]
-  %.not40.i.i = icmp eq ptr %.2.lcssa.i.i, null
-  br i1 %.not40.i.i, label %conversation_lookup_deinterlacer.exit, label %48
-
-48:                                               ; preds = %.critedge.i.i
   store ptr %.2.lcssa.i.i, ptr %35, align 8
   br label %conversation_lookup_deinterlacer.exit
 
-conversation_lookup_deinterlacer.exit:            ; preds = %7, %25, %31, %.critedge.i.i, %48
-  %.027.i.i = phi ptr [ %30, %31 ], [ %.2.lcssa.i.i, %48 ], [ null, %.critedge.i.i ], [ null, %25 ], [ null, %7 ]
+conversation_lookup_deinterlacer.exit:            ; preds = %7, %25, %31, %.critedge.i.i
+  %.027.i.i = phi ptr [ %30, %31 ], [ %.2.lcssa.i.i, %.critedge.i.i ], [ null, %25 ], [ null, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 1, ptr %8, align 16
-  %49 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 0, ptr %49, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %51 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i32 1, ptr %51, align 16
-  %52 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  store i32 0, ptr %52, align 4
-  %53 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %54 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %54, i8 0, i64 32, i1 false)
-  store i32 4, ptr %54, align 16
-  %55 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store i32 %4, ptr %55, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %56, i8 0, i64 32, i1 false)
-  store i32 4, ptr %56, align 16
-  %57 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  store i32 %5, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %58, i8 0, i64 32, i1 false)
-  store i32 4, ptr %58, align 16
-  %59 = getelementptr inbounds nuw i8, ptr %8, i64 136
-  store i32 %6, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %8, i64 160
-  %61 = getelementptr inbounds nuw i8, ptr %8, i64 168
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %60, i8 0, i64 32, i1 false)
-  store i32 %3, ptr %61, align 8
-  %62 = load ptr, ptr @conversation_hashtable_deinterlacer, align 8
-  %63 = call ptr @wmem_map_lookup(ptr noundef %62, ptr noundef nonnull %8)
-  %.not.i.i23 = icmp eq ptr %63, null
-  br i1 %.not.i.i23, label %conversation_lookup_deinterlacer.exit40.thread, label %64
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i32 0, ptr %48, align 4
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i32 1, ptr %50, align 16
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 36
+  store i32 0, ptr %51, align 4
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %53, i8 0, i64 32, i1 false)
+  store i32 4, ptr %53, align 16
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store i32 %4, ptr %54, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %55, i8 0, i64 32, i1 false)
+  store i32 4, ptr %55, align 16
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 104
+  store i32 %5, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %57, i8 0, i64 32, i1 false)
+  store i32 4, ptr %57, align 16
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 136
+  store i32 %6, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 160
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 168
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %59, i8 0, i64 32, i1 false)
+  store i32 %3, ptr %60, align 8
+  %61 = load ptr, ptr @conversation_hashtable_deinterlacer, align 8
+  %62 = call ptr @wmem_map_lookup(ptr noundef %61, ptr noundef nonnull %8)
+  %.not.i.i23 = icmp eq ptr %62, null
+  br i1 %.not.i.i23, label %conversation_lookup_deinterlacer.exit39.thread, label %63
 
-64:                                               ; preds = %conversation_lookup_deinterlacer.exit
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 28
-  %66 = load i32, ptr %65, align 4
-  %.not33.i.i24 = icmp ugt i32 %66, %0
-  br i1 %.not33.i.i24, label %conversation_lookup_deinterlacer.exit40.thread, label %67
+63:                                               ; preds = %conversation_lookup_deinterlacer.exit
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 28
+  %65 = load i32, ptr %64, align 4
+  %.not33.i.i24 = icmp ugt i32 %65, %0
+  br i1 %.not33.i.i24, label %conversation_lookup_deinterlacer.exit39.thread, label %66
 
-67:                                               ; preds = %64
-  %68 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %.not34.i.i25 = icmp eq ptr %69, null
-  br i1 %.not34.i.i25, label %73, label %70
+66:                                               ; preds = %63
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %.not34.i.i25 = icmp eq ptr %68, null
+  br i1 %.not34.i.i25, label %72, label %69
 
-70:                                               ; preds = %67
-  %71 = getelementptr inbounds nuw i8, ptr %69, i64 28
-  %72 = load i32, ptr %71, align 4
-  %.not35.i.i26 = icmp ugt i32 %72, %0
-  br i1 %.not35.i.i26, label %73, label %88
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 28
+  %71 = load i32, ptr %70, align 4
+  %.not35.i.i26 = icmp ugt i32 %71, %0
+  br i1 %.not35.i.i26, label %72, label %conversation_lookup_deinterlacer.exit39.thread42
 
-73:                                               ; preds = %70, %67
-  %74 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %75 = load ptr, ptr %74, align 8
-  %.not36.i.i28 = icmp eq ptr %75, null
-  br i1 %.not36.i.i28, label %.preheader, label %76
+72:                                               ; preds = %69, %66
+  %73 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %74 = load ptr, ptr %73, align 8
+  %.not36.i.i28 = icmp eq ptr %74, null
+  br i1 %.not36.i.i28, label %.preheader, label %75
 
-76:                                               ; preds = %73
-  %77 = getelementptr inbounds nuw i8, ptr %75, i64 28
-  %78 = load i32, ptr %77, align 4
-  %.not37.i.i29 = icmp ugt i32 %78, %0
-  %spec.select.i.i30 = select i1 %.not37.i.i29, ptr %63, ptr %75
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 28
+  %77 = load i32, ptr %76, align 4
+  %.not37.i.i29 = icmp ugt i32 %77, %0
+  %spec.select.i.i30 = select i1 %.not37.i.i29, ptr %62, ptr %74
   br label %.preheader
 
-.preheader:                                       ; preds = %76, %73
-  %.02644.i.i33.ph = phi ptr [ %spec.select.i.i30, %76 ], [ %63, %73 ]
-  br label %79
+.preheader:                                       ; preds = %75, %72
+  %.02644.i.i33.ph = phi ptr [ %spec.select.i.i30, %75 ], [ %62, %72 ]
+  br label %78
 
-79:                                               ; preds = %.preheader, %82
-  %.245.i.i32 = phi ptr [ %spec.select41.i.i35, %82 ], [ %.02644.i.i33.ph, %.preheader ]
-  %.02644.i.i33 = phi ptr [ %86, %82 ], [ %.02644.i.i33.ph, %.preheader ]
-  %80 = getelementptr inbounds nuw i8, ptr %.02644.i.i33, i64 28
-  %81 = load i32, ptr %80, align 4
-  %.not39.i.i34 = icmp ugt i32 %81, %0
-  br i1 %.not39.i.i34, label %.critedge.i.i37, label %82
+78:                                               ; preds = %.preheader, %81
+  %.245.i.i32 = phi ptr [ %spec.select41.i.i35, %81 ], [ %.02644.i.i33.ph, %.preheader ]
+  %.02644.i.i33 = phi ptr [ %85, %81 ], [ %.02644.i.i33.ph, %.preheader ]
+  %79 = getelementptr inbounds nuw i8, ptr %.02644.i.i33, i64 28
+  %80 = load i32, ptr %79, align 4
+  %.not39.i.i34 = icmp ugt i32 %80, %0
+  br i1 %.not39.i.i34, label %conversation_lookup_deinterlacer.exit39, label %81
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds nuw i8, ptr %.245.i.i32, i64 28
-  %84 = load i32, ptr %83, align 4
-  %85 = icmp ugt i32 %81, %84
-  %spec.select41.i.i35 = select i1 %85, ptr %.02644.i.i33, ptr %.245.i.i32
-  %86 = load ptr, ptr %.02644.i.i33, align 8
-  %.not38.i.i36 = icmp eq ptr %86, null
-  br i1 %.not38.i.i36, label %.critedge.i.i37, label %79, !llvm.loop !13
+81:                                               ; preds = %78
+  %82 = getelementptr inbounds nuw i8, ptr %.245.i.i32, i64 28
+  %83 = load i32, ptr %82, align 4
+  %84 = icmp ugt i32 %80, %83
+  %spec.select41.i.i35 = select i1 %84, ptr %.02644.i.i33, ptr %.245.i.i32
+  %85 = load ptr, ptr %.02644.i.i33, align 8
+  %.not38.i.i36 = icmp eq ptr %85, null
+  br i1 %.not38.i.i36, label %conversation_lookup_deinterlacer.exit39, label %78, !llvm.loop !13
 
-.critedge.i.i37:                                  ; preds = %82, %79
-  %.2.lcssa.i.i38 = phi ptr [ %.245.i.i32, %79 ], [ %spec.select41.i.i35, %82 ]
-  %.not40.i.i39 = icmp eq ptr %.2.lcssa.i.i38, null
-  br i1 %.not40.i.i39, label %conversation_lookup_deinterlacer.exit40.thread, label %87
-
-87:                                               ; preds = %.critedge.i.i37
-  store ptr %.2.lcssa.i.i38, ptr %74, align 8
-  br label %88
-
-conversation_lookup_deinterlacer.exit40.thread:   ; preds = %.critedge.i.i37, %64, %conversation_lookup_deinterlacer.exit
+conversation_lookup_deinterlacer.exit39.thread:   ; preds = %63, %conversation_lookup_deinterlacer.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %95
+  br label %92
 
-88:                                               ; preds = %87, %70
-  %.027.i.i27 = phi ptr [ %69, %70 ], [ %.2.lcssa.i.i38, %87 ]
+conversation_lookup_deinterlacer.exit39:          ; preds = %78, %81
+  %.2.lcssa.i.i38 = phi ptr [ %.245.i.i32, %78 ], [ %spec.select41.i.i35, %81 ]
+  store ptr %.2.lcssa.i.i38, ptr %73, align 8
+  br label %conversation_lookup_deinterlacer.exit39.thread42
+
+conversation_lookup_deinterlacer.exit39.thread42: ; preds = %69, %conversation_lookup_deinterlacer.exit39
+  %.027.i.i2745 = phi ptr [ %.2.lcssa.i.i38, %conversation_lookup_deinterlacer.exit39 ], [ %68, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not22 = icmp eq ptr %.027.i.i, null
-  br i1 %.not22, label %95, label %89
+  br i1 %.not22, label %92, label %86
 
-89:                                               ; preds = %88
-  %90 = getelementptr inbounds nuw i8, ptr %.027.i.i27, i64 24
-  %91 = load i32, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 24
-  %93 = load i32, ptr %92, align 8
-  %94 = icmp ugt i32 %91, %93
-  %spec.select = select i1 %94, ptr %.027.i.i27, ptr %.027.i.i
-  br label %95
+86:                                               ; preds = %conversation_lookup_deinterlacer.exit39.thread42
+  %87 = getelementptr inbounds nuw i8, ptr %.027.i.i2745, i64 24
+  %88 = load i32, ptr %87, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 24
+  %90 = load i32, ptr %89, align 8
+  %91 = icmp ugt i32 %88, %90
+  %spec.select = select i1 %91, ptr %.027.i.i2745, ptr %.027.i.i
+  br label %92
 
-95:                                               ; preds = %conversation_lookup_deinterlacer.exit40.thread, %89, %88
-  %.0 = phi ptr [ %spec.select, %89 ], [ %.027.i.i27, %88 ], [ %.027.i.i, %conversation_lookup_deinterlacer.exit40.thread ]
+92:                                               ; preds = %conversation_lookup_deinterlacer.exit39.thread, %86, %conversation_lookup_deinterlacer.exit39.thread42
+  %.0 = phi ptr [ %spec.select, %86 ], [ %.027.i.i2745, %conversation_lookup_deinterlacer.exit39.thread42 ], [ %.027.i.i, %conversation_lookup_deinterlacer.exit39.thread ]
   ret ptr %.0
 }
 
@@ -5114,15 +5014,11 @@ define ptr @find_conversation_by_id(i32 noundef %0, i32 noundef %1, i32 noundef 
 
 .critedge.i:                                      ; preds = %27, %24
   %.2.lcssa.i = phi ptr [ %.245.i, %24 ], [ %spec.select41.i, %27 ]
-  %.not40.i = icmp eq ptr %.2.lcssa.i, null
-  br i1 %.not40.i, label %conversation_lookup_hashtable.exit, label %32
-
-32:                                               ; preds = %.critedge.i
   store ptr %.2.lcssa.i, ptr %19, align 8
   br label %conversation_lookup_hashtable.exit
 
-conversation_lookup_hashtable.exit:               ; preds = %3, %9, %15, %.critedge.i, %32
-  %.027.i = phi ptr [ %14, %15 ], [ %.2.lcssa.i, %32 ], [ null, %.critedge.i ], [ null, %9 ], [ null, %3 ]
+conversation_lookup_hashtable.exit:               ; preds = %3, %9, %15, %.critedge.i
+  %.027.i = phi ptr [ %14, %15 ], [ %.2.lcssa.i, %.critedge.i ], [ null, %9 ], [ null, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.027.i
 }
@@ -5375,8 +5271,8 @@ try_conversation_call_dissector_helper.exit75.thread: ; preds = %37, %35, %32, %
   br i1 %.not1.i77, label %try_conversation_call_dissector_helper.exit79.thread, label %try_conversation_call_dissector_helper.exit79.thread.sink.split
 
 try_conversation_call_dissector_helper.exit79.thread.sink.split: ; preds = %46, %37, %28, %19
-  %.sink92 = phi ptr [ %21, %19 ], [ %30, %28 ], [ %39, %37 ], [ %48, %46 ]
-  %49 = tail call i32 @call_dissector_only(ptr noundef nonnull %.sink92, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
+  %.sink100 = phi ptr [ %21, %19 ], [ %30, %28 ], [ %39, %37 ], [ %48, %46 ]
+  %49 = tail call i32 @call_dissector_only(ptr noundef nonnull %.sink100, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   %50 = icmp ne i32 %49, 0
   br label %try_conversation_call_dissector_helper.exit79.thread
 
@@ -5418,7 +5314,7 @@ define zeroext i1 @try_conversation_dissector_by_id(i32 noundef %0, i32 noundef 
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %22 = load i32, ptr %21, align 4
   %.not35.i.i = icmp ugt i32 %22, %9
-  br i1 %.not35.i.i, label %23, label %38
+  br i1 %.not35.i.i, label %23, label %find_conversation_by_id.exit.thread21
 
 23:                                               ; preds = %20, %17
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -5443,7 +5339,7 @@ define zeroext i1 @try_conversation_dissector_by_id(i32 noundef %0, i32 noundef 
   %30 = getelementptr inbounds nuw i8, ptr %.02644.i.i, i64 28
   %31 = load i32, ptr %30, align 4
   %.not39.i.i = icmp ugt i32 %31, %9
-  br i1 %.not39.i.i, label %.critedge.i.i, label %32
+  br i1 %.not39.i.i, label %find_conversation_by_id.exit, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %.245.i.i, i64 28
@@ -5452,42 +5348,38 @@ define zeroext i1 @try_conversation_dissector_by_id(i32 noundef %0, i32 noundef 
   %spec.select41.i.i = select i1 %35, ptr %.02644.i.i, ptr %.245.i.i
   %36 = load ptr, ptr %.02644.i.i, align 8
   %.not38.i.i = icmp eq ptr %36, null
-  br i1 %.not38.i.i, label %.critedge.i.i, label %29, !llvm.loop !13
+  br i1 %.not38.i.i, label %find_conversation_by_id.exit, label %29, !llvm.loop !13
 
-.critedge.i.i:                                    ; preds = %32, %29
+find_conversation_by_id.exit.thread:              ; preds = %14, %6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %45
+
+find_conversation_by_id.exit:                     ; preds = %29, %32
   %.2.lcssa.i.i = phi ptr [ %.245.i.i, %29 ], [ %spec.select41.i.i, %32 ]
-  %.not40.i.i = icmp eq ptr %.2.lcssa.i.i, null
-  br i1 %.not40.i.i, label %find_conversation_by_id.exit.thread, label %37
-
-37:                                               ; preds = %.critedge.i.i
   store ptr %.2.lcssa.i.i, ptr %24, align 8
-  br label %38
+  br label %find_conversation_by_id.exit.thread21
 
-find_conversation_by_id.exit.thread:              ; preds = %.critedge.i.i, %14, %6
+find_conversation_by_id.exit.thread21:            ; preds = %20, %find_conversation_by_id.exit
+  %.027.i.i24 = phi ptr [ %.2.lcssa.i.i, %find_conversation_by_id.exit ], [ %19, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %47
+  %37 = getelementptr inbounds nuw i8, ptr %.027.i.i24, i64 48
+  %38 = load ptr, ptr %37, align 8
+  %.not17 = icmp eq ptr %38, null
+  br i1 %.not17, label %45, label %39
 
-38:                                               ; preds = %37, %20
-  %.027.i.i = phi ptr [ %19, %20 ], [ %.2.lcssa.i.i, %37 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %39 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 48
-  %40 = load ptr, ptr %39, align 8
-  %.not17 = icmp eq ptr %40, null
-  br i1 %.not17, label %47, label %41
+39:                                               ; preds = %find_conversation_by_id.exit.thread21
+  %40 = load i32, ptr %8, align 4
+  %41 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %38, i32 noundef %40)
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %45, label %43
 
-41:                                               ; preds = %38
-  %42 = load i32, ptr %8, align 4
-  %43 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %40, i32 noundef %42)
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %47, label %45
+43:                                               ; preds = %39
+  %44 = call i32 @call_dissector_only(ptr noundef nonnull %41, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %.not18 = icmp ne i32 %44, 0
+  br label %45
 
-45:                                               ; preds = %41
-  %46 = call i32 @call_dissector_only(ptr noundef nonnull %43, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %.not18 = icmp ne i32 %46, 0
-  br label %47
-
-47:                                               ; preds = %find_conversation_by_id.exit.thread, %41, %45, %38
-  %.0 = phi i1 [ false, %38 ], [ false, %41 ], [ %.not18, %45 ], [ false, %find_conversation_by_id.exit.thread ]
+45:                                               ; preds = %find_conversation_by_id.exit.thread, %39, %43, %find_conversation_by_id.exit.thread21
+  %.0 = phi i1 [ false, %find_conversation_by_id.exit.thread21 ], [ false, %39 ], [ %.not18, %43 ], [ false, %find_conversation_by_id.exit.thread ]
   ret i1 %.0
 }
 
@@ -5869,13 +5761,13 @@ define ptr @find_or_create_conversation_by_id(ptr noundef readonly captures(none
   %9 = load ptr, ptr @conversation_hashtable_id, align 8
   %10 = call ptr @wmem_map_lookup(ptr noundef %9, ptr noundef nonnull %4)
   %.not.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i, label %35, label %11
+  br i1 %.not.i.i, label %34, label %11
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %13 = load i32, ptr %12, align 4
   %.not33.i.i = icmp ugt i32 %13, %6
-  br i1 %.not33.i.i, label %35, label %14
+  br i1 %.not33.i.i, label %34, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -5887,7 +5779,11 @@ define ptr @find_or_create_conversation_by_id(ptr noundef readonly captures(none
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %19 = load i32, ptr %18, align 4
   %.not35.i.i = icmp ugt i32 %19, %6
-  br i1 %.not35.i.i, label %20, label %find_conversation_by_id.exit
+  br i1 %.not35.i.i, label %20, label %find_conversation_by_id.exit.thread8
+
+find_conversation_by_id.exit.thread8:             ; preds = %17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %50
 
 20:                                               ; preds = %17, %14
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -5912,7 +5808,7 @@ define ptr @find_or_create_conversation_by_id(ptr noundef readonly captures(none
   %27 = getelementptr inbounds nuw i8, ptr %.02644.i.i, i64 28
   %28 = load i32, ptr %27, align 4
   %.not39.i.i = icmp ugt i32 %28, %6
-  br i1 %.not39.i.i, label %.critedge.i.i, label %29
+  br i1 %.not39.i.i, label %find_conversation_by_id.exit, label %29
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %.245.i.i, i64 28
@@ -5921,53 +5817,45 @@ define ptr @find_or_create_conversation_by_id(ptr noundef readonly captures(none
   %spec.select41.i.i = select i1 %32, ptr %.02644.i.i, ptr %.245.i.i
   %33 = load ptr, ptr %.02644.i.i, align 8
   %.not38.i.i = icmp eq ptr %33, null
-  br i1 %.not38.i.i, label %.critedge.i.i, label %26, !llvm.loop !13
+  br i1 %.not38.i.i, label %find_conversation_by_id.exit, label %26, !llvm.loop !13
 
-.critedge.i.i:                                    ; preds = %29, %26
+find_conversation_by_id.exit:                     ; preds = %26, %29
   %.2.lcssa.i.i = phi ptr [ %.245.i.i, %26 ], [ %spec.select41.i.i, %29 ]
-  %.not40.i.i = icmp eq ptr %.2.lcssa.i.i, null
-  br i1 %.not40.i.i, label %35, label %34
-
-34:                                               ; preds = %.critedge.i.i
   store ptr %.2.lcssa.i.i, ptr %21, align 8
-  br label %find_conversation_by_id.exit
-
-find_conversation_by_id.exit:                     ; preds = %17, %34
-  %.027.i.i = phi ptr [ %16, %17 ], [ %.2.lcssa.i.i, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %51
+  br label %50
 
-35:                                               ; preds = %.critedge.i.i, %11, %3
+34:                                               ; preds = %3, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %36 = load i32, ptr %5, align 4
-  %37 = call ptr @wmem_file_scope()
-  %38 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %37, i64 noundef 72) #18
-  %39 = load i32, ptr @new_index, align 4
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store i32 %39, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  store i32 %36, ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 28
-  store i32 %36, ptr %42, align 4
-  %43 = add i32 %39, 1
-  store i32 %43, ptr @new_index, align 4
-  %44 = call ptr @wmem_file_scope()
-  %45 = call noalias dereferenceable_or_null(64) ptr @wmem_alloc(ptr noundef %44, i64 noundef 64) #18
-  store i32 4, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i32 %2, ptr %46, align 8
-  %47 = getelementptr i8, ptr %45, i64 32
-  store i32 0, ptr %47, align 8
-  %48 = getelementptr i8, ptr %45, i64 40
-  store i32 %1, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %38, i64 64
-  store ptr %45, ptr %49, align 8
-  %50 = load ptr, ptr @conversation_hashtable_id, align 8
-  call fastcc void @conversation_insert_into_hashtable(ptr noundef %50, ptr noundef %38)
-  br label %51
+  %35 = load i32, ptr %5, align 4
+  %36 = call ptr @wmem_file_scope()
+  %37 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %36, i64 noundef 72) #18
+  %38 = load i32, ptr @new_index, align 4
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  store i32 %38, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  store i32 %35, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 28
+  store i32 %35, ptr %41, align 4
+  %42 = add i32 %38, 1
+  store i32 %42, ptr @new_index, align 4
+  %43 = call ptr @wmem_file_scope()
+  %44 = call noalias dereferenceable_or_null(64) ptr @wmem_alloc(ptr noundef %43, i64 noundef 64) #18
+  store i32 4, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store i32 %2, ptr %45, align 8
+  %46 = getelementptr i8, ptr %44, i64 32
+  store i32 0, ptr %46, align 8
+  %47 = getelementptr i8, ptr %44, i64 40
+  store i32 %1, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %37, i64 64
+  store ptr %44, ptr %48, align 8
+  %49 = load ptr, ptr @conversation_hashtable_id, align 8
+  call fastcc void @conversation_insert_into_hashtable(ptr noundef %49, ptr noundef %37)
+  br label %50
 
-51:                                               ; preds = %find_conversation_by_id.exit, %35
-  %.0 = phi ptr [ %38, %35 ], [ %.027.i.i, %find_conversation_by_id.exit ]
+50:                                               ; preds = %find_conversation_by_id.exit, %find_conversation_by_id.exit.thread8, %34
+  %.0 = phi ptr [ %37, %34 ], [ %.2.lcssa.i.i, %find_conversation_by_id.exit ], [ %16, %find_conversation_by_id.exit.thread8 ]
   ret ptr %.0
 }
 

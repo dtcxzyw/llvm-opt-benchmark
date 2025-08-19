@@ -21311,8 +21311,8 @@ define linkonce_odr void @_ZN5arrow8internal19DeleteVectorElementISt10shared_ptr
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not40 = icmp eq i64 %11, 0
-  br i1 %.not40, label %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE11_M_allocateEm.exit.i
+  %.not48 = icmp eq i64 %11, 0
+  br i1 %.not48, label %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE11_M_allocateEm.exit.i: ; preds = %14
   %16 = shl nuw nsw i64 %11, 4
@@ -21512,8 +21512,8 @@ define linkonce_odr void @_ZN5arrow8internal16AddVectorElementISt10shared_ptrINS
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not36 = icmp eq i64 %12, 0
-  br i1 %.not36, label %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE11_M_allocateEm.exit.i
+  %.not47 = icmp eq i64 %12, 0
+  br i1 %.not47, label %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE11_M_allocateEm.exit.i: ; preds = %15
   %17 = shl nuw nsw i64 %12, 4
@@ -21964,8 +21964,8 @@ define linkonce_odr void @_ZN5arrow8internal20ReplaceVectorElementISt10shared_pt
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not37 = icmp eq ptr %6, %7
-  br i1 %.not37, label %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE11_M_allocateEm.exit.i
+  %.not47 = icmp eq ptr %6, %7
+  br i1 %.not47, label %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE11_M_allocateEm.exit.i: ; preds = %13
   %15 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #25
@@ -24082,7 +24082,7 @@ define linkonce_odr void @_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaI
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPSt10shared_ptrIN5arrow12ChunkedArrayEEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt10shared_ptrIN5arrow12ChunkedArrayEEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 4
+  %19 = shl nuw nsw i64 %1, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !67
@@ -26404,8 +26404,8 @@ _ZNSt13_Bit_iteratorppEv.exit56.thread:           ; preds = %_ZNSt13_Bit_iterato
 _ZNSt13_Bit_iteratorppEv.exit57:                  ; preds = %_ZNSt13_Bit_iteratorppEv.exit56.thread, %48
   %51 = phi i32 [ %49, %48 ], [ 2, %_ZNSt13_Bit_iteratorppEv.exit56.thread ]
   %52 = phi i64 [ %.pre, %48 ], [ %33, %_ZNSt13_Bit_iteratorppEv.exit56.thread ]
-  %.sroa.079.4162167 = phi ptr [ %spec.select, %48 ], [ %32, %_ZNSt13_Bit_iteratorppEv.exit56.thread ]
-  %.sroa.31.4163166 = phi i32 [ %spec.select128, %48 ], [ 1, %_ZNSt13_Bit_iteratorppEv.exit56.thread ]
+  %.sroa.079.4165170 = phi ptr [ %spec.select, %48 ], [ %32, %_ZNSt13_Bit_iteratorppEv.exit56.thread ]
+  %.sroa.31.4166169 = phi i32 [ %spec.select128, %48 ], [ 1, %_ZNSt13_Bit_iteratorppEv.exit56.thread ]
   %53 = zext nneg i32 %51 to i64
   %54 = lshr i64 %52, %53
   %55 = trunc i64 %54 to i8
@@ -26422,10 +26422,10 @@ _ZNSt13_Bit_iteratorppEv.exit57.thread:           ; preds = %48
   br i1 %62, label %_ZNSt13_Bit_iteratorppEv.exit61, label %_ZNSt13_Bit_iteratorppEv.exit58
 
 63:                                               ; preds = %_ZNSt13_Bit_iteratorppEv.exit57
-  %64 = add i32 %.sroa.31.4163166, 2
+  %64 = add i32 %.sroa.31.4166169, 2
   %65 = icmp eq i32 %51, 63
   %spec.select129.idx = select i1 %65, i64 8, i64 0
-  %spec.select129 = getelementptr inbounds nuw i8, ptr %.sroa.079.4162167, i64 %spec.select129.idx
+  %spec.select129 = getelementptr inbounds nuw i8, ptr %.sroa.079.4165170, i64 %spec.select129.idx
   %spec.select130 = select i1 %65, i32 0, i32 %64
   br label %_ZNSt13_Bit_iteratorppEv.exit58
 
@@ -26530,7 +26530,7 @@ _ZNSt13_Bit_iteratorppEv.exit60.thread:           ; preds = %85
   br label %_ZNSt13_Bit_iteratorppEv.exit61
 
 _ZNSt13_Bit_iteratorppEv.exit61:                  ; preds = %_ZNSt13_Bit_iteratorppEv.exit57.thread, %_ZNSt13_Bit_iteratorppEv.exit57, %_ZNSt13_Bit_iteratorppEv.exit56, %_ZNSt13_Bit_iteratorppEv.exit.thread, %_ZNSt13_Bit_iteratorppEv.exit, %17, %_ZNSt13_Bit_iteratorppEv.exit56.thread, %_ZNSt13_Bit_iteratorppEv.exit60.thread, %_ZNSt13_Bit_iteratorppEv.exit60, %._crit_edge, %_ZNSt13_Bit_iteratorppEv.exit59, %69
-  %.sroa.020.0.in.sroa.speculated = phi ptr [ %.sroa.079.0.lcssa, %69 ], [ %.sroa.079.1, %_ZNSt13_Bit_iteratorppEv.exit59 ], [ %2, %._crit_edge ], [ %spec.select135, %_ZNSt13_Bit_iteratorppEv.exit60.thread ], [ %spec.select133, %_ZNSt13_Bit_iteratorppEv.exit60 ], [ %32, %_ZNSt13_Bit_iteratorppEv.exit56.thread ], [ %58, %_ZNSt13_Bit_iteratorppEv.exit57.thread ], [ %.sroa.079.4162167, %_ZNSt13_Bit_iteratorppEv.exit57 ], [ %spec.select, %_ZNSt13_Bit_iteratorppEv.exit56 ], [ %32, %_ZNSt13_Bit_iteratorppEv.exit.thread ], [ %.sroa.079.0140, %_ZNSt13_Bit_iteratorppEv.exit ], [ %.sroa.079.0140, %17 ]
+  %.sroa.020.0.in.sroa.speculated = phi ptr [ %.sroa.079.0.lcssa, %69 ], [ %.sroa.079.1, %_ZNSt13_Bit_iteratorppEv.exit59 ], [ %2, %._crit_edge ], [ %spec.select135, %_ZNSt13_Bit_iteratorppEv.exit60.thread ], [ %spec.select133, %_ZNSt13_Bit_iteratorppEv.exit60 ], [ %32, %_ZNSt13_Bit_iteratorppEv.exit56.thread ], [ %58, %_ZNSt13_Bit_iteratorppEv.exit57.thread ], [ %.sroa.079.4165170, %_ZNSt13_Bit_iteratorppEv.exit57 ], [ %spec.select, %_ZNSt13_Bit_iteratorppEv.exit56 ], [ %32, %_ZNSt13_Bit_iteratorppEv.exit.thread ], [ %.sroa.079.0140, %_ZNSt13_Bit_iteratorppEv.exit ], [ %.sroa.079.0140, %17 ]
   %.sroa.9.0 = phi i32 [ %.sroa.31.0.lcssa, %69 ], [ %.sroa.31.1, %_ZNSt13_Bit_iteratorppEv.exit59 ], [ %3, %._crit_edge ], [ %spec.select136, %_ZNSt13_Bit_iteratorppEv.exit60.thread ], [ %spec.select134, %_ZNSt13_Bit_iteratorppEv.exit60 ], [ 1, %_ZNSt13_Bit_iteratorppEv.exit56.thread ], [ 0, %_ZNSt13_Bit_iteratorppEv.exit57.thread ], [ %51, %_ZNSt13_Bit_iteratorppEv.exit57 ], [ %spec.select128, %_ZNSt13_Bit_iteratorppEv.exit56 ], [ 0, %_ZNSt13_Bit_iteratorppEv.exit.thread ], [ %25, %_ZNSt13_Bit_iteratorppEv.exit ], [ %.sroa.31.0141, %17 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.020.0.in.sroa.speculated, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.9.0, 1

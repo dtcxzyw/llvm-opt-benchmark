@@ -402,8 +402,8 @@ _ZN8rawspeed7roundUpEmm.exit:                     ; preds = %23
   %41 = zext nneg i32 %7 to i64
   %42 = mul nsw i64 %40, %41
   %43 = ptrtoint ptr %25 to i64
-  %.not2 = icmp eq i64 %42, 0
-  br i1 %.not2, label %_ZNSt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS0_16AlignedAllocatorIhLi16EEEEEE6resizeEm.exit, label %44
+  %.not8 = icmp eq i64 %42, 0
+  br i1 %.not8, label %_ZNSt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS0_16AlignedAllocatorIhLi16EEEEEE6resizeEm.exit, label %44
 
 44:                                               ; preds = %_ZN8rawspeed7roundUpEmm.exit
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 576
@@ -1188,7 +1188,7 @@ define hidden void @_ZN8rawspeed12RawImageData18fixBadPixelsThreadEii(ptr nounde
   %29 = icmp samesign ule i64 %28, %24
   tail call void @llvm.assume(i1 %29)
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 %27
-  %31 = trunc nuw i64 %indvars.iv66 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv66 to i32
   br label %.lr.ph.preheader.i.i.i.i.us
 
 .lr.ph.preheader.i.i.i.i.us:                      ; preds = %.preheader41.us, %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.thread.us"
@@ -1272,12 +1272,12 @@ define hidden void @_ZN8rawspeed12RawImageData18fixBadPixelsThreadEii(ptr nounde
   br label %46
 
 .preheader40.us:                                  ; preds = %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us"
-  %64 = shl nsw i64 %indvars.iv62, 5
+  %64 = shl nuw nsw i64 %indvars.iv62, 5
   br label %.preheader.us
 
 ._crit_edge.us:                                   ; preds = %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.thread.us"
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %65 = trunc nuw i64 %indvars.iv.next67 to i32
+  %65 = trunc nuw nsw i64 %indvars.iv.next67 to i32
   %66 = icmp sgt i32 %2, %65
   br i1 %66, label %.preheader41.us, label %._crit_edge54, !llvm.loop !144
 
@@ -1450,14 +1450,14 @@ define hidden void @_ZN8rawspeed14RawImageWorker11performTaskEv(ptr noundef nonn
   br label %.invoke
 
 .invoke:                                          ; preds = %1, %10
-  %.sink15 = phi i64 [ 48, %10 ], [ 56, %1 ]
+  %.sink25 = phi i64 [ 48, %10 ], [ 56, %1 ]
   %11 = load ptr, ptr %0, align 8, !tbaa !133
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = load i32, ptr %12, align 4, !tbaa !138
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 8, !tbaa !139
   %16 = load ptr, ptr %11, align 8, !tbaa !6
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.sink15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.sink25
   %18 = load ptr, ptr %17, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(616) %11, i32 noundef %13, i32 noundef %15)
           to label %_ZN8rawspeed12RawImageData18fixBadPixelsThreadEii.exit unwind label %.loopexit.split-lp
@@ -1667,7 +1667,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.invoke: ; preds
   %108 = icmp samesign ule i64 %107, %103
   tail call void @llvm.assume(i1 %108)
   %109 = getelementptr inbounds nuw i8, ptr %86, i64 %106
-  %110 = trunc nuw i64 %indvars.iv66.i to i32
+  %110 = trunc nuw nsw i64 %indvars.iv66.i to i32
   br label %.lr.ph.preheader.i.i.i.i.us.i
 
 .lr.ph.preheader.i.i.i.i.us.i:                    ; preds = %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.thread.us.i", %.preheader41.us.i
@@ -1751,12 +1751,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.invoke: ; preds
   br label %125
 
 .preheader40.us.i:                                ; preds = %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.us.i"
-  %142 = shl nsw i64 %indvars.iv62.i, 5
+  %142 = shl nuw nsw i64 %indvars.iv62.i, 5
   br label %.preheader.us.i
 
 ._crit_edge.us.i:                                 ; preds = %"_ZSt6all_ofIPhZN8rawspeed12RawImageData18fixBadPixelsThreadEiiE3$_0EbT_S4_T0_.exit.thread.us.i"
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
-  %143 = trunc nuw i64 %indvars.iv.next67.i to i32
+  %143 = trunc nuw nsw i64 %indvars.iv.next67.i to i32
   %144 = icmp sgt i32 %82, %143
   br i1 %144, label %.preheader41.us.i, label %_ZN8rawspeed12RawImageData18fixBadPixelsThreadEii.exit, !llvm.loop !144
 

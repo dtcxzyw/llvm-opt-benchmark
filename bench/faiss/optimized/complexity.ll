@@ -213,11 +213,11 @@ define hidden void @_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaId
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge48:                                    ; preds = %.lr.ph47, %._crit_edge.thread, %._crit_edge
-  %.032.lcssa66 = phi double [ %20, %._crit_edge ], [ 0.000000e+00, %._crit_edge.thread ], [ %20, %.lr.ph47 ]
+  %.032.lcssa70 = phi double [ %20, %._crit_edge ], [ 0.000000e+00, %._crit_edge.thread ], [ %20, %.lr.ph47 ]
   %.034.lcssa = phi double [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %._crit_edge.thread ], [ %45, %.lr.ph47 ]
   %.lcssa = phi i64 [ 0, %._crit_edge ], [ %.pre61, %._crit_edge.thread ], [ %52, %.lr.ph47 ]
   %30 = uitofp i64 %.lcssa to double
-  %31 = fdiv double %.032.lcssa66, %30
+  %31 = fdiv double %.032.lcssa70, %30
   %32 = fdiv double %.034.lcssa, %30
   %33 = tail call double @sqrt(double noundef %32) #24, !tbaa !29
   %34 = fdiv double %33, %31
@@ -366,10 +366,10 @@ _ZN9benchmark8internal18GetNullLogInstanceEv.exit22: ; preds = %_ZN9benchmark8in
 
 .loopexit85:                                      ; preds = %20, %.loopexit85.loopexit
   %.sroa.076.0 = phi double [ %30, %.loopexit85.loopexit ], [ 0x7FF8000000000000, %20 ]
-  %.032.lcssa66.i = phi double [ %34, %.loopexit85.loopexit ], [ 0.000000e+00, %20 ]
+  %.032.lcssa70.i = phi double [ %34, %.loopexit85.loopexit ], [ 0.000000e+00, %20 ]
   %.034.lcssa.i = phi double [ %40, %.loopexit85.loopexit ], [ 0.000000e+00, %20 ]
   %.lcssa.i = phi double [ %42, %.loopexit85.loopexit ], [ 0.000000e+00, %20 ]
-  %43 = fdiv double %.032.lcssa66.i, %.lcssa.i
+  %43 = fdiv double %.032.lcssa70.i, %.lcssa.i
   %44 = fdiv double %.034.lcssa.i, %.lcssa.i
   %45 = tail call double @sqrt(double noundef %44) #24, !tbaa !29, !noalias !37
   %46 = fdiv double %45, %43
@@ -474,10 +474,10 @@ _ZN9benchmark12FittingCurveENS_4BigOE.exit:       ; preds = %47, %switch.lookup
 
 .loopexit:                                        ; preds = %_ZN9benchmark12FittingCurveENS_4BigOE.exit, %.loopexit.loopexit, %._crit_edge.i30
   %.sroa.069.0 = phi double [ %55, %._crit_edge.i30 ], [ %55, %.loopexit.loopexit ], [ 0x7FF8000000000000, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
-  %.032.lcssa66.i35 = phi double [ %65, %._crit_edge.i30 ], [ %65, %.loopexit.loopexit ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
+  %.032.lcssa70.i35 = phi double [ %65, %._crit_edge.i30 ], [ %65, %.loopexit.loopexit ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
   %.034.lcssa.i36 = phi double [ 0.000000e+00, %._crit_edge.i30 ], [ %84, %.loopexit.loopexit ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
   %.lcssa.i37 = phi double [ 0.000000e+00, %._crit_edge.i30 ], [ %93, %.loopexit.loopexit ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit ]
-  %94 = fdiv double %.032.lcssa66.i35, %.lcssa.i37
+  %94 = fdiv double %.032.lcssa70.i35, %.lcssa.i37
   %95 = fdiv double %.034.lcssa.i36, %.lcssa.i37
   %96 = tail call double @sqrt(double noundef %95) #24, !tbaa !29, !noalias !41
   %97 = fdiv double %96, %94
@@ -597,10 +597,10 @@ _ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loope
 
 _ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68: ; preds = %_ZN9benchmark12FittingCurveENS_4BigOE.exit48, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit, %._crit_edge.i55
   %.sroa.0.0 = phi double [ %112, %._crit_edge.i55 ], [ %112, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit ], [ 0x7FF8000000000000, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
-  %.032.lcssa66.i60 = phi double [ %122, %._crit_edge.i55 ], [ %122, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
+  %.032.lcssa70.i60 = phi double [ %122, %._crit_edge.i55 ], [ %122, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
   %.034.lcssa.i61 = phi double [ 0.000000e+00, %._crit_edge.i55 ], [ %141, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
   %.lcssa.i62 = phi double [ 0.000000e+00, %._crit_edge.i55 ], [ %150, %_ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEEPFdlE.exit68.loopexit ], [ 0.000000e+00, %_ZN9benchmark12FittingCurveENS_4BigOE.exit48 ]
-  %151 = fdiv double %.032.lcssa66.i60, %.lcssa.i62
+  %151 = fdiv double %.032.lcssa70.i60, %.lcssa.i62
   %152 = fdiv double %.034.lcssa.i61, %.lcssa.i62
   %153 = tail call double @sqrt(double noundef %152) #24, !tbaa !29, !noalias !44
   %154 = fdiv double %153, %151
@@ -1022,10 +1022,10 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit70:         ; preds = %_ZNSt6vectorIdSaIdE
 .loopexit174:                                     ; preds = %136, %.loopexit174.loopexit
   %165 = phi ptr [ %.pre216, %.loopexit174.loopexit ], [ %138, %136 ]
   %.sroa.0146.0 = phi double [ %145, %.loopexit174.loopexit ], [ 0x7FF8000000000000, %136 ]
-  %.032.lcssa66.i = phi double [ %152, %.loopexit174.loopexit ], [ 0.000000e+00, %136 ]
+  %.032.lcssa70.i = phi double [ %152, %.loopexit174.loopexit ], [ 0.000000e+00, %136 ]
   %.034.lcssa.i = phi double [ %162, %.loopexit174.loopexit ], [ 0.000000e+00, %136 ]
   %.lcssa.i = phi double [ %164, %.loopexit174.loopexit ], [ 0.000000e+00, %136 ]
-  %166 = fdiv double %.032.lcssa66.i, %.lcssa.i
+  %166 = fdiv double %.032.lcssa70.i, %.lcssa.i
   %167 = fdiv double %.034.lcssa.i, %.lcssa.i
   %168 = tail call double @sqrt(double noundef %167) #24, !tbaa !29, !noalias !77
   %169 = fdiv double %168, %166
@@ -1088,10 +1088,10 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit70:         ; preds = %_ZNSt6vectorIdSaIdE
 
 .loopexit168:                                     ; preds = %.loopexit174, %.loopexit168.loopexit
   %.sroa.0.0 = phi double [ %175, %.loopexit168.loopexit ], [ 0x7FF8000000000000, %.loopexit174 ]
-  %.032.lcssa66.i85 = phi double [ %182, %.loopexit168.loopexit ], [ 0.000000e+00, %.loopexit174 ]
+  %.032.lcssa70.i85 = phi double [ %182, %.loopexit168.loopexit ], [ 0.000000e+00, %.loopexit174 ]
   %.034.lcssa.i86 = phi double [ %192, %.loopexit168.loopexit ], [ 0.000000e+00, %.loopexit174 ]
   %.lcssa.i87 = phi double [ %194, %.loopexit168.loopexit ], [ 0.000000e+00, %.loopexit174 ]
-  %195 = fdiv double %.032.lcssa66.i85, %.lcssa.i87
+  %195 = fdiv double %.032.lcssa70.i85, %.lcssa.i87
   %196 = fdiv double %.034.lcssa.i86, %.lcssa.i87
   %197 = tail call double @sqrt(double noundef %196) #24, !tbaa !29, !noalias !80
   %198 = fdiv double %197, %195

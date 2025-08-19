@@ -3574,8 +3574,8 @@ define noundef ptr @_Z27grpc_channel_args_normalizePK17grpc_channel_args(ptr nou
   br label %7
 
 ._crit_edge:                                      ; preds = %7
-  %.not34 = icmp eq i64 %5, 1
-  br i1 %.not34, label %._crit_edge.thread, label %12
+  %.not35 = icmp eq i64 %5, 1
+  br i1 %.not35, label %._crit_edge.thread, label %12
 
 7:                                                ; preds = %.lr.ph, %7
   %.02326 = phi i64 [ 0, %.lr.ph ], [ %11, %7 ]
@@ -11550,18 +11550,18 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit: ; preds
   br i1 %11, label %._crit_edge.thread, label %17
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.033.lcssa42 = phi ptr [ %.03438, %._crit_edge ], [ %4, %2 ]
+  %.033.lcssa44 = phi ptr [ %.03438, %._crit_edge ], [ %4, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !198
-  %14 = icmp eq ptr %.033.lcssa42, %13
+  %14 = icmp eq ptr %.033.lcssa44, %13
   br i1 %14, label %24, label %15
 
 15:                                               ; preds = %._crit_edge.thread
-  %16 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.033.lcssa42) #44
+  %16 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.033.lcssa44) #44
   br label %17
 
 17:                                               ; preds = %15, %._crit_edge
-  %.033.lcssa43 = phi ptr [ %.033.lcssa42, %15 ], [ %.03438, %._crit_edge ]
+  %.033.lcssa43 = phi ptr [ %.033.lcssa44, %15 ], [ %.03438, %._crit_edge ]
   %.sroa.019.0 = phi ptr [ %16, %15 ], [ %.03438, %._crit_edge ]
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 32
   %.sroa.01.0.copyload.i5 = load i64, ptr %18, align 8, !tbaa !29
@@ -11595,7 +11595,7 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit18: ; pre
 
 24:                                               ; preds = %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit18, %._crit_edge.thread
   %.sroa.032.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit18 ]
-  %.sroa.4.0 = phi ptr [ %.033.lcssa42, %._crit_edge.thread ], [ %spec.select35, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit18 ]
+  %.sroa.4.0 = phi ptr [ %.033.lcssa44, %._crit_edge.thread ], [ %spec.select35, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit18 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.032.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -1042,7 +1042,7 @@ _ZN10polars_row5fixed7decimal23num_bits_from_precision17h7b75fc79020d54ffE.exit.
   %..i = select i1 %.not.i1, i128 0, i128 %48
   %59 = getelementptr inbounds nuw i64, ptr %4, i64 %5
   %60 = getelementptr inbounds nuw i128, ptr %34, i64 %36
-  switch i64 %.sroa.0.0.i.i, label %default.unreachable.i [
+  switch i64 %.sroa.0.0.i.i, label %default.unreachable [
     i64 1, label %62
     i64 2, label %66
     i64 3, label %70
@@ -1065,7 +1065,7 @@ _ZN10polars_row5fixed7decimal23num_bits_from_precision17h7b75fc79020d54ffE.exit.
   tail call void @_ZN10polars_row5fixed7numeric12encode_slice17hd5283956d663f022E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 16 %34, i64 noundef %36, i8 noundef %3, ptr noalias noundef nonnull align 8 %4, i64 noundef %5)
   br label %_ZN10polars_row5fixed7decimal12encode_slice17hd301b88dc8214b90E.exit
 
-default.unreachable.i:                            ; preds = %44
+default.unreachable:                              ; preds = %44
   unreachable
 
 62:                                               ; preds = %44
@@ -1085,7 +1085,7 @@ default.unreachable.i:                            ; preds = %44
   tail call void @llvm.assume(i1 %64)
   %65 = icmp ne ptr %.sroa.4251.0.copyload.i, null
   tail call void @llvm.assume(i1 %65)
-  %invariant.op107 = xor i128 %..i, %57
+  %invariant.op109 = xor i128 %..i, %57
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit.i"
 
 66:                                               ; preds = %44
@@ -1105,7 +1105,7 @@ default.unreachable.i:                            ; preds = %44
   tail call void @llvm.assume(i1 %68)
   %69 = icmp ne ptr %.sroa.4256.0.copyload.i, null
   tail call void @llvm.assume(i1 %69)
-  %invariant.op106 = xor i128 %..i, %57
+  %invariant.op108 = xor i128 %..i, %57
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit180.i"
 
 70:                                               ; preds = %44
@@ -1125,7 +1125,7 @@ default.unreachable.i:                            ; preds = %44
   tail call void @llvm.assume(i1 %72)
   %73 = icmp ne ptr %.sroa.4264.0.copyload.i, null
   tail call void @llvm.assume(i1 %73)
-  %invariant.op105 = xor i128 %..i, %57
+  %invariant.op107 = xor i128 %..i, %57
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit185.i"
 
 74:                                               ; preds = %44
@@ -1145,7 +1145,7 @@ default.unreachable.i:                            ; preds = %44
   tail call void @llvm.assume(i1 %76)
   %77 = icmp ne ptr %.sroa.4272.0.copyload.i, null
   tail call void @llvm.assume(i1 %77)
-  %invariant.op104 = xor i128 %..i, %57
+  %invariant.op106 = xor i128 %..i, %57
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit190.i"
 
 78:                                               ; preds = %44
@@ -1165,7 +1165,7 @@ default.unreachable.i:                            ; preds = %44
   tail call void @llvm.assume(i1 %80)
   %81 = icmp ne ptr %.sroa.4280.0.copyload.i, null
   tail call void @llvm.assume(i1 %81)
-  %invariant.op103 = xor i128 %..i, %57
+  %invariant.op105 = xor i128 %..i, %57
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit195.i"
 
 82:                                               ; preds = %44
@@ -1185,7 +1185,7 @@ default.unreachable.i:                            ; preds = %44
   tail call void @llvm.assume(i1 %84)
   %85 = icmp ne ptr %.sroa.4288.0.copyload.i, null
   tail call void @llvm.assume(i1 %85)
-  %invariant.op102 = xor i128 %..i, %57
+  %invariant.op104 = xor i128 %..i, %57
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit200.i"
 
 86:                                               ; preds = %44
@@ -1205,7 +1205,7 @@ default.unreachable.i:                            ; preds = %44
   tail call void @llvm.assume(i1 %88)
   %89 = icmp ne ptr %.sroa.4296.0.copyload.i, null
   tail call void @llvm.assume(i1 %89)
-  %invariant.op101 = xor i128 %..i, %57
+  %invariant.op103 = xor i128 %..i, %57
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit205.i"
 
 90:                                               ; preds = %44
@@ -1225,7 +1225,7 @@ default.unreachable.i:                            ; preds = %44
   tail call void @llvm.assume(i1 %92)
   %93 = icmp ne ptr %.sroa.4304.0.copyload.i, null
   tail call void @llvm.assume(i1 %93)
-  %invariant.op100 = xor i128 %..i, %57
+  %invariant.op102 = xor i128 %..i, %57
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit210.i"
 
 94:                                               ; preds = %44
@@ -1245,7 +1245,7 @@ default.unreachable.i:                            ; preds = %44
   tail call void @llvm.assume(i1 %96)
   %97 = icmp ne ptr %.sroa.4312.0.copyload.i, null
   tail call void @llvm.assume(i1 %97)
-  %invariant.op99 = xor i128 %..i, %57
+  %invariant.op101 = xor i128 %..i, %57
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit215.i"
 
 98:                                               ; preds = %44
@@ -1265,7 +1265,7 @@ default.unreachable.i:                            ; preds = %44
   tail call void @llvm.assume(i1 %100)
   %101 = icmp ne ptr %.sroa.4320.0.copyload.i, null
   tail call void @llvm.assume(i1 %101)
-  %invariant.op98 = xor i128 %..i, %57
+  %invariant.op100 = xor i128 %..i, %57
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit220.i"
 
 102:                                              ; preds = %44
@@ -1285,7 +1285,7 @@ default.unreachable.i:                            ; preds = %44
   tail call void @llvm.assume(i1 %104)
   %105 = icmp ne ptr %.sroa.4328.0.copyload.i, null
   tail call void @llvm.assume(i1 %105)
-  %invariant.op97 = xor i128 %..i, %57
+  %invariant.op99 = xor i128 %..i, %57
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit225.i"
 
 106:                                              ; preds = %44
@@ -1305,7 +1305,7 @@ default.unreachable.i:                            ; preds = %44
   tail call void @llvm.assume(i1 %108)
   %109 = icmp ne ptr %.sroa.4336.0.copyload.i, null
   tail call void @llvm.assume(i1 %109)
-  %invariant.op96 = xor i128 %..i, %57
+  %invariant.op98 = xor i128 %..i, %57
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit230.i"
 
 110:                                              ; preds = %44
@@ -1325,7 +1325,7 @@ default.unreachable.i:                            ; preds = %44
   tail call void @llvm.assume(i1 %112)
   %113 = icmp ne ptr %.sroa.4344.0.copyload.i, null
   tail call void @llvm.assume(i1 %113)
-  %invariant.op95 = xor i128 %..i, %57
+  %invariant.op97 = xor i128 %..i, %57
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit235.i"
 
 114:                                              ; preds = %44
@@ -1345,7 +1345,7 @@ default.unreachable.i:                            ; preds = %44
   tail call void @llvm.assume(i1 %116)
   %117 = icmp ne ptr %.sroa.4352.0.copyload.i, null
   tail call void @llvm.assume(i1 %117)
-  %invariant.op94 = xor i128 %..i, %57
+  %invariant.op96 = xor i128 %..i, %57
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit240.i"
 
 118:                                              ; preds = %44
@@ -1365,7 +1365,7 @@ default.unreachable.i:                            ; preds = %44
   tail call void @llvm.assume(i1 %120)
   %121 = icmp ne ptr %.sroa.4360.0.copyload.i, null
   tail call void @llvm.assume(i1 %121)
-  %invariant.op93 = xor i128 %..i, %57
+  %invariant.op95 = xor i128 %..i, %57
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit245.i"
 
 122:                                              ; preds = %44
@@ -1395,8 +1395,8 @@ default.unreachable.i:                            ; preds = %44
   %128 = add nuw i64 %.sroa.5252.0468.i, 1
   %129 = load i128, ptr %127, align 16, !noalias !50, !noundef !3
   %130 = and i128 %129, %48
-  %.reass543.i.reass.reass = xor i128 %130, %invariant.op107
-  %131 = or i128 %.reass543.i.reass.reass, %55
+  %.reass544.i.reass.reass = xor i128 %130, %invariant.op109
+  %131 = or i128 %.reass544.i.reass.reass, %55
   %132 = load i64, ptr %126, align 8, !noalias !50, !noundef !3
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 %132
   %.sroa.0253.15.extract.trunc.i = trunc i128 %131 to i8
@@ -1413,8 +1413,8 @@ default.unreachable.i:                            ; preds = %44
   %137 = add nuw i64 %.sroa.5258.0467.i, 1
   %138 = load i128, ptr %136, align 16, !noalias !50, !noundef !3
   %139 = and i128 %138, %48
-  %.reass541.i.reass.reass = xor i128 %139, %invariant.op106
-  %140 = or i128 %.reass541.i.reass.reass, %55
+  %.reass542.i.reass.reass = xor i128 %139, %invariant.op108
+  %140 = or i128 %.reass542.i.reass.reass, %55
   %141 = load i64, ptr %135, align 8, !noalias !50, !noundef !3
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 %141
   %143 = tail call i128 @llvm.bswap.i128(i128 %140)
@@ -1433,8 +1433,8 @@ default.unreachable.i:                            ; preds = %44
   %147 = add nuw i64 %.sroa.5266.0466.i, 1
   %148 = load i128, ptr %146, align 16, !noalias !50, !noundef !3
   %149 = and i128 %148, %48
-  %.reass539.i.reass.reass = xor i128 %149, %invariant.op105
-  %150 = or i128 %.reass539.i.reass.reass, %55
+  %.reass540.i.reass.reass = xor i128 %149, %invariant.op107
+  %150 = or i128 %.reass540.i.reass.reass, %55
   %151 = load i64, ptr %145, align 8, !noalias !50, !noundef !3
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 %151
   %153 = tail call i128 @llvm.bswap.i128(i128 %150)
@@ -1453,8 +1453,8 @@ default.unreachable.i:                            ; preds = %44
   %157 = add nuw i64 %.sroa.5274.0465.i, 1
   %158 = load i128, ptr %156, align 16, !noalias !50, !noundef !3
   %159 = and i128 %158, %48
-  %.reass537.i.reass.reass = xor i128 %159, %invariant.op104
-  %160 = or i128 %.reass537.i.reass.reass, %55
+  %.reass538.i.reass.reass = xor i128 %159, %invariant.op106
+  %160 = or i128 %.reass538.i.reass.reass, %55
   %161 = load i64, ptr %155, align 8, !noalias !50, !noundef !3
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 %161
   %163 = tail call i128 @llvm.bswap.i128(i128 %160)
@@ -1473,8 +1473,8 @@ default.unreachable.i:                            ; preds = %44
   %167 = add nuw i64 %.sroa.5282.0464.i, 1
   %168 = load i128, ptr %166, align 16, !noalias !50, !noundef !3
   %169 = and i128 %168, %48
-  %.reass535.i.reass.reass = xor i128 %169, %invariant.op103
-  %170 = or i128 %.reass535.i.reass.reass, %55
+  %.reass536.i.reass.reass = xor i128 %169, %invariant.op105
+  %170 = or i128 %.reass536.i.reass.reass, %55
   %171 = load i64, ptr %165, align 8, !noalias !50, !noundef !3
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 %171
   %173 = tail call i128 @llvm.bswap.i128(i128 %170)
@@ -1493,8 +1493,8 @@ default.unreachable.i:                            ; preds = %44
   %177 = add nuw i64 %.sroa.5290.0463.i, 1
   %178 = load i128, ptr %176, align 16, !noalias !50, !noundef !3
   %179 = and i128 %178, %48
-  %.reass533.i.reass.reass = xor i128 %179, %invariant.op102
-  %180 = or i128 %.reass533.i.reass.reass, %55
+  %.reass534.i.reass.reass = xor i128 %179, %invariant.op104
+  %180 = or i128 %.reass534.i.reass.reass, %55
   %181 = load i64, ptr %175, align 8, !noalias !50, !noundef !3
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 %181
   %183 = tail call i128 @llvm.bswap.i128(i128 %180)
@@ -1513,8 +1513,8 @@ default.unreachable.i:                            ; preds = %44
   %187 = add nuw i64 %.sroa.5298.0462.i, 1
   %188 = load i128, ptr %186, align 16, !noalias !50, !noundef !3
   %189 = and i128 %188, %48
-  %.reass531.i.reass.reass = xor i128 %189, %invariant.op101
-  %190 = or i128 %.reass531.i.reass.reass, %55
+  %.reass532.i.reass.reass = xor i128 %189, %invariant.op103
+  %190 = or i128 %.reass532.i.reass.reass, %55
   %191 = load i64, ptr %185, align 8, !noalias !50, !noundef !3
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 %191
   %193 = tail call i128 @llvm.bswap.i128(i128 %190)
@@ -1533,8 +1533,8 @@ default.unreachable.i:                            ; preds = %44
   %197 = add nuw i64 %.sroa.5306.0461.i, 1
   %198 = load i128, ptr %196, align 16, !noalias !50, !noundef !3
   %199 = and i128 %198, %48
-  %.reass529.i.reass.reass = xor i128 %199, %invariant.op100
-  %200 = or i128 %.reass529.i.reass.reass, %55
+  %.reass530.i.reass.reass = xor i128 %199, %invariant.op102
+  %200 = or i128 %.reass530.i.reass.reass, %55
   %201 = load i64, ptr %195, align 8, !noalias !50, !noundef !3
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 %201
   %203 = tail call i128 @llvm.bswap.i128(i128 %200)
@@ -1553,8 +1553,8 @@ default.unreachable.i:                            ; preds = %44
   %207 = add nuw i64 %.sroa.5314.0460.i, 1
   %208 = load i128, ptr %206, align 16, !noalias !50, !noundef !3
   %209 = and i128 %208, %48
-  %.reass527.i.reass.reass = xor i128 %209, %invariant.op99
-  %210 = or i128 %.reass527.i.reass.reass, %55
+  %.reass528.i.reass.reass = xor i128 %209, %invariant.op101
+  %210 = or i128 %.reass528.i.reass.reass, %55
   %211 = load i64, ptr %205, align 8, !noalias !50, !noundef !3
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 %211
   %213 = tail call i128 @llvm.bswap.i128(i128 %210)
@@ -1573,8 +1573,8 @@ default.unreachable.i:                            ; preds = %44
   %217 = add nuw i64 %.sroa.5322.0459.i, 1
   %218 = load i128, ptr %216, align 16, !noalias !50, !noundef !3
   %219 = and i128 %218, %48
-  %.reass525.i.reass.reass = xor i128 %219, %invariant.op98
-  %220 = or i128 %.reass525.i.reass.reass, %55
+  %.reass526.i.reass.reass = xor i128 %219, %invariant.op100
+  %220 = or i128 %.reass526.i.reass.reass, %55
   %221 = load i64, ptr %215, align 8, !noalias !50, !noundef !3
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 %221
   %223 = tail call i128 @llvm.bswap.i128(i128 %220)
@@ -1593,8 +1593,8 @@ default.unreachable.i:                            ; preds = %44
   %227 = add nuw i64 %.sroa.5330.0458.i, 1
   %228 = load i128, ptr %226, align 16, !noalias !50, !noundef !3
   %229 = and i128 %228, %48
-  %.reass523.i.reass.reass = xor i128 %229, %invariant.op97
-  %230 = or i128 %.reass523.i.reass.reass, %55
+  %.reass524.i.reass.reass = xor i128 %229, %invariant.op99
+  %230 = or i128 %.reass524.i.reass.reass, %55
   %231 = load i64, ptr %225, align 8, !noalias !50, !noundef !3
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 %231
   %233 = tail call i128 @llvm.bswap.i128(i128 %230)
@@ -1613,8 +1613,8 @@ default.unreachable.i:                            ; preds = %44
   %237 = add nuw i64 %.sroa.5338.0457.i, 1
   %238 = load i128, ptr %236, align 16, !noalias !50, !noundef !3
   %239 = and i128 %238, %48
-  %.reass521.i.reass.reass = xor i128 %239, %invariant.op96
-  %240 = or i128 %.reass521.i.reass.reass, %55
+  %.reass522.i.reass.reass = xor i128 %239, %invariant.op98
+  %240 = or i128 %.reass522.i.reass.reass, %55
   %241 = load i64, ptr %235, align 8, !noalias !50, !noundef !3
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 %241
   %243 = tail call i128 @llvm.bswap.i128(i128 %240)
@@ -1633,8 +1633,8 @@ default.unreachable.i:                            ; preds = %44
   %247 = add nuw i64 %.sroa.5346.0456.i, 1
   %248 = load i128, ptr %246, align 16, !noalias !50, !noundef !3
   %249 = and i128 %248, %48
-  %.reass519.i.reass.reass = xor i128 %249, %invariant.op95
-  %250 = or i128 %.reass519.i.reass.reass, %55
+  %.reass520.i.reass.reass = xor i128 %249, %invariant.op97
+  %250 = or i128 %.reass520.i.reass.reass, %55
   %251 = load i64, ptr %245, align 8, !noalias !50, !noundef !3
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 %251
   %253 = tail call i128 @llvm.bswap.i128(i128 %250)
@@ -1653,8 +1653,8 @@ default.unreachable.i:                            ; preds = %44
   %257 = add nuw i64 %.sroa.5354.0455.i, 1
   %258 = load i128, ptr %256, align 16, !noalias !50, !noundef !3
   %259 = and i128 %258, %48
-  %.reass517.i.reass.reass = xor i128 %259, %invariant.op94
-  %260 = or i128 %.reass517.i.reass.reass, %55
+  %.reass518.i.reass.reass = xor i128 %259, %invariant.op96
+  %260 = or i128 %.reass518.i.reass.reass, %55
   %261 = load i64, ptr %255, align 8, !noalias !50, !noundef !3
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 %261
   %263 = tail call i128 @llvm.bswap.i128(i128 %260)
@@ -1673,8 +1673,8 @@ default.unreachable.i:                            ; preds = %44
   %267 = add nuw i64 %.sroa.5362.0454.i, 1
   %268 = load i128, ptr %266, align 16, !noalias !50, !noundef !3
   %269 = and i128 %268, %48
-  %.reass515.i.reass.reass = xor i128 %269, %invariant.op93
-  %270 = or i128 %.reass515.i.reass.reass, %55
+  %.reass516.i.reass.reass = xor i128 %269, %invariant.op95
+  %270 = or i128 %.reass516.i.reass.reass, %55
   %271 = load i64, ptr %265, align 8, !noalias !50, !noundef !3
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 %271
   %273 = tail call i128 @llvm.bswap.i128(i128 %270)
@@ -3136,8 +3136,8 @@ define hidden void @_ZN10polars_row8variable6binary14decode_binview17h233edf8602
   %38 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.4.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4.i, i64 4
   %.sroa.4.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4.i, i64 8
-  %.sroa.4.i.4.i.4.i.4..sroa_idx110 = getelementptr inbounds nuw i8, ptr %.sroa.4.i, i64 4
-  %.sroa.4.i.8.i.8.i.8..sroa_idx111 = getelementptr inbounds nuw i8, ptr %.sroa.4.i, i64 8
+  %.sroa.4.i.4.i.4.i.4..sroa_idx116 = getelementptr inbounds nuw i8, ptr %.sroa.4.i, i64 4
+  %.sroa.4.i.8.i.8.i.8..sroa_idx117 = getelementptr inbounds nuw i8, ptr %.sroa.4.i, i64 8
   br label %39
 
 39:                                               ; preds = %.lr.ph79, %"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$26push_value_ignore_validity17h102ec00518d7bbabE.exit"
@@ -3426,8 +3426,8 @@ _ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.ex
   store i32 0, ptr %.sroa.4.i.8.i.8.i.8..sroa_idx, align 4, !noalias !182
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.4.i, ptr align 1 %74, i64 %75, i1 false), !noalias !173
   %.sroa.4.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.3.4.copyload.i = load i32, ptr %.sroa.4.i, align 4, !noalias !182
-  %.sroa.4.i.4..sroa.4.i.4..sroa.4.i.4..sroa.4.4..sroa.4.4..sroa.6.4.copyload.i = load i32, ptr %.sroa.4.i.4.i.4.i.4..sroa_idx110, align 4, !noalias !182
-  %.sroa.4.i.8..sroa.4.i.8..sroa.4.i.8..sroa.4.8..sroa.4.8..sroa.7.4.copyload.i = load i32, ptr %.sroa.4.i.8.i.8.i.8..sroa_idx111, align 4, !noalias !182
+  %.sroa.4.i.4..sroa.4.i.4..sroa.4.i.4..sroa.4.4..sroa.4.4..sroa.6.4.copyload.i = load i32, ptr %.sroa.4.i.4.i.4.i.4..sroa_idx116, align 4, !noalias !182
+  %.sroa.4.i.8..sroa.4.i.8..sroa.4.i.8..sroa.4.8..sroa.4.8..sroa.7.4.copyload.i = load i32, ptr %.sroa.4.i.8.i.8.i.8..sroa_idx117, align 4, !noalias !182
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   br label %_ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.exit.i
 

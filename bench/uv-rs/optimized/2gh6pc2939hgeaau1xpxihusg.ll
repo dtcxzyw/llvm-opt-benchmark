@@ -106,7 +106,7 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   %32 = alloca [24 x i8], align 8
   %33 = alloca [24 x i8], align 8
   %34 = load i8, ptr %1, align 8, !range !3, !noundef !4
-  switch i8 %34, label %default.unreachable33 [
+  switch i8 %34, label %default.unreachable40 [
     i8 0, label %35
     i8 1, label %39
     i8 2, label %44
@@ -131,7 +131,7 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
     i8 21, label %124
   ]
 
-default.unreachable33:                            ; preds = %2
+default.unreachable40:                            ; preds = %2
   unreachable
 
 35:                                               ; preds = %2
@@ -890,7 +890,7 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   %32 = alloca [24 x i8], align 8
   %33 = alloca [24 x i8], align 8
   %34 = load i8, ptr %1, align 8, !range !3, !noundef !4
-  switch i8 %34, label %default.unreachable33 [
+  switch i8 %34, label %default.unreachable40 [
     i8 0, label %35
     i8 1, label %39
     i8 2, label %44
@@ -915,7 +915,7 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
     i8 21, label %124
   ]
 
-default.unreachable33:                            ; preds = %2
+default.unreachable40:                            ; preds = %2
   unreachable
 
 35:                                               ; preds = %2
@@ -1628,7 +1628,7 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   %29 = alloca [24 x i8], align 8
   %30 = alloca [24 x i8], align 8
   %31 = load i8, ptr %1, align 8, !range !3, !noundef !4
-  switch i8 %31, label %default.unreachable11 [
+  switch i8 %31, label %default.unreachable16 [
     i8 0, label %32
     i8 1, label %36
     i8 2, label %41
@@ -1653,7 +1653,7 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
     i8 21, label %121
   ]
 
-default.unreachable11:                            ; preds = %2
+default.unreachable16:                            ; preds = %2
   unreachable
 
 32:                                               ; preds = %2
@@ -2145,7 +2145,7 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   %32 = alloca [24 x i8], align 8
   %33 = alloca [24 x i8], align 8
   %34 = load i8, ptr %1, align 8, !range !3, !noundef !4
-  switch i8 %34, label %default.unreachable33 [
+  switch i8 %34, label %default.unreachable40 [
     i8 0, label %35
     i8 1, label %39
     i8 2, label %44
@@ -2170,7 +2170,7 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
     i8 21, label %124
   ]
 
-default.unreachable33:                            ; preds = %2
+default.unreachable40:                            ; preds = %2
   unreachable
 
 35:                                               ; preds = %2
@@ -5274,9 +5274,9 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h9750
   br i1 %52, label %"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$3end17hab990be31f933634E.exit.thread", label %55
 
 "_ZN178_$LT$uv_cache_info..cache_info.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_cache_info..cache_info..GitSet$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17he66b52d45d37e647E.exit.thread.sink.split": ; preds = %._crit_edge.i, %32, %42
-  %.lcssa32.sink = phi i64 [ %38, %42 ], [ %28, %32 ], [ %.lcssa78.i, %._crit_edge.i ]
+  %.lcssa36.sink = phi i64 [ %38, %42 ], [ %28, %32 ], [ %.lcssa78.i, %._crit_edge.i ]
   %.sroa.561.0.copyload.i.sink = phi i8 [ %40, %42 ], [ %30, %32 ], [ %.sroa.543.0.copyload.i, %._crit_edge.i ]
-  store i64 %.lcssa32.sink, ptr %9, align 8, !alias.scope !1030, !noalias !1036
+  store i64 %.lcssa36.sink, ptr %9, align 8, !alias.scope !1030, !noalias !1036
   %.sroa.264.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 %.sroa.561.0.copyload.i.sink, ptr %.sroa.264.0..sroa_idx.i, align 8, !alias.scope !1030, !noalias !1036
   br label %"_ZN178_$LT$uv_cache_info..cache_info.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_cache_info..cache_info..GitSet$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17he66b52d45d37e647E.exit.thread"
@@ -5493,11 +5493,11 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h7e2c
   br i1 %40, label %"_ZN5serde2de5value28SeqDeserializer$LT$I$C$E$GT$3end17h1fb8843eeb381d9bE.exit.thread", label %43
 
 "_ZN178_$LT$uv_cache_info..cache_info.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_cache_info..cache_info..GitSet$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h95bb39e2ee42e8c3E.exit.thread.sink.split": ; preds = %27, %19
-  %.sink8 = phi i64 [ %13, %19 ], [ %21, %27 ]
-  %.sink7 = phi i8 [ %16, %19 ], [ %24, %27 ]
-  store i64 %.sink8, ptr %8, align 8, !alias.scope !1049, !noalias !1054
+  %.sink12 = phi i64 [ %13, %19 ], [ %21, %27 ]
+  %.sink11 = phi i8 [ %16, %19 ], [ %24, %27 ]
+  store i64 %.sink12, ptr %8, align 8, !alias.scope !1049, !noalias !1054
   %.sroa.225.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i8 %.sink7, ptr %.sroa.225.0..sroa_idx.i, align 8, !alias.scope !1049, !noalias !1054
+  store i8 %.sink11, ptr %.sroa.225.0..sroa_idx.i, align 8, !alias.scope !1049, !noalias !1054
   br label %"_ZN178_$LT$uv_cache_info..cache_info.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_cache_info..cache_info..GitSet$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h95bb39e2ee42e8c3E.exit.thread"
 
 "_ZN178_$LT$uv_cache_info..cache_info.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_cache_info..cache_info..GitSet$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h95bb39e2ee42e8c3E.exit.thread": ; preds = %"_ZN178_$LT$uv_cache_info..cache_info.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_cache_info..cache_info..GitSet$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h95bb39e2ee42e8c3E.exit.thread.sink.split", %"_ZN178_$LT$uv_cache_info..cache_info.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_cache_info..cache_info..GitSet$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h95bb39e2ee42e8c3E.exit"
@@ -5960,7 +5960,7 @@ define hidden void @"_ZN77_$LT$serde..__private..de..content..Content$u20$as$u20
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = load i8, ptr %1, align 8, !range !3, !noundef !4
-  switch i8 %5, label %default.unreachable7 [
+  switch i8 %5, label %default.unreachable8 [
     i8 0, label %6
     i8 1, label %10
     i8 2, label %14
@@ -5985,7 +5985,7 @@ define hidden void @"_ZN77_$LT$serde..__private..de..content..Content$u20$as$u20
     i8 21, label %105
   ]
 
-default.unreachable7:                             ; preds = %2
+default.unreachable8:                             ; preds = %2
   unreachable
 
 6:                                                ; preds = %2
@@ -6203,8 +6203,8 @@ common.resume:                                    ; preds = %96, %87
   br label %111
 
 111:                                              ; preds = %2, %2, %105, %99, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h99f0f773c5ffe6c1E.exit2", %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h99f0f773c5ffe6c1E.exit", %74, %64, %57, %54, %50, %46, %42, %38, %34, %30, %26, %22, %18, %14, %10, %6
-  %.sink8 = phi i8 [ 21, %105 ], [ 20, %99 ], [ 19, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h99f0f773c5ffe6c1E.exit2" ], [ 17, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h99f0f773c5ffe6c1E.exit" ], [ 15, %74 ], [ 14, %64 ], [ 13, %57 ], [ 12, %54 ], [ 11, %50 ], [ 10, %46 ], [ 9, %42 ], [ 8, %38 ], [ 7, %34 ], [ 6, %30 ], [ 5, %26 ], [ 4, %22 ], [ 3, %18 ], [ 2, %14 ], [ 1, %10 ], [ 0, %6 ], [ %5, %2 ], [ %5, %2 ]
-  store i8 %.sink8, ptr %0, align 8
+  %.sink9 = phi i8 [ 21, %105 ], [ 20, %99 ], [ 19, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h99f0f773c5ffe6c1E.exit2" ], [ 17, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h99f0f773c5ffe6c1E.exit" ], [ 15, %74 ], [ 14, %64 ], [ 13, %57 ], [ 12, %54 ], [ 11, %50 ], [ 10, %46 ], [ 9, %42 ], [ 8, %38 ], [ 7, %34 ], [ 6, %30 ], [ 5, %26 ], [ 4, %22 ], [ 3, %18 ], [ 2, %14 ], [ 1, %10 ], [ 0, %6 ], [ %5, %2 ], [ %5, %2 ]
+  store i8 %.sink9, ptr %0, align 8
   ret void
 }
 
@@ -6885,7 +6885,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   store ptr %31, ptr %24, align 8, !alias.scope !1240, !noalias !1230
   %.sroa.0.0.copyload4.i.i = load i64, ptr %30, align 8, !noalias !1241
   %32 = icmp eq i64 %.sroa.0.0.copyload4.i.i, 12
-  br i1 %32, label %.thread.loopexit.split.loop.exit34, label %33
+  br i1 %32, label %.thread.loopexit.split.loop.exit37, label %33
 
 33:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1351952ecd13415E.llvm.16323404258194492820.exit.i.i"
   %.sroa.8.0..sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -6914,7 +6914,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$serde..__private..de..content..Content$GT$$GT$17h613a11aa8f5303adE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #22
           to label %10 unwind label %75
 
-.thread.loopexit.split.loop.exit34:               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1351952ecd13415E.llvm.16323404258194492820.exit.i.i"
+.thread.loopexit.split.loop.exit37:               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1351952ecd13415E.llvm.16323404258194492820.exit.i.i"
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 176
   br label %.loopexit
 
@@ -6977,8 +6977,8 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
   %.pre = load ptr, ptr %24, align 8, !alias.scope !1253
   br label %.loopexit
 
-.loopexit:                                        ; preds = %51, %19, %.thread.loopexit.split.loop.exit34, %.loopexit.loopexit
-  %58 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %26, %19 ], [ %38, %.thread.loopexit.split.loop.exit34 ], [ %56, %51 ]
+.loopexit:                                        ; preds = %51, %19, %.thread.loopexit.split.loop.exit37, %.loopexit.loopexit
+  %58 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %26, %19 ], [ %38, %.thread.loopexit.split.loop.exit37 ], [ %56, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   %.sroa.4.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 7

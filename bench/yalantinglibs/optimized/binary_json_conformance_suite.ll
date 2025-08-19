@@ -11617,8 +11617,8 @@ if.end.i:                                         ; preds = %invoke.cont269
 
 if.end.thread.i:                                  ; preds = %invoke.cont269
   %548 = load ptr, ptr %ref.tmp260, align 8
-  %cmp.i1739.i = icmp eq ptr %548, %58
-  br i1 %cmp.i1739.i, label %if.then15.i, label %if.end31.i
+  %cmp.i1744.i = icmp eq ptr %548, %58
+  br i1 %cmp.i1744.i, label %if.then15.i, label %if.end31.i
 
 if.then15.i:                                      ; preds = %if.end.thread.i, %if.end.i
   %549 = phi ptr [ %548, %if.end.thread.i ], [ %547, %if.end.i ]
@@ -11786,8 +11786,8 @@ if.end.i837:                                      ; preds = %invoke.cont282
 
 if.end.thread.i818:                               ; preds = %invoke.cont282
   %574 = load ptr, ptr %ref.tmp273, align 8
-  %cmp.i1739.i819 = icmp eq ptr %574, %62
-  br i1 %cmp.i1739.i819, label %if.then15.i827, label %if.end31.i820
+  %cmp.i1744.i819 = icmp eq ptr %574, %62
+  br i1 %cmp.i1744.i819, label %if.then15.i827, label %if.end31.i820
 
 if.then15.i827:                                   ; preds = %if.end.thread.i818, %if.end.i837
   %575 = phi ptr [ %574, %if.end.thread.i818 ], [ %573, %if.end.i837 ]
@@ -11956,8 +11956,8 @@ if.end.i906:                                      ; preds = %invoke.cont295
 
 if.end.thread.i887:                               ; preds = %invoke.cont295
   %600 = load ptr, ptr %ref.tmp286, align 8
-  %cmp.i1739.i888 = icmp eq ptr %600, %66
-  br i1 %cmp.i1739.i888, label %if.then15.i896, label %if.end31.i889
+  %cmp.i1744.i888 = icmp eq ptr %600, %66
+  br i1 %cmp.i1744.i888, label %if.then15.i896, label %if.end31.i889
 
 if.then15.i896:                                   ; preds = %if.end.thread.i887, %if.end.i906
   %601 = phi ptr [ %600, %if.end.thread.i887 ], [ %599, %if.end.i906 ]
@@ -12125,8 +12125,8 @@ if.end.i975:                                      ; preds = %invoke.cont308
 
 if.end.thread.i956:                               ; preds = %invoke.cont308
   %626 = load ptr, ptr %ref.tmp299, align 8
-  %cmp.i1739.i957 = icmp eq ptr %626, %70
-  br i1 %cmp.i1739.i957, label %if.then15.i965, label %if.end31.i958
+  %cmp.i1744.i957 = icmp eq ptr %626, %70
+  br i1 %cmp.i1744.i957, label %if.then15.i965, label %if.end31.i958
 
 if.then15.i965:                                   ; preds = %if.end.thread.i956, %if.end.i975
   %627 = phi ptr [ %626, %if.end.thread.i956 ], [ %625, %if.end.i975 ]
@@ -12295,8 +12295,8 @@ if.end.i1044:                                     ; preds = %invoke.cont321
 
 if.end.thread.i1025:                              ; preds = %invoke.cont321
   %652 = load ptr, ptr %ref.tmp312, align 8
-  %cmp.i1739.i1026 = icmp eq ptr %652, %74
-  br i1 %cmp.i1739.i1026, label %if.then15.i1034, label %if.end31.i1027
+  %cmp.i1744.i1026 = icmp eq ptr %652, %74
+  br i1 %cmp.i1744.i1026, label %if.then15.i1034, label %if.end31.i1027
 
 if.then15.i1034:                                  ; preds = %if.end.thread.i1025, %if.end.i1044
   %653 = phi ptr [ %652, %if.end.thread.i1025 ], [ %651, %if.end.i1044 ]
@@ -15772,7 +15772,7 @@ lpad61:                                           ; preds = %invoke.cont60
   br label %ehcleanup
 
 lpad64.body:                                      ; preds = %lpad.i84.body.thread, %if.then.i.i.i85
-  %eh.lpad-body296352 = phi { ptr, i32 } [ %26, %lpad.i84.body.thread ], [ %23, %if.then.i.i.i85 ]
+  %eh.lpad-body296392 = phi { ptr, i32 } [ %26, %lpad.i84.body.thread ], [ %23, %if.then.i.i.i85 ]
   br label %arraydestroy.body68
 
 arraydestroy.body68:                              ; preds = %arraydestroy.body68, %lpad64.body
@@ -15783,7 +15783,7 @@ arraydestroy.body68:                              ; preds = %arraydestroy.body68
   br i1 %arraydestroy.done71, label %ehcleanup, label %arraydestroy.body68
 
 ehcleanup:                                        ; preds = %arraydestroy.body68, %lpad61, %lpad.i74
-  %.pn = phi { ptr, i32 } [ %135, %lpad61 ], [ %19, %lpad.i74 ], [ %eh.lpad-body296352, %arraydestroy.body68 ]
+  %.pn = phi { ptr, i32 } [ %135, %lpad61 ], [ %19, %lpad.i74 ], [ %eh.lpad-body296392, %arraydestroy.body68 ]
   %136 = phi i1 [ false, %lpad61 ], [ false, %lpad.i74 ], [ true, %arraydestroy.body68 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32) #23
   br label %ehcleanup73
@@ -28214,8 +28214,8 @@ if.end.i:                                         ; preds = %invoke.cont58
 if.end.thread.i:                                  ; preds = %invoke.cont58
   %40 = load ptr, ptr %ref.tmp55, align 8
   %41 = getelementptr inbounds nuw i8, ptr %ref.tmp55, i64 16
-  %cmp.i1739.i = icmp eq ptr %40, %41
-  br i1 %cmp.i1739.i, label %if.then15.i, label %if.end31.i
+  %cmp.i1744.i = icmp eq ptr %40, %41
+  br i1 %cmp.i1744.i, label %if.then15.i, label %if.end31.i
 
 if.then15.i:                                      ; preds = %if.end.thread.i, %if.end.i
   %42 = phi ptr [ %40, %if.end.thread.i ], [ %38, %if.end.i ]
@@ -45285,7 +45285,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i110:
   %cmp3.i.i.i.i.i122 = icmp ult i64 %77, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i122)
   %cmp.not.i.i.i112 = icmp samesign ugt i64 %add.i.i.i108, 15
-  br i1 %cmp.not.i.i.i112, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i247, label %if.then.i.i.i.i119
+  br i1 %cmp.not.i.i.i112, label %land.lhs.true.i.i281, label %if.then.i.i.i.i119
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i110.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i107
   %80 = load i64, ptr %21, align 8, !alias.scope !857
@@ -45298,13 +45298,13 @@ if.then.i.i.i.i119:                               ; preds = %_ZNKSt7__cxx1112bas
   %.pre = load ptr, ptr %ref.tmp66, align 8, !alias.scope !857
   br label %invoke.cont68
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i247: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i110, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i110.thread
-  %cond.i.i.i.i111368370 = phi i64 [ %80, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i110.thread ], [ 15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i110 ]
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i247: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i110.thread
   %cmp.i.i249 = icmp slt i64 %77, -1
   br i1 %cmp.i.i249, label %if.then.i.i.i123.invoke, label %land.lhs.true.i.i281
 
-land.lhs.true.i.i281:                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i247
-  %mul.i.i282 = shl nuw i64 %cond.i.i.i.i111368370, 1
+land.lhs.true.i.i281:                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i110, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i247
+  %cond.i.i.i.i111368370435 = phi i64 [ %80, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i247 ], [ 15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i110 ]
+  %mul.i.i282 = shl nuw i64 %cond.i.i.i.i111368370435, 1
   %cmp3.i.i283 = icmp ult i64 %add.i.i.i108, %mul.i.i282
   %spec.store.select.i.i285 = call i64 @llvm.umin.i64(i64 %mul.i.i282, i64 9223372036854775807)
   %__new_capacity.0.i253 = select i1 %cmp3.i.i283, i64 %spec.store.select.i.i285, i64 %add.i.i.i108

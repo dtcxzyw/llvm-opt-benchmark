@@ -802,9 +802,9 @@ gistdeletepage.exit.thread.i:                     ; preds = %409, %359, %350, %3
   br i1 %exitcond.not.i, label %.thread.i41, label %293, !llvm.loop !12
 
 .thread.i41:                                      ; preds = %gistdeletepage.exit.thread.i, %293, %._crit_edge.i43, %._crit_edge.thread.i
-  %.060.lcssa92.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %.161.i, %._crit_edge.i43 ], [ %.161.i, %293 ], [ %.161.i, %gistdeletepage.exit.thread.i ]
+  %.060.lcssa98.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %.161.i, %._crit_edge.i43 ], [ %.161.i, %293 ], [ %.161.i, %gistdeletepage.exit.thread.i ]
   call void @ReleaseBuffer(i32 noundef %227) #4
-  %419 = sub i32 %.087.i, %.060.lcssa92.i
+  %419 = sub i32 %.087.i, %.060.lcssa98.i
   br label %420
 
 420:                                              ; preds = %.thread.i41, %251

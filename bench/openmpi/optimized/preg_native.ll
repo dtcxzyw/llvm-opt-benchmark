@@ -280,29 +280,29 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %60, %6
   br i1 %.not160, label %185, label %105
 
 104:                                              ; preds = %100
-  br i1 %.not160, label %.thread272, label %185
+  br i1 %.not160, label %.thread304, label %185
 
 105:                                              ; preds = %103
   %106 = getelementptr inbounds nuw i8, ptr %.0131257, i64 144
   %107 = load ptr, ptr %106, align 8, !tbaa !31
   %.not163 = icmp eq ptr %107, null
-  br i1 %.not163, label %.thread272, label %108
+  br i1 %.not163, label %.thread304, label %108
 
 108:                                              ; preds = %105
   %109 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %107) #19
   %.not164 = icmp eq i32 %109, 0
-  br i1 %.not164, label %.thread272, label %.sink.split
+  br i1 %.not164, label %.thread304, label %.sink.split
 
-.thread272:                                       ; preds = %104, %108, %105
+.thread304:                                       ; preds = %104, %108, %105
   %110 = getelementptr inbounds nuw i8, ptr %.0131257, i64 152
   %111 = load ptr, ptr %110, align 8, !tbaa !45
   %.not165 = icmp eq ptr %111, null
   br i1 %95, label %112, label %113
 
-112:                                              ; preds = %.thread272
+112:                                              ; preds = %.thread304
   br i1 %.not165, label %.critedge186, label %185
 
-113:                                              ; preds = %.thread272
+113:                                              ; preds = %.thread304
   br i1 %.not165, label %185, label %114
 
 114:                                              ; preds = %113
@@ -1939,8 +1939,8 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly captures(address_i
   %90 = getelementptr inbounds i8, ptr %.0113.i, i64 %indvars.iv233.i
   store i8 0, ptr %90, align 1, !tbaa !24
   %91 = tail call noalias ptr @strdup(ptr noundef nonnull %81) #18
-  %sext236.i = shl i64 %indvars.iv233.i, 32
-  %92 = ashr exact i64 %sext236.i, 32
+  %sext245.i = shl i64 %indvars.iv233.i, 32
+  %92 = ashr exact i64 %sext245.i, 32
   %93 = getelementptr inbounds i8, ptr %.0113.i, i64 %92
   store i8 44, ptr %93, align 1, !tbaa !24
   br label %94
@@ -2086,8 +2086,8 @@ regex_parse_value_ranges.exit.i:                  ; preds = %116, %138, %136, %1
   br label %.backedge.i.backedge
 
 153:                                              ; preds = %43, %.loopexit.thread.i
-  %.0112161241245.i = phi i32 [ %31, %.loopexit.thread.i ], [ %.0112161.i, %43 ]
-  %.1243244.i = phi i1 [ %.0108.i, %.loopexit.thread.i ], [ %.1.i, %43 ]
+  %.0112161250254.i = phi i32 [ %31, %.loopexit.thread.i ], [ %.0112161.i, %43 ]
+  %.1252253.i = phi i1 [ %.0108.i, %.loopexit.thread.i ], [ %.1.i, %43 ]
   %154 = tail call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %1, ptr noundef nonnull %.0113.i) #18
   switch i32 %154, label %155 [
     i32 0, label %157
@@ -2100,10 +2100,10 @@ regex_parse_value_ranges.exit.i:                  ; preds = %116, %138, %136, %1
   br label %pmix_regex_extract_nodes.exit
 
 157:                                              ; preds = %153
-  %158 = zext nneg i32 %.0112161241245.i to i64
+  %158 = zext nneg i32 %.0112161250254.i to i64
   %159 = getelementptr inbounds nuw i8, ptr %.0113.i, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 1
-  br i1 %.1243244.i, label %.backedge.i.backedge, label %pmix_regex_extract_nodes.exit.thread23
+  br i1 %.1252253.i, label %.backedge.i.backedge, label %pmix_regex_extract_nodes.exit.thread23
 
 .backedge.i.backedge:                             ; preds = %157, %149
   %.0113.i.be = phi ptr [ %160, %157 ], [ %152, %149 ]

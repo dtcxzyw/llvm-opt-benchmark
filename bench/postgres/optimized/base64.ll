@@ -81,7 +81,7 @@ define i32 @pg_b64_encode(ptr noundef readonly captures(address) %0, i32 noundef
   br i1 %.not, label %._crit_edge._crit_edge, label %48
 
 ._crit_edge._crit_edge:                           ; preds = %4, %._crit_edge
-  %.043.lcssa62 = phi ptr [ %.144, %._crit_edge ], [ %2, %4 ]
+  %.043.lcssa64 = phi ptr [ %.144, %._crit_edge ], [ %2, %4 ]
   %.pre = ptrtoint ptr %2 to i64
   br label %77
 
@@ -129,7 +129,7 @@ define i32 @pg_b64_encode(ptr noundef readonly captures(address) %0, i32 noundef
 
 77:                                               ; preds = %._crit_edge._crit_edge, %73
   %.pre-phi57 = phi i64 [ %.pre, %._crit_edge._crit_edge ], [ %50, %73 ]
-  %.2 = phi ptr [ %.043.lcssa62, %._crit_edge._crit_edge ], [ %76, %73 ]
+  %.2 = phi ptr [ %.043.lcssa64, %._crit_edge._crit_edge ], [ %76, %73 ]
   %78 = ptrtoint ptr %.2 to i64
   %79 = sub i64 %78, %.pre-phi57
   %80 = trunc i64 %79 to i32
@@ -168,11 +168,11 @@ define i32 @pg_b64_decode(ptr noundef readonly captures(address) %0, i32 noundef
   %.07288.ph = phi ptr [ %11, %55 ], [ %0, %.lr.ph ]
   br label %10
 
-10:                                               ; preds = %.outer, %.thread99
-  %.092 = phi i32 [ 1, %.thread99 ], [ %.092.ph, %.outer ]
-  %.06291 = phi i32 [ 3, %.thread99 ], [ %.06291.ph, %.outer ]
-  %.06490 = phi i32 [ %57, %.thread99 ], [ %.06490.ph, %.outer ]
-  %.07288 = phi ptr [ %11, %.thread99 ], [ %.07288.ph, %.outer ]
+10:                                               ; preds = %.outer, %.thread101
+  %.092 = phi i32 [ 1, %.thread101 ], [ %.092.ph, %.outer ]
+  %.06291 = phi i32 [ 3, %.thread101 ], [ %.06291.ph, %.outer ]
+  %.06490 = phi i32 [ %57, %.thread101 ], [ %.06490.ph, %.outer ]
+  %.07288 = phi ptr [ %11, %.thread101 ], [ %.07288.ph, %.outer ]
   %11 = getelementptr inbounds nuw i8, ptr %.07288, i64 1
   %12 = load i8, ptr %.07288, align 1
   switch i8 %12, label %16 [
@@ -189,7 +189,7 @@ define i32 @pg_b64_decode(ptr noundef readonly captures(address) %0, i32 noundef
 
 14:                                               ; preds = %13
   switch i32 %.06291, label %.thread [
-    i32 2, label %.thread99
+    i32 2, label %.thread101
     i32 3, label %.thread78
   ]
 
@@ -276,7 +276,7 @@ define i32 @pg_b64_decode(ptr noundef readonly captures(address) %0, i32 noundef
   %56 = icmp ult ptr %11, %6
   br i1 %56, label %.outer, label %._crit_edge, !llvm.loop !5
 
-.thread99:                                        ; preds = %14
+.thread101:                                       ; preds = %14
   %57 = shl i32 %.06490, 6
   %58 = icmp ult ptr %11, %6
   br i1 %58, label %10, label %._crit_edge..thread_crit_edge, !llvm.loop !5
@@ -285,13 +285,13 @@ define i32 @pg_b64_decode(ptr noundef readonly captures(address) %0, i32 noundef
   %59 = icmp eq i32 %.163, 0
   br i1 %59, label %._crit_edge.thread, label %._crit_edge..thread_crit_edge
 
-._crit_edge..thread_crit_edge:                    ; preds = %.thread99, %._crit_edge
+._crit_edge..thread_crit_edge:                    ; preds = %.thread101, %._crit_edge
   %.pre = sext i32 %3 to i64
   br label %.thread
 
 ._crit_edge.thread:                               ; preds = %4, %._crit_edge
-  %.069.lcssa98 = phi ptr [ %.170, %._crit_edge ], [ %2, %4 ]
-  %60 = ptrtoint ptr %.069.lcssa98 to i64
+  %.069.lcssa100 = phi ptr [ %.170, %._crit_edge ], [ %2, %4 ]
+  %60 = ptrtoint ptr %.069.lcssa100 to i64
   %61 = ptrtoint ptr %2 to i64
   %62 = sub i64 %60, %61
   %63 = trunc i64 %62 to i32

@@ -1206,8 +1206,8 @@ define hidden void @_ZN13Domain_Filter15compute_RfilterERN2cv3MatES2_f(ptr nonnu
   %indvars.iv124 = phi i64 [ 0, %.preheader99.us ], [ %indvars.iv.next125, %60 ]
   %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv124
   %61 = load float, ptr %gep, align 4, !tbaa !20
-  %gep156 = getelementptr float, ptr %invariant.gep155, i64 %indvars.iv124
-  %62 = load float, ptr %gep156, align 4, !tbaa !20
+  %gep158 = getelementptr float, ptr %invariant.gep157, i64 %indvars.iv124
+  %62 = load float, ptr %gep158, align 4, !tbaa !20
   %63 = fsub float %62, %61
   %64 = load float, ptr %70, align 4, !tbaa !20
   %65 = call float @llvm.fmuladd.f32(float %63, float %64, float %61)
@@ -1228,7 +1228,7 @@ define hidden void @_ZN13Domain_Filter15compute_RfilterERN2cv3MatES2_f(ptr nonnu
   %69 = mul nuw nsw i64 %68, %55
   %70 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv129
   %invariant.gep = getelementptr inbounds nuw float, ptr %57, i64 %67
-  %invariant.gep155 = getelementptr float, ptr %57, i64 %69
+  %invariant.gep157 = getelementptr float, ptr %57, i64 %69
   br label %60
 
 ._crit_edge.us109:                                ; preds = %66
@@ -1274,14 +1274,14 @@ define hidden void @_ZN13Domain_Filter15compute_RfilterERN2cv3MatES2_f(ptr nonnu
 
 92:                                               ; preds = %.preheader.us, %92
   %indvars.iv139 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next140, %92 ]
-  %gep158 = getelementptr float, ptr %invariant.gep157, i64 %indvars.iv139
-  %93 = load float, ptr %gep158, align 4, !tbaa !20
   %gep160 = getelementptr float, ptr %invariant.gep159, i64 %indvars.iv139
-  %94 = load float, ptr %gep160, align 4, !tbaa !20
+  %93 = load float, ptr %gep160, align 4, !tbaa !20
+  %gep162 = getelementptr float, ptr %invariant.gep161, i64 %indvars.iv139
+  %94 = load float, ptr %gep162, align 4, !tbaa !20
   %95 = fsub float %94, %93
   %96 = load float, ptr %103, align 4, !tbaa !20
   %97 = call float @llvm.fmuladd.f32(float %95, float %96, float %93)
-  store float %97, ptr %gep158, align 4, !tbaa !20
+  store float %97, ptr %gep160, align 4, !tbaa !20
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next140, %87
   br i1 %exitcond143.not, label %98, label %92, !llvm.loop !63
@@ -1297,8 +1297,8 @@ define hidden void @_ZN13Domain_Filter15compute_RfilterERN2cv3MatES2_f(ptr nonnu
   %101 = add nuw nsw i64 %indvars.iv144, 1
   %102 = mul nuw nsw i64 %101, %87
   %103 = getelementptr inbounds nuw float, ptr %91, i64 %101
-  %invariant.gep157 = getelementptr float, ptr %89, i64 %100
-  %invariant.gep159 = getelementptr float, ptr %89, i64 %102
+  %invariant.gep159 = getelementptr float, ptr %89, i64 %100
+  %invariant.gep161 = getelementptr float, ptr %89, i64 %102
   br label %92
 
 ._crit_edge.us114:                                ; preds = %98
@@ -2881,9 +2881,9 @@ _ZN2cv3MataSERKNS_7MatExprE.exit263:              ; preds = %286
   %.recomposed = srem i32 %322, %187
   %325 = sdiv i32 %.recomposed, %54
   %326 = mul nsw i32 %325, %54
-  %.recomposed336 = srem i32 %.recomposed, %54
+  %.recomposed338 = srem i32 %.recomposed, %54
   %327 = icmp eq i32 %325, 0
-  %.0184.us = select i1 %327, i32 %54, i32 %.recomposed336
+  %.0184.us = select i1 %327, i32 %54, i32 %.recomposed338
   %.0182.us = select i1 %327, i32 %56, i32 %325
   %.neg = zext i1 %327 to i32
   %328 = icmp eq i32 %.0184.us, 0
@@ -2895,12 +2895,12 @@ _ZN2cv3MataSERKNS_7MatExprE.exit263:              ; preds = %286
   %332 = fptosi float %331 to i32
   %333 = sdiv i32 %332, %187
   %334 = mul i32 %187, %333
-  %.recomposed337 = srem i32 %332, %187
-  %335 = sdiv i32 %.recomposed337, %54
+  %.recomposed339 = srem i32 %332, %187
+  %335 = sdiv i32 %.recomposed339, %54
   %336 = mul nsw i32 %335, %54
-  %.recomposed338 = srem i32 %.recomposed337, %54
-  %337 = icmp eq i32 %.recomposed337, %336
-  %.0179.us = select i1 %337, i32 %54, i32 %.recomposed338
+  %.recomposed340 = srem i32 %.recomposed339, %54
+  %337 = icmp eq i32 %.recomposed339, %336
+  %.0179.us = select i1 %337, i32 %54, i32 %.recomposed340
   %338 = sext i1 %337 to i32
   %.0178.us = add nsw i32 %335, %338
   %339 = add nsw i32 %.1185.us, -1
@@ -3598,8 +3598,8 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit207:              ; preds = %137
   br i1 %exitcond259.not, label %.preheader213, label %.preheader215.us, !llvm.loop !132
 
 .preheader213:                                    ; preds = %._crit_edge.us, %.preheader215.lr.ph
-  %.not313 = icmp eq i32 %40, 1
-  br i1 %.not313, label %._crit_edge224, label %.preheader212.lr.ph
+  %.not319 = icmp eq i32 %40, 1
+  br i1 %.not319, label %._crit_edge224, label %.preheader212.lr.ph
 
 .preheader212.lr.ph:                              ; preds = %.preheader213
   %171 = icmp sgt i32 %39, 0
@@ -3633,8 +3633,8 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit207:              ; preds = %137
 187:                                              ; preds = %.preheader211.us, %187
   %indvars.iv260 = phi i64 [ 0, %.preheader211.us ], [ %indvars.iv.next261, %187 ]
   %188 = phi float [ %.promoted.us225, %.preheader211.us ], [ %191, %187 ]
-  %gep312 = getelementptr inbounds nuw float, ptr %invariant.gep311, i64 %indvars.iv260
-  %189 = load float, ptr %gep312, align 4, !tbaa !20
+  %gep318 = getelementptr inbounds nuw float, ptr %invariant.gep317, i64 %indvars.iv260
+  %189 = load float, ptr %gep318, align 4, !tbaa !20
   %190 = call noundef float @llvm.fabs.f32(float %189)
   %191 = fadd float %188, %190
   store float %191, ptr %193, align 4, !tbaa !20
@@ -3652,7 +3652,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit207:              ; preds = %137
   %193 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv265
   %194 = mul nuw nsw i64 %indvars.iv265, %182
   %.promoted.us225 = load float, ptr %193, align 4, !tbaa !20
-  %invariant.gep311 = getelementptr inbounds nuw float, ptr %186, i64 %194
+  %invariant.gep317 = getelementptr inbounds nuw float, ptr %186, i64 %194
   br label %187
 
 ._crit_edge.us226:                                ; preds = %192

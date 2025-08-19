@@ -1325,10 +1325,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %292
 
 78:                                               ; preds = %55, %63, %62
-  %.sink328 = phi i32 [ 4, %63 ], [ 3, %62 ], [ 1, %55 ]
+  %.sink344 = phi i32 [ 4, %63 ], [ 3, %62 ], [ 1, %55 ]
   %.sink = phi i32 [ 9, %63 ], [ 8, %62 ], [ 1, %55 ]
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store i32 %.sink328, ptr %79, align 8, !tbaa !198
+  store i32 %.sink344, ptr %79, align 8, !tbaa !198
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 60
   store i32 %.sink, ptr %80, align 4, !tbaa !199
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2022,11 +2022,11 @@ define internal void @_ZN2cvL15skip_input_dataEP22jpeg_decompress_structl(ptr no
   %8 = sub i64 %6, %1
   %9 = sub i64 %1, %6
   %10 = trunc i64 %9 to i32
-  %.sink18 = tail call i64 @llvm.smin.i64(i64 %1, i64 %6)
+  %.sink20 = tail call i64 @llvm.smin.i64(i64 %1, i64 %6)
   %.sink16 = select i1 %7, i32 %10, i32 0
   %.sink = select i1 %7, i64 0, i64 %8
   %11 = load ptr, ptr %4, align 8, !tbaa !230
-  %12 = getelementptr inbounds i8, ptr %11, i64 %.sink18
+  %12 = getelementptr inbounds i8, ptr %11, i64 %.sink20
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 %.sink16, ptr %13, align 8, !tbaa !118
   store ptr %12, ptr %4, align 8, !tbaa !230
@@ -2146,7 +2146,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1, !tbaa !166
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %21 = add i64 %11, -1
+  %21 = add nsw i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
 

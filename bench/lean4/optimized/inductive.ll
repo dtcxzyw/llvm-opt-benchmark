@@ -18376,13 +18376,13 @@ _ZNK4lean7rb_treeISt4pairINS_4nameENS_4exprEENS_6rb_mapIS2_S3_NS_14name_quick_cm
 define linkonce_odr hidden void @_ZN4lean7rb_treeISt4pairINS_4nameENS_4exprEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !53
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %common.ret1, label %3
+  br i1 %.not, label %common.ret4, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %5 = atomicrmw sub ptr %4, i32 1 acq_rel, align 4
   %6 = icmp eq i32 %5, 1
-  br i1 %6, label %7, label %common.ret1
+  br i1 %6, label %7, label %common.ret4
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -18450,7 +18450,7 @@ _ZN4lean10object_refD2Ev.exit.i:                  ; preds = %19, %18, %16, %7
   tail call void @__clang_call_terminate(ptr %35) #16
   unreachable
 
-common.ret1:                                      ; preds = %3, %1, %_ZNSt4pairIN4lean4nameENS0_4exprEED2Ev.exit
+common.ret4:                                      ; preds = %3, %1, %_ZNSt4pairIN4lean4nameENS0_4exprEED2Ev.exit
   ret void
 
 _ZNSt4pairIN4lean4nameENS0_4exprEED2Ev.exit:      ; preds = %_ZN4lean10object_refD2Ev.exit.i, %29, %31, %32
@@ -18458,7 +18458,7 @@ _ZNSt4pairIN4lean4nameENS0_4exprEED2Ev.exit:      ; preds = %_ZN4lean10object_re
   tail call void @_ZN4lean7rb_treeISt4pairINS_4nameENS_4exprEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #17
   tail call void @_ZN4lean7rb_treeISt4pairINS_4nameENS_4exprEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #17
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(40) %2, i64 noundef 40) #20
-  br label %common.ret1
+  br label %common.ret4
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -34690,13 +34690,13 @@ _ZN4lean7rb_treeINS_4nameENS_14name_quick_cmpEE9node_cell7deallocEv.exit.i.i39: 
 define linkonce_odr hidden void @_ZN4lean7rb_treeINS_4nameENS_14name_quick_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !426
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %common.ret1, label %3
+  br i1 %.not, label %common.ret2, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %5 = atomicrmw sub ptr %4, i32 1 acq_rel, align 4
   %6 = icmp eq i32 %5, 1
-  br i1 %6, label %7, label %common.ret1
+  br i1 %6, label %7, label %common.ret2
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -34731,7 +34731,7 @@ define linkonce_odr hidden void @_ZN4lean7rb_treeINS_4nameENS_14name_quick_cmpEE
   tail call void @__clang_call_terminate(ptr %21) #16
   unreachable
 
-common.ret1:                                      ; preds = %3, %1, %_ZN4lean10object_refD2Ev.exit
+common.ret2:                                      ; preds = %3, %1, %_ZN4lean10object_refD2Ev.exit
   ret void
 
 _ZN4lean10object_refD2Ev.exit:                    ; preds = %7, %15, %17, %18
@@ -34739,7 +34739,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %7, %15, %17, %18
   tail call void @_ZN4lean7rb_treeINS_4nameENS_14name_quick_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #17
   tail call void @_ZN4lean7rb_treeINS_4nameENS_14name_quick_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 32) #20
-  br label %common.ret1
+  br label %common.ret2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -42256,13 +42256,13 @@ _ZNK4lean7rb_treeISt4pairINS_4nameES2_ENS_6rb_mapIS2_S2_NS_14name_quick_cmpEE9en
 define linkonce_odr hidden void @_ZN4lean7rb_treeISt4pairINS_4nameES2_ENS_6rb_mapIS2_S2_NS_14name_quick_cmpEE9entry_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !68
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %common.ret1, label %3
+  br i1 %.not, label %common.ret4, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %5 = atomicrmw sub ptr %4, i32 1 acq_rel, align 4
   %6 = icmp eq i32 %5, 1
-  br i1 %6, label %7, label %common.ret1
+  br i1 %6, label %7, label %common.ret4
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -42330,7 +42330,7 @@ _ZN4lean10object_refD2Ev.exit.i:                  ; preds = %19, %18, %16, %7
   tail call void @__clang_call_terminate(ptr %35) #16
   unreachable
 
-common.ret1:                                      ; preds = %3, %1, %_ZNSt4pairIN4lean4nameES1_ED2Ev.exit
+common.ret4:                                      ; preds = %3, %1, %_ZNSt4pairIN4lean4nameES1_ED2Ev.exit
   ret void
 
 _ZNSt4pairIN4lean4nameES1_ED2Ev.exit:             ; preds = %_ZN4lean10object_refD2Ev.exit.i, %29, %31, %32
@@ -42338,7 +42338,7 @@ _ZNSt4pairIN4lean4nameES1_ED2Ev.exit:             ; preds = %_ZN4lean10object_re
   tail call void @_ZN4lean7rb_treeISt4pairINS_4nameES2_ENS_6rb_mapIS2_S2_NS_14name_quick_cmpEE9entry_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #17
   tail call void @_ZN4lean7rb_treeISt4pairINS_4nameES2_ENS_6rb_mapIS2_S2_NS_14name_quick_cmpEE9entry_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #17
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(40) %2, i64 noundef 40) #20
-  br label %common.ret1
+  br label %common.ret4
 }
 
 ; Function Attrs: mustprogress uwtable

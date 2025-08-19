@@ -2619,8 +2619,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13SdfSchemaBase15FieldDefinition16IsValidL
 _ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit24: ; preds = %158, %161
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.0.063, i64 8
   %.not47 = icmp ne ptr %162, %20
-  %or.cond71.not = select i1 %.not17.not, i1 %.not47, i1 false
-  br i1 %or.cond71.not, label %114, label %.loopexit, !llvm.loop !18
+  %or.cond86.not = select i1 %.not17.not, i1 %.not47, i1 false
+  br i1 %or.cond86.not, label %114, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit24, %.preheader, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit23, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
   %.011 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit23 ], [ true, %.preheader ], [ %.not17.not, %_ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit24 ]

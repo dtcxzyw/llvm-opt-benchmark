@@ -2137,13 +2137,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StackMaps10LiveOutRegELb1EE9push_backES2_.
   %143 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 12
   %.val30.i.i.i.i.i.i = load i16, ptr %143, align 2, !tbaa !397
   %144 = icmp eq i16 %.val30.i.i.i.i.i.i, 0
-  br i1 %144, label %"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit98", label %145
+  br i1 %144, label %"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit108", label %145
 
 145:                                              ; preds = %142
   %146 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 18
   %.val.i.i.i.i.i.i43 = load i16, ptr %146, align 2, !tbaa !397
   %147 = icmp eq i16 %.val.i.i.i.i.i.i43, 0
-  br i1 %147, label %"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit100", label %148
+  br i1 %147, label %"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit110", label %148
 
 148:                                              ; preds = %145
   %149 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 24
@@ -2194,16 +2194,16 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StackMaps10LiveOutRegELb1EE9push_backES2_.
   %163 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 6
   br label %"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i"
 
-"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit98": ; preds = %142
+"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit108": ; preds = %142
   %164 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 12
   br label %"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i"
 
-"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit100": ; preds = %145
+"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit110": ; preds = %145
   %165 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 18
   br label %"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i"
 
-"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i42, %"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit", %"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit98", %"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit100", %161, %157, %153
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %153 ], [ %.1.i.i.i.i.i.i, %157 ], [ %.2.i.i.i.i.i.i, %161 ], [ %163, %"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit" ], [ %164, %"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit98" ], [ %165, %"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit100" ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i42 ]
+"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i42, %"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit", %"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit108", %"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit110", %161, %157, %153
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %153 ], [ %.1.i.i.i.i.i.i, %157 ], [ %.2.i.i.i.i.i.i, %161 ], [ %163, %"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit" ], [ %164, %"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit108" ], [ %165, %"_ZSt9__find_ifIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops10_Iter_predIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_1EEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit110" ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i42 ]
   %166 = icmp eq ptr %.028.i.i.i.i.i.i, %71
   %.01730.i.i.i.i = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i.i.i, i64 6
   %.not31.i.i.i.i = icmp eq ptr %.01730.i.i.i.i, %71
@@ -3980,10 +3980,10 @@ _ZSt4moveIPN4llvm9StackMaps8LocationES3_ET0_T_S5_S4_.exit35.i: ; preds = %60
   br i1 %.not.i.i.i35, label %_ZN4llvm23SmallVectorTemplateBaseINS_9StackMaps8LocationELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i, label %_ZSt4moveIPN4llvm9StackMaps8LocationES3_ET0_T_S5_S4_.exit35.i.thread
 
 _ZSt4moveIPN4llvm9StackMaps8LocationES3_ET0_T_S5_S4_.exit35.i.thread: ; preds = %60, %_ZSt4moveIPN4llvm9StackMaps8LocationES3_ET0_T_S5_S4_.exit35.i
-  %.pre-phi4750 = phi i64 [ %.pre46, %_ZSt4moveIPN4llvm9StackMaps8LocationES3_ET0_T_S5_S4_.exit35.i ], [ %61, %60 ]
+  %.pre-phi4771 = phi i64 [ %.pre46, %_ZSt4moveIPN4llvm9StackMaps8LocationES3_ET0_T_S5_S4_.exit35.i ], [ %61, %60 ]
   %63 = load ptr, ptr %13, align 8, !tbaa !25
   %64 = load ptr, ptr %50, align 8, !tbaa !25
-  %gepdiff.i38 = mul nuw nsw i64 %.pre-phi4750, 12
+  %gepdiff.i38 = mul nuw nsw i64 %.pre-phi4771, 12
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 4 %63, i64 %gepdiff.i38, i1 false)
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9StackMaps8LocationELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i
 
@@ -4036,10 +4036,10 @@ _ZSt4moveIPN4llvm9StackMaps10LiveOutRegES3_ET0_T_S5_S4_.exit35.i: ; preds = %75
   br i1 %.not.i.i.i27, label %_ZN4llvm23SmallVectorTemplateBaseINS_9StackMaps10LiveOutRegELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i, label %_ZSt4moveIPN4llvm9StackMaps10LiveOutRegES3_ET0_T_S5_S4_.exit35.i.thread
 
 _ZSt4moveIPN4llvm9StackMaps10LiveOutRegES3_ET0_T_S5_S4_.exit35.i.thread: ; preds = %75, %_ZSt4moveIPN4llvm9StackMaps10LiveOutRegES3_ET0_T_S5_S4_.exit35.i
-  %.pre-phi53 = phi i64 [ %.pre45, %_ZSt4moveIPN4llvm9StackMaps10LiveOutRegES3_ET0_T_S5_S4_.exit35.i ], [ %76, %75 ]
+  %.pre-phi74 = phi i64 [ %.pre45, %_ZSt4moveIPN4llvm9StackMaps10LiveOutRegES3_ET0_T_S5_S4_.exit35.i ], [ %76, %75 ]
   %78 = load ptr, ptr %14, align 8, !tbaa !25
   %79 = load ptr, ptr %65, align 8, !tbaa !25
-  %gepdiff.i = mul nuw nsw i64 %.pre-phi53, 6
+  %gepdiff.i = mul nuw nsw i64 %.pre-phi74, 6
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %79, ptr align 2 %78, i64 %gepdiff.i, i1 false)
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9StackMaps10LiveOutRegELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i
 
@@ -4157,14 +4157,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSymbolEjNS_12DenseMapInfoIS4_vEENS_6
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %147 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 8
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %.sink8.in.i = select i1 %145, ptr %148, ptr %147
-  %.sink8.i = load i32, ptr %.sink8.in.i, align 8, !tbaa !47
+  %.sink11.in.i = select i1 %145, ptr %148, ptr %147
+  %.sink11.i = load i32, ptr %.sink11.in.i, align 8, !tbaa !47
   %149 = load i32, ptr %148, align 8, !tbaa !26
-  %.not24 = icmp eq i32 %.sink8.i, %149
+  %.not24 = icmp eq i32 %.sink11.i, %149
   br i1 %.not24, label %156, label %150
 
 150:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSymbolEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i
-  %151 = zext i32 %.sink8.i to i64
+  %151 = zext i32 %.sink11.i to i64
   %152 = load ptr, ptr %146, align 8, !tbaa !25
   %153 = getelementptr inbounds nuw %"struct.std::pair.412", ptr %152, i64 %151, i32 1, i32 1
   %154 = load i64, ptr %153, align 8, !tbaa !508
@@ -5315,13 +5315,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMap
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %60
-  %.sink28 = phi i32 [ %65, %60 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %64, %60 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %51, %60 ], [ %19, %10 ], [ %34, %27 ]
+  %.sink32 = phi i32 [ %65, %60 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %64, %60 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %51, %60 ], [ %19, %10 ], [ %34, %27 ]
   %.sink = phi i8 [ 1, %60 ], [ 0, %10 ], [ 0, %27 ]
-  %66 = zext i32 %.sink28 to i64
-  %67 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink26, i64 %66
-  store ptr %.sink25, ptr %0, align 8
+  %66 = zext i32 %.sink32 to i64
+  %67 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %66
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %67, ptr %.sroa.4.0..sroa_idx, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5871,10 +5871,10 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9StackMaps10LiveOutR
   br i1 %48, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPN4llvm9StackMaps10LiveOutRegElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i"
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %47, %52
-  %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %52 ], [ %.1.i.i.i.i, %47 ]
+  %.0133.i.i.i.i.i = phi i64 [ %.048.i.i.i.i.i, %52 ], [ %.1.i.i.i.i, %47 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
-  %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %49 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.04.i.i.i.i.i
+  %.048.i.i.i.i.i = lshr i64 %.04.in.i.i.i.i.i, 1
+  %49 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.048.i.i.i.i.i
   %50 = getelementptr i8, ptr %49, i64 2
   %.val.i.i.i.i.i = load i16, ptr %50, align 2, !tbaa !387
   %51 = icmp ult i16 %.val.i.i.i.i.i, %.sroa.2.0.extract.trunc.i.i.i.i.i
@@ -5883,11 +5883,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9StackMaps10LiveOutR
 52:                                               ; preds = %.lr.ph.i.i.i.i.i
   %53 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.0133.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %53, ptr noundef nonnull align 2 dereferenceable(6) %49, i64 6, i1 false), !tbaa.struct !389
-  %54 = icmp sgt i64 %.04.i.i.i.i.i, %.016.i.i.i
+  %54 = icmp samesign ugt i64 %.048.i.i.i.i.i, %.016.i.i.i
   br i1 %54, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPN4llvm9StackMaps10LiveOutRegElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i", !llvm.loop !682
 
 "_ZSt13__adjust_heapIPN4llvm9StackMaps10LiveOutRegElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i": ; preds = %52, %.lr.ph.i.i.i.i.i, %47
-  %.013.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %47 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %52 ]
+  %.013.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %47 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.048.i.i.i.i.i, %52 ]
   %.sroa.3.0.extract.shift.i.i.i.i.i = lshr i48 %.sroa.03.0.copyload.i.i.i, 32
   %.sroa.3.0.extract.trunc.i.i.i.i.i = trunc nuw i48 %.sroa.3.0.extract.shift.i.i.i.i.i to i16
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i48 %.sroa.03.0.copyload.i.i.i to i16
@@ -5950,8 +5950,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9StackMaps10LiveOutR
   %82 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %81
   %83 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.0.lcssa.i.i.i8.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %83, ptr noundef nonnull align 2 dereferenceable(6) %82, i64 6, i1 false), !tbaa.struct !389
-  %.sroa.2.0.extract.shift.i.i5.i.i30.i = lshr i48 %.sroa.02.0.copyload.i.i6.i, 16
-  %.sroa.2.0.extract.trunc.i.i6.i.i31.i = trunc i48 %.sroa.2.0.extract.shift.i.i5.i.i30.i to i16
+  %.sroa.2.0.extract.shift.i.i3.i.i30.i = lshr i48 %.sroa.02.0.copyload.i.i6.i, 16
+  %.sroa.2.0.extract.trunc.i.i4.i.i31.i = trunc i48 %.sroa.2.0.extract.shift.i.i3.i.i30.i to i16
   br label %.lr.ph.i.i.preheader.i.i12.i
 
 84:                                               ; preds = %76, %._crit_edge.i.i.i7.i
@@ -5961,28 +5961,28 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9StackMaps10LiveOutR
   br i1 %.not.i.i11.i, label %"_ZSt10__pop_heapIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_SB_SB_RT0_.exit.i20.i", label %.lr.ph.i.i.preheader.i.i12.i
 
 .lr.ph.i.i.preheader.i.i12.i:                     ; preds = %84, %.thread.i.i29.i
-  %.sroa.2.0.extract.trunc.i.i9.i.i13.i = phi i16 [ %.sroa.2.0.extract.trunc.i.i6.i.i31.i, %.thread.i.i29.i ], [ %.sroa.2.0.extract.trunc.i.i.i.i10.i, %84 ]
-  %.1.i8.i.i14.i = phi i64 [ %81, %.thread.i.i29.i ], [ %.0.lcssa.i.i.i8.i, %84 ]
+  %.sroa.2.0.extract.trunc.i.i7.i.i13.i = phi i16 [ %.sroa.2.0.extract.trunc.i.i4.i.i31.i, %.thread.i.i29.i ], [ %.sroa.2.0.extract.trunc.i.i.i.i10.i, %84 ]
+  %.1.i6.i.i14.i = phi i64 [ %81, %.thread.i.i29.i ], [ %.0.lcssa.i.i.i8.i, %84 ]
   br label %.lr.ph.i.i.i.i15.i
 
 .lr.ph.i.i.i.i15.i:                               ; preds = %88, %.lr.ph.i.i.preheader.i.i12.i
-  %.0133.i.i.i.i16.i = phi i64 [ %.04.i.i12.i.i18.i, %88 ], [ %.1.i8.i.i14.i, %.lr.ph.i.i.preheader.i.i12.i ]
+  %.0133.i.i.i.i16.i = phi i64 [ %.048.i.i.i.i18.i, %88 ], [ %.1.i6.i.i14.i, %.lr.ph.i.i.preheader.i.i12.i ]
   %.04.in.i.i.i.i17.i = add nsw i64 %.0133.i.i.i.i16.i, -1
-  %.04.i.i12.i.i18.i = lshr i64 %.04.in.i.i.i.i17.i, 1
-  %85 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.04.i.i12.i.i18.i
+  %.048.i.i.i.i18.i = lshr i64 %.04.in.i.i.i.i17.i, 1
+  %85 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.048.i.i.i.i18.i
   %86 = getelementptr i8, ptr %85, i64 2
   %.val.i.i.i.i19.i = load i16, ptr %86, align 2, !tbaa !387
-  %87 = icmp ult i16 %.val.i.i.i.i19.i, %.sroa.2.0.extract.trunc.i.i9.i.i13.i
+  %87 = icmp ult i16 %.val.i.i.i.i19.i, %.sroa.2.0.extract.trunc.i.i7.i.i13.i
   br i1 %87, label %88, label %"_ZSt10__pop_heapIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_SB_SB_RT0_.exit.i20.i"
 
 88:                                               ; preds = %.lr.ph.i.i.i.i15.i
   %89 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.0133.i.i.i.i16.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %89, ptr noundef nonnull align 2 dereferenceable(6) %85, i64 6, i1 false), !tbaa.struct !389
-  %.not3.i.i28.i = icmp ult i64 %.04.in.i.i.i.i17.i, 2
-  br i1 %.not3.i.i28.i, label %"_ZSt10__pop_heapIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_SB_SB_RT0_.exit.i20.i", label %.lr.ph.i.i.i.i15.i, !llvm.loop !682
+  %.not1.i.i28.i = icmp ult i64 %.04.in.i.i.i.i17.i, 2
+  br i1 %.not1.i.i28.i, label %"_ZSt10__pop_heapIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_SB_SB_RT0_.exit.i20.i", label %.lr.ph.i.i.i.i15.i, !llvm.loop !682
 
 "_ZSt10__pop_heapIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_SB_SB_RT0_.exit.i20.i": ; preds = %88, %.lr.ph.i.i.i.i15.i, %84
-  %.sroa.2.0.extract.trunc.i.i10.i.i21.i = phi i16 [ %.sroa.2.0.extract.trunc.i.i.i.i10.i, %84 ], [ %.sroa.2.0.extract.trunc.i.i9.i.i13.i, %.lr.ph.i.i.i.i15.i ], [ %.sroa.2.0.extract.trunc.i.i9.i.i13.i, %88 ]
+  %.sroa.2.0.extract.trunc.i.i8.i.i21.i = phi i16 [ %.sroa.2.0.extract.trunc.i.i.i.i10.i, %84 ], [ %.sroa.2.0.extract.trunc.i.i7.i.i13.i, %.lr.ph.i.i.i.i15.i ], [ %.sroa.2.0.extract.trunc.i.i7.i.i13.i, %88 ]
   %.013.lcssa.i.i.i.i22.i = phi i64 [ 0, %84 ], [ 0, %88 ], [ %.0133.i.i.i.i16.i, %.lr.ph.i.i.i.i15.i ]
   %.sroa.3.0.extract.shift.i.i.i.i23.i = lshr i48 %.sroa.02.0.copyload.i.i6.i, 32
   %.sroa.3.0.extract.trunc.i.i.i.i24.i = trunc nuw i48 %.sroa.3.0.extract.shift.i.i.i.i23.i to i16
@@ -5990,7 +5990,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9StackMaps10LiveOutR
   %90 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.013.lcssa.i.i.i.i22.i
   store i16 %.sroa.0.0.extract.trunc.i.i.i.i25.i, ptr %90, align 2, !tbaa !342
   %.sroa.2.0..sroa_idx.i.i.i.i26.i = getelementptr inbounds nuw i8, ptr %90, i64 2
-  store i16 %.sroa.2.0.extract.trunc.i.i10.i.i21.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i26.i, align 2, !tbaa !342
+  store i16 %.sroa.2.0.extract.trunc.i.i8.i.i21.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i26.i, align 2, !tbaa !342
   %.sroa.3.0..sroa_idx.i.i.i.i27.i = getelementptr inbounds nuw i8, ptr %90, i64 4
   store i16 %.sroa.3.0.extract.trunc.i.i.i.i24.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i27.i, align 2, !tbaa !342
   %91 = icmp sgt i64 %59, 6
@@ -6584,13 +6584,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSymbolEjNS_12DenseMapInfoIS4_vEENS_6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %65 = zext i32 %.sink28 to i64
-  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.425", ptr %.sink26, i64 %65
-  store ptr %.sink25, ptr %0, align 8
+  %65 = zext i32 %.sink32 to i64
+  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.425", ptr %.sink30, i64 %65
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %66, ptr %.sroa.4.0..sroa_idx, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16

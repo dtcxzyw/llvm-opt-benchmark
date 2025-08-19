@@ -8598,18 +8598,18 @@ _init_l_LLVM_AttributeIndex_AttributeFunctionIndex___closed__2.exit: ; preds = %
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_LLVM_AttributeIndex_AttributeFunctionIndex___closed__2.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %27, %_init_l_LLVM_AttributeIndex_AttributeFunctionIndex___closed__2.exit ]
-  %30 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !4
+  %.sink12 = phi ptr [ %4, %3 ], [ %27, %_init_l_LLVM_AttributeIndex_AttributeFunctionIndex___closed__2.exit ]
+  %30 = getelementptr inbounds nuw i8, ptr %.sink12, i64 4
+  store i32 1, ptr %.sink12, align 4, !tbaa !4
   store i32 131096, ptr %30, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.sink12, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %31, align 8, !tbaa !9
-  %32 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %32, align 8, !tbaa !9
   br label %33
 
 33:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink12, %.sink.split ]
   ret ptr %.0
 }
 

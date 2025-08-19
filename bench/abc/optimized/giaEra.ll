@@ -511,12 +511,12 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23, %63
-  %.sink70 = phi ptr [ %67, %63 ], [ %27, %23 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sink70, i64 12
+  %.sink82 = phi ptr [ %67, %63 ], [ %27, %23 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.sink82, i64 12
   %29 = load i32, ptr %28, align 4, !tbaa !64
-  %30 = getelementptr inbounds nuw i8, ptr %.sink70, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %.sink82, i64 12
   store i32 0, ptr %30, align 4, !tbaa !64
-  %31 = getelementptr inbounds nuw i8, ptr %.sink70, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.sink82, i64 16
   %32 = load i32, ptr %19, align 4, !tbaa !35
   %33 = load i32, ptr %4, align 8, !tbaa !46
   %34 = icmp sgt i32 %32, 0
@@ -588,7 +588,7 @@ Gia_ManEraHashFind.exit.loopexit:                 ; preds = %53, %57
 
 Gia_ManEraHashFind.exit:                          ; preds = %Gia_ManEraHashFind.exit.loopexit, %Gia_ManEraStateHash.exit.i, %46
   %.023.i = phi ptr [ %44, %46 ], [ %44, %Gia_ManEraStateHash.exit.i ], [ %61, %Gia_ManEraHashFind.exit.loopexit ]
-  %62 = load i32, ptr %.sink70, align 4, !tbaa !60
+  %62 = load i32, ptr %.sink82, align 4, !tbaa !60
   store i32 %62, ptr %.023.i, align 4, !tbaa !51
   %.not39 = icmp eq i32 %29, 0
   br i1 %.not39, label %._crit_edge, label %63
@@ -940,9 +940,9 @@ Vec_IntPush.exit17.sink.split:                    ; preds = %8
   %16 = shl nuw nsw i32 %9, 1
   %17 = zext nneg i32 %16 to i64
   %18 = shl nuw nsw i64 %17, 2
-  %.sink24 = select i1 %15, i64 64, i64 %18
+  %.sink29 = select i1 %15, i64 64, i64 %18
   %.sink = select i1 %15, i32 16, i32 %16
-  %19 = tail call ptr @realloc(ptr noundef nonnull %10, i64 noundef %.sink24) #23
+  %19 = tail call ptr @realloc(ptr noundef nonnull %10, i64 noundef %.sink29) #23
   store ptr %19, ptr %6, align 8, !tbaa !55
   store i32 %.sink, ptr %3, align 8, !tbaa !57
   br label %Vec_IntPush.exit17

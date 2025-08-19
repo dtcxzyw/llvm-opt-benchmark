@@ -1343,7 +1343,7 @@ arcfour_mic_key.exit.i:                           ; preds = %.critedge.i.i, %135
   br i1 %169, label %.lr.ph.i.i.i, label %.thread66.i.i, !llvm.loop !14
 
 .thread66.i.i:                                    ; preds = %166, %.preheader.i.i.i
-  %170 = sub i32 %91, %162
+  %170 = sub nsw i32 %91, %162
   %171 = load ptr, ptr %60, align 8
   %172 = call ptr @tvb_get_ptr(ptr noundef %171, i32 noundef 0, i32 noundef 8)
   call fastcc void @arcfour_mic_cksum(ptr noundef nonnull %86, i32 noundef %88, ptr noundef nonnull %17, ptr noundef %172, ptr noundef nonnull %16, ptr noundef %75, i64 noundef %158)

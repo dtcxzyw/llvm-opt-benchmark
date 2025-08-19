@@ -139,7 +139,7 @@ _ZNK6icu_7721RuleCharacterIterator8_currentEv.exit.thread: ; preds = %37, %20
 
 _ZNK6icu_7721RuleCharacterIterator8_currentEv.exit.thread.thread: ; preds = %23, %_ZNK6icu_7721RuleCharacterIterator8_currentEv.exit.thread
   %53 = phi i32 [ %spec.select, %_ZNK6icu_7721RuleCharacterIterator8_currentEv.exit.thread ], [ 2, %23 ]
-  %.0.i3854 = phi i32 [ %.0.i, %_ZNK6icu_7721RuleCharacterIterator8_currentEv.exit.thread ], [ -1, %23 ]
+  %.0.i3863 = phi i32 [ %.0.i, %_ZNK6icu_7721RuleCharacterIterator8_currentEv.exit.thread ], [ -1, %23 ]
   %54 = load ptr, ptr %13, align 8, !tbaa !16
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load i32, ptr %55, align 8, !tbaa !17
@@ -162,12 +162,12 @@ _ZNK6icu_7721RuleCharacterIterator8_currentEv.exit.thread.thread: ; preds = %23,
   br label %_ZN6icu_7721RuleCharacterIterator8_advanceEi.exit
 
 _ZN6icu_7721RuleCharacterIterator8_advanceEi.exit: ; preds = %40, %52, %_ZNK6icu_7721RuleCharacterIterator8_currentEv.exit.thread.thread, %68
-  %.0.i3853 = phi i32 [ %.0.i, %40 ], [ %.0.i, %52 ], [ %.0.i3854, %_ZNK6icu_7721RuleCharacterIterator8_currentEv.exit.thread.thread ], [ %.0.i3854, %68 ]
+  %.0.i3862 = phi i32 [ %.0.i, %40 ], [ %.0.i, %52 ], [ %.0.i3863, %_ZNK6icu_7721RuleCharacterIterator8_currentEv.exit.thread.thread ], [ %.0.i3863, %68 ]
   %69 = phi i1 [ true, %40 ], [ false, %52 ], [ false, %_ZNK6icu_7721RuleCharacterIterator8_currentEv.exit.thread.thread ], [ false, %68 ]
-  %70 = icmp ne i32 %.0.i3853, 36
+  %70 = icmp ne i32 %.0.i3862, 36
   %or.cond = or i1 %.not28, %69
-  %or.cond58 = or i1 %70, %or.cond
-  br i1 %or.cond58, label %116, label %71
+  %or.cond67 = or i1 %70, %or.cond
+  br i1 %or.cond67, label %116, label %71
 
 71:                                               ; preds = %_ZN6icu_7721RuleCharacterIterator8_advanceEi.exit
   %72 = load ptr, ptr %15, align 8, !tbaa !10
@@ -251,7 +251,7 @@ _ZN6icu_7721RuleCharacterIterator8_advanceEi.exit: ; preds = %40, %52, %_ZNK6icu
   br i1 %.not30, label %119, label %117
 
 117:                                              ; preds = %116
-  %118 = call noundef signext i8 @_ZN6icu_7712PatternProps12isWhiteSpaceEi(i32 noundef %.0.i3853)
+  %118 = call noundef signext i8 @_ZN6icu_7712PatternProps12isWhiteSpaceEi(i32 noundef %.0.i3862)
   %.not31 = icmp eq i8 %118, 0
   br i1 %.not31, label %119, label %.backedge.backedge
 
@@ -259,7 +259,7 @@ _ZN6icu_7721RuleCharacterIterator8_advanceEi.exit: ; preds = %40, %52, %_ZNK6icu
   br label %.backedge, !llvm.loop !26
 
 119:                                              ; preds = %117, %116
-  %120 = icmp eq i32 %.0.i3853, 92
+  %120 = icmp eq i32 %.0.i3862, 92
   br i1 %120, label %121, label %170
 
 121:                                              ; preds = %119
@@ -372,7 +372,7 @@ _ZN6icu_7721RuleCharacterIterator9jumpaheadEi.exit: ; preds = %163, %148, %147, 
   resume { ptr, i32 } %.pn
 
 170:                                              ; preds = %.thread, %121, %119, %.critedge, %165, %168, %4
-  %.022 = phi i32 [ -1, %4 ], [ -1, %165 ], [ 92, %121 ], [ %.0.i3853, %119 ], [ %131, %.critedge ], [ 36, %168 ], [ -1, %.thread ]
+  %.022 = phi i32 [ -1, %4 ], [ -1, %165 ], [ 92, %121 ], [ %.0.i3862, %119 ], [ %131, %.critedge ], [ 36, %168 ], [ -1, %.thread ]
   ret i32 %.022
 }
 

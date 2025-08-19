@@ -1141,7 +1141,7 @@ define dso_local i32 @intel_dpll_crtc_get_shared_dpll(ptr noundef %0, ptr nounde
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 920
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.thread6, label %36, !prof !7
+  br i1 %35, label %.thread10, label %36, !prof !7
 
 36:                                               ; preds = %32
   tail call void asm sideeffect "923: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 923b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 923) #11, !srcloc !31
@@ -1167,13 +1167,13 @@ define dso_local i32 @intel_dpll_crtc_get_shared_dpll(ptr noundef %0, ptr nounde
   tail call void asm sideeffect "926: nop\0A\09.pushsection .discard.instr_end\0A\09.long 926b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 926) #11, !srcloc !35
   %.pr.pre = load i8, ptr %29, align 1
   %48 = icmp eq i8 %.pr.pre, 0
-  br i1 %48, label %.thread6, label %.thread
+  br i1 %48, label %.thread10, label %.thread
 
 .thread:                                          ; preds = %28, %46
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 920
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %52, label %.thread6
+  br i1 %51, label %52, label %.thread10
 
 52:                                               ; preds = %.thread
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 1568
@@ -1181,12 +1181,12 @@ define dso_local i32 @intel_dpll_crtc_get_shared_dpll(ptr noundef %0, ptr nounde
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %.thread6, label %58
+  br i1 %57, label %.thread10, label %58
 
 58:                                               ; preds = %52
   %59 = tail call i32 %56(ptr noundef %0, ptr noundef %1) #11
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %.thread6, label %61
+  br i1 %60, label %.thread10, label %61
 
 61:                                               ; preds = %58
   %62 = icmp eq ptr %4, null
@@ -1204,9 +1204,9 @@ define dso_local i32 @intel_dpll_crtc_get_shared_dpll(ptr noundef %0, ptr nounde
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %71 = load ptr, ptr %70, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %67, i32 noundef 2, ptr noundef nonnull @.str.6, i32 noundef %69, ptr noundef %71) #11
-  br label %.thread6
+  br label %.thread10
 
-.thread6:                                         ; preds = %32, %66, %58, %52, %.thread, %46
+.thread10:                                        ; preds = %32, %66, %58, %52, %.thread, %46
   %72 = phi i32 [ %59, %66 ], [ 0, %.thread ], [ 0, %46 ], [ 0, %52 ], [ 0, %58 ], [ 0, %32 ]
   ret i32 %72
 }
@@ -3466,9 +3466,9 @@ intel_pll_is_valid.exit.thread:                   ; preds = %67, %.thread.i, %10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %187, %182
-  %.sink61 = phi i64 [ 932, %182 ], [ 636, %187 ]
+  %.sink66 = phi i64 [ 932, %182 ], [ 636, %187 ]
   %.sink = phi i32 [ %186, %182 ], [ %195, %187 ]
-  %196 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink61
+  %196 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink66
   store i32 %.sink, ptr %196, align 4
   br label %197
 

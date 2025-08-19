@@ -188,8 +188,8 @@ define dso_local noundef zeroext i1 @RestoreArchivedFile(ptr noundef %0, ptr nou
 81:                                               ; preds = %60
   %82 = tail call ptr @__errno_location() #12
   %83 = load i32, ptr %82, align 4
-  %.not54 = icmp eq i32 %83, 2
-  %84 = select i1 %.not54, i32 15, i32 22
+  %.not57 = icmp eq i32 %83, 2
+  %84 = select i1 %.not57, i32 15, i32 22
   %85 = call zeroext i1 @errstart(i32 noundef %84, ptr noundef null) #11
   br i1 %85, label %86, label %90
 

@@ -119,12 +119,12 @@ define range(i64 -2147483648, 2147483648) i64 @euc_tw_to_big5(ptr noundef readon
   br label %37
 
 37:                                               ; preds = %34, %26
-  %.sink91.in.i = phi i8 [ %36, %34 ], [ %20, %26 ]
-  %.sink90.i = phi i64 [ 3, %34 ], [ 1, %26 ]
+  %.sink94.in.i = phi i8 [ %36, %34 ], [ %20, %26 ]
+  %.sink93.i = phi i64 [ 3, %34 ], [ 1, %26 ]
   %.144.i = phi i8 [ %.043.i, %34 ], [ -107, %26 ]
-  %.sink91.i = zext i8 %.sink91.in.i to i16
-  %38 = shl nuw i16 %.sink91.i, 8
-  %39 = getelementptr inbounds nuw i8, ptr %.067.i, i64 %.sink90.i
+  %.sink94.i = zext i8 %.sink94.in.i to i16
+  %38 = shl nuw i16 %.sink94.i, 8
+  %39 = getelementptr inbounds nuw i8, ptr %.067.i, i64 %.sink93.i
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i16
   %42 = or disjoint i16 %38, %41
@@ -848,13 +848,13 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_big5(ptr noundef readonly 
 
 39:                                               ; preds = %36, %35, %35
   %.sink.i = phi i64 [ 2, %36 ], [ 1, %35 ], [ 1, %35 ]
-  %.sink102.i = phi i64 [ 3, %36 ], [ 2, %35 ], [ 2, %35 ]
+  %.sink105.i = phi i64 [ 3, %36 ], [ 2, %35 ], [ 2, %35 ]
   %.053.in.i = phi i8 [ %38, %36 ], [ %20, %35 ], [ %20, %35 ]
   %40 = getelementptr inbounds nuw i8, ptr %.073.i, i64 %.sink.i
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i16
   %43 = shl nuw i16 %42, 8
-  %44 = getelementptr inbounds nuw i8, ptr %.073.i, i64 %.sink102.i
+  %44 = getelementptr inbounds nuw i8, ptr %.073.i, i64 %.sink105.i
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i16
   %47 = or disjoint i16 %43, %46

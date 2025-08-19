@@ -37,15 +37,15 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local i32 @diff_no_index(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.stat, align 8
   %6 = alloca i32, align 4
-  %.sroa.084 = alloca ptr, align 16
-  %.sroa.585 = alloca ptr, align 8
+  %.sroa.085 = alloca ptr, align 16
+  %.sroa.586 = alloca ptr, align 8
   %.sroa.0 = alloca ptr, align 16
   %.sroa.5 = alloca ptr, align 8
   %7 = alloca %struct.strbuf, align 8
   %8 = alloca [2 x %struct.option], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.084)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.585)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.085)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.586)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   store ptr null, ptr %.sroa.0, align 16
@@ -104,13 +104,13 @@ _.exit:                                           ; preds = %21, %23
 
 sub_0.us:                                         ; preds = %26, %.tail.us
   %27 = phi i1 [ false, %.tail.us ], [ true, %26 ]
-  %indvars.iv70.sroa.phi = phi ptr [ %.sroa.585, %.tail.us ], [ %.sroa.084, %26 ]
-  %indvars.iv70 = phi i64 [ 1, %.tail.us ], [ 0, %26 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv70
+  %indvars.iv69.sroa.phi = phi ptr [ %.sroa.586, %.tail.us ], [ %.sroa.085, %26 ]
+  %indvars.iv69 = phi i64 [ 1, %.tail.us ], [ 0, %26 ]
+  %28 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv69
   %29 = load ptr, ptr %28, align 8, !tbaa !66
   %30 = load i8, ptr %29, align 1
-  %.not67 = icmp eq i8 %30, 45
-  br i1 %.not67, label %sub_1.us, label %.tail.us
+  %.not66 = icmp eq i8 %30, 45
+  br i1 %.not66, label %sub_1.us, label %.tail.us
 
 sub_1.us:                                         ; preds = %sub_0.us
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 1
@@ -121,19 +121,19 @@ sub_1.us:                                         ; preds = %sub_0.us
 
 .tail.us:                                         ; preds = %sub_1.us, %sub_0.us
   %.not46.us = phi ptr [ %29, %sub_0.us ], [ %34, %sub_1.us ]
-  store ptr %.not46.us, ptr %indvars.iv70.sroa.phi, align 8, !tbaa !66
-  br i1 %27, label %sub_0.us, label %.split64.us, !llvm.loop !67
+  store ptr %.not46.us, ptr %indvars.iv69.sroa.phi, align 8, !tbaa !66
+  br i1 %27, label %sub_0.us, label %.split63.us, !llvm.loop !67
 
 sub_0:                                            ; preds = %26, %43
   %35 = phi i1 [ false, %43 ], [ true, %26 ]
   %indvars.iv.sroa.phi = phi ptr [ %.sroa.5, %43 ], [ %.sroa.0, %26 ]
-  %indvars.iv.sroa.phi81 = phi ptr [ %.sroa.585, %43 ], [ %.sroa.084, %26 ]
+  %indvars.iv.sroa.phi82 = phi ptr [ %.sroa.586, %43 ], [ %.sroa.085, %26 ]
   %indvars.iv = phi i64 [ 1, %43 ], [ 0, %26 ]
   %36 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !66
   %38 = load i8, ptr %37, align 1
-  %.not66 = icmp eq i8 %38, 45
-  br i1 %.not66, label %.tail, label %.tail.thread
+  %.not65 = icmp eq i8 %38, 45
+  br i1 %.not65, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 1
@@ -148,141 +148,136 @@ sub_0:                                            ; preds = %26, %43
 
 43:                                               ; preds = %.tail, %.tail.thread
   %.0 = phi ptr [ %42, %.tail.thread ], [ @file_from_standard_input, %.tail ]
-  store ptr %.0, ptr %indvars.iv.sroa.phi81, align 8, !tbaa !66
-  br i1 %35, label %sub_0, label %.split64.us, !llvm.loop !67
+  store ptr %.0, ptr %indvars.iv.sroa.phi82, align 8, !tbaa !66
+  br i1 %35, label %sub_0, label %.split63.us, !llvm.loop !67
 
-.split64.us:                                      ; preds = %43, %.tail.us
+.split63.us:                                      ; preds = %43, %.tail.us
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.sroa.084.0..sroa.084.0. = load ptr, ptr %.sroa.084, align 16, !tbaa !66
-  %.not.i = icmp eq ptr %.sroa.084.0..sroa.084.0., @file_from_standard_input
-  br i1 %.not.i, label %53, label %44
+  %.sroa.085.0..sroa.085.0. = load ptr, ptr %.sroa.085, align 16, !tbaa !66
+  %.not.i = icmp eq ptr %.sroa.085.0..sroa.085.0., @file_from_standard_input
+  br i1 %.not.i, label %52, label %44
 
-44:                                               ; preds = %.split64.us
-  %45 = call i32 @stat64(ptr noundef %.sroa.084.0..sroa.084.0., ptr noundef nonnull %5) #12
+44:                                               ; preds = %.split63.us
+  %45 = call i32 @stat64(ptr noundef %.sroa.085.0..sroa.085.0., ptr noundef nonnull %5) #12
   %.not34.i = icmp eq i32 %45, 0
-  br i1 %.not34.i, label %46, label %53
+  br i1 %.not34.i, label %46, label %52
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %48 = load i32, ptr %47, align 8, !tbaa !69
   %49 = and i32 %48, 61440
-  %50 = icmp eq i32 %49, 16384
-  %51 = zext i1 %50 to i32
-  %52 = icmp eq i32 %49, 4096
-  br label %53
+  %50 = icmp ne i32 %49, 16384
+  %51 = icmp eq i32 %49, 4096
+  br label %52
 
-53:                                               ; preds = %46, %44, %.split64.us
-  %.031.i = phi i32 [ 0, %44 ], [ %51, %46 ], [ 0, %.split64.us ]
-  %.029.i = phi i1 [ false, %44 ], [ %52, %46 ], [ false, %.split64.us ]
-  %.sroa.585.0..sroa.585.8. = load ptr, ptr %.sroa.585, align 8, !tbaa !66
-  %.not35.i = icmp eq ptr %.sroa.585.0..sroa.585.8., @file_from_standard_input
-  br i1 %.not35.i, label %.thread.i.thread, label %54
+52:                                               ; preds = %46, %44, %.split63.us
+  %.031.i = phi i1 [ true, %44 ], [ %50, %46 ], [ true, %.split63.us ]
+  %.029.i = phi i1 [ false, %44 ], [ %51, %46 ], [ false, %.split63.us ]
+  %.sroa.586.0..sroa.586.8. = load ptr, ptr %.sroa.586, align 8, !tbaa !66
+  %.not35.i = icmp eq ptr %.sroa.586.0..sroa.586.8., @file_from_standard_input
+  br i1 %.not35.i, label %.thread.i.thread, label %53
 
-54:                                               ; preds = %53
-  %55 = call i32 @stat64(ptr noundef %.sroa.585.0..sroa.585.8., ptr noundef nonnull %5) #12
-  %.not36.i = icmp eq i32 %55, 0
-  br i1 %.not36.i, label %56, label %.thread.i
+53:                                               ; preds = %52
+  %54 = call i32 @stat64(ptr noundef %.sroa.586.0..sroa.586.8., ptr noundef nonnull %5) #12
+  %.not36.i = icmp eq i32 %54, 0
+  br i1 %.not36.i, label %55, label %.thread.i
 
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %58 = load i32, ptr %57, align 8, !tbaa !69
-  %59 = and i32 %58, 61440
-  %60 = icmp eq i32 %59, 16384
-  %61 = zext i1 %60 to i32
-  %62 = icmp eq i32 %59, 4096
-  %or.cond.i = select i1 %.not.i, i1 %60, i1 false
+55:                                               ; preds = %53
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %57 = load i32, ptr %56, align 8, !tbaa !69
+  %58 = and i32 %57, 61440
+  %59 = icmp eq i32 %58, 16384
+  %60 = icmp eq i32 %58, 4096
+  %or.cond.i = select i1 %.not.i, i1 %59, i1 false
+  %61 = xor i1 %59, true
   br i1 %or.cond.i, label %.thread, label %.thread.i
 
-.thread.i:                                        ; preds = %56, %54
-  %63 = phi i1 [ %60, %56 ], [ false, %54 ]
-  %.043.i = phi i1 [ %62, %56 ], [ false, %54 ]
-  %.03042.i = phi i32 [ %61, %56 ], [ 0, %54 ]
-  %.not37.i = icmp eq i32 %.031.i, 0
-  %or.cond5.old.i = select i1 %.029.i, i1 %63, i1 false
-  br i1 %.not37.i, label %.critedge.i, label %65
+.thread.i:                                        ; preds = %55, %53
+  %62 = phi i1 [ %59, %55 ], [ false, %53 ]
+  %.043.i = phi i1 [ %60, %55 ], [ false, %53 ]
+  %.03042.i = phi i1 [ %61, %55 ], [ true, %53 ]
+  %or.cond5.old.i = select i1 %.029.i, i1 %62, i1 false
+  br i1 %.031.i, label %.critedge.i, label %64
 
-.thread.i.thread:                                 ; preds = %53
-  %.not37.i51 = icmp eq i32 %.031.i, 0
-  br i1 %.not37.i51, label %fixup_paths.exit, label %.thread
+.thread.i.thread:                                 ; preds = %52
+  br i1 %.031.i, label %fixup_paths.exit, label %.thread
 
-.thread:                                          ; preds = %.thread.i.thread, %56
-  %64 = call fastcc ptr @_(ptr noundef nonnull @.str.7)
-  call void (ptr, ...) @die(ptr noundef %64) #13
+.thread:                                          ; preds = %.thread.i.thread, %55
+  %63 = call fastcc ptr @_(ptr noundef nonnull @.str.7)
+  call void (ptr, ...) @die(ptr noundef %63) #13
   unreachable
 
-65:                                               ; preds = %.thread.i
+64:                                               ; preds = %.thread.i
   %or.cond38.i = select i1 %.043.i, i1 true, i1 %or.cond5.old.i
-  br i1 %or.cond38.i, label %66, label %.thread44.i
+  br i1 %or.cond38.i, label %65, label %.thread44.i
 
 .critedge.i:                                      ; preds = %.thread.i
-  br i1 %or.cond5.old.i, label %66, label %68
+  br i1 %or.cond5.old.i, label %65, label %67
 
-66:                                               ; preds = %.critedge.i, %65
-  %67 = call fastcc ptr @_(ptr noundef nonnull @.str.8)
-  call void (ptr, ...) @die(ptr noundef %67) #13
+65:                                               ; preds = %.critedge.i, %64
+  %66 = call fastcc ptr @_(ptr noundef nonnull @.str.8)
+  call void (ptr, ...) @die(ptr noundef %66) #13
   unreachable
 
-68:                                               ; preds = %.critedge.i
-  %69 = icmp eq i32 %.03042.i, 0
-  br i1 %69, label %fixup_paths.exit, label %74
+67:                                               ; preds = %.critedge.i
+  br i1 %.03042.i, label %fixup_paths.exit, label %71
 
-.thread44.i:                                      ; preds = %65
-  %70 = icmp eq i32 %.031.i, %.03042.i
-  br i1 %70, label %fixup_paths.exit, label %71
+.thread44.i:                                      ; preds = %64
+  br i1 %.03042.i, label %68, label %fixup_paths.exit
 
-71:                                               ; preds = %.thread44.i
-  call fastcc void @append_basename(ptr noundef nonnull %7, ptr noundef %.sroa.084.0..sroa.084.0., ptr noundef %.sroa.585.0..sroa.585.8.)
+68:                                               ; preds = %.thread44.i
+  call fastcc void @append_basename(ptr noundef nonnull %7, ptr noundef %.sroa.085.0..sroa.085.0., ptr noundef %.sroa.586.0..sroa.586.8.)
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %70 = load ptr, ptr %69, align 8, !tbaa !72
+  br label %fixup_paths.exit
+
+71:                                               ; preds = %67
+  call fastcc void @append_basename(ptr noundef nonnull %7, ptr noundef %.sroa.586.0..sroa.586.8., ptr noundef %.sroa.085.0..sroa.085.0.)
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %73 = load ptr, ptr %72, align 8, !tbaa !72
   br label %fixup_paths.exit
 
-74:                                               ; preds = %68
-  call fastcc void @append_basename(ptr noundef nonnull %7, ptr noundef %.sroa.585.0..sroa.585.8., ptr noundef %.sroa.084.0..sroa.084.0.)
-  %75 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %76 = load ptr, ptr %75, align 8, !tbaa !72
-  br label %fixup_paths.exit
-
-fixup_paths.exit:                                 ; preds = %.thread.i.thread, %68, %.thread44.i, %71, %74
-  %77 = phi ptr [ @file_from_standard_input, %.thread.i.thread ], [ %.sroa.585.0..sroa.585.8., %68 ], [ %.sroa.585.0..sroa.585.8., %.thread44.i ], [ %.sroa.585.0..sroa.585.8., %71 ], [ %76, %74 ]
-  %78 = phi ptr [ %.sroa.084.0..sroa.084.0., %.thread.i.thread ], [ %.sroa.084.0..sroa.084.0., %68 ], [ %.sroa.084.0..sroa.084.0., %.thread44.i ], [ %73, %71 ], [ %.sroa.084.0..sroa.084.0., %74 ]
+fixup_paths.exit:                                 ; preds = %.thread.i.thread, %67, %.thread44.i, %68, %71
+  %74 = phi ptr [ @file_from_standard_input, %.thread.i.thread ], [ %.sroa.586.0..sroa.586.8., %67 ], [ %.sroa.586.0..sroa.586.8., %.thread44.i ], [ %.sroa.586.0..sroa.586.8., %68 ], [ %73, %71 ]
+  %75 = phi ptr [ %.sroa.085.0..sroa.085.0., %.thread.i.thread ], [ %.sroa.085.0..sroa.085.0., %67 ], [ %.sroa.085.0..sroa.085.0., %.thread44.i ], [ %70, %68 ], [ %.sroa.085.0..sroa.085.0., %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 1740
-  store i32 1, ptr %79, align 4, !tbaa !73
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 1748
-  %81 = load i32, ptr %80, align 4, !tbaa !74
-  %.not44 = icmp eq i32 %81, 0
-  br i1 %.not44, label %82, label %83
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 1740
+  store i32 1, ptr %76, align 4, !tbaa !73
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 1748
+  %78 = load i32, ptr %77, align 4, !tbaa !74
+  %.not44 = icmp eq i32 %78, 0
+  br i1 %.not44, label %79, label %80
 
-82:                                               ; preds = %fixup_paths.exit
-  store i32 16, ptr %80, align 4, !tbaa !74
-  br label %83
+79:                                               ; preds = %fixup_paths.exit
+  store i32 16, ptr %77, align 4, !tbaa !74
+  br label %80
 
-83:                                               ; preds = %82, %fixup_paths.exit
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 1612
-  store i32 1, ptr %84, align 4, !tbaa !75
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 1632
-  store i32 1, ptr %85, align 8, !tbaa !76
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 1800
-  store ptr %.fr, ptr %86, align 8, !tbaa !77
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 1412
-  store i32 -2, ptr %87, align 4, !tbaa !78
+80:                                               ; preds = %79, %fixup_paths.exit
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 1612
+  store i32 1, ptr %81, align 4, !tbaa !75
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 1632
+  store i32 1, ptr %82, align 8, !tbaa !76
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 1800
+  store ptr %.fr, ptr %83, align 8, !tbaa !77
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 1412
+  store i32 -2, ptr %84, align 4, !tbaa !78
   call void @diff_setup_done(ptr noundef nonnull %16) #12
   call void @setup_diff_pager(ptr noundef nonnull %16) #12
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 1620
-  store i32 1, ptr %88, align 4, !tbaa !79
-  %89 = call fastcc i32 @queue_diff(ptr noundef nonnull %16, ptr noundef %78, ptr noundef %77, i32 noundef 0)
-  %.not45 = icmp eq i32 %89, 0
-  br i1 %.not45, label %90, label %.critedge
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 1620
+  store i32 1, ptr %85, align 4, !tbaa !79
+  %86 = call fastcc i32 @queue_diff(ptr noundef nonnull %16, ptr noundef %75, ptr noundef %74, i32 noundef 0)
+  %.not45 = icmp eq i32 %86, 0
+  br i1 %.not45, label %87, label %.critedge
 
-90:                                               ; preds = %83
+87:                                               ; preds = %80
   call void @diff_set_mnemonic_prefix(ptr noundef nonnull %16, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #12
   call void @diffcore_std(ptr noundef nonnull %16) #12
   call void @diff_flush(ptr noundef nonnull %16) #12
-  %91 = call i32 @diff_result_code(ptr noundef nonnull %0) #12
+  %88 = call i32 @diff_result_code(ptr noundef nonnull %0) #12
   br label %.critedge
 
-.critedge:                                        ; preds = %83, %90
-  %.041 = phi i32 [ 1, %83 ], [ %91, %90 ]
+.critedge:                                        ; preds = %80, %87
+  %.041 = phi i32 [ 1, %80 ], [ %88, %87 ]
   %.sroa.0.0..sroa.0.0. = load ptr, ptr %.sroa.0, align 16, !tbaa !66
   call void @free(ptr noundef %.sroa.0.0..sroa.0.0.) #12
   %.sroa.5.0..sroa.5.8. = load ptr, ptr %.sroa.5, align 8, !tbaa !66
@@ -292,8 +287,8 @@ fixup_paths.exit:                                 ; preds = %.thread.i.thread, %
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.084)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.585)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.085)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.586)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.041
 }

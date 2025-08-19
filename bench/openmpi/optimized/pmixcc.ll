@@ -231,11 +231,11 @@ data_init.exit.thread:                            ; preds = %36, %data_init.exit
   br label %688
 
 .lr.ph.splitthread-pre-split:                     ; preds = %find_options_index.exit
-  %.pr342 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %.pr388 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.splitthread-pre-split, %.lr.ph.split.preheader
-  %59 = phi i32 [ %.pr342, %.lr.ph.splitthread-pre-split ], [ %53, %.lr.ph.split.preheader ]
+  %59 = phi i32 [ %.pr388, %.lr.ph.splitthread-pre-split ], [ %53, %.lr.ph.split.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.splitthread-pre-split ], [ 1, %.lr.ph.split.preheader ]
   %60 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8, !tbaa !13
@@ -985,13 +985,13 @@ sub_1251:                                         ; preds = %.tail244, %sub_1246
   br i1 %.3149, label %._crit_edge306.thread, label %469
 
 ._crit_edge306.thread:                            ; preds = %218, %._crit_edge306
-  %.0130.lcssa350 = phi i32 [ %.4134, %._crit_edge306 ], [ 60, %218 ]
-  %.0151.lcssa349 = phi i1 [ %.1152, %._crit_edge306 ], [ false, %218 ]
-  %466 = and i32 %.0130.lcssa350, 1
+  %.0130.lcssa396 = phi i32 [ %.4134, %._crit_edge306 ], [ 60, %218 ]
+  %.0151.lcssa395 = phi i1 [ %.1152, %._crit_edge306 ], [ false, %218 ]
+  %466 = and i32 %.0130.lcssa396, 1
   %467 = icmp eq i32 %466, 0
-  %or.cond = select i1 %467, i1 true, i1 %.0151.lcssa349
-  %468 = and i32 %.0130.lcssa350, -57
-  %spec.select186 = select i1 %or.cond, i32 %468, i32 %.0130.lcssa350
+  %or.cond = select i1 %467, i1 true, i1 %.0151.lcssa395
+  %468 = and i32 %.0130.lcssa396, -57
+  %spec.select186 = select i1 %or.cond, i32 %468, i32 %.0130.lcssa396
   br label %469
 
 469:                                              ; preds = %.thread229, %._crit_edge306.thread, %._crit_edge306
@@ -1790,8 +1790,8 @@ expand_flags.exit:                                ; preds = %expand_flags.exit.l
   %95 = getelementptr inbounds nuw [4 x ptr], ptr @filtered_args, i64 0, i64 %.01116.i
   %96 = load ptr, ptr %95, align 8, !tbaa !13
   %97 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull dereferenceable(1) %96) #18
-  %.not.not22.i.not.not.not.not.not = icmp ne i32 %97, 0
-  br i1 %.not.not22.i.not.not.not.not.not, label %92, label %98
+  %.not.not24.i.not.not.not.not.not = icmp ne i32 %97, 0
+  br i1 %.not.not24.i.not.not.not.not.not, label %92, label %98
 
 98:                                               ; preds = %94
   %99 = call i32 @pmix_argv_delete(ptr noundef nonnull %6, ptr noundef nonnull %84, i32 noundef %.01218.i, i32 noundef 1) #16
@@ -1800,7 +1800,7 @@ expand_flags.exit:                                ; preds = %expand_flags.exit.l
 
 .loopexit.i:                                      ; preds = %92, %98
   %100 = phi i32 [ %.pre.i, %98 ], [ %87, %92 ]
-  %101 = zext i1 %.not.not22.i.not.not.not.not.not to i32
+  %101 = zext i1 %.not.not24.i.not.not.not.not.not to i32
   %spec.select.i = add nuw nsw i32 %.01218.i, %101
   %102 = icmp slt i32 %spec.select.i, %100
   br i1 %102, label %.lr.ph.i79, label %filter_flags.exit, !llvm.loop !51
@@ -1892,8 +1892,8 @@ expand_flags.exit86:                              ; preds = %expand_flags.exit86
   %142 = getelementptr inbounds nuw [4 x ptr], ptr @filtered_args, i64 0, i64 %.01116.i89
   %143 = load ptr, ptr %142, align 8, !tbaa !13
   %144 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %138, ptr noundef nonnull dereferenceable(1) %143) #18
-  %.not.not22.i90.not.not.not.not.not = icmp ne i32 %144, 0
-  br i1 %.not.not22.i90.not.not.not.not.not, label %139, label %145
+  %.not.not24.i90.not.not.not.not.not = icmp ne i32 %144, 0
+  br i1 %.not.not24.i90.not.not.not.not.not, label %139, label %145
 
 145:                                              ; preds = %141
   %146 = call i32 @pmix_argv_delete(ptr noundef nonnull %5, ptr noundef nonnull %131, i32 noundef %.01218.i88, i32 noundef 1) #16
@@ -1902,7 +1902,7 @@ expand_flags.exit86:                              ; preds = %expand_flags.exit86
 
 .loopexit.i92:                                    ; preds = %139, %145
   %147 = phi i32 [ %.pre.i91, %145 ], [ %134, %139 ]
-  %148 = zext i1 %.not.not22.i90.not.not.not.not.not to i32
+  %148 = zext i1 %.not.not24.i90.not.not.not.not.not to i32
   %spec.select.i93 = add nuw nsw i32 %.01218.i88, %148
   %149 = icmp slt i32 %spec.select.i93, %147
   br i1 %149, label %.lr.ph.i87, label %filter_flags.exit95, !llvm.loop !51
@@ -2312,8 +2312,8 @@ define internal fastcc void @filter_flags(ptr noundef %0) unnamed_addr #0 {
   %14 = getelementptr inbounds nuw [4 x ptr], ptr @filtered_args, i64 0, i64 %.01116
   %15 = load ptr, ptr %14, align 8, !tbaa !13
   %16 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %15) #18
-  %.not.not22.not.not = icmp ne i32 %16, 0
-  br i1 %.not.not22.not.not, label %11, label %17
+  %.not.not24.not.not = icmp ne i32 %16, 0
+  br i1 %.not.not24.not.not, label %11, label %17
 
 17:                                               ; preds = %13
   %18 = call i32 @pmix_argv_delete(ptr noundef nonnull %2, ptr noundef nonnull %0, i32 noundef %.01218, i32 noundef 1) #16
@@ -2322,7 +2322,7 @@ define internal fastcc void @filter_flags(ptr noundef %0) unnamed_addr #0 {
 
 .loopexit:                                        ; preds = %11, %17
   %19 = phi i32 [ %.pre, %17 ], [ %6, %11 ]
-  %20 = zext i1 %.not.not22.not.not to i32
+  %20 = zext i1 %.not.not24.not.not to i32
   %spec.select = add nuw nsw i32 %.01218, %20
   %21 = icmp slt i32 %spec.select, %19
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !51

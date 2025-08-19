@@ -4967,7 +4967,7 @@ define dso_local ptr @ata_link_next(ptr noundef readnone captures(address, ret: 
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8256
   br label %50
 
-default.unreachable:                              ; preds = %21
+default.unreachable8:                             ; preds = %21
   unreachable
 
 18:                                               ; preds = %6
@@ -4976,7 +4976,7 @@ default.unreachable:                              ; preds = %21
   br i1 %20, label %21, label %34
 
 21:                                               ; preds = %18
-  switch i32 %2, label %default.unreachable [
+  switch i32 %2, label %default.unreachable8 [
     i32 1, label %22
     i32 2, label %29
     i32 0, label %33
@@ -5044,7 +5044,7 @@ define dso_local ptr @ata_dev_next(ptr noundef readonly captures(address, ret: a
   br i1 %7, label %8, label %30
 
 8:                                                ; preds = %6
-  switch i32 %2, label %default.unreachable [
+  switch i32 %2, label %default.unreachable10 [
     i32 0, label %9
     i32 2, label %9
     i32 1, label %11
@@ -5084,12 +5084,12 @@ define dso_local ptr @ata_dev_next(ptr noundef readonly captures(address, ret: a
   %29 = getelementptr i8, ptr %28, i64 -2624
   br label %56
 
-default.unreachable:                              ; preds = %30, %8
+default.unreachable10:                            ; preds = %30, %8
   unreachable
 
 30:                                               ; preds = %59, %6
   %31 = phi ptr [ %0, %6 ], [ %57, %59 ]
-  switch i32 %2, label %default.unreachable [
+  switch i32 %2, label %default.unreachable10 [
     i32 0, label %32
     i32 2, label %32
     i32 1, label %52
@@ -6511,9 +6511,9 @@ define dso_local i32 @ata_exec_internal(ptr noundef %0, ptr noundef captures(non
   %150 = icmp eq i8 %149, 0
   %.phi.trans.insert = getelementptr i8, ptr %19, i64 8164
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  br i1 %150, label %153, label %.thread5
+  br i1 %150, label %153, label %.thread10
 
-.thread5:                                         ; preds = %147
+.thread10:                                        ; preds = %147
   %151 = or i32 %.pre, 1
   store i32 %151, ptr %.phi.trans.insert, align 4
   %152 = getelementptr i8, ptr %19, i64 8164
@@ -6522,15 +6522,15 @@ define dso_local i32 @ata_exec_internal(ptr noundef %0, ptr noundef captures(non
 153:                                              ; preds = %147
   %154 = getelementptr i8, ptr %19, i64 8164
   %155 = icmp eq i32 %.pre, 0
-  br i1 %155, label %.thread6, label %156
+  br i1 %155, label %.thread11, label %156
 
-.thread6:                                         ; preds = %153
+.thread11:                                        ; preds = %153
   store i32 256, ptr %154, align 4
   br label %169
 
-156:                                              ; preds = %.thread5, %153
-  %157 = phi ptr [ %154, %153 ], [ %152, %.thread5 ]
-  %158 = phi i32 [ %.pre, %153 ], [ %151, %.thread5 ]
+156:                                              ; preds = %.thread10, %153
+  %157 = phi ptr [ %154, %153 ], [ %152, %.thread10 ]
+  %158 = phi i32 [ %.pre, %153 ], [ %151, %.thread10 ]
   %159 = and i32 %158, -257
   %160 = icmp eq i32 %159, 0
   br i1 %160, label %169, label %161
@@ -6551,7 +6551,7 @@ define dso_local i32 @ata_exec_internal(ptr noundef %0, ptr noundef captures(non
   store i8 %168, ptr %58, align 1
   br label %169
 
-169:                                              ; preds = %.thread6, %166, %162, %161, %156
+169:                                              ; preds = %.thread11, %166, %162, %161, %156
   %170 = load ptr, ptr %24, align 16
   %171 = call i64 @_raw_spin_lock_irqsave(ptr noundef %170) #32
   %172 = getelementptr i8, ptr %19, i64 8168
@@ -7770,8 +7770,8 @@ define dso_local i32 @ata_dev_configure(ptr noundef %0) local_unnamed_addr #1 al
   %.pre54 = load i32, ptr %18, align 4
   %143 = and i32 %.pre54, 8192
   %144 = icmp eq i32 %143, 0
-  %or.cond68 = select i1 %142, i1 true, i1 %144
-  br i1 %or.cond68, label %163, label %145
+  %or.cond98 = select i1 %142, i1 true, i1 %144
+  br i1 %or.cond98, label %163, label %145
 
 145:                                              ; preds = %139
   %146 = getelementptr inbounds nuw i8, ptr %140, i64 764
@@ -8035,8 +8035,8 @@ ata_id_n_sectors.exit:                            ; preds = %227, %245, %267, %2
   %329 = getelementptr inbounds nuw i8, ptr %3, i64 21
   %spec.store.select = select i1 %320, i64 7, i64 6
   store i64 %spec.store.select, ptr %3, align 8
-  %spec.select69 = select i1 %320, i8 39, i8 -8
-  store i8 %spec.select69, ptr %329, align 1
+  %spec.select99 = select i1 %320, i8 39, i8 -8
+  store i8 %spec.select99, ptr %329, align 1
   %330 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 0, ptr %330, align 8
   %331 = select i1 %327, i8 -32, i8 -16
@@ -12953,7 +12953,7 @@ ata_id_xfermask.exit88:                           ; preds = %974, %979
   br label %1077
 
 1065:                                             ; preds = %1013, %852
-  %1066 = phi i32 [ %855, %1013 ], [ %853, %852 ]
+  %1066 = phi i32 [ 1, %1013 ], [ %853, %852 ]
   %1067 = load ptr, ptr %767, align 64
   %1068 = load ptr, ptr %1067, align 64
   %1069 = getelementptr inbounds nuw i8, ptr %1068, i64 36
@@ -15169,7 +15169,7 @@ define dso_local i32 @sata_link_init_spd(ptr noundef %0) local_unnamed_addr #1 a
   br label %86
 
 86:                                               ; preds = %81, %75, %58, %56
-  %87 = phi i8 [ %40, %56 ], [ 0, %58 ], [ 1, %81 ], [ 1, %75 ]
+  %87 = phi i8 [ 1, %56 ], [ 0, %58 ], [ 1, %81 ], [ 1, %75 ]
   %88 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %89 = load i16, ptr %88, align 8
   %90 = icmp eq i16 %89, 0
@@ -15806,7 +15806,7 @@ define dso_local noundef i32 @ata_host_start(ptr noundef captures(none) %0) #1 a
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 472
   %56 = icmp eq ptr %54, null
-  br i1 %56, label %.thread45, label %57
+  br i1 %56, label %.thread66, label %57
 
 57:                                               ; preds = %47
   %58 = load ptr, ptr %55, align 8
@@ -15877,24 +15877,24 @@ define dso_local noundef i32 @ata_host_start(ptr noundef captures(none) %0) #1 a
   %89 = icmp eq ptr %88, null
   br i1 %89, label %92, label %94
 
-.thread45:                                        ; preds = %47
+.thread66:                                        ; preds = %47
   %90 = load ptr, ptr %7, align 8
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %.thread48, label %94
+  br i1 %91, label %.thread69, label %94
 
 92:                                               ; preds = %87
   %93 = icmp eq ptr %.pre41, @ata_dummy_port_ops
-  br i1 %93, label %94, label %.thread48
+  br i1 %93, label %94, label %.thread69
 
-.thread48:                                        ; preds = %.thread45, %92
-  %.pre414750 = phi ptr [ %.pre41, %92 ], [ null, %.thread45 ]
-  store ptr %.pre414750, ptr %7, align 8
+.thread69:                                        ; preds = %.thread66, %92
+  %.pre416871 = phi ptr [ %.pre41, %92 ], [ null, %.thread66 ]
+  store ptr %.pre416871, ptr %7, align 8
   %.pre = load ptr, ptr %53, align 8
   br label %94
 
-94:                                               ; preds = %.thread45, %.thread48, %92, %87
-  %95 = phi ptr [ %.pre414750, %.thread48 ], [ null, %92 ], [ %88, %87 ], [ %90, %.thread45 ]
-  %96 = phi ptr [ %.pre, %.thread48 ], [ @ata_dummy_port_ops, %92 ], [ %.pre41, %87 ], [ null, %.thread45 ]
+94:                                               ; preds = %.thread66, %.thread69, %92, %87
+  %95 = phi ptr [ %.pre416871, %.thread69 ], [ null, %92 ], [ %88, %87 ], [ %90, %.thread66 ]
+  %96 = phi ptr [ %.pre, %.thread69 ], [ @ata_dummy_port_ops, %92 ], [ %.pre41, %87 ], [ null, %.thread66 ]
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 288
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, null
@@ -15915,13 +15915,13 @@ define dso_local noundef i32 @ata_host_start(ptr noundef captures(none) %0) #1 a
   br i1 %106, label %.loopexit24.thread, label %107
 
 107:                                              ; preds = %.loopexit27.thread, %.loopexit27
-  %.old53 = phi i1 [ true, %.loopexit27.thread ], [ %104, %.loopexit27 ]
+  %.old74 = phi i1 [ true, %.loopexit27.thread ], [ %104, %.loopexit27 ]
   %108 = phi ptr [ %.pre42, %.loopexit27.thread ], [ %95, %.loopexit27 ]
   %109 = phi i32 [ 0, %.loopexit27.thread ], [ %102, %.loopexit27 ]
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 296
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %111, null
-  %or.cond = select i1 %112, i1 %.old53, i1 false
+  %or.cond = select i1 %112, i1 %.old74, i1 false
   br i1 %or.cond, label %115, label %.thread
 
 select.unfold:                                    ; preds = %.loopexit27

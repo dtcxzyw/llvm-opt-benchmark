@@ -101,10 +101,10 @@ define ptr @PKCS12_pack_p7data(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %14, label %15
 
 14:                                               ; preds = %11, %5
-  %.sink8 = phi i32 [ 59, %5 ], [ 64, %11 ]
+  %.sink9 = phi i32 [ 59, %5 ], [ 64, %11 ]
   %.sink = phi i32 [ 524301, %5 ], [ 100, %11 ]
   tail call void @ERR_new() #2
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink8, ptr noundef nonnull @__func__.PKCS12_pack_p7data) #2
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink9, ptr noundef nonnull @__func__.PKCS12_pack_p7data) #2
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 35, i32 noundef %.sink, ptr noundef null) #2
   tail call void @PKCS7_free(ptr noundef nonnull %2) #2
   br label %15
@@ -252,11 +252,11 @@ define ptr @PKCS12_pack_p7encdata_ex(i32 noundef %0, ptr noundef %1, i32 noundef
   br label %55
 
 54:                                               ; preds = %31, %29, %13
-  %.sink45 = phi i32 [ 109, %13 ], [ 126, %29 ], [ 135, %31 ]
+  %.sink48 = phi i32 [ 109, %13 ], [ 126, %29 ], [ 135, %31 ]
   %.sink = phi i32 [ 120, %13 ], [ 524301, %29 ], [ 103, %31 ]
   %.0 = phi ptr [ null, %13 ], [ %18, %29 ], [ %18, %31 ]
   tail call void @ERR_new() #2
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink45, ptr noundef nonnull @__func__.PKCS12_pack_p7encdata_ex) #2
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink48, ptr noundef nonnull @__func__.PKCS12_pack_p7encdata_ex) #2
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 35, i32 noundef %.sink, ptr noundef null) #2
   tail call void @PKCS7_free(ptr noundef nonnull %10) #2
   tail call void @EVP_CIPHER_free(ptr noundef %.0) #2

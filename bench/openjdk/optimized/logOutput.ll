@@ -215,9 +215,9 @@ thread-pre-split:                                 ; preds = %._crit_edge
 
 .preheader143.lr.ph:                              ; preds = %39
   %43 = load ptr, ptr %6, align 8
-  br label %.preheader143
+  br label %.lr.ph156
 
-.preheader143:                                    ; preds = %.preheader143.lr.ph, %90
+.lr.ph156:                                        ; preds = %90, %.preheader143.lr.ph
   %.0104168 = phi i64 [ 0, %.preheader143.lr.ph ], [ %91, %90 ]
   %.0105167 = phi ptr [ %43, %.preheader143.lr.ph ], [ %.1106, %90 ]
   %.0107166 = phi i32 [ 0, %.preheader143.lr.ph ], [ %.1108, %90 ]
@@ -225,9 +225,9 @@ thread-pre-split:                                 ; preds = %._crit_edge
   %45 = getelementptr inbounds %class.LogSelection, ptr %44, i64 %.0104168
   br label %46
 
-46:                                               ; preds = %.preheader143, %61
-  %.0102155 = phi i64 [ 0, %.preheader143 ], [ %62, %61 ]
-  %.0103154 = phi i32 [ 0, %.preheader143 ], [ %.1, %61 ]
+46:                                               ; preds = %.lr.ph156, %61
+  %.0102155 = phi i64 [ 0, %.lr.ph156 ], [ %62, %61 ]
+  %.0103154 = phi i32 [ 0, %.lr.ph156 ], [ %.1, %61 ]
   %47 = getelementptr inbounds ptr, ptr %26, i64 %.0102155
   %48 = load ptr, ptr %47, align 8
   %49 = call noundef zeroext i1 @_ZNK12LogSelection7selectsERK9LogTagSet(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef nonnull align 8 dereferenceable(112) %48) #13
@@ -332,24 +332,24 @@ _ZNK9LogTagSet9level_forEPK9LogOutput.exit135:    ; preds = %68, %72
   %91 = add nuw i64 %.0104168, 1
   %92 = load i64, ptr %4, align 8
   %93 = icmp ult i64 %91, %92
-  br i1 %93, label %.preheader143, label %._crit_edge169, !llvm.loop !12
+  br i1 %93, label %.lr.ph156, label %._crit_edge169, !llvm.loop !12
 
 ._crit_edge169:                                   ; preds = %90
   %94 = load i64, ptr %38, align 8
   %.not.i = icmp eq i64 %94, 0
-  br i1 %.not.i, label %_ZN9LogOutput20add_to_config_stringERK12LogSelection.exit, label %95
+  br i1 %.not.i, label %.lr.ph172.preheader, label %95
 
 95:                                               ; preds = %._crit_edge169
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull @.str.6, i64 noundef 1) #13
-  br label %_ZN9LogOutput20add_to_config_stringERK12LogSelection.exit
+  br label %.lr.ph172.preheader
 
-_ZN9LogOutput20add_to_config_stringERK12LogSelection.exit: ; preds = %._crit_edge169, %95
+.lr.ph172.preheader:                              ; preds = %95, %._crit_edge169
   call void @_ZNK12LogSelection11describe_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(48) %.1106, ptr noundef nonnull %18) #13
   br label %.lr.ph172
 
-.lr.ph172:                                        ; preds = %_ZN9LogOutput20add_to_config_stringERK12LogSelection.exit, %.outer
-  %.0100.ph176 = phi i64 [ %.0100171, %.outer ], [ 0, %_ZN9LogOutput20add_to_config_stringERK12LogSelection.exit ]
-  %.3118.ph175 = phi i64 [ %110, %.outer ], [ %.2117, %_ZN9LogOutput20add_to_config_stringERK12LogSelection.exit ]
+.lr.ph172:                                        ; preds = %.lr.ph172.preheader, %.outer
+  %.0100.ph176 = phi i64 [ %.0100171, %.outer ], [ 0, %.lr.ph172.preheader ]
+  %.3118.ph175 = phi i64 [ %110, %.outer ], [ %.2117, %.lr.ph172.preheader ]
   br label %96
 
 .preheader144:                                    ; preds = %.outer, %114

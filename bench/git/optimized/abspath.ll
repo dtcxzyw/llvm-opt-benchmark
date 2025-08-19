@@ -676,9 +676,9 @@ define dso_local void @strbuf_add_absolute_path(ptr noundef %0, ptr noundef %1) 
   br label %30
 
 30:                                               ; preds = %22, %29
-  %.sink37 = phi ptr [ %10, %29 ], [ %11, %22 ]
-  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink37) #14
-  tail call void @strbuf_add(ptr noundef nonnull %0, ptr noundef nonnull %.sink37, i64 noundef %31) #12
+  %.sink38 = phi ptr [ %10, %29 ], [ %11, %22 ]
+  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink38) #14
+  tail call void @strbuf_add(ptr noundef nonnull %0, ptr noundef nonnull %.sink38, i64 noundef %31) #12
   %32 = load i64, ptr %8, align 8, !tbaa !12
   %33 = icmp ugt i64 %32, %9
   br i1 %33, label %34, label %48

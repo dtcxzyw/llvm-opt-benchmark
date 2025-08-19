@@ -2009,8 +2009,8 @@ set_proc_descriptor_from_array.exit:              ; preds = %zend_string_release
   br i1 %exitcond.not.i336, label %close_all_descriptors.exit, label %.lr.ph.i332
 
 close_parentends_of_pipes.exit:                   ; preds = %591, %._crit_edge.thread, %._crit_edge
-  %.not4661.i534 = phi i1 [ false, %._crit_edge.thread ], [ false, %._crit_edge ], [ true, %591 ]
-  %.0236.lcssa533 = phi i32 [ 0, %._crit_edge.thread ], [ %.1, %._crit_edge ], [ %.1, %591 ]
+  %.not4661.i579 = phi i1 [ false, %._crit_edge.thread ], [ false, %._crit_edge ], [ true, %591 ]
+  %.0236.lcssa578 = phi i32 [ 0, %._crit_edge.thread ], [ %.1, %._crit_edge ], [ %.1, %591 ]
   %.not273 = icmp eq ptr %.1373, null
   br i1 %.not273, label %606, label %602
 
@@ -2060,10 +2060,10 @@ close_parentends_of_pipes.exit:                   ; preds = %591, %._crit_edge.t
   br i1 %.not278, label %635, label %624
 
 624:                                              ; preds = %622
-  br i1 %.not4661.i534, label %.lr.ph.preheader.i338, label %close_all_descriptors.exit345
+  br i1 %.not4661.i579, label %.lr.ph.preheader.i338, label %close_all_descriptors.exit345
 
 .lr.ph.preheader.i338:                            ; preds = %624
-  %wide.trip.count.i339 = zext nneg i32 %.0236.lcssa533 to i64
+  %wide.trip.count.i339 = zext nneg i32 %.0236.lcssa578 to i64
   br label %.lr.ph.i340
 
 .lr.ph.i340:                                      ; preds = %633, %.lr.ph.preheader.i338
@@ -2142,13 +2142,13 @@ close_all_descriptors.exit345:                    ; preds = %633, %624
 zend_string_copy.exit:                            ; preds = %651, %657
   %660 = getelementptr inbounds nuw i8, ptr %652, i64 16
   store ptr %653, ptr %660, align 8, !tbaa !38
-  %661 = sext i32 %.0236.lcssa533 to i64
+  %661 = sext i32 %.0236.lcssa578 to i64
   %662 = shl nsw i64 %661, 3
   %663 = call noalias ptr @_emalloc(i64 noundef %662) #17
   %664 = getelementptr inbounds nuw i8, ptr %652, i64 8
   store ptr %663, ptr %664, align 8, !tbaa !21
   %665 = getelementptr inbounds nuw i8, ptr %652, i64 4
-  store i32 %.0236.lcssa533, ptr %665, align 4, !tbaa !13
+  store i32 %.0236.lcssa578, ptr %665, align 4, !tbaa !13
   %666 = load i32, ptr %13, align 4, !tbaa !4
   store i32 %666, ptr %652, align 8, !tbaa !31
   %667 = getelementptr inbounds nuw i8, ptr %652, i64 24
@@ -2157,12 +2157,12 @@ zend_string_copy.exit:                            ; preds = %651, %657
   store ptr %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !96
   %668 = getelementptr inbounds nuw i8, ptr %652, i64 44
   store i8 0, ptr %668, align 4, !tbaa !27
-  br i1 %.not4661.i534, label %.lr.ph500, label %._crit_edge501
+  br i1 %.not4661.i579, label %.lr.ph500, label %._crit_edge501
 
 .lr.ph500:                                        ; preds = %zend_string_copy.exit
   %669 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %670 = getelementptr inbounds nuw i8, ptr %16, i64 9
-  %wide.trip.count = zext nneg i32 %.0236.lcssa533 to i64
+  %wide.trip.count = zext nneg i32 %.0236.lcssa578 to i64
   br label %671
 
 671:                                              ; preds = %.lr.ph500, %712

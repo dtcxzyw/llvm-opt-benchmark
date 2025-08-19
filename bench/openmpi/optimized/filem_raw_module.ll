@@ -910,9 +910,9 @@ sub_1370:                                         ; preds = %.tail, %sub_1
   br label %187
 
 187:                                              ; preds = %182, %185, %177
-  %.sink428 = phi ptr [ %184, %182 ], [ %186, %185 ], [ %178, %177 ]
+  %.sink470 = phi ptr [ %184, %182 ], [ %186, %185 ], [ %178, %177 ]
   %188 = getelementptr inbounds nuw i8, ptr %108, i64 168
-  store ptr %.sink428, ptr %188, align 8, !tbaa !67
+  store ptr %.sink470, ptr %188, align 8, !tbaa !67
   %189 = load ptr, ptr %35, align 8, !tbaa !36
   %190 = getelementptr inbounds nuw i8, ptr %108, i64 128
   store ptr %189, ptr %190, align 8, !tbaa !36
@@ -926,12 +926,12 @@ sub_1370:                                         ; preds = %.tail, %sub_1
   store volatile i64 %194, ptr %36, align 8, !tbaa !34
   br label %195
 
-195:                                              ; preds = %.backedge455, %187
-  %.0236 = phi ptr [ %.sink428, %187 ], [ %.0232, %.backedge455 ]
+195:                                              ; preds = %.backedge497, %187
+  %.0236 = phi ptr [ %.sink470, %187 ], [ %.0232, %.backedge497 ]
   %.0232 = getelementptr inbounds nuw i8, ptr %.0236, i64 1
   %196 = load i8, ptr %.0236, align 1, !tbaa !71
   switch i8 %196, label %200 [
-    i8 47, label %.backedge455
+    i8 47, label %.backedge497
     i8 46, label %197
   ]
 
@@ -939,9 +939,9 @@ sub_1370:                                         ; preds = %.tail, %sub_1
   %198 = load i8, ptr %.0232, align 1, !tbaa !71
   %199 = and i8 %198, -2
   %switch = icmp eq i8 %199, 46
-  br i1 %switch, label %.backedge455, label %200
+  br i1 %switch, label %.backedge497, label %200
 
-.backedge455:                                     ; preds = %197, %195
+.backedge497:                                     ; preds = %197, %195
   br label %195, !llvm.loop !72
 
 200:                                              ; preds = %197, %195
@@ -1489,11 +1489,11 @@ pmix_obj_run_destructors.exit340:                 ; preds = %.lr.ph.i337, %437
   br i1 %457, label %.sink.split, label %461
 
 .sink.split:                                      ; preds = %454, %451
-  %.sink431 = phi i32 [ 459, %451 ], [ 465, %454 ]
+  %.sink473 = phi i32 [ 459, %451 ], [ 465, %454 ]
   %458 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4, !tbaa !44
   %459 = tail call ptr @__errno_location() #17
   %460 = load i32, ptr %459, align 4, !tbaa !3
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %458, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.5, i32 noundef %.sink431, i32 noundef %460) #16
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %458, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.5, i32 noundef %.sink473, i32 noundef %460) #16
   br label %461
 
 461:                                              ; preds = %.sink.split, %454
@@ -1563,12 +1563,12 @@ pmix_obj_new_tma.exit348:                         ; preds = %.lr.ph.i.i345, %477
   %493 = load ptr, ptr %492, align 8, !tbaa !67
   br label %494
 
-494:                                              ; preds = %.backedge445, %pmix_obj_new_tma.exit348
-  %.2238 = phi ptr [ %493, %pmix_obj_new_tma.exit348 ], [ %.2234, %.backedge445 ]
+494:                                              ; preds = %.backedge487, %pmix_obj_new_tma.exit348
+  %.2238 = phi ptr [ %493, %pmix_obj_new_tma.exit348 ], [ %.2234, %.backedge487 ]
   %.2234 = getelementptr inbounds nuw i8, ptr %.2238, i64 1
   %495 = load i8, ptr %.2238, align 1, !tbaa !71
   switch i8 %495, label %499 [
-    i8 47, label %.backedge445
+    i8 47, label %.backedge487
     i8 46, label %496
   ]
 
@@ -1576,9 +1576,9 @@ pmix_obj_new_tma.exit348:                         ; preds = %.lr.ph.i.i345, %477
   %497 = load i8, ptr %.2234, align 1, !tbaa !71
   %498 = and i8 %497, -2
   %switch290 = icmp eq i8 %498, 46
-  br i1 %switch290, label %.backedge445, label %499
+  br i1 %switch290, label %.backedge487, label %499
 
-.backedge445:                                     ; preds = %496, %494
+.backedge487:                                     ; preds = %496, %494
   br label %494, !llvm.loop !91
 
 499:                                              ; preds = %496, %494

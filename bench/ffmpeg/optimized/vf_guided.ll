@@ -760,8 +760,8 @@ define internal fastcc range(i32 -12, 1) i32 @filter_frame(ptr noundef %0, ptr n
   %190 = call i32 @ff_filter_execute(ptr noundef %0, ptr noundef %189, ptr noundef nonnull %6, ptr noundef null, i32 noundef %156) #9
   %191 = icmp sgt i32 %89, 0
   %192 = icmp sgt i32 %59, 0
-  %or.cond228.i = and i1 %192, %191
-  br i1 %or.cond228.i, label %.preheader.us.preheader.i, label %guided_byte.exit
+  %or.cond232.i = and i1 %192, %191
+  br i1 %or.cond232.i, label %.preheader.us.preheader.i, label %guided_byte.exit
 
 .preheader.us.preheader.i:                        ; preds = %._crit_edge190.i
   %193 = sext i32 %91 to i64
@@ -778,7 +778,7 @@ define internal fastcc range(i32 -12, 1) i32 @filter_frame(ptr noundef %0, ptr n
   %198 = mul nsw i64 %indvars.iv220.i, %193
   %199 = mul nsw i64 %indvars.iv220.i, %194
   %invariant.gep.i = getelementptr i8, ptr %81, i64 %198
-  %invariant.gep225.i = getelementptr i8, ptr %86, i64 %199
+  %invariant.gep229.i = getelementptr i8, ptr %86, i64 %199
   br label %200
 
 200:                                              ; preds = %200, %.preheader.us.i
@@ -797,8 +797,8 @@ define internal fastcc range(i32 -12, 1) i32 @filter_frame(ptr noundef %0, ptr n
   %211 = fmul nsz float %100, %210
   %212 = call nsz float @llvm.fmuladd.f32(float %206, float %208, float %211)
   %213 = fptoui float %212 to i8
-  %gep226.i = getelementptr i8, ptr %invariant.gep225.i, i64 %indvars.iv215.i
-  store i8 %213, ptr %gep226.i, align 1, !tbaa !77
+  %gep230.i = getelementptr i8, ptr %invariant.gep229.i, i64 %indvars.iv215.i
+  store i8 %213, ptr %gep230.i, align 1, !tbaa !77
   %indvars.iv.next216.i = add nuw nsw i64 %indvars.iv215.i, 1
   %exitcond219.not.i = icmp eq i64 %indvars.iv.next216.i, %wide.trip.count218.i
   br i1 %exitcond219.not.i, label %._crit_edge.us195.i, label %200, !llvm.loop !92
@@ -982,8 +982,8 @@ guided_byte.exit:                                 ; preds = %._crit_edge.us195.i
   %315 = call i32 @ff_filter_execute(ptr noundef %0, ptr noundef %314, ptr noundef nonnull %5, ptr noundef null, i32 noundef %281) #9
   %316 = icmp sgt i32 %89, 0
   %317 = icmp sgt i32 %59, 0
-  %or.cond228.i78 = and i1 %317, %316
-  br i1 %or.cond228.i78, label %.preheader.us.preheader.i79, label %guided_word.exit
+  %or.cond232.i78 = and i1 %317, %316
+  br i1 %or.cond232.i78, label %.preheader.us.preheader.i79, label %guided_word.exit
 
 .preheader.us.preheader.i79:                      ; preds = %._crit_edge190.i77
   %318 = sext i32 %215 to i64
@@ -1000,7 +1000,7 @@ guided_byte.exit:                                 ; preds = %._crit_edge.us195.i
   %323 = mul nsw i64 %indvars.iv220.i83, %318
   %324 = mul nsw i64 %indvars.iv220.i83, %319
   %invariant.gep.i84 = getelementptr i16, ptr %81, i64 %323
-  %invariant.gep225.i85 = getelementptr i16, ptr %86, i64 %324
+  %invariant.gep229.i85 = getelementptr i16, ptr %86, i64 %324
   br label %325
 
 325:                                              ; preds = %325, %.preheader.us.i82
@@ -1019,8 +1019,8 @@ guided_byte.exit:                                 ; preds = %._crit_edge.us195.i
   %336 = fmul nsz float %224, %335
   %337 = call nsz float @llvm.fmuladd.f32(float %331, float %333, float %336)
   %338 = fptoui float %337 to i16
-  %gep226.i88 = getelementptr i16, ptr %invariant.gep225.i85, i64 %indvars.iv215.i86
-  store i16 %338, ptr %gep226.i88, align 2, !tbaa !94
+  %gep230.i88 = getelementptr i16, ptr %invariant.gep229.i85, i64 %indvars.iv215.i86
+  store i16 %338, ptr %gep230.i88, align 2, !tbaa !94
   %indvars.iv.next216.i89 = add nuw nsw i64 %indvars.iv215.i86, 1
   %exitcond219.not.i90 = icmp eq i64 %indvars.iv.next216.i89, %wide.trip.count218.i81
   br i1 %exitcond219.not.i90, label %._crit_edge.us195.i91, label %325, !llvm.loop !100
@@ -1220,13 +1220,13 @@ define internal noundef i32 @box_slice(ptr noundef readonly captures(none) %0, p
 .preheader68.us.us:                               ; preds = %.preheader68.lr.ph.split.us, %._crit_edge78.split.us.us.us
   %indvars.iv100 = phi i64 [ %indvars.iv.next101, %._crit_edge78.split.us.us.us ], [ %35, %.preheader68.lr.ph.split.us ]
   %37 = mul nsw i64 %indvars.iv100, %36
-  %invariant.gep106 = getelementptr float, ptr %24, i64 %37
+  %invariant.gep111 = getelementptr float, ptr %24, i64 %37
   br label %38
 
 38:                                               ; preds = %38, %.preheader68.us.us
   %indvars.iv95 = phi i64 [ %indvars.iv.next96, %38 ], [ 0, %.preheader68.us.us ]
-  %gep107 = getelementptr float, ptr %invariant.gep106, i64 %indvars.iv95
-  store float %34, ptr %gep107, align 4, !tbaa !78
+  %gep112 = getelementptr float, ptr %invariant.gep111, i64 %indvars.iv95
+  store float %34, ptr %gep112, align 4, !tbaa !78
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
   br i1 %exitcond99.not, label %._crit_edge78.split.us.us.us, label %38, !llvm.loop !114

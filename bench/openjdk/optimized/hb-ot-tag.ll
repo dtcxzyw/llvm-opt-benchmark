@@ -212,8 +212,8 @@ define hidden void @hb_ot_tags_from_script_and_language(i32 noundef %0, ptr noun
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 45
-  %or.cond289 = select i1 %16, i1 %19, i1 false
-  br i1 %or.cond289, label %31, label %._crit_edge
+  %or.cond322 = select i1 %16, i1 %19, i1 false
+  br i1 %or.cond322, label %31, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %13
   %.054139 = getelementptr inbounds nuw i8, ptr %14, i64 1
@@ -557,7 +557,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit907.i.i:          ; preds = %.thread1107.i.i
   %148 = load i32, ptr %4, align 4
   %149 = zext i32 %148 to i64
   %150 = icmp samesign ult i64 %indvars.iv1507.i.i, %149
-  br i1 %150, label %151, label %.critedge.split.loop.exit1623.i.i
+  br i1 %150, label %151, label %.critedge.split.loop.exit1630.i.i
 
 151:                                              ; preds = %.preheader1381.i.i
   %152 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1507.i.i
@@ -566,7 +566,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit907.i.i:          ; preds = %.thread1107.i.i
   store i32 %153, ptr %154, align 4
   br i1 %147, label %.preheader1381.i.i, label %.sink.split, !llvm.loop !9
 
-.critedge.split.loop.exit1623.i.i:                ; preds = %.preheader1381.i.i
+.critedge.split.loop.exit1630.i.i:                ; preds = %.preheader1381.i.i
   %155 = trunc nuw nsw i64 %indvars.iv1507.i.i to i32
   br label %.sink.split
 
@@ -609,7 +609,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit913.i.i:          ; preds = %.thread1113.i.i
   %166 = load i32, ptr %4, align 4
   %167 = zext i32 %166 to i64
   %168 = icmp samesign ult i64 %indvars.iv1510.i.i, %167
-  br i1 %168, label %169, label %.critedge2.split.loop.exit1625.i.i
+  br i1 %168, label %169, label %.critedge2.split.loop.exit1632.i.i
 
 169:                                              ; preds = %.preheader1380.i.i
   %170 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1510.i.i
@@ -618,7 +618,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit913.i.i:          ; preds = %.thread1113.i.i
   store i32 %171, ptr %172, align 4
   br i1 %165, label %.preheader1380.i.i, label %.sink.split, !llvm.loop !10
 
-.critedge2.split.loop.exit1625.i.i:               ; preds = %.preheader1380.i.i
+.critedge2.split.loop.exit1632.i.i:               ; preds = %.preheader1380.i.i
   %173 = trunc nuw nsw i64 %indvars.iv1510.i.i to i32
   br label %.sink.split
 
@@ -661,7 +661,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit919.i.i:          ; preds = %.thread1119.i.i
   %184 = load i32, ptr %4, align 4
   %185 = zext i32 %184 to i64
   %186 = icmp samesign ult i64 %indvars.iv1513.i.i, %185
-  br i1 %186, label %187, label %.critedge4.split.loop.exit1627.i.i
+  br i1 %186, label %187, label %.critedge4.split.loop.exit1634.i.i
 
 187:                                              ; preds = %.preheader1379.i.i
   %188 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1513.i.i
@@ -670,7 +670,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit919.i.i:          ; preds = %.thread1119.i.i
   store i32 %189, ptr %190, align 4
   br i1 %183, label %.preheader1379.i.i, label %.sink.split, !llvm.loop !11
 
-.critedge4.split.loop.exit1627.i.i:               ; preds = %.preheader1379.i.i
+.critedge4.split.loop.exit1634.i.i:               ; preds = %.preheader1379.i.i
   %191 = trunc nuw nsw i64 %indvars.iv1513.i.i to i32
   br label %.sink.split
 
@@ -713,7 +713,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit925.i.i:          ; preds = %.thread1125.i.i
   %202 = load i32, ptr %4, align 4
   %203 = zext i32 %202 to i64
   %204 = icmp samesign ult i64 %indvars.iv1516.i.i, %203
-  br i1 %204, label %205, label %.critedge6.split.loop.exit1629.i.i
+  br i1 %204, label %205, label %.critedge6.split.loop.exit1636.i.i
 
 205:                                              ; preds = %.preheader1378.i.i
   %206 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1516.i.i
@@ -722,7 +722,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit925.i.i:          ; preds = %.thread1125.i.i
   store i32 %207, ptr %208, align 4
   br i1 %201, label %.preheader1378.i.i, label %.sink.split, !llvm.loop !12
 
-.critedge6.split.loop.exit1629.i.i:               ; preds = %.preheader1378.i.i
+.critedge6.split.loop.exit1636.i.i:               ; preds = %.preheader1378.i.i
   %209 = trunc nuw nsw i64 %indvars.iv1516.i.i to i32
   br label %.sink.split
 
@@ -765,7 +765,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit931.i.i:          ; preds = %.thread1131.i.i
   %220 = load i32, ptr %4, align 4
   %221 = zext i32 %220 to i64
   %222 = icmp samesign ult i64 %indvars.iv1519.i.i, %221
-  br i1 %222, label %223, label %.critedge8.split.loop.exit1631.i.i
+  br i1 %222, label %223, label %.critedge8.split.loop.exit1638.i.i
 
 223:                                              ; preds = %.preheader1377.i.i
   %224 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1519.i.i
@@ -774,7 +774,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit931.i.i:          ; preds = %.thread1131.i.i
   store i32 %225, ptr %226, align 4
   br i1 %219, label %.preheader1377.i.i, label %.sink.split, !llvm.loop !13
 
-.critedge8.split.loop.exit1631.i.i:               ; preds = %.preheader1377.i.i
+.critedge8.split.loop.exit1638.i.i:               ; preds = %.preheader1377.i.i
   %227 = trunc nuw nsw i64 %indvars.iv1519.i.i to i32
   br label %.sink.split
 
@@ -817,7 +817,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit937.i.i:          ; preds = %.thread1137.i.i
   %238 = load i32, ptr %4, align 4
   %239 = zext i32 %238 to i64
   %240 = icmp samesign ult i64 %indvars.iv1522.i.i, %239
-  br i1 %240, label %241, label %.critedge10.split.loop.exit1633.i.i
+  br i1 %240, label %241, label %.critedge10.split.loop.exit1640.i.i
 
 241:                                              ; preds = %.preheader1376.i.i
   %242 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1522.i.i
@@ -826,7 +826,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit937.i.i:          ; preds = %.thread1137.i.i
   store i32 %243, ptr %244, align 4
   br i1 %237, label %.preheader1376.i.i, label %.sink.split, !llvm.loop !14
 
-.critedge10.split.loop.exit1633.i.i:              ; preds = %.preheader1376.i.i
+.critedge10.split.loop.exit1640.i.i:              ; preds = %.preheader1376.i.i
   %245 = trunc nuw nsw i64 %indvars.iv1522.i.i to i32
   br label %.sink.split
 
@@ -869,7 +869,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit943.i.i:          ; preds = %.thread1143.i.i
   %256 = load i32, ptr %4, align 4
   %257 = zext i32 %256 to i64
   %258 = icmp samesign ult i64 %indvars.iv1525.i.i, %257
-  br i1 %258, label %259, label %.critedge12.split.loop.exit1635.i.i
+  br i1 %258, label %259, label %.critedge12.split.loop.exit1642.i.i
 
 259:                                              ; preds = %.preheader1375.i.i
   %260 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1525.i.i
@@ -878,7 +878,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit943.i.i:          ; preds = %.thread1143.i.i
   store i32 %261, ptr %262, align 4
   br i1 %255, label %.preheader1375.i.i, label %.sink.split, !llvm.loop !15
 
-.critedge12.split.loop.exit1635.i.i:              ; preds = %.preheader1375.i.i
+.critedge12.split.loop.exit1642.i.i:              ; preds = %.preheader1375.i.i
   %263 = trunc nuw nsw i64 %indvars.iv1525.i.i to i32
   br label %.sink.split
 
@@ -921,7 +921,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit949.i.i:          ; preds = %.thread1149.i.i
   %274 = load i32, ptr %4, align 4
   %275 = zext i32 %274 to i64
   %276 = icmp samesign ult i64 %indvars.iv1528.i.i, %275
-  br i1 %276, label %277, label %.critedge14.split.loop.exit1637.i.i
+  br i1 %276, label %277, label %.critedge14.split.loop.exit1644.i.i
 
 277:                                              ; preds = %.preheader1374.i.i
   %278 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1528.i.i
@@ -930,7 +930,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit949.i.i:          ; preds = %.thread1149.i.i
   store i32 %279, ptr %280, align 4
   br i1 %273, label %.preheader1374.i.i, label %.sink.split, !llvm.loop !16
 
-.critedge14.split.loop.exit1637.i.i:              ; preds = %.preheader1374.i.i
+.critedge14.split.loop.exit1644.i.i:              ; preds = %.preheader1374.i.i
   %281 = trunc nuw nsw i64 %indvars.iv1528.i.i to i32
   br label %.sink.split
 
@@ -1252,7 +1252,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit997.thread.tail.i.i: ; preds = %sub_1.i.i
   %375 = load i32, ptr %4, align 4
   %376 = zext i32 %375 to i64
   %377 = icmp samesign ult i64 %indvars.iv1552.i.i, %376
-  br i1 %377, label %378, label %.critedge16.split.loop.exit1653.i.i
+  br i1 %377, label %378, label %.critedge16.split.loop.exit1660.i.i
 
 378:                                              ; preds = %.preheader.i.i
   %379 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1552.i.i
@@ -1261,7 +1261,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit997.thread.tail.i.i: ; preds = %sub_1.i.i
   store i32 %380, ptr %381, align 4
   br i1 %374, label %.preheader.i.i, label %.sink.split, !llvm.loop !17
 
-.critedge16.split.loop.exit1653.i.i:              ; preds = %.preheader.i.i
+.critedge16.split.loop.exit1660.i.i:              ; preds = %.preheader.i.i
   %382 = trunc nuw nsw i64 %indvars.iv1552.i.i to i32
   br label %.sink.split
 
@@ -1303,7 +1303,7 @@ sub_11296.i.i:                                    ; preds = %sub_0.i.i
   %397 = load i32, ptr %4, align 4
   %398 = zext i32 %397 to i64
   %399 = icmp samesign ult i64 %indvars.iv1549.i.i, %398
-  br i1 %399, label %400, label %.critedge18.split.loop.exit1651.i.i
+  br i1 %399, label %400, label %.critedge18.split.loop.exit1658.i.i
 
 400:                                              ; preds = %.preheader1367.i.i
   %401 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1549.i.i
@@ -1312,7 +1312,7 @@ sub_11296.i.i:                                    ; preds = %sub_0.i.i
   store i32 %402, ptr %403, align 4
   br i1 %396, label %.preheader1367.i.i, label %.sink.split, !llvm.loop !18
 
-.critedge18.split.loop.exit1651.i.i:              ; preds = %.preheader1367.i.i
+.critedge18.split.loop.exit1658.i.i:              ; preds = %.preheader1367.i.i
   %404 = trunc nuw nsw i64 %indvars.iv1549.i.i to i32
   br label %.sink.split
 
@@ -1354,7 +1354,7 @@ sub_11301.i.i:                                    ; preds = %sub_0.i.i
   %419 = load i32, ptr %4, align 4
   %420 = zext i32 %419 to i64
   %421 = icmp samesign ult i64 %indvars.iv1546.i.i, %420
-  br i1 %421, label %422, label %.critedge20.split.loop.exit1649.i.i
+  br i1 %421, label %422, label %.critedge20.split.loop.exit1656.i.i
 
 422:                                              ; preds = %.preheader1368.i.i
   %423 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1546.i.i
@@ -1363,7 +1363,7 @@ sub_11301.i.i:                                    ; preds = %sub_0.i.i
   store i32 %424, ptr %425, align 4
   br i1 %418, label %.preheader1368.i.i, label %.sink.split, !llvm.loop !19
 
-.critedge20.split.loop.exit1649.i.i:              ; preds = %.preheader1368.i.i
+.critedge20.split.loop.exit1656.i.i:              ; preds = %.preheader1368.i.i
   %426 = trunc nuw nsw i64 %indvars.iv1546.i.i to i32
   br label %.sink.split
 
@@ -1405,7 +1405,7 @@ sub_11306.i.i:                                    ; preds = %sub_0.i.i
   %441 = load i32, ptr %4, align 4
   %442 = zext i32 %441 to i64
   %443 = icmp samesign ult i64 %indvars.iv1543.i.i, %442
-  br i1 %443, label %444, label %.critedge22.split.loop.exit1647.i.i
+  br i1 %443, label %444, label %.critedge22.split.loop.exit1654.i.i
 
 444:                                              ; preds = %.preheader1369.i.i
   %445 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1543.i.i
@@ -1414,7 +1414,7 @@ sub_11306.i.i:                                    ; preds = %sub_0.i.i
   store i32 %446, ptr %447, align 4
   br i1 %440, label %.preheader1369.i.i, label %.sink.split, !llvm.loop !20
 
-.critedge22.split.loop.exit1647.i.i:              ; preds = %.preheader1369.i.i
+.critedge22.split.loop.exit1654.i.i:              ; preds = %.preheader1369.i.i
   %448 = trunc nuw nsw i64 %indvars.iv1543.i.i to i32
   br label %.sink.split
 
@@ -1456,7 +1456,7 @@ sub_11311.i.i:                                    ; preds = %sub_0.i.i
   %463 = load i32, ptr %4, align 4
   %464 = zext i32 %463 to i64
   %465 = icmp samesign ult i64 %indvars.iv1540.i.i, %464
-  br i1 %465, label %466, label %.critedge24.split.loop.exit1645.i.i
+  br i1 %465, label %466, label %.critedge24.split.loop.exit1652.i.i
 
 466:                                              ; preds = %.preheader1370.i.i
   %467 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1540.i.i
@@ -1465,7 +1465,7 @@ sub_11311.i.i:                                    ; preds = %sub_0.i.i
   store i32 %468, ptr %469, align 4
   br i1 %462, label %.preheader1370.i.i, label %.sink.split, !llvm.loop !21
 
-.critedge24.split.loop.exit1645.i.i:              ; preds = %.preheader1370.i.i
+.critedge24.split.loop.exit1652.i.i:              ; preds = %.preheader1370.i.i
   %470 = trunc nuw nsw i64 %indvars.iv1540.i.i to i32
   br label %.sink.split
 
@@ -1507,7 +1507,7 @@ sub_11316.i.i:                                    ; preds = %sub_0.i.i
   %485 = load i32, ptr %4, align 4
   %486 = zext i32 %485 to i64
   %487 = icmp samesign ult i64 %indvars.iv1537.i.i, %486
-  br i1 %487, label %488, label %.critedge26.split.loop.exit1643.i.i
+  br i1 %487, label %488, label %.critedge26.split.loop.exit1650.i.i
 
 488:                                              ; preds = %.preheader1371.i.i
   %489 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1537.i.i
@@ -1516,7 +1516,7 @@ sub_11316.i.i:                                    ; preds = %sub_0.i.i
   store i32 %490, ptr %491, align 4
   br i1 %484, label %.preheader1371.i.i, label %.sink.split, !llvm.loop !22
 
-.critedge26.split.loop.exit1643.i.i:              ; preds = %.preheader1371.i.i
+.critedge26.split.loop.exit1650.i.i:              ; preds = %.preheader1371.i.i
   %492 = trunc nuw nsw i64 %indvars.iv1537.i.i to i32
   br label %.sink.split
 
@@ -1560,7 +1560,7 @@ sub_11321.i.i:                                    ; preds = %sub_0.i.i
   %507 = load i32, ptr %4, align 4
   %508 = zext i32 %507 to i64
   %509 = icmp samesign ult i64 %indvars.iv1534.i.i, %508
-  br i1 %509, label %510, label %.critedge28.split.loop.exit1641.i.i
+  br i1 %509, label %510, label %.critedge28.split.loop.exit1648.i.i
 
 510:                                              ; preds = %.preheader1372.i.i
   %511 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1534.i.i
@@ -1569,7 +1569,7 @@ sub_11321.i.i:                                    ; preds = %sub_0.i.i
   store i32 %512, ptr %513, align 4
   br i1 %506, label %.preheader1372.i.i, label %.sink.split, !llvm.loop !23
 
-.critedge28.split.loop.exit1641.i.i:              ; preds = %.preheader1372.i.i
+.critedge28.split.loop.exit1648.i.i:              ; preds = %.preheader1372.i.i
   %514 = trunc nuw nsw i64 %indvars.iv1534.i.i to i32
   br label %.sink.split
 
@@ -1605,7 +1605,7 @@ sub_11321.i.i:                                    ; preds = %sub_0.i.i
   %527 = load i32, ptr %4, align 4
   %528 = zext i32 %527 to i64
   %529 = icmp samesign ult i64 %indvars.iv1531.i.i, %528
-  br i1 %529, label %530, label %.critedge30.split.loop.exit1639.i.i
+  br i1 %529, label %530, label %.critedge30.split.loop.exit1646.i.i
 
 530:                                              ; preds = %.preheader1373.i.i
   %531 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1531.i.i
@@ -1614,7 +1614,7 @@ sub_11321.i.i:                                    ; preds = %sub_0.i.i
   store i32 %532, ptr %533, align 4
   br i1 %526, label %.preheader1373.i.i, label %.sink.split, !llvm.loop !24
 
-.critedge30.split.loop.exit1639.i.i:              ; preds = %.preheader1373.i.i
+.critedge30.split.loop.exit1646.i.i:              ; preds = %.preheader1373.i.i
   %534 = trunc nuw nsw i64 %indvars.iv1531.i.i to i32
   br label %.sink.split
 
@@ -1673,7 +1673,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1003.i.i:         ; preds = %.thread1215.i.i
   %555 = load i32, ptr %4, align 4
   %556 = zext i32 %555 to i64
   %557 = icmp samesign ult i64 %indvars.iv1501.i.i, %556
-  br i1 %557, label %558, label %.critedge32.split.loop.exit1619.i.i
+  br i1 %557, label %558, label %.critedge32.split.loop.exit1626.i.i
 
 558:                                              ; preds = %.preheader1383.i.i
   %559 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1501.i.i
@@ -1682,7 +1682,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1003.i.i:         ; preds = %.thread1215.i.i
   store i32 %560, ptr %561, align 4
   br i1 %554, label %.preheader1383.i.i, label %.sink.split, !llvm.loop !25
 
-.critedge32.split.loop.exit1619.i.i:              ; preds = %.preheader1383.i.i
+.critedge32.split.loop.exit1626.i.i:              ; preds = %.preheader1383.i.i
   %562 = trunc nuw nsw i64 %indvars.iv1501.i.i to i32
   br label %.sink.split
 
@@ -1725,8 +1725,8 @@ _ZL12lang_matchesPKcS0_S0_j.exit1009.i.i:         ; preds = %.thread1219.i.i
   br label %.sink.split
 
 _ZL12lang_matchesPKcS0_S0_j.exit1009.thread.i.i:  ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1003.thread.i.i
-  %.not1655.i.i = icmp eq i32 %542, 6
-  br i1 %.not1655.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit1009.thread.thread.i.i, label %sub_01329.i.i
+  %.not1662.i.i = icmp eq i32 %542, 6
+  br i1 %.not1662.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit1009.thread.thread.i.i, label %sub_01329.i.i
 
 _ZL12lang_matchesPKcS0_S0_j.exit1009.thread.thread.i.i: ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1009.thread.i.i, %_ZL12lang_matchesPKcS0_S0_j.exit1009.i.i, %.thread1219.i.i
   %574 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %539, ptr noundef nonnull dereferenceable(7) @.str.76, i64 noundef 6) #10
@@ -1780,7 +1780,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1012.thread.tail.i.i: ; preds = %sub_11330.i.i
   %591 = load i32, ptr %4, align 4
   %592 = zext i32 %591 to i64
   %593 = icmp samesign ult i64 %indvars.iv1504.i.i, %592
-  br i1 %593, label %594, label %.critedge34.split.loop.exit1621.i.i
+  br i1 %593, label %594, label %.critedge34.split.loop.exit1628.i.i
 
 594:                                              ; preds = %.preheader1382.i.i
   %595 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1504.i.i
@@ -1789,7 +1789,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1012.thread.tail.i.i: ; preds = %sub_11330.i.i
   store i32 %596, ptr %597, align 4
   br i1 %590, label %.preheader1382.i.i, label %.sink.split, !llvm.loop !26
 
-.critedge34.split.loop.exit1621.i.i:              ; preds = %.preheader1382.i.i
+.critedge34.split.loop.exit1628.i.i:              ; preds = %.preheader1382.i.i
   %598 = trunc nuw nsw i64 %indvars.iv1504.i.i to i32
   br label %.sink.split
 
@@ -1848,7 +1848,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1018.i.i:         ; preds = %.thread1226.i.i
   %619 = load i32, ptr %4, align 4
   %620 = zext i32 %619 to i64
   %621 = icmp samesign ult i64 %indvars.iv1489.i.i, %620
-  br i1 %621, label %622, label %.critedge36.split.loop.exit1611.i.i
+  br i1 %621, label %622, label %.critedge36.split.loop.exit1618.i.i
 
 622:                                              ; preds = %.preheader1387.i.i
   %623 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1489.i.i
@@ -1857,7 +1857,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1018.i.i:         ; preds = %.thread1226.i.i
   store i32 %624, ptr %625, align 4
   br i1 %618, label %.preheader1387.i.i, label %.sink.split, !llvm.loop !27
 
-.critedge36.split.loop.exit1611.i.i:              ; preds = %.preheader1387.i.i
+.critedge36.split.loop.exit1618.i.i:              ; preds = %.preheader1387.i.i
   %626 = trunc nuw nsw i64 %indvars.iv1489.i.i to i32
   br label %.sink.split
 
@@ -1900,7 +1900,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1024.i.i:         ; preds = %.thread1232.i.i
   %637 = load i32, ptr %4, align 4
   %638 = zext i32 %637 to i64
   %639 = icmp samesign ult i64 %indvars.iv1492.i.i, %638
-  br i1 %639, label %640, label %.critedge38.split.loop.exit1613.i.i
+  br i1 %639, label %640, label %.critedge38.split.loop.exit1620.i.i
 
 640:                                              ; preds = %.preheader1386.i.i
   %641 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1492.i.i
@@ -1909,7 +1909,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1024.i.i:         ; preds = %.thread1232.i.i
   store i32 %642, ptr %643, align 4
   br i1 %636, label %.preheader1386.i.i, label %.sink.split, !llvm.loop !28
 
-.critedge38.split.loop.exit1613.i.i:              ; preds = %.preheader1386.i.i
+.critedge38.split.loop.exit1620.i.i:              ; preds = %.preheader1386.i.i
   %644 = trunc nuw nsw i64 %indvars.iv1492.i.i to i32
   br label %.sink.split
 
@@ -2022,7 +2022,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1036.thread.tail.i.i: ; preds = %sub_11334.i.i
   %678 = load i32, ptr %4, align 4
   %679 = zext i32 %678 to i64
   %680 = icmp samesign ult i64 %indvars.iv1498.i.i, %679
-  br i1 %680, label %681, label %.critedge40.split.loop.exit1617.i.i
+  br i1 %680, label %681, label %.critedge40.split.loop.exit1624.i.i
 
 681:                                              ; preds = %.preheader1384.i.i
   %682 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1498.i.i
@@ -2031,7 +2031,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1036.thread.tail.i.i: ; preds = %sub_11334.i.i
   store i32 %683, ptr %684, align 4
   br i1 %677, label %.preheader1384.i.i, label %.sink.split, !llvm.loop !29
 
-.critedge40.split.loop.exit1617.i.i:              ; preds = %.preheader1384.i.i
+.critedge40.split.loop.exit1624.i.i:              ; preds = %.preheader1384.i.i
   %685 = trunc nuw nsw i64 %indvars.iv1498.i.i to i32
   br label %.sink.split
 
@@ -2073,7 +2073,7 @@ sub_11339.i.i:                                    ; preds = %sub_01333.i.i
   %700 = load i32, ptr %4, align 4
   %701 = zext i32 %700 to i64
   %702 = icmp samesign ult i64 %indvars.iv1495.i.i, %701
-  br i1 %702, label %703, label %.critedge42.split.loop.exit1615.i.i
+  br i1 %702, label %703, label %.critedge42.split.loop.exit1622.i.i
 
 703:                                              ; preds = %.preheader1385.i.i
   %704 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1495.i.i
@@ -2082,7 +2082,7 @@ sub_11339.i.i:                                    ; preds = %sub_01333.i.i
   store i32 %705, ptr %706, align 4
   br i1 %699, label %.preheader1385.i.i, label %.sink.split, !llvm.loop !30
 
-.critedge42.split.loop.exit1615.i.i:              ; preds = %.preheader1385.i.i
+.critedge42.split.loop.exit1622.i.i:              ; preds = %.preheader1385.i.i
   %707 = trunc nuw nsw i64 %indvars.iv1495.i.i to i32
   br label %.sink.split
 
@@ -2106,7 +2106,7 @@ sub_11339.i.i:                                    ; preds = %sub_01333.i.i
   %716 = load i32, ptr %4, align 4
   %717 = zext i32 %716 to i64
   %718 = icmp samesign ult i64 %indvars.iv1486.i.i, %717
-  br i1 %718, label %719, label %.critedge44.split.loop.exit1609.i.i
+  br i1 %718, label %719, label %.critedge44.split.loop.exit1616.i.i
 
 719:                                              ; preds = %.preheader1388.i.i
   %720 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.94, i64 0, i64 %indvars.iv1486.i.i
@@ -2115,7 +2115,7 @@ sub_11339.i.i:                                    ; preds = %sub_01333.i.i
   store i32 %721, ptr %722, align 4
   br i1 %715, label %.preheader1388.i.i, label %.sink.split, !llvm.loop !31
 
-.critedge44.split.loop.exit1609.i.i:              ; preds = %.preheader1388.i.i
+.critedge44.split.loop.exit1616.i.i:              ; preds = %.preheader1388.i.i
   %723 = trunc nuw nsw i64 %indvars.iv1486.i.i to i32
   br label %.sink.split
 
@@ -2209,7 +2209,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1045.i.i:         ; preds = %.thread1251.i.i
   %761 = load i32, ptr %4, align 4
   %762 = zext i32 %761 to i64
   %763 = icmp samesign ult i64 %indvars.iv1480.i.i, %762
-  br i1 %763, label %764, label %.critedge46.split.loop.exit1605.i.i
+  br i1 %763, label %764, label %.critedge46.split.loop.exit1612.i.i
 
 764:                                              ; preds = %.preheader1390.i.i
   %765 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1480.i.i
@@ -2218,7 +2218,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1045.i.i:         ; preds = %.thread1251.i.i
   store i32 %766, ptr %767, align 4
   br i1 %760, label %.preheader1390.i.i, label %.sink.split, !llvm.loop !32
 
-.critedge46.split.loop.exit1605.i.i:              ; preds = %.preheader1390.i.i
+.critedge46.split.loop.exit1612.i.i:              ; preds = %.preheader1390.i.i
   %768 = trunc nuw nsw i64 %indvars.iv1480.i.i to i32
   br label %.sink.split
 
@@ -2297,7 +2297,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1051.thread.tail.i.i: ; preds = %sub_11343.i.i
   %792 = load i32, ptr %4, align 4
   %793 = zext i32 %792 to i64
   %794 = icmp samesign ult i64 %indvars.iv1483.i.i, %793
-  br i1 %794, label %795, label %.critedge48.split.loop.exit1607.i.i
+  br i1 %794, label %795, label %.critedge48.split.loop.exit1614.i.i
 
 795:                                              ; preds = %.preheader1389.i.i
   %796 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1483.i.i
@@ -2306,7 +2306,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1051.thread.tail.i.i: ; preds = %sub_11343.i.i
   store i32 %797, ptr %798, align 4
   br i1 %791, label %.preheader1389.i.i, label %.sink.split, !llvm.loop !33
 
-.critedge48.split.loop.exit1607.i.i:              ; preds = %.preheader1389.i.i
+.critedge48.split.loop.exit1614.i.i:              ; preds = %.preheader1389.i.i
   %799 = trunc nuw nsw i64 %indvars.iv1483.i.i to i32
   br label %.sink.split
 
@@ -2379,7 +2379,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1057.i.i:         ; preds = %.thread1261.i.i
   %826 = load i32, ptr %4, align 4
   %827 = zext i32 %826 to i64
   %828 = icmp samesign ult i64 %indvars.iv1474.i.i, %827
-  br i1 %828, label %829, label %.critedge50.split.loop.exit1601.i.i
+  br i1 %828, label %829, label %.critedge50.split.loop.exit1608.i.i
 
 829:                                              ; preds = %.preheader1392.i.i
   %830 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1474.i.i
@@ -2388,7 +2388,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1057.i.i:         ; preds = %.thread1261.i.i
   store i32 %831, ptr %832, align 4
   br i1 %825, label %.preheader1392.i.i, label %.sink.split, !llvm.loop !34
 
-.critedge50.split.loop.exit1601.i.i:              ; preds = %.preheader1392.i.i
+.critedge50.split.loop.exit1608.i.i:              ; preds = %.preheader1392.i.i
   %833 = trunc nuw nsw i64 %indvars.iv1474.i.i to i32
   br label %.sink.split
 
@@ -2465,7 +2465,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1063.thread.tail.i.i: ; preds = %sub_11352.i.i
   %857 = load i32, ptr %4, align 4
   %858 = zext i32 %857 to i64
   %859 = icmp samesign ult i64 %indvars.iv1477.i.i, %858
-  br i1 %859, label %860, label %.critedge52.split.loop.exit1603.i.i
+  br i1 %859, label %860, label %.critedge52.split.loop.exit1610.i.i
 
 860:                                              ; preds = %.preheader1391.i.i
   %861 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1477.i.i
@@ -2474,7 +2474,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1063.thread.tail.i.i: ; preds = %sub_11352.i.i
   store i32 %862, ptr %863, align 4
   br i1 %856, label %.preheader1391.i.i, label %.sink.split, !llvm.loop !35
 
-.critedge52.split.loop.exit1603.i.i:              ; preds = %.preheader1391.i.i
+.critedge52.split.loop.exit1610.i.i:              ; preds = %.preheader1391.i.i
   %864 = trunc nuw nsw i64 %indvars.iv1477.i.i to i32
   br label %.sink.split
 
@@ -2544,7 +2544,7 @@ _ZL14subtag_matchesPKcS0_S0_j.exit1071.preheader.i.i: ; preds = %883, %_ZL14subt
   %892 = load i32, ptr %4, align 4
   %893 = zext i32 %892 to i64
   %894 = icmp samesign ult i64 %indvars.iv1471.i.i, %893
-  br i1 %894, label %_ZL14subtag_matchesPKcS0_S0_j.exit1071.i.i, label %.critedge54.split.loop.exit1599.i.i
+  br i1 %894, label %_ZL14subtag_matchesPKcS0_S0_j.exit1071.i.i, label %.critedge54.split.loop.exit1606.i.i
 
 _ZL14subtag_matchesPKcS0_S0_j.exit1071.i.i:       ; preds = %_ZL14subtag_matchesPKcS0_S0_j.exit1071.preheader.i.i
   %895 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.107, i64 0, i64 %indvars.iv1471.i.i
@@ -2553,7 +2553,7 @@ _ZL14subtag_matchesPKcS0_S0_j.exit1071.i.i:       ; preds = %_ZL14subtag_matches
   store i32 %896, ptr %897, align 4
   br i1 %891, label %_ZL14subtag_matchesPKcS0_S0_j.exit1071.preheader.i.i, label %.sink.split, !llvm.loop !36
 
-.critedge54.split.loop.exit1599.i.i:              ; preds = %_ZL14subtag_matchesPKcS0_S0_j.exit1071.preheader.i.i
+.critedge54.split.loop.exit1606.i.i:              ; preds = %_ZL14subtag_matchesPKcS0_S0_j.exit1071.preheader.i.i
   %898 = trunc nuw nsw i64 %indvars.iv1471.i.i to i32
   br label %.sink.split
 
@@ -2604,7 +2604,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1077.i.i:         ; preds = %.thread1272.i.i
   %916 = load i32, ptr %4, align 4
   %917 = zext i32 %916 to i64
   %918 = icmp samesign ult i64 %indvars.iv1465.i.i, %917
-  br i1 %918, label %919, label %.critedge56.split.loop.exit1595.i.i
+  br i1 %918, label %919, label %.critedge56.split.loop.exit1602.i.i
 
 919:                                              ; preds = %.preheader1394.i.i
   %920 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1465.i.i
@@ -2613,7 +2613,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1077.i.i:         ; preds = %.thread1272.i.i
   store i32 %921, ptr %922, align 4
   br i1 %915, label %.preheader1394.i.i, label %.sink.split, !llvm.loop !37
 
-.critedge56.split.loop.exit1595.i.i:              ; preds = %.preheader1394.i.i
+.critedge56.split.loop.exit1602.i.i:              ; preds = %.preheader1394.i.i
   %923 = trunc nuw nsw i64 %indvars.iv1465.i.i to i32
   br label %.sink.split
 
@@ -2690,7 +2690,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1083.thread.tail.i.i: ; preds = %sub_11360.i.i
   %947 = load i32, ptr %4, align 4
   %948 = zext i32 %947 to i64
   %949 = icmp samesign ult i64 %indvars.iv1468.i.i, %948
-  br i1 %949, label %950, label %.critedge58.split.loop.exit1597.i.i
+  br i1 %949, label %950, label %.critedge58.split.loop.exit1604.i.i
 
 950:                                              ; preds = %.preheader1393.i.i
   %951 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1468.i.i
@@ -2699,7 +2699,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1083.thread.tail.i.i: ; preds = %sub_11360.i.i
   store i32 %952, ptr %953, align 4
   br i1 %946, label %.preheader1393.i.i, label %.sink.split, !llvm.loop !38
 
-.critedge58.split.loop.exit1597.i.i:              ; preds = %.preheader1393.i.i
+.critedge58.split.loop.exit1604.i.i:              ; preds = %.preheader1393.i.i
   %954 = trunc nuw nsw i64 %indvars.iv1468.i.i to i32
   br label %.sink.split
 
@@ -2783,7 +2783,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1092.i.i:         ; preds = %.thread1283.i.i
   %987 = load i32, ptr %4, align 4
   %988 = zext i32 %987 to i64
   %989 = icmp samesign ult i64 %indvars.iv.i.i, %988
-  br i1 %989, label %990, label %.critedge60.split.loop.exit1591.i.i
+  br i1 %989, label %990, label %.critedge60.split.loop.exit1598.i.i
 
 990:                                              ; preds = %.preheader1396.i.i
   %991 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv.i.i
@@ -2792,7 +2792,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1092.i.i:         ; preds = %.thread1283.i.i
   store i32 %992, ptr %993, align 4
   br i1 %986, label %.preheader1396.i.i, label %.sink.split, !llvm.loop !39
 
-.critedge60.split.loop.exit1591.i.i:              ; preds = %.preheader1396.i.i
+.critedge60.split.loop.exit1598.i.i:              ; preds = %.preheader1396.i.i
   %994 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %.sink.split
 
@@ -2881,7 +2881,7 @@ sub_01364.i.i:                                    ; preds = %_ZL12lang_matchesPK
   %1024 = load i32, ptr %4, align 4
   %1025 = zext i32 %1024 to i64
   %1026 = icmp samesign ult i64 %indvars.iv1462.i.i, %1025
-  br i1 %1026, label %1027, label %.critedge62.split.loop.exit1593.i.i
+  br i1 %1026, label %1027, label %.critedge62.split.loop.exit1600.i.i
 
 1027:                                             ; preds = %.preheader1395.i.i
   %1028 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZL32hb_ot_tags_from_complex_languagePKcS0_PjS1_.possible_tags.124, i64 0, i64 %indvars.iv1462.i.i
@@ -2890,7 +2890,7 @@ sub_01364.i.i:                                    ; preds = %_ZL12lang_matchesPK
   store i32 %1029, ptr %1030, align 4
   br i1 %1023, label %.preheader1395.i.i, label %.sink.split, !llvm.loop !40
 
-.critedge62.split.loop.exit1593.i.i:              ; preds = %.preheader1395.i.i
+.critedge62.split.loop.exit1600.i.i:              ; preds = %.preheader1395.i.i
   %1031 = trunc nuw nsw i64 %indvars.iv1462.i.i to i32
   br label %.sink.split
 
@@ -3022,11 +3022,11 @@ sub_11326.i.thread.i:                             ; preds = %.preheader.i1064.i.
   br i1 %.not76.i, label %.critedge2.i, label %1088
 
 1088:                                             ; preds = %1087
-  %1089 = zext i32 %.1.i to i64
+  %1089 = zext nneg i32 %.1.i to i64
   %1090 = getelementptr inbounds nuw %struct.LangTag, ptr %.064.i, i64 %1089
   %1091 = load i32, ptr %1090, align 8
-  %1092 = add i32 %.1.i, -1
-  %1093 = zext i32 %1092 to i64
+  %1092 = add nsw i32 %.1.i, -1
+  %1093 = zext nneg i32 %1092 to i64
   %1094 = getelementptr inbounds nuw %struct.LangTag, ptr %.064.i, i64 %1093
   %1095 = load i32, ptr %1094, align 8
   %1096 = icmp eq i32 %1091, %1095
@@ -3098,9 +3098,9 @@ sub_11326.i.thread.i:                             ; preds = %.preheader.i1064.i.
   store i32 %1127, ptr %5, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %990, %1027, %919, %950, %_ZL14subtag_matchesPKcS0_S0_j.exit1071.i.i, %829, %860, %764, %795, %719, %622, %640, %703, %681, %558, %594, %151, %169, %187, %205, %223, %241, %259, %277, %530, %510, %488, %466, %444, %422, %400, %378, %1125, %1121, %.critedge4.loopexit.i, %.critedge2.i, %1034, %.critedge62.split.loop.exit1593.i.i, %1020, %1013, %1010, %1005, %997, %.critedge60.split.loop.exit1591.i.i, %981, %969, %957, %.critedge58.split.loop.exit1597.i.i, %943, %934, %929, %.critedge56.split.loop.exit1595.i.i, %910, %.critedge54.split.loop.exit1599.i.i, %874, %870, %867, %.critedge52.split.loop.exit1603.i.i, %853, %844, %839, %.critedge50.split.loop.exit1601.i.i, %820, %808, %802, %.critedge48.split.loop.exit1607.i.i, %788, %779, %774, %.critedge46.split.loop.exit1605.i.i, %755, %743, %731, %727, %.critedge44.split.loop.exit1609.i.i, %710, %.critedge42.split.loop.exit1615.i.i, %696, %688, %.critedge40.split.loop.exit1617.i.i, %674, %665, %660, %655, %650, %.critedge38.split.loop.exit1613.i.i, %631, %.critedge36.split.loop.exit1611.i.i, %613, %601, %.critedge34.split.loop.exit1621.i.i, %587, %578, %573, %568, %.critedge32.split.loop.exit1619.i.i, %549, %537, %.critedge30.split.loop.exit1639.i.i, %523, %517, %.critedge28.split.loop.exit1641.i.i, %503, %495, %.critedge26.split.loop.exit1643.i.i, %481, %473, %.critedge24.split.loop.exit1645.i.i, %459, %451, %.critedge22.split.loop.exit1647.i.i, %437, %429, %.critedge20.split.loop.exit1649.i.i, %415, %407, %.critedge18.split.loop.exit1651.i.i, %393, %385, %.critedge16.split.loop.exit1653.i.i, %371, %362, %357, %352, %347, %342, %337, %332, %327, %322, %317, %312, %307, %302, %297, %292, %287, %.critedge14.split.loop.exit1637.i.i, %268, %.critedge12.split.loop.exit1635.i.i, %250, %.critedge10.split.loop.exit1633.i.i, %232, %.critedge8.split.loop.exit1631.i.i, %214, %.critedge6.split.loop.exit1629.i.i, %196, %.critedge4.split.loop.exit1627.i.i, %178, %.critedge2.split.loop.exit1625.i.i, %160, %.critedge.split.loop.exit1623.i.i, %142, %130, %123, %120, %_ZL14subtag_matchesPKcS0_S0_j.exit.i, %_ZL14subtag_matchesPKcS0_S0_j.exit93.i, %_ZL14subtag_matchesPKcS0_S0_j.exit102.i, %_ZL14subtag_matchesPKcS0_S0_j.exit903.i.i, %_ZL14subtag_matchesPKcS0_S0_j.exit895.i.i, %_ZL14subtag_matchesPKcS0_S0_j.exit887.i.i, %_ZL14subtag_matchesPKcS0_S0_j.exit.i.i, %11
-  %.sink.i.sink.i.sink = phi i32 [ 0, %11 ], [ 1, %1125 ], [ 1, %1034 ], [ 1, %1020 ], [ 1, %1013 ], [ 1, %1010 ], [ 1, %1005 ], [ 1, %997 ], [ 1, %981 ], [ 1, %969 ], [ 1, %957 ], [ 1, %943 ], [ 1, %934 ], [ 1, %929 ], [ 1, %910 ], [ 1, %874 ], [ 1, %870 ], [ 1, %867 ], [ 1, %853 ], [ 1, %844 ], [ 1, %839 ], [ 1, %820 ], [ 1, %808 ], [ 1, %802 ], [ 1, %788 ], [ 1, %779 ], [ 1, %774 ], [ 1, %755 ], [ 1, %743 ], [ 1, %731 ], [ 1, %727 ], [ 1, %710 ], [ 1, %696 ], [ 1, %688 ], [ 1, %674 ], [ 1, %665 ], [ 1, %660 ], [ 1, %655 ], [ 1, %650 ], [ 1, %631 ], [ 1, %613 ], [ 1, %601 ], [ 1, %587 ], [ 1, %578 ], [ 1, %573 ], [ 1, %568 ], [ 1, %549 ], [ 1, %537 ], [ 1, %523 ], [ 1, %517 ], [ 1, %503 ], [ 1, %495 ], [ 1, %481 ], [ 1, %473 ], [ 1, %459 ], [ 1, %451 ], [ 1, %437 ], [ 1, %429 ], [ 1, %415 ], [ 1, %407 ], [ 1, %393 ], [ 1, %385 ], [ 1, %371 ], [ 1, %362 ], [ 1, %357 ], [ 1, %352 ], [ 1, %347 ], [ 1, %342 ], [ 1, %337 ], [ 1, %332 ], [ 1, %327 ], [ 1, %322 ], [ 1, %317 ], [ 1, %312 ], [ 1, %307 ], [ 1, %302 ], [ 1, %297 ], [ 1, %292 ], [ 1, %287 ], [ 1, %268 ], [ 1, %250 ], [ 1, %232 ], [ 1, %214 ], [ 1, %196 ], [ 1, %178 ], [ 1, %160 ], [ 1, %142 ], [ 1, %130 ], [ 1, %123 ], [ 1, %120 ], [ 1, %_ZL14subtag_matchesPKcS0_S0_j.exit.i ], [ 1, %_ZL14subtag_matchesPKcS0_S0_j.exit93.i ], [ 1, %_ZL14subtag_matchesPKcS0_S0_j.exit102.i ], [ 1, %_ZL14subtag_matchesPKcS0_S0_j.exit903.i.i ], [ 1, %_ZL14subtag_matchesPKcS0_S0_j.exit895.i.i ], [ 1, %_ZL14subtag_matchesPKcS0_S0_j.exit887.i.i ], [ 1, %_ZL14subtag_matchesPKcS0_S0_j.exit.i.i ], [ %155, %.critedge.split.loop.exit1623.i.i ], [ %173, %.critedge2.split.loop.exit1625.i.i ], [ %191, %.critedge4.split.loop.exit1627.i.i ], [ %209, %.critedge6.split.loop.exit1629.i.i ], [ %227, %.critedge8.split.loop.exit1631.i.i ], [ %245, %.critedge10.split.loop.exit1633.i.i ], [ %263, %.critedge12.split.loop.exit1635.i.i ], [ %281, %.critedge14.split.loop.exit1637.i.i ], [ %382, %.critedge16.split.loop.exit1653.i.i ], [ %404, %.critedge18.split.loop.exit1651.i.i ], [ %426, %.critedge20.split.loop.exit1649.i.i ], [ %448, %.critedge22.split.loop.exit1647.i.i ], [ %470, %.critedge24.split.loop.exit1645.i.i ], [ %492, %.critedge26.split.loop.exit1643.i.i ], [ %514, %.critedge28.split.loop.exit1641.i.i ], [ %534, %.critedge30.split.loop.exit1639.i.i ], [ %562, %.critedge32.split.loop.exit1619.i.i ], [ %598, %.critedge34.split.loop.exit1621.i.i ], [ %626, %.critedge36.split.loop.exit1611.i.i ], [ %644, %.critedge38.split.loop.exit1613.i.i ], [ %685, %.critedge40.split.loop.exit1617.i.i ], [ %707, %.critedge42.split.loop.exit1615.i.i ], [ %723, %.critedge44.split.loop.exit1609.i.i ], [ %768, %.critedge46.split.loop.exit1605.i.i ], [ %799, %.critedge48.split.loop.exit1607.i.i ], [ %833, %.critedge50.split.loop.exit1601.i.i ], [ %864, %.critedge52.split.loop.exit1603.i.i ], [ %898, %.critedge54.split.loop.exit1599.i.i ], [ %923, %.critedge56.split.loop.exit1595.i.i ], [ %954, %.critedge58.split.loop.exit1597.i.i ], [ %994, %.critedge60.split.loop.exit1591.i.i ], [ %1031, %.critedge62.split.loop.exit1593.i.i ], [ 0, %.critedge2.i ], [ %.0.lcssa.ph.i, %.critedge4.loopexit.i ], [ 0, %1121 ], [ 2, %378 ], [ 2, %400 ], [ 2, %422 ], [ 2, %444 ], [ 2, %466 ], [ 2, %488 ], [ 2, %510 ], [ 2, %530 ], [ 2, %277 ], [ 2, %259 ], [ 2, %241 ], [ 2, %223 ], [ 2, %205 ], [ 2, %187 ], [ 2, %169 ], [ 2, %151 ], [ 2, %594 ], [ 2, %558 ], [ 2, %681 ], [ 2, %703 ], [ 2, %640 ], [ 2, %622 ], [ 2, %719 ], [ 2, %795 ], [ 2, %764 ], [ 2, %860 ], [ 2, %829 ], [ 2, %_ZL14subtag_matchesPKcS0_S0_j.exit1071.i.i ], [ 2, %950 ], [ 2, %919 ], [ 2, %1027 ], [ 2, %990 ]
-  %.0.shrunk.ph = phi i1 [ true, %11 ], [ %33, %1125 ], [ %33, %1034 ], [ %33, %1020 ], [ %33, %1013 ], [ %33, %1010 ], [ %33, %1005 ], [ %33, %997 ], [ %33, %981 ], [ %33, %969 ], [ %33, %957 ], [ %33, %943 ], [ %33, %934 ], [ %33, %929 ], [ %33, %910 ], [ %33, %874 ], [ %33, %870 ], [ %33, %867 ], [ %33, %853 ], [ %33, %844 ], [ %33, %839 ], [ %33, %820 ], [ %33, %808 ], [ %33, %802 ], [ %33, %788 ], [ %33, %779 ], [ %33, %774 ], [ %33, %755 ], [ %33, %743 ], [ %33, %731 ], [ %33, %727 ], [ %33, %710 ], [ %33, %696 ], [ %33, %688 ], [ %33, %674 ], [ %33, %665 ], [ %33, %660 ], [ %33, %655 ], [ %33, %650 ], [ %33, %631 ], [ %33, %613 ], [ %33, %601 ], [ %33, %587 ], [ %33, %578 ], [ %33, %573 ], [ %33, %568 ], [ %33, %549 ], [ %33, %537 ], [ %33, %523 ], [ %33, %517 ], [ %33, %503 ], [ %33, %495 ], [ %33, %481 ], [ %33, %473 ], [ %33, %459 ], [ %33, %451 ], [ %33, %437 ], [ %33, %429 ], [ %33, %415 ], [ %33, %407 ], [ %33, %393 ], [ %33, %385 ], [ %33, %371 ], [ %33, %362 ], [ %33, %357 ], [ %33, %352 ], [ %33, %347 ], [ %33, %342 ], [ %33, %337 ], [ %33, %332 ], [ %33, %327 ], [ %33, %322 ], [ %33, %317 ], [ %33, %312 ], [ %33, %307 ], [ %33, %302 ], [ %33, %297 ], [ %33, %292 ], [ %33, %287 ], [ %33, %268 ], [ %33, %250 ], [ %33, %232 ], [ %33, %214 ], [ %33, %196 ], [ %33, %178 ], [ %33, %160 ], [ %33, %142 ], [ %33, %130 ], [ %33, %123 ], [ %33, %120 ], [ %33, %_ZL14subtag_matchesPKcS0_S0_j.exit.i ], [ %33, %_ZL14subtag_matchesPKcS0_S0_j.exit93.i ], [ %33, %_ZL14subtag_matchesPKcS0_S0_j.exit102.i ], [ %33, %_ZL14subtag_matchesPKcS0_S0_j.exit903.i.i ], [ %33, %_ZL14subtag_matchesPKcS0_S0_j.exit895.i.i ], [ %33, %_ZL14subtag_matchesPKcS0_S0_j.exit887.i.i ], [ %33, %_ZL14subtag_matchesPKcS0_S0_j.exit.i.i ], [ %33, %.critedge.split.loop.exit1623.i.i ], [ %33, %.critedge2.split.loop.exit1625.i.i ], [ %33, %.critedge4.split.loop.exit1627.i.i ], [ %33, %.critedge6.split.loop.exit1629.i.i ], [ %33, %.critedge8.split.loop.exit1631.i.i ], [ %33, %.critedge10.split.loop.exit1633.i.i ], [ %33, %.critedge12.split.loop.exit1635.i.i ], [ %33, %.critedge14.split.loop.exit1637.i.i ], [ %33, %.critedge16.split.loop.exit1653.i.i ], [ %33, %.critedge18.split.loop.exit1651.i.i ], [ %33, %.critedge20.split.loop.exit1649.i.i ], [ %33, %.critedge22.split.loop.exit1647.i.i ], [ %33, %.critedge24.split.loop.exit1645.i.i ], [ %33, %.critedge26.split.loop.exit1643.i.i ], [ %33, %.critedge28.split.loop.exit1641.i.i ], [ %33, %.critedge30.split.loop.exit1639.i.i ], [ %33, %.critedge32.split.loop.exit1619.i.i ], [ %33, %.critedge34.split.loop.exit1621.i.i ], [ %33, %.critedge36.split.loop.exit1611.i.i ], [ %33, %.critedge38.split.loop.exit1613.i.i ], [ %33, %.critedge40.split.loop.exit1617.i.i ], [ %33, %.critedge42.split.loop.exit1615.i.i ], [ %33, %.critedge44.split.loop.exit1609.i.i ], [ %33, %.critedge46.split.loop.exit1605.i.i ], [ %33, %.critedge48.split.loop.exit1607.i.i ], [ %33, %.critedge50.split.loop.exit1601.i.i ], [ %33, %.critedge52.split.loop.exit1603.i.i ], [ %33, %.critedge54.split.loop.exit1599.i.i ], [ %33, %.critedge56.split.loop.exit1595.i.i ], [ %33, %.critedge58.split.loop.exit1597.i.i ], [ %33, %.critedge60.split.loop.exit1591.i.i ], [ %33, %.critedge62.split.loop.exit1593.i.i ], [ %33, %.critedge2.i ], [ %33, %.critedge4.loopexit.i ], [ %33, %1121 ], [ %33, %378 ], [ %33, %400 ], [ %33, %422 ], [ %33, %444 ], [ %33, %466 ], [ %33, %488 ], [ %33, %510 ], [ %33, %530 ], [ %33, %277 ], [ %33, %259 ], [ %33, %241 ], [ %33, %223 ], [ %33, %205 ], [ %33, %187 ], [ %33, %169 ], [ %33, %151 ], [ %33, %594 ], [ %33, %558 ], [ %33, %681 ], [ %33, %703 ], [ %33, %640 ], [ %33, %622 ], [ %33, %719 ], [ %33, %795 ], [ %33, %764 ], [ %33, %860 ], [ %33, %829 ], [ %33, %_ZL14subtag_matchesPKcS0_S0_j.exit1071.i.i ], [ %33, %950 ], [ %33, %919 ], [ %33, %1027 ], [ %33, %990 ]
+.sink.split:                                      ; preds = %990, %1027, %919, %950, %_ZL14subtag_matchesPKcS0_S0_j.exit1071.i.i, %829, %860, %764, %795, %719, %622, %640, %703, %681, %558, %594, %151, %169, %187, %205, %223, %241, %259, %277, %530, %510, %488, %466, %444, %422, %400, %378, %1125, %1121, %.critedge4.loopexit.i, %.critedge2.i, %1034, %.critedge62.split.loop.exit1600.i.i, %1020, %1013, %1010, %1005, %997, %.critedge60.split.loop.exit1598.i.i, %981, %969, %957, %.critedge58.split.loop.exit1604.i.i, %943, %934, %929, %.critedge56.split.loop.exit1602.i.i, %910, %.critedge54.split.loop.exit1606.i.i, %874, %870, %867, %.critedge52.split.loop.exit1610.i.i, %853, %844, %839, %.critedge50.split.loop.exit1608.i.i, %820, %808, %802, %.critedge48.split.loop.exit1614.i.i, %788, %779, %774, %.critedge46.split.loop.exit1612.i.i, %755, %743, %731, %727, %.critedge44.split.loop.exit1616.i.i, %710, %.critedge42.split.loop.exit1622.i.i, %696, %688, %.critedge40.split.loop.exit1624.i.i, %674, %665, %660, %655, %650, %.critedge38.split.loop.exit1620.i.i, %631, %.critedge36.split.loop.exit1618.i.i, %613, %601, %.critedge34.split.loop.exit1628.i.i, %587, %578, %573, %568, %.critedge32.split.loop.exit1626.i.i, %549, %537, %.critedge30.split.loop.exit1646.i.i, %523, %517, %.critedge28.split.loop.exit1648.i.i, %503, %495, %.critedge26.split.loop.exit1650.i.i, %481, %473, %.critedge24.split.loop.exit1652.i.i, %459, %451, %.critedge22.split.loop.exit1654.i.i, %437, %429, %.critedge20.split.loop.exit1656.i.i, %415, %407, %.critedge18.split.loop.exit1658.i.i, %393, %385, %.critedge16.split.loop.exit1660.i.i, %371, %362, %357, %352, %347, %342, %337, %332, %327, %322, %317, %312, %307, %302, %297, %292, %287, %.critedge14.split.loop.exit1644.i.i, %268, %.critedge12.split.loop.exit1642.i.i, %250, %.critedge10.split.loop.exit1640.i.i, %232, %.critedge8.split.loop.exit1638.i.i, %214, %.critedge6.split.loop.exit1636.i.i, %196, %.critedge4.split.loop.exit1634.i.i, %178, %.critedge2.split.loop.exit1632.i.i, %160, %.critedge.split.loop.exit1630.i.i, %142, %130, %123, %120, %_ZL14subtag_matchesPKcS0_S0_j.exit.i, %_ZL14subtag_matchesPKcS0_S0_j.exit93.i, %_ZL14subtag_matchesPKcS0_S0_j.exit102.i, %_ZL14subtag_matchesPKcS0_S0_j.exit903.i.i, %_ZL14subtag_matchesPKcS0_S0_j.exit895.i.i, %_ZL14subtag_matchesPKcS0_S0_j.exit887.i.i, %_ZL14subtag_matchesPKcS0_S0_j.exit.i.i, %11
+  %.sink.i.sink.i.sink = phi i32 [ 0, %11 ], [ 1, %1125 ], [ 1, %1034 ], [ 1, %1020 ], [ 1, %1013 ], [ 1, %1010 ], [ 1, %1005 ], [ 1, %997 ], [ 1, %981 ], [ 1, %969 ], [ 1, %957 ], [ 1, %943 ], [ 1, %934 ], [ 1, %929 ], [ 1, %910 ], [ 1, %874 ], [ 1, %870 ], [ 1, %867 ], [ 1, %853 ], [ 1, %844 ], [ 1, %839 ], [ 1, %820 ], [ 1, %808 ], [ 1, %802 ], [ 1, %788 ], [ 1, %779 ], [ 1, %774 ], [ 1, %755 ], [ 1, %743 ], [ 1, %731 ], [ 1, %727 ], [ 1, %710 ], [ 1, %696 ], [ 1, %688 ], [ 1, %674 ], [ 1, %665 ], [ 1, %660 ], [ 1, %655 ], [ 1, %650 ], [ 1, %631 ], [ 1, %613 ], [ 1, %601 ], [ 1, %587 ], [ 1, %578 ], [ 1, %573 ], [ 1, %568 ], [ 1, %549 ], [ 1, %537 ], [ 1, %523 ], [ 1, %517 ], [ 1, %503 ], [ 1, %495 ], [ 1, %481 ], [ 1, %473 ], [ 1, %459 ], [ 1, %451 ], [ 1, %437 ], [ 1, %429 ], [ 1, %415 ], [ 1, %407 ], [ 1, %393 ], [ 1, %385 ], [ 1, %371 ], [ 1, %362 ], [ 1, %357 ], [ 1, %352 ], [ 1, %347 ], [ 1, %342 ], [ 1, %337 ], [ 1, %332 ], [ 1, %327 ], [ 1, %322 ], [ 1, %317 ], [ 1, %312 ], [ 1, %307 ], [ 1, %302 ], [ 1, %297 ], [ 1, %292 ], [ 1, %287 ], [ 1, %268 ], [ 1, %250 ], [ 1, %232 ], [ 1, %214 ], [ 1, %196 ], [ 1, %178 ], [ 1, %160 ], [ 1, %142 ], [ 1, %130 ], [ 1, %123 ], [ 1, %120 ], [ 1, %_ZL14subtag_matchesPKcS0_S0_j.exit.i ], [ 1, %_ZL14subtag_matchesPKcS0_S0_j.exit93.i ], [ 1, %_ZL14subtag_matchesPKcS0_S0_j.exit102.i ], [ 1, %_ZL14subtag_matchesPKcS0_S0_j.exit903.i.i ], [ 1, %_ZL14subtag_matchesPKcS0_S0_j.exit895.i.i ], [ 1, %_ZL14subtag_matchesPKcS0_S0_j.exit887.i.i ], [ 1, %_ZL14subtag_matchesPKcS0_S0_j.exit.i.i ], [ %155, %.critedge.split.loop.exit1630.i.i ], [ %173, %.critedge2.split.loop.exit1632.i.i ], [ %191, %.critedge4.split.loop.exit1634.i.i ], [ %209, %.critedge6.split.loop.exit1636.i.i ], [ %227, %.critedge8.split.loop.exit1638.i.i ], [ %245, %.critedge10.split.loop.exit1640.i.i ], [ %263, %.critedge12.split.loop.exit1642.i.i ], [ %281, %.critedge14.split.loop.exit1644.i.i ], [ %382, %.critedge16.split.loop.exit1660.i.i ], [ %404, %.critedge18.split.loop.exit1658.i.i ], [ %426, %.critedge20.split.loop.exit1656.i.i ], [ %448, %.critedge22.split.loop.exit1654.i.i ], [ %470, %.critedge24.split.loop.exit1652.i.i ], [ %492, %.critedge26.split.loop.exit1650.i.i ], [ %514, %.critedge28.split.loop.exit1648.i.i ], [ %534, %.critedge30.split.loop.exit1646.i.i ], [ %562, %.critedge32.split.loop.exit1626.i.i ], [ %598, %.critedge34.split.loop.exit1628.i.i ], [ %626, %.critedge36.split.loop.exit1618.i.i ], [ %644, %.critedge38.split.loop.exit1620.i.i ], [ %685, %.critedge40.split.loop.exit1624.i.i ], [ %707, %.critedge42.split.loop.exit1622.i.i ], [ %723, %.critedge44.split.loop.exit1616.i.i ], [ %768, %.critedge46.split.loop.exit1612.i.i ], [ %799, %.critedge48.split.loop.exit1614.i.i ], [ %833, %.critedge50.split.loop.exit1608.i.i ], [ %864, %.critedge52.split.loop.exit1610.i.i ], [ %898, %.critedge54.split.loop.exit1606.i.i ], [ %923, %.critedge56.split.loop.exit1602.i.i ], [ %954, %.critedge58.split.loop.exit1604.i.i ], [ %994, %.critedge60.split.loop.exit1598.i.i ], [ %1031, %.critedge62.split.loop.exit1600.i.i ], [ 0, %.critedge2.i ], [ %.0.lcssa.ph.i, %.critedge4.loopexit.i ], [ 0, %1121 ], [ 2, %378 ], [ 2, %400 ], [ 2, %422 ], [ 2, %444 ], [ 2, %466 ], [ 2, %488 ], [ 2, %510 ], [ 2, %530 ], [ 2, %277 ], [ 2, %259 ], [ 2, %241 ], [ 2, %223 ], [ 2, %205 ], [ 2, %187 ], [ 2, %169 ], [ 2, %151 ], [ 2, %594 ], [ 2, %558 ], [ 2, %681 ], [ 2, %703 ], [ 2, %640 ], [ 2, %622 ], [ 2, %719 ], [ 2, %795 ], [ 2, %764 ], [ 2, %860 ], [ 2, %829 ], [ 2, %_ZL14subtag_matchesPKcS0_S0_j.exit1071.i.i ], [ 2, %950 ], [ 2, %919 ], [ 2, %1027 ], [ 2, %990 ]
+  %.0.shrunk.ph = phi i1 [ true, %11 ], [ %33, %1125 ], [ %33, %1034 ], [ %33, %1020 ], [ %33, %1013 ], [ %33, %1010 ], [ %33, %1005 ], [ %33, %997 ], [ %33, %981 ], [ %33, %969 ], [ %33, %957 ], [ %33, %943 ], [ %33, %934 ], [ %33, %929 ], [ %33, %910 ], [ %33, %874 ], [ %33, %870 ], [ %33, %867 ], [ %33, %853 ], [ %33, %844 ], [ %33, %839 ], [ %33, %820 ], [ %33, %808 ], [ %33, %802 ], [ %33, %788 ], [ %33, %779 ], [ %33, %774 ], [ %33, %755 ], [ %33, %743 ], [ %33, %731 ], [ %33, %727 ], [ %33, %710 ], [ %33, %696 ], [ %33, %688 ], [ %33, %674 ], [ %33, %665 ], [ %33, %660 ], [ %33, %655 ], [ %33, %650 ], [ %33, %631 ], [ %33, %613 ], [ %33, %601 ], [ %33, %587 ], [ %33, %578 ], [ %33, %573 ], [ %33, %568 ], [ %33, %549 ], [ %33, %537 ], [ %33, %523 ], [ %33, %517 ], [ %33, %503 ], [ %33, %495 ], [ %33, %481 ], [ %33, %473 ], [ %33, %459 ], [ %33, %451 ], [ %33, %437 ], [ %33, %429 ], [ %33, %415 ], [ %33, %407 ], [ %33, %393 ], [ %33, %385 ], [ %33, %371 ], [ %33, %362 ], [ %33, %357 ], [ %33, %352 ], [ %33, %347 ], [ %33, %342 ], [ %33, %337 ], [ %33, %332 ], [ %33, %327 ], [ %33, %322 ], [ %33, %317 ], [ %33, %312 ], [ %33, %307 ], [ %33, %302 ], [ %33, %297 ], [ %33, %292 ], [ %33, %287 ], [ %33, %268 ], [ %33, %250 ], [ %33, %232 ], [ %33, %214 ], [ %33, %196 ], [ %33, %178 ], [ %33, %160 ], [ %33, %142 ], [ %33, %130 ], [ %33, %123 ], [ %33, %120 ], [ %33, %_ZL14subtag_matchesPKcS0_S0_j.exit.i ], [ %33, %_ZL14subtag_matchesPKcS0_S0_j.exit93.i ], [ %33, %_ZL14subtag_matchesPKcS0_S0_j.exit102.i ], [ %33, %_ZL14subtag_matchesPKcS0_S0_j.exit903.i.i ], [ %33, %_ZL14subtag_matchesPKcS0_S0_j.exit895.i.i ], [ %33, %_ZL14subtag_matchesPKcS0_S0_j.exit887.i.i ], [ %33, %_ZL14subtag_matchesPKcS0_S0_j.exit.i.i ], [ %33, %.critedge.split.loop.exit1630.i.i ], [ %33, %.critedge2.split.loop.exit1632.i.i ], [ %33, %.critedge4.split.loop.exit1634.i.i ], [ %33, %.critedge6.split.loop.exit1636.i.i ], [ %33, %.critedge8.split.loop.exit1638.i.i ], [ %33, %.critedge10.split.loop.exit1640.i.i ], [ %33, %.critedge12.split.loop.exit1642.i.i ], [ %33, %.critedge14.split.loop.exit1644.i.i ], [ %33, %.critedge16.split.loop.exit1660.i.i ], [ %33, %.critedge18.split.loop.exit1658.i.i ], [ %33, %.critedge20.split.loop.exit1656.i.i ], [ %33, %.critedge22.split.loop.exit1654.i.i ], [ %33, %.critedge24.split.loop.exit1652.i.i ], [ %33, %.critedge26.split.loop.exit1650.i.i ], [ %33, %.critedge28.split.loop.exit1648.i.i ], [ %33, %.critedge30.split.loop.exit1646.i.i ], [ %33, %.critedge32.split.loop.exit1626.i.i ], [ %33, %.critedge34.split.loop.exit1628.i.i ], [ %33, %.critedge36.split.loop.exit1618.i.i ], [ %33, %.critedge38.split.loop.exit1620.i.i ], [ %33, %.critedge40.split.loop.exit1624.i.i ], [ %33, %.critedge42.split.loop.exit1622.i.i ], [ %33, %.critedge44.split.loop.exit1616.i.i ], [ %33, %.critedge46.split.loop.exit1612.i.i ], [ %33, %.critedge48.split.loop.exit1614.i.i ], [ %33, %.critedge50.split.loop.exit1608.i.i ], [ %33, %.critedge52.split.loop.exit1610.i.i ], [ %33, %.critedge54.split.loop.exit1606.i.i ], [ %33, %.critedge56.split.loop.exit1602.i.i ], [ %33, %.critedge58.split.loop.exit1604.i.i ], [ %33, %.critedge60.split.loop.exit1598.i.i ], [ %33, %.critedge62.split.loop.exit1600.i.i ], [ %33, %.critedge2.i ], [ %33, %.critedge4.loopexit.i ], [ %33, %1121 ], [ %33, %378 ], [ %33, %400 ], [ %33, %422 ], [ %33, %444 ], [ %33, %466 ], [ %33, %488 ], [ %33, %510 ], [ %33, %530 ], [ %33, %277 ], [ %33, %259 ], [ %33, %241 ], [ %33, %223 ], [ %33, %205 ], [ %33, %187 ], [ %33, %169 ], [ %33, %151 ], [ %33, %594 ], [ %33, %558 ], [ %33, %681 ], [ %33, %703 ], [ %33, %640 ], [ %33, %622 ], [ %33, %719 ], [ %33, %795 ], [ %33, %764 ], [ %33, %860 ], [ %33, %829 ], [ %33, %_ZL14subtag_matchesPKcS0_S0_j.exit1071.i.i ], [ %33, %950 ], [ %33, %919 ], [ %33, %1027 ], [ %33, %990 ]
   store i32 %.sink.i.sink.i.sink, ptr %4, align 4
   br label %1128
 
@@ -3164,18 +3164,18 @@ _ZL25hb_ot_new_tag_from_script11hb_script_t.exit.i: ; preds = %1133, %1134, %113
   br i1 %1143, label %_ZL25hb_ot_new_tag_from_script11hb_script_t.exit.thread27.i, label %_ZL26hb_ot_all_tags_from_script11hb_script_tPjS0_.exit
 
 _ZL25hb_ot_new_tag_from_script11hb_script_t.exit.thread27.i: ; preds = %1133, %_ZL25hb_ot_new_tag_from_script11hb_script_t.exit.i
-  %.1.i70217 = phi i32 [ 1, %_ZL25hb_ot_new_tag_from_script11hb_script_t.exit.i ], [ 0, %1133 ]
-  %.0.i26.i216 = phi i32 [ %.0.i.ph.i, %_ZL25hb_ot_new_tag_from_script11hb_script_t.exit.i ], [ 1836674354, %1133 ]
-  %1144 = add nuw nsw i32 %.1.i70217, 1
-  %1145 = zext nneg i32 %.1.i70217 to i64
+  %.1.i70250 = phi i32 [ 1, %_ZL25hb_ot_new_tag_from_script11hb_script_t.exit.i ], [ 0, %1133 ]
+  %.0.i26.i249 = phi i32 [ %.0.i.ph.i, %_ZL25hb_ot_new_tag_from_script11hb_script_t.exit.i ], [ 1836674354, %1133 ]
+  %1144 = add nuw nsw i32 %.1.i70250, 1
+  %1145 = zext nneg i32 %.1.i70250 to i64
   %1146 = getelementptr inbounds nuw i32, ptr %3, i64 %1145
-  store i32 %.0.i26.i216, ptr %1146, align 4
+  store i32 %.0.i26.i249, ptr %1146, align 4
   %.pre213 = load i32, ptr %2, align 4
   %1147 = icmp ugt i32 %.pre213, %1144
   br i1 %1147, label %_ZL25hb_ot_new_tag_from_script11hb_script_t.exit.thread27.i.thread, label %_ZL26hb_ot_all_tags_from_script11hb_script_tPjS0_.exit
 
 _ZL25hb_ot_new_tag_from_script11hb_script_t.exit.thread27.i.thread: ; preds = %1133, %_ZL25hb_ot_new_tag_from_script11hb_script_t.exit.thread27.i
-  %.0.i219 = phi i32 [ %1144, %_ZL25hb_ot_new_tag_from_script11hb_script_t.exit.thread27.i ], [ 0, %1133 ]
+  %.0.i252 = phi i32 [ %1144, %_ZL25hb_ot_new_tag_from_script11hb_script_t.exit.thread27.i ], [ 0, %1133 ]
   switch i32 %0, label %1153 [
     i32 0, label %_ZL26hb_ot_all_tags_from_script11hb_script_tPjS0_.exit
     i32 1517122664, label %1155
@@ -3207,14 +3207,14 @@ _ZL25hb_ot_new_tag_from_script11hb_script_t.exit.thread27.i.thread: ; preds = %1
 
 1155:                                             ; preds = %1153, %1152, %1151, %1150, %1149, %1148, %_ZL25hb_ot_new_tag_from_script11hb_script_t.exit.thread27.i.thread
   %.0.i23.ph.i = phi i32 [ 1986095392, %1152 ], [ 1852534560, %1151 ], [ 2036932640, %1150 ], [ 1818324768, %1149 ], [ 1801547361, %1148 ], [ %1154, %1153 ], [ 1835103336, %_ZL25hb_ot_new_tag_from_script11hb_script_t.exit.thread27.i.thread ]
-  %1156 = add nuw nsw i32 %.0.i219, 1
-  %1157 = zext nneg i32 %.0.i219 to i64
+  %1156 = add nuw nsw i32 %.0.i252, 1
+  %1157 = zext nneg i32 %.0.i252 to i64
   %1158 = getelementptr inbounds nuw i32, ptr %3, i64 %1157
   store i32 %.0.i23.ph.i, ptr %1158, align 4
   br label %_ZL26hb_ot_all_tags_from_script11hb_script_tPjS0_.exit
 
 _ZL26hb_ot_all_tags_from_script11hb_script_tPjS0_.exit: ; preds = %_ZL25hb_ot_new_tag_from_script11hb_script_t.exit.i, %_ZL25hb_ot_new_tag_from_script11hb_script_t.exit.thread27.i, %_ZL25hb_ot_new_tag_from_script11hb_script_t.exit.thread27.i.thread, %1155
-  %.2.i = phi i32 [ %1156, %1155 ], [ %1144, %_ZL25hb_ot_new_tag_from_script11hb_script_t.exit.thread27.i ], [ %.0.i219, %_ZL25hb_ot_new_tag_from_script11hb_script_t.exit.thread27.i.thread ], [ 1, %_ZL25hb_ot_new_tag_from_script11hb_script_t.exit.i ]
+  %.2.i = phi i32 [ %1156, %1155 ], [ %1144, %_ZL25hb_ot_new_tag_from_script11hb_script_t.exit.thread27.i ], [ %.0.i252, %_ZL25hb_ot_new_tag_from_script11hb_script_t.exit.thread27.i.thread ], [ 1, %_ZL25hb_ot_new_tag_from_script11hb_script_t.exit.i ]
   store i32 %.2.i, ptr %2, align 4
   br label %1159
 
@@ -3377,11 +3377,11 @@ _ZL5ISHEXh.exit:                                  ; preds = %21
   %.pre = add nsw i8 %.fr, -65
   %30 = icmp ult i8 %.pre, 26
   %31 = add nuw nsw i8 %.fr, 32
-  %spec.select76 = select i1 %30, i8 %31, i8 %.fr
+  %spec.select82 = select i1 %30, i8 %31, i8 %.fr
   br label %32
 
 32:                                               ; preds = %.thread, %.thread.thread
-  %33 = phi i8 [ %28, %.thread.thread ], [ %spec.select76, %.thread ]
+  %33 = phi i8 [ %28, %.thread.thread ], [ %spec.select82, %.thread ]
   %34 = add nsw i8 %33, -87
   br label %_ZL7FROMHEXh.exit
 
@@ -4108,8 +4108,8 @@ _ZL9hb_memcpyPvPKvm.exit:                         ; preds = %47, %48
   %74 = getelementptr inbounds i8, ptr %45, i64 %.153
   store i8 %72, ptr %74, align 1
   %75 = add nsw i32 %.054, -4
-  %.not55 = icmp eq i32 %.054, 0
-  br i1 %.not55, label %76, label %65, !llvm.loop !53
+  %.not58 = icmp eq i32 %.054, 0
+  br i1 %.not58, label %76, label %65, !llvm.loop !53
 
 76:                                               ; preds = %65
   %77 = trunc i64 %73 to i32

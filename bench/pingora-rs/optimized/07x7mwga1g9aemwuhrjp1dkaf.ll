@@ -1130,10 +1130,10 @@ define void @_ZN15pingora_runtime14NoStealRuntime16shutdown_timeout17h198d4ba567
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.0.0.copyload = load i64, ptr %11, align 8
-  %.sroa.4.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx64, align 8
-  %.sroa.5.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx65, align 8
+  %.sroa.4.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx70, align 8
+  %.sroa.5.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx71, align 8
   store ptr null, ptr %10, align 8
   store i64 -9223372036854775808, ptr %11, align 8
   %.not = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775808

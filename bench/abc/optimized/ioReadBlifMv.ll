@@ -470,12 +470,11 @@ Vec_PtrGrow.exit.i162.i:                          ; preds = %152, %150
   br i1 %.not155.i, label %173, label %.thread217.i
 
 .thread217.i:                                     ; preds = %172, %132
-  %.1220.i = phi i32 [ %.0.i99, %172 ], [ 1, %132 ]
   store i8 0, ptr %.0112.i, align 1, !tbaa !37
   br label %173
 
 173:                                              ; preds = %.thread217.i, %172, %.thread.i
-  %.1216.i = phi i32 [ 0, %.thread.i ], [ 0, %172 ], [ %.1220.i, %.thread217.i ]
+  %.1216.i = phi i32 [ 0, %.thread.i ], [ 0, %172 ], [ 1, %.thread217.i ]
   %174 = getelementptr inbounds nuw i8, ptr %.0112.i, i64 1
   br label %132, !llvm.loop !38
 
@@ -1495,14 +1494,14 @@ Io_MvParseLineModel.exit.i:                       ; preds = %598, %.critedge.loo
   br label %Io_MvParse.exit
 
 620:                                              ; preds = %614, %573
-  %.sink221.in.i = phi ptr [ %575, %573 ], [ %618, %614 ]
+  %.sink245.in.i = phi ptr [ %575, %573 ], [ %618, %614 ]
   %.sink.i = phi ptr [ %576, %573 ], [ %617, %614 ]
-  %.sink221.i = load ptr, ptr %.sink221.in.i, align 8, !tbaa !65
-  %621 = getelementptr inbounds nuw i8, ptr %.sink221.i, i64 8
+  %.sink245.i = load ptr, ptr %.sink245.in.i, align 8, !tbaa !65
+  %621 = getelementptr inbounds nuw i8, ptr %.sink245.i, i64 8
   store ptr %.sink.i, ptr %621, align 8, !tbaa !67
   %622 = load ptr, ptr %90, align 8, !tbaa !32
   %623 = getelementptr inbounds nuw i8, ptr %566, i64 112
-  %624 = tail call i32 @Abc_DesAddModel(ptr noundef %622, ptr noundef nonnull %.sink221.i) #22
+  %624 = tail call i32 @Abc_DesAddModel(ptr noundef %622, ptr noundef nonnull %.sink245.i) #22
   %.not55.i = icmp eq i32 %624, 0
   br i1 %.not55.i, label %629, label %.preheader.i107
 
@@ -2105,8 +2104,8 @@ Io_MvParseLineConstrs.exit.i:                     ; preds = %.lr.ph.i99.i, %Io_M
   %856 = trunc nuw nsw i64 %indvars.iv.i104.i to i32
   %857 = trunc nsw i64 %indvars.iv5.i.i to i32
   %858 = sub i64 %indvars.iv5.i.i, %indvars.iv.i104.i
-  %sext27.i.i = shl i64 %858, 32
-  %859 = ashr exact i64 %sext27.i.i, 32
+  %sext29.i.i = shl i64 %858, 32
+  %859 = ashr exact i64 %sext29.i.i, 32
   %860 = tail call noalias ptr @malloc(i64 noundef %859) #20
   %.31.i.i = add nuw nsw i32 %856, 1
   %861 = icmp slt i32 %.31.i.i, %857
@@ -2395,8 +2394,8 @@ Io_MvGetLine.exit121.i.i:                         ; preds = %980, %.critedge.loo
   %.val100.pre.i.i = load i32, ptr %944, align 4, !tbaa !3
   %985 = add nsw i32 %.0.lcssa.i.i.i154, 3
   %986 = icmp eq i32 %.val100.pre.i.i, %985
-  %or.cond183.i.i = select i1 %984, i1 %986, i1 false
-  br i1 %or.cond183.i.i, label %Io_MvParseLineMv.exit.i, label %._crit_edge.i.i166
+  %or.cond191.i.i = select i1 %984, i1 %986, i1 false
+  br i1 %or.cond191.i.i, label %Io_MvParseLineMv.exit.i, label %._crit_edge.i.i166
 
 ._crit_edge.i.i166:                               ; preds = %983
   %987 = icmp sle i32 %.val100.pre.i.i, %985
@@ -2799,7 +2798,7 @@ Io_MvSplitIntoTokens.exit.i.i141:                 ; preds = %1158, %1148
   %1163 = getelementptr i8, ptr %1155, i64 4
   %.val74.i.i = load i32, ptr %1163, align 4, !tbaa !3
   %1164 = icmp sgt i32 %.val74.i.i, 0
-  br i1 %1164, label %.lr.ph.preheader.i.i143, label %.critedge.thread143.i.i
+  br i1 %1164, label %.lr.ph.preheader.i.i143, label %.critedge.thread144.i.i
 
 .lr.ph.preheader.i.i143:                          ; preds = %Io_MvSplitIntoTokens.exit.i.i141
   %wide.trip.count.i255.i = zext nneg i32 %.val74.i.i to i64
@@ -2829,11 +2828,11 @@ Io_MvSplitIntoTokens.exit.i.i141:                 ; preds = %1158, %1148
   %1175 = icmp eq i32 %.val74.i.i, %1174
   br i1 %1175, label %.critedge.thread.i.i, label %.lr.ph115.i.i
 
-.critedge.thread143.i.i:                          ; preds = %Io_MvSplitIntoTokens.exit.i.i141
+.critedge.thread144.i.i:                          ; preds = %Io_MvSplitIntoTokens.exit.i.i141
   %1176 = icmp eq i32 %.val74.i.i, 0
   br i1 %1176, label %.critedge.thread.i.i, label %.critedge2.i.thread.i
 
-.critedge.thread.i.i:                             ; preds = %.critedge.thread143.i.i, %.critedge.i260.i, %1173
+.critedge.thread.i.i:                             ; preds = %.critedge.thread144.i.i, %.critedge.i260.i, %1173
   %1177 = load ptr, ptr %1139, align 8, !tbaa !60
   %1178 = getelementptr inbounds nuw i8, ptr %1177, i64 88
   %1179 = getelementptr inbounds nuw i8, ptr %1177, i64 24
@@ -2931,9 +2930,9 @@ Io_MvGetLine.exit91.i.i:                          ; preds = %1213, %.critedge.lo
   %1215 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1203, ptr noundef nonnull dereferenceable(1) @.str.63, i32 noundef %.08.i83.i.i) #22
   br label %Io_MvParse.exit
 
-.critedge2.i.thread.i:                            ; preds = %.critedge2.i.i, %.critedge.thread143.i.i
-  %.3.i403.i = phi ptr [ %1192, %.critedge2.i.i ], [ %1162, %.critedge.thread143.i.i ]
-  %.pn.i = phi ptr [ %1166, %.critedge2.i.i ], [ %1162, %.critedge.thread143.i.i ]
+.critedge2.i.thread.i:                            ; preds = %.critedge2.i.i, %.critedge.thread144.i.i
+  %.3.i403.i = phi ptr [ %1192, %.critedge2.i.i ], [ %1162, %.critedge.thread144.i.i ]
+  %.pn.i = phi ptr [ %1166, %.critedge2.i.i ], [ %1162, %.critedge.thread144.i.i ]
   %1216 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 2
   %1217 = getelementptr inbounds nuw i8, ptr %.3.i403.i, i64 2
   %1218 = load ptr, ptr %1140, align 8, !tbaa !65
@@ -3248,10 +3247,10 @@ Io_MvGetLine.exit72.i.i:                          ; preds = %1329, %.critedge.lo
   br label %.critedge4.i138
 
 .critedge4.i138:                                  ; preds = %1336, %.thread76.i.i, %1335, %1334, %1285
-  %.sink1351.i = phi ptr [ %1290, %1335 ], [ %1290, %.thread76.i.i ], [ %1347, %1336 ], [ %1290, %1285 ], [ %1290, %1334 ]
-  %.sink1349.i = phi ptr [ inttoptr (i64 2 to ptr), %1335 ], [ inttoptr (i64 3 to ptr), %.thread76.i.i ], [ inttoptr (i64 1 to ptr), %1336 ], [ inttoptr (i64 1 to ptr), %1285 ], [ inttoptr (i64 1 to ptr), %1334 ]
-  %1348 = getelementptr inbounds nuw i8, ptr %.sink1351.i, i64 56
-  store ptr %.sink1349.i, ptr %1348, align 8, !tbaa !37
+  %.sink1410.i = phi ptr [ %1290, %1335 ], [ %1290, %.thread76.i.i ], [ %1347, %1336 ], [ %1290, %1285 ], [ %1290, %1334 ]
+  %.sink1408.i = phi ptr [ inttoptr (i64 2 to ptr), %1335 ], [ inttoptr (i64 3 to ptr), %.thread76.i.i ], [ inttoptr (i64 1 to ptr), %1336 ], [ inttoptr (i64 1 to ptr), %1285 ], [ inttoptr (i64 1 to ptr), %1334 ]
+  %1348 = getelementptr inbounds nuw i8, ptr %.sink1410.i, i64 56
+  store ptr %.sink1408.i, ptr %1348, align 8, !tbaa !37
   %indvars.iv.next1018.i = add nuw nsw i64 %indvars.iv1017.i, 1
   %1349 = load ptr, ptr %1141, align 8, !tbaa !48
   %1350 = getelementptr i8, ptr %1349, i64 4
@@ -4780,9 +4779,9 @@ Io_MvGetLine.exit70.i.i:                          ; preds = %2023, %.critedge.lo
   br label %Io_MvParseLineShortBlif.exit.i
 
 Io_MvParseLineShortBlif.exit.i:                   ; preds = %2026, %2008
-  %.sink1352.i = phi ptr [ %2029, %2026 ], [ %2009, %2008 ]
+  %.sink1411.i = phi ptr [ %2029, %2026 ], [ %2009, %2008 ]
   %2030 = getelementptr inbounds nuw i8, ptr %1985, i64 56
-  store ptr %.sink1352.i, ptr %2030, align 8, !tbaa !37
+  store ptr %.sink1411.i, ptr %2030, align 8, !tbaa !37
   %indvars.iv.next1030.i = add nuw nsw i64 %indvars.iv1029.i, 1
   %2031 = load ptr, ptr %1384, align 8, !tbaa !54
   %2032 = getelementptr i8, ptr %2031, i64 4
@@ -5006,8 +5005,8 @@ Io_MvGetLine.exit.i346.i:                         ; preds = %2084, %.critedge.lo
   %indvars.iv.i342.i = phi i64 [ %indvars.iv.next.i343.i, %2131 ], [ 0, %2115 ]
   %2126 = add i64 %indvars.iv.i342.i, %.0104169.i.i
   %2127 = urem i64 %2126, %2108
-  %.idx205.i.i = shl nuw nsw i64 %2127, 4
-  %2128 = getelementptr inbounds nuw i8, ptr %2092, i64 %.idx205.i.i
+  %.idx208.i.i = shl nuw nsw i64 %2127, 4
+  %2128 = getelementptr inbounds nuw i8, ptr %2092, i64 %.idx208.i.i
   %2129 = load ptr, ptr %2128, align 8, !tbaa !103
   %2130 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2129, ptr noundef nonnull dereferenceable(1) %2125) #21
   %.not120.i.i = icmp eq i32 %2130, 0
@@ -5061,7 +5060,7 @@ Io_MvGetLine.exit144.i.i:                         ; preds = %2143, %.critedge.lo
   br label %Io_MvParse.exit
 
 2147:                                             ; preds = %.lr.ph.i341.i
-  %2148 = getelementptr inbounds nuw i8, ptr %2092, i64 %.idx205.i.i
+  %2148 = getelementptr inbounds nuw i8, ptr %2092, i64 %.idx208.i.i
   %2149 = getelementptr i8, ptr %2148, i64 8
   %2150 = load ptr, ptr %2149, align 8, !tbaa !103
   %2151 = add i64 %2126, 1
@@ -5084,12 +5083,12 @@ Io_MvGetLine.exit144.i.i:                         ; preds = %2143, %.critedge.lo
   br label %2161
 
 2161:                                             ; preds = %2158, %.thread149.i.i
-  %.sink223.i.i = phi ptr [ %2160, %2158 ], [ %2157, %.thread149.i.i ]
+  %.sink226.i.i = phi ptr [ %2160, %2158 ], [ %2157, %.thread149.i.i ]
   %.1148152.i.i = phi i64 [ %2151, %2158 ], [ %.1148153.i.i, %.thread149.i.i ]
   %2162 = load ptr, ptr %2040, align 8, !tbaa !65
   %2163 = tail call ptr @Abc_NtkCreateObj(ptr noundef %2162, i32 noundef 4) #22
   tail call void @Abc_ObjAddFanin(ptr noundef %2095, ptr noundef %2163) #22
-  tail call void @Abc_ObjAddFanin(ptr noundef %2163, ptr noundef %.sink223.i.i) #22
+  tail call void @Abc_ObjAddFanin(ptr noundef %2163, ptr noundef %.sink226.i.i) #22
   %indvars.iv.next195.i.i = add nuw nsw i64 %indvars.iv194.i.i, 1
   %.val129.i.i = load ptr, ptr %2104, align 8, !tbaa !136
   %2164 = getelementptr i8, ptr %.val129.i.i, i64 4
@@ -5527,9 +5526,9 @@ Io_MvGetLine.exit63.i.i:                          ; preds = %2336, %.critedge.lo
   br label %Vec_IntPush.exit.sink.split.i.i
 
 Vec_IntPush.exit.sink.split.i.i:                  ; preds = %2362, %2360, %2354, %2352
-  %.sink82.i.i = phi ptr [ %2353, %2352 ], [ %2355, %2354 ], [ %2361, %2360 ], [ %2363, %2362 ]
+  %.sink86.i.i = phi ptr [ %2353, %2352 ], [ %2355, %2354 ], [ %2361, %2360 ], [ %2363, %2362 ]
   %.sink.i.i = phi i32 [ 16, %2352 ], [ 16, %2354 ], [ %2357, %2360 ], [ %2357, %2362 ]
-  store ptr %.sink82.i.i, ptr %2280, align 8, !tbaa !151
+  store ptr %.sink86.i.i, ptr %2280, align 8, !tbaa !151
   store i32 %.sink.i.i, ptr %2272, align 8, !tbaa !150
   %.val48.i.pre.i = load ptr, ptr %2311, align 8, !tbaa !105
   %.val49.i366.pre.i = load ptr, ptr %2314, align 8, !tbaa !141
@@ -5542,7 +5541,7 @@ Vec_IntPush.exit.sink.split.i.i:                  ; preds = %2362, %2360, %2354,
 Vec_IntPush.exit.i.i:                             ; preds = %Vec_IntPush.exit.sink.split.i.i, %2341
   %.val48.val.val.i.i = phi ptr [ %.val42.val.val.i.i, %2341 ], [ %.val48.val.val.i.pre.i, %Vec_IntPush.exit.sink.split.i.i ]
   %.val49.i366.i = phi ptr [ %.val43.i363.i, %2341 ], [ %.val49.i366.pre.i, %Vec_IntPush.exit.sink.split.i.i ]
-  %.pre.i77.i.i = phi ptr [ %2282, %2341 ], [ %.sink82.i.i, %Vec_IntPush.exit.sink.split.i.i ]
+  %.pre.i77.i.i = phi ptr [ %2282, %2341 ], [ %.sink86.i.i, %Vec_IntPush.exit.sink.split.i.i ]
   %2364 = add nsw i32 %2346, 1
   store i32 %2364, ptr %2274, align 4, !tbaa !149
   %2365 = sext i32 %2346 to i64

@@ -4542,8 +4542,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %175 = sub i32 %172, %174
   %176 = icmp sgt i32 %159, 0
   %177 = icmp sgt i32 %158, 0
-  %or.cond157 = and i1 %176, %177
-  br i1 %or.cond157, label %.preheader.us, label %._crit_edge141
+  %or.cond183 = and i1 %176, %177
+  br i1 %or.cond183, label %.preheader.us, label %._crit_edge141
 
 .preheader.us:                                    ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %._crit_edge.us143
   %.050140.us = phi i32 [ %184, %._crit_edge.us143 ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ]
@@ -4951,8 +4951,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %59 = sub i32 %57, %58
   %60 = icmp sgt i32 %5, 0
   %61 = icmp sgt i32 %4, 0
-  %or.cond65 = and i1 %60, %61
-  br i1 %or.cond65, label %.preheader.us, label %._crit_edge60
+  %or.cond69 = and i1 %60, %61
+  br i1 %or.cond69, label %.preheader.us, label %._crit_edge60
 
 .preheader.us:                                    ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %._crit_edge.us
   %.04259.us = phi i32 [ %68, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ]
@@ -5108,7 +5108,7 @@ define internal void @_ZN4ncnnL20convolutiondepthwiseERKNS_3MatERS0_S2_S2_iiiiii
   %61 = load i32, ptr %14, align 4
   %62 = sext i32 %60 to i64
   %63 = sext i32 %59 to i64
-  %factor.op.mul132 = mul i64 %47, %63
+  %factor.op.mul139 = mul i64 %47, %63
   br label %.preheader.us.us.us
 
 .preheader.us.us.us:                              ; preds = %._crit_edge102.us.us.us, %.noexc66.us.us
@@ -5116,7 +5116,7 @@ define internal void @_ZN4ncnnL20convolutiondepthwiseERKNS_3MatERS0_S2_S2_iiiiii
   %.051105.us.us.us = phi ptr [ %126, %._crit_edge102.us.us.us ], [ %54, %.noexc66.us.us ]
   %64 = load ptr, ptr %10, align 8
   %65 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv128
-  %.reass = mul i64 %indvars.iv123, %factor.op.mul132
+  %.reass = mul i64 %indvars.iv123, %factor.op.mul139
   %66 = getelementptr inbounds nuw i8, ptr %57, i64 %.reass
   %67 = load ptr, ptr %13, align 8
   %68 = load ptr, ptr %15, align 8
@@ -5330,8 +5330,8 @@ define internal void @_ZN4ncnnL20convolutiondepthwiseERKNS_3MatERS0_S2_S2_iiiiii
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %52 = sext i32 %46 to i64
   %53 = icmp sgt i32 %46, 0
-  %or.cond165 = select i1 %48, i1 %53, i1 false
-  br i1 %or.cond165, label %.noexc90.us.us.preheader, label %._crit_edge
+  %or.cond175 = select i1 %48, i1 %53, i1 false
+  br i1 %or.cond175, label %.noexc90.us.us.preheader, label %._crit_edge
 
 .noexc90.us.us.preheader:                         ; preds = %.noexc90.lr.ph
   %wide.trip.count161 = zext nneg i32 %46 to i64
@@ -5692,8 +5692,8 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %6, %_ZN4ncnn3Mat7re
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 240
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !42
   %74 = icmp sgt i32 %.pre, 0
-  %or.cond63 = select i1 %73, i1 true, i1 %74
-  br i1 %or.cond63, label %_ZN4ncnn3MataSERKS0_.exit._crit_edge, label %75
+  %or.cond72 = select i1 %73, i1 true, i1 %74
+  br i1 %or.cond72, label %_ZN4ncnn3MataSERKS0_.exit._crit_edge, label %75
 
 75:                                               ; preds = %_ZN4ncnn3MataSERKS0_.exit
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 244

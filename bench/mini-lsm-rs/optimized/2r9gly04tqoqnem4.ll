@@ -468,14 +468,14 @@ define void @_ZN16mini_lsm_starter11lsm_storage15LsmStorageState6create17h93b591
   %4 = alloca { { i64, ptr }, i64 }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i64, ptr %1, align 8, !range !5, !noundef !4
-  switch i64 %5, label %default.unreachable22 [
+  switch i64 %5, label %default.unreachable23 [
     i64 0, label %16
     i64 1, label %6
     i64 2, label %16
     i64 3, label %9
   ]
 
-default.unreachable22:                            ; preds = %2
+default.unreachable23:                            ; preds = %2
   unreachable
 
 6:                                                ; preds = %2

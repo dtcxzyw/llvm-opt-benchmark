@@ -341,12 +341,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53
   br i1 %.not, label %146, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.1.lcssa66 = phi i32 [ %132, %._crit_edge ], [ %.036, %.preheader ]
-  %.244.lcssa65 = phi i32 [ %130, %._crit_edge ], [ %.042, %.preheader ]
+  %.1.lcssa76 = phi i32 [ %132, %._crit_edge ], [ %.036, %.preheader ]
+  %.244.lcssa75 = phi i32 [ %130, %._crit_edge ], [ %.042, %.preheader ]
   %134 = phi i32 [ %131, %._crit_edge ], [ %.promoted, %.preheader ]
-  %135 = sub nuw nsw i32 8, %.1.lcssa66
+  %135 = sub nuw nsw i32 8, %.1.lcssa76
   %136 = shl nsw i32 -1, %135
-  %137 = shl i32 %.244.lcssa65, %.1.lcssa66
+  %137 = shl i32 %.244.lcssa75, %.1.lcssa76
   %138 = sext i32 %134 to i64
   %139 = getelementptr inbounds nuw i8, ptr %13, i64 %138
   %140 = load i8, ptr %139, align 1, !tbaa !30
@@ -354,7 +354,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53
   %142 = and i32 %136, %141
   %143 = lshr i32 %142, %135
   %144 = or i32 %143, %137
-  %145 = add nsw i32 %121, %.1.lcssa66
+  %145 = add nsw i32 %121, %.1.lcssa76
   store i32 %145, ptr %22, align 4, !tbaa !17
   br label %146
 

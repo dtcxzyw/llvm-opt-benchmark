@@ -107,11 +107,11 @@ define range(i32 -5, 1) i32 @ff_oss_audio_open(ptr noundef %0, i32 noundef %1, p
   br label %91
 
 54:                                               ; preds = %50, %47
-  %.sink48 = phi i32 [ 16, %47 ], [ 32, %50 ]
-  %.sink46 = phi i32 [ 65536, %47 ], [ 65537, %50 ]
-  store i32 %.sink48, ptr %4, align 4, !tbaa !24
+  %.sink49 = phi i32 [ 16, %47 ], [ 32, %50 ]
+  %.sink47 = phi i32 [ 65536, %47 ], [ 65537, %50 ]
+  store i32 %.sink49, ptr %4, align 4, !tbaa !24
   %55 = getelementptr inbounds nuw i8, ptr %12, i64 28
-  store i32 %.sink46, ptr %55, align 4, !tbaa !28
+  store i32 %.sink47, ptr %55, align 4, !tbaa !28
   %56 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 2, ptr %56, align 8, !tbaa !29
   %57 = call i32 (i32, i64, ...) @ioctl(i32 noundef %14, i64 noundef 3221508101, ptr noundef nonnull %4) #7

@@ -37,7 +37,7 @@ define internal fastcc void @_RINvMs_CscmPyG4XWoQZ_3vteNtB5_6Parser14perform_act
   %10 = alloca [1 x i8], align 1
   %11 = alloca [1 x i8], align 1
   %12 = alloca [16 x i8], align 8
-  switch i8 %2, label %default.unreachable48 [
+  switch i8 %2, label %default.unreachable90 [
     i8 0, label %13
     i8 1, label %14
     i8 2, label %20
@@ -56,7 +56,7 @@ define internal fastcc void @_RINvMs_CscmPyG4XWoQZ_3vteNtB5_6Parser14perform_act
     i8 15, label %75
   ]
 
-default.unreachable48:                            ; preds = %4
+default.unreachable90:                            ; preds = %4
   unreachable
 
 13:                                               ; preds = %4, %4, %273, %258, %247, %_RNvMNtCs1LoaDTb72WA_4core6resultINtB2_6ResultuINtNtCslmLCWD9els8_8arrayvec6errors13CapacityErrorhEE6unwrapCs8mTrBI1stz4_15turborepo_vt100.exit, %217, %204, %49, %86, %88, %232, %_RINvMs_CscmPyG4XWoQZ_3vteNtB5_6Parser12osc_dispatchNtNtCs8mTrBI1stz4_15turborepo_vt1007perform13WrappedScreenEBR_.exit, %_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform4hook.exit, %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexShE5indexCs8mTrBI1stz4_15turborepo_vt100.exit33, %75, %_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform5print.exit, %55, %37, %_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform12esc_dispatch.exit, %14, %4, %4

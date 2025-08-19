@@ -619,9 +619,9 @@ ImportBlock.exit117:                              ; preds = %.lr.ph36.i102, %.pr
   br label %166
 
 166:                                              ; preds = %144, %137
-  %.sink246 = phi i64 [ 376, %144 ], [ 360, %137 ]
+  %.sink252 = phi i64 [ 376, %144 ], [ 360, %137 ]
   %.sink = phi i8 [ %165, %144 ], [ 127, %137 ]
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink246
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink252
   %168 = load ptr, ptr %167, align 8, !tbaa !76
   %169 = getelementptr inbounds i8, ptr %168, i64 -1
   store i8 %.sink, ptr %169, align 1, !tbaa !44
@@ -641,11 +641,11 @@ ImportBlock.exit117:                              ; preds = %.lr.ph36.i102, %.pr
   br i1 %175, label %.lr.ph18.i, label %ImportLine.exit
 
 .lr.ph18.i:                                       ; preds = %166, %.preheader.i120
-  %.0.lcssa26.i = phi i32 [ %40, %.preheader.i120 ], [ 0, %166 ]
+  %.0.lcssa27.i = phi i32 [ %40, %.preheader.i120 ], [ 0, %166 ]
   %176 = sext i32 %40 to i64
   %177 = getelementptr i8, ptr %171, i64 %176
   %178 = getelementptr i8, ptr %177, i64 -1
-  %179 = zext i32 %.0.lcssa26.i to i64
+  %179 = zext i32 %.0.lcssa27.i to i64
   %.pre.i = load i8, ptr %178, align 1, !tbaa !44
   %scevgep = getelementptr nuw i8, ptr %171, i64 %179
   %180 = sub nsw i64 16, %179
@@ -684,10 +684,10 @@ ImportLine.exit:                                  ; preds = %.lr.ph18.i, %.prehe
   %192 = getelementptr i8, ptr %186, i64 %191
   %193 = getelementptr i8, ptr %192, i64 -1
   %194 = zext nneg i32 %44 to i64
-  %.pre.i123230 = load i8, ptr %193, align 1, !tbaa !44
-  %scevgep214231 = getelementptr i8, ptr %186, i64 %194
+  %.pre.i123236 = load i8, ptr %193, align 1, !tbaa !44
+  %scevgep214237 = getelementptr i8, ptr %186, i64 %194
   %195 = sub nuw nsw i64 8, %194
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep214231, i8 %.pre.i123230, i64 %195, i1 false), !tbaa !44
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep214237, i8 %.pre.i123236, i64 %195, i1 false), !tbaa !44
   %.pre226 = zext nneg i32 %44 to i64
   br label %.lr.ph.i141
 
@@ -733,12 +733,12 @@ ImportLine.exit:                                  ; preds = %.lr.ph18.i, %.prehe
 .lr.ph18.i135:                                    ; preds = %.preheader.i147..lr.ph18.i135_crit_edge, %.lr.ph18.i121..lr.ph18.i135_crit_edge
   %.pre-phi228 = phi i64 [ %.pre227, %.preheader.i147..lr.ph18.i135_crit_edge ], [ %196, %.lr.ph18.i121..lr.ph18.i135_crit_edge ]
   %211 = phi ptr [ %205, %.preheader.i147..lr.ph18.i135_crit_edge ], [ %200, %.lr.ph18.i121..lr.ph18.i135_crit_edge ]
-  %.0.lcssa26.i136 = phi i64 [ %210, %.preheader.i147..lr.ph18.i135_crit_edge ], [ 0, %.lr.ph18.i121..lr.ph18.i135_crit_edge ]
+  %.0.lcssa27.i136 = phi i64 [ %210, %.preheader.i147..lr.ph18.i135_crit_edge ], [ 0, %.lr.ph18.i121..lr.ph18.i135_crit_edge ]
   %212 = getelementptr i8, ptr %211, i64 %.pre-phi228
   %213 = getelementptr i8, ptr %212, i64 -1
   %.pre.i137 = load i8, ptr %213, align 1, !tbaa !44
-  %scevgep215 = getelementptr nuw i8, ptr %211, i64 %.0.lcssa26.i136
-  %214 = sub nuw nsw i64 8, %.0.lcssa26.i136
+  %scevgep215 = getelementptr nuw i8, ptr %211, i64 %.0.lcssa27.i136
+  %214 = sub nuw nsw i64 8, %.0.lcssa27.i136
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep215, i8 %.pre.i137, i64 %214, i1 false), !tbaa !44
   br label %InitLeft.exit
 
@@ -783,11 +783,11 @@ InitLeft.exit:                                    ; preds = %.lr.ph18.i135, %.pr
   br i1 %230, label %.lr.ph18.i149, label %ImportLine.exit162
 
 .lr.ph18.i149:                                    ; preds = %224, %.preheader.i161
-  %.0.lcssa26.i150 = phi i32 [ %35, %.preheader.i161 ], [ 0, %224 ]
+  %.0.lcssa27.i150 = phi i32 [ %35, %.preheader.i161 ], [ 0, %224 ]
   %231 = sext i32 %35 to i64
   %232 = getelementptr i8, ptr %1, i64 %231
   %233 = getelementptr i8, ptr %232, i64 -1
-  %234 = zext i32 %.0.lcssa26.i150 to i64
+  %234 = zext i32 %.0.lcssa27.i150 to i64
   %.pre.i151 = load i8, ptr %233, align 1, !tbaa !44
   %scevgep216 = getelementptr nuw i8, ptr %1, i64 %234
   %235 = sub nsw i64 16, %234
@@ -826,11 +826,11 @@ ImportLine.exit162:                               ; preds = %.lr.ph18.i149, %.pr
   %247 = getelementptr i8, ptr %220, i64 %246
   %248 = getelementptr i8, ptr %247, i64 -1
   %249 = zext nneg i32 %42 to i64
-  %.pre.i165233 = load i8, ptr %248, align 1, !tbaa !44
+  %.pre.i165239 = load i8, ptr %248, align 1, !tbaa !44
   %250 = getelementptr i8, ptr %1, i64 %249
-  %scevgep217234 = getelementptr i8, ptr %250, i64 16
+  %scevgep217240 = getelementptr i8, ptr %250, i64 16
   %251 = sub nuw nsw i64 8, %249
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep217234, i8 %.pre.i165233, i64 %251, i1 false), !tbaa !44
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep217240, i8 %.pre.i165239, i64 %251, i1 false), !tbaa !44
   %.pre223 = zext nneg i32 %42 to i64
   br label %.lr.ph.i183
 
@@ -874,13 +874,13 @@ ImportLine.exit162:                               ; preds = %.lr.ph18.i149, %.pr
 
 .lr.ph18.i177:                                    ; preds = %.preheader.i189..lr.ph18.i177_crit_edge, %.lr.ph18.i163..lr.ph18.i177_crit_edge
   %.pre-phi225 = phi i64 [ %.pre224, %.preheader.i189..lr.ph18.i177_crit_edge ], [ %252, %.lr.ph18.i163..lr.ph18.i177_crit_edge ]
-  %.0.lcssa26.i178 = phi i64 [ %262, %.preheader.i189..lr.ph18.i177_crit_edge ], [ 0, %.lr.ph18.i163..lr.ph18.i177_crit_edge ]
+  %.0.lcssa27.i178 = phi i64 [ %262, %.preheader.i189..lr.ph18.i177_crit_edge ], [ 0, %.lr.ph18.i163..lr.ph18.i177_crit_edge ]
   %263 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %264 = getelementptr i8, ptr %263, i64 %.pre-phi225
   %265 = getelementptr i8, ptr %264, i64 -1
   %.pre.i179 = load i8, ptr %265, align 1, !tbaa !44
-  %scevgep218 = getelementptr nuw i8, ptr %263, i64 %.0.lcssa26.i178
-  %266 = sub nuw nsw i64 8, %.0.lcssa26.i178
+  %scevgep218 = getelementptr nuw i8, ptr %263, i64 %.0.lcssa27.i178
+  %266 = sub nuw nsw i64 8, %.0.lcssa27.i178
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %scevgep218, i8 %.pre.i179, i64 %266, i1 false), !tbaa !44
   br label %ImportLine.exit190
 

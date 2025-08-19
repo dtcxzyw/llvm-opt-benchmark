@@ -151,8 +151,8 @@ define void @_ZN6LibRaw13parse_minoltaEi(ptr noundef nonnull align 8 dereference
 
 116:                                              ; preds = %113
   %117 = zext nneg i32 %114 to i64
-  %118 = add i64 %103, 8
-  %119 = add i64 %118, %117
+  %118 = add nsw i64 %103, 8
+  %119 = add nsw i64 %118, %117
   %120 = icmp sgt i64 %119, %44
   br i1 %120, label %.loopexit47, label %121
 

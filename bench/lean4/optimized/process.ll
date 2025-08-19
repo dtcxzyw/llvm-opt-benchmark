@@ -100,18 +100,18 @@ define noalias noundef nonnull ptr @lean_io_process_get_current_dir(ptr noundef 
   unreachable
 
 _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %9, %4
-  %.sink7 = phi ptr [ %6, %4 ], [ %13, %9 ]
-  %.sink4 = phi i32 [ 131096, %4 ], [ 16908312, %9 ]
+  %.sink9 = phi ptr [ %6, %4 ], [ %13, %9 ]
+  %.sink6 = phi i32 [ 131096, %4 ], [ 16908312, %9 ]
   %.sink = phi ptr [ %5, %4 ], [ %12, %9 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sink7, i64 4
-  store i32 1, ptr %.sink7, align 4, !tbaa !7
-  store i32 %.sink4, ptr %16, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %.sink7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
+  store i32 1, ptr %.sink9, align 4, !tbaa !7
+  store i32 %.sink6, ptr %16, align 4
+  %17 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
   store ptr %.sink, ptr %17, align 8, !tbaa !9
-  %18 = getelementptr inbounds nuw i8, ptr %.sink7, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %18, align 8, !tbaa !9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret ptr %.sink7
+  ret ptr %.sink9
 }
 
 ; Function Attrs: nounwind
@@ -151,17 +151,17 @@ define noalias noundef nonnull ptr @lean_io_process_set_current_dir(ptr noundef 
   unreachable
 
 _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %9, %5
-  %.sink9 = phi ptr [ %6, %5 ], [ %13, %9 ]
-  %.sink6 = phi i32 [ 131096, %5 ], [ 16908312, %9 ]
+  %.sink11 = phi ptr [ %6, %5 ], [ %13, %9 ]
+  %.sink8 = phi i32 [ 131096, %5 ], [ 16908312, %9 ]
   %.sink = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %12, %9 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !7
-  store i32 %.sink6, ptr %16, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.sink11, i64 4
+  store i32 1, ptr %.sink11, align 4, !tbaa !7
+  store i32 %.sink8, ptr %16, align 4
+  %17 = getelementptr inbounds nuw i8, ptr %.sink11, i64 8
   store ptr %.sink, ptr %17, align 8, !tbaa !9
-  %18 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.sink11, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %18, align 8, !tbaa !9
-  ret ptr %.sink9
+  ret ptr %.sink11
 }
 
 ; Function Attrs: nounwind
@@ -241,7 +241,7 @@ _ZL20lean_io_result_mk_okP11lean_object.exit:     ; preds = %_ZN4lean10box_uint6
 declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @lean_io_process_child_wait(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_process_child_wait(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load i32, ptr %5, align 4, !tbaa !3
@@ -302,18 +302,18 @@ _ZL20lean_io_result_mk_okP11lean_object.exit3:    ; preds = %29
   br label %_ZN4lean18io_result_mk_errorEP11lean_object.exit
 
 _ZN4lean18io_result_mk_errorEP11lean_object.exit: ; preds = %9, %_ZL20lean_io_result_mk_okP11lean_object.exit3, %_ZL20lean_io_result_mk_okP11lean_object.exit
-  %.sink10 = phi ptr [ %20, %_ZL20lean_io_result_mk_okP11lean_object.exit3 ], [ %20, %_ZL20lean_io_result_mk_okP11lean_object.exit ], [ %13, %9 ]
-  %.sink7 = phi i32 [ 131096, %_ZL20lean_io_result_mk_okP11lean_object.exit3 ], [ 131096, %_ZL20lean_io_result_mk_okP11lean_object.exit ], [ 16908312, %9 ]
+  %.sink14 = phi ptr [ %20, %_ZL20lean_io_result_mk_okP11lean_object.exit3 ], [ %20, %_ZL20lean_io_result_mk_okP11lean_object.exit ], [ %13, %9 ]
+  %.sink11 = phi i32 [ 131096, %_ZL20lean_io_result_mk_okP11lean_object.exit3 ], [ 131096, %_ZL20lean_io_result_mk_okP11lean_object.exit ], [ 16908312, %9 ]
   %.sink = phi ptr [ %34, %_ZL20lean_io_result_mk_okP11lean_object.exit3 ], [ %28, %_ZL20lean_io_result_mk_okP11lean_object.exit ], [ %12, %9 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.sink10, i64 4
-  store i32 1, ptr %.sink10, align 4, !tbaa !7
-  store i32 %.sink7, ptr %35, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %.sink10, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.sink14, i64 4
+  store i32 1, ptr %.sink14, align 4, !tbaa !7
+  store i32 %.sink11, ptr %35, align 4
+  %36 = getelementptr inbounds nuw i8, ptr %.sink14, i64 8
   store ptr %.sink, ptr %36, align 8, !tbaa !9
-  %37 = getelementptr inbounds nuw i8, ptr %.sink10, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.sink14, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %37, align 8, !tbaa !9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %.sink10
+  ret ptr %.sink14
 }
 
 declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -416,18 +416,18 @@ _ZN4lean14mk_option_someEP11lean_object.exit8:    ; preds = %37
   unreachable
 
 _ZN4lean18io_result_mk_errorEP11lean_object.exit: ; preds = %_ZN4lean14mk_option_someEP11lean_object.exit8, %_ZN4lean14mk_option_someEP11lean_object.exit, %15, %8
-  %.sink16 = phi ptr [ %12, %8 ], [ %16, %15 ], [ %34, %_ZN4lean14mk_option_someEP11lean_object.exit ], [ %45, %_ZN4lean14mk_option_someEP11lean_object.exit8 ]
-  %.sink13 = phi i32 [ 16908312, %8 ], [ 131096, %15 ], [ 131096, %_ZN4lean14mk_option_someEP11lean_object.exit ], [ 131096, %_ZN4lean14mk_option_someEP11lean_object.exit8 ]
+  %.sink23 = phi ptr [ %12, %8 ], [ %16, %15 ], [ %34, %_ZN4lean14mk_option_someEP11lean_object.exit ], [ %45, %_ZN4lean14mk_option_someEP11lean_object.exit8 ]
+  %.sink20 = phi i32 [ 16908312, %8 ], [ 131096, %15 ], [ 131096, %_ZN4lean14mk_option_someEP11lean_object.exit ], [ 131096, %_ZN4lean14mk_option_someEP11lean_object.exit8 ]
   %.sink = phi ptr [ %11, %8 ], [ inttoptr (i64 1 to ptr), %15 ], [ %23, %_ZN4lean14mk_option_someEP11lean_object.exit ], [ %23, %_ZN4lean14mk_option_someEP11lean_object.exit8 ]
-  %48 = getelementptr inbounds nuw i8, ptr %.sink16, i64 4
-  store i32 1, ptr %.sink16, align 4, !tbaa !7
-  store i32 %.sink13, ptr %48, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %.sink16, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.sink23, i64 4
+  store i32 1, ptr %.sink23, align 4, !tbaa !7
+  store i32 %.sink20, ptr %48, align 4
+  %49 = getelementptr inbounds nuw i8, ptr %.sink23, i64 8
   store ptr %.sink, ptr %49, align 8, !tbaa !9
-  %50 = getelementptr inbounds nuw i8, ptr %.sink16, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %.sink23, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %50, align 8, !tbaa !9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %.sink16
+  ret ptr %.sink23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -476,17 +476,17 @@ define noalias noundef nonnull ptr @lean_io_process_child_kill(ptr noundef readn
   unreachable
 
 _ZN4lean18io_result_mk_errorEP11lean_object.exit: ; preds = %22, %15
-  %.sink11 = phi ptr [ %19, %15 ], [ %23, %22 ]
-  %.sink8 = phi i32 [ 16908312, %15 ], [ 131096, %22 ]
+  %.sink13 = phi ptr [ %19, %15 ], [ %23, %22 ]
+  %.sink10 = phi i32 [ 16908312, %15 ], [ 131096, %22 ]
   %.sink = phi ptr [ %18, %15 ], [ inttoptr (i64 1 to ptr), %22 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.sink11, i64 4
-  store i32 1, ptr %.sink11, align 4, !tbaa !7
-  store i32 %.sink8, ptr %26, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %.sink11, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.sink13, i64 4
+  store i32 1, ptr %.sink13, align 4, !tbaa !7
+  store i32 %.sink10, ptr %26, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %.sink13, i64 8
   store ptr %.sink, ptr %27, align 8, !tbaa !9
-  %28 = getelementptr inbounds nuw i8, ptr %.sink11, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.sink13, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %28, align 8, !tbaa !9
-  ret ptr %.sink11
+  ret ptr %.sink13
 }
 
 ; Function Attrs: nounwind

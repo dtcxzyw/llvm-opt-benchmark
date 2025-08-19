@@ -294,9 +294,9 @@ rb_right_rotate.exit.i:                           ; preds = %87, %86, %81
   %102 = load ptr, ptr %101, align 8, !tbaa !22
   store ptr %102, ptr %97, align 8, !tbaa !21
   %.not.i55.i = icmp eq ptr %102, null
-  br i1 %.not.i55.i, label %.thread74.i, label %103
+  br i1 %.not.i55.i, label %.thread89.i, label %103
 
-.thread74.i:                                      ; preds = %100
+.thread89.i:                                      ; preds = %100
   store ptr %41, ptr %98, align 8, !tbaa !18
   br label %106
 
@@ -311,8 +311,8 @@ rb_right_rotate.exit.i:                           ; preds = %87, %86, %81
   store ptr %98, ptr %0, align 8, !tbaa !3
   br label %rb_right_rotate.exit56.i
 
-106:                                              ; preds = %103, %.thread74.i
-  %107 = phi ptr [ %41, %.thread74.i ], [ %.pre.i, %103 ]
+106:                                              ; preds = %103, %.thread89.i
+  %107 = phi ptr [ %41, %.thread89.i ], [ %.pre.i, %103 ]
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load ptr, ptr %108, align 8, !tbaa !22
   %110 = icmp eq ptr %36, %109

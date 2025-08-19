@@ -425,9 +425,9 @@ select.unfold68.i:                                ; preds = %34, %20
   br i1 %79, label %.thread106.i, label %82
 
 .sink.split.i:                                    ; preds = %69, %61, %56
-  %.sink125.i = phi i32 [ %57, %56 ], [ %62, %61 ], [ %70, %69 ]
+  %.sink132.i = phi i32 [ %57, %56 ], [ %62, %61 ], [ %70, %69 ]
   %80 = load i32, ptr %2, align 8
-  %81 = add i32 %80, %.sink125.i
+  %81 = add i32 %80, %.sink132.i
   br label %82
 
 82:                                               ; preds = %.sink.split.i, %74

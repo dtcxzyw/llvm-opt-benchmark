@@ -169,7 +169,7 @@ define ptr @ossl_rsa_ctx_to_pss_string(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond.i, label %24, label %rsa_ctx_to_pss.exit
 
 24:                                               ; preds = %21, %.thread.i
-  %.01421.i = phi i32 [ %10, %.thread.i ], [ -1, %21 ]
+  %.01423.i = phi i32 [ %10, %.thread.i ], [ -1, %21 ]
   %25 = call i32 @EVP_PKEY_get_size(ptr noundef %5) #7
   %reass.sub = sub i32 %25, %10
   %26 = add i32 %reass.sub, -2
@@ -191,11 +191,11 @@ thread-pre-split.i:                               ; preds = %31, %24
   br i1 %34, label %rsa_ctx_to_pss.exit.thread, label %35
 
 35:                                               ; preds = %thread-pre-split.i
-  %or.cond18.i = icmp ult i32 %.01421.i, %33
+  %or.cond18.i = icmp ult i32 %.01423.i, %33
   br i1 %or.cond18.i, label %36, label %rsa_ctx_to_pss.exit
 
 36:                                               ; preds = %35
-  store i32 %.01421.i, ptr %4, align 4, !tbaa !12
+  store i32 %.01423.i, ptr %4, align 4, !tbaa !12
   br label %rsa_ctx_to_pss.exit
 
 rsa_ctx_to_pss.exit.thread:                       ; preds = %1, %8, %12, %15, %thread-pre-split.i
@@ -205,7 +205,7 @@ rsa_ctx_to_pss.exit.thread:                       ; preds = %1, %8, %12, %15, %t
   br label %45
 
 rsa_ctx_to_pss.exit:                              ; preds = %21, %35, %36
-  %37 = phi i32 [ %33, %35 ], [ %.01421.i, %36 ], [ %22, %21 ]
+  %37 = phi i32 [ %33, %35 ], [ %.01423.i, %36 ], [ %22, %21 ]
   %38 = load ptr, ptr %2, align 8, !tbaa !10
   %39 = load ptr, ptr %3, align 8, !tbaa !10
   %40 = call ptr @ossl_rsa_pss_params_create(ptr noundef %38, ptr noundef %39, i32 noundef %37)
@@ -274,10 +274,10 @@ define range(i32 -1, 2) i32 @ossl_rsa_pss_to_ctx(ptr noundef %0, ptr noundef %1,
   br i1 %.not6.i.i, label %22, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %20, %17
-  %.sink1.i.i = phi i32 [ 596, %17 ], [ 604, %20 ]
+  %.sink2.i.i = phi i32 [ 596, %17 ], [ 604, %20 ]
   %.sink.i.i = phi i32 [ 150, %17 ], [ 139, %20 ]
   call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink1.i.i, ptr noundef nonnull @__func__.rsa_pss_verify_param) #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink2.i.i, ptr noundef nonnull @__func__.rsa_pss_verify_param) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef %.sink.i.i, ptr noundef null) #7
   br label %21
 
@@ -399,10 +399,10 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_get_param(ptr noundef %0, ptr noundef %
   br i1 %.not6.i, label %rsa_pss_verify_param.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %11, %8
-  %.sink1.i = phi i32 [ 596, %8 ], [ 604, %11 ]
+  %.sink2.i = phi i32 [ 596, %8 ], [ 604, %11 ]
   %.sink.i = phi i32 [ 150, %8 ], [ 139, %11 ]
   call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink1.i, ptr noundef nonnull @__func__.rsa_pss_verify_param) #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink2.i, ptr noundef nonnull @__func__.rsa_pss_verify_param) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef %.sink.i, ptr noundef null) #7
   br label %rsa_pss_verify_param.exit
 
@@ -449,7 +449,7 @@ define internal range(i32 0, 2) i32 @rsa_pub_decode(ptr noundef %0, ptr noundef 
   %13 = load ptr, ptr %5, align 8, !tbaa !20
   %14 = call i32 @ossl_rsa_param_decode(ptr noundef nonnull %10, ptr noundef %13) #7
   %.not12 = icmp eq i32 %14, 0
-  br i1 %.not12, label %.sink.split14, label %15
+  br i1 %.not12, label %.sink.split15, label %15
 
 15:                                               ; preds = %12
   call void @RSA_clear_flags(ptr noundef nonnull %10, i32 noundef 61440) #7
@@ -474,14 +474,14 @@ define internal range(i32 0, 2) i32 @rsa_pub_decode(ptr noundef %0, ptr noundef 
   %22 = load i32, ptr %21, align 8, !tbaa !34
   %23 = call i32 @EVP_PKEY_assign(ptr noundef nonnull %0, i32 noundef %22, ptr noundef nonnull %10) #7
   %.not13 = icmp eq i32 %23, 0
-  br i1 %.not13, label %.sink.split14, label %24
+  br i1 %.not13, label %.sink.split15, label %24
 
-.sink.split14:                                    ; preds = %20, %12
+.sink.split15:                                    ; preds = %20, %12
   call void @RSA_free(ptr noundef nonnull %10) #7
   br label %24
 
-24:                                               ; preds = %.sink.split14, %20, %7, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %7 ], [ 1, %20 ], [ 0, %.sink.split14 ]
+24:                                               ; preds = %.sink.split15, %20, %7, %2
+  %.0 = phi i32 [ 0, %2 ], [ 0, %7 ], [ 1, %20 ], [ 0, %.sink.split15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -798,10 +798,10 @@ define internal range(i32 -2, 3) i32 @rsa_pkey_ctrl(ptr noundef readonly capture
   br i1 %.not6.i.i, label %21, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %19, %16
-  %.sink1.i.i = phi i32 [ 596, %16 ], [ 604, %19 ]
+  %.sink2.i.i = phi i32 [ 596, %16 ], [ 604, %19 ]
   %.sink.i.i = phi i32 [ 150, %16 ], [ 139, %19 ]
   call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink1.i.i, ptr noundef nonnull @__func__.rsa_pss_verify_param) #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink2.i.i, ptr noundef nonnull @__func__.rsa_pss_verify_param) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef %.sink.i.i, ptr noundef null) #7
   br label %20
 
@@ -1043,10 +1043,10 @@ define internal range(i32 0, 2) i32 @rsa_sig_info_set(ptr noundef %0, ptr nounde
   br i1 %.not6.i.i, label %17, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %16, %13
-  %.sink1.i.i = phi i32 [ 596, %13 ], [ 604, %16 ]
+  %.sink2.i.i = phi i32 [ 596, %13 ], [ 604, %16 ]
   %.sink.i.i = phi i32 [ 150, %13 ], [ 139, %16 ]
   call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink1.i.i, ptr noundef nonnull @__func__.rsa_pss_verify_param) #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink2.i.i, ptr noundef nonnull @__func__.rsa_pss_verify_param) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef %.sink.i.i, ptr noundef null) #7
   br label %ossl_rsa_pss_get_param.exit.thread
 
@@ -1373,7 +1373,7 @@ define internal fastcc range(i32 0, 2) i32 @pkey_rsa_print(ptr noundef %0, ptr n
   br i1 %.not93, label %.thread98, label %80
 
 80:                                               ; preds = %78
-  switch i32 %.072101, label %default.unreachable [
+  switch i32 %.072101, label %default.unreachable105 [
     i32 0, label %81
     i32 1, label %84
     i32 2, label %87
@@ -1394,7 +1394,7 @@ define internal fastcc range(i32 0, 2) i32 @pkey_rsa_print(ptr noundef %0, ptr n
   %89 = icmp slt i32 %88, 1
   br i1 %89, label %.thread98, label %90
 
-default.unreachable:                              ; preds = %80
+default.unreachable105:                           ; preds = %80
   unreachable
 
 90:                                               ; preds = %87, %84, %81

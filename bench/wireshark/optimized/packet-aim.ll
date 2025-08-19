@@ -3859,10 +3859,10 @@ define internal i32 @dissect_aim_tlv_value_icq(ptr noundef %0, i16 zeroext %1, p
   br i1 %23, label %30, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19, %24
-  %indvars.iv59 = phi i64 [ %indvars.iv.next, %24 ], [ 0, %19 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv59, 1
+  %indvars.iv60 = phi i64 [ %indvars.iv.next, %24 ], [ 0, %19 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv60, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 51
-  br i1 %exitcond, label %._crit_edge62, label %24, !llvm.loop !35
+  br i1 %exitcond, label %._crit_edge63, label %24, !llvm.loop !35
 
 24:                                               ; preds = %.lr.ph
   %25 = getelementptr [52 x %struct.anon.0], ptr @icq_calls, i64 0, i64 %indvars.iv.next
@@ -3875,13 +3875,13 @@ define internal i32 @dissect_aim_tlv_value_icq(ptr noundef %0, i16 zeroext %1, p
   %29 = load ptr, ptr %28, align 8
   br label %30
 
-._crit_edge62:                                    ; preds = %.lr.ph
+._crit_edge63:                                    ; preds = %.lr.ph
   br label %30, !llvm.loop !35
 
-30:                                               ; preds = %._crit_edge62, %._crit_edge, %19
-  %.lcssa = phi ptr [ %25, %._crit_edge ], [ getelementptr inbounds nuw (i8, ptr @icq_calls, i64 1224), %._crit_edge62 ], [ @icq_calls, %19 ]
-  %31 = phi ptr [ %29, %._crit_edge ], [ @.str.110, %._crit_edge62 ], [ @.str.769, %19 ]
-  %spec.select = phi ptr [ %29, %._crit_edge ], [ @.str.767, %._crit_edge62 ], [ @.str.769, %19 ]
+30:                                               ; preds = %._crit_edge63, %._crit_edge, %19
+  %.lcssa = phi ptr [ %25, %._crit_edge ], [ getelementptr inbounds nuw (i8, ptr @icq_calls, i64 1224), %._crit_edge63 ], [ @icq_calls, %19 ]
+  %31 = phi ptr [ %29, %._crit_edge ], [ @.str.110, %._crit_edge63 ], [ @.str.769, %19 ]
+  %spec.select = phi ptr [ %29, %._crit_edge ], [ @.str.767, %._crit_edge63 ], [ @.str.769, %19 ]
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load ptr, ptr %32, align 8
   tail call void @col_set_str(ptr noundef %33, i32 noundef 25, ptr noundef nonnull %spec.select)
@@ -4235,9 +4235,7 @@ define internal noundef i32 @dissect_aim_msg_client_err(ptr noundef %0, ptr noun
   br label %50
 
 46:                                               ; preds = %50
-  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %47 = getelementptr [3 x %struct._aim_client_plugin], ptr @known_client_plugins, i64 0, i64 %indvars.iv.next.i.i.i
-  %exitcond.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 2
+  %47 = getelementptr [3 x %struct._aim_client_plugin], ptr @known_client_plugins, i64 0, i64 %indvars.iv.i.i.i
   br i1 %exitcond.i.i.i, label %aim_find_plugin.exit.thread.i.i, label %50, !llvm.loop !37
 
 aim_find_plugin.exit.thread.i.i:                  ; preds = %46
@@ -4247,7 +4245,8 @@ aim_find_plugin.exit.thread.i.i:                  ; preds = %46
   br label %dissect_aim_plugin.exit.i
 
 50:                                               ; preds = %46, %29
-  %indvars.iv.i.i.i = phi i64 [ 0, %29 ], [ %indvars.iv.next.i.i.i, %46 ]
+  %exitcond.i.i.i = phi i1 [ false, %29 ], [ true, %46 ]
+  %indvars.iv.i.i.i = phi i64 [ 1, %29 ], [ 2, %46 ]
   %51 = phi ptr [ @known_client_plugins, %29 ], [ %47, %46 ]
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %52, ptr noundef nonnull dereferenceable(16) %5, i64 16)

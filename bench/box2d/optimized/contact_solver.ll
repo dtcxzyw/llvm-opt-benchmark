@@ -105,7 +105,7 @@ define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none
   %55 = load float, ptr %54, align 4, !tbaa !106
   %.not = icmp eq i32 %28, -1
   %56 = bitcast i64 %34 to <2 x float>
-  br i1 %.not, label %57, label %.thread217
+  br i1 %.not, label %57, label %.thread220
 
 57:                                               ; preds = %.lr.ph209
   %58 = getelementptr inbounds nuw i8, ptr %23, i64 28
@@ -115,7 +115,7 @@ define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none
   %.not146 = icmp eq i32 %30, -1
   br i1 %.not146, label %.thread, label %.thread.sink.split
 
-.thread217:                                       ; preds = %.lr.ph209
+.thread220:                                       ; preds = %.lr.ph209
   %62 = sext i32 %28 to i64
   %63 = getelementptr inbounds %struct.b2BodyState, ptr %15, i64 %62
   %.sroa.074.0.copyload = load <2 x float>, ptr %63, align 4
@@ -125,15 +125,15 @@ define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none
   %67 = load float, ptr %66, align 4, !tbaa !107
   %68 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %69 = load float, ptr %68, align 4, !tbaa !108
-  %.not146220 = icmp eq i32 %30, -1
-  br i1 %.not146220, label %.thread, label %.thread.sink.split
+  %.not146223 = icmp eq i32 %30, -1
+  br i1 %.not146223, label %.thread, label %.thread.sink.split
 
-.thread.sink.split:                               ; preds = %.thread217, %57
-  %.sink234.ph = phi ptr [ %3, %57 ], [ %2, %.thread217 ]
-  %.ph = phi float [ %61, %57 ], [ %69, %.thread217 ]
-  %.ph235 = phi float [ %59, %57 ], [ %67, %.thread217 ]
-  %.sroa.074.1224.ph = phi <2 x float> [ zeroinitializer, %57 ], [ %.sroa.074.0.copyload, %.thread217 ]
-  %.0141221.ph = phi float [ 0.000000e+00, %57 ], [ %65, %.thread217 ]
+.thread.sink.split:                               ; preds = %.thread220, %57
+  %.sink237.ph = phi ptr [ %3, %57 ], [ %2, %.thread220 ]
+  %.ph = phi float [ %61, %57 ], [ %69, %.thread220 ]
+  %.ph238 = phi float [ %59, %57 ], [ %67, %.thread220 ]
+  %.sroa.074.1227.ph = phi <2 x float> [ zeroinitializer, %57 ], [ %.sroa.074.0.copyload, %.thread220 ]
+  %.0141224.ph = phi float [ 0.000000e+00, %57 ], [ %65, %.thread220 ]
   %70 = sext i32 %30 to i64
   %71 = getelementptr inbounds %struct.b2BodyState, ptr %15, i64 %70
   %.sroa.063.0.copyload = load <2 x float>, ptr %71, align 4
@@ -141,16 +141,16 @@ define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none
   %73 = load float, ptr %72, align 4, !tbaa !109
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %57, %.thread217
-  %.sink234 = phi ptr [ %3, %.thread217 ], [ %3, %57 ], [ %.sink234.ph, %.thread.sink.split ]
-  %74 = phi float [ %69, %.thread217 ], [ %61, %57 ], [ %.ph, %.thread.sink.split ]
-  %75 = phi float [ %67, %.thread217 ], [ %59, %57 ], [ %.ph235, %.thread.sink.split ]
-  %.sroa.074.1224 = phi <2 x float> [ %.sroa.074.0.copyload, %.thread217 ], [ zeroinitializer, %57 ], [ %.sroa.074.1224.ph, %.thread.sink.split ]
-  %.0141221 = phi float [ %65, %.thread217 ], [ 0.000000e+00, %57 ], [ %.0141221.ph, %.thread.sink.split ]
-  %.sroa.063.1204 = phi <2 x float> [ zeroinitializer, %.thread217 ], [ zeroinitializer, %57 ], [ %.sroa.063.0.copyload, %.thread.sink.split ]
-  %.0142202 = phi float [ 0.000000e+00, %.thread217 ], [ 0.000000e+00, %57 ], [ %73, %.thread.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %57, %.thread220
+  %.sink237 = phi ptr [ %3, %.thread220 ], [ %3, %57 ], [ %.sink237.ph, %.thread.sink.split ]
+  %74 = phi float [ %69, %.thread220 ], [ %61, %57 ], [ %.ph, %.thread.sink.split ]
+  %75 = phi float [ %67, %.thread220 ], [ %59, %57 ], [ %.ph238, %.thread.sink.split ]
+  %.sroa.074.1227 = phi <2 x float> [ %.sroa.074.0.copyload, %.thread220 ], [ zeroinitializer, %57 ], [ %.sroa.074.1227.ph, %.thread.sink.split ]
+  %.0141224 = phi float [ %65, %.thread220 ], [ 0.000000e+00, %57 ], [ %.0141224.ph, %.thread.sink.split ]
+  %.sroa.063.1204 = phi <2 x float> [ zeroinitializer, %.thread220 ], [ zeroinitializer, %57 ], [ %.sroa.063.0.copyload, %.thread.sink.split ]
+  %.0142202 = phi float [ 0.000000e+00, %.thread220 ], [ 0.000000e+00, %57 ], [ %73, %.thread.sink.split ]
   %76 = getelementptr inbounds nuw i8, ptr %31, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %76, ptr noundef nonnull align 4 dereferenceable(12) %.sink234, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %76, ptr noundef nonnull align 4 dereferenceable(12) %.sink237, i64 12, i1 false)
   %77 = getelementptr inbounds nuw i8, ptr %31, i64 104
   store float %53, ptr %77, align 4, !tbaa !112
   %78 = getelementptr inbounds nuw i8, ptr %31, i64 112
@@ -175,8 +175,8 @@ define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none
   %88 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %89 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %90 = fadd float %53, %75
-  %.sroa.01.0.vec.extract.i173 = extractelement <2 x float> %.sroa.074.1224, i64 0
-  %.sroa.01.4.vec.extract.i176 = extractelement <2 x float> %.sroa.074.1224, i64 1
+  %.sroa.01.0.vec.extract.i173 = extractelement <2 x float> %.sroa.074.1227, i64 0
+  %.sroa.01.4.vec.extract.i176 = extractelement <2 x float> %.sroa.074.1227, i64 1
   %.sroa.01.0.vec.extract.i183 = extractelement <2 x float> %.sroa.063.1204, i64 0
   %.sroa.01.4.vec.extract.i186 = extractelement <2 x float> %.sroa.063.1204, i64 1
   %wide.trip.count = zext nneg i32 %26 to i64
@@ -218,8 +218,8 @@ define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none
   %.sroa.01.4.vec.extract.i = extractelement <2 x float> %.sroa.018.0.copyload, i64 1
   %.sroa.0.4.vec.extract.i148 = extractelement <2 x float> %.sroa.023.0.copyload, i64 1
   %108 = fsub float %.sroa.01.4.vec.extract.i, %.sroa.0.4.vec.extract.i148
-  %foldExtExtBinop239 = fmul <2 x float> %foldExtExtBinop, %56
-  %109 = extractelement <2 x float> %foldExtExtBinop239, i64 0
+  %foldExtExtBinop242 = fmul <2 x float> %foldExtExtBinop, %56
+  %109 = extractelement <2 x float> %foldExtExtBinop242, i64 0
   %110 = fmul float %.sroa.0.4.vec.extract.i, %108
   %111 = fadd float %109, %110
   %112 = fsub float %107, %111
@@ -259,8 +259,8 @@ define hidden void @b2PrepareOverflowContacts(ptr noundef readonly captures(none
   %144 = select i1 %142, float %143, float 0.000000e+00
   %145 = getelementptr inbounds nuw i8, ptr %93, i64 40
   store float %144, ptr %145, align 4, !tbaa !129
-  %146 = fmul float %.0141221, %.sroa.0.0.vec.extract.i147
-  %147 = fmul float %.0141221, %.sroa.0.4.vec.extract.i148
+  %146 = fmul float %.0141224, %.sroa.0.0.vec.extract.i147
+  %147 = fmul float %.0141224, %.sroa.0.4.vec.extract.i148
   %148 = fsub float %.sroa.01.0.vec.extract.i173, %147
   %149 = fadd float %.sroa.01.4.vec.extract.i176, %146
   %150 = fmul float %.0142202, %.sroa.01.0.vec.extract.i
@@ -550,8 +550,8 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   %44 = load <2 x float>, ptr %.sroa.sel, align 4
   %foldExtExtBinop = fsub <2 x float> %43, %44
   %45 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %foldExtExtBinop410 = fsub <2 x float> %43, %44
-  %46 = extractelement <2 x float> %foldExtExtBinop410, i64 1
+  %foldExtExtBinop413 = fsub <2 x float> %43, %44
+  %46 = extractelement <2 x float> %foldExtExtBinop413, i64 1
   %47 = getelementptr inbounds nuw i8, ptr %21, i64 96
   %.sroa.092.0.copyload = load <2 x float>, ptr %47, align 4
   %.sroa.0.4.vec.extract.i198 = extractelement <2 x float> %.sroa.092.0.copyload, i64 1
@@ -600,8 +600,8 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load <2 x float>, ptr %61, align 4
   %.sroa.0.0.vec.extract.i200 = extractelement <2 x float> %62, i64 0
-  %foldExtExtBinop412 = fmul <2 x float> %.sroa.097.0.copyload, %62
-  %63 = extractelement <2 x float> %foldExtExtBinop412, i64 0
+  %foldExtExtBinop415 = fmul <2 x float> %.sroa.097.0.copyload, %62
+  %63 = extractelement <2 x float> %foldExtExtBinop415, i64 0
   %.sroa.0.4.vec.extract.i201 = extractelement <2 x float> %62, i64 1
   %64 = fmul float %.sroa.05.4.vec.extract.i, %.sroa.0.4.vec.extract.i201
   %65 = fsub float %63, %64
@@ -610,8 +610,8 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   %68 = fadd float %66, %67
   %69 = load <2 x float>, ptr %60, align 4
   %.sroa.0.0.vec.extract.i203 = extractelement <2 x float> %69, i64 0
-  %foldExtExtBinop414 = fmul <2 x float> %.sroa.0116.0.copyload, %69
-  %70 = extractelement <2 x float> %foldExtExtBinop414, i64 0
+  %foldExtExtBinop417 = fmul <2 x float> %.sroa.0116.0.copyload, %69
+  %70 = extractelement <2 x float> %foldExtExtBinop417, i64 0
   %.sroa.0.4.vec.extract.i205 = extractelement <2 x float> %69, i64 1
   %71 = fmul float %.sroa.05.4.vec.extract.i204, %.sroa.0.4.vec.extract.i205
   %72 = fsub float %70, %71
@@ -715,7 +715,7 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   br i1 %exitcond.not, label %.lr.ph370, label %59, !llvm.loop !143
 
 ._crit_edge:                                      ; preds = %167, %.cont346
-  %.0187.lcssa400 = phi float [ 0.000000e+00, %.cont346 ], [ %126, %167 ]
+  %.0187.lcssa403 = phi float [ 0.000000e+00, %.cont346 ], [ %126, %167 ]
   %.1186.lcssa = phi float [ %42, %.cont346 ], [ %218, %167 ]
   %.sroa.0105.1.lcssa = phi <2 x float> [ %.sroa.0105.0.copyload, %.cont346 ], [ %.sroa.03.4.vec.insert.i323, %167 ]
   %.1.lcssa = phi float [ %35, %.cont346 ], [ %209, %167 ]
@@ -727,7 +727,7 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   %151 = load float, ptr %150, align 4, !tbaa !101
   %152 = getelementptr inbounds nuw i8, ptr %21, i64 132
   %153 = load float, ptr %152, align 4, !tbaa !99
-  %154 = fmul float %.0187.lcssa400, %153
+  %154 = fmul float %.0187.lcssa403, %153
   %155 = fmul float %149, %148
   %156 = fsub float %151, %155
   %157 = fneg float %154
@@ -1342,8 +1342,8 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   %128 = load float, ptr %127, align 4, !tbaa !126
   %foldExtExtBinop = fsub <2 x float> %.sroa.051.0.copyload, %.sroa.056.0.copyload
   %129 = fsub float %.sroa.051.4.vec.extract, %.sroa.056.4.vec.extract
-  %foldExtExtBinop480 = fmul <2 x float> %.sroa.070.0.copyload, %foldExtExtBinop
-  %130 = extractelement <2 x float> %foldExtExtBinop480, i64 0
+  %foldExtExtBinop484 = fmul <2 x float> %.sroa.070.0.copyload, %foldExtExtBinop
+  %130 = extractelement <2 x float> %foldExtExtBinop484, i64 0
   %131 = fmul float %.sroa.070.4.vec.extract, %129
   %132 = fadd float %130, %131
   %133 = fsub float %128, %132
@@ -1439,10 +1439,10 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   store float %.sroa.018.4.vec.extract, ptr %194, align 4, !tbaa !24
   %201 = getelementptr inbounds nuw i8, ptr %61, i64 120
   %202 = load float, ptr %201, align 4, !tbaa !126
-  %foldExtExtBinop482 = fsub <2 x float> %.sroa.018.0.copyload, %.sroa.023.0.copyload
+  %foldExtExtBinop486 = fsub <2 x float> %.sroa.018.0.copyload, %.sroa.023.0.copyload
   %203 = fsub float %.sroa.018.4.vec.extract, %.sroa.023.4.vec.extract
-  %foldExtExtBinop484 = fmul <2 x float> %.sroa.070.0.copyload, %foldExtExtBinop482
-  %204 = extractelement <2 x float> %foldExtExtBinop484, i64 0
+  %foldExtExtBinop488 = fmul <2 x float> %.sroa.070.0.copyload, %foldExtExtBinop486
+  %204 = extractelement <2 x float> %foldExtExtBinop488, i64 0
   %205 = fmul float %.sroa.070.4.vec.extract, %203
   %206 = fadd float %204, %205
   %207 = fsub float %202, %206

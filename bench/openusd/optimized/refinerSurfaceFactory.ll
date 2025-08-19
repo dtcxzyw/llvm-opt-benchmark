@@ -305,8 +305,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr16VertexDescriptor19SetIncidentFaceSizeEii.exit: ; pre
 
 110:                                              ; preds = %109
   %111 = load ptr, ptr %91, align 8
-  %.idx171 = shl i64 %indvars.iv161, 3
-  %112 = getelementptr i8, ptr %111, i64 %.idx171
+  %.idx172 = shl i64 %indvars.iv161, 3
+  %112 = getelementptr i8, ptr %111, i64 %.idx172
   br label %.sink.split.i
 
 113:                                              ; preds = %109
@@ -466,19 +466,19 @@ _ZN10OpenSubdiv6v3_6_03Bfr16VertexDescriptor28SetIncidentFaceEdgeSharpnessEiff.e
   %197 = load i16, ptr %196, align 2
   %198 = zext i16 %197 to i32
   %199 = icmp eq i32 %2, %198
-  br i1 %199, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.loopexit173.split.loop.exit176, label %200
+  br i1 %199, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.loopexit174.split.loop.exit177, label %200
 
 200:                                              ; preds = %.lr.ph148, %195
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count169
   br i1 %exitcond170.not, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit, label %.lr.ph148, !llvm.loop !10
 
-_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.loopexit173.split.loop.exit176: ; preds = %195
+_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.loopexit174.split.loop.exit177: ; preds = %195
   %201 = trunc nuw nsw i64 %indvars.iv166 to i32
   br label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit
 
-_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit: ; preds = %200, %181, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.loopexit173.split.loop.exit176, %.thread, %183, %._crit_edge.loopexit.split.loop.exit11.i, %176
-  %.092 = phi i32 [ -1, %176 ], [ %182, %._crit_edge.loopexit.split.loop.exit11.i ], [ -1, %183 ], [ -1, %.thread ], [ %201, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.loopexit173.split.loop.exit176 ], [ -1, %181 ], [ -1, %200 ]
+_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit: ; preds = %200, %181, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.loopexit174.split.loop.exit177, %.thread, %183, %._crit_edge.loopexit.split.loop.exit11.i, %176
+  %.092 = phi i32 [ -1, %176 ], [ %182, %._crit_edge.loopexit.split.loop.exit11.i ], [ -1, %183 ], [ -1, %.thread ], [ %201, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.loopexit174.split.loop.exit177 ], [ -1, %181 ], [ -1, %200 ]
   ret i32 %.092
 }
 
@@ -1029,7 +1029,7 @@ define noundef range(i32 12, 17) i32 @_ZNK10OpenSubdiv6v3_6_03Bfr25RefinerSurfac
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 312
   %26 = icmp slt i32 %3, 0
-  br i1 %22, label %.preheader, label %.preheader25
+  br i1 %22, label %.preheader, label %.preheader30
 
 .preheader:                                       ; preds = %4, %195
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %195 ], [ 0, %4 ]
@@ -1277,7 +1277,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit.i: ; preds 
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_118gatherPatchPoints4IiEEiRKNS0_3Vtr8internal5LevelEiRKNS4_10ConstArrayIiEEPT_i.exit, label %.preheader, !llvm.loop !15
 
-.preheader25:                                     ; preds = %4, %433
+.preheader30:                                     ; preds = %4, %433
   %indvars.iv.i11 = phi i64 [ %indvars.iv.next.i13, %433 ], [ 0, %4 ]
   %200 = getelementptr inbounds nuw [3 x [4 x i32]], ptr @_ZZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_118gatherPatchPoints3IiEEiRKNS0_3Vtr8internal5LevelEiRKNS4_10ConstArrayIiEEPT_iE15pointsPerCorner, i64 0, i64 %indvars.iv.i11
   %201 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i11
@@ -1299,8 +1299,8 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit.i: ; preds 
     i32 1, label %295
   ]
 
-.lr.ph.i.i:                                       ; preds = %.preheader25, %218
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %218 ], [ 0, %.preheader25 ]
+.lr.ph.i.i:                                       ; preds = %.preheader30, %218
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %218 ], [ 0, %.preheader30 ]
   %215 = getelementptr inbounds nuw i32, ptr %211, i64 %indvars.iv.i.i
   %216 = load i32, ptr %215, align 4
   %217 = icmp eq i32 %1, %216
@@ -1339,8 +1339,8 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.thread.i: ; preds = 
   %236 = load ptr, ptr %10, align 8
   %237 = getelementptr inbounds i32, ptr %236, i64 %235
   %238 = icmp slt i32 %221, 5
-  %.v204.i = select i1 %238, i32 1, i32 -5
-  %239 = add nsw i32 %.v204.i, %221
+  %.v206.i = select i1 %238, i32 1, i32 -5
+  %239 = add nsw i32 %.v206.i, %221
   %240 = sext i32 %239 to i64
   %241 = getelementptr inbounds i32, ptr %211, i64 %240
   %242 = load i32, ptr %241, align 4
@@ -1372,11 +1372,11 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.thread.i: ; preds = 
 
 262:                                              ; preds = %252, %228
   %263 = phi i16 [ %244, %228 ], [ %260, %252 ]
-  %.sroa.0172.0205.i = phi ptr [ %237, %228 ], [ %.fca.0.extract49.i, %252 ]
+  %.sroa.0172.0207.i = phi ptr [ %237, %228 ], [ %.fca.0.extract49.i, %252 ]
   %.sroa.0171.0.i = phi ptr [ %251, %228 ], [ %.fca.0.extract38.i, %252 ]
   %264 = zext i16 %263 to i64
   %265 = zext i16 %226 to i64
-  %266 = getelementptr inbounds nuw i32, ptr %.sroa.0172.0205.i, i64 %265
+  %266 = getelementptr inbounds nuw i32, ptr %.sroa.0172.0207.i, i64 %265
   %267 = load i32, ptr %266, align 4
   %268 = load i32, ptr %200, align 16
   %269 = sext i32 %268 to i64
@@ -1386,7 +1386,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.thread.i: ; preds = 
   %.v193.i = select i1 %271, i32 1, i32 -2
   %272 = add nsw i32 %.v193.i, %227
   %273 = sext i32 %272 to i64
-  %274 = getelementptr inbounds i32, ptr %.sroa.0172.0205.i, i64 %273
+  %274 = getelementptr inbounds i32, ptr %.sroa.0172.0207.i, i64 %273
   %275 = load i32, ptr %274, align 4
   %276 = getelementptr inbounds nuw i8, ptr %200, i64 4
   %277 = load i32, ptr %276, align 4
@@ -1397,7 +1397,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.thread.i: ; preds = 
   %281 = add nsw i32 %227, -1
   %282 = sext i32 %281 to i64
   %283 = select i1 %280, i64 2, i64 %282
-  %284 = getelementptr inbounds i32, ptr %.sroa.0172.0205.i, i64 %283
+  %284 = getelementptr inbounds i32, ptr %.sroa.0172.0207.i, i64 %283
   %285 = load i32, ptr %284, align 4
   %286 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %287 = load i32, ptr %286, align 8
@@ -1411,7 +1411,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.thread.i: ; preds = 
   %294 = load i32, ptr %293, align 4
   br label %433
 
-295:                                              ; preds = %.preheader25
+295:                                              ; preds = %.preheader30
   br i1 %26, label %303, label %296
 
 296:                                              ; preds = %295
@@ -1442,7 +1442,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.thread.i: ; preds = 
   store i32 -1, ptr %315, align 4
   br label %433
 
-316:                                              ; preds = %.preheader25
+316:                                              ; preds = %.preheader30
   %317 = load i32, ptr %211, align 4
   %318 = icmp eq i32 %317, %1
   br i1 %318, label %319, label %356
@@ -1613,7 +1613,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.thread.i: ; preds = 
   store i32 %.sink.i12, ptr %437, align 4
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i11, 1
   %exitcond.not.i14 = icmp eq i64 %indvars.iv.next.i13, 3
-  br i1 %exitcond.not.i14, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_118gatherPatchPoints4IiEEiRKNS0_3Vtr8internal5LevelEiRKNS4_10ConstArrayIiEEPT_i.exit, label %.preheader25, !llvm.loop !16
+  br i1 %exitcond.not.i14, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_118gatherPatchPoints4IiEEiRKNS0_3Vtr8internal5LevelEiRKNS4_10ConstArrayIiEEPT_i.exit, label %.preheader30, !llvm.loop !16
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_118gatherPatchPoints4IiEEiRKNS0_3Vtr8internal5LevelEiRKNS4_10ConstArrayIiEEPT_i.exit: ; preds = %433, %195
   %.0 = phi i32 [ 16, %195 ], [ 12, %433 ]

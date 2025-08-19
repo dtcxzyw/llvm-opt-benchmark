@@ -983,7 +983,7 @@ _ZN4UTF826is_supplementary_characterEPKh.exit:    ; preds = %53
 
 _ZN4UTF826is_supplementary_characterEPKh.exit.thread: ; preds = %36
   %61 = lshr i8 %32, 4
-  switch i8 %61, label %default.unreachable [
+  switch i8 %61, label %default.unreachable126 [
     i8 8, label %._crit_edge91
     i8 9, label %._crit_edge91
     i8 10, label %._crit_edge91
@@ -1050,7 +1050,7 @@ _ZN4UTF826is_supplementary_characterEPKh.exit.thread: ; preds = %36
   %or.cond8 = select i1 %2, i1 true, i1 %97
   br i1 %or.cond8, label %98, label %._crit_edge91
 
-default.unreachable:                              ; preds = %_ZN4UTF826is_supplementary_characterEPKh.exit.thread
+default.unreachable126:                           ; preds = %_ZN4UTF826is_supplementary_characterEPKh.exit.thread
   unreachable
 
 98:                                               ; preds = %_ZN4UTF826is_supplementary_characterEPKh.exit, %74, %93, %34
@@ -1223,9 +1223,9 @@ _ZL10utf8_writePht.exit:                          ; preds = %11
   br label %17
 
 17:                                               ; preds = %11, %_ZL10utf8_writePht.exit
-  %.sink25 = phi i64 [ 2, %_ZL10utf8_writePht.exit ], [ 1, %11 ]
+  %.sink28 = phi i64 [ 2, %_ZL10utf8_writePht.exit ], [ 1, %11 ]
   %.sink = phi i8 [ %13, %_ZL10utf8_writePht.exit ], [ %7, %11 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.01620, i64 %.sink25
+  %18 = getelementptr inbounds nuw i8, ptr %.01620, i64 %.sink28
   store i8 %.sink, ptr %.01620, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1422,9 +1422,9 @@ _ZL10utf8_writePht.exit.i:                        ; preds = %19
   br label %25
 
 25:                                               ; preds = %_ZL10utf8_writePht.exit.i, %19
-  %.sink25.i = phi i64 [ 2, %_ZL10utf8_writePht.exit.i ], [ 1, %19 ]
+  %.sink28.i = phi i64 [ 2, %_ZL10utf8_writePht.exit.i ], [ 1, %19 ]
   %.sink.i = phi i8 [ %21, %_ZL10utf8_writePht.exit.i ], [ %15, %19 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 %.sink25.i
+  %26 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 %.sink28.i
   store i8 %.sink.i, ptr %.01620.i, align 1
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
   %exitcond.not.i14 = icmp eq i64 %indvars.iv.next.i13, %wide.trip.count.i10

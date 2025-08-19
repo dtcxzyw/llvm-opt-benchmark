@@ -611,7 +611,7 @@ OutputBuffer_InitAndGrow.exit.thread:             ; preds = %4, %14, %16, %19
   ]
 
 .split.us.split.us:                               ; preds = %20, %40
-  %.031.us.us = phi i64 [ %.1.us.us49, %40 ], [ %2, %20 ]
+  %.031.us.us = phi i64 [ %.1.us.us55, %40 ], [ %2, %20 ]
   %26 = load i32, ptr %25, align 8, !tbaa !51
   %27 = icmp eq i32 %26, 0
   %28 = icmp ne i64 %.031.us.us, 0
@@ -630,7 +630,7 @@ OutputBuffer_InitAndGrow.exit.thread:             ; preds = %4, %14, %16, %19
   br i1 %33, label %select.unfold, label %34
 
 34:                                               ; preds = %.thread, %32
-  %.1.us.us49 = phi i64 [ %31, %.thread ], [ %.031.us.us, %32 ]
+  %.1.us.us55 = phi i64 [ %31, %.thread ], [ %.031.us.us, %32 ]
   %35 = load i32, ptr %8, align 8, !tbaa !52
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %40

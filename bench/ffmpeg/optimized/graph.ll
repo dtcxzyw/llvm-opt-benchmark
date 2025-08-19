@@ -196,8 +196,8 @@ define range(i32 -2147483648, 1) i32 @ff_sws_graph_create(ptr noundef %0, ptr no
   %39 = load i32, ptr %38, align 4, !tbaa !49
   %40 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %39) #12
   %.not.i.i.i = icmp eq ptr %40, null
-  %.sink13.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %.sink13.i.sroa.gep16.i = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %.sink19.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %.sink19.i.sroa.gep16.i = getelementptr inbounds nuw i8, ptr %12, i64 40
   br i1 %.not.i.i.i, label %41, label %42
 
 41:                                               ; preds = %36
@@ -250,13 +250,13 @@ isGray.exit.thread.i.i:                           ; preds = %46, %42
   br i1 %or.cond4.i.i, label %isGray.exit32.thread.i.i, label %isGray.exit32.thread.sink.split.i.i
 
 isGray.exit32.thread.sink.split.i.i:              ; preds = %60, %46
-  %.sink13.i.sroa.phi.i = phi ptr [ %.sink13.i.sroa.gep.i, %46 ], [ %.sink13.i.sroa.gep16.i, %60 ]
-  %.sink12.i.sroa.phi.i = phi ptr [ %.sink13.i.sroa.gep16.i, %46 ], [ %.sink13.i.sroa.gep.i, %60 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sink13.i.sroa.phi.i, ptr noundef nonnull align 8 dereferenceable(88) %.sink12.i.sroa.phi.i, i64 88, i1 false)
+  %.sink19.i.sroa.phi.i = phi ptr [ %.sink19.i.sroa.gep.i, %46 ], [ %.sink19.i.sroa.gep16.i, %60 ]
+  %.sink18.i.sroa.phi.i = phi ptr [ %.sink19.i.sroa.gep16.i, %46 ], [ %.sink19.i.sroa.gep.i, %60 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sink19.i.sroa.phi.i, ptr noundef nonnull align 8 dereferenceable(88) %.sink18.i.sroa.phi.i, i64 88, i1 false)
   br label %isGray.exit32.thread.i.i
 
 isGray.exit32.thread.i.i:                         ; preds = %isGray.exit32.thread.sink.split.i.i, %60, %56
-  %66 = call zeroext i1 @ff_infer_colors(ptr noundef nonnull %.sink13.i.sroa.gep16.i, ptr noundef nonnull %.sink13.i.sroa.gep.i) #12
+  %66 = call zeroext i1 @ff_infer_colors(ptr noundef nonnull %.sink19.i.sroa.gep16.i, ptr noundef nonnull %.sink19.i.sroa.gep.i) #12
   %67 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %68 = load i8, ptr %67, align 4, !tbaa !58, !range !59, !noundef !60
   %69 = zext i1 %66 to i8
@@ -267,9 +267,9 @@ isGray.exit32.thread.i.i:                         ; preds = %isGray.exit32.threa
   %73 = load i32, ptr %72, align 8, !tbaa !61
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 176
   store i32 %73, ptr %74, align 4, !tbaa !62
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %8, ptr noundef nonnull align 8 dereferenceable(88) %.sink13.i.sroa.gep16.i, i64 88, i1 false), !tbaa.struct !64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %8, ptr noundef nonnull align 8 dereferenceable(88) %.sink19.i.sroa.gep16.i, i64 88, i1 false), !tbaa.struct !64
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %75, ptr noundef nonnull align 8 dereferenceable(88) %.sink13.i.sroa.gep.i, i64 88, i1 false), !tbaa.struct !64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %75, ptr noundef nonnull align 8 dereferenceable(88) %.sink19.i.sroa.gep.i, i64 88, i1 false), !tbaa.struct !64
   %76 = call zeroext i1 @ff_sws_color_map_noop(ptr noundef nonnull %8) #12
   br i1 %76, label %102, label %77
 

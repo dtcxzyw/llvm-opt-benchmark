@@ -10486,8 +10486,8 @@ define linkonce_odr void @_ZN2rc6shrink6detail15RemoveChunksSeqISt6vectorINS_10S
 
 20:                                               ; preds = %9
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.not20 = icmp eq i64 %16, %5
-  br i1 %.not20, label %_ZNSt6vectorIN2rc10ShrinkableIcEESaIS2_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN2rc10ShrinkableIcEESaIS2_EE11_M_allocateEm.exit.i
+  %.not21 = icmp eq i64 %16, %5
+  br i1 %.not21, label %_ZNSt6vectorIN2rc10ShrinkableIcEESaIS2_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN2rc10ShrinkableIcEESaIS2_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIN2rc10ShrinkableIcEESaIS2_EE11_M_allocateEm.exit.i: ; preds = %20
   %22 = shl nuw nsw i64 %17, 3
@@ -11619,7 +11619,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
 
 _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i: ; preds = %22, %23
   %29 = phi i64 [ %26, %23 ], [ 1, %22 ]
-  %.253 = phi i64 [ %.2, %23 ], [ 0, %22 ]
+  %.261 = phi i64 [ %.2, %23 ], [ 0, %22 ]
   %30 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #24
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit unwind label %.loopexit
 
@@ -11655,7 +11655,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i
   store ptr %30, ptr %0, align 8
-  store i64 %.253, ptr %4, align 8
+  store i64 %.261, ptr %4, align 8
   br label %43
 
 .loopexit:                                        ; preds = %43, %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i
@@ -11689,7 +11689,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIN2rc3gen6de
 
 43:                                               ; preds = %._crit_edge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit
   %44 = phi ptr [ %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit ], [ %.pre, %._crit_edge ]
-  %.136 = phi i64 [ %.253, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit ], [ %.03543, %._crit_edge ]
+  %.136 = phi i64 [ %.261, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit ], [ %.03543, %._crit_edge ]
   %45 = load ptr, ptr %.sroa.029.144, align 8
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %46, align 8

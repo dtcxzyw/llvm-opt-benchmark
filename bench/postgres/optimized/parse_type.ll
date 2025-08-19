@@ -153,10 +153,10 @@ list_length.exit.thread:                          ; preds = %21, %list_length.ex
   unreachable
 
 70:                                               ; preds = %47, %38, %36
-  %.sink91.in = phi ptr [ %62, %47 ], [ %46, %38 ], [ %.val, %36 ]
+  %.sink101.in = phi ptr [ %62, %47 ], [ %46, %38 ], [ %.val, %36 ]
   %.sink = phi i64 [ 24, %47 ], [ 16, %38 ], [ 8, %36 ]
-  %.sink91 = load ptr, ptr %.sink91.in, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %.sink91, i64 8
+  %.sink101 = load ptr, ptr %.sink101.in, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %.sink101, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %72, ptr %73, align 8

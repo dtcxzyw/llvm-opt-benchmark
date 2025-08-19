@@ -7929,10 +7929,10 @@ common.resume:                                    ; preds = %common.resume.sink.
   unreachable
 
 297:                                              ; preds = %"_ZN7matchit4tree13Node$LT$T$GT$9add_child17h6d5d956849cae55cE.exit199.thread", %"_ZN7matchit4tree13Node$LT$T$GT$9add_child17h6d5d956849cae55cE.exit199"
-  %.sroa.0.0.i198420 = phi i64 [ %276, %"_ZN7matchit4tree13Node$LT$T$GT$9add_child17h6d5d956849cae55cE.exit199.thread" ], [ %294, %"_ZN7matchit4tree13Node$LT$T$GT$9add_child17h6d5d956849cae55cE.exit199" ]
+  %.sroa.0.0.i198431 = phi i64 [ %276, %"_ZN7matchit4tree13Node$LT$T$GT$9add_child17h6d5d956849cae55cE.exit199.thread" ], [ %294, %"_ZN7matchit4tree13Node$LT$T$GT$9add_child17h6d5d956849cae55cE.exit199" ]
   %298 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 80
   %299 = load ptr, ptr %298, align 8, !nonnull !3, !noundef !3
-  %300 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i32, [1 x i32] }, i32, i8, i8, [2 x i8] }, ptr %299, i64 %.sroa.0.0.i198420
+  %300 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i32, [1 x i32] }, i32, i8, i8, [2 x i8] }, ptr %299, i64 %.sroa.0.0.i198431
   br label %257
 
 301:                                              ; preds = %"_ZN7matchit4tree13Node$LT$T$GT$9add_child17h6d5d956849cae55cE.exit199"
@@ -8023,7 +8023,7 @@ define internal fastcc noundef range(i64 0, 9223372036854775807) i64 @"_ZN7match
   unreachable
 
 "_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd52a60228849c3cE.exit": ; preds = %28
-  %31 = sub nuw i64 %26, %.sroa.0.0.lcssa
+  %31 = sub nuw nsw i64 %26, %.sroa.0.0.lcssa
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 %.sroa.0.0.lcssa
   tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12rotate_right17h3e2b81fb651284edE"(ptr noalias noundef nonnull align 1 %32, i64 noundef %31, i64 noundef 1)
   br label %33

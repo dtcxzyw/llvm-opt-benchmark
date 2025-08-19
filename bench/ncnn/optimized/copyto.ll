@@ -1642,7 +1642,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %6
   br i1 %40, label %.lr.ph144, label %._crit_edge
 
 .lr.ph144:                                        ; preds = %.lr.ph, %.loopexit
-  %.0114180 = phi i32 [ %17, %.loopexit ], [ %32, %.lr.ph ]
+  %.0114181 = phi i32 [ %17, %.loopexit ], [ %32, %.lr.ph ]
   switch i32 %17, label %._crit_edge [
     i32 1, label %.thread.us.preheader
     i32 2, label %.lr.ph144.split.us145.preheader
@@ -1651,19 +1651,19 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %6
   ]
 
 .lr.ph144.split.us151.preheader:                  ; preds = %.lr.ph144
-  %wide.trip.count162 = zext nneg i32 %.0114180 to i64
+  %wide.trip.count162 = zext nneg i32 %.0114181 to i64
   br label %.lr.ph144.split.us151
 
 .lr.ph144.split.us148.preheader:                  ; preds = %.lr.ph144
-  %wide.trip.count167 = zext nneg i32 %.0114180 to i64
+  %wide.trip.count167 = zext nneg i32 %.0114181 to i64
   br label %.lr.ph144.split.us148
 
 .lr.ph144.split.us145.preheader:                  ; preds = %.lr.ph144
-  %wide.trip.count172 = zext nneg i32 %.0114180 to i64
+  %wide.trip.count172 = zext nneg i32 %.0114181 to i64
   br label %.lr.ph144.split.us145
 
 .thread.us.preheader:                             ; preds = %.lr.ph144
-  %wide.trip.count177 = zext nneg i32 %.0114180 to i64
+  %wide.trip.count177 = zext nneg i32 %.0114181 to i64
   br label %.thread.us
 
 .thread.us:                                       ; preds = %.thread.us.preheader, %.thread.us
@@ -1695,14 +1695,14 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %6
   br label %.thread132.us147.sink.split
 
 .thread132.us147.sink.split:                      ; preds = %.lr.ph144.split.us145, %.thread122.us
-  %.sink188 = phi i32 [ %11, %.thread122.us ], [ %9, %.lr.ph144.split.us145 ]
-  %.sink186 = phi ptr [ %3, %.thread122.us ], [ %2, %.lr.ph144.split.us145 ]
+  %.sink189 = phi i32 [ %11, %.thread122.us ], [ %9, %.lr.ph144.split.us145 ]
+  %.sink187 = phi ptr [ %3, %.thread122.us ], [ %2, %.lr.ph144.split.us145 ]
   %51 = icmp eq i32 %50, -233
   %spec.store.select1.us = select i1 %51, i32 0, i32 %50
   %52 = icmp slt i32 %spec.store.select1.us, 0
-  %53 = select i1 %52, i32 %.sink188, i32 0
+  %53 = select i1 %52, i32 %.sink189, i32 0
   %54 = add nsw i32 %53, %spec.store.select1.us
-  store i32 %54, ptr %.sink186, align 4, !tbaa !51
+  store i32 %54, ptr %.sink187, align 4, !tbaa !51
   br label %.thread132.us147
 
 .thread132.us147:                                 ; preds = %.thread132.us147.sink.split, %.lr.ph144.split.us145
@@ -1729,14 +1729,14 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %6
   br label %.thread132.us150.sink.split
 
 .thread132.us150.sink.split:                      ; preds = %.lr.ph144.split.us148, %59, %.thread126.us
-  %.sink192 = phi i32 [ %15, %.thread126.us ], [ %11, %59 ], [ %9, %.lr.ph144.split.us148 ]
-  %.sink190 = phi ptr [ %5, %.thread126.us ], [ %3, %59 ], [ %2, %.lr.ph144.split.us148 ]
+  %.sink193 = phi i32 [ %15, %.thread126.us ], [ %11, %59 ], [ %9, %.lr.ph144.split.us148 ]
+  %.sink191 = phi ptr [ %5, %.thread126.us ], [ %3, %59 ], [ %2, %.lr.ph144.split.us148 ]
   %60 = icmp eq i32 %58, -233
   %spec.store.select3.us = select i1 %60, i32 0, i32 %58
   %61 = icmp slt i32 %spec.store.select3.us, 0
-  %62 = select i1 %61, i32 %.sink192, i32 0
+  %62 = select i1 %61, i32 %.sink193, i32 0
   %63 = add nsw i32 %62, %spec.store.select3.us
-  store i32 %63, ptr %.sink190, align 4, !tbaa !51
+  store i32 %63, ptr %.sink191, align 4, !tbaa !51
   br label %.thread132.us150
 
 .thread132.us150:                                 ; preds = %.thread132.us150.sink.split, %.lr.ph144.split.us148
@@ -1767,14 +1767,14 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %6
   br label %.thread132.us153.sink.split
 
 .thread132.us153.sink.split:                      ; preds = %.lr.ph144.split.us151, %68, %69, %.thread134.us
-  %.sink196 = phi i32 [ %15, %.thread134.us ], [ %13, %69 ], [ %11, %68 ], [ %9, %.lr.ph144.split.us151 ]
-  %.sink194 = phi ptr [ %5, %.thread134.us ], [ %4, %69 ], [ %3, %68 ], [ %2, %.lr.ph144.split.us151 ]
+  %.sink197 = phi i32 [ %15, %.thread134.us ], [ %13, %69 ], [ %11, %68 ], [ %9, %.lr.ph144.split.us151 ]
+  %.sink195 = phi ptr [ %5, %.thread134.us ], [ %4, %69 ], [ %3, %68 ], [ %2, %.lr.ph144.split.us151 ]
   %70 = icmp eq i32 %67, -233
   %spec.store.select6.us = select i1 %70, i32 0, i32 %67
   %71 = icmp slt i32 %spec.store.select6.us, 0
-  %72 = select i1 %71, i32 %.sink196, i32 0
+  %72 = select i1 %71, i32 %.sink197, i32 0
   %73 = add nsw i32 %72, %spec.store.select6.us
-  store i32 %73, ptr %.sink194, align 4, !tbaa !51
+  store i32 %73, ptr %.sink195, align 4, !tbaa !51
   br label %.thread132.us153
 
 .thread132.us153:                                 ; preds = %.thread132.us153.sink.split, %.lr.ph144.split.us151

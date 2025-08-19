@@ -328,17 +328,17 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
   %100 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %101 = tail call i32 @xmlTextReaderRead(ptr noundef nonnull %85) #13
   %102 = icmp eq i32 %101, 1
-  br i1 %102, label %.lr.ph533, label %.critedge
+  br i1 %102, label %.lr.ph554, label %.critedge
 
-.lr.ph533:                                        ; preds = %93, %.thread431
-  %.0217467531 = phi i32 [ %.14, %.thread431 ], [ 0, %93 ]
-  %.0210468530 = phi ptr [ %.5215, %.thread431 ], [ null, %93 ]
-  %.0202469529 = phi ptr [ %.6208, %.thread431 ], [ null, %93 ]
+.lr.ph554:                                        ; preds = %93, %.thread431
+  %.0217467552 = phi i32 [ %.14, %.thread431 ], [ 0, %93 ]
+  %.0210468551 = phi ptr [ %.5215, %.thread431 ], [ null, %93 ]
+  %.0202469550 = phi ptr [ %.6208, %.thread431 ], [ null, %93 ]
   %103 = tail call i32 @xmlTextReaderNodeType(ptr noundef nonnull %85) #13
   %104 = icmp eq i32 %103, 1
   br i1 %104, label %105, label %249
 
-105:                                              ; preds = %.lr.ph533
+105:                                              ; preds = %.lr.ph554
   %106 = tail call i32 @xmlTextReaderDepth(ptr noundef nonnull %85) #13
   %107 = icmp slt i32 %106, 0
   br i1 %107, label %.critedge, label %108
@@ -364,7 +364,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
   br i1 %.not270, label %.thread431, label %117
 
 117:                                              ; preds = %115
-  switch i32 %.0217467531, label %.thread422 [
+  switch i32 %.0217467552, label %.thread422 [
     i32 7, label %118
     i32 6, label %158
     i32 5, label %183
@@ -468,23 +468,23 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
   br label %.critedge
 
 154:                                              ; preds = %148
-  %.not276 = icmp eq ptr %.0210468530, null
+  %.not276 = icmp eq ptr %.0210468551, null
   br i1 %.not276, label %.thread334, label %155
 
 155:                                              ; preds = %154
-  %156 = getelementptr inbounds nuw i8, ptr %.0210468530, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %.0210468551, i64 16
   store ptr %143, ptr %156, align 8, !tbaa !53
   br label %.thread334
 
 .thread334:                                       ; preds = %154, %155
-  %.5207 = phi ptr [ %.0202469529, %155 ], [ %143, %154 ]
+  %.5207 = phi ptr [ %.0202469550, %155 ], [ %143, %154 ]
   %157 = getelementptr inbounds nuw i8, ptr %143, i64 16
   store ptr null, ptr %157, align 8, !tbaa !53
   br label %158
 
 158:                                              ; preds = %117, %.thread334
-  %.3205342 = phi ptr [ %.5207, %.thread334 ], [ %.0202469529, %117 ]
-  %.2212340 = phi ptr [ %143, %.thread334 ], [ %.0210468530, %117 ]
+  %.3205342 = phi ptr [ %.5207, %.thread334 ], [ %.0202469550, %117 ]
+  %.2212340 = phi ptr [ %143, %.thread334 ], [ %.0210468551, %117 ]
   %159 = load i32, ptr %99, align 4, !tbaa !3
   %160 = icmp sgt i32 %106, %159
   br i1 %160, label %161, label %.thread422
@@ -690,16 +690,16 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
   br label %.thread422
 
 .thread422:                                       ; preds = %117, %118, %158, %161, %181, %183, %193, %189, %194, %198, %219, %221, %227, %228, %232, %235, %236, %240, %243, %244, %247
-  %.3205341362371393402419428 = phi ptr [ %.0202469529, %247 ], [ %.0202469529, %244 ], [ %.0202469529, %236 ], [ %.0202469529, %240 ], [ %.0202469529, %243 ], [ %.0202469529, %228 ], [ %.0202469529, %232 ], [ %.0202469529, %235 ], [ %.0202469529, %221 ], [ %.0202469529, %227 ], [ %.0202469529, %194 ], [ %.0202469529, %198 ], [ %.0202469529, %219 ], [ %.0202469529, %183 ], [ %.0202469529, %193 ], [ %.0202469529, %189 ], [ %.3205342, %158 ], [ %.3205342, %161 ], [ %.3205342, %181 ], [ %.0202469529, %118 ], [ %.0202469529, %117 ]
-  %.2212339363370394401420427 = phi ptr [ %.0210468530, %247 ], [ %.0210468530, %244 ], [ %.0210468530, %236 ], [ %.0210468530, %240 ], [ %.0210468530, %243 ], [ %.0210468530, %228 ], [ %.0210468530, %232 ], [ %.0210468530, %235 ], [ %.0210468530, %221 ], [ %.0210468530, %227 ], [ %.0210468530, %194 ], [ %.0210468530, %198 ], [ %.0210468530, %219 ], [ %.0210468530, %183 ], [ %.0210468530, %193 ], [ %.0210468530, %189 ], [ %.2212340, %158 ], [ %.2212340, %161 ], [ %.2212340, %181 ], [ %.0210468530, %118 ], [ %.0210468530, %117 ]
-  %.13 = phi i32 [ 1, %247 ], [ 0, %244 ], [ 1, %236 ], [ 1, %240 ], [ 2, %243 ], [ 2, %228 ], [ 2, %232 ], [ 3, %235 ], [ 3, %221 ], [ 4, %227 ], [ 4, %194 ], [ 4, %198 ], [ %.9226, %219 ], [ 5, %183 ], [ 6, %193 ], [ 6, %189 ], [ 6, %158 ], [ 6, %161 ], [ %.5222, %181 ], [ 7, %118 ], [ %.0217467531, %117 ]
+  %.3205341362371393402419428 = phi ptr [ %.0202469550, %247 ], [ %.0202469550, %244 ], [ %.0202469550, %236 ], [ %.0202469550, %240 ], [ %.0202469550, %243 ], [ %.0202469550, %228 ], [ %.0202469550, %232 ], [ %.0202469550, %235 ], [ %.0202469550, %221 ], [ %.0202469550, %227 ], [ %.0202469550, %194 ], [ %.0202469550, %198 ], [ %.0202469550, %219 ], [ %.0202469550, %183 ], [ %.0202469550, %193 ], [ %.0202469550, %189 ], [ %.3205342, %158 ], [ %.3205342, %161 ], [ %.3205342, %181 ], [ %.0202469550, %118 ], [ %.0202469550, %117 ]
+  %.2212339363370394401420427 = phi ptr [ %.0210468551, %247 ], [ %.0210468551, %244 ], [ %.0210468551, %236 ], [ %.0210468551, %240 ], [ %.0210468551, %243 ], [ %.0210468551, %228 ], [ %.0210468551, %232 ], [ %.0210468551, %235 ], [ %.0210468551, %221 ], [ %.0210468551, %227 ], [ %.0210468551, %194 ], [ %.0210468551, %198 ], [ %.0210468551, %219 ], [ %.0210468551, %183 ], [ %.0210468551, %193 ], [ %.0210468551, %189 ], [ %.2212340, %158 ], [ %.2212340, %161 ], [ %.2212340, %181 ], [ %.0210468551, %118 ], [ %.0210468551, %117 ]
+  %.13 = phi i32 [ 1, %247 ], [ 0, %244 ], [ 1, %236 ], [ 1, %240 ], [ 2, %243 ], [ 2, %228 ], [ 2, %232 ], [ 3, %235 ], [ 3, %221 ], [ 4, %227 ], [ 4, %194 ], [ 4, %198 ], [ %.9226, %219 ], [ 5, %183 ], [ 6, %193 ], [ 6, %189 ], [ 6, %158 ], [ 6, %161 ], [ %.5222, %181 ], [ 7, %118 ], [ %.0217467552, %117 ]
   %248 = load ptr, ptr @xmlFree, align 8, !tbaa !52
   tail call void %248(ptr noundef nonnull %116) #13
   br label %.thread431
 
-249:                                              ; preds = %.lr.ph533
+249:                                              ; preds = %.lr.ph554
   %250 = icmp eq i32 %103, 15
-  %251 = icmp ne i32 %.0217467531, 0
+  %251 = icmp ne i32 %.0217467552, 0
   %or.cond = select i1 %250, i1 %251, i1 false
   br i1 %or.cond, label %252, label %.thread431
 
@@ -709,7 +709,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
   br i1 %254, label %255, label %.critedge
 
 255:                                              ; preds = %252
-  %256 = add i32 %.0217467531, -1
+  %256 = add i32 %.0217467552, -1
   %257 = zext i32 %256 to i64
   %258 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 0, i64 %257
   %259 = load i32, ptr %258, align 4, !tbaa !3
@@ -728,8 +728,8 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
 
 .critedge292:                                     ; preds = %255
   store i32 -1, ptr %258, align 4, !tbaa !3
-  %264 = add i32 %.0217467531, -2
-  switch i32 %.0217467531, label %.thread431 [
+  %264 = add i32 %.0217467552, -2
+  switch i32 %.0217467552, label %.thread431 [
     i32 6, label %265
     i32 4, label %265
   ]
@@ -742,15 +742,15 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
   br label %.thread431
 
 .thread431:                                       ; preds = %261, %265, %.critedge292, %212, %207, %175, %170, %151, %140, %135, %127, %123, %115, %249, %.thread422
-  %.14 = phi i32 [ %.13, %.thread422 ], [ %.0217467531, %249 ], [ %.0217467531, %115 ], [ 6, %123 ], [ 6, %127 ], [ 6, %135 ], [ 6, %140 ], [ 6, %151 ], [ 6, %170 ], [ 6, %175 ], [ 4, %207 ], [ 4, %212 ], [ %256, %.critedge292 ], [ %.0217467531, %261 ], [ %266, %265 ]
-  %.5215 = phi ptr [ %.2212339363370394401420427, %.thread422 ], [ %.0210468530, %249 ], [ %.0210468530, %115 ], [ %.0210468530, %123 ], [ %.0210468530, %127 ], [ %.0210468530, %135 ], [ %.0210468530, %140 ], [ %.0210468530, %151 ], [ %.2212340, %170 ], [ %.2212340, %175 ], [ %.0210468530, %207 ], [ %.0210468530, %212 ], [ %.0210468530, %.critedge292 ], [ %.0210468530, %261 ], [ %.0210468530, %265 ]
-  %.6208 = phi ptr [ %.3205341362371393402419428, %.thread422 ], [ %.0202469529, %249 ], [ %.0202469529, %115 ], [ %.0202469529, %123 ], [ %.0202469529, %127 ], [ %.0202469529, %135 ], [ %.0202469529, %140 ], [ %.0202469529, %151 ], [ %.3205342, %170 ], [ %.3205342, %175 ], [ %.0202469529, %207 ], [ %.0202469529, %212 ], [ %.0202469529, %.critedge292 ], [ %.0202469529, %261 ], [ %.0202469529, %265 ]
+  %.14 = phi i32 [ %.13, %.thread422 ], [ %.0217467552, %249 ], [ %.0217467552, %115 ], [ 6, %123 ], [ 6, %127 ], [ 6, %135 ], [ 6, %140 ], [ 6, %151 ], [ 6, %170 ], [ 6, %175 ], [ 4, %207 ], [ 4, %212 ], [ %256, %.critedge292 ], [ %.0217467552, %261 ], [ %266, %265 ]
+  %.5215 = phi ptr [ %.2212339363370394401420427, %.thread422 ], [ %.0210468551, %249 ], [ %.0210468551, %115 ], [ %.0210468551, %123 ], [ %.0210468551, %127 ], [ %.0210468551, %135 ], [ %.0210468551, %140 ], [ %.0210468551, %151 ], [ %.2212340, %170 ], [ %.2212340, %175 ], [ %.0210468551, %207 ], [ %.0210468551, %212 ], [ %.0210468551, %.critedge292 ], [ %.0210468551, %261 ], [ %.0210468551, %265 ]
+  %.6208 = phi ptr [ %.3205341362371393402419428, %.thread422 ], [ %.0202469550, %249 ], [ %.0202469550, %115 ], [ %.0202469550, %123 ], [ %.0202469550, %127 ], [ %.0202469550, %135 ], [ %.0202469550, %140 ], [ %.0202469550, %151 ], [ %.3205342, %170 ], [ %.3205342, %175 ], [ %.0202469550, %207 ], [ %.0202469550, %212 ], [ %.0202469550, %.critedge292 ], [ %.0202469550, %261 ], [ %.0202469550, %265 ]
   %269 = tail call i32 @xmlTextReaderRead(ptr noundef nonnull %85) #13
   %270 = icmp eq i32 %269, 1
-  br i1 %270, label %.lr.ph533, label %.critedge
+  br i1 %270, label %.lr.ph554, label %.critedge
 
 .critedge:                                        ; preds = %.thread431, %252, %105, %93, %.thread431.thread, %203, %166, %131, %145, %114
-  %.1203 = phi ptr [ %.0202469529, %203 ], [ %.3205342, %166 ], [ %.0202469529, %145 ], [ %.0202469529, %131 ], [ %.0202469529, %114 ], [ %.0202469529, %.thread431.thread ], [ null, %93 ], [ %.0202469529, %105 ], [ %.0202469529, %252 ], [ %.6208, %.thread431 ]
+  %.1203 = phi ptr [ %.0202469550, %203 ], [ %.3205342, %166 ], [ %.0202469550, %145 ], [ %.0202469550, %131 ], [ %.0202469550, %114 ], [ %.0202469550, %.thread431.thread ], [ null, %93 ], [ %.0202469550, %105 ], [ %.0202469550, %252 ], [ %.6208, %.thread431 ]
   %.1201 = phi i32 [ 0, %203 ], [ 0, %166 ], [ 20, %145 ], [ 0, %131 ], [ 0, %114 ], [ %149, %.thread431.thread ], [ 0, %93 ], [ 0, %105 ], [ 0, %252 ], [ 0, %.thread431 ]
   tail call void @xmlFreeTextReader(ptr noundef nonnull %85) #13
   %271 = icmp eq i32 %.1201, 0
@@ -1109,7 +1109,7 @@ define internal fastcc i32 @dmg_handle_mish(ptr noundef nonnull %0, i32 noundef 
   br label %54
 
 54:                                               ; preds = %53, %46, %43
-  %.1 = phi i8 [ 0, %53 ], [ %.0260, %46 ], [ %.0260, %43 ]
+  %.1 = phi i8 [ 0, %53 ], [ 1, %46 ], [ %.0260, %43 ]
   %55 = load i32, ptr %21, align 1, !tbaa !66
   %56 = load i64, ptr %27, align 1, !tbaa !69
   switch i32 %55, label %57 [
@@ -1316,7 +1316,7 @@ dmg_stripe_zeroes.exit:                           ; preds = %110, %._crit_edge.i
 
 136:                                              ; preds = %131
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.58, i32 noundef %129) #13
-  br label %._crit_edge270.thread322
+  br label %._crit_edge270.thread347
 
 137:                                              ; preds = %131
   %138 = call i64 @cli_writen(i32 noundef range(i32 0, -2147483648) %85, ptr noundef nonnull %135, i64 noundef %128) #13
@@ -1325,7 +1325,7 @@ dmg_stripe_zeroes.exit:                           ; preds = %110, %._crit_edge.i
 
 140:                                              ; preds = %137
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.59) #13
-  br label %._crit_edge270.thread322
+  br label %._crit_edge270.thread347
 
 141:                                              ; preds = %137
   %.not20.i190 = icmp eq i64 %138, %128
@@ -1333,7 +1333,7 @@ dmg_stripe_zeroes.exit:                           ; preds = %110, %._crit_edge.i
 
 142:                                              ; preds = %141
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.59) #13
-  br label %._crit_edge270.thread322
+  br label %._crit_edge270.thread347
 
 143:                                              ; preds = %107
   %.val184 = load ptr, ptr %15, align 8, !tbaa !65
@@ -1824,13 +1824,13 @@ dmg_stripe_store.exit:                            ; preds = %141, %123, %dmg_str
   br i1 %328, label %107, label %._crit_edge270
 
 ._crit_edge270:                                   ; preds = %dmg_stripe_store.exit
-  br i1 %327, label %._crit_edge270.thread, label %._crit_edge270.thread322
+  br i1 %327, label %._crit_edge270.thread, label %._crit_edge270.thread347
 
 ._crit_edge270.thread:                            ; preds = %91, %._crit_edge270
   %329 = call i32 @cli_magic_scan_desc_type(i32 noundef %85, ptr noundef nonnull %13, ptr noundef nonnull %0, i32 noundef 557, ptr noundef null, i32 noundef 0) #13
-  br label %._crit_edge270.thread322
+  br label %._crit_edge270.thread347
 
-._crit_edge270.thread322:                         ; preds = %140, %142, %136, %._crit_edge270.thread, %._crit_edge270
+._crit_edge270.thread347:                         ; preds = %140, %142, %136, %._crit_edge270.thread, %._crit_edge270
   %.2 = phi i32 [ %329, %._crit_edge270.thread ], [ %.1169, %._crit_edge270 ], [ 19, %136 ], [ 14, %142 ], [ 14, %140 ]
   %330 = call i32 @close(i32 noundef %85) #13
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1840,12 +1840,12 @@ dmg_stripe_store.exit:                            ; preds = %141, %123, %dmg_str
   %.not180 = icmp eq i32 %334, 0
   br i1 %.not180, label %335, label %337
 
-335:                                              ; preds = %._crit_edge270.thread322
+335:                                              ; preds = %._crit_edge270.thread347
   %336 = call i32 @cli_unlink(ptr noundef nonnull %13) #13
   %.not181 = icmp eq i32 %336, 0
   br i1 %.not181, label %337, label %338
 
-337:                                              ; preds = %335, %._crit_edge270.thread322
+337:                                              ; preds = %335, %._crit_edge270.thread347
   br label %338
 
 338:                                              ; preds = %dmg_track_sectors.exit, %335, %337, %87, %81, %77, %74, %42

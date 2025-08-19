@@ -282,9 +282,9 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr noundef nonnull read
   br i1 %86, label %48, label %._crit_edge69, !llvm.loop !10
 
 ._crit_edge69:                                    ; preds = %.loopexit, %9, %._crit_edge59
-  %.199 = phi double [ %.1, %._crit_edge59 ], [ 1.000000e+00, %9 ], [ %.1, %.loopexit ]
+  %.1102 = phi double [ %.1, %._crit_edge59 ], [ 1.000000e+00, %9 ], [ %.1, %.loopexit ]
   %.046.lcssa = phi double [ 0.000000e+00, %._crit_edge59 ], [ 0.000000e+00, %9 ], [ %.147, %.loopexit ]
-  %87 = fdiv double %.046.lcssa, %.199
+  %87 = fdiv double %.046.lcssa, %.1102
   ret double %87
 }
 
@@ -317,7 +317,7 @@ define void @_ZN10MutualInfo9histogramEiiPhS0_iiii(ptr noundef nonnull readonly 
   br i1 %.not4552, label %.preheader47, label %.lr.ph55.preheader
 
 .lr.ph55.preheader:                               ; preds = %9, %.preheader48
-  %.039.lcssa77 = phi i32 [ %22, %.preheader48 ], [ 0, %9 ]
+  %.039.lcssa80 = phi i32 [ %22, %.preheader48 ], [ 0, %9 ]
   br label %.lr.ph55
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -329,7 +329,7 @@ define void @_ZN10MutualInfo9histogramEiiPhS0_iiii(ptr noundef nonnull readonly 
   br i1 %.not, label %.preheader48, label %.lr.ph, !llvm.loop !11
 
 .preheader47:                                     ; preds = %.lr.ph55, %.preheader48
-  %.039.lcssa78 = phi i32 [ %22, %.preheader48 ], [ %.039.lcssa77, %.lr.ph55 ]
+  %.039.lcssa81 = phi i32 [ %22, %.preheader48 ], [ %.039.lcssa80, %.lr.ph55 ]
   %.037.lcssa = phi i32 [ 0, %.preheader48 ], [ %47, %.lr.ph55 ]
   %23 = icmp slt i32 %7, %.033
   %24 = icmp slt i32 %5, %spec.select
@@ -353,11 +353,11 @@ define void @_ZN10MutualInfo9histogramEiiPhS0_iiii(ptr noundef nonnull readonly 
   %29 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv68
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = lshr i32 %31, %.039.lcssa78
+  %32 = lshr i32 %31, %.039.lcssa81
   %33 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv68
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
-  %36 = lshr i32 %35, %.039.lcssa78
+  %36 = lshr i32 %35, %.039.lcssa81
   %37 = load ptr, ptr %12, align 8
   %38 = shl i32 %36, %.037.lcssa
   %39 = add nsw i32 %38, %32

@@ -646,10 +646,10 @@ _ZN6LibRaw7median4EPi.exit49:                     ; preds = %131
 
 137:                                              ; preds = %86, %_ZN6LibRaw7median4EPi.exit49
   %.sink = phi i32 [ %102, %86 ], [ %136, %_ZN6LibRaw7median4EPi.exit49 ]
-  %.sink81 = phi i32 [ %89, %86 ], [ %106, %_ZN6LibRaw7median4EPi.exit49 ]
+  %.sink84 = phi i32 [ %89, %86 ], [ %106, %_ZN6LibRaw7median4EPi.exit49 ]
   %138 = lshr i32 %.sink, 1
   %139 = trunc i32 %138 to i16
-  %140 = add nuw nsw i32 %.sink81, %.158
+  %140 = add nuw nsw i32 %.sink84, %.158
   %141 = zext nneg i32 %140 to i64
   %142 = getelementptr inbounds nuw i16, ptr %29, i64 %141
   store i16 %139, ptr %142, align 2, !tbaa !87

@@ -522,8 +522,8 @@ define hidden void @"_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_functio
           to label %142 unwind label %135
 
 148:                                              ; preds = %145, %170
-  %.sink198 = phi ptr [ %95, %170 ], [ %92, %145 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull align 8 dereferenceable(32) %.sink198, i64 32, i1 false)
+  %.sink208 = phi ptr [ %95, %170 ], [ %92, %145 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull align 8 dereferenceable(32) %.sink208, i64 32, i1 false)
   %149 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %150 = load i64, ptr %149, align 8
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h6868818c148c85b0E"(ptr nonnull sret([24 x i8]) align 8 %91, i64 0, i64 %150)
@@ -984,8 +984,8 @@ define hidden void @"_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_functio
           to label %.sink.split unwind label %195
 
 .sink.split:                                      ; preds = %289, %396
-  %.sink199 = phi ptr [ %75, %396 ], [ %89, %289 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef nonnull align 8 dereferenceable(32) %.sink199, i64 32, i1 false)
+  %.sink209 = phi ptr [ %75, %396 ], [ %89, %289 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef nonnull align 8 dereferenceable(32) %.sink209, i64 32, i1 false)
   br label %290
 
 290:                                              ; preds = %.sink.split, %487, %461

@@ -344,7 +344,7 @@ define hidden ptr @_Py_VaBuildStack(ptr noundef %0, i64 noundef %1, ptr noundef 
   br i1 %.not.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %36, %.thread.i
-  %.0253341.i = phi i64 [ %8, %.thread.i ], [ %.02534.i, %36 ]
+  %.0253348.i = phi i64 [ %8, %.thread.i ], [ %.02534.i, %36 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %Py_DECREF.exit.i, %.lr.ph.preheader.i
@@ -367,7 +367,7 @@ define hidden ptr @_Py_VaBuildStack(ptr noundef %0, i64 noundef %1, ptr noundef 
 
 Py_DECREF.exit.i:                                 ; preds = %45, %42, %.lr.ph.i
   %46 = add nuw nsw i64 %.135.i, 1
-  %exitcond38.not.i = icmp eq i64 %46, %.0253341.i
+  %exitcond38.not.i = icmp eq i64 %46, %.0253348.i
   br i1 %exitcond38.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !31
 
 .loopexit:                                        ; preds = %Py_DECREF.exit.i, %36
@@ -393,16 +393,16 @@ Py_DECREF.exit.i:                                 ; preds = %45, %42, %.lr.ph.i
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @countformat(ptr noundef readonly captures(none) %0, i8 noundef signext range(i8 0, 126) %1) unnamed_addr #0 {
-  %.pr22 = load i8, ptr %0, align 1, !tbaa !29
-  %.not23 = icmp eq i8 %.pr22, %1
-  br i1 %.not23, label %.loopexit, label %.critedge
+  %.pr23 = load i8, ptr %0, align 1, !tbaa !29
+  %.not24 = icmp eq i8 %.pr23, %1
+  br i1 %.not24, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %2, %14
-  %.pr27 = phi i8 [ %.pr, %14 ], [ %.pr22, %2 ]
-  %.026 = phi i32 [ %.1, %14 ], [ 0, %2 ]
-  %.01225 = phi i64 [ %.2, %14 ], [ 0, %2 ]
-  %.01524 = phi ptr [ %15, %14 ], [ %0, %2 ]
-  switch i8 %.pr27, label %11 [
+  %.pr28 = phi i8 [ %.pr, %14 ], [ %.pr23, %2 ]
+  %.027 = phi i32 [ %.1, %14 ], [ 0, %2 ]
+  %.01226 = phi i64 [ %.2, %14 ], [ 0, %2 ]
+  %.01525 = phi ptr [ %15, %14 ], [ %0, %2 ]
+  switch i8 %.pr28, label %11 [
     i8 0, label %3
     i8 40, label %5
     i8 91, label %5
@@ -424,26 +424,26 @@ define internal fastcc i64 @countformat(ptr noundef readonly captures(none) %0, 
   br label %.loopexit
 
 5:                                                ; preds = %.critedge, %.critedge, %.critedge
-  %6 = icmp eq i32 %.026, 0
+  %6 = icmp eq i32 %.027, 0
   %7 = zext i1 %6 to i64
-  %spec.select = add i64 %.01225, %7
-  %8 = add i32 %.026, 1
+  %spec.select = add i64 %.01226, %7
+  %8 = add i32 %.027, 1
   br label %14
 
 9:                                                ; preds = %.critedge, %.critedge, %.critedge
-  %10 = add i32 %.026, -1
+  %10 = add i32 %.027, -1
   br label %14
 
 11:                                               ; preds = %.critedge
-  %12 = icmp eq i32 %.026, 0
+  %12 = icmp eq i32 %.027, 0
   %13 = zext i1 %12 to i64
-  %spec.select16 = add i64 %.01225, %13
+  %spec.select16 = add i64 %.01226, %13
   br label %14
 
 14:                                               ; preds = %11, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %9, %5
-  %.2 = phi i64 [ %spec.select, %5 ], [ %.01225, %9 ], [ %.01225, %.critedge ], [ %.01225, %.critedge ], [ %.01225, %.critedge ], [ %.01225, %.critedge ], [ %.01225, %.critedge ], [ %.01225, %.critedge ], [ %spec.select16, %11 ]
-  %.1 = phi i32 [ %8, %5 ], [ %10, %9 ], [ %.026, %.critedge ], [ %.026, %.critedge ], [ %.026, %.critedge ], [ %.026, %.critedge ], [ %.026, %.critedge ], [ %.026, %.critedge ], [ %.026, %11 ]
-  %15 = getelementptr i8, ptr %.01524, i64 1
+  %.2 = phi i64 [ %spec.select, %5 ], [ %.01226, %9 ], [ %.01226, %.critedge ], [ %.01226, %.critedge ], [ %.01226, %.critedge ], [ %.01226, %.critedge ], [ %.01226, %.critedge ], [ %.01226, %.critedge ], [ %spec.select16, %11 ]
+  %.1 = phi i32 [ %8, %5 ], [ %10, %9 ], [ %.027, %.critedge ], [ %.027, %.critedge ], [ %.027, %.critedge ], [ %.027, %.critedge ], [ %.027, %.critedge ], [ %.027, %.critedge ], [ %.027, %11 ]
+  %15 = getelementptr i8, ptr %.01525, i64 1
   %16 = icmp slt i32 %.1, 1
   %.pr = load i8, ptr %15, align 1, !tbaa !29
   %.not = icmp eq i8 %.pr, %1
@@ -1566,9 +1566,9 @@ Py_DECREF.exit51.i:                               ; preds = %89, %86, %Py_DECREF
   br i1 %444, label %447, label %478
 
 447:                                              ; preds = %442
-  br i1 %446, label %452, label %.thread198
+  br i1 %446, label %452, label %.thread245
 
-.thread198:                                       ; preds = %447
+.thread245:                                       ; preds = %447
   %448 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %449 = load ptr, ptr %448, align 8
   %450 = getelementptr i8, ptr %449, i64 8
@@ -1596,8 +1596,8 @@ Py_DECREF.exit51.i:                               ; preds = %89, %86, %Py_DECREF
   store i32 %465, ptr %1, align 8
   br label %471
 
-466:                                              ; preds = %.thread198, %452
-  %467 = phi ptr [ %451, %.thread198 ], [ %458, %452 ]
+466:                                              ; preds = %.thread245, %452
+  %467 = phi ptr [ %451, %.thread245 ], [ %458, %452 ]
   %468 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %469 = load ptr, ptr %468, align 8
   %470 = getelementptr i8, ptr %469, i64 8

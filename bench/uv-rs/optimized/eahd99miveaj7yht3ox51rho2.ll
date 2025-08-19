@@ -678,7 +678,7 @@ define internal fastcc void @"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$L
 define void @_ZN10uv_extract4hash6Hasher6update17hdf70afa158715d08E(ptr noalias noundef align 16 dereferenceable(240) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
   %5 = load i64, ptr %0, align 16, !range !25, !noundef !3
-  switch i64 %5, label %default.unreachable25 [
+  switch i64 %5, label %default.unreachable30 [
     i64 0, label %6
     i64 1, label %29
     i64 2, label %58
@@ -686,7 +686,7 @@ define void @_ZN10uv_extract4hash6Hasher6update17hdf70afa158715d08E(ptr noalias 
     i64 4, label %118
   ]
 
-default.unreachable25:                            ; preds = %3
+default.unreachable30:                            ; preds = %3
   unreachable
 
 6:                                                ; preds = %3

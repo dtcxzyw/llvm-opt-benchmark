@@ -130,10 +130,10 @@ define internal i32 @dissect_ipmi_session(ptr noundef %0, ptr noundef %1, ptr no
   %9 = and i8 %8, 63
   %10 = icmp eq i8 %9, 2
   %. = select i1 %10, i32 8, i32 2
-  %.167 = select i1 %10, i32 16, i32 10
-  %.168 = select i1 %10, i32 18, i32 12
+  %.170 = select i1 %10, i32 16, i32 10
+  %.171 = select i1 %10, i32 18, i32 12
   %11 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.)
-  %12 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.167)
+  %12 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.170)
   %.0116.ph = zext i16 %12 to i32
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
@@ -153,9 +153,9 @@ define internal i32 @dissect_ipmi_session(ptr noundef %0, ptr noundef %1, ptr no
 22:                                               ; preds = %4
   %23 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 5)
   %24 = icmp eq i8 %5, 0
-  %.169 = select i1 %24, i32 9, i32 25
-  %.170 = select i1 %24, i32 10, i32 26
-  %25 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.169)
+  %.172 = select i1 %24, i32 9, i32 25
+  %.173 = select i1 %24, i32 10, i32 26
+  %25 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.172)
   %.0116 = zext i8 %25 to i32
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
@@ -167,7 +167,7 @@ define internal i32 @dissect_ipmi_session(ptr noundef %0, ptr noundef %1, ptr no
 29:                                               ; preds = %22, %7
   %.0120133162 = phi i32 [ %11, %7 ], [ %23, %22 ]
   %.0118135161 = phi i8 [ %9, %7 ], [ 0, %22 ]
-  %.0117137158 = phi i32 [ %.168, %7 ], [ %.170, %22 ]
+  %.0117137158 = phi i32 [ %.171, %7 ], [ %.173, %22 ]
   %.0116139156 = phi i32 [ %.0116.ph, %7 ], [ %.0116, %22 ]
   %.0114141154 = phi ptr [ %21, %7 ], [ @.str.65, %22 ]
   %.0143152 = phi i1 [ %19, %7 ], [ false, %22 ]

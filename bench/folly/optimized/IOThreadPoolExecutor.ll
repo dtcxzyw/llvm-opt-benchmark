@@ -1837,8 +1837,8 @@ define void @_ZN5folly20IOThreadPoolExecutor11stopThreadsEm(ptr noundef nonnull 
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.not83 = icmp eq i64 %1, 0
-  br i1 %.not83, label %_ZNSt6vectorISt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESaIS4_EED2Ev.exit, label %_ZNSt12_Vector_baseISt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESaIS4_EE11_M_allocateEm.exit.i
+  %.not107 = icmp eq i64 %1, 0
+  br i1 %.not107, label %_ZNSt6vectorISt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESaIS4_EED2Ev.exit, label %_ZNSt12_Vector_baseISt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESaIS4_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseISt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESaIS4_EE11_M_allocateEm.exit.i: ; preds = %9
   %11 = shl nuw nsw i64 %1, 4
@@ -3106,8 +3106,8 @@ _ZN5folly8Executor17getKeepAliveTokenINS_9EventBaseEEENS0_9KeepAliveIT_EEPS4_.ex
   br label %_ZNSt16allocator_traitsISaIN5folly8Executor9KeepAliveINS0_9EventBaseEEEEE9constructIS4_JRPS3_EEEvRS5_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaIN5folly8Executor9KeepAliveINS0_9EventBaseEEEEE9constructIS4_JRPS3_EEEvRS5_PT_DpOT0_.exit.i: ; preds = %118, %112, %_ZN5folly8Executor17getKeepAliveTokenINS_9EventBaseEEENS0_9KeepAliveIT_EEPS4_.exit.i.i.i.i, %98
-  %.sink.i5.i.i.i.i = phi i64 [ %spec.select.i.i.i.i.i, %118 ], [ %spec.select.i.i.i.i.i, %112 ], [ %spec.select.i.i.i.i.i, %_ZN5folly8Executor17getKeepAliveTokenINS_9EventBaseEEENS0_9KeepAliveIT_EEPS4_.exit.i.i.i.i ], [ 0, %98 ]
-  store i64 %.sink.i5.i.i.i.i, ptr %96, align 8, !tbaa !244
+  %.sink.i6.i.i.i.i = phi i64 [ %spec.select.i.i.i.i.i, %118 ], [ %spec.select.i.i.i.i.i, %112 ], [ %spec.select.i.i.i.i.i, %_ZN5folly8Executor17getKeepAliveTokenINS_9EventBaseEEENS0_9KeepAliveIT_EEPS4_.exit.i.i.i.i ], [ 0, %98 ]
+  store i64 %.sink.i6.i.i.i.i, ptr %96, align 8, !tbaa !244
   %123 = load ptr, ptr %56, align 8, !tbaa !238
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store ptr %124, ptr %56, align 8, !tbaa !238
@@ -4396,8 +4396,8 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockE
   br i1 %46, label %69, label %.critedge.i.i.i.i.i.i.sink.split, !prof !308
 
 .critedge.i.i.i.i.i.i.sink.split:                 ; preds = %43, %52
-  %.sink51 = phi { i32, i1 } [ %59, %52 ], [ %45, %43 ]
-  %47 = extractvalue { i32, i1 } %.sink51, 0
+  %.sink60 = phi { i32, i1 } [ %59, %52 ], [ %45, %43 ]
+  %47 = extractvalue { i32, i1 } %.sink60, 0
   store i32 %47, ptr %2, align 4, !noalias !312
   br label %.critedge.i.i.i.i.i.i
 
@@ -8378,8 +8378,8 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
   unreachable
 
 _ZN5folly6detail14ScopeGuardImplIZNS_17atomic_grow_arrayINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_32atomic_grow_array_policy_defaultISA_EEE9new_arrayEmRPNSD_5arrayEEUlvE_Lb1EED2Ev.exit: ; preds = %.critedge, %.preheader49, %55
-  %.364 = phi ptr [ null, %55 ], [ %23, %.preheader49 ], [ %23, %.critedge ]
-  ret ptr %.364
+  %.367 = phi ptr [ null, %55 ], [ %23, %.preheader49 ], [ %23, %.critedge ]
+  ret ptr %.367
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -8633,8 +8633,8 @@ _ZN5folly8Executor17getKeepAliveTokenINS_9EventBaseEEENS0_9KeepAliveIT_EEPS4_.ex
   br label %33
 
 33:                                               ; preds = %_ZN5folly8Executor17getKeepAliveTokenINS_9EventBaseEEENS0_9KeepAliveIT_EEPS4_.exit.i.i.i, %_ZNKSt6vectorIN5folly8Executor9KeepAliveINS0_9EventBaseEEESaIS4_EE12_M_check_lenEmPKc.exit
-  %.sink.i5.i.i.i = phi i64 [ %spec.select.i.i.i.i, %_ZN5folly8Executor17getKeepAliveTokenINS_9EventBaseEEENS0_9KeepAliveIT_EEPS4_.exit.i.i.i ], [ 0, %_ZNKSt6vectorIN5folly8Executor9KeepAliveINS0_9EventBaseEEESaIS4_EE12_M_check_lenEmPKc.exit ]
-  store i64 %.sink.i5.i.i.i, ptr %21, align 8, !tbaa !244
+  %.sink.i6.i.i.i = phi i64 [ %spec.select.i.i.i.i, %_ZN5folly8Executor17getKeepAliveTokenINS_9EventBaseEEENS0_9KeepAliveIT_EEPS4_.exit.i.i.i ], [ 0, %_ZNKSt6vectorIN5folly8Executor9KeepAliveINS0_9EventBaseEEESaIS4_EE12_M_check_lenEmPKc.exit ]
+  store i64 %.sink.i6.i.i.i, ptr %21, align 8, !tbaa !244
   %.not10.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN5folly8Executor9KeepAliveINS0_9EventBaseEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i
 
@@ -9645,8 +9645,8 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolE
   %.02150.i.i = phi i64 [ %11, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.2.i.i, %52 ]
   %.sroa.038.049.i.i = phi ptr [ %5, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.038.1.i.i, %52 ]
   %16 = lshr i64 %.02150.i.i, 1
-  %.idx50 = shl nuw nsw i64 %16, 4
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.038.049.i.i, i64 %.idx50
+  %.idx54 = shl nuw nsw i64 %16, 4
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.038.049.i.i, i64 %.idx54
   %18 = load ptr, ptr %17, align 8, !tbaa !18
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !27
@@ -9664,8 +9664,8 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolE
   br i1 %27, label %52, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %26
-  %.not49 = icmp ult i64 %.02150.i.i, 2
-  br i1 %.not49, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valINS4_10ThreadList7CompareEEEET_SH_SH_RKT0_T1_.exit.i.i, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i
+  %.not53 = icmp ult i64 %.02150.i.i, 2
+  br i1 %.not53, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valINS4_10ThreadList7CompareEEEET_SH_SH_RKT0_T1_.exit.i.i, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i: ; preds = %.critedge.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i
   %.013.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i ], [ %16, %.critedge.i.i ]
@@ -9688,7 +9688,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18Thre
   %.sroa.011.0.lcssa.i.i.i = phi ptr [ %.sroa.038.049.i.i, %.critedge.i.i ], [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i ]
   %.idx = shl nuw nsw i64 %.02150.i.i, 4
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %39 = add nuw nsw i64 %.idx50, 16
+  %39 = add nuw nsw i64 %.idx54, 16
   %gepdiff = sub nsw i64 %.idx, %39
   %40 = ashr exact i64 %gepdiff, 4
   %41 = icmp sgt i64 %40, 0

@@ -1988,18 +1988,18 @@ _init_l_Lean_InternalExceptionId_getName___closed__2.exit: ; preds = %_init_l_Le
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_InternalExceptionId_getName___closed__2.exit, %3
-  %.sink19 = phi ptr [ %4, %3 ], [ %58, %_init_l_Lean_InternalExceptionId_getName___closed__2.exit ]
-  %61 = getelementptr inbounds nuw i8, ptr %.sink19, i64 4
-  store i32 1, ptr %.sink19, align 4, !tbaa !5
+  %.sink27 = phi ptr [ %4, %3 ], [ %58, %_init_l_Lean_InternalExceptionId_getName___closed__2.exit ]
+  %61 = getelementptr inbounds nuw i8, ptr %.sink27, i64 4
+  store i32 1, ptr %.sink27, align 4, !tbaa !5
   store i32 131096, ptr %61, align 4
-  %62 = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.sink27, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %62, align 8, !tbaa !11
-  %63 = getelementptr inbounds nuw i8, ptr %.sink19, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.sink27, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %63, align 8, !tbaa !11
   br label %64
 
 64:                                               ; preds = %.sink.split, %27, %7
-  %.0 = phi ptr [ %8, %7 ], [ %28, %27 ], [ %.sink19, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %28, %27 ], [ %.sink27, %.sink.split ]
   ret ptr %.0
 }
 

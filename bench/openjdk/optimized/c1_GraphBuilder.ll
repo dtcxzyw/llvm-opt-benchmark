@@ -2488,18 +2488,18 @@ _ZN13GrowableArrayI14ResourceBitMapED2Ev.exit:    ; preds = %1
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i.i
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %16, ptr %24, align 8
-  %.sroa.4.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 %16, ptr %.sroa.4.0..sroa_idx22, align 4
-  %.sroa.7.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %20, ptr %.sroa.7.0..sroa_idx23, align 8
-  %.sroa.10.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i64 0, ptr %.sroa.10.0..sroa_idx24, align 8
+  %.sroa.4.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  store i32 %16, ptr %.sroa.4.0..sroa_idx23, align 4
+  %.sroa.7.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr %20, ptr %.sroa.7.0..sroa_idx24, align 8
+  %.sroa.10.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i64 0, ptr %.sroa.10.0..sroa_idx25, align 8
   %wide.trip.count = zext nneg i32 %16 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %25 = load ptr, ptr %.sroa.7.0..sroa_idx23, align 8
+  %25 = load ptr, ptr %.sroa.7.0..sroa_idx24, align 8
   %26 = getelementptr inbounds nuw %class.ResourceBitMap, ptr %25, i64 %indvars.iv
   call void @_ZN14GrowableBitMapI14ResourceBitMapE10initializeEmb(ptr noundef nonnull align 8 dereferenceable(16) %26, i64 noundef %18, i1 noundef zeroext true) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -10804,8 +10804,8 @@ _ZN9BlockListC2EiP10BlockBegin.exit:              ; preds = %196
   tail call void @llvm.memset.p0.i64(ptr align 8 %199, i8 0, i64 %204, i1 false)
   %205 = getelementptr inbounds nuw i8, ptr %197, i64 16
   store i64 0, ptr %205, align 8
-  %.not53 = icmp eq i32 %26, %25
-  br i1 %.not53, label %._crit_edge, label %.lr.ph.preheader
+  %.not54 = icmp eq i32 %26, %25
+  br i1 %.not54, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN9BlockListC2EiP10BlockBegin.exit
   %wide.trip.count = zext nneg i32 %27 to i64
@@ -14618,12 +14618,12 @@ _ZN10ValueStack5rpushEP11Instruction.exit:        ; preds = %123, %129
   unreachable
 
 142:                                              ; preds = %_ZN10ValueStack5rpushEP11Instruction.exit, %_ZN10ValueStack5apushEP11Instruction.exit, %_ZN10ValueStack5dpushEP11Instruction.exit, %_ZN10ValueStack5fpushEP11Instruction.exit, %_ZN10ValueStack5lpushEP11Instruction.exit, %_ZN10ValueStack5ipushEP11Instruction.exit
-  %.sink33 = phi i32 [ %137, %_ZN10ValueStack5rpushEP11Instruction.exit ], [ %120, %_ZN10ValueStack5apushEP11Instruction.exit ], [ %104, %_ZN10ValueStack5dpushEP11Instruction.exit ], [ %70, %_ZN10ValueStack5fpushEP11Instruction.exit ], [ %54, %_ZN10ValueStack5lpushEP11Instruction.exit ], [ %20, %_ZN10ValueStack5ipushEP11Instruction.exit ]
-  %.sink31.in = phi ptr [ %139, %_ZN10ValueStack5rpushEP11Instruction.exit ], [ %122, %_ZN10ValueStack5apushEP11Instruction.exit ], [ %89, %_ZN10ValueStack5dpushEP11Instruction.exit ], [ %72, %_ZN10ValueStack5fpushEP11Instruction.exit ], [ %39, %_ZN10ValueStack5lpushEP11Instruction.exit ], [ %22, %_ZN10ValueStack5ipushEP11Instruction.exit ]
+  %.sink47 = phi i32 [ %137, %_ZN10ValueStack5rpushEP11Instruction.exit ], [ %120, %_ZN10ValueStack5apushEP11Instruction.exit ], [ %104, %_ZN10ValueStack5dpushEP11Instruction.exit ], [ %70, %_ZN10ValueStack5fpushEP11Instruction.exit ], [ %54, %_ZN10ValueStack5lpushEP11Instruction.exit ], [ %20, %_ZN10ValueStack5ipushEP11Instruction.exit ]
+  %.sink45.in = phi ptr [ %139, %_ZN10ValueStack5rpushEP11Instruction.exit ], [ %122, %_ZN10ValueStack5apushEP11Instruction.exit ], [ %89, %_ZN10ValueStack5dpushEP11Instruction.exit ], [ %72, %_ZN10ValueStack5fpushEP11Instruction.exit ], [ %39, %_ZN10ValueStack5lpushEP11Instruction.exit ], [ %22, %_ZN10ValueStack5ipushEP11Instruction.exit ]
   %.sink = phi ptr [ %2, %_ZN10ValueStack5rpushEP11Instruction.exit ], [ %2, %_ZN10ValueStack5apushEP11Instruction.exit ], [ null, %_ZN10ValueStack5dpushEP11Instruction.exit ], [ %2, %_ZN10ValueStack5fpushEP11Instruction.exit ], [ null, %_ZN10ValueStack5lpushEP11Instruction.exit ], [ %2, %_ZN10ValueStack5ipushEP11Instruction.exit ]
-  %.sink31 = load ptr, ptr %.sink31.in, align 8
-  %143 = sext i32 %.sink33 to i64
-  %144 = getelementptr inbounds ptr, ptr %.sink31, i64 %143
+  %.sink45 = load ptr, ptr %.sink45.in, align 8
+  %143 = sext i32 %.sink47 to i64
+  %144 = getelementptr inbounds ptr, ptr %.sink45, i64 %143
   store ptr %.sink, ptr %144, align 8
   ret void
 }
@@ -15389,18 +15389,18 @@ _ZN15ciInstanceKlass14is_initializedEv.exit:      ; preds = %31, %_ZNK10ciMetada
 _ZN22CompilationResourceObjnwEm.exit.i.i.i:       ; preds = %76, %74
   %.0.i.i.i.i.i.i = phi ptr [ %70, %74 ], [ %77, %76 ]
   %78 = icmp eq ptr %.0.i.i.i.i.i.i, null
-  br i1 %78, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %_ZN12GraphBuilder17copy_state_beforeEv.exit.thread229
+  br i1 %78, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %_ZN12GraphBuilder17copy_state_beforeEv.exit.thread241
 
 _ZN12GraphBuilder17copy_state_beforeEv.exit:      ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
   %79 = and i32 %1, -2
   %or.cond3 = icmp eq i32 %79, 178
   br i1 %or.cond3, label %.thread, label %215
 
-_ZN12GraphBuilder17copy_state_beforeEv.exit.thread229: ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
+_ZN12GraphBuilder17copy_state_beforeEv.exit.thread241: ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
   call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %59, i32 noundef 2, i32 noundef %57) #19
   %80 = and i32 %1, -2
-  %or.cond3230 = icmp eq i32 %80, 178
-  br i1 %or.cond3230, label %82, label %215
+  %or.cond3242 = icmp eq i32 %80, 178
+  br i1 %or.cond3242, label %82, label %215
 
 _ZN12GraphBuilder17copy_state_beforeEv.exit.thread: ; preds = %_ZN15ciInstanceKlass14is_initializedEv.exit
   %81 = and i32 %1, -2
@@ -15411,7 +15411,7 @@ _ZN12GraphBuilder17copy_state_beforeEv.exit.thread..thread_crit_edge: ; preds = 
   %.pre = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   br label %.thread
 
-82:                                               ; preds = %_ZN12GraphBuilder17copy_state_beforeEv.exit.thread229
+82:                                               ; preds = %_ZN12GraphBuilder17copy_state_beforeEv.exit.thread241
   %83 = load ptr, ptr %60, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 1808
   %85 = load ptr, ptr %84, align 8
@@ -15638,8 +15638,8 @@ _ZN22CompilationResourceObjnwEm.exit150:          ; preds = %183, %185
   store ptr getelementptr inbounds nuw inrange(-16, 504) (i8, ptr @_ZTV8Constant, i64 16), ptr %.0.i.i.i146, align 8
   br label %.thread202
 
-215:                                              ; preds = %_ZN12GraphBuilder17copy_state_beforeEv.exit.thread229, %_ZN12GraphBuilder17copy_state_beforeEv.exit.thread, %_ZN12GraphBuilder17copy_state_beforeEv.exit
-  %.0111198 = phi ptr [ %.0.i.i.i.i.i.i, %_ZN12GraphBuilder17copy_state_beforeEv.exit ], [ null, %_ZN12GraphBuilder17copy_state_beforeEv.exit.thread ], [ %.0.i.i.i.i.i.i, %_ZN12GraphBuilder17copy_state_beforeEv.exit.thread229 ]
+215:                                              ; preds = %_ZN12GraphBuilder17copy_state_beforeEv.exit.thread241, %_ZN12GraphBuilder17copy_state_beforeEv.exit.thread, %_ZN12GraphBuilder17copy_state_beforeEv.exit
+  %.0111198 = phi ptr [ %.0.i.i.i.i.i.i, %_ZN12GraphBuilder17copy_state_beforeEv.exit ], [ null, %_ZN12GraphBuilder17copy_state_beforeEv.exit.thread ], [ %.0.i.i.i.i.i.i, %_ZN12GraphBuilder17copy_state_beforeEv.exit.thread241 ]
   %.sroa.0.0.copyload.i.i = load i64, ptr %7, align 8
   %216 = and i64 %.sroa.0.0.copyload.i.i, 16
   %217 = icmp ne i64 %216, 0
@@ -16561,7 +16561,7 @@ _ZN11InstructionnwEm.exit177:                     ; preds = %750, %752
   %795 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %796 = load i32, ptr %795, align 4
   %797 = icmp ult i32 %796, 6
-  br i1 %797, label %switch.lookup244, label %798
+  br i1 %797, label %switch.lookup256, label %798
 
 798:                                              ; preds = %794
   %799 = load ptr, ptr @g_assert_poison, align 8
@@ -16569,17 +16569,17 @@ _ZN11InstructionnwEm.exit177:                     ; preds = %750, %752
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.73, i32 noundef 214) #20
   unreachable
 
-switch.lookup244:                                 ; preds = %794
+switch.lookup256:                                 ; preds = %794
   %800 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %801 = load ptr, ptr %800, align 8
   %802 = zext nneg i32 %796 to i64
-  %switch.gep245 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN12GraphBuilder12access_fieldEN9Bytecodes4CodeE.5, i64 0, i64 %802
-  %switch.load246 = load i32, ptr %switch.gep245, align 4
+  %switch.gep257 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN12GraphBuilder12access_fieldEN9Bytecodes4CodeE.5, i64 0, i64 %802
+  %switch.load258 = load i32, ptr %switch.gep257, align 4
   %803 = getelementptr inbounds nuw i8, ptr %801, i64 48
   %804 = getelementptr inbounds nuw i8, ptr %801, i64 56
   %805 = load ptr, ptr %804, align 8
   %806 = load i32, ptr %803, align 8
-  %807 = add nsw i32 %806, %switch.load246
+  %807 = add nsw i32 %806, %switch.load258
   store i32 %807, ptr %803, align 8
   %808 = sext i32 %807 to i64
   %809 = getelementptr inbounds ptr, ptr %805, i64 %808
@@ -16597,7 +16597,7 @@ switch.lookup244:                                 ; preds = %794
   %819 = icmp eq ptr %.0111198207211, null
   br i1 %819, label %820, label %833
 
-820:                                              ; preds = %switch.lookup244
+820:                                              ; preds = %switch.lookup256
   %821 = load ptr, ptr %0, align 8
   %822 = getelementptr inbounds nuw i8, ptr %821, i64 32
   %823 = load ptr, ptr %822, align 8
@@ -16612,8 +16612,8 @@ switch.lookup244:                                 ; preds = %794
   %832 = call noundef ptr @_ZN12GraphBuilder33copy_state_for_exception_with_bciEi(ptr noundef nonnull readonly align 8 dereferenceable(97) %0, i32 noundef %831)
   br label %833
 
-833:                                              ; preds = %820, %switch.lookup244
-  %.4 = phi ptr [ %832, %820 ], [ %.0111198207211, %switch.lookup244 ]
+833:                                              ; preds = %820, %switch.lookup256
+  %.4 = phi ptr [ %832, %820 ], [ %.0111198207211, %switch.lookup256 ]
   %834 = load ptr, ptr %10, align 8
   %835 = icmp eq ptr %834, null
   br i1 %835, label %836, label %_ZN7ciField4typeEv.exit181
@@ -17214,10 +17214,10 @@ _ZN26GrowableArrayWithAllocatorIP11Instruction13GrowableArrayIS1_EE7at_growEiRKS
   br label %_ZN11FieldBuffer2atEP7ciField.exit
 
 _ZN11FieldBuffer2atEP7ciField.exit:               ; preds = %70, %36
-  %.sink34 = phi i32 [ %67, %70 ], [ %18, %36 ]
+  %.sink40 = phi i32 [ %67, %70 ], [ %18, %36 ]
   %.sink.in = phi ptr [ %71, %70 ], [ %37, %36 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %72 = sext i32 %.sink34 to i64
+  %72 = sext i32 %.sink40 to i64
   %73 = getelementptr inbounds ptr, ptr %.sink, i64 %72
   %.014 = load ptr, ptr %73, align 8
   %.not16 = icmp eq ptr %.014, null
@@ -17540,10 +17540,10 @@ _ZN11FieldBuffer6at_putEP7ciFieldP11Instruction.exit39: ; preds = %_ZN26Growable
 
 160:                                              ; preds = %_ZN11FieldBuffer6at_putEP7ciFieldP11Instruction.exit39, %_ZN11FieldBuffer6at_putEP7ciFieldP11Instruction.exit
   %.sink = phi i32 [ %137, %_ZN11FieldBuffer6at_putEP7ciFieldP11Instruction.exit39 ], [ %87, %_ZN11FieldBuffer6at_putEP7ciFieldP11Instruction.exit ]
-  %.sink48.in = phi ptr [ %159, %_ZN11FieldBuffer6at_putEP7ciFieldP11Instruction.exit39 ], [ %109, %_ZN11FieldBuffer6at_putEP7ciFieldP11Instruction.exit ]
-  %.sink48 = load ptr, ptr %.sink48.in, align 8
+  %.sink59.in = phi ptr [ %159, %_ZN11FieldBuffer6at_putEP7ciFieldP11Instruction.exit39 ], [ %109, %_ZN11FieldBuffer6at_putEP7ciFieldP11Instruction.exit ]
+  %.sink59 = load ptr, ptr %.sink59.in, align 8
   %161 = sext i32 %.sink to i64
-  %162 = getelementptr inbounds ptr, ptr %.sink48, i64 %161
+  %162 = getelementptr inbounds ptr, ptr %.sink59, i64 %161
   store ptr %6, ptr %162, align 8
   tail call void @_ZN12MemoryBuffer11store_valueEP11Instruction(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %6)
   br label %167
@@ -19229,20 +19229,20 @@ _ZN12GraphBuilder12is_profilingEv.exit306.thread: ; preds = %769, %_ZN12GraphBui
   br i1 %or.cond427, label %789, label %.critedge249
 
 789:                                              ; preds = %_ZN12GraphBuilder12is_profilingEv.exit306.thread
-  br i1 %624, label %.sink.split443, label %790
+  br i1 %624, label %.sink.split461, label %790
 
 790:                                              ; preds = %789
   %.not238 = icmp eq ptr %.0202387, null
-  br i1 %.not238, label %793, label %.sink.split443
+  br i1 %.not238, label %793, label %.sink.split461
 
-.sink.split443:                                   ; preds = %790, %789
+.sink.split461:                                   ; preds = %790, %789
   %.0202387.sink = phi ptr [ %.0201388, %789 ], [ %.0202387, %790 ]
   %791 = getelementptr inbounds nuw i8, ptr %.0202387.sink, i64 40
   %792 = load ptr, ptr %791, align 8
   br label %793
 
-793:                                              ; preds = %.sink.split443, %790
-  %.0193 = phi ptr [ null, %790 ], [ %792, %.sink.split443 ]
+793:                                              ; preds = %.sink.split461, %790
+  %.0193 = phi ptr [ null, %790 ], [ %792, %.sink.split461 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %794 = call noundef ptr @_ZN12GraphBuilder23args_list_for_profilingEP8ciMethodRib(ptr noundef nonnull readonly align 8 dereferenceable(97) %0, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %3, i1 noundef zeroext false)
   %795 = icmp eq ptr %794, null
@@ -23026,8 +23026,8 @@ define hidden noundef ptr @_ZN13PhiSimplifier8simplifyEP11Instruction(ptr nounde
 .lr.ph.preheader:                                 ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
-  %.not4458 = icmp eq ptr %9, null
-  br i1 %.not4458, label %.lr.ph._crit_edge, label %tailrecurse.i.outer
+  %.not4464 = icmp eq ptr %9, null
+  br i1 %.not4464, label %.lr.ph._crit_edge, label %tailrecurse.i.outer
 
 tailrecurse.i.outer:                              ; preds = %tailrecurse.i, %.lr.ph.preheader
   %.tr.i.ph = phi ptr [ %1, %.lr.ph.preheader ], [ %18, %tailrecurse.i ]
@@ -32825,8 +32825,8 @@ _ZNK12GraphBuilder11num_returnsEv.exit:           ; preds = %tailrecurse.i.i, %5
   %543 = icmp eq i32 %542, 1
   %544 = load ptr, ptr %213, align 8
   %545 = icmp eq ptr %544, %214
-  %or.cond183 = select i1 %543, i1 %545, i1 false
-  br i1 %or.cond183, label %546, label %556
+  %or.cond202 = select i1 %543, i1 %545, i1 false
+  br i1 %or.cond202, label %546, label %556
 
 546:                                              ; preds = %_ZNK12GraphBuilder11num_returnsEv.exit
   %547 = getelementptr inbounds nuw i8, ptr %533, i64 112
@@ -37096,7 +37096,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP10BlockBegin13
   br i1 %.not, label %_ZN13GrowableArrayIP10BlockBeginE10deallocateEPS1_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -37108,8 +37108,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP10BlockBegin13
   br label %_ZN13GrowableArrayIP10BlockBeginE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP10BlockBeginE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIP10BlockBeginE10deallocateEPS1_.exit

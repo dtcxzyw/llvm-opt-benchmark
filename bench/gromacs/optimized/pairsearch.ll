@@ -240,7 +240,7 @@ define void @_ZN3gmx14PairsearchWorkC2Ev(ptr noundef nonnull align 8 captures(no
   br label %_ZNSt6vectorISt5arrayImLm2EESaIS1_EED2Ev.exit
 
 _ZNSt6vectorISt5arrayImLm2EESaIS1_EED2Ev.exit:    ; preds = %.body.thread, %.body, %17
-  %eh.lpad-body5 = phi { ptr, i32 } [ %15, %.body.thread ], [ %16, %.body ], [ %16, %17 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %.body.thread ], [ %16, %.body ], [ %16, %17 ]
   %23 = load ptr, ptr %2, align 8, !tbaa !14
   %.not.i.i.i2 = icmp eq ptr %23, null
   br i1 %.not.i.i.i2, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %24
@@ -255,7 +255,7 @@ _ZNSt6vectorISt5arrayImLm2EESaIS1_EED2Ev.exit:    ; preds = %.body.thread, %.bod
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorISt5arrayImLm2EESaIS1_EED2Ev.exit, %24
-  resume { ptr, i32 } %eh.lpad-body5
+  resume { ptr, i32 } %eh.lpad-body6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -456,7 +456,7 @@ _ZNSt12_Vector_baseIN3gmx14PairsearchWorkESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZN
           to label %_ZSt10_ConstructIN3gmx14PairsearchWorkEJEEvPT_DpOT0_.exit.i.i.i.i unwind label %14
 
 _ZSt10_ConstructIN3gmx14PairsearchWorkEJEEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %12 = add i64 %.01013.i.i.i.i, -1
+  %12 = add nsw i64 %.01013.i.i.i.i, -1
   %13 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 216
   %.not.i.i.i.i = icmp eq i64 %12, 0
   br i1 %.not.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !75

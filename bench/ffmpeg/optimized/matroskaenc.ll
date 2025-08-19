@@ -1084,8 +1084,8 @@ put_ebml_void.exit.i.i110:                        ; preds = %.lr.ph.i.i.i.i107, 
   %463 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %464 = getelementptr inbounds nuw i8, ptr %10, i64 68
   %465 = getelementptr inbounds nuw i8, ptr %10, i64 88
-  %.sink18.i.i.sroa.gep.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sink18.i.i.sroa.gep216.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink20.i.i.sroa.gep.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink20.i.i.sroa.gep216.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %466 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %467 = getelementptr inbounds nuw i8, ptr %10, i64 100
   %468 = getelementptr inbounds nuw i8, ptr %10, i64 120
@@ -1551,11 +1551,11 @@ put_ebml_uint.exit382.i.i:                        ; preds = %.lr.ph.i.i600.prehe
   br label %mkv_write_tracks.exit.thread
 
 .loopexit692.sink.split.i.i:                      ; preds = %.lr.ph.i.i.i385.i.i, %.lr.ph.i.i.i328.i.i, %.lr.ph.i._crit_edge.i, %.loopexit691.i.i
-  %.sink737.i.i = phi i64 [ %586, %.loopexit691.i.i ], [ %628, %.lr.ph.i._crit_edge.i ], [ %586, %.lr.ph.i.i.i328.i.i ], [ %628, %.lr.ph.i.i.i385.i.i ]
+  %.sink797.i.i = phi i64 [ %586, %.loopexit691.i.i ], [ %628, %.lr.ph.i._crit_edge.i ], [ %586, %.lr.ph.i.i.i328.i.i ], [ %628, %.lr.ph.i.i.i385.i.i ]
   %.0215.ph.sink.i.i = phi ptr [ %.0215.ph.i.i, %.loopexit691.i.i ], [ %.lcssa165.i, %.lr.ph.i._crit_edge.i ], [ %.0215.ph.i.i, %.lr.ph.i.i.i328.i.i ], [ %.lcssa165.i, %.lr.ph.i.i.i385.i.i ]
   %.1202.ph.i.i = phi i32 [ %.0201.ph.i.i, %.loopexit691.i.i ], [ 1, %.lr.ph.i._crit_edge.i ], [ %.0201.ph.i.i, %.lr.ph.i.i.i328.i.i ], [ 1, %.lr.ph.i.i.i385.i.i ]
-  %635 = trunc i64 %.sink737.i.i to i32
-  %sext.i331.i.i = shl i64 %.sink737.i.i, 32
+  %635 = trunc i64 %.sink797.i.i to i32
+  %sext.i331.i.i = shl i64 %.sink797.i.i, 32
   %636 = ashr exact i64 %sext.i331.i.i, 32
   call fastcc void @put_ebml_length(ptr noundef %495, i64 noundef %636, i32 noundef 0)
   call void @avio_write(ptr noundef %495, ptr noundef nonnull %.0215.ph.sink.i.i, i32 noundef %635) #14
@@ -2642,7 +2642,7 @@ mkv_write_video_color.exit.i.i.i:                 ; preds = %1155, %1153
 
 1181:                                             ; preds = %1178
   store i32 0, ptr %473, align 4, !tbaa !50
-  store i32 0, ptr %.sink18.i.i.sroa.gep.i.i.i, align 8, !tbaa !50
+  store i32 0, ptr %.sink20.i.i.sroa.gep.i.i.i, align 8, !tbaa !50
   store i32 0, ptr %474, align 4, !tbaa !50
   br label %mkv_handle_spherical.exit.i.i.i.i
 
@@ -2654,7 +2654,7 @@ mkv_write_video_color.exit.i.i.i:                 ; preds = %1155, %1153
   %1186 = getelementptr inbounds nuw i8, ptr %1169, i64 28
   %1187 = load i32, ptr %1186, align 4, !tbaa !149
   %1188 = call i32 @llvm.bswap.i32(i32 %1187)
-  store i32 %1188, ptr %.sink18.i.i.sroa.gep.i.i.i, align 8, !tbaa !50
+  store i32 %1188, ptr %.sink20.i.i.sroa.gep.i.i.i, align 8, !tbaa !50
   %1189 = getelementptr inbounds nuw i8, ptr %1169, i64 16
   %1190 = load i32, ptr %1189, align 4, !tbaa !150
   %1191 = call i32 @llvm.bswap.i32(i32 %1190)
@@ -2674,10 +2674,10 @@ mkv_write_video_color.exit.i.i.i:                 ; preds = %1155, %1153
   br label %mkv_handle_spherical.exit.i.i.i.i
 
 mkv_handle_spherical.exit.i.i.i.i:                ; preds = %1195, %1182, %1181
-  %.sink18.i.i.sroa.phi.i.i.i = phi ptr [ %.sink18.i.i.sroa.gep.i.i.i, %1195 ], [ %.sink18.i.i.sroa.gep216.i.i.i, %1182 ], [ %.sink18.i.i.sroa.gep216.i.i.i, %1181 ]
-  %.sink16.i.i.i.i.i = phi i32 [ %1198, %1195 ], [ %1194, %1182 ], [ 0, %1181 ]
-  %.sink4.i.i.i.i.i = phi i64 [ 12, %1195 ], [ 20, %1182 ], [ 20, %1181 ]
-  store i32 %.sink16.i.i.i.i.i, ptr %.sink18.i.i.sroa.phi.i.i.i, align 1, !tbaa !50
+  %.sink20.i.i.sroa.phi.i.i.i = phi ptr [ %.sink20.i.i.sroa.gep.i.i.i, %1195 ], [ %.sink20.i.i.sroa.gep216.i.i.i, %1182 ], [ %.sink20.i.i.sroa.gep216.i.i.i, %1181 ]
+  %.sink18.i.i.i.i.i = phi i32 [ %1198, %1195 ], [ %1194, %1182 ], [ 0, %1181 ]
+  %.sink6.i.i.i.i.i = phi i64 [ 12, %1195 ], [ 20, %1182 ], [ 20, %1181 ]
+  store i32 %.sink18.i.i.i.i.i, ptr %.sink20.i.i.sroa.phi.i.i.i, align 1, !tbaa !50
   %1199 = zext i32 %1176 to i64
   %1200 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %1199
   store i32 30322, ptr %1200, align 16, !tbaa !44
@@ -2685,7 +2685,7 @@ mkv_handle_spherical.exit.i.i.i.i:                ; preds = %1195, %1182, %1181
   store i32 5, ptr %1201, align 4, !tbaa !46
   %1202 = add i32 %.sroa.0.21.i.i.i, 3
   %1203 = getelementptr inbounds nuw i8, ptr %1200, i64 16
-  store i64 %.sink4.i.i.i.i.i, ptr %1203, align 16, !tbaa !133
+  store i64 %.sink6.i.i.i.i.i, ptr %1203, align 16, !tbaa !133
   %1204 = getelementptr inbounds nuw i8, ptr %1200, i64 24
   store ptr %9, ptr %1204, align 8, !tbaa !50
   %1205 = getelementptr inbounds nuw i8, ptr %1169, i64 4
@@ -7085,10 +7085,10 @@ define internal fastcc void @put_ebml_void(ptr noundef %0, i32 noundef %1) unnam
 put_ebml_id.exit:                                 ; preds = %.lr.ph.i, %5
   %13 = icmp samesign ult i32 %1, 10
   %. = select i1 %13, i32 -2, i32 -9
-  %.13 = select i1 %13, i32 0, i32 8
+  %.15 = select i1 %13, i32 0, i32 8
   %14 = add nsw i32 %1, %.
   %15 = zext nneg i32 %14 to i64
-  tail call fastcc void @put_ebml_length(ptr noundef %0, i64 noundef %15, i32 noundef %.13)
+  tail call fastcc void @put_ebml_length(ptr noundef %0, i64 noundef %15, i32 noundef %.15)
   tail call void @ffio_fill(ptr noundef %0, i32 noundef 0, i64 noundef %15) #14
   ret void
 }
@@ -8723,8 +8723,8 @@ mkv_check_tag_name.exit.thread:                   ; preds = %65, %52, %56, %58, 
   br i1 %.not36, label %100, label %99
 
 ._crit_edge.thread:                               ; preds = %mkv_write_tag_targets.exit
-  %.not3664 = icmp eq i32 %3, 0
-  br i1 %.not3664, label %start_ebml_master_crc32.exit, label %99
+  %.not3676 = icmp eq i32 %3, 0
+  br i1 %.not3676, label %start_ebml_master_crc32.exit, label %99
 
 99:                                               ; preds = %._crit_edge.thread, %._crit_edge
   call fastcc void @put_ebml_void(ptr noundef %11, i32 noundef %3)
@@ -9533,14 +9533,14 @@ define internal fastcc range(i32 -12, 1) i32 @mkv_add_cuepoint(ptr noundef captu
   %21 = getelementptr inbounds nuw %struct.mkv_cuepoint, ptr %15, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !216
   %23 = icmp ugt i64 %22, %2
-  br i1 %23, label %18, label %.critedge.split.loop.exit42, !llvm.loop !299
+  br i1 %23, label %18, label %.critedge.split.loop.exit43, !llvm.loop !299
 
-.critedge.split.loop.exit42:                      ; preds = %19
+.critedge.split.loop.exit43:                      ; preds = %19
   %24 = trunc nuw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %18, %.critedge.split.loop.exit42
-  %.0.lcssa = phi i32 [ %24, %.critedge.split.loop.exit42 ], [ 0, %18 ]
+.critedge:                                        ; preds = %18, %.critedge.split.loop.exit43
+  %.0.lcssa = phi i32 [ %24, %.critedge.split.loop.exit43 ], [ 0, %18 ]
   %25 = add i32 %.0.lcssa, 1
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw %struct.mkv_cuepoint, ptr %15, i64 %26
@@ -9635,7 +9635,7 @@ define internal range(i32 -2147483648, 1) i32 @mkv_reformat_wavpack(ptr readnone
   %29 = select i1 %.not37.us, i32 4, i32 0
   %30 = zext nneg i32 %20 to i64
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 %30
-  %32 = sub nuw i32 %19, %20
+  %32 = sub nuw nsw i32 %19, %20
   %33 = add i32 %26, %.02646.us
   %34 = add i32 %33, %29
   %35 = add i32 %34, %20

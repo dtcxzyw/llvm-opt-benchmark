@@ -4445,7 +4445,7 @@ _ZN7AstNode9privateIsI9AstGenForKPS_EEbPKS_.exit: ; preds = %_ZN7AstNode9private
   %220 = getelementptr inbounds nuw i8, ptr %212, i64 248
   %.sroa.0.0.copyload.i.i = load i8, ptr %220, align 8, !tbaa !126
   %221 = icmp eq i8 %.sroa.0.0.copyload.i.i, 3
-  br i1 %221, label %_ZN7AstNode9privateIsI9AstGenForKPS_EEbPKS_.exit179.thread247, label %222
+  br i1 %221, label %_ZN7AstNode9privateIsI9AstGenForKPS_EEbPKS_.exit179.thread303, label %222
 
 222:                                              ; preds = %219
   %223 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCode(i8 5)
@@ -4484,7 +4484,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i172, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i171
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %_ZN7AstNode9privateIsI9AstGenForKPS_EEbPKS_.exit179.thread247
+  br label %_ZN7AstNode9privateIsI9AstGenForKPS_EEbPKS_.exit179.thread303
 
 239:                                              ; preds = %222, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit170
   %240 = landingpad { ptr, i32 }
@@ -4514,7 +4514,7 @@ _ZN7AstNode9privateIsI9AstGenForKPS_EEbPKS_.exit179.thread: ; preds = %_ZN7AstNo
   %248 = getelementptr inbounds nuw i8, ptr %212, i64 248
   %.sroa.0.0.copyload.i.i180 = load i8, ptr %248, align 8, !tbaa !126
   %249 = icmp eq i8 %.sroa.0.0.copyload.i.i180, 3
-  br i1 %249, label %250, label %_ZN7AstNode9privateIsI9AstGenForKPS_EEbPKS_.exit179.thread247
+  br i1 %249, label %250, label %_ZN7AstNode9privateIsI9AstGenForKPS_EEbPKS_.exit179.thread303
 
 250:                                              ; preds = %_ZN7AstNode9privateIsI9AstGenForKPS_EEbPKS_.exit179.thread
   %251 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCode(i8 5)
@@ -4594,7 +4594,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i188, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i187
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %_ZN7AstNode9privateIsI9AstGenForKPS_EEbPKS_.exit179.thread247
+  br label %_ZN7AstNode9privateIsI9AstGenForKPS_EEbPKS_.exit179.thread303
 
 283:                                              ; preds = %250, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit181
   %284 = landingpad { ptr, i32 }
@@ -4654,19 +4654,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit195: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %454
 
-_ZN7AstNode9privateIsI9AstGenForKPS_EEbPKS_.exit179.thread247: ; preds = %219, %_ZN7AstNode9privateIsI9AstGenForKPS_EEbPKS_.exit179.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173
+_ZN7AstNode9privateIsI9AstGenForKPS_EEbPKS_.exit179.thread303: ; preds = %219, %_ZN7AstNode9privateIsI9AstGenForKPS_EEbPKS_.exit179.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 67
   %305 = load i8, ptr %304, align 1, !tbaa !30, !range !81, !noundef !82
   %306 = trunc nuw i8 %305 to i1
   br i1 %306, label %307, label %311
 
-307:                                              ; preds = %_ZN7AstNode9privateIsI9AstGenForKPS_EEbPKS_.exit179.thread247
+307:                                              ; preds = %_ZN7AstNode9privateIsI9AstGenForKPS_EEbPKS_.exit179.thread303
   %308 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %309 = load ptr, ptr %308, align 8, !tbaa !84
   %310 = call noundef ptr @_ZN7V3Const18constifyParamsEditEP11AstNodeExpr(ptr noundef %309)
   br label %311
 
-311:                                              ; preds = %307, %_ZN7AstNode9privateIsI9AstGenForKPS_EEbPKS_.exit179.thread247
+311:                                              ; preds = %307, %_ZN7AstNode9privateIsI9AstGenForKPS_EEbPKS_.exit179.thread303
   %312 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %313 = load ptr, ptr %312, align 8, !tbaa !84
   %.not.i196 = icmp eq ptr %313, null
@@ -20765,7 +20765,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN12V3NumberData9ValueAndXEmS1_ET_S3_T0_RSaIT1_E.exit, label %23
 

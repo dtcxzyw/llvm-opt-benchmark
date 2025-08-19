@@ -638,7 +638,7 @@ sub_1887:                                         ; preds = %sub_0886
   %175 = getelementptr inbounds nuw i8, ptr %157, i64 2
   %176 = load i8, ptr %175, align 1
   %177 = icmp eq i8 %176, 0
-  br i1 %177, label %178, label %.thread1397
+  br i1 %177, label %178, label %.thread1554
 
 178:                                              ; preds = %.tail885, %170
   %179 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.342, i64 noundef 12)
@@ -729,12 +729,12 @@ _ZL13print_versionv.exit:                         ; preds = %211, %214
   %224 = icmp eq i32 %223, 0
   br i1 %224, label %232, label %.tail890.thread
 
-.thread1397:                                      ; preds = %.tail885
+.thread1554:                                      ; preds = %.tail885
   %225 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %157, ptr noundef nonnull dereferenceable(7) @.str.7) #16
   %226 = icmp eq i32 %225, 0
   br i1 %226, label %232, label %sub_1892
 
-sub_1892:                                         ; preds = %.tail885.thread, %.thread1397
+sub_1892:                                         ; preds = %.tail885.thread, %.thread1554
   %227 = getelementptr inbounds nuw i8, ptr %157, i64 1
   %228 = load i8, ptr %227, align 1
   %.not1226 = icmp eq i8 %228, 115
@@ -746,7 +746,7 @@ sub_1892:                                         ; preds = %.tail885.thread, %.
   %231 = icmp eq i8 %230, 0
   br i1 %231, label %232, label %.tail890.thread
 
-232:                                              ; preds = %.tail885.thread.thread, %.thread1397, %.tail890, %.tail885.thread
+232:                                              ; preds = %.tail885.thread.thread, %.thread1554, %.tail890, %.tail885.thread
   %233 = add nsw i32 %.06061220, 1
   %.not.i = icmp slt i32 %233, %0
   br i1 %.not.i, label %_Z9arg_checkii.exit, label %234

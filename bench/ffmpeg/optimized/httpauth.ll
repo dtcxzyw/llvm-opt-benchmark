@@ -337,9 +337,9 @@ define ptr @ff_http_auth_create_response(ptr noundef initializes((860, 864)) %0,
 40:                                               ; preds = %38
   %41 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %39, i32 noundef 58) #9
   %.not52 = icmp eq ptr %41, null
-  br i1 %.not52, label %120, label %.critedge59
+  br i1 %.not52, label %120, label %.critedge66
 
-.critedge59:                                      ; preds = %40
+.critedge66:                                      ; preds = %40
   store i8 0, ptr %41, align 1, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -363,7 +363,7 @@ define ptr @ff_http_auth_create_response(ptr noundef initializes((860, 864)) %0,
   %.not.i = icmp eq ptr %50, null
   br i1 %.not.i, label %make_digest_auth.exit, label %51
 
-51:                                               ; preds = %.critedge59
+51:                                               ; preds = %.critedge66
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 1
   call void @av_md5_init(ptr noundef nonnull %50) #8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -498,8 +498,8 @@ define ptr @ff_http_auth_create_response(ptr noundef initializes((860, 864)) %0,
   %119 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %97, i64 noundef %96, ptr noundef nonnull @.str.7) #8
   br label %make_digest_auth.exit
 
-make_digest_auth.exit:                            ; preds = %.critedge59, %62, %72, %74, %118
-  %.0.i = phi ptr [ null, %62 ], [ %97, %118 ], [ null, %.critedge59 ], [ null, %72 ], [ null, %74 ]
+make_digest_auth.exit:                            ; preds = %.critedge66, %62, %72, %74, %118
+  %.0.i = phi ptr [ null, %62 ], [ %97, %118 ], [ null, %.critedge66 ], [ null, %72 ], [ null, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

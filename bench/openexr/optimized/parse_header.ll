@@ -174,22 +174,22 @@ define hidden i32 @internal_exr_compute_tile_information(ptr noundef %0, ptr nou
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %27 = load ptr, ptr %26, align 8, !tbaa !26
   %.not143 = icmp eq ptr %27, null
-  br i1 %.not143, label %.thread219, label %28
+  br i1 %.not143, label %.thread223, label %28
 
 28:                                               ; preds = %.thread
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %30 = load ptr, ptr %29, align 8, !tbaa !27
   tail call void %30(ptr noundef nonnull %27) #9
   store ptr null, ptr %26, align 8, !tbaa !26
-  br label %.thread219
+  br label %.thread223
 
 31:                                               ; preds = %19
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 200
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !26
   %32 = icmp eq ptr %.pre, null
-  br i1 %32, label %.thread219, label %.thread190
+  br i1 %32, label %.thread223, label %.thread190
 
-.thread219:                                       ; preds = %28, %.thread, %31
+.thread223:                                       ; preds = %28, %.thread, %31
   %33 = phi ptr [ %20, %31 ], [ %17, %.thread ], [ %17, %28 ]
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -215,13 +215,13 @@ define hidden i32 @internal_exr_compute_tile_information(ptr noundef %0, ptr nou
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %53, label %49
 
-49:                                               ; preds = %.thread219
+49:                                               ; preds = %.thread223
   %50 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %51 = load i32, ptr %50, align 1, !tbaa !32
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %57
 
-53:                                               ; preds = %49, %.thread219
+53:                                               ; preds = %49, %.thread223
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %55 = load ptr, ptr %54, align 8, !tbaa !25
   %56 = tail call i32 %55(ptr noundef nonnull %0, i32 noundef 14) #9
@@ -394,14 +394,14 @@ ceil_log2.exit:                                   ; preds = %floor_log2.exit151,
   %127 = load i8, ptr %58, align 1, !tbaa !33
   %.mask193 = and i8 %127, -16
   %128 = icmp eq i8 %.mask193, 16
-  %wide.trip.count = zext i32 %.0133 to i64
+  %wide.trip.count = zext nneg i32 %.0133 to i64
   br label %131
 
 .lr.ph205:                                        ; preds = %140
   %129 = load i8, ptr %58, align 1, !tbaa !33
   %.mask = and i8 %129, -16
   %130 = icmp eq i8 %.mask, 16
-  %wide.trip.count216 = zext i32 %.0132 to i64
+  %wide.trip.count216 = zext nneg i32 %.0132 to i64
   br label %150
 
 131:                                              ; preds = %.lr.ph, %140
@@ -757,7 +757,7 @@ compute_sampled_width.exit:                       ; preds = %102, %112
 
 compute_sampled_height.exit:                      ; preds = %compute_sampled_width.exit, %121, %123, %129
   %.028.i = phi i32 [ %83, %compute_sampled_width.exit ], [ %122, %121 ], [ %132, %129 ], [ 0, %123 ]
-  %133 = sext i32 %.028.i to i64
+  %133 = zext nneg i32 %.028.i to i64
   %134 = mul i64 %116, %133
   %135 = icmp sgt i32 %107, 1
   %.194 = select i1 %135, i16 1, i16 %.093142
@@ -1084,9 +1084,9 @@ priv_init_scratch.exit.thread:                    ; preds = %69, %priv_init_scra
   br i1 %or.cond185, label %.sink.split, label %124
 
 .sink.split:                                      ; preds = %122, %113
-  %.sink236 = phi i32 [ 1, %113 ], [ 0, %122 ]
+  %.sink299 = phi i32 [ 1, %113 ], [ 0, %122 ]
   %123 = getelementptr inbounds nuw i8, ptr %88, i64 4
-  store i32 %.sink236, ptr %123, align 4, !tbaa !3
+  store i32 %.sink299, ptr %123, align 4, !tbaa !3
   br label %124
 
 124:                                              ; preds = %.sink.split, %122
@@ -3345,11 +3345,11 @@ define internal range(i32 0, -1) i32 @scratch_seq_read(ptr noundef %0, ptr nound
   %64 = icmp eq i32 %.164.fr, -1
   %65 = icmp eq i64 %.05688, %2
   %. = select i1 %65, i32 0, i32 10
-  %spec.select111 = select i1 %64, i32 %., i32 %.164.fr
+  %spec.select116 = select i1 %64, i32 %., i32 %.164.fr
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %3
-  %66 = phi i32 [ 0, %3 ], [ %spec.select111, %.loopexit ]
+  %66 = phi i32 [ 0, %3 ], [ %spec.select116, %.loopexit ]
   ret i32 %66
 }
 
@@ -3436,11 +3436,11 @@ define internal range(i32 0, -1) i32 @scratch_seq_skip(ptr noundef %0, i32 nound
   %36 = icmp eq i32 %.131.fr, -1
   %37 = icmp eq i64 %.02941, %4
   %. = select i1 %37, i32 0, i32 10
-  %spec.select59 = select i1 %36, i32 %., i32 %.131.fr
+  %spec.select61 = select i1 %36, i32 %., i32 %.131.fr
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %2
-  %38 = phi i32 [ 0, %2 ], [ %spec.select59, %.loopexit ]
+  %38 = phi i32 [ 0, %2 ], [ %spec.select61, %.loopexit ]
   ret i32 %38
 }
 
@@ -3673,8 +3673,8 @@ read_text.exit:                                   ; preds = %60
   br i1 %.not, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %read_text.exit
-  %reass.sub96 = sub i32 %.04077, %15
-  %66 = add i32 %reass.sub96, -2
+  %reass.sub96 = sub nsw i32 %.04077, %15
+  %66 = add nsw i32 %reass.sub96, -2
   br label %71
 
 67:                                               ; preds = %56

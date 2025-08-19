@@ -124,8 +124,8 @@ define internal fastcc range(i32 -38, 1) i32 @fill_map(ptr noundef %0, ptr nound
   %.not70 = icmp eq i32 %.06193, %45
   %or.cond = or i1 %.not69, %.not70
   %.not71 = icmp eq i32 %49, 0
-  %or.cond103 = select i1 %or.cond, i1 %.not71, i1 false
-  br i1 %or.cond103, label %50, label %.loopexit
+  %or.cond108 = select i1 %or.cond, i1 %.not71, i1 false
+  br i1 %or.cond108, label %50, label %.loopexit
 
 50:                                               ; preds = %40
   %51 = icmp ugt i32 %45, %47
@@ -296,7 +296,7 @@ define range(i32 -38, 1) i32 @ff_draw_init2(ptr noundef %0, i32 noundef %1, i32 
   br i1 %or.cond10, label %.thread124, label %.preheader
 
 .preheader:                                       ; preds = %22, %22, %22, %22, %22, %26
-  %.095134 = phi i32 [ %.095, %26 ], [ 2, %22 ], [ 2, %22 ], [ 2, %22 ], [ 2, %22 ], [ 2, %22 ]
+  %.095140 = phi i32 [ %.095, %26 ], [ 2, %22 ], [ 2, %22 ], [ 2, %22 ], [ 2, %22 ], [ 2, %22 ]
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %29 = load i8, ptr %28, align 8, !tbaa !11
   %.not117126.not = icmp eq i8 %29, 0
@@ -392,7 +392,7 @@ define range(i32 -38, 1) i32 @ff_draw_init2(ptr noundef %0, i32 noundef %1, i32 
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.090.lcssa, ptr %65, align 4, !tbaa !29
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %.095134, ptr %66, align 4, !tbaa !30
+  store i32 %.095140, ptr %66, align 4, !tbaa !30
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %.093, ptr %67, align 4, !tbaa !31
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1232,17 +1232,17 @@ blend_line16.exit151.us:                          ; preds = %245, %._crit_edge.i
   %.2.us = phi ptr [ %384, %blend_line.exit141.us ], [ %257, %blend_line16.exit151.us ]
   br i1 %.not122.us, label %blend_line.exit161.us, label %259
 
-.loopexit.us.thread263:                           ; preds = %.preheader.us
-  br i1 %.not122.us, label %blend_line.exit161.us, label %.thread265
+.loopexit.us.thread270:                           ; preds = %.preheader.us
+  br i1 %.not122.us, label %blend_line.exit161.us, label %.thread272
 
 .loopexit.us.thread:                              ; preds = %.preheader225.us
   br i1 %.not122.us, label %blend_line.exit161.us, label %.thread
 
 259:                                              ; preds = %.loopexit.us
-  br i1 %214, label %.thread265, label %.thread
+  br i1 %214, label %.thread272, label %.thread
 
 .thread:                                          ; preds = %.loopexit.us.thread, %259
-  %.2.us260262 = phi ptr [ %.2.us, %259 ], [ %.0111.us, %.loopexit.us.thread ]
+  %.2.us267269 = phi ptr [ %.2.us, %259 ], [ %.0111.us, %.loopexit.us.thread ]
   %260 = sext i32 %123 to i64
   %261 = getelementptr inbounds [8 x i16], ptr %104, i64 0, i64 %260
   %262 = load i16, ptr %261, align 2, !tbaa !15
@@ -1255,7 +1255,7 @@ blend_line16.exit151.us:                          ; preds = %245, %._crit_edge.i
 
 268:                                              ; preds = %.thread
   %269 = lshr i32 %106, %266
-  %270 = load i16, ptr %.2.us260262, align 1, !tbaa !15
+  %270 = load i16, ptr %.2.us267269, align 1, !tbaa !15
   %271 = zext i16 %270 to i32
   %272 = sub i32 65537, %269
   %273 = mul i32 %272, %271
@@ -1263,13 +1263,13 @@ blend_line16.exit151.us:                          ; preds = %245, %._crit_edge.i
   %275 = add i32 %273, %274
   %276 = lshr i32 %275, 16
   %277 = trunc nuw i32 %276 to i16
-  store i16 %277, ptr %.2.us260262, align 1, !tbaa !15
+  store i16 %277, ptr %.2.us267269, align 1, !tbaa !15
   %278 = sext i32 %264 to i64
-  %279 = getelementptr inbounds i8, ptr %.2.us260262, i64 %278
+  %279 = getelementptr inbounds i8, ptr %.2.us267269, i64 %278
   br label %280
 
 280:                                              ; preds = %268, %.thread
-  %.0.i163.us = phi ptr [ %279, %268 ], [ %.2.us260262, %.thread ]
+  %.0.i163.us = phi ptr [ %279, %268 ], [ %.2.us267269, %.thread ]
   br i1 %107, label %.lr.ph.i167.us, label %._crit_edge.i164.us
 
 .lr.ph.i167.us:                                   ; preds = %280
@@ -1308,8 +1308,8 @@ blend_line16.exit151.us:                          ; preds = %245, %._crit_edge.i
   store i16 %300, ptr %.1.lcssa.i165.us, align 1, !tbaa !15
   br label %blend_line.exit161.us
 
-.thread265:                                       ; preds = %.loopexit.us.thread263, %259
-  %.2.us260267 = phi ptr [ %.2.us, %259 ], [ %.0111.us, %.loopexit.us.thread263 ]
+.thread272:                                       ; preds = %.loopexit.us.thread270, %259
+  %.2.us267274 = phi ptr [ %.2.us, %259 ], [ %.0111.us, %.loopexit.us.thread270 ]
   %301 = sext i32 %123 to i64
   %302 = getelementptr inbounds [16 x i8], ptr %104, i64 0, i64 %301
   %303 = load i8, ptr %302, align 1, !tbaa !15
@@ -1320,9 +1320,9 @@ blend_line16.exit151.us:                          ; preds = %245, %._crit_edge.i
   %308 = mul nuw nsw i32 %61, %304
   br i1 %.not.i126.us, label %321, label %309
 
-309:                                              ; preds = %.thread265
+309:                                              ; preds = %.thread272
   %310 = lshr i32 %106, %307
-  %311 = load i8, ptr %.2.us260267, align 1, !tbaa !15
+  %311 = load i8, ptr %.2.us267274, align 1, !tbaa !15
   %312 = zext i8 %311 to i32
   %313 = sub i32 16843009, %310
   %314 = mul i32 %313, %312
@@ -1330,13 +1330,13 @@ blend_line16.exit151.us:                          ; preds = %245, %._crit_edge.i
   %316 = add i32 %314, %315
   %317 = lshr i32 %316, 24
   %318 = trunc nuw i32 %317 to i8
-  store i8 %318, ptr %.2.us260267, align 1, !tbaa !15
+  store i8 %318, ptr %.2.us267274, align 1, !tbaa !15
   %319 = sext i32 %305 to i64
-  %320 = getelementptr inbounds i8, ptr %.2.us260267, i64 %319
+  %320 = getelementptr inbounds i8, ptr %.2.us267274, i64 %319
   br label %321
 
-321:                                              ; preds = %309, %.thread265
-  %.0.i153.us = phi ptr [ %320, %309 ], [ %.2.us260267, %.thread265 ]
+321:                                              ; preds = %309, %.thread272
+  %.0.i153.us = phi ptr [ %320, %309 ], [ %.2.us267274, %.thread272 ]
   br i1 %107, label %.lr.ph.i157.us, label %._crit_edge.i154.us
 
 .lr.ph.i157.us:                                   ; preds = %321
@@ -1375,7 +1375,7 @@ blend_line16.exit151.us:                          ; preds = %245, %._crit_edge.i
   store i8 %341, ptr %.1.lcssa.i155.us, align 1, !tbaa !15
   br label %blend_line.exit161.us
 
-blend_line.exit161.us:                            ; preds = %.loopexit.us.thread263, %.loopexit.us.thread, %332, %._crit_edge.i154.us, %291, %._crit_edge.i164.us, %.loopexit.us, %113
+blend_line.exit161.us:                            ; preds = %.loopexit.us.thread270, %.loopexit.us.thread, %332, %._crit_edge.i154.us, %291, %._crit_edge.i164.us, %.loopexit.us, %113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond257.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond257.not, label %._crit_edge.us, label %113, !llvm.loop !52
@@ -1455,7 +1455,7 @@ blend_line.exit141.us:                            ; preds = %372, %._crit_edge.i
   br i1 %exitcond255.not, label %.loopexit.us, label %342, !llvm.loop !53
 
 .preheader.us:                                    ; preds = %213
-  br i1 %110, label %.lr.ph237.us, label %.loopexit.us.thread263
+  br i1 %110, label %.lr.ph237.us, label %.loopexit.us.thread270
 
 .preheader225.us:                                 ; preds = %213
   br i1 %110, label %.lr.ph.us, label %.loopexit.us.thread
@@ -1921,8 +1921,8 @@ blend_line_hv16.exit.us:                          ; preds = %blend_pixel16.exit8
   br i1 %164, label %290, label %.thread
 
 .thread:                                          ; preds = %.loopexit.us.thread, %280
-  %.2163.us287292 = phi ptr [ %.2163.us, %280 ], [ %.0161.us, %.loopexit.us.thread ]
-  %.2.us288291 = phi ptr [ %.2.us, %280 ], [ %.0159.us, %.loopexit.us.thread ]
+  %.2163.us299304 = phi ptr [ %.2163.us, %280 ], [ %.0161.us, %.loopexit.us.thread ]
+  %.2.us300303 = phi ptr [ %.2.us, %280 ], [ %.0159.us, %.loopexit.us.thread ]
   %281 = load i32, ptr %119, align 4, !tbaa !22
   %282 = sext i32 %138 to i64
   %283 = getelementptr inbounds [8 x i16], ptr %120, i64 0, i64 %282
@@ -1932,7 +1932,7 @@ blend_line_hv16.exit.us:                          ; preds = %blend_pixel16.exit8
   %287 = zext i8 %286 to i32
   %288 = load i8, ptr %111, align 1, !tbaa !15
   %289 = zext i8 %288 to i32
-  tail call fastcc void @blend_line_hv16(ptr noundef %.2.us288291, i32 noundef %281, i32 noundef %285, i32 noundef %.0157, ptr noundef %.2163.us287292, i32 noundef %7, i32 noundef %10, i32 noundef %110, i32 noundef %287, i32 noundef %289, i32 noundef %.0244, i32 noundef %..i.us, i32 noundef %109, i32 noundef %117)
+  tail call fastcc void @blend_line_hv16(ptr noundef %.2.us300303, i32 noundef %281, i32 noundef %285, i32 noundef %.0157, ptr noundef %.2163.us299304, i32 noundef %7, i32 noundef %10, i32 noundef %110, i32 noundef %287, i32 noundef %289, i32 noundef %.0244, i32 noundef %..i.us, i32 noundef %109, i32 noundef %117)
   br label %300
 
 290:                                              ; preds = %280

@@ -1307,8 +1307,8 @@ isSpace.exit:                                     ; preds = %117, %117, %117, %1
   br i1 %.not91, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %128, %106, %89, %62, %42, %35, %50, %55, %85
-  %.sink106 = phi ptr [ %86, %85 ], [ %56, %55 ], [ %51, %50 ], [ %36, %35 ], [ %33, %42 ], [ %63, %62 ], [ %91, %89 ], [ %98, %106 ], [ %118, %128 ]
-  store ptr %.sink106, ptr %5, align 8, !tbaa !3
+  %.sink115 = phi ptr [ %86, %85 ], [ %56, %55 ], [ %51, %50 ], [ %36, %35 ], [ %33, %42 ], [ %63, %62 ], [ %91, %89 ], [ %98, %106 ], [ %118, %128 ]
+  store ptr %.sink115, ptr %5, align 8, !tbaa !3
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %128, %54, %87
@@ -2722,8 +2722,8 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.loopexit.sink.split.i.i
 
 181:                                              ; preds = %162, %154, %146, %135, %135, %135, %135, %135, %135
-  %.sink158.i.i = phi i64 [ 1, %135 ], [ 1, %135 ], [ 1, %135 ], [ 1, %135 ], [ 1, %135 ], [ 1, %135 ], [ 2, %146 ], [ 3, %154 ], [ 4, %162 ]
-  %182 = getelementptr i8, ptr %.1123.i.i, i64 %.sink158.i.i
+  %.sink161.i.i = phi i64 [ 1, %135 ], [ 1, %135 ], [ 1, %135 ], [ 1, %135 ], [ 1, %135 ], [ 1, %135 ], [ 2, %146 ], [ 3, %154 ], [ 4, %162 ]
+  %182 = getelementptr i8, ptr %.1123.i.i, i64 %.sink161.i.i
   %183 = ptrtoint ptr %182 to i64
   %184 = sub i64 %13, %183
   %185 = icmp sgt i64 %184, 0
@@ -3089,9 +3089,9 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br label %normal_scanLt.exit
 
 332:                                              ; preds = %271, %262, %253, %242, %242, %231, %222, %213, %201, %201, %201, %201, %201
-  %.sink431.i = phi i64 [ 1, %201 ], [ 1, %201 ], [ 1, %201 ], [ 1, %201 ], [ 1, %201 ], [ 2, %213 ], [ 3, %222 ], [ 4, %231 ], [ 2, %242 ], [ 2, %242 ], [ 3, %253 ], [ 4, %262 ], [ 5, %271 ]
+  %.sink439.i = phi i64 [ 1, %201 ], [ 1, %201 ], [ 1, %201 ], [ 1, %201 ], [ 1, %201 ], [ 2, %213 ], [ 3, %222 ], [ 4, %231 ], [ 2, %242 ], [ 2, %242 ], [ 3, %253 ], [ 4, %262 ], [ 5, %271 ]
   %.1.i = phi i32 [ %.0300.i, %201 ], [ %.0300.i, %201 ], [ %.0300.i, %201 ], [ %.0300.i, %201 ], [ %.0300.i, %201 ], [ %.0300.i, %213 ], [ %.0300.i, %222 ], [ %.0300.i, %231 ], [ 1, %242 ], [ 1, %242 ], [ 1, %253 ], [ 1, %262 ], [ 1, %271 ]
-  %333 = getelementptr i8, ptr %.1213299.i, i64 %.sink431.i
+  %333 = getelementptr i8, ptr %.1213299.i, i64 %.sink439.i
   %334 = ptrtoint ptr %333 to i64
   %335 = sub i64 %13, %334
   %336 = icmp sgt i64 %335, 0
@@ -5500,8 +5500,8 @@ normal_checkPiTarget.exit:                        ; preds = %106, %109
   br label %.loopexit
 
 177:                                              ; preds = %93, %84, %75, %62, %62, %62, %62, %62
-  %.sink243 = phi i64 [ 1, %62 ], [ 1, %62 ], [ 1, %62 ], [ 1, %62 ], [ 1, %62 ], [ 2, %75 ], [ 3, %84 ], [ 4, %93 ]
-  %178 = getelementptr i8, ptr %.1183, i64 %.sink243
+  %.sink248 = phi i64 [ 1, %62 ], [ 1, %62 ], [ 1, %62 ], [ 1, %62 ], [ 1, %62 ], [ 2, %75 ], [ 3, %84 ], [ 4, %93 ]
+  %178 = getelementptr i8, ptr %.1183, i64 %.sink248
   %179 = ptrtoint ptr %178 to i64
   %180 = sub i64 %6, %179
   %181 = icmp sgt i64 %180, 0
@@ -5685,8 +5685,8 @@ define internal fastcc range(i32 -2, 29) i32 @normal_scanPercent(ptr noundef %0,
   br label %.loopexit.sink.split
 
 89:                                               ; preds = %84, %76, %68, %57, %57, %57, %57, %57
-  %.sink127 = phi i64 [ 1, %57 ], [ 1, %57 ], [ 1, %57 ], [ 1, %57 ], [ 1, %57 ], [ 2, %68 ], [ 3, %76 ], [ 4, %84 ]
-  %90 = getelementptr i8, ptr %.1108, i64 %.sink127
+  %.sink130 = phi i64 [ 1, %57 ], [ 1, %57 ], [ 1, %57 ], [ 1, %57 ], [ 1, %57 ], [ 2, %68 ], [ 3, %76 ], [ 4, %84 ]
+  %90 = getelementptr i8, ptr %.1108, i64 %.sink130
   %91 = ptrtoint ptr %90 to i64
   %92 = sub i64 %5, %91
   %93 = icmp sgt i64 %92, 0
@@ -5804,7 +5804,7 @@ define internal fastcc range(i32 -20, 21) i32 @normal_scanPoundName(ptr noundef 
   %60 = getelementptr [256 x i8], ptr %10, i64 0, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !8
   switch i8 %61, label %.loopexit.sink.split [
-    i8 36, label %.loopexit.sink.split.loopexit129
+    i8 36, label %.loopexit.sink.split.loopexit132
     i8 22, label %86
     i8 24, label %86
     i8 25, label %86
@@ -5813,12 +5813,12 @@ define internal fastcc range(i32 -20, 21) i32 @normal_scanPoundName(ptr noundef 
     i8 5, label %62
     i8 6, label %70
     i8 7, label %78
-    i8 9, label %.loopexit.sink.split.loopexit129
-    i8 10, label %.loopexit.sink.split.loopexit129
-    i8 21, label %.loopexit.sink.split.loopexit129
-    i8 32, label %.loopexit.sink.split.loopexit129
-    i8 11, label %.loopexit.sink.split.loopexit129
-    i8 30, label %.loopexit.sink.split.loopexit129
+    i8 9, label %.loopexit.sink.split.loopexit132
+    i8 10, label %.loopexit.sink.split.loopexit132
+    i8 21, label %.loopexit.sink.split.loopexit132
+    i8 32, label %.loopexit.sink.split.loopexit132
+    i8 11, label %.loopexit.sink.split.loopexit132
+    i8 30, label %.loopexit.sink.split.loopexit132
   ]
 
 62:                                               ; preds = %56
@@ -5870,19 +5870,19 @@ define internal fastcc range(i32 -20, 21) i32 @normal_scanPoundName(ptr noundef 
   br i1 %.not95, label %.loopexit.sink.split, label %86
 
 86:                                               ; preds = %83, %75, %67, %56, %56, %56, %56, %56
-  %.sink125 = phi i64 [ 1, %56 ], [ 1, %56 ], [ 1, %56 ], [ 1, %56 ], [ 1, %56 ], [ 2, %67 ], [ 3, %75 ], [ 4, %83 ]
-  %87 = getelementptr i8, ptr %.1106, i64 %.sink125
+  %.sink128 = phi i64 [ 1, %56 ], [ 1, %56 ], [ 1, %56 ], [ 1, %56 ], [ 1, %56 ], [ 2, %67 ], [ 3, %75 ], [ 4, %83 ]
+  %87 = getelementptr i8, ptr %.1106, i64 %.sink128
   %88 = ptrtoint ptr %87 to i64
   %89 = sub i64 %5, %88
   %90 = icmp sgt i64 %89, 0
   br i1 %90, label %56, label %.loopexit, !llvm.loop !89
 
-.loopexit.sink.split.loopexit129:                 ; preds = %56, %56, %56, %56, %56, %56, %56
+.loopexit.sink.split.loopexit132:                 ; preds = %56, %56, %56, %56, %56, %56, %56
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %56, %80, %83, %72, %75, %64, %67, %.loopexit.sink.split.loopexit129, %9, %37, %41, %27, %31, %17, %21
-  %.1106.lcssa.sink = phi ptr [ %1, %21 ], [ %1, %17 ], [ %1, %31 ], [ %1, %27 ], [ %1, %41 ], [ %1, %37 ], [ %1, %9 ], [ %.1106, %.loopexit.sink.split.loopexit129 ], [ %.1106, %67 ], [ %.1106, %64 ], [ %.1106, %75 ], [ %.1106, %72 ], [ %.1106, %83 ], [ %.1106, %80 ], [ %.1106, %56 ]
-  %.0.ph = phi i32 [ 0, %21 ], [ 0, %17 ], [ 0, %31 ], [ 0, %27 ], [ 0, %41 ], [ 0, %37 ], [ 0, %9 ], [ 20, %.loopexit.sink.split.loopexit129 ], [ 0, %67 ], [ 0, %64 ], [ 0, %75 ], [ 0, %72 ], [ 0, %83 ], [ 0, %80 ], [ 0, %56 ]
+.loopexit.sink.split:                             ; preds = %56, %80, %83, %72, %75, %64, %67, %.loopexit.sink.split.loopexit132, %9, %37, %41, %27, %31, %17, %21
+  %.1106.lcssa.sink = phi ptr [ %1, %21 ], [ %1, %17 ], [ %1, %31 ], [ %1, %27 ], [ %1, %41 ], [ %1, %37 ], [ %1, %9 ], [ %.1106, %.loopexit.sink.split.loopexit132 ], [ %.1106, %67 ], [ %.1106, %64 ], [ %.1106, %75 ], [ %.1106, %72 ], [ %.1106, %83 ], [ %.1106, %80 ], [ %.1106, %56 ]
+  %.0.ph = phi i32 [ 0, %21 ], [ 0, %17 ], [ 0, %31 ], [ 0, %27 ], [ 0, %41 ], [ 0, %37 ], [ 0, %9 ], [ 20, %.loopexit.sink.split.loopexit132 ], [ 0, %67 ], [ 0, %64 ], [ 0, %75 ], [ 0, %72 ], [ 0, %83 ], [ 0, %80 ], [ 0, %56 ]
   store ptr %.1106.lcssa.sink, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
@@ -6001,7 +6001,7 @@ define internal fastcc range(i32 -2, 14) i32 @normal_scanComment(ptr noundef %0,
   %63 = icmp eq i8 %62, 62
   %64 = getelementptr i8, ptr %.04958, i64 3
   %spec.select = select i1 %63, ptr %64, ptr %57
-  %spec.select77 = select i1 %63, i32 13, i32 0
+  %spec.select79 = select i1 %63, i32 13, i32 0
   br label %.loopexit.sink.split
 
 65:                                               ; preds = %21
@@ -6017,7 +6017,7 @@ define internal fastcc range(i32 -2, 14) i32 @normal_scanComment(ptr noundef %0,
 
 .loopexit.sink.split:                             ; preds = %21, %21, %21, %43, %36, %29, %61, %9
   %.sink = phi ptr [ %1, %9 ], [ %spec.select, %61 ], [ %.04958, %29 ], [ %.04958, %36 ], [ %.04958, %43 ], [ %.04958, %21 ], [ %.04958, %21 ], [ %.04958, %21 ]
-  %.0.ph = phi i32 [ 0, %9 ], [ %spec.select77, %61 ], [ 0, %29 ], [ 0, %36 ], [ 0, %43 ], [ 0, %21 ], [ 0, %21 ], [ 0, %21 ]
+  %.0.ph = phi i32 [ 0, %9 ], [ %spec.select79, %61 ], [ 0, %29 ], [ 0, %36 ], [ 0, %43 ], [ 0, %21 ], [ 0, %21 ], [ 0, %21 ]
   store ptr %.sink, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
@@ -6336,8 +6336,8 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
   br label %normal_scanCharRef.exit.sink.split
 
 134:                                              ; preds = %129, %121, %113, %102, %102, %102, %102, %102
-  %.sink162 = phi i64 [ 1, %102 ], [ 1, %102 ], [ 1, %102 ], [ 1, %102 ], [ 1, %102 ], [ 2, %113 ], [ 3, %121 ], [ 4, %129 ]
-  %135 = getelementptr i8, ptr %.1121, i64 %.sink162
+  %.sink166 = phi i64 [ 1, %102 ], [ 1, %102 ], [ 1, %102 ], [ 1, %102 ], [ 1, %102 ], [ 2, %113 ], [ 3, %121 ], [ 4, %129 ]
+  %135 = getelementptr i8, ptr %.1121, i64 %.sink166
   %136 = ptrtoint ptr %135 to i64
   %137 = sub i64 %5, %136
   %138 = icmp sgt i64 %137, 0
@@ -6599,8 +6599,8 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   %122 = getelementptr [256 x i8], ptr %10, i64 0, i64 %121
   %123 = load i8, ptr %122, align 1, !tbaa !8
   %124 = and i8 %123, -2
-  %or.cond690 = icmp eq i8 %124, 12
-  br i1 %or.cond690, label %.lr.ph320._crit_edge, label %.lr.ph691
+  %or.cond698 = icmp eq i8 %124, 12
+  br i1 %or.cond698, label %.lr.ph320._crit_edge, label %.lr.ph699
 
 .lr.ph320:                                        ; preds = %132
   %125 = load i8, ptr %133, align 1, !tbaa !8
@@ -6609,9 +6609,9 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   %128 = load i8, ptr %127, align 1, !tbaa !8
   %129 = and i8 %128, -2
   %or.cond = icmp eq i8 %129, 12
-  br i1 %or.cond, label %.lr.ph320._crit_edge, label %.lr.ph691
+  br i1 %or.cond, label %.lr.ph320._crit_edge, label %.lr.ph699
 
-.lr.ph691:                                        ; preds = %.lr.ph320.preheader, %.lr.ph320
+.lr.ph699:                                        ; preds = %.lr.ph320.preheader, %.lr.ph320
   %130 = phi i8 [ %128, %.lr.ph320 ], [ %123, %.lr.ph320.preheader ]
   %131 = phi ptr [ %133, %.lr.ph320 ], [ %116, %.lr.ph320.preheader ]
   switch i8 %130, label %.thread.sink.split [
@@ -6620,7 +6620,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
     i8 9, label %132
   ]
 
-132:                                              ; preds = %.lr.ph691, %.lr.ph691, %.lr.ph691
+132:                                              ; preds = %.lr.ph699, %.lr.ph699, %.lr.ph699
   %133 = getelementptr i8, ptr %131, i64 1
   %134 = ptrtoint ptr %133 to i64
   %135 = sub i64 %6, %134
@@ -6628,9 +6628,9 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   br i1 %136, label %.lr.ph320, label %.thread
 
 .lr.ph320._crit_edge:                             ; preds = %.lr.ph320, %.lr.ph320.preheader
-  %.lcssa649 = phi ptr [ %.promoted316, %.lr.ph320.preheader ], [ %131, %.lr.ph320 ]
-  %.lcssa646 = phi i8 [ %123, %.lr.ph320.preheader ], [ %128, %.lr.ph320 ]
-  %137 = getelementptr i8, ptr %.lcssa649, i64 2
+  %.lcssa657 = phi ptr [ %.promoted316, %.lr.ph320.preheader ], [ %131, %.lr.ph320 ]
+  %.lcssa654 = phi i8 [ %123, %.lr.ph320.preheader ], [ %128, %.lr.ph320 ]
+  %137 = getelementptr i8, ptr %.lcssa657, i64 2
   store ptr %137, ptr %5, align 8, !tbaa !3
   %138 = ptrtoint ptr %137 to i64
   %139 = sub i64 %6, %138
@@ -6644,7 +6644,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   %144 = zext i8 %143 to i64
   %145 = getelementptr [256 x i8], ptr %10, i64 0, i64 %144
   %146 = load i8, ptr %145, align 1, !tbaa !8
-  %147 = icmp eq i8 %146, %.lcssa646
+  %147 = icmp eq i8 %146, %.lcssa654
   br i1 %147, label %.thread161, label %148
 
 148:                                              ; preds = %.lr.ph323
@@ -6873,7 +6873,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   %251 = icmp eq i8 %250, 62
   %252 = getelementptr i8, ptr %244, i64 2
   %spec.select = select i1 %251, ptr %252, ptr %245
-  %spec.select631 = select i1 %251, i32 3, i32 0
+  %spec.select639 = select i1 %251, i32 3, i32 0
   br label %.thread.sink.split
 
 253:                                              ; preds = %205, %215, %225, %235, %69, %79, %89, %99, %56, %46, %36, %26
@@ -6885,10 +6885,10 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   %256 = icmp sgt i64 %255, 0
   br i1 %256, label %20, label %.thread, !llvm.loop !94
 
-.thread.sink.split:                               ; preds = %20, %229, %232, %219, %222, %209, %212, %188, %64, %93, %96, %83, %86, %73, %76, %58, %50, %53, %40, %43, %30, %33, %.lr.ph, %.lr.ph691, %148, %148, %148, %148, %165, %158, %151, %.lr.ph343, %249, %.loopexit182, %176
-  %.sink630 = phi ptr [ %177, %176 ], [ %243, %.loopexit182 ], [ %spec.select, %249 ], [ %199, %.lr.ph343 ], [ %142, %151 ], [ %142, %158 ], [ %142, %165 ], [ %142, %148 ], [ %142, %148 ], [ %142, %148 ], [ %142, %148 ], [ %131, %.lr.ph691 ], [ %106, %.lr.ph ], [ %.promoted, %33 ], [ %.promoted, %30 ], [ %.promoted, %43 ], [ %.promoted, %40 ], [ %.promoted, %53 ], [ %.promoted, %50 ], [ %.promoted, %58 ], [ %60, %76 ], [ %60, %73 ], [ %60, %86 ], [ %60, %83 ], [ %60, %96 ], [ %60, %93 ], [ %60, %64 ], [ %184, %188 ], [ %199, %212 ], [ %199, %209 ], [ %199, %222 ], [ %199, %219 ], [ %199, %232 ], [ %199, %229 ], [ %.promoted, %20 ]
-  %.2.ph = phi i32 [ 0, %176 ], [ 1, %.loopexit182 ], [ %spec.select631, %249 ], [ 0, %.lr.ph343 ], [ 0, %151 ], [ 0, %158 ], [ 0, %165 ], [ 0, %148 ], [ 0, %148 ], [ 0, %148 ], [ 0, %148 ], [ 0, %.lr.ph691 ], [ 0, %.lr.ph ], [ 0, %33 ], [ 0, %30 ], [ 0, %43 ], [ 0, %40 ], [ 0, %53 ], [ 0, %50 ], [ 0, %58 ], [ 0, %76 ], [ 0, %73 ], [ 0, %86 ], [ 0, %83 ], [ 0, %96 ], [ 0, %93 ], [ 0, %64 ], [ 0, %188 ], [ 0, %212 ], [ 0, %209 ], [ 0, %222 ], [ 0, %219 ], [ 0, %232 ], [ 0, %229 ], [ 0, %20 ]
-  store ptr %.sink630, ptr %3, align 8, !tbaa !3
+.thread.sink.split:                               ; preds = %20, %229, %232, %219, %222, %209, %212, %188, %64, %93, %96, %83, %86, %73, %76, %58, %50, %53, %40, %43, %30, %33, %.lr.ph, %.lr.ph699, %148, %148, %148, %148, %165, %158, %151, %.lr.ph343, %249, %.loopexit182, %176
+  %.sink638 = phi ptr [ %177, %176 ], [ %243, %.loopexit182 ], [ %spec.select, %249 ], [ %199, %.lr.ph343 ], [ %142, %151 ], [ %142, %158 ], [ %142, %165 ], [ %142, %148 ], [ %142, %148 ], [ %142, %148 ], [ %142, %148 ], [ %131, %.lr.ph699 ], [ %106, %.lr.ph ], [ %.promoted, %33 ], [ %.promoted, %30 ], [ %.promoted, %43 ], [ %.promoted, %40 ], [ %.promoted, %53 ], [ %.promoted, %50 ], [ %.promoted, %58 ], [ %60, %76 ], [ %60, %73 ], [ %60, %86 ], [ %60, %83 ], [ %60, %96 ], [ %60, %93 ], [ %60, %64 ], [ %184, %188 ], [ %199, %212 ], [ %199, %209 ], [ %199, %222 ], [ %199, %219 ], [ %199, %232 ], [ %199, %229 ], [ %.promoted, %20 ]
+  %.2.ph = phi i32 [ 0, %176 ], [ 1, %.loopexit182 ], [ %spec.select639, %249 ], [ 0, %.lr.ph343 ], [ 0, %151 ], [ 0, %158 ], [ 0, %165 ], [ 0, %148 ], [ 0, %148 ], [ 0, %148 ], [ 0, %148 ], [ 0, %.lr.ph699 ], [ 0, %.lr.ph ], [ 0, %33 ], [ 0, %30 ], [ 0, %43 ], [ 0, %40 ], [ 0, %53 ], [ 0, %50 ], [ 0, %58 ], [ 0, %76 ], [ 0, %73 ], [ 0, %86 ], [ 0, %83 ], [ 0, %96 ], [ 0, %93 ], [ 0, %64 ], [ 0, %188 ], [ 0, %212 ], [ 0, %209 ], [ 0, %222 ], [ 0, %219 ], [ 0, %232 ], [ 0, %229 ], [ 0, %20 ]
+  store ptr %.sink638, ptr %3, align 8, !tbaa !3
   br label %.thread
 
 .thread:                                          ; preds = %28, %38, %48, %59, %71, %81, %91, %253, %.thread161, %207, %217, %227, %.lr.ph320._crit_edge, %101, %.thread154, %193, %111, %132, %select.unfold, %149, %156, %163, %237, %.thread.sink.split, %4, %174, %.loopexit181
@@ -7425,12 +7425,12 @@ define internal i32 @little2_prologTok(ptr noundef readonly captures(none) %0, p
 13:                                               ; preds = %5
   %14 = getelementptr i8, ptr %1, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !8
-  switch i8 %15, label %unicode_byte_type.exit.thread370 [
+  switch i8 %15, label %unicode_byte_type.exit.thread375 [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread368
-    i8 -39, label %unicode_byte_type.exit.thread368
-    i8 -38, label %unicode_byte_type.exit.thread368
-    i8 -37, label %unicode_byte_type.exit.thread368
+    i8 -40, label %unicode_byte_type.exit.thread373
+    i8 -39, label %unicode_byte_type.exit.thread373
+    i8 -38, label %unicode_byte_type.exit.thread373
+    i8 -37, label %unicode_byte_type.exit.thread373
     i8 -36, label %unicode_byte_type.exit.thread
     i8 -35, label %unicode_byte_type.exit.thread
     i8 -34, label %unicode_byte_type.exit.thread
@@ -7441,7 +7441,7 @@ define internal i32 @little2_prologTok(ptr noundef readonly captures(none) %0, p
 16:                                               ; preds = %13
   %17 = load i8, ptr %1, align 1, !tbaa !8
   %switch.i = icmp ugt i8 %17, -3
-  br i1 %switch.i, label %unicode_byte_type.exit.thread, label %unicode_byte_type.exit.thread370
+  br i1 %switch.i, label %unicode_byte_type.exit.thread, label %unicode_byte_type.exit.thread375
 
 unicode_byte_type.exit:                           ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -7467,14 +7467,14 @@ unicode_byte_type.exit:                           ; preds = %13
     i8 19, label %137
     i8 5, label %140
     i8 6, label %145
-    i8 7, label %unicode_byte_type.exit.thread368
+    i8 7, label %unicode_byte_type.exit.thread373
     i8 22, label %180
     i8 24, label %180
     i8 25, label %154
     i8 26, label %154
     i8 27, label %154
     i8 23, label %154
-    i8 29, label %unicode_byte_type.exit.thread370
+    i8 29, label %unicode_byte_type.exit.thread375
   ]
 
 23:                                               ; preds = %unicode_byte_type.exit
@@ -7498,7 +7498,7 @@ unicode_byte_type.exit:                           ; preds = %13
 35:                                               ; preds = %29
   %36 = getelementptr i8, ptr %1, i64 3
   %37 = load i8, ptr %36, align 1, !tbaa !8
-  switch i8 %37, label %unicode_byte_type.exit235.thread374 [
+  switch i8 %37, label %unicode_byte_type.exit235.thread379 [
     i8 0, label %unicode_byte_type.exit235
     i8 -1, label %38
     i8 -33, label %unicode_byte_type.exit235.thread
@@ -7510,7 +7510,7 @@ unicode_byte_type.exit:                           ; preds = %13
 38:                                               ; preds = %35
   %39 = load i8, ptr %30, align 1, !tbaa !8
   %switch.i233 = icmp ugt i8 %39, -3
-  br i1 %switch.i233, label %unicode_byte_type.exit235.thread, label %unicode_byte_type.exit235.thread374
+  br i1 %switch.i233, label %unicode_byte_type.exit235.thread, label %unicode_byte_type.exit235.thread379
 
 unicode_byte_type.exit235:                        ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -7521,12 +7521,12 @@ unicode_byte_type.exit235:                        ; preds = %35
   switch i8 %44, label %unicode_byte_type.exit235.thread [
     i8 16, label %45
     i8 15, label %48
-    i8 22, label %unicode_byte_type.exit235.thread374
-    i8 24, label %unicode_byte_type.exit235.thread374
-    i8 29, label %unicode_byte_type.exit235.thread374
-    i8 5, label %unicode_byte_type.exit235.thread374
-    i8 6, label %unicode_byte_type.exit235.thread374
-    i8 7, label %unicode_byte_type.exit235.thread374
+    i8 22, label %unicode_byte_type.exit235.thread379
+    i8 24, label %unicode_byte_type.exit235.thread379
+    i8 29, label %unicode_byte_type.exit235.thread379
+    i8 5, label %unicode_byte_type.exit235.thread379
+    i8 6, label %unicode_byte_type.exit235.thread379
+    i8 7, label %unicode_byte_type.exit235.thread379
   ]
 
 45:                                               ; preds = %unicode_byte_type.exit235
@@ -7539,7 +7539,7 @@ unicode_byte_type.exit235:                        ; preds = %35
   %50 = tail call fastcc i32 @little2_scanPi(ptr noundef nonnull %0, ptr noundef %49, ptr noundef %.1211, ptr noundef %3)
   br label %.loopexit
 
-unicode_byte_type.exit235.thread374:              ; preds = %38, %35, %unicode_byte_type.exit235, %unicode_byte_type.exit235, %unicode_byte_type.exit235, %unicode_byte_type.exit235, %unicode_byte_type.exit235, %unicode_byte_type.exit235
+unicode_byte_type.exit235.thread379:              ; preds = %38, %35, %unicode_byte_type.exit235, %unicode_byte_type.exit235, %unicode_byte_type.exit235, %unicode_byte_type.exit235, %unicode_byte_type.exit235, %unicode_byte_type.exit235
   store ptr %1, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
@@ -7683,8 +7683,8 @@ unicode_byte_type.exit238.thread:                 ; preds = %62, %70, %unicode_b
 118:                                              ; preds = %112
   %119 = getelementptr i8, ptr %1, i64 3
   %120 = load i8, ptr %119, align 1, !tbaa !8
-  %cond447 = icmp eq i8 %120, 0
-  br i1 %cond447, label %unicode_byte_type.exit241, label %unicode_byte_type.exit241.thread
+  %cond452 = icmp eq i8 %120, 0
+  br i1 %cond452, label %unicode_byte_type.exit241, label %unicode_byte_type.exit241.thread
 
 unicode_byte_type.exit241:                        ; preds = %118
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -7763,20 +7763,20 @@ unicode_byte_type.exit241.thread:                 ; preds = %118, %unicode_byte_
   store ptr %1, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-unicode_byte_type.exit.thread368:                 ; preds = %13, %13, %13, %13, %unicode_byte_type.exit
+unicode_byte_type.exit.thread373:                 ; preds = %13, %13, %13, %13, %unicode_byte_type.exit
   %150 = ptrtoint ptr %.1211 to i64
   %151 = sub i64 %150, %7
   %152 = icmp slt i64 %151, 4
   br i1 %152, label %.loopexit, label %153
 
-153:                                              ; preds = %unicode_byte_type.exit.thread368
+153:                                              ; preds = %unicode_byte_type.exit.thread373
   store ptr %1, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
 154:                                              ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
   br label %180
 
-unicode_byte_type.exit.thread370:                 ; preds = %13, %16, %unicode_byte_type.exit
+unicode_byte_type.exit.thread375:                 ; preds = %13, %16, %unicode_byte_type.exit
   %155 = zext i8 %15 to i64
   %156 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %155
   %157 = load i8, ptr %156, align 1, !tbaa !8
@@ -7795,7 +7795,7 @@ unicode_byte_type.exit.thread370:                 ; preds = %13, %16, %unicode_b
   %.not222 = icmp eq i32 %169, 0
   br i1 %.not222, label %170, label %180
 
-170:                                              ; preds = %unicode_byte_type.exit.thread370
+170:                                              ; preds = %unicode_byte_type.exit.thread375
   %171 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %155
   %172 = load i8, ptr %171, align 1, !tbaa !8
   %173 = zext i8 %172 to i32
@@ -7812,8 +7812,8 @@ unicode_byte_type.exit.thread:                    ; preds = %13, %13, %13, %13, 
   store ptr %1, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-180:                                              ; preds = %170, %unicode_byte_type.exit.thread370, %unicode_byte_type.exit, %unicode_byte_type.exit, %154
-  %.0207 = phi i32 [ 19, %154 ], [ 18, %unicode_byte_type.exit ], [ 18, %unicode_byte_type.exit ], [ 18, %unicode_byte_type.exit.thread370 ], [ 19, %170 ]
+180:                                              ; preds = %170, %unicode_byte_type.exit.thread375, %unicode_byte_type.exit, %unicode_byte_type.exit, %154
+  %.0207 = phi i32 [ 19, %154 ], [ 18, %unicode_byte_type.exit ], [ 18, %unicode_byte_type.exit ], [ 18, %unicode_byte_type.exit.thread375 ], [ 19, %170 ]
   %.1213 = getelementptr i8, ptr %1, i64 2
   %181 = ptrtoint ptr %.1211 to i64
   %182 = ptrtoint ptr %.1213 to i64
@@ -7831,12 +7831,12 @@ unicode_byte_type.exit.thread:                    ; preds = %13, %13, %13, %13, 
   %.2214303 = phi ptr [ %.1213, %.lr.ph ], [ %.3, %unicode_byte_type.exit247.thread ]
   %188 = getelementptr i8, ptr %.2214303, i64 1
   %189 = load i8, ptr %188, align 1, !tbaa !8
-  switch i8 %189, label %unicode_byte_type.exit244.thread379 [
+  switch i8 %189, label %unicode_byte_type.exit244.thread384 [
     i8 0, label %unicode_byte_type.exit244
-    i8 -40, label %unicode_byte_type.exit244.thread382
-    i8 -39, label %unicode_byte_type.exit244.thread382
-    i8 -38, label %unicode_byte_type.exit244.thread382
-    i8 -37, label %unicode_byte_type.exit244.thread382
+    i8 -40, label %unicode_byte_type.exit244.thread387
+    i8 -39, label %unicode_byte_type.exit244.thread387
+    i8 -38, label %unicode_byte_type.exit244.thread387
+    i8 -37, label %unicode_byte_type.exit244.thread387
     i8 -36, label %unicode_byte_type.exit244.thread
     i8 -35, label %unicode_byte_type.exit244.thread
     i8 -34, label %unicode_byte_type.exit244.thread
@@ -7847,7 +7847,7 @@ unicode_byte_type.exit.thread:                    ; preds = %13, %13, %13, %13, 
 190:                                              ; preds = %186
   %191 = load i8, ptr %.2214303, align 1, !tbaa !8
   %switch.i242 = icmp ugt i8 %191, -3
-  br i1 %switch.i242, label %unicode_byte_type.exit244.thread, label %unicode_byte_type.exit244.thread379
+  br i1 %switch.i242, label %unicode_byte_type.exit244.thread, label %unicode_byte_type.exit244.thread384
 
 unicode_byte_type.exit244:                        ; preds = %186
   %192 = load i8, ptr %.2214303, align 1, !tbaa !8
@@ -7855,7 +7855,7 @@ unicode_byte_type.exit244:                        ; preds = %186
   %194 = getelementptr [256 x i8], ptr %185, i64 0, i64 %193
   %195 = load i8, ptr %194, align 1, !tbaa !8
   switch i8 %195, label %unicode_byte_type.exit244.thread [
-    i8 29, label %unicode_byte_type.exit244.thread379
+    i8 29, label %unicode_byte_type.exit244.thread384
     i8 22, label %212
     i8 24, label %212
     i8 25, label %212
@@ -7863,7 +7863,7 @@ unicode_byte_type.exit244:                        ; preds = %186
     i8 27, label %212
     i8 5, label %214
     i8 6, label %215
-    i8 7, label %unicode_byte_type.exit244.thread382
+    i8 7, label %unicode_byte_type.exit244.thread387
     i8 11, label %220
     i8 32, label %220
     i8 35, label %220
@@ -7879,7 +7879,7 @@ unicode_byte_type.exit244:                        ; preds = %186
     i8 15, label %271
   ]
 
-unicode_byte_type.exit244.thread379:              ; preds = %186, %190, %unicode_byte_type.exit244
+unicode_byte_type.exit244.thread384:              ; preds = %186, %190, %unicode_byte_type.exit244
   %196 = zext i8 %189 to i64
   %197 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %196
   %198 = load i8, ptr %197, align 1, !tbaa !8
@@ -7898,11 +7898,11 @@ unicode_byte_type.exit244.thread379:              ; preds = %186, %190, %unicode
   %.not227 = icmp eq i32 %210, 0
   br i1 %.not227, label %211, label %212
 
-211:                                              ; preds = %unicode_byte_type.exit244.thread379
+211:                                              ; preds = %unicode_byte_type.exit244.thread384
   store ptr %.2214303, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-212:                                              ; preds = %unicode_byte_type.exit244.thread379, %unicode_byte_type.exit244, %unicode_byte_type.exit244, %unicode_byte_type.exit244, %unicode_byte_type.exit244, %unicode_byte_type.exit244
+212:                                              ; preds = %unicode_byte_type.exit244.thread384, %unicode_byte_type.exit244, %unicode_byte_type.exit244, %unicode_byte_type.exit244, %unicode_byte_type.exit244, %unicode_byte_type.exit244
   %213 = getelementptr i8, ptr %.2214303, i64 2
   br label %unicode_byte_type.exit247.thread
 
@@ -7918,11 +7918,11 @@ unicode_byte_type.exit244.thread379:              ; preds = %186, %190, %unicode
   store ptr %.2214303, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-unicode_byte_type.exit244.thread382:              ; preds = %186, %186, %186, %186, %unicode_byte_type.exit244
+unicode_byte_type.exit244.thread387:              ; preds = %186, %186, %186, %186, %unicode_byte_type.exit244
   %218 = icmp samesign ult i64 %187, 4
   br i1 %218, label %.loopexit, label %219
 
-219:                                              ; preds = %unicode_byte_type.exit244.thread382
+219:                                              ; preds = %unicode_byte_type.exit244.thread387
   store ptr %.2214303, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
@@ -7946,12 +7946,12 @@ unicode_byte_type.exit244.thread382:              ; preds = %186, %186, %186, %1
 227:                                              ; preds = %223
   %228 = getelementptr i8, ptr %.2214303, i64 3
   %229 = load i8, ptr %228, align 1, !tbaa !8
-  switch i8 %229, label %unicode_byte_type.exit247.thread385 [
+  switch i8 %229, label %unicode_byte_type.exit247.thread390 [
     i8 0, label %unicode_byte_type.exit247
-    i8 -40, label %unicode_byte_type.exit247.thread388
-    i8 -39, label %unicode_byte_type.exit247.thread388
-    i8 -38, label %unicode_byte_type.exit247.thread388
-    i8 -37, label %unicode_byte_type.exit247.thread388
+    i8 -40, label %unicode_byte_type.exit247.thread393
+    i8 -39, label %unicode_byte_type.exit247.thread393
+    i8 -38, label %unicode_byte_type.exit247.thread393
+    i8 -37, label %unicode_byte_type.exit247.thread393
     i8 -36, label %unicode_byte_type.exit247.thread
     i8 -35, label %unicode_byte_type.exit247.thread
     i8 -34, label %unicode_byte_type.exit247.thread
@@ -7962,7 +7962,7 @@ unicode_byte_type.exit244.thread382:              ; preds = %186, %186, %186, %1
 230:                                              ; preds = %227
   %231 = load i8, ptr %222, align 1, !tbaa !8
   %switch.i245 = icmp ugt i8 %231, -3
-  br i1 %switch.i245, label %unicode_byte_type.exit247.thread, label %unicode_byte_type.exit247.thread385
+  br i1 %switch.i245, label %unicode_byte_type.exit247.thread, label %unicode_byte_type.exit247.thread390
 
 unicode_byte_type.exit247:                        ; preds = %227
   %232 = load i8, ptr %222, align 1, !tbaa !8
@@ -7970,7 +7970,7 @@ unicode_byte_type.exit247:                        ; preds = %227
   %234 = getelementptr [256 x i8], ptr %185, i64 0, i64 %233
   %235 = load i8, ptr %234, align 1, !tbaa !8
   switch i8 %235, label %unicode_byte_type.exit247.thread [
-    i8 29, label %unicode_byte_type.exit247.thread385
+    i8 29, label %unicode_byte_type.exit247.thread390
     i8 22, label %252
     i8 24, label %252
     i8 25, label %252
@@ -7978,10 +7978,10 @@ unicode_byte_type.exit247:                        ; preds = %227
     i8 27, label %252
     i8 5, label %254
     i8 6, label %255
-    i8 7, label %unicode_byte_type.exit247.thread388
+    i8 7, label %unicode_byte_type.exit247.thread393
   ]
 
-unicode_byte_type.exit247.thread385:              ; preds = %227, %230, %unicode_byte_type.exit247
+unicode_byte_type.exit247.thread390:              ; preds = %227, %230, %unicode_byte_type.exit247
   %236 = zext i8 %229 to i64
   %237 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %236
   %238 = load i8, ptr %237, align 1, !tbaa !8
@@ -8000,11 +8000,11 @@ unicode_byte_type.exit247.thread385:              ; preds = %227, %230, %unicode
   %.not226 = icmp eq i32 %250, 0
   br i1 %.not226, label %251, label %252
 
-251:                                              ; preds = %unicode_byte_type.exit247.thread385
+251:                                              ; preds = %unicode_byte_type.exit247.thread390
   store ptr %222, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-252:                                              ; preds = %unicode_byte_type.exit247.thread385, %unicode_byte_type.exit247, %unicode_byte_type.exit247, %unicode_byte_type.exit247, %unicode_byte_type.exit247, %unicode_byte_type.exit247
+252:                                              ; preds = %unicode_byte_type.exit247.thread390, %unicode_byte_type.exit247, %unicode_byte_type.exit247, %unicode_byte_type.exit247, %unicode_byte_type.exit247, %unicode_byte_type.exit247
   %253 = getelementptr i8, ptr %.2214303, i64 4
   br label %unicode_byte_type.exit247.thread
 
@@ -8020,11 +8020,11 @@ unicode_byte_type.exit247.thread385:              ; preds = %227, %230, %unicode
   store ptr %222, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-unicode_byte_type.exit247.thread388:              ; preds = %227, %227, %227, %227, %unicode_byte_type.exit247
+unicode_byte_type.exit247.thread393:              ; preds = %227, %227, %227, %227, %unicode_byte_type.exit247
   %258 = icmp samesign ult i64 %225, 4
   br i1 %258, label %.loopexit, label %259
 
-259:                                              ; preds = %unicode_byte_type.exit247.thread388
+259:                                              ; preds = %unicode_byte_type.exit247.thread393
   store ptr %222, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
@@ -8087,8 +8087,8 @@ unicode_byte_type.exit247.thread:                 ; preds = %227, %227, %227, %2
   %279 = sub nsw i32 0, %.1.lcssa
   br label %.loopexit
 
-.loopexit:                                        ; preds = %223, %unicode_byte_type.exit247.thread388, %255, %unicode_byte_type.exit244.thread382, %215, %unicode_byte_type.exit.thread368, %145, %140, %112, %97, %84, %29, %4, %5, %._crit_edge, %unicode_byte_type.exit244.thread, %274, %273, %269, %268, %264, %263, %259, %257, %254, %251, %220, %219, %217, %214, %211, %unicode_byte_type.exit.thread, %153, %149, %144, %137, %135, %133, %unicode_byte_type.exit241.thread, %132, %130, %128, %126, %110, %109, %107, %82, %80, %77, %._crit_edge308, %unicode_byte_type.exit238.thread, %54, %unicode_byte_type.exit235.thread, %unicode_byte_type.exit235.thread374, %48, %45, %26, %23
-  %.0208 = phi i32 [ 0, %unicode_byte_type.exit.thread ], [ %25, %23 ], [ %28, %26 ], [ 0, %unicode_byte_type.exit235.thread ], [ %47, %45 ], [ %50, %48 ], [ 29, %unicode_byte_type.exit235.thread374 ], [ -15, %54 ], [ 15, %unicode_byte_type.exit238.thread ], [ 15, %._crit_edge308 ], [ %79, %77 ], [ 38, %80 ], [ 25, %82 ], [ 34, %107 ], [ 26, %109 ], [ 23, %110 ], [ 0, %unicode_byte_type.exit241.thread ], [ 36, %126 ], [ 35, %128 ], [ 37, %130 ], [ 24, %132 ], [ 21, %133 ], [ 17, %135 ], [ %139, %137 ], [ 0, %144 ], [ 0, %149 ], [ 0, %153 ], [ 0, %unicode_byte_type.exit244.thread ], [ 0, %211 ], [ 0, %214 ], [ 0, %217 ], [ 0, %219 ], [ %.1304, %220 ], [ 0, %251 ], [ 0, %254 ], [ 0, %257 ], [ 0, %259 ], [ 0, %263 ], [ 32, %264 ], [ 0, %268 ], [ 31, %269 ], [ 0, %273 ], [ 30, %274 ], [ %279, %._crit_edge ], [ -1, %5 ], [ -4, %4 ], [ -1, %29 ], [ -26, %84 ], [ -1, %97 ], [ -24, %112 ], [ -2, %140 ], [ -2, %145 ], [ -2, %unicode_byte_type.exit.thread368 ], [ -2, %215 ], [ -2, %unicode_byte_type.exit244.thread382 ], [ -2, %255 ], [ -2, %unicode_byte_type.exit247.thread388 ], [ -1, %223 ]
+.loopexit:                                        ; preds = %223, %unicode_byte_type.exit247.thread393, %255, %unicode_byte_type.exit244.thread387, %215, %unicode_byte_type.exit.thread373, %145, %140, %112, %97, %84, %29, %4, %5, %._crit_edge, %unicode_byte_type.exit244.thread, %274, %273, %269, %268, %264, %263, %259, %257, %254, %251, %220, %219, %217, %214, %211, %unicode_byte_type.exit.thread, %153, %149, %144, %137, %135, %133, %unicode_byte_type.exit241.thread, %132, %130, %128, %126, %110, %109, %107, %82, %80, %77, %._crit_edge308, %unicode_byte_type.exit238.thread, %54, %unicode_byte_type.exit235.thread, %unicode_byte_type.exit235.thread379, %48, %45, %26, %23
+  %.0208 = phi i32 [ 0, %unicode_byte_type.exit.thread ], [ %25, %23 ], [ %28, %26 ], [ 0, %unicode_byte_type.exit235.thread ], [ %47, %45 ], [ %50, %48 ], [ 29, %unicode_byte_type.exit235.thread379 ], [ -15, %54 ], [ 15, %unicode_byte_type.exit238.thread ], [ 15, %._crit_edge308 ], [ %79, %77 ], [ 38, %80 ], [ 25, %82 ], [ 34, %107 ], [ 26, %109 ], [ 23, %110 ], [ 0, %unicode_byte_type.exit241.thread ], [ 36, %126 ], [ 35, %128 ], [ 37, %130 ], [ 24, %132 ], [ 21, %133 ], [ 17, %135 ], [ %139, %137 ], [ 0, %144 ], [ 0, %149 ], [ 0, %153 ], [ 0, %unicode_byte_type.exit244.thread ], [ 0, %211 ], [ 0, %214 ], [ 0, %217 ], [ 0, %219 ], [ %.1304, %220 ], [ 0, %251 ], [ 0, %254 ], [ 0, %257 ], [ 0, %259 ], [ 0, %263 ], [ 32, %264 ], [ 0, %268 ], [ 31, %269 ], [ 0, %273 ], [ 30, %274 ], [ %279, %._crit_edge ], [ -1, %5 ], [ -4, %4 ], [ -1, %29 ], [ -26, %84 ], [ -1, %97 ], [ -24, %112 ], [ -2, %140 ], [ -2, %145 ], [ -2, %unicode_byte_type.exit.thread373 ], [ -2, %215 ], [ -2, %unicode_byte_type.exit244.thread387 ], [ -2, %255 ], [ -2, %unicode_byte_type.exit247.thread393 ], [ -1, %223 ]
   ret i32 %.0208
 }
 
@@ -8115,12 +8115,12 @@ define internal i32 @little2_contentTok(ptr noundef readonly captures(none) %0, 
 14:                                               ; preds = %5
   %15 = getelementptr i8, ptr %1, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !8
-  switch i8 %16, label %unicode_byte_type.exit.thread350 [
+  switch i8 %16, label %unicode_byte_type.exit.thread369 [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread353
-    i8 -39, label %unicode_byte_type.exit.thread353
-    i8 -38, label %unicode_byte_type.exit.thread353
-    i8 -37, label %unicode_byte_type.exit.thread353
+    i8 -40, label %unicode_byte_type.exit.thread372
+    i8 -39, label %unicode_byte_type.exit.thread372
+    i8 -38, label %unicode_byte_type.exit.thread372
+    i8 -37, label %unicode_byte_type.exit.thread372
     i8 -36, label %unicode_byte_type.exit.thread
     i8 -35, label %unicode_byte_type.exit.thread
     i8 -34, label %unicode_byte_type.exit.thread
@@ -8131,7 +8131,7 @@ define internal i32 @little2_contentTok(ptr noundef readonly captures(none) %0, 
 17:                                               ; preds = %14
   %18 = load i8, ptr %1, align 1, !tbaa !8
   %switch.i = icmp ugt i8 %18, -3
-  br i1 %switch.i, label %unicode_byte_type.exit.thread, label %unicode_byte_type.exit.thread350
+  br i1 %switch.i, label %unicode_byte_type.exit.thread, label %unicode_byte_type.exit.thread369
 
 unicode_byte_type.exit:                           ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -8139,7 +8139,7 @@ unicode_byte_type.exit:                           ; preds = %14
   %21 = zext i8 %20 to i64
   %22 = getelementptr [256 x i8], ptr %19, i64 0, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !8
-  switch i8 %23, label %unicode_byte_type.exit.thread350 [
+  switch i8 %23, label %unicode_byte_type.exit.thread369 [
     i8 2, label %24
     i8 3, label %318
     i8 9, label %321
@@ -8147,7 +8147,7 @@ unicode_byte_type.exit:                           ; preds = %14
     i8 4, label %340
     i8 5, label %366
     i8 6, label %372
-    i8 7, label %unicode_byte_type.exit.thread353
+    i8 7, label %unicode_byte_type.exit.thread372
     i8 0, label %unicode_byte_type.exit.thread
     i8 1, label %unicode_byte_type.exit.thread
     i8 8, label %unicode_byte_type.exit.thread
@@ -8164,12 +8164,12 @@ unicode_byte_type.exit:                           ; preds = %14
 30:                                               ; preds = %24
   %31 = getelementptr i8, ptr %1, i64 3
   %32 = load i8, ptr %31, align 1, !tbaa !8
-  switch i8 %32, label %.unicode_byte_type.exit.thread387.i_crit_edge [
+  switch i8 %32, label %.unicode_byte_type.exit.thread397.i_crit_edge [
     i8 0, label %unicode_byte_type.exit.i
-    i8 -40, label %unicode_byte_type.exit.thread390.i
-    i8 -39, label %unicode_byte_type.exit.thread390.i
-    i8 -38, label %unicode_byte_type.exit.thread390.i
-    i8 -37, label %unicode_byte_type.exit.thread390.i
+    i8 -40, label %unicode_byte_type.exit.thread400.i
+    i8 -39, label %unicode_byte_type.exit.thread400.i
+    i8 -38, label %unicode_byte_type.exit.thread400.i
+    i8 -37, label %unicode_byte_type.exit.thread400.i
     i8 -36, label %unicode_byte_type.exit.thread.i
     i8 -35, label %unicode_byte_type.exit.thread.i
     i8 -34, label %unicode_byte_type.exit.thread.i
@@ -8177,14 +8177,14 @@ unicode_byte_type.exit:                           ; preds = %14
     i8 -1, label %33
   ]
 
-.unicode_byte_type.exit.thread387.i_crit_edge:    ; preds = %30
+.unicode_byte_type.exit.thread397.i_crit_edge:    ; preds = %30
   %.pre = load i8, ptr %25, align 1, !tbaa !8
-  br label %unicode_byte_type.exit.thread387.i
+  br label %unicode_byte_type.exit.thread397.i
 
 33:                                               ; preds = %30
   %34 = load i8, ptr %25, align 1, !tbaa !8
   %switch.i.i = icmp ugt i8 %34, -3
-  br i1 %switch.i.i, label %unicode_byte_type.exit.thread.i, label %unicode_byte_type.exit.thread387.i
+  br i1 %switch.i.i, label %unicode_byte_type.exit.thread.i, label %unicode_byte_type.exit.thread397.i
 
 unicode_byte_type.exit.i:                         ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -8193,19 +8193,19 @@ unicode_byte_type.exit.i:                         ; preds = %30
   %38 = getelementptr [256 x i8], ptr %35, i64 0, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !8
   switch i8 %39, label %unicode_byte_type.exit.thread.i [
-    i8 29, label %unicode_byte_type.exit.thread387.i
+    i8 29, label %unicode_byte_type.exit.thread397.i
     i8 22, label %56
     i8 24, label %56
     i8 5, label %62
     i8 6, label %63
-    i8 7, label %unicode_byte_type.exit.thread390.i
+    i8 7, label %unicode_byte_type.exit.thread400.i
     i8 16, label %68
     i8 15, label %98
     i8 17, label %101
   ]
 
-unicode_byte_type.exit.thread387.i:               ; preds = %.unicode_byte_type.exit.thread387.i_crit_edge, %unicode_byte_type.exit.i, %33
-  %40 = phi i8 [ %.pre, %.unicode_byte_type.exit.thread387.i_crit_edge ], [ %36, %unicode_byte_type.exit.i ], [ %34, %33 ]
+unicode_byte_type.exit.thread397.i:               ; preds = %.unicode_byte_type.exit.thread397.i_crit_edge, %unicode_byte_type.exit.i, %33
+  %40 = phi i8 [ %.pre, %.unicode_byte_type.exit.thread397.i_crit_edge ], [ %36, %unicode_byte_type.exit.i ], [ %34, %33 ]
   %41 = zext i8 %32 to i64
   %42 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !8
@@ -8223,11 +8223,11 @@ unicode_byte_type.exit.thread387.i:               ; preds = %.unicode_byte_type.
   %.not.i = icmp eq i32 %54, 0
   br i1 %.not.i, label %55, label %56
 
-55:                                               ; preds = %unicode_byte_type.exit.thread387.i
+55:                                               ; preds = %unicode_byte_type.exit.thread397.i
   store ptr %25, ptr %3, align 8, !tbaa !3
   br label %little2_scanLt.exit
 
-56:                                               ; preds = %unicode_byte_type.exit.thread387.i, %unicode_byte_type.exit.i, %unicode_byte_type.exit.i
+56:                                               ; preds = %unicode_byte_type.exit.thread397.i, %unicode_byte_type.exit.i, %unicode_byte_type.exit.i
   %57 = getelementptr i8, ptr %1, i64 4
   %58 = ptrtoint ptr %57 to i64
   %59 = sub i64 %26, %58
@@ -8250,11 +8250,11 @@ unicode_byte_type.exit.thread387.i:               ; preds = %.unicode_byte_type.
   store ptr %25, ptr %3, align 8, !tbaa !3
   br label %little2_scanLt.exit
 
-unicode_byte_type.exit.thread390.i:               ; preds = %unicode_byte_type.exit.i, %30, %30, %30, %30
+unicode_byte_type.exit.thread400.i:               ; preds = %unicode_byte_type.exit.i, %30, %30, %30, %30
   %66 = icmp samesign ult i64 %28, 4
   br i1 %66, label %little2_scanLt.exit, label %67
 
-67:                                               ; preds = %unicode_byte_type.exit.thread390.i
+67:                                               ; preds = %unicode_byte_type.exit.thread400.i
   store ptr %25, ptr %3, align 8, !tbaa !3
   br label %little2_scanLt.exit
 
@@ -8343,12 +8343,12 @@ unicode_byte_type.exit172.thread.i:               ; preds = %unicode_byte_type.e
 106:                                              ; preds = %101
   %107 = getelementptr i8, ptr %1, i64 5
   %108 = load i8, ptr %107, align 1, !tbaa !8
-  switch i8 %108, label %.unicode_byte_type.exit.thread142.i_crit_edge.i [
+  switch i8 %108, label %.unicode_byte_type.exit.thread145.i_crit_edge.i [
     i8 0, label %unicode_byte_type.exit.i.i
-    i8 -40, label %unicode_byte_type.exit.thread145.i.i
-    i8 -39, label %unicode_byte_type.exit.thread145.i.i
-    i8 -38, label %unicode_byte_type.exit.thread145.i.i
-    i8 -37, label %unicode_byte_type.exit.thread145.i.i
+    i8 -40, label %unicode_byte_type.exit.thread148.i.i
+    i8 -39, label %unicode_byte_type.exit.thread148.i.i
+    i8 -38, label %unicode_byte_type.exit.thread148.i.i
+    i8 -37, label %unicode_byte_type.exit.thread148.i.i
     i8 -36, label %.loopexit.sink.split.i.i
     i8 -35, label %.loopexit.sink.split.i.i
     i8 -34, label %.loopexit.sink.split.i.i
@@ -8356,14 +8356,14 @@ unicode_byte_type.exit172.thread.i:               ; preds = %unicode_byte_type.e
     i8 -1, label %109
   ]
 
-.unicode_byte_type.exit.thread142.i_crit_edge.i:  ; preds = %106
+.unicode_byte_type.exit.thread145.i_crit_edge.i:  ; preds = %106
   %.pre.i = load i8, ptr %102, align 1, !tbaa !8
-  br label %unicode_byte_type.exit.thread142.i.i
+  br label %unicode_byte_type.exit.thread145.i.i
 
 109:                                              ; preds = %106
   %110 = load i8, ptr %102, align 1, !tbaa !8
   %switch.i.i.i = icmp ugt i8 %110, -3
-  br i1 %switch.i.i.i, label %.loopexit.sink.split.i.i, label %unicode_byte_type.exit.thread142.i.i
+  br i1 %switch.i.i.i, label %.loopexit.sink.split.i.i, label %unicode_byte_type.exit.thread145.i.i
 
 unicode_byte_type.exit.i.i:                       ; preds = %106
   %111 = load i8, ptr %102, align 1, !tbaa !8
@@ -8371,15 +8371,15 @@ unicode_byte_type.exit.i.i:                       ; preds = %106
   %113 = getelementptr [256 x i8], ptr %35, i64 0, i64 %112
   %114 = load i8, ptr %113, align 1, !tbaa !8
   switch i8 %114, label %.loopexit.sink.split.i.i [
-    i8 29, label %unicode_byte_type.exit.thread142.i.i
+    i8 29, label %unicode_byte_type.exit.thread145.i.i
     i8 22, label %130
     i8 24, label %130
-    i8 7, label %unicode_byte_type.exit.thread145.i.i
+    i8 7, label %unicode_byte_type.exit.thread148.i.i
     i8 6, label %134
   ]
 
-unicode_byte_type.exit.thread142.i.i:             ; preds = %unicode_byte_type.exit.i.i, %109, %.unicode_byte_type.exit.thread142.i_crit_edge.i
-  %115 = phi i8 [ %.pre.i, %.unicode_byte_type.exit.thread142.i_crit_edge.i ], [ %111, %unicode_byte_type.exit.i.i ], [ %110, %109 ]
+unicode_byte_type.exit.thread145.i.i:             ; preds = %unicode_byte_type.exit.i.i, %109, %.unicode_byte_type.exit.thread145.i_crit_edge.i
+  %115 = phi i8 [ %.pre.i, %.unicode_byte_type.exit.thread145.i_crit_edge.i ], [ %111, %unicode_byte_type.exit.i.i ], [ %110, %109 ]
   %116 = zext i8 %108 to i64
   %117 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %116
   %118 = load i8, ptr %117, align 1, !tbaa !8
@@ -8397,7 +8397,7 @@ unicode_byte_type.exit.thread142.i.i:             ; preds = %unicode_byte_type.e
   %.not.i.i = icmp eq i32 %129, 0
   br i1 %.not.i.i, label %.loopexit.sink.split.i.i, label %130
 
-130:                                              ; preds = %unicode_byte_type.exit.thread142.i.i, %unicode_byte_type.exit.i.i, %unicode_byte_type.exit.i.i
+130:                                              ; preds = %unicode_byte_type.exit.thread145.i.i, %unicode_byte_type.exit.i.i, %unicode_byte_type.exit.i.i
   %.070108.i.i = getelementptr i8, ptr %1, i64 6
   %131 = ptrtoint ptr %.070108.i.i to i64
   %132 = sub i64 %26, %131
@@ -8408,7 +8408,7 @@ unicode_byte_type.exit.thread142.i.i:             ; preds = %unicode_byte_type.e
   %135 = icmp eq i64 %104, 2
   br i1 %135, label %little2_scanLt.exit, label %.loopexit.sink.split.i.i
 
-unicode_byte_type.exit.thread145.i.i:             ; preds = %unicode_byte_type.exit.i.i, %106, %106, %106, %106
+unicode_byte_type.exit.thread148.i.i:             ; preds = %unicode_byte_type.exit.i.i, %106, %106, %106, %106
   %136 = icmp samesign ult i64 %104, 4
   br i1 %136, label %little2_scanLt.exit, label %.loopexit.sink.split.i.i
 
@@ -8418,12 +8418,12 @@ unicode_byte_type.exit.thread145.i.i:             ; preds = %unicode_byte_type.e
   %.pn109.i.i = phi ptr [ %.070110.i.i, %182 ], [ %102, %130 ]
   %138 = getelementptr i8, ptr %.pn109.i.i, i64 3
   %139 = load i8, ptr %138, align 1, !tbaa !8
-  switch i8 %139, label %.unicode_byte_type.exit78.thread148.i_crit_edge.i [
+  switch i8 %139, label %.unicode_byte_type.exit78.thread151.i_crit_edge.i [
     i8 0, label %unicode_byte_type.exit78.i.i
-    i8 -40, label %unicode_byte_type.exit78.thread151.i.i
-    i8 -39, label %unicode_byte_type.exit78.thread151.i.i
-    i8 -38, label %unicode_byte_type.exit78.thread151.i.i
-    i8 -37, label %unicode_byte_type.exit78.thread151.i.i
+    i8 -40, label %unicode_byte_type.exit78.thread154.i.i
+    i8 -39, label %unicode_byte_type.exit78.thread154.i.i
+    i8 -38, label %unicode_byte_type.exit78.thread154.i.i
+    i8 -37, label %unicode_byte_type.exit78.thread154.i.i
     i8 -36, label %.loopexit.sink.split.i.i
     i8 -35, label %.loopexit.sink.split.i.i
     i8 -34, label %.loopexit.sink.split.i.i
@@ -8431,14 +8431,14 @@ unicode_byte_type.exit.thread145.i.i:             ; preds = %unicode_byte_type.e
     i8 -1, label %140
   ]
 
-.unicode_byte_type.exit78.thread148.i_crit_edge.i: ; preds = %.lr.ph.i.i
+.unicode_byte_type.exit78.thread151.i_crit_edge.i: ; preds = %.lr.ph.i.i
   %.pre385.i = load i8, ptr %.070110.i.i, align 1, !tbaa !8
-  br label %unicode_byte_type.exit78.thread148.i.i
+  br label %unicode_byte_type.exit78.thread151.i.i
 
 140:                                              ; preds = %.lr.ph.i.i
   %141 = load i8, ptr %.070110.i.i, align 1, !tbaa !8
   %switch.i76.i.i = icmp ugt i8 %141, -3
-  br i1 %switch.i76.i.i, label %.loopexit.sink.split.i.i, label %unicode_byte_type.exit78.thread148.i.i
+  br i1 %switch.i76.i.i, label %.loopexit.sink.split.i.i, label %unicode_byte_type.exit78.thread151.i.i
 
 unicode_byte_type.exit78.i.i:                     ; preds = %.lr.ph.i.i
   %142 = load i8, ptr %.070110.i.i, align 1, !tbaa !8
@@ -8446,7 +8446,7 @@ unicode_byte_type.exit78.i.i:                     ; preds = %.lr.ph.i.i
   %144 = getelementptr [256 x i8], ptr %35, i64 0, i64 %143
   %145 = load i8, ptr %144, align 1, !tbaa !8
   switch i8 %145, label %.loopexit.sink.split.i.i [
-    i8 29, label %unicode_byte_type.exit78.thread148.i.i
+    i8 29, label %unicode_byte_type.exit78.thread151.i.i
     i8 22, label %182
     i8 24, label %182
     i8 25, label %182
@@ -8454,15 +8454,15 @@ unicode_byte_type.exit78.i.i:                     ; preds = %.lr.ph.i.i
     i8 27, label %182
     i8 11, label %180
     i8 6, label %161
-    i8 7, label %unicode_byte_type.exit78.thread151.i.i
+    i8 7, label %unicode_byte_type.exit78.thread154.i.i
     i8 21, label %164
     i8 9, label %164
     i8 10, label %164
     i8 23, label %182
   ]
 
-unicode_byte_type.exit78.thread148.i.i:           ; preds = %unicode_byte_type.exit78.i.i, %140, %.unicode_byte_type.exit78.thread148.i_crit_edge.i
-  %146 = phi i8 [ %.pre385.i, %.unicode_byte_type.exit78.thread148.i_crit_edge.i ], [ %142, %unicode_byte_type.exit78.i.i ], [ %141, %140 ]
+unicode_byte_type.exit78.thread151.i.i:           ; preds = %unicode_byte_type.exit78.i.i, %140, %.unicode_byte_type.exit78.thread151.i_crit_edge.i
+  %146 = phi i8 [ %.pre385.i, %.unicode_byte_type.exit78.thread151.i_crit_edge.i ], [ %142, %unicode_byte_type.exit78.i.i ], [ %141, %140 ]
   %147 = zext i8 %139 to i64
   %148 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %147
   %149 = load i8, ptr %148, align 1, !tbaa !8
@@ -8484,7 +8484,7 @@ unicode_byte_type.exit78.thread148.i.i:           ; preds = %unicode_byte_type.e
   %162 = icmp eq i64 %137, 2
   br i1 %162, label %little2_scanLt.exit, label %.loopexit.sink.split.i.i
 
-unicode_byte_type.exit78.thread151.i.i:           ; preds = %unicode_byte_type.exit78.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
+unicode_byte_type.exit78.thread154.i.i:           ; preds = %unicode_byte_type.exit78.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   %163 = icmp samesign ult i64 %137, 4
   br i1 %163, label %little2_scanLt.exit, label %.loopexit.sink.split.i.i
 
@@ -8530,17 +8530,17 @@ unicode_byte_type.exit81.i.i:                     ; preds = %.lr.ph114.i.i
   %181 = getelementptr i8, ptr %.pn109.i.i, i64 4
   br label %.loopexit.sink.split.i.i
 
-182:                                              ; preds = %unicode_byte_type.exit78.thread148.i.i, %unicode_byte_type.exit78.i.i, %unicode_byte_type.exit78.i.i, %unicode_byte_type.exit78.i.i, %unicode_byte_type.exit78.i.i, %unicode_byte_type.exit78.i.i, %unicode_byte_type.exit78.i.i
+182:                                              ; preds = %unicode_byte_type.exit78.thread151.i.i, %unicode_byte_type.exit78.i.i, %unicode_byte_type.exit78.i.i, %unicode_byte_type.exit78.i.i, %unicode_byte_type.exit78.i.i, %unicode_byte_type.exit78.i.i, %unicode_byte_type.exit78.i.i
   %.070.i.i = getelementptr i8, ptr %.070110.i.i, i64 2
   %183 = ptrtoint ptr %.070.i.i to i64
   %184 = sub i64 %26, %183
   %185 = icmp sgt i64 %184, 1
   br i1 %185, label %.lr.ph.i.i, label %little2_scanLt.exit, !llvm.loop !99
 
-.loopexit.sink.split.i.i:                         ; preds = %unicode_byte_type.exit78.thread148.i.i, %unicode_byte_type.exit78.i.i, %140, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %unicode_byte_type.exit81.i.i, %.lr.ph114.i.i, %180, %174, %unicode_byte_type.exit78.thread151.i.i, %161, %unicode_byte_type.exit.thread145.i.i, %134, %unicode_byte_type.exit.thread142.i.i, %unicode_byte_type.exit.i.i, %109, %106, %106, %106, %106
-  %.070110.lcssa169.sink.i.i = phi ptr [ %181, %180 ], [ %175, %174 ], [ %102, %unicode_byte_type.exit.thread142.i.i ], [ %102, %134 ], [ %102, %unicode_byte_type.exit.thread145.i.i ], [ %102, %106 ], [ %102, %106 ], [ %102, %106 ], [ %102, %106 ], [ %102, %109 ], [ %102, %unicode_byte_type.exit.i.i ], [ %.070110.i.i, %161 ], [ %.070110.i.i, %unicode_byte_type.exit78.thread151.i.i ], [ %.2113.i.i, %.lr.ph114.i.i ], [ %.2113.i.i, %unicode_byte_type.exit81.i.i ], [ %.070110.i.i, %.lr.ph.i.i ], [ %.070110.i.i, %.lr.ph.i.i ], [ %.070110.i.i, %.lr.ph.i.i ], [ %.070110.i.i, %.lr.ph.i.i ], [ %.070110.i.i, %140 ], [ %.070110.i.i, %unicode_byte_type.exit78.i.i ], [ %.070110.i.i, %unicode_byte_type.exit78.thread148.i.i ]
-  %.0.ph.i.i = phi i32 [ 5, %180 ], [ 5, %174 ], [ 0, %unicode_byte_type.exit.thread142.i.i ], [ 0, %134 ], [ 0, %unicode_byte_type.exit.thread145.i.i ], [ 0, %106 ], [ 0, %106 ], [ 0, %106 ], [ 0, %106 ], [ 0, %109 ], [ 0, %unicode_byte_type.exit.i.i ], [ 0, %161 ], [ 0, %unicode_byte_type.exit78.thread151.i.i ], [ 0, %.lr.ph114.i.i ], [ 0, %unicode_byte_type.exit81.i.i ], [ 0, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i ], [ 0, %140 ], [ 0, %unicode_byte_type.exit78.i.i ], [ 0, %unicode_byte_type.exit78.thread148.i.i ]
-  store ptr %.070110.lcssa169.sink.i.i, ptr %3, align 8, !tbaa !3
+.loopexit.sink.split.i.i:                         ; preds = %unicode_byte_type.exit78.thread151.i.i, %unicode_byte_type.exit78.i.i, %140, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %unicode_byte_type.exit81.i.i, %.lr.ph114.i.i, %180, %174, %unicode_byte_type.exit78.thread154.i.i, %161, %unicode_byte_type.exit.thread148.i.i, %134, %unicode_byte_type.exit.thread145.i.i, %unicode_byte_type.exit.i.i, %109, %106, %106, %106, %106
+  %.070110.lcssa172.sink.i.i = phi ptr [ %181, %180 ], [ %175, %174 ], [ %102, %unicode_byte_type.exit.thread145.i.i ], [ %102, %134 ], [ %102, %unicode_byte_type.exit.thread148.i.i ], [ %102, %106 ], [ %102, %106 ], [ %102, %106 ], [ %102, %106 ], [ %102, %109 ], [ %102, %unicode_byte_type.exit.i.i ], [ %.070110.i.i, %161 ], [ %.070110.i.i, %unicode_byte_type.exit78.thread154.i.i ], [ %.2113.i.i, %.lr.ph114.i.i ], [ %.2113.i.i, %unicode_byte_type.exit81.i.i ], [ %.070110.i.i, %.lr.ph.i.i ], [ %.070110.i.i, %.lr.ph.i.i ], [ %.070110.i.i, %.lr.ph.i.i ], [ %.070110.i.i, %.lr.ph.i.i ], [ %.070110.i.i, %140 ], [ %.070110.i.i, %unicode_byte_type.exit78.i.i ], [ %.070110.i.i, %unicode_byte_type.exit78.thread151.i.i ]
+  %.0.ph.i.i = phi i32 [ 5, %180 ], [ 5, %174 ], [ 0, %unicode_byte_type.exit.thread145.i.i ], [ 0, %134 ], [ 0, %unicode_byte_type.exit.thread148.i.i ], [ 0, %106 ], [ 0, %106 ], [ 0, %106 ], [ 0, %106 ], [ 0, %109 ], [ 0, %unicode_byte_type.exit.i.i ], [ 0, %161 ], [ 0, %unicode_byte_type.exit78.thread154.i.i ], [ 0, %.lr.ph114.i.i ], [ 0, %unicode_byte_type.exit81.i.i ], [ 0, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i ], [ 0, %140 ], [ 0, %unicode_byte_type.exit78.i.i ], [ 0, %unicode_byte_type.exit78.thread151.i.i ]
+  store ptr %.070110.lcssa172.sink.i.i, ptr %3, align 8, !tbaa !3
   br label %little2_scanLt.exit
 
 unicode_byte_type.exit.thread.i:                  ; preds = %unicode_byte_type.exit.i, %33, %30, %30, %30, %30
@@ -8553,12 +8553,12 @@ unicode_byte_type.exit.thread.i:                  ; preds = %unicode_byte_type.e
   %.0156281.i = phi ptr [ %57, %.lr.ph.i ], [ %314, %313 ]
   %188 = getelementptr i8, ptr %.0156281.i, i64 1
   %189 = load i8, ptr %188, align 1, !tbaa !8
-  switch i8 %189, label %.unicode_byte_type.exit176.thread394.i_crit_edge [
+  switch i8 %189, label %.unicode_byte_type.exit176.thread404.i_crit_edge [
     i8 0, label %unicode_byte_type.exit176.i
-    i8 -40, label %unicode_byte_type.exit176.thread397.i
-    i8 -39, label %unicode_byte_type.exit176.thread397.i
-    i8 -38, label %unicode_byte_type.exit176.thread397.i
-    i8 -37, label %unicode_byte_type.exit176.thread397.i
+    i8 -40, label %unicode_byte_type.exit176.thread407.i
+    i8 -39, label %unicode_byte_type.exit176.thread407.i
+    i8 -38, label %unicode_byte_type.exit176.thread407.i
+    i8 -37, label %unicode_byte_type.exit176.thread407.i
     i8 -36, label %unicode_byte_type.exit176.thread.i
     i8 -35, label %unicode_byte_type.exit176.thread.i
     i8 -34, label %unicode_byte_type.exit176.thread.i
@@ -8566,14 +8566,14 @@ unicode_byte_type.exit.thread.i:                  ; preds = %unicode_byte_type.e
     i8 -1, label %190
   ]
 
-.unicode_byte_type.exit176.thread394.i_crit_edge: ; preds = %186
+.unicode_byte_type.exit176.thread404.i_crit_edge: ; preds = %186
   %.pre346 = load i8, ptr %.0156281.i, align 1, !tbaa !8
-  br label %unicode_byte_type.exit176.thread394.i
+  br label %unicode_byte_type.exit176.thread404.i
 
 190:                                              ; preds = %186
   %191 = load i8, ptr %.0156281.i, align 1, !tbaa !8
   %switch.i174.i = icmp ugt i8 %191, -3
-  br i1 %switch.i174.i, label %unicode_byte_type.exit176.thread.i, label %unicode_byte_type.exit176.thread394.i
+  br i1 %switch.i174.i, label %unicode_byte_type.exit176.thread.i, label %unicode_byte_type.exit176.thread404.i
 
 unicode_byte_type.exit176.i:                      ; preds = %186
   %192 = load i8, ptr %.0156281.i, align 1, !tbaa !8
@@ -8581,7 +8581,7 @@ unicode_byte_type.exit176.i:                      ; preds = %186
   %194 = getelementptr [256 x i8], ptr %61, i64 0, i64 %193
   %195 = load i8, ptr %194, align 1, !tbaa !8
   switch i8 %195, label %unicode_byte_type.exit176.thread.i [
-    i8 29, label %unicode_byte_type.exit176.thread394.i
+    i8 29, label %unicode_byte_type.exit176.thread404.i
     i8 22, label %313
     i8 24, label %313
     i8 25, label %313
@@ -8589,7 +8589,7 @@ unicode_byte_type.exit176.i:                      ; preds = %186
     i8 27, label %313
     i8 5, label %212
     i8 6, label %213
-    i8 7, label %unicode_byte_type.exit176.thread397.i
+    i8 7, label %unicode_byte_type.exit176.thread407.i
     i8 23, label %218
     i8 21, label %256
     i8 9, label %256
@@ -8598,8 +8598,8 @@ unicode_byte_type.exit176.i:                      ; preds = %186
     i8 17, label %.loopexit184.i
   ]
 
-unicode_byte_type.exit176.thread394.i:            ; preds = %.unicode_byte_type.exit176.thread394.i_crit_edge, %unicode_byte_type.exit176.i, %190
-  %196 = phi i8 [ %.pre346, %.unicode_byte_type.exit176.thread394.i_crit_edge ], [ %192, %unicode_byte_type.exit176.i ], [ %191, %190 ]
+unicode_byte_type.exit176.thread404.i:            ; preds = %.unicode_byte_type.exit176.thread404.i_crit_edge, %unicode_byte_type.exit176.i, %190
+  %196 = phi i8 [ %.pre346, %.unicode_byte_type.exit176.thread404.i_crit_edge ], [ %192, %unicode_byte_type.exit176.i ], [ %191, %190 ]
   %197 = zext i8 %189 to i64
   %198 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %197
   %199 = load i8, ptr %198, align 1, !tbaa !8
@@ -8617,7 +8617,7 @@ unicode_byte_type.exit176.thread394.i:            ; preds = %.unicode_byte_type.
   %.not169.i = icmp eq i32 %210, 0
   br i1 %.not169.i, label %211, label %313
 
-211:                                              ; preds = %unicode_byte_type.exit176.thread394.i
+211:                                              ; preds = %unicode_byte_type.exit176.thread404.i
   store ptr %.0156281.i, ptr %3, align 8, !tbaa !3
   br label %little2_scanLt.exit
 
@@ -8633,11 +8633,11 @@ unicode_byte_type.exit176.thread394.i:            ; preds = %.unicode_byte_type.
   store ptr %.0156281.i, ptr %3, align 8, !tbaa !3
   br label %little2_scanLt.exit
 
-unicode_byte_type.exit176.thread397.i:            ; preds = %unicode_byte_type.exit176.i, %186, %186, %186, %186
+unicode_byte_type.exit176.thread407.i:            ; preds = %unicode_byte_type.exit176.i, %186, %186, %186, %186
   %216 = icmp samesign ult i64 %187, 4
   br i1 %216, label %little2_scanLt.exit, label %217
 
-217:                                              ; preds = %unicode_byte_type.exit176.thread397.i
+217:                                              ; preds = %unicode_byte_type.exit176.thread407.i
   store ptr %.0156281.i, ptr %3, align 8, !tbaa !3
   br label %little2_scanLt.exit
 
@@ -8659,12 +8659,12 @@ unicode_byte_type.exit176.thread397.i:            ; preds = %unicode_byte_type.e
 225:                                              ; preds = %220
   %226 = getelementptr i8, ptr %.0156281.i, i64 3
   %227 = load i8, ptr %226, align 1, !tbaa !8
-  switch i8 %227, label %.unicode_byte_type.exit179.thread400.i_crit_edge [
+  switch i8 %227, label %.unicode_byte_type.exit179.thread410.i_crit_edge [
     i8 0, label %unicode_byte_type.exit179.i
-    i8 -40, label %unicode_byte_type.exit179.thread403.i
-    i8 -39, label %unicode_byte_type.exit179.thread403.i
-    i8 -38, label %unicode_byte_type.exit179.thread403.i
-    i8 -37, label %unicode_byte_type.exit179.thread403.i
+    i8 -40, label %unicode_byte_type.exit179.thread413.i
+    i8 -39, label %unicode_byte_type.exit179.thread413.i
+    i8 -38, label %unicode_byte_type.exit179.thread413.i
+    i8 -37, label %unicode_byte_type.exit179.thread413.i
     i8 -36, label %unicode_byte_type.exit179.thread.i
     i8 -35, label %unicode_byte_type.exit179.thread.i
     i8 -34, label %unicode_byte_type.exit179.thread.i
@@ -8672,14 +8672,14 @@ unicode_byte_type.exit176.thread397.i:            ; preds = %unicode_byte_type.e
     i8 -1, label %228
   ]
 
-.unicode_byte_type.exit179.thread400.i_crit_edge: ; preds = %225
+.unicode_byte_type.exit179.thread410.i_crit_edge: ; preds = %225
   %.pre345 = load i8, ptr %221, align 1, !tbaa !8
-  br label %unicode_byte_type.exit179.thread400.i
+  br label %unicode_byte_type.exit179.thread410.i
 
 228:                                              ; preds = %225
   %229 = load i8, ptr %221, align 1, !tbaa !8
   %switch.i177.i = icmp ugt i8 %229, -3
-  br i1 %switch.i177.i, label %unicode_byte_type.exit179.thread.i, label %unicode_byte_type.exit179.thread400.i
+  br i1 %switch.i177.i, label %unicode_byte_type.exit179.thread.i, label %unicode_byte_type.exit179.thread410.i
 
 unicode_byte_type.exit179.i:                      ; preds = %225
   %230 = load i8, ptr %221, align 1, !tbaa !8
@@ -8687,16 +8687,16 @@ unicode_byte_type.exit179.i:                      ; preds = %225
   %232 = getelementptr [256 x i8], ptr %61, i64 0, i64 %231
   %233 = load i8, ptr %232, align 1, !tbaa !8
   switch i8 %233, label %unicode_byte_type.exit179.thread.i [
-    i8 29, label %unicode_byte_type.exit179.thread400.i
+    i8 29, label %unicode_byte_type.exit179.thread410.i
     i8 22, label %313
     i8 24, label %313
     i8 5, label %250
     i8 6, label %251
-    i8 7, label %unicode_byte_type.exit179.thread403.i
+    i8 7, label %unicode_byte_type.exit179.thread413.i
   ]
 
-unicode_byte_type.exit179.thread400.i:            ; preds = %.unicode_byte_type.exit179.thread400.i_crit_edge, %unicode_byte_type.exit179.i, %228
-  %234 = phi i8 [ %.pre345, %.unicode_byte_type.exit179.thread400.i_crit_edge ], [ %230, %unicode_byte_type.exit179.i ], [ %229, %228 ]
+unicode_byte_type.exit179.thread410.i:            ; preds = %.unicode_byte_type.exit179.thread410.i_crit_edge, %unicode_byte_type.exit179.i, %228
+  %234 = phi i8 [ %.pre345, %.unicode_byte_type.exit179.thread410.i_crit_edge ], [ %230, %unicode_byte_type.exit179.i ], [ %229, %228 ]
   %235 = zext i8 %227 to i64
   %236 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %235
   %237 = load i8, ptr %236, align 1, !tbaa !8
@@ -8714,7 +8714,7 @@ unicode_byte_type.exit179.thread400.i:            ; preds = %.unicode_byte_type.
   %.not168.i = icmp eq i32 %248, 0
   br i1 %.not168.i, label %249, label %313
 
-249:                                              ; preds = %unicode_byte_type.exit179.thread400.i
+249:                                              ; preds = %unicode_byte_type.exit179.thread410.i
   store ptr %221, ptr %3, align 8, !tbaa !3
   br label %little2_scanLt.exit
 
@@ -8730,11 +8730,11 @@ unicode_byte_type.exit179.thread400.i:            ; preds = %.unicode_byte_type.
   store ptr %221, ptr %3, align 8, !tbaa !3
   br label %little2_scanLt.exit
 
-unicode_byte_type.exit179.thread403.i:            ; preds = %unicode_byte_type.exit179.i, %225, %225, %225, %225
+unicode_byte_type.exit179.thread413.i:            ; preds = %unicode_byte_type.exit179.i, %225, %225, %225, %225
   %254 = icmp samesign ult i64 %223, 4
   br i1 %254, label %little2_scanLt.exit, label %255
 
-255:                                              ; preds = %unicode_byte_type.exit179.thread403.i
+255:                                              ; preds = %unicode_byte_type.exit179.thread413.i
   store ptr %221, ptr %3, align 8, !tbaa !3
   br label %little2_scanLt.exit
 
@@ -8755,12 +8755,12 @@ unicode_byte_type.exit179.thread.i:               ; preds = %unicode_byte_type.e
   %.0156.pn285.i = phi ptr [ %.2286.i, %294 ], [ %.0156281.i, %256 ]
   %261 = getelementptr i8, ptr %.0156.pn285.i, i64 3
   %262 = load i8, ptr %261, align 1, !tbaa !8
-  switch i8 %262, label %.lr.ph287.i.unicode_byte_type.exit182.thread406.i.loopexit_crit_edge [
+  switch i8 %262, label %.lr.ph287.i.unicode_byte_type.exit182.thread416.i.loopexit_crit_edge [
     i8 0, label %unicode_byte_type.exit182.i
-    i8 -40, label %unicode_byte_type.exit182.thread409.i
-    i8 -39, label %unicode_byte_type.exit182.thread409.i
-    i8 -38, label %unicode_byte_type.exit182.thread409.i
-    i8 -37, label %unicode_byte_type.exit182.thread409.i
+    i8 -40, label %unicode_byte_type.exit182.thread419.i
+    i8 -39, label %unicode_byte_type.exit182.thread419.i
+    i8 -38, label %unicode_byte_type.exit182.thread419.i
+    i8 -37, label %unicode_byte_type.exit182.thread419.i
     i8 -36, label %unicode_byte_type.exit182.thread.i
     i8 -35, label %unicode_byte_type.exit182.thread.i
     i8 -34, label %unicode_byte_type.exit182.thread.i
@@ -8768,15 +8768,15 @@ unicode_byte_type.exit179.thread.i:               ; preds = %unicode_byte_type.e
     i8 -1, label %264
   ]
 
-.lr.ph287.i.unicode_byte_type.exit182.thread406.i.loopexit_crit_edge: ; preds = %.lr.ph287.i
+.lr.ph287.i.unicode_byte_type.exit182.thread416.i.loopexit_crit_edge: ; preds = %.lr.ph287.i
   %.pre344.pre = load i8, ptr %.2286.i, align 1, !tbaa !8
   %263 = zext i8 %262 to i64
-  br label %unicode_byte_type.exit182.thread406.i
+  br label %unicode_byte_type.exit182.thread416.i
 
 264:                                              ; preds = %.lr.ph287.i
   %265 = load i8, ptr %.2286.i, align 1, !tbaa !8
   %switch.i180.i = icmp ugt i8 %265, -3
-  br i1 %switch.i180.i, label %unicode_byte_type.exit182.thread.i, label %unicode_byte_type.exit182.thread406.i
+  br i1 %switch.i180.i, label %unicode_byte_type.exit182.thread.i, label %unicode_byte_type.exit182.thread416.i
 
 unicode_byte_type.exit182.i:                      ; preds = %.lr.ph287.i
   %266 = load i8, ptr %.2286.i, align 1, !tbaa !8
@@ -8784,12 +8784,12 @@ unicode_byte_type.exit182.i:                      ; preds = %.lr.ph287.i
   %268 = getelementptr [256 x i8], ptr %61, i64 0, i64 %267
   %269 = load i8, ptr %268, align 1, !tbaa !8
   switch i8 %269, label %unicode_byte_type.exit182.thread.i [
-    i8 29, label %unicode_byte_type.exit182.thread406.i
+    i8 29, label %unicode_byte_type.exit182.thread416.i
     i8 22, label %.loopexit.i
     i8 24, label %.loopexit.i
     i8 5, label %288
     i8 6, label %289
-    i8 7, label %unicode_byte_type.exit182.thread409.i
+    i8 7, label %unicode_byte_type.exit182.thread419.i
     i8 11, label %.loopexit183.i
     i8 17, label %.loopexit184.i
     i8 21, label %294
@@ -8797,9 +8797,9 @@ unicode_byte_type.exit182.i:                      ; preds = %.lr.ph287.i
     i8 10, label %294
   ]
 
-unicode_byte_type.exit182.thread406.i:            ; preds = %unicode_byte_type.exit182.i, %.lr.ph287.i.unicode_byte_type.exit182.thread406.i.loopexit_crit_edge, %264
-  %270 = phi i8 [ %265, %264 ], [ %.pre344.pre, %.lr.ph287.i.unicode_byte_type.exit182.thread406.i.loopexit_crit_edge ], [ %266, %unicode_byte_type.exit182.i ]
-  %271 = phi i64 [ 255, %264 ], [ %263, %.lr.ph287.i.unicode_byte_type.exit182.thread406.i.loopexit_crit_edge ], [ 0, %unicode_byte_type.exit182.i ]
+unicode_byte_type.exit182.thread416.i:            ; preds = %unicode_byte_type.exit182.i, %.lr.ph287.i.unicode_byte_type.exit182.thread416.i.loopexit_crit_edge, %264
+  %270 = phi i8 [ %265, %264 ], [ %.pre344.pre, %.lr.ph287.i.unicode_byte_type.exit182.thread416.i.loopexit_crit_edge ], [ %266, %unicode_byte_type.exit182.i ]
+  %271 = phi i64 [ 255, %264 ], [ %263, %.lr.ph287.i.unicode_byte_type.exit182.thread416.i.loopexit_crit_edge ], [ 0, %unicode_byte_type.exit182.i ]
   %272 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %271
   %273 = load i8, ptr %272, align 1, !tbaa !8
   %274 = zext i8 %273 to i32
@@ -8816,11 +8816,11 @@ unicode_byte_type.exit182.thread406.i:            ; preds = %unicode_byte_type.e
   %.not165.i = icmp eq i32 %284, 0
   br i1 %.not165.i, label %285, label %.loopexit.i
 
-285:                                              ; preds = %unicode_byte_type.exit182.thread406.i
+285:                                              ; preds = %unicode_byte_type.exit182.thread416.i
   store ptr %.2286.i, ptr %3, align 8, !tbaa !3
   br label %little2_scanLt.exit
 
-.loopexit.i:                                      ; preds = %unicode_byte_type.exit182.i, %unicode_byte_type.exit182.i, %unicode_byte_type.exit182.thread406.i
+.loopexit.i:                                      ; preds = %unicode_byte_type.exit182.i, %unicode_byte_type.exit182.i, %unicode_byte_type.exit182.thread416.i
   %286 = getelementptr i8, ptr %.0156.pn285.i, i64 4
   %287 = tail call fastcc i32 @little2_scanAtts(ptr noundef readonly %0, ptr noundef %286, ptr noundef %.1102, ptr noundef %3)
   br label %little2_scanLt.exit
@@ -8837,11 +8837,11 @@ unicode_byte_type.exit182.thread406.i:            ; preds = %unicode_byte_type.e
   store ptr %.2286.i, ptr %3, align 8, !tbaa !3
   br label %little2_scanLt.exit
 
-unicode_byte_type.exit182.thread409.i:            ; preds = %unicode_byte_type.exit182.i, %.lr.ph287.i, %.lr.ph287.i, %.lr.ph287.i, %.lr.ph287.i
+unicode_byte_type.exit182.thread419.i:            ; preds = %unicode_byte_type.exit182.i, %.lr.ph287.i, %.lr.ph287.i, %.lr.ph287.i, %.lr.ph287.i
   %292 = icmp samesign ult i64 %260, 4
   br i1 %292, label %little2_scanLt.exit, label %293
 
-293:                                              ; preds = %unicode_byte_type.exit182.thread409.i
+293:                                              ; preds = %unicode_byte_type.exit182.thread419.i
   store ptr %.2286.i, ptr %3, align 8, !tbaa !3
   br label %little2_scanLt.exit
 
@@ -8894,9 +8894,9 @@ unicode_byte_type.exit176.thread.i:               ; preds = %unicode_byte_type.e
   store ptr %.0156281.i, ptr %3, align 8, !tbaa !3
   br label %little2_scanLt.exit
 
-313:                                              ; preds = %unicode_byte_type.exit179.thread400.i, %unicode_byte_type.exit179.i, %unicode_byte_type.exit179.i, %unicode_byte_type.exit176.thread394.i, %unicode_byte_type.exit176.i, %unicode_byte_type.exit176.i, %unicode_byte_type.exit176.i, %unicode_byte_type.exit176.i, %unicode_byte_type.exit176.i
-  %.sink.i = phi i64 [ 2, %unicode_byte_type.exit176.thread394.i ], [ 2, %unicode_byte_type.exit176.i ], [ 2, %unicode_byte_type.exit176.i ], [ 2, %unicode_byte_type.exit176.i ], [ 2, %unicode_byte_type.exit176.i ], [ 2, %unicode_byte_type.exit176.i ], [ 4, %unicode_byte_type.exit179.thread400.i ], [ 4, %unicode_byte_type.exit179.i ], [ 4, %unicode_byte_type.exit179.i ]
-  %.1.i = phi i32 [ %.0282.i, %unicode_byte_type.exit176.thread394.i ], [ %.0282.i, %unicode_byte_type.exit176.i ], [ %.0282.i, %unicode_byte_type.exit176.i ], [ %.0282.i, %unicode_byte_type.exit176.i ], [ %.0282.i, %unicode_byte_type.exit176.i ], [ %.0282.i, %unicode_byte_type.exit176.i ], [ 1, %unicode_byte_type.exit179.thread400.i ], [ 1, %unicode_byte_type.exit179.i ], [ 1, %unicode_byte_type.exit179.i ]
+313:                                              ; preds = %unicode_byte_type.exit179.thread410.i, %unicode_byte_type.exit179.i, %unicode_byte_type.exit179.i, %unicode_byte_type.exit176.thread404.i, %unicode_byte_type.exit176.i, %unicode_byte_type.exit176.i, %unicode_byte_type.exit176.i, %unicode_byte_type.exit176.i, %unicode_byte_type.exit176.i
+  %.sink.i = phi i64 [ 2, %unicode_byte_type.exit176.thread404.i ], [ 2, %unicode_byte_type.exit176.i ], [ 2, %unicode_byte_type.exit176.i ], [ 2, %unicode_byte_type.exit176.i ], [ 2, %unicode_byte_type.exit176.i ], [ 2, %unicode_byte_type.exit176.i ], [ 4, %unicode_byte_type.exit179.thread410.i ], [ 4, %unicode_byte_type.exit179.i ], [ 4, %unicode_byte_type.exit179.i ]
+  %.1.i = phi i32 [ %.0282.i, %unicode_byte_type.exit176.thread404.i ], [ %.0282.i, %unicode_byte_type.exit176.i ], [ %.0282.i, %unicode_byte_type.exit176.i ], [ %.0282.i, %unicode_byte_type.exit176.i ], [ %.0282.i, %unicode_byte_type.exit176.i ], [ %.0282.i, %unicode_byte_type.exit176.i ], [ 1, %unicode_byte_type.exit179.thread410.i ], [ 1, %unicode_byte_type.exit179.i ], [ 1, %unicode_byte_type.exit179.i ]
   %314 = getelementptr i8, ptr %.0156281.i, i64 %.sink.i
   %315 = ptrtoint ptr %314 to i64
   %316 = sub i64 %26, %315
@@ -9005,13 +9005,13 @@ unicode_byte_type.exit115.thread:                 ; preds = %unicode_byte_type.e
   %377 = getelementptr i8, ptr %1, i64 3
   br label %384
 
-unicode_byte_type.exit.thread353:                 ; preds = %14, %14, %14, %14, %unicode_byte_type.exit
+unicode_byte_type.exit.thread372:                 ; preds = %14, %14, %14, %14, %unicode_byte_type.exit
   %378 = ptrtoint ptr %.1102 to i64
   %379 = sub i64 %378, %7
   %380 = icmp slt i64 %379, 4
   br i1 %380, label %little2_scanLt.exit, label %381
 
-381:                                              ; preds = %unicode_byte_type.exit.thread353
+381:                                              ; preds = %unicode_byte_type.exit.thread372
   %382 = getelementptr i8, ptr %1, i64 4
   br label %384
 
@@ -9019,14 +9019,14 @@ unicode_byte_type.exit.thread:                    ; preds = %14, %14, %14, %14, 
   store ptr %1, ptr %3, align 8, !tbaa !3
   br label %little2_scanLt.exit
 
-unicode_byte_type.exit.thread350:                 ; preds = %14, %17, %unicode_byte_type.exit
+unicode_byte_type.exit.thread369:                 ; preds = %14, %17, %unicode_byte_type.exit
   %383 = getelementptr i8, ptr %1, i64 2
   %.pre348 = ptrtoint ptr %.1102 to i64
   br label %384
 
-384:                                              ; preds = %358, %362, %346, %350, %unicode_byte_type.exit.thread350, %381, %376, %370
-  %.pre-phi = phi i64 [ %342, %358 ], [ %342, %362 ], [ %342, %346 ], [ %342, %350 ], [ %.pre348, %unicode_byte_type.exit.thread350 ], [ %378, %381 ], [ %373, %376 ], [ %367, %370 ]
-  %.1104 = phi ptr [ %341, %358 ], [ %341, %362 ], [ %341, %346 ], [ %341, %350 ], [ %383, %unicode_byte_type.exit.thread350 ], [ %382, %381 ], [ %377, %376 ], [ %371, %370 ]
+384:                                              ; preds = %358, %362, %346, %350, %unicode_byte_type.exit.thread369, %381, %376, %370
+  %.pre-phi = phi i64 [ %342, %358 ], [ %342, %362 ], [ %342, %346 ], [ %342, %350 ], [ %.pre348, %unicode_byte_type.exit.thread369 ], [ %378, %381 ], [ %373, %376 ], [ %367, %370 ]
+  %.1104 = phi ptr [ %341, %358 ], [ %341, %362 ], [ %341, %346 ], [ %341, %350 ], [ %383, %unicode_byte_type.exit.thread369 ], [ %382, %381 ], [ %377, %376 ], [ %371, %370 ]
   %385 = ptrtoint ptr %.1104 to i64
   %386 = sub i64 %.pre-phi, %385
   %387 = icmp sgt i64 %386, 1
@@ -9041,12 +9041,12 @@ unicode_byte_type.exit.thread350:                 ; preds = %14, %17, %unicode_b
   %.2232 = phi ptr [ %.1104, %.lr.ph ], [ %.3, %433 ]
   %391 = getelementptr i8, ptr %.2232, i64 1
   %392 = load i8, ptr %391, align 1, !tbaa !8
-  switch i8 %392, label %unicode_byte_type.exit118.thread356 [
+  switch i8 %392, label %unicode_byte_type.exit118.thread375 [
     i8 0, label %unicode_byte_type.exit118
-    i8 -40, label %unicode_byte_type.exit118.thread359
-    i8 -39, label %unicode_byte_type.exit118.thread359
-    i8 -38, label %unicode_byte_type.exit118.thread359
-    i8 -37, label %unicode_byte_type.exit118.thread359
+    i8 -40, label %unicode_byte_type.exit118.thread378
+    i8 -39, label %unicode_byte_type.exit118.thread378
+    i8 -38, label %unicode_byte_type.exit118.thread378
+    i8 -37, label %unicode_byte_type.exit118.thread378
     i8 -36, label %unicode_byte_type.exit118.thread
     i8 -35, label %unicode_byte_type.exit118.thread
     i8 -34, label %unicode_byte_type.exit118.thread
@@ -9057,17 +9057,17 @@ unicode_byte_type.exit.thread350:                 ; preds = %14, %17, %unicode_b
 393:                                              ; preds = %389
   %394 = load i8, ptr %.2232, align 1, !tbaa !8
   %switch.i116 = icmp ugt i8 %394, -3
-  br i1 %switch.i116, label %unicode_byte_type.exit118.thread, label %unicode_byte_type.exit118.thread356
+  br i1 %switch.i116, label %unicode_byte_type.exit118.thread, label %unicode_byte_type.exit118.thread375
 
 unicode_byte_type.exit118:                        ; preds = %389
   %395 = load i8, ptr %.2232, align 1, !tbaa !8
   %396 = zext i8 %395 to i64
   %397 = getelementptr [256 x i8], ptr %388, i64 0, i64 %396
   %398 = load i8, ptr %397, align 1, !tbaa !8
-  switch i8 %398, label %unicode_byte_type.exit118.thread356 [
+  switch i8 %398, label %unicode_byte_type.exit118.thread375 [
     i8 5, label %399
     i8 6, label %401
-    i8 7, label %unicode_byte_type.exit118.thread359
+    i8 7, label %unicode_byte_type.exit118.thread378
     i8 4, label %410
     i8 3, label %unicode_byte_type.exit118.thread
     i8 2, label %unicode_byte_type.exit118.thread
@@ -9094,15 +9094,15 @@ unicode_byte_type.exit118:                        ; preds = %389
   %405 = getelementptr i8, ptr %.2232, i64 3
   br label %433
 
-unicode_byte_type.exit118.thread359:              ; preds = %389, %389, %389, %389, %unicode_byte_type.exit118
+unicode_byte_type.exit118.thread378:              ; preds = %389, %389, %389, %389, %unicode_byte_type.exit118
   %406 = icmp samesign ult i64 %390, 4
   br i1 %406, label %407, label %408
 
-407:                                              ; preds = %unicode_byte_type.exit118.thread359
+407:                                              ; preds = %unicode_byte_type.exit118.thread378
   store ptr %.2232, ptr %3, align 8, !tbaa !3
   br label %little2_scanLt.exit
 
-408:                                              ; preds = %unicode_byte_type.exit118.thread359
+408:                                              ; preds = %unicode_byte_type.exit118.thread378
   %409 = getelementptr i8, ptr %.2232, i64 4
   br label %433
 
@@ -9147,12 +9147,12 @@ unicode_byte_type.exit118.thread:                 ; preds = %389, %389, %389, %3
   store ptr %.2232, ptr %3, align 8, !tbaa !3
   br label %little2_scanLt.exit
 
-unicode_byte_type.exit118.thread356:              ; preds = %389, %393, %unicode_byte_type.exit118
+unicode_byte_type.exit118.thread375:              ; preds = %389, %393, %unicode_byte_type.exit118
   %432 = getelementptr i8, ptr %.2232, i64 2
   br label %433
 
-433:                                              ; preds = %422, %426, %412, %417, %unicode_byte_type.exit118.thread356, %408, %404, %399
-  %.3 = phi ptr [ %432, %unicode_byte_type.exit118.thread356 ], [ %400, %399 ], [ %405, %404 ], [ %409, %408 ], [ %413, %417 ], [ %413, %412 ], [ %413, %426 ], [ %413, %422 ]
+433:                                              ; preds = %422, %426, %412, %417, %unicode_byte_type.exit118.thread375, %408, %404, %399
+  %.3 = phi ptr [ %432, %unicode_byte_type.exit118.thread375 ], [ %400, %399 ], [ %405, %404 ], [ %409, %408 ], [ %413, %417 ], [ %413, %412 ], [ %413, %426 ], [ %413, %422 ]
   %434 = ptrtoint ptr %.3 to i64
   %435 = sub i64 %.pre-phi, %434
   %436 = icmp sgt i64 %435, 1
@@ -9163,8 +9163,8 @@ unicode_byte_type.exit118.thread356:              ; preds = %389, %393, %unicode
   store ptr %.2.lcssa, ptr %3, align 8, !tbaa !3
   br label %little2_scanLt.exit
 
-little2_scanLt.exit:                              ; preds = %182, %176, %313, %220, %294, %unicode_byte_type.exit176.thread.i, %311, %310, %.loopexit184.i, %.loopexit183.i, %unicode_byte_type.exit182.thread.i, %293, %unicode_byte_type.exit182.thread409.i, %291, %289, %288, %.loopexit.i, %285, %256, %unicode_byte_type.exit179.thread.i, %255, %unicode_byte_type.exit179.thread403.i, %253, %251, %250, %249, %219, %217, %unicode_byte_type.exit176.thread397.i, %215, %213, %212, %211, %unicode_byte_type.exit.thread.i, %.loopexit.sink.split.i.i, %164, %unicode_byte_type.exit78.thread151.i.i, %161, %unicode_byte_type.exit.thread145.i.i, %134, %130, %101, %98, %unicode_byte_type.exit172.thread.i, %.sink.split.i.i, %83, %80, %68, %67, %unicode_byte_type.exit.thread390.i, %65, %63, %62, %56, %55, %24, %unicode_byte_type.exit.thread353, %372, %366, %353, %340, %321, %5, %4, %._crit_edge, %unicode_byte_type.exit118.thread, %430, %407, %403, %unicode_byte_type.exit.thread, %365, %338, %unicode_byte_type.exit115.thread, %318
-  %.0100 = phi i32 [ 6, %403 ], [ 6, %407 ], [ 0, %430 ], [ 6, %unicode_byte_type.exit118.thread ], [ 6, %._crit_edge ], [ %320, %318 ], [ 7, %unicode_byte_type.exit115.thread ], [ 7, %338 ], [ 0, %365 ], [ 0, %unicode_byte_type.exit.thread ], [ -1, %5 ], [ -4, %4 ], [ -3, %321 ], [ -5, %340 ], [ -5, %353 ], [ -2, %366 ], [ -2, %372 ], [ -2, %unicode_byte_type.exit.thread353 ], [ 0, %unicode_byte_type.exit.thread.i ], [ 0, %unicode_byte_type.exit176.thread.i ], [ 0, %211 ], [ 0, %212 ], [ 0, %215 ], [ 0, %217 ], [ 0, %219 ], [ 0, %unicode_byte_type.exit179.thread.i ], [ 0, %249 ], [ 0, %250 ], [ 0, %253 ], [ 0, %255 ], [ 0, %unicode_byte_type.exit182.thread.i ], [ %287, %.loopexit.i ], [ 0, %285 ], [ 0, %288 ], [ 0, %291 ], [ 0, %293 ], [ 2, %.loopexit183.i ], [ 4, %311 ], [ 0, %310 ], [ 0, %55 ], [ 0, %62 ], [ 0, %65 ], [ 0, %67 ], [ 0, %unicode_byte_type.exit172.thread.i ], [ %82, %80 ], [ %100, %98 ], [ -1, %24 ], [ -2, %63 ], [ -2, %unicode_byte_type.exit.thread390.i ], [ -1, %68 ], [ -2, %213 ], [ -2, %unicode_byte_type.exit176.thread397.i ], [ -2, %251 ], [ -2, %unicode_byte_type.exit179.thread403.i ], [ -2, %289 ], [ -2, %unicode_byte_type.exit182.thread409.i ], [ -1, %.loopexit184.i ], [ -1, %83 ], [ %.012.ph.i.i, %.sink.split.i.i ], [ -1, %101 ], [ -2, %134 ], [ -2, %unicode_byte_type.exit.thread145.i.i ], [ -2, %161 ], [ -2, %unicode_byte_type.exit78.thread151.i.i ], [ -1, %164 ], [ -1, %130 ], [ %.0.ph.i.i, %.loopexit.sink.split.i.i ], [ -1, %256 ], [ -1, %56 ], [ -1, %294 ], [ -1, %220 ], [ -1, %313 ], [ -1, %176 ], [ -1, %182 ]
+little2_scanLt.exit:                              ; preds = %182, %176, %313, %220, %294, %unicode_byte_type.exit176.thread.i, %311, %310, %.loopexit184.i, %.loopexit183.i, %unicode_byte_type.exit182.thread.i, %293, %unicode_byte_type.exit182.thread419.i, %291, %289, %288, %.loopexit.i, %285, %256, %unicode_byte_type.exit179.thread.i, %255, %unicode_byte_type.exit179.thread413.i, %253, %251, %250, %249, %219, %217, %unicode_byte_type.exit176.thread407.i, %215, %213, %212, %211, %unicode_byte_type.exit.thread.i, %.loopexit.sink.split.i.i, %164, %unicode_byte_type.exit78.thread154.i.i, %161, %unicode_byte_type.exit.thread148.i.i, %134, %130, %101, %98, %unicode_byte_type.exit172.thread.i, %.sink.split.i.i, %83, %80, %68, %67, %unicode_byte_type.exit.thread400.i, %65, %63, %62, %56, %55, %24, %unicode_byte_type.exit.thread372, %372, %366, %353, %340, %321, %5, %4, %._crit_edge, %unicode_byte_type.exit118.thread, %430, %407, %403, %unicode_byte_type.exit.thread, %365, %338, %unicode_byte_type.exit115.thread, %318
+  %.0100 = phi i32 [ 6, %403 ], [ 6, %407 ], [ 0, %430 ], [ 6, %unicode_byte_type.exit118.thread ], [ 6, %._crit_edge ], [ %320, %318 ], [ 7, %unicode_byte_type.exit115.thread ], [ 7, %338 ], [ 0, %365 ], [ 0, %unicode_byte_type.exit.thread ], [ -1, %5 ], [ -4, %4 ], [ -3, %321 ], [ -5, %340 ], [ -5, %353 ], [ -2, %366 ], [ -2, %372 ], [ -2, %unicode_byte_type.exit.thread372 ], [ 0, %unicode_byte_type.exit.thread.i ], [ 0, %unicode_byte_type.exit176.thread.i ], [ 0, %211 ], [ 0, %212 ], [ 0, %215 ], [ 0, %217 ], [ 0, %219 ], [ 0, %unicode_byte_type.exit179.thread.i ], [ 0, %249 ], [ 0, %250 ], [ 0, %253 ], [ 0, %255 ], [ 0, %unicode_byte_type.exit182.thread.i ], [ %287, %.loopexit.i ], [ 0, %285 ], [ 0, %288 ], [ 0, %291 ], [ 0, %293 ], [ 2, %.loopexit183.i ], [ 4, %311 ], [ 0, %310 ], [ 0, %55 ], [ 0, %62 ], [ 0, %65 ], [ 0, %67 ], [ 0, %unicode_byte_type.exit172.thread.i ], [ %82, %80 ], [ %100, %98 ], [ -1, %24 ], [ -2, %63 ], [ -2, %unicode_byte_type.exit.thread400.i ], [ -1, %68 ], [ -2, %213 ], [ -2, %unicode_byte_type.exit176.thread407.i ], [ -2, %251 ], [ -2, %unicode_byte_type.exit179.thread413.i ], [ -2, %289 ], [ -2, %unicode_byte_type.exit182.thread419.i ], [ -1, %.loopexit184.i ], [ -1, %83 ], [ %.012.ph.i.i, %.sink.split.i.i ], [ -1, %101 ], [ -2, %134 ], [ -2, %unicode_byte_type.exit.thread148.i.i ], [ -2, %161 ], [ -2, %unicode_byte_type.exit78.thread154.i.i ], [ -1, %164 ], [ -1, %130 ], [ %.0.ph.i.i, %.loopexit.sink.split.i.i ], [ -1, %256 ], [ -1, %56 ], [ -1, %294 ], [ -1, %220 ], [ -1, %313 ], [ -1, %176 ], [ -1, %182 ]
   ret i32 %.0100
 }
 
@@ -9191,12 +9191,12 @@ define internal range(i32 -4, 41) i32 @little2_cdataSectionTok(ptr noundef reado
 14:                                               ; preds = %5
   %15 = getelementptr i8, ptr %1, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !8
-  switch i8 %16, label %unicode_byte_type.exit.thread109 [
+  switch i8 %16, label %unicode_byte_type.exit.thread112 [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread112
-    i8 -39, label %unicode_byte_type.exit.thread112
-    i8 -38, label %unicode_byte_type.exit.thread112
-    i8 -37, label %unicode_byte_type.exit.thread112
+    i8 -40, label %unicode_byte_type.exit.thread115
+    i8 -39, label %unicode_byte_type.exit.thread115
+    i8 -38, label %unicode_byte_type.exit.thread115
+    i8 -37, label %unicode_byte_type.exit.thread115
     i8 -36, label %.sink.split
     i8 -35, label %.sink.split
     i8 -34, label %.sink.split
@@ -9207,7 +9207,7 @@ define internal range(i32 -4, 41) i32 @little2_cdataSectionTok(ptr noundef reado
 17:                                               ; preds = %14
   %18 = load i8, ptr %1, align 1, !tbaa !8
   %switch.i = icmp ugt i8 %18, -3
-  br i1 %switch.i, label %.sink.split, label %unicode_byte_type.exit.thread109
+  br i1 %switch.i, label %.sink.split, label %unicode_byte_type.exit.thread112
 
 unicode_byte_type.exit:                           ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -9215,13 +9215,13 @@ unicode_byte_type.exit:                           ; preds = %14
   %21 = zext i8 %20 to i64
   %22 = getelementptr [256 x i8], ptr %19, i64 0, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !8
-  switch i8 %23, label %unicode_byte_type.exit.thread109 [
+  switch i8 %23, label %unicode_byte_type.exit.thread112 [
     i8 4, label %24
     i8 9, label %51
     i8 10, label %67
     i8 5, label %69
     i8 6, label %75
-    i8 7, label %unicode_byte_type.exit.thread112
+    i8 7, label %unicode_byte_type.exit.thread115
     i8 0, label %.sink.split
     i8 1, label %.sink.split
     i8 8, label %.sink.split
@@ -9318,24 +9318,24 @@ unicode_byte_type.exit95:                         ; preds = %57
   %80 = getelementptr i8, ptr %1, i64 3
   br label %87
 
-unicode_byte_type.exit.thread112:                 ; preds = %14, %14, %14, %14, %unicode_byte_type.exit
+unicode_byte_type.exit.thread115:                 ; preds = %14, %14, %14, %14, %unicode_byte_type.exit
   %81 = ptrtoint ptr %.182 to i64
   %82 = sub i64 %81, %7
   %83 = icmp slt i64 %82, 4
   br i1 %83, label %109, label %84
 
-84:                                               ; preds = %unicode_byte_type.exit.thread112
+84:                                               ; preds = %unicode_byte_type.exit.thread115
   %85 = getelementptr i8, ptr %1, i64 4
   br label %87
 
-unicode_byte_type.exit.thread109:                 ; preds = %14, %17, %unicode_byte_type.exit
+unicode_byte_type.exit.thread112:                 ; preds = %14, %17, %unicode_byte_type.exit
   %86 = getelementptr i8, ptr %1, i64 2
   %.pre = ptrtoint ptr %.182 to i64
   br label %87
 
-87:                                               ; preds = %42, %46, %30, %34, %unicode_byte_type.exit.thread109, %84, %79, %73
-  %.pre-phi = phi i64 [ %26, %42 ], [ %26, %46 ], [ %26, %30 ], [ %26, %34 ], [ %.pre, %unicode_byte_type.exit.thread109 ], [ %81, %84 ], [ %76, %79 ], [ %70, %73 ]
-  %.083 = phi ptr [ %25, %42 ], [ %25, %46 ], [ %25, %30 ], [ %25, %34 ], [ %86, %unicode_byte_type.exit.thread109 ], [ %85, %84 ], [ %80, %79 ], [ %74, %73 ]
+87:                                               ; preds = %42, %46, %30, %34, %unicode_byte_type.exit.thread112, %84, %79, %73
+  %.pre-phi = phi i64 [ %26, %42 ], [ %26, %46 ], [ %26, %30 ], [ %26, %34 ], [ %.pre, %unicode_byte_type.exit.thread112 ], [ %81, %84 ], [ %76, %79 ], [ %70, %73 ]
+  %.083 = phi ptr [ %25, %42 ], [ %25, %46 ], [ %25, %30 ], [ %25, %34 ], [ %86, %unicode_byte_type.exit.thread112 ], [ %85, %84 ], [ %80, %79 ], [ %74, %73 ]
   %88 = ptrtoint ptr %.083 to i64
   %89 = sub i64 %.pre-phi, %88
   %90 = icmp sgt i64 %89, 1
@@ -9345,17 +9345,17 @@ unicode_byte_type.exit.thread109:                 ; preds = %14, %17, %unicode_b
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 136
   br label %92
 
-92:                                               ; preds = %.lr.ph, %unicode_byte_type.exit98.thread115
-  %93 = phi i64 [ %89, %.lr.ph ], [ %107, %unicode_byte_type.exit98.thread115 ]
-  %.2104 = phi ptr [ %.083, %.lr.ph ], [ %105, %unicode_byte_type.exit98.thread115 ]
+92:                                               ; preds = %.lr.ph, %unicode_byte_type.exit98.thread118
+  %93 = phi i64 [ %89, %.lr.ph ], [ %107, %unicode_byte_type.exit98.thread118 ]
+  %.2104 = phi ptr [ %.083, %.lr.ph ], [ %105, %unicode_byte_type.exit98.thread118 ]
   %94 = getelementptr i8, ptr %.2104, i64 1
   %95 = load i8, ptr %94, align 1, !tbaa !8
-  switch i8 %95, label %unicode_byte_type.exit98.thread115 [
+  switch i8 %95, label %unicode_byte_type.exit98.thread118 [
     i8 0, label %unicode_byte_type.exit98
-    i8 -40, label %unicode_byte_type.exit98.thread118
-    i8 -39, label %unicode_byte_type.exit98.thread118
-    i8 -38, label %unicode_byte_type.exit98.thread118
-    i8 -37, label %unicode_byte_type.exit98.thread118
+    i8 -40, label %unicode_byte_type.exit98.thread121
+    i8 -39, label %unicode_byte_type.exit98.thread121
+    i8 -38, label %unicode_byte_type.exit98.thread121
+    i8 -37, label %unicode_byte_type.exit98.thread121
     i8 -36, label %.sink.split
     i8 -35, label %.sink.split
     i8 -34, label %.sink.split
@@ -9366,17 +9366,17 @@ unicode_byte_type.exit.thread109:                 ; preds = %14, %17, %unicode_b
 96:                                               ; preds = %92
   %97 = load i8, ptr %.2104, align 1, !tbaa !8
   %switch.i96 = icmp ugt i8 %97, -3
-  br i1 %switch.i96, label %.sink.split, label %unicode_byte_type.exit98.thread115
+  br i1 %switch.i96, label %.sink.split, label %unicode_byte_type.exit98.thread118
 
 unicode_byte_type.exit98:                         ; preds = %92
   %98 = load i8, ptr %.2104, align 1, !tbaa !8
   %99 = zext i8 %98 to i64
   %100 = getelementptr [256 x i8], ptr %91, i64 0, i64 %99
   %101 = load i8, ptr %100, align 1, !tbaa !8
-  switch i8 %101, label %unicode_byte_type.exit98.thread115 [
+  switch i8 %101, label %unicode_byte_type.exit98.thread118 [
     i8 4, label %.sink.split
     i8 6, label %102
-    i8 7, label %unicode_byte_type.exit98.thread118
+    i8 7, label %unicode_byte_type.exit98.thread121
     i8 0, label %.sink.split
     i8 1, label %.sink.split
     i8 8, label %.sink.split
@@ -9386,28 +9386,28 @@ unicode_byte_type.exit98:                         ; preds = %92
 
 102:                                              ; preds = %unicode_byte_type.exit98
   %103 = icmp eq i64 %93, 2
-  br i1 %103, label %.sink.split, label %unicode_byte_type.exit98.thread115
+  br i1 %103, label %.sink.split, label %unicode_byte_type.exit98.thread118
 
-unicode_byte_type.exit98.thread118:               ; preds = %92, %92, %92, %92, %unicode_byte_type.exit98
+unicode_byte_type.exit98.thread121:               ; preds = %92, %92, %92, %92, %unicode_byte_type.exit98
   %104 = icmp samesign ult i64 %93, 4
-  br i1 %104, label %.sink.split, label %unicode_byte_type.exit98.thread115
+  br i1 %104, label %.sink.split, label %unicode_byte_type.exit98.thread118
 
-unicode_byte_type.exit98.thread115:               ; preds = %unicode_byte_type.exit98, %96, %92, %unicode_byte_type.exit98.thread118, %102
-  %.sink = phi i64 [ 3, %102 ], [ 4, %unicode_byte_type.exit98.thread118 ], [ 2, %92 ], [ 2, %96 ], [ 2, %unicode_byte_type.exit98 ]
+unicode_byte_type.exit98.thread118:               ; preds = %unicode_byte_type.exit98, %96, %92, %unicode_byte_type.exit98.thread121, %102
+  %.sink = phi i64 [ 3, %102 ], [ 4, %unicode_byte_type.exit98.thread121 ], [ 2, %92 ], [ 2, %96 ], [ 2, %unicode_byte_type.exit98 ]
   %105 = getelementptr i8, ptr %.2104, i64 %.sink
   %106 = ptrtoint ptr %105 to i64
   %107 = sub i64 %.pre-phi, %106
   %108 = icmp sgt i64 %107, 1
   br i1 %108, label %92, label %.sink.split, !llvm.loop !103
 
-.sink.split:                                      ; preds = %unicode_byte_type.exit98, %unicode_byte_type.exit98, %unicode_byte_type.exit98, %unicode_byte_type.exit98, %unicode_byte_type.exit98, %unicode_byte_type.exit98, %unicode_byte_type.exit98.thread115, %96, %92, %92, %92, %92, %unicode_byte_type.exit98.thread118, %102, %87, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %17, %14, %14, %14, %14, %57, %unicode_byte_type.exit95, %49, %67
-  %.2.lcssa.sink = phi ptr [ %68, %67 ], [ %50, %49 ], [ %52, %57 ], [ %spec.select, %unicode_byte_type.exit95 ], [ %1, %14 ], [ %1, %14 ], [ %1, %14 ], [ %1, %14 ], [ %1, %17 ], [ %1, %unicode_byte_type.exit ], [ %1, %unicode_byte_type.exit ], [ %1, %unicode_byte_type.exit ], [ %.083, %87 ], [ %.2104, %102 ], [ %.2104, %unicode_byte_type.exit98.thread118 ], [ %.2104, %92 ], [ %.2104, %92 ], [ %.2104, %92 ], [ %.2104, %92 ], [ %.2104, %96 ], [ %.2104, %unicode_byte_type.exit98 ], [ %.2104, %unicode_byte_type.exit98 ], [ %.2104, %unicode_byte_type.exit98 ], [ %.2104, %unicode_byte_type.exit98 ], [ %.2104, %unicode_byte_type.exit98 ], [ %.2104, %unicode_byte_type.exit98 ], [ %105, %unicode_byte_type.exit98.thread115 ]
-  %.080.ph = phi i32 [ 7, %67 ], [ 40, %49 ], [ 7, %57 ], [ 7, %unicode_byte_type.exit95 ], [ 0, %14 ], [ 0, %14 ], [ 0, %14 ], [ 0, %14 ], [ 0, %17 ], [ 0, %unicode_byte_type.exit ], [ 0, %unicode_byte_type.exit ], [ 0, %unicode_byte_type.exit ], [ 6, %87 ], [ 6, %102 ], [ 6, %unicode_byte_type.exit98.thread118 ], [ 6, %92 ], [ 6, %92 ], [ 6, %92 ], [ 6, %92 ], [ 6, %96 ], [ 6, %unicode_byte_type.exit98.thread115 ], [ 6, %unicode_byte_type.exit98 ], [ 6, %unicode_byte_type.exit98 ], [ 6, %unicode_byte_type.exit98 ], [ 6, %unicode_byte_type.exit98 ], [ 6, %unicode_byte_type.exit98 ], [ 6, %unicode_byte_type.exit98 ]
+.sink.split:                                      ; preds = %unicode_byte_type.exit98, %unicode_byte_type.exit98, %unicode_byte_type.exit98, %unicode_byte_type.exit98, %unicode_byte_type.exit98, %unicode_byte_type.exit98, %unicode_byte_type.exit98.thread118, %96, %92, %92, %92, %92, %unicode_byte_type.exit98.thread121, %102, %87, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %17, %14, %14, %14, %14, %57, %unicode_byte_type.exit95, %49, %67
+  %.2.lcssa.sink = phi ptr [ %68, %67 ], [ %50, %49 ], [ %52, %57 ], [ %spec.select, %unicode_byte_type.exit95 ], [ %1, %14 ], [ %1, %14 ], [ %1, %14 ], [ %1, %14 ], [ %1, %17 ], [ %1, %unicode_byte_type.exit ], [ %1, %unicode_byte_type.exit ], [ %1, %unicode_byte_type.exit ], [ %.083, %87 ], [ %.2104, %102 ], [ %.2104, %unicode_byte_type.exit98.thread121 ], [ %.2104, %92 ], [ %.2104, %92 ], [ %.2104, %92 ], [ %.2104, %92 ], [ %.2104, %96 ], [ %.2104, %unicode_byte_type.exit98 ], [ %.2104, %unicode_byte_type.exit98 ], [ %.2104, %unicode_byte_type.exit98 ], [ %.2104, %unicode_byte_type.exit98 ], [ %.2104, %unicode_byte_type.exit98 ], [ %.2104, %unicode_byte_type.exit98 ], [ %105, %unicode_byte_type.exit98.thread118 ]
+  %.080.ph = phi i32 [ 7, %67 ], [ 40, %49 ], [ 7, %57 ], [ 7, %unicode_byte_type.exit95 ], [ 0, %14 ], [ 0, %14 ], [ 0, %14 ], [ 0, %14 ], [ 0, %17 ], [ 0, %unicode_byte_type.exit ], [ 0, %unicode_byte_type.exit ], [ 0, %unicode_byte_type.exit ], [ 6, %87 ], [ 6, %102 ], [ 6, %unicode_byte_type.exit98.thread121 ], [ 6, %92 ], [ 6, %92 ], [ 6, %92 ], [ 6, %92 ], [ 6, %96 ], [ 6, %unicode_byte_type.exit98.thread118 ], [ 6, %unicode_byte_type.exit98 ], [ 6, %unicode_byte_type.exit98 ], [ 6, %unicode_byte_type.exit98 ], [ 6, %unicode_byte_type.exit98 ], [ 6, %unicode_byte_type.exit98 ], [ 6, %unicode_byte_type.exit98 ]
   store ptr %.2.lcssa.sink, ptr %3, align 8, !tbaa !3
   br label %109
 
-109:                                              ; preds = %.sink.split, %unicode_byte_type.exit.thread112, %75, %69, %51, %37, %24, %5, %4
-  %.080 = phi i32 [ -1, %5 ], [ -4, %4 ], [ -1, %24 ], [ -1, %37 ], [ -1, %51 ], [ -2, %69 ], [ -2, %75 ], [ -2, %unicode_byte_type.exit.thread112 ], [ %.080.ph, %.sink.split ]
+109:                                              ; preds = %.sink.split, %unicode_byte_type.exit.thread115, %75, %69, %51, %37, %24, %5, %4
+  %.080 = phi i32 [ -1, %5 ], [ -4, %4 ], [ -1, %24 ], [ -1, %37 ], [ -1, %51 ], [ -2, %69 ], [ -2, %75 ], [ -2, %unicode_byte_type.exit.thread115 ], [ %.080.ph, %.sink.split ]
   ret i32 %.080
 }
 
@@ -9436,12 +9436,12 @@ define internal range(i32 -2, 43) i32 @little2_ignoreSectionTok(ptr noundef read
   %.05459 = phi ptr [ %1, %.lr.ph ], [ %.155, %91 ]
   %17 = getelementptr i8, ptr %.05459, i64 1
   %18 = load i8, ptr %17, align 1, !tbaa !8
-  switch i8 %18, label %unicode_byte_type.exit.thread76 [
+  switch i8 %18, label %unicode_byte_type.exit.thread77 [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread79
-    i8 -39, label %unicode_byte_type.exit.thread79
-    i8 -38, label %unicode_byte_type.exit.thread79
-    i8 -37, label %unicode_byte_type.exit.thread79
+    i8 -40, label %unicode_byte_type.exit.thread80
+    i8 -39, label %unicode_byte_type.exit.thread80
+    i8 -38, label %unicode_byte_type.exit.thread80
+    i8 -37, label %unicode_byte_type.exit.thread80
     i8 -36, label %.loopexit.sink.split
     i8 -35, label %.loopexit.sink.split
     i8 -34, label %.loopexit.sink.split
@@ -9452,17 +9452,17 @@ define internal range(i32 -2, 43) i32 @little2_ignoreSectionTok(ptr noundef read
 19:                                               ; preds = %15
   %20 = load i8, ptr %.05459, align 1, !tbaa !8
   %switch.i = icmp ugt i8 %20, -3
-  br i1 %switch.i, label %.loopexit.sink.split, label %unicode_byte_type.exit.thread76
+  br i1 %switch.i, label %.loopexit.sink.split, label %unicode_byte_type.exit.thread77
 
 unicode_byte_type.exit:                           ; preds = %15
   %21 = load i8, ptr %.05459, align 1, !tbaa !8
   %22 = zext i8 %21 to i64
   %23 = getelementptr [256 x i8], ptr %14, i64 0, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !8
-  switch i8 %24, label %unicode_byte_type.exit.thread76 [
+  switch i8 %24, label %unicode_byte_type.exit.thread77 [
     i8 5, label %25
     i8 6, label %27
-    i8 7, label %unicode_byte_type.exit.thread79
+    i8 7, label %unicode_byte_type.exit.thread80
     i8 0, label %.loopexit.sink.split
     i8 1, label %.loopexit.sink.split
     i8 8, label %.loopexit.sink.split
@@ -9482,11 +9482,11 @@ unicode_byte_type.exit:                           ; preds = %15
   %30 = getelementptr i8, ptr %.05459, i64 3
   br label %91
 
-unicode_byte_type.exit.thread79:                  ; preds = %15, %15, %15, %15, %unicode_byte_type.exit
+unicode_byte_type.exit.thread80:                  ; preds = %15, %15, %15, %15, %unicode_byte_type.exit
   %31 = icmp samesign ult i64 %16, 4
   br i1 %31, label %.loopexit, label %32
 
-32:                                               ; preds = %unicode_byte_type.exit.thread79
+32:                                               ; preds = %unicode_byte_type.exit.thread80
   %33 = getelementptr i8, ptr %.05459, i64 4
   br label %91
 
@@ -9576,13 +9576,13 @@ unicode_byte_type.exit.thread79:                  ; preds = %15, %15, %15, %15, 
   %89 = add i32 %.060, -1
   br label %91
 
-unicode_byte_type.exit.thread76:                  ; preds = %15, %19, %unicode_byte_type.exit
+unicode_byte_type.exit.thread77:                  ; preds = %15, %19, %unicode_byte_type.exit
   %90 = getelementptr i8, ptr %.05459, i64 2
   br label %91
 
-91:                                               ; preds = %66, %70, %88, %82, %78, %39, %43, %58, %55, %51, %unicode_byte_type.exit.thread76, %32, %29, %25
-  %.155 = phi ptr [ %90, %unicode_byte_type.exit.thread76 ], [ %26, %25 ], [ %30, %29 ], [ %33, %32 ], [ %60, %58 ], [ %47, %55 ], [ %47, %51 ], [ %35, %43 ], [ %35, %39 ], [ %86, %88 ], [ %74, %82 ], [ %74, %78 ], [ %62, %70 ], [ %62, %66 ]
-  %.1 = phi i32 [ %.060, %unicode_byte_type.exit.thread76 ], [ %.060, %25 ], [ %.060, %29 ], [ %.060, %32 ], [ %59, %58 ], [ %.060, %55 ], [ %.060, %51 ], [ %.060, %43 ], [ %.060, %39 ], [ %89, %88 ], [ %.060, %82 ], [ %.060, %78 ], [ %.060, %70 ], [ %.060, %66 ]
+91:                                               ; preds = %66, %70, %88, %82, %78, %39, %43, %58, %55, %51, %unicode_byte_type.exit.thread77, %32, %29, %25
+  %.155 = phi ptr [ %90, %unicode_byte_type.exit.thread77 ], [ %26, %25 ], [ %30, %29 ], [ %33, %32 ], [ %60, %58 ], [ %47, %55 ], [ %47, %51 ], [ %35, %43 ], [ %35, %39 ], [ %86, %88 ], [ %74, %82 ], [ %74, %78 ], [ %62, %70 ], [ %62, %66 ]
+  %.1 = phi i32 [ %.060, %unicode_byte_type.exit.thread77 ], [ %.060, %25 ], [ %.060, %29 ], [ %.060, %32 ], [ %59, %58 ], [ %.060, %55 ], [ %.060, %51 ], [ %.060, %43 ], [ %.060, %39 ], [ %89, %88 ], [ %.060, %82 ], [ %.060, %78 ], [ %.060, %70 ], [ %.060, %66 ]
   %92 = ptrtoint ptr %.155 to i64
   %93 = sub i64 %11, %92
   %94 = icmp sgt i64 %93, 1
@@ -9594,8 +9594,8 @@ unicode_byte_type.exit.thread76:                  ; preds = %15, %19, %unicode_b
   store ptr %.lcssa.sink, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %27, %unicode_byte_type.exit.thread79, %34, %46, %61, %73, %91, %.loopexit.sink.split, %4
-  %.052 = phi i32 [ -1, %4 ], [ %.052.ph, %.loopexit.sink.split ], [ -2, %27 ], [ -2, %unicode_byte_type.exit.thread79 ], [ -1, %34 ], [ -1, %46 ], [ -1, %61 ], [ -1, %73 ], [ -1, %91 ]
+.loopexit:                                        ; preds = %27, %unicode_byte_type.exit.thread80, %34, %46, %61, %73, %91, %.loopexit.sink.split, %4
+  %.052 = phi i32 [ -1, %4 ], [ %.052.ph, %.loopexit.sink.split ], [ -2, %27 ], [ -2, %unicode_byte_type.exit.thread80 ], [ -1, %34 ], [ -1, %46 ], [ -1, %61 ], [ -1, %73 ], [ -1, %91 ]
   ret i32 %.052
 }
 
@@ -9621,10 +9621,10 @@ define internal range(i32 -4, 40) i32 @little2_attributeValueTok(ptr noundef rea
   %13 = load i8, ptr %12, align 1, !tbaa !8
   switch i8 %13, label %unicode_byte_type.exit.thread [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread75
-    i8 -39, label %unicode_byte_type.exit.thread75
-    i8 -38, label %unicode_byte_type.exit.thread75
-    i8 -37, label %unicode_byte_type.exit.thread75
+    i8 -40, label %unicode_byte_type.exit.thread77
+    i8 -39, label %unicode_byte_type.exit.thread77
+    i8 -38, label %unicode_byte_type.exit.thread77
+    i8 -37, label %unicode_byte_type.exit.thread77
   ]
 
 unicode_byte_type.exit:                           ; preds = %11
@@ -9635,7 +9635,7 @@ unicode_byte_type.exit:                           ; preds = %11
   switch i8 %17, label %unicode_byte_type.exit.thread [
     i8 21, label %49
     i8 6, label %18
-    i8 7, label %unicode_byte_type.exit.thread75
+    i8 7, label %unicode_byte_type.exit.thread77
     i8 3, label %19
     i8 2, label %25
     i8 10, label %26
@@ -9645,7 +9645,7 @@ unicode_byte_type.exit:                           ; preds = %11
 18:                                               ; preds = %unicode_byte_type.exit
   br label %unicode_byte_type.exit.thread
 
-unicode_byte_type.exit.thread75:                  ; preds = %11, %11, %11, %11, %unicode_byte_type.exit
+unicode_byte_type.exit.thread77:                  ; preds = %11, %11, %11, %11, %unicode_byte_type.exit
   br label %unicode_byte_type.exit.thread
 
 19:                                               ; preds = %unicode_byte_type.exit
@@ -9728,8 +9728,8 @@ unicode_byte_type.exit60.thread:                  ; preds = %unicode_byte_type.e
   store ptr %.05567, ptr %3, align 8, !tbaa !3
   br label %58
 
-unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.exit, %11, %unicode_byte_type.exit.thread75, %18
-  %.sink = phi i64 [ 4, %unicode_byte_type.exit.thread75 ], [ 3, %18 ], [ 2, %11 ], [ 2, %unicode_byte_type.exit ]
+unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.exit, %11, %unicode_byte_type.exit.thread77, %18
+  %.sink = phi i64 [ 4, %unicode_byte_type.exit.thread77 ], [ 3, %18 ], [ 2, %11 ], [ 2, %unicode_byte_type.exit ]
   %54 = getelementptr i8, ptr %.05567, i64 %.sink
   %55 = ptrtoint ptr %54 to i64
   %56 = sub i64 %6, %55
@@ -9767,10 +9767,10 @@ define internal range(i32 -4, 29) i32 @little2_entityValueTok(ptr noundef readon
   %13 = load i8, ptr %12, align 1, !tbaa !8
   switch i8 %13, label %unicode_byte_type.exit.thread [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread75
-    i8 -39, label %unicode_byte_type.exit.thread75
-    i8 -38, label %unicode_byte_type.exit.thread75
-    i8 -37, label %unicode_byte_type.exit.thread75
+    i8 -40, label %unicode_byte_type.exit.thread77
+    i8 -39, label %unicode_byte_type.exit.thread77
+    i8 -38, label %unicode_byte_type.exit.thread77
+    i8 -37, label %unicode_byte_type.exit.thread77
   ]
 
 unicode_byte_type.exit:                           ; preds = %11
@@ -9781,7 +9781,7 @@ unicode_byte_type.exit:                           ; preds = %11
   switch i8 %17, label %unicode_byte_type.exit.thread [
     i8 9, label %38
     i8 6, label %18
-    i8 7, label %unicode_byte_type.exit.thread75
+    i8 7, label %unicode_byte_type.exit.thread77
     i8 3, label %19
     i8 30, label %25
     i8 10, label %33
@@ -9790,7 +9790,7 @@ unicode_byte_type.exit:                           ; preds = %11
 18:                                               ; preds = %unicode_byte_type.exit
   br label %unicode_byte_type.exit.thread
 
-unicode_byte_type.exit.thread75:                  ; preds = %11, %11, %11, %11, %unicode_byte_type.exit
+unicode_byte_type.exit.thread77:                  ; preds = %11, %11, %11, %11, %unicode_byte_type.exit
   br label %unicode_byte_type.exit.thread
 
 19:                                               ; preds = %unicode_byte_type.exit
@@ -9871,8 +9871,8 @@ unicode_byte_type.exit62.thread:                  ; preds = %unicode_byte_type.e
   store ptr %.05768, ptr %3, align 8, !tbaa !3
   br label %60
 
-unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.exit, %11, %unicode_byte_type.exit.thread75, %18
-  %.sink = phi i64 [ 4, %unicode_byte_type.exit.thread75 ], [ 3, %18 ], [ 2, %11 ], [ 2, %unicode_byte_type.exit ]
+unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.exit, %11, %unicode_byte_type.exit.thread77, %18
+  %.sink = phi i64 [ 4, %unicode_byte_type.exit.thread77 ], [ 3, %18 ], [ 2, %11 ], [ 2, %unicode_byte_type.exit ]
   %56 = getelementptr i8, ptr %.05768, i64 %.sink
   %57 = ptrtoint ptr %56 to i64
   %58 = sub i64 %6, %57
@@ -10045,12 +10045,12 @@ unicode_byte_type.exit115.thread:                 ; preds = %unicode_byte_type.e
   %.0104 = getelementptr i8, ptr %.pn, i64 2
   %6 = getelementptr i8, ptr %.pn, i64 3
   %7 = load i8, ptr %6, align 1, !tbaa !8
-  switch i8 %7, label %unicode_byte_type.exit.thread121 [
+  switch i8 %7, label %unicode_byte_type.exit.thread123 [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread119
-    i8 -39, label %unicode_byte_type.exit.thread119
-    i8 -38, label %unicode_byte_type.exit.thread119
-    i8 -37, label %unicode_byte_type.exit.thread119
+    i8 -40, label %unicode_byte_type.exit.thread121
+    i8 -39, label %unicode_byte_type.exit.thread121
+    i8 -38, label %unicode_byte_type.exit.thread121
+    i8 -37, label %unicode_byte_type.exit.thread121
     i8 -36, label %unicode_byte_type.exit115.thread.backedge
     i8 -35, label %unicode_byte_type.exit115.thread.backedge
     i8 -34, label %unicode_byte_type.exit115.thread.backedge
@@ -10058,11 +10058,11 @@ unicode_byte_type.exit115.thread:                 ; preds = %unicode_byte_type.e
     i8 -1, label %8
   ]
 
-unicode_byte_type.exit115.thread.backedge:        ; preds = %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %8, %98, %110, %114, %.fold.split112, %83, %.fold.split, %63, %65, %47, %49, %40, %42, %23, %27, %25, %15, %19, %17, %38, %unicode_byte_type.exit.thread121, %53, %60, %69, %76, %80, %78, %84, %86, %unicode_byte_type.exit115, %.critedge, %115, %117, %120, %unicode_byte_type.exit
-  %.pn.be = phi ptr [ %.0104, %unicode_byte_type.exit ], [ %39, %38 ], [ %.0104, %unicode_byte_type.exit.thread121 ], [ %.0104, %60 ], [ %.0104, %53 ], [ %.0104, %76 ], [ %.0104, %69 ], [ %.0104, %80 ], [ %.0104, %78 ], [ %.0104, %.critedge ], [ %.0104, %unicode_byte_type.exit115 ], [ %.0104, %86 ], [ %.0104, %84 ], [ %.0104, %117 ], [ %.0104, %115 ], [ %.0104, %120 ], [ %.0104, %17 ], [ %.0104, %19 ], [ %.0104, %15 ], [ %6, %25 ], [ %6, %27 ], [ %6, %23 ], [ %.0104, %42 ], [ %.0104, %40 ], [ %.0104, %49 ], [ %.0104, %47 ], [ %.0104, %65 ], [ %.0104, %63 ], [ %.0104, %83 ], [ %.0104, %.fold.split ], [ %.0104, %114 ], [ %.0104, %.fold.split112 ], [ %.0104, %110 ], [ %.0104, %98 ], [ %.0104, %8 ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ]
-  %.0102.be = phi i32 [ %.0102, %unicode_byte_type.exit ], [ %.3, %38 ], [ %.0102, %unicode_byte_type.exit.thread121 ], [ 0, %60 ], [ 2, %53 ], [ 0, %76 ], [ 2, %69 ], [ %.0102, %80 ], [ %.0102, %78 ], [ 2, %.critedge ], [ 2, %unicode_byte_type.exit115 ], [ 2, %86 ], [ 2, %84 ], [ 2, %117 ], [ 2, %115 ], [ 2, %120 ], [ 1, %17 ], [ 1, %19 ], [ %.0102, %15 ], [ 1, %25 ], [ 1, %27 ], [ %.0102, %23 ], [ 1, %42 ], [ 1, %40 ], [ 2, %49 ], [ 2, %47 ], [ 2, %65 ], [ 2, %63 ], [ 0, %83 ], [ %.0102, %.fold.split ], [ 0, %114 ], [ %.0102, %.fold.split112 ], [ 2, %110 ], [ 2, %98 ], [ %.0102, %8 ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ]
-  %.0100.be = phi i32 [ %.0100, %unicode_byte_type.exit ], [ %.0100, %38 ], [ %.0100, %unicode_byte_type.exit.thread121 ], [ %61, %60 ], [ %.0100, %53 ], [ %77, %76 ], [ %.0100, %69 ], [ %.0100, %80 ], [ %.0100, %78 ], [ %.0100, %.critedge ], [ %.0100, %unicode_byte_type.exit115 ], [ %.0100, %86 ], [ %.0100, %84 ], [ %.0100, %117 ], [ %.0100, %115 ], [ %.0100, %120 ], [ %.0100, %17 ], [ %.0100, %19 ], [ %.0100, %15 ], [ %.0100, %25 ], [ %.0100, %27 ], [ %.0100, %23 ], [ %.0100, %42 ], [ %.0100, %40 ], [ %.0100, %49 ], [ %.0100, %47 ], [ %.0100, %65 ], [ %.0100, %63 ], [ %.0100, %83 ], [ %.0100, %.fold.split ], [ %.0100, %114 ], [ %.0100, %.fold.split112 ], [ %.0100, %110 ], [ %.0100, %98 ], [ %.0100, %8 ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ]
-  %.0.be = phi i32 [ %.0, %unicode_byte_type.exit ], [ %.0, %38 ], [ %.0, %unicode_byte_type.exit.thread121 ], [ 12, %60 ], [ %.0, %53 ], [ 13, %76 ], [ %.0, %69 ], [ %.0, %80 ], [ %.0, %78 ], [ %.0, %.critedge ], [ %.0, %unicode_byte_type.exit115 ], [ %.0, %86 ], [ %.0, %84 ], [ %.0, %117 ], [ %.0, %115 ], [ %.0, %120 ], [ %.0, %17 ], [ %.0, %19 ], [ %.0, %15 ], [ %.0, %25 ], [ %.0, %27 ], [ %.0, %23 ], [ %.0, %42 ], [ %.0, %40 ], [ 12, %49 ], [ 12, %47 ], [ 13, %65 ], [ 13, %63 ], [ %.0, %83 ], [ %.0, %.fold.split ], [ %.0, %114 ], [ %.0, %.fold.split112 ], [ %.0, %110 ], [ %.0, %98 ], [ %.0, %8 ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ]
+unicode_byte_type.exit115.thread.backedge:        ; preds = %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %8, %98, %110, %114, %.fold.split112, %83, %.fold.split, %63, %65, %47, %49, %40, %42, %23, %27, %25, %15, %19, %17, %38, %unicode_byte_type.exit.thread123, %53, %60, %69, %76, %80, %78, %84, %86, %unicode_byte_type.exit115, %.critedge, %115, %117, %120, %unicode_byte_type.exit
+  %.pn.be = phi ptr [ %.0104, %unicode_byte_type.exit ], [ %39, %38 ], [ %.0104, %unicode_byte_type.exit.thread123 ], [ %.0104, %60 ], [ %.0104, %53 ], [ %.0104, %76 ], [ %.0104, %69 ], [ %.0104, %80 ], [ %.0104, %78 ], [ %.0104, %.critedge ], [ %.0104, %unicode_byte_type.exit115 ], [ %.0104, %86 ], [ %.0104, %84 ], [ %.0104, %117 ], [ %.0104, %115 ], [ %.0104, %120 ], [ %.0104, %17 ], [ %.0104, %19 ], [ %.0104, %15 ], [ %6, %25 ], [ %6, %27 ], [ %6, %23 ], [ %.0104, %42 ], [ %.0104, %40 ], [ %.0104, %49 ], [ %.0104, %47 ], [ %.0104, %65 ], [ %.0104, %63 ], [ %.0104, %83 ], [ %.0104, %.fold.split ], [ %.0104, %114 ], [ %.0104, %.fold.split112 ], [ %.0104, %110 ], [ %.0104, %98 ], [ %.0104, %8 ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ]
+  %.0102.be = phi i32 [ %.0102, %unicode_byte_type.exit ], [ %.3, %38 ], [ %.0102, %unicode_byte_type.exit.thread123 ], [ 0, %60 ], [ 2, %53 ], [ 0, %76 ], [ 2, %69 ], [ %.0102, %80 ], [ %.0102, %78 ], [ 2, %.critedge ], [ 2, %unicode_byte_type.exit115 ], [ 2, %86 ], [ 2, %84 ], [ 2, %117 ], [ 2, %115 ], [ 2, %120 ], [ 1, %17 ], [ 1, %19 ], [ %.0102, %15 ], [ 1, %25 ], [ 1, %27 ], [ %.0102, %23 ], [ 1, %42 ], [ 1, %40 ], [ 2, %49 ], [ 2, %47 ], [ 2, %65 ], [ 2, %63 ], [ 0, %83 ], [ %.0102, %.fold.split ], [ 0, %114 ], [ %.0102, %.fold.split112 ], [ 2, %110 ], [ 2, %98 ], [ %.0102, %8 ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ]
+  %.0100.be = phi i32 [ %.0100, %unicode_byte_type.exit ], [ %.0100, %38 ], [ %.0100, %unicode_byte_type.exit.thread123 ], [ %61, %60 ], [ %.0100, %53 ], [ %77, %76 ], [ %.0100, %69 ], [ %.0100, %80 ], [ %.0100, %78 ], [ %.0100, %.critedge ], [ %.0100, %unicode_byte_type.exit115 ], [ %.0100, %86 ], [ %.0100, %84 ], [ %.0100, %117 ], [ %.0100, %115 ], [ %.0100, %120 ], [ %.0100, %17 ], [ %.0100, %19 ], [ %.0100, %15 ], [ %.0100, %25 ], [ %.0100, %27 ], [ %.0100, %23 ], [ %.0100, %42 ], [ %.0100, %40 ], [ %.0100, %49 ], [ %.0100, %47 ], [ %.0100, %65 ], [ %.0100, %63 ], [ %.0100, %83 ], [ %.0100, %.fold.split ], [ %.0100, %114 ], [ %.0100, %.fold.split112 ], [ %.0100, %110 ], [ %.0100, %98 ], [ %.0100, %8 ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ]
+  %.0.be = phi i32 [ %.0, %unicode_byte_type.exit ], [ %.0, %38 ], [ %.0, %unicode_byte_type.exit.thread123 ], [ 12, %60 ], [ %.0, %53 ], [ 13, %76 ], [ %.0, %69 ], [ %.0, %80 ], [ %.0, %78 ], [ %.0, %.critedge ], [ %.0, %unicode_byte_type.exit115 ], [ %.0, %86 ], [ %.0, %84 ], [ %.0, %117 ], [ %.0, %115 ], [ %.0, %120 ], [ %.0, %17 ], [ %.0, %19 ], [ %.0, %15 ], [ %.0, %25 ], [ %.0, %27 ], [ %.0, %23 ], [ %.0, %42 ], [ %.0, %40 ], [ 12, %49 ], [ 12, %47 ], [ 13, %65 ], [ 13, %63 ], [ %.0, %83 ], [ %.0, %.fold.split ], [ %.0, %114 ], [ %.0, %.fold.split112 ], [ %.0, %110 ], [ %.0, %98 ], [ %.0, %8 ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ]
   br label %unicode_byte_type.exit115.thread
 
 8:                                                ; preds = %unicode_byte_type.exit115.thread
@@ -10080,10 +10080,10 @@ unicode_byte_type.exit:                           ; preds = %unicode_byte_type.e
   switch i8 %14, label %unicode_byte_type.exit115.thread.backedge [
     i8 5, label %15
     i8 6, label %23
-    i8 7, label %unicode_byte_type.exit.thread119
-    i8 29, label %unicode_byte_type.exit.thread121
-    i8 22, label %unicode_byte_type.exit.thread121
-    i8 24, label %unicode_byte_type.exit.thread121
+    i8 7, label %unicode_byte_type.exit.thread121
+    i8 29, label %unicode_byte_type.exit.thread123
+    i8 22, label %unicode_byte_type.exit.thread123
+    i8 24, label %unicode_byte_type.exit.thread123
     i8 12, label %46
     i8 13, label %62
     i8 3, label %78
@@ -10126,11 +10126,11 @@ unicode_byte_type.exit:                           ; preds = %unicode_byte_type.e
   store i8 1, ptr %30, align 8, !tbaa !78
   br label %unicode_byte_type.exit115.thread.backedge
 
-unicode_byte_type.exit.thread119:                 ; preds = %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit
+unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit
   %31 = icmp eq i32 %.0102, 0
   br i1 %31, label %32, label %38
 
-32:                                               ; preds = %unicode_byte_type.exit.thread119
+32:                                               ; preds = %unicode_byte_type.exit.thread121
   %33 = icmp slt i32 %.0100, %2
   br i1 %33, label %34, label %38
 
@@ -10142,16 +10142,16 @@ unicode_byte_type.exit.thread119:                 ; preds = %unicode_byte_type.e
   store i8 1, ptr %37, align 8, !tbaa !78
   br label %38
 
-38:                                               ; preds = %32, %34, %unicode_byte_type.exit.thread119
-  %.3 = phi i32 [ %.0102, %unicode_byte_type.exit.thread119 ], [ 1, %34 ], [ 1, %32 ]
+38:                                               ; preds = %32, %34, %unicode_byte_type.exit.thread121
+  %.3 = phi i32 [ %.0102, %unicode_byte_type.exit.thread121 ], [ 1, %34 ], [ 1, %32 ]
   %39 = getelementptr i8, ptr %.pn, i64 4
   br label %unicode_byte_type.exit115.thread.backedge
 
-unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.exit115.thread, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
+unicode_byte_type.exit.thread123:                 ; preds = %unicode_byte_type.exit115.thread, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
   %.old = icmp eq i32 %.0102, 0
   br i1 %.old, label %40, label %unicode_byte_type.exit115.thread.backedge
 
-40:                                               ; preds = %8, %unicode_byte_type.exit.thread121
+40:                                               ; preds = %8, %unicode_byte_type.exit.thread123
   %41 = icmp slt i32 %.0100, %2
   br i1 %41, label %42, label %unicode_byte_type.exit115.thread.backedge
 
@@ -11030,9 +11030,9 @@ define internal range(i32 0, 3) i32 @little2_toUtf8(ptr readnone captures(none) 
   br i1 %109, label %15, label %.thread, !llvm.loop !112
 
 .thread:                                          ; preds = %107, %65, %60, %40, %27, %22, %5
-  %.06679.lcssa85.sink = phi ptr [ %6, %5 ], [ %.06679, %22 ], [ %.06679, %27 ], [ %.06679, %40 ], [ %.06679, %60 ], [ %.06679, %65 ], [ %108, %107 ]
+  %.06679.lcssa90.sink = phi ptr [ %6, %5 ], [ %.06679, %22 ], [ %.06679, %27 ], [ %.06679, %40 ], [ %.06679, %60 ], [ %.06679, %65 ], [ %108, %107 ]
   %.2 = phi i32 [ 0, %5 ], [ 2, %22 ], [ 2, %27 ], [ 2, %40 ], [ 2, %60 ], [ 1, %65 ], [ 0, %107 ]
-  store ptr %.06679.lcssa85.sink, ptr %1, align 8, !tbaa !3
+  store ptr %.06679.lcssa90.sink, ptr %1, align 8, !tbaa !3
   ret i32 %.2
 }
 
@@ -11280,8 +11280,8 @@ unicode_byte_type.exit.thread:                    ; preds = %9, %unicode_byte_ty
   %.pn59 = phi ptr [ %1, %.lr.ph ], [ %.03760, %46 ]
   %29 = getelementptr i8, ptr %.pn59, i64 3
   %30 = load i8, ptr %29, align 1, !tbaa !8
-  %cond88 = icmp eq i8 %30, 0
-  br i1 %cond88, label %unicode_byte_type.exit43, label %unicode_byte_type.exit43.thread
+  %cond90 = icmp eq i8 %30, 0
+  br i1 %cond90, label %unicode_byte_type.exit43, label %unicode_byte_type.exit43.thread
 
 unicode_byte_type.exit43:                         ; preds = %27
   %31 = load i8, ptr %.03760, align 1, !tbaa !8
@@ -11304,8 +11304,8 @@ unicode_byte_type.exit43:                         ; preds = %27
 37:                                               ; preds = %35
   %38 = getelementptr i8, ptr %.pn59, i64 5
   %39 = load i8, ptr %38, align 1, !tbaa !8
-  %cond89 = icmp eq i8 %39, 0
-  br i1 %cond89, label %unicode_byte_type.exit46, label %.loopexit47
+  %cond91 = icmp eq i8 %39, 0
+  br i1 %cond91, label %unicode_byte_type.exit46, label %.loopexit47
 
 unicode_byte_type.exit46:                         ; preds = %37
   %40 = getelementptr i8, ptr %.pn59, i64 4
@@ -11361,11 +11361,11 @@ define internal fastcc i32 @little2_scanPi(ptr noundef readonly captures(none) %
   br i1 %13, label %14, label %unicode_byte_type.exit
 
 14:                                               ; preds = %10
-  switch i8 %12, label %unicode_byte_type.exit.thread195 [
-    i8 -40, label %unicode_byte_type.exit.thread198
-    i8 -39, label %unicode_byte_type.exit.thread198
-    i8 -38, label %unicode_byte_type.exit.thread198
-    i8 -37, label %unicode_byte_type.exit.thread198
+  switch i8 %12, label %unicode_byte_type.exit.thread201 [
+    i8 -40, label %unicode_byte_type.exit.thread204
+    i8 -39, label %unicode_byte_type.exit.thread204
+    i8 -38, label %unicode_byte_type.exit.thread204
+    i8 -37, label %unicode_byte_type.exit.thread204
     i8 -36, label %unicode_byte_type.exit.thread
     i8 -35, label %unicode_byte_type.exit.thread
     i8 -34, label %unicode_byte_type.exit.thread
@@ -11376,7 +11376,7 @@ define internal fastcc i32 @little2_scanPi(ptr noundef readonly captures(none) %
 15:                                               ; preds = %14
   %16 = load i8, ptr %1, align 1, !tbaa !8
   %switch.i = icmp ugt i8 %16, -3
-  br i1 %switch.i, label %unicode_byte_type.exit.thread, label %unicode_byte_type.exit.thread195
+  br i1 %switch.i, label %unicode_byte_type.exit.thread, label %unicode_byte_type.exit.thread201
 
 unicode_byte_type.exit:                           ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -11385,15 +11385,15 @@ unicode_byte_type.exit:                           ; preds = %10
   %20 = getelementptr [256 x i8], ptr %17, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !8
   switch i8 %21, label %unicode_byte_type.exit.thread [
-    i8 29, label %unicode_byte_type.exit.thread195
+    i8 29, label %unicode_byte_type.exit.thread201
     i8 22, label %38
     i8 24, label %38
     i8 5, label %43
     i8 6, label %44
-    i8 7, label %unicode_byte_type.exit.thread198
+    i8 7, label %unicode_byte_type.exit.thread204
   ]
 
-unicode_byte_type.exit.thread195:                 ; preds = %15, %14, %unicode_byte_type.exit
+unicode_byte_type.exit.thread201:                 ; preds = %15, %14, %unicode_byte_type.exit
   %22 = zext i8 %12 to i64
   %23 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !8
@@ -11412,11 +11412,11 @@ unicode_byte_type.exit.thread195:                 ; preds = %15, %14, %unicode_b
   %.not = icmp eq i32 %36, 0
   br i1 %.not, label %37, label %38
 
-37:                                               ; preds = %unicode_byte_type.exit.thread195
+37:                                               ; preds = %unicode_byte_type.exit.thread201
   store ptr %1, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-38:                                               ; preds = %unicode_byte_type.exit.thread195, %unicode_byte_type.exit, %unicode_byte_type.exit
+38:                                               ; preds = %unicode_byte_type.exit.thread201, %unicode_byte_type.exit, %unicode_byte_type.exit
   %.099151 = getelementptr i8, ptr %1, i64 2
   %39 = ptrtoint ptr %.099151 to i64
   %40 = sub i64 %6, %39
@@ -11439,11 +11439,11 @@ unicode_byte_type.exit.thread195:                 ; preds = %15, %14, %unicode_b
   store ptr %1, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-unicode_byte_type.exit.thread198:                 ; preds = %14, %14, %14, %14, %unicode_byte_type.exit
+unicode_byte_type.exit.thread204:                 ; preds = %14, %14, %14, %14, %unicode_byte_type.exit
   %47 = icmp samesign ult i64 %8, 4
   br i1 %47, label %.loopexit, label %48
 
-48:                                               ; preds = %unicode_byte_type.exit.thread198
+48:                                               ; preds = %unicode_byte_type.exit.thread204
   store ptr %1, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
@@ -11458,12 +11458,12 @@ unicode_byte_type.exit.thread:                    ; preds = %14, %14, %14, %14, 
   %.pn152 = phi ptr [ %1, %.lr.ph ], [ %.099153, %76 ]
   %52 = getelementptr i8, ptr %.pn152, i64 3
   %53 = load i8, ptr %52, align 1, !tbaa !8
-  switch i8 %53, label %unicode_byte_type.exit110.thread201 [
+  switch i8 %53, label %unicode_byte_type.exit110.thread207 [
     i8 0, label %unicode_byte_type.exit110
-    i8 -40, label %unicode_byte_type.exit110.thread204
-    i8 -39, label %unicode_byte_type.exit110.thread204
-    i8 -38, label %unicode_byte_type.exit110.thread204
-    i8 -37, label %unicode_byte_type.exit110.thread204
+    i8 -40, label %unicode_byte_type.exit110.thread210
+    i8 -39, label %unicode_byte_type.exit110.thread210
+    i8 -38, label %unicode_byte_type.exit110.thread210
+    i8 -37, label %unicode_byte_type.exit110.thread210
     i8 -36, label %.loopexit119
     i8 -35, label %.loopexit119
     i8 -34, label %.loopexit119
@@ -11474,7 +11474,7 @@ unicode_byte_type.exit.thread:                    ; preds = %14, %14, %14, %14, 
 54:                                               ; preds = %49
   %55 = load i8, ptr %.099153, align 1, !tbaa !8
   %switch.i108 = icmp ugt i8 %55, -3
-  br i1 %switch.i108, label %.loopexit119, label %unicode_byte_type.exit110.thread201
+  br i1 %switch.i108, label %.loopexit119, label %unicode_byte_type.exit110.thread207
 
 unicode_byte_type.exit110:                        ; preds = %49
   %56 = load i8, ptr %.099153, align 1, !tbaa !8
@@ -11482,7 +11482,7 @@ unicode_byte_type.exit110:                        ; preds = %49
   %58 = getelementptr [256 x i8], ptr %42, i64 0, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !8
   switch i8 %59, label %.loopexit119 [
-    i8 29, label %unicode_byte_type.exit110.thread201
+    i8 29, label %unicode_byte_type.exit110.thread207
     i8 22, label %76
     i8 24, label %76
     i8 25, label %76
@@ -11490,14 +11490,14 @@ unicode_byte_type.exit110:                        ; preds = %49
     i8 27, label %76
     i8 5, label %80
     i8 6, label %81
-    i8 7, label %unicode_byte_type.exit110.thread204
+    i8 7, label %unicode_byte_type.exit110.thread210
     i8 21, label %86
     i8 9, label %86
     i8 10, label %86
     i8 15, label %150
   ]
 
-unicode_byte_type.exit110.thread201:              ; preds = %49, %54, %unicode_byte_type.exit110
+unicode_byte_type.exit110.thread207:              ; preds = %49, %54, %unicode_byte_type.exit110
   %60 = zext i8 %53 to i64
   %61 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !8
@@ -11516,11 +11516,11 @@ unicode_byte_type.exit110.thread201:              ; preds = %49, %54, %unicode_b
   %.not107 = icmp eq i32 %74, 0
   br i1 %.not107, label %75, label %76
 
-75:                                               ; preds = %unicode_byte_type.exit110.thread201
+75:                                               ; preds = %unicode_byte_type.exit110.thread207
   store ptr %.099153, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-76:                                               ; preds = %unicode_byte_type.exit110.thread201, %unicode_byte_type.exit110, %unicode_byte_type.exit110, %unicode_byte_type.exit110, %unicode_byte_type.exit110, %unicode_byte_type.exit110
+76:                                               ; preds = %unicode_byte_type.exit110.thread207, %unicode_byte_type.exit110, %unicode_byte_type.exit110, %unicode_byte_type.exit110, %unicode_byte_type.exit110, %unicode_byte_type.exit110
   %.099 = getelementptr i8, ptr %.099153, i64 2
   %77 = ptrtoint ptr %.099 to i64
   %78 = sub i64 %6, %77
@@ -11539,11 +11539,11 @@ unicode_byte_type.exit110.thread201:              ; preds = %49, %54, %unicode_b
   store ptr %.099153, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-unicode_byte_type.exit110.thread204:              ; preds = %49, %49, %49, %49, %unicode_byte_type.exit110
+unicode_byte_type.exit110.thread210:              ; preds = %49, %49, %49, %49, %unicode_byte_type.exit110
   %84 = icmp samesign ult i64 %50, 4
   br i1 %84, label %.loopexit, label %85
 
-85:                                               ; preds = %unicode_byte_type.exit110.thread204
+85:                                               ; preds = %unicode_byte_type.exit110.thread210
   store ptr %.099153, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
@@ -11621,12 +11621,12 @@ little2_checkPiTarget.exit:                       ; preds = %102, %105
   %.2154 = phi ptr [ %.3, %146 ], [ %109, %107 ]
   %114 = getelementptr i8, ptr %.2154, i64 1
   %115 = load i8, ptr %114, align 1, !tbaa !8
-  switch i8 %115, label %unicode_byte_type.exit114.thread207 [
+  switch i8 %115, label %unicode_byte_type.exit114.thread213 [
     i8 0, label %unicode_byte_type.exit114
-    i8 -40, label %unicode_byte_type.exit114.thread210
-    i8 -39, label %unicode_byte_type.exit114.thread210
-    i8 -38, label %unicode_byte_type.exit114.thread210
-    i8 -37, label %unicode_byte_type.exit114.thread210
+    i8 -40, label %unicode_byte_type.exit114.thread216
+    i8 -39, label %unicode_byte_type.exit114.thread216
+    i8 -38, label %unicode_byte_type.exit114.thread216
+    i8 -37, label %unicode_byte_type.exit114.thread216
     i8 -36, label %unicode_byte_type.exit114.thread
     i8 -35, label %unicode_byte_type.exit114.thread
     i8 -34, label %unicode_byte_type.exit114.thread
@@ -11637,17 +11637,17 @@ little2_checkPiTarget.exit:                       ; preds = %102, %105
 116:                                              ; preds = %.lr.ph155
   %117 = load i8, ptr %.2154, align 1, !tbaa !8
   %switch.i112 = icmp ugt i8 %117, -3
-  br i1 %switch.i112, label %unicode_byte_type.exit114.thread, label %unicode_byte_type.exit114.thread207
+  br i1 %switch.i112, label %unicode_byte_type.exit114.thread, label %unicode_byte_type.exit114.thread213
 
 unicode_byte_type.exit114:                        ; preds = %.lr.ph155
   %118 = load i8, ptr %.2154, align 1, !tbaa !8
   %119 = zext i8 %118 to i64
   %120 = getelementptr [256 x i8], ptr %42, i64 0, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !8
-  switch i8 %121, label %unicode_byte_type.exit114.thread207 [
+  switch i8 %121, label %unicode_byte_type.exit114.thread213 [
     i8 5, label %122
     i8 6, label %124
-    i8 7, label %unicode_byte_type.exit114.thread210
+    i8 7, label %unicode_byte_type.exit114.thread216
     i8 0, label %unicode_byte_type.exit114.thread
     i8 1, label %unicode_byte_type.exit114.thread
     i8 8, label %unicode_byte_type.exit114.thread
@@ -11666,11 +11666,11 @@ unicode_byte_type.exit114:                        ; preds = %.lr.ph155
   %127 = getelementptr i8, ptr %.2154, i64 3
   br label %146
 
-unicode_byte_type.exit114.thread210:              ; preds = %.lr.ph155, %.lr.ph155, %.lr.ph155, %.lr.ph155, %unicode_byte_type.exit114
+unicode_byte_type.exit114.thread216:              ; preds = %.lr.ph155, %.lr.ph155, %.lr.ph155, %.lr.ph155, %unicode_byte_type.exit114
   %128 = icmp samesign ult i64 %113, 4
   br i1 %128, label %.loopexit, label %129
 
-129:                                              ; preds = %unicode_byte_type.exit114.thread210
+129:                                              ; preds = %unicode_byte_type.exit114.thread216
   %130 = getelementptr i8, ptr %.2154, i64 4
   br label %146
 
@@ -11701,12 +11701,12 @@ unicode_byte_type.exit114.thread:                 ; preds = %.lr.ph155, %.lr.ph1
   store ptr %144, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-unicode_byte_type.exit114.thread207:              ; preds = %.lr.ph155, %116, %unicode_byte_type.exit114
+unicode_byte_type.exit114.thread213:              ; preds = %.lr.ph155, %116, %unicode_byte_type.exit114
   %145 = getelementptr i8, ptr %.2154, i64 2
   br label %146
 
-146:                                              ; preds = %136, %140, %unicode_byte_type.exit114.thread207, %129, %126, %122
-  %.3 = phi ptr [ %145, %unicode_byte_type.exit114.thread207 ], [ %123, %122 ], [ %127, %126 ], [ %130, %129 ], [ %132, %140 ], [ %132, %136 ]
+146:                                              ; preds = %136, %140, %unicode_byte_type.exit114.thread213, %129, %126, %122
+  %.3 = phi ptr [ %145, %unicode_byte_type.exit114.thread213 ], [ %123, %122 ], [ %127, %126 ], [ %130, %129 ], [ %132, %140 ], [ %132, %136 ]
   %147 = ptrtoint ptr %.3 to i64
   %148 = sub i64 %6, %147
   %149 = icmp sgt i64 %148, 1
@@ -11750,8 +11750,8 @@ unicode_byte_type.exit114.thread207:              ; preds = %.lr.ph155, %116, %u
   store ptr %.1, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %76, %124, %unicode_byte_type.exit114.thread210, %131, %146, %38, %107, %153, %unicode_byte_type.exit110.thread204, %81, %unicode_byte_type.exit.thread198, %44, %4, %.loopexit119, %165, %152, %143, %unicode_byte_type.exit114.thread, %little2_checkPiTarget.exit, %85, %83, %80, %75, %unicode_byte_type.exit.thread, %48, %46, %43, %37
-  %.0 = phi i32 [ 0, %unicode_byte_type.exit.thread ], [ 0, %.loopexit119 ], [ 0, %75 ], [ 0, %80 ], [ 0, %83 ], [ 0, %85 ], [ 0, %unicode_byte_type.exit114.thread ], [ %108, %143 ], [ 0, %little2_checkPiTarget.exit ], [ %167, %165 ], [ 0, %152 ], [ 0, %37 ], [ 0, %43 ], [ 0, %46 ], [ 0, %48 ], [ -1, %4 ], [ -2, %44 ], [ -2, %unicode_byte_type.exit.thread198 ], [ -2, %81 ], [ -2, %unicode_byte_type.exit110.thread204 ], [ -1, %153 ], [ -1, %107 ], [ -1, %38 ], [ -2, %124 ], [ -2, %unicode_byte_type.exit114.thread210 ], [ -1, %131 ], [ -1, %146 ], [ -1, %76 ]
+.loopexit:                                        ; preds = %76, %124, %unicode_byte_type.exit114.thread216, %131, %146, %38, %107, %153, %unicode_byte_type.exit110.thread210, %81, %unicode_byte_type.exit.thread204, %44, %4, %.loopexit119, %165, %152, %143, %unicode_byte_type.exit114.thread, %little2_checkPiTarget.exit, %85, %83, %80, %75, %unicode_byte_type.exit.thread, %48, %46, %43, %37
+  %.0 = phi i32 [ 0, %unicode_byte_type.exit.thread ], [ 0, %.loopexit119 ], [ 0, %75 ], [ 0, %80 ], [ 0, %83 ], [ 0, %85 ], [ 0, %unicode_byte_type.exit114.thread ], [ %108, %143 ], [ 0, %little2_checkPiTarget.exit ], [ %167, %165 ], [ 0, %152 ], [ 0, %37 ], [ 0, %43 ], [ 0, %46 ], [ 0, %48 ], [ -1, %4 ], [ -2, %44 ], [ -2, %unicode_byte_type.exit.thread204 ], [ -2, %81 ], [ -2, %unicode_byte_type.exit110.thread210 ], [ -1, %153 ], [ -1, %107 ], [ -1, %38 ], [ -2, %124 ], [ -2, %unicode_byte_type.exit114.thread216 ], [ -1, %131 ], [ -1, %146 ], [ -1, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -11767,12 +11767,12 @@ define internal fastcc range(i32 -2, 29) i32 @little2_scanPercent(ptr noundef re
 9:                                                ; preds = %4
   %10 = getelementptr i8, ptr %1, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !8
-  switch i8 %11, label %unicode_byte_type.exit.thread106 [
+  switch i8 %11, label %unicode_byte_type.exit.thread109 [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread109
-    i8 -39, label %unicode_byte_type.exit.thread109
-    i8 -38, label %unicode_byte_type.exit.thread109
-    i8 -37, label %unicode_byte_type.exit.thread109
+    i8 -40, label %unicode_byte_type.exit.thread112
+    i8 -39, label %unicode_byte_type.exit.thread112
+    i8 -38, label %unicode_byte_type.exit.thread112
+    i8 -37, label %unicode_byte_type.exit.thread112
     i8 -36, label %.loopexit.sink.split
     i8 -35, label %.loopexit.sink.split
     i8 -34, label %.loopexit.sink.split
@@ -11783,7 +11783,7 @@ define internal fastcc range(i32 -2, 29) i32 @little2_scanPercent(ptr noundef re
 12:                                               ; preds = %9
   %13 = load i8, ptr %1, align 1, !tbaa !8
   %switch.i = icmp ugt i8 %13, -3
-  br i1 %switch.i, label %.loopexit.sink.split, label %unicode_byte_type.exit.thread106
+  br i1 %switch.i, label %.loopexit.sink.split, label %unicode_byte_type.exit.thread109
 
 unicode_byte_type.exit:                           ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -11792,18 +11792,18 @@ unicode_byte_type.exit:                           ; preds = %9
   %17 = getelementptr [256 x i8], ptr %14, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !8
   switch i8 %18, label %.loopexit.sink.split [
-    i8 29, label %unicode_byte_type.exit.thread106
+    i8 29, label %unicode_byte_type.exit.thread109
     i8 22, label %34
     i8 24, label %34
     i8 30, label %42
     i8 6, label %39
-    i8 7, label %unicode_byte_type.exit.thread109
+    i8 7, label %unicode_byte_type.exit.thread112
     i8 21, label %42
     i8 10, label %42
     i8 9, label %42
   ]
 
-unicode_byte_type.exit.thread106:                 ; preds = %9, %12, %unicode_byte_type.exit
+unicode_byte_type.exit.thread109:                 ; preds = %9, %12, %unicode_byte_type.exit
   %19 = zext i8 %11 to i64
   %20 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !8
@@ -11822,7 +11822,7 @@ unicode_byte_type.exit.thread106:                 ; preds = %9, %12, %unicode_by
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %.loopexit.sink.split, label %34
 
-34:                                               ; preds = %unicode_byte_type.exit.thread106, %unicode_byte_type.exit, %unicode_byte_type.exit
+34:                                               ; preds = %unicode_byte_type.exit.thread109, %unicode_byte_type.exit, %unicode_byte_type.exit
   %.05884 = getelementptr i8, ptr %1, i64 2
   %35 = ptrtoint ptr %.05884 to i64
   %36 = sub i64 %5, %35
@@ -11837,7 +11837,7 @@ unicode_byte_type.exit.thread106:                 ; preds = %9, %12, %unicode_by
   %40 = icmp eq i64 %7, 2
   br i1 %40, label %.loopexit, label %.loopexit.sink.split
 
-unicode_byte_type.exit.thread109:                 ; preds = %9, %9, %9, %9, %unicode_byte_type.exit
+unicode_byte_type.exit.thread112:                 ; preds = %9, %9, %9, %9, %unicode_byte_type.exit
   %41 = icmp samesign ult i64 %7, 4
   br i1 %41, label %.loopexit, label %.loopexit.sink.split
 
@@ -11850,12 +11850,12 @@ unicode_byte_type.exit.thread109:                 ; preds = %9, %9, %9, %9, %uni
   %.pn85 = phi ptr [ %1, %.lr.ph ], [ %.05886, %68 ]
   %45 = getelementptr i8, ptr %.pn85, i64 3
   %46 = load i8, ptr %45, align 1, !tbaa !8
-  switch i8 %46, label %unicode_byte_type.exit65.thread112 [
+  switch i8 %46, label %unicode_byte_type.exit65.thread115 [
     i8 0, label %unicode_byte_type.exit65
-    i8 -40, label %unicode_byte_type.exit65.thread115
-    i8 -39, label %unicode_byte_type.exit65.thread115
-    i8 -38, label %unicode_byte_type.exit65.thread115
-    i8 -37, label %unicode_byte_type.exit65.thread115
+    i8 -40, label %unicode_byte_type.exit65.thread118
+    i8 -39, label %unicode_byte_type.exit65.thread118
+    i8 -38, label %unicode_byte_type.exit65.thread118
+    i8 -37, label %unicode_byte_type.exit65.thread118
     i8 -36, label %.loopexit.sink.split
     i8 -35, label %.loopexit.sink.split
     i8 -34, label %.loopexit.sink.split
@@ -11866,7 +11866,7 @@ unicode_byte_type.exit.thread109:                 ; preds = %9, %9, %9, %9, %uni
 47:                                               ; preds = %43
   %48 = load i8, ptr %.05886, align 1, !tbaa !8
   %switch.i63 = icmp ugt i8 %48, -3
-  br i1 %switch.i63, label %.loopexit.sink.split, label %unicode_byte_type.exit65.thread112
+  br i1 %switch.i63, label %.loopexit.sink.split, label %unicode_byte_type.exit65.thread115
 
 unicode_byte_type.exit65:                         ; preds = %43
   %49 = load i8, ptr %.05886, align 1, !tbaa !8
@@ -11874,7 +11874,7 @@ unicode_byte_type.exit65:                         ; preds = %43
   %51 = getelementptr [256 x i8], ptr %38, i64 0, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !8
   switch i8 %52, label %.loopexit.sink.split [
-    i8 29, label %unicode_byte_type.exit65.thread112
+    i8 29, label %unicode_byte_type.exit65.thread115
     i8 22, label %68
     i8 24, label %68
     i8 25, label %68
@@ -11882,10 +11882,10 @@ unicode_byte_type.exit65:                         ; preds = %43
     i8 27, label %68
     i8 18, label %75
     i8 6, label %72
-    i8 7, label %unicode_byte_type.exit65.thread115
+    i8 7, label %unicode_byte_type.exit65.thread118
   ]
 
-unicode_byte_type.exit65.thread112:               ; preds = %43, %47, %unicode_byte_type.exit65
+unicode_byte_type.exit65.thread115:               ; preds = %43, %47, %unicode_byte_type.exit65
   %53 = zext i8 %46 to i64
   %54 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !8
@@ -11904,7 +11904,7 @@ unicode_byte_type.exit65.thread112:               ; preds = %43, %47, %unicode_b
   %.not62 = icmp eq i32 %67, 0
   br i1 %.not62, label %.loopexit.sink.split, label %68
 
-68:                                               ; preds = %unicode_byte_type.exit65.thread112, %unicode_byte_type.exit65, %unicode_byte_type.exit65, %unicode_byte_type.exit65, %unicode_byte_type.exit65, %unicode_byte_type.exit65
+68:                                               ; preds = %unicode_byte_type.exit65.thread115, %unicode_byte_type.exit65, %unicode_byte_type.exit65, %unicode_byte_type.exit65, %unicode_byte_type.exit65, %unicode_byte_type.exit65
   %.058 = getelementptr i8, ptr %.05886, i64 2
   %69 = ptrtoint ptr %.058 to i64
   %70 = sub i64 %5, %69
@@ -11915,7 +11915,7 @@ unicode_byte_type.exit65.thread112:               ; preds = %43, %47, %unicode_b
   %73 = icmp eq i64 %44, 2
   br i1 %73, label %.loopexit, label %.loopexit.sink.split
 
-unicode_byte_type.exit65.thread115:               ; preds = %43, %43, %43, %43, %unicode_byte_type.exit65
+unicode_byte_type.exit65.thread118:               ; preds = %43, %43, %43, %43, %unicode_byte_type.exit65
   %74 = icmp samesign ult i64 %44, 4
   br i1 %74, label %.loopexit, label %.loopexit.sink.split
 
@@ -11923,14 +11923,14 @@ unicode_byte_type.exit65.thread115:               ; preds = %43, %43, %43, %43, 
   %76 = getelementptr i8, ptr %.pn85, i64 4
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %unicode_byte_type.exit65, %47, %43, %43, %43, %43, %unicode_byte_type.exit65.thread112, %unicode_byte_type.exit65.thread115, %72, %unicode_byte_type.exit, %12, %9, %9, %9, %9, %unicode_byte_type.exit.thread109, %39, %unicode_byte_type.exit.thread106, %42, %75
-  %.05886.lcssa123.sink = phi ptr [ %76, %75 ], [ %1, %42 ], [ %1, %unicode_byte_type.exit.thread106 ], [ %1, %39 ], [ %1, %unicode_byte_type.exit.thread109 ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %12 ], [ %1, %unicode_byte_type.exit ], [ %.05886, %72 ], [ %.05886, %unicode_byte_type.exit65.thread115 ], [ %.05886, %unicode_byte_type.exit65.thread112 ], [ %.05886, %43 ], [ %.05886, %43 ], [ %.05886, %43 ], [ %.05886, %43 ], [ %.05886, %47 ], [ %.05886, %unicode_byte_type.exit65 ]
-  %.0.ph = phi i32 [ 28, %75 ], [ 22, %42 ], [ 0, %unicode_byte_type.exit.thread106 ], [ 0, %39 ], [ 0, %unicode_byte_type.exit.thread109 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %12 ], [ 0, %unicode_byte_type.exit ], [ 0, %72 ], [ 0, %unicode_byte_type.exit65.thread115 ], [ 0, %unicode_byte_type.exit65.thread112 ], [ 0, %43 ], [ 0, %43 ], [ 0, %43 ], [ 0, %43 ], [ 0, %47 ], [ 0, %unicode_byte_type.exit65 ]
-  store ptr %.05886.lcssa123.sink, ptr %3, align 8, !tbaa !3
+.loopexit.sink.split:                             ; preds = %unicode_byte_type.exit65, %47, %43, %43, %43, %43, %unicode_byte_type.exit65.thread115, %unicode_byte_type.exit65.thread118, %72, %unicode_byte_type.exit, %12, %9, %9, %9, %9, %unicode_byte_type.exit.thread112, %39, %unicode_byte_type.exit.thread109, %42, %75
+  %.05886.lcssa126.sink = phi ptr [ %76, %75 ], [ %1, %42 ], [ %1, %unicode_byte_type.exit.thread109 ], [ %1, %39 ], [ %1, %unicode_byte_type.exit.thread112 ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %12 ], [ %1, %unicode_byte_type.exit ], [ %.05886, %72 ], [ %.05886, %unicode_byte_type.exit65.thread118 ], [ %.05886, %unicode_byte_type.exit65.thread115 ], [ %.05886, %43 ], [ %.05886, %43 ], [ %.05886, %43 ], [ %.05886, %43 ], [ %.05886, %47 ], [ %.05886, %unicode_byte_type.exit65 ]
+  %.0.ph = phi i32 [ 28, %75 ], [ 22, %42 ], [ 0, %unicode_byte_type.exit.thread109 ], [ 0, %39 ], [ 0, %unicode_byte_type.exit.thread112 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %12 ], [ 0, %unicode_byte_type.exit ], [ 0, %72 ], [ 0, %unicode_byte_type.exit65.thread118 ], [ 0, %unicode_byte_type.exit65.thread115 ], [ 0, %43 ], [ 0, %43 ], [ 0, %43 ], [ 0, %43 ], [ 0, %47 ], [ 0, %unicode_byte_type.exit65 ]
+  store ptr %.05886.lcssa126.sink, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %68, %.loopexit.sink.split, %34, %unicode_byte_type.exit65.thread115, %72, %unicode_byte_type.exit.thread109, %39, %4
-  %.0 = phi i32 [ -1, %4 ], [ -2, %39 ], [ -2, %unicode_byte_type.exit.thread109 ], [ -2, %72 ], [ -2, %unicode_byte_type.exit65.thread115 ], [ -1, %34 ], [ %.0.ph, %.loopexit.sink.split ], [ -1, %68 ]
+.loopexit:                                        ; preds = %68, %.loopexit.sink.split, %34, %unicode_byte_type.exit65.thread118, %72, %unicode_byte_type.exit.thread112, %39, %4
+  %.0 = phi i32 [ -1, %4 ], [ -2, %39 ], [ -2, %unicode_byte_type.exit.thread112 ], [ -2, %72 ], [ -2, %unicode_byte_type.exit65.thread118 ], [ -1, %34 ], [ %.0.ph, %.loopexit.sink.split ], [ -1, %68 ]
   ret i32 %.0
 }
 
@@ -11945,12 +11945,12 @@ define internal fastcc range(i32 -20, 21) i32 @little2_scanPoundName(ptr noundef
 9:                                                ; preds = %4
   %10 = getelementptr i8, ptr %1, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !8
-  switch i8 %11, label %unicode_byte_type.exit.thread92 [
+  switch i8 %11, label %unicode_byte_type.exit.thread95 [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread95
-    i8 -39, label %unicode_byte_type.exit.thread95
-    i8 -38, label %unicode_byte_type.exit.thread95
-    i8 -37, label %unicode_byte_type.exit.thread95
+    i8 -40, label %unicode_byte_type.exit.thread98
+    i8 -39, label %unicode_byte_type.exit.thread98
+    i8 -38, label %unicode_byte_type.exit.thread98
+    i8 -37, label %unicode_byte_type.exit.thread98
     i8 -36, label %.loopexit.sink.split
     i8 -35, label %.loopexit.sink.split
     i8 -34, label %.loopexit.sink.split
@@ -11961,7 +11961,7 @@ define internal fastcc range(i32 -20, 21) i32 @little2_scanPoundName(ptr noundef
 12:                                               ; preds = %9
   %13 = load i8, ptr %1, align 1, !tbaa !8
   %switch.i = icmp ugt i8 %13, -3
-  br i1 %switch.i, label %.loopexit.sink.split, label %unicode_byte_type.exit.thread92
+  br i1 %switch.i, label %.loopexit.sink.split, label %unicode_byte_type.exit.thread95
 
 unicode_byte_type.exit:                           ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -11970,14 +11970,14 @@ unicode_byte_type.exit:                           ; preds = %9
   %17 = getelementptr [256 x i8], ptr %14, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !8
   switch i8 %18, label %.loopexit.sink.split [
-    i8 29, label %unicode_byte_type.exit.thread92
+    i8 29, label %unicode_byte_type.exit.thread95
     i8 22, label %34
     i8 24, label %34
-    i8 7, label %unicode_byte_type.exit.thread95
+    i8 7, label %unicode_byte_type.exit.thread98
     i8 6, label %39
   ]
 
-unicode_byte_type.exit.thread92:                  ; preds = %9, %12, %unicode_byte_type.exit
+unicode_byte_type.exit.thread95:                  ; preds = %9, %12, %unicode_byte_type.exit
   %19 = zext i8 %11 to i64
   %20 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !8
@@ -11996,7 +11996,7 @@ unicode_byte_type.exit.thread92:                  ; preds = %9, %12, %unicode_by
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %.loopexit.sink.split, label %34
 
-34:                                               ; preds = %unicode_byte_type.exit.thread92, %unicode_byte_type.exit, %unicode_byte_type.exit
+34:                                               ; preds = %unicode_byte_type.exit.thread95, %unicode_byte_type.exit, %unicode_byte_type.exit
   %.05676 = getelementptr i8, ptr %1, i64 2
   %35 = ptrtoint ptr %.05676 to i64
   %36 = sub i64 %5, %35
@@ -12011,7 +12011,7 @@ unicode_byte_type.exit.thread92:                  ; preds = %9, %12, %unicode_by
   %40 = icmp eq i64 %7, 2
   br i1 %40, label %.loopexit, label %.loopexit.sink.split
 
-unicode_byte_type.exit.thread95:                  ; preds = %unicode_byte_type.exit, %9, %9, %9, %9
+unicode_byte_type.exit.thread98:                  ; preds = %unicode_byte_type.exit, %9, %9, %9, %9
   %41 = icmp samesign ult i64 %7, 4
   br i1 %41, label %.loopexit, label %.loopexit.sink.split
 
@@ -12021,12 +12021,12 @@ unicode_byte_type.exit.thread95:                  ; preds = %unicode_byte_type.e
   %.pn77 = phi ptr [ %1, %.lr.ph ], [ %.05678, %67 ]
   %44 = getelementptr i8, ptr %.pn77, i64 3
   %45 = load i8, ptr %44, align 1, !tbaa !8
-  switch i8 %45, label %unicode_byte_type.exit63.thread98 [
+  switch i8 %45, label %unicode_byte_type.exit63.thread101 [
     i8 0, label %unicode_byte_type.exit63
-    i8 -40, label %unicode_byte_type.exit63.thread101
-    i8 -39, label %unicode_byte_type.exit63.thread101
-    i8 -38, label %unicode_byte_type.exit63.thread101
-    i8 -37, label %unicode_byte_type.exit63.thread101
+    i8 -40, label %unicode_byte_type.exit63.thread104
+    i8 -39, label %unicode_byte_type.exit63.thread104
+    i8 -38, label %unicode_byte_type.exit63.thread104
+    i8 -37, label %unicode_byte_type.exit63.thread104
     i8 -36, label %.loopexit.sink.split
     i8 -35, label %.loopexit.sink.split
     i8 -34, label %.loopexit.sink.split
@@ -12037,7 +12037,7 @@ unicode_byte_type.exit.thread95:                  ; preds = %unicode_byte_type.e
 46:                                               ; preds = %42
   %47 = load i8, ptr %.05678, align 1, !tbaa !8
   %switch.i61 = icmp ugt i8 %47, -3
-  br i1 %switch.i61, label %.loopexit.sink.split, label %unicode_byte_type.exit63.thread98
+  br i1 %switch.i61, label %.loopexit.sink.split, label %unicode_byte_type.exit63.thread101
 
 unicode_byte_type.exit63:                         ; preds = %42
   %48 = load i8, ptr %.05678, align 1, !tbaa !8
@@ -12045,24 +12045,24 @@ unicode_byte_type.exit63:                         ; preds = %42
   %50 = getelementptr [256 x i8], ptr %38, i64 0, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !8
   switch i8 %51, label %.loopexit.sink.split [
-    i8 29, label %unicode_byte_type.exit63.thread98
+    i8 29, label %unicode_byte_type.exit63.thread101
     i8 22, label %67
     i8 24, label %67
     i8 25, label %67
     i8 26, label %67
     i8 27, label %67
-    i8 36, label %.loopexit.sink.split.loopexit123
+    i8 36, label %.loopexit.sink.split.loopexit126
     i8 6, label %71
-    i8 7, label %unicode_byte_type.exit63.thread101
-    i8 9, label %.loopexit.sink.split.loopexit123
-    i8 10, label %.loopexit.sink.split.loopexit123
-    i8 21, label %.loopexit.sink.split.loopexit123
-    i8 32, label %.loopexit.sink.split.loopexit123
-    i8 11, label %.loopexit.sink.split.loopexit123
-    i8 30, label %.loopexit.sink.split.loopexit123
+    i8 7, label %unicode_byte_type.exit63.thread104
+    i8 9, label %.loopexit.sink.split.loopexit126
+    i8 10, label %.loopexit.sink.split.loopexit126
+    i8 21, label %.loopexit.sink.split.loopexit126
+    i8 32, label %.loopexit.sink.split.loopexit126
+    i8 11, label %.loopexit.sink.split.loopexit126
+    i8 30, label %.loopexit.sink.split.loopexit126
   ]
 
-unicode_byte_type.exit63.thread98:                ; preds = %42, %46, %unicode_byte_type.exit63
+unicode_byte_type.exit63.thread101:               ; preds = %42, %46, %unicode_byte_type.exit63
   %52 = zext i8 %45 to i64
   %53 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !8
@@ -12081,7 +12081,7 @@ unicode_byte_type.exit63.thread98:                ; preds = %42, %46, %unicode_b
   %.not60 = icmp eq i32 %66, 0
   br i1 %.not60, label %.loopexit.sink.split, label %67
 
-67:                                               ; preds = %unicode_byte_type.exit63.thread98, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63
+67:                                               ; preds = %unicode_byte_type.exit63.thread101, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63
   %.056 = getelementptr i8, ptr %.05678, i64 2
   %68 = ptrtoint ptr %.056 to i64
   %69 = sub i64 %5, %68
@@ -12092,21 +12092,21 @@ unicode_byte_type.exit63.thread98:                ; preds = %42, %46, %unicode_b
   %72 = icmp eq i64 %43, 2
   br i1 %72, label %.loopexit, label %.loopexit.sink.split
 
-unicode_byte_type.exit63.thread101:               ; preds = %42, %42, %42, %42, %unicode_byte_type.exit63
+unicode_byte_type.exit63.thread104:               ; preds = %42, %42, %42, %42, %unicode_byte_type.exit63
   %73 = icmp samesign ult i64 %43, 4
   br i1 %73, label %.loopexit, label %.loopexit.sink.split
 
-.loopexit.sink.split.loopexit123:                 ; preds = %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63
+.loopexit.sink.split.loopexit126:                 ; preds = %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %unicode_byte_type.exit63, %46, %42, %42, %42, %42, %unicode_byte_type.exit63.thread98, %.loopexit.sink.split.loopexit123, %unicode_byte_type.exit63.thread101, %71, %unicode_byte_type.exit, %12, %9, %9, %9, %9, %unicode_byte_type.exit.thread95, %39, %unicode_byte_type.exit.thread92
-  %.05678.lcssa103.sink = phi ptr [ %1, %unicode_byte_type.exit.thread92 ], [ %1, %39 ], [ %1, %unicode_byte_type.exit.thread95 ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %12 ], [ %1, %unicode_byte_type.exit ], [ %.05678, %71 ], [ %.05678, %unicode_byte_type.exit63.thread101 ], [ %.05678, %.loopexit.sink.split.loopexit123 ], [ %.05678, %unicode_byte_type.exit63.thread98 ], [ %.05678, %42 ], [ %.05678, %42 ], [ %.05678, %42 ], [ %.05678, %42 ], [ %.05678, %46 ], [ %.05678, %unicode_byte_type.exit63 ]
-  %.0.ph = phi i32 [ 0, %unicode_byte_type.exit.thread92 ], [ 0, %39 ], [ 0, %unicode_byte_type.exit.thread95 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %12 ], [ 0, %unicode_byte_type.exit ], [ 0, %71 ], [ 0, %unicode_byte_type.exit63.thread101 ], [ 20, %.loopexit.sink.split.loopexit123 ], [ 0, %unicode_byte_type.exit63.thread98 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %46 ], [ 0, %unicode_byte_type.exit63 ]
-  store ptr %.05678.lcssa103.sink, ptr %3, align 8, !tbaa !3
+.loopexit.sink.split:                             ; preds = %unicode_byte_type.exit63, %46, %42, %42, %42, %42, %unicode_byte_type.exit63.thread101, %.loopexit.sink.split.loopexit126, %unicode_byte_type.exit63.thread104, %71, %unicode_byte_type.exit, %12, %9, %9, %9, %9, %unicode_byte_type.exit.thread98, %39, %unicode_byte_type.exit.thread95
+  %.05678.lcssa106.sink = phi ptr [ %1, %unicode_byte_type.exit.thread95 ], [ %1, %39 ], [ %1, %unicode_byte_type.exit.thread98 ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %12 ], [ %1, %unicode_byte_type.exit ], [ %.05678, %71 ], [ %.05678, %unicode_byte_type.exit63.thread104 ], [ %.05678, %.loopexit.sink.split.loopexit126 ], [ %.05678, %unicode_byte_type.exit63.thread101 ], [ %.05678, %42 ], [ %.05678, %42 ], [ %.05678, %42 ], [ %.05678, %42 ], [ %.05678, %46 ], [ %.05678, %unicode_byte_type.exit63 ]
+  %.0.ph = phi i32 [ 0, %unicode_byte_type.exit.thread95 ], [ 0, %39 ], [ 0, %unicode_byte_type.exit.thread98 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %12 ], [ 0, %unicode_byte_type.exit ], [ 0, %71 ], [ 0, %unicode_byte_type.exit63.thread104 ], [ 20, %.loopexit.sink.split.loopexit126 ], [ 0, %unicode_byte_type.exit63.thread101 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %46 ], [ 0, %unicode_byte_type.exit63 ]
+  store ptr %.05678.lcssa106.sink, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %67, %.loopexit.sink.split, %34, %unicode_byte_type.exit63.thread101, %71, %unicode_byte_type.exit.thread95, %39, %4
-  %.0 = phi i32 [ -1, %4 ], [ -2, %39 ], [ -2, %unicode_byte_type.exit.thread95 ], [ -2, %71 ], [ -2, %unicode_byte_type.exit63.thread101 ], [ -20, %34 ], [ %.0.ph, %.loopexit.sink.split ], [ -20, %67 ]
+.loopexit:                                        ; preds = %67, %.loopexit.sink.split, %34, %unicode_byte_type.exit63.thread104, %71, %unicode_byte_type.exit.thread98, %39, %4
+  %.0 = phi i32 [ -1, %4 ], [ -2, %39 ], [ -2, %unicode_byte_type.exit.thread98 ], [ -2, %71 ], [ -2, %unicode_byte_type.exit63.thread104 ], [ -20, %34 ], [ %.0.ph, %.loopexit.sink.split ], [ -20, %67 ]
   ret i32 %.0
 }
 
@@ -12145,12 +12145,12 @@ define internal fastcc range(i32 -2, 14) i32 @little2_scanComment(ptr noundef re
   %.04044 = phi ptr [ %17, %.lr.ph ], [ %.1, %67 ]
   %24 = getelementptr i8, ptr %.04044, i64 1
   %25 = load i8, ptr %24, align 1, !tbaa !8
-  switch i8 %25, label %unicode_byte_type.exit.thread54 [
+  switch i8 %25, label %unicode_byte_type.exit.thread56 [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread57
-    i8 -39, label %unicode_byte_type.exit.thread57
-    i8 -38, label %unicode_byte_type.exit.thread57
-    i8 -37, label %unicode_byte_type.exit.thread57
+    i8 -40, label %unicode_byte_type.exit.thread59
+    i8 -39, label %unicode_byte_type.exit.thread59
+    i8 -38, label %unicode_byte_type.exit.thread59
+    i8 -37, label %unicode_byte_type.exit.thread59
     i8 -36, label %.loopexit.sink.split
     i8 -35, label %.loopexit.sink.split
     i8 -34, label %.loopexit.sink.split
@@ -12161,17 +12161,17 @@ define internal fastcc range(i32 -2, 14) i32 @little2_scanComment(ptr noundef re
 26:                                               ; preds = %22
   %27 = load i8, ptr %.04044, align 1, !tbaa !8
   %switch.i = icmp ugt i8 %27, -3
-  br i1 %switch.i, label %.loopexit.sink.split, label %unicode_byte_type.exit.thread54
+  br i1 %switch.i, label %.loopexit.sink.split, label %unicode_byte_type.exit.thread56
 
 unicode_byte_type.exit:                           ; preds = %22
   %28 = load i8, ptr %.04044, align 1, !tbaa !8
   %29 = zext i8 %28 to i64
   %30 = getelementptr [256 x i8], ptr %21, i64 0, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !8
-  switch i8 %31, label %unicode_byte_type.exit.thread54 [
+  switch i8 %31, label %unicode_byte_type.exit.thread56 [
     i8 5, label %32
     i8 6, label %34
-    i8 7, label %unicode_byte_type.exit.thread57
+    i8 7, label %unicode_byte_type.exit.thread59
     i8 0, label %.loopexit.sink.split
     i8 1, label %.loopexit.sink.split
     i8 8, label %.loopexit.sink.split
@@ -12190,11 +12190,11 @@ unicode_byte_type.exit:                           ; preds = %22
   %37 = getelementptr i8, ptr %.04044, i64 3
   br label %67
 
-unicode_byte_type.exit.thread57:                  ; preds = %22, %22, %22, %22, %unicode_byte_type.exit
+unicode_byte_type.exit.thread59:                  ; preds = %22, %22, %22, %22, %unicode_byte_type.exit
   %38 = icmp samesign ult i64 %23, 4
   br i1 %38, label %.loopexit, label %39
 
-39:                                               ; preds = %unicode_byte_type.exit.thread57
+39:                                               ; preds = %unicode_byte_type.exit.thread59
   %40 = getelementptr i8, ptr %.04044, i64 4
   br label %67
 
@@ -12234,15 +12234,15 @@ unicode_byte_type.exit.thread57:                  ; preds = %22, %22, %22, %22, 
   %64 = icmp eq i8 %63, 62
   %65 = getelementptr i8, ptr %.04044, i64 6
   %spec.select = select i1 %64, ptr %65, ptr %54
-  %spec.select61 = select i1 %64, i32 13, i32 0
+  %spec.select63 = select i1 %64, i32 13, i32 0
   br label %.loopexit.sink.split
 
-unicode_byte_type.exit.thread54:                  ; preds = %22, %26, %unicode_byte_type.exit
+unicode_byte_type.exit.thread56:                  ; preds = %22, %26, %unicode_byte_type.exit
   %66 = getelementptr i8, ptr %.04044, i64 2
   br label %67
 
-67:                                               ; preds = %46, %50, %unicode_byte_type.exit.thread54, %39, %36, %32
-  %.1 = phi ptr [ %66, %unicode_byte_type.exit.thread54 ], [ %33, %32 ], [ %37, %36 ], [ %40, %39 ], [ %42, %50 ], [ %42, %46 ]
+67:                                               ; preds = %46, %50, %unicode_byte_type.exit.thread56, %39, %36, %32
+  %.1 = phi ptr [ %66, %unicode_byte_type.exit.thread56 ], [ %33, %32 ], [ %37, %36 ], [ %40, %39 ], [ %42, %50 ], [ %42, %46 ]
   %68 = ptrtoint ptr %.1 to i64
   %69 = sub i64 %5, %68
   %70 = icmp sgt i64 %69, 1
@@ -12250,12 +12250,12 @@ unicode_byte_type.exit.thread54:                  ; preds = %22, %26, %unicode_b
 
 .loopexit.sink.split:                             ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %26, %22, %22, %22, %22, %62, %58, %9, %13
   %.sink = phi ptr [ %1, %13 ], [ %1, %9 ], [ %54, %58 ], [ %spec.select, %62 ], [ %.04044, %22 ], [ %.04044, %22 ], [ %.04044, %22 ], [ %.04044, %22 ], [ %.04044, %26 ], [ %.04044, %unicode_byte_type.exit ], [ %.04044, %unicode_byte_type.exit ], [ %.04044, %unicode_byte_type.exit ]
-  %.0.ph = phi i32 [ 0, %13 ], [ 0, %9 ], [ 0, %58 ], [ %spec.select61, %62 ], [ 0, %22 ], [ 0, %22 ], [ 0, %22 ], [ 0, %22 ], [ 0, %26 ], [ 0, %unicode_byte_type.exit ], [ 0, %unicode_byte_type.exit ], [ 0, %unicode_byte_type.exit ]
+  %.0.ph = phi i32 [ 0, %13 ], [ 0, %9 ], [ 0, %58 ], [ %spec.select63, %62 ], [ 0, %22 ], [ 0, %22 ], [ 0, %22 ], [ 0, %22 ], [ 0, %26 ], [ 0, %unicode_byte_type.exit ], [ 0, %unicode_byte_type.exit ], [ 0, %unicode_byte_type.exit ]
   store ptr %.sink, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %34, %unicode_byte_type.exit.thread57, %41, %67, %.loopexit.sink.split, %16, %4, %53
-  %.0 = phi i32 [ -1, %53 ], [ -1, %4 ], [ -1, %16 ], [ %.0.ph, %.loopexit.sink.split ], [ -2, %34 ], [ -2, %unicode_byte_type.exit.thread57 ], [ -1, %41 ], [ -1, %67 ]
+.loopexit:                                        ; preds = %34, %unicode_byte_type.exit.thread59, %41, %67, %.loopexit.sink.split, %16, %4, %53
+  %.0 = phi i32 [ -1, %53 ], [ -1, %4 ], [ -1, %16 ], [ %.0.ph, %.loopexit.sink.split ], [ -2, %34 ], [ -2, %unicode_byte_type.exit.thread59 ], [ -1, %41 ], [ -1, %67 ]
   ret i32 %.0
 }
 
@@ -12344,12 +12344,12 @@ define internal fastcc range(i32 -2, 11) i32 @little2_scanRef(ptr noundef readon
 9:                                                ; preds = %4
   %10 = getelementptr i8, ptr %1, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !8
-  switch i8 %11, label %unicode_byte_type.exit.thread131 [
+  switch i8 %11, label %unicode_byte_type.exit.thread135 [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread134
-    i8 -39, label %unicode_byte_type.exit.thread134
-    i8 -38, label %unicode_byte_type.exit.thread134
-    i8 -37, label %unicode_byte_type.exit.thread134
+    i8 -40, label %unicode_byte_type.exit.thread138
+    i8 -39, label %unicode_byte_type.exit.thread138
+    i8 -38, label %unicode_byte_type.exit.thread138
+    i8 -37, label %unicode_byte_type.exit.thread138
     i8 -36, label %little2_scanCharRef.exit.sink.split
     i8 -35, label %little2_scanCharRef.exit.sink.split
     i8 -34, label %little2_scanCharRef.exit.sink.split
@@ -12360,7 +12360,7 @@ define internal fastcc range(i32 -2, 11) i32 @little2_scanRef(ptr noundef readon
 12:                                               ; preds = %9
   %13 = load i8, ptr %1, align 1, !tbaa !8
   %switch.i = icmp ugt i8 %13, -3
-  br i1 %switch.i, label %little2_scanCharRef.exit.sink.split, label %unicode_byte_type.exit.thread131
+  br i1 %switch.i, label %little2_scanCharRef.exit.sink.split, label %unicode_byte_type.exit.thread135
 
 unicode_byte_type.exit:                           ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -12369,15 +12369,15 @@ unicode_byte_type.exit:                           ; preds = %9
   %17 = getelementptr [256 x i8], ptr %14, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !8
   switch i8 %18, label %little2_scanCharRef.exit.sink.split [
-    i8 29, label %unicode_byte_type.exit.thread131
+    i8 29, label %unicode_byte_type.exit.thread135
     i8 22, label %34
     i8 24, label %34
     i8 19, label %42
     i8 6, label %39
-    i8 7, label %unicode_byte_type.exit.thread134
+    i8 7, label %unicode_byte_type.exit.thread138
   ]
 
-unicode_byte_type.exit.thread131:                 ; preds = %9, %12, %unicode_byte_type.exit
+unicode_byte_type.exit.thread135:                 ; preds = %9, %12, %unicode_byte_type.exit
   %19 = zext i8 %11 to i64
   %20 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !8
@@ -12396,7 +12396,7 @@ unicode_byte_type.exit.thread131:                 ; preds = %9, %12, %unicode_by
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %little2_scanCharRef.exit.sink.split, label %34
 
-34:                                               ; preds = %unicode_byte_type.exit.thread131, %unicode_byte_type.exit, %unicode_byte_type.exit
+34:                                               ; preds = %unicode_byte_type.exit.thread135, %unicode_byte_type.exit, %unicode_byte_type.exit
   %.06098 = getelementptr i8, ptr %1, i64 2
   %35 = ptrtoint ptr %.06098 to i64
   %36 = sub i64 %5, %35
@@ -12411,7 +12411,7 @@ unicode_byte_type.exit.thread131:                 ; preds = %9, %12, %unicode_by
   %40 = icmp eq i64 %7, 2
   br i1 %40, label %little2_scanCharRef.exit, label %little2_scanCharRef.exit.sink.split
 
-unicode_byte_type.exit.thread134:                 ; preds = %9, %9, %9, %9, %unicode_byte_type.exit
+unicode_byte_type.exit.thread138:                 ; preds = %9, %9, %9, %9, %unicode_byte_type.exit
   %41 = icmp samesign ult i64 %7, 4
   br i1 %41, label %little2_scanCharRef.exit, label %little2_scanCharRef.exit.sink.split
 
@@ -12512,8 +12512,8 @@ unicode_byte_type.exit.i:                         ; preds = %50
 90:                                               ; preds = %.preheader.i
   %91 = getelementptr i8, ptr %.pn.i, i64 3
   %92 = load i8, ptr %91, align 1, !tbaa !8
-  %cond67.i = icmp eq i8 %92, 0
-  br i1 %cond67.i, label %unicode_byte_type.exit32.i, label %little2_scanCharRef.exit.sink.split
+  %cond68.i = icmp eq i8 %92, 0
+  br i1 %cond68.i, label %unicode_byte_type.exit32.i, label %little2_scanCharRef.exit.sink.split
 
 unicode_byte_type.exit32.i:                       ; preds = %90
   %93 = load i8, ptr %.028.i, align 1, !tbaa !8
@@ -12535,12 +12535,12 @@ unicode_byte_type.exit32.i:                       ; preds = %90
   %.pn99 = phi ptr [ %1, %.lr.ph ], [ %.060100, %124 ]
   %101 = getelementptr i8, ptr %.pn99, i64 3
   %102 = load i8, ptr %101, align 1, !tbaa !8
-  switch i8 %102, label %unicode_byte_type.exit68.thread137 [
+  switch i8 %102, label %unicode_byte_type.exit68.thread141 [
     i8 0, label %unicode_byte_type.exit68
-    i8 -40, label %unicode_byte_type.exit68.thread140
-    i8 -39, label %unicode_byte_type.exit68.thread140
-    i8 -38, label %unicode_byte_type.exit68.thread140
-    i8 -37, label %unicode_byte_type.exit68.thread140
+    i8 -40, label %unicode_byte_type.exit68.thread144
+    i8 -39, label %unicode_byte_type.exit68.thread144
+    i8 -38, label %unicode_byte_type.exit68.thread144
+    i8 -37, label %unicode_byte_type.exit68.thread144
     i8 -36, label %little2_scanCharRef.exit.sink.split
     i8 -35, label %little2_scanCharRef.exit.sink.split
     i8 -34, label %little2_scanCharRef.exit.sink.split
@@ -12551,7 +12551,7 @@ unicode_byte_type.exit32.i:                       ; preds = %90
 103:                                              ; preds = %99
   %104 = load i8, ptr %.060100, align 1, !tbaa !8
   %switch.i66 = icmp ugt i8 %104, -3
-  br i1 %switch.i66, label %little2_scanCharRef.exit.sink.split, label %unicode_byte_type.exit68.thread137
+  br i1 %switch.i66, label %little2_scanCharRef.exit.sink.split, label %unicode_byte_type.exit68.thread141
 
 unicode_byte_type.exit68:                         ; preds = %99
   %105 = load i8, ptr %.060100, align 1, !tbaa !8
@@ -12559,7 +12559,7 @@ unicode_byte_type.exit68:                         ; preds = %99
   %107 = getelementptr [256 x i8], ptr %38, i64 0, i64 %106
   %108 = load i8, ptr %107, align 1, !tbaa !8
   switch i8 %108, label %little2_scanCharRef.exit.sink.split [
-    i8 29, label %unicode_byte_type.exit68.thread137
+    i8 29, label %unicode_byte_type.exit68.thread141
     i8 22, label %124
     i8 24, label %124
     i8 25, label %124
@@ -12567,10 +12567,10 @@ unicode_byte_type.exit68:                         ; preds = %99
     i8 27, label %124
     i8 18, label %131
     i8 6, label %128
-    i8 7, label %unicode_byte_type.exit68.thread140
+    i8 7, label %unicode_byte_type.exit68.thread144
   ]
 
-unicode_byte_type.exit68.thread137:               ; preds = %99, %103, %unicode_byte_type.exit68
+unicode_byte_type.exit68.thread141:               ; preds = %99, %103, %unicode_byte_type.exit68
   %109 = zext i8 %102 to i64
   %110 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %109
   %111 = load i8, ptr %110, align 1, !tbaa !8
@@ -12589,7 +12589,7 @@ unicode_byte_type.exit68.thread137:               ; preds = %99, %103, %unicode_
   %.not64 = icmp eq i32 %123, 0
   br i1 %.not64, label %little2_scanCharRef.exit.sink.split, label %124
 
-124:                                              ; preds = %unicode_byte_type.exit68.thread137, %unicode_byte_type.exit68, %unicode_byte_type.exit68, %unicode_byte_type.exit68, %unicode_byte_type.exit68, %unicode_byte_type.exit68
+124:                                              ; preds = %unicode_byte_type.exit68.thread141, %unicode_byte_type.exit68, %unicode_byte_type.exit68, %unicode_byte_type.exit68, %unicode_byte_type.exit68, %unicode_byte_type.exit68
   %.060 = getelementptr i8, ptr %.060100, i64 2
   %125 = ptrtoint ptr %.060 to i64
   %126 = sub i64 %5, %125
@@ -12600,7 +12600,7 @@ unicode_byte_type.exit68.thread137:               ; preds = %99, %103, %unicode_
   %129 = icmp eq i64 %100, 2
   br i1 %129, label %little2_scanCharRef.exit, label %little2_scanCharRef.exit.sink.split
 
-unicode_byte_type.exit68.thread140:               ; preds = %99, %99, %99, %99, %unicode_byte_type.exit68
+unicode_byte_type.exit68.thread144:               ; preds = %99, %99, %99, %99, %unicode_byte_type.exit68
   %130 = icmp samesign ult i64 %100, 4
   br i1 %130, label %little2_scanCharRef.exit, label %little2_scanCharRef.exit.sink.split
 
@@ -12608,14 +12608,14 @@ unicode_byte_type.exit68.thread140:               ; preds = %99, %99, %99, %99, 
   %132 = getelementptr i8, ptr %.pn99, i64 4
   br label %little2_scanCharRef.exit.sink.split
 
-little2_scanCharRef.exit.sink.split:              ; preds = %90, %unicode_byte_type.exit32.i, %.lr.ph.i.i, %unicode_byte_type.exit26.i.i, %unicode_byte_type.exit68, %103, %99, %99, %99, %99, %unicode_byte_type.exit68.thread137, %unicode_byte_type.exit68.thread140, %128, %unicode_byte_type.exit, %12, %9, %9, %9, %9, %47, %58, %unicode_byte_type.exit.i.i, %77, %unicode_byte_type.exit.i, %97, %unicode_byte_type.exit.thread134, %39, %unicode_byte_type.exit.thread131, %131
-  %.0223346.sink.i.sink.i.sink = phi ptr [ %132, %131 ], [ %1, %unicode_byte_type.exit.thread131 ], [ %1, %39 ], [ %1, %unicode_byte_type.exit.thread134 ], [ %98, %97 ], [ %78, %77 ], [ %54, %58 ], [ %54, %unicode_byte_type.exit.i.i ], [ %43, %47 ], [ %43, %unicode_byte_type.exit.i ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %12 ], [ %1, %unicode_byte_type.exit ], [ %.060100, %128 ], [ %.060100, %unicode_byte_type.exit68.thread140 ], [ %.060100, %unicode_byte_type.exit68.thread137 ], [ %.060100, %99 ], [ %.060100, %99 ], [ %.060100, %99 ], [ %.060100, %99 ], [ %.060100, %103 ], [ %.060100, %unicode_byte_type.exit68 ], [ %.02233.i.i, %unicode_byte_type.exit26.i.i ], [ %.02233.i.i, %.lr.ph.i.i ], [ %.028.i, %unicode_byte_type.exit32.i ], [ %.028.i, %90 ]
-  %.0.ph = phi i32 [ 9, %131 ], [ 0, %unicode_byte_type.exit.thread131 ], [ 0, %39 ], [ 0, %unicode_byte_type.exit.thread134 ], [ 10, %97 ], [ 10, %77 ], [ 0, %58 ], [ 0, %unicode_byte_type.exit.i.i ], [ 0, %47 ], [ 0, %unicode_byte_type.exit.i ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %12 ], [ 0, %unicode_byte_type.exit ], [ 0, %128 ], [ 0, %unicode_byte_type.exit68.thread140 ], [ 0, %unicode_byte_type.exit68.thread137 ], [ 0, %99 ], [ 0, %99 ], [ 0, %99 ], [ 0, %99 ], [ 0, %103 ], [ 0, %unicode_byte_type.exit68 ], [ 0, %unicode_byte_type.exit26.i.i ], [ 0, %.lr.ph.i.i ], [ 0, %unicode_byte_type.exit32.i ], [ 0, %90 ]
+little2_scanCharRef.exit.sink.split:              ; preds = %90, %unicode_byte_type.exit32.i, %.lr.ph.i.i, %unicode_byte_type.exit26.i.i, %unicode_byte_type.exit68, %103, %99, %99, %99, %99, %unicode_byte_type.exit68.thread141, %unicode_byte_type.exit68.thread144, %128, %unicode_byte_type.exit, %12, %9, %9, %9, %9, %47, %58, %unicode_byte_type.exit.i.i, %77, %unicode_byte_type.exit.i, %97, %unicode_byte_type.exit.thread138, %39, %unicode_byte_type.exit.thread135, %131
+  %.0223346.sink.i.sink.i.sink = phi ptr [ %132, %131 ], [ %1, %unicode_byte_type.exit.thread135 ], [ %1, %39 ], [ %1, %unicode_byte_type.exit.thread138 ], [ %98, %97 ], [ %78, %77 ], [ %54, %58 ], [ %54, %unicode_byte_type.exit.i.i ], [ %43, %47 ], [ %43, %unicode_byte_type.exit.i ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %12 ], [ %1, %unicode_byte_type.exit ], [ %.060100, %128 ], [ %.060100, %unicode_byte_type.exit68.thread144 ], [ %.060100, %unicode_byte_type.exit68.thread141 ], [ %.060100, %99 ], [ %.060100, %99 ], [ %.060100, %99 ], [ %.060100, %99 ], [ %.060100, %103 ], [ %.060100, %unicode_byte_type.exit68 ], [ %.02233.i.i, %unicode_byte_type.exit26.i.i ], [ %.02233.i.i, %.lr.ph.i.i ], [ %.028.i, %unicode_byte_type.exit32.i ], [ %.028.i, %90 ]
+  %.0.ph = phi i32 [ 9, %131 ], [ 0, %unicode_byte_type.exit.thread135 ], [ 0, %39 ], [ 0, %unicode_byte_type.exit.thread138 ], [ 10, %97 ], [ 10, %77 ], [ 0, %58 ], [ 0, %unicode_byte_type.exit.i.i ], [ 0, %47 ], [ 0, %unicode_byte_type.exit.i ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %12 ], [ 0, %unicode_byte_type.exit ], [ 0, %128 ], [ 0, %unicode_byte_type.exit68.thread144 ], [ 0, %unicode_byte_type.exit68.thread141 ], [ 0, %99 ], [ 0, %99 ], [ 0, %99 ], [ 0, %99 ], [ 0, %103 ], [ 0, %unicode_byte_type.exit68 ], [ 0, %unicode_byte_type.exit26.i.i ], [ 0, %.lr.ph.i.i ], [ 0, %unicode_byte_type.exit32.i ], [ 0, %90 ]
   store ptr %.0223346.sink.i.sink.i.sink, ptr %3, align 8, !tbaa !3
   br label %little2_scanCharRef.exit
 
-little2_scanCharRef.exit:                         ; preds = %.preheader.i, %79, %124, %little2_scanCharRef.exit.sink.split, %34, %.preheader.i.i, %53, %42, %unicode_byte_type.exit68.thread140, %128, %unicode_byte_type.exit.thread134, %39, %4
-  %.0 = phi i32 [ -1, %4 ], [ -2, %39 ], [ -2, %unicode_byte_type.exit.thread134 ], [ -2, %128 ], [ -2, %unicode_byte_type.exit68.thread140 ], [ -1, %42 ], [ -1, %53 ], [ -1, %.preheader.i.i ], [ -1, %34 ], [ %.0.ph, %little2_scanCharRef.exit.sink.split ], [ -1, %124 ], [ -1, %79 ], [ -1, %.preheader.i ]
+little2_scanCharRef.exit:                         ; preds = %.preheader.i, %79, %124, %little2_scanCharRef.exit.sink.split, %34, %.preheader.i.i, %53, %42, %unicode_byte_type.exit68.thread144, %128, %unicode_byte_type.exit.thread138, %39, %4
+  %.0 = phi i32 [ -1, %4 ], [ -2, %39 ], [ -2, %unicode_byte_type.exit.thread138 ], [ -2, %128 ], [ -2, %unicode_byte_type.exit68.thread144 ], [ -1, %42 ], [ -1, %53 ], [ -1, %.preheader.i.i ], [ -1, %34 ], [ %.0.ph, %little2_scanCharRef.exit.sink.split ], [ -1, %124 ], [ -1, %79 ], [ -1, %.preheader.i ]
   ret i32 %.0
 }
 
@@ -12639,12 +12639,12 @@ define internal fastcc range(i32 -2, 4) i32 @little2_scanAtts(ptr noundef readon
   %.072335 = phi i32 [ 0, %.lr.ph336 ], [ %.173, %227 ]
   %13 = getelementptr i8, ptr %.promoted, i64 1
   %14 = load i8, ptr %13, align 1, !tbaa !8
-  switch i8 %14, label %unicode_byte_type.exit.thread512 [
+  switch i8 %14, label %unicode_byte_type.exit.thread520 [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread515
-    i8 -39, label %unicode_byte_type.exit.thread515
-    i8 -38, label %unicode_byte_type.exit.thread515
-    i8 -37, label %unicode_byte_type.exit.thread515
+    i8 -40, label %unicode_byte_type.exit.thread523
+    i8 -39, label %unicode_byte_type.exit.thread523
+    i8 -38, label %unicode_byte_type.exit.thread523
+    i8 -37, label %unicode_byte_type.exit.thread523
     i8 -36, label %.thread.sink.split
     i8 -35, label %.thread.sink.split
     i8 -34, label %.thread.sink.split
@@ -12655,7 +12655,7 @@ define internal fastcc range(i32 -2, 4) i32 @little2_scanAtts(ptr noundef readon
 15:                                               ; preds = %11
   %16 = load i8, ptr %.promoted, align 1, !tbaa !8
   %switch.i = icmp ugt i8 %16, -3
-  br i1 %switch.i, label %.thread.sink.split, label %unicode_byte_type.exit.thread512
+  br i1 %switch.i, label %.thread.sink.split, label %unicode_byte_type.exit.thread520
 
 unicode_byte_type.exit:                           ; preds = %11
   %17 = load i8, ptr %.promoted, align 1, !tbaa !8
@@ -12663,7 +12663,7 @@ unicode_byte_type.exit:                           ; preds = %11
   %19 = getelementptr [256 x i8], ptr %10, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !8
   switch i8 %20, label %.thread.sink.split [
-    i8 29, label %unicode_byte_type.exit.thread512
+    i8 29, label %unicode_byte_type.exit.thread520
     i8 22, label %36
     i8 24, label %36
     i8 25, label %36
@@ -12671,14 +12671,14 @@ unicode_byte_type.exit:                           ; preds = %11
     i8 27, label %36
     i8 14, label %.thread111
     i8 6, label %38
-    i8 7, label %unicode_byte_type.exit.thread515
+    i8 7, label %unicode_byte_type.exit.thread523
     i8 23, label %41
     i8 21, label %76
     i8 9, label %76
     i8 10, label %76
   ]
 
-unicode_byte_type.exit.thread512:                 ; preds = %11, %15, %unicode_byte_type.exit
+unicode_byte_type.exit.thread520:                 ; preds = %11, %15, %unicode_byte_type.exit
   %21 = zext i8 %14 to i64
   %22 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !8
@@ -12697,7 +12697,7 @@ unicode_byte_type.exit.thread512:                 ; preds = %11, %15, %unicode_b
   %.not90 = icmp eq i32 %35, 0
   br i1 %.not90, label %.thread.sink.split, label %36
 
-36:                                               ; preds = %unicode_byte_type.exit.thread512, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
+36:                                               ; preds = %unicode_byte_type.exit.thread520, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
   %37 = getelementptr i8, ptr %.promoted, i64 2
   br label %227
 
@@ -12705,7 +12705,7 @@ unicode_byte_type.exit.thread512:                 ; preds = %11, %15, %unicode_b
   %39 = icmp eq i64 %12, 2
   br i1 %39, label %.thread, label %.thread.sink.split
 
-unicode_byte_type.exit.thread515:                 ; preds = %11, %11, %11, %11, %unicode_byte_type.exit
+unicode_byte_type.exit.thread523:                 ; preds = %11, %11, %11, %11, %unicode_byte_type.exit
   %40 = icmp samesign ult i64 %12, 4
   br i1 %40, label %.thread, label %.thread.sink.split
 
@@ -12724,12 +12724,12 @@ unicode_byte_type.exit.thread515:                 ; preds = %11, %11, %11, %11, 
 47:                                               ; preds = %42
   %48 = getelementptr i8, ptr %.promoted, i64 3
   %49 = load i8, ptr %48, align 1, !tbaa !8
-  switch i8 %49, label %unicode_byte_type.exit93.thread518 [
+  switch i8 %49, label %unicode_byte_type.exit93.thread526 [
     i8 0, label %unicode_byte_type.exit93
-    i8 -40, label %unicode_byte_type.exit93.thread521
-    i8 -39, label %unicode_byte_type.exit93.thread521
-    i8 -38, label %unicode_byte_type.exit93.thread521
-    i8 -37, label %unicode_byte_type.exit93.thread521
+    i8 -40, label %unicode_byte_type.exit93.thread529
+    i8 -39, label %unicode_byte_type.exit93.thread529
+    i8 -38, label %unicode_byte_type.exit93.thread529
+    i8 -37, label %unicode_byte_type.exit93.thread529
     i8 -36, label %.thread.sink.split
     i8 -35, label %.thread.sink.split
     i8 -34, label %.thread.sink.split
@@ -12740,7 +12740,7 @@ unicode_byte_type.exit.thread515:                 ; preds = %11, %11, %11, %11, 
 50:                                               ; preds = %47
   %51 = load i8, ptr %43, align 1, !tbaa !8
   %switch.i91 = icmp ugt i8 %51, -3
-  br i1 %switch.i91, label %.thread.sink.split, label %unicode_byte_type.exit93.thread518
+  br i1 %switch.i91, label %.thread.sink.split, label %unicode_byte_type.exit93.thread526
 
 unicode_byte_type.exit93:                         ; preds = %47
   %52 = load i8, ptr %43, align 1, !tbaa !8
@@ -12748,14 +12748,14 @@ unicode_byte_type.exit93:                         ; preds = %47
   %54 = getelementptr [256 x i8], ptr %10, i64 0, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !8
   switch i8 %55, label %.thread.sink.split [
-    i8 29, label %unicode_byte_type.exit93.thread518
+    i8 29, label %unicode_byte_type.exit93.thread526
     i8 22, label %71
     i8 24, label %71
-    i8 7, label %unicode_byte_type.exit93.thread521
+    i8 7, label %unicode_byte_type.exit93.thread529
     i8 6, label %73
   ]
 
-unicode_byte_type.exit93.thread518:               ; preds = %47, %50, %unicode_byte_type.exit93
+unicode_byte_type.exit93.thread526:               ; preds = %47, %50, %unicode_byte_type.exit93
   %56 = zext i8 %49 to i64
   %57 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !8
@@ -12774,7 +12774,7 @@ unicode_byte_type.exit93.thread518:               ; preds = %47, %50, %unicode_b
   %.not89 = icmp eq i32 %70, 0
   br i1 %.not89, label %.thread.sink.split, label %71
 
-71:                                               ; preds = %unicode_byte_type.exit93.thread518, %unicode_byte_type.exit93, %unicode_byte_type.exit93
+71:                                               ; preds = %unicode_byte_type.exit93.thread526, %unicode_byte_type.exit93, %unicode_byte_type.exit93
   %72 = getelementptr i8, ptr %.promoted, i64 4
   br label %227
 
@@ -12782,7 +12782,7 @@ unicode_byte_type.exit93.thread518:               ; preds = %47, %50, %unicode_b
   %74 = icmp eq i64 %45, 2
   br i1 %74, label %.thread, label %.thread.sink.split
 
-unicode_byte_type.exit93.thread521:               ; preds = %unicode_byte_type.exit93, %47, %47, %47, %47
+unicode_byte_type.exit93.thread529:               ; preds = %unicode_byte_type.exit93, %47, %47, %47, %47
   %75 = icmp samesign ult i64 %45, 4
   br i1 %75, label %.thread, label %.thread.sink.split
 
@@ -12991,8 +12991,8 @@ select.unfold:                                    ; preds = %.select.unfold_crit
 163:                                              ; preds = %.thread120
   %164 = getelementptr i8, ptr %119, i64 3
   %165 = load i8, ptr %164, align 1, !tbaa !8
-  %cond691 = icmp eq i8 %165, 0
-  br i1 %cond691, label %unicode_byte_type.exit105, label %.thread.sink.split
+  %cond699 = icmp eq i8 %165, 0
+  br i1 %cond699, label %unicode_byte_type.exit105, label %.thread.sink.split
 
 unicode_byte_type.exit105:                        ; preds = %163
   %166 = load i8, ptr %159, align 1, !tbaa !8
@@ -13020,12 +13020,12 @@ unicode_byte_type.exit105:                        ; preds = %163
   %177 = phi ptr [ %176, %206 ], [ %159, %170 ]
   %178 = getelementptr i8, ptr %177, i64 3
   %179 = load i8, ptr %178, align 1, !tbaa !8
-  switch i8 %179, label %unicode_byte_type.exit108.thread525 [
+  switch i8 %179, label %unicode_byte_type.exit108.thread533 [
     i8 0, label %unicode_byte_type.exit108
-    i8 -40, label %unicode_byte_type.exit108.thread528
-    i8 -39, label %unicode_byte_type.exit108.thread528
-    i8 -38, label %unicode_byte_type.exit108.thread528
-    i8 -37, label %unicode_byte_type.exit108.thread528
+    i8 -40, label %unicode_byte_type.exit108.thread536
+    i8 -39, label %unicode_byte_type.exit108.thread536
+    i8 -38, label %unicode_byte_type.exit108.thread536
+    i8 -37, label %unicode_byte_type.exit108.thread536
     i8 -36, label %.thread.sink.split
     i8 -35, label %.thread.sink.split
     i8 -34, label %.thread.sink.split
@@ -13036,7 +13036,7 @@ unicode_byte_type.exit105:                        ; preds = %163
 180:                                              ; preds = %.lr.ph331
   %181 = load i8, ptr %176, align 1, !tbaa !8
   %switch.i106 = icmp ugt i8 %181, -3
-  br i1 %switch.i106, label %.thread.sink.split, label %unicode_byte_type.exit108.thread525
+  br i1 %switch.i106, label %.thread.sink.split, label %unicode_byte_type.exit108.thread533
 
 unicode_byte_type.exit108:                        ; preds = %.lr.ph331
   %182 = load i8, ptr %176, align 1, !tbaa !8
@@ -13044,19 +13044,19 @@ unicode_byte_type.exit108:                        ; preds = %.lr.ph331
   %184 = getelementptr [256 x i8], ptr %10, i64 0, i64 %183
   %185 = load i8, ptr %184, align 1, !tbaa !8
   switch i8 %185, label %.thread.sink.split [
-    i8 29, label %unicode_byte_type.exit108.thread525
+    i8 29, label %unicode_byte_type.exit108.thread533
     i8 22, label %.loopexit
     i8 24, label %.loopexit
     i8 17, label %.loopexit144
     i8 6, label %203
-    i8 7, label %unicode_byte_type.exit108.thread528
+    i8 7, label %unicode_byte_type.exit108.thread536
     i8 21, label %206
     i8 9, label %206
     i8 10, label %206
     i8 11, label %.loopexit145
   ]
 
-unicode_byte_type.exit108.thread525:              ; preds = %.lr.ph331, %unicode_byte_type.exit108, %180
+unicode_byte_type.exit108.thread533:              ; preds = %.lr.ph331, %unicode_byte_type.exit108, %180
   %186 = getelementptr i8, ptr %177, i64 3
   store ptr %176, ptr %5, align 8, !tbaa !3
   %187 = load i8, ptr %186, align 1, !tbaa !8
@@ -13082,7 +13082,7 @@ unicode_byte_type.exit108.thread525:              ; preds = %.lr.ph331, %unicode
   %204 = icmp eq i64 %175, 2
   br i1 %204, label %.thread, label %.thread.sink.split
 
-unicode_byte_type.exit108.thread528:              ; preds = %.lr.ph331, %.lr.ph331, %.lr.ph331, %.lr.ph331, %unicode_byte_type.exit108
+unicode_byte_type.exit108.thread536:              ; preds = %.lr.ph331, %.lr.ph331, %.lr.ph331, %.lr.ph331, %unicode_byte_type.exit108
   %205 = icmp samesign ult i64 %175, 4
   br i1 %205, label %.thread, label %.thread.sink.split
 
@@ -13118,10 +13118,10 @@ unicode_byte_type.exit108.thread528:              ; preds = %.lr.ph331, %.lr.ph3
   %224 = icmp eq i8 %223, 62
   %225 = getelementptr i8, ptr %213, i64 4
   %spec.select = select i1 %224, ptr %225, ptr %214
-  %spec.select692 = select i1 %224, i32 3, i32 0
+  %spec.select700 = select i1 %224, i32 3, i32 0
   br label %.thread.sink.split
 
-.loopexit:                                        ; preds = %unicode_byte_type.exit108, %unicode_byte_type.exit108, %unicode_byte_type.exit108.thread525
+.loopexit:                                        ; preds = %unicode_byte_type.exit108, %unicode_byte_type.exit108, %unicode_byte_type.exit108.thread533
   %226 = getelementptr i8, ptr %177, i64 4
   br label %227
 
@@ -13134,14 +13134,14 @@ unicode_byte_type.exit108.thread528:              ; preds = %.lr.ph331, %.lr.ph3
   %230 = icmp sgt i64 %229, 1
   br i1 %230, label %11, label %.thread, !llvm.loop !123
 
-.thread.sink.split:                               ; preds = %unicode_byte_type.exit, %15, %11, %11, %11, %11, %180, %unicode_byte_type.exit108.thread525, %unicode_byte_type.exit105, %163, %unicode_byte_type.exit93, %50, %47, %47, %47, %47, %unicode_byte_type.exit93.thread518, %41, %unicode_byte_type.exit.thread512, %.lr.ph, %unicode_byte_type.exit96, %unicode_byte_type.exit99.thread, %.lr.ph310, %134, %134, %134, %134, %unicode_byte_type.exit108, %.lr.ph331, %.lr.ph331, %.lr.ph331, %.lr.ph331, %222, %218, %unicode_byte_type.exit108.thread528, %203, %unicode_byte_type.exit93.thread521, %73, %unicode_byte_type.exit.thread515, %38, %.loopexit145, %151
-  %.sink690 = phi ptr [ %152, %151 ], [ %212, %.loopexit145 ], [ %.promoted, %38 ], [ %.promoted, %unicode_byte_type.exit.thread515 ], [ %43, %73 ], [ %43, %unicode_byte_type.exit93.thread521 ], [ %176, %203 ], [ %176, %unicode_byte_type.exit108.thread528 ], [ %214, %218 ], [ %spec.select, %222 ], [ %176, %.lr.ph331 ], [ %176, %.lr.ph331 ], [ %176, %.lr.ph331 ], [ %176, %.lr.ph331 ], [ %176, %unicode_byte_type.exit108 ], [ %119, %134 ], [ %119, %134 ], [ %119, %134 ], [ %119, %134 ], [ %98, %.lr.ph310 ], [ %98, %unicode_byte_type.exit99.thread ], [ %81, %unicode_byte_type.exit96 ], [ %81, %.lr.ph ], [ %.promoted, %unicode_byte_type.exit.thread512 ], [ %.promoted, %41 ], [ %43, %unicode_byte_type.exit93.thread518 ], [ %43, %47 ], [ %43, %47 ], [ %43, %47 ], [ %43, %47 ], [ %43, %50 ], [ %43, %unicode_byte_type.exit93 ], [ %159, %163 ], [ %159, %unicode_byte_type.exit105 ], [ %176, %unicode_byte_type.exit108.thread525 ], [ %176, %180 ], [ %.promoted, %11 ], [ %.promoted, %11 ], [ %.promoted, %11 ], [ %.promoted, %11 ], [ %.promoted, %15 ], [ %.promoted, %unicode_byte_type.exit ]
-  %.2.ph = phi i32 [ 0, %151 ], [ 1, %.loopexit145 ], [ 0, %38 ], [ 0, %unicode_byte_type.exit.thread515 ], [ 0, %73 ], [ 0, %unicode_byte_type.exit93.thread521 ], [ 0, %203 ], [ 0, %unicode_byte_type.exit108.thread528 ], [ 0, %218 ], [ %spec.select692, %222 ], [ 0, %.lr.ph331 ], [ 0, %.lr.ph331 ], [ 0, %.lr.ph331 ], [ 0, %.lr.ph331 ], [ 0, %unicode_byte_type.exit108 ], [ 0, %134 ], [ 0, %134 ], [ 0, %134 ], [ 0, %134 ], [ 0, %.lr.ph310 ], [ 0, %unicode_byte_type.exit99.thread ], [ 0, %unicode_byte_type.exit96 ], [ 0, %.lr.ph ], [ 0, %unicode_byte_type.exit.thread512 ], [ 0, %41 ], [ 0, %unicode_byte_type.exit93.thread518 ], [ 0, %47 ], [ 0, %47 ], [ 0, %47 ], [ 0, %47 ], [ 0, %50 ], [ 0, %unicode_byte_type.exit93 ], [ 0, %163 ], [ 0, %unicode_byte_type.exit105 ], [ 0, %unicode_byte_type.exit108.thread525 ], [ 0, %180 ], [ 0, %11 ], [ 0, %11 ], [ 0, %11 ], [ 0, %11 ], [ 0, %15 ], [ 0, %unicode_byte_type.exit ]
-  store ptr %.sink690, ptr %3, align 8, !tbaa !3
+.thread.sink.split:                               ; preds = %unicode_byte_type.exit, %15, %11, %11, %11, %11, %180, %unicode_byte_type.exit108.thread533, %unicode_byte_type.exit105, %163, %unicode_byte_type.exit93, %50, %47, %47, %47, %47, %unicode_byte_type.exit93.thread526, %41, %unicode_byte_type.exit.thread520, %.lr.ph, %unicode_byte_type.exit96, %unicode_byte_type.exit99.thread, %.lr.ph310, %134, %134, %134, %134, %unicode_byte_type.exit108, %.lr.ph331, %.lr.ph331, %.lr.ph331, %.lr.ph331, %222, %218, %unicode_byte_type.exit108.thread536, %203, %unicode_byte_type.exit93.thread529, %73, %unicode_byte_type.exit.thread523, %38, %.loopexit145, %151
+  %.sink698 = phi ptr [ %152, %151 ], [ %212, %.loopexit145 ], [ %.promoted, %38 ], [ %.promoted, %unicode_byte_type.exit.thread523 ], [ %43, %73 ], [ %43, %unicode_byte_type.exit93.thread529 ], [ %176, %203 ], [ %176, %unicode_byte_type.exit108.thread536 ], [ %214, %218 ], [ %spec.select, %222 ], [ %176, %.lr.ph331 ], [ %176, %.lr.ph331 ], [ %176, %.lr.ph331 ], [ %176, %.lr.ph331 ], [ %176, %unicode_byte_type.exit108 ], [ %119, %134 ], [ %119, %134 ], [ %119, %134 ], [ %119, %134 ], [ %98, %.lr.ph310 ], [ %98, %unicode_byte_type.exit99.thread ], [ %81, %unicode_byte_type.exit96 ], [ %81, %.lr.ph ], [ %.promoted, %unicode_byte_type.exit.thread520 ], [ %.promoted, %41 ], [ %43, %unicode_byte_type.exit93.thread526 ], [ %43, %47 ], [ %43, %47 ], [ %43, %47 ], [ %43, %47 ], [ %43, %50 ], [ %43, %unicode_byte_type.exit93 ], [ %159, %163 ], [ %159, %unicode_byte_type.exit105 ], [ %176, %unicode_byte_type.exit108.thread533 ], [ %176, %180 ], [ %.promoted, %11 ], [ %.promoted, %11 ], [ %.promoted, %11 ], [ %.promoted, %11 ], [ %.promoted, %15 ], [ %.promoted, %unicode_byte_type.exit ]
+  %.2.ph = phi i32 [ 0, %151 ], [ 1, %.loopexit145 ], [ 0, %38 ], [ 0, %unicode_byte_type.exit.thread523 ], [ 0, %73 ], [ 0, %unicode_byte_type.exit93.thread529 ], [ 0, %203 ], [ 0, %unicode_byte_type.exit108.thread536 ], [ 0, %218 ], [ %spec.select700, %222 ], [ 0, %.lr.ph331 ], [ 0, %.lr.ph331 ], [ 0, %.lr.ph331 ], [ 0, %.lr.ph331 ], [ 0, %unicode_byte_type.exit108 ], [ 0, %134 ], [ 0, %134 ], [ 0, %134 ], [ 0, %134 ], [ 0, %.lr.ph310 ], [ 0, %unicode_byte_type.exit99.thread ], [ 0, %unicode_byte_type.exit96 ], [ 0, %.lr.ph ], [ 0, %unicode_byte_type.exit.thread520 ], [ 0, %41 ], [ 0, %unicode_byte_type.exit93.thread526 ], [ 0, %47 ], [ 0, %47 ], [ 0, %47 ], [ 0, %47 ], [ 0, %50 ], [ 0, %unicode_byte_type.exit93 ], [ 0, %163 ], [ 0, %unicode_byte_type.exit105 ], [ 0, %unicode_byte_type.exit108.thread533 ], [ 0, %180 ], [ 0, %11 ], [ 0, %11 ], [ 0, %11 ], [ 0, %11 ], [ 0, %15 ], [ 0, %unicode_byte_type.exit ]
+  store ptr %.sink698, ptr %3, align 8, !tbaa !3
   br label %.thread
 
-.thread:                                          ; preds = %42, %227, %.thread120, %113, %76, %.thread111, %170, %89, %108, %select.unfold, %137, %141, %206, %.thread.sink.split, %4, %149, %.loopexit144, %unicode_byte_type.exit108.thread528, %203, %unicode_byte_type.exit93.thread521, %73, %unicode_byte_type.exit.thread515, %38
-  %.2 = phi i32 [ -2, %38 ], [ -2, %unicode_byte_type.exit.thread515 ], [ -2, %73 ], [ -2, %unicode_byte_type.exit93.thread521 ], [ -1, %.loopexit144 ], [ -2, %unicode_byte_type.exit108.thread528 ], [ -2, %203 ], [ %147, %149 ], [ -1, %4 ], [ %.2.ph, %.thread.sink.split ], [ -1, %206 ], [ -1, %select.unfold ], [ -2, %137 ], [ -2, %141 ], [ -1, %108 ], [ -1, %89 ], [ -1, %170 ], [ -1, %.thread111 ], [ -1, %76 ], [ -1, %113 ], [ -1, %.thread120 ], [ -1, %227 ], [ -1, %42 ]
+.thread:                                          ; preds = %42, %227, %.thread120, %113, %76, %.thread111, %170, %89, %108, %select.unfold, %137, %141, %206, %.thread.sink.split, %4, %149, %.loopexit144, %unicode_byte_type.exit108.thread536, %203, %unicode_byte_type.exit93.thread529, %73, %unicode_byte_type.exit.thread523, %38
+  %.2 = phi i32 [ -2, %38 ], [ -2, %unicode_byte_type.exit.thread523 ], [ -2, %73 ], [ -2, %unicode_byte_type.exit93.thread529 ], [ -1, %.loopexit144 ], [ -2, %unicode_byte_type.exit108.thread536 ], [ -2, %203 ], [ %147, %149 ], [ -1, %4 ], [ %.2.ph, %.thread.sink.split ], [ -1, %206 ], [ -1, %select.unfold ], [ -2, %137 ], [ -2, %141 ], [ -1, %108 ], [ -1, %89 ], [ -1, %170 ], [ -1, %.thread111 ], [ -1, %76 ], [ -1, %113 ], [ -1, %.thread120 ], [ -1, %227 ], [ -1, %42 ]
   ret i32 %.2
 }
 
@@ -13397,12 +13397,12 @@ define internal i32 @big2_prologTok(ptr noundef readonly captures(none) %0, ptr 
 
 13:                                               ; preds = %5
   %14 = load i8, ptr %1, align 1, !tbaa !8
-  switch i8 %14, label %unicode_byte_type.exit.thread370 [
+  switch i8 %14, label %unicode_byte_type.exit.thread375 [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread368
-    i8 -39, label %unicode_byte_type.exit.thread368
-    i8 -38, label %unicode_byte_type.exit.thread368
-    i8 -37, label %unicode_byte_type.exit.thread368
+    i8 -40, label %unicode_byte_type.exit.thread373
+    i8 -39, label %unicode_byte_type.exit.thread373
+    i8 -38, label %unicode_byte_type.exit.thread373
+    i8 -37, label %unicode_byte_type.exit.thread373
     i8 -36, label %unicode_byte_type.exit.thread
     i8 -35, label %unicode_byte_type.exit.thread
     i8 -34, label %unicode_byte_type.exit.thread
@@ -13414,7 +13414,7 @@ define internal i32 @big2_prologTok(ptr noundef readonly captures(none) %0, ptr 
   %16 = getelementptr i8, ptr %1, i64 1
   %17 = load i8, ptr %16, align 1, !tbaa !8
   %switch.i = icmp ugt i8 %17, -3
-  br i1 %switch.i, label %unicode_byte_type.exit.thread, label %unicode_byte_type.exit.thread370
+  br i1 %switch.i, label %unicode_byte_type.exit.thread, label %unicode_byte_type.exit.thread375
 
 unicode_byte_type.exit:                           ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -13441,14 +13441,14 @@ unicode_byte_type.exit:                           ; preds = %13
     i8 19, label %139
     i8 5, label %142
     i8 6, label %147
-    i8 7, label %unicode_byte_type.exit.thread368
+    i8 7, label %unicode_byte_type.exit.thread373
     i8 22, label %183
     i8 24, label %183
     i8 25, label %156
     i8 26, label %156
     i8 27, label %156
     i8 23, label %156
-    i8 29, label %unicode_byte_type.exit.thread370
+    i8 29, label %unicode_byte_type.exit.thread375
   ]
 
 24:                                               ; preds = %unicode_byte_type.exit
@@ -13471,7 +13471,7 @@ unicode_byte_type.exit:                           ; preds = %13
 
 36:                                               ; preds = %30
   %37 = load i8, ptr %31, align 1, !tbaa !8
-  switch i8 %37, label %unicode_byte_type.exit235.thread374 [
+  switch i8 %37, label %unicode_byte_type.exit235.thread379 [
     i8 0, label %unicode_byte_type.exit235
     i8 -1, label %38
     i8 -33, label %unicode_byte_type.exit235.thread
@@ -13484,7 +13484,7 @@ unicode_byte_type.exit:                           ; preds = %13
   %39 = getelementptr i8, ptr %1, i64 3
   %40 = load i8, ptr %39, align 1, !tbaa !8
   %switch.i233 = icmp ugt i8 %40, -3
-  br i1 %switch.i233, label %unicode_byte_type.exit235.thread, label %unicode_byte_type.exit235.thread374
+  br i1 %switch.i233, label %unicode_byte_type.exit235.thread, label %unicode_byte_type.exit235.thread379
 
 unicode_byte_type.exit235:                        ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -13496,12 +13496,12 @@ unicode_byte_type.exit235:                        ; preds = %36
   switch i8 %46, label %unicode_byte_type.exit235.thread [
     i8 16, label %47
     i8 15, label %50
-    i8 22, label %unicode_byte_type.exit235.thread374
-    i8 24, label %unicode_byte_type.exit235.thread374
-    i8 29, label %unicode_byte_type.exit235.thread374
-    i8 5, label %unicode_byte_type.exit235.thread374
-    i8 6, label %unicode_byte_type.exit235.thread374
-    i8 7, label %unicode_byte_type.exit235.thread374
+    i8 22, label %unicode_byte_type.exit235.thread379
+    i8 24, label %unicode_byte_type.exit235.thread379
+    i8 29, label %unicode_byte_type.exit235.thread379
+    i8 5, label %unicode_byte_type.exit235.thread379
+    i8 6, label %unicode_byte_type.exit235.thread379
+    i8 7, label %unicode_byte_type.exit235.thread379
   ]
 
 47:                                               ; preds = %unicode_byte_type.exit235
@@ -13514,7 +13514,7 @@ unicode_byte_type.exit235:                        ; preds = %36
   %52 = tail call fastcc i32 @big2_scanPi(ptr noundef nonnull %0, ptr noundef %51, ptr noundef %.1211, ptr noundef %3)
   br label %.loopexit
 
-unicode_byte_type.exit235.thread374:              ; preds = %38, %36, %unicode_byte_type.exit235, %unicode_byte_type.exit235, %unicode_byte_type.exit235, %unicode_byte_type.exit235, %unicode_byte_type.exit235, %unicode_byte_type.exit235
+unicode_byte_type.exit235.thread379:              ; preds = %38, %36, %unicode_byte_type.exit235, %unicode_byte_type.exit235, %unicode_byte_type.exit235, %unicode_byte_type.exit235, %unicode_byte_type.exit235, %unicode_byte_type.exit235
   store ptr %1, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
@@ -13657,8 +13657,8 @@ unicode_byte_type.exit238.thread:                 ; preds = %64, %72, %unicode_b
 
 120:                                              ; preds = %114
   %121 = load i8, ptr %115, align 1, !tbaa !8
-  %cond447 = icmp eq i8 %121, 0
-  br i1 %cond447, label %unicode_byte_type.exit241, label %unicode_byte_type.exit241.thread
+  %cond452 = icmp eq i8 %121, 0
+  br i1 %cond452, label %unicode_byte_type.exit241, label %unicode_byte_type.exit241.thread
 
 unicode_byte_type.exit241:                        ; preds = %120
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -13738,20 +13738,20 @@ unicode_byte_type.exit241.thread:                 ; preds = %120, %unicode_byte_
   store ptr %1, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-unicode_byte_type.exit.thread368:                 ; preds = %13, %13, %13, %13, %unicode_byte_type.exit
+unicode_byte_type.exit.thread373:                 ; preds = %13, %13, %13, %13, %unicode_byte_type.exit
   %152 = ptrtoint ptr %.1211 to i64
   %153 = sub i64 %152, %7
   %154 = icmp slt i64 %153, 4
   br i1 %154, label %.loopexit, label %155
 
-155:                                              ; preds = %unicode_byte_type.exit.thread368
+155:                                              ; preds = %unicode_byte_type.exit.thread373
   store ptr %1, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
 156:                                              ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
   br label %183
 
-unicode_byte_type.exit.thread370:                 ; preds = %13, %15, %unicode_byte_type.exit
+unicode_byte_type.exit.thread375:                 ; preds = %13, %15, %unicode_byte_type.exit
   %157 = zext i8 %14 to i64
   %158 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %157
   %159 = load i8, ptr %158, align 1, !tbaa !8
@@ -13771,7 +13771,7 @@ unicode_byte_type.exit.thread370:                 ; preds = %13, %15, %unicode_b
   %.not222 = icmp eq i32 %172, 0
   br i1 %.not222, label %173, label %183
 
-173:                                              ; preds = %unicode_byte_type.exit.thread370
+173:                                              ; preds = %unicode_byte_type.exit.thread375
   %174 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %157
   %175 = load i8, ptr %174, align 1, !tbaa !8
   %176 = zext i8 %175 to i32
@@ -13788,8 +13788,8 @@ unicode_byte_type.exit.thread:                    ; preds = %13, %13, %13, %13, 
   store ptr %1, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-183:                                              ; preds = %173, %unicode_byte_type.exit.thread370, %unicode_byte_type.exit, %unicode_byte_type.exit, %156
-  %.0207 = phi i32 [ 19, %156 ], [ 18, %unicode_byte_type.exit ], [ 18, %unicode_byte_type.exit ], [ 18, %unicode_byte_type.exit.thread370 ], [ 19, %173 ]
+183:                                              ; preds = %173, %unicode_byte_type.exit.thread375, %unicode_byte_type.exit, %unicode_byte_type.exit, %156
+  %.0207 = phi i32 [ 19, %156 ], [ 18, %unicode_byte_type.exit ], [ 18, %unicode_byte_type.exit ], [ 18, %unicode_byte_type.exit.thread375 ], [ 19, %173 ]
   %.1213 = getelementptr i8, ptr %1, i64 2
   %184 = ptrtoint ptr %.1211 to i64
   %185 = ptrtoint ptr %.1213 to i64
@@ -13806,12 +13806,12 @@ unicode_byte_type.exit.thread:                    ; preds = %13, %13, %13, %13, 
   %.1304 = phi i32 [ %.0207, %.lr.ph ], [ %.2, %unicode_byte_type.exit247.thread ]
   %.2214303 = phi ptr [ %.1213, %.lr.ph ], [ %.3, %unicode_byte_type.exit247.thread ]
   %191 = load i8, ptr %.2214303, align 1, !tbaa !8
-  switch i8 %191, label %unicode_byte_type.exit244.thread379 [
+  switch i8 %191, label %unicode_byte_type.exit244.thread384 [
     i8 0, label %unicode_byte_type.exit244
-    i8 -40, label %unicode_byte_type.exit244.thread382
-    i8 -39, label %unicode_byte_type.exit244.thread382
-    i8 -38, label %unicode_byte_type.exit244.thread382
-    i8 -37, label %unicode_byte_type.exit244.thread382
+    i8 -40, label %unicode_byte_type.exit244.thread387
+    i8 -39, label %unicode_byte_type.exit244.thread387
+    i8 -38, label %unicode_byte_type.exit244.thread387
+    i8 -37, label %unicode_byte_type.exit244.thread387
     i8 -36, label %unicode_byte_type.exit244.thread
     i8 -35, label %unicode_byte_type.exit244.thread
     i8 -34, label %unicode_byte_type.exit244.thread
@@ -13823,7 +13823,7 @@ unicode_byte_type.exit.thread:                    ; preds = %13, %13, %13, %13, 
   %193 = getelementptr i8, ptr %.2214303, i64 1
   %194 = load i8, ptr %193, align 1, !tbaa !8
   %switch.i242 = icmp ugt i8 %194, -3
-  br i1 %switch.i242, label %unicode_byte_type.exit244.thread, label %unicode_byte_type.exit244.thread379
+  br i1 %switch.i242, label %unicode_byte_type.exit244.thread, label %unicode_byte_type.exit244.thread384
 
 unicode_byte_type.exit244:                        ; preds = %189
   %195 = getelementptr i8, ptr %.2214303, i64 1
@@ -13832,7 +13832,7 @@ unicode_byte_type.exit244:                        ; preds = %189
   %198 = getelementptr [256 x i8], ptr %188, i64 0, i64 %197
   %199 = load i8, ptr %198, align 1, !tbaa !8
   switch i8 %199, label %unicode_byte_type.exit244.thread [
-    i8 29, label %unicode_byte_type.exit244.thread379
+    i8 29, label %unicode_byte_type.exit244.thread384
     i8 22, label %217
     i8 24, label %217
     i8 25, label %217
@@ -13840,7 +13840,7 @@ unicode_byte_type.exit244:                        ; preds = %189
     i8 27, label %217
     i8 5, label %219
     i8 6, label %220
-    i8 7, label %unicode_byte_type.exit244.thread382
+    i8 7, label %unicode_byte_type.exit244.thread387
     i8 11, label %225
     i8 32, label %225
     i8 35, label %225
@@ -13856,7 +13856,7 @@ unicode_byte_type.exit244:                        ; preds = %189
     i8 15, label %278
   ]
 
-unicode_byte_type.exit244.thread379:              ; preds = %189, %192, %unicode_byte_type.exit244
+unicode_byte_type.exit244.thread384:              ; preds = %189, %192, %unicode_byte_type.exit244
   %200 = zext i8 %191 to i64
   %201 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %200
   %202 = load i8, ptr %201, align 1, !tbaa !8
@@ -13876,11 +13876,11 @@ unicode_byte_type.exit244.thread379:              ; preds = %189, %192, %unicode
   %.not227 = icmp eq i32 %215, 0
   br i1 %.not227, label %216, label %217
 
-216:                                              ; preds = %unicode_byte_type.exit244.thread379
+216:                                              ; preds = %unicode_byte_type.exit244.thread384
   store ptr %.2214303, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-217:                                              ; preds = %unicode_byte_type.exit244.thread379, %unicode_byte_type.exit244, %unicode_byte_type.exit244, %unicode_byte_type.exit244, %unicode_byte_type.exit244, %unicode_byte_type.exit244
+217:                                              ; preds = %unicode_byte_type.exit244.thread384, %unicode_byte_type.exit244, %unicode_byte_type.exit244, %unicode_byte_type.exit244, %unicode_byte_type.exit244, %unicode_byte_type.exit244
   %218 = getelementptr i8, ptr %.2214303, i64 2
   br label %unicode_byte_type.exit247.thread
 
@@ -13896,11 +13896,11 @@ unicode_byte_type.exit244.thread379:              ; preds = %189, %192, %unicode
   store ptr %.2214303, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-unicode_byte_type.exit244.thread382:              ; preds = %189, %189, %189, %189, %unicode_byte_type.exit244
+unicode_byte_type.exit244.thread387:              ; preds = %189, %189, %189, %189, %unicode_byte_type.exit244
   %223 = icmp samesign ult i64 %190, 4
   br i1 %223, label %.loopexit, label %224
 
-224:                                              ; preds = %unicode_byte_type.exit244.thread382
+224:                                              ; preds = %unicode_byte_type.exit244.thread387
   store ptr %.2214303, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
@@ -13923,12 +13923,12 @@ unicode_byte_type.exit244.thread382:              ; preds = %189, %189, %189, %1
 
 232:                                              ; preds = %228
   %233 = load i8, ptr %227, align 1, !tbaa !8
-  switch i8 %233, label %unicode_byte_type.exit247.thread385 [
+  switch i8 %233, label %unicode_byte_type.exit247.thread390 [
     i8 0, label %unicode_byte_type.exit247
-    i8 -40, label %unicode_byte_type.exit247.thread388
-    i8 -39, label %unicode_byte_type.exit247.thread388
-    i8 -38, label %unicode_byte_type.exit247.thread388
-    i8 -37, label %unicode_byte_type.exit247.thread388
+    i8 -40, label %unicode_byte_type.exit247.thread393
+    i8 -39, label %unicode_byte_type.exit247.thread393
+    i8 -38, label %unicode_byte_type.exit247.thread393
+    i8 -37, label %unicode_byte_type.exit247.thread393
     i8 -36, label %unicode_byte_type.exit247.thread
     i8 -35, label %unicode_byte_type.exit247.thread
     i8 -34, label %unicode_byte_type.exit247.thread
@@ -13940,7 +13940,7 @@ unicode_byte_type.exit244.thread382:              ; preds = %189, %189, %189, %1
   %235 = getelementptr i8, ptr %.2214303, i64 3
   %236 = load i8, ptr %235, align 1, !tbaa !8
   %switch.i245 = icmp ugt i8 %236, -3
-  br i1 %switch.i245, label %unicode_byte_type.exit247.thread, label %unicode_byte_type.exit247.thread385
+  br i1 %switch.i245, label %unicode_byte_type.exit247.thread, label %unicode_byte_type.exit247.thread390
 
 unicode_byte_type.exit247:                        ; preds = %232
   %237 = getelementptr i8, ptr %.2214303, i64 3
@@ -13949,7 +13949,7 @@ unicode_byte_type.exit247:                        ; preds = %232
   %240 = getelementptr [256 x i8], ptr %188, i64 0, i64 %239
   %241 = load i8, ptr %240, align 1, !tbaa !8
   switch i8 %241, label %unicode_byte_type.exit247.thread [
-    i8 29, label %unicode_byte_type.exit247.thread385
+    i8 29, label %unicode_byte_type.exit247.thread390
     i8 22, label %259
     i8 24, label %259
     i8 25, label %259
@@ -13957,10 +13957,10 @@ unicode_byte_type.exit247:                        ; preds = %232
     i8 27, label %259
     i8 5, label %261
     i8 6, label %262
-    i8 7, label %unicode_byte_type.exit247.thread388
+    i8 7, label %unicode_byte_type.exit247.thread393
   ]
 
-unicode_byte_type.exit247.thread385:              ; preds = %232, %234, %unicode_byte_type.exit247
+unicode_byte_type.exit247.thread390:              ; preds = %232, %234, %unicode_byte_type.exit247
   %242 = zext i8 %233 to i64
   %243 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %242
   %244 = load i8, ptr %243, align 1, !tbaa !8
@@ -13980,11 +13980,11 @@ unicode_byte_type.exit247.thread385:              ; preds = %232, %234, %unicode
   %.not226 = icmp eq i32 %257, 0
   br i1 %.not226, label %258, label %259
 
-258:                                              ; preds = %unicode_byte_type.exit247.thread385
+258:                                              ; preds = %unicode_byte_type.exit247.thread390
   store ptr %227, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-259:                                              ; preds = %unicode_byte_type.exit247.thread385, %unicode_byte_type.exit247, %unicode_byte_type.exit247, %unicode_byte_type.exit247, %unicode_byte_type.exit247, %unicode_byte_type.exit247
+259:                                              ; preds = %unicode_byte_type.exit247.thread390, %unicode_byte_type.exit247, %unicode_byte_type.exit247, %unicode_byte_type.exit247, %unicode_byte_type.exit247, %unicode_byte_type.exit247
   %260 = getelementptr i8, ptr %.2214303, i64 4
   br label %unicode_byte_type.exit247.thread
 
@@ -14000,11 +14000,11 @@ unicode_byte_type.exit247.thread385:              ; preds = %232, %234, %unicode
   store ptr %227, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-unicode_byte_type.exit247.thread388:              ; preds = %232, %232, %232, %232, %unicode_byte_type.exit247
+unicode_byte_type.exit247.thread393:              ; preds = %232, %232, %232, %232, %unicode_byte_type.exit247
   %265 = icmp samesign ult i64 %230, 4
   br i1 %265, label %.loopexit, label %266
 
-266:                                              ; preds = %unicode_byte_type.exit247.thread388
+266:                                              ; preds = %unicode_byte_type.exit247.thread393
   store ptr %227, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
@@ -14067,8 +14067,8 @@ unicode_byte_type.exit247.thread:                 ; preds = %232, %232, %232, %2
   %286 = sub nsw i32 0, %.1.lcssa
   br label %.loopexit
 
-.loopexit:                                        ; preds = %228, %unicode_byte_type.exit247.thread388, %262, %unicode_byte_type.exit244.thread382, %220, %unicode_byte_type.exit.thread368, %147, %142, %114, %99, %86, %30, %4, %5, %._crit_edge, %unicode_byte_type.exit244.thread, %281, %280, %276, %275, %271, %270, %266, %264, %261, %258, %225, %224, %222, %219, %216, %unicode_byte_type.exit.thread, %155, %151, %146, %139, %137, %135, %unicode_byte_type.exit241.thread, %134, %132, %130, %128, %112, %111, %109, %84, %82, %79, %._crit_edge308, %unicode_byte_type.exit238.thread, %56, %unicode_byte_type.exit235.thread, %unicode_byte_type.exit235.thread374, %50, %47, %27, %24
-  %.0208 = phi i32 [ 0, %unicode_byte_type.exit.thread ], [ %26, %24 ], [ %29, %27 ], [ 0, %unicode_byte_type.exit235.thread ], [ %49, %47 ], [ %52, %50 ], [ 29, %unicode_byte_type.exit235.thread374 ], [ -15, %56 ], [ 15, %unicode_byte_type.exit238.thread ], [ 15, %._crit_edge308 ], [ %81, %79 ], [ 38, %82 ], [ 25, %84 ], [ 34, %109 ], [ 26, %111 ], [ 23, %112 ], [ 0, %unicode_byte_type.exit241.thread ], [ 36, %128 ], [ 35, %130 ], [ 37, %132 ], [ 24, %134 ], [ 21, %135 ], [ 17, %137 ], [ %141, %139 ], [ 0, %146 ], [ 0, %151 ], [ 0, %155 ], [ 0, %unicode_byte_type.exit244.thread ], [ 0, %216 ], [ 0, %219 ], [ 0, %222 ], [ 0, %224 ], [ %.1304, %225 ], [ 0, %258 ], [ 0, %261 ], [ 0, %264 ], [ 0, %266 ], [ 0, %270 ], [ 32, %271 ], [ 0, %275 ], [ 31, %276 ], [ 0, %280 ], [ 30, %281 ], [ %286, %._crit_edge ], [ -1, %5 ], [ -4, %4 ], [ -1, %30 ], [ -26, %86 ], [ -1, %99 ], [ -24, %114 ], [ -2, %142 ], [ -2, %147 ], [ -2, %unicode_byte_type.exit.thread368 ], [ -2, %220 ], [ -2, %unicode_byte_type.exit244.thread382 ], [ -2, %262 ], [ -2, %unicode_byte_type.exit247.thread388 ], [ -1, %228 ]
+.loopexit:                                        ; preds = %228, %unicode_byte_type.exit247.thread393, %262, %unicode_byte_type.exit244.thread387, %220, %unicode_byte_type.exit.thread373, %147, %142, %114, %99, %86, %30, %4, %5, %._crit_edge, %unicode_byte_type.exit244.thread, %281, %280, %276, %275, %271, %270, %266, %264, %261, %258, %225, %224, %222, %219, %216, %unicode_byte_type.exit.thread, %155, %151, %146, %139, %137, %135, %unicode_byte_type.exit241.thread, %134, %132, %130, %128, %112, %111, %109, %84, %82, %79, %._crit_edge308, %unicode_byte_type.exit238.thread, %56, %unicode_byte_type.exit235.thread, %unicode_byte_type.exit235.thread379, %50, %47, %27, %24
+  %.0208 = phi i32 [ 0, %unicode_byte_type.exit.thread ], [ %26, %24 ], [ %29, %27 ], [ 0, %unicode_byte_type.exit235.thread ], [ %49, %47 ], [ %52, %50 ], [ 29, %unicode_byte_type.exit235.thread379 ], [ -15, %56 ], [ 15, %unicode_byte_type.exit238.thread ], [ 15, %._crit_edge308 ], [ %81, %79 ], [ 38, %82 ], [ 25, %84 ], [ 34, %109 ], [ 26, %111 ], [ 23, %112 ], [ 0, %unicode_byte_type.exit241.thread ], [ 36, %128 ], [ 35, %130 ], [ 37, %132 ], [ 24, %134 ], [ 21, %135 ], [ 17, %137 ], [ %141, %139 ], [ 0, %146 ], [ 0, %151 ], [ 0, %155 ], [ 0, %unicode_byte_type.exit244.thread ], [ 0, %216 ], [ 0, %219 ], [ 0, %222 ], [ 0, %224 ], [ %.1304, %225 ], [ 0, %258 ], [ 0, %261 ], [ 0, %264 ], [ 0, %266 ], [ 0, %270 ], [ 32, %271 ], [ 0, %275 ], [ 31, %276 ], [ 0, %280 ], [ 30, %281 ], [ %286, %._crit_edge ], [ -1, %5 ], [ -4, %4 ], [ -1, %30 ], [ -26, %86 ], [ -1, %99 ], [ -24, %114 ], [ -2, %142 ], [ -2, %147 ], [ -2, %unicode_byte_type.exit.thread373 ], [ -2, %220 ], [ -2, %unicode_byte_type.exit244.thread387 ], [ -2, %262 ], [ -2, %unicode_byte_type.exit247.thread393 ], [ -1, %228 ]
   ret i32 %.0208
 }
 
@@ -14094,12 +14094,12 @@ define internal i32 @big2_contentTok(ptr noundef readonly captures(none) %0, ptr
 
 14:                                               ; preds = %5
   %15 = load i8, ptr %1, align 1, !tbaa !8
-  switch i8 %15, label %unicode_byte_type.exit.thread353 [
+  switch i8 %15, label %unicode_byte_type.exit.thread372 [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread356
-    i8 -39, label %unicode_byte_type.exit.thread356
-    i8 -38, label %unicode_byte_type.exit.thread356
-    i8 -37, label %unicode_byte_type.exit.thread356
+    i8 -40, label %unicode_byte_type.exit.thread375
+    i8 -39, label %unicode_byte_type.exit.thread375
+    i8 -38, label %unicode_byte_type.exit.thread375
+    i8 -37, label %unicode_byte_type.exit.thread375
     i8 -36, label %unicode_byte_type.exit.thread
     i8 -35, label %unicode_byte_type.exit.thread
     i8 -34, label %unicode_byte_type.exit.thread
@@ -14111,7 +14111,7 @@ define internal i32 @big2_contentTok(ptr noundef readonly captures(none) %0, ptr
   %17 = getelementptr i8, ptr %1, i64 1
   %18 = load i8, ptr %17, align 1, !tbaa !8
   %switch.i = icmp ugt i8 %18, -3
-  br i1 %switch.i, label %unicode_byte_type.exit.thread, label %unicode_byte_type.exit.thread353
+  br i1 %switch.i, label %unicode_byte_type.exit.thread, label %unicode_byte_type.exit.thread372
 
 unicode_byte_type.exit:                           ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -14120,7 +14120,7 @@ unicode_byte_type.exit:                           ; preds = %14
   %22 = zext i8 %21 to i64
   %23 = getelementptr [256 x i8], ptr %19, i64 0, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !8
-  switch i8 %24, label %unicode_byte_type.exit.thread353 [
+  switch i8 %24, label %unicode_byte_type.exit.thread372 [
     i8 2, label %25
     i8 3, label %325
     i8 9, label %328
@@ -14128,7 +14128,7 @@ unicode_byte_type.exit:                           ; preds = %14
     i8 4, label %347
     i8 5, label %373
     i8 6, label %379
-    i8 7, label %unicode_byte_type.exit.thread356
+    i8 7, label %unicode_byte_type.exit.thread375
     i8 0, label %unicode_byte_type.exit.thread
     i8 1, label %unicode_byte_type.exit.thread
     i8 8, label %unicode_byte_type.exit.thread
@@ -14144,12 +14144,12 @@ unicode_byte_type.exit:                           ; preds = %14
 
 31:                                               ; preds = %25
   %32 = load i8, ptr %26, align 1, !tbaa !8
-  switch i8 %32, label %.unicode_byte_type.exit.thread388.i_crit_edge [
+  switch i8 %32, label %.unicode_byte_type.exit.thread398.i_crit_edge [
     i8 0, label %unicode_byte_type.exit.i
-    i8 -40, label %unicode_byte_type.exit.thread391.i
-    i8 -39, label %unicode_byte_type.exit.thread391.i
-    i8 -38, label %unicode_byte_type.exit.thread391.i
-    i8 -37, label %unicode_byte_type.exit.thread391.i
+    i8 -40, label %unicode_byte_type.exit.thread401.i
+    i8 -39, label %unicode_byte_type.exit.thread401.i
+    i8 -38, label %unicode_byte_type.exit.thread401.i
+    i8 -37, label %unicode_byte_type.exit.thread401.i
     i8 -36, label %unicode_byte_type.exit.thread.i
     i8 -35, label %unicode_byte_type.exit.thread.i
     i8 -34, label %unicode_byte_type.exit.thread.i
@@ -14157,16 +14157,16 @@ unicode_byte_type.exit:                           ; preds = %14
     i8 -1, label %33
   ]
 
-.unicode_byte_type.exit.thread388.i_crit_edge:    ; preds = %31
+.unicode_byte_type.exit.thread398.i_crit_edge:    ; preds = %31
   %.phi.trans.insert = getelementptr i8, ptr %1, i64 3
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !8
-  br label %unicode_byte_type.exit.thread388.i
+  br label %unicode_byte_type.exit.thread398.i
 
 33:                                               ; preds = %31
   %34 = getelementptr i8, ptr %1, i64 3
   %35 = load i8, ptr %34, align 1, !tbaa !8
   %switch.i.i = icmp ugt i8 %35, -3
-  br i1 %switch.i.i, label %unicode_byte_type.exit.thread.i, label %unicode_byte_type.exit.thread388.i
+  br i1 %switch.i.i, label %unicode_byte_type.exit.thread.i, label %unicode_byte_type.exit.thread398.i
 
 unicode_byte_type.exit.i:                         ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -14176,19 +14176,19 @@ unicode_byte_type.exit.i:                         ; preds = %31
   %40 = getelementptr [256 x i8], ptr %36, i64 0, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !8
   switch i8 %41, label %unicode_byte_type.exit.thread.i [
-    i8 29, label %unicode_byte_type.exit.thread388.i
+    i8 29, label %unicode_byte_type.exit.thread398.i
     i8 22, label %58
     i8 24, label %58
     i8 5, label %64
     i8 6, label %65
-    i8 7, label %unicode_byte_type.exit.thread391.i
+    i8 7, label %unicode_byte_type.exit.thread401.i
     i8 16, label %70
     i8 15, label %100
     i8 17, label %103
   ]
 
-unicode_byte_type.exit.thread388.i:               ; preds = %.unicode_byte_type.exit.thread388.i_crit_edge, %unicode_byte_type.exit.i, %33
-  %42 = phi i8 [ %.pre, %.unicode_byte_type.exit.thread388.i_crit_edge ], [ %38, %unicode_byte_type.exit.i ], [ %35, %33 ]
+unicode_byte_type.exit.thread398.i:               ; preds = %.unicode_byte_type.exit.thread398.i_crit_edge, %unicode_byte_type.exit.i, %33
+  %42 = phi i8 [ %.pre, %.unicode_byte_type.exit.thread398.i_crit_edge ], [ %38, %unicode_byte_type.exit.i ], [ %35, %33 ]
   %43 = zext i8 %32 to i64
   %44 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !8
@@ -14206,11 +14206,11 @@ unicode_byte_type.exit.thread388.i:               ; preds = %.unicode_byte_type.
   %.not.i = icmp eq i32 %56, 0
   br i1 %.not.i, label %57, label %58
 
-57:                                               ; preds = %unicode_byte_type.exit.thread388.i
+57:                                               ; preds = %unicode_byte_type.exit.thread398.i
   store ptr %26, ptr %3, align 8, !tbaa !3
   br label %big2_scanLt.exit
 
-58:                                               ; preds = %unicode_byte_type.exit.thread388.i, %unicode_byte_type.exit.i, %unicode_byte_type.exit.i
+58:                                               ; preds = %unicode_byte_type.exit.thread398.i, %unicode_byte_type.exit.i, %unicode_byte_type.exit.i
   %59 = getelementptr i8, ptr %1, i64 4
   %60 = ptrtoint ptr %59 to i64
   %61 = sub i64 %27, %60
@@ -14233,11 +14233,11 @@ unicode_byte_type.exit.thread388.i:               ; preds = %.unicode_byte_type.
   store ptr %26, ptr %3, align 8, !tbaa !3
   br label %big2_scanLt.exit
 
-unicode_byte_type.exit.thread391.i:               ; preds = %unicode_byte_type.exit.i, %31, %31, %31, %31
+unicode_byte_type.exit.thread401.i:               ; preds = %unicode_byte_type.exit.i, %31, %31, %31, %31
   %68 = icmp samesign ult i64 %29, 4
   br i1 %68, label %big2_scanLt.exit, label %69
 
-69:                                               ; preds = %unicode_byte_type.exit.thread391.i
+69:                                               ; preds = %unicode_byte_type.exit.thread401.i
   store ptr %26, ptr %3, align 8, !tbaa !3
   br label %big2_scanLt.exit
 
@@ -14325,12 +14325,12 @@ unicode_byte_type.exit172.thread.i:               ; preds = %unicode_byte_type.e
 
 108:                                              ; preds = %103
   %109 = load i8, ptr %104, align 1, !tbaa !8
-  switch i8 %109, label %.unicode_byte_type.exit.thread142.i_crit_edge.i [
+  switch i8 %109, label %.unicode_byte_type.exit.thread145.i_crit_edge.i [
     i8 0, label %unicode_byte_type.exit.i.i
-    i8 -40, label %unicode_byte_type.exit.thread145.i.i
-    i8 -39, label %unicode_byte_type.exit.thread145.i.i
-    i8 -38, label %unicode_byte_type.exit.thread145.i.i
-    i8 -37, label %unicode_byte_type.exit.thread145.i.i
+    i8 -40, label %unicode_byte_type.exit.thread148.i.i
+    i8 -39, label %unicode_byte_type.exit.thread148.i.i
+    i8 -38, label %unicode_byte_type.exit.thread148.i.i
+    i8 -37, label %unicode_byte_type.exit.thread148.i.i
     i8 -36, label %.loopexit.sink.split.i.i
     i8 -35, label %.loopexit.sink.split.i.i
     i8 -34, label %.loopexit.sink.split.i.i
@@ -14338,16 +14338,16 @@ unicode_byte_type.exit172.thread.i:               ; preds = %unicode_byte_type.e
     i8 -1, label %110
   ]
 
-.unicode_byte_type.exit.thread142.i_crit_edge.i:  ; preds = %108
+.unicode_byte_type.exit.thread145.i_crit_edge.i:  ; preds = %108
   %.phi.trans.insert.i = getelementptr i8, ptr %1, i64 5
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1, !tbaa !8
-  br label %unicode_byte_type.exit.thread142.i.i
+  br label %unicode_byte_type.exit.thread145.i.i
 
 110:                                              ; preds = %108
   %111 = getelementptr i8, ptr %1, i64 5
   %112 = load i8, ptr %111, align 1, !tbaa !8
   %switch.i.i.i = icmp ugt i8 %112, -3
-  br i1 %switch.i.i.i, label %.loopexit.sink.split.i.i, label %unicode_byte_type.exit.thread142.i.i
+  br i1 %switch.i.i.i, label %.loopexit.sink.split.i.i, label %unicode_byte_type.exit.thread145.i.i
 
 unicode_byte_type.exit.i.i:                       ; preds = %108
   %113 = getelementptr i8, ptr %1, i64 5
@@ -14356,15 +14356,15 @@ unicode_byte_type.exit.i.i:                       ; preds = %108
   %116 = getelementptr [256 x i8], ptr %36, i64 0, i64 %115
   %117 = load i8, ptr %116, align 1, !tbaa !8
   switch i8 %117, label %.loopexit.sink.split.i.i [
-    i8 29, label %unicode_byte_type.exit.thread142.i.i
+    i8 29, label %unicode_byte_type.exit.thread145.i.i
     i8 22, label %133
     i8 24, label %133
-    i8 7, label %unicode_byte_type.exit.thread145.i.i
+    i8 7, label %unicode_byte_type.exit.thread148.i.i
     i8 6, label %137
   ]
 
-unicode_byte_type.exit.thread142.i.i:             ; preds = %unicode_byte_type.exit.i.i, %110, %.unicode_byte_type.exit.thread142.i_crit_edge.i
-  %118 = phi i8 [ %.pre.i, %.unicode_byte_type.exit.thread142.i_crit_edge.i ], [ %114, %unicode_byte_type.exit.i.i ], [ %112, %110 ]
+unicode_byte_type.exit.thread145.i.i:             ; preds = %unicode_byte_type.exit.i.i, %110, %.unicode_byte_type.exit.thread145.i_crit_edge.i
+  %118 = phi i8 [ %.pre.i, %.unicode_byte_type.exit.thread145.i_crit_edge.i ], [ %114, %unicode_byte_type.exit.i.i ], [ %112, %110 ]
   %119 = zext i8 %109 to i64
   %120 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !8
@@ -14382,7 +14382,7 @@ unicode_byte_type.exit.thread142.i.i:             ; preds = %unicode_byte_type.e
   %.not.i.i = icmp eq i32 %132, 0
   br i1 %.not.i.i, label %.loopexit.sink.split.i.i, label %133
 
-133:                                              ; preds = %unicode_byte_type.exit.thread142.i.i, %unicode_byte_type.exit.i.i, %unicode_byte_type.exit.i.i
+133:                                              ; preds = %unicode_byte_type.exit.thread145.i.i, %unicode_byte_type.exit.i.i, %unicode_byte_type.exit.i.i
   %.070108.i.i = getelementptr i8, ptr %1, i64 6
   %134 = ptrtoint ptr %.070108.i.i to i64
   %135 = sub i64 %27, %134
@@ -14393,7 +14393,7 @@ unicode_byte_type.exit.thread142.i.i:             ; preds = %unicode_byte_type.e
   %138 = icmp eq i64 %106, 2
   br i1 %138, label %big2_scanLt.exit, label %.loopexit.sink.split.i.i
 
-unicode_byte_type.exit.thread145.i.i:             ; preds = %unicode_byte_type.exit.i.i, %108, %108, %108, %108
+unicode_byte_type.exit.thread148.i.i:             ; preds = %unicode_byte_type.exit.i.i, %108, %108, %108, %108
   %139 = icmp samesign ult i64 %106, 4
   br i1 %139, label %big2_scanLt.exit, label %.loopexit.sink.split.i.i
 
@@ -14402,12 +14402,12 @@ unicode_byte_type.exit.thread145.i.i:             ; preds = %unicode_byte_type.e
   %.070110.i.i = phi ptr [ %.070.i.i, %186 ], [ %.070108.i.i, %133 ]
   %.pn109.i.i = phi ptr [ %.070110.i.i, %186 ], [ %104, %133 ]
   %141 = load i8, ptr %.070110.i.i, align 1, !tbaa !8
-  switch i8 %141, label %.unicode_byte_type.exit78.thread148.i_crit_edge.i [
+  switch i8 %141, label %.unicode_byte_type.exit78.thread151.i_crit_edge.i [
     i8 0, label %unicode_byte_type.exit78.i.i
-    i8 -40, label %unicode_byte_type.exit78.thread151.i.i
-    i8 -39, label %unicode_byte_type.exit78.thread151.i.i
-    i8 -38, label %unicode_byte_type.exit78.thread151.i.i
-    i8 -37, label %unicode_byte_type.exit78.thread151.i.i
+    i8 -40, label %unicode_byte_type.exit78.thread154.i.i
+    i8 -39, label %unicode_byte_type.exit78.thread154.i.i
+    i8 -38, label %unicode_byte_type.exit78.thread154.i.i
+    i8 -37, label %unicode_byte_type.exit78.thread154.i.i
     i8 -36, label %.loopexit.sink.split.i.i
     i8 -35, label %.loopexit.sink.split.i.i
     i8 -34, label %.loopexit.sink.split.i.i
@@ -14415,16 +14415,16 @@ unicode_byte_type.exit.thread145.i.i:             ; preds = %unicode_byte_type.e
     i8 -1, label %142
   ]
 
-.unicode_byte_type.exit78.thread148.i_crit_edge.i: ; preds = %.lr.ph.i.i
+.unicode_byte_type.exit78.thread151.i_crit_edge.i: ; preds = %.lr.ph.i.i
   %.phi.trans.insert385.i = getelementptr i8, ptr %.pn109.i.i, i64 3
   %.pre386.i = load i8, ptr %.phi.trans.insert385.i, align 1, !tbaa !8
-  br label %unicode_byte_type.exit78.thread148.i.i
+  br label %unicode_byte_type.exit78.thread151.i.i
 
 142:                                              ; preds = %.lr.ph.i.i
   %143 = getelementptr i8, ptr %.pn109.i.i, i64 3
   %144 = load i8, ptr %143, align 1, !tbaa !8
   %switch.i76.i.i = icmp ugt i8 %144, -3
-  br i1 %switch.i76.i.i, label %.loopexit.sink.split.i.i, label %unicode_byte_type.exit78.thread148.i.i
+  br i1 %switch.i76.i.i, label %.loopexit.sink.split.i.i, label %unicode_byte_type.exit78.thread151.i.i
 
 unicode_byte_type.exit78.i.i:                     ; preds = %.lr.ph.i.i
   %145 = getelementptr i8, ptr %.pn109.i.i, i64 3
@@ -14433,7 +14433,7 @@ unicode_byte_type.exit78.i.i:                     ; preds = %.lr.ph.i.i
   %148 = getelementptr [256 x i8], ptr %36, i64 0, i64 %147
   %149 = load i8, ptr %148, align 1, !tbaa !8
   switch i8 %149, label %.loopexit.sink.split.i.i [
-    i8 29, label %unicode_byte_type.exit78.thread148.i.i
+    i8 29, label %unicode_byte_type.exit78.thread151.i.i
     i8 22, label %186
     i8 24, label %186
     i8 25, label %186
@@ -14441,15 +14441,15 @@ unicode_byte_type.exit78.i.i:                     ; preds = %.lr.ph.i.i
     i8 27, label %186
     i8 11, label %184
     i8 6, label %165
-    i8 7, label %unicode_byte_type.exit78.thread151.i.i
+    i8 7, label %unicode_byte_type.exit78.thread154.i.i
     i8 21, label %168
     i8 9, label %168
     i8 10, label %168
     i8 23, label %186
   ]
 
-unicode_byte_type.exit78.thread148.i.i:           ; preds = %unicode_byte_type.exit78.i.i, %142, %.unicode_byte_type.exit78.thread148.i_crit_edge.i
-  %150 = phi i8 [ %.pre386.i, %.unicode_byte_type.exit78.thread148.i_crit_edge.i ], [ %146, %unicode_byte_type.exit78.i.i ], [ %144, %142 ]
+unicode_byte_type.exit78.thread151.i.i:           ; preds = %unicode_byte_type.exit78.i.i, %142, %.unicode_byte_type.exit78.thread151.i_crit_edge.i
+  %150 = phi i8 [ %.pre386.i, %.unicode_byte_type.exit78.thread151.i_crit_edge.i ], [ %146, %unicode_byte_type.exit78.i.i ], [ %144, %142 ]
   %151 = zext i8 %141 to i64
   %152 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %151
   %153 = load i8, ptr %152, align 1, !tbaa !8
@@ -14471,7 +14471,7 @@ unicode_byte_type.exit78.thread148.i.i:           ; preds = %unicode_byte_type.e
   %166 = icmp eq i64 %140, 2
   br i1 %166, label %big2_scanLt.exit, label %.loopexit.sink.split.i.i
 
-unicode_byte_type.exit78.thread151.i.i:           ; preds = %unicode_byte_type.exit78.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
+unicode_byte_type.exit78.thread154.i.i:           ; preds = %unicode_byte_type.exit78.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   %167 = icmp samesign ult i64 %140, 4
   br i1 %167, label %big2_scanLt.exit, label %.loopexit.sink.split.i.i
 
@@ -14517,17 +14517,17 @@ unicode_byte_type.exit81.i.i:                     ; preds = %.lr.ph114.i.i
   %185 = getelementptr i8, ptr %.pn109.i.i, i64 4
   br label %.loopexit.sink.split.i.i
 
-186:                                              ; preds = %unicode_byte_type.exit78.thread148.i.i, %unicode_byte_type.exit78.i.i, %unicode_byte_type.exit78.i.i, %unicode_byte_type.exit78.i.i, %unicode_byte_type.exit78.i.i, %unicode_byte_type.exit78.i.i, %unicode_byte_type.exit78.i.i
+186:                                              ; preds = %unicode_byte_type.exit78.thread151.i.i, %unicode_byte_type.exit78.i.i, %unicode_byte_type.exit78.i.i, %unicode_byte_type.exit78.i.i, %unicode_byte_type.exit78.i.i, %unicode_byte_type.exit78.i.i, %unicode_byte_type.exit78.i.i
   %.070.i.i = getelementptr i8, ptr %.070110.i.i, i64 2
   %187 = ptrtoint ptr %.070.i.i to i64
   %188 = sub i64 %27, %187
   %189 = icmp sgt i64 %188, 1
   br i1 %189, label %.lr.ph.i.i, label %big2_scanLt.exit, !llvm.loop !128
 
-.loopexit.sink.split.i.i:                         ; preds = %unicode_byte_type.exit78.thread148.i.i, %unicode_byte_type.exit78.i.i, %142, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %unicode_byte_type.exit81.i.i, %.lr.ph114.i.i, %184, %178, %unicode_byte_type.exit78.thread151.i.i, %165, %unicode_byte_type.exit.thread145.i.i, %137, %unicode_byte_type.exit.thread142.i.i, %unicode_byte_type.exit.i.i, %110, %108, %108, %108, %108
-  %.070110.lcssa169.sink.i.i = phi ptr [ %185, %184 ], [ %179, %178 ], [ %104, %unicode_byte_type.exit.thread142.i.i ], [ %104, %137 ], [ %104, %unicode_byte_type.exit.thread145.i.i ], [ %104, %108 ], [ %104, %108 ], [ %104, %108 ], [ %104, %108 ], [ %104, %110 ], [ %104, %unicode_byte_type.exit.i.i ], [ %.070110.i.i, %165 ], [ %.070110.i.i, %unicode_byte_type.exit78.thread151.i.i ], [ %.2113.i.i, %.lr.ph114.i.i ], [ %.2113.i.i, %unicode_byte_type.exit81.i.i ], [ %.070110.i.i, %.lr.ph.i.i ], [ %.070110.i.i, %.lr.ph.i.i ], [ %.070110.i.i, %.lr.ph.i.i ], [ %.070110.i.i, %.lr.ph.i.i ], [ %.070110.i.i, %142 ], [ %.070110.i.i, %unicode_byte_type.exit78.i.i ], [ %.070110.i.i, %unicode_byte_type.exit78.thread148.i.i ]
-  %.0.ph.i.i = phi i32 [ 5, %184 ], [ 5, %178 ], [ 0, %unicode_byte_type.exit.thread142.i.i ], [ 0, %137 ], [ 0, %unicode_byte_type.exit.thread145.i.i ], [ 0, %108 ], [ 0, %108 ], [ 0, %108 ], [ 0, %108 ], [ 0, %110 ], [ 0, %unicode_byte_type.exit.i.i ], [ 0, %165 ], [ 0, %unicode_byte_type.exit78.thread151.i.i ], [ 0, %.lr.ph114.i.i ], [ 0, %unicode_byte_type.exit81.i.i ], [ 0, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i ], [ 0, %142 ], [ 0, %unicode_byte_type.exit78.i.i ], [ 0, %unicode_byte_type.exit78.thread148.i.i ]
-  store ptr %.070110.lcssa169.sink.i.i, ptr %3, align 8, !tbaa !3
+.loopexit.sink.split.i.i:                         ; preds = %unicode_byte_type.exit78.thread151.i.i, %unicode_byte_type.exit78.i.i, %142, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %unicode_byte_type.exit81.i.i, %.lr.ph114.i.i, %184, %178, %unicode_byte_type.exit78.thread154.i.i, %165, %unicode_byte_type.exit.thread148.i.i, %137, %unicode_byte_type.exit.thread145.i.i, %unicode_byte_type.exit.i.i, %110, %108, %108, %108, %108
+  %.070110.lcssa172.sink.i.i = phi ptr [ %185, %184 ], [ %179, %178 ], [ %104, %unicode_byte_type.exit.thread145.i.i ], [ %104, %137 ], [ %104, %unicode_byte_type.exit.thread148.i.i ], [ %104, %108 ], [ %104, %108 ], [ %104, %108 ], [ %104, %108 ], [ %104, %110 ], [ %104, %unicode_byte_type.exit.i.i ], [ %.070110.i.i, %165 ], [ %.070110.i.i, %unicode_byte_type.exit78.thread154.i.i ], [ %.2113.i.i, %.lr.ph114.i.i ], [ %.2113.i.i, %unicode_byte_type.exit81.i.i ], [ %.070110.i.i, %.lr.ph.i.i ], [ %.070110.i.i, %.lr.ph.i.i ], [ %.070110.i.i, %.lr.ph.i.i ], [ %.070110.i.i, %.lr.ph.i.i ], [ %.070110.i.i, %142 ], [ %.070110.i.i, %unicode_byte_type.exit78.i.i ], [ %.070110.i.i, %unicode_byte_type.exit78.thread151.i.i ]
+  %.0.ph.i.i = phi i32 [ 5, %184 ], [ 5, %178 ], [ 0, %unicode_byte_type.exit.thread145.i.i ], [ 0, %137 ], [ 0, %unicode_byte_type.exit.thread148.i.i ], [ 0, %108 ], [ 0, %108 ], [ 0, %108 ], [ 0, %108 ], [ 0, %110 ], [ 0, %unicode_byte_type.exit.i.i ], [ 0, %165 ], [ 0, %unicode_byte_type.exit78.thread154.i.i ], [ 0, %.lr.ph114.i.i ], [ 0, %unicode_byte_type.exit81.i.i ], [ 0, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i ], [ 0, %142 ], [ 0, %unicode_byte_type.exit78.i.i ], [ 0, %unicode_byte_type.exit78.thread151.i.i ]
+  store ptr %.070110.lcssa172.sink.i.i, ptr %3, align 8, !tbaa !3
   br label %big2_scanLt.exit
 
 unicode_byte_type.exit.thread.i:                  ; preds = %unicode_byte_type.exit.i, %33, %31, %31, %31, %31
@@ -14539,12 +14539,12 @@ unicode_byte_type.exit.thread.i:                  ; preds = %unicode_byte_type.e
   %.0282.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %320 ]
   %.0156281.i = phi ptr [ %59, %.lr.ph.i ], [ %321, %320 ]
   %192 = load i8, ptr %.0156281.i, align 1, !tbaa !8
-  switch i8 %192, label %.unicode_byte_type.exit176.thread395.i_crit_edge [
+  switch i8 %192, label %.unicode_byte_type.exit176.thread405.i_crit_edge [
     i8 0, label %unicode_byte_type.exit176.i
-    i8 -40, label %unicode_byte_type.exit176.thread398.i
-    i8 -39, label %unicode_byte_type.exit176.thread398.i
-    i8 -38, label %unicode_byte_type.exit176.thread398.i
-    i8 -37, label %unicode_byte_type.exit176.thread398.i
+    i8 -40, label %unicode_byte_type.exit176.thread408.i
+    i8 -39, label %unicode_byte_type.exit176.thread408.i
+    i8 -38, label %unicode_byte_type.exit176.thread408.i
+    i8 -37, label %unicode_byte_type.exit176.thread408.i
     i8 -36, label %unicode_byte_type.exit176.thread.i
     i8 -35, label %unicode_byte_type.exit176.thread.i
     i8 -34, label %unicode_byte_type.exit176.thread.i
@@ -14552,16 +14552,16 @@ unicode_byte_type.exit.thread.i:                  ; preds = %unicode_byte_type.e
     i8 -1, label %193
   ]
 
-.unicode_byte_type.exit176.thread395.i_crit_edge: ; preds = %190
+.unicode_byte_type.exit176.thread405.i_crit_edge: ; preds = %190
   %.phi.trans.insert348 = getelementptr i8, ptr %.0156281.i, i64 1
   %.pre349 = load i8, ptr %.phi.trans.insert348, align 1, !tbaa !8
-  br label %unicode_byte_type.exit176.thread395.i
+  br label %unicode_byte_type.exit176.thread405.i
 
 193:                                              ; preds = %190
   %194 = getelementptr i8, ptr %.0156281.i, i64 1
   %195 = load i8, ptr %194, align 1, !tbaa !8
   %switch.i174.i = icmp ugt i8 %195, -3
-  br i1 %switch.i174.i, label %unicode_byte_type.exit176.thread.i, label %unicode_byte_type.exit176.thread395.i
+  br i1 %switch.i174.i, label %unicode_byte_type.exit176.thread.i, label %unicode_byte_type.exit176.thread405.i
 
 unicode_byte_type.exit176.i:                      ; preds = %190
   %196 = getelementptr i8, ptr %.0156281.i, i64 1
@@ -14570,7 +14570,7 @@ unicode_byte_type.exit176.i:                      ; preds = %190
   %199 = getelementptr [256 x i8], ptr %63, i64 0, i64 %198
   %200 = load i8, ptr %199, align 1, !tbaa !8
   switch i8 %200, label %unicode_byte_type.exit176.thread.i [
-    i8 29, label %unicode_byte_type.exit176.thread395.i
+    i8 29, label %unicode_byte_type.exit176.thread405.i
     i8 22, label %320
     i8 24, label %320
     i8 25, label %320
@@ -14578,7 +14578,7 @@ unicode_byte_type.exit176.i:                      ; preds = %190
     i8 27, label %320
     i8 5, label %217
     i8 6, label %218
-    i8 7, label %unicode_byte_type.exit176.thread398.i
+    i8 7, label %unicode_byte_type.exit176.thread408.i
     i8 23, label %223
     i8 21, label %262
     i8 9, label %262
@@ -14587,8 +14587,8 @@ unicode_byte_type.exit176.i:                      ; preds = %190
     i8 17, label %.loopexit184.i
   ]
 
-unicode_byte_type.exit176.thread395.i:            ; preds = %.unicode_byte_type.exit176.thread395.i_crit_edge, %unicode_byte_type.exit176.i, %193
-  %201 = phi i8 [ %.pre349, %.unicode_byte_type.exit176.thread395.i_crit_edge ], [ %197, %unicode_byte_type.exit176.i ], [ %195, %193 ]
+unicode_byte_type.exit176.thread405.i:            ; preds = %.unicode_byte_type.exit176.thread405.i_crit_edge, %unicode_byte_type.exit176.i, %193
+  %201 = phi i8 [ %.pre349, %.unicode_byte_type.exit176.thread405.i_crit_edge ], [ %197, %unicode_byte_type.exit176.i ], [ %195, %193 ]
   %202 = zext i8 %192 to i64
   %203 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %202
   %204 = load i8, ptr %203, align 1, !tbaa !8
@@ -14606,7 +14606,7 @@ unicode_byte_type.exit176.thread395.i:            ; preds = %.unicode_byte_type.
   %.not169.i = icmp eq i32 %215, 0
   br i1 %.not169.i, label %216, label %320
 
-216:                                              ; preds = %unicode_byte_type.exit176.thread395.i
+216:                                              ; preds = %unicode_byte_type.exit176.thread405.i
   store ptr %.0156281.i, ptr %3, align 8, !tbaa !3
   br label %big2_scanLt.exit
 
@@ -14622,11 +14622,11 @@ unicode_byte_type.exit176.thread395.i:            ; preds = %.unicode_byte_type.
   store ptr %.0156281.i, ptr %3, align 8, !tbaa !3
   br label %big2_scanLt.exit
 
-unicode_byte_type.exit176.thread398.i:            ; preds = %unicode_byte_type.exit176.i, %190, %190, %190, %190
+unicode_byte_type.exit176.thread408.i:            ; preds = %unicode_byte_type.exit176.i, %190, %190, %190, %190
   %221 = icmp samesign ult i64 %191, 4
   br i1 %221, label %big2_scanLt.exit, label %222
 
-222:                                              ; preds = %unicode_byte_type.exit176.thread398.i
+222:                                              ; preds = %unicode_byte_type.exit176.thread408.i
   store ptr %.0156281.i, ptr %3, align 8, !tbaa !3
   br label %big2_scanLt.exit
 
@@ -14647,12 +14647,12 @@ unicode_byte_type.exit176.thread398.i:            ; preds = %unicode_byte_type.e
 
 230:                                              ; preds = %225
   %231 = load i8, ptr %226, align 1, !tbaa !8
-  switch i8 %231, label %.unicode_byte_type.exit179.thread401.i_crit_edge [
+  switch i8 %231, label %.unicode_byte_type.exit179.thread411.i_crit_edge [
     i8 0, label %unicode_byte_type.exit179.i
-    i8 -40, label %unicode_byte_type.exit179.thread404.i
-    i8 -39, label %unicode_byte_type.exit179.thread404.i
-    i8 -38, label %unicode_byte_type.exit179.thread404.i
-    i8 -37, label %unicode_byte_type.exit179.thread404.i
+    i8 -40, label %unicode_byte_type.exit179.thread414.i
+    i8 -39, label %unicode_byte_type.exit179.thread414.i
+    i8 -38, label %unicode_byte_type.exit179.thread414.i
+    i8 -37, label %unicode_byte_type.exit179.thread414.i
     i8 -36, label %unicode_byte_type.exit179.thread.i
     i8 -35, label %unicode_byte_type.exit179.thread.i
     i8 -34, label %unicode_byte_type.exit179.thread.i
@@ -14660,16 +14660,16 @@ unicode_byte_type.exit176.thread398.i:            ; preds = %unicode_byte_type.e
     i8 -1, label %232
   ]
 
-.unicode_byte_type.exit179.thread401.i_crit_edge: ; preds = %230
+.unicode_byte_type.exit179.thread411.i_crit_edge: ; preds = %230
   %.phi.trans.insert346 = getelementptr i8, ptr %.0156281.i, i64 3
   %.pre347 = load i8, ptr %.phi.trans.insert346, align 1, !tbaa !8
-  br label %unicode_byte_type.exit179.thread401.i
+  br label %unicode_byte_type.exit179.thread411.i
 
 232:                                              ; preds = %230
   %233 = getelementptr i8, ptr %.0156281.i, i64 3
   %234 = load i8, ptr %233, align 1, !tbaa !8
   %switch.i177.i = icmp ugt i8 %234, -3
-  br i1 %switch.i177.i, label %unicode_byte_type.exit179.thread.i, label %unicode_byte_type.exit179.thread401.i
+  br i1 %switch.i177.i, label %unicode_byte_type.exit179.thread.i, label %unicode_byte_type.exit179.thread411.i
 
 unicode_byte_type.exit179.i:                      ; preds = %230
   %235 = getelementptr i8, ptr %.0156281.i, i64 3
@@ -14678,16 +14678,16 @@ unicode_byte_type.exit179.i:                      ; preds = %230
   %238 = getelementptr [256 x i8], ptr %63, i64 0, i64 %237
   %239 = load i8, ptr %238, align 1, !tbaa !8
   switch i8 %239, label %unicode_byte_type.exit179.thread.i [
-    i8 29, label %unicode_byte_type.exit179.thread401.i
+    i8 29, label %unicode_byte_type.exit179.thread411.i
     i8 22, label %320
     i8 24, label %320
     i8 5, label %256
     i8 6, label %257
-    i8 7, label %unicode_byte_type.exit179.thread404.i
+    i8 7, label %unicode_byte_type.exit179.thread414.i
   ]
 
-unicode_byte_type.exit179.thread401.i:            ; preds = %.unicode_byte_type.exit179.thread401.i_crit_edge, %unicode_byte_type.exit179.i, %232
-  %240 = phi i8 [ %.pre347, %.unicode_byte_type.exit179.thread401.i_crit_edge ], [ %236, %unicode_byte_type.exit179.i ], [ %234, %232 ]
+unicode_byte_type.exit179.thread411.i:            ; preds = %.unicode_byte_type.exit179.thread411.i_crit_edge, %unicode_byte_type.exit179.i, %232
+  %240 = phi i8 [ %.pre347, %.unicode_byte_type.exit179.thread411.i_crit_edge ], [ %236, %unicode_byte_type.exit179.i ], [ %234, %232 ]
   %241 = zext i8 %231 to i64
   %242 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %241
   %243 = load i8, ptr %242, align 1, !tbaa !8
@@ -14705,7 +14705,7 @@ unicode_byte_type.exit179.thread401.i:            ; preds = %.unicode_byte_type.
   %.not168.i = icmp eq i32 %254, 0
   br i1 %.not168.i, label %255, label %320
 
-255:                                              ; preds = %unicode_byte_type.exit179.thread401.i
+255:                                              ; preds = %unicode_byte_type.exit179.thread411.i
   store ptr %226, ptr %3, align 8, !tbaa !3
   br label %big2_scanLt.exit
 
@@ -14721,11 +14721,11 @@ unicode_byte_type.exit179.thread401.i:            ; preds = %.unicode_byte_type.
   store ptr %226, ptr %3, align 8, !tbaa !3
   br label %big2_scanLt.exit
 
-unicode_byte_type.exit179.thread404.i:            ; preds = %unicode_byte_type.exit179.i, %230, %230, %230, %230
+unicode_byte_type.exit179.thread414.i:            ; preds = %unicode_byte_type.exit179.i, %230, %230, %230, %230
   %260 = icmp samesign ult i64 %228, 4
   br i1 %260, label %big2_scanLt.exit, label %261
 
-261:                                              ; preds = %unicode_byte_type.exit179.thread404.i
+261:                                              ; preds = %unicode_byte_type.exit179.thread414.i
   store ptr %226, ptr %3, align 8, !tbaa !3
   br label %big2_scanLt.exit
 
@@ -14745,12 +14745,12 @@ unicode_byte_type.exit179.thread.i:               ; preds = %unicode_byte_type.e
   %.2286.i = phi ptr [ %.2.i, %301 ], [ %.2284.i, %262 ]
   %.0156.pn285.i = phi ptr [ %.2286.i, %301 ], [ %.0156281.i, %262 ]
   %267 = load i8, ptr %.2286.i, align 1, !tbaa !8
-  switch i8 %267, label %.lr.ph287.i.unicode_byte_type.exit182.thread407.i.loopexit_crit_edge [
+  switch i8 %267, label %.lr.ph287.i.unicode_byte_type.exit182.thread417.i.loopexit_crit_edge [
     i8 0, label %unicode_byte_type.exit182.i
-    i8 -40, label %unicode_byte_type.exit182.thread410.i
-    i8 -39, label %unicode_byte_type.exit182.thread410.i
-    i8 -38, label %unicode_byte_type.exit182.thread410.i
-    i8 -37, label %unicode_byte_type.exit182.thread410.i
+    i8 -40, label %unicode_byte_type.exit182.thread420.i
+    i8 -39, label %unicode_byte_type.exit182.thread420.i
+    i8 -38, label %unicode_byte_type.exit182.thread420.i
+    i8 -37, label %unicode_byte_type.exit182.thread420.i
     i8 -36, label %unicode_byte_type.exit182.thread.i
     i8 -35, label %unicode_byte_type.exit182.thread.i
     i8 -34, label %unicode_byte_type.exit182.thread.i
@@ -14758,17 +14758,17 @@ unicode_byte_type.exit179.thread.i:               ; preds = %unicode_byte_type.e
     i8 -1, label %269
   ]
 
-.lr.ph287.i.unicode_byte_type.exit182.thread407.i.loopexit_crit_edge: ; preds = %.lr.ph287.i
+.lr.ph287.i.unicode_byte_type.exit182.thread417.i.loopexit_crit_edge: ; preds = %.lr.ph287.i
   %.phi.trans.insert344.phi.trans.insert = getelementptr i8, ptr %.0156.pn285.i, i64 3
   %.pre345.pre = load i8, ptr %.phi.trans.insert344.phi.trans.insert, align 1, !tbaa !8
   %268 = zext i8 %267 to i64
-  br label %unicode_byte_type.exit182.thread407.i
+  br label %unicode_byte_type.exit182.thread417.i
 
 269:                                              ; preds = %.lr.ph287.i
   %270 = getelementptr i8, ptr %.0156.pn285.i, i64 3
   %271 = load i8, ptr %270, align 1, !tbaa !8
   %switch.i180.i = icmp ugt i8 %271, -3
-  br i1 %switch.i180.i, label %unicode_byte_type.exit182.thread.i, label %unicode_byte_type.exit182.thread407.i
+  br i1 %switch.i180.i, label %unicode_byte_type.exit182.thread.i, label %unicode_byte_type.exit182.thread417.i
 
 unicode_byte_type.exit182.i:                      ; preds = %.lr.ph287.i
   %272 = getelementptr i8, ptr %.0156.pn285.i, i64 3
@@ -14777,12 +14777,12 @@ unicode_byte_type.exit182.i:                      ; preds = %.lr.ph287.i
   %275 = getelementptr [256 x i8], ptr %63, i64 0, i64 %274
   %276 = load i8, ptr %275, align 1, !tbaa !8
   switch i8 %276, label %unicode_byte_type.exit182.thread.i [
-    i8 29, label %unicode_byte_type.exit182.thread407.i
+    i8 29, label %unicode_byte_type.exit182.thread417.i
     i8 22, label %.loopexit.i
     i8 24, label %.loopexit.i
     i8 5, label %295
     i8 6, label %296
-    i8 7, label %unicode_byte_type.exit182.thread410.i
+    i8 7, label %unicode_byte_type.exit182.thread420.i
     i8 11, label %.loopexit183.i
     i8 17, label %.loopexit184.i
     i8 21, label %301
@@ -14790,9 +14790,9 @@ unicode_byte_type.exit182.i:                      ; preds = %.lr.ph287.i
     i8 10, label %301
   ]
 
-unicode_byte_type.exit182.thread407.i:            ; preds = %unicode_byte_type.exit182.i, %.lr.ph287.i.unicode_byte_type.exit182.thread407.i.loopexit_crit_edge, %269
-  %277 = phi i8 [ %271, %269 ], [ %.pre345.pre, %.lr.ph287.i.unicode_byte_type.exit182.thread407.i.loopexit_crit_edge ], [ %273, %unicode_byte_type.exit182.i ]
-  %278 = phi i64 [ 255, %269 ], [ %268, %.lr.ph287.i.unicode_byte_type.exit182.thread407.i.loopexit_crit_edge ], [ 0, %unicode_byte_type.exit182.i ]
+unicode_byte_type.exit182.thread417.i:            ; preds = %unicode_byte_type.exit182.i, %.lr.ph287.i.unicode_byte_type.exit182.thread417.i.loopexit_crit_edge, %269
+  %277 = phi i8 [ %271, %269 ], [ %.pre345.pre, %.lr.ph287.i.unicode_byte_type.exit182.thread417.i.loopexit_crit_edge ], [ %273, %unicode_byte_type.exit182.i ]
+  %278 = phi i64 [ 255, %269 ], [ %268, %.lr.ph287.i.unicode_byte_type.exit182.thread417.i.loopexit_crit_edge ], [ 0, %unicode_byte_type.exit182.i ]
   %279 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %278
   %280 = load i8, ptr %279, align 1, !tbaa !8
   %281 = zext i8 %280 to i32
@@ -14809,11 +14809,11 @@ unicode_byte_type.exit182.thread407.i:            ; preds = %unicode_byte_type.e
   %.not165.i = icmp eq i32 %291, 0
   br i1 %.not165.i, label %292, label %.loopexit.i
 
-292:                                              ; preds = %unicode_byte_type.exit182.thread407.i
+292:                                              ; preds = %unicode_byte_type.exit182.thread417.i
   store ptr %.2286.i, ptr %3, align 8, !tbaa !3
   br label %big2_scanLt.exit
 
-.loopexit.i:                                      ; preds = %unicode_byte_type.exit182.i, %unicode_byte_type.exit182.i, %unicode_byte_type.exit182.thread407.i
+.loopexit.i:                                      ; preds = %unicode_byte_type.exit182.i, %unicode_byte_type.exit182.i, %unicode_byte_type.exit182.thread417.i
   %293 = getelementptr i8, ptr %.0156.pn285.i, i64 4
   %294 = tail call fastcc i32 @big2_scanAtts(ptr noundef readonly %0, ptr noundef %293, ptr noundef %.1102, ptr noundef %3)
   br label %big2_scanLt.exit
@@ -14830,11 +14830,11 @@ unicode_byte_type.exit182.thread407.i:            ; preds = %unicode_byte_type.e
   store ptr %.2286.i, ptr %3, align 8, !tbaa !3
   br label %big2_scanLt.exit
 
-unicode_byte_type.exit182.thread410.i:            ; preds = %unicode_byte_type.exit182.i, %.lr.ph287.i, %.lr.ph287.i, %.lr.ph287.i, %.lr.ph287.i
+unicode_byte_type.exit182.thread420.i:            ; preds = %unicode_byte_type.exit182.i, %.lr.ph287.i, %.lr.ph287.i, %.lr.ph287.i, %.lr.ph287.i
   %299 = icmp samesign ult i64 %266, 4
   br i1 %299, label %big2_scanLt.exit, label %300
 
-300:                                              ; preds = %unicode_byte_type.exit182.thread410.i
+300:                                              ; preds = %unicode_byte_type.exit182.thread420.i
   store ptr %.2286.i, ptr %3, align 8, !tbaa !3
   br label %big2_scanLt.exit
 
@@ -14887,9 +14887,9 @@ unicode_byte_type.exit176.thread.i:               ; preds = %unicode_byte_type.e
   store ptr %.0156281.i, ptr %3, align 8, !tbaa !3
   br label %big2_scanLt.exit
 
-320:                                              ; preds = %unicode_byte_type.exit179.thread401.i, %unicode_byte_type.exit179.i, %unicode_byte_type.exit179.i, %unicode_byte_type.exit176.thread395.i, %unicode_byte_type.exit176.i, %unicode_byte_type.exit176.i, %unicode_byte_type.exit176.i, %unicode_byte_type.exit176.i, %unicode_byte_type.exit176.i
-  %.sink.i = phi i64 [ 2, %unicode_byte_type.exit176.thread395.i ], [ 2, %unicode_byte_type.exit176.i ], [ 2, %unicode_byte_type.exit176.i ], [ 2, %unicode_byte_type.exit176.i ], [ 2, %unicode_byte_type.exit176.i ], [ 2, %unicode_byte_type.exit176.i ], [ 4, %unicode_byte_type.exit179.thread401.i ], [ 4, %unicode_byte_type.exit179.i ], [ 4, %unicode_byte_type.exit179.i ]
-  %.1.i = phi i32 [ %.0282.i, %unicode_byte_type.exit176.thread395.i ], [ %.0282.i, %unicode_byte_type.exit176.i ], [ %.0282.i, %unicode_byte_type.exit176.i ], [ %.0282.i, %unicode_byte_type.exit176.i ], [ %.0282.i, %unicode_byte_type.exit176.i ], [ %.0282.i, %unicode_byte_type.exit176.i ], [ 1, %unicode_byte_type.exit179.thread401.i ], [ 1, %unicode_byte_type.exit179.i ], [ 1, %unicode_byte_type.exit179.i ]
+320:                                              ; preds = %unicode_byte_type.exit179.thread411.i, %unicode_byte_type.exit179.i, %unicode_byte_type.exit179.i, %unicode_byte_type.exit176.thread405.i, %unicode_byte_type.exit176.i, %unicode_byte_type.exit176.i, %unicode_byte_type.exit176.i, %unicode_byte_type.exit176.i, %unicode_byte_type.exit176.i
+  %.sink.i = phi i64 [ 2, %unicode_byte_type.exit176.thread405.i ], [ 2, %unicode_byte_type.exit176.i ], [ 2, %unicode_byte_type.exit176.i ], [ 2, %unicode_byte_type.exit176.i ], [ 2, %unicode_byte_type.exit176.i ], [ 2, %unicode_byte_type.exit176.i ], [ 4, %unicode_byte_type.exit179.thread411.i ], [ 4, %unicode_byte_type.exit179.i ], [ 4, %unicode_byte_type.exit179.i ]
+  %.1.i = phi i32 [ %.0282.i, %unicode_byte_type.exit176.thread405.i ], [ %.0282.i, %unicode_byte_type.exit176.i ], [ %.0282.i, %unicode_byte_type.exit176.i ], [ %.0282.i, %unicode_byte_type.exit176.i ], [ %.0282.i, %unicode_byte_type.exit176.i ], [ %.0282.i, %unicode_byte_type.exit176.i ], [ 1, %unicode_byte_type.exit179.thread411.i ], [ 1, %unicode_byte_type.exit179.i ], [ 1, %unicode_byte_type.exit179.i ]
   %321 = getelementptr i8, ptr %.0156281.i, i64 %.sink.i
   %322 = ptrtoint ptr %321 to i64
   %323 = sub i64 %27, %322
@@ -14998,13 +14998,13 @@ unicode_byte_type.exit115.thread:                 ; preds = %unicode_byte_type.e
   %384 = getelementptr i8, ptr %1, i64 3
   br label %391
 
-unicode_byte_type.exit.thread356:                 ; preds = %14, %14, %14, %14, %unicode_byte_type.exit
+unicode_byte_type.exit.thread375:                 ; preds = %14, %14, %14, %14, %unicode_byte_type.exit
   %385 = ptrtoint ptr %.1102 to i64
   %386 = sub i64 %385, %7
   %387 = icmp slt i64 %386, 4
   br i1 %387, label %big2_scanLt.exit, label %388
 
-388:                                              ; preds = %unicode_byte_type.exit.thread356
+388:                                              ; preds = %unicode_byte_type.exit.thread375
   %389 = getelementptr i8, ptr %1, i64 4
   br label %391
 
@@ -15012,14 +15012,14 @@ unicode_byte_type.exit.thread:                    ; preds = %14, %14, %14, %14, 
   store ptr %1, ptr %3, align 8, !tbaa !3
   br label %big2_scanLt.exit
 
-unicode_byte_type.exit.thread353:                 ; preds = %14, %16, %unicode_byte_type.exit
+unicode_byte_type.exit.thread372:                 ; preds = %14, %16, %unicode_byte_type.exit
   %390 = getelementptr i8, ptr %1, i64 2
   %.pre351 = ptrtoint ptr %.1102 to i64
   br label %391
 
-391:                                              ; preds = %365, %368, %353, %356, %unicode_byte_type.exit.thread353, %388, %383, %377
-  %.pre-phi = phi i64 [ %349, %365 ], [ %349, %368 ], [ %349, %353 ], [ %349, %356 ], [ %.pre351, %unicode_byte_type.exit.thread353 ], [ %385, %388 ], [ %380, %383 ], [ %374, %377 ]
-  %.1104 = phi ptr [ %348, %365 ], [ %348, %368 ], [ %348, %353 ], [ %348, %356 ], [ %390, %unicode_byte_type.exit.thread353 ], [ %389, %388 ], [ %384, %383 ], [ %378, %377 ]
+391:                                              ; preds = %365, %368, %353, %356, %unicode_byte_type.exit.thread372, %388, %383, %377
+  %.pre-phi = phi i64 [ %349, %365 ], [ %349, %368 ], [ %349, %353 ], [ %349, %356 ], [ %.pre351, %unicode_byte_type.exit.thread372 ], [ %385, %388 ], [ %380, %383 ], [ %374, %377 ]
+  %.1104 = phi ptr [ %348, %365 ], [ %348, %368 ], [ %348, %353 ], [ %348, %356 ], [ %390, %unicode_byte_type.exit.thread372 ], [ %389, %388 ], [ %384, %383 ], [ %378, %377 ]
   %392 = ptrtoint ptr %.1104 to i64
   %393 = sub i64 %.pre-phi, %392
   %394 = icmp sgt i64 %393, 1
@@ -15033,12 +15033,12 @@ unicode_byte_type.exit.thread353:                 ; preds = %14, %16, %unicode_b
   %397 = phi i64 [ %393, %.lr.ph ], [ %443, %441 ]
   %.2233 = phi ptr [ %.1104, %.lr.ph ], [ %.3, %441 ]
   %398 = load i8, ptr %.2233, align 1, !tbaa !8
-  switch i8 %398, label %unicode_byte_type.exit118.thread359 [
+  switch i8 %398, label %unicode_byte_type.exit118.thread378 [
     i8 0, label %unicode_byte_type.exit118
-    i8 -40, label %unicode_byte_type.exit118.thread362
-    i8 -39, label %unicode_byte_type.exit118.thread362
-    i8 -38, label %unicode_byte_type.exit118.thread362
-    i8 -37, label %unicode_byte_type.exit118.thread362
+    i8 -40, label %unicode_byte_type.exit118.thread381
+    i8 -39, label %unicode_byte_type.exit118.thread381
+    i8 -38, label %unicode_byte_type.exit118.thread381
+    i8 -37, label %unicode_byte_type.exit118.thread381
     i8 -36, label %unicode_byte_type.exit118.thread
     i8 -35, label %unicode_byte_type.exit118.thread
     i8 -34, label %unicode_byte_type.exit118.thread
@@ -15050,7 +15050,7 @@ unicode_byte_type.exit.thread353:                 ; preds = %14, %16, %unicode_b
   %400 = getelementptr i8, ptr %.2233, i64 1
   %401 = load i8, ptr %400, align 1, !tbaa !8
   %switch.i116 = icmp ugt i8 %401, -3
-  br i1 %switch.i116, label %unicode_byte_type.exit118.thread, label %unicode_byte_type.exit118.thread359
+  br i1 %switch.i116, label %unicode_byte_type.exit118.thread, label %unicode_byte_type.exit118.thread378
 
 unicode_byte_type.exit118:                        ; preds = %396
   %402 = getelementptr i8, ptr %.2233, i64 1
@@ -15058,10 +15058,10 @@ unicode_byte_type.exit118:                        ; preds = %396
   %404 = zext i8 %403 to i64
   %405 = getelementptr [256 x i8], ptr %395, i64 0, i64 %404
   %406 = load i8, ptr %405, align 1, !tbaa !8
-  switch i8 %406, label %unicode_byte_type.exit118.thread359 [
+  switch i8 %406, label %unicode_byte_type.exit118.thread378 [
     i8 5, label %407
     i8 6, label %409
-    i8 7, label %unicode_byte_type.exit118.thread362
+    i8 7, label %unicode_byte_type.exit118.thread381
     i8 4, label %418
     i8 3, label %unicode_byte_type.exit118.thread
     i8 2, label %unicode_byte_type.exit118.thread
@@ -15088,15 +15088,15 @@ unicode_byte_type.exit118:                        ; preds = %396
   %413 = getelementptr i8, ptr %.2233, i64 3
   br label %441
 
-unicode_byte_type.exit118.thread362:              ; preds = %396, %396, %396, %396, %unicode_byte_type.exit118
+unicode_byte_type.exit118.thread381:              ; preds = %396, %396, %396, %396, %unicode_byte_type.exit118
   %414 = icmp samesign ult i64 %397, 4
   br i1 %414, label %415, label %416
 
-415:                                              ; preds = %unicode_byte_type.exit118.thread362
+415:                                              ; preds = %unicode_byte_type.exit118.thread381
   store ptr %.2233, ptr %3, align 8, !tbaa !3
   br label %big2_scanLt.exit
 
-416:                                              ; preds = %unicode_byte_type.exit118.thread362
+416:                                              ; preds = %unicode_byte_type.exit118.thread381
   %417 = getelementptr i8, ptr %.2233, i64 4
   br label %441
 
@@ -15141,12 +15141,12 @@ unicode_byte_type.exit118.thread:                 ; preds = %396, %396, %396, %3
   store ptr %.2233, ptr %3, align 8, !tbaa !3
   br label %big2_scanLt.exit
 
-unicode_byte_type.exit118.thread359:              ; preds = %396, %399, %unicode_byte_type.exit118
+unicode_byte_type.exit118.thread378:              ; preds = %396, %399, %unicode_byte_type.exit118
   %440 = getelementptr i8, ptr %.2233, i64 2
   br label %441
 
-441:                                              ; preds = %430, %434, %420, %424, %unicode_byte_type.exit118.thread359, %416, %412, %407
-  %.3 = phi ptr [ %440, %unicode_byte_type.exit118.thread359 ], [ %408, %407 ], [ %413, %412 ], [ %417, %416 ], [ %421, %424 ], [ %421, %420 ], [ %421, %434 ], [ %421, %430 ]
+441:                                              ; preds = %430, %434, %420, %424, %unicode_byte_type.exit118.thread378, %416, %412, %407
+  %.3 = phi ptr [ %440, %unicode_byte_type.exit118.thread378 ], [ %408, %407 ], [ %413, %412 ], [ %417, %416 ], [ %421, %424 ], [ %421, %420 ], [ %421, %434 ], [ %421, %430 ]
   %442 = ptrtoint ptr %.3 to i64
   %443 = sub i64 %.pre-phi, %442
   %444 = icmp sgt i64 %443, 1
@@ -15157,8 +15157,8 @@ unicode_byte_type.exit118.thread359:              ; preds = %396, %399, %unicode
   store ptr %.2.lcssa, ptr %3, align 8, !tbaa !3
   br label %big2_scanLt.exit
 
-big2_scanLt.exit:                                 ; preds = %186, %180, %320, %225, %301, %unicode_byte_type.exit176.thread.i, %318, %317, %.loopexit184.i, %.loopexit183.i, %unicode_byte_type.exit182.thread.i, %300, %unicode_byte_type.exit182.thread410.i, %298, %296, %295, %.loopexit.i, %292, %262, %unicode_byte_type.exit179.thread.i, %261, %unicode_byte_type.exit179.thread404.i, %259, %257, %256, %255, %224, %222, %unicode_byte_type.exit176.thread398.i, %220, %218, %217, %216, %unicode_byte_type.exit.thread.i, %.loopexit.sink.split.i.i, %168, %unicode_byte_type.exit78.thread151.i.i, %165, %unicode_byte_type.exit.thread145.i.i, %137, %133, %103, %100, %unicode_byte_type.exit172.thread.i, %.sink.split.i.i, %85, %82, %70, %69, %unicode_byte_type.exit.thread391.i, %67, %65, %64, %58, %57, %25, %unicode_byte_type.exit.thread356, %379, %373, %360, %347, %328, %5, %4, %._crit_edge, %unicode_byte_type.exit118.thread, %438, %415, %411, %unicode_byte_type.exit.thread, %372, %345, %unicode_byte_type.exit115.thread, %325
-  %.0100 = phi i32 [ 6, %411 ], [ 6, %415 ], [ 0, %438 ], [ 6, %unicode_byte_type.exit118.thread ], [ 6, %._crit_edge ], [ %327, %325 ], [ 7, %unicode_byte_type.exit115.thread ], [ 7, %345 ], [ 0, %372 ], [ 0, %unicode_byte_type.exit.thread ], [ -1, %5 ], [ -4, %4 ], [ -3, %328 ], [ -5, %347 ], [ -5, %360 ], [ -2, %373 ], [ -2, %379 ], [ -2, %unicode_byte_type.exit.thread356 ], [ 0, %unicode_byte_type.exit.thread.i ], [ 0, %unicode_byte_type.exit176.thread.i ], [ 0, %216 ], [ 0, %217 ], [ 0, %220 ], [ 0, %222 ], [ 0, %224 ], [ 0, %unicode_byte_type.exit179.thread.i ], [ 0, %255 ], [ 0, %256 ], [ 0, %259 ], [ 0, %261 ], [ 0, %unicode_byte_type.exit182.thread.i ], [ %294, %.loopexit.i ], [ 0, %292 ], [ 0, %295 ], [ 0, %298 ], [ 0, %300 ], [ 2, %.loopexit183.i ], [ 4, %318 ], [ 0, %317 ], [ 0, %57 ], [ 0, %64 ], [ 0, %67 ], [ 0, %69 ], [ 0, %unicode_byte_type.exit172.thread.i ], [ %84, %82 ], [ %102, %100 ], [ -1, %25 ], [ -2, %65 ], [ -2, %unicode_byte_type.exit.thread391.i ], [ -1, %70 ], [ -2, %218 ], [ -2, %unicode_byte_type.exit176.thread398.i ], [ -2, %257 ], [ -2, %unicode_byte_type.exit179.thread404.i ], [ -2, %296 ], [ -2, %unicode_byte_type.exit182.thread410.i ], [ -1, %.loopexit184.i ], [ -1, %85 ], [ %.012.ph.i.i, %.sink.split.i.i ], [ -1, %103 ], [ -2, %137 ], [ -2, %unicode_byte_type.exit.thread145.i.i ], [ -2, %165 ], [ -2, %unicode_byte_type.exit78.thread151.i.i ], [ -1, %168 ], [ -1, %133 ], [ %.0.ph.i.i, %.loopexit.sink.split.i.i ], [ -1, %262 ], [ -1, %58 ], [ -1, %301 ], [ -1, %225 ], [ -1, %320 ], [ -1, %180 ], [ -1, %186 ]
+big2_scanLt.exit:                                 ; preds = %186, %180, %320, %225, %301, %unicode_byte_type.exit176.thread.i, %318, %317, %.loopexit184.i, %.loopexit183.i, %unicode_byte_type.exit182.thread.i, %300, %unicode_byte_type.exit182.thread420.i, %298, %296, %295, %.loopexit.i, %292, %262, %unicode_byte_type.exit179.thread.i, %261, %unicode_byte_type.exit179.thread414.i, %259, %257, %256, %255, %224, %222, %unicode_byte_type.exit176.thread408.i, %220, %218, %217, %216, %unicode_byte_type.exit.thread.i, %.loopexit.sink.split.i.i, %168, %unicode_byte_type.exit78.thread154.i.i, %165, %unicode_byte_type.exit.thread148.i.i, %137, %133, %103, %100, %unicode_byte_type.exit172.thread.i, %.sink.split.i.i, %85, %82, %70, %69, %unicode_byte_type.exit.thread401.i, %67, %65, %64, %58, %57, %25, %unicode_byte_type.exit.thread375, %379, %373, %360, %347, %328, %5, %4, %._crit_edge, %unicode_byte_type.exit118.thread, %438, %415, %411, %unicode_byte_type.exit.thread, %372, %345, %unicode_byte_type.exit115.thread, %325
+  %.0100 = phi i32 [ 6, %411 ], [ 6, %415 ], [ 0, %438 ], [ 6, %unicode_byte_type.exit118.thread ], [ 6, %._crit_edge ], [ %327, %325 ], [ 7, %unicode_byte_type.exit115.thread ], [ 7, %345 ], [ 0, %372 ], [ 0, %unicode_byte_type.exit.thread ], [ -1, %5 ], [ -4, %4 ], [ -3, %328 ], [ -5, %347 ], [ -5, %360 ], [ -2, %373 ], [ -2, %379 ], [ -2, %unicode_byte_type.exit.thread375 ], [ 0, %unicode_byte_type.exit.thread.i ], [ 0, %unicode_byte_type.exit176.thread.i ], [ 0, %216 ], [ 0, %217 ], [ 0, %220 ], [ 0, %222 ], [ 0, %224 ], [ 0, %unicode_byte_type.exit179.thread.i ], [ 0, %255 ], [ 0, %256 ], [ 0, %259 ], [ 0, %261 ], [ 0, %unicode_byte_type.exit182.thread.i ], [ %294, %.loopexit.i ], [ 0, %292 ], [ 0, %295 ], [ 0, %298 ], [ 0, %300 ], [ 2, %.loopexit183.i ], [ 4, %318 ], [ 0, %317 ], [ 0, %57 ], [ 0, %64 ], [ 0, %67 ], [ 0, %69 ], [ 0, %unicode_byte_type.exit172.thread.i ], [ %84, %82 ], [ %102, %100 ], [ -1, %25 ], [ -2, %65 ], [ -2, %unicode_byte_type.exit.thread401.i ], [ -1, %70 ], [ -2, %218 ], [ -2, %unicode_byte_type.exit176.thread408.i ], [ -2, %257 ], [ -2, %unicode_byte_type.exit179.thread414.i ], [ -2, %296 ], [ -2, %unicode_byte_type.exit182.thread420.i ], [ -1, %.loopexit184.i ], [ -1, %85 ], [ %.012.ph.i.i, %.sink.split.i.i ], [ -1, %103 ], [ -2, %137 ], [ -2, %unicode_byte_type.exit.thread148.i.i ], [ -2, %165 ], [ -2, %unicode_byte_type.exit78.thread154.i.i ], [ -1, %168 ], [ -1, %133 ], [ %.0.ph.i.i, %.loopexit.sink.split.i.i ], [ -1, %262 ], [ -1, %58 ], [ -1, %301 ], [ -1, %225 ], [ -1, %320 ], [ -1, %180 ], [ -1, %186 ]
   ret i32 %.0100
 }
 
@@ -15184,12 +15184,12 @@ define internal range(i32 -4, 41) i32 @big2_cdataSectionTok(ptr noundef readonly
 
 14:                                               ; preds = %5
   %15 = load i8, ptr %1, align 1, !tbaa !8
-  switch i8 %15, label %unicode_byte_type.exit.thread109 [
+  switch i8 %15, label %unicode_byte_type.exit.thread112 [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread112
-    i8 -39, label %unicode_byte_type.exit.thread112
-    i8 -38, label %unicode_byte_type.exit.thread112
-    i8 -37, label %unicode_byte_type.exit.thread112
+    i8 -40, label %unicode_byte_type.exit.thread115
+    i8 -39, label %unicode_byte_type.exit.thread115
+    i8 -38, label %unicode_byte_type.exit.thread115
+    i8 -37, label %unicode_byte_type.exit.thread115
     i8 -36, label %.sink.split
     i8 -35, label %.sink.split
     i8 -34, label %.sink.split
@@ -15201,7 +15201,7 @@ define internal range(i32 -4, 41) i32 @big2_cdataSectionTok(ptr noundef readonly
   %17 = getelementptr i8, ptr %1, i64 1
   %18 = load i8, ptr %17, align 1, !tbaa !8
   %switch.i = icmp ugt i8 %18, -3
-  br i1 %switch.i, label %.sink.split, label %unicode_byte_type.exit.thread109
+  br i1 %switch.i, label %.sink.split, label %unicode_byte_type.exit.thread112
 
 unicode_byte_type.exit:                           ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -15210,13 +15210,13 @@ unicode_byte_type.exit:                           ; preds = %14
   %22 = zext i8 %21 to i64
   %23 = getelementptr [256 x i8], ptr %19, i64 0, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !8
-  switch i8 %24, label %unicode_byte_type.exit.thread109 [
+  switch i8 %24, label %unicode_byte_type.exit.thread112 [
     i8 4, label %25
     i8 9, label %52
     i8 10, label %68
     i8 5, label %70
     i8 6, label %76
-    i8 7, label %unicode_byte_type.exit.thread112
+    i8 7, label %unicode_byte_type.exit.thread115
     i8 0, label %.sink.split
     i8 1, label %.sink.split
     i8 8, label %.sink.split
@@ -15313,24 +15313,24 @@ unicode_byte_type.exit95:                         ; preds = %58
   %81 = getelementptr i8, ptr %1, i64 3
   br label %88
 
-unicode_byte_type.exit.thread112:                 ; preds = %14, %14, %14, %14, %unicode_byte_type.exit
+unicode_byte_type.exit.thread115:                 ; preds = %14, %14, %14, %14, %unicode_byte_type.exit
   %82 = ptrtoint ptr %.182 to i64
   %83 = sub i64 %82, %7
   %84 = icmp slt i64 %83, 4
   br i1 %84, label %111, label %85
 
-85:                                               ; preds = %unicode_byte_type.exit.thread112
+85:                                               ; preds = %unicode_byte_type.exit.thread115
   %86 = getelementptr i8, ptr %1, i64 4
   br label %88
 
-unicode_byte_type.exit.thread109:                 ; preds = %14, %16, %unicode_byte_type.exit
+unicode_byte_type.exit.thread112:                 ; preds = %14, %16, %unicode_byte_type.exit
   %87 = getelementptr i8, ptr %1, i64 2
   %.pre = ptrtoint ptr %.182 to i64
   br label %88
 
-88:                                               ; preds = %43, %46, %31, %34, %unicode_byte_type.exit.thread109, %85, %80, %74
-  %.pre-phi = phi i64 [ %27, %43 ], [ %27, %46 ], [ %27, %31 ], [ %27, %34 ], [ %.pre, %unicode_byte_type.exit.thread109 ], [ %82, %85 ], [ %77, %80 ], [ %71, %74 ]
-  %.083 = phi ptr [ %26, %43 ], [ %26, %46 ], [ %26, %31 ], [ %26, %34 ], [ %87, %unicode_byte_type.exit.thread109 ], [ %86, %85 ], [ %81, %80 ], [ %75, %74 ]
+88:                                               ; preds = %43, %46, %31, %34, %unicode_byte_type.exit.thread112, %85, %80, %74
+  %.pre-phi = phi i64 [ %27, %43 ], [ %27, %46 ], [ %27, %31 ], [ %27, %34 ], [ %.pre, %unicode_byte_type.exit.thread112 ], [ %82, %85 ], [ %77, %80 ], [ %71, %74 ]
+  %.083 = phi ptr [ %26, %43 ], [ %26, %46 ], [ %26, %31 ], [ %26, %34 ], [ %87, %unicode_byte_type.exit.thread112 ], [ %86, %85 ], [ %81, %80 ], [ %75, %74 ]
   %89 = ptrtoint ptr %.083 to i64
   %90 = sub i64 %.pre-phi, %89
   %91 = icmp sgt i64 %90, 1
@@ -15340,16 +15340,16 @@ unicode_byte_type.exit.thread109:                 ; preds = %14, %16, %unicode_b
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 136
   br label %93
 
-93:                                               ; preds = %.lr.ph, %unicode_byte_type.exit98.thread115
-  %94 = phi i64 [ %90, %.lr.ph ], [ %109, %unicode_byte_type.exit98.thread115 ]
-  %.2104 = phi ptr [ %.083, %.lr.ph ], [ %107, %unicode_byte_type.exit98.thread115 ]
+93:                                               ; preds = %.lr.ph, %unicode_byte_type.exit98.thread118
+  %94 = phi i64 [ %90, %.lr.ph ], [ %109, %unicode_byte_type.exit98.thread118 ]
+  %.2104 = phi ptr [ %.083, %.lr.ph ], [ %107, %unicode_byte_type.exit98.thread118 ]
   %95 = load i8, ptr %.2104, align 1, !tbaa !8
-  switch i8 %95, label %unicode_byte_type.exit98.thread115 [
+  switch i8 %95, label %unicode_byte_type.exit98.thread118 [
     i8 0, label %unicode_byte_type.exit98
-    i8 -40, label %unicode_byte_type.exit98.thread118
-    i8 -39, label %unicode_byte_type.exit98.thread118
-    i8 -38, label %unicode_byte_type.exit98.thread118
-    i8 -37, label %unicode_byte_type.exit98.thread118
+    i8 -40, label %unicode_byte_type.exit98.thread121
+    i8 -39, label %unicode_byte_type.exit98.thread121
+    i8 -38, label %unicode_byte_type.exit98.thread121
+    i8 -37, label %unicode_byte_type.exit98.thread121
     i8 -36, label %.sink.split
     i8 -35, label %.sink.split
     i8 -34, label %.sink.split
@@ -15361,7 +15361,7 @@ unicode_byte_type.exit.thread109:                 ; preds = %14, %16, %unicode_b
   %97 = getelementptr i8, ptr %.2104, i64 1
   %98 = load i8, ptr %97, align 1, !tbaa !8
   %switch.i96 = icmp ugt i8 %98, -3
-  br i1 %switch.i96, label %.sink.split, label %unicode_byte_type.exit98.thread115
+  br i1 %switch.i96, label %.sink.split, label %unicode_byte_type.exit98.thread118
 
 unicode_byte_type.exit98:                         ; preds = %93
   %99 = getelementptr i8, ptr %.2104, i64 1
@@ -15369,10 +15369,10 @@ unicode_byte_type.exit98:                         ; preds = %93
   %101 = zext i8 %100 to i64
   %102 = getelementptr [256 x i8], ptr %92, i64 0, i64 %101
   %103 = load i8, ptr %102, align 1, !tbaa !8
-  switch i8 %103, label %unicode_byte_type.exit98.thread115 [
+  switch i8 %103, label %unicode_byte_type.exit98.thread118 [
     i8 4, label %.sink.split
     i8 6, label %104
-    i8 7, label %unicode_byte_type.exit98.thread118
+    i8 7, label %unicode_byte_type.exit98.thread121
     i8 0, label %.sink.split
     i8 1, label %.sink.split
     i8 8, label %.sink.split
@@ -15382,28 +15382,28 @@ unicode_byte_type.exit98:                         ; preds = %93
 
 104:                                              ; preds = %unicode_byte_type.exit98
   %105 = icmp eq i64 %94, 2
-  br i1 %105, label %.sink.split, label %unicode_byte_type.exit98.thread115
+  br i1 %105, label %.sink.split, label %unicode_byte_type.exit98.thread118
 
-unicode_byte_type.exit98.thread118:               ; preds = %93, %93, %93, %93, %unicode_byte_type.exit98
+unicode_byte_type.exit98.thread121:               ; preds = %93, %93, %93, %93, %unicode_byte_type.exit98
   %106 = icmp samesign ult i64 %94, 4
-  br i1 %106, label %.sink.split, label %unicode_byte_type.exit98.thread115
+  br i1 %106, label %.sink.split, label %unicode_byte_type.exit98.thread118
 
-unicode_byte_type.exit98.thread115:               ; preds = %unicode_byte_type.exit98, %96, %93, %unicode_byte_type.exit98.thread118, %104
-  %.sink = phi i64 [ 3, %104 ], [ 4, %unicode_byte_type.exit98.thread118 ], [ 2, %93 ], [ 2, %96 ], [ 2, %unicode_byte_type.exit98 ]
+unicode_byte_type.exit98.thread118:               ; preds = %unicode_byte_type.exit98, %96, %93, %unicode_byte_type.exit98.thread121, %104
+  %.sink = phi i64 [ 3, %104 ], [ 4, %unicode_byte_type.exit98.thread121 ], [ 2, %93 ], [ 2, %96 ], [ 2, %unicode_byte_type.exit98 ]
   %107 = getelementptr i8, ptr %.2104, i64 %.sink
   %108 = ptrtoint ptr %107 to i64
   %109 = sub i64 %.pre-phi, %108
   %110 = icmp sgt i64 %109, 1
   br i1 %110, label %93, label %.sink.split, !llvm.loop !132
 
-.sink.split:                                      ; preds = %unicode_byte_type.exit98, %unicode_byte_type.exit98, %unicode_byte_type.exit98, %unicode_byte_type.exit98, %unicode_byte_type.exit98, %unicode_byte_type.exit98, %unicode_byte_type.exit98.thread115, %96, %93, %93, %93, %93, %unicode_byte_type.exit98.thread118, %104, %88, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %16, %14, %14, %14, %14, %58, %unicode_byte_type.exit95, %50, %68
-  %.2.lcssa.sink = phi ptr [ %69, %68 ], [ %51, %50 ], [ %53, %58 ], [ %spec.select, %unicode_byte_type.exit95 ], [ %1, %14 ], [ %1, %14 ], [ %1, %14 ], [ %1, %14 ], [ %1, %16 ], [ %1, %unicode_byte_type.exit ], [ %1, %unicode_byte_type.exit ], [ %1, %unicode_byte_type.exit ], [ %.083, %88 ], [ %.2104, %104 ], [ %.2104, %unicode_byte_type.exit98.thread118 ], [ %.2104, %93 ], [ %.2104, %93 ], [ %.2104, %93 ], [ %.2104, %93 ], [ %.2104, %96 ], [ %.2104, %unicode_byte_type.exit98 ], [ %.2104, %unicode_byte_type.exit98 ], [ %.2104, %unicode_byte_type.exit98 ], [ %.2104, %unicode_byte_type.exit98 ], [ %.2104, %unicode_byte_type.exit98 ], [ %.2104, %unicode_byte_type.exit98 ], [ %107, %unicode_byte_type.exit98.thread115 ]
-  %.080.ph = phi i32 [ 7, %68 ], [ 40, %50 ], [ 7, %58 ], [ 7, %unicode_byte_type.exit95 ], [ 0, %14 ], [ 0, %14 ], [ 0, %14 ], [ 0, %14 ], [ 0, %16 ], [ 0, %unicode_byte_type.exit ], [ 0, %unicode_byte_type.exit ], [ 0, %unicode_byte_type.exit ], [ 6, %88 ], [ 6, %104 ], [ 6, %unicode_byte_type.exit98.thread118 ], [ 6, %93 ], [ 6, %93 ], [ 6, %93 ], [ 6, %93 ], [ 6, %96 ], [ 6, %unicode_byte_type.exit98.thread115 ], [ 6, %unicode_byte_type.exit98 ], [ 6, %unicode_byte_type.exit98 ], [ 6, %unicode_byte_type.exit98 ], [ 6, %unicode_byte_type.exit98 ], [ 6, %unicode_byte_type.exit98 ], [ 6, %unicode_byte_type.exit98 ]
+.sink.split:                                      ; preds = %unicode_byte_type.exit98, %unicode_byte_type.exit98, %unicode_byte_type.exit98, %unicode_byte_type.exit98, %unicode_byte_type.exit98, %unicode_byte_type.exit98, %unicode_byte_type.exit98.thread118, %96, %93, %93, %93, %93, %unicode_byte_type.exit98.thread121, %104, %88, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %16, %14, %14, %14, %14, %58, %unicode_byte_type.exit95, %50, %68
+  %.2.lcssa.sink = phi ptr [ %69, %68 ], [ %51, %50 ], [ %53, %58 ], [ %spec.select, %unicode_byte_type.exit95 ], [ %1, %14 ], [ %1, %14 ], [ %1, %14 ], [ %1, %14 ], [ %1, %16 ], [ %1, %unicode_byte_type.exit ], [ %1, %unicode_byte_type.exit ], [ %1, %unicode_byte_type.exit ], [ %.083, %88 ], [ %.2104, %104 ], [ %.2104, %unicode_byte_type.exit98.thread121 ], [ %.2104, %93 ], [ %.2104, %93 ], [ %.2104, %93 ], [ %.2104, %93 ], [ %.2104, %96 ], [ %.2104, %unicode_byte_type.exit98 ], [ %.2104, %unicode_byte_type.exit98 ], [ %.2104, %unicode_byte_type.exit98 ], [ %.2104, %unicode_byte_type.exit98 ], [ %.2104, %unicode_byte_type.exit98 ], [ %.2104, %unicode_byte_type.exit98 ], [ %107, %unicode_byte_type.exit98.thread118 ]
+  %.080.ph = phi i32 [ 7, %68 ], [ 40, %50 ], [ 7, %58 ], [ 7, %unicode_byte_type.exit95 ], [ 0, %14 ], [ 0, %14 ], [ 0, %14 ], [ 0, %14 ], [ 0, %16 ], [ 0, %unicode_byte_type.exit ], [ 0, %unicode_byte_type.exit ], [ 0, %unicode_byte_type.exit ], [ 6, %88 ], [ 6, %104 ], [ 6, %unicode_byte_type.exit98.thread121 ], [ 6, %93 ], [ 6, %93 ], [ 6, %93 ], [ 6, %93 ], [ 6, %96 ], [ 6, %unicode_byte_type.exit98.thread118 ], [ 6, %unicode_byte_type.exit98 ], [ 6, %unicode_byte_type.exit98 ], [ 6, %unicode_byte_type.exit98 ], [ 6, %unicode_byte_type.exit98 ], [ 6, %unicode_byte_type.exit98 ], [ 6, %unicode_byte_type.exit98 ]
   store ptr %.2.lcssa.sink, ptr %3, align 8, !tbaa !3
   br label %111
 
-111:                                              ; preds = %.sink.split, %unicode_byte_type.exit.thread112, %76, %70, %52, %38, %25, %5, %4
-  %.080 = phi i32 [ -1, %5 ], [ -4, %4 ], [ -1, %25 ], [ -1, %38 ], [ -1, %52 ], [ -2, %70 ], [ -2, %76 ], [ -2, %unicode_byte_type.exit.thread112 ], [ %.080.ph, %.sink.split ]
+111:                                              ; preds = %.sink.split, %unicode_byte_type.exit.thread115, %76, %70, %52, %38, %25, %5, %4
+  %.080 = phi i32 [ -1, %5 ], [ -4, %4 ], [ -1, %25 ], [ -1, %38 ], [ -1, %52 ], [ -2, %70 ], [ -2, %76 ], [ -2, %unicode_byte_type.exit.thread115 ], [ %.080.ph, %.sink.split ]
   ret i32 %.080
 }
 
@@ -15431,12 +15431,12 @@ define internal range(i32 -2, 43) i32 @big2_ignoreSectionTok(ptr noundef readonl
   %.060 = phi i32 [ 0, %.lr.ph ], [ %.1, %92 ]
   %.05459 = phi ptr [ %1, %.lr.ph ], [ %.155, %92 ]
   %17 = load i8, ptr %.05459, align 1, !tbaa !8
-  switch i8 %17, label %unicode_byte_type.exit.thread76 [
+  switch i8 %17, label %unicode_byte_type.exit.thread77 [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread79
-    i8 -39, label %unicode_byte_type.exit.thread79
-    i8 -38, label %unicode_byte_type.exit.thread79
-    i8 -37, label %unicode_byte_type.exit.thread79
+    i8 -40, label %unicode_byte_type.exit.thread80
+    i8 -39, label %unicode_byte_type.exit.thread80
+    i8 -38, label %unicode_byte_type.exit.thread80
+    i8 -37, label %unicode_byte_type.exit.thread80
     i8 -36, label %.loopexit.sink.split
     i8 -35, label %.loopexit.sink.split
     i8 -34, label %.loopexit.sink.split
@@ -15448,7 +15448,7 @@ define internal range(i32 -2, 43) i32 @big2_ignoreSectionTok(ptr noundef readonl
   %19 = getelementptr i8, ptr %.05459, i64 1
   %20 = load i8, ptr %19, align 1, !tbaa !8
   %switch.i = icmp ugt i8 %20, -3
-  br i1 %switch.i, label %.loopexit.sink.split, label %unicode_byte_type.exit.thread76
+  br i1 %switch.i, label %.loopexit.sink.split, label %unicode_byte_type.exit.thread77
 
 unicode_byte_type.exit:                           ; preds = %15
   %21 = getelementptr i8, ptr %.05459, i64 1
@@ -15456,10 +15456,10 @@ unicode_byte_type.exit:                           ; preds = %15
   %23 = zext i8 %22 to i64
   %24 = getelementptr [256 x i8], ptr %14, i64 0, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !8
-  switch i8 %25, label %unicode_byte_type.exit.thread76 [
+  switch i8 %25, label %unicode_byte_type.exit.thread77 [
     i8 5, label %26
     i8 6, label %28
-    i8 7, label %unicode_byte_type.exit.thread79
+    i8 7, label %unicode_byte_type.exit.thread80
     i8 0, label %.loopexit.sink.split
     i8 1, label %.loopexit.sink.split
     i8 8, label %.loopexit.sink.split
@@ -15479,11 +15479,11 @@ unicode_byte_type.exit:                           ; preds = %15
   %31 = getelementptr i8, ptr %.05459, i64 3
   br label %92
 
-unicode_byte_type.exit.thread79:                  ; preds = %15, %15, %15, %15, %unicode_byte_type.exit
+unicode_byte_type.exit.thread80:                  ; preds = %15, %15, %15, %15, %unicode_byte_type.exit
   %32 = icmp samesign ult i64 %16, 4
   br i1 %32, label %.loopexit, label %33
 
-33:                                               ; preds = %unicode_byte_type.exit.thread79
+33:                                               ; preds = %unicode_byte_type.exit.thread80
   %34 = getelementptr i8, ptr %.05459, i64 4
   br label %92
 
@@ -15573,13 +15573,13 @@ unicode_byte_type.exit.thread79:                  ; preds = %15, %15, %15, %15, 
   %90 = add i32 %.060, -1
   br label %92
 
-unicode_byte_type.exit.thread76:                  ; preds = %15, %18, %unicode_byte_type.exit
+unicode_byte_type.exit.thread77:                  ; preds = %15, %18, %unicode_byte_type.exit
   %91 = getelementptr i8, ptr %.05459, i64 2
   br label %92
 
-92:                                               ; preds = %67, %70, %89, %82, %79, %40, %43, %59, %55, %52, %unicode_byte_type.exit.thread76, %33, %30, %26
-  %.155 = phi ptr [ %91, %unicode_byte_type.exit.thread76 ], [ %27, %26 ], [ %31, %30 ], [ %34, %33 ], [ %61, %59 ], [ %48, %55 ], [ %48, %52 ], [ %36, %43 ], [ %36, %40 ], [ %87, %89 ], [ %75, %82 ], [ %75, %79 ], [ %63, %70 ], [ %63, %67 ]
-  %.1 = phi i32 [ %.060, %unicode_byte_type.exit.thread76 ], [ %.060, %26 ], [ %.060, %30 ], [ %.060, %33 ], [ %60, %59 ], [ %.060, %55 ], [ %.060, %52 ], [ %.060, %43 ], [ %.060, %40 ], [ %90, %89 ], [ %.060, %82 ], [ %.060, %79 ], [ %.060, %70 ], [ %.060, %67 ]
+92:                                               ; preds = %67, %70, %89, %82, %79, %40, %43, %59, %55, %52, %unicode_byte_type.exit.thread77, %33, %30, %26
+  %.155 = phi ptr [ %91, %unicode_byte_type.exit.thread77 ], [ %27, %26 ], [ %31, %30 ], [ %34, %33 ], [ %61, %59 ], [ %48, %55 ], [ %48, %52 ], [ %36, %43 ], [ %36, %40 ], [ %87, %89 ], [ %75, %82 ], [ %75, %79 ], [ %63, %70 ], [ %63, %67 ]
+  %.1 = phi i32 [ %.060, %unicode_byte_type.exit.thread77 ], [ %.060, %26 ], [ %.060, %30 ], [ %.060, %33 ], [ %60, %59 ], [ %.060, %55 ], [ %.060, %52 ], [ %.060, %43 ], [ %.060, %40 ], [ %90, %89 ], [ %.060, %82 ], [ %.060, %79 ], [ %.060, %70 ], [ %.060, %67 ]
   %93 = ptrtoint ptr %.155 to i64
   %94 = sub i64 %11, %93
   %95 = icmp sgt i64 %94, 1
@@ -15591,8 +15591,8 @@ unicode_byte_type.exit.thread76:                  ; preds = %15, %18, %unicode_b
   store ptr %.lcssa.sink, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %28, %unicode_byte_type.exit.thread79, %35, %47, %62, %74, %92, %.loopexit.sink.split, %4
-  %.052 = phi i32 [ -1, %4 ], [ %.052.ph, %.loopexit.sink.split ], [ -2, %28 ], [ -2, %unicode_byte_type.exit.thread79 ], [ -1, %35 ], [ -1, %47 ], [ -1, %62 ], [ -1, %74 ], [ -1, %92 ]
+.loopexit:                                        ; preds = %28, %unicode_byte_type.exit.thread80, %35, %47, %62, %74, %92, %.loopexit.sink.split, %4
+  %.052 = phi i32 [ -1, %4 ], [ %.052.ph, %.loopexit.sink.split ], [ -2, %28 ], [ -2, %unicode_byte_type.exit.thread80 ], [ -1, %35 ], [ -1, %47 ], [ -1, %62 ], [ -1, %74 ], [ -1, %92 ]
   ret i32 %.052
 }
 
@@ -15617,10 +15617,10 @@ define internal range(i32 -4, 40) i32 @big2_attributeValueTok(ptr noundef readon
   %12 = load i8, ptr %.05567, align 1, !tbaa !8
   switch i8 %12, label %unicode_byte_type.exit.thread [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread75
-    i8 -39, label %unicode_byte_type.exit.thread75
-    i8 -38, label %unicode_byte_type.exit.thread75
-    i8 -37, label %unicode_byte_type.exit.thread75
+    i8 -40, label %unicode_byte_type.exit.thread77
+    i8 -39, label %unicode_byte_type.exit.thread77
+    i8 -38, label %unicode_byte_type.exit.thread77
+    i8 -37, label %unicode_byte_type.exit.thread77
   ]
 
 unicode_byte_type.exit:                           ; preds = %11
@@ -15632,7 +15632,7 @@ unicode_byte_type.exit:                           ; preds = %11
   switch i8 %17, label %unicode_byte_type.exit.thread [
     i8 21, label %49
     i8 6, label %18
-    i8 7, label %unicode_byte_type.exit.thread75
+    i8 7, label %unicode_byte_type.exit.thread77
     i8 3, label %19
     i8 2, label %25
     i8 10, label %26
@@ -15642,7 +15642,7 @@ unicode_byte_type.exit:                           ; preds = %11
 18:                                               ; preds = %unicode_byte_type.exit
   br label %unicode_byte_type.exit.thread
 
-unicode_byte_type.exit.thread75:                  ; preds = %11, %11, %11, %11, %unicode_byte_type.exit
+unicode_byte_type.exit.thread77:                  ; preds = %11, %11, %11, %11, %unicode_byte_type.exit
   br label %unicode_byte_type.exit.thread
 
 19:                                               ; preds = %unicode_byte_type.exit
@@ -15725,8 +15725,8 @@ unicode_byte_type.exit60.thread:                  ; preds = %unicode_byte_type.e
   store ptr %.05567, ptr %3, align 8, !tbaa !3
   br label %58
 
-unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.exit, %11, %unicode_byte_type.exit.thread75, %18
-  %.sink = phi i64 [ 4, %unicode_byte_type.exit.thread75 ], [ 3, %18 ], [ 2, %11 ], [ 2, %unicode_byte_type.exit ]
+unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.exit, %11, %unicode_byte_type.exit.thread77, %18
+  %.sink = phi i64 [ 4, %unicode_byte_type.exit.thread77 ], [ 3, %18 ], [ 2, %11 ], [ 2, %unicode_byte_type.exit ]
   %54 = getelementptr i8, ptr %.05567, i64 %.sink
   %55 = ptrtoint ptr %54 to i64
   %56 = sub i64 %6, %55
@@ -15763,10 +15763,10 @@ define internal range(i32 -4, 29) i32 @big2_entityValueTok(ptr noundef readonly 
   %12 = load i8, ptr %.05768, align 1, !tbaa !8
   switch i8 %12, label %unicode_byte_type.exit.thread [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread75
-    i8 -39, label %unicode_byte_type.exit.thread75
-    i8 -38, label %unicode_byte_type.exit.thread75
-    i8 -37, label %unicode_byte_type.exit.thread75
+    i8 -40, label %unicode_byte_type.exit.thread77
+    i8 -39, label %unicode_byte_type.exit.thread77
+    i8 -38, label %unicode_byte_type.exit.thread77
+    i8 -37, label %unicode_byte_type.exit.thread77
   ]
 
 unicode_byte_type.exit:                           ; preds = %11
@@ -15778,7 +15778,7 @@ unicode_byte_type.exit:                           ; preds = %11
   switch i8 %17, label %unicode_byte_type.exit.thread [
     i8 9, label %38
     i8 6, label %18
-    i8 7, label %unicode_byte_type.exit.thread75
+    i8 7, label %unicode_byte_type.exit.thread77
     i8 3, label %19
     i8 30, label %25
     i8 10, label %33
@@ -15787,7 +15787,7 @@ unicode_byte_type.exit:                           ; preds = %11
 18:                                               ; preds = %unicode_byte_type.exit
   br label %unicode_byte_type.exit.thread
 
-unicode_byte_type.exit.thread75:                  ; preds = %11, %11, %11, %11, %unicode_byte_type.exit
+unicode_byte_type.exit.thread77:                  ; preds = %11, %11, %11, %11, %unicode_byte_type.exit
   br label %unicode_byte_type.exit.thread
 
 19:                                               ; preds = %unicode_byte_type.exit
@@ -15868,8 +15868,8 @@ unicode_byte_type.exit62.thread:                  ; preds = %unicode_byte_type.e
   store ptr %.05768, ptr %3, align 8, !tbaa !3
   br label %60
 
-unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.exit, %11, %unicode_byte_type.exit.thread75, %18
-  %.sink = phi i64 [ 4, %unicode_byte_type.exit.thread75 ], [ 3, %18 ], [ 2, %11 ], [ 2, %unicode_byte_type.exit ]
+unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.exit, %11, %unicode_byte_type.exit.thread77, %18
+  %.sink = phi i64 [ 4, %unicode_byte_type.exit.thread77 ], [ 3, %18 ], [ 2, %11 ], [ 2, %unicode_byte_type.exit ]
   %56 = getelementptr i8, ptr %.05768, i64 %.sink
   %57 = ptrtoint ptr %56 to i64
   %58 = sub i64 %6, %57
@@ -16041,12 +16041,12 @@ unicode_byte_type.exit115.thread:                 ; preds = %unicode_byte_type.e
   %.0 = phi i32 [ 0, %4 ], [ %.0.be, %unicode_byte_type.exit115.thread.backedge ]
   %.0104 = getelementptr i8, ptr %.pn, i64 2
   %6 = load i8, ptr %.0104, align 1, !tbaa !8
-  switch i8 %6, label %unicode_byte_type.exit.thread121 [
+  switch i8 %6, label %unicode_byte_type.exit.thread123 [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread119
-    i8 -39, label %unicode_byte_type.exit.thread119
-    i8 -38, label %unicode_byte_type.exit.thread119
-    i8 -37, label %unicode_byte_type.exit.thread119
+    i8 -40, label %unicode_byte_type.exit.thread121
+    i8 -39, label %unicode_byte_type.exit.thread121
+    i8 -38, label %unicode_byte_type.exit.thread121
+    i8 -37, label %unicode_byte_type.exit.thread121
     i8 -36, label %unicode_byte_type.exit115.thread.backedge
     i8 -35, label %unicode_byte_type.exit115.thread.backedge
     i8 -34, label %unicode_byte_type.exit115.thread.backedge
@@ -16054,11 +16054,11 @@ unicode_byte_type.exit115.thread:                 ; preds = %unicode_byte_type.e
     i8 -1, label %7
   ]
 
-unicode_byte_type.exit115.thread.backedge:        ; preds = %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %7, %102, %114, %119, %.fold.split112, %86, %.fold.split, %66, %68, %50, %52, %43, %45, %16, %20, %18, %32, %41, %unicode_byte_type.exit.thread121, %56, %63, %72, %79, %83, %81, %87, %89, %unicode_byte_type.exit115, %.critedge, %120, %122, %125, %unicode_byte_type.exit
-  %.pn.be = phi ptr [ %.0104, %unicode_byte_type.exit ], [ %33, %32 ], [ %42, %41 ], [ %.0104, %unicode_byte_type.exit.thread121 ], [ %.0104, %63 ], [ %.0104, %56 ], [ %.0104, %79 ], [ %.0104, %72 ], [ %.0104, %83 ], [ %.0104, %81 ], [ %.0104, %.critedge ], [ %.0104, %unicode_byte_type.exit115 ], [ %.0104, %89 ], [ %.0104, %87 ], [ %.0104, %122 ], [ %.0104, %120 ], [ %.0104, %125 ], [ %.0104, %18 ], [ %.0104, %20 ], [ %.0104, %16 ], [ %.0104, %45 ], [ %.0104, %43 ], [ %.0104, %52 ], [ %.0104, %50 ], [ %.0104, %68 ], [ %.0104, %66 ], [ %.0104, %86 ], [ %.0104, %.fold.split ], [ %.0104, %119 ], [ %.0104, %.fold.split112 ], [ %.0104, %114 ], [ %.0104, %102 ], [ %.0104, %7 ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ]
-  %.0102.be = phi i32 [ %.0102, %unicode_byte_type.exit ], [ %.2, %32 ], [ %.3, %41 ], [ %.0102, %unicode_byte_type.exit.thread121 ], [ 0, %63 ], [ 2, %56 ], [ 0, %79 ], [ 2, %72 ], [ %.0102, %83 ], [ %.0102, %81 ], [ 2, %.critedge ], [ 2, %unicode_byte_type.exit115 ], [ 2, %89 ], [ 2, %87 ], [ 2, %122 ], [ 2, %120 ], [ 2, %125 ], [ 1, %18 ], [ 1, %20 ], [ %.0102, %16 ], [ 1, %45 ], [ 1, %43 ], [ 2, %52 ], [ 2, %50 ], [ 2, %68 ], [ 2, %66 ], [ 0, %86 ], [ %.0102, %.fold.split ], [ 0, %119 ], [ %.0102, %.fold.split112 ], [ 2, %114 ], [ 2, %102 ], [ %.0102, %7 ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ]
-  %.0100.be = phi i32 [ %.0100, %unicode_byte_type.exit ], [ %.0100, %32 ], [ %.0100, %41 ], [ %.0100, %unicode_byte_type.exit.thread121 ], [ %64, %63 ], [ %.0100, %56 ], [ %80, %79 ], [ %.0100, %72 ], [ %.0100, %83 ], [ %.0100, %81 ], [ %.0100, %.critedge ], [ %.0100, %unicode_byte_type.exit115 ], [ %.0100, %89 ], [ %.0100, %87 ], [ %.0100, %122 ], [ %.0100, %120 ], [ %.0100, %125 ], [ %.0100, %18 ], [ %.0100, %20 ], [ %.0100, %16 ], [ %.0100, %45 ], [ %.0100, %43 ], [ %.0100, %52 ], [ %.0100, %50 ], [ %.0100, %68 ], [ %.0100, %66 ], [ %.0100, %86 ], [ %.0100, %.fold.split ], [ %.0100, %119 ], [ %.0100, %.fold.split112 ], [ %.0100, %114 ], [ %.0100, %102 ], [ %.0100, %7 ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ]
-  %.0.be = phi i32 [ %.0, %unicode_byte_type.exit ], [ %.0, %32 ], [ %.0, %41 ], [ %.0, %unicode_byte_type.exit.thread121 ], [ 12, %63 ], [ %.0, %56 ], [ 13, %79 ], [ %.0, %72 ], [ %.0, %83 ], [ %.0, %81 ], [ %.0, %.critedge ], [ %.0, %unicode_byte_type.exit115 ], [ %.0, %89 ], [ %.0, %87 ], [ %.0, %122 ], [ %.0, %120 ], [ %.0, %125 ], [ %.0, %18 ], [ %.0, %20 ], [ %.0, %16 ], [ %.0, %45 ], [ %.0, %43 ], [ 12, %52 ], [ 12, %50 ], [ 13, %68 ], [ 13, %66 ], [ %.0, %86 ], [ %.0, %.fold.split ], [ %.0, %119 ], [ %.0, %.fold.split112 ], [ %.0, %114 ], [ %.0, %102 ], [ %.0, %7 ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ]
+unicode_byte_type.exit115.thread.backedge:        ; preds = %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %7, %102, %114, %119, %.fold.split112, %86, %.fold.split, %66, %68, %50, %52, %43, %45, %16, %20, %18, %32, %41, %unicode_byte_type.exit.thread123, %56, %63, %72, %79, %83, %81, %87, %89, %unicode_byte_type.exit115, %.critedge, %120, %122, %125, %unicode_byte_type.exit
+  %.pn.be = phi ptr [ %.0104, %unicode_byte_type.exit ], [ %33, %32 ], [ %42, %41 ], [ %.0104, %unicode_byte_type.exit.thread123 ], [ %.0104, %63 ], [ %.0104, %56 ], [ %.0104, %79 ], [ %.0104, %72 ], [ %.0104, %83 ], [ %.0104, %81 ], [ %.0104, %.critedge ], [ %.0104, %unicode_byte_type.exit115 ], [ %.0104, %89 ], [ %.0104, %87 ], [ %.0104, %122 ], [ %.0104, %120 ], [ %.0104, %125 ], [ %.0104, %18 ], [ %.0104, %20 ], [ %.0104, %16 ], [ %.0104, %45 ], [ %.0104, %43 ], [ %.0104, %52 ], [ %.0104, %50 ], [ %.0104, %68 ], [ %.0104, %66 ], [ %.0104, %86 ], [ %.0104, %.fold.split ], [ %.0104, %119 ], [ %.0104, %.fold.split112 ], [ %.0104, %114 ], [ %.0104, %102 ], [ %.0104, %7 ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ], [ %.0104, %unicode_byte_type.exit115.thread ]
+  %.0102.be = phi i32 [ %.0102, %unicode_byte_type.exit ], [ %.2, %32 ], [ %.3, %41 ], [ %.0102, %unicode_byte_type.exit.thread123 ], [ 0, %63 ], [ 2, %56 ], [ 0, %79 ], [ 2, %72 ], [ %.0102, %83 ], [ %.0102, %81 ], [ 2, %.critedge ], [ 2, %unicode_byte_type.exit115 ], [ 2, %89 ], [ 2, %87 ], [ 2, %122 ], [ 2, %120 ], [ 2, %125 ], [ 1, %18 ], [ 1, %20 ], [ %.0102, %16 ], [ 1, %45 ], [ 1, %43 ], [ 2, %52 ], [ 2, %50 ], [ 2, %68 ], [ 2, %66 ], [ 0, %86 ], [ %.0102, %.fold.split ], [ 0, %119 ], [ %.0102, %.fold.split112 ], [ 2, %114 ], [ 2, %102 ], [ %.0102, %7 ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ], [ %.0102, %unicode_byte_type.exit115.thread ]
+  %.0100.be = phi i32 [ %.0100, %unicode_byte_type.exit ], [ %.0100, %32 ], [ %.0100, %41 ], [ %.0100, %unicode_byte_type.exit.thread123 ], [ %64, %63 ], [ %.0100, %56 ], [ %80, %79 ], [ %.0100, %72 ], [ %.0100, %83 ], [ %.0100, %81 ], [ %.0100, %.critedge ], [ %.0100, %unicode_byte_type.exit115 ], [ %.0100, %89 ], [ %.0100, %87 ], [ %.0100, %122 ], [ %.0100, %120 ], [ %.0100, %125 ], [ %.0100, %18 ], [ %.0100, %20 ], [ %.0100, %16 ], [ %.0100, %45 ], [ %.0100, %43 ], [ %.0100, %52 ], [ %.0100, %50 ], [ %.0100, %68 ], [ %.0100, %66 ], [ %.0100, %86 ], [ %.0100, %.fold.split ], [ %.0100, %119 ], [ %.0100, %.fold.split112 ], [ %.0100, %114 ], [ %.0100, %102 ], [ %.0100, %7 ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ], [ %.0100, %unicode_byte_type.exit115.thread ]
+  %.0.be = phi i32 [ %.0, %unicode_byte_type.exit ], [ %.0, %32 ], [ %.0, %41 ], [ %.0, %unicode_byte_type.exit.thread123 ], [ 12, %63 ], [ %.0, %56 ], [ 13, %79 ], [ %.0, %72 ], [ %.0, %83 ], [ %.0, %81 ], [ %.0, %.critedge ], [ %.0, %unicode_byte_type.exit115 ], [ %.0, %89 ], [ %.0, %87 ], [ %.0, %122 ], [ %.0, %120 ], [ %.0, %125 ], [ %.0, %18 ], [ %.0, %20 ], [ %.0, %16 ], [ %.0, %45 ], [ %.0, %43 ], [ 12, %52 ], [ 12, %50 ], [ 13, %68 ], [ 13, %66 ], [ %.0, %86 ], [ %.0, %.fold.split ], [ %.0, %119 ], [ %.0, %.fold.split112 ], [ %.0, %114 ], [ %.0, %102 ], [ %.0, %7 ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ], [ %.0, %unicode_byte_type.exit115.thread ]
   br label %unicode_byte_type.exit115.thread
 
 7:                                                ; preds = %unicode_byte_type.exit115.thread
@@ -16078,10 +16078,10 @@ unicode_byte_type.exit:                           ; preds = %unicode_byte_type.e
   switch i8 %15, label %unicode_byte_type.exit115.thread.backedge [
     i8 5, label %16
     i8 6, label %24
-    i8 7, label %unicode_byte_type.exit.thread119
-    i8 29, label %unicode_byte_type.exit.thread121
-    i8 22, label %unicode_byte_type.exit.thread121
-    i8 24, label %unicode_byte_type.exit.thread121
+    i8 7, label %unicode_byte_type.exit.thread121
+    i8 29, label %unicode_byte_type.exit.thread123
+    i8 22, label %unicode_byte_type.exit.thread123
+    i8 24, label %unicode_byte_type.exit.thread123
     i8 12, label %49
     i8 13, label %65
     i8 3, label %81
@@ -16129,11 +16129,11 @@ unicode_byte_type.exit:                           ; preds = %unicode_byte_type.e
   %33 = getelementptr i8, ptr %.pn, i64 3
   br label %unicode_byte_type.exit115.thread.backedge
 
-unicode_byte_type.exit.thread119:                 ; preds = %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit
+unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit115.thread, %unicode_byte_type.exit
   %34 = icmp eq i32 %.0102, 0
   br i1 %34, label %35, label %41
 
-35:                                               ; preds = %unicode_byte_type.exit.thread119
+35:                                               ; preds = %unicode_byte_type.exit.thread121
   %36 = icmp slt i32 %.0100, %2
   br i1 %36, label %37, label %41
 
@@ -16145,16 +16145,16 @@ unicode_byte_type.exit.thread119:                 ; preds = %unicode_byte_type.e
   store i8 1, ptr %40, align 8, !tbaa !78
   br label %41
 
-41:                                               ; preds = %35, %37, %unicode_byte_type.exit.thread119
-  %.3 = phi i32 [ %.0102, %unicode_byte_type.exit.thread119 ], [ 1, %37 ], [ 1, %35 ]
+41:                                               ; preds = %35, %37, %unicode_byte_type.exit.thread121
+  %.3 = phi i32 [ %.0102, %unicode_byte_type.exit.thread121 ], [ 1, %37 ], [ 1, %35 ]
   %42 = getelementptr i8, ptr %.pn, i64 4
   br label %unicode_byte_type.exit115.thread.backedge
 
-unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.exit115.thread, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
+unicode_byte_type.exit.thread123:                 ; preds = %unicode_byte_type.exit115.thread, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
   %.old = icmp eq i32 %.0102, 0
   br i1 %.old, label %43, label %unicode_byte_type.exit115.thread.backedge
 
-43:                                               ; preds = %7, %unicode_byte_type.exit.thread121
+43:                                               ; preds = %7, %unicode_byte_type.exit.thread123
   %44 = icmp slt i32 %.0100, %2
   br i1 %44, label %45, label %unicode_byte_type.exit115.thread.backedge
 
@@ -17039,9 +17039,9 @@ define internal range(i32 0, 3) i32 @big2_toUtf8(ptr readnone captures(none) %0,
   br i1 %109, label %15, label %.thread, !llvm.loop !141
 
 .thread:                                          ; preds = %107, %65, %60, %40, %27, %22, %5
-  %.06679.lcssa85.sink = phi ptr [ %6, %5 ], [ %.06679, %22 ], [ %.06679, %27 ], [ %.06679, %40 ], [ %.06679, %60 ], [ %.06679, %65 ], [ %108, %107 ]
+  %.06679.lcssa90.sink = phi ptr [ %6, %5 ], [ %.06679, %22 ], [ %.06679, %27 ], [ %.06679, %40 ], [ %.06679, %60 ], [ %.06679, %65 ], [ %108, %107 ]
   %.2 = phi i32 [ 0, %5 ], [ 2, %22 ], [ 2, %27 ], [ 2, %40 ], [ 2, %60 ], [ 1, %65 ], [ 0, %107 ]
-  store ptr %.06679.lcssa85.sink, ptr %1, align 8, !tbaa !3
+  store ptr %.06679.lcssa90.sink, ptr %1, align 8, !tbaa !3
   ret i32 %.2
 }
 
@@ -17294,8 +17294,8 @@ unicode_byte_type.exit.thread:                    ; preds = %9, %unicode_byte_ty
   %.03760 = phi ptr [ %.03758, %.lr.ph ], [ %.037, %46 ]
   %.pn59 = phi ptr [ %1, %.lr.ph ], [ %.03760, %46 ]
   %29 = load i8, ptr %.03760, align 1, !tbaa !8
-  %cond88 = icmp eq i8 %29, 0
-  br i1 %cond88, label %unicode_byte_type.exit43, label %unicode_byte_type.exit43.thread
+  %cond90 = icmp eq i8 %29, 0
+  br i1 %cond90, label %unicode_byte_type.exit43, label %unicode_byte_type.exit43.thread
 
 unicode_byte_type.exit43:                         ; preds = %27
   %30 = getelementptr i8, ptr %.pn59, i64 3
@@ -17319,8 +17319,8 @@ unicode_byte_type.exit43:                         ; preds = %27
 37:                                               ; preds = %35
   %38 = getelementptr i8, ptr %.pn59, i64 4
   %39 = load i8, ptr %38, align 1, !tbaa !8
-  %cond89 = icmp eq i8 %39, 0
-  br i1 %cond89, label %unicode_byte_type.exit46, label %.loopexit47
+  %cond91 = icmp eq i8 %39, 0
+  br i1 %cond91, label %unicode_byte_type.exit46, label %.loopexit47
 
 unicode_byte_type.exit46:                         ; preds = %37
   %40 = getelementptr i8, ptr %.pn59, i64 5
@@ -17375,11 +17375,11 @@ define internal fastcc i32 @big2_scanPi(ptr noundef readonly captures(none) %0, 
   br i1 %12, label %13, label %unicode_byte_type.exit
 
 13:                                               ; preds = %10
-  switch i8 %11, label %unicode_byte_type.exit.thread195 [
-    i8 -40, label %unicode_byte_type.exit.thread198
-    i8 -39, label %unicode_byte_type.exit.thread198
-    i8 -38, label %unicode_byte_type.exit.thread198
-    i8 -37, label %unicode_byte_type.exit.thread198
+  switch i8 %11, label %unicode_byte_type.exit.thread201 [
+    i8 -40, label %unicode_byte_type.exit.thread204
+    i8 -39, label %unicode_byte_type.exit.thread204
+    i8 -38, label %unicode_byte_type.exit.thread204
+    i8 -37, label %unicode_byte_type.exit.thread204
     i8 -36, label %unicode_byte_type.exit.thread
     i8 -35, label %unicode_byte_type.exit.thread
     i8 -34, label %unicode_byte_type.exit.thread
@@ -17391,7 +17391,7 @@ define internal fastcc i32 @big2_scanPi(ptr noundef readonly captures(none) %0, 
   %15 = getelementptr i8, ptr %1, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !8
   %switch.i = icmp ugt i8 %16, -3
-  br i1 %switch.i, label %unicode_byte_type.exit.thread, label %unicode_byte_type.exit.thread195
+  br i1 %switch.i, label %unicode_byte_type.exit.thread, label %unicode_byte_type.exit.thread201
 
 unicode_byte_type.exit:                           ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -17401,15 +17401,15 @@ unicode_byte_type.exit:                           ; preds = %10
   %21 = getelementptr [256 x i8], ptr %17, i64 0, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !8
   switch i8 %22, label %unicode_byte_type.exit.thread [
-    i8 29, label %unicode_byte_type.exit.thread195
+    i8 29, label %unicode_byte_type.exit.thread201
     i8 22, label %40
     i8 24, label %40
     i8 5, label %45
     i8 6, label %46
-    i8 7, label %unicode_byte_type.exit.thread198
+    i8 7, label %unicode_byte_type.exit.thread204
   ]
 
-unicode_byte_type.exit.thread195:                 ; preds = %14, %13, %unicode_byte_type.exit
+unicode_byte_type.exit.thread201:                 ; preds = %14, %13, %unicode_byte_type.exit
   %23 = zext i8 %11 to i64
   %24 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !8
@@ -17429,11 +17429,11 @@ unicode_byte_type.exit.thread195:                 ; preds = %14, %13, %unicode_b
   %.not = icmp eq i32 %38, 0
   br i1 %.not, label %39, label %40
 
-39:                                               ; preds = %unicode_byte_type.exit.thread195
+39:                                               ; preds = %unicode_byte_type.exit.thread201
   store ptr %1, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-40:                                               ; preds = %unicode_byte_type.exit.thread195, %unicode_byte_type.exit, %unicode_byte_type.exit
+40:                                               ; preds = %unicode_byte_type.exit.thread201, %unicode_byte_type.exit, %unicode_byte_type.exit
   %.099151 = getelementptr i8, ptr %1, i64 2
   %41 = ptrtoint ptr %.099151 to i64
   %42 = sub i64 %6, %41
@@ -17456,11 +17456,11 @@ unicode_byte_type.exit.thread195:                 ; preds = %14, %13, %unicode_b
   store ptr %1, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-unicode_byte_type.exit.thread198:                 ; preds = %13, %13, %13, %13, %unicode_byte_type.exit
+unicode_byte_type.exit.thread204:                 ; preds = %13, %13, %13, %13, %unicode_byte_type.exit
   %49 = icmp samesign ult i64 %8, 4
   br i1 %49, label %.loopexit, label %50
 
-50:                                               ; preds = %unicode_byte_type.exit.thread198
+50:                                               ; preds = %unicode_byte_type.exit.thread204
   store ptr %1, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
@@ -17474,12 +17474,12 @@ unicode_byte_type.exit.thread:                    ; preds = %13, %13, %13, %13, 
   %.099153 = phi ptr [ %.099151, %.lr.ph ], [ %.099, %80 ]
   %.pn152 = phi ptr [ %1, %.lr.ph ], [ %.099153, %80 ]
   %54 = load i8, ptr %.099153, align 1, !tbaa !8
-  switch i8 %54, label %unicode_byte_type.exit110.thread201 [
+  switch i8 %54, label %unicode_byte_type.exit110.thread207 [
     i8 0, label %unicode_byte_type.exit110
-    i8 -40, label %unicode_byte_type.exit110.thread204
-    i8 -39, label %unicode_byte_type.exit110.thread204
-    i8 -38, label %unicode_byte_type.exit110.thread204
-    i8 -37, label %unicode_byte_type.exit110.thread204
+    i8 -40, label %unicode_byte_type.exit110.thread210
+    i8 -39, label %unicode_byte_type.exit110.thread210
+    i8 -38, label %unicode_byte_type.exit110.thread210
+    i8 -37, label %unicode_byte_type.exit110.thread210
     i8 -36, label %.loopexit119
     i8 -35, label %.loopexit119
     i8 -34, label %.loopexit119
@@ -17491,7 +17491,7 @@ unicode_byte_type.exit.thread:                    ; preds = %13, %13, %13, %13, 
   %56 = getelementptr i8, ptr %.pn152, i64 3
   %57 = load i8, ptr %56, align 1, !tbaa !8
   %switch.i108 = icmp ugt i8 %57, -3
-  br i1 %switch.i108, label %.loopexit119, label %unicode_byte_type.exit110.thread201
+  br i1 %switch.i108, label %.loopexit119, label %unicode_byte_type.exit110.thread207
 
 unicode_byte_type.exit110:                        ; preds = %51
   %58 = getelementptr i8, ptr %.pn152, i64 3
@@ -17500,7 +17500,7 @@ unicode_byte_type.exit110:                        ; preds = %51
   %61 = getelementptr [256 x i8], ptr %44, i64 0, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !8
   switch i8 %62, label %.loopexit119 [
-    i8 29, label %unicode_byte_type.exit110.thread201
+    i8 29, label %unicode_byte_type.exit110.thread207
     i8 22, label %80
     i8 24, label %80
     i8 25, label %80
@@ -17508,14 +17508,14 @@ unicode_byte_type.exit110:                        ; preds = %51
     i8 27, label %80
     i8 5, label %84
     i8 6, label %85
-    i8 7, label %unicode_byte_type.exit110.thread204
+    i8 7, label %unicode_byte_type.exit110.thread210
     i8 21, label %90
     i8 9, label %90
     i8 10, label %90
     i8 15, label %156
   ]
 
-unicode_byte_type.exit110.thread201:              ; preds = %51, %55, %unicode_byte_type.exit110
+unicode_byte_type.exit110.thread207:              ; preds = %51, %55, %unicode_byte_type.exit110
   %63 = zext i8 %54 to i64
   %64 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %63
   %65 = load i8, ptr %64, align 1, !tbaa !8
@@ -17535,11 +17535,11 @@ unicode_byte_type.exit110.thread201:              ; preds = %51, %55, %unicode_b
   %.not107 = icmp eq i32 %78, 0
   br i1 %.not107, label %79, label %80
 
-79:                                               ; preds = %unicode_byte_type.exit110.thread201
+79:                                               ; preds = %unicode_byte_type.exit110.thread207
   store ptr %.099153, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-80:                                               ; preds = %unicode_byte_type.exit110.thread201, %unicode_byte_type.exit110, %unicode_byte_type.exit110, %unicode_byte_type.exit110, %unicode_byte_type.exit110, %unicode_byte_type.exit110
+80:                                               ; preds = %unicode_byte_type.exit110.thread207, %unicode_byte_type.exit110, %unicode_byte_type.exit110, %unicode_byte_type.exit110, %unicode_byte_type.exit110, %unicode_byte_type.exit110
   %.099 = getelementptr i8, ptr %.099153, i64 2
   %81 = ptrtoint ptr %.099 to i64
   %82 = sub i64 %6, %81
@@ -17558,11 +17558,11 @@ unicode_byte_type.exit110.thread201:              ; preds = %51, %55, %unicode_b
   store ptr %.099153, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-unicode_byte_type.exit110.thread204:              ; preds = %51, %51, %51, %51, %unicode_byte_type.exit110
+unicode_byte_type.exit110.thread210:              ; preds = %51, %51, %51, %51, %unicode_byte_type.exit110
   %88 = icmp samesign ult i64 %52, 4
   br i1 %88, label %.loopexit, label %89
 
-89:                                               ; preds = %unicode_byte_type.exit110.thread204
+89:                                               ; preds = %unicode_byte_type.exit110.thread210
   store ptr %.099153, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
@@ -17640,12 +17640,12 @@ big2_checkPiTarget.exit:                          ; preds = %107, %110
   %118 = phi i64 [ %154, %152 ], [ %116, %112 ]
   %.2154 = phi ptr [ %.3, %152 ], [ %114, %112 ]
   %119 = load i8, ptr %.2154, align 1, !tbaa !8
-  switch i8 %119, label %unicode_byte_type.exit114.thread207 [
+  switch i8 %119, label %unicode_byte_type.exit114.thread213 [
     i8 0, label %unicode_byte_type.exit114
-    i8 -40, label %unicode_byte_type.exit114.thread210
-    i8 -39, label %unicode_byte_type.exit114.thread210
-    i8 -38, label %unicode_byte_type.exit114.thread210
-    i8 -37, label %unicode_byte_type.exit114.thread210
+    i8 -40, label %unicode_byte_type.exit114.thread216
+    i8 -39, label %unicode_byte_type.exit114.thread216
+    i8 -38, label %unicode_byte_type.exit114.thread216
+    i8 -37, label %unicode_byte_type.exit114.thread216
     i8 -36, label %unicode_byte_type.exit114.thread
     i8 -35, label %unicode_byte_type.exit114.thread
     i8 -34, label %unicode_byte_type.exit114.thread
@@ -17657,7 +17657,7 @@ big2_checkPiTarget.exit:                          ; preds = %107, %110
   %121 = getelementptr i8, ptr %.2154, i64 1
   %122 = load i8, ptr %121, align 1, !tbaa !8
   %switch.i112 = icmp ugt i8 %122, -3
-  br i1 %switch.i112, label %unicode_byte_type.exit114.thread, label %unicode_byte_type.exit114.thread207
+  br i1 %switch.i112, label %unicode_byte_type.exit114.thread, label %unicode_byte_type.exit114.thread213
 
 unicode_byte_type.exit114:                        ; preds = %.lr.ph155
   %123 = getelementptr i8, ptr %.2154, i64 1
@@ -17665,10 +17665,10 @@ unicode_byte_type.exit114:                        ; preds = %.lr.ph155
   %125 = zext i8 %124 to i64
   %126 = getelementptr [256 x i8], ptr %44, i64 0, i64 %125
   %127 = load i8, ptr %126, align 1, !tbaa !8
-  switch i8 %127, label %unicode_byte_type.exit114.thread207 [
+  switch i8 %127, label %unicode_byte_type.exit114.thread213 [
     i8 5, label %128
     i8 6, label %130
-    i8 7, label %unicode_byte_type.exit114.thread210
+    i8 7, label %unicode_byte_type.exit114.thread216
     i8 0, label %unicode_byte_type.exit114.thread
     i8 1, label %unicode_byte_type.exit114.thread
     i8 8, label %unicode_byte_type.exit114.thread
@@ -17687,11 +17687,11 @@ unicode_byte_type.exit114:                        ; preds = %.lr.ph155
   %133 = getelementptr i8, ptr %.2154, i64 3
   br label %152
 
-unicode_byte_type.exit114.thread210:              ; preds = %.lr.ph155, %.lr.ph155, %.lr.ph155, %.lr.ph155, %unicode_byte_type.exit114
+unicode_byte_type.exit114.thread216:              ; preds = %.lr.ph155, %.lr.ph155, %.lr.ph155, %.lr.ph155, %unicode_byte_type.exit114
   %134 = icmp samesign ult i64 %118, 4
   br i1 %134, label %.loopexit, label %135
 
-135:                                              ; preds = %unicode_byte_type.exit114.thread210
+135:                                              ; preds = %unicode_byte_type.exit114.thread216
   %136 = getelementptr i8, ptr %.2154, i64 4
   br label %152
 
@@ -17722,12 +17722,12 @@ unicode_byte_type.exit114.thread:                 ; preds = %.lr.ph155, %.lr.ph1
   store ptr %150, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-unicode_byte_type.exit114.thread207:              ; preds = %.lr.ph155, %120, %unicode_byte_type.exit114
+unicode_byte_type.exit114.thread213:              ; preds = %.lr.ph155, %120, %unicode_byte_type.exit114
   %151 = getelementptr i8, ptr %.2154, i64 2
   br label %152
 
-152:                                              ; preds = %142, %145, %unicode_byte_type.exit114.thread207, %135, %132, %128
-  %.3 = phi ptr [ %151, %unicode_byte_type.exit114.thread207 ], [ %129, %128 ], [ %133, %132 ], [ %136, %135 ], [ %138, %145 ], [ %138, %142 ]
+152:                                              ; preds = %142, %145, %unicode_byte_type.exit114.thread213, %135, %132, %128
+  %.3 = phi ptr [ %151, %unicode_byte_type.exit114.thread213 ], [ %129, %128 ], [ %133, %132 ], [ %136, %135 ], [ %138, %145 ], [ %138, %142 ]
   %153 = ptrtoint ptr %.3 to i64
   %154 = sub i64 %6, %153
   %155 = icmp sgt i64 %154, 1
@@ -17771,8 +17771,8 @@ unicode_byte_type.exit114.thread207:              ; preds = %.lr.ph155, %120, %u
   store ptr %.1, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %80, %130, %unicode_byte_type.exit114.thread210, %137, %152, %40, %112, %159, %unicode_byte_type.exit110.thread204, %85, %unicode_byte_type.exit.thread198, %46, %4, %.loopexit119, %171, %158, %149, %unicode_byte_type.exit114.thread, %big2_checkPiTarget.exit, %89, %87, %84, %79, %unicode_byte_type.exit.thread, %50, %48, %45, %39
-  %.0 = phi i32 [ 0, %unicode_byte_type.exit.thread ], [ 0, %.loopexit119 ], [ 0, %79 ], [ 0, %84 ], [ 0, %87 ], [ 0, %89 ], [ 0, %unicode_byte_type.exit114.thread ], [ %113, %149 ], [ 0, %big2_checkPiTarget.exit ], [ %173, %171 ], [ 0, %158 ], [ 0, %39 ], [ 0, %45 ], [ 0, %48 ], [ 0, %50 ], [ -1, %4 ], [ -2, %46 ], [ -2, %unicode_byte_type.exit.thread198 ], [ -2, %85 ], [ -2, %unicode_byte_type.exit110.thread204 ], [ -1, %159 ], [ -1, %112 ], [ -1, %40 ], [ -2, %130 ], [ -2, %unicode_byte_type.exit114.thread210 ], [ -1, %137 ], [ -1, %152 ], [ -1, %80 ]
+.loopexit:                                        ; preds = %80, %130, %unicode_byte_type.exit114.thread216, %137, %152, %40, %112, %159, %unicode_byte_type.exit110.thread210, %85, %unicode_byte_type.exit.thread204, %46, %4, %.loopexit119, %171, %158, %149, %unicode_byte_type.exit114.thread, %big2_checkPiTarget.exit, %89, %87, %84, %79, %unicode_byte_type.exit.thread, %50, %48, %45, %39
+  %.0 = phi i32 [ 0, %unicode_byte_type.exit.thread ], [ 0, %.loopexit119 ], [ 0, %79 ], [ 0, %84 ], [ 0, %87 ], [ 0, %89 ], [ 0, %unicode_byte_type.exit114.thread ], [ %113, %149 ], [ 0, %big2_checkPiTarget.exit ], [ %173, %171 ], [ 0, %158 ], [ 0, %39 ], [ 0, %45 ], [ 0, %48 ], [ 0, %50 ], [ -1, %4 ], [ -2, %46 ], [ -2, %unicode_byte_type.exit.thread204 ], [ -2, %85 ], [ -2, %unicode_byte_type.exit110.thread210 ], [ -1, %159 ], [ -1, %112 ], [ -1, %40 ], [ -2, %130 ], [ -2, %unicode_byte_type.exit114.thread216 ], [ -1, %137 ], [ -1, %152 ], [ -1, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -17787,12 +17787,12 @@ define internal fastcc range(i32 -2, 29) i32 @big2_scanPercent(ptr noundef reado
 
 9:                                                ; preds = %4
   %10 = load i8, ptr %1, align 1, !tbaa !8
-  switch i8 %10, label %unicode_byte_type.exit.thread106 [
+  switch i8 %10, label %unicode_byte_type.exit.thread109 [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread109
-    i8 -39, label %unicode_byte_type.exit.thread109
-    i8 -38, label %unicode_byte_type.exit.thread109
-    i8 -37, label %unicode_byte_type.exit.thread109
+    i8 -40, label %unicode_byte_type.exit.thread112
+    i8 -39, label %unicode_byte_type.exit.thread112
+    i8 -38, label %unicode_byte_type.exit.thread112
+    i8 -37, label %unicode_byte_type.exit.thread112
     i8 -36, label %.loopexit.sink.split
     i8 -35, label %.loopexit.sink.split
     i8 -34, label %.loopexit.sink.split
@@ -17804,7 +17804,7 @@ define internal fastcc range(i32 -2, 29) i32 @big2_scanPercent(ptr noundef reado
   %12 = getelementptr i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1, !tbaa !8
   %switch.i = icmp ugt i8 %13, -3
-  br i1 %switch.i, label %.loopexit.sink.split, label %unicode_byte_type.exit.thread106
+  br i1 %switch.i, label %.loopexit.sink.split, label %unicode_byte_type.exit.thread109
 
 unicode_byte_type.exit:                           ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -17814,18 +17814,18 @@ unicode_byte_type.exit:                           ; preds = %9
   %18 = getelementptr [256 x i8], ptr %14, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !8
   switch i8 %19, label %.loopexit.sink.split [
-    i8 29, label %unicode_byte_type.exit.thread106
+    i8 29, label %unicode_byte_type.exit.thread109
     i8 22, label %36
     i8 24, label %36
     i8 30, label %44
     i8 6, label %41
-    i8 7, label %unicode_byte_type.exit.thread109
+    i8 7, label %unicode_byte_type.exit.thread112
     i8 21, label %44
     i8 10, label %44
     i8 9, label %44
   ]
 
-unicode_byte_type.exit.thread106:                 ; preds = %9, %11, %unicode_byte_type.exit
+unicode_byte_type.exit.thread109:                 ; preds = %9, %11, %unicode_byte_type.exit
   %20 = zext i8 %10 to i64
   %21 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !8
@@ -17845,7 +17845,7 @@ unicode_byte_type.exit.thread106:                 ; preds = %9, %11, %unicode_by
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %.loopexit.sink.split, label %36
 
-36:                                               ; preds = %unicode_byte_type.exit.thread106, %unicode_byte_type.exit, %unicode_byte_type.exit
+36:                                               ; preds = %unicode_byte_type.exit.thread109, %unicode_byte_type.exit, %unicode_byte_type.exit
   %.05884 = getelementptr i8, ptr %1, i64 2
   %37 = ptrtoint ptr %.05884 to i64
   %38 = sub i64 %5, %37
@@ -17860,7 +17860,7 @@ unicode_byte_type.exit.thread106:                 ; preds = %9, %11, %unicode_by
   %42 = icmp eq i64 %7, 2
   br i1 %42, label %.loopexit, label %.loopexit.sink.split
 
-unicode_byte_type.exit.thread109:                 ; preds = %9, %9, %9, %9, %unicode_byte_type.exit
+unicode_byte_type.exit.thread112:                 ; preds = %9, %9, %9, %9, %unicode_byte_type.exit
   %43 = icmp samesign ult i64 %7, 4
   br i1 %43, label %.loopexit, label %.loopexit.sink.split
 
@@ -17872,12 +17872,12 @@ unicode_byte_type.exit.thread109:                 ; preds = %9, %9, %9, %9, %uni
   %.05886 = phi ptr [ %.05884, %.lr.ph ], [ %.058, %72 ]
   %.pn85 = phi ptr [ %1, %.lr.ph ], [ %.05886, %72 ]
   %47 = load i8, ptr %.05886, align 1, !tbaa !8
-  switch i8 %47, label %unicode_byte_type.exit65.thread112 [
+  switch i8 %47, label %unicode_byte_type.exit65.thread115 [
     i8 0, label %unicode_byte_type.exit65
-    i8 -40, label %unicode_byte_type.exit65.thread115
-    i8 -39, label %unicode_byte_type.exit65.thread115
-    i8 -38, label %unicode_byte_type.exit65.thread115
-    i8 -37, label %unicode_byte_type.exit65.thread115
+    i8 -40, label %unicode_byte_type.exit65.thread118
+    i8 -39, label %unicode_byte_type.exit65.thread118
+    i8 -38, label %unicode_byte_type.exit65.thread118
+    i8 -37, label %unicode_byte_type.exit65.thread118
     i8 -36, label %.loopexit.sink.split
     i8 -35, label %.loopexit.sink.split
     i8 -34, label %.loopexit.sink.split
@@ -17889,7 +17889,7 @@ unicode_byte_type.exit.thread109:                 ; preds = %9, %9, %9, %9, %uni
   %49 = getelementptr i8, ptr %.pn85, i64 3
   %50 = load i8, ptr %49, align 1, !tbaa !8
   %switch.i63 = icmp ugt i8 %50, -3
-  br i1 %switch.i63, label %.loopexit.sink.split, label %unicode_byte_type.exit65.thread112
+  br i1 %switch.i63, label %.loopexit.sink.split, label %unicode_byte_type.exit65.thread115
 
 unicode_byte_type.exit65:                         ; preds = %45
   %51 = getelementptr i8, ptr %.pn85, i64 3
@@ -17898,7 +17898,7 @@ unicode_byte_type.exit65:                         ; preds = %45
   %54 = getelementptr [256 x i8], ptr %40, i64 0, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !8
   switch i8 %55, label %.loopexit.sink.split [
-    i8 29, label %unicode_byte_type.exit65.thread112
+    i8 29, label %unicode_byte_type.exit65.thread115
     i8 22, label %72
     i8 24, label %72
     i8 25, label %72
@@ -17906,10 +17906,10 @@ unicode_byte_type.exit65:                         ; preds = %45
     i8 27, label %72
     i8 18, label %79
     i8 6, label %76
-    i8 7, label %unicode_byte_type.exit65.thread115
+    i8 7, label %unicode_byte_type.exit65.thread118
   ]
 
-unicode_byte_type.exit65.thread112:               ; preds = %45, %48, %unicode_byte_type.exit65
+unicode_byte_type.exit65.thread115:               ; preds = %45, %48, %unicode_byte_type.exit65
   %56 = zext i8 %47 to i64
   %57 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !8
@@ -17929,7 +17929,7 @@ unicode_byte_type.exit65.thread112:               ; preds = %45, %48, %unicode_b
   %.not62 = icmp eq i32 %71, 0
   br i1 %.not62, label %.loopexit.sink.split, label %72
 
-72:                                               ; preds = %unicode_byte_type.exit65.thread112, %unicode_byte_type.exit65, %unicode_byte_type.exit65, %unicode_byte_type.exit65, %unicode_byte_type.exit65, %unicode_byte_type.exit65
+72:                                               ; preds = %unicode_byte_type.exit65.thread115, %unicode_byte_type.exit65, %unicode_byte_type.exit65, %unicode_byte_type.exit65, %unicode_byte_type.exit65, %unicode_byte_type.exit65
   %.058 = getelementptr i8, ptr %.05886, i64 2
   %73 = ptrtoint ptr %.058 to i64
   %74 = sub i64 %5, %73
@@ -17940,7 +17940,7 @@ unicode_byte_type.exit65.thread112:               ; preds = %45, %48, %unicode_b
   %77 = icmp eq i64 %46, 2
   br i1 %77, label %.loopexit, label %.loopexit.sink.split
 
-unicode_byte_type.exit65.thread115:               ; preds = %45, %45, %45, %45, %unicode_byte_type.exit65
+unicode_byte_type.exit65.thread118:               ; preds = %45, %45, %45, %45, %unicode_byte_type.exit65
   %78 = icmp samesign ult i64 %46, 4
   br i1 %78, label %.loopexit, label %.loopexit.sink.split
 
@@ -17948,14 +17948,14 @@ unicode_byte_type.exit65.thread115:               ; preds = %45, %45, %45, %45, 
   %80 = getelementptr i8, ptr %.pn85, i64 4
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %unicode_byte_type.exit65, %48, %45, %45, %45, %45, %unicode_byte_type.exit65.thread112, %unicode_byte_type.exit65.thread115, %76, %unicode_byte_type.exit, %11, %9, %9, %9, %9, %unicode_byte_type.exit.thread109, %41, %unicode_byte_type.exit.thread106, %44, %79
-  %.05886.lcssa123.sink = phi ptr [ %80, %79 ], [ %1, %44 ], [ %1, %unicode_byte_type.exit.thread106 ], [ %1, %41 ], [ %1, %unicode_byte_type.exit.thread109 ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %11 ], [ %1, %unicode_byte_type.exit ], [ %.05886, %76 ], [ %.05886, %unicode_byte_type.exit65.thread115 ], [ %.05886, %unicode_byte_type.exit65.thread112 ], [ %.05886, %45 ], [ %.05886, %45 ], [ %.05886, %45 ], [ %.05886, %45 ], [ %.05886, %48 ], [ %.05886, %unicode_byte_type.exit65 ]
-  %.0.ph = phi i32 [ 28, %79 ], [ 22, %44 ], [ 0, %unicode_byte_type.exit.thread106 ], [ 0, %41 ], [ 0, %unicode_byte_type.exit.thread109 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %11 ], [ 0, %unicode_byte_type.exit ], [ 0, %76 ], [ 0, %unicode_byte_type.exit65.thread115 ], [ 0, %unicode_byte_type.exit65.thread112 ], [ 0, %45 ], [ 0, %45 ], [ 0, %45 ], [ 0, %45 ], [ 0, %48 ], [ 0, %unicode_byte_type.exit65 ]
-  store ptr %.05886.lcssa123.sink, ptr %3, align 8, !tbaa !3
+.loopexit.sink.split:                             ; preds = %unicode_byte_type.exit65, %48, %45, %45, %45, %45, %unicode_byte_type.exit65.thread115, %unicode_byte_type.exit65.thread118, %76, %unicode_byte_type.exit, %11, %9, %9, %9, %9, %unicode_byte_type.exit.thread112, %41, %unicode_byte_type.exit.thread109, %44, %79
+  %.05886.lcssa126.sink = phi ptr [ %80, %79 ], [ %1, %44 ], [ %1, %unicode_byte_type.exit.thread109 ], [ %1, %41 ], [ %1, %unicode_byte_type.exit.thread112 ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %11 ], [ %1, %unicode_byte_type.exit ], [ %.05886, %76 ], [ %.05886, %unicode_byte_type.exit65.thread118 ], [ %.05886, %unicode_byte_type.exit65.thread115 ], [ %.05886, %45 ], [ %.05886, %45 ], [ %.05886, %45 ], [ %.05886, %45 ], [ %.05886, %48 ], [ %.05886, %unicode_byte_type.exit65 ]
+  %.0.ph = phi i32 [ 28, %79 ], [ 22, %44 ], [ 0, %unicode_byte_type.exit.thread109 ], [ 0, %41 ], [ 0, %unicode_byte_type.exit.thread112 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %11 ], [ 0, %unicode_byte_type.exit ], [ 0, %76 ], [ 0, %unicode_byte_type.exit65.thread118 ], [ 0, %unicode_byte_type.exit65.thread115 ], [ 0, %45 ], [ 0, %45 ], [ 0, %45 ], [ 0, %45 ], [ 0, %48 ], [ 0, %unicode_byte_type.exit65 ]
+  store ptr %.05886.lcssa126.sink, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %72, %.loopexit.sink.split, %36, %unicode_byte_type.exit65.thread115, %76, %unicode_byte_type.exit.thread109, %41, %4
-  %.0 = phi i32 [ -1, %4 ], [ -2, %41 ], [ -2, %unicode_byte_type.exit.thread109 ], [ -2, %76 ], [ -2, %unicode_byte_type.exit65.thread115 ], [ -1, %36 ], [ %.0.ph, %.loopexit.sink.split ], [ -1, %72 ]
+.loopexit:                                        ; preds = %72, %.loopexit.sink.split, %36, %unicode_byte_type.exit65.thread118, %76, %unicode_byte_type.exit.thread112, %41, %4
+  %.0 = phi i32 [ -1, %4 ], [ -2, %41 ], [ -2, %unicode_byte_type.exit.thread112 ], [ -2, %76 ], [ -2, %unicode_byte_type.exit65.thread118 ], [ -1, %36 ], [ %.0.ph, %.loopexit.sink.split ], [ -1, %72 ]
   ret i32 %.0
 }
 
@@ -17969,12 +17969,12 @@ define internal fastcc range(i32 -20, 21) i32 @big2_scanPoundName(ptr noundef re
 
 9:                                                ; preds = %4
   %10 = load i8, ptr %1, align 1, !tbaa !8
-  switch i8 %10, label %unicode_byte_type.exit.thread92 [
+  switch i8 %10, label %unicode_byte_type.exit.thread95 [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread95
-    i8 -39, label %unicode_byte_type.exit.thread95
-    i8 -38, label %unicode_byte_type.exit.thread95
-    i8 -37, label %unicode_byte_type.exit.thread95
+    i8 -40, label %unicode_byte_type.exit.thread98
+    i8 -39, label %unicode_byte_type.exit.thread98
+    i8 -38, label %unicode_byte_type.exit.thread98
+    i8 -37, label %unicode_byte_type.exit.thread98
     i8 -36, label %.loopexit.sink.split
     i8 -35, label %.loopexit.sink.split
     i8 -34, label %.loopexit.sink.split
@@ -17986,7 +17986,7 @@ define internal fastcc range(i32 -20, 21) i32 @big2_scanPoundName(ptr noundef re
   %12 = getelementptr i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1, !tbaa !8
   %switch.i = icmp ugt i8 %13, -3
-  br i1 %switch.i, label %.loopexit.sink.split, label %unicode_byte_type.exit.thread92
+  br i1 %switch.i, label %.loopexit.sink.split, label %unicode_byte_type.exit.thread95
 
 unicode_byte_type.exit:                           ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -17996,14 +17996,14 @@ unicode_byte_type.exit:                           ; preds = %9
   %18 = getelementptr [256 x i8], ptr %14, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !8
   switch i8 %19, label %.loopexit.sink.split [
-    i8 29, label %unicode_byte_type.exit.thread92
+    i8 29, label %unicode_byte_type.exit.thread95
     i8 22, label %36
     i8 24, label %36
-    i8 7, label %unicode_byte_type.exit.thread95
+    i8 7, label %unicode_byte_type.exit.thread98
     i8 6, label %41
   ]
 
-unicode_byte_type.exit.thread92:                  ; preds = %9, %11, %unicode_byte_type.exit
+unicode_byte_type.exit.thread95:                  ; preds = %9, %11, %unicode_byte_type.exit
   %20 = zext i8 %10 to i64
   %21 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !8
@@ -18023,7 +18023,7 @@ unicode_byte_type.exit.thread92:                  ; preds = %9, %11, %unicode_by
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %.loopexit.sink.split, label %36
 
-36:                                               ; preds = %unicode_byte_type.exit.thread92, %unicode_byte_type.exit, %unicode_byte_type.exit
+36:                                               ; preds = %unicode_byte_type.exit.thread95, %unicode_byte_type.exit, %unicode_byte_type.exit
   %.05676 = getelementptr i8, ptr %1, i64 2
   %37 = ptrtoint ptr %.05676 to i64
   %38 = sub i64 %5, %37
@@ -18038,7 +18038,7 @@ unicode_byte_type.exit.thread92:                  ; preds = %9, %11, %unicode_by
   %42 = icmp eq i64 %7, 2
   br i1 %42, label %.loopexit, label %.loopexit.sink.split
 
-unicode_byte_type.exit.thread95:                  ; preds = %unicode_byte_type.exit, %9, %9, %9, %9
+unicode_byte_type.exit.thread98:                  ; preds = %unicode_byte_type.exit, %9, %9, %9, %9
   %43 = icmp samesign ult i64 %7, 4
   br i1 %43, label %.loopexit, label %.loopexit.sink.split
 
@@ -18047,12 +18047,12 @@ unicode_byte_type.exit.thread95:                  ; preds = %unicode_byte_type.e
   %.05678 = phi ptr [ %.05676, %.lr.ph ], [ %.056, %71 ]
   %.pn77 = phi ptr [ %1, %.lr.ph ], [ %.05678, %71 ]
   %46 = load i8, ptr %.05678, align 1, !tbaa !8
-  switch i8 %46, label %unicode_byte_type.exit63.thread98 [
+  switch i8 %46, label %unicode_byte_type.exit63.thread101 [
     i8 0, label %unicode_byte_type.exit63
-    i8 -40, label %unicode_byte_type.exit63.thread101
-    i8 -39, label %unicode_byte_type.exit63.thread101
-    i8 -38, label %unicode_byte_type.exit63.thread101
-    i8 -37, label %unicode_byte_type.exit63.thread101
+    i8 -40, label %unicode_byte_type.exit63.thread104
+    i8 -39, label %unicode_byte_type.exit63.thread104
+    i8 -38, label %unicode_byte_type.exit63.thread104
+    i8 -37, label %unicode_byte_type.exit63.thread104
     i8 -36, label %.loopexit.sink.split
     i8 -35, label %.loopexit.sink.split
     i8 -34, label %.loopexit.sink.split
@@ -18064,7 +18064,7 @@ unicode_byte_type.exit.thread95:                  ; preds = %unicode_byte_type.e
   %48 = getelementptr i8, ptr %.pn77, i64 3
   %49 = load i8, ptr %48, align 1, !tbaa !8
   %switch.i61 = icmp ugt i8 %49, -3
-  br i1 %switch.i61, label %.loopexit.sink.split, label %unicode_byte_type.exit63.thread98
+  br i1 %switch.i61, label %.loopexit.sink.split, label %unicode_byte_type.exit63.thread101
 
 unicode_byte_type.exit63:                         ; preds = %44
   %50 = getelementptr i8, ptr %.pn77, i64 3
@@ -18073,24 +18073,24 @@ unicode_byte_type.exit63:                         ; preds = %44
   %53 = getelementptr [256 x i8], ptr %40, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !8
   switch i8 %54, label %.loopexit.sink.split [
-    i8 29, label %unicode_byte_type.exit63.thread98
+    i8 29, label %unicode_byte_type.exit63.thread101
     i8 22, label %71
     i8 24, label %71
     i8 25, label %71
     i8 26, label %71
     i8 27, label %71
-    i8 36, label %.loopexit.sink.split.loopexit123
+    i8 36, label %.loopexit.sink.split.loopexit126
     i8 6, label %75
-    i8 7, label %unicode_byte_type.exit63.thread101
-    i8 9, label %.loopexit.sink.split.loopexit123
-    i8 10, label %.loopexit.sink.split.loopexit123
-    i8 21, label %.loopexit.sink.split.loopexit123
-    i8 32, label %.loopexit.sink.split.loopexit123
-    i8 11, label %.loopexit.sink.split.loopexit123
-    i8 30, label %.loopexit.sink.split.loopexit123
+    i8 7, label %unicode_byte_type.exit63.thread104
+    i8 9, label %.loopexit.sink.split.loopexit126
+    i8 10, label %.loopexit.sink.split.loopexit126
+    i8 21, label %.loopexit.sink.split.loopexit126
+    i8 32, label %.loopexit.sink.split.loopexit126
+    i8 11, label %.loopexit.sink.split.loopexit126
+    i8 30, label %.loopexit.sink.split.loopexit126
   ]
 
-unicode_byte_type.exit63.thread98:                ; preds = %44, %47, %unicode_byte_type.exit63
+unicode_byte_type.exit63.thread101:               ; preds = %44, %47, %unicode_byte_type.exit63
   %55 = zext i8 %46 to i64
   %56 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !8
@@ -18110,7 +18110,7 @@ unicode_byte_type.exit63.thread98:                ; preds = %44, %47, %unicode_b
   %.not60 = icmp eq i32 %70, 0
   br i1 %.not60, label %.loopexit.sink.split, label %71
 
-71:                                               ; preds = %unicode_byte_type.exit63.thread98, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63
+71:                                               ; preds = %unicode_byte_type.exit63.thread101, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63
   %.056 = getelementptr i8, ptr %.05678, i64 2
   %72 = ptrtoint ptr %.056 to i64
   %73 = sub i64 %5, %72
@@ -18121,21 +18121,21 @@ unicode_byte_type.exit63.thread98:                ; preds = %44, %47, %unicode_b
   %76 = icmp eq i64 %45, 2
   br i1 %76, label %.loopexit, label %.loopexit.sink.split
 
-unicode_byte_type.exit63.thread101:               ; preds = %44, %44, %44, %44, %unicode_byte_type.exit63
+unicode_byte_type.exit63.thread104:               ; preds = %44, %44, %44, %44, %unicode_byte_type.exit63
   %77 = icmp samesign ult i64 %45, 4
   br i1 %77, label %.loopexit, label %.loopexit.sink.split
 
-.loopexit.sink.split.loopexit123:                 ; preds = %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63
+.loopexit.sink.split.loopexit126:                 ; preds = %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %unicode_byte_type.exit63, %47, %44, %44, %44, %44, %unicode_byte_type.exit63.thread98, %.loopexit.sink.split.loopexit123, %unicode_byte_type.exit63.thread101, %75, %unicode_byte_type.exit, %11, %9, %9, %9, %9, %unicode_byte_type.exit.thread95, %41, %unicode_byte_type.exit.thread92
-  %.05678.lcssa103.sink = phi ptr [ %1, %unicode_byte_type.exit.thread92 ], [ %1, %41 ], [ %1, %unicode_byte_type.exit.thread95 ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %11 ], [ %1, %unicode_byte_type.exit ], [ %.05678, %75 ], [ %.05678, %unicode_byte_type.exit63.thread101 ], [ %.05678, %.loopexit.sink.split.loopexit123 ], [ %.05678, %unicode_byte_type.exit63.thread98 ], [ %.05678, %44 ], [ %.05678, %44 ], [ %.05678, %44 ], [ %.05678, %44 ], [ %.05678, %47 ], [ %.05678, %unicode_byte_type.exit63 ]
-  %.0.ph = phi i32 [ 0, %unicode_byte_type.exit.thread92 ], [ 0, %41 ], [ 0, %unicode_byte_type.exit.thread95 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %11 ], [ 0, %unicode_byte_type.exit ], [ 0, %75 ], [ 0, %unicode_byte_type.exit63.thread101 ], [ 20, %.loopexit.sink.split.loopexit123 ], [ 0, %unicode_byte_type.exit63.thread98 ], [ 0, %44 ], [ 0, %44 ], [ 0, %44 ], [ 0, %44 ], [ 0, %47 ], [ 0, %unicode_byte_type.exit63 ]
-  store ptr %.05678.lcssa103.sink, ptr %3, align 8, !tbaa !3
+.loopexit.sink.split:                             ; preds = %unicode_byte_type.exit63, %47, %44, %44, %44, %44, %unicode_byte_type.exit63.thread101, %.loopexit.sink.split.loopexit126, %unicode_byte_type.exit63.thread104, %75, %unicode_byte_type.exit, %11, %9, %9, %9, %9, %unicode_byte_type.exit.thread98, %41, %unicode_byte_type.exit.thread95
+  %.05678.lcssa106.sink = phi ptr [ %1, %unicode_byte_type.exit.thread95 ], [ %1, %41 ], [ %1, %unicode_byte_type.exit.thread98 ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %11 ], [ %1, %unicode_byte_type.exit ], [ %.05678, %75 ], [ %.05678, %unicode_byte_type.exit63.thread104 ], [ %.05678, %.loopexit.sink.split.loopexit126 ], [ %.05678, %unicode_byte_type.exit63.thread101 ], [ %.05678, %44 ], [ %.05678, %44 ], [ %.05678, %44 ], [ %.05678, %44 ], [ %.05678, %47 ], [ %.05678, %unicode_byte_type.exit63 ]
+  %.0.ph = phi i32 [ 0, %unicode_byte_type.exit.thread95 ], [ 0, %41 ], [ 0, %unicode_byte_type.exit.thread98 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %11 ], [ 0, %unicode_byte_type.exit ], [ 0, %75 ], [ 0, %unicode_byte_type.exit63.thread104 ], [ 20, %.loopexit.sink.split.loopexit126 ], [ 0, %unicode_byte_type.exit63.thread101 ], [ 0, %44 ], [ 0, %44 ], [ 0, %44 ], [ 0, %44 ], [ 0, %47 ], [ 0, %unicode_byte_type.exit63 ]
+  store ptr %.05678.lcssa106.sink, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %71, %.loopexit.sink.split, %36, %unicode_byte_type.exit63.thread101, %75, %unicode_byte_type.exit.thread95, %41, %4
-  %.0 = phi i32 [ -1, %4 ], [ -2, %41 ], [ -2, %unicode_byte_type.exit.thread95 ], [ -2, %75 ], [ -2, %unicode_byte_type.exit63.thread101 ], [ -20, %36 ], [ %.0.ph, %.loopexit.sink.split ], [ -20, %71 ]
+.loopexit:                                        ; preds = %71, %.loopexit.sink.split, %36, %unicode_byte_type.exit63.thread104, %75, %unicode_byte_type.exit.thread98, %41, %4
+  %.0 = phi i32 [ -1, %4 ], [ -2, %41 ], [ -2, %unicode_byte_type.exit.thread98 ], [ -2, %75 ], [ -2, %unicode_byte_type.exit63.thread104 ], [ -20, %36 ], [ %.0.ph, %.loopexit.sink.split ], [ -20, %71 ]
   ret i32 %.0
 }
 
@@ -18173,12 +18173,12 @@ define internal fastcc range(i32 -2, 14) i32 @big2_scanComment(ptr noundef reado
   %23 = phi i64 [ %19, %.lr.ph ], [ %70, %68 ]
   %.04044 = phi ptr [ %17, %.lr.ph ], [ %.1, %68 ]
   %24 = load i8, ptr %.04044, align 1, !tbaa !8
-  switch i8 %24, label %unicode_byte_type.exit.thread54 [
+  switch i8 %24, label %unicode_byte_type.exit.thread56 [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread57
-    i8 -39, label %unicode_byte_type.exit.thread57
-    i8 -38, label %unicode_byte_type.exit.thread57
-    i8 -37, label %unicode_byte_type.exit.thread57
+    i8 -40, label %unicode_byte_type.exit.thread59
+    i8 -39, label %unicode_byte_type.exit.thread59
+    i8 -38, label %unicode_byte_type.exit.thread59
+    i8 -37, label %unicode_byte_type.exit.thread59
     i8 -36, label %.loopexit.sink.split
     i8 -35, label %.loopexit.sink.split
     i8 -34, label %.loopexit.sink.split
@@ -18190,7 +18190,7 @@ define internal fastcc range(i32 -2, 14) i32 @big2_scanComment(ptr noundef reado
   %26 = getelementptr i8, ptr %.04044, i64 1
   %27 = load i8, ptr %26, align 1, !tbaa !8
   %switch.i = icmp ugt i8 %27, -3
-  br i1 %switch.i, label %.loopexit.sink.split, label %unicode_byte_type.exit.thread54
+  br i1 %switch.i, label %.loopexit.sink.split, label %unicode_byte_type.exit.thread56
 
 unicode_byte_type.exit:                           ; preds = %22
   %28 = getelementptr i8, ptr %.04044, i64 1
@@ -18198,10 +18198,10 @@ unicode_byte_type.exit:                           ; preds = %22
   %30 = zext i8 %29 to i64
   %31 = getelementptr [256 x i8], ptr %21, i64 0, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !8
-  switch i8 %32, label %unicode_byte_type.exit.thread54 [
+  switch i8 %32, label %unicode_byte_type.exit.thread56 [
     i8 5, label %33
     i8 6, label %35
-    i8 7, label %unicode_byte_type.exit.thread57
+    i8 7, label %unicode_byte_type.exit.thread59
     i8 0, label %.loopexit.sink.split
     i8 1, label %.loopexit.sink.split
     i8 8, label %.loopexit.sink.split
@@ -18220,11 +18220,11 @@ unicode_byte_type.exit:                           ; preds = %22
   %38 = getelementptr i8, ptr %.04044, i64 3
   br label %68
 
-unicode_byte_type.exit.thread57:                  ; preds = %22, %22, %22, %22, %unicode_byte_type.exit
+unicode_byte_type.exit.thread59:                  ; preds = %22, %22, %22, %22, %unicode_byte_type.exit
   %39 = icmp samesign ult i64 %23, 4
   br i1 %39, label %.loopexit, label %40
 
-40:                                               ; preds = %unicode_byte_type.exit.thread57
+40:                                               ; preds = %unicode_byte_type.exit.thread59
   %41 = getelementptr i8, ptr %.04044, i64 4
   br label %68
 
@@ -18264,15 +18264,15 @@ unicode_byte_type.exit.thread57:                  ; preds = %22, %22, %22, %22, 
   %65 = icmp eq i8 %64, 62
   %66 = getelementptr i8, ptr %.04044, i64 6
   %spec.select = select i1 %65, ptr %66, ptr %55
-  %spec.select61 = select i1 %65, i32 13, i32 0
+  %spec.select63 = select i1 %65, i32 13, i32 0
   br label %.loopexit.sink.split
 
-unicode_byte_type.exit.thread54:                  ; preds = %22, %25, %unicode_byte_type.exit
+unicode_byte_type.exit.thread56:                  ; preds = %22, %25, %unicode_byte_type.exit
   %67 = getelementptr i8, ptr %.04044, i64 2
   br label %68
 
-68:                                               ; preds = %47, %50, %unicode_byte_type.exit.thread54, %40, %37, %33
-  %.1 = phi ptr [ %67, %unicode_byte_type.exit.thread54 ], [ %34, %33 ], [ %38, %37 ], [ %41, %40 ], [ %43, %50 ], [ %43, %47 ]
+68:                                               ; preds = %47, %50, %unicode_byte_type.exit.thread56, %40, %37, %33
+  %.1 = phi ptr [ %67, %unicode_byte_type.exit.thread56 ], [ %34, %33 ], [ %38, %37 ], [ %41, %40 ], [ %43, %50 ], [ %43, %47 ]
   %69 = ptrtoint ptr %.1 to i64
   %70 = sub i64 %5, %69
   %71 = icmp sgt i64 %70, 1
@@ -18280,12 +18280,12 @@ unicode_byte_type.exit.thread54:                  ; preds = %22, %25, %unicode_b
 
 .loopexit.sink.split:                             ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %25, %22, %22, %22, %22, %62, %59, %9, %12
   %.sink = phi ptr [ %1, %12 ], [ %1, %9 ], [ %55, %59 ], [ %spec.select, %62 ], [ %.04044, %22 ], [ %.04044, %22 ], [ %.04044, %22 ], [ %.04044, %22 ], [ %.04044, %25 ], [ %.04044, %unicode_byte_type.exit ], [ %.04044, %unicode_byte_type.exit ], [ %.04044, %unicode_byte_type.exit ]
-  %.0.ph = phi i32 [ 0, %12 ], [ 0, %9 ], [ 0, %59 ], [ %spec.select61, %62 ], [ 0, %22 ], [ 0, %22 ], [ 0, %22 ], [ 0, %22 ], [ 0, %25 ], [ 0, %unicode_byte_type.exit ], [ 0, %unicode_byte_type.exit ], [ 0, %unicode_byte_type.exit ]
+  %.0.ph = phi i32 [ 0, %12 ], [ 0, %9 ], [ 0, %59 ], [ %spec.select63, %62 ], [ 0, %22 ], [ 0, %22 ], [ 0, %22 ], [ 0, %22 ], [ 0, %25 ], [ 0, %unicode_byte_type.exit ], [ 0, %unicode_byte_type.exit ], [ 0, %unicode_byte_type.exit ]
   store ptr %.sink, ptr %3, align 8, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %35, %unicode_byte_type.exit.thread57, %42, %68, %.loopexit.sink.split, %16, %4, %54
-  %.0 = phi i32 [ -1, %54 ], [ -1, %4 ], [ -1, %16 ], [ %.0.ph, %.loopexit.sink.split ], [ -2, %35 ], [ -2, %unicode_byte_type.exit.thread57 ], [ -1, %42 ], [ -1, %68 ]
+.loopexit:                                        ; preds = %35, %unicode_byte_type.exit.thread59, %42, %68, %.loopexit.sink.split, %16, %4, %54
+  %.0 = phi i32 [ -1, %54 ], [ -1, %4 ], [ -1, %16 ], [ %.0.ph, %.loopexit.sink.split ], [ -2, %35 ], [ -2, %unicode_byte_type.exit.thread59 ], [ -1, %42 ], [ -1, %68 ]
   ret i32 %.0
 }
 
@@ -18373,12 +18373,12 @@ define internal fastcc range(i32 -2, 11) i32 @big2_scanRef(ptr noundef readonly 
 
 9:                                                ; preds = %4
   %10 = load i8, ptr %1, align 1, !tbaa !8
-  switch i8 %10, label %unicode_byte_type.exit.thread131 [
+  switch i8 %10, label %unicode_byte_type.exit.thread135 [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread134
-    i8 -39, label %unicode_byte_type.exit.thread134
-    i8 -38, label %unicode_byte_type.exit.thread134
-    i8 -37, label %unicode_byte_type.exit.thread134
+    i8 -40, label %unicode_byte_type.exit.thread138
+    i8 -39, label %unicode_byte_type.exit.thread138
+    i8 -38, label %unicode_byte_type.exit.thread138
+    i8 -37, label %unicode_byte_type.exit.thread138
     i8 -36, label %big2_scanCharRef.exit.sink.split
     i8 -35, label %big2_scanCharRef.exit.sink.split
     i8 -34, label %big2_scanCharRef.exit.sink.split
@@ -18390,7 +18390,7 @@ define internal fastcc range(i32 -2, 11) i32 @big2_scanRef(ptr noundef readonly 
   %12 = getelementptr i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1, !tbaa !8
   %switch.i = icmp ugt i8 %13, -3
-  br i1 %switch.i, label %big2_scanCharRef.exit.sink.split, label %unicode_byte_type.exit.thread131
+  br i1 %switch.i, label %big2_scanCharRef.exit.sink.split, label %unicode_byte_type.exit.thread135
 
 unicode_byte_type.exit:                           ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -18400,15 +18400,15 @@ unicode_byte_type.exit:                           ; preds = %9
   %18 = getelementptr [256 x i8], ptr %14, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !8
   switch i8 %19, label %big2_scanCharRef.exit.sink.split [
-    i8 29, label %unicode_byte_type.exit.thread131
+    i8 29, label %unicode_byte_type.exit.thread135
     i8 22, label %36
     i8 24, label %36
     i8 19, label %44
     i8 6, label %41
-    i8 7, label %unicode_byte_type.exit.thread134
+    i8 7, label %unicode_byte_type.exit.thread138
   ]
 
-unicode_byte_type.exit.thread131:                 ; preds = %9, %11, %unicode_byte_type.exit
+unicode_byte_type.exit.thread135:                 ; preds = %9, %11, %unicode_byte_type.exit
   %20 = zext i8 %10 to i64
   %21 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !8
@@ -18428,7 +18428,7 @@ unicode_byte_type.exit.thread131:                 ; preds = %9, %11, %unicode_by
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %big2_scanCharRef.exit.sink.split, label %36
 
-36:                                               ; preds = %unicode_byte_type.exit.thread131, %unicode_byte_type.exit, %unicode_byte_type.exit
+36:                                               ; preds = %unicode_byte_type.exit.thread135, %unicode_byte_type.exit, %unicode_byte_type.exit
   %.06098 = getelementptr i8, ptr %1, i64 2
   %37 = ptrtoint ptr %.06098 to i64
   %38 = sub i64 %5, %37
@@ -18443,7 +18443,7 @@ unicode_byte_type.exit.thread131:                 ; preds = %9, %11, %unicode_by
   %42 = icmp eq i64 %7, 2
   br i1 %42, label %big2_scanCharRef.exit, label %big2_scanCharRef.exit.sink.split
 
-unicode_byte_type.exit.thread134:                 ; preds = %9, %9, %9, %9, %unicode_byte_type.exit
+unicode_byte_type.exit.thread138:                 ; preds = %9, %9, %9, %9, %unicode_byte_type.exit
   %43 = icmp samesign ult i64 %7, 4
   br i1 %43, label %big2_scanCharRef.exit, label %big2_scanCharRef.exit.sink.split
 
@@ -18543,8 +18543,8 @@ unicode_byte_type.exit.i:                         ; preds = %51
 
 92:                                               ; preds = %.preheader.i
   %93 = load i8, ptr %.028.i, align 1, !tbaa !8
-  %cond67.i = icmp eq i8 %93, 0
-  br i1 %cond67.i, label %unicode_byte_type.exit32.i, label %big2_scanCharRef.exit.sink.split
+  %cond68.i = icmp eq i8 %93, 0
+  br i1 %cond68.i, label %unicode_byte_type.exit32.i, label %big2_scanCharRef.exit.sink.split
 
 unicode_byte_type.exit32.i:                       ; preds = %92
   %94 = getelementptr i8, ptr %.pn.i, i64 3
@@ -18566,12 +18566,12 @@ unicode_byte_type.exit32.i:                       ; preds = %92
   %.060100 = phi ptr [ %.06098, %.lr.ph ], [ %.060, %128 ]
   %.pn99 = phi ptr [ %1, %.lr.ph ], [ %.060100, %128 ]
   %103 = load i8, ptr %.060100, align 1, !tbaa !8
-  switch i8 %103, label %unicode_byte_type.exit68.thread137 [
+  switch i8 %103, label %unicode_byte_type.exit68.thread141 [
     i8 0, label %unicode_byte_type.exit68
-    i8 -40, label %unicode_byte_type.exit68.thread140
-    i8 -39, label %unicode_byte_type.exit68.thread140
-    i8 -38, label %unicode_byte_type.exit68.thread140
-    i8 -37, label %unicode_byte_type.exit68.thread140
+    i8 -40, label %unicode_byte_type.exit68.thread144
+    i8 -39, label %unicode_byte_type.exit68.thread144
+    i8 -38, label %unicode_byte_type.exit68.thread144
+    i8 -37, label %unicode_byte_type.exit68.thread144
     i8 -36, label %big2_scanCharRef.exit.sink.split
     i8 -35, label %big2_scanCharRef.exit.sink.split
     i8 -34, label %big2_scanCharRef.exit.sink.split
@@ -18583,7 +18583,7 @@ unicode_byte_type.exit32.i:                       ; preds = %92
   %105 = getelementptr i8, ptr %.pn99, i64 3
   %106 = load i8, ptr %105, align 1, !tbaa !8
   %switch.i66 = icmp ugt i8 %106, -3
-  br i1 %switch.i66, label %big2_scanCharRef.exit.sink.split, label %unicode_byte_type.exit68.thread137
+  br i1 %switch.i66, label %big2_scanCharRef.exit.sink.split, label %unicode_byte_type.exit68.thread141
 
 unicode_byte_type.exit68:                         ; preds = %101
   %107 = getelementptr i8, ptr %.pn99, i64 3
@@ -18592,7 +18592,7 @@ unicode_byte_type.exit68:                         ; preds = %101
   %110 = getelementptr [256 x i8], ptr %40, i64 0, i64 %109
   %111 = load i8, ptr %110, align 1, !tbaa !8
   switch i8 %111, label %big2_scanCharRef.exit.sink.split [
-    i8 29, label %unicode_byte_type.exit68.thread137
+    i8 29, label %unicode_byte_type.exit68.thread141
     i8 22, label %128
     i8 24, label %128
     i8 25, label %128
@@ -18600,10 +18600,10 @@ unicode_byte_type.exit68:                         ; preds = %101
     i8 27, label %128
     i8 18, label %135
     i8 6, label %132
-    i8 7, label %unicode_byte_type.exit68.thread140
+    i8 7, label %unicode_byte_type.exit68.thread144
   ]
 
-unicode_byte_type.exit68.thread137:               ; preds = %101, %104, %unicode_byte_type.exit68
+unicode_byte_type.exit68.thread141:               ; preds = %101, %104, %unicode_byte_type.exit68
   %112 = zext i8 %103 to i64
   %113 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %112
   %114 = load i8, ptr %113, align 1, !tbaa !8
@@ -18623,7 +18623,7 @@ unicode_byte_type.exit68.thread137:               ; preds = %101, %104, %unicode
   %.not64 = icmp eq i32 %127, 0
   br i1 %.not64, label %big2_scanCharRef.exit.sink.split, label %128
 
-128:                                              ; preds = %unicode_byte_type.exit68.thread137, %unicode_byte_type.exit68, %unicode_byte_type.exit68, %unicode_byte_type.exit68, %unicode_byte_type.exit68, %unicode_byte_type.exit68
+128:                                              ; preds = %unicode_byte_type.exit68.thread141, %unicode_byte_type.exit68, %unicode_byte_type.exit68, %unicode_byte_type.exit68, %unicode_byte_type.exit68, %unicode_byte_type.exit68
   %.060 = getelementptr i8, ptr %.060100, i64 2
   %129 = ptrtoint ptr %.060 to i64
   %130 = sub i64 %5, %129
@@ -18634,7 +18634,7 @@ unicode_byte_type.exit68.thread137:               ; preds = %101, %104, %unicode
   %133 = icmp eq i64 %102, 2
   br i1 %133, label %big2_scanCharRef.exit, label %big2_scanCharRef.exit.sink.split
 
-unicode_byte_type.exit68.thread140:               ; preds = %101, %101, %101, %101, %unicode_byte_type.exit68
+unicode_byte_type.exit68.thread144:               ; preds = %101, %101, %101, %101, %unicode_byte_type.exit68
   %134 = icmp samesign ult i64 %102, 4
   br i1 %134, label %big2_scanCharRef.exit, label %big2_scanCharRef.exit.sink.split
 
@@ -18642,14 +18642,14 @@ unicode_byte_type.exit68.thread140:               ; preds = %101, %101, %101, %1
   %136 = getelementptr i8, ptr %.pn99, i64 4
   br label %big2_scanCharRef.exit.sink.split
 
-big2_scanCharRef.exit.sink.split:                 ; preds = %92, %unicode_byte_type.exit32.i, %.lr.ph.i.i, %unicode_byte_type.exit26.i.i, %unicode_byte_type.exit68, %104, %101, %101, %101, %101, %unicode_byte_type.exit68.thread137, %unicode_byte_type.exit68.thread140, %132, %unicode_byte_type.exit, %11, %9, %9, %9, %9, %49, %60, %unicode_byte_type.exit.i.i, %79, %unicode_byte_type.exit.i, %99, %unicode_byte_type.exit.thread134, %41, %unicode_byte_type.exit.thread131, %135
-  %.0223346.sink.i.sink.i.sink = phi ptr [ %136, %135 ], [ %1, %unicode_byte_type.exit.thread131 ], [ %1, %41 ], [ %1, %unicode_byte_type.exit.thread134 ], [ %100, %99 ], [ %80, %79 ], [ %56, %60 ], [ %56, %unicode_byte_type.exit.i.i ], [ %45, %49 ], [ %45, %unicode_byte_type.exit.i ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %11 ], [ %1, %unicode_byte_type.exit ], [ %.060100, %132 ], [ %.060100, %unicode_byte_type.exit68.thread140 ], [ %.060100, %unicode_byte_type.exit68.thread137 ], [ %.060100, %101 ], [ %.060100, %101 ], [ %.060100, %101 ], [ %.060100, %101 ], [ %.060100, %104 ], [ %.060100, %unicode_byte_type.exit68 ], [ %.02233.i.i, %unicode_byte_type.exit26.i.i ], [ %.02233.i.i, %.lr.ph.i.i ], [ %.028.i, %unicode_byte_type.exit32.i ], [ %.028.i, %92 ]
-  %.0.ph = phi i32 [ 9, %135 ], [ 0, %unicode_byte_type.exit.thread131 ], [ 0, %41 ], [ 0, %unicode_byte_type.exit.thread134 ], [ 10, %99 ], [ 10, %79 ], [ 0, %60 ], [ 0, %unicode_byte_type.exit.i.i ], [ 0, %49 ], [ 0, %unicode_byte_type.exit.i ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %11 ], [ 0, %unicode_byte_type.exit ], [ 0, %132 ], [ 0, %unicode_byte_type.exit68.thread140 ], [ 0, %unicode_byte_type.exit68.thread137 ], [ 0, %101 ], [ 0, %101 ], [ 0, %101 ], [ 0, %101 ], [ 0, %104 ], [ 0, %unicode_byte_type.exit68 ], [ 0, %unicode_byte_type.exit26.i.i ], [ 0, %.lr.ph.i.i ], [ 0, %unicode_byte_type.exit32.i ], [ 0, %92 ]
+big2_scanCharRef.exit.sink.split:                 ; preds = %92, %unicode_byte_type.exit32.i, %.lr.ph.i.i, %unicode_byte_type.exit26.i.i, %unicode_byte_type.exit68, %104, %101, %101, %101, %101, %unicode_byte_type.exit68.thread141, %unicode_byte_type.exit68.thread144, %132, %unicode_byte_type.exit, %11, %9, %9, %9, %9, %49, %60, %unicode_byte_type.exit.i.i, %79, %unicode_byte_type.exit.i, %99, %unicode_byte_type.exit.thread138, %41, %unicode_byte_type.exit.thread135, %135
+  %.0223346.sink.i.sink.i.sink = phi ptr [ %136, %135 ], [ %1, %unicode_byte_type.exit.thread135 ], [ %1, %41 ], [ %1, %unicode_byte_type.exit.thread138 ], [ %100, %99 ], [ %80, %79 ], [ %56, %60 ], [ %56, %unicode_byte_type.exit.i.i ], [ %45, %49 ], [ %45, %unicode_byte_type.exit.i ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %9 ], [ %1, %11 ], [ %1, %unicode_byte_type.exit ], [ %.060100, %132 ], [ %.060100, %unicode_byte_type.exit68.thread144 ], [ %.060100, %unicode_byte_type.exit68.thread141 ], [ %.060100, %101 ], [ %.060100, %101 ], [ %.060100, %101 ], [ %.060100, %101 ], [ %.060100, %104 ], [ %.060100, %unicode_byte_type.exit68 ], [ %.02233.i.i, %unicode_byte_type.exit26.i.i ], [ %.02233.i.i, %.lr.ph.i.i ], [ %.028.i, %unicode_byte_type.exit32.i ], [ %.028.i, %92 ]
+  %.0.ph = phi i32 [ 9, %135 ], [ 0, %unicode_byte_type.exit.thread135 ], [ 0, %41 ], [ 0, %unicode_byte_type.exit.thread138 ], [ 10, %99 ], [ 10, %79 ], [ 0, %60 ], [ 0, %unicode_byte_type.exit.i.i ], [ 0, %49 ], [ 0, %unicode_byte_type.exit.i ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %11 ], [ 0, %unicode_byte_type.exit ], [ 0, %132 ], [ 0, %unicode_byte_type.exit68.thread144 ], [ 0, %unicode_byte_type.exit68.thread141 ], [ 0, %101 ], [ 0, %101 ], [ 0, %101 ], [ 0, %101 ], [ 0, %104 ], [ 0, %unicode_byte_type.exit68 ], [ 0, %unicode_byte_type.exit26.i.i ], [ 0, %.lr.ph.i.i ], [ 0, %unicode_byte_type.exit32.i ], [ 0, %92 ]
   store ptr %.0223346.sink.i.sink.i.sink, ptr %3, align 8, !tbaa !3
   br label %big2_scanCharRef.exit
 
-big2_scanCharRef.exit:                            ; preds = %.preheader.i, %81, %128, %big2_scanCharRef.exit.sink.split, %36, %.preheader.i.i, %55, %44, %unicode_byte_type.exit68.thread140, %132, %unicode_byte_type.exit.thread134, %41, %4
-  %.0 = phi i32 [ -1, %4 ], [ -2, %41 ], [ -2, %unicode_byte_type.exit.thread134 ], [ -2, %132 ], [ -2, %unicode_byte_type.exit68.thread140 ], [ -1, %44 ], [ -1, %55 ], [ -1, %.preheader.i.i ], [ -1, %36 ], [ %.0.ph, %big2_scanCharRef.exit.sink.split ], [ -1, %128 ], [ -1, %81 ], [ -1, %.preheader.i ]
+big2_scanCharRef.exit:                            ; preds = %.preheader.i, %81, %128, %big2_scanCharRef.exit.sink.split, %36, %.preheader.i.i, %55, %44, %unicode_byte_type.exit68.thread144, %132, %unicode_byte_type.exit.thread138, %41, %4
+  %.0 = phi i32 [ -1, %4 ], [ -2, %41 ], [ -2, %unicode_byte_type.exit.thread138 ], [ -2, %132 ], [ -2, %unicode_byte_type.exit68.thread144 ], [ -1, %44 ], [ -1, %55 ], [ -1, %.preheader.i.i ], [ -1, %36 ], [ %.0.ph, %big2_scanCharRef.exit.sink.split ], [ -1, %128 ], [ -1, %81 ], [ -1, %.preheader.i ]
   ret i32 %.0
 }
 
@@ -18672,12 +18672,12 @@ define internal fastcc range(i32 -2, 4) i32 @big2_scanAtts(ptr noundef readonly 
   %.promoted = phi ptr [ %1, %.lr.ph344 ], [ %.sink, %232 ]
   %.072343 = phi i32 [ 0, %.lr.ph344 ], [ %.173, %232 ]
   %13 = load i8, ptr %.promoted, align 1, !tbaa !8
-  switch i8 %13, label %unicode_byte_type.exit.thread529 [
+  switch i8 %13, label %unicode_byte_type.exit.thread537 [
     i8 0, label %unicode_byte_type.exit
-    i8 -40, label %unicode_byte_type.exit.thread532
-    i8 -39, label %unicode_byte_type.exit.thread532
-    i8 -38, label %unicode_byte_type.exit.thread532
-    i8 -37, label %unicode_byte_type.exit.thread532
+    i8 -40, label %unicode_byte_type.exit.thread540
+    i8 -39, label %unicode_byte_type.exit.thread540
+    i8 -38, label %unicode_byte_type.exit.thread540
+    i8 -37, label %unicode_byte_type.exit.thread540
     i8 -36, label %.thread.sink.split
     i8 -35, label %.thread.sink.split
     i8 -34, label %.thread.sink.split
@@ -18689,7 +18689,7 @@ define internal fastcc range(i32 -2, 4) i32 @big2_scanAtts(ptr noundef readonly 
   %15 = getelementptr i8, ptr %.promoted, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !8
   %switch.i = icmp ugt i8 %16, -3
-  br i1 %switch.i, label %.thread.sink.split, label %unicode_byte_type.exit.thread529
+  br i1 %switch.i, label %.thread.sink.split, label %unicode_byte_type.exit.thread537
 
 unicode_byte_type.exit:                           ; preds = %11
   %17 = getelementptr i8, ptr %.promoted, i64 1
@@ -18698,7 +18698,7 @@ unicode_byte_type.exit:                           ; preds = %11
   %20 = getelementptr [256 x i8], ptr %10, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !8
   switch i8 %21, label %.thread.sink.split [
-    i8 29, label %unicode_byte_type.exit.thread529
+    i8 29, label %unicode_byte_type.exit.thread537
     i8 22, label %38
     i8 24, label %38
     i8 25, label %38
@@ -18706,14 +18706,14 @@ unicode_byte_type.exit:                           ; preds = %11
     i8 27, label %38
     i8 14, label %.thread111
     i8 6, label %40
-    i8 7, label %unicode_byte_type.exit.thread532
+    i8 7, label %unicode_byte_type.exit.thread540
     i8 23, label %43
     i8 21, label %80
     i8 9, label %80
     i8 10, label %80
   ]
 
-unicode_byte_type.exit.thread529:                 ; preds = %11, %14, %unicode_byte_type.exit
+unicode_byte_type.exit.thread537:                 ; preds = %11, %14, %unicode_byte_type.exit
   %22 = zext i8 %13 to i64
   %23 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !8
@@ -18733,7 +18733,7 @@ unicode_byte_type.exit.thread529:                 ; preds = %11, %14, %unicode_b
   %.not90 = icmp eq i32 %37, 0
   br i1 %.not90, label %.thread.sink.split, label %38
 
-38:                                               ; preds = %unicode_byte_type.exit.thread529, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
+38:                                               ; preds = %unicode_byte_type.exit.thread537, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
   %39 = getelementptr i8, ptr %.promoted, i64 2
   br label %232
 
@@ -18741,7 +18741,7 @@ unicode_byte_type.exit.thread529:                 ; preds = %11, %14, %unicode_b
   %41 = icmp eq i64 %12, 2
   br i1 %41, label %.thread, label %.thread.sink.split
 
-unicode_byte_type.exit.thread532:                 ; preds = %11, %11, %11, %11, %unicode_byte_type.exit
+unicode_byte_type.exit.thread540:                 ; preds = %11, %11, %11, %11, %unicode_byte_type.exit
   %42 = icmp samesign ult i64 %12, 4
   br i1 %42, label %.thread, label %.thread.sink.split
 
@@ -18759,12 +18759,12 @@ unicode_byte_type.exit.thread532:                 ; preds = %11, %11, %11, %11, 
 
 49:                                               ; preds = %44
   %50 = load i8, ptr %45, align 1, !tbaa !8
-  switch i8 %50, label %unicode_byte_type.exit93.thread535 [
+  switch i8 %50, label %unicode_byte_type.exit93.thread543 [
     i8 0, label %unicode_byte_type.exit93
-    i8 -40, label %unicode_byte_type.exit93.thread538
-    i8 -39, label %unicode_byte_type.exit93.thread538
-    i8 -38, label %unicode_byte_type.exit93.thread538
-    i8 -37, label %unicode_byte_type.exit93.thread538
+    i8 -40, label %unicode_byte_type.exit93.thread546
+    i8 -39, label %unicode_byte_type.exit93.thread546
+    i8 -38, label %unicode_byte_type.exit93.thread546
+    i8 -37, label %unicode_byte_type.exit93.thread546
     i8 -36, label %.thread.sink.split
     i8 -35, label %.thread.sink.split
     i8 -34, label %.thread.sink.split
@@ -18776,7 +18776,7 @@ unicode_byte_type.exit.thread532:                 ; preds = %11, %11, %11, %11, 
   %52 = getelementptr i8, ptr %.promoted, i64 3
   %53 = load i8, ptr %52, align 1, !tbaa !8
   %switch.i91 = icmp ugt i8 %53, -3
-  br i1 %switch.i91, label %.thread.sink.split, label %unicode_byte_type.exit93.thread535
+  br i1 %switch.i91, label %.thread.sink.split, label %unicode_byte_type.exit93.thread543
 
 unicode_byte_type.exit93:                         ; preds = %49
   %54 = getelementptr i8, ptr %.promoted, i64 3
@@ -18785,14 +18785,14 @@ unicode_byte_type.exit93:                         ; preds = %49
   %57 = getelementptr [256 x i8], ptr %10, i64 0, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !8
   switch i8 %58, label %.thread.sink.split [
-    i8 29, label %unicode_byte_type.exit93.thread535
+    i8 29, label %unicode_byte_type.exit93.thread543
     i8 22, label %75
     i8 24, label %75
-    i8 7, label %unicode_byte_type.exit93.thread538
+    i8 7, label %unicode_byte_type.exit93.thread546
     i8 6, label %77
   ]
 
-unicode_byte_type.exit93.thread535:               ; preds = %49, %51, %unicode_byte_type.exit93
+unicode_byte_type.exit93.thread543:               ; preds = %49, %51, %unicode_byte_type.exit93
   %59 = zext i8 %50 to i64
   %60 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !8
@@ -18812,7 +18812,7 @@ unicode_byte_type.exit93.thread535:               ; preds = %49, %51, %unicode_b
   %.not89 = icmp eq i32 %74, 0
   br i1 %.not89, label %.thread.sink.split, label %75
 
-75:                                               ; preds = %unicode_byte_type.exit93.thread535, %unicode_byte_type.exit93, %unicode_byte_type.exit93
+75:                                               ; preds = %unicode_byte_type.exit93.thread543, %unicode_byte_type.exit93, %unicode_byte_type.exit93
   %76 = getelementptr i8, ptr %.promoted, i64 4
   br label %232
 
@@ -18820,7 +18820,7 @@ unicode_byte_type.exit93.thread535:               ; preds = %49, %51, %unicode_b
   %78 = icmp eq i64 %47, 2
   br i1 %78, label %.thread, label %.thread.sink.split
 
-unicode_byte_type.exit93.thread538:               ; preds = %unicode_byte_type.exit93, %49, %49, %49, %49
+unicode_byte_type.exit93.thread546:               ; preds = %unicode_byte_type.exit93, %49, %49, %49, %49
   %79 = icmp samesign ult i64 %47, 4
   br i1 %79, label %.thread, label %.thread.sink.split
 
@@ -19029,8 +19029,8 @@ select.unfold:                                    ; preds = %.select.unfold_crit
 
 168:                                              ; preds = %.thread120
   %169 = load i8, ptr %164, align 1, !tbaa !8
-  %cond706 = icmp eq i8 %169, 0
-  br i1 %cond706, label %unicode_byte_type.exit105, label %.thread.sink.split
+  %cond714 = icmp eq i8 %169, 0
+  br i1 %cond714, label %unicode_byte_type.exit105, label %.thread.sink.split
 
 unicode_byte_type.exit105:                        ; preds = %168
   %170 = getelementptr i8, ptr %123, i64 3
@@ -19058,12 +19058,12 @@ unicode_byte_type.exit105:                        ; preds = %168
   %181 = phi ptr [ %212, %211 ], [ %176, %175 ]
   %182 = phi ptr [ %181, %211 ], [ %164, %175 ]
   %183 = load i8, ptr %181, align 1, !tbaa !8
-  switch i8 %183, label %unicode_byte_type.exit108.thread542 [
+  switch i8 %183, label %unicode_byte_type.exit108.thread550 [
     i8 0, label %unicode_byte_type.exit108
-    i8 -40, label %unicode_byte_type.exit108.thread545
-    i8 -39, label %unicode_byte_type.exit108.thread545
-    i8 -38, label %unicode_byte_type.exit108.thread545
-    i8 -37, label %unicode_byte_type.exit108.thread545
+    i8 -40, label %unicode_byte_type.exit108.thread553
+    i8 -39, label %unicode_byte_type.exit108.thread553
+    i8 -38, label %unicode_byte_type.exit108.thread553
+    i8 -37, label %unicode_byte_type.exit108.thread553
     i8 -36, label %.thread.sink.split
     i8 -35, label %.thread.sink.split
     i8 -34, label %.thread.sink.split
@@ -19075,7 +19075,7 @@ unicode_byte_type.exit105:                        ; preds = %168
   %185 = getelementptr i8, ptr %182, i64 3
   %186 = load i8, ptr %185, align 1, !tbaa !8
   %switch.i106 = icmp ugt i8 %186, -3
-  br i1 %switch.i106, label %.thread.sink.split, label %unicode_byte_type.exit108.thread542
+  br i1 %switch.i106, label %.thread.sink.split, label %unicode_byte_type.exit108.thread550
 
 unicode_byte_type.exit108:                        ; preds = %.lr.ph339
   %187 = getelementptr i8, ptr %182, i64 3
@@ -19084,19 +19084,19 @@ unicode_byte_type.exit108:                        ; preds = %.lr.ph339
   %190 = getelementptr [256 x i8], ptr %10, i64 0, i64 %189
   %191 = load i8, ptr %190, align 1, !tbaa !8
   switch i8 %191, label %.thread.sink.split [
-    i8 29, label %unicode_byte_type.exit108.thread542
+    i8 29, label %unicode_byte_type.exit108.thread550
     i8 22, label %.loopexit
     i8 24, label %.loopexit
     i8 17, label %.loopexit144
     i8 6, label %208
-    i8 7, label %unicode_byte_type.exit108.thread545
+    i8 7, label %unicode_byte_type.exit108.thread553
     i8 21, label %211
     i8 9, label %211
     i8 10, label %211
     i8 11, label %.loopexit145
   ]
 
-unicode_byte_type.exit108.thread542:              ; preds = %.lr.ph339, %unicode_byte_type.exit108, %184
+unicode_byte_type.exit108.thread550:              ; preds = %.lr.ph339, %unicode_byte_type.exit108, %184
   store ptr %181, ptr %5, align 8, !tbaa !3
   %192 = zext i8 %183 to i64
   %193 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %192
@@ -19121,7 +19121,7 @@ unicode_byte_type.exit108.thread542:              ; preds = %.lr.ph339, %unicode
   %209 = icmp eq i64 %180, 2
   br i1 %209, label %.thread, label %.thread.sink.split
 
-unicode_byte_type.exit108.thread545:              ; preds = %.lr.ph339, %.lr.ph339, %.lr.ph339, %.lr.ph339, %unicode_byte_type.exit108
+unicode_byte_type.exit108.thread553:              ; preds = %.lr.ph339, %.lr.ph339, %.lr.ph339, %.lr.ph339, %unicode_byte_type.exit108
   %210 = icmp samesign ult i64 %180, 4
   br i1 %210, label %.thread, label %.thread.sink.split
 
@@ -19157,10 +19157,10 @@ unicode_byte_type.exit108.thread545:              ; preds = %.lr.ph339, %.lr.ph3
   %229 = icmp eq i8 %228, 62
   %230 = getelementptr i8, ptr %218, i64 4
   %spec.select = select i1 %229, ptr %230, ptr %219
-  %spec.select707 = select i1 %229, i32 3, i32 0
+  %spec.select715 = select i1 %229, i32 3, i32 0
   br label %.thread.sink.split
 
-.loopexit:                                        ; preds = %unicode_byte_type.exit108, %unicode_byte_type.exit108, %unicode_byte_type.exit108.thread542
+.loopexit:                                        ; preds = %unicode_byte_type.exit108, %unicode_byte_type.exit108, %unicode_byte_type.exit108.thread550
   %231 = getelementptr i8, ptr %182, i64 4
   br label %232
 
@@ -19173,14 +19173,14 @@ unicode_byte_type.exit108.thread545:              ; preds = %.lr.ph339, %.lr.ph3
   %235 = icmp sgt i64 %234, 1
   br i1 %235, label %11, label %.thread, !llvm.loop !152
 
-.thread.sink.split:                               ; preds = %unicode_byte_type.exit, %14, %11, %11, %11, %11, %184, %unicode_byte_type.exit108.thread542, %unicode_byte_type.exit105, %168, %unicode_byte_type.exit93, %51, %49, %49, %49, %49, %unicode_byte_type.exit93.thread535, %43, %unicode_byte_type.exit.thread529, %.lr.ph, %unicode_byte_type.exit96, %unicode_byte_type.exit99.thread, %.lr.ph318, %139, %139, %139, %139, %unicode_byte_type.exit108, %.lr.ph339, %.lr.ph339, %.lr.ph339, %.lr.ph339, %226, %223, %unicode_byte_type.exit108.thread545, %208, %unicode_byte_type.exit93.thread538, %77, %unicode_byte_type.exit.thread532, %40, %.loopexit145, %156
-  %.sink705 = phi ptr [ %157, %156 ], [ %217, %.loopexit145 ], [ %.promoted, %40 ], [ %.promoted, %unicode_byte_type.exit.thread532 ], [ %45, %77 ], [ %45, %unicode_byte_type.exit93.thread538 ], [ %181, %208 ], [ %181, %unicode_byte_type.exit108.thread545 ], [ %219, %223 ], [ %spec.select, %226 ], [ %181, %.lr.ph339 ], [ %181, %.lr.ph339 ], [ %181, %.lr.ph339 ], [ %181, %.lr.ph339 ], [ %181, %unicode_byte_type.exit108 ], [ %123, %139 ], [ %123, %139 ], [ %123, %139 ], [ %123, %139 ], [ %102, %.lr.ph318 ], [ %102, %unicode_byte_type.exit99.thread ], [ %85, %unicode_byte_type.exit96 ], [ %85, %.lr.ph ], [ %.promoted, %unicode_byte_type.exit.thread529 ], [ %.promoted, %43 ], [ %45, %unicode_byte_type.exit93.thread535 ], [ %45, %49 ], [ %45, %49 ], [ %45, %49 ], [ %45, %49 ], [ %45, %51 ], [ %45, %unicode_byte_type.exit93 ], [ %164, %168 ], [ %164, %unicode_byte_type.exit105 ], [ %181, %unicode_byte_type.exit108.thread542 ], [ %181, %184 ], [ %.promoted, %11 ], [ %.promoted, %11 ], [ %.promoted, %11 ], [ %.promoted, %11 ], [ %.promoted, %14 ], [ %.promoted, %unicode_byte_type.exit ]
-  %.2.ph = phi i32 [ 0, %156 ], [ 1, %.loopexit145 ], [ 0, %40 ], [ 0, %unicode_byte_type.exit.thread532 ], [ 0, %77 ], [ 0, %unicode_byte_type.exit93.thread538 ], [ 0, %208 ], [ 0, %unicode_byte_type.exit108.thread545 ], [ 0, %223 ], [ %spec.select707, %226 ], [ 0, %.lr.ph339 ], [ 0, %.lr.ph339 ], [ 0, %.lr.ph339 ], [ 0, %.lr.ph339 ], [ 0, %unicode_byte_type.exit108 ], [ 0, %139 ], [ 0, %139 ], [ 0, %139 ], [ 0, %139 ], [ 0, %.lr.ph318 ], [ 0, %unicode_byte_type.exit99.thread ], [ 0, %unicode_byte_type.exit96 ], [ 0, %.lr.ph ], [ 0, %unicode_byte_type.exit.thread529 ], [ 0, %43 ], [ 0, %unicode_byte_type.exit93.thread535 ], [ 0, %49 ], [ 0, %49 ], [ 0, %49 ], [ 0, %49 ], [ 0, %51 ], [ 0, %unicode_byte_type.exit93 ], [ 0, %168 ], [ 0, %unicode_byte_type.exit105 ], [ 0, %unicode_byte_type.exit108.thread542 ], [ 0, %184 ], [ 0, %11 ], [ 0, %11 ], [ 0, %11 ], [ 0, %11 ], [ 0, %14 ], [ 0, %unicode_byte_type.exit ]
-  store ptr %.sink705, ptr %3, align 8, !tbaa !3
+.thread.sink.split:                               ; preds = %unicode_byte_type.exit, %14, %11, %11, %11, %11, %184, %unicode_byte_type.exit108.thread550, %unicode_byte_type.exit105, %168, %unicode_byte_type.exit93, %51, %49, %49, %49, %49, %unicode_byte_type.exit93.thread543, %43, %unicode_byte_type.exit.thread537, %.lr.ph, %unicode_byte_type.exit96, %unicode_byte_type.exit99.thread, %.lr.ph318, %139, %139, %139, %139, %unicode_byte_type.exit108, %.lr.ph339, %.lr.ph339, %.lr.ph339, %.lr.ph339, %226, %223, %unicode_byte_type.exit108.thread553, %208, %unicode_byte_type.exit93.thread546, %77, %unicode_byte_type.exit.thread540, %40, %.loopexit145, %156
+  %.sink713 = phi ptr [ %157, %156 ], [ %217, %.loopexit145 ], [ %.promoted, %40 ], [ %.promoted, %unicode_byte_type.exit.thread540 ], [ %45, %77 ], [ %45, %unicode_byte_type.exit93.thread546 ], [ %181, %208 ], [ %181, %unicode_byte_type.exit108.thread553 ], [ %219, %223 ], [ %spec.select, %226 ], [ %181, %.lr.ph339 ], [ %181, %.lr.ph339 ], [ %181, %.lr.ph339 ], [ %181, %.lr.ph339 ], [ %181, %unicode_byte_type.exit108 ], [ %123, %139 ], [ %123, %139 ], [ %123, %139 ], [ %123, %139 ], [ %102, %.lr.ph318 ], [ %102, %unicode_byte_type.exit99.thread ], [ %85, %unicode_byte_type.exit96 ], [ %85, %.lr.ph ], [ %.promoted, %unicode_byte_type.exit.thread537 ], [ %.promoted, %43 ], [ %45, %unicode_byte_type.exit93.thread543 ], [ %45, %49 ], [ %45, %49 ], [ %45, %49 ], [ %45, %49 ], [ %45, %51 ], [ %45, %unicode_byte_type.exit93 ], [ %164, %168 ], [ %164, %unicode_byte_type.exit105 ], [ %181, %unicode_byte_type.exit108.thread550 ], [ %181, %184 ], [ %.promoted, %11 ], [ %.promoted, %11 ], [ %.promoted, %11 ], [ %.promoted, %11 ], [ %.promoted, %14 ], [ %.promoted, %unicode_byte_type.exit ]
+  %.2.ph = phi i32 [ 0, %156 ], [ 1, %.loopexit145 ], [ 0, %40 ], [ 0, %unicode_byte_type.exit.thread540 ], [ 0, %77 ], [ 0, %unicode_byte_type.exit93.thread546 ], [ 0, %208 ], [ 0, %unicode_byte_type.exit108.thread553 ], [ 0, %223 ], [ %spec.select715, %226 ], [ 0, %.lr.ph339 ], [ 0, %.lr.ph339 ], [ 0, %.lr.ph339 ], [ 0, %.lr.ph339 ], [ 0, %unicode_byte_type.exit108 ], [ 0, %139 ], [ 0, %139 ], [ 0, %139 ], [ 0, %139 ], [ 0, %.lr.ph318 ], [ 0, %unicode_byte_type.exit99.thread ], [ 0, %unicode_byte_type.exit96 ], [ 0, %.lr.ph ], [ 0, %unicode_byte_type.exit.thread537 ], [ 0, %43 ], [ 0, %unicode_byte_type.exit93.thread543 ], [ 0, %49 ], [ 0, %49 ], [ 0, %49 ], [ 0, %49 ], [ 0, %51 ], [ 0, %unicode_byte_type.exit93 ], [ 0, %168 ], [ 0, %unicode_byte_type.exit105 ], [ 0, %unicode_byte_type.exit108.thread550 ], [ 0, %184 ], [ 0, %11 ], [ 0, %11 ], [ 0, %11 ], [ 0, %11 ], [ 0, %14 ], [ 0, %unicode_byte_type.exit ]
+  store ptr %.sink713, ptr %3, align 8, !tbaa !3
   br label %.thread
 
-.thread:                                          ; preds = %44, %232, %.thread120, %117, %80, %.thread111, %175, %93, %112, %select.unfold, %142, %146, %211, %.thread.sink.split, %4, %154, %.loopexit144, %unicode_byte_type.exit108.thread545, %208, %unicode_byte_type.exit93.thread538, %77, %unicode_byte_type.exit.thread532, %40
-  %.2 = phi i32 [ -2, %40 ], [ -2, %unicode_byte_type.exit.thread532 ], [ -2, %77 ], [ -2, %unicode_byte_type.exit93.thread538 ], [ -1, %.loopexit144 ], [ -2, %unicode_byte_type.exit108.thread545 ], [ -2, %208 ], [ %152, %154 ], [ -1, %4 ], [ %.2.ph, %.thread.sink.split ], [ -1, %211 ], [ -1, %select.unfold ], [ -2, %142 ], [ -2, %146 ], [ -1, %112 ], [ -1, %93 ], [ -1, %175 ], [ -1, %.thread111 ], [ -1, %80 ], [ -1, %117 ], [ -1, %.thread120 ], [ -1, %232 ], [ -1, %44 ]
+.thread:                                          ; preds = %44, %232, %.thread120, %117, %80, %.thread111, %175, %93, %112, %select.unfold, %142, %146, %211, %.thread.sink.split, %4, %154, %.loopexit144, %unicode_byte_type.exit108.thread553, %208, %unicode_byte_type.exit93.thread546, %77, %unicode_byte_type.exit.thread540, %40
+  %.2 = phi i32 [ -2, %40 ], [ -2, %unicode_byte_type.exit.thread540 ], [ -2, %77 ], [ -2, %unicode_byte_type.exit93.thread546 ], [ -1, %.loopexit144 ], [ -2, %unicode_byte_type.exit108.thread553 ], [ -2, %208 ], [ %152, %154 ], [ -1, %4 ], [ %.2.ph, %.thread.sink.split ], [ -1, %211 ], [ -1, %select.unfold ], [ -2, %142 ], [ -2, %146 ], [ -1, %112 ], [ -1, %93 ], [ -1, %175 ], [ -1, %.thread111 ], [ -1, %80 ], [ -1, %117 ], [ -1, %.thread120 ], [ -1, %232 ], [ -1, %44 ]
   ret i32 %.2
 }
 

@@ -138,13 +138,13 @@ define i32 @ff_isom_write_avcc(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   br label %.sink.split
 
 .sink.split:                                      ; preds = %65, %70, %60
-  %.sink124 = phi ptr [ %5, %60 ], [ %7, %70 ], [ %6, %65 ]
+  %.sink133 = phi ptr [ %5, %60 ], [ %7, %70 ], [ %6, %65 ]
   %.278.ph = phi i32 [ %61, %60 ], [ %.076117, %70 ], [ %.076117, %65 ]
   %.275.ph = phi i32 [ %.073118, %60 ], [ %.073118, %70 ], [ %66, %65 ]
   %.2.ph = phi i32 [ %.071119, %60 ], [ %71, %70 ], [ %.071119, %65 ]
-  %72 = load ptr, ptr %.sink124, align 8, !tbaa !8
+  %72 = load ptr, ptr %.sink133, align 8, !tbaa !8
   call void @avio_wb16(ptr noundef %72, i32 noundef %53) #6
-  %73 = load ptr, ptr %.sink124, align 8, !tbaa !8
+  %73 = load ptr, ptr %.sink133, align 8, !tbaa !8
   %74 = load ptr, ptr %8, align 8, !tbaa !11
   call void @avio_write(ptr noundef %73, ptr noundef %74, i32 noundef %53) #6
   br label %75
@@ -309,8 +309,8 @@ define range(i32 -1094995529, 1) i32 @ff_avc_decode_sps(ptr noundef writeonly ca
   store i8 %14, ptr %15, align 1, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %17 = load i8, ptr %16, align 1, !tbaa !13
-  %.not638 = icmp eq i32 %9, 0
-  %spec.select.i = select i1 %.not638, i32 8, i32 9
+  %.not663 = icmp eq i32 %9, 0
+  %spec.select.i = select i1 %.not663, i32 8, i32 9
   %18 = lshr i8 %17, 7
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 %18, ptr %19, align 1, !tbaa !20
@@ -444,26 +444,26 @@ get_ue_golomb.exit:                               ; preds = %.critedge.i, %.crit
   %113 = trunc i32 %112 to i8
   store i8 %113, ptr %0, align 4, !tbaa !24
   switch i8 %14, label %272 [
-    i8 100, label %.preheader747
-    i8 110, label %.preheader747
-    i8 122, label %.preheader747
-    i8 -12, label %.preheader747
-    i8 44, label %.preheader747
-    i8 83, label %.preheader747
-    i8 86, label %.preheader747
-    i8 118, label %.preheader747
-    i8 -128, label %.preheader747
-    i8 -118, label %.preheader747
-    i8 -117, label %.preheader747
-    i8 -122, label %.preheader747
+    i8 100, label %.preheader772
+    i8 110, label %.preheader772
+    i8 122, label %.preheader772
+    i8 -12, label %.preheader772
+    i8 44, label %.preheader772
+    i8 83, label %.preheader772
+    i8 86, label %.preheader772
+    i8 118, label %.preheader772
+    i8 -128, label %.preheader772
+    i8 -118, label %.preheader772
+    i8 -117, label %.preheader772
+    i8 -122, label %.preheader772
   ]
 
-.preheader747:                                    ; preds = %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit
+.preheader772:                                    ; preds = %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit, %get_ue_golomb.exit
   br label %114
 
-114:                                              ; preds = %.preheader747, %125
-  %.011.i96 = phi i32 [ %126, %125 ], [ 0, %.preheader747 ]
-  %spec.select.i910.i97 = phi i32 [ %spec.select.i.i98, %125 ], [ %.sroa.40.10, %.preheader747 ]
+114:                                              ; preds = %.preheader772, %125
+  %.011.i96 = phi i32 [ %126, %125 ], [ 0, %.preheader772 ]
+  %spec.select.i910.i97 = phi i32 [ %spec.select.i.i98, %125 ], [ %.sroa.40.10, %.preheader772 ]
   %115 = lshr i32 %spec.select.i910.i97, 3
   %116 = zext nneg i32 %115 to i64
   %117 = getelementptr inbounds nuw i8, ptr %5, i64 %116
@@ -1352,7 +1352,7 @@ get_ue_golomb.exit320:                            ; preds = %.critedge.thread.i3
   %539 = lshr exact i32 128, %538
   %540 = and i32 %539, %537
   %.not85 = icmp eq i32 %540, 0
-  br i1 %.not85, label %.thread579, label %541
+  br i1 %.not85, label %.thread604, label %541
 
 541:                                              ; preds = %get_ue_golomb.exit320
   %542 = icmp slt i32 %.sroa.40.9, %11
@@ -1367,7 +1367,7 @@ get_ue_golomb.exit320:                            ; preds = %.critedge.thread.i3
   %550 = lshr exact i32 128, %549
   %551 = and i32 %550, %548
   %.not86 = icmp eq i32 %551, 0
-  br i1 %.not86, label %.thread579, label %552
+  br i1 %.not86, label %.thread604, label %552
 
 552:                                              ; preds = %541
   %553 = icmp slt i32 %spec.select.i321, %11
@@ -1413,7 +1413,7 @@ get_ue_golomb.exit320:                            ; preds = %.critedge.thread.i3
 
 587:                                              ; preds = %552
   %588 = icmp ult i32 %561, 285212672
-  br i1 %588, label %589, label %.thread579
+  br i1 %588, label %589, label %.thread604
 
 589:                                              ; preds = %587
   %590 = zext nneg i32 %562 to i64
@@ -1428,17 +1428,17 @@ get_ue_golomb.exit320:                            ; preds = %.critedge.thread.i3
 596:                                              ; preds = %589, %564
   %597 = phi i32 [ %595, %589 ], [ %585, %564 ]
   %.not87 = icmp eq i32 %597, 0
-  br i1 %.not87, label %.thread579, label %600
+  br i1 %.not87, label %.thread604, label %600
 
-.thread579:                                       ; preds = %get_ue_golomb.exit320, %587, %541, %596
+.thread604:                                       ; preds = %get_ue_golomb.exit320, %587, %541, %596
   %598 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %599 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %599, align 4, !tbaa !29
   store i32 1, ptr %598, align 4, !tbaa !30
   br label %600
 
-600:                                              ; preds = %596, %.thread579, %6
-  %.070 = phi i32 [ -1094995529, %6 ], [ 0, %.thread579 ], [ 0, %596 ]
+600:                                              ; preds = %596, %.thread604, %6
+  %.070 = phi i32 [ -1094995529, %6 ], [ 0, %.thread604 ], [ 0, %596 ]
   call void @av_free(ptr noundef nonnull %5) #6
   br label %601
 

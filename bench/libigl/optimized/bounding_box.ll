@@ -1096,7 +1096,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i:
   tail call void @free(ptr noundef %14) #15
   %15 = tail call noalias dereferenceable_or_null(192) ptr @malloc(i64 noundef 192) #18
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %.sink.split.i.i539
+  br i1 %16, label %17, label %.sink.split.i.i542
 
 17:                                               ; preds = %13
   %18 = tail call ptr @__cxa_allocate_exception(i64 8) #15
@@ -1104,11 +1104,11 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i:
   tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #16
   unreachable
 
-.sink.split.i.i539:                               ; preds = %13
+.sink.split.i.i542:                               ; preds = %13
   store ptr %15, ptr %2, align 8, !tbaa !109
   br label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit
 
-_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit: ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i, %.sink.split.i.i539
+_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit: ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i, %.sink.split.i.i542
   store i64 8, ptr %11, align 8, !tbaa !107
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16

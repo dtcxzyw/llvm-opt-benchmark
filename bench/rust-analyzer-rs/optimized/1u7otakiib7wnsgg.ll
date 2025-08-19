@@ -340,14 +340,14 @@ define hidden void @"_ZN4core3ptr121drop_in_place$LT$either..Either$LT$syntax..a
 11:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  switch i64 %2, label %default.unreachable1.i [
+  switch i64 %2, label %default.unreachable [
     i64 0, label %19
     i64 1, label %25
     i64 2, label %31
     i64 3, label %13
   ]
 
-default.unreachable1.i:                           ; preds = %11
+default.unreachable:                              ; preds = %11
   unreachable
 
 13:                                               ; preds = %11
@@ -613,14 +613,14 @@ define hidden void @"_ZN4core3ptr131drop_in_place$LT$$u5b$either..Either$LT$synt
 15:                                               ; preds = %.lr.ph
   tail call void @llvm.experimental.noalias.scope.decl(metadata !216)
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  switch i64 %6, label %default.unreachable1.i.i [
+  switch i64 %6, label %default.unreachable [
     i64 0, label %23
     i64 1, label %29
     i64 2, label %35
     i64 3, label %17
   ]
 
-default.unreachable1.i.i:                         ; preds = %15
+default.unreachable:                              ; preds = %15
   unreachable
 
 17:                                               ; preds = %15

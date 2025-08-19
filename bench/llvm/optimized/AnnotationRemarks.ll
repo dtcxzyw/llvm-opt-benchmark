@@ -441,7 +441,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread49.i.us.i: ; p
   br i1 %.not.i.i.i67.us144.i, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i.us.i, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread49.i.us145.i, !prof !52
 
 _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i.us.i: ; preds = %168
-  %bcmp.i.i.i.us.i = call i32 @bcmp(ptr %.sroa.010.0.copyload.i.fr.i, ptr %.sroa.08.0.copyload.i.us140.i, i64 %.sroa.211.0.copyload.i.fr.i), !noalias !45
+  %bcmp.i.i.i.us.i = call i32 @bcmp(ptr nonnull inttoptr (i64 -2 to ptr), ptr %.sroa.08.0.copyload.i.us140.i, i64 %.sroa.211.0.copyload.i.fr.i), !noalias !45
   %169 = icmp eq i32 %bcmp.i.i.i.us.i, 0
   br i1 %169, label %._crit_edge.i.i, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread49.i.us145.i, !prof !51
 

@@ -48,13 +48,13 @@ define noundef zeroext i1 @_ZN5folly4simd6detail11containsU16ENS_6detail13fallba
   %11 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
   %12 = load i16, ptr %11, align 2, !tbaa !7
   %13 = icmp eq i16 %12, %2
-  br i1 %13, label %.loopexit.loopexit.split.loop.exit28, label %14
+  br i1 %13, label %.loopexit.loopexit.split.loop.exit29, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 4
   %16 = load i16, ptr %15, align 2, !tbaa !7
   %17 = icmp eq i16 %16, %2
-  br i1 %17, label %.loopexit.loopexit.split.loop.exit26, label %18
+  br i1 %17, label %.loopexit.loopexit.split.loop.exit27, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 6
@@ -117,16 +117,16 @@ define noundef zeroext i1 @_ZN5folly4simd6detail11containsU16ENS_6detail13fallba
   %39 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 6
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit26:             ; preds = %14
+.loopexit.loopexit.split.loop.exit27:             ; preds = %14
   %40 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 4
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit28:             ; preds = %10
+.loopexit.loopexit.split.loop.exit29:             ; preds = %10
   %41 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %7, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit26, %.loopexit.loopexit.split.loop.exit28, %38, %._crit_edge._crit_edge52.i.i.i, %._crit_edge._crit_edge.i.i.i, %27
-  %.028.i.i.i = phi ptr [ %4, %38 ], [ %.029.lcssa.i.i.i, %27 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %39, %.loopexit.loopexit.split.loop.exit ], [ %40, %.loopexit.loopexit.split.loop.exit26 ], [ %41, %.loopexit.loopexit.split.loop.exit28 ], [ %.02946.i.i.i, %7 ]
+.loopexit:                                        ; preds = %7, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit27, %.loopexit.loopexit.split.loop.exit29, %38, %._crit_edge._crit_edge52.i.i.i, %._crit_edge._crit_edge.i.i.i, %27
+  %.028.i.i.i = phi ptr [ %4, %38 ], [ %.029.lcssa.i.i.i, %27 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %39, %.loopexit.loopexit.split.loop.exit ], [ %40, %.loopexit.loopexit.split.loop.exit27 ], [ %41, %.loopexit.loopexit.split.loop.exit29 ], [ %.02946.i.i.i, %7 ]
   %42 = icmp ne ptr %.028.i.i.i, %4
   ret i1 %42
 }
@@ -173,13 +173,13 @@ define noundef zeroext i1 @_ZN5folly4simd6detail11containsU64ENS_6detail13fallba
   %11 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = icmp eq i64 %12, %2
-  br i1 %13, label %.loopexit.loopexit.split.loop.exit28, label %14
+  br i1 %13, label %.loopexit.loopexit.split.loop.exit29, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !13
   %17 = icmp eq i64 %16, %2
-  br i1 %17, label %.loopexit.loopexit.split.loop.exit26, label %18
+  br i1 %17, label %.loopexit.loopexit.split.loop.exit27, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 24
@@ -242,16 +242,16 @@ define noundef zeroext i1 @_ZN5folly4simd6detail11containsU64ENS_6detail13fallba
   %39 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 24
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit26:             ; preds = %14
+.loopexit.loopexit.split.loop.exit27:             ; preds = %14
   %40 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 16
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit28:             ; preds = %10
+.loopexit.loopexit.split.loop.exit29:             ; preds = %10
   %41 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %7, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit26, %.loopexit.loopexit.split.loop.exit28, %38, %._crit_edge._crit_edge52.i.i.i, %._crit_edge._crit_edge.i.i.i, %27
-  %.028.i.i.i = phi ptr [ %4, %38 ], [ %.029.lcssa.i.i.i, %27 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %39, %.loopexit.loopexit.split.loop.exit ], [ %40, %.loopexit.loopexit.split.loop.exit26 ], [ %41, %.loopexit.loopexit.split.loop.exit28 ], [ %.02946.i.i.i, %7 ]
+.loopexit:                                        ; preds = %7, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit27, %.loopexit.loopexit.split.loop.exit29, %38, %._crit_edge._crit_edge52.i.i.i, %._crit_edge._crit_edge.i.i.i, %27
+  %.028.i.i.i = phi ptr [ %4, %38 ], [ %.029.lcssa.i.i.i, %27 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %39, %.loopexit.loopexit.split.loop.exit ], [ %40, %.loopexit.loopexit.split.loop.exit27 ], [ %41, %.loopexit.loopexit.split.loop.exit29 ], [ %.02946.i.i.i, %7 ]
   %42 = icmp ne ptr %.028.i.i.i, %4
   ret i1 %42
 }

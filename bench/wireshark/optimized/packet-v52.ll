@@ -672,12 +672,12 @@ dissect_v52_protocol_discriminator.exit.i:        ; preds = %17, %14, %4
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %49, %45
-  %.sink111.i = phi i8 [ %44, %45 ], [ %53, %49 ]
+  %.sink113.i = phi i8 [ %44, %45 ], [ %53, %49 ]
   %.sink.i = phi i32 [ %48, %45 ], [ %52, %49 ]
   %hf_v52_pstn_address.sink.i = phi ptr [ @hf_v52_pstn_address, %45 ], [ @hf_v52_isdn_address, %49 ]
   %hf_v52_pstn_low_address.sink.i = phi ptr [ @hf_v52_pstn_low_address, %45 ], [ @hf_v52_isdn_low_address, %49 ]
   %.str.380.sink.i = phi ptr [ @.str.380, %45 ], [ @.str.381, %49 ]
-  %54 = zext i8 %.sink111.i to i32
+  %54 = zext i8 %.sink113.i to i32
   %55 = or disjoint i32 %.sink.i, %54
   %56 = load i32, ptr %hf_v52_pstn_address.sink.i, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %56, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
@@ -1271,19 +1271,19 @@ dissect_recognition_time.exit:                    ; preds = %215, %245
   %282 = call zeroext i8 @tvb_get_uint8(ptr noundef %258, i32 noundef 3)
   %283 = and i8 %282, 127
   %284 = icmp samesign ugt i8 %283, 106
-  br i1 %284, label %.sink.split46.i, label %285
+  br i1 %284, label %.sink.split48.i, label %285
 
 285:                                              ; preds = %281
   %286 = icmp samesign ult i8 %283, 27
-  br i1 %286, label %.sink.split46.i, label %289
+  br i1 %286, label %.sink.split48.i, label %289
 
-.sink.split46.i:                                  ; preds = %285, %281
-  %hf_v52_steady_signal.sink47.i = phi ptr [ @hf_v52_pulse_type, %281 ], [ @hf_v52_steady_signal, %285 ]
-  %287 = load i32, ptr %hf_v52_steady_signal.sink47.i, align 4
+.sink.split48.i:                                  ; preds = %285, %281
+  %hf_v52_steady_signal.sink49.i = phi ptr [ @hf_v52_pulse_type, %281 ], [ @hf_v52_steady_signal, %285 ]
+  %287 = load i32, ptr %hf_v52_steady_signal.sink49.i, align 4
   %288 = call ptr @proto_tree_add_item(ptr noundef nonnull %260, i32 noundef %287, ptr noundef %258, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   br label %289
 
-289:                                              ; preds = %.sink.split46.i, %285
+289:                                              ; preds = %.sink.split48.i, %285
   %290 = call i32 @tvb_reported_length_remaining(ptr noundef %258, i32 noundef 4)
   %.not44.i = icmp eq i32 %290, 0
   br i1 %.not44.i, label %296, label %291

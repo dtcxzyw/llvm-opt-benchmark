@@ -427,8 +427,8 @@ find_unencode_writer.exit.thread:                 ; preds = %102, %find_unencode
   br label %.thread154
 
 find_unencode_writer.exit.thread.thread:          ; preds = %106, %123, %find_unencode_writer.exit.thread
-  %spec.store.select200 = phi ptr [ %spec.store.select, %123 ], [ %spec.store.select, %find_unencode_writer.exit.thread ], [ %.3.i, %106 ]
-  %126 = call i32 @Curl_cwriter_create(ptr noundef nonnull %4, ptr noundef %0, ptr noundef nonnull %spec.store.select200, i32 noundef %6) #8
+  %spec.store.select209 = phi ptr [ %spec.store.select, %123 ], [ %spec.store.select, %find_unencode_writer.exit.thread ], [ %.3.i, %106 ]
+  %126 = call i32 @Curl_cwriter_create(ptr noundef nonnull %4, ptr noundef %0, ptr noundef nonnull %spec.store.select209, i32 noundef %6) #8
   br i1 %.not126, label %141, label %127
 
 127:                                              ; preds = %find_unencode_writer.exit.thread.thread
@@ -457,7 +457,7 @@ find_unencode_writer.exit.thread.thread:          ; preds = %106, %123, %find_un
   br i1 %.old24, label %139, label %141
 
 139:                                              ; preds = %132, %138
-  %140 = load ptr, ptr %spec.store.select200, align 8, !tbaa !7
+  %140 = load ptr, ptr %spec.store.select209, align 8, !tbaa !7
   call void (ptr, ptr, ...) @Curl_trc_write(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, ptr noundef nonnull %9, ptr noundef %140, i32 noundef %126) #8
   br label %141
 

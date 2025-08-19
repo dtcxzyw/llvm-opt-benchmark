@@ -32,17 +32,17 @@ define void @png_read_filter_row_sub3_sse2(ptr noundef readonly captures(none) %
   br i1 %.not, label %21, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph, %._crit_edge
-  %.lcssa34 = phi <16 x i8> [ zeroinitializer, %._crit_edge ], [ %10, %.lr.ph ]
-  %.019.lcssa33 = phi ptr [ %1, %._crit_edge ], [ %13, %.lr.ph ]
-  %.019.val20 = load i24, ptr %.019.lcssa33, align 1
+  %.lcssa35 = phi <16 x i8> [ zeroinitializer, %._crit_edge ], [ %10, %.lr.ph ]
+  %.019.lcssa34 = phi ptr [ %1, %._crit_edge ], [ %13, %.lr.ph ]
+  %.019.val20 = load i24, ptr %.019.lcssa34, align 1
   %.0.insert.ext.i = zext i24 %.019.val20 to i32
   %16 = insertelement <4 x i32> poison, i32 %.0.insert.ext.i, i64 0
   %17 = bitcast <4 x i32> %16 to <16 x i8>
-  %18 = add <16 x i8> %.lcssa34, %17
+  %18 = add <16 x i8> %.lcssa35, %17
   %19 = bitcast <16 x i8> %18 to <4 x i32>
   %20 = extractelement <4 x i32> %19, i64 0
   %.0.extract.trunc.i21 = trunc i32 %20 to i24
-  store i24 %.0.extract.trunc.i21, ptr %.019.lcssa33, align 1
+  store i24 %.0.extract.trunc.i21, ptr %.019.lcssa34, align 1
   br label %21
 
 21:                                               ; preds = %._crit_edge.thread, %._crit_edge
@@ -119,20 +119,20 @@ define void @png_read_filter_row_avg3_sse2(ptr noundef readonly captures(none) %
   br i1 %.not, label %40, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph, %._crit_edge
-  %.0.lcssa57 = phi ptr [ %1, %._crit_edge ], [ %23, %.lr.ph ]
-  %.033.lcssa56 = phi ptr [ %2, %._crit_edge ], [ %22, %.lr.ph ]
-  %.034.lcssa55 = phi <2 x i64> [ zeroinitializer, %._crit_edge ], [ %19, %.lr.ph ]
-  %.033.val37 = load i24, ptr %.033.lcssa56, align 1
+  %.0.lcssa58 = phi ptr [ %1, %._crit_edge ], [ %23, %.lr.ph ]
+  %.033.lcssa57 = phi ptr [ %2, %._crit_edge ], [ %22, %.lr.ph ]
+  %.034.lcssa56 = phi <2 x i64> [ zeroinitializer, %._crit_edge ], [ %19, %.lr.ph ]
+  %.033.val37 = load i24, ptr %.033.lcssa57, align 1
   %.0.insert.ext.i = zext i24 %.033.val37 to i32
   %26 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %.0.insert.ext.i, i64 0
   %27 = bitcast <4 x i32> %26 to <2 x i64>
-  %.0.val36 = load i24, ptr %.0.lcssa57, align 1
+  %.0.val36 = load i24, ptr %.0.lcssa58, align 1
   %.0.insert.ext.i38 = zext i24 %.0.val36 to i32
   %28 = insertelement <4 x i32> poison, i32 %.0.insert.ext.i38, i64 0
-  %29 = bitcast <2 x i64> %.034.lcssa55 to <16 x i8>
+  %29 = bitcast <2 x i64> %.034.lcssa56 to <16 x i8>
   %30 = bitcast <4 x i32> %26 to <16 x i8>
   %31 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %29, <16 x i8> %30)
-  %32 = xor <2 x i64> %.034.lcssa55, %27
+  %32 = xor <2 x i64> %.034.lcssa56, %27
   %33 = bitcast <2 x i64> %32 to <16 x i8>
   %34 = and <16 x i8> %33, <i8 1, i8 1, i8 1, i8 1, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>
   %35 = bitcast <4 x i32> %28 to <16 x i8>
@@ -141,7 +141,7 @@ define void @png_read_filter_row_avg3_sse2(ptr noundef readonly captures(none) %
   %38 = bitcast <16 x i8> %37 to <4 x i32>
   %39 = extractelement <4 x i32> %38, i64 0
   %.0.extract.trunc.i39 = trunc i32 %39 to i24
-  store i24 %.0.extract.trunc.i39, ptr %.0.lcssa57, align 1
+  store i24 %.0.extract.trunc.i39, ptr %.0.lcssa58, align 1
   br label %40
 
 40:                                               ; preds = %._crit_edge.thread, %._crit_edge
@@ -251,23 +251,23 @@ define void @png_read_filter_row_paeth3_sse2(ptr noundef readonly captures(none)
   br i1 %.not, label %68, label %42
 
 42:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.0.lcssa100 = phi ptr [ %37, %._crit_edge.thread ], [ %1, %._crit_edge ]
-  %.070.lcssa99 = phi ptr [ %36, %._crit_edge.thread ], [ %2, %._crit_edge ]
-  %.072.lcssa98 = phi <8 x i16> [ %40, %._crit_edge.thread ], [ zeroinitializer, %._crit_edge ]
-  %.073.lcssa97 = phi <8 x i16> [ %41, %._crit_edge.thread ], [ zeroinitializer, %._crit_edge ]
-  %.070.val75 = load i24, ptr %.070.lcssa99, align 1
+  %.0.lcssa101 = phi ptr [ %37, %._crit_edge.thread ], [ %1, %._crit_edge ]
+  %.070.lcssa100 = phi ptr [ %36, %._crit_edge.thread ], [ %2, %._crit_edge ]
+  %.072.lcssa99 = phi <8 x i16> [ %40, %._crit_edge.thread ], [ zeroinitializer, %._crit_edge ]
+  %.073.lcssa98 = phi <8 x i16> [ %41, %._crit_edge.thread ], [ zeroinitializer, %._crit_edge ]
+  %.070.val75 = load i24, ptr %.070.lcssa100, align 1
   %.0.insert.ext.i = zext i24 %.070.val75 to i32
   %43 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %.0.insert.ext.i, i64 0
   %44 = bitcast <4 x i32> %43 to <16 x i8>
   %45 = shufflevector <16 x i8> %44, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %.0.val74 = load i24, ptr %.0.lcssa100, align 1
+  %.0.val74 = load i24, ptr %.0.lcssa101, align 1
   %.0.insert.ext.i76 = zext i24 %.0.val74 to i32
   %46 = insertelement <4 x i32> poison, i32 %.0.insert.ext.i76, i64 0
   %47 = bitcast <4 x i32> %46 to <16 x i8>
   %48 = shufflevector <16 x i8> %47, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %49 = bitcast <16 x i8> %45 to <8 x i16>
-  %50 = sub nsw <8 x i16> %49, %.072.lcssa98
-  %51 = sub <8 x i16> %.073.lcssa97, %.072.lcssa98
+  %50 = sub nsw <8 x i16> %49, %.072.lcssa99
+  %51 = sub <8 x i16> %.073.lcssa98, %.072.lcssa99
   %52 = add <8 x i16> %50, %51
   %53 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %50, i1 false)
   %54 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %51, i1 false)
@@ -276,8 +276,8 @@ define void @png_read_filter_row_paeth3_sse2(ptr noundef readonly captures(none)
   %57 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %55, <8 x i16> %56)
   %58 = icmp eq <8 x i16> %57, %53
   %59 = icmp eq <8 x i16> %57, %54
-  %60 = select <8 x i1> %59, <8 x i16> %49, <8 x i16> %.072.lcssa98
-  %61 = select <8 x i1> %58, <8 x i16> %.073.lcssa97, <8 x i16> %60
+  %60 = select <8 x i1> %59, <8 x i16> %49, <8 x i16> %.072.lcssa99
+  %61 = select <8 x i1> %58, <8 x i16> %.073.lcssa98, <8 x i16> %60
   %62 = bitcast <8 x i16> %61 to <16 x i8>
   %63 = add <16 x i8> %48, %62
   %64 = bitcast <16 x i8> %63 to <8 x i16>
@@ -285,7 +285,7 @@ define void @png_read_filter_row_paeth3_sse2(ptr noundef readonly captures(none)
   %66 = bitcast <16 x i8> %65 to <4 x i32>
   %67 = extractelement <4 x i32> %66, i64 0
   %.0.extract.trunc.i77 = trunc i32 %67 to i24
-  store i24 %.0.extract.trunc.i77, ptr %.0.lcssa100, align 1
+  store i24 %.0.extract.trunc.i77, ptr %.0.lcssa101, align 1
   br label %68
 
 68:                                               ; preds = %42, %._crit_edge

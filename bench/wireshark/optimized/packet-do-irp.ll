@@ -1020,8 +1020,8 @@ switch.lookup:                                    ; preds = %51
   %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.decode_header_body_credential, i64 0, i64 %56
   %switch.load = load i32, ptr %switch.gep, align 4
   %57 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep636 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.decode_header_body_credential.1, i64 0, i64 %57
-  %switch.load637 = load i32, ptr %switch.gep636, align 4
+  %switch.gep652 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.decode_header_body_credential.1, i64 0, i64 %57
+  %switch.load653 = load i32, ptr %switch.gep652, align 4
   %58 = load i32, ptr @hf_do_irp_digest, align 4
   %59 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %58, ptr noundef %0, i32 noundef 25, i32 noundef %switch.load, i32 noundef 0)
   %60 = icmp eq i32 %15, 1
@@ -1056,7 +1056,7 @@ switch.lookup:                                    ; preds = %51
   %75 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %74, ptr noundef %0, i32 noundef %.3.lcssa, i32 noundef 4, i32 noundef 0)
   %76 = add i32 %.3.in.lcssa, 8
   %.not593 = icmp eq i32 %73, 0
-  br i1 %.not593, label %.thread619, label %.lr.ph560
+  br i1 %.not593, label %.thread635, label %.lr.ph560
 
 .lr.ph:                                           ; preds = %64, %.lr.ph
   %.3555 = phi i32 [ %.3, %.lr.ph ], [ %.3553, %64 ]
@@ -1068,7 +1068,7 @@ switch.lookup:                                    ; preds = %51
   %exitcond.not = icmp eq i32 %79, %70
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-.thread619:                                       ; preds = %.lr.ph560, %._crit_edge
+.thread635:                                       ; preds = %.lr.ph560, %._crit_edge
   %.4.lcssa = phi i32 [ %76, %._crit_edge ], [ %82, %.lr.ph560 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %142
@@ -1081,12 +1081,12 @@ switch.lookup:                                    ; preds = %51
   %82 = add i32 %81, %.4558
   %83 = add nuw i32 %.0515557, 1
   %exitcond605.not = icmp eq i32 %83, %73
-  br i1 %exitcond605.not, label %.thread619, label %.lr.ph560, !llvm.loop !10
+  br i1 %exitcond605.not, label %.thread635, label %.lr.ph560, !llvm.loop !10
 
 84:                                               ; preds = %switch.lookup, %61
   %85 = phi i1 [ false, %switch.lookup ], [ %63, %61 ]
   %86 = phi i1 [ %60, %switch.lookup ], [ %62, %61 ]
-  %.1512545 = phi i32 [ %switch.load637, %switch.lookup ], [ 24, %61 ]
+  %.1512545 = phi i32 [ %switch.load653, %switch.lookup ], [ 24, %61 ]
   %87 = icmp eq i32 %20, 1
   %or.cond7 = select i1 %86, i1 %87, i1 false
   %88 = icmp eq i32 %15, 102
@@ -1215,19 +1215,19 @@ switch.lookup:                                    ; preds = %51
   %141 = add i32 %.5, 1
   br label %.thread547
 
-142:                                              ; preds = %.thread619, %135
-  %143 = phi i1 [ false, %.thread619 ], [ %137, %135 ]
-  %144 = phi i1 [ false, %.thread619 ], [ %136, %135 ]
-  %.5614618622 = phi i32 [ %.4.lcssa, %.thread619 ], [ %.5, %135 ]
-  %145 = phi i1 [ true, %.thread619 ], [ %85, %135 ]
-  %146 = phi i32 [ 0, %.thread619 ], [ %119, %135 ]
+142:                                              ; preds = %.thread635, %135
+  %143 = phi i1 [ false, %.thread635 ], [ %137, %135 ]
+  %144 = phi i1 [ false, %.thread635 ], [ %136, %135 ]
+  %.5630634638 = phi i32 [ %.4.lcssa, %.thread635 ], [ %.5, %135 ]
+  %145 = phi i1 [ true, %.thread635 ], [ %85, %135 ]
+  %146 = phi i32 [ 0, %.thread635 ], [ %119, %135 ]
   %or.cond23 = select i1 %144, i1 %145, i1 false
   br i1 %or.cond23, label %147, label %190
 
 147:                                              ; preds = %142
   %148 = load i32, ptr @hf_do_irp_keyident, align 4
-  %149 = call fastcc i32 @decode_string(ptr noundef %0, ptr noundef %1, ptr noundef %47, i32 noundef %.5614618622, i32 noundef %148, ptr noundef null)
-  %150 = add i32 %149, %.5614618622
+  %149 = call fastcc i32 @decode_string(ptr noundef %0, ptr noundef %1, ptr noundef %47, i32 noundef %.5630634638, i32 noundef %148, ptr noundef null)
+  %150 = add i32 %149, %.5630634638
   %151 = load i32, ptr @hf_do_irp_keyidx, align 4
   %152 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %151, ptr noundef %0, i32 noundef %150, i32 noundef 4, i32 noundef 0)
   %153 = add i32 %150, 4
@@ -1276,8 +1276,8 @@ switch.lookup:                                    ; preds = %51
 
 192:                                              ; preds = %190
   %193 = load i32, ptr @hf_do_irp_authtype, align 4
-  %194 = call fastcc i32 @decode_string(ptr noundef %0, ptr noundef %1, ptr noundef %47, i32 noundef %.5614618622, i32 noundef %193, ptr noundef null)
-  %195 = add i32 %194, %.5614618622
+  %194 = call fastcc i32 @decode_string(ptr noundef %0, ptr noundef %1, ptr noundef %47, i32 noundef %.5630634638, i32 noundef %193, ptr noundef null)
+  %195 = add i32 %194, %.5630634638
   %196 = load i32, ptr @hf_do_irp_keyident, align 4
   %197 = call fastcc i32 @decode_string(ptr noundef %0, ptr noundef %1, ptr noundef %47, i32 noundef %195, i32 noundef %196, ptr noundef null)
   %198 = add i32 %197, %195
@@ -1295,8 +1295,8 @@ switch.lookup:                                    ; preds = %51
 
 207:                                              ; preds = %205
   %208 = load i32, ptr @hf_do_irp_nonce, align 4
-  %209 = call fastcc i32 @decode_generic_data(ptr noundef %0, ptr noundef %47, i32 noundef %.5614618622, i32 noundef %208)
-  %210 = add i32 %209, %.5614618622
+  %209 = call fastcc i32 @decode_generic_data(ptr noundef %0, ptr noundef %47, i32 noundef %.5630634638, i32 noundef %208)
+  %210 = add i32 %209, %.5630634638
   br label %.thread547
 
 211:                                              ; preds = %205
@@ -1311,8 +1311,8 @@ switch.lookup:                                    ; preds = %51
 
 215:                                              ; preds = %213, %211
   %216 = load i32, ptr @hf_do_irp_ignoredident, align 4
-  %217 = call fastcc i32 @decode_string(ptr noundef %0, ptr noundef %1, ptr noundef %47, i32 noundef %.5614618622, i32 noundef %216, ptr noundef null)
-  %218 = add i32 %217, %.5614618622
+  %217 = call fastcc i32 @decode_string(ptr noundef %0, ptr noundef %1, ptr noundef %47, i32 noundef %.5630634638, i32 noundef %216, ptr noundef null)
+  %218 = add i32 %217, %.5630634638
   br label %.thread547
 
 219:                                              ; preds = %213
@@ -1320,8 +1320,8 @@ switch.lookup:                                    ; preds = %51
   br i1 %or.cond31, label %220, label %223
 
 220:                                              ; preds = %219
-  %221 = call fastcc i32 @decode_hssite(ptr noundef %0, ptr noundef %1, ptr noundef %47, i32 noundef %.5614618622)
-  %222 = add i32 %221, %.5614618622
+  %221 = call fastcc i32 @decode_hssite(ptr noundef %0, ptr noundef %1, ptr noundef %47, i32 noundef %.5630634638)
+  %222 = add i32 %221, %.5630634638
   br label %.thread547
 
 223:                                              ; preds = %219
@@ -1345,8 +1345,8 @@ switch.lookup:                                    ; preds = %51
 
 232:                                              ; preds = %227, %223
   %233 = load i32, ptr @hf_do_irp_ident, align 4
-  %234 = call fastcc i32 @decode_string(ptr noundef %0, ptr noundef %1, ptr noundef %47, i32 noundef %.5614618622, i32 noundef %233, ptr noundef null)
-  %235 = add i32 %234, %.5614618622
+  %234 = call fastcc i32 @decode_string(ptr noundef %0, ptr noundef %1, ptr noundef %47, i32 noundef %.5630634638, i32 noundef %233, ptr noundef null)
+  %235 = add i32 %234, %.5630634638
   br label %.thread547
 
 236:                                              ; preds = %227
@@ -1357,10 +1357,10 @@ switch.lookup:                                    ; preds = %51
   br i1 %or.cond537, label %240, label %249
 
 240:                                              ; preds = %236
-  %241 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %.5614618622, i32 noundef 0)
+  %241 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %.5630634638, i32 noundef 0)
   %242 = load i32, ptr @hf_do_irp_identcount, align 4
-  %243 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %242, ptr noundef %0, i32 noundef %.5614618622, i32 noundef 4, i32 noundef 0)
-  %244 = add i32 %.5614618622, 4
+  %243 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %242, ptr noundef %0, i32 noundef %.5630634638, i32 noundef 4, i32 noundef 0)
+  %244 = add i32 %.5630634638, 4
   %.not596 = icmp eq i32 %241, 0
   br i1 %.not596, label %.thread547, label %.lr.ph578
 
@@ -1381,11 +1381,11 @@ switch.lookup:                                    ; preds = %51
 
 251:                                              ; preds = %249
   %252 = load i32, ptr @hf_do_irp_keyexmode, align 4
-  %253 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %252, ptr noundef %0, i32 noundef %.5614618622, i32 noundef 2, i32 noundef 0)
-  %254 = add i32 %.5614618622, 2
+  %253 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %252, ptr noundef %0, i32 noundef %.5630634638, i32 noundef 2, i32 noundef 0)
+  %254 = add i32 %.5630634638, 2
   %255 = load i32, ptr @hf_do_irp_timeout, align 4
   %256 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %255, ptr noundef %0, i32 noundef %254, i32 noundef 4, i32 noundef 0)
-  %257 = add i32 %.5614618622, 6
+  %257 = add i32 %.5630634638, 6
   %258 = load i32, ptr @hf_do_irp_ident, align 4
   %259 = call fastcc i32 @decode_string(ptr noundef %0, ptr noundef %1, ptr noundef %47, i32 noundef %257, i32 noundef %258, ptr noundef null)
   %260 = add i32 %259, %257
@@ -1402,8 +1402,8 @@ switch.lookup:                                    ; preds = %51
 
 267:                                              ; preds = %266
   %268 = load i32, ptr @hf_do_irp_keyexmode, align 4
-  %269 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %268, ptr noundef %0, i32 noundef %.5614618622, i32 noundef 2, i32 noundef 0)
-  %270 = add i32 %.5614618622, 2
+  %269 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %268, ptr noundef %0, i32 noundef %.5630634638, i32 noundef 2, i32 noundef 0)
+  %270 = add i32 %.5630634638, 2
   %271 = call fastcc i32 @decode_pk_data(ptr noundef %0, ptr noundef %1, ptr noundef %47, i32 noundef %270)
   %272 = add i32 %271, %270
   br label %.thread547
@@ -1419,18 +1419,18 @@ switch.lookup:                                    ; preds = %51
   br i1 %or.cond539, label %276, label %293
 
 276:                                              ; preds = %273
-  %277 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef %0, i32 noundef %.5614618622)
+  %277 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef %0, i32 noundef %.5630634638)
   %278 = icmp ugt i32 %277, 3
   br i1 %278, label %279, label %283
 
 279:                                              ; preds = %276
   %280 = load i32, ptr @hf_do_irp_error_msg, align 4
-  %281 = call fastcc i32 @decode_string(ptr noundef %0, ptr noundef %1, ptr noundef %47, i32 noundef %.5614618622, i32 noundef %280, ptr noundef null)
-  %282 = add i32 %281, %.5614618622
+  %281 = call fastcc i32 @decode_string(ptr noundef %0, ptr noundef %1, ptr noundef %47, i32 noundef %.5630634638, i32 noundef %280, ptr noundef null)
+  %282 = add i32 %281, %.5630634638
   br label %283
 
 283:                                              ; preds = %279, %276
-  %.12 = phi i32 [ %282, %279 ], [ %.5614618622, %276 ]
+  %.12 = phi i32 [ %282, %279 ], [ %.5630634638, %276 ]
   %284 = add i32 %.12, -24
   %285 = icmp ult i32 %284, %39
   br i1 %285, label %286, label %.thread547
@@ -1455,8 +1455,8 @@ switch.lookup:                                    ; preds = %51
 
 293:                                              ; preds = %273
   %.neg = add i32 %39, 24
-  %294 = sub i32 %.neg, %.5614618622
-  %295 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.5614618622, i32 noundef %294)
+  %294 = sub i32 %.neg, %.5630634638
+  %295 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.5630634638, i32 noundef %294)
   %296 = call i32 @call_data_dissector(ptr noundef %295, ptr noundef %1, ptr noundef %47)
   br label %.thread547
 

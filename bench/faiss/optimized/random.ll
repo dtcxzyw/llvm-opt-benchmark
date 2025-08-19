@@ -368,8 +368,8 @@ define internal void @_ZN5faiss10float_randEPfml.omp_outlined(ptr noalias nounde
   %18 = call i64 @llvm.umin.i64(i64 %17, i64 %15)
   store i64 %18, ptr %9, align 8, !tbaa !4
   %19 = load i64, ptr %8, align 8, !tbaa !4
-  %.not28 = icmp ugt i64 %19, %18
-  br i1 %.not28, label %._crit_edge27, label %.lr.ph26
+  %.not34 = icmp ugt i64 %19, %18
+  br i1 %.not34, label %._crit_edge27, label %.lr.ph26
 
 .lr.ph26:                                         ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 4992
@@ -664,7 +664,7 @@ define internal void @_ZN5faiss11float_randnEPfml.omp_outlined(ptr noalias nound
 43:                                               ; preds = %.lr.ph, %.loopexit
   %.062 = phi i64 [ %34, %.lr.ph ], [ %187, %.loopexit ]
   %.03761 = phi i32 [ 0, %.lr.ph ], [ %186, %.loopexit ]
-  %.03860 = phi double [ 0.000000e+00, %.lr.ph ], [ %.03860.sink75, %.loopexit ]
+  %.03860 = phi double [ 0.000000e+00, %.lr.ph ], [ %.03860.sink83, %.loopexit ]
   %.03959 = phi double [ 0.000000e+00, %.lr.ph ], [ %.140, %.loopexit ]
   %44 = icmp eq i32 %.03761, 0
   br i1 %44, label %.preheader.preheader, label %.loopexit
@@ -867,12 +867,12 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   br i1 %178, label %.loopexit, label %.preheader, !llvm.loop !26
 
 .loopexit:                                        ; preds = %157, %43
-  %.03860.sink75 = phi double [ %.03860, %43 ], [ %177, %157 ]
+  %.03860.sink83 = phi double [ %.03860, %43 ], [ %177, %157 ]
   %.03959.sink = phi double [ %.03959, %43 ], [ %110, %157 ]
   %.140 = phi double [ %.03959, %43 ], [ %175, %157 ]
-  %179 = call double @log(double noundef %.03860.sink75) #5, !tbaa !19
+  %179 = call double @log(double noundef %.03860.sink83) #5, !tbaa !19
   %180 = fmul double %179, -2.000000e+00
-  %181 = fdiv double %180, %.03860.sink75
+  %181 = fdiv double %180, %.03860.sink83
   %182 = call double @sqrt(double noundef %181) #5, !tbaa !19
   %183 = fmul double %.03959.sink, %182
   %184 = fptrunc double %183 to float
@@ -972,8 +972,8 @@ define internal void @_ZN5faiss10int64_randEPlml.omp_outlined(ptr noalias nounde
   %18 = call i64 @llvm.umin.i64(i64 %17, i64 %15)
   store i64 %18, ptr %9, align 8, !tbaa !4
   %19 = load i64, ptr %8, align 8, !tbaa !4
-  %.not29 = icmp ugt i64 %19, %18
-  br i1 %.not29, label %._crit_edge28, label %.lr.ph27
+  %.not35 = icmp ugt i64 %19, %18
+  br i1 %.not35, label %._crit_edge28, label %.lr.ph27
 
 .lr.ph27:                                         ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 4992
@@ -1211,8 +1211,8 @@ define internal void @_ZN5faiss14int64_rand_maxEPlmml.omp_outlined(ptr noalias n
   %19 = call i64 @llvm.umin.i64(i64 %18, i64 %16)
   store i64 %19, ptr %10, align 8, !tbaa !4
   %20 = load i64, ptr %9, align 8, !tbaa !4
-  %.not30 = icmp ugt i64 %20, %19
-  br i1 %.not30, label %._crit_edge29, label %.lr.ph28
+  %.not36 = icmp ugt i64 %20, %19
+  br i1 %.not36, label %._crit_edge29, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 4992
@@ -1567,8 +1567,8 @@ define internal void @_ZN5faiss9byte_randEPhml.omp_outlined(ptr noalias noundef 
   %18 = call i64 @llvm.umin.i64(i64 %17, i64 %15)
   store i64 %18, ptr %9, align 8, !tbaa !4
   %19 = load i64, ptr %8, align 8, !tbaa !4
-  %.not29 = icmp ugt i64 %19, %18
-  br i1 %.not29, label %._crit_edge28, label %.lr.ph27
+  %.not35 = icmp ugt i64 %19, %18
+  br i1 %.not35, label %._crit_edge28, label %.lr.ph27
 
 .lr.ph27:                                         ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 4992
@@ -2174,8 +2174,8 @@ define internal void @_ZN5faiss19rand_smooth_vectorsEmmPfl.omp_outlined(ptr noal
   %16 = call i64 @llvm.umin.i64(i64 %15, i64 %13)
   store i64 %16, ptr %8, align 8, !tbaa !4
   %17 = load i64, ptr %7, align 8, !tbaa !4
-  %.not28 = icmp ugt i64 %17, %16
-  br i1 %.not28, label %._crit_edge24, label %.preheader.lr.ph
+  %.not32 = icmp ugt i64 %17, %16
+  br i1 %.not32, label %._crit_edge24, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %12
   %18 = load i64, ptr %3, align 8, !tbaa !4

@@ -193,8 +193,8 @@ define internal ptr @ValuesNext(ptr noundef captures(none) %0) #0 {
   br i1 %18, label %.sink.split, label %20
 
 .sink.split:                                      ; preds = %17, %13
-  %.sink71 = phi i32 [ 1, %13 ], [ -1, %17 ]
-  %19 = add nsw i32 %12, %.sink71
+  %.sink75 = phi i32 [ 1, %13 ], [ -1, %17 ]
+  %19 = add nsw i32 %12, %.sink75
   store i32 %19, ptr %11, align 4
   br label %20
 
@@ -239,13 +239,13 @@ define internal ptr @ValuesNext(ptr noundef captures(none) %0) #0 {
   br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %32, %46
-  %.070 = phi ptr [ %47, %46 ], [ %41, %32 ]
-  %.in72 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %48 = load ptr, ptr %.in72, align 8
+  %.074 = phi ptr [ %47, %46 ], [ %41, %32 ]
+  %.in76 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %48 = load ptr, ptr %.in76, align 8
   %.in = getelementptr inbounds nuw i8, ptr %7, i64 32
   %49 = load ptr, ptr %.in, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %.070, i64 4
-  %51 = getelementptr inbounds nuw i8, ptr %.070, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %.074, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %.074, i64 16
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %53 = load i32, ptr %50, align 4
   %54 = icmp sgt i32 %53, 0

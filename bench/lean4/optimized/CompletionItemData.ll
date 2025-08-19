@@ -1047,18 +1047,18 @@ _init_l_Lean_Lsp_instFileSourceCompletionItem___closed__1.exit: ; preds = %_init
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Lsp_instFileSourceCompletionItem___closed__1.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %81, %_init_l_Lean_Lsp_instFileSourceCompletionItem___closed__1.exit ]
-  %84 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !8
+  %.sink16 = phi ptr [ %4, %3 ], [ %81, %_init_l_Lean_Lsp_instFileSourceCompletionItem___closed__1.exit ]
+  %84 = getelementptr inbounds nuw i8, ptr %.sink16, i64 4
+  store i32 1, ptr %.sink16, align 4, !tbaa !8
   store i32 131096, ptr %84, align 4
-  %85 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.sink16, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %85, align 8, !tbaa !4
-  %86 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %.sink16, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %86, align 8, !tbaa !4
   br label %87
 
 87:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink16, %.sink.split ]
   ret ptr %.0
 }
 

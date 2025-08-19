@@ -118,10 +118,10 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22PcpExpressionVariables7Compu
   %12 = alloca %"class.pxrInternal_v0_24__pxrReserved__::PcpExpressionVariablesSource", align 8
   %13 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::NoCache", align 8
   %.not = icmp eq ptr %3, null
-  %.1.lcssa48.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.1.lcssa48.i.sroa.gep30 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.1.lcssa48.i.sroa.gep32 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.1.lcssa48.i.sroa.gep33 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.1.lcssa60.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.1.lcssa60.i.sroa.gep30 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.1.lcssa60.i.sroa.gep32 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.1.lcssa60.i.sroa.gep33 = getelementptr inbounds nuw i8, ptr %13, i64 16
   br i1 %.not, label %59, label %14
 
 14:                                               ; preds = %4
@@ -242,7 +242,7 @@ _ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 59:                                               ; preds = %4
   call void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpExpressionVariablesSourceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13)
-  store ptr null, ptr %.1.lcssa48.i.sroa.gep33, align 8
+  store ptr null, ptr %.1.lcssa60.i.sroa.gep33, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -253,7 +253,7 @@ _ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
           to label %.noexc unwind label %170
 
 .noexc:                                           ; preds = %59
-  store ptr null, ptr %.1.lcssa48.i.sroa.gep32, align 8
+  store ptr null, ptr %.1.lcssa60.i.sroa.gep32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -332,7 +332,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierESaIS1_
 
 87:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit.i, %.lr.ph.i
   %.in.i = phi i64 [ %83, %.lr.ph.i ], [ %88, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit.i ]
-  %.144.sroa.phi.i = phi ptr [ %.1.lcssa48.i.sroa.gep32, %.lr.ph.i ], [ %.1.lcssa48.i.sroa.gep33, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit.i ]
+  %.144.sroa.phi.i = phi ptr [ %.1.lcssa60.i.sroa.gep32, %.lr.ph.i ], [ %.1.lcssa60.i.sroa.gep33, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit.i ]
   %88 = add i64 %.in.i, -1
   %89 = load ptr, ptr %6, align 8
   %90 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::PcpLayerStackIdentifier", ptr %89, i64 %88
@@ -455,9 +455,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit.i: ; preds = %_ZNKS
           to label %._crit_edge.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 ._crit_edge.i:                                    ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit.i, %._crit_edge.thread.i
-  %.1.lcssa48.i.sroa.phi = phi ptr [ %.1.lcssa48.i.sroa.gep, %._crit_edge.thread.i ], [ %.1.lcssa48.i.sroa.gep30, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit.i ]
-  %.1.lcssa48.i.sroa.phi31 = phi ptr [ %.1.lcssa48.i.sroa.gep32, %._crit_edge.thread.i ], [ %.1.lcssa48.i.sroa.gep33, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit.i ]
-  %.1.lcssa48.i = phi ptr [ %5, %._crit_edge.thread.i ], [ %13, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit.i ]
+  %.1.lcssa60.i.sroa.phi = phi ptr [ %.1.lcssa60.i.sroa.gep, %._crit_edge.thread.i ], [ %.1.lcssa60.i.sroa.gep30, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit.i ]
+  %.1.lcssa60.i.sroa.phi31 = phi ptr [ %.1.lcssa60.i.sroa.gep32, %._crit_edge.thread.i ], [ %.1.lcssa60.i.sroa.gep33, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit.i ]
+  %.1.lcssa60.i = phi ptr [ %5, %._crit_edge.thread.i ], [ %13, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit.i ]
   %132 = load ptr, ptr %6, align 8
   %133 = load ptr, ptr %60, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %132, %133
@@ -488,7 +488,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierES1_E
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierESaIS1_EED2Ev.exit.i: ; preds = %136, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierES1_EvT_S3_RSaIT0_E.exit.i.i
-  %141 = load ptr, ptr %.1.lcssa48.i.sroa.gep32, align 8
+  %141 = load ptr, ptr %.1.lcssa60.i.sroa.gep32, align 8
   %.not.i.i.i32.i = icmp eq ptr %141, null
   br i1 %.not.i.i.i32.i, label %148, label %142
 
@@ -516,7 +516,7 @@ _ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %.body19
 
 148:                                              ; preds = %_ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIvESaISt4pairIKS6_S8_EEEEclEPSF_.exit.i.i.i33.i, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierESaIS1_EED2Ev.exit.i
-  store ptr null, ptr %.1.lcssa48.i.sroa.gep32, align 8
+  store ptr null, ptr %.1.lcssa60.i.sroa.gep32, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpExpressionVariablesSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -524,10 +524,10 @@ _ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %149 = load ptr, ptr %.1.lcssa48.i, align 8
+  %149 = load ptr, ptr %.1.lcssa60.i, align 8
   store ptr %149, ptr %0, align 8
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %151 = load ptr, ptr %.1.lcssa48.i.sroa.phi, align 8
+  %151 = load ptr, ptr %.1.lcssa60.i.sroa.phi, align 8
   store ptr %151, ptr %150, align 8
   %.not.i.i.i.i.i21 = icmp eq ptr %151, null
   br i1 %.not.i.i.i.i.i21, label %_ZN32pxrInternal_v0_24__pxrReserved__28PcpExpressionVariablesSourceC2ERKS0_.exit.i23, label %152
@@ -550,7 +550,7 @@ _ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 _ZN32pxrInternal_v0_24__pxrReserved__28PcpExpressionVariablesSourceC2ERKS0_.exit.i23: ; preds = %158, %155, %148
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %160, ptr noundef nonnull align 8 dereferenceable(8) %.1.lcssa48.i.sroa.phi31)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %160, ptr noundef nonnull align 8 dereferenceable(8) %.1.lcssa60.i.sroa.phi31)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__22PcpExpressionVariablesC2ERKS0_.exit26 unwind label %161
 
 161:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__28PcpExpressionVariablesSourceC2ERKS0_.exit.i23
@@ -560,7 +560,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__28PcpExpressionVariablesSourceC2ERKS0_.exit
   br label %.body19
 
 _ZN32pxrInternal_v0_24__pxrReserved__22PcpExpressionVariablesC2ERKS0_.exit26: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__28PcpExpressionVariablesSourceC2ERKS0_.exit.i23
-  %163 = load ptr, ptr %.1.lcssa48.i.sroa.gep33, align 8
+  %163 = load ptr, ptr %.1.lcssa60.i.sroa.gep33, align 8
   %.not.i.i.i.i27 = icmp eq ptr %163, null
   br i1 %.not.i.i.i.i27, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17NoCacheD2Ev.exit, label %164
 
@@ -582,7 +582,7 @@ _ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17NoCacheD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17NoCacheD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__22PcpExpressionVariablesC2ERKS0_.exit26, %_ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIvESaISt4pairIKS6_S8_EEEEclEPSF_.exit.i.i.i.i28
-  store ptr null, ptr %.1.lcssa48.i.sroa.gep33, align 8
+  store ptr null, ptr %.1.lcssa60.i.sroa.gep33, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpExpressionVariablesSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit
 

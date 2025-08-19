@@ -611,65 +611,62 @@ define hidden noundef ptr @_ZN11ClassLoader23package_from_class_nameEPK6SymbolPb
 
 13:                                               ; preds = %11
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %14 = and i64 %indvars.iv.next.i, 4294967295
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 %14
-  %16 = load i8, ptr %15, align 1
-  %.not.i = icmp eq i8 %16, 47
-  br i1 %.not.i, label %17, label %11, !llvm.loop !6
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.next.i
+  %15 = load i8, ptr %14, align 1
+  %.not.i = icmp eq i8 %15, 47
+  br i1 %.not.i, label %16, label %11, !llvm.loop !6
 
-17:                                               ; preds = %13
-  %sext = shl i64 %indvars.iv.next.i, 32
-  %18 = ashr exact i64 %sext, 32
-  %19 = getelementptr inbounds i8, ptr %9, i64 %18
-  %20 = load i8, ptr %9, align 1
-  %21 = icmp eq i8 %20, 91
-  br i1 %21, label %.preheader, label %29
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv.next.i
+  %18 = load i8, ptr %9, align 1
+  %19 = icmp eq i8 %18, 91
+  br i1 %19, label %.preheader, label %27
 
-.preheader:                                       ; preds = %17, %.preheader
-  %.1 = phi ptr [ %22, %.preheader ], [ %9, %17 ]
-  %22 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  %23 = icmp ult ptr %22, %19
-  %24 = load i8, ptr %22, align 1
-  %25 = icmp eq i8 %24, 91
-  %or.cond = select i1 %23, i1 %25, i1 false
+.preheader:                                       ; preds = %16, %.preheader
+  %.1 = phi ptr [ %20, %.preheader ], [ %9, %16 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  %21 = icmp ult ptr %20, %17
+  %22 = load i8, ptr %20, align 1
+  %23 = icmp eq i8 %22, 91
+  %or.cond = select i1 %21, i1 %23, i1 false
   br i1 %or.cond, label %.preheader, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %.preheader
-  %26 = icmp eq i8 %24, 76
-  br i1 %26, label %27, label %29
+  %24 = icmp eq i8 %22, 76
+  br i1 %24, label %25, label %27
 
-27:                                               ; preds = %.critedge
+25:                                               ; preds = %.critedge
   %.not33 = icmp eq ptr %1, null
-  br i1 %.not33, label %_ZN4UTF87strrchrEPKaia.exit.thread, label %28
+  br i1 %.not33, label %_ZN4UTF87strrchrEPKaia.exit.thread, label %26
+
+26:                                               ; preds = %25
+  store i8 1, ptr %1, align 1
+  br label %_ZN4UTF87strrchrEPKaia.exit.thread
+
+27:                                               ; preds = %.critedge, %16
+  %.026 = phi ptr [ %20, %.critedge ], [ %9, %16 ]
+  %.not = icmp ult ptr %.026, %17
+  br i1 %.not, label %30, label %28
 
 28:                                               ; preds = %27
-  store i8 1, ptr %1, align 1
-  br label %_ZN4UTF87strrchrEPKaia.exit.thread
-
-29:                                               ; preds = %.critedge, %17
-  %.026 = phi ptr [ %22, %.critedge ], [ %9, %17 ]
-  %.not = icmp ult ptr %.026, %19
-  br i1 %.not, label %32, label %30
-
-30:                                               ; preds = %29
   %.not32 = icmp eq ptr %1, null
-  br i1 %.not32, label %_ZN4UTF87strrchrEPKaia.exit.thread, label %31
+  br i1 %.not32, label %_ZN4UTF87strrchrEPKaia.exit.thread, label %29
 
-31:                                               ; preds = %30
+29:                                               ; preds = %28
   store i8 1, ptr %1, align 1
   br label %_ZN4UTF87strrchrEPKaia.exit.thread
 
-32:                                               ; preds = %29
-  %33 = ptrtoint ptr %.026 to i64
-  %34 = ptrtoint ptr %9 to i64
-  %35 = sub i64 %33, %34
-  %36 = trunc i64 %35 to i32
-  %37 = trunc i64 %indvars.iv.next.i to i32
-  %38 = tail call noundef ptr @_ZN11SymbolTable10new_symbolEPK6Symbolii(ptr noundef nonnull %0, i32 noundef %36, i32 noundef %37) #21
+30:                                               ; preds = %27
+  %31 = ptrtoint ptr %.026 to i64
+  %32 = ptrtoint ptr %9 to i64
+  %33 = sub i64 %31, %32
+  %34 = trunc i64 %33 to i32
+  %35 = trunc nuw nsw i64 %indvars.iv.next.i to i32
+  %36 = tail call noundef ptr @_ZN11SymbolTable10new_symbolEPK6Symbolii(ptr noundef nonnull %0, i32 noundef %34, i32 noundef %35) #21
   br label %_ZN4UTF87strrchrEPKaia.exit.thread
 
-_ZN4UTF87strrchrEPKaia.exit.thread:               ; preds = %11, %30, %31, %27, %28, %4, %5, %32
-  %.0 = phi ptr [ %38, %32 ], [ null, %5 ], [ null, %4 ], [ null, %28 ], [ null, %27 ], [ null, %31 ], [ null, %30 ], [ null, %11 ]
+_ZN4UTF87strrchrEPKaia.exit.thread:               ; preds = %11, %28, %29, %25, %26, %4, %5, %30
+  %.0 = phi ptr [ %36, %30 ], [ null, %5 ], [ null, %4 ], [ null, %26 ], [ null, %25 ], [ null, %29 ], [ null, %28 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -1131,204 +1128,201 @@ _ZL25get_jimage_version_stringv.exit:             ; preds = %4, %13
 
 35:                                               ; preds = %33
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %36 = and i64 %indvars.iv.next.i.i, 4294967295
-  %37 = getelementptr inbounds nuw i8, ptr %31, i64 %36
-  %38 = load i8, ptr %37, align 1
-  %.not.i.i = icmp eq i8 %38, 47
-  br i1 %.not.i.i, label %39, label %33, !llvm.loop !6
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv.next.i.i
+  %37 = load i8, ptr %36, align 1
+  %.not.i.i = icmp eq i8 %37, 47
+  br i1 %.not.i.i, label %38, label %33, !llvm.loop !6
 
-39:                                               ; preds = %35
-  %sext.i = shl i64 %indvars.iv.next.i.i, 32
-  %40 = ashr exact i64 %sext.i, 32
-  %41 = getelementptr inbounds i8, ptr %31, i64 %40
-  %42 = load i8, ptr %31, align 1
-  %43 = icmp eq i8 %42, 91
-  br i1 %43, label %.preheader.i, label %49
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv.next.i.i
+  %40 = load i8, ptr %31, align 1
+  %41 = icmp eq i8 %40, 91
+  br i1 %41, label %.preheader.i, label %47
 
-.preheader.i:                                     ; preds = %39, %.preheader.i
-  %.1.i = phi ptr [ %44, %.preheader.i ], [ %31, %39 ]
-  %44 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
-  %45 = icmp ult ptr %44, %41
-  %46 = load i8, ptr %44, align 1
-  %47 = icmp eq i8 %46, 91
-  %or.cond = select i1 %45, i1 %47, i1 false
+.preheader.i:                                     ; preds = %38, %.preheader.i
+  %.1.i = phi ptr [ %42, %.preheader.i ], [ %31, %38 ]
+  %42 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
+  %43 = icmp ult ptr %42, %39
+  %44 = load i8, ptr %42, align 1
+  %45 = icmp eq i8 %44, 91
+  %or.cond = select i1 %43, i1 %45, i1 false
   br i1 %or.cond, label %.preheader.i, label %.critedge.i, !llvm.loop !8
 
 .critedge.i:                                      ; preds = %.preheader.i
-  %48 = icmp eq i8 %46, 76
-  br i1 %48, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread68, label %49
+  %46 = icmp eq i8 %44, 76
+  br i1 %46, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread68, label %47
 
-49:                                               ; preds = %.critedge.i, %39
-  %.026.i = phi ptr [ %44, %.critedge.i ], [ %31, %39 ]
-  %.not.i25 = icmp ult ptr %.026.i, %41
+47:                                               ; preds = %.critedge.i, %38
+  %.026.i = phi ptr [ %42, %.critedge.i ], [ %31, %38 ]
+  %.not.i25 = icmp ult ptr %.026.i, %39
   br i1 %.not.i25, label %_ZN11ClassLoader23package_from_class_nameEPK6SymbolPb.exit, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread68
 
-_ZN11ClassLoader23package_from_class_nameEPK6SymbolPb.exit: ; preds = %49
-  %50 = ptrtoint ptr %.026.i to i64
-  %51 = ptrtoint ptr %31 to i64
-  %52 = sub i64 %50, %51
-  %53 = trunc i64 %52 to i32
-  %54 = trunc i64 %indvars.iv.next.i.i to i32
-  %55 = call noundef ptr @_ZN11SymbolTable10new_symbolEPK6Symbolii(ptr noundef nonnull %22, i32 noundef %53, i32 noundef %54) #21
-  %.not.i26 = icmp eq ptr %55, null
-  br i1 %.not.i26, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread71, label %56
+_ZN11ClassLoader23package_from_class_nameEPK6SymbolPb.exit: ; preds = %47
+  %48 = ptrtoint ptr %.026.i to i64
+  %49 = ptrtoint ptr %31 to i64
+  %50 = sub i64 %48, %49
+  %51 = trunc i64 %50 to i32
+  %52 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
+  %53 = call noundef ptr @_ZN11SymbolTable10new_symbolEPK6Symbolii(ptr noundef nonnull %22, i32 noundef %51, i32 noundef %52) #21
+  %.not.i26 = icmp eq ptr %53, null
+  br i1 %.not.i26, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread71, label %54
 
 _ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread71:  ; preds = %_ZN11ClassLoader23package_from_class_nameEPK6SymbolPb.exit
   call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %22) #21
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread
 
-56:                                               ; preds = %_ZN11ClassLoader23package_from_class_nameEPK6SymbolPb.exit
-  %57 = load volatile i32, ptr %55, align 4
-  %58 = and i32 %57, 65535
-  %59 = icmp eq i32 %58, 1
-  br i1 %59, label %60, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit27
+54:                                               ; preds = %_ZN11ClassLoader23package_from_class_nameEPK6SymbolPb.exit
+  %55 = load volatile i32, ptr %53, align 4
+  %56 = and i32 %55, 65535
+  %57 = icmp eq i32 %56, 1
+  br i1 %57, label %58, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit27
 
-60:                                               ; preds = %56
-  call void @_ZN24TempSymbolCleanupDelayer13delay_cleanupEP6Symbol(ptr noundef nonnull %55) #21
+58:                                               ; preds = %54
+  call void @_ZN24TempSymbolCleanupDelayer13delay_cleanupEP6Symbol(ptr noundef nonnull %53) #21
   br label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit27
 
-_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit27:    ; preds = %60, %56
-  %61 = load i8, ptr @_ZN8Universe19_module_initializedE, align 1
-  %62 = trunc i8 %61 to i1
-  br i1 %62, label %_ZN11ClassLoader17get_package_entryEP6SymbolP15ClassLoaderData.exit, label %63
+_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit27:    ; preds = %58, %54
+  %59 = load i8, ptr @_ZN8Universe19_module_initializedE, align 1
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %_ZN11ClassLoader17get_package_entryEP6SymbolP15ClassLoaderData.exit, label %61
 
-63:                                               ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit27
-  %64 = load ptr, ptr @_ZL18JImageFindResource, align 8
-  %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  %67 = load ptr, ptr %66, align 8
-  %68 = call noundef ptr %67(ptr noundef nonnull align 8 dereferenceable(24) %0) #21
-  %69 = load i8, ptr @_ZZL25get_jimage_version_stringvE14version_string, align 1
-  %70 = icmp eq i8 %69, 0
-  br i1 %70, label %71, label %_ZL25get_jimage_version_stringv.exit28
+61:                                               ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit27
+  %62 = load ptr, ptr @_ZL18JImageFindResource, align 8
+  %63 = load ptr, ptr %0, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
+  %65 = load ptr, ptr %64, align 8
+  %66 = call noundef ptr %65(ptr noundef nonnull align 8 dereferenceable(24) %0) #21
+  %67 = load i8, ptr @_ZZL25get_jimage_version_stringvE14version_string, align 1
+  %68 = icmp eq i8 %67, 0
+  br i1 %68, label %69, label %_ZL25get_jimage_version_stringv.exit28
 
-71:                                               ; preds = %63
-  %72 = load i32, ptr @_ZN19Abstract_VM_Version17_vm_major_versionE, align 4
-  %73 = load i32, ptr @_ZN19Abstract_VM_Version17_vm_minor_versionE, align 4
-  %74 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull @_ZZL25get_jimage_version_stringvE14version_string, i64 noundef 10, ptr noundef nonnull @.str.93, i32 noundef %72, i32 noundef %73) #21
+69:                                               ; preds = %61
+  %70 = load i32, ptr @_ZN19Abstract_VM_Version17_vm_major_versionE, align 4
+  %71 = load i32, ptr @_ZN19Abstract_VM_Version17_vm_minor_versionE, align 4
+  %72 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull @_ZZL25get_jimage_version_stringvE14version_string, i64 noundef 10, ptr noundef nonnull @.str.93, i32 noundef %70, i32 noundef %71) #21
   br label %_ZL25get_jimage_version_stringv.exit28
 
-_ZL25get_jimage_version_stringv.exit28:           ; preds = %63, %71
-  %75 = call noundef i64 %64(ptr noundef %68, ptr noundef nonnull @.str.19, ptr noundef nonnull @_ZZL25get_jimage_version_stringvE14version_string, ptr noundef nonnull %2, ptr noundef nonnull %5) #21
+_ZL25get_jimage_version_stringv.exit28:           ; preds = %61, %69
+  %73 = call noundef i64 %62(ptr noundef %66, ptr noundef nonnull @.str.19, ptr noundef nonnull @_ZZL25get_jimage_version_stringvE14version_string, ptr noundef nonnull %2, ptr noundef nonnull %5) #21
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33
 
 _ZN11ClassLoader17get_package_entryEP6SymbolP15ClassLoaderData.exit: ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit27
-  %76 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %77 = load volatile ptr, ptr %76, align 8
-  %78 = call noundef ptr @_ZN17PackageEntryTable11lookup_onlyEP6Symbol(ptr noundef nonnull align 8 dereferenceable(880) %77, ptr noundef nonnull %55) #21
-  %.not22 = icmp eq ptr %78, null
-  br i1 %.not22, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33, label %79
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %75 = load volatile ptr, ptr %74, align 8
+  %76 = call noundef ptr @_ZN17PackageEntryTable11lookup_onlyEP6Symbol(ptr noundef nonnull align 8 dereferenceable(880) %75, ptr noundef nonnull %53) #21
+  %.not22 = icmp eq ptr %76, null
+  br i1 %.not22, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33, label %77
 
-79:                                               ; preds = %_ZN11ClassLoader17get_package_entryEP6SymbolP15ClassLoaderData.exit
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 800
+77:                                               ; preds = %_ZN11ClassLoader17get_package_entryEP6SymbolP15ClassLoaderData.exit
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 800
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %81, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %81, i64 40
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %89 = load i64, ptr %88, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %87 = load i64, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %93 = load ptr, ptr %92, align 8
-  %94 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %93) #21
-  %.not23 = icmp eq ptr %94, null
-  br i1 %.not23, label %108, label %95
+  %92 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %91) #21
+  %.not23 = icmp eq ptr %92, null
+  br i1 %.not23, label %106, label %93
 
-95:                                               ; preds = %79
-  %96 = load ptr, ptr @_ZL18JImageFindResource, align 8
-  %97 = load ptr, ptr %0, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 48
-  %99 = load ptr, ptr %98, align 8
-  %100 = call noundef ptr %99(ptr noundef nonnull align 8 dereferenceable(24) %0) #21
-  %101 = load i8, ptr @_ZZL25get_jimage_version_stringvE14version_string, align 1
-  %102 = icmp eq i8 %101, 0
-  br i1 %102, label %103, label %_ZL25get_jimage_version_stringv.exit30
+93:                                               ; preds = %77
+  %94 = load ptr, ptr @_ZL18JImageFindResource, align 8
+  %95 = load ptr, ptr %0, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 48
+  %97 = load ptr, ptr %96, align 8
+  %98 = call noundef ptr %97(ptr noundef nonnull align 8 dereferenceable(24) %0) #21
+  %99 = load i8, ptr @_ZZL25get_jimage_version_stringvE14version_string, align 1
+  %100 = icmp eq i8 %99, 0
+  br i1 %100, label %101, label %_ZL25get_jimage_version_stringv.exit30
 
-103:                                              ; preds = %95
-  %104 = load i32, ptr @_ZN19Abstract_VM_Version17_vm_major_versionE, align 4
-  %105 = load i32, ptr @_ZN19Abstract_VM_Version17_vm_minor_versionE, align 4
-  %106 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull @_ZZL25get_jimage_version_stringvE14version_string, i64 noundef 10, ptr noundef nonnull @.str.93, i32 noundef %104, i32 noundef %105) #21
+101:                                              ; preds = %93
+  %102 = load i32, ptr @_ZN19Abstract_VM_Version17_vm_major_versionE, align 4
+  %103 = load i32, ptr @_ZN19Abstract_VM_Version17_vm_minor_versionE, align 4
+  %104 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull @_ZZL25get_jimage_version_stringvE14version_string, i64 noundef 10, ptr noundef nonnull @.str.93, i32 noundef %102, i32 noundef %103) #21
   br label %_ZL25get_jimage_version_stringv.exit30
 
-_ZL25get_jimage_version_stringv.exit30:           ; preds = %95, %103
-  %107 = call noundef i64 %96(ptr noundef %100, ptr noundef nonnull %94, ptr noundef nonnull @_ZZL25get_jimage_version_stringvE14version_string, ptr noundef nonnull %2, ptr noundef nonnull %5) #21
-  br label %108
+_ZL25get_jimage_version_stringv.exit30:           ; preds = %93, %101
+  %105 = call noundef i64 %94(ptr noundef %98, ptr noundef nonnull %92, ptr noundef nonnull @_ZZL25get_jimage_version_stringvE14version_string, ptr noundef nonnull %2, ptr noundef nonnull %5) #21
+  br label %106
 
-108:                                              ; preds = %_ZL25get_jimage_version_stringv.exit30, %79
-  %.2 = phi i64 [ %107, %_ZL25get_jimage_version_stringv.exit30 ], [ 0, %79 ]
-  %109 = load ptr, ptr %83, align 8
-  %.not.i.i.i.i = icmp eq ptr %109, null
-  br i1 %.not.i.i.i.i, label %111, label %110
+106:                                              ; preds = %_ZL25get_jimage_version_stringv.exit30, %77
+  %.2 = phi i64 [ %105, %_ZL25get_jimage_version_stringv.exit30 ], [ 0, %77 ]
+  %107 = load ptr, ptr %81, align 8
+  %.not.i.i.i.i = icmp eq ptr %107, null
+  br i1 %.not.i.i.i.i, label %109, label %108
 
-110:                                              ; preds = %108
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %81, i64 noundef %89) #21
-  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %83) #21
-  br label %111
+108:                                              ; preds = %106
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %79, i64 noundef %87) #21
+  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %81) #21
+  br label %109
 
-111:                                              ; preds = %110, %108
-  %112 = load ptr, ptr %84, align 8
-  %.not8.i.i.i.i = icmp eq ptr %112, %85
-  br i1 %.not8.i.i.i.i, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33, label %113
+109:                                              ; preds = %108, %106
+  %110 = load ptr, ptr %82, align 8
+  %.not8.i.i.i.i = icmp eq ptr %110, %83
+  br i1 %.not8.i.i.i.i, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33, label %111
 
-113:                                              ; preds = %111
+111:                                              ; preds = %109
+  store ptr %81, ptr %80, align 8
   store ptr %83, ptr %82, align 8
   store ptr %85, ptr %84, align 8
-  store ptr %87, ptr %86, align 8
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33
 
-_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread68:  ; preds = %33, %49, %.critedge.i
+_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread68:  ; preds = %33, %47, %.critedge.i
   call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %22) #21
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread
 
-_ZN16SymbolHandleBaseILb1EED2Ev.exit33:           ; preds = %113, %111, %_ZL25get_jimage_version_stringv.exit28, %_ZN11ClassLoader17get_package_entryEP6SymbolP15ClassLoaderData.exit
-  %.1.ph = phi i64 [ %.2, %113 ], [ %.2, %111 ], [ %75, %_ZL25get_jimage_version_stringv.exit28 ], [ 0, %_ZN11ClassLoader17get_package_entryEP6SymbolP15ClassLoaderData.exit ]
-  call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %55) #21
+_ZN16SymbolHandleBaseILb1EED2Ev.exit33:           ; preds = %111, %109, %_ZL25get_jimage_version_stringv.exit28, %_ZN11ClassLoader17get_package_entryEP6SymbolP15ClassLoaderData.exit
+  %.1.ph = phi i64 [ %.2, %111 ], [ %.2, %109 ], [ %73, %_ZL25get_jimage_version_stringv.exit28 ], [ 0, %_ZN11ClassLoader17get_package_entryEP6SymbolP15ClassLoaderData.exit ]
+  call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %53) #21
   call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %22) #21
   %.not24 = icmp eq i64 %.1.ph, 0
   br i1 %.not24, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread63
 
 _ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread63:  ; preds = %_ZL25get_jimage_version_stringv.exit, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33
   %.01766 = phi i64 [ %.1.ph, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33 ], [ %17, %_ZL25get_jimage_version_stringv.exit ]
-  %114 = load i8, ptr @UsePerfData, align 1
-  %115 = trunc i8 %114 to i1
-  br i1 %115, label %116, label %123
+  %112 = load i8, ptr @UsePerfData, align 1
+  %113 = trunc i8 %112 to i1
+  br i1 %113, label %114, label %121
 
-116:                                              ; preds = %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread63
-  %117 = load ptr, ptr @_ZN11ClassLoader30_perf_sys_classfile_bytes_readE, align 8
-  %118 = load i64, ptr %5, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %117, i64 40
-  %120 = load ptr, ptr %119, align 8
-  %121 = load i64, ptr %120, align 8
-  %122 = add nsw i64 %121, %118
-  store i64 %122, ptr %120, align 8
-  br label %123
+114:                                              ; preds = %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread63
+  %115 = load ptr, ptr @_ZN11ClassLoader30_perf_sys_classfile_bytes_readE, align 8
+  %116 = load i64, ptr %5, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 40
+  %118 = load ptr, ptr %117, align 8
+  %119 = load i64, ptr %118, align 8
+  %120 = add nsw i64 %119, %116
+  store i64 %120, ptr %118, align 8
+  br label %121
 
-123:                                              ; preds = %116, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread63
-  %124 = load i64, ptr %5, align 8
-  %125 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %124, i32 noundef 0) #21
-  %126 = load ptr, ptr @_ZL17JImageGetResource, align 8
-  %127 = load ptr, ptr %0, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 48
-  %129 = load ptr, ptr %128, align 8
-  %130 = call noundef ptr %129(ptr noundef nonnull align 8 dereferenceable(24) %0) #21
-  %131 = load i64, ptr %5, align 8
-  %132 = call noundef i64 %126(ptr noundef %130, i64 noundef %.01766, ptr noundef %125, i64 noundef %131) #21
-  %133 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #21
-  %134 = load i64, ptr %5, align 8
-  %135 = trunc i64 %134 to i32
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %137 = load ptr, ptr %136, align 8
-  %138 = load i8, ptr @_ZN15ClassFileStream6verifyE, align 1
-  %139 = trunc i8 %138 to i1
-  call void @_ZN15ClassFileStreamC1EPKhiPKcbb(ptr noundef nonnull align 8 dereferenceable(42) %133, ptr noundef %125, i32 noundef %135, ptr noundef %137, i1 noundef zeroext %139, i1 noundef zeroext true) #21
+121:                                              ; preds = %114, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread63
+  %122 = load i64, ptr %5, align 8
+  %123 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %122, i32 noundef 0) #21
+  %124 = load ptr, ptr @_ZL17JImageGetResource, align 8
+  %125 = load ptr, ptr %0, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 48
+  %127 = load ptr, ptr %126, align 8
+  %128 = call noundef ptr %127(ptr noundef nonnull align 8 dereferenceable(24) %0) #21
+  %129 = load i64, ptr %5, align 8
+  %130 = call noundef i64 %124(ptr noundef %128, i64 noundef %.01766, ptr noundef %123, i64 noundef %129) #21
+  %131 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #21
+  %132 = load i64, ptr %5, align 8
+  %133 = trunc i64 %132 to i32
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %135 = load ptr, ptr %134, align 8
+  %136 = load i8, ptr @_ZN15ClassFileStream6verifyE, align 1
+  %137 = trunc i8 %136 to i1
+  call void @_ZN15ClassFileStreamC1EPKhiPKcbb(ptr noundef nonnull align 8 dereferenceable(42) %131, ptr noundef %123, i32 noundef %133, ptr noundef %135, i1 noundef zeroext %137, i1 noundef zeroext true) #21
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread
 
-_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread:    ; preds = %19, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread71, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread68, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33, %123
-  %.0 = phi ptr [ %133, %123 ], [ null, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33 ], [ null, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread68 ], [ null, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread71 ], [ null, %19 ]
+_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread:    ; preds = %19, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread71, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread68, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33, %121
+  %.0 = phi ptr [ %131, %121 ], [ null, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33 ], [ null, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread68 ], [ null, %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread71 ], [ null, %19 ]
   ret ptr %.0
 }
 
@@ -2859,8 +2853,8 @@ define internal fastcc void @_ZL24print_module_entry_tablePK13GrowableArrayIP19M
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %32 = load volatile ptr, ptr %31, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !9
-  %cond23 = icmp eq ptr %32, null
-  br i1 %cond23, label %._crit_edge, label %.lr.ph
+  %cond26 = icmp eq ptr %32, null
+  br i1 %cond26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %33 = phi ptr [ %42, %.lr.ph ], [ %32, %.lr.ph.preheader ]
@@ -3352,7 +3346,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread: ; preds = %21
   br i1 %40, label %.lr.ph, label %_ZNK14objArrayHandleclEv.exit
 
 .lr.ph:                                           ; preds = %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
-  %storemerge.i.i29 = phi ptr [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread ], [ %.0.i.i.i.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ]
+  %storemerge.i.i31 = phi ptr [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread ], [ %.0.i.i.i.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ]
   %41 = getelementptr inbounds nuw i8, ptr %15, i64 8
   br label %42
 
@@ -3368,7 +3362,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread: ; preds = %21
   br i1 %.not23, label %49, label %_ZNK14objArrayHandleclEv.exit
 
 49:                                               ; preds = %42
-  %50 = load ptr, ptr %storemerge.i.i29, align 8
+  %50 = load ptr, ptr %storemerge.i.i31, align 8
   %51 = icmp eq ptr %47, null
   br i1 %51, label %_ZNK6HandleclEv.exit, label %52
 
@@ -3396,8 +3390,8 @@ _ZNK6HandleclEv.exit:                             ; preds = %49, %52
   br i1 %65, label %42, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %_ZNK6HandleclEv.exit, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
-  %storemerge.i.i28 = phi ptr [ %.0.i.i.i.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ %storemerge.i.i29, %_ZNK6HandleclEv.exit ]
-  %66 = load ptr, ptr %storemerge.i.i28, align 8
+  %storemerge.i.i32 = phi ptr [ %.0.i.i.i.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ %storemerge.i.i31, %_ZNK6HandleclEv.exit ]
+  %66 = load ptr, ptr %storemerge.i.i32, align 8
   br label %_ZNK14objArrayHandleclEv.exit
 
 _ZNK14objArrayHandleclEv.exit:                    ; preds = %42, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit.thread, %._crit_edge, %1
@@ -3940,7 +3934,7 @@ _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.us: ; preds = %_ZN11FileMa
 
 79:                                               ; preds = %78
   %80 = icmp slt i64 %indvars.iv75, %74
-  br i1 %80, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit91, label %.critedge68.us
+  br i1 %80, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit98, label %.critedge68.us
 
 .critedge68.us:                                   ; preds = %79, %65
   %81 = icmp eq i64 %indvars.iv75, 0
@@ -4000,7 +3994,7 @@ _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51: ; preds = %_ZN11FileMapIn
   %110 = sext i16 %109 to i64
   %111 = icmp slt i64 %indvars.iv, %110
   %or.cond65 = select i1 %or.cond.not67, i1 %111, i1 false
-  br i1 %or.cond65, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit, label %112
+  br i1 %or.cond65, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit, label %112
 
 112:                                              ; preds = %105
   %cond = icmp eq i64 %indvars.iv, 0
@@ -4008,7 +4002,7 @@ _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51: ; preds = %_ZN11FileMapIn
 
 113:                                              ; preds = %112
   %114 = icmp slt i64 %indvars.iv, %108
-  br i1 %114, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit87, label %.critedge68
+  br i1 %114, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit94, label %.critedge68
 
 115:                                              ; preds = %101
   %116 = icmp eq i64 %indvars.iv, 0
@@ -4029,7 +4023,7 @@ _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit53: ; preds = %120
   %123 = load i32, ptr %121, align 8
   %124 = sext i32 %123 to i64
   %125 = icmp slt i64 %indvars.iv, %124
-  br i1 %125, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit85, label %.critedge68
+  br i1 %125, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit92, label %.critedge68
 
 .critedge68:                                      ; preds = %120, %113, %117, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit53, %95
   %126 = icmp eq i64 %indvars.iv, 0
@@ -4071,24 +4065,24 @@ _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.e
   %140 = trunc i64 %indvars.iv75 to i16
   br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread
 
-_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit91: ; preds = %79
+_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit98: ; preds = %79
   %141 = trunc i64 %indvars.iv75 to i16
   br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread
 
-_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit: ; preds = %105
+_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit: ; preds = %105
   %142 = trunc i64 %indvars.iv to i16
   br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread
 
-_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit85: ; preds = %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit53
+_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit92: ; preds = %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit53
   %143 = trunc i64 %indvars.iv to i16
   br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread
 
-_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit87: ; preds = %113
+_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit94: ; preds = %113
   %144 = trunc i64 %indvars.iv to i16
   br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread
 
-_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread: ; preds = %.thread57, %_ZL18string_starts_withPKcS0_.exit, %.thread57.us, %_ZL18string_starts_withPKcS0_.exit.us, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit85, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit87, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit91, %25, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit, %.critedge
-  %.1 = phi i16 [ -1, %.critedge ], [ 0, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit ], [ 0, %25 ], [ %140, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit ], [ %141, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit91 ], [ %142, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit ], [ %143, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit85 ], [ %144, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit87 ], [ 0, %_ZL18string_starts_withPKcS0_.exit.us ], [ 0, %.thread57.us ], [ 0, %_ZL18string_starts_withPKcS0_.exit ], [ 0, %.thread57 ]
+_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread: ; preds = %.thread57, %_ZL18string_starts_withPKcS0_.exit, %.thread57.us, %_ZL18string_starts_withPKcS0_.exit.us, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit92, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit94, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit98, %25, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit, %.critedge
+  %.1 = phi i16 [ -1, %.critedge ], [ 0, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit ], [ 0, %25 ], [ %140, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit ], [ %141, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit98 ], [ %142, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit ], [ %143, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit92 ], [ %144, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit94 ], [ 0, %_ZL18string_starts_withPKcS0_.exit.us ], [ 0, %.thread57.us ], [ 0, %_ZL18string_starts_withPKcS0_.exit ], [ 0, %.thread57 ]
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %146 = load ptr, ptr %145, align 8
   %147 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %146) #21

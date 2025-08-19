@@ -865,8 +865,8 @@ _ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit: ; preds = %41, %47
   %126 = add nuw nsw i32 %112, %125
   %127 = add i32 %126, %reass.mul.i38
   %128 = add nsw i32 %.02290, -1
-  %.not99 = icmp eq i32 %.02290, 0
-  br i1 %.not99, label %.loopexit, label %99, !llvm.loop !35
+  %.not108 = icmp eq i32 %.02290, 0
+  br i1 %.not108, label %.loopexit, label %99, !llvm.loop !35
 
 _ZN5dracoL13ans_write_endEPNS_8AnsCoderE.exit:    ; preds = %87, %79, %72, %85
   %.0.i = phi i32 [ %76, %72 ], [ %84, %79 ], [ %95, %87 ], [ %.sroa.10.1.lcssa, %85 ]

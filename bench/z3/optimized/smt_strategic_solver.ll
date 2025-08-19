@@ -1299,12 +1299,12 @@ _ZN7obj_mapI4exprjED2Ev.exit.i.i.i:               ; preds = %200, %195
   unreachable
 
 _ZN3refI6tacticED2Ev.exit:                        ; preds = %147, %223, %224, %229
-  %.189 = phi ptr [ %222, %223 ], [ %222, %224 ], [ %222, %229 ], [ %146, %147 ]
+  %.1107 = phi ptr [ %222, %223 ], [ %222, %224 ], [ %222, %229 ], [ %146, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  ret ptr %.189
+  ret ptr %.1107
 
 .body:                                            ; preds = %148, %220, %81, %85, %83, %150, %135
   %.pn45 = phi { ptr, i32 } [ %151, %150 ], [ %.pn41.pn.pn, %135 ], [ %82, %81 ], [ %86, %85 ], [ %84, %83 ], [ %149, %148 ], [ %.pn.pn.pn.pn.i, %220 ]

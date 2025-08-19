@@ -440,10 +440,10 @@ kmac_derive.exit:                                 ; preds = %31, %39, %41
   br i1 %.not64.not, label %.thread, label %89
 
 .thread.sink.split:                               ; preds = %57, %50
-  %.sink75 = phi i32 [ 336, %50 ], [ 344, %57 ]
+  %.sink79 = phi i32 [ 336, %50 ], [ 344, %57 ]
   %.sink = phi i32 [ 154, %50 ], [ 105, %57 ]
   tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink75, ptr noundef nonnull @__func__.kbkdf_derive) #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink79, ptr noundef nonnull @__func__.kbkdf_derive) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #7
   br label %.thread
 

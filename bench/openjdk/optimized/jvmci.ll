@@ -963,17 +963,17 @@ switch.lookup:                                    ; preds = %14
   %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN5JVMCI6vtraceEiPKcP13__va_list_tag, i64 0, i64 %28
   %switch.load = load i64, ptr %switch.gep, align 8
   %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep34 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN5JVMCI6vtraceEiPKcP13__va_list_tag.1, i64 0, i64 %29
-  %switch.load35 = load ptr, ptr %switch.gep34, align 8
+  %switch.gep35 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN5JVMCI6vtraceEiPKcP13__va_list_tag.1, i64 0, i64 %29
+  %switch.load36 = load ptr, ptr %switch.gep35, align 8
   br label %30
 
 30:                                               ; preds = %14, %switch.lookup
-  %.sink33 = phi i64 [ %switch.load, %switch.lookup ], [ 176, %14 ]
-  %.str.16.sink = phi ptr [ %switch.load35, %switch.lookup ], [ @.str.16, %14 ]
+  %.sink34 = phi i64 [ %switch.load, %switch.lookup ], [ 176, %14 ]
+  %.str.16.sink = phi ptr [ %switch.load36, %switch.lookup ], [ @.str.16, %14 ]
   %31 = load ptr, ptr @tty, align 8
   %32 = ptrtoint ptr %8 to i64
   %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.sink33
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.sink34
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(888) %8) #13
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull %.str.16.sink, i32 noundef %0, i64 noundef %32, ptr noundef %36, i32 noundef %0, i32 noundef 32) #13

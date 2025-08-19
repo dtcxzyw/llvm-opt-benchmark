@@ -401,8 +401,8 @@ define hidden void @isis_dissect_ipv6_int_clv(ptr noundef %0, ptr noundef %1, pt
   call void @tvb_get_ipv6(ptr noundef %2, i32 noundef %.023.us, ptr noundef nonnull %8)
   %12 = add i32 %.023.us, 16
   %13 = add nsw i32 %.01722.us, -16
-  %.not38 = icmp eq i32 %.01722.us, 16
-  br i1 %.not38, label %.loopexit, label %.preheader.split.us, !llvm.loop !11
+  %.not39 = icmp eq i32 %.01722.us, 16
+  br i1 %.not39, label %.loopexit, label %.preheader.split.us, !llvm.loop !11
 
 .preheader.split:                                 ; preds = %.preheader, %16
   %.023 = phi i32 [ %18, %16 ], [ %4, %.preheader ]
@@ -421,8 +421,8 @@ define hidden void @isis_dissect_ipv6_int_clv(ptr noundef %0, ptr noundef %1, pt
   %17 = call ptr @proto_tree_add_ipv6(ptr noundef nonnull %0, i32 noundef %6, ptr noundef %2, i32 noundef %.023, i32 noundef 16, ptr noundef nonnull %8)
   %18 = add i32 %.023, 16
   %19 = add nsw i32 %.01722, -16
-  %.not37 = icmp eq i32 %.01722, 16
-  br i1 %.not37, label %.loopexit, label %.preheader.split, !llvm.loop !11
+  %.not38 = icmp eq i32 %.01722, 16
+  br i1 %.not38, label %.loopexit, label %.preheader.split, !llvm.loop !11
 
 .loopexit:                                        ; preds = %16, %11, %7, %.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

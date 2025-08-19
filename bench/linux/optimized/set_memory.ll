@@ -1157,7 +1157,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_pages_array_uc(ptr noundef %
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -22, 1) i32 @_set_pages_array(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #0 align 16 {
   %4 = icmp sgt i32 %1, 0
-  br i1 %4, label %5, label %.loopexit7
+  br i1 %4, label %5, label %.loopexit9
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %1 to i64
@@ -1179,9 +1179,9 @@ define internal fastcc noundef range(i32 -22, 1) i32 @_set_pages_array(ptr nound
 18:                                               ; preds = %7
   %19 = add nuw nsw i64 %8, 1
   %20 = icmp eq i64 %19, %6
-  br i1 %20, label %.loopexit7, label %7, !llvm.loop !36
+  br i1 %20, label %.loopexit9, label %7, !llvm.loop !36
 
-.loopexit7:                                       ; preds = %18, %3
+.loopexit9:                                       ; preds = %18, %3
   %21 = phi i32 [ 0, %3 ], [ %1, %18 ]
   %22 = icmp eq i32 %2, 1
   %23 = select i1 %22, i32 2, i32 %2
@@ -1191,13 +1191,13 @@ define internal fastcc noundef range(i32 -22, 1) i32 @_set_pages_array(ptr nound
   %27 = and i1 %22, %26
   br i1 %27, label %28, label %31
 
-28:                                               ; preds = %.loopexit7
+28:                                               ; preds = %.loopexit9
   %29 = tail call i64 @cachemode2protval(i32 noundef 1) #11
   %30 = tail call fastcc i32 @change_page_attr_set_clr(ptr noundef null, i32 noundef %1, i64 %29, i64 152, i32 noundef 0, i32 noundef 4, ptr noundef %0)
   br label %31
 
-31:                                               ; preds = %28, %.loopexit7
-  %32 = phi i32 [ %30, %28 ], [ %25, %.loopexit7 ]
+31:                                               ; preds = %28, %.loopexit9
+  %32 = phi i32 [ %30, %28 ], [ %25, %.loopexit9 ]
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %.loopexit, label %36
 
@@ -1750,12 +1750,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
   br label %168
 
 168:                                              ; preds = %165, %167
-  %.sink99 = phi i64 [ -4503598553628673, %167 ], [ -4503599625273345, %165 ]
-  %.sink90 = phi i64 [ 4503598553628672, %167 ], [ 4503599625273344, %165 ]
+  %.sink120 = phi i64 [ -4503598553628673, %167 ], [ -4503599625273345, %165 ]
+  %.sink111 = phi i64 [ 4503598553628672, %167 ], [ 4503599625273344, %165 ]
   %169 = load i64, ptr %95, align 8
   %170 = and i64 %169, 128
   %171 = icmp eq i64 %170, 0
-  %172 = select i1 %171, i64 -4503599627366401, i64 %.sink99
+  %172 = select i1 %171, i64 -4503599627366401, i64 %.sink120
   %173 = and i64 %172, %169
   %174 = icmp ne i64 %169, 0
   %175 = and i64 %169, 1
@@ -1763,7 +1763,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
   %177 = and i1 %174, %176
   %178 = sext i1 %177 to i64
   %179 = xor i64 %169, %178
-  %180 = select i1 %171, i64 4503599627366400, i64 %.sink90
+  %180 = select i1 %171, i64 4503599627366400, i64 %.sink111
   %181 = and i64 %179, %180
   %182 = lshr exact i64 %181, 12
   %183 = mul nuw nsw i32 %166, 9

@@ -252,7 +252,7 @@ Curl_ipv6_scope.exit.us:                          ; preds = %.thread.i.us, %84, 
   br label %91
 
 91:                                               ; preds = %.thread56.us, %24, %20, %18, %.lr.ph.split.us
-  %.5.us = phi i32 [ %.13470.us, %24 ], [ %.13470.us, %18 ], [ %.13470.us, %.lr.ph.split.us ], [ %spec.select.us, %20 ], [ 1, %.thread56.us ]
+  %.5.us = phi i32 [ %.13470.us, %24 ], [ 1, %18 ], [ %.13470.us, %.lr.ph.split.us ], [ %spec.select.us, %20 ], [ 1, %.thread56.us ]
   %.032.us = load ptr, ptr %.03271.us, align 8, !tbaa !9
   %.not.us = icmp eq ptr %.032.us, null
   br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !21
@@ -317,7 +317,7 @@ Curl_ipv6_scope.exit.us:                          ; preds = %.thread.i.us, %84, 
   br label %117
 
 117:                                              ; preds = %113, %.lr.ph.split, %111, %98
-  %.5 = phi i32 [ %.13470, %98 ], [ %.13470, %111 ], [ %.13470, %.lr.ph.split ], [ %spec.select, %113 ]
+  %.5 = phi i32 [ %.13470, %98 ], [ 1, %111 ], [ %.13470, %.lr.ph.split ], [ %spec.select, %113 ]
   %.032 = load ptr, ptr %.03271, align 8, !tbaa !9
   %.not = icmp eq ptr %.032, null
   br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !21

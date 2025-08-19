@@ -245,8 +245,8 @@ define internal i32 @archive_filter_uuencode_write(ptr noundef readonly captures
   br i1 %19, label %.loopexit, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.1.lcssa75 = phi ptr [ %14, %._crit_edge ], [ %1, %.preheader ]
-  %.143.lcssa74 = phi i64 [ %18, %._crit_edge ], [ %2, %.preheader ]
+  %.1.lcssa78 = phi ptr [ %14, %._crit_edge ], [ %1, %.preheader ]
+  %.143.lcssa77 = phi i64 [ %18, %._crit_edge ], [ %2, %.preheader ]
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 72
   tail call fastcc void @uu_encode(ptr noundef nonnull %22, ptr noundef nonnull %23, i64 noundef 45)
@@ -254,8 +254,8 @@ define internal i32 @archive_filter_uuencode_write(ptr noundef readonly captures
   br label %24
 
 24:                                               ; preds = %._crit_edge.thread, %7
-  %.042 = phi i64 [ %.143.lcssa74, %._crit_edge.thread ], [ %2, %7 ]
-  %.040 = phi ptr [ %.1.lcssa75, %._crit_edge.thread ], [ %1, %7 ]
+  %.042 = phi i64 [ %.143.lcssa77, %._crit_edge.thread ], [ %2, %7 ]
+  %.040 = phi ptr [ %.1.lcssa78, %._crit_edge.thread ], [ %1, %7 ]
   %25 = icmp ugt i64 %.042, 44
   br i1 %25, label %.lr.ph57, label %._crit_edge58
 
@@ -432,18 +432,18 @@ define internal fastcc void @uu_encode(ptr noundef %0, ptr noundef readonly capt
   br i1 %.not48, label %55, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %3, %._crit_edge
-  %.0.lcssa80 = phi i64 [ %33, %._crit_edge ], [ %2, %3 ]
-  %.047.lcssa79 = phi ptr [ %32, %._crit_edge ], [ %1, %3 ]
-  %35 = load i8, ptr %.047.lcssa79, align 1, !tbaa !31
+  %.0.lcssa81 = phi i64 [ %33, %._crit_edge ], [ %2, %3 ]
+  %.047.lcssa80 = phi ptr [ %32, %._crit_edge ], [ %1, %3 ]
+  %35 = load i8, ptr %.047.lcssa80, align 1, !tbaa !31
   %36 = lshr i8 %35, 2
   %.not49 = icmp ult i8 %35, 4
   %narrow = add nuw nsw i8 %36, 32
   %narrow50 = select i1 %.not49, i8 96, i8 %narrow
   %37 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %narrow50) #6
-  %38 = load i8, ptr %.047.lcssa79, align 1, !tbaa !31
+  %38 = load i8, ptr %.047.lcssa80, align 1, !tbaa !31
   %39 = shl i8 %38, 4
   %40 = and i8 %39, 48
-  %41 = icmp eq i64 %.0.lcssa80, 1
+  %41 = icmp eq i64 %.0.lcssa81, 1
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %._crit_edge.thread
@@ -454,7 +454,7 @@ define internal fastcc void @uu_encode(ptr noundef %0, ptr noundef readonly capt
   br label %.sink.split
 
 44:                                               ; preds = %._crit_edge.thread
-  %45 = getelementptr inbounds nuw i8, ptr %.047.lcssa79, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %.047.lcssa80, i64 1
   %46 = load i8, ptr %45, align 1, !tbaa !31
   %47 = lshr i8 %46, 4
   %48 = or disjoint i8 %47, %40

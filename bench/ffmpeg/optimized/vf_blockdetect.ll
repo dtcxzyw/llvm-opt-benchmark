@@ -165,7 +165,7 @@ define internal i32 @blockdetect_filter_frame(ptr noundef readonly captures(none
   %71 = mul nsw i64 %indvars.iv364.i, %69
   %72 = mul nuw nsw i64 %indvars.iv364.i, %70
   %invariant.gep.i = getelementptr i8, ptr %63, i64 %71
-  %invariant.gep396.i = getelementptr float, ptr %12, i64 %72
+  %invariant.gep402.i = getelementptr float, ptr %12, i64 %72
   br label %73
 
 73:                                               ; preds = %73, %.preheader321.us.i
@@ -179,8 +179,8 @@ define internal i32 @blockdetect_filter_frame(ptr noundef readonly captures(none
   %79 = sub nsw i32 %75, %78
   %80 = tail call i32 @llvm.abs.i32(i32 %79, i1 true)
   %81 = uitofp nneg i32 %80 to float
-  %gep397.i = getelementptr float, ptr %invariant.gep396.i, i64 %indvars.iv.i
-  store float %81, ptr %gep397.i, align 4, !tbaa !50
+  %gep403.i = getelementptr float, ptr %invariant.gep402.i, i64 %indvars.iv.i
+  store float %81, ptr %gep403.i, align 4, !tbaa !50
   %82 = load i8, ptr %76, align 1, !tbaa !49
   %83 = zext i8 %82 to i32
   %84 = getelementptr i8, ptr %gep.i, i64 2
@@ -225,7 +225,7 @@ define internal i32 @blockdetect_filter_frame(ptr noundef readonly captures(none
   %123 = fcmp nsz olt float %122, 1.000000e+00
   %124 = select nsz i1 %123, float 1.000000e+00, float %122
   %125 = fdiv nsz float %81, %124
-  store float %125, ptr %gep397.i, align 4, !tbaa !50
+  store float %125, ptr %gep403.i, align 4, !tbaa !50
   %126 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv.i
   %127 = load float, ptr %126, align 4, !tbaa !50
   %128 = fadd nsz float %127, %125
@@ -353,66 +353,66 @@ define internal i32 @blockdetect_filter_frame(ptr noundef readonly captures(none
   %184 = mul nsw i64 %183, %168
   %185 = getelementptr inbounds nuw float, ptr %12, i64 %172
   %.promoted.us.i = load float, ptr %185, align 4, !tbaa !50
-  %invariant.gep398.i = getelementptr i8, ptr %63, i64 %170
-  %invariant.gep400.i = getelementptr i8, ptr %63, i64 %171
-  %invariant.gep404.i = getelementptr i8, ptr %63, i64 %174
-  %invariant.gep406.i = getelementptr i8, ptr %63, i64 %176
-  %invariant.gep408.i = getelementptr i8, ptr %63, i64 %178
-  %invariant.gep410.i = getelementptr i8, ptr %63, i64 %180
-  %invariant.gep412.i = getelementptr i8, ptr %63, i64 %182
-  %invariant.gep414.i = getelementptr i8, ptr %63, i64 %184
+  %invariant.gep404.i = getelementptr i8, ptr %63, i64 %170
+  %invariant.gep406.i = getelementptr i8, ptr %63, i64 %171
+  %invariant.gep410.i = getelementptr i8, ptr %63, i64 %174
+  %invariant.gep412.i = getelementptr i8, ptr %63, i64 %176
+  %invariant.gep414.i = getelementptr i8, ptr %63, i64 %178
+  %invariant.gep416.i = getelementptr i8, ptr %63, i64 %180
+  %invariant.gep418.i = getelementptr i8, ptr %63, i64 %182
+  %invariant.gep420.i = getelementptr i8, ptr %63, i64 %184
   br label %186
 
 186:                                              ; preds = %186, %.preheader318.us.i
   %indvars.iv375.i = phi i64 [ 1, %.preheader318.us.i ], [ %indvars.iv.next376.i, %186 ]
   %187 = phi float [ %.promoted.us.i, %.preheader318.us.i ], [ %233, %186 ]
-  %gep399.i = getelementptr i8, ptr %invariant.gep398.i, i64 %indvars.iv375.i
-  %188 = load i8, ptr %gep399.i, align 1, !tbaa !49
+  %gep405.i = getelementptr i8, ptr %invariant.gep404.i, i64 %indvars.iv375.i
+  %188 = load i8, ptr %gep405.i, align 1, !tbaa !49
   %189 = zext i8 %188 to i32
-  %gep401.i = getelementptr i8, ptr %invariant.gep400.i, i64 %indvars.iv375.i
-  %190 = load i8, ptr %gep401.i, align 1, !tbaa !49
+  %gep407.i = getelementptr i8, ptr %invariant.gep406.i, i64 %indvars.iv375.i
+  %190 = load i8, ptr %gep407.i, align 1, !tbaa !49
   %191 = zext i8 %190 to i32
   %192 = sub nsw i32 %189, %191
   %193 = tail call i32 @llvm.abs.i32(i32 %192, i1 true)
   %194 = uitofp nneg i32 %193 to float
-  %gep403.i = getelementptr float, ptr %185, i64 %indvars.iv375.i
-  store float %194, ptr %gep403.i, align 4, !tbaa !50
-  %195 = load i8, ptr %gep401.i, align 1, !tbaa !49
+  %gep409.i = getelementptr float, ptr %185, i64 %indvars.iv375.i
+  store float %194, ptr %gep409.i, align 4, !tbaa !50
+  %195 = load i8, ptr %gep407.i, align 1, !tbaa !49
   %196 = zext i8 %195 to i32
-  %gep405.i = getelementptr i8, ptr %invariant.gep404.i, i64 %indvars.iv375.i
-  %197 = load i8, ptr %gep405.i, align 1, !tbaa !49
+  %gep411.i = getelementptr i8, ptr %invariant.gep410.i, i64 %indvars.iv375.i
+  %197 = load i8, ptr %gep411.i, align 1, !tbaa !49
   %198 = zext i8 %197 to i32
   %199 = sub nsw i32 %196, %198
   %200 = tail call i32 @llvm.abs.i32(i32 %199, i1 true)
-  %gep407.i = getelementptr i8, ptr %invariant.gep406.i, i64 %indvars.iv375.i
-  %201 = load i8, ptr %gep407.i, align 1, !tbaa !49
+  %gep413.i = getelementptr i8, ptr %invariant.gep412.i, i64 %indvars.iv375.i
+  %201 = load i8, ptr %gep413.i, align 1, !tbaa !49
   %202 = zext i8 %201 to i32
   %203 = sub nsw i32 %198, %202
   %204 = tail call i32 @llvm.abs.i32(i32 %203, i1 true)
   %205 = add nuw nsw i32 %204, %200
-  %gep409.i = getelementptr i8, ptr %invariant.gep408.i, i64 %indvars.iv375.i
-  %206 = load i8, ptr %gep409.i, align 1, !tbaa !49
+  %gep415.i = getelementptr i8, ptr %invariant.gep414.i, i64 %indvars.iv375.i
+  %206 = load i8, ptr %gep415.i, align 1, !tbaa !49
   %207 = zext i8 %206 to i32
   %208 = sub nsw i32 %202, %207
   %209 = tail call i32 @llvm.abs.i32(i32 %208, i1 true)
   %210 = add nuw nsw i32 %205, %209
-  %211 = load i8, ptr %gep399.i, align 1, !tbaa !49
+  %211 = load i8, ptr %gep405.i, align 1, !tbaa !49
   %212 = zext i8 %211 to i32
-  %gep411.i = getelementptr i8, ptr %invariant.gep410.i, i64 %indvars.iv375.i
-  %213 = load i8, ptr %gep411.i, align 1, !tbaa !49
+  %gep417.i = getelementptr i8, ptr %invariant.gep416.i, i64 %indvars.iv375.i
+  %213 = load i8, ptr %gep417.i, align 1, !tbaa !49
   %214 = zext i8 %213 to i32
   %215 = sub nsw i32 %212, %214
   %216 = tail call i32 @llvm.abs.i32(i32 %215, i1 true)
   %217 = add nuw nsw i32 %210, %216
-  %gep413.i = getelementptr i8, ptr %invariant.gep412.i, i64 %indvars.iv375.i
-  %218 = load i8, ptr %gep413.i, align 1, !tbaa !49
+  %gep419.i = getelementptr i8, ptr %invariant.gep418.i, i64 %indvars.iv375.i
+  %218 = load i8, ptr %gep419.i, align 1, !tbaa !49
   %219 = zext i8 %218 to i32
   %220 = sub nsw i32 %214, %219
   %221 = tail call i32 @llvm.abs.i32(i32 %220, i1 true)
   %222 = add nuw nsw i32 %217, %221
   %223 = uitofp nneg i32 %222 to float
-  %gep415.i = getelementptr i8, ptr %invariant.gep414.i, i64 %indvars.iv375.i
-  %224 = load i8, ptr %gep415.i, align 1, !tbaa !49
+  %gep421.i = getelementptr i8, ptr %invariant.gep420.i, i64 %indvars.iv375.i
+  %224 = load i8, ptr %gep421.i, align 1, !tbaa !49
   %225 = zext i8 %224 to i32
   %226 = sub nsw i32 %219, %225
   %227 = tail call i32 @llvm.abs.i32(i32 %226, i1 true)
@@ -421,7 +421,7 @@ define internal i32 @blockdetect_filter_frame(ptr noundef readonly captures(none
   %230 = fcmp nsz olt float %229, 1.000000e+00
   %231 = select nsz i1 %230, float 1.000000e+00, float %229
   %232 = fdiv nsz float %194, %231
-  store float %232, ptr %gep403.i, align 4, !tbaa !50
+  store float %232, ptr %gep409.i, align 4, !tbaa !50
   %233 = fadd nsz float %187, %232
   store float %233, ptr %185, align 4, !tbaa !50
   %indvars.iv.next376.i = add nuw nsw i64 %indvars.iv375.i, 1

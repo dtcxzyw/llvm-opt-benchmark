@@ -1188,7 +1188,7 @@ X11_MessageBoxCreateWindow.exit:                  ; preds = %306
 
 565:                                              ; preds = %562
   %.pr.i26 = load i32, ptr %5, align 8
-  switch i32 %.pr.i26, label %.thread125.i.loopexit97 [
+  switch i32 %.pr.i26, label %.thread125.i.loopexit136 [
     i32 12, label %.thread.i33
     i32 9, label %.thread125.i
     i32 10, label %566
@@ -1469,13 +1469,13 @@ GetHitButtonIndex.exit113.thread.i:               ; preds = %667, %670, %GetHitB
   %678 = icmp slt i32 %677, 1
   br i1 %678, label %.thread125.i, label %X11_MessageBoxDraw.exit.i.thread
 
-.thread125.i.loopexit97:                          ; preds = %565
+.thread125.i.loopexit136:                         ; preds = %565
   br label %.thread125.i
 
-.thread125.i:                                     ; preds = %.thread.i33, %GetHitButtonIndex.exit.i, %567, %611, %565, %.thread125.i.loopexit97, %GetHitButtonIndex.exit113.thread.i, %GetHitButtonIndex.exit99.i, %620, %616, %.preheader.i, %607, %602, %599, %595, %589, %566
-  %.2132.i = phi i1 [ false, %607 ], [ true, %616 ], [ false, %602 ], [ %598, %595 ], [ %.8.i, %GetHitButtonIndex.exit113.thread.i ], [ false, %620 ], [ false, %GetHitButtonIndex.exit99.i ], [ false, %599 ], [ false, %589 ], [ false, %566 ], [ false, %.preheader.i ], [ false, %565 ], [ false, %611 ], [ false, %567 ], [ false, %GetHitButtonIndex.exit.i ], [ false, %.thread.i33 ], [ false, %.thread125.i.loopexit97 ]
-  %.264131.i = phi i1 [ %.062139.i, %607 ], [ %.062139.i, %616 ], [ %.062139.i, %602 ], [ %.062139.i, %595 ], [ %.062139.i, %GetHitButtonIndex.exit113.thread.i ], [ %.062139.i, %620 ], [ %.062139.i, %GetHitButtonIndex.exit99.i ], [ %.062139.i, %599 ], [ %.062139.i, %589 ], [ false, %566 ], [ %.062139.i, %.preheader.i ], [ true, %565 ], [ %.062139.i, %611 ], [ false, %567 ], [ true, %GetHitButtonIndex.exit.i ], [ %.062139.i, %.thread.i33 ], [ %.062139.i, %.thread125.i.loopexit97 ]
-  %.268130.i = phi i64 [ %.066138.i.ph, %607 ], [ %.066138.i.ph, %616 ], [ %.066138.i.ph, %602 ], [ %.066138.i.ph, %595 ], [ %.066138.i.ph, %GetHitButtonIndex.exit113.thread.i ], [ %.066138.i.ph, %620 ], [ %.066138.i.ph, %GetHitButtonIndex.exit99.i ], [ %601, %599 ], [ %.066138.i.ph, %589 ], [ %.066138.i.ph, %566 ], [ %.066138.i.ph, %.preheader.i ], [ %.066138.i.ph, %565 ], [ %.066138.i.ph, %611 ], [ %.066138.i.ph, %567 ], [ %.066138.i.ph, %GetHitButtonIndex.exit.i ], [ %.066138.i.ph, %.thread.i33 ], [ %.066138.i.ph, %.thread125.i.loopexit97 ]
+.thread125.i:                                     ; preds = %.thread.i33, %GetHitButtonIndex.exit.i, %567, %611, %565, %.thread125.i.loopexit136, %GetHitButtonIndex.exit113.thread.i, %GetHitButtonIndex.exit99.i, %620, %616, %.preheader.i, %607, %602, %599, %595, %589, %566
+  %.2132.i = phi i1 [ false, %607 ], [ true, %616 ], [ false, %602 ], [ %598, %595 ], [ %.8.i, %GetHitButtonIndex.exit113.thread.i ], [ false, %620 ], [ false, %GetHitButtonIndex.exit99.i ], [ false, %599 ], [ false, %589 ], [ false, %566 ], [ false, %.preheader.i ], [ false, %565 ], [ false, %611 ], [ false, %567 ], [ false, %GetHitButtonIndex.exit.i ], [ false, %.thread.i33 ], [ false, %.thread125.i.loopexit136 ]
+  %.264131.i = phi i1 [ %.062139.i, %607 ], [ %.062139.i, %616 ], [ %.062139.i, %602 ], [ %.062139.i, %595 ], [ %.062139.i, %GetHitButtonIndex.exit113.thread.i ], [ %.062139.i, %620 ], [ %.062139.i, %GetHitButtonIndex.exit99.i ], [ %.062139.i, %599 ], [ %.062139.i, %589 ], [ false, %566 ], [ %.062139.i, %.preheader.i ], [ true, %565 ], [ %.062139.i, %611 ], [ false, %567 ], [ true, %GetHitButtonIndex.exit.i ], [ %.062139.i, %.thread.i33 ], [ %.062139.i, %.thread125.i.loopexit136 ]
+  %.268130.i = phi i64 [ %.066138.i.ph, %607 ], [ %.066138.i.ph, %616 ], [ %.066138.i.ph, %602 ], [ %.066138.i.ph, %595 ], [ %.066138.i.ph, %GetHitButtonIndex.exit113.thread.i ], [ %.066138.i.ph, %620 ], [ %.066138.i.ph, %GetHitButtonIndex.exit99.i ], [ %601, %599 ], [ %.066138.i.ph, %589 ], [ %.066138.i.ph, %566 ], [ %.066138.i.ph, %.preheader.i ], [ %.066138.i.ph, %565 ], [ %.066138.i.ph, %611 ], [ %.066138.i.ph, %567 ], [ %.066138.i.ph, %GetHitButtonIndex.exit.i ], [ %.066138.i.ph, %.thread.i33 ], [ %.066138.i.ph, %.thread125.i.loopexit136 ]
   %679 = load i64, ptr %321, align 8
   %680 = load ptr, ptr %29, align 8
   %681 = load i32, ptr @SDL_X11_HAVE_XDBE, align 4

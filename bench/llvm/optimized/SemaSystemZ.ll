@@ -159,13 +159,13 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %28
   %32 = zext nneg i32 %31 to i64
   %33 = shl i64 %30, %32
   %34 = icmp sgt i64 %33, -1
-  br i1 %34, label %.thread, label %.thread30
+  br i1 %34, label %.thread, label %.thread35
 
 _ZNK4llvm5APInt12getSExtValueEv.exit.thread24:    ; preds = %24
   %35 = load ptr, ptr %7, align 8, !tbaa !16
   %36 = load i64, ptr %35, align 8, !tbaa !17
   %37 = icmp sgt i64 %36, -1
-  br i1 %37, label %_ZNK4llvm5APInt12getSExtValueEv.exit21, label %.thread30
+  br i1 %37, label %_ZNK4llvm5APInt12getSExtValueEv.exit21, label %.thread35
 
 .thread:                                          ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit
   %38 = lshr exact i64 %33, %32
@@ -174,7 +174,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit.thread24:    ; preds = %24
 _ZNK4llvm5APInt12getSExtValueEv.exit21:           ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit.thread24, %.thread
   %.0.i19 = phi i64 [ %38, %.thread ], [ %36, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread24 ]
   %39 = icmp samesign ult i64 %.0.i19, 256
-  br i1 %39, label %_ZNK4llvm5APInt12getSExtValueEv.exit21.thread, label %.thread30
+  br i1 %39, label %_ZNK4llvm5APInt12getSExtValueEv.exit21.thread, label %.thread35
 
 _ZNK4llvm5APInt12getSExtValueEv.exit21.thread:    ; preds = %28, %_ZNK4llvm5APInt12getSExtValueEv.exit21
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -242,17 +242,17 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %56, %
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre = load i8, ptr %21, align 8, !tbaa !8, !range !11
   %70 = trunc nuw i8 %.pre to i1
-  br i1 %70, label %.thread30, label %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit
+  br i1 %70, label %.thread35, label %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit
 
-.thread30:                                        ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit.thread24, %_ZNK4llvm5APInt12getSExtValueEv.exit21, %_ZNK4llvm5APInt12getSExtValueEv.exit, %67
-  %not.switch33 = phi i1 [ %69, %67 ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit21 ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread24 ]
+.thread35:                                        ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit.thread24, %_ZNK4llvm5APInt12getSExtValueEv.exit21, %_ZNK4llvm5APInt12getSExtValueEv.exit, %67
+  %not.switch38 = phi i1 [ %69, %67 ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit21 ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread24 ]
   store i8 0, ptr %21, align 8, !tbaa !8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %72 = load i32, ptr %71, align 8, !tbaa !13
   %73 = icmp ugt i32 %72, 64
   br i1 %73, label %74, label %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit
 
-74:                                               ; preds = %.thread30
+74:                                               ; preds = %.thread35
   %75 = load ptr, ptr %7, align 8, !tbaa !16
   %76 = icmp eq ptr %75, null
   br i1 %76, label %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit, label %77
@@ -261,8 +261,8 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %56, %
   call void @_ZdaPv(ptr noundef nonnull %75) #12
   br label %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit
 
-_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit: ; preds = %9, %67, %.thread30, %74, %77
-  %not.switch32 = phi i1 [ %69, %67 ], [ %not.switch33, %.thread30 ], [ %not.switch33, %74 ], [ %not.switch33, %77 ], [ false, %9 ]
+_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit: ; preds = %9, %67, %.thread35, %74, %77
+  %not.switch37 = phi i1 [ %69, %67 ], [ %not.switch38, %.thread35 ], [ %not.switch38, %74 ], [ %not.switch38, %77 ], [ false, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread29
 
@@ -299,7 +299,7 @@ _ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit: ; preds = %9, %67, %.thr
   br label %.thread29
 
 .thread29:                                        ; preds = %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit, %3, %89, %83, %80
-  %.1 = phi i1 [ %91, %89 ], [ true, %80 ], [ %85, %83 ], [ %not.switch32, %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit ], [ false, %3 ]
+  %.1 = phi i1 [ %91, %89 ], [ true, %80 ], [ %85, %83 ], [ %not.switch37, %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit ], [ false, %3 ]
   ret i1 %.1
 }
 

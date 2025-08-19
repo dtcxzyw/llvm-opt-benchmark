@@ -495,16 +495,16 @@ id3v2_dissect_textz_item.exit.i.i:                ; preds = %84, %switch.lookup
   %95 = load ptr, ptr %45, align 8
   %96 = load i32, ptr @hf_id3v2_frame_text_value, align 4
   %97 = icmp ult i8 %80, 3
-  br i1 %97, label %switch.lookup52, label %dissect_id3v2_text_frame.exit.i
+  br i1 %97, label %switch.lookup53, label %dissect_id3v2_text_frame.exit.i
 
-switch.lookup52:                                  ; preds = %94
+switch.lookup53:                                  ; preds = %94
   %98 = zext nneg i8 %80 to i64
-  %switch.gep53 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_id3v2.5, i64 0, i64 %98
-  %switch.load54 = load i32, ptr %switch.gep53, align 4
+  %switch.gep54 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_id3v2.5, i64 0, i64 %98
+  %switch.load55 = load i32, ptr %switch.gep54, align 4
   br label %dissect_id3v2_text_frame.exit.i
 
-dissect_id3v2_text_frame.exit.i:                  ; preds = %94, %switch.lookup52
-  %.0.i.i18.i.i = phi i32 [ %switch.load54, %switch.lookup52 ], [ 2, %94 ]
+dissect_id3v2_text_frame.exit.i:                  ; preds = %94, %switch.lookup53
+  %.0.i.i18.i.i = phi i32 [ %switch.load55, %switch.lookup53 ], [ 2, %94 ]
   %99 = add i32 %.0103.i, %75
   %100 = sub i32 %99, %.0.i.i
   %101 = call ptr @tvb_get_string_enc(ptr noundef %95, ptr noundef %29, i32 noundef %.0.i.i, i32 noundef %100, i32 noundef %.0.i.i18.i.i)
@@ -576,16 +576,16 @@ dissect_id3v2_text_frame.exit.i:                  ; preds = %94, %switch.lookup5
   %137 = load i32, ptr @hf_id3v2_frame_apic_mime_type, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %138 = icmp ult i8 %132, 3
-  br i1 %138, label %switch.lookup55, label %id3v2_dissect_textz_item.exit.i112.i
+  br i1 %138, label %switch.lookup56, label %id3v2_dissect_textz_item.exit.i112.i
 
-switch.lookup55:                                  ; preds = %131
+switch.lookup56:                                  ; preds = %131
   %139 = zext nneg i8 %132 to i64
-  %switch.gep56 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_id3v2.5, i64 0, i64 %139
-  %switch.load57 = load i32, ptr %switch.gep56, align 4
+  %switch.gep57 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_id3v2.5, i64 0, i64 %139
+  %switch.load58 = load i32, ptr %switch.gep57, align 4
   br label %id3v2_dissect_textz_item.exit.i112.i
 
-id3v2_dissect_textz_item.exit.i112.i:             ; preds = %131, %switch.lookup55
-  %.0.i.i.i113.i = phi i32 [ %switch.load57, %switch.lookup55 ], [ 2, %131 ]
+id3v2_dissect_textz_item.exit.i112.i:             ; preds = %131, %switch.lookup56
+  %.0.i.i.i113.i = phi i32 [ %switch.load58, %switch.lookup56 ], [ 2, %131 ]
   %140 = call ptr @tvb_get_stringz_enc(ptr noundef %136, ptr noundef %29, i32 noundef %135, ptr noundef nonnull %7, i32 noundef %.0.i.i.i113.i)
   %141 = load i32, ptr %7, align 4
   %142 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %137, ptr noundef %29, i32 noundef %135, i32 noundef %141, i32 noundef %.0.i.i.i113.i)
@@ -598,16 +598,16 @@ id3v2_dissect_textz_item.exit.i112.i:             ; preds = %131, %switch.lookup
   %148 = load i32, ptr @hf_id3v2_frame_apic_description, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %149 = icmp ult i8 %132, 3
-  br i1 %149, label %switch.lookup58, label %dissect_id3v2_apic_frame.exit.i
+  br i1 %149, label %switch.lookup59, label %dissect_id3v2_apic_frame.exit.i
 
-switch.lookup58:                                  ; preds = %id3v2_dissect_textz_item.exit.i112.i
+switch.lookup59:                                  ; preds = %id3v2_dissect_textz_item.exit.i112.i
   %150 = zext nneg i8 %132 to i64
-  %switch.gep59 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_id3v2.5, i64 0, i64 %150
-  %switch.load60 = load i32, ptr %switch.gep59, align 4
+  %switch.gep60 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_id3v2.5, i64 0, i64 %150
+  %switch.load61 = load i32, ptr %switch.gep60, align 4
   br label %dissect_id3v2_apic_frame.exit.i
 
-dissect_id3v2_apic_frame.exit.i:                  ; preds = %id3v2_dissect_textz_item.exit.i112.i, %switch.lookup58
-  %.0.i.i19.i.i = phi i32 [ %switch.load60, %switch.lookup58 ], [ 2, %id3v2_dissect_textz_item.exit.i112.i ]
+dissect_id3v2_apic_frame.exit.i:                  ; preds = %id3v2_dissect_textz_item.exit.i112.i, %switch.lookup59
+  %.0.i.i19.i.i = phi i32 [ %switch.load61, %switch.lookup59 ], [ 2, %id3v2_dissect_textz_item.exit.i112.i ]
   %151 = add i32 %144, 1
   %152 = add i32 %.0103.i, %75
   %153 = call ptr @tvb_get_stringz_enc(ptr noundef %147, ptr noundef %29, i32 noundef %151, ptr noundef nonnull %6, i32 noundef %.0.i.i19.i.i)
@@ -638,16 +638,16 @@ dissect_id3v2_apic_frame.exit.i:                  ; preds = %id3v2_dissect_textz
   %172 = load i32, ptr @hf_id3v2_frame_comment_description, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %173 = icmp ult i8 %165, 3
-  br i1 %173, label %switch.lookup61, label %dissect_id3v2_comment_frame.exit.i
+  br i1 %173, label %switch.lookup62, label %dissect_id3v2_comment_frame.exit.i
 
-switch.lookup61:                                  ; preds = %164
+switch.lookup62:                                  ; preds = %164
   %174 = zext nneg i8 %165 to i64
-  %switch.gep62 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_id3v2.5, i64 0, i64 %174
-  %switch.load63 = load i32, ptr %switch.gep62, align 4
+  %switch.gep63 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_id3v2.5, i64 0, i64 %174
+  %switch.load64 = load i32, ptr %switch.gep63, align 4
   br label %dissect_id3v2_comment_frame.exit.i
 
-dissect_id3v2_comment_frame.exit.i:               ; preds = %164, %switch.lookup61
-  %.sink.i.i = phi i32 [ %switch.load63, %switch.lookup61 ], [ 2, %164 ]
+dissect_id3v2_comment_frame.exit.i:               ; preds = %164, %switch.lookup62
+  %.sink.i.i = phi i32 [ %switch.load64, %switch.lookup62 ], [ 2, %164 ]
   %175 = add i32 %.04451, 14
   %176 = call ptr @tvb_get_stringz_enc(ptr noundef %171, ptr noundef %29, i32 noundef %175, ptr noundef nonnull %5, i32 noundef %.sink.i.i)
   %177 = load i32, ptr %5, align 4

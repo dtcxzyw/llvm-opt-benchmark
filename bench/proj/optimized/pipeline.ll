@@ -425,7 +425,7 @@ _ZL13set_ellipsoidP8PJconsts.exit:                ; preds = %129, %130
   br i1 %132, label %.lr.ph391, label %._crit_edge392
 
 .lr.ph391:                                        ; preds = %_ZL13set_ellipsoidP8PJconsts.exit
-  %.1250375 = add i32 %.0238.lcssa, 1
+  %.1250375 = add nuw i32 %.0238.lcssa, 1
   %133 = sext i32 %.1250375 to i64
   %134 = getelementptr inbounds ptr, ptr %46, i64 %133
   %135 = getelementptr inbounds nuw i8, ptr %42, i64 16

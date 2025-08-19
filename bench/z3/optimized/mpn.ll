@@ -233,8 +233,8 @@ define hidden noundef zeroext i1 @_ZNK11mpn_manager3mulEPKjjS1_jPj(ptr noundef n
   %7 = zext i32 %2 to i64
   %8 = shl nuw nsw i64 %7, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 %8, i1 false), !tbaa !3
-  %.not5570 = icmp eq i32 %4, 0
-  br i1 %.not5570, label %._crit_edge54, label %.lr.ph53.split.us.preheader
+  %.not5572 = icmp eq i32 %4, 0
+  br i1 %.not5572, label %._crit_edge54, label %.lr.ph53.split.us.preheader
 
 .lr.ph53.split.us.preheader:                      ; preds = %.preheader47.thread
   %wide.trip.count63 = zext i32 %4 to i64
@@ -275,8 +275,8 @@ define hidden noundef zeroext i1 @_ZNK11mpn_manager3mulEPKjjS1_jPj(ptr noundef n
 
 26:                                               ; preds = %.lr.ph53.split.us, %._crit_edge.us
   %.sink = phi i32 [ %31, %._crit_edge.us ], [ 0, %.lr.ph53.split.us ]
-  %.sink75 = trunc i64 %indvars.iv60 to i32
-  %27 = add i32 %2, %.sink75
+  %.sink77 = trunc i64 %indvars.iv60 to i32
+  %27 = add i32 %2, %.sink77
   %28 = zext i32 %27 to i64
   %29 = getelementptr inbounds nuw i32, ptr %5, i64 %28
   store i32 %.sink, ptr %29, align 4, !tbaa !3
@@ -1161,7 +1161,7 @@ _ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit:          ; preds = %_ZN6bufferIjLb0ELj1
   %45 = zext i32 %44 to i64
   %46 = add i32 %11, -2
   %47 = zext i32 %46 to i64
-  %.not5570.i = icmp eq i32 %11, 0
+  %.not5572.i = icmp eq i32 %11, 0
   %wide.trip.count63.i = zext i32 %11 to i64
   %.not.i = icmp eq i32 %12, 0
   %48 = zext i32 %12 to i64
@@ -1233,7 +1233,7 @@ _ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit:          ; preds = %_ZN6bufferIjLb0ELj1
   %95 = trunc i64 %.1 to i32
   %96 = load ptr, ptr %5, align 8, !tbaa !16
   store i32 0, ptr %96, align 4
-  br i1 %.not5570.i, label %.lr.ph.preheader.i, label %.lr.ph53.split.us.preheader.i
+  br i1 %.not5572.i, label %.lr.ph.preheader.i, label %.lr.ph53.split.us.preheader.i
 
 .lr.ph53.split.us.preheader.i:                    ; preds = %94
   %97 = and i64 %.1, 4294967295
@@ -1937,24 +1937,24 @@ _ZNK11mpn_manager15div_unnormalizeER7sbufferIjLj16EES2_jPj.exit: ; preds = %.lr.
 .lr.ph119:                                        ; preds = %_ZNK11mpn_manager15div_unnormalizeER7sbufferIjLj16EES2_jPj.exit
   %153 = load ptr, ptr %6, align 8, !tbaa !16
   %154 = zext i32 %.pr to i64
-  %indvars.iv.next129141 = add nsw i64 %154, -1
-  %155 = and i64 %indvars.iv.next129141, 4294967295
+  %indvars.iv.next129157 = add nsw i64 %154, -1
+  %155 = and i64 %indvars.iv.next129157, 4294967295
   %156 = getelementptr inbounds nuw i32, ptr %153, i64 %155
   %157 = load i32, ptr %156, align 4, !tbaa !3
   %158 = icmp eq i32 %157, 0
-  br i1 %158, label %.lr.ph143, label %.critedge4
+  br i1 %158, label %.lr.ph159, label %.critedge4
 
-159:                                              ; preds = %.lr.ph143
-  %indvars.iv.next129 = add nsw i64 %indvars.iv.next129142, -1
+159:                                              ; preds = %.lr.ph159
+  %indvars.iv.next129 = add nsw i64 %indvars.iv.next129158, -1
   %160 = and i64 %indvars.iv.next129, 4294967295
   %161 = getelementptr inbounds nuw i32, ptr %153, i64 %160
   %162 = load i32, ptr %161, align 4, !tbaa !3
   %163 = icmp eq i32 %162, 0
-  br i1 %163, label %.lr.ph143, label %.critedge4, !llvm.loop !36
+  br i1 %163, label %.lr.ph159, label %.critedge4, !llvm.loop !36
 
-.lr.ph143:                                        ; preds = %.lr.ph119, %159
-  %indvars.iv.next129142 = phi i64 [ %indvars.iv.next129, %159 ], [ %indvars.iv.next129141, %.lr.ph119 ]
-  %indvars = trunc i64 %indvars.iv.next129142 to i32
+.lr.ph159:                                        ; preds = %.lr.ph119, %159
+  %indvars.iv.next129158 = phi i64 [ %indvars.iv.next129, %159 ], [ %indvars.iv.next129157, %.lr.ph119 ]
+  %indvars = trunc i64 %indvars.iv.next129158 to i32
   store i32 %indvars, ptr %17, align 8, !tbaa !20
   %164 = icmp eq i32 %indvars, 0
   br i1 %164, label %..critedge4.loopexit_crit_edge, label %159, !llvm.loop !36
@@ -1969,7 +1969,7 @@ _ZNK11mpn_manager15div_unnormalizeER7sbufferIjLj16EES2_jPj.exit: ; preds = %.lr.
           cleanup
   br label %199
 
-..critedge4.loopexit_crit_edge:                   ; preds = %.lr.ph143
+..critedge4.loopexit_crit_edge:                   ; preds = %.lr.ph159
   br label %.critedge4, !llvm.loop !36
 
 .critedge4:                                       ; preds = %159, %.lr.ph119, %..critedge4.loopexit_crit_edge, %_ZNK11mpn_manager15div_unnormalizeER7sbufferIjLj16EES2_jPj.exit
@@ -2102,8 +2102,8 @@ define hidden void @_ZNK11mpn_manager11display_rawERSoPKjj(ptr noundef nonnull r
   %9 = load i32, ptr %8, align 4, !tbaa !3
   %10 = zext i32 %9 to i64
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %10)
-  %.not8.wide11 = icmp eq i64 %7, 0
-  br i1 %.not8.wide11, label %._crit_edge, label %.lr.ph
+  %.not8.wide12 = icmp eq i64 %7, 0
+  br i1 %.not8.wide12, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %4
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.10, i64 noundef 1)

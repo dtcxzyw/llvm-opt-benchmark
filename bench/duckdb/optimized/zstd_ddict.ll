@@ -204,8 +204,8 @@ _ZN11duckdb_zstdL23ZSTD_initDDict_internalEPNS_12ZSTD_DDict_sEPKvmNS_21ZSTD_dict
   br label %_ZN11duckdb_zstd14ZSTD_freeDDictEPNS_12ZSTD_DDict_sE.exit
 
 _ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.i: ; preds = %40
-  %.not44.i = icmp eq i32 %3, 2
-  br i1 %.not44.i, label %_ZN11duckdb_zstdL23ZSTD_initDDict_internalEPNS_12ZSTD_DDict_sEPKvmNS_21ZSTD_dictLoadMethod_eENS_22ZSTD_dictContentType_eE.exit.thread, label %_ZN11duckdb_zstd14ZSTD_freeDDictEPNS_12ZSTD_DDict_sE.exit
+  %.not46.i = icmp eq i32 %3, 2
+  br i1 %.not46.i, label %_ZN11duckdb_zstdL23ZSTD_initDDict_internalEPNS_12ZSTD_DDict_sEPKvmNS_21ZSTD_dictLoadMethod_eENS_22ZSTD_dictContentType_eE.exit.thread, label %_ZN11duckdb_zstd14ZSTD_freeDDictEPNS_12ZSTD_DDict_sE.exit
 
 _ZN11duckdb_zstdL23ZSTD_initDDict_internalEPNS_12ZSTD_DDict_sEPKvmNS_21ZSTD_dictLoadMethod_eENS_22ZSTD_dictContentType_eE.exit.thread: ; preds = %_ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.i, %38, %43
   %.pr = load ptr, ptr %.0.i, align 8, !tbaa !49
@@ -377,8 +377,8 @@ define noundef ptr @_ZN11duckdb_zstd20ZSTD_initStaticDDictEPvmPKvmNS_21ZSTD_dict
   br label %_ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.thread.i
 
 _ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.i: ; preds = %29
-  %.not44.i = icmp eq i32 %5, 2
-  br i1 %.not44.i, label %_ZN11duckdb_zstdL23ZSTD_initDDict_internalEPNS_12ZSTD_DDict_sEPKvmNS_21ZSTD_dictLoadMethod_eENS_22ZSTD_dictContentType_eE.exit, label %_ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.thread.i
+  %.not46.i = icmp eq i32 %5, 2
+  br i1 %.not46.i, label %_ZN11duckdb_zstdL23ZSTD_initDDict_internalEPNS_12ZSTD_DDict_sEPKvmNS_21ZSTD_dictLoadMethod_eENS_22ZSTD_dictContentType_eE.exit, label %_ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.thread.i
 
 _ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.thread.i: ; preds = %_ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.i, %35, %27, %18
   br label %_ZN11duckdb_zstdL23ZSTD_initDDict_internalEPNS_12ZSTD_DDict_sEPKvmNS_21ZSTD_dictLoadMethod_eENS_22ZSTD_dictContentType_eE.exit

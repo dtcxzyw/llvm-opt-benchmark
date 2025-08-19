@@ -420,8 +420,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %88
   %106 = udiv i128 %.decomposed, %105
   store i128 %106, ptr %13, align 16
   %107 = mul i128 %106, %105
-  %.decomposed100 = sub i128 %.decomposed, %107
-  %108 = icmp eq i128 %.decomposed100, 0
+  %.decomposed104 = sub i128 %.decomposed, %107
+  %108 = icmp eq i128 %.decomposed104, 0
   br i1 %108, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit56, label %114
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit56:  ; preds = %104

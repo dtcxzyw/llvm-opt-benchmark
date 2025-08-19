@@ -557,9 +557,9 @@ define dso_local ptr @skl_universal_plane_create(ptr noundef %0, i32 noundef %1,
   %123 = icmp ugt i16 %120, 11
   %124 = select i1 %123, ptr @gen12_plane_funcs, ptr @skl_plane_funcs
   %125 = icmp ult i16 %120, 13
-  br i1 %125, label %.thread17, label %.thread17.thread32
+  br i1 %125, label %.thread17, label %.thread17.thread49
 
-.thread17.thread32:                               ; preds = %.thread9
+.thread17.thread49:                               ; preds = %.thread9
   %126 = getelementptr i8, ptr %0, i64 7188
   %127 = load i32, ptr %126, align 4
   %128 = and i32 %127, 512
@@ -572,17 +572,17 @@ define dso_local ptr @skl_universal_plane_create(ptr noundef %0, i32 noundef %1,
   %131 = phi ptr [ %124, %.thread9 ], [ @skl_plane_funcs, %113 ], [ @skl_plane_funcs, %114 ]
   %132 = phi ptr [ %122, %.thread9 ], [ @skl_plane_formats, %113 ], [ %spec.select23, %114 ]
   %133 = phi i32 [ %121, %.thread9 ], [ 15, %113 ], [ %spec.select, %114 ]
-  %.fr36 = freeze i16 %130
-  %134 = icmp ult i16 %.fr36, 12
-  %spec.select35 = select i1 %134, i8 56, i8 24
+  %.fr53 = freeze i16 %130
+  %134 = icmp ult i16 %.fr53, 12
+  %spec.select52 = select i1 %134, i8 56, i8 24
   br label %135
 
-135:                                              ; preds = %.thread17, %.thread17.thread, %.thread17.thread32
-  %136 = phi i16 [ %120, %.thread17.thread32 ], [ 10, %.thread17.thread ], [ %.fr36, %.thread17 ]
-  %137 = phi i32 [ %121, %.thread17.thread32 ], [ %111, %.thread17.thread ], [ %133, %.thread17 ]
-  %138 = phi ptr [ %122, %.thread17.thread32 ], [ %112, %.thread17.thread ], [ %132, %.thread17 ]
-  %139 = phi ptr [ %124, %.thread17.thread32 ], [ @skl_plane_funcs, %.thread17.thread ], [ %131, %.thread17 ]
-  %140 = phi i8 [ %spec.select20, %.thread17.thread32 ], [ 56, %.thread17.thread ], [ %spec.select35, %.thread17 ]
+135:                                              ; preds = %.thread17, %.thread17.thread, %.thread17.thread49
+  %136 = phi i16 [ %120, %.thread17.thread49 ], [ 10, %.thread17.thread ], [ %.fr53, %.thread17 ]
+  %137 = phi i32 [ %121, %.thread17.thread49 ], [ %111, %.thread17.thread ], [ %133, %.thread17 ]
+  %138 = phi ptr [ %122, %.thread17.thread49 ], [ %112, %.thread17.thread ], [ %132, %.thread17 ]
+  %139 = phi ptr [ %124, %.thread17.thread49 ], [ @skl_plane_funcs, %.thread17.thread ], [ %131, %.thread17 ]
+  %140 = phi i8 [ %spec.select20, %.thread17.thread49 ], [ 56, %.thread17.thread ], [ %spec.select52, %.thread17 ]
   %141 = zext i1 %67 to i32
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %143 = getelementptr i8, ptr %0, i64 7188
@@ -6877,7 +6877,7 @@ skl_format_to_fourcc.exit:                        ; preds = %76, %82, %83, %84, 
 189:                                              ; preds = %180, %175
   %190 = and i32 %62, 3
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  switch i32 %190, label %default.unreachable6 [
+  switch i32 %190, label %default.unreachable10 [
     i32 0, label %195
     i32 1, label %192
     i32 2, label %193
@@ -6893,7 +6893,7 @@ skl_format_to_fourcc.exit:                        ; preds = %76, %82, %83, %84, 
 194:                                              ; preds = %189
   br label %195
 
-default.unreachable6:                             ; preds = %189
+default.unreachable10:                            ; preds = %189
   unreachable
 
 195:                                              ; preds = %194, %193, %192, %189

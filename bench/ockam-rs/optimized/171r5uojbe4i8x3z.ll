@@ -1296,14 +1296,14 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
   store i8 %.sroa.14.271.i, ptr %.sroa.431.sroa.4.0..sroa.431.0..sroa_idx.sroa_idx.i, align 8
   %.sroa.431.sroa.5.0..sroa.431.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(127) %.sroa.431.sroa.5.0..sroa.431.0..sroa_idx.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(127) %.sroa.78.sroa.8.i, i64 127, i1 false)
-  br label %.thread66
+  br label %.thread72
 
 159:                                              ; preds = %95
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !68
   %.sroa.424.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.424.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.7.i, i64 136, i1 false)
   call void @"_ZN4core3ptr147drop_in_place$LT$tokio_tungstenite..compat..AllowStd$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$17h7fe7d2c6612c46f5E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %29)
-  br label %.thread66
+  br label %.thread72
 
 160:                                              ; preds = %93
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
@@ -1317,7 +1317,7 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #30, !noalias !73
   unreachable
 
-.thread66:                                        ; preds = %158, %159
+.thread72:                                        ; preds = %158, %159
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.78.sroa.8.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
@@ -1344,7 +1344,7 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %.sroa.47.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(200) %168, i64 200, i1 false)
   br label %166
 
-169:                                              ; preds = %.thread66, %164
+169:                                              ; preds = %.thread72, %164
   %170 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i64 3, ptr %0, align 8
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1960,8 +1960,8 @@ default.unreachable:                              ; preds = %16
   br label %.critedge12
 
 _ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.sink.split: ; preds = %16, %24
-  %.sink18 = phi i64 [ 15, %24 ], [ 16, %16 ]
-  %27 = getelementptr i8, ptr %11, i64 %.sink18
+  %.sink19 = phi i64 [ 15, %24 ], [ 16, %16 ]
+  %27 = getelementptr i8, ptr %11, i64 %.sink19
   %28 = load i8, ptr %27, align 8, !range !135, !noundef !4
   br label %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit
 
@@ -5449,8 +5449,8 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !711, !noalias !708
+  %.sroa.0.i.1.i.1.i.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx11, align 1, !alias.scope !711, !noalias !708
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i
 
 15:                                               ; preds = %6
@@ -5462,13 +5462,13 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !711, !noalias !708
+  %.sroa.0.i.1.i.1.i.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx10, align 1, !alias.scope !711, !noalias !708
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !711, !noalias !708
+  %.sroa.0.i.2.i.2.i.2..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx12, align 2, !alias.scope !711, !noalias !708
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i
 
 26:                                               ; preds = %6

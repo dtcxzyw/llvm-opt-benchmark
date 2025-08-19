@@ -6680,14 +6680,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %6 = alloca { ptr, ptr }, align 8
   %7 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %8 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State21transition_to_running17hdd9d466543a41f9dE(ptr noundef nonnull align 8 %7), !range !74
-  switch i8 %8, label %default.unreachable10 [
+  switch i8 %8, label %default.unreachable11 [
     i8 0, label %9
     i8 1, label %44
     i8 2, label %53
     i8 3, label %53
   ]
 
-default.unreachable10:                            ; preds = %1
+default.unreachable11:                            ; preds = %1
   unreachable
 
 9:                                                ; preds = %1
@@ -7226,14 +7226,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %6 = alloca { ptr, ptr }, align 8
   %7 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %8 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State21transition_to_running17hdd9d466543a41f9dE(ptr noundef nonnull align 8 %7), !range !74
-  switch i8 %8, label %default.unreachable10 [
+  switch i8 %8, label %default.unreachable11 [
     i8 0, label %9
     i8 1, label %44
     i8 2, label %53
     i8 3, label %53
   ]
 
-default.unreachable10:                            ; preds = %1
+default.unreachable11:                            ; preds = %1
   unreachable
 
 9:                                                ; preds = %1

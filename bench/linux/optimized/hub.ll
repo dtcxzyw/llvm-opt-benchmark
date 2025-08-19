@@ -2832,7 +2832,7 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
 .thread25:                                        ; preds = %133
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br label %.thread51
+  br label %.thread66
 
 141:                                              ; preds = %133
   tail call void @msleep(i32 noundef 20) #19
@@ -2916,10 +2916,10 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
   %185 = phi i32 [ %147, %.loopexit33 ], [ %194, %192 ]
   %.fr = freeze i32 %185
   %186 = icmp sgt i32 %.fr, -1
-  br i1 %186, label %.thread23, label %.thread51
+  br i1 %186, label %.thread23, label %.thread66
 
 .thread23:                                        ; preds = %181, %170, %.loopexit32
-  br label %.thread51
+  br label %.thread66
 
 187:                                              ; preds = %181
   %188 = and i32 %172, 1
@@ -2928,7 +2928,7 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
 
 190:                                              ; preds = %187
   %191 = icmp eq i32 %156, 0
-  br i1 %191, label %.thread51, label %192
+  br i1 %191, label %.thread66, label %192
 
 192:                                              ; preds = %190
   %193 = add nsw i32 %156, -1
@@ -2950,7 +2950,7 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
   %202 = load i16, ptr %120, align 1
   %203 = and i16 %202, 2
   %204 = icmp eq i16 %203, 0
-  br i1 %204, label %.thread51, label %205
+  br i1 %204, label %.thread66, label %205
 
 205:                                              ; preds = %201
   %206 = or disjoint i8 %.pre50, 2
@@ -3030,9 +3030,9 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
 248:                                              ; preds = %246, %241, %233
   %249 = phi i32 [ %247, %246 ], [ 0, %233 ], [ -19, %241 ]
   %250 = icmp eq i32 %249, 0
-  br i1 %250, label %251, label %.thread53
+  br i1 %250, label %251, label %.thread68
 
-.thread53:                                        ; preds = %248
+.thread68:                                        ; preds = %248
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %295
 
@@ -3062,13 +3062,13 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
 264:                                              ; preds = %251
   %265 = load ptr, ptr %234, align 8
   %266 = icmp eq ptr %265, null
-  br i1 %266, label %.thread52, label %267
+  br i1 %266, label %.thread67, label %267
 
 267:                                              ; preds = %264
   %268 = load i8, ptr %152, align 8
   %269 = and i8 %268, 2
   %270 = icmp eq i8 %269, 0
-  br i1 %270, label %271, label %.thread52
+  br i1 %270, label %271, label %.thread67
 
 271:                                              ; preds = %267
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -3080,37 +3080,37 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
   %276 = load i16, ptr %3, align 2
   %277 = and i16 %276, 2
   %278 = icmp eq i16 %277, 0
-  br i1 %278, label %.thread52, label %279
+  br i1 %278, label %.thread67, label %279
 
 279:                                              ; preds = %275
   %280 = load i32, ptr %0, align 8
   %281 = shl i32 %280, 8
   %282 = or i32 %281, -2147483648
   %283 = call i32 @usb_control_msg(ptr noundef %0, i32 noundef %282, i8 noundef zeroext 1, i8 noundef zeroext 0, i16 noundef zeroext 1, i16 noundef zeroext 0, ptr noundef null, i16 noundef zeroext 0, i32 noundef 5000) #19
-  br label %.thread52
+  br label %.thread67
 
 284:                                              ; preds = %271
   %285 = call i32 @usb_get_status(ptr noundef %0, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %3) #19
   %286 = icmp eq i32 %285, 0
-  br i1 %286, label %287, label %.thread52
+  br i1 %286, label %287, label %.thread67
 
 287:                                              ; preds = %284
   %288 = load i16, ptr %3, align 2
   %289 = and i16 %288, 3
   %290 = icmp eq i16 %289, 0
-  br i1 %290, label %.thread52, label %291
+  br i1 %290, label %.thread67, label %291
 
 291:                                              ; preds = %287
   call fastcc void @usb_disable_remote_wakeup(ptr noundef %0)
-  br label %.thread52
+  br label %.thread67
 
-.thread51:                                        ; preds = %190, %.thread23, %.loopexit32, %.thread25, %201
+.thread66:                                        ; preds = %190, %.thread23, %.loopexit32, %.thread25, %201
   %292 = phi i32 [ -19, %201 ], [ -19, %.thread23 ], [ %.fr, %.loopexit32 ], [ -19, %.thread25 ], [ -19, %190 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %295
 
-.thread52:                                        ; preds = %267, %264, %284, %287, %291, %275, %279
+.thread67:                                        ; preds = %267, %264, %284, %287, %291, %275, %279
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %299
 
@@ -3119,16 +3119,16 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
   %294 = icmp slt i32 %252, 0
   br i1 %294, label %295, label %299
 
-295:                                              ; preds = %.thread53, %.thread51, %293
-  %296 = phi i32 [ %292, %.thread51 ], [ %252, %293 ], [ %249, %.thread53 ]
+295:                                              ; preds = %.thread68, %.thread66, %293
+  %296 = phi i32 [ %292, %.thread66 ], [ %252, %293 ], [ %249, %.thread68 ]
   %297 = call fastcc i32 @hub_port_disable(ptr noundef %25, i32 noundef %30, i32 noundef 1)
   %298 = getelementptr inbounds nuw i8, ptr %25, i64 96
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %298, i64 %31) #19, !srcloc !14
   call fastcc void @kick_hub_wq(ptr noundef %25)
   br label %348
 
-299:                                              ; preds = %.thread52, %293
-  %300 = phi i32 [ 0, %.thread52 ], [ %252, %293 ]
+299:                                              ; preds = %.thread67, %293
+  %300 = phi i32 [ 0, %.thread67 ], [ %252, %293 ]
   %301 = call i32 @usb_enable_usb2_hardware_lpm(ptr noundef %0) #19
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %303 = load ptr, ptr %302, align 8
@@ -5479,7 +5479,7 @@ define internal noundef range(i32 -19, 1) i32 @hub_probe(ptr noundef %0, ptr nou
 234:                                              ; preds = %233, %209
   %235 = lshr i32 %217, 5
   %236 = and i32 %235, 3
-  switch i32 %236, label %default.unreachable58 [
+  switch i32 %236, label %default.unreachable76 [
     i32 0, label %237
     i32 1, label %242
     i32 2, label %240
@@ -5497,7 +5497,7 @@ define internal noundef range(i32 -19, 1) i32 @hub_probe(ptr noundef %0, ptr nou
 241:                                              ; preds = %234
   br label %242
 
-default.unreachable58:                            ; preds = %234
+default.unreachable76:                            ; preds = %234
   unreachable
 
 242:                                              ; preds = %241, %240, %237, %234
@@ -7071,8 +7071,8 @@ hub_power_on.exit:                                ; preds = %.preheader, %155
   br i1 %311, label %312, label %.loopexit
 
 312:                                              ; preds = %306
-  %.not75 = icmp eq ptr %.fr54, null
-  br i1 %.not75, label %.split.us, label %.split
+  %.not102 = icmp eq ptr %.fr54, null
+  br i1 %.not102, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %312
   %313 = load i16, ptr %4, align 2
@@ -7123,8 +7123,8 @@ hub_power_on.exit:                                ; preds = %.preheader, %155
 
 .split52.us:                                      ; preds = %326
   %334 = and i16 %320, 1
-  %.not76 = icmp eq i16 %334, 0
-  br i1 %.not76, label %.split52.us.thread, label %335
+  %.not103 = icmp eq i16 %334, 0
+  br i1 %.not103, label %.split52.us.thread, label %335
 
 335:                                              ; preds = %.split52.us
   %336 = getelementptr inbounds nuw i8, ptr %.fr54, i64 24
@@ -8411,23 +8411,23 @@ define internal fastcc noundef i32 @hub_port_reset(ptr noundef %0, i32 noundef %
 124:                                              ; preds = %110
   %125 = and i16 %99, 1
   %126 = icmp eq i16 %125, 0
-  br i1 %126, label %.loopexit, label %.thread29
+  br i1 %126, label %.loopexit, label %.thread38
 
 127:                                              ; preds = %122
   %.pre = load ptr, ptr %17, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 902
   %.pre28 = load i8, ptr %.phi.trans.insert, align 2
   %128 = icmp eq i8 %.pre28, 3
-  br i1 %128, label %138, label %.thread29
+  br i1 %128, label %138, label %.thread38
 
-.thread29:                                        ; preds = %124, %127
+.thread38:                                        ; preds = %124, %127
   %129 = phi ptr [ %.pre, %127 ], [ %111, %124 ]
   %130 = load i16, ptr %7, align 2
   %131 = and i16 %130, 1
   %132 = icmp eq i16 %131, 0
   br i1 %132, label %.thread, label %133
 
-133:                                              ; preds = %.thread29
+133:                                              ; preds = %.thread38
   %134 = load i32, ptr %129, align 8
   %135 = shl i32 %134, 8
   %136 = or i32 %135, -2147483648
@@ -8441,7 +8441,7 @@ define internal fastcc noundef i32 @hub_port_reset(ptr noundef %0, i32 noundef %
   %142 = select i1 %140, i32 -16, i32 0
   br i1 %141, label %.loopexit, label %147
 
-.thread:                                          ; preds = %.thread29
+.thread:                                          ; preds = %.thread38
   %143 = and i16 %99, 2
   %144 = icmp eq i16 %143, 0
   %145 = or i1 %53, %144
@@ -10595,14 +10595,14 @@ hub_power_on.exit:                                ; preds = %63, %50
   br i1 %165, label %.sink.split, label %177
 
 .sink.split.sink.split:                           ; preds = %118, %143, %136, %111
-  %.sink24 = phi ptr [ %112, %111 ], [ %137, %136 ], [ %157, %143 ], [ %132, %118 ]
+  %.sink30 = phi ptr [ %112, %111 ], [ %137, %136 ], [ %157, %143 ], [ %132, %118 ]
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 5
   %169 = load i8, ptr %168, align 1
   %170 = zext i8 %169 to i32
   %171 = shl nuw nsw i32 %170, 1
-  %172 = getelementptr inbounds nuw i8, ptr %.sink24, i64 72
+  %172 = getelementptr inbounds nuw i8, ptr %.sink30, i64 72
   %173 = load ptr, ptr %172, align 8
   %174 = icmp eq ptr %173, null
   %175 = tail call i32 @llvm.umax.i32(i32 %171, i32 100)

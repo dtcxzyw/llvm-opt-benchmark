@@ -3478,28 +3478,28 @@ get_provider_store.exit:                          ; preds = %5
   br i1 %44, label %.thread.thread, label %.preheader
 
 .thread.thread:                                   ; preds = %42, %.thread
-  %.055.lcssa76 = phi i32 [ %.055.lcssa, %.thread ], [ %28, %42 ]
+  %.055.lcssa81 = phi i32 [ %.055.lcssa, %.thread ], [ %28, %42 ]
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !23
   %47 = tail call i32 @OPENSSL_sk_push(ptr noundef %46, ptr noundef nonnull %10) #11
-  %48 = icmp ne i32 %.055.lcssa76, %28
+  %48 = icmp ne i32 %.055.lcssa81, %28
   %49 = icmp slt i32 %47, 1
   %or.cond = select i1 %48, i1 true, i1 %49
   br i1 %or.cond, label %.preheader, label %55
 
 .preheader:                                       ; preds = %.thread, %.thread.thread
-  %.055.lcssa7581 = phi i32 [ %.055.lcssa76, %.thread.thread ], [ %.055.lcssa, %.thread ]
-  %50 = icmp sgt i32 %.055.lcssa7581, -1
+  %.055.lcssa8086 = phi i32 [ %.055.lcssa81, %.thread.thread ], [ %.055.lcssa, %.thread ]
+  %50 = icmp sgt i32 %.055.lcssa8086, -1
   br i1 %50, label %.lr.ph73, label %._crit_edge
 
 .lr.ph73:                                         ; preds = %.preheader, %.lr.ph73
-  %.172 = phi i32 [ %54, %.lr.ph73 ], [ %.055.lcssa7581, %.preheader ]
+  %.172 = phi i32 [ %54, %.lr.ph73 ], [ %.055.lcssa8086, %.preheader ]
   %51 = load ptr, ptr %26, align 8, !tbaa !22
   %52 = tail call ptr @OPENSSL_sk_value(ptr noundef %51, i32 noundef %.172) #11
   %53 = tail call i32 %2(ptr noundef %52, ptr noundef %4) #11
   %54 = add nsw i32 %.172, -1
-  %.not83 = icmp eq i32 %.172, 0
-  br i1 %.not83, label %._crit_edge, label %.lr.ph73, !llvm.loop !113
+  %.not88 = icmp eq i32 %.172, 0
+  br i1 %.not88, label %._crit_edge, label %.lr.ph73, !llvm.loop !113
 
 ._crit_edge:                                      ; preds = %.lr.ph73, %.preheader
   tail call void @CRYPTO_free(ptr noundef nonnull %10, ptr noundef nonnull @.str, i32 noundef 2170) #11

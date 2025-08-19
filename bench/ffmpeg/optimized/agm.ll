@@ -782,9 +782,9 @@ decode_huffman2.exit.thread:                      ; preds = %get_vlc2.exit.i, %7
   %384 = getelementptr inbounds nuw i8, ptr %17, i64 108
   %385 = load i32, ptr %384, align 4, !tbaa !41
   %.not170 = icmp eq i32 %385, 0
-  br i1 %.not170, label %.thread, label %.thread224
+  br i1 %.not170, label %.thread, label %.thread241
 
-.thread224:                                       ; preds = %383
+.thread241:                                       ; preds = %383
   %386 = getelementptr inbounds nuw i8, ptr %17, i64 108
   br label %401
 
@@ -814,8 +814,8 @@ decode_huffman2.exit.thread:                      ; preds = %get_vlc2.exit.i, %7
   %400 = getelementptr inbounds nuw i8, ptr %17, i64 108
   br i1 %399, label %484, label %401
 
-401:                                              ; preds = %.thread224, %394
-  %402 = phi ptr [ %386, %.thread224 ], [ %400, %394 ]
+401:                                              ; preds = %.thread241, %394
+  %402 = phi ptr [ %386, %.thread241 ], [ %400, %394 ]
   %403 = getelementptr inbounds nuw i8, ptr %17, i64 116
   store i32 0, ptr %403, align 4, !tbaa !88
   %404 = load ptr, ptr %30, align 8, !tbaa !50
@@ -862,8 +862,8 @@ bytestream2_get_le32.exit194:                     ; preds = %416, %417
   %.0147 = call i32 @llvm.abs.i32(i32 %.0.i191, i1 true)
   %.0148 = call i32 @llvm.abs.i32(i32 %.0.i193, i1 true)
   %423 = or i32 %.0.i191, %.0.i193
-  %.not236 = icmp sgt i32 %423, -1
-  br i1 %.not236, label %428, label %424
+  %.not253 = icmp sgt i32 %423, -1
+  br i1 %.not253, label %428, label %424
 
 424:                                              ; preds = %422
   %425 = icmp slt i32 %.0.i193, 0
@@ -920,7 +920,7 @@ bytestream2_get_le32.exit196:                     ; preds = %440
   br i1 %or.cond187, label %554, label %.preheader
 
 .preheader:                                       ; preds = %bytestream2_get_le32.exit196.thread, %bytestream2_get_le32.exit196
-  %.promoted229 = phi ptr [ %441, %bytestream2_get_le32.exit196.thread ], [ %448, %bytestream2_get_le32.exit196 ]
+  %.promoted246 = phi ptr [ %441, %bytestream2_get_le32.exit196.thread ], [ %448, %bytestream2_get_le32.exit196 ]
   %451 = getelementptr inbounds nuw i8, ptr %17, i64 92
   br label %456
 
@@ -935,7 +935,7 @@ bytestream2_get_le32.exit196:                     ; preds = %440
 
 456:                                              ; preds = %.preheader, %bytestream2_get_le32.exit198
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %bytestream2_get_le32.exit198 ]
-  %457 = phi ptr [ %.promoted229, %.preheader ], [ %465, %bytestream2_get_le32.exit198 ]
+  %457 = phi ptr [ %.promoted246, %.preheader ], [ %465, %bytestream2_get_le32.exit198 ]
   %458 = ptrtoint ptr %457 to i64
   %459 = sub i64 %443, %458
   %460 = icmp slt i64 %459, 4
@@ -2814,9 +2814,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_intra_plane(ptr nou
   br label %59
 
 59:                                               ; preds = %.lr.ph133, %._crit_edge
-  %.promoted169 = phi i32 [ 0, %.lr.ph133 ], [ %.promoted170179, %._crit_edge ]
+  %.promoted169 = phi i32 [ 0, %.lr.ph133 ], [ %.promoted170196, %._crit_edge ]
   %.071132 = phi i32 [ 0, %.lr.ph133 ], [ %194, %._crit_edge ]
-  %.0101131 = phi i32 [ 0, %.lr.ph133 ], [ %.9180, %._crit_edge ]
+  %.0101131 = phi i32 [ 0, %.lr.ph133 ], [ %.9197, %._crit_edge ]
   %60 = load ptr, ptr %43, align 16, !tbaa !130
   %61 = load i32, ptr %44, align 8, !tbaa !98
   %62 = zext i32 %61 to i64
@@ -3012,7 +3012,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_intra_plane(ptr nou
   %158 = lshr i32 %156, %157
   %159 = and i32 %158, 65535
   %160 = add i32 %151, 16
-  br label %.sink.split63.i.i
+  br label %.sink.split65.i.i
 
 161:                                              ; preds = %148
   %162 = lshr i32 %151, 3
@@ -3023,17 +3023,17 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_intra_plane(ptr nou
   %167 = lshr i32 %165, %166
   %168 = and i32 %167, 1023
   %169 = add i32 %151, 10
-  br label %.sink.split63.i.i
+  br label %.sink.split65.i.i
 
 170:                                              ; preds = %141
   %171 = and i32 %147, 1023
   %172 = add i32 %139, 10
-  br label %.sink.split63.i.i
+  br label %.sink.split65.i.i
 
-.sink.split63.i.i:                                ; preds = %170, %161, %152
-  %.sink65.i.i = phi i32 [ %172, %170 ], [ %169, %161 ], [ %160, %152 ]
+.sink.split65.i.i:                                ; preds = %170, %161, %152
+  %.sink67.i.i = phi i32 [ %172, %170 ], [ %169, %161 ], [ %160, %152 ]
   %.sink.ph.i.i = phi i32 [ %171, %170 ], [ %168, %161 ], [ %159, %152 ]
-  %173 = tail call i32 @llvm.umin.i32(i32 %137, i32 %.sink65.i.i)
+  %173 = tail call i32 @llvm.umin.i32(i32 %137, i32 %.sink67.i.i)
   store i32 %173, ptr %25, align 8, !tbaa !69
   br label %.cont.i
 
@@ -3053,9 +3053,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_intra_plane(ptr nou
   store i32 %184, ptr %25, align 8, !tbaa !69
   br label %.cont.i
 
-.cont.i:                                          ; preds = %174, %175, %148, %.sink.split63.i.i, %132, %114
-  %185 = phi i32 [ 0, %132 ], [ 0, %114 ], [ %149, %148 ], [ %.sink.ph.i.i, %.sink.split63.i.i ], [ %182, %175 ], [ 0, %174 ]
-  %.4.ph.i = phi i32 [ %134, %132 ], [ %126, %114 ], [ 0, %148 ], [ 0, %.sink.split63.i.i ], [ 0, %175 ], [ 0, %174 ]
+.cont.i:                                          ; preds = %174, %175, %148, %.sink.split65.i.i, %132, %114
+  %185 = phi i32 [ 0, %132 ], [ 0, %114 ], [ %149, %148 ], [ %.sink.ph.i.i, %.sink.split65.i.i ], [ %182, %175 ], [ 0, %174 ]
+  %.4.ph.i = phi i32 [ %134, %132 ], [ %126, %114 ], [ 0, %148 ], [ 0, %.sink.split65.i.i ], [ 0, %175 ], [ 0, %174 ]
   %186 = add nsw i32 %.4.ph.i, %.6
   %spec.select = select i1 %70, i32 %186, i32 %.6
   %spec.select120 = select i1 %70, i32 %186, i32 %.4.ph.i
@@ -3085,8 +3085,8 @@ read_code.exit.i:                                 ; preds = %191
   br label %196
 
 ._crit_edge:                                      ; preds = %196, %59
-  %.9180 = phi i32 [ %.0101131, %59 ], [ %.8, %196 ]
-  %.promoted170179 = phi i32 [ %.promoted169, %59 ], [ %192, %196 ]
+  %.9197 = phi i32 [ %.0101131, %59 ], [ %.8, %196 ]
+  %.promoted170196 = phi i32 [ %.promoted169, %59 ], [ %192, %196 ]
   %194 = add nuw nsw i32 %.071132, 1
   %195 = load i32, ptr %51, align 8, !tbaa !107
   %.not83 = icmp slt i32 %194, %195
@@ -3328,7 +3328,7 @@ read_code.exit.i:                                 ; preds = %191
   %319 = lshr i32 %317, %318
   %320 = and i32 %319, 65535
   %321 = add i32 %312, 16
-  br label %.sink.split63.i
+  br label %.sink.split65.i
 
 322:                                              ; preds = %309
   %323 = lshr i32 %312, 3
@@ -3339,17 +3339,17 @@ read_code.exit.i:                                 ; preds = %191
   %328 = lshr i32 %326, %327
   %329 = and i32 %328, 1023
   %330 = add i32 %312, 10
-  br label %.sink.split63.i
+  br label %.sink.split65.i
 
 331:                                              ; preds = %302
   %332 = and i32 %308, 1023
   %333 = add i32 %300, 10
-  br label %.sink.split63.i
+  br label %.sink.split65.i
 
-.sink.split63.i:                                  ; preds = %331, %322, %313
-  %.sink65.i = phi i32 [ %333, %331 ], [ %330, %322 ], [ %321, %313 ]
+.sink.split65.i:                                  ; preds = %331, %322, %313
+  %.sink67.i = phi i32 [ %333, %331 ], [ %330, %322 ], [ %321, %313 ]
   %.sink.ph.i = phi i32 [ %332, %331 ], [ %329, %322 ], [ %320, %313 ]
-  %334 = tail call i32 @llvm.umin.i32(i32 %298, i32 %.sink65.i)
+  %334 = tail call i32 @llvm.umin.i32(i32 %298, i32 %.sink67.i)
   store i32 %334, ptr %25, align 8, !tbaa !69
   br label %read_code.exit
 
@@ -3369,13 +3369,13 @@ read_code.exit.i:                                 ; preds = %191
   store i32 %345, ptr %25, align 8, !tbaa !69
   br label %read_code.exit
 
-read_code.exit:                                   ; preds = %293, %.sink.split63.i, %309, %336, %335, %275
-  %.sink62.i140 = phi i32 [ %287, %275 ], [ %295, %293 ], [ 0, %.sink.split63.i ], [ 0, %309 ], [ 0, %336 ], [ 0, %335 ]
-  %storemerge.i137 = phi i32 [ 0, %275 ], [ 0, %293 ], [ %.sink.ph.i, %.sink.split63.i ], [ %310, %309 ], [ %343, %336 ], [ 0, %335 ]
+read_code.exit:                                   ; preds = %293, %.sink.split65.i, %309, %336, %335, %275
+  %.sink64.i140 = phi i32 [ %287, %275 ], [ %295, %293 ], [ 0, %.sink.split65.i ], [ 0, %309 ], [ 0, %336 ], [ 0, %335 ]
+  %storemerge.i137 = phi i32 [ 0, %275 ], [ 0, %293 ], [ %.sink.ph.i, %.sink.split65.i ], [ %310, %309 ], [ %343, %336 ], [ 0, %335 ]
   %346 = zext nneg i32 %.03947.i to i64
   %347 = getelementptr inbounds nuw i32, ptr %3, i64 %346
   %348 = load i32, ptr %347, align 4, !tbaa !72
-  %349 = mul nsw i32 %348, %.sink62.i140
+  %349 = mul nsw i32 %348, %.sink64.i140
   %350 = trunc i32 %349 to i16
   %351 = getelementptr inbounds nuw i8, ptr %33, i64 %346
   %352 = load i8, ptr %351, align 1, !tbaa !52
@@ -3627,7 +3627,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_code(ptr noundef capt
   %79 = lshr i32 %77, %78
   %80 = and i32 %79, 65535
   %81 = add i32 %72, 16
-  br label %.sink.split63
+  br label %.sink.split65
 
 82:                                               ; preds = %69
   %83 = lshr i32 %72, 3
@@ -3638,22 +3638,22 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_code(ptr noundef capt
   %88 = lshr i32 %86, %87
   %89 = and i32 %88, 1023
   %90 = add i32 %72, 10
-  br label %.sink.split63
+  br label %.sink.split65
 
 91:                                               ; preds = %62
   %92 = and i32 %68, 1023
   %93 = add i32 %60, 10
-  br label %.sink.split63
+  br label %.sink.split65
 
-.sink.split63:                                    ; preds = %73, %82, %91
-  %.sink65 = phi i32 [ %93, %91 ], [ %90, %82 ], [ %81, %73 ]
+.sink.split65:                                    ; preds = %73, %82, %91
+  %.sink67 = phi i32 [ %93, %91 ], [ %90, %82 ], [ %81, %73 ]
   %.sink.ph = phi i32 [ %92, %91 ], [ %89, %82 ], [ %80, %73 ]
-  %94 = tail call i32 @llvm.umin.i32(i32 %58, i32 %.sink65)
+  %94 = tail call i32 @llvm.umin.i32(i32 %58, i32 %.sink67)
   store i32 %94, ptr %6, align 8, !tbaa !69
   br label %95
 
-95:                                               ; preds = %.sink.split63, %69
-  %.sink = phi i32 [ %70, %69 ], [ %.sink.ph, %.sink.split63 ]
+95:                                               ; preds = %.sink.split65, %69
+  %.sink = phi i32 [ %70, %69 ], [ %.sink.ph, %.sink.split65 ]
   store i32 %.sink, ptr %1, align 4, !tbaa !72
   br label %.sink.split
 
@@ -3679,8 +3679,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_code(ptr noundef capt
   br label %.sink.split
 
 .sink.split:                                      ; preds = %95, %107, %52
-  %.sink62 = phi i32 [ %54, %52 ], [ 0, %107 ], [ 0, %95 ]
-  store i32 %.sink62, ptr %2, align 4, !tbaa !72
+  %.sink64 = phi i32 [ %54, %52 ], [ 0, %107 ], [ 0, %95 ]
+  store i32 %.sink64, ptr %2, align 4, !tbaa !72
   br label %108
 
 108:                                              ; preds = %.sink.split, %32, %18, %5
@@ -3935,8 +3935,8 @@ copy_block8.exit:                                 ; preds = %126
   %167 = getelementptr inbounds nuw i8, ptr %165, i64 %166
   %168 = sext i32 %162 to i64
   %169 = load ptr, ptr %27, align 16, !tbaa !130
-  %.idx565 = shl nsw i64 %indvars.iv556, 7
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 %.idx565
+  %.idx592 = shl nsw i64 %indvars.iv556, 7
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 %.idx592
   tail call void %157(ptr noundef %167, i64 noundef %168, ptr noundef %170) #13
   br label %171
 
@@ -4180,7 +4180,7 @@ copy_block8.exit:                                 ; preds = %126
   %304 = lshr i32 %302, %303
   %305 = and i32 %304, 65535
   %306 = add i32 %297, 16
-  br label %.sink.split63.i
+  br label %.sink.split65.i
 
 307:                                              ; preds = %294
   %308 = lshr i32 %297, 3
@@ -4191,17 +4191,17 @@ copy_block8.exit:                                 ; preds = %126
   %313 = lshr i32 %311, %312
   %314 = and i32 %313, 1023
   %315 = add i32 %297, 10
-  br label %.sink.split63.i
+  br label %.sink.split65.i
 
 316:                                              ; preds = %287
   %317 = and i32 %293, 1023
   %318 = add i32 %285, 10
-  br label %.sink.split63.i
+  br label %.sink.split65.i
 
-.sink.split63.i:                                  ; preds = %316, %307, %298
-  %.sink65.i = phi i32 [ %318, %316 ], [ %315, %307 ], [ %306, %298 ]
+.sink.split65.i:                                  ; preds = %316, %307, %298
+  %.sink67.i = phi i32 [ %318, %316 ], [ %315, %307 ], [ %306, %298 ]
   %.sink.ph.i = phi i32 [ %317, %316 ], [ %314, %307 ], [ %305, %298 ]
-  %319 = tail call i32 @llvm.umin.i32(i32 %283, i32 %.sink65.i)
+  %319 = tail call i32 @llvm.umin.i32(i32 %283, i32 %.sink67.i)
   store i32 %319, ptr %21, align 8, !tbaa !69
   br label %331
 
@@ -4221,10 +4221,10 @@ copy_block8.exit:                                 ; preds = %126
   store i32 %330, ptr %21, align 8, !tbaa !69
   br label %331
 
-331:                                              ; preds = %320, %321, %294, %.sink.split63.i, %260, %278
-  %storemerge.i483 = phi i32 [ 0, %278 ], [ 0, %260 ], [ %295, %294 ], [ %.sink.ph.i, %.sink.split63.i ], [ %328, %321 ], [ 0, %320 ]
-  %.6397.ph = phi i32 [ %280, %278 ], [ %272, %260 ], [ 0, %294 ], [ 0, %.sink.split63.i ], [ 0, %321 ], [ 0, %320 ]
-  %.4391.ph = phi i32 [ 1, %278 ], [ 1, %260 ], [ %.0387, %294 ], [ %.0387, %.sink.split63.i ], [ %.0387, %321 ], [ %.0387, %320 ]
+331:                                              ; preds = %320, %321, %294, %.sink.split65.i, %260, %278
+  %storemerge.i483 = phi i32 [ 0, %278 ], [ 0, %260 ], [ %295, %294 ], [ %.sink.ph.i, %.sink.split65.i ], [ %328, %321 ], [ 0, %320 ]
+  %.6397.ph = phi i32 [ %280, %278 ], [ %272, %260 ], [ 0, %294 ], [ 0, %.sink.split65.i ], [ 0, %321 ], [ 0, %320 ]
+  %.4391.ph = phi i32 [ 1, %278 ], [ 1, %260 ], [ %.0387, %294 ], [ %.0387, %.sink.split65.i ], [ %.0387, %321 ], [ %.0387, %320 ]
   %332 = zext nneg i32 %.02732.i to i64
   %333 = getelementptr inbounds nuw i32, ptr %3, i64 %332
   %334 = load i32, ptr %333, align 4, !tbaa !72
@@ -4663,7 +4663,7 @@ copy_block8.exit354:                              ; preds = %376
   %572 = lshr i32 %570, %571
   %573 = and i32 %572, 65535
   %574 = add i32 %565, 16
-  br label %.sink.split63.i373
+  br label %.sink.split65.i373
 
 575:                                              ; preds = %562
   %576 = lshr i32 %565, 3
@@ -4674,17 +4674,17 @@ copy_block8.exit354:                              ; preds = %376
   %581 = lshr i32 %579, %580
   %582 = and i32 %581, 1023
   %583 = add i32 %565, 10
-  br label %.sink.split63.i373
+  br label %.sink.split65.i373
 
 584:                                              ; preds = %555
   %585 = and i32 %561, 1023
   %586 = add i32 %553, 10
-  br label %.sink.split63.i373
+  br label %.sink.split65.i373
 
-.sink.split63.i373:                               ; preds = %584, %575, %566
-  %.sink65.i374 = phi i32 [ %586, %584 ], [ %583, %575 ], [ %574, %566 ]
+.sink.split65.i373:                               ; preds = %584, %575, %566
+  %.sink67.i374 = phi i32 [ %586, %584 ], [ %583, %575 ], [ %574, %566 ]
   %.sink.ph.i375 = phi i32 [ %585, %584 ], [ %582, %575 ], [ %573, %566 ]
-  %587 = tail call i32 @llvm.umin.i32(i32 %551, i32 %.sink65.i374)
+  %587 = tail call i32 @llvm.umin.i32(i32 %551, i32 %.sink67.i374)
   store i32 %587, ptr %21, align 8, !tbaa !69
   br label %599
 
@@ -4704,10 +4704,10 @@ copy_block8.exit354:                              ; preds = %376
   store i32 %598, ptr %21, align 8, !tbaa !69
   br label %599
 
-599:                                              ; preds = %588, %589, %562, %.sink.split63.i373, %528, %546
-  %storemerge.i377506 = phi i32 [ 0, %546 ], [ 0, %528 ], [ %563, %562 ], [ %.sink.ph.i375, %.sink.split63.i373 ], [ %596, %589 ], [ 0, %588 ]
-  %.6404.ph = phi i32 [ %548, %546 ], [ %540, %528 ], [ 0, %562 ], [ 0, %.sink.split63.i373 ], [ 0, %589 ], [ 0, %588 ]
-  %.4.ph = phi i32 [ 1, %546 ], [ 1, %528 ], [ %.0385, %562 ], [ %.0385, %.sink.split63.i373 ], [ %.0385, %589 ], [ %.0385, %588 ]
+599:                                              ; preds = %588, %589, %562, %.sink.split65.i373, %528, %546
+  %storemerge.i377506 = phi i32 [ 0, %546 ], [ 0, %528 ], [ %563, %562 ], [ %.sink.ph.i375, %.sink.split65.i373 ], [ %596, %589 ], [ 0, %588 ]
+  %.6404.ph = phi i32 [ %548, %546 ], [ %540, %528 ], [ 0, %562 ], [ 0, %.sink.split65.i373 ], [ 0, %589 ], [ 0, %588 ]
+  %.4.ph = phi i32 [ 1, %546 ], [ 1, %528 ], [ %.0385, %562 ], [ %.0385, %.sink.split65.i373 ], [ %.0385, %589 ], [ %.0385, %588 ]
   %600 = zext nneg i32 %.02732.i355 to i64
   %601 = getelementptr inbounds nuw i32, ptr %3, i64 %600
   %602 = load i32, ptr %601, align 4, !tbaa !72
@@ -5013,7 +5013,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_inter_blocks(ptr no
   %114 = lshr i32 %112, %113
   %115 = and i32 %114, 65535
   %116 = add i32 %107, 16
-  br label %.sink.split63.i
+  br label %.sink.split65.i
 
 117:                                              ; preds = %104
   %118 = lshr i32 %107, 3
@@ -5024,22 +5024,22 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_inter_blocks(ptr no
   %123 = lshr i32 %121, %122
   %124 = and i32 %123, 1023
   %125 = add i32 %107, 10
-  br label %.sink.split63.i
+  br label %.sink.split65.i
 
 126:                                              ; preds = %97
   %127 = and i32 %103, 1023
   %128 = add i32 %95, 10
-  br label %.sink.split63.i
+  br label %.sink.split65.i
 
-.sink.split63.i:                                  ; preds = %126, %117, %108
-  %.sink65.i = phi i32 [ %128, %126 ], [ %125, %117 ], [ %116, %108 ]
+.sink.split65.i:                                  ; preds = %126, %117, %108
+  %.sink67.i = phi i32 [ %128, %126 ], [ %125, %117 ], [ %116, %108 ]
   %.sink.ph.i = phi i32 [ %127, %126 ], [ %124, %117 ], [ %115, %108 ]
-  %129 = tail call i32 @llvm.umin.i32(i32 %93, i32 %.sink65.i)
+  %129 = tail call i32 @llvm.umin.i32(i32 %93, i32 %.sink67.i)
   store i32 %129, ptr %20, align 8, !tbaa !69
   br label %130
 
-130:                                              ; preds = %.sink.split63.i, %104
-  %.sink.i = phi i32 [ %105, %104 ], [ %.sink.ph.i, %.sink.split63.i ]
+130:                                              ; preds = %.sink.split65.i, %104
+  %.sink.i = phi i32 [ %105, %104 ], [ %.sink.ph.i, %.sink.split65.i ]
   store i32 %.sink.i, ptr %3, align 4, !tbaa !72
   br label %143
 

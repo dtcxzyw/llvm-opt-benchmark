@@ -325,16 +325,16 @@ define hidden noundef range(i32 0, 5) i32 @_Z10solve_deg4dddddRdS_S_S_(double no
   br i1 %76, label %.thread104, label %.thread104.sink.split
 
 .thread104.sink.split:                            ; preds = %.thread, %69
-  %.sink112 = phi ptr [ %5, %69 ], [ %7, %.thread ]
-  %.sink109 = phi ptr [ %6, %69 ], [ %8, %.thread ]
+  %.sink116 = phi ptr [ %5, %69 ], [ %7, %.thread ]
+  %.sink113 = phi ptr [ %6, %69 ], [ %8, %.thread ]
   %.1.ph = phi i32 [ 2, %69 ], [ 4, %.thread ]
   %77 = tail call double @sqrt(double noundef %.197) #10, !tbaa !3
   %78 = fmul double %77, 5.000000e-01
   %79 = fsub double %78, %67
   %80 = fsub double %79, %66
-  store double %80, ptr %.sink112, align 8, !tbaa !7
+  store double %80, ptr %.sink116, align 8, !tbaa !7
   %81 = fsub double %80, %77
-  store double %81, ptr %.sink109, align 8, !tbaa !7
+  store double %81, ptr %.sink113, align 8, !tbaa !7
   br label %.thread104
 
 .thread104:                                       ; preds = %.thread104.sink.split, %.thread, %44, %36, %69, %16

@@ -810,7 +810,7 @@ get_thread.exit.i:                                ; preds = %.loopexit.i.i, %148
   %192 = load i64, ptr %13, align 8, !tbaa !41, !noalias !71
   %193 = getelementptr inbounds nuw i8, ptr %189, i64 16
   store i64 %192, ptr %193, align 8, !tbaa !79
-  br i1 %185, label %194, label %.critedge64.i
+  br i1 %185, label %194, label %.critedge68.i
 
 194:                                              ; preds = %.split.i
   store i32 2, ptr %189, align 8, !tbaa !50
@@ -831,7 +831,7 @@ get_thread.exit.i:                                ; preds = %.loopexit.i.i, %148
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !71
   br label %stream_encode_in.exit
 
-.critedge64.i:                                    ; preds = %.split.i
+.critedge68.i:                                    ; preds = %.split.i
   %204 = getelementptr inbounds nuw i8, ptr %189, i64 480
   %205 = call i32 @pthread_cond_signal(ptr noundef nonnull %204) #12
   %.pre61.c.i = load ptr, ptr %30, align 8, !tbaa !47, !noalias !71
@@ -839,7 +839,7 @@ get_thread.exit.i:                                ; preds = %.loopexit.i.i, %148
   %207 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %206) #12
   br label %208
 
-208:                                              ; preds = %.critedge64.i, %194
+208:                                              ; preds = %.critedge68.i, %194
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !71
   br label %91
 
@@ -883,7 +883,7 @@ stream_encode_in.exit.thread:                     ; preds = %94, %stream_encode_
 
 226:                                              ; preds = %stream_encode_in.exit.thread
   switch i32 %8, label %227 [
-    i32 0, label %threads_stop.exit.thread.loopexit185
+    i32 0, label %threads_stop.exit.thread.loopexit196
     i32 4, label %threads_stop.exit.thread
   ]
 
@@ -1037,11 +1037,11 @@ wait_for_work.exit:                               ; preds = %.lr.ph.i, %286, %25
   %.not106 = icmp eq i32 %293, 0
   br i1 %.not106, label %threads_stop.exit, label %threads_stop.exit.thread
 
-threads_stop.exit.thread.loopexit185:             ; preds = %226
+threads_stop.exit.thread.loopexit196:             ; preds = %226
   br label %threads_stop.exit.thread
 
-threads_stop.exit.thread:                         ; preds = %229, %230, %wait_for_work.exit, %.preheader45.i, %.preheader45.i120, %.preheader45.i113, %226, %threads_stop.exit.thread.loopexit185, %290, %58, %76, %209
-  %.2.ph = phi i32 [ %.3.i, %209 ], [ %.393, %76 ], [ %57, %58 ], [ %293, %290 ], [ 1, %226 ], [ %.393, %.preheader45.i113 ], [ %.3.i, %.preheader45.i120 ], [ %57, %.preheader45.i ], [ 1, %229 ], [ 0, %230 ], [ 101, %wait_for_work.exit ], [ %8, %threads_stop.exit.thread.loopexit185 ]
+threads_stop.exit.thread:                         ; preds = %229, %230, %wait_for_work.exit, %.preheader45.i, %.preheader45.i120, %.preheader45.i113, %226, %threads_stop.exit.thread.loopexit196, %290, %58, %76, %209
+  %.2.ph = phi i32 [ %.3.i, %209 ], [ %.393, %76 ], [ %57, %58 ], [ %293, %290 ], [ 1, %226 ], [ %.393, %.preheader45.i113 ], [ %.3.i, %.preheader45.i120 ], [ %57, %.preheader45.i ], [ 1, %229 ], [ 0, %230 ], [ 101, %wait_for_work.exit ], [ %8, %threads_stop.exit.thread.loopexit196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -1628,8 +1628,8 @@ worker_encode.exit:                               ; preds = %.loopexit115.i, %.l
   br i1 %165, label %209, label %.preheader71
 
 .preheader75.preheader.sink.split:                ; preds = %53, %61, %41, %49
-  %.sink115 = phi ptr [ %45, %49 ], [ %45, %41 ], [ %57, %61 ], [ %57, %53 ]
-  %166 = getelementptr inbounds nuw i8, ptr %.sink115, i64 512
+  %.sink126 = phi ptr [ %45, %49 ], [ %45, %41 ], [ %57, %61 ], [ %57, %53 ]
+  %166 = getelementptr inbounds nuw i8, ptr %.sink126, i64 512
   %167 = call i32 @pthread_cond_signal(ptr noundef nonnull %166) #12
   %168 = load ptr, ptr %7, align 8, !tbaa !78
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 472
@@ -1638,7 +1638,7 @@ worker_encode.exit:                               ; preds = %.loopexit115.i, %.l
 
 .preheader74:                                     ; preds = %.preheader71, %.preheader71.split
   %171 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #12
-  %172 = icmp eq i32 %.3.fr102, 2
+  %172 = icmp eq i32 %.3.fr113, 2
   %173 = load ptr, ptr %7, align 8, !tbaa !78
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 472
   %175 = call i32 @pthread_mutex_lock(ptr noundef nonnull %174) #12
@@ -1661,7 +1661,7 @@ worker_encode.exit:                               ; preds = %.loopexit115.i, %.l
   br label %198
 
 .preheader71:                                     ; preds = %worker_encode.exit, %.preheader75.preheader.sink.split
-  %.3.fr102 = phi i32 [ %.3.fr, %worker_encode.exit ], [ 3, %.preheader75.preheader.sink.split ]
+  %.3.fr113 = phi i32 [ %.3.fr, %worker_encode.exit ], [ 3, %.preheader75.preheader.sink.split ]
   %186 = call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #12
   %187 = load i32, ptr %0, align 8, !tbaa !50
   %188 = icmp eq i32 %187, 4
@@ -1685,18 +1685,18 @@ worker_encode.exit:                               ; preds = %.loopexit115.i, %.l
   br label %198
 
 198:                                              ; preds = %.split.us.us, %.split
-  %.sink123 = phi ptr [ %182, %.split.us.us ], [ %193, %.split ]
-  %.sink122 = phi i64 [ %176, %.split.us.us ], [ %197, %.split ]
-  %199 = getelementptr inbounds nuw i8, ptr %.sink123, i64 464
+  %.sink134 = phi ptr [ %182, %.split.us.us ], [ %193, %.split ]
+  %.sink133 = phi i64 [ %176, %.split.us.us ], [ %197, %.split ]
+  %199 = getelementptr inbounds nuw i8, ptr %.sink134, i64 464
   %200 = load i64, ptr %199, align 8, !tbaa !64
-  %201 = add i64 %200, %.sink122
+  %201 = add i64 %200, %.sink133
   store i64 %201, ptr %199, align 8, !tbaa !64
-  %202 = getelementptr inbounds nuw i8, ptr %.sink123, i64 440
+  %202 = getelementptr inbounds nuw i8, ptr %.sink134, i64 440
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %203 = load ptr, ptr %202, align 8, !tbaa !74
   store ptr %203, ptr %18, align 8, !tbaa !75
   store ptr %0, ptr %202, align 8, !tbaa !74
-  %204 = getelementptr inbounds nuw i8, ptr %.sink123, i64 512
+  %204 = getelementptr inbounds nuw i8, ptr %.sink134, i64 512
   %205 = call i32 @pthread_cond_signal(ptr noundef nonnull %204) #12
   %206 = load ptr, ptr %7, align 8, !tbaa !78
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 472

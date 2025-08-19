@@ -351,8 +351,8 @@ bytestream2_get_be32.exit:                        ; preds = %154, %155
   %.pre495 = load i32, ptr %98, align 8, !tbaa !35
   %163 = add nuw nsw i32 %.0.i304, %.0.i300
   %164 = icmp sgt i32 %163, %.pre495
-  %or.cond613 = select i1 %162, i1 true, i1 %164
-  br i1 %or.cond613, label %165, label %166
+  %or.cond644 = select i1 %162, i1 true, i1 %164
+  br i1 %or.cond644, label %165, label %166
 
 165:                                              ; preds = %bytestream2_get_be32.exit
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.4, i32 noundef %.0.i302, i32 noundef %.0.i304, i32 noundef %.0.i298, i32 noundef %.0.i300, i32 noundef %161, i32 noundef %.pre495) #7
@@ -663,8 +663,8 @@ vmnc_get_pixel.exit.i:                            ; preds = %283, %282, %272, %2
 ._crit_edge99.i:                                  ; preds = %._crit_edge.i
   %300 = icmp sgt i32 %297, 0
   %301 = icmp sgt i32 %.pr, 0
-  %or.cond614 = and i1 %300, %301
-  br i1 %or.cond614, label %.preheader.preheader.i, label %load_cursor.exit
+  %or.cond645 = and i1 %300, %301
+  br i1 %or.cond645, label %.preheader.preheader.i, label %load_cursor.exit
 
 .preheader.preheader.i:                           ; preds = %._crit_edge99.i
   %302 = load ptr, ptr %109, align 8, !tbaa !72

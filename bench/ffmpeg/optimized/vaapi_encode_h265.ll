@@ -283,7 +283,7 @@ define internal range(i32 -542398533, 1) i32 @vaapi_encode_h265_get_encoder_caps
 
 ._crit_edge:                                      ; preds = %.thread, %38
   %39 = phi ptr [ %37, %.thread ], [ %29, %38 ]
-  %.pre6570 = phi i32 [ %32, %.thread ], [ %.pre, %38 ]
+  %.pre6571 = phi i32 [ %32, %.thread ], [ %.pre, %38 ]
   %.phi.trans.insert66 = getelementptr inbounds nuw i8, ptr %4, i64 1988
   %.pre67 = load i32, ptr %.phi.trans.insert66, align 4, !tbaa !88
   br label %42
@@ -297,7 +297,7 @@ define internal range(i32 -542398533, 1) i32 @vaapi_encode_h265_get_encoder_caps
 42:                                               ; preds = %._crit_edge, %40
   %43 = phi ptr [ %39, %._crit_edge ], [ %29, %40 ]
   %44 = phi i32 [ %.pre67, %._crit_edge ], [ 16, %40 ]
-  %45 = phi i32 [ %.pre6570, %._crit_edge ], [ 32, %40 ]
+  %45 = phi i32 [ %.pre6571, %._crit_edge ], [ 32, %40 ]
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 1988
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.88, i32 noundef %45, i32 noundef %45, i32 noundef %44, i32 noundef %44) #9
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1036,17 +1036,17 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_picture_pa
   br label %54
 
 54:                                               ; preds = %27, %46, %33, %24
-  %.sink275 = phi i32 [ %.sink, %46 ], [ 1, %33 ], [ 19, %24 ], [ 21, %27 ]
-  %.sink273 = phi i32 [ 0, %46 ], [ 1, %33 ], [ 2, %24 ], [ 2, %27 ]
-  %.sink271 = phi i32 [ 2, %46 ], [ 1, %33 ], [ 0, %24 ], [ 0, %27 ]
+  %.sink283 = phi i32 [ %.sink, %46 ], [ 1, %33 ], [ 19, %24 ], [ 21, %27 ]
+  %.sink281 = phi i32 [ 0, %46 ], [ 1, %33 ], [ 2, %24 ], [ 2, %27 ]
+  %.sink279 = phi i32 [ 2, %46 ], [ 1, %33 ], [ 0, %24 ], [ 0, %27 ]
   %55 = phi i8 [ 2, %46 ], [ 1, %33 ], [ 0, %24 ], [ 0, %27 ]
   %56 = phi i64 [ %31, %46 ], [ %31, %33 ], [ %19, %24 ], [ %31, %27 ]
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 %.sink275, ptr %57, align 8, !tbaa !198
+  store i32 %.sink283, ptr %57, align 8, !tbaa !198
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store i32 %.sink273, ptr %58, align 4, !tbaa !199
+  store i32 %.sink281, ptr %58, align 4, !tbaa !199
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 %.sink271, ptr %59, align 8, !tbaa !200
+  store i32 %.sink279, ptr %59, align 8, !tbaa !200
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %61 = load i64, ptr %60, align 8, !tbaa !190
   %62 = sub nsw i64 %61, %56
@@ -1790,19 +1790,19 @@ define internal noundef i32 @vaapi_encode_h265_init_slice_params(ptr noundef %0,
 
 140:                                              ; preds = %136
   %141 = icmp sgt i32 %138, %135
-  br i1 %141, label %._crit_edge330.split.loop.exit423, label %142
+  br i1 %141, label %._crit_edge330.split.loop.exit431, label %142
 
 142:                                              ; preds = %140
   %indvars.iv.next377 = add nuw nsw i64 %indvars.iv376, 1
   %exitcond380.not = icmp eq i64 %indvars.iv.next377, %wide.trip.count379
   br i1 %exitcond380.not, label %._crit_edge330, label %136, !llvm.loop !268
 
-._crit_edge330.split.loop.exit423:                ; preds = %140
+._crit_edge330.split.loop.exit431:                ; preds = %140
   %143 = trunc nuw nsw i64 %indvars.iv376 to i32
   br label %._crit_edge330
 
-._crit_edge330:                                   ; preds = %142, %._crit_edge330.split.loop.exit423
-  %.4272.lcssa = phi i32 [ %143, %._crit_edge330.split.loop.exit423 ], [ %.2.lcssa, %142 ]
+._crit_edge330:                                   ; preds = %142, %._crit_edge330.split.loop.exit431
+  %.4272.lcssa = phi i32 [ %143, %._crit_edge330.split.loop.exit431 ], [ %.2.lcssa, %142 ]
   %144 = trunc i32 %.4272.lcssa to i8
   %145 = getelementptr inbounds nuw i8, ptr %7, i64 7953936
   store i8 %144, ptr %145, align 2, !tbaa !267
@@ -1839,18 +1839,18 @@ define internal noundef i32 @vaapi_encode_h265_init_slice_params(ptr noundef %0,
   br i1 %164, label %152, label %._crit_edge338, !llvm.loop !269
 
 ._crit_edge338:                                   ; preds = %152, %._crit_edge330.thread, %._crit_edge330
-  %.4272.lcssa421 = phi i32 [ 0, %._crit_edge330.thread ], [ %.4272.lcssa, %._crit_edge330 ], [ %.4272.lcssa, %152 ]
-  %165 = sub nsw i32 %.2.lcssa, %.4272.lcssa421
+  %.4272.lcssa429 = phi i32 [ 0, %._crit_edge330.thread ], [ %.4272.lcssa, %._crit_edge330 ], [ %.4272.lcssa, %152 ]
+  %165 = sub nsw i32 %.2.lcssa, %.4272.lcssa429
   %166 = trunc i32 %165 to i8
   %167 = getelementptr inbounds nuw i8, ptr %7, i64 7953937
   store i8 %166, ptr %167, align 1, !tbaa !270
-  %168 = icmp slt i32 %.4272.lcssa421, %.2.lcssa
+  %168 = icmp slt i32 %.4272.lcssa429, %.2.lcssa
   br i1 %168, label %.lr.ph342, label %._crit_edge343
 
 .lr.ph342:                                        ; preds = %._crit_edge338
   %169 = getelementptr inbounds nuw i8, ptr %7, i64 7953986
   %170 = getelementptr inbounds nuw i8, ptr %7, i64 7954018
-  %171 = sext i32 %.4272.lcssa421 to i64
+  %171 = sext i32 %.4272.lcssa429 to i64
   %wide.trip.count387 = sext i32 %.2.lcssa to i64
   %.1263.pre = load i32, ptr %10, align 4, !tbaa !156
   br label %172
@@ -1934,10 +1934,10 @@ define internal noundef i32 @vaapi_encode_h265_init_slice_params(ptr noundef %0,
   %211 = phi i8 [ %195, %204 ], [ %195, %192 ], [ %.pre401.pre, %.thread294 ], [ %195, %205 ]
   %212 = phi i8 [ %201, %204 ], [ %201, %192 ], [ %53, %.thread294 ], [ %201, %205 ]
   %213 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink
-  %.sink428 = load i32, ptr %213, align 4, !tbaa !156
+  %.sink436 = load i32, ptr %213, align 4, !tbaa !156
   %214 = getelementptr inbounds nuw i8, ptr %7, i64 7945804
   %215 = load i8, ptr %214, align 4, !tbaa !158
-  %216 = trunc i32 %.sink428 to i8
+  %216 = trunc i32 %.sink436 to i8
   %217 = add i8 %216, -26
   %218 = sub i8 %217, %215
   %219 = getelementptr inbounds nuw i8, ptr %7, i64 7954568

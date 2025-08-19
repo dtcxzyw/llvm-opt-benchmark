@@ -967,8 +967,8 @@ define internal void @_edit_clicked(ptr readnone captures(none) %0, ptr noundef 
   br i1 %.not53, label %.loopexit70, label %.lr.ph77
 
 .loopexit70:                                      ; preds = %55, %15, %37, %._crit_edge
-  %.044.lcssa80 = phi ptr [ %.1, %37 ], [ null, %._crit_edge ], [ null, %15 ], [ %.1, %55 ]
-  call void @g_list_free_full(ptr noundef %.044.lcssa80, ptr noundef nonnull @g_free) #14
+  %.044.lcssa85 = phi ptr [ %.1, %37 ], [ null, %._crit_edge ], [ null, %15 ], [ %.1, %55 ]
+  call void @g_list_free_full(ptr noundef %.044.lcssa85, ptr noundef nonnull @g_free) #14
   call void @g_list_free_full(ptr noundef %18, ptr noundef nonnull @gtk_tree_path_free) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1574,9 +1574,9 @@ define internal fastcc void @_gui_styles_update_view(ptr noundef %0) unnamed_add
 26:                                               ; preds = %.lr.ph
   %27 = call i32 @gtk_tree_model_get_iter_first(ptr noundef %9, ptr noundef nonnull %4) #14
   %.not22.i = icmp eq i32 %27, 0
-  br i1 %.not22.i, label %28, label %.preheader48
+  br i1 %.not22.i, label %28, label %.preheader51
 
-.preheader48:                                     ; preds = %30, %26
+.preheader51:                                     ; preds = %30, %26
   br label %36
 
 28:                                               ; preds = %26
@@ -1589,14 +1589,14 @@ define internal fastcc void @_gui_styles_update_view(ptr noundef %0) unnamed_add
   %32 = call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %31) #14
   %33 = call i32 @gtk_tree_model_iter_children(ptr noundef %32, ptr noundef nonnull %4, ptr noundef nonnull %2) #14
   %.not21.i = icmp eq i32 %33, 0
-  br i1 %.not21.i, label %34, label %.preheader48
+  br i1 %.not21.i, label %34, label %.preheader51
 
 34:                                               ; preds = %30
   %35 = call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %13) #14
   call void @gtk_tree_store_append(ptr noundef %35, ptr noundef nonnull %4, ptr noundef nonnull %2) #14
   br label %44
 
-36:                                               ; preds = %.preheader48, %40
+36:                                               ; preds = %.preheader51, %40
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %9, ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %3, i32 noundef -1) #14
   %37 = load ptr, ptr %3, align 8, !tbaa !10

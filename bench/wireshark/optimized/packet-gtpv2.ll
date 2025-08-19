@@ -4479,8 +4479,8 @@ define hidden void @dissect_gtpv2_ie_common(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %75, label %76, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.thread, %.loopexit
-  %.1137 = phi i32 [ %44, %.thread ], [ %74, %.loopexit ]
-  %.095136 = phi i8 [ %47, %.thread ], [ %52, %.loopexit ]
+  %.1146 = phi i32 [ %44, %.thread ], [ %74, %.loopexit ]
+  %.095145 = phi i8 [ %47, %.thread ], [ %52, %.loopexit ]
   br label %.preheader
 
 76:                                               ; preds = %.loopexit
@@ -4500,18 +4500,18 @@ define hidden void @dissect_gtpv2_ie_common(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %or.cond107, label %84, label %.preheader, !llvm.loop !10
 
 84:                                               ; preds = %.preheader
-  %85 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1137)
+  %85 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1146)
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = load ptr, ptr %8, align 8
-  call void %87(ptr noundef %85, ptr noundef %1, ptr noundef %39, ptr noundef %88, i16 noundef zeroext %21, i8 noundef zeroext %4, i8 noundef zeroext %.095136, ptr noundef %5)
+  call void %87(ptr noundef %85, ptr noundef %1, ptr noundef %39, ptr noundef %88, i16 noundef zeroext %21, i8 noundef zeroext %4, i8 noundef zeroext %.095145, ptr noundef %5)
   br label %89
 
 89:                                               ; preds = %84, %76
-  %.1138 = phi i32 [ %.1137, %84 ], [ %74, %76 ]
+  %.1147 = phi i32 [ %.1146, %84 ], [ %74, %76 ]
   %90 = zext i1 %45 to i32
   %spec.select = add nuw nsw i32 %23, %90
-  %91 = add i32 %spec.select, %.1138
+  %91 = add i32 %spec.select, %.1147
   %92 = icmp slt i32 %91, %9
   br i1 %92, label %13, label %.loopexit109, !llvm.loop !11
 
@@ -8562,15 +8562,15 @@ define internal void @dissect_gtpv2_mbms_ip_mc_dist(ptr noundef %0, ptr noundef 
 
 .sink.split:                                      ; preds = %18, %8
   %hf_gtpv2_mbms_ip_mc_dist_addrv6.sink = phi ptr [ @hf_gtpv2_mbms_ip_mc_dist_addrv4, %8 ], [ @hf_gtpv2_mbms_ip_mc_dist_addrv6, %18 ]
-  %.sink74 = phi i32 [ 4, %8 ], [ 16, %18 ]
-  %.sink73 = phi i32 [ 2, %8 ], [ 3, %18 ]
+  %.sink76 = phi i32 [ 4, %8 ], [ 16, %18 ]
+  %.sink75 = phi i32 [ 2, %8 ], [ 3, %18 ]
   %.str.1839.sink = phi ptr [ @.str.1838, %8 ], [ @.str.1839, %18 ]
   %.0.ph = phi i32 [ 9, %8 ], [ 21, %18 ]
   %22 = load i32, ptr %hf_gtpv2_mbms_ip_mc_dist_addrv6.sink, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 5, i32 noundef %.sink74, i32 noundef 0)
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 5, i32 noundef %.sink76, i32 noundef 0)
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call ptr @tvb_address_to_str(ptr noundef %25, ptr noundef %0, i32 noundef %.sink73, i32 noundef 5)
+  %26 = tail call ptr @tvb_address_to_str(ptr noundef %25, ptr noundef %0, i32 noundef %.sink75, i32 noundef 5)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull %.str.1839.sink, ptr noundef %26)
   br label %27
 
@@ -8583,32 +8583,32 @@ define internal void @dissect_gtpv2_mbms_ip_mc_dist(ptr noundef %0, ptr noundef 
   %32 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0)
   %33 = and i8 %32, 63
   %34 = icmp eq i8 %33, 4
-  br i1 %34, label %.sink.split75, label %35
+  br i1 %34, label %.sink.split77, label %35
 
 35:                                               ; preds = %27
   %36 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0)
   %37 = and i8 %36, 63
   %38 = icmp eq i8 %37, 16
-  br i1 %38, label %.sink.split75, label %46
+  br i1 %38, label %.sink.split77, label %46
 
-.sink.split75:                                    ; preds = %35, %27
+.sink.split77:                                    ; preds = %35, %27
   %hf_gtpv2_mbms_ip_mc_src_addrv6.sink = phi ptr [ @hf_gtpv2_mbms_ip_mc_src_addrv4, %27 ], [ @hf_gtpv2_mbms_ip_mc_src_addrv6, %35 ]
-  %.sink83 = phi i32 [ 4, %27 ], [ 16, %35 ]
-  %.sink78 = phi i32 [ 2, %27 ], [ 3, %35 ]
+  %.sink85 = phi i32 [ 4, %27 ], [ 16, %35 ]
+  %.sink80 = phi i32 [ 2, %27 ], [ 3, %35 ]
   %.str.1841.sink = phi ptr [ @.str.1840, %27 ], [ @.str.1841, %35 ]
   %.sink = phi i32 [ 5, %27 ], [ 17, %35 ]
   %39 = add nuw nsw i32 %.0, 1
   %40 = load i32, ptr %hf_gtpv2_mbms_ip_mc_src_addrv6.sink, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %39, i32 noundef %.sink83, i32 noundef 0)
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %39, i32 noundef %.sink85, i32 noundef 0)
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call ptr @tvb_address_to_str(ptr noundef %43, ptr noundef %0, i32 noundef %.sink78, i32 noundef %39)
+  %44 = tail call ptr @tvb_address_to_str(ptr noundef %43, ptr noundef %0, i32 noundef %.sink80, i32 noundef %39)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull %.str.1841.sink, ptr noundef %44)
   %45 = add nuw nsw i32 %.0, %.sink
   br label %46
 
-46:                                               ; preds = %.sink.split75, %35
-  %.1 = phi i32 [ %.0, %35 ], [ %45, %.sink.split75 ]
+46:                                               ; preds = %.sink.split77, %35
+  %.1 = phi i32 [ %.0, %35 ], [ %45, %.sink.split77 ]
   %47 = load i32, ptr @hf_gtpv2_mbms_hc_indicator, align 4
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %47, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0)
   %49 = add nuw nsw i32 %.1, 1

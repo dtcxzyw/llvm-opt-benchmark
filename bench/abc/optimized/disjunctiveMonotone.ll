@@ -1006,14 +1006,14 @@ define noalias noundef ptr @findNewDisjunctiveMonotone(ptr noundef readonly capt
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %61, %63, %53, %55
-  %.sink70 = phi ptr [ %54, %53 ], [ %56, %55 ], [ %62, %61 ], [ %64, %63 ]
+  %.sink74 = phi ptr [ %54, %53 ], [ %56, %55 ], [ %62, %61 ], [ %64, %63 ]
   %.sink = phi i32 [ 16, %53 ], [ 16, %55 ], [ %58, %61 ], [ %58, %63 ]
-  store ptr %.sink70, ptr %9, align 8, !tbaa !9
+  store ptr %.sink74, ptr %9, align 8, !tbaa !9
   store i32 %.sink, ptr %calloc, align 8, !tbaa !64
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %39
-  %.pre.i69 = phi ptr [ %34, %39 ], [ %.sink70, %Vec_IntPush.exit.sink.split ]
+  %.pre.i69 = phi ptr [ %34, %39 ], [ %.sink74, %Vec_IntPush.exit.sink.split ]
   %65 = add nsw i32 %47, 1
   store i32 %65, ptr %8, align 4, !tbaa !42
   %66 = sext i32 %47 to i64
@@ -1189,14 +1189,14 @@ Vec_IntFind.exit.thread:                          ; preds = %32, %.lr.ph
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %47, %49, %39, %41
-  %.sink24 = phi ptr [ %40, %39 ], [ %42, %41 ], [ %48, %47 ], [ %50, %49 ]
+  %.sink27 = phi ptr [ %40, %39 ], [ %42, %41 ], [ %48, %47 ], [ %50, %49 ]
   %.sink = phi i32 [ 16, %39 ], [ 16, %41 ], [ %44, %47 ], [ %44, %49 ]
-  store ptr %.sink24, ptr %12, align 8, !tbaa !9
+  store ptr %.sink27, ptr %12, align 8, !tbaa !9
   store i32 %.sink, ptr %calloc, align 8, !tbaa !64
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %Vec_IntFind.exit.thread
-  %.pre.i23 = phi ptr [ %18, %Vec_IntFind.exit.thread ], [ %.sink24, %Vec_IntPush.exit.sink.split ]
+  %.pre.i23 = phi ptr [ %18, %Vec_IntFind.exit.thread ], [ %.sink27, %Vec_IntPush.exit.sink.split ]
   %51 = add nsw i32 %33, 1
   store i32 %51, ptr %11, align 4, !tbaa !42
   %52 = sext i32 %33 to i64
@@ -1302,14 +1302,14 @@ Vec_IntFind.exit.thread:                          ; preds = %21, %10
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %36, %38, %28, %30
-  %.sink19 = phi ptr [ %29, %28 ], [ %31, %30 ], [ %37, %36 ], [ %39, %38 ]
+  %.sink21 = phi ptr [ %29, %28 ], [ %31, %30 ], [ %37, %36 ], [ %39, %38 ]
   %.sink = phi i32 [ 16, %28 ], [ 16, %30 ], [ %33, %36 ], [ %33, %38 ]
-  store ptr %.sink19, ptr %4, align 8, !tbaa !9
+  store ptr %.sink21, ptr %4, align 8, !tbaa !9
   store i32 %.sink, ptr %calloc, align 8, !tbaa !64
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %Vec_IntFind.exit.thread
-  %.pre.i16 = phi ptr [ %11, %Vec_IntFind.exit.thread ], [ %.sink19, %Vec_IntPush.exit.sink.split ]
+  %.pre.i16 = phi ptr [ %11, %Vec_IntFind.exit.thread ], [ %.sink21, %Vec_IntPush.exit.sink.split ]
   %40 = add nsw i32 %22, 1
   store i32 %40, ptr %3, align 4, !tbaa !42
   %41 = sext i32 %22 to i64
@@ -1446,9 +1446,9 @@ define noalias noundef ptr @findNextLevelDisjunctiveMonotone(ptr noundef readonl
   %calloc = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %5 = getelementptr inbounds nuw i8, ptr %calloc, i64 4
   %6 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
-  %calloc109 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %7 = getelementptr inbounds nuw i8, ptr %calloc109, i64 4
-  %8 = getelementptr inbounds nuw i8, ptr %calloc109, i64 8
+  %calloc125 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
+  %7 = getelementptr inbounds nuw i8, ptr %calloc125, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %calloc125, i64 8
   %9 = getelementptr i8, ptr %3, i64 4
   %.val4973 = load i32, ptr %9, align 4, !tbaa !28
   %10 = icmp sgt i32 %.val4973, 0
@@ -1513,7 +1513,7 @@ define noalias noundef ptr @findNextLevelDisjunctiveMonotone(ptr noundef readonl
   br i1 %33, label %Vec_IntPushUniqueLocal.exit, label %29
 
 ._crit_edge.i:                                    ; preds = %29, %22
-  %34 = load i32, ptr %calloc109, align 8, !tbaa !64
+  %34 = load i32, ptr %calloc125, align 8, !tbaa !64
   %35 = icmp eq i32 %27, %34
   br i1 %35, label %36, label %Vec_IntPush.exit.i
 
@@ -1549,14 +1549,14 @@ define noalias noundef ptr @findNextLevelDisjunctiveMonotone(ptr noundef readonl
   br label %Vec_IntPush.exit.i.sink.split
 
 Vec_IntPush.exit.i.sink.split:                    ; preds = %47, %49, %39, %41
-  %.sink110 = phi ptr [ %40, %39 ], [ %42, %41 ], [ %48, %47 ], [ %50, %49 ]
+  %.sink126 = phi ptr [ %40, %39 ], [ %42, %41 ], [ %48, %47 ], [ %50, %49 ]
   %.sink = phi i32 [ 16, %39 ], [ 16, %41 ], [ %44, %47 ], [ %44, %49 ]
-  store ptr %.sink110, ptr %8, align 8, !tbaa !9
-  store i32 %.sink, ptr %calloc109, align 8, !tbaa !64
+  store ptr %.sink126, ptr %8, align 8, !tbaa !9
+  store i32 %.sink, ptr %calloc125, align 8, !tbaa !64
   br label %Vec_IntPush.exit.i
 
 Vec_IntPush.exit.i:                               ; preds = %Vec_IntPush.exit.i.sink.split, %._crit_edge.i
-  %.pre.i.i96 = phi ptr [ %23, %._crit_edge.i ], [ %.sink110, %Vec_IntPush.exit.i.sink.split ]
+  %.pre.i.i96 = phi ptr [ %23, %._crit_edge.i ], [ %.sink126, %Vec_IntPush.exit.i.sink.split ]
   %51 = add nsw i32 %27, 1
   store i32 %51, ptr %7, align 4, !tbaa !42
   %52 = sext i32 %27 to i64
@@ -1618,7 +1618,7 @@ Vec_IntDup.exit:                                  ; preds = %60, %67
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %71, ptr align 4 %74, i64 %.pre-phi12.i, i1 false)
   store ptr %63, ptr %calloc.i, align 8, !tbaa !3
   %75 = load ptr, ptr %14, align 8, !tbaa !13
-  %76 = tail call ptr @vectorDifference(ptr noundef %75, ptr noundef nonnull %calloc109)
+  %76 = tail call ptr @vectorDifference(ptr noundef %75, ptr noundef nonnull %calloc125)
   %77 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %76, ptr %77, align 8, !tbaa !13
   %78 = tail call ptr @findNewDisjunctiveMonotone(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %calloc.i)
@@ -1853,7 +1853,7 @@ deallocAntecedentConsequentVectorsStruct.exit:    ; preds = %154, %Vec_IntFree.e
   br label %Vec_IntFree.exit67
 
 Vec_IntFree.exit67:                               ; preds = %4, %.critedge4, %163
-  tail call void @free(ptr noundef nonnull %calloc109) #14
+  tail call void @free(ptr noundef nonnull %calloc125) #14
   ret ptr %calloc
 }
 

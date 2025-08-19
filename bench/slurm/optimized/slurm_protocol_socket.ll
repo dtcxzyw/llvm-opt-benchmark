@@ -113,7 +113,7 @@ define dso_local range(i64 -1, 4294967296) i64 @slurm_msg_recvfrom_timeout(i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @slurm_recv_timeout(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @slurm_recv_timeout(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.pollfd, align 4
   %6 = alloca %struct.timeval, align 8
   %7 = alloca i32, align 4
@@ -147,7 +147,7 @@ define dso_local i32 @slurm_recv_timeout(i32 noundef %0, ptr noundef %1, i64 nou
   %19 = call i32 @timeval_tot_wait(ptr noundef nonnull %6) #12
   %20 = sub nsw i32 %3, %19
   %21 = icmp slt i32 %20, 1
-  br i1 %21, label %.lr.ph._crit_edge, label %.lr.ph110
+  br i1 %21, label %.lr.ph._crit_edge, label %.lr.ph118
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.backedge
   %22 = call i32 @get_log_level() #12
@@ -163,13 +163,13 @@ define dso_local i32 @slurm_recv_timeout(i32 noundef %0, ptr noundef %1, i64 nou
   store i32 5004, ptr %26, align 4
   br label %.loopexit
 
-.lr.ph110:                                        ; preds = %.lr.ph, %.backedge
+.lr.ph118:                                        ; preds = %.lr.ph, %.backedge
   %27 = phi i32 [ %38, %.backedge ], [ %20, %.lr.ph ]
   %28 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 1, i32 noundef %27) #12
   %29 = icmp slt i32 %28, 1
   br i1 %29, label %30, label %45
 
-30:                                               ; preds = %.lr.ph110
+30:                                               ; preds = %.lr.ph118
   %31 = tail call ptr @__errno_location() #11
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 4
@@ -185,7 +185,7 @@ define dso_local i32 @slurm_recv_timeout(i32 noundef %0, ptr noundef %1, i64 nou
   %37 = call i32 @timeval_tot_wait(ptr noundef nonnull %6) #12
   %38 = sub nsw i32 %3, %37
   %39 = icmp slt i32 %38, 1
-  br i1 %39, label %.lr.ph._crit_edge, label %.lr.ph110
+  br i1 %39, label %.lr.ph._crit_edge, label %.lr.ph118
 
 40:                                               ; preds = %34
   %41 = call i32 @get_log_level() #12
@@ -200,7 +200,7 @@ define dso_local i32 @slurm_recv_timeout(i32 noundef %0, ptr noundef %1, i64 nou
   store i32 1003, ptr %31, align 4
   br label %.loopexit
 
-45:                                               ; preds = %.lr.ph110
+45:                                               ; preds = %.lr.ph118
   %46 = load i16, ptr %12, align 2
   %47 = and i16 %46, 8
   %.not = icmp eq i16 %47, 0
@@ -225,9 +225,9 @@ define dso_local i32 @slurm_recv_timeout(i32 noundef %0, ptr noundef %1, i64 nou
   br label %.sink.split
 
 .sink.split:                                      ; preds = %52, %54
-  %.sink98 = phi i32 [ %55, %54 ], [ %49, %52 ]
+  %.sink106 = phi i32 [ %55, %54 ], [ %49, %52 ]
   %.str.4.sink = phi ptr [ @.str.4, %54 ], [ @.str.3, %52 ]
-  %56 = call ptr @slurm_strerror(i32 noundef %.sink98) #12
+  %56 = call ptr @slurm_strerror(i32 noundef %.sink106) #12
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull %.str.4.sink, ptr noundef nonnull @__func__.slurm_recv_timeout, ptr noundef %56) #12
   br label %57
 
@@ -510,9 +510,9 @@ define internal fastcc i32 @_writev_timeout(i32 noundef %0, ptr noundef nonnull 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %49, %51
-  %.sink148 = phi i32 [ %52, %51 ], [ %46, %49 ]
+  %.sink158 = phi i32 [ %52, %51 ], [ %46, %49 ]
   %.str.4.sink = phi ptr [ @.str.4, %51 ], [ @.str.28, %49 ]
-  %53 = call ptr @slurm_strerror(i32 noundef %.sink148) #12
+  %53 = call ptr @slurm_strerror(i32 noundef %.sink158) #12
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull %.str.4.sink, ptr noundef nonnull @__func__._writev_timeout, ptr noundef %53) #12
   br label %54
 
@@ -542,23 +542,23 @@ define internal fastcc i32 @_writev_timeout(i32 noundef %0, ptr noundef nonnull 
   br i1 %.not86, label %67, label %66
 
 66:                                               ; preds = %62
-  br i1 %65, label %.sink.split149, label %71
+  br i1 %65, label %.sink.split159, label %71
 
 67:                                               ; preds = %62
   br i1 %65, label %68, label %71
 
 68:                                               ; preds = %67
   %69 = load i32, ptr %9, align 4
-  br label %.sink.split149
+  br label %.sink.split159
 
-.sink.split149:                                   ; preds = %66, %68
-  %.sink150 = phi i32 [ %69, %68 ], [ %63, %66 ]
+.sink.split159:                                   ; preds = %66, %68
+  %.sink160 = phi i32 [ %69, %68 ], [ %63, %66 ]
   %.str.6.sink = phi ptr [ @.str.6, %68 ], [ @.str.29, %66 ]
-  %70 = call ptr @slurm_strerror(i32 noundef %.sink150) #12
+  %70 = call ptr @slurm_strerror(i32 noundef %.sink160) #12
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull %.str.6.sink, ptr noundef nonnull @__func__._writev_timeout, ptr noundef %70) #12
   br label %71
 
-71:                                               ; preds = %.sink.split149, %67, %66
+71:                                               ; preds = %.sink.split159, %67, %66
   %72 = load i32, ptr %9, align 4
   %73 = tail call ptr @__errno_location() #11
   store i32 %72, ptr %73, align 4
@@ -668,14 +668,14 @@ define internal fastcc i32 @_writev_timeout(i32 noundef %0, ptr noundef nonnull 
 124:                                              ; preds = %.preheader
   %125 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %126 = load ptr, ptr %120, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 %.067108
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 %.067108
   store ptr %127, ptr %120, align 8
   %128 = sub nuw i64 %122, %.067108
   store i64 %128, ptr %125, align 8
   br label %.loopexit
 
 129:                                              ; preds = %.preheader
-  %130 = sub nuw i64 %.067108, %122
+  %130 = sub nuw nsw i64 %.067108, %122
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %120, i8 0, i64 16, i1 false)

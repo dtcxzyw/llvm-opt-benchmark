@@ -395,9 +395,9 @@ define hidden noundef i32 @mlib_ImageAffine_u8_1ch_bc(ptr noundef readonly captu
   %.not222 = icmp ult i32 %292, 256
   %293 = trunc nuw i32 %292 to i8
   %294 = icmp sgt i32 %292, -1
-  %.305 = sext i1 %294 to i8
-  %.sink304 = select i1 %.not222, i8 %293, i8 %.305
-  store i8 %.sink304, ptr %.0212.lcssa, align 1
+  %.316 = sext i1 %294 to i8
+  %.sink315 = select i1 %.not222, i8 %293, i8 %.316
+  store i8 %.sink315, ptr %.0212.lcssa, align 1
   br label %295
 
 295:                                              ; preds = %._crit_edge, %50
@@ -813,9 +813,9 @@ define hidden noundef i32 @mlib_ImageAffine_u8_2ch_bc(ptr noundef readonly captu
   %.not231 = icmp ult i32 %299, 256
   %300 = trunc nuw i32 %299 to i8
   %301 = icmp sgt i32 %299, -1
-  %.321 = sext i1 %301 to i8
-  %.sink320 = select i1 %.not231, i8 %300, i8 %.321
-  store i8 %.sink320, ptr %.0.lcssa, align 1
+  %.331 = sext i1 %301 to i8
+  %.sink330 = select i1 %.not231, i8 %300, i8 %.331
+  store i8 %.sink330, ptr %.0.lcssa, align 1
   br i1 %89, label %88, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %._crit_edge, %50
@@ -1230,9 +1230,9 @@ define hidden noundef i32 @mlib_ImageAffine_u8_3ch_bc(ptr noundef readonly captu
   %.not231 = icmp ult i32 %298, 256
   %299 = trunc nuw i32 %298 to i8
   %300 = icmp sgt i32 %298, -1
-  %.322 = sext i1 %300 to i8
-  %.sink321 = select i1 %.not231, i8 %299, i8 %.322
-  store i8 %.sink321, ptr %.0.lcssa, align 1
+  %.332 = sext i1 %300 to i8
+  %.sink331 = select i1 %.not231, i8 %299, i8 %.332
+  store i8 %.sink331, ptr %.0.lcssa, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.loopexit, label %88, !llvm.loop !13
@@ -1649,9 +1649,9 @@ define hidden noundef i32 @mlib_ImageAffine_u8_4ch_bc(ptr noundef readonly captu
   %.not231 = icmp ult i32 %298, 256
   %299 = trunc nuw i32 %298 to i8
   %300 = icmp sgt i32 %298, -1
-  %.322 = sext i1 %300 to i8
-  %.sink321 = select i1 %.not231, i8 %299, i8 %.322
-  store i8 %.sink321, ptr %.0.lcssa, align 1
+  %.332 = sext i1 %300 to i8
+  %.sink331 = select i1 %.not231, i8 %299, i8 %.332
+  store i8 %.sink331, ptr %.0.lcssa, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.loopexit, label %88, !llvm.loop !16

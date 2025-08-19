@@ -483,8 +483,8 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4, !tbaa !30
   %36 = add i32 %35, -2
-  %or.cond243.i.i = icmp ult i32 %36, 19
-  br i1 %or.cond243.i.i, label %.lr.ph140.i.i, label %.loopexit133.i.i
+  %or.cond252.i.i = icmp ult i32 %36, 19
+  br i1 %or.cond252.i.i, label %.lr.ph140.i.i, label %.loopexit133.i.i
 
 .loopexit131.i.i:                                 ; preds = %82
   %.pre230.i.i = sext i32 %85 to i64
@@ -718,8 +718,8 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
   %144 = load ptr, ptr %129, align 8, !tbaa !3
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 4
   %146 = load i32, ptr %145, align 4, !tbaa !30
-  %or.cond244.i.i = icmp sgt i32 %146, 1
-  br i1 %or.cond244.i.i, label %.lr.ph172.i.preheader.i, label %.loopexit129.i.i
+  %or.cond253.i.i = icmp sgt i32 %146, 1
+  br i1 %or.cond253.i.i, label %.lr.ph172.i.preheader.i, label %.loopexit129.i.i
 
 .loopexit.i.i:                                    ; preds = %._crit_edge169.i.i
   %.pre229.i.i = sext i32 %181 to i64
@@ -1072,10 +1072,10 @@ Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge85.i, %2
   br label %.sink.split
 
 .sink.split:                                      ; preds = %308, %317
-  %.sink199 = phi ptr [ %318, %317 ], [ %288, %308 ]
+  %.sink219 = phi ptr [ %318, %317 ], [ %288, %308 ]
   %319 = ashr i32 %311, 5
   %320 = sext i32 %319 to i64
-  %321 = getelementptr inbounds i32, ptr %.sink199, i64 %320
+  %321 = getelementptr inbounds i32, ptr %.sink219, i64 %320
   %322 = load i32, ptr %321, align 4, !tbaa !38
   %323 = or i32 %322, %316
   store i32 %323, ptr %321, align 4, !tbaa !38

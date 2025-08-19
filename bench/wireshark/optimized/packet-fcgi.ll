@@ -353,9 +353,9 @@ define internal fastcc void @dissect_nv_pairs(ptr noundef %0, ptr noundef readon
   br label %25
 
 25:                                               ; preds = %22, %20
-  %.sink50 = phi i32 [ 4, %22 ], [ 1, %20 ]
+  %.sink51 = phi i32 [ 4, %22 ], [ 1, %20 ]
   %.047 = phi i32 [ %24, %22 ], [ %21, %20 ]
-  %26 = add i32 %17, %.sink50
+  %26 = add i32 %17, %.sink51
   %27 = load ptr, ptr %7, align 8
   %28 = tail call ptr @tvb_get_string_enc(ptr noundef %27, ptr noundef %0, i32 noundef %26, i32 noundef %.046, i32 noundef 0)
   %29 = add i32 %26, %.046

@@ -161,9 +161,9 @@ define void @jpeg_idct_4x4(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %.sink.split
 
 .sink.split:                                      ; preds = %38, %._crit_edge
-  %.sink141 = phi i64 [ 64, %._crit_edge ], [ 96, %38 ]
+  %.sink142 = phi i64 [ 64, %._crit_edge ], [ 96, %38 ]
   %.sink = phi i32 [ %126, %._crit_edge ], [ %44, %38 ]
-  %127 = getelementptr inbounds nuw i8, ptr %.0123132, i64 %.sink141
+  %127 = getelementptr inbounds nuw i8, ptr %.0123132, i64 %.sink142
   store i32 %.sink, ptr %127, align 4, !tbaa !33
   br label %128
 
@@ -187,8 +187,8 @@ define void @jpeg_idct_4x4(ptr noundef readonly captures(none) %0, ptr noundef r
   %141 = getelementptr inbounds nuw i8, ptr %.1124134, i64 8
   %142 = load i32, ptr %141, align 4, !tbaa !33
   %143 = icmp eq i32 %142, 0
-  %or.cond142 = select i1 %140, i1 %143, i1 false
-  br i1 %or.cond142, label %144, label %._crit_edge137
+  %or.cond143 = select i1 %140, i1 %143, i1 false
+  br i1 %or.cond143, label %144, label %._crit_edge137
 
 144:                                              ; preds = %134
   %145 = getelementptr inbounds nuw i8, ptr %.1124134, i64 12
@@ -297,10 +297,10 @@ define void @jpeg_idct_4x4(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %231
 
 231:                                              ; preds = %._crit_edge137, %160
-  %.sink145 = phi i64 [ 2, %._crit_edge137 ], [ 3, %160 ]
-  %.sink143 = phi i8 [ %230, %._crit_edge137 ], [ %167, %160 ]
-  %232 = getelementptr inbounds nuw i8, ptr %137, i64 %.sink145
-  store i8 %.sink143, ptr %232, align 1, !tbaa !37
+  %.sink146 = phi i64 [ 2, %._crit_edge137 ], [ 3, %160 ]
+  %.sink144 = phi i8 [ %230, %._crit_edge137 ], [ %167, %160 ]
+  %232 = getelementptr inbounds nuw i8, ptr %137, i64 %.sink146
+  store i8 %.sink144, ptr %232, align 1, !tbaa !37
   %.2 = getelementptr inbounds nuw i8, ptr %.1124134, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -344,8 +344,8 @@ define void @jpeg_idct_2x2(ptr noundef readonly captures(none) %0, ptr noundef r
   %20 = getelementptr inbounds nuw i8, ptr %.07784, i64 48
   %21 = load i16, ptr %20, align 2, !tbaa !32
   %22 = icmp eq i16 %21, 0
-  %or.cond92 = select i1 %19, i1 %22, i1 false
-  br i1 %or.cond92, label %23, label %._crit_edge
+  %or.cond93 = select i1 %19, i1 %22, i1 false
+  br i1 %or.cond93, label %23, label %._crit_edge
 
 23:                                               ; preds = %16
   %24 = getelementptr inbounds nuw i8, ptr %.07784, i64 80
@@ -445,8 +445,8 @@ define void @jpeg_idct_2x2(ptr noundef readonly captures(none) %0, ptr noundef r
   %98 = getelementptr inbounds nuw i8, ptr %.18086, i64 12
   %99 = load i32, ptr %98, align 4, !tbaa !33
   %100 = icmp eq i32 %99, 0
-  %or.cond94 = select i1 %97, i1 %100, i1 false
-  br i1 %or.cond94, label %101, label %._crit_edge89
+  %or.cond95 = select i1 %97, i1 %100, i1 false
+  br i1 %or.cond95, label %101, label %._crit_edge89
 
 101:                                              ; preds = %90
   %102 = getelementptr inbounds nuw i8, ptr %.18086, i64 20
@@ -506,9 +506,9 @@ define void @jpeg_idct_2x2(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %147
 
 147:                                              ; preds = %._crit_edge89, %109
-  %.sink95 = phi i8 [ %146, %._crit_edge89 ], [ %116, %109 ]
+  %.sink96 = phi i8 [ %146, %._crit_edge89 ], [ %116, %109 ]
   %148 = getelementptr inbounds nuw i8, ptr %94, i64 1
-  store i8 %.sink95, ptr %148, align 1, !tbaa !37
+  store i8 %.sink96, ptr %148, align 1, !tbaa !37
   %.2 = getelementptr inbounds nuw i8, ptr %.18086, i64 32
   br i1 %91, label %90, label %149, !llvm.loop !40
 

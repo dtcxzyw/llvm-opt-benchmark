@@ -6754,8 +6754,8 @@ pm_location_new.exit4296:                         ; preds = %pm_location_new.exi
   br label %4300
 
 pm_location_new.exit4296.thread5988:              ; preds = %pm_location_new.exit4294.thread, %.thread5987, %pm_location_new.exit4294.thread5986
-  %.sink6611 = phi i64 [ 4, %pm_location_new.exit4294.thread5986 ], [ %4274, %.thread5987 ], [ 4, %pm_location_new.exit4294.thread ]
-  store i64 %.sink6611, ptr %2194, align 8, !tbaa !16
+  %.sink6739 = phi i64 [ 4, %pm_location_new.exit4294.thread5986 ], [ %4274, %.thread5987 ], [ 4, %pm_location_new.exit4294.thread ]
+  store i64 %.sink6739, ptr %2194, align 8, !tbaa !16
   %4297 = load i64, ptr @rb_cPrismArrayPatternNode, align 8, !tbaa !16
   %4298 = call i64 @rb_class_new_instance(i32 noundef 10, ptr noundef nonnull %390, i64 noundef %4297) #5
   %4299 = call i64 @rb_obj_freeze(i64 noundef %4298) #5
@@ -8296,8 +8296,8 @@ pm_location_new.exit4364:                         ; preds = %pm_location_new.exi
   br label %5274
 
 pm_location_new.exit4364.thread5991:              ; preds = %pm_location_new.exit4362.thread, %.thread5990, %pm_location_new.exit4362.thread5989
-  %.sink6613 = phi i64 [ 4, %pm_location_new.exit4362.thread5989 ], [ %5248, %.thread5990 ], [ 4, %pm_location_new.exit4362.thread ]
-  store i64 %.sink6613, ptr %2098, align 8, !tbaa !16
+  %.sink6741 = phi i64 [ 4, %pm_location_new.exit4362.thread5989 ], [ %5248, %.thread5990 ], [ 4, %pm_location_new.exit4362.thread ]
+  store i64 %.sink6741, ptr %2098, align 8, !tbaa !16
   %5271 = load i64, ptr @rb_cPrismBlockParametersNode, align 8, !tbaa !16
   %5272 = call i64 @rb_class_new_instance(i32 noundef 8, ptr noundef nonnull %399, i64 noundef %5271) #5
   %5273 = call i64 @rb_obj_freeze(i64 noundef %5272) #5
@@ -16191,8 +16191,8 @@ pm_location_new.exit4752.thread:                  ; preds = %.thread5850, %pm_lo
   br label %10321
 
 pm_location_new.exit4752.thread5854:              ; preds = %pm_location_new.exit4750, %10277, %10280
-  %storemerge6557 = phi i64 [ %10281, %10280 ], [ %10279, %10277 ], [ 4, %pm_location_new.exit4750 ]
-  store i64 %storemerge6557, ptr %1601, align 8, !tbaa !16
+  %storemerge6685 = phi i64 [ %10281, %10280 ], [ %10279, %10277 ], [ 4, %pm_location_new.exit4750 ]
+  store i64 %storemerge6685, ptr %1601, align 8, !tbaa !16
   %.in6000 = getelementptr inbounds nuw i8, ptr %2279, i64 96
   %10302 = load ptr, ptr %.in6000, align 8, !tbaa !689
   %.in5999 = getelementptr inbounds nuw i8, ptr %2279, i64 104
@@ -21695,8 +21695,8 @@ pm_location_new.exit5011.thread:                  ; preds = %13783, %13780, %.th
   br label %13790
 
 pm_location_new.exit5011:                         ; preds = %13743, %pm_location_new.exit5011.thread5892
-  %.sink6615 = phi i64 [ %13766, %pm_location_new.exit5011.thread5892 ], [ 4, %13743 ]
-  store i64 %.sink6615, ptr %1261, align 16, !tbaa !16
+  %.sink6743 = phi i64 [ %13766, %pm_location_new.exit5011.thread5892 ], [ 4, %13743 ]
+  store i64 %.sink6743, ptr %1261, align 16, !tbaa !16
   %13787 = load i64, ptr @rb_cPrismInterpolatedStringNode, align 8, !tbaa !16
   %13788 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %468, i64 noundef %13787) #5
   %13789 = call i64 @rb_obj_freeze(i64 noundef %13788) #5
@@ -21921,8 +21921,8 @@ pm_location_new.exit5019.thread:                  ; preds = %13925, %13922, %.th
   br label %13932
 
 pm_location_new.exit5019:                         ; preds = %13885, %pm_location_new.exit5019.thread5896
-  %.sink6617 = phi i64 [ %13908, %pm_location_new.exit5019.thread5896 ], [ 4, %13885 ]
-  store i64 %.sink6617, ptr %1249, align 16, !tbaa !16
+  %.sink6745 = phi i64 [ %13908, %pm_location_new.exit5019.thread5896 ], [ 4, %13885 ]
+  store i64 %.sink6745, ptr %1249, align 16, !tbaa !16
   %13929 = load i64, ptr @rb_cPrismInterpolatedSymbolNode, align 8, !tbaa !16
   %13930 = call i64 @rb_class_new_instance(i32 noundef 7, ptr noundef nonnull %469, i64 noundef %13929) #5
   %13931 = call i64 @rb_obj_freeze(i64 noundef %13930) #5
@@ -25212,8 +25212,8 @@ pm_location_new.exit5182:                         ; preds = %pm_location_new.exi
   br label %16039
 
 pm_location_new.exit5182.thread5994:              ; preds = %pm_location_new.exit5180.thread, %.thread5993, %pm_location_new.exit5180.thread5992
-  %.sink6619 = phi i64 [ 4, %pm_location_new.exit5180.thread5992 ], [ %16013, %.thread5993 ], [ 4, %pm_location_new.exit5180.thread ]
-  store i64 %.sink6619, ptr %1045, align 16, !tbaa !16
+  %.sink6747 = phi i64 [ 4, %pm_location_new.exit5180.thread5992 ], [ %16013, %.thread5993 ], [ 4, %pm_location_new.exit5180.thread ]
+  store i64 %.sink6747, ptr %1045, align 16, !tbaa !16
   %16036 = load i64, ptr @rb_cPrismMultiTargetNode, align 8, !tbaa !16
   %16037 = call i64 @rb_class_new_instance(i32 noundef 9, ptr noundef nonnull %488, i64 noundef %16036) #5
   %16038 = call i64 @rb_obj_freeze(i64 noundef %16037) #5
@@ -25471,8 +25471,8 @@ pm_location_new.exit5188.thread:                  ; preds = %16112
   br label %pm_location_new.exit5190.thread5929
 
 pm_location_new.exit5190.thread5997:              ; preds = %pm_location_new.exit5188.thread, %.thread5996, %pm_location_new.exit5188.thread5995
-  %storemerge6556 = phi i64 [ 4, %pm_location_new.exit5188.thread5995 ], [ %16178, %.thread5996 ], [ 4, %pm_location_new.exit5188.thread ]
-  store i64 %storemerge6556, ptr %1027, align 16, !tbaa !16
+  %storemerge6684 = phi i64 [ 4, %pm_location_new.exit5188.thread5995 ], [ %16178, %.thread5996 ], [ 4, %pm_location_new.exit5188.thread ]
+  store i64 %storemerge6684, ptr %1027, align 16, !tbaa !16
   %.in6339 = getelementptr inbounds nuw i8, ptr %2279, i64 112
   %16197 = load ptr, ptr %.in6339, align 8, !tbaa !897
   %.in6338 = getelementptr inbounds nuw i8, ptr %2279, i64 120

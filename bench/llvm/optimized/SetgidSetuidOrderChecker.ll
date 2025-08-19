@@ -1383,8 +1383,8 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ent
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_124SetgidSetuidOrderChecker13processSetuidEN4llvm18IntrusiveRefCntPtrIKNS7_12ProgramStateEEERKNS7_9CallEventERNS7_14CheckerContextEE3$_0E9_M_invokeERKSt9_Any_dataS9_", ptr %80, align 8, !tbaa !112
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 16
   store ptr %0, ptr %79, align 8
-  %.sroa.4.0..sroa_idx56.i.i = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store ptr %67, ptr %.sroa.4.0..sroa_idx56.i.i, align 8
+  %.sroa.4.0..sroa_idx86.i.i = getelementptr inbounds nuw i8, ptr %79, i64 8
+  store ptr %67, ptr %.sroa.4.0..sroa_idx86.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_124SetgidSetuidOrderChecker13processSetuidEN4llvm18IntrusiveRefCntPtrIKNS7_12ProgramStateEEERKNS7_9CallEventERNS7_14CheckerContextEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation", ptr %81, align 8, !tbaa !115
   %82 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %83 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -1652,8 +1652,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i35.i: ; pre
 
 159:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i35.i
   %160 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.0.copyload.i.i.i.i6.i.i.i.i = load i64, ptr %160, align 8
-  %161 = and i64 %.0.copyload.i.i.i.i6.i.i.i.i, -8
+  %.0.copyload.i.i.i.i7.i.i.i.i = load i64, ptr %160, align 8
+  %161 = and i64 %.0.copyload.i.i.i.i7.i.i.i.i, -8
   %162 = inttoptr i64 %161 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %163 = load ptr, ptr %37, align 8, !tbaa !72
@@ -1782,10 +1782,10 @@ _ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit13.i.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit13.i.i: ; preds = %_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE.exit16.i.i, %_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE.exit11.i.i
-  %.sink94.i = phi ptr [ %20, %_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE.exit11.i.i ], [ %21, %_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE.exit16.i.i ]
+  %.sink123.i = phi ptr [ %20, %_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE.exit11.i.i ], [ %21, %_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_120LastSetPrivilegeCallEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE.exit16.i.i ]
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %40) #18
-  %200 = load ptr, ptr %.sink94.i, align 8, !tbaa !86
-  store ptr %40, ptr %.sink94.i, align 8, !tbaa !86
+  %200 = load ptr, ptr %.sink123.i, align 8, !tbaa !86
+  store ptr %40, ptr %.sink123.i, align 8, !tbaa !86
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %40) #18
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %202 = load ptr, ptr %201, align 8, !tbaa !89, !noalias !172

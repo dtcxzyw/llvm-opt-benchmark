@@ -767,8 +767,8 @@ _ZN3re26Regexp8AllocSubEi.exit.thread:            ; preds = %invoke.cont14
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #19
   %12 = getelementptr inbounds nuw i8, ptr %call10, i64 8
   store ptr %call.i, ptr %12, align 8
-  %nsub_.i82204 = getelementptr inbounds nuw i8, ptr %call10, i64 6
-  store i16 %10, ptr %nsub_.i82204, align 2
+  %nsub_.i82208 = getelementptr inbounds nuw i8, ptr %call10, i64 6
+  store i16 %10, ptr %nsub_.i82208, align 2
   br label %for.body.preheader
 
 _ZN3re26Regexp8AllocSubEi.exit:                   ; preds = %invoke.cont14
@@ -779,7 +779,7 @@ _ZN3re26Regexp8AllocSubEi.exit:                   ; preds = %invoke.cont14
   br i1 %cmp18160.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZN3re26Regexp8AllocSubEi.exit.thread, %_ZN3re26Regexp8AllocSubEi.exit
-  %retval.0.i208 = phi ptr [ %call.i, %_ZN3re26Regexp8AllocSubEi.exit.thread ], [ %13, %_ZN3re26Regexp8AllocSubEi.exit ]
+  %retval.0.i212 = phi ptr [ %call.i, %_ZN3re26Regexp8AllocSubEi.exit.thread ], [ %13, %_ZN3re26Regexp8AllocSubEi.exit ]
   %14 = load i16, ptr %nsub_.i, align 2
   %15 = zext i16 %14 to i64
   br label %for.body
@@ -788,7 +788,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds nuw ptr, ptr %child_args, i64 %indvars.iv
   %16 = load ptr, ptr %arrayidx, align 8
-  %arrayidx20 = getelementptr inbounds nuw ptr, ptr %retval.0.i208, i64 %indvars.iv
+  %arrayidx20 = getelementptr inbounds nuw ptr, ptr %retval.0.i212, i64 %indvars.iv
   store ptr %16, ptr %arrayidx20, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp18 = icmp samesign ult i64 %indvars.iv.next, %15
@@ -913,8 +913,8 @@ _ZN3re26Regexp8AllocSubEi.exit126.thread:         ; preds = %invoke.cont63
   %call.i125 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %42) #19
   %43 = getelementptr inbounds nuw i8, ptr %call57, i64 8
   store ptr %call.i125, ptr %43, align 8
-  %nsub_.i122209 = getelementptr inbounds nuw i8, ptr %call57, i64 6
-  store i16 %41, ptr %nsub_.i122209, align 2
+  %nsub_.i122213 = getelementptr inbounds nuw i8, ptr %call57, i64 6
+  store i16 %41, ptr %nsub_.i122213, align 2
   br label %for.body71.preheader
 
 _ZN3re26Regexp8AllocSubEi.exit126:                ; preds = %invoke.cont63
@@ -925,7 +925,7 @@ _ZN3re26Regexp8AllocSubEi.exit126:                ; preds = %invoke.cont63
   br i1 %cmp70167.not, label %return, label %for.body71.preheader
 
 for.body71.preheader:                             ; preds = %_ZN3re26Regexp8AllocSubEi.exit126.thread, %_ZN3re26Regexp8AllocSubEi.exit126
-  %retval.0.i129213 = phi ptr [ %call.i125, %_ZN3re26Regexp8AllocSubEi.exit126.thread ], [ %44, %_ZN3re26Regexp8AllocSubEi.exit126 ]
+  %retval.0.i129217 = phi ptr [ %call.i125, %_ZN3re26Regexp8AllocSubEi.exit126.thread ], [ %44, %_ZN3re26Regexp8AllocSubEi.exit126 ]
   %45 = load i16, ptr %nsub_.i, align 2
   %46 = zext i16 %45 to i64
   br label %for.body71
@@ -934,7 +934,7 @@ for.body71:                                       ; preds = %for.body71.preheade
   %indvars.iv196 = phi i64 [ 0, %for.body71.preheader ], [ %indvars.iv.next197, %for.body71 ]
   %arrayidx73 = getelementptr inbounds nuw ptr, ptr %child_args, i64 %indvars.iv196
   %47 = load ptr, ptr %arrayidx73, align 8
-  %arrayidx75 = getelementptr inbounds nuw ptr, ptr %retval.0.i129213, i64 %indvars.iv196
+  %arrayidx75 = getelementptr inbounds nuw ptr, ptr %retval.0.i129217, i64 %indvars.iv196
   store ptr %47, ptr %arrayidx75, align 8
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %cmp70 = icmp samesign ult i64 %indvars.iv.next197, %46
@@ -1413,19 +1413,19 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   %arrayidx67 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
   %38 = load i32, ptr %arrayidx67, align 4
   %cmp68 = icmp eq i32 %38, %34
-  br i1 %cmp68, label %while.body, label %while.end.loopexit.split.loop.exit84
+  br i1 %cmp68, label %while.body, label %while.end.loopexit.split.loop.exit86
 
 while.body:                                       ; preds = %land.rhs
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %while.end, label %land.rhs, !llvm.loop !15
 
-while.end.loopexit.split.loop.exit84:             ; preds = %land.rhs
+while.end.loopexit.split.loop.exit86:             ; preds = %land.rhs
   %39 = trunc nuw nsw i64 %indvars.iv to i32
   br label %while.end
 
-while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit84, %sw.bb60
-  %n.0.lcssa = phi i32 [ 1, %sw.bb60 ], [ %39, %while.end.loopexit.split.loop.exit84 ], [ %36, %while.body ]
+while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit86, %sw.bb60
+  %n.0.lcssa = phi i32 [ 1, %sw.bb60 ], [ %39, %while.end.loopexit.split.loop.exit86 ], [ %36, %while.body ]
   %min_70 = getelementptr inbounds nuw i8, ptr %call3, i64 28
   %add71 = add nsw i32 %19, %n.0.lcssa
   store i32 %add71, ptr %min_70, align 4
@@ -1695,8 +1695,8 @@ _ZN3re26Regexp8AllocSubEi.exit.thread:            ; preds = %invoke.cont11
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #19
   %12 = getelementptr inbounds nuw i8, ptr %call7, i64 8
   store ptr %call.i, ptr %12, align 8
-  %nsub_.i65107 = getelementptr inbounds nuw i8, ptr %call7, i64 6
-  store i16 %10, ptr %nsub_.i65107, align 2
+  %nsub_.i65112 = getelementptr inbounds nuw i8, ptr %call7, i64 6
+  store i16 %10, ptr %nsub_.i65112, align 2
   br label %for.body.preheader
 
 _ZN3re26Regexp8AllocSubEi.exit:                   ; preds = %invoke.cont11
@@ -1707,7 +1707,7 @@ _ZN3re26Regexp8AllocSubEi.exit:                   ; preds = %invoke.cont11
   br i1 %cmp104.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZN3re26Regexp8AllocSubEi.exit.thread, %_ZN3re26Regexp8AllocSubEi.exit
-  %retval.0.i111 = phi ptr [ %call.i, %_ZN3re26Regexp8AllocSubEi.exit.thread ], [ %13, %_ZN3re26Regexp8AllocSubEi.exit ]
+  %retval.0.i116 = phi ptr [ %call.i, %_ZN3re26Regexp8AllocSubEi.exit.thread ], [ %13, %_ZN3re26Regexp8AllocSubEi.exit ]
   %14 = load i16, ptr %nsub_.i.i, align 2
   %15 = zext i16 %14 to i64
   br label %for.body
@@ -1716,7 +1716,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds nuw ptr, ptr %child_args, i64 %indvars.iv
   %16 = load ptr, ptr %arrayidx, align 8
-  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %retval.0.i111, i64 %indvars.iv
+  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %retval.0.i116, i64 %indvars.iv
   store ptr %16, ptr %arrayidx16, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp = icmp samesign ult i64 %indvars.iv.next, %15
@@ -3267,8 +3267,8 @@ _ZNSt5stackIN3re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3popEv.exit.thre
   %add.ptr8.i.i.i = getelementptr inbounds nuw i8, ptr %46, i64 432
   store ptr %add.ptr8.i.i.i, ptr %_M_finish.i.i.i, align 8
   %47 = load ptr, ptr %_M_start.i.i, align 8
-  %cmp.i.i.i6984 = icmp eq ptr %add.ptr8.i.i.i, %47
-  br i1 %cmp.i.i.i6984, label %return, label %_ZNSt5stackIN3re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3topEv.exit78
+  %cmp.i.i.i6993 = icmp eq ptr %add.ptr8.i.i.i, %47
+  br i1 %cmp.i.i.i6993, label %return, label %_ZNSt5stackIN3re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3topEv.exit78
 
 if.end93:                                         ; preds = %_ZNSt5stackIN3re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3popEv.exit
   %48 = icmp eq ptr %incdec.ptr.i.i, %43

@@ -1169,7 +1169,7 @@ _ZNK4YAML6Stream11GetNextByteEv.exit:             ; preds = %1, %22, %8
   br i1 %39, label %._crit_edge.i34, label %_ZNK4YAML6Stream11GetNextByteEv.exit.thread
 
 _ZNK4YAML6Stream11GetNextByteEv.exit.thread:      ; preds = %22, %_ZNK4YAML6Stream11GetNextByteEv.exit
-  %.1.i98 = phi i8 [ %38, %_ZNK4YAML6Stream11GetNextByteEv.exit ], [ 0, %22 ]
+  %.1.i108 = phi i8 [ %38, %_ZNK4YAML6Stream11GetNextByteEv.exit ], [ 0, %22 ]
   %40 = load ptr, ptr %0, align 8, !tbaa !57
   %41 = load ptr, ptr %40, align 8, !tbaa !22
   %42 = getelementptr i8, ptr %41, i64 -24
@@ -1207,7 +1207,7 @@ _ZNK4YAML6Stream11GetNextByteEv.exit.thread:      ; preds = %22, %_ZNK4YAML6Stre
   br label %._crit_edge.i34
 
 ._crit_edge.i34:                                  ; preds = %_ZNK4YAML6Stream11GetNextByteEv.exit.thread, %.._crit_edge.i34_crit_edge, %_ZNK4YAML6Stream11GetNextByteEv.exit
-  %.1.i97 = phi i8 [ %38, %_ZNK4YAML6Stream11GetNextByteEv.exit ], [ %.1.i98, %.._crit_edge.i34_crit_edge ], [ %.1.i98, %_ZNK4YAML6Stream11GetNextByteEv.exit.thread ]
+  %.1.i107 = phi i8 [ %38, %_ZNK4YAML6Stream11GetNextByteEv.exit ], [ %.1.i108, %.._crit_edge.i34_crit_edge ], [ %.1.i108, %_ZNK4YAML6Stream11GetNextByteEv.exit.thread ]
   %63 = phi i64 [ %36, %_ZNK4YAML6Stream11GetNextByteEv.exit ], [ %.pre6.i35.pre, %.._crit_edge.i34_crit_edge ], [ 0, %_ZNK4YAML6Stream11GetNextByteEv.exit.thread ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %65 = load ptr, ptr %64, align 8, !tbaa !8
@@ -1218,7 +1218,7 @@ _ZNK4YAML6Stream11GetNextByteEv.exit.thread:      ; preds = %22, %_ZNK4YAML6Stre
   br label %_ZNK4YAML6Stream11GetNextByteEv.exit38
 
 _ZNK4YAML6Stream11GetNextByteEv.exit38:           ; preds = %53, %._crit_edge.i34
-  %.1.i96 = phi i8 [ %.1.i97, %._crit_edge.i34 ], [ %.1.i98, %53 ]
+  %.1.i106 = phi i8 [ %.1.i107, %._crit_edge.i34 ], [ %.1.i108, %53 ]
   %.1.i36 = phi i8 [ %68, %._crit_edge.i34 ], [ 0, %53 ]
   %69 = load ptr, ptr %0, align 8, !tbaa !57
   %70 = load ptr, ptr %69, align 8, !tbaa !22
@@ -1232,7 +1232,7 @@ _ZNK4YAML6Stream11GetNextByteEv.exit38:           ; preds = %53, %._crit_edge.i3
 
 77:                                               ; preds = %_ZNK4YAML6Stream11GetNextByteEv.exit38
   %.not = icmp eq i32 %3, 2
-  %.sroa.speculated62 = select i1 %.not, i8 %.1.i96, i8 %.1.i36
+  %.sroa.speculated62 = select i1 %.not, i8 %.1.i106, i8 %.1.i36
   %78 = and i8 %.sroa.speculated62, -4
   %or.cond = icmp eq i8 %78, -36
   br i1 %or.cond, label %79, label %81
@@ -1245,7 +1245,7 @@ _ZNK4YAML6Stream11GetNextByteEv.exit38:           ; preds = %53, %._crit_edge.i3
 81:                                               ; preds = %77
   %82 = zext i8 %.sroa.speculated62 to i64
   %83 = shl nuw nsw i64 %82, 8
-  %.sroa.speculated = select i1 %.not, i8 %.1.i36, i8 %.1.i96
+  %.sroa.speculated = select i1 %.not, i8 %.1.i36, i8 %.1.i106
   %84 = zext i8 %.sroa.speculated to i64
   %85 = or disjoint i64 %83, %84
   %or.cond3 = icmp eq i8 %78, -40
@@ -1318,8 +1318,8 @@ _ZNK4YAML6Stream11GetNextByteEv.exit45:           ; preds = %88, %._crit_edge.i4
   br i1 %120, label %143, label %121
 
 121:                                              ; preds = %_ZNK4YAML6Stream11GetNextByteEv.exit45.thread, %_ZNK4YAML6Stream11GetNextByteEv.exit45
-  %.1.i43105 = phi i8 [ 0, %_ZNK4YAML6Stream11GetNextByteEv.exit45.thread ], [ %119, %_ZNK4YAML6Stream11GetNextByteEv.exit45 ]
-  %.pre92102 = phi ptr [ %.pre92.pre, %_ZNK4YAML6Stream11GetNextByteEv.exit45.thread ], [ %115, %_ZNK4YAML6Stream11GetNextByteEv.exit45 ]
+  %.1.i43115 = phi i8 [ 0, %_ZNK4YAML6Stream11GetNextByteEv.exit45.thread ], [ %119, %_ZNK4YAML6Stream11GetNextByteEv.exit45 ]
+  %.pre92112 = phi ptr [ %.pre92.pre, %_ZNK4YAML6Stream11GetNextByteEv.exit45.thread ], [ %115, %_ZNK4YAML6Stream11GetNextByteEv.exit45 ]
   %122 = load ptr, ptr %0, align 8, !tbaa !57
   %123 = load ptr, ptr %122, align 8, !tbaa !22
   %124 = getelementptr i8, ptr %123, i64 -24
@@ -1330,7 +1330,7 @@ _ZNK4YAML6Stream11GetNextByteEv.exit45:           ; preds = %88, %._crit_edge.i4
   %129 = load ptr, ptr %128, align 8, !tbaa !22
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 64
   %131 = load ptr, ptr %130, align 8
-  %132 = tail call noundef i64 %131(ptr noundef nonnull align 8 dereferenceable(64) %128, ptr noundef %.pre92102, i64 noundef 2048)
+  %132 = tail call noundef i64 %131(ptr noundef nonnull align 8 dereferenceable(64) %128, ptr noundef %.pre92112, i64 noundef 2048)
   store i64 %132, ptr %6, align 8, !tbaa !84
   store i64 0, ptr %4, align 8, !tbaa !83
   %.not4.i47 = icmp eq i64 %132, 0
@@ -1360,7 +1360,7 @@ _ZNK4YAML6Stream11GetNextByteEv.exit45:           ; preds = %88, %._crit_edge.i4
   br label %143
 
 143:                                              ; preds = %._crit_edge.i48, %_ZNK4YAML6Stream11GetNextByteEv.exit45
-  %.1.i43104 = phi i8 [ %.1.i43105, %._crit_edge.i48 ], [ %119, %_ZNK4YAML6Stream11GetNextByteEv.exit45 ]
+  %.1.i43114 = phi i8 [ %.1.i43115, %._crit_edge.i48 ], [ %119, %_ZNK4YAML6Stream11GetNextByteEv.exit45 ]
   %144 = phi ptr [ %.pre91, %._crit_edge.i48 ], [ %115, %_ZNK4YAML6Stream11GetNextByteEv.exit45 ]
   %145 = phi i64 [ %.pre6.i49, %._crit_edge.i48 ], [ %117, %_ZNK4YAML6Stream11GetNextByteEv.exit45 ]
   %146 = add i64 %145, 1
@@ -1370,7 +1370,7 @@ _ZNK4YAML6Stream11GetNextByteEv.exit45:           ; preds = %88, %._crit_edge.i4
   br label %_ZNK4YAML6Stream11GetNextByteEv.exit52
 
 _ZNK4YAML6Stream11GetNextByteEv.exit52:           ; preds = %133, %143
-  %.1.i43103 = phi i8 [ %.1.i43104, %143 ], [ %.1.i43105, %133 ]
+  %.1.i43113 = phi i8 [ %.1.i43114, %143 ], [ %.1.i43115, %133 ]
   %.1.i50 = phi i8 [ %148, %143 ], [ 0, %133 ]
   %149 = load ptr, ptr %0, align 8, !tbaa !57
   %150 = load ptr, ptr %149, align 8, !tbaa !22
@@ -1387,10 +1387,10 @@ _ZNK4YAML6Stream11GetNextByteEv.exit52:           ; preds = %133, %143
   br label %172
 
 158:                                              ; preds = %_ZNK4YAML6Stream11GetNextByteEv.exit52
-  %.sroa.speculated65 = select i1 %.not, i8 %.1.i43103, i8 %.1.i50
+  %.sroa.speculated65 = select i1 %.not, i8 %.1.i43113, i8 %.1.i50
   %159 = zext i8 %.sroa.speculated65 to i64
   %160 = shl nuw nsw i64 %159, 8
-  %.sroa.speculated59 = select i1 %.not, i8 %.1.i50, i8 %.1.i43103
+  %.sroa.speculated59 = select i1 %.not, i8 %.1.i50, i8 %.1.i43113
   %161 = zext i8 %.sroa.speculated59 to i64
   %162 = or disjoint i64 %160, %161
   %163 = add i8 %.sroa.speculated65, 32

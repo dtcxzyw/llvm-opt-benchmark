@@ -284,26 +284,26 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit11: ; preds = %27
   br i1 %44, label %._crit_edge.thread.i.i.i, label %49
 
 ._crit_edge.thread.i.i.i:                         ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %._crit_edge.i.i.i
-  %.015.lcssa24.i.i.i = phi ptr [ %.01620.i.i.i, %._crit_edge.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_412_GLOBAL__N_17typeMapEvE4tMap, i64 8), %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.015.lcssa25.i.i.i = phi ptr [ %.01620.i.i.i, %._crit_edge.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_412_GLOBAL__N_17typeMapEvE4tMap, i64 8), %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_412_GLOBAL__N_17typeMapEvE4tMap, i64 24), align 8, !tbaa !16
-  %46 = icmp eq ptr %.015.lcssa24.i.i.i, %45
+  %46 = icmp eq ptr %.015.lcssa25.i.i.i, %45
   br i1 %46, label %select.unfold.i.i, label %47
 
 47:                                               ; preds = %._crit_edge.thread.i.i.i
-  %48 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.015.lcssa24.i.i.i) #22
+  %48 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.015.lcssa25.i.i.i) #22
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %48, i64 32
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !18
   br label %49
 
 49:                                               ; preds = %47, %._crit_edge.i.i.i
   %50 = phi ptr [ %.pre.i.i, %47 ], [ %42, %._crit_edge.i.i.i ]
-  %.015.lcssa25.i.i.i = phi ptr [ %.015.lcssa24.i.i.i, %47 ], [ %.01620.i.i.i, %._crit_edge.i.i.i ]
+  %.015.lcssa24.i.i.i = phi ptr [ %.015.lcssa25.i.i.i, %47 ], [ %.01620.i.i.i, %._crit_edge.i.i.i ]
   %51 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %50, ptr noundef nonnull readonly dereferenceable(1) %0) #22
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %select.unfold.i.i, label %64
 
 select.unfold.i.i:                                ; preds = %49, %._crit_edge.thread.i.i.i
-  %.sroa.4.0.i.ph.i.i = phi ptr [ %.015.lcssa24.i.i.i, %._crit_edge.thread.i.i.i ], [ %.015.lcssa25.i.i.i, %49 ]
+  %.sroa.4.0.i.ph.i.i = phi ptr [ %.015.lcssa25.i.i.i, %._crit_edge.thread.i.i.i ], [ %.015.lcssa24.i.i.i, %49 ]
   %53 = icmp eq ptr %.sroa.4.0.i.ph.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_412_GLOBAL__N_17typeMapEvE4tMap, i64 8)
   br i1 %53, label %_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_49AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE10_M_insert_IS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i, label %54
 

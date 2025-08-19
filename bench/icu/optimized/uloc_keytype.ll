@@ -911,7 +911,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_14initEv() unnamed_ad
   store ptr %160, ptr %15, align 8, !tbaa !24
   %162 = load i32, ptr %24, align 4, !tbaa !13
   %163 = icmp slt i32 %162, 1
-  br i1 %163, label %166, label %.thread616.i
+  br i1 %163, label %166, label %.thread650.i
 
 164:                                              ; preds = %158
   %165 = landingpad { ptr, i32 }
@@ -924,12 +924,12 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_14initEv() unnamed_ad
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.outer.backedge.i, %166
-  %.ph619.i = phi ptr [ null, %166 ], [ %172, %.outer.backedge.i ]
+  %.ph653.i = phi ptr [ null, %166 ], [ %172, %.outer.backedge.i ]
   %.1205.ph.i = phi i32 [ 0, %166 ], [ %186, %.outer.backedge.i ]
   br label %167
 
 167:                                              ; preds = %476, %.outer.i
-  %168 = phi ptr [ %172, %476 ], [ %.ph619.i, %.outer.i ]
+  %168 = phi ptr [ %172, %476 ], [ %.ph653.i, %.outer.i ]
   %169 = invoke signext i8 @ures_hasNext_77(ptr noundef %160)
           to label %170 unwind label %179
 
@@ -1758,7 +1758,7 @@ _ZN6icu_7710MemoryPoolI9TypeAliasLi8EE6createIJS1_EEEPS1_DpOT_.exit: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %.pre611.i = load i32, ptr %24, align 4, !tbaa !13
   %485 = icmp slt i32 %.pre611.i, 1
-  br i1 %485, label %486, label %thread-pre-split618.i
+  br i1 %485, label %486, label %thread-pre-split652.i
 
 486:                                              ; preds = %484
   %487 = load ptr, ptr @_ZL21gLocExtKeyDataEntries, align 8, !tbaa !37
@@ -1771,7 +1771,7 @@ _ZN6icu_7710MemoryPoolI9TypeAliasLi8EE6createIJS1_EEEPS1_DpOT_.exit: ; preds = %
 
 491:                                              ; preds = %489
   store i32 7, ptr %24, align 4, !tbaa !13
-  br label %thread-pre-split618.i
+  br label %thread-pre-split652.i
 
 492:                                              ; preds = %506, %502, %501, %486
   %493 = landingpad { ptr, i32 }
@@ -1817,20 +1817,20 @@ _ZN6icu_7710MemoryPoolI9TypeAliasLi8EE6createIJS1_EEEPS1_DpOT_.exit: ; preds = %
 509:                                              ; preds = %506, %505
   %510 = load i32, ptr %24, align 4, !tbaa !13
   %.inv.i = icmp slt i32 %510, 1
-  br label %thread-pre-split618.i
+  br label %thread-pre-split652.i
 
-thread-pre-split618.i:                            ; preds = %509, %491, %484
+thread-pre-split652.i:                            ; preds = %509, %491, %484
   %.16200.ph.i = phi i1 [ %.inv.i, %509 ], [ false, %491 ], [ false, %484 ]
   %.pr.i = load ptr, ptr %15, align 8, !tbaa !24
-  br label %.thread616.i
+  br label %.thread650.i
 
-.thread616.i:                                     ; preds = %thread-pre-split618.i, %161
-  %511 = phi ptr [ %.pr.i, %thread-pre-split618.i ], [ %160, %161 ]
-  %.16200.i = phi i1 [ %.16200.ph.i, %thread-pre-split618.i ], [ false, %161 ]
+.thread650.i:                                     ; preds = %thread-pre-split652.i, %161
+  %511 = phi ptr [ %.pr.i, %thread-pre-split652.i ], [ %160, %161 ]
+  %.16200.i = phi i1 [ %.16200.ph.i, %thread-pre-split652.i ], [ false, %161 ]
   %.not.i331.i = icmp eq ptr %511, null
   br i1 %.not.i331.i, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit332.i, label %512
 
-512:                                              ; preds = %.thread616.i
+512:                                              ; preds = %.thread650.i
   invoke void @ures_close_77(ptr noundef nonnull %511)
           to label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit332.i unwind label %513
 
@@ -1841,7 +1841,7 @@ thread-pre-split618.i:                            ; preds = %509, %491, %484
   call void @__clang_call_terminate(ptr %515) #17
   unreachable
 
-_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit332.i: ; preds = %512, %.thread616.i
+_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit332.i: ; preds = %512, %.thread650.i
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %516 = load ptr, ptr %14, align 8, !tbaa !24
   %.not.i333.i = icmp eq ptr %516, null
@@ -2233,8 +2233,8 @@ switch.early.test.i:                              ; preds = %29
   br i1 %45, label %.critedge28.sink.split, label %.critedge28
 
 .critedge28.sink.split:                           ; preds = %44, %40, %36, %18
-  %.sink47 = phi ptr [ %19, %18 ], [ %7, %36 ], [ %7, %40 ], [ %7, %44 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sink47, i64 16, i1 false)
+  %.sink50 = phi ptr [ %19, %18 ], [ %7, %36 ], [ %7, %40 ], [ %7, %44 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sink50, i64 16, i1 false)
   br label %.critedge28
 
 .critedge28:                                      ; preds = %.critedge28.sink.split, %11, %44, %20, %.thread38, %5
@@ -2454,8 +2454,8 @@ switch.early.test.i:                              ; preds = %27
   br i1 %43, label %.critedge28.sink.split, label %.critedge28
 
 .critedge28.sink.split:                           ; preds = %42, %38, %34, %14
-  %.sink47 = phi ptr [ %17, %14 ], [ %7, %34 ], [ %7, %38 ], [ %7, %42 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sink47, i64 16, i1 false)
+  %.sink50 = phi ptr [ %17, %14 ], [ %7, %34 ], [ %7, %38 ], [ %7, %42 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sink50, i64 16, i1 false)
   br label %.critedge28
 
 .critedge28:                                      ; preds = %.critedge28.sink.split, %11, %42, %18, %.thread38, %5

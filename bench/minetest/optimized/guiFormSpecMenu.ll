@@ -40493,8 +40493,8 @@ invoke.cont102:                                   ; preds = %if.end84
   %Y.i28.i = getelementptr inbounds nuw i8, ptr %this, i64 596
   %110 = load float, ptr %Y.i28.i, align 4, !tbaa !345
   %Y3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 572
-  %bc91 = bitcast <4 x i32> %106 to <4 x float>
-  %111 = extractelement <4 x float> %bc91, i64 3
+  %bc176 = bitcast <4 x i32> %106 to <4 x float>
+  %111 = extractelement <4 x float> %bc176, i64 3
   %mul4.i.i = fmul nsz float %110, %111
   %112 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %113 = load ptr, ptr %112, align 8, !tbaa !4
@@ -45416,8 +45416,8 @@ invoke.cont90:                                    ; preds = %if.end71
   %mul.i.i = fmul nsz float %166, %167
   %168 = load float, ptr %Y.i28.i, align 4, !tbaa !345
   %Y3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 572
-  %bc96 = bitcast <4 x i32> %164 to <4 x float>
-  %169 = extractelement <4 x float> %bc96, i64 3
+  %bc186 = bitcast <4 x i32> %164 to <4 x float>
+  %169 = extractelement <4 x float> %bc186, i64 3
   %mul4.i.i = fmul nsz float %168, %169
   %170 = load ptr, ptr %106, align 8, !tbaa !4
   %call.i.i.i559 = call nsz double @strtod(ptr noundef nonnull captures(none) %170, ptr noundef null) #34
@@ -56434,9 +56434,9 @@ if.else.i1161.invoke:                             ; preds = %invoke.cont299, %in
           to label %if.end302 unwind label %lpad235
 
 if.end302.sink.split:                             ; preds = %invoke.cont.i.i.i193, %invoke.cont.i.i.i153
-  %.sink716 = phi ptr [ %386, %invoke.cont.i.i.i153 ], [ %400, %invoke.cont.i.i.i193 ]
+  %.sink816 = phi ptr [ %386, %invoke.cont.i.i.i153 ], [ %400, %invoke.cont.i.i.i193 ]
   %_M_finish.i1155.sink2269 = phi ptr [ %_M_finish.i1142, %invoke.cont.i.i.i153 ], [ %_M_finish.i1155, %invoke.cont.i.i.i193 ]
-  %state_map.i.i198 = getelementptr inbounds nuw i8, ptr %.sink716, i64 832
+  %state_map.i.i198 = getelementptr inbounds nuw i8, ptr %.sink816, i64 832
   %416 = load i8, ptr %state_map.i949, align 8, !tbaa !356
   store i8 %416, ptr %state_map.i.i198, align 8, !tbaa !356
   %417 = load ptr, ptr %_M_finish.i1155.sink2269, align 8, !tbaa !576
@@ -57156,9 +57156,9 @@ if.else.i1443.invoke:                             ; preds = %invoke.cont379, %in
           to label %if.end382 unwind label %lpad315
 
 if.end382.sink.split:                             ; preds = %invoke.cont.i.i.i274, %invoke.cont.i.i.i234
-  %.sink718 = phi ptr [ %472, %invoke.cont.i.i.i234 ], [ %486, %invoke.cont.i.i.i274 ]
+  %.sink818 = phi ptr [ %472, %invoke.cont.i.i.i234 ], [ %486, %invoke.cont.i.i.i274 ]
   %_M_finish.i1437.sink2270 = phi ptr [ %_M_finish.i1424, %invoke.cont.i.i.i234 ], [ %_M_finish.i1437, %invoke.cont.i.i.i274 ]
-  %state_map.i.i279 = getelementptr inbounds nuw i8, ptr %.sink718, i64 832
+  %state_map.i.i279 = getelementptr inbounds nuw i8, ptr %.sink818, i64 832
   %502 = load i8, ptr %state_map.i1223, align 8, !tbaa !356
   store i8 %502, ptr %state_map.i.i279, align 8, !tbaa !356
   %503 = load ptr, ptr %_M_finish.i1437.sink2270, align 8, !tbaa !576
@@ -61998,14 +61998,14 @@ for.body267.lr.ph:                                ; preds = %for.end262
   %_M_string_length.i.i14342160 = getelementptr inbounds nuw i8, ptr %add.ptr.i14332159, i64 8
   %182 = load i64, ptr %_M_string_length.i.i14342160, align 8, !tbaa !11
   %cmp.i14352161 = icmp eq i64 %182, 0
-  br i1 %cmp.i14352161, label %for.end297.thread191, label %if.end272
+  br i1 %cmp.i14352161, label %for.end297.thread297, label %if.end272
 
-for.end297.thread191:                             ; preds = %for.body267.lr.ph
+for.end297.thread297:                             ; preds = %for.body267.lr.ph
   %183 = load i16, ptr %m_formspec_version, align 8, !tbaa !176
-  %cmp300197 = icmp ugt i16 %183, 1
-  %real_coordinates198 = getelementptr inbounds nuw i8, ptr %mydata, i64 1
-  %frombool199 = zext i1 %cmp300197 to i8
-  store i8 %frombool199, ptr %real_coordinates198, align 1, !tbaa !351
+  %cmp300303 = icmp ugt i16 %183, 1
+  %real_coordinates304 = getelementptr inbounds nuw i8, ptr %mydata, i64 1
+  %frombool305 = zext i1 %cmp300303 to i8
+  store i8 %frombool305, ptr %real_coordinates304, align 1, !tbaa !351
   br label %for.body305.lr.ph
 
 for.body267:                                      ; preds = %for.inc295
@@ -62197,19 +62197,19 @@ for.end297:                                       ; preds = %for.body267, %for.i
   store i8 %frombool, ptr %real_coordinates, align 1, !tbaa !351
   br i1 %.pre185.pre-phi, label %for.body305.lr.ph, label %for.end345
 
-for.body305.lr.ph:                                ; preds = %for.end297.thread191, %for.end297
-  %real_coordinates204 = phi ptr [ %real_coordinates198, %for.end297.thread191 ], [ %real_coordinates, %for.end297 ]
-  %enable_prepends.2.ph203 = phi i1 [ false, %for.end297.thread191 ], [ %201, %for.end297 ]
-  %i.5.lcssa.ph202 = phi i32 [ %i.41980, %for.end297.thread191 ], [ %i.5.lcssa.ph.ph, %for.end297 ]
-  %.pre2051201 = phi ptr [ %.pre2049.pre, %for.end297.thread191 ], [ %.pre2051.pre, %for.end297 ]
-  %.pre2081.pre-phi200 = phi i64 [ %.pre2101, %for.end297.thread191 ], [ %.pre181.pre-phi, %for.end297 ]
+for.body305.lr.ph:                                ; preds = %for.end297.thread297, %for.end297
+  %real_coordinates310 = phi ptr [ %real_coordinates304, %for.end297.thread297 ], [ %real_coordinates, %for.end297 ]
+  %enable_prepends.2.ph309 = phi i1 [ false, %for.end297.thread297 ], [ %201, %for.end297 ]
+  %i.5.lcssa.ph308 = phi i32 [ %i.41980, %for.end297.thread297 ], [ %i.5.lcssa.ph.ph, %for.end297 ]
+  %.pre2051307 = phi ptr [ %.pre2049.pre, %for.end297.thread297 ], [ %.pre2051.pre, %for.end297 ]
+  %.pre2081.pre-phi306 = phi i64 [ %.pre2101, %for.end297.thread297 ], [ %.pre181.pre-phi, %for.end297 ]
   %_M_finish.i1504 = getelementptr inbounds nuw i8, ptr %parts306, i64 8
   br label %for.body305
 
 for.body305:                                      ; preds = %for.inc343, %for.body305.lr.ph
-  %203 = phi ptr [ %.pre2051201, %for.body305.lr.ph ], [ %224, %for.inc343 ]
-  %conv3022006 = phi i64 [ %.pre2081.pre-phi200, %for.body305.lr.ph ], [ %conv302, %for.inc343 ]
-  %i.62005 = phi i32 [ %i.5.lcssa.ph202, %for.body305.lr.ph ], [ %inc344, %for.inc343 ]
+  %203 = phi ptr [ %.pre2051307, %for.body305.lr.ph ], [ %224, %for.inc343 ]
+  %conv3022006 = phi i64 [ %.pre2081.pre-phi306, %for.body305.lr.ph ], [ %conv302, %for.inc343 ]
+  %i.62005 = phi i32 [ %i.5.lcssa.ph308, %for.body305.lr.ph ], [ %inc344, %for.inc343 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %parts306)
   %add.ptr.i1461 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %203, i64 %conv3022006
   invoke void @_Z5splitIcESt6vectorINSt7__cxx1112basic_stringIT_St11char_traitsIS3_ESaIS3_EEESaIS7_EERKS7_S3_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.165") align 8 %parts306, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1461, i8 noundef signext 91)
@@ -62367,7 +62367,7 @@ invoke.cont329:                                   ; preds = %while.end12.i1529
 
 invoke.cont331:                                   ; preds = %invoke.cont329
   %frombool334 = zext i1 %call332 to i8
-  store i8 %frombool334, ptr %real_coordinates204, align 1, !tbaa !351
+  store i8 %frombool334, ptr %real_coordinates310, align 1, !tbaa !351
   %.pre2052 = load ptr, ptr %parts306, align 8, !tbaa !189
   br label %cleanup335
 
@@ -62436,8 +62436,8 @@ ehcleanup342:                                     ; preds = %lpad314, %lpad309
   br label %ehcleanup1092
 
 for.end345:                                       ; preds = %for.inc343, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit1564, %for.end297.thread, %for.end297
-  %real_coordinates126 = phi ptr [ %real_coordinates, %for.end297 ], [ %real_coordinates123, %for.end297.thread ], [ %real_coordinates204, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit1564 ], [ %real_coordinates204, %for.inc343 ]
-  %enable_prepends.2125 = phi i1 [ %201, %for.end297 ], [ false, %for.end297.thread ], [ %enable_prepends.2.ph203, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit1564 ], [ %enable_prepends.2.ph203, %for.inc343 ]
+  %real_coordinates126 = phi ptr [ %real_coordinates, %for.end297 ], [ %real_coordinates123, %for.end297.thread ], [ %real_coordinates310, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit1564 ], [ %real_coordinates310, %for.inc343 ]
+  %enable_prepends.2125 = phi i1 [ %201, %for.end297 ], [ false, %for.end297.thread ], [ %enable_prepends.2.ph309, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit1564 ], [ %enable_prepends.2.ph309, %for.inc343 ]
   %i.6.lcssa = phi i32 [ %i.5.lcssa.ph.ph, %for.end297 ], [ %i.5.lcssa.ph117, %for.end297.thread ], [ %inc344, %for.inc343 ], [ %i.62005, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit1564 ]
   %225 = load i8, ptr %mydata, align 8, !tbaa !308, !range !185, !noundef !186
   %tobool347.not = icmp eq i8 %225, 0
@@ -98680,9 +98680,9 @@ if.then:                                          ; preds = %lpad2.i.i.i.i.i
   br label %invoke.cont23
 
 if.else:                                          ; preds = %lpad2.i.i.i.i.i60, %lpad.body
-  %.sink10 = phi { ptr, i32 } [ %24, %lpad.body ], [ %12, %lpad2.i.i.i.i.i60 ]
+  %.sink15 = phi { ptr, i32 } [ %24, %lpad.body ], [ %12, %lpad2.i.i.i.i.i60 ]
   %__new_finish.0.lpad-body87 = phi ptr [ %call5.i.i.i, %lpad.body ], [ %incdec.ptr, %lpad2.i.i.i.i.i60 ]
-  %27 = extractvalue { ptr, i32 } %.sink10, 0
+  %27 = extractvalue { ptr, i32 } %.sink15, 0
   %28 = tail call ptr @__cxa_begin_catch(ptr %27) #34
   invoke void @_ZSt8_DestroyIPSt4pairIN16GUIInventoryList8ItemSpecE9ItemStackES4_EvT_S6_RSaIT0_E(ptr noundef nonnull %call5.i.i.i, ptr noundef nonnull %__new_finish.0.lpad-body87, ptr noundef nonnull align 1 dereferenceable(1) %this)
           to label %invoke.cont23 unwind label %lpad21

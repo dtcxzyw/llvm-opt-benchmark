@@ -4605,11 +4605,11 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   br label %68
 
 68:                                               ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5clang12DynTypedNodeEESt10_Select1stISA_ESt4lessIvESaISA_EE14_M_create_nodeIJRKSA_EEEPSt13_Rb_tree_nodeISA_EDpOT_.exit, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5clang12DynTypedNodeEESt10_Select1stISA_ESt4lessIvESaISA_EE17_M_construct_nodeIJRKSA_EEEvPSt13_Rb_tree_nodeISA_EDpOT_.exit
-  %.sink10 = phi ptr [ %50, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5clang12DynTypedNodeEESt10_Select1stISA_ESt4lessIvESaISA_EE14_M_create_nodeIJRKSA_EEEPSt13_Rb_tree_nodeISA_EDpOT_.exit ], [ %6, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5clang12DynTypedNodeEESt10_Select1stISA_ESt4lessIvESaISA_EE17_M_construct_nodeIJRKSA_EEEvPSt13_Rb_tree_nodeISA_EDpOT_.exit ]
-  %69 = getelementptr inbounds nuw i8, ptr %.sink10, i64 64
+  %.sink15 = phi ptr [ %50, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5clang12DynTypedNodeEESt10_Select1stISA_ESt4lessIvESaISA_EE14_M_create_nodeIJRKSA_EEEPSt13_Rb_tree_nodeISA_EDpOT_.exit ], [ %6, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5clang12DynTypedNodeEESt10_Select1stISA_ESt4lessIvESaISA_EE17_M_construct_nodeIJRKSA_EEEvPSt13_Rb_tree_nodeISA_EDpOT_.exit ]
+  %69 = getelementptr inbounds nuw i8, ptr %.sink15, i64 64
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %69, ptr noundef nonnull align 8 dereferenceable(40) %70, i64 40, i1 false)
-  ret ptr %.sink10
+  ret ptr %.sink15
 }
 
 ; Function Attrs: noreturn
@@ -6612,17 +6612,17 @@ _ZSt8_DestroyIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyEEvPT_.exit.i
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyES4_EvT_S6_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !826
 
 _ZSt8_DestroyIPN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyES4_EvT_S6_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyEEvPT_.exit.i.i.i.i.i, %_ZZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor20matchesAnyAncestorOfENS_12DynTypedNodeERNS_10ASTContextERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderEENKUlbE_clEb.exit85.i, %_ZZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor20matchesAnyAncestorOfENS_12DynTypedNodeERNS_10ASTContextERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderEENKUlbE_clEb.exit85.thread.i
-  %.3194.i = phi i1 [ %192, %_ZZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor20matchesAnyAncestorOfENS_12DynTypedNodeERNS_10ASTContextERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderEENKUlbE_clEb.exit85.thread.i ], [ %.3.i, %_ZZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor20matchesAnyAncestorOfENS_12DynTypedNodeERNS_10ASTContextERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderEENKUlbE_clEb.exit85.i ], [ %.3.i, %_ZSt8_DestroyIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyEEvPT_.exit.i.i.i.i.i ]
-  %.sroa.0125.2193.i = phi ptr [ %.sroa.0125.3.i, %_ZZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor20matchesAnyAncestorOfENS_12DynTypedNodeERNS_10ASTContextERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderEENKUlbE_clEb.exit85.thread.i ], [ %.sroa.0125.2.i, %_ZZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor20matchesAnyAncestorOfENS_12DynTypedNodeERNS_10ASTContextERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderEENKUlbE_clEb.exit85.i ], [ %.sroa.0125.2.i, %_ZSt8_DestroyIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyEEvPT_.exit.i.i.i.i.i ]
-  %.sroa.28.2192.i = phi ptr [ %.sroa.28.3.i, %_ZZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor20matchesAnyAncestorOfENS_12DynTypedNodeERNS_10ASTContextERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderEENKUlbE_clEb.exit85.thread.i ], [ %.sroa.28.2.i, %_ZZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor20matchesAnyAncestorOfENS_12DynTypedNodeERNS_10ASTContextERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderEENKUlbE_clEb.exit85.i ], [ %.sroa.28.2.i, %_ZSt8_DestroyIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyEEvPT_.exit.i.i.i.i.i ]
-  %.not.i.i.i87.i = icmp eq ptr %.sroa.0125.2193.i, null
+  %.3225.i = phi i1 [ %192, %_ZZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor20matchesAnyAncestorOfENS_12DynTypedNodeERNS_10ASTContextERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderEENKUlbE_clEb.exit85.thread.i ], [ %.3.i, %_ZZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor20matchesAnyAncestorOfENS_12DynTypedNodeERNS_10ASTContextERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderEENKUlbE_clEb.exit85.i ], [ %.3.i, %_ZSt8_DestroyIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyEEvPT_.exit.i.i.i.i.i ]
+  %.sroa.0125.2224.i = phi ptr [ %.sroa.0125.3.i, %_ZZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor20matchesAnyAncestorOfENS_12DynTypedNodeERNS_10ASTContextERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderEENKUlbE_clEb.exit85.thread.i ], [ %.sroa.0125.2.i, %_ZZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor20matchesAnyAncestorOfENS_12DynTypedNodeERNS_10ASTContextERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderEENKUlbE_clEb.exit85.i ], [ %.sroa.0125.2.i, %_ZSt8_DestroyIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyEEvPT_.exit.i.i.i.i.i ]
+  %.sroa.28.2223.i = phi ptr [ %.sroa.28.3.i, %_ZZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor20matchesAnyAncestorOfENS_12DynTypedNodeERNS_10ASTContextERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderEENKUlbE_clEb.exit85.thread.i ], [ %.sroa.28.2.i, %_ZZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor20matchesAnyAncestorOfENS_12DynTypedNodeERNS_10ASTContextERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderEENKUlbE_clEb.exit85.i ], [ %.sroa.28.2.i, %_ZSt8_DestroyIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyEEvPT_.exit.i.i.i.i.i ]
+  %.not.i.i.i87.i = icmp eq ptr %.sroa.0125.2224.i, null
   br i1 %.not.i.i.i87.i, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor20matchesAnyAncestorOfENS_12DynTypedNodeERNS_10ASTContextERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderE.exit, label %378
 
 378:                                              ; preds = %_ZSt8_DestroyIPN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyES4_EvT_S6_RSaIT0_E.exit.i.i
-  %379 = ptrtoint ptr %.sroa.28.2192.i to i64
-  %380 = ptrtoint ptr %.sroa.0125.2193.i to i64
+  %379 = ptrtoint ptr %.sroa.28.2223.i to i64
+  %380 = ptrtoint ptr %.sroa.0125.2224.i to i64
   %381 = sub i64 %379, %380
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0125.2193.i, i64 noundef %381) #26
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0125.2224.i, i64 noundef %381) #26
   br label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor20matchesAnyAncestorOfENS_12DynTypedNodeERNS_10ASTContextERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderE.exit
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor20matchesAnyAncestorOfENS_12DynTypedNodeERNS_10ASTContextERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderE.exit: ; preds = %_ZSt8_DestroyIPN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyES4_EvT_S6_RSaIT0_E.exit.i.i, %378
@@ -6630,7 +6630,7 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor20matchesAnyAnces
   br label %382
 
 382:                                              ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor20matchesAnyAncestorOfENS_12DynTypedNodeERNS_10ASTContextERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor15matchesParentOfERKNS_12DynTypedNodeERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderE.exit
-  %.0 = phi i1 [ %.not31.i, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor15matchesParentOfERKNS_12DynTypedNodeERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderE.exit ], [ %.3194.i, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor20matchesAnyAncestorOfENS_12DynTypedNodeERNS_10ASTContextERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderE.exit ]
+  %.0 = phi i1 [ %.not31.i, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor15matchesParentOfERKNS_12DynTypedNodeERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderE.exit ], [ %.3225.i, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor20matchesAnyAncestorOfENS_12DynTypedNodeERNS_10ASTContextERKNS1_15DynTypedMatcherEPNS1_21BoundNodesTreeBuilderE.exit ]
   ret i1 %.0
 }
 
@@ -7741,18 +7741,18 @@ _ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4
   br i1 %41, label %._crit_edge.thread.i.i.i, label %46
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %39
-  %.023.lcssa32.i.i.i = phi ptr [ %.02428.i.i.i, %._crit_edge.i.i.i ], [ %4, %39 ]
+  %.023.lcssa33.i.i.i = phi ptr [ %.02428.i.i.i, %._crit_edge.i.i.i ], [ %4, %39 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val9.i.i.i = load ptr, ptr %42, align 8, !tbaa !71
-  %43 = icmp eq ptr %.023.lcssa32.i.i.i, %.val9.i.i.i
+  %43 = icmp eq ptr %.023.lcssa33.i.i.i, %.val9.i.i.i
   br i1 %43, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i, label %44
 
 44:                                               ; preds = %._crit_edge.thread.i.i.i
-  %45 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa32.i.i.i) #28
+  %45 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa33.i.i.i) #28
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge.i.i.i
-  %.023.lcssa33.i.i.i = phi ptr [ %.023.lcssa32.i.i.i, %44 ], [ %.02428.i.i.i, %._crit_edge.i.i.i ]
+  %.023.lcssa32.i.i.i = phi ptr [ %.023.lcssa33.i.i.i, %44 ], [ %.02428.i.i.i, %._crit_edge.i.i.i ]
   %.sroa.014.0.i.i.i = phi ptr [ %45, %44 ], [ %.02428.i.i.i, %._crit_edge.i.i.i ]
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.i.i.i, i64 32
   %48 = tail call fastcc noundef zeroext i1 @_ZNKSt4lessIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyEEclERKS4_S7_(ptr noundef nonnull align 8 dereferenceable(128) %47, ptr noundef nonnull readonly align 8 dereferenceable(128) %13)
@@ -7802,17 +7802,17 @@ _ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4
   br i1 %65, label %._crit_edge.thread.i30.i.i, label %69
 
 ._crit_edge.thread.i30.i.i:                       ; preds = %._crit_edge.i21.i.i, %63
-  %.023.lcssa32.i31.i.i = phi ptr [ %.02428.i16.i.i, %._crit_edge.i21.i.i ], [ %4, %63 ]
+  %.023.lcssa33.i31.i.i = phi ptr [ %.02428.i16.i.i, %._crit_edge.i21.i.i ], [ %4, %63 ]
   %.val9.i32.i.i = load ptr, ptr %53, align 8, !tbaa !71
-  %66 = icmp eq ptr %.023.lcssa32.i31.i.i, %.val9.i32.i.i
+  %66 = icmp eq ptr %.023.lcssa33.i31.i.i, %.val9.i32.i.i
   br i1 %66, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i, label %67
 
 67:                                               ; preds = %._crit_edge.thread.i30.i.i
-  %68 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa32.i31.i.i) #28
+  %68 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa33.i31.i.i) #28
   br label %69
 
 69:                                               ; preds = %67, %._crit_edge.i21.i.i
-  %.023.lcssa33.i22.i.i = phi ptr [ %.023.lcssa32.i31.i.i, %67 ], [ %.02428.i16.i.i, %._crit_edge.i21.i.i ]
+  %.023.lcssa32.i22.i.i = phi ptr [ %.023.lcssa33.i31.i.i, %67 ], [ %.02428.i16.i.i, %._crit_edge.i21.i.i ]
   %.sroa.014.0.i23.i.i = phi ptr [ %68, %67 ], [ %.02428.i16.i.i, %._crit_edge.i21.i.i ]
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.i23.i.i, i64 32
   %71 = tail call fastcc noundef zeroext i1 @_ZNKSt4lessIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyEEclERKS4_S7_(ptr noundef nonnull align 8 dereferenceable(128) %70, ptr noundef nonnull readonly align 8 dereferenceable(128) %13)
@@ -7861,18 +7861,18 @@ _ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4
   br i1 %87, label %._crit_edge.thread.i51.i.i, label %92
 
 ._crit_edge.thread.i51.i.i:                       ; preds = %._crit_edge.i42.i.i, %85
-  %.023.lcssa32.i52.i.i = phi ptr [ %.02428.i37.i.i, %._crit_edge.i42.i.i ], [ %4, %85 ]
+  %.023.lcssa33.i52.i.i = phi ptr [ %.02428.i37.i.i, %._crit_edge.i42.i.i ], [ %4, %85 ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val9.i53.i.i = load ptr, ptr %88, align 8, !tbaa !71
-  %89 = icmp eq ptr %.023.lcssa32.i52.i.i, %.val9.i53.i.i
+  %89 = icmp eq ptr %.023.lcssa33.i52.i.i, %.val9.i53.i.i
   br i1 %89, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i, label %90
 
 90:                                               ; preds = %._crit_edge.thread.i51.i.i
-  %91 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa32.i52.i.i) #28
+  %91 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa33.i52.i.i) #28
   br label %92
 
 92:                                               ; preds = %90, %._crit_edge.i42.i.i
-  %.023.lcssa33.i43.i.i = phi ptr [ %.023.lcssa32.i52.i.i, %90 ], [ %.02428.i37.i.i, %._crit_edge.i42.i.i ]
+  %.023.lcssa32.i43.i.i = phi ptr [ %.023.lcssa33.i52.i.i, %90 ], [ %.02428.i37.i.i, %._crit_edge.i42.i.i ]
   %.sroa.014.0.i44.i.i = phi ptr [ %91, %90 ], [ %.02428.i37.i.i, %._crit_edge.i42.i.i ]
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.i44.i.i, i64 32
   %94 = tail call fastcc noundef zeroext i1 @_ZNKSt4lessIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyEEclERKS4_S7_(ptr noundef nonnull align 8 dereferenceable(128) %93, ptr noundef nonnull readonly align 8 dereferenceable(128) %13)
@@ -7885,7 +7885,7 @@ _ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4
   br i1 %.not.i, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread13.i, label %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i
 
 _ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.thread.i: ; preds = %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.i, %92, %._crit_edge.thread.i51.i.i, %82, %69, %._crit_edge.thread.i30.i.i, %60, %46, %._crit_edge.thread.i.i.i
-  %.sroa.12.0.i10.i = phi ptr [ %.sroa.12.0.i.i, %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.i ], [ %.023.lcssa32.i52.i.i, %._crit_edge.thread.i51.i.i ], [ %.023.lcssa32.i31.i.i, %._crit_edge.thread.i30.i.i ], [ %.023.lcssa32.i.i.i, %._crit_edge.thread.i.i.i ], [ %spec.select78.i.i, %82 ], [ %spec.select76.i.i, %60 ], [ %.023.lcssa33.i.i.i, %46 ], [ %.023.lcssa33.i22.i.i, %69 ], [ %.023.lcssa33.i43.i.i, %92 ]
+  %.sroa.12.0.i10.i = phi ptr [ %.sroa.12.0.i.i, %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.i ], [ %.023.lcssa33.i52.i.i, %._crit_edge.thread.i51.i.i ], [ %.023.lcssa33.i31.i.i, %._crit_edge.thread.i30.i.i ], [ %.023.lcssa33.i.i.i, %._crit_edge.thread.i.i.i ], [ %spec.select78.i.i, %82 ], [ %spec.select76.i.i, %60 ], [ %.023.lcssa32.i.i.i, %46 ], [ %.023.lcssa32.i22.i.i, %69 ], [ %.023.lcssa32.i43.i.i, %92 ]
   %.sroa.075.0.i9.i = phi ptr [ %.sroa.075.0.i.i, %_ZNSt8_Rb_treeIN5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyESt4pairIKS4_NS3_19MemoizedMatchResultEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS6_.exit.i ], [ null, %._crit_edge.thread.i51.i.i ], [ null, %._crit_edge.thread.i30.i.i ], [ null, %._crit_edge.thread.i.i.i ], [ %spec.select77.i.i, %82 ], [ %spec.select.i.i, %60 ], [ null, %46 ], [ null, %69 ], [ null, %92 ]
   %.not.i.i9.i = icmp ne ptr %.sroa.075.0.i9.i, null
   %95 = icmp eq ptr %.sroa.12.0.i10.i, %4
@@ -8326,20 +8326,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %88 = inttoptr i64 %87 to ptr
   %89 = load ptr, ptr %88, align 16, !tbaa !785
   %90 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %89)
-  br i1 %90, label %91, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread13
+  br i1 %90, label %91, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread18
 
 91:                                               ; preds = %84
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.0.0.copyload.i.i, ptr %4, align 8
   %92 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %92, label %93, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread13
+  br i1 %92, label %93, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread18
 
 93:                                               ; preds = %91
   %94 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %94, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread13
+  br i1 %94, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread18
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread13: ; preds = %84, %91, %93
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread18: ; preds = %84, %91, %93
   %95 = load i32, ptr %9, align 8, !tbaa !714
   %96 = add nsw i32 %95, -1
   store i32 %96, ptr %9, align 8, !tbaa !714
@@ -8347,9 +8347,9 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   br label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_18CXXCtorInitializerEEEbRKT_.exit
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit: ; preds = %93
-  %.sroa.0.0.copyload.i.i11 = load ptr, ptr %3, align 8, !tbaa !561
+  %.sroa.0.0.copyload.i.i16 = load ptr, ptr %3, align 8, !tbaa !561
   %.sroa.2.0.copyload.i.i = load ptr, ptr %83, align 8, !tbaa !561
-  %97 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %.sroa.0.0.copyload.i.i11, ptr %.sroa.2.0.copyload.i.i)
+  %97 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %.sroa.0.0.copyload.i.i16, ptr %.sroa.2.0.copyload.i.i)
   %98 = load i32, ptr %9, align 8, !tbaa !714
   %99 = add nsw i32 %98, -1
   store i32 %99, ptr %9, align 8, !tbaa !714
@@ -8376,8 +8376,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
 111:                                              ; preds = %100, %107
   br label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_18CXXCtorInitializerEEEbRKT_.exit
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_18CXXCtorInitializerEEEbRKT_.exit: ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread13, %111, %107, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit.i
-  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit.i ], [ true, %111 ], [ false, %107 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread13 ]
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_18CXXCtorInitializerEEEbRKT_.exit: ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread18, %111, %107, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit.i
+  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit.i ], [ true, %111 ], [ false, %107 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread18 ]
   ret i1 %.0
 }
 
@@ -9123,8 +9123,8 @@ _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit20.i: ; preds = 
 140:                                              ; preds = %75
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %142 = load ptr, ptr %141, align 8, !tbaa !1013
-  %.not.i5 = icmp eq ptr %142, null
-  br i1 %.not.i5, label %147, label %143
+  %.not.i9 = icmp eq ptr %142, null
+  br i1 %.not.i9, label %147, label %143
 
 143:                                              ; preds = %140
   %.sroa.0.0.copyload.i.i = load i64, ptr %142, align 8, !tbaa !50
@@ -9139,13 +9139,13 @@ _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit20.i: ; preds = 
 148:                                              ; preds = %75
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %150 = load ptr, ptr %149, align 8, !tbaa !1016
-  %.not.i6 = icmp eq ptr %150, null
-  br i1 %.not.i6, label %155, label %151
+  %.not.i10 = icmp eq ptr %150, null
+  br i1 %.not.i10, label %155, label %151
 
 151:                                              ; preds = %148
-  %.sroa.0.0.copyload.i.i7 = load i64, ptr %150, align 8, !tbaa !50
+  %.sroa.0.0.copyload.i.i11 = load i64, ptr %150, align 8, !tbaa !50
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 8
-  %153 = inttoptr i64 %.sroa.0.0.copyload.i.i7 to ptr
+  %153 = inttoptr i64 %.sroa.0.0.copyload.i.i11 to ptr
   %154 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %153, ptr nonnull %152)
   br i1 %154, label %155, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4AttrEEEbRKT_.exit
 
@@ -9207,13 +9207,13 @@ _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit20.i: ; preds = 
 188:                                              ; preds = %75
   %189 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %190 = load ptr, ptr %189, align 8, !tbaa !1034
-  %.not.i9 = icmp eq ptr %190, null
-  br i1 %.not.i9, label %195, label %191
+  %.not.i13 = icmp eq ptr %190, null
+  br i1 %.not.i13, label %195, label %191
 
 191:                                              ; preds = %188
-  %.sroa.0.0.copyload.i.i10 = load i64, ptr %190, align 8, !tbaa !50
+  %.sroa.0.0.copyload.i.i14 = load i64, ptr %190, align 8, !tbaa !50
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 8
-  %193 = inttoptr i64 %.sroa.0.0.copyload.i.i10 to ptr
+  %193 = inttoptr i64 %.sroa.0.0.copyload.i.i14 to ptr
   %194 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %193, ptr nonnull %192)
   br i1 %194, label %195, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4AttrEEEbRKT_.exit
 
@@ -9223,13 +9223,13 @@ _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit20.i: ; preds = 
 196:                                              ; preds = %75
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %198 = load ptr, ptr %197, align 8, !tbaa !1036
-  %.not.i12 = icmp eq ptr %198, null
-  br i1 %.not.i12, label %203, label %199
+  %.not.i16 = icmp eq ptr %198, null
+  br i1 %.not.i16, label %203, label %199
 
 199:                                              ; preds = %196
-  %.sroa.0.0.copyload.i.i13 = load i64, ptr %198, align 8, !tbaa !50
+  %.sroa.0.0.copyload.i.i17 = load i64, ptr %198, align 8, !tbaa !50
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 8
-  %201 = inttoptr i64 %.sroa.0.0.copyload.i.i13 to ptr
+  %201 = inttoptr i64 %.sroa.0.0.copyload.i.i17 to ptr
   %202 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %201, ptr nonnull %200)
   br i1 %202, label %203, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4AttrEEEbRKT_.exit
 
@@ -9239,13 +9239,13 @@ _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit20.i: ; preds = 
 204:                                              ; preds = %75
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %206 = load ptr, ptr %205, align 8, !tbaa !1038
-  %.not.i15 = icmp eq ptr %206, null
-  br i1 %.not.i15, label %211, label %207
+  %.not.i19 = icmp eq ptr %206, null
+  br i1 %.not.i19, label %211, label %207
 
 207:                                              ; preds = %204
-  %.sroa.0.0.copyload.i.i16 = load i64, ptr %206, align 8, !tbaa !50
+  %.sroa.0.0.copyload.i.i20 = load i64, ptr %206, align 8, !tbaa !50
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 8
-  %209 = inttoptr i64 %.sroa.0.0.copyload.i.i16 to ptr
+  %209 = inttoptr i64 %.sroa.0.0.copyload.i.i20 to ptr
   %210 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %209, ptr nonnull %208)
   br i1 %210, label %211, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4AttrEEEbRKT_.exit
 
@@ -9255,13 +9255,13 @@ _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit20.i: ; preds = 
 212:                                              ; preds = %75
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %214 = load ptr, ptr %213, align 8, !tbaa !1040
-  %.not.i18 = icmp eq ptr %214, null
-  br i1 %.not.i18, label %219, label %215
+  %.not.i22 = icmp eq ptr %214, null
+  br i1 %.not.i22, label %219, label %215
 
 215:                                              ; preds = %212
-  %.sroa.0.0.copyload.i.i19 = load i64, ptr %214, align 8, !tbaa !50
+  %.sroa.0.0.copyload.i.i23 = load i64, ptr %214, align 8, !tbaa !50
   %216 = getelementptr inbounds nuw i8, ptr %214, i64 8
-  %217 = inttoptr i64 %.sroa.0.0.copyload.i.i19 to ptr
+  %217 = inttoptr i64 %.sroa.0.0.copyload.i.i23 to ptr
   %218 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %217, ptr nonnull %216)
   br i1 %218, label %219, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4AttrEEEbRKT_.exit
 
@@ -9285,13 +9285,13 @@ _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit20.i: ; preds = 
 228:                                              ; preds = %75
   %229 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %230 = load ptr, ptr %229, align 8, !tbaa !1044
-  %.not.i21 = icmp eq ptr %230, null
-  br i1 %.not.i21, label %235, label %231
+  %.not.i25 = icmp eq ptr %230, null
+  br i1 %.not.i25, label %235, label %231
 
 231:                                              ; preds = %228
-  %.sroa.0.0.copyload.i.i22 = load i64, ptr %230, align 8, !tbaa !50
+  %.sroa.0.0.copyload.i.i26 = load i64, ptr %230, align 8, !tbaa !50
   %232 = getelementptr inbounds nuw i8, ptr %230, i64 8
-  %233 = inttoptr i64 %.sroa.0.0.copyload.i.i22 to ptr
+  %233 = inttoptr i64 %.sroa.0.0.copyload.i.i26 to ptr
   %234 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %233, ptr nonnull %232)
   br i1 %234, label %235, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4AttrEEEbRKT_.exit
 
@@ -9321,13 +9321,13 @@ _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit20.i: ; preds = 
 248:                                              ; preds = %75
   %249 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %250 = load ptr, ptr %249, align 8, !tbaa !1050
-  %.not.i24 = icmp eq ptr %250, null
-  br i1 %.not.i24, label %255, label %251
+  %.not.i28 = icmp eq ptr %250, null
+  br i1 %.not.i28, label %255, label %251
 
 251:                                              ; preds = %248
-  %.sroa.0.0.copyload.i.i25 = load i64, ptr %250, align 8, !tbaa !50
+  %.sroa.0.0.copyload.i.i29 = load i64, ptr %250, align 8, !tbaa !50
   %252 = getelementptr inbounds nuw i8, ptr %250, i64 8
-  %253 = inttoptr i64 %.sroa.0.0.copyload.i.i25 to ptr
+  %253 = inttoptr i64 %.sroa.0.0.copyload.i.i29 to ptr
   %254 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %253, ptr nonnull %252)
   br i1 %254, label %255, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4AttrEEEbRKT_.exit
 
@@ -9337,13 +9337,13 @@ _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderD2Ev.exit20.i: ; preds = 
 256:                                              ; preds = %75
   %257 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %258 = load ptr, ptr %257, align 8, !tbaa !1052
-  %.not.i27 = icmp eq ptr %258, null
-  br i1 %.not.i27, label %263, label %259
+  %.not.i31 = icmp eq ptr %258, null
+  br i1 %.not.i31, label %263, label %259
 
 259:                                              ; preds = %256
-  %.sroa.0.0.copyload.i.i28 = load i64, ptr %258, align 8, !tbaa !50
+  %.sroa.0.0.copyload.i.i32 = load i64, ptr %258, align 8, !tbaa !50
   %260 = getelementptr inbounds nuw i8, ptr %258, i64 8
-  %261 = inttoptr i64 %.sroa.0.0.copyload.i.i28 to ptr
+  %261 = inttoptr i64 %.sroa.0.0.copyload.i.i32 to ptr
   %262 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %261, ptr nonnull %260)
   br i1 %262, label %263, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4AttrEEEbRKT_.exit
 
@@ -10715,8 +10715,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12a
   store ptr %9, ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %10, align 8
-  %.not.i.i76 = icmp eq i64 %.sroa.0.0.copyload.i, 0
-  br i1 %.not.i.i76, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %11
+  %.not.i.i83 = icmp eq i64 %.sroa.0.0.copyload.i, 0
+  br i1 %.not.i.i83, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %11
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread: ; preds = %7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -10731,20 +10731,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %16 = inttoptr i64 %15 to ptr
   %17 = load ptr, ptr %16, align 16, !tbaa !785
   %18 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %17)
-  br i1 %18, label %19, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread78
+  br i1 %18, label %19, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread85
 
 19:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.0.0.copyload.i, ptr %4, align 8
   %20 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %20, label %21, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread78
+  br i1 %20, label %21, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread85
 
 21:                                               ; preds = %19
   %22 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %22, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread78
+  br i1 %22, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread85
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread78: ; preds = %11, %19, %21
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread85: ; preds = %11, %19, %21
   %23 = load i32, ptr %12, align 4, !tbaa !714
   %24 = add nsw i32 %23, -1
   store i32 %24, ptr %12, align 4, !tbaa !714
@@ -10870,8 +10870,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAt
   %.not49 = icmp eq ptr %83, %58
   br i1 %.not49, label %.critedge55, label %61
 
-.critedge55:                                      ; preds = %42, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread78, %.critedge53, %_ZNK5clang4Decl5attrsEv.exit, %.critedge, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
-  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %.critedge ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.critedge53 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread78 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit ], [ false, %42 ]
+.critedge55:                                      ; preds = %42, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread85, %.critedge53, %_ZNK5clang4Decl5attrsEv.exit, %.critedge, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
+  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %.critedge ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.critedge53 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread85 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit ], [ false, %42 ]
   ret i1 %.0
 }
 
@@ -11658,8 +11658,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12a
   store ptr %9, ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %10, align 8
-  %.not.i.i70 = icmp eq i64 %.sroa.0.0.copyload.i, 0
-  br i1 %.not.i.i70, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %11
+  %.not.i.i77 = icmp eq i64 %.sroa.0.0.copyload.i, 0
+  br i1 %.not.i.i77, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %11
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread: ; preds = %7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -11674,20 +11674,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %16 = inttoptr i64 %15 to ptr
   %17 = load ptr, ptr %16, align 16, !tbaa !785
   %18 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %17)
-  br i1 %18, label %19, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread72
+  br i1 %18, label %19, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread79
 
 19:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.0.0.copyload.i, ptr %4, align 8
   %20 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %20, label %21, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread72
+  br i1 %20, label %21, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread79
 
 21:                                               ; preds = %19
   %22 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %22, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread72
+  br i1 %22, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread79
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread72: ; preds = %11, %19, %21
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread79: ; preds = %11, %19, %21
   %23 = load i32, ptr %12, align 4, !tbaa !714
   %24 = add nsw i32 %23, -1
   store i32 %24, ptr %12, align 4, !tbaa !714
@@ -11846,8 +11846,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAt
   %.not44 = icmp eq ptr %103, %78
   br i1 %.not44, label %.critedge46, label %81
 
-.critedge46:                                      ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit, %46, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread72, %64, %_ZNK5clang4Decl5attrsEv.exit, %58, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
-  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %58 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %64 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread72 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit ], [ false, %46 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit ]
+.critedge46:                                      ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit, %46, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread79, %64, %_ZNK5clang4Decl5attrsEv.exit, %58, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
+  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %58 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %64 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread79 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit ], [ false, %46 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit ]
   ret i1 %.0
 }
 
@@ -12030,8 +12030,8 @@ _ZNK5clang17ObjCInterfaceDecl18getSuperClassTInfoEv.exit: ; preds = %24, %30
   store ptr %35, ptr %3, align 8
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %34, ptr %36, align 8
-  %.not.i.i119 = icmp eq i64 %.sroa.0.0.copyload.i, 0
-  br i1 %.not.i.i119, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %37
+  %.not.i.i127 = icmp eq i64 %.sroa.0.0.copyload.i, 0
+  br i1 %.not.i.i127, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %37
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread: ; preds = %33
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -12046,20 +12046,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %42 = inttoptr i64 %41 to ptr
   %43 = load ptr, ptr %42, align 16, !tbaa !785
   %44 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %43)
-  br i1 %44, label %45, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread121
+  br i1 %44, label %45, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread129
 
 45:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.0.0.copyload.i, ptr %4, align 8
   %46 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %46, label %47, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread121
+  br i1 %46, label %47, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread129
 
 47:                                               ; preds = %45
   %48 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %48, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread121
+  br i1 %48, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread129
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread121: ; preds = %37, %45, %47
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread129: ; preds = %37, %45, %47
   %49 = load i32, ptr %38, align 4, !tbaa !714
   %50 = add nsw i32 %49, -1
   store i32 %50, ptr %38, align 4, !tbaa !714
@@ -12189,8 +12189,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAt
   %.not70 = icmp eq ptr %108, %83
   br i1 %.not70, label %.critedge76, label %86
 
-.critedge76:                                      ; preds = %.lr.ph, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread121, %69, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang17ObjCInterfaceDecl28isThisDeclarationADefinitionEv.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
-  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZNK5clang17ObjCInterfaceDecl28isThisDeclarationADefinitionEv.exit.thread ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %69 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread121 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit ], [ false, %.lr.ph ]
+.critedge76:                                      ; preds = %.lr.ph, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread129, %69, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang17ObjCInterfaceDecl28isThisDeclarationADefinitionEv.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
+  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZNK5clang17ObjCInterfaceDecl28isThisDeclarationADefinitionEv.exit.thread ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %69 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread129 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -14807,8 +14807,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12a
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %11 = load i16, ptr %10, align 8
   %12 = and i16 %11, 2048
-  %.not.i64 = icmp eq i16 %12, 0
-  br i1 %.not.i64, label %16, label %13
+  %.not.i70 = icmp eq i16 %12, 0
+  br i1 %.not.i70, label %16, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr i8, ptr %0, i64 96
@@ -16910,8 +16910,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNe
   store ptr %41, ptr %3, align 8
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %40, ptr %42, align 8
-  %.not.i.i77 = icmp eq i64 %.sroa.0.0.copyload.i39, 0
-  br i1 %.not.i.i77, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %43
+  %.not.i.i82 = icmp eq i64 %.sroa.0.0.copyload.i39, 0
+  br i1 %.not.i.i82, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %43
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread: ; preds = %38
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -16926,20 +16926,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %48 = inttoptr i64 %47 to ptr
   %49 = load ptr, ptr %48, align 16, !tbaa !785
   %50 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %49)
-  br i1 %50, label %51, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread79
+  br i1 %50, label %51, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread84
 
 51:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.0.0.copyload.i39, ptr %4, align 8
   %52 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %52, label %53, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread79
+  br i1 %52, label %53, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread84
 
 53:                                               ; preds = %51
   %54 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %54, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread79
+  br i1 %54, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread84
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread79: ; preds = %43, %51, %53
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread84: ; preds = %43, %51, %53
   %55 = load i32, ptr %44, align 4, !tbaa !714
   %56 = add nsw i32 %55, -1
   store i32 %56, ptr %44, align 4, !tbaa !714
@@ -17035,8 +17035,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAt
   %.not35 = icmp eq ptr %101, %76
   br i1 %.not35, label %.critedge37, label %79
 
-.critedge37:                                      ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread79, %62, %_ZNK5clang4Decl5attrsEv.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread59, %.critedge, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
-  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %.critedge ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread59 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %62 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread79 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit ]
+.critedge37:                                      ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread84, %62, %_ZNK5clang4Decl5attrsEv.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread59, %.critedge, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
+  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %.critedge ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread59 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %62 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread84 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit ]
   ret i1 %.0
 }
 
@@ -17202,8 +17202,8 @@ _ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit: ; preds = %2, %9
   store ptr %13, ptr %3, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %12, ptr %14, align 8
-  %.not.i.i34 = icmp eq i64 %.sroa.0.0.copyload.i, 0
-  br i1 %.not.i.i34, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %15
+  %.not.i.i38 = icmp eq i64 %.sroa.0.0.copyload.i, 0
+  br i1 %.not.i.i38, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %15
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread: ; preds = %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -17218,20 +17218,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %20 = inttoptr i64 %19 to ptr
   %21 = load ptr, ptr %20, align 16, !tbaa !785
   %22 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %21)
-  br i1 %22, label %23, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread36
+  br i1 %22, label %23, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread40
 
 23:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.0.0.copyload.i, ptr %4, align 8
   %24 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %24, label %25, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread36
+  br i1 %24, label %25, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread40
 
 25:                                               ; preds = %23
   %26 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %26, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread36
+  br i1 %26, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread40
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread36: ; preds = %15, %23, %25
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread40: ; preds = %15, %23, %25
   %27 = load i32, ptr %16, align 4, !tbaa !714
   %28 = add nsw i32 %27, -1
   store i32 %28, ptr %16, align 4, !tbaa !714
@@ -17335,8 +17335,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAt
   %.not = icmp eq ptr %76, %51
   br i1 %.not, label %.critedge, label %54
 
-.critedge:                                        ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread36, %37, %_ZNK5clang4Decl5attrsEv.exit, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11TypedefDeclEEEDcPT0_.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
-  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11TypedefDeclEEEDcPT0_.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %37 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread36 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit ]
+.critedge:                                        ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread40, %37, %_ZNK5clang4Decl5attrsEv.exit, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11TypedefDeclEEEDcPT0_.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
+  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11TypedefDeclEEEDcPT0_.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %37 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread40 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit ]
   ret i1 %.0
 }
 
@@ -17365,8 +17365,8 @@ _ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit: ; preds = %2, %9
   store ptr %13, ptr %3, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %12, ptr %14, align 8
-  %.not.i.i34 = icmp eq i64 %.sroa.0.0.copyload.i, 0
-  br i1 %.not.i.i34, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %15
+  %.not.i.i38 = icmp eq i64 %.sroa.0.0.copyload.i, 0
+  br i1 %.not.i.i38, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %15
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread: ; preds = %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -17381,20 +17381,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %20 = inttoptr i64 %19 to ptr
   %21 = load ptr, ptr %20, align 16, !tbaa !785
   %22 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %21)
-  br i1 %22, label %23, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread36
+  br i1 %22, label %23, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread40
 
 23:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.0.0.copyload.i, ptr %4, align 8
   %24 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %24, label %25, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread36
+  br i1 %24, label %25, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread40
 
 25:                                               ; preds = %23
   %26 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %26, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread36
+  br i1 %26, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread40
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread36: ; preds = %15, %23, %25
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread40: ; preds = %15, %23, %25
   %27 = load i32, ptr %16, align 4, !tbaa !714
   %28 = add nsw i32 %27, -1
   store i32 %28, ptr %16, align 4, !tbaa !714
@@ -17498,8 +17498,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAt
   %.not = icmp eq ptr %76, %51
   br i1 %.not, label %.critedge, label %54
 
-.critedge:                                        ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread36, %37, %_ZNK5clang4Decl5attrsEv.exit, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13TypeAliasDeclEEEDcPT0_.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
-  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13TypeAliasDeclEEEDcPT0_.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %37 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread36 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit ]
+.critedge:                                        ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread40, %37, %_ZNK5clang4Decl5attrsEv.exit, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13TypeAliasDeclEEEDcPT0_.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
+  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13TypeAliasDeclEEEDcPT0_.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %37 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread40 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit ]
   ret i1 %.0
 }
 
@@ -17534,8 +17534,8 @@ _ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit: ; preds = %7, %12
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %15, ptr %17, align 8
-  %.not.i.i36 = icmp eq i64 %.sroa.0.0.copyload.i, 0
-  br i1 %.not.i.i36, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %18
+  %.not.i.i40 = icmp eq i64 %.sroa.0.0.copyload.i, 0
+  br i1 %.not.i.i40, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %18
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread: ; preds = %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -17550,20 +17550,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %23 = inttoptr i64 %22 to ptr
   %24 = load ptr, ptr %23, align 16, !tbaa !785
   %25 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %24)
-  br i1 %25, label %26, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread38
+  br i1 %25, label %26, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread42
 
 26:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.0.0.copyload.i, ptr %4, align 8
   %27 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %27, label %28, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread38
+  br i1 %27, label %28, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread42
 
 28:                                               ; preds = %26
   %29 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %29, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread38
+  br i1 %29, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread42
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread38: ; preds = %18, %26, %28
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread42: ; preds = %18, %26, %28
   %30 = load i32, ptr %19, align 4, !tbaa !714
   %31 = add nsw i32 %30, -1
   store i32 %31, ptr %19, align 4, !tbaa !714
@@ -17667,8 +17667,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAt
   %.not = icmp eq ptr %79, %54
   br i1 %.not, label %.critedge, label %57
 
-.critedge:                                        ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread38, %40, %_ZNK5clang4Decl5attrsEv.exit, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ObjCTypeParamDeclEEEDcPT0_.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
-  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ObjCTypeParamDeclEEEDcPT0_.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %40 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread38 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit ]
+.critedge:                                        ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread42, %40, %_ZNK5clang4Decl5attrsEv.exit, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ObjCTypeParamDeclEEEDcPT0_.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
+  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ObjCTypeParamDeclEEEDcPT0_.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %40 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread42 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit ]
   ret i1 %.0
 }
 
@@ -19219,8 +19219,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12a
   store ptr %10, ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %9, ptr %11, align 8
-  %.not.i.i48 = icmp eq i64 %.sroa.0.0.copyload.i, 0
-  br i1 %.not.i.i48, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %12
+  %.not.i.i53 = icmp eq i64 %.sroa.0.0.copyload.i, 0
+  br i1 %.not.i.i53, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %12
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread: ; preds = %8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -19235,20 +19235,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %17 = inttoptr i64 %16 to ptr
   %18 = load ptr, ptr %17, align 16, !tbaa !785
   %19 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %18)
-  br i1 %19, label %20, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread50
+  br i1 %19, label %20, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread55
 
 20:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.0.0.copyload.i, ptr %4, align 8
   %21 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %21, label %22, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread50
+  br i1 %21, label %22, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread55
 
 22:                                               ; preds = %20
   %23 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %23, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread50
+  br i1 %23, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread55
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread50: ; preds = %12, %20, %22
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread55: ; preds = %12, %20, %22
   %24 = load i32, ptr %13, align 4, !tbaa !714
   %25 = add nsw i32 %24, -1
   store i32 %25, ptr %13, align 4, !tbaa !714
@@ -19381,8 +19381,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAt
   %.not28 = icmp eq ptr %85, %60
   br i1 %.not28, label %.critedge, label %63
 
-.critedge:                                        ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread50, %46, %_ZNK5clang4Decl5attrsEv.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit.thread40, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
-  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit.thread40 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %46 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread50 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit ]
+.critedge:                                        ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread55, %46, %_ZNK5clang4Decl5attrsEv.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit.thread40, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
+  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit.thread40 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %46 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread55 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit ]
   ret i1 %.0
 }
 
@@ -19709,8 +19709,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12a
   store ptr %8, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %7, ptr %9, align 8
-  %.not.i.i32 = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
-  br i1 %.not.i.i32, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %10
+  %.not.i.i36 = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
+  br i1 %.not.i.i36, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %10
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -19725,20 +19725,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %15 = inttoptr i64 %14 to ptr
   %16 = load ptr, ptr %15, align 16, !tbaa !785
   %17 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %16)
-  br i1 %17, label %18, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread35
+  br i1 %17, label %18, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread39
 
 18:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.0.0.copyload.i.i, ptr %4, align 8
   %19 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %19, label %20, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread35
+  br i1 %19, label %20, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread39
 
 20:                                               ; preds = %18
   %21 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %21, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread35
+  br i1 %21, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread39
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread35: ; preds = %10, %18, %20
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread39: ; preds = %10, %18, %20
   %22 = load i32, ptr %11, align 4, !tbaa !714
   %23 = add nsw i32 %22, -1
   store i32 %23, ptr %11, align 4, !tbaa !714
@@ -19746,9 +19746,9 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   br label %.critedge
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit: ; preds = %20
-  %.sroa.0.0.copyload.i.i33 = load ptr, ptr %3, align 8, !tbaa !561
+  %.sroa.0.0.copyload.i.i37 = load ptr, ptr %3, align 8, !tbaa !561
   %.sroa.2.0.copyload.i.i = load ptr, ptr %9, align 8, !tbaa !561
-  %24 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %.sroa.0.0.copyload.i.i33, ptr %.sroa.2.0.copyload.i.i)
+  %24 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %.sroa.0.0.copyload.i.i37, ptr %.sroa.2.0.copyload.i.i)
   %25 = load i32, ptr %11, align 4, !tbaa !714
   %26 = add nsw i32 %25, -1
   store i32 %26, ptr %11, align 4, !tbaa !714
@@ -19842,8 +19842,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAt
   %.not = icmp eq ptr %71, %46
   br i1 %.not, label %.critedge, label %49
 
-.critedge:                                        ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread35, %32, %_ZNK5clang4Decl5attrsEv.exit, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13UsingEnumDeclEEEDcPT0_.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
-  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13UsingEnumDeclEEEDcPT0_.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %32 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread35 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit ]
+.critedge:                                        ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread39, %32, %_ZNK5clang4Decl5attrsEv.exit, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13UsingEnumDeclEEEDcPT0_.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
+  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13UsingEnumDeclEEEDcPT0_.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %32 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread39 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit ]
   ret i1 %.0
 }
 
@@ -20328,8 +20328,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12a
   store ptr %11, ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %10, ptr %12, align 8
-  %.not.i.i94 = icmp eq i64 %.sroa.0.0.copyload.i, 0
-  br i1 %.not.i.i94, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %13
+  %.not.i.i101 = icmp eq i64 %.sroa.0.0.copyload.i, 0
+  br i1 %.not.i.i101, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %13
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread: ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -20344,20 +20344,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %18 = inttoptr i64 %17 to ptr
   %19 = load ptr, ptr %18, align 16, !tbaa !785
   %20 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %19)
-  br i1 %20, label %21, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread96
+  br i1 %20, label %21, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread103
 
 21:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.0.0.copyload.i, ptr %4, align 8
   %22 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %22, label %23, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread96
+  br i1 %22, label %23, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread103
 
 23:                                               ; preds = %21
   %24 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %24, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread96
+  br i1 %24, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread103
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread96: ; preds = %13, %21, %23
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread103: ; preds = %13, %21, %23
   %25 = load i32, ptr %14, align 4, !tbaa !714
   %26 = add nsw i32 %25, -1
   store i32 %26, ptr %14, align 4, !tbaa !714
@@ -20563,8 +20563,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAt
   %.not51 = icmp eq ptr %120, %95
   br i1 %.not51, label %.critedge55, label %98
 
-.critedge55:                                      ; preds = %69, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit64, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread96, %81, %_ZNK5clang4Decl5attrsEv.exit, %39, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_18FriendTemplateDeclEEEDcPT0_.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
-  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit ], [ false, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_18FriendTemplateDeclEEEDcPT0_.exit ], [ false, %39 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %81 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread96 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit64 ], [ false, %69 ]
+.critedge55:                                      ; preds = %69, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit64, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread103, %81, %_ZNK5clang4Decl5attrsEv.exit, %39, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_18FriendTemplateDeclEEEDcPT0_.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
+  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit ], [ false, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_18FriendTemplateDeclEEEDcPT0_.exit ], [ false, %39 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %81 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread103 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit64 ], [ false, %69 ]
   ret i1 %.0
 }
 
@@ -20590,8 +20590,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12a
   store ptr %11, ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %10, ptr %12, align 8
-  %.not.i.i82 = icmp eq i64 %.sroa.0.0.copyload.i, 0
-  br i1 %.not.i.i82, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %13
+  %.not.i.i88 = icmp eq i64 %.sroa.0.0.copyload.i, 0
+  br i1 %.not.i.i88, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %13
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread: ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -20606,20 +20606,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %18 = inttoptr i64 %17 to ptr
   %19 = load ptr, ptr %18, align 16, !tbaa !785
   %20 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %19)
-  br i1 %20, label %21, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread84
+  br i1 %20, label %21, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread90
 
 21:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.0.0.copyload.i, ptr %4, align 8
   %22 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %22, label %23, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread84
+  br i1 %22, label %23, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread90
 
 23:                                               ; preds = %21
   %24 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %24, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread84
+  br i1 %24, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread90
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread84: ; preds = %13, %21, %23
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread90: ; preds = %13, %21, %23
   %25 = load i32, ptr %14, align 4, !tbaa !714
   %26 = add nsw i32 %25, -1
   store i32 %26, ptr %14, align 4, !tbaa !714
@@ -20639,12 +20639,12 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit._crit_edge: ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
   %.sroa.0.0.copyload.i.i.i.i.i41.pre = load i64, ptr %5, align 8
   %.pre = and i64 %.sroa.0.0.copyload.i.i.i.i.i41.pre, -8
-  %.pre87 = inttoptr i64 %.pre to ptr
+  %.pre93 = inttoptr i64 %.pre to ptr
   br label %30
 
 30:                                               ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit._crit_edge, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread
-  %.pre-phi88 = phi ptr [ %.pre87, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit._crit_edge ], [ %8, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread ]
-  %.sroa.0.0.copyload.i44 = load i64, ptr %.pre-phi88, align 8, !tbaa !50
+  %.pre-phi94 = phi ptr [ %.pre93, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit._crit_edge ], [ %8, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread ]
+  %.sroa.0.0.copyload.i44 = load i64, ptr %.pre-phi94, align 8, !tbaa !50
   %31 = and i64 %.sroa.0.0.copyload.i44, -16
   %32 = inttoptr i64 %31 to ptr
   %33 = load ptr, ptr %32, align 16, !tbaa !785
@@ -20831,8 +20831,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAt
   %.not35 = icmp eq ptr %126, %101
   br i1 %.not35, label %.critedge37, label %104
 
-.critedge37:                                      ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread84, %87, %_ZNK5clang4Decl5attrsEv.exit, %75, %58, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10FriendDeclEEEDcPT0_.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit52, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
-  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit52 ], [ false, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10FriendDeclEEEDcPT0_.exit ], [ false, %58 ], [ false, %75 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %87 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread84 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit ]
+.critedge37:                                      ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread90, %87, %_ZNK5clang4Decl5attrsEv.exit, %75, %58, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10FriendDeclEEEDcPT0_.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit52, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
+  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit52 ], [ false, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10FriendDeclEEEDcPT0_.exit ], [ false, %58 ], [ false, %75 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %87 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread90 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseAttrEPNS_4AttrE.exit ]
   ret i1 %.0
 }
 
@@ -21211,10 +21211,10 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor27TraverseTe
   %37 = load i32, ptr %28, align 4, !tbaa !714
   %38 = add nsw i32 %37, -1
   store i32 %38, ptr %28, align 4, !tbaa !714
-  %.not25 = xor i1 %36, true
+  %.not27 = xor i1 %36, true
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond = select i1 %.not25, i1 true, i1 %exitcond.not
+  %or.cond = select i1 %.not27, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.thread, label %30, !llvm.loop !1146
 
 _ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.thread: ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor27TraverseTemplateArgumentLocENS_19TemplateArgumentLocE.exit, %24, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor27TraverseTemplateArgumentLocENS_19TemplateArgumentLocE.exit.thread, %21, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread14, %18, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
@@ -21350,8 +21350,8 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit:  ; preds = %2, %8
   store ptr %19, ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %18, ptr %20, align 8
-  %.not.i.i14 = icmp eq i64 %.sroa.0.0.copyload.i7, 0
-  br i1 %.not.i.i14, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %21
+  %.not.i.i15 = icmp eq i64 %.sroa.0.0.copyload.i7, 0
+  br i1 %.not.i.i15, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %21
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread: ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -21366,20 +21366,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %26 = inttoptr i64 %25 to ptr
   %27 = load ptr, ptr %26, align 16, !tbaa !785
   %28 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %27)
-  br i1 %28, label %29, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread17
+  br i1 %28, label %29, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread18
 
 29:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.0.0.copyload.i7, ptr %4, align 8
   %30 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %30, label %31, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread17
+  br i1 %30, label %31, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread18
 
 31:                                               ; preds = %29
   %32 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %32, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread17
+  br i1 %32, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread18
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread17: ; preds = %21, %29, %31
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread18: ; preds = %21, %29, %31
   %33 = load i32, ptr %22, align 4, !tbaa !714
   %34 = add nsw i32 %33, -1
   store i32 %34, ptr %22, align 4, !tbaa !714
@@ -21423,8 +21423,8 @@ _ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit: ; preds = %38,
 .thread:                                          ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %13, %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit, %_ZNK5clang15DeclarationName11getNameKindEv.exit
   br label %49
 
-49:                                               ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread17, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit, %.thread
-  %.1 = phi i1 [ true, %.thread ], [ false, %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread17 ]
+49:                                               ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread18, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit, %.thread
+  %.1 = phi i1 [ true, %.thread ], [ false, %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread18 ]
   ret i1 %.1
 }
 
@@ -23688,7 +23688,7 @@ _ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchCh
 
 .lr.ph.i.i.preheader:                             ; preds = %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS8_14PointerIntPairIS7_Lj1EbNS8_21PointerLikeTypeTraitsIS7_EENS8_18PointerIntPairInfoIS7_Lj1ESC_EEEEEE.exit.thread
   %560 = load ptr, ptr %4, align 8, !tbaa !764
-  %.012.i.i = getelementptr inbounds i8, ptr %560, i64 %558
+  %.012.i.i = getelementptr inbounds nuw i8, ptr %560, i64 %558
   %561 = getelementptr inbounds nuw i8, ptr %560, i64 %.idx
   br label %.lr.ph.i.i
 
@@ -24363,20 +24363,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %24 = inttoptr i64 %23 to ptr
   %25 = load ptr, ptr %24, align 16, !tbaa !785
   %26 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %25)
-  br i1 %26, label %27, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread36
+  br i1 %26, label %27, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread37
 
 27:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.sroa.0.0.copyload.i, ptr %5, align 8
   %28 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %28, label %29, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread36
+  br i1 %28, label %29, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread37
 
 29:                                               ; preds = %27
   %30 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  br i1 %30, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread36
+  br i1 %30, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread37
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread36: ; preds = %20, %27, %29
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread37: ; preds = %20, %27, %29
   %31 = load i32, ptr %13, align 4, !tbaa !714
   %32 = add nsw i32 %31, -1
   store i32 %32, ptr %13, align 4, !tbaa !714
@@ -24465,8 +24465,8 @@ _ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread36, %.loopexit.sink.split
-  %.0 = phi i1 [ %.0.ph, %.loopexit.sink.split ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread36 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ]
+.loopexit:                                        ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread37, %.loopexit.sink.split
+  %.0 = phi i1 [ %.0.ph, %.loopexit.sink.split ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread37 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ]
   ret i1 %.0
 }
 
@@ -25357,8 +25357,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDe
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %72, ptr %4, align 8
   store ptr %71, ptr %58, align 8
-  %.not.i.i96 = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
-  br i1 %.not.i.i96, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %73
+  %.not.i.i101 = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
+  br i1 %.not.i.i101, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %73
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread: ; preds = %67
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -25372,20 +25372,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %77 = inttoptr i64 %76 to ptr
   %78 = load ptr, ptr %77, align 16, !tbaa !785
   %79 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %78)
-  br i1 %79, label %80, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread99
+  br i1 %79, label %80, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread104
 
 80:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.sroa.0.0.copyload.i.i, ptr %5, align 8
   %81 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %81, label %82, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread99
+  br i1 %81, label %82, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread104
 
 82:                                               ; preds = %80
   %83 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  br i1 %83, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread99
+  br i1 %83, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread104
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread99: ; preds = %73, %80, %82
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread104: ; preds = %73, %80, %82
   %84 = load i32, ptr %59, align 4, !tbaa !714
   %85 = add nsw i32 %84, -1
   store i32 %85, ptr %59, align 4, !tbaa !714
@@ -25393,9 +25393,9 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   br label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit: ; preds = %82
-  %.sroa.0.0.copyload.i.i97 = load ptr, ptr %4, align 8, !tbaa !561
+  %.sroa.0.0.copyload.i.i102 = load ptr, ptr %4, align 8, !tbaa !561
   %.sroa.2.0.copyload.i.i = load ptr, ptr %58, align 8, !tbaa !561
-  %86 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %.sroa.0.0.copyload.i.i97, ptr %.sroa.2.0.copyload.i.i)
+  %86 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %.sroa.0.0.copyload.i.i102, ptr %.sroa.2.0.copyload.i.i)
   %87 = load i32, ptr %59, align 4, !tbaa !714
   %88 = add nsw i32 %87, -1
   store i32 %88, ptr %59, align 4, !tbaa !714
@@ -25555,8 +25555,8 @@ _ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchCh
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread
 
-_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread: ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit57, %42, %120, %118, %112, %105, %93, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread99, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread.sink.split, %18, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit
-  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit ], [ false, %18 ], [ %.0.ph, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread.sink.split ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread99 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit ], [ false, %93 ], [ false, %105 ], [ false, %112 ], [ false, %118 ], [ false, %120 ], [ false, %42 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit57 ]
+_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread: ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit57, %42, %120, %118, %112, %105, %93, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread104, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread.sink.split, %18, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit
+  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit ], [ false, %18 ], [ %.0.ph, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread.sink.split ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread104 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit ], [ false, %93 ], [ false, %105 ], [ false, %112 ], [ false, %118 ], [ false, %120 ], [ false, %42 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit57 ]
   ret i1 %.0
 }
 
@@ -27230,20 +27230,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %23 = inttoptr i64 %22 to ptr
   %24 = load ptr, ptr %23, align 16, !tbaa !785
   %25 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %24)
-  br i1 %25, label %26, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread31
+  br i1 %25, label %26, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread32
 
 26:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.sroa.0.0.copyload.i, ptr %5, align 8
   %27 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %27, label %28, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread31
+  br i1 %27, label %28, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread32
 
 28:                                               ; preds = %26
   %29 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  br i1 %29, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread31
+  br i1 %29, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread32
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread31: ; preds = %18, %26, %28
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread32: ; preds = %18, %26, %28
   %30 = load i32, ptr %19, align 4, !tbaa !714
   %31 = add nsw i32 %30, -1
   store i32 %31, ptr %19, align 4, !tbaa !714
@@ -27332,8 +27332,8 @@ _ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %64
 
-64:                                               ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread31, %.sink.split, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
-  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ %.0.ph, %.sink.split ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread31 ]
+64:                                               ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread32, %.sink.split, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
+  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ %.0.ph, %.sink.split ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread32 ]
   ret i1 %.0
 }
 
@@ -27600,20 +27600,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %19 = inttoptr i64 %18 to ptr
   %20 = load ptr, ptr %19, align 16, !tbaa !785
   %21 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %20)
-  br i1 %21, label %22, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread29
+  br i1 %21, label %22, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread30
 
 22:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.sroa.0.0.copyload.i, ptr %5, align 8
   %23 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %23, label %24, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread29
+  br i1 %23, label %24, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread30
 
 24:                                               ; preds = %22
   %25 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  br i1 %25, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread29
+  br i1 %25, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread30
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread29: ; preds = %14, %22, %24
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread30: ; preds = %14, %22, %24
   %26 = load i32, ptr %15, align 4, !tbaa !714
   %27 = add nsw i32 %26, -1
   store i32 %27, ptr %15, align 4, !tbaa !714
@@ -27702,8 +27702,8 @@ _ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %60
 
-60:                                               ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread29, %.sink.split, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
-  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ %.0.ph, %.sink.split ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread29 ]
+60:                                               ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread30, %.sink.split, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
+  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ %.0.ph, %.sink.split ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread30 ]
   ret i1 %.0
 }
 
@@ -29358,8 +29358,8 @@ _ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit: ; preds = %213, %219
   store ptr %237, ptr %3, align 8
   %238 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %236, ptr %238, align 8
-  %.not.i.i227 = icmp eq i64 %.sroa.0.0.copyload.i.i.i.i, 0
-  br i1 %.not.i.i227, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %239
+  %.not.i.i250 = icmp eq i64 %.sroa.0.0.copyload.i.i.i.i, 0
+  br i1 %.not.i.i250, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %239
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread: ; preds = %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -29374,20 +29374,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %244 = inttoptr i64 %243 to ptr
   %245 = load ptr, ptr %244, align 16, !tbaa !785
   %246 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %245)
-  br i1 %246, label %247, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread229
+  br i1 %246, label %247, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread252
 
 247:                                              ; preds = %239
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.0.0.copyload.i.i.i.i, ptr %4, align 8
   %248 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %248, label %249, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread229
+  br i1 %248, label %249, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread252
 
 249:                                              ; preds = %247
   %250 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %250, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread229
+  br i1 %250, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread252
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread229: ; preds = %239, %247, %249
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread252: ; preds = %239, %247, %249
   %251 = load i32, ptr %240, align 8, !tbaa !714
   %252 = add nsw i32 %251, -1
   store i32 %252, ptr %240, align 8, !tbaa !714
@@ -29418,7 +29418,7 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit148.thread: ; preds = %59, %68, %259, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit148
   br label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE18TraverseLambdaExprEPNS_10LambdaExprEPN4llvm15SmallVectorImplINS8_14PointerIntPairIPNS_4StmtELj1EbNS8_21PointerLikeTypeTraitsISC_EENS8_18PointerIntPairInfoISC_Lj1ESE_EEEEEE.exit
 
-.critedge93.i:                                    ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit, %117, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread229, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit.thread173, %256, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %209, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit
+.critedge93.i:                                    ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit, %117, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread252, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit.thread173, %256, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %209, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE18TraverseLambdaExprEPNS_10LambdaExprEPN4llvm15SmallVectorImplINS8_14PointerIntPairIPNS_4StmtELj1EbNS8_21PointerLikeTypeTraitsISC_EENS8_18PointerIntPairInfoISC_Lj1ESE_EEEEEE.exit
 
@@ -30444,20 +30444,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %28 = inttoptr i64 %27 to ptr
   %29 = load ptr, ptr %28, align 16, !tbaa !785
   %30 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %29)
-  br i1 %30, label %31, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread74
+  br i1 %30, label %31, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread76
 
 31:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.0.0.copyload.i, ptr %7, align 8
   %32 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %32, label %33, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread74
+  br i1 %32, label %33, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread76
 
 33:                                               ; preds = %31
   %34 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  br i1 %34, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread74
+  br i1 %34, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread76
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread74: ; preds = %23, %31, %33
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread76: ; preds = %23, %31, %33
   %35 = load i32, ptr %24, align 4, !tbaa !714
   %36 = add nsw i32 %35, -1
   store i32 %36, ptr %24, align 4, !tbaa !714
@@ -30513,10 +30513,10 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %60, ptr %4, align 8
   store ptr %59, ptr %54, align 8
-  %.not.i.i66 = icmp eq i64 %.sroa.0.0.copyload.i43, 0
-  br i1 %.not.i.i66, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit72.thread, label %61
+  %.not.i.i68 = icmp eq i64 %.sroa.0.0.copyload.i43, 0
+  br i1 %.not.i.i68, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit74.thread, label %61
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit72.thread: ; preds = %58
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit74.thread: ; preds = %58
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
@@ -30528,37 +30528,37 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %65 = inttoptr i64 %64 to ptr
   %66 = load ptr, ptr %65, align 16, !tbaa !785
   %67 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %66)
-  br i1 %67, label %68, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit72.thread77
+  br i1 %67, label %68, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit74.thread79
 
 68:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.sroa.0.0.copyload.i43, ptr %5, align 8
   %69 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %69, label %70, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit72.thread77
+  br i1 %69, label %70, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit74.thread79
 
 70:                                               ; preds = %68
   %71 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  br i1 %71, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit72, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit72.thread77
+  br i1 %71, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit74, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit74.thread79
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit72.thread77: ; preds = %61, %68, %70
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit74.thread79: ; preds = %61, %68, %70
   %72 = load i32, ptr %55, align 4, !tbaa !714
   %73 = add nsw i32 %72, -1
   store i32 %73, ptr %55, align 4, !tbaa !714
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge42
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit72: ; preds = %70
-  %.sroa.0.0.copyload.i.i70 = load ptr, ptr %4, align 8, !tbaa !561
-  %.sroa.2.0.copyload.i.i71 = load ptr, ptr %54, align 8, !tbaa !561
-  %74 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %.sroa.0.0.copyload.i.i70, ptr %.sroa.2.0.copyload.i.i71)
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit74: ; preds = %70
+  %.sroa.0.0.copyload.i.i72 = load ptr, ptr %4, align 8, !tbaa !561
+  %.sroa.2.0.copyload.i.i73 = load ptr, ptr %54, align 8, !tbaa !561
+  %74 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %.sroa.0.0.copyload.i.i72, ptr %.sroa.2.0.copyload.i.i73)
   %75 = load i32, ptr %55, align 4, !tbaa !714
   %76 = add nsw i32 %75, -1
   store i32 %76, ptr %55, align 4, !tbaa !714
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %74, label %.critedge, label %.critedge42
 
-.critedge:                                        ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit72.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit72, %.lr.ph
+.critedge:                                        ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit74.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit74, %.lr.ph
   %77 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef %56, ptr noundef %2)
   br i1 %77, label %.critedge40, label %.critedge42
 
@@ -30568,8 +30568,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %.not59 = icmp eq ptr %78, %47
   br i1 %.not59, label %.critedge42, label %.lr.ph
 
-.critedge42:                                      ; preds = %.critedge, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit72, %.critedge40, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit72.thread77, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread74, %40, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %12
-  %.0 = phi i1 [ false, %12 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ true, %40 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread74 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit72.thread77 ], [ true, %.critedge40 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit72 ], [ false, %.critedge ]
+.critedge42:                                      ; preds = %.critedge, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit74, %.critedge40, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit74.thread79, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread76, %40, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %12
+  %.0 = phi i1 [ false, %12 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ true, %40 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread76 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit74.thread79 ], [ true, %.critedge40 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit74 ], [ false, %.critedge ]
   ret i1 %.0
 }
 
@@ -35359,20 +35359,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %37 = inttoptr i64 %36 to ptr
   %38 = load ptr, ptr %37, align 16, !tbaa !785
   %39 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %38)
-  br i1 %39, label %40, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread63
+  br i1 %39, label %40, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread65
 
 40:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.0.0.copyload.i42, ptr %7, align 8
   %41 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %41, label %42, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread63
+  br i1 %41, label %42, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread65
 
 42:                                               ; preds = %40
   %43 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  br i1 %43, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread63
+  br i1 %43, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread65
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread63: ; preds = %32, %40, %42
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread65: ; preds = %32, %40, %42
   %44 = load i32, ptr %33, align 4, !tbaa !714
   %45 = add nsw i32 %44, -1
   store i32 %45, ptr %33, align 4, !tbaa !714
@@ -35408,10 +35408,10 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   store ptr %56, ptr %4, align 8
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %55, ptr %57, align 8
-  %.not.i.i55 = icmp eq i64 %.sroa.0.0.copyload.i45, 0
-  br i1 %.not.i.i55, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit61.thread, label %58
+  %.not.i.i57 = icmp eq i64 %.sroa.0.0.copyload.i45, 0
+  br i1 %.not.i.i57, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit63.thread, label %58
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit61.thread: ; preds = %53
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit63.thread: ; preds = %53
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge39
 
@@ -35424,37 +35424,37 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %63 = inttoptr i64 %62 to ptr
   %64 = load ptr, ptr %63, align 16, !tbaa !785
   %65 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %64)
-  br i1 %65, label %66, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit61.thread66
+  br i1 %65, label %66, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit63.thread68
 
 66:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.sroa.0.0.copyload.i45, ptr %5, align 8
   %67 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %67, label %68, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit61.thread66
+  br i1 %67, label %68, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit63.thread68
 
 68:                                               ; preds = %66
   %69 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  br i1 %69, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit61, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit61.thread66
+  br i1 %69, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit63, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit63.thread68
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit61.thread66: ; preds = %58, %66, %68
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit63.thread68: ; preds = %58, %66, %68
   %70 = load i32, ptr %59, align 4, !tbaa !714
   %71 = add nsw i32 %70, -1
   store i32 %71, ptr %59, align 4, !tbaa !714
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %105
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit61: ; preds = %68
-  %.sroa.0.0.copyload.i.i59 = load ptr, ptr %4, align 8, !tbaa !561
-  %.sroa.2.0.copyload.i.i60 = load ptr, ptr %57, align 8, !tbaa !561
-  %72 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %.sroa.0.0.copyload.i.i59, ptr %.sroa.2.0.copyload.i.i60)
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit63: ; preds = %68
+  %.sroa.0.0.copyload.i.i61 = load ptr, ptr %4, align 8, !tbaa !561
+  %.sroa.2.0.copyload.i.i62 = load ptr, ptr %57, align 8, !tbaa !561
+  %72 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %.sroa.0.0.copyload.i.i61, ptr %.sroa.2.0.copyload.i.i62)
   %73 = load i32, ptr %59, align 4, !tbaa !714
   %74 = add nsw i32 %73, -1
   store i32 %74, ptr %59, align 4, !tbaa !714
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %72, label %.critedge39, label %105
 
-.critedge39:                                      ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit61.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit61, %.critedge
+.critedge39:                                      ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit63.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit63, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.1468") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %1) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -35530,8 +35530,8 @@ _ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %105
 
-105:                                              ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit61.thread66, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread63, %._crit_edge, %104, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread50, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit61, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
-  %.0 = phi i1 [ false, %104 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit61 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread50 ], [ true, %._crit_edge ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread63 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit61.thread66 ]
+105:                                              ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit63.thread68, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread65, %._crit_edge, %104, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread50, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit63, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
+  %.0 = phi i1 [ false, %104 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit63 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread50 ], [ true, %._crit_edge ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread65 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit63.thread68 ]
   ret i1 %.0
 }
 
@@ -51155,8 +51155,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12a
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.417.0..sroa_idx, i8 0, i64 16, i1 false)
   store ptr %.sroa.04.0.i, ptr %4, align 8
-  %.not23 = icmp eq ptr %.sroa.04.0.i, %.sroa.65.0.i
-  br i1 %.not23, label %.sink.split, label %.lr.ph
+  %.not24 = icmp eq ptr %.sroa.04.0.i, %.sroa.65.0.i
+  br i1 %.not24, label %.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
   %15 = phi i64 [ %36, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ], [ 0, %5 ]
@@ -54647,20 +54647,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %105 = inttoptr i64 %104 to ptr
   %106 = load ptr, ptr %105, align 16, !tbaa !785
   %107 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %106)
-  br i1 %107, label %108, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread294
+  br i1 %107, label %108, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread311
 
 108:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.0.0.copyload.i152, ptr %4, align 8
   %109 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %109, label %110, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread294
+  br i1 %109, label %110, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread311
 
 110:                                              ; preds = %108
   %111 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %111, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread294
+  br i1 %111, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread311
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread294: ; preds = %100, %108, %110
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread311: ; preds = %100, %108, %110
   %112 = load i32, ptr %101, align 4, !tbaa !714
   %113 = add nsw i32 %112, -1
   store i32 %113, ptr %101, align 4, !tbaa !714
@@ -54668,9 +54668,9 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   br label %.critedge125
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit: ; preds = %110
-  %.sroa.0.0.copyload.i.i291 = load ptr, ptr %3, align 8, !tbaa !561
+  %.sroa.0.0.copyload.i.i308 = load ptr, ptr %3, align 8, !tbaa !561
   %.sroa.2.0.copyload.i.i = load ptr, ptr %99, align 8, !tbaa !561
-  %114 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %.sroa.0.0.copyload.i.i291, ptr %.sroa.2.0.copyload.i.i)
+  %114 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %.sroa.0.0.copyload.i.i308, ptr %.sroa.2.0.copyload.i.i)
   %115 = load i32, ptr %101, align 4, !tbaa !714
   %116 = add nsw i32 %115, -1
   store i32 %116, ptr %101, align 4, !tbaa !714
@@ -54817,8 +54817,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseCo
 
 184:                                              ; preds = %.thread227
   %185 = and i32 %179, 2048
-  %.not.i.i292 = icmp eq i32 %185, 0
-  br i1 %.not.i.i292, label %186, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i
+  %.not.i.i309 = icmp eq i32 %185, 0
+  br i1 %.not.i.i309, label %186, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i
 
 186:                                              ; preds = %184
   %187 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -54848,12 +54848,12 @@ _ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit: ; preds = %196
   br i1 %198, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit._ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread_crit_edge, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread.thread
 
 _ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit._ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread_crit_edge: ; preds = %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit
-  %.pre308 = load i32, ptr %178, align 2
-  %.pre309 = and i32 %.pre308, 512
+  %.pre325 = load i32, ptr %178, align 2
+  %.pre326 = and i32 %.pre325, 512
   br label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread
 
 _ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread: ; preds = %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit._ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread_crit_edge, %.thread227
-  %.pre-phi = phi i32 [ %.pre309, %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit._ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread_crit_edge ], [ %182, %.thread227 ]
+  %.pre-phi = phi i32 [ %.pre326, %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit._ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread_crit_edge ], [ %182, %.thread227 ]
   %.not241 = icmp eq i32 %.pre-phi, 0
   br i1 %.not241, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread.thread, label %199
 
@@ -54993,8 +54993,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDe
   %.not244 = icmp eq i64 %268, 0
   br i1 %.not244, label %.critedge125, label %249
 
-.critedge125:                                     ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor27TraverseTemplateArgumentLocENS_19TemplateArgumentLocE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor27TraverseTemplateArgumentLocENS_19TemplateArgumentLocE.exit184, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit, %137, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseConstructorInitializerEPNS_18CXXCtorInitializerE.exit, %260, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit175, %.critedge136, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread294, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor27TraverseTemplateArgumentLocENS_19TemplateArgumentLocE.exit184.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor27TraverseTemplateArgumentLocENS_19TemplateArgumentLocE.exit.thread, %244, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread, %150, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread204, %.thread236, %37, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
-  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit ], [ false, %37 ], [ false, %.thread236 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread204 ], [ false, %150 ], [ true, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread ], [ true, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ true, %244 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor27TraverseTemplateArgumentLocENS_19TemplateArgumentLocE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor27TraverseTemplateArgumentLocENS_19TemplateArgumentLocE.exit184.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread294 ], [ true, %.critedge136 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit175 ], [ false, %260 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseConstructorInitializerEPNS_18CXXCtorInitializerE.exit ], [ false, %137 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor27TraverseTemplateArgumentLocENS_19TemplateArgumentLocE.exit184 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor27TraverseTemplateArgumentLocENS_19TemplateArgumentLocE.exit ]
+.critedge125:                                     ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor27TraverseTemplateArgumentLocENS_19TemplateArgumentLocE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor27TraverseTemplateArgumentLocENS_19TemplateArgumentLocE.exit184, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit, %137, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseConstructorInitializerEPNS_18CXXCtorInitializerE.exit, %260, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit175, %.critedge136, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread311, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor27TraverseTemplateArgumentLocENS_19TemplateArgumentLocE.exit184.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor27TraverseTemplateArgumentLocENS_19TemplateArgumentLocE.exit.thread, %244, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread, %150, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread204, %.thread236, %37, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
+  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit ], [ false, %37 ], [ false, %.thread236 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread204 ], [ false, %150 ], [ true, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread ], [ true, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ true, %244 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor27TraverseTemplateArgumentLocENS_19TemplateArgumentLocE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor27TraverseTemplateArgumentLocENS_19TemplateArgumentLocE.exit184.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread311 ], [ true, %.critedge136 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit175 ], [ false, %260 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseConstructorInitializerEPNS_18CXXCtorInitializerE.exit ], [ false, %137 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor27TraverseTemplateArgumentLocENS_19TemplateArgumentLocE.exit184 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor27TraverseTemplateArgumentLocENS_19TemplateArgumentLocE.exit ]
   ret i1 %.0
 }
 
@@ -55120,8 +55120,8 @@ _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit15: ; preds = %_ZNK5clang14D
   store ptr %43, ptr %3, align 8
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %42, ptr %44, align 8
-  %.not.i.i57 = icmp eq i64 %.sroa.0.0.copyload.i16, 0
-  br i1 %.not.i.i57, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %45
+  %.not.i.i58 = icmp eq i64 %.sroa.0.0.copyload.i16, 0
+  br i1 %.not.i.i58, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %45
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread: ; preds = %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -55136,20 +55136,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %50 = inttoptr i64 %49 to ptr
   %51 = load ptr, ptr %50, align 16, !tbaa !785
   %52 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %51)
-  br i1 %52, label %53, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread59
+  br i1 %52, label %53, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread60
 
 53:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.0.0.copyload.i16, ptr %4, align 8
   %54 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %54, label %55, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread59
+  br i1 %54, label %55, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread60
 
 55:                                               ; preds = %53
   %56 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %56, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread59
+  br i1 %56, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread60
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread59: ; preds = %45, %53, %55
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread60: ; preds = %45, %53, %55
   %57 = load i32, ptr %46, align 4, !tbaa !714
   %58 = add nsw i32 %57, -1
   store i32 %58, ptr %46, align 4, !tbaa !714
@@ -55211,8 +55211,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTy
 79:                                               ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
   br label %80
 
-80:                                               ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread59, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit.thread41, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread37, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit, %79
-  %.0 = phi i1 [ true, %79 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread37 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit.thread41 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread59 ]
+80:                                               ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread60, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit.thread41, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread37, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit, %79
+  %.0 = phi i1 [ true, %79 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread37 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit.thread41 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread60 ]
   ret i1 %.0
 }
 
@@ -55344,8 +55344,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNe
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %49, ptr %3, align 8
   store ptr %48, ptr %42, align 8
-  %.not.i.i46 = icmp eq i64 %.sroa.0.0.copyload.i17, 0
-  br i1 %.not.i.i46, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %50
+  %.not.i.i49 = icmp eq i64 %.sroa.0.0.copyload.i17, 0
+  br i1 %.not.i.i49, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %50
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread: ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -55359,20 +55359,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %54 = inttoptr i64 %53 to ptr
   %55 = load ptr, ptr %54, align 16, !tbaa !785
   %56 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %55)
-  br i1 %56, label %57, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread48
+  br i1 %56, label %57, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread51
 
 57:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.0.0.copyload.i17, ptr %4, align 8
   %58 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %58, label %59, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread48
+  br i1 %58, label %59, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread51
 
 59:                                               ; preds = %57
   %60 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %60, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread48
+  br i1 %60, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread51
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread48: ; preds = %50, %57, %59
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread51: ; preds = %50, %57, %59
   %61 = load i32, ptr %43, align 4, !tbaa !714
   %62 = add nsw i32 %61, -1
   store i32 %62, ptr %43, align 4, !tbaa !714
@@ -55389,8 +55389,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %63, label %44, label %.thread
 
-.thread:                                          ; preds = %44, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread48, %38, %34, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread27, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
-  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread27 ], [ true, %34 ], [ true, %38 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread48 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ true, %44 ]
+.thread:                                          ; preds = %44, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread51, %38, %34, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread27, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
+  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread27 ], [ true, %34 ], [ true, %38 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread51 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ true, %44 ]
   ret i1 %.0
 }
 
@@ -56145,20 +56145,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %38 = inttoptr i64 %37 to ptr
   %39 = load ptr, ptr %38, align 16, !tbaa !785
   %40 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %39)
-  br i1 %40, label %41, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread11
+  br i1 %40, label %41, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread12
 
 41:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %36, ptr %5, align 8
   %42 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %42, label %43, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread11
+  br i1 %42, label %43, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread12
 
 43:                                               ; preds = %41
   %44 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  br i1 %44, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread11
+  br i1 %44, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread12
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread11: ; preds = %32, %41, %43
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread12: ; preds = %32, %41, %43
   %45 = load i32, ptr %33, align 4, !tbaa !714
   %46 = add nsw i32 %45, -1
   store i32 %46, ptr %33, align 4, !tbaa !714
@@ -56178,8 +56178,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
 50:                                               ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %25
   br label %.thread
 
-.thread:                                          ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread11, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %25, %25, %25, %25, %25, %3, %50
-  %.0 = phi i1 [ true, %50 ], [ true, %3 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread11 ]
+.thread:                                          ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread12, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, %25, %25, %25, %25, %25, %3, %50
+  %.0 = phi i1 [ true, %50 ], [ true, %3 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread12 ]
   ret i1 %.0
 }
 
@@ -59223,19 +59223,19 @@ declare i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_7TypeLocE(ptr noundef nonn
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 captures(none) dereferenceable(1) %0, ptr %1, ptr %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.clang::TemplateArgument", align 8
-  %.not.i531 = icmp eq ptr %1, null
-  br i1 %.not.i531, label %.loopexit, label %.lr.ph
+  %.not.i532 = icmp eq ptr %1, null
+  br i1 %.not.i532, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
-  %.tr436533 = phi ptr [ %25, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread ], [ %2, %3 ]
-  %.tr435532 = phi ptr [ %24, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread ], [ %1, %3 ]
-  %5 = ptrtoint ptr %.tr435532 to i64
+  %.tr437534 = phi ptr [ %25, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread ], [ %2, %3 ]
+  %.tr436533 = phi ptr [ %24, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread ], [ %1, %3 ]
+  %5 = ptrtoint ptr %.tr436533 to i64
   %6 = and i64 %5, 15
   %.not.i118 = icmp eq i64 %6, 0
   br i1 %.not.i118, label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %.lr.ph
-  %7 = load ptr, ptr %.tr435532, align 8, !tbaa !785
+  %7 = load ptr, ptr %.tr436533, align 8, !tbaa !785
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i8, ptr %8, align 16
   switch i8 %9, label %.loopexit [
@@ -59296,8 +59296,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread: ; preds = %.lr.ph, %_ZNK5clan
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, -16
   %15 = tail call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %14) #24
-  %16 = ptrtoint ptr %.tr436533 to i64
-  %17 = icmp ne ptr %.tr436533, null
+  %16 = ptrtoint ptr %.tr437534 to i64
+  %17 = icmp ne ptr %.tr437534, null
   %18 = zext i1 %17 to i64
   %19 = sub i64 %16, %18
   %20 = zext i32 %15 to i64
@@ -59310,231 +59310,231 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread: ; preds = %.lr.ph, %_ZNK5clan
   br i1 %.not.i, label %.loopexit, label %.lr.ph
 
 26:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %27 = getelementptr i8, ptr %.tr435532, i64 32
+  %27 = getelementptr i8, ptr %.tr436533, i64 32
   %.val = load i64, ptr %27, align 16, !tbaa !50
-  %28 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE23TraverseAdjustedTypeLocENS_15AdjustedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val, ptr %.tr436533)
+  %28 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE23TraverseAdjustedTypeLocENS_15AdjustedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val, ptr %.tr437534)
   br label %.loopexit
 
 29:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %30 = getelementptr i8, ptr %.tr435532, i64 32
-  %.val412 = load i64, ptr %30, align 16, !tbaa !50
-  %31 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE22TraverseDecayedTypeLocENS_14DecayedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val412, ptr %.tr436533)
+  %30 = getelementptr i8, ptr %.tr436533, i64 32
+  %.val413 = load i64, ptr %30, align 16, !tbaa !50
+  %31 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE22TraverseDecayedTypeLocENS_14DecayedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val413, ptr %.tr437534)
   br label %.loopexit
 
 32:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %33 = getelementptr i8, ptr %.tr435532, i64 32
-  %.val413 = load i64, ptr %33, align 16, !tbaa !50
-  %34 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE28TraverseConstantArrayTypeLocENS_20ConstantArrayTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val413, ptr %.tr436533)
+  %33 = getelementptr i8, ptr %.tr436533, i64 32
+  %.val414 = load i64, ptr %33, align 16, !tbaa !50
+  %34 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE28TraverseConstantArrayTypeLocENS_20ConstantArrayTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val414, ptr %.tr437534)
   br label %.loopexit
 
 35:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %36 = getelementptr i8, ptr %.tr435532, i64 32
-  %.val423 = load i64, ptr %36, align 16, !tbaa !50
-  %37 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE29TraverseArrayParameterTypeLocENS_21ArrayParameterTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val423, ptr %.tr436533)
+  %36 = getelementptr i8, ptr %.tr436533, i64 32
+  %.val424 = load i64, ptr %36, align 16, !tbaa !50
+  %37 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE29TraverseArrayParameterTypeLocENS_21ArrayParameterTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val424, ptr %.tr437534)
   br label %.loopexit
 
 38:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %39 = getelementptr i8, ptr %.tr435532, i64 32
-  %.val414 = load i64, ptr %39, align 16, !tbaa !50
-  %40 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE34TraverseDependentSizedArrayTypeLocENS_26DependentSizedArrayTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val414, ptr %.tr436533)
+  %39 = getelementptr i8, ptr %.tr436533, i64 32
+  %.val415 = load i64, ptr %39, align 16, !tbaa !50
+  %40 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE34TraverseDependentSizedArrayTypeLocENS_26DependentSizedArrayTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val415, ptr %.tr437534)
   br label %.loopexit
 
 41:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %42 = getelementptr i8, ptr %.tr435532, i64 32
-  %.val415 = load i64, ptr %42, align 16, !tbaa !50
-  %43 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE30TraverseIncompleteArrayTypeLocENS_22IncompleteArrayTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val415, ptr %.tr436533)
+  %42 = getelementptr i8, ptr %.tr436533, i64 32
+  %.val416 = load i64, ptr %42, align 16, !tbaa !50
+  %43 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE30TraverseIncompleteArrayTypeLocENS_22IncompleteArrayTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val416, ptr %.tr437534)
   br label %.loopexit
 
 44:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %45 = getelementptr i8, ptr %.tr435532, i64 32
-  %.val416 = load i64, ptr %45, align 16, !tbaa !50
-  %46 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE28TraverseVariableArrayTypeLocENS_20VariableArrayTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val416, ptr %.tr436533)
+  %45 = getelementptr i8, ptr %.tr436533, i64 32
+  %.val417 = load i64, ptr %45, align 16, !tbaa !50
+  %46 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE28TraverseVariableArrayTypeLocENS_20VariableArrayTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val417, ptr %.tr437534)
   br label %.loopexit
 
 47:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %48 = getelementptr i8, ptr %.tr435532, i64 32
-  %.val417 = load i64, ptr %48, align 16, !tbaa !50
-  %49 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE21TraverseAtomicTypeLocENS_13AtomicTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val417, ptr %.tr436533)
+  %48 = getelementptr i8, ptr %.tr436533, i64 32
+  %.val418 = load i64, ptr %48, align 16, !tbaa !50
+  %49 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE21TraverseAtomicTypeLocENS_13AtomicTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val418, ptr %.tr437534)
   br label %.loopexit
 
 50:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %51 = getelementptr i8, ptr %.tr435532, i64 40
-  %.val418 = load i64, ptr %51, align 8, !tbaa !50
-  %52 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE25TraverseAttributedTypeLocENS_17AttributedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val418, ptr %.tr436533)
+  %51 = getelementptr i8, ptr %.tr436533, i64 40
+  %.val419 = load i64, ptr %51, align 8, !tbaa !50
+  %52 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE25TraverseAttributedTypeLocENS_17AttributedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val419, ptr %.tr437534)
   br label %.loopexit
 
 53:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %54 = getelementptr i8, ptr %.tr435532, i64 32
-  %.val419 = load i64, ptr %54, align 16, !tbaa !50
-  %55 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE31TraverseBTFTagAttributedTypeLocENS_23BTFTagAttributedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val419, ptr %.tr436533)
+  %54 = getelementptr i8, ptr %.tr436533, i64 32
+  %.val420 = load i64, ptr %54, align 16, !tbaa !50
+  %55 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE31TraverseBTFTagAttributedTypeLocENS_23BTFTagAttributedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val420, ptr %.tr437534)
   br label %.loopexit
 
 56:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %57 = getelementptr i8, ptr %.tr435532, i64 32
-  %.val420 = load i64, ptr %57, align 16, !tbaa !50
-  %58 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE27TraverseBlockPointerTypeLocENS_19BlockPointerTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val420, ptr %.tr436533)
+  %57 = getelementptr i8, ptr %.tr436533, i64 32
+  %.val421 = load i64, ptr %57, align 16, !tbaa !50
+  %58 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE27TraverseBlockPointerTypeLocENS_19BlockPointerTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val421, ptr %.tr437534)
   br label %.loopexit
 
 59:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %60 = getelementptr i8, ptr %.tr435532, i64 32
-  %.val421 = load i64, ptr %60, align 16, !tbaa !50
-  %61 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE30TraverseCountAttributedTypeLocENS_22CountAttributedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val421, ptr %.tr436533)
+  %60 = getelementptr i8, ptr %.tr436533, i64 32
+  %.val422 = load i64, ptr %60, align 16, !tbaa !50
+  %61 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE30TraverseCountAttributedTypeLocENS_22CountAttributedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val422, ptr %.tr437534)
   br label %.loopexit
 
 62:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %63 = getelementptr i8, ptr %.tr435532, i64 32
-  %.val422 = load i64, ptr %63, align 16, !tbaa !50
-  %64 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE22TraverseComplexTypeLocENS_14ComplexTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val422)
+  %63 = getelementptr i8, ptr %.tr436533, i64 32
+  %.val423 = load i64, ptr %63, align 16, !tbaa !50
+  %64 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE22TraverseComplexTypeLocENS_14ComplexTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val423)
   br label %.loopexit
 
 65:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %66 = getelementptr inbounds nuw i8, ptr %.tr435532, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %.tr436533, i64 24
   %67 = load ptr, ptr %66, align 8, !tbaa !1775
   %68 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef %67, ptr noundef null)
   br label %.loopexit
 
 69:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %70 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE19TraverseAutoTypeLocENS_11AutoTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532, ptr %.tr436533)
+  %70 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE19TraverseAutoTypeLocENS_11AutoTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr436533, ptr %.tr437534)
   br label %.loopexit
 
 71:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %72 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE44TraverseDeducedTemplateSpecializationTypeLocENS_36DeducedTemplateSpecializationTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532)
+  %72 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE44TraverseDeducedTemplateSpecializationTypeLocENS_36DeducedTemplateSpecializationTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr436533)
   br label %.loopexit
 
 73:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %74 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE36TraverseDependentAddressSpaceTypeLocENS_28DependentAddressSpaceTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532)
+  %74 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE36TraverseDependentAddressSpaceTypeLocENS_28DependentAddressSpaceTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr436533)
   br label %.loopexit
 
 75:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %76 = tail call noundef ptr @_ZNK5clang19DependentBitIntType14getNumBitsExprEv(ptr noundef nonnull align 16 dereferenceable(48) %.tr435532) #24
+  %76 = tail call noundef ptr @_ZNK5clang19DependentBitIntType14getNumBitsExprEv(ptr noundef nonnull align 16 dereferenceable(48) %.tr436533) #24
   %77 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef %76, ptr noundef null)
   br label %.loopexit
 
 78:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %79 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE28TraverseDependentNameTypeLocENS_20DependentNameTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532, ptr %.tr436533)
+  %79 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE28TraverseDependentNameTypeLocENS_20DependentNameTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr436533, ptr %.tr437534)
   br label %.loopexit
 
 80:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %81 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE38TraverseDependentSizedExtVectorTypeLocENS_30DependentSizedExtVectorTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532)
+  %81 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE38TraverseDependentSizedExtVectorTypeLocENS_30DependentSizedExtVectorTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr436533)
   br label %.loopexit
 
 82:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %83 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE46TraverseDependentTemplateSpecializationTypeLocENS_38DependentTemplateSpecializationTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532, ptr %.tr436533)
+  %83 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE46TraverseDependentTemplateSpecializationTypeLocENS_38DependentTemplateSpecializationTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr436533, ptr %.tr437534)
   br label %.loopexit
 
 84:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %85 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE30TraverseDependentVectorTypeLocENS_22DependentVectorTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532)
+  %85 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE30TraverseDependentVectorTypeLocENS_22DependentVectorTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr436533)
   br label %.loopexit
 
 86:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %87 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE25TraverseElaboratedTypeLocENS_17ElaboratedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532, ptr %.tr436533)
+  %87 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE25TraverseElaboratedTypeLocENS_17ElaboratedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr436533, ptr %.tr437534)
   br label %.loopexit
 
 88:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %89 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE30TraverseFunctionNoProtoTypeLocENS_22FunctionNoProtoTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532, ptr %.tr436533)
+  %89 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE30TraverseFunctionNoProtoTypeLocENS_22FunctionNoProtoTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr436533, ptr %.tr437534)
   br label %.loopexit
 
 90:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %91 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE28TraverseFunctionProtoTypeLocENS_20FunctionProtoTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532, ptr %.tr436533)
+  %91 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE28TraverseFunctionProtoTypeLocENS_20FunctionProtoTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr436533, ptr %.tr437534)
   br label %.loopexit
 
 92:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %93 = getelementptr i8, ptr %.tr435532, i64 32
-  %.val434 = load i64, ptr %93, align 16, !tbaa !50
-  %94 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE37TraverseHLSLAttributedResourceTypeLocENS_29HLSLAttributedResourceTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val434, ptr %.tr436533)
+  %93 = getelementptr i8, ptr %.tr436533, i64 32
+  %.val435 = load i64, ptr %93, align 16, !tbaa !50
+  %94 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE37TraverseHLSLAttributedResourceTypeLocENS_29HLSLAttributedResourceTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val435, ptr %.tr437534)
   br label %.loopexit
 
 95:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %96 = getelementptr i8, ptr %.tr435532, i64 24
-  %.val433 = load i64, ptr %96, align 8, !tbaa !50
-  %97 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE29TraverseMacroQualifiedTypeLocENS_21MacroQualifiedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val433, ptr %.tr436533)
+  %96 = getelementptr i8, ptr %.tr436533, i64 24
+  %.val434 = load i64, ptr %96, align 8, !tbaa !50
+  %97 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE29TraverseMacroQualifiedTypeLocENS_21MacroQualifiedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val434, ptr %.tr437534)
   br label %.loopexit
 
 98:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %99 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE29TraverseConstantMatrixTypeLocENS_21ConstantMatrixTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532, ptr %.tr436533)
+  %99 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE29TraverseConstantMatrixTypeLocENS_21ConstantMatrixTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr436533, ptr %.tr437534)
   br label %.loopexit
 
 100:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %101 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE35TraverseDependentSizedMatrixTypeLocENS_27DependentSizedMatrixTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532, ptr %.tr436533)
+  %101 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE35TraverseDependentSizedMatrixTypeLocENS_27DependentSizedMatrixTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr436533, ptr %.tr437534)
   br label %.loopexit
 
 102:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %103 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE28TraverseMemberPointerTypeLocENS_20MemberPointerTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532, ptr %.tr436533)
+  %103 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE28TraverseMemberPointerTypeLocENS_20MemberPointerTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr436533, ptr %.tr437534)
   br label %.loopexit
 
 104:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %105 = getelementptr i8, ptr %.tr435532, i64 32
-  %.val432 = load i64, ptr %105, align 16, !tbaa !50
-  %106 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE32TraverseObjCObjectPointerTypeLocENS_24ObjCObjectPointerTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val432, ptr %.tr436533)
+  %105 = getelementptr i8, ptr %.tr436533, i64 32
+  %.val433 = load i64, ptr %105, align 16, !tbaa !50
+  %106 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE32TraverseObjCObjectPointerTypeLocENS_24ObjCObjectPointerTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val433, ptr %.tr437534)
   br label %.loopexit
 
 107:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %108 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE25TraverseObjCObjectTypeLocENS_17ObjCObjectTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532, ptr %.tr436533)
+  %108 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE25TraverseObjCObjectTypeLocENS_17ObjCObjectTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr436533, ptr %.tr437534)
   br label %.loopexit
 
 109:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %110 = getelementptr i8, ptr %.tr435532, i64 32
-  %.val431 = load i64, ptr %110, align 16, !tbaa !50
-  %111 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE28TraversePackExpansionTypeLocENS_20PackExpansionTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val431, ptr %.tr436533)
+  %110 = getelementptr i8, ptr %.tr436533, i64 32
+  %.val432 = load i64, ptr %110, align 16, !tbaa !50
+  %111 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE28TraversePackExpansionTypeLocENS_20PackExpansionTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val432, ptr %.tr437534)
   br label %.loopexit
 
 112:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %113 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE27TraversePackIndexingTypeLocENS_19PackIndexingTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532)
+  %113 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE27TraversePackIndexingTypeLocENS_19PackIndexingTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr436533)
   br label %.loopexit
 
 114:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %115 = getelementptr i8, ptr %.tr435532, i64 32
-  %.val430 = load i64, ptr %115, align 16, !tbaa !50
-  %116 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE20TraverseParenTypeLocENS_12ParenTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val430, ptr %.tr436533)
+  %115 = getelementptr i8, ptr %.tr436533, i64 32
+  %.val431 = load i64, ptr %115, align 16, !tbaa !50
+  %116 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE20TraverseParenTypeLocENS_12ParenTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val431, ptr %.tr437534)
   br label %.loopexit
 
 117:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %118 = getelementptr i8, ptr %.tr435532, i64 32
-  %.val429 = load i64, ptr %118, align 16, !tbaa !50
-  %119 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE19TraversePipeTypeLocENS_11PipeTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val429, ptr %.tr436533)
+  %118 = getelementptr i8, ptr %.tr436533, i64 32
+  %.val430 = load i64, ptr %118, align 16, !tbaa !50
+  %119 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE19TraversePipeTypeLocENS_11PipeTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val430, ptr %.tr437534)
   br label %.loopexit
 
 120:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %121 = getelementptr i8, ptr %.tr435532, i64 32
-  %.val428 = load i64, ptr %121, align 16, !tbaa !50
-  %122 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE22TraversePointerTypeLocENS_14PointerTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val428, ptr %.tr436533)
+  %121 = getelementptr i8, ptr %.tr436533, i64 32
+  %.val429 = load i64, ptr %121, align 16, !tbaa !50
+  %122 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE22TraversePointerTypeLocENS_14PointerTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val429, ptr %.tr437534)
   br label %.loopexit
 
 123:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %124 = getelementptr i8, ptr %.tr435532, i64 32
-  %.val427 = load i64, ptr %124, align 16, !tbaa !50
-  %125 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE30TraverseLValueReferenceTypeLocENS_22LValueReferenceTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val427, ptr %.tr436533)
+  %124 = getelementptr i8, ptr %.tr436533, i64 32
+  %.val428 = load i64, ptr %124, align 16, !tbaa !50
+  %125 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE30TraverseLValueReferenceTypeLocENS_22LValueReferenceTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val428, ptr %.tr437534)
   br label %.loopexit
 
 126:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %127 = getelementptr i8, ptr %.tr435532, i64 32
-  %.val426 = load i64, ptr %127, align 16, !tbaa !50
-  %128 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE30TraverseRValueReferenceTypeLocENS_22RValueReferenceTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val426, ptr %.tr436533)
+  %127 = getelementptr i8, ptr %.tr436533, i64 32
+  %.val427 = load i64, ptr %127, align 16, !tbaa !50
+  %128 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE30TraverseRValueReferenceTypeLocENS_22RValueReferenceTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val427, ptr %.tr437534)
   br label %.loopexit
 
 129:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @_ZNK5clang29SubstTemplateTypeParmPackType15getArgumentPackEv(ptr dead_on_unwind nonnull writable sret(%"class.clang::TemplateArgument") align 8 %4, ptr noundef nonnull align 16 dereferenceable(48) %.tr435532) #24
+  call void @_ZNK5clang29SubstTemplateTypeParmPackType15getArgumentPackEv(ptr dead_on_unwind nonnull writable sret(%"class.clang::TemplateArgument") align 8 %4, ptr noundef nonnull align 16 dereferenceable(48) %.tr436533) #24
   %130 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE24TraverseTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 131:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %132 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE36TraverseSubstTemplateTypeParmTypeLocENS_28SubstTemplateTypeParmTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532)
+  %132 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE36TraverseSubstTemplateTypeParmTypeLocENS_28SubstTemplateTypeParmTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr436533)
   br label %.loopexit
 
 133:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %134 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE37TraverseTemplateSpecializationTypeLocENS_29TemplateSpecializationTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532, ptr %.tr436533)
+  %134 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE37TraverseTemplateSpecializationTypeLocENS_29TemplateSpecializationTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr436533, ptr %.tr437534)
   br label %.loopexit
 
 135:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %136 = getelementptr inbounds nuw i8, ptr %.tr435532, i64 24
+  %136 = getelementptr inbounds nuw i8, ptr %.tr436533, i64 24
   %137 = load ptr, ptr %136, align 8, !tbaa !1777
   %138 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef %137, ptr noundef null)
   br label %.loopexit
 
 139:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %140 = getelementptr inbounds nuw i8, ptr %.tr436533, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %.tr437534, i64 16
   %141 = load ptr, ptr %140, align 8, !tbaa !1828
   %.sroa.0.0.copyload.i.i = load i64, ptr %141, align 8, !tbaa !50
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
@@ -59543,24 +59543,24 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread: ; preds = %.lr.ph, %_ZNK5clan
   br label %.loopexit
 
 145:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %146 = getelementptr inbounds nuw i8, ptr %.tr436533, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %.tr437534, i64 16
   %147 = load ptr, ptr %146, align 8, !tbaa !1831
-  %.sroa.0.0.copyload.i.i411 = load i64, ptr %147, align 8, !tbaa !50
+  %.sroa.0.0.copyload.i.i412 = load i64, ptr %147, align 8, !tbaa !50
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  %149 = inttoptr i64 %.sroa.0.0.copyload.i.i411 to ptr
+  %149 = inttoptr i64 %.sroa.0.0.copyload.i.i412 to ptr
   %150 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %149, ptr nonnull %148)
   br label %.loopexit
 
 151:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %152 = getelementptr i8, ptr %.tr435532, i64 32
-  %.val425 = load i64, ptr %152, align 16, !tbaa !50
-  %153 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE21TraverseVectorTypeLocENS_13VectorTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val425)
+  %152 = getelementptr i8, ptr %.tr436533, i64 32
+  %.val426 = load i64, ptr %152, align 16, !tbaa !50
+  %153 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE21TraverseVectorTypeLocENS_13VectorTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val426)
   br label %.loopexit
 
 154:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %155 = getelementptr i8, ptr %.tr435532, i64 32
-  %.val424 = load i64, ptr %155, align 16, !tbaa !50
-  %156 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE24TraverseExtVectorTypeLocENS_16ExtVectorTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val424)
+  %155 = getelementptr i8, ptr %.tr436533, i64 32
+  %.val425 = load i64, ptr %155, align 16, !tbaa !50
+  %156 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE24TraverseExtVectorTypeLocENS_16ExtVectorTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val425)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %3, %154, %151, %145, %139, %135, %133, %131, %129, %126, %123, %120, %117, %114, %112, %109, %107, %104, %102, %100, %98, %95, %92, %90, %88, %86, %84, %82, %80, %78, %75, %73, %71, %69, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35, %32, %29, %26
@@ -61164,8 +61164,8 @@ _ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit: ; preds = %_ZNK5clang15Functio
   store ptr %34, ptr %4, align 8
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %33, ptr %35, align 8
-  %.not.i.i106 = icmp eq i64 %.sroa.0.0.copyload.i.i.i.i, 0
-  br i1 %.not.i.i106, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %36
+  %.not.i.i111 = icmp eq i64 %.sroa.0.0.copyload.i.i.i.i, 0
+  br i1 %.not.i.i111, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %36
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread: ; preds = %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -61180,20 +61180,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %41 = inttoptr i64 %40 to ptr
   %42 = load ptr, ptr %41, align 16, !tbaa !785
   %43 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %42)
-  br i1 %43, label %44, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread108
+  br i1 %43, label %44, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread113
 
 44:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.sroa.0.0.copyload.i.i.i.i, ptr %5, align 8
   %45 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %45, label %46, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread108
+  br i1 %45, label %46, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread113
 
 46:                                               ; preds = %44
   %47 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  br i1 %47, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread108
+  br i1 %47, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread113
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread108: ; preds = %36, %44, %46
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread113: ; preds = %36, %44, %46
   %48 = load i32, ptr %37, align 4, !tbaa !714
   %49 = add nsw i32 %48, -1
   store i32 %49, ptr %37, align 4, !tbaa !714
@@ -61213,14 +61213,14 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
 53:                                               ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
   %54 = load i8, ptr %9, align 16
   %55 = icmp eq i8 %54, 25
-  %.pre113 = load i64, ptr %9, align 16
-  %56 = and i64 %.pre113, 18014123631575040
+  %.pre118 = load i64, ptr %9, align 16
+  %56 = and i64 %.pre118, 18014123631575040
   %.not95 = icmp eq i64 %56, 0
   %or.cond = select i1 %55, i1 true, i1 %.not95
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %53
-  %57 = lshr i64 %.pre113, 38
+  %57 = lshr i64 %.pre118, 38
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -61315,11 +61315,11 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTy
   br i1 %.not, label %._crit_edge.loopexit, label %63, !llvm.loop !1844
 
 ._crit_edge.loopexit:                             ; preds = %101
-  %.pre112 = load i64, ptr %9, align 16
+  %.pre117 = load i64, ptr %9, align 16
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %53
-  %102 = phi i64 [ %.pre112, %._crit_edge.loopexit ], [ %.pre113, %53 ]
+  %102 = phi i64 [ %.pre117, %._crit_edge.loopexit ], [ %.pre118, %53 ]
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %104 = lshr i64 %102, 38
   %105 = and i64 %104, 65535
@@ -61480,8 +61480,8 @@ _ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit: ; preds = %_ZN4llvm25trai
 .thread88:                                        ; preds = %73, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseDeclEPNS_4DeclE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit52, %186, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit.thread76, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit52.thread80
   br label %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit.thread
 
-_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit.thread: ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread108, %._crit_edge100, %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit, %186, %.thread88, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
-  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %.thread88 ], [ true, %186 ], [ true, %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit ], [ true, %._crit_edge100 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread108 ]
+_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit.thread: ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread113, %._crit_edge100, %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit, %186, %.thread88, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
+  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %.thread88 ], [ true, %186 ], [ true, %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit ], [ true, %._crit_edge100 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread113 ]
   ret i1 %.0
 }
 
@@ -61761,8 +61761,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12a
   store ptr %13, ptr %6, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %12, ptr %14, align 8
-  %.not.i.i24 = icmp eq i64 %.sroa.0.0.copyload.i, 0
-  br i1 %.not.i.i24, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %15
+  %.not.i.i25 = icmp eq i64 %.sroa.0.0.copyload.i, 0
+  br i1 %.not.i.i25, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread, label %15
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread: ; preds = %11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -61777,20 +61777,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %20 = inttoptr i64 %19 to ptr
   %21 = load ptr, ptr %20, align 16, !tbaa !785
   %22 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %21)
-  br i1 %22, label %23, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread33
+  br i1 %22, label %23, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread34
 
 23:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.0.0.copyload.i, ptr %7, align 8
   %24 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %24, label %25, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread33
+  br i1 %24, label %25, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread34
 
 25:                                               ; preds = %23
   %26 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  br i1 %26, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread33
+  br i1 %26, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread34
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread33: ; preds = %15, %23, %25
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread34: ; preds = %15, %23, %25
   %27 = load i32, ptr %16, align 4, !tbaa !714
   %28 = add nsw i32 %27, -1
   store i32 %28, ptr %16, align 4, !tbaa !714
@@ -61869,8 +61869,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTy
   store ptr %64, ptr %4, align 8
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %63, ptr %65, align 8
-  %.not.i.i25 = icmp eq i64 %.sroa.0.0.copyload.i.i.i.i, 0
-  br i1 %.not.i.i25, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit31, label %66
+  %.not.i.i26 = icmp eq i64 %.sroa.0.0.copyload.i.i.i.i, 0
+  br i1 %.not.i.i26, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit32, label %66
 
 66:                                               ; preds = %51
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -61881,39 +61881,39 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTy
   %71 = inttoptr i64 %70 to ptr
   %72 = load ptr, ptr %71, align 16, !tbaa !785
   %73 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %72)
-  br i1 %73, label %74, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor8traverseINS_7TypeLocEEEbRKT_.exit.i26
+  br i1 %73, label %74, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor8traverseINS_7TypeLocEEEbRKT_.exit.i27
 
 74:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.sroa.0.0.copyload.i.i.i.i, ptr %5, align 8
   %75 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %75, label %76, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor8traverseINS_7TypeLocEEEbRKT_.exit.i26
+  br i1 %75, label %76, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor8traverseINS_7TypeLocEEEbRKT_.exit.i27
 
 76:                                               ; preds = %74
   %77 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  br i1 %77, label %78, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor8traverseINS_7TypeLocEEEbRKT_.exit.i26
+  br i1 %77, label %78, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor8traverseINS_7TypeLocEEEbRKT_.exit.i27
 
 78:                                               ; preds = %76
-  %.sroa.0.0.copyload.i.i29 = load ptr, ptr %4, align 8, !tbaa !561
-  %.sroa.2.0.copyload.i.i30 = load ptr, ptr %65, align 8, !tbaa !561
-  %79 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %.sroa.0.0.copyload.i.i29, ptr %.sroa.2.0.copyload.i.i30)
-  br label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor8traverseINS_7TypeLocEEEbRKT_.exit.i26
+  %.sroa.0.0.copyload.i.i30 = load ptr, ptr %4, align 8, !tbaa !561
+  %.sroa.2.0.copyload.i.i31 = load ptr, ptr %65, align 8, !tbaa !561
+  %79 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %.sroa.0.0.copyload.i.i30, ptr %.sroa.2.0.copyload.i.i31)
+  br label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor8traverseINS_7TypeLocEEEbRKT_.exit.i27
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor8traverseINS_7TypeLocEEEbRKT_.exit.i26: ; preds = %78, %76, %74, %66
-  %.1.i27 = phi i1 [ false, %66 ], [ false, %74 ], [ %79, %78 ], [ false, %76 ]
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor8traverseINS_7TypeLocEEEbRKT_.exit.i27: ; preds = %78, %76, %74, %66
+  %.1.i28 = phi i1 [ false, %66 ], [ false, %74 ], [ %79, %78 ], [ false, %76 ]
   %80 = load i32, ptr %67, align 4, !tbaa !714
   %81 = add nsw i32 %80, -1
   store i32 %81, ptr %67, align 4, !tbaa !714
-  br label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit31
+  br label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit32
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit31: ; preds = %51, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor8traverseINS_7TypeLocEEEbRKT_.exit.i26
-  %.0.i28 = phi i1 [ %.1.i27, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor8traverseINS_7TypeLocEEEbRKT_.exit.i26 ], [ true, %51 ]
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit32: ; preds = %51, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor8traverseINS_7TypeLocEEEbRKT_.exit.i27
+  %.0.i29 = phi i1 [ %.1.i28, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor8traverseINS_7TypeLocEEEbRKT_.exit.i27 ], [ true, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
-.thread:                                          ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread33, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit31, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit.thread20, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
-  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit.thread20 ], [ %.0.i28, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit31 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread33 ]
+.thread:                                          ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread34, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit32, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit.thread20, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
+  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor12TraverseTypeENS_8QualTypeE.exit.thread20 ], [ %.0.i29, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit32 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread34 ]
   ret i1 %.0
 }
 
@@ -62037,20 +62037,20 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   store i32 %38, ptr %36, align 4, !tbaa !714
   %39 = load ptr, ptr %10, align 16, !tbaa !785
   %40 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %39)
-  br i1 %40, label %41, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread58
+  br i1 %40, label %41, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread60
 
 41:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.0.0.copyload.i, ptr %7, align 8
   %42 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %42, label %43, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread58
+  br i1 %42, label %43, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread60
 
 43:                                               ; preds = %41
   %44 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  br i1 %44, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread58
+  br i1 %44, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread60
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread58: ; preds = %35, %41, %43
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread60: ; preds = %35, %41, %43
   %45 = load i32, ptr %36, align 4, !tbaa !714
   %46 = add nsw i32 %45, -1
   store i32 %46, ptr %36, align 4, !tbaa !714
@@ -62082,7 +62082,7 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %60
 
-59:                                               ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit56.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit56
+59:                                               ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit58.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not27 = icmp eq i64 %indvars.iv.next, %56
   br i1 %.not27, label %.loopexit, label %60, !llvm.loop !1851
@@ -62097,10 +62097,10 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %64, ptr %4, align 8
   store ptr %63, ptr %57, align 8
-  %.not.i.i50 = icmp eq i64 %.sroa.0.0.copyload.i29, 0
-  br i1 %.not.i.i50, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit56.thread, label %65
+  %.not.i.i52 = icmp eq i64 %.sroa.0.0.copyload.i29, 0
+  br i1 %.not.i.i52, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit58.thread, label %65
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit56.thread: ; preds = %60
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit58.thread: ; preds = %60
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %59
 
@@ -62112,38 +62112,38 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTy
   %69 = inttoptr i64 %68 to ptr
   %70 = load ptr, ptr %69, align 16, !tbaa !785
   %71 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_4TypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 16 dereferenceable(24) %70)
-  br i1 %71, label %72, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit56.thread61
+  br i1 %71, label %72, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit58.thread63
 
 72:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.sroa.0.0.copyload.i29, ptr %5, align 8
   %73 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_8QualTypeEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %73, label %74, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit56.thread61
+  br i1 %73, label %74, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit58.thread63
 
 74:                                               ; preds = %72
   %75 = call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor5matchINS_7TypeLocEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  br i1 %75, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit56, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit56.thread61
+  br i1 %75, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit58, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit58.thread63
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit56.thread61: ; preds = %65, %72, %74
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit58.thread63: ; preds = %65, %72, %74
   %76 = load i32, ptr %58, align 4, !tbaa !714
   %77 = add nsw i32 %76, -1
   store i32 %77, ptr %58, align 4, !tbaa !714
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit56: ; preds = %74
-  %.sroa.0.0.copyload.i.i54 = load ptr, ptr %4, align 8, !tbaa !561
-  %.sroa.2.0.copyload.i.i55 = load ptr, ptr %57, align 8, !tbaa !561
-  %78 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %.sroa.0.0.copyload.i.i54, ptr %.sroa.2.0.copyload.i.i55)
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit58: ; preds = %74
+  %.sroa.0.0.copyload.i.i56 = load ptr, ptr %4, align 8, !tbaa !561
+  %.sroa.2.0.copyload.i.i57 = load ptr, ptr %57, align 8, !tbaa !561
+  %78 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr %.sroa.0.0.copyload.i.i56, ptr %.sroa.2.0.copyload.i.i57)
   %79 = load i32, ptr %58, align 4, !tbaa !714
   %80 = add nsw i32 %79, -1
   store i32 %80, ptr %58, align 4, !tbaa !714
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %78, label %59, label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit56, %59, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit56.thread61, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread58, %50, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
-  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ true, %50 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread58 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit56.thread61 ], [ true, %59 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit56 ]
+.loopexit:                                        ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit58, %59, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit58.thread63, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread60, %50, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
+  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit ], [ true, %50 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit.thread60 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit58.thread63 ], [ true, %59 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit58 ]
   ret i1 %.0
 }
 
@@ -62983,8 +62983,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12a
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %15, ptr %17, align 8
-  %.not.i.i56 = icmp eq i64 %.sroa.0.0.copyload.i, 0
-  br i1 %.not.i.i56, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %18
+  %.not.i.i60 = icmp eq i64 %.sroa.0.0.copyload.i, 0
+  br i1 %.not.i.i60, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit, label %18
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -63015,14 +63015,14 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12a
   br label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor8traverseINS_7TypeLocEEEbRKT_.exit.i
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor8traverseINS_7TypeLocEEEbRKT_.exit.i: ; preds = %30, %28, %26, %18
-  %.1.i57 = phi i1 [ false, %18 ], [ false, %26 ], [ %31, %30 ], [ false, %28 ]
+  %.1.i61 = phi i1 [ false, %18 ], [ false, %26 ], [ %31, %30 ], [ false, %28 ]
   %32 = load i32, ptr %19, align 4, !tbaa !714
   %33 = add nsw i32 %32, -1
   store i32 %33, ptr %19, align 4, !tbaa !714
   br label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor15TraverseTypeLocENS_7TypeLocE.exit: ; preds = %13, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor8traverseINS_7TypeLocEEEbRKT_.exit.i
-  %.0.i = phi i1 [ %.1.i57, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor8traverseINS_7TypeLocEEEbRKT_.exit.i ], [ true, %13 ]
+  %.0.i = phi i1 [ %.1.i61, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitor8traverseINS_7TypeLocEEEbRKT_.exit.i ], [ true, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_120MatchChildASTVisitorEE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit
 
@@ -64107,17 +64107,17 @@ _ZNK5clang12DynTypedNodeltERKS0_.exit.i.i.i.i.i.i: ; preds = %58
 .thread.i:                                        ; preds = %_ZNK5clang12DynTypedNodeltERKS0_.exit.i.i.i.i.i.i
   %78 = load i32, ptr %11, align 8, !tbaa !730
   %79 = icmp eq i32 %78, 5
-  br i1 %79, label %.thread17.i, label %80
+  br i1 %79, label %.thread25.i, label %80
 
 80:                                               ; preds = %.thread.i, %75
   %81 = phi i32 [ %78, %.thread.i ], [ %76, %75 ]
-  %.sroa.03.0.copyload.i9.i.i.i.i.i15.i = phi i32 [ 5, %.thread.i ], [ %.sroa.03.0.copyload.i9.i.i.i.i.i.i, %75 ]
-  %82 = icmp slt i32 %81, %.sroa.03.0.copyload.i9.i.i.i.i.i15.i
+  %.sroa.03.0.copyload.i9.i.i.i.i.i23.i = phi i32 [ 5, %.thread.i ], [ %.sroa.03.0.copyload.i9.i.i.i.i.i.i, %75 ]
+  %82 = icmp slt i32 %81, %.sroa.03.0.copyload.i9.i.i.i.i.i23.i
   br i1 %82, label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit, label %113
 
 83:                                               ; preds = %75
   %84 = icmp eq i32 %76, 6
-  br i1 %84, label %..thread5_crit_edge, label %.thread17.i
+  br i1 %84, label %..thread5_crit_edge, label %.thread25.i
 
 ..thread5_crit_edge:                              ; preds = %83
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -64132,15 +64132,15 @@ _ZNK5clang12DynTypedNodeltERKS0_.exit.i.i.i.i.i.i: ; preds = %58
   %85 = icmp ult i64 %.0.copyload.i.i.i.i28.i.i.i.i.i.i, %.0.copyload.i.i.i13.i29.i.i.i.i.i.i
   br i1 %85, label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit, label %113
 
-.thread17.i:                                      ; preds = %83, %.thread.i
-  %.sroa.03.0.copyload.i9.i.i.i.i.i1619.i = phi i32 [ %76, %83 ], [ 5, %.thread.i ]
+.thread25.i:                                      ; preds = %83, %.thread.i
+  %.sroa.03.0.copyload.i9.i.i.i.i.i2427.i = phi i32 [ %76, %83 ], [ 5, %.thread.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 73, ptr %3, align 4
-  %86 = call noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 %.sroa.03.0.copyload.i9.i.i.i.i.i1619.i) #24
+  %86 = call noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 %.sroa.03.0.copyload.i9.i.i.i.i.i2427.i) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %86, label %87, label %94
 
-87:                                               ; preds = %.thread17.i
+87:                                               ; preds = %.thread25.i
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.046.0.copyload.i21.i.i.i.i.i.i = load ptr, ptr %88, align 8, !tbaa !561
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -64158,7 +64158,7 @@ _ZNK5clang12DynTypedNodeltERKS0_.exit.i.i.i.i.i.i: ; preds = %58
   %spec.select.i27.i.i.i.i.i.i = select i1 %92, i1 %93, i1 false
   br i1 %spec.select.i27.i.i.i.i.i.i, label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit, label %113
 
-94:                                               ; preds = %.thread17.i
+94:                                               ; preds = %.thread25.i
   %.sroa.0.0.copyload.i13.i.i.i.i.i.i = load i32, ptr %11, align 8, !tbaa !576
   %95 = icmp eq i32 %.sroa.0.0.copyload.i13.i.i.i.i.i.i, 5
   br i1 %95, label %96, label %100
@@ -64600,13 +64600,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvNS_6detail13DenseSetEmptyENS_12DenseMapIn
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %62, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %61, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %62, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %61, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %63 = zext i32 %.sink28 to i64
-  %64 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink26, i64 %63
-  store ptr %.sink25, ptr %0, align 8
+  %63 = zext i32 %.sink32 to i64
+  %64 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink30, i64 %63
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %64, ptr %.sroa.4.0..sroa_idx, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -71452,8 +71452,8 @@ _ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchAS
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i, i64 128
   %53 = load ptr, ptr %52, align 8, !tbaa !16
-  %.not.i.i.i82 = icmp eq ptr %53, null
-  br i1 %.not.i.i.i82, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i
+  %.not.i.i.i89 = icmp eq ptr %53, null
+  br i1 %.not.i.i.i89, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i
 
 _ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i: ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -72375,8 +72375,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPN
 
 _ZN4llvm8dyn_castIN5clang11DeclContextENS1_16StaticAssertDeclEEEDcPT0_.exit: ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit30.thread
   %29 = call noundef ptr @_ZN5clang4Decl17castToDeclContextEPKS0_(ptr noundef nonnull %1) #24
-  %.not.i42 = icmp eq ptr %29, null
-  br i1 %.not.i42, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16StaticAssertDeclEEEDcPT0_.exit.thread, label %30
+  %.not.i47 = icmp eq ptr %29, null
+  br i1 %.not.i47, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16StaticAssertDeclEEEDcPT0_.exit.thread, label %30
 
 30:                                               ; preds = %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16StaticAssertDeclEEEDcPT0_.exit
   %31 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %29) #24
@@ -72819,8 +72819,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPN
 
 _ZN4llvm8dyn_castIN5clang11DeclContextENS1_20OMPThreadPrivateDeclEEEDcPT0_.exit: ; preds = %.critedge
   %29 = call noundef ptr @_ZN5clang4Decl17castToDeclContextEPKS0_(ptr noundef nonnull %1) #24
-  %.not.i59 = icmp eq ptr %29, null
-  br i1 %.not.i59, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20OMPThreadPrivateDeclEEEDcPT0_.exit.thread, label %30
+  %.not.i66 = icmp eq ptr %29, null
+  br i1 %.not.i66, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20OMPThreadPrivateDeclEEEDcPT0_.exit.thread, label %30
 
 30:                                               ; preds = %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20OMPThreadPrivateDeclEEEDcPT0_.exit
   %31 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %29) #24
@@ -73114,8 +73114,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPN
 
 _ZN4llvm8dyn_castIN5clang11DeclContextENS1_15OMPAllocateDeclEEEDcPT0_.exit: ; preds = %.critedge57
   %38 = call noundef ptr @_ZN5clang4Decl17castToDeclContextEPKS0_(ptr noundef nonnull %1) #24
-  %.not.i87 = icmp eq ptr %38, null
-  br i1 %.not.i87, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15OMPAllocateDeclEEEDcPT0_.exit.thread, label %39
+  %.not.i95 = icmp eq ptr %38, null
+  br i1 %.not.i95, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15OMPAllocateDeclEEEDcPT0_.exit.thread, label %39
 
 39:                                               ; preds = %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15OMPAllocateDeclEEEDcPT0_.exit
   %40 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %38) #24
@@ -73381,8 +73381,8 @@ _ZNK5clang16ObjCProtocolDecl28isThisDeclarationADefinitionEv.exit.thread: ; pred
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i, i64 128
   %19 = load ptr, ptr %18, align 8, !tbaa !16
-  %.not.i.i.i86 = icmp eq ptr %19, null
-  br i1 %.not.i.i.i86, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i
+  %.not.i.i.i90 = icmp eq ptr %19, null
+  br i1 %.not.i.i.i90, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i
 
 _ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i: ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -73604,8 +73604,8 @@ _ZNK5clang17ObjCInterfaceDecl28isThisDeclarationADefinitionEv.exit.thread: ; pre
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i, i64 128
   %67 = load ptr, ptr %66, align 8, !tbaa !16
-  %.not.i.i.i118 = icmp eq ptr %67, null
-  br i1 %.not.i.i.i118, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i
+  %.not.i.i.i125 = icmp eq ptr %67, null
+  br i1 %.not.i.i.i125, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i
 
 _ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i: ; preds = %65
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -74850,8 +74850,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPN
 
 _ZN4llvm8dyn_castIN5clang11DeclContextENS1_16EnumConstantDeclEEEDcPT0_.exit: ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread
   %16 = call noundef ptr @_ZN5clang4Decl17castToDeclContextEPKS0_(ptr noundef nonnull %1) #24
-  %.not.i32 = icmp eq ptr %16, null
-  br i1 %.not.i32, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16EnumConstantDeclEEEDcPT0_.exit.thread, label %17
+  %.not.i36 = icmp eq ptr %16, null
+  br i1 %.not.i36, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16EnumConstantDeclEEEDcPT0_.exit.thread, label %17
 
 17:                                               ; preds = %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16EnumConstantDeclEEEDcPT0_.exit
   %18 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #24
@@ -75250,8 +75250,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12a
 
 10:                                               ; preds = %5
   %11 = tail call noundef ptr @_ZN5clang7VarDecl7getInitEv(ptr noundef nonnull align 8 dereferenceable(100) %1) #24
-  %.not.i.i30 = icmp eq ptr %11, null
-  br i1 %.not.i.i30, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE17TraverseVarHelperEPNS_7VarDeclE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.i
+  %.not.i.i33 = icmp eq ptr %11, null
+  br i1 %.not.i.i33, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE17TraverseVarHelperEPNS_7VarDeclE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.i
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.i: ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -75432,8 +75432,8 @@ _ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit: ; pr
 
 24:                                               ; preds = %19
   %25 = call noundef ptr @_ZN5clang7VarDecl7getInitEv(ptr noundef nonnull align 8 dereferenceable(100) %1) #24
-  %.not.i.i50 = icmp eq ptr %25, null
-  br i1 %.not.i.i50, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE17TraverseVarHelperEPNS_7VarDeclE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.i
+  %.not.i.i54 = icmp eq ptr %25, null
+  br i1 %.not.i.i54, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE17TraverseVarHelperEPNS_7VarDeclE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.i
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.i: ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -75616,8 +75616,8 @@ _ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33: ; 
 
 27:                                               ; preds = %22
   %28 = call noundef ptr @_ZN5clang7VarDecl7getInitEv(ptr noundef nonnull align 8 dereferenceable(100) %1) #24
-  %.not.i.i47 = icmp eq ptr %28, null
-  br i1 %.not.i.i47, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE17TraverseVarHelperEPNS_7VarDeclE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.i
+  %.not.i.i51 = icmp eq ptr %28, null
+  br i1 %.not.i.i51, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE17TraverseVarHelperEPNS_7VarDeclE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.i
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.i: ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -75753,8 +75753,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12a
 
 12:                                               ; preds = %7
   %13 = tail call noundef ptr @_ZN5clang7VarDecl7getInitEv(ptr noundef nonnull align 8 dereferenceable(100) %1) #24
-  %.not.i.i49 = icmp eq ptr %13, null
-  br i1 %.not.i.i49, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE17TraverseVarHelperEPNS_7VarDeclE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.i
+  %.not.i.i54 = icmp eq ptr %13, null
+  br i1 %.not.i.i54, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE17TraverseVarHelperEPNS_7VarDeclE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.i
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.i: ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -75859,8 +75859,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPN
 
 _ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ParmVarDeclEEEDcPT0_.exit: ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit37.thread
   %57 = call noundef ptr @_ZN5clang4Decl17castToDeclContextEPKS0_(ptr noundef nonnull %1) #24
-  %.not.i50 = icmp eq ptr %57, null
-  br i1 %.not.i50, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ParmVarDeclEEEDcPT0_.exit.thread, label %58
+  %.not.i55 = icmp eq ptr %57, null
+  br i1 %.not.i55, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ParmVarDeclEEEDcPT0_.exit.thread, label %58
 
 58:                                               ; preds = %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ParmVarDeclEEEDcPT0_.exit
   %59 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %57) #24
@@ -75964,8 +75964,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12a
 
 10:                                               ; preds = %5
   %11 = tail call noundef ptr @_ZN5clang7VarDecl7getInitEv(ptr noundef nonnull align 8 dereferenceable(100) %1) #24
-  %.not.i.i30 = icmp eq ptr %11, null
-  br i1 %.not.i.i30, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE17TraverseVarHelperEPNS_7VarDeclE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.i
+  %.not.i.i33 = icmp eq ptr %11, null
+  br i1 %.not.i.i33, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE17TraverseVarHelperEPNS_7VarDeclE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.i
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.i: ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -76099,8 +76099,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12a
 
 10:                                               ; preds = %5
   %11 = tail call noundef ptr @_ZN5clang7VarDecl7getInitEv(ptr noundef nonnull align 8 dereferenceable(100) %1) #24
-  %.not.i.i30 = icmp eq ptr %11, null
-  br i1 %.not.i.i30, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE17TraverseVarHelperEPNS_7VarDeclE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.i
+  %.not.i.i33 = icmp eq ptr %11, null
+  br i1 %.not.i.i33, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE17TraverseVarHelperEPNS_7VarDeclE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.i
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.i: ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -76234,8 +76234,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12a
 
 10:                                               ; preds = %5
   %11 = tail call noundef ptr @_ZN5clang7VarDecl7getInitEv(ptr noundef nonnull align 8 dereferenceable(100) %1) #24
-  %.not.i.i58 = icmp eq ptr %11, null
-  br i1 %.not.i.i58, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE17TraverseVarHelperEPNS_7VarDeclE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.i
+  %.not.i.i62 = icmp eq ptr %11, null
+  br i1 %.not.i.i62, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE17TraverseVarHelperEPNS_7VarDeclE.exit, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.i
 
 _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.i: ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -76451,8 +76451,8 @@ _ZNK5clang23NonTypeTemplateParmDecl18getDefaultArgumentEv.exit: ; preds = %16, %
 
 _ZN4llvm8dyn_castIN5clang11DeclContextENS1_23NonTypeTemplateParmDeclEEEDcPT0_.exit: ; preds = %32
   %34 = call noundef ptr @_ZN5clang4Decl17castToDeclContextEPKS0_(ptr noundef nonnull %1) #24
-  %.not.i37 = icmp eq ptr %34, null
-  br i1 %.not.i37, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23NonTypeTemplateParmDeclEEEDcPT0_.exit.thread, label %35
+  %.not.i40 = icmp eq ptr %34, null
+  br i1 %.not.i40, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23NonTypeTemplateParmDeclEEEDcPT0_.exit.thread, label %35
 
 35:                                               ; preds = %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23NonTypeTemplateParmDeclEEEDcPT0_.exit
   %36 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %34) #24
@@ -76476,8 +76476,8 @@ _ZN4llvm8dyn_castIN5clang11DeclContextENS1_23NonTypeTemplateParmDeclEEEDcPT0_.ex
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i, i64 128
   %45 = load ptr, ptr %44, align 8, !tbaa !16
-  %.not.i.i.i39 = icmp eq ptr %45, null
-  br i1 %.not.i.i.i39, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i
+  %.not.i.i.i42 = icmp eq ptr %45, null
+  br i1 %.not.i.i.i42, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i
 
 _ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i: ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -76492,8 +76492,8 @@ _ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchAS
 
 .critedge.i:                                      ; preds = %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i, %.lr.ph.i
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i, i64 8
-  %.0.copyload.i.i.i.i.i.i38 = load i64, ptr %50, align 8
-  %51 = and i64 %.0.copyload.i.i.i.i.i.i38, -8
+  %.0.copyload.i.i.i.i.i.i41 = load i64, ptr %50, align 8
+  %51 = and i64 %.0.copyload.i.i.i.i.i.i41, -8
   %52 = inttoptr i64 %51 to ptr
   %.not20.i = icmp eq i64 %51, 0
   br i1 %.not20.i, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23NonTypeTemplateParmDeclEEEDcPT0_.exit.thread, label %.lr.ph.i
@@ -76534,8 +76534,8 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   %68 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE12TraverseAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull %67)
   %69 = getelementptr inbounds nuw i8, ptr %.02733, i64 8
   %.not = icmp ne ptr %69, %66
-  %or.cond48.not = select i1 %68, i1 %.not, i1 false
-  br i1 %or.cond48.not, label %.lr.ph, label %.critedge
+  %or.cond57.not = select i1 %68, i1 %.not, i1 false
+  br i1 %or.cond57.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23NonTypeTemplateParmDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZNK5clang23NonTypeTemplateParmDecl18getDefaultArgumentEv.exit, %2
   %.0 = phi i1 [ false, %2 ], [ false, %_ZNK5clang23NonTypeTemplateParmDecl18getDefaultArgumentEv.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_23NonTypeTemplateParmDeclEEEDcPT0_.exit.thread ], [ %68, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
@@ -77163,8 +77163,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPN
 
 _ZN4llvm8dyn_castIN5clang11DeclContextENS1_11BindingDeclEEEDcPT0_.exit: ; preds = %.critedge
   %19 = call noundef ptr @_ZN5clang4Decl17castToDeclContextEPKS0_(ptr noundef nonnull %1) #24
-  %.not.i42 = icmp eq ptr %19, null
-  br i1 %.not.i42, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11BindingDeclEEEDcPT0_.exit.thread, label %20
+  %.not.i47 = icmp eq ptr %19, null
+  br i1 %.not.i47, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11BindingDeclEEEDcPT0_.exit.thread, label %20
 
 20:                                               ; preds = %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11BindingDeclEEEDcPT0_.exit
   %21 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #24
@@ -78697,8 +78697,8 @@ _ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit: ; preds = %2, %9
 
 _ZN4llvm8dyn_castIN5clang11DeclContextENS1_11TypedefDeclEEEDcPT0_.exit: ; preds = %22
   %24 = call noundef ptr @_ZN5clang4Decl17castToDeclContextEPKS0_(ptr noundef nonnull %1) #24
-  %.not.i33 = icmp eq ptr %24, null
-  br i1 %.not.i33, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11TypedefDeclEEEDcPT0_.exit.thread, label %25
+  %.not.i36 = icmp eq ptr %24, null
+  br i1 %.not.i36, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11TypedefDeclEEEDcPT0_.exit.thread, label %25
 
 25:                                               ; preds = %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11TypedefDeclEEEDcPT0_.exit
   %26 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #24
@@ -78839,8 +78839,8 @@ _ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit: ; preds = %2, %9
 
 _ZN4llvm8dyn_castIN5clang11DeclContextENS1_13TypeAliasDeclEEEDcPT0_.exit: ; preds = %22
   %24 = call noundef ptr @_ZN5clang4Decl17castToDeclContextEPKS0_(ptr noundef nonnull %1) #24
-  %.not.i33 = icmp eq ptr %24, null
-  br i1 %.not.i33, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13TypeAliasDeclEEEDcPT0_.exit.thread, label %25
+  %.not.i36 = icmp eq ptr %24, null
+  br i1 %.not.i36, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13TypeAliasDeclEEEDcPT0_.exit.thread, label %25
 
 25:                                               ; preds = %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_13TypeAliasDeclEEEDcPT0_.exit
   %26 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #24
@@ -78987,8 +78987,8 @@ _ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit: ; preds = %7, %12
 
 _ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ObjCTypeParamDeclEEEDcPT0_.exit: ; preds = %25
   %27 = call noundef ptr @_ZN5clang4Decl17castToDeclContextEPKS0_(ptr noundef nonnull %1) #24
-  %.not.i35 = icmp eq ptr %27, null
-  br i1 %.not.i35, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ObjCTypeParamDeclEEEDcPT0_.exit.thread, label %28
+  %.not.i38 = icmp eq ptr %27, null
+  br i1 %.not.i38, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ObjCTypeParamDeclEEEDcPT0_.exit.thread, label %28
 
 28:                                               ; preds = %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ObjCTypeParamDeclEEEDcPT0_.exit
   %29 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #24
@@ -79240,8 +79240,8 @@ _ZN4llvm8dyn_castIN5clang11DeclContextENS1_20TemplateTypeParmDeclEEEDcPT0_.exit:
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i, i64 128
   %77 = load ptr, ptr %76, align 8, !tbaa !16
-  %.not.i.i.i55 = icmp eq ptr %77, null
-  br i1 %.not.i.i.i55, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i
+  %.not.i.i.i60 = icmp eq ptr %77, null
+  br i1 %.not.i.i.i60, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i
 
 _ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i: ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -79256,8 +79256,8 @@ _ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchAS
 
 .critedge.i:                                      ; preds = %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i, %.lr.ph.i
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i, i64 8
-  %.0.copyload.i.i.i.i.i.i54 = load i64, ptr %82, align 8
-  %83 = and i64 %.0.copyload.i.i.i.i.i.i54, -8
+  %.0.copyload.i.i.i.i.i.i59 = load i64, ptr %82, align 8
+  %83 = and i64 %.0.copyload.i.i.i.i.i.i59, -8
   %84 = inttoptr i64 %83 to ptr
   %.not20.i = icmp eq i64 %83, 0
   br i1 %.not20.i, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20TemplateTypeParmDeclEEEDcPT0_.exit.thread, label %.lr.ph.i
@@ -79298,8 +79298,8 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   %100 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE12TraverseAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull %99)
   %101 = getelementptr inbounds nuw i8, ptr %.02950, i64 8
   %.not30 = icmp ne ptr %101, %98
-  %or.cond64.not = select i1 %100, i1 %.not30, i1 false
-  br i1 %or.cond64.not, label %.lr.ph, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE40TraverseTemplateTypeParamDeclConstraintsEPKNS_20TemplateTypeParmDeclE.exit
+  %or.cond77.not = select i1 %100, i1 %.not30, i1 false
+  br i1 %or.cond77.not, label %.lr.ph, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE40TraverseTemplateTypeParamDeclConstraintsEPKNS_20TemplateTypeParmDeclE.exit
 
 _ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE40TraverseTemplateTypeParamDeclConstraintsEPKNS_20TemplateTypeParmDeclE.exit: ; preds = %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20TemplateTypeParmDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %33, %23, %_ZNK5clang20TemplateTypeParmDecl18getDefaultArgumentEv.exit, %8
   %.0 = phi i1 [ false, %8 ], [ false, %_ZNK5clang20TemplateTypeParmDecl18getDefaultArgumentEv.exit ], [ false, %23 ], [ false, %33 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20TemplateTypeParmDeclEEEDcPT0_.exit.thread ], [ %100, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
@@ -79390,8 +79390,8 @@ _ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit: ; preds = %18, 
 
 _ZN4llvm8dyn_castIN5clang11DeclContextENS1_24TemplateTemplateParmDeclEEEDcPT0_.exit: ; preds = %38
   %40 = call noundef ptr @_ZN5clang4Decl17castToDeclContextEPKS0_(ptr noundef nonnull %1) #24
-  %.not.i38 = icmp eq ptr %40, null
-  br i1 %.not.i38, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24TemplateTemplateParmDeclEEEDcPT0_.exit.thread, label %41
+  %.not.i41 = icmp eq ptr %40, null
+  br i1 %.not.i41, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24TemplateTemplateParmDeclEEEDcPT0_.exit.thread, label %41
 
 41:                                               ; preds = %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24TemplateTemplateParmDeclEEEDcPT0_.exit
   %42 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %40) #24
@@ -79415,8 +79415,8 @@ _ZN4llvm8dyn_castIN5clang11DeclContextENS1_24TemplateTemplateParmDeclEEEDcPT0_.e
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i, i64 128
   %51 = load ptr, ptr %50, align 8, !tbaa !16
-  %.not.i.i.i40 = icmp eq ptr %51, null
-  br i1 %.not.i.i.i40, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i
+  %.not.i.i.i43 = icmp eq ptr %51, null
+  br i1 %.not.i.i.i43, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i
 
 _ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i: ; preds = %49
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -79431,8 +79431,8 @@ _ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchAS
 
 .critedge.i:                                      ; preds = %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i, %.lr.ph.i
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i, i64 8
-  %.0.copyload.i.i.i.i.i.i39 = load i64, ptr %56, align 8
-  %57 = and i64 %.0.copyload.i.i.i.i.i.i39, -8
+  %.0.copyload.i.i.i.i.i.i42 = load i64, ptr %56, align 8
+  %57 = and i64 %.0.copyload.i.i.i.i.i.i42, -8
   %58 = inttoptr i64 %57 to ptr
   %.not20.i = icmp eq i64 %57, 0
   br i1 %.not20.i, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24TemplateTemplateParmDeclEEEDcPT0_.exit.thread, label %.lr.ph.i
@@ -79473,8 +79473,8 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   %74 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE12TraverseAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull %73)
   %75 = getelementptr inbounds nuw i8, ptr %.02834, i64 8
   %.not = icmp ne ptr %75, %72
-  %or.cond49.not = select i1 %74, i1 %.not, i1 false
-  br i1 %or.cond49.not, label %.lr.ph, label %.critedge
+  %or.cond58.not = select i1 %74, i1 %.not, i1 false
+  br i1 %or.cond58.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24TemplateTemplateParmDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %34, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit, %2
   %.0 = phi i1 [ false, %2 ], [ false, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit ], [ false, %34 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_24TemplateTemplateParmDeclEEEDcPT0_.exit.thread ], [ %74, %.lr.ph ], [ false, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
@@ -79585,14 +79585,14 @@ _ZN4llvm8dyn_castIN5clang11DeclContextENS1_15VarTemplateDeclEEEDcPT0_.exit: ; pr
   %.not2022.i = icmp eq ptr %47, null
   br i1 %.not2022.i, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15VarTemplateDeclEEEDcPT0_.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %46, %.critedge.i69
-  %.sroa.0.023.i = phi ptr [ %63, %.critedge.i69 ], [ %47, %46 ]
+.lr.ph.i:                                         ; preds = %46, %.critedge.i76
+  %.sroa.0.023.i = phi ptr [ %63, %.critedge.i76 ], [ %47, %46 ]
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i, i64 28
   %49 = load i32, ptr %48, align 4
   %50 = and i32 %49, 127
   %.off.i.i = add nsw i32 %50, -7
   %switch3.i.i = icmp ult i32 %.off.i.i, 2
-  br i1 %switch3.i.i, label %.critedge.i69, label %51
+  br i1 %switch3.i.i, label %.critedge.i76, label %51
 
 51:                                               ; preds = %.lr.ph.i
   %52 = add nsw i32 %50, -57
@@ -79610,13 +79610,13 @@ _ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchAS
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 2097152
   %.not21.i = icmp eq i32 %59, 0
-  br i1 %.not21.i, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, label %.critedge.i69
+  br i1 %.not21.i, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, label %.critedge.i76
 
 _ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i: ; preds = %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i, %54, %51
   %60 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull %.sroa.0.023.i)
-  br i1 %60, label %.critedge.i69, label %.critedge
+  br i1 %60, label %.critedge.i76, label %.critedge
 
-.critedge.i69:                                    ; preds = %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i, %.lr.ph.i
+.critedge.i76:                                    ; preds = %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i, %.lr.ph.i
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %61, align 8
   %62 = and i64 %.0.copyload.i.i.i.i.i.i, -8
@@ -79624,7 +79624,7 @@ _ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchAS
   %.not20.i = icmp eq i64 %62, 0
   br i1 %.not20.i, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15VarTemplateDeclEEEDcPT0_.exit.thread, label %.lr.ph.i
 
-_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15VarTemplateDeclEEEDcPT0_.exit.thread: ; preds = %.critedge.i69, %43, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15VarTemplateDeclEEEDcPT0_.exit, %46
+_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15VarTemplateDeclEEEDcPT0_.exit.thread: ; preds = %.critedge.i76, %43, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15VarTemplateDeclEEEDcPT0_.exit, %46
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %65 = load i32, ptr %64, align 4
   %66 = and i32 %65, 256
@@ -79660,8 +79660,8 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   %79 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE12TraverseAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull %78)
   %80 = getelementptr inbounds nuw i8, ptr %.02861, i64 8
   %.not = icmp ne ptr %80, %77
-  %or.cond78.not = select i1 %79, i1 %.not, i1 false
-  br i1 %or.cond78.not, label %.lr.ph62, label %.critedge
+  %or.cond96.not = select i1 %79, i1 %.not, i1 false
+  br i1 %or.cond96.not, label %.lr.ph62, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph62, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15VarTemplateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE30TraverseTemplateInstantiationsEPNS_15VarTemplateDeclE.exit, %6, %2
   %.0 = phi i1 [ false, %2 ], [ false, %6 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE30TraverseTemplateInstantiationsEPNS_15VarTemplateDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_15VarTemplateDeclEEEDcPT0_.exit.thread ], [ %79, %.lr.ph62 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
@@ -79892,14 +79892,14 @@ _ZN4llvm8dyn_castIN5clang11DeclContextENS1_20FunctionTemplateDeclEEEDcPT0_.exit:
   %.not2022.i = icmp eq ptr %50, null
   br i1 %.not2022.i, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20FunctionTemplateDeclEEEDcPT0_.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %49, %.critedge.i69
-  %.sroa.0.023.i = phi ptr [ %66, %.critedge.i69 ], [ %50, %49 ]
+.lr.ph.i:                                         ; preds = %49, %.critedge.i76
+  %.sroa.0.023.i = phi ptr [ %66, %.critedge.i76 ], [ %50, %49 ]
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i, i64 28
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %52, 127
   %.off.i.i = add nsw i32 %53, -7
   %switch3.i.i = icmp ult i32 %.off.i.i, 2
-  br i1 %switch3.i.i, label %.critedge.i69, label %54
+  br i1 %switch3.i.i, label %.critedge.i76, label %54
 
 54:                                               ; preds = %.lr.ph.i
   %55 = add nsw i32 %53, -57
@@ -79917,13 +79917,13 @@ _ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchAS
   %61 = load i32, ptr %60, align 8
   %62 = and i32 %61, 2097152
   %.not21.i = icmp eq i32 %62, 0
-  br i1 %.not21.i, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, label %.critedge.i69
+  br i1 %.not21.i, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, label %.critedge.i76
 
 _ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i: ; preds = %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i, %57, %54
   %63 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull %.sroa.0.023.i)
-  br i1 %63, label %.critedge.i69, label %.critedge
+  br i1 %63, label %.critedge.i76, label %.critedge
 
-.critedge.i69:                                    ; preds = %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i, %.lr.ph.i
+.critedge.i76:                                    ; preds = %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i, %.lr.ph.i
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %64, align 8
   %65 = and i64 %.0.copyload.i.i.i.i.i.i, -8
@@ -79931,7 +79931,7 @@ _ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchAS
   %.not20.i = icmp eq i64 %65, 0
   br i1 %.not20.i, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20FunctionTemplateDeclEEEDcPT0_.exit.thread, label %.lr.ph.i
 
-_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20FunctionTemplateDeclEEEDcPT0_.exit.thread: ; preds = %.critedge.i69, %46, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20FunctionTemplateDeclEEEDcPT0_.exit, %49
+_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20FunctionTemplateDeclEEEDcPT0_.exit.thread: ; preds = %.critedge.i76, %46, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20FunctionTemplateDeclEEEDcPT0_.exit, %49
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %68 = load i32, ptr %67, align 4
   %69 = and i32 %68, 256
@@ -79967,8 +79967,8 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   %82 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE12TraverseAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull %81)
   %83 = getelementptr inbounds nuw i8, ptr %.02861, i64 8
   %.not = icmp ne ptr %83, %80
-  %or.cond78.not = select i1 %82, i1 %.not, i1 false
-  br i1 %or.cond78.not, label %.lr.ph62, label %.critedge
+  %or.cond96.not = select i1 %82, i1 %.not, i1 false
+  br i1 %or.cond96.not, label %.lr.ph62, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph62, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20FunctionTemplateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE30TraverseTemplateInstantiationsEPNS_20FunctionTemplateDeclE.exit, %6, %2
   %.0 = phi i1 [ false, %2 ], [ false, %6 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE30TraverseTemplateInstantiationsEPNS_20FunctionTemplateDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_20FunctionTemplateDeclEEEDcPT0_.exit.thread ], [ %82, %.lr.ph62 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
@@ -80094,14 +80094,14 @@ _ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ClassTemplateDeclEEEDcPT0_.exit: ; 
   %.not2022.i = icmp eq ptr %53, null
   br i1 %.not2022.i, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ClassTemplateDeclEEEDcPT0_.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %52, %.critedge.i66
-  %.sroa.0.023.i = phi ptr [ %69, %.critedge.i66 ], [ %53, %52 ]
+.lr.ph.i:                                         ; preds = %52, %.critedge.i72
+  %.sroa.0.023.i = phi ptr [ %69, %.critedge.i72 ], [ %53, %52 ]
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i, i64 28
   %55 = load i32, ptr %54, align 4
   %56 = and i32 %55, 127
   %.off.i.i = add nsw i32 %56, -7
   %switch3.i.i = icmp ult i32 %.off.i.i, 2
-  br i1 %switch3.i.i, label %.critedge.i66, label %57
+  br i1 %switch3.i.i, label %.critedge.i72, label %57
 
 57:                                               ; preds = %.lr.ph.i
   %58 = add nsw i32 %56, -57
@@ -80119,13 +80119,13 @@ _ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchAS
   %64 = load i32, ptr %63, align 8
   %65 = and i32 %64, 2097152
   %.not21.i = icmp eq i32 %65, 0
-  br i1 %.not21.i, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, label %.critedge.i66
+  br i1 %.not21.i, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, label %.critedge.i72
 
 _ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i: ; preds = %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i, %60, %57
   %66 = tail call fastcc noundef zeroext i1 @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull %.sroa.0.023.i)
-  br i1 %66, label %.critedge.i66, label %.critedge
+  br i1 %66, label %.critedge.i72, label %.critedge
 
-.critedge.i66:                                    ; preds = %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i, %.lr.ph.i
+.critedge.i72:                                    ; preds = %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i, %.lr.ph.i
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %67, align 8
   %68 = and i64 %.0.copyload.i.i.i.i.i.i, -8
@@ -80133,7 +80133,7 @@ _ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchAS
   %.not20.i = icmp eq i64 %68, 0
   br i1 %.not20.i, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ClassTemplateDeclEEEDcPT0_.exit.thread, label %.lr.ph.i
 
-_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ClassTemplateDeclEEEDcPT0_.exit.thread: ; preds = %.critedge.i66, %49, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ClassTemplateDeclEEEDcPT0_.exit, %52
+_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ClassTemplateDeclEEEDcPT0_.exit.thread: ; preds = %.critedge.i72, %49, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ClassTemplateDeclEEEDcPT0_.exit, %52
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %71 = load i32, ptr %70, align 4
   %72 = and i32 %71, 256
@@ -80169,8 +80169,8 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   %85 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE12TraverseAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull %84)
   %86 = getelementptr inbounds nuw i8, ptr %.02858, i64 8
   %.not = icmp ne ptr %86, %83
-  %or.cond75.not = select i1 %85, i1 %.not, i1 false
-  br i1 %or.cond75.not, label %.lr.ph59, label %.critedge
+  %or.cond91.not = select i1 %85, i1 %.not, i1 false
+  br i1 %or.cond91.not, label %.lr.ph59, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph59, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ClassTemplateDeclEEEDcPT0_.exit.thread, %_ZNK5clang4Decl5attrsEv.exit, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE30TraverseTemplateInstantiationsEPNS_17ClassTemplateDeclE.exit, %6, %2
   %.0 = phi i1 [ false, %2 ], [ false, %6 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE30TraverseTemplateInstantiationsEPNS_17ClassTemplateDeclE.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_17ClassTemplateDeclEEEDcPT0_.exit.thread ], [ %85, %.lr.ph59 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
@@ -80218,8 +80218,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPN
 
 _ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ConceptDeclEEEDcPT0_.exit: ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread
   %20 = call noundef ptr @_ZN5clang4Decl17castToDeclContextEPKS0_(ptr noundef nonnull %1) #24
-  %.not.i33 = icmp eq ptr %20, null
-  br i1 %.not.i33, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ConceptDeclEEEDcPT0_.exit.thread, label %21
+  %.not.i37 = icmp eq ptr %20, null
+  br i1 %.not.i37, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ConceptDeclEEEDcPT0_.exit.thread, label %21
 
 21:                                               ; preds = %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_11ConceptDeclEEEDcPT0_.exit
   %22 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #24
@@ -81152,8 +81152,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPN
 
 _ZN4llvm8dyn_castIN5clang11DeclContextENS1_29LifetimeExtendedTemporaryDeclEEEDcPT0_.exit: ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread
   %16 = call noundef ptr @_ZN5clang4Decl17castToDeclContextEPKS0_(ptr noundef nonnull %1) #24
-  %.not.i32 = icmp eq ptr %16, null
-  br i1 %.not.i32, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_29LifetimeExtendedTemporaryDeclEEEDcPT0_.exit.thread, label %17
+  %.not.i36 = icmp eq ptr %16, null
+  br i1 %.not.i36, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_29LifetimeExtendedTemporaryDeclEEEDcPT0_.exit.thread, label %17
 
 17:                                               ; preds = %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_29LifetimeExtendedTemporaryDeclEEEDcPT0_.exit
   %18 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #24
@@ -81368,8 +81368,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12a
 
 _ZN4llvm8dyn_castIN5clang11DeclContextENS1_33ImplicitConceptSpecializationDeclEEEDcPT0_.exit: ; preds = %._crit_edge
   %12 = tail call noundef ptr @_ZN5clang4Decl17castToDeclContextEPKS0_(ptr noundef nonnull %1) #24
-  %.not.i44 = icmp eq ptr %12, null
-  br i1 %.not.i44, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_33ImplicitConceptSpecializationDeclEEEDcPT0_.exit.thread, label %13
+  %.not.i48 = icmp eq ptr %12, null
+  br i1 %.not.i48, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_33ImplicitConceptSpecializationDeclEEEDcPT0_.exit.thread, label %13
 
 13:                                               ; preds = %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_33ImplicitConceptSpecializationDeclEEEDcPT0_.exit
   %14 = tail call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #24
@@ -81742,8 +81742,8 @@ _ZNK5clang14ElaboratedType15getOwnedTagDeclEv.exit: ; preds = %_ZNK5clang4Type5g
 
 _ZN4llvm8dyn_castIN5clang11DeclContextENS1_10FriendDeclEEEDcPT0_.exit: ; preds = %.critedge
   %48 = call noundef ptr @_ZN5clang4Decl17castToDeclContextEPKS0_(ptr noundef nonnull %1) #24
-  %.not.i64 = icmp eq ptr %48, null
-  br i1 %.not.i64, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10FriendDeclEEEDcPT0_.exit.thread, label %49
+  %.not.i68 = icmp eq ptr %48, null
+  br i1 %.not.i68, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10FriendDeclEEEDcPT0_.exit.thread, label %49
 
 49:                                               ; preds = %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_10FriendDeclEEEDcPT0_.exit
   %50 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %48) #24
@@ -81868,8 +81868,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPN
 
 _ZN4llvm8dyn_castIN5clang11DeclContextENS1_16FileScopeAsmDeclEEEDcPT0_.exit: ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread
   %16 = call noundef ptr @_ZN5clang4Decl17castToDeclContextEPKS0_(ptr noundef nonnull %1) #24
-  %.not.i32 = icmp eq ptr %16, null
-  br i1 %.not.i32, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16FileScopeAsmDeclEEEDcPT0_.exit.thread, label %17
+  %.not.i36 = icmp eq ptr %16, null
+  br i1 %.not.i36, label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16FileScopeAsmDeclEEEDcPT0_.exit.thread, label %17
 
 17:                                               ; preds = %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_16FileScopeAsmDeclEEEDcPT0_.exit
   %18 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #24
@@ -82419,19 +82419,19 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor30TraverseNestedN
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 captures(none) dereferenceable(1) %0, ptr %1, ptr %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.clang::TemplateArgument", align 8
-  %.not.i530 = icmp eq ptr %1, null
-  br i1 %.not.i530, label %.loopexit, label %.lr.ph
+  %.not.i531 = icmp eq ptr %1, null
+  br i1 %.not.i531, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
-  %.tr435532 = phi ptr [ %25, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread ], [ %2, %3 ]
-  %.tr434531 = phi ptr [ %24, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread ], [ %1, %3 ]
-  %5 = ptrtoint ptr %.tr434531 to i64
+  %.tr436533 = phi ptr [ %25, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread ], [ %2, %3 ]
+  %.tr435532 = phi ptr [ %24, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread ], [ %1, %3 ]
+  %5 = ptrtoint ptr %.tr435532 to i64
   %6 = and i64 %5, 15
   %.not.i118 = icmp eq i64 %6, 0
   br i1 %.not.i118, label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %.lr.ph
-  %7 = load ptr, ptr %.tr434531, align 8, !tbaa !785
+  %7 = load ptr, ptr %.tr435532, align 8, !tbaa !785
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i8, ptr %8, align 16
   switch i8 %9, label %.loopexit [
@@ -82492,8 +82492,8 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread: ; preds = %.lr.ph, %_ZNK5clan
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, -16
   %15 = tail call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %14) #24
-  %16 = ptrtoint ptr %.tr435532 to i64
-  %17 = icmp ne ptr %.tr435532, null
+  %16 = ptrtoint ptr %.tr436533 to i64
+  %17 = icmp ne ptr %.tr436533, null
   %18 = zext i1 %17 to i64
   %19 = sub i64 %16, %18
   %20 = zext i32 %15 to i64
@@ -82506,240 +82506,240 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread: ; preds = %.lr.ph, %_ZNK5clan
   br i1 %.not.i, label %.loopexit, label %.lr.ph
 
 26:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %27 = getelementptr i8, ptr %.tr434531, i64 32
-  %.val433 = load i64, ptr %27, align 16, !tbaa !50
-  %28 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE23TraverseAdjustedTypeLocENS_15AdjustedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val433, ptr %.tr435532)
+  %27 = getelementptr i8, ptr %.tr435532, i64 32
+  %.val434 = load i64, ptr %27, align 16, !tbaa !50
+  %28 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE23TraverseAdjustedTypeLocENS_15AdjustedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val434, ptr %.tr436533)
   br label %.loopexit
 
 29:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %30 = getelementptr i8, ptr %.tr434531, i64 32
-  %.val432 = load i64, ptr %30, align 16, !tbaa !50
-  %31 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE22TraverseDecayedTypeLocENS_14DecayedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val432, ptr %.tr435532)
+  %30 = getelementptr i8, ptr %.tr435532, i64 32
+  %.val433 = load i64, ptr %30, align 16, !tbaa !50
+  %31 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE22TraverseDecayedTypeLocENS_14DecayedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val433, ptr %.tr436533)
   br label %.loopexit
 
 32:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %33 = getelementptr i8, ptr %.tr434531, i64 32
-  %.val431 = load i64, ptr %33, align 16, !tbaa !50
-  %34 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE28TraverseConstantArrayTypeLocENS_20ConstantArrayTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val431, ptr %.tr435532)
+  %33 = getelementptr i8, ptr %.tr435532, i64 32
+  %.val432 = load i64, ptr %33, align 16, !tbaa !50
+  %34 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE28TraverseConstantArrayTypeLocENS_20ConstantArrayTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val432, ptr %.tr436533)
   br label %.loopexit
 
 35:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %36 = getelementptr i8, ptr %.tr434531, i64 32
-  %.val430 = load i64, ptr %36, align 16, !tbaa !50
-  %37 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE29TraverseArrayParameterTypeLocENS_21ArrayParameterTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val430, ptr %.tr435532)
+  %36 = getelementptr i8, ptr %.tr435532, i64 32
+  %.val431 = load i64, ptr %36, align 16, !tbaa !50
+  %37 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE29TraverseArrayParameterTypeLocENS_21ArrayParameterTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val431, ptr %.tr436533)
   br label %.loopexit
 
 38:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %39 = getelementptr i8, ptr %.tr434531, i64 32
-  %.val429 = load i64, ptr %39, align 16, !tbaa !50
-  %40 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE34TraverseDependentSizedArrayTypeLocENS_26DependentSizedArrayTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val429, ptr %.tr435532)
+  %39 = getelementptr i8, ptr %.tr435532, i64 32
+  %.val430 = load i64, ptr %39, align 16, !tbaa !50
+  %40 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE34TraverseDependentSizedArrayTypeLocENS_26DependentSizedArrayTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val430, ptr %.tr436533)
   br label %.loopexit
 
 41:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %42 = getelementptr i8, ptr %.tr434531, i64 32
-  %.val428 = load i64, ptr %42, align 16, !tbaa !50
-  %43 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE30TraverseIncompleteArrayTypeLocENS_22IncompleteArrayTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val428, ptr %.tr435532)
+  %42 = getelementptr i8, ptr %.tr435532, i64 32
+  %.val429 = load i64, ptr %42, align 16, !tbaa !50
+  %43 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE30TraverseIncompleteArrayTypeLocENS_22IncompleteArrayTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val429, ptr %.tr436533)
   br label %.loopexit
 
 44:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %45 = getelementptr i8, ptr %.tr434531, i64 32
-  %.val427 = load i64, ptr %45, align 16, !tbaa !50
-  %46 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE28TraverseVariableArrayTypeLocENS_20VariableArrayTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val427, ptr %.tr435532)
+  %45 = getelementptr i8, ptr %.tr435532, i64 32
+  %.val428 = load i64, ptr %45, align 16, !tbaa !50
+  %46 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE28TraverseVariableArrayTypeLocENS_20VariableArrayTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val428, ptr %.tr436533)
   br label %.loopexit
 
 47:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %48 = getelementptr i8, ptr %.tr434531, i64 32
-  %.val426 = load i64, ptr %48, align 16, !tbaa !50
-  %49 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE21TraverseAtomicTypeLocENS_13AtomicTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val426, ptr %.tr435532)
+  %48 = getelementptr i8, ptr %.tr435532, i64 32
+  %.val427 = load i64, ptr %48, align 16, !tbaa !50
+  %49 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE21TraverseAtomicTypeLocENS_13AtomicTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val427, ptr %.tr436533)
   br label %.loopexit
 
 50:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %51 = getelementptr i8, ptr %.tr434531, i64 40
-  %.val425 = load i64, ptr %51, align 8, !tbaa !50
-  %52 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE25TraverseAttributedTypeLocENS_17AttributedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val425, ptr %.tr435532)
+  %51 = getelementptr i8, ptr %.tr435532, i64 40
+  %.val426 = load i64, ptr %51, align 8, !tbaa !50
+  %52 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE25TraverseAttributedTypeLocENS_17AttributedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val426, ptr %.tr436533)
   br label %.loopexit
 
 53:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %54 = getelementptr i8, ptr %.tr434531, i64 32
-  %.val424 = load i64, ptr %54, align 16, !tbaa !50
-  %55 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE31TraverseBTFTagAttributedTypeLocENS_23BTFTagAttributedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val424, ptr %.tr435532)
+  %54 = getelementptr i8, ptr %.tr435532, i64 32
+  %.val425 = load i64, ptr %54, align 16, !tbaa !50
+  %55 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE31TraverseBTFTagAttributedTypeLocENS_23BTFTagAttributedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val425, ptr %.tr436533)
   br label %.loopexit
 
 56:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %57 = getelementptr i8, ptr %.tr434531, i64 32
-  %.val423 = load i64, ptr %57, align 16, !tbaa !50
-  %58 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE27TraverseBlockPointerTypeLocENS_19BlockPointerTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val423, ptr %.tr435532)
+  %57 = getelementptr i8, ptr %.tr435532, i64 32
+  %.val424 = load i64, ptr %57, align 16, !tbaa !50
+  %58 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE27TraverseBlockPointerTypeLocENS_19BlockPointerTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val424, ptr %.tr436533)
   br label %.loopexit
 
 59:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %60 = getelementptr i8, ptr %.tr434531, i64 32
-  %.val422 = load i64, ptr %60, align 16, !tbaa !50
-  %61 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE30TraverseCountAttributedTypeLocENS_22CountAttributedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val422, ptr %.tr435532)
+  %60 = getelementptr i8, ptr %.tr435532, i64 32
+  %.val423 = load i64, ptr %60, align 16, !tbaa !50
+  %61 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE30TraverseCountAttributedTypeLocENS_22CountAttributedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val423, ptr %.tr436533)
   br label %.loopexit
 
 62:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %63 = getelementptr i8, ptr %.tr434531, i64 32
-  %.val421 = load i64, ptr %63, align 16, !tbaa !50
-  %64 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE22TraverseComplexTypeLocENS_14ComplexTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val421)
+  %63 = getelementptr i8, ptr %.tr435532, i64 32
+  %.val422 = load i64, ptr %63, align 16, !tbaa !50
+  %64 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE22TraverseComplexTypeLocENS_14ComplexTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val422)
   br label %.loopexit
 
 65:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %66 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE23TraverseDecltypeTypeLocENS_15DecltypeTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr434531)
+  %66 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE23TraverseDecltypeTypeLocENS_15DecltypeTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532)
   br label %.loopexit
 
 67:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %68 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE19TraverseAutoTypeLocENS_11AutoTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr434531, ptr %.tr435532)
+  %68 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE19TraverseAutoTypeLocENS_11AutoTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532, ptr %.tr436533)
   br label %.loopexit
 
 69:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %70 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44TraverseDeducedTemplateSpecializationTypeLocENS_36DeducedTemplateSpecializationTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr434531)
+  %70 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE44TraverseDeducedTemplateSpecializationTypeLocENS_36DeducedTemplateSpecializationTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532)
   br label %.loopexit
 
 71:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %72 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE36TraverseDependentAddressSpaceTypeLocENS_28DependentAddressSpaceTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr434531)
+  %72 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE36TraverseDependentAddressSpaceTypeLocENS_28DependentAddressSpaceTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532)
   br label %.loopexit
 
 73:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %74 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE30TraverseDependentBitIntTypeLocENS_22DependentBitIntTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr434531)
+  %74 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE30TraverseDependentBitIntTypeLocENS_22DependentBitIntTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532)
   br label %.loopexit
 
 75:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %76 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE28TraverseDependentNameTypeLocENS_20DependentNameTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr434531, ptr %.tr435532)
+  %76 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE28TraverseDependentNameTypeLocENS_20DependentNameTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532, ptr %.tr436533)
   br label %.loopexit
 
 77:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %78 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE38TraverseDependentSizedExtVectorTypeLocENS_30DependentSizedExtVectorTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr434531)
+  %78 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE38TraverseDependentSizedExtVectorTypeLocENS_30DependentSizedExtVectorTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532)
   br label %.loopexit
 
 79:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %80 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE46TraverseDependentTemplateSpecializationTypeLocENS_38DependentTemplateSpecializationTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr434531, ptr %.tr435532)
+  %80 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE46TraverseDependentTemplateSpecializationTypeLocENS_38DependentTemplateSpecializationTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532, ptr %.tr436533)
   br label %.loopexit
 
 81:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %82 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE30TraverseDependentVectorTypeLocENS_22DependentVectorTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr434531)
+  %82 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE30TraverseDependentVectorTypeLocENS_22DependentVectorTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532)
   br label %.loopexit
 
 83:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %84 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE25TraverseElaboratedTypeLocENS_17ElaboratedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr434531, ptr %.tr435532)
+  %84 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE25TraverseElaboratedTypeLocENS_17ElaboratedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532, ptr %.tr436533)
   br label %.loopexit
 
 85:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %86 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE30TraverseFunctionNoProtoTypeLocENS_22FunctionNoProtoTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr434531, ptr %.tr435532)
+  %86 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE30TraverseFunctionNoProtoTypeLocENS_22FunctionNoProtoTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532, ptr %.tr436533)
   br label %.loopexit
 
 87:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %88 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE28TraverseFunctionProtoTypeLocENS_20FunctionProtoTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr434531, ptr %.tr435532)
+  %88 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE28TraverseFunctionProtoTypeLocENS_20FunctionProtoTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532, ptr %.tr436533)
   br label %.loopexit
 
 89:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %90 = getelementptr i8, ptr %.tr434531, i64 32
-  %.val420 = load i64, ptr %90, align 16, !tbaa !50
-  %91 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE37TraverseHLSLAttributedResourceTypeLocENS_29HLSLAttributedResourceTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val420, ptr %.tr435532)
+  %90 = getelementptr i8, ptr %.tr435532, i64 32
+  %.val421 = load i64, ptr %90, align 16, !tbaa !50
+  %91 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE37TraverseHLSLAttributedResourceTypeLocENS_29HLSLAttributedResourceTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val421, ptr %.tr436533)
   br label %.loopexit
 
 92:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %93 = getelementptr i8, ptr %.tr434531, i64 24
-  %.val419 = load i64, ptr %93, align 8, !tbaa !50
-  %94 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE29TraverseMacroQualifiedTypeLocENS_21MacroQualifiedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val419, ptr %.tr435532)
+  %93 = getelementptr i8, ptr %.tr435532, i64 24
+  %.val420 = load i64, ptr %93, align 8, !tbaa !50
+  %94 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE29TraverseMacroQualifiedTypeLocENS_21MacroQualifiedTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val420, ptr %.tr436533)
   br label %.loopexit
 
 95:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %96 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE29TraverseConstantMatrixTypeLocENS_21ConstantMatrixTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr434531, ptr %.tr435532)
+  %96 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE29TraverseConstantMatrixTypeLocENS_21ConstantMatrixTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532, ptr %.tr436533)
   br label %.loopexit
 
 97:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %98 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE35TraverseDependentSizedMatrixTypeLocENS_27DependentSizedMatrixTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr434531, ptr %.tr435532)
+  %98 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE35TraverseDependentSizedMatrixTypeLocENS_27DependentSizedMatrixTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532, ptr %.tr436533)
   br label %.loopexit
 
 99:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %100 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE28TraverseMemberPointerTypeLocENS_20MemberPointerTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr434531, ptr %.tr435532)
+  %100 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE28TraverseMemberPointerTypeLocENS_20MemberPointerTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532, ptr %.tr436533)
   br label %.loopexit
 
 101:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %102 = getelementptr i8, ptr %.tr434531, i64 32
-  %.val418 = load i64, ptr %102, align 16, !tbaa !50
-  %103 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE32TraverseObjCObjectPointerTypeLocENS_24ObjCObjectPointerTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val418, ptr %.tr435532)
+  %102 = getelementptr i8, ptr %.tr435532, i64 32
+  %.val419 = load i64, ptr %102, align 16, !tbaa !50
+  %103 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE32TraverseObjCObjectPointerTypeLocENS_24ObjCObjectPointerTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val419, ptr %.tr436533)
   br label %.loopexit
 
 104:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %105 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE25TraverseObjCObjectTypeLocENS_17ObjCObjectTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr434531, ptr %.tr435532)
+  %105 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE25TraverseObjCObjectTypeLocENS_17ObjCObjectTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532, ptr %.tr436533)
   br label %.loopexit
 
 106:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %107 = getelementptr i8, ptr %.tr434531, i64 32
-  %.val417 = load i64, ptr %107, align 16, !tbaa !50
-  %108 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE28TraversePackExpansionTypeLocENS_20PackExpansionTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val417, ptr %.tr435532)
+  %107 = getelementptr i8, ptr %.tr435532, i64 32
+  %.val418 = load i64, ptr %107, align 16, !tbaa !50
+  %108 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE28TraversePackExpansionTypeLocENS_20PackExpansionTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val418, ptr %.tr436533)
   br label %.loopexit
 
 109:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %110 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE27TraversePackIndexingTypeLocENS_19PackIndexingTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr434531)
+  %110 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE27TraversePackIndexingTypeLocENS_19PackIndexingTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532)
   br label %.loopexit
 
 111:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %112 = getelementptr i8, ptr %.tr434531, i64 32
-  %.val416 = load i64, ptr %112, align 16, !tbaa !50
-  %113 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE20TraverseParenTypeLocENS_12ParenTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val416, ptr %.tr435532)
+  %112 = getelementptr i8, ptr %.tr435532, i64 32
+  %.val417 = load i64, ptr %112, align 16, !tbaa !50
+  %113 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE20TraverseParenTypeLocENS_12ParenTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val417, ptr %.tr436533)
   br label %.loopexit
 
 114:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %115 = getelementptr i8, ptr %.tr434531, i64 32
-  %.val415 = load i64, ptr %115, align 16, !tbaa !50
-  %116 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE19TraversePipeTypeLocENS_11PipeTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val415, ptr %.tr435532)
+  %115 = getelementptr i8, ptr %.tr435532, i64 32
+  %.val416 = load i64, ptr %115, align 16, !tbaa !50
+  %116 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE19TraversePipeTypeLocENS_11PipeTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val416, ptr %.tr436533)
   br label %.loopexit
 
 117:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %118 = getelementptr i8, ptr %.tr434531, i64 32
-  %.val414 = load i64, ptr %118, align 16, !tbaa !50
-  %119 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE22TraversePointerTypeLocENS_14PointerTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val414, ptr %.tr435532)
+  %118 = getelementptr i8, ptr %.tr435532, i64 32
+  %.val415 = load i64, ptr %118, align 16, !tbaa !50
+  %119 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE22TraversePointerTypeLocENS_14PointerTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val415, ptr %.tr436533)
   br label %.loopexit
 
 120:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %121 = getelementptr i8, ptr %.tr434531, i64 32
-  %.val413 = load i64, ptr %121, align 16, !tbaa !50
-  %122 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE30TraverseLValueReferenceTypeLocENS_22LValueReferenceTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val413, ptr %.tr435532)
+  %121 = getelementptr i8, ptr %.tr435532, i64 32
+  %.val414 = load i64, ptr %121, align 16, !tbaa !50
+  %122 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE30TraverseLValueReferenceTypeLocENS_22LValueReferenceTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val414, ptr %.tr436533)
   br label %.loopexit
 
 123:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %124 = getelementptr i8, ptr %.tr434531, i64 32
-  %.val412 = load i64, ptr %124, align 16, !tbaa !50
-  %125 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE30TraverseRValueReferenceTypeLocENS_22RValueReferenceTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val412, ptr %.tr435532)
+  %124 = getelementptr i8, ptr %.tr435532, i64 32
+  %.val413 = load i64, ptr %124, align 16, !tbaa !50
+  %125 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE30TraverseRValueReferenceTypeLocENS_22RValueReferenceTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val413, ptr %.tr436533)
   br label %.loopexit
 
 126:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @_ZNK5clang29SubstTemplateTypeParmPackType15getArgumentPackEv(ptr dead_on_unwind nonnull writable sret(%"class.clang::TemplateArgument") align 8 %4, ptr noundef nonnull align 16 dereferenceable(48) %.tr434531) #24
+  call void @_ZNK5clang29SubstTemplateTypeParmPackType15getArgumentPackEv(ptr dead_on_unwind nonnull writable sret(%"class.clang::TemplateArgument") align 8 %4, ptr noundef nonnull align 16 dereferenceable(48) %.tr435532) #24
   %127 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE24TraverseTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 128:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %129 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE36TraverseSubstTemplateTypeParmTypeLocENS_28SubstTemplateTypeParmTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr434531)
+  %129 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE36TraverseSubstTemplateTypeParmTypeLocENS_28SubstTemplateTypeParmTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532)
   br label %.loopexit
 
 130:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %131 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE37TraverseTemplateSpecializationTypeLocENS_29TemplateSpecializationTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr434531, ptr %.tr435532)
+  %131 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE37TraverseTemplateSpecializationTypeLocENS_29TemplateSpecializationTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532, ptr %.tr436533)
   br label %.loopexit
 
 132:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %133 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE25TraverseTypeOfExprTypeLocENS_17TypeOfExprTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr434531)
+  %133 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE25TraverseTypeOfExprTypeLocENS_17TypeOfExprTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr nonnull %.tr435532)
   br label %.loopexit
 
 134:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %135 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE21TraverseTypeOfTypeLocENS_13TypeOfTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %.tr435532)
+  %135 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE21TraverseTypeOfTypeLocENS_13TypeOfTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %.tr436533)
   br label %.loopexit
 
 136:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %137 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE29TraverseUnaryTransformTypeLocENS_21UnaryTransformTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %.tr435532)
+  %137 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE29TraverseUnaryTransformTypeLocENS_21UnaryTransformTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %.tr436533)
   br label %.loopexit
 
 138:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %139 = getelementptr i8, ptr %.tr434531, i64 32
-  %.val411 = load i64, ptr %139, align 16, !tbaa !50
-  %140 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE21TraverseVectorTypeLocENS_13VectorTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val411)
+  %139 = getelementptr i8, ptr %.tr435532, i64 32
+  %.val412 = load i64, ptr %139, align 16, !tbaa !50
+  %140 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE21TraverseVectorTypeLocENS_13VectorTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val412)
   br label %.loopexit
 
 141:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %142 = getelementptr i8, ptr %.tr434531, i64 32
+  %142 = getelementptr i8, ptr %.tr435532, i64 32
   %.val = load i64, ptr %142, align 16, !tbaa !50
   %143 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE24TraverseExtVectorTypeLocENS_16ExtVectorTypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.val)
   br label %.loopexit
@@ -89848,7 +89848,7 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor16dataTraverseNod
 
 .lr.ph.i.i.preheader:                             ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread
   %926 = load ptr, ptr %26, align 8, !tbaa !764
-  %.012.i.i = getelementptr inbounds i8, ptr %926, i64 %924
+  %.012.i.i = getelementptr inbounds nuw i8, ptr %926, i64 %924
   %927 = getelementptr inbounds nuw i8, ptr %926, i64 %.idx
   br label %.lr.ph.i.i
 
@@ -120742,8 +120742,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12a
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.418.0..sroa_idx, i8 0, i64 16, i1 false)
   store ptr %.sroa.04.0.i, ptr %5, align 8
-  %.not27 = icmp eq ptr %.sroa.04.0.i, %.sroa.65.0.i
-  br i1 %.not27, label %.sink.split, label %.lr.ph
+  %.not29 = icmp eq ptr %.sroa.04.0.i, %.sroa.65.0.i
+  br i1 %.not29, label %.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -124953,18 +124953,18 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPN
   %156 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %.lr.ph288
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit333.thread: ; preds = %.lr.ph288, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit333
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit350.thread: ; preds = %.lr.ph288, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit350
   %157 = getelementptr inbounds nuw i8, ptr %.0100286, i64 8
   %.not107 = icmp eq ptr %157, %155
   br i1 %.not107, label %._crit_edge289, label %.lr.ph288
 
-.lr.ph288:                                        ; preds = %.lr.ph288.preheader, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit333.thread
-  %.0100286 = phi ptr [ %157, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit333.thread ], [ %154, %.lr.ph288.preheader ]
+.lr.ph288:                                        ; preds = %.lr.ph288.preheader, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit350.thread
+  %.0100286 = phi ptr [ %157, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit350.thread ], [ %154, %.lr.ph288.preheader ]
   %158 = load ptr, ptr %.0100286, align 8, !tbaa !1095
-  %.not.i332 = icmp eq ptr %158, null
-  br i1 %.not.i332, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit333.thread, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit333
+  %.not.i349 = icmp eq ptr %158, null
+  br i1 %.not.i349, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit350.thread, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit350
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit333: ; preds = %.lr.ph288
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit350: ; preds = %.lr.ph288
   %159 = load i8, ptr %136, align 8, !tbaa !662, !range !506, !noundef !507
   %160 = trunc nuw i8 %159 to i1
   %161 = load i8, ptr %137, align 2, !range !506
@@ -124980,9 +124980,9 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPN
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %164 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS8_14PointerIntPairIS7_Lj1EbNS8_21PointerLikeTypeTraitsIS7_EENS8_18PointerIntPairInfoIS7_Lj1ESC_EEEEEE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef %158, ptr noundef null)
   store i8 %159, ptr %136, align 8, !tbaa !662
-  br i1 %164, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit333.thread, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread216
+  br i1 %164, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit350.thread, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread216
 
-._crit_edge289:                                   ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit333.thread
+._crit_edge289:                                   ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit350.thread
   %.pre314 = load i32, ptr %25, align 4, !tbaa !1694
   %165 = zext i32 %.pre314 to i64
   %.idx302 = shl nuw nsw i64 %165, 3
@@ -125001,18 +125001,18 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPN
   %174 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %.lr.ph293
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit336.thread: ; preds = %.lr.ph293, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit336
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit353.thread: ; preds = %.lr.ph293, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit353
   %175 = getelementptr inbounds nuw i8, ptr %.083291, i64 8
   %.not108 = icmp eq ptr %175, %173
   br i1 %.not108, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread216, label %.lr.ph293
 
-.lr.ph293:                                        ; preds = %.lr.ph293.preheader, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit336.thread
-  %.083291 = phi ptr [ %175, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit336.thread ], [ %172, %.lr.ph293.preheader ]
+.lr.ph293:                                        ; preds = %.lr.ph293.preheader, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit353.thread
+  %.083291 = phi ptr [ %175, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit353.thread ], [ %172, %.lr.ph293.preheader ]
   %176 = load ptr, ptr %.083291, align 8, !tbaa !1095
-  %.not.i334 = icmp eq ptr %176, null
-  br i1 %.not.i334, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit336.thread, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit336
+  %.not.i351 = icmp eq ptr %176, null
+  br i1 %.not.i351, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit353.thread, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit353
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit336: ; preds = %.lr.ph293
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit353: ; preds = %.lr.ph293
   %177 = load i8, ptr %136, align 8, !tbaa !662, !range !506, !noundef !507
   %178 = trunc nuw i8 %177 to i1
   %179 = load i8, ptr %137, align 2, !range !506
@@ -125028,10 +125028,10 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPN
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %182 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS8_14PointerIntPairIS7_Lj1EbNS8_21PointerLikeTypeTraitsIS7_EENS8_18PointerIntPairInfoIS7_Lj1ESC_EEEEEE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef %176, ptr noundef null)
   store i8 %177, ptr %136, align 8, !tbaa !662
-  br i1 %182, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit336.thread, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread216
+  br i1 %182, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit353.thread, label %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread216
 
-_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread216: ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit164, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit134, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit141, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit148, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit155, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit333, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit336.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit336, %127, %._crit_edge284, %._crit_edge289, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE25VisitOMPClauseWithPreInitEPNS_20OMPClauseWithPreInitE.exit, %._crit_edge279, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit, %20, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
-  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit ], [ false, %20 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ true, %._crit_edge279 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE25VisitOMPClauseWithPreInitEPNS_20OMPClauseWithPreInitE.exit ], [ true, %._crit_edge289 ], [ true, %._crit_edge284 ], [ true, %127 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit336 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit336.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit333 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit155 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit148 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit141 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit134 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit164 ]
+_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread216: ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit164, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit134, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit141, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit148, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit155, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit350, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit353.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit353, %127, %._crit_edge284, %._crit_edge289, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE25VisitOMPClauseWithPreInitEPNS_20OMPClauseWithPreInitE.exit, %._crit_edge279, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit, %20, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
+  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit ], [ false, %20 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit ], [ true, %._crit_edge279 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE25VisitOMPClauseWithPreInitEPNS_20OMPClauseWithPreInitE.exit ], [ true, %._crit_edge289 ], [ true, %._crit_edge284 ], [ true, %127 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit353 ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit353.thread ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit350 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit155 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit148 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit141 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit134 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit164 ]
   ret i1 %.0
 }
 
@@ -130340,8 +130340,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor30TraverseConstru
 
 168:                                              ; preds = %.loopexit
   %169 = and i32 %163, 2048
-  %.not.i.i288 = icmp eq i32 %169, 0
-  br i1 %.not.i.i288, label %170, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i
+  %.not.i.i307 = icmp eq i32 %169, 0
+  br i1 %.not.i.i307, label %170, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i
 
 170:                                              ; preds = %168
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -130443,9 +130443,9 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread: ; preds = %207, %201, %_ZNK5cl
   %223 = load ptr, ptr %222, align 8
   %224 = call noundef ptr %223(ptr noundef nonnull align 8 dereferenceable(168) %1) #24
   %.not.i = icmp eq ptr %224, null
-  br i1 %.not.i, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit289.thread, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit289
+  br i1 %.not.i, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit308.thread, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit308
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit289: ; preds = %220
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit308: ; preds = %220
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %226 = load i8, ptr %225, align 8, !tbaa !662, !range !506, !noundef !507
   %227 = trunc nuw i8 %226 to i1
@@ -130464,16 +130464,16 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPN
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %233 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS8_14PointerIntPairIS7_Lj1EbNS8_21PointerLikeTypeTraitsIS7_EENS8_18PointerIntPairInfoIS7_Lj1ESC_EEEEEE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef %224, ptr noundef null)
   store i8 %226, ptr %225, align 8, !tbaa !662
-  br i1 %233, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit289.thread, label %.critedge125
+  br i1 %233, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit308.thread, label %.critedge125
 
-_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit289.thread: ; preds = %220, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit289
+_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit308.thread: ; preds = %220, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit308
   %234 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %235 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %234) #24
   %.not241263 = icmp eq ptr %235, null
   br i1 %.not241263, label %.critedge125, label %.lr.ph265
 
-.lr.ph265:                                        ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit289.thread, %.critedge134
-  %.sroa.0.0264 = phi ptr [ %245, %.critedge134 ], [ %235, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit289.thread ]
+.lr.ph265:                                        ; preds = %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit308.thread, %.critedge134
+  %.sroa.0.0264 = phi ptr [ %245, %.critedge134 ], [ %235, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit308.thread ]
   %236 = getelementptr inbounds nuw i8, ptr %.sroa.0.0264, i64 28
   %237 = load i32, ptr %236, align 4
   %238 = and i32 %237, 127
@@ -130493,8 +130493,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPN
   %.not241 = icmp eq i64 %244, 0
   br i1 %.not241, label %.critedge125, label %.lr.ph265
 
-.critedge125:                                     ; preds = %.lr.ph259, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor30TraverseConstructorInitializerEPNS_18CXXCtorInitializerE.exit, %241, %.critedge134, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit289.thread, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit, %209, %78, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor30TraverseConstructorInitializerEPNS_18CXXCtorInitializerE.exit.thread220, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit146, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit289, %36, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
-  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit ], [ false, %36 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit289 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit146 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor30TraverseConstructorInitializerEPNS_18CXXCtorInitializerE.exit.thread220 ], [ true, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread ], [ false, %78 ], [ true, %209 ], [ true, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit289.thread ], [ true, %.critedge134 ], [ false, %241 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor30TraverseConstructorInitializerEPNS_18CXXCtorInitializerE.exit ], [ false, %.lr.ph259 ]
+.critedge125:                                     ; preds = %.lr.ph259, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor30TraverseConstructorInitializerEPNS_18CXXCtorInitializerE.exit, %241, %.critedge134, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit308.thread, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit, %209, %78, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor30TraverseConstructorInitializerEPNS_18CXXCtorInitializerE.exit.thread220, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit146, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit308, %36, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
+  %.0 = phi i1 [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit ], [ false, %36 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit308 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit146 ], [ false, %_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor30TraverseConstructorInitializerEPNS_18CXXCtorInitializerE.exit.thread220 ], [ true, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread ], [ false, %78 ], [ true, %209 ], [ true, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit ], [ true, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit308.thread ], [ true, %.critedge134 ], [ false, %241 ], [ false, %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor30TraverseConstructorInitializerEPNS_18CXXCtorInitializerE.exit ], [ false, %.lr.ph259 ]
   ret i1 %.0
 }
 
@@ -130817,26 +130817,26 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorINS_12ast_matchers8in
   br i1 %21, label %._crit_edge.thread.i.i.i.i, label %27
 
 ._crit_edge.thread.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i, %2
-  %.019.lcssa28.i.i.i.i = phi ptr [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ], [ %18, %2 ]
+  %.019.lcssa29.i.i.i.i = phi ptr [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ], [ %18, %2 ]
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !71
-  %24 = icmp eq ptr %.019.lcssa28.i.i.i.i, %23
+  %24 = icmp eq ptr %.019.lcssa29.i.i.i.i, %23
   br i1 %24, label %select.unfold.i.i.i, label %25
 
 25:                                               ; preds = %._crit_edge.thread.i.i.i.i
-  %26 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i.i) #28
+  %26 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i.i) #28
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 32
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !919
   br label %27
 
 27:                                               ; preds = %25, %._crit_edge.i.i.i.i
   %28 = phi ptr [ %.pre.i.i.i, %25 ], [ %20, %._crit_edge.i.i.i.i ]
-  %.019.lcssa29.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i, %25 ], [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %.019.lcssa28.i.i.i.i = phi ptr [ %.019.lcssa29.i.i.i.i, %25 ], [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ]
   %29 = icmp ult ptr %28, %1
   br i1 %29, label %select.unfold.i.i.i, label %_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor20VisitTypedefNameDeclEPNS_15TypedefNameDeclE.exit
 
 select.unfold.i.i.i:                              ; preds = %27, %._crit_edge.thread.i.i.i.i
-  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa29.i.i.i.i, %27 ]
+  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa29.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa28.i.i.i.i, %27 ]
   %30 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %18
   br i1 %30, label %_ZNSt8_Rb_treeIPKN5clang15TypedefNameDeclES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i.i, label %31
 

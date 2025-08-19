@@ -54,7 +54,7 @@ define void @_ZN6Gluco212parseOptionsERiPPcb(ptr noundef nonnull align 4 capture
   br i1 %.not.i, label %14, label %.lr.ph.i, !llvm.loop !11
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %.lr.ph ]
+  %indvars.iv.i = phi i64 [ 1, %8 ], [ 0, %.lr.ph ]
   %11 = phi i8 [ %10, %8 ], [ 45, %.lr.ph ]
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i
   %13 = load i8, ptr %12, align 1, !tbaa !10

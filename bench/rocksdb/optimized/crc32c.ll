@@ -3009,7 +3009,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %1326 = load i64, ptr %1325, align 8, !tbaa !19
   %1327 = xor i64 %1324, %1326
   %1328 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1261446, i64 %1327)
-  %1329 = add i64 %.1271188, -1
+  %1329 = add nsw i64 %.1271188, -1
   %.not = icmp eq i64 %1329, 0
   br i1 %.not, label %1334, label %1330
 

@@ -1333,14 +1333,14 @@ _ZN3nix17DerivedPathOpaqueD2Ev.exit:              ; preds = %177, %_ZNKSt7__cxx1
   br label %_ZN3nix9StorePathD2Ev.exit
 
 _ZN3nix9StorePathD2Ev.exit:                       ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i27, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZN3nix17DerivedPathOpaqueD2Ev.exit
-  %.sink36 = phi ptr [ %11, %_ZN3nix17DerivedPathOpaqueD2Ev.exit ], [ %7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ], [ %7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i28 ], [ %10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i27 ]
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink36) #21
+  %.sink49 = phi ptr [ %11, %_ZN3nix17DerivedPathOpaqueD2Ev.exit ], [ %7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ], [ %7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i28 ], [ %10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i27 ]
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink49) #21
   ret void
 
 .body:                                            ; preds = %120, %170, %108, %23, %106
-  %.sink37 = phi ptr [ %7, %106 ], [ %7, %23 ], [ %7, %108 ], [ %10, %170 ], [ %10, %120 ]
+  %.sink50 = phi ptr [ %7, %106 ], [ %7, %23 ], [ %7, %108 ], [ %10, %170 ], [ %10, %120 ]
   %.pn10.pn = phi { ptr, i32 } [ %107, %106 ], [ %24, %23 ], [ %109, %108 ], [ %171, %170 ], [ %121, %120 ]
-  call void @_ZN3nix9StorePathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink37) #21
+  call void @_ZN3nix9StorePathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink50) #21
   resume { ptr, i32 } %.pn10.pn
 }
 
@@ -2183,7 +2183,7 @@ define void @_ZN3nix20parsePathWithOutputsB5cxx11ESt17basic_string_viewIcSt11cha
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %10, %.lr.ph.i.i
   %.033.i.i = phi i64 [ %1, %.lr.ph.i.i ], [ %13, %10 ]
   %.02132.i.i = phi ptr [ %2, %.lr.ph.i.i ], [ %11, %10 ]
-  %8 = tail call ptr @memchr(ptr noundef %.02132.i.i, i32 noundef 33, i64 noundef %.033.i.i) #21
+  %8 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %.02132.i.i, i32 noundef 33, i64 noundef %.033.i.i) #21
   %.not26.i.i = icmp eq ptr %8, null
   br i1 %.not26.i.i, label %.critedge, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
@@ -3890,9 +3890,9 @@ _ZNSt12_Vector_baseIN3nix11DerivedPathESaIS1_EE13_M_deallocateEPS1_m.exit: ; pre
   br label %57
 
 52:                                               ; preds = %.body, %.body.thread
-  %.sink42 = phi { ptr, i32 } [ %47, %.body ], [ %26, %.body.thread ]
+  %.sink47 = phi { ptr, i32 } [ %47, %.body ], [ %26, %.body.thread ]
   %.0.lpad-body38 = phi ptr [ %31, %.body ], [ %23, %.body.thread ]
-  %53 = extractvalue { ptr, i32 } %.sink42, 0
+  %53 = extractvalue { ptr, i32 } %.sink47, 0
   %54 = call ptr @__cxa_begin_catch(ptr %53) #21
   invoke void @_ZSt8_DestroyIPN3nix11DerivedPathES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %23, ptr noundef nonnull %.0.lpad-body38, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %57 unwind label %55

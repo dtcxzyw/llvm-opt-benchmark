@@ -986,9 +986,9 @@ define dso_local void @__clocksource_update_freq_scale(ptr noundef captures(none
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 36
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %61 = icmp eq i32 %.pre, 0
-  br i1 %61, label %.thread24, label %.thread.thread
+  br i1 %61, label %.thread32, label %.thread.thread
 
-.thread24:                                        ; preds = %.thread
+.thread32:                                        ; preds = %.thread
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 31250000, ptr %62, align 4
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1048,10 +1048,10 @@ define dso_local void @__clocksource_update_freq_scale(ptr noundef captures(none
   store i32 %89, ptr %80, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread24, %79, %..loopexit_crit_edge, %72
-  %95 = phi ptr [ %73, %72 ], [ %73, %..loopexit_crit_edge ], [ %73, %79 ], [ %63, %.thread24 ]
-  %96 = phi i32 [ %74, %72 ], [ %88, %..loopexit_crit_edge ], [ %74, %79 ], [ %64, %.thread24 ]
-  %97 = phi i32 [ %78, %72 ], [ %93, %..loopexit_crit_edge ], [ %78, %79 ], [ %68, %.thread24 ]
+.loopexit:                                        ; preds = %.thread32, %79, %..loopexit_crit_edge, %72
+  %95 = phi ptr [ %73, %72 ], [ %73, %..loopexit_crit_edge ], [ %73, %79 ], [ %63, %.thread32 ]
+  %96 = phi i32 [ %74, %72 ], [ %88, %..loopexit_crit_edge ], [ %74, %79 ], [ %64, %.thread32 ]
+  %97 = phi i32 [ %78, %72 ], [ %93, %..loopexit_crit_edge ], [ %78, %79 ], [ %68, %.thread32 ]
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %97, ptr %98, align 8
   %99 = xor i32 %96, -1
@@ -1263,9 +1263,9 @@ define internal fastcc void @clocksource_select_watchdog(i1 noundef zeroext %0) 
   %6 = phi ptr [ null, %4 ], [ %3, %1 ]
   %7 = load ptr, ptr @clocksource_list, align 8
   %8 = icmp eq ptr %7, @clocksource_list
-  br i1 %8, label %.loopexit5, label %.preheader6
+  br i1 %8, label %.loopexit5, label %.preheader11
 
-.preheader6:                                      ; preds = %5, %28
+.preheader11:                                     ; preds = %5, %28
   %9 = phi ptr [ %30, %28 ], [ %7, %5 ]
   %10 = phi ptr [ %29, %28 ], [ %6, %5 ]
   %11 = getelementptr i8, ptr %9, i64 -56
@@ -1278,7 +1278,7 @@ define internal fastcc void @clocksource_select_watchdog(i1 noundef zeroext %0) 
   %18 = select i1 %15, i1 true, i1 %17
   br i1 %18, label %28, label %19
 
-19:                                               ; preds = %.preheader6
+19:                                               ; preds = %.preheader11
   %20 = icmp eq ptr %10, null
   br i1 %20, label %27, label %21
 
@@ -1294,11 +1294,11 @@ define internal fastcc void @clocksource_select_watchdog(i1 noundef zeroext %0) 
   store ptr %11, ptr @watchdog, align 8
   br label %28
 
-28:                                               ; preds = %27, %21, %.preheader6
-  %29 = phi ptr [ %10, %21 ], [ %11, %27 ], [ %10, %.preheader6 ]
+28:                                               ; preds = %27, %21, %.preheader11
+  %29 = phi ptr [ %10, %21 ], [ %11, %27 ], [ %10, %.preheader11 ]
   %30 = load ptr, ptr %9, align 8
   %31 = icmp eq ptr %30, @clocksource_list
-  br i1 %31, label %.loopexit5, label %.preheader6, !llvm.loop !52
+  br i1 %31, label %.loopexit5, label %.preheader11, !llvm.loop !52
 
 .loopexit5:                                       ; preds = %28, %5
   %32 = phi ptr [ %6, %5 ], [ %29, %28 ]

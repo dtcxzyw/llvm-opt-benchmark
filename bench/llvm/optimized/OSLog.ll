@@ -117,11 +117,11 @@ define dso_local noundef zeroext i1 @_ZN5clang14analyze_os_log24computeOSLogBuff
   %42 = and i32 %41, 1
   %43 = zext nneg i32 %42 to i64
   %44 = getelementptr inbounds nuw ptr, ptr %40, i64 %43
-  %.sink23 = select i1 %switch, i64 -1, i64 -2
+  %.sink32 = select i1 %switch, i64 -1, i64 -2
   %.sink = select i1 %switch, i64 8, i64 16
   %.0.in.idx = select i1 %switch, i64 0, i64 8
   %.0.in = getelementptr inbounds nuw i8, ptr %44, i64 %.0.in.idx
-  %45 = add nsw i64 %.sink23, %34
+  %45 = add nsw i64 %.sink32, %34
   %46 = getelementptr inbounds nuw i8, ptr %31, i64 %.sink
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !15
   %47 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %.0) #11
@@ -935,13 +935,13 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   br label %._crit_edge.sink.split
 
 ._crit_edge.sink.split:                           ; preds = %116, %131, %123
-  %.sink93 = phi ptr [ %125, %123 ], [ %132, %131 ], [ %118, %116 ]
-  %.sink92 = phi i8 [ 1, %123 ], [ 2, %131 ], [ 5, %116 ]
+  %.sink95 = phi ptr [ %125, %123 ], [ %132, %131 ], [ %118, %116 ]
+  %.sink94 = phi i8 [ 1, %123 ], [ 2, %131 ], [ 5, %116 ]
   %.pre-phi.ph = phi i64 [ %124, %123 ], [ %130, %131 ], [ %117, %116 ]
   %.val60.ph = phi ptr [ %.val56, %123 ], [ %.val60.pre, %131 ], [ %.val54, %116 ]
-  %133 = getelementptr inbounds i8, ptr %.sink93, i64 -24
+  %133 = getelementptr inbounds i8, ptr %.sink95, i64 -24
   %134 = load i8, ptr %133, align 8, !tbaa !436
-  %135 = or i8 %134, %.sink92
+  %135 = or i8 %134, %.sink94
   store i8 %135, ptr %133, align 8, !tbaa !436
   br label %._crit_edge
 

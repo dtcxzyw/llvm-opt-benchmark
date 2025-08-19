@@ -242,10 +242,10 @@ define dso_local i32 @uv_spawn(ptr noundef %0, ptr noundef initializes((8, 20), 
   br i1 %30, label %.thread, label %.preheader115.preheader
 
 .preheader115.preheader:                          ; preds = %3, %26
-  %.079148 = phi ptr [ %29, %26 ], [ %10, %3 ]
+  %.079154 = phi ptr [ %29, %26 ], [ %10, %3 ]
   %31 = zext nneg i32 %spec.store.select to i64
   %32 = shl nuw nsw i64 %31, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.079148, i8 -1, i64 %32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.079154, i8 -1, i64 %32, i1 false)
   %33 = load i32, ptr %23, align 4
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %.lr.ph, label %._crit_edge
@@ -258,7 +258,7 @@ define dso_local i32 @uv_spawn(ptr noundef %0, ptr noundef initializes((8, 20), 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit113 ]
   %37 = load ptr, ptr %35, align 8
   %38 = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %37, i64 %indvars.iv
-  %39 = getelementptr inbounds nuw [2 x i32], ptr %.079148, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [2 x i32], ptr %.079154, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 65536, ptr %9, align 4
   %40 = load i32, ptr %38, align 8
@@ -377,7 +377,7 @@ uv__spawn_and_init_child.exit.thread:             ; preds = %._crit_edge
   br i1 %92, label %93, label %94
 
 93:                                               ; preds = %90
-  call fastcc void @uv__process_child_init(ptr noundef nonnull readonly %2, i32 noundef %spec.store.select, ptr noundef nonnull %.079148, i32 noundef %78)
+  call fastcc void @uv__process_child_init(ptr noundef nonnull readonly %2, i32 noundef %spec.store.select, ptr noundef nonnull %.079154, i32 noundef %78)
   unreachable
 
 94:                                               ; preds = %90
@@ -529,7 +529,7 @@ uv__spawn_and_init_child.exit:                    ; preds = %uv__spawn_and_init_
   %indvars.iv135 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next136, %uv__process_open_stream.exit.thread ]
   %153 = load ptr, ptr %150, align 8
   %154 = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %153, i64 %indvars.iv135
-  %155 = getelementptr inbounds nuw [2 x i32], ptr %.079148, i64 %indvars.iv135
+  %155 = getelementptr inbounds nuw [2 x i32], ptr %.079154, i64 %indvars.iv135
   %156 = load i32, ptr %154, align 8
   %157 = and i32 %156, 1
   %.not.i94 = icmp eq i32 %157, 0
@@ -604,7 +604,7 @@ uv__process_open_stream.exit.thread:              ; preds = %uv__process_open_st
   br i1 %187, label %151, label %._crit_edge125
 
 ._crit_edge125:                                   ; preds = %uv__process_open_stream.exit.thread, %147
-  %.not84 = icmp eq ptr %.079148, %10
+  %.not84 = icmp eq ptr %.079154, %10
   br i1 %.not84, label %.thread, label %.thread.sink.split
 
 .loopexit:                                        ; preds = %uv__process_close_stream.exit, %.preheader, %uv__process_init_stdio.exit.thread
@@ -628,7 +628,7 @@ uv__process_open_stream.exit.thread:              ; preds = %uv__process_open_st
   br i1 %.not89, label %198, label %208
 
 198:                                              ; preds = %193, %189
-  %199 = getelementptr inbounds nuw [2 x i32], ptr %.079148, i64 %indvars.iv143
+  %199 = getelementptr inbounds nuw [2 x i32], ptr %.079154, i64 %indvars.iv143
   %200 = load i32, ptr %199, align 4
   %.not90 = icmp eq i32 %200, -1
   br i1 %.not90, label %203, label %201
@@ -653,12 +653,12 @@ uv__process_open_stream.exit.thread:              ; preds = %uv__process_open_st
   br i1 %exitcond.not, label %209, label %189
 
 209:                                              ; preds = %208
-  %.not88 = icmp eq ptr %.079148, %10
+  %.not88 = icmp eq ptr %.079154, %10
   br i1 %.not88, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %209, %._crit_edge125
   %.077.ph = phi i32 [ %.0.i105, %._crit_edge125 ], [ %.078, %209 ]
-  call void @uv__free(ptr noundef nonnull %.079148) #12
+  call void @uv__free(ptr noundef nonnull %.079154) #12
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %26, %209, %._crit_edge125
@@ -1043,7 +1043,7 @@ define internal fastcc void @uv__process_child_init(ptr noundef readonly capture
 
 108:                                              ; preds = %.thread121.thread, %.thread131, %59
   %.2 = phi i32 [ %.1142, %59 ], [ %.3124129, %.thread131 ], [ %.3124129, %.thread121.thread ]
-  %109 = add nsw i32 %.2, 1
+  %109 = add nuw nsw i32 %.2, 1
   %110 = icmp slt i32 %109, %1
   br i1 %110, label %.lr.ph143, label %._crit_edge
 

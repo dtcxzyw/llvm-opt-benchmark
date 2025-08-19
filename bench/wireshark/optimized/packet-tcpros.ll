@@ -540,11 +540,11 @@ define internal fastcc i32 @dissect_ros_connection_header(ptr noundef %0, ptr no
   %23 = add i32 %3, 4
   %24 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %23)
   %25 = icmp sgt i32 %24, 4
-  br i1 %25, label %.lr.ph45, label %.thread
+  br i1 %25, label %.lr.ph48, label %.thread
 
-.lr.ph45:                                         ; preds = %.lr.ph, %57
+.lr.ph48:                                         ; preds = %.lr.ph, %57
   %26 = phi i32 [ %59, %57 ], [ %23, %.lr.ph ]
-  %.0343944 = phi i32 [ %54, %57 ], [ 4, %.lr.ph ]
+  %.0343947 = phi i32 [ %54, %57 ], [ 4, %.lr.ph ]
   %27 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %26)
   %28 = load i32, ptr @hf_tcpros_connection_header_field, align 4
   %29 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %28, ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef -2147483646)
@@ -560,7 +560,7 @@ define internal fastcc i32 @dissect_ros_connection_header(ptr noundef %0, ptr no
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %40, label %dissect_ros_connection_header_field.exit
 
-40:                                               ; preds = %.lr.ph45
+40:                                               ; preds = %.lr.ph48
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %41 = load i32, ptr @ett_tcpros, align 4
   %42 = call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %41)
@@ -578,9 +578,9 @@ define internal fastcc i32 @dissect_ros_connection_header(ptr noundef %0, ptr no
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_ros_connection_header_field.exit
 
-dissect_ros_connection_header_field.exit:         ; preds = %.lr.ph45, %40
+dissect_ros_connection_header_field.exit:         ; preds = %.lr.ph48, %40
   %53 = add i32 %27, 4
-  %54 = add i32 %53, %.0343944
+  %54 = add i32 %53, %.0343947
   %55 = icmp ne i32 %53, 0
   %56 = icmp slt i32 %54, %20
   %or.cond = and i1 %55, %56
@@ -592,7 +592,7 @@ dissect_ros_connection_header_field.exit:         ; preds = %.lr.ph45, %40
   %59 = add i32 %54, %3
   %60 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %59)
   %61 = icmp sgt i32 %60, 4
-  br i1 %61, label %.lr.ph45, label %.thread
+  br i1 %61, label %.lr.ph48, label %.thread
 
 .thread:                                          ; preds = %57, %dissect_ros_connection_header_field.exit, %.lr.ph, %4
   %.1 = phi i32 [ 4, %4 ], [ 4, %.lr.ph ], [ %54, %dissect_ros_connection_header_field.exit ], [ %54, %57 ]

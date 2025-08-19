@@ -8116,9 +8116,9 @@ define linkonce_odr dso_local void @_ZN12rcVectorBaseI11IncrementorL11rcAllocHin
 
 19:                                               ; preds = %11
   %20 = icmp sgt i64 %.pre, 0
-  br i1 %20, label %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE17allocate_and_copyEl.exit.thread, label %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE17allocate_and_copyEl.exit.thread7
+  br i1 %20, label %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE17allocate_and_copyEl.exit.thread, label %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE17allocate_and_copyEl.exit.thread8
 
-_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE17allocate_and_copyEl.exit.thread7: ; preds = %19
+_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE17allocate_and_copyEl.exit.thread8: ; preds = %19
   %21 = load i32, ptr @_ZN11Incrementor6copiesE, align 4
   %22 = add nsw i32 %21, 1
   store i32 %22, ptr @_ZN11Incrementor6copiesE, align 4
@@ -8153,7 +8153,7 @@ _ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE17allocate_and_copyEl.exit: ; pr
   store i32 %37, ptr @_ZN11Incrementor12destructionsE, align 4
   br label %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit
 
-_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit: ; preds = %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE17allocate_and_copyEl.exit.thread7, %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE17allocate_and_copyEl.exit, %.lr.ph.preheader.i
+_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit: ; preds = %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE17allocate_and_copyEl.exit.thread8, %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE17allocate_and_copyEl.exit, %.lr.ph.preheader.i
   %38 = add nsw i64 %.pre, 1
   store i64 %38, ptr %0, align 8
   store i64 %.0.i, ptr %4, align 8
@@ -8667,12 +8667,12 @@ _ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE17allocate_and_copyEl.exit: ; pr
 
 _ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE15construct_rangeEPS0_S3_RKS0_.exit33.sink.split: ; preds = %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE17allocate_and_copyEl.exit
   %.not27 = icmp eq ptr %2, null
-  %_ZN11Incrementor13constructionsE._ZN11Incrementor6copiesE51 = select i1 %.not27, ptr @_ZN11Incrementor13constructionsE, ptr @_ZN11Incrementor6copiesE
-  %_ZN11Incrementor13constructionsE.promoted.i35 = load i32, ptr %_ZN11Incrementor13constructionsE._ZN11Incrementor6copiesE51, align 4
+  %_ZN11Incrementor13constructionsE._ZN11Incrementor6copiesE59 = select i1 %.not27, ptr @_ZN11Incrementor13constructionsE, ptr @_ZN11Incrementor6copiesE
+  %_ZN11Incrementor13constructionsE.promoted.i35 = load i32, ptr %_ZN11Incrementor13constructionsE._ZN11Incrementor6copiesE59, align 4
   %gepdiff45 = sub nsw i64 %1, %44
   %46 = trunc i64 %gepdiff45 to i32
   %47 = add i32 %_ZN11Incrementor13constructionsE.promoted.i35, %46
-  store i32 %47, ptr %_ZN11Incrementor13constructionsE._ZN11Incrementor6copiesE51, align 4
+  store i32 %47, ptr %_ZN11Incrementor13constructionsE._ZN11Incrementor6copiesE59, align 4
   br label %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE15construct_rangeEPS0_S3_RKS0_.exit33
 
 _ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE15construct_rangeEPS0_S3_RKS0_.exit33: ; preds = %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE17allocate_and_copyEl.exit, %_ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE15construct_rangeEPS0_S3_RKS0_.exit33.sink.split

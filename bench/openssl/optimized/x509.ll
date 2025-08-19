@@ -1624,8 +1624,8 @@ define dso_local range(i32 0, 2) i32 @x509_main(i32 noundef %0, ptr noundef %1) 
   %513 = call ptr @X509_delete_ext(ptr noundef nonnull %.2658843, i32 noundef %.25591571.us) #8
   call void @X509_EXTENSION_free(ptr noundef %513) #8
   %.2559.us = add nsw i32 %.25591571.us, -1
-  %.not1712 = icmp eq i32 %.25591571.us, 0
-  br i1 %.not1712, label %._crit_edge1574, label %.lr.ph1573.split.us, !llvm.loop !19
+  %.not1745 = icmp eq i32 %.25591571.us, 0
+  br i1 %.not1745, label %._crit_edge1574, label %.lr.ph1573.split.us, !llvm.loop !19
 
 .lr.ph1573.split:                                 ; preds = %.lr.ph1573
   br i1 %502, label %.lr.ph1573.split.split.us, label %.lr.ph1573.split.split
@@ -1657,8 +1657,8 @@ define dso_local range(i32 0, 2) i32 @x509_main(i32 noundef %0, ptr noundef %1) 
   %526 = call i32 @OBJ_obj2nid(ptr noundef %525) #8
   %527 = call ptr @OBJ_nid2sn(i32 noundef %526) #8
   %.2559 = add nsw i32 %.25591571, -1
-  %.not1711 = icmp eq i32 %.25591571, 0
-  br i1 %.not1711, label %._crit_edge1574, label %.lr.ph1573.split.split, !llvm.loop !19
+  %.not1744 = icmp eq i32 %.25591571, 0
+  br i1 %.not1744, label %._crit_edge1574, label %.lr.ph1573.split.split, !llvm.loop !19
 
 ._crit_edge1574:                                  ; preds = %.lr.ph1573.split.split, %522, %.lr.ph1573.split.us, %506
   br i1 %315, label %528, label %537

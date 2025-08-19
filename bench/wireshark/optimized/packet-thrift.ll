@@ -1396,8 +1396,8 @@ thread-pre-split:                                 ; preds = %57, %48, %61, %44
   br i1 %81, label %.thread, label %83
 
 .thread:                                          ; preds = %76, %78
-  %.pre7679 = phi i32 [ %.pre76.pre, %78 ], [ %74, %76 ]
-  %82 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %68, i32 noundef %.pre7679, i32 noundef %8)
+  %.pre7683 = phi i32 [ %.pre76.pre, %78 ], [ %74, %76 ]
+  %82 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %68, i32 noundef %.pre7683, i32 noundef %8)
   %.pre75 = load i32, ptr %12, align 4
   br label %83
 
@@ -1760,8 +1760,8 @@ thrift_get_varint_enc.exit.thread113:             ; preds = %87
 109:                                              ; preds = %105, %106, %103
   %.099 = phi i32 [ %98, %103 ], [ %72, %106 ], [ %72, %105 ]
   %.1 = phi i32 [ %104, %103 ], [ %50, %106 ], [ %50, %105 ]
-  %.not120 = icmp eq i32 %.099, 0
-  br i1 %.not120, label %._crit_edge, label %.lr.ph
+  %.not130 = icmp eq i32 %.099, 0
+  br i1 %.not130, label %._crit_edge, label %.lr.ph
 
 110:                                              ; preds = %.lr.ph
   %111 = add nuw nsw i32 %.097116, 1
@@ -3106,13 +3106,13 @@ define internal i32 @dissect_thrift_transport(ptr noundef %0, ptr noundef %1, pt
 37:                                               ; preds = %35
   %38 = tail call signext i8 @tvb_get_int8(ptr noundef %0, i32 noundef 4)
   %39 = icmp sgt i8 %38, -1
-  br i1 %39, label %.critedge58, label %40
+  br i1 %39, label %.critedge62, label %40
 
 40:                                               ; preds = %37
   %41 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4)
   %42 = and i32 %41, -65288
   %43 = icmp eq i32 %42, -2147418112
-  br i1 %43, label %.critedge58, label %is_thrift_strict_version.exit.thread49
+  br i1 %43, label %.critedge62, label %is_thrift_strict_version.exit.thread49
 
 44:                                               ; preds = %16
   %45 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
@@ -3132,7 +3132,7 @@ is_thrift_strict_version.exit.sink.split:         ; preds = %is_thrift_strict_ve
   store i32 %.sink, ptr %50, align 8
   br label %.critedge
 
-.critedge58:                                      ; preds = %40, %37
+.critedge62:                                      ; preds = %40, %37
   %.sink.ph = phi i32 [ 3, %40 ], [ 1, %37 ]
   store i32 -2147362182, ptr %5, align 8
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3164,8 +3164,8 @@ is_thrift_strict_version.exit.sink.split:         ; preds = %is_thrift_strict_ve
   store i32 268435455, ptr %63, align 8
   br label %is_thrift_strict_version.exit.thread49
 
-is_thrift_strict_version.exit.thread49:           ; preds = %40, %35, %25, %is_thrift_strict_version.exit47, %.thread, %.critedge, %.critedge58, %12
-  %.0 = phi i32 [ 0, %12 ], [ -1, %.thread ], [ %57, %.critedge58 ], [ %61, %.critedge ], [ 0, %is_thrift_strict_version.exit47 ], [ 0, %40 ], [ 0, %35 ], [ -1, %25 ]
+is_thrift_strict_version.exit.thread49:           ; preds = %40, %35, %25, %is_thrift_strict_version.exit47, %.thread, %.critedge, %.critedge62, %12
+  %.0 = phi i32 [ 0, %12 ], [ -1, %.thread ], [ %57, %.critedge62 ], [ %61, %.critedge ], [ 0, %is_thrift_strict_version.exit47 ], [ 0, %40 ], [ 0, %35 ], [ -1, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -3876,9 +3876,9 @@ thrift_get_varint_enc.exit:                       ; preds = %52
   br label %100
 
 100:                                              ; preds = %76, %92
-  %.sink221 = phi i32 [ %54, %76 ], [ 2, %92 ]
+  %.sink238 = phi i32 [ %54, %76 ], [ 2, %92 ]
   %101 = load i32, ptr %3, align 4
-  %102 = add i32 %101, %.sink221
+  %102 = add i32 %101, %.sink238
   store i32 %102, ptr %3, align 4
   %.not193 = icmp eq ptr %2, null
   br i1 %.not193, label %223, label %112
@@ -4731,9 +4731,9 @@ dissect_thrift_compact_struct.exit:               ; preds = %dissect_thrift_comp
   br label %dissect_thrift_compact_struct.exit.thread
 
 .sink.split:                                      ; preds = %26, %44, %74, %92
-  %.sink110 = phi i32 [ 16, %92 ], [ 8, %74 ], [ 1, %44 ], [ 1, %26 ]
+  %.sink118 = phi i32 [ 16, %92 ], [ 8, %74 ], [ 1, %44 ], [ 1, %26 ]
   %300 = load i32, ptr %3, align 4
-  %301 = add i32 %300, %.sink110
+  %301 = add i32 %300, %.sink118
   store i32 %301, ptr %3, align 4
   br label %302
 
@@ -5114,12 +5114,12 @@ dissect_thrift_binary_struct.exit:                ; preds = %dissect_thrift_bina
 
 .sink.split:                                      ; preds = %95, %81, %67, %53, %39, %25, %11
   %hf_thrift_uuid.sink = phi ptr [ @hf_thrift_bool, %11 ], [ @hf_thrift_i8, %25 ], [ @hf_thrift_i16, %39 ], [ @hf_thrift_i32, %53 ], [ @hf_thrift_i64, %67 ], [ @hf_thrift_double, %81 ], [ @hf_thrift_uuid, %95 ]
-  %.sink123 = phi i32 [ 1, %11 ], [ 1, %25 ], [ 2, %39 ], [ 4, %53 ], [ 8, %67 ], [ 8, %81 ], [ 16, %95 ]
+  %.sink127 = phi i32 [ 1, %11 ], [ 1, %25 ], [ 2, %39 ], [ 4, %53 ], [ 8, %67 ], [ 8, %81 ], [ 16, %95 ]
   %200 = load i32, ptr %hf_thrift_uuid.sink, align 4
   %201 = load i32, ptr %3, align 4
-  %202 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %200, ptr noundef %0, i32 noundef %201, i32 noundef %.sink123, i32 noundef 0)
+  %202 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %200, ptr noundef %0, i32 noundef %201, i32 noundef %.sink127, i32 noundef 0)
   %203 = load i32, ptr %3, align 4
-  %204 = add i32 %203, %.sink123
+  %204 = add i32 %203, %.sink127
   store i32 %204, ptr %3, align 4
   br label %205
 
@@ -5209,10 +5209,10 @@ define internal fastcc i32 @dissect_thrift_string_as_preferred(ptr noundef %0, p
 
 .sink.split:                                      ; preds = %31, %33, %21, %37, %27, %26, %25, %24, %23
   %hf_thrift_string.sink = phi ptr [ @hf_thrift_string, %23 ], [ @hf_thrift_string, %24 ], [ @hf_thrift_string, %25 ], [ @hf_thrift_string, %26 ], [ @hf_thrift_string, %27 ], [ @hf_thrift_binary, %37 ], [ @hf_thrift_string, %21 ], [ @hf_thrift_string, %33 ], [ @hf_thrift_string, %31 ]
-  %.sink57 = phi i32 [ 8, %23 ], [ -2147483644, %24 ], [ 4, %25 ], [ 2, %26 ], [ 0, %27 ], [ 0, %37 ], [ -2147483640, %21 ], [ 2, %33 ], [ 2, %31 ]
+  %.sink58 = phi i32 [ 8, %23 ], [ -2147483644, %24 ], [ 4, %25 ], [ 2, %26 ], [ 0, %27 ], [ 0, %37 ], [ -2147483640, %21 ], [ 2, %33 ], [ 2, %31 ]
   %38 = load i32, ptr %hf_thrift_string.sink, align 4
   %39 = load i32, ptr %3, align 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %38, ptr noundef %0, i32 noundef %39, i32 noundef %5, i32 noundef %.sink57)
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %38, ptr noundef %0, i32 noundef %39, i32 noundef %5, i32 noundef %.sink58)
   br label %41
 
 41:                                               ; preds = %.sink.split, %20
@@ -5612,8 +5612,8 @@ thrift_get_varint_enc.exit.thread:                ; preds = %63, %66, %57
 
 97:                                               ; preds = %90, %95
   %.091 = phi i32 [ %91, %90 ], [ %55, %95 ]
-  %.not99 = icmp eq i32 %.091, 0
-  br i1 %.not99, label %._crit_edge, label %.lr.ph
+  %.not104 = icmp eq i32 %.091, 0
+  br i1 %.not104, label %._crit_edge, label %.lr.ph
 
 98:                                               ; preds = %.lr.ph
   %99 = add nuw nsw i32 %.09098, 1
@@ -5704,7 +5704,7 @@ define internal fastcc i32 @dissect_thrift_binary_linear(ptr noundef %0, ptr nou
   %10 = load i32, ptr @hf_thrift_type, align 4
   %11 = load i32, ptr @proto_thrift, align 4
   %12 = tail call i32 @p_get_proto_depth(ptr noundef %1, i32 noundef %11)
-  switch i32 %5, label %default.unreachable74 [
+  switch i32 %5, label %default.unreachable78 [
     i32 14, label %16
     i32 15, label %13
     i32 13, label %14
@@ -5717,7 +5717,7 @@ define internal fastcc i32 @dissect_thrift_binary_linear(ptr noundef %0, ptr nou
   %15 = load i32, ptr @hf_thrift_value_type, align 4
   br label %16
 
-default.unreachable74:                            ; preds = %6
+default.unreachable78:                            ; preds = %6
   unreachable
 
 16:                                               ; preds = %6, %13, %14
@@ -5799,8 +5799,8 @@ default.unreachable74:                            ; preds = %6
   br i1 %57, label %69, label %.preheader
 
 .preheader:                                       ; preds = %48
-  %.not75 = icmp eq i32 %56, 0
-  br i1 %.not75, label %._crit_edge, label %.lr.ph
+  %.not79 = icmp eq i32 %56, 0
+  br i1 %.not79, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   br i1 %42, label %.lr.ph.split.us, label %.lr.ph.split
@@ -6452,10 +6452,10 @@ thrift_get_varint_enc.exit252:                    ; preds = %71
   br label %229
 
 229:                                              ; preds = %193, %214, %170
-  %.sink260 = phi i32 [ %213, %193 ], [ %228, %214 ], [ %189, %170 ]
+  %.sink273 = phi i32 [ %213, %193 ], [ %228, %214 ], [ %189, %170 ]
   %.1221 = phi ptr [ %203, %193 ], [ %224, %214 ], [ %179, %170 ]
-  store i32 %.sink260, ptr %6, align 4
-  %230 = icmp eq i32 %.sink260, %.sink
+  store i32 %.sink273, ptr %6, align 4
+  %230 = icmp eq i32 %.sink273, %.sink
   br i1 %230, label %232, label %231
 
 231:                                              ; preds = %229

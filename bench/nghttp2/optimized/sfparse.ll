@@ -39,7 +39,7 @@ define hidden range(i32 -2, 1) i32 @sfparse_parser_param(ptr noundef captures(no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !3
   %6 = and i32 %5, 3
-  switch i32 %6, label %default.unreachable50 [
+  switch i32 %6, label %default.unreachable53 [
     i32 0, label %.preheader
     i32 1, label %parser_skip_inner_list.exit.thread
     i32 2, label %13
@@ -69,7 +69,7 @@ parser_skip_inner_list.exit.thread:               ; preds = %parser_skip_inner_l
   store i32 %11, ptr %4, align 8, !tbaa !3
   br label %13
 
-default.unreachable50:                            ; preds = %3
+default.unreachable53:                            ; preds = %3
   unreachable
 
 12:                                               ; preds = %3
@@ -502,7 +502,7 @@ define hidden range(i32 -2, 1) i32 @sfparse_parser_inner_list(ptr noundef captur
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = and i32 %4, 3
-  switch i32 %5, label %default.unreachable45 [
+  switch i32 %5, label %default.unreachable48 [
     i32 0, label %6
     i32 1, label %.preheader
     i32 3, label %parser_skip_params.exit.thread
@@ -535,7 +535,7 @@ parser_discard_sp.exit:                           ; preds = %.lr.ph.i, %10, %6
 
 .preheader:                                       ; preds = %2, %.preheader
   %12 = tail call i32 @sfparse_parser_param(ptr noundef nonnull %0, ptr noundef null, ptr noundef null)
-  switch i32 %12, label %default.unreachable45 [
+  switch i32 %12, label %default.unreachable48 [
     i32 0, label %.preheader
     i32 -2, label %parser_skip_params.exit.thread
     i32 -1, label %parser_skip_params.exit
@@ -552,7 +552,7 @@ parser_skip_params.exit.thread:                   ; preds = %.preheader, %2
   %15 = load i8, ptr %.val26, align 1, !tbaa !12
   switch i8 %15, label %parser_skip_params.exit [
     i8 32, label %.lr.ph.i33.preheader
-    i8 41, label %parser_discard_sp.exit36.thread47
+    i8 41, label %parser_discard_sp.exit36.thread50
   ]
 
 .lr.ph.i33thread-pre-split:                       ; preds = %.lr.ph.i33.preheader
@@ -567,7 +567,7 @@ parser_skip_params.exit.thread:                   ; preds = %.preheader, %2
   %.not.i35 = icmp eq ptr %17, %.val27
   br i1 %.not.i35, label %parser_skip_params.exit, label %.lr.ph.i33thread-pre-split, !llvm.loop !13
 
-default.unreachable45:                            ; preds = %.preheader, %2
+default.unreachable48:                            ; preds = %.preheader, %2
   unreachable
 
 18:                                               ; preds = %2
@@ -575,16 +575,16 @@ default.unreachable45:                            ; preds = %.preheader, %2
   unreachable
 
 parser_discard_sp.exit36thread-pre-split:         ; preds = %parser_discard_sp.exit
-  %.pr46 = load i8, ptr %.val28, align 1, !tbaa !12
+  %.pr49 = load i8, ptr %.val28, align 1, !tbaa !12
   br label %parser_discard_sp.exit36
 
 parser_discard_sp.exit36:                         ; preds = %.lr.ph.i33thread-pre-split, %parser_discard_sp.exit36thread-pre-split
-  %19 = phi i8 [ %.pr46, %parser_discard_sp.exit36thread-pre-split ], [ %.pr, %.lr.ph.i33thread-pre-split ]
+  %19 = phi i8 [ %.pr49, %parser_discard_sp.exit36thread-pre-split ], [ %.pr, %.lr.ph.i33thread-pre-split ]
   %20 = phi ptr [ %.val28, %parser_discard_sp.exit36thread-pre-split ], [ %17, %.lr.ph.i33thread-pre-split ]
   %21 = icmp eq i8 %19, 41
-  br i1 %21, label %parser_discard_sp.exit36.thread47, label %24
+  br i1 %21, label %parser_discard_sp.exit36.thread50, label %24
 
-parser_discard_sp.exit36.thread47:                ; preds = %14, %parser_discard_sp.exit36
+parser_discard_sp.exit36.thread50:                ; preds = %14, %parser_discard_sp.exit36
   %22 = phi ptr [ %20, %parser_discard_sp.exit36 ], [ %.val26, %14 ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store ptr %23, ptr %0, align 8, !tbaa !10
@@ -595,11 +595,11 @@ parser_discard_sp.exit36.thread47:                ; preds = %14, %parser_discard
   %.not24 = icmp eq i32 %25, 0
   br i1 %.not24, label %parser_skip_params.exit.sink.split, label %parser_skip_params.exit
 
-parser_skip_params.exit.sink.split:               ; preds = %24, %parser_discard_sp.exit36.thread47
-  %.sink51 = phi i32 [ -8, %parser_discard_sp.exit36.thread47 ], [ -4, %24 ]
-  %.0.ph = phi i32 [ -2, %parser_discard_sp.exit36.thread47 ], [ 0, %24 ]
+parser_skip_params.exit.sink.split:               ; preds = %24, %parser_discard_sp.exit36.thread50
+  %.sink54 = phi i32 [ -8, %parser_discard_sp.exit36.thread50 ], [ -4, %24 ]
+  %.0.ph = phi i32 [ -2, %parser_discard_sp.exit36.thread50 ], [ 0, %24 ]
   %26 = load i32, ptr %3, align 8, !tbaa !3
-  %27 = and i32 %26, %.sink51
+  %27 = and i32 %26, %.sink54
   %28 = or disjoint i32 %27, 1
   store i32 %28, ptr %3, align 8, !tbaa !3
   br label %parser_skip_params.exit
@@ -1765,9 +1765,9 @@ switch.lookup:                                    ; preds = %42
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %switch.lookup, %23
-  %.sink128 = phi i64 [ 8, %23 ], [ 16, %switch.lookup ]
+  %.sink131 = phi i64 [ 8, %23 ], [ 16, %switch.lookup ]
   %.sink = phi i64 [ %25, %23 ], [ %switch.load, %switch.lookup ]
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink128
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink131
   store i64 %.sink, ptr %46, align 8, !tbaa !12
   br label %.loopexit
 
@@ -1832,11 +1832,11 @@ define internal fastcc range(i32 -1, 1) i32 @parser_byteseq(ptr noundef captures
   unreachable
 
 7:                                                ; preds = %2
-  %.ptr52 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %.ptr56 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %8 = getelementptr i8, ptr %0, i64 8
   %.val35 = load ptr, ptr %8, align 8, !tbaa !11
-  store ptr %.ptr52, ptr %0, align 8, !tbaa !10
-  %.not42 = icmp eq ptr %.ptr52, %.val35
+  store ptr %.ptr56, ptr %0, align 8, !tbaa !10
+  %.not42 = icmp eq ptr %.ptr56, %.val35
   br i1 %.not42, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %22
@@ -1915,7 +1915,7 @@ define internal fastcc range(i32 -1, 1) i32 @parser_byteseq(ptr noundef captures
 10:                                               ; preds = %.lr.ph
   %gepdiff = add nuw i64 %storemerge43.idx, 3
   %11 = and i64 %gepdiff, 3
-  switch i64 %11, label %default.unreachable48 [
+  switch i64 %11, label %default.unreachable52 [
     i64 0, label %.loopexit
     i64 1, label %.loopexit
     i64 2, label %12
@@ -1923,29 +1923,29 @@ define internal fastcc range(i32 -1, 1) i32 @parser_byteseq(ptr noundef captures
   ]
 
 12:                                               ; preds = %10
-  %storemerge43.add51 = add nuw nsw i64 %storemerge43.idx, 1
-  %.ptr56 = getelementptr inbounds nuw i8, ptr %3, i64 %storemerge43.add51
-  store ptr %.ptr56, ptr %0, align 8, !tbaa !10
-  %.not36 = icmp eq ptr %.ptr56, %.val35
+  %storemerge43.add55 = add nuw nsw i64 %storemerge43.idx, 1
+  %.ptr60 = getelementptr inbounds nuw i8, ptr %3, i64 %storemerge43.add55
+  store ptr %.ptr60, ptr %0, align 8, !tbaa !10
+  %.not36 = icmp eq ptr %.ptr60, %.val35
   br i1 %.not36, label %.loopexit, label %13
 
 13:                                               ; preds = %12
-  %14 = load i8, ptr %.ptr56, align 1, !tbaa !12
+  %14 = load i8, ptr %.ptr60, align 1, !tbaa !12
   %15 = icmp eq i8 %14, 61
   br i1 %15, label %.sink.split, label %16
 
-default.unreachable48:                            ; preds = %10
+default.unreachable52:                            ; preds = %10
   unreachable
 
 .sink.split:                                      ; preds = %10, %13
   %.sink = phi i64 [ 2, %13 ], [ 1, %10 ]
-  %storemerge43.add50 = add nuw nsw i64 %storemerge43.idx, %.sink
-  %.ptr55 = getelementptr inbounds nuw i8, ptr %3, i64 %storemerge43.add50
-  store ptr %.ptr55, ptr %0, align 8, !tbaa !10
+  %storemerge43.add54 = add nuw nsw i64 %storemerge43.idx, %.sink
+  %.ptr59 = getelementptr inbounds nuw i8, ptr %3, i64 %storemerge43.add54
+  store ptr %.ptr59, ptr %0, align 8, !tbaa !10
   br label %16
 
 16:                                               ; preds = %.sink.split, %13
-  %.val.idx = phi i64 [ %storemerge43.add51, %13 ], [ %storemerge43.add50, %.sink.split ]
+  %.val.idx = phi i64 [ %storemerge43.add55, %13 ], [ %storemerge43.add54, %.sink.split ]
   %.val.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.val.idx
   %.not37 = icmp eq ptr %.val.ptr, %.val35
   br i1 %.not37, label %.loopexit, label %17
@@ -1962,9 +1962,9 @@ default.unreachable48:                            ; preds = %10
 
 22:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %storemerge43.add = add nuw nsw i64 %storemerge43.idx, 1
-  %.ptr53 = getelementptr inbounds nuw i8, ptr %3, i64 %storemerge43.add
-  store ptr %.ptr53, ptr %0, align 8, !tbaa !10
-  %.not = icmp eq ptr %.ptr53, %.val35
+  %.ptr57 = getelementptr inbounds nuw i8, ptr %3, i64 %storemerge43.add
+  store ptr %.ptr57, ptr %0, align 8, !tbaa !10
+  %.not = icmp eq ptr %.ptr57, %.val35
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
 23:                                               ; preds = %19, %17
@@ -1977,12 +1977,12 @@ default.unreachable48:                            ; preds = %10
   store i32 5, ptr %1, align 8, !tbaa !15
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %25, align 4, !tbaa !17
-  %gepdiff63 = add nsw i64 %.idx, -1
+  %gepdiff67 = add nsw i64 %.idx, -1
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %gepdiff63, ptr %27, align 8, !tbaa !12
+  store i64 %gepdiff67, ptr %27, align 8, !tbaa !12
   %28 = icmp eq i64 %.idx, 1
-  %29 = select i1 %28, ptr null, ptr %.ptr52
+  %29 = select i1 %28, ptr null, ptr %.ptr56
   store ptr %29, ptr %26, align 8, !tbaa !12
   %.pre = load ptr, ptr %0, align 8, !tbaa !10
   br label %30

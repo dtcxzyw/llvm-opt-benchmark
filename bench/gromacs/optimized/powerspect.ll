@@ -126,8 +126,8 @@ define void @_Z13powerspectavgPPPfiiiN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIc
   %48 = getelementptr inbounds nuw %struct.t_complex, ptr %22, i64 %indvars.iv.i47.us
   %.sroa.0.0.copyload.i48.us = load <2 x float>, ptr %48, align 4
   %.sroa.0.0.vec.extract.i.i49.us = extractelement <2 x float> %.sroa.0.0.copyload.i48.us, i64 0
-  %foldExtExtBinop89 = fmul <2 x float> %.sroa.0.0.copyload.i48.us, %.sroa.0.0.copyload.i48.us
-  %49 = extractelement <2 x float> %foldExtExtBinop89, i64 1
+  %foldExtExtBinop96 = fmul <2 x float> %.sroa.0.0.copyload.i48.us, %.sroa.0.0.copyload.i48.us
+  %49 = extractelement <2 x float> %foldExtExtBinop96, i64 1
   %50 = call noundef float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract.i.i49.us, float %.sroa.0.0.vec.extract.i.i49.us, float %49)
   %51 = fdiv float %50, %29
   %52 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv.i47.us

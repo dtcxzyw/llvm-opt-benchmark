@@ -281,14 +281,14 @@ define internal fastcc void @"_ZN18aws_smithy_runtime6client12orchestrator22invo
   %21 = alloca { { { i64, [3 x i64] }, ptr }, { { [356 x i64], { { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } } }, [138 x i64], ptr, [1 x i8], i8, i8, [5 x i8] } } }, align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 4176
   %23 = load i8, ptr %22, align 8, !range !4, !noundef !5
-  switch i8 %23, label %default.unreachable156 [
+  switch i8 %23, label %default.unreachable158 [
     i8 0, label %24
     i8 1, label %124
     i8 2, label %125
     i8 3, label %126
   ]
 
-default.unreachable156:                           ; preds = %3
+default.unreachable158:                           ; preds = %3
   unreachable
 
 24:                                               ; preds = %3
@@ -5382,8 +5382,8 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !749, !noalias !746
+  %.sroa.0.i.1.i.1.i.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx11, align 1, !alias.scope !749, !noalias !746
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i
 
 15:                                               ; preds = %6
@@ -5395,13 +5395,13 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !749, !noalias !746
+  %.sroa.0.i.1.i.1.i.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx10, align 1, !alias.scope !749, !noalias !746
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !749, !noalias !746
+  %.sroa.0.i.2.i.2.i.2..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx12, align 2, !alias.scope !749, !noalias !746
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i
 
 26:                                               ; preds = %6
@@ -6764,14 +6764,14 @@ define internal void @"_ZN108_$LT$ockam_vault_aws..aws_kms_client..AwsKmsClient$
   %.sroa.9 = alloca [2 x i64], align 8
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 6280
   %97 = load i8, ptr %96, align 8, !range !4, !noundef !5
-  switch i8 %97, label %default.unreachable34 [
+  switch i8 %97, label %default.unreachable51 [
     i8 0, label %.thread
     i8 1, label %103
     i8 2, label %104
     i8 3, label %105
   ]
 
-default.unreachable34:                            ; preds = %360, %344, %257, %105, %3
+default.unreachable51:                            ; preds = %360, %344, %257, %105, %3
   unreachable
 
 common.ret:                                       ; preds = %817, %818
@@ -6816,7 +6816,7 @@ common.ret:                                       ; preds = %817, %818
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %77)
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 6272
-  switch i8 %.pre, label %default.unreachable34 [
+  switch i8 %.pre, label %default.unreachable51 [
     i8 0, label %109
     i8 1, label %.invoke
     i8 2, label %254
@@ -7288,7 +7288,7 @@ common.ret:                                       ; preds = %817, %818
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1096.i.i)
   %261 = getelementptr inbounds nuw i8, ptr %1, i64 6264
   %262 = load i8, ptr %261, align 8, !range !4, !noalias !1047, !noundef !5
-  switch i8 %262, label %default.unreachable34 [
+  switch i8 %262, label %default.unreachable51 [
     i8 0, label %263
     i8 1, label %.invoke.i
     i8 2, label %341
@@ -7590,7 +7590,7 @@ common.ret:                                       ; preds = %817, %818
   call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !1047
   %346 = getelementptr inbounds nuw i8, ptr %1, i64 6256
   %347 = load i8, ptr %346, align 8, !range !4, !noalias !1107, !noundef !5
-  switch i8 %347, label %default.unreachable34 [
+  switch i8 %347, label %default.unreachable51 [
     i8 0, label %348
     i8 1, label %.invoke.i.i
     i8 2, label %357
@@ -7648,7 +7648,7 @@ common.ret:                                       ; preds = %817, %818
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !1107
   %362 = getelementptr inbounds nuw i8, ptr %1, i64 6249
   %363 = load i8, ptr %362, align 1, !range !4, !noalias !1116, !noundef !5
-  switch i8 %363, label %default.unreachable34 [
+  switch i8 %363, label %default.unreachable51 [
     i8 0, label %364
     i8 1, label %.invoke.i.i.i
     i8 2, label %387
@@ -9599,14 +9599,14 @@ define internal void @"_ZN108_$LT$ockam_vault_aws..aws_kms_client..AwsKmsClient$
   %115 = alloca { ptr, [2 x i64] }, align 8
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 5424
   %117 = load i8, ptr %116, align 8, !range !4, !noundef !5
-  switch i8 %117, label %default.unreachable49 [
+  switch i8 %117, label %default.unreachable70 [
     i8 0, label %.thread
     i8 1, label %125
     i8 2, label %126
     i8 3, label %127
   ]
 
-default.unreachable49:                            ; preds = %401, %385, %298, %127, %3
+default.unreachable70:                            ; preds = %401, %385, %298, %127, %3
   unreachable
 
 common.ret:                                       ; preds = %966, %967
@@ -9647,7 +9647,7 @@ common.ret:                                       ; preds = %966, %967
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %95)
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 5416
-  switch i8 %.pre, label %default.unreachable49 [
+  switch i8 %.pre, label %default.unreachable70 [
     i8 0, label %130
     i8 1, label %.invoke
     i8 2, label %295
@@ -10221,7 +10221,7 @@ common.ret:                                       ; preds = %966, %967
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.896.i.i)
   %302 = getelementptr inbounds nuw i8, ptr %1, i64 5408
   %303 = load i8, ptr %302, align 8, !range !4, !noalias !1450, !noundef !5
-  switch i8 %303, label %default.unreachable49 [
+  switch i8 %303, label %default.unreachable70 [
     i8 0, label %304
     i8 1, label %.invoke.i
     i8 2, label %382
@@ -10524,7 +10524,7 @@ common.ret:                                       ; preds = %966, %967
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !1450
   %387 = getelementptr inbounds nuw i8, ptr %1, i64 5400
   %388 = load i8, ptr %387, align 8, !range !4, !noalias !1511, !noundef !5
-  switch i8 %388, label %default.unreachable49 [
+  switch i8 %388, label %default.unreachable70 [
     i8 0, label %389
     i8 1, label %.invoke.i.i
     i8 2, label %398
@@ -10582,7 +10582,7 @@ common.ret:                                       ; preds = %966, %967
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !1511
   %403 = getelementptr inbounds nuw i8, ptr %1, i64 5393
   %404 = load i8, ptr %403, align 1, !range !4, !noalias !1520, !noundef !5
-  switch i8 %404, label %default.unreachable49 [
+  switch i8 %404, label %default.unreachable70 [
     i8 0, label %405
     i8 1, label %.invoke.i.i.i
     i8 2, label %428
@@ -12945,14 +12945,14 @@ define internal void @"_ZN108_$LT$ockam_vault_aws..aws_kms_client..AwsKmsClient$
   %61 = alloca { { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, i8, [7 x i8] }, align 8
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 5368
   %63 = load i8, ptr %62, align 8, !range !4, !noundef !5
-  switch i8 %63, label %default.unreachable159 [
+  switch i8 %63, label %default.unreachable167 [
     i8 0, label %67
     i8 1, label %89
     i8 2, label %90
     i8 3, label %64
   ]
 
-default.unreachable159:                           ; preds = %191, %175, %91, %3
+default.unreachable167:                           ; preds = %191, %175, %91, %3
   unreachable
 
 64:                                               ; preds = %3
@@ -13087,7 +13087,7 @@ common.ret:                                       ; preds = %317, %65
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10100.i)
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 5360
   %94 = load i8, ptr %93, align 8, !range !4, !noalias !1827, !noundef !5
-  switch i8 %94, label %default.unreachable159 [
+  switch i8 %94, label %default.unreachable167 [
     i8 0, label %95
     i8 1, label %.invoke
     i8 2, label %172
@@ -13387,7 +13387,7 @@ common.ret:                                       ; preds = %317, %65
   call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !1827
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 5352
   %178 = load i8, ptr %177, align 8, !range !4, !noalias !1888, !noundef !5
-  switch i8 %178, label %default.unreachable159 [
+  switch i8 %178, label %default.unreachable167 [
     i8 0, label %179
     i8 1, label %.invoke.i
     i8 2, label %188
@@ -13447,7 +13447,7 @@ common.ret:                                       ; preds = %317, %65
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !1888
   %193 = getelementptr inbounds nuw i8, ptr %1, i64 5345
   %194 = load i8, ptr %193, align 1, !range !4, !noalias !1897, !noundef !5
-  switch i8 %194, label %default.unreachable159 [
+  switch i8 %194, label %default.unreachable167 [
     i8 0, label %195
     i8 1, label %.invoke.i.i
     i8 2, label %218
@@ -14971,14 +14971,14 @@ define internal void @"_ZN108_$LT$ockam_vault_aws..aws_kms_client..AwsKmsClient$
   %.sroa.11 = alloca [48 x i8], align 8
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 5488
   %153 = load i8, ptr %152, align 8, !range !4, !noundef !5
-  switch i8 %153, label %default.unreachable41 [
+  switch i8 %153, label %default.unreachable68 [
     i8 0, label %.thread
     i8 1, label %161
     i8 2, label %162
     i8 3, label %163
   ]
 
-default.unreachable41:                            ; preds = %435, %419, %333, %163, %3
+default.unreachable68:                            ; preds = %435, %419, %333, %163, %3
   unreachable
 
 common.ret:                                       ; preds = %1211, %1212
@@ -15027,7 +15027,7 @@ common.ret:                                       ; preds = %1211, %1212
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11702.sroa.3.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13703.i)
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 5480
-  switch i8 %.pre, label %default.unreachable41 [
+  switch i8 %.pre, label %default.unreachable68 [
     i8 0, label %166
     i8 1, label %.invoke
     i8 2, label %330
@@ -15595,7 +15595,7 @@ common.ret:                                       ; preds = %1211, %1212
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.894.sroa.4.i.i)
   %337 = getelementptr inbounds nuw i8, ptr %1, i64 5473
   %338 = load i8, ptr %337, align 1, !range !4, !noalias !2106, !noundef !5
-  switch i8 %338, label %default.unreachable41 [
+  switch i8 %338, label %default.unreachable68 [
     i8 0, label %339
     i8 1, label %.invoke.i
     i8 2, label %416
@@ -15889,7 +15889,7 @@ common.ret:                                       ; preds = %1211, %1212
   call void @llvm.lifetime.start.p0(ptr nonnull %60), !noalias !2106
   %421 = getelementptr inbounds nuw i8, ptr %1, i64 4936
   %422 = load i8, ptr %421, align 8, !range !4, !noalias !2166, !noundef !5
-  switch i8 %422, label %default.unreachable41 [
+  switch i8 %422, label %default.unreachable68 [
     i8 0, label %423
     i8 1, label %.invoke.i.i
     i8 2, label %432
@@ -15947,7 +15947,7 @@ common.ret:                                       ; preds = %1211, %1212
   call void @llvm.lifetime.start.p0(ptr nonnull %55), !noalias !2166
   %437 = getelementptr inbounds nuw i8, ptr %1, i64 4928
   %438 = load i8, ptr %437, align 8, !range !4, !noalias !2175, !noundef !5
-  switch i8 %438, label %default.unreachable41 [
+  switch i8 %438, label %default.unreachable68 [
     i8 0, label %439
     i8 1, label %.invoke.i.i.i
     i8 2, label %462
@@ -19225,14 +19225,14 @@ define internal void @"_ZN108_$LT$ockam_vault_aws..aws_kms_client..AwsKmsClient$
   %.sroa.12 = alloca [47 x i8], align 1
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 5904
   %129 = load i8, ptr %128, align 8, !range !4, !noundef !5
-  switch i8 %129, label %default.unreachable50 [
+  switch i8 %129, label %default.unreachable74 [
     i8 0, label %.thread
     i8 1, label %141
     i8 2, label %142
     i8 3, label %143
   ]
 
-default.unreachable50:                            ; preds = %437, %421, %333, %143, %3
+default.unreachable74:                            ; preds = %437, %421, %333, %143, %3
   unreachable
 
 common.ret:                                       ; preds = %994, %995
@@ -19289,7 +19289,7 @@ common.ret:                                       ; preds = %994, %995
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11478.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %102)
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 5896
-  switch i8 %.pre, label %default.unreachable50 [
+  switch i8 %.pre, label %default.unreachable74 [
     i8 0, label %146
     i8 1, label %.invoke
     i8 2, label %330
@@ -19931,7 +19931,7 @@ common.ret:                                       ; preds = %994, %995
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.894.i.i)
   %337 = getelementptr inbounds nuw i8, ptr %1, i64 5888
   %338 = load i8, ptr %337, align 8, !range !4, !noalias !2656, !noundef !5
-  switch i8 %338, label %default.unreachable50 [
+  switch i8 %338, label %default.unreachable74 [
     i8 0, label %339
     i8 1, label %.invoke.i
     i8 2, label %418
@@ -20233,7 +20233,7 @@ common.ret:                                       ; preds = %994, %995
   call void @llvm.lifetime.start.p0(ptr nonnull %59), !noalias !2656
   %423 = getelementptr inbounds nuw i8, ptr %1, i64 5880
   %424 = load i8, ptr %423, align 8, !range !4, !noalias !2716, !noundef !5
-  switch i8 %424, label %default.unreachable50 [
+  switch i8 %424, label %default.unreachable74 [
     i8 0, label %425
     i8 1, label %.invoke.i.i
     i8 2, label %434
@@ -20291,7 +20291,7 @@ common.ret:                                       ; preds = %994, %995
   call void @llvm.lifetime.start.p0(ptr nonnull %54), !noalias !2716
   %439 = getelementptr inbounds nuw i8, ptr %1, i64 5873
   %440 = load i8, ptr %439, align 1, !range !4, !noalias !2725, !noundef !5
-  switch i8 %440, label %default.unreachable50 [
+  switch i8 %440, label %default.unreachable74 [
     i8 0, label %441
     i8 1, label %.invoke.i.i.i
     i8 2, label %464
@@ -21760,7 +21760,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %795 = load i64, ptr %15, align 8, !range !702, !noalias !2899, !noundef !5
   %trunc.i.i = trunc nuw i64 %795 to i1
   %796 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  br i1 %trunc.i.i, label %.thread757.i, label %797
+  br i1 %trunc.i.i, label %.thread781.i, label %797
 
 797:                                              ; preds = %.noexc326.i
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !2899
@@ -21768,7 +21768,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   invoke void @"_ZN5ecdsa3der116_$LT$impl$u20$core..convert..TryFrom$LT$ecdsa..der..Signature$LT$C$GT$$GT$$u20$for$u20$ecdsa..Signature$LT$C$GT$$GT$8try_from17h03e3b8e66cda4508E.llvm.17228757137531789492"(ptr noalias noundef nonnull sret({ i64, [8 x i64] }) align 8 captures(none) dereferenceable(72) %86, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %14)
           to label %801 unwind label %790, !noalias !2585
 
-.thread757.i:                                     ; preds = %.noexc326.i
+.thread781.i:                                     ; preds = %.noexc326.i
   %798 = load ptr, ptr %796, align 8, !noalias !2899, !align !6, !noundef !5
   %799 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %800 = load ptr, ptr %799, align 8, !noalias !2899
@@ -21791,9 +21791,9 @@ thread-pre-split:                                 ; preds = %801
   %.pre49 = load ptr, ptr %.phi.trans.insert48, align 8, !alias.scope !2903, !noalias !2906
   br label %804
 
-804:                                              ; preds = %thread-pre-split, %.thread757.i
-  %805 = phi ptr [ %.pre49, %thread-pre-split ], [ %800, %.thread757.i ]
-  %806 = phi ptr [ %.pr, %thread-pre-split ], [ %798, %.thread757.i ]
+804:                                              ; preds = %thread-pre-split, %.thread781.i
+  %805 = phi ptr [ %.pre49, %thread-pre-split ], [ %800, %.thread781.i ]
+  %806 = phi ptr [ %.pr, %thread-pre-split ], [ %798, %.thread781.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !2909
   store ptr %806, ptr %13, align 8, !noalias !2910
   %807 = getelementptr inbounds nuw i8, ptr %13, i64 8

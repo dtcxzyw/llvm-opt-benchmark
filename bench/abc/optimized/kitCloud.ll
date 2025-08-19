@@ -350,9 +350,9 @@ Vec_IntPush.exit43.sink.split:                    ; preds = %36
   %72 = shl nuw nsw i32 %68, 1
   %73 = zext nneg i32 %72 to i64
   %74 = shl nuw nsw i64 %73, 2
-  %.sink58 = select i1 %71, i64 64, i64 %74
+  %.sink61 = select i1 %71, i64 64, i64 %74
   %.sink = select i1 %71, i32 16, i32 %72
-  %75 = tail call ptr @realloc(ptr noundef nonnull %37, i64 noundef %.sink58) #9
+  %75 = tail call ptr @realloc(ptr noundef nonnull %37, i64 noundef %.sink61) #9
   store ptr %75, ptr %.phi.trans.insert.i38, align 8, !tbaa !24
   store i32 %.sink, ptr %2, align 8, !tbaa !23
   br label %Vec_IntPush.exit43

@@ -61,27 +61,27 @@ define void @jinit_color_deconverter(ptr noundef %0) local_unnamed_addr #0 {
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = load i32, ptr %25, align 8, !tbaa !48
   %.not144 = icmp eq i32 %26, 1
-  br i1 %.not144, label %40, label %.sink.split192
+  br i1 %.not144, label %40, label %.sink.split193
 
 27:                                               ; preds = %16, %16
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = load i32, ptr %28, align 8, !tbaa !48
   %.not143 = icmp eq i32 %29, 3
-  br i1 %.not143, label %40, label %.sink.split192
+  br i1 %.not143, label %40, label %.sink.split193
 
 30:                                               ; preds = %16, %16
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %32 = load i32, ptr %31, align 8, !tbaa !48
   %.not142 = icmp eq i32 %32, 4
-  br i1 %.not142, label %40, label %.sink.split192
+  br i1 %.not142, label %40, label %.sink.split193
 
 33:                                               ; preds = %16
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %35 = load i32, ptr %34, align 8, !tbaa !48
   %36 = icmp slt i32 %35, 1
-  br i1 %36, label %.sink.split192, label %40
+  br i1 %36, label %.sink.split193, label %40
 
-.sink.split192:                                   ; preds = %33, %30, %27, %24
+.sink.split193:                                   ; preds = %33, %30, %27, %24
   %37 = load ptr, ptr %0, align 8, !tbaa !33
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
   store i32 10, ptr %38, align 8, !tbaa !34
@@ -89,7 +89,7 @@ define void @jinit_color_deconverter(ptr noundef %0) local_unnamed_addr #0 {
   tail call void %39(ptr noundef nonnull %0) #4
   br label %40
 
-40:                                               ; preds = %.sink.split192, %33, %30, %27, %24
+40:                                               ; preds = %.sink.split193, %33, %30, %27, %24
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %42 = load i32, ptr %41, align 8, !tbaa !49
   switch i32 %42, label %241 [
@@ -1028,10 +1028,10 @@ define internal void @ycc_rgb_convert(ptr noundef readonly captures(none) %0, pt
   br label %.lr.ph.us92
 
 .lr.ph.us92:                                      ; preds = %.lr.ph.us92.preheader, %..loopexit70_crit_edge.us
-  %.in167 = phi i32 [ %234, %..loopexit70_crit_edge.us ], [ %4, %.lr.ph.us92.preheader ]
+  %.in174 = phi i32 [ %234, %..loopexit70_crit_edge.us ], [ %4, %.lr.ph.us92.preheader ]
   %.0.i4690.us = phi i32 [ %283, %..loopexit70_crit_edge.us ], [ %2, %.lr.ph.us92.preheader ]
   %.043.i4589.us = phi ptr [ %284, %..loopexit70_crit_edge.us ], [ %3, %.lr.ph.us92.preheader ]
-  %234 = add nsw i32 %.in167, -1
+  %234 = add nsw i32 %.in174, -1
   %235 = load ptr, ptr %1, align 8, !tbaa !67
   %236 = zext i32 %.0.i4690.us to i64
   %237 = getelementptr inbounds nuw ptr, ptr %235, i64 %236
@@ -1095,7 +1095,7 @@ define internal void @ycc_rgb_convert(ptr noundef readonly captures(none) %0, pt
 ..loopexit70_crit_edge.us:                        ; preds = %246
   %283 = add i32 %.0.i4690.us, 1
   %284 = getelementptr inbounds nuw i8, ptr %.043.i4589.us, i64 8
-  %285 = icmp samesign ugt i32 %.in167, 1
+  %285 = icmp samesign ugt i32 %.in174, 1
   br i1 %285, label %.lr.ph.us92, label %ycc_extrgb_convert_internal.exit, !llvm.loop !82
 
 286:                                              ; preds = %5, %5
@@ -1127,10 +1127,10 @@ define internal void @ycc_rgb_convert(ptr noundef readonly captures(none) %0, pt
   br label %.lr.ph.us86
 
 .lr.ph.us86:                                      ; preds = %.lr.ph.us86.preheader, %..loopexit72_crit_edge.us
-  %.in166 = phi i32 [ %304, %..loopexit72_crit_edge.us ], [ %4, %.lr.ph.us86.preheader ]
+  %.in173 = phi i32 [ %304, %..loopexit72_crit_edge.us ], [ %4, %.lr.ph.us86.preheader ]
   %.0.i5184.us = phi i32 [ %353, %..loopexit72_crit_edge.us ], [ %2, %.lr.ph.us86.preheader ]
   %.043.i5083.us = phi ptr [ %354, %..loopexit72_crit_edge.us ], [ %3, %.lr.ph.us86.preheader ]
-  %304 = add nsw i32 %.in166, -1
+  %304 = add nsw i32 %.in173, -1
   %305 = load ptr, ptr %1, align 8, !tbaa !67
   %306 = zext i32 %.0.i5184.us to i64
   %307 = getelementptr inbounds nuw ptr, ptr %305, i64 %306
@@ -1194,7 +1194,7 @@ define internal void @ycc_rgb_convert(ptr noundef readonly captures(none) %0, pt
 ..loopexit72_crit_edge.us:                        ; preds = %316
   %353 = add i32 %.0.i5184.us, 1
   %354 = getelementptr inbounds nuw i8, ptr %.043.i5083.us, i64 8
-  %355 = icmp samesign ugt i32 %.in166, 1
+  %355 = icmp samesign ugt i32 %.in173, 1
   br i1 %355, label %.lr.ph.us86, label %ycc_extrgb_convert_internal.exit, !llvm.loop !84
 
 356:                                              ; preds = %5, %5
@@ -1226,10 +1226,10 @@ define internal void @ycc_rgb_convert(ptr noundef readonly captures(none) %0, pt
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit74_crit_edge.us
-  %.in165 = phi i32 [ %374, %..loopexit74_crit_edge.us ], [ %4, %.lr.ph.us.preheader ]
+  %.in172 = phi i32 [ %374, %..loopexit74_crit_edge.us ], [ %4, %.lr.ph.us.preheader ]
   %.0.i5679.us = phi i32 [ %423, %..loopexit74_crit_edge.us ], [ %2, %.lr.ph.us.preheader ]
   %.043.i5578.us = phi ptr [ %424, %..loopexit74_crit_edge.us ], [ %3, %.lr.ph.us.preheader ]
-  %374 = add nsw i32 %.in165, -1
+  %374 = add nsw i32 %.in172, -1
   %375 = load ptr, ptr %1, align 8, !tbaa !67
   %376 = zext i32 %.0.i5679.us to i64
   %377 = getelementptr inbounds nuw ptr, ptr %375, i64 %376
@@ -1293,7 +1293,7 @@ define internal void @ycc_rgb_convert(ptr noundef readonly captures(none) %0, pt
 ..loopexit74_crit_edge.us:                        ; preds = %386
   %423 = add i32 %.0.i5679.us, 1
   %424 = getelementptr inbounds nuw i8, ptr %.043.i5578.us, i64 8
-  %425 = icmp samesign ugt i32 %.in165, 1
+  %425 = icmp samesign ugt i32 %.in172, 1
   br i1 %425, label %.lr.ph.us, label %ycc_extrgb_convert_internal.exit, !llvm.loop !86
 
 426:                                              ; preds = %5
@@ -1488,10 +1488,10 @@ define internal void @gray_rgb_convert(ptr noundef readonly captures(none) %0, p
   br label %.lr.ph.us110
 
 .lr.ph.us110:                                     ; preds = %.lr.ph.us110.preheader, %..loopexit64_crit_edge.us
-  %.in171 = phi i32 [ %12, %..loopexit64_crit_edge.us ], [ %4, %.lr.ph.us110.preheader ]
+  %.in178 = phi i32 [ %12, %..loopexit64_crit_edge.us ], [ %4, %.lr.ph.us110.preheader ]
   %.0.i108.us = phi i32 [ %24, %..loopexit64_crit_edge.us ], [ %2, %.lr.ph.us110.preheader ]
   %.015.i107.us = phi ptr [ %25, %..loopexit64_crit_edge.us ], [ %3, %.lr.ph.us110.preheader ]
-  %12 = add nsw i32 %.in171, -1
+  %12 = add nsw i32 %.in178, -1
   %13 = load ptr, ptr %1, align 8, !tbaa !67
   %14 = zext i32 %.0.i108.us to i64
   %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
@@ -1517,7 +1517,7 @@ define internal void @gray_rgb_convert(ptr noundef readonly captures(none) %0, p
 ..loopexit64_crit_edge.us:                        ; preds = %18
   %24 = add i32 %.0.i108.us, 1
   %25 = getelementptr inbounds nuw i8, ptr %.015.i107.us, i64 8
-  %26 = icmp samesign ugt i32 %.in171, 1
+  %26 = icmp samesign ugt i32 %.in178, 1
   br i1 %26, label %.lr.ph.us110, label %gray_extrgb_convert_internal.exit, !llvm.loop !90
 
 27:                                               ; preds = %5, %5
@@ -1525,18 +1525,18 @@ define internal void @gray_rgb_convert(ptr noundef readonly captures(none) %0, p
   %29 = load i32, ptr %28, align 8, !tbaa !68
   %30 = icmp slt i32 %4, 1
   %.not120 = icmp eq i32 %29, 0
-  %or.cond179 = select i1 %30, i1 true, i1 %.not120
-  br i1 %or.cond179, label %gray_extrgb_convert_internal.exit, label %.lr.ph.us104.preheader
+  %or.cond186 = select i1 %30, i1 true, i1 %.not120
+  br i1 %or.cond186, label %gray_extrgb_convert_internal.exit, label %.lr.ph.us104.preheader
 
 .lr.ph.us104.preheader:                           ; preds = %27
   %wide.trip.count155 = zext i32 %29 to i64
   br label %.lr.ph.us104
 
 .lr.ph.us104:                                     ; preds = %.lr.ph.us104.preheader, %..loopexit66_crit_edge.us
-  %.in170 = phi i32 [ %31, %..loopexit66_crit_edge.us ], [ %4, %.lr.ph.us104.preheader ]
+  %.in177 = phi i32 [ %31, %..loopexit66_crit_edge.us ], [ %4, %.lr.ph.us104.preheader ]
   %.0.i36102.us = phi i32 [ %44, %..loopexit66_crit_edge.us ], [ %2, %.lr.ph.us104.preheader ]
   %.016.i35101.us = phi ptr [ %45, %..loopexit66_crit_edge.us ], [ %3, %.lr.ph.us104.preheader ]
-  %31 = add nsw i32 %.in170, -1
+  %31 = add nsw i32 %.in177, -1
   %32 = load ptr, ptr %1, align 8, !tbaa !67
   %33 = zext i32 %.0.i36102.us to i64
   %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
@@ -1564,7 +1564,7 @@ define internal void @gray_rgb_convert(ptr noundef readonly captures(none) %0, p
 ..loopexit66_crit_edge.us:                        ; preds = %37
   %44 = add i32 %.0.i36102.us, 1
   %45 = getelementptr inbounds nuw i8, ptr %.016.i35101.us, i64 8
-  %46 = icmp samesign ugt i32 %.in170, 1
+  %46 = icmp samesign ugt i32 %.in177, 1
   br i1 %46, label %.lr.ph.us104, label %gray_extrgb_convert_internal.exit, !llvm.loop !92
 
 47:                                               ; preds = %5
@@ -1572,18 +1572,18 @@ define internal void @gray_rgb_convert(ptr noundef readonly captures(none) %0, p
   %49 = load i32, ptr %48, align 8, !tbaa !68
   %50 = icmp slt i32 %4, 1
   %.not119 = icmp eq i32 %49, 0
-  %or.cond180 = select i1 %50, i1 true, i1 %.not119
-  br i1 %or.cond180, label %gray_extrgb_convert_internal.exit, label %.lr.ph.us98.preheader
+  %or.cond187 = select i1 %50, i1 true, i1 %.not119
+  br i1 %or.cond187, label %gray_extrgb_convert_internal.exit, label %.lr.ph.us98.preheader
 
 .lr.ph.us98.preheader:                            ; preds = %47
   %wide.trip.count150 = zext i32 %49 to i64
   br label %.lr.ph.us98
 
 .lr.ph.us98:                                      ; preds = %.lr.ph.us98.preheader, %..loopexit68_crit_edge.us
-  %.in169 = phi i32 [ %51, %..loopexit68_crit_edge.us ], [ %4, %.lr.ph.us98.preheader ]
+  %.in176 = phi i32 [ %51, %..loopexit68_crit_edge.us ], [ %4, %.lr.ph.us98.preheader ]
   %.0.i4196.us = phi i32 [ %63, %..loopexit68_crit_edge.us ], [ %2, %.lr.ph.us98.preheader ]
   %.015.i4095.us = phi ptr [ %64, %..loopexit68_crit_edge.us ], [ %3, %.lr.ph.us98.preheader ]
-  %51 = add nsw i32 %.in169, -1
+  %51 = add nsw i32 %.in176, -1
   %52 = load ptr, ptr %1, align 8, !tbaa !67
   %53 = zext i32 %.0.i4196.us to i64
   %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
@@ -1609,7 +1609,7 @@ define internal void @gray_rgb_convert(ptr noundef readonly captures(none) %0, p
 ..loopexit68_crit_edge.us:                        ; preds = %57
   %63 = add i32 %.0.i4196.us, 1
   %64 = getelementptr inbounds nuw i8, ptr %.015.i4095.us, i64 8
-  %65 = icmp samesign ugt i32 %.in169, 1
+  %65 = icmp samesign ugt i32 %.in176, 1
   br i1 %65, label %.lr.ph.us98, label %gray_extrgb_convert_internal.exit, !llvm.loop !94
 
 66:                                               ; preds = %5, %5
@@ -1617,18 +1617,18 @@ define internal void @gray_rgb_convert(ptr noundef readonly captures(none) %0, p
   %68 = load i32, ptr %67, align 8, !tbaa !68
   %69 = icmp slt i32 %4, 1
   %.not118 = icmp eq i32 %68, 0
-  %or.cond181 = select i1 %69, i1 true, i1 %.not118
-  br i1 %or.cond181, label %gray_extrgb_convert_internal.exit, label %.lr.ph.us92.preheader
+  %or.cond188 = select i1 %69, i1 true, i1 %.not118
+  br i1 %or.cond188, label %gray_extrgb_convert_internal.exit, label %.lr.ph.us92.preheader
 
 .lr.ph.us92.preheader:                            ; preds = %66
   %wide.trip.count145 = zext i32 %68 to i64
   br label %.lr.ph.us92
 
 .lr.ph.us92:                                      ; preds = %.lr.ph.us92.preheader, %..loopexit70_crit_edge.us
-  %.in168 = phi i32 [ %70, %..loopexit70_crit_edge.us ], [ %4, %.lr.ph.us92.preheader ]
+  %.in175 = phi i32 [ %70, %..loopexit70_crit_edge.us ], [ %4, %.lr.ph.us92.preheader ]
   %.0.i4690.us = phi i32 [ %83, %..loopexit70_crit_edge.us ], [ %2, %.lr.ph.us92.preheader ]
   %.016.i4589.us = phi ptr [ %84, %..loopexit70_crit_edge.us ], [ %3, %.lr.ph.us92.preheader ]
-  %70 = add nsw i32 %.in168, -1
+  %70 = add nsw i32 %.in175, -1
   %71 = load ptr, ptr %1, align 8, !tbaa !67
   %72 = zext i32 %.0.i4690.us to i64
   %73 = getelementptr inbounds nuw ptr, ptr %71, i64 %72
@@ -1656,7 +1656,7 @@ define internal void @gray_rgb_convert(ptr noundef readonly captures(none) %0, p
 ..loopexit70_crit_edge.us:                        ; preds = %76
   %83 = add i32 %.0.i4690.us, 1
   %84 = getelementptr inbounds nuw i8, ptr %.016.i4589.us, i64 8
-  %85 = icmp samesign ugt i32 %.in168, 1
+  %85 = icmp samesign ugt i32 %.in175, 1
   br i1 %85, label %.lr.ph.us92, label %gray_extrgb_convert_internal.exit, !llvm.loop !96
 
 86:                                               ; preds = %5, %5
@@ -1664,18 +1664,18 @@ define internal void @gray_rgb_convert(ptr noundef readonly captures(none) %0, p
   %88 = load i32, ptr %87, align 8, !tbaa !68
   %89 = icmp slt i32 %4, 1
   %.not117 = icmp eq i32 %88, 0
-  %or.cond182 = select i1 %89, i1 true, i1 %.not117
-  br i1 %or.cond182, label %gray_extrgb_convert_internal.exit, label %.lr.ph.us86.preheader
+  %or.cond189 = select i1 %89, i1 true, i1 %.not117
+  br i1 %or.cond189, label %gray_extrgb_convert_internal.exit, label %.lr.ph.us86.preheader
 
 .lr.ph.us86.preheader:                            ; preds = %86
   %wide.trip.count140 = zext i32 %88 to i64
   br label %.lr.ph.us86
 
 .lr.ph.us86:                                      ; preds = %.lr.ph.us86.preheader, %..loopexit72_crit_edge.us
-  %.in167 = phi i32 [ %90, %..loopexit72_crit_edge.us ], [ %4, %.lr.ph.us86.preheader ]
+  %.in174 = phi i32 [ %90, %..loopexit72_crit_edge.us ], [ %4, %.lr.ph.us86.preheader ]
   %.0.i5184.us = phi i32 [ %103, %..loopexit72_crit_edge.us ], [ %2, %.lr.ph.us86.preheader ]
   %.016.i5083.us = phi ptr [ %104, %..loopexit72_crit_edge.us ], [ %3, %.lr.ph.us86.preheader ]
-  %90 = add nsw i32 %.in167, -1
+  %90 = add nsw i32 %.in174, -1
   %91 = load ptr, ptr %1, align 8, !tbaa !67
   %92 = zext i32 %.0.i5184.us to i64
   %93 = getelementptr inbounds nuw ptr, ptr %91, i64 %92
@@ -1703,7 +1703,7 @@ define internal void @gray_rgb_convert(ptr noundef readonly captures(none) %0, p
 ..loopexit72_crit_edge.us:                        ; preds = %96
   %103 = add i32 %.0.i5184.us, 1
   %104 = getelementptr inbounds nuw i8, ptr %.016.i5083.us, i64 8
-  %105 = icmp samesign ugt i32 %.in167, 1
+  %105 = icmp samesign ugt i32 %.in174, 1
   br i1 %105, label %.lr.ph.us86, label %gray_extrgb_convert_internal.exit, !llvm.loop !98
 
 106:                                              ; preds = %5, %5
@@ -1711,8 +1711,8 @@ define internal void @gray_rgb_convert(ptr noundef readonly captures(none) %0, p
   %108 = load i32, ptr %107, align 8, !tbaa !68
   %109 = icmp slt i32 %4, 1
   %.not = icmp eq i32 %108, 0
-  %or.cond183 = select i1 %109, i1 true, i1 %.not
-  br i1 %or.cond183, label %gray_extrgb_convert_internal.exit, label %.lr.ph.us.preheader
+  %or.cond190 = select i1 %109, i1 true, i1 %.not
+  br i1 %or.cond190, label %gray_extrgb_convert_internal.exit, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %106
   %wide.trip.count = zext i32 %108 to i64
@@ -1758,18 +1758,18 @@ define internal void @gray_rgb_convert(ptr noundef readonly captures(none) %0, p
   %128 = load i32, ptr %127, align 8, !tbaa !68
   %129 = icmp slt i32 %4, 1
   %.not122 = icmp eq i32 %128, 0
-  %or.cond184 = select i1 %129, i1 true, i1 %.not122
-  br i1 %or.cond184, label %gray_extrgb_convert_internal.exit, label %.lr.ph.us116.preheader
+  %or.cond191 = select i1 %129, i1 true, i1 %.not122
+  br i1 %or.cond191, label %gray_extrgb_convert_internal.exit, label %.lr.ph.us116.preheader
 
 .lr.ph.us116.preheader:                           ; preds = %126
   %wide.trip.count165 = zext i32 %128 to i64
   br label %.lr.ph.us116
 
 .lr.ph.us116:                                     ; preds = %.lr.ph.us116.preheader, %..loopexit_crit_edge.us
-  %.in172 = phi i32 [ %130, %..loopexit_crit_edge.us ], [ %4, %.lr.ph.us116.preheader ]
+  %.in179 = phi i32 [ %130, %..loopexit_crit_edge.us ], [ %4, %.lr.ph.us116.preheader ]
   %.0.i61114.us = phi i32 [ %142, %..loopexit_crit_edge.us ], [ %2, %.lr.ph.us116.preheader ]
   %.015.i60113.us = phi ptr [ %143, %..loopexit_crit_edge.us ], [ %3, %.lr.ph.us116.preheader ]
-  %130 = add nsw i32 %.in172, -1
+  %130 = add nsw i32 %.in179, -1
   %131 = load ptr, ptr %1, align 8, !tbaa !67
   %132 = zext i32 %.0.i61114.us to i64
   %133 = getelementptr inbounds nuw ptr, ptr %131, i64 %132
@@ -1795,7 +1795,7 @@ define internal void @gray_rgb_convert(ptr noundef readonly captures(none) %0, p
 ..loopexit_crit_edge.us:                          ; preds = %136
   %142 = add i32 %.0.i61114.us, 1
   %143 = getelementptr inbounds nuw i8, ptr %.015.i60113.us, i64 8
-  %144 = icmp samesign ugt i32 %.in172, 1
+  %144 = icmp samesign ugt i32 %.in179, 1
   br i1 %144, label %.lr.ph.us116, label %gray_extrgb_convert_internal.exit, !llvm.loop !102
 
 gray_extrgb_convert_internal.exit:                ; preds = %..loopexit74_crit_edge.us, %..loopexit72_crit_edge.us, %..loopexit70_crit_edge.us, %..loopexit68_crit_edge.us, %..loopexit66_crit_edge.us, %..loopexit64_crit_edge.us, %..loopexit_crit_edge.us, %106, %86, %66, %47, %27, %8, %126
@@ -1892,10 +1892,10 @@ define internal void @null_convert(ptr noundef readonly captures(none) %0, ptr n
   br label %.lr.ph.us103
 
 .lr.ph.us103:                                     ; preds = %.lr.ph.us103.preheader, %..loopexit87_crit_edge.us
-  %.in140 = phi i32 [ %47, %..loopexit87_crit_edge.us ], [ %4, %.lr.ph.us103.preheader ]
+  %.in143 = phi i32 [ %47, %..loopexit87_crit_edge.us ], [ %4, %.lr.ph.us103.preheader ]
   %.069101.us = phi i32 [ %69, %..loopexit87_crit_edge.us ], [ %2, %.lr.ph.us103.preheader ]
   %.070100.us = phi ptr [ %70, %..loopexit87_crit_edge.us ], [ %3, %.lr.ph.us103.preheader ]
-  %47 = add nsw i32 %.in140, -1
+  %47 = add nsw i32 %.in143, -1
   %48 = load ptr, ptr %1, align 8, !tbaa !67
   %49 = zext i32 %.069101.us to i64
   %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
@@ -1931,7 +1931,7 @@ define internal void @null_convert(ptr noundef readonly captures(none) %0, ptr n
 ..loopexit87_crit_edge.us:                        ; preds = %59
   %69 = add i32 %.069101.us, 1
   %70 = getelementptr inbounds nuw i8, ptr %.070100.us, i64 8
-  %71 = icmp samesign ugt i32 %.in140, 1
+  %71 = icmp samesign ugt i32 %.in143, 1
   br i1 %71, label %.lr.ph.us103, label %.loopexit, !llvm.loop !106
 
 .preheader86:                                     ; preds = %5
@@ -1950,10 +1950,10 @@ define internal void @null_convert(ptr noundef readonly captures(none) %0, ptr n
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge108.split.us.us.us
-  %.in141 = phi i32 [ %74, %._crit_edge108.split.us.us.us ], [ %4, %.preheader.us.us.preheader ]
+  %.in144 = phi i32 [ %74, %._crit_edge108.split.us.us.us ], [ %4, %.preheader.us.us.preheader ]
   %.2112.us.us = phi i32 [ %87, %._crit_edge108.split.us.us.us ], [ %2, %.preheader.us.us.preheader ]
   %.272110.us.us = phi ptr [ %86, %._crit_edge108.split.us.us.us ], [ %3, %.preheader.us.us.preheader ]
-  %74 = add nsw i32 %.in141, -1
+  %74 = add nsw i32 %.in144, -1
   %75 = zext i32 %.2112.us.us to i64
   br label %.lr.ph.us109.us.us
 
@@ -1986,7 +1986,7 @@ define internal void @null_convert(ptr noundef readonly captures(none) %0, ptr n
 ._crit_edge108.split.us.us.us:                    ; preds = %._crit_edge.us.us.us
   %86 = getelementptr inbounds nuw i8, ptr %.272110.us.us, i64 8
   %87 = add i32 %.2112.us.us, 1
-  %88 = icmp sgt i32 %.in141, 1
+  %88 = icmp sgt i32 %.in144, 1
   br i1 %88, label %.preheader.us.us, label %.loopexit, !llvm.loop !109
 
 .loopexit:                                        ; preds = %..loopexit90_crit_edge.us, %..loopexit87_crit_edge.us, %._crit_edge108.split.us.us.us, %.preheader.lr.ph, %.lr.ph102, %.lr.ph97, %.preheader91, %.preheader88, %.preheader86
@@ -2206,10 +2206,10 @@ define internal void @rgb_rgb_convert(ptr noundef readonly captures(none) %0, pt
   br label %.lr.ph.us92
 
 .lr.ph.us92:                                      ; preds = %.lr.ph.us92.preheader, %..loopexit70_crit_edge.us
-  %.in167 = phi i32 [ %108, %..loopexit70_crit_edge.us ], [ %4, %.lr.ph.us92.preheader ]
+  %.in174 = phi i32 [ %108, %..loopexit70_crit_edge.us ], [ %4, %.lr.ph.us92.preheader ]
   %.0.i4690.us = phi i32 [ %131, %..loopexit70_crit_edge.us ], [ %2, %.lr.ph.us92.preheader ]
   %.025.i4589.us = phi ptr [ %132, %..loopexit70_crit_edge.us ], [ %3, %.lr.ph.us92.preheader ]
-  %108 = add nsw i32 %.in167, -1
+  %108 = add nsw i32 %.in174, -1
   %109 = load ptr, ptr %1, align 8, !tbaa !67
   %110 = zext i32 %.0.i4690.us to i64
   %111 = getelementptr inbounds nuw ptr, ptr %109, i64 %110
@@ -2247,7 +2247,7 @@ define internal void @rgb_rgb_convert(ptr noundef readonly captures(none) %0, pt
 ..loopexit70_crit_edge.us:                        ; preds = %120
   %131 = add i32 %.0.i4690.us, 1
   %132 = getelementptr inbounds nuw i8, ptr %.025.i4589.us, i64 8
-  %133 = icmp samesign ugt i32 %.in167, 1
+  %133 = icmp samesign ugt i32 %.in174, 1
   br i1 %133, label %.lr.ph.us92, label %rgb_extrgb_convert_internal.exit, !llvm.loop !117
 
 134:                                              ; preds = %5, %5
@@ -2267,10 +2267,10 @@ define internal void @rgb_rgb_convert(ptr noundef readonly captures(none) %0, pt
   br label %.lr.ph.us86
 
 .lr.ph.us86:                                      ; preds = %.lr.ph.us86.preheader, %..loopexit72_crit_edge.us
-  %.in166 = phi i32 [ %140, %..loopexit72_crit_edge.us ], [ %4, %.lr.ph.us86.preheader ]
+  %.in173 = phi i32 [ %140, %..loopexit72_crit_edge.us ], [ %4, %.lr.ph.us86.preheader ]
   %.0.i5184.us = phi i32 [ %163, %..loopexit72_crit_edge.us ], [ %2, %.lr.ph.us86.preheader ]
   %.025.i5083.us = phi ptr [ %164, %..loopexit72_crit_edge.us ], [ %3, %.lr.ph.us86.preheader ]
-  %140 = add nsw i32 %.in166, -1
+  %140 = add nsw i32 %.in173, -1
   %141 = load ptr, ptr %1, align 8, !tbaa !67
   %142 = zext i32 %.0.i5184.us to i64
   %143 = getelementptr inbounds nuw ptr, ptr %141, i64 %142
@@ -2308,7 +2308,7 @@ define internal void @rgb_rgb_convert(ptr noundef readonly captures(none) %0, pt
 ..loopexit72_crit_edge.us:                        ; preds = %152
   %163 = add i32 %.0.i5184.us, 1
   %164 = getelementptr inbounds nuw i8, ptr %.025.i5083.us, i64 8
-  %165 = icmp samesign ugt i32 %.in166, 1
+  %165 = icmp samesign ugt i32 %.in173, 1
   br i1 %165, label %.lr.ph.us86, label %rgb_extrgb_convert_internal.exit, !llvm.loop !119
 
 166:                                              ; preds = %5, %5
@@ -2328,10 +2328,10 @@ define internal void @rgb_rgb_convert(ptr noundef readonly captures(none) %0, pt
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit74_crit_edge.us
-  %.in165 = phi i32 [ %172, %..loopexit74_crit_edge.us ], [ %4, %.lr.ph.us.preheader ]
+  %.in172 = phi i32 [ %172, %..loopexit74_crit_edge.us ], [ %4, %.lr.ph.us.preheader ]
   %.0.i5679.us = phi i32 [ %195, %..loopexit74_crit_edge.us ], [ %2, %.lr.ph.us.preheader ]
   %.025.i5578.us = phi ptr [ %196, %..loopexit74_crit_edge.us ], [ %3, %.lr.ph.us.preheader ]
-  %172 = add nsw i32 %.in165, -1
+  %172 = add nsw i32 %.in172, -1
   %173 = load ptr, ptr %1, align 8, !tbaa !67
   %174 = zext i32 %.0.i5679.us to i64
   %175 = getelementptr inbounds nuw ptr, ptr %173, i64 %174
@@ -2369,7 +2369,7 @@ define internal void @rgb_rgb_convert(ptr noundef readonly captures(none) %0, pt
 ..loopexit74_crit_edge.us:                        ; preds = %184
   %195 = add i32 %.0.i5679.us, 1
   %196 = getelementptr inbounds nuw i8, ptr %.025.i5578.us, i64 8
-  %197 = icmp samesign ugt i32 %.in165, 1
+  %197 = icmp samesign ugt i32 %.in172, 1
   br i1 %197, label %.lr.ph.us, label %rgb_extrgb_convert_internal.exit, !llvm.loop !121
 
 198:                                              ; preds = %5

@@ -16790,7 +16790,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 90:                                               ; preds = %1
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %92 = load i8, ptr %91, align 1, !range !106, !noundef !3
-  switch i8 %92, label %default.unreachable172 [
+  switch i8 %92, label %default.unreachable193 [
     i8 0, label %277
     i8 1, label %283
     i8 2, label %289
@@ -16800,7 +16800,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 93:                                               ; preds = %1
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %95 = load i8, ptr %94, align 1, !range !2400, !noundef !3
-  switch i8 %95, label %default.unreachable172 [
+  switch i8 %95, label %default.unreachable193 [
     i8 0, label %313
     i8 1, label %319
     i8 2, label %325
@@ -17255,7 +17255,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit132: ; preds = %271
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4bf62fa7eb0f67cdd858ff0386a36a5d.56) #16
   unreachable
 
-default.unreachable172:                           ; preds = %93, %90
+default.unreachable193:                           ; preds = %93, %90
   unreachable
 
 277:                                              ; preds = %90
@@ -17666,7 +17666,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 90:                                               ; preds = %1
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %92 = load i8, ptr %91, align 1, !range !106, !noundef !3
-  switch i8 %92, label %default.unreachable172 [
+  switch i8 %92, label %default.unreachable193 [
     i8 0, label %277
     i8 1, label %283
     i8 2, label %289
@@ -17676,7 +17676,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 93:                                               ; preds = %1
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %95 = load i8, ptr %94, align 1, !range !2400, !noundef !3
-  switch i8 %95, label %default.unreachable172 [
+  switch i8 %95, label %default.unreachable193 [
     i8 0, label %313
     i8 1, label %319
     i8 2, label %325
@@ -18131,7 +18131,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit132: ; preds = %271
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4bf62fa7eb0f67cdd858ff0386a36a5d.56) #16
   unreachable
 
-default.unreachable172:                           ; preds = %93, %90
+default.unreachable193:                           ; preds = %93, %90
   unreachable
 
 277:                                              ; preds = %90
@@ -18542,7 +18542,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 90:                                               ; preds = %1
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %92 = load i8, ptr %91, align 1, !range !106, !noundef !3
-  switch i8 %92, label %default.unreachable172 [
+  switch i8 %92, label %default.unreachable193 [
     i8 0, label %277
     i8 1, label %283
     i8 2, label %289
@@ -18552,7 +18552,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 93:                                               ; preds = %1
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %95 = load i8, ptr %94, align 1, !range !2400, !noundef !3
-  switch i8 %95, label %default.unreachable172 [
+  switch i8 %95, label %default.unreachable193 [
     i8 0, label %313
     i8 1, label %319
     i8 2, label %325
@@ -19007,7 +19007,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit132: ; preds = %271
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4bf62fa7eb0f67cdd858ff0386a36a5d.56) #16
   unreachable
 
-default.unreachable172:                           ; preds = %93, %90
+default.unreachable193:                           ; preds = %93, %90
   unreachable
 
 277:                                              ; preds = %90
@@ -19418,7 +19418,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 90:                                               ; preds = %1
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %92 = load i8, ptr %91, align 1, !range !106, !noundef !3
-  switch i8 %92, label %default.unreachable172 [
+  switch i8 %92, label %default.unreachable193 [
     i8 0, label %277
     i8 1, label %283
     i8 2, label %289
@@ -19428,7 +19428,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 93:                                               ; preds = %1
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %95 = load i8, ptr %94, align 1, !range !2400, !noundef !3
-  switch i8 %95, label %default.unreachable172 [
+  switch i8 %95, label %default.unreachable193 [
     i8 0, label %313
     i8 1, label %319
     i8 2, label %325
@@ -19883,7 +19883,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit132: ; preds = %271
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4bf62fa7eb0f67cdd858ff0386a36a5d.56) #16
   unreachable
 
-default.unreachable172:                           ; preds = %93, %90
+default.unreachable193:                           ; preds = %93, %90
   unreachable
 
 277:                                              ; preds = %90
@@ -20294,7 +20294,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 90:                                               ; preds = %1
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %92 = load i8, ptr %91, align 1, !range !106, !noundef !3
-  switch i8 %92, label %default.unreachable172 [
+  switch i8 %92, label %default.unreachable193 [
     i8 0, label %277
     i8 1, label %283
     i8 2, label %289
@@ -20304,7 +20304,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 93:                                               ; preds = %1
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %95 = load i8, ptr %94, align 1, !range !2400, !noundef !3
-  switch i8 %95, label %default.unreachable172 [
+  switch i8 %95, label %default.unreachable193 [
     i8 0, label %313
     i8 1, label %319
     i8 2, label %325
@@ -20759,7 +20759,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit132: ; preds = %271
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4bf62fa7eb0f67cdd858ff0386a36a5d.56) #16
   unreachable
 
-default.unreachable172:                           ; preds = %93, %90
+default.unreachable193:                           ; preds = %93, %90
   unreachable
 
 277:                                              ; preds = %90
@@ -21170,7 +21170,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 90:                                               ; preds = %1
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %92 = load i8, ptr %91, align 1, !range !106, !noundef !3
-  switch i8 %92, label %default.unreachable172 [
+  switch i8 %92, label %default.unreachable193 [
     i8 0, label %277
     i8 1, label %283
     i8 2, label %289
@@ -21180,7 +21180,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 93:                                               ; preds = %1
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %95 = load i8, ptr %94, align 1, !range !2400, !noundef !3
-  switch i8 %95, label %default.unreachable172 [
+  switch i8 %95, label %default.unreachable193 [
     i8 0, label %313
     i8 1, label %319
     i8 2, label %325
@@ -21635,7 +21635,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit132: ; preds = %271
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4bf62fa7eb0f67cdd858ff0386a36a5d.56) #16
   unreachable
 
-default.unreachable172:                           ; preds = %93, %90
+default.unreachable193:                           ; preds = %93, %90
   unreachable
 
 277:                                              ; preds = %90
@@ -22046,7 +22046,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 90:                                               ; preds = %1
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %92 = load i8, ptr %91, align 1, !range !106, !noundef !3
-  switch i8 %92, label %default.unreachable172 [
+  switch i8 %92, label %default.unreachable193 [
     i8 0, label %277
     i8 1, label %283
     i8 2, label %289
@@ -22056,7 +22056,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 93:                                               ; preds = %1
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %95 = load i8, ptr %94, align 1, !range !2400, !noundef !3
-  switch i8 %95, label %default.unreachable172 [
+  switch i8 %95, label %default.unreachable193 [
     i8 0, label %313
     i8 1, label %319
     i8 2, label %325
@@ -22511,7 +22511,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit132: ; preds = %271
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4bf62fa7eb0f67cdd858ff0386a36a5d.56) #16
   unreachable
 
-default.unreachable172:                           ; preds = %93, %90
+default.unreachable193:                           ; preds = %93, %90
   unreachable
 
 277:                                              ; preds = %90
@@ -22922,7 +22922,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 90:                                               ; preds = %1
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %92 = load i8, ptr %91, align 1, !range !106, !noundef !3
-  switch i8 %92, label %default.unreachable172 [
+  switch i8 %92, label %default.unreachable193 [
     i8 0, label %277
     i8 1, label %283
     i8 2, label %289
@@ -22932,7 +22932,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 93:                                               ; preds = %1
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %95 = load i8, ptr %94, align 1, !range !2400, !noundef !3
-  switch i8 %95, label %default.unreachable172 [
+  switch i8 %95, label %default.unreachable193 [
     i8 0, label %313
     i8 1, label %319
     i8 2, label %325
@@ -23387,7 +23387,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit132: ; preds = %271
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4bf62fa7eb0f67cdd858ff0386a36a5d.56) #16
   unreachable
 
-default.unreachable172:                           ; preds = %93, %90
+default.unreachable193:                           ; preds = %93, %90
   unreachable
 
 277:                                              ; preds = %90
@@ -23798,7 +23798,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 90:                                               ; preds = %1
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %92 = load i8, ptr %91, align 1, !range !106, !noundef !3
-  switch i8 %92, label %default.unreachable172 [
+  switch i8 %92, label %default.unreachable193 [
     i8 0, label %277
     i8 1, label %283
     i8 2, label %289
@@ -23808,7 +23808,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 93:                                               ; preds = %1
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %95 = load i8, ptr %94, align 1, !range !2400, !noundef !3
-  switch i8 %95, label %default.unreachable172 [
+  switch i8 %95, label %default.unreachable193 [
     i8 0, label %313
     i8 1, label %319
     i8 2, label %325
@@ -24263,7 +24263,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit132: ; preds = %271
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4bf62fa7eb0f67cdd858ff0386a36a5d.56) #16
   unreachable
 
-default.unreachable172:                           ; preds = %93, %90
+default.unreachable193:                           ; preds = %93, %90
   unreachable
 
 277:                                              ; preds = %90
@@ -24674,7 +24674,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 90:                                               ; preds = %1
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %92 = load i8, ptr %91, align 1, !range !106, !noundef !3
-  switch i8 %92, label %default.unreachable172 [
+  switch i8 %92, label %default.unreachable193 [
     i8 0, label %277
     i8 1, label %283
     i8 2, label %289
@@ -24684,7 +24684,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 93:                                               ; preds = %1
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %95 = load i8, ptr %94, align 1, !range !2400, !noundef !3
-  switch i8 %95, label %default.unreachable172 [
+  switch i8 %95, label %default.unreachable193 [
     i8 0, label %313
     i8 1, label %319
     i8 2, label %325
@@ -25139,7 +25139,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit132: ; preds = %271
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4bf62fa7eb0f67cdd858ff0386a36a5d.56) #16
   unreachable
 
-default.unreachable172:                           ; preds = %93, %90
+default.unreachable193:                           ; preds = %93, %90
   unreachable
 
 277:                                              ; preds = %90
@@ -25550,7 +25550,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 90:                                               ; preds = %1
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %92 = load i8, ptr %91, align 1, !range !106, !noundef !3
-  switch i8 %92, label %default.unreachable172 [
+  switch i8 %92, label %default.unreachable193 [
     i8 0, label %277
     i8 1, label %283
     i8 2, label %289
@@ -25560,7 +25560,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 93:                                               ; preds = %1
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %95 = load i8, ptr %94, align 1, !range !2400, !noundef !3
-  switch i8 %95, label %default.unreachable172 [
+  switch i8 %95, label %default.unreachable193 [
     i8 0, label %313
     i8 1, label %319
     i8 2, label %325
@@ -26015,7 +26015,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit132: ; preds = %271
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4bf62fa7eb0f67cdd858ff0386a36a5d.56) #16
   unreachable
 
-default.unreachable172:                           ; preds = %93, %90
+default.unreachable193:                           ; preds = %93, %90
   unreachable
 
 277:                                              ; preds = %90
@@ -26426,7 +26426,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 90:                                               ; preds = %1
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %92 = load i8, ptr %91, align 1, !range !106, !noundef !3
-  switch i8 %92, label %default.unreachable172 [
+  switch i8 %92, label %default.unreachable193 [
     i8 0, label %277
     i8 1, label %283
     i8 2, label %289
@@ -26436,7 +26436,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit103: ; preds = %62
 93:                                               ; preds = %1
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %95 = load i8, ptr %94, align 1, !range !2400, !noundef !3
-  switch i8 %95, label %default.unreachable172 [
+  switch i8 %95, label %default.unreachable193 [
     i8 0, label %313
     i8 1, label %319
     i8 2, label %325
@@ -26891,7 +26891,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit132: ; preds = %271
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4bf62fa7eb0f67cdd858ff0386a36a5d.56) #16
   unreachable
 
-default.unreachable172:                           ; preds = %93, %90
+default.unreachable193:                           ; preds = %93, %90
   unreachable
 
 277:                                              ; preds = %90
@@ -33753,14 +33753,14 @@ define internal fastcc void @_ZN12polars_arrow20temporal_conversions27timestamp_
   %7 = alloca [12 x i8], align 4
   %8 = alloca [12 x i8], align 4
   %9 = alloca [12 x i8], align 4
-  switch i8 %2, label %default.unreachable17 [
+  switch i8 %2, label %default.unreachable18 [
     i8 0, label %10
     i8 1, label %20
     i8 2, label %28
     i8 3, label %37
   ]
 
-default.unreachable17:                            ; preds = %3
+default.unreachable18:                            ; preds = %3
   unreachable
 
 10:                                               ; preds = %3

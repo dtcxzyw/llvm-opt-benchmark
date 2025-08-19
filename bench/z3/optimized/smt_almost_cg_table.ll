@@ -489,11 +489,11 @@ _ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit337: ; preds = %304,
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader.thread, %.preheader, %_ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit337, %._crit_edge
-  %.0315.lcssa442 = phi i32 [ %276, %._crit_edge ], [ %276, %_ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit337 ], [ -1640531527, %.preheader ], [ -1640531527, %.preheader.thread ]
+  %.0315.lcssa455 = phi i32 [ %276, %._crit_edge ], [ %276, %_ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit337 ], [ -1640531527, %.preheader ], [ -1640531527, %.preheader.thread ]
   %321 = phi i32 [ %15, %._crit_edge ], [ %15, %_ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit337 ], [ %15, %.preheader ], [ %9, %.preheader.thread ]
   %.1314 = phi i32 [ %280, %._crit_edge ], [ %.2, %_ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit337 ], [ -1640531527, %.preheader ], [ -1640531527, %.preheader.thread ]
   %.1 = phi i32 [ %284, %._crit_edge ], [ %320, %_ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit337 ], [ 11, %.preheader ], [ 11, %.preheader.thread ]
-  %.neg389 = add i32 %.0315.lcssa442, %321
+  %.neg389 = add i32 %.0315.lcssa455, %321
   %322 = add i32 %.1314, %.1
   %323 = sub i32 %.neg389, %322
   %324 = lshr i32 %.1, 13
@@ -737,8 +737,8 @@ define hidden void @_ZN3smt15almost_cg_table5resetEv(ptr noundef nonnull align 8
   %24 = icmp ugt i32 %12, 16
   %25 = mul i32 %12, 3
   %26 = icmp ugt i32 %23, %25
-  %or.cond16.i.i = select i1 %24, i1 %26, i1 false
-  br i1 %or.cond16.i.i, label %27, label %._crit_edge.thread.i.i
+  %or.cond18.i.i = select i1 %24, i1 %26, i1 false
+  br i1 %or.cond18.i.i, label %27, label %._crit_edge.thread.i.i
 
 27:                                               ; preds = %._crit_edge.i.i
   %28 = icmp eq ptr %10, null

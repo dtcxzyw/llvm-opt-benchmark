@@ -642,7 +642,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
   br i1 %51, label %52, label %_ZN4core4iter6traits8iterator12iter_compare17h813b7a8bcba60cfbE.exit
 
 52:                                               ; preds = %50
-  switch i8 %.sroa.09.0.i.i.i.i, label %default.unreachable41.i.i.i.i.i.i.i.i.i [
+  switch i8 %.sroa.09.0.i.i.i.i, label %default.unreachable [
     i8 0, label %53
     i8 1, label %57
     i8 2, label %61
@@ -651,7 +651,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17
     i8 5, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17he525ef41791f9f89E.exit.i.i.i.i.i"
   ]
 
-default.unreachable41.i.i.i.i.i.i.i.i.i:          ; preds = %52
+default.unreachable:                              ; preds = %52
   unreachable
 
 53:                                               ; preds = %52

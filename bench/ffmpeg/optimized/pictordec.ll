@@ -558,16 +558,16 @@ bytestream2_get_byte.exit244:                     ; preds = %268, %269
   %280 = sub i64 %278, %279
   %281 = trunc i64 %280 to i32
   %282 = icmp slt i32 %260, %281
-  br i1 %282, label %.lr.ph499, label %.critedge
+  br i1 %282, label %.lr.ph525, label %.critedge
 
 .lr.ph315:                                        ; preds = %351
   %283 = ptrtoint ptr %356 to i64
   %284 = sub i64 %357, %283
   %285 = trunc i64 %284 to i32
   %286 = icmp slt i32 %260, %285
-  br i1 %286, label %.lr.ph499, label %.critedge, !llvm.loop !55
+  br i1 %286, label %.lr.ph525, label %.critedge, !llvm.loop !55
 
-.lr.ph499:                                        ; preds = %.lr.ph315.preheader, %.lr.ph315
+.lr.ph525:                                        ; preds = %.lr.ph315.preheader, %.lr.ph315
   %287 = phi i64 [ %284, %.lr.ph315 ], [ %280, %.lr.ph315.preheader ]
   %288 = phi i64 [ %357, %.lr.ph315 ], [ %278, %.lr.ph315.preheader ]
   %289 = phi ptr [ %356, %.lr.ph315 ], [ %277, %.lr.ph315.preheader ]
@@ -576,11 +576,11 @@ bytestream2_get_byte.exit244:                     ; preds = %268, %269
   %292 = icmp slt i64 %287, 1
   br i1 %292, label %293, label %294
 
-293:                                              ; preds = %.lr.ph499
+293:                                              ; preds = %.lr.ph525
   store ptr %290, ptr %10, align 8, !tbaa !30
   br label %bytestream2_get_byte.exit246
 
-294:                                              ; preds = %.lr.ph499
+294:                                              ; preds = %.lr.ph525
   %295 = getelementptr inbounds nuw i8, ptr %289, i64 1
   store ptr %295, ptr %10, align 8, !tbaa !34
   %296 = load i8, ptr %289, align 1, !tbaa !35

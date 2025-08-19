@@ -837,7 +837,7 @@ define linkonce_odr void @_ZNSt6vectorIN6open3d6camera23PinholeCameraParametersE
           to label %_ZSt10_ConstructIN6open3d6camera23PinholeCameraParametersEJEEvPT_DpOT0_.exit.i.i.i unwind label %21
 
 _ZSt10_ConstructIN6open3d6camera23PinholeCameraParametersEJEEvPT_DpOT0_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
-  %19 = add i64 %.01013.i.i.i, -1
+  %19 = add nsw i64 %.01013.i.i.i, -1
   %20 = getelementptr inbounds nuw i8, ptr %.014.i.i.i, i64 224
   %.not.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN6open3d6camera23PinholeCameraParametersEmS2_ET_S4_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !27
@@ -911,7 +911,7 @@ _ZNKSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE12_M_check_lenEmP
           to label %_ZSt10_ConstructIN6open3d6camera23PinholeCameraParametersEJEEvPT_DpOT0_.exit.i.i.i48 unwind label %44
 
 _ZSt10_ConstructIN6open3d6camera23PinholeCameraParametersEJEEvPT_DpOT0_.exit.i.i.i48: ; preds = %.lr.ph.i.i.i40
-  %42 = add i64 %.01013.i.i.i42, -1
+  %42 = add nsw i64 %.01013.i.i.i42, -1
   %43 = getelementptr inbounds nuw i8, ptr %.014.i.i.i41, i64 224
   %.not.i.i.i49 = icmp eq i64 %42, 0
   br i1 %.not.i.i.i49, label %_ZSt27__uninitialized_default_n_aIPN6open3d6camera23PinholeCameraParametersEmS2_ET_S4_T0_RSaIT1_E.exit51, label %.lr.ph.i.i.i40, !llvm.loop !27

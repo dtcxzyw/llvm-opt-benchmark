@@ -135,7 +135,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %65
 
-65:                                               ; preds = %.backedge959, %52
+65:                                               ; preds = %.backedge988, %52
   %66 = load ptr, ptr %53, align 8
   %67 = load i8, ptr %54, align 8
   store i8 %67, ptr %66, align 1
@@ -212,18 +212,18 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   %106 = sext i16 %105 to i32
   %107 = getelementptr i8, ptr %.1253, i64 1
   %.not278 = icmp eq i16 %105, 450
-  br i1 %.not278, label %.backedge.sink.split958, label %69, !llvm.loop !8
+  br i1 %.not278, label %.backedge.sink.split987, label %69, !llvm.loop !8
 
-.backedge.sink.split958:                          ; preds = %._crit_edge, %.backedge.sink.split958.backedge
-  %.1261.ph = phi ptr [ %.1261.ph.be, %.backedge.sink.split958.backedge ], [ %.0260, %._crit_edge ]
+.backedge.sink.split987:                          ; preds = %._crit_edge, %.backedge.sink.split987.backedge
+  %.1261.ph = phi ptr [ %.1261.ph.be, %.backedge.sink.split987.backedge ], [ %.0260, %._crit_edge ]
   %108 = load ptr, ptr %57, align 8
   %109 = load i32, ptr %56, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split958
-  %.1261 = phi ptr [ %.1261.ph, %.backedge.sink.split958 ], [ %834, %.backedge.backedge ]
-  %.2254 = phi ptr [ %108, %.backedge.sink.split958 ], [ %836, %.backedge.backedge ]
-  %.3 = phi i32 [ %109, %.backedge.sink.split958 ], [ %.3.be, %.backedge.backedge ]
+.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split987
+  %.1261 = phi ptr [ %.1261.ph, %.backedge.sink.split987 ], [ %834, %.backedge.backedge ]
+  %.2254 = phi ptr [ %108, %.backedge.sink.split987 ], [ %836, %.backedge.backedge ]
+  %.3 = phi i32 [ %109, %.backedge.sink.split987 ], [ %.3.be, %.backedge.backedge ]
   %110 = sext i32 %.3 to i64
   %111 = getelementptr [451 x i16], ptr @yy_accept, i64 0, i64 %110
   %112 = load i16, ptr %111, align 2
@@ -300,7 +300,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
 120:                                              ; preds = %119
   %121 = load i8, ptr %54, align 8
   store i8 %121, ptr %.2254, align 1
-  br label %.backedge.sink.split958.backedge
+  br label %.backedge.sink.split987.backedge
 
 122:                                              ; preds = %119
   %123 = load i32, ptr %59, align 8
@@ -310,7 +310,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   %127 = load i64, ptr %126, align 8
   %128 = add i64 %127, %124
   store i64 %128, ptr %126, align 8
-  br label %.backedge959
+  br label %.backedge988
 
 129:                                              ; preds = %119
   %130 = load i32, ptr %59, align 8
@@ -342,7 +342,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   %149 = add i64 %148, %145
   store i64 %149, ptr %147, align 8
   store i32 3, ptr %55, align 4
-  br label %.backedge959
+  br label %.backedge988
 
 150:                                              ; preds = %119
   %151 = load i32, ptr %59, align 8
@@ -531,7 +531,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   %277 = add i64 %276, %273
   store i64 %277, ptr %275, align 8
   store i32 7, ptr %55, align 4
-  br label %.backedge959
+  br label %.backedge988
 
 278:                                              ; preds = %119
   %279 = load i32, ptr %59, align 8
@@ -542,7 +542,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   %284 = add i64 %283, %280
   store i64 %284, ptr %282, align 8
   store i32 9, ptr %55, align 4
-  br label %.backedge959
+  br label %.backedge988
 
 285:                                              ; preds = %119
   %286 = load i32, ptr %59, align 8
@@ -563,7 +563,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   %298 = add i64 %297, %294
   store i64 %298, ptr %296, align 8
   store i32 3, ptr %55, align 4
-  br label %.backedge959
+  br label %.backedge988
 
 299:                                              ; preds = %119
   %300 = load i32, ptr %59, align 8
@@ -573,7 +573,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   %304 = load i64, ptr %303, align 8
   %305 = add i64 %304, %301
   store i64 %305, ptr %303, align 8
-  br label %.backedge959
+  br label %.backedge988
 
 306:                                              ; preds = %119
   %307 = load i32, ptr %59, align 8
@@ -583,7 +583,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   %311 = load i64, ptr %310, align 8
   %312 = add i64 %311, %308
   store i64 %312, ptr %310, align 8
-  br label %.backedge959
+  br label %.backedge988
 
 313:                                              ; preds = %119
   %314 = load i32, ptr %59, align 8
@@ -594,7 +594,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   %319 = add i64 %318, %315
   store i64 %319, ptr %317, align 8
   store i32 3, ptr %55, align 4
-  br label %.backedge959
+  br label %.backedge988
 
 320:                                              ; preds = %119
   %321 = load i32, ptr %59, align 8
@@ -605,7 +605,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   %326 = add i64 %325, %322
   store i64 %326, ptr %324, align 8
   store i32 3, ptr %55, align 4
-  br label %.backedge959
+  br label %.backedge988
 
 327:                                              ; preds = %119
   %328 = load i32, ptr %59, align 8
@@ -615,7 +615,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   %332 = load i64, ptr %331, align 8
   %333 = add i64 %332, %329
   store i64 %333, ptr %331, align 8
-  br label %.backedge959
+  br label %.backedge988
 
 334:                                              ; preds = %119
   %335 = load i32, ptr %59, align 8
@@ -625,9 +625,9 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   %339 = load i64, ptr %338, align 8
   %340 = add i64 %339, %336
   store i64 %340, ptr %338, align 8
-  br label %.backedge959
+  br label %.backedge988
 
-.backedge959:                                     ; preds = %334, %327, %320, %313, %306, %299, %292, %278, %271, %143, %122
+.backedge988:                                     ; preds = %334, %327, %320, %313, %306, %299, %292, %278, %271, %143, %122
   br label %65
 
 341:                                              ; preds = %119
@@ -755,9 +755,9 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   br label %418
 
 418:                                              ; preds = %407, %417
-  %.sink844 = phi i32 [ 10, %417 ], [ 16, %407 ]
+  %.sink873 = phi i32 [ 10, %417 ], [ 16, %407 ]
   %419 = load ptr, ptr %58, align 8
-  %420 = call i64 @strtoul(ptr noundef %419, ptr noundef nonnull %3, i32 noundef %.sink844) #21
+  %420 = call i64 @strtoul(ptr noundef %419, ptr noundef nonnull %3, i32 noundef %.sink873) #21
   %421 = load ptr, ptr %0, align 8
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 40
   store i64 %420, ptr %422, align 8
@@ -1088,11 +1088,11 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i290, %605
   %626 = and i64 %.lcssa.i292, 9223372036854775807
   %.not280330 = icmp eq i64 %626, 0
   %.not280 = or i1 %625, %.not280330
-  br i1 %.not280, label %.backedge.sink.split958.backedge, label %627
+  br i1 %.not280, label %.backedge.sink.split987.backedge, label %627
 
-.backedge.sink.split958.backedge:                 ; preds = %yy_try_NUL_trans.exit, %120
+.backedge.sink.split987.backedge:                 ; preds = %yy_try_NUL_trans.exit, %120
   %.1261.ph.be = phi ptr [ %.1261, %120 ], [ %555, %yy_try_NUL_trans.exit ]
-  br label %.backedge.sink.split958
+  br label %.backedge.sink.split987
 
 627:                                              ; preds = %yy_try_NUL_trans.exit
   %628 = sext i16 %624 to i32
@@ -1273,10 +1273,10 @@ busmaster_yyinput.exit.i:                         ; preds = %705, %._crit_edge12
   br label %713
 
 713:                                              ; preds = %busmaster_yyinput.exit.i, %661
-  %.sink140.in.i = phi ptr [ %712, %busmaster_yyinput.exit.i ], [ %662, %661 ]
+  %.sink146.in.i = phi ptr [ %712, %busmaster_yyinput.exit.i ], [ %662, %661 ]
   %.0.i.sink.i = phi i32 [ %.0.i.i, %busmaster_yyinput.exit.i ], [ 0, %661 ]
-  %.sink140.i = load ptr, ptr %.sink140.in.i, align 8
-  %714 = getelementptr inbounds nuw i8, ptr %.sink140.i, i64 28
+  %.sink146.i = load ptr, ptr %.sink146.in.i, align 8
+  %714 = getelementptr inbounds nuw i8, ptr %.sink146.i, i64 28
   store i32 %.0.i.sink.i, ptr %714, align 4
   %715 = load i32, ptr %62, align 4
   %716 = icmp eq i32 %715, 0
@@ -1379,7 +1379,7 @@ yy_get_next_buffer.exit:                          ; preds = %727, %756
   %781 = getelementptr inbounds nuw i8, ptr %780, i64 8
   %782 = load ptr, ptr %781, align 8
   store ptr %782, ptr %58, align 8
-  switch i32 %.0101.i, label %default.unreachable754 [
+  switch i32 %.0101.i, label %default.unreachable783 [
     i32 1, label %yy_get_previous_state.exit311
     i32 0, label %784
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread328_crit_edge
@@ -1399,8 +1399,8 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread328_crit_edge: ; preds = %
   %786 = ptrtoint ptr %521 to i64
   %787 = xor i64 %786, -1
   %788 = add i64 %787, %785
-  %sext845 = shl i64 %788, 32
-  %789 = ashr exact i64 %sext845, 32
+  %sext874 = shl i64 %788, 32
+  %789 = ashr exact i64 %sext874, 32
   %790 = getelementptr i8, ptr %782, i64 %789
   store ptr %790, ptr %53, align 8
   %791 = load i32, ptr %55, align 4
@@ -1569,7 +1569,7 @@ yy_get_next_buffer.exit.thread328:                ; preds = %643, %yy_get_next_b
   %exitcond.not.i325 = icmp eq ptr %879, %836
   br i1 %exitcond.not.i325, label %.backedge.backedge, label %.lr.ph31.i313, !llvm.loop !10
 
-default.unreachable754:                           ; preds = %yy_get_next_buffer.exit
+default.unreachable783:                           ; preds = %yy_get_next_buffer.exit
   unreachable
 
 yy_get_previous_state.exit311:                    ; preds = %yy_get_next_buffer.exit, %643
@@ -1780,7 +1780,7 @@ define hidden void @busmaster_restart(ptr noundef %0, ptr noundef captures(none)
   %8 = getelementptr ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not16 = icmp eq ptr %9, null
-  br i1 %.not16, label %10, label %.thread19
+  br i1 %.not16, label %10, label %.thread25
 
 10:                                               ; preds = %5, %2
   tail call fastcc void @busmaster_ensure_buffer_stack(ptr noundef %1)
@@ -1794,14 +1794,14 @@ define hidden void @busmaster_restart(ptr noundef %0, ptr noundef captures(none)
   store ptr %13, ptr %17, align 8
   %.pre = load ptr, ptr %3, align 8
   %.not17 = icmp eq ptr %.pre, null
-  br i1 %.not17, label %.thread, label %.thread19
+  br i1 %.not17, label %.thread, label %.thread25
 
 .thread:                                          ; preds = %10
   %18 = tail call ptr @__errno_location() #24
   %19 = load i32, ptr %18, align 4
   br label %busmaster__flush_buffer.exit.i
 
-.thread19:                                        ; preds = %5, %10
+.thread25:                                        ; preds = %5, %10
   %20 = phi ptr [ %.pre, %10 ], [ %4, %5 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i64, ptr %21, align 8
@@ -1812,7 +1812,7 @@ define hidden void @busmaster_restart(ptr noundef %0, ptr noundef captures(none)
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %busmaster__flush_buffer.exit.i, label %27
 
-27:                                               ; preds = %.thread19
+27:                                               ; preds = %.thread25
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 28
   store i32 0, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -1860,10 +1860,10 @@ define hidden void @busmaster_restart(ptr noundef %0, ptr noundef captures(none)
   store i8 %55, ptr %56, align 8
   br label %busmaster__flush_buffer.exit.i
 
-busmaster__flush_buffer.exit.i:                   ; preds = %.thread, %43, %38, %27, %.thread19
-  %57 = phi i32 [ %19, %.thread ], [ %26, %43 ], [ %26, %38 ], [ %26, %27 ], [ %26, %.thread19 ]
-  %58 = phi ptr [ %18, %.thread ], [ %25, %43 ], [ %25, %38 ], [ %25, %27 ], [ %25, %.thread19 ]
-  %59 = phi ptr [ null, %.thread ], [ %24, %43 ], [ %24, %38 ], [ %24, %27 ], [ null, %.thread19 ]
+busmaster__flush_buffer.exit.i:                   ; preds = %.thread, %43, %38, %27, %.thread25
+  %57 = phi i32 [ %19, %.thread ], [ %26, %43 ], [ %26, %38 ], [ %26, %27 ], [ %26, %.thread25 ]
+  %58 = phi ptr [ %18, %.thread ], [ %25, %43 ], [ %25, %38 ], [ %25, %27 ], [ %25, %.thread25 ]
+  %59 = phi ptr [ null, %.thread ], [ %24, %43 ], [ %24, %38 ], [ %24, %27 ], [ null, %.thread25 ]
   store ptr %0, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 52
   store i32 1, ptr %60, align 4
@@ -2130,7 +2130,7 @@ define hidden void @busmaster_push_buffer_state(ptr noundef %0, ptr noundef capt
   %10 = getelementptr ptr, ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not25 = icmp eq ptr %11, null
-  br i1 %.not25, label %.thread30, label %12
+  br i1 %.not25, label %.thread31, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -2155,23 +2155,23 @@ define hidden void @busmaster_push_buffer_state(ptr noundef %0, ptr noundef capt
   store i32 %24, ptr %29, align 4
   %.pr.pre = load ptr, ptr %5, align 8
   %.not26 = icmp eq ptr %.pr.pre, null
-  br i1 %.not26, label %.thread, label %.thread30
+  br i1 %.not26, label %.thread, label %.thread31
 
-.thread30:                                        ; preds = %7, %12
-  %.pr33 = phi ptr [ %.pr.pre, %12 ], [ %6, %7 ]
+.thread31:                                        ; preds = %7, %12
+  %.pr34 = phi ptr [ %.pr.pre, %12 ], [ %6, %7 ]
   %30 = load i64, ptr %8, align 8
-  %31 = getelementptr ptr, ptr %.pr33, i64 %30
+  %31 = getelementptr ptr, ptr %.pr34, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not27 = icmp eq ptr %32, null
   br i1 %.not27, label %.thread, label %33
 
-33:                                               ; preds = %.thread30
+33:                                               ; preds = %.thread31
   %34 = add i64 %30, 1
   store i64 %34, ptr %8, align 8
   br label %.thread
 
-.thread:                                          ; preds = %4, %12, %33, %.thread30
-  %35 = phi ptr [ null, %12 ], [ %.pr33, %33 ], [ %.pr33, %.thread30 ], [ null, %4 ]
+.thread:                                          ; preds = %4, %12, %33, %.thread31
+  %35 = phi ptr [ null, %12 ], [ %.pr34, %33 ], [ %.pr34, %.thread31 ], [ null, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr ptr, ptr %35, i64 %37

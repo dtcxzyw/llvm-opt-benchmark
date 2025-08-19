@@ -1369,13 +1369,13 @@ _ZNK4llvm18ProfileSummaryInfo15getProfileCountERKNS_8CallBaseEPNS_18BlockFrequen
   br i1 %17, label %18, label %_ZNK4llvm18ProfileSummaryInfo15getProfileCountERKNS_8CallBaseEPNS_18BlockFrequencyInfoEb.exit.thread
 
 18:                                               ; preds = %9, %_ZNK4llvm18ProfileSummaryInfo15getProfileCountERKNS_8CallBaseEPNS_18BlockFrequencyInfoEb.exit
-  %.sroa.0.1.i7 = phi i64 [ %11, %9 ], [ %15, %_ZNK4llvm18ProfileSummaryInfo15getProfileCountERKNS_8CallBaseEPNS_18BlockFrequencyInfoEb.exit ]
+  %.sroa.0.1.i8 = phi i64 [ %11, %9 ], [ %15, %_ZNK4llvm18ProfileSummaryInfo15getProfileCountERKNS_8CallBaseEPNS_18BlockFrequencyInfoEb.exit ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i8, ptr %20, align 8, !tbaa !123, !range !50, !noundef !51
   %22 = trunc nuw i8 %21 to i1
   %23 = load i64, ptr %19, align 8
-  %24 = icmp uge i64 %.sroa.0.1.i7, %23
+  %24 = icmp uge i64 %.sroa.0.1.i8, %23
   %25 = select i1 %22, i1 %24, i1 false
   br label %_ZNK4llvm18ProfileSummaryInfo15getProfileCountERKNS_8CallBaseEPNS_18BlockFrequencyInfoEb.exit.thread
 
@@ -1423,13 +1423,13 @@ _ZNK4llvm18ProfileSummaryInfo15getProfileCountERKNS_8CallBaseEPNS_18BlockFrequen
   br label %_ZNK4llvm18ProfileSummaryInfo15getProfileCountERKNS_8CallBaseEPNS_18BlockFrequencyInfoEb.exit.thread
 
 19:                                               ; preds = %10, %_ZNK4llvm18ProfileSummaryInfo15getProfileCountERKNS_8CallBaseEPNS_18BlockFrequencyInfoEb.exit
-  %.sroa.0.1.i10 = phi i64 [ %12, %10 ], [ %16, %_ZNK4llvm18ProfileSummaryInfo15getProfileCountERKNS_8CallBaseEPNS_18BlockFrequencyInfoEb.exit ]
+  %.sroa.0.1.i13 = phi i64 [ %12, %10 ], [ %16, %_ZNK4llvm18ProfileSummaryInfo15getProfileCountERKNS_8CallBaseEPNS_18BlockFrequencyInfoEb.exit ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i8, ptr %21, align 8, !tbaa !123, !range !50, !noundef !51
   %23 = trunc nuw i8 %22 to i1
   %24 = load i64, ptr %20, align 8
-  %25 = icmp ule i64 %.sroa.0.1.i10, %24
+  %25 = icmp ule i64 %.sroa.0.1.i13, %24
   %26 = select i1 %23, i1 %25, i1 false
   br label %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.thread
 

@@ -422,8 +422,8 @@ define dso_local void @ExecuteGrantStmt(ptr noundef readonly captures(none) %0) 
   br i1 %.not73.i, label %91, label %.thread.i
 
 .thread.i:                                        ; preds = %88, %.lr.ph97.split.i
-  %.0161.i = phi i32 [ %89, %88 ], [ %86, %.lr.ph97.split.i ]
-  %90 = tail call ptr @lappend_oid(ptr noundef %.49195.i, i32 noundef %.0161.i) #9
+  %.0165.i = phi i32 [ %89, %88 ], [ %86, %.lr.ph97.split.i ]
+  %90 = tail call ptr @lappend_oid(ptr noundef %.49195.i, i32 noundef %.0165.i) #9
   br label %91
 
 91:                                               ; preds = %.thread.i, %88
@@ -1177,9 +1177,9 @@ define internal fastcc void @ExecGrantStmt_oids(ptr noundef nonnull %0) unnamed_
   %99 = trunc nuw i8 %98 to i1
   %.pre.i = load i64, ptr %47, align 8
   %100 = icmp eq i64 %.pre.i, 0
-  %or.cond283.i = select i1 %99, i1 %100, i1 false
+  %or.cond295.i = select i1 %99, i1 %100, i1 false
   %..i = select i1 %.not142.i, i64 262, i64 16511
-  %.0125.i = select i1 %or.cond283.i, i64 %..i, i64 %.pre.i
+  %.0125.i = select i1 %or.cond295.i, i64 %..i, i64 %.pre.i
   %101 = icmp eq i32 %90, 41
   br i1 %101, label %102, label %119
 
@@ -1307,8 +1307,8 @@ expand_all_col_privileges.exit.i:                 ; preds = %159, %131, %129, %1
 167:                                              ; preds = %expand_all_col_privileges.exit.i
   %168 = load i8, ptr %77, align 1
   %cond1.i = icmp eq i8 %168, 83
-  %.284.i = select i1 %cond1.i, i32 37, i32 41
-  %169 = call ptr @acldefault(i32 noundef %.284.i, i32 noundef %163) #9
+  %.296.i = select i1 %cond1.i, i32 37, i32 41
+  %169 = call ptr @acldefault(i32 noundef %.296.i, i32 noundef %163) #9
   store ptr null, ptr %30, align 8
   br label %174
 
@@ -2249,7 +2249,7 @@ define dso_local void @ExecAlterDefaultPrivilegesStmt(ptr noundef %0, ptr nounde
   br label %.thread
 
 .thread:                                          ; preds = %2, %.lr.ph, %35, %34
-  %.071204 = phi ptr [ %.071, %35 ], [ %.071, %34 ], [ null, %.lr.ph ], [ null, %2 ]
+  %.071208 = phi ptr [ %.071, %35 ], [ %.071, %34 ], [ null, %.lr.ph ], [ null, %2 ]
   %.070 = phi ptr [ %37, %35 ], [ null, %34 ], [ null, %.lr.ph ], [ null, %2 ]
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %39 = load i8, ptr %38, align 4, !range !4, !noundef !5
@@ -2442,9 +2442,9 @@ define dso_local void @ExecAlterDefaultPrivilegesStmt(ptr noundef %0, ptr nounde
 
 .lr.ph167:                                        ; preds = %.preheader
   %128 = getelementptr inbounds nuw i8, ptr %.070, i64 16
-  %129 = icmp eq ptr %.071204, null
-  %130 = getelementptr inbounds nuw i8, ptr %.071204, i64 4
-  %131 = getelementptr inbounds nuw i8, ptr %.071204, i64 16
+  %129 = icmp eq ptr %.071208, null
+  %130 = getelementptr inbounds nuw i8, ptr %.071208, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %.071208, i64 16
   %132 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br i1 %129, label %.lr.ph167.split.us, label %.lr.ph167.split
 
@@ -2471,17 +2471,17 @@ SetDefaultACLsInSchemas.exit109.us:               ; preds = %.lr.ph167.split.us
 141:                                              ; preds = %.critedge100
   %142 = tail call i32 @GetUserId() #9
   store i32 %142, ptr %3, align 8
-  %143 = icmp eq ptr %.071204, null
+  %143 = icmp eq ptr %.071208, null
   br i1 %143, label %148, label %.preheader.i
 
 .preheader.i:                                     ; preds = %141
-  %144 = getelementptr inbounds nuw i8, ptr %.071204, i64 4
+  %144 = getelementptr inbounds nuw i8, ptr %.071208, i64 4
   %145 = load i32, ptr %144, align 4
   %.not13.i = icmp sgt i32 %145, 0
   br i1 %.not13.i, label %.lr.ph.i, label %.critedge102
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %146 = getelementptr inbounds nuw i8, ptr %.071204, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %.071208, i64 16
   %147 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %150
 
@@ -2718,9 +2718,9 @@ define dso_local void @RemoveRoleFromObjectACL(i32 noundef %0, i32 noundef %1, i
   unreachable
 
 62:                                               ; preds = %48, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49
-  %.sink21 = phi i32 [ 27, %58 ], [ 16, %57 ], [ 17, %56 ], [ 42, %55 ], [ 36, %54 ], [ 22, %53 ], [ 21, %52 ], [ 34, %51 ], [ 49, %50 ], [ 9, %49 ], [ 41, %48 ]
+  %.sink22 = phi i32 [ 27, %58 ], [ 16, %57 ], [ 17, %56 ], [ 42, %55 ], [ 36, %54 ], [ 22, %53 ], [ 21, %52 ], [ 34, %51 ], [ 49, %50 ], [ 9, %49 ], [ 41, %48 ]
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %.sink21, ptr %63, align 4
+  store i32 %.sink22, ptr %63, align 4
   store i8 0, ptr %6, align 8
   %.sroa.01.0.insert.ext = zext i32 %2 to i64
   %64 = inttoptr i64 %.sroa.01.0.insert.ext to ptr
@@ -5705,12 +5705,12 @@ define internal fastcc void @ExecGrant_common(ptr noundef nonnull %0, i32 nounde
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i32, ptr %23, align 4
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph93, label %.critedge
+  br i1 %31, label %.lr.ph95, label %.critedge
 
-.lr.ph93:                                         ; preds = %.lr.ph, %recordExtensionInitPriv.exit
-  %indvars.iv92 = phi i64 [ %indvars.iv.next, %recordExtensionInitPriv.exit ], [ 0, %.lr.ph ]
+.lr.ph95:                                         ; preds = %.lr.ph, %recordExtensionInitPriv.exit
+  %indvars.iv94 = phi i64 [ %indvars.iv.next, %recordExtensionInitPriv.exit ], [ 0, %.lr.ph ]
   %32 = load ptr, ptr %24, align 8
-  %33 = getelementptr inbounds nuw %union.ListCell, ptr %32, i64 %indvars.iv92
+  %33 = getelementptr inbounds nuw %union.ListCell, ptr %32, i64 %indvars.iv94
   %34 = load i32, ptr %33, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -5739,7 +5739,7 @@ define internal fastcc void @ExecGrant_common(ptr noundef nonnull %0, i32 nounde
   call void @table_close(ptr noundef %20, i32 noundef 3) #9
   ret void
 
-50:                                               ; preds = %.lr.ph93
+50:                                               ; preds = %.lr.ph95
   %51 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %51)
   %52 = call ptr @get_object_class_descr(i32 noundef %1) #9
@@ -5747,7 +5747,7 @@ define internal fastcc void @ExecGrant_common(ptr noundef nonnull %0, i32 nounde
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2121, ptr noundef nonnull @__func__.ExecGrant_common) #9
   unreachable
 
-54:                                               ; preds = %.lr.ph93
+54:                                               ; preds = %.lr.ph95
   br i1 %.not88, label %56, label %55
 
 55:                                               ; preds = %54
@@ -5843,11 +5843,11 @@ recordExtensionInitPriv.exit:                     ; preds = %71, %112
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv92, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv94, 1
   %115 = load i32, ptr %23, align 4
   %116 = sext i32 %115 to i64
   %117 = icmp slt i64 %indvars.iv.next, %116
-  br i1 %117, label %.lr.ph93, label %.critedge
+  br i1 %117, label %.lr.ph95, label %.critedge
 }
 
 ; Function Attrs: nounwind uwtable

@@ -168,9 +168,9 @@ define void @_ZN5nblib24convertToGmxInteractionsERKSt5tupleIJNS_14ListedTypeData
 
 .noexc:                                           ; preds = %2
   invoke void @_ZN22InteractionDefinitionsC1ERK14gmx_ffparams_t(ptr noundef nonnull align 8 dereferenceable(2760) %6, ptr noundef nonnull align 8 dereferenceable(104) %5)
-          to label %8 unwind label %.body.thread69, !noalias !12
+          to label %8 unwind label %.body.thread87, !noalias !12
 
-.body.thread69:                                   ; preds = %.noexc
+.body.thread87:                                   ; preds = %.noexc
   %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 2760) #19, !noalias !12
@@ -878,8 +878,8 @@ _ZNSt10unique_ptrI22InteractionDefinitionsSt14default_deleteIS0_EED2Ev.exit: ; p
   %.not.i51 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i51, label %_ZNSt10unique_ptrI14gmx_ffparams_tSt14default_deleteIS0_EED2Ev.exit52, label %284
 
-.sink.split:                                      ; preds = %.body.thread, %.body.thread69
-  %.pn.pn.pn58.ph = phi { ptr, i32 } [ %7, %.body.thread69 ], [ %281, %.body.thread ]
+.sink.split:                                      ; preds = %.body.thread, %.body.thread87
+  %.pn.pn.pn58.ph = phi { ptr, i32 } [ %7, %.body.thread87 ], [ %281, %.body.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %284
 

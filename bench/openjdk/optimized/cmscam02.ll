@@ -58,19 +58,19 @@ switch.lookup:                                    ; preds = %7
   %switch.gep = getelementptr inbounds nuw [3 x double], ptr @switch.table.cmsCIECAM02Init, i64 0, i64 %32
   %switch.load = load double, ptr %switch.gep, align 8
   %33 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep111 = getelementptr inbounds nuw [3 x double], ptr @switch.table.cmsCIECAM02Init.5, i64 0, i64 %33
-  %switch.load112 = load double, ptr %switch.gep111, align 8
-  %34 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep113 = getelementptr inbounds nuw [3 x double], ptr @switch.table.cmsCIECAM02Init.6, i64 0, i64 %34
+  %switch.gep113 = getelementptr inbounds nuw [3 x double], ptr @switch.table.cmsCIECAM02Init.5, i64 0, i64 %33
   %switch.load114 = load double, ptr %switch.gep113, align 8
+  %34 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep115 = getelementptr inbounds nuw [3 x double], ptr @switch.table.cmsCIECAM02Init.6, i64 0, i64 %34
+  %switch.load116 = load double, ptr %switch.gep115, align 8
   br label %35
 
 35:                                               ; preds = %7, %switch.lookup
-  %.sink110 = phi double [ %switch.load, %switch.lookup ], [ 1.000000e+00, %7 ]
-  %.sink109 = phi double [ %switch.load112, %switch.lookup ], [ 6.900000e-01, %7 ]
-  %.sink = phi double [ %switch.load114, %switch.lookup ], [ 1.000000e+00, %7 ]
-  store double %.sink110, ptr %28, align 8
-  store double %.sink109, ptr %29, align 8
+  %.sink112 = phi double [ %switch.load, %switch.lookup ], [ 1.000000e+00, %7 ]
+  %.sink111 = phi double [ %switch.load114, %switch.lookup ], [ 6.900000e-01, %7 ]
+  %.sink = phi double [ %switch.load116, %switch.lookup ], [ 1.000000e+00, %7 ]
+  store double %.sink112, ptr %28, align 8
+  store double %.sink111, ptr %29, align 8
   store double %.sink, ptr %30, align 8
   %36 = fdiv double %20, %11
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 312

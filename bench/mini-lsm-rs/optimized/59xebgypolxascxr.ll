@@ -6782,13 +6782,13 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
   %42 = icmp eq i64 %41, 4
   br i1 %42, label %43, label %46
 
-default.unreachable77:                            ; preds = %43
+default.unreachable80:                            ; preds = %43
   unreachable
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %45 = load i64, ptr %44, align 8, !range !156, !noundef !14
-  switch i64 %45, label %default.unreachable77 [
+  switch i64 %45, label %default.unreachable80 [
     i64 0, label %55
     i64 1, label %48
     i64 2, label %50
@@ -7099,13 +7099,13 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
   %45 = icmp eq i64 %44, 3
   br i1 %45, label %46, label %49
 
-default.unreachable77:                            ; preds = %46
+default.unreachable80:                            ; preds = %46
   unreachable
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %48 = load i64, ptr %47, align 8, !range !156, !noundef !14
-  switch i64 %48, label %default.unreachable77 [
+  switch i64 %48, label %default.unreachable80 [
     i64 0, label %58
     i64 1, label %51
     i64 2, label %53

@@ -6453,12 +6453,12 @@ _ZN7AstNode11privateCastI10AstDoWhilePS_EEPT_S2_.exit: ; preds = %_ZN7AstNode9pr
   br i1 %.not78152, label %.critedge85, label %_ZN7AstNode9privateIsI6AstVarPS_EEbPKS_.exit.preheader
 
 _ZN7AstNode9privateIsI6AstVarPS_EEbPKS_.exit.preheader: ; preds = %90, %85, %81, %97
-  %.070160 = phi ptr [ %.070, %97 ], [ %1, %81 ], [ %1, %85 ], [ %1, %90 ]
-  %.073159 = phi i1 [ true, %97 ], [ false, %81 ], [ false, %85 ], [ false, %90 ]
+  %.070170 = phi ptr [ %.070, %97 ], [ %1, %81 ], [ %1, %85 ], [ %1, %90 ]
+  %.073169 = phi i1 [ true, %97 ], [ false, %81 ], [ false, %85 ], [ false, %90 ]
   br label %_ZN7AstNode9privateIsI6AstVarPS_EEbPKS_.exit
 
 _ZN7AstNode9privateIsI6AstVarPS_EEbPKS_.exit:     ; preds = %_ZN7AstNode9privateIsI6AstVarPS_EEbPKS_.exit.preheader, %100
-  %.272153 = phi ptr [ %102, %100 ], [ %.070160, %_ZN7AstNode9privateIsI6AstVarPS_EEbPKS_.exit.preheader ]
+  %.272153 = phi ptr [ %102, %100 ], [ %.070170, %_ZN7AstNode9privateIsI6AstVarPS_EEbPKS_.exit.preheader ]
   %98 = getelementptr inbounds nuw i8, ptr %.272153, i64 64
   %.sroa.0.0.copyload.i.i.i124 = load i16, ptr %98, align 8, !tbaa !121
   %99 = icmp eq i16 %.sroa.0.0.copyload.i.i.i124, 49
@@ -6582,7 +6582,7 @@ _ZN7AstNode9privateIsI12AstJumpLabelPS_EEbPKS_.exit136: ; preds = %_ZNSt7__cxx11
   store ptr %143, ptr %147, align 8, !tbaa !205
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 25, i1 false)
-  br i1 %.073159, label %148, label %156
+  br i1 %.073169, label %148, label %156
 
 148:                                              ; preds = %145
   %149 = invoke noundef ptr @_ZN7AstNode20unlinkFrBackWithNextEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %.272153, ptr noundef nonnull %6)
@@ -9854,7 +9854,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN12V3NumberData9ValueAndXEmS1_ET_S3_T0_RSaIT1_E.exit, label %23
 

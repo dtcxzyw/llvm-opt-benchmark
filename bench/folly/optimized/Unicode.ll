@@ -487,7 +487,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %65
   %84 = and i32 %83, %79
   store i32 %84, ptr %4, align 4, !tbaa !19
   %85 = add nsw i32 %storemerge121, -1
-  %86 = zext i32 %85 to i64
+  %86 = zext nneg i32 %85 to i64
   %87 = getelementptr inbounds nuw [4 x i32], ptr @_ZZN5folly15utf8ToCodePointERPKhS1_bE7bitMask, i64 0, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !19
   %89 = xor i32 %88, -1
@@ -629,8 +629,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95: ; preds = %118
   br label %142
 
 137:                                              ; preds = %129
-  %138 = add nuw i32 %storemerge121, 1
-  %139 = zext i32 %138 to i64
+  %138 = zext nneg i32 %storemerge121 to i64
+  %139 = getelementptr inbounds nuw i8, ptr %11, i64 %138
   br label %.critedge
 
 140:                                              ; preds = %76
@@ -645,9 +645,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95: ; preds = %118
   br label %153
 
 .critedge:                                        ; preds = %131, %112, %92, %59, %137
-  %.sink137 = phi i64 [ %139, %137 ], [ 1, %59 ], [ 1, %92 ], [ 1, %112 ], [ 1, %131 ]
+  %.sink152 = phi ptr [ %139, %137 ], [ %11, %59 ], [ %11, %92 ], [ %11, %112 ], [ %11, %131 ]
   %.5.ph = phi i32 [ %84, %137 ], [ 65533, %59 ], [ 65533, %92 ], [ 65533, %112 ], [ 65533, %131 ]
-  %143 = getelementptr inbounds nuw i8, ptr %11, i64 %.sink137
+  %143 = getelementptr inbounds nuw i8, ptr %.sink152, i64 1
   store ptr %143, ptr %0, align 8, !tbaa !18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %152
@@ -1070,12 +1070,12 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %22, label %.lr.ph.preheader.i.i.i.i, label %._crit_edge.i.i.i.i, !prof !28
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %19, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i
-  %spec.select.i.i10.i.i.i.i = phi i64 [ %21, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ 20, %19 ]
+  %spec.select.i.i11.i.i.i.i = phi i64 [ %21, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ 20, %19 ]
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.preheader.i.i.i.i
   %.0.i4.i.i.i.i = phi i64 [ %24, %.lr.ph.i.i.i.i ], [ %14, %.lr.ph.preheader.i.i.i.i ]
-  %.014.i3.i.i.i.i = phi i64 [ %23, %.lr.ph.i.i.i.i ], [ %spec.select.i.i10.i.i.i.i, %.lr.ph.preheader.i.i.i.i ]
+  %.014.i3.i.i.i.i = phi i64 [ %23, %.lr.ph.i.i.i.i ], [ %spec.select.i.i11.i.i.i.i, %.lr.ph.preheader.i.i.i.i ]
   %23 = add i64 %.014.i3.i.i.i.i, -2
   %24 = udiv i64 %.0.i4.i.i.i.i, 100
   %25 = urem i64 %.0.i4.i.i.i.i, 100
@@ -1087,7 +1087,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %29, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !prof !31, !llvm.loop !32
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i
-  %spec.select.i.i9.i.i.i.i = phi i64 [ %21, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %spec.select.i.i10.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %spec.select.i.i10.i.i.i.i = phi i64 [ %21, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %spec.select.i.i11.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.014.i.lcssa.i.i.i.i = phi i64 [ %21, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %23, %.lr.ph.i.i.i.i ]
   %.0.i.lcssa.i.i.i.i = phi i64 [ %14, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %24, %.lr.ph.i.i.i.i ]
   %30 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i.i
@@ -1108,7 +1108,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
 _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i: ; preds = %34, %33
   %37 = load i64, ptr %7, align 8, !tbaa !13
   %38 = sub i64 4611686018427387903, %37
-  %39 = icmp ult i64 %38, %spec.select.i.i9.i.i.i.i
+  %39 = icmp ult i64 %38, %spec.select.i.i10.i.i.i.i
   br i1 %39, label %40, label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 
 40:                                               ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i
@@ -1116,7 +1116,7 @@ _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i: ; preds = %34, %33
   unreachable
 
 _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit: ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i
-  %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %4, i64 noundef %spec.select.i.i9.i.i.i.i)
+  %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %4, i64 noundef %spec.select.i.i10.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -1170,12 +1170,12 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %25, label %.lr.ph.preheader.i.i.i.i, label %._crit_edge.i.i.i.i, !prof !28
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %22, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i
-  %spec.select.i.i10.i.i.i.i = phi i64 [ %24, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ 20, %22 ]
+  %spec.select.i.i11.i.i.i.i = phi i64 [ %24, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ 20, %22 ]
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.preheader.i.i.i.i
   %.0.i4.i.i.i.i = phi i64 [ %27, %.lr.ph.i.i.i.i ], [ %17, %.lr.ph.preheader.i.i.i.i ]
-  %.014.i3.i.i.i.i = phi i64 [ %26, %.lr.ph.i.i.i.i ], [ %spec.select.i.i10.i.i.i.i, %.lr.ph.preheader.i.i.i.i ]
+  %.014.i3.i.i.i.i = phi i64 [ %26, %.lr.ph.i.i.i.i ], [ %spec.select.i.i11.i.i.i.i, %.lr.ph.preheader.i.i.i.i ]
   %26 = add i64 %.014.i3.i.i.i.i, -2
   %27 = udiv i64 %.0.i4.i.i.i.i, 100
   %28 = urem i64 %.0.i4.i.i.i.i, 100
@@ -1187,7 +1187,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %32, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !prof !31, !llvm.loop !32
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i
-  %spec.select.i.i9.i.i.i.i = phi i64 [ %24, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %spec.select.i.i10.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %spec.select.i.i10.i.i.i.i = phi i64 [ %24, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %spec.select.i.i11.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.014.i.lcssa.i.i.i.i = phi i64 [ %24, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %26, %.lr.ph.i.i.i.i ]
   %.0.i.lcssa.i.i.i.i = phi i64 [ %17, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %27, %.lr.ph.i.i.i.i ]
   %33 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i.i
@@ -1208,7 +1208,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
 _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i: ; preds = %37, %36
   %40 = load i64, ptr %10, align 8, !tbaa !13
   %41 = sub i64 4611686018427387903, %40
-  %42 = icmp ult i64 %41, %spec.select.i.i9.i.i.i.i
+  %42 = icmp ult i64 %41, %spec.select.i.i10.i.i.i.i
   br i1 %42, label %43, label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 
 43:                                               ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i
@@ -1216,7 +1216,7 @@ _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i: ; preds = %37, %36
   unreachable
 
 _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit: ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i
-  %44 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %7, i64 noundef %spec.select.i.i9.i.i.i.i)
+  %44 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %7, i64 noundef %spec.select.i.i10.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %45 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(6) %2) #11
   %46 = load i64, ptr %10, align 8, !tbaa !13
@@ -1253,12 +1253,12 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %60, label %.lr.ph.preheader.i.i.i.i18, label %._crit_edge.i.i.i.i23, !prof !28
 
 .lr.ph.preheader.i.i.i.i18:                       ; preds = %57, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i28
-  %spec.select.i.i10.i.i.i.i19 = phi i64 [ %59, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i28 ], [ 20, %57 ]
+  %spec.select.i.i11.i.i.i.i19 = phi i64 [ %59, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i28 ], [ 20, %57 ]
   br label %.lr.ph.i.i.i.i20
 
 .lr.ph.i.i.i.i20:                                 ; preds = %.lr.ph.i.i.i.i20, %.lr.ph.preheader.i.i.i.i18
   %.0.i4.i.i.i.i21 = phi i64 [ %62, %.lr.ph.i.i.i.i20 ], [ %52, %.lr.ph.preheader.i.i.i.i18 ]
-  %.014.i3.i.i.i.i22 = phi i64 [ %61, %.lr.ph.i.i.i.i20 ], [ %spec.select.i.i10.i.i.i.i19, %.lr.ph.preheader.i.i.i.i18 ]
+  %.014.i3.i.i.i.i22 = phi i64 [ %61, %.lr.ph.i.i.i.i20 ], [ %spec.select.i.i11.i.i.i.i19, %.lr.ph.preheader.i.i.i.i18 ]
   %61 = add i64 %.014.i3.i.i.i.i22, -2
   %62 = udiv i64 %.0.i4.i.i.i.i21, 100
   %63 = urem i64 %.0.i4.i.i.i.i21, 100
@@ -1270,7 +1270,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %67, label %.lr.ph.i.i.i.i20, label %._crit_edge.i.i.i.i23, !prof !31, !llvm.loop !32
 
 ._crit_edge.i.i.i.i23:                            ; preds = %.lr.ph.i.i.i.i20, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i28
-  %spec.select.i.i9.i.i.i.i24 = phi i64 [ %59, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i28 ], [ %spec.select.i.i10.i.i.i.i19, %.lr.ph.i.i.i.i20 ]
+  %spec.select.i.i10.i.i.i.i24 = phi i64 [ %59, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i28 ], [ %spec.select.i.i11.i.i.i.i19, %.lr.ph.i.i.i.i20 ]
   %.014.i.lcssa.i.i.i.i25 = phi i64 [ %59, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i28 ], [ %61, %.lr.ph.i.i.i.i20 ]
   %.0.i.lcssa.i.i.i.i26 = phi i64 [ %52, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i28 ], [ %62, %.lr.ph.i.i.i.i20 ]
   %68 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i.i26
@@ -1291,7 +1291,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
 _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i27: ; preds = %72, %71
   %75 = load i64, ptr %10, align 8, !tbaa !13
   %76 = sub i64 4611686018427387903, %75
-  %77 = icmp ult i64 %76, %spec.select.i.i9.i.i.i.i24
+  %77 = icmp ult i64 %76, %spec.select.i.i10.i.i.i.i24
   br i1 %77, label %78, label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit29
 
 78:                                               ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i27
@@ -1299,7 +1299,7 @@ _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i27: ; preds = %72, %71
   unreachable
 
 _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit29: ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i27
-  %79 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %6, i64 noundef %spec.select.i.i9.i.i.i.i24)
+  %79 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %6, i64 noundef %spec.select.i.i10.i.i.i.i24)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -1345,12 +1345,12 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %25, label %.lr.ph.preheader.i.i.i.i, label %._crit_edge.i.i.i.i, !prof !28
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %22, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i
-  %spec.select.i.i10.i.i.i.i = phi i64 [ %24, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ 20, %22 ]
+  %spec.select.i.i11.i.i.i.i = phi i64 [ %24, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ 20, %22 ]
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.preheader.i.i.i.i
   %.0.i4.i.i.i.i = phi i64 [ %27, %.lr.ph.i.i.i.i ], [ %17, %.lr.ph.preheader.i.i.i.i ]
-  %.014.i3.i.i.i.i = phi i64 [ %26, %.lr.ph.i.i.i.i ], [ %spec.select.i.i10.i.i.i.i, %.lr.ph.preheader.i.i.i.i ]
+  %.014.i3.i.i.i.i = phi i64 [ %26, %.lr.ph.i.i.i.i ], [ %spec.select.i.i11.i.i.i.i, %.lr.ph.preheader.i.i.i.i ]
   %26 = add i64 %.014.i3.i.i.i.i, -2
   %27 = udiv i64 %.0.i4.i.i.i.i, 100
   %28 = urem i64 %.0.i4.i.i.i.i, 100
@@ -1362,7 +1362,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %32, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !prof !31, !llvm.loop !32
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i
-  %spec.select.i.i9.i.i.i.i = phi i64 [ %24, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %spec.select.i.i10.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %spec.select.i.i10.i.i.i.i = phi i64 [ %24, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %spec.select.i.i11.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.014.i.lcssa.i.i.i.i = phi i64 [ %24, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %26, %.lr.ph.i.i.i.i ]
   %.0.i.lcssa.i.i.i.i = phi i64 [ %17, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %27, %.lr.ph.i.i.i.i ]
   %33 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i.i
@@ -1383,7 +1383,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
 _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i: ; preds = %37, %36
   %40 = load i64, ptr %10, align 8, !tbaa !13
   %41 = sub i64 4611686018427387903, %40
-  %42 = icmp ult i64 %41, %spec.select.i.i9.i.i.i.i
+  %42 = icmp ult i64 %41, %spec.select.i.i10.i.i.i.i
   br i1 %42, label %43, label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 
 43:                                               ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i
@@ -1391,7 +1391,7 @@ _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i: ; preds = %37, %36
   unreachable
 
 _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit: ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i
-  %44 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %7, i64 noundef %spec.select.i.i9.i.i.i.i)
+  %44 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %7, i64 noundef %spec.select.i.i10.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %45 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(4) %2) #11
   %46 = load i64, ptr %10, align 8, !tbaa !13
@@ -1428,12 +1428,12 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %60, label %.lr.ph.preheader.i.i.i.i18, label %._crit_edge.i.i.i.i23, !prof !28
 
 .lr.ph.preheader.i.i.i.i18:                       ; preds = %57, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i28
-  %spec.select.i.i10.i.i.i.i19 = phi i64 [ %59, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i28 ], [ 20, %57 ]
+  %spec.select.i.i11.i.i.i.i19 = phi i64 [ %59, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i28 ], [ 20, %57 ]
   br label %.lr.ph.i.i.i.i20
 
 .lr.ph.i.i.i.i20:                                 ; preds = %.lr.ph.i.i.i.i20, %.lr.ph.preheader.i.i.i.i18
   %.0.i4.i.i.i.i21 = phi i64 [ %62, %.lr.ph.i.i.i.i20 ], [ %52, %.lr.ph.preheader.i.i.i.i18 ]
-  %.014.i3.i.i.i.i22 = phi i64 [ %61, %.lr.ph.i.i.i.i20 ], [ %spec.select.i.i10.i.i.i.i19, %.lr.ph.preheader.i.i.i.i18 ]
+  %.014.i3.i.i.i.i22 = phi i64 [ %61, %.lr.ph.i.i.i.i20 ], [ %spec.select.i.i11.i.i.i.i19, %.lr.ph.preheader.i.i.i.i18 ]
   %61 = add i64 %.014.i3.i.i.i.i22, -2
   %62 = udiv i64 %.0.i4.i.i.i.i21, 100
   %63 = urem i64 %.0.i4.i.i.i.i21, 100
@@ -1445,7 +1445,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %67, label %.lr.ph.i.i.i.i20, label %._crit_edge.i.i.i.i23, !prof !31, !llvm.loop !32
 
 ._crit_edge.i.i.i.i23:                            ; preds = %.lr.ph.i.i.i.i20, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i28
-  %spec.select.i.i9.i.i.i.i24 = phi i64 [ %59, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i28 ], [ %spec.select.i.i10.i.i.i.i19, %.lr.ph.i.i.i.i20 ]
+  %spec.select.i.i10.i.i.i.i24 = phi i64 [ %59, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i28 ], [ %spec.select.i.i11.i.i.i.i19, %.lr.ph.i.i.i.i20 ]
   %.014.i.lcssa.i.i.i.i25 = phi i64 [ %59, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i28 ], [ %61, %.lr.ph.i.i.i.i20 ]
   %.0.i.lcssa.i.i.i.i26 = phi i64 [ %52, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i28 ], [ %62, %.lr.ph.i.i.i.i20 ]
   %68 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i.i26
@@ -1466,7 +1466,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
 _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i27: ; preds = %72, %71
   %75 = load i64, ptr %10, align 8, !tbaa !13
   %76 = sub i64 4611686018427387903, %75
-  %77 = icmp ult i64 %76, %spec.select.i.i9.i.i.i.i24
+  %77 = icmp ult i64 %76, %spec.select.i.i10.i.i.i.i24
   br i1 %77, label %78, label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit29
 
 78:                                               ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i27
@@ -1474,7 +1474,7 @@ _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i27: ; preds = %72, %71
   unreachable
 
 _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit29: ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i27
-  %79 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %6, i64 noundef %spec.select.i.i9.i.i.i.i24)
+  %79 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %6, i64 noundef %spec.select.i.i10.i.i.i.i24)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }

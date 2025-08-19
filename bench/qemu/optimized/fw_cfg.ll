@@ -930,9 +930,9 @@ get_fw_cfg_order.exit:                            ; preds = %35, %44, %48
   br i1 %69, label %.lr.ph113, label %.critedge.._crit_edge_crit_edge
 
 .critedge.._crit_edge_crit_edge:                  ; preds = %get_fw_cfg_order.exit, %.critedge
-  %.0135 = phi i32 [ %.0, %.critedge ], [ %.09.i, %get_fw_cfg_order.exit ]
-  %.192133 = phi i32 [ %.192, %.critedge ], [ %24, %get_fw_cfg_order.exit ]
-  %.pre129 = sext i32 %.192133 to i64
+  %.0141 = phi i32 [ %.0, %.critedge ], [ %.09.i, %get_fw_cfg_order.exit ]
+  %.192139 = phi i32 [ %.192, %.critedge ], [ %24, %get_fw_cfg_order.exit ]
+  %.pre129 = sext i32 %.192139 to i64
   br label %._crit_edge
 
 .lr.ph113:                                        ; preds = %.critedge
@@ -972,8 +972,8 @@ get_fw_cfg_order.exit:                            ; preds = %35, %44, %48
   br i1 %93, label %74, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %74, %.critedge.._crit_edge_crit_edge
-  %.0134 = phi i32 [ %.0135, %.critedge.._crit_edge_crit_edge ], [ %.0, %74 ]
-  %.192132 = phi i32 [ %.192133, %.critedge.._crit_edge_crit_edge ], [ %.192, %74 ]
+  %.0140 = phi i32 [ %.0141, %.critedge.._crit_edge_crit_edge ], [ %.0, %74 ]
+  %.192138 = phi i32 [ %.192139, %.critedge.._crit_edge_crit_edge ], [ %.192, %74 ]
   %.pre-phi = phi i64 [ %.pre129, %.critedge.._crit_edge_crit_edge ], [ %73, %74 ]
   %94 = load ptr, ptr %13, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
@@ -981,7 +981,7 @@ get_fw_cfg_order.exit:                            ; preds = %35, %44, %48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %96, i8 noundef 0, i64 noundef 64, i1 noundef false) #18
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %98 = load ptr, ptr %97, align 16
-  %99 = add nsw i32 %.192132, 32
+  %99 = add nsw i32 %.192138, 32
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds %struct.FWCfgEntry, ptr %98, i64 %100
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %101, i8 noundef 0, i64 noundef 40, i1 noundef false) #18
@@ -994,9 +994,9 @@ get_fw_cfg_order.exit:                            ; preds = %35, %44, %48
   br i1 %.not97114, label %._crit_edge118, label %.lr.ph117.preheader
 
 .lr.ph117.preheader:                              ; preds = %._crit_edge
-  %105 = zext i32 %.192132 to i64
-  %106 = add nuw i32 %24, 1
-  %wide.trip.count = zext i32 %106 to i64
+  %105 = zext i32 %.192138 to i64
+  %106 = add nuw nsw i32 %24, 1
+  %wide.trip.count = zext nneg i32 %106 to i64
   br label %.lr.ph117
 
 .lr.ph117:                                        ; preds = %.lr.ph117.preheader, %117
@@ -1090,7 +1090,7 @@ fw_cfg_add_bytes_callback.exit:                   ; preds = %125
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %157 = load ptr, ptr %156, align 16
   %158 = getelementptr inbounds i32, ptr %157, i64 %.pre-phi
-  store i32 %.0134, ptr %158, align 4
+  store i32 %.0140, ptr %158, align 4
   %159 = load ptr, ptr %13, align 8
   %160 = getelementptr i8, ptr %159, i64 12
   %161 = getelementptr i8, ptr %160, i64 %.idx96
@@ -1122,12 +1122,12 @@ fw_cfg_add_bytes_callback.exit:                   ; preds = %125
   %174 = load i64, ptr %9, align 8
   %175 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %176 = load i64, ptr %175, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.78, i32 noundef %173, i64 noundef %174, i64 noundef %176, ptr noundef nonnull %0, i32 noundef range(i32 -2147483648, 65535) %.192132, ptr noundef %161, i64 noundef %6) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.78, i32 noundef %173, i64 noundef %174, i64 noundef %176, ptr noundef nonnull %0, i32 noundef range(i32 -2147483648, 65535) %.192138, ptr noundef %161, i64 noundef %6) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %trace_fw_cfg_add_file.exit
 
 177:                                              ; preds = %168
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.79, ptr noundef nonnull %0, i32 noundef range(i32 -2147483648, 65535) %.192132, ptr noundef %161, i64 noundef %6) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.79, ptr noundef nonnull %0, i32 noundef range(i32 -2147483648, 65535) %.192138, ptr noundef %161, i64 noundef %6) #18
   br label %trace_fw_cfg_add_file.exit
 
 trace_fw_cfg_add_file.exit:                       ; preds = %fw_cfg_add_bytes_callback.exit, %163, %165, %171, %177

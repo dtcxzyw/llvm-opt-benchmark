@@ -262,11 +262,11 @@ define internal fastcc void @findDependentObjects(ptr noundef %0, i32 noundef %1
   br i1 %50, label %.sink.split.i, label %54
 
 .sink.split.i:                                    ; preds = %49, %42
-  %.sink30.i = phi i32 [ %1, %42 ], [ %invariant.op.i, %49 ]
+  %.sink36.i = phi i32 [ %1, %42 ], [ %invariant.op.i, %49 ]
   %.1.ph.i = phi i1 [ true, %42 ], [ %.024.i, %49 ]
   %51 = getelementptr inbounds nuw i8, ptr %.01823.i, i64 8
   %52 = load i32, ptr %51, align 8
-  %53 = or i32 %52, %.sink30.i
+  %53 = or i32 %52, %.sink36.i
   store i32 %53, ptr %51, align 8
   br label %54
 
@@ -842,7 +842,7 @@ ReleaseDeletionLock.exit:                         ; preds = %.thread, %object_ad
   unreachable
 
 296:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  %.0.lcssa279 = phi i32 [ %1, %._crit_edge.thread ], [ %.1, %._crit_edge ]
+  %.0.lcssa309 = phi i32 [ %1, %._crit_edge.thread ], [ %.1, %._crit_edge ]
   %297 = call ptr @palloc(i64 noundef 2048) #9
   %298 = load i32, ptr %0, align 4
   %299 = zext i32 %298 to i64
@@ -866,13 +866,13 @@ ReleaseDeletionLock.exit:                         ; preds = %.thread, %object_ad
   %308 = call ptr @systable_beginscan(ptr noundef %307, i32 noundef 2674, i1 noundef zeroext true, ptr noundef null, i32 noundef %.1114, ptr noundef nonnull %8) #9
   %309 = call ptr @systable_getnext(ptr noundef %308) #9
   %.not135244 = icmp eq ptr %309, null
-  br i1 %.not135244, label %.thread293, label %.lr.ph249
+  br i1 %.not135244, label %.thread323, label %.lr.ph249
 
-.thread293:                                       ; preds = %306
+.thread323:                                       ; preds = %306
   call void @systable_endscan(ptr noundef %308) #9
   store ptr %0, ptr %12, align 8
   %310 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 %.0.lcssa279, ptr %310, align 8
+  store i32 %.0.lcssa309, ptr %310, align 8
   %311 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %3, ptr %311, align 8
   br label %._crit_edge256
@@ -917,7 +917,7 @@ ReleaseDeletionLock.exit:                         ; preds = %.thread, %object_ad
 
 334:                                              ; preds = %331, %328, %314
   switch i32 %321, label %AcquireDeletionLock.exit202 [
-    i32 1259, label %AcquireDeletionLock.exit202.thread281
+    i32 1259, label %AcquireDeletionLock.exit202.thread311
     i32 1261, label %AcquireDeletionLock.exit202.thread
   ]
 
@@ -926,29 +926,29 @@ AcquireDeletionLock.exit202:                      ; preds = %334
   %335 = call zeroext i1 @systable_recheck_tuple(ptr noundef %308, ptr noundef nonnull %315) #9
   br i1 %335, label %340, label %338
 
-AcquireDeletionLock.exit202.thread281:            ; preds = %334
+AcquireDeletionLock.exit202.thread311:            ; preds = %334
   call void @LockRelationOid(i32 noundef %323, i32 noundef 8) #9
   %336 = call zeroext i1 @systable_recheck_tuple(ptr noundef %308, ptr noundef nonnull %315) #9
-  br i1 %336, label %340, label %.thread282
+  br i1 %336, label %340, label %.thread312
 
 AcquireDeletionLock.exit202.thread:               ; preds = %334
   call void @LockSharedObject(i32 noundef 1261, i32 noundef %323, i16 noundef zeroext 0, i32 noundef 8) #9
   %337 = call zeroext i1 @systable_recheck_tuple(ptr noundef %308, ptr noundef nonnull %315) #9
-  br i1 %337, label %340, label %.thread280
+  br i1 %337, label %340, label %.thread310
 
 338:                                              ; preds = %AcquireDeletionLock.exit202
   %339 = icmp eq i32 %321, 1259
-  br i1 %339, label %.thread282, label %.thread280
+  br i1 %339, label %.thread312, label %.thread310
 
-.thread282:                                       ; preds = %AcquireDeletionLock.exit202.thread281, %338
+.thread312:                                       ; preds = %AcquireDeletionLock.exit202.thread311, %338
   call void @UnlockRelationOid(i32 noundef %323, i32 noundef 8) #9
   br label %ReleaseDeletionLock.exit203, !llvm.loop !11
 
-.thread280:                                       ; preds = %AcquireDeletionLock.exit202.thread, %338
+.thread310:                                       ; preds = %AcquireDeletionLock.exit202.thread, %338
   call void @UnlockDatabaseObject(i32 noundef %321, i32 noundef %323, i16 noundef zeroext 0, i32 noundef 8) #9
   br label %ReleaseDeletionLock.exit203, !llvm.loop !11
 
-340:                                              ; preds = %AcquireDeletionLock.exit202.thread281, %AcquireDeletionLock.exit202.thread, %AcquireDeletionLock.exit202
+340:                                              ; preds = %AcquireDeletionLock.exit202.thread311, %AcquireDeletionLock.exit202.thread, %AcquireDeletionLock.exit202
   %341 = getelementptr inbounds nuw i8, ptr %320, i64 24
   %342 = load i8, ptr %341, align 4
   switch i8 %342, label %347 [
@@ -1007,10 +1007,10 @@ AcquireDeletionLock.exit202.thread:               ; preds = %334
   %364 = add i32 %.0120246, 1
   br label %ReleaseDeletionLock.exit203
 
-ReleaseDeletionLock.exit203:                      ; preds = %.thread280, %.thread282, %331, %360
-  %.1123 = phi ptr [ %.2124, %360 ], [ %.0122245, %331 ], [ %.0122245, %.thread282 ], [ %.0122245, %.thread280 ]
-  %.1121 = phi i32 [ %364, %360 ], [ %.0120246, %331 ], [ %.0120246, %.thread282 ], [ %.0120246, %.thread280 ]
-  %.1118 = phi i32 [ %.2119, %360 ], [ %.0117247, %331 ], [ %.0117247, %.thread282 ], [ %.0117247, %.thread280 ]
+ReleaseDeletionLock.exit203:                      ; preds = %.thread310, %.thread312, %331, %360
+  %.1123 = phi ptr [ %.2124, %360 ], [ %.0122245, %331 ], [ %.0122245, %.thread312 ], [ %.0122245, %.thread310 ]
+  %.1121 = phi i32 [ %364, %360 ], [ %.0120246, %331 ], [ %.0120246, %.thread312 ], [ %.0120246, %.thread310 ]
+  %.1118 = phi i32 [ %.2119, %360 ], [ %.0117247, %331 ], [ %.0117247, %.thread312 ], [ %.0117247, %.thread310 ]
   %365 = call ptr @systable_getnext(ptr noundef %308) #9
   %.not135 = icmp eq ptr %365, null
   br i1 %.not135, label %._crit_edge250, label %314
@@ -1018,14 +1018,14 @@ ReleaseDeletionLock.exit203:                      ; preds = %.thread280, %.threa
 ._crit_edge250:                                   ; preds = %ReleaseDeletionLock.exit203
   call void @systable_endscan(ptr noundef %308) #9
   %366 = icmp sgt i32 %.1121, 1
-  br i1 %366, label %.thread287, label %371
+  br i1 %366, label %.thread317, label %371
 
-.thread287:                                       ; preds = %._crit_edge250
+.thread317:                                       ; preds = %._crit_edge250
   %367 = zext nneg i32 %.1121 to i64
   call void @pg_qsort(ptr noundef %.1123, i64 noundef %367, i64 noundef 16, ptr noundef nonnull @object_address_comparator) #9
   store ptr %0, ptr %12, align 8
   %368 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 %.0.lcssa279, ptr %368, align 8
+  store i32 %.0.lcssa309, ptr %368, align 8
   %369 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %3, ptr %369, align 8
   %370 = zext nneg i32 %.1121 to i64
@@ -1034,21 +1034,21 @@ ReleaseDeletionLock.exit203:                      ; preds = %.thread280, %.threa
 371:                                              ; preds = %._crit_edge250
   store ptr %0, ptr %12, align 8
   %372 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 %.0.lcssa279, ptr %372, align 8
+  store i32 %.0.lcssa309, ptr %372, align 8
   %373 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %3, ptr %373, align 8
   %374 = icmp eq i32 %.1121, 1
   br i1 %374, label %.lr.ph255.preheader, label %._crit_edge256
 
-.lr.ph255.preheader:                              ; preds = %.thread287, %371
-  %375 = phi ptr [ %368, %.thread287 ], [ %372, %371 ]
-  %.0120.lcssa286290 = phi i64 [ %370, %.thread287 ], [ 1, %371 ]
+.lr.ph255.preheader:                              ; preds = %.thread317, %371
+  %375 = phi ptr [ %368, %.thread317 ], [ %372, %371 ]
+  %.0120.lcssa316320 = phi i64 [ %370, %.thread317 ], [ 1, %371 ]
   br label %.lr.ph255
 
-._crit_edge256:                                   ; preds = %.lr.ph255, %.thread293, %371
-  %376 = phi ptr [ %372, %371 ], [ %310, %.thread293 ], [ %375, %.lr.ph255 ]
-  %.0122.lcssa285291 = phi ptr [ %.1123, %371 ], [ %297, %.thread293 ], [ %.1123, %.lr.ph255 ]
-  call void @pfree(ptr noundef %.0122.lcssa285291) #9
+._crit_edge256:                                   ; preds = %.lr.ph255, %.thread323, %371
+  %376 = phi ptr [ %372, %371 ], [ %310, %.thread323 ], [ %375, %.lr.ph255 ]
+  %.0122.lcssa315321 = phi ptr [ %.1123, %371 ], [ %297, %.thread323 ], [ %.1123, %.lr.ph255 ]
+  call void @pfree(ptr noundef %.0122.lcssa315321) #9
   %377 = load i32, ptr %376, align 8
   %378 = and i32 %377, 128
   %.not136 = icmp eq i32 %378, 0
@@ -1061,7 +1061,7 @@ ReleaseDeletionLock.exit203:                      ; preds = %.thread280, %.threa
   %381 = load i32, ptr %380, align 4
   call fastcc void @findDependentObjects(ptr noundef %379, i32 noundef %381, i32 noundef %2, ptr noundef nonnull %12, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %.0120.lcssa286290
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %.0120.lcssa316320
   br i1 %exitcond.not, label %._crit_edge256, label %.lr.ph255, !llvm.loop !12
 
 382:                                              ; preds = %._crit_edge256
@@ -1208,7 +1208,7 @@ define internal fastcc void @reportDependentObjects(ptr noundef readonly capture
   %33 = load i32, ptr %9, align 8
   %.187107 = add i32 %33, -1
   %34 = icmp sgt i32 %.187107, -1
-  br i1 %34, label %.lr.ph113, label %.thread144
+  br i1 %34, label %.lr.ph113, label %.thread148
 
 .lr.ph113:                                        ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1448,7 +1448,7 @@ define internal fastcc void @reportDependentObjects(ptr noundef readonly capture
 
 134:                                              ; preds = %132
   %135 = call zeroext i1 @errstart(i32 noundef %8, ptr noundef null) #9
-  br i1 %135, label %136, label %.thread144
+  br i1 %135, label %136, label %.thread148
 
 136:                                              ; preds = %134
   %137 = add i32 %.077.lcssa, %.080.lcssa
@@ -1458,34 +1458,34 @@ define internal fastcc void @reportDependentObjects(ptr noundef readonly capture
   %141 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.16, ptr noundef %140) #9
   %142 = load ptr, ptr %6, align 8
   %143 = call i32 (ptr, ...) @errdetail_log(ptr noundef nonnull @.str.16, ptr noundef %142) #9
-  br label %.thread144.sink.split
+  br label %.thread148.sink.split
 
 144:                                              ; preds = %132
   %145 = icmp eq i32 %.077.lcssa, 1
-  br i1 %145, label %146, label %.thread144
+  br i1 %145, label %146, label %.thread148
 
 146:                                              ; preds = %144
   %147 = call zeroext i1 @errstart(i32 noundef %8, ptr noundef null) #9
-  br i1 %147, label %148, label %.thread144
+  br i1 %147, label %148, label %.thread148
 
 148:                                              ; preds = %146
   %149 = load ptr, ptr %5, align 8
   %150 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, ptr noundef %149) #9
-  br label %.thread144.sink.split
+  br label %.thread148.sink.split
 
-.thread144.sink.split:                            ; preds = %136, %148
+.thread148.sink.split:                            ; preds = %136, %148
   %.sink = phi i32 [ 1177, %148 ], [ 1171, %136 ]
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.reportDependentObjects) #9
-  br label %.thread144
+  br label %.thread148
 
-.thread144:                                       ; preds = %.thread144.sink.split, %32, %146, %134, %144
+.thread148:                                       ; preds = %.thread148.sink.split, %32, %146, %134, %144
   %151 = load ptr, ptr %5, align 8
   call void @pfree(ptr noundef %151) #9
   %152 = load ptr, ptr %6, align 8
   call void @pfree(ptr noundef %152) #9
   br label %153
 
-153:                                              ; preds = %30, %.thread144
+153:                                              ; preds = %30, %.thread148
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -2770,12 +2770,12 @@ add_object_address.exit492:                       ; preds = %.lr.ph573, %318
   %390 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %391 = load i32, ptr %388, align 4
   %392 = icmp sgt i32 %391, 0
-  br i1 %392, label %.lr.ph625, label %.critedge466
+  br i1 %392, label %.lr.ph677, label %.critedge466
 
-.lr.ph625:                                        ; preds = %.lr.ph550, %454
-  %indvars.iv596624 = phi i64 [ %indvars.iv.next597, %454 ], [ 0, %.lr.ph550 ]
+.lr.ph677:                                        ; preds = %.lr.ph550, %454
+  %indvars.iv596676 = phi i64 [ %indvars.iv.next597, %454 ], [ 0, %.lr.ph550 ]
   %393 = load ptr, ptr %389, align 8
-  %394 = getelementptr inbounds nuw %union.ListCell, ptr %393, i64 %indvars.iv596624
+  %394 = getelementptr inbounds nuw %union.ListCell, ptr %393, i64 %indvars.iv596676
   %395 = load ptr, ptr %394, align 8
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 24
   %397 = load i32, ptr %396, align 8
@@ -2792,7 +2792,7 @@ add_object_address.exit492:                       ; preds = %.lr.ph573, %318
   %switch = icmp eq i32 %400, 2
   br i1 %switch, label %458, label %.critedge468
 
-401:                                              ; preds = %.lr.ph625
+401:                                              ; preds = %.lr.ph677
   %402 = getelementptr inbounds nuw i8, ptr %395, i64 28
   %403 = load i32, ptr %402, align 4
   %404 = load ptr, ptr %1, align 8
@@ -2829,7 +2829,7 @@ add_object_address.exit496:                       ; preds = %401, %409
   store i32 %421, ptr %405, align 8
   br label %454
 
-422:                                              ; preds = %.lr.ph625
+422:                                              ; preds = %.lr.ph677
   %423 = load ptr, ptr %386, align 8
   %424 = load ptr, ptr %390, align 8
   %425 = tail call ptr @lcons(ptr noundef %423, ptr noundef %424) #9
@@ -2877,7 +2877,7 @@ add_object_address.exit496:                       ; preds = %401, %409
   %445 = icmp slt i64 %indvars.iv.next594, %444
   br i1 %445, label %432, label %._crit_edge.loopexit, !llvm.loop !21
 
-446:                                              ; preds = %.lr.ph625
+446:                                              ; preds = %.lr.ph677
   %447 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %447)
   %448 = tail call i32 @errcode(i32 noundef 1088) #9
@@ -2889,12 +2889,12 @@ add_object_address.exit496:                       ; preds = %401, %409
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2206, ptr noundef nonnull @__func__.find_expr_references_walker) #9
   unreachable
 
-454:                                              ; preds = %.lr.ph625, %._crit_edge, %add_object_address.exit496
-  %indvars.iv.next597 = add nuw nsw i64 %indvars.iv596624, 1
+454:                                              ; preds = %.lr.ph677, %._crit_edge, %add_object_address.exit496
+  %indvars.iv.next597 = add nuw nsw i64 %indvars.iv596676, 1
   %455 = load i32, ptr %388, align 4
   %456 = sext i32 %455 to i64
   %457 = icmp slt i64 %indvars.iv.next597, %456
-  br i1 %457, label %.lr.ph625, label %.critedge466
+  br i1 %457, label %.lr.ph677, label %.critedge466
 
 458:                                              ; preds = %.critedge466
   %459 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3333,7 +3333,7 @@ add_object_address.exit522:                       ; preds = %667, %673
   br label %.critedge
 
 .critedge:                                        ; preds = %686, %622, %add_object_address.exit492, %add_object_address.exit, %.critedge476, %.lr.ph532, %.critedge472, %.lr.ph542, %.critedge462, %.lr.ph570, %203, %.lr.ph576, %4, %380, %383, %368, %365, %365, %342, %345, %259, %253, %253, %251, %245, %245, %243, %237, %237, %234, %197, %194, %194, %166, %171, %174, %136, %130, %130, %138, %146, %154, %162, %261, %269, %334, %690, %558, %338, %265, %158, %150, %142
-  %694 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef %0, ptr noundef nonnull @find_expr_references_walker, ptr noundef %1) #9
+  %694 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @find_expr_references_walker, ptr noundef %1) #9
   br label %695
 
 695:                                              ; preds = %347, %353, %56, %118, %123, %110, %115, %102, %107, %94, %99, %86, %91, %78, %83, %70, %75, %62, %67, %60, %30, %40, %47, %43, %2, %.critedge, %.critedge470
@@ -4376,8 +4376,8 @@ add_object_address.exit:                          ; preds = %30, %37
   %53 = trunc nuw i8 %52 to i1
   %54 = sext i16 %1 to i32
   %55 = icmp eq i32 %.0.lcssa, %54
-  %or.cond81 = select i1 %53, i1 %55, i1 false
-  br i1 %or.cond81, label %.thread48, label %._crit_edge._crit_edge
+  %or.cond90 = select i1 %53, i1 %55, i1 false
+  br i1 %or.cond90, label %.thread48, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
   %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10

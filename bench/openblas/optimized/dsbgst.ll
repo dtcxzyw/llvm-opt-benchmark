@@ -111,8 +111,8 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %62 = icmp slt i32 %61, 1
   %63 = icmp samesign ugt i32 %49, %61
   %or.cond2810 = and i1 %.not, %63
-  %or.cond3970 = select i1 %62, i1 true, i1 %or.cond2810
-  br i1 %or.cond3970, label %.thread.sink.split, label %64
+  %or.cond4088 = select i1 %62, i1 true, i1 %or.cond2810
+  br i1 %or.cond4088, label %.thread.sink.split, label %64
 
 64:                                               ; preds = %60
   %.pr = load i32, ptr %12, align 4, !tbaa !3
@@ -120,12 +120,12 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not2645, label %68, label %.thread
 
 .thread.sink.split:                               ; preds = %60, %58, %56, %54, %51, %48, %46, %43
-  %.sink3972 = phi i32 [ -1, %43 ], [ -2, %46 ], [ -3, %48 ], [ -4, %51 ], [ -5, %54 ], [ -7, %56 ], [ -9, %58 ], [ -11, %60 ]
-  store i32 %.sink3972, ptr %12, align 4, !tbaa !3
+  %.sink4090 = phi i32 [ -1, %43 ], [ -2, %46 ], [ -3, %48 ], [ -4, %51 ], [ -5, %54 ], [ -7, %56 ], [ -9, %58 ], [ -11, %60 ]
+  store i32 %.sink4090, ptr %12, align 4, !tbaa !3
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %64
-  %65 = phi i32 [ %.pr, %64 ], [ %.sink3972, %.thread.sink.split ]
+  %65 = phi i32 [ %.pr, %64 ], [ %.sink4090, %.thread.sink.split ]
   %66 = sub nsw i32 0, %65
   store i32 %66, ptr %14, align 4, !tbaa !3
   %67 = call i32 @xerbla_(ptr noundef nonnull @.str.4, ptr noundef nonnull %14, i32 noundef 6) #5
@@ -187,7 +187,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   store i32 %.pre3766, ptr %14, align 4, !tbaa !3
-  %.neg.le = sub i32 1, %.02605.ph
+  %.neg.le = sub nsw i32 1, %.02605.ph
   %92 = mul nsw i32 %84, %30
   %.not26533002 = icmp sgt i32 %84, %88
   br i1 %.not2641, label %805, label %96
@@ -503,7 +503,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 249:                                              ; preds = %95, %240
   %250 = phi i32 [ %.pre3813, %240 ], [ %83, %95 ]
-  %.025322918 = phi i32 [ %.02532.ph, %240 ], [ 0, %95 ]
+  %.025322918 = phi i32 [ 1, %240 ], [ 0, %95 ]
   %.not26472914 = phi i1 [ false, %240 ], [ true, %95 ]
   %.1260627722796 = phi i32 [ %84, %240 ], [ %94, %95 ]
   %.2254927752794 = phi i32 [ %85, %240 ], [ %.02547.lcssa, %95 ]
@@ -926,9 +926,9 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %519
 
 519:                                              ; preds = %517, %515
-  %.sink3974 = phi i32 [ %518, %517 ], [ %516, %515 ]
+  %.sink4092 = phi i32 [ %518, %517 ], [ %516, %515 ]
   %.sink3757 = phi i32 [ 1, %517 ], [ 2, %515 ]
-  %520 = mul nsw i32 %514, %.sink3974
+  %520 = mul nsw i32 %514, %.sink4092
   %521 = add nsw i32 %513, %520
   store i32 %.sink3757, ptr %16, align 4, !tbaa !3
   store i32 %511, ptr %15, align 4, !tbaa !3
@@ -1555,8 +1555,8 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %892 = getelementptr double, ptr %891, i64 %890
   %893 = load double, ptr %892, align 8, !tbaa !7
   %894 = sub i64 %884, %indvars.iv3573
-  %sext3904 = shl i64 %894, 32
-  %895 = ashr exact i64 %sext3904, 29
+  %sext4022 = shl i64 %894, 32
+  %895 = ashr exact i64 %sext4022, 29
   %896 = getelementptr i8, ptr %29, i64 %895
   %897 = getelementptr double, ptr %896, i64 %887
   %898 = load double, ptr %897, align 8, !tbaa !7
@@ -1623,8 +1623,8 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %925 = load double, ptr %915, align 8, !tbaa !7
   %926 = mul nsw i64 %indvars.iv3584, %80
   %927 = sub i64 %916, %indvars.iv3584
-  %sext3905 = shl i64 %927, 32
-  %928 = ashr exact i64 %sext3905, 29
+  %sext4023 = shl i64 %927, 32
+  %928 = ashr exact i64 %sext4023, 29
   %929 = getelementptr i8, ptr %29, i64 %928
   %930 = getelementptr double, ptr %929, i64 %926
   %931 = load double, ptr %930, align 8, !tbaa !7
@@ -1699,7 +1699,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 966:                                              ; preds = %95, %959
   %967 = phi i32 [ %.pre3829, %959 ], [ %83, %95 ]
-  %.025322919 = phi i32 [ %.02532.ph, %959 ], [ 0, %95 ]
+  %.025322919 = phi i32 [ 1, %959 ], [ 0, %95 ]
   %.not26472913 = phi i1 [ false, %959 ], [ true, %95 ]
   %.1260627742809 = phi i32 [ %84, %959 ], [ %94, %95 ]
   %.2254927772807 = phi i32 [ %85, %959 ], [ %.02547.lcssa, %95 ]
@@ -2116,9 +2116,9 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %1236
 
 1236:                                             ; preds = %1234, %1232
-  %.sink3976 = phi i32 [ %1235, %1234 ], [ %1233, %1232 ]
+  %.sink4094 = phi i32 [ %1235, %1234 ], [ %1233, %1232 ]
   %.sink3759 = phi i32 [ 1, %1234 ], [ 2, %1232 ]
-  %1237 = mul nsw i32 %1231, %.sink3976
+  %1237 = mul nsw i32 %1231, %.sink4094
   %1238 = add nsw i32 %1230, %1237
   store i32 %.sink3759, ptr %17, align 4, !tbaa !3
   store i32 %1227, ptr %16, align 4, !tbaa !3
@@ -2223,7 +2223,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1302 = sext i32 %1272 to i64
   %1303 = sext i32 %1280 to i64
   %1304 = sext i32 %1273 to i64
-  %invariant.gep3936 = getelementptr double, ptr %36, i64 %1304
+  %invariant.gep4054 = getelementptr double, ptr %36, i64 %1304
   br label %1305
 
 1305:                                             ; preds = %.lr.ph3160, %1305
@@ -2240,8 +2240,8 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1314 = load double, ptr %1313, align 8, !tbaa !7
   %1315 = fmul double %1312, %1314
   store double %1315, ptr %1313, align 8, !tbaa !7
-  %gep3937 = getelementptr double, ptr %invariant.gep3936, i64 %indvars.iv3626
-  %1316 = load double, ptr %gep3937, align 8, !tbaa !7
+  %gep4055 = getelementptr double, ptr %invariant.gep4054, i64 %indvars.iv3626
+  %1316 = load double, ptr %gep4055, align 8, !tbaa !7
   %1317 = load double, ptr %1311, align 8, !tbaa !7
   %1318 = fmul double %1316, %1317
   store double %1318, ptr %1311, align 8, !tbaa !7
@@ -2585,19 +2585,19 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not2659.not, label %1509, label %.loopexit2885, !llvm.loop !55
 
 .loopexit2885.sink.split:                         ; preds = %1220, %._crit_edge3165, %503, %._crit_edge3087
-  %.ph3910.sink = phi i32 [ %.pre3822, %._crit_edge3087 ], [ %504, %503 ], [ %.pre3840, %._crit_edge3165 ], [ %1221, %1220 ]
-  %.sink3979 = phi ptr [ %15, %._crit_edge3087 ], [ %15, %503 ], [ %16, %._crit_edge3165 ], [ %16, %1220 ]
+  %.ph4028.sink = phi i32 [ %.pre3822, %._crit_edge3087 ], [ %504, %503 ], [ %.pre3840, %._crit_edge3165 ], [ %1221, %1220 ]
+  %.sink4097 = phi ptr [ %15, %._crit_edge3087 ], [ %15, %503 ], [ %16, %._crit_edge3165 ], [ %16, %1220 ]
   %.025322917.ph = phi i32 [ %.025322918, %._crit_edge3087 ], [ %.025322918, %503 ], [ %.025322919, %._crit_edge3165 ], [ %.025322919, %1220 ]
   %.225402782.ph = phi i32 [ %.2254027812790, %._crit_edge3087 ], [ %.2254027812790, %503 ], [ %.2254027832803, %._crit_edge3165 ], [ %.2254027832803, %1220 ]
   %.225442779.ph = phi i32 [ %.2254427782792, %._crit_edge3087 ], [ %.2254427782792, %503 ], [ %.2254427802805, %._crit_edge3165 ], [ %.2254427802805, %1220 ]
   %.225492776.ph = phi i32 [ %.2254927752794, %._crit_edge3087 ], [ %.2254927752794, %503 ], [ %.2254927772807, %._crit_edge3165 ], [ %.2254927772807, %1220 ]
   %.126062773.ph = phi i32 [ %.1260627722796, %._crit_edge3087 ], [ %.1260627722796, %503 ], [ %.1260627742809, %._crit_edge3165 ], [ %.1260627742809, %1220 ]
-  %1525 = add nsw i32 %.ph3910.sink, -1
-  store i32 %1525, ptr %.sink3979, align 4, !tbaa !3
+  %1525 = add nsw i32 %.ph4028.sink, -1
+  store i32 %1525, ptr %.sink4097, align 4, !tbaa !3
   br label %.loopexit2885
 
 .loopexit2885:                                    ; preds = %789, %1509, %.loopexit2885.sink.split, %._crit_edge3184, %._crit_edge3108, %779, %1499, %._crit_edge3193, %._crit_edge3117
-  %1526 = phi i32 [ %.pre3845, %._crit_edge3193 ], [ %.pre3828, %._crit_edge3117 ], [ %.pre3845, %1499 ], [ %.pre3828, %779 ], [ %.pre3826, %._crit_edge3108 ], [ %.pre3843, %._crit_edge3184 ], [ %.ph3910.sink, %.loopexit2885.sink.split ], [ %.pre3845, %1509 ], [ %.pre3828, %789 ]
+  %1526 = phi i32 [ %.pre3845, %._crit_edge3193 ], [ %.pre3828, %._crit_edge3117 ], [ %.pre3845, %1499 ], [ %.pre3828, %779 ], [ %.pre3826, %._crit_edge3108 ], [ %.pre3843, %._crit_edge3184 ], [ %.ph4028.sink, %.loopexit2885.sink.split ], [ %.pre3845, %1509 ], [ %.pre3828, %789 ]
   %.025322917 = phi i32 [ %.025322919, %._crit_edge3193 ], [ %.025322918, %._crit_edge3117 ], [ %.025322919, %1499 ], [ %.025322918, %779 ], [ %.025322918, %._crit_edge3108 ], [ %.025322919, %._crit_edge3184 ], [ %.025322917.ph, %.loopexit2885.sink.split ], [ %.025322919, %1509 ], [ %.025322918, %789 ]
   %.225402782 = phi i32 [ %.2254027832803, %._crit_edge3193 ], [ %.2254027812790, %._crit_edge3117 ], [ %.2254027832803, %1499 ], [ %.2254027812790, %779 ], [ %.2254027812790, %._crit_edge3108 ], [ %.2254027832803, %._crit_edge3184 ], [ %.225402782.ph, %.loopexit2885.sink.split ], [ %.2254027832803, %1509 ], [ %.2254027812790, %789 ]
   %.225442779 = phi i32 [ %.2254427802805, %._crit_edge3193 ], [ %.2254427782792, %._crit_edge3117 ], [ %.2254427802805, %1499 ], [ %.2254427782792, %779 ], [ %.2254427782792, %._crit_edge3108 ], [ %.2254427802805, %._crit_edge3184 ], [ %.225442779.ph, %.loopexit2885.sink.split ], [ %.2254427802805, %1509 ], [ %.2254427782792, %789 ]
@@ -2615,8 +2615,8 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .outer.preheader:                                 ; preds = %.loopexit2889
   %1527 = sext i32 %42 to i64
-  %invariant.gep3940 = getelementptr double, ptr %32, i64 %1527
-  %invariant.gep3938 = getelementptr double, ptr %32, i64 %1527
+  %invariant.gep4058 = getelementptr double, ptr %32, i64 %1527
+  %invariant.gep4056 = getelementptr double, ptr %32, i64 %1527
   %.326083491 = add i32 %27, -1
   %.326083492 = add i32 %27, -1
   br label %.outer
@@ -2646,7 +2646,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %1532, label %.loopexit2878, label %1533
 
 1533:                                             ; preds = %.lr.ph3201.split.us.us, %1530
-  %.125332895.us = phi i32 [ 0, %1530 ], [ %.12533.ph.us, %.lr.ph3201.split.us.us ]
+  %.125332895.us = phi i32 [ 0, %1530 ], [ 1, %.lr.ph3201.split.us.us ]
   %.not26982892.us = phi i1 [ true, %1530 ], [ false, %.lr.ph3201.split.us.us ]
   %.32608.us = phi i32 [ %1531, %1530 ], [ %2165, %.lr.ph3201.split.us.us ]
   %.42551.us = phi i32 [ %.32550.lcssa.us, %1530 ], [ %2174, %.lr.ph3201.split.us.us ]
@@ -2703,21 +2703,21 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 1558:                                             ; preds = %.lr.ph3366.us, %1558
   %indvars.iv3704 = phi i64 [ %2178, %.lr.ph3366.us ], [ %indvars.iv.next3705, %1558 ]
-  %1559 = trunc i64 %indvars.iv3704 to i32
+  %1559 = trunc nsw i64 %indvars.iv3704 to i32
   %1560 = add i32 %2177, %1559
   %1561 = sext i32 %1560 to i64
   %1562 = getelementptr inbounds double, ptr %29, i64 %1561
   %1563 = load double, ptr %1562, align 8, !tbaa !7
   %1564 = fdiv double %1563, %1545
   store double %1564, ptr %1562, align 8, !tbaa !7
-  %indvars.iv.next3705 = add i64 %indvars.iv3704, 1
+  %indvars.iv.next3705 = add nuw nsw i64 %indvars.iv3704, 1
   %lftr.wideiv3707 = trunc i64 %indvars.iv.next3705 to i32
   %exitcond3708.not = icmp eq i32 %2179, %lftr.wideiv3707
   br i1 %exitcond3708.not, label %._crit_edge3367.us, label %1558, !llvm.loop !57
 
 ._crit_edge3367.us:                               ; preds = %1558, %._crit_edge3362.us
   %1565 = add i32 %1534, %.32608.us
-  %1566 = add i32 %.32608.us, 1
+  %1566 = add nuw i32 %.32608.us, 1
   %.not27053377.us = icmp slt i32 %1534, 1
   br i1 %.not27053377.us, label %1607, label %.lr.ph3381.us
 
@@ -2729,8 +2729,8 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1570 = sub i32 %1569, %.182575.neg3379.us.in
   %1571 = sub nsw i64 %indvars.iv3709, %2188
   %1572 = add nsw i64 %1571, 1
-  %gep3953 = getelementptr double, ptr %invariant.gep3952, i64 %1572
-  %gep3955 = getelementptr double, ptr %invariant.gep3954, i64 %1572
+  %gep4071 = getelementptr double, ptr %invariant.gep4070, i64 %1572
+  %gep4073 = getelementptr double, ptr %invariant.gep4072, i64 %1572
   br label %1573
 
 1573:                                             ; preds = %1573, %1567
@@ -2742,14 +2742,14 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1578 = load double, ptr %1577, align 8, !tbaa !7
   %1579 = sub nsw i64 %indvars.iv3711, %2188
   %1580 = add nsw i64 %1579, 1
-  %gep3949 = getelementptr double, ptr %invariant.gep3948, i64 %1580
-  %1581 = load double, ptr %gep3949, align 8, !tbaa !7
-  %1582 = load double, ptr %gep3953, align 8, !tbaa !7
+  %gep4067 = getelementptr double, ptr %invariant.gep4066, i64 %1580
+  %1581 = load double, ptr %gep4067, align 8, !tbaa !7
+  %1582 = load double, ptr %gep4071, align 8, !tbaa !7
   %1583 = fneg double %1581
   %1584 = call double @llvm.fmuladd.f64(double %1583, double %1582, double %1578)
-  %1585 = load double, ptr %gep3955, align 8, !tbaa !7
-  %gep3951 = getelementptr double, ptr %invariant.gep3950, i64 %1580
-  %1586 = load double, ptr %gep3951, align 8, !tbaa !7
+  %1585 = load double, ptr %gep4073, align 8, !tbaa !7
+  %gep4069 = getelementptr double, ptr %invariant.gep4068, i64 %1580
+  %1586 = load double, ptr %gep4069, align 8, !tbaa !7
   %1587 = fneg double %1585
   %1588 = call double @llvm.fmuladd.f64(double %1587, double %1586, double %1584)
   %1589 = load double, ptr %2185, align 8, !tbaa !7
@@ -2802,7 +2802,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 1612:                                             ; preds = %.lr.ph3387.us, %1612
   %indvars.iv3718.in = phi i64 [ %2199, %.lr.ph3387.us ], [ %indvars.iv3718, %1612 ]
-  %indvars.iv3718 = add nsw i64 %indvars.iv3718.in, 1
+  %indvars.iv3718 = add nuw nsw i64 %indvars.iv3718.in, 1
   %1613 = trunc nsw i64 %indvars.iv3718 to i32
   %1614 = add i32 %2198, %1613
   %1615 = sext i32 %1614 to i64
@@ -2816,7 +2816,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1623 = fneg double %1617
   %1624 = call double @llvm.fmuladd.f64(double %1623, double %1618, double %1622)
   store double %1624, ptr %1621, align 8, !tbaa !7
-  %.not2725.us.not = icmp slt i64 %indvars.iv3718, %2197
+  %.not2725.us.not = icmp samesign ult i64 %indvars.iv3718, %2197
   br i1 %.not2725.us.not, label %1612, label %._crit_edge3388.us, !llvm.loop !61
 
 ._crit_edge3388.us:                               ; preds = %1612, %1608
@@ -2881,7 +2881,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %1711
 
 1651:                                             ; preds = %1650
-  %1652 = add nsw i64 %indvars.iv3738, %2225
+  %1652 = add nuw nsw i64 %indvars.iv3738, %2225
   %1653 = sext i32 %.pre3794 to i64
   %1654 = icmp sgt i64 %1652, %1653
   %1655 = icmp slt i64 %1652, %82
@@ -3032,7 +3032,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 1752:                                             ; preds = %.lr.ph3406.us, %1752
   %indvars.iv3735 = phi i64 [ 1, %.lr.ph3406.us ], [ %indvars.iv.next3736, %1752 ]
   %indvars.iv.next3736 = add nuw nsw i64 %indvars.iv3735, 1
-  %gep3961 = getelementptr double, ptr %invariant.gep3960, i64 %indvars.iv.next3736
+  %gep4079 = getelementptr double, ptr %invariant.gep4078, i64 %indvars.iv.next3736
   %1753 = trunc nuw nsw i64 %indvars.iv3735 to i32
   %1754 = add i32 %2213, %1753
   %1755 = sext i32 %1754 to i64
@@ -3041,7 +3041,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1758 = add nsw i32 %1757, %1725
   %1759 = sext i32 %1758 to i64
   %1760 = getelementptr inbounds double, ptr %36, i64 %1759
-  call void @dlartv_(ptr noundef nonnull %21, ptr noundef %gep3961, ptr noundef nonnull %19, ptr noundef %1756, ptr noundef nonnull %19, ptr noundef nonnull %1760, ptr noundef nonnull %2214, ptr noundef nonnull %23) #5
+  call void @dlartv_(ptr noundef nonnull %21, ptr noundef %gep4079, ptr noundef nonnull %19, ptr noundef %1756, ptr noundef nonnull %19, ptr noundef nonnull %1760, ptr noundef nonnull %2214, ptr noundef nonnull %23) #5
   %1761 = load i32, ptr %14, align 4, !tbaa !3
   %1762 = sext i32 %1761 to i64
   %.not2721.us.not = icmp slt i64 %indvars.iv3735, %1762
@@ -3169,17 +3169,17 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv3732 = phi i64 [ %2207, %.lr.ph3401.us ], [ %indvars.iv.next3733, %1837 ]
   %1838 = add nsw i64 %indvars.iv3732, -1
   %1839 = mul nsw i64 %1838, %80
-  %gep3957 = getelementptr double, ptr %invariant.gep3956, i64 %1839
-  %1840 = load double, ptr %gep3957, align 8, !tbaa !7
+  %gep4075 = getelementptr double, ptr %invariant.gep4074, i64 %1839
+  %1840 = load double, ptr %gep4075, align 8, !tbaa !7
   %1841 = getelementptr inbounds double, ptr %36, i64 %indvars.iv3732
   %1842 = load double, ptr %1841, align 8, !tbaa !7
   %1843 = fmul double %1840, %1842
   store double %1843, ptr %1841, align 8, !tbaa !7
-  %gep3959 = getelementptr double, ptr %invariant.gep3958, i64 %indvars.iv3732
-  %1844 = load double, ptr %gep3959, align 8, !tbaa !7
-  %1845 = load double, ptr %gep3957, align 8, !tbaa !7
+  %gep4077 = getelementptr double, ptr %invariant.gep4076, i64 %indvars.iv3732
+  %1844 = load double, ptr %gep4077, align 8, !tbaa !7
+  %1845 = load double, ptr %gep4075, align 8, !tbaa !7
   %1846 = fmul double %1844, %1845
-  store double %1846, ptr %gep3957, align 8, !tbaa !7
+  store double %1846, ptr %gep4075, align 8, !tbaa !7
   %indvars.iv.next3733 = add nsw i64 %indvars.iv3732, %2208
   %1847 = icmp sge i64 %indvars.iv.next3733, %2210
   %1848 = icmp sle i64 %indvars.iv.next3733, %2210
@@ -3230,8 +3230,8 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %1871, label %.lr.ph3470.us, label %._crit_edge3471.us.thread
 
 ._crit_edge3471.us.thread:                        ; preds = %._crit_edge3452.us, %1868
-  %.ph3913 = phi i32 [ %.pre3805, %._crit_edge3452.us ], [ %1869, %1868 ]
-  %1872 = add nsw i32 %.ph3913, -1
+  %.ph4031 = phi i32 [ %.pre3805, %._crit_edge3452.us ], [ %1869, %1868 ]
+  %1872 = add nsw i32 %.ph4031, -1
   store i32 %1872, ptr %16, align 4, !tbaa !3
   br label %._crit_edge3480.us.thread
 
@@ -3306,13 +3306,13 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %1914, label %1887, label %._crit_edge3475.us.loopexit, !llvm.loop !69
 
 ._crit_edge3480.us.thread:                        ; preds = %._crit_edge3471.us, %._crit_edge3471.us.thread
-  %.ph3915 = phi i32 [ %.ph3913, %._crit_edge3471.us.thread ], [ %.pre3810, %._crit_edge3471.us ]
-  %.pre3792.pre.pre3916 = load i32, ptr %3, align 4, !tbaa !3
+  %.ph4033 = phi i32 [ %.ph4031, %._crit_edge3471.us.thread ], [ %.pre3810, %._crit_edge3471.us ]
+  %.pre3792.pre.pre4034 = load i32, ptr %3, align 4, !tbaa !3
   br label %.outer.us.backedge
 
 .outer.us.backedge:                               ; preds = %1922, %._crit_edge3480.us.thread, %1916, %._crit_edge3480.us
-  %.pre3792.be = phi i32 [ %.pre3792.pre.pre3916, %._crit_edge3480.us.thread ], [ %.pre3792.pre.pre, %1916 ], [ %.pre3792.pre.pre, %._crit_edge3480.us ], [ %.pre3792.pre.pre, %1922 ]
-  %.be = phi i32 [ %.ph3915, %._crit_edge3480.us.thread ], [ %.pre3812, %1916 ], [ %.pre3812, %._crit_edge3480.us ], [ %.pre3812, %1922 ]
+  %.pre3792.be = phi i32 [ %.pre3792.pre.pre4034, %._crit_edge3480.us.thread ], [ %.pre3792.pre.pre, %1916 ], [ %.pre3792.pre.pre, %._crit_edge3480.us ], [ %.pre3792.pre.pre, %1922 ]
+  %.be = phi i32 [ %.ph4033, %._crit_edge3480.us.thread ], [ %.pre3812, %1916 ], [ %.pre3812, %._crit_edge3480.us ], [ %.pre3812, %1922 ]
   br label %.outer.us
 
 ._crit_edge3480.us:                               ; preds = %._crit_edge3475.us
@@ -3322,7 +3322,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %1915, label %1916, label %.outer.us.backedge
 
 1916:                                             ; preds = %._crit_edge3480.us
-  %1917 = add nsw i32 %.pre3812, %.32608.us
+  %1917 = add nuw nsw i32 %.pre3812, %.32608.us
   store i32 %1917, ptr %17, align 4, !tbaa !3
   %1918 = call i32 @llvm.smin.i32(i32 %1917, i32 %77)
   %1919 = shl i32 %.pre3792.pre.pre, 1
@@ -3335,12 +3335,12 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 1922:                                             ; preds = %.lr.ph3484.us, %1922
   %indvars.iv3752 = phi i64 [ 2, %.lr.ph3484.us ], [ %indvars.iv.next3753, %1922 ]
   %1923 = add nsw i64 %indvars.iv3752, %2251
-  %gep3967 = getelementptr double, ptr %invariant.gep3966, i64 %1923
-  %1924 = load double, ptr %gep3967, align 8, !tbaa !7
+  %gep4085 = getelementptr double, ptr %invariant.gep4084, i64 %1923
+  %1924 = load double, ptr %gep4085, align 8, !tbaa !7
   %1925 = getelementptr inbounds double, ptr %36, i64 %1923
   store double %1924, ptr %1925, align 8, !tbaa !7
-  %gep3969 = getelementptr double, ptr %invariant.gep3968, i64 %indvars.iv3752
-  %1926 = load double, ptr %gep3969, align 8, !tbaa !7
+  %gep4087 = getelementptr double, ptr %invariant.gep4086, i64 %indvars.iv3752
+  %1926 = load double, ptr %gep4087, align 8, !tbaa !7
   %1927 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv3752
   store double %1926, ptr %1927, align 8, !tbaa !7
   %indvars.iv.next3753 = add nuw nsw i64 %indvars.iv3752, 1
@@ -3398,7 +3398,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 1958:                                             ; preds = %.lr.ph3456.us, %1958
   %indvars.iv3748 = phi i64 [ 1, %.lr.ph3456.us ], [ %indvars.iv.next3749, %1958 ]
   %indvars.iv.next3749 = add nuw nsw i64 %indvars.iv3748, 1
-  %gep3965 = getelementptr double, ptr %invariant.gep3964, i64 %indvars.iv.next3749
+  %gep4083 = getelementptr double, ptr %invariant.gep4082, i64 %indvars.iv.next3749
   %1959 = trunc nuw nsw i64 %indvars.iv3748 to i32
   %1960 = add i32 %2242, %1959
   %1961 = sext i32 %1960 to i64
@@ -3412,7 +3412,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1969 = sub i32 %1948, %1964
   %1970 = sext i32 %1969 to i64
   %1971 = getelementptr inbounds double, ptr %36, i64 %1970
-  call void @dlartv_(ptr noundef nonnull %21, ptr noundef %gep3965, ptr noundef nonnull %19, ptr noundef %1962, ptr noundef nonnull %19, ptr noundef nonnull %1968, ptr noundef nonnull %1971, ptr noundef nonnull %23) #5
+  call void @dlartv_(ptr noundef nonnull %21, ptr noundef %gep4083, ptr noundef nonnull %19, ptr noundef %1962, ptr noundef nonnull %19, ptr noundef nonnull %1968, ptr noundef nonnull %1971, ptr noundef nonnull %23) #5
   %1972 = load i32, ptr %17, align 4, !tbaa !3
   %1973 = sext i32 %1972 to i64
   %.not2712.us.not = icmp slt i64 %indvars.iv3748, %1973
@@ -3559,9 +3559,9 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %2065
 
 2065:                                             ; preds = %2063, %2061
-  %.sink3981 = phi i32 [ %2064, %2063 ], [ %2062, %2061 ]
+  %.sink4099 = phi i32 [ %2064, %2063 ], [ %2062, %2061 ]
   %.sink3761 = phi i32 [ 1, %2063 ], [ 2, %2061 ]
-  %2066 = mul nsw i32 %2059, %.sink3981
+  %2066 = mul nsw i32 %2059, %.sink4099
   %2067 = sub i32 %2060, %2066
   store i32 %.sink3761, ptr %17, align 4, !tbaa !3
   store i32 %2058, ptr %16, align 4, !tbaa !3
@@ -3628,8 +3628,8 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv3745 = phi i64 [ %2234, %.lr.ph3441.us ], [ %indvars.iv.next3746, %2099 ]
   %2100 = add nsw i64 %indvars.iv3745, -1
   %2101 = mul nsw i64 %2100, %80
-  %gep3963 = getelementptr double, ptr %invariant.gep3962, i64 %2101
-  %2102 = load double, ptr %gep3963, align 8, !tbaa !7
+  %gep4081 = getelementptr double, ptr %invariant.gep4080, i64 %2101
+  %2102 = load double, ptr %gep4081, align 8, !tbaa !7
   %2103 = trunc nsw i64 %indvars.iv3745 to i32
   %.reass3444.us = add i32 %invariant.op3443.us, %2103
   %2104 = sext i32 %.reass3444.us to i64
@@ -3641,9 +3641,9 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2108 = sext i32 %.reass3448.us to i64
   %2109 = getelementptr inbounds double, ptr %36, i64 %2108
   %2110 = load double, ptr %2109, align 8, !tbaa !7
-  %2111 = load double, ptr %gep3963, align 8, !tbaa !7
+  %2111 = load double, ptr %gep4081, align 8, !tbaa !7
   %2112 = fmul double %2110, %2111
-  store double %2112, ptr %gep3963, align 8, !tbaa !7
+  store double %2112, ptr %gep4081, align 8, !tbaa !7
   %indvars.iv.next3746 = add nsw i64 %indvars.iv3745, %2235
   %2113 = icmp sge i64 %indvars.iv.next3746, %2236
   %2114 = icmp sle i64 %indvars.iv.next3746, %2236
@@ -3724,7 +3724,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %2164, label %.lr.ph3426.us, label %._crit_edge3427.us.loopexit, !llvm.loop !78
 
 .lr.ph3201.us:                                    ; preds = %.outer.us
-  %2165 = add nsw i32 %.22607.ph.us, 1
+  %2165 = add nuw nsw i32 %.22607.ph.us, 1
   %2166 = sub nsw i32 %77, %2165
   %2167 = call i32 @llvm.smin.i32(i32 %1529, i32 %2166)
   store i32 %2167, ptr %25, align 4, !tbaa !3
@@ -3742,7 +3742,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph3201.split.us.us:                           ; preds = %.lr.ph3201.us
   store i32 1, ptr %16, align 4, !tbaa !3
-  %2174 = add nsw i32 %.22607.ph.us, 2
+  %2174 = add nuw nsw i32 %.22607.ph.us, 2
   br label %1533
 
 .lr.ph3201.split.split.us:                        ; preds = %.lr.ph3201.split.us3485
@@ -3750,15 +3750,15 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %1530
 
 .lr.ph3361.us:                                    ; preds = %1540
-  %2175 = add i32 %.32608.us, 1
+  %2175 = add nuw i32 %.32608.us, 1
   %2176 = sext i32 %.42546.us to i64
   br label %1546
 
 .lr.ph3366.us:                                    ; preds = %._crit_edge3362.us
   %reass.sub3496 = mul i32 %.32608.us, %.32608.us3497
   %2177 = add i32 %reass.sub3496, 1
-  %2178 = zext i32 %.32608.us to i64
-  %2179 = add i32 %1557, 1
+  %2178 = zext nneg i32 %.32608.us to i64
+  %2179 = add nuw i32 %1557, 1
   br label %1558
 
 .lr.ph3374.us:                                    ; preds = %1592
@@ -3778,13 +3778,13 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %reass.sub3499 = mul i32 %.32608.us, %.32608.us3500
   %2186 = add i32 %reass.sub3499, 1
   %2187 = sext i32 %1566 to i64
-  %2188 = sext i32 %.32608.us to i64
+  %2188 = zext nneg i32 %.32608.us to i64
   %2189 = sext i32 %1565 to i64
   %2190 = sext i32 %1557 to i64
-  %invariant.gep3952 = getelementptr double, ptr %29, i64 %2183
-  %invariant.gep3954 = getelementptr double, ptr %32, i64 %1542
-  %invariant.gep3948 = getelementptr double, ptr %32, i64 %1542
-  %invariant.gep3950 = getelementptr double, ptr %29, i64 %2183
+  %invariant.gep4070 = getelementptr double, ptr %29, i64 %2183
+  %invariant.gep4072 = getelementptr double, ptr %32, i64 %1542
+  %invariant.gep4066 = getelementptr double, ptr %32, i64 %1542
+  %invariant.gep4068 = getelementptr double, ptr %29, i64 %2183
   br label %1567
 
 ._crit_edge3382.us:                               ; preds = %._crit_edge3375.us
@@ -3802,13 +3802,13 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2195 = getelementptr double, ptr %2194, i64 %2193
   %reass.sub3502 = mul i32 %1528, %indvars3724
   %2196 = add i32 %reass.sub3502, 1
-  %2197 = sext i32 %1611 to i64
+  %2197 = zext nneg i32 %1611 to i64
   br label %1612
 
 .lr.ph3394.us:                                    ; preds = %1607
   %reass.sub3501 = sub i32 %1541, %.32608.us
   %2198 = add i32 %reass.sub3501, 1
-  %2199 = sext i32 %.32608.us to i64
+  %2199 = zext nneg i32 %.32608.us to i64
   %2200 = sext i32 %.42546.us to i64
   br label %1608
 
@@ -3830,8 +3830,8 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2208 = sext i32 %1713 to i64
   %2209 = sext i32 %2202 to i64
   %2210 = sext i32 %.3.us to i64
-  %invariant.gep3956 = getelementptr double, ptr %29, i64 %2208
-  %invariant.gep3958 = getelementptr double, ptr %36, i64 %2209
+  %invariant.gep4074 = getelementptr double, ptr %29, i64 %2208
+  %invariant.gep4076 = getelementptr double, ptr %36, i64 %2209
   br label %1837
 
 .lr.ph3406.us:                                    ; preds = %1750
@@ -3840,7 +3840,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2213 = add i32 %2212, 2
   %2214 = getelementptr inbounds double, ptr %36, i64 %.pre3896
   %2215 = sext i32 %.pre3888 to i64
-  %invariant.gep3960 = getelementptr double, ptr %29, i64 %2215
+  %invariant.gep4078 = getelementptr double, ptr %29, i64 %2215
   br label %1752
 
 .lr.ph3412.us:                                    ; preds = %1774
@@ -3853,12 +3853,12 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2219 = add i32 %.32608.us, %77
   %reass.sub3503 = sub i32 %.42551.us, %77
   %2220 = add i32 %reass.sub3503, 1
-  %2221 = add i32 %.32608.us, 1
-  %2222 = add i32 %.32608.us, -1
-  %2223 = add i32 %.32608.us, 2
-  %reass.sub3907 = sub i32 %.42551.us, %77
-  %2224 = add i32 %reass.sub3907, 2
-  %2225 = sext i32 %.32608.us to i64
+  %2221 = add nuw i32 %.32608.us, 1
+  %2222 = add nsw i32 %.32608.us, -1
+  %2223 = add nuw i32 %.32608.us, 2
+  %reass.sub4025 = sub i32 %.42551.us, %77
+  %2224 = add i32 %reass.sub4025, 2
+  %2225 = zext nneg i32 %.32608.us to i64
   br label %1650
 
 .lr.ph3431.us:                                    ; preds = %._crit_edge3427.us
@@ -3881,12 +3881,12 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2234 = sext i32 %2078 to i64
   %2235 = sext i32 %2072 to i64
   %2236 = sext i32 %2067 to i64
-  %invariant.gep3962 = getelementptr double, ptr %29, i64 %2235
+  %invariant.gep4080 = getelementptr double, ptr %29, i64 %2235
   br label %2099
 
 .lr.ph3451.us:                                    ; preds = %1868
   %2237 = sub i32 %.42551.us, %77
-  %2238 = add i32 %.32608.us, 1
+  %2238 = add nuw i32 %.32608.us, 1
   %2239 = add i32 %.32608.us, %77
   br label %2057
 
@@ -3895,7 +3895,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2241 = mul nsw i32 %2240, %27
   %2242 = add i32 %2241, 2
   %2243 = sext i32 %1944 to i64
-  %invariant.gep3964 = getelementptr double, ptr %29, i64 %2243
+  %invariant.gep4082 = getelementptr double, ptr %29, i64 %2243
   br label %1958
 
 .lr.ph3462.us:                                    ; preds = %1989
@@ -3904,7 +3904,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph3470.us:                                    ; preds = %._crit_edge3452.us
   %2245 = sub i32 %.42551.us, %77
-  %2246 = add i32 %.32608.us, 1
+  %2246 = add nuw i32 %.32608.us, 1
   br label %1928
 
 .lr.ph3474.us:                                    ; preds = %1874
@@ -3914,7 +3914,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph3479.us:                                    ; preds = %._crit_edge3471.us
   %reass.sub3505 = sub i32 %.42551.us, %77
   %2248 = add i32 %reass.sub3505, 1
-  %2249 = add i32 %.32608.us, 1
+  %2249 = add nuw i32 %.32608.us, 1
   br label %1874
 
 .lr.ph3484.us:                                    ; preds = %1916
@@ -3923,13 +3923,13 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2252 = sext i32 %.pre3792.pre.pre to i64
   %2253 = sub i32 %1918, %1919
   %wide.trip.count3755 = zext i32 %2253 to i64
-  %invariant.gep3966 = getelementptr double, ptr %36, i64 %2252
-  %invariant.gep3968 = getelementptr double, ptr %36, i64 %2252
+  %invariant.gep4084 = getelementptr double, ptr %36, i64 %2252
+  %invariant.gep4086 = getelementptr double, ptr %36, i64 %2252
   br label %1922
 
 .outer:                                           ; preds = %.outer.backedge, %.outer.preheader
   %.pre3768 = phi i32 [ %.pre3765, %.outer.preheader ], [ %.pre3768.be, %.outer.backedge ]
-  %2254 = phi i32 [ %83, %.outer.preheader ], [ %.be3996, %.outer.backedge ]
+  %2254 = phi i32 [ %83, %.outer.preheader ], [ %.be4114, %.outer.backedge ]
   %.22607.ph = phi i32 [ 0, %.outer.preheader ], [ %.32608, %.outer.backedge ]
   %.32550.ph = phi i32 [ %.12548, %.outer.preheader ], [ %.42551, %.outer.backedge ]
   %.32545.ph = phi i32 [ %.12543, %.outer.preheader ], [ %.42546, %.outer.backedge ]
@@ -3939,7 +3939,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not26983198, label %2265, label %.lr.ph3201
 
 .lr.ph3201:                                       ; preds = %.outer
-  %2255 = add nsw i32 %.22607.ph, 1
+  %2255 = add nuw nsw i32 %.22607.ph, 1
   %2256 = sub nsw i32 %77, %2255
   %2257 = call i32 @llvm.smin.i32(i32 %2254, i32 %2256)
   store i32 %2257, ptr %25, align 4, !tbaa !3
@@ -3953,7 +3953,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph3201.split.us:                              ; preds = %.lr.ph3201
   store i32 %2258, ptr %17, align 4, !tbaa !3
-  %2263 = add nsw i32 %.22607.ph, 2
+  %2263 = add nuw nsw i32 %.22607.ph, 2
   br label %2268
 
 .lr.ph3201.split:                                 ; preds = %.lr.ph3201
@@ -3973,7 +3973,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %2267, label %.loopexit2878, label %2268
 
 2268:                                             ; preds = %.lr.ph3201.split.us, %2265
-  %.125332895 = phi i32 [ 0, %2265 ], [ %.12533.ph, %.lr.ph3201.split.us ]
+  %.125332895 = phi i32 [ 0, %2265 ], [ 1, %.lr.ph3201.split.us ]
   %.not26982892 = phi i1 [ true, %2265 ], [ false, %.lr.ph3201.split.us ]
   %.32608 = phi i32 [ %2266, %2265 ], [ %2255, %.lr.ph3201.split.us ]
   %.42551 = phi i32 [ %.32550.lcssa, %2265 ], [ %2263, %.lr.ph3201.split.us ]
@@ -4008,7 +4008,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2282 = mul i32 %.32608, %.32608.us3500
   %invariant.op3217 = add i32 %2282, %2281
   %2283 = zext i32 %.42546 to i64
-  %2284 = add i32 %.32608, 1
+  %2284 = add nuw i32 %.32608, 1
   br label %2285
 
 2285:                                             ; preds = %.lr.ph3215, %2285
@@ -4036,13 +4036,13 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph3222:                                       ; preds = %._crit_edge3216
   %2294 = load i32, ptr %23, align 4, !tbaa !3
-  %2295 = zext i32 %.32608 to i64
-  %2296 = add i32 %2293, 1
+  %2295 = zext nneg i32 %.32608 to i64
+  %2296 = add nuw i32 %2293, 1
   br label %2297
 
 2297:                                             ; preds = %.lr.ph3222, %2297
   %indvars.iv3643 = phi i64 [ %2295, %.lr.ph3222 ], [ %indvars.iv.next3644, %2297 ]
-  %2298 = trunc i64 %indvars.iv3643 to i32
+  %2298 = trunc nsw i64 %indvars.iv3643 to i32
   %2299 = sub i32 %.32608, %2298
   %2300 = trunc i64 %indvars.iv3643 to i32
   %2301 = mul i32 %27, %2300
@@ -4053,14 +4053,14 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2306 = load double, ptr %2305, align 8, !tbaa !7
   %2307 = fdiv double %2306, %2280
   store double %2307, ptr %2305, align 8, !tbaa !7
-  %indvars.iv.next3644 = add i64 %indvars.iv3643, 1
+  %indvars.iv.next3644 = add nuw nsw i64 %indvars.iv3643, 1
   %lftr.wideiv3646 = trunc i64 %indvars.iv.next3644 to i32
   %exitcond3647.not = icmp eq i32 %2296, %lftr.wideiv3646
   br i1 %exitcond3647.not, label %._crit_edge3223, label %2297, !llvm.loop !80
 
 ._crit_edge3223:                                  ; preds = %2297, %._crit_edge3216
   %2308 = add i32 %2269, %.32608
-  %2309 = add i32 %.32608, 1
+  %2309 = add nuw i32 %.32608, 1
   %.not27323240 = icmp slt i32 %2269, 1
   br i1 %.not27323240, label %2378, label %.lr.ph3243
 
@@ -4074,8 +4074,8 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2315 = add i32 %.32608, %42
   %invariant.op3236 = add i32 %2310, %.32608
   %2316 = sext i32 %2309 to i64
-  %2317 = sext i32 %.32608 to i64
-  %2318 = add i32 %2309, %2269
+  %2317 = zext nneg i32 %.32608 to i64
+  %2318 = add nuw i32 %2309, %2269
   %2319 = sext i32 %2308 to i64
   %2320 = sext i32 %2293 to i64
   br label %2321
@@ -4096,8 +4096,8 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2327 = sext i32 %2326 to i64
   %2328 = getelementptr inbounds double, ptr %29, i64 %2327
   %2329 = mul nsw i64 %indvars.iv3648, %81
-  %gep3941 = getelementptr double, ptr %invariant.gep3940, i64 %2322
-  %2330 = getelementptr double, ptr %gep3941, i64 %2329
+  %gep4059 = getelementptr double, ptr %invariant.gep4058, i64 %2322
+  %2330 = getelementptr double, ptr %gep4059, i64 %2329
   br label %2331
 
 2331:                                             ; preds = %.lr.ph3227, %2331
@@ -4112,8 +4112,8 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2338 = load double, ptr %2337, align 8, !tbaa !7
   %2339 = sub nsw i64 %2317, %indvars.iv3650
   %2340 = mul nsw i64 %indvars.iv3650, %81
-  %gep3939 = getelementptr double, ptr %invariant.gep3938, i64 %2339
-  %2341 = getelementptr double, ptr %gep3939, i64 %2340
+  %gep4057 = getelementptr double, ptr %invariant.gep4056, i64 %2339
+  %2341 = getelementptr double, ptr %gep4057, i64 %2340
   %2342 = load double, ptr %2341, align 8, !tbaa !7
   %2343 = load double, ptr %2328, align 8, !tbaa !7
   %2344 = fneg double %2342
@@ -4192,7 +4192,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2380 = load i32, ptr %23, align 4
   %invariant.op3259 = mul i32 %.32608, %.326083491
   %invariant.op3260 = add i32 %invariant.op3259, %2380
-  %2381 = sext i32 %.32608 to i64
+  %2381 = zext nneg i32 %.32608 to i64
   %2382 = zext i32 %.42546 to i64
   br label %2383
 
@@ -4209,13 +4209,13 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.reass3261 = add i32 %invariant.op3260, %2387
   %2388 = sext i32 %.reass3261 to i64
   %2389 = getelementptr inbounds double, ptr %29, i64 %2388
-  %2390 = sext i32 %2386 to i64
+  %2390 = zext nneg i32 %2386 to i64
   br label %2391
 
 2391:                                             ; preds = %.lr.ph3252, %2391
   %indvars.iv3661.in = phi i64 [ %2381, %.lr.ph3252 ], [ %indvars.iv3661, %2391 ]
   %indvars.iv3659 = phi i64 [ %2381, %.lr.ph3252 ], [ %indvars.iv.next3660, %2391 ]
-  %indvars.iv3661 = add nsw i64 %indvars.iv3661.in, 1
+  %indvars.iv3661 = add nuw nsw i64 %indvars.iv3661.in, 1
   %2392 = trunc nsw i64 %indvars.iv3659 to i32
   %.132570.neg3250 = xor i32 %2392, -1
   %2393 = mul nsw i64 %indvars.iv3661, %81
@@ -4236,8 +4236,8 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2408 = fneg double %2398
   %2409 = call double @llvm.fmuladd.f64(double %2408, double %2399, double %2407)
   store double %2409, ptr %2406, align 8, !tbaa !7
-  %.not2752.not = icmp slt i64 %indvars.iv3661, %2390
-  %indvars.iv.next3660 = add nsw i64 %indvars.iv3659, 1
+  %.not2752.not = icmp samesign ult i64 %indvars.iv3661, %2390
+  %indvars.iv.next3660 = add nuw nsw i64 %indvars.iv3659, 1
   br i1 %.not2752.not, label %2391, label %._crit_edge3253, !llvm.loop !84
 
 ._crit_edge3253:                                  ; preds = %2391, %2383
@@ -4311,12 +4311,12 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2444 = add i32 %.32608, %77
   %reass.sub3493 = sub i32 %.42551, %77
   %2445 = add i32 %reass.sub3493, 1
-  %2446 = add i32 %.32608, 1
-  %2447 = add i32 %.32608, -1
-  %2448 = add i32 %.32608, 2
-  %reass.sub3906 = sub i32 %.42551, %77
-  %2449 = add i32 %reass.sub3906, 2
-  %2450 = sext i32 %.32608 to i64
+  %2446 = add nuw i32 %.32608, 1
+  %2447 = add nsw i32 %.32608, -1
+  %2448 = add nuw i32 %.32608, 2
+  %reass.sub4024 = sub i32 %.42551, %77
+  %2449 = add i32 %reass.sub4024, 2
+  %2450 = zext nneg i32 %.32608 to i64
   br label %2451
 
 2451:                                             ; preds = %.lr.ph3293, %.loopexit2875
@@ -4333,7 +4333,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %2514
 
 2452:                                             ; preds = %2451
-  %2453 = add nsw i64 %indvars.iv3681, %2450
+  %2453 = add nuw nsw i64 %indvars.iv3681, %2450
   %2454 = sext i32 %.pre3771 to i64
   %2455 = icmp sgt i64 %2453, %2454
   %2456 = icmp slt i64 %2453, %82
@@ -4453,7 +4453,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2546 = sext i32 %2516 to i64
   %2547 = sext i32 %.2 to i64
   %2548 = sext i32 %2541 to i64
-  %invariant.gep3942 = getelementptr double, ptr %36, i64 %2548
+  %invariant.gep4060 = getelementptr double, ptr %36, i64 %2548
   br label %2549
 
 2549:                                             ; preds = %.lr.ph3266, %2549
@@ -4469,8 +4469,8 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2557 = load double, ptr %2556, align 8, !tbaa !7
   %2558 = fmul double %2555, %2557
   store double %2558, ptr %2556, align 8, !tbaa !7
-  %gep3943 = getelementptr double, ptr %invariant.gep3942, i64 %indvars.iv3676
-  %2559 = load double, ptr %gep3943, align 8, !tbaa !7
+  %gep4061 = getelementptr double, ptr %invariant.gep4060, i64 %indvars.iv3676
+  %2559 = load double, ptr %gep4061, align 8, !tbaa !7
   %2560 = load double, ptr %2554, align 8, !tbaa !7
   %2561 = fmul double %2559, %2560
   store double %2561, ptr %2554, align 8, !tbaa !7
@@ -4691,7 +4691,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 2686:                                             ; preds = %2682
   %2687 = sub i32 %42, %2684
-  %2688 = add nsw i32 %2684, %.32608
+  %2688 = add nuw nsw i32 %2684, %.32608
   %2689 = mul nsw i32 %2688, %30
   %2690 = add nsw i32 %2687, %2689
   %2691 = sext i32 %2690 to i64
@@ -4715,7 +4715,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph3322:                                       ; preds = %2702
   %2705 = sub i32 %.42551, %77
-  %2706 = add i32 %.32608, 1
+  %2706 = add nuw i32 %.32608, 1
   %2707 = add i32 %.32608, %77
   br label %2708
 
@@ -4735,9 +4735,9 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %2716
 
 2716:                                             ; preds = %2714, %2712
-  %.sink3983 = phi i32 [ %2715, %2714 ], [ %2713, %2712 ]
+  %.sink4101 = phi i32 [ %2715, %2714 ], [ %2713, %2712 ]
   %.sink3763 = phi i32 [ 1, %2714 ], [ 2, %2712 ]
-  %2717 = mul nsw i32 %2710, %.sink3983
+  %2717 = mul nsw i32 %2710, %.sink4101
   %2718 = sub i32 %2711, %2717
   store i32 %.sink3763, ptr %16, align 4, !tbaa !3
   store i32 %2709, ptr %17, align 4, !tbaa !3
@@ -4928,7 +4928,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph3343:                                       ; preds = %._crit_edge3323
   %2834 = sub i32 %.42551, %77
-  %2835 = add i32 %.32608, 1
+  %2835 = add nuw i32 %.32608, 1
   br label %2836
 
 2836:                                             ; preds = %.lr.ph3343, %.loopexit2874
@@ -5143,8 +5143,8 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %2979, label %2836, label %._crit_edge3344, !llvm.loop !98
 
 ._crit_edge3344.thread:                           ; preds = %._crit_edge3323, %2702
-  %.ph3918 = phi i32 [ %.pre3783, %._crit_edge3323 ], [ %2703, %2702 ]
-  %2980 = add nsw i32 %.ph3918, -1
+  %.ph4036 = phi i32 [ %.pre3783, %._crit_edge3323 ], [ %2703, %2702 ]
+  %2980 = add nsw i32 %.ph4036, -1
   store i32 %2980, ptr %17, align 4, !tbaa !3
   br label %._crit_edge3353.thread
 
@@ -5158,7 +5158,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph3352:                                       ; preds = %._crit_edge3344
   %reass.sub3495 = sub i32 %.42551, %77
   %2982 = add i32 %reass.sub3495, 1
-  %2983 = add i32 %.32608, 1
+  %2983 = add nuw i32 %.32608, 1
   br label %2984
 
 2984:                                             ; preds = %.lr.ph3352, %._crit_edge3348
@@ -5229,13 +5229,13 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not2735.not, label %2984, label %._crit_edge3353, !llvm.loop !100
 
 ._crit_edge3353.thread:                           ; preds = %._crit_edge3344, %._crit_edge3344.thread
-  %.ph3920 = phi i32 [ %.ph3918, %._crit_edge3344.thread ], [ %.pre3789, %._crit_edge3344 ]
-  %.pre3768.pre.pre3921 = load i32, ptr %3, align 4, !tbaa !3
+  %.ph4038 = phi i32 [ %.ph4036, %._crit_edge3344.thread ], [ %.pre3789, %._crit_edge3344 ]
+  %.pre3768.pre.pre4039 = load i32, ptr %3, align 4, !tbaa !3
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %3037, %._crit_edge3353.thread, %3027, %._crit_edge3353
-  %.pre3768.be = phi i32 [ %.pre3768.pre.pre3921, %._crit_edge3353.thread ], [ %.pre3768.pre.pre, %3027 ], [ %.pre3768.pre.pre, %._crit_edge3353 ], [ %.pre3768.pre.pre, %3037 ]
-  %.be3996 = phi i32 [ %.ph3920, %._crit_edge3353.thread ], [ %.pre3791, %3027 ], [ %.pre3791, %._crit_edge3353 ], [ %.pre3791, %3037 ]
+  %.pre3768.be = phi i32 [ %.pre3768.pre.pre4039, %._crit_edge3353.thread ], [ %.pre3768.pre.pre, %3027 ], [ %.pre3768.pre.pre, %._crit_edge3353 ], [ %.pre3768.pre.pre, %3037 ]
+  %.be4114 = phi i32 [ %.ph4038, %._crit_edge3353.thread ], [ %.pre3791, %3027 ], [ %.pre3791, %._crit_edge3353 ], [ %.pre3791, %3037 ]
   br label %.outer
 
 ._crit_edge3353:                                  ; preds = %._crit_edge3348
@@ -5245,7 +5245,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %3026, label %3027, label %.outer.backedge
 
 3027:                                             ; preds = %._crit_edge3353
-  %3028 = add nsw i32 %.pre3791, %.32608
+  %3028 = add nuw nsw i32 %.pre3791, %.32608
   store i32 %3028, ptr %16, align 4, !tbaa !3
   %3029 = call i32 @llvm.smin.i32(i32 %3028, i32 %77)
   %3030 = shl i32 %.pre3768.pre.pre, 1
@@ -5261,19 +5261,19 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %3035 = sext i32 %.pre3768.pre.pre to i64
   %3036 = sub i32 %3029, %3030
   %wide.trip.count3697 = zext i32 %3036 to i64
-  %invariant.gep3944 = getelementptr double, ptr %36, i64 %3035
-  %invariant.gep3946 = getelementptr double, ptr %36, i64 %3035
+  %invariant.gep4062 = getelementptr double, ptr %36, i64 %3035
+  %invariant.gep4064 = getelementptr double, ptr %36, i64 %3035
   br label %3037
 
 3037:                                             ; preds = %.lr.ph3357, %3037
   %indvars.iv3694 = phi i64 [ 2, %.lr.ph3357 ], [ %indvars.iv.next3695, %3037 ]
   %3038 = add nsw i64 %indvars.iv3694, %3034
-  %gep3945 = getelementptr double, ptr %invariant.gep3944, i64 %3038
-  %3039 = load double, ptr %gep3945, align 8, !tbaa !7
+  %gep4063 = getelementptr double, ptr %invariant.gep4062, i64 %3038
+  %3039 = load double, ptr %gep4063, align 8, !tbaa !7
   %3040 = getelementptr inbounds double, ptr %36, i64 %3038
   store double %3039, ptr %3040, align 8, !tbaa !7
-  %gep3947 = getelementptr double, ptr %invariant.gep3946, i64 %indvars.iv3694
-  %3041 = load double, ptr %gep3947, align 8, !tbaa !7
+  %gep4065 = getelementptr double, ptr %invariant.gep4064, i64 %indvars.iv3694
+  %3041 = load double, ptr %gep4065, align 8, !tbaa !7
   %3042 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv3694
   store double %3041, ptr %3042, align 8, !tbaa !7
   %indvars.iv.next3695 = add nuw nsw i64 %indvars.iv3694, 1

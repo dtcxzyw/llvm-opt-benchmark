@@ -4996,10 +4996,10 @@ define internal noundef zeroext i16 @de_rr_cell_select_indic(ptr noundef %0, ptr
   br i1 %.not.i.i, label %greatest_power_of_2_lesser_or_equal_to.exit.i, label %130, !llvm.loop !6
 
 greatest_power_of_2_lesser_or_equal_to.exit.i:    ; preds = %130
-  %132 = sext i32 %.1345 to i64
+  %132 = zext nneg i32 %.1345 to i64
   %133 = getelementptr i32, ptr %10, i64 %132
   %134 = load i32, ptr %133, align 4
-  %135 = icmp sgt i32 %.1345, 1
+  %135 = icmp samesign ugt i32 %.1345, 1
   br i1 %135, label %.preheader.preheader.i, label %f_k.exit
 
 .preheader.preheader.i:                           ; preds = %greatest_power_of_2_lesser_or_equal_to.exit.i
@@ -5069,9 +5069,9 @@ f_k.exit:                                         ; preds = %greatest_power_of_2
   %169 = lshr i32 %164, 9
   %170 = and i32 %169, 1
   %171 = call ptr @proto_tree_add_uint(ptr noundef %103, i32 noundef %168, ptr noundef %0, i32 noundef %129, i32 noundef 0, i32 noundef %170)
-  %172 = add i32 %.1345, 1
-  %.not259 = icmp sgt i32 %172, %.0314
-  br i1 %.not259, label %.loopexit, label %.preheader, !llvm.loop !21
+  %172 = add nuw nsw i32 %.1345, 1
+  %.not259.not = icmp slt i32 %.1345, %.0314
+  br i1 %.not259.not, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %f_k.exit, %.thread, %111, %66
   %.3252 = phi i32 [ %94, %111 ], [ %70, %66 ], [ %128, %.thread ], [ %128, %f_k.exit ]
@@ -5233,10 +5233,10 @@ f_k.exit:                                         ; preds = %greatest_power_of_2
   br i1 %.not.i.i262, label %greatest_power_of_2_lesser_or_equal_to.exit.i263, label %266, !llvm.loop !6
 
 greatest_power_of_2_lesser_or_equal_to.exit.i263: ; preds = %266
-  %268 = sext i32 %.3337 to i64
+  %268 = zext nneg i32 %.3337 to i64
   %269 = getelementptr i32, ptr %10, i64 %268
   %270 = load i32, ptr %269, align 4
-  %271 = icmp sgt i32 %.3337, 1
+  %271 = icmp samesign ugt i32 %.3337, 1
   br i1 %271, label %.preheader.preheader.i265, label %f_k.exit278
 
 .preheader.preheader.i265:                        ; preds = %greatest_power_of_2_lesser_or_equal_to.exit.i263
@@ -5310,9 +5310,9 @@ f_k.exit278:                                      ; preds = %greatest_power_of_2
   %309 = lshr i32 %300, 8
   %310 = and i32 %309, 1
   %311 = call ptr @proto_tree_add_uint(ptr noundef %237, i32 noundef %308, ptr noundef %0, i32 noundef %265, i32 noundef 0, i32 noundef %310)
-  %312 = add i32 %.3337, 1
-  %.not257 = icmp sgt i32 %312, %.2321
-  br i1 %.not257, label %.loopexit311, label %.preheader310, !llvm.loop !24
+  %312 = add nuw nsw i32 %.3337, 1
+  %.not257.not = icmp slt i32 %.3337, %.2321
+  br i1 %.not257.not, label %.preheader310, label %.loopexit311, !llvm.loop !24
 
 .loopexit311:                                     ; preds = %f_k.exit278, %.thread283, %247, %201
   %.9 = phi i32 [ %228, %247 ], [ %204, %201 ], [ %264, %.thread283 ], [ %264, %f_k.exit278 ]
@@ -5352,20 +5352,20 @@ f_k.exit278:                                      ; preds = %greatest_power_of_2
   %338 = zext i8 %336 to i32
   %339 = and i32 %334, %338
   %.not289 = icmp eq i32 %339, 0
-  br i1 %.not289, label %.preheader425, label %340
+  br i1 %.not289, label %.preheader432, label %340
 
 340:                                              ; preds = %327
   %341 = load i32, ptr @hf_gsm_a_rr_eutran_measurement_bandwidth, align 4
   %342 = call ptr @proto_tree_add_bits_item(ptr noundef %316, i32 noundef %341, ptr noundef %0, i32 noundef %331, i32 noundef 3, i32 noundef 0)
   %343 = add i32 %.13, 21
-  br label %.preheader425
+  br label %.preheader432
 
-.preheader425:                                    ; preds = %340, %327
+.preheader432:                                    ; preds = %340, %327
   %.15.ph = phi i32 [ %331, %327 ], [ %343, %340 ]
   br label %344
 
-344:                                              ; preds = %.preheader425, %de_rr_eutran_not_allowed_cells.exit
-  %.15 = phi i32 [ %361, %de_rr_eutran_not_allowed_cells.exit ], [ %.15.ph, %.preheader425 ]
+344:                                              ; preds = %.preheader432, %de_rr_eutran_not_allowed_cells.exit
+  %.15 = phi i32 [ %361, %de_rr_eutran_not_allowed_cells.exit ], [ %.15.ph, %.preheader432 ]
   %345 = add i32 %.15, 1
   %346 = load i32, ptr @hf_gsm_a_rr_repeated_eutran_not_allowed_cells, align 4
   %347 = and i32 %.15, 7
@@ -5440,11 +5440,11 @@ de_rr_eutran_not_allowed_cells.exit:              ; preds = %360
   br label %317, !llvm.loop !28
 
 .sink.split:                                      ; preds = %317, %177, %42, %18
-  %.lcssa385.sink = phi i32 [ %19, %18 ], [ %43, %42 ], [ %178, %177 ], [ %318, %317 ]
-  %.sink388 = phi i32 [ %15, %18 ], [ %39, %42 ], [ %174, %177 ], [ %314, %317 ]
+  %.lcssa392.sink = phi i32 [ %19, %18 ], [ %43, %42 ], [ %178, %177 ], [ %318, %317 ]
+  %.sink395 = phi i32 [ %15, %18 ], [ %39, %42 ], [ %174, %177 ], [ %314, %317 ]
   %391 = load ptr, ptr %9, align 8
-  %392 = ashr i32 %.lcssa385.sink, 3
-  %reass.sub346 = sub nsw i32 %392, %.sink388
+  %392 = ashr i32 %.lcssa392.sink, 3
+  %reass.sub346 = sub nsw i32 %392, %.sink395
   %393 = add nsw i32 %reass.sub346, 1
   call void @proto_item_set_len(ptr noundef %391, i32 noundef %393)
   br label %394
@@ -13189,20 +13189,20 @@ define internal fastcc i32 @de_rr_si2quater_meas_info_utran_fdd_desc(ptr noundef
   %16 = zext i8 %14 to i32
   %17 = and i32 %13, %16
   %.not99 = icmp eq i32 %17, 0
-  br i1 %.not99, label %.preheader138, label %18
+  br i1 %.not99, label %.preheader142, label %18
 
 18:                                               ; preds = %3
   %19 = load i32, ptr @hf_gsm_a_rr_bandwidth_fdd, align 4
   %20 = call ptr @proto_tree_add_bits_item(ptr noundef %9, i32 noundef %19, ptr noundef %0, i32 noundef %10, i32 noundef 3, i32 noundef 0)
   %21 = add i32 %2, 4
-  br label %.preheader138
+  br label %.preheader142
 
-.preheader138:                                    ; preds = %18, %3
+.preheader142:                                    ; preds = %18, %3
   %.1.ph = phi i32 [ %10, %3 ], [ %21, %18 ]
   br label %22
 
-22:                                               ; preds = %.preheader138, %.loopexit
-  %.1 = phi i32 [ %.2, %.loopexit ], [ %.1.ph, %.preheader138 ]
+22:                                               ; preds = %.preheader142, %.loopexit
+  %.1 = phi i32 [ %.2, %.loopexit ], [ %.1.ph, %.preheader142 ]
   %23 = add i32 %.1, 1
   %24 = load i32, ptr @hf_gsm_a_rr_repeated_umts_fdd_neighbour_cells, align 4
   %25 = and i32 %.1, 7
@@ -13318,10 +13318,10 @@ define internal fastcc i32 @de_rr_si2quater_meas_info_utran_fdd_desc(ptr noundef
   br i1 %.not.i.i, label %greatest_power_of_2_lesser_or_equal_to.exit.i, label %87, !llvm.loop !6
 
 greatest_power_of_2_lesser_or_equal_to.exit.i:    ; preds = %87
-  %89 = sext i32 %.186118 to i64
+  %89 = zext nneg i32 %.186118 to i64
   %90 = getelementptr i32, ptr %6, i64 %89
   %91 = load i32, ptr %90, align 4
-  %92 = icmp sgt i32 %.186118, 1
+  %92 = icmp samesign ugt i32 %.186118, 1
   br i1 %92, label %.preheader.preheader.i, label %f_k.exit
 
 .preheader.preheader.i:                           ; preds = %greatest_power_of_2_lesser_or_equal_to.exit.i
@@ -13391,9 +13391,9 @@ f_k.exit:                                         ; preds = %greatest_power_of_2
   %126 = lshr i32 %121, 9
   %127 = and i32 %126, 1
   %128 = call ptr @proto_tree_add_uint(ptr noundef %60, i32 noundef %125, ptr noundef %0, i32 noundef %86, i32 noundef 0, i32 noundef %127)
-  %129 = add i32 %.186118, 1
-  %.not95 = icmp sgt i32 %129, %.085108
-  br i1 %.not95, label %.loopexit, label %.preheader, !llvm.loop !68
+  %129 = add nuw nsw i32 %.186118, 1
+  %.not95.not = icmp slt i32 %.186118, %.085108
+  br i1 %.not95.not, label %.preheader, label %.loopexit, !llvm.loop !68
 
 .loopexit:                                        ; preds = %f_k.exit, %.thread, %68
   %.2 = phi i32 [ %51, %68 ], [ %85, %.thread ], [ %85, %f_k.exit ]
@@ -13430,20 +13430,20 @@ define internal fastcc i32 @de_rr_si2quater_meas_info_utran_tdd_desc(ptr noundef
   %15 = zext i8 %13 to i32
   %16 = and i32 %12, %15
   %.not106 = icmp eq i32 %16, 0
-  br i1 %.not106, label %.preheader145, label %17
+  br i1 %.not106, label %.preheader149, label %17
 
 17:                                               ; preds = %3
   %18 = load i32, ptr @hf_gsm_a_rr_bandwidth_tdd, align 4
   %19 = call ptr @proto_tree_add_bits_item(ptr noundef %8, i32 noundef %18, ptr noundef %0, i32 noundef %9, i32 noundef 3, i32 noundef 0)
   %20 = add i32 %2, 4
-  br label %.preheader145
+  br label %.preheader149
 
-.preheader145:                                    ; preds = %17, %3
+.preheader149:                                    ; preds = %17, %3
   %.1.ph = phi i32 [ %9, %3 ], [ %20, %17 ]
   br label %21
 
-21:                                               ; preds = %.preheader145, %.loopexit
-  %.1 = phi i32 [ %.2, %.loopexit ], [ %.1.ph, %.preheader145 ]
+21:                                               ; preds = %.preheader149, %.loopexit
+  %.1 = phi i32 [ %.2, %.loopexit ], [ %.1.ph, %.preheader149 ]
   %22 = add i32 %.1, 1
   %23 = load i32, ptr @hf_gsm_a_rr_repeated_umts_tdd_neighbour_cells, align 4
   %24 = and i32 %.1, 7
@@ -13561,10 +13561,10 @@ define internal fastcc i32 @de_rr_si2quater_meas_info_utran_tdd_desc(ptr noundef
   br i1 %.not.i.i, label %greatest_power_of_2_lesser_or_equal_to.exit.i, label %88, !llvm.loop !6
 
 greatest_power_of_2_lesser_or_equal_to.exit.i:    ; preds = %88
-  %90 = sext i32 %.193125 to i64
+  %90 = zext nneg i32 %.193125 to i64
   %91 = getelementptr i32, ptr %5, i64 %90
   %92 = load i32, ptr %91, align 4
-  %93 = icmp sgt i32 %.193125, 1
+  %93 = icmp samesign ugt i32 %.193125, 1
   br i1 %93, label %.preheader.preheader.i, label %f_k.exit
 
 .preheader.preheader.i:                           ; preds = %greatest_power_of_2_lesser_or_equal_to.exit.i
@@ -13638,9 +13638,9 @@ f_k.exit:                                         ; preds = %greatest_power_of_2
   %131 = lshr i32 %122, 8
   %132 = and i32 %131, 1
   %133 = call ptr @proto_tree_add_uint(ptr noundef %59, i32 noundef %130, ptr noundef %0, i32 noundef %87, i32 noundef 0, i32 noundef %132)
-  %134 = add i32 %.193125, 1
-  %.not102 = icmp sgt i32 %134, %.092115
-  br i1 %.not102, label %.loopexit, label %.preheader, !llvm.loop !71
+  %134 = add nuw nsw i32 %.193125, 1
+  %.not102.not = icmp slt i32 %.193125, %.092115
+  br i1 %.not102.not, label %.preheader, label %.loopexit, !llvm.loop !71
 
 .loopexit:                                        ; preds = %f_k.exit, %.thread, %69
   %.2 = phi i32 [ %50, %69 ], [ %86, %.thread ], [ %86, %f_k.exit ]
@@ -18975,17 +18975,17 @@ define internal void @sacch_rr_enh_meas_report(ptr noundef %0, ptr noundef %1, p
   br label %.sink.split
 
 .sink.split:                                      ; preds = %64, %29
-  %.sink170 = phi i32 [ %50, %29 ], [ %76, %64 ]
-  %.sink169 = phi i32 [ %30, %29 ], [ %65, %64 ]
+  %.sink175 = phi i32 [ %50, %29 ], [ %76, %64 ]
+  %.sink174 = phi i32 [ %30, %29 ], [ %65, %64 ]
   %51 = load ptr, ptr %6, align 8
-  %52 = lshr i32 %.sink170, 3
-  %reass.sub = sub nsw i32 %52, %.sink169
+  %52 = lshr i32 %.sink175, 3
+  %reass.sub = sub nsw i32 %52, %.sink174
   %53 = add nsw i32 %reass.sub, 1
   call void @proto_item_set_len(ptr noundef %51, i32 noundef %53)
   br label %54
 
 54:                                               ; preds = %.sink.split, %5
-  %.1145 = phi i32 [ %23, %5 ], [ %.sink170, %.sink.split ]
+  %.1145 = phi i32 [ %23, %5 ], [ %.sink175, %.sink.split ]
   %55 = add i32 %.1145, 1
   %56 = load i32, ptr @hf_gsm_a_rr_repeated_invalid_bsic_information, align 4
   %57 = and i32 %.1145, 7

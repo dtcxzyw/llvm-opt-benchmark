@@ -144,35 +144,35 @@ define internal void @_ZN12_GLOBAL__N_117WriteFileFrontend7executeERPSiNSt7__cxx
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %19 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.13) #21
   %20 = icmp eq i32 %19, 0
-  %.pre.pre53 = load ptr, ptr %11, align 8, !tbaa !16
-  %.pre36.pre54 = load ptr, ptr %3, align 8, !tbaa !19
-  br i1 %20, label %.lr.ph58, label %.lr.ph.._crit_edge.loopexit_crit_edge
+  %.pre.pre68 = load ptr, ptr %11, align 8, !tbaa !16
+  %.pre36.pre69 = load ptr, ptr %3, align 8, !tbaa !19
+  br i1 %20, label %.lr.ph73, label %.lr.ph.._crit_edge.loopexit_crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph58
-  %21 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre36.pre57, i64 %24
+.lr.ph:                                           ; preds = %.lr.ph73
+  %21 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre36.pre72, i64 %24
   %22 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @.str.13) #21
   %23 = icmp eq i32 %22, 0
   %.pre.pre = load ptr, ptr %11, align 8, !tbaa !16
   %.pre36.pre = load ptr, ptr %3, align 8, !tbaa !19
-  br i1 %23, label %.lr.ph58, label %.lr.ph.._crit_edge.loopexit_crit_edge, !llvm.loop !20
+  br i1 %23, label %.lr.ph73, label %.lr.ph.._crit_edge.loopexit_crit_edge, !llvm.loop !20
 
 .lr.ph.._crit_edge.loopexit_crit_edge:            ; preds = %.lr.ph, %.lr.ph.preheader
   %.031.lcssa = phi ptr [ @.str.17, %.lr.ph.preheader ], [ @.str.16, %.lr.ph ]
   %.01530.lcssa = phi i64 [ 1, %.lr.ph.preheader ], [ %24, %.lr.ph ]
-  %.pre.pre.lcssa = phi ptr [ %.pre.pre53, %.lr.ph.preheader ], [ %.pre.pre, %.lr.ph ]
-  %.pre36.pre.lcssa = phi ptr [ %.pre36.pre54, %.lr.ph.preheader ], [ %.pre36.pre, %.lr.ph ]
+  %.pre.pre.lcssa = phi ptr [ %.pre.pre68, %.lr.ph.preheader ], [ %.pre.pre, %.lr.ph ]
+  %.pre36.pre.lcssa = phi ptr [ %.pre36.pre69, %.lr.ph.preheader ], [ %.pre36.pre, %.lr.ph ]
   %.pre41 = ptrtoint ptr %.pre.pre.lcssa to i64
   %.pre = ptrtoint ptr %.pre36.pre.lcssa to i64
   %.pre42 = sub i64 %.pre41, %.pre
   br label %._crit_edge
 
-.lr.ph58:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.pre36.pre57 = phi ptr [ %.pre36.pre, %.lr.ph ], [ %.pre36.pre54, %.lr.ph.preheader ]
-  %.pre.pre56 = phi ptr [ %.pre.pre, %.lr.ph ], [ %.pre.pre53, %.lr.ph.preheader ]
-  %.0153055 = phi i64 [ %24, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %24 = add nuw i64 %.0153055, 1
-  %25 = ptrtoint ptr %.pre.pre56 to i64
-  %26 = ptrtoint ptr %.pre36.pre57 to i64
+.lr.ph73:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.pre36.pre72 = phi ptr [ %.pre36.pre, %.lr.ph ], [ %.pre36.pre69, %.lr.ph.preheader ]
+  %.pre.pre71 = phi ptr [ %.pre.pre, %.lr.ph ], [ %.pre.pre68, %.lr.ph.preheader ]
+  %.0153070 = phi i64 [ %24, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %24 = add nuw i64 %.0153070, 1
+  %25 = ptrtoint ptr %.pre.pre71 to i64
+  %26 = ptrtoint ptr %.pre36.pre72 to i64
   %27 = sub i64 %25, %26
   %28 = ashr exact i64 %27, 5
   %29 = icmp ult i64 %24, %28
@@ -183,11 +183,11 @@ define internal void @_ZN12_GLOBAL__N_117WriteFileFrontend7executeERPSiNSt7__cxx
           cleanup
   br label %.body
 
-._crit_edge:                                      ; preds = %.lr.ph58, %.lr.ph.._crit_edge.loopexit_crit_edge, %5
-  %.pre-phi40 = phi i64 [ %16, %5 ], [ %.pre42, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %27, %.lr.ph58 ]
-  %32 = phi ptr [ %13, %5 ], [ %.pre36.pre.lcssa, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %.pre36.pre57, %.lr.ph58 ]
-  %.015.lcssa = phi i64 [ 1, %5 ], [ %.01530.lcssa, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %24, %.lr.ph58 ]
-  %.0.lcssa = phi ptr [ @.str.17, %5 ], [ %.031.lcssa, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ @.str.16, %.lr.ph58 ]
+._crit_edge:                                      ; preds = %.lr.ph73, %.lr.ph.._crit_edge.loopexit_crit_edge, %5
+  %.pre-phi40 = phi i64 [ %16, %5 ], [ %.pre42, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %27, %.lr.ph73 ]
+  %32 = phi ptr [ %13, %5 ], [ %.pre36.pre.lcssa, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %.pre36.pre72, %.lr.ph73 ]
+  %.015.lcssa = phi i64 [ 1, %5 ], [ %.01530.lcssa, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %24, %.lr.ph73 ]
+  %.0.lcssa = phi ptr [ @.str.17, %5 ], [ %.031.lcssa, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ @.str.16, %.lr.ph73 ]
   %33 = ashr exact i64 %.pre-phi40, 5
   %34 = icmp ult i64 %.015.lcssa, %33
   br i1 %34, label %35, label %42
@@ -749,18 +749,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !38
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #26
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #26
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !12
@@ -794,7 +794,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

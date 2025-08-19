@@ -76,7 +76,7 @@ define dso_local noundef i64 @_Z20meshopt_simplifyEdgePjPKjmPKfmmS3_mS3_mPKhmfjP
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %.noexc, %._crit_edge.i
-  %.0.lcssa75.i = phi i64 [ %67, %._crit_edge.i ], [ 0, %.noexc ]
+  %.0.lcssa79.i = phi i64 [ %67, %._crit_edge.i ], [ 0, %.noexc ]
   %35 = phi i64 [ %spec.select.i, %._crit_edge.i ], [ 0, %.noexc ]
   %36 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8, !tbaa !4
   %37 = invoke noundef ptr %36(i64 noundef %35)
@@ -88,8 +88,8 @@ define dso_local noundef i64 @_Z20meshopt_simplifyEdgePjPKjmPKfmmS3_mS3_mPKhmfjP
   store i64 %39, ptr %29, align 8, !tbaa !8
   %40 = getelementptr inbounds nuw [24 x ptr], ptr %18, i64 0, i64 %38
   store ptr %37, ptr %40, align 8, !tbaa !4
-  %41 = lshr i64 %.0.lcssa75.i, 2
-  %42 = add i64 %41, %.0.lcssa75.i
+  %41 = lshr i64 %.0.lcssa79.i, 2
+  %42 = add i64 %41, %.0.lcssa79.i
   br label %43
 
 43:                                               ; preds = %43, %.noexc364
@@ -132,8 +132,8 @@ _ZN7meshoptL12hashBuckets2Em.exit.i:              ; preds = %43
   %62 = and i32 %56, 7
   %63 = shl nuw nsw i32 1, %62
   %64 = and i32 %63, %61
-  %.fr79.i = freeze i32 %64
-  %65 = icmp eq i32 %.fr79.i, 0
+  %.fr83.i = freeze i32 %64
+  %65 = icmp eq i32 %.fr83.i, 0
   %66 = zext i1 %65 to i64
   %67 = add i64 %.057.i, %66
   %68 = trunc nuw i32 %63 to i8
@@ -212,7 +212,7 @@ _ZN7meshoptL16buildSparseRemapEPjmmPmR17meshopt_Allocator.exit: ; preds = %._cri
   br label %2647
 
 102:                                              ; preds = %_ZN7meshoptL16buildSparseRemapEPjmmPmR17meshopt_Allocator.exit, %22
-  %.0624 = phi i64 [ %4, %22 ], [ %.0.lcssa75.i, %_ZN7meshoptL16buildSparseRemapEPjmmPmR17meshopt_Allocator.exit ]
+  %.0624 = phi i64 [ %4, %22 ], [ %.0.lcssa79.i, %_ZN7meshoptL16buildSparseRemapEPjmmPmR17meshopt_Allocator.exit ]
   %.0269 = phi ptr [ null, %22 ], [ %37, %_ZN7meshoptL16buildSparseRemapEPjmmPmR17meshopt_Allocator.exit ]
   %103 = add i64 %.0624, 1
   %104 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8, !tbaa !4
@@ -2711,13 +2711,13 @@ _ZN7meshoptL19updateEdgeAdjacencyERNS_13EdgeAdjacencyEPKjmmS3_.exit479: ; preds 
   %1627 = and i8 %1601, %1598
   %.not93.i = icmp ne i8 %1627, 0
   %.not94.i = icmp eq i8 %1598, 0
-  %.sink108.i = select i1 %.not94.i, i32 %1581, i32 %1576
-  %.sink106.i = select i1 %.not94.i, i32 %1576, i32 %1581
+  %.sink112.i = select i1 %.not94.i, i32 %1581, i32 %1576
+  %.sink110.i = select i1 %.not94.i, i32 %1576, i32 %1581
   %.sink.i = zext i1 %.not93.i to i32
   %1628 = getelementptr inbounds nuw %"struct.meshopt::Collapse", ptr %1465, i64 %.1100.i
-  store i32 %.sink108.i, ptr %1628, align 4, !tbaa !13
+  store i32 %.sink112.i, ptr %1628, align 4, !tbaa !13
   %.sroa.4.0..sroa_idx.i486 = getelementptr inbounds nuw i8, ptr %1628, i64 4
-  store i32 %.sink106.i, ptr %.sroa.4.0..sroa_idx.i486, align 4, !tbaa !13
+  store i32 %.sink110.i, ptr %.sroa.4.0..sroa_idx.i486, align 4, !tbaa !13
   %.sroa.5.0..sroa_idx.i487 = getelementptr inbounds nuw i8, ptr %1628, i64 8
   store i32 %.sink.i, ptr %.sroa.5.0..sroa_idx.i487, align 4, !tbaa !15
   %.4.i = add i64 %.1100.i, 1
@@ -3489,9 +3489,9 @@ _ZN7meshoptL16hasTriangleFlipsERKNS_13EdgeAdjacencyEPKNS_7Vector3EPKjjj.exit.i: 
   br label %.loopexit.sink.split.i
 
 .loopexit.sink.split.i:                           ; preds = %2211, %.loopexit9.i
-  %.sink15.i = phi i64 [ %2206, %2211 ], [ %2085, %.loopexit9.i ]
+  %.sink22.i = phi i64 [ %2206, %2211 ], [ %2085, %.loopexit9.i ]
   %.sink.i507 = phi i32 [ %2212, %2211 ], [ %2084, %.loopexit9.i ]
-  %2214 = getelementptr inbounds nuw i32, ptr %1480, i64 %.sink15.i
+  %2214 = getelementptr inbounds nuw i32, ptr %1480, i64 %.sink22.i
   store i32 %.sink.i507, ptr %2214, align 4, !tbaa !13
   br label %.loopexit.i
 
@@ -3500,7 +3500,7 @@ _ZN7meshoptL16hasTriangleFlipsERKNS_13EdgeAdjacencyEPKNS_7Vector3EPKjjj.exit.i: 
   store i8 1, ptr %2097, align 1, !tbaa !15
   %2215 = icmp eq i8 %2092, 1
   %2216 = select i1 %2215, i64 1, i64 2
-  %2217 = add i64 %2216, %.08612.i
+  %2217 = add nuw nsw i64 %2216, %.08612.i
   %2218 = add i64 %.013.i, 1
   %2219 = load float, ptr %2064, align 4, !tbaa !15
   %2220 = fcmp olt float %.6613, %2219

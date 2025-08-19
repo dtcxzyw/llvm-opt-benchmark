@@ -655,9 +655,9 @@ define internal void @svg_textspan(ptr noundef %0, double %1, double %2, ptr nou
   %9 = load i8, ptr %8, align 8, !tbaa !70
   %switch.selectcmp = icmp eq i8 %9, 114
   %switch.select = select i1 %switch.selectcmp, ptr @.str.48, ptr @.str.49
-  %switch.selectcmp124 = icmp eq i8 %9, 108
-  %switch.select125 = select i1 %switch.selectcmp124, ptr @.str.47, ptr %switch.select
-  %10 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull %switch.select125) #11
+  %switch.selectcmp128 = icmp eq i8 %9, 108
+  %switch.select129 = select i1 %switch.selectcmp128, ptr @.str.47, ptr %switch.select
+  %10 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull %switch.select129) #11
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %12 = load double, ptr %11, align 8, !tbaa !72
   %13 = fadd double %2, %12
@@ -706,10 +706,10 @@ define internal void @svg_textspan(ptr noundef %0, double %1, double %2, ptr nou
   br label %39
 
 39:                                               ; preds = %27, %37, %35
-  %.sink123 = phi i64 [ 16, %37 ], [ 56, %35 ], [ 16, %27 ]
+  %.sink127 = phi i64 [ 16, %37 ], [ 56, %35 ], [ 16, %27 ]
   %.sink = phi i64 [ 32, %37 ], [ 64, %35 ], [ 32, %27 ]
   %.096.in = phi ptr [ %38, %37 ], [ %36, %35 ], [ %26, %27 ]
-  %40 = getelementptr inbounds nuw i8, ptr %26, i64 %.sink123
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 %.sink127
   %41 = getelementptr inbounds nuw i8, ptr %26, i64 %.sink
   %.096 = load ptr, ptr %.096.in, align 8, !tbaa !49
   %.097 = load ptr, ptr %41, align 8, !tbaa !49

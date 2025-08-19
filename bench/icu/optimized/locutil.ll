@@ -553,7 +553,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713LocaleUtilit
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %42 = zext nneg i32 %.044.lcssa to i64
-  %wide.trip.count67 = zext i32 %.1 to i64
+  %wide.trip.count67 = zext nneg i32 %.1 to i64
   br label %62
 
 43:                                               ; preds = %.lr.ph, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
@@ -891,7 +891,7 @@ define noundef ptr @_ZN6icu_7713LocaleUtility23getAvailableLocaleNamesERKNS_13Un
   store ptr null, ptr %10, align 8, !tbaa !28
   %13 = load i32, ptr %2, align 4, !tbaa !13
   %14 = icmp slt i32 %13, 1
-  br i1 %14, label %15, label %_ZN6icu_779HashtableC2ER10UErrorCode.exit.thread10.i
+  br i1 %14, label %15, label %_ZN6icu_779HashtableC2ER10UErrorCode.exit.thread13.i
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -901,19 +901,19 @@ define noundef ptr @_ZN6icu_7713LocaleUtility23getAvailableLocaleNamesERKNS_13Un
 .noexc.i:                                         ; preds = %15
   %18 = load i32, ptr %2, align 4, !tbaa !13
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.noexc.i._ZN6icu_779HashtableC2ER10UErrorCode.exit.thread10.i_crit_edge, label %20
+  br i1 %19, label %.noexc.i._ZN6icu_779HashtableC2ER10UErrorCode.exit.thread13.i_crit_edge, label %20
 
-.noexc.i._ZN6icu_779HashtableC2ER10UErrorCode.exit.thread10.i_crit_edge: ; preds = %.noexc.i
+.noexc.i._ZN6icu_779HashtableC2ER10UErrorCode.exit.thread13.i_crit_edge: ; preds = %.noexc.i
   %.pre.pre = load ptr, ptr %10, align 8, !tbaa !28
-  br label %_ZN6icu_779HashtableC2ER10UErrorCode.exit.thread10.i
+  br label %_ZN6icu_779HashtableC2ER10UErrorCode.exit.thread13.i
 
 20:                                               ; preds = %.noexc.i
   store ptr %16, ptr %10, align 8, !tbaa !28
   %21 = invoke ptr @uhash_setKeyDeleter_77(ptr noundef nonnull %16, ptr noundef nonnull @uprv_deleteUObject_77)
           to label %_ZN6icu_779HashtableC2ER10UErrorCode.exit.i unwind label %31
 
-_ZN6icu_779HashtableC2ER10UErrorCode.exit.thread10.i: ; preds = %.noexc.i._ZN6icu_779HashtableC2ER10UErrorCode.exit.thread10.i_crit_edge, %12
-  %.pre = phi ptr [ %.pre.pre, %.noexc.i._ZN6icu_779HashtableC2ER10UErrorCode.exit.thread10.i_crit_edge ], [ null, %12 ]
+_ZN6icu_779HashtableC2ER10UErrorCode.exit.thread13.i: ; preds = %.noexc.i._ZN6icu_779HashtableC2ER10UErrorCode.exit.thread13.i_crit_edge, %12
+  %.pre = phi ptr [ %.pre.pre, %.noexc.i._ZN6icu_779HashtableC2ER10UErrorCode.exit.thread13.i_crit_edge ], [ null, %12 ]
   store ptr %10, ptr @_ZL19LocaleUtility_cache, align 8, !tbaa !34
   br label %25
 
@@ -930,8 +930,8 @@ _ZN6icu_779HashtableC2ER10UErrorCode.exit.thread.i: ; preds = %9
   %24 = icmp slt i32 %23, 1
   br i1 %24, label %33, label %.thread.i
 
-25:                                               ; preds = %_ZN6icu_779HashtableC2ER10UErrorCode.exit.i, %_ZN6icu_779HashtableC2ER10UErrorCode.exit.thread10.i
-  %26 = phi ptr [ %.pre69, %_ZN6icu_779HashtableC2ER10UErrorCode.exit.i ], [ %.pre, %_ZN6icu_779HashtableC2ER10UErrorCode.exit.thread10.i ]
+25:                                               ; preds = %_ZN6icu_779HashtableC2ER10UErrorCode.exit.i, %_ZN6icu_779HashtableC2ER10UErrorCode.exit.thread13.i
+  %26 = phi ptr [ %.pre69, %_ZN6icu_779HashtableC2ER10UErrorCode.exit.i ], [ %.pre, %_ZN6icu_779HashtableC2ER10UErrorCode.exit.thread13.i ]
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %_ZN6icu_779HashtableD2Ev.exit.i, label %27
 

@@ -690,9 +690,9 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %38, %38, %38, %38, %38, %40
-  %.sink105 = phi ptr [ %41, %40 ], [ null, %38 ], [ null, %38 ], [ null, %38 ], [ null, %38 ], [ null, %38 ]
+  %.sink106 = phi ptr [ %41, %40 ], [ null, %38 ], [ null, %38 ], [ null, %38 ], [ null, %38 ], [ null, %38 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %.sink105, ptr %42, align 8
+  store ptr %.sink106, ptr %42, align 8
   br label %43
 
 43:                                               ; preds = %.sink.split, %38
@@ -770,8 +770,8 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
   %80 = call i32 @_setjmp(ptr noundef nonnull %79) #27
   %.not98 = icmp eq i32 %80, 0
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sink107 = select i1 %.not98, ptr null, ptr %81
-  store volatile ptr %.sink107, ptr %8, align 8
+  %.sink108 = select i1 %.not98, ptr null, ptr %81
+  store volatile ptr %.sink108, ptr %8, align 8
   %.0..0..0..0. = load volatile i32, ptr %9, align 4
   %82 = and i32 %.0..0..0..0., 1
   %.not99 = icmp eq i32 %82, 0
@@ -4858,9 +4858,9 @@ define noundef zeroext i1 @dissector_try_heuristic(ptr noundef captures(none) %0
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 377
   br label %36
 
-36:                                               ; preds = %.lr.ph96, %.loopexit.thread105
-  %.06894 = phi ptr [ %.06891, %.lr.ph96 ], [ %.068, %.loopexit.thread105 ]
-  %.06993 = phi ptr [ null, %.lr.ph96 ], [ %.1, %.loopexit.thread105 ]
+36:                                               ; preds = %.lr.ph96, %.loopexit.thread111
+  %.06894 = phi ptr [ %.06891, %.lr.ph96 ], [ %.068, %.loopexit.thread111 ]
+  %.06993 = phi ptr [ null, %.lr.ph96 ], [ %.1, %.loopexit.thread111 ]
   store i16 %18, ptr %14, align 8
   %37 = load ptr, ptr %.06894, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -4870,13 +4870,13 @@ define noundef zeroext i1 @dissector_try_heuristic(ptr noundef captures(none) %0
 
 40:                                               ; preds = %36
   %41 = tail call zeroext i1 @proto_is_protocol_enabled(ptr noundef nonnull %39)
-  br i1 %41, label %42, label %.loopexit.thread105
+  br i1 %41, label %42, label %.loopexit.thread111
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %44 = load i8, ptr %43, align 8, !range !9, !noundef !10
   %45 = icmp eq i8 %44, 0
-  br i1 %45, label %.loopexit.thread105, label %46
+  br i1 %45, label %.loopexit.thread111, label %46
 
 46:                                               ; preds = %42
   %.pr = load ptr, ptr %38, align 8
@@ -4898,7 +4898,7 @@ define noundef zeroext i1 @dissector_try_heuristic(ptr noundef captures(none) %0
   %53 = load i32, ptr %30, align 8
   %54 = load ptr, ptr %37, align 8
   %55 = tail call zeroext i1 %54(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
-  br i1 %55, label %56, label %.thread101
+  br i1 %55, label %56, label %.thread107
 
 56:                                               ; preds = %.thread
   %57 = load i32, ptr %30, align 8
@@ -4910,10 +4910,10 @@ define noundef zeroext i1 @dissector_try_heuristic(ptr noundef captures(none) %0
 59:                                               ; preds = %56
   br i1 %.not7983, label %.thread85, label %61
 
-.thread101:                                       ; preds = %.thread
+.thread107:                                       ; preds = %.thread
   %60 = load ptr, ptr %38, align 8
-  %.not79102 = icmp eq ptr %60, null
-  br i1 %.not79102, label %.loopexit.thread105, label %.thread103
+  %.not79108 = icmp eq ptr %60, null
+  br i1 %.not79108, label %.loopexit.thread111, label %.thread109
 
 .thread82:                                        ; preds = %56
   %brmerge = or i1 %.not7983, %.not
@@ -4922,7 +4922,7 @@ define noundef zeroext i1 @dissector_try_heuristic(ptr noundef captures(none) %0
 61:                                               ; preds = %59
   %62 = load i32, ptr %31, align 4
   %63 = icmp eq i32 %62, 0
-  br i1 %63, label %.thread103, label %.thread84
+  br i1 %63, label %.thread109, label %.thread84
 
 .thread84:                                        ; preds = %61
   br i1 %.not, label %.thread85, label %64
@@ -4932,21 +4932,21 @@ define noundef zeroext i1 @dissector_try_heuristic(ptr noundef captures(none) %0
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 12
   %67 = load i32, ptr %66, align 4
   %68 = icmp eq i32 %13, %67
-  br i1 %68, label %.thread104, label %.thread85
+  br i1 %68, label %.thread110, label %.thread85
 
-.thread103:                                       ; preds = %.thread101, %61
+.thread109:                                       ; preds = %.thread107, %61
   %69 = load ptr, ptr %22, align 8
   %70 = tail call i32 @wmem_list_count(ptr noundef %69)
   %71 = icmp ugt i32 %70, %24
   br i1 %71, label %.lr.ph.split.us, label %.loopexit
 
-.thread104:                                       ; preds = %64
+.thread110:                                       ; preds = %64
   %72 = load ptr, ptr %22, align 8
   %73 = tail call i32 @wmem_list_count(ptr noundef %72)
   %74 = icmp ugt i32 %73, %24
   br i1 %74, label %.critedge, label %.thread85
 
-.lr.ph.split.us:                                  ; preds = %.thread103, %remove_last_layer.exit.us
+.lr.ph.split.us:                                  ; preds = %.thread109, %remove_last_layer.exit.us
   %75 = load i8, ptr %33, align 8
   %76 = add i8 %75, -1
   store i8 %76, ptr %33, align 8
@@ -4999,7 +4999,7 @@ remove_last_layer.exit.us:                        ; preds = %94, %91
   %105 = icmp ugt i32 %104, %24
   br i1 %105, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !23
 
-.critedge:                                        ; preds = %.thread104, %remove_last_layer.exit
+.critedge:                                        ; preds = %.thread110, %remove_last_layer.exit
   %106 = load ptr, ptr %22, align 8
   %107 = tail call ptr @wmem_list_tail(ptr noundef %106)
   %108 = tail call ptr @wmem_list_frame_data(ptr noundef %107)
@@ -5029,10 +5029,10 @@ remove_last_layer.exit:                           ; preds = %.critedge, %112
   %123 = icmp ugt i32 %122, %24
   br i1 %123, label %.critedge, label %.loopexit, !llvm.loop !23
 
-.loopexit:                                        ; preds = %remove_last_layer.exit.us, %remove_last_layer.exit, %.thread103
-  br i1 %55, label %.thread85, label %.loopexit.thread105
+.loopexit:                                        ; preds = %remove_last_layer.exit.us, %remove_last_layer.exit, %.thread109
+  br i1 %55, label %.thread85, label %.loopexit.thread111
 
-.thread85:                                        ; preds = %.thread82, %59, %.thread84, %64, %.thread104, %.loopexit
+.thread85:                                        ; preds = %.thread82, %59, %.thread84, %64, %.thread110, %.loopexit
   %124 = tail call zeroext i1 @ws_log_msg_is_active(ptr noundef nonnull @.str.14, i32 noundef 2)
   store ptr %37, ptr %4, align 8
   %.not80 = icmp eq ptr %.06993, null
@@ -5046,15 +5046,15 @@ remove_last_layer.exit:                           ; preds = %.critedge, %112
   store ptr %128, ptr %29, align 8
   br label %.loopexit86
 
-.loopexit.thread105:                              ; preds = %.thread101, %.loopexit, %40, %42
-  %.1 = phi ptr [ %.06993, %42 ], [ %.06993, %40 ], [ %.06894, %.loopexit ], [ %.06894, %.thread101 ]
+.loopexit.thread111:                              ; preds = %.thread107, %.loopexit, %40, %42
+  %.1 = phi ptr [ %.06993, %42 ], [ %.06993, %40 ], [ %.06894, %.loopexit ], [ %.06894, %.thread107 ]
   %129 = getelementptr inbounds nuw i8, ptr %.06894, i64 8
   %.068 = load ptr, ptr %129, align 8
   %.not75.not = icmp eq ptr %.068, null
   br i1 %.not75.not, label %.loopexit86, label %36, !llvm.loop !24
 
-.loopexit86:                                      ; preds = %.loopexit.thread105, %28, %.thread85, %125
-  %.not7588 = phi i1 [ true, %.thread85 ], [ true, %125 ], [ false, %28 ], [ false, %.loopexit.thread105 ]
+.loopexit86:                                      ; preds = %.loopexit.thread111, %28, %.thread85, %125
+  %.not7588 = phi i1 [ true, %.thread85 ], [ true, %125 ], [ false, %28 ], [ false, %.loopexit.thread111 ]
   store ptr %19, ptr %2, align 8
   store ptr %21, ptr %20, align 8
   store i16 %15, ptr %14, align 8

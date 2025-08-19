@@ -832,8 +832,8 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %.pre155 = load i32, ptr %22, align 8, !tbaa !66
   %134 = add nsw i32 %.pre155, %132
   %135 = icmp sgt i32 %134, %.pre
-  %or.cond162 = select i1 %133, i1 true, i1 %135
-  br i1 %or.cond162, label %136, label %140
+  %or.cond175 = select i1 %133, i1 true, i1 %135
+  br i1 %or.cond175, label %136, label %140
 
 136:                                              ; preds = %130
   %137 = sub nsw i32 %.pre, %.pre155
@@ -850,8 +850,8 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %.pre157 = load i32, ptr %26, align 4, !tbaa !67
   %143 = add nsw i32 %.pre157, %141
   %144 = icmp sgt i32 %143, %.pre156
-  %or.cond164 = select i1 %142, i1 true, i1 %144
-  br i1 %or.cond164, label %145, label %149
+  %or.cond177 = select i1 %142, i1 true, i1 %144
+  br i1 %or.cond177, label %145, label %149
 
 145:                                              ; preds = %140
   %146 = sub nsw i32 %.pre156, %.pre157
@@ -931,8 +931,8 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %193 = icmp slt i32 %.pre158, 0
   %.pre160 = load i32, ptr %67, align 8, !tbaa !37
   %194 = icmp slt i32 %.pre160, 1
-  %or.cond165 = select i1 %193, i1 true, i1 %194
-  br i1 %or.cond165, label %206, label %195
+  %or.cond178 = select i1 %193, i1 true, i1 %194
+  br i1 %or.cond178, label %206, label %195
 
 195:                                              ; preds = %192
   %196 = load i32, ptr %75, align 4, !tbaa !39

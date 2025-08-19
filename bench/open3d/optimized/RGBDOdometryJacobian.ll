@@ -127,8 +127,8 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
   %63 = load float, ptr %62, align 4, !tbaa !17
   %64 = fpext float %63 to double
   store double %58, ptr %.sroa.0, align 16, !tbaa !7
-  %.sroa.0.8..sroa_idx101 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
-  store double %61, ptr %.sroa.0.8..sroa_idx101, align 8, !tbaa !7
+  %.sroa.0.8..sroa_idx109 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
+  store double %61, ptr %.sroa.0.8..sroa_idx109, align 8, !tbaa !7
   %.sroa.0.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
   store double %64, ptr %.sroa.0.16..sroa_idx, align 16, !tbaa !7
   %65 = load <2 x double>, ptr %14, align 16, !tbaa !4
@@ -377,8 +377,8 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
   %66 = load float, ptr %65, align 4, !tbaa !17
   %67 = fpext float %66 to double
   store double %61, ptr %.sroa.0, align 16, !tbaa !7
-  %.sroa.0.8..sroa_idx178 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
-  store double %64, ptr %.sroa.0.8..sroa_idx178, align 8, !tbaa !7
+  %.sroa.0.8..sroa_idx184 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
+  store double %64, ptr %.sroa.0.8..sroa_idx184, align 8, !tbaa !7
   %.sroa.0.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
   store double %67, ptr %.sroa.0.16..sroa_idx, align 16, !tbaa !7
   %68 = load <2 x double>, ptr %14, align 16, !tbaa !4
@@ -646,7 +646,7 @@ define linkonce_odr void @_ZNSt6vectorIN5Eigen6MatrixIdLi6ELi1ELi0ELi6ELi1EEENS0
   br i1 %.not28, label %21, label %19
 
 19:                                               ; preds = %3
-  %20 = mul i64 %1, 48
+  %20 = mul nuw nsw i64 %1, 48
   %scevgep.i = getelementptr i8, ptr %5, i64 %20
   store ptr %scevgep.i, ptr %4, align 8, !tbaa !19
   br label %38
@@ -754,13 +754,13 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store double 0.000000e+00, ptr %5, align 8, !tbaa !7
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !7
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

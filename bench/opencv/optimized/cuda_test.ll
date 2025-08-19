@@ -8823,7 +8823,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %27 = and i64 %22, 1
   %28 = icmp eq i64 %27, 0
   %29 = or disjoint i64 %23, 1
-  %30 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %0, i64 %29
   %31 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %0, i64 %24
   br label %32
 

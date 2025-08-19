@@ -3692,8 +3692,8 @@ _ZN4llvm11raw_ostreamlsEc.exit29.thread:          ; preds = %46
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %98 = load i8, ptr %97, align 8
   %99 = and i8 %98, 3
-  %or.cond.not51 = icmp eq i8 %99, 0
-  br i1 %or.cond.not51, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %_ZN4llvm11raw_ostreamlsEPKc.exit32
+  %or.cond.not52 = icmp eq i8 %99, 0
+  br i1 %or.cond.not52, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %_ZN4llvm11raw_ostreamlsEPKc.exit32
 
 100:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit29
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 24

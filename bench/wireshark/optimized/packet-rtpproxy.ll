@@ -764,8 +764,8 @@ define internal i32 @dissect_rtpproxy(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.sink.split
 
 .sink.split:                                      ; preds = %204, %.thread393
-  %.sink395 = phi i32 [ %198, %.thread393 ], [ %220, %204 ]
-  %221 = add i32 %.sink395, 1
+  %.sink410 = phi i32 [ %198, %.thread393 ], [ %220, %204 ]
+  %221 = add i32 %.sink410, 1
   %222 = call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %221, i32 noundef -1)
   br label %223
 

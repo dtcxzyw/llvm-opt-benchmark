@@ -562,9 +562,9 @@ _ZN5drjitmlIffLm4EEENS_6MatrixINS_6detail14replace_scalarINS2_7deepestIJT_T0_EE4
   %108 = fmul contract <4 x float> %107, %107
   %shift = shufflevector <4 x float> %108, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd contract <4 x float> %108, %shift
-  %shift144 = shufflevector <4 x float> %108, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop145 = fadd contract <4 x float> %shift144, %foldExtExtBinop
-  %109 = extractelement <4 x float> %foldExtExtBinop145, i64 0
+  %shift149 = shufflevector <4 x float> %108, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop150 = fadd contract <4 x float> %shift149, %foldExtExtBinop
+  %109 = extractelement <4 x float> %foldExtExtBinop150, i64 0
   %110 = call contract noundef float @llvm.sqrt.f32(float %109)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %25, ptr noundef nonnull align 16 dereferenceable(64) %9, i64 64, i1 false)
   %111 = getelementptr inbounds nuw i8, ptr %25, i64 64
@@ -583,8 +583,8 @@ _ZN5drjitmlIffLm4EEENS_6MatrixINS_6detail14replace_scalarINS2_7deepestIJT_T0_EE4
   %.sroa.0112.4.vec.extract = extractelement <4 x float> %115, i64 1
   %121 = fmul contract float %.sroa.0112.0.vec.extract, %.sroa.0112.4.vec.extract
   %122 = fmul contract float %121, %120
-  %foldExtExtBinop147 = fmul contract <4 x float> %115, %115
-  %123 = extractelement <4 x float> %foldExtExtBinop147, i64 0
+  %foldExtExtBinop152 = fmul contract <4 x float> %115, %115
+  %123 = extractelement <4 x float> %foldExtExtBinop152, i64 0
   %124 = fmul contract float %123, %120
   %125 = bitcast float %124 to i32
   %126 = xor i32 %117, %125
@@ -1016,9 +1016,9 @@ common.resume:                                    ; preds = %64, %45
   %73 = fmul contract <4 x float> %72, %72
   %shift = shufflevector <4 x float> %73, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd contract <4 x float> %73, %shift
-  %shift367 = shufflevector <4 x float> %73, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop368 = fadd contract <4 x float> %shift367, %foldExtExtBinop
-  %74 = extractelement <4 x float> %foldExtExtBinop368, i64 0
+  %shift368 = shufflevector <4 x float> %73, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop369 = fadd contract <4 x float> %shift368, %foldExtExtBinop
+  %74 = extractelement <4 x float> %foldExtExtBinop369, i64 0
   %75 = call contract noundef float @llvm.sqrt.f32(float %74)
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 404
   store float %75, ptr %76, align 4
@@ -1026,11 +1026,11 @@ common.resume:                                    ; preds = %64, %45
   %78 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %68, <4 x float> zeroinitializer, <4 x float> %77)
   %79 = fadd contract <4 x float> %71, %78
   %80 = fmul contract <4 x float> %79, %79
-  %shift370 = shufflevector <4 x float> %80, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop371 = fadd contract <4 x float> %80, %shift370
-  %shift373 = shufflevector <4 x float> %80, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop374 = fadd contract <4 x float> %shift373, %foldExtExtBinop371
-  %81 = extractelement <4 x float> %foldExtExtBinop374, i64 0
+  %shift371 = shufflevector <4 x float> %80, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop372 = fadd contract <4 x float> %80, %shift371
+  %shift374 = shufflevector <4 x float> %80, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop375 = fadd contract <4 x float> %shift374, %foldExtExtBinop372
+  %81 = extractelement <4 x float> %foldExtExtBinop375, i64 0
   %82 = call contract noundef float @llvm.sqrt.f32(float %81)
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store float %82, ptr %83, align 8
@@ -2928,9 +2928,9 @@ _ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit.crited
   %202 = fmul contract <4 x float> %201, %201
   %shift = shufflevector <4 x float> %202, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd contract <4 x float> %202, %shift
-  %shift259 = shufflevector <4 x float> %202, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop260 = fadd contract <4 x float> %shift259, %foldExtExtBinop
-  %203 = extractelement <4 x float> %foldExtExtBinop260, i64 0
+  %shift261 = shufflevector <4 x float> %202, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop262 = fadd contract <4 x float> %shift261, %foldExtExtBinop
+  %203 = extractelement <4 x float> %foldExtExtBinop262, i64 0
   %204 = call contract noundef float @llvm.sqrt.f32(float %203)
   %205 = fdiv contract float 1.000000e+00, %204
   %206 = insertelement <4 x float> poison, float %205, i64 0
@@ -2953,12 +2953,12 @@ _ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit.crited
   %.cast.i.i.i = bitcast i32 %216 to float
   %220 = fadd contract float %.cast.i.i.i, %219
   %221 = fdiv contract float -1.000000e+00, %220
-  %shift262 = shufflevector <4 x float> %195, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop263 = fmul contract <4 x float> %195, %shift262
-  %222 = extractelement <4 x float> %foldExtExtBinop263, i64 0
+  %shift264 = shufflevector <4 x float> %195, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop265 = fmul contract <4 x float> %195, %shift264
+  %222 = extractelement <4 x float> %foldExtExtBinop265, i64 0
   %223 = fmul contract float %222, %221
-  %foldExtExtBinop265 = fmul contract <4 x float> %195, %195
-  %224 = extractelement <4 x float> %foldExtExtBinop265, i64 0
+  %foldExtExtBinop267 = fmul contract <4 x float> %195, %195
+  %224 = extractelement <4 x float> %foldExtExtBinop267, i64 0
   %225 = fmul contract float %224, %221
   %226 = bitcast float %225 to i32
   %227 = xor i32 %217, %226
@@ -8231,7 +8231,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %13, align 16, !alias.scope !539
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @.str.20, i64 noundef 0)
-          to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit14 unwind label %.thread30
+          to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit14 unwind label %.thread33
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit14: ; preds = %11
   invoke void @_ZN7mitsuba5ClassC1ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_S9_NS1_8functionIFPNS_6ObjectERKNS_10PropertiesEEEENSA_IFSC_PNS_6StreamEEEES9_(ptr noundef nonnull align 16 dereferenceable(208) %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
@@ -8297,7 +8297,7 @@ _ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit: ; preds = 
           cleanup
   br label %48
 
-.thread30:                                        ; preds = %11
+.thread33:                                        ; preds = %11
   %34 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit21
@@ -8322,8 +8322,8 @@ _ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit: ; preds = 
   call void %41(ptr noundef nonnull align 8 dereferenceable(8) %.pre) #27
   br label %_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit21
 
-_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit21: ; preds = %.thread30, %38, %.sink.split.i.i19
-  %.pn27 = phi { ptr, i32 } [ %36, %38 ], [ %36, %.sink.split.i.i19 ], [ %34, %.thread30 ]
+_ZNSt3__18functionIFPN7mitsuba6ObjectEPNS1_6StreamEEED2Ev.exit21: ; preds = %.thread33, %38, %.sink.split.i.i19
+  %.pn30 = phi { ptr, i32 } [ %36, %38 ], [ %36, %.sink.split.i.i19 ], [ %34, %.thread33 ]
   %42 = load ptr, ptr %12, align 16
   %43 = icmp eq ptr %42, %4
   br i1 %43, label %.sink.split.i.i23, label %44
@@ -8345,7 +8345,7 @@ _ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit25: ; preds 
   br label %48
 
 48:                                               ; preds = %_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit25, %32
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn27, %_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit25 ], [ %33, %32 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn30, %_ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit25 ], [ %33, %32 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #27
   br label %49
 
@@ -8917,14 +8917,14 @@ _ZN5drjit4frobIfLm3EEET_RKNS_6MatrixIS1_XT0_EEE.exit38: ; preds = %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %11, ptr noundef nonnull align 16 dereferenceable(48) %7, i64 48, i1 false)
   %shift = shufflevector <4 x float> %46, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd contract <4 x float> %46, %shift
-  %shift64 = shufflevector <4 x float> %46, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop65 = fadd contract <4 x float> %shift64, %foldExtExtBinop
-  %shift67 = shufflevector <4 x float> %52, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop68 = fadd contract <4 x float> %52, %shift67
-  %shift70 = shufflevector <4 x float> %52, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop71 = fadd contract <4 x float> %shift70, %foldExtExtBinop68
-  %foldExtExtBinop73 = fdiv contract <4 x float> %foldExtExtBinop65, %foldExtExtBinop71
-  %54 = extractelement <4 x float> %foldExtExtBinop73, i64 0
+  %shift66 = shufflevector <4 x float> %46, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop67 = fadd contract <4 x float> %shift66, %foldExtExtBinop
+  %shift69 = shufflevector <4 x float> %52, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop70 = fadd contract <4 x float> %52, %shift69
+  %shift72 = shufflevector <4 x float> %52, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop73 = fadd contract <4 x float> %shift72, %foldExtExtBinop70
+  %foldExtExtBinop75 = fdiv contract <4 x float> %foldExtExtBinop67, %foldExtExtBinop73
+  %54 = extractelement <4 x float> %foldExtExtBinop75, i64 0
   %55 = tail call contract noundef float @llvm.sqrt.f32(float %54)
   %56 = fdiv contract float 1.000000e+00, %55
   %57 = fmul contract float %56, 5.000000e-01
@@ -10000,10 +10000,10 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96: ; preds = %.lr.ph.i100, 
     i8 106, label %.critedge
     i8 122, label %.critedge
     i8 116, label %.critedge
-    i8 117, label %.loopexit226
-    i8 100, label %.loopexit226
-    i8 105, label %.loopexit226
-    i8 111, label %.loopexit257
+    i8 117, label %.loopexit232
+    i8 100, label %.loopexit232
+    i8 105, label %.loopexit232
+    i8 111, label %.loopexit263
     i8 88, label %242
     i8 120, label %.loopexit
     i8 112, label %.loopexit
@@ -10144,14 +10144,14 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96: ; preds = %.lr.ph.i100, 
   store i32 %328, ptr %326, align 8
   br label %.thread117
 
-.loopexit226:                                     ; preds = %239, %239, %239
+.loopexit232:                                     ; preds = %239, %239, %239
   br label %.loopexit
 
-.loopexit257:                                     ; preds = %239
+.loopexit263:                                     ; preds = %239
   br label %.loopexit
 
-.loopexit:                                        ; preds = %242, %239, %239, %.loopexit257, %.loopexit226
-  %.sink219 = phi i32 [ 2, %.loopexit226 ], [ 64, %.loopexit257 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
+.loopexit:                                        ; preds = %242, %239, %239, %.loopexit263, %.loopexit232
+  %.sink225 = phi i32 [ 2, %.loopexit232 ], [ 64, %.loopexit263 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
   %329 = load ptr, ptr %0, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
@@ -10159,7 +10159,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96: ; preds = %.lr.ph.i100, 
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
   %334 = load i32, ptr %333, align 8
   %335 = and i32 %334, -75
-  %336 = or disjoint i32 %335, %.sink219
+  %336 = or disjoint i32 %335, %.sink225
   store i32 %336, ptr %333, align 8
   %or.cond3 = or i1 %.167, %196
   br i1 %or.cond3, label %.thread117, label %337

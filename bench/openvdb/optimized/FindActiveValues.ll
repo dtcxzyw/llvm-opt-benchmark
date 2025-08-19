@@ -5909,18 +5909,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit72: ; preds = %lor.lhs.f
 if.else55:                                        ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit72
   %cmp.i.i73 = icmp slt i32 %30, %36
   %cmp4.i.i77 = icmp slt i32 %32, %38
-  %or.cond114 = or i1 %cmp.i.i73, %cmp4.i.i77
-  br i1 %or.cond114, label %if.else60, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
+  %or.cond129 = or i1 %cmp.i.i73, %cmp4.i.i77
+  br i1 %or.cond129, label %if.else60, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78: ; preds = %if.else55
   %cmp7.i.i81 = icmp slt i32 %34, %40
   %cmp.i2.i84 = icmp slt i32 %29, %35
   %or.cond = or i1 %cmp7.i.i81, %cmp.i2.i84
   %cmp4.i6.i88 = icmp slt i32 %31, %37
-  %or.cond115 = or i1 %or.cond, %cmp4.i6.i88
+  %or.cond130 = or i1 %or.cond, %cmp4.i6.i88
   %cmp7.i10.i92.not = icmp slt i32 %33, %39
-  %or.cond116 = or i1 %or.cond115, %cmp7.i10.i92.not
-  br i1 %or.cond116, label %if.else60, label %if.then58
+  %or.cond131 = or i1 %or.cond130, %cmp7.i10.i92.not
+  br i1 %or.cond131, label %if.else60, label %if.then58
 
 if.then58:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
   %child = getelementptr inbounds nuw i8, ptr %__begin042.sroa.0.0107, i64 24
@@ -6297,18 +6297,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit72: ; preds = %lor.lhs.f
 if.else55:                                        ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit72
   %cmp.i.i73 = icmp slt i32 %30, %36
   %cmp4.i.i77 = icmp slt i32 %32, %38
-  %or.cond114 = or i1 %cmp.i.i73, %cmp4.i.i77
-  br i1 %or.cond114, label %if.else60, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
+  %or.cond129 = or i1 %cmp.i.i73, %cmp4.i.i77
+  br i1 %or.cond129, label %if.else60, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78: ; preds = %if.else55
   %cmp7.i.i81 = icmp slt i32 %34, %40
   %cmp.i2.i84 = icmp slt i32 %29, %35
   %or.cond = or i1 %cmp7.i.i81, %cmp.i2.i84
   %cmp4.i6.i88 = icmp slt i32 %31, %37
-  %or.cond115 = or i1 %or.cond, %cmp4.i6.i88
+  %or.cond130 = or i1 %or.cond, %cmp4.i6.i88
   %cmp7.i10.i92.not = icmp slt i32 %33, %39
-  %or.cond116 = or i1 %or.cond115, %cmp7.i10.i92.not
-  br i1 %or.cond116, label %if.else60, label %if.then58
+  %or.cond131 = or i1 %or.cond130, %cmp7.i10.i92.not
+  br i1 %or.cond131, label %if.else60, label %if.then58
 
 if.then58:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
   %child = getelementptr inbounds nuw i8, ptr %__begin042.sroa.0.0107, i64 24
@@ -6685,18 +6685,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit72: ; preds = %lor.lhs.f
 if.else55:                                        ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit72
   %cmp.i.i73 = icmp slt i32 %30, %36
   %cmp4.i.i77 = icmp slt i32 %32, %38
-  %or.cond114 = or i1 %cmp.i.i73, %cmp4.i.i77
-  br i1 %or.cond114, label %if.else60, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
+  %or.cond129 = or i1 %cmp.i.i73, %cmp4.i.i77
+  br i1 %or.cond129, label %if.else60, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78: ; preds = %if.else55
   %cmp7.i.i81 = icmp slt i32 %34, %40
   %cmp.i2.i84 = icmp slt i32 %29, %35
   %or.cond = or i1 %cmp7.i.i81, %cmp.i2.i84
   %cmp4.i6.i88 = icmp slt i32 %31, %37
-  %or.cond115 = or i1 %or.cond, %cmp4.i6.i88
+  %or.cond130 = or i1 %or.cond, %cmp4.i6.i88
   %cmp7.i10.i92.not = icmp slt i32 %33, %39
-  %or.cond116 = or i1 %or.cond115, %cmp7.i10.i92.not
-  br i1 %or.cond116, label %if.else60, label %if.then58
+  %or.cond131 = or i1 %or.cond130, %cmp7.i10.i92.not
+  br i1 %or.cond131, label %if.else60, label %if.then58
 
 if.then58:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
   %child = getelementptr inbounds nuw i8, ptr %__begin042.sroa.0.0107, i64 24
@@ -7073,18 +7073,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit72: ; preds = %lor.lhs.f
 if.else55:                                        ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit72
   %cmp.i.i73 = icmp slt i32 %30, %36
   %cmp4.i.i77 = icmp slt i32 %32, %38
-  %or.cond114 = or i1 %cmp.i.i73, %cmp4.i.i77
-  br i1 %or.cond114, label %if.else60, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
+  %or.cond129 = or i1 %cmp.i.i73, %cmp4.i.i77
+  br i1 %or.cond129, label %if.else60, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78: ; preds = %if.else55
   %cmp7.i.i81 = icmp slt i32 %34, %40
   %cmp.i2.i84 = icmp slt i32 %29, %35
   %or.cond = or i1 %cmp7.i.i81, %cmp.i2.i84
   %cmp4.i6.i88 = icmp slt i32 %31, %37
-  %or.cond115 = or i1 %or.cond, %cmp4.i6.i88
+  %or.cond130 = or i1 %or.cond, %cmp4.i6.i88
   %cmp7.i10.i92.not = icmp slt i32 %33, %39
-  %or.cond116 = or i1 %or.cond115, %cmp7.i10.i92.not
-  br i1 %or.cond116, label %if.else60, label %if.then58
+  %or.cond131 = or i1 %or.cond130, %cmp7.i10.i92.not
+  br i1 %or.cond131, label %if.else60, label %if.then58
 
 if.then58:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
   %child = getelementptr inbounds nuw i8, ptr %__begin042.sroa.0.0107, i64 24
@@ -7461,18 +7461,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit72: ; preds = %lor.lhs.f
 if.else55:                                        ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit72
   %cmp.i.i73 = icmp slt i32 %30, %36
   %cmp4.i.i77 = icmp slt i32 %32, %38
-  %or.cond114 = or i1 %cmp.i.i73, %cmp4.i.i77
-  br i1 %or.cond114, label %if.else60, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
+  %or.cond129 = or i1 %cmp.i.i73, %cmp4.i.i77
+  br i1 %or.cond129, label %if.else60, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78: ; preds = %if.else55
   %cmp7.i.i81 = icmp slt i32 %34, %40
   %cmp.i2.i84 = icmp slt i32 %29, %35
   %or.cond = or i1 %cmp7.i.i81, %cmp.i2.i84
   %cmp4.i6.i88 = icmp slt i32 %31, %37
-  %or.cond115 = or i1 %or.cond, %cmp4.i6.i88
+  %or.cond130 = or i1 %or.cond, %cmp4.i6.i88
   %cmp7.i10.i92.not = icmp slt i32 %33, %39
-  %or.cond116 = or i1 %or.cond115, %cmp7.i10.i92.not
-  br i1 %or.cond116, label %if.else60, label %if.then58
+  %or.cond131 = or i1 %or.cond130, %cmp7.i10.i92.not
+  br i1 %or.cond131, label %if.else60, label %if.then58
 
 if.then58:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
   %child = getelementptr inbounds nuw i8, ptr %__begin042.sroa.0.0107, i64 24
@@ -7849,18 +7849,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit72: ; preds = %lor.lhs.f
 if.else55:                                        ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit72
   %cmp.i.i73 = icmp slt i32 %30, %36
   %cmp4.i.i77 = icmp slt i32 %32, %38
-  %or.cond114 = or i1 %cmp.i.i73, %cmp4.i.i77
-  br i1 %or.cond114, label %if.else60, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
+  %or.cond129 = or i1 %cmp.i.i73, %cmp4.i.i77
+  br i1 %or.cond129, label %if.else60, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78: ; preds = %if.else55
   %cmp7.i.i81 = icmp slt i32 %34, %40
   %cmp.i2.i84 = icmp slt i32 %29, %35
   %or.cond = or i1 %cmp7.i.i81, %cmp.i2.i84
   %cmp4.i6.i88 = icmp slt i32 %31, %37
-  %or.cond115 = or i1 %or.cond, %cmp4.i6.i88
+  %or.cond130 = or i1 %or.cond, %cmp4.i6.i88
   %cmp7.i10.i92.not = icmp slt i32 %33, %39
-  %or.cond116 = or i1 %or.cond115, %cmp7.i10.i92.not
-  br i1 %or.cond116, label %if.else60, label %if.then58
+  %or.cond131 = or i1 %or.cond130, %cmp7.i10.i92.not
+  br i1 %or.cond131, label %if.else60, label %if.then58
 
 if.then58:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
   %child = getelementptr inbounds nuw i8, ptr %__begin042.sroa.0.0107, i64 24
@@ -8237,18 +8237,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit72: ; preds = %lor.lhs.f
 if.else55:                                        ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit72
   %cmp.i.i73 = icmp slt i32 %30, %36
   %cmp4.i.i77 = icmp slt i32 %32, %38
-  %or.cond114 = or i1 %cmp.i.i73, %cmp4.i.i77
-  br i1 %or.cond114, label %if.else60, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
+  %or.cond129 = or i1 %cmp.i.i73, %cmp4.i.i77
+  br i1 %or.cond129, label %if.else60, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78: ; preds = %if.else55
   %cmp7.i.i81 = icmp slt i32 %34, %40
   %cmp.i2.i84 = icmp slt i32 %29, %35
   %or.cond = or i1 %cmp7.i.i81, %cmp.i2.i84
   %cmp4.i6.i88 = icmp slt i32 %31, %37
-  %or.cond115 = or i1 %or.cond, %cmp4.i6.i88
+  %or.cond130 = or i1 %or.cond, %cmp4.i6.i88
   %cmp7.i10.i92.not = icmp slt i32 %33, %39
-  %or.cond116 = or i1 %or.cond115, %cmp7.i10.i92.not
-  br i1 %or.cond116, label %if.else60, label %if.then58
+  %or.cond131 = or i1 %or.cond130, %cmp7.i10.i92.not
+  br i1 %or.cond131, label %if.else60, label %if.then58
 
 if.then58:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
   %child = getelementptr inbounds nuw i8, ptr %__begin042.sroa.0.0107, i64 24
@@ -8625,18 +8625,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit72: ; preds = %lor.lhs.f
 if.else55:                                        ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit72
   %cmp.i.i73 = icmp slt i32 %30, %36
   %cmp4.i.i77 = icmp slt i32 %32, %38
-  %or.cond114 = or i1 %cmp.i.i73, %cmp4.i.i77
-  br i1 %or.cond114, label %if.else60, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
+  %or.cond129 = or i1 %cmp.i.i73, %cmp4.i.i77
+  br i1 %or.cond129, label %if.else60, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78: ; preds = %if.else55
   %cmp7.i.i81 = icmp slt i32 %34, %40
   %cmp.i2.i84 = icmp slt i32 %29, %35
   %or.cond = or i1 %cmp7.i.i81, %cmp.i2.i84
   %cmp4.i6.i88 = icmp slt i32 %31, %37
-  %or.cond115 = or i1 %or.cond, %cmp4.i6.i88
+  %or.cond130 = or i1 %or.cond, %cmp4.i6.i88
   %cmp7.i10.i92.not = icmp slt i32 %33, %39
-  %or.cond116 = or i1 %or.cond115, %cmp7.i10.i92.not
-  br i1 %or.cond116, label %if.else60, label %if.then58
+  %or.cond131 = or i1 %or.cond130, %cmp7.i10.i92.not
+  br i1 %or.cond131, label %if.else60, label %if.then58
 
 if.then58:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i78
   %child = getelementptr inbounds nuw i8, ptr %__begin042.sroa.0.0107, i64 24
@@ -8884,18 +8884,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit: ; preds = %lor.lhs.fal
 if.else:                                          ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit
   %cmp.i.i8 = icmp slt i32 %3, %9
   %cmp4.i.i12 = icmp slt i32 %5, %11
-  %or.cond40 = or i1 %cmp.i.i8, %cmp4.i.i12
-  br i1 %or.cond40, label %if.else12, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
+  %or.cond53 = or i1 %cmp.i.i8, %cmp4.i.i12
+  br i1 %or.cond53, label %if.else12, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13: ; preds = %if.else
   %cmp7.i.i16 = icmp slt i32 %7, %13
   %cmp.i2.i19 = icmp slt i32 %2, %8
   %or.cond = or i1 %cmp7.i.i16, %cmp.i2.i19
   %cmp4.i6.i23 = icmp slt i32 %4, %10
-  %or.cond41 = or i1 %or.cond, %cmp4.i6.i23
+  %or.cond54 = or i1 %or.cond, %cmp4.i6.i23
   %cmp7.i10.i27.not = icmp slt i32 %6, %12
-  %or.cond42 = or i1 %or.cond41, %cmp7.i10.i27.not
-  br i1 %or.cond42, label %if.else12, label %if.then10
+  %or.cond55 = or i1 %or.cond54, %cmp7.i10.i27.not
+  br i1 %or.cond55, label %if.else12, label %if.then10
 
 if.then10:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
   %child = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.035, i64 24
@@ -9096,18 +9096,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit: ; preds = %lor.lhs.fal
 if.else:                                          ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit
   %cmp.i.i8 = icmp slt i32 %3, %9
   %cmp4.i.i12 = icmp slt i32 %5, %11
-  %or.cond40 = or i1 %cmp.i.i8, %cmp4.i.i12
-  br i1 %or.cond40, label %if.else12, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
+  %or.cond53 = or i1 %cmp.i.i8, %cmp4.i.i12
+  br i1 %or.cond53, label %if.else12, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13: ; preds = %if.else
   %cmp7.i.i16 = icmp slt i32 %7, %13
   %cmp.i2.i19 = icmp slt i32 %2, %8
   %or.cond = or i1 %cmp7.i.i16, %cmp.i2.i19
   %cmp4.i6.i23 = icmp slt i32 %4, %10
-  %or.cond41 = or i1 %or.cond, %cmp4.i6.i23
+  %or.cond54 = or i1 %or.cond, %cmp4.i6.i23
   %cmp7.i10.i27.not = icmp slt i32 %6, %12
-  %or.cond42 = or i1 %or.cond41, %cmp7.i10.i27.not
-  br i1 %or.cond42, label %if.else12, label %if.then10
+  %or.cond55 = or i1 %or.cond54, %cmp7.i10.i27.not
+  br i1 %or.cond55, label %if.else12, label %if.then10
 
 if.then10:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
   %child = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.035, i64 24
@@ -9308,18 +9308,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit: ; preds = %lor.lhs.fal
 if.else:                                          ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit
   %cmp.i.i8 = icmp slt i32 %3, %9
   %cmp4.i.i12 = icmp slt i32 %5, %11
-  %or.cond40 = or i1 %cmp.i.i8, %cmp4.i.i12
-  br i1 %or.cond40, label %if.else12, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
+  %or.cond53 = or i1 %cmp.i.i8, %cmp4.i.i12
+  br i1 %or.cond53, label %if.else12, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13: ; preds = %if.else
   %cmp7.i.i16 = icmp slt i32 %7, %13
   %cmp.i2.i19 = icmp slt i32 %2, %8
   %or.cond = or i1 %cmp7.i.i16, %cmp.i2.i19
   %cmp4.i6.i23 = icmp slt i32 %4, %10
-  %or.cond41 = or i1 %or.cond, %cmp4.i6.i23
+  %or.cond54 = or i1 %or.cond, %cmp4.i6.i23
   %cmp7.i10.i27.not = icmp slt i32 %6, %12
-  %or.cond42 = or i1 %or.cond41, %cmp7.i10.i27.not
-  br i1 %or.cond42, label %if.else12, label %if.then10
+  %or.cond55 = or i1 %or.cond54, %cmp7.i10.i27.not
+  br i1 %or.cond55, label %if.else12, label %if.then10
 
 if.then10:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
   %child = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.035, i64 24
@@ -9520,18 +9520,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit: ; preds = %lor.lhs.fal
 if.else:                                          ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit
   %cmp.i.i8 = icmp slt i32 %3, %9
   %cmp4.i.i12 = icmp slt i32 %5, %11
-  %or.cond40 = or i1 %cmp.i.i8, %cmp4.i.i12
-  br i1 %or.cond40, label %if.else12, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
+  %or.cond53 = or i1 %cmp.i.i8, %cmp4.i.i12
+  br i1 %or.cond53, label %if.else12, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13: ; preds = %if.else
   %cmp7.i.i16 = icmp slt i32 %7, %13
   %cmp.i2.i19 = icmp slt i32 %2, %8
   %or.cond = or i1 %cmp7.i.i16, %cmp.i2.i19
   %cmp4.i6.i23 = icmp slt i32 %4, %10
-  %or.cond41 = or i1 %or.cond, %cmp4.i6.i23
+  %or.cond54 = or i1 %or.cond, %cmp4.i6.i23
   %cmp7.i10.i27.not = icmp slt i32 %6, %12
-  %or.cond42 = or i1 %or.cond41, %cmp7.i10.i27.not
-  br i1 %or.cond42, label %if.else12, label %if.then10
+  %or.cond55 = or i1 %or.cond54, %cmp7.i10.i27.not
+  br i1 %or.cond55, label %if.else12, label %if.then10
 
 if.then10:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
   %child = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.035, i64 24
@@ -9732,18 +9732,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit: ; preds = %lor.lhs.fal
 if.else:                                          ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit
   %cmp.i.i8 = icmp slt i32 %3, %9
   %cmp4.i.i12 = icmp slt i32 %5, %11
-  %or.cond40 = or i1 %cmp.i.i8, %cmp4.i.i12
-  br i1 %or.cond40, label %if.else12, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
+  %or.cond53 = or i1 %cmp.i.i8, %cmp4.i.i12
+  br i1 %or.cond53, label %if.else12, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13: ; preds = %if.else
   %cmp7.i.i16 = icmp slt i32 %7, %13
   %cmp.i2.i19 = icmp slt i32 %2, %8
   %or.cond = or i1 %cmp7.i.i16, %cmp.i2.i19
   %cmp4.i6.i23 = icmp slt i32 %4, %10
-  %or.cond41 = or i1 %or.cond, %cmp4.i6.i23
+  %or.cond54 = or i1 %or.cond, %cmp4.i6.i23
   %cmp7.i10.i27.not = icmp slt i32 %6, %12
-  %or.cond42 = or i1 %or.cond41, %cmp7.i10.i27.not
-  br i1 %or.cond42, label %if.else12, label %if.then10
+  %or.cond55 = or i1 %or.cond54, %cmp7.i10.i27.not
+  br i1 %or.cond55, label %if.else12, label %if.then10
 
 if.then10:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
   %child = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.035, i64 24
@@ -9944,18 +9944,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit: ; preds = %lor.lhs.fal
 if.else:                                          ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit
   %cmp.i.i8 = icmp slt i32 %3, %9
   %cmp4.i.i12 = icmp slt i32 %5, %11
-  %or.cond40 = or i1 %cmp.i.i8, %cmp4.i.i12
-  br i1 %or.cond40, label %if.else12, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
+  %or.cond53 = or i1 %cmp.i.i8, %cmp4.i.i12
+  br i1 %or.cond53, label %if.else12, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13: ; preds = %if.else
   %cmp7.i.i16 = icmp slt i32 %7, %13
   %cmp.i2.i19 = icmp slt i32 %2, %8
   %or.cond = or i1 %cmp7.i.i16, %cmp.i2.i19
   %cmp4.i6.i23 = icmp slt i32 %4, %10
-  %or.cond41 = or i1 %or.cond, %cmp4.i6.i23
+  %or.cond54 = or i1 %or.cond, %cmp4.i6.i23
   %cmp7.i10.i27.not = icmp slt i32 %6, %12
-  %or.cond42 = or i1 %or.cond41, %cmp7.i10.i27.not
-  br i1 %or.cond42, label %if.else12, label %if.then10
+  %or.cond55 = or i1 %or.cond54, %cmp7.i10.i27.not
+  br i1 %or.cond55, label %if.else12, label %if.then10
 
 if.then10:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
   %child = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.035, i64 24
@@ -10156,18 +10156,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit: ; preds = %lor.lhs.fal
 if.else:                                          ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit
   %cmp.i.i8 = icmp slt i32 %3, %9
   %cmp4.i.i12 = icmp slt i32 %5, %11
-  %or.cond40 = or i1 %cmp.i.i8, %cmp4.i.i12
-  br i1 %or.cond40, label %if.else12, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
+  %or.cond53 = or i1 %cmp.i.i8, %cmp4.i.i12
+  br i1 %or.cond53, label %if.else12, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13: ; preds = %if.else
   %cmp7.i.i16 = icmp slt i32 %7, %13
   %cmp.i2.i19 = icmp slt i32 %2, %8
   %or.cond = or i1 %cmp7.i.i16, %cmp.i2.i19
   %cmp4.i6.i23 = icmp slt i32 %4, %10
-  %or.cond41 = or i1 %or.cond, %cmp4.i6.i23
+  %or.cond54 = or i1 %or.cond, %cmp4.i6.i23
   %cmp7.i10.i27.not = icmp slt i32 %6, %12
-  %or.cond42 = or i1 %or.cond41, %cmp7.i10.i27.not
-  br i1 %or.cond42, label %if.else12, label %if.then10
+  %or.cond55 = or i1 %or.cond54, %cmp7.i10.i27.not
+  br i1 %or.cond55, label %if.else12, label %if.then10
 
 if.then10:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
   %child = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.035, i64 24
@@ -10368,18 +10368,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit: ; preds = %lor.lhs.fal
 if.else:                                          ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit
   %cmp.i.i8 = icmp slt i32 %3, %9
   %cmp4.i.i12 = icmp slt i32 %5, %11
-  %or.cond40 = or i1 %cmp.i.i8, %cmp4.i.i12
-  br i1 %or.cond40, label %if.else12, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
+  %or.cond53 = or i1 %cmp.i.i8, %cmp4.i.i12
+  br i1 %or.cond53, label %if.else12, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13: ; preds = %if.else
   %cmp7.i.i16 = icmp slt i32 %7, %13
   %cmp.i2.i19 = icmp slt i32 %2, %8
   %or.cond = or i1 %cmp7.i.i16, %cmp.i2.i19
   %cmp4.i6.i23 = icmp slt i32 %4, %10
-  %or.cond41 = or i1 %or.cond, %cmp4.i6.i23
+  %or.cond54 = or i1 %or.cond, %cmp4.i6.i23
   %cmp7.i10.i27.not = icmp slt i32 %6, %12
-  %or.cond42 = or i1 %or.cond41, %cmp7.i10.i27.not
-  br i1 %or.cond42, label %if.else12, label %if.then10
+  %or.cond55 = or i1 %or.cond54, %cmp7.i10.i27.not
+  br i1 %or.cond55, label %if.else12, label %if.then10
 
 if.then10:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i13
   %child = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.035, i64 24
@@ -10641,18 +10641,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit34: ; preds = %lor.lhs.f
 if.else:                                          ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit34
   %cmp.i.i35 = icmp slt i32 %17, %23
   %cmp4.i.i39 = icmp slt i32 %19, %25
-  %or.cond76 = or i1 %cmp.i.i35, %cmp4.i.i39
-  br i1 %or.cond76, label %if.else27, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
+  %or.cond91 = or i1 %cmp.i.i35, %cmp4.i.i39
+  br i1 %or.cond91, label %if.else27, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40: ; preds = %if.else
   %cmp7.i.i43 = icmp slt i32 %21, %27
   %cmp.i2.i46 = icmp slt i32 %16, %22
   %or.cond = or i1 %cmp7.i.i43, %cmp.i2.i46
   %cmp4.i6.i50 = icmp slt i32 %18, %24
-  %or.cond77 = or i1 %or.cond, %cmp4.i6.i50
+  %or.cond92 = or i1 %or.cond, %cmp4.i6.i50
   %cmp7.i10.i54.not = icmp slt i32 %20, %26
-  %or.cond78 = or i1 %or.cond77, %cmp7.i10.i54.not
-  br i1 %or.cond78, label %if.else27, label %if.then25
+  %or.cond93 = or i1 %or.cond92, %cmp7.i10.i54.not
+  br i1 %or.cond93, label %if.else27, label %if.then25
 
 if.then25:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
   %child = getelementptr inbounds nuw i8, ptr %__begin010.sroa.0.069, i64 24
@@ -10916,18 +10916,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit34: ; preds = %lor.lhs.f
 if.else:                                          ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit34
   %cmp.i.i35 = icmp slt i32 %17, %23
   %cmp4.i.i39 = icmp slt i32 %19, %25
-  %or.cond76 = or i1 %cmp.i.i35, %cmp4.i.i39
-  br i1 %or.cond76, label %if.else27, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
+  %or.cond91 = or i1 %cmp.i.i35, %cmp4.i.i39
+  br i1 %or.cond91, label %if.else27, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40: ; preds = %if.else
   %cmp7.i.i43 = icmp slt i32 %21, %27
   %cmp.i2.i46 = icmp slt i32 %16, %22
   %or.cond = or i1 %cmp7.i.i43, %cmp.i2.i46
   %cmp4.i6.i50 = icmp slt i32 %18, %24
-  %or.cond77 = or i1 %or.cond, %cmp4.i6.i50
+  %or.cond92 = or i1 %or.cond, %cmp4.i6.i50
   %cmp7.i10.i54.not = icmp slt i32 %20, %26
-  %or.cond78 = or i1 %or.cond77, %cmp7.i10.i54.not
-  br i1 %or.cond78, label %if.else27, label %if.then25
+  %or.cond93 = or i1 %or.cond92, %cmp7.i10.i54.not
+  br i1 %or.cond93, label %if.else27, label %if.then25
 
 if.then25:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
   %child = getelementptr inbounds nuw i8, ptr %__begin010.sroa.0.069, i64 24
@@ -11191,18 +11191,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit34: ; preds = %lor.lhs.f
 if.else:                                          ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit34
   %cmp.i.i35 = icmp slt i32 %17, %23
   %cmp4.i.i39 = icmp slt i32 %19, %25
-  %or.cond76 = or i1 %cmp.i.i35, %cmp4.i.i39
-  br i1 %or.cond76, label %if.else27, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
+  %or.cond91 = or i1 %cmp.i.i35, %cmp4.i.i39
+  br i1 %or.cond91, label %if.else27, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40: ; preds = %if.else
   %cmp7.i.i43 = icmp slt i32 %21, %27
   %cmp.i2.i46 = icmp slt i32 %16, %22
   %or.cond = or i1 %cmp7.i.i43, %cmp.i2.i46
   %cmp4.i6.i50 = icmp slt i32 %18, %24
-  %or.cond77 = or i1 %or.cond, %cmp4.i6.i50
+  %or.cond92 = or i1 %or.cond, %cmp4.i6.i50
   %cmp7.i10.i54.not = icmp slt i32 %20, %26
-  %or.cond78 = or i1 %or.cond77, %cmp7.i10.i54.not
-  br i1 %or.cond78, label %if.else27, label %if.then25
+  %or.cond93 = or i1 %or.cond92, %cmp7.i10.i54.not
+  br i1 %or.cond93, label %if.else27, label %if.then25
 
 if.then25:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
   %child = getelementptr inbounds nuw i8, ptr %__begin010.sroa.0.069, i64 24
@@ -11466,18 +11466,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit34: ; preds = %lor.lhs.f
 if.else:                                          ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit34
   %cmp.i.i35 = icmp slt i32 %17, %23
   %cmp4.i.i39 = icmp slt i32 %19, %25
-  %or.cond76 = or i1 %cmp.i.i35, %cmp4.i.i39
-  br i1 %or.cond76, label %if.else27, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
+  %or.cond91 = or i1 %cmp.i.i35, %cmp4.i.i39
+  br i1 %or.cond91, label %if.else27, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40: ; preds = %if.else
   %cmp7.i.i43 = icmp slt i32 %21, %27
   %cmp.i2.i46 = icmp slt i32 %16, %22
   %or.cond = or i1 %cmp7.i.i43, %cmp.i2.i46
   %cmp4.i6.i50 = icmp slt i32 %18, %24
-  %or.cond77 = or i1 %or.cond, %cmp4.i6.i50
+  %or.cond92 = or i1 %or.cond, %cmp4.i6.i50
   %cmp7.i10.i54.not = icmp slt i32 %20, %26
-  %or.cond78 = or i1 %or.cond77, %cmp7.i10.i54.not
-  br i1 %or.cond78, label %if.else27, label %if.then25
+  %or.cond93 = or i1 %or.cond92, %cmp7.i10.i54.not
+  br i1 %or.cond93, label %if.else27, label %if.then25
 
 if.then25:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
   %child = getelementptr inbounds nuw i8, ptr %__begin010.sroa.0.069, i64 24
@@ -11741,18 +11741,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit34: ; preds = %lor.lhs.f
 if.else:                                          ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit34
   %cmp.i.i35 = icmp slt i32 %17, %23
   %cmp4.i.i39 = icmp slt i32 %19, %25
-  %or.cond76 = or i1 %cmp.i.i35, %cmp4.i.i39
-  br i1 %or.cond76, label %if.else27, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
+  %or.cond91 = or i1 %cmp.i.i35, %cmp4.i.i39
+  br i1 %or.cond91, label %if.else27, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40: ; preds = %if.else
   %cmp7.i.i43 = icmp slt i32 %21, %27
   %cmp.i2.i46 = icmp slt i32 %16, %22
   %or.cond = or i1 %cmp7.i.i43, %cmp.i2.i46
   %cmp4.i6.i50 = icmp slt i32 %18, %24
-  %or.cond77 = or i1 %or.cond, %cmp4.i6.i50
+  %or.cond92 = or i1 %or.cond, %cmp4.i6.i50
   %cmp7.i10.i54.not = icmp slt i32 %20, %26
-  %or.cond78 = or i1 %or.cond77, %cmp7.i10.i54.not
-  br i1 %or.cond78, label %if.else27, label %if.then25
+  %or.cond93 = or i1 %or.cond92, %cmp7.i10.i54.not
+  br i1 %or.cond93, label %if.else27, label %if.then25
 
 if.then25:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
   %child = getelementptr inbounds nuw i8, ptr %__begin010.sroa.0.069, i64 24
@@ -12016,18 +12016,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit34: ; preds = %lor.lhs.f
 if.else:                                          ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit34
   %cmp.i.i35 = icmp slt i32 %17, %23
   %cmp4.i.i39 = icmp slt i32 %19, %25
-  %or.cond76 = or i1 %cmp.i.i35, %cmp4.i.i39
-  br i1 %or.cond76, label %if.else27, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
+  %or.cond91 = or i1 %cmp.i.i35, %cmp4.i.i39
+  br i1 %or.cond91, label %if.else27, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40: ; preds = %if.else
   %cmp7.i.i43 = icmp slt i32 %21, %27
   %cmp.i2.i46 = icmp slt i32 %16, %22
   %or.cond = or i1 %cmp7.i.i43, %cmp.i2.i46
   %cmp4.i6.i50 = icmp slt i32 %18, %24
-  %or.cond77 = or i1 %or.cond, %cmp4.i6.i50
+  %or.cond92 = or i1 %or.cond, %cmp4.i6.i50
   %cmp7.i10.i54.not = icmp slt i32 %20, %26
-  %or.cond78 = or i1 %or.cond77, %cmp7.i10.i54.not
-  br i1 %or.cond78, label %if.else27, label %if.then25
+  %or.cond93 = or i1 %or.cond92, %cmp7.i10.i54.not
+  br i1 %or.cond93, label %if.else27, label %if.then25
 
 if.then25:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
   %child = getelementptr inbounds nuw i8, ptr %__begin010.sroa.0.069, i64 24
@@ -12291,18 +12291,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit34: ; preds = %lor.lhs.f
 if.else:                                          ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit34
   %cmp.i.i35 = icmp slt i32 %17, %23
   %cmp4.i.i39 = icmp slt i32 %19, %25
-  %or.cond76 = or i1 %cmp.i.i35, %cmp4.i.i39
-  br i1 %or.cond76, label %if.else27, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
+  %or.cond91 = or i1 %cmp.i.i35, %cmp4.i.i39
+  br i1 %or.cond91, label %if.else27, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40: ; preds = %if.else
   %cmp7.i.i43 = icmp slt i32 %21, %27
   %cmp.i2.i46 = icmp slt i32 %16, %22
   %or.cond = or i1 %cmp7.i.i43, %cmp.i2.i46
   %cmp4.i6.i50 = icmp slt i32 %18, %24
-  %or.cond77 = or i1 %or.cond, %cmp4.i6.i50
+  %or.cond92 = or i1 %or.cond, %cmp4.i6.i50
   %cmp7.i10.i54.not = icmp slt i32 %20, %26
-  %or.cond78 = or i1 %or.cond77, %cmp7.i10.i54.not
-  br i1 %or.cond78, label %if.else27, label %if.then25
+  %or.cond93 = or i1 %or.cond92, %cmp7.i10.i54.not
+  br i1 %or.cond93, label %if.else27, label %if.then25
 
 if.then25:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
   %child = getelementptr inbounds nuw i8, ptr %__begin010.sroa.0.069, i64 24
@@ -12566,18 +12566,18 @@ _ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit34: ; preds = %lor.lhs.f
 if.else:                                          ; preds = %_ZNK7openvdb5v11_04math9CoordBBox10hasOverlapERKS2_.exit34
   %cmp.i.i35 = icmp slt i32 %17, %23
   %cmp4.i.i39 = icmp slt i32 %19, %25
-  %or.cond76 = or i1 %cmp.i.i35, %cmp4.i.i39
-  br i1 %or.cond76, label %if.else27, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
+  %or.cond91 = or i1 %cmp.i.i35, %cmp4.i.i39
+  br i1 %or.cond91, label %if.else27, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40: ; preds = %if.else
   %cmp7.i.i43 = icmp slt i32 %21, %27
   %cmp.i2.i46 = icmp slt i32 %16, %22
   %or.cond = or i1 %cmp7.i.i43, %cmp.i2.i46
   %cmp4.i6.i50 = icmp slt i32 %18, %24
-  %or.cond77 = or i1 %or.cond, %cmp4.i6.i50
+  %or.cond92 = or i1 %or.cond, %cmp4.i6.i50
   %cmp7.i10.i54.not = icmp slt i32 %20, %26
-  %or.cond78 = or i1 %or.cond77, %cmp7.i10.i54.not
-  br i1 %or.cond78, label %if.else27, label %if.then25
+  %or.cond93 = or i1 %or.cond92, %cmp7.i10.i54.not
+  br i1 %or.cond93, label %if.else27, label %if.then25
 
 if.then25:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i40
   %child = getelementptr inbounds nuw i8, ptr %__begin010.sroa.0.069, i64 24
@@ -14587,18 +14587,18 @@ _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIbEESaIS4_EED2Ev.exit: ; preds = %lpa
 if.else:                                          ; preds = %invoke.cont
   %cmp.i.i22 = icmp slt i32 %3, %9
   %cmp4.i.i26 = icmp slt i32 %5, %11
-  %or.cond158 = or i1 %cmp.i.i22, %cmp4.i.i26
-  br i1 %or.cond158, label %if.else13, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
+  %or.cond188 = or i1 %cmp.i.i22, %cmp4.i.i26
+  br i1 %or.cond188, label %if.else13, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27: ; preds = %if.else
   %cmp7.i.i30 = icmp slt i32 %7, %13
   %cmp.i2.i33 = icmp slt i32 %2, %8
   %or.cond = or i1 %cmp7.i.i30, %cmp.i2.i33
   %cmp4.i6.i37 = icmp slt i32 %4, %10
-  %or.cond159 = or i1 %or.cond, %cmp4.i6.i37
+  %or.cond189 = or i1 %or.cond, %cmp4.i6.i37
   %cmp7.i10.i41.not = icmp slt i32 %6, %12
-  %or.cond160 = or i1 %or.cond159, %cmp7.i10.i41.not
-  br i1 %or.cond160, label %if.else13, label %if.then10
+  %or.cond190 = or i1 %or.cond189, %cmp7.i10.i41.not
+  br i1 %or.cond190, label %if.else13, label %if.then10
 
 if.then10:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
   %value = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.0143, i64 24
@@ -14609,18 +14609,18 @@ if.then10:                                        ; preds = %_ZN7openvdb5v11_04m
 if.else13:                                        ; preds = %if.else, %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
   %cmp.i.i43 = icmp slt i32 %9, %3
   %cmp4.i.i47 = icmp slt i32 %11, %5
-  %or.cond161 = or i1 %cmp.i.i43, %cmp4.i.i47
-  br i1 %or.cond161, label %invoke.cont20, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i48
+  %or.cond191 = or i1 %cmp.i.i43, %cmp4.i.i47
+  br i1 %or.cond191, label %invoke.cont20, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i48
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i48: ; preds = %if.else13
   %cmp7.i.i51 = icmp slt i32 %13, %7
   %cmp.i2.i55 = icmp slt i32 %8, %2
   %or.cond130 = or i1 %cmp7.i.i51, %cmp.i2.i55
   %cmp4.i6.i59 = icmp slt i32 %10, %4
-  %or.cond162 = or i1 %or.cond130, %cmp4.i6.i59
+  %or.cond192 = or i1 %or.cond130, %cmp4.i6.i59
   %cmp7.i10.i63.not = icmp slt i32 %12, %6
-  %or.cond163 = or i1 %or.cond162, %cmp7.i10.i63.not
-  br i1 %or.cond163, label %invoke.cont20, label %if.then16
+  %or.cond193 = or i1 %or.cond192, %cmp7.i10.i63.not
+  br i1 %or.cond193, label %invoke.cont20, label %if.then16
 
 if.then16:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i48
   %15 = load ptr, ptr %_M_finish.i66, align 8
@@ -14785,18 +14785,18 @@ invoke.cont40:                                    ; preds = %lor.lhs.false.i3.i8
 if.else43:                                        ; preds = %invoke.cont40
   %cmp.i.i97 = icmp slt i32 %34, %40
   %cmp4.i.i101 = icmp slt i32 %36, %42
-  %or.cond164 = or i1 %cmp.i.i97, %cmp4.i.i101
-  br i1 %or.cond164, label %if.else48, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i102
+  %or.cond194 = or i1 %cmp.i.i97, %cmp4.i.i101
+  br i1 %or.cond194, label %if.else48, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i102
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i102: ; preds = %if.else43
   %cmp7.i.i105 = icmp slt i32 %38, %44
   %cmp.i2.i109 = icmp slt i32 %33, %39
   %or.cond131 = or i1 %cmp7.i.i105, %cmp.i2.i109
   %cmp4.i6.i113 = icmp slt i32 %35, %41
-  %or.cond165 = or i1 %or.cond131, %cmp4.i6.i113
+  %or.cond195 = or i1 %or.cond131, %cmp4.i6.i113
   %cmp7.i10.i117.not = icmp slt i32 %37, %43
-  %or.cond166 = or i1 %or.cond165, %cmp7.i10.i117.not
-  br i1 %or.cond166, label %if.else48, label %if.then46
+  %or.cond196 = or i1 %or.cond195, %cmp7.i10.i117.not
+  br i1 %or.cond196, label %if.else48, label %if.then46
 
 if.then46:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i102
   %child = getelementptr inbounds nuw i8, ptr %__begin029.sroa.0.0146, i64 24
@@ -15033,18 +15033,18 @@ _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIiEESaIS4_EED2Ev.exit: ; preds = %lpa
 if.else:                                          ; preds = %invoke.cont
   %cmp.i.i22 = icmp slt i32 %3, %9
   %cmp4.i.i26 = icmp slt i32 %5, %11
-  %or.cond158 = or i1 %cmp.i.i22, %cmp4.i.i26
-  br i1 %or.cond158, label %if.else13, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
+  %or.cond188 = or i1 %cmp.i.i22, %cmp4.i.i26
+  br i1 %or.cond188, label %if.else13, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27: ; preds = %if.else
   %cmp7.i.i30 = icmp slt i32 %7, %13
   %cmp.i2.i33 = icmp slt i32 %2, %8
   %or.cond = or i1 %cmp7.i.i30, %cmp.i2.i33
   %cmp4.i6.i37 = icmp slt i32 %4, %10
-  %or.cond159 = or i1 %or.cond, %cmp4.i6.i37
+  %or.cond189 = or i1 %or.cond, %cmp4.i6.i37
   %cmp7.i10.i41.not = icmp slt i32 %6, %12
-  %or.cond160 = or i1 %or.cond159, %cmp7.i10.i41.not
-  br i1 %or.cond160, label %if.else13, label %if.then10
+  %or.cond190 = or i1 %or.cond189, %cmp7.i10.i41.not
+  br i1 %or.cond190, label %if.else13, label %if.then10
 
 if.then10:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
   %value = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.0143, i64 24
@@ -15055,18 +15055,18 @@ if.then10:                                        ; preds = %_ZN7openvdb5v11_04m
 if.else13:                                        ; preds = %if.else, %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
   %cmp.i.i43 = icmp slt i32 %9, %3
   %cmp4.i.i47 = icmp slt i32 %11, %5
-  %or.cond161 = or i1 %cmp.i.i43, %cmp4.i.i47
-  br i1 %or.cond161, label %invoke.cont20, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i48
+  %or.cond191 = or i1 %cmp.i.i43, %cmp4.i.i47
+  br i1 %or.cond191, label %invoke.cont20, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i48
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i48: ; preds = %if.else13
   %cmp7.i.i51 = icmp slt i32 %13, %7
   %cmp.i2.i55 = icmp slt i32 %8, %2
   %or.cond130 = or i1 %cmp7.i.i51, %cmp.i2.i55
   %cmp4.i6.i59 = icmp slt i32 %10, %4
-  %or.cond162 = or i1 %or.cond130, %cmp4.i6.i59
+  %or.cond192 = or i1 %or.cond130, %cmp4.i6.i59
   %cmp7.i10.i63.not = icmp slt i32 %12, %6
-  %or.cond163 = or i1 %or.cond162, %cmp7.i10.i63.not
-  br i1 %or.cond163, label %invoke.cont20, label %if.then16
+  %or.cond193 = or i1 %or.cond192, %cmp7.i10.i63.not
+  br i1 %or.cond193, label %invoke.cont20, label %if.then16
 
 if.then16:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i48
   %15 = load ptr, ptr %_M_finish.i66, align 8
@@ -15231,18 +15231,18 @@ invoke.cont40:                                    ; preds = %lor.lhs.false.i3.i8
 if.else43:                                        ; preds = %invoke.cont40
   %cmp.i.i97 = icmp slt i32 %34, %40
   %cmp4.i.i101 = icmp slt i32 %36, %42
-  %or.cond164 = or i1 %cmp.i.i97, %cmp4.i.i101
-  br i1 %or.cond164, label %if.else48, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i102
+  %or.cond194 = or i1 %cmp.i.i97, %cmp4.i.i101
+  br i1 %or.cond194, label %if.else48, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i102
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i102: ; preds = %if.else43
   %cmp7.i.i105 = icmp slt i32 %38, %44
   %cmp.i2.i109 = icmp slt i32 %33, %39
   %or.cond131 = or i1 %cmp7.i.i105, %cmp.i2.i109
   %cmp4.i6.i113 = icmp slt i32 %35, %41
-  %or.cond165 = or i1 %or.cond131, %cmp4.i6.i113
+  %or.cond195 = or i1 %or.cond131, %cmp4.i6.i113
   %cmp7.i10.i117.not = icmp slt i32 %37, %43
-  %or.cond166 = or i1 %or.cond165, %cmp7.i10.i117.not
-  br i1 %or.cond166, label %if.else48, label %if.then46
+  %or.cond196 = or i1 %or.cond195, %cmp7.i10.i117.not
+  br i1 %or.cond196, label %if.else48, label %if.then46
 
 if.then46:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i102
   %child = getelementptr inbounds nuw i8, ptr %__begin029.sroa.0.0146, i64 24
@@ -15479,18 +15479,18 @@ _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIlEESaIS4_EED2Ev.exit: ; preds = %lpa
 if.else:                                          ; preds = %invoke.cont
   %cmp.i.i22 = icmp slt i32 %3, %9
   %cmp4.i.i26 = icmp slt i32 %5, %11
-  %or.cond158 = or i1 %cmp.i.i22, %cmp4.i.i26
-  br i1 %or.cond158, label %if.else13, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
+  %or.cond188 = or i1 %cmp.i.i22, %cmp4.i.i26
+  br i1 %or.cond188, label %if.else13, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27: ; preds = %if.else
   %cmp7.i.i30 = icmp slt i32 %7, %13
   %cmp.i2.i33 = icmp slt i32 %2, %8
   %or.cond = or i1 %cmp7.i.i30, %cmp.i2.i33
   %cmp4.i6.i37 = icmp slt i32 %4, %10
-  %or.cond159 = or i1 %or.cond, %cmp4.i6.i37
+  %or.cond189 = or i1 %or.cond, %cmp4.i6.i37
   %cmp7.i10.i41.not = icmp slt i32 %6, %12
-  %or.cond160 = or i1 %or.cond159, %cmp7.i10.i41.not
-  br i1 %or.cond160, label %if.else13, label %if.then10
+  %or.cond190 = or i1 %or.cond189, %cmp7.i10.i41.not
+  br i1 %or.cond190, label %if.else13, label %if.then10
 
 if.then10:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
   %value = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.0143, i64 24
@@ -15501,18 +15501,18 @@ if.then10:                                        ; preds = %_ZN7openvdb5v11_04m
 if.else13:                                        ; preds = %if.else, %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
   %cmp.i.i43 = icmp slt i32 %9, %3
   %cmp4.i.i47 = icmp slt i32 %11, %5
-  %or.cond161 = or i1 %cmp.i.i43, %cmp4.i.i47
-  br i1 %or.cond161, label %invoke.cont20, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i48
+  %or.cond191 = or i1 %cmp.i.i43, %cmp4.i.i47
+  br i1 %or.cond191, label %invoke.cont20, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i48
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i48: ; preds = %if.else13
   %cmp7.i.i51 = icmp slt i32 %13, %7
   %cmp.i2.i55 = icmp slt i32 %8, %2
   %or.cond130 = or i1 %cmp7.i.i51, %cmp.i2.i55
   %cmp4.i6.i59 = icmp slt i32 %10, %4
-  %or.cond162 = or i1 %or.cond130, %cmp4.i6.i59
+  %or.cond192 = or i1 %or.cond130, %cmp4.i6.i59
   %cmp7.i10.i63.not = icmp slt i32 %12, %6
-  %or.cond163 = or i1 %or.cond162, %cmp7.i10.i63.not
-  br i1 %or.cond163, label %invoke.cont20, label %if.then16
+  %or.cond193 = or i1 %or.cond192, %cmp7.i10.i63.not
+  br i1 %or.cond193, label %invoke.cont20, label %if.then16
 
 if.then16:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i48
   %15 = load ptr, ptr %_M_finish.i66, align 8
@@ -15677,18 +15677,18 @@ invoke.cont40:                                    ; preds = %lor.lhs.false.i3.i8
 if.else43:                                        ; preds = %invoke.cont40
   %cmp.i.i97 = icmp slt i32 %34, %40
   %cmp4.i.i101 = icmp slt i32 %36, %42
-  %or.cond164 = or i1 %cmp.i.i97, %cmp4.i.i101
-  br i1 %or.cond164, label %if.else48, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i102
+  %or.cond194 = or i1 %cmp.i.i97, %cmp4.i.i101
+  br i1 %or.cond194, label %if.else48, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i102
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i102: ; preds = %if.else43
   %cmp7.i.i105 = icmp slt i32 %38, %44
   %cmp.i2.i109 = icmp slt i32 %33, %39
   %or.cond131 = or i1 %cmp7.i.i105, %cmp.i2.i109
   %cmp4.i6.i113 = icmp slt i32 %35, %41
-  %or.cond165 = or i1 %or.cond131, %cmp4.i6.i113
+  %or.cond195 = or i1 %or.cond131, %cmp4.i6.i113
   %cmp7.i10.i117.not = icmp slt i32 %37, %43
-  %or.cond166 = or i1 %or.cond165, %cmp7.i10.i117.not
-  br i1 %or.cond166, label %if.else48, label %if.then46
+  %or.cond196 = or i1 %or.cond195, %cmp7.i10.i117.not
+  br i1 %or.cond196, label %if.else48, label %if.then46
 
 if.then46:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i102
   %child = getelementptr inbounds nuw i8, ptr %__begin029.sroa.0.0146, i64 24
@@ -15925,18 +15925,18 @@ _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIfEESaIS4_EED2Ev.exit: ; preds = %lpa
 if.else:                                          ; preds = %invoke.cont
   %cmp.i.i22 = icmp slt i32 %3, %9
   %cmp4.i.i26 = icmp slt i32 %5, %11
-  %or.cond158 = or i1 %cmp.i.i22, %cmp4.i.i26
-  br i1 %or.cond158, label %if.else13, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
+  %or.cond188 = or i1 %cmp.i.i22, %cmp4.i.i26
+  br i1 %or.cond188, label %if.else13, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27: ; preds = %if.else
   %cmp7.i.i30 = icmp slt i32 %7, %13
   %cmp.i2.i33 = icmp slt i32 %2, %8
   %or.cond = or i1 %cmp7.i.i30, %cmp.i2.i33
   %cmp4.i6.i37 = icmp slt i32 %4, %10
-  %or.cond159 = or i1 %or.cond, %cmp4.i6.i37
+  %or.cond189 = or i1 %or.cond, %cmp4.i6.i37
   %cmp7.i10.i41.not = icmp slt i32 %6, %12
-  %or.cond160 = or i1 %or.cond159, %cmp7.i10.i41.not
-  br i1 %or.cond160, label %if.else13, label %if.then10
+  %or.cond190 = or i1 %or.cond189, %cmp7.i10.i41.not
+  br i1 %or.cond190, label %if.else13, label %if.then10
 
 if.then10:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
   %value = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.0143, i64 24
@@ -15947,18 +15947,18 @@ if.then10:                                        ; preds = %_ZN7openvdb5v11_04m
 if.else13:                                        ; preds = %if.else, %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
   %cmp.i.i43 = icmp slt i32 %9, %3
   %cmp4.i.i47 = icmp slt i32 %11, %5
-  %or.cond161 = or i1 %cmp.i.i43, %cmp4.i.i47
-  br i1 %or.cond161, label %invoke.cont20, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i48
+  %or.cond191 = or i1 %cmp.i.i43, %cmp4.i.i47
+  br i1 %or.cond191, label %invoke.cont20, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i48
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i48: ; preds = %if.else13
   %cmp7.i.i51 = icmp slt i32 %13, %7
   %cmp.i2.i55 = icmp slt i32 %8, %2
   %or.cond130 = or i1 %cmp7.i.i51, %cmp.i2.i55
   %cmp4.i6.i59 = icmp slt i32 %10, %4
-  %or.cond162 = or i1 %or.cond130, %cmp4.i6.i59
+  %or.cond192 = or i1 %or.cond130, %cmp4.i6.i59
   %cmp7.i10.i63.not = icmp slt i32 %12, %6
-  %or.cond163 = or i1 %or.cond162, %cmp7.i10.i63.not
-  br i1 %or.cond163, label %invoke.cont20, label %if.then16
+  %or.cond193 = or i1 %or.cond192, %cmp7.i10.i63.not
+  br i1 %or.cond193, label %invoke.cont20, label %if.then16
 
 if.then16:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i48
   %15 = load ptr, ptr %_M_finish.i66, align 8
@@ -16123,18 +16123,18 @@ invoke.cont40:                                    ; preds = %lor.lhs.false.i3.i8
 if.else43:                                        ; preds = %invoke.cont40
   %cmp.i.i97 = icmp slt i32 %34, %40
   %cmp4.i.i101 = icmp slt i32 %36, %42
-  %or.cond164 = or i1 %cmp.i.i97, %cmp4.i.i101
-  br i1 %or.cond164, label %if.else48, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i102
+  %or.cond194 = or i1 %cmp.i.i97, %cmp4.i.i101
+  br i1 %or.cond194, label %if.else48, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i102
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i102: ; preds = %if.else43
   %cmp7.i.i105 = icmp slt i32 %38, %44
   %cmp.i2.i109 = icmp slt i32 %33, %39
   %or.cond131 = or i1 %cmp7.i.i105, %cmp.i2.i109
   %cmp4.i6.i113 = icmp slt i32 %35, %41
-  %or.cond165 = or i1 %or.cond131, %cmp4.i6.i113
+  %or.cond195 = or i1 %or.cond131, %cmp4.i6.i113
   %cmp7.i10.i117.not = icmp slt i32 %37, %43
-  %or.cond166 = or i1 %or.cond165, %cmp7.i10.i117.not
-  br i1 %or.cond166, label %if.else48, label %if.then46
+  %or.cond196 = or i1 %or.cond195, %cmp7.i10.i117.not
+  br i1 %or.cond196, label %if.else48, label %if.then46
 
 if.then46:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i102
   %child = getelementptr inbounds nuw i8, ptr %__begin029.sroa.0.0146, i64 24
@@ -16371,18 +16371,18 @@ _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIdEESaIS4_EED2Ev.exit: ; preds = %lpa
 if.else:                                          ; preds = %invoke.cont
   %cmp.i.i22 = icmp slt i32 %3, %9
   %cmp4.i.i26 = icmp slt i32 %5, %11
-  %or.cond158 = or i1 %cmp.i.i22, %cmp4.i.i26
-  br i1 %or.cond158, label %if.else13, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
+  %or.cond188 = or i1 %cmp.i.i22, %cmp4.i.i26
+  br i1 %or.cond188, label %if.else13, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27: ; preds = %if.else
   %cmp7.i.i30 = icmp slt i32 %7, %13
   %cmp.i2.i33 = icmp slt i32 %2, %8
   %or.cond = or i1 %cmp7.i.i30, %cmp.i2.i33
   %cmp4.i6.i37 = icmp slt i32 %4, %10
-  %or.cond159 = or i1 %or.cond, %cmp4.i6.i37
+  %or.cond189 = or i1 %or.cond, %cmp4.i6.i37
   %cmp7.i10.i41.not = icmp slt i32 %6, %12
-  %or.cond160 = or i1 %or.cond159, %cmp7.i10.i41.not
-  br i1 %or.cond160, label %if.else13, label %if.then10
+  %or.cond190 = or i1 %or.cond189, %cmp7.i10.i41.not
+  br i1 %or.cond190, label %if.else13, label %if.then10
 
 if.then10:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
   %value = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.0143, i64 24
@@ -16393,18 +16393,18 @@ if.then10:                                        ; preds = %_ZN7openvdb5v11_04m
 if.else13:                                        ; preds = %if.else, %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
   %cmp.i.i43 = icmp slt i32 %9, %3
   %cmp4.i.i47 = icmp slt i32 %11, %5
-  %or.cond161 = or i1 %cmp.i.i43, %cmp4.i.i47
-  br i1 %or.cond161, label %invoke.cont20, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i48
+  %or.cond191 = or i1 %cmp.i.i43, %cmp4.i.i47
+  br i1 %or.cond191, label %invoke.cont20, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i48
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i48: ; preds = %if.else13
   %cmp7.i.i51 = icmp slt i32 %13, %7
   %cmp.i2.i55 = icmp slt i32 %8, %2
   %or.cond130 = or i1 %cmp7.i.i51, %cmp.i2.i55
   %cmp4.i6.i59 = icmp slt i32 %10, %4
-  %or.cond162 = or i1 %or.cond130, %cmp4.i6.i59
+  %or.cond192 = or i1 %or.cond130, %cmp4.i6.i59
   %cmp7.i10.i63.not = icmp slt i32 %12, %6
-  %or.cond163 = or i1 %or.cond162, %cmp7.i10.i63.not
-  br i1 %or.cond163, label %invoke.cont20, label %if.then16
+  %or.cond193 = or i1 %or.cond192, %cmp7.i10.i63.not
+  br i1 %or.cond193, label %invoke.cont20, label %if.then16
 
 if.then16:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i48
   %15 = load ptr, ptr %_M_finish.i66, align 8
@@ -16569,18 +16569,18 @@ invoke.cont40:                                    ; preds = %lor.lhs.false.i3.i8
 if.else43:                                        ; preds = %invoke.cont40
   %cmp.i.i97 = icmp slt i32 %34, %40
   %cmp4.i.i101 = icmp slt i32 %36, %42
-  %or.cond164 = or i1 %cmp.i.i97, %cmp4.i.i101
-  br i1 %or.cond164, label %if.else48, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i102
+  %or.cond194 = or i1 %cmp.i.i97, %cmp4.i.i101
+  br i1 %or.cond194, label %if.else48, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i102
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i102: ; preds = %if.else43
   %cmp7.i.i105 = icmp slt i32 %38, %44
   %cmp.i2.i109 = icmp slt i32 %33, %39
   %or.cond131 = or i1 %cmp7.i.i105, %cmp.i2.i109
   %cmp4.i6.i113 = icmp slt i32 %35, %41
-  %or.cond165 = or i1 %or.cond131, %cmp4.i6.i113
+  %or.cond195 = or i1 %or.cond131, %cmp4.i6.i113
   %cmp7.i10.i117.not = icmp slt i32 %37, %43
-  %or.cond166 = or i1 %or.cond165, %cmp7.i10.i117.not
-  br i1 %or.cond166, label %if.else48, label %if.then46
+  %or.cond196 = or i1 %or.cond195, %cmp7.i10.i117.not
+  br i1 %or.cond196, label %if.else48, label %if.then46
 
 if.then46:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i102
   %child = getelementptr inbounds nuw i8, ptr %__begin029.sroa.0.0146, i64 24
@@ -16816,18 +16816,18 @@ _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEESaIS7_EED2Ev.exi
 if.else:                                          ; preds = %invoke.cont
   %cmp.i.i22 = icmp slt i32 %8, %14
   %cmp4.i.i26 = icmp slt i32 %10, %16
-  %or.cond267 = or i1 %cmp.i.i22, %cmp4.i.i26
-  br i1 %or.cond267, label %if.else13, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
+  %or.cond304 = or i1 %cmp.i.i22, %cmp4.i.i26
+  br i1 %or.cond304, label %if.else13, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27: ; preds = %if.else
   %cmp7.i.i30 = icmp slt i32 %12, %18
   %cmp.i2.i33 = icmp slt i32 %7, %13
   %or.cond = or i1 %cmp7.i.i30, %cmp.i2.i33
   %cmp4.i6.i37 = icmp slt i32 %9, %15
-  %or.cond268 = or i1 %or.cond, %cmp4.i6.i37
+  %or.cond305 = or i1 %or.cond, %cmp4.i6.i37
   %cmp7.i10.i41.not = icmp slt i32 %11, %17
-  %or.cond269 = or i1 %or.cond268, %cmp7.i10.i41.not
-  br i1 %or.cond269, label %if.else13, label %if.then10
+  %or.cond306 = or i1 %or.cond305, %cmp7.i10.i41.not
+  br i1 %or.cond306, label %if.else13, label %if.then10
 
 if.then10:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
   %value = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.0236, i64 24
@@ -16911,18 +16911,18 @@ _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEESaIS7_EE17_M_rea
 if.else13:                                        ; preds = %if.else, %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
   %cmp.i.i47 = icmp slt i32 %14, %8
   %cmp4.i.i51 = icmp slt i32 %16, %10
-  %or.cond270 = or i1 %cmp.i.i47, %cmp4.i.i51
-  br i1 %or.cond270, label %invoke.cont20, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i52
+  %or.cond307 = or i1 %cmp.i.i47, %cmp4.i.i51
+  br i1 %or.cond307, label %invoke.cont20, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i52
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i52: ; preds = %if.else13
   %cmp7.i.i55 = icmp slt i32 %18, %12
   %cmp.i2.i59 = icmp slt i32 %13, %7
   %or.cond222 = or i1 %cmp7.i.i55, %cmp.i2.i59
   %cmp4.i6.i63 = icmp slt i32 %15, %9
-  %or.cond271 = or i1 %or.cond222, %cmp4.i6.i63
+  %or.cond308 = or i1 %or.cond222, %cmp4.i6.i63
   %cmp7.i10.i67.not = icmp slt i32 %17, %11
-  %or.cond272 = or i1 %or.cond271, %cmp7.i10.i67.not
-  br i1 %or.cond272, label %invoke.cont20, label %if.then16
+  %or.cond309 = or i1 %or.cond308, %cmp7.i10.i67.not
+  br i1 %or.cond309, label %invoke.cont20, label %if.then16
 
 if.then16:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i52
   %cmp.not.i72 = icmp eq ptr %6, %3
@@ -17169,18 +17169,18 @@ invoke.cont40:                                    ; preds = %lor.lhs.false.i3.i1
 if.else43:                                        ; preds = %invoke.cont40
   %cmp.i.i172 = icmp slt i32 %43, %49
   %cmp4.i.i176 = icmp slt i32 %45, %51
-  %or.cond273 = or i1 %cmp.i.i172, %cmp4.i.i176
-  br i1 %or.cond273, label %if.else48, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i177
+  %or.cond310 = or i1 %cmp.i.i172, %cmp4.i.i176
+  br i1 %or.cond310, label %if.else48, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i177
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i177: ; preds = %if.else43
   %cmp7.i.i180 = icmp slt i32 %47, %53
   %cmp.i2.i184 = icmp slt i32 %42, %48
   %or.cond223 = or i1 %cmp7.i.i180, %cmp.i2.i184
   %cmp4.i6.i188 = icmp slt i32 %44, %50
-  %or.cond274 = or i1 %or.cond223, %cmp4.i6.i188
+  %or.cond311 = or i1 %or.cond223, %cmp4.i6.i188
   %cmp7.i10.i192.not = icmp slt i32 %46, %52
-  %or.cond275 = or i1 %or.cond274, %cmp7.i10.i192.not
-  br i1 %or.cond275, label %if.else48, label %if.then46
+  %or.cond312 = or i1 %or.cond311, %cmp7.i10.i192.not
+  br i1 %or.cond312, label %if.else48, label %if.then46
 
 if.then46:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i177
   %child = getelementptr inbounds nuw i8, ptr %__begin029.sroa.0.0239, i64 24
@@ -17416,18 +17416,18 @@ _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEESaIS7_EED2Ev.exi
 if.else:                                          ; preds = %invoke.cont
   %cmp.i.i22 = icmp slt i32 %8, %14
   %cmp4.i.i26 = icmp slt i32 %10, %16
-  %or.cond267 = or i1 %cmp.i.i22, %cmp4.i.i26
-  br i1 %or.cond267, label %if.else13, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
+  %or.cond304 = or i1 %cmp.i.i22, %cmp4.i.i26
+  br i1 %or.cond304, label %if.else13, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27: ; preds = %if.else
   %cmp7.i.i30 = icmp slt i32 %12, %18
   %cmp.i2.i33 = icmp slt i32 %7, %13
   %or.cond = or i1 %cmp7.i.i30, %cmp.i2.i33
   %cmp4.i6.i37 = icmp slt i32 %9, %15
-  %or.cond268 = or i1 %or.cond, %cmp4.i6.i37
+  %or.cond305 = or i1 %or.cond, %cmp4.i6.i37
   %cmp7.i10.i41.not = icmp slt i32 %11, %17
-  %or.cond269 = or i1 %or.cond268, %cmp7.i10.i41.not
-  br i1 %or.cond269, label %if.else13, label %if.then10
+  %or.cond306 = or i1 %or.cond305, %cmp7.i10.i41.not
+  br i1 %or.cond306, label %if.else13, label %if.then10
 
 if.then10:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
   %value = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.0236, i64 24
@@ -17511,18 +17511,18 @@ _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEESaIS7_EE17_M_rea
 if.else13:                                        ; preds = %if.else, %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
   %cmp.i.i47 = icmp slt i32 %14, %8
   %cmp4.i.i51 = icmp slt i32 %16, %10
-  %or.cond270 = or i1 %cmp.i.i47, %cmp4.i.i51
-  br i1 %or.cond270, label %invoke.cont20, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i52
+  %or.cond307 = or i1 %cmp.i.i47, %cmp4.i.i51
+  br i1 %or.cond307, label %invoke.cont20, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i52
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i52: ; preds = %if.else13
   %cmp7.i.i55 = icmp slt i32 %18, %12
   %cmp.i2.i59 = icmp slt i32 %13, %7
   %or.cond222 = or i1 %cmp7.i.i55, %cmp.i2.i59
   %cmp4.i6.i63 = icmp slt i32 %15, %9
-  %or.cond271 = or i1 %or.cond222, %cmp4.i6.i63
+  %or.cond308 = or i1 %or.cond222, %cmp4.i6.i63
   %cmp7.i10.i67.not = icmp slt i32 %17, %11
-  %or.cond272 = or i1 %or.cond271, %cmp7.i10.i67.not
-  br i1 %or.cond272, label %invoke.cont20, label %if.then16
+  %or.cond309 = or i1 %or.cond308, %cmp7.i10.i67.not
+  br i1 %or.cond309, label %invoke.cont20, label %if.then16
 
 if.then16:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i52
   %cmp.not.i72 = icmp eq ptr %6, %3
@@ -17769,18 +17769,18 @@ invoke.cont40:                                    ; preds = %lor.lhs.false.i3.i1
 if.else43:                                        ; preds = %invoke.cont40
   %cmp.i.i172 = icmp slt i32 %43, %49
   %cmp4.i.i176 = icmp slt i32 %45, %51
-  %or.cond273 = or i1 %cmp.i.i172, %cmp4.i.i176
-  br i1 %or.cond273, label %if.else48, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i177
+  %or.cond310 = or i1 %cmp.i.i172, %cmp4.i.i176
+  br i1 %or.cond310, label %if.else48, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i177
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i177: ; preds = %if.else43
   %cmp7.i.i180 = icmp slt i32 %47, %53
   %cmp.i2.i184 = icmp slt i32 %42, %48
   %or.cond223 = or i1 %cmp7.i.i180, %cmp.i2.i184
   %cmp4.i6.i188 = icmp slt i32 %44, %50
-  %or.cond274 = or i1 %or.cond223, %cmp4.i6.i188
+  %or.cond311 = or i1 %or.cond223, %cmp4.i6.i188
   %cmp7.i10.i192.not = icmp slt i32 %46, %52
-  %or.cond275 = or i1 %or.cond274, %cmp7.i10.i192.not
-  br i1 %or.cond275, label %if.else48, label %if.then46
+  %or.cond312 = or i1 %or.cond311, %cmp7.i10.i192.not
+  br i1 %or.cond312, label %if.else48, label %if.then46
 
 if.then46:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i177
   %child = getelementptr inbounds nuw i8, ptr %__begin029.sroa.0.0239, i64 24
@@ -18016,18 +18016,18 @@ _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEESaIS7_EED2Ev.exi
 if.else:                                          ; preds = %invoke.cont
   %cmp.i.i22 = icmp slt i32 %8, %14
   %cmp4.i.i26 = icmp slt i32 %10, %16
-  %or.cond267 = or i1 %cmp.i.i22, %cmp4.i.i26
-  br i1 %or.cond267, label %if.else13, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
+  %or.cond304 = or i1 %cmp.i.i22, %cmp4.i.i26
+  br i1 %or.cond304, label %if.else13, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27: ; preds = %if.else
   %cmp7.i.i30 = icmp slt i32 %12, %18
   %cmp.i2.i33 = icmp slt i32 %7, %13
   %or.cond = or i1 %cmp7.i.i30, %cmp.i2.i33
   %cmp4.i6.i37 = icmp slt i32 %9, %15
-  %or.cond268 = or i1 %or.cond, %cmp4.i6.i37
+  %or.cond305 = or i1 %or.cond, %cmp4.i6.i37
   %cmp7.i10.i41.not = icmp slt i32 %11, %17
-  %or.cond269 = or i1 %or.cond268, %cmp7.i10.i41.not
-  br i1 %or.cond269, label %if.else13, label %if.then10
+  %or.cond306 = or i1 %or.cond305, %cmp7.i10.i41.not
+  br i1 %or.cond306, label %if.else13, label %if.then10
 
 if.then10:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
   %value = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.0236, i64 24
@@ -18111,18 +18111,18 @@ _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEESaIS7_EE17_M_rea
 if.else13:                                        ; preds = %if.else, %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i27
   %cmp.i.i47 = icmp slt i32 %14, %8
   %cmp4.i.i51 = icmp slt i32 %16, %10
-  %or.cond270 = or i1 %cmp.i.i47, %cmp4.i.i51
-  br i1 %or.cond270, label %invoke.cont20, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i52
+  %or.cond307 = or i1 %cmp.i.i47, %cmp4.i.i51
+  br i1 %or.cond307, label %invoke.cont20, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i52
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i52: ; preds = %if.else13
   %cmp7.i.i55 = icmp slt i32 %18, %12
   %cmp.i2.i59 = icmp slt i32 %13, %7
   %or.cond222 = or i1 %cmp7.i.i55, %cmp.i2.i59
   %cmp4.i6.i63 = icmp slt i32 %15, %9
-  %or.cond271 = or i1 %or.cond222, %cmp4.i6.i63
+  %or.cond308 = or i1 %or.cond222, %cmp4.i6.i63
   %cmp7.i10.i67.not = icmp slt i32 %17, %11
-  %or.cond272 = or i1 %or.cond271, %cmp7.i10.i67.not
-  br i1 %or.cond272, label %invoke.cont20, label %if.then16
+  %or.cond309 = or i1 %or.cond308, %cmp7.i10.i67.not
+  br i1 %or.cond309, label %invoke.cont20, label %if.then16
 
 if.then16:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i52
   %cmp.not.i72 = icmp eq ptr %6, %3
@@ -18369,18 +18369,18 @@ invoke.cont40:                                    ; preds = %lor.lhs.false.i3.i1
 if.else43:                                        ; preds = %invoke.cont40
   %cmp.i.i172 = icmp slt i32 %43, %49
   %cmp4.i.i176 = icmp slt i32 %45, %51
-  %or.cond273 = or i1 %cmp.i.i172, %cmp4.i.i176
-  br i1 %or.cond273, label %if.else48, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i177
+  %or.cond310 = or i1 %cmp.i.i172, %cmp4.i.i176
+  br i1 %or.cond310, label %if.else48, label %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i177
 
 _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i177: ; preds = %if.else43
   %cmp7.i.i180 = icmp slt i32 %47, %53
   %cmp.i2.i184 = icmp slt i32 %42, %48
   %or.cond223 = or i1 %cmp7.i.i180, %cmp.i2.i184
   %cmp4.i6.i188 = icmp slt i32 %44, %50
-  %or.cond274 = or i1 %or.cond223, %cmp4.i6.i188
+  %or.cond311 = or i1 %or.cond223, %cmp4.i6.i188
   %cmp7.i10.i192.not = icmp slt i32 %46, %52
-  %or.cond275 = or i1 %or.cond274, %cmp7.i10.i192.not
-  br i1 %or.cond275, label %if.else48, label %if.then46
+  %or.cond312 = or i1 %or.cond311, %cmp7.i10.i192.not
+  br i1 %or.cond312, label %if.else48, label %if.then46
 
 if.then46:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i177
   %child = getelementptr inbounds nuw i8, ptr %__begin029.sroa.0.0239, i64 24
@@ -20021,10 +20021,10 @@ for.body:                                         ; preds = %invoke.cont20, %_ZN
   %it.sroa.0.070 = phi i32 [ %it.sroa.0.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont20 ]
   %it.sroa.5.069 = phi i32 [ %it.sroa.5.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr5.i, %invoke.cont20 ]
   %it.sroa.9.068 = phi i32 [ %it.sroa.9.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr9.i, %invoke.cont20 ]
-  %shl = shl i32 %it.sroa.5.069, 5
-  %add = add nsw i32 %shl, %it.sroa.9.068
-  %shl28 = shl i32 %it.sroa.0.070, 10
-  %add29 = add nsw i32 %add, %shl28
+  %shl = shl nuw nsw i32 %it.sroa.5.069, 5
+  %add = add nuw nsw i32 %shl, %it.sroa.9.068
+  %shl28 = shl nuw nsw i32 %it.sroa.0.070, 10
+  %add29 = add nuw nsw i32 %add, %shl28
   %and.i25 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i25 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -20038,7 +20038,7 @@ for.body:                                         ; preds = %invoke.cont20, %_ZN
   br i1 %cmp.i.i29, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %inc.i.i = add nsw i32 %it.sroa.9.068, 1
+  %inc.i.i = add nuw nsw i32 %it.sroa.9.068, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.else.i.i:                                      ; preds = %for.body
@@ -20046,11 +20046,11 @@ if.else.i.i:                                      ; preds = %for.body
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.then23.i.i
 
 if.then10.i.i:                                    ; preds = %if.else.i.i
-  %inc16.i.i = add nsw i32 %it.sroa.5.069, 1
+  %inc16.i.i = add nuw nsw i32 %it.sroa.5.069, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  %inc34.i.i = add nsw i32 %it.sroa.0.070, 1
+  %inc34.i.i = add nuw nsw i32 %it.sroa.0.070, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %if.then.i.i, %if.then10.i.i, %if.then23.i.i
@@ -20277,10 +20277,10 @@ for.body:                                         ; preds = %invoke.cont12, %_ZN
   %it.sroa.0.070 = phi i32 [ %it.sroa.0.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont12 ]
   %it.sroa.5.069 = phi i32 [ %it.sroa.5.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr5.i, %invoke.cont12 ]
   %it.sroa.9.068 = phi i32 [ %it.sroa.9.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr9.i, %invoke.cont12 ]
-  %shl = shl i32 %it.sroa.5.069, 4
-  %add = add nsw i32 %shl, %it.sroa.9.068
-  %shl18 = shl i32 %it.sroa.0.070, 8
-  %add19 = add nsw i32 %add, %shl18
+  %shl = shl nuw nsw i32 %it.sroa.5.069, 4
+  %add = add nuw nsw i32 %shl, %it.sroa.9.068
+  %shl18 = shl nuw nsw i32 %it.sroa.0.070, 8
+  %add19 = add nuw nsw i32 %add, %shl18
   %and.i25 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i25 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -20294,7 +20294,7 @@ for.body:                                         ; preds = %invoke.cont12, %_ZN
   br i1 %cmp.i.i29, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %inc.i.i = add nsw i32 %it.sroa.9.068, 1
+  %inc.i.i = add nuw nsw i32 %it.sroa.9.068, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.else.i.i:                                      ; preds = %for.body
@@ -20302,11 +20302,11 @@ if.else.i.i:                                      ; preds = %for.body
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.then23.i.i
 
 if.then10.i.i:                                    ; preds = %if.else.i.i
-  %inc16.i.i = add nsw i32 %it.sroa.5.069, 1
+  %inc16.i.i = add nuw nsw i32 %it.sroa.5.069, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  %inc34.i.i = add nsw i32 %it.sroa.0.070, 1
+  %inc34.i.i = add nuw nsw i32 %it.sroa.0.070, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %if.then.i.i, %if.then10.i.i, %if.then23.i.i
@@ -20452,8 +20452,8 @@ _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i22: ; preds = %for.body
   %or.cond.i = select i1 %cmp7.i.i25, i1 true, i1 %cmp.i2.i27
   %23 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i29 = icmp slt i32 %23, %add6.i.i.i
-  %or.cond12.i = select i1 %or.cond.i, i1 true, i1 %cmp4.i6.i29
-  br i1 %or.cond12.i, label %_ZNK7openvdb5v11_04math9CoordBBox8isInsideERKNS1_5CoordE.exit, label %lor.rhs.i7.i30
+  %or.cond14.i = select i1 %or.cond.i, i1 true, i1 %cmp4.i6.i29
+  br i1 %or.cond14.i, label %_ZNK7openvdb5v11_04math9CoordBBox8isInsideERKNS1_5CoordE.exit, label %lor.rhs.i7.i30
 
 lor.rhs.i7.i30:                                   ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i22
   %24 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
@@ -21925,8 +21925,8 @@ if.then34:                                        ; preds = %invoke.cont31
 
 if.else:                                          ; preds = %if.then34
   %cmp.i65.not = icmp eq ptr %11, null
-  %or.cond162 = select i1 %cmp, i1 true, i1 %cmp.i65.not
-  br i1 %or.cond162, label %if.else50, label %if.then44
+  %or.cond168 = select i1 %cmp, i1 true, i1 %cmp.i65.not
+  br i1 %or.cond168, label %if.else50, label %if.then44
 
 if.then44:                                        ; preds = %if.else
   %call47 = invoke noundef signext i8 @_ZNK7openvdb5v11_02io19DelayedLoadMetadata7getMaskEm(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %leafIndex.0)
@@ -21965,9 +21965,9 @@ if.end66:                                         ; preds = %if.then65, %invoke.
   store i32 %background.0, ptr %inactiveVal1, align 4
   %14 = load i8, ptr %metadata, align 1
   %cmp67 = icmp eq i8 %14, 0
-  br i1 %cmp67, label %invoke.cont99.thread158, label %cond.end
+  br i1 %cmp67, label %invoke.cont99.thread164, label %cond.end
 
-invoke.cont99.thread158:                          ; preds = %if.end66
+invoke.cont99.thread164:                          ; preds = %if.end66
   store i32 %background.0, ptr %inactiveVal0, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   br label %if.end119
@@ -21995,7 +21995,7 @@ if.else82:                                        ; preds = %if.then77
 if.end85:                                         ; preds = %if.else82
   %15 = load i8, ptr %metadata, align 1
   %cmp87 = icmp eq i8 %15, 5
-  br i1 %cmp87, label %if.else93, label %invoke.cont99.thread160
+  br i1 %cmp87, label %if.else93, label %invoke.cont99.thread166
 
 if.end85.thread:                                  ; preds = %if.then79
   %16 = load i8, ptr %metadata, align 1
@@ -22021,11 +22021,11 @@ invoke.cont99:                                    ; preds = %if.then90.invoke.co
   %or.cond4 = icmp ult i8 %18, 3
   br i1 %or.cond4, label %if.then108, label %if.end119
 
-invoke.cont99.thread160:                          ; preds = %if.end85
+invoke.cont99.thread166:                          ; preds = %if.end85
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   %19 = add i8 %15, -3
-  %or.cond4161 = icmp ult i8 %19, 3
-  br i1 %or.cond4161, label %if.else116, label %if.end119
+  %or.cond4167 = icmp ult i8 %19, 3
+  br i1 %or.cond4167, label %if.else116, label %if.end119
 
 invoke.cont99.thread:                             ; preds = %if.else93
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
@@ -22046,11 +22046,11 @@ lpad113:                                          ; preds = %if.else116, %if.the
           cleanup
   br label %ehcleanup188
 
-if.else116:                                       ; preds = %invoke.cont99.thread160, %invoke.cont99.thread, %if.then108
+if.else116:                                       ; preds = %invoke.cont99.thread166, %invoke.cont99.thread, %if.then108
   %call2.i66 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end119 unwind label %lpad113
 
-if.end119:                                        ; preds = %invoke.cont99.thread160, %invoke.cont99.thread158, %if.else116, %invoke.cont99.thread, %if.then110, %invoke.cont99
+if.end119:                                        ; preds = %invoke.cont99.thread166, %invoke.cont99.thread164, %if.else116, %invoke.cont99.thread, %if.then110, %invoke.cont99
   %23 = load i8, ptr %metadata, align 1
   %cmp123 = icmp ne i8 %23, 6
   %or.cond5 = select i1 %tobool, i1 %cmp123, i1 false
@@ -23460,10 +23460,10 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %it.sroa.0.070 = phi i32 [ %it.sroa.0.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
   %it.sroa.5.069 = phi i32 [ %it.sroa.5.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr5.i, %invoke.cont11 ]
   %it.sroa.9.068 = phi i32 [ %it.sroa.9.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr9.i, %invoke.cont11 ]
-  %shl = shl i32 %it.sroa.5.069, 5
-  %add = add nsw i32 %shl, %it.sroa.9.068
-  %shl17 = shl i32 %it.sroa.0.070, 10
-  %add18 = add nsw i32 %add, %shl17
+  %shl = shl nuw nsw i32 %it.sroa.5.069, 5
+  %add = add nuw nsw i32 %shl, %it.sroa.9.068
+  %shl17 = shl nuw nsw i32 %it.sroa.0.070, 10
+  %add18 = add nuw nsw i32 %add, %shl17
   %and.i25 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i25 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -23477,7 +23477,7 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   br i1 %cmp.i.i29, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %inc.i.i = add nsw i32 %it.sroa.9.068, 1
+  %inc.i.i = add nuw nsw i32 %it.sroa.9.068, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.else.i.i:                                      ; preds = %for.body
@@ -23485,11 +23485,11 @@ if.else.i.i:                                      ; preds = %for.body
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.then23.i.i
 
 if.then10.i.i:                                    ; preds = %if.else.i.i
-  %inc16.i.i = add nsw i32 %it.sroa.5.069, 1
+  %inc16.i.i = add nuw nsw i32 %it.sroa.5.069, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  %inc34.i.i = add nsw i32 %it.sroa.0.070, 1
+  %inc34.i.i = add nuw nsw i32 %it.sroa.0.070, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %if.then.i.i, %if.then10.i.i, %if.then23.i.i
@@ -23716,10 +23716,10 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %it.sroa.0.070 = phi i32 [ %it.sroa.0.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
   %it.sroa.5.069 = phi i32 [ %it.sroa.5.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr5.i, %invoke.cont11 ]
   %it.sroa.9.068 = phi i32 [ %it.sroa.9.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr9.i, %invoke.cont11 ]
-  %shl = shl i32 %it.sroa.5.069, 4
-  %add = add nsw i32 %shl, %it.sroa.9.068
-  %shl17 = shl i32 %it.sroa.0.070, 8
-  %add18 = add nsw i32 %add, %shl17
+  %shl = shl nuw nsw i32 %it.sroa.5.069, 4
+  %add = add nuw nsw i32 %shl, %it.sroa.9.068
+  %shl17 = shl nuw nsw i32 %it.sroa.0.070, 8
+  %add18 = add nuw nsw i32 %add, %shl17
   %and.i25 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i25 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -23733,7 +23733,7 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   br i1 %cmp.i.i29, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %inc.i.i = add nsw i32 %it.sroa.9.068, 1
+  %inc.i.i = add nuw nsw i32 %it.sroa.9.068, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.else.i.i:                                      ; preds = %for.body
@@ -23741,11 +23741,11 @@ if.else.i.i:                                      ; preds = %for.body
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.then23.i.i
 
 if.then10.i.i:                                    ; preds = %if.else.i.i
-  %inc16.i.i = add nsw i32 %it.sroa.5.069, 1
+  %inc16.i.i = add nuw nsw i32 %it.sroa.5.069, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  %inc34.i.i = add nsw i32 %it.sroa.0.070, 1
+  %inc34.i.i = add nuw nsw i32 %it.sroa.0.070, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %if.then.i.i, %if.then10.i.i, %if.then23.i.i
@@ -23892,8 +23892,8 @@ _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i23: ; preds = %for.body
   %or.cond.i = select i1 %cmp7.i.i26, i1 true, i1 %cmp.i2.i28
   %23 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i30 = icmp slt i32 %23, %add6.i.i.i
-  %or.cond12.i = select i1 %or.cond.i, i1 true, i1 %cmp4.i6.i30
-  br i1 %or.cond12.i, label %_ZNK7openvdb5v11_04math9CoordBBox8isInsideERKNS1_5CoordE.exit, label %lor.rhs.i7.i31
+  %or.cond14.i = select i1 %or.cond.i, i1 true, i1 %cmp4.i6.i30
+  br i1 %or.cond14.i, label %_ZNK7openvdb5v11_04math9CoordBBox8isInsideERKNS1_5CoordE.exit, label %lor.rhs.i7.i31
 
 lor.rhs.i7.i31:                                   ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i23
   %24 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
@@ -25333,8 +25333,8 @@ if.then34:                                        ; preds = %invoke.cont31
 
 if.else:                                          ; preds = %if.then34
   %cmp.i65.not = icmp eq ptr %11, null
-  %or.cond162 = select i1 %cmp, i1 true, i1 %cmp.i65.not
-  br i1 %or.cond162, label %if.else50, label %if.then44
+  %or.cond168 = select i1 %cmp, i1 true, i1 %cmp.i65.not
+  br i1 %or.cond168, label %if.else50, label %if.then44
 
 if.then44:                                        ; preds = %if.else
   %call47 = invoke noundef signext i8 @_ZNK7openvdb5v11_02io19DelayedLoadMetadata7getMaskEm(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %leafIndex.0)
@@ -25373,9 +25373,9 @@ if.end66:                                         ; preds = %if.then65, %invoke.
   store i64 %background.0, ptr %inactiveVal1, align 8
   %14 = load i8, ptr %metadata, align 1
   %cmp67 = icmp eq i8 %14, 0
-  br i1 %cmp67, label %invoke.cont99.thread158, label %cond.end
+  br i1 %cmp67, label %invoke.cont99.thread164, label %cond.end
 
-invoke.cont99.thread158:                          ; preds = %if.end66
+invoke.cont99.thread164:                          ; preds = %if.end66
   store i64 %background.0, ptr %inactiveVal0, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   br label %if.end119
@@ -25403,7 +25403,7 @@ if.else82:                                        ; preds = %if.then77
 if.end85:                                         ; preds = %if.else82
   %15 = load i8, ptr %metadata, align 1
   %cmp87 = icmp eq i8 %15, 5
-  br i1 %cmp87, label %if.else93, label %invoke.cont99.thread160
+  br i1 %cmp87, label %if.else93, label %invoke.cont99.thread166
 
 if.end85.thread:                                  ; preds = %if.then79
   %16 = load i8, ptr %metadata, align 1
@@ -25429,11 +25429,11 @@ invoke.cont99:                                    ; preds = %if.then90.invoke.co
   %or.cond4 = icmp ult i8 %18, 3
   br i1 %or.cond4, label %if.then108, label %if.end119
 
-invoke.cont99.thread160:                          ; preds = %if.end85
+invoke.cont99.thread166:                          ; preds = %if.end85
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   %19 = add i8 %15, -3
-  %or.cond4161 = icmp ult i8 %19, 3
-  br i1 %or.cond4161, label %if.else116, label %if.end119
+  %or.cond4167 = icmp ult i8 %19, 3
+  br i1 %or.cond4167, label %if.else116, label %if.end119
 
 invoke.cont99.thread:                             ; preds = %if.else93
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
@@ -25454,11 +25454,11 @@ lpad113:                                          ; preds = %if.else116, %if.the
           cleanup
   br label %ehcleanup188
 
-if.else116:                                       ; preds = %invoke.cont99.thread160, %invoke.cont99.thread, %if.then108
+if.else116:                                       ; preds = %invoke.cont99.thread166, %invoke.cont99.thread, %if.then108
   %call2.i66 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end119 unwind label %lpad113
 
-if.end119:                                        ; preds = %invoke.cont99.thread160, %invoke.cont99.thread158, %if.else116, %invoke.cont99.thread, %if.then110, %invoke.cont99
+if.end119:                                        ; preds = %invoke.cont99.thread166, %invoke.cont99.thread164, %if.else116, %invoke.cont99.thread, %if.then110, %invoke.cont99
   %23 = load i8, ptr %metadata, align 1
   %cmp123 = icmp ne i8 %23, 6
   %or.cond5 = select i1 %tobool, i1 %cmp123, i1 false
@@ -26411,10 +26411,10 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %it.sroa.0.070 = phi i32 [ %it.sroa.0.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
   %it.sroa.5.069 = phi i32 [ %it.sroa.5.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr5.i, %invoke.cont11 ]
   %it.sroa.9.068 = phi i32 [ %it.sroa.9.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr9.i, %invoke.cont11 ]
-  %shl = shl i32 %it.sroa.5.069, 5
-  %add = add nsw i32 %shl, %it.sroa.9.068
-  %shl17 = shl i32 %it.sroa.0.070, 10
-  %add18 = add nsw i32 %add, %shl17
+  %shl = shl nuw nsw i32 %it.sroa.5.069, 5
+  %add = add nuw nsw i32 %shl, %it.sroa.9.068
+  %shl17 = shl nuw nsw i32 %it.sroa.0.070, 10
+  %add18 = add nuw nsw i32 %add, %shl17
   %and.i25 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i25 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -26428,7 +26428,7 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   br i1 %cmp.i.i29, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %inc.i.i = add nsw i32 %it.sroa.9.068, 1
+  %inc.i.i = add nuw nsw i32 %it.sroa.9.068, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.else.i.i:                                      ; preds = %for.body
@@ -26436,11 +26436,11 @@ if.else.i.i:                                      ; preds = %for.body
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.then23.i.i
 
 if.then10.i.i:                                    ; preds = %if.else.i.i
-  %inc16.i.i = add nsw i32 %it.sroa.5.069, 1
+  %inc16.i.i = add nuw nsw i32 %it.sroa.5.069, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  %inc34.i.i = add nsw i32 %it.sroa.0.070, 1
+  %inc34.i.i = add nuw nsw i32 %it.sroa.0.070, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %if.then.i.i, %if.then10.i.i, %if.then23.i.i
@@ -26667,10 +26667,10 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %it.sroa.0.070 = phi i32 [ %it.sroa.0.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
   %it.sroa.5.069 = phi i32 [ %it.sroa.5.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr5.i, %invoke.cont11 ]
   %it.sroa.9.068 = phi i32 [ %it.sroa.9.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr9.i, %invoke.cont11 ]
-  %shl = shl i32 %it.sroa.5.069, 4
-  %add = add nsw i32 %shl, %it.sroa.9.068
-  %shl17 = shl i32 %it.sroa.0.070, 8
-  %add18 = add nsw i32 %add, %shl17
+  %shl = shl nuw nsw i32 %it.sroa.5.069, 4
+  %add = add nuw nsw i32 %shl, %it.sroa.9.068
+  %shl17 = shl nuw nsw i32 %it.sroa.0.070, 8
+  %add18 = add nuw nsw i32 %add, %shl17
   %and.i25 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i25 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -26684,7 +26684,7 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   br i1 %cmp.i.i29, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %inc.i.i = add nsw i32 %it.sroa.9.068, 1
+  %inc.i.i = add nuw nsw i32 %it.sroa.9.068, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.else.i.i:                                      ; preds = %for.body
@@ -26692,11 +26692,11 @@ if.else.i.i:                                      ; preds = %for.body
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.then23.i.i
 
 if.then10.i.i:                                    ; preds = %if.else.i.i
-  %inc16.i.i = add nsw i32 %it.sroa.5.069, 1
+  %inc16.i.i = add nuw nsw i32 %it.sroa.5.069, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  %inc34.i.i = add nsw i32 %it.sroa.0.070, 1
+  %inc34.i.i = add nuw nsw i32 %it.sroa.0.070, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %if.then.i.i, %if.then10.i.i, %if.then23.i.i
@@ -26843,8 +26843,8 @@ _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i23: ; preds = %for.body
   %or.cond.i = select i1 %cmp7.i.i26, i1 true, i1 %cmp.i2.i28
   %23 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i30 = icmp slt i32 %23, %add6.i.i.i
-  %or.cond12.i = select i1 %or.cond.i, i1 true, i1 %cmp4.i6.i30
-  br i1 %or.cond12.i, label %_ZNK7openvdb5v11_04math9CoordBBox8isInsideERKNS1_5CoordE.exit, label %lor.rhs.i7.i31
+  %or.cond14.i = select i1 %or.cond.i, i1 true, i1 %cmp4.i6.i30
+  br i1 %or.cond14.i, label %_ZNK7openvdb5v11_04math9CoordBBox8isInsideERKNS1_5CoordE.exit, label %lor.rhs.i7.i31
 
 lor.rhs.i7.i31:                                   ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i23
   %24 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
@@ -28284,8 +28284,8 @@ if.then34:                                        ; preds = %invoke.cont31
 
 if.else:                                          ; preds = %if.then34
   %cmp.i65.not = icmp eq ptr %11, null
-  %or.cond161 = select i1 %cmp, i1 true, i1 %cmp.i65.not
-  br i1 %or.cond161, label %if.else50, label %if.then44
+  %or.cond167 = select i1 %cmp, i1 true, i1 %cmp.i65.not
+  br i1 %or.cond167, label %if.else50, label %if.then44
 
 if.then44:                                        ; preds = %if.else
   %call47 = invoke noundef signext i8 @_ZNK7openvdb5v11_02io19DelayedLoadMetadata7getMaskEm(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %leafIndex.0)
@@ -28324,9 +28324,9 @@ if.end66:                                         ; preds = %if.then65, %invoke.
   store float %background.0, ptr %inactiveVal1, align 4
   %14 = load i8, ptr %metadata, align 1
   %cmp67 = icmp eq i8 %14, 0
-  br i1 %cmp67, label %invoke.cont99.thread157, label %cond.end
+  br i1 %cmp67, label %invoke.cont99.thread163, label %cond.end
 
-invoke.cont99.thread157:                          ; preds = %if.end66
+invoke.cont99.thread163:                          ; preds = %if.end66
   store float %background.0, ptr %inactiveVal0, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   br label %if.end119
@@ -28354,7 +28354,7 @@ if.else82:                                        ; preds = %if.then77
 if.end85:                                         ; preds = %if.else82
   %15 = load i8, ptr %metadata, align 1
   %cmp87 = icmp eq i8 %15, 5
-  br i1 %cmp87, label %if.else93, label %invoke.cont99.thread159
+  br i1 %cmp87, label %if.else93, label %invoke.cont99.thread165
 
 if.end85.thread:                                  ; preds = %if.then79
   %16 = load i8, ptr %metadata, align 1
@@ -28380,11 +28380,11 @@ invoke.cont99:                                    ; preds = %if.then90.invoke.co
   %or.cond4 = icmp ult i8 %18, 3
   br i1 %or.cond4, label %if.then108, label %if.end119
 
-invoke.cont99.thread159:                          ; preds = %if.end85
+invoke.cont99.thread165:                          ; preds = %if.end85
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   %19 = add i8 %15, -3
-  %or.cond4160 = icmp ult i8 %19, 3
-  br i1 %or.cond4160, label %if.else116, label %if.end119
+  %or.cond4166 = icmp ult i8 %19, 3
+  br i1 %or.cond4166, label %if.else116, label %if.end119
 
 invoke.cont99.thread:                             ; preds = %if.else93
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
@@ -28405,11 +28405,11 @@ lpad113:                                          ; preds = %if.else116, %if.the
           cleanup
   br label %ehcleanup188
 
-if.else116:                                       ; preds = %invoke.cont99.thread159, %invoke.cont99.thread, %if.then108
+if.else116:                                       ; preds = %invoke.cont99.thread165, %invoke.cont99.thread, %if.then108
   %call2.i66 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end119 unwind label %lpad113
 
-if.end119:                                        ; preds = %invoke.cont99.thread159, %invoke.cont99.thread157, %if.else116, %invoke.cont99.thread, %if.then110, %invoke.cont99
+if.end119:                                        ; preds = %invoke.cont99.thread165, %invoke.cont99.thread163, %if.else116, %invoke.cont99.thread, %if.then110, %invoke.cont99
   %23 = load i8, ptr %metadata, align 1
   %cmp123 = icmp ne i8 %23, 6
   %or.cond5 = select i1 %tobool, i1 %cmp123, i1 false
@@ -29531,10 +29531,10 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %it.sroa.0.070 = phi i32 [ %it.sroa.0.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
   %it.sroa.5.069 = phi i32 [ %it.sroa.5.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr5.i, %invoke.cont11 ]
   %it.sroa.9.068 = phi i32 [ %it.sroa.9.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr9.i, %invoke.cont11 ]
-  %shl = shl i32 %it.sroa.5.069, 5
-  %add = add nsw i32 %shl, %it.sroa.9.068
-  %shl17 = shl i32 %it.sroa.0.070, 10
-  %add18 = add nsw i32 %add, %shl17
+  %shl = shl nuw nsw i32 %it.sroa.5.069, 5
+  %add = add nuw nsw i32 %shl, %it.sroa.9.068
+  %shl17 = shl nuw nsw i32 %it.sroa.0.070, 10
+  %add18 = add nuw nsw i32 %add, %shl17
   %and.i25 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i25 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -29548,7 +29548,7 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   br i1 %cmp.i.i29, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %inc.i.i = add nsw i32 %it.sroa.9.068, 1
+  %inc.i.i = add nuw nsw i32 %it.sroa.9.068, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.else.i.i:                                      ; preds = %for.body
@@ -29556,11 +29556,11 @@ if.else.i.i:                                      ; preds = %for.body
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.then23.i.i
 
 if.then10.i.i:                                    ; preds = %if.else.i.i
-  %inc16.i.i = add nsw i32 %it.sroa.5.069, 1
+  %inc16.i.i = add nuw nsw i32 %it.sroa.5.069, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  %inc34.i.i = add nsw i32 %it.sroa.0.070, 1
+  %inc34.i.i = add nuw nsw i32 %it.sroa.0.070, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %if.then.i.i, %if.then10.i.i, %if.then23.i.i
@@ -29787,10 +29787,10 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %it.sroa.0.070 = phi i32 [ %it.sroa.0.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
   %it.sroa.5.069 = phi i32 [ %it.sroa.5.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr5.i, %invoke.cont11 ]
   %it.sroa.9.068 = phi i32 [ %it.sroa.9.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr9.i, %invoke.cont11 ]
-  %shl = shl i32 %it.sroa.5.069, 4
-  %add = add nsw i32 %shl, %it.sroa.9.068
-  %shl17 = shl i32 %it.sroa.0.070, 8
-  %add18 = add nsw i32 %add, %shl17
+  %shl = shl nuw nsw i32 %it.sroa.5.069, 4
+  %add = add nuw nsw i32 %shl, %it.sroa.9.068
+  %shl17 = shl nuw nsw i32 %it.sroa.0.070, 8
+  %add18 = add nuw nsw i32 %add, %shl17
   %and.i25 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i25 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -29804,7 +29804,7 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   br i1 %cmp.i.i29, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %inc.i.i = add nsw i32 %it.sroa.9.068, 1
+  %inc.i.i = add nuw nsw i32 %it.sroa.9.068, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.else.i.i:                                      ; preds = %for.body
@@ -29812,11 +29812,11 @@ if.else.i.i:                                      ; preds = %for.body
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.then23.i.i
 
 if.then10.i.i:                                    ; preds = %if.else.i.i
-  %inc16.i.i = add nsw i32 %it.sroa.5.069, 1
+  %inc16.i.i = add nuw nsw i32 %it.sroa.5.069, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  %inc34.i.i = add nsw i32 %it.sroa.0.070, 1
+  %inc34.i.i = add nuw nsw i32 %it.sroa.0.070, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %if.then.i.i, %if.then10.i.i, %if.then23.i.i
@@ -29963,8 +29963,8 @@ _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i23: ; preds = %for.body
   %or.cond.i = select i1 %cmp7.i.i26, i1 true, i1 %cmp.i2.i28
   %23 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i30 = icmp slt i32 %23, %add6.i.i.i
-  %or.cond12.i = select i1 %or.cond.i, i1 true, i1 %cmp4.i6.i30
-  br i1 %or.cond12.i, label %_ZNK7openvdb5v11_04math9CoordBBox8isInsideERKNS1_5CoordE.exit, label %lor.rhs.i7.i31
+  %or.cond14.i = select i1 %or.cond.i, i1 true, i1 %cmp4.i6.i30
+  br i1 %or.cond14.i, label %_ZNK7openvdb5v11_04math9CoordBBox8isInsideERKNS1_5CoordE.exit, label %lor.rhs.i7.i31
 
 lor.rhs.i7.i31:                                   ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i23
   %24 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
@@ -31404,8 +31404,8 @@ if.then34:                                        ; preds = %invoke.cont31
 
 if.else:                                          ; preds = %if.then34
   %cmp.i65.not = icmp eq ptr %11, null
-  %or.cond161 = select i1 %cmp, i1 true, i1 %cmp.i65.not
-  br i1 %or.cond161, label %if.else50, label %if.then44
+  %or.cond167 = select i1 %cmp, i1 true, i1 %cmp.i65.not
+  br i1 %or.cond167, label %if.else50, label %if.then44
 
 if.then44:                                        ; preds = %if.else
   %call47 = invoke noundef signext i8 @_ZNK7openvdb5v11_02io19DelayedLoadMetadata7getMaskEm(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %leafIndex.0)
@@ -31444,9 +31444,9 @@ if.end65:                                         ; preds = %if.then64, %invoke.
   store double %background.0, ptr %inactiveVal1, align 8
   %14 = load i8, ptr %metadata, align 1
   %cmp66 = icmp eq i8 %14, 0
-  br i1 %cmp66, label %invoke.cont98.thread157, label %cond.end
+  br i1 %cmp66, label %invoke.cont98.thread163, label %cond.end
 
-invoke.cont98.thread157:                          ; preds = %if.end65
+invoke.cont98.thread163:                          ; preds = %if.end65
   store double %background.0, ptr %inactiveVal0, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   br label %if.end118
@@ -31474,7 +31474,7 @@ if.else81:                                        ; preds = %if.then76
 if.end84:                                         ; preds = %if.else81
   %15 = load i8, ptr %metadata, align 1
   %cmp86 = icmp eq i8 %15, 5
-  br i1 %cmp86, label %if.else92, label %invoke.cont98.thread159
+  br i1 %cmp86, label %if.else92, label %invoke.cont98.thread165
 
 if.end84.thread:                                  ; preds = %if.then78
   %16 = load i8, ptr %metadata, align 1
@@ -31500,11 +31500,11 @@ invoke.cont98:                                    ; preds = %if.then89.invoke.co
   %or.cond4 = icmp ult i8 %18, 3
   br i1 %or.cond4, label %if.then107, label %if.end118
 
-invoke.cont98.thread159:                          ; preds = %if.end84
+invoke.cont98.thread165:                          ; preds = %if.end84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   %19 = add i8 %15, -3
-  %or.cond4160 = icmp ult i8 %19, 3
-  br i1 %or.cond4160, label %if.else115, label %if.end118
+  %or.cond4166 = icmp ult i8 %19, 3
+  br i1 %or.cond4166, label %if.else115, label %if.end118
 
 invoke.cont98.thread:                             ; preds = %if.else92
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
@@ -31525,11 +31525,11 @@ lpad112:                                          ; preds = %if.else115, %if.the
           cleanup
   br label %ehcleanup187
 
-if.else115:                                       ; preds = %invoke.cont98.thread159, %invoke.cont98.thread, %if.then107
+if.else115:                                       ; preds = %invoke.cont98.thread165, %invoke.cont98.thread, %if.then107
   %call2.i66 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end118 unwind label %lpad112
 
-if.end118:                                        ; preds = %invoke.cont98.thread159, %invoke.cont98.thread157, %if.else115, %invoke.cont98.thread, %if.then109, %invoke.cont98
+if.end118:                                        ; preds = %invoke.cont98.thread165, %invoke.cont98.thread163, %if.else115, %invoke.cont98.thread, %if.then109, %invoke.cont98
   %23 = load i8, ptr %metadata, align 1
   %cmp122 = icmp ne i8 %23, 6
   %or.cond5 = select i1 %tobool, i1 %cmp122, i1 false
@@ -32650,10 +32650,10 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %it.sroa.0.070 = phi i32 [ %it.sroa.0.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
   %it.sroa.5.069 = phi i32 [ %it.sroa.5.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr5.i, %invoke.cont11 ]
   %it.sroa.9.068 = phi i32 [ %it.sroa.9.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr9.i, %invoke.cont11 ]
-  %shl = shl i32 %it.sroa.5.069, 5
-  %add = add nsw i32 %shl, %it.sroa.9.068
-  %shl17 = shl i32 %it.sroa.0.070, 10
-  %add18 = add nsw i32 %add, %shl17
+  %shl = shl nuw nsw i32 %it.sroa.5.069, 5
+  %add = add nuw nsw i32 %shl, %it.sroa.9.068
+  %shl17 = shl nuw nsw i32 %it.sroa.0.070, 10
+  %add18 = add nuw nsw i32 %add, %shl17
   %and.i25 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i25 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -32667,7 +32667,7 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   br i1 %cmp.i.i29, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %inc.i.i = add nsw i32 %it.sroa.9.068, 1
+  %inc.i.i = add nuw nsw i32 %it.sroa.9.068, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.else.i.i:                                      ; preds = %for.body
@@ -32675,11 +32675,11 @@ if.else.i.i:                                      ; preds = %for.body
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.then23.i.i
 
 if.then10.i.i:                                    ; preds = %if.else.i.i
-  %inc16.i.i = add nsw i32 %it.sroa.5.069, 1
+  %inc16.i.i = add nuw nsw i32 %it.sroa.5.069, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  %inc34.i.i = add nsw i32 %it.sroa.0.070, 1
+  %inc34.i.i = add nuw nsw i32 %it.sroa.0.070, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %if.then.i.i, %if.then10.i.i, %if.then23.i.i
@@ -32906,10 +32906,10 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %it.sroa.0.070 = phi i32 [ %it.sroa.0.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
   %it.sroa.5.069 = phi i32 [ %it.sroa.5.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr5.i, %invoke.cont11 ]
   %it.sroa.9.068 = phi i32 [ %it.sroa.9.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr9.i, %invoke.cont11 ]
-  %shl = shl i32 %it.sroa.5.069, 4
-  %add = add nsw i32 %shl, %it.sroa.9.068
-  %shl17 = shl i32 %it.sroa.0.070, 8
-  %add18 = add nsw i32 %add, %shl17
+  %shl = shl nuw nsw i32 %it.sroa.5.069, 4
+  %add = add nuw nsw i32 %shl, %it.sroa.9.068
+  %shl17 = shl nuw nsw i32 %it.sroa.0.070, 8
+  %add18 = add nuw nsw i32 %add, %shl17
   %and.i25 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i25 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -32923,7 +32923,7 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   br i1 %cmp.i.i29, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %inc.i.i = add nsw i32 %it.sroa.9.068, 1
+  %inc.i.i = add nuw nsw i32 %it.sroa.9.068, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.else.i.i:                                      ; preds = %for.body
@@ -32931,11 +32931,11 @@ if.else.i.i:                                      ; preds = %for.body
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.then23.i.i
 
 if.then10.i.i:                                    ; preds = %if.else.i.i
-  %inc16.i.i = add nsw i32 %it.sroa.5.069, 1
+  %inc16.i.i = add nuw nsw i32 %it.sroa.5.069, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  %inc34.i.i = add nsw i32 %it.sroa.0.070, 1
+  %inc34.i.i = add nuw nsw i32 %it.sroa.0.070, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %if.then.i.i, %if.then10.i.i, %if.then23.i.i
@@ -33082,8 +33082,8 @@ _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i23: ; preds = %for.body
   %or.cond.i = select i1 %cmp7.i.i26, i1 true, i1 %cmp.i2.i28
   %23 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i30 = icmp slt i32 %23, %add6.i.i.i
-  %or.cond12.i = select i1 %or.cond.i, i1 true, i1 %cmp4.i6.i30
-  br i1 %or.cond12.i, label %_ZNK7openvdb5v11_04math9CoordBBox8isInsideERKNS1_5CoordE.exit, label %lor.rhs.i7.i31
+  %or.cond14.i = select i1 %or.cond.i, i1 true, i1 %cmp4.i6.i30
+  br i1 %or.cond14.i, label %_ZNK7openvdb5v11_04math9CoordBBox8isInsideERKNS1_5CoordE.exit, label %lor.rhs.i7.i31
 
 lor.rhs.i7.i31:                                   ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i23
   %24 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
@@ -34521,8 +34521,8 @@ if.then34:                                        ; preds = %invoke.cont31
 
 if.else:                                          ; preds = %if.then34
   %cmp.i65.not = icmp eq ptr %11, null
-  %or.cond162 = select i1 %cmp, i1 true, i1 %cmp.i65.not
-  br i1 %or.cond162, label %if.else50, label %if.then44
+  %or.cond168 = select i1 %cmp, i1 true, i1 %cmp.i65.not
+  br i1 %or.cond168, label %if.else50, label %if.then44
 
 if.then44:                                        ; preds = %if.else
   %call47 = invoke noundef signext i8 @_ZNK7openvdb5v11_02io19DelayedLoadMetadata7getMaskEm(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %leafIndex.0)
@@ -34566,9 +34566,9 @@ if.end67:                                         ; preds = %if.then66, %invoke.
   store float %background.sroa.6.0, ptr %background.sroa.6.0.inactiveVal1.sroa_idx, align 8
   %13 = load i8, ptr %metadata, align 1
   %cmp68 = icmp eq i8 %13, 0
-  br i1 %cmp68, label %invoke.cont103.thread158, label %cond.end
+  br i1 %cmp68, label %invoke.cont103.thread164, label %cond.end
 
-invoke.cont103.thread158:                         ; preds = %if.end67
+invoke.cont103.thread164:                         ; preds = %if.end67
   store <2 x float> %background.sroa.0.0, ptr %inactiveVal0, align 8
   %background.sroa.6.0.inactiveVal0.sroa_idx = getelementptr inbounds nuw i8, ptr %inactiveVal0, i64 8
   store float %background.sroa.6.0, ptr %background.sroa.6.0.inactiveVal0.sroa_idx, align 8
@@ -34604,7 +34604,7 @@ if.else86:                                        ; preds = %if.then81
 if.end89:                                         ; preds = %if.else86
   %15 = load i8, ptr %metadata, align 1
   %cmp91 = icmp eq i8 %15, 5
-  br i1 %cmp91, label %if.else97, label %invoke.cont103.thread160
+  br i1 %cmp91, label %if.else97, label %invoke.cont103.thread166
 
 if.end89.thread:                                  ; preds = %if.then83
   %16 = load i8, ptr %metadata, align 1
@@ -34630,11 +34630,11 @@ invoke.cont103:                                   ; preds = %if.then94.invoke.co
   %or.cond4 = icmp ult i8 %18, 3
   br i1 %or.cond4, label %if.then112, label %if.end123
 
-invoke.cont103.thread160:                         ; preds = %if.end89
+invoke.cont103.thread166:                         ; preds = %if.end89
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   %19 = add i8 %15, -3
-  %or.cond4161 = icmp ult i8 %19, 3
-  br i1 %or.cond4161, label %if.else120, label %if.end123
+  %or.cond4167 = icmp ult i8 %19, 3
+  br i1 %or.cond4167, label %if.else120, label %if.end123
 
 invoke.cont103.thread:                            ; preds = %if.else97
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
@@ -34655,11 +34655,11 @@ lpad117:                                          ; preds = %if.else120, %if.the
           cleanup
   br label %ehcleanup190
 
-if.else120:                                       ; preds = %invoke.cont103.thread160, %invoke.cont103.thread, %if.then112
+if.else120:                                       ; preds = %invoke.cont103.thread166, %invoke.cont103.thread, %if.then112
   %call2.i66 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end123 unwind label %lpad117
 
-if.end123:                                        ; preds = %invoke.cont103.thread160, %invoke.cont103.thread158, %if.else120, %invoke.cont103.thread, %if.then114, %invoke.cont103
+if.end123:                                        ; preds = %invoke.cont103.thread166, %invoke.cont103.thread164, %if.else120, %invoke.cont103.thread, %if.then114, %invoke.cont103
   %23 = load i8, ptr %metadata, align 1
   %cmp127 = icmp ne i8 %23, 6
   %or.cond5 = select i1 %tobool, i1 %cmp127, i1 false
@@ -35882,10 +35882,10 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %it.sroa.0.070 = phi i32 [ %it.sroa.0.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
   %it.sroa.5.069 = phi i32 [ %it.sroa.5.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr5.i, %invoke.cont11 ]
   %it.sroa.9.068 = phi i32 [ %it.sroa.9.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr9.i, %invoke.cont11 ]
-  %shl = shl i32 %it.sroa.5.069, 5
-  %add = add nsw i32 %shl, %it.sroa.9.068
-  %shl17 = shl i32 %it.sroa.0.070, 10
-  %add18 = add nsw i32 %add, %shl17
+  %shl = shl nuw nsw i32 %it.sroa.5.069, 5
+  %add = add nuw nsw i32 %shl, %it.sroa.9.068
+  %shl17 = shl nuw nsw i32 %it.sroa.0.070, 10
+  %add18 = add nuw nsw i32 %add, %shl17
   %and.i25 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i25 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -35899,7 +35899,7 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   br i1 %cmp.i.i29, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %inc.i.i = add nsw i32 %it.sroa.9.068, 1
+  %inc.i.i = add nuw nsw i32 %it.sroa.9.068, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.else.i.i:                                      ; preds = %for.body
@@ -35907,11 +35907,11 @@ if.else.i.i:                                      ; preds = %for.body
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.then23.i.i
 
 if.then10.i.i:                                    ; preds = %if.else.i.i
-  %inc16.i.i = add nsw i32 %it.sroa.5.069, 1
+  %inc16.i.i = add nuw nsw i32 %it.sroa.5.069, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  %inc34.i.i = add nsw i32 %it.sroa.0.070, 1
+  %inc34.i.i = add nuw nsw i32 %it.sroa.0.070, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %if.then.i.i, %if.then10.i.i, %if.then23.i.i
@@ -36138,10 +36138,10 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %it.sroa.0.070 = phi i32 [ %it.sroa.0.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
   %it.sroa.5.069 = phi i32 [ %it.sroa.5.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr5.i, %invoke.cont11 ]
   %it.sroa.9.068 = phi i32 [ %it.sroa.9.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr9.i, %invoke.cont11 ]
-  %shl = shl i32 %it.sroa.5.069, 4
-  %add = add nsw i32 %shl, %it.sroa.9.068
-  %shl17 = shl i32 %it.sroa.0.070, 8
-  %add18 = add nsw i32 %add, %shl17
+  %shl = shl nuw nsw i32 %it.sroa.5.069, 4
+  %add = add nuw nsw i32 %shl, %it.sroa.9.068
+  %shl17 = shl nuw nsw i32 %it.sroa.0.070, 8
+  %add18 = add nuw nsw i32 %add, %shl17
   %and.i25 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i25 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -36155,7 +36155,7 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   br i1 %cmp.i.i29, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %inc.i.i = add nsw i32 %it.sroa.9.068, 1
+  %inc.i.i = add nuw nsw i32 %it.sroa.9.068, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.else.i.i:                                      ; preds = %for.body
@@ -36163,11 +36163,11 @@ if.else.i.i:                                      ; preds = %for.body
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.then23.i.i
 
 if.then10.i.i:                                    ; preds = %if.else.i.i
-  %inc16.i.i = add nsw i32 %it.sroa.5.069, 1
+  %inc16.i.i = add nuw nsw i32 %it.sroa.5.069, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  %inc34.i.i = add nsw i32 %it.sroa.0.070, 1
+  %inc34.i.i = add nuw nsw i32 %it.sroa.0.070, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %if.then.i.i, %if.then10.i.i, %if.then23.i.i
@@ -36314,8 +36314,8 @@ _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i23: ; preds = %for.body
   %or.cond.i = select i1 %cmp7.i.i26, i1 true, i1 %cmp.i2.i28
   %23 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i30 = icmp slt i32 %23, %add6.i.i.i
-  %or.cond12.i = select i1 %or.cond.i, i1 true, i1 %cmp4.i6.i30
-  br i1 %or.cond12.i, label %_ZNK7openvdb5v11_04math9CoordBBox8isInsideERKNS1_5CoordE.exit, label %lor.rhs.i7.i31
+  %or.cond14.i = select i1 %or.cond.i, i1 true, i1 %cmp4.i6.i30
+  br i1 %or.cond14.i, label %_ZNK7openvdb5v11_04math9CoordBBox8isInsideERKNS1_5CoordE.exit, label %lor.rhs.i7.i31
 
 lor.rhs.i7.i31:                                   ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i23
   %24 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
@@ -37753,8 +37753,8 @@ if.then34:                                        ; preds = %invoke.cont31
 
 if.else:                                          ; preds = %if.then34
   %cmp.i65.not = icmp eq ptr %11, null
-  %or.cond164 = select i1 %cmp, i1 true, i1 %cmp.i65.not
-  br i1 %or.cond164, label %if.else50, label %if.then44
+  %or.cond170 = select i1 %cmp, i1 true, i1 %cmp.i65.not
+  br i1 %or.cond170, label %if.else50, label %if.then44
 
 if.then44:                                        ; preds = %if.else
   %call47 = invoke noundef signext i8 @_ZNK7openvdb5v11_02io19DelayedLoadMetadata7getMaskEm(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %leafIndex.0)
@@ -37803,9 +37803,9 @@ if.end65:                                         ; preds = %if.then64, %invoke.
   store double %background.sroa.6.0, ptr %background.sroa.6.0.inactiveVal1.sroa_idx, align 8
   %13 = load i8, ptr %metadata, align 1
   %cmp66 = icmp eq i8 %13, 0
-  br i1 %cmp66, label %invoke.cont97.thread160, label %cond.end
+  br i1 %cmp66, label %invoke.cont97.thread166, label %cond.end
 
-invoke.cont97.thread160:                          ; preds = %if.end65
+invoke.cont97.thread166:                          ; preds = %if.end65
   store double %background.sroa.0.0, ptr %inactiveVal0, align 8
   %background.sroa.5.0.inactiveVal0.sroa_idx = getelementptr inbounds nuw i8, ptr %inactiveVal0, i64 8
   store double %background.sroa.5.0, ptr %background.sroa.5.0.inactiveVal0.sroa_idx, align 8
@@ -37843,7 +37843,7 @@ if.else80:                                        ; preds = %if.then75
 if.end83:                                         ; preds = %if.else80
   %14 = load i8, ptr %metadata, align 1
   %cmp85 = icmp eq i8 %14, 5
-  br i1 %cmp85, label %if.else91, label %invoke.cont97.thread162
+  br i1 %cmp85, label %if.else91, label %invoke.cont97.thread168
 
 if.end83.thread:                                  ; preds = %if.then77
   %15 = load i8, ptr %metadata, align 1
@@ -37869,11 +37869,11 @@ invoke.cont97:                                    ; preds = %if.then88.invoke.co
   %or.cond4 = icmp ult i8 %17, 3
   br i1 %or.cond4, label %if.then106, label %if.end117
 
-invoke.cont97.thread162:                          ; preds = %if.end83
+invoke.cont97.thread168:                          ; preds = %if.end83
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   %18 = add i8 %14, -3
-  %or.cond4163 = icmp ult i8 %18, 3
-  br i1 %or.cond4163, label %if.else114, label %if.end117
+  %or.cond4169 = icmp ult i8 %18, 3
+  br i1 %or.cond4169, label %if.else114, label %if.end117
 
 invoke.cont97.thread:                             ; preds = %if.else91
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
@@ -37894,11 +37894,11 @@ lpad111:                                          ; preds = %if.else114, %if.the
           cleanup
   br label %ehcleanup184
 
-if.else114:                                       ; preds = %invoke.cont97.thread162, %invoke.cont97.thread, %if.then106
+if.else114:                                       ; preds = %invoke.cont97.thread168, %invoke.cont97.thread, %if.then106
   %call2.i66 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end117 unwind label %lpad111
 
-if.end117:                                        ; preds = %invoke.cont97.thread162, %invoke.cont97.thread160, %if.else114, %invoke.cont97.thread, %if.then108, %invoke.cont97
+if.end117:                                        ; preds = %invoke.cont97.thread168, %invoke.cont97.thread166, %if.else114, %invoke.cont97.thread, %if.then108, %invoke.cont97
   %22 = load i8, ptr %metadata, align 1
   %cmp121 = icmp ne i8 %22, 6
   %or.cond5 = select i1 %tobool, i1 %cmp121, i1 false
@@ -39127,10 +39127,10 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %it.sroa.0.070 = phi i32 [ %it.sroa.0.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
   %it.sroa.5.069 = phi i32 [ %it.sroa.5.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr5.i, %invoke.cont11 ]
   %it.sroa.9.068 = phi i32 [ %it.sroa.9.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr9.i, %invoke.cont11 ]
-  %shl = shl i32 %it.sroa.5.069, 5
-  %add = add nsw i32 %shl, %it.sroa.9.068
-  %shl17 = shl i32 %it.sroa.0.070, 10
-  %add18 = add nsw i32 %add, %shl17
+  %shl = shl nuw nsw i32 %it.sroa.5.069, 5
+  %add = add nuw nsw i32 %shl, %it.sroa.9.068
+  %shl17 = shl nuw nsw i32 %it.sroa.0.070, 10
+  %add18 = add nuw nsw i32 %add, %shl17
   %and.i25 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i25 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -39144,7 +39144,7 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   br i1 %cmp.i.i29, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %inc.i.i = add nsw i32 %it.sroa.9.068, 1
+  %inc.i.i = add nuw nsw i32 %it.sroa.9.068, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.else.i.i:                                      ; preds = %for.body
@@ -39152,11 +39152,11 @@ if.else.i.i:                                      ; preds = %for.body
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.then23.i.i
 
 if.then10.i.i:                                    ; preds = %if.else.i.i
-  %inc16.i.i = add nsw i32 %it.sroa.5.069, 1
+  %inc16.i.i = add nuw nsw i32 %it.sroa.5.069, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  %inc34.i.i = add nsw i32 %it.sroa.0.070, 1
+  %inc34.i.i = add nuw nsw i32 %it.sroa.0.070, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %if.then.i.i, %if.then10.i.i, %if.then23.i.i
@@ -39383,10 +39383,10 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %it.sroa.0.070 = phi i32 [ %it.sroa.0.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
   %it.sroa.5.069 = phi i32 [ %it.sroa.5.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr5.i, %invoke.cont11 ]
   %it.sroa.9.068 = phi i32 [ %it.sroa.9.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr9.i, %invoke.cont11 ]
-  %shl = shl i32 %it.sroa.5.069, 4
-  %add = add nsw i32 %shl, %it.sroa.9.068
-  %shl17 = shl i32 %it.sroa.0.070, 8
-  %add18 = add nsw i32 %add, %shl17
+  %shl = shl nuw nsw i32 %it.sroa.5.069, 4
+  %add = add nuw nsw i32 %shl, %it.sroa.9.068
+  %shl17 = shl nuw nsw i32 %it.sroa.0.070, 8
+  %add18 = add nuw nsw i32 %add, %shl17
   %and.i25 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i25 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -39400,7 +39400,7 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   br i1 %cmp.i.i29, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %inc.i.i = add nsw i32 %it.sroa.9.068, 1
+  %inc.i.i = add nuw nsw i32 %it.sroa.9.068, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.else.i.i:                                      ; preds = %for.body
@@ -39408,11 +39408,11 @@ if.else.i.i:                                      ; preds = %for.body
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.then23.i.i
 
 if.then10.i.i:                                    ; preds = %if.else.i.i
-  %inc16.i.i = add nsw i32 %it.sroa.5.069, 1
+  %inc16.i.i = add nuw nsw i32 %it.sroa.5.069, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  %inc34.i.i = add nsw i32 %it.sroa.0.070, 1
+  %inc34.i.i = add nuw nsw i32 %it.sroa.0.070, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %if.then.i.i, %if.then10.i.i, %if.then23.i.i
@@ -39559,8 +39559,8 @@ _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i23: ; preds = %for.body
   %or.cond.i = select i1 %cmp7.i.i26, i1 true, i1 %cmp.i2.i28
   %23 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i30 = icmp slt i32 %23, %add6.i.i.i
-  %or.cond12.i = select i1 %or.cond.i, i1 true, i1 %cmp4.i6.i30
-  br i1 %or.cond12.i, label %_ZNK7openvdb5v11_04math9CoordBBox8isInsideERKNS1_5CoordE.exit, label %lor.rhs.i7.i31
+  %or.cond14.i = select i1 %or.cond.i, i1 true, i1 %cmp4.i6.i30
+  br i1 %or.cond14.i, label %_ZNK7openvdb5v11_04math9CoordBBox8isInsideERKNS1_5CoordE.exit, label %lor.rhs.i7.i31
 
 lor.rhs.i7.i31:                                   ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i23
   %24 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
@@ -40998,8 +40998,8 @@ if.then34:                                        ; preds = %invoke.cont31
 
 if.else:                                          ; preds = %if.then34
   %cmp.i65.not = icmp eq ptr %11, null
-  %or.cond173 = select i1 %cmp, i1 true, i1 %cmp.i65.not
-  br i1 %or.cond173, label %if.else50, label %if.then44
+  %or.cond179 = select i1 %cmp, i1 true, i1 %cmp.i65.not
+  br i1 %or.cond179, label %if.else50, label %if.then44
 
 if.then44:                                        ; preds = %if.else
   %call47 = invoke noundef signext i8 @_ZNK7openvdb5v11_02io19DelayedLoadMetadata7getMaskEm(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %leafIndex.0)
@@ -41051,9 +41051,9 @@ if.end67:                                         ; preds = %if.then66, %invoke.
   store i32 %background.sroa.6.0, ptr %background.sroa.6.0.inactiveVal1.sroa_idx, align 8
   %13 = load i8, ptr %metadata, align 1
   %cmp68 = icmp eq i8 %13, 0
-  br i1 %cmp68, label %invoke.cont103.thread169, label %cond.end
+  br i1 %cmp68, label %invoke.cont103.thread175, label %cond.end
 
-invoke.cont103.thread169:                         ; preds = %if.end67
+invoke.cont103.thread175:                         ; preds = %if.end67
   store i64 %background.sroa.0.sroa.0.0.insert.insert, ptr %inactiveVal0, align 8
   %background.sroa.6.0.inactiveVal0.sroa_idx = getelementptr inbounds nuw i8, ptr %inactiveVal0, i64 8
   store i32 %background.sroa.6.0, ptr %background.sroa.6.0.inactiveVal0.sroa_idx, align 8
@@ -41091,7 +41091,7 @@ if.else86:                                        ; preds = %if.then81
 if.end89:                                         ; preds = %if.else86
   %14 = load i8, ptr %metadata, align 1
   %cmp91 = icmp eq i8 %14, 5
-  br i1 %cmp91, label %if.else97, label %invoke.cont103.thread171
+  br i1 %cmp91, label %if.else97, label %invoke.cont103.thread177
 
 if.end89.thread:                                  ; preds = %if.then83
   %15 = load i8, ptr %metadata, align 1
@@ -41117,11 +41117,11 @@ invoke.cont103:                                   ; preds = %if.then94.invoke.co
   %or.cond4 = icmp ult i8 %17, 3
   br i1 %or.cond4, label %if.then112, label %if.end123
 
-invoke.cont103.thread171:                         ; preds = %if.end89
+invoke.cont103.thread177:                         ; preds = %if.end89
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   %18 = add i8 %14, -3
-  %or.cond4172 = icmp ult i8 %18, 3
-  br i1 %or.cond4172, label %if.else120, label %if.end123
+  %or.cond4178 = icmp ult i8 %18, 3
+  br i1 %or.cond4178, label %if.else120, label %if.end123
 
 invoke.cont103.thread:                            ; preds = %if.else97
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
@@ -41142,11 +41142,11 @@ lpad117:                                          ; preds = %if.else120, %if.the
           cleanup
   br label %ehcleanup190
 
-if.else120:                                       ; preds = %invoke.cont103.thread171, %invoke.cont103.thread, %if.then112
+if.else120:                                       ; preds = %invoke.cont103.thread177, %invoke.cont103.thread, %if.then112
   %call2.i66 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end123 unwind label %lpad117
 
-if.end123:                                        ; preds = %invoke.cont103.thread171, %invoke.cont103.thread169, %if.else120, %invoke.cont103.thread, %if.then114, %invoke.cont103
+if.end123:                                        ; preds = %invoke.cont103.thread177, %invoke.cont103.thread175, %if.else120, %invoke.cont103.thread, %if.then114, %invoke.cont103
   %22 = load i8, ptr %metadata, align 1
   %cmp127 = icmp ne i8 %22, 6
   %or.cond5 = select i1 %tobool, i1 %cmp127, i1 false
@@ -42094,10 +42094,10 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %it.sroa.0.070 = phi i32 [ %it.sroa.0.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
   %it.sroa.5.069 = phi i32 [ %it.sroa.5.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr5.i, %invoke.cont11 ]
   %it.sroa.9.068 = phi i32 [ %it.sroa.9.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr9.i, %invoke.cont11 ]
-  %shl = shl i32 %it.sroa.5.069, 5
-  %add = add nsw i32 %shl, %it.sroa.9.068
-  %shl17 = shl i32 %it.sroa.0.070, 10
-  %add18 = add nsw i32 %add, %shl17
+  %shl = shl nuw nsw i32 %it.sroa.5.069, 5
+  %add = add nuw nsw i32 %shl, %it.sroa.9.068
+  %shl17 = shl nuw nsw i32 %it.sroa.0.070, 10
+  %add18 = add nuw nsw i32 %add, %shl17
   %and.i25 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i25 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -42111,7 +42111,7 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   br i1 %cmp.i.i29, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %inc.i.i = add nsw i32 %it.sroa.9.068, 1
+  %inc.i.i = add nuw nsw i32 %it.sroa.9.068, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.else.i.i:                                      ; preds = %for.body
@@ -42119,11 +42119,11 @@ if.else.i.i:                                      ; preds = %for.body
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.then23.i.i
 
 if.then10.i.i:                                    ; preds = %if.else.i.i
-  %inc16.i.i = add nsw i32 %it.sroa.5.069, 1
+  %inc16.i.i = add nuw nsw i32 %it.sroa.5.069, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  %inc34.i.i = add nsw i32 %it.sroa.0.070, 1
+  %inc34.i.i = add nuw nsw i32 %it.sroa.0.070, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %if.then.i.i, %if.then10.i.i, %if.then23.i.i
@@ -42350,10 +42350,10 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %it.sroa.0.070 = phi i32 [ %it.sroa.0.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
   %it.sroa.5.069 = phi i32 [ %it.sroa.5.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr5.i, %invoke.cont11 ]
   %it.sroa.9.068 = phi i32 [ %it.sroa.9.1, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr9.i, %invoke.cont11 ]
-  %shl = shl i32 %it.sroa.5.069, 4
-  %add = add nsw i32 %shl, %it.sroa.9.068
-  %shl17 = shl i32 %it.sroa.0.070, 8
-  %add18 = add nsw i32 %add, %shl17
+  %shl = shl nuw nsw i32 %it.sroa.5.069, 4
+  %add = add nuw nsw i32 %shl, %it.sroa.9.068
+  %shl17 = shl nuw nsw i32 %it.sroa.0.070, 8
+  %add18 = add nuw nsw i32 %add, %shl17
   %and.i25 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i25 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -42367,7 +42367,7 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   br i1 %cmp.i.i29, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %inc.i.i = add nsw i32 %it.sroa.9.068, 1
+  %inc.i.i = add nuw nsw i32 %it.sroa.9.068, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.else.i.i:                                      ; preds = %for.body
@@ -42375,11 +42375,11 @@ if.else.i.i:                                      ; preds = %for.body
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.then23.i.i
 
 if.then10.i.i:                                    ; preds = %if.else.i.i
-  %inc16.i.i = add nsw i32 %it.sroa.5.069, 1
+  %inc16.i.i = add nuw nsw i32 %it.sroa.5.069, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  %inc34.i.i = add nsw i32 %it.sroa.0.070, 1
+  %inc34.i.i = add nuw nsw i32 %it.sroa.0.070, 1
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %if.then.i.i, %if.then10.i.i, %if.then23.i.i
@@ -42526,8 +42526,8 @@ _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i23: ; preds = %for.body
   %or.cond.i = select i1 %cmp7.i.i26, i1 true, i1 %cmp.i2.i28
   %23 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i30 = icmp slt i32 %23, %add6.i.i.i
-  %or.cond12.i = select i1 %or.cond.i, i1 true, i1 %cmp4.i6.i30
-  br i1 %or.cond12.i, label %_ZNK7openvdb5v11_04math9CoordBBox8isInsideERKNS1_5CoordE.exit, label %lor.rhs.i7.i31
+  %or.cond14.i = select i1 %or.cond.i, i1 true, i1 %cmp4.i6.i30
+  br i1 %or.cond14.i, label %_ZNK7openvdb5v11_04math9CoordBBox8isInsideERKNS1_5CoordE.exit, label %lor.rhs.i7.i31
 
 lor.rhs.i7.i31:                                   ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i23
   %24 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
@@ -56740,10 +56740,10 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE13cbeginValueOnEv.exit.thread: ; preds = %for.inc.i.i.i
   store ptr %node, ptr %iter, align 8, !alias.scope !780
-  %mMaskIter.i.i.i.i328 = getelementptr inbounds nuw i8, ptr %iter, i64 8
-  store i32 32768, ptr %mMaskIter.i.i.i.i328, align 8, !alias.scope !780
-  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329 = getelementptr inbounds nuw i8, ptr %iter, i64 16
-  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329, align 8, !alias.scope !780
+  %mMaskIter.i.i.i.i343 = getelementptr inbounds nuw i8, ptr %iter, i64 8
+  store i32 32768, ptr %mMaskIter.i.i.i.i343, align 8, !alias.scope !780
+  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344 = getelementptr inbounds nuw i8, ptr %iter, i64 16
+  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344, align 8, !alias.scope !780
   br label %for.end
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE13cbeginValueOnEv.exit: ; preds = %land.rhs.i.i.i
@@ -56818,8 +56818,8 @@ if.then11:                                        ; preds = %if.else
   %cmp7.i.i.i = icmp sgt i32 %20, %23
   %or.cond = select i1 %cmp.i.i.i57, i1 true, i1 %cmp7.i.i.i
   %cmp12.i.i.i = icmp sgt i32 %21, %24
-  %or.cond351 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
-  br i1 %or.cond351, label %for.inc.sink.split, label %cond.false.i.i
+  %or.cond366 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
+  br i1 %or.cond366, label %for.inc.sink.split, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then11
   %reass.sub317 = sub i32 %22, %19
@@ -56878,9 +56878,9 @@ cond.false.i.i117:                                ; preds = %if.else21
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i, %if.then11, %cond.false.i.i117, %if.else21, %if.else14
-  %.sink352 = phi i64 [ 2097152, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
+  %.sink367 = phi i64 [ 2097152, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
   %41 = load i64, ptr %this, align 8
-  %add20 = add i64 %41, %.sink352
+  %add20 = add i64 %41, %.sink367
   store i64 %add20, ptr %this, align 8
   br label %for.inc
 
@@ -59524,10 +59524,10 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE13cbeginValueOnEv.exit.thread: ; preds = %for.inc.i.i.i
   store ptr %node, ptr %iter, align 8, !alias.scope !822
-  %mMaskIter.i.i.i.i328 = getelementptr inbounds nuw i8, ptr %iter, i64 8
-  store i32 4096, ptr %mMaskIter.i.i.i.i328, align 8, !alias.scope !822
-  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329 = getelementptr inbounds nuw i8, ptr %iter, i64 16
-  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329, align 8, !alias.scope !822
+  %mMaskIter.i.i.i.i343 = getelementptr inbounds nuw i8, ptr %iter, i64 8
+  store i32 4096, ptr %mMaskIter.i.i.i.i343, align 8, !alias.scope !822
+  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344 = getelementptr inbounds nuw i8, ptr %iter, i64 16
+  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344, align 8, !alias.scope !822
   br label %for.end
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE13cbeginValueOnEv.exit: ; preds = %land.rhs.i.i.i
@@ -59602,8 +59602,8 @@ if.then11:                                        ; preds = %if.else
   %cmp7.i.i.i = icmp sgt i32 %20, %23
   %or.cond = select i1 %cmp.i.i.i57, i1 true, i1 %cmp7.i.i.i
   %cmp12.i.i.i = icmp sgt i32 %21, %24
-  %or.cond351 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
-  br i1 %or.cond351, label %for.inc.sink.split, label %cond.false.i.i
+  %or.cond366 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
+  br i1 %or.cond366, label %for.inc.sink.split, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then11
   %reass.sub317 = sub i32 %22, %19
@@ -59662,9 +59662,9 @@ cond.false.i.i117:                                ; preds = %if.else21
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i, %if.then11, %cond.false.i.i117, %if.else21, %if.else14
-  %.sink352 = phi i64 [ 512, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
+  %.sink367 = phi i64 [ 512, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
   %41 = load i64, ptr %this, align 8
-  %add20 = add i64 %41, %.sink352
+  %add20 = add i64 %41, %.sink367
   store i64 %add20, ptr %this, align 8
   br label %for.inc
 
@@ -62324,10 +62324,10 @@ _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i41: ; preds = %for.body
   %or.cond.i.not100 = select i1 %cmp7.i.i44, i1 %cmp.i2.i46, i1 false
   %35 = load i32, ptr %arrayidx.i.i.i.i4.i, align 8
   %cmp4.i6.i48 = icmp sge i32 %35, %add6.i.i.i
-  %or.cond12.i.not99 = select i1 %or.cond.i.not100, i1 %cmp4.i6.i48, i1 false
+  %or.cond14.i.not99 = select i1 %or.cond.i.not100, i1 %cmp4.i6.i48, i1 false
   %36 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i51 = icmp sge i32 %36, %add10.i.i.i
-  %or.cond90 = select i1 %or.cond12.i.not99, i1 %cmp7.i10.i51, i1 false
+  %or.cond90 = select i1 %or.cond14.i.not99, i1 %cmp7.i10.i51, i1 false
   br i1 %or.cond90, label %if.then19, label %for.inc
 
 if.then19:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i41
@@ -73241,10 +73241,10 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE13cbeginValueOnEv.exit.thread: ; preds = %for.inc.i.i.i
   store ptr %node, ptr %iter, align 8, !alias.scope !1042
-  %mMaskIter.i.i.i.i328 = getelementptr inbounds nuw i8, ptr %iter, i64 8
-  store i32 32768, ptr %mMaskIter.i.i.i.i328, align 8, !alias.scope !1042
-  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329 = getelementptr inbounds nuw i8, ptr %iter, i64 16
-  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329, align 8, !alias.scope !1042
+  %mMaskIter.i.i.i.i343 = getelementptr inbounds nuw i8, ptr %iter, i64 8
+  store i32 32768, ptr %mMaskIter.i.i.i.i343, align 8, !alias.scope !1042
+  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344 = getelementptr inbounds nuw i8, ptr %iter, i64 16
+  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344, align 8, !alias.scope !1042
   br label %for.end
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE13cbeginValueOnEv.exit: ; preds = %land.rhs.i.i.i
@@ -73319,8 +73319,8 @@ if.then11:                                        ; preds = %if.else
   %cmp7.i.i.i = icmp sgt i32 %20, %23
   %or.cond = select i1 %cmp.i.i.i57, i1 true, i1 %cmp7.i.i.i
   %cmp12.i.i.i = icmp sgt i32 %21, %24
-  %or.cond351 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
-  br i1 %or.cond351, label %for.inc.sink.split, label %cond.false.i.i
+  %or.cond366 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
+  br i1 %or.cond366, label %for.inc.sink.split, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then11
   %reass.sub317 = sub i32 %22, %19
@@ -73379,9 +73379,9 @@ cond.false.i.i117:                                ; preds = %if.else21
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i, %if.then11, %cond.false.i.i117, %if.else21, %if.else14
-  %.sink352 = phi i64 [ 2097152, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
+  %.sink367 = phi i64 [ 2097152, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
   %41 = load i64, ptr %this, align 8
-  %add20 = add i64 %41, %.sink352
+  %add20 = add i64 %41, %.sink367
   store i64 %add20, ptr %this, align 8
   br label %for.inc
 
@@ -76025,10 +76025,10 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE13cbeginValueOnEv.exit.thread: ; preds = %for.inc.i.i.i
   store ptr %node, ptr %iter, align 8, !alias.scope !1084
-  %mMaskIter.i.i.i.i328 = getelementptr inbounds nuw i8, ptr %iter, i64 8
-  store i32 4096, ptr %mMaskIter.i.i.i.i328, align 8, !alias.scope !1084
-  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329 = getelementptr inbounds nuw i8, ptr %iter, i64 16
-  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329, align 8, !alias.scope !1084
+  %mMaskIter.i.i.i.i343 = getelementptr inbounds nuw i8, ptr %iter, i64 8
+  store i32 4096, ptr %mMaskIter.i.i.i.i343, align 8, !alias.scope !1084
+  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344 = getelementptr inbounds nuw i8, ptr %iter, i64 16
+  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344, align 8, !alias.scope !1084
   br label %for.end
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE13cbeginValueOnEv.exit: ; preds = %land.rhs.i.i.i
@@ -76103,8 +76103,8 @@ if.then11:                                        ; preds = %if.else
   %cmp7.i.i.i = icmp sgt i32 %20, %23
   %or.cond = select i1 %cmp.i.i.i57, i1 true, i1 %cmp7.i.i.i
   %cmp12.i.i.i = icmp sgt i32 %21, %24
-  %or.cond351 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
-  br i1 %or.cond351, label %for.inc.sink.split, label %cond.false.i.i
+  %or.cond366 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
+  br i1 %or.cond366, label %for.inc.sink.split, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then11
   %reass.sub317 = sub i32 %22, %19
@@ -76163,9 +76163,9 @@ cond.false.i.i117:                                ; preds = %if.else21
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i, %if.then11, %cond.false.i.i117, %if.else21, %if.else14
-  %.sink352 = phi i64 [ 512, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
+  %.sink367 = phi i64 [ 512, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
   %41 = load i64, ptr %this, align 8
-  %add20 = add i64 %41, %.sink352
+  %add20 = add i64 %41, %.sink367
   store i64 %add20, ptr %this, align 8
   br label %for.inc
 
@@ -78833,10 +78833,10 @@ _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i43: ; preds = %for.body
   %or.cond.i.not102 = select i1 %cmp7.i.i46, i1 %cmp.i2.i48, i1 false
   %35 = load i32, ptr %arrayidx.i.i.i.i4.i, align 8
   %cmp4.i6.i50 = icmp sge i32 %35, %add6.i.i.i
-  %or.cond12.i.not101 = select i1 %or.cond.i.not102, i1 %cmp4.i6.i50, i1 false
+  %or.cond14.i.not101 = select i1 %or.cond.i.not102, i1 %cmp4.i6.i50, i1 false
   %36 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i53 = icmp sge i32 %36, %add10.i.i.i
-  %or.cond92 = select i1 %or.cond12.i.not101, i1 %cmp7.i10.i53, i1 false
+  %or.cond92 = select i1 %or.cond14.i.not101, i1 %cmp7.i10.i53, i1 false
   br i1 %or.cond92, label %if.then19, label %for.inc
 
 if.then19:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i43
@@ -89750,10 +89750,10 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE13cbeginValueOnEv.exit.thread: ; preds = %for.inc.i.i.i
   store ptr %node, ptr %iter, align 8, !alias.scope !1304
-  %mMaskIter.i.i.i.i328 = getelementptr inbounds nuw i8, ptr %iter, i64 8
-  store i32 32768, ptr %mMaskIter.i.i.i.i328, align 8, !alias.scope !1304
-  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329 = getelementptr inbounds nuw i8, ptr %iter, i64 16
-  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329, align 8, !alias.scope !1304
+  %mMaskIter.i.i.i.i343 = getelementptr inbounds nuw i8, ptr %iter, i64 8
+  store i32 32768, ptr %mMaskIter.i.i.i.i343, align 8, !alias.scope !1304
+  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344 = getelementptr inbounds nuw i8, ptr %iter, i64 16
+  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344, align 8, !alias.scope !1304
   br label %for.end
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE13cbeginValueOnEv.exit: ; preds = %land.rhs.i.i.i
@@ -89828,8 +89828,8 @@ if.then11:                                        ; preds = %if.else
   %cmp7.i.i.i = icmp sgt i32 %20, %23
   %or.cond = select i1 %cmp.i.i.i57, i1 true, i1 %cmp7.i.i.i
   %cmp12.i.i.i = icmp sgt i32 %21, %24
-  %or.cond351 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
-  br i1 %or.cond351, label %for.inc.sink.split, label %cond.false.i.i
+  %or.cond366 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
+  br i1 %or.cond366, label %for.inc.sink.split, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then11
   %reass.sub317 = sub i32 %22, %19
@@ -89888,9 +89888,9 @@ cond.false.i.i117:                                ; preds = %if.else21
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i, %if.then11, %cond.false.i.i117, %if.else21, %if.else14
-  %.sink352 = phi i64 [ 2097152, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
+  %.sink367 = phi i64 [ 2097152, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
   %41 = load i64, ptr %this, align 8
-  %add20 = add i64 %41, %.sink352
+  %add20 = add i64 %41, %.sink367
   store i64 %add20, ptr %this, align 8
   br label %for.inc
 
@@ -92534,10 +92534,10 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE13cbeginValueOnEv.exit.thread: ; preds = %for.inc.i.i.i
   store ptr %node, ptr %iter, align 8, !alias.scope !1346
-  %mMaskIter.i.i.i.i328 = getelementptr inbounds nuw i8, ptr %iter, i64 8
-  store i32 4096, ptr %mMaskIter.i.i.i.i328, align 8, !alias.scope !1346
-  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329 = getelementptr inbounds nuw i8, ptr %iter, i64 16
-  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329, align 8, !alias.scope !1346
+  %mMaskIter.i.i.i.i343 = getelementptr inbounds nuw i8, ptr %iter, i64 8
+  store i32 4096, ptr %mMaskIter.i.i.i.i343, align 8, !alias.scope !1346
+  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344 = getelementptr inbounds nuw i8, ptr %iter, i64 16
+  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344, align 8, !alias.scope !1346
   br label %for.end
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE13cbeginValueOnEv.exit: ; preds = %land.rhs.i.i.i
@@ -92612,8 +92612,8 @@ if.then11:                                        ; preds = %if.else
   %cmp7.i.i.i = icmp sgt i32 %20, %23
   %or.cond = select i1 %cmp.i.i.i57, i1 true, i1 %cmp7.i.i.i
   %cmp12.i.i.i = icmp sgt i32 %21, %24
-  %or.cond351 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
-  br i1 %or.cond351, label %for.inc.sink.split, label %cond.false.i.i
+  %or.cond366 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
+  br i1 %or.cond366, label %for.inc.sink.split, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then11
   %reass.sub317 = sub i32 %22, %19
@@ -92672,9 +92672,9 @@ cond.false.i.i117:                                ; preds = %if.else21
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i, %if.then11, %cond.false.i.i117, %if.else21, %if.else14
-  %.sink352 = phi i64 [ 512, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
+  %.sink367 = phi i64 [ 512, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
   %41 = load i64, ptr %this, align 8
-  %add20 = add i64 %41, %.sink352
+  %add20 = add i64 %41, %.sink367
   store i64 %add20, ptr %this, align 8
   br label %for.inc
 
@@ -95342,10 +95342,10 @@ _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i43: ; preds = %for.body
   %or.cond.i.not102 = select i1 %cmp7.i.i46, i1 %cmp.i2.i48, i1 false
   %35 = load i32, ptr %arrayidx.i.i.i.i4.i, align 8
   %cmp4.i6.i50 = icmp sge i32 %35, %add6.i.i.i
-  %or.cond12.i.not101 = select i1 %or.cond.i.not102, i1 %cmp4.i6.i50, i1 false
+  %or.cond14.i.not101 = select i1 %or.cond.i.not102, i1 %cmp4.i6.i50, i1 false
   %36 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i53 = icmp sge i32 %36, %add10.i.i.i
-  %or.cond92 = select i1 %or.cond12.i.not101, i1 %cmp7.i10.i53, i1 false
+  %or.cond92 = select i1 %or.cond14.i.not101, i1 %cmp7.i10.i53, i1 false
   br i1 %or.cond92, label %if.then19, label %for.inc
 
 if.then19:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i43
@@ -106259,10 +106259,10 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE13cbeginValueOnEv.exit.thread: ; preds = %for.inc.i.i.i
   store ptr %node, ptr %iter, align 8, !alias.scope !1566
-  %mMaskIter.i.i.i.i328 = getelementptr inbounds nuw i8, ptr %iter, i64 8
-  store i32 32768, ptr %mMaskIter.i.i.i.i328, align 8, !alias.scope !1566
-  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329 = getelementptr inbounds nuw i8, ptr %iter, i64 16
-  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329, align 8, !alias.scope !1566
+  %mMaskIter.i.i.i.i343 = getelementptr inbounds nuw i8, ptr %iter, i64 8
+  store i32 32768, ptr %mMaskIter.i.i.i.i343, align 8, !alias.scope !1566
+  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344 = getelementptr inbounds nuw i8, ptr %iter, i64 16
+  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344, align 8, !alias.scope !1566
   br label %for.end
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE13cbeginValueOnEv.exit: ; preds = %land.rhs.i.i.i
@@ -106337,8 +106337,8 @@ if.then11:                                        ; preds = %if.else
   %cmp7.i.i.i = icmp sgt i32 %20, %23
   %or.cond = select i1 %cmp.i.i.i57, i1 true, i1 %cmp7.i.i.i
   %cmp12.i.i.i = icmp sgt i32 %21, %24
-  %or.cond351 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
-  br i1 %or.cond351, label %for.inc.sink.split, label %cond.false.i.i
+  %or.cond366 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
+  br i1 %or.cond366, label %for.inc.sink.split, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then11
   %reass.sub317 = sub i32 %22, %19
@@ -106397,9 +106397,9 @@ cond.false.i.i117:                                ; preds = %if.else21
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i, %if.then11, %cond.false.i.i117, %if.else21, %if.else14
-  %.sink352 = phi i64 [ 2097152, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
+  %.sink367 = phi i64 [ 2097152, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
   %41 = load i64, ptr %this, align 8
-  %add20 = add i64 %41, %.sink352
+  %add20 = add i64 %41, %.sink367
   store i64 %add20, ptr %this, align 8
   br label %for.inc
 
@@ -109043,10 +109043,10 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE13cbeginValueOnEv.exit.thread: ; preds = %for.inc.i.i.i
   store ptr %node, ptr %iter, align 8, !alias.scope !1608
-  %mMaskIter.i.i.i.i328 = getelementptr inbounds nuw i8, ptr %iter, i64 8
-  store i32 4096, ptr %mMaskIter.i.i.i.i328, align 8, !alias.scope !1608
-  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329 = getelementptr inbounds nuw i8, ptr %iter, i64 16
-  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329, align 8, !alias.scope !1608
+  %mMaskIter.i.i.i.i343 = getelementptr inbounds nuw i8, ptr %iter, i64 8
+  store i32 4096, ptr %mMaskIter.i.i.i.i343, align 8, !alias.scope !1608
+  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344 = getelementptr inbounds nuw i8, ptr %iter, i64 16
+  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344, align 8, !alias.scope !1608
   br label %for.end
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE13cbeginValueOnEv.exit: ; preds = %land.rhs.i.i.i
@@ -109121,8 +109121,8 @@ if.then11:                                        ; preds = %if.else
   %cmp7.i.i.i = icmp sgt i32 %20, %23
   %or.cond = select i1 %cmp.i.i.i57, i1 true, i1 %cmp7.i.i.i
   %cmp12.i.i.i = icmp sgt i32 %21, %24
-  %or.cond351 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
-  br i1 %or.cond351, label %for.inc.sink.split, label %cond.false.i.i
+  %or.cond366 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
+  br i1 %or.cond366, label %for.inc.sink.split, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then11
   %reass.sub317 = sub i32 %22, %19
@@ -109181,9 +109181,9 @@ cond.false.i.i117:                                ; preds = %if.else21
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i, %if.then11, %cond.false.i.i117, %if.else21, %if.else14
-  %.sink352 = phi i64 [ 512, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
+  %.sink367 = phi i64 [ 512, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
   %41 = load i64, ptr %this, align 8
-  %add20 = add i64 %41, %.sink352
+  %add20 = add i64 %41, %.sink367
   store i64 %add20, ptr %this, align 8
   br label %for.inc
 
@@ -111851,10 +111851,10 @@ _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i43: ; preds = %for.body
   %or.cond.i.not102 = select i1 %cmp7.i.i46, i1 %cmp.i2.i48, i1 false
   %35 = load i32, ptr %arrayidx.i.i.i.i4.i, align 8
   %cmp4.i6.i50 = icmp sge i32 %35, %add6.i.i.i
-  %or.cond12.i.not101 = select i1 %or.cond.i.not102, i1 %cmp4.i6.i50, i1 false
+  %or.cond14.i.not101 = select i1 %or.cond.i.not102, i1 %cmp4.i6.i50, i1 false
   %36 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i53 = icmp sge i32 %36, %add10.i.i.i
-  %or.cond92 = select i1 %or.cond12.i.not101, i1 %cmp7.i10.i53, i1 false
+  %or.cond92 = select i1 %or.cond14.i.not101, i1 %cmp7.i10.i53, i1 false
   br i1 %or.cond92, label %if.then19, label %for.inc
 
 if.then19:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i43
@@ -122768,10 +122768,10 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE13cbeginValueOnEv.exit.thread: ; preds = %for.inc.i.i.i
   store ptr %node, ptr %iter, align 8, !alias.scope !1828
-  %mMaskIter.i.i.i.i328 = getelementptr inbounds nuw i8, ptr %iter, i64 8
-  store i32 32768, ptr %mMaskIter.i.i.i.i328, align 8, !alias.scope !1828
-  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329 = getelementptr inbounds nuw i8, ptr %iter, i64 16
-  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329, align 8, !alias.scope !1828
+  %mMaskIter.i.i.i.i343 = getelementptr inbounds nuw i8, ptr %iter, i64 8
+  store i32 32768, ptr %mMaskIter.i.i.i.i343, align 8, !alias.scope !1828
+  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344 = getelementptr inbounds nuw i8, ptr %iter, i64 16
+  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344, align 8, !alias.scope !1828
   br label %for.end
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE13cbeginValueOnEv.exit: ; preds = %land.rhs.i.i.i
@@ -122846,8 +122846,8 @@ if.then11:                                        ; preds = %if.else
   %cmp7.i.i.i = icmp sgt i32 %20, %23
   %or.cond = select i1 %cmp.i.i.i57, i1 true, i1 %cmp7.i.i.i
   %cmp12.i.i.i = icmp sgt i32 %21, %24
-  %or.cond351 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
-  br i1 %or.cond351, label %for.inc.sink.split, label %cond.false.i.i
+  %or.cond366 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
+  br i1 %or.cond366, label %for.inc.sink.split, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then11
   %reass.sub317 = sub i32 %22, %19
@@ -122906,9 +122906,9 @@ cond.false.i.i117:                                ; preds = %if.else21
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i, %if.then11, %cond.false.i.i117, %if.else21, %if.else14
-  %.sink352 = phi i64 [ 2097152, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
+  %.sink367 = phi i64 [ 2097152, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
   %41 = load i64, ptr %this, align 8
-  %add20 = add i64 %41, %.sink352
+  %add20 = add i64 %41, %.sink367
   store i64 %add20, ptr %this, align 8
   br label %for.inc
 
@@ -125552,10 +125552,10 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE13cbeginValueOnEv.exit.thread: ; preds = %for.inc.i.i.i
   store ptr %node, ptr %iter, align 8, !alias.scope !1870
-  %mMaskIter.i.i.i.i328 = getelementptr inbounds nuw i8, ptr %iter, i64 8
-  store i32 4096, ptr %mMaskIter.i.i.i.i328, align 8, !alias.scope !1870
-  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329 = getelementptr inbounds nuw i8, ptr %iter, i64 16
-  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329, align 8, !alias.scope !1870
+  %mMaskIter.i.i.i.i343 = getelementptr inbounds nuw i8, ptr %iter, i64 8
+  store i32 4096, ptr %mMaskIter.i.i.i.i343, align 8, !alias.scope !1870
+  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344 = getelementptr inbounds nuw i8, ptr %iter, i64 16
+  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344, align 8, !alias.scope !1870
   br label %for.end
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE13cbeginValueOnEv.exit: ; preds = %land.rhs.i.i.i
@@ -125630,8 +125630,8 @@ if.then11:                                        ; preds = %if.else
   %cmp7.i.i.i = icmp sgt i32 %20, %23
   %or.cond = select i1 %cmp.i.i.i57, i1 true, i1 %cmp7.i.i.i
   %cmp12.i.i.i = icmp sgt i32 %21, %24
-  %or.cond351 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
-  br i1 %or.cond351, label %for.inc.sink.split, label %cond.false.i.i
+  %or.cond366 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
+  br i1 %or.cond366, label %for.inc.sink.split, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then11
   %reass.sub317 = sub i32 %22, %19
@@ -125690,9 +125690,9 @@ cond.false.i.i117:                                ; preds = %if.else21
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i, %if.then11, %cond.false.i.i117, %if.else21, %if.else14
-  %.sink352 = phi i64 [ 512, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
+  %.sink367 = phi i64 [ 512, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
   %41 = load i64, ptr %this, align 8
-  %add20 = add i64 %41, %.sink352
+  %add20 = add i64 %41, %.sink367
   store i64 %add20, ptr %this, align 8
   br label %for.inc
 
@@ -128360,10 +128360,10 @@ _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i43: ; preds = %for.body
   %or.cond.i.not102 = select i1 %cmp7.i.i46, i1 %cmp.i2.i48, i1 false
   %35 = load i32, ptr %arrayidx.i.i.i.i4.i, align 8
   %cmp4.i6.i50 = icmp sge i32 %35, %add6.i.i.i
-  %or.cond12.i.not101 = select i1 %or.cond.i.not102, i1 %cmp4.i6.i50, i1 false
+  %or.cond14.i.not101 = select i1 %or.cond.i.not102, i1 %cmp4.i6.i50, i1 false
   %36 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i53 = icmp sge i32 %36, %add10.i.i.i
-  %or.cond92 = select i1 %or.cond12.i.not101, i1 %cmp7.i10.i53, i1 false
+  %or.cond92 = select i1 %or.cond14.i.not101, i1 %cmp7.i10.i53, i1 false
   br i1 %or.cond92, label %if.then19, label %for.inc
 
 if.then19:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i43
@@ -139277,10 +139277,10 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE13cbeginValueOnEv.exit.thread: ; preds = %for.inc.i.i.i
   store ptr %node, ptr %iter, align 8, !alias.scope !2090
-  %mMaskIter.i.i.i.i328 = getelementptr inbounds nuw i8, ptr %iter, i64 8
-  store i32 32768, ptr %mMaskIter.i.i.i.i328, align 8, !alias.scope !2090
-  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329 = getelementptr inbounds nuw i8, ptr %iter, i64 16
-  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329, align 8, !alias.scope !2090
+  %mMaskIter.i.i.i.i343 = getelementptr inbounds nuw i8, ptr %iter, i64 8
+  store i32 32768, ptr %mMaskIter.i.i.i.i343, align 8, !alias.scope !2090
+  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344 = getelementptr inbounds nuw i8, ptr %iter, i64 16
+  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344, align 8, !alias.scope !2090
   br label %for.end
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE13cbeginValueOnEv.exit: ; preds = %land.rhs.i.i.i
@@ -139355,8 +139355,8 @@ if.then11:                                        ; preds = %if.else
   %cmp7.i.i.i = icmp sgt i32 %20, %23
   %or.cond = select i1 %cmp.i.i.i57, i1 true, i1 %cmp7.i.i.i
   %cmp12.i.i.i = icmp sgt i32 %21, %24
-  %or.cond351 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
-  br i1 %or.cond351, label %for.inc.sink.split, label %cond.false.i.i
+  %or.cond366 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
+  br i1 %or.cond366, label %for.inc.sink.split, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then11
   %reass.sub317 = sub i32 %22, %19
@@ -139415,9 +139415,9 @@ cond.false.i.i117:                                ; preds = %if.else21
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i, %if.then11, %cond.false.i.i117, %if.else21, %if.else14
-  %.sink352 = phi i64 [ 2097152, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
+  %.sink367 = phi i64 [ 2097152, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
   %41 = load i64, ptr %this, align 8
-  %add20 = add i64 %41, %.sink352
+  %add20 = add i64 %41, %.sink367
   store i64 %add20, ptr %this, align 8
   br label %for.inc
 
@@ -142061,10 +142061,10 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE13cbeginValueOnEv.exit.thread: ; preds = %for.inc.i.i.i
   store ptr %node, ptr %iter, align 8, !alias.scope !2132
-  %mMaskIter.i.i.i.i328 = getelementptr inbounds nuw i8, ptr %iter, i64 8
-  store i32 4096, ptr %mMaskIter.i.i.i.i328, align 8, !alias.scope !2132
-  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329 = getelementptr inbounds nuw i8, ptr %iter, i64 16
-  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329, align 8, !alias.scope !2132
+  %mMaskIter.i.i.i.i343 = getelementptr inbounds nuw i8, ptr %iter, i64 8
+  store i32 4096, ptr %mMaskIter.i.i.i.i343, align 8, !alias.scope !2132
+  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344 = getelementptr inbounds nuw i8, ptr %iter, i64 16
+  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344, align 8, !alias.scope !2132
   br label %for.end
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE13cbeginValueOnEv.exit: ; preds = %land.rhs.i.i.i
@@ -142139,8 +142139,8 @@ if.then11:                                        ; preds = %if.else
   %cmp7.i.i.i = icmp sgt i32 %20, %23
   %or.cond = select i1 %cmp.i.i.i57, i1 true, i1 %cmp7.i.i.i
   %cmp12.i.i.i = icmp sgt i32 %21, %24
-  %or.cond351 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
-  br i1 %or.cond351, label %for.inc.sink.split, label %cond.false.i.i
+  %or.cond366 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
+  br i1 %or.cond366, label %for.inc.sink.split, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then11
   %reass.sub317 = sub i32 %22, %19
@@ -142199,9 +142199,9 @@ cond.false.i.i117:                                ; preds = %if.else21
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i, %if.then11, %cond.false.i.i117, %if.else21, %if.else14
-  %.sink352 = phi i64 [ 512, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
+  %.sink367 = phi i64 [ 512, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
   %41 = load i64, ptr %this, align 8
-  %add20 = add i64 %41, %.sink352
+  %add20 = add i64 %41, %.sink367
   store i64 %add20, ptr %this, align 8
   br label %for.inc
 
@@ -144869,10 +144869,10 @@ _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i43: ; preds = %for.body
   %or.cond.i.not102 = select i1 %cmp7.i.i46, i1 %cmp.i2.i48, i1 false
   %35 = load i32, ptr %arrayidx.i.i.i.i4.i, align 8
   %cmp4.i6.i50 = icmp sge i32 %35, %add6.i.i.i
-  %or.cond12.i.not101 = select i1 %or.cond.i.not102, i1 %cmp4.i6.i50, i1 false
+  %or.cond14.i.not101 = select i1 %or.cond.i.not102, i1 %cmp4.i6.i50, i1 false
   %36 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i53 = icmp sge i32 %36, %add10.i.i.i
-  %or.cond92 = select i1 %or.cond12.i.not101, i1 %cmp7.i10.i53, i1 false
+  %or.cond92 = select i1 %or.cond14.i.not101, i1 %cmp7.i10.i53, i1 false
   br i1 %or.cond92, label %if.then19, label %for.inc
 
 if.then19:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i43
@@ -155786,10 +155786,10 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE13cbeginValueOnEv.exit.thread: ; preds = %for.inc.i.i.i
   store ptr %node, ptr %iter, align 8, !alias.scope !2352
-  %mMaskIter.i.i.i.i328 = getelementptr inbounds nuw i8, ptr %iter, i64 8
-  store i32 32768, ptr %mMaskIter.i.i.i.i328, align 8, !alias.scope !2352
-  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329 = getelementptr inbounds nuw i8, ptr %iter, i64 16
-  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329, align 8, !alias.scope !2352
+  %mMaskIter.i.i.i.i343 = getelementptr inbounds nuw i8, ptr %iter, i64 8
+  store i32 32768, ptr %mMaskIter.i.i.i.i343, align 8, !alias.scope !2352
+  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344 = getelementptr inbounds nuw i8, ptr %iter, i64 16
+  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344, align 8, !alias.scope !2352
   br label %for.end
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE13cbeginValueOnEv.exit: ; preds = %land.rhs.i.i.i
@@ -155864,8 +155864,8 @@ if.then11:                                        ; preds = %if.else
   %cmp7.i.i.i = icmp sgt i32 %20, %23
   %or.cond = select i1 %cmp.i.i.i57, i1 true, i1 %cmp7.i.i.i
   %cmp12.i.i.i = icmp sgt i32 %21, %24
-  %or.cond351 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
-  br i1 %or.cond351, label %for.inc.sink.split, label %cond.false.i.i
+  %or.cond366 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
+  br i1 %or.cond366, label %for.inc.sink.split, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then11
   %reass.sub317 = sub i32 %22, %19
@@ -155924,9 +155924,9 @@ cond.false.i.i117:                                ; preds = %if.else21
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i, %if.then11, %cond.false.i.i117, %if.else21, %if.else14
-  %.sink352 = phi i64 [ 2097152, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
+  %.sink367 = phi i64 [ 2097152, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
   %41 = load i64, ptr %this, align 8
-  %add20 = add i64 %41, %.sink352
+  %add20 = add i64 %41, %.sink367
   store i64 %add20, ptr %this, align 8
   br label %for.inc
 
@@ -158570,10 +158570,10 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE13cbeginValueOnEv.exit.thread: ; preds = %for.inc.i.i.i
   store ptr %node, ptr %iter, align 8, !alias.scope !2394
-  %mMaskIter.i.i.i.i328 = getelementptr inbounds nuw i8, ptr %iter, i64 8
-  store i32 4096, ptr %mMaskIter.i.i.i.i328, align 8, !alias.scope !2394
-  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329 = getelementptr inbounds nuw i8, ptr %iter, i64 16
-  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329, align 8, !alias.scope !2394
+  %mMaskIter.i.i.i.i343 = getelementptr inbounds nuw i8, ptr %iter, i64 8
+  store i32 4096, ptr %mMaskIter.i.i.i.i343, align 8, !alias.scope !2394
+  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344 = getelementptr inbounds nuw i8, ptr %iter, i64 16
+  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344, align 8, !alias.scope !2394
   br label %for.end
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE13cbeginValueOnEv.exit: ; preds = %land.rhs.i.i.i
@@ -158648,8 +158648,8 @@ if.then11:                                        ; preds = %if.else
   %cmp7.i.i.i = icmp sgt i32 %20, %23
   %or.cond = select i1 %cmp.i.i.i57, i1 true, i1 %cmp7.i.i.i
   %cmp12.i.i.i = icmp sgt i32 %21, %24
-  %or.cond351 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
-  br i1 %or.cond351, label %for.inc.sink.split, label %cond.false.i.i
+  %or.cond366 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
+  br i1 %or.cond366, label %for.inc.sink.split, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then11
   %reass.sub317 = sub i32 %22, %19
@@ -158708,9 +158708,9 @@ cond.false.i.i117:                                ; preds = %if.else21
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i, %if.then11, %cond.false.i.i117, %if.else21, %if.else14
-  %.sink352 = phi i64 [ 512, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
+  %.sink367 = phi i64 [ 512, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
   %41 = load i64, ptr %this, align 8
-  %add20 = add i64 %41, %.sink352
+  %add20 = add i64 %41, %.sink367
   store i64 %add20, ptr %this, align 8
   br label %for.inc
 
@@ -161378,10 +161378,10 @@ _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i43: ; preds = %for.body
   %or.cond.i.not102 = select i1 %cmp7.i.i46, i1 %cmp.i2.i48, i1 false
   %35 = load i32, ptr %arrayidx.i.i.i.i4.i, align 8
   %cmp4.i6.i50 = icmp sge i32 %35, %add6.i.i.i
-  %or.cond12.i.not101 = select i1 %or.cond.i.not102, i1 %cmp4.i6.i50, i1 false
+  %or.cond14.i.not101 = select i1 %or.cond.i.not102, i1 %cmp4.i6.i50, i1 false
   %36 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i53 = icmp sge i32 %36, %add10.i.i.i
-  %or.cond92 = select i1 %or.cond12.i.not101, i1 %cmp7.i10.i53, i1 false
+  %or.cond92 = select i1 %or.cond14.i.not101, i1 %cmp7.i10.i53, i1 false
   br i1 %or.cond92, label %if.then19, label %for.inc
 
 if.then19:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i43
@@ -172295,10 +172295,10 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE13cbeginValueOnEv.exit.thread: ; preds = %for.inc.i.i.i
   store ptr %node, ptr %iter, align 8, !alias.scope !2614
-  %mMaskIter.i.i.i.i328 = getelementptr inbounds nuw i8, ptr %iter, i64 8
-  store i32 32768, ptr %mMaskIter.i.i.i.i328, align 8, !alias.scope !2614
-  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329 = getelementptr inbounds nuw i8, ptr %iter, i64 16
-  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329, align 8, !alias.scope !2614
+  %mMaskIter.i.i.i.i343 = getelementptr inbounds nuw i8, ptr %iter, i64 8
+  store i32 32768, ptr %mMaskIter.i.i.i.i343, align 8, !alias.scope !2614
+  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344 = getelementptr inbounds nuw i8, ptr %iter, i64 16
+  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344, align 8, !alias.scope !2614
   br label %for.end
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE13cbeginValueOnEv.exit: ; preds = %land.rhs.i.i.i
@@ -172373,8 +172373,8 @@ if.then11:                                        ; preds = %if.else
   %cmp7.i.i.i = icmp sgt i32 %20, %23
   %or.cond = select i1 %cmp.i.i.i57, i1 true, i1 %cmp7.i.i.i
   %cmp12.i.i.i = icmp sgt i32 %21, %24
-  %or.cond351 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
-  br i1 %or.cond351, label %for.inc.sink.split, label %cond.false.i.i
+  %or.cond366 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
+  br i1 %or.cond366, label %for.inc.sink.split, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then11
   %reass.sub317 = sub i32 %22, %19
@@ -172433,9 +172433,9 @@ cond.false.i.i117:                                ; preds = %if.else21
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i, %if.then11, %cond.false.i.i117, %if.else21, %if.else14
-  %.sink352 = phi i64 [ 2097152, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
+  %.sink367 = phi i64 [ 2097152, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
   %41 = load i64, ptr %this, align 8
-  %add20 = add i64 %41, %.sink352
+  %add20 = add i64 %41, %.sink367
   store i64 %add20, ptr %this, align 8
   br label %for.inc
 
@@ -175079,10 +175079,10 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE13cbeginValueOnEv.exit.thread: ; preds = %for.inc.i.i.i
   store ptr %node, ptr %iter, align 8, !alias.scope !2656
-  %mMaskIter.i.i.i.i328 = getelementptr inbounds nuw i8, ptr %iter, i64 8
-  store i32 4096, ptr %mMaskIter.i.i.i.i328, align 8, !alias.scope !2656
-  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329 = getelementptr inbounds nuw i8, ptr %iter, i64 16
-  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i329, align 8, !alias.scope !2656
+  %mMaskIter.i.i.i.i343 = getelementptr inbounds nuw i8, ptr %iter, i64 8
+  store i32 4096, ptr %mMaskIter.i.i.i.i343, align 8, !alias.scope !2656
+  %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344 = getelementptr inbounds nuw i8, ptr %iter, i64 16
+  store ptr %mValueMask.i, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i344, align 8, !alias.scope !2656
   br label %for.end
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE13cbeginValueOnEv.exit: ; preds = %land.rhs.i.i.i
@@ -175157,8 +175157,8 @@ if.then11:                                        ; preds = %if.else
   %cmp7.i.i.i = icmp sgt i32 %20, %23
   %or.cond = select i1 %cmp.i.i.i57, i1 true, i1 %cmp7.i.i.i
   %cmp12.i.i.i = icmp sgt i32 %21, %24
-  %or.cond351 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
-  br i1 %or.cond351, label %for.inc.sink.split, label %cond.false.i.i
+  %or.cond366 = select i1 %or.cond, i1 true, i1 %cmp12.i.i.i
+  br i1 %or.cond366, label %for.inc.sink.split, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then11
   %reass.sub317 = sub i32 %22, %19
@@ -175217,9 +175217,9 @@ cond.false.i.i117:                                ; preds = %if.else21
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i, %if.then11, %cond.false.i.i117, %if.else21, %if.else14
-  %.sink352 = phi i64 [ 512, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
+  %.sink367 = phi i64 [ 512, %if.else14 ], [ %40, %cond.false.i.i117 ], [ 0, %if.else21 ], [ %29, %cond.false.i.i ], [ 0, %if.then11 ]
   %41 = load i64, ptr %this, align 8
-  %add20 = add i64 %41, %.sink352
+  %add20 = add i64 %41, %.sink367
   store i64 %add20, ptr %this, align 8
   br label %for.inc
 
@@ -177887,10 +177887,10 @@ _ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i43: ; preds = %for.body
   %or.cond.i.not102 = select i1 %cmp7.i.i46, i1 %cmp.i2.i48, i1 false
   %35 = load i32, ptr %arrayidx.i.i.i.i4.i, align 8
   %cmp4.i6.i50 = icmp sge i32 %35, %add6.i.i.i
-  %or.cond12.i.not101 = select i1 %or.cond.i.not102, i1 %cmp4.i6.i50, i1 false
+  %or.cond14.i.not101 = select i1 %or.cond.i.not102, i1 %cmp4.i6.i50, i1 false
   %36 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i53 = icmp sge i32 %36, %add10.i.i.i
-  %or.cond92 = select i1 %or.cond12.i.not101, i1 %cmp7.i10.i53, i1 false
+  %or.cond92 = select i1 %or.cond14.i.not101, i1 %cmp7.i10.i53, i1 false
   br i1 %or.cond92, label %if.then19, label %for.inc
 
 if.then19:                                        ; preds = %_ZN7openvdb5v11_04math5Coord8lessThanERKS2_S4_.exit.i43

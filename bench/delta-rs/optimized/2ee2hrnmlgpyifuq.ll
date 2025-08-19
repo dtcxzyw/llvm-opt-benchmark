@@ -977,7 +977,7 @@ default.unreachable:                              ; preds = %123, %67
   %190 = getelementptr inbounds nuw i8, ptr %15, i64 60
   %191 = load i32, ptr %190, align 4, !range !137, !noalias !145, !noundef !7
   %.not.i173 = icmp eq i32 %191, 1114112
-  br i1 %.not.i173, label %.sink.split353, label %192
+  br i1 %.not.i173, label %.sink.split366, label %192
 
 192:                                              ; preds = %.noexc178
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(72) %15, i64 72, i1 false), !noalias !145
@@ -1012,7 +1012,7 @@ default.unreachable:                              ; preds = %123, %67
 
 .thread334:                                       ; preds = %.noexc179, %195, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab1451b62b1c9f8aE.exit.i176"
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !145
-  br label %.sink.split353
+  br label %.sink.split366
 
 201:                                              ; preds = %182
   %.pr.pr = load i64, ptr %35, align 8, !alias.scope !154, !noalias !157
@@ -1027,8 +1027,8 @@ default.unreachable:                              ; preds = %123, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.invoke
 
-.invoke:                                          ; preds = %236, %.sink.split353, %201, %.sink.split
-  %203 = phi ptr [ @anon.e9aa4addaae35843cc997daa61b3cb56.53, %.sink.split ], [ @anon.e9aa4addaae35843cc997daa61b3cb56.53, %201 ], [ @anon.e9aa4addaae35843cc997daa61b3cb56.58, %.sink.split353 ], [ @anon.e9aa4addaae35843cc997daa61b3cb56.58, %236 ]
+.invoke:                                          ; preds = %236, %.sink.split366, %201, %.sink.split
+  %203 = phi ptr [ @anon.e9aa4addaae35843cc997daa61b3cb56.53, %.sink.split ], [ @anon.e9aa4addaae35843cc997daa61b3cb56.53, %201 ], [ @anon.e9aa4addaae35843cc997daa61b3cb56.58, %.sink.split366 ], [ @anon.e9aa4addaae35843cc997daa61b3cb56.58, %236 ]
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.e9aa4addaae35843cc997daa61b3cb56.27, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9aa4addaae35843cc997daa61b3cb56.28, ptr noalias noundef readonly align 8 dereferenceable(24) %203) #19
           to label %.cont unwind label %137
 
@@ -1154,7 +1154,7 @@ default.unreachable:                              ; preds = %123, %67
   %237 = icmp eq i64 %.pr.pr333, -9223372036854775808
   br i1 %237, label %.invoke, label %238
 
-.sink.split353:                                   ; preds = %.noexc178, %.thread334
+.sink.split366:                                   ; preds = %.noexc178, %.thread334
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !145
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.invoke
@@ -1399,7 +1399,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %274
   %303 = getelementptr inbounds nuw i8, ptr %10, i64 60
   %304 = load i32, ptr %303, align 4, !range !137, !noalias !231, !noundef !7
   %.not.i198 = icmp eq i32 %304, 1114112
-  br i1 %.not.i198, label %.sink.split354, label %305
+  br i1 %.not.i198, label %.sink.split367, label %305
 
 305:                                              ; preds = %.noexc203
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(72) %10, i64 72, i1 false), !noalias !231
@@ -1434,7 +1434,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %274
 
 .thread345:                                       ; preds = %.noexc204, %308, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab1451b62b1c9f8aE.exit.i201"
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !231
-  br label %.sink.split354
+  br label %.sink.split367
 
 314:                                              ; preds = %307
   %.pr.pr344 = load i64, ptr %45, align 8, !alias.scope !240, !noalias !243
@@ -1444,12 +1444,12 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %274
   %315 = icmp eq i64 %.pr.pr344, -9223372036854775808
   br i1 %315, label %316, label %317
 
-.sink.split354:                                   ; preds = %.noexc203, %.thread345
+.sink.split367:                                   ; preds = %.noexc203, %.thread345
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !231
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %316
 
-316:                                              ; preds = %.sink.split354, %314
+316:                                              ; preds = %.sink.split367, %314
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.e9aa4addaae35843cc997daa61b3cb56.27, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9aa4addaae35843cc997daa61b3cb56.28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9aa4addaae35843cc997daa61b3cb56.65) #19
           to label %.noexc unwind label %300
 

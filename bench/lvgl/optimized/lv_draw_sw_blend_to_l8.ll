@@ -107,8 +107,8 @@ define void @lv_draw_sw_blend_color_to_l8(ptr noundef readonly captures(none) %0
   %51 = zext i8 %48 to i16
   %52 = zext i32 %13 to i64
   %53 = icmp eq i8 %7, 0
-  %or.cond215 = select i1 %47, i1 true, i1 %53
-  br i1 %or.cond215, label %.loopexit, label %.preheader157.us.preheader
+  %or.cond226 = select i1 %47, i1 true, i1 %53
+  br i1 %or.cond226, label %.loopexit, label %.preheader157.us.preheader
 
 .preheader157.us.preheader:                       ; preds = %.preheader157.lr.ph
   %wide.trip.count202 = zext nneg i32 %3 to i64
@@ -1484,8 +1484,8 @@ blend_non_normal_pixel.exit.us.us.i44:            ; preds = %.sink.split.i.i.us.
   %570 = zext i32 %454 to i64
   %571 = zext i32 %458 to i64
   %572 = icmp eq i8 %451, 0
-  %or.cond272.i = select i1 %567, i1 true, i1 %572
-  br i1 %or.cond272.i, label %rgb565_image_blend.exit, label %.preheader152.us.preheader.i
+  %or.cond286.i = select i1 %567, i1 true, i1 %572
+  br i1 %or.cond286.i, label %rgb565_image_blend.exit, label %.preheader152.us.preheader.i
 
 .preheader152.us.preheader.i:                     ; preds = %.preheader152.lr.ph.i
   %wide.trip.count263.i = zext nneg i32 %447 to i64
@@ -2394,8 +2394,8 @@ lv_color_8_8_mix.exit.us.i145:                    ; preds = %lv_color_8_8_mix.ex
   %1003 = zext i32 %903 to i64
   %1004 = zext i32 %907 to i64
   %1005 = icmp eq i8 %900, 0
-  %or.cond268.i = select i1 %1000, i1 true, i1 %1005
-  br i1 %or.cond268.i, label %rgb565_image_blend.exit, label %.preheader169.us.preheader.i
+  %or.cond283.i = select i1 %1000, i1 true, i1 %1005
+  br i1 %or.cond283.i, label %rgb565_image_blend.exit, label %.preheader169.us.preheader.i
 
 .preheader169.us.preheader.i:                     ; preds = %.preheader169.lr.ph.i
   %wide.trip.count253.i = zext nneg i32 %896 to i64

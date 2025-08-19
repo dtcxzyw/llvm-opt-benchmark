@@ -103,7 +103,7 @@ _ZSt5countISt19_Bit_const_iteratorbENSt15iterator_traitsIT_E15difference_typeES2
 define hidden noundef ptr @_ZN4cvc58internal6theory11quantifiers9IndexTrie6addRecEPNS2_13IndexTrieNodeEmmRKSt6vectorIbSaIbEERKS6_INS0_12NodeTemplateILb1EEESaISC_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::pair", align 8
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %common.ret66, label %8
+  br i1 %.not, label %common.ret76, label %8
 
 8:                                                ; preds = %6
   %9 = icmp eq i64 %3, 0
@@ -111,7 +111,7 @@ define hidden noundef ptr @_ZN4cvc58internal6theory11quantifiers9IndexTrie6addRe
 
 10:                                               ; preds = %8
   tail call void @_ZN4cvc58internal6theory11quantifiers9IndexTrie7freeRecEPNS2_13IndexTrieNodeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1)
-  br label %common.ret66
+  br label %common.ret76
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr %4, align 8, !tbaa !3
@@ -139,16 +139,16 @@ define hidden noundef ptr @_ZN4cvc58internal6theory11quantifiers9IndexTrie6addRe
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false)
   br label %26
 
-common.ret66:                                     ; preds = %6, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory11quantifiers13IndexTrieNodeEED2Ev.exit, %10, %42, %26
-  %common.ret66.op = phi ptr [ %1, %26 ], [ %1, %42 ], [ null, %10 ], [ %1, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory11quantifiers13IndexTrieNodeEED2Ev.exit ], [ null, %6 ]
-  ret ptr %common.ret66.op
+common.ret76:                                     ; preds = %6, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory11quantifiers13IndexTrieNodeEED2Ev.exit, %10, %42, %26
+  %common.ret76.op = phi ptr [ %1, %26 ], [ %1, %42 ], [ null, %10 ], [ %1, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory11quantifiers13IndexTrieNodeEED2Ev.exit ], [ null, %6 ]
+  ret ptr %common.ret76.op
 
 26:                                               ; preds = %21, %24
   %27 = phi ptr [ %25, %24 ], [ %23, %21 ]
   %28 = add i64 %2, 1
   %29 = tail call noundef ptr @_ZN4cvc58internal6theory11quantifiers9IndexTrie6addRecEPNS2_13IndexTrieNodeEmmRKSt6vectorIbSaIbEERKS6_INS0_12NodeTemplateILb1EEESaISC_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %27, i64 noundef %28, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   store ptr %29, ptr %22, align 8, !tbaa !22
-  br label %common.ret66
+  br label %common.ret76
 
 30:                                               ; preds = %11
   %31 = load ptr, ptr %1, align 8, !tbaa !29
@@ -181,7 +181,7 @@ common.ret66:                                     ; preds = %6, %_ZNSt4pairIN4cv
   %46 = add i64 %3, -1
   %47 = tail call noundef ptr @_ZN4cvc58internal6theory11quantifiers9IndexTrie6addRecEPNS2_13IndexTrieNodeEmmRKSt6vectorIbSaIbEERKS6_INS0_12NodeTemplateILb1EEESaISC_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %44, i64 noundef %45, i64 noundef %46, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   store ptr %47, ptr %43, align 8, !tbaa !36
-  br label %common.ret66
+  br label %common.ret76
 
 ._crit_edge:                                      ; preds = %40, %30
   %48 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
@@ -304,7 +304,7 @@ _ZNSt6vectorISt4pairIN4cvc58internal12NodeTemplateILb1EEEPNS2_6theory11quantifie
 
 _ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory11quantifiers13IndexTrieNodeEED2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIN4cvc58internal12NodeTemplateILb1EEEPNS2_6theory11quantifiers13IndexTrieNodeEESaIS9_EE9push_backEOS9_.exit, %98, %104
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %common.ret66
+  br label %common.ret76
 
 108:                                              ; preds = %94, %88
   %109 = landingpad { ptr, i32 }

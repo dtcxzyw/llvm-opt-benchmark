@@ -35653,7 +35653,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3dap3anyESaIS1_EE17_M_default_
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPN3dap3anyEmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN3dap3anyEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 56
+  %19 = mul nuw nsw i64 %1, 56
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !79
@@ -61510,7 +61510,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3dap6SourceESaIS1_EE17_M_defau
           to label %_ZSt10_ConstructIN3dap6SourceEJEEvPT_DpOT0_.exit.i.i.i unwind label %21
 
 _ZSt10_ConstructIN3dap6SourceEJEEvPT_DpOT0_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
-  %19 = add i64 %.01013.i.i.i, -1
+  %19 = add nsw i64 %.01013.i.i.i, -1
   %20 = getelementptr inbounds nuw i8, ptr %.014.i.i.i, i64 304
   %.not.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN3dap6SourceEmS1_ET_S3_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !379
@@ -61583,7 +61583,7 @@ _ZNKSt6vectorIN3dap6SourceESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %32
           to label %_ZSt10_ConstructIN3dap6SourceEJEEvPT_DpOT0_.exit.i.i.i48 unwind label %42
 
 _ZSt10_ConstructIN3dap6SourceEJEEvPT_DpOT0_.exit.i.i.i48: ; preds = %.lr.ph.i.i.i40
-  %40 = add i64 %.01013.i.i.i42, -1
+  %40 = add nsw i64 %.01013.i.i.i42, -1
   %41 = getelementptr inbounds nuw i8, ptr %.014.i.i.i41, i64 304
   %.not.i.i.i49 = icmp eq i64 %40, 0
   br i1 %.not.i.i.i49, label %_ZSt27__uninitialized_default_n_aIPN3dap6SourceEmS1_ET_S3_T0_RSaIT1_E.exit51, label %.lr.ph.i.i.i40, !llvm.loop !379
@@ -75441,7 +75441,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3dap20ExceptionPathSegmentESaI
   br i1 %.not37, label %20, label %_ZSt27__uninitialized_default_n_aIPN3dap20ExceptionPathSegmentEmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN3dap20ExceptionPathSegmentEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 5
+  %19 = shl nuw nsw i64 %1, 5
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !300

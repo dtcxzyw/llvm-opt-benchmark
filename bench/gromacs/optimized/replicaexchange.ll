@@ -603,8 +603,8 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
   br i1 %or.cond318, label %.lr.ph279, label %._crit_edge274..loopexit254_crit_edge
 
 ._crit_edge274..loopexit254_crit_edge:            ; preds = %183, %._crit_edge274
-  %.lcssa266386 = phi i32 [ %192, %._crit_edge274 ], [ %188, %183 ]
-  %.pre381 = sext i32 %.lcssa266386 to i64
+  %.lcssa266401 = phi i32 [ %192, %._crit_edge274 ], [ %188, %183 ]
+  %.pre381 = sext i32 %.lcssa266401 to i64
   br label %.loopexit254
 
 .lr.ph279:                                        ; preds = %._crit_edge274
@@ -1391,9 +1391,9 @@ define internal fastcc noundef zeroext i1 @_ZL13repl_quantityPK14gmx_multisim_tP
   br i1 %exitcond36.not, label %.loopexit, label %.lr.ph31, !llvm.loop !187
 
 .loopexit:                                        ; preds = %.lr.ph31, %4, %22, %._crit_edge
-  %.022.lcssa38 = phi i1 [ true, %22 ], [ false, %._crit_edge ], [ false, %4 ], [ true, %.lr.ph31 ]
+  %.022.lcssa39 = phi i1 [ true, %22 ], [ false, %._crit_edge ], [ false, %4 ], [ true, %.lr.ph31 ]
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.1, i32 noundef 208, ptr noundef nonnull %7)
-  ret i1 %.022.lcssa38
+  ret i1 %.022.lcssa39
 }
 
 declare void @_Z11please_citeP8_IO_FILEPKc(ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -2107,9 +2107,9 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit.i:   ; preds = %28
   br label %common.resume.sink.split.i
 
 common.resume.sink.split.i:                       ; preds = %.sink.split.i284.i, %518, %.sink.split.i.i, %397
-  %.sink443.i = phi ptr [ %511, %.sink.split.i284.i ], [ %511, %518 ], [ %390, %.sink.split.i.i ], [ %390, %397 ]
+  %.sink471.i = phi ptr [ %511, %.sink.split.i284.i ], [ %511, %518 ], [ %390, %.sink.split.i.i ], [ %390, %397 ]
   %common.resume.op.ph.i = phi { ptr, i32 } [ %.pn.pn23.ph.i285.i, %.sink.split.i284.i ], [ %519, %518 ], [ %.pn.pn23.ph.i.i, %.sink.split.i.i ], [ %398, %397 ]
-  call void @__cxa_free_exception(ptr %.sink443.i) #23
+  call void @__cxa_free_exception(ptr %.sink471.i) #23
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %518, %common.resume.sink.split.i, %397
@@ -2721,9 +2721,9 @@ _ZL18print_allswitchindP8_IO_FILEiPiS1_S1_.exit.i: ; preds = %.lr.ph40.i.i, %._c
   %spec.select.i = or i1 %785, %788
   %789 = call fastcc noundef float @_ZL10calc_deltaP8_IO_FILEbP11gmx_repl_exiiii(ptr noundef %0, i1 noundef zeroext %spec.select.i, ptr noundef nonnull %3, i32 noundef %784, i32 noundef %787, i32 noundef %784, i32 noundef %787)
   %790 = fcmp ugt float %789, 0.000000e+00
-  br i1 %790, label %797, label %.thread431.i
+  br i1 %790, label %797, label %.thread459.i
 
-.thread431.i:                                     ; preds = %780
+.thread459.i:                                     ; preds = %780
   %791 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv416.i
   store float 1.000000e+00, ptr %791, align 4, !tbaa !133
   %792 = getelementptr inbounds nuw i8, ptr %61, i64 %indvars.iv416.i
@@ -2870,7 +2870,7 @@ _ZL18print_allswitchindP8_IO_FILEiPiS1_S1_.exit.i: ; preds = %.lr.ph40.i.i, %._c
   store float %904, ptr %902, align 4, !tbaa !133
   br i1 %898, label %905, label %917
 
-905:                                              ; preds = %889, %.thread431.i
+905:                                              ; preds = %889, %.thread459.i
   %906 = getelementptr inbounds i32, ptr %65, i64 %776
   %907 = load i32, ptr %906, align 4, !tbaa !148
   %908 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv416.i
@@ -3173,8 +3173,8 @@ _ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge61.i
   %1048 = load ptr, ptr @debug, align 8, !tbaa !134
-  %.not99.i.i = icmp eq ptr %1048, null
-  br i1 %.not99.i.i, label %_ZL22prepare_to_do_exchangeP11gmx_repl_exiPiPb.exit, label %._crit_edge79.i.i
+  %.not101.i.i = icmp eq ptr %1048, null
+  br i1 %.not101.i.i, label %_ZL22prepare_to_do_exchangeP11gmx_repl_exiPiPb.exit, label %._crit_edge79.i.i
 
 .lr.ph74.us.i.i:                                  ; preds = %._crit_edge.i.i62, %._crit_edge75.us.i.i
   %indvars.iv93.i.i = phi i64 [ %indvars.iv.next94.i.i, %._crit_edge75.us.i.i ], [ 0, %._crit_edge.i.i62 ]
@@ -3297,8 +3297,8 @@ _ZL20cyclic_decompositionPKiPPiPbiS1_.exit.i:     ; preds = %._crit_edge79.i.i, 
 
 ._crit_edge59.i.thread.i:                         ; preds = %._crit_edge.us.us.i.i
   %1096 = load ptr, ptr @debug, align 8, !tbaa !134
-  %.not.i4283.i = icmp eq ptr %1096, null
-  br i1 %.not.i4283.i, label %_ZL22compute_exchange_orderPPiS0_ii.exit.i, label %.lr.ph69.i.thread.i
+  %.not.i4294.i = icmp eq ptr %1096, null
+  br i1 %.not.i4294.i, label %_ZL22compute_exchange_orderPPiS0_ii.exit.i, label %.lr.ph69.i.thread.i
 
 .lr.ph69.i.thread.i:                              ; preds = %._crit_edge59.i.thread.i
   %1097 = call i64 @fwrite(ptr nonnull @.str.97, i64 23, i64 1, ptr nonnull %1096)
@@ -3396,7 +3396,7 @@ _ZL22compute_exchange_orderPPiS0_ii.exit.i:       ; preds = %._crit_edge70.i.i, 
 
 _ZL22prepare_to_do_exchangeP11gmx_repl_exiPiPb.exit: ; preds = %995, %1124, %._crit_edge.thread.i.i, %1128, %_ZL22compute_exchange_orderPPiS0_ii.exit.i, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit, %24
   %1129 = phi i8 [ 0, %24 ], [ 1, %1128 ], [ 0, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ 0, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ 0, %._crit_edge.thread.i.i ], [ 0, %1124 ], [ 0, %995 ]
-  %.074 = phi i32 [ 0, %24 ], [ %.2, %1128 ], [ %.2, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ 0, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ 0, %._crit_edge.thread.i.i ], [ %.2, %1124 ], [ 0, %995 ]
+  %.074 = phi i32 [ 0, %24 ], [ %.2, %1128 ], [ 0, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ 0, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ 0, %._crit_edge.thread.i.i ], [ %.2, %1124 ], [ 0, %995 ]
   %.044 = phi i32 [ 0, %24 ], [ %29, %1128 ], [ %29, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ %29, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ %29, %._crit_edge.thread.i.i ], [ %29, %1124 ], [ %29, %995 ]
   %1130 = getelementptr i8, ptr %1, i64 112
   %.val = load ptr, ptr %1130, align 8, !tbaa !257
@@ -3899,12 +3899,12 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.019, label %.sink.split62, label %37
+  br i1 %.019, label %.sink.split63, label %37
 
 .sink.split:                                      ; preds = %.thread, %.thread51
   %.pn39.pn50.ph = phi { ptr, i32 } [ %17, %.thread51 ], [ %16, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.sink.split62
+  br label %.sink.split63
 
 20:                                               ; preds = %2
   %21 = shl nuw i64 %1, 57
@@ -3945,13 +3945,13 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
 .thread54:                                        ; preds = %26
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split61
+  br label %.sink.split62
 
 .thread58:                                        ; preds = %28
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
-  br label %.sink.split61
+  br label %.sink.split62
 
 34:                                               ; preds = %29, %31
   %.0 = phi i1 [ false, %31 ], [ true, %29 ]
@@ -3962,24 +3962,24 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.0, label %.sink.split62, label %37
+  br i1 %.0, label %.sink.split63, label %37
 
-.sink.split61:                                    ; preds = %.thread54, %.thread58
+.sink.split62:                                    ; preds = %.thread54, %.thread58
   %.pn.pn57.ph = phi { ptr, i32 } [ %33, %.thread58 ], [ %32, %.thread54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split62
+  br label %.sink.split63
 
 36:                                               ; preds = %20
   ret void
 
-.sink.split62:                                    ; preds = %34, %.sink.split61, %18, %.sink.split
-  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %27, %.sink.split61 ], [ %27, %34 ]
-  %.pn39.pn.pn.ph = phi { ptr, i32 } [ %.pn39.pn50.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn57.ph, %.sink.split61 ], [ %35, %34 ]
+.sink.split63:                                    ; preds = %34, %.sink.split62, %18, %.sink.split
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %27, %.sink.split62 ], [ %27, %34 ]
+  %.pn39.pn.pn.ph = phi { ptr, i32 } [ %.pn39.pn50.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn57.ph, %.sink.split62 ], [ %35, %34 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %37
 
-37:                                               ; preds = %.sink.split62, %34, %18
-  %.pn39.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %35, %34 ], [ %.pn39.pn.pn.ph, %.sink.split62 ]
+37:                                               ; preds = %.sink.split63, %34, %18
+  %.pn39.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %35, %34 ], [ %.pn39.pn.pn.ph, %.sink.split63 ]
   resume { ptr, i32 } %.pn39.pn.pn
 
 38:                                               ; preds = %31, %15
@@ -4696,9 +4696,9 @@ _ZL11print_countP8_IO_FILEPKciPi.exit:            ; preds = %.lr.ph.i75, %_ZL9pr
   br label %103
 
 103:                                              ; preds = %.lr.ph103, %96
-  %.sink114 = phi float [ %102, %96 ], [ 0.000000e+00, %.lr.ph103 ]
+  %.sink125 = phi float [ %102, %96 ], [ 0.000000e+00, %.lr.ph103 ]
   %104 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv107
-  store float %.sink114, ptr %104, align 4, !tbaa !133
+  store float %.sink125, ptr %104, align 4, !tbaa !133
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
   br i1 %exitcond111.not, label %._crit_edge104, label %.lr.ph103, !llvm.loop !325

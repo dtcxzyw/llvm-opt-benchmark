@@ -243,8 +243,8 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL24repack_q4_0_to_q4_0_4_
   %.rhs.trunc.i = trunc nuw nsw i32 %1 to i8
   %38 = udiv i8 64, %.rhs.trunc.i
   %wide.trip.count.i.us = zext nneg i8 %38 to i64
-  %sext51 = shl i64 %19, 32
-  %39 = ashr exact i64 %sext51, 32
+  %sext54 = shl i64 %19, 32
+  %39 = ashr exact i64 %sext54, 32
   br label %.preheader38.us
 
 .preheader38.us:                                  ; preds = %._crit_edge.us, %.preheader38.lr.ph.split.us

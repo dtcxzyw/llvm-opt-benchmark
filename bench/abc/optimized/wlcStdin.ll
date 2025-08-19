@@ -206,8 +206,8 @@ Vec_StrFree.exit:                                 ; preds = %Wlc_ComputeSum.exit
   br i1 %60, label %.lr.ph76, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph76
-  %.not95 = icmp eq i64 %indvars.iv, 1
-  br i1 %.not95, label %Vec_StrReverseOrder.exit.thread, label %.lr.ph.i63.preheader
+  %.not101 = icmp eq i64 %indvars.iv, 1
+  br i1 %.not101, label %Vec_StrReverseOrder.exit.thread, label %.lr.ph.i63.preheader
 
 .lr.ph.i63.preheader:                             ; preds = %._crit_edge
   %61 = lshr i64 %indvars.iv, 1

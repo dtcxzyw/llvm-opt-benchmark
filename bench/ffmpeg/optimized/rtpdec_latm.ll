@@ -113,8 +113,8 @@ define internal range(i32 -2147483648, 2) i32 @latm_parse_packet(ptr noundef %0,
   %.promoted = load i32, ptr %34, align 8, !tbaa !32
   %smax = tail call i32 @llvm.smax.i32(i32 %.promoted, i32 %36)
   %wide.trip.count = sext i32 %smax to i64
-  %exitcond.not61.not = icmp slt i32 %.promoted, %36
-  br i1 %exitcond.not61.not, label %.lr.ph, label %._crit_edge64
+  %exitcond.not66.not = icmp slt i32 %.promoted, %36
+  br i1 %exitcond.not66.not, label %.lr.ph, label %._crit_edge69
 
 .lr.ph:                                           ; preds = %.preheader
   %37 = sext i32 %.promoted to i64
@@ -125,32 +125,32 @@ define internal range(i32 -2147483648, 2) i32 @latm_parse_packet(ptr noundef %0,
   br label %68
 
 39:                                               ; preds = %39, %.lr.ph
-  %.04863 = phi i32 [ 0, %.lr.ph ], [ %44, %39 ]
-  %indvars.iv62 = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %indvars.iv.next = add nsw i64 %indvars.iv62, 1
+  %.04868 = phi i32 [ 0, %.lr.ph ], [ %44, %39 ]
+  %indvars.iv67 = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next, %39 ]
+  %indvars.iv.next = add nsw i64 %indvars.iv67, 1
   %40 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %40, ptr %34, align 8, !tbaa !32
-  %41 = getelementptr inbounds i8, ptr %33, i64 %indvars.iv62
+  %41 = getelementptr inbounds i8, ptr %33, i64 %indvars.iv67
   %42 = load i8, ptr %41, align 1, !tbaa !34
   %43 = zext i8 %42 to i32
-  %44 = add nuw nsw i32 %.04863, %43
+  %44 = add nuw nsw i32 %.04868, %43
   %.not57 = icmp ne i8 %42, -1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %.not57, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge64, label %39
+  br i1 %or.cond, label %._crit_edge69, label %39
 
-._crit_edge64:                                    ; preds = %39, %.preheader
+._crit_edge69:                                    ; preds = %39, %.preheader
   %45 = phi i32 [ %.promoted, %.preheader ], [ %40, %39 ]
   %.1 = phi i32 [ 0, %.preheader ], [ %44, %39 ]
   %46 = add nsw i32 %45, %.1
   %47 = icmp sgt i32 %46, %36
   br i1 %47, label %48, label %49
 
-48:                                               ; preds = %._crit_edge64
+48:                                               ; preds = %._crit_edge69
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.7) #7
   br label %68
 
-49:                                               ; preds = %._crit_edge64
+49:                                               ; preds = %._crit_edge69
   %50 = tail call i32 @av_new_packet(ptr noundef %3, i32 noundef %.1) #7
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %68, label %52

@@ -1079,7 +1079,7 @@ define void @png_read_end(ptr noalias noundef %0, ptr noalias noundef %1) local_
   %42 = load i32, ptr %21, align 4, !tbaa !3
   %43 = or i32 %42, 8192
   store i32 %43, ptr %21, align 4, !tbaa !3
-  switch i32 %40, label %.thread57 [
+  switch i32 %40, label %.thread61 [
     i32 1229278788, label %44
     i32 1229472850, label %46
   ]
@@ -1098,10 +1098,10 @@ define void @png_read_end(ptr noalias noundef %0, ptr noalias noundef %1) local_
   %.not50 = icmp eq i32 %39, 0
   br i1 %.not49, label %66, label %51
 
-.thread57:                                        ; preds = %41
+.thread61:                                        ; preds = %41
   %50 = tail call i32 @png_chunk_unknown_handling(ptr noundef nonnull %0, i32 noundef %40) #12
-  %.not4958 = icmp eq i32 %50, 0
-  br i1 %.not4958, label %76, label %60
+  %.not4962 = icmp eq i32 %50, 0
+  br i1 %.not4962, label %76, label %60
 
 51:                                               ; preds = %48
   br i1 %.not50, label %55, label %52
@@ -1126,7 +1126,7 @@ define void @png_read_end(ptr noalias noundef %0, ptr noalias noundef %1) local_
   %59 = tail call i32 @png_handle_unknown(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %39, i32 noundef %49) #12
   br label %78
 
-60:                                               ; preds = %.thread57
+60:                                               ; preds = %.thread61
   %61 = tail call i32 @png_handle_unknown(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %39, i32 noundef %50) #12
   %62 = icmp eq i32 %40, 1347179589
   br i1 %62, label %63, label %78
@@ -1160,7 +1160,7 @@ define void @png_read_end(ptr noalias noundef %0, ptr noalias noundef %1) local_
   %75 = tail call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef %39) #12
   br label %78
 
-76:                                               ; preds = %.thread57
+76:                                               ; preds = %.thread61
   %77 = tail call i32 @png_handle_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %39) #12
   br label %78
 
@@ -3508,10 +3508,10 @@ png_colormap_compose.exit521:                     ; preds = %684, %690
   br label %742
 
 742:                                              ; preds = %725, %716
-  %.0.i522658 = phi i32 [ %721, %716 ], [ %739, %725 ]
+  %.0.i522673 = phi i32 [ %721, %716 ], [ %739, %725 ]
   %743 = phi i32 [ %724, %716 ], [ %741, %725 ]
   %744 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %744, i32 noundef %.0.i518, i32 noundef %.0.i520, i32 noundef %.0.i522658, i32 noundef %743, i32 noundef %12)
+  tail call fastcc void @png_create_colormap_entry(ptr noundef nonnull %0, i32 noundef %744, i32 noundef %.0.i518, i32 noundef %.0.i520, i32 noundef %.0.i522673, i32 noundef %743, i32 noundef %12)
   br label %762
 
 745:                                              ; preds = %636, %.lr.ph
@@ -4319,8 +4319,8 @@ png_read_update_info.exit:                        ; preds = %124, %125
   store ptr %.0170, ptr %176, align 8, !tbaa !184
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %spec.select230, ptr %177, align 8, !tbaa !185
-  %brmerge245.not = and i1 %.0154, %116
-  br i1 %brmerge245.not, label %.preheader, label %.loopexit235.sink.split
+  %brmerge246.not = and i1 %.0154, %116
+  br i1 %brmerge246.not, label %.preheader, label %.loopexit235.sink.split
 
 .preheader:                                       ; preds = %175
   %178 = icmp sgt i32 %.0160, 0
@@ -4455,7 +4455,7 @@ define internal fastcc void @png_create_colormap_entry(ptr noundef captures(none
 40:                                               ; preds = %38
   %41 = add i32 %35, -10000001
   %or.cond.i.i = icmp ult i32 %41, -9999001
-  br i1 %or.cond.i.i, label %set_file_encoding.exit.thread186, label %png_gamma_not_sRGB.exit.i
+  br i1 %or.cond.i.i, label %set_file_encoding.exit.thread189, label %png_gamma_not_sRGB.exit.i
 
 png_gamma_not_sRGB.exit.i:                        ; preds = %40
   %42 = mul nuw nsw i32 %35, 11
@@ -4463,7 +4463,7 @@ png_gamma_not_sRGB.exit.i:                        ; preds = %40
   %44 = udiv i32 %43, 5
   %45 = tail call i32 @png_gamma_significant(i32 noundef %44) #12
   %.not10.i = icmp eq i32 %45, 0
-  br i1 %.not10.i, label %set_file_encoding.exit.thread186, label %46
+  br i1 %.not10.i, label %set_file_encoding.exit.thread189, label %46
 
 46:                                               ; preds = %png_gamma_not_sRGB.exit.i
   store i32 3, ptr %29, align 8, !tbaa !200
@@ -4473,7 +4473,7 @@ png_gamma_not_sRGB.exit.i:                        ; preds = %40
   %.pre = load i32, ptr %29, align 8, !tbaa !200
   br label %set_file_encoding.exit
 
-set_file_encoding.exit.thread186:                 ; preds = %40, %png_gamma_not_sRGB.exit.i
+set_file_encoding.exit.thread189:                 ; preds = %40, %png_gamma_not_sRGB.exit.i
   store i32 1, ptr %29, align 8, !tbaa !200
   br label %114
 
@@ -4564,7 +4564,7 @@ set_file_encoding.exit:                           ; preds = %28, %46, %26
   %113 = mul nuw nsw i32 %5, 257
   br label %.thread
 
-114:                                              ; preds = %set_file_encoding.exit.thread186, %set_file_encoding.exit
+114:                                              ; preds = %set_file_encoding.exit.thread189, %set_file_encoding.exit
   %or.cond3 = or i1 %12, %21
   br i1 %or.cond3, label %115, label %.thread178
 
@@ -4715,7 +4715,7 @@ set_file_encoding.exit:                           ; preds = %28, %46, %26
 
 227:                                              ; preds = %214
   %228 = getelementptr inbounds nuw i16, ptr %222, i64 %226
-  switch i32 %223, label %default.unreachable184 [
+  switch i32 %223, label %default.unreachable187 [
     i32 3, label %229
     i32 2, label %233
     i32 1, label %258
@@ -4799,12 +4799,12 @@ set_file_encoding.exit:                           ; preds = %28, %46, %26
   store i16 %271, ptr %273, align 2, !tbaa !152
   br label %301
 
-default.unreachable184:                           ; preds = %274, %227
+default.unreachable187:                           ; preds = %274, %227
   unreachable
 
 274:                                              ; preds = %214
   %275 = getelementptr inbounds nuw i8, ptr %222, i64 %226
-  switch i32 %223, label %default.unreachable184 [
+  switch i32 %223, label %default.unreachable187 [
     i32 3, label %276
     i32 2, label %280
     i32 1, label %292
@@ -4896,7 +4896,7 @@ define internal fastcc range(i32 0, 16842496) i32 @decode_gamma(ptr noundef capt
 16:                                               ; preds = %9
   %17 = tail call i32 @png_gamma_significant(i32 noundef %13) #12
   %.not.i = icmp eq i32 %17, 0
-  br i1 %.not.i, label %.thread.thread15, label %18
+  br i1 %.not.i, label %.thread.thread17, label %18
 
 18:                                               ; preds = %16
   %19 = add i32 %13, -10000001
@@ -4923,7 +4923,7 @@ png_gamma_not_sRGB.exit.i:                        ; preds = %18
   store i32 1, ptr %6, align 8, !tbaa !200
   br label %33
 
-.thread.thread15:                                 ; preds = %16
+.thread.thread17:                                 ; preds = %16
   store i32 4, ptr %6, align 8, !tbaa !200
   br label %38
 
@@ -4951,7 +4951,7 @@ png_gamma_not_sRGB.exit.i:                        ; preds = %18
   %37 = zext i16 %36 to i32
   br label %44
 
-38:                                               ; preds = %.thread.thread15, %.thread
+38:                                               ; preds = %.thread.thread17, %.thread
   %39 = mul nuw nsw i32 %1, 257
   br label %44
 
@@ -5294,8 +5294,8 @@ define internal noundef i32 @png_image_read_and_map(ptr noundef readonly capture
   br label %186
 
 186:                                              ; preds = %153, %163, %155
-  %.sink164 = phi i8 [ %185, %163 ], [ %162, %155 ], [ -40, %153 ]
-  store i8 %.sink164, ptr %.3114136.us, align 1, !tbaa !44
+  %.sink175 = phi i8 [ %185, %163 ], [ %162, %155 ], [ -40, %153 ]
+  store i8 %.sink175, ptr %.3114136.us, align 1, !tbaa !44
   %187 = getelementptr inbounds nuw i8, ptr %.3118135.us, i64 4
   %188 = getelementptr inbounds nuw i8, ptr %.3114136.us, i64 %.0107
   %189 = icmp ult ptr %188, %148

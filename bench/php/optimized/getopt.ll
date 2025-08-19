@@ -51,7 +51,7 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
   %16 = getelementptr inbounds nuw i8, ptr %.pre, i64 1
   %17 = load i8, ptr %16, align 1, !tbaa !13
   %.not122 = icmp eq i8 %17, 0
-  br i1 %.not122, label %php_opt_error.exit131, label %.thread148
+  br i1 %.not122, label %php_opt_error.exit131, label %.thread154
 
 18:                                               ; preds = %12
   br i1 %13, label %19, label %._crit_edge143
@@ -62,13 +62,13 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
   %22 = icmp eq i8 %21, 45
   br i1 %22, label %26, label %._crit_edge143
 
-.thread148:                                       ; preds = %15
+.thread154:                                       ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %.pre, i64 1
   %24 = load i8, ptr %23, align 1, !tbaa !13
   %25 = icmp eq i8 %24, 45
   br i1 %25, label %26, label %78
 
-26:                                               ; preds = %.thread148, %19
+26:                                               ; preds = %.thread154, %19
   %27 = getelementptr inbounds nuw i8, ptr %.pre, i64 2
   %28 = load i8, ptr %27, align 1, !tbaa !13
   %29 = icmp eq i8 %28, 0
@@ -154,7 +154,7 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
   %.pre144 = load i32, ptr @php_getopt.optchr, align 4, !tbaa !4
   br label %79
 
-78:                                               ; preds = %.thread148
+78:                                               ; preds = %.thread154
   store i1 true, ptr @php_getopt.dash, align 4
   store i32 1, ptr @php_getopt.optchr, align 4, !tbaa !4
   br label %79
@@ -165,7 +165,7 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
   %82 = getelementptr inbounds i8, ptr %.pre, i64 %81
   %83 = load i8, ptr %82, align 1, !tbaa !13
   %84 = icmp eq i8 %83, 58
-  br i1 %84, label %85, label %.thread150
+  br i1 %84, label %85, label %.thread156
 
 85:                                               ; preds = %79
   store i1 false, ptr @php_getopt.dash, align 4
@@ -182,7 +182,7 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
   %92 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 11, i64 1, ptr %91) #6
   br label %php_opt_error.exit131
 
-.thread150:                                       ; preds = %79
+.thread156:                                       ; preds = %79
   %93 = add nsw i32 %80, 1
   %94 = sext i32 %80 to i64
   br label %97
@@ -195,8 +195,8 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
   %.pre145 = zext nneg i32 %58 to i64
   br label %.loopexit
 
-97:                                               ; preds = %.thread150, %127
-  %98 = phi i32 [ -1, %.thread150 ], [ %99, %127 ]
+97:                                               ; preds = %.thread156, %127
+  %98 = phi i32 [ -1, %.thread156 ], [ %99, %127 ]
   %99 = add nsw i32 %98, 1
   store i32 %99, ptr @php_optidx, align 4, !tbaa !4
   %100 = sext i32 %99 to i64
@@ -250,7 +250,7 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
   br i1 %130, label %.loopexit, label %97
 
 .loopexit:                                        ; preds = %127, %..loopexit_crit_edge
-  %.2152 = phi i32 [ %96, %..loopexit_crit_edge ], [ %93, %127 ]
+  %.2158 = phi i32 [ %96, %..loopexit_crit_edge ], [ %93, %127 ]
   %131 = phi i32 [ 0, %..loopexit_crit_edge ], [ %80, %127 ]
   %.pre-phi146 = phi i64 [ %.pre145, %..loopexit_crit_edge ], [ %100, %127 ]
   %132 = phi i32 [ %63, %..loopexit_crit_edge ], [ %104, %127 ]
@@ -264,7 +264,7 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
   %136 = sext i32 %132 to i64
   %137 = getelementptr inbounds ptr, ptr %1, i64 %136
   %138 = load ptr, ptr %137, align 8, !tbaa !11
-  %139 = sext i32 %.2152 to i64
+  %139 = sext i32 %.2158 to i64
   %140 = getelementptr inbounds i8, ptr %138, i64 %139
   %141 = load i8, ptr %140, align 1, !tbaa !13
   switch i8 %141, label %161 [
@@ -324,7 +324,7 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
   br label %php_opt_error.exit131
 
 169:                                              ; preds = %.loopexit
-  %170 = icmp sgt i32 %.2152, 1
+  %170 = icmp sgt i32 %.2158, 1
   br i1 %170, label %171, label %189
 
 171:                                              ; preds = %169

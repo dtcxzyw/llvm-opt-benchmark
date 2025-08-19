@@ -151,9 +151,9 @@ define noundef range(i32 0, 10) i32 @_Z22alts_counter_incrementP12alts_counterPb
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %.preheader
-  %.29 = phi i8 [ 1, %.preheader ], [ %., %._crit_edge ]
+  %.33 = phi i8 [ 1, %.preheader ], [ %., %._crit_edge ]
   %27 = phi i32 [ 9, %.preheader ], [ %spec.select, %._crit_edge ]
-  store i8 %.29, ptr %1, align 1, !tbaa !18
+  store i8 %.33, ptr %1, align 1, !tbaa !18
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
 _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %14, %13, %6, %5, %._crit_edge.thread

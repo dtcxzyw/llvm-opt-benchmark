@@ -567,14 +567,14 @@ get_sample_rate.exit104:                          ; preds = %304, %317
   br label %371
 
 .loopexit.thread:                                 ; preds = %352, %get_object_type.exit100, %.thread108, %.preheader, %.loopexit
-  %.pr113159 = phi i32 [ %.pr113, %.loopexit ], [ %.pr113134, %.thread108 ], [ %.pr113134, %.preheader ], [ %.pr113136, %get_object_type.exit100 ], [ %.pr113134, %352 ]
+  %.pr113169 = phi i32 [ %.pr113, %.loopexit ], [ %.pr113134, %.thread108 ], [ %.pr113134, %.preheader ], [ %.pr113136, %get_object_type.exit100 ], [ %.pr113134, %352 ]
   %357 = phi i32 [ %238, %.loopexit ], [ %238, %.thread108 ], [ %238, %.preheader ], [ %81, %get_object_type.exit100 ], [ %238, %352 ]
   %358 = phi i32 [ %158, %.loopexit ], [ %158, %.thread108 ], [ %158, %.preheader ], [ %137, %get_object_type.exit100 ], [ %158, %352 ]
-  %.074148158 = phi i32 [ %.074, %.loopexit ], [ %.074, %.thread108 ], [ %.074, %.preheader ], [ %139, %get_object_type.exit100 ], [ %.074, %352 ]
-  %359 = icmp ne i32 %.pr113159, -1
+  %.074158168 = phi i32 [ %.074, %.loopexit ], [ %.074, %.thread108 ], [ %.074, %.preheader ], [ %139, %get_object_type.exit100 ], [ %.074, %352 ]
+  %359 = icmp ne i32 %.pr113169, -1
   %.not82 = icmp eq i32 %358, 2
-  %or.cond166 = or i1 %359, %.not82
-  br i1 %or.cond166, label %371, label %.thread
+  %or.cond176 = or i1 %359, %.not82
+  br i1 %or.cond176, label %371, label %.thread
 
 .loopexit.thread.thread:                          ; preds = %get_object_type.exit100
   %360 = lshr i32 %139, 3
@@ -594,18 +594,18 @@ get_sample_rate.exit104:                          ; preds = %304, %317
 
 371:                                              ; preds = %.loopexit.thread.thread, %.thread114, %.loopexit.thread
   %372 = phi i32 [ %238, %.thread114 ], [ %357, %.loopexit.thread ], [ %81, %.loopexit.thread.thread ]
-  %.074148157 = phi i32 [ %.074, %.thread114 ], [ %.074148158, %.loopexit.thread ], [ %369, %.loopexit.thread.thread ]
+  %.074158167 = phi i32 [ %.074, %.thread114 ], [ %.074158168, %.loopexit.thread ], [ %369, %.loopexit.thread.thread ]
   %.not83 = icmp ult i32 %372, 2
   br i1 %.not83, label %373, label %.thread
 
 .thread:                                          ; preds = %.loopexit.thread, %.loopexit.thread.thread, %371
-  %.074148155 = phi i32 [ %.074148157, %371 ], [ %369, %.loopexit.thread.thread ], [ %.074148158, %.loopexit.thread ]
+  %.074158165 = phi i32 [ %.074158167, %371 ], [ %369, %.loopexit.thread.thread ], [ %.074158168, %.loopexit.thread ]
   store i32 0, ptr %84, align 4, !tbaa !21
   br label %373
 
 373:                                              ; preds = %.thread, %371
-  %.074148156 = phi i32 [ %.074148155, %.thread ], [ %.074148157, %371 ]
-  %374 = sub nsw i32 %.074148156, %.val
+  %.074158166 = phi i32 [ %.074158165, %.thread ], [ %.074158167, %371 ]
+  %374 = sub nsw i32 %.074158166, %.val
   br label %parse_config_ALS.exit.thread
 
 parse_config_ALS.exit.thread:                     ; preds = %177, %173, %222, %373, %85

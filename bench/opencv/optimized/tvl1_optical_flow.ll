@@ -1420,7 +1420,7 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
   br i1 %exitcond66.not, label %.preheader.lr.ph, label %.preheader50.us, !llvm.loop !79
 
 .preheader.lr.ph:                                 ; preds = %._crit_edge.us, %.preheader50.lr.ph
-  %.045.lcssa75 = phi float [ 1.000000e+00, %.preheader50.lr.ph ], [ %.2.us, %._crit_edge.us ]
+  %.045.lcssa78 = phi float [ 1.000000e+00, %.preheader50.lr.ph ], [ %.2.us, %._crit_edge.us ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1479,8 +1479,8 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
 
 69:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %70 = fdiv float %.sroa.0.0.vec.extract.i40, %.045.lcssa75
-  %71 = fdiv float %.sroa.0.4.vec.extract.i41, %.045.lcssa75
+  %70 = fdiv float %.sroa.0.0.vec.extract.i40, %.045.lcssa78
+  %71 = fdiv float %.sroa.0.4.vec.extract.i41, %.045.lcssa78
   call void @llvm.experimental.noalias.scope.decl(metadata !84)
   %72 = load atomic i8, ptr @_ZGVZL12computeColorffE10colorWheel acquire, align 8, !noalias !84
   %73 = icmp eq i8 %72, 0

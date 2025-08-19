@@ -243,7 +243,7 @@ _ZL14TestOnlyDGivenv.exit.thread:                 ; preds = %21
           cleanup
   br label %106
 
-78:                                               ; preds = %.invoke33.i, %93, %87, %80, %72, %68
+78:                                               ; preds = %.invoke34.i, %93, %87, %80, %72, %68
   %79 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #13
@@ -272,7 +272,7 @@ _ZL14TestOnlyDGivenv.exit.thread:                 ; preds = %21
 90:                                               ; preds = %89
   %91 = load ptr, ptr @stderr, align 8, !tbaa !13
   %92 = call i64 @fwrite(ptr nonnull @.str.11, i64 41, i64 1, ptr %91) #12
-  br label %.invoke33.i
+  br label %.invoke34.i
 
 93:                                               ; preds = %89
   %94 = load i32, ptr %12, align 4, !tbaa !6
@@ -287,15 +287,15 @@ _ZL14TestOnlyDGivenv.exit.thread:                 ; preds = %21
 98:                                               ; preds = %97
   %99 = load ptr, ptr @stderr, align 8, !tbaa !13
   %100 = call i64 @fwrite(ptr nonnull @.str.12, i64 70, i64 1, ptr %99) #12
-  br label %.invoke33.i
+  br label %.invoke34.i
 
-.invoke33.i:                                      ; preds = %98, %90
+.invoke34.i:                                      ; preds = %98, %90
   %101 = load ptr, ptr @stderr, align 8, !tbaa !13
   invoke void @ERR_print_errors_fp(ptr noundef %101)
           to label %102 unwind label %78
 
-102:                                              ; preds = %.invoke33.i, %97, %85, %75, %71
-  %.27.ph.i = phi i1 [ true, %97 ], [ false, %85 ], [ false, %71 ], [ false, %75 ], [ false, %.invoke33.i ]
+102:                                              ; preds = %.invoke34.i, %97, %85, %75, %71
+  %.27.ph.i = phi i1 [ true, %97 ], [ false, %85 ], [ false, %71 ], [ false, %75 ], [ false, %.invoke34.i ]
   invoke void @RSA_free(ptr noundef nonnull %66)
           to label %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit.i unwind label %103
 
@@ -577,9 +577,9 @@ _ZL20TestRecoverCRTParamsv.exit.thread:           ; preds = %114
 199:                                              ; preds = %198
   %200 = load ptr, ptr @stderr, align 8, !tbaa !13
   %201 = call i64 @fwrite(ptr nonnull @.str.17, i64 36, i64 1, ptr %200) #12
-  br label %.invoke99.i
+  br label %.invoke105.i
 
-.invoke99.i:                                      ; preds = %210, %199
+.invoke105.i:                                     ; preds = %210, %199
   %202 = load ptr, ptr @stderr, align 8, !tbaa !13
   invoke void @ERR_print_errors_fp(ptr noundef %202)
           to label %.critedge42.i unwind label %.loopexit.split-lp74.i
@@ -589,7 +589,7 @@ _ZL20TestRecoverCRTParamsv.exit.thread:           ; preds = %114
           cleanup
   br label %203
 
-.loopexit.split-lp74.i:                           ; preds = %.invoke99.i
+.loopexit.split-lp74.i:                           ; preds = %.invoke105.i
   %lpad.loopexit.split-lp76.i = landingpad { ptr, i32 }
           cleanup
   br label %203
@@ -613,7 +613,7 @@ _ZL20TestRecoverCRTParamsv.exit.thread:           ; preds = %114
 210:                                              ; preds = %209
   %211 = load ptr, ptr @stderr, align 8, !tbaa !13
   %212 = call i64 @fwrite(ptr nonnull @.str.18, i64 38, i64 1, ptr %211) #12
-  br label %.invoke99.i
+  br label %.invoke105.i
 
 213:                                              ; preds = %209
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -683,8 +683,8 @@ _ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit.i5: ; 
   br i1 %.not.i45.i, label %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit46.i, label %.critedge38.thread.i
 
 .critedge38.thread.i:                             ; preds = %.critedge38.i, %170, %164
-  %.pr98.i = phi ptr [ %.pr.pre.i, %.critedge38.i ], [ %165, %164 ], [ %165, %170 ]
-  invoke void @RSA_free(ptr noundef nonnull %.pr98.i)
+  %.pr104.i = phi ptr [ %.pr.pre.i, %.critedge38.i ], [ %165, %164 ], [ %165, %170 ]
+  invoke void @RSA_free(ptr noundef nonnull %.pr104.i)
           to label %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit46.i unwind label %229
 
 229:                                              ; preds = %.critedge38.thread.i
@@ -746,7 +746,7 @@ _ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit50.i: ;
   call void @__clang_call_terminate(ptr %246) #14
   unreachable
 
-.critedge42.i:                                    ; preds = %.invoke99.i
+.critedge42.i:                                    ; preds = %.invoke105.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -888,7 +888,7 @@ _ZL10TestBadKeyv.exit.thread:                     ; preds = %thread-pre-split.i
   br label %309
 
 thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i, %287, %284, %.invoke.i11, %259
-  %.0321.i = phi i1 [ false, %thread-pre-split.i ], [ false, %284 ], [ false, %259 ], [ true, %287 ], [ false, %.invoke.i11 ]
+  %.0322.i = phi i1 [ false, %thread-pre-split.i ], [ false, %284 ], [ false, %259 ], [ true, %287 ], [ false, %.invoke.i11 ]
   invoke void @BN_free(ptr noundef nonnull %254)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i unwind label %288
 
@@ -904,7 +904,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i: ;
   br i1 %.not17.i, label %_ZL10TestBadKeyv.exit, label %291
 
 291:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread.i
-  %.031115.i = phi i1 [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread.i ], [ %.0321.i, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i ]
+  %.031115.i = phi i1 [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread.i ], [ %.0322.i, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i ]
   invoke void @RSA_free(ptr noundef nonnull %253)
           to label %_ZL10TestBadKeyv.exit unwind label %292
 
@@ -923,7 +923,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i: ;
   br label %common.resume
 
 _ZL10TestBadKeyv.exit:                            ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i, %291
-  %.031116.i = phi i1 [ %.0321.i, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i ], [ %.031115.i, %291 ]
+  %.031116.i = phi i1 [ %.0322.i, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i ], [ %.031115.i, %291 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.031116.i, label %296, label %309
 
@@ -1323,9 +1323,9 @@ define internal fastcc noundef zeroext i1 @_ZL17TestMultiPrimeKeyiPKhmS0_m(i32 n
   unreachable
 
 _ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit: ; preds = %10, %37
-  %.01016 = phi i1 [ %.010.ph, %37 ], [ false, %10 ]
+  %.01017 = phi i1 [ %.010.ph, %37 ], [ false, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i1 %.01016
+  ret i1 %.01017
 
 41:                                               ; preds = %34, %14
   %.pn = phi { ptr, i32 } [ %35, %34 ], [ %15, %14 ]
@@ -1430,7 +1430,7 @@ define internal fastcc noundef zeroext i1 @_ZL20TestMultiPrimeKeygenv() unnamed_
   br i1 %.not.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %.thread
 
 .thread:                                          ; preds = %31, %38
-  %.0414 = phi i1 [ false, %38 ], [ true, %31 ]
+  %.0416 = phi i1 [ false, %38 ], [ true, %31 ]
   invoke void @BN_free(ptr noundef nonnull %8)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %39
 
@@ -1442,7 +1442,7 @@ define internal fastcc noundef zeroext i1 @_ZL20TestMultiPrimeKeygenv() unnamed_
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %38, %.thread
-  %.0415 = phi i1 [ false, %38 ], [ %.0414, %.thread ]
+  %.0417 = phi i1 [ false, %38 ], [ %.0416, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i10 = icmp eq ptr %7, null
   br i1 %.not.i10, label %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit, label %42
@@ -1464,7 +1464,7 @@ _ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit: ; pre
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret i1 %.0415
+  ret i1 %.0417
 
 46:                                               ; preds = %36, %34
   %.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]

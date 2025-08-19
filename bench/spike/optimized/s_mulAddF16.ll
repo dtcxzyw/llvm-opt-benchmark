@@ -337,10 +337,10 @@ softfloat_shiftRightJam32.exit180:                ; preds = %153, %155
   br label %212
 
 203:                                              ; preds = %33, %28
-  %.sink183 = phi i64 [ %9, %28 ], [ %5, %33 ]
-  %.sink182 = phi i64 [ %12, %28 ], [ %8, %33 ]
-  %204 = and i64 %.sink183, 31
-  %205 = or i64 %204, %.sink182
+  %.sink194 = phi i64 [ %9, %28 ], [ %5, %33 ]
+  %.sink193 = phi i64 [ %12, %28 ], [ %8, %33 ]
+  %204 = and i64 %.sink194, 31
+  %205 = or i64 %204, %.sink193
   %.not174 = icmp eq i64 %205, 0
   br i1 %.not174, label %211, label %206
 

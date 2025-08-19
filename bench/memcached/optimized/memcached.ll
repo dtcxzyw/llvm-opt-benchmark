@@ -1187,9 +1187,9 @@ update_event.exit.thread:                         ; preds = %rbuf_release.exit, 
   %174 = call ptr @do_cache_alloc(ptr noundef %173) #34
   store ptr %174, ptr %38, align 8, !tbaa !41
   %.not.i209 = icmp eq ptr %174, null
-  br i1 %.not.i209, label %175, label %.thread431
+  br i1 %.not.i209, label %175, label %.thread498
 
-.thread431:                                       ; preds = %170
+.thread498:                                       ; preds = %170
   store i32 16384, ptr %39, align 8, !tbaa !10
   br label %.sink.split
 
@@ -1242,8 +1242,8 @@ update_event.exit.thread:                         ; preds = %rbuf_release.exit, 
   %.pre.i = load ptr, ptr %38, align 8, !tbaa !41
   br label %.sink.split
 
-.sink.split:                                      ; preds = %198, %201, %.thread431
-  %.sink = phi ptr [ %174, %.thread431 ], [ %.pre.i, %201 ], [ %168, %198 ]
+.sink.split:                                      ; preds = %198, %201, %.thread498
+  %.sink = phi ptr [ %174, %.thread498 ], [ %.pre.i, %201 ], [ %168, %198 ]
   store ptr %.sink, ptr %41, align 8, !tbaa !28
   br label %.preheader
 
@@ -1782,7 +1782,7 @@ update_event.exit228.thread297:                   ; preds = %453, %update_event.
 486:                                              ; preds = %484
   %487 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !49
   %.not198 = icmp eq i32 %487, 0
-  br i1 %.not198, label %.thread435, label %488
+  br i1 %.not198, label %.thread502, label %488
 
 488:                                              ; preds = %486
   %489 = load ptr, ptr @stderr, align 8, !tbaa !50
@@ -1794,7 +1794,7 @@ update_event.exit228.thread297:                   ; preds = %453, %update_event.
 491:                                              ; preds = %488
   %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !49
   %492 = icmp sgt i32 %.pr, 2
-  br i1 %492, label %493, label %.thread435
+  br i1 %492, label %493, label %.thread502
 
 493:                                              ; preds = %491
   %494 = load ptr, ptr @stderr, align 8, !tbaa !50
@@ -1803,9 +1803,9 @@ update_event.exit228.thread297:                   ; preds = %453, %update_event.
   %497 = getelementptr inbounds nuw [15 x ptr], ptr @__const.state_text.statenames, i64 0, i64 %496
   %498 = load ptr, ptr %497, align 8, !tbaa !55
   %499 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %494, ptr noundef nonnull @.str.15, i32 noundef %495, ptr noundef %498, ptr noundef nonnull @.str.375) #36
-  br label %.thread435
+  br label %.thread502
 
-.thread435:                                       ; preds = %486, %493, %491
+.thread502:                                       ; preds = %486, %493, %491
   store i32 8, ptr %10, align 8, !tbaa !48
   br label %.lr.ph.backedge
 
@@ -1820,7 +1820,7 @@ update_event.exit228.thread297:                   ; preds = %453, %update_event.
   %506 = load i16, ptr %505, align 2, !tbaa !87
   %507 = and i16 %506, 32
   %508 = icmp eq i16 %507, 0
-  br i1 %508, label %509, label %thread-pre-split105.i
+  br i1 %508, label %509, label %thread-pre-split113.i
 
 509:                                              ; preds = %503, %500
   %510 = load i32, ptr %36, align 4, !tbaa !29
@@ -1888,15 +1888,15 @@ update_event.exit228.thread297:                   ; preds = %453, %update_event.
   store i32 %551, ptr %42, align 8, !tbaa !86
   br label %.lr.ph.backedge
 
-thread-pre-split105.i:                            ; preds = %503, %563
+thread-pre-split113.i:                            ; preds = %503, %563
   %.0.ph.i = phi i32 [ %.0.i233378, %563 ], [ 0, %503 ]
-  %.pr106.i = load i32, ptr %42, align 8, !tbaa !86
-  %552 = icmp sgt i32 %.pr106.i, 0
+  %.pr114.i = load i32, ptr %42, align 8, !tbaa !86
+  %552 = icmp sgt i32 %.pr114.i, 0
   br i1 %552, label %.lr.ph379, label %.loopexit.i
 
-.lr.ph379:                                        ; preds = %thread-pre-split105.i, %.backedge.i
-  %.0.i233378 = phi i32 [ %.0.be.i, %.backedge.i ], [ %.0.ph.i, %thread-pre-split105.i ]
-  %553 = phi i32 [ %.be.i, %.backedge.i ], [ %.pr106.i, %thread-pre-split105.i ]
+.lr.ph379:                                        ; preds = %thread-pre-split113.i, %.backedge.i
+  %.0.i233378 = phi i32 [ %.0.be.i, %.backedge.i ], [ %.0.ph.i, %thread-pre-split113.i ]
+  %553 = phi i32 [ %.be.i, %.backedge.i ], [ %.pr114.i, %thread-pre-split113.i ]
   %554 = load ptr, ptr %45, align 8, !tbaa !88
   %555 = getelementptr inbounds nuw i8, ptr %554, i64 24
   %556 = load i32, ptr %555, align 8, !tbaa !8
@@ -1923,7 +1923,7 @@ thread-pre-split105.i:                            ; preds = %503, %563
   %569 = call ptr @do_item_alloc_chunk(ptr noundef nonnull %554, i64 noundef %568) #34
   store ptr %569, ptr %45, align 8, !tbaa !88
   %.not84.i = icmp eq ptr %569, null
-  br i1 %.not84.i, label %thread-pre-split.i, label %thread-pre-split105.i
+  br i1 %.not84.i, label %thread-pre-split.i, label %thread-pre-split113.i
 
 570:                                              ; preds = %562, %.lr.ph379
   %571 = phi ptr [ %561, %562 ], [ %554, %.lr.ph379 ]
@@ -2016,9 +2016,9 @@ thread-pre-split.i:                               ; preds = %563, %608, %583
   %.pr.i = load i32, ptr %42, align 8, !tbaa !86
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %thread-pre-split105.i, %.backedge.i, %thread-pre-split.i
-  %619 = phi i32 [ %.pr.i, %thread-pre-split.i ], [ %.be.i, %.backedge.i ], [ %.pr106.i, %thread-pre-split105.i ]
-  %.1.i234 = phi i32 [ %.1.ph.i, %thread-pre-split.i ], [ %.0.be.i, %.backedge.i ], [ %.0.ph.i, %thread-pre-split105.i ]
+.loopexit.i:                                      ; preds = %thread-pre-split113.i, %.backedge.i, %thread-pre-split.i
+  %619 = phi i32 [ %.pr.i, %thread-pre-split.i ], [ %.be.i, %.backedge.i ], [ %.pr114.i, %thread-pre-split113.i ]
+  %.1.i234 = phi i32 [ %.1.ph.i, %thread-pre-split.i ], [ %.0.be.i, %.backedge.i ], [ %.0.ph.i, %thread-pre-split113.i ]
   %620 = icmp eq i32 %619, 0
   br i1 %620, label %621, label %read_into_chunked_item.exit
 
@@ -3031,8 +3031,8 @@ conn_set_state.exit272:                           ; preds = %1051, %1063
   store i32 9, ptr %10, align 8, !tbaa !48
   br label %.lr.ph.backedge
 
-.lr.ph.backedge:                                  ; preds = %58, %1138, %1092, %1080, %1073, %807, %795, %768, %756, %724, %713, %701, %649, %637, %.thread435, %488, %483, %482, %480, %476, %464, %436, %426, %415, %414, %403, %399, %387, %372, %361, %360, %349, %341, %try_read_network.exit.thread292, %329, %try_read_network.exit.thread289, %317, %try_read_network.exit.thread, %try_read_network.exit.thread294, %196, %175, %151, %139, %512, %1046, %conn_set_state.exit272, %read_into_chunked_item.exit, %342, %788, %742, %728, %conn_set_state.exit245, %669, %548, %92
-  %.0172.ph383.be = phi i32 [ %.0172.ph383, %92 ], [ %.0172.ph383, %342 ], [ %.0172.ph383, %548 ], [ %.0172.ph383, %669 ], [ %.0172.ph383, %conn_set_state.exit245 ], [ %.0172.ph383, %512 ], [ %.0172.ph383, %read_into_chunked_item.exit ], [ %.0172.ph383, %728 ], [ %.0172.ph383, %742 ], [ %.0172.ph383, %788 ], [ %.0172.ph383, %1046 ], [ %.0172.ph383, %conn_set_state.exit272 ], [ %.0172.ph383, %139 ], [ %.0172.ph383, %151 ], [ %.0172.ph383, %175 ], [ %.0172.ph383, %196 ], [ %.0172.ph383, %try_read_network.exit.thread294 ], [ %.0172.ph383, %try_read_network.exit.thread ], [ %.0172.ph383, %317 ], [ %.0172.ph383, %try_read_network.exit.thread289 ], [ %.0172.ph383, %329 ], [ %.0172.ph383, %try_read_network.exit.thread292 ], [ %.0172.ph383, %341 ], [ %.0172.ph383, %349 ], [ %.0172.ph383, %360 ], [ %.0172.ph383, %361 ], [ %.0172.ph383, %372 ], [ %374, %387 ], [ %374, %399 ], [ %374, %403 ], [ %374, %414 ], [ %374, %415 ], [ %374, %426 ], [ %374, %436 ], [ %374, %464 ], [ %374, %476 ], [ %.0172.ph383, %480 ], [ %.0172.ph383, %482 ], [ %.0172.ph383, %483 ], [ %.0172.ph383, %488 ], [ %.0172.ph383, %.thread435 ], [ %.0172.ph383, %637 ], [ %.0172.ph383, %649 ], [ %.0172.ph383, %701 ], [ %.0172.ph383, %713 ], [ %.0172.ph383, %724 ], [ %.0172.ph383, %756 ], [ %.0172.ph383, %768 ], [ %.0172.ph383, %795 ], [ %.0172.ph383, %807 ], [ %.0172.ph383, %1073 ], [ %.0172.ph383, %1080 ], [ %.0172.ph383, %1092 ], [ %.0172.ph383, %1138 ], [ %.0172.ph383, %58 ]
+.lr.ph.backedge:                                  ; preds = %58, %1138, %1092, %1080, %1073, %807, %795, %768, %756, %724, %713, %701, %649, %637, %.thread502, %488, %483, %482, %480, %476, %464, %436, %426, %415, %414, %403, %399, %387, %372, %361, %360, %349, %341, %try_read_network.exit.thread292, %329, %try_read_network.exit.thread289, %317, %try_read_network.exit.thread, %try_read_network.exit.thread294, %196, %175, %151, %139, %512, %1046, %conn_set_state.exit272, %read_into_chunked_item.exit, %342, %788, %742, %728, %conn_set_state.exit245, %669, %548, %92
+  %.0172.ph383.be = phi i32 [ %.0172.ph383, %92 ], [ %.0172.ph383, %342 ], [ %.0172.ph383, %548 ], [ %.0172.ph383, %669 ], [ %.0172.ph383, %conn_set_state.exit245 ], [ %.0172.ph383, %512 ], [ %.0172.ph383, %read_into_chunked_item.exit ], [ %.0172.ph383, %728 ], [ %.0172.ph383, %742 ], [ %.0172.ph383, %788 ], [ %.0172.ph383, %1046 ], [ %.0172.ph383, %conn_set_state.exit272 ], [ %.0172.ph383, %139 ], [ %.0172.ph383, %151 ], [ %.0172.ph383, %175 ], [ %.0172.ph383, %196 ], [ %.0172.ph383, %try_read_network.exit.thread294 ], [ %.0172.ph383, %try_read_network.exit.thread ], [ %.0172.ph383, %317 ], [ %.0172.ph383, %try_read_network.exit.thread289 ], [ %.0172.ph383, %329 ], [ %.0172.ph383, %try_read_network.exit.thread292 ], [ %.0172.ph383, %341 ], [ %.0172.ph383, %349 ], [ %.0172.ph383, %360 ], [ %.0172.ph383, %361 ], [ %.0172.ph383, %372 ], [ %374, %387 ], [ %374, %399 ], [ %374, %403 ], [ %374, %414 ], [ %374, %415 ], [ %374, %426 ], [ %374, %436 ], [ %374, %464 ], [ %374, %476 ], [ %.0172.ph383, %480 ], [ %.0172.ph383, %482 ], [ %.0172.ph383, %483 ], [ %.0172.ph383, %488 ], [ %.0172.ph383, %.thread502 ], [ %.0172.ph383, %637 ], [ %.0172.ph383, %649 ], [ %.0172.ph383, %701 ], [ %.0172.ph383, %713 ], [ %.0172.ph383, %724 ], [ %.0172.ph383, %756 ], [ %.0172.ph383, %768 ], [ %.0172.ph383, %795 ], [ %.0172.ph383, %807 ], [ %.0172.ph383, %1073 ], [ %.0172.ph383, %1080 ], [ %.0172.ph383, %1092 ], [ %.0172.ph383, %1138 ], [ %.0172.ph383, %58 ]
   br label %.lr.ph
 
 .outer._crit_edge:                                ; preds = %update_event.exit228, %437, %update_event.exit241, %update_event.exit253, %449, %654, %773, %1046, %58, %837, %84, %85, %74, %.critedge, %100, %conn_set_state.exit257, %1115, %update_event.exit.thread, %163, %825, %1099, %1102, %1114, %1117, %1130
@@ -4776,13 +4776,13 @@ define dso_local void @append_stats(ptr noundef %0, i16 noundef zeroext %1, ptr 
   br i1 %26, label %.lr.ph.i.preheader, label %._crit_edge.i
 
 .lr.ph.i.preheader:                               ; preds = %.thread, %25
-  %.0.i46 = phi i64 [ 1024, %.thread ], [ %16, %25 ]
+  %.0.i52 = phi i64 [ 1024, %.thread ], [ %16, %25 ]
   %27 = phi i64 [ 0, %.thread ], [ %18, %25 ]
   %28 = phi i64 [ 0, %.thread ], [ %16, %25 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.126.i = phi i64 [ %29, %.lr.ph.i ], [ %.0.i46, %.lr.ph.i.preheader ]
+  %.126.i = phi i64 [ %29, %.lr.ph.i ], [ %.0.i52, %.lr.ph.i.preheader ]
   %29 = shl i64 %.126.i, 1
   %30 = sub i64 %29, %27
   %31 = icmp ugt i64 %24, %30
@@ -9027,18 +9027,18 @@ start_conn_timeout_thread.exit:                   ; preds = %914
   %931 = load i64, ptr %930, align 8, !tbaa !356
   %932 = add i64 %931, %929
   %933 = sub i64 %925, %932
-  br label %.sink.split1734
+  br label %.sink.split1799
 
 934:                                              ; preds = %924
   %935 = add nsw i64 %925, -62
-  br label %.sink.split1734
+  br label %.sink.split1799
 
-.sink.split1734:                                  ; preds = %934, %926
+.sink.split1799:                                  ; preds = %934, %926
   %.sink = phi i64 [ %933, %926 ], [ %935, %934 ]
   store i64 %.sink, ptr @monotonic_start, align 8, !tbaa !4
   br label %936
 
-936:                                              ; preds = %.sink.split1734, %921
+936:                                              ; preds = %.sink.split1799, %921
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @clock_handler(i32 poison, i16 signext poison, ptr poison)
   %937 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 48), align 8, !tbaa !143
@@ -10360,11 +10360,11 @@ define internal fastcc range(i32 0, 2) i32 @server_sockets(i32 noundef range(i32
 sub_0thread-pre-split:                            ; preds = %77, %63, %71, %74, %49
   %.2163.ph = phi ptr [ %68, %77 ], [ %68, %63 ], [ %68, %71 ], [ %68, %74 ], [ %.1162, %49 ]
   %.0157.ph = phi i32 [ %50, %77 ], [ 3, %63 ], [ 4, %71 ], [ 5, %74 ], [ %50, %49 ]
-  %.pr250 = load i8, ptr %.2163.ph, align 1
+  %.pr261 = load i8, ptr %.2163.ph, align 1
   br label %sub_0
 
 sub_0:                                            ; preds = %sub_0thread-pre-split, %53
-  %83 = phi i8 [ %.pr250, %sub_0thread-pre-split ], [ %55, %53 ]
+  %83 = phi i8 [ %.pr261, %sub_0thread-pre-split ], [ %55, %53 ]
   %.2163 = phi ptr [ %.2163.ph, %sub_0thread-pre-split ], [ %54, %53 ]
   %.0157 = phi i32 [ %.0157.ph, %sub_0thread-pre-split ], [ %50, %53 ]
   %.not238 = icmp eq i8 %83, 116

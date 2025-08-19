@@ -407,8 +407,8 @@ define ptr @arrow_strptime(ptr noalias noundef %0, ptr noalias noundef %1, ptr n
   %175 = phi i32 [ 0, %160 ], [ %173, %168 ], [ %162, %.lr.ph228 ]
   %.7.lcssa = phi ptr [ %.6, %160 ], [ %171, %168 ], [ %.7226, %.lr.ph228 ]
   %176 = sub nsw i32 0, %175
-  %spec.select250 = select i1 %.not191, i32 %175, i32 %176
-  %177 = add i32 %spec.select250, %.0142.neg
+  %spec.select262 = select i1 %.not191, i32 %175, i32 %176
+  %177 = add i32 %spec.select262, %.0142.neg
   store i32 %177, ptr %.1136, align 4, !tbaa !3
   br label %.critedge2
 

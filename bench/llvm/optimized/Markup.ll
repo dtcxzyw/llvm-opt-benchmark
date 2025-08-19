@@ -313,10 +313,10 @@ _ZSt4moveIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit35.i: ; preds = %85
   br i1 %.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.i, label %_ZSt4moveIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit35.i.thread
 
 _ZSt4moveIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit35.i.thread: ; preds = %85, %_ZSt4moveIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit35.i
-  %.pre-phi58 = phi i64 [ %.pre55, %_ZSt4moveIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit35.i ], [ %86, %85 ]
+  %.pre-phi71 = phi i64 [ %.pre55, %_ZSt4moveIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit35.i ], [ %86, %85 ]
   %88 = load ptr, ptr %77, align 8, !tbaa !21
   %89 = load ptr, ptr %70, align 8, !tbaa !21
-  %gepdiff.i = shl nuw nsw i64 %.pre-phi58, 4
+  %gepdiff.i = shl nuw nsw i64 %.pre-phi71, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %89, ptr align 8 %88, i64 %gepdiff.i, i1 false)
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.i
 
@@ -743,10 +743,10 @@ _ZSt4moveIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit35.i: ; preds = %77
   br i1 %.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.i, label %_ZSt4moveIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit35.i.thread
 
 _ZSt4moveIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit35.i.thread: ; preds = %77, %_ZSt4moveIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit35.i
-  %.pre-phi56 = phi i64 [ %.pre53, %_ZSt4moveIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit35.i ], [ %78, %77 ]
+  %.pre-phi63 = phi i64 [ %.pre53, %_ZSt4moveIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit35.i ], [ %78, %77 ]
   %80 = load ptr, ptr %11, align 8, !tbaa !21
   %81 = load ptr, ptr %17, align 8, !tbaa !21
-  %gepdiff.i = shl nuw nsw i64 %.pre-phi56, 4
+  %gepdiff.i = shl nuw nsw i64 %.pre-phi63, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr align 8 %80, i64 %gepdiff.i, i1 false)
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.i
 
@@ -1016,8 +1016,8 @@ _ZN4llvm9symbolize10MarkupNodeD2Ev.exit19:        ; preds = %_ZN4llvm23SmallVect
   br i1 %111, label %152, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %9, %._crit_edge
-  %.sroa.0.0.lcssa48 = phi ptr [ %108, %._crit_edge ], [ %1, %9 ]
-  %.sroa.7.0.lcssa47 = phi i64 [ %109, %._crit_edge ], [ %2, %9 ]
+  %.sroa.0.0.lcssa54 = phi ptr [ %108, %._crit_edge ], [ %1, %9 ]
+  %.sroa.7.0.lcssa53 = phi i64 [ %109, %._crit_edge ], [ %2, %9 ]
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %113 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -1029,9 +1029,9 @@ _ZN4llvm9symbolize10MarkupNodeD2Ev.exit19:        ; preds = %_ZN4llvm23SmallVect
   store i32 0, ptr %116, align 8, !tbaa !23, !alias.scope !70
   %117 = getelementptr inbounds nuw i8, ptr %7, i64 44
   store i32 3, ptr %117, align 4, !tbaa !24, !alias.scope !70
-  store ptr %.sroa.0.0.lcssa48, ptr %7, align 8, !tbaa !40, !alias.scope !70
+  store ptr %.sroa.0.0.lcssa54, ptr %7, align 8, !tbaa !40, !alias.scope !70
   %.sroa.2.0..sroa_idx.i20 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %.sroa.7.0.lcssa47, ptr %.sroa.2.0..sroa_idx.i20, align 8, !tbaa !41, !alias.scope !70
+  store i64 %.sroa.7.0.lcssa53, ptr %.sroa.2.0..sroa_idx.i20, align 8, !tbaa !41, !alias.scope !70
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %119 = load i32, ptr %118, align 8, !tbaa !23
   %120 = zext i32 %119 to i64

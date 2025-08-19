@@ -2751,13 +2751,13 @@ _ZNSt14_Function_baseD2Ev.exit151.thread:         ; preds = %380
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit151:                ; preds = %440, %437
-  %.pr249 = load ptr, ptr %378, align 8, !tbaa !101
-  %.not.i152 = icmp eq ptr %.pr249, null
+  %.pr332 = load ptr, ptr %378, align 8, !tbaa !101
+  %.not.i152 = icmp eq ptr %.pr332, null
   br i1 %.not.i152, label %_ZNSt14_Function_baseD2Ev.exit153, label %445
 
 445:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit151.thread, %_ZNSt14_Function_baseD2Ev.exit151
-  %.pn46252 = phi { ptr, i32 } [ %436, %_ZNSt14_Function_baseD2Ev.exit151.thread ], [ %438, %_ZNSt14_Function_baseD2Ev.exit151 ]
-  %446 = phi ptr [ @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_mNS0_8FileTypeES9_S9_NS0_11TemperatureEEZNS0_14CheckpointImpl16CreateCheckpointES9_mPmE3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", %_ZNSt14_Function_baseD2Ev.exit151.thread ], [ %.pr249, %_ZNSt14_Function_baseD2Ev.exit151 ]
+  %.pn46335 = phi { ptr, i32 } [ %436, %_ZNSt14_Function_baseD2Ev.exit151.thread ], [ %438, %_ZNSt14_Function_baseD2Ev.exit151 ]
+  %446 = phi ptr [ @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_mNS0_8FileTypeES9_S9_NS0_11TemperatureEEZNS0_14CheckpointImpl16CreateCheckpointES9_mPmE3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", %_ZNSt14_Function_baseD2Ev.exit151.thread ], [ %.pr332, %_ZNSt14_Function_baseD2Ev.exit151 ]
   %447 = invoke noundef zeroext i1 %446(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit153 unwind label %448
 
@@ -2769,14 +2769,14 @@ _ZNSt14_Function_baseD2Ev.exit151:                ; preds = %440, %437
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit153:                ; preds = %445, %_ZNSt14_Function_baseD2Ev.exit151
-  %.pn46.pn.ph = phi { ptr, i32 } [ %.pn46252, %445 ], [ %438, %_ZNSt14_Function_baseD2Ev.exit151 ]
-  %.pr253 = load ptr, ptr %374, align 8, !tbaa !101
-  %.not.i154 = icmp eq ptr %.pr253, null
+  %.pn46.pn.ph = phi { ptr, i32 } [ %.pn46335, %445 ], [ %438, %_ZNSt14_Function_baseD2Ev.exit151 ]
+  %.pr336 = load ptr, ptr %374, align 8, !tbaa !101
+  %.not.i154 = icmp eq ptr %.pr336, null
   br i1 %.not.i154, label %_ZNSt14_Function_baseD2Ev.exit155, label %451
 
 451:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit153.thread, %_ZNSt14_Function_baseD2Ev.exit153
-  %.pn46.pn256 = phi { ptr, i32 } [ %435, %_ZNSt14_Function_baseD2Ev.exit153.thread ], [ %.pn46.pn.ph, %_ZNSt14_Function_baseD2Ev.exit153 ]
-  %452 = phi ptr [ @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_8FileTypeEEZNS0_14CheckpointImpl16CreateCheckpointES9_mPmE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", %_ZNSt14_Function_baseD2Ev.exit153.thread ], [ %.pr253, %_ZNSt14_Function_baseD2Ev.exit153 ]
+  %.pn46.pn339 = phi { ptr, i32 } [ %435, %_ZNSt14_Function_baseD2Ev.exit153.thread ], [ %.pn46.pn.ph, %_ZNSt14_Function_baseD2Ev.exit153 ]
+  %452 = phi ptr [ @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_8FileTypeEEZNS0_14CheckpointImpl16CreateCheckpointES9_mPmE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", %_ZNSt14_Function_baseD2Ev.exit153.thread ], [ %.pr336, %_ZNSt14_Function_baseD2Ev.exit153 ]
   %453 = invoke noundef zeroext i1 %452(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit155 unwind label %454
 
@@ -2788,7 +2788,7 @@ _ZNSt14_Function_baseD2Ev.exit153:                ; preds = %445, %_ZNSt14_Funct
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit155:                ; preds = %451, %_ZNSt14_Function_baseD2Ev.exit153, %433
-  %.pn46.pn.pn = phi { ptr, i32 } [ %434, %433 ], [ %.pn46.pn.ph, %_ZNSt14_Function_baseD2Ev.exit153 ], [ %.pn46.pn256, %451 ]
+  %.pn46.pn.pn = phi { ptr, i32 } [ %434, %433 ], [ %.pn46.pn.ph, %_ZNSt14_Function_baseD2Ev.exit153 ], [ %.pn46.pn339, %451 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %688
 
@@ -6047,13 +6047,13 @@ _ZNSt14_Function_baseD2Ev.exit145.thread:         ; preds = %273
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit145:                ; preds = %325, %322
-  %.pr389 = load ptr, ptr %271, align 8, !tbaa !101
-  %.not.i146 = icmp eq ptr %.pr389, null
+  %.pr528 = load ptr, ptr %271, align 8, !tbaa !101
+  %.not.i146 = icmp eq ptr %.pr528, null
   br i1 %.not.i146, label %_ZNSt14_Function_baseD2Ev.exit147, label %330
 
 330:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit145.thread, %_ZNSt14_Function_baseD2Ev.exit145
-  %.pn74392 = phi { ptr, i32 } [ %321, %_ZNSt14_Function_baseD2Ev.exit145.thread ], [ %323, %_ZNSt14_Function_baseD2Ev.exit145 ]
-  %331 = phi ptr [ @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EZNS0_14CheckpointImpl18ExportColumnFamilyEPNS0_18ColumnFamilyHandleES9_PPNS0_25ExportImportFilesMetaDataEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", %_ZNSt14_Function_baseD2Ev.exit145.thread ], [ %.pr389, %_ZNSt14_Function_baseD2Ev.exit145 ]
+  %.pn74531 = phi { ptr, i32 } [ %321, %_ZNSt14_Function_baseD2Ev.exit145.thread ], [ %323, %_ZNSt14_Function_baseD2Ev.exit145 ]
+  %331 = phi ptr [ @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EZNS0_14CheckpointImpl18ExportColumnFamilyEPNS0_18ColumnFamilyHandleES9_PPNS0_25ExportImportFilesMetaDataEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", %_ZNSt14_Function_baseD2Ev.exit145.thread ], [ %.pr528, %_ZNSt14_Function_baseD2Ev.exit145 ]
   %332 = invoke noundef zeroext i1 %331(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %26, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit147 unwind label %333
 
@@ -6065,7 +6065,7 @@ _ZNSt14_Function_baseD2Ev.exit145:                ; preds = %325, %322
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit147:                ; preds = %330, %_ZNSt14_Function_baseD2Ev.exit145, %319
-  %.pn74.pn = phi { ptr, i32 } [ %320, %319 ], [ %323, %_ZNSt14_Function_baseD2Ev.exit145 ], [ %.pn74392, %330 ]
+  %.pn74.pn = phi { ptr, i32 } [ %320, %319 ], [ %323, %_ZNSt14_Function_baseD2Ev.exit145 ], [ %.pn74531, %330 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %1030
 
@@ -8191,7 +8191,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %.thread83
 
 .thread83:                                        ; preds = %65, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZN7rocksdb6StatusaSEOS0_.exit
-  %.promoted178190 = phi ptr [ %.promoted178, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i ], [ %.promoted178, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ %.pre179, %65 ]
+  %.promoted178211 = phi ptr [ %.promoted178, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i ], [ %.promoted178, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ %.pre179, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -8335,8 +8335,8 @@ _ZN7rocksdb6StatusD2Ev.exit48:                    ; preds = %103, %_ZN7rocksdb6S
   %113 = icmp eq i64 %.130132, 0
   %.pr87.pre186 = load i8, ptr %0, align 8, !tbaa !34
   %114 = icmp eq i8 %.pr87.pre186, 3
-  %or.cond222 = select i1 %113, i1 %114, i1 false
-  br i1 %or.cond222, label %115, label %.thread
+  %or.cond243 = select i1 %113, i1 %114, i1 false
+  br i1 %or.cond243, label %115, label %.thread
 
 115:                                              ; preds = %_ZN7rocksdb6StatusD2Ev.exit48
   %.not.i.i.i.i.i50 = icmp eq ptr %112, null
@@ -8535,7 +8535,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
   br label %165
 
 165:                                              ; preds = %.loopexit, %.thread83
-  %.promoted177 = phi ptr [ %164, %.loopexit ], [ %.promoted178190, %.thread83 ]
+  %.promoted177 = phi ptr [ %164, %.loopexit ], [ %.promoted178211, %.thread83 ]
   %.231 = phi i64 [ %.231.ph, %.loopexit ], [ %.130132, %.thread83 ]
   %.227 = phi i1 [ %.227.ph, %.loopexit ], [ %.126133, %.thread83 ]
   %166 = getelementptr inbounds nuw i8, ptr %.sroa.077.0141, i64 40

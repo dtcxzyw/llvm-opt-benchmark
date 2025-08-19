@@ -50,9 +50,9 @@ define void @dlaed3_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 .thread:                                          ; preds = %34, %31, %14
   %.sink = phi i32 [ -1, %14 ], [ -2, %31 ], [ -6, %34 ]
-  %.neg282 = phi i32 [ 1, %14 ], [ 2, %31 ], [ 6, %34 ]
+  %.neg288 = phi i32 [ 1, %14 ], [ 2, %31 ], [ 6, %34 ]
   store i32 %.sink, ptr %13, align 4, !tbaa !3
-  store i32 %.neg282, ptr %15, align 4, !tbaa !3
+  store i32 %.neg288, ptr %15, align 4, !tbaa !3
   %37 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %15, i32 noundef 6) #5
   br label %.loopexit207
 
@@ -182,7 +182,7 @@ define void @dlaed3_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 .lr.ph221:                                        ; preds = %.preheader
   %85 = mul nsw i64 %indvars.iv256, %81
   %86 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv256
-  %invariant.gep285 = getelementptr double, ptr %23, i64 %85
+  %invariant.gep291 = getelementptr double, ptr %23, i64 %85
   br label %97
 
 87:                                               ; preds = %.lr.ph218, %87
@@ -205,8 +205,8 @@ define void @dlaed3_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 97:                                               ; preds = %.lr.ph221, %97
   %indvars.iv258 = phi i64 [ %indvars.iv256, %.lr.ph221 ], [ %indvars.iv.next259, %97 ]
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
-  %gep286 = getelementptr double, ptr %invariant.gep285, i64 %indvars.iv.next259
-  %98 = load double, ptr %gep286, align 8, !tbaa !7
+  %gep292 = getelementptr double, ptr %invariant.gep291, i64 %indvars.iv.next259
+  %98 = load double, ptr %gep292, align 8, !tbaa !7
   %99 = getelementptr double, ptr %7, i64 %indvars.iv258
   %100 = load double, ptr %99, align 8, !tbaa !7
   %101 = load double, ptr %86, align 8, !tbaa !7
@@ -270,15 +270,15 @@ define void @dlaed3_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %121 = sext i32 %120 to i64
   %122 = add nuw i32 %119, 1
   %wide.trip.count272 = zext i32 %122 to i64
-  %invariant.gep287 = getelementptr double, ptr %23, i64 %121
+  %invariant.gep293 = getelementptr double, ptr %23, i64 %121
   br label %123
 
 123:                                              ; preds = %.lr.ph234, %123
   %indvars.iv269 = phi i64 [ 1, %.lr.ph234 ], [ %indvars.iv.next270, %123 ]
   %124 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv269
   %125 = load double, ptr %124, align 8, !tbaa !7
-  %gep288 = getelementptr double, ptr %invariant.gep287, i64 %indvars.iv269
-  %126 = load double, ptr %gep288, align 8, !tbaa !7
+  %gep294 = getelementptr double, ptr %invariant.gep293, i64 %indvars.iv269
+  %126 = load double, ptr %gep294, align 8, !tbaa !7
   %127 = fdiv double %125, %126
   %128 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv269
   store double %127, ptr %128, align 8, !tbaa !7
@@ -298,7 +298,7 @@ define void @dlaed3_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %132 = sext i32 %131 to i64
   %133 = add nuw i32 %130, 1
   %wide.trip.count277 = zext i32 %133 to i64
-  %invariant.gep289 = getelementptr double, ptr %23, i64 %132
+  %invariant.gep295 = getelementptr double, ptr %23, i64 %132
   br label %134
 
 134:                                              ; preds = %.lr.ph239, %134
@@ -309,8 +309,8 @@ define void @dlaed3_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %138 = getelementptr inbounds double, ptr %28, i64 %137
   %139 = load double, ptr %138, align 8, !tbaa !7
   %140 = fdiv double %139, %129
-  %gep290 = getelementptr double, ptr %invariant.gep289, i64 %indvars.iv274
-  store double %140, ptr %gep290, align 8, !tbaa !7
+  %gep296 = getelementptr double, ptr %invariant.gep295, i64 %indvars.iv274
+  store double %140, ptr %gep296, align 8, !tbaa !7
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %exitcond278.not = icmp eq i64 %indvars.iv.next275, %wide.trip.count277
   br i1 %exitcond278.not, label %._crit_edge240, label %134, !llvm.loop !18
@@ -323,8 +323,8 @@ define void @dlaed3_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br i1 %.not194.not, label %.lr.ph244, label %.loopexit, !llvm.loop !19
 
 .loopexit.sink.split:                             ; preds = %67, %._crit_edge230.thread
-  %.sink291 = phi i32 [ 1, %._crit_edge230.thread ], [ 3, %67 ]
-  store i32 %.sink291, ptr %16, align 4, !tbaa !3
+  %.sink297 = phi i32 [ 1, %._crit_edge230.thread ], [ 3, %67 ]
+  store i32 %.sink297, ptr %16, align 4, !tbaa !3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge240, %.loopexit.sink.split, %._crit_edge230, %._crit_edge214

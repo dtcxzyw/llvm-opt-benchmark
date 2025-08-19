@@ -2927,9 +2927,9 @@ zend_assign_to_variable_ex.exit:                  ; preds = %193, %201
   br i1 %.not234, label %244, label %.sink.split
 
 .sink.split:                                      ; preds = %231, %234
-  %.sink348 = phi i32 [ %238, %234 ], [ %229, %231 ]
+  %.sink373 = phi i32 [ %238, %234 ], [ %229, %231 ]
   %.sink.in = phi ptr [ %236, %234 ], [ %.0.i241, %231 ]
-  %240 = and i32 %.sink348, 65280
+  %240 = and i32 %.sink373, 65280
   %241 = icmp ne i32 %240, 0
   call void @llvm.assume(i1 %241)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !37
@@ -3519,9 +3519,9 @@ define dso_local noundef ptr @zend_std_read_dimension(ptr noundef %0, ptr nounde
   br i1 %.not41, label %29, label %.sink.split
 
 .sink.split:                                      ; preds = %16, %19
-  %.sink84 = phi i32 [ %23, %19 ], [ %14, %16 ]
+  %.sink88 = phi i32 [ %23, %19 ], [ %14, %16 ]
   %.sink.in = phi ptr [ %21, %19 ], [ %1, %16 ]
-  %25 = and i32 %.sink84, 65280
+  %25 = and i32 %.sink88, 65280
   %26 = icmp ne i32 %25, 0
   tail call void @llvm.assume(i1 %26)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !37
@@ -3539,9 +3539,9 @@ define dso_local noundef ptr @zend_std_read_dimension(ptr noundef %0, ptr nounde
   br label %33
 
 33:                                               ; preds = %10, %29
-  %.sink73 = phi i32 [ %32, %29 ], [ 1, %10 ]
+  %.sink77 = phi i32 [ %32, %29 ], [ 1, %10 ]
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %.sink73, ptr %34, align 8, !tbaa !37
+  store i32 %.sink77, ptr %34, align 8, !tbaa !37
   %35 = load i32, ptr %0, align 4, !tbaa !41
   %36 = add i32 %35, 1
   store i32 %36, ptr %0, align 4, !tbaa !41
@@ -3796,9 +3796,9 @@ define dso_local void @zend_std_write_dimension(ptr noundef %0, ptr noundef read
   br i1 %.not27, label %27, label %.sink.split
 
 .sink.split:                                      ; preds = %14, %17
-  %.sink34 = phi i32 [ %21, %17 ], [ %12, %14 ]
+  %.sink36 = phi i32 [ %21, %17 ], [ %12, %14 ]
   %.sink.in = phi ptr [ %19, %17 ], [ %1, %14 ]
-  %23 = and i32 %.sink34, 65280
+  %23 = and i32 %.sink36, 65280
   %24 = icmp ne i32 %23, 0
   tail call void @llvm.assume(i1 %24)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !37
@@ -3816,9 +3816,9 @@ define dso_local void @zend_std_write_dimension(ptr noundef %0, ptr noundef read
   br label %31
 
 31:                                               ; preds = %9, %27
-  %.sink30 = phi i32 [ %30, %27 ], [ 1, %9 ]
+  %.sink32 = phi i32 [ %30, %27 ], [ 1, %9 ]
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %.sink30, ptr %32, align 8, !tbaa !37
+  store i32 %.sink32, ptr %32, align 8, !tbaa !37
   %33 = load i32, ptr %0, align 4, !tbaa !41
   %34 = add i32 %33, 1
   store i32 %34, ptr %0, align 4, !tbaa !41
@@ -3900,9 +3900,9 @@ define dso_local range(i32 0, 2) i32 @zend_std_has_dimension(ptr noundef %0, ptr
   br i1 %.not32, label %27, label %.sink.split
 
 .sink.split:                                      ; preds = %14, %17
-  %.sink110 = phi i32 [ %21, %17 ], [ %12, %14 ]
+  %.sink113 = phi i32 [ %21, %17 ], [ %12, %14 ]
   %.sink.in = phi ptr [ %19, %17 ], [ %1, %14 ]
-  %23 = and i32 %.sink110, 65280
+  %23 = and i32 %.sink113, 65280
   %24 = icmp ne i32 %23, 0
   tail call void @llvm.assume(i1 %24)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !37
@@ -5183,9 +5183,9 @@ define dso_local void @zend_std_unset_dimension(ptr noundef %0, ptr noundef read
   br i1 %.not23, label %25, label %.sink.split
 
 .sink.split:                                      ; preds = %12, %15
-  %.sink28 = phi i32 [ %19, %15 ], [ %10, %12 ]
+  %.sink29 = phi i32 [ %19, %15 ], [ %10, %12 ]
   %.sink.in = phi ptr [ %17, %15 ], [ %1, %12 ]
-  %21 = and i32 %.sink28, 65280
+  %21 = and i32 %.sink29, 65280
   %22 = icmp ne i32 %21, 0
   tail call void @llvm.assume(i1 %22)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !37
@@ -6965,10 +6965,10 @@ define dso_local i32 @zend_std_compare_objects(ptr noundef %0, ptr noundef %1) #
   %31 = call ptr @zend_get_type_by_const(i32 noundef %12) #18
   call void (i32, ptr, ...) @zend_error(i32 noundef 8, ptr noundef nonnull @.str.20, ptr noundef nonnull %30, ptr noundef %31) #18
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.104 = select i1 %24, double 4.940660e-324, double 1.000000e+00
-  %.105 = select i1 %24, i32 4, i32 5
-  store double %.104, ptr %3, align 8, !tbaa !37
-  store i32 %.105, ptr %32, align 8, !tbaa !37
+  %.114 = select i1 %24, double 4.940660e-324, double 1.000000e+00
+  %.115 = select i1 %24, i32 4, i32 5
+  store double %.114, ptr %3, align 8, !tbaa !37
+  store i32 %.115, ptr %32, align 8, !tbaa !37
   br label %35
 
 33:                                               ; preds = %22
@@ -7026,13 +7026,13 @@ define dso_local i32 @zend_std_compare_objects(ptr noundef %0, ptr noundef %1) #
   br i1 %.not79, label %61, label %120
 
 61:                                               ; preds = %55
-  br i1 %60, label %.thread102, label %62, !prof !157
+  br i1 %60, label %.thread112, label %62, !prof !157
 
 62:                                               ; preds = %61
   %63 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %64 = load i32, ptr %63, align 4, !tbaa !52
   %65 = icmp ugt i32 %64, 1073741823
-  br i1 %65, label %.thread103, label %66
+  br i1 %65, label %.thread113, label %66
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %49, i64 32
@@ -7138,24 +7138,24 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   br label %.thread
 
 120:                                              ; preds = %55
-  br i1 %60, label %.thread102, label %.thread103, !prof !178
+  br i1 %60, label %.thread112, label %.thread113, !prof !178
 
 .thread93:                                        ; preds = %52
   %121 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %122 = load i32, ptr %121, align 4, !tbaa !52
   %123 = icmp ugt i32 %122, 1073741823
-  br i1 %123, label %.thread102, label %zend_std_get_properties_ex.exit90, !prof !38
+  br i1 %123, label %.thread112, label %zend_std_get_properties_ex.exit90, !prof !38
 
-.thread102:                                       ; preds = %61, %.thread93, %120
+.thread112:                                       ; preds = %61, %.thread93, %120
   %124 = tail call ptr @zend_lazy_object_get_properties(ptr noundef nonnull %44) #18
   br label %zend_std_get_properties_ex.exit90
 
-.thread103:                                       ; preds = %62, %120
+.thread113:                                       ; preds = %62, %120
   %125 = tail call ptr @rebuild_object_properties_internal(ptr noundef nonnull %44)
   br label %zend_std_get_properties_ex.exit90
 
-zend_std_get_properties_ex.exit90:                ; preds = %.thread93, %.thread102, %.thread103
-  %.0.i89 = phi ptr [ %124, %.thread102 ], [ %125, %.thread103 ], [ %54, %.thread93 ]
+zend_std_get_properties_ex.exit90:                ; preds = %.thread93, %.thread112, %.thread113
+  %.0.i89 = phi ptr [ %124, %.thread112 ], [ %125, %.thread113 ], [ %54, %.thread93 ]
   %126 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %127 = load i32, ptr %126, align 4, !tbaa !52
   %128 = icmp ugt i32 %127, 1073741823

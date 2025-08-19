@@ -103,7 +103,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_mndp_static(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
+define internal range(i32 4, 1) i32 @dissect_mndp_static(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call fastcc zeroext i1 @test_mndp(ptr noundef %0)
   br i1 %5, label %6, label %8
 
@@ -184,7 +184,7 @@ define internal fastcc noundef zeroext i1 @test_mndp(ptr noundef %0) unnamed_add
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_mndp(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 4, 0) i32 @dissect_mndp(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 35, ptr noundef nonnull @.str.33)

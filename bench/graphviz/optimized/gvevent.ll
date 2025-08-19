@@ -429,11 +429,11 @@ gvevent_select_current_obj.exit:                  ; preds = %31, %36, %45, %55, 
   br label %137
 
 137:                                              ; preds = %118, %99
-  %.sink71.in = phi ptr [ %136, %118 ], [ %98, %99 ]
+  %.sink78.in = phi ptr [ %136, %118 ], [ %98, %99 ]
   %.sink.in = phi double [ %135, %118 ], [ %117, %99 ]
   %.sink = fmul double %.sink.in, 0x3FB99999999999A0
-  %.sink71 = load double, ptr %.sink71.in, align 8, !tbaa !97
-  %138 = fmul double %97, %.sink71
+  %.sink78 = load double, ptr %.sink78.in, align 8, !tbaa !97
+  %138 = fmul double %97, %.sink78
   %139 = fdiv double %.sink, %138
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %141 = load double, ptr %140, align 8, !tbaa !33
@@ -502,12 +502,12 @@ gvevent_select_current_obj.exit:                  ; preds = %31, %36, %45, %55, 
   br label %191
 
 191:                                              ; preds = %172, %153
-  %.sink79.in = phi ptr [ %190, %172 ], [ %152, %153 ]
-  %.sink77.in = phi double [ %189, %172 ], [ %171, %153 ]
-  %.sink77 = fmul double %.sink77.in, 0x3FB99999999999A0
-  %.sink79 = load double, ptr %.sink79.in, align 8, !tbaa !97
-  %192 = fmul double %149, %.sink79
-  %193 = fdiv double %.sink77, %192
+  %.sink86.in = phi ptr [ %190, %172 ], [ %152, %153 ]
+  %.sink84.in = phi double [ %189, %172 ], [ %171, %153 ]
+  %.sink84 = fmul double %.sink84.in, 0x3FB99999999999A0
+  %.sink86 = load double, ptr %.sink86.in, align 8, !tbaa !97
+  %192 = fmul double %149, %.sink86
+  %193 = fdiv double %.sink84, %192
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %195 = load double, ptr %194, align 8, !tbaa !33
   %196 = fsub double %195, %193

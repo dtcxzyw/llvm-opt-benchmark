@@ -48,8 +48,8 @@ define void @_ZN17pyo3_build_config22pyo3_build_script_impl26resolve_interpreter
 
 20:                                               ; preds = %17
   store i64 %15, ptr %13, align 8
-  %.sroa.2.0..sroa_idx104 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2.0..sroa_idx104, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2, i64 40, i1 false)
+  %.sroa.2.0..sroa_idx106 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2.0..sroa_idx106, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2, i64 40, i1 false)
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.3, i64 112, i1 false)
   invoke void @_ZN17pyo3_build_config33resolve_cross_compile_config_path17h5d29680b480ba899E(ptr nonnull sret([24 x i8]) align 8 %11)

@@ -4181,8 +4181,8 @@ define range(i32 -1, -2147483648) i32 @H5Dscatter(ptr noundef readonly captures(
 
 96:                                               ; preds = %139
   %97 = sub nuw nsw i64 %.056139, %115
-  %.not158 = icmp eq i64 %97, 0
-  br i1 %.not158, label %.loopexit, label %.lr.ph, !llvm.loop !38
+  %.not169 = icmp eq i64 %97, 0
+  br i1 %.not169, label %.loopexit, label %.lr.ph, !llvm.loop !38
 
 .lr.ph:                                           ; preds = %.preheader, %96
   %.056139 = phi i64 [ %97, %96 ], [ %77, %.preheader ]

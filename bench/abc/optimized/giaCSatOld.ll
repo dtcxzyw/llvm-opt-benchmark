@@ -159,28 +159,28 @@ define range(i32 0, 2) i32 @Cbs0_ManPropagate(ptr noundef captures(none) %0) loc
   %15 = load ptr, ptr %4, align 8, !tbaa !22
   %16 = getelementptr inbounds ptr, ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8, !tbaa !32
-  %.not143 = icmp eq ptr %17, null
-  br i1 %.not143, label %.critedge, label %.lr.ph147
+  %.not177 = icmp eq ptr %17, null
+  br i1 %.not177, label %.critedge, label %.lr.ph181
 
 .lr.ph:                                           ; preds = %212
   %18 = load ptr, ptr %4, align 8, !tbaa !22
   %19 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv.next
   %20 = load ptr, ptr %19, align 8, !tbaa !32
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %.critedge, label %.lr.ph147, !llvm.loop !34
+  br i1 %.not, label %.critedge, label %.lr.ph181, !llvm.loop !34
 
-.lr.ph147:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph181:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %21 = phi ptr [ %20, %.lr.ph ], [ %17, %.lr.ph.preheader ]
-  %indvars.iv146 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %14, %.lr.ph.preheader ]
+  %indvars.iv180 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %14, %.lr.ph.preheader ]
   %22 = phi i32 [ %213, %.lr.ph ], [ %10, %.lr.ph.preheader ]
-  %.pre94105145 = phi i32 [ %.pre94106, %.lr.ph ], [ %.pre9495, %.lr.ph.preheader ]
-  %.pre94.pre118144 = phi i32 [ %.pre94.pre119, %.lr.ph ], [ %.pre94.pre108, %.lr.ph.preheader ]
+  %.pre94105179 = phi i32 [ %.pre94106, %.lr.ph ], [ %.pre9495, %.lr.ph.preheader ]
+  %.pre94.pre118178 = phi i32 [ %.pre94.pre119, %.lr.ph ], [ %.pre94.pre108, %.lr.ph.preheader ]
   %.val.i = load i64, ptr %21, align 4
   %23 = and i64 %.val.i, 2684354559
   %narrow.i.not.i = icmp eq i64 %23, 2684354559
   br i1 %narrow.i.not.i, label %212, label %24
 
-24:                                               ; preds = %.lr.ph147
+24:                                               ; preds = %.lr.ph181
   %25 = and i64 %.val.i, 536870911
   %26 = sub nsw i64 0, %25
   %27 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %21, i64 %26
@@ -277,8 +277,8 @@ Cbs0_ManAssign.exit.i:                            ; preds = %76, %._crit_edge.i.
   br label %83
 
 83:                                               ; preds = %Cbs0_ManAssign.exit.i, %51
-  %.pre94.pre116 = phi i32 [ %80, %Cbs0_ManAssign.exit.i ], [ %.pre94.pre118144, %51 ]
-  %.pre94103 = phi i32 [ %80, %Cbs0_ManAssign.exit.i ], [ %.pre94105145, %51 ]
+  %.pre94.pre116 = phi i32 [ %80, %Cbs0_ManAssign.exit.i ], [ %.pre94.pre118178, %51 ]
+  %.pre94103 = phi i32 [ %80, %Cbs0_ManAssign.exit.i ], [ %.pre94105179, %51 ]
   %84 = phi i32 [ %80, %Cbs0_ManAssign.exit.i ], [ %22, %51 ]
   br i1 %.not.i39.i, label %85, label %212
 
@@ -413,8 +413,8 @@ Cbs0_ManAssign.exit59:                            ; preds = %._crit_edge.i.i53, 
   br label %156
 
 156:                                              ; preds = %Cbs0_ManAssign.exit59, %124
-  %.pre94.pre117 = phi i32 [ %153, %Cbs0_ManAssign.exit59 ], [ %.pre94.pre118144, %124 ]
-  %.pre94104 = phi i32 [ %153, %Cbs0_ManAssign.exit59 ], [ %.pre94105145, %124 ]
+  %.pre94.pre117 = phi i32 [ %153, %Cbs0_ManAssign.exit59 ], [ %.pre94.pre118178, %124 ]
+  %.pre94104 = phi i32 [ %153, %Cbs0_ManAssign.exit59 ], [ %.pre94105179, %124 ]
   %157 = phi i32 [ %153, %Cbs0_ManAssign.exit59 ], [ %22, %124 ]
   br i1 %.not.i39.i, label %158, label %212
 
@@ -506,15 +506,15 @@ Cbs0_ManAssign.exit:                              ; preds = %._crit_edge.i.i, %1
   br label %205
 
 205:                                              ; preds = %203, %201
-  %.pre94.pre = phi i32 [ %.pre94.pre.pre, %201 ], [ %.pre94.pre118144, %203 ]
+  %.pre94.pre = phi i32 [ %.pre94.pre.pre, %201 ], [ %.pre94.pre118178, %203 ]
   %.pre12.i = phi i32 [ %.pre12.pre.i, %201 ], [ %193, %203 ]
   %206 = phi ptr [ %202, %201 ], [ %204, %203 ]
   store ptr %206, ptr %.phi.trans.insert.i, align 8, !tbaa !38
   br label %Cbs0_QuePush.exit
 
 Cbs0_QuePush.exit:                                ; preds = %._crit_edge.i, %205
-  %.pre94.pre120 = phi i32 [ %.pre94.pre118144, %._crit_edge.i ], [ %.pre94.pre, %205 ]
-  %.pre94 = phi i32 [ %.pre94105145, %._crit_edge.i ], [ %.pre94.pre, %205 ]
+  %.pre94.pre120 = phi i32 [ %.pre94.pre118178, %._crit_edge.i ], [ %.pre94.pre, %205 ]
+  %.pre94 = phi i32 [ %.pre94105179, %._crit_edge.i ], [ %.pre94.pre, %205 ]
   %207 = phi i32 [ %193, %._crit_edge.i ], [ %.pre12.i, %205 ]
   %208 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %206, %205 ]
   %209 = add nsw i32 %207, 1
@@ -522,21 +522,21 @@ Cbs0_QuePush.exit:                                ; preds = %._crit_edge.i, %205
   br label %.sink.split
 
 .sink.split:                                      ; preds = %Cbs0_ManAssign.exit, %Cbs0_ManAssign.exit46.i, %Cbs0_QuePush.exit
-  %.sink131 = phi i32 [ %207, %Cbs0_QuePush.exit ], [ %116, %Cbs0_ManAssign.exit46.i ], [ %189, %Cbs0_ManAssign.exit ]
-  %.sink129 = phi ptr [ %208, %Cbs0_QuePush.exit ], [ %117, %Cbs0_ManAssign.exit46.i ], [ %190, %Cbs0_ManAssign.exit ]
+  %.sink165 = phi i32 [ %207, %Cbs0_QuePush.exit ], [ %116, %Cbs0_ManAssign.exit46.i ], [ %189, %Cbs0_ManAssign.exit ]
+  %.sink163 = phi ptr [ %208, %Cbs0_QuePush.exit ], [ %117, %Cbs0_ManAssign.exit46.i ], [ %190, %Cbs0_ManAssign.exit ]
   %.sink = phi ptr [ %21, %Cbs0_QuePush.exit ], [ %95, %Cbs0_ManAssign.exit46.i ], [ %168, %Cbs0_ManAssign.exit ]
   %.pre94.pre119.ph = phi i32 [ %.pre94.pre120, %Cbs0_QuePush.exit ], [ %118, %Cbs0_ManAssign.exit46.i ], [ %191, %Cbs0_ManAssign.exit ]
   %.pre94106.ph = phi i32 [ %.pre94, %Cbs0_QuePush.exit ], [ %118, %Cbs0_ManAssign.exit46.i ], [ %191, %Cbs0_ManAssign.exit ]
-  %210 = sext i32 %.sink131 to i64
-  %211 = getelementptr inbounds ptr, ptr %.sink129, i64 %210
+  %210 = sext i32 %.sink165 to i64
+  %211 = getelementptr inbounds ptr, ptr %.sink163, i64 %210
   store ptr %.sink, ptr %211, align 8, !tbaa !32
   br label %212
 
-212:                                              ; preds = %.sink.split, %.lr.ph147, %83, %119, %156
-  %.pre94.pre119 = phi i32 [ %.pre94.pre118144, %.lr.ph147 ], [ %.pre94.pre116, %83 ], [ %.pre94.pre118144, %119 ], [ %.pre94.pre117, %156 ], [ %.pre94.pre119.ph, %.sink.split ]
-  %.pre94106 = phi i32 [ %.pre94105145, %.lr.ph147 ], [ %.pre94103, %83 ], [ %.pre94105145, %119 ], [ %.pre94104, %156 ], [ %.pre94106.ph, %.sink.split ]
-  %213 = phi i32 [ %22, %.lr.ph147 ], [ %84, %83 ], [ %22, %119 ], [ %157, %156 ], [ %.pre94106.ph, %.sink.split ]
-  %indvars.iv.next = add nsw i64 %indvars.iv146, 1
+212:                                              ; preds = %.sink.split, %.lr.ph181, %83, %119, %156
+  %.pre94.pre119 = phi i32 [ %.pre94.pre118178, %.lr.ph181 ], [ %.pre94.pre116, %83 ], [ %.pre94.pre118178, %119 ], [ %.pre94.pre117, %156 ], [ %.pre94.pre119.ph, %.sink.split ]
+  %.pre94106 = phi i32 [ %.pre94105179, %.lr.ph181 ], [ %.pre94103, %83 ], [ %.pre94105179, %119 ], [ %.pre94104, %156 ], [ %.pre94106.ph, %.sink.split ]
+  %213 = phi i32 [ %22, %.lr.ph181 ], [ %84, %83 ], [ %22, %119 ], [ %157, %156 ], [ %.pre94106.ph, %.sink.split ]
+  %indvars.iv.next = add nsw i64 %indvars.iv180, 1
   %214 = sext i32 %213 to i64
   %215 = icmp slt i64 %indvars.iv.next, %214
   br i1 %215, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !34
@@ -560,25 +560,25 @@ Cbs0_QuePush.exit:                                ; preds = %._crit_edge.i, %205
   %221 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !23
   %222 = getelementptr inbounds ptr, ptr %221, i64 %220
   %223 = load ptr, ptr %222, align 8, !tbaa !32
-  %.not34155 = icmp eq ptr %223, null
-  br i1 %.not34155, label %.critedge2, label %.lr.ph160
+  %.not34189 = icmp eq ptr %223, null
+  br i1 %.not34189, label %.critedge2, label %.lr.ph194
 
 .lr.ph82:                                         ; preds = %Cbs0_ManPropagateTwo.exit.thread
   %224 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !23
   %225 = getelementptr inbounds ptr, ptr %224, i64 %indvars.iv.next92
   %226 = load ptr, ptr %225, align 8, !tbaa !32
   %.not34 = icmp eq ptr %226, null
-  br i1 %.not34, label %.critedge2, label %.lr.ph160, !llvm.loop !41
+  br i1 %.not34, label %.critedge2, label %.lr.ph194, !llvm.loop !41
 
-.lr.ph160:                                        ; preds = %.lr.ph82.preheader, %.lr.ph82
+.lr.ph194:                                        ; preds = %.lr.ph82.preheader, %.lr.ph82
   %227 = phi ptr [ %226, %.lr.ph82 ], [ %223, %.lr.ph82.preheader ]
   %228 = phi ptr [ %224, %.lr.ph82 ], [ %221, %.lr.ph82.preheader ]
-  %.081159 = phi i32 [ %.1, %.lr.ph82 ], [ %217, %.lr.ph82.preheader ]
-  %indvars.iv91158 = phi i64 [ %indvars.iv.next92, %.lr.ph82 ], [ %220, %.lr.ph82.preheader ]
+  %.081193 = phi i32 [ %.1, %.lr.ph82 ], [ %217, %.lr.ph82.preheader ]
+  %indvars.iv91192 = phi i64 [ %indvars.iv.next92, %.lr.ph82 ], [ %220, %.lr.ph82.preheader ]
   %229 = phi i32 [ %341, %.lr.ph82 ], [ %.lcssa, %.lr.ph82.preheader ]
   %230 = phi i32 [ %340, %.lr.ph82 ], [ %216, %.lr.ph82.preheader ]
-  %.pre94100157 = phi i32 [ %.pre9497, %.lr.ph82 ], [ %.pre94101, %.lr.ph82.preheader ]
-  %.pre94.pre113156 = phi i32 [ %.pre94.pre110, %.lr.ph82 ], [ %.pre94.pre114, %.lr.ph82.preheader ]
+  %.pre94100191 = phi i32 [ %.pre9497, %.lr.ph82 ], [ %.pre94101, %.lr.ph82.preheader ]
+  %.pre94.pre113190 = phi i32 [ %.pre94.pre110, %.lr.ph82 ], [ %.pre94.pre114, %.lr.ph82.preheader ]
   %.val6.i = load i64, ptr %227, align 4
   %231 = and i64 %.val6.i, 2147483648
   %.not.i.i38 = icmp ne i64 %231, 0
@@ -588,7 +588,7 @@ Cbs0_QuePush.exit:                                ; preds = %._crit_edge.i, %205
   %.pre122 = sub nsw i64 0, %232
   br i1 %narrow.i.not.i39, label %Cbs0_VarIsJust.exit.thread, label %234
 
-234:                                              ; preds = %.lr.ph160
+234:                                              ; preds = %.lr.ph194
   %235 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %227, i64 %.pre122
   %.val.i40 = load i64, ptr %235, align 4
   %236 = and i64 %.val.i40, 1073741824
@@ -606,10 +606,10 @@ Cbs0_VarIsJust.exit:                              ; preds = %234
   br i1 %.not35.not, label %242, label %Cbs0_VarIsJust.exit.thread
 
 242:                                              ; preds = %Cbs0_VarIsJust.exit
-  %243 = add nsw i32 %.081159, 1
+  %243 = add nsw i32 %.081193, 1
   br label %Cbs0_ManPropagateTwo.exit.thread.sink.split
 
-Cbs0_VarIsJust.exit.thread:                       ; preds = %.lr.ph160, %234, %Cbs0_VarIsJust.exit
+Cbs0_VarIsJust.exit.thread:                       ; preds = %.lr.ph194, %234, %Cbs0_VarIsJust.exit
   %244 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %227, i64 %.pre122
   %.val.i.i41 = load i64, ptr %244, align 4
   %245 = and i64 %.val.i.i41, 1073741824
@@ -705,8 +705,8 @@ Cbs0_ManAssign.exit.i48:                          ; preds = %294, %._crit_edge.i
   br label %301
 
 301:                                              ; preds = %Cbs0_ManAssign.exit.i48, %269
-  %.pre94.pre111 = phi i32 [ %298, %Cbs0_ManAssign.exit.i48 ], [ %.pre94.pre113156, %269 ]
-  %.pre9498 = phi i32 [ %298, %Cbs0_ManAssign.exit.i48 ], [ %.pre94100157, %269 ]
+  %.pre94.pre111 = phi i32 [ %298, %Cbs0_ManAssign.exit.i48 ], [ %.pre94.pre113190, %269 ]
+  %.pre9498 = phi i32 [ %298, %Cbs0_ManAssign.exit.i48 ], [ %.pre94100191, %269 ]
   %302 = phi i32 [ %298, %Cbs0_ManAssign.exit.i48 ], [ %230, %269 ]
   %303 = phi i32 [ %298, %Cbs0_ManAssign.exit.i48 ], [ %229, %269 ]
   br i1 %.not.i18.i, label %304, label %Cbs0_ManPropagateTwo.exit.thread
@@ -770,26 +770,26 @@ Cbs0_ManAssign.exit25.i:                          ; preds = %333, %._crit_edge.i
   br label %Cbs0_ManPropagateTwo.exit.thread.sink.split
 
 Cbs0_ManPropagateTwo.exit.thread.sink.split:      ; preds = %242, %Cbs0_ManAssign.exit25.i
-  %.sink138 = phi i32 [ %335, %Cbs0_ManAssign.exit25.i ], [ %.081159, %242 ]
-  %.sink136 = phi ptr [ %336, %Cbs0_ManAssign.exit25.i ], [ %228, %242 ]
-  %.sink134 = phi ptr [ %314, %Cbs0_ManAssign.exit25.i ], [ %227, %242 ]
-  %.pre94.pre110.ph = phi i32 [ %337, %Cbs0_ManAssign.exit25.i ], [ %.pre94.pre113156, %242 ]
-  %.pre9497.ph = phi i32 [ %337, %Cbs0_ManAssign.exit25.i ], [ %.pre94100157, %242 ]
-  %.ph132 = phi i32 [ %337, %Cbs0_ManAssign.exit25.i ], [ %230, %242 ]
-  %.ph133 = phi i32 [ %337, %Cbs0_ManAssign.exit25.i ], [ %229, %242 ]
-  %.1.ph = phi i32 [ %.081159, %Cbs0_ManAssign.exit25.i ], [ %243, %242 ]
-  %338 = sext i32 %.sink138 to i64
-  %339 = getelementptr inbounds ptr, ptr %.sink136, i64 %338
-  store ptr %.sink134, ptr %339, align 8, !tbaa !32
+  %.sink172 = phi i32 [ %335, %Cbs0_ManAssign.exit25.i ], [ %.081193, %242 ]
+  %.sink170 = phi ptr [ %336, %Cbs0_ManAssign.exit25.i ], [ %228, %242 ]
+  %.sink168 = phi ptr [ %314, %Cbs0_ManAssign.exit25.i ], [ %227, %242 ]
+  %.pre94.pre110.ph = phi i32 [ %337, %Cbs0_ManAssign.exit25.i ], [ %.pre94.pre113190, %242 ]
+  %.pre9497.ph = phi i32 [ %337, %Cbs0_ManAssign.exit25.i ], [ %.pre94100191, %242 ]
+  %.ph166 = phi i32 [ %337, %Cbs0_ManAssign.exit25.i ], [ %230, %242 ]
+  %.ph167 = phi i32 [ %337, %Cbs0_ManAssign.exit25.i ], [ %229, %242 ]
+  %.1.ph = phi i32 [ %.081193, %Cbs0_ManAssign.exit25.i ], [ %243, %242 ]
+  %338 = sext i32 %.sink172 to i64
+  %339 = getelementptr inbounds ptr, ptr %.sink170, i64 %338
+  store ptr %.sink168, ptr %339, align 8, !tbaa !32
   br label %Cbs0_ManPropagateTwo.exit.thread
 
 Cbs0_ManPropagateTwo.exit.thread:                 ; preds = %Cbs0_ManPropagateTwo.exit.thread.sink.split, %301, %Cbs0_VarIsJust.exit.thread
-  %.pre94.pre110 = phi i32 [ %.pre94.pre113156, %Cbs0_VarIsJust.exit.thread ], [ %.pre94.pre111, %301 ], [ %.pre94.pre110.ph, %Cbs0_ManPropagateTwo.exit.thread.sink.split ]
-  %.pre9497 = phi i32 [ %.pre94100157, %Cbs0_VarIsJust.exit.thread ], [ %.pre9498, %301 ], [ %.pre9497.ph, %Cbs0_ManPropagateTwo.exit.thread.sink.split ]
-  %340 = phi i32 [ %230, %Cbs0_VarIsJust.exit.thread ], [ %302, %301 ], [ %.ph132, %Cbs0_ManPropagateTwo.exit.thread.sink.split ]
-  %341 = phi i32 [ %229, %Cbs0_VarIsJust.exit.thread ], [ %303, %301 ], [ %.ph133, %Cbs0_ManPropagateTwo.exit.thread.sink.split ]
-  %.1 = phi i32 [ %.081159, %Cbs0_VarIsJust.exit.thread ], [ %.081159, %301 ], [ %.1.ph, %Cbs0_ManPropagateTwo.exit.thread.sink.split ]
-  %indvars.iv.next92 = add nsw i64 %indvars.iv91158, 1
+  %.pre94.pre110 = phi i32 [ %.pre94.pre113190, %Cbs0_VarIsJust.exit.thread ], [ %.pre94.pre111, %301 ], [ %.pre94.pre110.ph, %Cbs0_ManPropagateTwo.exit.thread.sink.split ]
+  %.pre9497 = phi i32 [ %.pre94100191, %Cbs0_VarIsJust.exit.thread ], [ %.pre9498, %301 ], [ %.pre9497.ph, %Cbs0_ManPropagateTwo.exit.thread.sink.split ]
+  %340 = phi i32 [ %230, %Cbs0_VarIsJust.exit.thread ], [ %302, %301 ], [ %.ph166, %Cbs0_ManPropagateTwo.exit.thread.sink.split ]
+  %341 = phi i32 [ %229, %Cbs0_VarIsJust.exit.thread ], [ %303, %301 ], [ %.ph167, %Cbs0_ManPropagateTwo.exit.thread.sink.split ]
+  %.1 = phi i32 [ %.081193, %Cbs0_VarIsJust.exit.thread ], [ %.081193, %301 ], [ %.1.ph, %Cbs0_ManPropagateTwo.exit.thread.sink.split ]
+  %indvars.iv.next92 = add nsw i64 %indvars.iv91192, 1
   %342 = load i32, ptr %6, align 4, !tbaa !40
   %343 = sext i32 %342 to i64
   %344 = icmp slt i64 %indvars.iv.next92, %343
@@ -1006,10 +1006,10 @@ Cbs0_ManDecideHighest.exit:                       ; preds = %53, %50, %66, %63, 
   %98 = load i32, ptr %97, align 4, !tbaa !70
   %99 = icmp sgt i32 %88, %98
   %. = select i1 %99, i64 29, i64 61
-  %.86 = select i1 %99, i64 %82, i64 %93
+  %.99 = select i1 %99, i64 %82, i64 %93
   %100 = lshr i64 %76, %.
-  %101 = xor i64 %100, %.86
-  %102 = and i64 %.86, -2
+  %101 = xor i64 %100, %.99
+  %102 = and i64 %.99, -2
   %103 = inttoptr i64 %102 to ptr
   %104 = load i64, ptr %103, align 4
   %.031.in = shl i64 %101, 62

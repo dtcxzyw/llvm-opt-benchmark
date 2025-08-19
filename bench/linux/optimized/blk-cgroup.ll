@@ -1560,7 +1560,7 @@ define internal fastcc void @blkg_destroy_all(ptr %.80.val) unnamed_addr #1 alig
 
 .lr.ph:                                           ; preds = %0, %.lr.ph.backedge
   %10 = phi ptr [ %.be, %.lr.ph.backedge ], [ %3, %0 ]
-  %11 = phi i32 [ %.be5, %.lr.ph.backedge ], [ 64, %0 ]
+  %11 = phi i32 [ %.be16, %.lr.ph.backedge ], [ 64, %0 ]
   %12 = getelementptr i8, ptr %10, i64 -8
   %13 = getelementptr i8, ptr %10, i64 24
   %14 = load ptr, ptr %13, align 8
@@ -1671,7 +1671,7 @@ blkg_destroy.exit:                                ; preds = %16, %67
 
 .lr.ph.backedge:                                  ; preds = %71, %5
   %.be = phi ptr [ %73, %71 ], [ %7, %5 ]
-  %.be5 = phi i32 [ %72, %71 ], [ 64, %5 ]
+  %.be16 = phi i32 [ %72, %71 ], [ 64, %5 ]
   br label %.lr.ph, !llvm.loop !50
 
 75:                                               ; preds = %83, %._crit_edge
@@ -2019,14 +2019,14 @@ define dso_local range(i32 -12, 1) i32 @blkcg_activate_policy(ptr noundef %0, pt
   br i1 %31, label %.loopexit18, label %.outer, !llvm.loop !57
 
 .outer:                                           ; preds = %29, %24
-  %.ph30 = phi ptr [ %30, %29 ], [ %22, %24 ]
-  %.ph31 = phi ptr [ %91, %29 ], [ null, %24 ]
-  %.ph32 = phi ptr [ %35, %29 ], [ null, %24 ]
+  %.ph46 = phi ptr [ %30, %29 ], [ %22, %24 ]
+  %.ph47 = phi ptr [ %91, %29 ], [ null, %24 ]
+  %.ph48 = phi ptr [ %35, %29 ], [ null, %24 ]
   br label %32
 
 32:                                               ; preds = %.outer, %112
-  %33 = phi ptr [ %114, %112 ], [ %.ph30, %.outer ]
-  %34 = phi ptr [ %.ph16, %112 ], [ %.ph31, %.outer ]
+  %33 = phi ptr [ %114, %112 ], [ %.ph46, %.outer ]
+  %34 = phi ptr [ %.ph16, %112 ], [ %.ph47, %.outer ]
   %35 = getelementptr i8, ptr %33, i64 -8
   %36 = getelementptr i8, ptr %33, i64 200
   %37 = load i32, ptr %1, align 8
@@ -2037,7 +2037,7 @@ define dso_local range(i32 -12, 1) i32 @blkcg_activate_policy(ptr noundef %0, pt
   br i1 %41, label %42, label %112
 
 42:                                               ; preds = %32
-  %43 = icmp eq ptr %35, %.ph32
+  %43 = icmp eq ptr %35, %.ph48
   br i1 %43, label %49, label %44
 
 44:                                               ; preds = %42
@@ -2054,11 +2054,11 @@ define dso_local range(i32 -12, 1) i32 @blkcg_activate_policy(ptr noundef %0, pt
   br i1 %52, label %53, label %93
 
 53:                                               ; preds = %49
-  %54 = icmp eq ptr %.ph32, null
+  %54 = icmp eq ptr %.ph48, null
   br i1 %54, label %73, label %55
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds nuw i8, ptr %.ph32, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %.ph48, i64 56
   tail call void @__rcu_read_lock() #16
   %57 = load volatile i64, ptr %56, align 8
   %58 = and i64 %57, 3
@@ -2071,7 +2071,7 @@ define dso_local range(i32 -12, 1) i32 @blkcg_activate_policy(ptr noundef %0, pt
   br label %72
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds nuw i8, ptr %.ph32, i64 64
+  %63 = getelementptr inbounds nuw i8, ptr %.ph48, i64 64
   %64 = load ptr, ptr %63, align 8
   %65 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $2, $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %64, i64 1, ptr elementtype(i64) %64) #16, !srcloc !41
   %66 = icmp ult i8 %65, 2
@@ -2174,7 +2174,7 @@ define dso_local range(i32 -12, 1) i32 @blkcg_activate_policy(ptr noundef %0, pt
   br i1 %115, label %.loopexit18, label %32, !llvm.loop !57
 
 .loopexit18:                                      ; preds = %112, %29, %18
-  %116 = phi ptr [ null, %18 ], [ %.ph32, %112 ], [ %35, %29 ]
+  %116 = phi ptr [ null, %18 ], [ %.ph48, %112 ], [ %35, %29 ]
   %117 = phi ptr [ null, %18 ], [ %.ph16, %112 ], [ %91, %29 ]
   %118 = load i32, ptr %1, align 8
   %119 = sext i32 %118 to i64
@@ -3222,7 +3222,7 @@ define dso_local void @bio_associate_blkg_from_css(ptr noundef captures(none) %0
   %77 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %76) #16
   %78 = load ptr, ptr %56, align 8
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %.thread20, label %.thread16.thread53
+  br i1 %79, label %.thread20, label %.thread16.thread68
 
 .thread20:                                        ; preds = %67, %72, %75
   %80 = phi ptr [ %76, %75 ], [ %60, %72 ], [ %60, %67 ]
@@ -3235,12 +3235,12 @@ select.unfold18:                                  ; preds = %72, %64
   %.ph22 = phi ptr [ %62, %64 ], [ %70, %72 ]
   %84 = load volatile ptr, ptr %39, align 8
   %85 = icmp eq ptr %.ph22, %84
-  br i1 %85, label %.thread16.thread53, label %86
+  br i1 %85, label %.thread16.thread68, label %86
 
 86:                                               ; preds = %select.unfold18
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !80
   store volatile ptr %.ph22, ptr %39, align 8
-  br label %.thread16.thread53
+  br label %.thread16.thread68
 
 87:                                               ; preds = %.thread28, %.thread20
   %88 = load ptr, ptr %82, align 8
@@ -3298,11 +3298,11 @@ select.unfold18:                                  ; preds = %72, %64
   %121 = and i1 %120, %119
   br i1 %121, label %87, label %.thread16
 
-.thread16.thread53:                               ; preds = %86, %select.unfold18, %75
-  %.ph50 = phi ptr [ %76, %75 ], [ %60, %select.unfold18 ], [ %60, %86 ]
-  %.ph51 = phi i64 [ %77, %75 ], [ %61, %select.unfold18 ], [ %61, %86 ]
-  %.ph52 = phi ptr [ %78, %75 ], [ %.ph22, %select.unfold18 ], [ %.ph22, %86 ]
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %.ph50, i64 noundef %.ph51) #16
+.thread16.thread68:                               ; preds = %86, %select.unfold18, %75
+  %.ph65 = phi ptr [ %76, %75 ], [ %60, %select.unfold18 ], [ %60, %86 ]
+  %.ph66 = phi i64 [ %77, %75 ], [ %61, %select.unfold18 ], [ %61, %86 ]
+  %.ph67 = phi ptr [ %78, %75 ], [ %.ph22, %select.unfold18 ], [ %.ph22, %86 ]
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %.ph65, i64 noundef %.ph66) #16
   br label %.preheader.preheader
 
 .thread16:                                        ; preds = %.thread28
@@ -3311,8 +3311,8 @@ select.unfold18:                                  ; preds = %72, %64
   %123 = icmp eq ptr %122, null
   br i1 %123, label %.loopexit, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %52, %42, %55, %.thread16.thread53, %.thread16
-  %.ph = phi ptr [ %57, %55 ], [ %40, %42 ], [ %50, %52 ], [ %.ph52, %.thread16.thread53 ], [ %122, %.thread16 ]
+.preheader.preheader:                             ; preds = %52, %42, %55, %.thread16.thread68, %.thread16
+  %.ph = phi ptr [ %57, %55 ], [ %40, %42 ], [ %50, %52 ], [ %.ph67, %.thread16.thread68 ], [ %122, %.thread16 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge

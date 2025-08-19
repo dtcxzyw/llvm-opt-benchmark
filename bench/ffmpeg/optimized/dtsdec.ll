@@ -56,8 +56,8 @@ define internal range(i32 0, 52) i32 @dts_probe(ptr noundef readonly captures(no
   %23 = getelementptr inbounds i8, ptr %13, i64 -4
   %24 = load i16, ptr %23, align 1, !tbaa !12
   %.not88 = icmp eq i16 %24, 0
-  %or.cond138 = select i1 %.not, i1 %.not88, i1 false
-  br i1 %or.cond138, label %32, label %._crit_edge129
+  %or.cond145 = select i1 %.not, i1 %.not88, i1 false
+  br i1 %or.cond145, label %32, label %._crit_edge129
 
 ._crit_edge129:                                   ; preds = %22
   %25 = sext i16 %16 to i32
@@ -132,7 +132,7 @@ define internal range(i32 0, 52) i32 @dts_probe(ptr noundef readonly captures(no
   br i1 %.not91, label %69, label %109
 
 69:                                               ; preds = %64
-  %70 = zext i32 %.073112 to i64
+  %70 = zext nneg i32 %.073112 to i64
   %71 = icmp eq i64 %indvars.iv, %70
   br i1 %71, label %72, label %74
 
@@ -213,9 +213,9 @@ define internal range(i32 0, 52) i32 @dts_probe(ptr noundef readonly captures(no
   br i1 %114, label %140, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %1, %._crit_edge
-  %.lcssa136 = phi i32 [ %110, %._crit_edge ], [ %6, %1 ]
-  %.068.lcssa135 = phi i64 [ %115, %._crit_edge ], [ 1, %1 ]
-  %.070.lcssa134 = phi i64 [ %.171, %._crit_edge ], [ 0, %1 ]
+  %.lcssa143 = phi i32 [ %110, %._crit_edge ], [ %6, %1 ]
+  %.068.lcssa142 = phi i64 [ %115, %._crit_edge ], [ 1, %1 ]
+  %.070.lcssa141 = phi i64 [ %.171, %._crit_edge ], [ 0, %1 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -243,7 +243,7 @@ define internal range(i32 0, 52) i32 @dts_probe(ptr noundef readonly captures(no
   br i1 %128, label %129, label %139
 
 129:                                              ; preds = %124
-  %130 = sdiv i32 %.lcssa136, %127
+  %130 = sdiv i32 %.lcssa143, %127
   %131 = icmp slt i32 %130, 32768
   br i1 %131, label %132, label %139
 
@@ -254,7 +254,7 @@ define internal range(i32 0, 52) i32 @dts_probe(ptr noundef readonly captures(no
   br i1 %135, label %136, label %139
 
 136:                                              ; preds = %132
-  %137 = sdiv i64 %.070.lcssa134, %.068.lcssa135
+  %137 = sdiv i64 %.070.lcssa141, %.068.lcssa142
   %138 = icmp sgt i64 %137, 600
   br i1 %138, label %140, label %139
 

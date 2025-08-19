@@ -307,8 +307,8 @@ define i32 @av_cmp_i(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr #0 {
   %13 = trunc nuw nsw i64 %9 to i32
   %sext = shl nuw i32 %12, 16
   %14 = ashr exact i32 %sext, 16
-  %sext24 = shl nuw i32 %13, 16
-  %15 = ashr exact i32 %sext24, 16
+  %sext28 = shl nuw i32 %13, 16
+  %15 = ashr exact i32 %sext28, 16
   %16 = sub nsw i32 %15, %14
   %17 = ashr i32 %16, 16
   %18 = or i32 %17, 1
@@ -316,8 +316,8 @@ define i32 @av_cmp_i(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr #0 {
 
 19:                                               ; preds = %.preheader
   %20 = add nsw i32 %.01120, -1
-  %.not25 = icmp eq i32 %.01120, 0
-  br i1 %.not25, label %.loopexit, label %.preheader, !llvm.loop !15
+  %.not29 = icmp eq i32 %.01120, 0
+  br i1 %.not29, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .preheader:                                       ; preds = %4, %19
   %.01120 = phi i32 [ %20, %19 ], [ 6, %4 ]
@@ -755,15 +755,15 @@ av_shr_i.exit86:                                  ; preds = %157
   %167 = trunc nuw nsw i64 %162 to i32
   %sext.i = shl nuw i32 %166, 16
   %168 = ashr exact i32 %sext.i, 16
-  %sext24.i = shl nuw i32 %167, 16
-  %169 = ashr exact i32 %sext24.i, 16
+  %sext28.i = shl nuw i32 %167, 16
+  %169 = ashr exact i32 %sext28.i, 16
   %170 = sub nsw i32 %169, %168
   br label %av_cmp_i.exit
 
 171:                                              ; preds = %.preheader.i
   %172 = add nsw i32 %.01120.i, -1
-  %.not25.i = icmp eq i32 %.01120.i, 0
-  br i1 %.not25.i, label %av_cmp_i.exit.thread, label %.preheader.i, !llvm.loop !15
+  %.not29.i = icmp eq i32 %.01120.i, 0
+  br i1 %.not29.i, label %av_cmp_i.exit.thread, label %.preheader.i, !llvm.loop !15
 
 av_cmp_i.exit.thread:                             ; preds = %171
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

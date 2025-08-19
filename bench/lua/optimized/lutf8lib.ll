@@ -130,7 +130,7 @@ u_posrelat.exit.thread:                           ; preds = %12, %u_posrelat.exi
 
 .preheader59:                                     ; preds = %38
   %44 = icmp sgt i64 %.056, 0
-  br i1 %44, label %.preheader58, label %.critedge.thread91
+  br i1 %44, label %.preheader58, label %.critedge.thread96
 
 .preheader58:                                     ; preds = %.preheader59, %.critedge2
   %.372 = phi i64 [ %49, %.critedge2 ], [ %.056, %.preheader59 ]
@@ -182,23 +182,23 @@ u_posrelat.exit.thread:                           ; preds = %12, %u_posrelat.exi
   %.044 = phi i64 [ %.24667, %.preheader63 ], [ %47, %.critedge2.thread ], [ %53, %.critedge2 ], [ %.246, %.loopexit62 ]
   %.2 = phi i64 [ %.056, %.preheader63 ], [ 0, %.critedge2.thread ], [ %49, %.critedge2 ], [ %59, %.loopexit62 ]
   %.not = icmp eq i64 %.044, 0
-  br i1 %.not, label %.critedge.thread, label %.critedge.thread91
+  br i1 %.not, label %.critedge.thread, label %.critedge.thread96
 
-.critedge.thread91:                               ; preds = %.preheader59, %.critedge
+.critedge.thread96:                               ; preds = %.preheader59, %.critedge
   call void @lua_pushnil(ptr noundef %0) #3
   br label %71
 
 .critedge.thread:                                 ; preds = %29, %.lr.ph, %.preheader57, %.critedge
-  %.290 = phi i64 [ %.2, %.critedge ], [ %.056, %.preheader57 ], [ 0, %29 ], [ %.175, %.lr.ph ]
-  %63 = add nsw i64 %.290, 1
+  %.295 = phi i64 [ %.2, %.critedge ], [ %.056, %.preheader57 ], [ 0, %29 ], [ %.175, %.lr.ph ]
+  %63 = add nsw i64 %.295, 1
   call void @lua_pushinteger(ptr noundef %0, i64 noundef %63) #3
-  %64 = getelementptr inbounds i8, ptr %3, i64 %.290
+  %64 = getelementptr inbounds i8, ptr %3, i64 %.295
   %65 = load i8, ptr %64, align 1, !tbaa !9
   %.not52 = icmp sgt i8 %65, -1
   br i1 %.not52, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.critedge.thread, %.preheader
-  %.8 = phi i64 [ %66, %.preheader ], [ %.290, %.critedge.thread ]
+  %.8 = phi i64 [ %66, %.preheader ], [ %.295, %.critedge.thread ]
   %66 = add nsw i64 %.8, 1
   %67 = getelementptr inbounds i8, ptr %3, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 1
@@ -215,8 +215,8 @@ u_posrelat.exit.thread:                           ; preds = %12, %u_posrelat.exi
   call void @lua_pushinteger(ptr noundef %0, i64 noundef %.pre-phi) #3
   br label %71
 
-71:                                               ; preds = %.loopexit, %.critedge.thread91, %36
-  %.047 = phi i32 [ 1, %.critedge.thread91 ], [ 2, %.loopexit ], [ %37, %36 ]
+71:                                               ; preds = %.loopexit, %.critedge.thread96, %36
+  %.047 = phi i32 [ 1, %.critedge.thread96 ], [ 2, %.loopexit ], [ %37, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.047
 }

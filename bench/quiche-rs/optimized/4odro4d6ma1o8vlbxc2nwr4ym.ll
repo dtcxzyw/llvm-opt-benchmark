@@ -534,10 +534,10 @@ define hidden { i64, i64 } @"_ZN6quiche19Connection$LT$F$GT$10dgram_send17h7f35e
   br i1 %.not19.i.i, label %42, label %"_ZN6quiche19Connection$LT$F$GT$14destination_id17h9cf5942417fdbd5aE.exit.i"
 
 "_ZN6quiche19Connection$LT$F$GT$14destination_id17h9cf5942417fdbd5aE.exit.i": ; preds = %45, %42
-  %.sink25.i.i = phi ptr [ %44, %42 ], [ %49, %45 ]
-  %.sroa.35.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sink25.i.i, i64 64
+  %.sink26.i.i = phi ptr [ %44, %42 ], [ %49, %45 ]
+  %.sroa.35.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sink26.i.i, i64 64
   %.sroa.35.0.i.i = load i64, ptr %.sroa.35.0.in.i.i, align 16, !noalias !36, !noundef !3
-  %.sroa.04.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sink25.i.i, i64 56
+  %.sroa.04.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sink26.i.i, i64 56
   %.sroa.04.0.i.i = load ptr, ptr %.sroa.04.0.in.i.i, align 8, !noalias !36, !nonnull !3, !noundef !3
   store i64 -9223372036854775808, ptr %8, align 8, !alias.scope !36, !noalias !42
   %.sroa.417.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1517,8 +1517,8 @@ define hidden void @"_ZN6quiche19Connection$LT$F$GT$14stream_do_send17h640979781
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %166 = load i64, ptr %162, align 16, !range !100
   %.not70 = icmp ne i64 %166, 3
-  %or.cond98.not = select i1 %164, i1 %.not70, i1 false
-  br i1 %or.cond98.not, label %170, label %167
+  %or.cond101.not = select i1 %164, i1 %.not70, i1 false
+  br i1 %or.cond101.not, label %170, label %167
 
 167:                                              ; preds = %165, %"_ZN4core3ptr71drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$qlog..Error$GT$$GT$17h43c092b48fe2b88fE.exit"
   %168 = icmp eq i64 %92, 0

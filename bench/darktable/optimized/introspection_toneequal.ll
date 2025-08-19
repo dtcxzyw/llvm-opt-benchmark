@@ -1877,8 +1877,8 @@ _choleski_decompose_safe.exit.i:                  ; preds = %92, %50
   %139 = getelementptr inbounds nuw float, ptr %36, i64 %.02935.i.i
   store float 0x7FF8000000000000, ptr %139, align 4, !tbaa !6, !alias.scope !274, !noalias !279
   %140 = add nuw nsw i64 %.02935.i.i, 1
-  %exitcond38.not41.i.i = icmp eq i64 %140, 8
-  br i1 %exitcond38.not41.i.i, label %.critedge.sink.split.i, label %.outer.i.i
+  %exitcond38.not42.i.i = icmp eq i64 %140, 8
+  br i1 %exitcond38.not42.i.i, label %.critedge.sink.split.i, label %.outer.i.i
 
 .critedge45.i:                                    ; preds = %_choleski_decompose_safe.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !280)
@@ -2043,7 +2043,7 @@ _solve_hermitian.exit:                            ; preds = %._crit_edge.i73.i, 
   br label %193
 
 193:                                              ; preds = %_solve_hermitian.exit.thread, %192, %_solve_hermitian.exit
-  %.038.i47 = phi i32 [ 0, %_solve_hermitian.exit.thread ], [ %.1.i, %192 ], [ 0, %_solve_hermitian.exit ]
+  %.038.i47 = phi i32 [ 0, %_solve_hermitian.exit.thread ], [ 1, %192 ], [ 0, %_solve_hermitian.exit ]
   tail call void @free(ptr noundef %5) #28
   tail call void @free(ptr noundef %4) #28
   br label %194
@@ -2384,13 +2384,13 @@ define range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1, float 
   br label %36
 
 36:                                               ; preds = %31, %35
-  %.sink37 = phi i32 [ 0, %35 ], [ 1, %31 ]
-  %.sink35 = phi i32 [ 0, %35 ], [ %19, %31 ]
+  %.sink40 = phi i32 [ 0, %35 ], [ 1, %31 ]
+  %.sink38 = phi i32 [ 0, %35 ], [ %19, %31 ]
   %.sink = phi i32 [ 0, %35 ], [ %22, %31 ]
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 2988
-  store i32 %.sink37, ptr %37, align 4, !tbaa !373
+  store i32 %.sink40, ptr %37, align 4, !tbaa !373
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 2492
-  store i32 %.sink35, ptr %38, align 4, !tbaa !374
+  store i32 %.sink38, ptr %38, align 4, !tbaa !374
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 2496
   store i32 %.sink, ptr %39, align 64, !tbaa !375
   %40 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %23) #28
@@ -5136,16 +5136,16 @@ init_nodes_y.exit:                                ; preds = %init_nodes_x.exit, 
   %272 = load ptr, ptr %14, align 8, !tbaa !432
   %273 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !416
   %. = select i1 %271, i64 688, i64 592
-  %.237 = select i1 %271, i64 696, i64 600
-  %.238 = select i1 %271, i64 704, i64 608
-  %.239 = select i1 %271, i64 712, i64 616
+  %.242 = select i1 %271, i64 696, i64 600
+  %.243 = select i1 %271, i64 704, i64 608
+  %.244 = select i1 %271, i64 712, i64 616
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 %.
   %.sroa.0209.0.copyload = load double, ptr %274, align 8
-  %.sroa.4210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %273, i64 %.237
+  %.sroa.4210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %273, i64 %.242
   %.sroa.4210.0.copyload = load double, ptr %.sroa.4210.0..sroa_idx, align 8
-  %.sroa.5211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %273, i64 %.238
+  %.sroa.5211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %273, i64 %.243
   %.sroa.5211.0.copyload = load double, ptr %.sroa.5211.0..sroa_idx, align 8
-  %.sroa.6212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %273, i64 %.239
+  %.sroa.6212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %273, i64 %.244
   %.sroa.6212.0.copyload = load double, ptr %.sroa.6212.0..sroa_idx, align 8
   tail call void @cairo_set_source_rgba(ptr noundef %272, double noundef %.sroa.0209.0.copyload, double noundef %.sroa.4210.0.copyload, double noundef %.sroa.5211.0.copyload, double noundef %.sroa.6212.0.copyload) #28
   %275 = load ptr, ptr %14, align 8, !tbaa !432
@@ -7690,7 +7690,7 @@ interpolate_bilinear.exit89:                      ; preds = %._crit_edge.us.i87,
   store float %174, ptr %175, align 4, !tbaa !6, !alias.scope !542, !noalias !539
   %176 = add nuw i64 %.02429.i, 1
   %exitcond33.not.i = icmp eq i64 %176, %20
-  br i1 %exitcond33.not.i, label %quantize.exit.thread137, label %.lr.ph30.i
+  br i1 %exitcond33.not.i, label %quantize.exit.thread153, label %.lr.ph30.i
 
 .lr.ph.i:                                         ; preds = %.preheader26.i, %.lr.ph.i
   %.028.i = phi i64 [ %187, %.lr.ph.i ], [ 0, %.preheader26.i ]
@@ -7707,14 +7707,14 @@ interpolate_bilinear.exit89:                      ; preds = %._crit_edge.us.i87,
   store float %185, ptr %186, align 4, !tbaa !6, !alias.scope !542, !noalias !539
   %187 = add nuw i64 %.028.i, 1
   %exitcond.not.i90 = icmp eq i64 %187, %20
-  br i1 %exitcond.not.i90, label %quantize.exit.thread137, label %.lr.ph.i
+  br i1 %exitcond.not.i90, label %quantize.exit.thread153, label %.lr.ph.i
 
 quantize.exit.thread:                             ; preds = %.preheader26.i, %.preheader.i
   %188 = tail call ptr @dt_alloc_aligned(i64 noundef %93) #28, !noalias !544
   call void @llvm.assume(i1 true) [ "align"(ptr %188, i64 64) ]
   br label %._crit_edge71.i
 
-quantize.exit.thread137:                          ; preds = %.lr.ph.i, %.lr.ph30.i
+quantize.exit.thread153:                          ; preds = %.lr.ph.i, %.lr.ph30.i
   %189 = tail call ptr @dt_alloc_aligned(i64 noundef %93) #28, !noalias !549
   call void @llvm.assume(i1 true) [ "align"(ptr %189, i64 64) ]
   br label %.lr.ph.i91.preheader
@@ -7728,8 +7728,8 @@ quantize.exit:                                    ; preds = %166
   call void @llvm.assume(i1 true) [ "align"(ptr %190, i64 64) ]
   br i1 %.not31.i, label %._crit_edge71.i, label %.lr.ph.i91.preheader
 
-.lr.ph.i91.preheader:                             ; preds = %quantize.exit.thread137, %quantize.exit
-  %191 = phi ptr [ %189, %quantize.exit.thread137 ], [ %190, %quantize.exit ]
+.lr.ph.i91.preheader:                             ; preds = %quantize.exit.thread153, %quantize.exit
+  %191 = phi ptr [ %189, %quantize.exit.thread153 ], [ %190, %quantize.exit ]
   br label %.lr.ph.i91
 
 .lr.ph70.preheader.i:                             ; preds = %.lr.ph.i91

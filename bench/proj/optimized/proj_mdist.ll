@@ -40,13 +40,13 @@ define hidden noalias noundef ptr @_Z14proj_mdist_inid(double noundef %0) local_
   %19 = fmul double %0, %.05971
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
-  br i1 %exitcond.not, label %.split.loop.exit87, label %3, !llvm.loop !7
+  br i1 %exitcond.not, label %.split.loop.exit88, label %3, !llvm.loop !7
 
 .split.loop.exit:                                 ; preds = %3
   %20 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit87
+  br label %.split.loop.exit88
 
-.split.loop.exit87:                               ; preds = %14, %.split.loop.exit
+.split.loop.exit88:                               ; preds = %14, %.split.loop.exit
   %.051.lcssa = phi i32 [ %20, %.split.loop.exit ], [ 20, %14 ]
   %21 = zext i32 %.051.lcssa to i64
   %22 = shl nuw nsw i64 %21, 3
@@ -55,7 +55,7 @@ define hidden noalias noundef ptr @_Z14proj_mdist_inid(double noundef %0) local_
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.loopexit, label %26
 
-26:                                               ; preds = %.split.loop.exit87
+26:                                               ; preds = %.split.loop.exit88
   %27 = add nsw i32 %.051.lcssa, -1
   store i32 %27, ptr %24, align 8, !tbaa !9
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -90,7 +90,7 @@ define hidden noalias noundef ptr @_Z14proj_mdist_inid(double noundef %0) local_
   %exitcond86.not = icmp eq i64 %indvars.iv.next84, %21
   br i1 %exitcond86.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
-.loopexit:                                        ; preds = %.lr.ph, %26, %.split.loop.exit87
+.loopexit:                                        ; preds = %.lr.ph, %26, %.split.loop.exit88
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %24
 }

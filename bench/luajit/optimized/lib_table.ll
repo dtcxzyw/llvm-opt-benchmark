@@ -509,10 +509,10 @@ define internal fastcc void @auxsort(ptr noundef %0, i32 noundef range(i32 -2147
 
 24:                                               ; preds = %46, %22
   %.lcssa.sink = phi i32 [ %13, %22 ], [ %26, %46 ]
-  %.lcssa134.sink = phi i32 [ %23, %22 ], [ %36, %46 ]
+  %.lcssa139.sink = phi i32 [ %23, %22 ], [ %36, %46 ]
   %.084 = phi i32 [ %.090119, %22 ], [ %26, %46 ]
   tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef range(i32 -2147483647, -2147483648) %.lcssa.sink) #4
-  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef range(i32 -2147483647, -2147483648) %.lcssa134.sink) #4
+  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef range(i32 -2147483647, -2147483648) %.lcssa139.sink) #4
   br label %25
 
 25:                                               ; preds = %35, %24
@@ -554,7 +554,7 @@ sort_comp.exit:                                   ; preds = %29, %31
   br label %25, !llvm.loop !46
 
 .preheader:                                       ; preds = %sort_comp.exit, %45
-  %.1 = phi i32 [ %36, %45 ], [ %.lcssa134.sink, %sort_comp.exit ]
+  %.1 = phi i32 [ %36, %45 ], [ %.lcssa139.sink, %sort_comp.exit ]
   %36 = add nsw i32 %.1, -1
   tail call void @lua_rawgeti(ptr noundef %0, i32 noundef 1, i32 noundef %36) #4
   %37 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 2) #4

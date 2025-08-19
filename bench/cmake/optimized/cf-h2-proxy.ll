@@ -996,7 +996,7 @@ h2_tunnel_go_state.exit70.i:                      ; preds = %276, %255, %134
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 12
   %396 = load i32, ptr %395, align 4, !tbaa !112
   %397 = icmp sgt i32 %396, 0
-  br i1 %397, label %398, label %.thread107.i.i
+  br i1 %397, label %398, label %.thread117.i.i
 
 398:                                              ; preds = %393
   %399 = load i32, ptr %125, align 8, !tbaa !38
@@ -1004,28 +1004,28 @@ h2_tunnel_go_state.exit70.i:                      ; preds = %276, %255, %134
   %.pre.i.i = load i64, ptr %121, align 2
   %.pre105.i.i = and i64 %.pre.i.i, 134217728
   %400 = icmp eq i64 %.pre105.i.i, 0
-  br i1 %400, label %.thread.i.i, label %..thread107.i_crit_edge.i
+  br i1 %400, label %.thread.i.i, label %..thread117.i_crit_edge.i
 
-..thread107.i_crit_edge.i:                        ; preds = %398
+..thread117.i_crit_edge.i:                        ; preds = %398
   %.pr.pre.i = load ptr, ptr %122, align 8, !tbaa !108
-  br label %.thread107.i.i
+  br label %.thread117.i.i
 
-.thread107.i.i:                                   ; preds = %..thread107.i_crit_edge.i, %393
-  %.pr.i = phi ptr [ %.pr.pre.i, %..thread107.i_crit_edge.i ], [ %388, %393 ]
+.thread117.i.i:                                   ; preds = %..thread117.i_crit_edge.i, %393
+  %.pr.i = phi ptr [ %.pr.pre.i, %..thread117.i_crit_edge.i ], [ %388, %393 ]
   %.not91.i.i = icmp eq ptr %.pr.i, null
-  br i1 %.not91.i.i, label %.thread107.i.thread.i, label %.thread107.i.thread138.i
+  br i1 %.not91.i.i, label %.thread117.i.thread.i, label %.thread117.i.thread166.i
 
-.thread107.i.thread138.i:                         ; preds = %.thread107.i.i
+.thread117.i.thread166.i:                         ; preds = %.thread117.i.i
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pr.i, i64 8
   %.pre58 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !109
   %401 = icmp sgt i32 %.pre58, 0
-  br i1 %401, label %.thread107.i.thread.i, label %.thread.i.i
+  br i1 %401, label %.thread117.i.thread.i, label %.thread.i.i
 
-.thread107.i.thread.i:                            ; preds = %.thread107.i.thread138.i, %.thread107.i.i
+.thread117.i.thread.i:                            ; preds = %.thread117.i.thread166.i, %.thread117.i.i
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.44) #7
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %389, %.thread107.i.thread.i, %.thread107.i.thread138.i, %398, %384, %383
+.thread.i.i:                                      ; preds = %389, %.thread117.i.thread.i, %.thread117.i.thread166.i, %398, %384, %383
   %402 = load i8, ptr %130, align 8
   %403 = and i8 %402, -4
   %404 = or disjoint i8 %403, 1

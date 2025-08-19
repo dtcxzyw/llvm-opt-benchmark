@@ -955,7 +955,7 @@ define dso_local void @geoaddCommand(ptr noundef %0) local_unnamed_addr #0 {
 17:                                               ; preds = %15
   %18 = tail call i32 @strcasecmp(ptr noundef %13, ptr noundef nonnull @.str.25) #15
   %.not77 = icmp eq i32 %18, 0
-  br i1 %.not77, label %19, label %.thread.split.loop.exit141
+  br i1 %.not77, label %19, label %.thread.split.loop.exit143
 
 19:                                               ; preds = %17, %9, %15
   %.264 = phi i32 [ %.06296, %17 ], [ 1, %9 ], [ %.06296, %15 ]
@@ -964,14 +964,14 @@ define dso_local void @geoaddCommand(ptr noundef %0) local_unnamed_addr #0 {
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread, label %9
 
-.thread.split.loop.exit141:                       ; preds = %17
+.thread.split.loop.exit143:                       ; preds = %17
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.thread
 
-.thread:                                          ; preds = %19, %.thread.split.loop.exit141
-  %.066.lcssa.ph = phi i32 [ %20, %.thread.split.loop.exit141 ], [ %5, %19 ]
-  %.062.lcssa.ph = phi i32 [ %.06296, %.thread.split.loop.exit141 ], [ %.264, %19 ]
-  %.0.lcssa.ph = phi i32 [ %.097, %.thread.split.loop.exit141 ], [ %.2, %19 ]
+.thread:                                          ; preds = %19, %.thread.split.loop.exit143
+  %.066.lcssa.ph = phi i32 [ %20, %.thread.split.loop.exit143 ], [ %5, %19 ]
+  %.062.lcssa.ph = phi i32 [ %.06296, %.thread.split.loop.exit143 ], [ %.264, %19 ]
+  %.0.lcssa.ph = phi i32 [ %.097, %.thread.split.loop.exit143 ], [ %.2, %19 ]
   %21 = icmp ne i32 %.0.lcssa.ph, 0
   %22 = icmp ne i32 %.062.lcssa.ph, 0
   %23 = select i1 %21, i1 %22, i1 false
@@ -985,8 +985,8 @@ define dso_local void @geoaddCommand(ptr noundef %0) local_unnamed_addr #0 {
   %26 = add nsw i32 %5, -2
   %.nonneg = sub i32 2, %5
   %27 = urem i32 %.nonneg, 3
-  %.not78132 = icmp eq i32 %27, 0
-  br i1 %.not78132, label %.lr.ph107, label %28
+  %.not78134 = icmp eq i32 %27, 0
+  br i1 %.not78134, label %.lr.ph107, label %28
 
 28:                                               ; preds = %.thread, %.thread.thread
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !72
@@ -994,18 +994,18 @@ define dso_local void @geoaddCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %82
 
 .lr.ph107:                                        ; preds = %.thread, %.thread.thread
-  %.066.lcssa133138 = phi i32 [ 2, %.thread.thread ], [ %.066.lcssa.ph, %.thread ]
+  %.066.lcssa135140 = phi i32 [ 2, %.thread.thread ], [ %.066.lcssa.ph, %.thread ]
   %30 = phi i32 [ %26, %.thread.thread ], [ %24, %.thread ]
   %31 = sdiv i32 %30, 3
   %32 = shl nsw i32 %31, 1
-  %33 = add nsw i32 %32, %.066.lcssa133138
+  %33 = add nsw i32 %32, %.066.lcssa135140
   %34 = sext i32 %33 to i64
   %35 = shl nsw i64 %34, 3
   %36 = tail call noalias ptr @zcalloc(i64 noundef %35) #12
   %37 = tail call ptr @createRawStringObject(ptr noundef nonnull @.str.26, i64 noundef 4) #14
   store ptr %37, ptr %36, align 8, !tbaa !26
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %umax = tail call i32 @llvm.umax.i32(i32 %.066.lcssa133138, i32 2)
+  %umax = tail call i32 @llvm.umax.i32(i32 %.066.lcssa135140, i32 2)
   %wide.trip.count118 = zext i32 %umax to i64
   br label %45
 
@@ -1015,13 +1015,13 @@ define dso_local void @geoaddCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph109:                                        ; preds = %.preheader
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %41 = zext i32 %.066.lcssa133138 to i64
+  %41 = zext i32 %.066.lcssa135140 to i64
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %43 = add nuw nsw i32 %.066.lcssa133138, 1
+  %43 = add nuw nsw i32 %.066.lcssa135140, 1
   %44 = zext i32 %43 to i64
   %wide.trip.count123 = zext nneg i32 %31 to i64
   %invariant.gep = getelementptr inbounds nuw ptr, ptr %36, i64 %41
-  %invariant.gep145 = getelementptr inbounds nuw ptr, ptr %36, i64 %44
+  %invariant.gep147 = getelementptr inbounds nuw ptr, ptr %36, i64 %44
   br label %50
 
 45:                                               ; preds = %.lr.ph107, %45
@@ -1116,8 +1116,8 @@ extractLongLatOrReply.exit:                       ; preds = %56, %._crit_edge.i
   %81 = shl nuw nsw i64 %indvars.iv120, 1
   %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %81
   store ptr %75, ptr %gep, align 8, !tbaa !26
-  %gep146 = getelementptr inbounds nuw ptr, ptr %invariant.gep145, i64 %81
-  store ptr %80, ptr %gep146, align 8, !tbaa !26
+  %gep148 = getelementptr inbounds nuw ptr, ptr %invariant.gep147, i64 %81
+  store ptr %80, ptr %gep148, align 8, !tbaa !26
   call void @incrRefCount(ptr noundef %80) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1313,7 +1313,7 @@ longLatFromMember.exit:                           ; preds = %45
   %81 = and i32 %2, 8
   %.not391 = icmp eq i32 %81, 0
   %82 = and i32 %2, 24
-  %.not567 = icmp eq i32 %82, 24
+  %.not583 = icmp eq i32 %82, 24
   %83 = icmp eq ptr %16, null
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %85 = zext nneg i32 %.0291 to i64
@@ -1430,7 +1430,7 @@ longLatFromMember.exit:                           ; preds = %45
   br label %195
 
 137:                                              ; preds = %131
-  br i1 %.not567, label %195, label %.thread
+  br i1 %.not583, label %195, label %.thread
 
 .thread:                                          ; preds = %129, %137
   %138 = call i32 @strcasecmp(ptr noundef %96, ptr noundef nonnull @.str.39) #15
@@ -1807,7 +1807,7 @@ longLatFromMember.exit:                           ; preds = %45
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 8
   %307 = load ptr, ptr %306, align 8, !tbaa !28
   %308 = icmp sgt i64 %262, 0
-  br i1 %308, label %.lr.ph540, label %.loopexit564
+  br i1 %308, label %.lr.ph540, label %.loopexit580
 
 .lr.ph540:                                        ; preds = %304
   %309 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1898,9 +1898,9 @@ sdslen.exit:                                      ; preds = %321, %329, %332, %3
   store ptr null, ptr %323, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %262
-  br i1 %exitcond.not, label %.loopexit564, label %311, !llvm.loop !108
+  br i1 %exitcond.not, label %.loopexit580, label %311, !llvm.loop !108
 
-.loopexit564:                                     ; preds = %355, %304
+.loopexit580:                                     ; preds = %355, %304
   %.0293.lcssa.ph = phi i64 [ 0, %304 ], [ %spec.select419, %355 ]
   %.0292.lcssa.ph = phi i64 [ 0, %304 ], [ %356, %355 ]
   call void @zsetConvertToListpackIfNeeded(ptr noundef %305, i64 noundef %.0293.lcssa.ph, i64 noundef %.0292.lcssa.ph) #14
@@ -1929,10 +1929,10 @@ sdslen.exit:                                      ; preds = %321, %329, %332, %3
   call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.49, ptr noundef nonnull %.1, i32 noundef %368) #14
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.loopexit564, %364
-  %.sink566 = phi i64 [ 1, %364 ], [ %262, %.loopexit564 ]
+.sink.split:                                      ; preds = %.loopexit580, %364
+  %.sink582 = phi i64 [ 1, %364 ], [ %262, %.loopexit580 ]
   %369 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !82
-  %370 = add nsw i64 %369, %.sink566
+  %370 = add nsw i64 %369, %.sink582
   store i64 %370, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !82
   br label %371
 

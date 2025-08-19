@@ -279,11 +279,11 @@ default.unreachable.i.i:                          ; preds = %sw.bb1.i
   unreachable
 
 sw.epilog.i.i:                                    ; preds = %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb.i.i
-  %.sink19.i.i = phi i64 [ 8, %sw.bb7.i.i ], [ 4, %sw.bb5.i.i ], [ 2, %sw.bb.i.i ]
+  %.sink20.i.i = phi i64 [ 8, %sw.bb7.i.i ], [ 4, %sw.bb5.i.i ], [ 2, %sw.bb.i.i ]
   br i1 %cmp.i8.i, label %invoke.cont.i23, label %for.body.i12.i.preheader
 
 for.body.i12.i.preheader:                         ; preds = %sw.epilog.i.i
-  %add.ptr.i.i30.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i24.i, i64 %.sink19.i.i
+  %add.ptr.i.i30.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i24.i, i64 %.sink20.i.i
   br label %for.body.i12.i
 
 for.body.i12.i:                                   ; preds = %for.body.i12.i.preheader, %for.body.i12.i
@@ -750,7 +750,7 @@ if.end15.i:                                       ; preds = %if.end9.i
   %add.ptr.i32 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store ptr %add.ptr.i32, ptr %3, align 8
   %6 = and i8 %metainfo.i.0.copyload, 3
-  switch i8 %6, label %default.unreachable113 [
+  switch i8 %6, label %default.unreachable114 [
     i8 0, label %if.end23.i
     i8 1, label %sw.bb.i
     i8 2, label %sw.bb2.i
@@ -805,7 +805,7 @@ if.then11.i:                                      ; preds = %sw.bb8.i
   store ptr %add.ptr.i61, ptr %13, align 8
   br label %if.end23.i
 
-default.unreachable113:                           ; preds = %if.end15.i
+default.unreachable114:                           ; preds = %if.end15.i
   unreachable
 
 if.end23.i:                                       ; preds = %if.end15.i, %if.then11.i, %if.then5.i, %if.then.i35

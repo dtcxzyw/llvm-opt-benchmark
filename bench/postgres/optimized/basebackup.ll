@@ -714,28 +714,28 @@ define dso_local void @SendBaseBackup(ptr noundef readonly captures(none) %0, pt
   br i1 %286, label %.lr.ph, label %.critedge.i
 
 .critedge.thread.i:                               ; preds = %.lr.ph.i, %.critedge.i, %.loopexit.i
-  %.0169.lcssa449.i = phi i1 [ %38, %.critedge.i ], [ false, %.loopexit.i ], [ false, %.lr.ph.i ]
-  %.0175.lcssa447.i = phi ptr [ %.1176.i, %.critedge.i ], [ null, %.loopexit.i ], [ null, %.lr.ph.i ]
-  %.0177.lcssa445.i = phi i1 [ %42, %.critedge.i ], [ true, %.loopexit.i ], [ true, %.lr.ph.i ]
-  %.0179.lcssa443.i = phi i1 [ %41, %.critedge.i ], [ false, %.loopexit.i ], [ false, %.lr.ph.i ]
-  %.0181.lcssa441.i = phi ptr [ %.1182.i, %.critedge.i ], [ null, %.loopexit.i ], [ null, %.lr.ph.i ]
-  %.0183.lcssa439.i = phi ptr [ %.1184.i, %.critedge.i ], [ null, %.loopexit.i ], [ null, %.lr.ph.i ]
+  %.0169.lcssa450.i = phi i1 [ %38, %.critedge.i ], [ false, %.loopexit.i ], [ false, %.lr.ph.i ]
+  %.0175.lcssa448.i = phi ptr [ %.1176.i, %.critedge.i ], [ null, %.loopexit.i ], [ null, %.lr.ph.i ]
+  %.0177.lcssa446.i = phi i1 [ %42, %.critedge.i ], [ true, %.loopexit.i ], [ true, %.lr.ph.i ]
+  %.0179.lcssa444.i = phi i1 [ %41, %.critedge.i ], [ false, %.loopexit.i ], [ false, %.lr.ph.i ]
+  %.0181.lcssa442.i = phi ptr [ %.1182.i, %.critedge.i ], [ null, %.loopexit.i ], [ null, %.lr.ph.i ]
+  %.0183.lcssa440.i = phi ptr [ %.1184.i, %.critedge.i ], [ null, %.loopexit.i ], [ null, %.lr.ph.i ]
   store ptr @.str.31, ptr %4, align 8
   br label %287
 
 287:                                              ; preds = %.critedge.thread.i, %.critedge.i
-  %.0169.lcssa448.i = phi i1 [ %.0169.lcssa449.i, %.critedge.thread.i ], [ %38, %.critedge.i ]
-  %.0175.lcssa446.i = phi ptr [ %.0175.lcssa447.i, %.critedge.thread.i ], [ %.1176.i, %.critedge.i ]
-  %.0177.lcssa444.i = phi i1 [ %.0177.lcssa445.i, %.critedge.thread.i ], [ %42, %.critedge.i ]
-  %.0179.lcssa442.i = phi i1 [ %.0179.lcssa443.i, %.critedge.thread.i ], [ %41, %.critedge.i ]
-  %.0181.lcssa440.i = phi ptr [ %.0181.lcssa441.i, %.critedge.thread.i ], [ %.1182.i, %.critedge.i ]
-  %.0183.lcssa438.i = phi ptr [ %.0183.lcssa439.i, %.critedge.thread.i ], [ %.1184.i, %.critedge.i ]
+  %.0169.lcssa449.i = phi i1 [ %.0169.lcssa450.i, %.critedge.thread.i ], [ %38, %.critedge.i ]
+  %.0175.lcssa447.i = phi ptr [ %.0175.lcssa448.i, %.critedge.thread.i ], [ %.1176.i, %.critedge.i ]
+  %.0177.lcssa445.i = phi i1 [ %.0177.lcssa446.i, %.critedge.thread.i ], [ %42, %.critedge.i ]
+  %.0179.lcssa443.i = phi i1 [ %.0179.lcssa444.i, %.critedge.thread.i ], [ %41, %.critedge.i ]
+  %.0181.lcssa441.i = phi ptr [ %.0181.lcssa442.i, %.critedge.thread.i ], [ %.1182.i, %.critedge.i ]
+  %.0183.lcssa439.i = phi ptr [ %.0183.lcssa440.i, %.critedge.thread.i ], [ %.1184.i, %.critedge.i ]
   %288 = load i32, ptr %15, align 8
   %289 = icmp eq i32 %288, 1
   br i1 %289, label %290, label %296
 
 290:                                              ; preds = %287
-  br i1 %.0169.lcssa448.i, label %291, label %295
+  br i1 %.0169.lcssa449.i, label %291, label %295
 
 291:                                              ; preds = %290
   %292 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
@@ -750,11 +750,11 @@ define dso_local void @SendBaseBackup(ptr noundef readonly captures(none) %0, pt
   br label %296
 
 296:                                              ; preds = %295, %287
-  %297 = icmp eq ptr %.0183.lcssa438.i, null
+  %297 = icmp eq ptr %.0183.lcssa439.i, null
   br i1 %297, label %298, label %306
 
 298:                                              ; preds = %296
-  %.not191.i = icmp eq ptr %.0181.lcssa440.i, null
+  %.not191.i = icmp eq ptr %.0181.lcssa441.i, null
   br i1 %.not191.i, label %303, label %299
 
 299:                                              ; preds = %298
@@ -773,19 +773,19 @@ define dso_local void @SendBaseBackup(ptr noundef readonly captures(none) %0, pt
   br label %319
 
 306:                                              ; preds = %296
-  %307 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0183.lcssa438.i, ptr noundef nonnull dereferenceable(7) @.str.34) #21
+  %307 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0183.lcssa439.i, ptr noundef nonnull dereferenceable(7) @.str.34) #21
   %308 = icmp eq i32 %307, 0
   br i1 %308, label %309, label %316
 
 309:                                              ; preds = %306
-  %.not190.i = icmp eq ptr %.0181.lcssa440.i, null
+  %.not190.i = icmp eq ptr %.0181.lcssa441.i, null
   br i1 %.not190.i, label %314, label %310
 
 310:                                              ; preds = %309
   %311 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
   call void @llvm.assume(i1 %311)
   %312 = call i32 @errcode(i32 noundef 16801924) #19
-  %313 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.35, ptr noundef nonnull %.0183.lcssa438.i) #19
+  %313 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.35, ptr noundef nonnull %.0183.lcssa439.i) #19
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 953, ptr noundef nonnull @__func__.parse_basebackup_options) #19
   unreachable
 
@@ -795,13 +795,13 @@ define dso_local void @SendBaseBackup(ptr noundef readonly captures(none) %0, pt
   br label %319
 
 316:                                              ; preds = %306
-  %317 = call ptr @BaseBackupGetTargetHandle(ptr noundef nonnull %.0183.lcssa438.i, ptr noundef %.0181.lcssa440.i) #19
+  %317 = call ptr @BaseBackupGetTargetHandle(ptr noundef nonnull %.0183.lcssa439.i, ptr noundef %.0181.lcssa441.i) #19
   %318 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %317, ptr %318, align 8
   br label %319
 
 319:                                              ; preds = %316, %314, %303
-  br i1 %.0177.lcssa444.i, label %324, label %320
+  br i1 %.0177.lcssa445.i, label %324, label %320
 
 320:                                              ; preds = %319
   %321 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
@@ -812,11 +812,11 @@ define dso_local void @SendBaseBackup(ptr noundef readonly captures(none) %0, pt
   unreachable
 
 324:                                              ; preds = %319
-  br i1 %.0179.lcssa442.i, label %325, label %parse_basebackup_options.exit
+  br i1 %.0179.lcssa443.i, label %325, label %parse_basebackup_options.exit
 
 325:                                              ; preds = %324
   %326 = load i32, ptr %17, align 4
-  call void @parse_compress_specification(i32 noundef %326, ptr noundef %.0175.lcssa446.i, ptr noundef nonnull %18) #19
+  call void @parse_compress_specification(i32 noundef %326, ptr noundef %.0175.lcssa447.i, ptr noundef nonnull %18) #19
   %327 = call ptr @validate_compress_specification(ptr noundef nonnull %18) #19
   %.not192.i = icmp eq ptr %327, null
   br i1 %.not192.i, label %parse_basebackup_options.exit, label %328
@@ -1137,12 +1137,12 @@ define internal fastcc void @perform_base_backup(ptr noundef nonnull readonly ca
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %95 = load i32, ptr %90, align 4
   %96 = icmp sgt i32 %95, 0
-  br i1 %96, label %.lr.ph334, label %.critedge209
+  br i1 %96, label %.lr.ph349, label %.critedge209
 
-.lr.ph334:                                        ; preds = %.lr.ph242, %156
-  %indvars.iv277333 = phi i64 [ %indvars.iv.next278, %156 ], [ 0, %.lr.ph242 ]
+.lr.ph349:                                        ; preds = %.lr.ph242, %156
+  %indvars.iv277348 = phi i64 [ %indvars.iv.next278, %156 ], [ 0, %.lr.ph242 ]
   %97 = load ptr, ptr %91, align 8
-  %98 = getelementptr inbounds nuw %union.ListCell, ptr %97, i64 %indvars.iv277333
+  %98 = getelementptr inbounds nuw %union.ListCell, ptr %97, i64 %indvars.iv277348
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8
@@ -1171,7 +1171,7 @@ define internal fastcc void @perform_base_backup(ptr noundef nonnull readonly ca
   %113 = trunc nuw i8 %112 to i1
   br i1 %113, label %161, label %368
 
-114:                                              ; preds = %.lr.ph334
+114:                                              ; preds = %.lr.ph349
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %115 = load ptr, ptr %1, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
@@ -1210,7 +1210,7 @@ define internal fastcc void @perform_base_backup(ptr noundef nonnull readonly ca
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %142
 
-133:                                              ; preds = %.lr.ph334
+133:                                              ; preds = %.lr.ph349
   %134 = load i32, ptr %99, align 8
   %135 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.43, i32 noundef %134) #19
   %136 = load ptr, ptr %1, align 8
@@ -1246,11 +1246,11 @@ define internal fastcc void @perform_base_backup(ptr noundef nonnull readonly ca
   br label %156
 
 156:                                              ; preds = %145, %148
-  %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277333, 1
+  %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277348, 1
   %157 = load i32, ptr %90, align 4
   %158 = sext i32 %157 to i64
   %159 = icmp slt i64 %indvars.iv.next278, %158
-  br i1 %159, label %.lr.ph334, label %.critedge209
+  br i1 %159, label %.lr.ph349, label %.critedge209
 
 160:                                              ; preds = %3
   store ptr %45, ptr @PG_exception_stack, align 8
@@ -1446,8 +1446,8 @@ IsTLHistoryFileName.exit.thread:                  ; preds = %187, %IsXLogFileNam
   br i1 %.not196, label %.preheader, label %266
 
 .critedge211.thread:                              ; preds = %.preheader223
-  %.not196293 = icmp eq i64 %165, %176
-  br i1 %.not196293, label %.critedge213.preheader, label %266
+  %.not196308 = icmp eq i64 %165, %176
+  br i1 %.not196308, label %.critedge213.preheader, label %266
 
 .preheader:                                       ; preds = %.critedge211
   %258 = icmp sgt i32 %240, 0
@@ -2111,8 +2111,8 @@ convert_link_to_directory.exit200:                ; preds = %160, %164
   %.pre = load i32, ptr %53, align 8
   %171 = and i32 %.pre, 61440
   %172 = icmp eq i32 %171, 40960
-  %or.cond256 = select i1 %170, i1 %172, i1 false
-  br i1 %or.cond256, label %173, label %190
+  %or.cond264 = select i1 %170, i1 %172, i1 false
+  br i1 %or.cond264, label %173, label %190
 
 173:                                              ; preds = %168
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -3030,8 +3030,8 @@ push_to_sink.exit167.thread:                      ; preds = %push_to_sink.exit16
   br label %.loopexit.i.sink.split
 
 .loopexit.i.sink.split:                           ; preds = %256, %262, %.lr.ph.preheader.i
-  %.sink294 = phi i64 [ %272, %.lr.ph.preheader.i ], [ %258, %262 ], [ %258, %256 ]
-  call void @llvm.memset.p0.i64(ptr align 1 %257, i8 0, i64 %.sink294, i1 false)
+  %.sink315 = phi i64 [ %272, %.lr.ph.preheader.i ], [ %258, %262 ], [ %258, %256 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %257, i8 0, i64 %.sink315, i1 false)
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.i.sink.split, %266

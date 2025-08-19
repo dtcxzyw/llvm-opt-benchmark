@@ -489,10 +489,10 @@ define void @_ZN3zmq12ws_encoder_t10size_readyEv(ptr noundef nonnull align 8 der
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %32, %30, %42
-  %.sink25 = phi ptr [ %43, %42 ], [ %.0, %30 ], [ %.0, %32 ]
+  %.sink26 = phi ptr [ %43, %42 ], [ %.0, %30 ], [ %.0, %32 ]
   %.sink = phi i64 [ %45, %42 ], [ %8, %30 ], [ %8, %32 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink25, ptr %46, align 8, !tbaa !29
+  store ptr %.sink26, ptr %46, align 8, !tbaa !29
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink, ptr %47, align 8, !tbaa !30
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24

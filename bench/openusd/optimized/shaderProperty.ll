@@ -9488,9 +9488,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_GetValueINS_7VtArrayIfEEEEb
   br label %.critedge.i10
 
 .thread.sink.split.i:                             ; preds = %626, %606, %587
-  %.sink128.i = phi ptr [ %3, %587 ], [ %4, %606 ], [ %5, %626 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_MoveERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %.sink128.i, ptr noundef nonnull align 8 dereferenceable(16) %16) #21
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink128.i) #21
+  %.sink138.i = phi ptr [ %3, %587 ], [ %4, %606 ], [ %5, %626 ]
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_MoveERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %.sink138.i, ptr noundef nonnull align 8 dereferenceable(16) %16) #21
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink138.i) #21
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #21
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_ConformSdrDefaultValueERKNS_7VtValueERKNS_7TfTokenEmRKSt13unordered_mapIS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11HashFunctorESt8equal_toIS4_ESaISt4pairIS5_SD_EEES6_.exit
 

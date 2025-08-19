@@ -524,7 +524,7 @@ define hidden void @"_ZN18ty_python_semantic15python_platform1_104_$LT$impl$u20$
           to label %.noexc25 unwind label %73
 
 .noexc25:                                         ; preds = %42
-  br i1 %47, label %61, label %.invoke58, !prof !41
+  br i1 %47, label %61, label %.invoke60, !prof !41
 
 48:                                               ; preds = %26
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.i, i64 8
@@ -535,9 +535,9 @@ define hidden void @"_ZN18ty_python_semantic15python_platform1_104_$LT$impl$u20$
           to label %.noexc27 unwind label %73
 
 .noexc27:                                         ; preds = %48
-  br i1 %53, label %61, label %.invoke58, !prof !41
+  br i1 %53, label %61, label %.invoke60, !prof !41
 
-.invoke58:                                        ; preds = %.noexc27, %.noexc25
+.invoke60:                                        ; preds = %.noexc27, %.noexc25
   %54 = phi ptr [ %44, %.noexc25 ], [ %50, %.noexc27 ]
   %55 = phi i64 [ %46, %.noexc25 ], [ %52, %.noexc27 ]
   invoke void @_ZN5serde2de5Error15unknown_variant17ha9074be2d10c31fbE(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %7, ptr noalias noundef nonnull readonly align 1 %54, i64 noundef %55, ptr noalias noundef nonnull readonly align 8 @anon.51e6a62baac934f3367f7e2ca58ef2af.15, i64 noundef 1)
@@ -547,16 +547,16 @@ define hidden void @"_ZN18ty_python_semantic15python_platform1_104_$LT$impl$u20$
   br label %.invoke
 
 .invoke:                                          ; preds = %26, %56
-  %.sink60 = phi i64 [ 8, %56 ], [ 16, %26 ]
-  %.sink59 = phi i64 [ 16, %56 ], [ 24, %26 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.i, i64 %.sink60
+  %.sink62 = phi i64 [ 8, %56 ], [ 16, %26 ]
+  %.sink61 = phi i64 [ 16, %56 ], [ 24, %26 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.i, i64 %.sink62
   %58 = load ptr, ptr %57, align 8, !alias.scope !92, !noalias !93, !nonnull !4, !noundef !4
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.i, i64 %.sink59
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.i, i64 %.sink61
   %60 = load i64, ptr %59, align 8, !alias.scope !92, !noalias !93, !noundef !4
   invoke fastcc void @"_ZN240_$LT$ty_python_semantic..python_platform.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ty_python_semantic..python_platform..PythonPlatform$GT$..deserialize..$u7b$$u7b$closure$u7d$$u7d$..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$11visit_bytes17hbad59ce395f4186bE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %7, ptr noalias noundef nonnull readonly align 1 %58, i64 noundef %60)
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h0bba76c46f86d518E.exit.i.i.i.i" unwind label %73
 
-"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h0bba76c46f86d518E.exit.i.i.i.i": ; preds = %.invoke58, %.invoke, %28, %.noexc24, %.noexc23
+"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h0bba76c46f86d518E.exit.i.i.i.i": ; preds = %.invoke60, %.invoke, %28, %.noexc24, %.noexc23
   %.pr.i.i.i.i = load i64, ptr %7, align 8, !noalias !77
   %.not.i.i.i.i = icmp eq i64 %.pr.i.i.i.i, 2
   br i1 %.not.i.i.i.i, label %61, label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17h5cf6bc0939d7bcaaE.exit.thread54"
@@ -631,7 +631,7 @@ define hidden void @"_ZN18ty_python_semantic15python_platform1_104_$LT$impl$u20$
   %.pre.i = load i8, ptr %71, align 8, !range !3, !alias.scope !92, !noalias !117
   br label %26
 
-73:                                               ; preds = %.invoke58, %.invoke, %94, %"_ZN4core3ptr123drop_in_place$LT$core..result..Result$LT$ty_python_semantic..python_platform..PythonPlatform$C$toml_edit..de..Error$GT$$GT$17h2f56e33f9f6d5859E.exit41", %85, %75, %68, %67, %"_ZN107_$LT$serde..__private..de..content..VariantRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..VariantAccess$GT$12unit_variant17h0784aefa5b657845E.exit.i.i", %48, %42, %40, %33, %28, %22, %"_ZN4core3ptr123drop_in_place$LT$core..result..Result$LT$ty_python_semantic..python_platform..PythonPlatform$C$toml_edit..de..Error$GT$$GT$17h2f56e33f9f6d5859E.exit"
+73:                                               ; preds = %.invoke60, %.invoke, %94, %"_ZN4core3ptr123drop_in_place$LT$core..result..Result$LT$ty_python_semantic..python_platform..PythonPlatform$C$toml_edit..de..Error$GT$$GT$17h2f56e33f9f6d5859E.exit41", %85, %75, %68, %67, %"_ZN107_$LT$serde..__private..de..content..VariantRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..VariantAccess$GT$12unit_variant17h0784aefa5b657845E.exit.i.i", %48, %42, %40, %33, %28, %22, %"_ZN4core3ptr123drop_in_place$LT$core..result..Result$LT$ty_python_semantic..python_platform..PythonPlatform$C$toml_edit..de..Error$GT$$GT$17h2f56e33f9f6d5859E.exit"
   %74 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h900b077778fc0d6eE"(ptr noalias noundef align 8 dereferenceable(32) %16) #19

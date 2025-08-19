@@ -319,18 +319,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i11: ; preds = %77, %64
   br label %88
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit.sink.split: ; preds = %83, %48
-  %.sink16 = phi ptr [ %47, %48 ], [ %82, %83 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__12Usd_PrimDataD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink16) #15
-  call void @_ZdlPvm(ptr noundef nonnull %.sink16, i64 noundef 64) #16
+  %.sink21 = phi ptr [ %47, %48 ], [ %82, %83 ]
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__12Usd_PrimDataD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink21) #15
+  call void @_ZdlPvm(ptr noundef nonnull %.sink21, i64 noundef 64) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit.sink.split, %83, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i11, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i
   ret void
 
 88:                                               ; preds = %86, %51
-  %.sink17 = phi ptr [ %6, %86 ], [ %5, %51 ]
+  %.sink22 = phi ptr [ %6, %86 ], [ %5, %51 ]
   %.pn = phi { ptr, i32 } [ %87, %86 ], [ %52, %51 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink17) #15
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink22) #15
   resume { ptr, i32 } %.pn
 }
 

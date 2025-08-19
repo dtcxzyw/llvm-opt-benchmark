@@ -1293,8 +1293,8 @@ invoke.cont12:                                    ; preds = %invoke.cont8
 
 _ZN5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEC2ERKS3_.exit.i.thread: ; preds = %invoke.cont12
   store ptr %2, ptr %call5.i.i.i.i2.i.i10, align 8, !tbaa !18
-  %pn3.i2.i41 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i10, i64 8
-  store ptr %3, ptr %pn3.i2.i41, align 8, !tbaa !16
+  %pn3.i2.i50 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i10, i64 8
+  store ptr %3, ptr %pn3.i2.i50, align 8, !tbaa !16
   br label %_ZN5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEaSERKS3_.exit
 
 _ZN5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEC2ERKS3_.exit.i: ; preds = %invoke.cont12
@@ -1560,15 +1560,15 @@ ehcleanup23:                                      ; preds = %lpad20, %lpad.body.
   br i1 %cmp.not.i.i37, label %_ZN8QuantLib6MatrixD2Ev.exit39, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i38
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i38: ; preds = %ehcleanup23.thread, %ehcleanup23
-  %.pn.pn45 = phi { ptr, i32 } [ %41, %ehcleanup23.thread ], [ %.pn, %ehcleanup23 ]
+  %.pn.pn54 = phi { ptr, i32 } [ %41, %ehcleanup23.thread ], [ %.pn, %ehcleanup23 ]
   %44 = phi ptr [ %call.i, %ehcleanup23.thread ], [ %.pre40, %ehcleanup23 ]
   call void @_ZdaPv(ptr noundef nonnull %44) #30
   br label %_ZN8QuantLib6MatrixD2Ev.exit39
 
 _ZN8QuantLib6MatrixD2Ev.exit39:                   ; preds = %ehcleanup23, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i38
-  %.pn.pn46 = phi { ptr, i32 } [ %.pn, %ehcleanup23 ], [ %.pn.pn45, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i38 ]
+  %.pn.pn55 = phi { ptr, i32 } [ %.pn, %ehcleanup23 ], [ %.pn.pn54, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %correlation)
-  resume { ptr, i32 } %.pn.pn46
+  resume { ptr, i32 } %.pn.pn55
 }
 
 declare void @_ZN8QuantLib22StochasticProcessArrayC1ERKSt6vectorIN5boost10shared_ptrINS_19StochasticProcess1DEEESaIS5_EERKNS_6MatrixE(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
@@ -2418,8 +2418,8 @@ for.body.lr.ph:                                   ; preds = %do.end
   %latestPostAdjustment_.i.i = getelementptr inbounds nuw i8, ptr %asset, i64 24
   %sext = shl i64 %call37, 32
   %26 = ashr exact i64 %sext, 32
-  %sext89 = shl i64 %call39, 32
-  %27 = ashr exact i64 %sext89, 32
+  %sext107 = shl i64 %call39, 32
+  %27 = ashr exact i64 %sext107, 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN8QuantLib5ArrayD2Ev.exit64
@@ -4166,13 +4166,13 @@ lpad34.body:                                      ; preds = %call5.i.i.i.i2.i.i.
   br i1 %cmp.not.i.i38, label %ehcleanup41, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i39
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i39: ; preds = %lpad34.body.thread, %lpad34.body
-  %eh.lpad-body69 = phi { ptr, i32 } [ %37, %lpad34.body.thread ], [ %38, %lpad34.body ]
+  %eh.lpad-body81 = phi { ptr, i32 } [ %37, %lpad34.body.thread ], [ %38, %lpad34.body ]
   %39 = phi ptr [ %call.i25, %lpad34.body.thread ], [ %.pre, %lpad34.body ]
   call void @_ZdaPv(ptr noundef nonnull %39) #30
   br label %ehcleanup41
 
 ehcleanup41:                                      ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i39, %lpad34.body, %lpad31
-  %.pn7 = phi { ptr, i32 } [ %36, %lpad31 ], [ %38, %lpad34.body ], [ %eh.lpad-body69, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i39 ]
+  %.pn7 = phi { ptr, i32 } [ %36, %lpad31 ], [ %38, %lpad34.body ], [ %eh.lpad-body81, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp30)
   br label %ehcleanup43
 
@@ -5048,7 +5048,7 @@ _ZNK8QuantLib13TrinomialTree4sizeEm.exit.thread.i: ; preds = %_ZNK5boost10shared
   %sub.i.i.i21 = add i32 %18, 1
   %add.i.i.i22 = sub i32 %sub.i.i.i21, %19
   %conv.i.i.i23 = sext i32 %add.i.i.i22 to i64
-  %rem23.i = urem i64 %j.0, %conv.i.i.i23
+  %rem25.i = urem i64 %j.0, %conv.i.i.i23
   br label %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i
 
 _ZNK8QuantLib13TrinomialTree4sizeEm.exit.i26:     ; preds = %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit.i16
@@ -5061,18 +5061,18 @@ cond.false.i10.i:                                 ; preds = %_ZNK8QuantLib13Trin
   br label %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i
 
 _ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i: ; preds = %cond.false.i10.i, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i26, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.thread.i
-  %rem27.i = phi i64 [ 0, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i26 ], [ 0, %cond.false.i10.i ], [ %rem23.i, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.thread.i ]
-  %cond.i26.i = phi i64 [ 1, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i26 ], [ 1, %cond.false.i10.i ], [ %conv.i.i.i23, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.thread.i ]
+  %rem29.i = phi i64 [ 0, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i26 ], [ 0, %cond.false.i10.i ], [ %rem25.i, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.thread.i ]
+  %cond.i28.i = phi i64 [ 1, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i26 ], [ 1, %cond.false.i10.i ], [ %conv.i.i.i23, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.thread.i ]
   %20 = phi ptr [ %15, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i26 ], [ %.pre.i11.i, %cond.false.i10.i ], [ %15, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.thread.i ]
-  %rem328.i = urem i64 %l.059, 3
+  %rem330.i = urem i64 %l.059, 3
   %div4.i = udiv i64 %l.059, 3
   %branchings_.i13.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   %21 = load ptr, ptr %branchings_.i13.i, align 8, !tbaa !94
   %probs_.i.i.i = getelementptr inbounds nuw %"class.QuantLib::TrinomialTree::Branching", ptr %21, i64 %i, i32 1
   %22 = load ptr, ptr %probs_.i.i.i, align 8, !tbaa !142
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"class.std::vector", ptr %22, i64 %rem328.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"class.std::vector", ptr %22, i64 %rem330.i
   %23 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !112
-  %add.ptr.i1.i.i.i = getelementptr inbounds nuw double, ptr %23, i64 %rem27.i
+  %add.ptr.i1.i.i.i = getelementptr inbounds nuw double, ptr %23, i64 %rem29.i
   %24 = load double, ptr %add.ptr.i1.i.i.i, align 8, !tbaa !80
   %25 = load ptr, ptr %tree2_.i, align 8, !tbaa !42
   %cmp.not.i14.i = icmp eq ptr %25, null
@@ -5087,7 +5087,7 @@ cond.false.i15.i:                                 ; preds = %_ZNK5boost10shared_
 _ZNK8QuantLib13TreeLattice2DINS_14TwoFactorModel13ShortRateTreeENS_13TrinomialTreeEE11probabilityEmmm.exit: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i, %cond.false.i15.i
   %26 = phi ptr [ %20, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i ], [ %.pre, %cond.false.i15.i ]
   %27 = phi ptr [ %25, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i ], [ %.pre.i16.i, %cond.false.i15.i ]
-  %div.i = udiv i64 %j.0, %cond.i26.i
+  %div.i = udiv i64 %j.0, %cond.i28.i
   %branchings_.i18.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   %28 = load ptr, ptr %branchings_.i18.i, align 8, !tbaa !94
   %probs_.i.i19.i = getelementptr inbounds nuw %"class.QuantLib::TrinomialTree::Branching", ptr %28, i64 %i, i32 1
@@ -5099,7 +5099,7 @@ _ZNK8QuantLib13TreeLattice2DINS_14TwoFactorModel13ShortRateTreeENS_13TrinomialTr
   %32 = load double, ptr %rho_.i, align 8, !tbaa !67
   %33 = load ptr, ptr %m_.i, align 8, !tbaa !18
   %34 = load i64, ptr %columns_.i.i.i, align 8, !tbaa !66
-  %mul.i.i.i = mul i64 %34, %rem328.i
+  %mul.i.i.i = mul i64 %34, %rem330.i
   %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %33, i64 %mul.i.i.i
   %arrayidx.i25 = getelementptr inbounds nuw double, ptr %add.ptr.i.i.i, i64 %div4.i
   %35 = load double, ptr %arrayidx.i25, align 8, !tbaa !80
@@ -5138,13 +5138,13 @@ _ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i33: ; preds = %_Z
   %sub.i.i.i37 = add i32 %40, 1
   %add.i.i.i38 = sub i32 %sub.i.i.i37, %41
   %conv.i.i.i39 = sext i32 %add.i.i.i38 to i64
-  %rem44.i = urem i64 %j.0, %conv.i.i.i39
+  %rem47.i = urem i64 %j.0, %conv.i.i.i39
   br i1 %cmp.i13.i, label %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit26.i, label %cond.false.i14.i
 
 cond.false.i14.i:                                 ; preds = %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i33, %cond.false.i10.i48, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i46
   %42 = phi ptr [ %37, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i33 ], [ %37, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i46 ], [ %.pre.i11.i49, %cond.false.i10.i48 ]
-  %cond.i4654.i = phi i64 [ %conv.i.i.i39, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i33 ], [ 1, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i46 ], [ 1, %cond.false.i10.i48 ]
-  %rem4752.i = phi i64 [ %rem44.i, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i33 ], [ 0, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i46 ], [ 0, %cond.false.i10.i48 ]
+  %cond.i4957.i = phi i64 [ %conv.i.i.i39, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i33 ], [ 1, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i46 ], [ 1, %cond.false.i10.i48 ]
+  %rem5055.i = phi i64 [ %rem47.i, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i33 ], [ 0, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i46 ], [ 0, %cond.false.i10.i48 ]
   %branchings_.i15.i = getelementptr inbounds nuw i8, ptr %42, i64 8
   %43 = load ptr, ptr %branchings_.i15.i, align 8, !tbaa !94
   %44 = getelementptr %"class.QuantLib::TrinomialTree::Branching", ptr %43, i64 %add.i
@@ -5159,12 +5159,12 @@ cond.false.i14.i:                                 ; preds = %_ZNK5boost10shared_
 
 _ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit26.i: ; preds = %cond.false.i14.i, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i33
   %47 = phi ptr [ %43, %cond.false.i14.i ], [ %38, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i33 ]
-  %cond.i4655.i = phi i64 [ %cond.i4654.i, %cond.false.i14.i ], [ %conv.i.i.i39, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i33 ]
-  %rem4753.i = phi i64 [ %rem4752.i, %cond.false.i14.i ], [ %rem44.i, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i33 ]
+  %cond.i4958.i = phi i64 [ %cond.i4957.i, %cond.false.i14.i ], [ %conv.i.i.i39, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i33 ]
+  %rem5056.i = phi i64 [ %rem5055.i, %cond.false.i14.i ], [ %rem47.i, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i33 ]
   %cond.i21.i = phi i64 [ %conv.i.i20.i, %cond.false.i14.i ], [ 1, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i33 ]
   %add.ptr.i.i.i40 = getelementptr inbounds nuw %"class.QuantLib::TrinomialTree::Branching", ptr %47, i64 %i
   %48 = load ptr, ptr %add.ptr.i.i.i40, align 8, !tbaa !146
-  %add.ptr.i.i.i.i41 = getelementptr inbounds nuw i32, ptr %48, i64 %rem4753.i
+  %add.ptr.i.i.i.i41 = getelementptr inbounds nuw i32, ptr %48, i64 %rem5056.i
   %49 = load i32, ptr %add.ptr.i.i.i.i41, align 4, !tbaa !158
   %jMin_.i.i28.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i40, i64 52
   %50 = load i32, ptr %jMin_.i.i28.i, align 4, !tbaa !106
@@ -5182,7 +5182,7 @@ _ZNK8QuantLib13TreeLattice2DINS_14TwoFactorModel13ShortRateTreeENS_13TrinomialTr
   %53 = xor i32 %50, -1
   %sub2.i.i.i = add i32 %49, %53
   %conv.i.i29.i = sext i32 %sub2.i.i.i to i64
-  %div.i44 = udiv i64 %j.0, %cond.i4655.i
+  %div.i44 = udiv i64 %j.0, %cond.i4958.i
   %branchings_.i35.i = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %branchings_.i35.i, align 8, !tbaa !94
   %add.ptr.i.i36.i = getelementptr inbounds nuw %"class.QuantLib::TrinomialTree::Branching", ptr %54, i64 %i
@@ -5197,7 +5197,7 @@ _ZNK8QuantLib13TreeLattice2DINS_14TwoFactorModel13ShortRateTreeENS_13TrinomialTr
   %add.i.i41.i = add nsw i64 %div4.i, %conv.i.i40.i
   %mul.i45 = mul i64 %add.i.i41.i, %cond.i21.i
   %59 = load ptr, ptr %values, align 8, !tbaa !18
-  %60 = getelementptr double, ptr %59, i64 %rem328.i
+  %60 = getelementptr double, ptr %59, i64 %rem330.i
   %61 = getelementptr double, ptr %60, i64 %conv.i.i29.i
   %arrayidx.i52 = getelementptr double, ptr %61, i64 %mul.i45
   %62 = load double, ptr %arrayidx.i52, align 8, !tbaa !80
@@ -5242,8 +5242,8 @@ cond.false.i9:                                    ; preds = %_ZNK8QuantLib13Trin
 
 _ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit11.thread: ; preds = %_ZNK8QuantLib13TrinomialTree4sizeEm.exit, %cond.false.i9
   %.ph = phi ptr [ %.pre.i10, %cond.false.i9 ], [ %1, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit ]
-  %x0_.i44 = getelementptr inbounds nuw i8, ptr %.ph, i64 32
-  %2 = load double, ptr %x0_.i44, align 8, !tbaa !160
+  %x0_.i47 = getelementptr inbounds nuw i8, ptr %.ph, i64 32
+  %2 = load double, ptr %x0_.i47, align 8, !tbaa !160
   br label %_ZNK8QuantLib13TrinomialTree10underlyingEmm.exit
 
 if.else.i:                                        ; preds = %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit
@@ -5257,8 +5257,8 @@ if.else.i:                                        ; preds = %_ZNK5boost10shared_
   %sub.i.i = add i32 %5, 1
   %add.i.i = sub i32 %sub.i.i, %6
   %conv.i.i = sext i32 %add.i.i to i64
-  %rem37 = urem i64 %index, %conv.i.i
-  %div38 = udiv i64 %index, %conv.i.i
+  %rem40 = urem i64 %index, %conv.i.i
+  %div41 = udiv i64 %index, %conv.i.i
   %x0_.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load double, ptr %x0_.i, align 8, !tbaa !160
   %branchings_.i13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5267,7 +5267,7 @@ if.else.i:                                        ; preds = %_ZNK5boost10shared_
   %jMin_.i.i14 = getelementptr i8, ptr %9, i64 -12
   %10 = load i32, ptr %jMin_.i.i14, align 4, !tbaa !106
   %conv.i = sitofp i32 %10 to double
-  %conv4.i = uitofp i64 %rem37 to double
+  %conv4.i = uitofp i64 %rem40 to double
   %add.i = fadd double %conv4.i, %conv.i
   %dx_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load ptr, ptr %dx_.i.i, align 8, !tbaa !112
@@ -5277,7 +5277,7 @@ if.else.i:                                        ; preds = %_ZNK5boost10shared_
   br label %_ZNK8QuantLib13TrinomialTree10underlyingEmm.exit
 
 _ZNK8QuantLib13TrinomialTree10underlyingEmm.exit: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit11.thread, %if.else.i
-  %div4145 = phi i64 [ %div38, %if.else.i ], [ %index, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit11.thread ]
+  %div4448 = phi i64 [ %div41, %if.else.i ], [ %index, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit11.thread ]
   %retval.0.i = phi double [ %13, %if.else.i ], [ %2, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit11.thread ]
   %tree2_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %14 = load ptr, ptr %tree2_, align 8, !tbaa !42
@@ -5302,7 +5302,7 @@ if.else.i21:                                      ; preds = %_ZNK5boost10shared_
   %jMin_.i.i23 = getelementptr i8, ptr %18, i64 -12
   %19 = load i32, ptr %jMin_.i.i23, align 4, !tbaa !106
   %conv.i24 = sitofp i32 %19 to double
-  %conv4.i25 = uitofp i64 %div4145 to double
+  %conv4.i25 = uitofp i64 %div4448 to double
   %add.i26 = fadd double %conv4.i25, %conv.i24
   %dx_.i.i27 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %20 = load ptr, ptr %dx_.i.i27, align 8, !tbaa !112
@@ -5804,8 +5804,8 @@ cond.false.i9.i:                                  ; preds = %_ZNK8QuantLib13Trin
 
 _ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit11.thread.i: ; preds = %cond.false.i9.i, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i66
   %.ph.i = phi ptr [ %.pre.i10.i, %cond.false.i9.i ], [ %36, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i66 ]
-  %x0_.i44.i = getelementptr inbounds nuw i8, ptr %.ph.i, i64 32
-  %37 = load double, ptr %x0_.i44.i, align 8, !tbaa !160
+  %x0_.i47.i = getelementptr inbounds nuw i8, ptr %.ph.i, i64 32
+  %37 = load double, ptr %x0_.i47.i, align 8, !tbaa !160
   br label %_ZNK8QuantLib13TrinomialTree10underlyingEmm.exit.i
 
 if.else.i.i57:                                    ; preds = %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit.i55
@@ -5819,12 +5819,12 @@ if.else.i.i57:                                    ; preds = %_ZNK5boost10shared_
   %sub.i.i.i61 = add i32 %40, 1
   %add.i.i.i62 = sub i32 %sub.i.i.i61, %41
   %conv.i.i.i63 = sext i32 %add.i.i.i62 to i64
-  %rem37.i = urem i64 %j.0, %conv.i.i.i63
-  %div38.i = udiv i64 %j.0, %conv.i.i.i63
+  %rem40.i = urem i64 %j.0, %conv.i.i.i63
+  %div41.i = udiv i64 %j.0, %conv.i.i.i63
   %x0_.i.i = getelementptr inbounds nuw i8, ptr %36, i64 32
   %42 = load double, ptr %x0_.i.i, align 8, !tbaa !160
   %conv.i.i = sitofp i32 %41 to double
-  %conv4.i.i = uitofp i64 %rem37.i to double
+  %conv4.i.i = uitofp i64 %rem40.i to double
   %add.i.i = fadd double %conv.i.i, %conv4.i.i
   %dx_.i.i.i = getelementptr inbounds nuw i8, ptr %36, i64 40
   %43 = load ptr, ptr %dx_.i.i.i, align 8, !tbaa !112
@@ -5834,7 +5834,7 @@ if.else.i.i57:                                    ; preds = %_ZNK5boost10shared_
   br label %_ZNK8QuantLib13TrinomialTree10underlyingEmm.exit.i
 
 _ZNK8QuantLib13TrinomialTree10underlyingEmm.exit.i: ; preds = %if.else.i.i57, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit11.thread.i
-  %div4145.i = phi i64 [ %div38.i, %if.else.i.i57 ], [ %j.0, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit11.thread.i ]
+  %div4448.i = phi i64 [ %div41.i, %if.else.i.i57 ], [ %j.0, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit11.thread.i ]
   %retval.0.i.i = phi double [ %45, %if.else.i.i57 ], [ %37, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit11.thread.i ]
   %46 = load ptr, ptr %tree2_.i, align 8, !tbaa !42
   %cmp.not.i15.i = icmp eq ptr %46, null
@@ -5858,7 +5858,7 @@ if.else.i21.i:                                    ; preds = %_ZNK5boost10shared_
   %jMin_.i.i23.i = getelementptr i8, ptr %50, i64 -12
   %51 = load i32, ptr %jMin_.i.i23.i, align 4, !tbaa !106
   %conv.i24.i = sitofp i32 %51 to double
-  %conv4.i25.i = uitofp i64 %div4145.i to double
+  %conv4.i25.i = uitofp i64 %div4448.i to double
   %add.i26.i = fadd double %conv4.i25.i, %conv.i24.i
   %dx_.i.i27.i = getelementptr inbounds nuw i8, ptr %47, i64 40
   %52 = load ptr, ptr %dx_.i.i27.i, align 8, !tbaa !112
@@ -5907,7 +5907,7 @@ for.body17.lr.ph:                                 ; preds = %_ZNK8QuantLib14TwoF
   br label %for.body17
 
 for.cond.cleanup16:                               ; preds = %_ZNK8QuantLib13TreeLattice2DINS_14TwoFactorModel13ShortRateTreeENS_13TrinomialTreeEE10descendantEmmm.exit, %_ZNK8QuantLib14TwoFactorModel13ShortRateTree8discountEmm.exit
-  %inc28 = add i64 %j.0, 1
+  %inc28 = add nuw i64 %j.0, 1
   br label %for.cond3, !llvm.loop !168
 
 for.body17:                                       ; preds = %for.body17.lr.ph, %_ZNK8QuantLib13TreeLattice2DINS_14TwoFactorModel13ShortRateTreeENS_13TrinomialTreeEE10descendantEmmm.exit
@@ -5936,7 +5936,7 @@ _ZNK8QuantLib13TrinomialTree4sizeEm.exit.thread.i: ; preds = %_ZNK5boost10shared
   %sub.i.i.i76 = add i32 %70, 1
   %add.i.i.i77 = sub i32 %sub.i.i.i76, %71
   %conv.i.i.i78 = sext i32 %add.i.i.i77 to i64
-  %rem23.i = urem i64 %j.0, %conv.i.i.i78
+  %rem25.i = urem i64 %j.0, %conv.i.i.i78
   br label %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i
 
 _ZNK8QuantLib13TrinomialTree4sizeEm.exit.i84:     ; preds = %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit.i71
@@ -5949,18 +5949,18 @@ cond.false.i10.i:                                 ; preds = %_ZNK8QuantLib13Trin
   br label %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i
 
 _ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i: ; preds = %cond.false.i10.i, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i84, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.thread.i
-  %rem27.i = phi i64 [ 0, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i84 ], [ 0, %cond.false.i10.i ], [ %rem23.i, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.thread.i ]
-  %cond.i26.i = phi i64 [ 1, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i84 ], [ 1, %cond.false.i10.i ], [ %conv.i.i.i78, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.thread.i ]
+  %rem29.i = phi i64 [ 0, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i84 ], [ 0, %cond.false.i10.i ], [ %rem25.i, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.thread.i ]
+  %cond.i28.i = phi i64 [ 1, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i84 ], [ 1, %cond.false.i10.i ], [ %conv.i.i.i78, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.thread.i ]
   %72 = phi ptr [ %67, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i84 ], [ %.pre.i11.i, %cond.false.i10.i ], [ %67, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.thread.i ]
-  %rem328.i = urem i64 %l.0123, 3
+  %rem330.i = urem i64 %l.0123, 3
   %div4.i = udiv i64 %l.0123, 3
   %branchings_.i13.i79 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %73 = load ptr, ptr %branchings_.i13.i79, align 8, !tbaa !94
   %probs_.i.i.i = getelementptr inbounds nuw %"class.QuantLib::TrinomialTree::Branching", ptr %73, i64 %i.0125, i32 1
   %74 = load ptr, ptr %probs_.i.i.i, align 8, !tbaa !142
-  %add.ptr.i.i.i.i80 = getelementptr inbounds nuw %"class.std::vector", ptr %74, i64 %rem328.i
+  %add.ptr.i.i.i.i80 = getelementptr inbounds nuw %"class.std::vector", ptr %74, i64 %rem330.i
   %75 = load ptr, ptr %add.ptr.i.i.i.i80, align 8, !tbaa !112
-  %add.ptr.i1.i.i.i = getelementptr inbounds nuw double, ptr %75, i64 %rem27.i
+  %add.ptr.i1.i.i.i = getelementptr inbounds nuw double, ptr %75, i64 %rem29.i
   %76 = load double, ptr %add.ptr.i1.i.i.i, align 8, !tbaa !80
   %77 = load ptr, ptr %tree2_.i, align 8, !tbaa !42
   %cmp.not.i14.i = icmp eq ptr %77, null
@@ -5975,7 +5975,7 @@ cond.false.i15.i:                                 ; preds = %_ZNK5boost10shared_
 _ZNK8QuantLib13TreeLattice2DINS_14TwoFactorModel13ShortRateTreeENS_13TrinomialTreeEE11probabilityEmmm.exit: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i, %cond.false.i15.i
   %78 = phi ptr [ %72, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i ], [ %.pre126, %cond.false.i15.i ]
   %79 = phi ptr [ %77, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i ], [ %.pre.i16.i, %cond.false.i15.i ]
-  %div.i = udiv i64 %j.0, %cond.i26.i
+  %div.i = udiv i64 %j.0, %cond.i28.i
   %branchings_.i18.i = getelementptr inbounds nuw i8, ptr %79, i64 8
   %80 = load ptr, ptr %branchings_.i18.i, align 8, !tbaa !94
   %probs_.i.i19.i = getelementptr inbounds nuw %"class.QuantLib::TrinomialTree::Branching", ptr %80, i64 %i.0125, i32 1
@@ -5987,7 +5987,7 @@ _ZNK8QuantLib13TreeLattice2DINS_14TwoFactorModel13ShortRateTreeENS_13TrinomialTr
   %84 = load double, ptr %rho_.i, align 8, !tbaa !67
   %85 = load ptr, ptr %m_.i, align 8, !tbaa !18
   %86 = load i64, ptr %columns_.i.i.i, align 8, !tbaa !66
-  %mul.i.i.i = mul i64 %86, %rem328.i
+  %mul.i.i.i = mul i64 %86, %rem330.i
   %add.ptr.i.i.i82 = getelementptr inbounds nuw double, ptr %85, i64 %mul.i.i.i
   %arrayidx.i83 = getelementptr inbounds nuw double, ptr %add.ptr.i.i.i82, i64 %div4.i
   %87 = load double, ptr %arrayidx.i83, align 8, !tbaa !80
@@ -6028,13 +6028,13 @@ _ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i92: ; preds = %_Z
   %sub.i.i.i96 = add i32 %93, 1
   %add.i.i.i97 = sub i32 %sub.i.i.i96, %94
   %conv.i.i.i98 = sext i32 %add.i.i.i97 to i64
-  %rem44.i = urem i64 %j.0, %conv.i.i.i98
+  %rem47.i = urem i64 %j.0, %conv.i.i.i98
   br label %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit26.i
 
 _ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit26.i: ; preds = %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i108, %cond.false.i10.i110, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i92
   %95 = phi ptr [ %90, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i92 ], [ %90, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i108 ], [ %.pre.i11.i111, %cond.false.i10.i110 ]
-  %cond.i4654.i = phi i64 [ %conv.i.i.i98, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i92 ], [ 1, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i108 ], [ 1, %cond.false.i10.i110 ]
-  %rem4752.i = phi i64 [ %rem44.i, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i92 ], [ 0, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i108 ], [ 0, %cond.false.i10.i110 ]
+  %cond.i4957.i = phi i64 [ %conv.i.i.i98, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i92 ], [ 1, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i108 ], [ 1, %cond.false.i10.i110 ]
+  %rem5055.i = phi i64 [ %rem47.i, %_ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit12.i92 ], [ 0, %_ZNK8QuantLib13TrinomialTree4sizeEm.exit.i108 ], [ 0, %cond.false.i10.i110 ]
   %branchings_.i15.i = getelementptr inbounds nuw i8, ptr %95, i64 8
   %96 = load ptr, ptr %branchings_.i15.i, align 8, !tbaa !94
   %97 = getelementptr %"class.QuantLib::TrinomialTree::Branching", ptr %96, i64 %add
@@ -6047,7 +6047,7 @@ _ZNK5boost10shared_ptrIN8QuantLib13TrinomialTreeEEptEv.exit26.i: ; preds = %_ZNK
   %conv.i.i20.i = sext i32 %add.i.i19.i to i64
   %add.ptr.i.i.i99 = getelementptr inbounds nuw %"class.QuantLib::TrinomialTree::Branching", ptr %96, i64 %i.0125
   %100 = load ptr, ptr %add.ptr.i.i.i99, align 8, !tbaa !146
-  %add.ptr.i.i.i.i100 = getelementptr inbounds nuw i32, ptr %100, i64 %rem4752.i
+  %add.ptr.i.i.i.i100 = getelementptr inbounds nuw i32, ptr %100, i64 %rem5055.i
   %101 = load i32, ptr %add.ptr.i.i.i.i100, align 4, !tbaa !158
   %jMin_.i.i28.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i99, i64 52
   %102 = load i32, ptr %jMin_.i.i28.i, align 4, !tbaa !106
@@ -6065,7 +6065,7 @@ _ZNK8QuantLib13TreeLattice2DINS_14TwoFactorModel13ShortRateTreeENS_13TrinomialTr
   %105 = xor i32 %102, -1
   %sub2.i.i.i = add i32 %101, %105
   %conv.i.i29.i = sext i32 %sub2.i.i.i to i64
-  %div.i104 = udiv i64 %j.0, %cond.i4654.i
+  %div.i104 = udiv i64 %j.0, %cond.i4957.i
   %branchings_.i35.i = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load ptr, ptr %branchings_.i35.i, align 8, !tbaa !94
   %add.ptr.i.i36.i = getelementptr inbounds nuw %"class.QuantLib::TrinomialTree::Branching", ptr %106, i64 %i.0125
@@ -6080,7 +6080,7 @@ _ZNK8QuantLib13TreeLattice2DINS_14TwoFactorModel13ShortRateTreeENS_13TrinomialTr
   %add.i.i41.i = add nsw i64 %div4.i, %conv.i.i40.i
   %mul.i105 = mul i64 %add.i.i41.i, %conv.i.i20.i
   %111 = load ptr, ptr %add.ptr.i87, align 8, !tbaa !18
-  %112 = getelementptr double, ptr %111, i64 %rem328.i
+  %112 = getelementptr double, ptr %111, i64 %rem330.i
   %113 = getelementptr double, ptr %112, i64 %conv.i.i29.i
   %arrayidx.i114 = getelementptr double, ptr %113, i64 %mul.i105
   %114 = load double, ptr %arrayidx.i114, align 8, !tbaa !80

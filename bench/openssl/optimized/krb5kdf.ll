@@ -356,8 +356,8 @@ cipher_init.exit.i:                               ; preds = %47, %44
   store i8 %104, ptr %99, align 1, !tbaa !19
   %105 = lshr i32 %103, 8
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %.not75.i.i = icmp eq i64 %indvars.iv.i.i, 0
-  br i1 %.not75.i.i, label %.preheader.i.i, label %.lr.ph67.i.i, !llvm.loop !20
+  %.not77.i.i = icmp eq i64 %indvars.iv.i.i, 0
+  br i1 %.not77.i.i, label %.preheader.i.i, label %.lr.ph67.i.i, !llvm.loop !20
 
 .lr.ph71.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph71.i.i
   %.05570.i.i = phi i32 [ %.055.i.i, %.lr.ph71.i.i ], [ %.05569.i.i, %.preheader.i.i ]

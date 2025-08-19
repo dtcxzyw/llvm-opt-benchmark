@@ -1502,8 +1502,8 @@ _ZNK11ast_manager6is_notEPK4expr.exit.i.i.i.i:    ; preds = %.thread5.i.i.i
   br i1 %205, label %_ZNK11occf_tactic3imp13is_constraintEP4expr.exit.thread14.i, label %_ZNK11occf_tactic3imp13is_constraintEP4expr.exit.i
 
 _ZNK11occf_tactic3imp13is_constraintEP4expr.exit.i: ; preds = %200, %181
-  %.sink2.i.i = phi ptr [ %179, %181 ], [ %204, %200 ]
-  %206 = load i32, ptr %.sink2.i.i, align 8, !tbaa !84
+  %.sink4.i.i = phi ptr [ %179, %181 ], [ %204, %200 ]
+  %206 = load i32, ptr %.sink4.i.i, align 8, !tbaa !84
   %.not15.i = icmp ne i32 %206, -1
   %brmerge.not.i = select i1 %.not15.i, i1 %.01117.i, i1 false
   %.011.mux.i = select i1 %.not15.i, i1 true, i1 %.01117.i
@@ -1688,8 +1688,8 @@ _ZNK11ast_manager6is_notEPK4expr.exit.i.i.i:      ; preds = %.thread5.i.i
   br i1 %288, label %_ZNK11occf_tactic3imp13is_constraintEP4expr.exit.thread111, label %_ZNK11occf_tactic3imp13is_constraintEP4expr.exit
 
 _ZNK11occf_tactic3imp13is_constraintEP4expr.exit: ; preds = %264, %283
-  %.sink2.i = phi ptr [ %262, %264 ], [ %287, %283 ]
-  %289 = load i32, ptr %.sink2.i, align 8, !tbaa !84
+  %.sink4.i = phi ptr [ %262, %264 ], [ %287, %283 ]
+  %289 = load i32, ptr %.sink4.i, align 8, !tbaa !84
   %.not112 = icmp eq i32 %289, -1
   br i1 %.not112, label %_ZNK11occf_tactic3imp13is_constraintEP4expr.exit.thread111, label %_ZNK11occf_tactic3imp13is_constraintEP4expr.exit.thread
 
@@ -1900,14 +1900,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %322, %313, %295
-  %.sink175 = phi ptr [ %293, %295 ], [ %311, %313 ], [ %320, %322 ], [ %.pre.i83.sink, %.sink.split.sink.split ]
-  %.sink174 = phi i32 [ %297, %295 ], [ %315, %313 ], [ %324, %322 ], [ %.pre2.i85, %.sink.split.sink.split ]
+  %.sink211 = phi ptr [ %293, %295 ], [ %311, %313 ], [ %320, %322 ], [ %.pre.i83.sink, %.sink.split.sink.split ]
+  %.sink210 = phi i32 [ %297, %295 ], [ %315, %313 ], [ %324, %322 ], [ %.pre2.i85, %.sink.split.sink.split ]
   %.sink = phi ptr [ %290, %295 ], [ %309, %313 ], [ %250, %322 ], [ %.sink.ph, %.sink.split.sink.split ]
-  %373 = getelementptr inbounds i8, ptr %.sink175, i64 -4
-  %374 = zext i32 %.sink174 to i64
-  %375 = getelementptr inbounds nuw ptr, ptr %.sink175, i64 %374
+  %373 = getelementptr inbounds i8, ptr %.sink211, i64 -4
+  %374 = zext i32 %.sink210 to i64
+  %375 = getelementptr inbounds nuw ptr, ptr %.sink211, i64 %374
   store ptr %.sink, ptr %375, align 8, !tbaa !90
-  %376 = add i32 %.sink174, 1
+  %376 = add i32 %.sink210, 1
   store i32 %376, ptr %373, align 4, !tbaa !103
   br label %377
 
@@ -2483,7 +2483,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager17expr_array_
 .preheader.i.unreachabledefault:                  ; preds = %.preheader.i
   unreachable
 
-default.unreachable82:                            ; preds = %65
+default.unreachable91:                            ; preds = %65
   unreachable
 
 _ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit: ; preds = %16, %20, %24
@@ -2578,7 +2578,7 @@ _ZNK6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE4s
   %73 = load ptr, ptr %72, align 8, !tbaa !17
   %74 = load i32, ptr %69, align 8
   %75 = lshr i32 %74, 30
-  switch i32 %75, label %default.unreachable82 [
+  switch i32 %75, label %default.unreachable91 [
     i32 0, label %76
     i32 1, label %90
     i32 2, label %124
@@ -3071,7 +3071,7 @@ _ZNK6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE4s
   %57 = load ptr, ptr %56, align 8, !tbaa !191
   %58 = load i32, ptr %57, align 8
   %59 = lshr i32 %58, 30
-  switch i32 %59, label %default.unreachable40 [
+  switch i32 %59, label %default.unreachable54 [
     i32 0, label %60
     i32 2, label %81
     i32 1, label %94
@@ -3226,7 +3226,7 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE10rpush_backERPP4exprRjRK
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
   br label %_ZN14parray_managerIN11ast_manager17expr_array_configEE9rpop_backEPP4exprRj.exit
 
-default.unreachable40:                            ; preds = %.lr.ph36
+default.unreachable54:                            ; preds = %.lr.ph36
   unreachable
 
 _ZN14parray_managerIN11ast_manager17expr_array_configEE9rpop_backEPP4exprRj.exit: ; preds = %93, %88, %81, %135, %_ZN14parray_managerIN11ast_manager17expr_array_configEE10rpush_backERPP4exprRjRKS4_.exit, %_ZN14parray_managerIN11ast_manager17expr_array_configEE4rsetEPP4exprjRKS4_.exit
@@ -3251,7 +3251,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager17expr_array_
   %5 = phi i32 [ %.pre, %2 ], [ %46, %41 ]
   %.014 = phi ptr [ %1, %2 ], [ %.013, %41 ]
   %6 = lshr i32 %5, 30
-  switch i32 %6, label %default.unreachable24 [
+  switch i32 %6, label %default.unreachable27 [
     i32 0, label %7
     i32 1, label %7
     i32 2, label %_ZN14parray_managerIN11ast_manager17expr_array_configEE17deallocate_valuesEPP4expr.exit
@@ -3332,7 +3332,7 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i:
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %35, i64 noundef %37, ptr noundef nonnull %33)
   br label %_ZN14parray_managerIN11ast_manager17expr_array_configEE17deallocate_valuesEPP4expr.exit.thread
 
-default.unreachable24:                            ; preds = %4
+default.unreachable27:                            ; preds = %4
   unreachable
 
 _ZN14parray_managerIN11ast_manager17expr_array_configEE17deallocate_valuesEPP4expr.exit.thread: ; preds = %_ZN14parray_managerIN11ast_manager17expr_array_configEE7dec_refEjPP4expr.exit, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i
@@ -3420,7 +3420,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager28expr_depend
 .preheader.i.unreachabledefault:                  ; preds = %.preheader.i
   unreachable
 
-default.unreachable82:                            ; preds = %65
+default.unreachable91:                            ; preds = %65
   unreachable
 
 _ZNK14parray_managerIN11ast_manager28expr_dependency_array_configEE4sizeERKNS2_3refE.exit: ; preds = %16, %20, %24
@@ -3515,7 +3515,7 @@ _ZNK6vectorIPN14parray_managerIN11ast_manager28expr_dependency_array_configEE4ce
   %73 = load ptr, ptr %72, align 8, !tbaa !17
   %74 = load i32, ptr %69, align 8
   %75 = lshr i32 %74, 30
-  switch i32 %75, label %default.unreachable82 [
+  switch i32 %75, label %default.unreachable91 [
     i32 0, label %76
     i32 1, label %90
     i32 2, label %124
@@ -4009,7 +4009,7 @@ _ZNK6vectorIPN14parray_managerIN11ast_manager28expr_dependency_array_configEE4ce
   %59 = load ptr, ptr %58, align 8, !tbaa !208
   %60 = load i32, ptr %59, align 8
   %61 = lshr i32 %60, 30
-  switch i32 %61, label %default.unreachable42 [
+  switch i32 %61, label %default.unreachable56 [
     i32 0, label %62
     i32 2, label %88
     i32 1, label %105
@@ -4179,7 +4179,7 @@ _ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE10rpush_backER
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
   br label %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE9rpop_backEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyERj.exit
 
-default.unreachable42:                            ; preds = %.lr.ph38
+default.unreachable56:                            ; preds = %.lr.ph38
   unreachable
 
 _ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE9rpop_backEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyERj.exit: ; preds = %103, %95, %88, %149, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE10rpush_backERPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyERjRKS7_.exit, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE4rsetEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyEjRKS7_.exit
@@ -4425,9 +4425,9 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
   br i1 %42, label %.preheader, label %_ZN18dependency_managerIN11ast_manager22expr_dependency_configEE7dec_refERKP4expr.exit, !llvm.loop !223
 
 _ZN18dependency_managerIN11ast_manager22expr_dependency_configEE7dec_refERKP4expr.exit: ; preds = %113, %41, %36, %33
-  %.sink21 = phi i64 [ 16, %33 ], [ 16, %36 ], [ 16, %41 ], [ 24, %113 ]
+  %.sink34 = phi i64 [ 16, %33 ], [ 16, %36 ], [ 16, %41 ], [ 24, %113 ]
   %114 = load ptr, ptr %21, align 8, !tbaa !224
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %114, i64 noundef %.sink21, ptr noundef nonnull %29)
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %114, i64 noundef %.sink34, ptr noundef nonnull %29)
   %115 = load ptr, ptr %5, align 8, !tbaa !221
   %116 = icmp eq ptr %115, null
   br i1 %116, label %_ZNK6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE5emptyEv.exit.thread, label %_ZNK6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE5emptyEv.exit, !llvm.loop !225
@@ -4576,7 +4576,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager28expr_depend
   %5 = phi i32 [ %.pre, %2 ], [ %54, %49 ]
   %.014 = phi ptr [ %1, %2 ], [ %.013, %49 ]
   %6 = lshr i32 %5, 30
-  switch i32 %6, label %default.unreachable24 [
+  switch i32 %6, label %default.unreachable27 [
     i32 0, label %7
     i32 1, label %7
     i32 2, label %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE17deallocate_valuesEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
@@ -4665,7 +4665,7 @@ _ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN1
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %43, i64 noundef %45, ptr noundef nonnull %41)
   br label %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE17deallocate_valuesEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.thread
 
-default.unreachable24:                            ; preds = %4
+default.unreachable27:                            ; preds = %4
   unreachable
 
 _ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE17deallocate_valuesEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.thread: ; preds = %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE7dec_refEjPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i

@@ -571,7 +571,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i16.i: ; preds = %98, %
   %175 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %176 = load i8, ptr %175, align 8, !range !63, !noundef !5
   %177 = icmp eq i8 %176, 5
-  br i1 %177, label %.invoke205, label %193
+  br i1 %177, label %.invoke218, label %193
 
 178:                                              ; preds = %162
   %.val69 = load ptr, ptr %0, align 8, !noundef !5
@@ -624,8 +624,8 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i16.i: ; preds = %98, %
   %196 = trunc nuw i8 %.sroa.032.1 to i1
   br i1 %196, label %.body.thread, label %.body72
 
-197:                                              ; preds = %.invoke205, %327, %229, %225, %193
-  %.sroa.032.0 = phi i8 [ 1, %193 ], [ 1, %225 ], [ 1, %229 ], [ 0, %327 ], [ 1, %.invoke205 ]
+197:                                              ; preds = %.invoke218, %327, %229, %225, %193
+  %.sroa.032.0 = phi i8 [ 1, %193 ], [ 1, %225 ], [ 1, %229 ], [ 0, %327 ], [ 1, %.invoke218 ]
   %198 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1021,7 +1021,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i: ; preds = %295, %.no
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 64
   %326 = cmpxchg ptr %325, i64 1, i64 0 seq_cst seq_cst, align 8
   %.sroa.18.0.in.i83 = extractvalue { i64, i1 } %326, 1
-  br i1 %.sroa.18.0.in.i83, label %327, label %.invoke205
+  br i1 %.sroa.18.0.in.i83, label %327, label %.invoke218
 
 327:                                              ; preds = %323
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -1033,12 +1033,12 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i: ; preds = %295, %.no
   invoke void @"_ZN158_$LT$$LT$futures_util..future..future..shared..Shared$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$..poll..Reset$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd7b3d91b87a13fb4E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
           to label %"_ZN4core3ptr137drop_in_place$LT$$LT$futures_util..future..future..shared..Shared$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$..poll..Reset$GT$17hc751c258c9eb39b5E.exit100" unwind label %197
 
-.invoke205:                                       ; preds = %167, %323
+.invoke218:                                       ; preds = %167, %323
   %331 = phi ptr [ @anon.0bab78850dbd44f7fc064e33351f2d85.12, %323 ], [ @anon.0bab78850dbd44f7fc064e33351f2d85.13, %167 ]
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0bab78850dbd44f7fc064e33351f2d85.0, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) %331) #30
           to label %.cont unwind label %197
 
-.cont:                                            ; preds = %.invoke205
+.cont:                                            ; preds = %.invoke218
   unreachable
 
 "_ZN4core3ptr137drop_in_place$LT$$LT$futures_util..future..future..shared..Shared$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$..poll..Reset$GT$17hc751c258c9eb39b5E.exit100": ; preds = %327

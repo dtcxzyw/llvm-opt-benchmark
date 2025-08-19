@@ -2907,18 +2907,18 @@ _ZlsRSoPK7AstNode.exit:                           ; preds = %.invoke, %229
   %237 = load ptr, ptr %236, align 8, !tbaa !116
   %magicptr.i104 = ptrtoint ptr %237 to i64
   switch i64 %magicptr.i104, label %242 [
-    i64 0, label %.invoke372
+    i64 0, label %.invoke419
     i64 1, label %241
   ], !prof !114
 
-.invoke372:                                       ; preds = %234, %241
+.invoke419:                                       ; preds = %234, %241
   %238 = phi ptr [ @.str.453, %241 ], [ @.str.452, %234 ]
   %239 = phi i64 [ 15, %241 ], [ 7, %234 ]
   %240 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %223, ptr noundef nonnull %238, i64 noundef %239)
           to label %_ZlsRSoPK7AstNode.exit108 unwind label %.loopexit226
 
 241:                                              ; preds = %234
-  br label %.invoke372
+  br label %.invoke419
 
 242:                                              ; preds = %234
   %243 = load ptr, ptr %237, align 8, !tbaa !15
@@ -2927,7 +2927,7 @@ _ZlsRSoPK7AstNode.exit:                           ; preds = %.invoke, %229
   invoke void %245(ptr noundef nonnull align 8 dereferenceable(152) %237, ptr noundef nonnull align 8 dereferenceable(8) %223)
           to label %_ZlsRSoPK7AstNode.exit108 unwind label %.loopexit226
 
-_ZlsRSoPK7AstNode.exit108:                        ; preds = %.invoke372, %242
+_ZlsRSoPK7AstNode.exit108:                        ; preds = %.invoke419, %242
   %246 = load ptr, ptr %223, align 8, !tbaa !15
   %247 = getelementptr i8, ptr %246, i64 -24
   %248 = load i64, ptr %247, align 8
@@ -3001,7 +3001,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %_Z
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115
 
-.loopexit226:                                     ; preds = %.invoke372, %.invoke, %220, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit96, %229, %_ZlsRSoPK7AstNode.exit, %242, %258, %.noexc172, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i, %.noexc174
+.loopexit226:                                     ; preds = %.invoke419, %.invoke, %220, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit96, %229, %_ZlsRSoPK7AstNode.exit, %242, %258, %.noexc172, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i, %.noexc174
   %lpad.loopexit228 = landingpad { ptr, i32 }
           cleanup
   br label %273
@@ -3064,18 +3064,18 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit121: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit119
   %magicptr.i122 = ptrtoint ptr %194 to i64
   switch i64 %magicptr.i122, label %295 [
-    i64 0, label %.invoke373
+    i64 0, label %.invoke420
     i64 1, label %294
   ], !prof !114
 
-.invoke373:                                       ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit121, %294
+.invoke420:                                       ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit121, %294
   %291 = phi ptr [ @.str.453, %294 ], [ @.str.452, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit121 ]
   %292 = phi i64 [ 15, %294 ], [ 7, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit121 ]
   %293 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %289, ptr noundef nonnull %291, i64 noundef %292)
           to label %_ZlsRSoPK7AstNode.exit126 unwind label %.loopexit231
 
 294:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit121
-  br label %.invoke373
+  br label %.invoke420
 
 295:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit121
   %296 = load ptr, ptr %194, align 8, !tbaa !15
@@ -3084,7 +3084,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit121: ; preds = %_ZSt
   invoke void %298(ptr noundef nonnull align 8 dereferenceable(152) %194, ptr noundef nonnull align 8 dereferenceable(8) %289)
           to label %_ZlsRSoPK7AstNode.exit126 unwind label %.loopexit231
 
-_ZlsRSoPK7AstNode.exit126:                        ; preds = %.invoke373, %295
+_ZlsRSoPK7AstNode.exit126:                        ; preds = %.invoke420, %295
   %299 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %289, ptr noundef nonnull @.str.9, i64 noundef 6)
           to label %300 unwind label %.loopexit231
 
@@ -3095,18 +3095,18 @@ _ZlsRSoPK7AstNode.exit126:                        ; preds = %.invoke373, %295
   %304 = load ptr, ptr %303, align 8, !tbaa !116
   %magicptr.i129 = ptrtoint ptr %304 to i64
   switch i64 %magicptr.i129, label %309 [
-    i64 0, label %.invoke374
+    i64 0, label %.invoke421
     i64 1, label %308
   ], !prof !114
 
-.invoke374:                                       ; preds = %300, %308
+.invoke421:                                       ; preds = %300, %308
   %305 = phi ptr [ @.str.453, %308 ], [ @.str.452, %300 ]
   %306 = phi i64 [ 15, %308 ], [ 7, %300 ]
   %307 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %289, ptr noundef nonnull %305, i64 noundef %306)
           to label %_ZlsRSoPK7AstNode.exit133 unwind label %.loopexit231
 
 308:                                              ; preds = %300
-  br label %.invoke374
+  br label %.invoke421
 
 309:                                              ; preds = %300
   %310 = load ptr, ptr %304, align 8, !tbaa !15
@@ -3115,7 +3115,7 @@ _ZlsRSoPK7AstNode.exit126:                        ; preds = %.invoke373, %295
   invoke void %312(ptr noundef nonnull align 8 dereferenceable(152) %304, ptr noundef nonnull align 8 dereferenceable(8) %289)
           to label %_ZlsRSoPK7AstNode.exit133 unwind label %.loopexit231
 
-_ZlsRSoPK7AstNode.exit133:                        ; preds = %.invoke374, %309
+_ZlsRSoPK7AstNode.exit133:                        ; preds = %.invoke421, %309
   %313 = load ptr, ptr %289, align 8, !tbaa !15
   %314 = getelementptr i8, ptr %313, i64 -24
   %315 = load i64, ptr %314, align 8
@@ -3189,7 +3189,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138: ; preds = %_Z
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141
 
-.loopexit231:                                     ; preds = %.invoke374, %.invoke373, %286, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit119, %295, %_ZlsRSoPK7AstNode.exit126, %309, %325, %.noexc182, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i179, %.noexc184
+.loopexit231:                                     ; preds = %.invoke421, %.invoke420, %286, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit119, %295, %_ZlsRSoPK7AstNode.exit126, %309, %325, %.noexc182, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i179, %.noexc184
   %lpad.loopexit233 = landingpad { ptr, i32 }
           cleanup
   br label %340
@@ -3268,18 +3268,18 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %371 = load ptr, ptr %370, align 8, !tbaa !116
   %magicptr.i149 = ptrtoint ptr %371 to i64
   switch i64 %magicptr.i149, label %376 [
-    i64 0, label %.invoke375
+    i64 0, label %.invoke422
     i64 1, label %375
   ], !prof !114
 
-.invoke375:                                       ; preds = %368, %375
+.invoke422:                                       ; preds = %368, %375
   %372 = phi ptr [ @.str.453, %375 ], [ @.str.452, %368 ]
   %373 = phi i64 [ 15, %375 ], [ 7, %368 ]
   %374 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %366, ptr noundef nonnull %372, i64 noundef %373)
           to label %_ZlsRSoPK7AstNode.exit153 unwind label %.loopexit241
 
 375:                                              ; preds = %368
-  br label %.invoke375
+  br label %.invoke422
 
 376:                                              ; preds = %368
   %377 = load ptr, ptr %371, align 8, !tbaa !15
@@ -3288,7 +3288,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   invoke void %379(ptr noundef nonnull align 8 dereferenceable(152) %371, ptr noundef nonnull align 8 dereferenceable(8) %366)
           to label %_ZlsRSoPK7AstNode.exit153 unwind label %.loopexit241
 
-_ZlsRSoPK7AstNode.exit153:                        ; preds = %.invoke375, %376
+_ZlsRSoPK7AstNode.exit153:                        ; preds = %.invoke422, %376
   %380 = load ptr, ptr %366, align 8, !tbaa !15
   %381 = getelementptr i8, ptr %380, i64 -24
   %382 = load i64, ptr %381, align 8
@@ -3372,7 +3372,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158: ; preds = %_Z
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161
 
-.loopexit241:                                     ; preds = %.invoke375, %363, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit146, %376, %392, %.noexc193, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i190, %.noexc195
+.loopexit241:                                     ; preds = %.invoke422, %363, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit146, %376, %392, %.noexc193, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i190, %.noexc195
   %lpad.loopexit243 = landingpad { ptr, i32 }
           cleanup
   br label %407

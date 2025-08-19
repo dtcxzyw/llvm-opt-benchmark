@@ -137,37 +137,37 @@ define ptr @int_bn_mod_inverse(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %56, label %._crit_edge.thread.i, label %58
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %46
-  %.078.lcssa139.i = phi ptr [ %.080126.i, %._crit_edge.i ], [ %17, %46 ]
-  %.084.lcssa137.i = phi ptr [ %.086123.i, %._crit_edge.i ], [ %22, %46 ]
-  %57 = call i32 @BN_sub(ptr noundef %.084.lcssa137.i, ptr noundef %2, ptr noundef %.084.lcssa137.i) #4
+  %.078.lcssa140.i = phi ptr [ %.080126.i, %._crit_edge.i ], [ %17, %46 ]
+  %.084.lcssa138.i = phi ptr [ %.086123.i, %._crit_edge.i ], [ %22, %46 ]
+  %57 = call i32 @BN_sub(ptr noundef %.084.lcssa138.i, ptr noundef %2, ptr noundef %.084.lcssa138.i) #4
   %.not92.i = icmp eq i32 %57, 0
   br i1 %.not92.i, label %.thread105.i, label %58
 
 58:                                               ; preds = %._crit_edge.thread.i, %._crit_edge.i
-  %.078.lcssa138.i = phi ptr [ %.078.lcssa139.i, %._crit_edge.thread.i ], [ %.080126.i, %._crit_edge.i ]
-  %.084.lcssa136.i = phi ptr [ %.084.lcssa137.i, %._crit_edge.thread.i ], [ %.086123.i, %._crit_edge.i ]
-  %59 = call i32 @BN_is_one(ptr noundef %.078.lcssa138.i) #4
+  %.078.lcssa139.i = phi ptr [ %.078.lcssa140.i, %._crit_edge.thread.i ], [ %.080126.i, %._crit_edge.i ]
+  %.084.lcssa137.i = phi ptr [ %.084.lcssa138.i, %._crit_edge.thread.i ], [ %.086123.i, %._crit_edge.i ]
+  %59 = call i32 @BN_is_one(ptr noundef %.078.lcssa139.i) #4
   %.not93.i = icmp eq i32 %59, 0
   br i1 %.not93.i, label %70, label %60
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds nuw i8, ptr %.084.lcssa136.i, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %.084.lcssa137.i, i64 16
   %62 = load i32, ptr %61, align 8, !tbaa !7
   %.not94.i = icmp eq i32 %62, 0
   br i1 %.not94.i, label %63, label %68
 
 63:                                               ; preds = %60
-  %64 = call i32 @BN_ucmp(ptr noundef nonnull %.084.lcssa136.i, ptr noundef %2) #4
+  %64 = call i32 @BN_ucmp(ptr noundef nonnull %.084.lcssa137.i, ptr noundef %2) #4
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %63
-  %67 = call ptr @BN_copy(ptr noundef nonnull %.177103.i, ptr noundef nonnull %.084.lcssa136.i) #4
+  %67 = call ptr @BN_copy(ptr noundef nonnull %.177103.i, ptr noundef nonnull %.084.lcssa137.i) #4
   %.not95.i = icmp eq ptr %67, null
   br i1 %.not95.i, label %.thread105.i, label %.thread114.i
 
 68:                                               ; preds = %63, %60
-  %69 = call i32 @BN_nnmod(ptr noundef nonnull %.177103.i, ptr noundef nonnull %.084.lcssa136.i, ptr noundef %2, ptr noundef %3) #4
+  %69 = call i32 @BN_nnmod(ptr noundef nonnull %.177103.i, ptr noundef nonnull %.084.lcssa137.i, ptr noundef %2, ptr noundef %3) #4
   %.not96.i = icmp eq i32 %69, 0
   br i1 %.not96.i, label %.thread105.i, label %.thread114.i
 
@@ -185,8 +185,8 @@ define ptr @int_bn_mod_inverse(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %71, label %.thread105.thread.i, label %bn_mod_inverse_no_branch.exit
 
 .thread105.thread.i:                              ; preds = %.thread105.i, %27
-  %.076141.i = phi ptr [ %.076.i, %.thread105.i ], [ null, %27 ]
-  call void @BN_free(ptr noundef %.076141.i) #4
+  %.076142.i = phi ptr [ %.076.i, %.thread105.i ], [ null, %27 ]
+  call void @BN_free(ptr noundef %.076142.i) #4
   br label %bn_mod_inverse_no_branch.exit
 
 bn_mod_inverse_no_branch.exit:                    ; preds = %.thread114.i, %.thread105.i, %.thread105.thread.i
@@ -293,18 +293,18 @@ bn_mod_inverse_no_branch.exit:                    ; preds = %.thread114.i, %.thr
 
 116:                                              ; preds = %.preheader
   %.not221 = icmp eq i32 %.0168, 0
-  br i1 %.not221, label %.preheader336, label %117
+  br i1 %.not221, label %.preheader341, label %117
 
 117:                                              ; preds = %116
   %118 = tail call i32 @BN_rshift(ptr noundef nonnull %74, ptr noundef nonnull %74, i32 noundef %.0168) #4
   %.not222 = icmp eq i32 %118, 0
-  br i1 %.not222, label %.thread248, label %.preheader336
+  br i1 %.not222, label %.thread248, label %.preheader341
 
-.preheader336:                                    ; preds = %117, %116
+.preheader341:                                    ; preds = %117, %116
   br label %119
 
-119:                                              ; preds = %.preheader336, %126
-  %.1 = phi i32 [ %122, %126 ], [ 0, %.preheader336 ]
+119:                                              ; preds = %.preheader341, %126
+  %.1 = phi i32 [ %122, %126 ], [ 0, %.preheader341 ]
   %120 = tail call i32 @BN_is_bit_set(ptr noundef %73, i32 noundef %.1) #4
   %.not223 = icmp eq i32 %120, 0
   br i1 %.not223, label %121, label %128
@@ -569,8 +569,8 @@ bn_mod_inverse_no_branch.exit:                    ; preds = %.thread114.i, %.thr
   br i1 %227, label %.thread248.thread, label %.thread269
 
 .thread248.thread:                                ; preds = %83, %.thread248
-  %.0174310 = phi ptr [ %.0174, %.thread248 ], [ null, %83 ]
-  tail call void @BN_free(ptr noundef %.0174310) #4
+  %.0174315 = phi ptr [ %.0174, %.thread248 ], [ null, %83 ]
+  tail call void @BN_free(ptr noundef %.0174315) #4
   br label %.thread269
 
 .thread269:                                       ; preds = %222, %224, %.thread248.thread, %.thread248

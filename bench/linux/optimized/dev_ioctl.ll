@@ -209,7 +209,7 @@ define dso_local i32 @dev_set_hwtstamp_phylib(ptr noundef %0, ptr noundef initia
   %.pre = load i64, ptr %0, align 8
   %.pre11 = and i64 %.pre, 8589934592
   %31 = icmp eq i64 %.pre11, 0
-  br i1 %31, label %.thread8.thread, label %.thread15
+  br i1 %31, label %.thread8.thread, label %.thread22
 
 32:                                               ; preds = %.thread, %15
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 672
@@ -218,15 +218,15 @@ define dso_local i32 @dev_set_hwtstamp_phylib(ptr noundef %0, ptr noundef initia
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %.critedge, label %41
 
-.thread15:                                        ; preds = %30
+.thread22:                                        ; preds = %30
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 672
   %38 = load ptr, ptr %37, align 8
   %39 = call i32 %38(ptr noundef %0, ptr noundef %1, ptr noundef %2) #11
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %.thread8, label %41
 
-41:                                               ; preds = %.thread15, %32
-  %42 = phi i32 [ %39, %.thread15 ], [ %35, %32 ]
+41:                                               ; preds = %.thread22, %32
+  %42 = phi i32 [ %39, %.thread22 ], [ %35, %32 ]
   %43 = load ptr, ptr %2, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.critedge, label %45
@@ -235,7 +235,7 @@ define dso_local i32 @dev_set_hwtstamp_phylib(ptr noundef %0, ptr noundef initia
   call void (ptr, ptr, ...) @netdev_err(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %43) #12
   br label %.critedge
 
-.thread8:                                         ; preds = %.thread15
+.thread8:                                         ; preds = %.thread22
   %.pre9 = load i64, ptr %0, align 8
   %.pre10 = and i64 %.pre9, 8589934592
   %46 = icmp eq i64 %.pre10, 0

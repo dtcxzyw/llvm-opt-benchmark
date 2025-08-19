@@ -12746,8 +12746,8 @@ _ZN4NodenwEm.exit124:                             ; preds = %193, %195
 210:                                              ; preds = %153, %30
   %.0133.ph = phi ptr [ %32, %30 ], [ %130, %153 ]
   %.0132.ph = phi ptr [ %34, %30 ], [ %156, %153 ]
-  %spec.select144 = select i1 %2, ptr %.0132.ph, ptr %.0133.ph
-  %spec.select139145 = select i1 %2, ptr %.0133.ph, ptr %.0132.ph
+  %spec.select157 = select i1 %2, ptr %.0132.ph, ptr %.0133.ph
+  %spec.select139158 = select i1 %2, ptr %.0133.ph, ptr %.0132.ph
   %211 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %212 = load ptr, ptr %211, align 8
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 1808
@@ -12790,26 +12790,26 @@ _ZN4NodenwEm.exit107:                             ; preds = %226, %228
   %234 = getelementptr inbounds nuw i8, ptr %.0.i.i.i106, i64 8
   %235 = load ptr, ptr %234, align 8
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
-  store ptr %spec.select139145, ptr %236, align 8
-  %.not.i.i.i108 = icmp eq ptr %spec.select139145, null
+  store ptr %spec.select139158, ptr %236, align 8
+  %.not.i.i.i108 = icmp eq ptr %spec.select139158, null
   br i1 %.not.i.i.i108, label %_ZN14LShiftCntVNodeC2EP4NodePK8TypeVect.exit, label %237
 
 237:                                              ; preds = %231
-  %238 = getelementptr inbounds nuw i8, ptr %spec.select139145, i64 16
+  %238 = getelementptr inbounds nuw i8, ptr %spec.select139158, i64 16
   %239 = load ptr, ptr %238, align 8
   %240 = icmp eq ptr %239, null
   br i1 %240, label %_ZN14LShiftCntVNodeC2EP4NodePK8TypeVect.exit, label %241
 
 241:                                              ; preds = %237
-  %242 = getelementptr inbounds nuw i8, ptr %spec.select139145, i64 32
+  %242 = getelementptr inbounds nuw i8, ptr %spec.select139158, i64 32
   %243 = load i32, ptr %242, align 8
-  %244 = getelementptr inbounds nuw i8, ptr %spec.select139145, i64 36
+  %244 = getelementptr inbounds nuw i8, ptr %spec.select139158, i64 36
   %245 = load i32, ptr %244, align 4
   %246 = icmp eq i32 %243, %245
   br i1 %246, label %247, label %248
 
 247:                                              ; preds = %241
-  tail call void @_ZN4Node8out_growEj(ptr noundef nonnull align 8 dereferenceable(52) %spec.select139145, i32 noundef %243) #8
+  tail call void @_ZN4Node8out_growEj(ptr noundef nonnull align 8 dereferenceable(52) %spec.select139158, i32 noundef %243) #8
   %.pre.i.i.i.i109 = load ptr, ptr %238, align 8
   %.pre2.i.i.i.i110 = load i32, ptr %242, align 8
   br label %248
@@ -12873,26 +12873,26 @@ _ZN4NodenwEm.exit113:                             ; preds = %272, %274
   %280 = getelementptr inbounds nuw i8, ptr %.0.i.i.i112, i64 8
   %281 = load ptr, ptr %280, align 8
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
-  store ptr %spec.select144, ptr %282, align 8
-  %.not.i.i.i114 = icmp eq ptr %spec.select144, null
+  store ptr %spec.select157, ptr %282, align 8
+  %.not.i.i.i114 = icmp eq ptr %spec.select157, null
   br i1 %.not.i.i.i114, label %_ZN14RShiftCntVNodeC2EP4NodePK8TypeVect.exit, label %283
 
 283:                                              ; preds = %277
-  %284 = getelementptr inbounds nuw i8, ptr %spec.select144, i64 16
+  %284 = getelementptr inbounds nuw i8, ptr %spec.select157, i64 16
   %285 = load ptr, ptr %284, align 8
   %286 = icmp eq ptr %285, null
   br i1 %286, label %_ZN14RShiftCntVNodeC2EP4NodePK8TypeVect.exit, label %287
 
 287:                                              ; preds = %283
-  %288 = getelementptr inbounds nuw i8, ptr %spec.select144, i64 32
+  %288 = getelementptr inbounds nuw i8, ptr %spec.select157, i64 32
   %289 = load i32, ptr %288, align 8
-  %290 = getelementptr inbounds nuw i8, ptr %spec.select144, i64 36
+  %290 = getelementptr inbounds nuw i8, ptr %spec.select157, i64 36
   %291 = load i32, ptr %290, align 4
   %292 = icmp eq i32 %289, %291
   br i1 %292, label %293, label %294
 
 293:                                              ; preds = %287
-  tail call void @_ZN4Node8out_growEj(ptr noundef nonnull align 8 dereferenceable(52) %spec.select144, i32 noundef %289) #8
+  tail call void @_ZN4Node8out_growEj(ptr noundef nonnull align 8 dereferenceable(52) %spec.select157, i32 noundef %289) #8
   %.pre.i.i.i.i115 = load ptr, ptr %284, align 8
   %.pre2.i.i.i.i116 = load i32, ptr %288, align 8
   br label %294
@@ -12918,7 +12918,7 @@ _ZN14RShiftCntVNodeC2EP4NodePK8TypeVect.exit:     ; preds = %277, %283, %294
   br label %304
 
 304:                                              ; preds = %._crit_edge, %300
-  %.080146 = phi i1 [ true, %._crit_edge ], [ false, %300 ]
+  %.080159 = phi i1 [ true, %._crit_edge ], [ false, %300 ]
   %.pre-phi = phi ptr [ %.pre, %._crit_edge ], [ %211, %300 ]
   %.2135 = phi ptr [ %spec.select, %._crit_edge ], [ %303, %300 ]
   %.2 = phi ptr [ %spec.select139, %._crit_edge ], [ %257, %300 ]
@@ -12970,7 +12970,7 @@ _ZN4NodenwEm.exit119:                             ; preds = %319, %321
   unreachable
 
 _ZN10VectorNode4makeEiP4NodeS1_j9BasicTypeb.exit: ; preds = %324
-  %333 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_PK8TypeVectbb(i32 noundef %327, ptr noundef %0, ptr noundef %.2, ptr noundef %326, i1 noundef zeroext false, i1 noundef zeroext %.080146)
+  %333 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_PK8TypeVectbb(i32 noundef %327, ptr noundef %0, ptr noundef %.2, ptr noundef %326, i1 noundef zeroext false, i1 noundef zeroext %.080159)
   %334 = load ptr, ptr %5, align 8
   %335 = load ptr, ptr %334, align 8
   %336 = tail call noundef ptr %335(ptr noundef nonnull align 8 dereferenceable(2400) %5, ptr noundef %333) #8
@@ -12990,7 +12990,7 @@ _ZN10VectorNode4makeEiP4NodeS1_j9BasicTypeb.exit: ; preds = %324
   unreachable
 
 _ZN10VectorNode4makeEiP4NodeS1_j9BasicTypeb.exit121: ; preds = %_ZN10VectorNode4makeEiP4NodeS1_j9BasicTypeb.exit
-  %345 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_PK8TypeVectbb(i32 noundef %339, ptr noundef %0, ptr noundef %.2135, ptr noundef %338, i1 noundef zeroext false, i1 noundef zeroext %.080146)
+  %345 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_PK8TypeVectbb(i32 noundef %339, ptr noundef %0, ptr noundef %.2135, ptr noundef %338, i1 noundef zeroext false, i1 noundef zeroext %.080159)
   %346 = load ptr, ptr %5, align 8
   %347 = load ptr, ptr %346, align 8
   %348 = tail call noundef ptr %347(ptr noundef nonnull align 8 dereferenceable(2400) %5, ptr noundef %345) #8
@@ -14022,8 +14022,8 @@ define hidden noundef ptr @_ZN20VectorLongToMaskNode5IdealEP8PhaseGVNb(ptr nound
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %92 = load i32, ptr %91, align 8
-  %.not27 = icmp eq i32 %92, 11
-  br i1 %.not27, label %102, label %93
+  %.not28 = icmp eq i32 %92, 11
+  br i1 %.not28, label %102, label %93
 
 93:                                               ; preds = %79
   %94 = load ptr, ptr %90, align 8
@@ -14054,16 +14054,16 @@ define hidden noundef ptr @_ZN20VectorLongToMaskNode5IdealEP8PhaseGVNb(ptr nound
 111:                                              ; preds = %102
   %112 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %113 = load i32, ptr %112, align 8
-  %.not28 = icmp eq i32 %113, 11
+  %.not29 = icmp eq i32 %113, 11
   %114 = load i32, ptr %91, align 8
-  %.not29 = icmp eq i32 %114, 11
-  br i1 %.not28, label %116, label %115
+  %.not30 = icmp eq i32 %114, 11
+  br i1 %.not29, label %116, label %115
 
 115:                                              ; preds = %111
-  br i1 %.not29, label %.thread, label %117
+  br i1 %.not30, label %.thread, label %117
 
 116:                                              ; preds = %111
-  br i1 %.not29, label %117, label %.thread
+  br i1 %.not30, label %117, label %.thread
 
 117:                                              ; preds = %116, %115
   %118 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 64) #8

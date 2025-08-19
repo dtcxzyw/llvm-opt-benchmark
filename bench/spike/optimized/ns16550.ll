@@ -282,14 +282,14 @@ _ZNSt5queueIhSt5dequeIhSaIhEEE3popEv.exit:        ; preds = %20, %22
 
 select.unfold:                                    ; preds = %50, %42
   %.not9.not = icmp eq i8 %.0, 0
-  %spec.select27 = select i1 %.not9.not, i8 1, i8 %spec.select
+  %spec.select31 = select i1 %.not9.not, i8 1, i8 %spec.select
   %.0.lobit = lshr exact i8 %.0, 2
-  %spec.select28 = zext nneg i8 %.0.lobit to i32
+  %spec.select32 = zext nneg i8 %.0.lobit to i32
   br label %.thread
 
 .thread:                                          ; preds = %select.unfold, %50
-  %.114.sink = phi i8 [ %52, %50 ], [ %spec.select27, %select.unfold ]
-  %.sink21 = phi i32 [ 1, %50 ], [ %spec.select28, %select.unfold ]
+  %.114.sink = phi i8 [ %52, %50 ], [ %spec.select31, %select.unfold ]
+  %.sink25 = phi i32 [ 1, %50 ], [ %spec.select32, %select.unfold ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 114
   store i8 %.114.sink, ptr %53, align 2, !tbaa !27
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -298,7 +298,7 @@ select.unfold:                                    ; preds = %50, %42
   %57 = load i32, ptr %56, align 8, !tbaa !22
   %58 = load ptr, ptr %55, align 8, !tbaa !3
   %59 = load ptr, ptr %58, align 8
-  tail call void %59(ptr noundef nonnull align 8 dereferenceable(8) %55, i32 noundef %57, i32 noundef %.sink21)
+  tail call void %59(ptr noundef nonnull align 8 dereferenceable(8) %55, i32 noundef %57, i32 noundef %.sink25)
   %60 = load i8, ptr %44, align 1, !tbaa !26
   %61 = and i8 %60, 2
   %.not10 = icmp eq i8 %61, 0
@@ -417,7 +417,7 @@ define noundef zeroext i1 @_ZN9ns16550_t4loadEmmPh(ptr noundef nonnull align 8 c
   %13 = zext nneg i32 %12 to i64
   %14 = lshr i64 %1, %13
   %15 = and i64 %14, 7
-  switch i64 %15, label %default.unreachable20 [
+  switch i64 %15, label %default.unreachable21 [
     i64 0, label %16
     i64 1, label %56
     i64 2, label %65
@@ -554,7 +554,7 @@ _ZNSt5queueIhSt5dequeIhSaIhEEE3popEv.exit.i:      ; preds = %43, %41
   %83 = load i8, ptr %82, align 1, !tbaa !34
   br label %.critedge
 
-default.unreachable20:                            ; preds = %10
+default.unreachable21:                            ; preds = %10
   unreachable
 
 _ZN9ns16550_t7rx_byteEv.exit:                     ; preds = %.sink.split.i, %_ZNSt5queueIhSt5dequeIhSaIhEEE3popEv.exit.i, %19
@@ -2335,18 +2335,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !108
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #27
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #27
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !69
@@ -2380,7 +2380,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

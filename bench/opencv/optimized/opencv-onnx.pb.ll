@@ -2758,16 +2758,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit91: ; preds = %4
   br i1 %56, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit, label %.preheader148.preheader
 
 .preheader148.preheader:                          ; preds = %51
-  %scevgep214 = getelementptr i8, ptr %.0.i90, i64 2
-  %load_initial215 = load i8, ptr %scevgep214, align 1
+  %scevgep233 = getelementptr i8, ptr %.0.i90, i64 2
+  %load_initial234 = load i8, ptr %scevgep233, align 1
   br label %.preheader148
 
 .preheader148:                                    ; preds = %.preheader148.preheader, %.preheader148
-  %store_forwarded216 = phi i8 [ %load_initial215, %.preheader148.preheader ], [ %61, %.preheader148 ]
+  %store_forwarded235 = phi i8 [ %load_initial234, %.preheader148.preheader ], [ %61, %.preheader148 ]
   %.018.i.i = phi i64 [ %53, %.preheader148.preheader ], [ %60, %.preheader148 ]
   %.0.i.i = phi ptr [ %57, %.preheader148.preheader ], [ %62, %.preheader148 ]
   %58 = getelementptr inbounds i8, ptr %.0.i.i, i64 -1
-  %59 = or i8 %store_forwarded216, -128
+  %59 = or i8 %store_forwarded235, -128
   store i8 %59, ptr %58, align 1, !tbaa !46
   %60 = lshr i64 %.018.i.i, 7
   %61 = trunc i64 %60 to i8
@@ -2998,16 +2998,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit110: ; preds = %
   br i1 %161, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit115, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %156
-  %scevgep211 = getelementptr i8, ptr %.0.i109, i64 2
-  %load_initial212 = load i8, ptr %scevgep211, align 1
+  %scevgep230 = getelementptr i8, ptr %.0.i109, i64 2
+  %load_initial231 = load i8, ptr %scevgep230, align 1
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %store_forwarded213 = phi i8 [ %load_initial212, %.preheader.preheader ], [ %166, %.preheader ]
+  %store_forwarded232 = phi i8 [ %load_initial231, %.preheader.preheader ], [ %166, %.preheader ]
   %.018.i.i112 = phi i64 [ %158, %.preheader.preheader ], [ %165, %.preheader ]
   %.0.i.i113 = phi ptr [ %162, %.preheader.preheader ], [ %167, %.preheader ]
   %163 = getelementptr inbounds i8, ptr %.0.i.i113, i64 -1
-  %164 = or i8 %store_forwarded213, -128
+  %164 = or i8 %store_forwarded232, -128
   store i8 %164, ptr %163, align 1, !tbaa !46
   %165 = lshr i64 %.018.i.i112, 7
   %166 = trunc i64 %165 to i8
@@ -9723,16 +9723,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %7, 
   br i1 %23, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit, label %.preheader96.preheader
 
 .preheader96.preheader:                           ; preds = %18
-  %scevgep121 = getelementptr i8, ptr %.0.i52, i64 2
-  %load_initial122 = load i8, ptr %scevgep121, align 1
+  %scevgep136 = getelementptr i8, ptr %.0.i52, i64 2
+  %load_initial137 = load i8, ptr %scevgep136, align 1
   br label %.preheader96
 
 .preheader96:                                     ; preds = %.preheader96.preheader, %.preheader96
-  %store_forwarded123 = phi i8 [ %load_initial122, %.preheader96.preheader ], [ %28, %.preheader96 ]
+  %store_forwarded138 = phi i8 [ %load_initial137, %.preheader96.preheader ], [ %28, %.preheader96 ]
   %.018.i.i = phi i64 [ %20, %.preheader96.preheader ], [ %27, %.preheader96 ]
   %.0.i.i = phi ptr [ %24, %.preheader96.preheader ], [ %29, %.preheader96 ]
   %25 = getelementptr inbounds i8, ptr %.0.i.i, i64 -1
-  %26 = or i8 %store_forwarded123, -128
+  %26 = or i8 %store_forwarded138, -128
   store i8 %26, ptr %25, align 1, !tbaa !46
   %27 = lshr i64 %.018.i.i, 7
   %28 = trunc i64 %27 to i8
@@ -14176,16 +14176,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %7, 
   br i1 %23, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit, label %.preheader22.preheader
 
 .preheader22.preheader:                           ; preds = %18
-  %scevgep27 = getelementptr i8, ptr %.0.i12, i64 2
-  %load_initial28 = load i8, ptr %scevgep27, align 1
+  %scevgep31 = getelementptr i8, ptr %.0.i12, i64 2
+  %load_initial32 = load i8, ptr %scevgep31, align 1
   br label %.preheader22
 
 .preheader22:                                     ; preds = %.preheader22.preheader, %.preheader22
-  %store_forwarded29 = phi i8 [ %load_initial28, %.preheader22.preheader ], [ %28, %.preheader22 ]
+  %store_forwarded33 = phi i8 [ %load_initial32, %.preheader22.preheader ], [ %28, %.preheader22 ]
   %.018.i.i = phi i64 [ %20, %.preheader22.preheader ], [ %27, %.preheader22 ]
   %.0.i.i = phi ptr [ %24, %.preheader22.preheader ], [ %29, %.preheader22 ]
   %25 = getelementptr inbounds i8, ptr %.0.i.i, i64 -1
-  %26 = or i8 %store_forwarded29, -128
+  %26 = or i8 %store_forwarded33, -128
   store i8 %26, ptr %25, align 1, !tbaa !46
   %27 = lshr i64 %.018.i.i, 7
   %28 = trunc i64 %27 to i8
@@ -16222,16 +16222,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %11,
   br i1 %28, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %23
-  %scevgep252 = getelementptr i8, ptr %.0.i86, i64 2
-  %load_initial253 = load i8, ptr %scevgep252, align 1
+  %scevgep277 = getelementptr i8, ptr %.0.i86, i64 2
+  %load_initial278 = load i8, ptr %scevgep277, align 1
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %store_forwarded254 = phi i8 [ %load_initial253, %.preheader.preheader ], [ %33, %.preheader ]
+  %store_forwarded279 = phi i8 [ %load_initial278, %.preheader.preheader ], [ %33, %.preheader ]
   %.018.i.i88 = phi i64 [ %25, %.preheader.preheader ], [ %32, %.preheader ]
   %.0.i.i89 = phi ptr [ %29, %.preheader.preheader ], [ %34, %.preheader ]
   %30 = getelementptr inbounds i8, ptr %.0.i.i89, i64 -1
-  %31 = or i8 %store_forwarded254, -128
+  %31 = or i8 %store_forwarded279, -128
   store i8 %31, ptr %30, align 1, !tbaa !46
   %32 = lshr i64 %.018.i.i88, 7
   %33 = trunc i64 %32 to i8
@@ -16283,16 +16283,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit94: ; preds = %3
   br i1 %53, label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %47
-  %scevgep249 = getelementptr i8, ptr %.0.i93, i64 2
-  %load_initial250 = load i8, ptr %scevgep249, align 1
+  %scevgep274 = getelementptr i8, ptr %.0.i93, i64 2
+  %load_initial275 = load i8, ptr %scevgep274, align 1
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
-  %store_forwarded251 = phi i8 [ %load_initial250, %.preheader.i.preheader ], [ %58, %.preheader.i ]
+  %store_forwarded276 = phi i8 [ %load_initial275, %.preheader.i.preheader ], [ %58, %.preheader.i ]
   %.018.i.i.i = phi i64 [ %50, %.preheader.i.preheader ], [ %57, %.preheader.i ]
   %.0.i.i.i = phi ptr [ %54, %.preheader.i.preheader ], [ %59, %.preheader.i ]
   %55 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 -1
-  %56 = or i8 %store_forwarded251, -128
+  %56 = or i8 %store_forwarded276, -128
   store i8 %56, ptr %55, align 1, !tbaa !46
   %57 = lshr i64 %.018.i.i.i, 7
   %58 = trunc i64 %57 to i8
@@ -16488,19 +16488,19 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit110: ; preds = %
   store i8 %141, ptr %142, align 1, !tbaa !46
   %143 = icmp ult i32 %132, 16384
   %144 = getelementptr inbounds nuw i8, ptr %.0.i109, i64 2
-  br i1 %143, label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i, label %.preheader228
+  br i1 %143, label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i, label %.preheader253
 
-.preheader228:                                    ; preds = %137
-  %scevgep246 = getelementptr i8, ptr %.0.i109, i64 1
-  %load_initial247 = load i8, ptr %scevgep246, align 1
+.preheader253:                                    ; preds = %137
+  %scevgep271 = getelementptr i8, ptr %.0.i109, i64 1
+  %load_initial272 = load i8, ptr %scevgep271, align 1
   br label %145
 
-145:                                              ; preds = %.preheader228, %145
-  %store_forwarded248 = phi i8 [ %load_initial247, %.preheader228 ], [ %149, %145 ]
-  %.018.i.i = phi i64 [ %140, %.preheader228 ], [ %148, %145 ]
-  %.0.i.i = phi ptr [ %144, %.preheader228 ], [ %150, %145 ]
+145:                                              ; preds = %.preheader253, %145
+  %store_forwarded273 = phi i8 [ %load_initial272, %.preheader253 ], [ %149, %145 ]
+  %.018.i.i = phi i64 [ %140, %.preheader253 ], [ %148, %145 ]
+  %.0.i.i = phi ptr [ %144, %.preheader253 ], [ %150, %145 ]
   %146 = getelementptr inbounds i8, ptr %.0.i.i, i64 -1
-  %147 = or i8 %store_forwarded248, -128
+  %147 = or i8 %store_forwarded273, -128
   store i8 %147, ptr %146, align 1, !tbaa !46
   %148 = lshr i64 %.018.i.i, 7
   %149 = trunc i64 %148 to i8
@@ -16650,19 +16650,19 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit118: ; preds = %
   store i8 %211, ptr %212, align 1, !tbaa !46
   %213 = icmp ult i64 %203, 16384
   %214 = getelementptr inbounds nuw i8, ptr %.0.i117, i64 2
-  br i1 %213, label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i75, label %.preheader227
+  br i1 %213, label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i75, label %.preheader252
 
-.preheader227:                                    ; preds = %208
-  %scevgep243 = getelementptr i8, ptr %.0.i117, i64 1
-  %load_initial244 = load i8, ptr %scevgep243, align 1
+.preheader252:                                    ; preds = %208
+  %scevgep268 = getelementptr i8, ptr %.0.i117, i64 1
+  %load_initial269 = load i8, ptr %scevgep268, align 1
   br label %215
 
-215:                                              ; preds = %.preheader227, %215
-  %store_forwarded245 = phi i8 [ %load_initial244, %.preheader227 ], [ %219, %215 ]
-  %.018.i.i73 = phi i64 [ %210, %.preheader227 ], [ %218, %215 ]
-  %.0.i.i74 = phi ptr [ %214, %.preheader227 ], [ %220, %215 ]
+215:                                              ; preds = %.preheader252, %215
+  %store_forwarded270 = phi i8 [ %load_initial269, %.preheader252 ], [ %219, %215 ]
+  %.018.i.i73 = phi i64 [ %210, %.preheader252 ], [ %218, %215 ]
+  %.0.i.i74 = phi ptr [ %214, %.preheader252 ], [ %220, %215 ]
   %216 = getelementptr inbounds i8, ptr %.0.i.i74, i64 -1
-  %217 = or i8 %store_forwarded245, -128
+  %217 = or i8 %store_forwarded270, -128
   store i8 %217, ptr %216, align 1, !tbaa !46
   %218 = lshr i64 %.018.i.i73, 7
   %219 = trunc i64 %218 to i8
@@ -16903,17 +16903,17 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit133: ; preds = %
   store i8 %330, ptr %331, align 1, !tbaa !46
   %332 = icmp ult i64 %322, 16384
   %333 = getelementptr inbounds nuw i8, ptr %.0.i132, i64 2
-  br i1 %332, label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i84, label %.preheader226
+  br i1 %332, label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i84, label %.preheader251
 
-.preheader226:                                    ; preds = %327
+.preheader251:                                    ; preds = %327
   %scevgep = getelementptr i8, ptr %.0.i132, i64 1
   %load_initial = load i8, ptr %scevgep, align 1
   br label %334
 
-334:                                              ; preds = %.preheader226, %334
-  %store_forwarded = phi i8 [ %load_initial, %.preheader226 ], [ %338, %334 ]
-  %.018.i.i82 = phi i64 [ %329, %.preheader226 ], [ %337, %334 ]
-  %.0.i.i83 = phi ptr [ %333, %.preheader226 ], [ %339, %334 ]
+334:                                              ; preds = %.preheader251, %334
+  %store_forwarded = phi i8 [ %load_initial, %.preheader251 ], [ %338, %334 ]
+  %.018.i.i82 = phi i64 [ %329, %.preheader251 ], [ %337, %334 ]
+  %.0.i.i83 = phi ptr [ %333, %.preheader251 ], [ %339, %334 ]
   %335 = getelementptr inbounds i8, ptr %.0.i.i83, i64 -1
   %336 = or i8 %store_forwarded, -128
   store i8 %336, ptr %335, align 1, !tbaa !46
@@ -18117,19 +18117,19 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %6
   br label %15
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.thread: ; preds = %6, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
-  %.0.i1127 = phi ptr [ %8, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ], [ %1, %6 ]
+  %.0.i1131 = phi ptr [ %8, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ], [ %1, %6 ]
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %.in, align 8
-  store i8 8, ptr %.0.i1127, align 1, !tbaa !46
-  %12 = getelementptr inbounds nuw i8, ptr %.0.i1127, i64 1
+  store i8 8, ptr %.0.i1131, align 1, !tbaa !46
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i1131, i64 1
   %13 = trunc i64 %11 to i8
   store i8 %13, ptr %12, align 1, !tbaa !46
   %14 = icmp ult i64 %11, 128
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %.thread, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.thread
-  %.0.i112730 = phi ptr [ %8, %.thread ], [ %.0.i1127, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.thread ]
-  %16 = getelementptr inbounds nuw i8, ptr %.0.i112730, i64 2
+  %.0.i113134 = phi ptr [ %8, %.thread ], [ %.0.i1131, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.thread ]
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i113134, i64 2
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit
 
 17:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.thread
@@ -18137,14 +18137,14 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.thread: ; preds
   store i8 %18, ptr %12, align 1, !tbaa !46
   %19 = lshr i64 %11, 7
   %20 = trunc i64 %19 to i8
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i1127, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i1131, i64 2
   store i8 %20, ptr %21, align 1, !tbaa !46
   %22 = icmp ult i64 %11, 16384
-  %23 = getelementptr inbounds nuw i8, ptr %.0.i1127, i64 3
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i1131, i64 3
   br i1 %22, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %17
-  %scevgep = getelementptr i8, ptr %.0.i1127, i64 2
+  %scevgep = getelementptr i8, ptr %.0.i1131, i64 2
   %load_initial = load i8, ptr %scevgep, align 1
   br label %.preheader
 

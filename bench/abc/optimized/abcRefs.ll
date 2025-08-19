@@ -26,20 +26,20 @@ define i32 @Abc_NodeMffcSize(ptr noundef readonly captures(none) %0) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @Abc_NodeRefDeref(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
-  br label %tailrecurse89
+  br label %tailrecurse95
 
-tailrecurse89:                                    ; preds = %119, %3
-  %accumulator.tr93 = phi i32 [ 0, %3 ], [ %accumulator.ret.tr, %119 ]
-  %.tr90 = phi ptr [ %0, %3 ], [ %.us-phi51, %119 ]
-  %.tr91 = phi i32 [ %1, %3 ], [ 0, %119 ]
+tailrecurse95:                                    ; preds = %119, %3
+  %accumulator.tr99 = phi i32 [ 0, %3 ], [ %accumulator.ret.tr, %119 ]
+  %.tr96 = phi ptr [ %0, %3 ], [ %.us-phi51, %119 ]
+  %.tr97 = phi i32 [ %1, %3 ], [ 0, %119 ]
   %.not = icmp eq i32 %2, 0
-  %4 = icmp eq i32 %.tr91, 0
+  %4 = icmp eq i32 %.tr97, 0
   br i1 %.not, label %tailrecurse.us, label %tailrecurse
 
-tailrecurse.us:                                   ; preds = %tailrecurse89, %31
-  %accumulator.tr.us = phi i32 [ %32, %31 ], [ 0, %tailrecurse89 ]
-  %.tr.us = phi ptr [ %17, %31 ], [ %.tr90, %tailrecurse89 ]
-  %.tr40.us = phi i1 [ false, %31 ], [ %4, %tailrecurse89 ]
+tailrecurse.us:                                   ; preds = %tailrecurse95, %31
+  %accumulator.tr.us = phi i32 [ %32, %31 ], [ 0, %tailrecurse95 ]
+  %.tr.us = phi ptr [ %17, %31 ], [ %.tr96, %tailrecurse95 ]
+  %.tr40.us = phi i1 [ false, %31 ], [ %4, %tailrecurse95 ]
   %5 = getelementptr i8, ptr %.tr.us, i64 20
   %.val33.us = load i32, ptr %5, align 4
   %6 = and i32 %.val33.us, 15
@@ -93,10 +93,10 @@ tailrecurse.us:                                   ; preds = %tailrecurse89, %31
   %32 = add nsw i32 %.0.us, %accumulator.tr.us
   br label %tailrecurse.us
 
-tailrecurse:                                      ; preds = %tailrecurse89, %105
-  %accumulator.tr = phi i32 [ %106, %105 ], [ 0, %tailrecurse89 ]
-  %.tr = phi ptr [ %91, %105 ], [ %.tr90, %tailrecurse89 ]
-  %.tr40 = phi i1 [ false, %105 ], [ %4, %tailrecurse89 ]
+tailrecurse:                                      ; preds = %tailrecurse95, %105
+  %accumulator.tr = phi i32 [ %106, %105 ], [ 0, %tailrecurse95 ]
+  %.tr = phi ptr [ %91, %105 ], [ %.tr96, %tailrecurse95 ]
+  %.tr40 = phi i1 [ false, %105 ], [ %4, %tailrecurse95 ]
   %.val = load ptr, ptr %.tr, align 8, !tbaa !13
   %33 = getelementptr i8, ptr %.tr, i64 16
   %.val32 = load i32, ptr %33, align 8, !tbaa !34
@@ -234,7 +234,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %tailrecurse, %._cri
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %92
-  %98 = tail call fastcc i32 @Abc_NodeRefDeref(ptr noundef nonnull %87, i32 noundef 1, i32 noundef %2)
+  %98 = tail call fastcc i32 @Abc_NodeRefDeref(ptr noundef nonnull %87, i32 noundef 1, i32 noundef 1)
   %99 = add nsw i32 %98, 1
   br label %100
 
@@ -278,15 +278,15 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %tailrecurse, %._cri
 
 119:                                              ; preds = %114
   %120 = add i32 %.2, %.us-phi49
-  %accumulator.ret.tr = add i32 %120, %accumulator.tr93
-  br label %tailrecurse89
+  %accumulator.ret.tr = add i32 %120, %accumulator.tr99
+  br label %tailrecurse95
 
 .loopexit:                                        ; preds = %100, %Abc_NodeSetTravIdCurrent.exit, %Abc_NodeSetTravIdCurrent.exit, %26, %tailrecurse.us, %tailrecurse.us, %114
   %accumulator.tr45 = phi i32 [ %.us-phi49, %114 ], [ %accumulator.tr.us, %tailrecurse.us ], [ %accumulator.tr.us, %tailrecurse.us ], [ %accumulator.tr.us, %26 ], [ %accumulator.tr, %Abc_NodeSetTravIdCurrent.exit ], [ %accumulator.tr, %Abc_NodeSetTravIdCurrent.exit ], [ %accumulator.tr, %100 ]
   %.027 = phi i32 [ %.2, %114 ], [ %.0.us, %26 ], [ 0, %tailrecurse.us ], [ 0, %tailrecurse.us ], [ %.0, %100 ], [ 0, %Abc_NodeSetTravIdCurrent.exit ], [ 0, %Abc_NodeSetTravIdCurrent.exit ]
   %accumulator.ret.tr42 = add nsw i32 %.027, %accumulator.tr45
-  %accumulator.ret.tr94 = add i32 %accumulator.ret.tr42, %accumulator.tr93
-  ret i32 %accumulator.ret.tr94
+  %accumulator.ret.tr100 = add i32 %accumulator.ret.tr42, %accumulator.tr99
+  ret i32 %accumulator.ret.tr100
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -871,9 +871,9 @@ Vec_PtrPush.exit35:                               ; preds = %.Vec_PtrGrow.exit11
 
 .sink.split:                                      ; preds = %Vec_PtrPush.exit, %Vec_PtrPush.exit35
   %.sink = phi i32 [ %133, %Vec_PtrPush.exit35 ], [ %89, %Vec_PtrPush.exit ]
-  %.sink41 = phi ptr [ %132, %Vec_PtrPush.exit35 ], [ %88, %Vec_PtrPush.exit ]
+  %.sink53 = phi ptr [ %132, %Vec_PtrPush.exit35 ], [ %88, %Vec_PtrPush.exit ]
   %135 = sext i32 %.sink to i64
-  %136 = getelementptr inbounds ptr, ptr %.sink41, i64 %135
+  %136 = getelementptr inbounds ptr, ptr %.sink53, i64 %135
   store ptr %0, ptr %136, align 8, !tbaa !32
   br label %137
 
@@ -1070,27 +1070,27 @@ Vec_IntGrow.exit.i.i16:                           ; preds = %32, %26
   br i1 %37, label %Abc_NtkIncrementTravId.exit.sink.split.sink.split, label %Abc_NtkIncrementTravId.exit.sink.split
 
 Abc_NtkIncrementTravId.exit.sink.split.sink.split: ; preds = %Vec_IntGrow.exit.i.i16, %Vec_IntGrow.exit.i.i
-  %.sink31 = phi i32 [ %14, %Vec_IntGrow.exit.i.i ], [ %30, %Vec_IntGrow.exit.i.i16 ]
-  %.sink28 = phi ptr [ %20, %Vec_IntGrow.exit.i.i ], [ %36, %Vec_IntGrow.exit.i.i16 ]
-  %.sink27.ph = phi ptr [ %7, %Vec_IntGrow.exit.i.i ], [ %23, %Vec_IntGrow.exit.i.i16 ]
+  %.sink34 = phi i32 [ %14, %Vec_IntGrow.exit.i.i ], [ %30, %Vec_IntGrow.exit.i.i16 ]
+  %.sink31 = phi ptr [ %20, %Vec_IntGrow.exit.i.i ], [ %36, %Vec_IntGrow.exit.i.i16 ]
+  %.sink30.ph = phi ptr [ %7, %Vec_IntGrow.exit.i.i ], [ %23, %Vec_IntGrow.exit.i.i16 ]
   %.sink.ph.ph = phi ptr [ null, %Vec_IntGrow.exit.i.i ], [ %2, %Vec_IntGrow.exit.i.i16 ]
-  %38 = zext nneg i32 %.sink31 to i64
+  %38 = zext nneg i32 %.sink34 to i64
   %39 = shl nuw nsw i64 %38, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %.sink28, i8 0, i64 %39, i1 false), !tbaa !29
+  tail call void @llvm.memset.p0.i64(ptr align 4 %.sink31, i8 0, i64 %39, i1 false), !tbaa !29
   br label %Abc_NtkIncrementTravId.exit.sink.split
 
 Abc_NtkIncrementTravId.exit.sink.split:           ; preds = %Abc_NtkIncrementTravId.exit.sink.split.sink.split, %Vec_IntGrow.exit.i.i16, %Vec_IntGrow.exit.i.i
-  %.sink27 = phi ptr [ %7, %Vec_IntGrow.exit.i.i ], [ %23, %Vec_IntGrow.exit.i.i16 ], [ %.sink27.ph, %Abc_NtkIncrementTravId.exit.sink.split.sink.split ]
-  %.sink25 = phi i32 [ %14, %Vec_IntGrow.exit.i.i ], [ %30, %Vec_IntGrow.exit.i.i16 ], [ %.sink31, %Abc_NtkIncrementTravId.exit.sink.split.sink.split ]
+  %.sink30 = phi ptr [ %7, %Vec_IntGrow.exit.i.i ], [ %23, %Vec_IntGrow.exit.i.i16 ], [ %.sink30.ph, %Abc_NtkIncrementTravId.exit.sink.split.sink.split ]
+  %.sink28 = phi i32 [ %14, %Vec_IntGrow.exit.i.i ], [ %30, %Vec_IntGrow.exit.i.i16 ], [ %.sink34, %Abc_NtkIncrementTravId.exit.sink.split.sink.split ]
   %.sink.ph = phi ptr [ null, %Vec_IntGrow.exit.i.i ], [ %2, %Vec_IntGrow.exit.i.i16 ], [ %.sink.ph.ph, %Abc_NtkIncrementTravId.exit.sink.split.sink.split ]
-  %40 = getelementptr inbounds nuw i8, ptr %.sink27, i64 228
-  store i32 %.sink25, ptr %40, align 4, !tbaa !36
+  %40 = getelementptr inbounds nuw i8, ptr %.sink30, i64 228
+  store i32 %.sink28, ptr %40, align 4, !tbaa !36
   br label %Abc_NtkIncrementTravId.exit
 
 Abc_NtkIncrementTravId.exit:                      ; preds = %Abc_NtkIncrementTravId.exit.sink.split, %.split9, %.split
-  %.sink24 = phi ptr [ %7, %.split ], [ %23, %.split9 ], [ %.sink27, %Abc_NtkIncrementTravId.exit.sink.split ]
+  %.sink27 = phi ptr [ %7, %.split ], [ %23, %.split9 ], [ %.sink30, %Abc_NtkIncrementTravId.exit.sink.split ]
   %.sink = phi ptr [ null, %.split ], [ %2, %.split9 ], [ %.sink.ph, %Abc_NtkIncrementTravId.exit.sink.split ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sink24, i64 216
+  %41 = getelementptr inbounds nuw i8, ptr %.sink27, i64 216
   %42 = load i32, ptr %41, align 8, !tbaa !35
   %43 = add nsw i32 %42, 1
   store i32 %43, ptr %41, align 8, !tbaa !35

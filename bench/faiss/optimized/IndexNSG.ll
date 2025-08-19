@@ -547,8 +547,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93: ; preds = %_ZN
   %146 = sext i32 %145 to i64
   %147 = mul nsw i64 %1, %146
   %148 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.not145 = icmp eq i64 %147, 0
-  br i1 %.not145, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit, label %149
+  %.not174 = icmp eq i64 %147, 0
+  br i1 %.not174, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit, label %149
 
 149:                                              ; preds = %142
   %150 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -797,8 +797,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98: ; preds = %_ZN
   %259 = sext i32 %258 to i64
   %260 = mul nsw i64 %1, %259
   %261 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.not144 = icmp eq i64 %260, 0
-  br i1 %.not144, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit101, label %262
+  %.not173 = icmp eq i64 %260, 0
+  br i1 %.not173, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit101, label %262
 
 262:                                              ; preds = %257
   %263 = getelementptr inbounds nuw i8, ptr %7, i64 16

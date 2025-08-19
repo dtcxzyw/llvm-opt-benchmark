@@ -7402,9 +7402,9 @@ define internal noundef zeroext i1 @e1000_clean_rx_irq(ptr noundef %0, ptr nound
 .lr.ph.preheader:                                 ; preds = %3
   %29 = load i32, ptr %1, align 4
   %30 = icmp slt i32 %29, %2
-  br i1 %30, label %.lr.ph19, label %.thread6
+  br i1 %30, label %.lr.ph23, label %.thread6
 
-.lr.ph19:                                         ; preds = %.lr.ph.preheader
+.lr.ph23:                                         ; preds = %.lr.ph.preheader
   %31 = load ptr, ptr %16, align 8
   %32 = getelementptr %struct.e1000_buffer, ptr %31, i64 %14
   br label %35
@@ -7414,15 +7414,15 @@ define internal noundef zeroext i1 @e1000_clean_rx_irq(ptr noundef %0, ptr nound
   %34 = icmp slt i32 %33, %2
   br i1 %34, label %35, label %.thread6
 
-35:                                               ; preds = %.lr.ph19, %.lr.ph
-  %36 = phi i32 [ %29, %.lr.ph19 ], [ %33, %.lr.ph ]
-  %37 = phi ptr [ %15, %.lr.ph19 ], [ %55, %.lr.ph ]
-  %38 = phi ptr [ %32, %.lr.ph19 ], [ %57, %.lr.ph ]
-  %39 = phi i32 [ %11, %.lr.ph19 ], [ %52, %.lr.ph ]
-  %40 = phi i32 [ 0, %.lr.ph19 ], [ %160, %.lr.ph ]
-  %41 = phi i32 [ 0, %.lr.ph19 ], [ %152, %.lr.ph ]
-  %42 = phi i32 [ 0, %.lr.ph19 ], [ %153, %.lr.ph ]
-  %43 = phi i32 [ %26, %.lr.ph19 ], [ %161, %.lr.ph ]
+35:                                               ; preds = %.lr.ph23, %.lr.ph
+  %36 = phi i32 [ %29, %.lr.ph23 ], [ %33, %.lr.ph ]
+  %37 = phi ptr [ %15, %.lr.ph23 ], [ %55, %.lr.ph ]
+  %38 = phi ptr [ %32, %.lr.ph23 ], [ %57, %.lr.ph ]
+  %39 = phi i32 [ %11, %.lr.ph23 ], [ %52, %.lr.ph ]
+  %40 = phi i32 [ 0, %.lr.ph23 ], [ %160, %.lr.ph ]
+  %41 = phi i32 [ 0, %.lr.ph23 ], [ %152, %.lr.ph ]
+  %42 = phi i32 [ 0, %.lr.ph23 ], [ %153, %.lr.ph ]
+  %43 = phi i32 [ %26, %.lr.ph23 ], [ %161, %.lr.ph ]
   %44 = add nsw i32 %36, 1
   store i32 %44, ptr %1, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !51
@@ -7696,9 +7696,9 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
 .lr.ph.preheader:                                 ; preds = %3
   %27 = load i32, ptr %1, align 4
   %28 = icmp slt i32 %27, %2
-  br i1 %28, label %.lr.ph21, label %.thread8
+  br i1 %28, label %.lr.ph28, label %.thread8
 
-.lr.ph21:                                         ; preds = %.lr.ph.preheader
+.lr.ph28:                                         ; preds = %.lr.ph.preheader
   %29 = load ptr, ptr %16, align 8
   %30 = getelementptr %struct.e1000_buffer, ptr %29, i64 %14
   br label %33
@@ -7708,15 +7708,15 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   %32 = icmp slt i32 %31, %2
   br i1 %32, label %33, label %.thread8
 
-33:                                               ; preds = %.lr.ph21, %.lr.ph
-  %34 = phi i32 [ %27, %.lr.ph21 ], [ %31, %.lr.ph ]
-  %35 = phi ptr [ %15, %.lr.ph21 ], [ %51, %.lr.ph ]
-  %36 = phi ptr [ %30, %.lr.ph21 ], [ %53, %.lr.ph ]
-  %37 = phi i32 [ %11, %.lr.ph21 ], [ %48, %.lr.ph ]
-  %38 = phi i32 [ 0, %.lr.ph21 ], [ %433, %.lr.ph ]
-  %39 = phi i32 [ 0, %.lr.ph21 ], [ %425, %.lr.ph ]
-  %40 = phi i32 [ 0, %.lr.ph21 ], [ %426, %.lr.ph ]
-  %41 = phi i32 [ %24, %.lr.ph21 ], [ %434, %.lr.ph ]
+33:                                               ; preds = %.lr.ph28, %.lr.ph
+  %34 = phi i32 [ %27, %.lr.ph28 ], [ %31, %.lr.ph ]
+  %35 = phi ptr [ %15, %.lr.ph28 ], [ %51, %.lr.ph ]
+  %36 = phi ptr [ %30, %.lr.ph28 ], [ %53, %.lr.ph ]
+  %37 = phi i32 [ %11, %.lr.ph28 ], [ %48, %.lr.ph ]
+  %38 = phi i32 [ 0, %.lr.ph28 ], [ %433, %.lr.ph ]
+  %39 = phi i32 [ 0, %.lr.ph28 ], [ %425, %.lr.ph ]
+  %40 = phi i32 [ 0, %.lr.ph28 ], [ %426, %.lr.ph ]
+  %41 = phi i32 [ %24, %.lr.ph28 ], [ %434, %.lr.ph ]
   %42 = add nsw i32 %34, 1
   store i32 %42, ptr %1, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !52
@@ -12287,12 +12287,12 @@ define internal i32 @e1000_probe(ptr noundef %0, ptr noundef readonly captures(n
   %196 = shl i32 %195, 7
   %197 = and i32 %196, 512
   %198 = zext nneg i32 %197 to i64
-  %spec.select24 = or i64 %191, %198
+  %spec.select41 = or i64 %191, %198
   %199 = getelementptr inbounds nuw i8, ptr %35, i64 520
   %200 = load i64, ptr %199, align 8
   %201 = or i64 %193, 20480
   store i64 %201, ptr %35, align 8
-  %202 = or i64 %spec.select24, 32
+  %202 = or i64 %spec.select41, 32
   store i64 %202, ptr %174, align 8
   %203 = or i64 %200, 1114153
   store i64 %203, ptr %199, align 8
@@ -12511,13 +12511,13 @@ define internal i32 @e1000_probe(ptr noundef %0, ptr noundef readonly captures(n
   %326 = getelementptr i8, ptr %35, i64 14200
   %327 = getelementptr i8, ptr %35, i64 14204
   %.old = and i32 %323, 1048576
-  br i1 %325, label %.thread23, label %328
+  br i1 %325, label %.thread40, label %328
 
-.thread23:                                        ; preds = %322
+.thread40:                                        ; preds = %322
   store i32 0, ptr %326, align 8
   store i32 0, ptr %327, align 4
-  %.old27 = icmp eq i32 %.old, 0
-  br i1 %.old27, label %330, label %334
+  %.old44 = icmp eq i32 %.old, 0
+  br i1 %.old44, label %330, label %334
 
 328:                                              ; preds = %322
   %.pre = load i32, ptr %326, align 8
@@ -12526,13 +12526,13 @@ define internal i32 @e1000_probe(ptr noundef %0, ptr noundef readonly captures(n
   %or.cond = icmp eq i32 %329, 0
   br i1 %or.cond, label %330, label %334
 
-330:                                              ; preds = %328, %.thread23
+330:                                              ; preds = %328, %.thread40
   %331 = getelementptr i8, ptr %35, i64 3808
   %332 = load ptr, ptr %331, align 8
   %333 = call zeroext i1 %332(ptr noundef %44) #22
   br i1 %333, label %334, label %336
 
-334:                                              ; preds = %330, %.thread23, %328
+334:                                              ; preds = %330, %.thread40, %328
   %335 = call i32 @device_wakeup_enable(ptr noundef nonnull %22) #22
   br label %336
 
@@ -14705,7 +14705,7 @@ define internal fastcc void @__e1000e_disable_aspm(ptr noundef %0, i16 noundef z
 26:                                               ; preds = %.thread
   %27 = and i16 %21, %12
   %28 = icmp eq i16 %27, 0
-  br i1 %28, label %53, label %.thread2
+  br i1 %28, label %53, label %.thread4
 
 29:                                               ; preds = %.thread, %17
   %30 = phi i16 [ %24, %.thread ], [ %18, %17 ]
@@ -14715,9 +14715,9 @@ define internal fastcc void @__e1000e_disable_aspm(ptr noundef %0, i16 noundef z
   %33 = select i1 %32, ptr @.str.49, ptr @.str.48
   %34 = icmp ult i16 %.fr, 2
   %spec.select = select i1 %34, ptr @.str.49, ptr @.str.50
-  br label %.thread2
+  br label %.thread4
 
-.thread2:                                         ; preds = %26, %29
+.thread4:                                         ; preds = %26, %29
   %35 = phi ptr [ %33, %29 ], [ @.str.49, %26 ]
   %36 = phi ptr [ %spec.select, %29 ], [ @.str.49, %26 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -14725,11 +14725,11 @@ define internal fastcc void @__e1000e_disable_aspm(ptr noundef %0, i16 noundef z
   %38 = icmp eq i32 %2, 0
   br i1 %38, label %41, label %39
 
-39:                                               ; preds = %.thread2
+39:                                               ; preds = %.thread4
   %40 = call i32 @pci_disable_link_state_locked(ptr noundef %0, i32 noundef %10) #22
   br label %43
 
-41:                                               ; preds = %.thread2
+41:                                               ; preds = %.thread4
   %42 = call i32 @pci_disable_link_state(ptr noundef %0, i32 noundef %10) #22
   br label %43
 
@@ -18315,15 +18315,15 @@ define internal fastcc i32 @__e1000_shutdown(ptr noundef %0, i1 noundef zeroext 
   %422 = load i16, ptr %408, align 4
   %423 = and i16 %421, 2
   %424 = and i16 %423, %422
-  %.not41 = icmp eq i16 %424, 0
+  %.not57 = icmp eq i16 %424, 0
   %.pre38.pre = load i16, ptr %5, align 2
   %425 = or i16 %.pre38.pre, 8192
-  %.pre38 = select i1 %.not41, i16 %.pre38.pre, i16 %425
+  %.pre38 = select i1 %.not57, i16 %.pre38.pre, i16 %425
   %426 = and i16 %421, 4
   %427 = and i16 %426, %422
-  %.not42 = icmp eq i16 %427, 0
+  %.not58 = icmp eq i16 %427, 0
   %428 = or i16 %.pre38, 16384
-  %429 = select i1 %.not42, i16 %.pre38, i16 %428
+  %429 = select i1 %.not58, i16 %.pre38, i16 %428
   %430 = and i16 %421, 6
   %431 = and i16 %422, %430
   %.not = icmp eq i16 %431, 0

@@ -643,7 +643,7 @@ define linkonce_odr void @_ZNSt6vectorI11pme_setup_tSaIS0_EE17_M_default_appendE
 19:                                               ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIP11pme_setup_tmS0_ET_S2_T0_RSaIT1_E.exit, label %23
 
@@ -777,9 +777,9 @@ define void @_Z14pme_loadbal_doP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RK
   %39 = getelementptr i8, ptr %1, i64 112
   %.val102 = load ptr, ptr %39, align 8, !tbaa !189
   %.not129 = icmp eq ptr %.val102, null
-  br i1 %.not129, label %.thread153, label %41
+  br i1 %.not129, label %.thread210, label %41
 
-.thread153:                                       ; preds = %38
+.thread210:                                       ; preds = %38
   %40 = getelementptr i8, ptr %1, i64 112
   br label %58
 
@@ -789,9 +789,9 @@ define void @_Z14pme_loadbal_doP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RK
   %43 = getelementptr i8, ptr %.val102, i64 44
   %.val106 = load i32, ptr %43, align 4, !tbaa !280
   %44 = icmp eq i32 %.val105, %.val106
-  br i1 %44, label %46, label %.thread156
+  br i1 %44, label %46, label %.thread213
 
-.thread156:                                       ; preds = %41
+.thread213:                                       ; preds = %41
   %45 = getelementptr i8, ptr %1, i64 112
   br label %55
 
@@ -810,15 +810,15 @@ define void @_Z14pme_loadbal_doP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RK
   %.not130 = icmp eq ptr %.val101.pre, null
   br i1 %.not130, label %58, label %55
 
-55:                                               ; preds = %.thread156, %46
-  %56 = phi ptr [ %45, %.thread156 ], [ %54, %46 ]
-  %.val101159 = phi ptr [ %.val102, %.thread156 ], [ %.val101.pre, %46 ]
+55:                                               ; preds = %.thread213, %46
+  %56 = phi ptr [ %45, %.thread213 ], [ %54, %46 ]
+  %.val101216 = phi ptr [ %.val102, %.thread213 ], [ %.val101.pre, %46 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef nonnull %.val101159, i32 noundef 1, ptr noundef nonnull %57)
+  tail call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef nonnull %.val101216, i32 noundef 1, ptr noundef nonnull %57)
   br label %58
 
-58:                                               ; preds = %.thread153, %55, %46
-  %59 = phi ptr [ %40, %.thread153 ], [ %56, %55 ], [ %54, %46 ]
+58:                                               ; preds = %.thread210, %55, %46
+  %59 = phi ptr [ %40, %.thread210 ], [ %56, %55 ], [ %54, %46 ]
   %60 = load i32, ptr %31, align 8, !tbaa !186
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %.sink.split, label %62
@@ -907,12 +907,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %95 = load i8, ptr %94, align 1, !tbaa !297, !range !21, !noundef !22
   %96 = trunc nuw i8 %95 to i1
-  br i1 %96, label %.thread161, label %97
+  br i1 %96, label %.thread218, label %97
 
 97:                                               ; preds = %93
   %98 = load i8, ptr %0, align 8, !tbaa !133, !range !21, !noundef !22
   %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %100, label %.thread162
+  br i1 %99, label %100, label %.thread219
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -924,7 +924,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %105 = mul nsw i32 %64, 3
   %106 = sext i32 %105 to i64
   %.not94 = icmp slt i64 %11, %106
-  br i1 %.not94, label %.thread160, label %107
+  br i1 %.not94, label %.thread217, label %107
 
 107:                                              ; preds = %104
   %108 = load ptr, ptr %59, align 8, !tbaa !189
@@ -956,36 +956,36 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   tail call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %120, i32 noundef 1, ptr noundef nonnull %94)
   %.pre149 = load i8, ptr %94, align 1, !tbaa !297, !range !21
   %121 = trunc nuw i8 %.pre149 to i1
-  br i1 %121, label %.thread163, label %.thread160
+  br i1 %121, label %.thread220, label %.thread217
 
 122:                                              ; preds = %100
   %123 = load ptr, ptr %59, align 8, !tbaa !189
   %124 = tail call noundef zeroext i1 @_Z12dd_dlb_is_onPK12gmx_domdec_t(ptr noundef %123)
   %125 = zext i1 %124 to i8
   store i8 %125, ptr %94, align 1, !tbaa !297
-  br i1 %124, label %.thread163, label %.thread160
+  br i1 %124, label %.thread220, label %.thread217
 
-.thread163:                                       ; preds = %122, %119
+.thread220:                                       ; preds = %122, %119
   store i8 1, ptr %27, align 1, !tbaa !4
-  br label %.thread161
+  br label %.thread218
 
-.thread160:                                       ; preds = %104, %122, %119
+.thread217:                                       ; preds = %104, %122, %119
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %127 = load i64, ptr %126, align 8, !tbaa !299
   %128 = icmp sle i64 %11, %127
   %129 = zext i1 %128 to i8
   store i8 %129, ptr %27, align 1, !tbaa !4
-  br label %.thread162
+  br label %.thread219
 
-.thread161:                                       ; preds = %93, %.thread163
+.thread218:                                       ; preds = %93, %.thread220
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %131 = load i32, ptr %130, align 4, !tbaa !185
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %133 = load i32, ptr %132, align 4, !tbaa !135
   %134 = icmp eq i32 %131, %133
-  br i1 %134, label %135, label %.thread162
+  br i1 %134, label %135, label %.thread219
 
-135:                                              ; preds = %.thread161
+135:                                              ; preds = %.thread218
   store i8 0, ptr %94, align 1, !tbaa !297
   %.val100 = load ptr, ptr %59, align 8, !tbaa !189
   %.not131 = icmp eq ptr %.val100, null
@@ -1107,21 +1107,21 @@ _ZL20continue_pme_loadbalP20pme_load_balancing_tb.exit: ; preds = %._crit_edge.i
 184:                                              ; preds = %183, %_ZL20continue_pme_loadbalP20pme_load_balancing_tb.exit
   %.val99 = load ptr, ptr %59, align 8, !tbaa !189
   %.not132 = icmp eq ptr %.val99, null
-  br i1 %.not132, label %.thread162, label %185
+  br i1 %.not132, label %.thread219, label %185
 
 185:                                              ; preds = %184
   %186 = getelementptr inbounds nuw i8, ptr %6, i64 256
   %187 = load ptr, ptr %186, align 8, !tbaa !312
   %188 = call noundef float @_ZNK3gmx18nonbonded_verlet_t19pairlistOuterRadiusEv(ptr noundef nonnull align 8 dereferenceable(64) %187)
   call void @_Z21set_dd_dlb_max_cutoffP9t_commrecf(ptr noundef nonnull %1, float noundef %188)
-  br label %.thread162
+  br label %.thread219
 
-.thread162:                                       ; preds = %97, %.thread160, %184, %185, %.thread161
+.thread219:                                       ; preds = %97, %.thread217, %184, %185, %.thread218
   %189 = load i8, ptr %94, align 1, !tbaa !297, !range !21, !noundef !22
   %190 = trunc nuw i8 %189 to i1
   br i1 %190, label %191, label %779
 
-191:                                              ; preds = %.thread162
+191:                                              ; preds = %.thread219
   %192 = load ptr, ptr %8, align 8, !tbaa !314
   %193 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %194 = load ptr, ptr %193, align 8, !tbaa !314
@@ -1770,7 +1770,7 @@ _ZNSt6vectorI11pme_setup_tSaIS0_EE6resizeEm.exit239.i: ; preds = %524, %522, %52
   br i1 %566, label %569, label %567
 
 567:                                              ; preds = %563
-  %568 = add nsw i32 %565, 1
+  %568 = add nuw nsw i32 %565, 1
   store i32 %568, ptr %289, align 4, !tbaa !185
   br label %569
 
@@ -2182,7 +2182,7 @@ _ZL16pme_load_balanceP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RKN3gmx8MDLo
   call void @_ZN20DispersionCorrection13setParametersERK19interaction_const_t(ptr noundef nonnull align 8 dereferenceable(72) %777, ptr noundef nonnull align 8 dereferenceable(152) %778)
   br label %779
 
-779:                                              ; preds = %_ZL16pme_load_balanceP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RKN3gmx8MDLoggerERK10t_inputrecPA3_KfNS5_8ArrayRefIKNS5_11BasicVectorIfEEEEdP19interaction_const_tPNS5_18nonbonded_verlet_tEPP9gmx_pme_tl.exit, %775, %.thread162
+779:                                              ; preds = %_ZL16pme_load_balanceP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RKN3gmx8MDLoggerERK10t_inputrecPA3_KfNS5_8ArrayRefIKNS5_11BasicVectorIfEEEEdP19interaction_const_tPNS5_18nonbonded_verlet_tEPP9gmx_pme_tl.exit, %775, %.thread219
   %780 = load i8, ptr %94, align 1, !tbaa !297, !range !21, !noundef !22
   %781 = trunc nuw i8 %780 to i1
   br i1 %781, label %790, label %782
@@ -2743,8 +2743,8 @@ define internal fastcc void @_ZL16switch_to_stage1P20pme_load_balancing_t(ptr no
   br i1 %34, label %.lr.ph43.preheader, label %.critedge4
 
 .lr.ph43.preheader:                               ; preds = %.critedge
-  %sext54 = shl i64 %storemerge.lcssa.ph.in, 32
-  %35 = ashr exact i64 %sext54, 32
+  %sext55 = shl i64 %storemerge.lcssa.ph.in, 32
+  %35 = ashr exact i64 %sext55, 32
   %36 = sext i32 %3 to i64
   br label %.lr.ph43
 

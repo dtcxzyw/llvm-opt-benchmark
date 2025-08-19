@@ -594,8 +594,8 @@ define hidden void @"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$7try_pop17hb
 
 .lr.ph.preheader:                                 ; preds = %3
   %12 = cmpxchg ptr %1, i64 %5, i64 %9 release monotonic, align 8, !noalias !101
-  %.sroa.18.0.in.i55 = extractvalue { i64, i1 } %12, 1
-  br i1 %.sroa.18.0.in.i55, label %.lr.ph._crit_edge, label %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$crossbeam_epoch..internal..SealedBag$GT$$C$$LP$$RP$$GT$$GT$17hf657d8117460a303E.llvm.8540189446595550310.exit"
+  %.sroa.18.0.in.i59 = extractvalue { i64, i1 } %12, 1
+  br i1 %.sroa.18.0.in.i59, label %.lr.ph._crit_edge, label %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$crossbeam_epoch..internal..SealedBag$GT$$C$$LP$$RP$$GT$$GT$17hf657d8117460a303E.llvm.8540189446595550310.exit"
 
 .lr.ph:                                           ; preds = %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$crossbeam_epoch..internal..SealedBag$GT$$C$$LP$$RP$$GT$$GT$17hf657d8117460a303E.llvm.8540189446595550310.exit"
   %13 = cmpxchg ptr %1, i64 %25, i64 %29 release monotonic, align 8, !noalias !101
@@ -604,10 +604,10 @@ define hidden void @"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$7try_pop17hb
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.0.lcssa = phi i64 [ %9, %.lr.ph.preheader ], [ %29, %.lr.ph ]
-  %.lcssa52 = phi i64 [ %10, %.lr.ph.preheader ], [ %30, %.lr.ph ]
-  %.lcssa50 = phi ptr [ %7, %.lr.ph.preheader ], [ %27, %.lr.ph ]
+  %.lcssa56 = phi i64 [ %10, %.lr.ph.preheader ], [ %30, %.lr.ph ]
+  %.lcssa54 = phi ptr [ %7, %.lr.ph.preheader ], [ %27, %.lr.ph ]
   %.lcssa = phi i64 [ %5, %.lr.ph.preheader ], [ %25, %.lr.ph ]
-  %14 = inttoptr i64 %.lcssa52 to ptr
+  %14 = inttoptr i64 %.lcssa56 to ptr
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %16 = load atomic i64, ptr %15 monotonic, align 128, !noalias !105
   %17 = icmp eq i64 %.lcssa, %16
@@ -633,7 +633,7 @@ define hidden void @"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$7try_pop17hb
   br label %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h09b68a5f7a00c612E.llvm.8540189446595550310.exit.thread32"
 
 24:                                               ; preds = %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2fc3f9c3877bece0E.llvm.8540189446595550310.exit.i.i"
-  tail call void @__rust_dealloc(ptr noundef nonnull %.lcssa50, i64 noundef 2072, i64 noundef 8) #21, !noalias !124
+  tail call void @__rust_dealloc(ptr noundef nonnull %.lcssa54, i64 noundef 2072, i64 noundef 8) #21, !noalias !124
   br label %"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h09b68a5f7a00c612E.llvm.8540189446595550310.exit.thread32"
 
 "_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_internal17h09b68a5f7a00c612E.llvm.8540189446595550310.exit.thread32": ; preds = %22, %24
@@ -3875,8 +3875,8 @@ _ZN17crossbeam_channel5waker17current_thread_id17ha524ee6145a7ca68E.exit.thread.
   %.0.i.ph.i = phi i64 [ %.08.val.pre.i.i.i, %_ZN17crossbeam_channel5waker17current_thread_id9THREAD_ID7__getit17h35a6e677a50d9406E.exit._ZN17crossbeam_channel5waker17current_thread_id9THREAD_ID7__getit17h35a6e677a50d9406E.exit.thread_crit_edge.i.i.i ], [ %39, %38 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = load ptr, ptr %49, align 8, !alias.scope !579, !noalias !582, !nonnull !4, !noundef !4
-  %.idx18.i = mul nsw i64 %36, 24
-  %51 = getelementptr inbounds i8, ptr %50, i64 %.idx18.i
+  %.idx26.i = mul nsw i64 %36, 24
+  %51 = getelementptr inbounds i8, ptr %50, i64 %.idx26.i
   br label %.lr.ph.i.preheader.i
 
 _ZN17crossbeam_channel5waker17current_thread_id17ha524ee6145a7ca68E.exit.i: ; preds = %48, %.noexc1
@@ -3893,7 +3893,7 @@ _ZN17crossbeam_channel5waker17current_thread_id17ha524ee6145a7ca68E.exit.i: ; pr
   %56 = phi ptr [ %51, %_ZN17crossbeam_channel5waker17current_thread_id17ha524ee6145a7ca68E.exit.thread.i ], [ %54, %_ZN17crossbeam_channel5waker17current_thread_id17ha524ee6145a7ca68E.exit.i ]
   %57 = phi ptr [ %50, %_ZN17crossbeam_channel5waker17current_thread_id17ha524ee6145a7ca68E.exit.thread.i ], [ %53, %_ZN17crossbeam_channel5waker17current_thread_id17ha524ee6145a7ca68E.exit.i ]
   %58 = phi ptr [ %49, %_ZN17crossbeam_channel5waker17current_thread_id17ha524ee6145a7ca68E.exit.thread.i ], [ %52, %_ZN17crossbeam_channel5waker17current_thread_id17ha524ee6145a7ca68E.exit.i ]
-  %.0.i19.i = phi i64 [ %.0.i.ph.i, %_ZN17crossbeam_channel5waker17current_thread_id17ha524ee6145a7ca68E.exit.thread.i ], [ %45, %_ZN17crossbeam_channel5waker17current_thread_id17ha524ee6145a7ca68E.exit.i ]
+  %.0.i27.i = phi i64 [ %.0.i.ph.i, %_ZN17crossbeam_channel5waker17current_thread_id17ha524ee6145a7ca68E.exit.thread.i ], [ %45, %_ZN17crossbeam_channel5waker17current_thread_id17ha524ee6145a7ca68E.exit.i ]
   %59 = phi i64 [ %36, %_ZN17crossbeam_channel5waker17current_thread_id17ha524ee6145a7ca68E.exit.thread.i ], [ %.pre.i, %_ZN17crossbeam_channel5waker17current_thread_id17ha524ee6145a7ca68E.exit.i ]
   br label %.lr.ph.i.i
 
@@ -3905,7 +3905,7 @@ _ZN17crossbeam_channel5waker17current_thread_id17ha524ee6145a7ca68E.exit.i: ; pr
   %62 = load ptr, ptr %60, align 8, !alias.scope !600, !noalias !603, !nonnull !4, !noundef !4
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load i64, ptr %63, align 8, !range !589, !noalias !607, !noundef !4
-  %.not.i.i.i = icmp eq i64 %64, %.0.i19.i
+  %.not.i.i.i = icmp eq i64 %64, %.0.i27.i
   br i1 %.not.i.i.i, label %"_ZN17crossbeam_channel5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17h654d5dfa0ece88ceE.exit.i.i", label %65
 
 65:                                               ; preds = %.lr.ph.i.i
@@ -6073,7 +6073,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN17crossbeam_channel7flavors5array16
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.i.lr.ph.lr.ph
   %27 = phi i64 [ %20, %.lr.ph.i.lr.ph.lr.ph ], [ %.be, %.lr.ph.i.backedge ]
-  %28 = phi i64 [ %19, %.lr.ph.i.lr.ph.lr.ph ], [ %.be78, %.lr.ph.i.backedge ]
+  %28 = phi i64 [ %19, %.lr.ph.i.lr.ph.lr.ph ], [ %.be84, %.lr.ph.i.backedge ]
   %.02445 = phi i32 [ 0, %.lr.ph.i.lr.ph.lr.ph ], [ %.02445.be, %.lr.ph.i.backedge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !699)
   br label %29
@@ -6244,7 +6244,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit: ; preds = 
 
 .lr.ph.i.backedge:                                ; preds = %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit, %_ZN17crossbeam_channel7context7Context4with17h58b95c252cb411d3E.exit
   %.be = phi i64 [ %97, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %143, %_ZN17crossbeam_channel7context7Context4with17h58b95c252cb411d3E.exit ]
-  %.be78 = phi i64 [ %96, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %142, %_ZN17crossbeam_channel7context7Context4with17h58b95c252cb411d3E.exit ]
+  %.be84 = phi i64 [ %96, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ %142, %_ZN17crossbeam_channel7context7Context4with17h58b95c252cb411d3E.exit ]
   %.02445.be = phi i32 [ %95, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit ], [ 0, %_ZN17crossbeam_channel7context7Context4with17h58b95c252cb411d3E.exit ]
   br label %.lr.ph.i
 
@@ -10972,8 +10972,8 @@ define void @_ZN13mini_lsm_mvcc7compact6tiered26TieredCompactionController24gene
   br i1 %.not94, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27
-  %.not110.not = icmp ugt i64 %19, 1
-  br i1 %.not110.not, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h65dbc4d2c55c6c47E.exit", label %35, !prof !1515
+  %.not115.not = icmp ugt i64 %19, 1
+  br i1 %.not115.not, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h65dbc4d2c55c6c47E.exit", label %35, !prof !1515
 
 29:                                               ; preds = %17
   store i64 -9223372036854775808, ptr %0, align 8

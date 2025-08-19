@@ -23287,7 +23287,7 @@ declare ptr @lean_panic_fn(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @lean_apply_5(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Std_Range_forIn_x27_loop___at_Lean_mkNoConfusionEnum_mkToCtorIdx___spec__2(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr readnone captures(none) %8, ptr readnone captures(none) %9, ptr noundef %10) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Std_Range_forIn_x27_loop___at_Lean_mkNoConfusionEnum_mkToCtorIdx___spec__2(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr readnone captures(none) %8, ptr readnone captures(none) %9, ptr noundef %10) local_unnamed_addr #0 {
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %lean_dec.exit
@@ -26310,7 +26310,7 @@ lean_dec.exit:                                    ; preds = %42, %41, %39, %lean
 declare ptr @l_Lean_Meta_withLocalDecl___at_Lean_Meta_addPPExplicitToExposeDiff_visit___spec__4___rarg(ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Std_Range_forIn_x27_loop___at_Lean_mkNoConfusionEnum_mkToCtorIdx___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(none) %4, ptr noundef readnone captures(none) %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Std_Range_forIn_x27_loop___at_Lean_mkNoConfusionEnum_mkToCtorIdx___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(none) %4, ptr noundef readnone captures(none) %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #0 {
   %12 = tail call ptr @l_Std_Range_forIn_x27_loop___at_Lean_mkNoConfusionEnum_mkToCtorIdx___spec__2(ptr poison, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr noundef %10)
   %13 = ptrtoint ptr %9 to i64
   %14 = and i64 %13, 1
@@ -36782,17 +36782,17 @@ lean_dec.exit.backedge:                           ; preds = %247, %253, %255, %2
   br label %lean_dec.exit.backedge
 
 lean_dec.exit.thread.sink.split:                  ; preds = %lean_alloc_ctor.exit169, %243, %lean_alloc_ctor.exit, %lean_alloc_ctor.exit168
-  %.sink287 = phi ptr [ %225, %lean_alloc_ctor.exit168 ], [ %17, %lean_alloc_ctor.exit ], [ %239, %lean_alloc_ctor.exit169 ], [ %.082, %243 ]
-  %.sink285 = phi ptr [ %199, %lean_alloc_ctor.exit168 ], [ inttoptr (i64 3 to ptr), %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %lean_alloc_ctor.exit169 ], [ inttoptr (i64 1 to ptr), %243 ]
+  %.sink316 = phi ptr [ %225, %lean_alloc_ctor.exit168 ], [ %17, %lean_alloc_ctor.exit ], [ %239, %lean_alloc_ctor.exit169 ], [ %.082, %243 ]
+  %.sink314 = phi ptr [ %199, %lean_alloc_ctor.exit168 ], [ inttoptr (i64 3 to ptr), %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %lean_alloc_ctor.exit169 ], [ inttoptr (i64 1 to ptr), %243 ]
   %.sink = phi ptr [ %201, %lean_alloc_ctor.exit168 ], [ %.080, %lean_alloc_ctor.exit ], [ %.084175, %lean_alloc_ctor.exit169 ], [ %.084175, %243 ]
-  %257 = getelementptr inbounds nuw i8, ptr %.sink287, i64 8
-  store ptr %.sink285, ptr %257, align 8, !tbaa !10
-  %258 = getelementptr inbounds nuw i8, ptr %.sink287, i64 16
+  %257 = getelementptr inbounds nuw i8, ptr %.sink316, i64 8
+  store ptr %.sink314, ptr %257, align 8, !tbaa !10
+  %258 = getelementptr inbounds nuw i8, ptr %.sink316, i64 16
   store ptr %.sink, ptr %258, align 8, !tbaa !10
   br label %lean_dec.exit.thread
 
 lean_dec.exit.thread:                             ; preds = %lean_dec.exit.thread.sink.split, %lean_dec.exit90
-  %.1 = phi ptr [ %70, %lean_dec.exit90 ], [ %.sink287, %lean_dec.exit.thread.sink.split ]
+  %.1 = phi ptr [ %70, %lean_dec.exit90 ], [ %.sink316, %lean_dec.exit.thread.sink.split ]
   ret ptr %.1
 }
 
@@ -39351,18 +39351,18 @@ _init_l_panic___at_Lean_mkNoConfusionEnum_mkToCtorIdx___spec__1___closed__1.exit
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_panic___at_Lean_mkNoConfusionEnum_mkToCtorIdx___spec__1___closed__1.exit, %3
-  %.sink25 = phi ptr [ %4, %3 ], [ %130, %_init_l_panic___at_Lean_mkNoConfusionEnum_mkToCtorIdx___spec__1___closed__1.exit ]
-  %133 = getelementptr inbounds nuw i8, ptr %.sink25, i64 4
-  store i32 1, ptr %.sink25, align 4, !tbaa !4
+  %.sink37 = phi ptr [ %4, %3 ], [ %130, %_init_l_panic___at_Lean_mkNoConfusionEnum_mkToCtorIdx___spec__1___closed__1.exit ]
+  %133 = getelementptr inbounds nuw i8, ptr %.sink37, i64 4
+  store i32 1, ptr %.sink37, align 4, !tbaa !4
   store i32 131096, ptr %133, align 4
-  %134 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %.sink37, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %134, align 8, !tbaa !10
-  %135 = getelementptr inbounds nuw i8, ptr %.sink25, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %.sink37, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %135, align 8, !tbaa !10
   br label %136
 
 136:                                              ; preds = %.sink.split, %lean_dec_ref.exit14, %lean_dec_ref.exit16, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %28, %lean_dec_ref.exit14 ], [ %.sink25, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %28, %lean_dec_ref.exit14 ], [ %.sink37, %.sink.split ]
   ret ptr %.0
 }
 

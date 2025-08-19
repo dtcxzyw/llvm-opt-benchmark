@@ -786,9 +786,9 @@ define noundef range(i32 0, 1114112) i32 @_ZN4lean9next_utf8EPKcmRm(ptr noundef 
   br label %.thread67
 
 .thread67:                                        ; preds = %.thread, %50, %53, %40, %3, %63, %19
-  %.sink69 = phi i64 [ 4, %63 ], [ 2, %19 ], [ 1, %3 ], [ 3, %40 ], [ 1, %53 ], [ 1, %50 ], [ 1, %.thread ]
+  %.sink74 = phi i64 [ 4, %63 ], [ 2, %19 ], [ 1, %3 ], [ 3, %40 ], [ 1, %53 ], [ 1, %50 ], [ 1, %.thread ]
   %.0 = phi i32 [ %74, %63 ], [ %24, %19 ], [ %7, %3 ], [ %45, %40 ], [ %7, %53 ], [ %7, %50 ], [ %7, %.thread ]
-  %75 = add i64 %4, %.sink69
+  %75 = add i64 %4, %.sink74
   store i64 %75, ptr %2, align 8, !tbaa !22
   ret i32 %.0
 }
@@ -1005,8 +1005,8 @@ define noundef zeroext i1 @_ZN4lean17validate_utf8_oneEPKhmRm(ptr noundef readon
   br i1 %or.cond5, label %.critedge.sink.split, label %.critedge
 
 .critedge.sink.split:                             ; preds = %57, %39, %14, %3
-  %.sink86 = phi i64 [ 1, %3 ], [ 2, %14 ], [ 3, %39 ], [ 4, %57 ]
-  %64 = add i64 %4, %.sink86
+  %.sink90 = phi i64 [ 1, %3 ], [ 2, %14 ], [ 3, %39 ], [ 4, %57 ]
+  %64 = add i64 %4, %.sink90
   store i64 %64, ptr %2, align 8, !tbaa !22
   br label %.critedge
 
@@ -1476,10 +1476,10 @@ _ZN4lean15push_back_traitINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4
   br label %184
 
 184:                                              ; preds = %_ZN4lean15push_back_traitINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4pushERS6_h.exit50, %_ZN4lean15push_back_traitINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4pushERS6_h.exit38, %_ZN4lean15push_back_traitINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4pushERS6_h.exit29, %_ZN4lean15push_back_traitINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4pushERS6_h.exit
-  %.sink52 = phi i64 [ %173, %_ZN4lean15push_back_traitINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4pushERS6_h.exit50 ], [ %101, %_ZN4lean15push_back_traitINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4pushERS6_h.exit38 ], [ %46, %_ZN4lean15push_back_traitINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4pushERS6_h.exit29 ], [ %8, %_ZN4lean15push_back_traitINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4pushERS6_h.exit ]
+  %.sink53 = phi i64 [ %173, %_ZN4lean15push_back_traitINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4pushERS6_h.exit50 ], [ %101, %_ZN4lean15push_back_traitINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4pushERS6_h.exit38 ], [ %46, %_ZN4lean15push_back_traitINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4pushERS6_h.exit29 ], [ %8, %_ZN4lean15push_back_traitINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4pushERS6_h.exit ]
   %.0 = phi i32 [ 4, %_ZN4lean15push_back_traitINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4pushERS6_h.exit50 ], [ 3, %_ZN4lean15push_back_traitINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4pushERS6_h.exit38 ], [ 2, %_ZN4lean15push_back_traitINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4pushERS6_h.exit29 ], [ 1, %_ZN4lean15push_back_traitINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4pushERS6_h.exit ]
   %185 = load ptr, ptr %0, align 8, !tbaa !9
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 %.sink52
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 %.sink53
   store i8 0, ptr %186, align 1, !tbaa !3
   ret i32 %.0
 }

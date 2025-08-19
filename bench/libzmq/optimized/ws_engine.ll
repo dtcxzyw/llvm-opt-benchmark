@@ -788,7 +788,7 @@ define noundef zeroext i1 @_ZN3zmq11ws_engine_t15select_protocolEPKc(ptr noundef
 47:                                               ; preds = %44
   %48 = tail call noalias noundef dereferenceable_or_null(1576) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1576, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #30
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.thread26, label %50
+  br i1 %49, label %.thread30, label %50
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 1672
@@ -811,7 +811,7 @@ define noundef zeroext i1 @_ZN3zmq11ws_engine_t15select_protocolEPKc(ptr noundef
 59:                                               ; preds = %44
   %60 = tail call noalias noundef dereferenceable_or_null(1504) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1504, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #30
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %.thread26, label %62
+  br i1 %61, label %.thread30, label %62
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 1672
@@ -829,7 +829,7 @@ define noundef zeroext i1 @_ZN3zmq11ws_engine_t15select_protocolEPKc(ptr noundef
   store ptr %60, ptr %68, align 8, !tbaa !97
   br label %.thread25
 
-.thread26:                                        ; preds = %59, %47
+.thread30:                                        ; preds = %59, %47
   %.sink = phi ptr [ null, %47 ], [ %60, %59 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   store ptr %.sink, ptr %69, align 8, !tbaa !97
@@ -840,14 +840,14 @@ define noundef zeroext i1 @_ZN3zmq11ws_engine_t15select_protocolEPKc(ptr noundef
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.9)
   br label %.thread25
 
-.thread25:                                        ; preds = %54, %67, %2, %20, %30, %41, %.thread26, %33, %9, %15, %19
-  %.0 = phi i1 [ true, %19 ], [ true, %15 ], [ true, %9 ], [ true, %30 ], [ true, %33 ], [ true, %67 ], [ true, %.thread26 ], [ false, %41 ], [ false, %20 ], [ false, %2 ], [ true, %54 ]
+.thread25:                                        ; preds = %54, %67, %2, %20, %30, %41, %.thread30, %33, %9, %15, %19
+  %.0 = phi i1 [ true, %19 ], [ true, %15 ], [ true, %9 ], [ true, %30 ], [ true, %33 ], [ true, %67 ], [ true, %.thread30 ], [ false, %41 ], [ false, %20 ], [ false, %2 ], [ true, %54 ]
   ret i1 %.0
 
 74:                                               ; preds = %65, %57, %39
-  %.sink29 = phi ptr [ %60, %65 ], [ %48, %57 ], [ %24, %39 ]
+  %.sink33 = phi ptr [ %60, %65 ], [ %48, %57 ], [ %24, %39 ]
   %.pn = phi { ptr, i32 } [ %66, %65 ], [ %58, %57 ], [ %40, %39 ]
-  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %.sink29, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #25
+  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %.sink33, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #25
   resume { ptr, i32 } %.pn
 }
 
@@ -1960,11 +1960,11 @@ thread-pre-split:                                 ; preds = %218, %.thread
   %or.cond.not = xor i1 %or.cond, true
   %149 = load i8, ptr %27, align 2
   %.not68 = icmp eq i8 %149, 0
-  %or.cond257 = select i1 %or.cond.not, i1 true, i1 %.not68
+  %or.cond265 = select i1 %or.cond.not, i1 true, i1 %.not68
   %150 = load i8, ptr %28, align 2
   %.not69 = icmp eq i8 %150, 0
-  %or.cond258 = select i1 %or.cond257, i1 true, i1 %.not69
-  br i1 %or.cond258, label %.thread77, label %151
+  %or.cond266 = select i1 %or.cond265, i1 true, i1 %.not69
+  br i1 %or.cond266, label %.thread77, label %151
 
 151:                                              ; preds = %144
   store i32 23, ptr %23, align 4, !tbaa !67

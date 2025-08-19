@@ -44,9 +44,9 @@ define hidden zeroext i1 @Wayland_ShowMessageBox(ptr noundef readonly captures(n
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %5, ptr noundef nonnull align 16 dereferenceable(224) @__const.Wayland_ShowMessageBox.argv, i64 224, i1 false)
   %6 = tail call ptr @SDL_getenv_REAL(ptr noundef nonnull @.str.5) #4
   %.not = icmp eq ptr %6, null
-  %.sink138.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %.sink138.sroa.gep144 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %.sink138.sroa.gep145 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %.sink152.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %.sink152.sroa.gep158 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %.sink152.sroa.gep159 = getelementptr inbounds nuw i8, ptr %5, i64 56
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %2
@@ -148,9 +148,9 @@ get_zenity_version.exit:                          ; preds = %get_zenity_version.
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %switch.selectcmp = icmp eq i32 %48, 32
   %switch.select = select i1 %switch.selectcmp, ptr @.str.13, ptr @.str.14
-  %switch.selectcmp140 = icmp eq i32 %48, 16
-  %switch.select141 = select i1 %switch.selectcmp140, ptr @.str.12, ptr %switch.select
-  store ptr %switch.select141, ptr %49, align 16
+  %switch.selectcmp154 = icmp eq i32 %48, 16
+  %switch.select155 = select i1 %switch.selectcmp154, ptr @.str.12, ptr %switch.select
+  store ptr %switch.select155, ptr %49, align 16
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load ptr, ptr %50, align 8
   %.not92 = icmp eq ptr %51, null
@@ -167,10 +167,10 @@ get_zenity_version.exit:                          ; preds = %get_zenity_version.
   br label %56
 
 56:                                               ; preds = %39, %52, %54
-  %.sink138.sroa.phi = phi ptr [ %.sink138.sroa.gep, %54 ], [ %.sink138.sroa.gep144, %52 ], [ %.sink138.sroa.gep145, %39 ]
+  %.sink152.sroa.phi = phi ptr [ %.sink152.sroa.gep, %54 ], [ %.sink152.sroa.gep158, %52 ], [ %.sink152.sroa.gep159, %39 ]
   %.str.16.sink = phi ptr [ %51, %54 ], [ @.str.16, %52 ], [ @.str.16, %39 ]
   %.172 = phi i32 [ 9, %54 ], [ 8, %52 ], [ 8, %39 ]
-  store ptr %.str.16.sink, ptr %.sink138.sroa.phi, align 8
+  store ptr %.str.16.sink, ptr %.sink152.sroa.phi, align 8
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %58 = load ptr, ptr %57, align 8
   %.not94 = icmp eq ptr %58, null

@@ -342,9 +342,9 @@ addchar.exit341:                                  ; preds = %addchar.exit341.bac
     i32 59, label %588
     i32 24, label %checkKeyword.exit.loopexit439
     i32 25, label %checkKeyword.exit.loopexit896
-    i32 26, label %checkKeyword.exit.loopexit1166
-    i32 27, label %checkKeyword.exit.loopexit1408
-    i32 28, label %checkKeyword.exit.loopexit1660
+    i32 26, label %checkKeyword.exit.loopexit1221
+    i32 27, label %checkKeyword.exit.loopexit1463
+    i32 28, label %checkKeyword.exit.loopexit1715
     i32 29, label %checkKeyword.exit
     i32 30, label %589
     i32 31, label %590
@@ -2318,10 +2318,10 @@ jsonpath_yyrealloc.exit.i410:                     ; preds = %1181, %1179
   br label %1262
 
 1262:                                             ; preds = %.critedge2.i, %1154
-  %.sink198.in.i = phi ptr [ %1261, %.critedge2.i ], [ %1155, %1154 ]
+  %.sink206.in.i = phi ptr [ %1261, %.critedge2.i ], [ %1155, %1154 ]
   %.sink.i407 = phi i32 [ %1258, %.critedge2.i ], [ 0, %1154 ]
-  %.sink198.i = load ptr, ptr %.sink198.in.i, align 8
-  %1263 = getelementptr inbounds nuw i8, ptr %.sink198.i, i64 28
+  %.sink206.i = load ptr, ptr %.sink206.in.i, align 8
+  %1263 = getelementptr inbounds nuw i8, ptr %.sink206.i, i64 28
   store i32 %.sink.i407, ptr %1263, align 4
   %1264 = load i32, ptr %78, align 4
   %1265 = icmp eq i32 %1264, 0
@@ -2436,7 +2436,7 @@ yy_get_next_buffer.exit:                          ; preds = %1276, %1308
   %1333 = getelementptr inbounds nuw i8, ptr %1332, i64 8
   %1334 = load ptr, ptr %1333, align 8
   store ptr %1334, ptr %74, align 8
-  switch i32 %.0135.i, label %default.unreachable1142 [
+  switch i32 %.0135.i, label %default.unreachable1197 [
     i32 1, label %yy_get_previous_state.exit421
     i32 0, label %1336
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread433_crit_edge
@@ -2510,7 +2510,7 @@ yy_get_next_buffer.exit.thread433:                ; preds = %1136, %yy_get_next_
   %exitcond.not.i429 = icmp eq ptr %1370, %1358
   br i1 %exitcond.not.i429, label %.loopexit440.backedge, label %.lr.ph.i424, !llvm.loop !10
 
-default.unreachable1142:                          ; preds = %yy_get_next_buffer.exit
+default.unreachable1197:                          ; preds = %yy_get_next_buffer.exit
   unreachable
 
 yy_get_previous_state.exit421:                    ; preds = %yy_get_next_buffer.exit, %1136
@@ -2533,17 +2533,17 @@ checkKeyword.exit.loopexit439:                    ; preds = %113
 checkKeyword.exit.loopexit896:                    ; preds = %113
   br label %checkKeyword.exit
 
-checkKeyword.exit.loopexit1166:                   ; preds = %113
+checkKeyword.exit.loopexit1221:                   ; preds = %113
   br label %checkKeyword.exit
 
-checkKeyword.exit.loopexit1408:                   ; preds = %113
+checkKeyword.exit.loopexit1463:                   ; preds = %113
   br label %checkKeyword.exit
 
-checkKeyword.exit.loopexit1660:                   ; preds = %113
+checkKeyword.exit.loopexit1715:                   ; preds = %113
   br label %checkKeyword.exit
 
-checkKeyword.exit:                                ; preds = %503, %parseHexChar.exit, %473, %297, %248, %194, %113, %checkKeyword.exit.loopexit1660, %checkKeyword.exit.loopexit1408, %checkKeyword.exit.loopexit1166, %checkKeyword.exit.loopexit896, %checkKeyword.exit.loopexit439, %hexval.exit13.i, %hexval.exit.i, %.critedge.i304, %285, %250, %.critedge.i294, %236, %199, %.critedge.i, %182, %147, %1062, %999, %998, %997, %996, %addchar.exit398, %addchar.exit391, %addchar.exit384, %addchar.exit377, %addchar.exit370, %addchar.exit363, %663, %addchar.exit354, %592, %591, %590, %589, %588, %551, %548, %547, %546, %502, %501
-  %.0 = phi i32 [ 0, %501 ], [ 0, %502 ], [ 0, %546 ], [ 0, %547 ], [ 266, %548 ], [ 269, %551 ], [ 0, %588 ], [ 275, %589 ], [ 276, %590 ], [ 277, %591 ], [ 278, %592 ], [ 269, %addchar.exit354 ], [ %666, %663 ], [ 267, %addchar.exit363 ], [ 267, %addchar.exit370 ], [ 268, %addchar.exit377 ], [ 268, %addchar.exit384 ], [ 268, %addchar.exit391 ], [ 268, %addchar.exit398 ], [ 0, %996 ], [ 0, %997 ], [ 0, %998 ], [ 0, %999 ], [ 0, %1062 ], [ 265, %147 ], [ %193, %.critedge.i ], [ 265, %182 ], [ 265, %199 ], [ %247, %.critedge.i294 ], [ 265, %236 ], [ 265, %250 ], [ %296, %.critedge.i304 ], [ 265, %285 ], [ 0, %hexval.exit.i ], [ 0, %hexval.exit13.i ], [ 271, %checkKeyword.exit.loopexit439 ], [ 270, %checkKeyword.exit.loopexit896 ], [ 272, %checkKeyword.exit.loopexit1166 ], [ 279, %checkKeyword.exit.loopexit1408 ], [ 273, %checkKeyword.exit.loopexit1660 ], [ 274, %113 ], [ 265, %194 ], [ 265, %248 ], [ 265, %297 ], [ 0, %473 ], [ 0, %parseHexChar.exit ], [ 0, %503 ]
+checkKeyword.exit:                                ; preds = %503, %parseHexChar.exit, %473, %297, %248, %194, %113, %checkKeyword.exit.loopexit1715, %checkKeyword.exit.loopexit1463, %checkKeyword.exit.loopexit1221, %checkKeyword.exit.loopexit896, %checkKeyword.exit.loopexit439, %hexval.exit13.i, %hexval.exit.i, %.critedge.i304, %285, %250, %.critedge.i294, %236, %199, %.critedge.i, %182, %147, %1062, %999, %998, %997, %996, %addchar.exit398, %addchar.exit391, %addchar.exit384, %addchar.exit377, %addchar.exit370, %addchar.exit363, %663, %addchar.exit354, %592, %591, %590, %589, %588, %551, %548, %547, %546, %502, %501
+  %.0 = phi i32 [ 0, %501 ], [ 0, %502 ], [ 0, %546 ], [ 0, %547 ], [ 266, %548 ], [ 269, %551 ], [ 0, %588 ], [ 275, %589 ], [ 276, %590 ], [ 277, %591 ], [ 278, %592 ], [ 269, %addchar.exit354 ], [ %666, %663 ], [ 267, %addchar.exit363 ], [ 267, %addchar.exit370 ], [ 268, %addchar.exit377 ], [ 268, %addchar.exit384 ], [ 268, %addchar.exit391 ], [ 268, %addchar.exit398 ], [ 0, %996 ], [ 0, %997 ], [ 0, %998 ], [ 0, %999 ], [ 0, %1062 ], [ 265, %147 ], [ %193, %.critedge.i ], [ 265, %182 ], [ 265, %199 ], [ %247, %.critedge.i294 ], [ 265, %236 ], [ 265, %250 ], [ %296, %.critedge.i304 ], [ 265, %285 ], [ 0, %hexval.exit.i ], [ 0, %hexval.exit13.i ], [ 271, %checkKeyword.exit.loopexit439 ], [ 270, %checkKeyword.exit.loopexit896 ], [ 272, %checkKeyword.exit.loopexit1221 ], [ 279, %checkKeyword.exit.loopexit1463 ], [ 273, %checkKeyword.exit.loopexit1715 ], [ 274, %113 ], [ 265, %194 ], [ 265, %248 ], [ 265, %297 ], [ 0, %473 ], [ 0, %parseHexChar.exit ], [ 0, %503 ]
   ret i32 %.0
 }
 
@@ -2680,8 +2680,8 @@ define internal fastcc noundef zeroext i1 @parseUnicode(ptr noundef readonly cap
   br i1 %11, label %.lr.ph, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader68
-  %.not.i102 = icmp eq i32 %.05387, -1
-  br i1 %.not.i102, label %addUnicode.exit, label %76
+  %.not.i105 = icmp eq i32 %.05387, -1
+  br i1 %.not.i105, label %addUnicode.exit, label %76
 
 .preheader:                                       ; preds = %.lr.ph90
   %12 = add nsw i32 %.03688, 1
@@ -2766,8 +2766,8 @@ hexval.exit45:                                    ; preds = %43
   br label %.critedge
 
 45:                                               ; preds = %43, %41, %.lr.ph
-  %.sink119 = phi i32 [ -48, %.lr.ph ], [ -87, %41 ], [ -55, %43 ]
-  %46 = add nsw i32 %.sink119, %39
+  %.sink122 = phi i32 [ -48, %.lr.ph ], [ -87, %41 ], [ -55, %43 ]
+  %46 = add nsw i32 %.sink122, %39
   %47 = shl i32 %.23580, 4
   %48 = or i32 %46, %47
   %49 = add nuw nsw i32 %.03281, 1
@@ -2841,10 +2841,10 @@ hexval.exit45:                                    ; preds = %43
   br label %.critedge
 
 addUnicode.exit:                                  ; preds = %.loopexit.thread, %69, %75
-  %.3104 = phi i32 [ %.3, %69 ], [ %.3, %75 ], [ %.03688, %.loopexit.thread ]
+  %.3107 = phi i32 [ %.3, %69 ], [ %.3, %75 ], [ %.03688, %.loopexit.thread ]
   %.022.i = phi i32 [ %74, %69 ], [ %.134, %75 ], [ 0, %.loopexit.thread ]
   %82 = tail call fastcc zeroext i1 @addUnicodeChar(i32 noundef %.022.i, ptr noundef %2, ptr noundef readonly %3)
-  %83 = add i32 %.3104, 2
+  %83 = add i32 %.3107, 2
   %84 = icmp slt i32 %83, %1
   %or.cond = select i1 %82, i1 %84, i1 false
   br i1 %or.cond, label %.lr.ph90.backedge, label %.critedge
@@ -3488,9 +3488,9 @@ jsonpath_yyensure_buffer_stack.exit:              ; preds = %10, %13, %23
   br label %.thread
 
 .thread:                                          ; preds = %jsonpath_yyensure_buffer_stack.exit, %50, %31
-  %.pr36 = phi ptr [ %.pr.pre, %50 ], [ %.pr.pre, %31 ], [ %27, %jsonpath_yyensure_buffer_stack.exit ]
+  %.pr40 = phi ptr [ %.pr.pre, %50 ], [ %.pr.pre, %31 ], [ %27, %jsonpath_yyensure_buffer_stack.exit ]
   %52 = phi i64 [ %51, %50 ], [ %.pre30, %31 ], [ %26, %jsonpath_yyensure_buffer_stack.exit ]
-  %53 = getelementptr inbounds nuw ptr, ptr %.pr36, i64 %52
+  %53 = getelementptr inbounds nuw ptr, ptr %.pr40, i64 %52
   store ptr %0, ptr %53, align 8
   %54 = load ptr, ptr %5, align 8
   %55 = load i64, ptr %28, align 8

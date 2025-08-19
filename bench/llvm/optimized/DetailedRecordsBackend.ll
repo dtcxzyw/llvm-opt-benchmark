@@ -2833,13 +2833,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_122DetailedRecordsEmitter11printFie
   %61 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   %62 = load ptr, ptr %61, align 8, !tbaa !129
   %63 = icmp eq ptr %62, %46
-  br i1 %63, label %_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit.loopexit.split.loop.exit19, label %64
+  br i1 %63, label %_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit.loopexit.split.loop.exit30, label %64
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
   %66 = load ptr, ptr %65, align 8, !tbaa !129
   %67 = icmp eq ptr %66, %46
-  br i1 %67, label %_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit.loopexit.split.loop.exit21, label %68
+  br i1 %67, label %_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit.loopexit.split.loop.exit32, label %68
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 32
@@ -2854,7 +2854,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122DetailedRecordsEmitter11printFie
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %45
   %.pre-phi56.i.i.i.i.i = phi i32 [ %72, %._crit_edge.loopexit.i.i.i.i.i ], [ %48, %45 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %47, %45 ]
-  switch i32 %.pre-phi56.i.i.i.i.i, label %._crit_edge.i.i.i.unreachabledefault.i.i [
+  switch i32 %.pre-phi56.i.i.i.i.i, label %default.unreachable [
     i32 3, label %73
     i32 2, label %._crit_edge._crit_edge.i.i.i.i.i
     i32 1, label %._crit_edge._crit_edge52.i.i.i.i.i
@@ -2886,23 +2886,23 @@ define internal fastcc void @_ZN12_GLOBAL__N_122DetailedRecordsEmitter11printFie
   %83 = icmp eq ptr %82, %46
   br i1 %83, label %_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit, label %_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit.thread
 
-._crit_edge.i.i.i.unreachabledefault.i.i:         ; preds = %._crit_edge.i.i.i.i.i
+default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i
   unreachable
 
 _ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit.loopexit.split.loop.exit: ; preds = %56
   %84 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   br label %_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit
 
-_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit.loopexit.split.loop.exit19: ; preds = %60
+_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit.loopexit.split.loop.exit30: ; preds = %60
   %85 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   br label %_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit
 
-_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit.loopexit.split.loop.exit21: ; preds = %64
+_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit.loopexit.split.loop.exit32: ; preds = %64
   %86 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
   br label %_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit
 
-_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit: ; preds = %53, %_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit.loopexit.split.loop.exit, %_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit.loopexit.split.loop.exit19, %_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit.loopexit.split.loop.exit21, %73, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %73 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %84, %_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit.loopexit.split.loop.exit ], [ %85, %_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit.loopexit.split.loop.exit19 ], [ %86, %_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit.loopexit.split.loop.exit21 ], [ %.02946.i.i.i.i.i, %53 ]
+_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit: ; preds = %53, %_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit.loopexit.split.loop.exit, %_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit.loopexit.split.loop.exit30, %_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit.loopexit.split.loop.exit32, %73, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %73 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %84, %_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit.loopexit.split.loop.exit ], [ %85, %_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit.loopexit.split.loop.exit30 ], [ %86, %_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit.loopexit.split.loop.exit32 ], [ %.02946.i.i.i.i.i, %53 ]
   %.not4 = icmp eq ptr %.028.i.i.i.i.i, %50
   br i1 %.not4, label %_ZNK4llvm6Record13isTemplateArgEPKNS_4InitE.exit.thread, label %125
 

@@ -1612,10 +1612,10 @@ Gia_ObjIsPi.exit:                                 ; preds = %98
   %.not147 = icmp sge i32 %103, %107
   %108 = and i64 %.val128, 2305843005455597567
   %narrow.i.not = icmp ne i64 %108, 2305843005455597567
-  %or.cond153.not209 = and i1 %narrow.i.not, %.not147
+  %or.cond153.not216 = and i1 %narrow.i.not, %.not147
   %109 = icmp sgt i32 %.tr151.ph183, 0
-  %or.cond208 = and i1 %or.cond153.not209, %109
-  br i1 %or.cond208, label %tailrecurse.outer, label %.loopexit
+  %or.cond215 = and i1 %or.cond153.not216, %109
+  br i1 %or.cond215, label %tailrecurse.outer, label %.loopexit
 
 .thread:                                          ; preds = %98
   %110 = and i64 %.val128, 2305843005455597567
@@ -1822,8 +1822,8 @@ define void @Rnm_ManVerifyUsingTerSim(ptr noundef readonly captures(none) %0, pt
   %27 = icmp slt i32 %.val77, 1
   %.val90.pre = load ptr, ptr %8, align 8, !tbaa !59
   %.not66 = icmp eq ptr %.val90.pre, null
-  %or.cond132 = select i1 %27, i1 true, i1 %.not66
-  br i1 %or.cond132, label %.critedge6, label %.lr.ph120.split
+  %or.cond134 = select i1 %27, i1 true, i1 %.not66
+  br i1 %or.cond134, label %.critedge6, label %.lr.ph120.split
 
 .lr.ph120.split:                                  ; preds = %.preheader
   %28 = getelementptr i8, ptr %2, i64 8
@@ -2463,10 +2463,10 @@ Abc_Clock.exit82:                                 ; preds = %Abc_Clock.exit80, %
   br i1 %.not.i84, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %171, %169
-  %.sink106 = phi ptr [ %170, %169 ], [ %173, %171 ]
+  %.sink113 = phi ptr [ %170, %169 ], [ %173, %171 ]
   %.sink.ph = phi ptr [ %65, %169 ], [ %.061, %171 ]
   %.0.ph.ph = phi ptr [ %.061, %169 ], [ %65, %171 ]
-  call void @free(ptr noundef nonnull %.sink106) #22
+  call void @free(ptr noundef nonnull %.sink113) #22
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %171, %169

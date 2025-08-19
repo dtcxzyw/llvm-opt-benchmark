@@ -469,8 +469,8 @@ read_yuv_component_line.exit:                     ; preds = %92
 
 read_yuv_component_line.exit51.thread:            ; preds = %read_yuv_component_line.exit.thread, %read_yuv_component_line.exit
   %.ph = phi ptr [ %106, %read_yuv_component_line.exit ], [ %53, %read_yuv_component_line.exit.thread ]
-  %.ph98 = phi i32 [ %105, %read_yuv_component_line.exit ], [ %52, %read_yuv_component_line.exit.thread ]
-  %.ph99 = phi ptr [ %98, %read_yuv_component_line.exit ], [ %44, %read_yuv_component_line.exit.thread ]
+  %.ph101 = phi i32 [ %105, %read_yuv_component_line.exit ], [ %52, %read_yuv_component_line.exit.thread ]
+  %.ph102 = phi ptr [ %98, %read_yuv_component_line.exit ], [ %44, %read_yuv_component_line.exit.thread ]
   %.050.lcssa.i42.ph = phi i32 [ %94, %read_yuv_component_line.exit ], [ %45, %read_yuv_component_line.exit.thread ]
   store i32 %.050.lcssa.i42.ph, ptr %14, align 8, !tbaa !43
   %157 = load i8, ptr %.ph, align 1, !tbaa !36
@@ -553,8 +553,8 @@ read_yuv_component_line.exit51:                   ; preds = %145
 read_yuv_component_line.exit61:                   ; preds = %200, %read_yuv_component_line.exit51.thread, %read_yuv_component_line.exit51
   %212 = phi ptr [ %161, %read_yuv_component_line.exit51 ], [ %158, %read_yuv_component_line.exit51.thread ], [ %161, %200 ]
   %.in = phi i8 [ %160, %read_yuv_component_line.exit51 ], [ %157, %read_yuv_component_line.exit51.thread ], [ %160, %200 ]
-  %213 = phi i32 [ %105, %read_yuv_component_line.exit51 ], [ %.ph98, %read_yuv_component_line.exit51.thread ], [ %105, %200 ]
-  %214 = phi ptr [ %151, %read_yuv_component_line.exit51 ], [ %.ph99, %read_yuv_component_line.exit51.thread ], [ %206, %200 ]
+  %213 = phi i32 [ %105, %read_yuv_component_line.exit51 ], [ %.ph101, %read_yuv_component_line.exit51.thread ], [ %105, %200 ]
+  %214 = phi ptr [ %151, %read_yuv_component_line.exit51 ], [ %.ph102, %read_yuv_component_line.exit51.thread ], [ %206, %200 ]
   %.050.lcssa.i52 = phi i32 [ %147, %read_yuv_component_line.exit51 ], [ %.050.lcssa.i42.ph, %read_yuv_component_line.exit51.thread ], [ %202, %200 ]
   %215 = zext i8 %.in to i32
   store i32 %.050.lcssa.i52, ptr %14, align 8, !tbaa !43

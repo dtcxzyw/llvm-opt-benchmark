@@ -316,8 +316,8 @@ tally_frame_data.exit:                            ; preds = %tally_frame_data.ex
   %177 = icmp eq i32 %176, 0
   %178 = load i32, ptr %6, align 8
   %179 = icmp eq i32 %178, 0
-  %or.cond113 = select i1 %177, i1 %179, i1 false
-  br i1 %or.cond113, label %180, label %183
+  %or.cond119 = select i1 %177, i1 %179, i1 false
+  br i1 %or.cond119, label %180, label %183
 
 180:                                              ; preds = %170
   %181 = load ptr, ptr %163, align 8
@@ -349,8 +349,8 @@ tally_frame_data.exit:                            ; preds = %tally_frame_data.ex
   br label %195
 
 195:                                              ; preds = %189, %192
-  %storemerge111 = phi ptr [ %194, %192 ], [ null, %189 ]
-  store ptr %storemerge111, ptr %164, align 8
+  %storemerge117 = phi ptr [ %194, %192 ], [ null, %189 ]
+  store ptr %storemerge117, ptr %164, align 8
   store i8 0, ptr %165, align 8
   store i64 0, ptr %166, align 8
   %196 = getelementptr inbounds nuw i8, ptr %175, i64 20

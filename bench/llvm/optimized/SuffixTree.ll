@@ -367,11 +367,11 @@ _ZL22numElementsInSubstringPKN4llvm14SuffixTreeNodeE.exit: ; preds = %_ZNK4llvm1
 
 90:                                               ; preds = %_ZL22numElementsInSubstringPKN4llvm14SuffixTreeNodeE.exit.thread, %_ZL22numElementsInSubstringPKN4llvm14SuffixTreeNodeE.exit
   %91 = phi i32 [ %82, %_ZL22numElementsInSubstringPKN4llvm14SuffixTreeNodeE.exit.thread ], [ %89, %_ZL22numElementsInSubstringPKN4llvm14SuffixTreeNodeE.exit ]
-  %.1.i79 = phi i32 [ 0, %_ZL22numElementsInSubstringPKN4llvm14SuffixTreeNodeE.exit.thread ], [ %88, %_ZL22numElementsInSubstringPKN4llvm14SuffixTreeNodeE.exit ]
+  %.1.i91 = phi i32 [ 0, %_ZL22numElementsInSubstringPKN4llvm14SuffixTreeNodeE.exit.thread ], [ %88, %_ZL22numElementsInSubstringPKN4llvm14SuffixTreeNodeE.exit ]
   %92 = load i32, ptr %10, align 8, !tbaa !67
-  %93 = add i32 %92, %.1.i79
+  %93 = add i32 %92, %.1.i91
   store i32 %93, ptr %10, align 8, !tbaa !67
-  %94 = sub nuw i32 %91, %.1.i79
+  %94 = sub nuw i32 %91, %.1.i91
   store i32 %94, ptr %9, align 4, !tbaa !66
   store ptr %76, ptr %8, align 8, !tbaa !59
   br label %193, !llvm.loop !80

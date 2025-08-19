@@ -348,8 +348,8 @@ define internal fastcc i32 @lock_file(ptr noundef captures(none) %0, ptr noundef
   br i1 %.not1218.i.i, label %.critedge2.thread.i.i, label %.lr.ph20.i.i
 
 .lr.ph20.i.i:                                     ; preds = %.critedge.i.i
-  %sext35.i.i = shl i64 %indvars.iv.i.i, 32
-  %32 = ashr exact i64 %sext35.i.i, 32
+  %sext37.i.i = shl i64 %indvars.iv.i.i, 32
+  %32 = ashr exact i64 %sext37.i.i, 32
   br label %33
 
 33:                                               ; preds = %37, %.lr.ph20.i.i
@@ -367,8 +367,8 @@ define internal fastcc i32 @lock_file(ptr noundef captures(none) %0, ptr noundef
 
 .critedge2.i.i:                                   ; preds = %37, %33
   %.1.lcssa.ph.i.i = phi i64 [ %indvars.iv25.i.i, %33 ], [ 0, %37 ]
-  %sext28.i.i = shl i64 %.1.lcssa.ph.i.i, 32
-  %38 = ashr exact i64 %sext28.i.i, 32
+  %sext30.i.i = shl i64 %.1.lcssa.ph.i.i, 32
+  %38 = ashr exact i64 %sext30.i.i, 32
   %39 = load i64, ptr %5, align 8, !tbaa !17
   %spec.select.i.i.i = call i64 @llvm.usub.sat.i64(i64 %39, i64 1)
   %40 = icmp ult i64 %spec.select.i.i.i, %38
@@ -379,13 +379,13 @@ define internal fastcc i32 @lock_file(ptr noundef captures(none) %0, ptr noundef
   unreachable
 
 .critedge2.thread.i.i:                            ; preds = %31, %.critedge2.i.i, %.critedge.i.i, %22
-  %.1.lcssa33.i.i = phi i64 [ %38, %.critedge2.i.i ], [ 0, %.critedge.i.i ], [ 0, %22 ], [ 0, %31 ]
-  store i64 %.1.lcssa33.i.i, ptr %10, align 8, !tbaa !16
+  %.1.lcssa35.i.i = phi i64 [ %38, %.critedge2.i.i ], [ 0, %.critedge.i.i ], [ 0, %22 ], [ 0, %31 ]
+  store i64 %.1.lcssa35.i.i, ptr %10, align 8, !tbaa !16
   %.not9.i.i.i = icmp eq ptr %.pre.i, @strbuf_slopbuf
   br i1 %.not9.i.i.i, label %strbuf_setlen.exit.i, label %42
 
 42:                                               ; preds = %.critedge2.thread.i.i
-  %43 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.1.lcssa33.i.i
+  %43 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.1.lcssa35.i.i
   store i8 0, ptr %43, align 1, !tbaa !18
   br label %strbuf_setlen.exit.i
 

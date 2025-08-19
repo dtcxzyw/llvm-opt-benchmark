@@ -286,7 +286,7 @@ define internal fastcc ptr @__irq_domain_create(ptr noundef %0, i32 noundef %1, 
   store ptr %0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %28 = load ptr, ptr %27, align 8
-  br i1 %25, label %29, label %.thread4
+  br i1 %25, label %29, label %.thread7
 
 29:                                               ; preds = %21
   %30 = tail call noalias ptr @kstrdup(ptr noundef %28, i32 noundef 3264) #16
@@ -338,24 +338,24 @@ define internal fastcc ptr @__irq_domain_create(ptr noundef %0, i32 noundef %1, 
   %50 = icmp eq ptr %49, null
   br i1 %50, label %54, label %68
 
-.thread4:                                         ; preds = %21
+.thread7:                                         ; preds = %21
   %51 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %28, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %53 = icmp eq ptr %28, null
-  br i1 %53, label %.thread5, label %68
+  br i1 %53, label %.thread8, label %68
 
 54:                                               ; preds = %48
   %55 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %16, label %58, label %.thread5
+  br i1 %16, label %58, label %.thread8
 
-.thread5:                                         ; preds = %.thread4, %54
-  %56 = phi ptr [ %55, %54 ], [ %52, %.thread4 ]
+.thread8:                                         ; preds = %.thread7, %54
+  %56 = phi ptr [ %55, %54 ], [ %52, %.thread7 ]
   %57 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12) #18
   br label %58
 
-58:                                               ; preds = %.thread5, %54
-  %59 = phi ptr [ %56, %.thread5 ], [ %55, %54 ]
+58:                                               ; preds = %.thread8, %54
+  %59 = phi ptr [ %56, %.thread8 ], [ %55, %54 ]
   %60 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @__irq_domain_create.unknown_domains, i32 1, ptr nonnull elementtype(i32) @__irq_domain_create.unknown_domains) #16, !srcloc !12
   %61 = add i32 %60, 1
   %62 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.13, i32 noundef %61) #16
@@ -374,7 +374,7 @@ define internal fastcc ptr @__irq_domain_create(ptr noundef %0, i32 noundef %1, 
   store i32 %67, ptr %65, align 8
   br label %68
 
-68:                                               ; preds = %.sink.split, %.thread4, %48
+68:                                               ; preds = %.sink.split, %.thread7, %48
   %69 = tail call ptr @fwnode_handle_get(ptr noundef %0) #16
   %70 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %71 = or i1 %16, %70
@@ -1314,7 +1314,7 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %111, null
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  br i1 %112, label %.thread36, label %114
+  br i1 %112, label %.thread58, label %114
 
 114:                                              ; preds = %109
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1322,7 +1322,7 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
   %117 = call i32 %111(ptr noundef nonnull %101, ptr noundef null, ptr noundef nonnull %113, i32 noundef %116, ptr noundef nonnull %2, ptr noundef nonnull %3) #16
   br label %120
 
-.thread36:                                        ; preds = %109
+.thread58:                                        ; preds = %109
   %118 = load i32, ptr %113, align 4
   %119 = zext i32 %118 to i64
   store i64 %119, ptr %2, align 8
@@ -1347,7 +1347,7 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
   store i32 %127, ptr %3, align 4
   br label %128
 
-128:                                              ; preds = %.thread36, %125, %123
+128:                                              ; preds = %.thread58, %125, %123
   %129 = getelementptr inbounds nuw i8, ptr %101, i64 80
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 48

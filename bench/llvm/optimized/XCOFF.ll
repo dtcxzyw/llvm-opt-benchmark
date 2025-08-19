@@ -782,12 +782,12 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i35: ; preds = %35, %_ZN4llvm15Sma
   br label %44
 
 44:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i35, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i29
-  %.sink88 = phi i32 [ 2, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i35 ], [ 1, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i29 ]
+  %.sink103 = phi i32 [ 2, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i35 ], [ 1, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i29 ]
   %45 = phi i64 [ %storemerge, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i35 ], [ %33, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i29 ]
   %.125 = phi i32 [ %.02467, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i35 ], [ %34, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i29 ]
   %.123 = phi i32 [ %43, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i35 ], [ %.02268, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i29 ]
-  %46 = shl i32 %.070, %.sink88
-  %47 = add nuw nsw i32 %.02666, %.sink88
+  %46 = shl i32 %.070, %.sink103
+  %47 = add nuw nsw i32 %.02666, %.sink103
   %48 = icmp samesign ult i32 %47, 31
   %49 = icmp ult i32 %14, %12
   %50 = and i1 %48, %49
@@ -820,13 +820,13 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i47: ; preds = %53, %57
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %4, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i47, %._crit_edge
-  %.0.lcssa82 = phi i32 [ %46, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i47 ], [ %46, %._crit_edge ], [ %1, %4 ]
-  %.022.lcssa81 = phi i1 [ %52, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i47 ], [ %52, %._crit_edge ], [ false, %4 ]
-  %.024.lcssa80 = phi i1 [ %51, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i47 ], [ %51, %._crit_edge ], [ false, %4 ]
+  %.0.lcssa97 = phi i32 [ %46, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i47 ], [ %46, %._crit_edge ], [ %1, %4 ]
+  %.022.lcssa96 = phi i1 [ %52, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i47 ], [ %52, %._crit_edge ], [ false, %4 ]
+  %.024.lcssa95 = phi i1 [ %51, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i47 ], [ %51, %._crit_edge ], [ false, %4 ]
   %61 = phi i64 [ %60, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i47 ], [ %45, %._crit_edge ], [ 0, %4 ]
-  %.not = icmp ne i32 %.0.lcssa82, 0
-  %or.cond = select i1 %.not, i1 true, i1 %.024.lcssa80
-  %or.cond28 = select i1 %or.cond, i1 true, i1 %.022.lcssa81
+  %.not = icmp ne i32 %.0.lcssa97, 0
+  %or.cond = select i1 %.not, i1 true, i1 %.024.lcssa95
+  %or.cond28 = select i1 %or.cond, i1 true, i1 %.022.lcssa96
   br i1 %or.cond28, label %._crit_edge.i.i.i, label %78
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.thread
@@ -1298,15 +1298,15 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i56: ; preds = %66, %70
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %5, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i56, %._crit_edge
-  %.023.lcssa103 = phi i32 [ %61, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i56 ], [ %61, %._crit_edge ], [ %1, %5 ]
-  %.025.lcssa102 = phi i1 [ %17, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i56 ], [ %17, %._crit_edge ], [ false, %5 ]
-  %.026.lcssa101 = phi i1 [ %16, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i56 ], [ %16, %._crit_edge ], [ false, %5 ]
-  %.028.lcssa100 = phi i1 [ %15, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i56 ], [ %15, %._crit_edge ], [ false, %5 ]
+  %.023.lcssa119 = phi i32 [ %61, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i56 ], [ %61, %._crit_edge ], [ %1, %5 ]
+  %.025.lcssa118 = phi i1 [ %17, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i56 ], [ %17, %._crit_edge ], [ false, %5 ]
+  %.026.lcssa117 = phi i1 [ %16, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i56 ], [ %16, %._crit_edge ], [ false, %5 ]
+  %.028.lcssa116 = phi i1 [ %15, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i56 ], [ %15, %._crit_edge ], [ false, %5 ]
   %74 = phi i64 [ %73, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i56 ], [ %60, %._crit_edge ], [ 0, %5 ]
-  %.not = icmp ne i32 %.023.lcssa103, 0
-  %or.cond = select i1 %.not, i1 true, i1 %.028.lcssa100
-  %or.cond30 = select i1 %or.cond, i1 true, i1 %.026.lcssa101
-  %or.cond31 = select i1 %or.cond30, i1 true, i1 %.025.lcssa102
+  %.not = icmp ne i32 %.023.lcssa119, 0
+  %or.cond = select i1 %.not, i1 true, i1 %.028.lcssa116
+  %or.cond30 = select i1 %or.cond, i1 true, i1 %.026.lcssa117
+  %or.cond31 = select i1 %or.cond30, i1 true, i1 %.025.lcssa118
   br i1 %or.cond31, label %._crit_edge.i.i.i, label %91
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.thread
@@ -1546,9 +1546,9 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i36: ; preds = %38, %42
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %3, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i36, %._crit_edge
-  %.011.lcssa67 = phi i32 [ %37, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i36 ], [ %37, %._crit_edge ], [ %1, %3 ]
+  %.011.lcssa83 = phi i32 [ %37, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i36 ], [ %37, %._crit_edge ], [ %1, %3 ]
   %46 = phi i64 [ %45, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i36 ], [ %36, %._crit_edge ], [ 0, %3 ]
-  %.not = icmp eq i32 %.011.lcssa67, 0
+  %.not = icmp eq i32 %.011.lcssa83, 0
   br i1 %.not, label %63, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.thread
@@ -1715,40 +1715,40 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i20:            ; preds = %18
   br i1 %20, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E8CaseImplERS2_NS_13StringLiteralE.exit47.sink.split, label %21
 
 21:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i20, %17
-  %.sroa.01.0.copyload53 = load ptr, ptr %6, align 8
-  %.sroa.22.0..sroa_idx54 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.22.0.copyload55 = load i64, ptr %.sroa.22.0..sroa_idx54, align 8
+  %.sroa.01.0.copyload54 = load ptr, ptr %6, align 8
+  %.sroa.22.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.22.0.copyload56 = load i64, ptr %.sroa.22.0..sroa_idx55, align 8
   %.sroa.01.0.copyload.i26 = load ptr, ptr %0, align 8, !tbaa !3
   %.sroa.22.0..sroa_idx.i27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.22.0.copyload.i28 = load i64, ptr %.sroa.22.0..sroa_idx.i27, align 8, !tbaa !8
-  %.not.i.i29 = icmp eq i64 %.sroa.22.0.copyload.i28, %.sroa.22.0.copyload55
+  %.not.i.i29 = icmp eq i64 %.sroa.22.0.copyload.i28, %.sroa.22.0.copyload56
   br i1 %.not.i.i29, label %22, label %25
 
 22:                                               ; preds = %21
-  %23 = icmp eq i64 %.sroa.22.0.copyload55, 0
+  %23 = icmp eq i64 %.sroa.22.0.copyload56, 0
   br i1 %23, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E8CaseImplERS2_NS_13StringLiteralE.exit47.sink.split, label %_ZN4llvmeqENS_9StringRefES0_.exit.i31
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i31:            ; preds = %22
-  %bcmp.i.i32 = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i26, ptr %.sroa.01.0.copyload53, i64 %.sroa.22.0.copyload55)
+  %bcmp.i.i32 = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i26, ptr %.sroa.01.0.copyload54, i64 %.sroa.22.0.copyload56)
   %24 = icmp eq i32 %bcmp.i.i32, 0
   br i1 %24, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E8CaseImplERS2_NS_13StringLiteralE.exit47.sink.split, label %25
 
 25:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i31, %21
-  %.sroa.0.0.copyload60 = load ptr, ptr %7, align 8
-  %.sroa.2.0..sroa_idx61 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.2.0.copyload62 = load i64, ptr %.sroa.2.0..sroa_idx61, align 8
+  %.sroa.0.0.copyload61 = load ptr, ptr %7, align 8
+  %.sroa.2.0..sroa_idx62 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.2.0.copyload63 = load i64, ptr %.sroa.2.0..sroa_idx62, align 8
   %.sroa.01.0.copyload.i37 = load ptr, ptr %0, align 8, !tbaa !3
   %.sroa.22.0..sroa_idx.i38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.22.0.copyload.i39 = load i64, ptr %.sroa.22.0..sroa_idx.i38, align 8, !tbaa !8
-  %.not.i.i40 = icmp eq i64 %.sroa.22.0.copyload.i39, %.sroa.2.0.copyload62
+  %.not.i.i40 = icmp eq i64 %.sroa.22.0.copyload.i39, %.sroa.2.0.copyload63
   br i1 %.not.i.i40, label %26, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E8CaseImplERS2_NS_13StringLiteralE.exit47
 
 26:                                               ; preds = %25
-  %27 = icmp eq i64 %.sroa.2.0.copyload62, 0
+  %27 = icmp eq i64 %.sroa.2.0.copyload63, 0
   br i1 %27, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E8CaseImplERS2_NS_13StringLiteralE.exit47.sink.split, label %_ZN4llvmeqENS_9StringRefES0_.exit.i42
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i42:            ; preds = %26
-  %bcmp.i.i43 = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i37, ptr %.sroa.0.0.copyload60, i64 %.sroa.2.0.copyload62)
+  %bcmp.i.i43 = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i37, ptr %.sroa.0.0.copyload61, i64 %.sroa.2.0.copyload63)
   %28 = icmp eq i32 %bcmp.i.i43, 0
   br i1 %28, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E8CaseImplERS2_NS_13StringLiteralE.exit47.sink.split, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E8CaseImplERS2_NS_13StringLiteralE.exit47
 
@@ -1804,59 +1804,59 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i23:            ; preds = %19
   br i1 %21, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E8CaseImplERS2_NS_13StringLiteralE.exit61.sink.split, label %22
 
 22:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i23, %18
-  %.sroa.03.0.copyload68 = load ptr, ptr %6, align 8
-  %.sroa.24.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.24.0.copyload70 = load i64, ptr %.sroa.24.0..sroa_idx69, align 8
+  %.sroa.03.0.copyload69 = load ptr, ptr %6, align 8
+  %.sroa.24.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.24.0.copyload71 = load i64, ptr %.sroa.24.0..sroa_idx70, align 8
   %.sroa.01.0.copyload.i29 = load ptr, ptr %0, align 8, !tbaa !3
   %.sroa.22.0..sroa_idx.i30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.22.0.copyload.i31 = load i64, ptr %.sroa.22.0..sroa_idx.i30, align 8, !tbaa !8
-  %.not.i.i32 = icmp eq i64 %.sroa.22.0.copyload.i31, %.sroa.24.0.copyload70
+  %.not.i.i32 = icmp eq i64 %.sroa.22.0.copyload.i31, %.sroa.24.0.copyload71
   br i1 %.not.i.i32, label %23, label %26
 
 23:                                               ; preds = %22
-  %24 = icmp eq i64 %.sroa.24.0.copyload70, 0
+  %24 = icmp eq i64 %.sroa.24.0.copyload71, 0
   br i1 %24, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E8CaseImplERS2_NS_13StringLiteralE.exit61.sink.split, label %_ZN4llvmeqENS_9StringRefES0_.exit.i34
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i34:            ; preds = %23
-  %bcmp.i.i35 = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i29, ptr %.sroa.03.0.copyload68, i64 %.sroa.24.0.copyload70)
+  %bcmp.i.i35 = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i29, ptr %.sroa.03.0.copyload69, i64 %.sroa.24.0.copyload71)
   %25 = icmp eq i32 %bcmp.i.i35, 0
   br i1 %25, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E8CaseImplERS2_NS_13StringLiteralE.exit61.sink.split, label %26
 
 26:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i34, %22
-  %.sroa.01.0.copyload75 = load ptr, ptr %7, align 8
-  %.sroa.22.0..sroa_idx76 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.22.0.copyload77 = load i64, ptr %.sroa.22.0..sroa_idx76, align 8
+  %.sroa.01.0.copyload76 = load ptr, ptr %7, align 8
+  %.sroa.22.0..sroa_idx77 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.22.0.copyload78 = load i64, ptr %.sroa.22.0..sroa_idx77, align 8
   %.sroa.01.0.copyload.i40 = load ptr, ptr %0, align 8, !tbaa !3
   %.sroa.22.0..sroa_idx.i41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.22.0.copyload.i42 = load i64, ptr %.sroa.22.0..sroa_idx.i41, align 8, !tbaa !8
-  %.not.i.i43 = icmp eq i64 %.sroa.22.0.copyload.i42, %.sroa.22.0.copyload77
+  %.not.i.i43 = icmp eq i64 %.sroa.22.0.copyload.i42, %.sroa.22.0.copyload78
   br i1 %.not.i.i43, label %27, label %30
 
 27:                                               ; preds = %26
-  %28 = icmp eq i64 %.sroa.22.0.copyload77, 0
+  %28 = icmp eq i64 %.sroa.22.0.copyload78, 0
   br i1 %28, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E8CaseImplERS2_NS_13StringLiteralE.exit61.sink.split, label %_ZN4llvmeqENS_9StringRefES0_.exit.i45
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i45:            ; preds = %27
-  %bcmp.i.i46 = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i40, ptr %.sroa.01.0.copyload75, i64 %.sroa.22.0.copyload77)
+  %bcmp.i.i46 = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i40, ptr %.sroa.01.0.copyload76, i64 %.sroa.22.0.copyload78)
   %29 = icmp eq i32 %bcmp.i.i46, 0
   br i1 %29, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E8CaseImplERS2_NS_13StringLiteralE.exit61.sink.split, label %30
 
 30:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i45, %26
-  %.sroa.0.0.copyload82 = load ptr, ptr %8, align 8
-  %.sroa.2.0..sroa_idx83 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.2.0.copyload84 = load i64, ptr %.sroa.2.0..sroa_idx83, align 8
+  %.sroa.0.0.copyload83 = load ptr, ptr %8, align 8
+  %.sroa.2.0..sroa_idx84 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.2.0.copyload85 = load i64, ptr %.sroa.2.0..sroa_idx84, align 8
   %.sroa.01.0.copyload.i51 = load ptr, ptr %0, align 8, !tbaa !3
   %.sroa.22.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.22.0.copyload.i53 = load i64, ptr %.sroa.22.0..sroa_idx.i52, align 8, !tbaa !8
-  %.not.i.i54 = icmp eq i64 %.sroa.22.0.copyload.i53, %.sroa.2.0.copyload84
+  %.not.i.i54 = icmp eq i64 %.sroa.22.0.copyload.i53, %.sroa.2.0.copyload85
   br i1 %.not.i.i54, label %31, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E8CaseImplERS2_NS_13StringLiteralE.exit61
 
 31:                                               ; preds = %30
-  %32 = icmp eq i64 %.sroa.2.0.copyload84, 0
+  %32 = icmp eq i64 %.sroa.2.0.copyload85, 0
   br i1 %32, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E8CaseImplERS2_NS_13StringLiteralE.exit61.sink.split, label %_ZN4llvmeqENS_9StringRefES0_.exit.i56
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i56:            ; preds = %31
-  %bcmp.i.i57 = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i51, ptr %.sroa.0.0.copyload82, i64 %.sroa.2.0.copyload84)
+  %bcmp.i.i57 = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i51, ptr %.sroa.0.0.copyload83, i64 %.sroa.2.0.copyload85)
   %33 = icmp eq i32 %bcmp.i.i57, 0
   br i1 %33, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E8CaseImplERS2_NS_13StringLiteralE.exit61.sink.split, label %_ZN4llvm12StringSwitchINS_5XCOFF10CFileCpuIdES2_E8CaseImplERS2_NS_13StringLiteralE.exit61
 

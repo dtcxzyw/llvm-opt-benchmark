@@ -671,13 +671,13 @@ rearrange_lsp.exit.i.i:                           ; preds = %419, %._crit_edge.i
   %420 = mul nuw nsw i32 %368, %359
   %421 = zext nneg i32 %420 to i64
   %wide.trip.count18.i.i = zext i8 %367 to i64
-  %invariant.gep20.i.i = getelementptr inbounds nuw float, ptr %377, i64 %421
+  %invariant.gep21.i.i = getelementptr inbounds nuw float, ptr %377, i64 %421
   br label %422
 
 422:                                              ; preds = %422, %.lr.ph6.i.i
   %indvars.iv15.i.i = phi i64 [ 0, %.lr.ph6.i.i ], [ %indvars.iv.next16.i.i, %422 ]
-  %gep21.i.i = getelementptr inbounds nuw float, ptr %invariant.gep20.i.i, i64 %indvars.iv15.i.i
-  %423 = load float, ptr %gep21.i.i, align 4, !tbaa !63
+  %gep22.i.i = getelementptr inbounds nuw float, ptr %invariant.gep21.i.i, i64 %indvars.iv15.i.i
+  %423 = load float, ptr %gep22.i.i, align 4, !tbaa !63
   %424 = fsub nsz float 1.000000e+00, %423
   %425 = getelementptr inbounds nuw float, ptr %360, i64 %indvars.iv15.i.i
   %426 = load float, ptr %425, align 4, !tbaa !63
@@ -1970,7 +1970,7 @@ get_cos.exit.us136:                               ; preds = %.lr.ph.split, %get_
   %wide.trip.count.i103 = zext nneg i32 %82 to i64
   %84 = zext nneg i32 %80 to i64
   %85 = sub nsw i64 0, %84
-  %86 = sext i32 %75 to i64
+  %86 = zext nneg i32 %75 to i64
   %87 = zext nneg i32 %5 to i64
   %88 = zext nneg i32 %80 to i64
   br label %106
@@ -2139,7 +2139,7 @@ eval_lpc_spectrum.exit100:                        ; preds = %.lr.ph.i95, %get_co
   br i1 %exitcond.not.i117, label %interpolate.exit, label %.lr.ph.i113, !llvm.loop !89
 
 interpolate.exit:                                 ; preds = %.lr.ph.i87, %.lr.ph.i113, %eval_lpc_spectrum.exit100
-  %.not = icmp sgt i64 %indvars.iv.next156, %86
+  %.not = icmp samesign ugt i64 %indvars.iv.next156, %86
   br i1 %.not, label %.lr.ph.preheader.i120, label %106, !llvm.loop !129
 
 .lr.ph.preheader.i120:                            ; preds = %interpolate.exit, %.preheader.._crit_edge_crit_edge

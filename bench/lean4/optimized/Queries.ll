@@ -14090,7 +14090,7 @@ lean_dec.exit:                                    ; preds = %14, %13, %11, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Std_DTreeMap_Internal_Impl_minEntry___rarg(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 {
+define noalias nonnull ptr @l_Std_DTreeMap_Internal_Impl_minEntry___rarg(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 {
   br label %3
 
 3:                                                ; preds = %lean_obj_tag.exit, %2
@@ -14216,7 +14216,7 @@ lean_alloc_closure.exit:                          ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Std_DTreeMap_Internal_Impl_minEntry___rarg___boxed(ptr noundef %0, ptr readnone captures(none) %1) #1 {
+define noalias nonnull ptr @l_Std_DTreeMap_Internal_Impl_minEntry___rarg___boxed(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call ptr @l_Std_DTreeMap_Internal_Impl_minEntry___rarg(ptr noundef %0, ptr poison)
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, 1
@@ -16700,7 +16700,7 @@ lean_dec.exit:                                    ; preds = %14, %13, %11, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Std_DTreeMap_Internal_Impl_maxEntry___rarg(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 {
+define noalias nonnull ptr @l_Std_DTreeMap_Internal_Impl_maxEntry___rarg(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 {
   br label %3
 
 3:                                                ; preds = %lean_obj_tag.exit, %2
@@ -16826,7 +16826,7 @@ lean_alloc_closure.exit:                          ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Std_DTreeMap_Internal_Impl_maxEntry___rarg___boxed(ptr noundef %0, ptr readnone captures(none) %1) #1 {
+define noalias nonnull ptr @l_Std_DTreeMap_Internal_Impl_maxEntry___rarg___boxed(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call ptr @l_Std_DTreeMap_Internal_Impl_maxEntry___rarg(ptr noundef %0, ptr poison)
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, 1
@@ -21625,15 +21625,15 @@ lean_inc.exit:                                    ; preds = %138, %137, %135, %l
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit, %lean_inc.exit83
-  %.sink210 = phi ptr [ %87, %lean_inc.exit83 ], [ %139, %lean_inc.exit ]
-  %142 = getelementptr inbounds nuw i8, ptr %.sink210, i64 4
-  store i32 1, ptr %.sink210, align 4, !tbaa !8
+  %.sink224 = phi ptr [ %87, %lean_inc.exit83 ], [ %139, %lean_inc.exit ]
+  %142 = getelementptr inbounds nuw i8, ptr %.sink224, i64 4
+  store i32 1, ptr %.sink224, align 4, !tbaa !8
   store i32 131096, ptr %142, align 4
-  %143 = getelementptr inbounds nuw i8, ptr %.sink210, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %.sink224, i64 8
   store ptr %17, ptr %143, align 8, !tbaa !4
-  %144 = getelementptr inbounds nuw i8, ptr %.sink210, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %.sink224, i64 16
   store ptr %19, ptr %144, align 8, !tbaa !4
-  ret ptr %.sink210
+  ret ptr %.sink224
 }
 
 ; Function Attrs: nounwind uwtable
@@ -36302,7 +36302,7 @@ lean_dec.exit:                                    ; preds = %14, %13, %11, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Std_DTreeMap_Internal_Impl_Const_minEntry___rarg(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 {
+define noalias nonnull ptr @l_Std_DTreeMap_Internal_Impl_Const_minEntry___rarg(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 {
   br label %3
 
 3:                                                ; preds = %lean_obj_tag.exit, %2
@@ -36428,7 +36428,7 @@ lean_alloc_closure.exit:                          ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Std_DTreeMap_Internal_Impl_Const_minEntry___rarg___boxed(ptr noundef %0, ptr readnone captures(none) %1) #1 {
+define noalias nonnull ptr @l_Std_DTreeMap_Internal_Impl_Const_minEntry___rarg___boxed(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call ptr @l_Std_DTreeMap_Internal_Impl_Const_minEntry___rarg(ptr noundef %0, ptr poison)
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, 1
@@ -38908,7 +38908,7 @@ lean_dec.exit:                                    ; preds = %14, %13, %11, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Std_DTreeMap_Internal_Impl_Const_maxEntry___rarg(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 {
+define noalias nonnull ptr @l_Std_DTreeMap_Internal_Impl_Const_maxEntry___rarg(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 {
   br label %3
 
 3:                                                ; preds = %lean_obj_tag.exit, %2
@@ -39034,7 +39034,7 @@ lean_alloc_closure.exit:                          ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Std_DTreeMap_Internal_Impl_Const_maxEntry___rarg___boxed(ptr noundef %0, ptr readnone captures(none) %1) #1 {
+define noalias nonnull ptr @l_Std_DTreeMap_Internal_Impl_Const_maxEntry___rarg___boxed(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call ptr @l_Std_DTreeMap_Internal_Impl_Const_maxEntry___rarg(ptr noundef %0, ptr poison)
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, 1

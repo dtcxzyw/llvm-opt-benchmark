@@ -181,13 +181,13 @@ define internal fastcc noundef ptr @img_alloc_helper(ptr noundef captures(addres
   %81 = xor i64 %79, -1
   %82 = and i64 %80, %81
   %83 = inttoptr i64 %82 to ptr
-  br i1 %.not115, label %.thread141, label %88
+  br i1 %.not115, label %.thread148, label %88
 
 84:                                               ; preds = %71
   %85 = tail call ptr @aom_memalign(i64 noundef %73, i64 noundef %72) #15
   br label %88
 
-.thread141:                                       ; preds = %74
+.thread148:                                       ; preds = %74
   store ptr null, ptr %58, align 8
   %86 = getelementptr inbounds nuw i8, ptr %.1, i64 144
   store i32 0, ptr %86, align 8
@@ -295,15 +295,15 @@ define internal fastcc noundef ptr @img_alloc_helper(ptr noundef captures(addres
 
 .sink.split.i:                                    ; preds = %142, %140, %105
   %.pre-phi = phi i64 [ %134, %142 ], [ %134, %140 ], [ %.pre, %105 ]
-  %.sink82.i = phi ptr [ %139, %142 ], [ %139, %140 ], [ %109, %105 ]
-  %.sink81.i = phi i64 [ 72, %142 ], [ 80, %140 ], [ 64, %105 ]
-  %144 = getelementptr inbounds nuw i8, ptr %.sink82.i, i64 %.pre-phi
-  %145 = getelementptr inbounds nuw i8, ptr %.1, i64 %.sink81.i
+  %.sink83.i = phi ptr [ %139, %142 ], [ %139, %140 ], [ %109, %105 ]
+  %.sink82.i = phi i64 [ 72, %142 ], [ 80, %140 ], [ 64, %105 ]
+  %144 = getelementptr inbounds nuw i8, ptr %.sink83.i, i64 %.pre-phi
+  %145 = getelementptr inbounds nuw i8, ptr %.1, i64 %.sink82.i
   store ptr %144, ptr %145, align 8
   br label %aom_img_set_rect.exit
 
-146:                                              ; preds = %.thread141, %88, %52, %16, %14, %11
-  %.096 = phi ptr [ %0, %11 ], [ %0, %14 ], [ %0, %16 ], [ %.1, %88 ], [ null, %52 ], [ %.1, %.thread141 ]
+146:                                              ; preds = %.thread148, %88, %52, %16, %14, %11
+  %.096 = phi ptr [ %0, %11 ], [ %0, %14 ], [ %0, %16 ], [ %.1, %88 ], [ null, %52 ], [ %.1, %.thread148 ]
   tail call void @aom_img_free(ptr noundef %.096)
   br label %aom_img_set_rect.exit
 
@@ -442,11 +442,11 @@ define hidden range(i32 -1, 1) i32 @aom_img_set_rect(ptr noundef captures(none) 
 
 .sink.split:                                      ; preds = %63, %77, %23
   %.sink = phi i32 [ %32, %23 ], [ %90, %77 ], [ %76, %63 ]
-  %.sink82 = phi ptr [ %29, %23 ], [ %87, %77 ], [ %73, %63 ]
-  %.sink81 = phi i64 [ 64, %23 ], [ 72, %77 ], [ 80, %63 ]
+  %.sink83 = phi ptr [ %29, %23 ], [ %87, %77 ], [ %73, %63 ]
+  %.sink82 = phi i64 [ 64, %23 ], [ 72, %77 ], [ 80, %63 ]
   %91 = zext i32 %.sink to i64
-  %92 = getelementptr inbounds nuw i8, ptr %.sink82, i64 %91
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink81
+  %92 = getelementptr inbounds nuw i8, ptr %.sink83, i64 %91
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink82
   store ptr %92, ptr %93, align 8
   br label %94
 

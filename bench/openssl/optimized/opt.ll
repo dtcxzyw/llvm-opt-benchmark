@@ -2425,7 +2425,7 @@ define void @opt_help(ptr noundef readonly captures(none) %0) local_unnamed_addr
   br i1 %.not, label %.lr.ph40, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %1, %._crit_edge
-  %.021.lcssa43 = phi i32 [ %21, %._crit_edge ], [ 5, %1 ]
+  %.021.lcssa49 = phi i32 [ %21, %._crit_edge ], [ 5, %1 ]
   %22 = tail call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.51, ptr noundef nonnull @prog) #20
   %23 = load ptr, ptr %0, align 8, !tbaa !17
   %.not29 = icmp eq ptr %23, @OPT_SECTION_STR
@@ -2439,10 +2439,10 @@ define void @opt_help(ptr noundef readonly captures(none) %0) local_unnamed_addr
 
 .lr.ph40:                                         ; preds = %._crit_edge, %._crit_edge.thread, %24
   %26 = phi ptr [ %.pre, %24 ], [ @OPT_HELP_STR, %._crit_edge ], [ @OPT_SECTION_STR, %._crit_edge.thread ]
-  %.021.lcssa4447 = phi i32 [ %.021.lcssa43, %24 ], [ %21, %._crit_edge ], [ %.021.lcssa43, %._crit_edge.thread ]
-  %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 range(i32 5, -2147483648) %.021.lcssa4447, i32 80)
+  %.021.lcssa5053 = phi i32 [ %.021.lcssa49, %24 ], [ %21, %._crit_edge ], [ %.021.lcssa49, %._crit_edge.thread ]
+  %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 range(i32 5, -2147483648) %.021.lcssa5053, i32 80)
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %invariant.smin = tail call i32 @llvm.umin.i32(i32 %.021.lcssa4447, i32 29)
+  %invariant.smin = tail call i32 @llvm.umin.i32(i32 %.021.lcssa5053, i32 29)
   %28 = zext nneg i32 %spec.store.select.i to i64
   %29 = getelementptr inbounds nuw [81 x i8], ptr %2, i64 0, i64 %28
   br label %30

@@ -1109,13 +1109,13 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_read(ptr noundef captures(none)
   br i1 %.not81101, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %121, %124
-  %.067130 = phi i64 [ %129, %124 ], [ %4, %121 ]
+  %.067136 = phi i64 [ %129, %124 ], [ %4, %121 ]
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %131
 
 131:                                              ; preds = %.lr.ph, %169
   %.063104 = phi i64 [ %3, %.lr.ph ], [ %171, %169 ]
-  %.168103 = phi i64 [ %.067130, %.lr.ph ], [ %170, %169 ]
+  %.168103 = phi i64 [ %.067136, %.lr.ph ], [ %170, %169 ]
   %.070102 = phi ptr [ %5, %.lr.ph ], [ %172, %169 ]
   %132 = load ptr, ptr %130, align 8, !tbaa !15
   %133 = tail call i64 @fread(ptr noundef %.070102, i64 noundef 1, i64 noundef %.168103, ptr noundef %132)

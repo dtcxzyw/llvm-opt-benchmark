@@ -4177,11 +4177,11 @@ define hidden i32 @dissect_blocks(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %5, %16, %._crit_edge
-  %.0.lcssa14 = phi i32 [ %11, %16 ], [ %11, %._crit_edge ], [ %1, %5 ]
+  %.0.lcssa16 = phi i32 [ %11, %16 ], [ %11, %._crit_edge ], [ %1, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i32 %.0.lcssa14
+  ret i32 %.0.lcssa16
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -5506,7 +5506,7 @@ define hidden i32 @dissect_rsi_blocks(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %dissect_blocks.exit
 
 dissect_blocks.exit:                              ; preds = %15, %._crit_edge.i, %23
-  %.0.lcssa14.i = phi i32 [ %18, %23 ], [ %18, %._crit_edge.i ], [ %1, %15 ]
+  %.0.lcssa16.i = phi i32 [ %18, %23 ], [ %18, %._crit_edge.i ], [ %1, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -5560,7 +5560,7 @@ dissect_blocks.exit:                              ; preds = %15, %._crit_edge.i,
   br label %dissect_blocks.exit95
 
 dissect_blocks.exit95:                            ; preds = %31, %._crit_edge.i92, %39
-  %.0.lcssa14.i89 = phi i32 [ %34, %39 ], [ %34, %._crit_edge.i92 ], [ %1, %31 ]
+  %.0.lcssa16.i89 = phi i32 [ %34, %39 ], [ %34, %._crit_edge.i92 ], [ %1, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -5615,7 +5615,7 @@ dissect_blocks.exit95:                            ; preds = %31, %._crit_edge.i9
   br label %61
 
 61:                                               ; preds = %52, %47, %27, %56, %dissect_blocks.exit95, %dissect_blocks.exit
-  %.0.ph = phi i32 [ %53, %52 ], [ %48, %47 ], [ %.0.lcssa14.i89, %dissect_blocks.exit95 ], [ %28, %27 ], [ %.0.lcssa14.i, %dissect_blocks.exit ], [ %60, %56 ]
+  %.0.ph = phi i32 [ %53, %52 ], [ %48, %47 ], [ %.0.lcssa16.i89, %dissect_blocks.exit95 ], [ %28, %27 ], [ %.0.lcssa16.i, %dissect_blocks.exit ], [ %60, %56 ]
   %.pr = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %.pr, null
   br i1 %.not, label %.thread, label %62
@@ -6450,9 +6450,9 @@ define internal void @pnio_load_gsd_files() #0 {
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %85 = load ptr, ptr %84, align 8
   %.not98.i.i = icmp eq ptr %85, null
-  br i1 %.not98.i.i, label %.thread101.i.i, label %86
+  br i1 %.not98.i.i, label %.thread111.i.i, label %86
 
-.thread101.i.i:                                   ; preds = %83
+.thread111.i.i:                                   ; preds = %83
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %._crit_edge.i.i
 
@@ -6467,7 +6467,7 @@ define internal void @pnio_load_gsd_files() #0 {
   %wide.trip.count.i.i = zext nneg i32 %87 to i64
   br label %90
 
-._crit_edge.i.i:                                  ; preds = %.thread95.i.i, %86, %.thread101.i.i
+._crit_edge.i.i:                                  ; preds = %.thread95.i.i, %86, %.thread111.i.i
   call void @xmlXPathFreeObject(ptr noundef nonnull %82)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %pnio_load_gsd_device_modules.exit.i
@@ -7142,7 +7142,7 @@ define internal noundef zeroext i1 @dissect_PNIO_heur(ptr noundef %0, ptr nounde
 
 33:                                               ; preds = %17
   %.old6.not = icmp eq i8 %21, 0
-  br i1 %.old6.not, label %.thread105, label %.thread108
+  br i1 %.old6.not, label %.thread105, label %.thread110
 
 .thread105:                                       ; preds = %.thread, %28, %33
   %34 = call zeroext i1 @dissect_CSF_SDU_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
@@ -7150,15 +7150,15 @@ define internal noundef zeroext i1 @dissect_PNIO_heur(ptr noundef %0, ptr nounde
 
 35:                                               ; preds = %28
   %or.cond11 = icmp ult i32 %31, 8192
-  br i1 %or.cond11, label %40, label %.thread108
+  br i1 %or.cond11, label %40, label %.thread110
 
-.thread108:                                       ; preds = %33, %35
-  %.0104112 = phi i8 [ %.0103, %35 ], [ 1, %33 ]
+.thread110:                                       ; preds = %33, %35
+  %.0104114 = phi i8 [ %.0103, %35 ], [ 1, %33 ]
   %36 = phi i32 [ %30, %35 ], [ %22, %33 ]
   %37 = phi i32 [ %29, %35 ], [ %23, %33 ]
   %38 = and i32 %36, 63488
   %or.cond15 = icmp eq i32 %38, 14336
-  %39 = icmp ne i8 %.0104112, 0
+  %39 = icmp ne i8 %.0104114, 0
   %or.cond19 = select i1 %or.cond15, i1 %39, i1 false
   br i1 %or.cond19, label %41, label %43
 
@@ -7166,13 +7166,13 @@ define internal noundef zeroext i1 @dissect_PNIO_heur(ptr noundef %0, ptr nounde
   %.old18.not = icmp eq i8 %.0103, 0
   br i1 %.old18.not, label %43, label %41
 
-41:                                               ; preds = %.thread108, %40
+41:                                               ; preds = %.thread110, %40
   %42 = call zeroext i1 @dissect_CSF_SDU_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %dissect_PNIO_C_SDU.exit
 
-43:                                               ; preds = %40, %.thread108
-  %44 = phi i32 [ %30, %40 ], [ %36, %.thread108 ]
-  %45 = phi i32 [ %29, %40 ], [ %37, %.thread108 ]
+43:                                               ; preds = %40, %.thread110
+  %44 = phi i32 [ %30, %40 ], [ %36, %.thread110 ]
+  %45 = phi i32 [ %29, %40 ], [ %37, %.thread110 ]
   %46 = and i32 %44, 49152
   %or.cond23 = icmp eq i32 %46, 16384
   br i1 %or.cond23, label %47, label %64
@@ -20830,8 +20830,8 @@ define internal fastcc i32 @dissect_ProfiSafeParameterRequest(ptr noundef %0, pt
   %179 = and i32 %147, 32
   %.not159 = icmp eq i32 %179, 0
   %180 = getelementptr inbounds nuw i8, ptr %159, i64 35
-  %.170 = select i1 %.not159, i8 3, i8 4
-  store i8 %.170, ptr %180, align 1
+  %.175 = select i1 %.not159, i8 3, i8 4
+  store i8 %.175, ptr %180, align 1
   br label %.loopexit
 
 181:                                              ; preds = %158, %163, %167
@@ -21005,11 +21005,11 @@ define internal i32 @dissect_IPNIO_rqst(ptr noundef %0, i32 noundef %1, ptr noun
   br label %dissect_blocks.exit
 
 dissect_blocks.exit:                              ; preds = %6, %._crit_edge.i, %18
-  %.0.lcssa14.i = phi i32 [ %13, %18 ], [ %13, %._crit_edge.i ], [ %10, %6 ]
+  %.0.lcssa16.i = phi i32 [ %13, %18 ], [ %13, %._crit_edge.i ], [ %10, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %.0.lcssa14.i
+  ret i32 %.0.lcssa16.i
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -21047,11 +21047,11 @@ define internal i32 @dissect_IPNIO_resp(ptr noundef %0, i32 noundef %1, ptr noun
   br label %dissect_blocks.exit
 
 dissect_blocks.exit:                              ; preds = %6, %._crit_edge.i, %18
-  %.0.lcssa14.i = phi i32 [ %13, %18 ], [ %13, %._crit_edge.i ], [ %10, %6 ]
+  %.0.lcssa16.i = phi i32 [ %13, %18 ], [ %13, %._crit_edge.i ], [ %10, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %.0.lcssa14.i
+  ret i32 %.0.lcssa16.i
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

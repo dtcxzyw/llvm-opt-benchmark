@@ -237,7 +237,7 @@ Abc_Clock.exit:                                   ; preds = %54, %57
   %92 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv.i23
   %93 = load ptr, ptr %92, align 8, !tbaa !20
   %.not.i24 = icmp eq ptr %93, null
-  br i1 %.not.i24, label %.critedge.loopexit.split.loop.exit189.i, label %94
+  br i1 %.not.i24, label %.critedge.loopexit.split.loop.exit209.i, label %94
 
 94:                                               ; preds = %.lr.ph.i22
   %95 = load i32, ptr %93, align 8, !tbaa !22
@@ -292,12 +292,12 @@ Abc_Clock.exit:                                   ; preds = %54, %57
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, %wide.trip.count.i21
   br i1 %exitcond.not.i26, label %.critedge.i, label %.lr.ph.i22, !llvm.loop !37
 
-.critedge.loopexit.split.loop.exit189.i:          ; preds = %.lr.ph.i22
+.critedge.loopexit.split.loop.exit209.i:          ; preds = %.lr.ph.i22
   %121 = trunc nuw nsw i64 %indvars.iv.i23 to i32
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %119, %.critedge.loopexit.split.loop.exit189.i, %Abc_Clock.exit
-  %storemerge.lcssa.i = phi i32 [ 0, %Abc_Clock.exit ], [ %121, %.critedge.loopexit.split.loop.exit189.i ], [ %72, %119 ]
+.critedge.i:                                      ; preds = %119, %.critedge.loopexit.split.loop.exit209.i, %Abc_Clock.exit
+  %storemerge.lcssa.i = phi i32 [ 0, %Abc_Clock.exit ], [ %121, %.critedge.loopexit.split.loop.exit209.i ], [ %72, %119 ]
   store i32 %storemerge.lcssa.i, ptr %calloc.i.i.i, align 8, !tbaa !38
   store i32 %72, ptr %52, align 8, !tbaa !39
   store i32 0, ptr %.073, align 8, !tbaa !38

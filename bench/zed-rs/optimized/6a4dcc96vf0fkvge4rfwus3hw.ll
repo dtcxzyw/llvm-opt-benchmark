@@ -8675,7 +8675,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exi
   %145 = shl i64 %104, 3
   %146 = sub nuw nsw i64 -8, %145
   %147 = getelementptr inbounds i8, ptr %69, i64 %146
-  %148 = shl i64 %.sroa.0.0.i4.i, 3
+  %148 = shl nuw i64 %.sroa.0.0.i4.i, 3
   %149 = sub nuw nsw i64 -8, %148
   %150 = getelementptr inbounds i8, ptr %67, i64 %149
   %151 = load i64, ptr %147, align 1
@@ -8711,9 +8711,9 @@ _ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h544378d21e7aad43E.exit
 
 ._crit_edge.i.i:                                  ; preds = %162
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %18, i64 16)
-  %spec.select61.i = tail call i64 @llvm.umin.i64(i64 %18, i64 16)
+  %spec.select64.i = tail call i64 @llvm.umin.i64(i64 %18, i64 16)
   %159 = getelementptr inbounds i8, ptr %.val9.i, i64 %spec.select.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %159, ptr nonnull align 1 %.val9.i, i64 %spec.select61.i, i1 false), !noalias !1824
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %159, ptr nonnull align 1 %.val9.i, i64 %spec.select64.i, i1 false), !noalias !1824
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1824
   %160 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %160, align 8, !noalias !1824

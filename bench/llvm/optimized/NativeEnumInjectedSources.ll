@@ -995,7 +995,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %45, %_ZNSt10unique_
 
 _ZN4llvm5ErrorD2Ev.exit19.i:                      ; preds = %67
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !98
-  %72 = sub i64 %.sroa.speculated.i, %.026.i
+  %72 = sub nsw i64 %.sroa.speculated.i, %.026.i
   %73 = load i64, ptr %66, align 8, !tbaa !101, !noalias !98
   %..i20.i = call i64 @llvm.umin.i64(i64 %72, i64 %73)
   %.sroa.0.0.copyload.pn.i.i = load ptr, ptr %8, align 8, !tbaa !68, !noalias !98
@@ -1033,9 +1033,9 @@ _ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.e
   %.pre30.i = load ptr, ptr %7, align 8, !tbaa !72, !noalias !98
   %87 = icmp eq ptr %.pre30.i, %64
   %88 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  br i1 %87, label %_ZN4llvm3pdb12_GLOBAL__N_114readStreamDataB5cxx11ERNS_12BinaryStreamEm.exit.thread30, label %_ZN4llvm3pdb12_GLOBAL__N_114readStreamDataB5cxx11ERNS_12BinaryStreamEm.exit.thread
+  br i1 %87, label %_ZN4llvm3pdb12_GLOBAL__N_114readStreamDataB5cxx11ERNS_12BinaryStreamEm.exit.thread41, label %_ZN4llvm3pdb12_GLOBAL__N_114readStreamDataB5cxx11ERNS_12BinaryStreamEm.exit.thread
 
-_ZN4llvm3pdb12_GLOBAL__N_114readStreamDataB5cxx11ERNS_12BinaryStreamEm.exit.thread30: ; preds = %85
+_ZN4llvm3pdb12_GLOBAL__N_114readStreamDataB5cxx11ERNS_12BinaryStreamEm.exit.thread41: ; preds = %85
   %.pre = load i64, ptr %65, align 8, !tbaa !75, !noalias !98
   %89 = icmp ult i64 %.pre, 16
   call void @llvm.assume(i1 %89)
@@ -1068,7 +1068,7 @@ _ZN4llvm3pdb12_GLOBAL__N_114readStreamDataB5cxx11ERNS_12BinaryStreamEm.exit: ; p
   store i64 %92, ptr %2, align 8, !tbaa !20
   br label %._crit_edge.i.i10
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i4.sink.split: ; preds = %_ZN4llvm3pdb12_GLOBAL__N_114readStreamDataB5cxx11ERNS_12BinaryStreamEm.exit.thread, %_ZN4llvm3pdb12_GLOBAL__N_114readStreamDataB5cxx11ERNS_12BinaryStreamEm.exit.thread30
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i4.sink.split: ; preds = %_ZN4llvm3pdb12_GLOBAL__N_114readStreamDataB5cxx11ERNS_12BinaryStreamEm.exit.thread, %_ZN4llvm3pdb12_GLOBAL__N_114readStreamDataB5cxx11ERNS_12BinaryStreamEm.exit.thread41
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !98
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i4
 

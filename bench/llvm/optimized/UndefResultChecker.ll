@@ -856,8 +856,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %42
 _ZN4llvmeqENS_9StringRefES0_.exit.thread106.i:    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %42, %28
   %47 = load ptr, ptr %15, align 8, !tbaa !54
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.0.copyload.i.i.i.i6.i.i = load i64, ptr %48, align 8
-  %49 = and i64 %.0.copyload.i.i.i.i6.i.i, -8
+  %.0.copyload.i.i.i.i7.i.i = load i64, ptr %48, align 8
+  %49 = and i64 %.0.copyload.i.i.i.i7.i.i, -8
   %50 = inttoptr i64 %49 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 56
@@ -1191,10 +1191,10 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit48.i.i: ; pre
   br i1 %.not.i.i49.i.i, label %_ZL23isArrayIndexOutOfBoundsRN5clang4ento14CheckerContextEPKNS_4ExprE.exit.i, label %212
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit48.i.thread.i: ; preds = %_ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_ED2Ev.exit.i.i
-  %.not.i.i49.i128.i = icmp eq ptr %209, null
-  br i1 %.not.i.i49.i128.i, label %_ZL23isArrayIndexOutOfBoundsRN5clang4ento14CheckerContextEPKNS_4ExprE.exit.thread129.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit74.critedge.i
+  %.not.i.i49.i144.i = icmp eq ptr %209, null
+  br i1 %.not.i.i49.i144.i, label %_ZL23isArrayIndexOutOfBoundsRN5clang4ento14CheckerContextEPKNS_4ExprE.exit.thread145.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit74.critedge.i
 
-_ZL23isArrayIndexOutOfBoundsRN5clang4ento14CheckerContextEPKNS_4ExprE.exit.thread129.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit48.i.thread.i
+_ZL23isArrayIndexOutOfBoundsRN5clang4ento14CheckerContextEPKNS_4ExprE.exit.thread145.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit48.i.thread.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %173) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit74.i
@@ -1325,9 +1325,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit74.critedge.i:    ; preds = %_ZN4llvm18Intrusive
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit74.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit74.i:             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit74.critedge.i, %266, %264, %221, %219, %_ZL23isArrayIndexOutOfBoundsRN5clang4ento14CheckerContextEPKNS_4ExprE.exit.thread.i, %_ZL23isArrayIndexOutOfBoundsRN5clang4ento14CheckerContextEPKNS_4ExprE.exit.thread119.i, %212, %_ZL23isArrayIndexOutOfBoundsRN5clang4ento14CheckerContextEPKNS_4ExprE.exit.thread129.i
-  %.not53116.i = phi i1 [ false, %_ZL23isArrayIndexOutOfBoundsRN5clang4ento14CheckerContextEPKNS_4ExprE.exit.thread.i ], [ false, %_ZL23isArrayIndexOutOfBoundsRN5clang4ento14CheckerContextEPKNS_4ExprE.exit.thread119.i ], [ false, %212 ], [ false, %219 ], [ false, %221 ], [ true, %264 ], [ true, %266 ], [ false, %_ZL23isArrayIndexOutOfBoundsRN5clang4ento14CheckerContextEPKNS_4ExprE.exit.thread129.i ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit74.critedge.i ]
-  %.049114.i = phi ptr [ %95, %_ZL23isArrayIndexOutOfBoundsRN5clang4ento14CheckerContextEPKNS_4ExprE.exit.thread.i ], [ %95, %_ZL23isArrayIndexOutOfBoundsRN5clang4ento14CheckerContextEPKNS_4ExprE.exit.thread119.i ], [ %95, %212 ], [ %95, %219 ], [ %95, %221 ], [ null, %264 ], [ null, %266 ], [ %95, %_ZL23isArrayIndexOutOfBoundsRN5clang4ento14CheckerContextEPKNS_4ExprE.exit.thread129.i ], [ %95, %_ZN4llvm11raw_ostreamlsEPKc.exit74.critedge.i ]
+_ZN4llvm11raw_ostreamlsEPKc.exit74.i:             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit74.critedge.i, %266, %264, %221, %219, %_ZL23isArrayIndexOutOfBoundsRN5clang4ento14CheckerContextEPKNS_4ExprE.exit.thread.i, %_ZL23isArrayIndexOutOfBoundsRN5clang4ento14CheckerContextEPKNS_4ExprE.exit.thread119.i, %212, %_ZL23isArrayIndexOutOfBoundsRN5clang4ento14CheckerContextEPKNS_4ExprE.exit.thread145.i
+  %.not53116.i = phi i1 [ false, %_ZL23isArrayIndexOutOfBoundsRN5clang4ento14CheckerContextEPKNS_4ExprE.exit.thread.i ], [ false, %_ZL23isArrayIndexOutOfBoundsRN5clang4ento14CheckerContextEPKNS_4ExprE.exit.thread119.i ], [ false, %212 ], [ false, %219 ], [ false, %221 ], [ true, %264 ], [ true, %266 ], [ false, %_ZL23isArrayIndexOutOfBoundsRN5clang4ento14CheckerContextEPKNS_4ExprE.exit.thread145.i ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit74.critedge.i ]
+  %.049114.i = phi ptr [ %95, %_ZL23isArrayIndexOutOfBoundsRN5clang4ento14CheckerContextEPKNS_4ExprE.exit.thread.i ], [ %95, %_ZL23isArrayIndexOutOfBoundsRN5clang4ento14CheckerContextEPKNS_4ExprE.exit.thread119.i ], [ %95, %212 ], [ %95, %219 ], [ %95, %221 ], [ null, %264 ], [ null, %266 ], [ %95, %_ZL23isArrayIndexOutOfBoundsRN5clang4ento14CheckerContextEPKNS_4ExprE.exit.thread145.i ], [ %95, %_ZN4llvm11raw_ostreamlsEPKc.exit74.critedge.i ]
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %271 = load ptr, ptr %64, align 8, !tbaa !293
   %272 = load ptr, ptr %271, align 8, !tbaa !139
@@ -1375,8 +1375,8 @@ _ZN5clang4ento9BugReport8addRangeENS_11SourceRangeE.exit.i: ; preds = %285, %278
   br label %295
 
 295:                                              ; preds = %_ZN5clang4ento9BugReport8addRangeENS_11SourceRangeE.exit.i, %_ZN4llvm11raw_ostreamlsEPKc.exit74.i
-  %.sink130.i = phi ptr [ %.049114.i, %_ZN5clang4ento9BugReport8addRangeENS_11SourceRangeE.exit.i ], [ %1, %_ZN4llvm11raw_ostreamlsEPKc.exit74.i ]
-  %296 = call noundef zeroext i1 @_ZN5clang4ento11bugreporter20trackExpressionValueEPKNS0_12ExplodedNodeEPKNS_4ExprERNS0_22PathSensitiveBugReportENS1_15TrackingOptionsE(ptr noundef nonnull %53, ptr noundef nonnull %.sink130.i, ptr noundef nonnull align 8 dereferenceable(1000) %275, i64 4294967296) #19
+  %.sink146.i = phi ptr [ %.049114.i, %_ZN5clang4ento9BugReport8addRangeENS_11SourceRangeE.exit.i ], [ %1, %_ZN4llvm11raw_ostreamlsEPKc.exit74.i ]
+  %296 = call noundef zeroext i1 @_ZN5clang4ento11bugreporter20trackExpressionValueEPKNS0_12ExplodedNodeEPKNS_4ExprERNS0_22PathSensitiveBugReportENS1_15TrackingOptionsE(ptr noundef nonnull %53, ptr noundef nonnull %.sink146.i, ptr noundef nonnull align 8 dereferenceable(1000) %275, i64 4294967296) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %297 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %297, align 8, !tbaa !310

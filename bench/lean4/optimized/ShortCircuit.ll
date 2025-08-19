@@ -817,21 +817,21 @@ lean_dec.exit:                                    ; preds = %82, %81, %79, %lean
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec.exit, %lean_dec.exit40
-  %.sink70 = phi ptr [ %51, %lean_dec.exit40 ], [ %83, %lean_dec.exit ]
-  %.sink67 = phi i32 [ 131096, %lean_dec.exit40 ], [ 16908312, %lean_dec.exit ]
-  %.sink64 = phi ptr [ %25, %lean_dec.exit40 ], [ %57, %lean_dec.exit ]
+  %.sink75 = phi ptr [ %51, %lean_dec.exit40 ], [ %83, %lean_dec.exit ]
+  %.sink72 = phi i32 [ 131096, %lean_dec.exit40 ], [ 16908312, %lean_dec.exit ]
+  %.sink69 = phi ptr [ %25, %lean_dec.exit40 ], [ %57, %lean_dec.exit ]
   %.sink = phi ptr [ %27, %lean_dec.exit40 ], [ %59, %lean_dec.exit ]
-  %86 = getelementptr inbounds nuw i8, ptr %.sink70, i64 4
-  store i32 1, ptr %.sink70, align 4, !tbaa !4
-  store i32 %.sink67, ptr %86, align 4
-  %87 = getelementptr inbounds nuw i8, ptr %.sink70, i64 8
-  store ptr %.sink64, ptr %87, align 8, !tbaa !10
-  %88 = getelementptr inbounds nuw i8, ptr %.sink70, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %.sink75, i64 4
+  store i32 1, ptr %.sink75, align 4, !tbaa !4
+  store i32 %.sink72, ptr %86, align 4
+  %87 = getelementptr inbounds nuw i8, ptr %.sink75, i64 8
+  store ptr %.sink69, ptr %87, align 8, !tbaa !10
+  %88 = getelementptr inbounds nuw i8, ptr %.sink75, i64 16
   store ptr %.sink, ptr %88, align 8, !tbaa !10
   br label %89
 
 89:                                               ; preds = %.sink.split, %54, %22
-  %.1 = phi ptr [ %11, %22 ], [ %11, %54 ], [ %.sink70, %.sink.split ]
+  %.1 = phi ptr [ %11, %22 ], [ %11, %54 ], [ %.sink75, %.sink.split ]
   ret ptr %.1
 }
 
@@ -3310,18 +3310,18 @@ _init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_shortCircuitPass___closed__
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_shortCircuitPass___closed__4.exit, %3
-  %.sink33 = phi ptr [ %4, %3 ], [ %165, %_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_shortCircuitPass___closed__4.exit ]
-  %168 = getelementptr inbounds nuw i8, ptr %.sink33, i64 4
-  store i32 1, ptr %.sink33, align 4, !tbaa !4
+  %.sink52 = phi ptr [ %4, %3 ], [ %165, %_init_l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_shortCircuitPass___closed__4.exit ]
+  %168 = getelementptr inbounds nuw i8, ptr %.sink52, i64 4
+  store i32 1, ptr %.sink52, align 4, !tbaa !4
   store i32 131096, ptr %168, align 4
-  %169 = getelementptr inbounds nuw i8, ptr %.sink33, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %.sink52, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %169, align 8, !tbaa !10
-  %170 = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %.sink52, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %170, align 8, !tbaa !10
   br label %171
 
 171:                                              ; preds = %.sink.split, %lean_dec_ref.exit18, %lean_dec_ref.exit20, %lean_dec_ref.exit22, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit22 ], [ %28, %lean_dec_ref.exit20 ], [ %38, %lean_dec_ref.exit18 ], [ %.sink33, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit22 ], [ %28, %lean_dec_ref.exit20 ], [ %38, %lean_dec_ref.exit18 ], [ %.sink52, %.sink.split ]
   ret ptr %.0
 }
 

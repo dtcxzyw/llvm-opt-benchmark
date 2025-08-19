@@ -235,8 +235,8 @@ Abc_TruthReadHexDigit.exit.i.us.i:                ; preds = %82, %80, %77
   br i1 %exitcond.not.i.us.i, label %Abc_TruthReadHex.exit.loopexit.us.preheader.i, label %.lr.ph.i.us.i, !llvm.loop !23
 
 Abc_TruthReadHex.exit.loopexit.us.preheader.i:    ; preds = %Abc_TruthReadHexDigit.exit.i.us.i
-  %sext29.i = shl i64 %.01216.us.i, 32
-  %93 = ashr exact i64 %sext29.i, 32
+  %sext31.i = shl i64 %.01216.us.i, 32
+  %93 = ashr exact i64 %sext31.i, 32
   br label %Abc_TruthReadHex.exit.loopexit.us.i
 
 Abc_TruthReadHex.exit.loopexit.us.i:              ; preds = %Abc_TruthReadHex.exit.loopexit.us.i, %Abc_TruthReadHex.exit.loopexit.us.preheader.i
@@ -248,8 +248,8 @@ Abc_TruthReadHex.exit.loopexit.us.i:              ; preds = %Abc_TruthReadHex.ex
   br i1 %.not14.us.i, label %96, label %Abc_TruthReadHex.exit.loopexit.us.i, !llvm.loop !24
 
 96:                                               ; preds = %Abc_TruthReadHex.exit.loopexit.us.i
-  %sext30.i = shl i64 %indvars.iv.next24.i, 32
-  %97 = ashr exact i64 %sext30.i, 32
+  %sext32.i = shl i64 %indvars.iv.next24.i, 32
+  %97 = ashr exact i64 %sext32.i, 32
   %98 = getelementptr inbounds i8, ptr %52, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !12
   %.not.us.i = icmp eq i8 %99, 10

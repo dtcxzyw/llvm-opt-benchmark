@@ -1430,7 +1430,7 @@ define range(i32 0, 2) i32 @Cec_ManSRunSimInt(ptr noundef captures(none) %0) loc
 
 18:                                               ; preds = %.lr.ph, %Abc_TtClear.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Abc_TtClear.exit ]
-  %.148 = phi i32 [ %.03050, %.lr.ph ], [ %.260, %Abc_TtClear.exit ]
+  %.148 = phi i32 [ %.03050, %.lr.ph ], [ %.262, %Abc_TtClear.exit ]
   %.val39 = load ptr, ptr %17, align 8, !tbaa !19
   %19 = getelementptr inbounds nuw i32, ptr %.val39, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !55
@@ -1503,7 +1503,7 @@ Abc_TtIsConst1.exit:                              ; preds = %39, %.lr.ph.i, %25,
   br label %Abc_TtClear.exit
 
 Abc_TtClear.exit:                                 ; preds = %27, %Abc_TtIsConst1.exit, %.lr.ph.preheader.i43
-  %.260 = phi i32 [ %.2.ph, %Abc_TtIsConst1.exit ], [ %.2.ph, %.lr.ph.preheader.i43 ], [ 1, %27 ]
+  %.262 = phi i32 [ %.2.ph, %Abc_TtIsConst1.exit ], [ %.2.ph, %.lr.ph.preheader.i43 ], [ 1, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val38 = load i32, ptr %15, align 4, !tbaa !15
   %51 = sext i32 %.val38 to i64
@@ -1516,7 +1516,7 @@ Abc_TtClear.exit:                                 ; preds = %27, %Abc_TtIsConst1
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %10
   %53 = phi i32 [ %11, %10 ], [ %.pre, %.critedge2.loopexit ]
-  %.1.lcssa = phi i32 [ %.03050, %10 ], [ %.260, %.critedge2.loopexit ]
+  %.1.lcssa = phi i32 [ %.03050, %10 ], [ %.262, %.critedge2.loopexit ]
   store i32 0, ptr %15, align 4, !tbaa !15
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
   %54 = sext i32 %53 to i64

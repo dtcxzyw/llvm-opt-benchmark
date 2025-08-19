@@ -18662,7 +18662,7 @@ _ZNSt12_Vector_baseIN6casadi2MXESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZNSt6vectorI
           to label %_ZSt10_ConstructIN6casadi2MXEJEEvPT_DpOT0_.exit.i.i.i.i unwind label %14
 
 _ZSt10_ConstructIN6casadi2MXEJEEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %12 = add i64 %.01013.i.i.i.i, -1
+  %12 = add nsw i64 %.01013.i.i.i.i, -1
   %13 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq i64 %12, 0
   br i1 %.not.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !114
@@ -33329,8 +33329,8 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i126: ; preds = %_ZStlsISt11char
           to label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i128.invoke unwind label %65
 
 _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i128.invoke.sink.split: ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i126, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i115
-  %.sink147 = phi ptr [ %209, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i115 ], [ %235, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i126 ]
-  %243 = getelementptr inbounds nuw i8, ptr %.sink147, i64 67
+  %.sink169 = phi ptr [ %209, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i115 ], [ %235, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i126 ]
+  %243 = getelementptr inbounds nuw i8, ptr %.sink169, i64 67
   %244 = load i8, ptr %243, align 1, !tbaa !17
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i128.invoke
 

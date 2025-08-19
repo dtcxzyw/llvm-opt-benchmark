@@ -683,8 +683,8 @@ define void @dt_imageio_flip_buffers_ui8_to_float(ptr noundef writeonly captures
   %54 = icmp sgt i32 %5, 0
   %55 = sext i32 %4 to i64
   %56 = icmp sgt i32 %4, 0
-  %or.cond139 = and i1 %54, %56
-  br i1 %or.cond139, label %.preheader87.lr.ph.us.us.preheader, label %.loopexit
+  %or.cond145 = and i1 %54, %56
+  br i1 %or.cond145, label %.preheader87.lr.ph.us.us.preheader, label %.loopexit
 
 .preheader87.lr.ph.us.us.preheader:               ; preds = %.lr.ph
   %57 = sext i32 %.1 to i64
@@ -1682,8 +1682,8 @@ dt_get_perf_times.exit442:                        ; preds = %330, %336
   br label %._crit_edge485.thread
 
 ._crit_edge485.thread:                            ; preds = %371, %361, %._crit_edge485
-  %.not418528 = phi i1 [ false, %._crit_edge485 ], [ true, %361 ], [ true, %371 ]
-  %.1374527 = phi ptr [ %365, %._crit_edge485 ], [ null, %361 ], [ null, %371 ]
+  %.not418556 = phi i1 [ false, %._crit_edge485 ], [ true, %361 ], [ true, %371 ]
+  %.1374555 = phi ptr [ %365, %._crit_edge485 ], [ null, %361 ], [ null, %371 ]
   %375 = icmp eq i32 %333, 8
   %376 = fptrunc reassoc nsz arcp contract afn double %.0371 to float
   br i1 %375, label %377, label %379
@@ -1697,10 +1697,10 @@ dt_get_perf_times.exit442:                        ; preds = %330, %336
   br label %381
 
 381:                                              ; preds = %379, %377
-  br i1 %.not418528, label %384, label %382
+  br i1 %.not418556, label %384, label %382
 
 382:                                              ; preds = %381
-  %383 = getelementptr inbounds nuw i8, ptr %.1374527, i64 32
+  %383 = getelementptr inbounds nuw i8, ptr %.1374555, i64 32
   store i32 1, ptr %383, align 16, !tbaa !180
   br label %384
 

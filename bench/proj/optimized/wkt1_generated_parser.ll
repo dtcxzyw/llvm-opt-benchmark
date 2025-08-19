@@ -402,20 +402,20 @@ define hidden range(i32 0, 3) i32 @pj_wkt1_parse(ptr noundef %0) local_unnamed_a
   br i1 %.not226, label %131, label %.thread286.thread
 
 .thread286.thread:                                ; preds = %33, %.thread286
-  %.4236276330 = phi ptr [ %.4236276, %.thread286 ], [ %5, %33 ]
-  %.0186280328 = phi i32 [ %.0186280, %.thread286 ], [ 1, %33 ]
-  %.6169284327 = phi ptr [ %.6169284, %.thread286 ], [ %24, %33 ]
-  call void @free(ptr noundef %.6169284327)
+  %.4236276333 = phi ptr [ %.4236276, %.thread286 ], [ %5, %33 ]
+  %.0186280331 = phi i32 [ %.0186280, %.thread286 ], [ 1, %33 ]
+  %.6169284330 = phi ptr [ %.6169284, %.thread286 ], [ %24, %33 ]
+  call void @free(ptr noundef %.6169284330)
   br label %131
 
 131:                                              ; preds = %.thread286.thread, %.thread286
-  %.4236276331 = phi ptr [ %.4236276330, %.thread286.thread ], [ %.4236276, %.thread286 ]
-  %.0186280329 = phi i32 [ %.0186280328, %.thread286.thread ], [ %.0186280, %.thread286 ]
-  %.not227 = icmp eq ptr %.4236276331, %5
+  %.4236276334 = phi ptr [ %.4236276333, %.thread286.thread ], [ %.4236276, %.thread286 ]
+  %.0186280332 = phi i32 [ %.0186280331, %.thread286.thread ], [ %.0186280, %.thread286 ]
+  %.not227 = icmp eq ptr %.4236276334, %5
   br i1 %.not227, label %133, label %132
 
 132:                                              ; preds = %131
-  call void @free(ptr noundef %.4236276331)
+  call void @free(ptr noundef %.4236276334)
   br label %133
 
 133:                                              ; preds = %131, %132
@@ -424,7 +424,7 @@ define hidden range(i32 0, 3) i32 @pj_wkt1_parse(ptr noundef %0) local_unnamed_a
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.0186280329
+  ret i32 %.0186280332
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -701,10 +701,10 @@ yystpcpy.exit.i:                                  ; preds = %.preheader.i
   br label %yytnamerr.exit131
 
 yytnamerr.exit131:                                ; preds = %75, %.preheader, %yystpcpy.exit.i, %.split.us.thread.i
-  %.sink35 = phi i64 [ %101, %yystpcpy.exit.i ], [ %.020.i, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %75 ]
+  %.sink41 = phi i64 [ %101, %yystpcpy.exit.i ], [ %.020.i, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %75 ]
   %.sink = phi i64 [ 2, %yystpcpy.exit.i ], [ 2, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %75 ]
   %.1 = phi i32 [ %81, %yystpcpy.exit.i ], [ %81, %.split.us.thread.i ], [ %.0, %.preheader ], [ %.0, %75 ]
-  %102 = getelementptr inbounds i8, ptr %.071, i64 %.sink35
+  %102 = getelementptr inbounds i8, ptr %.071, i64 %.sink41
   %103 = getelementptr inbounds nuw i8, ptr %.180, i64 %.sink
   br label %.preheader
 

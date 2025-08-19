@@ -1571,8 +1571,8 @@ _ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit: ; preds = %.lr.ph.i, %28
   br i1 %.not.i.i, label %_ZN17scoped_mpz_matrixD2Ev.exit, label %.preheader19.i.i
 
 .preheader19.i.i:                                 ; preds = %93, %26, %128, %115, %.critedge
-  %.3115 = phi i1 [ true, %.critedge ], [ true, %128 ], [ false, %115 ], [ false, %26 ], [ false, %93 ]
-  %.pre29.i.i114 = phi ptr [ %.pre110, %.critedge ], [ %101, %115 ], [ %101, %128 ], [ %.pre, %26 ], [ %.pre, %93 ]
+  %.3124 = phi i1 [ true, %.critedge ], [ true, %128 ], [ false, %115 ], [ false, %26 ], [ false, %93 ]
+  %.pre29.i.i123 = phi ptr [ %.pre110, %.critedge ], [ %101, %115 ], [ %101, %128 ], [ %.pre, %26 ], [ %.pre, %93 ]
   %150 = load ptr, ptr %5, align 8, !tbaa !36
   %151 = load i32, ptr %6, align 8, !tbaa !14
   %.not23.i.i = icmp eq i32 %151, 0
@@ -1600,7 +1600,7 @@ _ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit: ; preds = %.lr.ph.i, %28
   %158 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %159 = load ptr, ptr %158, align 8, !tbaa !16
   %160 = zext i32 %157 to i64
-  invoke void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %159, i64 noundef %160, ptr noundef nonnull %.pre29.i.i114)
+  invoke void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %159, i64 noundef %160, ptr noundef nonnull %.pre29.i.i123)
           to label %_ZN17scoped_mpz_matrixD2Ev.exit unwind label %.loopexit.split-lp.i
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.noexc1.i
@@ -1622,7 +1622,7 @@ _ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit: ; preds = %.lr.ph.i, %28
   %168 = mul i32 %166, %.021.i.i
   %169 = add i32 %168, %.01720.i.i
   %170 = zext i32 %169 to i64
-  %171 = getelementptr inbounds nuw %class.mpz, ptr %.pre29.i.i114, i64 %170
+  %171 = getelementptr inbounds nuw %class.mpz, ptr %.pre29.i.i123, i64 %170
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %167, ptr noundef nonnull align 8 dereferenceable(16) %171)
           to label %.noexc1.i unwind label %.loopexit.i
 
@@ -1649,9 +1649,9 @@ _ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit: ; preds = %.lr.ph.i, %28
   unreachable
 
 _ZN17scoped_mpz_matrixD2Ev.exit:                  ; preds = %._crit_edge22.i.i, %.critedge
-  %.3116 = phi i1 [ true, %.critedge ], [ %.3115, %._crit_edge22.i.i ]
+  %.3125 = phi i1 [ true, %.critedge ], [ %.3124, %._crit_edge22.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i1 %.3116
+  ret i1 %.3125
 
 177:                                              ; preds = %113, %148, %22, %12
   %.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %13, %12 ], [ %149, %148 ], [ %114, %113 ]
@@ -2722,16 +2722,16 @@ _ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   br i1 %.not.i21.i.i.i, label %_ZSt4sortIPjEvT_S1_.exit, label %.lr.ph.i15.i.i.i, !llvm.loop !69
 
 _ZSt4sortIPjEvT_S1_.exit:                         ; preds = %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i, %33, %_ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit, %.preheader116, %177, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge
-  %.not.i.i93163 = phi i1 [ false, %177 ], [ true, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge ], [ true, %.preheader116 ], [ true, %_ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit ], [ true, %33 ], [ false, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ false, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
+  %.not.i.i93193 = phi i1 [ false, %177 ], [ true, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge ], [ true, %.preheader116 ], [ true, %_ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit ], [ true, %33 ], [ false, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ false, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
   %194 = phi i64 [ 1, %177 ], [ 0, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge ], [ 0, %.preheader116 ], [ 0, %_ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit ], [ 0, %33 ], [ %151, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ %151, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
-  %.1162 = phi i32 [ 1, %177 ], [ 0, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge ], [ 0, %.preheader116 ], [ 0, %_ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit ], [ 0, %33 ], [ %.1, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ %.1, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
+  %.1192 = phi i32 [ 1, %177 ], [ 0, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge ], [ 0, %.preheader116 ], [ 0, %_ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit ], [ 0, %33 ], [ %.1, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ %.1, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
   %195 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %196 = load i32, ptr %195, align 4, !tbaa !15
-  invoke void @_ZN18mpz_matrix_manager2mkEjjR10mpz_matrix(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.1162, i32 noundef %196, ptr noundef nonnull align 8 dereferenceable(16) %13)
+  invoke void @_ZN18mpz_matrix_manager2mkEjjR10mpz_matrix(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.1192, i32 noundef %196, ptr noundef nonnull align 8 dereferenceable(16) %13)
           to label %.preheader113 unwind label %266
 
 .preheader113:                                    ; preds = %_ZSt4sortIPjEvT_S1_.exit
-  br i1 %.not.i.i93163, label %._crit_edge130, label %.preheader.lr.ph
+  br i1 %.not.i.i93193, label %._crit_edge130, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader113
   %197 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -2934,7 +2934,7 @@ _ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit102: ; preds = %_ZN15_scoped_n
 
 _ZN17scoped_mpz_matrixD2Ev.exit:                  ; preds = %._crit_edge22.i.i, %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit102
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.1162
+  ret i32 %.1192
 
 266:                                              ; preds = %_ZSt4sortIPjEvT_S1_.exit
   %267 = landingpad { ptr, i32 }
@@ -3437,7 +3437,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPjN9__gnu_cxx5__ops15_Iter_le
 
 .split.preheader:                                 ; preds = %9
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds i32, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
   %19 = getelementptr inbounds nuw i32, ptr %0, i64 %16
   br label %.split
 
@@ -3475,20 +3475,20 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPjN9__gnu_cxx5__ops15_Iter_le
   %.01317.i.i.us = phi i64 [ %.018.i.i.us, %40 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.018.in.i.i.us = add nsw i64 %.01317.i.i.us, -1
   %.018.i.i.us = sdiv i64 %.018.in.i.i.us, 2
-  %37 = getelementptr inbounds i32, ptr %0, i64 %.018.i.i.us
+  %37 = getelementptr inbounds nuw i32, ptr %0, i64 %.018.i.i.us
   %38 = load i32, ptr %37, align 4, !tbaa !33
   %39 = icmp ult i32 %38, %21
   br i1 %39, label %40, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us
 
 40:                                               ; preds = %.lr.ph.i.i.us
-  %41 = getelementptr inbounds i32, ptr %0, i64 %.01317.i.i.us
+  %41 = getelementptr inbounds nuw i32, ptr %0, i64 %.01317.i.i.us
   store i32 %38, ptr %41, align 4, !tbaa !33
   %42 = icmp sgt i64 %.018.i.i.us, %.013.us
   br i1 %42, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us, !llvm.loop !84
 
 _ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %40, %.split.us, %._crit_edge.i.us
   %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.018.i.i.us, %40 ], [ %.01317.i.i.us, %.lr.ph.i.i.us ]
-  %43 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i.us
+  %43 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i.us
   store i32 %21, ptr %43, align 4, !tbaa !33
   %.not.us = icmp eq i64 %.013.us, 0
   %44 = add nsw i64 %.013.us, -1
@@ -3539,20 +3539,20 @@ _ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %.01317.i.i = phi i64 [ %.018.i.i, %69 ], [ %.128.i, %64 ]
   %.018.in.i.i = add nsw i64 %.01317.i.i, -1
   %.018.i.i = sdiv i64 %.018.in.i.i, 2
-  %66 = getelementptr inbounds i32, ptr %0, i64 %.018.i.i
+  %66 = getelementptr inbounds nuw i32, ptr %0, i64 %.018.i.i
   %67 = load i32, ptr %66, align 4, !tbaa !33
   %68 = icmp ult i32 %67, %46
   br i1 %68, label %69, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 
 69:                                               ; preds = %.lr.ph.i.i
-  %70 = getelementptr inbounds i32, ptr %0, i64 %.01317.i.i
+  %70 = getelementptr inbounds nuw i32, ptr %0, i64 %.01317.i.i
   store i32 %67, ptr %70, align 4, !tbaa !33
   %71 = icmp sgt i64 %.018.i.i, %.013
   br i1 %71, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit, !llvm.loop !84
 
 _ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit: ; preds = %.lr.ph.i.i, %69, %64
   %.013.lcssa.i.i = phi i64 [ %.128.i, %64 ], [ %.018.i.i, %69 ], [ %.01317.i.i, %.lr.ph.i.i ]
-  %72 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i
+  %72 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i
   store i32 %46, ptr %72, align 4, !tbaa !33
   %.not = icmp eq i64 %.013, 0
   %73 = add nsw i64 %.013, -1

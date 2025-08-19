@@ -529,8 +529,8 @@ Extra_TruthPermute_int.exit:                      ; preds = %._crit_edge.us.i
   br i1 %.not, label %.lr.ph53.preheader, label %.lr.ph50.preheader
 
 Extra_TruthPermute_int.exit.thread:               ; preds = %._crit_edge
-  %.not73 = icmp eq i32 %3, 0
-  br i1 %.not73, label %.lr.ph53.preheader, label %.lr.ph50.preheader
+  %.not74 = icmp eq i32 %3, 0
+  br i1 %.not74, label %.lr.ph53.preheader, label %.lr.ph50.preheader
 
 .lr.ph50.preheader:                               ; preds = %Extra_TruthPermute_int.exit, %Extra_TruthPermute_int.exit.thread
   %smax63 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
@@ -1829,9 +1829,9 @@ define void @Extra_Truth4VarNPN(ptr noundef writeonly captures(address_is_null) 
 .lr.ph.i12.i:
   %4 = alloca [50 x i8], align 16
   %calloc = tail call dereferenceable_or_null(131072) ptr @calloc(i64 1, i64 131072)
-  %calloc185 = tail call dereferenceable_or_null(65536) ptr @calloc(i64 1, i64 65536)
-  %calloc186 = tail call dereferenceable_or_null(65536) ptr @calloc(i64 1, i64 65536)
-  %calloc187 = tail call dereferenceable_or_null(65536) ptr @calloc(i64 1, i64 65536)
+  %calloc192 = tail call dereferenceable_or_null(65536) ptr @calloc(i64 1, i64 65536)
+  %calloc193 = tail call dereferenceable_or_null(65536) ptr @calloc(i64 1, i64 65536)
+  %calloc194 = tail call dereferenceable_or_null(65536) ptr @calloc(i64 1, i64 65536)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noalias dereferenceable_or_null(288) ptr @malloc(i64 noundef 288) #34
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 192
@@ -1874,18 +1874,18 @@ Extra_Permutations.exit:                          ; preds = %.lr.ph.i
 
 18:                                               ; preds = %15
   %19 = zext i16 %17 to i64
-  %20 = getelementptr inbounds nuw i8, ptr %calloc187, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %calloc194, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !12
-  %22 = getelementptr inbounds nuw i8, ptr %calloc187, i64 %indvars.iv182
+  %22 = getelementptr inbounds nuw i8, ptr %calloc194, i64 %indvars.iv182
   store i8 %21, ptr %22, align 1, !tbaa !12
   %23 = and i64 %indvars.iv182, 4294967295
   %24 = xor i64 %23, 65535
-  %25 = getelementptr inbounds nuw i8, ptr %calloc187, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %calloc194, i64 %24
   store i8 %21, ptr %25, align 1, !tbaa !12
   br label %.loopexit
 
 26:                                               ; preds = %15
-  %27 = getelementptr inbounds nuw i8, ptr %calloc187, i64 %indvars.iv182
+  %27 = getelementptr inbounds nuw i8, ptr %calloc194, i64 %indvars.iv182
   store i8 %.0108175, ptr %27, align 1, !tbaa !12
   %28 = trunc nuw nsw i64 %indvars.iv182 to i32
   %29 = trunc i64 %indvars.iv182 to i16
@@ -2023,19 +2023,19 @@ Extra_TruthPermute.exit:                          ; preds = %.loopexit.i, %77
 
 82:                                               ; preds = %Extra_TruthPermute.exit
   store i16 %29, ptr %79, align 2, !tbaa !39
-  %83 = getelementptr inbounds nuw i8, ptr %calloc185, i64 %78
+  %83 = getelementptr inbounds nuw i8, ptr %calloc192, i64 %78
   store i8 %44, ptr %83, align 1, !tbaa !12
   %84 = trunc i64 %indvars.iv to i8
-  %85 = getelementptr inbounds nuw i8, ptr %calloc186, i64 %78
+  %85 = getelementptr inbounds nuw i8, ptr %calloc193, i64 %78
   store i8 %84, ptr %85, align 1, !tbaa !12
   %86 = and i32 %.4.i, 65535
   %87 = xor i32 %86, 65535
   %88 = zext nneg i32 %87 to i64
   %89 = getelementptr inbounds nuw i16, ptr %calloc, i64 %88
   store i16 %29, ptr %89, align 2, !tbaa !39
-  %90 = getelementptr inbounds nuw i8, ptr %calloc185, i64 %88
+  %90 = getelementptr inbounds nuw i8, ptr %calloc192, i64 %88
   store i8 %45, ptr %90, align 1, !tbaa !12
-  %91 = getelementptr inbounds nuw i8, ptr %calloc186, i64 %88
+  %91 = getelementptr inbounds nuw i8, ptr %calloc193, i64 %88
   store i8 %84, ptr %91, align 1, !tbaa !12
   br label %Extra_TruthPolarize.exit
 
@@ -2166,19 +2166,19 @@ Extra_TruthPermute.exit170:                       ; preds = %.loopexit.i168, %13
 
 140:                                              ; preds = %Extra_TruthPermute.exit170
   store i16 %29, ptr %137, align 2, !tbaa !39
-  %141 = getelementptr inbounds nuw i8, ptr %calloc185, i64 %136
+  %141 = getelementptr inbounds nuw i8, ptr %calloc192, i64 %136
   store i8 %44, ptr %141, align 1, !tbaa !12
   %142 = trunc i64 %indvars.iv177 to i8
-  %143 = getelementptr inbounds nuw i8, ptr %calloc186, i64 %136
+  %143 = getelementptr inbounds nuw i8, ptr %calloc193, i64 %136
   store i8 %142, ptr %143, align 1, !tbaa !12
   %144 = and i32 %.4.i165, 65535
   %145 = xor i32 %144, 65535
   %146 = zext nneg i32 %145 to i64
   %147 = getelementptr inbounds nuw i16, ptr %calloc, i64 %146
   store i16 %29, ptr %147, align 2, !tbaa !39
-  %148 = getelementptr inbounds nuw i8, ptr %calloc185, i64 %146
+  %148 = getelementptr inbounds nuw i8, ptr %calloc192, i64 %146
   store i8 %45, ptr %148, align 1, !tbaa !12
-  %149 = getelementptr inbounds nuw i8, ptr %calloc186, i64 %146
+  %149 = getelementptr inbounds nuw i8, ptr %calloc193, i64 %146
   store i8 %142, ptr %149, align 1, !tbaa !12
   br label %Extra_TruthPolarize.exit145
 
@@ -2203,7 +2203,7 @@ Extra_TruthPolarize.exit145:                      ; preds = %140, %Extra_TruthPe
   br i1 %exitcond184.not, label %153, label %15, !llvm.loop !44
 
 153:                                              ; preds = %.loopexit
-  %154 = getelementptr inbounds nuw i8, ptr %calloc185, i64 65535
+  %154 = getelementptr inbounds nuw i8, ptr %calloc192, i64 65535
   store i8 16, ptr %154, align 1, !tbaa !12
   tail call void @free(ptr noundef %5) #33
   %.not121 = icmp eq ptr %0, null
@@ -2222,11 +2222,11 @@ Extra_TruthPolarize.exit145:                      ; preds = %140, %Extra_TruthPe
   br i1 %.not122, label %159, label %158
 
 158:                                              ; preds = %157
-  store ptr %calloc185, ptr %1, align 8, !tbaa !19
+  store ptr %calloc192, ptr %1, align 8, !tbaa !19
   br label %160
 
 159:                                              ; preds = %157
-  tail call void @free(ptr noundef nonnull %calloc185) #33
+  tail call void @free(ptr noundef nonnull %calloc192) #33
   br label %160
 
 160:                                              ; preds = %159, %158
@@ -2234,11 +2234,11 @@ Extra_TruthPolarize.exit145:                      ; preds = %140, %Extra_TruthPe
   br i1 %.not123, label %162, label %161
 
 161:                                              ; preds = %160
-  store ptr %calloc186, ptr %2, align 8, !tbaa !19
+  store ptr %calloc193, ptr %2, align 8, !tbaa !19
   br label %163
 
 162:                                              ; preds = %160
-  tail call void @free(ptr noundef %calloc186) #33
+  tail call void @free(ptr noundef %calloc193) #33
   br label %163
 
 163:                                              ; preds = %162, %161
@@ -2246,11 +2246,11 @@ Extra_TruthPolarize.exit145:                      ; preds = %140, %Extra_TruthPe
   br i1 %.not124, label %165, label %164
 
 164:                                              ; preds = %163
-  store ptr %calloc187, ptr %3, align 8, !tbaa !19
+  store ptr %calloc194, ptr %3, align 8, !tbaa !19
   br label %166
 
 165:                                              ; preds = %163
-  tail call void @free(ptr noundef %calloc187) #33
+  tail call void @free(ptr noundef %calloc194) #33
   br label %166
 
 166:                                              ; preds = %165, %164
@@ -2260,7 +2260,7 @@ Extra_TruthPolarize.exit145:                      ; preds = %140, %Extra_TruthPe
 ; Function Attrs: nounwind memory(readwrite, argmem: write) uwtable
 define void @Extra_Truth3VarN(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #14 {
   %calloc = tail call dereferenceable_or_null(1024) ptr @calloc(i64 1, i64 1024)
-  %calloc83 = tail call dereferenceable_or_null(256) ptr @calloc(i64 1, i64 256)
+  %calloc89 = tail call dereferenceable_or_null(256) ptr @calloc(i64 1, i64 256)
   %4 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2048
   store ptr %5, ptr %4, align 8, !tbaa !15
@@ -2287,7 +2287,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %6, %Extra_ArrayAllo
 
 14:                                               ; preds = %Extra_ArrayAlloc.exit.preheader
   %.not78 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not78, label %.lr.ph.i.preheader, label %.lr.ph.i.preheader.us.preheader
+  br i1 %.not78, label %Extra_TruthPolarize.exit, label %.lr.ph.i.preheader.us.preheader
 
 .lr.ph.i.preheader.us.preheader:                  ; preds = %14
   %15 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2303,7 +2303,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %6, %Extra_ArrayAllo
   %indvars.iv.i70.us = phi i64 [ %indvars.iv.next.i71.us, %30 ], [ 0, %.lr.ph.i.preheader.us ]
   %.01920.i.us = phi i32 [ %.1.i.us, %30 ], [ %15, %.lr.ph.i.preheader.us ]
   %18 = trunc nuw nsw i64 %indvars.iv.i70.us to i32
-  %19 = shl nuw i32 1, %18
+  %19 = shl nuw nsw i32 1, %18
   %20 = and i32 %19, %.073.us
   %.not.i.us = icmp eq i32 %20, 0
   br i1 %.not.i.us, label %30, label %21
@@ -2338,12 +2338,12 @@ Extra_TruthPolarize.exit.us:                      ; preds = %30
   %37 = getelementptr inbounds nuw ptr, ptr %4, i64 %31
   %38 = load ptr, ptr %37, align 8, !tbaa !19
   store i8 %36, ptr %38, align 1, !tbaa !12
-  %39 = getelementptr inbounds nuw i8, ptr %calloc83, i64 %31
+  %39 = getelementptr inbounds nuw i8, ptr %calloc89, i64 %31
   store i8 1, ptr %39, align 1, !tbaa !12
   br label %51
 
 40:                                               ; preds = %Extra_TruthPolarize.exit.us
-  %41 = getelementptr inbounds nuw i8, ptr %calloc83, i64 %31
+  %41 = getelementptr inbounds nuw i8, ptr %calloc89, i64 %31
   %42 = load i8, ptr %41, align 1, !tbaa !12
   %43 = icmp slt i8 %42, 8
   br i1 %43, label %44, label %51
@@ -2364,124 +2364,89 @@ Extra_TruthPolarize.exit.us:                      ; preds = %30
   %exitcond.not = icmp eq i32 %52, 8
   br i1 %exitcond.not, label %Extra_ArrayAlloc.exit, label %.lr.ph.i.preheader.us, !llvm.loop !47
 
-.lr.ph.i.preheader:                               ; preds = %14, %85
-  %.073 = phi i32 [ %86, %85 ], [ 0, %14 ]
-  br label %.lr.ph.i
+Extra_TruthPolarize.exit:                         ; preds = %14, %66
+  %.073 = phi i32 [ %67, %66 ], [ 0, %14 ]
+  %53 = load i32, ptr %calloc, align 4, !tbaa !3
+  %54 = or i32 %53, %.073
+  %or.cond = icmp eq i32 %54, 0
+  br i1 %or.cond, label %55, label %57
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %65
-  %indvars.iv.i70 = phi i64 [ %indvars.iv.next.i71, %65 ], [ 0, %.lr.ph.i.preheader ]
-  %.01920.i = phi i32 [ %.1.i, %65 ], [ 0, %.lr.ph.i.preheader ]
-  %53 = trunc nuw nsw i64 %indvars.iv.i70 to i32
-  %54 = shl nuw i32 1, %53
-  %55 = and i32 %54, %.073
-  %.not.i = icmp eq i32 %55, 0
-  br i1 %.not.i, label %65, label %56
+55:                                               ; preds = %Extra_TruthPolarize.exit
+  store i32 0, ptr %calloc, align 4, !tbaa !3
+  %56 = load ptr, ptr %4, align 8, !tbaa !19
+  store i8 0, ptr %56, align 1, !tbaa !12
+  store i8 1, ptr %calloc89, align 1, !tbaa !12
+  br label %66
 
-56:                                               ; preds = %.lr.ph.i
-  %57 = getelementptr inbounds nuw [5 x i32], ptr @Extra_TruthPolarize.Signs, i64 0, i64 %indvars.iv.i70
-  %58 = load i32, ptr %57, align 4, !tbaa !3
-  %59 = xor i32 %58, -1
-  %60 = and i32 %.01920.i, %59
-  %61 = and i32 %58, %.01920.i
-  %62 = shl i32 %60, %54
-  %63 = lshr i32 %61, %54
-  %64 = or i32 %62, %63
-  br label %65
+57:                                               ; preds = %Extra_TruthPolarize.exit
+  %58 = load i8, ptr %calloc89, align 1, !tbaa !12
+  %59 = icmp slt i8 %58, 8
+  br i1 %59, label %60, label %66
 
-65:                                               ; preds = %56, %.lr.ph.i
-  %.1.i = phi i32 [ %64, %56 ], [ %.01920.i, %.lr.ph.i ]
-  %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i70, 1
-  %exitcond.not.i72 = icmp eq i64 %indvars.iv.next.i71, 3
-  br i1 %exitcond.not.i72, label %Extra_TruthPolarize.exit, label %.lr.ph.i, !llvm.loop !28
+60:                                               ; preds = %57
+  %61 = trunc nuw nsw i32 %.073 to i8
+  %62 = load ptr, ptr %4, align 8, !tbaa !19
+  %63 = add nsw i8 %58, 1
+  store i8 %63, ptr %calloc89, align 1, !tbaa !12
+  %64 = sext i8 %58 to i64
+  %65 = getelementptr inbounds i8, ptr %62, i64 %64
+  store i8 %61, ptr %65, align 1, !tbaa !12
+  br label %66
 
-Extra_TruthPolarize.exit:                         ; preds = %65
-  %66 = zext i32 %.1.i to i64
-  %67 = getelementptr inbounds nuw i32, ptr %calloc, i64 %66
-  %68 = load i32, ptr %67, align 4, !tbaa !3
-  %69 = or i32 %68, %.073
-  %or.cond = icmp eq i32 %69, 0
-  br i1 %or.cond, label %70, label %74
+66:                                               ; preds = %55, %60, %57
+  %67 = add nuw nsw i32 %.073, 1
+  %exitcond80.not = icmp eq i32 %67, 8
+  br i1 %exitcond80.not, label %Extra_ArrayAlloc.exit, label %Extra_TruthPolarize.exit, !llvm.loop !47
 
-70:                                               ; preds = %Extra_TruthPolarize.exit
-  store i32 0, ptr %67, align 4, !tbaa !3
-  %71 = getelementptr inbounds nuw ptr, ptr %4, i64 %66
-  %72 = load ptr, ptr %71, align 8, !tbaa !19
-  store i8 0, ptr %72, align 1, !tbaa !12
-  %73 = getelementptr inbounds nuw i8, ptr %calloc83, i64 %66
-  store i8 1, ptr %73, align 1, !tbaa !12
-  br label %85
-
-74:                                               ; preds = %Extra_TruthPolarize.exit
-  %75 = getelementptr inbounds nuw i8, ptr %calloc83, i64 %66
-  %76 = load i8, ptr %75, align 1, !tbaa !12
-  %77 = icmp slt i8 %76, 8
-  br i1 %77, label %78, label %85
-
-78:                                               ; preds = %74
-  %79 = trunc nuw nsw i32 %.073 to i8
-  %80 = getelementptr inbounds nuw ptr, ptr %4, i64 %66
-  %81 = load ptr, ptr %80, align 8, !tbaa !19
-  %82 = add nsw i8 %76, 1
-  store i8 %82, ptr %75, align 1, !tbaa !12
-  %83 = sext i8 %76 to i64
-  %84 = getelementptr inbounds i8, ptr %81, i64 %83
-  store i8 %79, ptr %84, align 1, !tbaa !12
-  br label %85
-
-85:                                               ; preds = %70, %78, %74
-  %86 = add nuw nsw i32 %.073, 1
-  %exitcond80.not = icmp eq i32 %86, 8
-  br i1 %exitcond80.not, label %Extra_ArrayAlloc.exit, label %.lr.ph.i.preheader, !llvm.loop !47
-
-Extra_ArrayAlloc.exit:                            ; preds = %51, %85, %Extra_ArrayAlloc.exit.preheader
+Extra_ArrayAlloc.exit:                            ; preds = %51, %66, %Extra_ArrayAlloc.exit.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond82.not, label %87, label %Extra_ArrayAlloc.exit.preheader, !llvm.loop !48
+  br i1 %exitcond82.not, label %68, label %Extra_ArrayAlloc.exit.preheader, !llvm.loop !48
 
-87:                                               ; preds = %Extra_ArrayAlloc.exit
+68:                                               ; preds = %Extra_ArrayAlloc.exit
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %89, label %88
+  br i1 %.not, label %70, label %69
 
-88:                                               ; preds = %87
+69:                                               ; preds = %68
   store ptr %calloc, ptr %0, align 8, !tbaa !49
-  br label %90
+  br label %71
 
-89:                                               ; preds = %87
+70:                                               ; preds = %68
   tail call void @free(ptr noundef nonnull %calloc) #33
-  br label %90
+  br label %71
 
-90:                                               ; preds = %89, %88
+71:                                               ; preds = %70, %69
   %.not66 = icmp eq ptr %1, null
-  br i1 %.not66, label %92, label %91
+  br i1 %.not66, label %73, label %72
 
-91:                                               ; preds = %90
+72:                                               ; preds = %71
   store ptr %4, ptr %1, align 8, !tbaa !31
-  br label %93
+  br label %74
 
-92:                                               ; preds = %90
+73:                                               ; preds = %71
   tail call void @free(ptr noundef %4) #33
-  br label %93
+  br label %74
 
-93:                                               ; preds = %92, %91
+74:                                               ; preds = %73, %72
   %.not68 = icmp eq ptr %2, null
-  br i1 %.not68, label %95, label %94
+  br i1 %.not68, label %76, label %75
 
-94:                                               ; preds = %93
-  store ptr %calloc83, ptr %2, align 8, !tbaa !19
-  br label %96
+75:                                               ; preds = %74
+  store ptr %calloc89, ptr %2, align 8, !tbaa !19
+  br label %77
 
-95:                                               ; preds = %93
-  tail call void @free(ptr noundef %calloc83) #33
-  br label %96
+76:                                               ; preds = %74
+  tail call void @free(ptr noundef %calloc89) #33
+  br label %77
 
-96:                                               ; preds = %95, %94
+77:                                               ; preds = %76, %75
   ret void
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: write) uwtable
 define void @Extra_Truth4VarN(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #14 {
   %calloc = tail call dereferenceable_or_null(131072) ptr @calloc(i64 1, i64 131072)
-  %calloc79 = tail call dereferenceable_or_null(65536) ptr @calloc(i64 1, i64 65536)
+  %calloc83 = tail call dereferenceable_or_null(65536) ptr @calloc(i64 1, i64 65536)
   %5 = sext i32 %3 to i64
   %6 = shl nsw i64 %5, 16
   %7 = add nsw i64 %6, 524288
@@ -2558,12 +2523,12 @@ Extra_TruthPolarize.exit.us:                      ; preds = %33
   %40 = getelementptr inbounds nuw ptr, ptr %8, i64 %34
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   store i8 %39, ptr %41, align 1, !tbaa !12
-  %42 = getelementptr inbounds nuw i8, ptr %calloc79, i64 %34
+  %42 = getelementptr inbounds nuw i8, ptr %calloc83, i64 %34
   store i8 1, ptr %42, align 1, !tbaa !12
   br label %55
 
 43:                                               ; preds = %Extra_TruthPolarize.exit.us
-  %44 = getelementptr inbounds nuw i8, ptr %calloc79, i64 %34
+  %44 = getelementptr inbounds nuw i8, ptr %calloc83, i64 %34
   %45 = load i8, ptr %44, align 1, !tbaa !12
   %46 = sext i8 %45 to i32
   %47 = icmp sgt i32 %3, %46
@@ -2629,12 +2594,12 @@ Extra_TruthPolarize.exit:                         ; preds = %69
   %76 = getelementptr inbounds nuw ptr, ptr %8, i64 %70
   %77 = load ptr, ptr %76, align 8, !tbaa !19
   store i8 0, ptr %77, align 1, !tbaa !12
-  %78 = getelementptr inbounds nuw i8, ptr %calloc79, i64 %70
+  %78 = getelementptr inbounds nuw i8, ptr %calloc83, i64 %70
   store i8 1, ptr %78, align 1, !tbaa !12
   br label %91
 
 79:                                               ; preds = %Extra_TruthPolarize.exit
-  %80 = getelementptr inbounds nuw i8, ptr %calloc79, i64 %70
+  %80 = getelementptr inbounds nuw i8, ptr %calloc83, i64 %70
   %81 = load i8, ptr %80, align 1, !tbaa !12
   %82 = sext i8 %81 to i32
   %83 = icmp sgt i32 %3, %82
@@ -2690,11 +2655,11 @@ Extra_ArrayAlloc.exit:                            ; preds = %55, %91, %Extra_Arr
   br i1 %.not64, label %101, label %100
 
 100:                                              ; preds = %99
-  store ptr %calloc79, ptr %2, align 8, !tbaa !19
+  store ptr %calloc83, ptr %2, align 8, !tbaa !19
   br label %102
 
 101:                                              ; preds = %99
-  tail call void @free(ptr noundef %calloc79) #33
+  tail call void @free(ptr noundef %calloc83) #33
   br label %102
 
 102:                                              ; preds = %101, %100
@@ -4227,8 +4192,8 @@ Extra_Factorial.exit:                             ; preds = %.lr.ph.i, %1
   br i1 %25, label %22, label %._crit_edge.us.us, !llvm.loop !91
 
 ._crit_edge.us.us:                                ; preds = %22
-  %.idx91 = shl nuw nsw i64 %indvars.iv86, 3
-  %26 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx91
+  %.idx92 = shl nuw nsw i64 %indvars.iv86, 3
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx92
   %27 = load i32, ptr %26, align 4, !tbaa !3
   %28 = add nsw i32 %27, 1
   %sext = shl i64 %indvars.iv.next78, 32
@@ -4243,8 +4208,8 @@ Extra_Factorial.exit:                             ; preds = %.lr.ph.i, %1
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !3
   %35 = add nsw i32 %32, 2
-  %sext92 = shl i64 %indvars.iv.next83, 32
-  %36 = ashr exact i64 %sext92, 30
+  %sext93 = shl i64 %indvars.iv.next83, 32
+  %36 = ashr exact i64 %sext93, 30
   %37 = getelementptr inbounds i8, ptr %8, i64 %36
   store i32 %34, ptr %37, align 4, !tbaa !3
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
@@ -5479,8 +5444,8 @@ Extra_Transpose64p.exit.us:                       ; preds = %36
   store ptr %gep, ptr %44, align 8, !tbaa !115
   %45 = add nsw i64 %13, %indvars.iv
   %46 = mul nsw i64 %45, %11
-  %gep47 = getelementptr i64, ptr %invariant.gep46, i64 %46
-  %47 = load i64, ptr %gep47, align 8, !tbaa !93
+  %gep48 = getelementptr i64, ptr %invariant.gep47, i64 %46
+  %47 = load i64, ptr %gep48, align 8, !tbaa !93
   store i64 %47, ptr %gep, align 8, !tbaa !93
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -5491,7 +5456,7 @@ Extra_Transpose64p.exit.us:                       ; preds = %36
   %indvars.iv37 = phi i64 [ 0, %.preheader24.us ], [ %indvars.iv.next38, %Extra_Transpose64p.exit.us ]
   %48 = shl nsw i64 %indvars.iv37, 6
   %49 = or disjoint i64 %48, 63
-  %invariant.gep46 = getelementptr i64, ptr %.val23.us, i64 %indvars.iv37
+  %invariant.gep47 = getelementptr i64, ptr %.val23.us, i64 %indvars.iv37
   br label %41
 
 ._crit_edge.us:                                   ; preds = %Extra_Transpose64p.exit.us
@@ -5822,9 +5787,9 @@ Extra_Transpose64p.exit.us.i:                     ; preds = %37
   %44 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %indvars.iv31.i
   store ptr %gep.i, ptr %44, align 8, !tbaa !115
   %45 = add nsw i64 %14, %indvars.iv.i23
-  %gep47.i.idx = mul nuw nsw i64 %45, 800
-  %gep47.i = getelementptr i8, ptr %invariant.gep46.i, i64 %gep47.i.idx
-  %46 = load i64, ptr %gep47.i, align 8, !tbaa !93
+  %gep48.i.idx = mul nuw nsw i64 %45, 800
+  %gep48.i = getelementptr i8, ptr %invariant.gep47.i, i64 %gep48.i.idx
+  %46 = load i64, ptr %gep48.i, align 8, !tbaa !93
   store i64 %46, ptr %gep.i, align 8, !tbaa !93
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %indvars.iv.next.i24 = add nsw i64 %indvars.iv.i23, -1
@@ -5835,7 +5800,7 @@ Extra_Transpose64p.exit.us.i:                     ; preds = %37
   %indvars.iv37.i = phi i64 [ 0, %.preheader24.us.i ], [ %indvars.iv.next38.i, %Extra_Transpose64p.exit.us.i ]
   %47 = shl nsw i64 %indvars.iv37.i, 6
   %48 = or disjoint i64 %47, 63
-  %invariant.gep46.i = getelementptr i64, ptr %calloc.i.i, i64 %indvars.iv37.i
+  %invariant.gep47.i = getelementptr i64, ptr %calloc.i.i, i64 %indvars.iv37.i
   br label %42
 
 ._crit_edge.us.i:                                 ; preds = %Extra_Transpose64p.exit.us.i

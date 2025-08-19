@@ -206,8 +206,8 @@ define void @_ZN5folly6detail18EventBaseLocalBaseD2Ev(ptr noundef nonnull align 
   br i1 %17, label %40, label %.critedge.i.i.i.i.i.i.sink.split, !prof !15
 
 .critedge.i.i.i.i.i.i.sink.split:                 ; preds = %14, %23
-  %.sink38 = phi { i32, i1 } [ %30, %23 ], [ %16, %14 ]
-  %18 = extractvalue { i32, i1 } %.sink38, 0
+  %.sink40 = phi { i32, i1 } [ %30, %23 ], [ %16, %14 ]
+  %18 = extractvalue { i32, i1 } %.sink40, 0
   store i32 %18, ptr %4, align 4
   br label %.critedge.i.i.i.i.i.i
 
@@ -2910,12 +2910,12 @@ _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit:  ; preds = %91
   br label %122
 
 122:                                              ; preds = %52, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit
-  %.sink97 = phi ptr [ %53, %52 ], [ %100, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit ]
-  %.lcssa95.sink = phi i64 [ %40, %52 ], [ %93, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit ]
+  %.sink103 = phi ptr [ %53, %52 ], [ %100, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit ]
+  %.lcssa101.sink = phi i64 [ %40, %52 ], [ %93, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit ]
   %.sink = phi i8 [ 0, %52 ], [ 1, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit ]
-  store ptr %.sink97, ptr %0, align 8, !tbaa !157
+  store ptr %.sink103, ptr %0, align 8, !tbaa !157
   %.sroa.543.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.lcssa95.sink, ptr %.sroa.543.0..sroa_idx, align 8, !tbaa !35
+  store i64 %.lcssa101.sink, ptr %.sroa.543.0..sroa_idx, align 8, !tbaa !35
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %123, align 8, !tbaa !159
   ret void
@@ -3552,18 +3552,18 @@ define linkonce_odr void @_ZZN5folly3f146detail8F14TableINS1_21VectorContainerPo
           to label %.noexc unwind label %56
 
 .noexc:                                           ; preds = %7, %11, %40, %18
-  %.09 = phi i64 [ %24, %40 ], [ %24, %18 ], [ 0, %7 ], [ %17, %11 ]
-  %.028 = phi ptr [ %21, %40 ], [ %21, %18 ], [ null, %7 ], [ %14, %11 ]
+  %.010 = phi i64 [ %24, %40 ], [ %24, %18 ], [ 0, %7 ], [ %17, %11 ]
+  %.029 = phi ptr [ %21, %40 ], [ %21, %18 ], [ null, %7 ], [ %14, %11 ]
   %50 = phi i64 [ %43, %40 ], [ %.pre5, %18 ], [ %10, %7 ], [ %10, %11 ]
-  %.not.i = icmp eq ptr %.028, null
+  %.not.i = icmp eq ptr %.029, null
   br i1 %.not.i, label %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11afterRehashEPSt4pairIKmS7_EbmmmPhm.exit, label %51
 
 51:                                               ; preds = %.noexc
-  %52 = sub i64 0, %.09
+  %52 = sub i64 0, %.010
   %53 = and i64 %52, -8
   %54 = mul i64 %50, 24
   %55 = sub i64 %54, %53
-  tail call void @_ZdlPvm(ptr noundef nonnull %.028, i64 noundef %55) #6
+  tail call void @_ZdlPvm(ptr noundef nonnull %.029, i64 noundef %55) #6
   br label %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11afterRehashEPSt4pairIKmS7_EbmmmPhm.exit
 
 _ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11afterRehashEPSt4pairIKmS7_EbmmmPhm.exit: ; preds = %51, %.noexc
@@ -3800,12 +3800,12 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE1
   br label %106
 
 106:                                              ; preds = %45, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE13insertAtBlankIJS5_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS5_EEEESt4pairImmEDpOT_.exit
-  %.sink93 = phi ptr [ %46, %45 ], [ %91, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE13insertAtBlankIJS5_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS5_EEEESt4pairImmEDpOT_.exit ]
-  %.lcssa91.sink = phi i64 [ %36, %45 ], [ %84, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE13insertAtBlankIJS5_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS5_EEEESt4pairImmEDpOT_.exit ]
+  %.sink100 = phi ptr [ %46, %45 ], [ %91, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE13insertAtBlankIJS5_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS5_EEEESt4pairImmEDpOT_.exit ]
+  %.lcssa98.sink = phi i64 [ %36, %45 ], [ %84, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE13insertAtBlankIJS5_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS5_EEEESt4pairImmEDpOT_.exit ]
   %.sink = phi i8 [ 0, %45 ], [ 1, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE13insertAtBlankIJS5_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS5_EEEESt4pairImmEDpOT_.exit ]
-  store ptr %.sink93, ptr %0, align 8, !tbaa !205
+  store ptr %.sink100, ptr %0, align 8, !tbaa !205
   %.sroa.541.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.lcssa91.sink, ptr %.sroa.541.0..sroa_idx, align 8, !tbaa !35
+  store i64 %.lcssa98.sink, ptr %.sroa.541.0..sroa_idx, align 8, !tbaa !35
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %107, align 8, !tbaa !207
   ret void
@@ -4543,12 +4543,12 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseL
   br label %106
 
 106:                                              ; preds = %45, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE13insertAtBlankIJS6_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS6_EEEESt4pairImmEDpOT_.exit
-  %.sink93 = phi ptr [ %46, %45 ], [ %91, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE13insertAtBlankIJS6_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS6_EEEESt4pairImmEDpOT_.exit ]
-  %.lcssa91.sink = phi i64 [ %36, %45 ], [ %84, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE13insertAtBlankIJS6_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS6_EEEESt4pairImmEDpOT_.exit ]
+  %.sink100 = phi ptr [ %46, %45 ], [ %91, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE13insertAtBlankIJS6_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS6_EEEESt4pairImmEDpOT_.exit ]
+  %.lcssa98.sink = phi i64 [ %36, %45 ], [ %84, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE13insertAtBlankIJS6_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS6_EEEESt4pairImmEDpOT_.exit ]
   %.sink = phi i8 [ 0, %45 ], [ 1, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE13insertAtBlankIJS6_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS6_EEEESt4pairImmEDpOT_.exit ]
-  store ptr %.sink93, ptr %0, align 8, !tbaa !234
+  store ptr %.sink100, ptr %0, align 8, !tbaa !234
   %.sroa.541.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.lcssa91.sink, ptr %.sroa.541.0..sroa_idx, align 8, !tbaa !35
+  store i64 %.lcssa98.sink, ptr %.sroa.541.0..sroa_idx, align 8, !tbaa !35
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %107, align 8, !tbaa !236
   ret void

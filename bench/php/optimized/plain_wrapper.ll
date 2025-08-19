@@ -1080,8 +1080,8 @@ do_fstat.exit.thread:                             ; preds = %51, %do_fstat.exit
   %78 = load i64, ptr %77, align 8, !tbaa !48
   %.pre = sub i64 %72, %76
   %79 = add i64 %78, -1
-  %or.cond.not114 = icmp ult i64 %79, %.pre
-  br i1 %or.cond.not114, label %80, label %._crit_edge
+  %or.cond.not130 = icmp ult i64 %79, %.pre
+  br i1 %or.cond.not130, label %80, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %75
   store i64 %.pre, ptr %77, align 8, !tbaa !48
@@ -1099,9 +1099,9 @@ switch.lookup:                                    ; preds = %80
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.php_stdiop_set_option, i64 0, i64 %85
   %switch.load = load i32, ptr %switch.gep, align 4
   %86 = zext nneg i32 %83 to i64
-  %switch.gep115 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.php_stdiop_set_option.1, i64 0, i64 %86
-  %switch.load116 = load i32, ptr %switch.gep115, align 4
-  %87 = tail call ptr @mmap(ptr noundef null, i64 noundef %81, i32 noundef %switch.load, i32 noundef %switch.load116, i32 noundef %16, i64 noundef %76) #17
+  %switch.gep131 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.php_stdiop_set_option.1, i64 0, i64 %86
+  %switch.load132 = load i32, ptr %switch.gep131, align 4
+  %87 = tail call ptr @mmap(ptr noundef null, i64 noundef %81, i32 noundef %switch.load, i32 noundef %switch.load132, i32 noundef %16, i64 noundef %76) #17
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %87, ptr %88, align 8, !tbaa !50
   %89 = icmp eq ptr %87, inttoptr (i64 -1 to ptr)
@@ -1710,13 +1710,13 @@ define dso_local ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1
   br i1 %.not167182, label %.critedge2, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge.thread, %57
-  %.1195 = phi ptr [ %53, %.critedge.thread ], [ %58, %57 ]
+  %.1205 = phi ptr [ %53, %.critedge.thread ], [ %58, %57 ]
   %59 = and i32 %4, 1024
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %74
-  %.1148183.us = phi ptr [ %.0146177.us, %74 ], [ %.1195, %.lr.ph ]
+  %.1148183.us = phi ptr [ %.0146177.us, %74 ], [ %.1205, %.lr.ph ]
   %61 = load i8, ptr %.1148183.us, align 1, !tbaa !4
   %.not168.us = icmp eq i8 %61, 0
   br i1 %.not168.us, label %.critedge2, label %62
@@ -1759,7 +1759,7 @@ define dso_local ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1
   br i1 %.not167.us, label %.critedge2, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %86
-  %.1148183 = phi ptr [ %.0146177, %86 ], [ %.1195, %.lr.ph ]
+  %.1148183 = phi ptr [ %.0146177, %86 ], [ %.1205, %.lr.ph ]
   %75 = load i8, ptr %.1148183, align 1, !tbaa !4
   %.not168 = icmp eq i8 %75, 0
   br i1 %.not168, label %.critedge2, label %76
@@ -1793,7 +1793,7 @@ define dso_local ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1
 
 .split.us:                                        ; preds = %84, %72
   %.us-phi = phi ptr [ %73, %72 ], [ %85, %84 ]
-  call void @_efree(ptr noundef nonnull %.1195) #17
+  call void @_efree(ptr noundef nonnull %.1205) #17
   br label %87
 
 86:                                               ; preds = %84, %78
@@ -1802,8 +1802,8 @@ define dso_local ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1
   br i1 %.not167, label %.critedge2, label %.lr.ph.split
 
 .critedge2:                                       ; preds = %.lr.ph.split, %86, %.lr.ph.split.us, %74, %57
-  %.1196 = phi ptr [ null, %57 ], [ %.1195, %74 ], [ %.1195, %.lr.ph.split.us ], [ %.1195, %86 ], [ %.1195, %.lr.ph.split ]
-  call void @_efree(ptr noundef %.1196) #17
+  %.1206 = phi ptr [ null, %57 ], [ %.1205, %74 ], [ %.1205, %.lr.ph.split.us ], [ %.1205, %86 ], [ %.1205, %.lr.ph.split ]
+  call void @_efree(ptr noundef %.1206) #17
   br label %87
 
 87:                                               ; preds = %28, %21, %8, %.critedge2, %.split.us, %34, %30, %23
@@ -2383,8 +2383,8 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr readnone captures
   br label %.thread92.sink.split
 
 .thread92.sink.split:                             ; preds = %72, %86
-  %.sink147 = phi i32 [ %88, %86 ], [ %71, %72 ]
-  %89 = call ptr @strerror(i32 noundef %.sink147) #17
+  %.sink161 = phi i32 [ %88, %86 ], [ %71, %72 ]
+  %89 = call ptr @strerror(i32 noundef %.sink161) #17
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.18, ptr noundef %89) #17
   br label %.thread92
 

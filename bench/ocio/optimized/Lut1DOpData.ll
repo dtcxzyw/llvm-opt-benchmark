@@ -3119,9 +3119,9 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_poli
 159:                                              ; preds = %149
   %160 = getelementptr inbounds nuw i8, ptr %145, i64 228
   store i32 %152, ptr %160, align 4, !tbaa !64
-  br i1 %.0, label %.thread72, label %165
+  br i1 %.0, label %.thread80, label %165
 
-.thread72:                                        ; preds = %159
+.thread80:                                        ; preds = %159
   %161 = load ptr, ptr %5, align 8, !tbaa !95
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 232
   store i32 1, ptr %162, align 8, !tbaa !65
@@ -3137,7 +3137,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_poli
   %166 = icmp eq i32 %.pre, 1
   br i1 %166, label %167, label %.noexc50
 
-167:                                              ; preds = %.thread72, %165
+167:                                              ; preds = %.thread80, %165
   invoke void @_ZN19OpenColorIO_v2_5dev11Lut1DOpData21initializeFromForwardEv(ptr noundef nonnull align 8 dereferenceable(364) %145)
           to label %.noexc50 unwind label %89
 
@@ -3984,13 +3984,13 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut1DOpData21initializeFromForward
   br i1 %94, label %90, label %.critedge2, !llvm.loop !153
 
 .critedge2:                                       ; preds = %91, %90, %60, %59
-  %.sink236 = phi i64 [ 8, %59 ], [ 8, %60 ], [ 24, %90 ], [ 24, %91 ]
+  %.sink239 = phi i64 [ 8, %59 ], [ 8, %60 ], [ 24, %90 ], [ 24, %91 ]
   %.0168.lcssa.sink = phi i64 [ %.0174, %60 ], [ %.0176, %59 ], [ %.0168, %91 ], [ %.0169, %90 ]
-  %.sink235 = phi i64 [ 16, %59 ], [ 16, %60 ], [ 32, %90 ], [ 32, %91 ]
+  %.sink238 = phi i64 [ 16, %59 ], [ 16, %60 ], [ 32, %90 ], [ 32, %91 ]
   %.0169.lcssa.sink = phi i64 [ %.0176, %59 ], [ %.0176, %60 ], [ %.0169.lcssa, %90 ], [ %.0169.lcssa, %91 ]
-  %95 = getelementptr inbounds nuw i8, ptr %29, i64 %.sink236
+  %95 = getelementptr inbounds nuw i8, ptr %29, i64 %.sink239
   store i64 %.0168.lcssa.sink, ptr %95, align 8, !tbaa !154
-  %96 = getelementptr inbounds nuw i8, ptr %29, i64 %.sink235
+  %96 = getelementptr inbounds nuw i8, ptr %29, i64 %.sink238
   store i64 %.0169.lcssa.sink, ptr %96, align 8, !tbaa !154
   %97 = add nuw i64 %.0221, 1
   %exitcond232.not = icmp eq i64 %97, %10
@@ -4327,13 +4327,13 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4, !tbaa !13
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !13
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

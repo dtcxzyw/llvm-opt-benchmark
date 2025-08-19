@@ -2005,7 +2005,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit11:               ; preds = %_ZNKSt7__cxx1112bas
 70:                                               ; preds = %62
   %71 = load ptr, ptr %5, align 8, !tbaa !155
   %72 = icmp eq ptr %71, %51
-  br i1 %72, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %72, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %70
   %73 = load i64, ptr %52, align 8, !tbaa !156
@@ -2016,14 +2016,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %77 = icmp eq ptr %75, %76
   br i1 %77, label %81, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %70
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %70
   %78 = load ptr, ptr %6, align 8, !tbaa !155
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %80 = icmp eq ptr %78, %79
   br i1 %80, label %81, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-81:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %82 = phi ptr [ %78, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %75, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+81:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %82 = phi ptr [ %78, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %75, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %84 = load i64, ptr %83, align 8, !tbaa !156
   %85 = icmp ult i64 %84, 16
@@ -2060,7 +2060,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %94, ptr %51, align 8, !tbaa !157
   br label %100
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %95 = load i64, ptr %51, align 8, !tbaa !157
   store ptr %78, ptr %5, align 8, !tbaa !155
   %96 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -6427,13 +6427,13 @@ define noundef zeroext i1 @_ZNK3gmx32ModularSimulatorAlgorithmBuilder13elementEx
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.038.057.i.i.i.i.i, i64 16
   %.val1.i23.i.i.i.i.i = load ptr, ptr %18, align 8, !tbaa !220
   %19 = icmp eq ptr %1, %.val1.i23.i.i.i.i.i
-  br i1 %19, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit.loopexit.split.loop.exit24", label %20
+  br i1 %19, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit.loopexit.split.loop.exit29", label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.038.057.i.i.i.i.i, i64 24
   %.val1.i24.i.i.i.i.i = load ptr, ptr %21, align 8, !tbaa !220
   %22 = icmp eq ptr %1, %.val1.i24.i.i.i.i.i
-  br i1 %22, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit.loopexit.split.loop.exit26", label %23
+  br i1 %22, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit.loopexit.split.loop.exit31", label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.038.057.i.i.i.i.i, i64 32
@@ -6486,16 +6486,16 @@ define noundef zeroext i1 @_ZNK3gmx32ModularSimulatorAlgorithmBuilder13elementEx
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.038.057.i.i.i.i.i, i64 8
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit"
 
-"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit.loopexit.split.loop.exit24": ; preds = %17
+"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit.loopexit.split.loop.exit29": ; preds = %17
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.038.057.i.i.i.i.i, i64 16
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit"
 
-"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit.loopexit.split.loop.exit26": ; preds = %20
+"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit.loopexit.split.loop.exit31": ; preds = %20
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.038.057.i.i.i.i.i, i64 24
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit"
 
-"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit.loopexit.split.loop.exit24", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit.loopexit.split.loop.exit26", %28, %32, %36
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %28 ], [ %.sroa.038.1.i.i.i.i.i, %32 ], [ %spec.select.i.i.i.i.i, %36 ], [ %38, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit.loopexit.split.loop.exit" ], [ %39, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit.loopexit.split.loop.exit24" ], [ %40, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit.loopexit.split.loop.exit26" ], [ %.sroa.038.057.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit.loopexit.split.loop.exit29", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit.loopexit.split.loop.exit31", %28, %32, %36
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %28 ], [ %.sroa.038.1.i.i.i.i.i, %32 ], [ %spec.select.i.i.i.i.i, %36 ], [ %38, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit.loopexit.split.loop.exit" ], [ %39, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit.loopexit.split.loop.exit29" ], [ %40, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit.loopexit.split.loop.exit31" ], [ %.sroa.038.057.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.not = icmp eq ptr %6, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   br i1 %.not, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEZNKS3_32ModularSimulatorAlgorithmBuilder13elementExistsEPKS4_E3$_0EbT_SI_T0_.exit.thread", label %58
 
@@ -8450,18 +8450,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !26
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #36
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #36
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !156
@@ -8495,7 +8495,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -10196,9 +10196,9 @@ _ZN3gmx32ModularSimulatorAlgorithmBuilder39registerWithInfrastructureAndSignalle
   %559 = getelementptr inbounds nuw i8, ptr %558, i64 204
   %560 = load i32, ptr %559, align 4, !tbaa !986
   %.not = icmp eq i32 %560, 0
-  br i1 %.not, label %571, label %.sink.split531
+  br i1 %.not, label %571, label %.sink.split693
 
-.sink.split531:                                   ; preds = %_ZN3gmx32ModularSimulatorAlgorithmBuilder39registerWithInfrastructureAndSignallersINS_16CheckpointHelperEEEvPT_.exit
+.sink.split693:                                   ; preds = %_ZN3gmx32ModularSimulatorAlgorithmBuilder39registerWithInfrastructureAndSignallersINS_16CheckpointHelperEEEvPT_.exit
   %561 = getelementptr inbounds nuw i8, ptr %558, i64 4
   %562 = load i32, ptr %561, align 4, !tbaa !987
   %563 = and i32 %562, -2
@@ -10234,7 +10234,7 @@ _ZNSt10unique_ptrIN3gmx17CheckpointHandlerESt14default_deleteIS1_EED2Ev.exit174:
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.body156
 
-571:                                              ; preds = %.sink.split531, %_ZN3gmx32ModularSimulatorAlgorithmBuilder39registerWithInfrastructureAndSignallersINS_16CheckpointHelperEEEvPT_.exit
+571:                                              ; preds = %.sink.split693, %_ZN3gmx32ModularSimulatorAlgorithmBuilder39registerWithInfrastructureAndSignallersINS_16CheckpointHelperEEEvPT_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %572 = getelementptr inbounds nuw i8, ptr %556, i64 256
   %573 = load ptr, ptr %572, align 8, !tbaa !988

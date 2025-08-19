@@ -153,18 +153,18 @@ define void @addBindings(ptr noundef writeonly captures(none) %0, ptr noundef re
 
 .lr.ph.preheader:                                 ; preds = %2
   %3 = load ptr, ptr %1, align 8, !tbaa !33
-  %.not2438 = icmp eq ptr %3, null
-  br i1 %.not2438, label %.critedge, label %.lr.ph
+  %.not2439 = icmp eq ptr %3, null
+  br i1 %.not2439, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0222940 = phi ptr [ %7, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %.0203039 = phi i64 [ %spec.select, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %4 = getelementptr inbounds nuw i8, ptr %.0222940, i64 8
+  %.0222941 = phi ptr [ %7, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.0203040 = phi i64 [ %spec.select, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %4 = getelementptr inbounds nuw i8, ptr %.0222941, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !37
   %.not27 = icmp ne ptr %5, null
   %6 = zext i1 %.not27 to i64
-  %spec.select = add i64 %.0203039, %6
-  %7 = getelementptr inbounds nuw i8, ptr %.0222940, i64 16
+  %spec.select = add i64 %.0203040, %6
+  %7 = getelementptr inbounds nuw i8, ptr %.0222941, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !33
   %.not24 = icmp eq ptr %8, null
   br i1 %.not24, label %.critedge, label %.lr.ph

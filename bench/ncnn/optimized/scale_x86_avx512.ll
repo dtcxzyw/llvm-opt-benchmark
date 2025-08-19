@@ -948,8 +948,8 @@ define internal void @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vectorINS
 
 .thread:                                          ; preds = %44
   %51 = shufflevector <4 x float> %41, <4 x float> poison, <16 x i32> zeroinitializer
-  %.not87182 = icmp eq i32 %.pre180, 0
-  br i1 %.not87182, label %.preheader113, label %85
+  %.not87197 = icmp eq i32 %.pre180, 0
+  br i1 %.not87197, label %.preheader113, label %85
 
 .thread108:                                       ; preds = %27
   %52 = shl nsw i64 %indvars.iv, 2
@@ -1002,8 +1002,8 @@ define internal void @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vectorINS
   %80 = load float, ptr %79, align 4, !tbaa !50
   %81 = insertelement <4 x float> poison, float %80, i64 0
   %82 = shufflevector <4 x float> %81, <4 x float> poison, <4 x i32> zeroinitializer
-  %.idx181 = shl nsw i64 %indvars.iv, 5
-  %83 = getelementptr inbounds i8, ptr %78, i64 %.idx181
+  %.idx196 = shl nsw i64 %indvars.iv, 5
+  %83 = getelementptr inbounds i8, ptr %78, i64 %.idx196
   %84 = load <8 x float>, ptr %83, align 1, !tbaa !47
   br label %92
 
@@ -1278,8 +1278,8 @@ define internal void @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vectorINS
 
 .thread:                                          ; preds = %42
   %49 = shufflevector <4 x float> %39, <4 x float> poison, <16 x i32> zeroinitializer
-  %.not87188 = icmp eq i32 %.pre186, 0
-  br i1 %.not87188, label %.preheader120, label %83
+  %.not87203 = icmp eq i32 %.pre186, 0
+  br i1 %.not87203, label %.preheader120, label %83
 
 .thread115:                                       ; preds = %.noexc
   %50 = shl nsw i64 %indvars.iv, 2
@@ -1332,8 +1332,8 @@ define internal void @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vectorINS
   %78 = load float, ptr %77, align 4, !tbaa !50
   %79 = insertelement <4 x float> poison, float %78, i64 0
   %80 = shufflevector <4 x float> %79, <4 x float> poison, <4 x i32> zeroinitializer
-  %.idx187 = shl nsw i64 %indvars.iv, 5
-  %81 = getelementptr inbounds i8, ptr %76, i64 %.idx187
+  %.idx202 = shl nsw i64 %indvars.iv, 5
+  %81 = getelementptr inbounds i8, ptr %76, i64 %.idx202
   %82 = load <8 x float>, ptr %81, align 1, !tbaa !47
   br label %90
 

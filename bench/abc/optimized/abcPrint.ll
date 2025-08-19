@@ -2915,14 +2915,14 @@ Vec_IntTwoMerge2.exit:                            ; preds = %.lr.ph17.i.i, %.pre
   br label %Vec_IntPush.exit75.sink.split
 
 Vec_IntPush.exit75.sink.split:                    ; preds = %179, %181, %171, %173
-  %.sink116 = phi ptr [ %172, %171 ], [ %174, %173 ], [ %180, %179 ], [ %182, %181 ]
+  %.sink131 = phi ptr [ %172, %171 ], [ %174, %173 ], [ %180, %179 ], [ %182, %181 ]
   %.sink = phi i32 [ 16, %171 ], [ 16, %173 ], [ %176, %179 ], [ %176, %181 ]
-  store ptr %.sink116, ptr %25, align 8, !tbaa !49
+  store ptr %.sink131, ptr %25, align 8, !tbaa !49
   store i32 %.sink, ptr %17, align 8, !tbaa !40
   br label %Vec_IntPush.exit75
 
 Vec_IntPush.exit75:                               ; preds = %Vec_IntPush.exit75.sink.split, %.lr.ph99
-  %.pre.i71114 = phi ptr [ %158, %.lr.ph99 ], [ %.sink116, %Vec_IntPush.exit75.sink.split ]
+  %.pre.i71114 = phi ptr [ %158, %.lr.ph99 ], [ %.sink131, %Vec_IntPush.exit75.sink.split ]
   %183 = add nsw i32 %165, 1
   store i32 %183, ptr %19, align 4, !tbaa !75
   %184 = sext i32 %165 to i64
@@ -3579,14 +3579,14 @@ Vec_IntTwoMerge2.exit116:                         ; preds = %.lr.ph17.i.i98, %.p
   br label %Vec_IntPush.exit123.sink.split
 
 Vec_IntPush.exit123.sink.split:                   ; preds = %236, %238, %228, %230
-  %.sink170 = phi ptr [ %229, %228 ], [ %231, %230 ], [ %237, %236 ], [ %239, %238 ]
+  %.sink192 = phi ptr [ %229, %228 ], [ %231, %230 ], [ %237, %236 ], [ %239, %238 ]
   %.sink = phi i32 [ 16, %228 ], [ 16, %230 ], [ %233, %236 ], [ %233, %238 ]
-  store ptr %.sink170, ptr %26, align 8, !tbaa !49
+  store ptr %.sink192, ptr %26, align 8, !tbaa !49
   store i32 %.sink, ptr %18, align 8, !tbaa !40
   br label %Vec_IntPush.exit123
 
 Vec_IntPush.exit123:                              ; preds = %Vec_IntPush.exit123.sink.split, %.lr.ph149
-  %.pre.i119165 = phi ptr [ %215, %.lr.ph149 ], [ %.sink170, %Vec_IntPush.exit123.sink.split ]
+  %.pre.i119165 = phi ptr [ %215, %.lr.ph149 ], [ %.sink192, %Vec_IntPush.exit123.sink.split ]
   %240 = add nsw i32 %222, 1
   store i32 %240, ptr %20, align 4, !tbaa !75
   %241 = sext i32 %222 to i64
@@ -4404,14 +4404,14 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %Vec_IntPush.exit63.sink.split
 
 Vec_IntPush.exit63.sink.split:                    ; preds = %166, %168, %158, %160
-  %.sink96 = phi ptr [ %159, %158 ], [ %161, %160 ], [ %167, %166 ], [ %169, %168 ]
+  %.sink111 = phi ptr [ %159, %158 ], [ %161, %160 ], [ %167, %166 ], [ %169, %168 ]
   %.sink = phi i32 [ 16, %158 ], [ 16, %160 ], [ %163, %166 ], [ %163, %168 ]
-  store ptr %.sink96, ptr %25, align 8, !tbaa !49
+  store ptr %.sink111, ptr %25, align 8, !tbaa !49
   store i32 %.sink, ptr %17, align 8, !tbaa !40
   br label %Vec_IntPush.exit63
 
 Vec_IntPush.exit63:                               ; preds = %Vec_IntPush.exit63.sink.split, %.lr.ph82
-  %.pre.i5994 = phi ptr [ %145, %.lr.ph82 ], [ %.sink96, %Vec_IntPush.exit63.sink.split ]
+  %.pre.i5994 = phi ptr [ %145, %.lr.ph82 ], [ %.sink111, %Vec_IntPush.exit63.sink.split ]
   %170 = add nsw i32 %152, 1
   store i32 %170, ptr %19, align 4, !tbaa !75
   %171 = sext i32 %152 to i64
@@ -4897,14 +4897,14 @@ Vec_IntTwoMerge2.exit:                            ; preds = %.lr.ph17.i.i, %.pre
   br label %Vec_IntPush.exit63.sink.split
 
 Vec_IntPush.exit63.sink.split:                    ; preds = %165, %167, %157, %159
-  %.sink96 = phi ptr [ %158, %157 ], [ %160, %159 ], [ %166, %165 ], [ %168, %167 ]
+  %.sink111 = phi ptr [ %158, %157 ], [ %160, %159 ], [ %166, %165 ], [ %168, %167 ]
   %.sink = phi i32 [ 16, %157 ], [ 16, %159 ], [ %162, %165 ], [ %162, %167 ]
-  store ptr %.sink96, ptr %25, align 8, !tbaa !49
+  store ptr %.sink111, ptr %25, align 8, !tbaa !49
   store i32 %.sink, ptr %17, align 8, !tbaa !40
   br label %Vec_IntPush.exit63
 
 Vec_IntPush.exit63:                               ; preds = %Vec_IntPush.exit63.sink.split, %.lr.ph82
-  %.pre.i5994 = phi ptr [ %144, %.lr.ph82 ], [ %.sink96, %Vec_IntPush.exit63.sink.split ]
+  %.pre.i5994 = phi ptr [ %144, %.lr.ph82 ], [ %.sink111, %Vec_IntPush.exit63.sink.split ]
   %169 = add nsw i32 %151, 1
   store i32 %169, ptr %19, align 4, !tbaa !75
   %170 = sext i32 %151 to i64
@@ -5476,18 +5476,18 @@ define void @Abc_NtkPrintDistribInternal(ptr noundef captures(none) %0, ptr noun
 define void @Abc_NtkPrintFanio(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %calloc = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %7 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
-  %calloc60 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %8 = getelementptr inbounds nuw i8, ptr %calloc60, i64 8
-  %calloc61 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %9 = getelementptr inbounds nuw i8, ptr %calloc61, i64 8
-  %calloc62 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %10 = getelementptr inbounds nuw i8, ptr %calloc62, i64 8
+  %calloc63 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
+  %8 = getelementptr inbounds nuw i8, ptr %calloc63, i64 8
+  %calloc64 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
+  %9 = getelementptr inbounds nuw i8, ptr %calloc64, i64 8
+  %calloc65 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
+  %10 = getelementptr inbounds nuw i8, ptr %calloc65, i64 8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %6
-  tail call void @Abc_NtkFaninFanoutCounters(ptr noundef %1, ptr noundef nonnull %calloc, ptr noundef nonnull %calloc60, ptr noundef nonnull %calloc61, ptr noundef nonnull %calloc62)
-  tail call void @Abc_NtkPrintDistribInternal(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %calloc, ptr noundef nonnull %calloc60, ptr noundef nonnull %calloc61, ptr noundef nonnull %calloc62)
+  tail call void @Abc_NtkFaninFanoutCounters(ptr noundef %1, ptr noundef nonnull %calloc, ptr noundef nonnull %calloc63, ptr noundef nonnull %calloc64, ptr noundef nonnull %calloc65)
+  tail call void @Abc_NtkPrintDistribInternal(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %calloc, ptr noundef nonnull %calloc63, ptr noundef nonnull %calloc64, ptr noundef nonnull %calloc65)
   br label %18
 
 12:                                               ; preds = %6
@@ -5495,8 +5495,8 @@ define void @Abc_NtkPrintFanio(ptr noundef captures(none) %0, ptr noundef %1, i3
   br i1 %.not51, label %14, label %13
 
 13:                                               ; preds = %12
-  tail call void @Abc_NtkInputOutputCounters(ptr noundef %1, ptr noundef nonnull %calloc, ptr noundef nonnull %calloc60, ptr noundef nonnull %calloc61, ptr noundef nonnull %calloc62)
-  tail call void @Abc_NtkPrintDistribInternal(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %calloc, ptr noundef nonnull %calloc60, ptr noundef nonnull %calloc61, ptr noundef nonnull %calloc62)
+  tail call void @Abc_NtkInputOutputCounters(ptr noundef %1, ptr noundef nonnull %calloc, ptr noundef nonnull %calloc63, ptr noundef nonnull %calloc64, ptr noundef nonnull %calloc65)
+  tail call void @Abc_NtkPrintDistribInternal(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %calloc, ptr noundef nonnull %calloc63, ptr noundef nonnull %calloc64, ptr noundef nonnull %calloc65)
   br label %18
 
 14:                                               ; preds = %12
@@ -5504,8 +5504,8 @@ define void @Abc_NtkPrintFanio(ptr noundef captures(none) %0, ptr noundef %1, i3
   br i1 %.not52, label %16, label %15
 
 15:                                               ; preds = %14
-  tail call void @Abc_NtkInOutSupportCounters(ptr noundef %1, ptr noundef nonnull %calloc, ptr noundef nonnull %calloc60, ptr noundef nonnull %calloc61, ptr noundef nonnull %calloc62)
-  tail call void @Abc_NtkPrintDistribInternal(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, ptr noundef nonnull %calloc, ptr noundef nonnull %calloc60, ptr noundef nonnull %calloc61, ptr noundef nonnull %calloc62)
+  tail call void @Abc_NtkInOutSupportCounters(ptr noundef %1, ptr noundef nonnull %calloc, ptr noundef nonnull %calloc63, ptr noundef nonnull %calloc64, ptr noundef nonnull %calloc65)
+  tail call void @Abc_NtkPrintDistribInternal(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, ptr noundef nonnull %calloc, ptr noundef nonnull %calloc63, ptr noundef nonnull %calloc64, ptr noundef nonnull %calloc65)
   br label %18
 
 16:                                               ; preds = %14
@@ -5513,8 +5513,8 @@ define void @Abc_NtkPrintFanio(ptr noundef captures(none) %0, ptr noundef %1, i3
   br i1 %.not53, label %18, label %17
 
 17:                                               ; preds = %16
-  tail call void @Abc_NtkInOutConeCounters(ptr noundef %1, ptr noundef nonnull %calloc, ptr noundef nonnull %calloc60, ptr noundef nonnull %calloc61, ptr noundef nonnull %calloc62)
-  tail call void @Abc_NtkPrintDistribInternal(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, ptr noundef nonnull %calloc, ptr noundef nonnull %calloc60, ptr noundef nonnull %calloc61, ptr noundef nonnull %calloc62)
+  tail call void @Abc_NtkInOutConeCounters(ptr noundef %1, ptr noundef nonnull %calloc, ptr noundef nonnull %calloc63, ptr noundef nonnull %calloc64, ptr noundef nonnull %calloc65)
+  tail call void @Abc_NtkPrintDistribInternal(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, ptr noundef nonnull %calloc, ptr noundef nonnull %calloc63, ptr noundef nonnull %calloc64, ptr noundef nonnull %calloc65)
   br label %18
 
 18:                                               ; preds = %13, %16, %17, %15, %11
@@ -5537,7 +5537,7 @@ Vec_IntFree.exit:                                 ; preds = %18, %20
   br label %Vec_IntFree.exit55
 
 Vec_IntFree.exit55:                               ; preds = %Vec_IntFree.exit, %22
-  tail call void @free(ptr noundef nonnull %calloc60) #20
+  tail call void @free(ptr noundef nonnull %calloc63) #20
   %23 = load ptr, ptr %9, align 8, !tbaa !49
   %.not.i56 = icmp eq ptr %23, null
   br i1 %.not.i56, label %Vec_IntFree.exit57, label %24
@@ -5547,7 +5547,7 @@ Vec_IntFree.exit55:                               ; preds = %Vec_IntFree.exit, %
   br label %Vec_IntFree.exit57
 
 Vec_IntFree.exit57:                               ; preds = %Vec_IntFree.exit55, %24
-  tail call void @free(ptr noundef nonnull %calloc61) #20
+  tail call void @free(ptr noundef nonnull %calloc64) #20
   %25 = load ptr, ptr %10, align 8, !tbaa !49
   %.not.i58 = icmp eq ptr %25, null
   br i1 %.not.i58, label %Vec_IntFree.exit59, label %26
@@ -5557,7 +5557,7 @@ Vec_IntFree.exit57:                               ; preds = %Vec_IntFree.exit55,
   br label %Vec_IntFree.exit59
 
 Vec_IntFree.exit59:                               ; preds = %Vec_IntFree.exit57, %26
-  tail call void @free(ptr noundef nonnull %calloc62) #20
+  tail call void @free(ptr noundef nonnull %calloc65) #20
   ret void
 }
 
@@ -5712,10 +5712,10 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %.critedg
 Abc_Base10Log.exit188:                            ; preds = %.lr.ph.i183, %3, %Abc_Base10Log.exit
   %59 = phi i32 [ %54, %Abc_Base10Log.exit ], [ 10, %3 ], [ %54, %.lr.ph.i183 ]
   %60 = phi ptr [ %43, %Abc_Base10Log.exit ], [ %6, %3 ], [ %43, %.lr.ph.i183 ]
-  %.0132.lcssa285297 = phi i32 [ %.1133, %Abc_Base10Log.exit ], [ 0, %3 ], [ %.1133, %.lr.ph.i183 ]
-  %.0130.lcssa286296 = phi i32 [ %.1131, %Abc_Base10Log.exit ], [ 0, %3 ], [ %.1131, %.lr.ph.i183 ]
-  %.0128.lcssa287295 = phi double [ %47, %Abc_Base10Log.exit ], [ 0.000000e+00, %3 ], [ %47, %.lr.ph.i183 ]
-  %.0126.lcssa288294 = phi double [ %48, %Abc_Base10Log.exit ], [ 0.000000e+00, %3 ], [ %48, %.lr.ph.i183 ]
+  %.0132.lcssa293305 = phi i32 [ %.1133, %Abc_Base10Log.exit ], [ 0, %3 ], [ %.1133, %.lr.ph.i183 ]
+  %.0130.lcssa294304 = phi i32 [ %.1131, %Abc_Base10Log.exit ], [ 0, %3 ], [ %.1131, %.lr.ph.i183 ]
+  %.0128.lcssa295303 = phi double [ %47, %Abc_Base10Log.exit ], [ 0.000000e+00, %3 ], [ %47, %.lr.ph.i183 ]
+  %.0126.lcssa296302 = phi double [ %48, %Abc_Base10Log.exit ], [ 0.000000e+00, %3 ], [ %48, %.lr.ph.i183 ]
   %.09.i187 = phi i32 [ %.1131, %Abc_Base10Log.exit ], [ 0, %3 ], [ %58, %.lr.ph.i183 ]
   %61 = mul i32 %.09.i187, 10
   %62 = add i32 %61, 10
@@ -6169,9 +6169,9 @@ Vec_IntFree.exit199:                              ; preds = %Vec_IntFree.exit, %
   %293 = getelementptr i8, ptr %1, i64 124
   %.val147 = load i32, ptr %293, align 4, !tbaa !27
   %294 = sitofp i32 %.val147 to double
-  %295 = fdiv double %.0128.lcssa287295, %294
-  %296 = fdiv double %.0126.lcssa288294, %294
-  %297 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.75, i32 noundef %.0132.lcssa285297, double noundef %295, i32 noundef %.0130.lcssa286296, double noundef %296) #20
+  %295 = fdiv double %.0128.lcssa295303, %294
+  %296 = fdiv double %.0126.lcssa296302, %294
+  %297 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.75, i32 noundef %.0132.lcssa293305, double noundef %295, i32 noundef %.0130.lcssa294304, double noundef %296) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -6549,11 +6549,11 @@ define void @Abc_NodePrintSop(ptr noundef captures(none) %0, ptr noundef %1, i32
 
 .thread:                                          ; preds = %33
   %40 = load i8, ptr %22, align 1, !tbaa !47
-  %.not567277 = icmp eq i8 %40, 0
-  br i1 %.not567277, label %._crit_edge.thread, label %.lr.ph.thread
+  %.not567278 = icmp eq i8 %40, 0
+  br i1 %.not567278, label %._crit_edge.thread, label %.lr.ph.thread
 
 ._crit_edge.thread:                               ; preds = %.thread
-  %fputc5784 = tail call i32 @fputc(i32 10, ptr %0)
+  %fputc5785 = tail call i32 @fputc(i32 10, ptr %0)
   br label %84
 
 .lr.ph.thread:                                    ; preds = %.thread
@@ -6660,13 +6660,13 @@ define void @Abc_NodePrintSop(ptr noundef captures(none) %0, ptr noundef %1, i32
   br i1 %.not56, label %._crit_edge, label %.lr.ph.split, !llvm.loop !144
 
 ._crit_edge:                                      ; preds = %.loopexit71, %.loopexit.us, %36
-  %.04679 = phi ptr [ %38, %36 ], [ null, %.loopexit.us ], [ %38, %.loopexit71 ]
+  %.04680 = phi ptr [ %38, %36 ], [ null, %.loopexit.us ], [ %38, %.loopexit71 ]
   %fputc57 = tail call i32 @fputc(i32 10, ptr %0)
-  %.not58 = icmp eq ptr %.04679, null
+  %.not58 = icmp eq ptr %.04680, null
   br i1 %.not58, label %84, label %83
 
 83:                                               ; preds = %._crit_edge
-  tail call void @Abc_NodeFreeNames(ptr noundef nonnull %.04679) #20
+  tail call void @Abc_NodeFreeNames(ptr noundef nonnull %.04680) #20
   br label %84
 
 84:                                               ; preds = %._crit_edge.thread, %._crit_edge, %83, %25, %18, %16
@@ -7091,7 +7091,7 @@ Abc_NodeGetPrintName.exit:                        ; preds = %.preheader.i, %.cri
   %146 = shl nuw nsw i32 %.0134.lcssa, 2
   %147 = add nuw nsw i32 %146, 4
   %148 = zext nneg i32 %147 to i64
-  %calloc281 = tail call ptr @calloc(i64 1, i64 %148)
+  %calloc284 = tail call ptr @calloc(i64 1, i64 %148)
   br i1 %132, label %.lr.ph218, label %.critedge8.preheader
 
 .lr.ph218:                                        ; preds = %.critedge6
@@ -7125,7 +7125,7 @@ Abc_NodeGetPrintName.exit:                        ; preds = %.preheader.i, %.cri
   %162 = load i32, ptr %161, align 4
   %163 = lshr i32 %162, 12
   %164 = zext nneg i32 %163 to i64
-  %165 = getelementptr inbounds nuw i32, ptr %calloc281, i64 %164
+  %165 = getelementptr inbounds nuw i32, ptr %calloc284, i64 %164
   %166 = load i32, ptr %165, align 4, !tbaa !27
   %167 = add nsw i32 %166, 1
   store i32 %167, ptr %165, align 4, !tbaa !27
@@ -7136,7 +7136,7 @@ Abc_NodeGetPrintName.exit:                        ; preds = %.preheader.i, %.cri
 168:                                              ; preds = %.critedge8.preheader, %.critedge8
   %indvars.iv256 = phi i64 [ 0, %.critedge8.preheader ], [ %indvars.iv.next257, %.critedge8 ]
   %.0220 = phi i32 [ 0, %.critedge8.preheader ], [ %.1, %.critedge8 ]
-  %169 = getelementptr inbounds nuw i32, ptr %calloc281, i64 %indvars.iv256
+  %169 = getelementptr inbounds nuw i32, ptr %calloc284, i64 %indvars.iv256
   %170 = load i32, ptr %169, align 4, !tbaa !27
   %.not155 = icmp eq i32 %170, 0
   br i1 %.not155, label %.critedge8, label %171
@@ -7157,7 +7157,7 @@ Abc_NodeGetPrintName.exit:                        ; preds = %.preheader.i, %.cri
   br i1 %exitcond260.not, label %178, label %168, !llvm.loop !155
 
 178:                                              ; preds = %.critedge8
-  tail call void @free(ptr noundef nonnull %calloc281) #20
+  tail call void @free(ptr noundef nonnull %calloc284) #20
   br label %.critedge12
 
 .critedge161:                                     ; preds = %74
@@ -7380,8 +7380,8 @@ define void @Abc_NtkPrintGates(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %.phi.trans.insert = getelementptr i8, ptr %0, i64 4
   %.pre266 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !66
   %.not209 = icmp eq i32 %.pre266, 4
-  %or.cond271 = select i1 %.not, i1 %.not209, i1 false
-  br i1 %or.cond271, label %4, label %._crit_edge265
+  %or.cond276 = select i1 %.not, i1 %.not209, i1 false
+  br i1 %or.cond276, label %4, label %._crit_edge265
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -7605,9 +7605,9 @@ Abc_ObjIsBarBuf.exit:                             ; preds = %31, %34, %37
 
 ._crit_edge:                                      ; preds = %108, %.critedge._crit_edge.thread
   %109 = phi double [ %20, %.critedge._crit_edge.thread ], [ %69, %108 ]
-  %.0.lcssa269 = phi i32 [ 5, %.critedge._crit_edge.thread ], [ %.1, %108 ]
+  %.0.lcssa274 = phi i32 [ 5, %.critedge._crit_edge.thread ], [ %.1, %108 ]
   %.0146.lcssa = phi i32 [ 0, %.critedge._crit_edge.thread ], [ %.1147, %108 ]
-  %110 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.103, i32 noundef %.0.lcssa269, ptr noundef nonnull @.str.104, i32 noundef %.0149.lcssa, double noundef %109, double noundef 1.000000e+02, i32 noundef %.0146.lcssa)
+  %110 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.103, i32 noundef %.0.lcssa274, ptr noundef nonnull @.str.104, i32 noundef %.0149.lcssa, double noundef %109, double noundef 1.000000e+02, i32 noundef %.0146.lcssa)
   br label %219
 
 ._crit_edge265:                                   ; preds = %3

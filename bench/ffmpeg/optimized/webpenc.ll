@@ -245,30 +245,30 @@ define internal fastcc range(i32 0, 2) i32 @flush(ptr noundef readonly captures(
   %41 = phi i32 [ %38, %33 ], [ %.pre, %._crit_edge ]
   %.0128 = phi ptr [ %36, %33 ], [ %4, %._crit_edge ]
   %42 = icmp eq i32 %41, 1
-  br i1 %42, label %43, label %.thread139
+  br i1 %42, label %43, label %.thread142
 
 43:                                               ; preds = %.thread, %40
-  %.0128138 = phi ptr [ %36, %.thread ], [ %.0128, %40 ]
+  %.0128141 = phi ptr [ %36, %.thread ], [ %.0128, %40 ]
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.not61 = icmp ne i32 %1, 0
   %.not62 = and i1 %.not61, %22
-  br i1 %.not62, label %.thread139, label %45
+  br i1 %.not62, label %.thread142, label %45
 
 45:                                               ; preds = %43
   %46 = or i8 %.052, 18
   %spec.select63 = select i1 %.not61, i8 %.052, i8 %46
-  store i32 1480085590, ptr %.0128138, align 1, !tbaa !30
-  %47 = getelementptr inbounds nuw i8, ptr %.0128138, i64 4
+  store i32 1480085590, ptr %.0128141, align 1, !tbaa !30
+  %47 = getelementptr inbounds nuw i8, ptr %.0128141, i64 4
   store i32 10, ptr %47, align 1, !tbaa !30
-  %48 = getelementptr inbounds nuw i8, ptr %.0128138, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.0128141, i64 8
   store i8 %spec.select63, ptr %48, align 1, !tbaa !30
-  %49 = getelementptr inbounds nuw i8, ptr %.0128138, i64 9
+  %49 = getelementptr inbounds nuw i8, ptr %.0128141, i64 9
   store i8 0, ptr %49, align 1, !tbaa !30
-  %50 = getelementptr inbounds nuw i8, ptr %.0128138, i64 10
+  %50 = getelementptr inbounds nuw i8, ptr %.0128141, i64 10
   store i8 0, ptr %50, align 1, !tbaa !30
-  %51 = getelementptr inbounds nuw i8, ptr %.0128138, i64 11
+  %51 = getelementptr inbounds nuw i8, ptr %.0128141, i64 11
   store i8 0, ptr %51, align 1, !tbaa !30
-  %52 = getelementptr inbounds nuw i8, ptr %.0128138, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %.0128141, i64 12
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !47
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 72
@@ -278,13 +278,13 @@ define internal fastcc range(i32 0, 2) i32 @flush(ptr noundef readonly captures(
   store i8 %58, ptr %52, align 1, !tbaa !30
   %59 = lshr i32 %57, 8
   %60 = trunc i32 %59 to i8
-  %61 = getelementptr inbounds nuw i8, ptr %.0128138, i64 13
+  %61 = getelementptr inbounds nuw i8, ptr %.0128141, i64 13
   store i8 %60, ptr %61, align 1, !tbaa !30
   %62 = lshr i32 %57, 16
   %63 = trunc i32 %62 to i8
-  %64 = getelementptr inbounds nuw i8, ptr %.0128138, i64 14
+  %64 = getelementptr inbounds nuw i8, ptr %.0128141, i64 14
   store i8 %63, ptr %64, align 1, !tbaa !30
-  %65 = getelementptr inbounds nuw i8, ptr %.0128138, i64 15
+  %65 = getelementptr inbounds nuw i8, ptr %.0128141, i64 15
   %66 = getelementptr inbounds nuw i8, ptr %54, i64 76
   %67 = load i32, ptr %66, align 4, !tbaa !53
   %68 = add nsw i32 %67, -1
@@ -292,37 +292,37 @@ define internal fastcc range(i32 0, 2) i32 @flush(ptr noundef readonly captures(
   store i8 %69, ptr %65, align 1, !tbaa !30
   %70 = lshr i32 %68, 8
   %71 = trunc i32 %70 to i8
-  %72 = getelementptr inbounds nuw i8, ptr %.0128138, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.0128141, i64 16
   store i8 %71, ptr %72, align 1, !tbaa !30
   %73 = lshr i32 %68, 16
   %74 = trunc i32 %73 to i8
-  %75 = getelementptr inbounds nuw i8, ptr %.0128138, i64 17
+  %75 = getelementptr inbounds nuw i8, ptr %.0128141, i64 17
   store i8 %74, ptr %75, align 1, !tbaa !30
-  %76 = getelementptr inbounds nuw i8, ptr %.0128138, i64 18
-  br i1 %.not61, label %.thread139, label %77
+  %76 = getelementptr inbounds nuw i8, ptr %.0128141, i64 18
+  br i1 %.not61, label %.thread142, label %77
 
 77:                                               ; preds = %45
   store i32 1296649793, ptr %76, align 1, !tbaa !30
-  %78 = getelementptr inbounds nuw i8, ptr %.0128138, i64 22
+  %78 = getelementptr inbounds nuw i8, ptr %.0128141, i64 22
   store i32 6, ptr %78, align 1, !tbaa !30
-  %79 = getelementptr inbounds nuw i8, ptr %.0128138, i64 26
+  %79 = getelementptr inbounds nuw i8, ptr %.0128141, i64 26
   store i32 -1, ptr %79, align 1, !tbaa !30
-  %80 = getelementptr inbounds nuw i8, ptr %.0128138, i64 30
+  %80 = getelementptr inbounds nuw i8, ptr %.0128141, i64 30
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %82 = load i32, ptr %81, align 8, !tbaa !39
   %83 = trunc i32 %82 to i16
   store i16 %83, ptr %80, align 1, !tbaa !30
-  %84 = getelementptr inbounds nuw i8, ptr %.0128138, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %.0128141, i64 32
   %.pre134 = load i32, ptr %44, align 8, !tbaa !38
-  br label %.thread139
+  br label %.thread142
 
-.thread139:                                       ; preds = %43, %45, %77, %40
+.thread142:                                       ; preds = %43, %45, %77, %40
   %85 = phi i32 [ %.pre134, %77 ], [ 1, %45 ], [ %41, %40 ], [ 1, %43 ]
-  %.1 = phi ptr [ %84, %77 ], [ %76, %45 ], [ %.0128, %40 ], [ %.0128138, %43 ]
+  %.1 = phi ptr [ %84, %77 ], [ %76, %45 ], [ %.0128, %40 ], [ %.0128141, %43 ]
   %86 = icmp sgt i32 %85, %1
   br i1 %86, label %87, label %134
 
-87:                                               ; preds = %.thread139
+87:                                               ; preds = %.thread142
   store i32 1179471425, ptr %.1, align 1, !tbaa !30
   %88 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %89 = load ptr, ptr %10, align 8, !tbaa !37
@@ -399,8 +399,8 @@ define internal fastcc range(i32 0, 2) i32 @flush(ptr noundef readonly captures(
   %133 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   br label %134
 
-134:                                              ; preds = %130, %.thread139
-  %.3 = phi ptr [ %133, %130 ], [ %.1, %.thread139 ]
+134:                                              ; preds = %130, %.thread142
+  %.3 = phi ptr [ %133, %130 ], [ %.1, %.thread142 ]
   %135 = icmp ne i32 %1, 0
   %or.cond3 = and i1 %135, %.not60
   br i1 %or.cond3, label %136, label %._crit_edge135

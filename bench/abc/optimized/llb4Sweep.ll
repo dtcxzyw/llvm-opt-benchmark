@@ -395,15 +395,15 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr noundef readonly capt
   br label %99
 
 99:                                               ; preds = %85, %71
-  %.sink144 = phi ptr [ %98, %85 ], [ %84, %71 ]
+  %.sink145 = phi ptr [ %98, %85 ], [ %84, %71 ]
   %.val94.sink.in = phi ptr [ %55, %85 ], [ %45, %71 ]
   %.val95.sink = load ptr, ptr %.val94.sink.in, align 8, !tbaa !43
   %100 = ptrtoint ptr %.val95.sink to i64
   %101 = and i64 %100, -2
   %102 = inttoptr i64 %101 to ptr
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 40
-  store ptr %.sink144, ptr %103, align 8, !tbaa !41
-  tail call void @Cudd_Ref(ptr noundef %.sink144) #14
+  store ptr %.sink145, ptr %103, align 8, !tbaa !41
+  tail call void @Cudd_Ref(ptr noundef %.sink145) #14
   %.val94.sink = load ptr, ptr %.val94.sink.in, align 8, !tbaa !43
   %104 = ptrtoint ptr %.val94.sink to i64
   %105 = and i64 %104, -2
@@ -491,17 +491,17 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr noundef readonly capt
   br i1 %152, label %.lr.ph127, label %.critedge4, !llvm.loop !45
 
 .critedge4:                                       ; preds = %.critedge2, %.critedge.preheader, %.critedge2.preheader
-  %.0.lcssa139 = phi i32 [ %.2, %.critedge2.preheader ], [ 0, %.critedge.preheader ], [ %.2, %.critedge2 ]
+  %.0.lcssa140 = phi i32 [ %.2, %.critedge2.preheader ], [ 0, %.critedge.preheader ], [ %.2, %.critedge2 ]
   tail call void @Extra_StopManager(ptr noundef %7) #14
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %155, label %153
 
 153:                                              ; preds = %.critedge4
-  %154 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.0.lcssa139, i32 noundef 0)
+  %154 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.0.lcssa140, i32 noundef 0)
   br label %155
 
 155:                                              ; preds = %153, %.critedge4
-  ret i32 %.0.lcssa139
+  ret i32 %.0.lcssa140
 }
 
 declare ptr @Cudd_Init(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
@@ -1312,13 +1312,13 @@ Vec_IntFill.exit.i:                               ; preds = %14, %6
   %.val25.i = load ptr, ptr %35, align 8, !tbaa !36
   %.val33.pre.i = load i32, ptr %34, align 8, !tbaa !48
   %36 = sext i32 %.val33.pre.i to i64
-  %invariant.gep33 = getelementptr ptr, ptr %.val25.i, i64 %36
+  %invariant.gep34 = getelementptr ptr, ptr %.val25.i, i64 %36
   br label %37
 
 37:                                               ; preds = %37, %.critedge.i
   %indvars.iv28 = phi i64 [ %indvars.iv.next29, %37 ], [ 0, %.critedge.i ]
-  %gep34 = getelementptr ptr, ptr %invariant.gep33, i64 %indvars.iv28
-  %38 = load ptr, ptr %gep34, align 8, !tbaa !37
+  %gep35 = getelementptr ptr, ptr %invariant.gep34, i64 %indvars.iv28
+  %38 = load ptr, ptr %gep35, align 8, !tbaa !37
   %39 = getelementptr i8, ptr %38, i64 36
   %.val28.i = load i32, ptr %39, align 4, !tbaa !24
   %40 = sext i32 %.val28.i to i64

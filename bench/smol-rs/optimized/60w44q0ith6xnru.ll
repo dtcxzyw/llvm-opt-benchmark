@@ -373,7 +373,7 @@ default.unreachable:                              ; preds = %"_ZN50_$LT$T$u20$as
   %.fca.1.gep.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.fca.1.extract.i.i.i.i.i, ptr %.fca.1.gep.i.i.i.i.i, align 8, !noalias !17
   %112 = icmp eq ptr %.fca.0.extract.i.i.i.i.i, null
-  br i1 %112, label %.thread18.i, label %113
+  br i1 %112, label %.thread21.i, label %113
 
 113:                                              ; preds = %111
   %114 = load ptr, ptr %.fca.1.extract.i.i.i.i.i, align 8, !invariant.load !5, !noalias !65, !nonnull !5
@@ -394,7 +394,7 @@ default.unreachable:                              ; preds = %"_ZN50_$LT$T$u20$as
 
 "_ZN4core3ptr147drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hf9c6eaf8aaa23e63E.llvm.3826330461689352739.exit.i.i.i.i.i.i": ; preds = %113
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17had44902c4d3cf527E.llvm.3826330461689352739"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
-          to label %.thread18.i unwind label %107, !noalias !17
+          to label %.thread21.i unwind label %107, !noalias !17
 
 119:                                              ; preds = %109
   %120 = landingpad { ptr, i32 }
@@ -495,7 +495,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i.i.i.i: ; preds = %102
   invoke void @"_ZN4core3ptr149drop_in_place$LT$async_lock..once_cell..OnceCell$LT$T$GT$..initialize_or_wait..$u7b$$u7b$closure$u7d$$u7d$..Guard$LT$async_executor..Executor$GT$$GT$17he986d6e1ab24c6c8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %60) #13
           to label %139 unwind label %137
 
-.thread18.i:                                      ; preds = %"_ZN4core3ptr147drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hf9c6eaf8aaa23e63E.llvm.3826330461689352739.exit.i.i.i.i.i.i", %111
+.thread21.i:                                      ; preds = %"_ZN4core3ptr147drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hf9c6eaf8aaa23e63E.llvm.3826330461689352739.exit.i.i.i.i.i.i", %111
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !17
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !17
   %.sroa.04.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 120
@@ -607,7 +607,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i.i.i.i: ; preds = %102
   invoke void @"_ZN4core3ptr149drop_in_place$LT$async_lock..once_cell..OnceCell$LT$T$GT$..initialize_or_wait..$u7b$$u7b$closure$u7d$$u7d$..Guard$LT$async_executor..Executor$GT$$GT$17he986d6e1ab24c6c8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %162) #13
           to label %196 unwind label %137
 
-163:                                              ; preds = %156, %.thread18.i
+163:                                              ; preds = %156, %.thread21.i
   %.sroa.4.0..sroa_idx.i102.i = getelementptr inbounds nuw i8, ptr %22, i64 120
   %164 = load ptr, ptr %22, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx.i102.i, i64 32, i1 false)

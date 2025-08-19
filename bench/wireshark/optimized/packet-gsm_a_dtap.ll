@@ -1833,18 +1833,18 @@ define hidden zeroext i16 @de_bearer_cap(ptr noundef %0, ptr noundef %1, ptr nou
   %cond = icmp eq i8 %13, 0
   %16 = lshr i32 %12, 5
   %17 = and i32 %16, 3
-  %spec.select478 = select i1 %.not, ptr @switch.table.de_bearer_cap, ptr @switch.table.de_bearer_cap.1
+  %spec.select490 = select i1 %.not, ptr @switch.table.de_bearer_cap, ptr @switch.table.de_bearer_cap.1
   %18 = and i8 %9, -121
   %19 = icmp eq i8 %18, 0
-  %.sink477 = select i1 %19, i32 %16, i32 %17
-  %switch.table.de_bearer_cap.2.sink = select i1 %cond, ptr %spec.select478, ptr @switch.table.de_bearer_cap.2
-  %20 = zext nneg i32 %.sink477 to i64
-  %switch.gep475 = getelementptr inbounds nuw [4 x ptr], ptr %switch.table.de_bearer_cap.2.sink, i64 0, i64 %20
-  %switch.load476 = load ptr, ptr %switch.gep475, align 8
+  %.sink489 = select i1 %19, i32 %16, i32 %17
+  %switch.table.de_bearer_cap.2.sink = select i1 %cond, ptr %spec.select490, ptr @switch.table.de_bearer_cap.2
+  %20 = zext nneg i32 %.sink489 to i64
+  %switch.gep487 = getelementptr inbounds nuw [4 x ptr], ptr %switch.table.de_bearer_cap.2.sink, i64 0, i64 %20
+  %switch.load488 = load ptr, ptr %switch.gep487, align 8
   br label %21
 
 21:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ @.str.139, %7 ], [ %switch.load476, %.sink.split ]
+  %.0 = phi ptr [ @.str.139, %7 ], [ %switch.load488, %.sink.split ]
   %22 = load i32, ptr @hf_gsm_a_dtap_radio_channel_requirement, align 4
   %23 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %11, i32 noundef %22, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.150, ptr noundef nonnull %.0)
   %24 = load i32, ptr @hf_gsm_a_dtap_bearer_cap_coding_standard, align 4

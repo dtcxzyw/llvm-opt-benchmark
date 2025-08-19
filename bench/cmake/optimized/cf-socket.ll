@@ -3060,8 +3060,8 @@ set_remote_ip.exit:                               ; preds = %58
   %.pre.pre164 = load i64, ptr %101, align 2
   %108 = and i64 %.pre.pre164, 134217728
   %.not.i127 = icmp eq i64 %108, 0
-  %or.cond168 = select i1 %107, i1 true, i1 %.not.i127
-  br i1 %or.cond168, label %tcpnodelay.exit, label %109
+  %or.cond186 = select i1 %107, i1 true, i1 %.not.i127
+  br i1 %or.cond186, label %tcpnodelay.exit, label %109
 
 109:                                              ; preds = %104
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 4712
@@ -3161,7 +3161,7 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   %or.cond.i129 = select i1 %154, i1 true, i1 %156
   %157 = icmp ne i16 %142, 0
   %or.cond7.i = select i1 %or.cond.i129, i1 true, i1 %157
-  br i1 %or.cond7.i, label %158, label %.sink.split169
+  br i1 %or.cond7.i, label %158, label %.sink.split187
 
 158:                                              ; preds = %135
   br i1 %154, label %159, label %.thread.i
@@ -3265,7 +3265,7 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   br label %202
 
 202:                                              ; preds = %201, %197, %190
-  br i1 %.not.i128, label %.thread223.i, label %.thread256.i
+  br i1 %.not.i128, label %.thread223.i, label %.thread270.i
 
 .thread137:                                       ; preds = %180
   br i1 %.not.i128, label %.thread223.i, label %.thread230.i
@@ -3324,15 +3324,15 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
 224:                                              ; preds = %223, %219, %209
   call void @Curl_resolv_unlink(ptr noundef nonnull %1, ptr noundef nonnull %4) #13
   %.not202.i = icmp eq i32 %134, %212
-  br i1 %.not202.i, label %.thread256.i, label %bindlocal.exit.thread153
+  br i1 %.not202.i, label %.thread270.i, label %bindlocal.exit.thread153
 
-.thread256.i:                                     ; preds = %202, %224
+.thread270.i:                                     ; preds = %202, %224
   switch i32 %134, label %.critedge.i [
     i32 10, label %225
     i32 2, label %241
   ]
 
-225:                                              ; preds = %.thread256.i
+225:                                              ; preds = %.thread270.i
   %226 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 37) #14
   %.not203.i = icmp eq ptr %226, null
   br i1 %.not203.i, label %229, label %227
@@ -3368,7 +3368,7 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   store i32 %239, ptr %240, align 8, !tbaa !100
   br label %.critedge.i
 
-241:                                              ; preds = %.thread256.i
+241:                                              ; preds = %.thread270.i
   %242 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %243 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %6, ptr noundef nonnull %242) #13
   %244 = icmp sgt i32 %243, 0
@@ -3397,8 +3397,8 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %bindlocal.exit.thread153
 
-.critedge.i:                                      ; preds = %245, %241, %238, %233, %229, %.thread256.i
-  %.1156.ph.i = phi i32 [ 0, %.thread256.i ], [ 0, %241 ], [ 16, %245 ], [ 28, %238 ], [ 28, %233 ], [ 28, %229 ]
+.critedge.i:                                      ; preds = %245, %241, %238, %233, %229, %.thread270.i
+  %.1156.ph.i = phi i32 [ 0, %.thread270.i ], [ 0, %241 ], [ 16, %245 ], [ 28, %238 ], [ 28, %233 ], [ 28, %229 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %259
 
@@ -3437,7 +3437,7 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   br label %.lr.ph.split.i
 
 ._crit_edge.thread.i:                             ; preds = %299, %259
-  %.0160.lcssa262.i = phi i16 [ %142, %259 ], [ %indvars.i, %299 ]
+  %.0160.lcssa276.i = phi i16 [ %142, %259 ], [ %indvars.i, %299 ]
   %267 = getelementptr inbounds nuw i8, ptr %1, i64 2562
   %268 = load i64, ptr %267, align 2
   %269 = and i64 %268, 134217728
@@ -3457,7 +3457,7 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   br i1 %276, label %277, label %279
 
 277:                                              ; preds = %273, %270
-  %278 = zext i16 %.0160.lcssa262.i to i32
+  %278 = zext i16 %.0160.lcssa276.i to i32
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.24, i32 noundef %278) #13
   br label %279
 
@@ -3466,7 +3466,7 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   %281 = load i64, ptr %280, align 8
   %282 = or i64 %281, 1048576
   store i64 %282, ptr %280, align 8
-  br label %.sink.split169
+  br label %.sink.split187
 
 .lr.ph.split.i:                                   ; preds = %299, %.lr.ph.split.preheader.i
   %indvars.iv.i = phi i32 [ %266, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %299 ]
@@ -3529,7 +3529,7 @@ bindlocal.exit.thread153:                         ; preds = %235, %224, %180, %1
 
 bindlocal.exit:                                   ; preds = %167, %174, %178
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.sink.split169
+  br label %.sink.split187
 
 bindlocal.exit.thread148:                         ; preds = %159, %.split.us.i, %bindlocal.exit.thread153
   %.0.i130151 = phi i32 [ %.1.ph.i.ph, %bindlocal.exit.thread153 ], [ 43, %159 ], [ 45, %.split.us.i ]
@@ -3540,13 +3540,13 @@ bindlocal.exit.thread148:                         ; preds = %159, %.split.us.i, 
   %spec.store.select = select i1 %306, i32 7, i32 %.0.i130151
   br label %317
 
-.sink.split169:                                   ; preds = %135, %279, %bindlocal.exit
+.sink.split187:                                   ; preds = %135, %279, %bindlocal.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %307
 
-307:                                              ; preds = %.sink.split169, %133
+307:                                              ; preds = %.sink.split187, %133
   %308 = load ptr, ptr %19, align 8, !tbaa !20
   %.not117 = icmp eq ptr %308, null
   br i1 %.not117, label %331, label %309

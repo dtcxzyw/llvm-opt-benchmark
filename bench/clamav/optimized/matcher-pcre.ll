@@ -465,9 +465,9 @@ cli_pcre_freemeta.exit:                           ; preds = %56, %59
   br label %128
 
 106:                                              ; preds = %98, %102, %101
-  %.sink128 = phi i32 [ 2, %102 ], [ 4, %101 ], [ 1, %98 ]
+  %.sink142 = phi i32 [ 2, %102 ], [ 4, %101 ], [ 1, %98 ]
   %107 = load i32, ptr %97, align 8, !tbaa !46
-  %108 = or i32 %107, %.sink128
+  %108 = or i32 %107, %.sink142
   store i32 %108, ptr %97, align 8, !tbaa !46
   %109 = getelementptr inbounds nuw i8, ptr %99, i64 1
   store ptr %109, ptr %9, align 8, !tbaa !45
@@ -672,14 +672,14 @@ define i32 @cli_pcre_build(ptr noundef readonly captures(none) %0, i64 noundef %
   %.not = icmp eq ptr %3, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %6 = load i32, ptr %5, align 4, !tbaa !47
-  %.not5075 = icmp eq i32 %6, 0
+  %.not5080 = icmp eq i32 %6, 0
   br i1 %.not, label %.thread, label %7
 
 7:                                                ; preds = %4
-  br i1 %.not5075, label %.loopexit, label %.lr.ph
+  br i1 %.not5080, label %.loopexit, label %.lr.ph
 
 .thread:                                          ; preds = %4
-  br i1 %.not5075, label %.loopexit, label %.lr.ph.split.us.split.us.preheader
+  br i1 %.not5080, label %.loopexit, label %.lr.ph.split.us.split.us.preheader
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -905,7 +905,7 @@ define i32 @cli_pcre_recaloff(ptr noundef readonly captures(address_is_null) %0,
   %35 = phi ptr [ %82, %78 ], [ %29, %.preheader ]
   %36 = phi ptr [ %83, %78 ], [ %25, %.preheader ]
   %37 = phi ptr [ %84, %78 ], [ %29, %.preheader ]
-  %38 = phi ptr [ %.sink84, %78 ], [ %25, %.preheader ]
+  %38 = phi ptr [ %.sink93, %78 ], [ %25, %.preheader ]
   %39 = phi ptr [ %85, %78 ], [ %29, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %78 ], [ 0, %.preheader ]
   %40 = load ptr, ptr %8, align 8, !tbaa !48
@@ -982,7 +982,7 @@ define i32 @cli_pcre_recaloff(ptr noundef readonly captures(address_is_null) %0,
   br label %78
 
 78:                                               ; preds = %50, %54, %74, %72, %52, %45
-  %.sink84 = phi ptr [ %32, %50 ], [ %36, %54 ], [ %77, %74 ], [ %73, %72 ], [ %34, %52 ], [ %38, %45 ]
+  %.sink93 = phi ptr [ %32, %50 ], [ %36, %54 ], [ %77, %74 ], [ %73, %72 ], [ %34, %52 ], [ %38, %45 ]
   %.sink = phi i32 [ 0, %50 ], [ %59, %54 ], [ %76, %74 ], [ 0, %72 ], [ 0, %52 ], [ 0, %45 ]
   %79 = phi ptr [ %32, %50 ], [ %32, %54 ], [ %77, %74 ], [ %73, %72 ], [ %32, %52 ], [ %32, %45 ]
   %80 = phi ptr [ %33, %50 ], [ %33, %54 ], [ %68, %74 ], [ %68, %72 ], [ %33, %52 ], [ %33, %45 ]
@@ -991,7 +991,7 @@ define i32 @cli_pcre_recaloff(ptr noundef readonly captures(address_is_null) %0,
   %83 = phi ptr [ %32, %50 ], [ %36, %54 ], [ %77, %74 ], [ %73, %72 ], [ %34, %52 ], [ %36, %45 ]
   %84 = phi ptr [ %33, %50 ], [ %37, %54 ], [ %68, %74 ], [ %68, %72 ], [ %35, %52 ], [ %37, %45 ]
   %85 = phi ptr [ %33, %50 ], [ %37, %54 ], [ %68, %74 ], [ %68, %72 ], [ %35, %52 ], [ %39, %45 ]
-  %86 = getelementptr inbounds nuw i32, ptr %.sink84, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw i32, ptr %.sink93, i64 %indvars.iv
   store i32 %.sink, ptr %86, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %87 = load i32, ptr %22, align 4, !tbaa !47
@@ -1247,8 +1247,8 @@ cli_pcre_qoff.exit.thread:                        ; preds = %71, %.sink.split.i,
   %95 = or i32 %.0100196, -2147483648
   %.2 = select i1 %or.cond3, i32 %95, i32 0
   %96 = icmp eq i32 %.2176.fr, -1
-  %spec.select214 = select i1 %96, i32 0, i32 %.2176.fr
-  %97 = icmp ult i32 %spec.select214, %1
+  %spec.select230 = select i1 %96, i32 0, i32 %.2176.fr
+  %97 = icmp ult i32 %spec.select230, %1
   br i1 %97, label %98, label %cli_pcre_qoff.exit
 
 98:                                               ; preds = %cli_pcre_qoff.exit.thread
@@ -1262,20 +1262,20 @@ switch.early.test:                                ; preds = %98
   ]
 
 99:                                               ; preds = %switch.early.test
-  %100 = add i32 %spec.select214, %.2172
+  %100 = add i32 %spec.select230, %.2172
   %101 = icmp ugt i32 %100, %1
-  %102 = sub i32 %1, %spec.select214
+  %102 = sub i32 %1, %spec.select230
   %spec.select158 = select i1 %101, i32 %102, i32 %.2172
   br label %105
 
 103:                                              ; preds = %switch.early.test, %switch.early.test, %98
-  %104 = sub i32 %1, %spec.select214
+  %104 = sub i32 %1, %spec.select230
   br label %105
 
 105:                                              ; preds = %99, %103
   %.0110 = phi i32 [ %104, %103 ], [ %spec.select158, %99 ]
   %106 = getelementptr inbounds nuw i8, ptr %34, i64 104
-  %107 = zext i32 %spec.select214 to i64
+  %107 = zext i32 %spec.select230 to i64
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 %107
   %109 = zext i32 %.0110 to i64
   %110 = icmp ne i32 %.2172, 0
@@ -1328,7 +1328,7 @@ switch.early.test:                                ; preds = %98
 
 134:                                              ; preds = %132
   %135 = load i32, ptr %28, align 4, !tbaa !3
-  %136 = add i32 %135, %spec.select214
+  %136 = add i32 %135, %spec.select230
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.38, i32 noundef %136) #13
   %137 = load i32, ptr %28, align 4
   %138 = icmp ugt i32 %137, %.2172
@@ -1336,7 +1336,7 @@ switch.early.test:                                ; preds = %98
   br i1 %or.cond199, label %139, label %141
 
 139:                                              ; preds = %134
-  %140 = add i32 %137, %spec.select214
+  %140 = add i32 %137, %spec.select230
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.39, i32 noundef %140) #13
   br label %.critedge
 
@@ -1352,7 +1352,7 @@ switch.early.test:                                ; preds = %98
   %146 = load i32, ptr %112, align 4, !tbaa !3
   %147 = load i32, ptr %113, align 8, !tbaa !3
   %148 = load i32, ptr %28, align 4, !tbaa !3
-  %149 = add i32 %148, %spec.select214
+  %149 = add i32 %148, %spec.select230
   %150 = call i32 @lsig_sub_matched(ptr noundef %4, ptr noundef %5, i32 noundef %146, i32 noundef %147, i32 noundef %149, i32 noundef 0) #13
   %.not154 = icmp eq i32 %150, 0
   br i1 %.not154, label %168, label %.critedge
@@ -1377,7 +1377,7 @@ switch.early.test:                                ; preds = %98
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 24
   store ptr %157, ptr %158, align 8, !tbaa !105
   %159 = load i32, ptr %28, align 4, !tbaa !3
-  %160 = add i32 %159, %spec.select214
+  %160 = add i32 %159, %spec.select230
   %161 = zext i32 %160 to i64
   %162 = getelementptr inbounds nuw i8, ptr %153, i64 16
   store i64 %161, ptr %162, align 8, !tbaa !106

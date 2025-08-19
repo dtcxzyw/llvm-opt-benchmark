@@ -584,7 +584,7 @@ bytestream2_get_byte.exit245.thread.thread.sink.split: ; preds = %199, %188, %17
   br label %bytestream2_get_byte.exit245.thread.thread
 
 bytestream2_get_byte.exit245.thread.thread:       ; preds = %bytestream2_get_byte.exit245.thread.thread.sink.split, %bytestream2_get_byte.exit245.thread
-  %.0199264331 = phi i32 [ %.0199264, %bytestream2_get_byte.exit245.thread ], [ 0, %bytestream2_get_byte.exit245.thread.thread.sink.split ]
+  %.0199264343 = phi i32 [ %.0199264, %bytestream2_get_byte.exit245.thread ], [ 0, %bytestream2_get_byte.exit245.thread.thread.sink.split ]
   %214 = phi ptr [ %205, %bytestream2_get_byte.exit245.thread ], [ %86, %bytestream2_get_byte.exit245.thread.thread.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %215 = getelementptr inbounds nuw i8, ptr %8, i64 1080
@@ -594,11 +594,11 @@ bytestream2_get_byte.exit245.thread.thread:       ; preds = %bytestream2_get_byt
   %218 = ptrtoint ptr %214 to i64
   %219 = sub i64 %217, %218
   %220 = trunc i64 %219 to i32
-  %221 = icmp sgt i32 %.0199264331, %220
+  %221 = icmp sgt i32 %.0199264343, %220
   br i1 %221, label %222, label %223
 
 222:                                              ; preds = %bytestream2_get_byte.exit245.thread.thread
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef %.0199264331) #7
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef %.0199264343) #7
   br label %.thread266
 
 223:                                              ; preds = %bytestream2_get_byte.exit245.thread.thread
@@ -609,7 +609,7 @@ bytestream2_get_byte.exit245.thread.thread:       ; preds = %bytestream2_get_byt
 226:                                              ; preds = %223
   %227 = getelementptr inbounds nuw i8, ptr %8, i64 1072
   %228 = load ptr, ptr %227, align 8, !tbaa !42
-  %229 = zext nneg i32 %.0199264331 to i64
+  %229 = zext nneg i32 %.0199264343 to i64
   %230 = call i32 @uncompress(ptr noundef %228, ptr noundef nonnull %6, ptr noundef %214, i64 noundef %229) #7
   %.not227 = icmp eq i32 %230, 0
   br i1 %.not227, label %232, label %231

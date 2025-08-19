@@ -1247,8 +1247,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZN
   %.1.lcssa = phi i64 [ %2, %59 ], [ %.169, %.lr.ph ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %62 = load i32, ptr %61, align 8, !tbaa !27
-  %.not74 = icmp eq i32 %62, 0
-  br i1 %.not74, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %63
+  %.not81 = icmp eq i32 %62, 0
+  br i1 %.not81, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %63
 
 63:                                               ; preds = %._crit_edge
   %64 = load ptr, ptr %9, align 8, !tbaa !3
@@ -1480,8 +1480,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZN
   %.1.lcssa = phi i64 [ %2, %63 ], [ %.169, %.lr.ph ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %66 = load i32, ptr %65, align 8, !tbaa !27
-  %.not74 = icmp eq i32 %66, 0
-  br i1 %.not74, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %67
+  %.not82 = icmp eq i32 %66, 0
+  br i1 %.not82, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %67
 
 67:                                               ; preds = %._crit_edge
   %68 = load ptr, ptr %9, align 8, !tbaa !3
@@ -1866,8 +1866,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %_Z
   %.1144 = phi i64 [ %.1149, %122 ], [ %2, %123 ]
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %128 = load i32, ptr %127, align 8, !tbaa !27
-  %.not159 = icmp eq i32 %128, 0
-  br i1 %.not159, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %129
+  %.not175 = icmp eq i32 %128, 0
+  br i1 %.not175, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %129
 
 129:                                              ; preds = %.loopexit
   %130 = load ptr, ptr %11, align 8, !tbaa !3
@@ -2099,8 +2099,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZN
   %.1.lcssa = phi i64 [ %2, %63 ], [ %.169, %.lr.ph ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %66 = load i32, ptr %65, align 8, !tbaa !27
-  %.not74 = icmp eq i32 %66, 0
-  br i1 %.not74, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %67
+  %.not82 = icmp eq i32 %66, 0
+  br i1 %.not82, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %67
 
 67:                                               ; preds = %._crit_edge
   %68 = load ptr, ptr %9, align 8, !tbaa !3
@@ -2332,8 +2332,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZN
   %.1.lcssa = phi i64 [ %2, %63 ], [ %.169, %.lr.ph ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %66 = load i32, ptr %65, align 8, !tbaa !27
-  %.not74 = icmp eq i32 %66, 0
-  br i1 %.not74, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %67
+  %.not82 = icmp eq i32 %66, 0
+  br i1 %.not82, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %67
 
 67:                                               ; preds = %._crit_edge
   %68 = load ptr, ptr %9, align 8, !tbaa !3

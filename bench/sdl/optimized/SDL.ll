@@ -896,42 +896,42 @@ SDL_DecrementSubsystemRefCount.exit134:           ; preds = %176, %.sink.split.i
   %179 = tail call ptr @SDL_GetError_REAL() #11
   %180 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef %179) #11
   %181 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  switch i8 %181, label %SDL_ShouldQuitSubsystem.exit82.i150 [
-    i8 0, label %SDL_QuitSubSystem_REAL.exit153
-    i8 1, label %SDL_ShouldQuitSubsystem.exit82.thread.i143
+  switch i8 %181, label %SDL_ShouldQuitSubsystem.exit82.i177 [
+    i8 0, label %SDL_QuitSubSystem_REAL.exit180
+    i8 1, label %SDL_ShouldQuitSubsystem.exit82.thread.i170
   ]
 
-SDL_ShouldQuitSubsystem.exit82.i150:              ; preds = %SDL_DecrementSubsystemRefCount.exit134
-  %.b6.i81.i151 = load i1, ptr @SDL_bInMainQuit, align 1
-  br i1 %.b6.i81.i151, label %SDL_ShouldQuitSubsystem.exit82.thread.i143, label %.sink.split.i84.thread.i152
+SDL_ShouldQuitSubsystem.exit82.i177:              ; preds = %SDL_DecrementSubsystemRefCount.exit134
+  %.b6.i81.i178 = load i1, ptr @SDL_bInMainQuit, align 1
+  br i1 %.b6.i81.i178, label %SDL_ShouldQuitSubsystem.exit82.thread.i170, label %.sink.split.i84.thread.i179
 
-.sink.split.i84.thread.i152:                      ; preds = %SDL_ShouldQuitSubsystem.exit82.i150
+.sink.split.i84.thread.i179:                      ; preds = %SDL_ShouldQuitSubsystem.exit82.i177
   %182 = add i8 %181, -1
   br label %184
 
-SDL_ShouldQuitSubsystem.exit82.thread.i143:       ; preds = %SDL_ShouldQuitSubsystem.exit82.i150, %SDL_DecrementSubsystemRefCount.exit134
+SDL_ShouldQuitSubsystem.exit82.thread.i170:       ; preds = %SDL_ShouldQuitSubsystem.exit82.i177, %SDL_DecrementSubsystemRefCount.exit134
   tail call void @SDL_QuitEvents() #11
-  %.pr209.i144 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  %.not.i83.i145 = icmp eq i8 %.pr209.i144, 0
-  br i1 %.not.i83.i145, label %SDL_QuitSubSystem_REAL.exit153, label %.sink.split.i84.i146
+  %.pr209.i171 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
+  %.not.i83.i172 = icmp eq i8 %.pr209.i171, 0
+  br i1 %.not.i83.i172, label %SDL_QuitSubSystem_REAL.exit180, label %.sink.split.i84.i173
 
-.sink.split.i84.i146:                             ; preds = %SDL_ShouldQuitSubsystem.exit82.thread.i143
-  %.b5.i85.pre.i147 = load i1, ptr @SDL_bInMainQuit, align 1
-  %183 = add i8 %.pr209.i144, -1
-  %cond.fr258.i148 = freeze i1 %.b5.i85.pre.i147
-  %spec.select271.i149 = select i1 %cond.fr258.i148, i8 0, i8 %183
+.sink.split.i84.i173:                             ; preds = %SDL_ShouldQuitSubsystem.exit82.thread.i170
+  %.b5.i85.pre.i174 = load i1, ptr @SDL_bInMainQuit, align 1
+  %183 = add i8 %.pr209.i171, -1
+  %cond.fr258.i175 = freeze i1 %.b5.i85.pre.i174
+  %spec.select271.i176 = select i1 %cond.fr258.i175, i8 0, i8 %183
   br label %184
 
-184:                                              ; preds = %.sink.split.i84.i146, %.sink.split.i84.thread.i152
-  %185 = phi i8 [ %182, %.sink.split.i84.thread.i152 ], [ %spec.select271.i149, %.sink.split.i84.i146 ]
+184:                                              ; preds = %.sink.split.i84.i173, %.sink.split.i84.thread.i179
+  %185 = phi i8 [ %182, %.sink.split.i84.thread.i179 ], [ %spec.select271.i176, %.sink.split.i84.i173 ]
   store i8 %185, ptr getelementptr inbounds nuw (i8, ptr @SDL_SubsystemRefCount, i64 14), align 2
-  br label %SDL_QuitSubSystem_REAL.exit153
+  br label %SDL_QuitSubSystem_REAL.exit180
 
-SDL_QuitSubSystem_REAL.exit153:                   ; preds = %SDL_DecrementSubsystemRefCount.exit134, %SDL_ShouldQuitSubsystem.exit82.thread.i143, %184
+SDL_QuitSubSystem_REAL.exit180:                   ; preds = %SDL_DecrementSubsystemRefCount.exit134, %SDL_ShouldQuitSubsystem.exit82.thread.i170, %184
   %.not62 = icmp eq ptr %180, null
   br i1 %.not62, label %SDL_DecrementSubsystemRefCount.exit, label %186
 
-186:                                              ; preds = %SDL_QuitSubSystem_REAL.exit153
+186:                                              ; preds = %SDL_QuitSubSystem_REAL.exit180
   %187 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.17, ptr noundef nonnull %180) #11
   tail call void @SDL_free_REAL(ptr noundef nonnull %180) #11
   br label %SDL_DecrementSubsystemRefCount.exit
@@ -945,8 +945,8 @@ SDL_QuitSubSystem_REAL.exit153:                   ; preds = %SDL_DecrementSubsys
   %191 = tail call zeroext i1 @SDL_ClearError_REAL() #11
   br label %196
 
-SDL_DecrementSubsystemRefCount.exit:              ; preds = %.sink.split.i123, %156, %.sink.split.i118, %142, %.sink.split.i, %8, %SDL_QuitSubSystem_REAL.exit153, %186, %SDL_QuitSubSystem_REAL.exit116, %129, %SDL_QuitSubSystem_REAL.exit107, %95, %SDL_QuitSubSystem_REAL.exit88, %66, %SDL_QuitSubSystem_REAL.exit, %37, %SDL_InitOrIncrementSubsystem.exit129, %SDL_InitOrIncrementSubsystem.exit110, %SDL_InitOrIncrementSubsystem.exit91, %SDL_InitOrIncrementSubsystem.exit72, %SDL_InitOrIncrementSubsystem.exit
-  %.1 = phi i32 [ %.7, %SDL_InitOrIncrementSubsystem.exit129 ], [ %.4, %SDL_InitOrIncrementSubsystem.exit110 ], [ %.3, %SDL_InitOrIncrementSubsystem.exit91 ], [ %.2, %SDL_InitOrIncrementSubsystem.exit72 ], [ %.044, %SDL_InitOrIncrementSubsystem.exit ], [ %.044, %37 ], [ %.044, %SDL_QuitSubSystem_REAL.exit ], [ %.2, %66 ], [ %.2, %SDL_QuitSubSystem_REAL.exit88 ], [ %.3, %95 ], [ %.3, %SDL_QuitSubSystem_REAL.exit107 ], [ %.4, %129 ], [ %.4, %SDL_QuitSubSystem_REAL.exit116 ], [ %.7, %186 ], [ %.7, %SDL_QuitSubSystem_REAL.exit153 ], [ 0, %8 ], [ 0, %.sink.split.i ], [ %.5, %142 ], [ %.5, %.sink.split.i118 ], [ %.6, %156 ], [ %.6, %.sink.split.i123 ]
+SDL_DecrementSubsystemRefCount.exit:              ; preds = %.sink.split.i123, %156, %.sink.split.i118, %142, %.sink.split.i, %8, %SDL_QuitSubSystem_REAL.exit180, %186, %SDL_QuitSubSystem_REAL.exit116, %129, %SDL_QuitSubSystem_REAL.exit107, %95, %SDL_QuitSubSystem_REAL.exit88, %66, %SDL_QuitSubSystem_REAL.exit, %37, %SDL_InitOrIncrementSubsystem.exit129, %SDL_InitOrIncrementSubsystem.exit110, %SDL_InitOrIncrementSubsystem.exit91, %SDL_InitOrIncrementSubsystem.exit72, %SDL_InitOrIncrementSubsystem.exit
+  %.1 = phi i32 [ %.7, %SDL_InitOrIncrementSubsystem.exit129 ], [ %.4, %SDL_InitOrIncrementSubsystem.exit110 ], [ %.3, %SDL_InitOrIncrementSubsystem.exit91 ], [ %.2, %SDL_InitOrIncrementSubsystem.exit72 ], [ %.044, %SDL_InitOrIncrementSubsystem.exit ], [ %.044, %37 ], [ %.044, %SDL_QuitSubSystem_REAL.exit ], [ %.2, %66 ], [ %.2, %SDL_QuitSubSystem_REAL.exit88 ], [ %.3, %95 ], [ %.3, %SDL_QuitSubSystem_REAL.exit107 ], [ %.4, %129 ], [ %.4, %SDL_QuitSubSystem_REAL.exit116 ], [ %.7, %186 ], [ %.7, %SDL_QuitSubSystem_REAL.exit180 ], [ 0, %8 ], [ 0, %.sink.split.i ], [ %.5, %142 ], [ %.5, %.sink.split.i118 ], [ %.6, %156 ], [ %.6, %.sink.split.i123 ]
   %192 = tail call ptr @SDL_GetError_REAL() #11
   %193 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef %192) #11
   tail call void @SDL_QuitSubSystem_REAL(i32 noundef %.1)

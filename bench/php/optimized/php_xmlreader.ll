@@ -220,8 +220,8 @@ define hidden void @xmlreader_unset_property(ptr noundef %0, ptr noundef %1, ptr
 
 .thread.i:                                        ; preds = %4
   %9 = tail call ptr @zend_hash_find(ptr noundef nonnull @xmlreader_prop_handlers, ptr noundef %1) #11
-  %.not.i16.i = icmp eq ptr %9, null
-  br i1 %.not.i16.i, label %xmlreader_get_prop_handler.exit.thread, label %10
+  %.not.i18.i = icmp eq ptr %9, null
+  br i1 %.not.i18.i, label %xmlreader_get_prop_handler.exit.thread, label %10
 
 10:                                               ; preds = %.thread.i
   %11 = load ptr, ptr %9, align 8, !tbaa !8, !nonnull !9, !noundef !9
@@ -4956,8 +4956,8 @@ define internal i32 @xmlreader_has_property(ptr noundef %0, ptr noundef %1, i32 
 
 .thread.i:                                        ; preds = %7
   %12 = tail call ptr @zend_hash_find(ptr noundef nonnull @xmlreader_prop_handlers, ptr noundef %1) #11
-  %.not.i16.i = icmp eq ptr %12, null
-  br i1 %.not.i16.i, label %xmlreader_get_prop_handler.exit.thread, label %14
+  %.not.i18.i = icmp eq ptr %12, null
+  br i1 %.not.i18.i, label %xmlreader_get_prop_handler.exit.thread, label %14
 
 zend_hash_find_ptr.exit.i:                        ; preds = %10
   %13 = load ptr, ptr %11, align 8, !tbaa !8, !nonnull !9, !noundef !9
@@ -5117,8 +5117,8 @@ define internal ptr @xmlreader_read_property(ptr noundef %0, ptr noundef %1, i32
 
 .thread.i:                                        ; preds = %7
   %12 = tail call ptr @zend_hash_find(ptr noundef nonnull @xmlreader_prop_handlers, ptr noundef %1) #11
-  %.not.i16.i = icmp eq ptr %12, null
-  br i1 %.not.i16.i, label %xmlreader_get_prop_handler.exit.thread, label %14
+  %.not.i18.i = icmp eq ptr %12, null
+  br i1 %.not.i18.i, label %xmlreader_get_prop_handler.exit.thread, label %14
 
 zend_hash_find_ptr.exit.i:                        ; preds = %10
   %13 = load ptr, ptr %11, align 8, !tbaa !8, !nonnull !9, !noundef !9
@@ -5171,8 +5171,8 @@ define internal ptr @xmlreader_write_property(ptr noundef %0, ptr noundef %1, pt
 
 .thread.i:                                        ; preds = %5
   %10 = tail call ptr @zend_hash_find(ptr noundef nonnull @xmlreader_prop_handlers, ptr noundef %1) #11
-  %.not.i16.i = icmp eq ptr %10, null
-  br i1 %.not.i16.i, label %xmlreader_get_prop_handler.exit.thread, label %11
+  %.not.i18.i = icmp eq ptr %10, null
+  br i1 %.not.i18.i, label %xmlreader_get_prop_handler.exit.thread, label %11
 
 11:                                               ; preds = %.thread.i
   %12 = load ptr, ptr %10, align 8, !tbaa !8, !nonnull !9, !noundef !9

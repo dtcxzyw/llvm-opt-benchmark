@@ -744,14 +744,14 @@ _ZNK4llvm4User10getOperandEj.exit105:             ; preds = %71, %74
 91:                                               ; preds = %86
   %92 = load i64, ptr %87, align 8, !tbaa !72
   %93 = icmp eq i64 %92, 0
-  br i1 %93, label %.thread, label %.thread124
+  br i1 %93, label %.thread, label %.thread129
 
 _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %86
   %94 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %87) #7
   %95 = icmp eq i32 %94, %89
-  br i1 %95, label %.thread, label %.thread124
+  br i1 %95, label %.thread, label %.thread129
 
-.thread124:                                       ; preds = %91, %_ZNK4llvm11ConstantInt6isZeroEv.exit
+.thread129:                                       ; preds = %91, %_ZNK4llvm11ConstantInt6isZeroEv.exit
   br label %.thread
 
 96:                                               ; preds = %83
@@ -813,8 +813,8 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %86
   %.not96 = icmp eq ptr %.0.i, %3
   br i1 %.not96, label %tailrecurse, label %.thread
 
-.thread:                                          ; preds = %.thread124, %97, %96, %"_ZZN4llvm18getPointerAtOffsetEPNS_8ConstantEmRNS_6ModuleES1_ENK3$_0clES1_.exit", %91, %_ZNK4llvm11ConstantInt6isZeroEv.exit, %49, %_ZNK4llvm4User10getOperandEj.exit105, %24, %_ZNK4llvm4User10getOperandEj.exit, %19
-  %.0 = phi ptr [ %.075., %19 ], [ null, %24 ], [ %48, %_ZNK4llvm4User10getOperandEj.exit ], [ null, %49 ], [ %82, %_ZNK4llvm4User10getOperandEj.exit105 ], [ %.075, %_ZNK4llvm11ConstantInt6isZeroEv.exit ], [ %.075, %91 ], [ null, %97 ], [ null, %96 ], [ null, %"_ZZN4llvm18getPointerAtOffsetEPNS_8ConstantEmRNS_6ModuleES1_ENK3$_0clES1_.exit" ], [ null, %.thread124 ]
+.thread:                                          ; preds = %.thread129, %97, %96, %"_ZZN4llvm18getPointerAtOffsetEPNS_8ConstantEmRNS_6ModuleES1_ENK3$_0clES1_.exit", %91, %_ZNK4llvm11ConstantInt6isZeroEv.exit, %49, %_ZNK4llvm4User10getOperandEj.exit105, %24, %_ZNK4llvm4User10getOperandEj.exit, %19
+  %.0 = phi ptr [ %.075., %19 ], [ null, %24 ], [ %48, %_ZNK4llvm4User10getOperandEj.exit ], [ null, %49 ], [ %82, %_ZNK4llvm4User10getOperandEj.exit105 ], [ %.075, %_ZNK4llvm11ConstantInt6isZeroEv.exit ], [ %.075, %91 ], [ null, %97 ], [ null, %96 ], [ null, %"_ZZN4llvm18getPointerAtOffsetEPNS_8ConstantEmRNS_6ModuleES1_ENK3$_0clES1_.exit" ], [ null, %.thread129 ]
   ret ptr %.0
 }
 

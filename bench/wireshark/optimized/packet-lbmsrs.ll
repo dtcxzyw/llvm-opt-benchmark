@@ -3737,7 +3737,7 @@ dissect_lbmsrs_sir_ser.exit:                      ; preds = %1265, %1172, %1079,
   br i1 %or.cond, label %.sink.split, label %21, !llvm.loop !15
 
 .sink.split:                                      ; preds = %21, %dissect_lbmsrs_sir_ser.exit, %dissect_lbmsrs_sir_ser.exit.thread
-  %.sink792.ph = phi i32 [ %1271, %dissect_lbmsrs_sir_ser.exit.thread ], [ %1272, %dissect_lbmsrs_sir_ser.exit ], [ %.087, %21 ]
+  %.sink859.ph = phi i32 [ %1271, %dissect_lbmsrs_sir_ser.exit.thread ], [ %1272, %dissect_lbmsrs_sir_ser.exit ], [ %.087, %21 ]
   %1275 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1276 = load ptr, ptr %1275, align 8
   %1277 = load ptr, ptr %16, align 8
@@ -3745,9 +3745,9 @@ dissect_lbmsrs_sir_ser.exit:                      ; preds = %1265, %1172, %1079,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %.sink.split
-  %.sink792 = phi i32 [ %.sink792.ph, %.sink.split ], [ %.087, %23 ]
+  %.sink859 = phi i32 [ %.sink859.ph, %.sink.split ], [ %.087, %23 ]
   %1278 = load ptr, ptr %16, align 8
-  %1279 = sub i32 %.sink792, %3
+  %1279 = sub i32 %.sink859, %3
   call void @proto_item_set_len(ptr noundef %1278, i32 noundef %1279)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret i32 %1279

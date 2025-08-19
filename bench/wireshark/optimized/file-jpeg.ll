@@ -540,7 +540,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_jfif(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
+define internal range(i32 0, -2147483648) i32 @dissect_jfif(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = icmp slt i32 %5, 20
   br i1 %6, label %.loopexit, label %7
@@ -805,7 +805,7 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @dissect_jfif_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @dissect_jfif(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
-  %6 = icmp sgt i32 %5, 0
+  %6 = icmp ne i32 %5, 0
   ret i1 %6
 }
 
@@ -1265,25 +1265,25 @@ define internal fastcc void @process_tiff_ifd_chain(ptr noundef %0, ptr noundef 
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 863, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond182 = select i1 %38, i1 %switch.lobit, i1 false
-  br i1 %or.cond182, label %switch.lookup, label %45
+  %or.cond186 = select i1 %38, i1 %switch.lobit, i1 false
+  br i1 %or.cond186, label %switch.lookup, label %45
 
 switch.lookup:                                    ; preds = %.lr.ph161
   %39 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.process_tiff_ifd_chain, i64 0, i64 %39
   %switch.load = load ptr, ptr %switch.gep, align 8
   %40 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep180 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.process_tiff_ifd_chain.1, i64 0, i64 %40
-  %switch.load181 = load i32, ptr %switch.gep180, align 4
+  %switch.gep184 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.process_tiff_ifd_chain.1, i64 0, i64 %40
+  %switch.load185 = load i32, ptr %switch.gep184, align 4
   %.0129.ph = load i32, ptr %switch.load, align 4
-  %41 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %switch.load181, i1 true)
+  %41 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %switch.load185, i1 true)
   %42 = lshr i32 4, %41
   %43 = load i32, ptr %11, align 4
   %44 = icmp ult i32 %42, %43
   br i1 %44, label %45, label %57
 
 45:                                               ; preds = %.lr.ph161, %switch.lookup
-  %.0128150 = phi i32 [ %switch.load181, %switch.lookup ], [ 0, %.lr.ph161 ]
+  %.0128150 = phi i32 [ %switch.load185, %switch.lookup ], [ 0, %.lr.ph161 ]
   %.0129147 = phi i32 [ %.0129.ph, %switch.lookup ], [ -1, %.lr.ph161 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %46 = load i32, ptr @hf_ifd_offset, align 4
@@ -1308,8 +1308,8 @@ switch.lookup:                                    ; preds = %.lr.ph161
   br label %57
 
 57:                                               ; preds = %switch.lookup, %56
-  %.0128149 = phi i32 [ %.0128150, %56 ], [ %switch.load181, %switch.lookup ]
-  %.not162 = phi i1 [ %or.cond182, %56 ], [ true, %switch.lookup ]
+  %.0128149 = phi i32 [ %.0128150, %56 ], [ %switch.load185, %switch.lookup ]
+  %.not162 = phi i1 [ %or.cond186, %56 ], [ true, %switch.lookup ]
   %.0129146 = phi i32 [ %.0129147, %56 ], [ %.0129.ph, %switch.lookup ]
   %.0132 = phi ptr [ %0, %56 ], [ %24, %switch.lookup ]
   %.1 = phi i32 [ %.0131, %56 ], [ %36, %switch.lookup ]

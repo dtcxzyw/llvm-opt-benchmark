@@ -762,7 +762,7 @@ sanityChecks.exit:                                ; preds = %241
   %265 = getelementptr inbounds nuw %struct.TimeLineHistoryEntry, ptr %257, i64 %indvars.iv
   %266 = load i32, ptr %265, align 8
   %.not.i76 = icmp eq i32 %264, %266
-  br i1 %.not.i76, label %267, label %._crit_edge.i.split.loop.exit116
+  br i1 %.not.i76, label %267, label %._crit_edge.i.split.loop.exit127
 
 267:                                              ; preds = %.lr.ph.i
   %268 = getelementptr inbounds nuw i8, ptr %263, i64 8
@@ -770,23 +770,23 @@ sanityChecks.exit:                                ; preds = %241
   %270 = getelementptr inbounds nuw i8, ptr %265, i64 8
   %271 = load i64, ptr %270, align 8
   %.not23.i = icmp eq i64 %269, %271
-  br i1 %.not23.i, label %272, label %._crit_edge.i.split.loop.exit114
+  br i1 %.not23.i, label %272, label %._crit_edge.i.split.loop.exit125
 
 272:                                              ; preds = %267
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next, %262
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
-._crit_edge.i.split.loop.exit114:                 ; preds = %267
+._crit_edge.i.split.loop.exit125:                 ; preds = %267
   %273 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge.i
 
-._crit_edge.i.split.loop.exit116:                 ; preds = %.lr.ph.i
+._crit_edge.i.split.loop.exit127:                 ; preds = %.lr.ph.i
   %274 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %272, %._crit_edge.i.split.loop.exit116, %._crit_edge.i.split.loop.exit114
-  %.0.lcssa.i = phi i32 [ %273, %._crit_edge.i.split.loop.exit114 ], [ %274, %._crit_edge.i.split.loop.exit116 ], [ %260, %272 ]
+._crit_edge.i:                                    ; preds = %272, %._crit_edge.i.split.loop.exit127, %._crit_edge.i.split.loop.exit125
+  %.0.lcssa.i = phi i32 [ %273, %._crit_edge.i.split.loop.exit125 ], [ %274, %._crit_edge.i.split.loop.exit127 ], [ %260, %272 ]
   %275 = icmp sgt i32 %.0.lcssa.i, 0
   br i1 %275, label %276, label %._crit_edge.thread.i
 

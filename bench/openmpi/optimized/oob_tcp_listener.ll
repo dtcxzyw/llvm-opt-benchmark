@@ -884,8 +884,8 @@ pmix_obj_run_destructors.exit84:                  ; preds = %.lr.ph.i81, %161
   %178 = icmp slt i32 %.1, 1
   %.165102.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base, i64 1192), align 8
   %.not72103 = icmp eq ptr %.165102.pr, getelementptr inbounds nuw (i8, ptr @prte_oob_base, i64 1072)
-  %or.cond126 = select i1 %178, i1 true, i1 %.not72103
-  br i1 %or.cond126, label %.backedge, label %.lr.ph107.backedge
+  %or.cond133 = select i1 %178, i1 true, i1 %.not72103
+  br i1 %or.cond133, label %.backedge, label %.lr.ph107.backedge
 
 .loopexit:                                        ; preds = %._crit_edge, %.backedge, %1, %108
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

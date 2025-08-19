@@ -354,9 +354,9 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr noundef write
   br label %.preheader152
 
 .preheader155:                                    ; preds = %.loopexit, %.split.us
-  %.5255 = phi i32 [ %.2113171.us, %.split.us ], [ %.5, %.loopexit ]
-  %.5120254 = phi i32 [ %.2117170.us, %.split.us ], [ %.5120, %.loopexit ]
-  %23 = icmp slt i32 %.5255, %.5120254
+  %.5261 = phi i32 [ %.2113171.us, %.split.us ], [ %.5, %.loopexit ]
+  %.5120260 = phi i32 [ %.2117170.us, %.split.us ], [ %.5120, %.loopexit ]
+  %23 = icmp slt i32 %.5261, %.5120260
   br i1 %23, label %.lr.ph202.preheader, label %.critedge.thread
 
 .lr.ph202.preheader:                              ; preds = %.preheader155
@@ -424,8 +424,8 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr noundef write
   br i1 %49, label %31, label %28
 
 .split.us:                                        ; preds = %34
-  %.not250 = icmp eq i32 %.1124195, 1
-  br i1 %.not250, label %.preheader155, label %.preheader152.backedge
+  %.not256 = icmp eq i32 %.1124195, 1
+  br i1 %.not256, label %.preheader155, label %.preheader152.backedge
 
 .preheader152.backedge:                           ; preds = %.split.us, %.loopexit
   %.1112197.be = phi i32 [ %.2113171.us, %.split.us ], [ %.5, %.loopexit ]
@@ -465,22 +465,22 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr noundef write
   br i1 %59, label %.preheader152.backedge, label %.preheader155
 
 .lr.ph202:                                        ; preds = %.lr.ph202.preheader, %63
-  %60 = phi i32 [ %69, %63 ], [ %.5255, %.lr.ph202.preheader ]
+  %60 = phi i32 [ %69, %63 ], [ %.5261, %.lr.ph202.preheader ]
   %.1122201 = phi i32 [ %60, %63 ], [ 0, %.lr.ph202.preheader ]
   %61 = add nsw i32 %.1122201, %24
   %62 = icmp slt i32 %61, %1
   br i1 %62, label %63, label %.critedge
 
 63:                                               ; preds = %.lr.ph202
-  %64 = sub nsw i32 %.5120254, %.1122201
+  %64 = sub nsw i32 %.5120260, %.1122201
   %spec.select142 = tail call i32 @llvm.smin.i32(i32 %64, i32 %1)
   %65 = shl i32 %spec.select142, 8
-  %66 = or i32 %65, %.5255
+  %66 = or i32 %65, %.5261
   %67 = sext i32 %61 to i64
   %68 = getelementptr inbounds i32, ptr %11, i64 %67
   store i32 %66, ptr %68, align 4, !tbaa !3
-  %69 = add nsw i32 %60, %.5255
-  %70 = icmp slt i32 %69, %.5120254
+  %69 = add nsw i32 %60, %.5261
+  %70 = icmp slt i32 %69, %.5120260
   br i1 %70, label %.lr.ph202, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %.lr.ph202, %63
@@ -490,9 +490,9 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr noundef write
   br i1 %71, label %.critedge.thread, label %76
 
 .critedge.thread:                                 ; preds = %.preheader155, %.critedge
-  %.1122.lcssa258 = phi i32 [ %.1122.lcssa.ph, %.critedge ], [ 0, %.preheader155 ]
+  %.1122.lcssa264 = phi i32 [ %.1122.lcssa.ph, %.critedge ], [ 0, %.preheader155 ]
   %72 = trunc nuw nsw i64 %indvars.iv235 to i32
-  %73 = add nsw i32 %.1122.lcssa258, %72
+  %73 = add nsw i32 %.1122.lcssa264, %72
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds i32, ptr %11, i64 %74
   store i32 257, ptr %75, align 4, !tbaa !3
@@ -513,19 +513,19 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr noundef write
   %77 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv240
   %78 = load i32, ptr %77, align 4, !tbaa !3
   %79 = icmp eq i32 %78, 0
-  br i1 %79, label %._crit_edge213.split.loop.exit275, label %80
+  br i1 %79, label %._crit_edge213.split.loop.exit281, label %80
 
 80:                                               ; preds = %.lr.ph212
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %exitcond244.not = icmp eq i64 %indvars.iv.next241, %wide.trip.count243
   br i1 %exitcond244.not, label %._crit_edge213, label %.lr.ph212, !llvm.loop !20
 
-._crit_edge213.split.loop.exit275:                ; preds = %.lr.ph212
+._crit_edge213.split.loop.exit281:                ; preds = %.lr.ph212
   %81 = trunc nuw nsw i64 %indvars.iv240 to i32
   br label %._crit_edge213
 
-._crit_edge213:                                   ; preds = %80, %._crit_edge213.split.loop.exit275
-  %.2.lcssa = phi i32 [ %81, %._crit_edge213.split.loop.exit275 ], [ %1, %80 ]
+._crit_edge213:                                   ; preds = %80, %._crit_edge213.split.loop.exit281
+  %.2.lcssa = phi i32 [ %81, %._crit_edge213.split.loop.exit281 ], [ %1, %80 ]
   store i32 %.2.lcssa, ptr %3, align 4, !tbaa !3
   %wide.trip.count248 = zext nneg i32 %1 to i64
   br label %.lr.ph219

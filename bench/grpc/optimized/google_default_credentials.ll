@@ -442,7 +442,7 @@ _ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_
   br i1 %28, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i, label %.thread.i
 
 _ZN4absl12lts_202407226StatusD2Ev.exit.i.i:       ; preds = %_ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit15.i, %33, %_ZN4absl12lts_202407228StatusOrIN9grpc_core3URIEEptEv.exit12.i
-  %.1.ph27.i = phi i1 [ true, %_ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit15.i ], [ %36, %33 ], [ true, %_ZN4absl12lts_202407228StatusOrIN9grpc_core3URIEEptEv.exit12.i ]
+  %.1.ph28.i = phi i1 [ true, %_ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit15.i ], [ %36, %33 ], [ true, %_ZN4absl12lts_202407228StatusOrIN9grpc_core3URIEEptEv.exit12.i ]
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @_ZN9grpc_core3URID2Ev(ptr noundef nonnull align 8 dereferenceable(200) %37) #34
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core3URIEED2Ev.exit.i
@@ -466,7 +466,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i.i:       ; preds = %_ZN4absl12lts_20240
   unreachable
 
 _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core3URIEED2Ev.exit.i: ; preds = %40, %.thread.i, %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i
-  %.123.i = phi i1 [ %.1.ph27.i, %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i ], [ true, %.thread.i ], [ true, %40 ]
+  %.123.i = phi i1 [ %.1.ph28.i, %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i ], [ true, %.thread.i ], [ true, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN12_GLOBAL__N_118IsXdsNonCfeClusterESt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE.exit
 

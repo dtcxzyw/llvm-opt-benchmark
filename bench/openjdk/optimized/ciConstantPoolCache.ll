@@ -227,13 +227,13 @@ _ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCac
   br i1 %.not.not9.i, label %.lr.ph.i2, label %.._crit_edge_crit_edge.i
 
 .._crit_edge_crit_edge.i:                         ; preds = %34
-  %.pre13.i = zext nneg i32 %.0.i to i64
+  %.pre13.i = sext i32 %.0.i to i64
   br label %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE13insert_beforeEiRKi.exit
 
 .lr.ph.i2:                                        ; preds = %34
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %37 = sext i32 %35 to i64
-  %38 = zext nneg i32 %.0.i to i64
+  %38 = sext i32 %.0.i to i64
   br label %39
 
 39:                                               ; preds = %39, %.lr.ph.i2
@@ -258,7 +258,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE13insert_beforeEiRKi.exit: ;
   store i32 %45, ptr %4, align 8
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %.pre-phi.i
+  %48 = getelementptr inbounds i32, ptr %47, i64 %.pre-phi.i
   store i32 %1, ptr %48, align 4
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8
@@ -288,13 +288,13 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE13insert_beforeEiRKi.exit: ;
   br i1 %.not.not9.i3, label %.lr.ph.i7, label %.._crit_edge_crit_edge.i4
 
 .._crit_edge_crit_edge.i4:                        ; preds = %63
-  %.pre13.i5 = zext nneg i32 %.0.i to i64
+  %.pre13.i5 = sext i32 %.0.i to i64
   br label %_ZN26GrowableArrayWithAllocatorIPv13GrowableArrayIS0_EE13insert_beforeEiRKS0_.exit
 
 .lr.ph.i7:                                        ; preds = %63
   %65 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %66 = sext i32 %64 to i64
-  %67 = zext nneg i32 %.0.i to i64
+  %67 = sext i32 %.0.i to i64
   br label %68
 
 68:                                               ; preds = %68, %.lr.ph.i7
@@ -319,7 +319,7 @@ _ZN26GrowableArrayWithAllocatorIPv13GrowableArrayIS0_EE13insert_beforeEiRKS0_.ex
   store i32 %74, ptr %50, align 8
   %75 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %.pre-phi.i6
+  %77 = getelementptr inbounds ptr, ptr %76, i64 %.pre-phi.i6
   store ptr %2, ptr %77, align 8
   ret void
 }

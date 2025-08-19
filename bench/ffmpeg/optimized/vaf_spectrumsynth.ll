@@ -501,8 +501,8 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef initial
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %25 = load i32, ptr %24, align 4, !tbaa !67
   %.not111 = icmp eq i32 %15, %25
-  %or.cond152 = select i1 %.not, i1 %.not111, i1 false
-  br i1 %or.cond152, label %26, label %._crit_edge151
+  %or.cond159 = select i1 %.not, i1 %.not111, i1 false
+  br i1 %or.cond159, label %26, label %._crit_edge151
 
 ._crit_edge151:                                   ; preds = %1
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %4, i32 noundef 16, ptr noundef nonnull @.str.5, i32 noundef %13, i32 noundef %15, i32 noundef %23, i32 noundef %25) #10
@@ -585,12 +585,12 @@ av_cmp_q.exit129.thread137:                       ; preds = %56, %53
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %63 = load i32, ptr %62, align 4, !tbaa !28
   %. = select i1 %61, i32 %15, i32 %13
-  %.153 = select i1 %61, i32 %13, i32 %15
+  %.160 = select i1 %61, i32 %13, i32 %15
   %64 = sdiv i32 %., %63
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 92
   store i32 %64, ptr %65, align 4, !tbaa !70
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 116
-  store i32 %.153, ptr %66, align 4, !tbaa !52
+  store i32 %.160, ptr %66, align 4, !tbaa !52
   %67 = shl nsw i32 %64, 1
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store i32 %67, ptr %68, align 8, !tbaa !71
@@ -849,7 +849,7 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
 
 .lr.ph411:                                        ; preds = %.preheader377
   %26 = add nsw i32 %1, -1
-  %.neg552558 = lshr i32 %26, 1
+  %.neg560566 = lshr i32 %26, 1
   %27 = uitofp nneg i32 %26 to double
   %28 = fmul nsz double %27, 4.000000e-01
   %29 = fmul nsz double %28, 5.000000e-01
@@ -1256,7 +1256,7 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
 252:                                              ; preds = %.lr.ph411, %252
   %indvars.iv481 = phi i64 [ 0, %.lr.ph411 ], [ %indvars.iv.next482, %252 ]
   %253 = trunc nuw nsw i64 %indvars.iv481 to i32
-  %254 = sub i32 %253, %.neg552558
+  %254 = sub i32 %253, %.neg560566
   %255 = sitofp i32 %254 to double
   %256 = fdiv nsz double %255, %29
   %257 = fmul nsz double %256, %256
@@ -1461,9 +1461,9 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
   br label %383
 
 383:                                              ; preds = %373, %357, %376, %365, %349
-  %.sink553 = phi float [ %361, %357 ], [ %382, %376 ], [ %372, %365 ], [ %353, %349 ], [ 0.000000e+00, %373 ]
+  %.sink561 = phi float [ %361, %357 ], [ %382, %376 ], [ %372, %365 ], [ %353, %349 ], [ 0.000000e+00, %373 ]
   %384 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv463
-  store float %.sink553, ptr %384, align 4, !tbaa !80
+  store float %.sink561, ptr %384, align 4, !tbaa !80
   %indvars.iv.next464 = add nuw nsw i64 %indvars.iv463, 1
   %exitcond467.not = icmp eq i64 %indvars.iv.next464, %wide.trip.count466
   br i1 %exitcond467.not, label %._crit_edge451, label %341, !llvm.loop !102
@@ -1499,9 +1499,9 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
   br label %404
 
 404:                                              ; preds = %397, %400, %393
-  %.sink555 = phi float [ %403, %400 ], [ %396, %393 ], [ 0.000000e+00, %397 ]
+  %.sink563 = phi float [ %403, %400 ], [ %396, %393 ], [ 0.000000e+00, %397 ]
   %405 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv458
-  store float %.sink555, ptr %405, align 4, !tbaa !80
+  store float %.sink563, ptr %405, align 4, !tbaa !80
   %indvars.iv.next459 = add nuw nsw i64 %indvars.iv458, 1
   %exitcond462.not = icmp eq i64 %indvars.iv.next459, %wide.trip.count461
   br i1 %exitcond462.not, label %._crit_edge451, label %385, !llvm.loop !103
@@ -1563,8 +1563,8 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
   unreachable
 
 ._crit_edge451:                                   ; preds = %427, %406, %404, %383, %339, %._crit_edge401, %277, %252, %249, %221, %213, %200, %183, %166, %121, %111, %98, %89, %79, %70, %.lr.ph450, %420, %.preheader382, %.preheader381, %.preheader380, %.preheader379, %279, %.preheader378, %.preheader377, %.preheader376, %.preheader375, %.preheader374, %.preheader373, %.preheader372, %.preheader371, %.preheader370, %.preheader369, %.preheader368, %.preheader367, %.preheader366, %.preheader365, %.preheader
-  %.sink557 = phi float [ 0.000000e+00, %.preheader ], [ 5.000000e-01, %.preheader365 ], [ 5.000000e-01, %.preheader366 ], [ 5.000000e-01, %.preheader367 ], [ 0x3FE526E980000000, %.preheader368 ], [ 0x3FD2C08320000000, %.preheader369 ], [ 0x3FEAE978E0000000, %.preheader370 ], [ 0x3FE526E980000000, %.preheader371 ], [ 0x3FE526E980000000, %.preheader372 ], [ 5.000000e-01, %.preheader373 ], [ 7.500000e-01, %.preheader374 ], [ 0x3FE5374BC0000000, %.preheader375 ], [ 7.500000e-01, %.preheader376 ], [ 7.500000e-01, %.preheader377 ], [ 0x3FD51EB860000000, %.preheader378 ], [ 5.000000e-01, %279 ], [ 7.500000e-01, %.preheader379 ], [ 7.500000e-01, %.preheader380 ], [ 7.500000e-01, %.preheader381 ], [ 7.500000e-01, %.preheader382 ], [ 7.500000e-01, %420 ], [ 0.000000e+00, %.lr.ph450 ], [ 5.000000e-01, %70 ], [ 5.000000e-01, %79 ], [ 5.000000e-01, %89 ], [ 0x3FE526E980000000, %98 ], [ 0x3FD2C08320000000, %111 ], [ 0x3FEAE978E0000000, %121 ], [ 0x3FE526E980000000, %166 ], [ 0x3FE526E980000000, %183 ], [ 5.000000e-01, %200 ], [ 7.500000e-01, %213 ], [ 0x3FE5374BC0000000, %221 ], [ 7.500000e-01, %249 ], [ 7.500000e-01, %252 ], [ 0x3FD51EB860000000, %277 ], [ 5.000000e-01, %._crit_edge401 ], [ 7.500000e-01, %339 ], [ 7.500000e-01, %383 ], [ 7.500000e-01, %404 ], [ 7.500000e-01, %406 ], [ 7.500000e-01, %427 ]
-  store float %.sink557, ptr %3, align 4, !tbaa !80
+  %.sink565 = phi float [ 0.000000e+00, %.preheader ], [ 5.000000e-01, %.preheader365 ], [ 5.000000e-01, %.preheader366 ], [ 5.000000e-01, %.preheader367 ], [ 0x3FE526E980000000, %.preheader368 ], [ 0x3FD2C08320000000, %.preheader369 ], [ 0x3FEAE978E0000000, %.preheader370 ], [ 0x3FE526E980000000, %.preheader371 ], [ 0x3FE526E980000000, %.preheader372 ], [ 5.000000e-01, %.preheader373 ], [ 7.500000e-01, %.preheader374 ], [ 0x3FE5374BC0000000, %.preheader375 ], [ 7.500000e-01, %.preheader376 ], [ 7.500000e-01, %.preheader377 ], [ 0x3FD51EB860000000, %.preheader378 ], [ 5.000000e-01, %279 ], [ 7.500000e-01, %.preheader379 ], [ 7.500000e-01, %.preheader380 ], [ 7.500000e-01, %.preheader381 ], [ 7.500000e-01, %.preheader382 ], [ 7.500000e-01, %420 ], [ 0.000000e+00, %.lr.ph450 ], [ 5.000000e-01, %70 ], [ 5.000000e-01, %79 ], [ 5.000000e-01, %89 ], [ 0x3FE526E980000000, %98 ], [ 0x3FD2C08320000000, %111 ], [ 0x3FEAE978E0000000, %121 ], [ 0x3FE526E980000000, %166 ], [ 0x3FE526E980000000, %183 ], [ 5.000000e-01, %200 ], [ 7.500000e-01, %213 ], [ 0x3FE5374BC0000000, %221 ], [ 7.500000e-01, %249 ], [ 7.500000e-01, %252 ], [ 0x3FD51EB860000000, %277 ], [ 5.000000e-01, %._crit_edge401 ], [ 7.500000e-01, %339 ], [ 7.500000e-01, %383 ], [ 7.500000e-01, %404 ], [ 7.500000e-01, %406 ], [ 7.500000e-01, %427 ]
+  store float %.sink565, ptr %3, align 4, !tbaa !80
   ret void
 }
 
@@ -1728,7 +1728,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @try_push_frame(ptr noundef
   %61 = sext i32 %51 to i64
   %62 = sext i32 %49 to i64
   %cond73.i = icmp eq i32 %41, 0
-  %invariant.gep127.i = getelementptr i16, ptr %47, i64 %18
+  %invariant.gep133.i = getelementptr i16, ptr %47, i64 %18
   %invariant.gep126 = getelementptr i16, ptr %44, i64 %18
   br label %.lr.ph18.i.i
 
@@ -1758,8 +1758,8 @@ read16_fft_bin.exit57.i:                          ; preds = %67, %.lr.ph18.i.i
   %.0.in.i55.i = phi double [ %71, %67 ], [ %66, %.lr.ph18.i.i ]
   %.0.i56.i = fptrunc double %.0.in.i55.i to float
   %73 = mul nsw i64 %indvars.iv105.i, %62
-  %gep128.i = getelementptr i8, ptr %invariant.gep127.i, i64 %73
-  %74 = load i16, ptr %gep128.i, align 2, !tbaa !109
+  %gep134.i = getelementptr i8, ptr %invariant.gep133.i, i64 %73
+  %74 = load i16, ptr %gep134.i, align 2, !tbaa !109
   %75 = uitofp i16 %74 to double
   %76 = fdiv nsz double %75, 6.553500e+04
   %77 = tail call nsz double @llvm.fmuladd.f64(double %76, double 2.000000e+00, double -1.000000e+00)

@@ -507,7 +507,7 @@ bytestream2_get_byte.exit218:                     ; preds = %bytestream2_get_be3
   br i1 %.not.i, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %170, %182
-  %indvars.iv93.i = phi i64 [ %indvars.iv.next94.i, %182 ], [ 1, %170 ]
+  %indvars.iv93.i = phi i64 [ 2, %182 ], [ 1, %170 ]
   %176 = add nuw nsw i64 %indvars.iv93.i, 3
   %177 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %176
   %178 = load i32, ptr %177, align 4, !tbaa !54
@@ -546,7 +546,7 @@ bytestream2_get_byte.exit218:                     ; preds = %bytestream2_get_be3
   br i1 %exitcond96.not.i, label %decode_mb.exit, label %.split.us.i, !llvm.loop !78
 
 .split.i:                                         ; preds = %170, %208
-  %indvars.iv89.i = phi i64 [ %indvars.iv.next90.i, %208 ], [ 1, %170 ]
+  %indvars.iv89.i = phi i64 [ 2, %208 ], [ 1, %170 ]
   %202 = add nuw nsw i64 %indvars.iv89.i, 3
   %203 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %202
   %204 = load i32, ptr %203, align 4, !tbaa !54
@@ -644,8 +644,8 @@ decode_mb.exit:                                   ; preds = %129, %.split.i, %20
   %not..i = xor i1 %258, true
   %or.cond75.not.i = select i1 %not..i, i1 %261, i1 false
   %262 = icmp sgt i32 %255, 0
-  %or.cond89.i = and i1 %or.cond75.not.i, %262
-  br i1 %or.cond89.i, label %.preheader64.us.preheader.i, label %.loopexit66.i
+  %or.cond92.i = and i1 %or.cond75.not.i, %262
+  br i1 %or.cond92.i, label %.preheader64.us.preheader.i, label %.loopexit66.i
 
 .preheader64.us.preheader.i:                      ; preds = %260
   %263 = sext i32 %245 to i64
@@ -667,10 +667,10 @@ decode_mb.exit:                                   ; preds = %129, %.split.i, %20
 .loopexit66.i:                                    ; preds = %.preheader64.us.i, %260
   %.not.i228 = xor i1 %259, true
   %267 = icmp sgt i32 %257, 0
-  %or.cond90.i = and i1 %267, %.not.i228
+  %or.cond93.i = and i1 %267, %.not.i228
   %268 = icmp sgt i32 %250, 0
-  %or.cond91.i = select i1 %or.cond90.i, i1 %268, i1 false
-  br i1 %or.cond91.i, label %.preheader.us.preheader.i, label %.loopexit.i
+  %or.cond94.i = select i1 %or.cond93.i, i1 %268, i1 false
+  br i1 %or.cond94.i, label %.preheader.us.preheader.i, label %.loopexit.i
 
 .preheader.us.preheader.i:                        ; preds = %.loopexit66.i
   %269 = mul i32 %247, %250
@@ -1394,8 +1394,8 @@ define internal fastcc void @extend_edges(ptr noundef readonly captures(none) %0
   %not. = xor i1 %23, true
   %or.cond75.not = select i1 %not., i1 %26, i1 false
   %27 = icmp sgt i32 %20, 0
-  %or.cond89 = and i1 %or.cond75.not, %27
-  br i1 %or.cond89, label %.preheader64.us.preheader, label %.loopexit66
+  %or.cond92 = and i1 %or.cond75.not, %27
+  br i1 %or.cond92, label %.preheader64.us.preheader, label %.loopexit66
 
 .preheader64.us.preheader:                        ; preds = %25
   %28 = sext i32 %10 to i64
@@ -1417,10 +1417,10 @@ define internal fastcc void @extend_edges(ptr noundef readonly captures(none) %0
 .loopexit66:                                      ; preds = %.preheader64.us, %25
   %.not = xor i1 %24, true
   %32 = icmp sgt i32 %22, 0
-  %or.cond90 = and i1 %32, %.not
+  %or.cond93 = and i1 %32, %.not
   %33 = icmp sgt i32 %15, 0
-  %or.cond91 = select i1 %or.cond90, i1 %33, i1 false
-  br i1 %or.cond91, label %.preheader.us.preheader, label %.loopexit
+  %or.cond94 = select i1 %or.cond93, i1 %33, i1 false
+  br i1 %or.cond94, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %.loopexit66
   %34 = mul i32 %12, %15
@@ -1444,7 +1444,7 @@ define internal fastcc void @extend_edges(ptr noundef readonly captures(none) %0
 declare i32 @av_frame_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1094995529, 1) i32 @decode_tile(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef range(i32 0, 3) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9, ptr noundef captures(address_is_null) %10) unnamed_addr #5 {
+define internal fastcc range(i32 -2147483648, 1) i32 @decode_tile(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef range(i32 0, 3) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 %9, ptr noundef captures(address_is_null) %10) unnamed_addr #5 {
   %12 = load ptr, ptr %2, align 8, !tbaa !106
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %57, label %13
@@ -1998,14 +1998,14 @@ get_vlc2.exit54:                                  ; preds = %70, %88
 
 169:                                              ; preds = %161, %160
   %.1 = phi i16 [ %168, %161 ], [ 0, %160 ]
-  %170 = add nsw i32 %.038, %.03757
+  %170 = add nuw nsw i32 %.038, %.03757
   %171 = icmp sgt i32 %170, 63
   br i1 %171, label %.loopexit, label %172
 
 172:                                              ; preds = %169
-  %173 = add nsw i32 %170, 1
-  %174 = sext i32 %170 to i64
-  %175 = getelementptr inbounds [64 x i8], ptr @ff_zigzag_direct, i64 0, i64 %174
+  %173 = add nuw nsw i32 %170, 1
+  %174 = zext nneg i32 %170 to i64
+  %175 = getelementptr inbounds nuw [64 x i8], ptr @ff_zigzag_direct, i64 0, i64 %174
   %176 = load i8, ptr %175, align 1, !tbaa !29
   %177 = zext i8 %176 to i64
   %178 = getelementptr inbounds nuw i16, ptr %1, i64 %177

@@ -344,8 +344,8 @@ _ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EE9push_backEOS2_.exit.i5: ; preds = %_ZN
   %140 = load i64, ptr %139, align 8
   %141 = call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 72, i32 0) #13
   call void @_ZN4llvm10ReturnInstC1ERNS_11LLVMContextEPNS_5ValueENS_4User9AllocInfoENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %141, ptr noundef nonnull align 8 dereferenceable(8) %137, ptr noundef null, i32 0, ptr %138, i64 %140) #13
-  %.not576974.i = icmp eq ptr %.sroa.047.0.lcssa.i, %.sroa.9.0.lcssa.i
-  br i1 %.not576974.i, label %.loopexit.i8, label %.lr.ph.split.us.preheader.i
+  %.not576981.i = icmp eq ptr %.sroa.047.0.lcssa.i, %.sroa.9.0.lcssa.i
+  br i1 %.not576981.i, label %.loopexit.i8, label %.lr.ph.split.us.preheader.i
 
 .lr.ph.split.preheader.i:                         ; preds = %123
   %142 = getelementptr inbounds nuw i8, ptr %127, i64 4

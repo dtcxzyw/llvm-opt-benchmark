@@ -1123,8 +1123,8 @@ pmix_obj_run_destructors.exit694:                 ; preds = %.lr.ph.i691, %315
   br label %331
 
 331:                                              ; preds = %297, %329
-  %.sink993 = phi ptr [ %330, %329 ], [ %299, %297 ]
-  %332 = call noalias ptr @strdup(ptr noundef %.sink993) #14
+  %.sink1098 = phi ptr [ %330, %329 ], [ %299, %297 ]
+  %332 = call noalias ptr @strdup(ptr noundef %.sink1098) #14
   %333 = load ptr, ptr %288, align 8, !tbaa !109
   %334 = getelementptr inbounds nuw %struct.pmix_app, ptr %333, i64 %.1491951
   store ptr %332, ptr %334, align 8, !tbaa !110
@@ -1202,9 +1202,9 @@ pmix_obj_run_destructors.exit700:                 ; preds = %.lr.ph.i697, %350
   br label %369
 
 369:                                              ; preds = %367, %364
-  %.sink995 = phi ptr [ %333, %367 ], [ %366, %364 ]
+  %.sink1100 = phi ptr [ %333, %367 ], [ %366, %364 ]
   %.sink = phi ptr [ %368, %367 ], [ %365, %364 ]
-  %370 = getelementptr inbounds nuw %struct.pmix_app, ptr %.sink995, i64 %.1491951, i32 3
+  %370 = getelementptr inbounds nuw %struct.pmix_app, ptr %.sink1100, i64 %.1491951, i32 3
   store ptr %.sink, ptr %370, align 8, !tbaa !115
   %371 = getelementptr inbounds nuw i8, ptr %298, i64 8
   %372 = load ptr, ptr %371, align 8, !tbaa !113
@@ -1511,19 +1511,19 @@ pmix_obj_run_destructors.exit718:                 ; preds = %.lr.ph.i715, %495
   store i64 %513, ptr %514, align 8, !tbaa !119
   call void @PMIx_Info_list_release(ptr noundef %444) #14
   %.not587 = icmp ne ptr %.1506.lcssa, null
-  %brmerge1046 = select i1 %.not587, i1 true, i1 %.not588
+  %brmerge1151 = select i1 %.not587, i1 true, i1 %.not588
   %.1506.lcssa.mux = select i1 %.not587, ptr %.1506.lcssa, ptr %.0508
-  br i1 %brmerge1046, label %.sink.split, label %537
+  br i1 %brmerge1151, label %.sink.split, label %537
 
 .thread857:                                       ; preds = %._crit_edge977
   br i1 %.not588, label %.sink.split, label %537
 
 .sink.split:                                      ; preds = %509, %.thread857
-  %.0508.sink1014 = phi ptr [ %.1506.lcssa.mux, %509 ], [ %.0508, %.thread857 ]
+  %.0508.sink1119 = phi ptr [ %.1506.lcssa.mux, %509 ], [ %.0508, %.thread857 ]
   %515 = load ptr, ptr %288, align 8, !tbaa !109
   %516 = getelementptr inbounds nuw %struct.pmix_app, ptr %515, i64 %.1491951
   %517 = load ptr, ptr %516, align 8, !tbaa !110
-  %518 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %10, ptr noundef nonnull @.str.5, ptr noundef nonnull %.0508.sink1014, ptr noundef %517) #14
+  %518 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %10, ptr noundef nonnull @.str.5, ptr noundef nonnull %.0508.sink1119, ptr noundef %517) #14
   %519 = load ptr, ptr %288, align 8, !tbaa !109
   %520 = getelementptr inbounds nuw %struct.pmix_app, ptr %519, i64 %.1491951
   %521 = load ptr, ptr %520, align 8, !tbaa !110
@@ -1535,7 +1535,7 @@ pmix_obj_run_destructors.exit718:                 ; preds = %.lr.ph.i715, %495
   %525 = getelementptr inbounds nuw %struct.pmix_app, ptr %523, i64 %.1491951, i32 1
   %526 = load ptr, ptr %525, align 8, !tbaa !113
   %527 = load ptr, ptr %526, align 8, !tbaa !114
-  %528 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %10, ptr noundef nonnull @.str.5, ptr noundef nonnull %.0508.sink1014, ptr noundef %527) #14
+  %528 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %10, ptr noundef nonnull @.str.5, ptr noundef nonnull %.0508.sink1119, ptr noundef %527) #14
   %529 = load ptr, ptr %288, align 8, !tbaa !109
   %530 = getelementptr inbounds nuw %struct.pmix_app, ptr %529, i64 %.1491951, i32 1
   %531 = load ptr, ptr %530, align 8, !tbaa !113

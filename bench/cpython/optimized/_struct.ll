@@ -322,7 +322,7 @@ define internal ptr @calcsize(ptr noundef readonly captures(none) %0, ptr nounde
   br i1 %.not.i, label %Py_XDECREF.exit, label %.thread
 
 .thread:                                          ; preds = %11, %9, %13
-  %.09 = phi ptr [ null, %13 ], [ %12, %11 ], [ null, %9 ]
+  %.010 = phi ptr [ null, %13 ], [ %12, %11 ], [ null, %9 ]
   %14 = load i32, ptr %.pre, align 8, !tbaa !18
   %.not.i.i = icmp sgt i32 %14, -1
   br i1 %.not.i.i, label %15, label %Py_XDECREF.exit
@@ -338,9 +338,9 @@ define internal ptr @calcsize(ptr noundef readonly captures(none) %0, ptr nounde
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %13, %.thread, %15, %18
-  %.010 = phi ptr [ null, %13 ], [ %.09, %.thread ], [ %.09, %15 ], [ %.09, %18 ]
+  %.011 = phi ptr [ null, %13 ], [ %.010, %.thread ], [ %.010, %15 ], [ %.010, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %.010
+  ret ptr %.011
 }
 
 ; Function Attrs: nounwind uwtable
@@ -560,7 +560,7 @@ unpack_impl.exit:                                 ; preds = %.unpack_impl.exit_c
   br i1 %.not.i, label %Py_XDECREF.exit, label %unpack_impl.exit.thread
 
 unpack_impl.exit.thread:                          ; preds = %28, %24, %unpack_impl.exit
-  %.015 = phi ptr [ null, %unpack_impl.exit ], [ %30, %28 ], [ null, %24 ]
+  %.019 = phi ptr [ null, %unpack_impl.exit ], [ %30, %28 ], [ null, %24 ]
   %32 = phi ptr [ %31, %unpack_impl.exit ], [ %.pre12, %28 ], [ %.pre12, %24 ]
   %33 = load i32, ptr %32, align 8, !tbaa !18
   %.not.i.i11 = icmp sgt i32 %33, -1
@@ -577,7 +577,7 @@ unpack_impl.exit.thread:                          ; preds = %28, %24, %unpack_im
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %6, %unpack_impl.exit, %unpack_impl.exit.thread, %34, %37
-  %.016 = phi ptr [ null, %unpack_impl.exit ], [ %.015, %unpack_impl.exit.thread ], [ %.015, %34 ], [ %.015, %37 ], [ null, %6 ]
+  %.020 = phi ptr [ null, %unpack_impl.exit ], [ %.019, %unpack_impl.exit.thread ], [ %.019, %34 ], [ %.019, %37 ], [ null, %6 ]
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !31
   %.not10 = icmp eq ptr %39, null
@@ -590,7 +590,7 @@ Py_XDECREF.exit:                                  ; preds = %6, %unpack_impl.exi
 41:                                               ; preds = %40, %Py_XDECREF.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %.016
+  ret ptr %.020
 }
 
 ; Function Attrs: nounwind uwtable

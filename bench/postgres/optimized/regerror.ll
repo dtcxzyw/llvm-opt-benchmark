@@ -65,14 +65,14 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr noundef readnone captures(
   br i1 %7, label %.preheader37._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader37.preheader, %.preheader37
-  %.04044 = phi ptr [ %8, %.preheader37 ], [ @rerrs, %.preheader37.preheader ]
-  %8 = getelementptr inbounds nuw i8, ptr %.04044, i64 24
+  %.04046 = phi ptr [ %8, %.preheader37 ], [ @rerrs, %.preheader37.preheader ]
+  %8 = getelementptr inbounds nuw i8, ptr %.04046, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %.preheader37, label %._crit_edge, !llvm.loop !4
 
 .preheader37:                                     ; preds = %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.04044, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %.04046, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %2) #7
   %14 = icmp eq i32 %13, 0

@@ -42,8 +42,8 @@ define void @dlarfg_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %21 = fcmp ult double %20, 0.000000e+00
   %22 = fcmp oge double %19, 0.000000e+00
   %23 = xor i1 %22, %21
-  %.neg58 = fneg double %19
-  %24 = select i1 %23, double %.neg58, double %19
+  %.neg60 = fneg double %19
+  %24 = select i1 %23, double %.neg60, double %19
   %25 = call double @dlamch_(ptr noundef nonnull @.str) #4
   %26 = call double @dlamch_(ptr noundef nonnull @.str.1) #4
   %27 = fdiv double %25, %26

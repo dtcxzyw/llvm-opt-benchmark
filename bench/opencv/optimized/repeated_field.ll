@@ -2021,10 +2021,10 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google
   br label %_ZN6google8protobuf13RepeatedFieldIbE7ReserveEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIbE7ReserveEi.exit: ; preds = %35, %32, %31, %36
-  %.sink8.in = phi ptr [ %37, %36 ], [ %9, %31 ], [ %9, %32 ], [ %9, %35 ]
-  %.sink8 = load ptr, ptr %.sink8.in, align 8, !tbaa !10
+  %.sink10.in = phi ptr [ %37, %36 ], [ %9, %31 ], [ %9, %32 ], [ %9, %35 ]
+  %.sink10 = load ptr, ptr %.sink10.in, align 8, !tbaa !10
   %38 = zext i32 %3 to i64
-  %39 = getelementptr inbounds nuw i8, ptr %.sink8, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %.sink10, i64 %38
   store i8 %7, ptr %39, align 1, !tbaa !15
   %40 = add i32 %3, 1
   store i32 %40, ptr %0, align 8, !tbaa !3
@@ -3917,10 +3917,10 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google
   br label %_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIiE7ReserveEi.exit: ; preds = %37, %34, %33, %38
-  %.sink8.in = phi ptr [ %39, %38 ], [ %9, %33 ], [ %9, %34 ], [ %9, %37 ]
-  %.sink8 = load ptr, ptr %.sink8.in, align 8, !tbaa !30
+  %.sink10.in = phi ptr [ %39, %38 ], [ %9, %33 ], [ %9, %34 ], [ %9, %37 ]
+  %.sink10 = load ptr, ptr %.sink10.in, align 8, !tbaa !30
   %40 = zext i32 %3 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %.sink8, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %.sink10, i64 %40
   store i32 %7, ptr %41, align 4, !tbaa !33
   %42 = add i32 %3, 1
   store i32 %42, ptr %0, align 8, !tbaa !27
@@ -5833,10 +5833,10 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google
   br label %_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIjE7ReserveEi.exit: ; preds = %37, %34, %33, %38
-  %.sink8.in = phi ptr [ %39, %38 ], [ %9, %33 ], [ %9, %34 ], [ %9, %37 ]
-  %.sink8 = load ptr, ptr %.sink8.in, align 8, !tbaa !45
+  %.sink10.in = phi ptr [ %39, %38 ], [ %9, %33 ], [ %9, %34 ], [ %9, %37 ]
+  %.sink10 = load ptr, ptr %.sink10.in, align 8, !tbaa !45
   %40 = zext i32 %3 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %.sink8, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %.sink10, i64 %40
   store i32 %7, ptr %41, align 4, !tbaa !33
   %42 = add i32 %3, 1
   store i32 %42, ptr %0, align 8, !tbaa !42
@@ -7749,10 +7749,10 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google
   br label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit: ; preds = %37, %34, %33, %38
-  %.sink8.in = phi ptr [ %39, %38 ], [ %9, %33 ], [ %9, %34 ], [ %9, %37 ]
-  %.sink8 = load ptr, ptr %.sink8.in, align 8, !tbaa !58
+  %.sink10.in = phi ptr [ %39, %38 ], [ %9, %33 ], [ %9, %34 ], [ %9, %37 ]
+  %.sink10 = load ptr, ptr %.sink10.in, align 8, !tbaa !58
   %40 = zext i32 %3 to i64
-  %41 = getelementptr inbounds nuw i64, ptr %.sink8, i64 %40
+  %41 = getelementptr inbounds nuw i64, ptr %.sink10, i64 %40
   store i64 %7, ptr %41, align 8, !tbaa !61
   %42 = add i32 %3, 1
   store i32 %42, ptr %0, align 8, !tbaa !55
@@ -9663,10 +9663,10 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google
   br label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit
 
 _ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit: ; preds = %37, %34, %33, %38
-  %.sink8.in = phi ptr [ %39, %38 ], [ %9, %33 ], [ %9, %34 ], [ %9, %37 ]
-  %.sink8 = load ptr, ptr %.sink8.in, align 8, !tbaa !74
+  %.sink10.in = phi ptr [ %39, %38 ], [ %9, %33 ], [ %9, %34 ], [ %9, %37 ]
+  %.sink10 = load ptr, ptr %.sink10.in, align 8, !tbaa !74
   %40 = zext i32 %3 to i64
-  %41 = getelementptr inbounds nuw i64, ptr %.sink8, i64 %40
+  %41 = getelementptr inbounds nuw i64, ptr %.sink10, i64 %40
   store i64 %7, ptr %41, align 8, !tbaa !61
   %42 = add i32 %3, 1
   store i32 %42, ptr %0, align 8, !tbaa !71
@@ -11577,10 +11577,10 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google
   br label %_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIfE7ReserveEi.exit: ; preds = %37, %34, %33, %38
-  %.sink8.in = phi ptr [ %39, %38 ], [ %9, %33 ], [ %9, %34 ], [ %9, %37 ]
-  %.sink8 = load ptr, ptr %.sink8.in, align 8, !tbaa !87
+  %.sink10.in = phi ptr [ %39, %38 ], [ %9, %33 ], [ %9, %34 ], [ %9, %37 ]
+  %.sink10 = load ptr, ptr %.sink10.in, align 8, !tbaa !87
   %40 = zext i32 %3 to i64
-  %41 = getelementptr inbounds nuw float, ptr %.sink8, i64 %40
+  %41 = getelementptr inbounds nuw float, ptr %.sink10, i64 %40
   store float %7, ptr %41, align 4, !tbaa !90
   %42 = add i32 %3, 1
   store i32 %42, ptr %0, align 8, !tbaa !84
@@ -13491,10 +13491,10 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google
   br label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit: ; preds = %37, %34, %33, %38
-  %.sink8.in = phi ptr [ %39, %38 ], [ %9, %33 ], [ %9, %34 ], [ %9, %37 ]
-  %.sink8 = load ptr, ptr %.sink8.in, align 8, !tbaa !103
+  %.sink10.in = phi ptr [ %39, %38 ], [ %9, %33 ], [ %9, %34 ], [ %9, %37 ]
+  %.sink10 = load ptr, ptr %.sink10.in, align 8, !tbaa !103
   %40 = zext i32 %3 to i64
-  %41 = getelementptr inbounds nuw double, ptr %.sink8, i64 %40
+  %41 = getelementptr inbounds nuw double, ptr %.sink10, i64 %40
   store double %7, ptr %41, align 8, !tbaa !106
   %42 = add i32 %3, 1
   store i32 %42, ptr %0, align 8, !tbaa !100
@@ -15057,7 +15057,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   %16 = load ptr, ptr %15, align 8, !tbaa !123
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = icmp eq ptr %16, %17
-  br i1 %18, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %18, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -15069,14 +15069,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %24 = icmp eq ptr %22, %23
   br i1 %24, label %28, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %10
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %10
   %25 = load ptr, ptr %1, align 8, !tbaa !123
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = icmp eq ptr %25, %26
   br i1 %27, label %28, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-28:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %29 = phi ptr [ %25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+28:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %29 = phi ptr [ %25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !127
   %32 = icmp ult i64 %31, 16
@@ -15118,7 +15118,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %43, ptr %17, align 8, !tbaa !129
   br label %50
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %44 = load i64, ptr %17, align 8, !tbaa !129
   store ptr %25, ptr %15, align 8, !tbaa !123
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8

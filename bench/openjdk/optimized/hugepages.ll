@@ -194,9 +194,9 @@ _Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread, %_Z23byte_
   %33 = and i64 %27, 1048575
   %34 = icmp eq i64 %33, 0
   %or.cond14.i13 = and i1 %32, %34
-  br i1 %or.cond14.i13, label %.thread33, label %37
+  br i1 %or.cond14.i13, label %.thread35, label %37
 
-.thread33:                                        ; preds = %31
+.thread35:                                        ; preds = %31
   %35 = lshr exact i64 %27, 20
   br label %_Z24exact_unit_for_byte_sizem.exit23
 
@@ -218,9 +218,9 @@ _Z23byte_size_in_exact_unitm.exit17:              ; preds = %._crit_edge
   %spec.select.i21 = select i1 %or.cond11.i20, ptr @.str.39, ptr @.str.40
   br label %_Z24exact_unit_for_byte_sizem.exit23
 
-_Z24exact_unit_for_byte_sizem.exit23:             ; preds = %.thread33, %_Z23byte_size_in_exact_unitm.exit17, %37
-  %.0.i1629 = phi i64 [ %36, %_Z23byte_size_in_exact_unitm.exit17 ], [ %spec.select.i15, %37 ], [ %35, %.thread33 ]
-  %.0.i22 = phi ptr [ @.str.37, %_Z23byte_size_in_exact_unitm.exit17 ], [ %spec.select.i21, %37 ], [ @.str.38, %.thread33 ]
+_Z24exact_unit_for_byte_sizem.exit23:             ; preds = %.thread35, %_Z23byte_size_in_exact_unitm.exit17, %37
+  %.0.i1629 = phi i64 [ %36, %_Z23byte_size_in_exact_unitm.exit17 ], [ %spec.select.i15, %37 ], [ %35, %.thread35 ]
+  %.0.i22 = phi ptr [ @.str.37, %_Z23byte_size_in_exact_unitm.exit17 ], [ %spec.select.i21, %37 ], [ @.str.38, %.thread35 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.5, i64 noundef %.0.i1629, ptr noundef nonnull %.0.i22) #15
   br label %46
 

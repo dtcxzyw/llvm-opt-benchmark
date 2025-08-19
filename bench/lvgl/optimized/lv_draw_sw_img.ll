@@ -687,10 +687,10 @@ radius_only.exit:                                 ; preds = %.lr.ph.split.split.
   br label %.thread4.i
 
 .thread4.i:                                       ; preds = %.thread.i, %225, %225
-  %.sink29.i = phi i32 [ %227, %.thread.i ], [ 3, %225 ], [ 3, %225 ]
+  %.sink33.i = phi i32 [ %227, %.thread.i ], [ 3, %225 ], [ 3, %225 ]
   %228 = phi i1 [ false, %.thread.i ], [ true, %225 ], [ true, %225 ]
   %.0742.i = phi i32 [ %.0743.i, %.thread.i ], [ 20, %225 ], [ 20, %225 ]
-  %229 = mul nsw i32 %.sink29.i, %217
+  %229 = mul nsw i32 %.sink33.i, %217
   %230 = call ptr @lv_refr_get_disp_refreshing() #6
   %231 = call i32 @lv_display_get_horizontal_resolution(ptr noundef %230) #6
   %232 = shl nsw i32 %231, 2

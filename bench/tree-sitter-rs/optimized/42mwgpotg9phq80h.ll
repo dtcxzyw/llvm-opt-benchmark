@@ -836,9 +836,9 @@ define hidden void @"_ZN10serde_json4read15IoRead$LT$R$GT$15parse_str_bytes17h4d
   %.sroa.0.1..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
   %.sroa.0.2..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
   %.sroa.0.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 3
-  %.sroa.0.1..sroa_idx211 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  %.sroa.0.2..sroa_idx213 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
-  %.sroa.0.1..sroa_idx212 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  %.sroa.0.1..sroa_idx234 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  %.sroa.0.2..sroa_idx236 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
+  %.sroa.0.1..sroa_idx235 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
   br label %32
 
 32:                                               ; preds = %.lr.ph, %.backedge
@@ -1239,7 +1239,7 @@ tailrecurse._crit_edge.i:                         ; preds = %68, %tailrecurse.i
   %197 = trunc i16 %175 to i8
   %198 = and i8 %197, 63
   %199 = or disjoint i8 %198, -128
-  store i8 %199, ptr %.sroa.0.1..sroa_idx212, align 1, !alias.scope !282, !noalias !230
+  store i8 %199, ptr %.sroa.0.1..sroa_idx235, align 1, !alias.scope !282, !noalias !230
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 200:                                              ; preds = %189
@@ -1251,11 +1251,11 @@ tailrecurse._crit_edge.i:                         ; preds = %68, %tailrecurse.i
   %205 = trunc i16 %204 to i8
   %206 = and i8 %205, 63
   %207 = or disjoint i8 %206, -128
-  store i8 %207, ptr %.sroa.0.1..sroa_idx211, align 1, !alias.scope !282, !noalias !230
+  store i8 %207, ptr %.sroa.0.1..sroa_idx234, align 1, !alias.scope !282, !noalias !230
   %208 = trunc i16 %175 to i8
   %209 = and i8 %208, 63
   %210 = or disjoint i8 %209, -128
-  store i8 %210, ptr %.sroa.0.2..sroa_idx213, align 2, !alias.scope !282, !noalias !230
+  store i8 %210, ptr %.sroa.0.2..sroa_idx236, align 2, !alias.scope !282, !noalias !230
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 211:                                              ; preds = %279
@@ -2583,8 +2583,8 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !640, !noalias !637
+  %.sroa.0.i.1.i.1.i.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx11, align 1, !alias.scope !640, !noalias !637
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
 
 15:                                               ; preds = %6
@@ -2596,13 +2596,13 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !640, !noalias !637
+  %.sroa.0.i.1.i.1.i.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx10, align 1, !alias.scope !640, !noalias !637
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !640, !noalias !637
+  %.sroa.0.i.2.i.2.i.2..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx12, align 2, !alias.scope !640, !noalias !637
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
 
 26:                                               ; preds = %6

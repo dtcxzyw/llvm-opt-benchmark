@@ -196,8 +196,8 @@ define hidden noundef zeroext i1 @_ZN16ArenaStatCounter7accountEli(ptr noundef n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %3, %7
-  %.sink8 = phi i64 [ 24, %7 ], [ 32, %3 ]
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink8
+  %.sink10 = phi i64 [ 24, %7 ], [ 32, %3 ]
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink10
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, %1
   store i64 %10, ptr %8, align 8
@@ -842,8 +842,8 @@ _Z17compilertype2name12CompilerType.exit:         ; preds = %64, %66
   br i1 %or.cond10.i, label %_ZL28inform_compilation_about_oom12CompilerType.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %94, %.thread.i
-  %.sink12.i = phi i64 [ 128, %.thread.i ], [ 2088, %94 ]
-  %96 = getelementptr inbounds nuw i8, ptr %92, i64 %.sink12.i
+  %.sink13.i = phi i64 [ 128, %.thread.i ], [ 2088, %94 ]
+  %96 = getelementptr inbounds nuw i8, ptr %92, i64 %.sink13.i
   store i8 1, ptr %96, align 8
   br label %_ZL28inform_compilation_about_oom12CompilerType.exit
 

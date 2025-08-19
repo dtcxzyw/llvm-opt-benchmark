@@ -587,8 +587,8 @@ build_pixel_kernel.exit:                          ; preds = %35, %normalize.exit
   %286 = sext i32 %278 to i64
   %wide.trip.count214 = zext nneg i32 %269 to i64
   %wide.trip.count = zext nneg i32 %272 to i64
-  %invariant.gep221 = getelementptr float, ptr %33, i64 %281
-  %invariant.gep224 = getelementptr float, ptr %33, i64 %281
+  %invariant.gep238 = getelementptr float, ptr %33, i64 %281
+  %invariant.gep241 = getelementptr float, ptr %33, i64 %281
   br label %.preheader155.us
 
 .preheader155.us:                                 ; preds = %.preheader155.us.preheader, %._crit_edge180.us
@@ -632,7 +632,7 @@ build_pixel_kernel.exit:                          ; preds = %35, %normalize.exit
   %306 = add nsw i32 %305, %347
   %307 = shl nsw i32 %306, 2
   %308 = sext i32 %307 to i64
-  %gep = getelementptr float, ptr %gep222, i64 %indvars.iv
+  %gep = getelementptr float, ptr %gep239, i64 %indvars.iv
   %309 = load float, ptr %gep, align 4, !tbaa !48
   %invariant.gep.us = getelementptr float, ptr %2, i64 %308
   br label %311
@@ -665,8 +665,8 @@ build_pixel_kernel.exit:                          ; preds = %35, %normalize.exit
   %321 = add i32 %340, %320
   %322 = shl nsw i32 %321, 2
   %323 = sext i32 %322 to i64
-  %gep223 = getelementptr float, ptr %gep225, i64 %indvars.iv197
-  %324 = load float, ptr %gep223, align 4, !tbaa !48
+  %gep240 = getelementptr float, ptr %gep242, i64 %indvars.iv197
+  %324 = load float, ptr %gep240, align 4, !tbaa !48
   %invariant.gep167.us = getelementptr float, ptr %2, i64 %323
   br label %326
 
@@ -709,7 +709,7 @@ build_pixel_kernel.exit:                          ; preds = %35, %normalize.exit
   %340 = add i32 %339, %292
   %341 = add nsw i64 %indvars.iv202, %281
   %342 = mul nsw i64 %341, %30
-  %gep225 = getelementptr float, ptr %invariant.gep224, i64 %342
+  %gep242 = getelementptr float, ptr %invariant.gep241, i64 %342
   br label %319
 
 .preheader153.us:                                 ; preds = %300, %._crit_edge.us
@@ -722,7 +722,7 @@ build_pixel_kernel.exit:                          ; preds = %35, %normalize.exit
   %347 = mul nsw i32 %346, %272
   %348 = add nsw i64 %indvars.iv191, %281
   %349 = mul nsw i64 %348, %30
-  %gep222 = getelementptr float, ptr %invariant.gep221, i64 %349
+  %gep239 = getelementptr float, ptr %invariant.gep238, i64 %349
   br label %301
 
 ._crit_edge.us:                                   ; preds = %310

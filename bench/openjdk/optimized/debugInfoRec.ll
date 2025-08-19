@@ -943,13 +943,13 @@ _ZN9DIR_Chunk7compareERKPS_S2_.exit.thread.i:     ; preds = %_ZN9DIR_Chunk7compa
   br i1 %.not.not9.i, label %.lr.ph.i4, label %.._crit_edge_crit_edge.i
 
 .._crit_edge_crit_edge.i:                         ; preds = %59
-  %.pre13.i = zext nneg i32 %.0.i.ph to i64
+  %.pre13.i = sext i32 %.0.i.ph to i64
   br label %_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit
 
 .lr.ph.i4:                                        ; preds = %59
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = sext i32 %60 to i64
-  %63 = zext nneg i32 %.0.i.ph to i64
+  %63 = sext i32 %.0.i.ph to i64
   br label %64
 
 64:                                               ; preds = %64, %.lr.ph.i4
@@ -975,7 +975,7 @@ _ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_beforeE
   %71 = load ptr, ptr %1, align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %.pre-phi.i
+  %74 = getelementptr inbounds ptr, ptr %73, i64 %.pre-phi.i
   store ptr %71, ptr %74, align 8
   %.pre = load ptr, ptr %72, align 8
   br label %_ZNK17GrowableArrayViewIP9DIR_ChunkE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZNS0_7compareES8_S8_EEEEiS6_Rb.exit
@@ -983,8 +983,8 @@ _ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_beforeE
 _ZNK17GrowableArrayViewIP9DIR_ChunkE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZNS0_7compareES8_S8_EEEEiS6_Rb.exit: ; preds = %44, %_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit
   %75 = phi ptr [ %.pre, %_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit ], [ %6, %44 ]
   %.0.i8 = phi i32 [ %.0.i.ph, %_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit ], [ %14, %44 ]
-  %76 = zext nneg i32 %.0.i8 to i64
-  %77 = getelementptr inbounds nuw ptr, ptr %75, i64 %76
+  %76 = sext i32 %.0.i8 to i64
+  %77 = getelementptr inbounds ptr, ptr %75, i64 %76
   %78 = load ptr, ptr %77, align 8
   ret ptr %78
 }

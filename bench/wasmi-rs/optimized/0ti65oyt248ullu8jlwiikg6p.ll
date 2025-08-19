@@ -444,9 +444,9 @@ define hidden void @_ZN10wasmi_core6memory6Memory8new_impl17h0536419399492f46E(p
   br i1 %66, label %54, label %67
 
 67:                                               ; preds = %64, %58
-  %.sink32 = phi i64 [ 16, %58 ], [ 8, %64 ]
+  %.sink37 = phi i64 [ 16, %58 ], [ 8, %64 ]
   %.sink = phi i64 [ %62, %58 ], [ 5, %64 ]
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink32
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink37
   store i64 %.sink, ptr %68, align 8
   store i64 2, ptr %0, align 8
   br label %77
@@ -619,9 +619,9 @@ define hidden void @_ZN10wasmi_core6memory6Memory8new_impl17h9c169fd3f32a6b89E(p
   br i1 %68, label %56, label %69
 
 69:                                               ; preds = %66, %60
-  %.sink32 = phi i64 [ 16, %60 ], [ 8, %66 ]
+  %.sink37 = phi i64 [ 16, %60 ], [ 8, %66 ]
   %.sink = phi i64 [ %64, %60 ], [ 5, %66 ]
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink32
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink37
   store i64 %.sink, ptr %70, align 8
   store i64 2, ptr %0, align 8
   br label %79

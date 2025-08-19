@@ -835,8 +835,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %29
 _ZN4llvmeqENS_9StringRefES0_.exit.thread17.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %29, %14
   %34 = load ptr, ptr %15, align 8, !tbaa !54
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %.0.copyload.i.i.i.i6.i.i = load i64, ptr %35, align 8
-  %36 = and i64 %.0.copyload.i.i.i.i6.i.i, -8
+  %.0.copyload.i.i.i.i7.i.i = load i64, ptr %35, align 8
+  %36 = and i64 %.0.copyload.i.i.i.i7.i.i, -8
   %37 = inttoptr i64 %36 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 56

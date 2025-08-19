@@ -163,7 +163,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef rea
           cleanup
   br label %130
 
-.loopexit.split-lp:                               ; preds = %.invoke79, %._crit_edge.i.i, %41, %44, %50, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit35, %_ZNSolsEPFRSoS_E.exit, %105, %66, %.noexc58, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i, %.noexc60, %85, %.noexc68, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i65, %.noexc70
+.loopexit.split-lp:                               ; preds = %.invoke85, %._crit_edge.i.i, %41, %44, %50, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit35, %_ZNSolsEPFRSoS_E.exit, %105, %66, %.noexc58, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i, %.noexc60, %85, %.noexc68, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i65, %.noexc70
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %130
@@ -186,13 +186,13 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 240
   %60 = load ptr, ptr %59, align 8, !tbaa !28
   %.not.i.i.i = icmp eq ptr %60, null
-  br i1 %.not.i.i.i, label %.invoke79, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
+  br i1 %.not.i.i.i, label %.invoke85, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
-.invoke79:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit39, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit
+.invoke85:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit39, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit
   invoke void @_ZSt16__throw_bad_castv() #11
           to label %.cont unwind label %.loopexit.split-lp
 
-.cont:                                            ; preds = %.invoke79
+.cont:                                            ; preds = %.invoke85
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit
@@ -238,7 +238,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit39: ; preds = %_ZNSo
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 240
   %79 = load ptr, ptr %78, align 8, !tbaa !28
   %.not.i.i.i62 = icmp eq ptr %79, null
-  br i1 %.not.i.i.i62, label %.invoke79, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i63
+  br i1 %.not.i.i.i62, label %.invoke85, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i63
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i63: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit39
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 56

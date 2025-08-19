@@ -218,7 +218,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc70
   br label %.noexc28
 
 .noexc28:                                         ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc70
-  %64 = getelementptr inbounds i8, ptr %60, i64 %48
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 %48
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %.noexc28, %55

@@ -205,8 +205,8 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
   %wide.trip.count93 = and i64 %54, 4294967295
   %.pre95 = load i16, ptr %6, align 16, !tbaa !80
   %.pre96 = load i16, ptr %55, align 16, !tbaa !80
-  %.not115 = icmp eq i16 %51, 2
-  br i1 %.not115, label %.ph, label %.ph.lver.orig
+  %.not123 = icmp eq i16 %51, 2
+  br i1 %.not123, label %.ph, label %.ph.lver.orig
 
 .ph.lver.orig:                                    ; preds = %.lver.check, %.ph.lver.orig
   %56 = phi i16 [ %60, %.ph.lver.orig ], [ %.pre96, %.lver.check ]
@@ -244,12 +244,11 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
 .ph:                                              ; preds = %.lver.check
   %scevgep = getelementptr inbounds nuw i8, ptr %7, i64 8
   %load_initial = load double, ptr %scevgep, align 8
-  br label %101
+  br label %92
 
 .preheader54.split:                               ; preds = %.preheader54, %._crit_edge.split
   %.not = phi i1 [ false, %._crit_edge.split ], [ true, %.preheader54 ]
   %indvars.iv81.sroa.phi = phi ptr [ %indvars.iv81.sroa.gep, %._crit_edge.split ], [ %6, %.preheader54 ]
-  %.04870 = phi i64 [ %.149.lcssa, %._crit_edge.split ], [ 0, %.preheader54 ]
   %81 = load ptr, ptr %11, align 8, !tbaa !6
   %82 = select i1 %.not, i32 %3, i32 %4
   %83 = sext i32 %82 to i64
@@ -263,93 +262,74 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
 
 .lr.ph:                                           ; preds = %.preheader54.split
   %wide.trip.count = zext i16 %88 to i64
-  br label %89
+  br label %._crit_edge61.split
 
-89:                                               ; preds = %.lr.ph, %._crit_edge61.split
+._crit_edge61.split:                              ; preds = %.lr.ph, %._crit_edge61.split
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %._crit_edge61.split ]
-  %.04666 = phi i32 [ 0, %.lr.ph ], [ %.147.lcssa, %._crit_edge61.split ]
-  %.14965 = phi i64 [ %.04870, %.lr.ph ], [ %.2.lcssa, %._crit_edge61.split ]
-  %90 = sub nsw i32 %.04666, %1
-  %91 = icmp slt i32 %90, 0
-  br i1 %91, label %.lr.ph60, label %._crit_edge61.split
-
-.lr.ph60:                                         ; preds = %89, %.lr.ph60
-  %.14758 = phi i32 [ %93, %.lr.ph60 ], [ %90, %89 ]
-  %.257 = phi i64 [ %92, %.lr.ph60 ], [ %.14965, %89 ]
-  %92 = shl i64 %.257, %12
-  %93 = add nsw i32 %.14758, %2
-  %94 = icmp slt i32 %93, 0
-  br i1 %94, label %.lr.ph60, label %._crit_edge61.split, !llvm.loop !83
-
-._crit_edge61.split:                              ; preds = %.lr.ph60, %89
-  %.2.lcssa = phi i64 [ %.14965, %89 ], [ %92, %.lr.ph60 ]
-  %.147.lcssa = phi i32 [ %90, %89 ], [ %93, %.lr.ph60 ]
-  %95 = sub nsw i32 %14, %.147.lcssa
-  %96 = zext nneg i32 %95 to i64
-  %97 = shl i64 %.2.lcssa, %96
-  %98 = lshr i64 %97, %15
-  %99 = trunc i64 %98 to i16
-  %100 = getelementptr inbounds nuw [2064 x i16], ptr %indvars.iv81.sroa.phi, i64 0, i64 %indvars.iv
-  store i16 %99, ptr %100, align 2, !tbaa !80
+  %.04666 = phi i32 [ 0, %.lr.ph ], [ %89, %._crit_edge61.split ]
+  %89 = sub nsw i32 %.04666, %1
+  %90 = icmp sgt i32 %89, -1
+  tail call void @llvm.assume(i1 %90)
+  %91 = getelementptr inbounds nuw [2064 x i16], ptr %indvars.iv81.sroa.phi, i64 0, i64 %indvars.iv
+  store i16 0, ptr %91, align 2, !tbaa !80
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %89, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge.split, label %._crit_edge61.split, !llvm.loop !81
 
 ._crit_edge.split:                                ; preds = %._crit_edge61.split, %.preheader54.split
-  %.149.lcssa = phi i64 [ %.04870, %.preheader54.split ], [ %.2.lcssa, %._crit_edge61.split ]
   br i1 %.not, label %.preheader54.split, label %.preheader, !llvm.loop !79
 
-101:                                              ; preds = %.ph, %101
-  %store_forwarded = phi double [ %load_initial, %.ph ], [ %115, %101 ]
-  %102 = phi i16 [ %.pre96, %.ph ], [ %106, %101 ]
-  %103 = phi i16 [ %.pre95, %.ph ], [ %118, %101 ]
-  %indvars.iv90 = phi i64 [ 0, %.ph ], [ %indvars.iv.next91, %101 ]
-  %104 = zext i16 %103 to i32
+92:                                               ; preds = %.ph, %92
+  %store_forwarded = phi double [ %load_initial, %.ph ], [ %106, %92 ]
+  %93 = phi i16 [ %.pre96, %.ph ], [ %97, %92 ]
+  %94 = phi i16 [ %.pre95, %.ph ], [ %109, %92 ]
+  %indvars.iv90 = phi i64 [ 0, %.ph ], [ %indvars.iv.next91, %92 ]
+  %95 = zext i16 %94 to i32
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  %105 = getelementptr inbounds nuw [2064 x i16], ptr %55, i64 0, i64 %indvars.iv.next91
-  %106 = load i16, ptr %105, align 2, !tbaa !80
-  %107 = zext i16 %106 to i32
-  %108 = sub nsw i32 %104, %107
-  %109 = tail call i32 @llvm.abs.i32(i32 %108, i1 true)
-  %110 = uitofp nneg i32 %109 to double
-  %111 = and i64 %indvars.iv90, 1
-  %112 = and i64 %indvars.iv90, 1
-  %113 = getelementptr inbounds nuw [2 x double], ptr %7, i64 0, i64 %112
-  %114 = load double, ptr %113, align 8, !tbaa !74
-  %115 = fadd reassoc nsz arcp contract afn double %114, %110
-  store double %115, ptr %113, align 8, !tbaa !74
-  %116 = zext i16 %102 to i32
-  %117 = getelementptr inbounds nuw [2064 x i16], ptr %6, i64 0, i64 %indvars.iv.next91
-  %118 = load i16, ptr %117, align 2, !tbaa !80
-  %119 = zext i16 %118 to i32
-  %120 = sub nsw i32 %116, %119
-  %121 = tail call i32 @llvm.abs.i32(i32 %120, i1 true)
-  %122 = uitofp nneg i32 %121 to double
-  %123 = xor i64 %111, 1
-  %124 = getelementptr inbounds nuw [2 x double], ptr %7, i64 0, i64 %123
-  %125 = fadd reassoc nsz arcp contract afn double %store_forwarded, %122
-  store double %125, ptr %124, align 8, !tbaa !74
+  %96 = getelementptr inbounds nuw [2064 x i16], ptr %55, i64 0, i64 %indvars.iv.next91
+  %97 = load i16, ptr %96, align 2, !tbaa !80
+  %98 = zext i16 %97 to i32
+  %99 = sub nsw i32 %95, %98
+  %100 = tail call i32 @llvm.abs.i32(i32 %99, i1 true)
+  %101 = uitofp nneg i32 %100 to double
+  %102 = and i64 %indvars.iv90, 1
+  %103 = and i64 %indvars.iv90, 1
+  %104 = getelementptr inbounds nuw [2 x double], ptr %7, i64 0, i64 %103
+  %105 = load double, ptr %104, align 8, !tbaa !74
+  %106 = fadd reassoc nsz arcp contract afn double %105, %101
+  store double %106, ptr %104, align 8, !tbaa !74
+  %107 = zext i16 %93 to i32
+  %108 = getelementptr inbounds nuw [2064 x i16], ptr %6, i64 0, i64 %indvars.iv.next91
+  %109 = load i16, ptr %108, align 2, !tbaa !80
+  %110 = zext i16 %109 to i32
+  %111 = sub nsw i32 %107, %110
+  %112 = tail call i32 @llvm.abs.i32(i32 %111, i1 true)
+  %113 = uitofp nneg i32 %112 to double
+  %114 = xor i64 %102, 1
+  %115 = getelementptr inbounds nuw [2 x double], ptr %7, i64 0, i64 %114
+  %116 = fadd reassoc nsz arcp contract afn double %store_forwarded, %113
+  store double %116, ptr %115, align 8, !tbaa !74
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
-  br i1 %exitcond94.not, label %._crit_edge, label %101, !llvm.loop !84
+  br i1 %exitcond94.not, label %._crit_edge, label %92, !llvm.loop !84
 
-._crit_edge:                                      ; preds = %.ph.lver.orig, %101
+._crit_edge:                                      ; preds = %.ph.lver.orig, %92
   %.pre97 = load double, ptr %7, align 16, !tbaa !74
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.pre98 = load double, ptr %.phi.trans.insert, align 8
-  %126 = fcmp reassoc nsz arcp contract afn oge double %.pre97, 1.000000e+00
-  %127 = fcmp reassoc nsz arcp contract afn oge double %.pre98, 1.000000e+00
-  %or.cond = select i1 %126, i1 %127, i1 false
-  br i1 %or.cond, label %128, label %._crit_edge.thread
+  %117 = fcmp reassoc nsz arcp contract afn oge double %.pre97, 1.000000e+00
+  %118 = fcmp reassoc nsz arcp contract afn oge double %.pre98, 1.000000e+00
+  %or.cond = select i1 %117, i1 %118, i1 false
+  br i1 %or.cond, label %119, label %._crit_edge.thread
 
-128:                                              ; preds = %._crit_edge
-  %129 = fdiv reassoc nsz arcp contract afn double %.pre97, %.pre98
-  %130 = tail call reassoc nsz arcp contract afn double @llvm.log.f64(double %129)
-  %131 = fmul reassoc nsz arcp contract afn double %130, 1.000000e+02
-  %132 = fptrunc reassoc nsz arcp contract afn double %131 to float
+119:                                              ; preds = %._crit_edge
+  %120 = fdiv reassoc nsz arcp contract afn double %.pre97, %.pre98
+  %121 = tail call reassoc nsz arcp contract afn double @llvm.log.f64(double %120)
+  %122 = fmul reassoc nsz arcp contract afn double %121, 1.000000e+02
+  %123 = fptrunc reassoc nsz arcp contract afn double %122 to float
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %5, %128
-  %.050 = phi nsz float [ %132, %128 ], [ 0.000000e+00, %5 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %.preheader ]
+._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %5, %119
+  %.050 = phi nsz float [ %123, %119 ], [ 0.000000e+00, %5 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret float %.050
@@ -360,7 +340,7 @@ declare double @llvm.log.f64(double) #2
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
 define void @_ZN6LibRaw10trimSpacesEPc(ptr noundef captures(none) %0) local_unnamed_addr #3 align 2 {
-  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
+  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
   %3 = trunc i64 %2 to i32
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %27, label %.preheader19
@@ -372,13 +352,13 @@ define void @_ZN6LibRaw10trimSpacesEPc(ptr noundef captures(none) %0) local_unna
   %6 = getelementptr i8, ptr %5, i64 -1
   %7 = load i8, ptr %6, align 1, !tbaa !73
   %8 = sext i8 %7 to i32
-  %9 = tail call i32 @isspace(i32 noundef %8) #11
+  %9 = tail call i32 @isspace(i32 noundef %8) #12
   %.not1620 = icmp eq i32 %9, 0
   br i1 %.not1620, label %.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader19
-  %sext32 = shl i64 %2, 32
-  %10 = ashr exact i64 %sext32, 32
+  %sext34 = shl i64 %2, 32
+  %10 = ashr exact i64 %sext34, 32
   br label %.lr.ph
 
 .preheader.loopexit:                              ; preds = %.lr.ph
@@ -399,7 +379,7 @@ define void @_ZN6LibRaw10trimSpacesEPc(ptr noundef captures(none) %0) local_unna
   %14 = getelementptr i8, ptr %13, i64 -1
   %15 = load i8, ptr %14, align 1, !tbaa !73
   %16 = sext i8 %15 to i32
-  %17 = tail call i32 @isspace(i32 noundef %16) #11
+  %17 = tail call i32 @isspace(i32 noundef %16) #12
   %.not16 = icmp eq i32 %17, 0
   br i1 %.not16, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !85
 
@@ -408,7 +388,7 @@ define void @_ZN6LibRaw10trimSpacesEPc(ptr noundef captures(none) %0) local_unna
   %.124 = phi i32 [ %23, %21 ], [ %.0.lcssa, %.preheader ]
   %.01323 = phi ptr [ %22, %21 ], [ %0, %.preheader ]
   %19 = sext i8 %18 to i32
-  %20 = tail call i32 @isspace(i32 noundef %19) #11
+  %20 = tail call i32 @isspace(i32 noundef %19) #12
   %.not18 = icmp eq i32 %20, 0
   br i1 %.not18, label %.critedge, label %21
 
@@ -458,7 +438,7 @@ define void @_ZN6LibRaw22remove_trailing_spacesEPcm(ptr noundef %0, i64 noundef 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.013
   %11 = load i8, ptr %10, align 1, !tbaa !73
   %12 = zext i8 %11 to i32
-  %13 = tail call i32 @isspace(i32 noundef %12) #11
+  %13 = tail call i32 @isspace(i32 noundef %12) #12
   %.not14 = icmp eq i32 %13, 0
   br i1 %.not14, label %.loopexit, label %.lr.ph
 
@@ -470,7 +450,7 @@ define void @_ZN6LibRaw22remove_trailing_spacesEPcm(ptr noundef %0, i64 noundef 
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.0
   %16 = load i8, ptr %15, align 1, !tbaa !73
   %17 = zext i8 %16 to i32
-  %18 = tail call i32 @isspace(i32 noundef %17) #11
+  %18 = tail call i32 @isspace(i32 noundef %17) #12
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !87
 
@@ -499,7 +479,7 @@ define void @_ZN6LibRaw17remove_caseSubstrEPcS0_(ptr noundef %0, ptr noundef %1)
 
 8:                                                ; preds = %.lr.ph16, %.loopexit
   %9 = phi ptr [ %3, %.lr.ph16 ], [ %7, %.loopexit ]
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   %11 = trunc i64 %10 to i32
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph.preheader, label %.loopexit
@@ -524,7 +504,7 @@ define void @_ZN6LibRaw17remove_caseSubstrEPcS0_(ptr noundef %0, ptr noundef %1)
   br label %.loopexit
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
+  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
   %25 = trunc i64 %24 to i32
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %_ZN6LibRaw10trimSpacesEPc.exit, label %.preheader19.i
@@ -536,7 +516,7 @@ define void @_ZN6LibRaw17remove_caseSubstrEPcS0_(ptr noundef %0, ptr noundef %1)
   %28 = getelementptr i8, ptr %27, i64 -1
   %29 = load i8, ptr %28, align 1, !tbaa !73
   %30 = sext i8 %29 to i32
-  %31 = tail call i32 @isspace(i32 noundef %30) #11
+  %31 = tail call i32 @isspace(i32 noundef %30) #12
   %.not1620.i = icmp eq i32 %31, 0
   br i1 %.not1620.i, label %.preheader.i, label %.lr.ph.i
 
@@ -558,7 +538,7 @@ define void @_ZN6LibRaw17remove_caseSubstrEPcS0_(ptr noundef %0, ptr noundef %1)
   %35 = getelementptr i8, ptr %34, i64 -1
   %36 = load i8, ptr %35, align 1, !tbaa !73
   %37 = sext i8 %36 to i32
-  %38 = tail call i32 @isspace(i32 noundef %37) #11
+  %38 = tail call i32 @isspace(i32 noundef %37) #12
   %.not16.i = icmp eq i32 %38, 0
   br i1 %.not16.i, label %.preheader.loopexit.i, label %.lr.ph.i, !llvm.loop !85
 
@@ -567,7 +547,7 @@ define void @_ZN6LibRaw17remove_caseSubstrEPcS0_(ptr noundef %0, ptr noundef %1)
   %.124.i = phi i32 [ %44, %42 ], [ %.0.lcssa.i, %.preheader.i ]
   %.01323.i = phi ptr [ %43, %42 ], [ %0, %.preheader.i ]
   %40 = sext i8 %39 to i32
-  %41 = tail call i32 @isspace(i32 noundef %40) #11
+  %41 = tail call i32 @isspace(i32 noundef %40) #12
   %.not18.i = icmp eq i32 %41, 0
   br i1 %.not18.i, label %.critedge.i, label %42
 
@@ -594,7 +574,7 @@ declare noundef ptr @_ZN6LibRaw10strcasestrEPcPKc(ptr noundef, ptr noundef) loca
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite) uwtable
 define void @_ZN6LibRaw21removeExcessiveSpacesEPc(ptr noundef captures(none) %0) local_unnamed_addr #8 align 2 {
-  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
+  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
   %3 = trunc i64 %2 to i32
   %smax = tail call i32 @llvm.smax.i32(i32 %3, i32 0)
   %4 = add nsw i32 %smax, -1
@@ -678,6 +658,9 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #11
+
 attributes #0 = { mustprogress uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -689,7 +672,8 @@ attributes #7 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" 
 attributes #8 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind willreturn memory(read) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

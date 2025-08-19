@@ -605,21 +605,21 @@ lean_dec.exit69:                                  ; preds = %175, %174, %172, %l
   br i1 %exitcond.not, label %._crit_edge, label %30
 
 .sink.split:                                      ; preds = %lean_dec.exit69, %lean_dec.exit64
-  %.sink158 = phi ptr [ %27, %lean_dec.exit64 ], [ %176, %lean_dec.exit69 ]
+  %.sink179 = phi ptr [ %27, %lean_dec.exit64 ], [ %176, %lean_dec.exit69 ]
   %.sink = phi i32 [ 131096, %lean_dec.exit64 ], [ 16908312, %lean_dec.exit69 ]
   %.055.lcssa.sink = phi ptr [ %.055.lcssa, %lean_dec.exit64 ], [ %150, %lean_dec.exit69 ]
   %.058.lcssa.sink = phi ptr [ %.058.lcssa, %lean_dec.exit64 ], [ %152, %lean_dec.exit69 ]
-  %180 = getelementptr inbounds nuw i8, ptr %.sink158, i64 4
-  store i32 1, ptr %.sink158, align 4, !tbaa !4
+  %180 = getelementptr inbounds nuw i8, ptr %.sink179, i64 4
+  store i32 1, ptr %.sink179, align 4, !tbaa !4
   store i32 %.sink, ptr %180, align 4
-  %181 = getelementptr inbounds nuw i8, ptr %.sink158, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %.sink179, i64 8
   store ptr %.055.lcssa.sink, ptr %181, align 8, !tbaa !10
-  %182 = getelementptr inbounds nuw i8, ptr %.sink158, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %.sink179, i64 16
   store ptr %.058.lcssa.sink, ptr %182, align 8, !tbaa !10
   br label %183
 
 183:                                              ; preds = %.sink.split, %lean_dec.exit68
-  %.1.ph = phi ptr [ %69, %lean_dec.exit68 ], [ %.sink158, %.sink.split ]
+  %.1.ph = phi ptr [ %69, %lean_dec.exit68 ], [ %.sink179, %.sink.split ]
   ret ptr %.1.ph
 }
 
@@ -8577,19 +8577,19 @@ lean_alloc_ctor.exit4749:                         ; preds = %lean_alloc_ctor.exi
   unreachable
 
 lean_alloc_ctor.exit4200:                         ; preds = %lean_alloc_ctor.exit4749, %lean_alloc_ctor.exit4730, %lean_alloc_ctor.exit4560, %lean_alloc_ctor.exit4541, %lean_alloc_ctor.exit4384, %lean_alloc_ctor.exit4365, %lean_alloc_ctor.exit4218, %lean_alloc_ctor.exit4199
-  %.sink6242 = phi ptr [ %658, %lean_alloc_ctor.exit4199 ], [ %745, %lean_alloc_ctor.exit4218 ], [ %1277, %lean_alloc_ctor.exit4365 ], [ %1364, %lean_alloc_ctor.exit4384 ], [ %1947, %lean_alloc_ctor.exit4541 ], [ %2034, %lean_alloc_ctor.exit4560 ], [ %2682, %lean_alloc_ctor.exit4730 ], [ %2769, %lean_alloc_ctor.exit4749 ]
-  %.sink6237 = phi ptr [ %109, %lean_alloc_ctor.exit4199 ], [ %109, %lean_alloc_ctor.exit4218 ], [ %109, %lean_alloc_ctor.exit4365 ], [ %109, %lean_alloc_ctor.exit4384 ], [ %109, %lean_alloc_ctor.exit4541 ], [ %109, %lean_alloc_ctor.exit4560 ], [ %2063, %lean_alloc_ctor.exit4730 ], [ %2063, %lean_alloc_ctor.exit4749 ]
-  %.sink6234 = phi ptr [ %657, %lean_alloc_ctor.exit4199 ], [ %744, %lean_alloc_ctor.exit4218 ], [ %1276, %lean_alloc_ctor.exit4365 ], [ %1363, %lean_alloc_ctor.exit4384 ], [ %1946, %lean_alloc_ctor.exit4541 ], [ %2033, %lean_alloc_ctor.exit4560 ], [ %2681, %lean_alloc_ctor.exit4730 ], [ %2768, %lean_alloc_ctor.exit4749 ]
+  %.sink6661 = phi ptr [ %658, %lean_alloc_ctor.exit4199 ], [ %745, %lean_alloc_ctor.exit4218 ], [ %1277, %lean_alloc_ctor.exit4365 ], [ %1364, %lean_alloc_ctor.exit4384 ], [ %1947, %lean_alloc_ctor.exit4541 ], [ %2034, %lean_alloc_ctor.exit4560 ], [ %2682, %lean_alloc_ctor.exit4730 ], [ %2769, %lean_alloc_ctor.exit4749 ]
+  %.sink6656 = phi ptr [ %109, %lean_alloc_ctor.exit4199 ], [ %109, %lean_alloc_ctor.exit4218 ], [ %109, %lean_alloc_ctor.exit4365 ], [ %109, %lean_alloc_ctor.exit4384 ], [ %109, %lean_alloc_ctor.exit4541 ], [ %109, %lean_alloc_ctor.exit4560 ], [ %2063, %lean_alloc_ctor.exit4730 ], [ %2063, %lean_alloc_ctor.exit4749 ]
+  %.sink6653 = phi ptr [ %657, %lean_alloc_ctor.exit4199 ], [ %744, %lean_alloc_ctor.exit4218 ], [ %1276, %lean_alloc_ctor.exit4365 ], [ %1363, %lean_alloc_ctor.exit4384 ], [ %1946, %lean_alloc_ctor.exit4541 ], [ %2033, %lean_alloc_ctor.exit4560 ], [ %2681, %lean_alloc_ctor.exit4730 ], [ %2768, %lean_alloc_ctor.exit4749 ]
   %.sink = phi ptr [ %656, %lean_alloc_ctor.exit4199 ], [ %743, %lean_alloc_ctor.exit4218 ], [ %1275, %lean_alloc_ctor.exit4365 ], [ %1362, %lean_alloc_ctor.exit4384 ], [ %1945, %lean_alloc_ctor.exit4541 ], [ %2032, %lean_alloc_ctor.exit4560 ], [ %2680, %lean_alloc_ctor.exit4730 ], [ %2767, %lean_alloc_ctor.exit4749 ]
   %.143154 = phi ptr [ %140, %lean_alloc_ctor.exit4199 ], [ %140, %lean_alloc_ctor.exit4218 ], [ %750, %lean_alloc_ctor.exit4365 ], [ %750, %lean_alloc_ctor.exit4384 ], [ %1390, %lean_alloc_ctor.exit4541 ], [ %1390, %lean_alloc_ctor.exit4560 ], [ %2114, %lean_alloc_ctor.exit4730 ], [ %2114, %lean_alloc_ctor.exit4749 ]
-  %2772 = getelementptr inbounds nuw i8, ptr %.sink6242, i64 4
-  store i32 1, ptr %.sink6242, align 4, !tbaa !4
+  %2772 = getelementptr inbounds nuw i8, ptr %.sink6661, i64 4
+  store i32 1, ptr %.sink6661, align 4, !tbaa !4
   store i32 16973856, ptr %2772, align 4
-  %2773 = getelementptr inbounds nuw i8, ptr %.sink6242, i64 8
-  store ptr %.sink6237, ptr %2773, align 8, !tbaa !10
-  %2774 = getelementptr inbounds nuw i8, ptr %.sink6242, i64 16
-  store ptr %.sink6234, ptr %2774, align 8, !tbaa !10
-  %2775 = getelementptr inbounds nuw i8, ptr %.sink6242, i64 24
+  %2773 = getelementptr inbounds nuw i8, ptr %.sink6661, i64 8
+  store ptr %.sink6656, ptr %2773, align 8, !tbaa !10
+  %2774 = getelementptr inbounds nuw i8, ptr %.sink6661, i64 16
+  store ptr %.sink6653, ptr %2774, align 8, !tbaa !10
+  %2775 = getelementptr inbounds nuw i8, ptr %.sink6661, i64 24
   store ptr %.sink, ptr %2775, align 8, !tbaa !10
   %2776 = tail call ptr @l_Lean_Syntax_getArgs(ptr noundef %3) #5
   %2777 = getelementptr i8, ptr %2776, i64 8
@@ -9414,7 +9414,7 @@ lean_inc.exit3640:                                ; preds = %3071, %3070, %3068,
 
 lean_inc.exit3639:                                ; preds = %3082, %3081, %3079, %lean_inc.exit3640
   %3083 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %2805, ptr noundef %3076, ptr noundef nonnull %3072, ptr noundef nonnull %2864, ptr noundef %2890, ptr noundef nonnull %2831, ptr noundef nonnull %2864, ptr noundef %3048) #5
-  %3084 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6242, ptr noundef %2, ptr noundef %3083, ptr noundef %16, ptr noundef %17, ptr noundef %2836)
+  %3084 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6661, ptr noundef %2, ptr noundef %3083, ptr noundef %16, ptr noundef %17, ptr noundef %2836)
   br label %7145
 
 3085:                                             ; preds = %lean_obj_tag.exit4820
@@ -9575,7 +9575,7 @@ lean_alloc_ctor.exit4839:                         ; preds = %lean_inc.exit3636
 
 lean_inc.exit3635:                                ; preds = %3139, %3138, %3136, %lean_alloc_ctor.exit4839
   %3140 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %2805, ptr noundef %3133, ptr noundef nonnull %3126, ptr noundef nonnull %2864, ptr noundef %2890, ptr noundef nonnull %2831, ptr noundef nonnull %2864, ptr noundef %3048) #5
-  %3141 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6242, ptr noundef %2, ptr noundef %3140, ptr noundef %16, ptr noundef %17, ptr noundef %2836)
+  %3141 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6661, ptr noundef %2, ptr noundef %3140, ptr noundef %16, ptr noundef %17, ptr noundef %2836)
   br label %7145
 
 3142:                                             ; preds = %lean_dec.exit3260
@@ -10302,7 +10302,7 @@ lean_inc.exit3611:                                ; preds = %3388, %3387, %3385,
 
 lean_inc.exit3610:                                ; preds = %3399, %3398, %3396, %lean_inc.exit3611
   %3400 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %2805, ptr noundef %3393, ptr noundef nonnull %3389, ptr noundef nonnull %3179, ptr noundef %3205, ptr noundef nonnull %3206, ptr noundef nonnull %3179, ptr noundef %3365) #5
-  %3401 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6242, ptr noundef %2, ptr noundef %3400, ptr noundef %16, ptr noundef %17, ptr noundef %3144)
+  %3401 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6661, ptr noundef %2, ptr noundef %3400, ptr noundef %16, ptr noundef %17, ptr noundef %3144)
   br label %7145
 
 3402:                                             ; preds = %lean_obj_tag.exit4916
@@ -10463,7 +10463,7 @@ lean_alloc_ctor.exit4935:                         ; preds = %lean_inc.exit3607
 
 lean_inc.exit3606:                                ; preds = %3456, %3455, %3453, %lean_alloc_ctor.exit4935
   %3457 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %2805, ptr noundef %3450, ptr noundef nonnull %3443, ptr noundef nonnull %3179, ptr noundef %3205, ptr noundef nonnull %3206, ptr noundef nonnull %3179, ptr noundef %3365) #5
-  %3458 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6242, ptr noundef %2, ptr noundef %3457, ptr noundef %16, ptr noundef %17, ptr noundef %3144)
+  %3458 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6661, ptr noundef %2, ptr noundef %3457, ptr noundef %16, ptr noundef %17, ptr noundef %3144)
   br label %7145
 
 3459:                                             ; preds = %lean_dec.exit3261
@@ -11336,7 +11336,7 @@ lean_alloc_ctor.exit5029:                         ; preds = %lean_inc.exit3581
 
 lean_inc.exit3580:                                ; preds = %3770, %3769, %3767, %lean_alloc_ctor.exit5029
   %3771 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %2805, ptr noundef %3764, ptr noundef nonnull %3757, ptr noundef nonnull %3536, ptr noundef %3562, ptr noundef nonnull %.03198, ptr noundef nonnull %3536, ptr noundef %3733) #5
-  %3772 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6242, ptr noundef %2, ptr noundef %3771, ptr noundef %16, ptr noundef %17, ptr noundef %3482)
+  %3772 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6661, ptr noundef %2, ptr noundef %3771, ptr noundef %16, ptr noundef %17, ptr noundef %3482)
   br label %7145
 
 3773:                                             ; preds = %lean_obj_tag.exit5022
@@ -11497,7 +11497,7 @@ lean_alloc_ctor.exit5042:                         ; preds = %lean_inc.exit3577
 
 lean_inc.exit3576:                                ; preds = %3827, %3826, %3824, %lean_alloc_ctor.exit5042
   %3828 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %2805, ptr noundef %3821, ptr noundef nonnull %3814, ptr noundef nonnull %3536, ptr noundef %3562, ptr noundef nonnull %.03198, ptr noundef nonnull %3536, ptr noundef %3733) #5
-  %3829 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6242, ptr noundef %2, ptr noundef %3828, ptr noundef %16, ptr noundef %17, ptr noundef %3482)
+  %3829 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6661, ptr noundef %2, ptr noundef %3828, ptr noundef %16, ptr noundef %17, ptr noundef %3482)
   br label %7145
 
 3830:                                             ; preds = %lean_dec.exit3262
@@ -12548,7 +12548,7 @@ lean_alloc_ctor.exit5149:                         ; preds = %lean_inc.exit3549
 
 lean_inc.exit3548:                                ; preds = %4206, %4205, %4203, %lean_alloc_ctor.exit5149
   %4207 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %3856, ptr noundef %4200, ptr noundef nonnull %4193, ptr noundef nonnull %3961, ptr noundef %3987, ptr noundef nonnull %.03202, ptr noundef nonnull %3961, ptr noundef %4169) #5
-  %4208 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6242, ptr noundef %2, ptr noundef %4207, ptr noundef %16, ptr noundef %17, ptr noundef %3907)
+  %4208 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6661, ptr noundef %2, ptr noundef %4207, ptr noundef %16, ptr noundef %17, ptr noundef %3907)
   br label %7145
 
 4209:                                             ; preds = %lean_obj_tag.exit5142
@@ -12709,7 +12709,7 @@ lean_alloc_ctor.exit5162:                         ; preds = %lean_inc.exit3545
 
 lean_inc.exit3544:                                ; preds = %4263, %4262, %4260, %lean_alloc_ctor.exit5162
   %4264 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %3856, ptr noundef %4257, ptr noundef nonnull %4250, ptr noundef nonnull %3961, ptr noundef %3987, ptr noundef nonnull %.03202, ptr noundef nonnull %3961, ptr noundef %4169) #5
-  %4265 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6242, ptr noundef %2, ptr noundef %4264, ptr noundef %16, ptr noundef %17, ptr noundef %3907)
+  %4265 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6661, ptr noundef %2, ptr noundef %4264, ptr noundef %16, ptr noundef %17, ptr noundef %3907)
   br label %7145
 
 4266:                                             ; preds = %lean_dec.exit3263
@@ -14120,7 +14120,7 @@ lean_inc.exit3502:                                ; preds = %4769, %4768, %4766,
 
 lean_inc.exit3501:                                ; preds = %4779, %4778, %4776, %lean_inc.exit3502
   %4780 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %4275, ptr noundef %4773, ptr noundef nonnull %4661, ptr noundef nonnull %4316, ptr noundef %4342, ptr noundef nonnull %4292, ptr noundef nonnull %4316, ptr noundef %4772) #5
-  %4781 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6242, ptr noundef %2, ptr noundef %4780, ptr noundef %16, ptr noundef %17, ptr noundef %4297)
+  %4781 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6661, ptr noundef %2, ptr noundef %4780, ptr noundef %16, ptr noundef %17, ptr noundef %4297)
   br label %7145
 
 4782:                                             ; preds = %lean_obj_tag.exit5278
@@ -14556,7 +14556,7 @@ lean_inc.exit3488:                                ; preds = %4932, %4931, %4929,
 
 lean_inc.exit3487:                                ; preds = %4942, %4941, %4939, %lean_inc.exit3488
   %4943 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %4275, ptr noundef %4936, ptr noundef nonnull %4661, ptr noundef nonnull %4316, ptr noundef %4342, ptr noundef nonnull %4292, ptr noundef nonnull %4316, ptr noundef %4935) #5
-  %4944 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6242, ptr noundef %2, ptr noundef %4943, ptr noundef %16, ptr noundef %17, ptr noundef %4297)
+  %4944 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6661, ptr noundef %2, ptr noundef %4943, ptr noundef %16, ptr noundef %17, ptr noundef %4297)
   br label %7145
 
 4945:                                             ; preds = %4291
@@ -15990,7 +15990,7 @@ lean_inc.exit3443:                                ; preds = %5441, %5440, %5438,
 
 lean_inc.exit3442:                                ; preds = %5451, %5450, %5448, %lean_inc.exit3443
   %5452 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %4275, ptr noundef %5445, ptr noundef nonnull %5333, ptr noundef nonnull %4988, ptr noundef %5014, ptr noundef nonnull %5015, ptr noundef nonnull %4988, ptr noundef %5444) #5
-  %5453 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6242, ptr noundef %2, ptr noundef %5452, ptr noundef %16, ptr noundef %17, ptr noundef %4297)
+  %5453 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6661, ptr noundef %2, ptr noundef %5452, ptr noundef %16, ptr noundef %17, ptr noundef %4297)
   br label %7145
 
 5454:                                             ; preds = %lean_obj_tag.exit5478
@@ -16426,7 +16426,7 @@ lean_inc.exit3429:                                ; preds = %5604, %5603, %5601,
 
 lean_inc.exit3428:                                ; preds = %5614, %5613, %5611, %lean_inc.exit3429
   %5615 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %4275, ptr noundef %5608, ptr noundef nonnull %5333, ptr noundef nonnull %4988, ptr noundef %5014, ptr noundef nonnull %5015, ptr noundef nonnull %4988, ptr noundef %5607) #5
-  %5616 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6242, ptr noundef %2, ptr noundef %5615, ptr noundef %16, ptr noundef %17, ptr noundef %4297)
+  %5616 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6661, ptr noundef %2, ptr noundef %5615, ptr noundef %16, ptr noundef %17, ptr noundef %4297)
   br label %7145
 
 5617:                                             ; preds = %lean_dec.exit3246
@@ -18016,7 +18016,7 @@ lean_inc.exit3382:                                ; preds = %6171, %6170, %6168,
 
 lean_inc.exit3381:                                ; preds = %6181, %6180, %6178, %lean_inc.exit3382
   %6182 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %4275, ptr noundef %6175, ptr noundef nonnull %6063, ptr noundef nonnull %5709, ptr noundef %5735, ptr noundef nonnull %.03210, ptr noundef nonnull %5709, ptr noundef %6174) #5
-  %6183 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6242, ptr noundef %2, ptr noundef %6182, ptr noundef %16, ptr noundef %17, ptr noundef %5655)
+  %6183 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6661, ptr noundef %2, ptr noundef %6182, ptr noundef %16, ptr noundef %17, ptr noundef %5655)
   br label %7145
 
 6184:                                             ; preds = %lean_obj_tag.exit5691
@@ -18452,7 +18452,7 @@ lean_inc.exit3368:                                ; preds = %6334, %6333, %6331,
 
 lean_inc.exit3367:                                ; preds = %6344, %6343, %6341, %lean_inc.exit3368
   %6345 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %4275, ptr noundef %6338, ptr noundef nonnull %6063, ptr noundef nonnull %5709, ptr noundef %5735, ptr noundef nonnull %.03210, ptr noundef nonnull %5709, ptr noundef %6337) #5
-  %6346 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6242, ptr noundef %2, ptr noundef %6345, ptr noundef %16, ptr noundef %17, ptr noundef %5655)
+  %6346 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6661, ptr noundef %2, ptr noundef %6345, ptr noundef %16, ptr noundef %17, ptr noundef %5655)
   br label %7145
 
 6347:                                             ; preds = %4266
@@ -20223,7 +20223,7 @@ lean_inc.exit3319:                                ; preds = %6969, %6968, %6966,
 
 lean_inc.exit3318:                                ; preds = %6979, %6978, %6976, %lean_inc.exit3319
   %6980 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %6373, ptr noundef %6973, ptr noundef nonnull %6861, ptr noundef nonnull %6496, ptr noundef %6522, ptr noundef nonnull %.03215, ptr noundef nonnull %6496, ptr noundef %6972) #5
-  %6981 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6242, ptr noundef %2, ptr noundef %6980, ptr noundef %16, ptr noundef %17, ptr noundef %6442)
+  %6981 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6661, ptr noundef %2, ptr noundef %6980, ptr noundef %16, ptr noundef %17, ptr noundef %6442)
   br label %7145
 
 6982:                                             ; preds = %lean_obj_tag.exit5917
@@ -20659,7 +20659,7 @@ lean_inc.exit3305:                                ; preds = %7132, %7131, %7129,
 
 lean_inc.exit:                                    ; preds = %7142, %7141, %7139, %lean_inc.exit3305
   %7143 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %6373, ptr noundef %7136, ptr noundef nonnull %6861, ptr noundef nonnull %6496, ptr noundef %6522, ptr noundef nonnull %.03215, ptr noundef nonnull %6496, ptr noundef %7135) #5
-  %7144 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6242, ptr noundef %2, ptr noundef %7143, ptr noundef %16, ptr noundef %17, ptr noundef %6442)
+  %7144 = tail call ptr @l_Lean_Elab_Command_elabMacro___lambda__1(ptr noundef %1, ptr noundef nonnull %.sink6661, ptr noundef %2, ptr noundef %7143, ptr noundef %16, ptr noundef %17, ptr noundef %6442)
   br label %7145
 
 7145:                                             ; preds = %lean_inc.exit3548, %lean_inc.exit3544, %lean_inc.exit3610, %lean_inc.exit3606, %lean_inc.exit3639, %lean_inc.exit3635, %lean_inc.exit3576, %lean_inc.exit3580, %lean_inc.exit, %lean_inc.exit3318, %lean_inc.exit3428, %lean_inc.exit3442, %lean_inc.exit3487, %lean_inc.exit3501, %lean_inc.exit3381, %lean_inc.exit3367
@@ -29466,18 +29466,18 @@ lean_dec_ref.exit:                                ; preds = %262, %261, %259, %_
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
-  %.sink25 = phi ptr [ %4, %3 ], [ %263, %lean_dec_ref.exit ]
-  %266 = getelementptr inbounds nuw i8, ptr %.sink25, i64 4
-  store i32 1, ptr %.sink25, align 4, !tbaa !4
+  %.sink40 = phi ptr [ %4, %3 ], [ %263, %lean_dec_ref.exit ]
+  %266 = getelementptr inbounds nuw i8, ptr %.sink40, i64 4
+  store i32 1, ptr %.sink40, align 4, !tbaa !4
   store i32 131096, ptr %266, align 4
-  %267 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
+  %267 = getelementptr inbounds nuw i8, ptr %.sink40, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %267, align 8, !tbaa !10
-  %268 = getelementptr inbounds nuw i8, ptr %.sink25, i64 16
+  %268 = getelementptr inbounds nuw i8, ptr %.sink40, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %268, align 8, !tbaa !10
   br label %269
 
 269:                                              ; preds = %.sink.split, %250, %183, %7
-  %.0 = phi ptr [ %8, %7 ], [ %188, %183 ], [ %253, %250 ], [ %.sink25, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %188, %183 ], [ %253, %250 ], [ %.sink40, %.sink.split ]
   ret ptr %.0
 }
 

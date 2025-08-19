@@ -322,18 +322,18 @@ define dso_local i32 @ipc_addid(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
   %126 = icmp ult i8 %125, 2
   call void @llvm.assume(i1 %126)
   %127 = icmp eq i8 %125, 0
-  br i1 %127, label %.preheader8, label %128, !prof !10
+  br i1 %127, label %.preheader11, label %128, !prof !10
 
 128:                                              ; preds = %.preheader7
   %129 = call i64 @llvm.read_register.i64(metadata !0)
   %130 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %129) #15, !srcloc !20
   call void @llvm.write_register.i64(metadata !0, i64 %130)
-  br label %.preheader8
+  br label %.preheader11
 
-.preheader8:                                      ; preds = %128, %.preheader7
+.preheader11:                                     ; preds = %128, %.preheader7
   br label %131
 
-131:                                              ; preds = %.preheader8, %131
+131:                                              ; preds = %.preheader11, %131
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !21
   %132 = load volatile i64, ptr %118, align 8
   %133 = and i64 %132, 1
@@ -690,18 +690,18 @@ define internal fastcc void @ipc_kht_remove(ptr noundef %0, ptr noundef readonly
   %69 = icmp ult i8 %68, 2
   call void @llvm.assume(i1 %69)
   %70 = icmp eq i8 %68, 0
-  br i1 %70, label %.preheader61, label %71, !prof !10
+  br i1 %70, label %.preheader65, label %71, !prof !10
 
 71:                                               ; preds = %.preheader
   %72 = call i64 @llvm.read_register.i64(metadata !0)
   %73 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %72) #15, !srcloc !20
   call void @llvm.write_register.i64(metadata !0, i64 %73)
-  br label %.preheader61
+  br label %.preheader65
 
-.preheader61:                                     ; preds = %71, %.preheader
+.preheader65:                                     ; preds = %71, %.preheader
   br label %74
 
-74:                                               ; preds = %.preheader61, %74
+74:                                               ; preds = %.preheader65, %74
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !21
   %75 = load volatile i64, ptr %61, align 8
   %76 = and i64 %75, 1
@@ -735,8 +735,8 @@ define internal fastcc void @ipc_kht_remove(ptr noundef %0, ptr noundef readonly
   br i1 %93, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %91
-  %.lcssa14.in42 = and i64 %64, 512
-  %.lcssa1443 = icmp eq i64 %.lcssa14.in42, 0
+  %.lcssa14.in46 = and i64 %64, 512
+  %.lcssa1447 = icmp eq i64 %.lcssa14.in46, 0
   %94 = load ptr, ptr %9, align 8
   br label %108
 
@@ -778,7 +778,7 @@ define internal fastcc void @ipc_kht_remove(ptr noundef %0, ptr noundef readonly
 
 108:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %109 = phi ptr [ %94, %._crit_edge.thread ], [ %97, %._crit_edge ]
-  %.lcssa1444 = phi i1 [ %.lcssa1443, %._crit_edge.thread ], [ %.lcssa14, %._crit_edge ]
+  %.lcssa1448 = phi i1 [ %.lcssa1447, %._crit_edge.thread ], [ %.lcssa14, %._crit_edge ]
   %110 = ptrtoint ptr %109 to i64
   %111 = and i64 %110, 1
   %112 = icmp eq i64 %111, 0
@@ -799,7 +799,7 @@ define internal fastcc void @ipc_kht_remove(ptr noundef %0, ptr noundef readonly
   br label %120
 
 120:                                              ; preds = %117, %108
-  br i1 %.lcssa1444, label %137, label %121
+  br i1 %.lcssa1448, label %137, label %121
 
 121:                                              ; preds = %120
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !32

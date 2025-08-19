@@ -905,8 +905,8 @@ define i32 @exr_encoding_run(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
   store i64 0, ptr %172, align 8, !tbaa !51
   %173 = getelementptr inbounds nuw i8, ptr %2, i64 240
   %174 = load ptr, ptr %173, align 8, !tbaa !37
-  %.not175234 = icmp eq ptr %174, null
-  br i1 %.not175234, label %184, label %.thread
+  %.not175246 = icmp eq ptr %174, null
+  br i1 %.not175246, label %184, label %.thread
 
 175:                                              ; preds = %._crit_edge
   %.not178 = icmp eq i64 %.2148, 0
@@ -926,7 +926,7 @@ define i32 @exr_encoding_run(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
 
 184:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %185 = phi ptr [ %172, %._crit_edge.thread ], [ %169, %._crit_edge ]
-  %.0146.lcssa235 = phi i64 [ 0, %._crit_edge.thread ], [ %.2148, %._crit_edge ]
+  %.0146.lcssa247 = phi i64 [ 0, %._crit_edge.thread ], [ %.2148, %._crit_edge ]
   %186 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %187 = load ptr, ptr %186, align 8, !tbaa !52
   %.not176 = icmp eq ptr %187, null
@@ -935,7 +935,7 @@ define i32 @exr_encoding_run(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
 188:                                              ; preds = %184
   %189 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %190 = load i64, ptr %189, align 8, !tbaa !45
-  %.not177 = icmp eq i64 %.0146.lcssa235, %190
+  %.not177 = icmp eq i64 %.0146.lcssa247, %190
   br i1 %.not177, label %.thread, label %191
 
 191:                                              ; preds = %188, %184

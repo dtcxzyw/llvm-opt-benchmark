@@ -427,9 +427,9 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br label %291
 
 291:                                              ; preds = %281, %279
-  %.sink141.i = phi i32 [ %290, %281 ], [ %223, %279 ]
+  %.sink143.i = phi i32 [ %290, %281 ], [ %223, %279 ]
   %292 = getelementptr inbounds nuw i8, ptr %10, i64 44
-  store i32 %.sink141.i, ptr %292, align 4, !tbaa !61
+  store i32 %.sink143.i, ptr %292, align 4, !tbaa !61
   %293 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %294 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %295 = getelementptr inbounds nuw i8, ptr %11, i64 6

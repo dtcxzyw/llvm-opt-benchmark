@@ -2903,9 +2903,9 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__15U
   br label %.thread31.thread
 
 .thread31.thread:                                 ; preds = %.thread31, %17, %19
-  %.sink40 = phi ptr [ %16, %19 ], [ %16, %.thread31 ], [ %13, %17 ]
+  %.sink44 = phi ptr [ %16, %19 ], [ %16, %.thread31 ], [ %13, %17 ]
   %.sink = phi ptr [ %21, %19 ], [ %1, %.thread31 ], [ %1, %17 ]
-  %22 = getelementptr inbounds nuw i8, ptr %.sink40, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.sink44, i64 16
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath12GetNameTokenEv(ptr noundef nonnull align 4 dereferenceable(8) %22)
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath11AppendChildERKNS_7TfTokenE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %5, ptr noundef nonnull align 4 dereferenceable(8) %.sink, ptr noundef nonnull align 8 dereferenceable(8) %23)
   %24 = load i32, ptr %5, align 4
@@ -2987,7 +2987,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit: ; preds = %29, %42
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %62, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit.thread, %17
   %.0243033 = phi i64 [ 0, %17 ], [ 8192, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit.thread ], [ 8192, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit ], [ 8192, %49 ], [ 8192, %62 ]
-  %66 = phi ptr [ %13, %17 ], [ %.sink40, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit.thread ], [ %.sink40, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit ], [ %.sink40, %49 ], [ %.sink40, %62 ]
+  %66 = phi ptr [ %13, %17 ], [ %.sink44, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit.thread ], [ %.sink44, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit ], [ %.sink44, %49 ], [ %.sink44, %62 ]
   store ptr %66, ptr %0, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 56
   %68 = load i64, ptr %67, align 8

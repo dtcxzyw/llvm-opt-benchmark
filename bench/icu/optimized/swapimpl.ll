@@ -233,8 +233,8 @@ define internal noundef i32 @_ZL11uprops_swapPK12UDataSwapperPKviPvP10UErrorCode
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %17 = load i8, ptr %16, align 1, !tbaa !7
   %18 = icmp eq i8 %17, 80
-  %or.cond124 = select i1 %15, i1 %18, i1 false
-  br i1 %or.cond124, label %19, label %._crit_edge
+  %or.cond131 = select i1 %15, i1 %18, i1 false
+  br i1 %or.cond131, label %19, label %._crit_edge
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -334,8 +334,8 @@ define internal noundef i32 @_ZL11uprops_swapPK12UDataSwapperPKviPvP10UErrorCode
   %71 = icmp eq i32 %70, 0
   %72 = add nsw i32 %.1103120, -1
   %73 = icmp samesign ugt i32 %.1103120, 1
-  %or.cond126 = select i1 %71, i1 %73, i1 false
-  br i1 %or.cond126, label %.preheader, label %.critedge, !llvm.loop !18
+  %or.cond133 = select i1 %71, i1 %73, i1 false
+  br i1 %or.cond133, label %.preheader, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %.preheader
   %74 = sub nsw i32 %2, %7
@@ -460,8 +460,8 @@ define internal noundef i32 @_ZL10ucase_swapPK12UDataSwapperPKviPvP10UErrorCode(
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %17 = load i8, ptr %16, align 1, !tbaa !7
   %18 = icmp eq i8 %17, 65
-  %or.cond96 = select i1 %15, i1 %18, i1 false
-  br i1 %or.cond96, label %19, label %.thread
+  %or.cond103 = select i1 %15, i1 %18, i1 false
+  br i1 %or.cond103, label %19, label %.thread
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 14

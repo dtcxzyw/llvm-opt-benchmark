@@ -1434,8 +1434,8 @@ define noundef i32 @_ZN6icu_7712StringSearch10handlePrevEiR10UErrorCode(ptr noun
   br label %.sink.split
 
 .sink.split:                                      ; preds = %26, %25, %48
-  %.sink13 = phi ptr [ %49, %48 ], [ %.pre12, %25 ], [ %31, %26 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.sink13, i64 32
+  %.sink15 = phi ptr [ %49, %48 ], [ %.pre12, %25 ], [ %31, %26 ]
+  %50 = getelementptr inbounds nuw i8, ptr %.sink15, i64 32
   %51 = load i32, ptr %50, align 8, !tbaa !38
   br label %52
 

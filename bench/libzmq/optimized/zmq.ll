@@ -1622,7 +1622,7 @@ define i32 @zmq_poll(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef 
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
   %.not286 = icmp eq i32 %1, 0
-  br i1 %.not286, label %.thread324, label %.lr.ph.preheader
+  br i1 %.not286, label %.thread345, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
   %10 = zext i32 %1 to i64
@@ -1771,8 +1771,8 @@ _ZL12check_eventss.exit.i.i:                      ; preds = %_ZL30check_poller_r
   br label %138
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader198.i
-  %.0104.lcssa310.i = phi i16 [ %.0104206.i.ph, %._crit_edge.i ], [ %35, %.preheader198.i ]
-  %.2117.lcssa309.i = phi i8 [ %.2117204.i.ph, %._crit_edge.i ], [ %.0115220.i, %.preheader198.i ]
+  %.0104.lcssa319.i = phi i16 [ %.0104206.i.ph, %._crit_edge.i ], [ %35, %.preheader198.i ]
+  %.2117.lcssa318.i = phi i8 [ %.2117204.i.ph, %._crit_edge.i ], [ %.0115220.i, %.preheader198.i ]
   %50 = invoke noundef zeroext i1 @_ZNK3zmq15socket_poller_t9check_tagEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
           to label %.noexc155.i unwind label %48
 
@@ -1787,22 +1787,22 @@ _ZL12check_pollerPv.exit.i.i150.i:                ; preds = %.noexc155.i
   br i1 %51, label %_ZL30check_poller_registration_argsPvS_.exit.i152.i, label %zmq_poller_modify.exit.sink.split.i
 
 _ZL30check_poller_registration_argsPvS_.exit.i152.i: ; preds = %.noexc156.i
-  %.not.i8.i.i = icmp ult i16 %.0104.lcssa310.i, 16
+  %.not.i8.i.i = icmp ult i16 %.0104.lcssa319.i, 16
   br i1 %.not.i8.i.i, label %_ZL12check_eventss.exit.i154.i, label %zmq_poller_modify.exit.sink.split.i
 
 _ZL12check_eventss.exit.i154.i:                   ; preds = %_ZL30check_poller_registration_argsPvS_.exit.i152.i
-  %52 = invoke noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull %36, ptr noundef null, i16 noundef signext %.0104.lcssa310.i)
+  %52 = invoke noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull %36, ptr noundef null, i16 noundef signext %.0104.lcssa319.i)
           to label %zmq_poller_modify.exit.i unwind label %48
 
 zmq_poller_modify.exit.sink.split.i:              ; preds = %_ZL30check_poller_registration_argsPvS_.exit.i152.i, %.noexc156.i, %.noexc155.i, %_ZL30check_poller_registration_argsPvS_.exit.i.i, %.noexc145.i, %.noexc.i
   %.sink.i = phi i32 [ 14, %.noexc.i ], [ 88, %.noexc145.i ], [ 22, %_ZL30check_poller_registration_argsPvS_.exit.i.i ], [ 14, %.noexc155.i ], [ 88, %.noexc156.i ], [ 22, %_ZL30check_poller_registration_argsPvS_.exit.i152.i ]
-  %.2117.lcssa308.ph.i = phi i8 [ %.3118.i192199, %.noexc.i ], [ %.3118.i192199, %.noexc145.i ], [ %.3118.i192199, %_ZL30check_poller_registration_argsPvS_.exit.i.i ], [ %.2117.lcssa309.i, %.noexc155.i ], [ %.2117.lcssa309.i, %.noexc156.i ], [ %.2117.lcssa309.i, %_ZL30check_poller_registration_argsPvS_.exit.i152.i ]
+  %.2117.lcssa317.ph.i = phi i8 [ %.3118.i192199, %.noexc.i ], [ %.3118.i192199, %.noexc145.i ], [ %.3118.i192199, %_ZL30check_poller_registration_argsPvS_.exit.i.i ], [ %.2117.lcssa318.i, %.noexc155.i ], [ %.2117.lcssa318.i, %.noexc156.i ], [ %.2117.lcssa318.i, %_ZL30check_poller_registration_argsPvS_.exit.i152.i ]
   %53 = tail call ptr @__errno_location() #20
   store i32 %.sink.i, ptr %53, align 4, !tbaa !3
   br label %zmq_poller_modify.exit.i
 
 zmq_poller_modify.exit.i:                         ; preds = %zmq_poller_modify.exit.sink.split.i, %_ZL12check_eventss.exit.i154.i, %_ZL12check_eventss.exit.i.i
-  %.2117.lcssa308.i = phi i8 [ %.3118.i192199, %_ZL12check_eventss.exit.i.i ], [ %.2117.lcssa309.i, %_ZL12check_eventss.exit.i154.i ], [ %.2117.lcssa308.ph.i, %zmq_poller_modify.exit.sink.split.i ]
+  %.2117.lcssa317.i = phi i8 [ %.3118.i192199, %_ZL12check_eventss.exit.i.i ], [ %.2117.lcssa318.i, %_ZL12check_eventss.exit.i154.i ], [ %.2117.lcssa317.ph.i, %zmq_poller_modify.exit.sink.split.i ]
   %.0123.i = phi i32 [ %47, %_ZL12check_eventss.exit.i.i ], [ %52, %_ZL12check_eventss.exit.i154.i ], [ -1, %zmq_poller_modify.exit.sink.split.i ]
   %54 = icmp sgt i32 %.0123.i, -1
   %brmerge.i = or i1 %22, %54
@@ -1870,8 +1870,8 @@ _ZL12check_eventss.exit.i163.i:                   ; preds = %_ZL33check_poller_f
           to label %zmq_poller_modify_fd.exit.i unwind label %48
 
 ._crit_edge215.thread.i:                          ; preds = %._crit_edge215.i, %.preheader197.i
-  %.2106.lcssa316.i = phi i16 [ %.2106212.i.ph, %._crit_edge215.i ], [ %35, %.preheader197.i ]
-  %.6.lcssa315.i = phi i8 [ %.6210.i.ph, %._crit_edge215.i ], [ %.0115220.i, %.preheader197.i ]
+  %.2106.lcssa325.i = phi i16 [ %.2106212.i.ph, %._crit_edge215.i ], [ %35, %.preheader197.i ]
+  %.6.lcssa324.i = phi i8 [ %.6210.i.ph, %._crit_edge215.i ], [ %.0115220.i, %.preheader197.i ]
   %72 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %73 = load i32, ptr %72, align 8, !tbaa !34
   %74 = invoke noundef zeroext i1 @_ZNK3zmq15socket_poller_t9check_tagEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
@@ -1885,22 +1885,22 @@ _ZL12check_pollerPv.exit.i.i169.i:                ; preds = %.noexc174.i
   br i1 %75, label %zmq_poller_modify_fd.exit.sink.split.i, label %_ZL33check_poller_fd_registration_argsPvi.exit.i170.i
 
 _ZL33check_poller_fd_registration_argsPvi.exit.i170.i: ; preds = %_ZL12check_pollerPv.exit.i.i169.i
-  %.not.i.i171.i = icmp ult i16 %.2106.lcssa316.i, 16
+  %.not.i.i171.i = icmp ult i16 %.2106.lcssa325.i, 16
   br i1 %.not.i.i171.i, label %_ZL12check_eventss.exit.i173.i, label %zmq_poller_modify_fd.exit.sink.split.i
 
 _ZL12check_eventss.exit.i173.i:                   ; preds = %_ZL33check_poller_fd_registration_argsPvi.exit.i170.i
-  %76 = invoke noundef i32 @_ZN3zmq15socket_poller_t6add_fdEiPvs(ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef %73, ptr noundef null, i16 noundef signext %.2106.lcssa316.i)
+  %76 = invoke noundef i32 @_ZN3zmq15socket_poller_t6add_fdEiPvs(ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef %73, ptr noundef null, i16 noundef signext %.2106.lcssa325.i)
           to label %zmq_poller_modify_fd.exit.i unwind label %48
 
 zmq_poller_modify_fd.exit.sink.split.i:           ; preds = %_ZL33check_poller_fd_registration_argsPvi.exit.i170.i, %_ZL12check_pollerPv.exit.i.i169.i, %.noexc174.i, %_ZL33check_poller_fd_registration_argsPvi.exit.i.i, %_ZL12check_pollerPv.exit.i.i160.i, %.noexc164.i
-  %.sink325.i = phi i32 [ 14, %.noexc164.i ], [ 9, %_ZL12check_pollerPv.exit.i.i160.i ], [ 22, %_ZL33check_poller_fd_registration_argsPvi.exit.i.i ], [ 14, %.noexc174.i ], [ 9, %_ZL12check_pollerPv.exit.i.i169.i ], [ 22, %_ZL33check_poller_fd_registration_argsPvi.exit.i170.i ]
-  %.6.lcssa314.ph.i = phi i8 [ %.7.i206213, %.noexc164.i ], [ %.7.i206213, %_ZL12check_pollerPv.exit.i.i160.i ], [ %.7.i206213, %_ZL33check_poller_fd_registration_argsPvi.exit.i.i ], [ %.6.lcssa315.i, %.noexc174.i ], [ %.6.lcssa315.i, %_ZL12check_pollerPv.exit.i.i169.i ], [ %.6.lcssa315.i, %_ZL33check_poller_fd_registration_argsPvi.exit.i170.i ]
+  %.sink334.i = phi i32 [ 14, %.noexc164.i ], [ 9, %_ZL12check_pollerPv.exit.i.i160.i ], [ 22, %_ZL33check_poller_fd_registration_argsPvi.exit.i.i ], [ 14, %.noexc174.i ], [ 9, %_ZL12check_pollerPv.exit.i.i169.i ], [ 22, %_ZL33check_poller_fd_registration_argsPvi.exit.i170.i ]
+  %.6.lcssa323.ph.i = phi i8 [ %.7.i206213, %.noexc164.i ], [ %.7.i206213, %_ZL12check_pollerPv.exit.i.i160.i ], [ %.7.i206213, %_ZL33check_poller_fd_registration_argsPvi.exit.i.i ], [ %.6.lcssa324.i, %.noexc174.i ], [ %.6.lcssa324.i, %_ZL12check_pollerPv.exit.i.i169.i ], [ %.6.lcssa324.i, %_ZL33check_poller_fd_registration_argsPvi.exit.i170.i ]
   %77 = tail call ptr @__errno_location() #20
-  store i32 %.sink325.i, ptr %77, align 4, !tbaa !3
+  store i32 %.sink334.i, ptr %77, align 4, !tbaa !3
   br label %zmq_poller_modify_fd.exit.i
 
 zmq_poller_modify_fd.exit.i:                      ; preds = %zmq_poller_modify_fd.exit.sink.split.i, %_ZL12check_eventss.exit.i173.i, %_ZL12check_eventss.exit.i163.i
-  %.6.lcssa314.i = phi i8 [ %.7.i206213, %_ZL12check_eventss.exit.i163.i ], [ %.6.lcssa315.i, %_ZL12check_eventss.exit.i173.i ], [ %.6.lcssa314.ph.i, %zmq_poller_modify_fd.exit.sink.split.i ]
+  %.6.lcssa323.i = phi i8 [ %.7.i206213, %_ZL12check_eventss.exit.i163.i ], [ %.6.lcssa324.i, %_ZL12check_eventss.exit.i173.i ], [ %.6.lcssa323.ph.i, %zmq_poller_modify_fd.exit.sink.split.i ]
   %.1124.i = phi i32 [ %71, %_ZL12check_eventss.exit.i163.i ], [ %76, %_ZL12check_eventss.exit.i173.i ], [ -1, %zmq_poller_modify_fd.exit.sink.split.i ]
   %78 = icmp sgt i32 %.1124.i, -1
   %brmerge142.i = or i1 %22, %78
@@ -1912,7 +1912,7 @@ zmq_poller_modify_fd.exit.i:                      ; preds = %zmq_poller_modify_f
   br label %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit
 
 80:                                               ; preds = %zmq_poller_modify_fd.exit.i, %zmq_poller_modify.exit.i
-  %.4.i = phi i8 [ %.2117.lcssa308.i, %zmq_poller_modify.exit.i ], [ %.6.lcssa314.i, %zmq_poller_modify_fd.exit.i ]
+  %.4.i = phi i8 [ %.2117.lcssa317.i, %zmq_poller_modify.exit.i ], [ %.6.lcssa323.i, %zmq_poller_modify_fd.exit.i ]
   %cond1.i = phi i1 [ %54, %zmq_poller_modify.exit.i ], [ %78, %zmq_poller_modify_fd.exit.i ]
   %.2.i = phi i32 [ %.098.mux.i, %zmq_poller_modify.exit.i ], [ %.098.mux144.i, %zmq_poller_modify_fd.exit.i ]
   br i1 %cond1.i, label %31, label %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit
@@ -1957,12 +1957,12 @@ zmq_poller_wait_all.exit.i:                       ; preds = %85
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.i
   %wide.trip.count293.i = zext nneg i32 %86 to i64
-  %.not323 = icmp eq i32 %86, 0
+  %.not344 = icmp eq i32 %86, 0
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.loopexit.us.i, %.preheader.us.preheader.i
   %indvars.iv299.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next300.i, %.loopexit.us.i ]
-  br i1 %.not323, label %.loopexit.us.i, label %.lr.ph228.us.i
+  br i1 %.not344, label %.loopexit.us.i, label %.lr.ph228.us.i
 
 .loopexit.us.i:                                   ; preds = %104, %112, %.split.us249.i, %.preheader.us.i
   %indvars.iv.next300.i = add nuw nsw i64 %indvars.iv299.i, 1
@@ -2122,11 +2122,11 @@ _ZL15zmq_poller_pollP14zmq_pollitem_til.exit:     ; preds = %80, %.thread193.i, 
   store i32 22, ptr %142, align 4, !tbaa !3
   br label %278
 
-.thread324:                                       ; preds = %3
+.thread345:                                       ; preds = %3
   %143 = icmp eq i64 %2, 0
   br i1 %143, label %278, label %144
 
-144:                                              ; preds = %.thread324
+144:                                              ; preds = %.thread345
   %145 = trunc i64 %2 to i32
   %146 = mul i32 %145, 1000
   %147 = tail call i32 @usleep(i32 noundef %146)
@@ -2249,7 +2249,7 @@ zmq_getsockopt.exit:                              ; preds = %_ZL16as_socket_base
 select.unfold:                                    ; preds = %select.unfold.outer, %263
   %.0122 = phi i1 [ false, %263 ], [ %.0122.ph, %select.unfold.outer ]
   %199 = invoke noundef i32 @_ZN3zmq15compute_timeoutEblmm(i1 noundef zeroext %.0122, i64 noundef %2, i64 noundef %.0133.ph, i64 noundef %.0131.ph.ph)
-          to label %200 unwind label %.loopexit374
+          to label %200 unwind label %.loopexit395
 
 200:                                              ; preds = %select.unfold
   %201 = load ptr, ptr %163, align 8, !tbaa !44
@@ -2266,18 +2266,18 @@ select.unfold:                                    ; preds = %select.unfold.outer
   %208 = icmp eq i32 %207, 4
   br i1 %208, label %.thread247, label %.thread232
 
-.loopexit374:                                     ; preds = %select.unfold
+.loopexit395:                                     ; preds = %select.unfold
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %269
-  %lpad.loopexit376 = landingpad { ptr, i32 }
+  %lpad.loopexit397 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %265
-  %lpad.loopexit.split-lp377 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp398 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
@@ -2288,7 +2288,7 @@ select.unfold:                                    ; preds = %select.unfold.outer
 
 211:                                              ; preds = %203
   %212 = icmp slt i32 %202, 0
-  br i1 %212, label %..thread232_crit_edge, label %.preheader373, !prof !51
+  br i1 %212, label %..thread232_crit_edge, label %.preheader394, !prof !51
 
 ..thread232_crit_edge:                            ; preds = %211
   %.pre322 = tail call ptr @__errno_location() #20
@@ -2303,9 +2303,9 @@ select.unfold:                                    ; preds = %select.unfold.outer
   %217 = load ptr, ptr @stderr, align 8, !tbaa !11
   %218 = call i32 @fflush(ptr noundef %217)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %214)
-          to label %.preheader373 unwind label %219
+          to label %.preheader394 unwind label %219
 
-.preheader373:                                    ; preds = %211, %.thread232
+.preheader394:                                    ; preds = %211, %.thread232
   br label %221
 
 219:                                              ; preds = %.thread232
@@ -2313,9 +2313,9 @@ select.unfold:                                    ; preds = %select.unfold.outer
           cleanup
   br label %.loopexit.split-lp
 
-221:                                              ; preds = %.preheader373, %259
-  %indvars.iv315 = phi i64 [ %indvars.iv.next316, %259 ], [ 0, %.preheader373 ]
-  %.2120289 = phi i32 [ %spec.select, %259 ], [ 0, %.preheader373 ]
+221:                                              ; preds = %.preheader394, %259
+  %indvars.iv315 = phi i64 [ %indvars.iv.next316, %259 ], [ 0, %.preheader394 ]
+  %.2120289 = phi i32 [ %spec.select, %259 ], [ 0, %.preheader394 ]
   %222 = getelementptr inbounds nuw %struct.zmq_pollitem_t, ptr %0, i64 %indvars.iv315
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 14
   store i16 0, ptr %223, align 2, !tbaa !31
@@ -2409,20 +2409,20 @@ condstore.split:                                  ; preds = %221
   %254 = or disjoint i16 %251, %253
   %255 = shl i16 %250, 2
   %256 = and i16 %255, 8
-  %spec.select346 = or disjoint i16 %254, %256
+  %spec.select367 = or disjoint i16 %254, %256
   %.not160 = icmp ugt i16 %250, 7
-  %spec.select348 = select i1 %.not160, i16 1, i16 %spec.select346
-  %.not351 = icmp eq i16 %250, 0
-  br i1 %.not351, label %259, label %257
+  %spec.select369 = select i1 %.not160, i16 1, i16 %spec.select367
+  %.not372 = icmp eq i16 %250, 0
+  br i1 %.not372, label %259, label %257
 
 257:                                              ; preds = %condstore.split
-  %258 = or disjoint i16 %spec.select346, 4
-  %spec.select347 = select i1 %.not160, i16 %258, i16 %spec.select346
-  store i16 %spec.select347, ptr %223, align 2, !tbaa !31
+  %258 = or disjoint i16 %spec.select367, 4
+  %spec.select368 = select i1 %.not160, i16 %258, i16 %spec.select367
+  store i16 %spec.select368, ptr %223, align 2, !tbaa !31
   br label %259
 
 259:                                              ; preds = %257, %condstore.split, %.thread239
-  %260 = phi i16 [ %.pre319, %.thread239 ], [ %spec.select348, %condstore.split ], [ %spec.select348, %257 ]
+  %260 = phi i16 [ %.pre319, %.thread239 ], [ %spec.select369, %condstore.split ], [ %spec.select369, %257 ]
   %.not171 = icmp ne i16 %260, 0
   %261 = zext i1 %.not171 to i32
   %spec.select = add nuw nsw i32 %.2120289, %261
@@ -2490,8 +2490,8 @@ _ZN3zmq13fast_vector_tI6pollfdLm16EED2Ev.exit:    ; preds = %.thread247, %274
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %278
 
-.loopexit.split-lp:                               ; preds = %.loopexit374, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %229, %219, %209, %175
-  %.pn168.pn = phi { ptr, i32 } [ %176, %175 ], [ %230, %229 ], [ %220, %219 ], [ %210, %209 ], [ %lpad.loopexit, %.loopexit374 ], [ %lpad.loopexit376, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp377, %.loopexit.split-lp.loopexit.split-lp ]
+.loopexit.split-lp:                               ; preds = %.loopexit395, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %229, %219, %209, %175
+  %.pn168.pn = phi { ptr, i32 } [ %176, %175 ], [ %230, %229 ], [ %220, %219 ], [ %210, %209 ], [ %lpad.loopexit, %.loopexit395 ], [ %lpad.loopexit397, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp398, %.loopexit.split-lp.loopexit.split-lp ]
   %275 = load ptr, ptr %163, align 8, !tbaa !44
   %.not.i182 = icmp eq ptr %275, %6
   %276 = icmp eq ptr %275, null
@@ -2507,8 +2507,8 @@ _ZN3zmq13fast_vector_tI6pollfdLm16EED2Ev.exit184: ; preds = %.loopexit.split-lp,
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
-278:                                              ; preds = %_ZL16as_socket_base_tPv.exit.thread, %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit, %.thread324, %_ZN3zmq13fast_vector_tI6pollfdLm16EED2Ev.exit, %144, %141
-  %.4 = phi i32 [ -1, %141 ], [ %147, %144 ], [ %.9, %_ZN3zmq13fast_vector_tI6pollfdLm16EED2Ev.exit ], [ 0, %.thread324 ], [ -1, %_ZL16as_socket_base_tPv.exit.thread ], [ %.3.i, %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit ]
+278:                                              ; preds = %_ZL16as_socket_base_tPv.exit.thread, %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit, %.thread345, %_ZN3zmq13fast_vector_tI6pollfdLm16EED2Ev.exit, %144, %141
+  %.4 = phi i32 [ -1, %141 ], [ %147, %144 ], [ %.9, %_ZN3zmq13fast_vector_tI6pollfdLm16EED2Ev.exit ], [ 0, %.thread345 ], [ -1, %_ZL16as_socket_base_tPv.exit.thread ], [ %.3.i, %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit ]
   ret i32 %.4
 }
 
@@ -2567,9 +2567,9 @@ define void @_Z26zmq_poll_build_select_fds_P14zmq_pollitem_tiRi(ptr dead_on_unwi
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   %7 = icmp sgt i32 %2, 1024
-  br i1 %7, label %.thread59, label %13, !prof !10
+  br i1 %7, label %.thread60, label %13, !prof !10
 
-.thread59:                                        ; preds = %4
+.thread60:                                        ; preds = %4
   %8 = load ptr, ptr @stderr, align 8, !tbaa !11
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 1190) #24
   %10 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -2587,8 +2587,8 @@ define void @_Z26zmq_poll_build_select_fds_P14zmq_pollitem_tiRi(ptr dead_on_unwi
   %.not55 = icmp eq i32 %2, 0
   br i1 %.not55, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread59, %13
-  %15 = phi ptr [ %12, %.thread59 ], [ %14, %13 ]
+.lr.ph:                                           ; preds = %.thread60, %13
+  %15 = phi ptr [ %12, %.thread60 ], [ %14, %13 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %18 = zext i32 %2 to i64

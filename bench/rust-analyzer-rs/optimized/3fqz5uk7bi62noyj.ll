@@ -1704,14 +1704,14 @@ define internal void @"_ZN4core3ptr48drop_in_place$LT$base_db..input..CrateOrigi
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = load i8, ptr %0, align 8, !range !595, !noundef !4
-  switch i8 %7, label %default.unreachable11 [
+  switch i8 %7, label %default.unreachable20 [
     i8 0, label %8
     i8 1, label %18
     i8 2, label %31
     i8 3, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h52b1efe05706b94eE.exit8"
   ]
 
-default.unreachable11:                            ; preds = %1
+default.unreachable20:                            ; preds = %1
   unreachable
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h52b1efe05706b94eE.exit8": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf6753c8179b64f6eE.exit.i7", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h52b1efe05706b94eE.exit", %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf6753c8179b64f6eE.exit10", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf6753c8179b64f6eE.exit"
@@ -3703,7 +3703,7 @@ define hidden { ptr, i64 } @"_ZN8triomphe6header96_$LT$impl$u20$triomphe..arc..A
   %11 = icmp ugt i64 %9, 9223372036854775804
   br i1 %11, label %.invoke, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7ba6e769f35971e0E.exit.i"
 
-12:                                               ; preds = %.invoke53, %.invoke, %22, %40
+12:                                               ; preds = %.invoke59, %.invoke, %22, %40
   %13 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1091
@@ -3774,20 +3774,20 @@ define hidden { ptr, i64 } @"_ZN8triomphe6header96_$LT$impl$u20$triomphe..arc..A
 
 33:                                               ; preds = %._crit_edge
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  br label %.invoke53
+  br label %.invoke59
 
 35:                                               ; preds = %25
   %36 = getelementptr inbounds nuw i8, ptr %.pre50, i64 4
-  br label %.invoke53
+  br label %.invoke59
 
-.invoke53:                                        ; preds = %33, %35
+.invoke59:                                        ; preds = %33, %35
   %.sink = phi ptr [ %34, %33 ], [ %36, %35 ]
   %37 = phi ptr [ @anon.16849f8f94fc3e95365f94a3b14f1751.49, %33 ], [ @anon.16849f8f94fc3e95365f94a3b14f1751.50, %35 ]
   store ptr %.sink, ptr %5, align 8
   invoke void @_ZN3std9panicking11begin_panic17h2432f2569a13a5d1E(ptr noalias noundef nonnull readonly align 1 @anon.16849f8f94fc3e95365f94a3b14f1751.48, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) %37) #34
-          to label %.cont54 unwind label %12
+          to label %.cont60 unwind label %12
 
-.cont54:                                          ; preds = %.invoke53
+.cont60:                                          ; preds = %.invoke59
   unreachable
 
 .thread:                                          ; preds = %._crit_edge, %25

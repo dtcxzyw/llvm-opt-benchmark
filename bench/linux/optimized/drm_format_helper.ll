@@ -406,9 +406,9 @@ define internal fastcc void @drm_fb_xfrm(ptr %.0.val, i8 %.8.val, ptr noundef re
   %40 = load ptr, ptr %4, align 8
   %41 = tail call ptr @krealloc(ptr noundef %40, i64 noundef %24, i32 noundef 3264) #11
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %.thread, label %.thread15
+  br i1 %42, label %.thread, label %.thread23
 
-.thread15:                                        ; preds = %39
+.thread23:                                        ; preds = %39
   store ptr %41, ptr %4, align 8
   store i64 %24, ptr %32, align 8
   br label %67
@@ -455,9 +455,9 @@ define internal fastcc void @drm_fb_xfrm(ptr %.0.val, i8 %.8.val, ptr noundef re
   %66 = icmp eq ptr %65, null
   br i1 %66, label %.thread, label %67
 
-67:                                               ; preds = %.thread15, %63
-  %68 = phi ptr [ %41, %.thread15 ], [ %65, %63 ]
-  %69 = phi ptr [ null, %.thread15 ], [ %64, %63 ]
+67:                                               ; preds = %.thread23, %63
+  %68 = phi ptr [ %41, %.thread23 ], [ %65, %63 ]
+  %69 = phi ptr [ null, %.thread23 ], [ %64, %63 ]
   %70 = icmp eq i32 %10, 0
   %71 = select i1 %70, i64 %24, i64 %11
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 88

@@ -1479,7 +1479,7 @@ thread-pre-split:                                 ; preds = %348, %388, %399, %.
   br i1 %728, label %730, label %729
 
 729:                                              ; preds = %726
-  call void @jbd2_journal_abort(ptr noundef %0, i32 noundef %727) #11
+  call void @jbd2_journal_abort(ptr noundef %0, i32 noundef 1) #11
   br label %730
 
 730:                                              ; preds = %729, %726, %721, %716
@@ -2516,7 +2516,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @journal_submit_commit_record
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 16777216
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %.thread2, label %34
+  br i1 %33, label %.thread3, label %34
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 12
@@ -2530,9 +2530,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @journal_submit_commit_record
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 4
   %.pre1 = load i32, ptr %.phi.trans.insert, align 4
   %39 = icmp eq i32 %.pre1, 50331648
-  br i1 %39, label %.thread, label %.thread2
+  br i1 %39, label %.thread, label %.thread3
 
-.thread2:                                         ; preds = %29, %34
+.thread3:                                         ; preds = %29, %34
   %40 = phi ptr [ %.pre, %34 ], [ %25, %29 ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %42 = load i32, ptr %41, align 4
@@ -2540,7 +2540,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @journal_submit_commit_record
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %.thread, label %45
 
-45:                                               ; preds = %.thread2
+45:                                               ; preds = %.thread3
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
@@ -2552,7 +2552,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @journal_submit_commit_record
   call void asm sideeffect "411: nop\0A\09.pushsection .discard.instr_end\0A\09.long 411b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 411) #11, !srcloc !19
   br label %.thread
 
-.thread:                                          ; preds = %13, %49, %45, %.thread2, %34
+.thread:                                          ; preds = %13, %49, %45, %.thread3, %34
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null

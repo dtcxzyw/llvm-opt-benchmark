@@ -609,8 +609,8 @@ define internal void @analyze_channel_flt(ptr noundef readonly captures(none) %0
 
 48:                                               ; preds = %44
   %49 = sext i32 %spec.store.select to i64
-  %.idx178 = mul nsw i64 %49, 24
-  %50 = getelementptr i8, ptr %9, i64 %.idx178
+  %.idx184 = mul nsw i64 %49, 24
+  %50 = getelementptr i8, ptr %9, i64 %.idx184
   %51 = getelementptr i8, ptr %50, i64 8
   store double 0x10000000000000, ptr %51, align 8, !tbaa !78
   br label %58
@@ -628,8 +628,8 @@ define internal void @analyze_channel_flt(ptr noundef readonly captures(none) %0
 58:                                               ; preds = %52, %48
   %.sink = phi double [ %57, %52 ], [ 0.000000e+00, %48 ]
   %.pre-phi142 = phi i64 [ %54, %52 ], [ %49, %48 ]
-  %.idx179 = mul nsw i64 %.pre-phi142, 24
-  %59 = getelementptr i8, ptr %9, i64 %.idx179
+  %.idx185 = mul nsw i64 %.pre-phi142, 24
+  %59 = getelementptr i8, ptr %9, i64 %.idx185
   %60 = getelementptr i8, ptr %59, i64 16
   store double %.sink, ptr %60, align 8, !tbaa !79
   %61 = getelementptr inbounds %struct.PeriodItem, ptr %9, i64 %.pre-phi142
@@ -1105,8 +1105,8 @@ next_pi.exit:                                     ; preds = %.lr.ph, %next_gain.
 
 .preheader116.._crit_edge_crit_edge:              ; preds = %20, %.preheader117
   %103 = phi i32 [ %100, %.preheader117 ], [ %21, %20 ]
-  %.070.lcssa151155 = phi i32 [ %..070, %.preheader117 ], [ %22, %20 ]
-  %.pre149 = add nsw i32 %.070.lcssa151155, %.0132
+  %.070.lcssa163167 = phi i32 [ %..070, %.preheader117 ], [ %22, %20 ]
+  %.pre149 = add nsw i32 %.070.lcssa163167, %.0132
   br label %._crit_edge
 
 .lr.ph131:                                        ; preds = %226
@@ -1328,10 +1328,10 @@ min_gain.exit113:                                 ; preds = %.lr.ph.i95, %next_g
   br i1 %exitcond.not, label %.lr.ph131, label %112, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %.critedge, %.preheader116.._crit_edge_crit_edge
-  %.071.lcssa156 = phi float [ %24, %.preheader116.._crit_edge_crit_edge ], [ %.1, %.critedge ]
+  %.071.lcssa168 = phi float [ %24, %.preheader116.._crit_edge_crit_edge ], [ %.1, %.critedge ]
   %227 = phi i32 [ %103, %.preheader116.._crit_edge_crit_edge ], [ %100, %.critedge ]
   %.pre-phi = phi i32 [ %.pre149, %.preheader116.._crit_edge_crit_edge ], [ %107, %.critedge ]
-  %228 = fpext nsz float %.071.lcssa156 to double
+  %228 = fpext nsz float %.071.lcssa168 to double
   store double %228, ptr %19, align 8, !tbaa !34
   %229 = icmp slt i32 %.pre-phi, %3
   br i1 %229, label %20, label %._crit_edge135, !llvm.loop !103
@@ -1472,9 +1472,9 @@ define internal void @analyze_channel_dbl(ptr noundef readonly captures(none) %0
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %. = select i1 %.not, double %35, double 0x10000000000000
-  %.177 = select i1 %.not, double %37, double 0.000000e+00
+  %.183 = select i1 %.not, double %37, double 0.000000e+00
   store double %., ptr %48, align 8, !tbaa !78
-  store double %.177, ptr %49, align 8, !tbaa !79
+  store double %.183, ptr %49, align 8, !tbaa !79
   %50 = getelementptr inbounds %struct.PeriodItem, ptr %9, i64 %46
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 0, ptr %51, align 4, !tbaa !80
@@ -1940,8 +1940,8 @@ next_pi.exit:                                     ; preds = %.lr.ph, %next_gain.
 
 .preheader116.._crit_edge_crit_edge:              ; preds = %20, %.preheader117
   %102 = phi i32 [ %99, %.preheader117 ], [ %21, %20 ]
-  %.070.lcssa151155 = phi i32 [ %..070, %.preheader117 ], [ %22, %20 ]
-  %.pre149 = add nsw i32 %.070.lcssa151155, %.0132
+  %.070.lcssa163167 = phi i32 [ %..070, %.preheader117 ], [ %22, %20 ]
+  %.pre149 = add nsw i32 %.070.lcssa163167, %.0132
   br label %._crit_edge
 
 .lr.ph131:                                        ; preds = %min_gain.exit112
@@ -2160,10 +2160,10 @@ min_gain.exit112:                                 ; preds = %next_gain.exit.i104
   br i1 %exitcond.not, label %.lr.ph131, label %111, !llvm.loop !114
 
 ._crit_edge:                                      ; preds = %.critedge, %.preheader116.._crit_edge_crit_edge
-  %.071.lcssa156 = phi double [ %23, %.preheader116.._crit_edge_crit_edge ], [ %.1, %.critedge ]
+  %.071.lcssa168 = phi double [ %23, %.preheader116.._crit_edge_crit_edge ], [ %.1, %.critedge ]
   %223 = phi i32 [ %102, %.preheader116.._crit_edge_crit_edge ], [ %99, %.critedge ]
   %.pre-phi = phi i32 [ %.pre149, %.preheader116.._crit_edge_crit_edge ], [ %106, %.critedge ]
-  store double %.071.lcssa156, ptr %19, align 8, !tbaa !34
+  store double %.071.lcssa168, ptr %19, align 8, !tbaa !34
   %224 = icmp slt i32 %.pre-phi, %3
   br i1 %224, label %20, label %._crit_edge135, !llvm.loop !115
 

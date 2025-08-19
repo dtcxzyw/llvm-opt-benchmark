@@ -23658,11 +23658,11 @@ entry:
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.thread: ; preds = %entry
   store ptr %this, ptr %ref.tmp, align 8
-  %plainHF_.i37 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  %_M_invoker.i.i38 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i37, i8 0, i64 24, i1 false)
-  store ptr %1, ptr %_M_invoker.i.i38, align 8
-  %_M_manager.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %agg.tmp2, i64 16
+  %plainHF_.i45 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
+  %_M_invoker.i.i46 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i45, i8 0, i64 24, i1 false)
+  store ptr %1, ptr %_M_invoker.i.i46, align 8
+  %_M_manager.i.i.i.i47 = getelementptr inbounds nuw i8, ptr %agg.tmp2, i64 16
   br label %_ZN8facebook3jsi21DecoratedHostFunctionC2ERNS0_7RuntimeESt8functionIFNS0_5ValueES3_RKS5_PS6_mEE.exit
 
 if.then.i.i:                                      ; preds = %entry
@@ -23680,8 +23680,8 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN8facebook3jsi21DecoratedHostFunctionC2ERNS0_7RuntimeESt8functionIFNS0_5ValueES3_RKS5_PS6_mEE.exit
 
 _ZN8facebook3jsi21DecoratedHostFunctionC2ERNS0_7RuntimeESt8functionIFNS0_5ValueES3_RKS5_PS6_mEE.exit: ; preds = %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.thread, %if.then.i.i
-  %_M_manager.i.i.i.i43 = phi ptr [ %_M_manager.i.i.i.i, %if.then.i.i ], [ %_M_manager.i.i.i.i39, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.thread ]
-  %plainHF_.i41 = phi ptr [ %plainHF_.i, %if.then.i.i ], [ %plainHF_.i37, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.thread ]
+  %_M_manager.i.i.i.i51 = phi ptr [ %_M_manager.i.i.i.i, %if.then.i.i ], [ %_M_manager.i.i.i.i47, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.thread ]
+  %plainHF_.i49 = phi ptr [ %plainHF_.i, %if.then.i.i ], [ %plainHF_.i45, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.thread ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i6 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #42
           to label %call.i.i2.i.noexc unwind label %lpad3
@@ -23698,7 +23698,7 @@ call.i.i2.i.noexc:                                ; preds = %_ZN8facebook3jsi21D
 
 if.then.i.i.i.i.i:                                ; preds = %call.i.i2.i.noexc
   %_M_manager.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2.i6, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i41, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i49, i64 16, i1 false)
   store ptr %2, ptr %_M_manager.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %invoke.cont4
@@ -23750,7 +23750,7 @@ _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit: ; pred
   br i1 %tobool.not.i.i.i, label %_ZN8facebook3jsi21DecoratedHostFunctionD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit
-  %call.i.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i41, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i41, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i49, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i49, i32 noundef 3)
           to label %_ZN8facebook3jsi21DecoratedHostFunctionD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -23761,7 +23761,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   unreachable
 
 _ZN8facebook3jsi21DecoratedHostFunctionD2Ev.exit: ; preds = %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit, %if.then.i.i.i
-  %11 = load ptr, ptr %_M_manager.i.i.i.i43, align 8
+  %11 = load ptr, ptr %_M_manager.i.i.i.i51, align 8
   %tobool.not.i.i13 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i13, label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit17, label %if.then.i.i14
 
@@ -23798,7 +23798,7 @@ lpad5.body:                                       ; preds = %_ZSt11make_uniqueIN
   br i1 %tobool.not.i.i19, label %ehcleanup, label %if.then.i.i20
 
 if.then.i.i20:                                    ; preds = %lpad5.body.thread, %lpad5.body
-  %eh.lpad-body47 = phi { ptr, i32 } [ %15, %lpad5.body.thread ], [ %16, %lpad5.body ]
+  %eh.lpad-body55 = phi { ptr, i32 } [ %15, %lpad5.body.thread ], [ %16, %lpad5.body ]
   %17 = phi ptr [ @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mENS1_21DecoratedHostFunctionEE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, %lpad5.body.thread ], [ %.pre, %lpad5.body ]
   %call.i.i21 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %ehcleanup unwind label %terminate.lpad.i.i22
@@ -23811,14 +23811,14 @@ terminate.lpad.i.i22:                             ; preds = %if.then.i.i20
   unreachable
 
 ehcleanup:                                        ; preds = %if.then.i.i20, %lpad5.body, %lpad3
-  %.pn = phi { ptr, i32 } [ %14, %lpad3 ], [ %16, %lpad5.body ], [ %eh.lpad-body47, %if.then.i.i20 ]
+  %.pn = phi { ptr, i32 } [ %14, %lpad3 ], [ %16, %lpad5.body ], [ %eh.lpad-body55, %if.then.i.i20 ]
   %_M_manager.i.i.i24 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
   %20 = load ptr, ptr %_M_manager.i.i.i24, align 8
   %tobool.not.i.i.i25 = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i25, label %_ZN8facebook3jsi21DecoratedHostFunctionD2Ev.exit30, label %if.then.i.i.i26
 
 if.then.i.i.i26:                                  ; preds = %ehcleanup
-  %call.i.i.i28 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i41, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i41, i32 noundef 3)
+  %call.i.i.i28 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i49, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i49, i32 noundef 3)
           to label %_ZN8facebook3jsi21DecoratedHostFunctionD2Ev.exit30 unwind label %terminate.lpad.i.i.i29
 
 terminate.lpad.i.i.i29:                           ; preds = %if.then.i.i.i26
@@ -23829,7 +23829,7 @@ terminate.lpad.i.i.i29:                           ; preds = %if.then.i.i.i26
   unreachable
 
 _ZN8facebook3jsi21DecoratedHostFunctionD2Ev.exit30: ; preds = %ehcleanup, %if.then.i.i.i26
-  %23 = load ptr, ptr %_M_manager.i.i.i.i43, align 8
+  %23 = load ptr, ptr %_M_manager.i.i.i.i51, align 8
   %tobool.not.i.i32 = icmp eq ptr %23, null
   br i1 %tobool.not.i.i32, label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit36, label %if.then.i.i33
 

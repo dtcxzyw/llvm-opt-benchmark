@@ -249,9 +249,9 @@ _ZN6icu_7712LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit96: ; preds =
   br label %155
 
 97:                                               ; preds = %70, %_ZN6icu_7712LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit96
-  %.sink100 = phi ptr [ null, %_ZN6icu_7712LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit96 ], [ %75, %70 ]
+  %.sink107 = phi ptr [ null, %_ZN6icu_7712LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit96 ], [ %75, %70 ]
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr %.sink100, ptr %98, align 8, !tbaa !26
+  store ptr %.sink107, ptr %98, align 8, !tbaa !26
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 1928
   %100 = load i32, ptr %99, align 8, !tbaa !27
   %101 = icmp eq i32 %100, -1
@@ -811,8 +811,8 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
   %150 = trunc nuw i8 %149 to i1
   %151 = and i16 %148, 1
   %.not253 = icmp eq i16 %151, 0
-  %or.cond717 = select i1 %150, i1 true, i1 %.not253
-  br i1 %or.cond717, label %179, label %152
+  %or.cond723 = select i1 %150, i1 true, i1 %.not253
+  br i1 %or.cond723, label %179, label %152
 
 152:                                              ; preds = %147
   %153 = load i16, ptr %18, align 8, !tbaa !6
@@ -1191,9 +1191,9 @@ _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread: ; p
   %.not267 = icmp eq i32 %.5197, 2
   %or.cond20 = and i1 %.0162, %.0161
   %or.cond290 = or i1 %.not267, %or.cond20
-  br i1 %or.cond290, label %301, label %.thread607
+  br i1 %or.cond290, label %301, label %.thread613
 
-.thread607:                                       ; preds = %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread
+.thread613:                                       ; preds = %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread
   store i8 1, ptr %16, align 8, !tbaa !42
   br label %303
 
@@ -1202,7 +1202,7 @@ _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread: ; p
   %302 = trunc nuw i8 %.pre to i1
   br i1 %302, label %303, label %311
 
-303:                                              ; preds = %.thread607, %301
+303:                                              ; preds = %.thread613, %301
   %304 = trunc nuw i8 %.12 to i1
   br i1 %304, label %309, label %305
 

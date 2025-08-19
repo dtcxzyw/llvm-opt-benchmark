@@ -160,9 +160,9 @@ switch.lookup:                                    ; preds = %.lr.ph, %150
   %switch.downshift = lshr i8 16, %13
   %switch.masked = trunc i8 %switch.downshift to i1
   %14 = shl nuw nsw i16 %12, 3
-  %switch.shiftamt125 = zext nneg i16 %14 to i64
-  %switch.downshift126 = lshr i64 17519670001795072, %switch.shiftamt125
-  %switch.masked127 = trunc i64 %switch.downshift126 to i8
+  %switch.shiftamt133 = zext nneg i16 %14 to i64
+  %switch.downshift134 = lshr i64 17519670001795072, %switch.shiftamt133
+  %switch.masked135 = trunc i64 %switch.downshift134 to i8
   %switch.selectcmp.case1.i = icmp eq i16 %12, 1
   %switch.selectcmp.case2.i = icmp eq i16 %12, 6
   %switch.selectcmp.i = or i1 %switch.selectcmp.case1.i, %switch.selectcmp.case2.i
@@ -220,7 +220,7 @@ switch.lookup:                                    ; preds = %.lr.ph, %150
 
 proto_item_set_generated.exit:                    ; preds = %30, %42, %45
   %49 = load i32, ptr @hf_ehdlc_sapi, align 4
-  %50 = trunc i64 %switch.downshift126 to i32
+  %50 = trunc i64 %switch.downshift134 to i32
   %51 = and i32 %50, 63
   %52 = tail call ptr @proto_tree_add_uint(ptr noundef %34, i32 noundef %49, ptr noundef %0, i32 noundef %.0124, i32 noundef 1, i32 noundef %51)
   %.not.i118 = icmp eq ptr %52, null
@@ -265,7 +265,7 @@ proto_item_set_generated.exit123:                 ; preds = %proto_item_set_gene
 
 71:                                               ; preds = %proto_item_set_generated.exit123, %switch.lookup
   %.0112 = phi ptr [ %34, %proto_item_set_generated.exit123 ], [ null, %switch.lookup ]
-  %72 = and i8 %switch.masked127, 62
+  %72 = and i8 %switch.masked135, 62
   %or.cond = icmp eq i8 %72, 10
   %73 = add i32 %.0124, 2
   br i1 %or.cond, label %74, label %80
@@ -308,7 +308,7 @@ proto_item_set_generated.exit123:                 ; preds = %proto_item_set_gene
   %100 = zext nneg i16 %11 to i32
   %101 = sub nsw i32 %100, %94
   %102 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %99, i32 noundef %101)
-  switch i8 %switch.masked127, label %dissect_ehdlc_xid.exit.sink.split [
+  switch i8 %switch.masked135, label %dissect_ehdlc_xid.exit.sink.split [
     i8 0, label %103
     i8 62, label %105
   ]

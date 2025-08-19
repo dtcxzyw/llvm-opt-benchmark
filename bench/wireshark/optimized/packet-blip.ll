@@ -484,8 +484,8 @@ decompress.exit.thread:                           ; preds = %178, %160, %97, %10
 218:                                              ; preds = %.lr.ph, %217, %213
   %219 = phi i64 [ %209, %.lr.ph ], [ %.pre, %217 ], [ %209, %213 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %sext107 = shl i64 %219, 32
-  %220 = ashr exact i64 %sext107, 32
+  %sext112 = shl i64 %219, 32
+  %220 = ashr exact i64 %sext112, 32
   %221 = icmp slt i64 %indvars.iv.next, %220
   br i1 %221, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
 

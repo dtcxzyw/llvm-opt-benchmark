@@ -326,7 +326,7 @@ bytestream2_get_le32.exit130:                     ; preds = %123, %bytestream2_g
   br i1 %.not112, label %bytestream2_get_le32.exit130.thread, label %.critedge118
 
 bytestream2_get_le32.exit130.thread:              ; preds = %111, %121, %bytestream2_get_le32.exit130
-  %.sroa.0.2267 = phi ptr [ %.sroa.0.2, %bytestream2_get_le32.exit130 ], [ %20, %121 ], [ %20, %111 ]
+  %.sroa.0.2285 = phi ptr [ %.sroa.0.2, %bytestream2_get_le32.exit130 ], [ %20, %121 ], [ %20, %111 ]
   %127 = load i32, ptr %12, align 8, !tbaa !34
   %.not114215 = icmp sgt i32 %127, 0
   br i1 %.not114215, label %.lr.ph218, label %.critedge118
@@ -357,16 +357,16 @@ bytestream2_get_le32.exit130.thread:              ; preds = %111, %121, %bytestr
   br label %.thread
 
 .critedge118:                                     ; preds = %131, %bytestream2_get_le32.exit130.thread, %bytestream2_get_le32.exit130
-  %.096268 = phi i32 [ 0, %bytestream2_get_le32.exit130.thread ], [ %.096, %bytestream2_get_le32.exit130 ], [ 0, %131 ]
-  %.sroa.0.2266 = phi ptr [ %.sroa.0.2267, %bytestream2_get_le32.exit130.thread ], [ %.sroa.0.2, %bytestream2_get_le32.exit130 ], [ %.sroa.0.2267, %131 ]
-  %134 = ptrtoint ptr %.sroa.0.2266 to i64
+  %.096286 = phi i32 [ 0, %bytestream2_get_le32.exit130.thread ], [ %.096, %bytestream2_get_le32.exit130 ], [ 0, %131 ]
+  %.sroa.0.2284 = phi ptr [ %.sroa.0.2285, %bytestream2_get_le32.exit130.thread ], [ %.sroa.0.2, %bytestream2_get_le32.exit130 ], [ %.sroa.0.2285, %131 ]
+  %134 = ptrtoint ptr %.sroa.0.2284 to i64
   %135 = sub i64 %21, %134
   %136 = trunc i64 %135 to i32
-  %137 = icmp ugt i32 %.096268, %136
+  %137 = icmp ugt i32 %.096286, %136
   br i1 %137, label %138, label %139
 
 138:                                              ; preds = %.critedge118
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.10, i32 noundef %.096268, i32 noundef %136) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.10, i32 noundef %.096286, i32 noundef %136) #7
   br label %.thread
 
 139:                                              ; preds = %.critedge118
@@ -374,8 +374,8 @@ bytestream2_get_le32.exit130.thread:              ; preds = %111, %121, %bytestr
   %sext = shl i64 %140, 32
   %141 = ashr exact i64 %sext, 32
   %142 = getelementptr inbounds i8, ptr %7, i64 %141
-  %or.cond.i.i = icmp ugt i32 %.096268, 268435455
-  %143 = shl nuw nsw i32 %.096268, 3
+  %or.cond.i.i = icmp ugt i32 %.096286, 268435455
+  %143 = shl nuw nsw i32 %.096286, 3
   %144 = select i1 %or.cond.i.i, i32 -8, i32 %143
   %or.cond.i.i.i = icmp ult i32 %144, 2147483135
   %.018.i.i.i = select i1 %or.cond.i.i.i, i32 %144, i32 0
@@ -621,23 +621,23 @@ get_vlc2.exit.i.i:                                ; preds = %272, %252
   br i1 %294, label %.sink.split.i.i, label %303
 
 .sink.split.i.i:                                  ; preds = %get_vlc2.exit.i.i, %248
-  %.sink138.i.i = phi i32 [ %249, %248 ], [ %293, %get_vlc2.exit.i.i ]
-  %.sink135.i.i = phi ptr [ %251, %248 ], [ %256, %get_vlc2.exit.i.i ]
-  %.sink129.i.i = phi i32 [ %250, %248 ], [ %255, %get_vlc2.exit.i.i ]
-  %295 = lshr i32 %.sink138.i.i, 3
+  %.sink140.i.i = phi i32 [ %249, %248 ], [ %293, %get_vlc2.exit.i.i ]
+  %.sink137.i.i = phi ptr [ %251, %248 ], [ %256, %get_vlc2.exit.i.i ]
+  %.sink131.i.i = phi i32 [ %250, %248 ], [ %255, %get_vlc2.exit.i.i ]
+  %295 = lshr i32 %.sink140.i.i, 3
   %296 = zext nneg i32 %295 to i64
-  %297 = getelementptr inbounds nuw i8, ptr %.sink135.i.i, i64 %296
+  %297 = getelementptr inbounds nuw i8, ptr %.sink137.i.i, i64 %296
   %298 = load i32, ptr %297, align 1, !tbaa !42
-  %299 = and i32 %.sink138.i.i, 7
+  %299 = and i32 %.sink140.i.i, 7
   %300 = lshr i32 %298, %299
-  %301 = add i32 %.sink138.i.i, 8
-  %302 = tail call i32 @llvm.umin.i32(i32 %.sink129.i.i, i32 %301)
+  %301 = add i32 %.sink140.i.i, 8
+  %302 = tail call i32 @llvm.umin.i32(i32 %.sink131.i.i, i32 %301)
   store i32 %302, ptr %107, align 8, !tbaa !54
   br label %303
 
 303:                                              ; preds = %.sink.split.i.i, %get_vlc2.exit.i.i
-  %304 = phi ptr [ %256, %get_vlc2.exit.i.i ], [ %.sink135.i.i, %.sink.split.i.i ]
-  %305 = phi i32 [ %255, %get_vlc2.exit.i.i ], [ %.sink129.i.i, %.sink.split.i.i ]
+  %304 = phi ptr [ %256, %get_vlc2.exit.i.i ], [ %.sink137.i.i, %.sink.split.i.i ]
+  %305 = phi i32 [ %255, %get_vlc2.exit.i.i ], [ %.sink131.i.i, %.sink.split.i.i ]
   %306 = phi i32 [ %293, %get_vlc2.exit.i.i ], [ %302, %.sink.split.i.i ]
   %.066.i.i = phi i32 [ %.062.i.i.i, %get_vlc2.exit.i.i ], [ %300, %.sink.split.i.i ]
   %307 = add i32 %.066.i.i, %.168105.i.i
@@ -916,9 +916,9 @@ tscc2_decode_slice.exit.loopexit:                 ; preds = %.loopexit50.i
 
 tscc2_decode_slice.exit:                          ; preds = %tscc2_decode_slice.exit.loopexit, %.preheader52.i
   %493 = phi i32 [ %.pre, %tscc2_decode_slice.exit.loopexit ], [ %112, %.preheader52.i ]
-  %494 = zext i32 %.096268 to i64
+  %494 = zext i32 %.096286 to i64
   %..i127 = tail call i64 @llvm.smin.i64(i64 %135, i64 %494)
-  %495 = getelementptr inbounds i8, ptr %.sroa.0.2266, i64 %..i127
+  %495 = getelementptr inbounds i8, ptr %.sroa.0.2284, i64 %..i127
   %496 = add nuw nsw i32 %.2100220, 1
   %497 = icmp slt i32 %496, %493
   br i1 %497, label %111, label %._crit_edge222, !llvm.loop !69

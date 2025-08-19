@@ -10931,9 +10931,9 @@ if.then:                                          ; preds = %invoke.cont
   br label %invoke.cont27
 
 if.else:                                          ; preds = %lpad, %lpad.thread70
-  %.sink2 = phi { ptr, i32 } [ %10, %lpad ], [ %6, %lpad.thread70 ]
+  %.sink4 = phi { ptr, i32 } [ %10, %lpad ], [ %6, %lpad.thread70 ]
   %__new_finish.073 = phi ptr [ %call5.i.i.i, %lpad ], [ %incdec.ptr, %lpad.thread70 ]
-  %14 = extractvalue { ptr, i32 } %.sink2, 0
+  %14 = extractvalue { ptr, i32 } %.sink4, 0
   %15 = tail call ptr @__cxa_begin_catch(ptr %14) #26
   invoke void @_ZSt8_DestroyIP9ItemStackS0_EvT_S2_RSaIT0_E(ptr noundef nonnull %call5.i.i.i, ptr noundef nonnull %__new_finish.073, ptr noundef nonnull align 1 dereferenceable(1) %this)
           to label %invoke.cont27 unwind label %lpad25

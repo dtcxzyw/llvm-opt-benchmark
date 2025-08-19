@@ -374,13 +374,13 @@ define hidden i32 @Curl_sasl_start(ptr noundef captures(none) initializes((28, 3
   %41 = load i64, ptr %40, align 2
   %42 = and i64 %41, 1099511627776
   %.not89 = icmp eq i64 %42, 0
-  br i1 %.not89, label %.thread114, label %43
+  br i1 %.not89, label %.thread118, label %43
 
 43:                                               ; preds = %39, %38
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 480
   %45 = load ptr, ptr %44, align 8, !tbaa !107
   call void @Curl_auth_create_external_message(ptr noundef %45, ptr noundef nonnull %5) #8
-  br label %.thread114
+  br label %.thread118
 
 46:                                               ; preds = %34, %17
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 4992
@@ -399,7 +399,7 @@ define hidden i32 @Curl_sasl_start(ptr noundef captures(none) initializes((28, 3
 
 53:                                               ; preds = %51
   store i16 8, ptr %26, align 4, !tbaa !92
-  br label %.thread114
+  br label %.thread118
 
 54:                                               ; preds = %51, %49
   %55 = and i32 %32, 4
@@ -408,7 +408,7 @@ define hidden i32 @Curl_sasl_start(ptr noundef captures(none) initializes((28, 3
 
 56:                                               ; preds = %54
   store i16 4, ptr %26, align 4, !tbaa !92
-  br label %.thread114
+  br label %.thread118
 
 57:                                               ; preds = %54
   %58 = and i32 %32, 64
@@ -428,7 +428,7 @@ define hidden i32 @Curl_sasl_start(ptr noundef captures(none) initializes((28, 3
   %64 = load i64, ptr %63, align 2
   %65 = and i64 %64, 1099511627776
   %.not100 = icmp eq i64 %65, 0
-  br i1 %.not100, label %.thread114, label %66
+  br i1 %.not100, label %.thread118, label %66
 
 66:                                               ; preds = %62, %61
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 480
@@ -456,7 +456,7 @@ define hidden i32 @Curl_sasl_start(ptr noundef captures(none) initializes((28, 3
   %81 = load i64, ptr %80, align 2
   %82 = and i64 %81, 1099511627776
   %.not99 = icmp eq i64 %82, 0
-  br i1 %.not99, label %.thread114, label %83
+  br i1 %.not99, label %.thread118, label %83
 
 83:                                               ; preds = %79, %78
   %84 = getelementptr inbounds nuw i8, ptr %11, i64 480
@@ -482,7 +482,7 @@ define hidden i32 @Curl_sasl_start(ptr noundef captures(none) initializes((28, 3
   %96 = load i64, ptr %95, align 2
   %97 = and i64 %96, 1099511627776
   %.not98 = icmp eq i64 %97, 0
-  br i1 %.not98, label %.thread114, label %98
+  br i1 %.not98, label %.thread118, label %98
 
 98:                                               ; preds = %94, %93
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 480
@@ -504,7 +504,7 @@ define hidden i32 @Curl_sasl_start(ptr noundef captures(none) initializes((28, 3
   %107 = load i64, ptr %106, align 2
   %108 = and i64 %107, 1099511627776
   %.not97 = icmp eq i64 %108, 0
-  br i1 %.not97, label %.thread114, label %109
+  br i1 %.not97, label %.thread118, label %109
 
 109:                                              ; preds = %105, %104
   %110 = getelementptr inbounds nuw i8, ptr %11, i64 504
@@ -530,13 +530,13 @@ define hidden i32 @Curl_sasl_start(ptr noundef captures(none) initializes((28, 3
   %122 = load i64, ptr %121, align 2
   %123 = and i64 %122, 1099511627776
   %.not96 = icmp eq i64 %123, 0
-  br i1 %.not96, label %.thread114, label %124
+  br i1 %.not96, label %.thread118, label %124
 
 124:                                              ; preds = %120, %119
   %125 = getelementptr inbounds nuw i8, ptr %11, i64 480
   %126 = load ptr, ptr %125, align 8, !tbaa !107
   call void @Curl_auth_create_login_message(ptr noundef %126, ptr noundef nonnull %5) #8
-  br label %.thread114
+  br label %.thread118
 
 127:                                              ; preds = %83, %109, %98, %66
   %.083 = phi i32 [ 8, %66 ], [ 13, %83 ], [ 13, %98 ], [ 1, %109 ]
@@ -544,27 +544,27 @@ define hidden i32 @Curl_sasl_start(ptr noundef captures(none) initializes((28, 3
   %.081 = phi ptr [ @.str.4, %66 ], [ @.str.5, %83 ], [ @.str.6, %98 ], [ @.str.7, %109 ]
   %.0 = phi i32 [ %73, %66 ], [ %89, %83 ], [ %101, %98 ], [ %116, %109 ]
   %128 = icmp eq i32 %.0, 0
-  br i1 %128, label %.thread114, label %.thread
+  br i1 %128, label %.thread118, label %.thread
 
-.thread114:                                       ; preds = %39, %43, %120, %124, %105, %94, %79, %62, %56, %53, %127
-  %.081121 = phi ptr [ %.081, %127 ], [ @.str.1, %39 ], [ @.str.1, %43 ], [ @.str.8, %120 ], [ @.str.8, %124 ], [ @.str.7, %105 ], [ @.str.6, %94 ], [ @.str.5, %79 ], [ @.str.4, %62 ], [ @.str.3, %56 ], [ @.str.2, %53 ]
-  %.082120 = phi i32 [ %.082, %127 ], [ 17, %39 ], [ 17, %43 ], [ 3, %120 ], [ 3, %124 ], [ 17, %105 ], [ 17, %94 ], [ 14, %79 ], [ 9, %62 ], [ 17, %56 ], [ 17, %53 ]
-  %.083119 = phi i32 [ %.083, %127 ], [ 4, %39 ], [ 4, %43 ], [ 2, %120 ], [ 2, %124 ], [ 1, %105 ], [ 13, %94 ], [ 13, %79 ], [ 8, %62 ], [ 5, %56 ], [ 6, %53 ]
+.thread118:                                       ; preds = %39, %43, %120, %124, %105, %94, %79, %62, %56, %53, %127
+  %.081125 = phi ptr [ %.081, %127 ], [ @.str.1, %39 ], [ @.str.1, %43 ], [ @.str.8, %120 ], [ @.str.8, %124 ], [ @.str.7, %105 ], [ @.str.6, %94 ], [ @.str.5, %79 ], [ @.str.4, %62 ], [ @.str.3, %56 ], [ @.str.2, %53 ]
+  %.082124 = phi i32 [ %.082, %127 ], [ 17, %39 ], [ 17, %43 ], [ 3, %120 ], [ 3, %124 ], [ 17, %105 ], [ 17, %94 ], [ 14, %79 ], [ 9, %62 ], [ 17, %56 ], [ 17, %53 ]
+  %.083123 = phi i32 [ %.083, %127 ], [ 4, %39 ], [ 4, %43 ], [ 2, %120 ], [ 2, %124 ], [ 1, %105 ], [ 13, %94 ], [ 13, %79 ], [ 8, %62 ], [ 5, %56 ], [ 6, %53 ]
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.081121, ptr %129, align 8, !tbaa !88
+  store ptr %.081125, ptr %129, align 8, !tbaa !88
   %130 = call ptr @Curl_bufref_ptr(ptr noundef nonnull %5) #8
   %.not101 = icmp eq ptr %130, null
   br i1 %.not101, label %134, label %131
 
-131:                                              ; preds = %.thread114
+131:                                              ; preds = %.thread118
   %.val = load ptr, ptr %0, align 8, !tbaa !86
   %132 = getelementptr i8, ptr %.val, i64 58
   %.val.val = load i16, ptr %132, align 2, !tbaa !109
   %133 = call fastcc i32 @build_message(i16 %.val.val, ptr noundef %5)
   br label %134
 
-134:                                              ; preds = %131, %.thread114
-  %.2 = phi i32 [ %133, %131 ], [ 0, %.thread114 ]
+134:                                              ; preds = %131, %.thread118
+  %.2 = phi i32 [ %133, %131 ], [ 0, %.thread118 ]
   %135 = load ptr, ptr %0, align 8, !tbaa !86
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 40
   %137 = load i64, ptr %136, align 8, !tbaa !110
@@ -572,7 +572,7 @@ define hidden i32 @Curl_sasl_start(ptr noundef captures(none) initializes((28, 3
   br i1 %.not102, label %147, label %138
 
 138:                                              ; preds = %134
-  %139 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.081121) #9
+  %139 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.081125) #9
   %140 = call i64 @Curl_bufref_len(ptr noundef nonnull %5) #8
   %141 = add i64 %140, %139
   %142 = load ptr, ptr %0, align 8, !tbaa !86
@@ -593,7 +593,7 @@ define hidden i32 @Curl_sasl_start(ptr noundef captures(none) initializes((28, 3
   %149 = load ptr, ptr %0, align 8, !tbaa !86
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %151 = load ptr, ptr %150, align 8, !tbaa !111
-  %152 = call i32 %151(ptr noundef nonnull %1, ptr noundef nonnull %.081121, ptr noundef nonnull %5) #8
+  %152 = call i32 %151(ptr noundef nonnull %1, ptr noundef nonnull %.081125, ptr noundef nonnull %5) #8
   %.not104 = icmp eq i32 %152, 0
   br i1 %.not104, label %153, label %.thread
 
@@ -601,7 +601,7 @@ define hidden i32 @Curl_sasl_start(ptr noundef captures(none) initializes((28, 3
   store i32 1, ptr %3, align 4, !tbaa !97
   %154 = call ptr @Curl_bufref_ptr(ptr noundef nonnull %5) #8
   %.not105 = icmp eq ptr %154, null
-  %155 = select i1 %.not105, i32 %.083119, i32 %.082120
+  %155 = select i1 %.not105, i32 %.083123, i32 %.082124
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %155, ptr %156, align 8, !tbaa !87
   br label %.thread

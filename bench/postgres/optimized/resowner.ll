@@ -322,7 +322,7 @@ define dso_local void @ResourceOwnerForget(ptr noundef captures(none) %0, i64 no
 
 26:                                               ; preds = %20
   %27 = add nsw i64 %15, -1
-  %28 = getelementptr inbounds [32 x %struct.ResourceElem], ptr %14, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [32 x %struct.ResourceElem], ptr %14, i64 0, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
   %29 = add i8 %13, -1
   store i8 %29, ptr %12, align 1
@@ -1041,9 +1041,9 @@ define internal fastcc void @ResourceOwnerReleaseAll(ptr noundef captures(none) 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %9, label %.thread49
+  br i1 %6, label %9, label %.thread51
 
-.thread49:                                        ; preds = %3
+.thread51:                                        ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %8 = load ptr, ptr %7, align 8
   br label %.lr.ph
@@ -1056,17 +1056,17 @@ define internal fastcc void @ResourceOwnerReleaseAll(ptr noundef captures(none) 
   %.not37 = icmp eq i8 %12, 0
   br i1 %.not37, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread49, %9
-  %.054 = phi ptr [ %8, %.thread49 ], [ %10, %9 ]
-  %.03053 = phi i32 [ %5, %.thread49 ], [ %13, %9 ]
-  %14 = zext i32 %.03053 to i64
+.lr.ph:                                           ; preds = %.thread51, %9
+  %.056 = phi ptr [ %8, %.thread51 ], [ %10, %9 ]
+  %.03055 = phi i32 [ %5, %.thread51 ], [ %13, %9 ]
+  %14 = zext i32 %.03055 to i64
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %37
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %37 ], [ %14, %.lr.ph ]
   %indvars.iv.next46 = add nsw i64 %indvars.iv45, -1
   %15 = and i64 %indvars.iv.next46, 4294967295
-  %16 = getelementptr inbounds nuw %struct.ResourceElem, ptr %.054, i64 %15
+  %16 = getelementptr inbounds nuw %struct.ResourceElem, ptr %.056, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load ptr, ptr %18, align 8
@@ -1114,13 +1114,13 @@ define internal fastcc void @ResourceOwnerReleaseAll(ptr noundef captures(none) 
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ %14, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %41 = and i64 %indvars.iv.next, 4294967295
-  %42 = getelementptr inbounds nuw %struct.ResourceElem, ptr %.054, i64 %41
+  %42 = getelementptr inbounds nuw %struct.ResourceElem, ptr %.056, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i32, ptr %45, align 8
   %47 = icmp ugt i32 %46, %1
-  br i1 %47, label %.thread.loopexit55.split.loop.exit, label %48
+  br i1 %47, label %.thread.loopexit57.split.loop.exit, label %48
 
 48:                                               ; preds = %.lr.ph.split
   %49 = load i64, ptr %42, align 8
@@ -1135,12 +1135,12 @@ define internal fastcc void @ResourceOwnerReleaseAll(ptr noundef captures(none) 
   %53 = trunc nuw i64 %indvars.iv45 to i32
   br label %.thread
 
-.thread.loopexit55.split.loop.exit:               ; preds = %.lr.ph.split
+.thread.loopexit57.split.loop.exit:               ; preds = %.lr.ph.split
   %54 = trunc nuw i64 %indvars.iv to i32
   br label %.thread
 
-.thread:                                          ; preds = %48, %37, %.thread.loopexit55.split.loop.exit, %.thread.loopexit.split.loop.exit, %9
-  %.1.lcssa = phi i32 [ 0, %9 ], [ %53, %.thread.loopexit.split.loop.exit ], [ %54, %.thread.loopexit55.split.loop.exit ], [ 0, %37 ], [ 0, %48 ]
+.thread:                                          ; preds = %48, %37, %.thread.loopexit57.split.loop.exit, %.thread.loopexit.split.loop.exit, %9
+  %.1.lcssa = phi i32 [ 0, %9 ], [ %53, %.thread.loopexit.split.loop.exit ], [ %54, %.thread.loopexit57.split.loop.exit ], [ 0, %37 ], [ 0, %48 ]
   %55 = load i32, ptr %4, align 4
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %60

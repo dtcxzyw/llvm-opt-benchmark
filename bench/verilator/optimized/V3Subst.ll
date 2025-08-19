@@ -1757,8 +1757,8 @@ _ZN12VNUser1InUseD2Ev.exit:                       ; preds = %_ZNSt5dequeI13Subst
   %77 = load ptr, ptr %74, align 8, !tbaa !130
   %.not13.i = icmp eq ptr %76, %77
   %78 = trunc nuw i8 %73 to i1
-  %or.cond16.i = select i1 %.not13.i, i1 true, i1 %78
-  br i1 %or.cond16.i, label %_ZN13SubstVarEntry18deleteUnusedAssignEv.exit, label %.lr.ph.split.i
+  %or.cond20.i = select i1 %.not13.i, i1 true, i1 %78
+  br i1 %or.cond20.i, label %_ZN13SubstVarEntry18deleteUnusedAssignEv.exit, label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %72, %98
   %79 = phi ptr [ %99, %98 ], [ %77, %72 ]
@@ -6229,7 +6229,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorI12SubstVarWordSaIS0_EE17_M_defa
 19:                                               ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIP12SubstVarWordmS0_ET_S2_T0_RSaIT1_E.exit, label %23
 

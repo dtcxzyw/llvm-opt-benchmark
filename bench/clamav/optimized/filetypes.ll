@@ -541,7 +541,7 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
   %.0168287 = phi i64 [ %.0153.in, %76 ], [ %.1169, %128 ]
   %.0170286 = phi i32 [ %.0153, %76 ], [ %.1171, %128 ]
   %.0172285 = phi ptr [ %20, %76 ], [ %.1173, %128 ]
-  %79 = sext i32 %.0162289 to i64
+  %79 = zext nneg i32 %.0162289 to i64
   %80 = call ptr @cli_memstr(ptr noundef %.0165288, i64 noundef %79, ptr noundef nonnull %6, i64 noundef 4) #11
   %.not209 = icmp eq ptr %80, null
   br i1 %.not209, label %115, label %81

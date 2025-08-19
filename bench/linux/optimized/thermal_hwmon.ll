@@ -89,7 +89,7 @@ thermal_hwmon_lookup_by_type.exit:                ; preds = %9
 29:                                               ; preds = %20
   %30 = ptrtoint ptr %26 to i64
   %31 = trunc i64 %30 to i32
-  br label %.thread7
+  br label %.thread14
 
 32:                                               ; preds = %20
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
@@ -101,7 +101,7 @@ thermal_hwmon_lookup_by_type.exit:                ; preds = %9
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %37 = tail call noalias align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %36, i32 noundef 3520, i64 noundef 120) #10
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread7, label %39
+  br i1 %38, label %.thread14, label %39
 
 39:                                               ; preds = %.thread, %32
   %40 = phi ptr [ %37, %.thread ], [ %34, %32 ]
@@ -196,7 +196,7 @@ thermal_hwmon_lookup_by_type.exit:                ; preds = %9
 88:                                               ; preds = %86, %39
   %89 = phi i32 [ %54, %39 ], [ %73, %86 ]
   call void @kfree(ptr noundef nonnull %40) #9
-  br i1 %42, label %90, label %.thread7
+  br i1 %42, label %90, label %.thread14
 
 90:                                               ; preds = %32, %88
   %91 = phi ptr [ %41, %88 ], [ %18, %32 ]
@@ -204,16 +204,16 @@ thermal_hwmon_lookup_by_type.exit:                ; preds = %9
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %94 = load ptr, ptr %93, align 8
   call void @hwmon_device_unregister(ptr noundef %94) #9
-  br label %.thread7
+  br label %.thread14
 
-.thread7:                                         ; preds = %.thread, %88, %90, %29
+.thread14:                                        ; preds = %.thread, %88, %90, %29
   %95 = phi ptr [ %91, %90 ], [ %18, %29 ], [ %41, %88 ], [ %10, %.thread ]
   %96 = phi i32 [ %92, %90 ], [ %31, %29 ], [ %89, %88 ], [ -12, %.thread ]
   call void @kfree(ptr noundef nonnull %95) #9
   br label %97
 
-97:                                               ; preds = %.thread7, %81, %16
-  %98 = phi i32 [ %96, %.thread7 ], [ 0, %81 ], [ -12, %16 ]
+97:                                               ; preds = %.thread14, %81, %16
+  %98 = phi i32 [ %96, %.thread14 ], [ 0, %81 ], [ -12, %16 ]
   ret i32 %98
 }
 

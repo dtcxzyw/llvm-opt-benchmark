@@ -169,19 +169,19 @@ define void @_ZN3gmx8internal26printFatalErrorMessageLineEP8_IO_FILEPKci(ptr nou
   %17 = sext i8 %16 to i32
   %18 = call i32 @isspace(i32 noundef %17) #13
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %.critedge.loopexit.split.loop.exit26, label %19
+  br i1 %.not, label %.critedge.loopexit.split.loop.exit28, label %19
 
 19:                                               ; preds = %13
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %20 = icmp sgt i64 %indvars.iv, 1
   br i1 %20, label %13, label %.critedge, !llvm.loop !20
 
-.critedge.loopexit.split.loop.exit26:             ; preds = %13
+.critedge.loopexit.split.loop.exit28:             ; preds = %13
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %19, %.critedge.loopexit.split.loop.exit26, %.lr.ph23
-  %.0.lcssa = phi i32 [ %9, %.lr.ph23 ], [ %21, %.critedge.loopexit.split.loop.exit26 ], [ 0, %19 ]
+.critedge:                                        ; preds = %19, %.critedge.loopexit.split.loop.exit28, %.lr.ph23
+  %.0.lcssa = phi i32 [ %9, %.lr.ph23 ], [ %21, %.critedge.loopexit.split.loop.exit28 ], [ 0, %19 ]
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 %.01822
   %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %2, ptr noundef nonnull @.str.9, i32 noundef %.0.lcssa, ptr noundef nonnull %22) #11
   %24 = icmp ult i64 %7, %6

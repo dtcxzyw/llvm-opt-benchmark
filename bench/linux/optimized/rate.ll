@@ -930,7 +930,7 @@ define dso_local void @ieee80211_get_tx_rates(ptr noundef readonly captures(addr
   br label %288
 
 288:                                              ; preds = %286, %282, %278, %274, %261, %246, %243, %238, %234, %230, %217, %216
-  %289 = phi i8 [ %213, %216 ], [ 0, %230 ], [ 0, %238 ], [ 0, %234 ], [ 0, %261 ], [ 0, %274 ], [ 0, %286 ], [ 0, %282 ], [ 0, %278 ], [ 1, %217 ], [ 0, %246 ], [ 0, %243 ]
+  %289 = phi i8 [ 1, %216 ], [ 0, %230 ], [ 0, %238 ], [ 0, %234 ], [ 0, %261 ], [ 0, %274 ], [ 0, %286 ], [ 0, %282 ], [ 0, %278 ], [ 1, %217 ], [ 0, %246 ], [ 0, %243 ]
   %290 = add nuw nsw i64 %212, 1
   %291 = icmp eq i64 %290, %210
   br i1 %291, label %.loopexit, label %211, !llvm.loop !50
@@ -1973,7 +1973,7 @@ define internal fastcc noundef zeroext i1 @rate_control_cap_mask(ptr noundef rea
   br i1 %49, label %55, label %61
 
 55:                                               ; preds = %.loopexit
-  br i1 %54, label %56, label %.thread8
+  br i1 %54, label %56, label %.thread11
 
 56:                                               ; preds = %55
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1770
@@ -1983,9 +1983,9 @@ define internal fastcc noundef zeroext i1 @rate_control_cap_mask(ptr noundef rea
   br i1 %60, label %108, label %.thread
 
 61:                                               ; preds = %.loopexit
-  br i1 %54, label %.thread, label %.thread8
+  br i1 %54, label %.thread, label %.thread11
 
-.thread8:                                         ; preds = %55, %61
+.thread11:                                        ; preds = %55, %61
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 1710
   %63 = getelementptr [6 x [10 x i8]], ptr %62, i64 0, i64 %51
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(10) %4, ptr noundef align 2 dereferenceable(10) %63, i64 10, i1 false)
@@ -1995,7 +1995,7 @@ define internal fastcc noundef zeroext i1 @rate_control_cap_mask(ptr noundef rea
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(10) %4, i8 -1, i64 10, i1 false)
   br label %64
 
-64:                                               ; preds = %.thread, %.thread8
+64:                                               ; preds = %.thread, %.thread11
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 1770
   %66 = load i32, ptr %9, align 8
   %67 = zext i32 %66 to i64
@@ -2155,7 +2155,7 @@ define internal fastcc void @rate_idx_match_mask(ptr noundef captures(none) %0, 
   %63 = trunc nsw i64 %52 to i8
   %64 = trunc nuw nsw i64 %58 to i8
   %65 = shl nsw i8 %63, 4
-  %66 = add nuw i8 %65, %64
+  %66 = add nuw nsw i8 %65, %64
   br label %356
 
 67:                                               ; preds = %57

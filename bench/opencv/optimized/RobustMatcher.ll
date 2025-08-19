@@ -705,8 +705,8 @@ _ZN13RobustMatcher9ratioTestERSt6vectorIS0_IN2cv6DMatchESaIS2_EESaIS4_EE.exit: ;
   %104 = fdiv float %101, %103
   %105 = fcmp ule float %104, %90
   %.not.i.i.i47 = icmp eq ptr %93, %94
-  %or.cond65 = or i1 %105, %.not.i.i.i47
-  br i1 %or.cond65, label %_ZNSt6vectorIN2cv6DMatchESaIS1_EE5clearEv.exit.i48, label %_ZNSt6vectorIN2cv6DMatchESaIS1_EE5clearEv.exit.i48.sink.split
+  %or.cond87 = or i1 %105, %.not.i.i.i47
+  br i1 %or.cond87, label %_ZNSt6vectorIN2cv6DMatchESaIS1_EE5clearEv.exit.i48, label %_ZNSt6vectorIN2cv6DMatchESaIS1_EE5clearEv.exit.i48.sink.split
 
 106:                                              ; preds = %91
   %.not.i.i5.i42 = icmp eq ptr %93, %94

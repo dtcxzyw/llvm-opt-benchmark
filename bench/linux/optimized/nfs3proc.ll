@@ -599,13 +599,13 @@ define internal i32 @nfs3_proc_create(ptr noundef %0, ptr noundef %1, ptr nounde
   %68 = or i32 %66, 16
   %69 = select i1 %.not, i32 %68, i32 %66
   %70 = and i32 %69, 256
-  %.not12 = icmp eq i32 %70, 0
-  %71 = or i1 %.not, %.not12
+  %.not18 = icmp eq i32 %70, 0
+  %71 = or i1 %.not, %.not18
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %65
   %73 = or i32 %69, 32
-  %simplifycfg.merge = select i1 %.not12, i32 %73, i32 %69
+  %simplifycfg.merge = select i1 %.not18, i32 %73, i32 %69
   store i32 %simplifycfg.merge, ptr %2, align 8
   br label %74
 

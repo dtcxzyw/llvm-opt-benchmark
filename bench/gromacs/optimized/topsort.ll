@@ -907,10 +907,10 @@ define void @_Z17gmx_sort_ilist_feP22InteractionDefinitionsN3gmx8ArrayRefIKiEE(p
 
 ._crit_edge121:                                   ; preds = %.lr.ph120, %._crit_edge.thread, %._crit_edge
   %91 = phi ptr [ %25, %._crit_edge.thread ], [ %88, %._crit_edge ], [ %88, %.lr.ph120 ]
-  %.lcssa168 = phi i32 [ %23, %._crit_edge.thread ], [ %86, %._crit_edge ], [ %86, %.lr.ph120 ]
-  %.1.lcssa167 = phi i1 [ %.0126, %._crit_edge.thread ], [ %.2, %._crit_edge ], [ %.2, %.lr.ph120 ]
-  %.168.lcssa166 = phi i32 [ %.067125, %._crit_edge.thread ], [ %.370, %._crit_edge ], [ %.370, %.lr.ph120 ]
-  %.185.lcssa165 = phi ptr [ %.084122, %._crit_edge.thread ], [ %.387, %._crit_edge ], [ %.387, %.lr.ph120 ]
+  %.lcssa171 = phi i32 [ %23, %._crit_edge.thread ], [ %86, %._crit_edge ], [ %86, %.lr.ph120 ]
+  %.1.lcssa170 = phi i1 [ %.0126, %._crit_edge.thread ], [ %.2, %._crit_edge ], [ %.2, %.lr.ph120 ]
+  %.168.lcssa169 = phi i32 [ %.067125, %._crit_edge.thread ], [ %.370, %._crit_edge ], [ %.370, %.lr.ph120 ]
+  %.185.lcssa168 = phi ptr [ %.084122, %._crit_edge.thread ], [ %.387, %._crit_edge ], [ %.387, %.lr.ph120 ]
   %92 = load ptr, ptr @debug, align 8, !tbaa !90
   %.not73 = icmp eq ptr %92, null
   br i1 %.not73, label %102, label %96
@@ -931,14 +931,14 @@ define void @_Z17gmx_sort_ilist_feP22InteractionDefinitionsN3gmx8ArrayRefIKiEE(p
   %97 = load i32, ptr %91, align 4, !tbaa !16
   %98 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !61
-  %100 = sub nsw i32 %.lcssa168, %97
+  %100 = sub nsw i32 %.lcssa171, %97
   %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %92, ptr noundef nonnull @.str.5, ptr noundef %99, i32 noundef %97, i32 noundef %100) #13
   br label %102
 
 102:                                              ; preds = %._crit_edge121, %96, %9
-  %.488 = phi ptr [ %.084122, %9 ], [ %.185.lcssa165, %._crit_edge121 ], [ %.185.lcssa165, %96 ]
-  %.4 = phi i32 [ %.067125, %9 ], [ %.168.lcssa166, %._crit_edge121 ], [ %.168.lcssa166, %96 ]
-  %.3 = phi i1 [ %.0126, %9 ], [ %.1.lcssa167, %._crit_edge121 ], [ %.1.lcssa167, %96 ]
+  %.488 = phi ptr [ %.084122, %9 ], [ %.185.lcssa168, %._crit_edge121 ], [ %.185.lcssa168, %96 ]
+  %.4 = phi i32 [ %.067125, %9 ], [ %.168.lcssa169, %._crit_edge121 ], [ %.168.lcssa169, %96 ]
+  %.3 = phi i1 [ %.0126, %9 ], [ %.1.lcssa170, %._crit_edge121 ], [ %.1.lcssa170, %96 ]
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next157, 95
   br i1 %exitcond158.not, label %6, label %9, !llvm.loop !93

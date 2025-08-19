@@ -202,8 +202,8 @@ define internal range(i64 -2147483648, 35) i64 @dir_read(ptr noundef captures(no
   %29 = icmp ult i16 %switch.tableidx, 10
   %switch.shifted = lshr i16 639, %switch.tableidx
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond24 = select i1 %29, i1 %switch.lobit, i1 false
-  br i1 %or.cond24, label %switch.lookup, label %31
+  %or.cond26 = select i1 %29, i1 %switch.lobit, i1 false
+  br i1 %or.cond26, label %switch.lookup, label %31
 
 switch.lookup:                                    ; preds = %25
   %30 = zext nneg i16 %switch.tableidx to i64

@@ -1772,18 +1772,18 @@ define range(i32 -1, 1) i32 @H5D__virtual_store_layout(ptr noundef %0, ptr nound
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %89, %77
-  %.sink138 = phi i64 [ 4, %77 ], [ 2, %89 ]
+  %.sink145 = phi i64 [ 4, %77 ], [ 2, %89 ]
   %.sink = phi i64 [ 24, %77 ], [ 8, %89 ]
-  %.sink135.ph = phi i64 [ 5, %77 ], [ 3, %89 ]
-  %91 = getelementptr inbounds nuw i8, ptr %68, i64 %.sink138
+  %.sink142.ph = phi i64 [ 5, %77 ], [ 3, %89 ]
+  %91 = getelementptr inbounds nuw i8, ptr %68, i64 %.sink145
   %92 = lshr i64 %.lcssa, %.sink
   %93 = trunc i64 %92 to i8
   store i8 %93, ptr %91, align 1, !tbaa !108
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.preheader, %.sink.split.sink.split
-  %.sink135 = phi i64 [ %.sink135.ph, %.sink.split.sink.split ], [ 9, %.preheader ]
-  %94 = getelementptr inbounds nuw i8, ptr %68, i64 %.sink135
+  %.sink142 = phi i64 [ %.sink142.ph, %.sink.split.sink.split ], [ 9, %.preheader ]
+  %94 = getelementptr inbounds nuw i8, ptr %68, i64 %.sink142
   store ptr %94, ptr %3, align 8, !tbaa !121
   br label %95
 
@@ -2138,7 +2138,7 @@ define range(i32 -1, 1) i32 @H5D__virtual_copy_layout(ptr noundef captures(none)
 130:                                              ; preds = %127
   %131 = load ptr, ptr %47, align 8, !tbaa !119
   %132 = icmp eq ptr %129, %131
-  br i1 %132, label %.sink.split171, label %133
+  br i1 %132, label %.sink.split181, label %133
 
 133:                                              ; preds = %130
   %134 = load ptr, ptr %92, align 8, !tbaa !129
@@ -2152,7 +2152,7 @@ define range(i32 -1, 1) i32 @H5D__virtual_copy_layout(ptr noundef captures(none)
 
 137:                                              ; preds = %135
   %138 = load ptr, ptr %91, align 8, !tbaa !129
-  br label %.sink.split171
+  br label %.sink.split181
 
 139:                                              ; preds = %135, %133
   %140 = tail call noalias ptr @H5MM_strdup(ptr noundef nonnull %129) #14
@@ -2167,14 +2167,14 @@ define range(i32 -1, 1) i32 @H5D__virtual_copy_layout(ptr noundef captures(none)
   %146 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5D__virtual_copy_layout, i32 noundef 632, i64 noundef %144, i64 noundef %145, ptr noundef nonnull @.str.28) #14
   br label %.thread166
 
-.sink.split171:                                   ; preds = %130, %137
-  %.sink172.in = phi ptr [ %138, %137 ], [ %50, %130 ]
-  %.sink172 = load ptr, ptr %.sink172.in, align 8, !tbaa !121
+.sink.split181:                                   ; preds = %130, %137
+  %.sink182.in = phi ptr [ %138, %137 ], [ %50, %130 ]
+  %.sink182 = load ptr, ptr %.sink182.in, align 8, !tbaa !121
   %147 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store ptr %.sink172, ptr %147, align 8, !tbaa !134
+  store ptr %.sink182, ptr %147, align 8, !tbaa !134
   br label %148
 
-148:                                              ; preds = %.sink.split171, %139, %127
+148:                                              ; preds = %.sink.split181, %139, %127
   %149 = getelementptr inbounds nuw i8, ptr %28, i64 176
   %150 = load i32, ptr %149, align 8, !tbaa !135
   %151 = getelementptr inbounds nuw i8, ptr %27, i64 176
@@ -3164,12 +3164,12 @@ define range(i32 -1, 1) i32 @H5D_virtual_parse_source_name(ptr noundef %0, ptr n
   br label %97
 
 .thread:                                          ; preds = %23, %..thread_crit_edge, %._crit_edge, %74
-  %.045.lcssa104 = phi i64 [ %.146, %..thread_crit_edge ], [ %.146, %._crit_edge ], [ %.146, %74 ], [ 0, %23 ]
-  %.047.lcssa103 = phi i64 [ %.148, %..thread_crit_edge ], [ %.148, %._crit_edge ], [ %.148, %74 ], [ %24, %23 ]
+  %.045.lcssa110 = phi i64 [ %.146, %..thread_crit_edge ], [ %.146, %._crit_edge ], [ %.146, %74 ], [ 0, %23 ]
+  %.047.lcssa109 = phi i64 [ %.148, %..thread_crit_edge ], [ %.148, %._crit_edge ], [ %.148, %74 ], [ %24, %23 ]
   %.0..0..0.49 = phi ptr [ %.0..0..0..0.49.pre, %..thread_crit_edge ], [ null, %._crit_edge ], [ %.0..0..0..0..pre, %74 ], [ null, %23 ]
   store ptr %.0..0..0.49, ptr %1, align 8, !tbaa !141
-  store i64 %.047.lcssa103, ptr %2, align 8, !tbaa !24
-  store i64 %.045.lcssa104, ptr %3, align 8, !tbaa !24
+  store i64 %.047.lcssa109, ptr %2, align 8, !tbaa !24
+  store i64 %.045.lcssa110, ptr %3, align 8, !tbaa !24
   br label %H5D_virtual_free_parsed_name.exit
 
 97:                                               ; preds = %93, %82, %67, %61, %46, %31, %16
@@ -3394,7 +3394,7 @@ define range(i32 -1, 1) i32 @H5D__virtual_set_extent_unlim(ptr noundef %0) local
   %43 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %44 = load ptr, ptr %43, align 8, !tbaa !79
   %.not484 = icmp eq ptr %44, null
-  br i1 %.not484, label %45, label %.thread636
+  br i1 %.not484, label %45, label %.thread670
 
 45:                                               ; preds = %42
   %46 = call fastcc i32 @H5D__virtual_open_source_dset(ptr noundef %0, ptr noundef nonnull %34, ptr noundef nonnull %34)
@@ -3412,9 +3412,9 @@ define range(i32 -1, 1) i32 @H5D__virtual_set_extent_unlim(ptr noundef %0) local
   %.phi.trans.insert609 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %.pre607, i64 %.1429567, i32 0, i32 5
   %.pre610 = load ptr, ptr %.phi.trans.insert609, align 8, !tbaa !79
   %.not485 = icmp eq ptr %.pre610, null
-  br i1 %.not485, label %378, label %.thread636
+  br i1 %.not485, label %378, label %.thread670
 
-.thread636:                                       ; preds = %42, %52
+.thread670:                                       ; preds = %42, %52
   %53 = phi ptr [ %.pre607, %52 ], [ %33, %42 ]
   %54 = phi ptr [ %.pre610, %52 ], [ %44, %42 ]
   %55 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %53, i64 %.1429567, i32 3
@@ -3427,13 +3427,13 @@ define range(i32 -1, 1) i32 @H5D__virtual_set_extent_unlim(ptr noundef %0) local
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %63, label %67
 
-63:                                               ; preds = %.thread636
+63:                                               ; preds = %.thread670
   %64 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !24
   %65 = load i64, ptr @H5E_CANTCOPY_g, align 8, !tbaa !24
   %66 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5D__virtual_set_extent_unlim, i32 noundef 1437, i64 noundef %64, i64 noundef %65, ptr noundef nonnull @.str.46) #14
   br label %.thread502
 
-67:                                               ; preds = %.thread636
+67:                                               ; preds = %.thread670
   %68 = load ptr, ptr %28, align 8, !tbaa !27
   %69 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %68, i64 %.1429567, i32 3
   %70 = load ptr, ptr %69, align 8, !tbaa !62
@@ -4024,12 +4024,12 @@ define range(i32 -1, 1) i32 @H5D__virtual_set_extent_unlim(ptr noundef %0) local
   br i1 %420, label %.sink.split, label %421
 
 .sink.split:                                      ; preds = %417, %414
-  %.sink643 = phi i64 [ %416, %414 ], [ %419, %417 ]
-  store i64 %.sink643, ptr %411, align 8, !tbaa !24
+  %.sink677 = phi i64 [ %416, %414 ], [ %419, %417 ]
+  store i64 %.sink677, ptr %411, align 8, !tbaa !24
   br label %421
 
 421:                                              ; preds = %.sink.split, %417
-  %422 = phi i64 [ %412, %417 ], [ %.sink643, %.sink.split ]
+  %422 = phi i64 [ %412, %417 ], [ %.sink677, %.sink.split ]
   %423 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %.2430572
   %424 = load i64, ptr %423, align 8, !tbaa !24
   %.not473 = icmp ne i64 %422, %424
@@ -5333,7 +5333,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__virtual_pre_io(ptr readonly ca
   %49 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %50 = load ptr, ptr %49, align 8, !tbaa !79
   %.not235.i = icmp eq ptr %50, null
-  br i1 %.not235.i, label %51, label %.thread286.i
+  br i1 %.not235.i, label %51, label %.thread300.i
 
 51:                                               ; preds = %48
   %52 = call fastcc i32 @H5D__virtual_open_source_dset(ptr noundef readonly %.0.val, ptr noundef nonnull %40, ptr noundef nonnull %40)
@@ -5351,9 +5351,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__virtual_pre_io(ptr readonly ca
   %.phi.trans.insert280.i = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %.pre278.i, i64 %.0217251.i, i32 0, i32 5
   %.pre281.i = load ptr, ptr %.phi.trans.insert280.i, align 8, !tbaa !79
   %.not236.i = icmp eq ptr %.pre281.i, null
-  br i1 %.not236.i, label %374, label %.thread286.i
+  br i1 %.not236.i, label %374, label %.thread300.i
 
-.thread286.i:                                     ; preds = %58, %48
+.thread300.i:                                     ; preds = %58, %48
   %59 = phi ptr [ %.pre278.i, %58 ], [ %39, %48 ]
   %60 = phi ptr [ %.pre281.i, %58 ], [ %50, %48 ]
   %61 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %59, i64 %.0217251.i, i32 3
@@ -5366,13 +5366,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__virtual_pre_io(ptr readonly ca
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %69, label %73
 
-69:                                               ; preds = %.thread286.i
+69:                                               ; preds = %.thread300.i
   %70 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !24
   %71 = load i64, ptr @H5E_CANTCOPY_g, align 8, !tbaa !24
   %72 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5D__virtual_init_all, i32 noundef 1914, i64 noundef %70, i64 noundef %71, ptr noundef nonnull @.str.46) #14
   br label %379
 
-73:                                               ; preds = %.thread286.i
+73:                                               ; preds = %.thread300.i
   %74 = load ptr, ptr %33, align 8, !tbaa !27
   %75 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %74, i64 %.0217251.i, i32 3
   %76 = load ptr, ptr %75, align 8, !tbaa !62
@@ -5600,7 +5600,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__virtual_pre_io(ptr readonly ca
   %224 = shl i64 %spec.select.i, 6
   %225 = call ptr @H5MM_realloc(ptr noundef nonnull %207, i64 noundef %224) #14
   %.not227.i = icmp eq ptr %225, null
-  br i1 %.not227.i, label %.thread.i, label %.thread288.i
+  br i1 %.not227.i, label %.thread.i, label %.thread302.i
 
 .thread.i:                                        ; preds = %223
   %226 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !24
@@ -5608,7 +5608,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__virtual_pre_io(ptr readonly ca
   %228 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5D__virtual_init_all, i32 noundef 2025, i64 noundef %226, i64 noundef %227, ptr noundef nonnull @.str.52) #14
   br label %.thread246.i
 
-.thread288.i:                                     ; preds = %223
+.thread302.i:                                     ; preds = %223
   %229 = load ptr, ptr %33, align 8, !tbaa !27
   %230 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %229, i64 %.0217251.i, i32 4
   store ptr %225, ptr %230, align 8, !tbaa !73
@@ -5627,8 +5627,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__virtual_pre_io(ptr readonly ca
   %.not255.i = icmp eq i64 %spec.select.i, 0
   br i1 %.not255.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %238, %.thread288.i
-  %239 = phi ptr [ %236, %.thread288.i ], [ %204, %238 ]
+.lr.ph.i:                                         ; preds = %238, %.thread302.i
+  %239 = phi ptr [ %236, %.thread302.i ], [ %204, %238 ]
   %240 = add i64 %spec.select.i, -1
   br label %241
 
@@ -6008,7 +6008,7 @@ H5D__virtual_init_all.exit:                       ; preds = %374, %.preheader.i
   br i1 %456, label %.lr.ph32, label %._crit_edge33
 
 .lr.ph32:                                         ; preds = %452
-  %457 = sext i32 %.1196 to i64
+  %457 = zext nneg i32 %.1196 to i64
   %.not42 = icmp eq i32 %.1196, 0
   br label %458
 

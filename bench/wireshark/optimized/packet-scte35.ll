@@ -868,8 +868,8 @@ define internal noundef i32 @dissect_scte35_splice_schedule(ptr noundef %0, ptr 
   %.2147 = add nuw nsw i32 %.1146, %42
   %43 = add nuw nsw i32 %.2147, 5
   %cond.fr = freeze i1 %or.cond7
-  %spec.select184 = select i1 %cond.fr, i32 %43, i32 %.2147
-  %44 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %19, ptr noundef %0, i32 noundef %.0148169, i32 noundef %spec.select184, i32 noundef %.0152168, ptr noundef nonnull %5, ptr noundef nonnull @.str.183, i32 noundef %.0152168)
+  %spec.select191 = select i1 %cond.fr, i32 %43, i32 %.2147
+  %44 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %19, ptr noundef %0, i32 noundef %.0148169, i32 noundef %spec.select191, i32 noundef %.0152168, ptr noundef nonnull %5, ptr noundef nonnull @.str.183, i32 noundef %.0152168)
   %45 = load i32, ptr @hf_splice_event_id, align 4
   %46 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %45, ptr noundef %0, i32 noundef %.0148169, i32 noundef 4, i32 noundef 0)
   %47 = add i32 %.0148169, 4

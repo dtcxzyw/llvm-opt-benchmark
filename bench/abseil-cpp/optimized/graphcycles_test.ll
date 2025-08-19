@@ -708,7 +708,7 @@ define dso_local void @_ZN4absl24synchronization_internal31GraphCycles_Randomize
   store i64 0, ptr %100, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN4absl24synchronization_internal11GraphCyclesC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %101 unwind label %.thread1381
+          to label %101 unwind label %.thread1623
 
 101:                                              ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -785,7 +785,7 @@ define dso_local void @_ZN4absl24synchronization_internal31GraphCycles_Randomize
   %158 = getelementptr inbounds nuw i8, ptr %91, i64 8
   br label %162
 
-.thread1381:                                      ; preds = %1
+.thread1623:                                      ; preds = %1
   %159 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1290,7 +1290,7 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
 
 348:                                              ; preds = %..loopexit_crit_edge.i.i.i, %.noexc459
   %.0.i.i = phi i32 [ %extract.t16.i.i.i, %.noexc459 ], [ %extract.t20.le.i.i.i, %..loopexit_crit_edge.i.i.i ]
-  switch i32 %.0.i.i, label %default.unreachable1378 [
+  switch i32 %.0.i.i, label %default.unreachable1620 [
     i32 0, label %349
     i32 1, label %489
     i32 2, label %619
@@ -1707,8 +1707,8 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %472
   %481 = getelementptr inbounds nuw i8, ptr %480, i64 %352
   %482 = load i32, ptr %16, align 4, !tbaa !36
   store i32 %482, ptr %481, align 4, !tbaa !36
-  %.not1379 = icmp eq ptr %164, %163
-  br i1 %.not1379, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i, label %483
+  %.not1621 = icmp eq ptr %164, %163
+  br i1 %.not1621, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i, label %483
 
 483:                                              ; preds = %.noexc505
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %480, ptr align 4 %163, i64 %352, i1 false)
@@ -2137,16 +2137,16 @@ _ZNSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EE
   %631 = mul nuw i128 %629, %630
   %632 = trunc i128 %631 to i64
   %633 = icmp ugt i64 %627, %632
-  %extract1446 = lshr i128 %631, 64
-  %extract.t1447 = trunc i128 %extract1446 to i32
+  %extract1688 = lshr i128 %631, 64
+  %extract.t1689 = trunc i128 %extract1688 to i32
   br i1 %633, label %634, label %.thread
 
 634:                                              ; preds = %.noexc555
   %635 = xor i64 %625, -1
   %636 = urem i64 %635, %627
   %637 = icmp ugt i64 %636, %632
-  %extract1444 = lshr i128 %631, 64
-  %extract.t1445 = trunc i128 %extract1444 to i32
+  %extract1686 = lshr i128 %631, 64
+  %extract.t1687 = trunc i128 %extract1686 to i32
   br i1 %637, label %.lr.ph.i.i.i.i551, label %.thread
 
 .lr.ph.i.i.i.i551:                                ; preds = %634, %.noexc556
@@ -2170,12 +2170,12 @@ _ZNSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EE
           to label %662 unwind label %.loopexit.split-lp1129
 
 647:                                              ; preds = %.noexc556
-  %extract1442 = lshr i128 %640, 64
-  %extract.t1443 = trunc i128 %extract1442 to i32
+  %extract1684 = lshr i128 %640, 64
+  %extract.t1685 = trunc i128 %extract1684 to i32
   br label %.thread
 
 .thread:                                          ; preds = %.noexc555, %634, %647
-  %extract19.le.i.i.i.i553.sink.in.off64 = phi i32 [ %extract.t1443, %647 ], [ %extract.t1445, %634 ], [ %extract.t1447, %.noexc555 ]
+  %extract19.le.i.i.i.i553.sink.in.off64 = phi i32 [ %extract.t1685, %647 ], [ %extract.t1687, %634 ], [ %extract.t1689, %.noexc555 ]
   %648 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %10)
           to label %.noexc568 unwind label %.loopexit.split-lp1129
 
@@ -3181,16 +3181,16 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %982 = mul nuw i128 %980, %981
   %983 = trunc i128 %982 to i64
   %984 = icmp ugt i64 %978, %983
-  %extract1440 = lshr i128 %982, 64
-  %extract.t1441 = trunc i128 %extract1440 to i32
+  %extract1682 = lshr i128 %982, 64
+  %extract.t1683 = trunc i128 %extract1682 to i32
   br i1 %984, label %985, label %.thread1107
 
 985:                                              ; preds = %.noexc694
   %986 = xor i64 %976, -1
   %987 = urem i64 %986, %978
   %988 = icmp ugt i64 %987, %983
-  %extract1438 = lshr i128 %982, 64
-  %extract.t1439 = trunc i128 %extract1438 to i32
+  %extract1680 = lshr i128 %982, 64
+  %extract.t1681 = trunc i128 %extract1680 to i32
   br i1 %988, label %.lr.ph.i.i.i.i690, label %.thread1107
 
 .lr.ph.i.i.i.i690:                                ; preds = %985, %.noexc695
@@ -3219,7 +3219,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.thread1107
 
 .thread1107:                                      ; preds = %.noexc694, %985, %998
-  %extract19.le.i.i.i.i692.sink.in.off64 = phi i32 [ %extract.t, %998 ], [ %extract.t1439, %985 ], [ %extract.t1441, %.noexc694 ]
+  %extract19.le.i.i.i.i692.sink.in.off64 = phi i32 [ %extract.t, %998 ], [ %extract.t1681, %985 ], [ %extract.t1683, %.noexc694 ]
   %999 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %10)
           to label %.noexc707 unwind label %.loopexit.split-lp1144
 
@@ -4575,7 +4575,7 @@ _ZN4absl12log_internal10LogMessagelsILi16EEERS1_RAT__Kc.exit.i: ; preds = %.noex
   call void @_ZN4absl12log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #32
   unreachable
 
-default.unreachable1378:                          ; preds = %348
+default.unreachable1620:                          ; preds = %348
   unreachable
 
 .critedge387:                                     ; preds = %676, %_ZNSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE5eraseERS6_.exit._crit_edge, %349, %489, %619, %801, %970, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %964, %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev.exit869, %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev.exit611, %_ZNSt6vectorIN4absl24synchronization_internal4EdgeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %689, %.noexc876
@@ -6145,8 +6145,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN4absl
   call void @_ZdlPvm(ptr noundef nonnull %.pre1377, i64 noundef %2031) #28
   br label %_ZNSt6vectorIN4absl24synchronization_internal4EdgeESaIS2_EED2Ev.exit1009
 
-_ZNSt6vectorIN4absl24synchronization_internal4EdgeESaIS2_EED2Ev.exit1009: ; preds = %.thread1381, %2025, %2026
-  %.pn367.pn.pn.pn1384 = phi { ptr, i32 } [ %159, %.thread1381 ], [ %.pn367.pn.pn, %2025 ], [ %.pn367.pn.pn, %2026 ]
+_ZNSt6vectorIN4absl24synchronization_internal4EdgeESaIS2_EED2Ev.exit1009: ; preds = %.thread1623, %2025, %2026
+  %.pn367.pn.pn.pn1626 = phi { ptr, i32 } [ %159, %.thread1623 ], [ %.pn367.pn.pn, %2025 ], [ %.pn367.pn.pn, %2026 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %2032 = load ptr, ptr %6, align 8, !tbaa !75
   %.not.i.i.i1010 = icmp eq ptr %2032, null
@@ -6163,7 +6163,7 @@ _ZNSt6vectorIN4absl24synchronization_internal4EdgeESaIS2_EED2Ev.exit1009: ; pred
 
 _ZNSt6vectorIiSaIiEED2Ev.exit1011:                ; preds = %_ZNSt6vectorIN4absl24synchronization_internal4EdgeESaIS2_EED2Ev.exit1009, %2033
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  resume { ptr, i32 } %.pn367.pn.pn.pn1384
+  resume { ptr, i32 } %.pn367.pn.pn.pn1626
 }
 
 declare void @_ZN4absl24synchronization_internal11GraphCyclesC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
@@ -15878,14 +15878,14 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN4absl24sy
   br i1 %22, label %._crit_edge.thread.i, label %28
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
+  %.019.lcssa29.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !26
-  %25 = icmp eq ptr %.019.lcssa28.i, %24
+  %25 = icmp eq ptr %.019.lcssa29.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE24_M_get_insert_unique_posERS1_.exit, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #33
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i) #33
   %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81 = load i32, ptr %.phi.trans.insert80, align 4, !tbaa !36
   %.pre82 = load i32, ptr %2, align 4, !tbaa !36
@@ -15894,11 +15894,11 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN4absl24sy
 28:                                               ; preds = %26, %._crit_edge.i
   %29 = phi i32 [ %.pre82, %26 ], [ %18, %._crit_edge.i ]
   %30 = phi i32 [ %.pre81, %26 ], [ %21, %._crit_edge.i ]
-  %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %26 ], [ %.02024.i, %._crit_edge.i ]
+  %.019.lcssa28.i = phi ptr [ %.019.lcssa29.i, %26 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %27, %26 ], [ %.02024.i, %._crit_edge.i ]
   %31 = icmp slt i32 %30, %29
   %spec.select.i = select i1 %31, ptr null, ptr %.sroa.05.0.i
-  %spec.select21.i = select i1 %31, ptr %.019.lcssa29.i, ptr null
+  %spec.select21.i = select i1 %31, ptr %.019.lcssa28.i, ptr null
   br label %_ZNSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE24_M_get_insert_unique_posERS1_.exit
 
 32:                                               ; preds = %3
@@ -15950,23 +15950,23 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN4absl24sy
   br i1 %54, label %._crit_edge.thread.i27, label %58
 
 ._crit_edge.thread.i27:                           ; preds = %._crit_edge.i18, %50
-  %.019.lcssa28.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
-  %55 = icmp eq ptr %.019.lcssa28.i28, %39
+  %.019.lcssa29.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
+  %55 = icmp eq ptr %.019.lcssa29.i28, %39
   br i1 %55, label %_ZNSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE24_M_get_insert_unique_posERS1_.exit, label %56
 
 56:                                               ; preds = %._crit_edge.thread.i27
-  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #33
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i28) #33
   %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %.pre79 = load i32, ptr %.phi.trans.insert78, align 4, !tbaa !36
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i18
   %59 = phi i32 [ %.pre79, %56 ], [ %53, %._crit_edge.i18 ]
-  %.019.lcssa29.i19 = phi ptr [ %.019.lcssa28.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
+  %.019.lcssa28.i19 = phi ptr [ %.019.lcssa29.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %.sroa.05.0.i20 = phi ptr [ %57, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %60 = icmp slt i32 %59, %34
   %spec.select.i21 = select i1 %60, ptr null, ptr %.sroa.05.0.i20
-  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa29.i19, ptr null
+  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa28.i19, ptr null
   br label %_ZNSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE24_M_get_insert_unique_posERS1_.exit
 
 61:                                               ; preds = %32
@@ -16015,30 +16015,30 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN4absl24sy
   br i1 %80, label %._crit_edge.thread.i47, label %86
 
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
-  %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
+  %.019.lcssa29.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !26
-  %83 = icmp eq ptr %.019.lcssa28.i48, %82
+  %83 = icmp eq ptr %.019.lcssa29.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE24_M_get_insert_unique_posERS1_.exit, label %84
 
 84:                                               ; preds = %._crit_edge.thread.i47
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #33
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i48) #33
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %85, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !36
   br label %86
 
 86:                                               ; preds = %84, %._crit_edge.i38
   %87 = phi i32 [ %.pre, %84 ], [ %79, %._crit_edge.i38 ]
-  %.019.lcssa29.i39 = phi ptr [ %.019.lcssa28.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
+  %.019.lcssa28.i39 = phi ptr [ %.019.lcssa29.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %.sroa.05.0.i40 = phi ptr [ %85, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %88 = icmp slt i32 %87, %34
   %spec.select.i41 = select i1 %88, ptr null, ptr %.sroa.05.0.i40
-  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa29.i39, ptr null
+  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa28.i39, ptr null
   br label %_ZNSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
   %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa28.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

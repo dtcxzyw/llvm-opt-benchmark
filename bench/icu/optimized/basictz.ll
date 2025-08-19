@@ -1562,7 +1562,7 @@ define void @_ZNK6icu_7713BasicTimeZone21getTimeZoneRulesAfterEdRPNS_19InitialTi
 _ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit: ; preds = %30
   %.pre = load i32, ptr %4, align 4, !tbaa !6
   %36 = icmp slt i32 %.pre, 1
-  br i1 %36, label %39, label %_ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit.thread453
+  br i1 %36, label %39, label %_ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit.thread477
 
 37:                                               ; preds = %30
   %38 = landingpad { ptr, i32 }
@@ -1731,7 +1731,7 @@ _ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit268: ; preds = %_ZN6icu_771
 _ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit270: ; preds = %104
   %.pre442 = load i32, ptr %4, align 4, !tbaa !6
   %109 = icmp slt i32 %.pre442, 1
-  br i1 %109, label %114, label %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit.thread450
+  br i1 %109, label %114, label %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit.thread474
 
 110:                                              ; preds = %104
   %111 = landingpad { ptr, i32 }
@@ -1780,16 +1780,16 @@ _ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit270: ; preds = %1
 130:                                              ; preds = %118
   %131 = load i32, ptr %4, align 4
   %132 = icmp sgt i32 %131, 0
-  br i1 %132, label %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit.thread450, label %133
+  br i1 %132, label %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit.thread474, label %133
 
 133:                                              ; preds = %130
   store i32 7, ptr %4, align 4, !tbaa !6
-  br label %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit.thread450
+  br label %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit.thread474
 
 _ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEEC2EPS1_R10UErrorCode.exit: ; preds = %129
   %.pre443 = load i32, ptr %4, align 4, !tbaa !6
   %134 = icmp slt i32 %.pre443, 1
-  br i1 %134, label %.preheader390, label %.critedge266.thread.thread449
+  br i1 %134, label %.preheader390, label %.critedge266.thread.thread473
 
 .preheader390:                                    ; preds = %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEEC2EPS1_R10UErrorCode.exit
   %135 = load i32, ptr %8, align 4, !tbaa !9
@@ -1874,7 +1874,7 @@ _ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEEC2EPS1_R10UErrorCode.exit: ; 
 
 169:                                              ; preds = %166
   store i32 27, ptr %4, align 4, !tbaa !6
-  br label %.critedge266.thread.thread449
+  br label %.critedge266.thread.thread473
 
 170:                                              ; preds = %164
   %171 = landingpad { ptr, i32 }
@@ -1929,7 +1929,7 @@ _ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEEC2EPS1_R10UErrorCode.exit: ; 
 
 ._crit_edge410.thread:                            ; preds = %.preheader379, %._crit_edge410
   store i32 27, ptr %4, align 4, !tbaa !6
-  br label %.critedge266.thread.thread449
+  br label %.critedge266.thread.thread473
 
 187:                                              ; preds = %._crit_edge410
   %188 = zext nneg i32 %.2170.lcssa.ph to i64
@@ -2278,7 +2278,7 @@ _ZN6icu_7712LocalPointerINS_21TimeArrayTimeZoneRuleEED2Ev.exit278: ; preds = %_Z
 .critedge263:                                     ; preds = %._crit_edge415, %_ZN6icu_7711LocalMemoryIdED2Ev.exit277, %_ZN6icu_7712LocalPointerINS_21TimeArrayTimeZoneRuleEED2Ev.exit, %.critedge261
   call void @_ZN6icu_7718TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %.critedge266.thread.thread449
+  br label %.critedge266.thread.thread473
 
 _ZN6icu_7711LocalMemoryIdED2Ev.exit279:           ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit374, %.loopexit.split-lp375, %284, %316, %240, %_ZN6icu_7712LocalPointerINS_21TimeArrayTimeZoneRuleEED2Ev.exit273
   %.pn237.pn = phi { ptr, i32 } [ %242, %_ZN6icu_7712LocalPointerINS_21TimeArrayTimeZoneRuleEED2Ev.exit273 ], [ %241, %240 ], [ %285, %284 ], [ %.pn233, %316 ], [ %lpad.loopexit376, %.loopexit374 ], [ %lpad.loopexit.split-lp377, %.loopexit.split-lp375 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -2352,7 +2352,7 @@ _ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEEC2EPS1_R10UErrorCode.exit: ; p
 _ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit: ; preds = %_ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEEC2EPS1_R10UErrorCode.exit
   %351 = load i32, ptr %4, align 4, !tbaa !6
   %352 = icmp slt i32 %351, 1
-  br i1 %352, label %390, label %.critedge266.thread.thread449
+  br i1 %352, label %390, label %.critedge266.thread.thread473
 
 353:                                              ; preds = %394, %390, %336, %331, %329, %327, %325, %323
   %354 = landingpad { ptr, i32 }
@@ -2380,7 +2380,7 @@ _ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit281: ; preds = %_ZN6i
 362:                                              ; preds = %360
   %363 = load i32, ptr %4, align 4, !tbaa !6
   %364 = icmp slt i32 %363, 1
-  br i1 %364, label %367, label %.critedge266.thread.thread449
+  br i1 %364, label %367, label %.critedge266.thread.thread473
 
 365:                                              ; preds = %367, %360, %358
   %366 = landingpad { ptr, i32 }
@@ -2432,7 +2432,7 @@ _ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEEC2EPS1_R10UErrorCode.exit283: 
 _ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit284: ; preds = %_ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEEC2EPS1_R10UErrorCode.exit283
   %385 = load i32, ptr %4, align 4, !tbaa !6
   %386 = icmp slt i32 %385, 1
-  br i1 %386, label %390, label %.critedge266.thread.thread449
+  br i1 %386, label %390, label %.critedge266.thread.thread473
 
 387:                                              ; preds = %380, %378, %376, %374, %372
   %388 = landingpad { ptr, i32 }
@@ -2482,21 +2482,21 @@ _ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit.thread: ; preds = %
   store ptr %102, ptr %3, align 8, !tbaa !20
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit
 
-.critedge266.thread.thread449:                    ; preds = %_ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit, %_ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit284, %362, %169, %._crit_edge410.thread, %.critedge263, %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEEC2EPS1_R10UErrorCode.exit
+.critedge266.thread.thread473:                    ; preds = %_ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit, %_ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit284, %362, %169, %._crit_edge410.thread, %.critedge263, %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEEC2EPS1_R10UErrorCode.exit
   %399 = load ptr, ptr %119, align 8, !tbaa !3
   %400 = getelementptr inbounds nuw i8, ptr %399, i64 8
   %401 = load ptr, ptr %400, align 8
   call void %401(ptr noundef nonnull align 8 dereferenceable(80) %119) #12
-  br label %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit.thread450
+  br label %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit.thread474
 
-_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit.thread450: ; preds = %.critedge266.thread.thread449, %133, %130, %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit270
+_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit.thread474: ; preds = %.critedge266.thread.thread473, %133, %130, %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit270
   %402 = load ptr, ptr %102, align 8, !tbaa !3
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 8
   %404 = load ptr, ptr %403, align 8
   call void %404(ptr noundef nonnull align 8 dereferenceable(40) %102) #12
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit
 
-_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %108, %105, %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit.thread450, %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit.thread, %98
+_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %108, %105, %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit.thread474, %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit.thread, %98
   invoke void @uprv_free_77(ptr noundef %96)
           to label %_ZN6icu_7711LocalMemoryIbED2Ev.exit unwind label %405
 
@@ -2521,17 +2521,17 @@ _ZN6icu_7711LocalMemoryIbED2Ev.exit:              ; preds = %_ZN6icu_7712LocalPo
 
 _ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit: ; preds = %_ZN6icu_7711LocalMemoryIbED2Ev.exit
   %411 = icmp eq ptr %.sroa.0335.1, null
-  br i1 %411, label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit286, label %_ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit.thread453
+  br i1 %411, label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit286, label %_ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit.thread477
 
-_ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit.thread453: ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit, %_ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit
-  %.sroa.0335.0455 = phi ptr [ %.sroa.0335.1, %_ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit ], [ %28, %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit ]
-  %412 = load ptr, ptr %.sroa.0335.0455, align 8, !tbaa !3
+_ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit.thread477: ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit, %_ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit
+  %.sroa.0335.0479 = phi ptr [ %.sroa.0335.1, %_ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit ], [ %28, %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit ]
+  %412 = load ptr, ptr %.sroa.0335.0479, align 8, !tbaa !3
   %413 = getelementptr inbounds nuw i8, ptr %412, i64 8
   %414 = load ptr, ptr %413, align 8
-  call void %414(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0335.0455) #12
+  call void %414(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0335.0479) #12
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit286
 
-_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit286: ; preds = %35, %32, %_ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit.thread453, %_ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit, %22
+_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit286: ; preds = %35, %32, %_ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit.thread477, %_ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -2555,7 +2555,7 @@ _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit286: ; preds = %35, %32, %_ZN6icu
   br label %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit287.thread
 
 _ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit287.thread: ; preds = %.thread363, %112, %137
-  %.pn245.pn.pn458 = phi { ptr, i32 } [ %.pn245, %.thread363 ], [ %138, %137 ], [ %113, %112 ]
+  %.pn245.pn.pn482 = phi { ptr, i32 } [ %.pn245, %.thread363 ], [ %138, %137 ], [ %113, %112 ]
   %419 = load ptr, ptr %102, align 8, !tbaa !3
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 8
   %421 = load ptr, ptr %420, align 8
@@ -2563,7 +2563,7 @@ _ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit287.thread: ; preds 
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit288
 
 _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit288: ; preds = %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit287.thread, %110
-  %.pn245.pn.pn.pn = phi { ptr, i32 } [ %111, %110 ], [ %.pn245.pn.pn458, %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit287.thread ]
+  %.pn245.pn.pn.pn = phi { ptr, i32 } [ %111, %110 ], [ %.pn245.pn.pn482, %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit287.thread ]
   invoke void @uprv_free_77(ptr noundef nonnull %96)
           to label %_ZN6icu_7711LocalMemoryIbED2Ev.exit289 unwind label %422
 
@@ -2587,7 +2587,7 @@ _ZN6icu_7711LocalMemoryIbED2Ev.exit289:           ; preds = %99, %_ZN6icu_7712Lo
   unreachable
 
 _ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit290: ; preds = %_ZN6icu_7711LocalMemoryIbED2Ev.exit289, %_ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit290.thread
-  %.pn252.pn.pn460 = phi { ptr, i32 } [ %46, %_ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit290.thread ], [ %.pn252.pn, %_ZN6icu_7711LocalMemoryIbED2Ev.exit289 ]
+  %.pn252.pn.pn484 = phi { ptr, i32 } [ %46, %_ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit290.thread ], [ %.pn252.pn, %_ZN6icu_7711LocalMemoryIbED2Ev.exit289 ]
   %428 = load ptr, ptr %28, align 8, !tbaa !3
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 8
   %430 = load ptr, ptr %429, align 8
@@ -2595,7 +2595,7 @@ _ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit290: ; preds = %_ZN6icu_77
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit291
 
 _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit291: ; preds = %37, %_ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit290, %25
-  %.pn252.pn.pn.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %38, %37 ], [ %.pn252.pn.pn460, %_ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit290 ]
+  %.pn252.pn.pn.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %38, %37 ], [ %.pn252.pn.pn484, %_ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit290 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

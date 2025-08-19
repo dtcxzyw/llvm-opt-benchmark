@@ -934,9 +934,9 @@ define i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, 
   %128 = fcmp ult double %127, 0.000000e+00
   %129 = tail call double @llvm.fmuladd.f64(double %127, double 1.000000e+06, double 1.000000e+00)
   %130 = fptoui double %129 to i32
-  %.sink201 = select i1 %128, i32 0, i32 %130
+  %.sink218 = select i1 %128, i32 0, i32 %130
   %131 = getelementptr inbounds nuw i8, ptr %15, i64 520
-  store i32 %.sink201, ptr %131, align 8, !tbaa !116
+  store i32 %.sink218, ptr %131, align 8, !tbaa !116
   br label %132
 
 132:                                              ; preds = %.sink.split, %82

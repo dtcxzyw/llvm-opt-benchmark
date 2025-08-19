@@ -1651,8 +1651,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_122DebugContainerModeling14reportD
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %7 = alloca %"class.std::unique_ptr.197", align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %.0.copyload.i.i.i.i6.i = load i64, ptr %8, align 8
-  %9 = and i64 %.0.copyload.i.i.i.i6.i, -8
+  %.0.copyload.i.i.i.i7.i = load i64, ptr %8, align 8
+  %9 = and i64 %.0.copyload.i.i.i.i7.i, -8
   %10 = inttoptr i64 %9 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8

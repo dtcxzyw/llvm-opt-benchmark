@@ -2146,12 +2146,12 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint64(ptr noundef 
 .lr.ph:                                           ; preds = %41, %19, %29, %39, %34, %24
   %.016.shrunk.ph = phi i32 [ 0, %41 ], [ %40, %39 ], [ %35, %34 ], [ %30, %29 ], [ %25, %24 ], [ %20, %19 ]
   %.0.ph = phi i32 [ 6, %41 ], [ 5, %39 ], [ 4, %34 ], [ 3, %29 ], [ 2, %24 ], [ 1, %19 ]
-  %.01638 = zext nneg i32 %.016.shrunk.ph to i64
+  %.01641 = zext nneg i32 %.016.shrunk.ph to i64
   br i1 %.not21, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %48
   %.131.us = phi i32 [ %53, %48 ], [ %.0.ph, %.lr.ph ]
-  %.11730.us = phi i64 [ %52, %48 ], [ %.01638, %.lr.ph ]
+  %.11730.us = phi i64 [ %52, %48 ], [ %.01641, %.lr.ph ]
   %44 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 8)
   %.not24.us = icmp eq i32 %44, 0
   br i1 %.not24.us, label %.loopexit, label %45
@@ -2173,7 +2173,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint64(ptr noundef 
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %63
   %.131 = phi i32 [ %68, %63 ], [ %.0.ph, %.lr.ph ]
-  %.11730 = phi i64 [ %67, %63 ], [ %.01638, %.lr.ph ]
+  %.11730 = phi i64 [ %67, %63 ], [ %.01641, %.lr.ph ]
   %54 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 8)
   %.not24 = icmp eq i32 %54, 0
   br i1 %.not24, label %.loopexit, label %55

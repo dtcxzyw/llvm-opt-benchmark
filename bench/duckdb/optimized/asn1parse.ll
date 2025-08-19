@@ -453,23 +453,23 @@ mbedtls_asn1_get_tag.exit:                        ; preds = %85
 
 .preheader.preheader:                             ; preds = %90
   %92 = icmp eq i8 %91, 0
-  br i1 %92, label %.lr.ph55, label %.critedge
+  br i1 %92, label %.lr.ph59, label %.critedge
 
-thread-pre-split:                                 ; preds = %.lr.ph55
+thread-pre-split:                                 ; preds = %.lr.ph59
   %.pr = load i8, ptr %95, align 1, !tbaa !8
   %93 = icmp eq i8 %.pr, 0
-  br i1 %93, label %.lr.ph55, label %.preheader..critedge_crit_edge
+  br i1 %93, label %.lr.ph59, label %.preheader..critedge_crit_edge
 
-.lr.ph55:                                         ; preds = %.preheader.preheader, %thread-pre-split
+.lr.ph59:                                         ; preds = %.preheader.preheader, %thread-pre-split
   %94 = phi ptr [ %95, %thread-pre-split ], [ %.promoted, %.preheader.preheader ]
-  %.0243054 = phi i64 [ %96, %thread-pre-split ], [ %.3, %.preheader.preheader ]
+  %.0243058 = phi i64 [ %96, %thread-pre-split ], [ %.3, %.preheader.preheader ]
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 1
   store ptr %95, ptr %0, align 8, !tbaa !3
-  %96 = add nsw i64 %.0243054, -1
+  %96 = add nsw i64 %.0243058, -1
   %.not16 = icmp eq i64 %96, 0
   br i1 %.not16, label %.thread.thread, label %thread-pre-split, !llvm.loop !13
 
-.thread.thread:                                   ; preds = %.lr.ph55
+.thread.thread:                                   ; preds = %.lr.ph59
   store i32 0, ptr %3, align 4, !tbaa !11
   br label %mbedtls_asn1_get_tag.exit.thread
 
@@ -478,12 +478,12 @@ thread-pre-split:                                 ; preds = %.lr.ph55
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader..critedge_crit_edge, %.preheader.preheader
-  %.lcssa52 = phi i1 [ %97, %.preheader..critedge_crit_edge ], [ true, %.preheader.preheader ]
+  %.lcssa56 = phi i1 [ %97, %.preheader..critedge_crit_edge ], [ true, %.preheader.preheader ]
   %.02430.lcssa = phi i64 [ %96, %.preheader..critedge_crit_edge ], [ %.3, %.preheader.preheader ]
   %.lcssa = phi ptr [ %95, %.preheader..critedge_crit_edge ], [ %.promoted, %.preheader.preheader ]
   %98 = icmp ule i64 %.02430.lcssa, 4
   %99 = icmp ne i64 %.02430.lcssa, 4
-  %brmerge = or i1 %99, %.lcssa52
+  %brmerge = or i1 %99, %.lcssa56
   %or.cond = and i1 %98, %brmerge
   br i1 %or.cond, label %.lr.ph, label %mbedtls_asn1_get_tag.exit.thread
 

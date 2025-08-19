@@ -59,7 +59,7 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   %wide.trip.count451 = zext nneg i32 %.0249 to i64
   %wide.trip.count446 = zext nneg i32 %.val to i64
   %brmerge = select i1 %25, i1 true, i1 %24
-  %brmerge465 = select i1 %28, i1 true, i1 %27
+  %brmerge470 = select i1 %28, i1 true, i1 %27
   br label %33
 
 33:                                               ; preds = %.lr.ph352, %.loopexit
@@ -145,19 +145,19 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %27, label %.loopexit, label %.preheader274.us.preheader
 
 .preheader274.us.preheader:                       ; preds = %.preheader274.lr.ph
-  %invariant.gep460 = getelementptr i8, ptr %.val268, i64 %indvars.iv.next454
+  %invariant.gep465 = getelementptr i8, ptr %.val268, i64 %indvars.iv.next454
   br label %.preheader274.us
 
 .preheader274.us:                                 ; preds = %.preheader274.us.preheader, %._crit_edge.us344
   %indvars.iv438 = phi i64 [ 0, %.preheader274.us.preheader ], [ %indvars.iv.next439, %._crit_edge.us344 ]
   %64 = mul nsw i64 %indvars.iv438, %30
-  %gep461 = getelementptr i8, ptr %invariant.gep460, i64 %64
+  %gep466 = getelementptr i8, ptr %invariant.gep465, i64 %64
   br label %65
 
 65:                                               ; preds = %.preheader274.us, %65
   %indvars.iv433 = phi i64 [ 0, %.preheader274.us ], [ %indvars.iv.next434, %65 ]
   %66 = mul nuw nsw i64 %indvars.iv433, %32
-  %67 = getelementptr i8, ptr %gep461, i64 %66
+  %67 = getelementptr i8, ptr %gep466, i64 %66
   store i8 %39, ptr %67, align 1
   %indvars.iv.next434 = add nuw nsw i64 %indvars.iv433, 1
   %exitcond437.not = icmp eq i64 %indvars.iv.next434, %wide.trip.count436
@@ -169,7 +169,7 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %exitcond442.not, label %.preheader277, label %.preheader274.us, !llvm.loop !12
 
 .preheader277:                                    ; preds = %._crit_edge.us344, %.preheader278
-  br i1 %brmerge465, label %.loopexit, label %.preheader.us.preheader
+  br i1 %brmerge470, label %.loopexit, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader277
   %68 = getelementptr i8, ptr %.val268, i64 %indvars.iv.next454
@@ -229,8 +229,8 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   %wide.trip.count405 = zext nneg i32 %.val to i64
   %wide.trip.count420 = zext nneg i32 %.0249 to i64
   %wide.trip.count415 = zext nneg i32 %.val to i64
-  %brmerge468 = select i1 %87, i1 true, i1 %86
-  %brmerge471 = select i1 %90, i1 true, i1 %89
+  %brmerge473 = select i1 %87, i1 true, i1 %86
+  %brmerge476 = select i1 %90, i1 true, i1 %89
   br label %95
 
 95:                                               ; preds = %.lr.ph332, %.loopexit286
@@ -278,7 +278,7 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %exitcond397.not, label %.preheader288, label %.preheader284.us, !llvm.loop !17
 
 .preheader288:                                    ; preds = %._crit_edge.us316, %98
-  br i1 %brmerge468, label %.preheader287, label %.preheader283.us.preheader
+  br i1 %brmerge473, label %.preheader287, label %.preheader283.us.preheader
 
 .preheader283.us.preheader:                       ; preds = %.preheader288
   %113 = trunc nuw nsw i64 %indvars.iv.next423 to i32
@@ -316,19 +316,19 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %89, label %.loopexit286, label %.preheader282.us.preheader
 
 .preheader282.us.preheader:                       ; preds = %.preheader282.lr.ph
-  %invariant.gep458 = getelementptr i16, ptr %.val269, i64 %indvars.iv.next423
+  %invariant.gep463 = getelementptr i16, ptr %.val269, i64 %indvars.iv.next423
   br label %.preheader282.us
 
 .preheader282.us:                                 ; preds = %.preheader282.us.preheader, %._crit_edge.us324
   %indvars.iv407 = phi i64 [ 0, %.preheader282.us.preheader ], [ %indvars.iv.next408, %._crit_edge.us324 ]
   %126 = mul nsw i64 %indvars.iv407, %92
-  %gep459 = getelementptr i16, ptr %invariant.gep458, i64 %126
+  %gep464 = getelementptr i16, ptr %invariant.gep463, i64 %126
   br label %127
 
 127:                                              ; preds = %.preheader282.us, %127
   %indvars.iv402 = phi i64 [ 0, %.preheader282.us ], [ %indvars.iv.next403, %127 ]
   %128 = mul nuw nsw i64 %indvars.iv402, %94
-  %129 = getelementptr i16, ptr %gep459, i64 %128
+  %129 = getelementptr i16, ptr %gep464, i64 %128
   store i16 %101, ptr %129, align 2
   %indvars.iv.next403 = add nuw nsw i64 %indvars.iv402, 1
   %exitcond406.not = icmp eq i64 %indvars.iv.next403, %wide.trip.count405
@@ -340,7 +340,7 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %exitcond411.not, label %.preheader285, label %.preheader282.us, !llvm.loop !21
 
 .preheader285:                                    ; preds = %._crit_edge.us324, %.preheader287
-  br i1 %brmerge471, label %.loopexit286, label %.preheader281.us.preheader
+  br i1 %brmerge476, label %.loopexit286, label %.preheader281.us.preheader
 
 .preheader281.us.preheader:                       ; preds = %.preheader285
   %130 = getelementptr i16, ptr %.val269, i64 %indvars.iv.next423
@@ -400,8 +400,8 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   %wide.trip.count = zext nneg i32 %.val to i64
   %wide.trip.count389 = zext nneg i32 %.0249 to i64
   %wide.trip.count384 = zext nneg i32 %.val to i64
-  %brmerge474 = select i1 %149, i1 true, i1 %148
-  %brmerge477 = select i1 %152, i1 true, i1 %151
+  %brmerge479 = select i1 %149, i1 true, i1 %148
+  %brmerge482 = select i1 %152, i1 true, i1 %151
   br label %157
 
 157:                                              ; preds = %.lr.ph, %.loopexit295
@@ -448,7 +448,7 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %exitcond.not, label %.preheader297, label %.preheader293.us, !llvm.loop !26
 
 .preheader297:                                    ; preds = %._crit_edge.us, %160
-  br i1 %brmerge474, label %.preheader296, label %.preheader292.us.preheader
+  br i1 %brmerge479, label %.preheader296, label %.preheader292.us.preheader
 
 .preheader292.us.preheader:                       ; preds = %.preheader297
   %174 = trunc nuw nsw i64 %indvars.iv.next392 to i32
@@ -510,7 +510,7 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %exitcond380.not, label %.preheader294, label %.preheader291.us, !llvm.loop !30
 
 .preheader294:                                    ; preds = %._crit_edge.us306, %.preheader296
-  br i1 %brmerge477, label %.loopexit295, label %.preheader290.us.preheader
+  br i1 %brmerge482, label %.loopexit295, label %.preheader290.us.preheader
 
 .preheader290.us.preheader:                       ; preds = %.preheader294
   %191 = getelementptr i32, ptr %.val270, i64 %indvars.iv.next392

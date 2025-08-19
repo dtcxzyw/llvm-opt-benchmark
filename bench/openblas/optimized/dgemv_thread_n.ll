@@ -191,13 +191,13 @@ blas_quickdivide.exit110:                         ; preds = %.lr.ph118, %80
   store ptr %99, ptr %100, align 8, !tbaa !29
   %101 = sub nsw i64 %.197116, %spec.select107
   %102 = icmp sgt i64 %101, 0
-  br i1 %102, label %.lr.ph118, label %.loopexit112.thread134, !llvm.loop !34
+  br i1 %102, label %.lr.ph118, label %.loopexit112.thread141, !llvm.loop !34
 
 .loopexit112:                                     ; preds = %60, %._crit_edge
   %.not = icmp eq i64 %.0100.lcssa, 0
   br i1 %.not, label %.loopexit, label %.loopexit.critedge
 
-.loopexit112.thread134:                           ; preds = %blas_quickdivide.exit110
+.loopexit112.thread141:                           ; preds = %blas_quickdivide.exit110
   %103 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store ptr null, ptr %103, align 16, !tbaa !35
   %104 = getelementptr inbounds nuw i8, ptr %16, i64 56
@@ -208,8 +208,8 @@ blas_quickdivide.exit110:                         ; preds = %.lr.ph118, %80
   %107 = call align 16 ptr @llvm.threadlocal.address.p0(ptr align 16 @y_dummy)
   br i1 %26, label %.preheader.us, label %.loopexit
 
-.preheader.us:                                    ; preds = %.loopexit112.thread134, %._crit_edge122.us
-  %.2123.us = phi i64 [ %117, %._crit_edge122.us ], [ 0, %.loopexit112.thread134 ]
+.preheader.us:                                    ; preds = %.loopexit112.thread141, %._crit_edge122.us
+  %.2123.us = phi i64 [ %117, %._crit_edge122.us ], [ 0, %.loopexit112.thread141 ]
   %108 = mul nuw nsw i64 %.2123.us, %0
   br label %109
 
@@ -243,7 +243,7 @@ blas_quickdivide.exit110:                         ; preds = %.lr.ph118, %80
   %122 = call i32 @exec_blas(i64 noundef %.0100.lcssa, ptr noundef nonnull %16) #6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge122.us, %.loopexit.critedge, %67, %.loopexit112, %.loopexit112.thread134
+.loopexit:                                        ; preds = %._crit_edge122.us, %.loopexit.critedge, %67, %.loopexit112, %.loopexit112.thread141
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

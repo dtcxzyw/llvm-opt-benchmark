@@ -1816,7 +1816,7 @@ switch.early.test:                                ; preds = %167
 291:                                              ; preds = %288
   %292 = load volatile i8, ptr @_ZN7VMError17_step_did_succeedE, align 1
   %293 = trunc i8 %292 to i1
-  br i1 %293, label %.thread658, label %294
+  br i1 %293, label %.thread757, label %294
 
 294:                                              ; preds = %291
   store i32 1029, ptr @_ZN7VMError13_current_stepE, align 4
@@ -1895,9 +1895,9 @@ _ZN7VMError18can_reattempt_stepERPKc.exit:        ; preds = %309
 318:                                              ; preds = %.critedge404, %288
   %319 = phi i32 [ %.pre596, %.critedge404 ], [ %289, %288 ]
   %320 = icmp slt i32 %319, 1036
-  br i1 %320, label %.thread658, label %339
+  br i1 %320, label %.thread757, label %339
 
-.thread658:                                       ; preds = %291, %318
+.thread757:                                       ; preds = %291, %318
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1036, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.75, ptr @_ZN7VMError18_current_step_infoE, align 8
@@ -1906,7 +1906,7 @@ _ZN7VMError18can_reattempt_stepERPKc.exit:        ; preds = %309
   %or.cond7 = select i1 %1, i1 %322, i1 false
   br i1 %or.cond7, label %323, label %338
 
-323:                                              ; preds = %.thread658
+323:                                              ; preds = %.thread757
   %324 = load ptr, ptr %321, align 8
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 56
   %326 = load ptr, ptr %325, align 8
@@ -1933,7 +1933,7 @@ _ZN7VMError18can_reattempt_stepERPKc.exit:        ; preds = %309
   call void @_ZN7VMError17print_stack_traceEP12outputStreamP10JavaThreadPcib(ptr noundef %0, ptr noundef %337, ptr noundef nonnull @_ZZN7VMError6reportEP12outputStreambE3buf, i32 noundef 2000, i1 noundef zeroext false)
   br label %338
 
-338:                                              ; preds = %328, %331, %336, %323, %.thread658
+338:                                              ; preds = %328, %331, %336, %323, %.thread757
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
   %.pr490 = load i32, ptr @_ZN7VMError13_current_stepE, align 4
   br label %339
@@ -2186,7 +2186,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %440, %438, %415
 444:                                              ; preds = %441
   %445 = load volatile i8, ptr @_ZN7VMError17_step_did_succeedE, align 1
   %446 = trunc i8 %445 to i1
-  br i1 %446, label %.thread659, label %447
+  br i1 %446, label %.thread758, label %447
 
 447:                                              ; preds = %444
   store i32 1083, ptr @_ZN7VMError13_current_stepE, align 4
@@ -2280,15 +2280,15 @@ _ZN7VMError18can_reattempt_stepERPKc.exit430:     ; preds = %468
 488:                                              ; preds = %.critedge406, %441
   %489 = phi i32 [ %.pre601, %.critedge406 ], [ %442, %441 ]
   %490 = icmp slt i32 %489, 1089
-  br i1 %490, label %.thread659, label %533
+  br i1 %490, label %.thread758, label %533
 
-.thread659:                                       ; preds = %444, %488
+.thread758:                                       ; preds = %444, %488
   %491 = load volatile i8, ptr @_ZN7VMError17_step_did_succeedE, align 1
   %492 = trunc i8 %491 to i1
   %.pre603 = load ptr, ptr @_ZN7VMError8_contextE, align 8
   br i1 %492, label %.thread501, label %493
 
-493:                                              ; preds = %.thread659
+493:                                              ; preds = %.thread758
   store i32 1089, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.85, ptr @_ZN7VMError18_current_step_infoE, align 8
   %494 = icmp ne ptr %.pre603, null
@@ -2385,8 +2385,8 @@ _ZN7VMError18can_reattempt_stepERPKc.exit437:     ; preds = %513
   %.pre602 = load ptr, ptr @_ZN7VMError8_contextE, align 8
   br label %.thread501
 
-.thread501:                                       ; preds = %..thread501_crit_edge, %.thread659
-  %536 = phi ptr [ %.pre602, %..thread501_crit_edge ], [ %.pre603, %.thread659 ]
+.thread501:                                       ; preds = %..thread501_crit_edge, %.thread758
+  %536 = phi ptr [ %.pre602, %..thread501_crit_edge ], [ %.pre603, %.thread758 ]
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1094, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.86, ptr @_ZN7VMError18_current_step_infoE, align 8
@@ -2483,7 +2483,7 @@ _ZN12ResourceMarkD2Ev.exit440:                    ; preds = %570, %568, %545
 574:                                              ; preds = %571
   %575 = load volatile i8, ptr @_ZN7VMError17_step_did_succeedE, align 1
   %576 = trunc i8 %575 to i1
-  br i1 %576, label %.thread660, label %577
+  br i1 %576, label %.thread759, label %577
 
 577:                                              ; preds = %574
   store i32 1109, ptr @_ZN7VMError13_current_stepE, align 4
@@ -2577,15 +2577,15 @@ _ZN7VMError18can_reattempt_stepERPKc.exit447:     ; preds = %598
 618:                                              ; preds = %.critedge410, %571
   %619 = phi i32 [ %.pre605, %.critedge410 ], [ %572, %571 ]
   %620 = icmp slt i32 %619, 1115
-  br i1 %620, label %.thread660, label %663
+  br i1 %620, label %.thread759, label %663
 
-.thread660:                                       ; preds = %574, %618
+.thread759:                                       ; preds = %574, %618
   %621 = load volatile i8, ptr @_ZN7VMError17_step_did_succeedE, align 1
   %622 = trunc i8 %621 to i1
   %.pre607 = load ptr, ptr @_ZN7VMError7_threadE, align 8
   br i1 %622, label %.thread513, label %623
 
-623:                                              ; preds = %.thread660
+623:                                              ; preds = %.thread759
   store i32 1115, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.90, ptr @_ZN7VMError18_current_step_infoE, align 8
   %624 = load ptr, ptr @_ZN7VMError8_contextE, align 8
@@ -2682,8 +2682,8 @@ _ZN7VMError18can_reattempt_stepERPKc.exit454:     ; preds = %643
   %.pre606 = load ptr, ptr @_ZN7VMError7_threadE, align 8
   br label %.thread513
 
-.thread513:                                       ; preds = %..thread513_crit_edge, %.thread660
-  %666 = phi ptr [ %.pre606, %..thread513_crit_edge ], [ %.pre607, %.thread660 ]
+.thread513:                                       ; preds = %..thread513_crit_edge, %.thread759
+  %666 = phi ptr [ %.pre606, %..thread513_crit_edge ], [ %.pre607, %.thread759 ]
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1120, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.91, ptr @_ZN7VMError18_current_step_infoE, align 8

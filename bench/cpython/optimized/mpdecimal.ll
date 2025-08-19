@@ -1379,8 +1379,8 @@ mpd_qresize.exit.thread:                          ; preds = %mpd_qresize.exit.mp
   %42 = getelementptr i64, ptr %40, i64 %.116
   store i64 -8446744073709551617, ptr %42, align 8, !tbaa !3
   %43 = add nsw i64 %.116, -1
-  %.not17 = icmp eq i64 %.116, 0
-  br i1 %.not17, label %.loopexit, label %41, !llvm.loop !24
+  %.not20 = icmp eq i64 %.116, 0
+  br i1 %.not20, label %.loopexit, label %41, !llvm.loop !24
 
 .loopexit:                                        ; preds = %41, %37, %mpd_qresize.exit
   ret void
@@ -2895,8 +2895,8 @@ mpd_iszero.exit:                                  ; preds = %3
 
 _mpd_get_msdigits.exit.thread:                    ; preds = %33, %27
   %.148 = phi i64 [ %29, %27 ], [ %49, %33 ]
-  %.not60 = icmp eq i64 %28, 0
-  br i1 %.not60, label %57, label %51
+  %.not64 = icmp eq i64 %28, 0
+  br i1 %.not64, label %57, label %51
 
 51:                                               ; preds = %_mpd_get_msdigits.exit.thread
   %52 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %28
@@ -3885,8 +3885,8 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   %104 = getelementptr i64, ptr %102, i64 %.116.i
   store i64 -8446744073709551617, ptr %104, align 8, !tbaa !3
   %105 = add nsw i64 %.116.i, -1
-  %.not17.i = icmp eq i64 %.116.i, 0
-  br i1 %.not17.i, label %mpd_qmaxcoeff.exit, label %103, !llvm.loop !24
+  %.not20.i = icmp eq i64 %.116.i, 0
+  br i1 %.not20.i, label %mpd_qmaxcoeff.exit, label %103, !llvm.loop !24
 
 mpd_qmaxcoeff.exit:                               ; preds = %103, %mpd_qresize.exit.i, %100
   %106 = load i64, ptr %13, align 8, !tbaa !16
@@ -6749,22 +6749,22 @@ mpd_qresize.exit56:                               ; preds = %53, %55
   %.04566 = phi i64 [ 0, %.lr.ph ], [ %85, %82 ]
   %65 = load i64, ptr %61, align 8, !tbaa !18
   %66 = icmp slt i64 %.04566, %65
-  br i1 %66, label %67, label %.preheader73
+  br i1 %66, label %67, label %.preheader81
 
 67:                                               ; preds = %64
   %68 = load ptr, ptr %62, align 8, !tbaa !17
   %69 = getelementptr i64, ptr %68, i64 %.04566
   %70 = load i64, ptr %69, align 8, !tbaa !3
-  br label %.preheader73
+  br label %.preheader81
 
-.preheader73:                                     ; preds = %64, %67
+.preheader81:                                     ; preds = %64, %67
   %.04364.ph = phi i64 [ %70, %67 ], [ 0, %64 ]
   br label %71
 
-71:                                               ; preds = %.preheader73, %79
-  %indvars.iv = phi i64 [ %indvars.iv.next, %79 ], [ 0, %.preheader73 ]
-  %.04364 = phi i64 [ %73, %79 ], [ %.04364.ph, %.preheader73 ]
-  %.04463 = phi i64 [ %81, %79 ], [ 0, %.preheader73 ]
+71:                                               ; preds = %.preheader81, %79
+  %indvars.iv = phi i64 [ %indvars.iv.next, %79 ], [ 0, %.preheader81 ]
+  %.04364 = phi i64 [ %73, %79 ], [ %.04364.ph, %.preheader81 ]
+  %.04463 = phi i64 [ %81, %79 ], [ 0, %.preheader81 ]
   %72 = urem i64 %.04364, 10
   %73 = udiv i64 %.04364, 10
   %74 = icmp samesign ugt i64 %72, 1
@@ -9695,13 +9695,13 @@ mpd_seterror.exit:                                ; preds = %73, %76, %88
   %107 = phi ptr [ %28, %.thread ], [ %101, %95 ]
   %108 = phi i64 [ %27, %.thread ], [ %100, %95 ]
   %109 = phi ptr [ %26, %.thread ], [ %99, %95 ]
-  %.0154 = phi i32 [ 0, %.thread ], [ %.0, %95 ]
-  %.0109153 = phi ptr [ %2, %.thread ], [ %.0109, %95 ]
-  %.0113152 = phi ptr [ %1, %.thread ], [ %.0113, %95 ]
+  %.0174 = phi i32 [ 0, %.thread ], [ %.0, %95 ]
+  %.0109173 = phi ptr [ %2, %.thread ], [ %.0109, %95 ]
+  %.0113172 = phi ptr [ %1, %.thread ], [ %.0113, %95 ]
   %110 = phi i32 [ 1, %.thread ], [ %spec.select, %95 ]
-  %.2115 = select i1 %105, ptr %.0109153, ptr %.0113152
-  %.3112 = select i1 %105, ptr %.0113152, ptr %.0109153
-  %.2 = select i1 %105, i32 %110, i32 %.0154
+  %.2115 = select i1 %105, ptr %.0109173, ptr %.0113172
+  %.3112 = select i1 %105, ptr %.0113172, ptr %.0109173
+  %.2 = select i1 %105, i32 %110, i32 %.0174
   %111 = call i64 @llvm.smax.i64(i64 %108, i64 %106)
   %.2115.sroa.sel130 = select i1 %105, ptr %107, ptr %109
   %112 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
@@ -9743,8 +9743,8 @@ mpd_qresize.exit81.thread:                        ; preds = %120, %104, %mpd_qre
 129:                                              ; preds = %mpd_qresize.exit81.thread
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %131 = load ptr, ptr %130, align 8, !tbaa !17
-  %.0109.sroa.gep125 = getelementptr inbounds nuw i8, ptr %.0109153, i64 40
-  %.0113.sroa.gep126 = getelementptr inbounds nuw i8, ptr %.0113152, i64 40
+  %.0109.sroa.gep125 = getelementptr inbounds nuw i8, ptr %.0109173, i64 40
+  %.0113.sroa.gep126 = getelementptr inbounds nuw i8, ptr %.0113172, i64 40
   %.2115.sroa.sel127 = select i1 %105, ptr %.0109.sroa.gep125, ptr %.0113.sroa.gep126
   %132 = load ptr, ptr %.2115.sroa.sel127, align 8, !tbaa !17
   %.3112.sroa.sel141 = select i1 %105, ptr %.0113.sroa.gep126, ptr %.0109.sroa.gep125
@@ -9820,8 +9820,8 @@ mpd_qresize.exit78.thread:                        ; preds = %147, %137, %mpd_qre
   br i1 %163, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %160
-  %.0109.sroa.gep = getelementptr inbounds nuw i8, ptr %.0109153, i64 40
-  %.0113.sroa.gep = getelementptr inbounds nuw i8, ptr %.0113152, i64 40
+  %.0109.sroa.gep = getelementptr inbounds nuw i8, ptr %.0109173, i64 40
+  %.0113.sroa.gep = getelementptr inbounds nuw i8, ptr %.0113172, i64 40
   %.2115.sroa.sel = select i1 %105, ptr %.0109.sroa.gep, ptr %.0113.sroa.gep
   %.3112.sroa.sel = select i1 %105, ptr %.0113.sroa.gep, ptr %.0109.sroa.gep
   br label %164
@@ -10847,9 +10847,9 @@ mpd_seterror.exit68:                              ; preds = %136, %144, %156
   br label %.sink.split
 
 .sink.split:                                      ; preds = %132, %mpd_seterror.exit68
-  %.sink76 = phi i32 [ %141, %mpd_seterror.exit68 ], [ %133, %132 ]
+  %.sink93 = phi i32 [ %141, %mpd_seterror.exit68 ], [ %133, %132 ]
   %161 = load i32, ptr %4, align 4, !tbaa !23
-  %162 = or i32 %161, %.sink76
+  %162 = or i32 %161, %.sink93
   store i32 %162, ptr %4, align 4, !tbaa !23
   br label %163
 
@@ -12078,20 +12078,20 @@ mpd_setspecial.exit93:                            ; preds = %238, %239, %251
   br label %mpd_setspecial.exit89.sink.split
 
 mpd_setspecial.exit89.sink.split:                 ; preds = %237, %271
-  %.sink103.ph = phi i32 [ 260, %271 ], [ 16, %237 ]
+  %.sink117.ph = phi i32 [ 260, %271 ], [ 16, %237 ]
   %.pre.i96 = load i8, ptr %1, align 8, !tbaa !19
   br label %mpd_setspecial.exit89
 
 mpd_setspecial.exit89:                            ; preds = %mpd_setspecial.exit89.sink.split, %259, %mpd_setspecial.exit93, %225, %mpd_setspecial.exit85
-  %.sink107 = phi i8 [ %223, %mpd_setspecial.exit85 ], [ %223, %225 ], [ %257, %mpd_setspecial.exit93 ], [ %257, %259 ], [ %.pre.i96, %mpd_setspecial.exit89.sink.split ]
-  %.sink103 = phi i32 [ 16, %mpd_setspecial.exit85 ], [ 16, %225 ], [ 260, %mpd_setspecial.exit93 ], [ 260, %259 ], [ %.sink103.ph, %mpd_setspecial.exit89.sink.split ]
-  %272 = and i8 %.sink107, -16
+  %.sink121 = phi i8 [ %223, %mpd_setspecial.exit85 ], [ %223, %225 ], [ %257, %mpd_setspecial.exit93 ], [ %257, %259 ], [ %.pre.i96, %mpd_setspecial.exit89.sink.split ]
+  %.sink117 = phi i32 [ 16, %mpd_setspecial.exit85 ], [ 16, %225 ], [ 260, %mpd_setspecial.exit93 ], [ 260, %259 ], [ %.sink117.ph, %mpd_setspecial.exit89.sink.split ]
+  %272 = and i8 %.sink121, -16
   %273 = or disjoint i8 %272, 4
   store i8 %273, ptr %1, align 8, !tbaa !19
   %274 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %274, i8 0, i64 24, i1 false)
   %275 = load i32, ptr %5, align 4, !tbaa !23
-  %276 = or i32 %275, %.sink103
+  %276 = or i32 %275, %.sink117
   store i32 %276, ptr %5, align 4, !tbaa !23
   br label %mpd_qcopy.exit
 
@@ -12774,9 +12774,9 @@ mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit
   br label %mpd_del.exit
 
 mpd_qcopy.exit.sink.split:                        ; preds = %mpd_setdigits.exit, %194, %112
-  %.sink275 = phi i32 [ 8, %112 ], [ 512, %194 ], [ 8, %mpd_setdigits.exit ]
+  %.sink305 = phi i32 [ 8, %112 ], [ 512, %194 ], [ 8, %mpd_setdigits.exit ]
   %359 = load i32, ptr %5, align 4, !tbaa !23
-  %360 = or i32 %359, %.sink275
+  %360 = or i32 %359, %.sink305
   store i32 %360, ptr %5, align 4, !tbaa !23
   br label %mpd_qcopy.exit
 
@@ -13732,7 +13732,7 @@ mpd_iszero.exit.i:                                ; preds = %mpd_qcmp.exit, %141
   %164 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %165 = load i32, ptr %164, align 8, !tbaa !28
   store i32 %165, ptr %94, align 8, !tbaa !28
-  %.val121 = load i64, ptr %6, align 8
+  %.val132 = load i64, ptr %6, align 8
   %166 = load ptr, ptr %97, align 8, !tbaa !17
   %167 = load i64, ptr %101, align 8, !tbaa !18
   %168 = getelementptr i64, ptr %166, i64 %167
@@ -13743,11 +13743,11 @@ mpd_iszero.exit.i:                                ; preds = %mpd_qcmp.exit, %141
 
 171:                                              ; preds = %mpd_iszero.exit.i
   %172 = load i64, ptr %99, align 8, !tbaa !11
-  %173 = icmp slt i64 %172, %.val121
+  %173 = icmp slt i64 %172, %.val132
   br i1 %173, label %174, label %_mpd_zeropad.exit
 
 174:                                              ; preds = %171
-  %175 = sub i64 %.val121, %172
+  %175 = sub i64 %.val132, %172
   %176 = call i32 @mpd_qshiftl(ptr noundef nonnull %0, ptr noundef nonnull %0, i64 noundef %175, ptr noundef nonnull %3)
   %177 = load i64, ptr %98, align 8, !tbaa !7
   %178 = sub i64 %177, %175
@@ -13756,7 +13756,7 @@ mpd_iszero.exit.i:                                ; preds = %mpd_qcmp.exit, %141
   br label %_mpd_zeropad.exit
 
 _mpd_zeropad.exit:                                ; preds = %.critedge, %mpd_iszero.exit.i, %171, %174
-  %.val79 = phi i64 [ %.val, %.critedge ], [ %.val121, %mpd_iszero.exit.i ], [ %.val121, %171 ], [ %.val79.pre, %174 ]
+  %.val79 = phi i64 [ %.val, %.critedge ], [ %.val132, %mpd_iszero.exit.i ], [ %.val132, %171 ], [ %.val79.pre, %174 ]
   %179 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val80 = load i64, ptr %179, align 8, !tbaa !12
   %180 = load i64, ptr %98, align 8, !tbaa !7
@@ -14114,9 +14114,9 @@ mpd_setspecial.exit:                              ; preds = %47, %50, %62
   br label %72
 
 72:                                               ; preds = %67, %mpd_setspecial.exit
-  %.sink71 = phi i32 [ 28737, %67 ], [ 6208, %mpd_setspecial.exit ]
+  %.sink81 = phi i32 [ 28737, %67 ], [ 6208, %mpd_setspecial.exit ]
   %73 = load i32, ptr %3, align 4, !tbaa !23
-  %74 = or i32 %73, %.sink71
+  %74 = or i32 %73, %.sink81
   store i32 %74, ptr %3, align 4, !tbaa !23
   br label %mpd_qcopy.exit
 
@@ -14816,9 +14816,9 @@ mpd_del.exit:                                     ; preds = %79, %76, %mpd_qadd.
   br label %82
 
 82:                                               ; preds = %mpd_del.exit, %mpd_seterror.exit
-  %.sink24 = phi i32 [ %81, %mpd_del.exit ], [ 512, %mpd_seterror.exit ]
+  %.sink29 = phi i32 [ %81, %mpd_del.exit ], [ 512, %mpd_seterror.exit ]
   %83 = load i32, ptr %5, align 4, !tbaa !23
-  %84 = or i32 %83, %.sink24
+  %84 = or i32 %83, %.sink29
   store i32 %84, ptr %5, align 4, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
@@ -16785,7 +16785,7 @@ define internal fastcc void @_mpd_qln(ptr noundef initializes((8, 32)) %0, ptr n
   store ptr %14, ptr %31, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %32 = icmp eq ptr %11, %1
-  br i1 %32, label %.thread130, label %33
+  br i1 %32, label %.thread143, label %33
 
 33:                                               ; preds = %4
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -16878,12 +16878,12 @@ mpd_seterror.exit:                                ; preds = %mpd_qcopy.exit, %43
   %76 = freeze i64 %.pre118
   %77 = urem i64 %76, 19
   %78 = icmp eq i64 %77, 0
-  br i1 %78, label %.thread130, label %82
+  br i1 %78, label %.thread143, label %82
 
-.thread130:                                       ; preds = %4, %62
+.thread143:                                       ; preds = %4, %62
   %.ph = phi ptr [ %10, %4 ], [ %.pre119, %62 ]
-  %.ph129 = phi i64 [ 0, %4 ], [ %.pre120, %62 ]
-  %79 = getelementptr i64, ptr %.ph, i64 %.ph129
+  %.ph142 = phi i64 [ 0, %4 ], [ %.pre120, %62 ]
+  %79 = getelementptr i64, ptr %.ph, i64 %.ph142
   %80 = getelementptr i8, ptr %79, i64 -8
   %81 = load i64, ptr %80, align 8, !tbaa !3
   br label %86
@@ -16895,9 +16895,9 @@ mpd_seterror.exit:                                ; preds = %mpd_qcopy.exit, %43
   %.not.i81 = icmp samesign ult i64 %77, 3
   br i1 %.not.i81, label %93, label %86
 
-86:                                               ; preds = %.thread130, %82
-  %87 = phi i64 [ %81, %.thread130 ], [ %85, %82 ]
-  %88 = phi i64 [ 19, %.thread130 ], [ %77, %82 ]
+86:                                               ; preds = %.thread143, %82
+  %87 = phi i64 [ %81, %.thread143 ], [ %85, %82 ]
+  %88 = phi i64 [ 19, %.thread143 ], [ %77, %82 ]
   %89 = add nsw i64 %88, -3
   %90 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %89
   %91 = load i64, ptr %90, align 8, !tbaa !3
@@ -17277,8 +17277,8 @@ ln_schedule_prec.exit:                            ; preds = %.preheader.i
   br label %292
 
 292:                                              ; preds = %.lr.ph, %287
-  %.sink134 = phi ptr [ %13, %287 ], [ %11, %.lr.ph ]
-  call fastcc void @_mpd_qmul(ptr noundef nonnull %15, ptr noundef nonnull readonly %.sink134, ptr noundef nonnull readonly %15, ptr noundef nonnull readonly %8, ptr noundef %3)
+  %.sink147 = phi ptr [ %13, %287 ], [ %11, %.lr.ph ]
+  call fastcc void @_mpd_qmul(ptr noundef nonnull %15, ptr noundef nonnull readonly %.sink147, ptr noundef nonnull readonly %15, ptr noundef nonnull readonly %8, ptr noundef %3)
   call void @mpd_qfinalize(ptr noundef nonnull %15, ptr noundef nonnull readonly %8, ptr noundef %3)
   %293 = load i8, ptr %15, align 8, !tbaa !19
   %294 = and i8 %293, 14
@@ -17336,8 +17336,8 @@ mpd_qadd.exit:                                    ; preds = %304, %306, %309
   %.not65 = icmp eq i8 %312, 0
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %313 = icmp sgt i64 %indvars.iv, 0
-  %or.cond133 = and i1 %.not65, %313
-  br i1 %or.cond133, label %.lr.ph, label %mpd_qadd.exit._crit_edge, !llvm.loop !62
+  %or.cond146 = and i1 %.not65, %313
+  br i1 %or.cond146, label %.lr.ph, label %mpd_qadd.exit._crit_edge, !llvm.loop !62
 
 mpd_qadd.exit._crit_edge:                         ; preds = %mpd_qadd.exit, %.thread109, %ln_schedule_prec.exit
   %314 = add i64 %.057, 1
@@ -18255,8 +18255,8 @@ define hidden void @mpd_qmax(ptr noundef %0, ptr noundef readonly captures(addre
   %.pre69 = load i8, ptr %2, align 8, !tbaa !19
   %8 = and i8 %.pre69, 12
   %.not30 = icmp eq i8 %8, 0
-  %or.cond71 = select i1 %.not, i1 %.not30, i1 false
-  br i1 %or.cond71, label %9, label %46
+  %or.cond88 = select i1 %.not, i1 %.not30, i1 false
+  br i1 %or.cond88, label %9, label %46
 
 9:                                                ; preds = %5
   %10 = icmp eq ptr %0, %2
@@ -18602,8 +18602,8 @@ define hidden void @mpd_qmax_mag(ptr noundef %0, ptr noundef readonly captures(a
   %.pre78 = load i8, ptr %2, align 8, !tbaa !19
   %8 = and i8 %.pre78, 12
   %.not30 = icmp eq i8 %8, 0
-  %or.cond84 = select i1 %.not, i1 %.not30, i1 false
-  br i1 %or.cond84, label %9, label %46
+  %or.cond104 = select i1 %.not, i1 %.not30, i1 false
+  br i1 %or.cond104, label %9, label %46
 
 9:                                                ; preds = %5
   %10 = icmp eq ptr %0, %2
@@ -19020,8 +19020,8 @@ define hidden void @mpd_qmin(ptr noundef %0, ptr noundef readonly captures(addre
   %.pre69 = load i8, ptr %2, align 8, !tbaa !19
   %8 = and i8 %.pre69, 12
   %.not30 = icmp eq i8 %8, 0
-  %or.cond71 = select i1 %.not, i1 %.not30, i1 false
-  br i1 %or.cond71, label %9, label %46
+  %or.cond88 = select i1 %.not, i1 %.not30, i1 false
+  br i1 %or.cond88, label %9, label %46
 
 9:                                                ; preds = %5
   %10 = icmp eq ptr %0, %2
@@ -19367,8 +19367,8 @@ define hidden void @mpd_qmin_mag(ptr noundef %0, ptr noundef readonly captures(a
   %.pre78 = load i8, ptr %2, align 8, !tbaa !19
   %8 = and i8 %.pre78, 12
   %.not30 = icmp eq i8 %8, 0
-  %or.cond84 = select i1 %.not, i1 %.not30, i1 false
-  br i1 %or.cond84, label %9, label %46
+  %or.cond104 = select i1 %.not, i1 %.not30, i1 false
+  br i1 %or.cond104, label %9, label %46
 
 9:                                                ; preds = %5
   %10 = icmp eq ptr %0, %2
@@ -20105,8 +20105,8 @@ mpd_qresize.exit.thread.i32:                      ; preds = %mpd_qresize.exit.mp
   %102 = getelementptr i64, ptr %100, i64 %.116.i
   store i64 -8446744073709551617, ptr %102, align 8, !tbaa !3
   %103 = add nsw i64 %.116.i, -1
-  %.not17.i = icmp eq i64 %.116.i, 0
-  br i1 %.not17.i, label %mpd_qmaxcoeff.exit, label %101, !llvm.loop !24
+  %.not20.i = icmp eq i64 %.116.i, 0
+  br i1 %.not20.i, label %mpd_qmaxcoeff.exit, label %101, !llvm.loop !24
 
 mpd_qmaxcoeff.exit:                               ; preds = %101, %mpd_qresize.exit.i34, %97
   %104 = load i8, ptr %0, align 8, !tbaa !19
@@ -20460,8 +20460,8 @@ mpd_qresize.exit.thread.i33:                      ; preds = %mpd_qresize.exit.mp
   %102 = getelementptr i64, ptr %100, i64 %.116.i
   store i64 -8446744073709551617, ptr %102, align 8, !tbaa !3
   %103 = add nsw i64 %.116.i, -1
-  %.not17.i = icmp eq i64 %.116.i, 0
-  br i1 %.not17.i, label %mpd_qmaxcoeff.exit, label %101, !llvm.loop !24
+  %.not20.i = icmp eq i64 %.116.i, 0
+  br i1 %.not20.i, label %mpd_qmaxcoeff.exit, label %101, !llvm.loop !24
 
 mpd_qmaxcoeff.exit:                               ; preds = %101, %mpd_qresize.exit.i35, %97
   %104 = load i8, ptr %0, align 8, !tbaa !19
@@ -21038,7 +21038,7 @@ mpd_iszero.exit112.thread:                        ; preds = %mpd_isinteger.exit.
 132:                                              ; preds = %mpd_iszero.exit112.thread
   %.not95 = icmp ne i8 %.pre152, 0
   %or.cond.not = or i1 %.not95, %.not90130
-  br i1 %or.cond.not, label %133, label %.thread154
+  br i1 %or.cond.not, label %133, label %.thread164
 
 133:                                              ; preds = %132
   %134 = load i8, ptr %0, align 8, !tbaa !19
@@ -21088,7 +21088,7 @@ mpd_seterror.exit123:                             ; preds = %133, %136, %148
 
 155:                                              ; preds = %mpd_iszero.exit112.thread
   %156 = icmp eq i8 %.pre152, 0
-  br i1 %156, label %.thread154, label %157
+  br i1 %156, label %.thread164, label %157
 
 157:                                              ; preds = %155
   %158 = tail call fastcc i32 @_mpd_cmp(ptr noundef nonnull readonly %1, ptr noundef nonnull @one)
@@ -21168,12 +21168,12 @@ mpd_setspecial.exit127:                           ; preds = %177, %180, %192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %197, i8 0, i64 24, i1 false)
   br label %243
 
-.thread154:                                       ; preds = %132, %155
+.thread164:                                       ; preds = %132, %155
   %198 = and i8 %69, 2
   %.not97 = icmp eq i8 %198, 0
   br i1 %.not97, label %211, label %199
 
-199:                                              ; preds = %.thread154
+199:                                              ; preds = %.thread164
   br i1 %.not.i113, label %mpd_iszero.exit108, label %mpd_iszero.exit108.thread
 
 mpd_iszero.exit108:                               ; preds = %199
@@ -21204,7 +21204,7 @@ mpd_iszero.exit108.thread:                        ; preds = %199, %mpd_iszero.ex
   tail call void @mpd_setspecial(ptr noundef %0, i8 noundef zeroext %.0, i8 noundef zeroext 2)
   br label %243
 
-211:                                              ; preds = %.thread154
+211:                                              ; preds = %.thread164
   br i1 %.not.i113, label %mpd_iszero.exit, label %mpd_iszero.exit.thread
 
 mpd_iszero.exit:                                  ; preds = %211
@@ -27244,8 +27244,8 @@ invroot_schedule_prec.exit.i:                     ; preds = %.preheader.i.i
   br label %390
 
 390:                                              ; preds = %385, %.lr.ph.i
-  %.sink34.i = phi ptr [ %15, %385 ], [ %.071.i, %.lr.ph.i ]
-  call fastcc void @_mpd_qmul(ptr noundef nonnull %15, ptr noundef nonnull readonly %.sink34.i, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %9, ptr noundef nonnull %8)
+  %.sink58.i = phi ptr [ %15, %385 ], [ %.071.i, %.lr.ph.i ]
+  call fastcc void @_mpd_qmul(ptr noundef nonnull %15, ptr noundef nonnull readonly %.sink58.i, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %9, ptr noundef nonnull %8)
   call void @mpd_qfinalize(ptr noundef nonnull %15, ptr noundef nonnull readonly %9, ptr noundef nonnull %8)
   %391 = load i8, ptr %15, align 8, !tbaa !19
   %392 = and i8 %391, 14
@@ -28429,8 +28429,8 @@ _mpd_isint.exit.thread:                           ; preds = %_mpd_isint.exit
 
 _mpd_isint.exit.thread.thread:                    ; preds = %15
   %45 = load ptr, ptr %0, align 8, !tbaa !75
-  %.not6072 = icmp eq ptr %45, null
-  br i1 %.not6072, label %mpd_sizeinbase.exit.thread52, label %65
+  %.not6081 = icmp eq ptr %45, null
+  br i1 %.not6081, label %mpd_sizeinbase.exit.thread52, label %65
 
 mpd_iszero.exit.thread.i:                         ; preds = %_mpd_isint.exit.thread
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -28471,7 +28471,7 @@ mpd_sizeinbase.exit.thread52._crit_edge:          ; preds = %mpd_sizeinbase.exit
   br label %65
 
 65:                                               ; preds = %_mpd_isint.exit.thread.thread, %mpd_sizeinbase.exit.thread52._crit_edge, %_mpd_isint.exit.thread
-  %.not6073 = phi i1 [ false, %_mpd_isint.exit.thread ], [ true, %mpd_sizeinbase.exit.thread52._crit_edge ], [ false, %_mpd_isint.exit.thread.thread ]
+  %.not6082 = phi i1 [ false, %_mpd_isint.exit.thread ], [ true, %mpd_sizeinbase.exit.thread52._crit_edge ], [ false, %_mpd_isint.exit.thread.thread ]
   %66 = phi ptr [ %44, %_mpd_isint.exit.thread ], [ %63, %mpd_sizeinbase.exit.thread52._crit_edge ], [ %45, %_mpd_isint.exit.thread.thread ]
   %67 = phi i8 [ %13, %_mpd_isint.exit.thread ], [ %.pre, %mpd_sizeinbase.exit.thread52._crit_edge ], [ %13, %_mpd_isint.exit.thread.thread ]
   %.031 = phi i64 [ %1, %_mpd_isint.exit.thread ], [ %.0.i4454, %mpd_sizeinbase.exit.thread52._crit_edge ], [ %1, %_mpd_isint.exit.thread.thread ]
@@ -28594,7 +28594,7 @@ _baseconv_to_u16.exit:                            ; preds = %_mpd_real_size.exit
   br label %mpd_del.exit
 
 _baseconv_to_u16.exit.thread:                     ; preds = %89, %_baseconv_to_u16.exit, %80, %78
-  br i1 %.not6073, label %119, label %.thread
+  br i1 %.not6082, label %119, label %.thread
 
 119:                                              ; preds = %_baseconv_to_u16.exit.thread
   %120 = load ptr, ptr @mpd_free, align 8, !tbaa !20
@@ -28701,8 +28701,8 @@ _mpd_isint.exit.thread:                           ; preds = %_mpd_isint.exit
 
 _mpd_isint.exit.thread.thread:                    ; preds = %15
   %45 = load ptr, ptr %0, align 8, !tbaa !78
-  %.not6072 = icmp eq ptr %45, null
-  br i1 %.not6072, label %mpd_sizeinbase.exit.thread52, label %65
+  %.not6081 = icmp eq ptr %45, null
+  br i1 %.not6081, label %mpd_sizeinbase.exit.thread52, label %65
 
 mpd_iszero.exit.thread.i:                         ; preds = %_mpd_isint.exit.thread
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -28743,7 +28743,7 @@ mpd_sizeinbase.exit.thread52._crit_edge:          ; preds = %mpd_sizeinbase.exit
   br label %65
 
 65:                                               ; preds = %_mpd_isint.exit.thread.thread, %mpd_sizeinbase.exit.thread52._crit_edge, %_mpd_isint.exit.thread
-  %.not6073 = phi i1 [ false, %_mpd_isint.exit.thread ], [ true, %mpd_sizeinbase.exit.thread52._crit_edge ], [ false, %_mpd_isint.exit.thread.thread ]
+  %.not6082 = phi i1 [ false, %_mpd_isint.exit.thread ], [ true, %mpd_sizeinbase.exit.thread52._crit_edge ], [ false, %_mpd_isint.exit.thread.thread ]
   %66 = phi ptr [ %44, %_mpd_isint.exit.thread ], [ %63, %mpd_sizeinbase.exit.thread52._crit_edge ], [ %45, %_mpd_isint.exit.thread.thread ]
   %67 = phi i8 [ %13, %_mpd_isint.exit.thread ], [ %.pre, %mpd_sizeinbase.exit.thread52._crit_edge ], [ %13, %_mpd_isint.exit.thread.thread ]
   %.031 = phi i64 [ %1, %_mpd_isint.exit.thread ], [ %.0.i4454, %mpd_sizeinbase.exit.thread52._crit_edge ], [ %1, %_mpd_isint.exit.thread.thread ]
@@ -28866,7 +28866,7 @@ _baseconv_to_smaller.exit:                        ; preds = %_mpd_real_size.exit
   br label %mpd_del.exit
 
 _baseconv_to_smaller.exit.thread:                 ; preds = %89, %_baseconv_to_smaller.exit, %80, %78
-  br i1 %.not6073, label %119, label %.thread
+  br i1 %.not6082, label %119, label %.thread
 
 119:                                              ; preds = %_baseconv_to_smaller.exit.thread
   %120 = load ptr, ptr @mpd_free, align 8, !tbaa !20
@@ -30003,8 +30003,8 @@ define internal fastcc range(i32 -1, 1) i32 @_set_uint128_coeff_exp(ptr noundef 
   %5 = alloca [5 x i64], align 16
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.16..sroa_idx21 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.16..sroa_idx21, i8 0, i64 24, i1 false)
+  %.16..sroa_idx23 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.16..sroa_idx23, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !23
   %7 = zext i64 %1 to i128
@@ -30455,10 +30455,10 @@ mpd_zerocoeff.exit:                               ; preds = %34, %40, %52
   br label %mpd_qcopy_static.exit.sink.split
 
 mpd_qcopy_static.exit.sink.split:                 ; preds = %69, %16
-  %.sink31 = phi i64 [ 24, %16 ], [ 8, %69 ]
+  %.sink36 = phi i64 [ 24, %16 ], [ 8, %69 ]
   %.sink.in = phi ptr [ %7, %16 ], [ %75, %69 ]
   %.sink = load i64, ptr %.sink.in, align 8, !tbaa !3
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink31
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink36
   store i64 %.sink, ptr %76, align 8, !tbaa !3
   br label %mpd_qcopy_static.exit
 
@@ -30690,7 +30690,7 @@ define internal fastcc void @_mpd_divmod_pow10(ptr noundef nonnull writeonly cap
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %6
-  switch i64 %3, label %default.unreachable [
+  switch i64 %3, label %default.unreachable122 [
     i64 0, label %9
     i64 1, label %10
     i64 2, label %13
@@ -30731,7 +30731,7 @@ define internal fastcc void @_mpd_divmod_pow10(ptr noundef nonnull writeonly cap
   br label %.sink.split
 
 22:                                               ; preds = %6
-  switch i64 %3, label %default.unreachable [
+  switch i64 %3, label %default.unreachable122 [
     i64 5, label %23
     i64 6, label %26
     i64 7, label %29
@@ -30779,7 +30779,7 @@ define internal fastcc void @_mpd_divmod_pow10(ptr noundef nonnull writeonly cap
   br i1 %39, label %40, label %56
 
 40:                                               ; preds = %38
-  switch i64 %3, label %default.unreachable [
+  switch i64 %3, label %default.unreachable122 [
     i64 10, label %41
     i64 11, label %44
     i64 12, label %47
@@ -30867,7 +30867,7 @@ define internal fastcc void @_mpd_divmod_pow10(ptr noundef nonnull writeonly cap
   %72 = add i64 %.neg, %2
   br label %.sink.split
 
-default.unreachable:                              ; preds = %40, %22, %8
+default.unreachable122:                           ; preds = %40, %22, %8
   unreachable
 
 .sink.split:                                      ; preds = %23, %26, %29, %32, %35, %9, %10, %13, %16, %19, %57, %60, %63, %66, %69, %41, %44, %47, %50, %53
@@ -31940,10 +31940,10 @@ mpd_del.exit100:                                  ; preds = %536, %533, %mpd_del
   br label %604
 
 mpd_qcopy.exit.thread.sink.split:                 ; preds = %72, %69, %._crit_edge, %432
-  %.sink179 = phi i32 [ 256, %432 ], [ %430, %._crit_edge ], [ 512, %69 ], [ 8, %72 ]
+  %.sink206 = phi i32 [ 256, %432 ], [ %430, %._crit_edge ], [ 512, %69 ], [ 8, %72 ]
   %.067.ph = phi ptr [ %.1, %432 ], [ %.1, %._crit_edge ], [ null, %69 ], [ %.1, %72 ]
   %542 = load i32, ptr %4, align 4, !tbaa !23
-  %543 = or i32 %542, %.sink179
+  %543 = or i32 %542, %.sink206
   store i32 %543, ptr %4, align 4, !tbaa !23
   br label %mpd_qcopy.exit.thread
 
@@ -32857,7 +32857,7 @@ _mpd_get_transform_len.exit.thread:               ; preds = %32, %43, %41, %38, 
 64:                                               ; preds = %62
   %65 = tail call i32 @fnt_autoconvolute(ptr noundef nonnull %55, i64 noundef %.0.i8891, i32 noundef 2) #33
   %.not82 = icmp eq i32 %65, 0
-  br i1 %.not82, label %85, label %.thread139
+  br i1 %.not82, label %85, label %.thread147
 
 66:                                               ; preds = %57
   %67 = tail call ptr @mpd_calloc(i64 noundef %.0.i8891, i64 noundef 8) #33
@@ -32903,9 +32903,9 @@ mpd_uint_zero.exit:                               ; preds = %.lr.ph129.preheader
   %.not79 = icmp eq i32 %80, 0
   %81 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   tail call void %81(ptr noundef nonnull %67) #33
-  br i1 %.not79, label %85, label %.thread139
+  br i1 %.not79, label %85, label %.thread147
 
-.thread139:                                       ; preds = %mpd_uint_zero.exit, %64
+.thread147:                                       ; preds = %mpd_uint_zero.exit, %64
   %82 = load i64, ptr %4, align 8, !tbaa !3
   tail call void @crt3(ptr noundef nonnull %49, ptr noundef nonnull %52, ptr noundef nonnull %55, i64 noundef %82) #33
   %83 = load ptr, ptr @mpd_free, align 8, !tbaa !20
@@ -32925,9 +32925,9 @@ mpd_uint_zero.exit:                               ; preds = %.lr.ph129.preheader
   %.not85 = icmp eq ptr %55, null
   br i1 %.not85, label %.thread122, label %.thread122.sink.split
 
-.thread122.sink.split:                            ; preds = %85, %.thread139, %51
-  %.sink = phi ptr [ %49, %51 ], [ %55, %.thread139 ], [ %55, %85 ]
-  %.1102126.ph = phi ptr [ null, %51 ], [ %49, %.thread139 ], [ null, %85 ]
+.thread122.sink.split:                            ; preds = %85, %.thread147, %51
+  %.sink = phi ptr [ %49, %51 ], [ %55, %.thread147 ], [ %55, %85 ]
+  %.1102126.ph = phi ptr [ null, %51 ], [ %49, %.thread147 ], [ null, %85 ]
   %88 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   tail call void %88(ptr noundef nonnull %.sink) #33
   br label %.thread122
@@ -33094,7 +33094,7 @@ define internal fastcc void @_karatsuba_rec(ptr noundef %0, ptr noundef %1, ptr 
 
 common.ret:                                       ; preds = %6
   tail call void @_mpd_basemul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %4, i64 noundef %5) #33
-  br label %common.ret167
+  br label %common.ret173
 
 8:                                                ; preds = %6
   %9 = add i64 %4, 1
@@ -33112,8 +33112,8 @@ mpd_uint_zero.exit155:                            ; preds = %11
   %15 = or disjoint i64 %14, 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %15, i1 false), !tbaa !3
   %16 = getelementptr i64, ptr %1, i64 %10
-  %.idx165 = shl i64 %5, 4
-  %17 = getelementptr i8, ptr %3, i64 %.idx165
+  %.idx171 = shl i64 %5, 4
+  %17 = getelementptr i8, ptr %3, i64 %.idx171
   %18 = getelementptr i8, ptr %17, i64 8
   tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %3, ptr noundef %2, ptr noundef %16, ptr noundef %18, i64 noundef %5, i64 noundef %12)
   br label %mpd_uint_zero.exit151
@@ -33126,13 +33126,13 @@ mpd_uint_zero.exit153:                            ; preds = %11
   %23 = shl nuw i64 %22, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %23, i1 false), !tbaa !3
   %24 = getelementptr i64, ptr %1, i64 %10
-  %.idx164 = shl i64 %12, 4
-  %25 = getelementptr i8, ptr %3, i64 %.idx164
+  %.idx170 = shl i64 %12, 4
+  %25 = getelementptr i8, ptr %3, i64 %.idx170
   %26 = getelementptr i8, ptr %25, i64 8
   tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %3, ptr noundef %24, ptr noundef %2, ptr noundef %26, i64 noundef %12, i64 noundef %5)
   br label %mpd_uint_zero.exit151
 
-common.ret167:                                    ; preds = %mpd_uint_zero.exit149, %common.ret, %mpd_uint_zero.exit151
+common.ret173:                                    ; preds = %mpd_uint_zero.exit149, %common.ret, %mpd_uint_zero.exit151
   ret void
 
 mpd_uint_zero.exit151:                            ; preds = %mpd_uint_zero.exit153, %mpd_uint_zero.exit155
@@ -33146,7 +33146,7 @@ mpd_uint_zero.exit151:                            ; preds = %mpd_uint_zero.exit1
   tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %3, ptr noundef %1, ptr noundef %2, ptr noundef %31, i64 noundef %10, i64 noundef %5)
   %32 = add nuw i64 %10, %5
   tail call void @_mpd_baseaddto(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %32) #33
-  br label %common.ret167
+  br label %common.ret173
 
 mpd_uint_zero.exit149:                            ; preds = %8
   %33 = shl i64 %10, 3
@@ -33174,8 +33174,8 @@ mpd_uint_zero.exit149:                            ; preds = %8
   %47 = sub i64 %45, %46
   %48 = shl nuw i64 %47, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %48, i1 false), !tbaa !3
-  %.idx166 = shl i64 %36, 4
-  %49 = getelementptr i8, ptr %3, i64 %.idx166
+  %.idx172 = shl i64 %36, 4
+  %49 = getelementptr i8, ptr %3, i64 %.idx172
   %50 = getelementptr i8, ptr %49, i64 8
   tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %3, ptr noundef %35, ptr noundef %40, ptr noundef %50, i64 noundef %36, i64 noundef %41)
   %51 = and i64 %9, -2
@@ -33190,7 +33190,7 @@ mpd_uint_zero.exit149:                            ; preds = %8
   tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %3, ptr noundef %1, ptr noundef %2, ptr noundef %56, i64 noundef %10, i64 noundef %10)
   tail call void @_mpd_baseaddto(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %51) #33
   tail call void @_mpd_basesubfrom(ptr noundef %42, ptr noundef nonnull %3, i64 noundef %51) #33
-  br label %common.ret167
+  br label %common.ret173
 }
 
 declare hidden void @_mpd_baseaddto(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
@@ -33248,8 +33248,8 @@ mpd_uint_zero.exit179:                            ; preds = %21
   %25 = or disjoint i64 %24, 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %25, i1 false), !tbaa !3
   %26 = getelementptr i64, ptr %1, i64 %20
-  %.idx189 = shl i64 %5, 4
-  %27 = getelementptr i8, ptr %3, i64 %.idx189
+  %.idx197 = shl i64 %5, 4
+  %27 = getelementptr i8, ptr %3, i64 %.idx197
   %28 = getelementptr i8, ptr %27, i64 8
   %29 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef nonnull %3, ptr noundef %2, ptr noundef %26, ptr noundef %28, i64 noundef %5, i64 noundef %22)
   %.not169 = icmp eq i32 %29, 0
@@ -33263,8 +33263,8 @@ mpd_uint_zero.exit177:                            ; preds = %21
   %34 = shl nuw i64 %33, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %34, i1 false), !tbaa !3
   %35 = getelementptr i64, ptr %1, i64 %20
-  %.idx188 = shl i64 %22, 4
-  %36 = getelementptr i8, ptr %3, i64 %.idx188
+  %.idx196 = shl i64 %22, 4
+  %36 = getelementptr i8, ptr %3, i64 %.idx196
   %37 = getelementptr i8, ptr %36, i64 8
   %38 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef nonnull %3, ptr noundef %35, ptr noundef %2, ptr noundef %37, i64 noundef %22, i64 noundef %5)
   %.not168 = icmp eq i32 %38, 0
@@ -33317,8 +33317,8 @@ mpd_uint_zero.exit173:                            ; preds = %47
   %63 = sub i64 %61, %62
   %64 = shl nuw i64 %63, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %64, i1 false), !tbaa !3
-  %.idx190 = shl i64 %51, 4
-  %65 = getelementptr i8, ptr %3, i64 %.idx190
+  %.idx198 = shl i64 %51, 4
+  %65 = getelementptr i8, ptr %3, i64 %.idx198
   %66 = getelementptr i8, ptr %65, i64 8
   %67 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef nonnull %3, ptr noundef %50, ptr noundef %55, ptr noundef %66, i64 noundef %51, i64 noundef %56)
   %.not166 = icmp eq i32 %67, 0

@@ -1761,9 +1761,9 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   br label %.sink.split
 
 .sink.split:                                      ; preds = %600, %609
-  %.sink998 = phi i64 [ 196, %609 ], [ 194, %600 ]
+  %.sink1036 = phi i64 [ 196, %609 ], [ 194, %600 ]
   %.sink = phi i16 [ %575, %609 ], [ %563, %600 ]
-  %618 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink998
+  %618 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink1036
   store i16 %.sink, ptr %618, align 2, !tbaa !150
   br label %619
 
@@ -1877,7 +1877,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   br i1 %675, label %682, label %.thread688.thread
 
 .thread688.thread:                                ; preds = %667, %.thread688
-  %.sroa.5.0987 = phi i32 [ 2, %.thread688 ], [ 0, %667 ]
+  %.sroa.5.01025 = phi i32 [ 2, %.thread688 ], [ 0, %667 ]
   %676 = phi i16 [ %.pre972, %.thread688 ], [ %669, %667 ]
   %677 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %678 = add i16 %676, 1
@@ -1889,7 +1889,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   br label %682
 
 682:                                              ; preds = %.thread688.thread, %.thread688
-  %.sroa.5.0988 = phi i32 [ %.sroa.5.0987, %.thread688.thread ], [ 2, %.thread688 ]
+  %.sroa.5.01026 = phi i32 [ %.sroa.5.01025, %.thread688.thread ], [ 2, %.thread688 ]
   %.sroa.0.0 = phi i32 [ 1, %.thread688.thread ], [ 0, %.thread688 ]
   br label %683
 
@@ -1897,7 +1897,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %.0328807 = phi i32 [ 0, %682 ], [ %695, %683 ]
   %.0329806 = phi i32 [ 0, %682 ], [ %694, %683 ]
   %684 = add nuw nsw i32 %.0328807, %.sroa.0.0
-  %685 = add nuw nsw i32 %.0328807, %.sroa.5.0988
+  %685 = add nuw nsw i32 %.0328807, %.sroa.5.01026
   %686 = and i32 %685, 14
   %687 = and i32 %684, 1
   %688 = or disjoint i32 %686, %687
@@ -2182,32 +2182,32 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %816 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %817 = load i16, ptr %816, align 2, !tbaa !78
   switch i16 %817, label %.thread716 [
-    i16 3984, label %.thread992.sink.split
+    i16 3984, label %.thread1030.sink.split
     i16 4288, label %818
     i16 4928, label %819
     i16 5504, label %823
   ]
 
 818:                                              ; preds = %815
-  br label %.thread992.sink.split
+  br label %.thread1030.sink.split
 
 819:                                              ; preds = %815
   %820 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %821 = load i16, ptr %820, align 4, !tbaa !83
   %822 = icmp ult i16 %821, 3280
-  br i1 %822, label %.thread992.sink.split, label %.thread716
+  br i1 %822, label %.thread1030.sink.split, label %.thread716
 
 823:                                              ; preds = %815
   %824 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %825 = load i16, ptr %824, align 4, !tbaa !83
   %826 = icmp ugt i16 %825, 3664
   %827 = select i1 %826, i16 5496, i16 5472
-  br label %.thread992.sink.split
+  br label %.thread1030.sink.split
 
-.thread992.sink.split:                            ; preds = %819, %815, %823, %818
-  %.sink999 = phi i16 [ 4256, %818 ], [ %827, %823 ], [ 3925, %815 ], [ 4920, %819 ]
+.thread1030.sink.split:                           ; preds = %819, %815, %823, %818
+  %.sink1037 = phi i16 [ 4256, %818 ], [ %827, %823 ], [ 3925, %815 ], [ 4920, %819 ]
   %828 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  store i16 %.sink999, ptr %828, align 2, !tbaa !82
+  store i16 %.sink1037, ptr %828, align 2, !tbaa !82
   br label %.thread716
 
 .thread697:                                       ; preds = %813
@@ -2221,9 +2221,9 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %831 = icmp eq i64 %.unpack474, ptrtoint (ptr @_ZN6LibRaw17sony_arq_load_rawEv to i64)
   %832 = icmp eq i64 %.unpack476, 0
   %833 = and i1 %831, %832
-  br i1 %833, label %.sink.split1001, label %839
+  br i1 %833, label %.sink.split1039, label %839
 
-.sink.split1001:                                  ; preds = %830
+.sink.split1039:                                  ; preds = %830
   %834 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %835 = load i16, ptr %834, align 2, !tbaa !78
   %836 = icmp ugt i16 %835, 12000
@@ -2233,7 +2233,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   store i16 %838, ptr %837, align 2, !tbaa !82
   br label %839
 
-839:                                              ; preds = %.sink.split1001, %830
+839:                                              ; preds = %.sink.split1039, %830
   %840 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %841 = tail call i32 @strncasecmp(ptr noundef nonnull %840, ptr noundef nonnull @.str.40, i64 noundef 8) #21
   %.not477 = icmp eq i32 %841, 0
@@ -2259,8 +2259,8 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %850 = load i16, ptr %849, align 2
   %851 = add i16 %850, -4580
   %or.cond616 = icmp ult i16 %851, 440
-  %or.cond1005 = select i1 %.not479, i1 %or.cond616, i1 false
-  br i1 %or.cond1005, label %866, label %._crit_edge975
+  %or.cond1043 = select i1 %.not479, i1 %or.cond616, i1 false
+  br i1 %or.cond1043, label %866, label %._crit_edge975
 
 ._crit_edge975:                                   ; preds = %847
   %852 = tail call i32 @strcasecmp(ptr noundef nonnull %840, ptr noundef nonnull @.str.43) #21
@@ -2399,10 +2399,10 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   store i64 0, ptr %.elt408, align 8, !tbaa !89
   br label %.thread716
 
-.thread716:                                       ; preds = %815, %819, %.thread992.sink.split, %866, %863, %799, %802, %806, %809, %872, %876, %880, %897, %899, %906, %908, %904
-  %912 = phi i1 [ false, %906 ], [ false, %908 ], [ false, %904 ], [ false, %897 ], [ false, %899 ], [ true, %872 ], [ true, %876 ], [ true, %880 ], [ false, %809 ], [ false, %806 ], [ false, %802 ], [ false, %799 ], [ false, %863 ], [ false, %866 ], [ false, %.thread992.sink.split ], [ false, %819 ], [ false, %815 ]
-  %.not472696701705712719 = phi i1 [ true, %906 ], [ true, %908 ], [ %.not472, %904 ], [ true, %897 ], [ true, %899 ], [ %.not472, %872 ], [ %.not472, %876 ], [ %.not472, %880 ], [ false, %809 ], [ false, %806 ], [ false, %802 ], [ false, %799 ], [ true, %863 ], [ true, %866 ], [ %.not472, %.thread992.sink.split ], [ %.not472, %819 ], [ %.not472, %815 ]
-  %913 = phi i1 [ false, %906 ], [ false, %908 ], [ %829, %904 ], [ false, %897 ], [ false, %899 ], [ false, %872 ], [ false, %876 ], [ false, %880 ], [ false, %809 ], [ false, %806 ], [ false, %802 ], [ false, %799 ], [ true, %863 ], [ true, %866 ], [ true, %.thread992.sink.split ], [ true, %819 ], [ true, %815 ]
+.thread716:                                       ; preds = %815, %819, %.thread1030.sink.split, %866, %863, %799, %802, %806, %809, %872, %876, %880, %897, %899, %906, %908, %904
+  %912 = phi i1 [ false, %906 ], [ false, %908 ], [ false, %904 ], [ false, %897 ], [ false, %899 ], [ true, %872 ], [ true, %876 ], [ true, %880 ], [ false, %809 ], [ false, %806 ], [ false, %802 ], [ false, %799 ], [ false, %863 ], [ false, %866 ], [ false, %.thread1030.sink.split ], [ false, %819 ], [ false, %815 ]
+  %.not472696701705712719 = phi i1 [ true, %906 ], [ true, %908 ], [ %.not472, %904 ], [ true, %897 ], [ true, %899 ], [ %.not472, %872 ], [ %.not472, %876 ], [ %.not472, %880 ], [ false, %809 ], [ false, %806 ], [ false, %802 ], [ false, %799 ], [ true, %863 ], [ true, %866 ], [ %.not472, %.thread1030.sink.split ], [ %.not472, %819 ], [ %.not472, %815 ]
+  %913 = phi i1 [ false, %906 ], [ false, %908 ], [ %829, %904 ], [ false, %897 ], [ false, %899 ], [ false, %872 ], [ false, %876 ], [ false, %880 ], [ false, %809 ], [ false, %806 ], [ false, %802 ], [ false, %799 ], [ true, %863 ], [ true, %866 ], [ true, %.thread1030.sink.split ], [ true, %819 ], [ true, %815 ]
   %.unpack500 = load i64, ptr %230, align 8, !tbaa !89
   %.unpack502 = load i64, ptr %.elt408, align 8, !tbaa !89
   %914 = icmp eq i64 %.unpack500, ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64)
@@ -3081,9 +3081,9 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
     i32 11, label %1255
     i32 1, label %1258
     i32 10, label %1259
-    i32 2, label %.invoke1006
-    i32 3, label %.invoke1006
-    i32 9, label %.invoke1006
+    i32 2, label %.invoke1044
+    i32 3, label %.invoke1044
+    i32 9, label %.invoke1044
     i32 4, label %1260
     i32 5, label %1260
     i32 6, label %1261
@@ -3115,7 +3115,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   invoke void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
           to label %1264 unwind label %1256
 
-1256:                                             ; preds = %.invoke1006, %1263, %1262, %1261, %1260, %1259, %1258, %1255
+1256:                                             ; preds = %.invoke1044, %1263, %1262, %1261, %1260, %1259, %1258, %1255
   %1257 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_end_catch() #17
@@ -3129,7 +3129,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   invoke void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
           to label %1264 unwind label %1256
 
-.invoke1006:                                      ; preds = %1244, %1244, %1244
+.invoke1044:                                      ; preds = %1244, %1244, %1244
   invoke void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
           to label %1264 unwind label %1256
 
@@ -3149,8 +3149,8 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   invoke void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
           to label %1264 unwind label %1256
 
-1264:                                             ; preds = %.invoke1006, %1244, %1263, %1262, %1261, %1260, %1259, %1258, %1255
-  %.1 = phi i32 [ -100013, %1255 ], [ -100007, %1258 ], [ -100012, %1259 ], [ -100009, %1260 ], [ -100010, %1261 ], [ -100011, %1262 ], [ -2, %1263 ], [ -1, %1244 ], [ -100008, %.invoke1006 ]
+1264:                                             ; preds = %.invoke1044, %1244, %1263, %1262, %1261, %1260, %1259, %1258, %1255
+  %.1 = phi i32 [ -100013, %1255 ], [ -100007, %1258 ], [ -100012, %1259 ], [ -100009, %1260 ], [ -100010, %1261 ], [ -100011, %1262 ], [ -2, %1263 ], [ -1, %1244 ], [ -100008, %.invoke1044 ]
   tail call void @__cxa_end_catch() #17
   br label %1343
 

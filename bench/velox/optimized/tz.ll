@@ -1933,9 +1933,9 @@ _ZNSt6vectorIN4date6detail10transitionESaIS2_EE7reserveEm.exit.i: ; preds = %_ZN
   br i1 %cmp14.i, label %for.body.i, label %_ZN4dateL16load_transitionsIiEESt6vectorINS_6detail10transitionESaIS3_EERSii.exit
 
 for.body.i:                                       ; preds = %_ZNSt6vectorIN4date6detail10transitionESaIS2_EE7reserveEm.exit.i, %for.inc.i
-  %ref.tmp.sroa.12.0 = phi ptr [ %ref.tmp.sroa.12.1130, %for.inc.i ], [ %add.ptr21.i.i, %_ZNSt6vectorIN4date6detail10transitionESaIS2_EE7reserveEm.exit.i ]
-  %ref.tmp.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.1131, %for.inc.i ], [ %call5.i.i.i.i3.i, %_ZNSt6vectorIN4date6detail10transitionESaIS2_EE7reserveEm.exit.i ]
-  %0 = phi ptr [ %ref.tmp.sroa.8.0132, %for.inc.i ], [ %call5.i.i.i.i3.i, %_ZNSt6vectorIN4date6detail10transitionESaIS2_EE7reserveEm.exit.i ]
+  %ref.tmp.sroa.12.0 = phi ptr [ %ref.tmp.sroa.12.1143, %for.inc.i ], [ %add.ptr21.i.i, %_ZNSt6vectorIN4date6detail10transitionESaIS2_EE7reserveEm.exit.i ]
+  %ref.tmp.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.1144, %for.inc.i ], [ %call5.i.i.i.i3.i, %_ZNSt6vectorIN4date6detail10transitionESaIS2_EE7reserveEm.exit.i ]
+  %0 = phi ptr [ %ref.tmp.sroa.8.0145, %for.inc.i ], [ %call5.i.i.i.i3.i, %_ZNSt6vectorIN4date6detail10transitionESaIS2_EE7reserveEm.exit.i ]
   %i.015.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %_ZNSt6vectorIN4date6detail10transitionESaIS2_EE7reserveEm.exit.i ]
   %call.i = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %inf, ptr noundef nonnull %t.i, i64 noundef 4)
           to label %invoke.cont2.i unwind label %lpad.loopexit.i, !noalias !18
@@ -1952,7 +1952,7 @@ invoke.cont9.i.thread:                            ; preds = %invoke.cont2.i
   store i64 %conv.i.i, ptr %0, align 8, !noalias !18
   %info.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %info.i.i.i.i.i, align 8, !noalias !18
-  %ref.tmp.sroa.8.0129 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %ref.tmp.sroa.8.0142 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %for.inc.i
 
 if.else.i.i:                                      ; preds = %invoke.cont2.i
@@ -2040,17 +2040,17 @@ common.resume:                                    ; preds = %common.resume.sink.
   resume { ptr, i32 } %common.resume.op
 
 for.inc.i:                                        ; preds = %invoke.cont9.i.thread, %if.then.i, %invoke.cont9.i
-  %ref.tmp.sroa.8.0132 = phi ptr [ %ref.tmp.sroa.8.0129, %invoke.cont9.i.thread ], [ %ref.tmp.sroa.8.0, %if.then.i ], [ %ref.tmp.sroa.8.0, %invoke.cont9.i ]
-  %ref.tmp.sroa.0.1131 = phi ptr [ %ref.tmp.sroa.0.0, %invoke.cont9.i.thread ], [ %call5.i.i.i.i.i4.i, %if.then.i ], [ %call5.i.i.i.i.i4.i, %invoke.cont9.i ]
-  %ref.tmp.sroa.12.1130 = phi ptr [ %ref.tmp.sroa.12.0, %invoke.cont9.i.thread ], [ %add.ptr26.i.i.i, %if.then.i ], [ %add.ptr26.i.i.i, %invoke.cont9.i ]
+  %ref.tmp.sroa.8.0145 = phi ptr [ %ref.tmp.sroa.8.0142, %invoke.cont9.i.thread ], [ %ref.tmp.sroa.8.0, %if.then.i ], [ %ref.tmp.sroa.8.0, %invoke.cont9.i ]
+  %ref.tmp.sroa.0.1144 = phi ptr [ %ref.tmp.sroa.0.0, %invoke.cont9.i.thread ], [ %call5.i.i.i.i.i4.i, %if.then.i ], [ %call5.i.i.i.i.i4.i, %invoke.cont9.i ]
+  %ref.tmp.sroa.12.1143 = phi ptr [ %ref.tmp.sroa.12.0, %invoke.cont9.i.thread ], [ %add.ptr26.i.i.i, %if.then.i ], [ %add.ptr26.i.i.i, %invoke.cont9.i ]
   %inc.i = add nuw nsw i32 %i.015.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %tzh_timecnt
   br i1 %exitcond.not.i, label %_ZN4dateL16load_transitionsIiEESt6vectorINS_6detail10transitionESaIS3_EERSii.exit, label %for.body.i, !llvm.loop !26
 
 _ZN4dateL16load_transitionsIiEESt6vectorINS_6detail10transitionESaIS3_EERSii.exit: ; preds = %for.inc.i, %entry, %_ZNSt6vectorIN4date6detail10transitionESaIS2_EE7reserveEm.exit.i
-  %ref.tmp.sroa.12.2 = phi ptr [ null, %entry ], [ %add.ptr21.i.i, %_ZNSt6vectorIN4date6detail10transitionESaIS2_EE7reserveEm.exit.i ], [ %ref.tmp.sroa.12.1130, %for.inc.i ]
-  %ref.tmp.sroa.8.1 = phi ptr [ null, %entry ], [ %call5.i.i.i.i3.i, %_ZNSt6vectorIN4date6detail10transitionESaIS2_EE7reserveEm.exit.i ], [ %ref.tmp.sroa.8.0132, %for.inc.i ]
-  %ref.tmp.sroa.0.2 = phi ptr [ null, %entry ], [ %call5.i.i.i.i3.i, %_ZNSt6vectorIN4date6detail10transitionESaIS2_EE7reserveEm.exit.i ], [ %ref.tmp.sroa.0.1131, %for.inc.i ]
+  %ref.tmp.sroa.12.2 = phi ptr [ null, %entry ], [ %add.ptr21.i.i, %_ZNSt6vectorIN4date6detail10transitionESaIS2_EE7reserveEm.exit.i ], [ %ref.tmp.sroa.12.1143, %for.inc.i ]
+  %ref.tmp.sroa.8.1 = phi ptr [ null, %entry ], [ %call5.i.i.i.i3.i, %_ZNSt6vectorIN4date6detail10transitionESaIS2_EE7reserveEm.exit.i ], [ %ref.tmp.sroa.8.0145, %for.inc.i ]
+  %ref.tmp.sroa.0.2 = phi ptr [ null, %entry ], [ %call5.i.i.i.i3.i, %_ZNSt6vectorIN4date6detail10transitionESaIS2_EE7reserveEm.exit.i ], [ %ref.tmp.sroa.0.1144, %for.inc.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %t.i)
   %transitions_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load ptr, ptr %transitions_, align 8

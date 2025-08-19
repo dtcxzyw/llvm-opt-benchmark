@@ -247,9 +247,9 @@ define dso_local void @sha256_final(ptr noundef captures(none) %0, ptr noundef w
 .lr.ph74.preheader:                               ; preds = %8
   %9 = getelementptr i8, ptr %0, i64 %6
   %scevgep77 = getelementptr i8, ptr %9, i64 1
-  %narrow = sub nsw i32 55, %4
+  %narrow = sub nuw nsw i32 55, %4
   %10 = zext nneg i32 %narrow to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep77, i8 0, i64 %10, i1 false), !tbaa !9
+  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep77, i8 0, i64 %10, i1 false), !tbaa !9
   br label %.loopexit
 
 11:                                               ; preds = %2

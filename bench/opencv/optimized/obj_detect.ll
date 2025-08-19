@@ -740,8 +740,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   store ptr %260, ptr %258, align 8, !tbaa !22
   %261 = load ptr, ptr %30, align 8, !tbaa !25
   %262 = icmp eq ptr %261, %255
-  %spec.store.select484 = select i1 %262, ptr %260, ptr %261
-  store ptr %spec.store.select484, ptr %258, align 8
+  %spec.store.select549 = select i1 %262, ptr %260, ptr %261
+  store ptr %spec.store.select549, ptr %258, align 8
   %263 = load i64, ptr %255, align 8
   store i64 %263, ptr %260, align 8
   %264 = getelementptr inbounds nuw i8, ptr %258, i64 8

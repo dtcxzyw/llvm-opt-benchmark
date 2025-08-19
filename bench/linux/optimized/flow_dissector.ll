@@ -1174,10 +1174,10 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 282:                                              ; preds = %.backedge, %244
   %283 = phi i16 [ %63, %244 ], [ %.be, %.backedge ]
-  %284 = phi i32 [ %64, %244 ], [ %.be259, %.backedge ]
+  %284 = phi i32 [ %64, %244 ], [ %.be301, %.backedge ]
   %285 = phi i8 [ 0, %244 ], [ %803, %.backedge ]
-  %286 = phi i32 [ 0, %244 ], [ %.be261, %.backedge ]
-  %287 = phi i8 [ 0, %244 ], [ %.be262, %.backedge ]
+  %286 = phi i32 [ 0, %244 ], [ %.be303, %.backedge ]
+  %287 = phi i8 [ 0, %244 ], [ %.be304, %.backedge ]
   %288 = phi i32 [ 0, %244 ], [ %805, %.backedge ]
   %289 = phi i32 [ 33, %244 ], [ %806, %.backedge ]
   switch i16 %283, label %.thread110 [
@@ -2177,9 +2177,9 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %842 = and i16 %829, 32
   %843 = icmp eq i16 %842, 0
   %844 = or i1 %843, %841
-  br i1 %844, label %.thread113, label %.thread212
+  br i1 %844, label %.thread113, label %.thread254
 
-.thread212:                                       ; preds = %840
+.thread254:                                       ; preds = %840
   %845 = and i16 %829, 128
   %846 = icmp eq i16 %845, 0
   %847 = select i1 %846, i32 4, i32 8
@@ -2191,17 +2191,17 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %850 = and i16 %829, 128
   %851 = icmp eq i16 %850, 0
   %852 = select i1 %851, i32 4, i32 8
-  br i1 %849, label %.thread214, label %857
+  br i1 %849, label %.thread256, label %857
 
-.thread214:                                       ; preds = %848
+.thread256:                                       ; preds = %848
   %853 = lshr i16 %829, 2
   %854 = and i16 %853, 4
   %855 = zext nneg i16 %854 to i32
   %856 = add nuw nsw i32 %852, %855
   br label %887
 
-857:                                              ; preds = %.thread212, %848
-  %858 = phi i32 [ %847, %.thread212 ], [ %852, %848 ]
+857:                                              ; preds = %.thread254, %848
+  %858 = phi i32 [ %847, %.thread254 ], [ %852, %848 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 0, ptr %17, align 4, !annotation !19
   %859 = add i32 %858, %813
@@ -2254,8 +2254,8 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %886 = add nuw nsw i32 %882, %885
   br i1 %839, label %887, label %906
 
-887:                                              ; preds = %.thread214, %881
-  %888 = phi i32 [ %856, %.thread214 ], [ %886, %881 ]
+887:                                              ; preds = %.thread256, %881
+  %888 = phi i32 [ %856, %.thread256 ], [ %886, %881 ]
   %889 = icmp eq i16 %838, 22629
   br i1 %889, label %890, label %936
 
@@ -2805,12 +2805,12 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1166, %1165, %1169, %.thread164
-  %.ph233 = phi i32 [ %1174, %.thread164 ], [ 0, %1169 ], [ 0, %1165 ], [ 0, %1166 ]
+  %.ph275 = phi i32 [ %1174, %.thread164 ], [ 0, %1169 ], [ 0, %1165 ], [ 0, %1166 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %1175
 
 1175:                                             ; preds = %.sink.split, %1158
-  %1176 = phi i32 [ 0, %1158 ], [ %.ph233, %.sink.split ]
+  %1176 = phi i32 [ 0, %1158 ], [ %.ph275, %.sink.split ]
   store i32 %1176, ptr %1147, align 4
   br label %1177
 
@@ -2829,9 +2829,9 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 .backedge:                                        ; preds = %1178, %808
   %.be = phi i16 [ %1126, %1178 ], [ %801, %808 ]
-  %.be259 = phi i32 [ %1127, %1178 ], [ %802, %808 ]
-  %.be261 = phi i32 [ %1179, %1178 ], [ %809, %808 ]
-  %.be262 = phi i8 [ %1128, %1178 ], [ %804, %808 ]
+  %.be301 = phi i32 [ %1127, %1178 ], [ %802, %808 ]
+  %.be303 = phi i32 [ %1179, %1178 ], [ %809, %808 ]
+  %.be304 = phi i8 [ %1128, %1178 ], [ %804, %808 ]
   br label %282
 
 1181:                                             ; preds = %1177

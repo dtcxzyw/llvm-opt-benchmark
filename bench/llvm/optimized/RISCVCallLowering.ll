@@ -403,8 +403,8 @@ define internal fastcc noundef zeroext i1 @_ZL21isSupportedReturnTypePN4llvm4Typ
   %10 = icmp ult i8 %trunc.i.i, 6
   %switch.shifted = lshr i8 47, %trunc.i.i
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond76 = select i1 %10, i1 %switch.lobit, i1 false
-  br i1 %or.cond76, label %.critedge, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit
+  %or.cond79 = select i1 %10, i1 %switch.lobit, i1 false
+  br i1 %or.cond79, label %.critedge, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit:         ; preds = %.lr.ph
   %11 = and i32 %9, 253
@@ -448,8 +448,8 @@ tailrecurse:                                      ; preds = %13
   %30 = tail call fastcc noundef zeroext i1 @_ZL21isSupportedReturnTypePN4llvm4TypeERKNS_14RISCVSubtargetEb(ptr noundef %29, ptr noundef nonnull align 8 dereferenceable(413544) %1, i1 noundef zeroext false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp ne i64 %indvars.iv.next, %25
-  %or.cond75.not = select i1 %30, i1 %.not, i1 false
-  br i1 %or.cond75.not, label %26, label %.critedge, !llvm.loop !258
+  %or.cond78.not = select i1 %30, i1 %.not, i1 false
+  br i1 %or.cond78.not, label %26, label %.critedge, !llvm.loop !258
 
 31:                                               ; preds = %13
   %32 = getelementptr inbounds nuw i8, ptr %.tr41, i64 8
@@ -1752,7 +1752,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   %155 = getelementptr inbounds nuw i8, ptr %2, i64 5652
   %156 = load i8, ptr %155, align 4, !tbaa !558, !range !91, !noundef !92
   %157 = trunc nuw i8 %156 to i1
-  br i1 %157, label %158, label %.thread124
+  br i1 %157, label %158, label %.thread138
 
 158:                                              ; preds = %154
   %159 = load ptr, ptr %48, align 8, !tbaa !262
@@ -1875,9 +1875,9 @@ _ZN4llvm11SmallVectorINS_12CallLowering7ArgInfoELj4EED2Ev.exit: ; preds = %_ZN4l
 207:                                              ; preds = %_ZN4llvm11SmallVectorINS_12CallLowering7ArgInfoELj4EED2Ev.exit
   %.pre = load i8, ptr %155, align 4, !tbaa !558, !range !91
   %208 = trunc nuw i8 %.pre to i1
-  br i1 %208, label %.thread, label %.thread124
+  br i1 %208, label %.thread, label %.thread138
 
-.thread124:                                       ; preds = %154, %207
+.thread138:                                       ; preds = %154, %207
   %209 = load ptr, ptr %48, align 8, !tbaa !262
   %210 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %211 = load ptr, ptr %210, align 8, !tbaa !224
@@ -1891,8 +1891,8 @@ _ZN4llvm11SmallVectorINS_12CallLowering7ArgInfoELj4EED2Ev.exit: ; preds = %_ZN4l
   call void @_ZNK4llvm12CallLowering15insertSRetLoadsERNS_16MachineIRBuilderEPNS_4TypeENS_8ArrayRefINS_8RegisterEEES6_i(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef %209, ptr %211, i64 %214, i32 %.sroa.0.0.copyload, i32 noundef %217) #16
   br label %.thread
 
-.thread:                                          ; preds = %158, %207, %.thread124, %84, %_ZN4llvm11SmallVectorINS_12CallLowering7ArgInfoELj4EED2Ev.exit
-  %.4 = phi i1 [ false, %_ZN4llvm11SmallVectorINS_12CallLowering7ArgInfoELj4EED2Ev.exit ], [ false, %84 ], [ true, %.thread124 ], [ true, %207 ], [ true, %158 ]
+.thread:                                          ; preds = %158, %207, %.thread138, %84, %_ZN4llvm11SmallVectorINS_12CallLowering7ArgInfoELj4EED2Ev.exit
+  %.4 = phi i1 [ false, %_ZN4llvm11SmallVectorINS_12CallLowering7ArgInfoELj4EED2Ev.exit ], [ false, %84 ], [ true, %.thread138 ], [ true, %207 ], [ true, %158 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %218 = load ptr, ptr %10, align 8, !tbaa !224

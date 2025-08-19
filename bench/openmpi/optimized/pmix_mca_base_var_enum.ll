@@ -391,21 +391,21 @@ define internal range(i32 -46, 1) i32 @pmix_mca_base_var_enum_verbose_vfs(ptr re
 .lr.ph.preheader:                                 ; preds = %.preheader
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %6) #22
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.lr.ph._crit_edge, label %.lr.ph28
+  br i1 %12, label %.lr.ph._crit_edge, label %.lr.ph29
 
-.lr.ph28:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv27 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv27, 1
+.lr.ph29:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv28 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv28, 1
   %13 = getelementptr inbounds nuw [9 x %struct.pmix_mca_base_var_enum_value_t], ptr @verbose_values, i64 0, i64 %indvars.iv.next
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !23
   %.not19 = icmp eq ptr %15, null
   br i1 %.not19, label %.loopexit, label %.lr.ph, !llvm.loop !44
 
-.lr.ph:                                           ; preds = %.lr.ph28
+.lr.ph:                                           ; preds = %.lr.ph29
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %6) #22
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %.lr.ph._crit_edge, label %.lr.ph28, !llvm.loop !44
+  br i1 %17, label %.lr.ph._crit_edge, label %.lr.ph29, !llvm.loop !44
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ @verbose_values, %.lr.ph.preheader ], [ %13, %.lr.ph ]
@@ -423,8 +423,8 @@ define internal range(i32 -46, 1) i32 @pmix_mca_base_var_enum_verbose_vfs(ptr re
   store i32 %.sink, ptr %2, align 4, !tbaa !40
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph28, %.loopexit.sink.split, %.preheader
-  %.1 = phi i32 [ -46, %.preheader ], [ 0, %.loopexit.sink.split ], [ -46, %.lr.ph28 ]
+.loopexit:                                        ; preds = %.lr.ph29, %.loopexit.sink.split, %.preheader
+  %.1 = phi i32 [ -46, %.preheader ], [ 0, %.loopexit.sink.split ], [ -46, %.lr.ph29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }
@@ -442,21 +442,21 @@ define internal range(i32 -65, 1) i32 @pmix_mca_base_var_enum_verbose_sfv(ptr re
 .lr.ph.preheader:                                 ; preds = %.preheader
   %5 = load i32, ptr @verbose_values, align 16, !tbaa !43
   %6 = icmp eq i32 %5, %1
-  br i1 %6, label %.lr.ph._crit_edge, label %.lr.ph28
+  br i1 %6, label %.lr.ph._crit_edge, label %.lr.ph31
 
-.lr.ph28:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv27 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv27, 1
+.lr.ph31:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv30 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv30, 1
   %7 = getelementptr inbounds nuw [9 x %struct.pmix_mca_base_var_enum_value_t], ptr @verbose_values, i64 0, i64 %indvars.iv.next
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !23
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !45
 
-.lr.ph:                                           ; preds = %.lr.ph28
+.lr.ph:                                           ; preds = %.lr.ph31
   %10 = load i32, ptr %7, align 16, !tbaa !43
   %11 = icmp eq i32 %10, %1
-  br i1 %11, label %.lr.ph._crit_edge, label %.lr.ph28, !llvm.loop !45
+  br i1 %11, label %.lr.ph._crit_edge, label %.lr.ph31, !llvm.loop !45
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %4, %.lr.ph.preheader ], [ %9, %.lr.ph ]
@@ -464,7 +464,7 @@ define internal range(i32 -65, 1) i32 @pmix_mca_base_var_enum_verbose_sfv(ptr re
   store ptr %12, ptr %2, align 8, !tbaa !41
   br label %17
 
-.critedge:                                        ; preds = %.lr.ph28, %.preheader
+.critedge:                                        ; preds = %.lr.ph31, %.preheader
   %.not19 = icmp eq ptr %2, null
   br i1 %.not19, label %16, label %13
 
@@ -1010,7 +1010,7 @@ define internal i32 @enum_value_from_string(ptr noundef %0, ptr noundef %1, ptr 
   %29 = load ptr, ptr %28, align 8, !tbaa !23
   %30 = call i32 @strcasecmp(ptr noundef %1, ptr noundef %29) #22
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %._crit_edge.loopexit42, label %32
+  br i1 %31, label %._crit_edge.loopexit44, label %32
 
 32:                                               ; preds = %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1021,12 +1021,12 @@ define internal i32 @enum_value_from_string(ptr noundef %0, ptr noundef %1, ptr 
   %33 = trunc nuw nsw i64 %indvars.iv36 to i32
   br label %._crit_edge
 
-._crit_edge.loopexit42:                           ; preds = %.lr.ph.split
+._crit_edge.loopexit44:                           ; preds = %.lr.ph.split
   %34 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit42, %._crit_edge.loopexit, %9
-  %.018.lcssa = phi i32 [ 0, %9 ], [ %33, %._crit_edge.loopexit ], [ %34, %._crit_edge.loopexit42 ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit44, %._crit_edge.loopexit, %9
+  %.018.lcssa = phi i32 [ 0, %9 ], [ %33, %._crit_edge.loopexit ], [ %34, %._crit_edge.loopexit44 ]
   %35 = icmp eq i32 %.018.lcssa, %13
   br i1 %35, label %._crit_edge.thread, label %36
 

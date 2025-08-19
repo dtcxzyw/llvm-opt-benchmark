@@ -212,7 +212,7 @@ overlay_update_local_references.exit.thread:      ; preds = %23, %overlay_update
   br label %99
 
 .thread68.i.i:                                    ; preds = %95, %92, %90, %87, %81
-  %.0.i.ph.i.i = phi i32 [ %93, %95 ], [ -16, %92 ], [ -1, %90 ], [ %88, %87 ], [ %31, %81 ]
+  %.0.i.ph.i.i = phi i32 [ %93, %95 ], [ -16, %92 ], [ -1, %90 ], [ %88, %87 ], [ -1, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %overlay_fixup_phandle.exit.thread.sink.split.i

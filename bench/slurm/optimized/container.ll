@@ -204,12 +204,12 @@ define internal fastcc ptr @_generate_spooldir(ptr noundef readonly captures(non
   %8 = load i32, ptr %7, align 8
   %switch.selectcmp = icmp eq i32 %8, -6
   %switch.select = select i1 %switch.selectcmp, ptr @.str.21, ptr @.str.22
-  %switch.selectcmp48 = icmp eq i32 %8, -5
-  %switch.select49 = select i1 %switch.selectcmp48, ptr @.str.20, ptr %switch.select
+  %switch.selectcmp51 = icmp eq i32 %8, -5
+  %switch.select52 = select i1 %switch.selectcmp51, ptr @.str.20, ptr %switch.select
   br label %9
 
 9:                                                ; preds = %6, %2
-  %.str.20.sink = phi ptr [ %5, %2 ], [ %switch.select49, %6 ]
+  %.str.20.sink = phi ptr [ %5, %2 ], [ %switch.select52, %6 ]
   %10 = tail call ptr @xstrdup(ptr noundef nonnull %.str.20.sink) #9
   store ptr %10, ptr %3, align 8
   %.not33 = icmp eq ptr %1, null
@@ -2343,8 +2343,8 @@ define internal fastcc ptr @_get_container_status() unnamed_addr #0 {
   %15 = icmp slt i32 %14, 7
   %16 = load ptr, ptr @query_argv, align 16
   %.not6.i.i = icmp eq ptr %16, null
-  %or.cond5.i = select i1 %15, i1 true, i1 %.not6.i.i
-  br i1 %or.cond5.i, label %_dump_command_args.exit.i, label %.lr.ph.i.i
+  %or.cond6.i = select i1 %15, i1 true, i1 %.not6.i.i
+  br i1 %or.cond6.i, label %_dump_command_args.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %0, %23
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %23 ], [ 0, %0 ]

@@ -249,11 +249,11 @@ define dso_local range(i32 -2147483648, 1) i32 @wait_for_random_bytes() #0 align
   br label %.thread4
 
 .thread4.loopexit:                                ; preds = %26
-  %extract.t27 = trunc i64 %14 to i32
+  %extract.t28 = trunc i64 %14 to i32
   br label %.thread4
 
 .thread4:                                         ; preds = %.thread4.loopexit, %30
-  %.sink.off0 = phi i32 [ %extract.t, %30 ], [ %extract.t27, %.thread4.loopexit ]
+  %.sink.off0 = phi i32 [ %extract.t, %30 ], [ %extract.t28, %.thread4.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %31 = icmp eq i32 %.sink.off0, 0
   br i1 %31, label %2, label %.thread.split.loop.exit15

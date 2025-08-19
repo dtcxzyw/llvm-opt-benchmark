@@ -2754,18 +2754,18 @@ define internal fastcc i32 @dissect_kafka_stop_replica_request(ptr noundef %0, p
   br label %49
 
 49:                                               ; preds = %41, %47, %35
-  %.sink86 = phi i32 [ %40, %35 ], [ %48, %47 ], [ %46, %41 ]
+  %.sink87 = phi i32 [ %40, %35 ], [ %48, %47 ], [ %46, %41 ]
   %50 = load ptr, ptr %6, align 8
-  call void @proto_item_set_end(ptr noundef %50, ptr noundef %0, i32 noundef %.sink86)
+  call void @proto_item_set_end(ptr noundef %50, ptr noundef %0, i32 noundef %.sink87)
   %51 = icmp sgt i16 %4, 1
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %49
-  %53 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.sink86)
+  %53 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.sink87)
   br label %54
 
 54:                                               ; preds = %.thread84, %52, %49
-  %.5 = phi i32 [ %53, %52 ], [ %.sink86, %49 ], [ %33, %.thread84 ]
+  %.5 = phi i32 [ %53, %52 ], [ %.sink87, %49 ], [ %33, %.thread84 ]
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %56 = load ptr, ptr %55, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %56, i32 noundef 25, ptr noundef nonnull @.str.677, i32 noundef %7)
@@ -4354,9 +4354,9 @@ dissect_kafka_error.exit:                         ; preds = %5, %9
   %or.cond = icmp ult i16 %4, 5
   %15 = icmp sgt i16 %4, 3
   %16 = icmp eq i16 %4, 4
-  %.sink26 = select i1 %or.cond, i1 %16, i1 %15
+  %.sink29 = select i1 %or.cond, i1 %16, i1 %15
   %dissect_kafka_leader_and_isr_response_topic_state.sink = select i1 %or.cond, ptr @dissect_kafka_leader_and_isr_response_partition, ptr @dissect_kafka_leader_and_isr_response_topic_state
-  %17 = zext i1 %.sink26 to i32
+  %17 = zext i1 %.sink29 to i32
   %18 = tail call fastcc i32 @dissect_kafka_array(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %14, i32 noundef %17, i16 noundef signext %4, ptr noundef nonnull %dissect_kafka_leader_and_isr_response_topic_state.sink, ptr noundef null)
   %19 = icmp sgt i16 %4, 3
   br i1 %19, label %20, label %22
@@ -7032,11 +7032,11 @@ dissect_kafka_message.exit:                       ; preds = %dissect_kafka_messa
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %40, %49, %336, %._crit_edge
-  %.0.lcssa38 = phi i32 [ %.0.lcssa, %336 ], [ %.0.lcssa, %._crit_edge ], [ %27, %49 ], [ %27, %40 ]
+  %.0.lcssa62 = phi i32 [ %.0.lcssa, %336 ], [ %.0.lcssa, %._crit_edge ], [ %27, %49 ], [ %27, %40 ]
   %339 = load ptr, ptr %26, align 8
-  call void @proto_item_set_end(ptr noundef %339, ptr noundef %0, i32 noundef %.0.lcssa38)
+  call void @proto_item_set_end(ptr noundef %339, ptr noundef %0, i32 noundef %.0.lcssa62)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  ret i32 %.0.lcssa38
+  ret i32 %.0.lcssa62
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -12101,8 +12101,8 @@ kafka_is_api_version_supported.exit:              ; preds = %41
   %49 = icmp slt i16 %17, %43
   %.not72 = icmp sgt i16 %17, %47
   %50 = or i1 %49, %.not72
-  %or.cond76 = select i1 %48, i1 true, i1 %50
-  br i1 %or.cond76, label %.thread, label %71
+  %or.cond83 = select i1 %48, i1 true, i1 %50
+  br i1 %or.cond83, label %.thread, label %71
 
 51:                                               ; preds = %41
   br i1 %44, label %52, label %..thread_crit_edge

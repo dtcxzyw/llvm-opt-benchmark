@@ -144,7 +144,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110DigitValueEc.exit.i: ; preds = %56, 
   br i1 %59, label %.critedge, label %60
 
 60:                                               ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110DigitValueEc.exit.i
-  %61 = zext i32 %45 to i64
+  %61 = zext nneg i32 %45 to i64
   %62 = zext nneg i32 %.0.i.i to i64
   %63 = mul i64 %.02548.i, %62
   %64 = add i64 %63, %61
@@ -170,7 +170,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110DigitValueEc.exit.i: ; preds = %56, 
   br i1 %.not.not.i, label %.critedge, label %43, !llvm.loop !18
 
 _ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit: ; preds = %66
-  %74 = sub i32 %67, %.073101
+  %74 = sub nsw i32 %67, %.073101
   %75 = icmp eq i32 %.073101, 0
   %76 = select i1 %75, i32 700, i32 2
   %77 = udiv i32 %74, %76

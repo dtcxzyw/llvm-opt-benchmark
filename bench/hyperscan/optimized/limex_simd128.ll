@@ -4815,7 +4815,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLimEx128_QR(ptr noundef %0, ptr 
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %7, %9
-  %.sroa.0.8.gep164.sroa_idx165 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
+  %.sroa.0.8.gep174.sroa_idx175 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
   br i1 %10, label %290, label %11
 
 11:                                               ; preds = %3
@@ -5262,8 +5262,8 @@ lazyTug128.exit:                                  ; preds = %repeatHasMatch.exit
   %255 = getelementptr inbounds nuw i8, ptr %5, i64 %254
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   store <2 x i64> %185, ptr %.sroa.0, align 16
-  %.sroa.0168.0.vec.extract = extractelement <2 x i64> %.295, i64 0
-  %.sroa.0168.8.vec.extract = extractelement <2 x i64> %.295, i64 1
+  %.sroa.0178.0.vec.extract = extractelement <2 x i64> %.295, i64 0
+  %.sroa.0178.8.vec.extract = extractelement <2 x i64> %.295, i64 1
   br label %256
 
 .thread110:                                       ; preds = %.thread
@@ -5272,10 +5272,10 @@ lazyTug128.exit:                                  ; preds = %repeatHasMatch.exit
 
 256:                                              ; preds = %lazyTug128.exit, %.thread
   %.not138 = phi i1 [ true, %lazyTug128.exit ], [ false, %.thread ]
-  %indvars.iv146.sroa.phi = phi ptr [ %.sroa.0, %lazyTug128.exit ], [ %.sroa.0.8.gep164.sroa_idx165, %.thread ]
-  %indvars.iv146.sroa.phi166.sroa.speculated = phi i64 [ %.sroa.0168.0.vec.extract, %lazyTug128.exit ], [ %.sroa.0168.8.vec.extract, %.thread ]
+  %indvars.iv146.sroa.phi = phi ptr [ %.sroa.0, %lazyTug128.exit ], [ %.sroa.0.8.gep174.sroa_idx175, %.thread ]
+  %indvars.iv146.sroa.phi176.sroa.speculated = phi i64 [ %.sroa.0178.0.vec.extract, %lazyTug128.exit ], [ %.sroa.0178.8.vec.extract, %.thread ]
   %.031.i133 = phi i32 [ 0, %lazyTug128.exit ], [ %284, %.thread ]
-  %.not35.i72128 = icmp eq i64 %indvars.iv146.sroa.phi166.sroa.speculated, 0
+  %.not35.i72128 = icmp eq i64 %indvars.iv146.sroa.phi176.sroa.speculated, 0
   br i1 %.not35.i72128, label %..thread_crit_edge, label %.lr.ph131
 
 ..thread_crit_edge:                               ; preds = %256
@@ -5283,7 +5283,7 @@ lazyTug128.exit:                                  ; preds = %repeatHasMatch.exit
   br label %.thread
 
 .lr.ph131:                                        ; preds = %256, %.critedge.backedge
-  %.092129 = phi i64 [ %259, %.critedge.backedge ], [ %indvars.iv146.sroa.phi166.sroa.speculated, %256 ]
+  %.092129 = phi i64 [ %259, %.critedge.backedge ], [ %indvars.iv146.sroa.phi176.sroa.speculated, %256 ]
   %257 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.092129) #12, !srcloc !7
   %258 = extractvalue { i64, i64 } %257, 0
   %259 = extractvalue { i64, i64 } %257, 1
@@ -7543,7 +7543,7 @@ limexRunReports.exit.i99:                         ; preds = %173, %167
 
 .thread:                                          ; preds = %179, %limexRunReports.exit.i99, %151
   %.sroa.4118.6 = phi ptr [ %.sroa.4118.3, %151 ], [ %.sroa.4118.3, %limexRunReports.exit.i99 ], [ %spec.select, %179 ]
-  %.3134 = phi i32 [ %.1132, %151 ], [ %.1132, %limexRunReports.exit.i99 ], [ %spec.select194, %179 ]
+  %.3134 = phi i32 [ %.1132, %151 ], [ 0, %limexRunReports.exit.i99 ], [ %spec.select194, %179 ]
   %181 = getelementptr inbounds nuw i8, ptr %164, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %181, i64 16) ]
   %182 = load <2 x i64>, ptr %181, align 16
@@ -7680,7 +7680,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx128_inAccept(ptr noundef %0
   %30 = icmp ne <16 x i8> %29, zeroinitializer
   %31 = bitcast <16 x i1> %30 to i16
   %.not = icmp eq i16 %31, 0
-  %.sroa.0.8.gep68.sroa_idx69 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
+  %.sroa.0.8.gep71.sroa_idx72 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
   br i1 %.not, label %limexInAccept128.exit, label %32
 
 32:                                               ; preds = %3
@@ -7807,16 +7807,16 @@ lazyTug128.exit:                                  ; preds = %repeatHasMatch.exit
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 %97
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   store <2 x i64> %27, ptr %.sroa.0, align 16
-  %.sroa.072.0.vec.extract = extractelement <2 x i64> %.2, i64 0
-  %.sroa.072.8.vec.extract = extractelement <2 x i64> %.2, i64 1
+  %.sroa.075.0.vec.extract = extractelement <2 x i64> %.2, i64 0
+  %.sroa.075.8.vec.extract = extractelement <2 x i64> %.2, i64 1
   br label %99
 
 99:                                               ; preds = %lazyTug128.exit, %.thread
   %100 = phi i1 [ true, %lazyTug128.exit ], [ false, %.thread ]
-  %indvars.iv52.sroa.phi = phi ptr [ %.sroa.0, %lazyTug128.exit ], [ %.sroa.0.8.gep68.sroa_idx69, %.thread ]
-  %indvars.iv52.sroa.phi70.sroa.speculated = phi i64 [ %.sroa.072.0.vec.extract, %lazyTug128.exit ], [ %.sroa.072.8.vec.extract, %.thread ]
+  %indvars.iv52.sroa.phi = phi ptr [ %.sroa.0, %lazyTug128.exit ], [ %.sroa.0.8.gep71.sroa_idx72, %.thread ]
+  %indvars.iv52.sroa.phi73.sroa.speculated = phi i64 [ %.sroa.075.0.vec.extract, %lazyTug128.exit ], [ %.sroa.075.8.vec.extract, %.thread ]
   %.031.i46 = phi i32 [ 0, %lazyTug128.exit ], [ %128, %.thread ]
-  %.not35.i42 = icmp eq i64 %indvars.iv52.sroa.phi70.sroa.speculated, 0
+  %.not35.i42 = icmp eq i64 %indvars.iv52.sroa.phi73.sroa.speculated, 0
   br i1 %.not35.i42, label %..thread_crit_edge, label %.lr.ph44
 
 ..thread_crit_edge:                               ; preds = %99
@@ -7824,7 +7824,7 @@ lazyTug128.exit:                                  ; preds = %repeatHasMatch.exit
   br label %.thread
 
 .lr.ph44:                                         ; preds = %99, %.critedge.backedge
-  %.043 = phi i64 [ %103, %.critedge.backedge ], [ %indvars.iv52.sroa.phi70.sroa.speculated, %99 ]
+  %.043 = phi i64 [ %103, %.critedge.backedge ], [ %indvars.iv52.sroa.phi73.sroa.speculated, %99 ]
   %101 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.043) #12, !srcloc !7
   %102 = extractvalue { i64, i64 } %101, 0
   %103 = extractvalue { i64, i64 } %101, 1
@@ -8218,17 +8218,17 @@ define internal fastcc signext range(i8 0, 2) i8 @moProcessAcceptsNoSquash128(pt
   %6 = and <2 x i64> %.0.val1, %.0.val
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   store <2 x i64> %.0.val1, ptr %.sroa.0, align 16
-  %.sroa.0.8.gep39.sroa_idx40 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
-  %.sroa.043.0.vec.extract = extractelement <2 x i64> %6, i64 0
-  %.sroa.043.8.vec.extract = extractelement <2 x i64> %6, i64 1
+  %.sroa.0.8.gep42.sroa_idx43 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
+  %.sroa.046.0.vec.extract = extractelement <2 x i64> %6, i64 0
+  %.sroa.046.8.vec.extract = extractelement <2 x i64> %6, i64 1
   br label %7
 
 7:                                                ; preds = %5, %.critedge.i.thread
   %8 = phi i1 [ true, %5 ], [ false, %.critedge.i.thread ]
-  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %5 ], [ %.sroa.0.8.gep39.sroa_idx40, %.critedge.i.thread ]
-  %indvars.iv.sroa.phi41.sroa.speculated = phi i64 [ %.sroa.043.0.vec.extract, %5 ], [ %.sroa.043.8.vec.extract, %.critedge.i.thread ]
+  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %5 ], [ %.sroa.0.8.gep42.sroa_idx43, %.critedge.i.thread ]
+  %indvars.iv.sroa.phi44.sroa.speculated = phi i64 [ %.sroa.046.0.vec.extract, %5 ], [ %.sroa.046.8.vec.extract, %.critedge.i.thread ]
   %.033.i23 = phi i32 [ 0, %5 ], [ %37, %.critedge.i.thread ]
-  %.not.i19 = icmp eq i64 %indvars.iv.sroa.phi41.sroa.speculated, 0
+  %.not.i19 = icmp eq i64 %indvars.iv.sroa.phi44.sroa.speculated, 0
   br i1 %.not.i19, label %..critedge.i.thread_crit_edge, label %.lr.ph21
 
 ..critedge.i.thread_crit_edge:                    ; preds = %7
@@ -8236,7 +8236,7 @@ define internal fastcc signext range(i8 0, 2) i8 @moProcessAcceptsNoSquash128(pt
   br label %.critedge.i.thread
 
 .lr.ph21:                                         ; preds = %7, %limexRunAccept.exit.thread6
-  %.020 = phi i64 [ %11, %limexRunAccept.exit.thread6 ], [ %indvars.iv.sroa.phi41.sroa.speculated, %7 ]
+  %.020 = phi i64 [ %11, %limexRunAccept.exit.thread6 ], [ %indvars.iv.sroa.phi44.sroa.speculated, %7 ]
   %9 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.020) #12, !srcloc !7
   %10 = extractvalue { i64, i64 } %9, 0
   %11 = extractvalue { i64, i64 } %9, 1
@@ -8307,17 +8307,17 @@ define internal fastcc signext range(i8 0, 2) i8 @moProcessAccepts128(ptr nounde
   %6 = and <2 x i64> %.0.val1, %.0.val
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   store <2 x i64> %.0.val1, ptr %.sroa.0, align 16
-  %.sroa.0.8.gep45.sroa_idx46 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
-  %.sroa.049.0.vec.extract = extractelement <2 x i64> %6, i64 0
-  %.sroa.049.8.vec.extract = extractelement <2 x i64> %6, i64 1
+  %.sroa.0.8.gep49.sroa_idx50 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
+  %.sroa.053.0.vec.extract = extractelement <2 x i64> %6, i64 0
+  %.sroa.053.8.vec.extract = extractelement <2 x i64> %6, i64 1
   br label %7
 
 7:                                                ; preds = %5, %.critedge.i.thread
   %8 = phi i1 [ true, %5 ], [ false, %.critedge.i.thread ]
-  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %5 ], [ %.sroa.0.8.gep45.sroa_idx46, %.critedge.i.thread ]
-  %indvars.iv.sroa.phi47.sroa.speculated = phi i64 [ %.sroa.049.0.vec.extract, %5 ], [ %.sroa.049.8.vec.extract, %.critedge.i.thread ]
+  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %5 ], [ %.sroa.0.8.gep49.sroa_idx50, %.critedge.i.thread ]
+  %indvars.iv.sroa.phi51.sroa.speculated = phi i64 [ %.sroa.053.0.vec.extract, %5 ], [ %.sroa.053.8.vec.extract, %.critedge.i.thread ]
   %.033.i29 = phi i32 [ 0, %5 ], [ %43, %.critedge.i.thread ]
-  %.not.i23 = icmp eq i64 %indvars.iv.sroa.phi47.sroa.speculated, 0
+  %.not.i23 = icmp eq i64 %indvars.iv.sroa.phi51.sroa.speculated, 0
   br i1 %.not.i23, label %..critedge.i.thread_crit_edge, label %.lr.ph26
 
 ..critedge.i.thread_crit_edge:                    ; preds = %7
@@ -8325,7 +8325,7 @@ define internal fastcc signext range(i8 0, 2) i8 @moProcessAccepts128(ptr nounde
   br label %.critedge.i.thread
 
 .lr.ph26:                                         ; preds = %7, %39
-  %.0524 = phi i64 [ %11, %39 ], [ %indvars.iv.sroa.phi47.sroa.speculated, %7 ]
+  %.0524 = phi i64 [ %11, %39 ], [ %indvars.iv.sroa.phi51.sroa.speculated, %7 ]
   %9 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %.0524) #12, !srcloc !7
   %10 = extractvalue { i64, i64 } %9, 0
   %11 = extractvalue { i64, i64 } %9, 1

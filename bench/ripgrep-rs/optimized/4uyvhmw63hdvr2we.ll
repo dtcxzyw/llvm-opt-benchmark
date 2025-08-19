@@ -1519,7 +1519,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd7e01c9f08bd6f5eE.exit.i: ; preds = %32
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !208
   br label %161
 
-150:                                              ; preds = %.thread89.thread132.i, %.thread89.thread.i, %157, %.thread95.i, %156, %154, %152, %138, %.thread107.i, %58
+150:                                              ; preds = %.thread89.thread140.i, %.thread89.thread.i, %157, %.thread95.i, %156, %154, %152, %138, %.thread107.i, %58
   %151 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #20, !noalias !166
@@ -1554,15 +1554,15 @@ _ZN4core3ops8function6FnOnce9call_once17hd7e01c9f08bd6f5eE.exit.i: ; preds = %32
           to label %.thread89.thread.i unwind label %150, !noalias !128
 
 .thread89.i:                                      ; preds = %58
-  br i1 %.2.i, label %.thread89.thread132.i, label %.critedge
+  br i1 %.2.i, label %.thread89.thread140.i, label %.critedge
 
 .thread89.thread.i:                               ; preds = %157, %44, %.thread92.i
   %.pn63121.i = phi { ptr, i32 } [ %45, %44 ], [ %lpad.thr_comm.i, %.thread92.i ], [ %lpad.thr_comm.split-lp.i, %157 ]
   invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17he4720f19656f708fE"(ptr noalias noundef align 8 dereferenceable(8) %23) #19
-          to label %.thread89.thread132.i unwind label %150, !noalias !128
+          to label %.thread89.thread140.i unwind label %150, !noalias !128
 
-.thread89.thread132.i:                            ; preds = %.thread89.thread.i, %.thread89.i
-  %.pn63120135.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %.thread89.i ], [ %.pn63121.i, %.thread89.thread.i ]
+.thread89.thread140.i:                            ; preds = %.thread89.thread.i, %.thread89.i
+  %.pn63120143.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %.thread89.i ], [ %.pn63121.i, %.thread89.thread.i ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$ignore..walk..Worker$GT$17hc1231999b158dbb4E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %24)
           to label %.critedge unwind label %150, !noalias !166
 
@@ -1600,8 +1600,8 @@ _ZN4core3ops8function6FnOnce9call_once17hd7e01c9f08bd6f5eE.exit.i: ; preds = %32
 163:                                              ; preds = %161, %158
   ret void
 
-.critedge:                                        ; preds = %.thread89.thread132.i, %.thread89.i, %138
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %.thread89.i ], [ %.pn63120135.i, %.thread89.thread132.i ], [ %139, %138 ]
+.critedge:                                        ; preds = %.thread89.thread140.i, %.thread89.i, %138
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %.thread89.i ], [ %.pn63120143.i, %.thread89.thread140.i ], [ %139, %138 ]
   resume { ptr, i32 } %eh.lpad-body
 }
 

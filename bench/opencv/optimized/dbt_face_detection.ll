@@ -300,9 +300,9 @@ _ZNSt12__shared_ptrI22CascadeDetectorAdapterLN9__gnu_cxx12_Lock_policyE2EED2Ev.e
           to label %54 unwind label %69
 
 54:                                               ; preds = %_ZNSt12__shared_ptrI22CascadeDetectorAdapterLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  br i1 %53, label %.thread126, label %71
+  br i1 %53, label %.thread144, label %71
 
-.thread126:                                       ; preds = %54
+.thread144:                                       ; preds = %54
   %55 = load ptr, ptr %7, align 8, !tbaa !12
   %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %55)
   br label %298
@@ -930,7 +930,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit88:   ; preds = %267, %269
   br i1 %.not.i.i89, label %297, label %274
 
 274:                                              ; preds = %.thread, %273
-  %.2124 = phi i32 [ 2, %.thread ], [ %.3, %273 ]
+  %.2142 = phi i32 [ 2, %.thread ], [ %.3, %273 ]
   %275 = phi ptr [ %125, %.thread ], [ %.pre119, %273 ]
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
   %277 = load atomic i64, ptr %276 acquire, align 8
@@ -986,15 +986,15 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i91: ; preds = %292, %29
   br label %.body55
 
 297:                                              ; preds = %295, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i91, %280, %273
-  %.2125 = phi i32 [ %.3, %273 ], [ %.2124, %280 ], [ %.2124, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i91 ], [ %.2124, %295 ]
+  %.2143 = phi i32 [ %.3, %273 ], [ %.2142, %280 ], [ %.2142, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i91 ], [ %.2142, %295 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.pre120 = load ptr, ptr %51, align 8, !tbaa !33
   %.not.i.i94 = icmp eq ptr %.pre120, null
   br i1 %.not.i.i94, label %_ZNSt12__shared_ptrIN2cv21DetectionBasedTracker9IDetectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit98, label %298
 
-298:                                              ; preds = %.thread126, %297
-  %.1129 = phi i32 [ 2, %.thread126 ], [ %.2125, %297 ]
-  %299 = phi ptr [ %46, %.thread126 ], [ %.pre120, %297 ]
+298:                                              ; preds = %.thread144, %297
+  %.1147 = phi i32 [ 2, %.thread144 ], [ %.2143, %297 ]
+  %299 = phi ptr [ %46, %.thread144 ], [ %.pre120, %297 ]
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 8
   %301 = load atomic i64, ptr %300 acquire, align 8
   %302 = icmp eq i64 %301, 4294967297
@@ -1039,7 +1039,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i96: ; preds = %316, %31
   br label %_ZNSt12__shared_ptrIN2cv21DetectionBasedTracker9IDetectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit98
 
 _ZNSt12__shared_ptrIN2cv21DetectionBasedTracker9IDetectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit98: ; preds = %297, %304, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i96, %319
-  %.1130 = phi i32 [ %.2125, %297 ], [ %.1129, %304 ], [ %.1129, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i96 ], [ %.1129, %319 ]
+  %.1148 = phi i32 [ %.2143, %297 ], [ %.1147, %304 ], [ %.1147, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i96 ], [ %.1147, %319 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %320 = load ptr, ptr %45, align 8, !tbaa !33
   %.not.i.i99 = icmp eq ptr %320, null
@@ -1147,7 +1147,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109: ; preds = %_Z
   br label %355
 
 354:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106, %26
-  %.0 = phi i32 [ %.1130, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106 ], [ 1, %26 ]
+  %.0 = phi i32 [ %.1148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106 ], [ 1, %26 ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %6) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0

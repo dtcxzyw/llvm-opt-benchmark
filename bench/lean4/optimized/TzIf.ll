@@ -2044,16 +2044,16 @@ lean_alloc_ctor.exit216:                          ; preds = %lean_alloc_ctor.exi
   unreachable
 
 lean_alloc_ctor.exit198:                          ; preds = %lean_alloc_ctor.exit216, %lean_alloc_ctor.exit196
-  %.sink225 = phi ptr [ %171, %lean_alloc_ctor.exit196 ], [ %284, %lean_alloc_ctor.exit216 ]
+  %.sink266 = phi ptr [ %171, %lean_alloc_ctor.exit196 ], [ %284, %lean_alloc_ctor.exit216 ]
   %.sink = phi ptr [ %165, %lean_alloc_ctor.exit196 ], [ %278, %lean_alloc_ctor.exit216 ]
-  %287 = getelementptr inbounds nuw i8, ptr %.sink225, i64 4
-  %288 = getelementptr inbounds nuw i8, ptr %.sink225, i64 16
+  %287 = getelementptr inbounds nuw i8, ptr %.sink266, i64 4
+  %288 = getelementptr inbounds nuw i8, ptr %.sink266, i64 16
   store i64 0, ptr %288, align 8, !tbaa !12
-  store i32 1, ptr %.sink225, align 8, !tbaa !7
+  store i32 1, ptr %.sink266, align 8, !tbaa !7
   store i32 100728856, ptr %287, align 4
-  %289 = getelementptr inbounds nuw i8, ptr %.sink225, i64 8
+  %289 = getelementptr inbounds nuw i8, ptr %.sink266, i64 8
   store ptr %.sink, ptr %289, align 8, !tbaa !10
-  ret ptr %.sink225
+  ret ptr %.sink266
 }
 
 declare ptr @l_Bool_repr(i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
@@ -2600,16 +2600,16 @@ lean_alloc_ctor.exit146:                          ; preds = %lean_alloc_ctor.exi
   unreachable
 
 lean_alloc_ctor.exit138:                          ; preds = %lean_alloc_ctor.exit146, %lean_alloc_ctor.exit136
-  %.sink155 = phi ptr [ %139, %lean_alloc_ctor.exit136 ], [ %187, %lean_alloc_ctor.exit146 ]
+  %.sink179 = phi ptr [ %139, %lean_alloc_ctor.exit136 ], [ %187, %lean_alloc_ctor.exit146 ]
   %.sink = phi ptr [ %133, %lean_alloc_ctor.exit136 ], [ %181, %lean_alloc_ctor.exit146 ]
-  %190 = getelementptr inbounds nuw i8, ptr %.sink155, i64 4
-  %191 = getelementptr inbounds nuw i8, ptr %.sink155, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %.sink179, i64 4
+  %191 = getelementptr inbounds nuw i8, ptr %.sink179, i64 16
   store i64 0, ptr %191, align 8, !tbaa !12
-  store i32 1, ptr %.sink155, align 8, !tbaa !7
+  store i32 1, ptr %.sink179, align 8, !tbaa !7
   store i32 100728856, ptr %190, align 4
-  %192 = getelementptr inbounds nuw i8, ptr %.sink155, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %.sink179, i64 8
   store ptr %.sink, ptr %192, align 8, !tbaa !10
-  ret ptr %.sink155
+  ret ptr %.sink179
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2745,7 +2745,7 @@ define noundef ptr @l_List_foldl___at___private_Std_Time_Zoned_Database_TzIf_0__
 
 6:                                                ; preds = %lean_alloc_ctor.exit, %3
   %.038 = phi ptr [ %2, %3 ], [ %29, %lean_alloc_ctor.exit ]
-  %.0 = phi ptr [ %1, %3 ], [ %.sink88, %lean_alloc_ctor.exit ]
+  %.0 = phi ptr [ %1, %3 ], [ %.sink99, %lean_alloc_ctor.exit ]
   %7 = ptrtoint ptr %.038 to i64
   %8 = and i64 %7, 1
   %.not.i52 = icmp eq i64 %8, 0
@@ -3003,15 +3003,15 @@ lean_dec.exit:                                    ; preds = %97, %96, %94, %lean
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit, %lean_dec.exit41
-  %.sink88 = phi ptr [ %51, %lean_dec.exit41 ], [ %98, %lean_dec.exit ]
-  %.sink83 = phi ptr [ %.038, %lean_dec.exit41 ], [ %84, %lean_dec.exit ]
+  %.sink99 = phi ptr [ %51, %lean_dec.exit41 ], [ %98, %lean_dec.exit ]
+  %.sink94 = phi ptr [ %.038, %lean_dec.exit41 ], [ %84, %lean_dec.exit ]
   %.sink = phi ptr [ %41, %lean_dec.exit41 ], [ %90, %lean_dec.exit ]
-  %101 = getelementptr inbounds nuw i8, ptr %.sink88, i64 4
-  store i32 1, ptr %.sink88, align 4, !tbaa !7
+  %101 = getelementptr inbounds nuw i8, ptr %.sink99, i64 4
+  store i32 1, ptr %.sink99, align 4, !tbaa !7
   store i32 84017176, ptr %101, align 4
-  %102 = getelementptr inbounds nuw i8, ptr %.sink88, i64 8
-  store ptr %.sink83, ptr %102, align 8, !tbaa !10
-  %103 = getelementptr inbounds nuw i8, ptr %.sink88, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %.sink99, i64 8
+  store ptr %.sink94, ptr %102, align 8, !tbaa !10
+  %103 = getelementptr inbounds nuw i8, ptr %.sink99, i64 16
   store ptr %.sink, ptr %103, align 8, !tbaa !10
   br label %6
 }
@@ -3430,7 +3430,7 @@ define noundef ptr @l_List_foldl___at___private_Std_Time_Zoned_Database_TzIf_0__
 
 6:                                                ; preds = %lean_alloc_ctor.exit, %3
   %.040 = phi ptr [ %2, %3 ], [ %29, %lean_alloc_ctor.exit ]
-  %.0 = phi ptr [ %1, %3 ], [ %.sink97, %lean_alloc_ctor.exit ]
+  %.0 = phi ptr [ %1, %3 ], [ %.sink110, %lean_alloc_ctor.exit ]
   %7 = ptrtoint ptr %.040 to i64
   %8 = and i64 %7, 1
   %.not.i54 = icmp eq i64 %8, 0
@@ -3724,15 +3724,15 @@ l_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_rep
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %l_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__6.exit67, %l_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__6.exit
-  %.sink97 = phi ptr [ %59, %l_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__6.exit ], [ %114, %l_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__6.exit67 ]
-  %.sink92 = phi ptr [ %.040, %l_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__6.exit ], [ %92, %l_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__6.exit67 ]
+  %.sink110 = phi ptr [ %59, %l_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__6.exit ], [ %114, %l_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__6.exit67 ]
+  %.sink105 = phi ptr [ %.040, %l_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__6.exit ], [ %92, %l_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__6.exit67 ]
   %.sink = phi ptr [ %54, %l_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__6.exit ], [ %109, %l_repr___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____spec__6.exit67 ]
-  %117 = getelementptr inbounds nuw i8, ptr %.sink97, i64 4
-  store i32 1, ptr %.sink97, align 4, !tbaa !7
+  %117 = getelementptr inbounds nuw i8, ptr %.sink110, i64 4
+  store i32 1, ptr %.sink110, align 4, !tbaa !7
   store i32 84017176, ptr %117, align 4
-  %118 = getelementptr inbounds nuw i8, ptr %.sink97, i64 8
-  store ptr %.sink92, ptr %118, align 8, !tbaa !10
-  %119 = getelementptr inbounds nuw i8, ptr %.sink97, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %.sink110, i64 8
+  store ptr %.sink105, ptr %118, align 8, !tbaa !10
+  %119 = getelementptr inbounds nuw i8, ptr %.sink110, i64 16
   store ptr %.sink, ptr %119, align 8, !tbaa !10
   br label %6
 }
@@ -4169,7 +4169,7 @@ define noundef ptr @l_List_foldl___at___private_Std_Time_Zoned_Database_TzIf_0__
 
 6:                                                ; preds = %lean_alloc_ctor.exit, %3
   %.040 = phi ptr [ %2, %3 ], [ %29, %lean_alloc_ctor.exit ]
-  %.0 = phi ptr [ %1, %3 ], [ %.sink90, %lean_alloc_ctor.exit ]
+  %.0 = phi ptr [ %1, %3 ], [ %.sink101, %lean_alloc_ctor.exit ]
   %7 = ptrtoint ptr %.040 to i64
   %8 = and i64 %7, 1
   %.not.i54 = icmp eq i64 %8, 0
@@ -4427,15 +4427,15 @@ lean_dec.exit:                                    ; preds = %97, %96, %94, %lean
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit, %lean_dec.exit43
-  %.sink90 = phi ptr [ %51, %lean_dec.exit43 ], [ %98, %lean_dec.exit ]
-  %.sink85 = phi ptr [ %.040, %lean_dec.exit43 ], [ %84, %lean_dec.exit ]
+  %.sink101 = phi ptr [ %51, %lean_dec.exit43 ], [ %98, %lean_dec.exit ]
+  %.sink96 = phi ptr [ %.040, %lean_dec.exit43 ], [ %84, %lean_dec.exit ]
   %.sink = phi ptr [ %41, %lean_dec.exit43 ], [ %90, %lean_dec.exit ]
-  %101 = getelementptr inbounds nuw i8, ptr %.sink90, i64 4
-  store i32 1, ptr %.sink90, align 4, !tbaa !7
+  %101 = getelementptr inbounds nuw i8, ptr %.sink101, i64 4
+  store i32 1, ptr %.sink101, align 4, !tbaa !7
   store i32 84017176, ptr %101, align 4
-  %102 = getelementptr inbounds nuw i8, ptr %.sink90, i64 8
-  store ptr %.sink85, ptr %102, align 8, !tbaa !10
-  %103 = getelementptr inbounds nuw i8, ptr %.sink90, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %.sink101, i64 8
+  store ptr %.sink96, ptr %102, align 8, !tbaa !10
+  %103 = getelementptr inbounds nuw i8, ptr %.sink101, i64 16
   store ptr %.sink, ptr %103, align 8, !tbaa !10
   br label %6
 }
@@ -4954,7 +4954,7 @@ define noundef ptr @l_List_foldl___at___private_Std_Time_Zoned_Database_TzIf_0__
 
 6:                                                ; preds = %lean_alloc_ctor.exit, %3
   %.040 = phi ptr [ %2, %3 ], [ %29, %lean_alloc_ctor.exit ]
-  %.0 = phi ptr [ %1, %3 ], [ %.sink90, %lean_alloc_ctor.exit ]
+  %.0 = phi ptr [ %1, %3 ], [ %.sink101, %lean_alloc_ctor.exit ]
   %7 = ptrtoint ptr %.040 to i64
   %8 = and i64 %7, 1
   %.not.i54 = icmp eq i64 %8, 0
@@ -5212,15 +5212,15 @@ lean_dec.exit:                                    ; preds = %97, %96, %94, %lean
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit, %lean_dec.exit43
-  %.sink90 = phi ptr [ %51, %lean_dec.exit43 ], [ %98, %lean_dec.exit ]
-  %.sink85 = phi ptr [ %.040, %lean_dec.exit43 ], [ %84, %lean_dec.exit ]
+  %.sink101 = phi ptr [ %51, %lean_dec.exit43 ], [ %98, %lean_dec.exit ]
+  %.sink96 = phi ptr [ %.040, %lean_dec.exit43 ], [ %84, %lean_dec.exit ]
   %.sink = phi ptr [ %41, %lean_dec.exit43 ], [ %90, %lean_dec.exit ]
-  %101 = getelementptr inbounds nuw i8, ptr %.sink90, i64 4
-  store i32 1, ptr %.sink90, align 4, !tbaa !7
+  %101 = getelementptr inbounds nuw i8, ptr %.sink101, i64 4
+  store i32 1, ptr %.sink101, align 4, !tbaa !7
   store i32 84017176, ptr %101, align 4
-  %102 = getelementptr inbounds nuw i8, ptr %.sink90, i64 8
-  store ptr %.sink85, ptr %102, align 8, !tbaa !10
-  %103 = getelementptr inbounds nuw i8, ptr %.sink90, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %.sink101, i64 8
+  store ptr %.sink96, ptr %102, align 8, !tbaa !10
+  %103 = getelementptr inbounds nuw i8, ptr %.sink101, i64 16
   store ptr %.sink, ptr %103, align 8, !tbaa !10
   br label %6
 }
@@ -5618,7 +5618,7 @@ define noundef ptr @l_List_foldl___at___private_Std_Time_Zoned_Database_TzIf_0__
 
 6:                                                ; preds = %lean_alloc_ctor.exit, %3
   %.042 = phi ptr [ %2, %3 ], [ %29, %lean_alloc_ctor.exit ]
-  %.0 = phi ptr [ %1, %3 ], [ %.sink92, %lean_alloc_ctor.exit ]
+  %.0 = phi ptr [ %1, %3 ], [ %.sink103, %lean_alloc_ctor.exit ]
   %7 = ptrtoint ptr %.042 to i64
   %8 = and i64 %7, 1
   %.not.i56 = icmp eq i64 %8, 0
@@ -5880,15 +5880,15 @@ lean_dec.exit:                                    ; preds = %100, %99, %97, %lea
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit, %lean_dec.exit45
-  %.sink92 = phi ptr [ %53, %lean_dec.exit45 ], [ %102, %lean_dec.exit ]
-  %.sink87 = phi ptr [ %.042, %lean_dec.exit45 ], [ %86, %lean_dec.exit ]
+  %.sink103 = phi ptr [ %53, %lean_dec.exit45 ], [ %102, %lean_dec.exit ]
+  %.sink98 = phi ptr [ %.042, %lean_dec.exit45 ], [ %86, %lean_dec.exit ]
   %.sink = phi ptr [ %52, %lean_dec.exit45 ], [ %101, %lean_dec.exit ]
-  %105 = getelementptr inbounds nuw i8, ptr %.sink92, i64 4
-  store i32 1, ptr %.sink92, align 4, !tbaa !7
+  %105 = getelementptr inbounds nuw i8, ptr %.sink103, i64 4
+  store i32 1, ptr %.sink103, align 4, !tbaa !7
   store i32 84017176, ptr %105, align 4
-  %106 = getelementptr inbounds nuw i8, ptr %.sink92, i64 8
-  store ptr %.sink87, ptr %106, align 8, !tbaa !10
-  %107 = getelementptr inbounds nuw i8, ptr %.sink92, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %.sink103, i64 8
+  store ptr %.sink98, ptr %106, align 8, !tbaa !10
+  %107 = getelementptr inbounds nuw i8, ptr %.sink103, i64 16
   store ptr %.sink, ptr %107, align 8, !tbaa !10
   br label %6
 }
@@ -9694,21 +9694,21 @@ lean_dec.exit:                                    ; preds = %160, %159, %157, %l
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec.exit, %lean_dec.exit63
-  %.sink165 = phi ptr [ %35, %lean_dec.exit63 ], [ %161, %lean_dec.exit ]
+  %.sink183 = phi ptr [ %35, %lean_dec.exit63 ], [ %161, %lean_dec.exit ]
   %.sink = phi i32 [ 131096, %lean_dec.exit63 ], [ 16908312, %lean_dec.exit ]
-  %.052160.sink = phi ptr [ %.052, %lean_dec.exit63 ], [ %135, %lean_dec.exit ]
-  %.046155.sink = phi ptr [ %.046, %lean_dec.exit63 ], [ %137, %lean_dec.exit ]
-  %164 = getelementptr inbounds nuw i8, ptr %.sink165, i64 4
-  store i32 1, ptr %.sink165, align 4, !tbaa !7
+  %.052178.sink = phi ptr [ %.052, %lean_dec.exit63 ], [ %135, %lean_dec.exit ]
+  %.046173.sink = phi ptr [ %.046, %lean_dec.exit63 ], [ %137, %lean_dec.exit ]
+  %164 = getelementptr inbounds nuw i8, ptr %.sink183, i64 4
+  store i32 1, ptr %.sink183, align 4, !tbaa !7
   store i32 %.sink, ptr %164, align 4
-  %165 = getelementptr inbounds nuw i8, ptr %.sink165, i64 8
-  store ptr %.052160.sink, ptr %165, align 8, !tbaa !10
-  %166 = getelementptr inbounds nuw i8, ptr %.sink165, i64 16
-  store ptr %.046155.sink, ptr %166, align 8, !tbaa !10
+  %165 = getelementptr inbounds nuw i8, ptr %.sink183, i64 8
+  store ptr %.052178.sink, ptr %165, align 8, !tbaa !10
+  %166 = getelementptr inbounds nuw i8, ptr %.sink183, i64 16
+  store ptr %.046173.sink, ptr %166, align 8, !tbaa !10
   br label %167
 
 167:                                              ; preds = %.sink.split, %lean_dec.exit58
-  %.1.ph = phi ptr [ %45, %lean_dec.exit58 ], [ %.sink165, %.sink.split ]
+  %.1.ph = phi ptr [ %45, %lean_dec.exit58 ], [ %.sink183, %.sink.split ]
   ret ptr %.1.ph
 }
 
@@ -10037,21 +10037,21 @@ lean_dec.exit:                                    ; preds = %92, %91, %89, %lean
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec.exit, %lean_dec.exit40
-  %.sink78 = phi ptr [ %61, %lean_dec.exit40 ], [ %93, %lean_dec.exit ]
-  %.sink75 = phi i32 [ 131096, %lean_dec.exit40 ], [ 16908312, %lean_dec.exit ]
-  %.sink72 = phi ptr [ %35, %lean_dec.exit40 ], [ %67, %lean_dec.exit ]
+  %.sink86 = phi ptr [ %61, %lean_dec.exit40 ], [ %93, %lean_dec.exit ]
+  %.sink83 = phi i32 [ 131096, %lean_dec.exit40 ], [ 16908312, %lean_dec.exit ]
+  %.sink80 = phi ptr [ %35, %lean_dec.exit40 ], [ %67, %lean_dec.exit ]
   %.sink = phi ptr [ %37, %lean_dec.exit40 ], [ %69, %lean_dec.exit ]
-  %96 = getelementptr inbounds nuw i8, ptr %.sink78, i64 4
-  store i32 1, ptr %.sink78, align 4, !tbaa !7
-  store i32 %.sink75, ptr %96, align 4
-  %97 = getelementptr inbounds nuw i8, ptr %.sink78, i64 8
-  store ptr %.sink72, ptr %97, align 8, !tbaa !10
-  %98 = getelementptr inbounds nuw i8, ptr %.sink78, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %.sink86, i64 4
+  store i32 1, ptr %.sink86, align 4, !tbaa !7
+  store i32 %.sink83, ptr %96, align 4
+  %97 = getelementptr inbounds nuw i8, ptr %.sink86, i64 8
+  store ptr %.sink80, ptr %97, align 8, !tbaa !10
+  %98 = getelementptr inbounds nuw i8, ptr %.sink86, i64 16
   store ptr %.sink, ptr %98, align 8, !tbaa !10
   br label %99
 
 99:                                               ; preds = %.sink.split, %64, %32
-  %.1 = phi ptr [ %12, %32 ], [ %12, %64 ], [ %.sink78, %.sink.split ]
+  %.1 = phi ptr [ %12, %32 ], [ %12, %64 ], [ %.sink86, %.sink.split ]
   ret ptr %.1
 }
 
@@ -11592,7 +11592,7 @@ lean_dec.exit56:                                  ; preds = %70, %69, %67, %lean
   br label %lean_dec.exit55
 
 82:                                               ; preds = %75
-  %83 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %76) #5
+  %83 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #5
   br label %lean_dec.exit55
 
 84:                                               ; preds = %lean_dec.exit56
@@ -11675,7 +11675,7 @@ lean_dec.exit54:                                  ; preds = %107, %106, %104, %9
   br label %lean_dec.exit
 
 119:                                              ; preds = %112
-  %120 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %113) #5
+  %120 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #5
   br label %lean_dec.exit
 
 121:                                              ; preds = %lean_dec.exit54
@@ -11733,18 +11733,18 @@ lean_alloc_ctor.exit88:                           ; preds = %lean_alloc_ctor.exi
   br label %lean_alloc_ctor.exit
 
 lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit58, %lean_alloc_ctor.exit84, %lean_alloc_ctor.exit88
-  %.sink108 = phi ptr [ %92, %lean_alloc_ctor.exit84 ], [ %135, %lean_alloc_ctor.exit88 ], [ %45, %lean_dec.exit58 ]
-  %.sink105 = phi i32 [ 131096, %lean_alloc_ctor.exit84 ], [ 131096, %lean_alloc_ctor.exit88 ], [ 16908312, %lean_dec.exit58 ]
-  %.sink102 = phi ptr [ %0, %lean_alloc_ctor.exit84 ], [ %129, %lean_alloc_ctor.exit88 ], [ %0, %lean_dec.exit58 ]
+  %.sink127 = phi ptr [ %92, %lean_alloc_ctor.exit84 ], [ %135, %lean_alloc_ctor.exit88 ], [ %45, %lean_dec.exit58 ]
+  %.sink124 = phi i32 [ 131096, %lean_alloc_ctor.exit84 ], [ 131096, %lean_alloc_ctor.exit88 ], [ 16908312, %lean_dec.exit58 ]
+  %.sink121 = phi ptr [ %0, %lean_alloc_ctor.exit84 ], [ %129, %lean_alloc_ctor.exit88 ], [ %0, %lean_dec.exit58 ]
   %.sink = phi ptr [ %98, %lean_alloc_ctor.exit84 ], [ %141, %lean_alloc_ctor.exit88 ], [ %44, %lean_dec.exit58 ]
-  %142 = getelementptr inbounds nuw i8, ptr %.sink108, i64 4
-  store i32 1, ptr %.sink108, align 4, !tbaa !7
-  store i32 %.sink105, ptr %142, align 4
-  %143 = getelementptr inbounds nuw i8, ptr %.sink108, i64 8
-  store ptr %.sink102, ptr %143, align 8, !tbaa !10
-  %144 = getelementptr inbounds nuw i8, ptr %.sink108, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %.sink127, i64 4
+  store i32 1, ptr %.sink127, align 4, !tbaa !7
+  store i32 %.sink124, ptr %142, align 4
+  %143 = getelementptr inbounds nuw i8, ptr %.sink127, i64 8
+  store ptr %.sink121, ptr %143, align 8, !tbaa !10
+  %144 = getelementptr inbounds nuw i8, ptr %.sink127, i64 16
   store ptr %.sink, ptr %144, align 8, !tbaa !10
-  ret ptr %.sink108
+  ret ptr %.sink127
 }
 
 ; Function Attrs: nounwind uwtable
@@ -16461,22 +16461,22 @@ lean_alloc_ctor.exit144:                          ; preds = %lean_dec.exit
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_alloc_ctor.exit144, %lean_dec.exit104, %lean_dec.exit107
-  %.sink239 = phi ptr [ %28, %lean_dec.exit107 ], [ %107, %lean_dec.exit104 ], [ %216, %lean_alloc_ctor.exit144 ]
-  %.085226.sink = phi ptr [ %.085, %lean_dec.exit107 ], [ %.085, %lean_dec.exit104 ], [ %210, %lean_alloc_ctor.exit144 ]
-  %219 = getelementptr inbounds nuw i8, ptr %.sink239, i64 4
-  store i32 1, ptr %.sink239, align 4, !tbaa !7
+  %.sink264 = phi ptr [ %28, %lean_dec.exit107 ], [ %107, %lean_dec.exit104 ], [ %216, %lean_alloc_ctor.exit144 ]
+  %.085251.sink = phi ptr [ %.085, %lean_dec.exit107 ], [ %.085, %lean_dec.exit104 ], [ %210, %lean_alloc_ctor.exit144 ]
+  %219 = getelementptr inbounds nuw i8, ptr %.sink264, i64 4
+  store i32 1, ptr %.sink264, align 4, !tbaa !7
   store i32 131096, ptr %219, align 4
-  %220 = getelementptr inbounds nuw i8, ptr %.sink239, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %.sink264, i64 8
   store ptr %7, ptr %220, align 8, !tbaa !10
-  %221 = getelementptr inbounds nuw i8, ptr %.sink239, i64 16
-  store ptr %.085226.sink, ptr %221, align 8, !tbaa !10
-  ret ptr %.sink239
+  %221 = getelementptr inbounds nuw i8, ptr %.sink264, i64 16
+  store ptr %.085251.sink, ptr %221, align 8, !tbaa !10
+  ret ptr %.sink264
 }
 
 declare ptr @lean_string_push(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_forIn_x27Unsafe_loop___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseAbbreviations___spec__2(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr noundef readonly captures(none) %4, i64 noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_forIn_x27Unsafe_loop___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseAbbreviations___spec__2(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr noundef readonly captures(none) %4, i64 noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %.not257 = icmp ult i64 %6, %5
   br i1 %.not257, label %.lr.ph, label %.._crit_edge_crit_edge
 
@@ -17233,29 +17233,29 @@ lean_dec_ref.exit163:                             ; preds = %284, %283, %281, %l
   unreachable
 
 .sink.split.sink.split:                           ; preds = %287, %lean_dec.exit128
-  %.sink270 = phi ptr [ %133, %lean_dec.exit128 ], [ %288, %287 ]
-  %.sink265.ph = phi ptr [ %107, %lean_dec.exit128 ], [ %238, %287 ]
+  %.sink298 = phi ptr [ %133, %lean_dec.exit128 ], [ %288, %287 ]
+  %.sink293.ph = phi ptr [ %107, %lean_dec.exit128 ], [ %238, %287 ]
   %.sink.ph = phi ptr [ %109, %lean_dec.exit128 ], [ %248, %287 ]
   %.1119.ph.ph = phi ptr [ %86, %lean_dec.exit128 ], [ %219, %287 ]
-  %291 = getelementptr inbounds nuw i8, ptr %.sink270, i64 4
-  store i32 1, ptr %.sink270, align 4, !tbaa !7
+  %291 = getelementptr inbounds nuw i8, ptr %.sink298, i64 4
+  store i32 1, ptr %.sink298, align 4, !tbaa !7
   store i32 131096, ptr %291, align 4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %lean_dec_ref.exit163
-  %.0112.sink267 = phi ptr [ %.0113, %lean_dec_ref.exit163 ], [ %.sink270, %.sink.split.sink.split ]
-  %.sink265 = phi ptr [ %238, %lean_dec_ref.exit163 ], [ %.sink265.ph, %.sink.split.sink.split ]
+  %.0112.sink295 = phi ptr [ %.0113, %lean_dec_ref.exit163 ], [ %.sink298, %.sink.split.sink.split ]
+  %.sink293 = phi ptr [ %238, %lean_dec_ref.exit163 ], [ %.sink293.ph, %.sink.split.sink.split ]
   %.sink = phi ptr [ %248, %lean_dec_ref.exit163 ], [ %.sink.ph, %.sink.split.sink.split ]
   %.1119.ph = phi ptr [ %219, %lean_dec_ref.exit163 ], [ %.1119.ph.ph, %.sink.split.sink.split ]
-  %292 = getelementptr inbounds nuw i8, ptr %.0112.sink267, i64 8
-  store ptr %.sink265, ptr %292, align 8, !tbaa !10
-  %293 = getelementptr inbounds nuw i8, ptr %.0112.sink267, i64 16
+  %292 = getelementptr inbounds nuw i8, ptr %.0112.sink295, i64 8
+  store ptr %.sink293, ptr %292, align 8, !tbaa !10
+  %293 = getelementptr inbounds nuw i8, ptr %.0112.sink295, i64 16
   store ptr %.sink, ptr %293, align 8, !tbaa !10
   br label %294
 
 294:                                              ; preds = %.sink.split, %lean_dec.exit129
   %.1119 = phi ptr [ %86, %lean_dec.exit129 ], [ %.1119.ph, %.sink.split ]
-  %.1115 = phi ptr [ %77, %lean_dec.exit129 ], [ %.0112.sink267, %.sink.split ]
+  %.1115 = phi ptr [ %77, %lean_dec.exit129 ], [ %.0112.sink295, %.sink.split ]
   %.1111 = add nuw i64 %.0110260, 1
   %exitcond.not = icmp eq i64 %.1111, %5
   br i1 %exitcond.not, label %._crit_edge, label %23
@@ -17818,7 +17818,7 @@ lean_dec.exit:                                    ; preds = %36, %35, %33, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_forIn_x27Unsafe_loop___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseAbbreviations___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_forIn_x27Unsafe_loop___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseAbbreviations___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = getelementptr i8, ptr %5, i64 8
   %.val = load i64, ptr %10, align 8, !tbaa !12
   %11 = ptrtoint ptr %5 to i64
@@ -20635,7 +20635,7 @@ lean_dec.exit68:                                  ; preds = %120, %119, %117, %l
   br label %lean_dec.exit67
 
 128:                                              ; preds = %121
-  %129 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %122) #5
+  %129 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #5
   br label %lean_dec.exit67
 
 130:                                              ; preds = %lean_dec.exit68
@@ -20707,7 +20707,7 @@ lean_dec.exit66:                                  ; preds = %149, %148, %146, %1
   br label %lean_dec.exit
 
 157:                                              ; preds = %150
-  %158 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %151) #5
+  %158 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #5
   br label %lean_dec.exit
 
 159:                                              ; preds = %lean_dec.exit66
@@ -20758,18 +20758,18 @@ lean_alloc_ctor.exit112:                          ; preds = %lean_dec.exit
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_alloc_ctor.exit112, %lean_dec.exit67, %lean_dec.exit70, %lean_dec.exit73
-  %.sink135 = phi ptr [ %55, %lean_dec.exit73 ], [ %95, %lean_dec.exit70 ], [ %138, %lean_dec.exit67 ], [ %173, %lean_alloc_ctor.exit112 ]
-  %.sink132 = phi i32 [ 16908312, %lean_dec.exit73 ], [ 16908312, %lean_dec.exit70 ], [ 131096, %lean_dec.exit67 ], [ 131096, %lean_alloc_ctor.exit112 ]
-  %.sink129 = phi ptr [ %1, %lean_dec.exit73 ], [ %1, %lean_dec.exit70 ], [ %1, %lean_dec.exit67 ], [ %167, %lean_alloc_ctor.exit112 ]
+  %.sink163 = phi ptr [ %55, %lean_dec.exit73 ], [ %95, %lean_dec.exit70 ], [ %138, %lean_dec.exit67 ], [ %173, %lean_alloc_ctor.exit112 ]
+  %.sink160 = phi i32 [ 16908312, %lean_dec.exit73 ], [ 16908312, %lean_dec.exit70 ], [ 131096, %lean_dec.exit67 ], [ 131096, %lean_alloc_ctor.exit112 ]
+  %.sink157 = phi ptr [ %1, %lean_dec.exit73 ], [ %1, %lean_dec.exit70 ], [ %1, %lean_dec.exit67 ], [ %167, %lean_alloc_ctor.exit112 ]
   %.sink = phi ptr [ %54, %lean_dec.exit73 ], [ %94, %lean_dec.exit70 ], [ %66, %lean_dec.exit67 ], [ %66, %lean_alloc_ctor.exit112 ]
-  %176 = getelementptr inbounds nuw i8, ptr %.sink135, i64 4
-  store i32 1, ptr %.sink135, align 4, !tbaa !7
-  store i32 %.sink132, ptr %176, align 4
-  %177 = getelementptr inbounds nuw i8, ptr %.sink135, i64 8
-  store ptr %.sink129, ptr %177, align 8, !tbaa !10
-  %178 = getelementptr inbounds nuw i8, ptr %.sink135, i64 16
+  %176 = getelementptr inbounds nuw i8, ptr %.sink163, i64 4
+  store i32 1, ptr %.sink163, align 4, !tbaa !7
+  store i32 %.sink160, ptr %176, align 4
+  %177 = getelementptr inbounds nuw i8, ptr %.sink163, i64 8
+  store ptr %.sink157, ptr %177, align 8, !tbaa !10
+  %178 = getelementptr inbounds nuw i8, ptr %.sink163, i64 16
   store ptr %.sink, ptr %178, align 8, !tbaa !10
-  ret ptr %.sink135
+  ret ptr %.sink163
 }
 
 ; Function Attrs: nounwind uwtable
@@ -20783,7 +20783,7 @@ define zeroext i8 @l_Std_Internal_Parsec_manyCore___at___private_Std_Time_Zoned_
 declare zeroext i8 @l_instDecidableNot___rarg(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @l_Std_Internal_Parsec_manyCore___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseFooter___spec__2(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define nonnull ptr @l_Std_Internal_Parsec_manyCore___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseFooter___spec__2(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %lean_dec.exit77, %2
@@ -21425,7 +21425,7 @@ lean_dec.exit77:                                  ; preds = %lean_inc.exit88, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_forIn_x27Unsafe_loop___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseFooter___spec__3(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_forIn_x27Unsafe_loop___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseFooter___spec__3(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %.not36 = icmp ult i64 %4, %3
   br i1 %.not36, label %.lr.ph, label %._crit_edge
 
@@ -21512,7 +21512,7 @@ define noalias ptr @l_Array_forIn_x27Unsafe_loop___at___private_Std_Time_Zoned_D
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseFooter___lambda__1(ptr readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define nonnull ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseFooter___lambda__1(ptr readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_manyN___rarg___closed__1, align 8, !tbaa !10
   %4 = tail call ptr @l_Std_Internal_Parsec_manyCore___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseFooter___spec__2(ptr noundef %3, ptr noundef %1)
   %5 = ptrtoint ptr %4 to i64
@@ -22208,7 +22208,7 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_forIn_x27Unsafe_loop___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseFooter___spec__3___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_forIn_x27Unsafe_loop___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseFooter___spec__3___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr i8, ptr %3, i64 8
   %.val26 = load i64, ptr %8, align 8, !tbaa !12
   %9 = ptrtoint ptr %3 to i64
@@ -22338,7 +22338,7 @@ lean_dec.exit:                                    ; preds = %55, %54, %52, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseFooter___lambda__1___boxed(ptr noundef %0, ptr noundef %1) #0 {
+define nonnull ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseFooter___lambda__1___boxed(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseFooter___lambda__1(ptr poison, ptr noundef %1)
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, 1
@@ -27550,18 +27550,18 @@ _init_l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseTZ
   unreachable
 
 .sink.split:                                      ; preds = %_init_l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseTZifV2___closed__1.exit, %3
-  %.sink29 = phi ptr [ %4, %3 ], [ %579, %_init_l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseTZifV2___closed__1.exit ]
-  %582 = getelementptr inbounds nuw i8, ptr %.sink29, i64 4
-  store i32 1, ptr %.sink29, align 4, !tbaa !7
+  %.sink102 = phi ptr [ %4, %3 ], [ %579, %_init_l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseTZifV2___closed__1.exit ]
+  %582 = getelementptr inbounds nuw i8, ptr %.sink102, i64 4
+  store i32 1, ptr %.sink102, align 4, !tbaa !7
   store i32 131096, ptr %582, align 4
-  %583 = getelementptr inbounds nuw i8, ptr %.sink29, i64 8
+  %583 = getelementptr inbounds nuw i8, ptr %.sink102, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %583, align 8, !tbaa !10
-  %584 = getelementptr inbounds nuw i8, ptr %.sink29, i64 16
+  %584 = getelementptr inbounds nuw i8, ptr %.sink102, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %584, align 8, !tbaa !10
   br label %585
 
 585:                                              ; preds = %.sink.split, %lean_dec_ref.exit14, %lean_dec_ref.exit16, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %28, %lean_dec_ref.exit14 ], [ %.sink29, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %28, %lean_dec_ref.exit14 ], [ %.sink102, %.sink.split ]
   ret ptr %.0
 }
 

@@ -4515,23 +4515,23 @@ switch.lookup:                                    ; preds = %40
   %switch.downshift = lshr i24 65536, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
   %47 = shl nuw nsw i8 %switch.tableidx, 3
-  %switch.shiftamt369 = zext nneg i8 %47 to i24
-  %switch.downshift370 = lshr i24 1, %switch.shiftamt369
-  %switch.masked371 = trunc nuw nsw i24 %switch.downshift370 to i8
+  %switch.shiftamt380 = zext nneg i8 %47 to i24
+  %switch.downshift381 = lshr i24 1, %switch.shiftamt380
+  %switch.masked382 = trunc nuw nsw i24 %switch.downshift381 to i8
   store i8 %switch.masked, ptr %6, align 1, !tbaa !159
   br label %zend_parse_arg_bool_ex.exit279.thread
 
 zend_parse_arg_bool_ex.exit279.thread:            ; preds = %switch.lookup, %zend_parse_arg_bool_ex.exit279
-  %.5296304 = phi i8 [ 0, %zend_parse_arg_bool_ex.exit279 ], [ %switch.masked371, %switch.lookup ]
+  %.5296304 = phi i8 [ 0, %zend_parse_arg_bool_ex.exit279 ], [ %switch.masked382, %switch.lookup ]
   %.not = icmp eq i32 %9, 5
   br i1 %.not, label %48, label %.critedge, !prof !91
 
 48:                                               ; preds = %zend_parse_arg_bool_ex.exit279.thread
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %50 = load i8, ptr %49, align 8, !tbaa !65
-  %switch.tableidx373 = add i8 %50, -1
-  %51 = icmp ult i8 %switch.tableidx373, 3
-  br i1 %51, label %switch.lookup372, label %zend_parse_arg_bool_ex.exit
+  %switch.tableidx384 = add i8 %50, -1
+  %51 = icmp ult i8 %switch.tableidx384, 3
+  br i1 %51, label %switch.lookup383, label %zend_parse_arg_bool_ex.exit
 
 zend_parse_arg_bool_ex.exit:                      ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -4547,21 +4547,21 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %48
   call void @zend_wrong_parameter_error(i32 noundef %.0201333, i32 noundef %.0202332, ptr noundef null, i32 noundef %.0203331, ptr noundef %.0204330) #25
   br label %.critedge241
 
-switch.lookup372:                                 ; preds = %48
-  %54 = shl nuw nsw i8 %switch.tableidx373, 3
-  %switch.shiftamt375 = zext nneg i8 %54 to i24
-  %switch.downshift376 = lshr i24 65536, %switch.shiftamt375
-  %switch.masked377 = trunc i24 %switch.downshift376 to i8
-  %55 = shl nuw nsw i8 %switch.tableidx373, 3
-  %switch.shiftamt379 = zext nneg i8 %55 to i24
-  %switch.downshift380 = lshr i24 1, %switch.shiftamt379
-  %switch.masked381 = trunc nuw nsw i24 %switch.downshift380 to i8
-  store i8 %switch.masked377, ptr %7, align 1, !tbaa !159
+switch.lookup383:                                 ; preds = %48
+  %54 = shl nuw nsw i8 %switch.tableidx384, 3
+  %switch.shiftamt386 = zext nneg i8 %54 to i24
+  %switch.downshift387 = lshr i24 65536, %switch.shiftamt386
+  %switch.masked388 = trunc i24 %switch.downshift387 to i8
+  %55 = shl nuw nsw i8 %switch.tableidx384, 3
+  %switch.shiftamt390 = zext nneg i8 %55 to i24
+  %switch.downshift391 = lshr i24 1, %switch.shiftamt390
+  %switch.masked392 = trunc nuw nsw i24 %switch.downshift391 to i8
+  store i8 %switch.masked388, ptr %7, align 1, !tbaa !159
   br label %.critedge
 
-.critedge:                                        ; preds = %switch.lookup372, %zend_parse_arg_bool_ex.exit, %zend_parse_arg_array_ht_or_long.exit.thread, %29, %38, %zend_parse_arg_bool_ex.exit279.thread
-  %.4295 = phi i8 [ 1, %zend_parse_arg_array_ht_or_long.exit.thread ], [ 1, %29 ], [ 1, %38 ], [ %.5296304, %zend_parse_arg_bool_ex.exit279.thread ], [ %.5296304, %zend_parse_arg_bool_ex.exit ], [ %.5296304, %switch.lookup372 ]
-  %.4290 = phi i8 [ 1, %zend_parse_arg_array_ht_or_long.exit.thread ], [ 1, %29 ], [ 1, %38 ], [ 1, %zend_parse_arg_bool_ex.exit279.thread ], [ 0, %zend_parse_arg_bool_ex.exit ], [ %switch.masked381, %switch.lookup372 ]
+.critedge:                                        ; preds = %switch.lookup383, %zend_parse_arg_bool_ex.exit, %zend_parse_arg_array_ht_or_long.exit.thread, %29, %38, %zend_parse_arg_bool_ex.exit279.thread
+  %.4295 = phi i8 [ 1, %zend_parse_arg_array_ht_or_long.exit.thread ], [ 1, %29 ], [ 1, %38 ], [ %.5296304, %zend_parse_arg_bool_ex.exit279.thread ], [ %.5296304, %zend_parse_arg_bool_ex.exit ], [ %.5296304, %switch.lookup383 ]
+  %.4290 = phi i8 [ 1, %zend_parse_arg_array_ht_or_long.exit.thread ], [ 1, %29 ], [ 1, %38 ], [ 1, %zend_parse_arg_bool_ex.exit279.thread ], [ 0, %zend_parse_arg_bool_ex.exit ], [ %switch.masked392, %switch.lookup383 ]
   %56 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 347), align 1, !tbaa !98, !range !66, !noundef !99
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %60, label %58
@@ -5252,9 +5252,9 @@ zend_string_release_ex.exit:                      ; preds = %348, %358, %363
   br label %.sink.split
 
 .sink.split:                                      ; preds = %zend_string_release_ex.exit, %zend_string_release_ex.exit244, %zend_string_release_ex.exit246, %zend_string_release_ex.exit248, %zend_string_release_ex.exit250, %365
-  %.sink366 = phi i32 [ 3, %365 ], [ 2, %zend_string_release_ex.exit250 ], [ 2, %zend_string_release_ex.exit248 ], [ 2, %zend_string_release_ex.exit246 ], [ 2, %zend_string_release_ex.exit244 ], [ 2, %zend_string_release_ex.exit ]
+  %.sink377 = phi i32 [ 3, %365 ], [ 2, %zend_string_release_ex.exit250 ], [ 2, %zend_string_release_ex.exit248 ], [ 2, %zend_string_release_ex.exit246 ], [ 2, %zend_string_release_ex.exit244 ], [ 2, %zend_string_release_ex.exit ]
   %366 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %.sink366, ptr %366, align 8, !tbaa !65
+  store i32 %.sink377, ptr %366, align 8, !tbaa !65
   br label %367
 
 367:                                              ; preds = %.sink.split, %242

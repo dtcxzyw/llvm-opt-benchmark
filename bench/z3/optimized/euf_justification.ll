@@ -167,27 +167,27 @@ _ZNK6vectorIN3euf13justificationELb0EjE3endEv.exit: ; preds = %_ZN26stacked_depe
   %43 = mul nuw nsw i64 %42, 24
   %44 = getelementptr inbounds nuw i8, ptr %.pre, i64 %43
   %.not35 = icmp eq i32 %41, 0
-  br i1 %.not35, label %._crit_edge.thread41, label %.lr.ph
+  br i1 %.not35, label %._crit_edge.thread46, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %54
   %.pre37 = load ptr, ptr %6, align 8, !tbaa !15
   %.not.i.i33 = icmp eq ptr %.pre37, null
-  br i1 %.not.i.i33, label %_ZN6vectorIN3euf13justificationELb0EjED2Ev.exit, label %._crit_edge.thread41
+  br i1 %.not.i.i33, label %_ZN6vectorIN3euf13justificationELb0EjED2Ev.exit, label %._crit_edge.thread46
 
-._crit_edge.thread41:                             ; preds = %_ZNK6vectorIN3euf13justificationELb0EjE3endEv.exit, %._crit_edge
+._crit_edge.thread46:                             ; preds = %_ZNK6vectorIN3euf13justificationELb0EjE3endEv.exit, %._crit_edge
   %45 = phi ptr [ %.pre37, %._crit_edge ], [ %.pre, %_ZNK6vectorIN3euf13justificationELb0EjE3endEv.exit ]
   %46 = getelementptr inbounds i8, ptr %45, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %46)
           to label %_ZN6vectorIN3euf13justificationELb0EjED2Ev.exit unwind label %47
 
-47:                                               ; preds = %._crit_edge.thread41
+47:                                               ; preds = %._crit_edge.thread46
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
   call void @__clang_call_terminate(ptr %49) #17
   unreachable
 
-_ZN6vectorIN3euf13justificationELb0EjED2Ev.exit:  ; preds = %_ZN26stacked_dependency_managerIN3euf13justificationEE11s_linearizeEPN18dependency_managerINS2_6configEE10dependencyER6vectorIS1_Lb0EjE.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %._crit_edge, %._crit_edge.thread41
+_ZN6vectorIN3euf13justificationELb0EjED2Ev.exit:  ; preds = %_ZN26stacked_dependency_managerIN3euf13justificationEE11s_linearizeEPN18dependency_managerINS2_6configEE10dependencyER6vectorIS1_Lb0EjE.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %._crit_edge, %._crit_edge.thread46
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %74
 

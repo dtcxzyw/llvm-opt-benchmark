@@ -827,7 +827,7 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   %227 = getelementptr inbounds nuw i8, ptr %6, i64 2656
   %228 = load i8, ptr %227, align 8, !range !20, !noundef !21
   %229 = icmp eq i8 %226, %228
-  br i1 %229, label %.preheader2, label %230
+  br i1 %229, label %.preheader3, label %230
 
 230:                                              ; preds = %222
   %231 = icmp eq i8 %225, 0
@@ -837,13 +837,13 @@ define internal noundef i32 @lg_g15_raw_event(ptr noundef readonly captures(none
   %235 = select i1 %231, ptr @.str.22, ptr @.str.21
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %234, ptr noundef nonnull %235) #12
   store i8 %226, ptr %227, align 8
-  br label %.preheader2
+  br label %.preheader3
 
-.preheader2:                                      ; preds = %230, %222
+.preheader3:                                      ; preds = %230, %222
   br label %236
 
-236:                                              ; preds = %.preheader2, %236
-  %237 = phi i32 [ %246, %236 ], [ 0, %.preheader2 ]
+236:                                              ; preds = %.preheader3, %236
+  %237 = phi i32 [ %246, %236 ], [ 0, %.preheader3 ]
   %238 = load i8, ptr %223, align 1
   %239 = zext i8 %238 to i32
   %240 = shl nuw nsw i32 16, %237

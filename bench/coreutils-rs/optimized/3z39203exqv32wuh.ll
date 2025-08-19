@@ -1389,7 +1389,7 @@ define hidden void @_ZN5uu_dd6blocks25conv_block_unblock_helper17h293516836efb51
   %16 = alloca { { i64, ptr, {} }, i64 }, align 8
   %17 = alloca { { ptr, ptr, i64, ptr, {}, { {} } }, ptr }, align 8
   %18 = load i8, ptr %2, align 8, !range !267, !noundef !4
-  switch i8 %18, label %default.unreachable137 [
+  switch i8 %18, label %default.unreachable142 [
     i8 0, label %53
     i8 1, label %19
     i8 2, label %29
@@ -1399,7 +1399,7 @@ define hidden void @_ZN5uu_dd6blocks25conv_block_unblock_helper17h293516836efb51
     i8 6, label %91
   ]
 
-default.unreachable137:                           ; preds = %4
+default.unreachable142:                           ; preds = %4
   unreachable
 
 19:                                               ; preds = %4

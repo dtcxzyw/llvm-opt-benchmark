@@ -520,7 +520,7 @@ list_options_for_command.exit.backedge:           ; preds = %._crit_edge35.i, %9
 133:                                              ; preds = %131
   %134 = and i32 %.sroa.0.0, 2
   %.not103 = icmp eq i32 %134, 0
-  br i1 %.not103, label %.thread470, label %139
+  br i1 %.not103, label %.thread497, label %139
 
 .thread:                                          ; preds = %131
   tail call fastcc void @list_type(i32 noundef 1, i32 noundef %.097)
@@ -575,10 +575,10 @@ list_options_for_command.exit.backedge:           ; preds = %._crit_edge35.i, %9
   %.not105 = icmp eq i32 %165, 0
   br i1 %.not105, label %177, label %168
 
-.thread470:                                       ; preds = %133
+.thread497:                                       ; preds = %133
   %166 = and i32 %.sroa.0.0, 4
-  %.not105472 = icmp eq i32 %166, 0
-  br i1 %.not105472, label %.thread477, label %.thread474
+  %.not105499 = icmp eq i32 %166, 0
+  br i1 %.not105499, label %.thread504, label %.thread501
 
 .thread200:                                       ; preds = %.thread
   %167 = and i32 %.sroa.0.0, 4
@@ -593,10 +593,10 @@ list_options_for_command.exit.backedge:           ; preds = %._crit_edge35.i, %9
   %170 = phi i32 [ %169, %168 ], [ 2, %.thread200 ]
   %171 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %172 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %171, ptr noundef nonnull @.str.83) #6
-  br label %.thread474
+  br label %.thread501
 
-.thread474:                                       ; preds = %.thread470, %.thread204
-  %173 = phi i32 [ %170, %.thread204 ], [ 1, %.thread470 ]
+.thread501:                                       ; preds = %.thread497, %.thread204
+  %173 = phi i32 [ %170, %.thread204 ], [ 1, %.thread497 ]
   %174 = tail call ptr @RAND_get0_primary(ptr noundef null) #6
   tail call fastcc void @display_random(ptr noundef nonnull @.str.123, ptr noundef %174)
   %175 = tail call ptr @RAND_get0_public(ptr noundef null) #6
@@ -605,16 +605,16 @@ list_options_for_command.exit.backedge:           ; preds = %._crit_edge35.i, %9
   tail call fastcc void @display_random(ptr noundef nonnull @.str.125, ptr noundef %176)
   br label %177
 
-177:                                              ; preds = %.thread474, %139
-  %.2 = phi i32 [ %173, %.thread474 ], [ %140, %139 ]
+177:                                              ; preds = %.thread501, %139
+  %.2 = phi i32 [ %173, %.thread501 ], [ %140, %139 ]
   %178 = and i32 %.sroa.0.0, 8
   %.not107 = icmp eq i32 %178, 0
   br i1 %.not107, label %list_random_generators.exit, label %181
 
-.thread477:                                       ; preds = %.thread470
+.thread504:                                       ; preds = %.thread497
   %179 = and i32 %.sroa.0.0, 8
-  %.not107479 = icmp eq i32 %179, 0
-  br i1 %.not107479, label %list_random_generators.exit.thread484, label %.thread481
+  %.not107506 = icmp eq i32 %179, 0
+  br i1 %.not107506, label %list_random_generators.exit.thread511, label %.thread508
 
 .thread207:                                       ; preds = %.thread200
   %180 = and i32 %.sroa.0.0, 8
@@ -629,20 +629,20 @@ list_options_for_command.exit.backedge:           ; preds = %._crit_edge35.i, %9
   %183 = phi i32 [ %182, %181 ], [ 2, %.thread207 ]
   %184 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %185 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %184, ptr noundef nonnull @.str.83) #6
-  br label %.thread481
+  br label %.thread508
 
-.thread481:                                       ; preds = %.thread477, %.thread211
-  %186 = phi i32 [ %183, %.thread211 ], [ 1, %.thread477 ]
+.thread508:                                       ; preds = %.thread504, %.thread211
+  %186 = phi i32 [ %183, %.thread211 ], [ 1, %.thread504 ]
   %187 = tail call ptr @OPENSSL_sk_new(ptr noundef nonnull @rand_cmp) #6
   %188 = icmp eq ptr %187, null
   br i1 %188, label %189, label %192
 
-189:                                              ; preds = %.thread481
+189:                                              ; preds = %.thread508
   %190 = load ptr, ptr @bio_err, align 8, !tbaa !4
   %191 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %190, ptr noundef nonnull @.str.99) #6
   br label %list_random_generators.exit
 
-192:                                              ; preds = %.thread481
+192:                                              ; preds = %.thread508
   %193 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %194 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %193, ptr noundef nonnull @.str.134) #6
   %195 = tail call ptr @app_get0_libctx() #6
@@ -712,10 +712,10 @@ list_random_generators.exit:                      ; preds = %._crit_edge.i157, %
   %.not109 = icmp eq i32 %228, 0
   br i1 %.not109, label %237, label %231
 
-list_random_generators.exit.thread484:            ; preds = %.thread477
+list_random_generators.exit.thread511:            ; preds = %.thread504
   %229 = and i32 %.sroa.0.0, 16
-  %.not109486 = icmp eq i32 %229, 0
-  br i1 %.not109486, label %.thread491, label %.thread488
+  %.not109513 = icmp eq i32 %229, 0
+  br i1 %.not109513, label %.thread518, label %.thread515
 
 list_random_generators.exit.thread:               ; preds = %.thread207
   %230 = and i32 %.sroa.0.0, 16
@@ -730,23 +730,23 @@ list_random_generators.exit.thread:               ; preds = %.thread207
   %233 = phi i32 [ %232, %231 ], [ 2, %list_random_generators.exit.thread ]
   %234 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %235 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %234, ptr noundef nonnull @.str.83) #6
-  br label %.thread488
+  br label %.thread515
 
-.thread488:                                       ; preds = %list_random_generators.exit.thread484, %.thread217
-  %236 = phi i32 [ %233, %.thread217 ], [ 1, %list_random_generators.exit.thread484 ]
+.thread515:                                       ; preds = %list_random_generators.exit.thread511, %.thread217
+  %236 = phi i32 [ %233, %.thread217 ], [ 1, %list_random_generators.exit.thread511 ]
   tail call fastcc void @list_type(i32 noundef 2, i32 noundef %.097)
   br label %237
 
-237:                                              ; preds = %.thread488, %list_random_generators.exit
-  %.4 = phi i32 [ %236, %.thread488 ], [ %.3, %list_random_generators.exit ]
+237:                                              ; preds = %.thread515, %list_random_generators.exit
+  %.4 = phi i32 [ %236, %.thread515 ], [ %.3, %list_random_generators.exit ]
   %238 = and i32 %.sroa.0.0, 32
   %.not111 = icmp eq i32 %238, 0
   br i1 %.not111, label %247, label %241
 
-.thread491:                                       ; preds = %list_random_generators.exit.thread484
+.thread518:                                       ; preds = %list_random_generators.exit.thread511
   %239 = and i32 %.sroa.0.0, 32
-  %.not111493 = icmp eq i32 %239, 0
-  br i1 %.not111493, label %.thread498, label %.thread495
+  %.not111520 = icmp eq i32 %239, 0
+  br i1 %.not111520, label %.thread525, label %.thread522
 
 .thread220:                                       ; preds = %list_random_generators.exit.thread
   %240 = and i32 %.sroa.0.0, 32
@@ -756,29 +756,29 @@ list_random_generators.exit.thread:               ; preds = %.thread207
 241:                                              ; preds = %237
   %242 = add nuw nsw i32 %.4, 1
   %.not112 = icmp eq i32 %.4, 0
-  br i1 %.not112, label %.thread495, label %.thread224
+  br i1 %.not112, label %.thread522, label %.thread224
 
 .thread224:                                       ; preds = %.thread220, %241
   %243 = phi i32 [ %242, %241 ], [ 2, %.thread220 ]
   %244 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %245 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %244, ptr noundef nonnull @.str.83) #6
-  br label %.thread495
+  br label %.thread522
 
-.thread495:                                       ; preds = %.thread491, %.thread224, %241
-  %246 = phi i32 [ %243, %.thread224 ], [ 1, %241 ], [ 1, %.thread491 ]
+.thread522:                                       ; preds = %.thread518, %.thread224, %241
+  %246 = phi i32 [ %243, %.thread224 ], [ 1, %241 ], [ 1, %.thread518 ]
   tail call fastcc void @list_digests(ptr noundef nonnull @.str.92)
   br label %247
 
-247:                                              ; preds = %.thread495, %237
-  %.5 = phi i32 [ %246, %.thread495 ], [ %.4, %237 ]
+247:                                              ; preds = %.thread522, %237
+  %.5 = phi i32 [ %246, %.thread522 ], [ %.4, %237 ]
   %248 = and i32 %.sroa.0.0, 64
   %.not113 = icmp eq i32 %248, 0
   br i1 %.not113, label %257, label %251
 
-.thread498:                                       ; preds = %.thread491
+.thread525:                                       ; preds = %.thread518
   %249 = and i32 %.sroa.0.0, 64
-  %.not113500 = icmp eq i32 %249, 0
-  br i1 %.not113500, label %.thread505, label %.thread502
+  %.not113527 = icmp eq i32 %249, 0
+  br i1 %.not113527, label %.thread532, label %.thread529
 
 .thread227:                                       ; preds = %.thread220
   %250 = and i32 %.sroa.0.0, 64
@@ -788,29 +788,29 @@ list_random_generators.exit.thread:               ; preds = %.thread207
 251:                                              ; preds = %247
   %252 = add nuw nsw i32 %.5, 1
   %.not114 = icmp eq i32 %.5, 0
-  br i1 %.not114, label %.thread502, label %.thread231
+  br i1 %.not114, label %.thread529, label %.thread231
 
 .thread231:                                       ; preds = %.thread227, %251
   %253 = phi i32 [ %252, %251 ], [ 2, %.thread227 ]
   %254 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %255 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %254, ptr noundef nonnull @.str.83) #6
-  br label %.thread502
+  br label %.thread529
 
-.thread502:                                       ; preds = %.thread498, %.thread231, %251
-  %256 = phi i32 [ %253, %.thread231 ], [ 1, %251 ], [ 1, %.thread498 ]
+.thread529:                                       ; preds = %.thread525, %.thread231, %251
+  %256 = phi i32 [ %253, %.thread231 ], [ 1, %251 ], [ 1, %.thread525 ]
   tail call fastcc void @list_kdfs()
   br label %257
 
-257:                                              ; preds = %.thread502, %247
-  %.6 = phi i32 [ %256, %.thread502 ], [ %.5, %247 ]
+257:                                              ; preds = %.thread529, %247
+  %.6 = phi i32 [ %256, %.thread529 ], [ %.5, %247 ]
   %258 = and i32 %.sroa.0.0, 128
   %.not115 = icmp eq i32 %258, 0
   br i1 %.not115, label %267, label %261
 
-.thread505:                                       ; preds = %.thread498
+.thread532:                                       ; preds = %.thread525
   %259 = and i32 %.sroa.0.0, 128
-  %.not115507 = icmp eq i32 %259, 0
-  br i1 %.not115507, label %.thread512, label %.thread509
+  %.not115534 = icmp eq i32 %259, 0
+  br i1 %.not115534, label %.thread539, label %.thread536
 
 .thread234:                                       ; preds = %.thread227
   %260 = and i32 %.sroa.0.0, 128
@@ -820,29 +820,29 @@ list_random_generators.exit.thread:               ; preds = %.thread207
 261:                                              ; preds = %257
   %262 = add nuw nsw i32 %.6, 1
   %.not116 = icmp eq i32 %.6, 0
-  br i1 %.not116, label %.thread509, label %.thread238
+  br i1 %.not116, label %.thread536, label %.thread238
 
 .thread238:                                       ; preds = %.thread234, %261
   %263 = phi i32 [ %262, %261 ], [ 2, %.thread234 ]
   %264 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %265 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %264, ptr noundef nonnull @.str.83) #6
-  br label %.thread509
+  br label %.thread536
 
-.thread509:                                       ; preds = %.thread505, %.thread238, %261
-  %266 = phi i32 [ %263, %.thread238 ], [ 1, %261 ], [ 1, %.thread505 ]
+.thread536:                                       ; preds = %.thread532, %.thread238, %261
+  %266 = phi i32 [ %263, %.thread238 ], [ 1, %261 ], [ 1, %.thread532 ]
   tail call fastcc void @list_macs()
   br label %267
 
-267:                                              ; preds = %.thread509, %257
-  %.7 = phi i32 [ %266, %.thread509 ], [ %.6, %257 ]
+267:                                              ; preds = %.thread536, %257
+  %.7 = phi i32 [ %266, %.thread536 ], [ %.6, %257 ]
   %268 = and i32 %.sroa.0.0, 256
   %.not117 = icmp eq i32 %268, 0
   br i1 %.not117, label %277, label %271
 
-.thread512:                                       ; preds = %.thread505
+.thread539:                                       ; preds = %.thread532
   %269 = and i32 %.sroa.0.0, 256
-  %.not117514 = icmp eq i32 %269, 0
-  br i1 %.not117514, label %.thread519, label %.thread516
+  %.not117541 = icmp eq i32 %269, 0
+  br i1 %.not117541, label %.thread546, label %.thread543
 
 .thread241:                                       ; preds = %.thread234
   %270 = and i32 %.sroa.0.0, 256
@@ -852,29 +852,29 @@ list_random_generators.exit.thread:               ; preds = %.thread207
 271:                                              ; preds = %267
   %272 = add nuw nsw i32 %.7, 1
   %.not118 = icmp eq i32 %.7, 0
-  br i1 %.not118, label %.thread516, label %.thread245
+  br i1 %.not118, label %.thread543, label %.thread245
 
 .thread245:                                       ; preds = %.thread241, %271
   %273 = phi i32 [ %272, %271 ], [ 2, %.thread241 ]
   %274 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %275 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %274, ptr noundef nonnull @.str.83) #6
-  br label %.thread516
+  br label %.thread543
 
-.thread516:                                       ; preds = %.thread512, %.thread245, %271
-  %276 = phi i32 [ %273, %.thread245 ], [ 1, %271 ], [ 1, %.thread512 ]
+.thread543:                                       ; preds = %.thread539, %.thread245, %271
+  %276 = phi i32 [ %273, %.thread245 ], [ 1, %271 ], [ 1, %.thread539 ]
   tail call fastcc void @list_type(i32 noundef 3, i32 noundef %.097)
   br label %277
 
-277:                                              ; preds = %.thread516, %267
-  %.8 = phi i32 [ %276, %.thread516 ], [ %.7, %267 ]
+277:                                              ; preds = %.thread543, %267
+  %.8 = phi i32 [ %276, %.thread543 ], [ %.7, %267 ]
   %278 = and i32 %.sroa.0.0, 512
   %.not119 = icmp eq i32 %278, 0
   br i1 %.not119, label %287, label %281
 
-.thread519:                                       ; preds = %.thread512
+.thread546:                                       ; preds = %.thread539
   %279 = and i32 %.sroa.0.0, 512
-  %.not119521 = icmp eq i32 %279, 0
-  br i1 %.not119521, label %.thread526, label %.thread523
+  %.not119548 = icmp eq i32 %279, 0
+  br i1 %.not119548, label %.thread553, label %.thread550
 
 .thread248:                                       ; preds = %.thread241
   %280 = and i32 %.sroa.0.0, 512
@@ -884,29 +884,29 @@ list_random_generators.exit.thread:               ; preds = %.thread207
 281:                                              ; preds = %277
   %282 = add nuw nsw i32 %.8, 1
   %.not120 = icmp eq i32 %.8, 0
-  br i1 %.not120, label %.thread523, label %.thread252
+  br i1 %.not120, label %.thread550, label %.thread252
 
 .thread252:                                       ; preds = %.thread248, %281
   %283 = phi i32 [ %282, %281 ], [ 2, %.thread248 ]
   %284 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %285 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %284, ptr noundef nonnull @.str.83) #6
-  br label %.thread523
+  br label %.thread550
 
-.thread523:                                       ; preds = %.thread519, %.thread252, %281
-  %286 = phi i32 [ %283, %.thread252 ], [ 1, %281 ], [ 1, %.thread519 ]
+.thread550:                                       ; preds = %.thread546, %.thread252, %281
+  %286 = phi i32 [ %283, %.thread252 ], [ 1, %281 ], [ 1, %.thread546 ]
   tail call fastcc void @list_ciphers(ptr noundef nonnull @.str.92)
   br label %287
 
-287:                                              ; preds = %.thread523, %277
-  %.9 = phi i32 [ %286, %.thread523 ], [ %.8, %277 ]
+287:                                              ; preds = %.thread550, %277
+  %.9 = phi i32 [ %286, %.thread550 ], [ %.8, %277 ]
   %288 = and i32 %.sroa.0.0, 1024
   %.not121 = icmp eq i32 %288, 0
   br i1 %.not121, label %297, label %291
 
-.thread526:                                       ; preds = %.thread519
+.thread553:                                       ; preds = %.thread546
   %289 = and i32 %.sroa.0.0, 1024
-  %.not121528 = icmp eq i32 %289, 0
-  br i1 %.not121528, label %.thread533, label %.thread530
+  %.not121555 = icmp eq i32 %289, 0
+  br i1 %.not121555, label %.thread560, label %.thread557
 
 .thread255:                                       ; preds = %.thread248
   %290 = and i32 %.sroa.0.0, 1024
@@ -916,29 +916,29 @@ list_random_generators.exit.thread:               ; preds = %.thread207
 291:                                              ; preds = %287
   %292 = add nuw nsw i32 %.9, 1
   %.not122 = icmp eq i32 %.9, 0
-  br i1 %.not122, label %.thread530, label %.thread259
+  br i1 %.not122, label %.thread557, label %.thread259
 
 .thread259:                                       ; preds = %.thread255, %291
   %293 = phi i32 [ %292, %291 ], [ 2, %.thread255 ]
   %294 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %295 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %294, ptr noundef nonnull @.str.83) #6
-  br label %.thread530
+  br label %.thread557
 
-.thread530:                                       ; preds = %.thread526, %.thread259, %291
-  %296 = phi i32 [ %293, %.thread259 ], [ 1, %291 ], [ 1, %.thread526 ]
+.thread557:                                       ; preds = %.thread553, %.thread259, %291
+  %296 = phi i32 [ %293, %.thread259 ], [ 1, %291 ], [ 1, %.thread553 ]
   tail call fastcc void @list_encoders()
   br label %297
 
-297:                                              ; preds = %.thread530, %287
-  %.10 = phi i32 [ %296, %.thread530 ], [ %.9, %287 ]
+297:                                              ; preds = %.thread557, %287
+  %.10 = phi i32 [ %296, %.thread557 ], [ %.9, %287 ]
   %298 = and i32 %.sroa.0.0, 2048
   %.not123 = icmp eq i32 %298, 0
   br i1 %.not123, label %307, label %301
 
-.thread533:                                       ; preds = %.thread526
+.thread560:                                       ; preds = %.thread553
   %299 = and i32 %.sroa.0.0, 2048
-  %.not123535 = icmp eq i32 %299, 0
-  br i1 %.not123535, label %.thread540, label %.thread537
+  %.not123562 = icmp eq i32 %299, 0
+  br i1 %.not123562, label %.thread567, label %.thread564
 
 .thread262:                                       ; preds = %.thread255
   %300 = and i32 %.sroa.0.0, 2048
@@ -948,29 +948,29 @@ list_random_generators.exit.thread:               ; preds = %.thread207
 301:                                              ; preds = %297
   %302 = add nuw nsw i32 %.10, 1
   %.not124 = icmp eq i32 %.10, 0
-  br i1 %.not124, label %.thread537, label %.thread266
+  br i1 %.not124, label %.thread564, label %.thread266
 
 .thread266:                                       ; preds = %.thread262, %301
   %303 = phi i32 [ %302, %301 ], [ 2, %.thread262 ]
   %304 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %305 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %304, ptr noundef nonnull @.str.83) #6
-  br label %.thread537
+  br label %.thread564
 
-.thread537:                                       ; preds = %.thread533, %.thread266, %301
-  %306 = phi i32 [ %303, %.thread266 ], [ 1, %301 ], [ 1, %.thread533 ]
+.thread564:                                       ; preds = %.thread560, %.thread266, %301
+  %306 = phi i32 [ %303, %.thread266 ], [ 1, %301 ], [ 1, %.thread560 ]
   tail call fastcc void @list_decoders()
   br label %307
 
-307:                                              ; preds = %.thread537, %297
-  %.11 = phi i32 [ %306, %.thread537 ], [ %.10, %297 ]
+307:                                              ; preds = %.thread564, %297
+  %.11 = phi i32 [ %306, %.thread564 ], [ %.10, %297 ]
   %308 = and i32 %.sroa.0.0, 4096
   %.not125 = icmp eq i32 %308, 0
   br i1 %.not125, label %317, label %311
 
-.thread540:                                       ; preds = %.thread533
+.thread567:                                       ; preds = %.thread560
   %309 = and i32 %.sroa.0.0, 4096
-  %.not125542 = icmp eq i32 %309, 0
-  br i1 %.not125542, label %.thread547, label %.thread544
+  %.not125569 = icmp eq i32 %309, 0
+  br i1 %.not125569, label %.thread574, label %.thread571
 
 .thread269:                                       ; preds = %.thread262
   %310 = and i32 %.sroa.0.0, 4096
@@ -980,29 +980,29 @@ list_random_generators.exit.thread:               ; preds = %.thread207
 311:                                              ; preds = %307
   %312 = add nuw nsw i32 %.11, 1
   %.not126 = icmp eq i32 %.11, 0
-  br i1 %.not126, label %.thread544, label %.thread273
+  br i1 %.not126, label %.thread571, label %.thread273
 
 .thread273:                                       ; preds = %.thread269, %311
   %313 = phi i32 [ %312, %311 ], [ 2, %.thread269 ]
   %314 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %315 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %314, ptr noundef nonnull @.str.83) #6
-  br label %.thread544
+  br label %.thread571
 
-.thread544:                                       ; preds = %.thread540, %.thread273, %311
-  %316 = phi i32 [ %313, %.thread273 ], [ 1, %311 ], [ 1, %.thread540 ]
+.thread571:                                       ; preds = %.thread567, %.thread273, %311
+  %316 = phi i32 [ %313, %.thread273 ], [ 1, %311 ], [ 1, %.thread567 ]
   tail call fastcc void @list_keymanagers()
   br label %317
 
-317:                                              ; preds = %.thread544, %307
-  %.12 = phi i32 [ %316, %.thread544 ], [ %.11, %307 ]
+317:                                              ; preds = %.thread571, %307
+  %.12 = phi i32 [ %316, %.thread571 ], [ %.11, %307 ]
   %318 = and i32 %.sroa.0.0, 8192
   %.not127 = icmp eq i32 %318, 0
   br i1 %.not127, label %364, label %321
 
-.thread547:                                       ; preds = %.thread540
+.thread574:                                       ; preds = %.thread567
   %319 = and i32 %.sroa.0.0, 8192
-  %.not127549 = icmp eq i32 %319, 0
-  br i1 %.not127549, label %.thread554, label %.thread551
+  %.not127576 = icmp eq i32 %319, 0
+  br i1 %.not127576, label %.thread581, label %.thread578
 
 .thread276:                                       ; preds = %.thread269
   %320 = and i32 %.sroa.0.0, 8192
@@ -1012,16 +1012,16 @@ list_random_generators.exit.thread:               ; preds = %.thread207
 321:                                              ; preds = %317
   %322 = add nuw nsw i32 %.12, 1
   %.not128 = icmp eq i32 %.12, 0
-  br i1 %.not128, label %.thread551, label %.thread280
+  br i1 %.not128, label %.thread578, label %.thread280
 
 .thread280:                                       ; preds = %.thread276, %321
   %323 = phi i32 [ %322, %321 ], [ 2, %.thread276 ]
   %324 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %325 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %324, ptr noundef nonnull @.str.83) #6
-  br label %.thread551
+  br label %.thread578
 
-.thread551:                                       ; preds = %.thread547, %.thread280, %321
-  %326 = phi i32 [ %323, %.thread280 ], [ 1, %321 ], [ 1, %.thread547 ]
+.thread578:                                       ; preds = %.thread574, %.thread280, %321
+  %326 = phi i32 [ %323, %.thread280 ], [ 1, %321 ], [ 1, %.thread574 ]
   %327 = tail call ptr @OPENSSL_sk_new(ptr noundef nonnull @skeymanager_cmp) #6
   %328 = tail call ptr @app_get0_libctx() #6
   tail call void @EVP_SKEYMGMT_do_all_provided(ptr noundef %328, ptr noundef nonnull @collect_skeymanagers, ptr noundef %327) #6
@@ -1030,8 +1030,8 @@ list_random_generators.exit.thread:               ; preds = %.thread207
   %330 = icmp sgt i32 %329, 0
   br i1 %330, label %.lr.ph.i161, label %list_skeymanagers.exit
 
-.lr.ph.i161:                                      ; preds = %.thread551, %360
-  %.025.i = phi i32 [ %361, %360 ], [ 0, %.thread551 ]
+.lr.ph.i161:                                      ; preds = %.thread578, %360
+  %.025.i = phi i32 [ %361, %360 ], [ 0, %.thread578 ]
   %331 = tail call ptr @OPENSSL_sk_value(ptr noundef %327, i32 noundef %.025.i) #6
   %332 = load ptr, ptr @select_name, align 8, !tbaa !23
   %.not.i162 = icmp eq ptr %332, null
@@ -1091,7 +1091,7 @@ list_random_generators.exit.thread:               ; preds = %.thread207
   %363 = icmp slt i32 %361, %362
   br i1 %363, label %.lr.ph.i161, label %list_skeymanagers.exit, !llvm.loop !25
 
-list_skeymanagers.exit:                           ; preds = %360, %.thread551
+list_skeymanagers.exit:                           ; preds = %360, %.thread578
   tail call void @OPENSSL_sk_pop_free(ptr noundef %327, ptr noundef nonnull @EVP_SKEYMGMT_free) #6
   br label %364
 
@@ -1101,10 +1101,10 @@ list_skeymanagers.exit:                           ; preds = %360, %.thread551
   %.not129 = icmp eq i32 %365, 0
   br i1 %.not129, label %374, label %368
 
-.thread554:                                       ; preds = %.thread547
+.thread581:                                       ; preds = %.thread574
   %366 = and i32 %.sroa.0.0, 16384
-  %.not129556 = icmp eq i32 %366, 0
-  br i1 %.not129556, label %.thread561, label %.thread558
+  %.not129583 = icmp eq i32 %366, 0
+  br i1 %.not129583, label %.thread588, label %.thread585
 
 .thread283:                                       ; preds = %.thread276
   %367 = and i32 %.sroa.0.0, 16384
@@ -1114,29 +1114,29 @@ list_skeymanagers.exit:                           ; preds = %360, %.thread551
 368:                                              ; preds = %364
   %369 = add nuw nsw i32 %.13, 1
   %.not130 = icmp eq i32 %.13, 0
-  br i1 %.not130, label %.thread558, label %.thread287
+  br i1 %.not130, label %.thread585, label %.thread287
 
 .thread287:                                       ; preds = %.thread283, %368
   %370 = phi i32 [ %369, %368 ], [ 2, %.thread283 ]
   %371 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %372 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %371, ptr noundef nonnull @.str.83) #6
-  br label %.thread558
+  br label %.thread585
 
-.thread558:                                       ; preds = %.thread554, %.thread287, %368
-  %373 = phi i32 [ %370, %.thread287 ], [ 1, %368 ], [ 1, %.thread554 ]
+.thread585:                                       ; preds = %.thread581, %.thread287, %368
+  %373 = phi i32 [ %370, %.thread287 ], [ 1, %368 ], [ 1, %.thread581 ]
   tail call fastcc void @list_signatures()
   br label %374
 
-374:                                              ; preds = %.thread558, %364
-  %.14 = phi i32 [ %373, %.thread558 ], [ %.13, %364 ]
+374:                                              ; preds = %.thread585, %364
+  %.14 = phi i32 [ %373, %.thread585 ], [ %.13, %364 ]
   %375 = and i32 %.sroa.0.0, 32768
   %.not131 = icmp eq i32 %375, 0
   br i1 %.not131, label %405, label %378
 
-.thread561:                                       ; preds = %.thread554
+.thread588:                                       ; preds = %.thread581
   %376 = and i32 %.sroa.0.0, 32768
-  %.not131563 = icmp eq i32 %376, 0
-  br i1 %.not131563, label %.thread568, label %.thread565
+  %.not131590 = icmp eq i32 %376, 0
+  br i1 %.not131590, label %.thread595, label %.thread592
 
 .thread290:                                       ; preds = %.thread283
   %377 = and i32 %.sroa.0.0, 32768
@@ -1146,16 +1146,16 @@ list_skeymanagers.exit:                           ; preds = %360, %.thread551
 378:                                              ; preds = %374
   %379 = add nuw nsw i32 %.14, 1
   %.not132 = icmp eq i32 %.14, 0
-  br i1 %.not132, label %.thread565, label %.thread294
+  br i1 %.not132, label %.thread592, label %.thread294
 
 .thread294:                                       ; preds = %.thread290, %378
   %380 = phi i32 [ %379, %378 ], [ 2, %.thread290 ]
   %381 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %382 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %381, ptr noundef nonnull @.str.83) #6
-  br label %.thread565
+  br label %.thread592
 
-.thread565:                                       ; preds = %.thread561, %.thread294, %378
-  %383 = phi i32 [ %380, %.thread294 ], [ 1, %378 ], [ 1, %.thread561 ]
+.thread592:                                       ; preds = %.thread588, %.thread294, %378
+  %383 = phi i32 [ %380, %.thread294 ], [ 1, %378 ], [ 1, %.thread588 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 0, ptr %20, align 4, !tbaa !26
   %384 = tail call ptr @app_get0_libctx() #6
@@ -1163,7 +1163,7 @@ list_skeymanagers.exit:                           ; preds = %360, %.thread551
   %.not.i164 = icmp eq ptr %385, null
   br i1 %.not.i164, label %392, label %386
 
-386:                                              ; preds = %.thread565
+386:                                              ; preds = %.thread592
   %387 = load i8, ptr %385, align 1, !tbaa !20
   %.not4.i = icmp eq i8 %387, 0
   br i1 %.not4.i, label %391, label %388
@@ -1178,7 +1178,7 @@ list_skeymanagers.exit:                           ; preds = %360, %.thread551
   tail call void @CRYPTO_free(ptr noundef nonnull %385, ptr noundef nonnull @.str.135, i32 noundef 883) #6
   br label %392
 
-392:                                              ; preds = %391, %.thread565
+392:                                              ; preds = %391, %.thread592
   %393 = call i32 @OSSL_PROVIDER_do_all(ptr noundef null, ptr noundef nonnull @list_tls_sigalg_caps, ptr noundef nonnull %20) #6
   %.not5.i = icmp eq i32 %393, 0
   br i1 %.not5.i, label %394, label %397
@@ -1210,10 +1210,10 @@ list_tls_signatures.exit:                         ; preds = %397, %400
   %.not133 = icmp eq i32 %406, 0
   br i1 %.not133, label %415, label %409
 
-.thread568:                                       ; preds = %.thread561
+.thread595:                                       ; preds = %.thread588
   %407 = and i32 %.sroa.0.0, 524288
-  %.not133570 = icmp eq i32 %407, 0
-  br i1 %.not133570, label %.thread575, label %.thread572
+  %.not133597 = icmp eq i32 %407, 0
+  br i1 %.not133597, label %.thread602, label %.thread599
 
 .thread297:                                       ; preds = %.thread290
   %408 = and i32 %.sroa.0.0, 524288
@@ -1223,29 +1223,29 @@ list_tls_signatures.exit:                         ; preds = %397, %400
 409:                                              ; preds = %405
   %410 = add nuw nsw i32 %.15, 1
   %.not134 = icmp eq i32 %.15, 0
-  br i1 %.not134, label %.thread572, label %.thread301
+  br i1 %.not134, label %.thread599, label %.thread301
 
 .thread301:                                       ; preds = %.thread297, %409
   %411 = phi i32 [ %410, %409 ], [ 2, %.thread297 ]
   %412 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %413 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %412, ptr noundef nonnull @.str.83) #6
-  br label %.thread572
+  br label %.thread599
 
-.thread572:                                       ; preds = %.thread568, %.thread301, %409
-  %414 = phi i32 [ %411, %.thread301 ], [ 1, %409 ], [ 1, %.thread568 ]
+.thread599:                                       ; preds = %.thread595, %.thread301, %409
+  %414 = phi i32 [ %411, %.thread301 ], [ 1, %409 ], [ 1, %.thread595 ]
   call fastcc void @list_asymciphers()
   br label %415
 
-415:                                              ; preds = %.thread572, %405
-  %.16 = phi i32 [ %414, %.thread572 ], [ %.15, %405 ]
+415:                                              ; preds = %.thread599, %405
+  %.16 = phi i32 [ %414, %.thread599 ], [ %.15, %405 ]
   %416 = and i32 %.sroa.0.0, 65536
   %.not135 = icmp eq i32 %416, 0
   br i1 %.not135, label %425, label %419
 
-.thread575:                                       ; preds = %.thread568
+.thread602:                                       ; preds = %.thread595
   %417 = and i32 %.sroa.0.0, 65536
-  %.not135577 = icmp eq i32 %417, 0
-  br i1 %.not135577, label %.thread582, label %.thread579
+  %.not135604 = icmp eq i32 %417, 0
+  br i1 %.not135604, label %.thread609, label %.thread606
 
 .thread304:                                       ; preds = %.thread297
   %418 = and i32 %.sroa.0.0, 65536
@@ -1255,29 +1255,29 @@ list_tls_signatures.exit:                         ; preds = %397, %400
 419:                                              ; preds = %415
   %420 = add nuw nsw i32 %.16, 1
   %.not136 = icmp eq i32 %.16, 0
-  br i1 %.not136, label %.thread579, label %.thread308
+  br i1 %.not136, label %.thread606, label %.thread308
 
 .thread308:                                       ; preds = %.thread304, %419
   %421 = phi i32 [ %420, %419 ], [ 2, %.thread304 ]
   %422 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %423 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %422, ptr noundef nonnull @.str.83) #6
-  br label %.thread579
+  br label %.thread606
 
-.thread579:                                       ; preds = %.thread575, %.thread308, %419
-  %424 = phi i32 [ %421, %.thread308 ], [ 1, %419 ], [ 1, %.thread575 ]
+.thread606:                                       ; preds = %.thread602, %.thread308, %419
+  %424 = phi i32 [ %421, %.thread308 ], [ 1, %419 ], [ 1, %.thread602 ]
   call fastcc void @list_keyexchanges()
   br label %425
 
-425:                                              ; preds = %.thread579, %415
-  %.17 = phi i32 [ %424, %.thread579 ], [ %.16, %415 ]
+425:                                              ; preds = %.thread606, %415
+  %.17 = phi i32 [ %424, %.thread606 ], [ %.16, %415 ]
   %426 = and i32 %.sroa.0.0, 131072
   %.not137 = icmp eq i32 %426, 0
   br i1 %.not137, label %435, label %429
 
-.thread582:                                       ; preds = %.thread575
+.thread609:                                       ; preds = %.thread602
   %427 = and i32 %.sroa.0.0, 131072
-  %.not137584 = icmp eq i32 %427, 0
-  br i1 %.not137584, label %.thread589, label %.thread586
+  %.not137611 = icmp eq i32 %427, 0
+  br i1 %.not137611, label %.thread616, label %.thread613
 
 .thread311:                                       ; preds = %.thread304
   %428 = and i32 %.sroa.0.0, 131072
@@ -1287,29 +1287,29 @@ list_tls_signatures.exit:                         ; preds = %397, %400
 429:                                              ; preds = %425
   %430 = add nuw nsw i32 %.17, 1
   %.not138 = icmp eq i32 %.17, 0
-  br i1 %.not138, label %.thread586, label %.thread315
+  br i1 %.not138, label %.thread613, label %.thread315
 
 .thread315:                                       ; preds = %.thread311, %429
   %431 = phi i32 [ %430, %429 ], [ 2, %.thread311 ]
   %432 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %433 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %432, ptr noundef nonnull @.str.83) #6
-  br label %.thread586
+  br label %.thread613
 
-.thread586:                                       ; preds = %.thread582, %.thread315, %429
-  %434 = phi i32 [ %431, %.thread315 ], [ 1, %429 ], [ 1, %.thread582 ]
+.thread613:                                       ; preds = %.thread609, %.thread315, %429
+  %434 = phi i32 [ %431, %.thread315 ], [ 1, %429 ], [ 1, %.thread609 ]
   call fastcc void @list_kems()
   br label %435
 
-435:                                              ; preds = %.thread586, %425
-  %.18 = phi i32 [ %434, %.thread586 ], [ %.17, %425 ]
+435:                                              ; preds = %.thread613, %425
+  %.18 = phi i32 [ %434, %.thread613 ], [ %.17, %425 ]
   %436 = and i32 %.sroa.0.0, 262144
   %.not139 = icmp eq i32 %436, 0
   br i1 %.not139, label %list_tls_groups.exit, label %439
 
-.thread589:                                       ; preds = %.thread582
+.thread616:                                       ; preds = %.thread609
   %437 = and i32 %.sroa.0.0, 262144
-  %.not139591 = icmp eq i32 %437, 0
-  br i1 %.not139591, label %list_tls_groups.exit.thread596, label %.thread593
+  %.not139618 = icmp eq i32 %437, 0
+  br i1 %.not139618, label %list_tls_groups.exit.thread623, label %.thread620
 
 .thread318:                                       ; preds = %.thread311
   %438 = and i32 %.sroa.0.0, 262144
@@ -1319,26 +1319,26 @@ list_tls_signatures.exit:                         ; preds = %397, %400
 439:                                              ; preds = %435
   %440 = add nuw nsw i32 %.18, 1
   %.not140 = icmp eq i32 %.18, 0
-  br i1 %.not140, label %.thread593, label %.thread322
+  br i1 %.not140, label %.thread620, label %.thread322
 
 .thread322:                                       ; preds = %.thread318, %439
   %441 = phi i32 [ %440, %439 ], [ 2, %.thread318 ]
   %442 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %443 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %442, ptr noundef nonnull @.str.83) #6
-  br label %.thread593
+  br label %.thread620
 
-.thread593:                                       ; preds = %.thread589, %.thread322, %439
-  %444 = phi i32 [ %441, %.thread322 ], [ 1, %439 ], [ 1, %.thread589 ]
+.thread620:                                       ; preds = %.thread616, %.thread322, %439
+  %444 = phi i32 [ %441, %.thread322 ], [ 1, %439 ], [ 1, %.thread616 ]
   %445 = call ptr @OPENSSL_sk_new_null() #6
   %446 = icmp eq ptr %445, null
   br i1 %446, label %447, label %450
 
-447:                                              ; preds = %.thread593
+447:                                              ; preds = %.thread620
   %448 = load ptr, ptr @bio_err, align 8, !tbaa !4
   %449 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %448, ptr noundef nonnull @.str.99) #6
   br label %list_tls_groups.exit
 
-450:                                              ; preds = %.thread593
+450:                                              ; preds = %.thread620
   %451 = call ptr @TLS_method() #6
   %452 = call ptr @SSL_CTX_new(ptr noundef %451) #6
   %453 = icmp eq ptr %452, null
@@ -1400,10 +1400,10 @@ list_tls_groups.exit:                             ; preds = %.loopexit.i, %447, 
   %.not141 = icmp eq i32 %476, 0
   br i1 %.not141, label %534, label %479
 
-list_tls_groups.exit.thread596:                   ; preds = %.thread589
+list_tls_groups.exit.thread623:                   ; preds = %.thread616
   %477 = and i32 %.sroa.0.0, 1048576
-  %.not141598 = icmp eq i32 %477, 0
-  br i1 %.not141598, label %.thread603, label %.thread600
+  %.not141625 = icmp eq i32 %477, 0
+  br i1 %.not141625, label %.thread630, label %.thread627
 
 list_tls_groups.exit.thread:                      ; preds = %.thread318
   %478 = and i32 %.sroa.0.0, 1048576
@@ -1413,21 +1413,21 @@ list_tls_groups.exit.thread:                      ; preds = %.thread318
 479:                                              ; preds = %list_tls_groups.exit
   %480 = add nuw nsw i32 %.19, 1
   %.not142 = icmp eq i32 %.19, 0
-  br i1 %.not142, label %.thread600, label %.thread328
+  br i1 %.not142, label %.thread627, label %.thread328
 
 .thread328:                                       ; preds = %list_tls_groups.exit.thread, %479
   %481 = phi i32 [ %480, %479 ], [ 2, %list_tls_groups.exit.thread ]
   %482 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %483 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %482, ptr noundef nonnull @.str.83) #6
-  br label %.thread600
+  br label %.thread627
 
-.thread600:                                       ; preds = %list_tls_groups.exit.thread596, %.thread328, %479
-  %484 = phi i32 [ %481, %.thread328 ], [ 1, %479 ], [ 1, %list_tls_groups.exit.thread596 ]
+.thread627:                                       ; preds = %list_tls_groups.exit.thread623, %.thread328, %479
+  %484 = phi i32 [ %481, %.thread328 ], [ 1, %479 ], [ 1, %list_tls_groups.exit.thread623 ]
   %485 = load ptr, ptr @select_name, align 8, !tbaa !23
   %486 = icmp eq ptr %485, null
   br i1 %486, label %487, label %list_pkey.exit
 
-487:                                              ; preds = %.thread600
+487:                                              ; preds = %.thread627
   %488 = call ptr @app_get0_propq() #6
   %.not.i172 = icmp eq ptr %488, null
   br i1 %.not.i172, label %489, label %list_pkey.exit
@@ -1502,7 +1502,7 @@ list_tls_groups.exit.thread:                      ; preds = %.thread318
   %529 = icmp slt i32 %527, %528
   br i1 %529, label %.lr.ph.i173, label %list_pkey.exit, !llvm.loop !28
 
-list_pkey.exit:                                   ; preds = %526, %.thread600, %487, %489
+list_pkey.exit:                                   ; preds = %526, %.thread627, %487, %489
   %530 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %531 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %530, ptr noundef nonnull @.str.153) #6
   %532 = load ptr, ptr @bio_out, align 8, !tbaa !4
@@ -1516,10 +1516,10 @@ list_pkey.exit:                                   ; preds = %526, %.thread600, %
   %.not143 = icmp eq i32 %535, 0
   br i1 %.not143, label %573, label %538
 
-.thread603:                                       ; preds = %list_tls_groups.exit.thread596
+.thread630:                                       ; preds = %list_tls_groups.exit.thread623
   %536 = and i32 %.sroa.0.0, 2097152
-  %.not143605 = icmp eq i32 %536, 0
-  br i1 %.not143605, label %.thread610, label %.thread607
+  %.not143632 = icmp eq i32 %536, 0
+  br i1 %.not143632, label %.thread637, label %.thread634
 
 .thread331:                                       ; preds = %list_tls_groups.exit.thread
   %537 = and i32 %.sroa.0.0, 2097152
@@ -1529,22 +1529,22 @@ list_pkey.exit:                                   ; preds = %526, %.thread600, %
 538:                                              ; preds = %534
   %539 = add nuw nsw i32 %.20, 1
   %.not144 = icmp eq i32 %.20, 0
-  br i1 %.not144, label %.thread607, label %.thread335
+  br i1 %.not144, label %.thread634, label %.thread335
 
 .thread335:                                       ; preds = %.thread331, %538
   %540 = phi i32 [ %539, %538 ], [ 2, %.thread331 ]
   %541 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %542 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %541, ptr noundef nonnull @.str.83) #6
-  br label %.thread607
+  br label %.thread634
 
-.thread607:                                       ; preds = %.thread603, %.thread335, %538
-  %543 = phi i32 [ %540, %.thread335 ], [ 1, %538 ], [ 1, %.thread603 ]
+.thread634:                                       ; preds = %.thread630, %.thread335, %538
+  %543 = phi i32 [ %540, %.thread335 ], [ 1, %538 ], [ 1, %.thread630 ]
   %544 = call i64 @EVP_PKEY_meth_get_count() #6
   %545 = load ptr, ptr @select_name, align 8, !tbaa !23
   %546 = icmp eq ptr %545, null
   br i1 %546, label %547, label %list_pkey_meth.exit
 
-547:                                              ; preds = %.thread607
+547:                                              ; preds = %.thread634
   %548 = call ptr @app_get0_propq() #6
   %.not.i176 = icmp eq ptr %548, null
   br i1 %.not.i176, label %549, label %list_pkey_meth.exit
@@ -1577,7 +1577,7 @@ list_pkey.exit:                                   ; preds = %526, %.thread600, %
   %exitcond.not.i180 = icmp eq i64 %562, %544
   br i1 %exitcond.not.i180, label %list_pkey_meth.exit, label %.lr.ph.i177, !llvm.loop !29
 
-list_pkey_meth.exit:                              ; preds = %.lr.ph.i177, %.thread607, %547, %549
+list_pkey_meth.exit:                              ; preds = %.lr.ph.i177, %.thread634, %547, %549
   %563 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %564 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %563, ptr noundef nonnull @.str.153) #6
   %565 = load ptr, ptr @bio_out, align 8, !tbaa !4
@@ -1600,10 +1600,10 @@ list_pkey_meth.exit:                              ; preds = %.lr.ph.i177, %.thre
   %.not145 = icmp eq i32 %574, 0
   br i1 %.not145, label %583, label %577
 
-.thread610:                                       ; preds = %.thread603
+.thread637:                                       ; preds = %.thread630
   %575 = and i32 %.sroa.0.0, 4194304
-  %.not145612 = icmp eq i32 %575, 0
-  br i1 %.not145612, label %.thread617, label %.thread614
+  %.not145639 = icmp eq i32 %575, 0
+  br i1 %.not145639, label %.thread644, label %.thread641
 
 .thread338:                                       ; preds = %.thread331
   %576 = and i32 %.sroa.0.0, 4194304
@@ -1613,29 +1613,29 @@ list_pkey_meth.exit:                              ; preds = %.lr.ph.i177, %.thre
 577:                                              ; preds = %573
   %578 = add nuw nsw i32 %.21, 1
   %.not146 = icmp eq i32 %.21, 0
-  br i1 %.not146, label %.thread614, label %.thread342
+  br i1 %.not146, label %.thread641, label %.thread342
 
 .thread342:                                       ; preds = %.thread338, %577
   %579 = phi i32 [ %578, %577 ], [ 2, %.thread338 ]
   %580 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %581 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %580, ptr noundef nonnull @.str.83) #6
-  br label %.thread614
+  br label %.thread641
 
-.thread614:                                       ; preds = %.thread610, %.thread342, %577
-  %582 = phi i32 [ %579, %.thread342 ], [ 1, %577 ], [ 1, %.thread610 ]
+.thread641:                                       ; preds = %.thread637, %.thread342, %577
+  %582 = phi i32 [ %579, %.thread342 ], [ 1, %577 ], [ 1, %.thread637 ]
   call fastcc void @list_store_loaders()
   br label %583
 
-583:                                              ; preds = %.thread614, %573
-  %.22 = phi i32 [ %582, %.thread614 ], [ %.21, %573 ]
+583:                                              ; preds = %.thread641, %573
+  %.22 = phi i32 [ %582, %.thread641 ], [ %.21, %573 ]
   %584 = and i32 %.sroa.0.0, 8388608
   %.not147 = icmp eq i32 %584, 0
   br i1 %.not147, label %654, label %587
 
-.thread617:                                       ; preds = %.thread610
+.thread644:                                       ; preds = %.thread637
   %585 = and i32 %.sroa.0.0, 8388608
-  %.not147619 = icmp eq i32 %585, 0
-  br i1 %.not147619, label %.thread624, label %.thread621
+  %.not147646 = icmp eq i32 %585, 0
+  br i1 %.not147646, label %.thread651, label %.thread648
 
 .thread345:                                       ; preds = %.thread338
   %586 = and i32 %.sroa.0.0, 8388608
@@ -1645,16 +1645,16 @@ list_pkey_meth.exit:                              ; preds = %.lr.ph.i177, %.thre
 587:                                              ; preds = %583
   %588 = add nuw nsw i32 %.22, 1
   %.not148 = icmp eq i32 %.22, 0
-  br i1 %.not148, label %.thread621, label %.thread349
+  br i1 %.not148, label %.thread648, label %.thread349
 
 .thread349:                                       ; preds = %.thread345, %587
   %589 = phi i32 [ %588, %587 ], [ 2, %.thread345 ]
   %590 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %591 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %590, ptr noundef nonnull @.str.83) #6
-  br label %.thread621
+  br label %.thread648
 
-.thread621:                                       ; preds = %.thread617, %.thread349, %587
-  %592 = phi i32 [ %589, %.thread349 ], [ 1, %587 ], [ 1, %.thread617 ]
+.thread648:                                       ; preds = %.thread644, %.thread349, %587
+  %592 = phi i32 [ %589, %.thread349 ], [ 1, %587 ], [ 1, %.thread644 ]
   %593 = call ptr @OPENSSL_sk_new(ptr noundef nonnull @provider_cmp) #6
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1664,12 +1664,12 @@ list_pkey_meth.exit:                              ; preds = %.lr.ph.i177, %.thre
   %594 = icmp eq ptr %593, null
   br i1 %594, label %595, label %598
 
-595:                                              ; preds = %.thread621
+595:                                              ; preds = %.thread648
   %596 = load ptr, ptr @bio_err, align 8, !tbaa !4
   %597 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %596, ptr noundef nonnull @.str.99) #6
   br label %list_provider_info.exit
 
-598:                                              ; preds = %.thread621
+598:                                              ; preds = %.thread648
   %599 = call i32 @OSSL_PROVIDER_do_all(ptr noundef null, ptr noundef nonnull @collect_providers, ptr noundef nonnull %593) #6
   %.not.i181 = icmp eq i32 %599, 1
   br i1 %.not.i181, label %603, label %600
@@ -1810,10 +1810,10 @@ list_provider_info.exit:                          ; preds = %595, %600, %._crit_
   %.not149 = icmp eq i32 %655, 0
   br i1 %.not149, label %list_engines.exit, label %658
 
-.thread624:                                       ; preds = %.thread617
+.thread651:                                       ; preds = %.thread644
   %656 = and i32 %.sroa.0.0, 16777216
-  %.not149626 = icmp eq i32 %656, 0
-  br i1 %.not149626, label %list_engines.exit.thread631, label %.thread628
+  %.not149653 = icmp eq i32 %656, 0
+  br i1 %.not149653, label %list_engines.exit.thread658, label %.thread655
 
 .thread352:                                       ; preds = %.thread345
   %657 = and i32 %.sroa.0.0, 16777216
@@ -1823,24 +1823,24 @@ list_provider_info.exit:                          ; preds = %595, %600, %._crit_
 658:                                              ; preds = %654
   %659 = add nuw nsw i32 %.23, 1
   %.not150 = icmp eq i32 %.23, 0
-  br i1 %.not150, label %.thread628, label %.thread356
+  br i1 %.not150, label %.thread655, label %.thread356
 
 .thread356:                                       ; preds = %.thread352, %658
   %660 = phi i32 [ %659, %658 ], [ 2, %.thread352 ]
   %661 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %662 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %661, ptr noundef nonnull @.str.83) #6
-  br label %.thread628
+  br label %.thread655
 
-.thread628:                                       ; preds = %.thread624, %.thread356, %658
-  %663 = phi i32 [ %660, %.thread356 ], [ 1, %658 ], [ 1, %.thread624 ]
+.thread655:                                       ; preds = %.thread651, %.thread356, %658
+  %663 = phi i32 [ %660, %.thread356 ], [ 1, %658 ], [ 1, %.thread651 ]
   %664 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %665 = call i32 @BIO_puts(ptr noundef %664, ptr noundef nonnull @.str.172) #6
   %666 = call ptr @ENGINE_get_first() #6
   %.not3.i188 = icmp eq ptr %666, null
   br i1 %.not3.i188, label %list_engines.exit, label %.lr.ph.i189
 
-.lr.ph.i189:                                      ; preds = %.thread628, %.lr.ph.i189
-  %.04.i = phi ptr [ %670, %.lr.ph.i189 ], [ %666, %.thread628 ]
+.lr.ph.i189:                                      ; preds = %.thread655, %.lr.ph.i189
+  %.04.i = phi ptr [ %670, %.lr.ph.i189 ], [ %666, %.thread655 ]
   %667 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %668 = call ptr @ENGINE_get_id(ptr noundef nonnull %.04.i) #6
   %669 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %667, ptr noundef nonnull @.str.96, ptr noundef %668) #6
@@ -1848,16 +1848,16 @@ list_provider_info.exit:                          ; preds = %595, %600, %._crit_
   %.not.i190 = icmp eq ptr %670, null
   br i1 %.not.i190, label %list_engines.exit, label %.lr.ph.i189, !llvm.loop !35
 
-list_engines.exit:                                ; preds = %.lr.ph.i189, %.thread628, %654
-  %.24 = phi i32 [ %.23, %654 ], [ %663, %.thread628 ], [ %663, %.lr.ph.i189 ]
+list_engines.exit:                                ; preds = %.lr.ph.i189, %.thread655, %654
+  %.24 = phi i32 [ %.23, %654 ], [ %663, %.thread655 ], [ %663, %.lr.ph.i189 ]
   %671 = and i32 %.sroa.0.0, 33554432
   %.not151 = icmp eq i32 %671, 0
   br i1 %.not151, label %693, label %674
 
-list_engines.exit.thread631:                      ; preds = %.thread624
+list_engines.exit.thread658:                      ; preds = %.thread651
   %672 = and i32 %.sroa.0.0, 33554432
-  %.not151633 = icmp eq i32 %672, 0
-  br i1 %.not151633, label %.thread638, label %.thread635
+  %.not151660 = icmp eq i32 %672, 0
+  br i1 %.not151660, label %.thread665, label %.thread662
 
 list_engines.exit.thread:                         ; preds = %.thread352
   %673 = and i32 %.sroa.0.0, 33554432
@@ -1866,14 +1866,14 @@ list_engines.exit.thread:                         ; preds = %.thread352
 
 674:                                              ; preds = %list_engines.exit
   %.not152 = icmp eq i32 %.24, 0
-  br i1 %.not152, label %.thread635, label %.thread362
+  br i1 %.not152, label %.thread662, label %.thread362
 
 .thread362:                                       ; preds = %list_engines.exit.thread, %674
   %675 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %676 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %675, ptr noundef nonnull @.str.83) #6
-  br label %.thread635
+  br label %.thread662
 
-.thread635:                                       ; preds = %list_engines.exit.thread631, %.thread362, %674
+.thread662:                                       ; preds = %list_engines.exit.thread658, %.thread362, %674
   %677 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %678 = call i32 @BIO_puts(ptr noundef %677, ptr noundef nonnull @.str.173) #6
   %679 = load ptr, ptr @bio_out, align 8, !tbaa !4
@@ -1892,33 +1892,33 @@ list_engines.exit.thread:                         ; preds = %.thread352
   %692 = call i32 @BIO_puts(ptr noundef %691, ptr noundef nonnull @.str.180) #6
   br label %693
 
-693:                                              ; preds = %list_engines.exit.thread, %.thread635, %list_engines.exit
-  %.25 = phi i32 [ 1, %.thread635 ], [ %.24, %list_engines.exit ], [ 1, %list_engines.exit.thread ]
+693:                                              ; preds = %list_engines.exit.thread, %.thread662, %list_engines.exit
+  %.25 = phi i32 [ 1, %.thread662 ], [ %.24, %list_engines.exit ], [ 1, %list_engines.exit.thread ]
   %.not153 = icmp ult i32 %.sroa.0.0, 67108864
   br i1 %.not153, label %739, label %694
 
-.thread638:                                       ; preds = %list_engines.exit.thread631
-  %.not153640 = icmp ult i32 %.sroa.0.0, 67108864
-  br i1 %.not153640, label %739, label %.thread642
+.thread665:                                       ; preds = %list_engines.exit.thread658
+  %.not153667 = icmp ult i32 %.sroa.0.0, 67108864
+  br i1 %.not153667, label %739, label %.thread669
 
 694:                                              ; preds = %693
   %.not154 = icmp eq i32 %.25, 0
-  br i1 %.not154, label %.thread642, label %695
+  br i1 %.not154, label %.thread669, label %695
 
 695:                                              ; preds = %694
   %696 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %697 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %696, ptr noundef nonnull @.str.83) #6
-  br label %.thread642
+  br label %.thread669
 
-.thread642:                                       ; preds = %.thread638, %695, %694
+.thread669:                                       ; preds = %.thread665, %695, %694
   %698 = call i32 @OBJ_new_nid(i32 noundef 0) #6
   %699 = icmp sgt i32 %698, 1
   br i1 %699, label %.lr.ph.i193, label %list_objects.exit
 
-.lr.ph.i193:                                      ; preds = %.thread642, %737
-  %.02947.i = phi i32 [ %738, %737 ], [ 1, %.thread642 ]
-  %.03046.i = phi ptr [ %.2.ph.i, %737 ], [ null, %.thread642 ]
-  %.03145.i = phi i32 [ %.132.ph.i, %737 ], [ 0, %.thread642 ]
+.lr.ph.i193:                                      ; preds = %.thread669, %737
+  %.02947.i = phi i32 [ %738, %737 ], [ 1, %.thread669 ]
+  %.03046.i = phi ptr [ %.2.ph.i, %737 ], [ null, %.thread669 ]
+  %.03145.i = phi i32 [ %.132.ph.i, %737 ], [ 0, %.thread669 ]
   %700 = call ptr @OBJ_nid2obj(i32 noundef %.02947.i) #6
   %701 = call ptr @OBJ_nid2sn(i32 noundef %.02947.i) #6
   %702 = call ptr @OBJ_nid2ln(i32 noundef %.02947.i) #6
@@ -1990,12 +1990,12 @@ list_engines.exit.thread:                         ; preds = %.thread352
   %exitcond.not.i194 = icmp eq i32 %738, %698
   br i1 %exitcond.not.i194, label %list_objects.exit, label %.lr.ph.i193, !llvm.loop !36
 
-list_objects.exit:                                ; preds = %711, %723, %737, %.thread642, %720
-  %.1.i = phi ptr [ null, %720 ], [ null, %.thread642 ], [ %.03046.i, %711 ], [ %.3.i, %723 ], [ %.2.ph.i, %737 ]
+list_objects.exit:                                ; preds = %711, %723, %737, %.thread669, %720
+  %.1.i = phi ptr [ null, %720 ], [ null, %.thread669 ], [ %.03046.i, %711 ], [ %.3.i, %723 ], [ %.2.ph.i, %737 ]
   call void @CRYPTO_free(ptr noundef %.1.i, ptr noundef nonnull @.str.135, i32 noundef 1122) #6
   br label %739
 
-739:                                              ; preds = %.thread638, %list_objects.exit, %693
+739:                                              ; preds = %.thread665, %list_objects.exit, %693
   br i1 %.not155, label %.loopexit, label %.loopexit365
 
 .loopexit365:                                     ; preds = %127, %739, %25, %.loopexit
@@ -2032,12 +2032,12 @@ define internal fastcc void @list_type(i32 noundef range(i32 1, 4) %0, i32 nound
   call void @calculate_columns(ptr noundef nonnull @functions, ptr noundef nonnull %3) #6
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @functions, i64 8), align 8, !tbaa !9
   %.not1837 = icmp eq ptr %5, null
-  br i1 %.not1837, label %._crit_edge.thread63, label %.lr.ph.split.us.preheader
+  br i1 %.not1837, label %._crit_edge.thread72, label %.lr.ph.split.us.preheader
 
 .thread:                                          ; preds = %2
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @functions, i64 8), align 8, !tbaa !9
-  %.not183762 = icmp eq ptr %6, null
-  br i1 %.not183762, label %._crit_edge.thread, label %.lr.ph.split
+  %.not183771 = icmp eq ptr %6, null
+  br i1 %.not183771, label %._crit_edge.thread, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -2243,14 +2243,14 @@ is_cipher_available.exit.thread:                  ; preds = %83, %.lr.ph.split.s
   br i1 %.not18, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %is_cipher_available.exit.thread.us57, %is_cipher_available.exit.thread.us47, %is_cipher_available.exit.thread, %is_cipher_available.exit.thread.us
-  br i1 %.not, label %._crit_edge.thread63, label %._crit_edge.thread
+  br i1 %.not, label %._crit_edge.thread72, label %._crit_edge.thread
 
-._crit_edge.thread63:                             ; preds = %4, %._crit_edge
+._crit_edge.thread72:                             ; preds = %4, %._crit_edge
   %89 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %90 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %89, ptr noundef nonnull @.str.98) #6
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.thread, %._crit_edge.thread63, %._crit_edge
+._crit_edge.thread:                               ; preds = %.thread, %._crit_edge.thread72, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -4247,9 +4247,9 @@ switch.lookup:                                    ; preds = %8
   br label %42
 
 42:                                               ; preds = %39, %41
-  %storemerge32 = phi ptr [ %5, %41 ], [ %3, %39 ]
+  %storemerge36 = phi ptr [ %5, %41 ], [ %3, %39 ]
   %storemerge = phi i64 [ 1000, %41 ], [ 8, %39 ]
-  store ptr %storemerge32, ptr %26, align 16, !tbaa !81
+  store ptr %storemerge36, ptr %26, align 16, !tbaa !81
   store i64 %storemerge, ptr %27, align 8, !tbaa !82
   store i64 0, ptr %28, align 16, !tbaa !83
   %43 = call i32 @EVP_RAND_CTX_get_params(ptr noundef nonnull %1, ptr noundef nonnull %4) #6

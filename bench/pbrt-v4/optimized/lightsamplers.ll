@@ -953,9 +953,9 @@ _ZN4pbrt5ErrorIJPKcEEEvS2_DpOT_.exit:             ; preds = %_ZNKSt7__cxx1112bas
 
 95:                                               ; preds = %_ZN4pbrt5ErrorIJPKcEEEvS2_DpOT_.exit, %58, %50, %42, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE10new_objectIN4pbrt19UniformLightSamplerEJRNS_4spanIKNS5_5LightEEERS3_EEEPT_DpOT0_.exit
   %.sink = phi ptr [ %94, %_ZN4pbrt5ErrorIJPKcEEEvS2_DpOT_.exit ], [ %62, %58 ], [ %54, %50 ], [ %46, %42 ], [ %14, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE10new_objectIN4pbrt19UniformLightSamplerEJRNS_4spanIKNS5_5LightEEERS3_EEEPT_DpOT0_.exit ]
-  %.sink31 = phi i64 [ 576460752303423488, %_ZN4pbrt5ErrorIJPKcEEEvS2_DpOT_.exit ], [ 432345564227567616, %58 ], [ 576460752303423488, %50 ], [ 288230376151711744, %42 ], [ 144115188075855872, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE10new_objectIN4pbrt19UniformLightSamplerEJRNS_4spanIKNS5_5LightEEERS3_EEEPT_DpOT0_.exit ]
+  %.sink36 = phi i64 [ 576460752303423488, %_ZN4pbrt5ErrorIJPKcEEEvS2_DpOT_.exit ], [ 432345564227567616, %58 ], [ 576460752303423488, %50 ], [ 288230376151711744, %42 ], [ 144115188075855872, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE10new_objectIN4pbrt19UniformLightSamplerEJRNS_4spanIKNS5_5LightEEERS3_EEEPT_DpOT0_.exit ]
   %96 = ptrtoint ptr %.sink to i64
-  %97 = or i64 %.sink31, %96
+  %97 = or i64 %.sink36, %96
   store i64 %97, ptr %0, align 8, !tbaa !60
   ret void
 }
@@ -2184,14 +2184,14 @@ _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE9cons
   %89 = load i64, ptr %72, align 8, !tbaa !52
   %90 = load i64, ptr %73, align 8, !tbaa !47
   %91 = icmp eq i64 %89, %90
-  br i1 %91, label %92, label %.thread72
+  br i1 %91, label %92, label %.thread86
 
 92:                                               ; preds = %88
   %93 = icmp eq i64 %89, 0
   %94 = shl i64 %89, 1
   %spec.select.i = select i1 %93, i64 4, i64 %94
   %.not.i.i = icmp ult i64 %89, %spec.select.i
-  br i1 %.not.i.i, label %95, label %.thread72
+  br i1 %.not.i.i, label %95, label %.thread86
 
 95:                                               ; preds = %92
   %96 = shl i64 %spec.select.i, 3
@@ -2415,14 +2415,14 @@ _ZNSt6vectorISt4pairIiN4pbrt11LightBoundsEESaIS3_EE9push_backEOS3_.exit: ; preds
           cleanup
   br label %_ZN4pstd8optionalIN4pbrt11LightBoundsEED2Ev.exit35
 
-.thread72:                                        ; preds = %92, %88
-  %.ph71 = phi i64 [ %90, %88 ], [ %89, %92 ]
+.thread86:                                        ; preds = %92, %88
+  %.ph85 = phi i64 [ %90, %88 ], [ %89, %92 ]
   %165 = load ptr, ptr %34, align 8, !tbaa !51
-  %166 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %165, i64 %.ph71
+  %166 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %165, i64 %.ph85
   store i64 0, ptr %166, align 8, !tbaa !4
   %167 = load i64, ptr %6, align 8, !tbaa !4
   store i64 %167, ptr %166, align 8, !tbaa !4
-  %168 = add i64 %.ph71, 1
+  %168 = add i64 %.ph85, 1
   store i64 %168, ptr %73, align 8, !tbaa !47
   br label %_ZN4pstd8optionalIN4pbrt11LightBoundsEED2Ev.exit
 
@@ -2438,8 +2438,8 @@ _ZNSt6vectorISt4pairIiN4pbrt11LightBoundsEESaIS3_EE9push_backEOS3_.exit: ; preds
   store i64 %172, ptr %73, align 8, !tbaa !47
   br label %_ZN4pstd8optionalIN4pbrt11LightBoundsEED2Ev.exit
 
-_ZN4pstd8optionalIN4pbrt11LightBoundsEED2Ev.exit: ; preds = %169, %_ZN4pstd8optionalIN4pbrt11LightBoundsEEptEv.exit, %149, %.thread72
-  %173 = phi ptr [ %82, %.thread72 ], [ %82, %169 ], [ %145, %149 ], [ %82, %_ZN4pstd8optionalIN4pbrt11LightBoundsEEptEv.exit ]
+_ZN4pstd8optionalIN4pbrt11LightBoundsEED2Ev.exit: ; preds = %169, %_ZN4pstd8optionalIN4pbrt11LightBoundsEEptEv.exit, %149, %.thread86
+  %173 = phi ptr [ %82, %.thread86 ], [ %82, %169 ], [ %145, %149 ], [ %82, %_ZN4pstd8optionalIN4pbrt11LightBoundsEEptEv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %174 = add nuw i64 %storemerge66, 1
@@ -2731,10 +2731,10 @@ _ZN4pstd6vectorIN4pbrt12LightBVHNodeENS_3pmr21polymorphic_allocatorIS2_EEE9push_
   %106 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %.sroa.2.0..sroa_idx.i34.i252 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %107 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %foldExtExtBinop769 = fsub <2 x float> %.sroa.13593.0.lcssa, %.sroa.0588.0.lcssa
-  %108 = extractelement <2 x float> %foldExtExtBinop769, i64 0
-  %foldExtExtBinop771 = fsub <2 x float> %.sroa.13593.0.lcssa, %.sroa.0588.0.lcssa
-  %109 = extractelement <2 x float> %foldExtExtBinop771, i64 1
+  %foldExtExtBinop790 = fsub <2 x float> %.sroa.13593.0.lcssa, %.sroa.0588.0.lcssa
+  %108 = extractelement <2 x float> %foldExtExtBinop790, i64 0
+  %foldExtExtBinop792 = fsub <2 x float> %.sroa.13593.0.lcssa, %.sroa.0588.0.lcssa
+  %109 = extractelement <2 x float> %foldExtExtBinop792, i64 1
   %.ptr5.i.i = getelementptr inbounds nuw i8, ptr %14, i64 4
   %110 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.ptr5.i.i217 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -2785,10 +2785,10 @@ _ZN4pstd6vectorIN4pbrt12LightBVHNodeENS_3pmr21polymorphic_allocatorIS2_EEE9push_
   %.sroa.speculated.i31.i = select i1 %126, float %.sroa.26.0.copyload.i, float %.sroa.21.0643
   %.sroa.015.0.vec.insert.i32.i = insertelement <2 x float> poison, float %123, i64 0
   %.sroa.015.4.vec.insert.i33.i = insertelement <2 x float> %.sroa.015.0.vec.insert.i32.i, float %125, i64 1
-  %foldExtExtBinop773 = fadd <2 x float> %.sroa.05.0.copyload.i, %.sroa.018.0.copyload.i
-  %127 = extractelement <2 x float> %foldExtExtBinop773, i64 0
-  %foldExtExtBinop775 = fadd <2 x float> %.sroa.05.0.copyload.i, %.sroa.018.0.copyload.i
-  %128 = extractelement <2 x float> %foldExtExtBinop775, i64 1
+  %foldExtExtBinop794 = fadd <2 x float> %.sroa.05.0.copyload.i, %.sroa.018.0.copyload.i
+  %127 = extractelement <2 x float> %foldExtExtBinop794, i64 0
+  %foldExtExtBinop796 = fadd <2 x float> %.sroa.05.0.copyload.i, %.sroa.018.0.copyload.i
+  %128 = extractelement <2 x float> %foldExtExtBinop796, i64 1
   %129 = fadd float %.sroa.219.0.copyload.i, %.sroa.26.0.copyload.i
   %130 = fmul float %127, 5.000000e-01
   %131 = fmul float %128, 5.000000e-01
@@ -2990,8 +2990,8 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit:          ; preds = %.lr.ph653, %173, %1
   %195 = getelementptr inbounds nuw i8, ptr %183, i64 40
   %196 = load float, ptr %195, align 4, !tbaa !205, !noalias !202
   %.sroa.01.0.vec.extract.i.i.i.i.i = extractelement <2 x float> %.sroa.010.0.copyload.i, i64 0
-  %foldExtExtBinop777 = fmul <2 x float> %.sroa.010.0.copyload.i, %.sroa.010.0.copyload.i
-  %197 = extractelement <2 x float> %foldExtExtBinop777, i64 0
+  %foldExtExtBinop798 = fmul <2 x float> %.sroa.010.0.copyload.i, %.sroa.010.0.copyload.i
+  %197 = extractelement <2 x float> %foldExtExtBinop798, i64 0
   %.sroa.01.4.vec.extract.i.i.i.i.i = extractelement <2 x float> %.sroa.010.0.copyload.i, i64 1
   %198 = fmul float %.sroa.01.4.vec.extract.i.i.i.i.i, %.sroa.01.4.vec.extract.i.i.i.i.i
   %199 = fadd float %197, %198
@@ -3014,8 +3014,8 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit:          ; preds = %.lr.ph653, %173, %1
   %206 = getelementptr inbounds nuw i8, ptr %158, i64 40
   %207 = load float, ptr %206, align 4, !tbaa !205, !noalias !202
   %.sroa.01.0.vec.extract.i.i.i.i29.i = extractelement <2 x float> %.sroa.06.0.copyload.i, i64 0
-  %foldExtExtBinop779 = fmul <2 x float> %.sroa.06.0.copyload.i, %.sroa.06.0.copyload.i
-  %208 = extractelement <2 x float> %foldExtExtBinop779, i64 0
+  %foldExtExtBinop800 = fmul <2 x float> %.sroa.06.0.copyload.i, %.sroa.06.0.copyload.i
+  %208 = extractelement <2 x float> %foldExtExtBinop800, i64 0
   %.sroa.01.4.vec.extract.i.i.i.i30.i = extractelement <2 x float> %.sroa.06.0.copyload.i, i64 1
   %209 = fmul float %.sroa.01.4.vec.extract.i.i.i.i30.i, %.sroa.01.4.vec.extract.i.i.i.i30.i
   %210 = fadd float %208, %209
@@ -3089,13 +3089,13 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit:          ; preds = %.lr.ph653, %173, %1
   %244 = load i8, ptr %243, align 4, !tbaa !211, !range !105, !noalias !202, !noundef !106
   %245 = or i8 %244, %242
   %.sroa.01.0.vec.extract.i.i.i.i35.i = extractelement <2 x float> %217, i64 0
-  %foldExtExtBinop781 = fmul <2 x float> %217, %217
-  %246 = extractelement <2 x float> %foldExtExtBinop781, i64 0
+  %foldExtExtBinop802 = fmul <2 x float> %217, %217
+  %246 = extractelement <2 x float> %foldExtExtBinop802, i64 0
   %.sroa.01.4.vec.extract.i.i.i.i36.i = extractelement <2 x float> %217, i64 1
   %247 = fmul float %.sroa.01.4.vec.extract.i.i.i.i36.i, %.sroa.01.4.vec.extract.i.i.i.i36.i
   %248 = fadd float %246, %247
-  %foldExtExtBinop783 = fmul <2 x float> %218, %218
-  %249 = extractelement <2 x float> %foldExtExtBinop783, i64 0
+  %foldExtExtBinop804 = fmul <2 x float> %218, %218
+  %249 = extractelement <2 x float> %foldExtExtBinop804, i64 0
   %250 = fadd float %249, %248
   %sqrt.i.i.i37.i = call noundef float @llvm.sqrt.f32(float %250)
   %251 = fdiv float %.sroa.01.0.vec.extract.i.i.i.i35.i, %sqrt.i.i.i37.i
@@ -3196,8 +3196,8 @@ _ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit:       ; preds = %187, %192, %193
 262:                                              ; preds = %258
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !213
   %.sroa.01.0.vec.extract.i.i.i.i.i154 = extractelement <2 x float> %.sroa.31494.3659, i64 0
-  %foldExtExtBinop785 = fmul <2 x float> %.sroa.31494.3659, %.sroa.31494.3659
-  %263 = extractelement <2 x float> %foldExtExtBinop785, i64 0
+  %foldExtExtBinop806 = fmul <2 x float> %.sroa.31494.3659, %.sroa.31494.3659
+  %263 = extractelement <2 x float> %foldExtExtBinop806, i64 0
   %.sroa.01.4.vec.extract.i.i.i.i.i155 = extractelement <2 x float> %.sroa.31494.3659, i64 1
   %264 = fmul float %.sroa.01.4.vec.extract.i.i.i.i.i155, %.sroa.01.4.vec.extract.i.i.i.i.i155
   %265 = fadd float %263, %264
@@ -3220,8 +3220,8 @@ _ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit:       ; preds = %187, %192, %193
   %272 = getelementptr inbounds nuw i8, ptr %255, i64 40
   %273 = load float, ptr %272, align 4, !tbaa !205, !noalias !213
   %.sroa.01.0.vec.extract.i.i.i.i29.i163 = extractelement <2 x float> %.sroa.06.0.copyload.i160, i64 0
-  %foldExtExtBinop787 = fmul <2 x float> %.sroa.06.0.copyload.i160, %.sroa.06.0.copyload.i160
-  %274 = extractelement <2 x float> %foldExtExtBinop787, i64 0
+  %foldExtExtBinop808 = fmul <2 x float> %.sroa.06.0.copyload.i160, %.sroa.06.0.copyload.i160
+  %274 = extractelement <2 x float> %foldExtExtBinop808, i64 0
   %.sroa.01.4.vec.extract.i.i.i.i30.i164 = extractelement <2 x float> %.sroa.06.0.copyload.i160, i64 1
   %275 = fmul float %.sroa.01.4.vec.extract.i.i.i.i30.i164, %.sroa.01.4.vec.extract.i.i.i.i30.i164
   %276 = fadd float %274, %275
@@ -3283,13 +3283,13 @@ _ZN4pbrt5UnionERKNS_11LightBoundsES2_.exit:       ; preds = %187, %192, %193
   %302 = load float, ptr %259, align 4, !tbaa !167, !noalias !213
   %303 = fadd float %.sroa.25491.3654, %302
   %.sroa.01.0.vec.extract.i.i.i.i35.i200 = extractelement <2 x float> %283, i64 0
-  %foldExtExtBinop789 = fmul <2 x float> %283, %283
-  %304 = extractelement <2 x float> %foldExtExtBinop789, i64 0
+  %foldExtExtBinop810 = fmul <2 x float> %283, %283
+  %304 = extractelement <2 x float> %foldExtExtBinop810, i64 0
   %.sroa.01.4.vec.extract.i.i.i.i36.i201 = extractelement <2 x float> %283, i64 1
   %305 = fmul float %.sroa.01.4.vec.extract.i.i.i.i36.i201, %.sroa.01.4.vec.extract.i.i.i.i36.i201
   %306 = fadd float %304, %305
-  %foldExtExtBinop791 = fmul <2 x float> %284, %284
-  %307 = extractelement <2 x float> %foldExtExtBinop791, i64 0
+  %foldExtExtBinop812 = fmul <2 x float> %284, %284
+  %307 = extractelement <2 x float> %foldExtExtBinop812, i64 0
   %308 = fadd float %307, %306
   %sqrt.i.i.i37.i202 = call noundef float @llvm.sqrt.f32(float %308)
   %309 = fdiv float %.sroa.01.0.vec.extract.i.i.i.i35.i200, %sqrt.i.i.i37.i202
@@ -3403,10 +3403,10 @@ _ZN4pbrt17MaxComponentValueINS_7Vector3EfEET0_NS_6Tuple3IT_S2_EE.exit.i225: ; pr
   %350 = fdiv float %323, %.0.i.sroa.speculated.i
   %351 = fmul float %.sroa.9432.0, %349
   %352 = fmul float %351, %350
-  %foldExtExtBinop793 = fsub <2 x float> %.sroa.7422.0, %.sroa.0414.0
-  %353 = extractelement <2 x float> %foldExtExtBinop793, i64 0
-  %foldExtExtBinop795 = fsub <2 x float> %.sroa.7422.0, %.sroa.0414.0
-  %354 = extractelement <2 x float> %foldExtExtBinop795, i64 1
+  %foldExtExtBinop814 = fsub <2 x float> %.sroa.7422.0, %.sroa.0414.0
+  %353 = extractelement <2 x float> %foldExtExtBinop814, i64 0
+  %foldExtExtBinop816 = fsub <2 x float> %.sroa.7422.0, %.sroa.0414.0
+  %354 = extractelement <2 x float> %foldExtExtBinop816, i64 1
   %355 = fsub float %.sroa.8427.0, %.sroa.6417.0
   %356 = fmul float %353, %354
   %357 = fmul float %355, %353
@@ -3448,10 +3448,10 @@ _ZNK4pbrt15BVHLightSampler12EvaluateCostERKNS_11LightBoundsERKNS_7Bounds3IfEEi.e
   %379 = fdiv float %363, %.0.i.sroa.speculated.i226
   %380 = fmul float %.sroa.9.0, %378
   %381 = fmul float %380, %379
-  %foldExtExtBinop797 = fsub <2 x float> %.sroa.7.0, %.sroa.0374.0
-  %382 = extractelement <2 x float> %foldExtExtBinop797, i64 0
-  %foldExtExtBinop799 = fsub <2 x float> %.sroa.7.0, %.sroa.0374.0
-  %383 = extractelement <2 x float> %foldExtExtBinop799, i64 1
+  %foldExtExtBinop818 = fsub <2 x float> %.sroa.7.0, %.sroa.0374.0
+  %382 = extractelement <2 x float> %foldExtExtBinop818, i64 0
+  %foldExtExtBinop820 = fsub <2 x float> %.sroa.7.0, %.sroa.0374.0
+  %383 = extractelement <2 x float> %foldExtExtBinop820, i64 1
   %384 = fsub float %.sroa.8.0, %.sroa.6.0
   %385 = fmul float %382, %383
   %386 = fmul float %384, %382
@@ -3511,8 +3511,8 @@ _ZNK4pbrt15BVHLightSampler12EvaluateCostERKNS_11LightBoundsERKNS_7Bounds3IfEEi.e
 401:                                              ; preds = %397
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !222
   %.sroa.01.0.vec.extract.i.i.i.i.i238 = extractelement <2 x float> %.sroa.31.3670, i64 0
-  %foldExtExtBinop801 = fmul <2 x float> %.sroa.31.3670, %.sroa.31.3670
-  %402 = extractelement <2 x float> %foldExtExtBinop801, i64 0
+  %foldExtExtBinop822 = fmul <2 x float> %.sroa.31.3670, %.sroa.31.3670
+  %402 = extractelement <2 x float> %foldExtExtBinop822, i64 0
   %.sroa.01.4.vec.extract.i.i.i.i.i239 = extractelement <2 x float> %.sroa.31.3670, i64 1
   %403 = fmul float %.sroa.01.4.vec.extract.i.i.i.i.i239, %.sroa.01.4.vec.extract.i.i.i.i.i239
   %404 = fadd float %402, %403
@@ -3535,8 +3535,8 @@ _ZNK4pbrt15BVHLightSampler12EvaluateCostERKNS_11LightBoundsERKNS_7Bounds3IfEEi.e
   %411 = getelementptr inbounds nuw i8, ptr %394, i64 40
   %412 = load float, ptr %411, align 4, !tbaa !205, !noalias !222
   %.sroa.01.0.vec.extract.i.i.i.i29.i247 = extractelement <2 x float> %.sroa.06.0.copyload.i244, i64 0
-  %foldExtExtBinop803 = fmul <2 x float> %.sroa.06.0.copyload.i244, %.sroa.06.0.copyload.i244
-  %413 = extractelement <2 x float> %foldExtExtBinop803, i64 0
+  %foldExtExtBinop824 = fmul <2 x float> %.sroa.06.0.copyload.i244, %.sroa.06.0.copyload.i244
+  %413 = extractelement <2 x float> %foldExtExtBinop824, i64 0
   %.sroa.01.4.vec.extract.i.i.i.i30.i248 = extractelement <2 x float> %.sroa.06.0.copyload.i244, i64 1
   %414 = fmul float %.sroa.01.4.vec.extract.i.i.i.i30.i248, %.sroa.01.4.vec.extract.i.i.i.i30.i248
   %415 = fadd float %413, %414
@@ -3598,13 +3598,13 @@ _ZNK4pbrt15BVHLightSampler12EvaluateCostERKNS_11LightBoundsERKNS_7Bounds3IfEEi.e
   %441 = load float, ptr %398, align 4, !tbaa !167, !noalias !222
   %442 = fadd float %.sroa.25.3665, %441
   %.sroa.01.0.vec.extract.i.i.i.i35.i284 = extractelement <2 x float> %422, i64 0
-  %foldExtExtBinop805 = fmul <2 x float> %422, %422
-  %443 = extractelement <2 x float> %foldExtExtBinop805, i64 0
+  %foldExtExtBinop826 = fmul <2 x float> %422, %422
+  %443 = extractelement <2 x float> %foldExtExtBinop826, i64 0
   %.sroa.01.4.vec.extract.i.i.i.i36.i285 = extractelement <2 x float> %422, i64 1
   %444 = fmul float %.sroa.01.4.vec.extract.i.i.i.i36.i285, %.sroa.01.4.vec.extract.i.i.i.i36.i285
   %445 = fadd float %443, %444
-  %foldExtExtBinop807 = fmul <2 x float> %423, %423
-  %446 = extractelement <2 x float> %foldExtExtBinop807, i64 0
+  %foldExtExtBinop828 = fmul <2 x float> %423, %423
+  %446 = extractelement <2 x float> %foldExtExtBinop828, i64 0
   %447 = fadd float %446, %445
   %sqrt.i.i.i37.i286 = call noundef float @llvm.sqrt.f32(float %447)
   %448 = fdiv float %.sroa.01.0.vec.extract.i.i.i.i35.i284, %sqrt.i.i.i37.i286
@@ -3985,8 +3985,8 @@ _ZN4pstd6vectorIN4pbrt12LightBVHNodeENS_3pmr21polymorphic_allocatorIS2_EEE9push_
   %602 = getelementptr inbounds nuw i8, ptr %25, i64 44
   %603 = load float, ptr %602, align 4, !tbaa !205, !noalias !234
   %.sroa.01.0.vec.extract.i.i.i.i.i315 = extractelement <2 x float> %.sroa.010.0.copyload.i312, i64 0
-  %foldExtExtBinop809 = fmul <2 x float> %.sroa.010.0.copyload.i312, %.sroa.010.0.copyload.i312
-  %604 = extractelement <2 x float> %foldExtExtBinop809, i64 0
+  %foldExtExtBinop830 = fmul <2 x float> %.sroa.010.0.copyload.i312, %.sroa.010.0.copyload.i312
+  %604 = extractelement <2 x float> %foldExtExtBinop830, i64 0
   %.sroa.01.4.vec.extract.i.i.i.i.i316 = extractelement <2 x float> %.sroa.010.0.copyload.i312, i64 1
   %605 = fmul float %.sroa.01.4.vec.extract.i.i.i.i.i316, %.sroa.01.4.vec.extract.i.i.i.i.i316
   %606 = fadd float %604, %605
@@ -4011,8 +4011,8 @@ _ZN4pstd6vectorIN4pbrt12LightBVHNodeENS_3pmr21polymorphic_allocatorIS2_EEE9push_
   %614 = getelementptr inbounds nuw i8, ptr %26, i64 44
   %615 = load float, ptr %614, align 4, !tbaa !205, !noalias !234
   %.sroa.01.0.vec.extract.i.i.i.i29.i324 = extractelement <2 x float> %.sroa.06.0.copyload.i321, i64 0
-  %foldExtExtBinop811 = fmul <2 x float> %.sroa.06.0.copyload.i321, %.sroa.06.0.copyload.i321
-  %616 = extractelement <2 x float> %foldExtExtBinop811, i64 0
+  %foldExtExtBinop832 = fmul <2 x float> %.sroa.06.0.copyload.i321, %.sroa.06.0.copyload.i321
+  %616 = extractelement <2 x float> %foldExtExtBinop832, i64 0
   %.sroa.01.4.vec.extract.i.i.i.i30.i325 = extractelement <2 x float> %.sroa.06.0.copyload.i321, i64 1
   %617 = fmul float %.sroa.01.4.vec.extract.i.i.i.i30.i325, %.sroa.01.4.vec.extract.i.i.i.i30.i325
   %618 = fadd float %616, %617
@@ -4099,13 +4099,13 @@ _ZN4pstd6vectorIN4pbrt12LightBVHNodeENS_3pmr21polymorphic_allocatorIS2_EEE9push_
   store float %648, ptr %654, align 8, !tbaa !167, !alias.scope !234
   %655 = getelementptr inbounds nuw i8, ptr %27, i64 28
   %.sroa.01.0.vec.extract.i.i.i.i35.i361 = extractelement <2 x float> %626, i64 0
-  %foldExtExtBinop813 = fmul <2 x float> %626, %626
-  %656 = extractelement <2 x float> %foldExtExtBinop813, i64 0
+  %foldExtExtBinop834 = fmul <2 x float> %626, %626
+  %656 = extractelement <2 x float> %foldExtExtBinop834, i64 0
   %.sroa.01.4.vec.extract.i.i.i.i36.i362 = extractelement <2 x float> %626, i64 1
   %657 = fmul float %.sroa.01.4.vec.extract.i.i.i.i36.i362, %.sroa.01.4.vec.extract.i.i.i.i36.i362
   %658 = fadd float %656, %657
-  %foldExtExtBinop815 = fmul <2 x float> %627, %627
-  %659 = extractelement <2 x float> %foldExtExtBinop815, i64 0
+  %foldExtExtBinop836 = fmul <2 x float> %627, %627
+  %659 = extractelement <2 x float> %foldExtExtBinop836, i64 0
   %660 = fadd float %659, %658
   %sqrt.i.i.i37.i363 = call noundef float @llvm.sqrt.f32(float %660)
   %661 = fdiv float %.sroa.01.0.vec.extract.i.i.i.i35.i361, %sqrt.i.i.i37.i363
@@ -5787,7 +5787,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt10AliasTable3BinEE15allocate_objectIS4
   br label %45
 
 ._crit_edge.i:                                    ; preds = %45, %27, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt10AliasTable3BinEE15allocate_objectIS4_EEPT_m.exit.i
-  %.0.i.i.i.i22 = phi ptr [ %33, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt10AliasTable3BinEE15allocate_objectIS4_EEPT_m.exit.i ], [ null, %27 ], [ %33, %45 ]
+  %.0.i.i.i.i28 = phi ptr [ %33, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt10AliasTable3BinEE15allocate_objectIS4_EEPT_m.exit.i ], [ null, %27 ], [ %33, %45 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !136
   %.not.i.i.i.i = icmp eq ptr %37, null
@@ -5805,7 +5805,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt10AliasTable3BinEE15allocate_objectIS4
 
 _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt10AliasTable3BinEE17deallocate_objectIS4_EEvPT_m.exit.i: ; preds = %38, %._crit_edge.i
   store i64 %24, ptr %25, align 8, !tbaa !137
-  store ptr %.0.i.i.i.i22, ptr %36, align 8, !tbaa !136
+  store ptr %.0.i.i.i.i28, ptr %36, align 8, !tbaa !136
   %.pre19 = load i64, ptr %23, align 8, !tbaa !132
   br label %_ZN4pstd6vectorIN4pbrt10AliasTable3BinENS_3pmr21polymorphic_allocatorIS3_EEE7reserveEm.exit
 
@@ -21760,8 +21760,8 @@ _ZN4pstd6vectorINS_8optionalISt4pairIN4pbrt5LightEmEEENS_3pmr21polymorphic_alloc
   br i1 %36, label %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE15allocate_objectIS7_EEPT_m.exit.i.thread, label %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE15allocate_objectIS7_EEPT_m.exit.i
 
 _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE15allocate_objectIS7_EEPT_m.exit.i.thread: ; preds = %34
-  %.phi.trans.insert.i27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre.i28 = load ptr, ptr %.phi.trans.insert.i27, align 8, !tbaa !101
+  %.phi.trans.insert.i35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre.i36 = load ptr, ptr %.phi.trans.insert.i35, align 8, !tbaa !101
   br label %._crit_edge.i
 
 _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE15allocate_objectIS7_EEPT_m.exit.i: ; preds = %34
@@ -21776,30 +21776,30 @@ _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE15all
   br i1 %.not13.i, label %._crit_edge.i, label %.lr.ph.i18
 
 ._crit_edge.i:                                    ; preds = %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE15allocate_objectIS7_EEPT_m.exit.i.thread, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE15allocate_objectIS7_EEPT_m.exit.i
-  %.pre.i36 = phi ptr [ %.pre.i28, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE15allocate_objectIS7_EEPT_m.exit.i.thread ], [ %.pre.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE15allocate_objectIS7_EEPT_m.exit.i ]
-  %.phi.trans.insert.i34 = phi ptr [ %.phi.trans.insert.i27, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE15allocate_objectIS7_EEPT_m.exit.i.thread ], [ %.phi.trans.insert.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE15allocate_objectIS7_EEPT_m.exit.i ]
-  %.0.i.i.i.i31 = phi ptr [ null, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE15allocate_objectIS7_EEPT_m.exit.i.thread ], [ %40, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE15allocate_objectIS7_EEPT_m.exit.i ]
-  %.not.i.i.i.i = icmp eq ptr %.pre.i36, null
+  %.pre.i44 = phi ptr [ %.pre.i36, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE15allocate_objectIS7_EEPT_m.exit.i.thread ], [ %.pre.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE15allocate_objectIS7_EEPT_m.exit.i ]
+  %.phi.trans.insert.i42 = phi ptr [ %.phi.trans.insert.i35, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE15allocate_objectIS7_EEPT_m.exit.i.thread ], [ %.phi.trans.insert.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE15allocate_objectIS7_EEPT_m.exit.i ]
+  %.0.i.i.i.i39 = phi ptr [ null, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE15allocate_objectIS7_EEPT_m.exit.i.thread ], [ %40, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE15allocate_objectIS7_EEPT_m.exit.i ]
+  %.not.i.i.i.i = icmp eq ptr %.pre.i44, null
   br i1 %.not.i.i.i.i, label %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE17deallocate_objectIS7_EEvPT_m.exit.i, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE7destroyIS7_EEvPT_.exit.i20, %._crit_edge.i
-  %.pre.i35 = phi ptr [ %.pre.i36, %._crit_edge.i ], [ %.pre.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE7destroyIS7_EEvPT_.exit.i20 ]
-  %.phi.trans.insert.i32 = phi ptr [ %.phi.trans.insert.i34, %._crit_edge.i ], [ %.phi.trans.insert.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE7destroyIS7_EEvPT_.exit.i20 ]
-  %.0.i.i.i.i29 = phi ptr [ %.0.i.i.i.i31, %._crit_edge.i ], [ %40, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE7destroyIS7_EEvPT_.exit.i20 ]
+  %.pre.i43 = phi ptr [ %.pre.i44, %._crit_edge.i ], [ %.pre.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE7destroyIS7_EEvPT_.exit.i20 ]
+  %.phi.trans.insert.i40 = phi ptr [ %.phi.trans.insert.i42, %._crit_edge.i ], [ %.phi.trans.insert.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE7destroyIS7_EEvPT_.exit.i20 ]
+  %.0.i.i.i.i37 = phi ptr [ %.0.i.i.i.i39, %._crit_edge.i ], [ %40, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE7destroyIS7_EEvPT_.exit.i20 ]
   %41 = load i64, ptr %32, align 8, !tbaa !111
   %42 = mul i64 %41, 24
   %43 = load ptr, ptr %0, align 8, !tbaa !112
   %44 = load ptr, ptr %43, align 8, !tbaa !43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load ptr, ptr %45, align 8
-  tail call void %46(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull %.pre.i35, i64 noundef %42, i64 noundef 8)
+  tail call void %46(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull %.pre.i43, i64 noundef %42, i64 noundef 8)
   br label %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE17deallocate_objectIS7_EEvPT_m.exit.i
 
 _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE17deallocate_objectIS7_EEvPT_m.exit.i: ; preds = %._crit_edge.thread.i, %._crit_edge.i
-  %.phi.trans.insert.i33 = phi ptr [ %.phi.trans.insert.i32, %._crit_edge.thread.i ], [ %.phi.trans.insert.i34, %._crit_edge.i ]
-  %.0.i.i.i.i30 = phi ptr [ %.0.i.i.i.i29, %._crit_edge.thread.i ], [ %.0.i.i.i.i31, %._crit_edge.i ]
+  %.phi.trans.insert.i41 = phi ptr [ %.phi.trans.insert.i40, %._crit_edge.thread.i ], [ %.phi.trans.insert.i42, %._crit_edge.i ]
+  %.0.i.i.i.i38 = phi ptr [ %.0.i.i.i.i37, %._crit_edge.thread.i ], [ %.0.i.i.i.i39, %._crit_edge.i ]
   store i64 %31, ptr %32, align 8, !tbaa !111
-  store ptr %.0.i.i.i.i30, ptr %.phi.trans.insert.i33, align 8, !tbaa !101
+  store ptr %.0.i.i.i.i38, ptr %.phi.trans.insert.i41, align 8, !tbaa !101
   %.pre24 = load i64, ptr %30, align 8, !tbaa !97
   br label %_ZN4pstd6vectorINS_8optionalISt4pairIN4pbrt5LightEmEEENS_3pmr21polymorphic_allocatorIS6_EEE7reserveEm.exit
 
@@ -22574,8 +22574,8 @@ _ZN4pstd6vectorINS_8optionalISt4pairIN4pbrt5LightEjEEENS_3pmr21polymorphic_alloc
   br i1 %36, label %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE15allocate_objectIS7_EEPT_m.exit.i.thread, label %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE15allocate_objectIS7_EEPT_m.exit.i
 
 _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE15allocate_objectIS7_EEPT_m.exit.i.thread: ; preds = %34
-  %.phi.trans.insert.i27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre.i28 = load ptr, ptr %.phi.trans.insert.i27, align 8, !tbaa !152
+  %.phi.trans.insert.i35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre.i36 = load ptr, ptr %.phi.trans.insert.i35, align 8, !tbaa !152
   br label %._crit_edge.i
 
 _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE15allocate_objectIS7_EEPT_m.exit.i: ; preds = %34
@@ -22590,30 +22590,30 @@ _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE15all
   br i1 %.not13.i, label %._crit_edge.i, label %.lr.ph.i18
 
 ._crit_edge.i:                                    ; preds = %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE15allocate_objectIS7_EEPT_m.exit.i.thread, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE15allocate_objectIS7_EEPT_m.exit.i
-  %.pre.i36 = phi ptr [ %.pre.i28, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE15allocate_objectIS7_EEPT_m.exit.i.thread ], [ %.pre.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE15allocate_objectIS7_EEPT_m.exit.i ]
-  %.phi.trans.insert.i34 = phi ptr [ %.phi.trans.insert.i27, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE15allocate_objectIS7_EEPT_m.exit.i.thread ], [ %.phi.trans.insert.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE15allocate_objectIS7_EEPT_m.exit.i ]
-  %.0.i.i.i.i31 = phi ptr [ null, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE15allocate_objectIS7_EEPT_m.exit.i.thread ], [ %40, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE15allocate_objectIS7_EEPT_m.exit.i ]
-  %.not.i.i.i.i = icmp eq ptr %.pre.i36, null
+  %.pre.i44 = phi ptr [ %.pre.i36, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE15allocate_objectIS7_EEPT_m.exit.i.thread ], [ %.pre.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE15allocate_objectIS7_EEPT_m.exit.i ]
+  %.phi.trans.insert.i42 = phi ptr [ %.phi.trans.insert.i35, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE15allocate_objectIS7_EEPT_m.exit.i.thread ], [ %.phi.trans.insert.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE15allocate_objectIS7_EEPT_m.exit.i ]
+  %.0.i.i.i.i39 = phi ptr [ null, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE15allocate_objectIS7_EEPT_m.exit.i.thread ], [ %40, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE15allocate_objectIS7_EEPT_m.exit.i ]
+  %.not.i.i.i.i = icmp eq ptr %.pre.i44, null
   br i1 %.not.i.i.i.i, label %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE17deallocate_objectIS7_EEvPT_m.exit.i, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE7destroyIS7_EEvPT_.exit.i20, %._crit_edge.i
-  %.pre.i35 = phi ptr [ %.pre.i36, %._crit_edge.i ], [ %.pre.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE7destroyIS7_EEvPT_.exit.i20 ]
-  %.phi.trans.insert.i32 = phi ptr [ %.phi.trans.insert.i34, %._crit_edge.i ], [ %.phi.trans.insert.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE7destroyIS7_EEvPT_.exit.i20 ]
-  %.0.i.i.i.i29 = phi ptr [ %.0.i.i.i.i31, %._crit_edge.i ], [ %40, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE7destroyIS7_EEvPT_.exit.i20 ]
+  %.pre.i43 = phi ptr [ %.pre.i44, %._crit_edge.i ], [ %.pre.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE7destroyIS7_EEvPT_.exit.i20 ]
+  %.phi.trans.insert.i40 = phi ptr [ %.phi.trans.insert.i42, %._crit_edge.i ], [ %.phi.trans.insert.i, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE7destroyIS7_EEvPT_.exit.i20 ]
+  %.0.i.i.i.i37 = phi ptr [ %.0.i.i.i.i39, %._crit_edge.i ], [ %40, %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE7destroyIS7_EEvPT_.exit.i20 ]
   %41 = load i64, ptr %32, align 8, !tbaa !158
   %42 = mul i64 %41, 24
   %43 = load ptr, ptr %0, align 8, !tbaa !159
   %44 = load ptr, ptr %43, align 8, !tbaa !43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load ptr, ptr %45, align 8
-  tail call void %46(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull %.pre.i35, i64 noundef %42, i64 noundef 8)
+  tail call void %46(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull %.pre.i43, i64 noundef %42, i64 noundef 8)
   br label %_ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE17deallocate_objectIS7_EEvPT_m.exit.i
 
 _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEjEEEE17deallocate_objectIS7_EEvPT_m.exit.i: ; preds = %._crit_edge.thread.i, %._crit_edge.i
-  %.phi.trans.insert.i33 = phi ptr [ %.phi.trans.insert.i32, %._crit_edge.thread.i ], [ %.phi.trans.insert.i34, %._crit_edge.i ]
-  %.0.i.i.i.i30 = phi ptr [ %.0.i.i.i.i29, %._crit_edge.thread.i ], [ %.0.i.i.i.i31, %._crit_edge.i ]
+  %.phi.trans.insert.i41 = phi ptr [ %.phi.trans.insert.i40, %._crit_edge.thread.i ], [ %.phi.trans.insert.i42, %._crit_edge.i ]
+  %.0.i.i.i.i38 = phi ptr [ %.0.i.i.i.i37, %._crit_edge.thread.i ], [ %.0.i.i.i.i39, %._crit_edge.i ]
   store i64 %31, ptr %32, align 8, !tbaa !158
-  store ptr %.0.i.i.i.i30, ptr %.phi.trans.insert.i33, align 8, !tbaa !152
+  store ptr %.0.i.i.i.i38, ptr %.phi.trans.insert.i41, align 8, !tbaa !152
   %.pre24 = load i64, ptr %30, align 8, !tbaa !148
   br label %_ZN4pstd6vectorINS_8optionalISt4pairIN4pbrt5LightEjEEENS_3pmr21polymorphic_allocatorIS6_EEE7reserveEm.exit
 

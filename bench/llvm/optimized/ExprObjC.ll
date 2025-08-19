@@ -1323,9 +1323,9 @@ define dso_local void @_ZNK5clang15ObjCMessageExpr15getSelectorLocsERN4llvm15Sma
   store i64 %.sroa.0.0.i.i, ptr %3, align 8
   %13 = and i64 %.sroa.0.0.i.i, 3
   %14 = icmp eq i64 %13, 1
-  br i1 %14, label %_ZNK5clang15ObjCMessageExpr18getNumSelectorLocsEv.exit.thread14, label %_ZNK5clang15ObjCMessageExpr18getNumSelectorLocsEv.exit
+  br i1 %14, label %_ZNK5clang15ObjCMessageExpr18getNumSelectorLocsEv.exit.thread15, label %_ZNK5clang15ObjCMessageExpr18getNumSelectorLocsEv.exit
 
-_ZNK5clang15ObjCMessageExpr18getNumSelectorLocsEv.exit.thread14: ; preds = %7
+_ZNK5clang15ObjCMessageExpr18getNumSelectorLocsEv.exit.thread15: ; preds = %7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.lr.ph
 
@@ -1335,8 +1335,8 @@ _ZNK5clang15ObjCMessageExpr18getNumSelectorLocsEv.exit: ; preds = %7
   %.not9 = icmp eq i32 %15, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNK5clang15ObjCMessageExpr18getNumSelectorLocsEv.exit.thread14, %_ZNK5clang15ObjCMessageExpr18getNumSelectorLocsEv.exit
-  %.1.i17 = phi i32 [ 1, %_ZNK5clang15ObjCMessageExpr18getNumSelectorLocsEv.exit.thread14 ], [ %15, %_ZNK5clang15ObjCMessageExpr18getNumSelectorLocsEv.exit ]
+.lr.ph:                                           ; preds = %_ZNK5clang15ObjCMessageExpr18getNumSelectorLocsEv.exit.thread15, %_ZNK5clang15ObjCMessageExpr18getNumSelectorLocsEv.exit
+  %.1.i18 = phi i32 [ 1, %_ZNK5clang15ObjCMessageExpr18getNumSelectorLocsEv.exit.thread15 ], [ %15, %_ZNK5clang15ObjCMessageExpr18getNumSelectorLocsEv.exit ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -1344,7 +1344,7 @@ _ZNK5clang15ObjCMessageExpr18getNumSelectorLocsEv.exit: ; preds = %7
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = zext i32 %.1.i17 to i64
+  %23 = zext i32 %.1.i18 to i64
   br label %24
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang14SourceLocationELb1EE9push_backES2_.exit, %2, %_ZNK5clang15ObjCMessageExpr18getNumSelectorLocsEv.exit

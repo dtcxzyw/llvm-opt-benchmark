@@ -379,8 +379,8 @@ common.ret:                                       ; preds = %160, %"_ZN82_$LT$to
           to label %76 unwind label %73
 
 "_ZN4core3ptr157drop_in_place$LT$ockam_node..context..receive_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..receiver_next..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4855f337a85330aaE.exit.sink.split.i.i": ; preds = %116, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13drop_elements17h70ca7b3cb21f8ebaE.exit.i.i.i.i.i.i.i", %76, %"_ZN4core3ptr113drop_in_place$LT$ockam_core..routing..mailbox..Mailboxes..is_incoming_authorized..$u7b$$u7b$closure$u7d$$u7d$$GT$17h13bbc02eceb5a5cdE.exit.i.i.i", %43
-  %.sink9.i.i = phi i64 [ 16, %116 ], [ 16, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13drop_elements17h70ca7b3cb21f8ebaE.exit.i.i.i.i.i.i.i" ], [ 16, %76 ], [ 40, %"_ZN4core3ptr113drop_in_place$LT$ockam_core..routing..mailbox..Mailboxes..is_incoming_authorized..$u7b$$u7b$closure$u7d$$u7d$$GT$17h13bbc02eceb5a5cdE.exit.i.i.i" ], [ 40, %43 ]
-  %69 = getelementptr inbounds nuw i8, ptr %40, i64 %.sink9.i.i
+  %.sink13.i.i = phi i64 [ 16, %116 ], [ 16, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13drop_elements17h70ca7b3cb21f8ebaE.exit.i.i.i.i.i.i.i" ], [ 16, %76 ], [ 40, %"_ZN4core3ptr113drop_in_place$LT$ockam_core..routing..mailbox..Mailboxes..is_incoming_authorized..$u7b$$u7b$closure$u7d$$u7d$$GT$17h13bbc02eceb5a5cdE.exit.i.i.i" ], [ 40, %43 ]
+  %69 = getelementptr inbounds nuw i8, ptr %40, i64 %.sink13.i.i
   store i8 0, ptr %69, align 8
   br label %"_ZN4core3ptr157drop_in_place$LT$ockam_node..context..receive_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..receiver_next..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4855f337a85330aaE.exit.i.i"
 
@@ -390,9 +390,9 @@ common.ret:                                       ; preds = %160, %"_ZN82_$LT$to
   br label %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd4990db4fcf0cdf5E.exit"
 
 .body.i.i:                                        ; preds = %120, %73, %63, %.body.i.i.i
-  %.sink10.i.i = phi i64 [ 16, %120 ], [ 16, %73 ], [ 40, %63 ], [ 40, %.body.i.i.i ]
+  %.sink14.i.i = phi i64 [ 16, %120 ], [ 16, %73 ], [ 40, %63 ], [ 40, %.body.i.i.i ]
   %.pn.pn.i.i = phi { ptr, i32 } [ %121, %120 ], [ %74, %73 ], [ %64, %63 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ]
-  %71 = getelementptr inbounds nuw i8, ptr %40, i64 %.sink10.i.i
+  %71 = getelementptr inbounds nuw i8, ptr %40, i64 %.sink14.i.i
   store i8 0, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 905
   store i8 0, ptr %72, align 1

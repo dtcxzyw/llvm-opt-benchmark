@@ -108,8 +108,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %sext28 = shl i64 %20, 32
-  %49 = ashr exact i64 %sext28, 32
+  %sext31 = shl i64 %20, 32
+  %49 = ashr exact i64 %sext31, 32
   br label %50
 
 50:                                               ; preds = %.lr.ph, %60

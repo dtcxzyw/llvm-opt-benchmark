@@ -466,13 +466,13 @@ yy_find_action:                                   ; preds = %yy_find_action.oute
 
 do_action:                                        ; preds = %if.then176, %yy_find_action
   %yy_act.0 = phi i32 [ %conv62, %yy_find_action ], [ %add182, %if.then176 ]
-  switch i32 %yy_act.0, label %sw.epilog217.sink.split.loopexit307 [
+  switch i32 %yy_act.0, label %sw.epilog217.sink.split.loopexit317 [
     i32 0, label %sw.bb
     i32 1, label %return.loopexit
     i32 2, label %return.loopexit204
-    i32 3, label %return.loopexit243
-    i32 4, label %return.loopexit275
-    i32 5, label %return.loopexit308
+    i32 3, label %return.loopexit253
+    i32 4, label %return.loopexit285
+    i32 5, label %return.loopexit318
     i32 6, label %return
     i32 7, label %sw.bb76
     i32 8, label %sw.bb77
@@ -802,7 +802,7 @@ yy_match.backedge:                                ; preds = %for.inc.i104, %sw.b
 
 if.else169:                                       ; preds = %if.end147
   %call170 = tail call noundef i32 @_ZN16veloxtpFlexLexer18yy_get_next_bufferEv(ptr noundef nonnull align 8 dereferenceable(732) %this)
-  switch i32 %call170, label %default.unreachable242 [
+  switch i32 %call170, label %default.unreachable252 [
     i32 1, label %sw.bb171
     i32 0, label %sw.bb192
     i32 2, label %sw.bb201
@@ -943,15 +943,15 @@ for.inc.i131:                                     ; preds = %if.then9.i134, %if.
   %exitcond.not.i133 = icmp eq ptr %incdec.ptr.i132, %arrayidx208
   br i1 %exitcond.not.i133, label %yy_find_action.outer.backedge, label %for.body.i119, !llvm.loop !7
 
-default.unreachable242:                           ; preds = %if.else169
+default.unreachable252:                           ; preds = %if.else169
   unreachable
 
-sw.epilog217.sink.split.loopexit307:              ; preds = %do_action
+sw.epilog217.sink.split.loopexit317:              ; preds = %do_action
   br label %sw.epilog217.sink.split
 
-sw.epilog217.sink.split:                          ; preds = %do_action, %sw.epilog217.sink.split.loopexit307, %if.else183
-  %.sink = phi i64 [ 56, %if.else183 ], [ 112, %sw.epilog217.sink.split.loopexit307 ], [ 112, %do_action ]
-  %yyin134.sink = phi ptr [ %yyin134, %if.else183 ], [ @.str.1, %sw.epilog217.sink.split.loopexit307 ], [ @.str, %do_action ]
+sw.epilog217.sink.split:                          ; preds = %do_action, %sw.epilog217.sink.split.loopexit317, %if.else183
+  %.sink = phi i64 [ 56, %if.else183 ], [ 112, %sw.epilog217.sink.split.loopexit317 ], [ 112, %do_action ]
+  %yyin134.sink = phi ptr [ %yyin134, %if.else183 ], [ @.str.1, %sw.epilog217.sink.split.loopexit317 ], [ @.str, %do_action ]
   %vtable188 = load ptr, ptr %this, align 8
   %vfn189 = getelementptr inbounds nuw i8, ptr %vtable188, i64 %.sink
   %94 = load ptr, ptr %vfn189, align 8
@@ -967,17 +967,17 @@ return.loopexit:                                  ; preds = %do_action
 return.loopexit204:                               ; preds = %do_action
   br label %return
 
-return.loopexit243:                               ; preds = %do_action
+return.loopexit253:                               ; preds = %do_action
   br label %return
 
-return.loopexit275:                               ; preds = %do_action
+return.loopexit285:                               ; preds = %do_action
   br label %return
 
-return.loopexit308:                               ; preds = %do_action
+return.loopexit318:                               ; preds = %do_action
   br label %return
 
-return:                                           ; preds = %do_action, %return.loopexit308, %return.loopexit275, %return.loopexit243, %return.loopexit204, %return.loopexit, %sw.bb112, %invoke.cont108, %invoke.cont97, %sw.bb84, %invoke.cont82, %sw.bb77, %sw.bb76
-  %retval.0 = phi i32 [ 265, %sw.bb76 ], [ 263, %sw.bb77 ], [ 267, %invoke.cont82 ], [ 269, %sw.bb84 ], [ 266, %invoke.cont97 ], [ 268, %invoke.cont108 ], [ 0, %sw.bb112 ], [ 258, %return.loopexit ], [ 259, %return.loopexit204 ], [ 260, %return.loopexit243 ], [ 261, %return.loopexit275 ], [ 262, %return.loopexit308 ], [ 264, %do_action ]
+return:                                           ; preds = %do_action, %return.loopexit318, %return.loopexit285, %return.loopexit253, %return.loopexit204, %return.loopexit, %sw.bb112, %invoke.cont108, %invoke.cont97, %sw.bb84, %invoke.cont82, %sw.bb77, %sw.bb76
+  %retval.0 = phi i32 [ 265, %sw.bb76 ], [ 263, %sw.bb77 ], [ 267, %invoke.cont82 ], [ 269, %sw.bb84 ], [ 266, %invoke.cont97 ], [ 268, %invoke.cont108 ], [ 0, %sw.bb112 ], [ 258, %return.loopexit ], [ 259, %return.loopexit204 ], [ 260, %return.loopexit253 ], [ 261, %return.loopexit285 ], [ 262, %return.loopexit318 ], [ 264, %do_action ]
   ret i32 %retval.0
 
 eh.resume:                                        ; preds = %lpad107, %lpad.i64, %lpad105, %lpad96, %lpad.i49, %lpad94, %lpad81, %lpad.i, %lpad
@@ -2833,9 +2833,9 @@ if.then24:                                        ; preds = %if.end13
   br label %if.end26
 
 if.end26:                                         ; preds = %_ZN16veloxtpFlexLexer21yyensure_buffer_stackEv.exit, %if.then24, %if.end13
-  %.pr12 = phi ptr [ %.pr.pre, %if.then24 ], [ %.pr.pre, %if.end13 ], [ %9, %_ZN16veloxtpFlexLexer21yyensure_buffer_stackEv.exit ]
+  %.pr13 = phi ptr [ %.pr.pre, %if.then24 ], [ %.pr.pre, %if.end13 ], [ %9, %_ZN16veloxtpFlexLexer21yyensure_buffer_stackEv.exit ]
   %23 = phi i64 [ %inc, %if.then24 ], [ %.pre9, %if.end13 ], [ %8, %_ZN16veloxtpFlexLexer21yyensure_buffer_stackEv.exit ]
-  %arrayidx29 = getelementptr inbounds ptr, ptr %.pr12, i64 %23
+  %arrayidx29 = getelementptr inbounds ptr, ptr %.pr13, i64 %23
   store ptr %new_buffer, ptr %arrayidx29, align 8
   %24 = load ptr, ptr %yy_buffer_stack.i, align 8
   %25 = load i64, ptr %yy_buffer_stack_top, align 8

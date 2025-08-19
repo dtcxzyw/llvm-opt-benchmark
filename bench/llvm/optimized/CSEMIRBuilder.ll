@@ -1064,10 +1064,10 @@ define dso_local { ptr, ptr } @_ZN4llvm13CSEMIRBuilder10buildInstrEjNS_8ArrayRef
   br i1 %49, label %_ZNK4llvm5SrcOp6getRegEv.exit.sink.split, label %_ZNK4llvm5SrcOp6getRegEv.exit
 
 _ZNK4llvm5SrcOp6getRegEv.exit.sink.split:         ; preds = %32, %45
-  %.sink273 = phi i32 [ %46, %45 ], [ %33, %32 ]
+  %.sink299 = phi i32 [ %46, %45 ], [ %33, %32 ]
   %.sroa.0.0.i.ph = phi i32 [ %43, %45 ], [ %.sroa.01.0.copyload.i, %32 ]
   %50 = getelementptr inbounds nuw i8, ptr %26, i64 448
-  %51 = zext nneg i32 %.sink273 to i64
+  %51 = zext nneg i32 %.sink299 to i64
   %52 = load ptr, ptr %50, align 8, !tbaa !55
   %53 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %52, i64 %51
   %54 = load i64, ptr %53, align 8, !tbaa !51
@@ -1223,9 +1223,9 @@ _ZNSt14_Optional_baseIN4llvm11SmallVectorINS0_5APIntELj3EEELb0ELb0EED2Ev.exit: ;
   br i1 %130, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i100, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit102
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i100: ; preds = %126, %113
-  %.sink9.i101 = phi i32 [ %114, %113 ], [ %127, %126 ]
+  %.sink11.i101 = phi i32 [ %114, %113 ], [ %127, %126 ]
   %131 = getelementptr inbounds nuw i8, ptr %108, i64 448
-  %132 = zext nneg i32 %.sink9.i101 to i64
+  %132 = zext nneg i32 %.sink11.i101 to i64
   %133 = load ptr, ptr %131, align 8, !tbaa !55
   %134 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %133, i64 %132
   %135 = load i64, ptr %134, align 8, !tbaa !51
@@ -1424,16 +1424,16 @@ _ZNK4llvm5SrcOp6getRegEv.exit119:                 ; preds = %_ZNK4llvm5SrcOp6get
   br label %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit: ; preds = %_ZNK4llvm5SrcOp6getRegEv.exit119, %216, %221, %225, %228
-  %spec.store.select3245 = phi i32 [ 1, %216 ], [ 1, %221 ], [ 1, %225 ], [ 1, %228 ], [ 2, %_ZNK4llvm5SrcOp6getRegEv.exit119 ]
-  %.sroa.14.4244 = phi ptr [ %219, %216 ], [ %219, %221 ], [ %219, %225 ], [ %219, %228 ], [ undef, %_ZNK4llvm5SrcOp6getRegEv.exit119 ]
-  %.sroa.0202.4243 = phi ptr [ %218, %216 ], [ %218, %221 ], [ %218, %225 ], [ %218, %228 ], [ undef, %_ZNK4llvm5SrcOp6getRegEv.exit119 ]
+  %spec.store.select3271 = phi i32 [ 1, %216 ], [ 1, %221 ], [ 1, %225 ], [ 1, %228 ], [ 2, %_ZNK4llvm5SrcOp6getRegEv.exit119 ]
+  %.sroa.14.4270 = phi ptr [ %219, %216 ], [ %219, %221 ], [ %219, %225 ], [ %219, %228 ], [ undef, %_ZNK4llvm5SrcOp6getRegEv.exit119 ]
+  %.sroa.0202.4269 = phi ptr [ %218, %216 ], [ %218, %221 ], [ %218, %225 ], [ %218, %228 ], [ undef, %_ZNK4llvm5SrcOp6getRegEv.exit119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %229
 
 229:                                              ; preds = %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit, %_ZN4llvm11SmallVectorINS_5APIntELj3EED2Ev.exit
-  %.sroa.0202.2 = phi ptr [ %.sroa.0202.3215, %_ZN4llvm11SmallVectorINS_5APIntELj3EED2Ev.exit ], [ %.sroa.0202.4243, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit ]
-  %.sroa.14.2 = phi ptr [ %.sroa.14.3216, %_ZN4llvm11SmallVectorINS_5APIntELj3EED2Ev.exit ], [ %.sroa.14.4244, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit ]
-  %.1 = phi i32 [ %.2217, %_ZN4llvm11SmallVectorINS_5APIntELj3EED2Ev.exit ], [ %spec.store.select3245, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit ]
+  %.sroa.0202.2 = phi ptr [ %.sroa.0202.3215, %_ZN4llvm11SmallVectorINS_5APIntELj3EED2Ev.exit ], [ %.sroa.0202.4269, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit ]
+  %.sroa.14.2 = phi ptr [ %.sroa.14.3216, %_ZN4llvm11SmallVectorINS_5APIntELj3EED2Ev.exit ], [ %.sroa.14.4270, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit ]
+  %.1 = phi i32 [ %.2217, %_ZN4llvm11SmallVectorINS_5APIntELj3EED2Ev.exit ], [ %spec.store.select3271, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit ]
   %switch82 = icmp eq i32 %.1, 2
   br i1 %switch82, label %.thread218, label %506
 

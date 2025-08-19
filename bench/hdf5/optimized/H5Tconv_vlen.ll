@@ -918,11 +918,11 @@ define range(i32 -1, 1) i32 @H5T__conv_vlen(ptr noundef readonly captures(addres
   br i1 %.not474, label %.loopexit, label %.lr.ph957, !llvm.loop !48
 
 .loopexit:                                        ; preds = %.lr.ph957, %483, %480
-  %.not1227 = xor i1 %482, true
+  %.not1258 = xor i1 %482, true
   %.not476958 = icmp eq i64 %.2339930, 0
-  %490 = or i1 %.not476958, %.not1227
-  %or.cond1226 = or i1 %490, %231
-  br i1 %or.cond1226, label %.thread534, label %.lr.ph961.preheader
+  %490 = or i1 %.not476958, %.not1258
+  %or.cond1257 = or i1 %490, %231
+  br i1 %or.cond1257, label %.thread534, label %.lr.ph961.preheader
 
 .lr.ph961.preheader:                              ; preds = %.loopexit
   %491 = icmp sgt i64 %.3395, 0

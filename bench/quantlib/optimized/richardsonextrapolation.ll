@@ -1238,10 +1238,10 @@ ehcleanup114:                                     ; preds = %_ZNKSt7__cxx1112bas
   br label %common.resume
 
 do.end117:                                        ; preds = %_ZNKSt8functionIFddEEclEd.exit79, %do.body78
-  %left.0.lcssa237 = phi double [ %add75, %do.body78 ], [ 5.000000e-02, %_ZNKSt8functionIFddEEclEd.exit79 ]
-  %add119 = fadd double %left.0.lcssa237, 5.000000e-02
-  %add120 = fadd double %left.0.lcssa237, 1.000000e-01
-  %cmp35.i = fcmp olt double %left.0.lcssa237, %add120
+  %left.0.lcssa306 = phi double [ %add75, %do.body78 ], [ 5.000000e-02, %_ZNKSt8functionIFddEEclEd.exit79 ]
+  %add119 = fadd double %left.0.lcssa306, 5.000000e-02
+  %add120 = fadd double %left.0.lcssa306, 1.000000e-01
+  %cmp35.i = fcmp olt double %left.0.lcssa306, %add120
   br i1 %cmp35.i, label %do.end187.i, label %if.then36.i
 
 if.then36.i:                                      ; preds = %do.end117
@@ -1251,7 +1251,7 @@ if.then36.i:                                      ; preds = %do.end117
           to label %invoke.cont39.i unwind label %lpad38.i
 
 invoke.cont39.i:                                  ; preds = %if.then36.i
-  %call.i38.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream37.i, double noundef %left.0.lcssa237)
+  %call.i38.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream37.i, double noundef %left.0.lcssa306)
           to label %invoke.cont42.i unwind label %lpad38.i
 
 invoke.cont42.i:                                  ; preds = %invoke.cont39.i
@@ -1417,11 +1417,11 @@ ehcleanup80.i:                                    ; preds = %cleanup.action78.i,
   br label %common.resume
 
 do.end187.i:                                      ; preds = %do.end117
-  %call.i.i138 = call double @pow(double noundef %t, double noundef %left.0.lcssa237) #19, !tbaa !22
+  %call.i.i138 = call double @pow(double noundef %t, double noundef %left.0.lcssa306) #19, !tbaa !22
   %sub3.i.i = fadd double %call.i.i138, -1.000000e+00
   %div.i.i = fdiv double %sub.i, %sub3.i.i
   %add.i.i = fadd double %call2.i, %div.i.i
-  %call7.i.i = call double @pow(double noundef %s, double noundef %left.0.lcssa237) #19, !tbaa !22
+  %call7.i.i = call double @pow(double noundef %s, double noundef %left.0.lcssa306) #19, !tbaa !22
   %sub8.i.i = fadd double %call7.i.i, -1.000000e+00
   %div9.i.i = fdiv double %sub6.i, %sub8.i.i
   %add10.i.i = fadd double %call2.i77, %div9.i.i
@@ -1460,7 +1460,7 @@ if.then206.i:                                     ; preds = %if.end201.i
           to label %invoke.cont209.i unwind label %lpad208.i
 
 invoke.cont209.i:                                 ; preds = %if.then206.i
-  %call.i157158.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream207.i, double noundef %left.0.lcssa237)
+  %call.i157158.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream207.i, double noundef %left.0.lcssa306)
           to label %invoke.cont212.i unwind label %lpad208.i
 
 invoke.cont212.i:                                 ; preds = %invoke.cont209.i
@@ -1651,7 +1651,7 @@ ehcleanup262.i:                                   ; preds = %cleanup.action260.i
   br label %common.resume
 
 do.body266.i:                                     ; preds = %if.end201.i
-  %cmp268.i = fcmp ogt double %add119, %left.0.lcssa237
+  %cmp268.i = fcmp ogt double %add119, %left.0.lcssa306
   br i1 %cmp268.i, label %do.body316.i, label %if.then269.i
 
 if.then269.i:                                     ; preds = %do.body266.i
@@ -1669,7 +1669,7 @@ invoke.cont274.i:                                 ; preds = %invoke.cont272.i
           to label %invoke.cont276.i unwind label %lpad271.i
 
 invoke.cont276.i:                                 ; preds = %invoke.cont274.i
-  %call.i219220.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i212213.i, double noundef %left.0.lcssa237)
+  %call.i219220.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i212213.i, double noundef %left.0.lcssa306)
           to label %invoke.cont279.i unwind label %lpad271.i
 
 invoke.cont279.i:                                 ; preds = %invoke.cont276.i
@@ -2015,7 +2015,7 @@ do.end365.i:                                      ; preds = %do.body316.i
   %mul.i.i = fmul double %sub11.i.i, %sub11.i.i.i
   %cmp.i287.i = fcmp olt double %mul.i.i, 0.000000e+00
   %ref.tmp118.sroa.28.0 = select i1 %cmp.i287.i, double %sub11.i.i, double %sub11.i145.i
-  %xMin_19.promoted.i.i = select i1 %cmp.i287.i, double %left.0.lcssa237, double %add120
+  %xMin_19.promoted.i.i = select i1 %cmp.i287.i, double %left.0.lcssa306, double %add120
   %sub.i289.i = fsub double %add119, %xMin_19.promoted.i.i
   br label %while.body.i.i
 
@@ -2082,8 +2082,8 @@ if.end58.i.i:                                     ; preds = %if.end40.i.i
   %cmp59.i.i = fcmp oge double %172, %169
   %173 = call double @llvm.fabs.f64(double %166)
   %cmp62.i.i = fcmp ogt double %173, %.pre-phi.i.i
-  %or.cond150.i.i = select i1 %cmp59.i.i, i1 %cmp62.i.i, i1 false
-  br i1 %or.cond150.i.i, label %if.then63.i.i, label %if.end111.i.i
+  %or.cond164.i.i = select i1 %cmp59.i.i, i1 %cmp62.i.i, i1 false
+  br i1 %or.cond164.i.i, label %if.then63.i.i, label %if.end111.i.i
 
 if.then63.i.i:                                    ; preds = %if.end58.i.i
   %div65.i.i = fdiv double %froot.1.i.i, %166
@@ -2370,7 +2370,7 @@ unreachable.i:                                    ; preds = %invoke.cont346.i, %
   unreachable
 
 _ZNK8QuantLib8Solver1DINS_5BrentEE5solveINS_12_GLOBAL__N_113RichardsonEqnEEEdRKT_dddd.exit: ; preds = %do.end187.i, %if.end194.i, %_ZNK8QuantLib5Brent9solveImplINS_12_GLOBAL__N_113RichardsonEqnEEEdRKT_d.exit.i
-  %retval.0.i = phi double [ %storemerge136.i.i, %_ZNK8QuantLib5Brent9solveImplINS_12_GLOBAL__N_113RichardsonEqnEEEdRKT_d.exit.i ], [ %left.0.lcssa237, %do.end187.i ], [ %add120, %if.end194.i ]
+  %retval.0.i = phi double [ %storemerge136.i.i, %_ZNK8QuantLib5Brent9solveImplINS_12_GLOBAL__N_113RichardsonEqnEEEdRKT_d.exit.i ], [ %left.0.lcssa306, %do.end187.i ], [ %add120, %if.end194.i ]
   %call122 = call double @pow(double noundef %s, double noundef %retval.0.i) #19, !tbaa !22
   %neg = fneg double %48
   %206 = call double @llvm.fmuladd.f64(double %call122, double %call2.i77, double %neg)

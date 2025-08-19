@@ -65,32 +65,32 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 .outer:                                           ; preds = %14, %10
   %.054.ph = phi i32 [ %16, %14 ], [ 5000, %10 ]
-  %.051.ph = phi i32 [ %.051.ph203, %14 ], [ 1000, %10 ]
-  %.049.ph = phi i32 [ %.049.ph208, %14 ], [ -1, %10 ]
-  %.045.ph = phi ptr [ %.045.ph212, %14 ], [ null, %10 ]
+  %.051.ph = phi i32 [ %.051.ph212, %14 ], [ 1000, %10 ]
+  %.049.ph = phi i32 [ %.049.ph217, %14 ], [ -1, %10 ]
+  %.045.ph = phi ptr [ %.045.ph221, %14 ], [ null, %10 ]
   %.043.ph = phi i1 [ %.043, %14 ], [ false, %10 ]
-  br label %.outer202
-
-.outer202:                                        ; preds = %.outer, %19
-  %.051.ph203 = phi i32 [ %.051.ph, %.outer ], [ %21, %19 ]
-  %.049.ph204 = phi i32 [ %.049.ph, %.outer ], [ %.049.ph208, %19 ]
-  %.045.ph205 = phi ptr [ %.045.ph, %.outer ], [ %.045.ph212, %19 ]
-  %.043.ph206 = phi i1 [ %.043.ph, %.outer ], [ %.043, %19 ]
-  br label %.outer207
-
-.outer207:                                        ; preds = %.outer202, %22
-  %.049.ph208 = phi i32 [ %.049.ph204, %.outer202 ], [ %24, %22 ]
-  %.045.ph209 = phi ptr [ %.045.ph205, %.outer202 ], [ %.045.ph212, %22 ]
-  %.043.ph210 = phi i1 [ %.043.ph206, %.outer202 ], [ %.043, %22 ]
   br label %.outer211
 
-.outer211:                                        ; preds = %.outer207, %28
-  %.045.ph212 = phi ptr [ %.045.ph209, %.outer207 ], [ %30, %28 ]
-  %.043.ph213 = phi i1 [ %.043.ph210, %.outer207 ], [ %.043, %28 ]
+.outer211:                                        ; preds = %.outer, %19
+  %.051.ph212 = phi i32 [ %.051.ph, %.outer ], [ %21, %19 ]
+  %.049.ph213 = phi i32 [ %.049.ph, %.outer ], [ %.049.ph217, %19 ]
+  %.045.ph214 = phi ptr [ %.045.ph, %.outer ], [ %.045.ph221, %19 ]
+  %.043.ph215 = phi i1 [ %.043.ph, %.outer ], [ %.043, %19 ]
+  br label %.outer216
+
+.outer216:                                        ; preds = %.outer211, %22
+  %.049.ph217 = phi i32 [ %.049.ph213, %.outer211 ], [ %24, %22 ]
+  %.045.ph218 = phi ptr [ %.045.ph214, %.outer211 ], [ %.045.ph221, %22 ]
+  %.043.ph219 = phi i1 [ %.043.ph215, %.outer211 ], [ %.043, %22 ]
+  br label %.outer220
+
+.outer220:                                        ; preds = %.outer216, %28
+  %.045.ph221 = phi ptr [ %.045.ph218, %.outer216 ], [ %30, %28 ]
+  %.043.ph222 = phi i1 [ %.043.ph219, %.outer216 ], [ %.043, %28 ]
   br label %11
 
-11:                                               ; preds = %.outer211, %11
-  %.043 = phi i1 [ true, %11 ], [ %.043.ph213, %.outer211 ]
+11:                                               ; preds = %.outer220, %11
+  %.043 = phi i1 [ true, %11 ], [ %.043.ph222, %.outer220 ]
   %12 = load i32, ptr %3, align 4
   %13 = call i32 @ws_getopt_long(i32 noundef %12, ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @main.long_options, ptr noundef null)
   switch i32 %13, label %.loopexit75 [
@@ -118,13 +118,13 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 19:                                               ; preds = %11
   %20 = load ptr, ptr @ws_optarg, align 8
   %21 = call i32 @get_positive_int(ptr noundef %20, ptr noundef nonnull @.str.8)
-  br label %.outer202, !llvm.loop !7
+  br label %.outer211, !llvm.loop !7
 
 22:                                               ; preds = %11
   %23 = load ptr, ptr @ws_optarg, align 8
   %24 = call i32 @wtap_name_to_file_type_subtype(ptr noundef %23)
   %25 = icmp slt i32 %24, 0
-  br i1 %25, label %26, label %.outer207, !llvm.loop !7
+  br i1 %25, label %26, label %.outer216, !llvm.loop !7
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr @ws_optarg, align 8
@@ -135,7 +135,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 28:                                               ; preds = %11
   %29 = load ptr, ptr @ws_optarg, align 8
   %30 = call noalias ptr @g_strdup(ptr noundef %29)
-  br label %.outer211, !llvm.loop !7
+  br label %.outer220, !llvm.loop !7
 
 31:                                               ; preds = %11
   call void @show_help_header(ptr noundef null)
@@ -169,7 +169,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %41 = sext i32 %38 to i64
   %42 = getelementptr ptr, ptr %1, i64 %41
   %43 = load ptr, ptr %42, align 8
-  %44 = icmp eq i32 %.049.ph208, -1
+  %44 = icmp eq i32 %.049.ph217, -1
   br i1 %44, label %46, label %48
 
 45:                                               ; preds = %36
@@ -181,12 +181,12 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %48
 
 48:                                               ; preds = %46, %40
-  %.2 = phi i32 [ %47, %46 ], [ %.049.ph208, %40 ]
+  %.2 = phi i32 [ %47, %46 ], [ %.049.ph217, %40 ]
   br i1 %.043, label %56, label %49
 
 49:                                               ; preds = %48
-  %50 = call i32 @randpkt_parse_type(ptr noundef %.045.ph212)
-  call void @g_free(ptr noundef %.045.ph212)
+  %50 = call i32 @randpkt_parse_type(ptr noundef %.045.ph221)
+  call void @g_free(ptr noundef %.045.ph221)
   %51 = call ptr @randpkt_find_example(i32 noundef %50)
   %.not68 = icmp eq ptr %51, null
   br i1 %.not68, label %.loopexit74, label %52
@@ -197,12 +197,12 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not69, label %54, label %.loopexit74
 
 54:                                               ; preds = %52
-  %55 = sext i32 %.051.ph203 to i64
+  %55 = sext i32 %.051.ph212 to i64
   call void @randpkt_loop(ptr noundef nonnull %51, i64 noundef %55, i64 noundef 0)
   br label %.loopexit
 
 56:                                               ; preds = %48
-  %.not70 = icmp eq ptr %.045.ph212, null
+  %.not70 = icmp eq ptr %.045.ph221, null
   br i1 %.not70, label %60, label %57
 
 57:                                               ; preds = %56
@@ -222,11 +222,11 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not72, label %.preheader, label %.loopexit74
 
 .preheader:                                       ; preds = %63
-  %65 = icmp sgt i32 %.051.ph203, 0
+  %65 = icmp sgt i32 %.051.ph212, 0
   br i1 %65, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %70
-  %.in = phi i32 [ %71, %70 ], [ %.051.ph203, %.preheader ]
+  %.in = phi i32 [ %71, %70 ], [ %.051.ph212, %.preheader ]
   %.148107 = phi ptr [ %69, %70 ], [ %62, %.preheader ]
   call void @randpkt_loop(ptr noundef nonnull %.148107, i64 noundef 1, i64 noundef 0)
   %66 = call i32 @randpkt_parse_type(ptr noundef null)
@@ -381,22 +381,22 @@ define internal fastcc void @usage(i1 noundef zeroext %0) unnamed_addr #0 {
 .lr.ph.preheader:                                 ; preds = %1
   %19 = load ptr, ptr %3, align 8
   %20 = load ptr, ptr %19, align 8
-  %.not2328 = icmp eq ptr %20, null
-  br i1 %.not2328, label %.critedge, label %.lr.ph30
+  %.not2330 = icmp eq ptr %20, null
+  br i1 %.not2330, label %.critedge, label %.lr.ph32
 
-.lr.ph:                                           ; preds = %.lr.ph30
+.lr.ph:                                           ; preds = %.lr.ph32
   %21 = load ptr, ptr %3, align 8
   %22 = getelementptr ptr, ptr %21, i64 %29
   %23 = load ptr, ptr %22, align 8
   %.not23 = icmp eq ptr %23, null
-  br i1 %.not23, label %.critedge, label %.lr.ph30, !llvm.loop !11
+  br i1 %.not23, label %.critedge, label %.lr.ph32, !llvm.loop !11
 
-.lr.ph30:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph32:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %24 = phi ptr [ %23, %.lr.ph ], [ %20, %.lr.ph.preheader ]
-  %.02529 = phi i32 [ %27, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.02531 = phi i32 [ %27, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %25 = phi ptr [ %31, %.lr.ph ], [ %18, %.lr.ph.preheader ]
   %26 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %.020, i32 noundef 2, ptr noundef nonnull @.str.25, ptr noundef nonnull %25, ptr noundef nonnull %24)
-  %27 = add i32 %.02529, 1
+  %27 = add i32 %.02531, 1
   %28 = load ptr, ptr %2, align 8
   %29 = zext i32 %27 to i64
   %30 = getelementptr ptr, ptr %28, i64 %29
@@ -404,7 +404,7 @@ define internal fastcc void @usage(i1 noundef zeroext %0) unnamed_addr #0 {
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !11
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph30
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph32
   br label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %1

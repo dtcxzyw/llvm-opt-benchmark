@@ -64,49 +64,49 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 openF.exit.i.outer:                               ; preds = %24, %2
   %.sroa.24.0.ph = phi i32 [ %21, %24 ], [ 1, %2 ]
-  %.sroa.21.0.ph = phi i32 [ %.sroa.21.0.ph112, %24 ], [ 0, %2 ]
-  %.sroa.18.0.ph = phi i32 [ %.sroa.18.0.ph118, %24 ], [ 0, %2 ]
-  %.sroa.15.0.ph = phi i32 [ %.sroa.15.0.ph123, %24 ], [ 0, %2 ]
-  %.sroa.12.0.ph = phi i32 [ %.sroa.12.0.ph127, %24 ], [ 0, %2 ]
-  %.sroa.4.0.ph = phi ptr [ %.sroa.4.0.ph130, %24 ], [ %5, %2 ]
-  br label %openF.exit.i.outer111
-
-openF.exit.i.outer111:                            ; preds = %openF.exit.i.outer, %15
-  %.sroa.21.0.ph112 = phi i32 [ %.sroa.21.0.ph, %openF.exit.i.outer ], [ 1, %15 ]
-  %.sroa.18.0.ph113 = phi i32 [ %.sroa.18.0.ph, %openF.exit.i.outer ], [ %.sroa.18.0.ph118, %15 ]
-  %.sroa.15.0.ph114 = phi i32 [ %.sroa.15.0.ph, %openF.exit.i.outer ], [ %.sroa.15.0.ph123, %15 ]
-  %.sroa.12.0.ph115 = phi i32 [ %.sroa.12.0.ph, %openF.exit.i.outer ], [ %.sroa.12.0.ph127, %15 ]
-  %.sroa.4.0.ph116 = phi ptr [ %.sroa.4.0.ph, %openF.exit.i.outer ], [ %.sroa.4.0.ph130, %15 ]
+  %.sroa.21.0.ph = phi i32 [ %.sroa.21.0.ph118, %24 ], [ 0, %2 ]
+  %.sroa.18.0.ph = phi i32 [ %.sroa.18.0.ph124, %24 ], [ 0, %2 ]
+  %.sroa.15.0.ph = phi i32 [ %.sroa.15.0.ph129, %24 ], [ 0, %2 ]
+  %.sroa.12.0.ph = phi i32 [ %.sroa.12.0.ph133, %24 ], [ 0, %2 ]
+  %.sroa.4.0.ph = phi ptr [ %.sroa.4.0.ph136, %24 ], [ %5, %2 ]
   br label %openF.exit.i.outer117
 
-openF.exit.i.outer117:                            ; preds = %openF.exit.i.outer111, %16
-  %.sroa.18.0.ph118 = phi i32 [ %.sroa.18.0.ph113, %openF.exit.i.outer111 ], [ 1, %16 ]
-  %.sroa.15.0.ph119 = phi i32 [ %.sroa.15.0.ph114, %openF.exit.i.outer111 ], [ %.sroa.15.0.ph123, %16 ]
-  %.sroa.12.0.ph120 = phi i32 [ %.sroa.12.0.ph115, %openF.exit.i.outer111 ], [ %.sroa.12.0.ph127, %16 ]
-  %.sroa.4.0.ph121 = phi ptr [ %.sroa.4.0.ph116, %openF.exit.i.outer111 ], [ %.sroa.4.0.ph130, %16 ]
-  br label %openF.exit.i.outer122
+openF.exit.i.outer117:                            ; preds = %openF.exit.i.outer, %15
+  %.sroa.21.0.ph118 = phi i32 [ %.sroa.21.0.ph, %openF.exit.i.outer ], [ 1, %15 ]
+  %.sroa.18.0.ph119 = phi i32 [ %.sroa.18.0.ph, %openF.exit.i.outer ], [ %.sroa.18.0.ph124, %15 ]
+  %.sroa.15.0.ph120 = phi i32 [ %.sroa.15.0.ph, %openF.exit.i.outer ], [ %.sroa.15.0.ph129, %15 ]
+  %.sroa.12.0.ph121 = phi i32 [ %.sroa.12.0.ph, %openF.exit.i.outer ], [ %.sroa.12.0.ph133, %15 ]
+  %.sroa.4.0.ph122 = phi ptr [ %.sroa.4.0.ph, %openF.exit.i.outer ], [ %.sroa.4.0.ph136, %15 ]
+  br label %openF.exit.i.outer123
 
-openF.exit.i.outer122:                            ; preds = %openF.exit.i, %openF.exit.i.outer117
-  %.sroa.15.0.ph123 = phi i32 [ %.sroa.15.0.ph119, %openF.exit.i.outer117 ], [ 1, %openF.exit.i ]
-  %.sroa.12.0.ph124 = phi i32 [ %.sroa.12.0.ph120, %openF.exit.i.outer117 ], [ %.sroa.12.0.ph127, %openF.exit.i ]
-  %.sroa.4.0.ph125 = phi ptr [ %.sroa.4.0.ph121, %openF.exit.i.outer117 ], [ %.sroa.4.0.ph130, %openF.exit.i ]
-  br label %openF.exit.i.outer126
+openF.exit.i.outer123:                            ; preds = %openF.exit.i.outer117, %16
+  %.sroa.18.0.ph124 = phi i32 [ %.sroa.18.0.ph119, %openF.exit.i.outer117 ], [ 1, %16 ]
+  %.sroa.15.0.ph125 = phi i32 [ %.sroa.15.0.ph120, %openF.exit.i.outer117 ], [ %.sroa.15.0.ph129, %16 ]
+  %.sroa.12.0.ph126 = phi i32 [ %.sroa.12.0.ph121, %openF.exit.i.outer117 ], [ %.sroa.12.0.ph133, %16 ]
+  %.sroa.4.0.ph127 = phi ptr [ %.sroa.4.0.ph122, %openF.exit.i.outer117 ], [ %.sroa.4.0.ph136, %16 ]
+  br label %openF.exit.i.outer128
 
-openF.exit.i.outer126:                            ; preds = %openF.exit.i.outer122, %14
-  %.sroa.12.0.ph127 = phi i32 [ %.sroa.12.0.ph124, %openF.exit.i.outer122 ], [ 1, %14 ]
-  %.sroa.4.0.ph128 = phi ptr [ %.sroa.4.0.ph125, %openF.exit.i.outer122 ], [ %.sroa.4.0.ph130, %14 ]
-  br label %openF.exit.i.outer129
+openF.exit.i.outer128:                            ; preds = %openF.exit.i, %openF.exit.i.outer123
+  %.sroa.15.0.ph129 = phi i32 [ %.sroa.15.0.ph125, %openF.exit.i.outer123 ], [ 1, %openF.exit.i ]
+  %.sroa.12.0.ph130 = phi i32 [ %.sroa.12.0.ph126, %openF.exit.i.outer123 ], [ %.sroa.12.0.ph133, %openF.exit.i ]
+  %.sroa.4.0.ph131 = phi ptr [ %.sroa.4.0.ph127, %openF.exit.i.outer123 ], [ %.sroa.4.0.ph136, %openF.exit.i ]
+  br label %openF.exit.i.outer132
 
-openF.exit.i.outer129:                            ; preds = %openF.exit.i.outer126, %8
-  %.sroa.4.0.ph130 = phi ptr [ %.sroa.4.0.ph128, %openF.exit.i.outer126 ], [ %10, %8 ]
+openF.exit.i.outer132:                            ; preds = %openF.exit.i.outer128, %14
+  %.sroa.12.0.ph133 = phi i32 [ %.sroa.12.0.ph130, %openF.exit.i.outer128 ], [ 1, %14 ]
+  %.sroa.4.0.ph134 = phi ptr [ %.sroa.4.0.ph131, %openF.exit.i.outer128 ], [ %.sroa.4.0.ph136, %14 ]
+  br label %openF.exit.i.outer135
+
+openF.exit.i.outer135:                            ; preds = %openF.exit.i.outer132, %8
+  %.sroa.4.0.ph136 = phi ptr [ %.sroa.4.0.ph134, %openF.exit.i.outer132 ], [ %10, %8 ]
   br label %openF.exit.i
 
-openF.exit.i:                                     ; preds = %openF.exit.i.outer129, %25
+openF.exit.i:                                     ; preds = %openF.exit.i.outer135, %25
   %7 = call i32 @getopt(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.3) #20
   switch i32 %7, label %37 [
     i32 -1, label %40
     i32 111, label %8
-    i32 108, label %openF.exit.i.outer122
+    i32 108, label %openF.exit.i.outer128
     i32 117, label %14
     i32 118, label %15
     i32 99, label %16
@@ -119,7 +119,7 @@ openF.exit.i:                                     ; preds = %openF.exit.i.outer1
   %9 = load ptr, ptr @optarg, align 8, !tbaa !9
   %10 = call noalias ptr @fopen(ptr noundef %9, ptr noundef nonnull @.str.4)
   %.not.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i, label %11, label %openF.exit.i.outer129, !llvm.loop !13
+  br i1 %.not.i.i, label %11, label %openF.exit.i.outer135, !llvm.loop !13
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -128,13 +128,13 @@ openF.exit.i:                                     ; preds = %openF.exit.i.outer1
   unreachable
 
 14:                                               ; preds = %openF.exit.i
-  br label %openF.exit.i.outer126, !llvm.loop !13
+  br label %openF.exit.i.outer132, !llvm.loop !13
 
 15:                                               ; preds = %openF.exit.i
-  br label %openF.exit.i.outer111, !llvm.loop !13
+  br label %openF.exit.i.outer117, !llvm.loop !13
 
 16:                                               ; preds = %openF.exit.i
-  br label %openF.exit.i.outer117, !llvm.loop !13
+  br label %openF.exit.i.outer123, !llvm.loop !13
 
 17:                                               ; preds = %openF.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -229,7 +229,7 @@ init.exit:                                        ; preds = %43, %40
   unreachable
 
 60:                                               ; preds = %55
-  %.not12 = icmp eq i32 %.sroa.12.0.ph127, 0
+  %.not12 = icmp eq i32 %.sroa.12.0.ph133, 0
   br i1 %.not12, label %63, label %61
 
 61:                                               ; preds = %60
@@ -239,8 +239,8 @@ init.exit:                                        ; preds = %43, %40
 
 63:                                               ; preds = %61, %60
   %.0 = phi ptr [ %62, %61 ], [ %56, %60 ]
-  %64 = call fastcc ptr @makeDotGraph(ptr noundef %.0, ptr noundef %.sroa.7.0, i32 noundef %.sroa.18.0.ph118, i32 noundef %.sroa.15.0.ph123, i32 noundef %.sroa.21.0.ph112)
-  %65 = call i32 @agwrite(ptr noundef %64, ptr noundef %.sroa.4.0.ph130) #20
+  %64 = call fastcc ptr @makeDotGraph(ptr noundef %.0, ptr noundef %.sroa.7.0, i32 noundef %.sroa.18.0.ph124, i32 noundef %.sroa.15.0.ph129, i32 noundef %.sroa.21.0.ph118)
+  %65 = call i32 @agwrite(ptr noundef %64, ptr noundef %.sroa.4.0.ph136) #20
   call fastcc void @graphviz_exit(i32 noundef 0) #22
   unreachable
 }

@@ -2017,7 +2017,7 @@ switch.early.test.i:                              ; preds = %_ZNK6icu_7713Unicod
   br i1 %101, label %switch.early.test32.i, label %.thread39.i
 
 switch.early.test32.i:                            ; preds = %100
-  switch i16 %98, label %.thread44.loopexit.split.loop.exit53.i [
+  switch i16 %98, label %.thread44.loopexit.split.loop.exit55.i [
     i16 8734, label %.thread39.i
     i16 101, label %.thread39.i
     i16 69, label %.thread39.i
@@ -2035,12 +2035,12 @@ switch.early.test32.i:                            ; preds = %100
   %105 = trunc nsw i64 %indvars.iv.i to i32
   br label %_ZN6icu_7714MessagePattern10skipDoubleEi.exit
 
-.thread44.loopexit.split.loop.exit53.i:           ; preds = %switch.early.test32.i
+.thread44.loopexit.split.loop.exit55.i:           ; preds = %switch.early.test32.i
   %106 = trunc nsw i64 %indvars.iv.i to i32
   br label %_ZN6icu_7714MessagePattern10skipDoubleEi.exit
 
-_ZN6icu_7714MessagePattern10skipDoubleEi.exit:    ; preds = %.thread39.i, %.thread44.loopexit.split.loop.exit.i, %.thread44.loopexit.split.loop.exit53.i
-  %.031.lcssa.i = phi i32 [ %105, %.thread44.loopexit.split.loop.exit.i ], [ %106, %.thread44.loopexit.split.loop.exit53.i ], [ %90, %.thread39.i ]
+_ZN6icu_7714MessagePattern10skipDoubleEi.exit:    ; preds = %.thread39.i, %.thread44.loopexit.split.loop.exit.i, %.thread44.loopexit.split.loop.exit55.i
+  %.031.lcssa.i = phi i32 [ %105, %.thread44.loopexit.split.loop.exit.i ], [ %106, %.thread44.loopexit.split.loop.exit55.i ], [ %90, %.thread39.i ]
   %107 = icmp eq i32 %.031.lcssa.i, %.059104
   br i1 %107, label %_ZN6icu_7714MessagePattern10skipDoubleEi.exit.thread, label %108
 
@@ -2546,7 +2546,7 @@ switch.early.test.i:                              ; preds = %_ZNK6icu_7713Unicod
   br i1 %112, label %switch.early.test32.i, label %.thread39.i
 
 switch.early.test32.i:                            ; preds = %111
-  switch i16 %109, label %.thread44.loopexit.split.loop.exit53.i [
+  switch i16 %109, label %.thread44.loopexit.split.loop.exit55.i [
     i16 8734, label %.thread39.i
     i16 101, label %.thread39.i
     i16 69, label %.thread39.i
@@ -2564,12 +2564,12 @@ switch.early.test32.i:                            ; preds = %111
   %116 = trunc nsw i64 %indvars.iv.i to i32
   br label %_ZN6icu_7714MessagePattern10skipDoubleEi.exit
 
-.thread44.loopexit.split.loop.exit53.i:           ; preds = %switch.early.test32.i
+.thread44.loopexit.split.loop.exit55.i:           ; preds = %switch.early.test32.i
   %117 = trunc nsw i64 %indvars.iv.i to i32
   br label %_ZN6icu_7714MessagePattern10skipDoubleEi.exit
 
-_ZN6icu_7714MessagePattern10skipDoubleEi.exit:    ; preds = %.thread39.i, %102, %.thread44.loopexit.split.loop.exit.i, %.thread44.loopexit.split.loop.exit53.i
-  %.031.lcssa.i = phi i32 [ %103, %102 ], [ %116, %.thread44.loopexit.split.loop.exit.i ], [ %117, %.thread44.loopexit.split.loop.exit53.i ], [ %42, %.thread39.i ]
+_ZN6icu_7714MessagePattern10skipDoubleEi.exit:    ; preds = %.thread39.i, %102, %.thread44.loopexit.split.loop.exit.i, %.thread44.loopexit.split.loop.exit55.i
+  %.031.lcssa.i = phi i32 [ %103, %102 ], [ %116, %.thread44.loopexit.split.loop.exit.i ], [ %117, %.thread44.loopexit.split.loop.exit55.i ], [ %42, %.thread39.i ]
   %118 = sub nsw i32 %.031.lcssa.i, %36
   %119 = icmp eq i32 %118, 1
   br i1 %119, label %120, label %121
@@ -2781,7 +2781,7 @@ switch.early.test.i163:                           ; preds = %_ZNK6icu_7713Unicod
   br i1 %227, label %switch.early.test32.i161, label %.thread39.i158
 
 switch.early.test32.i161:                         ; preds = %226
-  switch i16 %224, label %.thread44.loopexit.split.loop.exit53.i162 [
+  switch i16 %224, label %.thread44.loopexit.split.loop.exit55.i162 [
     i16 8734, label %.thread39.i158
     i16 101, label %.thread39.i158
     i16 69, label %.thread39.i158
@@ -2799,12 +2799,12 @@ switch.early.test32.i161:                         ; preds = %226
   %231 = trunc nsw i64 %indvars.iv.i157 to i32
   br label %_ZN6icu_7714MessagePattern10skipDoubleEi.exit165
 
-.thread44.loopexit.split.loop.exit53.i162:        ; preds = %switch.early.test32.i161
+.thread44.loopexit.split.loop.exit55.i162:        ; preds = %switch.early.test32.i161
   %232 = trunc nsw i64 %indvars.iv.i157 to i32
   br label %_ZN6icu_7714MessagePattern10skipDoubleEi.exit165
 
-_ZN6icu_7714MessagePattern10skipDoubleEi.exit165: ; preds = %.thread39.i158, %.thread44.loopexit.split.loop.exit.i164, %.thread44.loopexit.split.loop.exit53.i162
-  %.031.lcssa.i153 = phi i32 [ %231, %.thread44.loopexit.split.loop.exit.i164 ], [ %232, %.thread44.loopexit.split.loop.exit53.i162 ], [ %215, %.thread39.i158 ]
+_ZN6icu_7714MessagePattern10skipDoubleEi.exit165: ; preds = %.thread39.i158, %.thread44.loopexit.split.loop.exit.i164, %.thread44.loopexit.split.loop.exit55.i162
+  %.031.lcssa.i153 = phi i32 [ %231, %.thread44.loopexit.split.loop.exit.i164 ], [ %232, %.thread44.loopexit.split.loop.exit55.i162 ], [ %215, %.thread39.i158 ]
   %233 = icmp eq i32 %.031.lcssa.i153, %209
   br i1 %233, label %_ZN6icu_7714MessagePattern10skipDoubleEi.exit165.thread, label %234
 
@@ -3302,15 +3302,15 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %19
   br i1 %.not6, label %_ZN6icu_7714MessagePattern14parseArgNumberERKNS_13UnicodeStringEii.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %34, %38
-  %.0.i512 = phi i8 [ 0, %38 ], [ 1, %34 ]
-  %.026.i11 = phi i32 [ %39, %38 ], [ 0, %34 ]
+  %.0.i514 = phi i8 [ 0, %38 ], [ 1, %34 ]
+  %.026.i13 = phi i32 [ %39, %38 ], [ 0, %34 ]
   %wide.trip.count = zext nneg i32 %25 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %43
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %43 ], [ 1, %.lr.ph.i.preheader ]
-  %.149.i = phi i8 [ %spec.select.i, %43 ], [ %.0.i512, %.lr.ph.i.preheader ]
-  %.12748.i = phi i32 [ %48, %43 ], [ %.026.i11, %.lr.ph.i.preheader ]
+  %.149.i = phi i8 [ %spec.select.i, %43 ], [ %.0.i514, %.lr.ph.i.preheader ]
+  %.12748.i = phi i32 [ %48, %43 ], [ %.026.i13, %.lr.ph.i.preheader ]
   %.12748.i.fr = freeze i32 %.12748.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.i, %wide.trip.count
@@ -4253,7 +4253,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %274
   %282 = getelementptr inbounds i16, ptr %280, i64 %281
   %283 = load i16, ptr %282, align 2, !tbaa !30
   switch i16 %283, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread [
-    i16 125, label %.thread235
+    i16 125, label %.thread261
     i16 44, label %284
   ]
 
@@ -4292,7 +4292,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit179:      ; preds = %_ZNK6icu_7713Unicod
   %302 = and i16 %301, -33
   %303 = add i16 %302, -91
   %narrow.i = icmp ult i16 %303, -26
-  br i1 %narrow.i, label %.critedge.loopexit.split.loop.exit240, label %304
+  br i1 %narrow.i, label %.critedge.loopexit.split.loop.exit266, label %304
 
 304:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit179
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4302,12 +4302,12 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit179:      ; preds = %_ZNK6icu_7713Unicod
   %or.cond = and i1 %305, %307
   br i1 %or.cond, label %_ZNK6icu_7713UnicodeString6charAtEi.exit179, label %.critedge, !llvm.loop !64
 
-.critedge.loopexit.split.loop.exit240:            ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit179
+.critedge.loopexit.split.loop.exit266:            ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit179
   %308 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %304, %.critedge.loopexit.split.loop.exit240, %284
-  %.1117.lcssa = phi i32 [ %286, %284 ], [ %308, %.critedge.loopexit.split.loop.exit240 ], [ %292, %304 ]
+.critedge:                                        ; preds = %304, %.critedge.loopexit.split.loop.exit266, %284
+  %.1117.lcssa = phi i32 [ %286, %284 ], [ %308, %.critedge.loopexit.split.loop.exit266 ], [ %292, %304 ]
   %309 = sub nsw i32 %.1117.lcssa, %286
   %310 = tail call noundef i32 @_ZN6icu_7714MessagePattern14skipWhiteSpaceEi(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %.1117.lcssa)
   %311 = load i16, ptr %47, align 8, !tbaa !19
@@ -4382,7 +4382,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit182.thread: ; preds = %_ZNK6icu_7713Unic
   %341 = load ptr, ptr %339, align 8, !tbaa !23
   %342 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %341, i64 %340, i32 3
   store i16 %338, ptr %342, align 2, !tbaa !50
-  br i1 %.not143, label %.thread231, label %357
+  br i1 %.not143, label %.thread257, label %357
 
 343:                                              ; preds = %331
   %344 = tail call noundef signext i8 @_ZN6icu_7714MessagePattern8isSelectEi(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %286)
@@ -4395,7 +4395,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit182.thread: ; preds = %_ZNK6icu_7713Unic
   %347 = load ptr, ptr %345, align 8, !tbaa !23
   %348 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %347, i64 %346, i32 3
   store i16 1, ptr %348, align 2, !tbaa !50
-  br label %.thread231
+  br label %.thread257
 
 349:                                              ; preds = %343
   %350 = add nsw i32 %286, 6
@@ -4407,17 +4407,17 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit182.thread: ; preds = %_ZNK6icu_7713Unic
   %355 = load ptr, ptr %353, align 8, !tbaa !23
   %356 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %355, i64 %354, i32 3
   store i16 %352, ptr %356, align 2, !tbaa !50
-  br i1 %.not140, label %.thread231, label %357
+  br i1 %.not140, label %.thread257, label %357
 
 357:                                              ; preds = %336, %349
   %.2122195 = phi i32 [ 5, %349 ], [ 4, %336 ]
   %358 = icmp eq i16 %327, 125
   br i1 %358, label %.thread204, label %.thread209
 
-.thread231:                                       ; preds = %349, %.thread193, %336
+.thread257:                                       ; preds = %349, %.thread193, %336
   tail call void @_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef 9, i32 noundef %286, i32 noundef %309, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %359 = icmp eq i16 %327, 125
-  br i1 %359, label %.thread235, label %370
+  br i1 %359, label %.thread261, label %370
 
 .thread200:                                       ; preds = %332
   %360 = load ptr, ptr %9, align 8, !tbaa !22
@@ -4442,31 +4442,31 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit182.thread: ; preds = %_ZNK6icu_7713Unic
   store i32 65799, ptr %5, align 4, !tbaa !20
   br label %.critedge149
 
-370:                                              ; preds = %.thread231
+370:                                              ; preds = %.thread257
   %371 = add nuw nsw i32 %310, 1
   %372 = tail call noundef i32 @_ZN6icu_7714MessagePattern16parseSimpleStyleEiP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %371, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  br label %.thread235
+  br label %.thread261
 
 373:                                              ; preds = %.thread200
   %374 = add nuw nsw i32 %310, 1
   %375 = tail call noundef i32 @_ZN6icu_7714MessagePattern16parseChoiceStyleEiiP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %374, i32 noundef %3, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  br label %.thread235
+  br label %.thread261
 
 .thread209:                                       ; preds = %357, %.thread200.thread
   %.2122195202208211 = phi i32 [ 3, %.thread200.thread ], [ %.2122195, %357 ]
   %376 = add nuw nsw i32 %310, 1
   %377 = tail call noundef i32 @_ZN6icu_7714MessagePattern24parsePluralOrSelectStyleE22UMessagePatternArgTypeiiP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %.2122195202208211, i32 noundef %376, i32 noundef %3, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  br label %.thread235
+  br label %.thread261
 
-.thread235:                                       ; preds = %.thread231, %370, %.thread209, %373, %_ZNK6icu_7713UnicodeString6charAtEi.exit
-  %.0120 = phi i32 [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ 2, %373 ], [ %.2122195202208211, %.thread209 ], [ 1, %370 ], [ 1, %.thread231 ]
-  %.0116 = phi i32 [ %236, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %375, %373 ], [ %377, %.thread209 ], [ %372, %370 ], [ %310, %.thread231 ]
+.thread261:                                       ; preds = %.thread257, %370, %.thread209, %373, %_ZNK6icu_7713UnicodeString6charAtEi.exit
+  %.0120 = phi i32 [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ 2, %373 ], [ %.2122195202208211, %.thread209 ], [ 1, %370 ], [ 1, %.thread257 ]
+  %.0116 = phi i32 [ %236, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %375, %373 ], [ %377, %.thread209 ], [ %372, %370 ], [ %310, %.thread257 ]
   tail call void @_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %8, i32 noundef 6, i32 noundef %.0116, i32 noundef 1, i32 noundef %.0120, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %378 = add nsw i32 %.0116, 1
   br label %.critedge149
 
-.critedge149:                                     ; preds = %33, %6, %213, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit163, %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread, %.thread235, %.thread204, %330, %_ZNK6icu_7713UnicodeString6charAtEi.exit182.thread, %318, %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit174, %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread.thread214, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit
-  %.0 = phi i32 [ 0, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit ], [ 0, %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit ], [ 0, %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit174 ], [ 0, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit163 ], [ 0, %213 ], [ 0, %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread.thread214 ], [ %378, %.thread235 ], [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ], [ 0, %.thread204 ], [ 0, %330 ], [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit182.thread ], [ 0, %318 ], [ 0, %6 ], [ 0, %33 ]
+.critedge149:                                     ; preds = %33, %6, %213, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit163, %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread, %.thread261, %.thread204, %330, %_ZNK6icu_7713UnicodeString6charAtEi.exit182.thread, %318, %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit174, %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread.thread214, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit
+  %.0 = phi i32 [ 0, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit ], [ 0, %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit ], [ 0, %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit174 ], [ 0, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit163 ], [ 0, %213 ], [ 0, %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread.thread214 ], [ %378, %.thread261 ], [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ], [ 0, %.thread204 ], [ 0, %330 ], [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit182.thread ], [ 0, %318 ], [ 0, %6 ], [ 0, %33 ]
   ret i32 %.0
 }
 
@@ -5492,7 +5492,7 @@ switch.early.test:                                ; preds = %_ZNK6icu_7713Unicod
   br i1 %24, label %switch.early.test32, label %.thread39
 
 switch.early.test32:                              ; preds = %23
-  switch i16 %21, label %.thread44.loopexit.split.loop.exit53 [
+  switch i16 %21, label %.thread44.loopexit.split.loop.exit55 [
     i16 8734, label %.thread39
     i16 101, label %.thread39
     i16 69, label %.thread39
@@ -5510,12 +5510,12 @@ switch.early.test32:                              ; preds = %23
   %28 = trunc nsw i64 %indvars.iv to i32
   br label %.thread44
 
-.thread44.loopexit.split.loop.exit53:             ; preds = %switch.early.test32
+.thread44.loopexit.split.loop.exit55:             ; preds = %switch.early.test32
   %29 = trunc nsw i64 %indvars.iv to i32
   br label %.thread44
 
-.thread44:                                        ; preds = %.thread39, %.thread44.loopexit.split.loop.exit, %.thread44.loopexit.split.loop.exit53, %2
-  %.031.lcssa = phi i32 [ %1, %2 ], [ %28, %.thread44.loopexit.split.loop.exit ], [ %29, %.thread44.loopexit.split.loop.exit53 ], [ %10, %.thread39 ]
+.thread44:                                        ; preds = %.thread39, %.thread44.loopexit.split.loop.exit, %.thread44.loopexit.split.loop.exit55, %2
+  %.031.lcssa = phi i32 [ %1, %2 ], [ %28, %.thread44.loopexit.split.loop.exit ], [ %29, %.thread44.loopexit.split.loop.exit55 ], [ %10, %.thread39 ]
   ret i32 %.031.lcssa
 }
 

@@ -66,24 +66,24 @@ define hidden { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h2c
 
 .preheader:                                       ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12)
-  %.sroa.0.0.copyload106 = load i64, ptr %1, align 8
-  %.sroa.12.0..sroa_idx110 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.0..sroa_idx110, i64 16, i1 false)
+  %.sroa.0.0.copyload110 = load i64, ptr %1, align 8
+  %.sroa.12.0..sroa_idx114 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.0..sroa_idx114, i64 16, i1 false)
   store i64 -9223372036854775808, ptr %9, align 8, !alias.scope !10, !noalias !13
-  %.not82 = icmp eq i64 %.sroa.0.0.copyload106, -9223372036854775808
+  %.not82 = icmp eq i64 %.sroa.0.0.copyload110, -9223372036854775808
   br i1 %.not82, label %._crit_edge._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.12.0..sroa_idx111 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.12.0..sroa_idx109 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sroa.12.0..sroa_idx115 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sroa.12.0..sroa_idx113 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %.lr.ph
 
 25:                                               ; preds = %17
   invoke fastcc void @"_ZN11typed_arena18ChunkList$LT$T$GT$7reserve17h75c2bc1912e42841E"(ptr noalias noundef align 8 dereferenceable(48) %18, i64 noundef %spec.select.i)
-          to label %73 unwind label %.thread95
+          to label %73 unwind label %.thread99
 
-.thread95:                                        ; preds = %25
+.thread99:                                        ; preds = %25
   %26 = landingpad { ptr, i32 }
           cleanup
   %27 = load i64, ptr %0, align 8, !noalias !15, !noundef !8
@@ -92,7 +92,7 @@ define hidden { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h2c
   br label %93
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload106, %.lr.ph.preheader ], [ %.sroa.0.0.copyload105, %37 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload110, %.lr.ph.preheader ], [ %.sroa.0.0.copyload109, %37 ]
   %.02483 = phi i64 [ 0, %.lr.ph.preheader ], [ %38, %37 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.0.0, ptr %7, align 8
@@ -105,16 +105,16 @@ define hidden { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h2c
 32:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.sroa.0.0, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.0..sroa_idx111, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.0..sroa_idx115, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, i64 16, i1 false)
   invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf69f8884b2c3b668E"(ptr noalias noundef align 8 dereferenceable(24) %18, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3)
-          to label %37 unwind label %.thread89
+          to label %37 unwind label %.thread93
 
 33:                                               ; preds = %.lr.ph
   %34 = add i64 %.02483, 1
   invoke fastcc void @"_ZN11typed_arena18ChunkList$LT$T$GT$7reserve17h75c2bc1912e42841E"(ptr noalias noundef align 8 dereferenceable(48) %18, i64 noundef %34)
           to label %39 unwind label %68
 
-.thread89:                                        ; preds = %32
+.thread93:                                        ; preds = %32
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   %35 = load i64, ptr %0, align 8, !noalias !15, !noundef !8
@@ -129,10 +129,10 @@ define hidden { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h2c
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  %.sroa.0.0.copyload105 = load i64, ptr %9, align 8, !alias.scope !24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.0..sroa_idx109, i64 16, i1 false), !alias.scope !24
+  %.sroa.0.0.copyload109 = load i64, ptr %9, align 8, !alias.scope !24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.0..sroa_idx113, i64 16, i1 false), !alias.scope !24
   store i64 -9223372036854775808, ptr %9, align 8, !alias.scope !10, !noalias !22
-  %.not = icmp eq i64 %.sroa.0.0.copyload105, -9223372036854775808
+  %.not = icmp eq i64 %.sroa.0.0.copyload109, -9223372036854775808
   br i1 %.not, label %._crit_edge._crit_edge, label %.lr.ph
 
 39:                                               ; preds = %33
@@ -185,13 +185,13 @@ define hidden { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h2c
 "_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hb16ed0005effce4aE.exit": ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.sroa.0.0, ptr %5, align 8
-  %.sroa.12.0..sroa_idx112 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.0..sroa_idx112, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, i64 16, i1 false)
+  %.sroa.12.0..sroa_idx116 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.0..sroa_idx116, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, i64 16, i1 false)
   invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf69f8884b2c3b668E"(ptr noalias noundef align 8 dereferenceable(24) %18, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5)
-          to label %67 unwind label %.thread92
+          to label %67 unwind label %.thread96
 
-.thread92:                                        ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hb16ed0005effce4aE.exit"
-  %lpad.loopexit.split-lp94 = landingpad { ptr, i32 }
+.thread96:                                        ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hb16ed0005effce4aE.exit"
+  %lpad.loopexit.split-lp98 = landingpad { ptr, i32 }
           cleanup
   %65 = load i64, ptr %0, align 8, !noalias !15, !noundef !8
   %66 = add i64 %65, 1
@@ -276,8 +276,8 @@ define hidden { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h2c
   %.pn3344 = phi { ptr, i32 } [ %.pn3345, %93 ], [ %.pn3344.ph, %.sink.split ]
   resume { ptr, i32 } %.pn3344
 
-93:                                               ; preds = %.thread95, %.thread92, %.thread89, %.thread76, %.thread
-  %.pn3345 = phi { ptr, i32 } [ %13, %.thread ], [ %lpad.thr_comm, %.thread76 ], [ %lpad.loopexit, %.thread89 ], [ %lpad.loopexit.split-lp94, %.thread92 ], [ %26, %.thread95 ]
+93:                                               ; preds = %.thread99, %.thread96, %.thread93, %.thread76, %.thread
+  %.pn3345 = phi { ptr, i32 } [ %13, %.thread ], [ %lpad.thr_comm, %.thread76 ], [ %lpad.loopexit, %.thread93 ], [ %lpad.loopexit.split-lp98, %.thread96 ], [ %26, %.thread99 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$17h9647a554ae5598edE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #27
           to label %92 unwind label %71
 }
@@ -332,24 +332,24 @@ define hidden { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h32
 
 .preheader:                                       ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12)
-  %.sroa.0.0.copyload106 = load i64, ptr %1, align 8
-  %.sroa.12.0..sroa_idx110 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.0..sroa_idx110, i64 16, i1 false)
+  %.sroa.0.0.copyload110 = load i64, ptr %1, align 8
+  %.sroa.12.0..sroa_idx114 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.0..sroa_idx114, i64 16, i1 false)
   store i64 -9223372036854775808, ptr %9, align 8, !alias.scope !53, !noalias !56
-  %.not82 = icmp eq i64 %.sroa.0.0.copyload106, -9223372036854775808
+  %.not82 = icmp eq i64 %.sroa.0.0.copyload110, -9223372036854775808
   br i1 %.not82, label %._crit_edge._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.12.0..sroa_idx111 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.12.0..sroa_idx109 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sroa.12.0..sroa_idx115 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sroa.12.0..sroa_idx113 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %.lr.ph
 
 25:                                               ; preds = %17
   invoke fastcc void @"_ZN11typed_arena18ChunkList$LT$T$GT$7reserve17h08b6dd9da821d536E"(ptr noalias noundef align 8 dereferenceable(48) %18, i64 noundef %spec.select.i)
-          to label %73 unwind label %.thread95
+          to label %73 unwind label %.thread99
 
-.thread95:                                        ; preds = %25
+.thread99:                                        ; preds = %25
   %26 = landingpad { ptr, i32 }
           cleanup
   %27 = load i64, ptr %0, align 8, !noalias !58, !noundef !8
@@ -358,7 +358,7 @@ define hidden { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h32
   br label %93
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload106, %.lr.ph.preheader ], [ %.sroa.0.0.copyload105, %37 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload110, %.lr.ph.preheader ], [ %.sroa.0.0.copyload109, %37 ]
   %.02483 = phi i64 [ 0, %.lr.ph.preheader ], [ %38, %37 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.0.0, ptr %7, align 8
@@ -371,16 +371,16 @@ define hidden { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h32
 32:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.sroa.0.0, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.0..sroa_idx111, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.0..sroa_idx115, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, i64 16, i1 false)
   invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5325dca154e1ab86E"(ptr noalias noundef align 8 dereferenceable(24) %18, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3)
-          to label %37 unwind label %.thread89
+          to label %37 unwind label %.thread93
 
 33:                                               ; preds = %.lr.ph
   %34 = add i64 %.02483, 1
   invoke fastcc void @"_ZN11typed_arena18ChunkList$LT$T$GT$7reserve17h08b6dd9da821d536E"(ptr noalias noundef align 8 dereferenceable(48) %18, i64 noundef %34)
           to label %39 unwind label %68
 
-.thread89:                                        ; preds = %32
+.thread93:                                        ; preds = %32
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   %35 = load i64, ptr %0, align 8, !noalias !58, !noundef !8
@@ -395,10 +395,10 @@ define hidden { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h32
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  %.sroa.0.0.copyload105 = load i64, ptr %9, align 8, !alias.scope !67
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.0..sroa_idx109, i64 16, i1 false), !alias.scope !67
+  %.sroa.0.0.copyload109 = load i64, ptr %9, align 8, !alias.scope !67
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.0..sroa_idx113, i64 16, i1 false), !alias.scope !67
   store i64 -9223372036854775808, ptr %9, align 8, !alias.scope !53, !noalias !65
-  %.not = icmp eq i64 %.sroa.0.0.copyload105, -9223372036854775808
+  %.not = icmp eq i64 %.sroa.0.0.copyload109, -9223372036854775808
   br i1 %.not, label %._crit_edge._crit_edge, label %.lr.ph
 
 39:                                               ; preds = %33
@@ -451,13 +451,13 @@ define hidden { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h32
 "_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h97cbe82d71e889c4E.exit": ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.sroa.0.0, ptr %5, align 8
-  %.sroa.12.0..sroa_idx112 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.0..sroa_idx112, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, i64 16, i1 false)
+  %.sroa.12.0..sroa_idx116 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.0..sroa_idx116, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, i64 16, i1 false)
   invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5325dca154e1ab86E"(ptr noalias noundef align 8 dereferenceable(24) %18, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5)
-          to label %67 unwind label %.thread92
+          to label %67 unwind label %.thread96
 
-.thread92:                                        ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h97cbe82d71e889c4E.exit"
-  %lpad.loopexit.split-lp94 = landingpad { ptr, i32 }
+.thread96:                                        ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h97cbe82d71e889c4E.exit"
+  %lpad.loopexit.split-lp98 = landingpad { ptr, i32 }
           cleanup
   %65 = load i64, ptr %0, align 8, !noalias !58, !noundef !8
   %66 = add i64 %65, 1
@@ -542,8 +542,8 @@ define hidden { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h32
   %.pn3344 = phi { ptr, i32 } [ %.pn3345, %93 ], [ %.pn3344.ph, %.sink.split ]
   resume { ptr, i32 } %.pn3344
 
-93:                                               ; preds = %.thread95, %.thread92, %.thread89, %.thread76, %.thread
-  %.pn3345 = phi { ptr, i32 } [ %13, %.thread ], [ %lpad.thr_comm, %.thread76 ], [ %lpad.loopexit, %.thread89 ], [ %lpad.loopexit.split-lp94, %.thread92 ], [ %26, %.thread95 ]
+93:                                               ; preds = %.thread99, %.thread96, %.thread93, %.thread76, %.thread
+  %.pn3345 = phi { ptr, i32 } [ %13, %.thread ], [ %lpad.thr_comm, %.thread76 ], [ %lpad.loopexit, %.thread93 ], [ %lpad.loopexit.split-lp98, %.thread96 ], [ %26, %.thread99 ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$core..iter..sources..once..Once$LT$alloc..string..String$GT$$GT$17h30edb9e7604eefa1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #27
           to label %92 unwind label %71
 }

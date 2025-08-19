@@ -83,11 +83,11 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 42:                                               ; preds = %33
   %43 = add nsw i64 %indvars.iv, -1
-  %44 = mul i64 %43, %21
-  %45 = add i64 %indvars.iv83, %44
+  %44 = mul nsw i64 %43, %21
+  %45 = add nsw i64 %indvars.iv83, %44
   %46 = sext i32 %.175.us to i64
   %47 = getelementptr i32, ptr %28, i64 %46
-  %48 = trunc i64 %45 to i32
+  %48 = trunc nsw i64 %45 to i32
   store i32 %48, ptr %47, align 4, !tbaa !4
   %49 = getelementptr i32, ptr %47, i64 %29
   %50 = trunc i64 %44 to i32

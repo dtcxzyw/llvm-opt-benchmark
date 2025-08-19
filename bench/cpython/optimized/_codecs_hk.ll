@@ -689,13 +689,13 @@ PyUnicode_READ.exit117:                           ; preds = %69, %65, %61
 
 134:                                              ; preds = %.thread123, %30
   %.2.sink = phi i64 [ %.2, %.thread123 ], [ 1, %30 ]
-  %.sink162 = phi i64 [ 2, %.thread123 ], [ 1, %30 ]
+  %.sink176 = phi i64 [ 2, %.thread123 ], [ 1, %30 ]
   %.sink = phi i64 [ -2, %.thread123 ], [ -1, %30 ]
   %135 = load i64, ptr %4, align 8, !tbaa !50
   %136 = add i64 %135, %.2.sink
   store i64 %136, ptr %4, align 8, !tbaa !50
   %137 = load ptr, ptr %6, align 8, !tbaa !39
-  %138 = getelementptr i8, ptr %137, i64 %.sink162
+  %138 = getelementptr i8, ptr %137, i64 %.sink176
   store ptr %138, ptr %6, align 8, !tbaa !39
   %139 = add nsw i64 %.083135, %.sink
   %140 = icmp slt i64 %136, %5
@@ -927,7 +927,7 @@ PyUnicode_WRITE.exit.thread:                      ; preds = %.thread
 
 PyUnicode_WRITE.exit:                             ; preds = %113, %117
   %.ph = phi i64 [ %110, %117 ], [ %.pre242, %113 ]
-  %.ph245 = phi ptr [ %112, %117 ], [ %.pre241, %113 ]
+  %.ph254 = phi ptr [ %112, %117 ], [ %.pre241, %113 ]
   %.pr = load i32, ptr %11, align 8, !tbaa !70
   %119 = add i64 %.ph, 1
   switch i32 %.pr, label %127 [
@@ -936,21 +936,21 @@ PyUnicode_WRITE.exit:                             ; preds = %113, %117
   ]
 
 120:                                              ; preds = %PyUnicode_WRITE.exit
-  %121 = getelementptr i8, ptr %.ph245, i64 %119
+  %121 = getelementptr i8, ptr %.ph254, i64 %119
   store i8 4, ptr %121, align 1, !tbaa !36
   %.pre243 = load i64, ptr %10, align 8, !tbaa !69
   br label %219
 
 122:                                              ; preds = %PyUnicode_WRITE.exit.thread, %PyUnicode_WRITE.exit
   %123 = phi i64 [ %116, %PyUnicode_WRITE.exit.thread ], [ %119, %PyUnicode_WRITE.exit ]
-  %124 = phi ptr [ %112, %PyUnicode_WRITE.exit.thread ], [ %.ph245, %PyUnicode_WRITE.exit ]
+  %124 = phi ptr [ %112, %PyUnicode_WRITE.exit.thread ], [ %.ph254, %PyUnicode_WRITE.exit ]
   %125 = phi i64 [ %110, %PyUnicode_WRITE.exit.thread ], [ %.ph, %PyUnicode_WRITE.exit ]
   %126 = getelementptr i16, ptr %124, i64 %123
   store i16 772, ptr %126, align 2, !tbaa !51
   br label %219
 
 127:                                              ; preds = %PyUnicode_WRITE.exit
-  %128 = getelementptr i32, ptr %.ph245, i64 %119
+  %128 = getelementptr i32, ptr %.ph254, i64 %119
   store i32 772, ptr %128, align 4, !tbaa !52
   br label %219
 
@@ -1003,31 +1003,31 @@ PyUnicode_WRITE.exit181.thread:                   ; preds = %.thread189
   br label %PyUnicode_WRITE.exit181
 
 PyUnicode_WRITE.exit181:                          ; preds = %143, %147
-  %.ph246 = phi i64 [ %140, %147 ], [ %.pre238, %143 ]
-  %.ph247 = phi ptr [ %142, %147 ], [ %.pre237, %143 ]
-  %.pr248 = load i32, ptr %11, align 8, !tbaa !70
-  %149 = add i64 %.ph246, 1
-  switch i32 %.pr248, label %157 [
+  %.ph255 = phi i64 [ %140, %147 ], [ %.pre238, %143 ]
+  %.ph256 = phi ptr [ %142, %147 ], [ %.pre237, %143 ]
+  %.pr257 = load i32, ptr %11, align 8, !tbaa !70
+  %149 = add i64 %.ph255, 1
+  switch i32 %.pr257, label %157 [
     i32 1, label %150
     i32 2, label %152
   ]
 
 150:                                              ; preds = %PyUnicode_WRITE.exit181
-  %151 = getelementptr i8, ptr %.ph247, i64 %149
+  %151 = getelementptr i8, ptr %.ph256, i64 %149
   store i8 12, ptr %151, align 1, !tbaa !36
   %.pre239 = load i64, ptr %10, align 8, !tbaa !69
   br label %219
 
 152:                                              ; preds = %PyUnicode_WRITE.exit181.thread, %PyUnicode_WRITE.exit181
   %153 = phi i64 [ %146, %PyUnicode_WRITE.exit181.thread ], [ %149, %PyUnicode_WRITE.exit181 ]
-  %154 = phi ptr [ %142, %PyUnicode_WRITE.exit181.thread ], [ %.ph247, %PyUnicode_WRITE.exit181 ]
-  %155 = phi i64 [ %140, %PyUnicode_WRITE.exit181.thread ], [ %.ph246, %PyUnicode_WRITE.exit181 ]
+  %154 = phi ptr [ %142, %PyUnicode_WRITE.exit181.thread ], [ %.ph256, %PyUnicode_WRITE.exit181 ]
+  %155 = phi i64 [ %140, %PyUnicode_WRITE.exit181.thread ], [ %.ph255, %PyUnicode_WRITE.exit181 ]
   %156 = getelementptr i16, ptr %154, i64 %153
   store i16 780, ptr %156, align 2, !tbaa !51
   br label %219
 
 157:                                              ; preds = %PyUnicode_WRITE.exit181
-  %158 = getelementptr i32, ptr %.ph247, i64 %149
+  %158 = getelementptr i32, ptr %.ph256, i64 %149
   store i32 780, ptr %158, align 4, !tbaa !52
   br label %219
 
@@ -1080,31 +1080,31 @@ PyUnicode_WRITE.exit183.thread:                   ; preds = %.thread192
   br label %PyUnicode_WRITE.exit183
 
 PyUnicode_WRITE.exit183:                          ; preds = %173, %177
-  %.ph249 = phi i64 [ %170, %177 ], [ %.pre234, %173 ]
-  %.ph250 = phi ptr [ %172, %177 ], [ %.pre233, %173 ]
-  %.pr251 = load i32, ptr %11, align 8, !tbaa !70
-  %179 = add i64 %.ph249, 1
-  switch i32 %.pr251, label %187 [
+  %.ph258 = phi i64 [ %170, %177 ], [ %.pre234, %173 ]
+  %.ph259 = phi ptr [ %172, %177 ], [ %.pre233, %173 ]
+  %.pr260 = load i32, ptr %11, align 8, !tbaa !70
+  %179 = add i64 %.ph258, 1
+  switch i32 %.pr260, label %187 [
     i32 1, label %180
     i32 2, label %182
   ]
 
 180:                                              ; preds = %PyUnicode_WRITE.exit183
-  %181 = getelementptr i8, ptr %.ph250, i64 %179
+  %181 = getelementptr i8, ptr %.ph259, i64 %179
   store i8 4, ptr %181, align 1, !tbaa !36
   %.pre235 = load i64, ptr %10, align 8, !tbaa !69
   br label %219
 
 182:                                              ; preds = %PyUnicode_WRITE.exit183.thread, %PyUnicode_WRITE.exit183
   %183 = phi i64 [ %176, %PyUnicode_WRITE.exit183.thread ], [ %179, %PyUnicode_WRITE.exit183 ]
-  %184 = phi ptr [ %172, %PyUnicode_WRITE.exit183.thread ], [ %.ph250, %PyUnicode_WRITE.exit183 ]
-  %185 = phi i64 [ %170, %PyUnicode_WRITE.exit183.thread ], [ %.ph249, %PyUnicode_WRITE.exit183 ]
+  %184 = phi ptr [ %172, %PyUnicode_WRITE.exit183.thread ], [ %.ph259, %PyUnicode_WRITE.exit183 ]
+  %185 = phi i64 [ %170, %PyUnicode_WRITE.exit183.thread ], [ %.ph258, %PyUnicode_WRITE.exit183 ]
   %186 = getelementptr i16, ptr %184, i64 %183
   store i16 772, ptr %186, align 2, !tbaa !51
   br label %219
 
 187:                                              ; preds = %PyUnicode_WRITE.exit183
-  %188 = getelementptr i32, ptr %.ph250, i64 %179
+  %188 = getelementptr i32, ptr %.ph259, i64 %179
   store i32 772, ptr %188, align 4, !tbaa !52
   br label %219
 
@@ -1157,45 +1157,45 @@ PyUnicode_WRITE.exit185.thread:                   ; preds = %.thread195
   br label %PyUnicode_WRITE.exit185
 
 PyUnicode_WRITE.exit185:                          ; preds = %203, %207
-  %.ph252 = phi i64 [ %200, %207 ], [ %.pre230, %203 ]
-  %.ph253 = phi ptr [ %202, %207 ], [ %.pre229, %203 ]
-  %.pr254 = load i32, ptr %11, align 8, !tbaa !70
-  %209 = add i64 %.ph252, 1
-  switch i32 %.pr254, label %217 [
+  %.ph261 = phi i64 [ %200, %207 ], [ %.pre230, %203 ]
+  %.ph262 = phi ptr [ %202, %207 ], [ %.pre229, %203 ]
+  %.pr263 = load i32, ptr %11, align 8, !tbaa !70
+  %209 = add i64 %.ph261, 1
+  switch i32 %.pr263, label %217 [
     i32 1, label %210
     i32 2, label %212
   ]
 
 210:                                              ; preds = %PyUnicode_WRITE.exit185
-  %211 = getelementptr i8, ptr %.ph253, i64 %209
+  %211 = getelementptr i8, ptr %.ph262, i64 %209
   store i8 12, ptr %211, align 1, !tbaa !36
   %.pre231 = load i64, ptr %10, align 8, !tbaa !69
   br label %219
 
 212:                                              ; preds = %PyUnicode_WRITE.exit185.thread, %PyUnicode_WRITE.exit185
   %213 = phi i64 [ %206, %PyUnicode_WRITE.exit185.thread ], [ %209, %PyUnicode_WRITE.exit185 ]
-  %214 = phi ptr [ %202, %PyUnicode_WRITE.exit185.thread ], [ %.ph253, %PyUnicode_WRITE.exit185 ]
-  %215 = phi i64 [ %200, %PyUnicode_WRITE.exit185.thread ], [ %.ph252, %PyUnicode_WRITE.exit185 ]
+  %214 = phi ptr [ %202, %PyUnicode_WRITE.exit185.thread ], [ %.ph262, %PyUnicode_WRITE.exit185 ]
+  %215 = phi i64 [ %200, %PyUnicode_WRITE.exit185.thread ], [ %.ph261, %PyUnicode_WRITE.exit185 ]
   %216 = getelementptr i16, ptr %214, i64 %213
   store i16 780, ptr %216, align 2, !tbaa !51
   br label %219
 
 217:                                              ; preds = %PyUnicode_WRITE.exit185
-  %218 = getelementptr i32, ptr %.ph253, i64 %209
+  %218 = getelementptr i32, ptr %.ph262, i64 %209
   store i32 780, ptr %218, align 4, !tbaa !52
   br label %219
 
 219:                                              ; preds = %210, %212, %217, %180, %182, %187, %150, %152, %157, %120, %122, %127
-  %.sink255 = phi i64 [ %.ph, %127 ], [ %125, %122 ], [ %.pre243, %120 ], [ %.ph246, %157 ], [ %155, %152 ], [ %.pre239, %150 ], [ %.ph249, %187 ], [ %185, %182 ], [ %.pre235, %180 ], [ %.ph252, %217 ], [ %215, %212 ], [ %.pre231, %210 ]
-  %220 = add i64 %.sink255, 2
+  %.sink264 = phi i64 [ %.ph, %127 ], [ %125, %122 ], [ %.pre243, %120 ], [ %.ph255, %157 ], [ %155, %152 ], [ %.pre239, %150 ], [ %.ph258, %187 ], [ %185, %182 ], [ %.pre235, %180 ], [ %.ph261, %217 ], [ %215, %212 ], [ %.pre231, %210 ]
+  %220 = add i64 %.sink264, 2
   store i64 %220, ptr %10, align 8, !tbaa !69
   br label %221
 
 221:                                              ; preds = %90, %94, %52, %18, %219
-  %.sink256 = phi i64 [ 2, %219 ], [ 1, %18 ], [ 2, %52 ], [ 2, %94 ], [ 2, %90 ]
+  %.sink265 = phi i64 [ 2, %219 ], [ 1, %18 ], [ 2, %52 ], [ 2, %94 ], [ 2, %90 ]
   %.sink = phi i64 [ -2, %219 ], [ -1, %18 ], [ -2, %52 ], [ -2, %94 ], [ -2, %90 ]
   %.pn = load ptr, ptr %2, align 8, !tbaa !39
-  %storemerge = getelementptr i8, ptr %.pn, i64 %.sink256
+  %storemerge = getelementptr i8, ptr %.pn, i64 %.sink265
   store ptr %storemerge, ptr %2, align 8, !tbaa !39
   %.3150 = add nsw i64 %.0147204, %.sink
   %222 = icmp sgt i64 %.3150, 0

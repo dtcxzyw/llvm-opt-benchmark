@@ -474,8 +474,8 @@ _ZN3net8RttStats18set_initial_rtt_usEl.exit73:    ; preds = %15
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN3net8RttStats18set_initial_rtt_usEl.exit, %_ZN3net8RttStats18set_initial_rtt_usEl.exit73
-  %.sink113 = phi i32 [ %17, %_ZN3net8RttStats18set_initial_rtt_usEl.exit73 ], [ %12, %_ZN3net8RttStats18set_initial_rtt_usEl.exit ]
-  %18 = tail call i32 @llvm.umax.i32(i32 %.sink113, i32 10000)
+  %.sink129 = phi i32 [ %17, %_ZN3net8RttStats18set_initial_rtt_usEl.exit73 ], [ %12, %_ZN3net8RttStats18set_initial_rtt_usEl.exit ]
+  %18 = tail call i32 @llvm.umax.i32(i32 %.sink129, i32 10000)
   %19 = tail call i32 @llvm.umin.i32(i32 %18, i32 15000000)
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -700,18 +700,18 @@ _ZNSt6vectorIjSaIjEED2Ev.exit96:                  ; preds = %101, %104
   br label %common.resume
 
 .critedge64.thread.sink.split.sink.split:         ; preds = %90, %81, %70
-  %.sink118 = phi ptr [ %72, %70 ], [ %83, %81 ], [ %100, %90 ]
-  %.sink114.ph = phi ptr [ %71, %70 ], [ %82, %81 ], [ %98, %90 ]
-  %105 = load ptr, ptr %.sink118, align 8, !tbaa !3
+  %.sink134 = phi ptr [ %72, %70 ], [ %83, %81 ], [ %100, %90 ]
+  %.sink130.ph = phi ptr [ %71, %70 ], [ %82, %81 ], [ %98, %90 ]
+  %105 = load ptr, ptr %.sink134, align 8, !tbaa !3
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8
-  call void %107(ptr noundef nonnull align 8 dereferenceable(8) %.sink118) #18
+  call void %107(ptr noundef nonnull align 8 dereferenceable(8) %.sink134) #18
   br label %.critedge64.thread.sink.split
 
 .critedge64.thread.sink.split:                    ; preds = %.critedge64.thread.sink.split.sink.split, %90, %81, %70
-  %.sink114 = phi ptr [ %71, %70 ], [ %82, %81 ], [ %98, %90 ], [ %.sink114.ph, %.critedge64.thread.sink.split.sink.split ]
+  %.sink130 = phi ptr [ %71, %70 ], [ %82, %81 ], [ %98, %90 ], [ %.sink130.ph, %.critedge64.thread.sink.split.sink.split ]
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  call void @_ZN3net12PacingSender10set_senderEPNS_22SendAlgorithmInterfaceE(ptr noundef nonnull align 8 dereferenceable(41) %108, ptr noundef %.sink114)
+  call void @_ZN3net12PacingSender10set_senderEPNS_22SendAlgorithmInterfaceE(ptr noundef nonnull align 8 dereferenceable(41) %108, ptr noundef %.sink130)
   br label %.critedge64.thread
 
 .critedge64.thread:                               ; preds = %.critedge64.thread.sink.split, %.critedge62.thread, %.critedge64

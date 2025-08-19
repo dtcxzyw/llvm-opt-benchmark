@@ -252,12 +252,12 @@ define dso_local range(i32 -1, 1) i32 @pg_foreach_ifaddr(ptr noundef readonly ca
   %35 = load i32, ptr %34, align 4
   %.fr.i = freeze i32 %35
   %36 = icmp eq i32 %.fr.i, 0
-  br i1 %36, label %select.unfold.thread30.i, label %pg_sockaddr_cidr_mask.exit.i
+  br i1 %36, label %select.unfold.thread31.i, label %pg_sockaddr_cidr_mask.exit.i
 
 select.unfold.i:                                  ; preds = %14, %13
   switch i16 %.pre.i, label %pg_sockaddr_cidr_mask.exit.i [
     i16 2, label %select.unfold.thread.i
-    i16 10, label %select.unfold.thread30.i
+    i16 10, label %select.unfold.thread31.i
   ]
 
 select.unfold.thread.i:                           ; preds = %select.unfold.i, %17
@@ -266,7 +266,7 @@ select.unfold.thread.i:                           ; preds = %select.unfold.i, %1
   store i64 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8
   br label %37
 
-select.unfold.thread30.i:                         ; preds = %select.unfold.i, %33
+select.unfold.thread31.i:                         ; preds = %select.unfold.i, %33
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.8..8..sroa_idx, i8 -1, i64 16, i1 false)
@@ -274,7 +274,7 @@ select.unfold.thread30.i:                         ; preds = %select.unfold.i, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %37
 
-37:                                               ; preds = %select.unfold.thread30.i, %select.unfold.thread.i
+37:                                               ; preds = %select.unfold.thread31.i, %select.unfold.thread.i
   store i16 %.pre.i, ptr %4, align 8
   br label %pg_sockaddr_cidr_mask.exit.i
 

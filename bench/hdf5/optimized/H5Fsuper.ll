@@ -1246,9 +1246,9 @@ define range(i32 -1, 1) i32 @H5F__super_read(ptr noundef %0, ptr noundef %1, i1 
   %567 = load i8, ptr %566, align 8, !tbaa !99, !range !7, !noundef !8
   %568 = trunc nuw i8 %567 to i1
   %569 = select i1 %568, i1 %130, i1 false
-  br i1 %569, label %.thread409, label %601
+  br i1 %569, label %.thread434, label %601
 
-.thread409:                                       ; preds = %565
+.thread434:                                       ; preds = %565
   %570 = getelementptr inbounds nuw i8, ptr %530, i64 8
   store ptr %88, ptr %570, align 8, !tbaa !102
   br label %575
@@ -1264,7 +1264,7 @@ define range(i32 -1, 1) i32 @H5F__super_read(ptr noundef %0, ptr noundef %1, i1 
   store ptr %88, ptr %574, align 8, !tbaa !102
   br i1 %573, label %575, label %582
 
-575:                                              ; preds = %.thread409, %572
+575:                                              ; preds = %.thread434, %572
   %576 = call i32 @H5F__super_ext_write_msg(ptr noundef nonnull %0, i32 noundef 23, ptr noundef nonnull %14, i1 noundef zeroext false, i32 noundef 16)
   %577 = icmp slt i32 %576, 0
   br i1 %577, label %578, label %598
@@ -1832,7 +1832,7 @@ H5F__super_ext_open.exit.thread:                  ; preds = %21, %28, %40
   br i1 %84, label %93, label %103
 
 93:                                               ; preds = %88, %._crit_edge, %92
-  %.238 = phi i32 [ %.1, %._crit_edge ], [ %.1, %92 ], [ -1, %88 ]
+  %.241 = phi i32 [ %.1, %._crit_edge ], [ %.1, %92 ], [ -1, %88 ]
   %94 = load ptr, ptr %15, align 8, !tbaa !25
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load ptr, ptr %95, align 8, !tbaa !102
@@ -1847,7 +1847,7 @@ H5F__super_ext_open.exit.thread:                  ; preds = %21, %28, %40
   br label %103
 
 103:                                              ; preds = %88, %._crit_edge, %92, %93, %99, %5
-  %.0 = phi i32 [ -1, %99 ], [ %.238, %93 ], [ %.1, %92 ], [ 0, %5 ], [ %.1, %._crit_edge ], [ -1, %88 ]
+  %.0 = phi i32 [ -1, %99 ], [ %.241, %93 ], [ %.1, %92 ], [ 0, %5 ], [ %.1, %._crit_edge ], [ -1, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -2185,19 +2185,19 @@ define range(i32 -1, 1) i32 @H5F__super_init(ptr noundef %0) local_unnamed_addr 
   %80 = load i32, ptr %79, align 4, !tbaa !112
   %.not212 = icmp ne i32 %80, 0
   %81 = trunc nuw i8 %.1184 to i1
-  %or.cond274 = select i1 %.not212, i1 true, i1 %81
-  br i1 %or.cond274, label %._crit_edge, label %82
+  %or.cond283 = select i1 %.not212, i1 true, i1 %81
+  br i1 %or.cond283, label %._crit_edge, label %82
 
 82:                                               ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %18, i64 264
   %84 = load i32, ptr %83, align 4, !tbaa !17
   %.not213 = icmp eq i32 %84, 32
   %.pre = load i32, ptr %4, align 4
-  %spec.select275 = select i1 %.not213, i32 %.pre, i32 1
+  %spec.select284 = select i1 %.not213, i32 %.pre, i32 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %82, %78, %75
-  %85 = phi i32 [ 3, %75 ], [ 2, %78 ], [ %spec.select275, %82 ]
+  %85 = phi i32 [ 3, %75 ], [ 2, %78 ], [ %spec.select284, %82 ]
   %86 = getelementptr inbounds nuw i8, ptr %54, i64 1428
   %87 = load i32, ptr %86, align 4, !tbaa !68
   %88 = sext i32 %87 to i64
@@ -3207,7 +3207,7 @@ define range(i32 -1, 1) i32 @H5F__super_size(ptr noundef %0, ptr noundef writeon
   %10 = trunc nuw i8 %9 to i1
   %11 = xor i1 %10, true
   %12 = select i1 %8, i1 true, i1 %11
-  br i1 %12, label %13, label %.thread43, !prof !9
+  br i1 %12, label %13, label %.thread45, !prof !9
 
 13:                                               ; preds = %3
   %.not = icmp eq ptr %1, null
@@ -3260,7 +3260,7 @@ define range(i32 -1, 1) i32 @H5F__super_size(ptr noundef %0, ptr noundef writeon
 
 43:                                               ; preds = %.thread42, %13
   %.not38 = icmp eq ptr %2, null
-  br i1 %.not38, label %.thread43, label %44
+  br i1 %.not38, label %.thread45, label %44
 
 44:                                               ; preds = %43
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3303,7 +3303,7 @@ define range(i32 -1, 1) i32 @H5F__super_size(ptr noundef %0, ptr noundef writeon
 
 68:                                               ; preds = %44
   store i64 0, ptr %2, align 8, !tbaa !16
-  br label %.thread43
+  br label %.thread45
 
 69:                                               ; preds = %61, %65
   %.1 = phi i32 [ -1, %61 ], [ 0, %65 ]
@@ -3311,13 +3311,13 @@ define range(i32 -1, 1) i32 @H5F__super_size(ptr noundef %0, ptr noundef writeon
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load i32, ptr %4, align 4, !tbaa !17
   %.not40 = icmp eq i32 %.pre, 0
-  br i1 %.not40, label %.thread43, label %70
+  br i1 %.not40, label %.thread45, label %70
 
 70:                                               ; preds = %69
   call void @H5AC_set_ring(i32 noundef %.pre, ptr noundef null) #6
-  br label %.thread43
+  br label %.thread45
 
-.thread43:                                        ; preds = %43, %68, %3, %70, %69
+.thread45:                                        ; preds = %43, %68, %3, %70, %69
   %.031 = phi i32 [ %.1, %70 ], [ %.1, %69 ], [ 0, %3 ], [ 0, %68 ], [ 0, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.031

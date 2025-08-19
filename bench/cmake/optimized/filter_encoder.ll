@@ -215,11 +215,11 @@ encoder_find.exit:                                ; preds = %5
 
 .loopexit:                                        ; preds = %18
   %22 = icmp eq i64 %.221.ph, 0
-  %spec.select71 = select i1 %22, i64 -1, i64 %.221.ph
+  %spec.select76 = select i1 %22, i64 -1, i64 %.221.ph
   br label %.thread
 
 .thread:                                          ; preds = %9, %.loopexit, %.preheader40, %1
-  %.0 = phi i64 [ -1, %1 ], [ -1, %.preheader40 ], [ %spec.select71, %.loopexit ], [ -1, %9 ]
+  %.0 = phi i64 [ -1, %1 ], [ -1, %.preheader40 ], [ %spec.select76, %.loopexit ], [ -1, %9 ]
   ret i64 %.0
 }
 

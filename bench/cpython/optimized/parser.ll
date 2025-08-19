@@ -277,33 +277,33 @@ file_rule.exit:                                   ; preds = %13, %23, %26, %.thr
   %46 = add i32 %45, 1
   store i32 %46, ptr %32, align 8, !tbaa !20
   %47 = icmp eq i32 %45, 6000
-  br i1 %47, label %48, label %.thread34.i
+  br i1 %47, label %48, label %.thread42.i
 
 48:                                               ; preds = %42
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre.i = load i32, ptr %38, align 8, !tbaa !21
   %49 = icmp eq i32 %.pre.i, 0
-  br i1 %49, label %..thread34.i_crit_edge, label %121
+  br i1 %49, label %..thread42.i_crit_edge, label %121
 
-..thread34.i_crit_edge:                           ; preds = %48
+..thread42.i_crit_edge:                           ; preds = %48
   %.pre = load i32, ptr %43, align 8, !tbaa !22
-  br label %.thread34.i
+  br label %.thread42.i
 
-.thread34.i:                                      ; preds = %..thread34.i_crit_edge, %42
-  %50 = phi i32 [ %.pre, %..thread34.i_crit_edge ], [ %44, %42 ]
+.thread42.i:                                      ; preds = %..thread42.i_crit_edge, %42
+  %50 = phi i32 [ %.pre, %..thread42.i_crit_edge ], [ %44, %42 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %52 = load i32, ptr %51, align 4, !tbaa !23
   %53 = icmp eq i32 %50, %52
-  br i1 %53, label %58, label %.thread119.i.i
+  br i1 %53, label %58, label %.thread125.i.i
 
-.thread119.i.i:                                   ; preds = %.thread34.i
+.thread125.i.i:                                   ; preds = %.thread42.i
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !24
   %56 = sext i32 %50 to i64
   %57 = getelementptr ptr, ptr %55, i64 %56
   br label %67
 
-58:                                               ; preds = %.thread34.i
+58:                                               ; preds = %.thread42.i
   %59 = tail call i32 @_PyPegen_fill_token(ptr noundef nonnull %0) #5
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %.sink.split.i, label %61
@@ -317,11 +317,11 @@ file_rule.exit:                                   ; preds = %13, %23, %26, %.thr
   %66 = getelementptr ptr, ptr %64, i64 %65
   br i1 %62, label %67, label %121
 
-67:                                               ; preds = %61, %.thread119.i.i
-  %.pn.in.i.i = phi ptr [ %57, %.thread119.i.i ], [ %66, %61 ]
+67:                                               ; preds = %61, %.thread125.i.i
+  %.pn.in.i.i = phi ptr [ %57, %.thread125.i.i ], [ %66, %61 ]
   %.pn.i.i = load ptr, ptr %.pn.in.i.i, align 8, !tbaa !25
-  %.in122.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 20
-  %68 = load i32, ptr %.in122.i.i, align 4, !tbaa !26
+  %.in128.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 20
+  %68 = load i32, ptr %.in128.i.i, align 4, !tbaa !26
   %.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 24
   %69 = load i32, ptr %.in.i.i, align 8, !tbaa !29
   %70 = tail call fastcc ptr @compound_stmt_rule(ptr noundef nonnull %0)
@@ -1466,19 +1466,19 @@ if_stmt_rule.exit.thread._crit_edge:              ; preds = %if_stmt_rule.exit.t
 
 148:                                              ; preds = %147, %143
   %149 = load i32, ptr %8, align 8, !tbaa !21
-  %.not.i233 = icmp eq i32 %149, 0
-  br i1 %.not.i233, label %150, label %class_def_rule.exit.thread
+  %.not.i253 = icmp eq i32 %149, 0
+  br i1 %.not.i253, label %150, label %class_def_rule.exit.thread
 
 150:                                              ; preds = %148
   %151 = load i32, ptr %13, align 8, !tbaa !22
   %152 = tail call fastcc ptr @decorators_rule(ptr noundef nonnull %0)
-  %.not36.i234 = icmp eq ptr %152, null
-  br i1 %.not36.i234, label %160, label %153
+  %.not36.i254 = icmp eq ptr %152, null
+  br i1 %.not36.i254, label %160, label %153
 
 153:                                              ; preds = %150
   %154 = tail call fastcc ptr @class_def_raw_rule(ptr noundef nonnull %0)
-  %.not37.i235 = icmp eq ptr %154, null
-  br i1 %.not37.i235, label %160, label %155
+  %.not37.i255 = icmp eq ptr %154, null
+  br i1 %.not37.i255, label %160, label %155
 
 155:                                              ; preds = %153
   %156 = tail call ptr @_PyPegen_class_def_decorators(ptr noundef nonnull %0, ptr noundef nonnull %152, ptr noundef nonnull %154) #5
@@ -1487,8 +1487,8 @@ if_stmt_rule.exit.thread._crit_edge:              ; preds = %if_stmt_rule.exit.t
 
 158:                                              ; preds = %155
   %159 = tail call ptr @PyErr_Occurred() #5
-  %.not38.i236 = icmp eq ptr %159, null
-  br i1 %.not38.i236, label %class_def_rule.exit.thread, label %.thread44.i
+  %.not38.i256 = icmp eq ptr %159, null
+  br i1 %.not38.i256, label %class_def_rule.exit.thread, label %.thread44.i
 
 .thread44.i:                                      ; preds = %158
   store i32 1, ptr %8, align 8, !tbaa !21
@@ -1497,13 +1497,13 @@ if_stmt_rule.exit.thread._crit_edge:              ; preds = %if_stmt_rule.exit.t
 160:                                              ; preds = %153, %150
   store i32 %151, ptr %13, align 8, !tbaa !22
   %161 = load i32, ptr %8, align 8, !tbaa !21
-  %.not39.i237 = icmp eq i32 %161, 0
-  br i1 %.not39.i237, label %162, label %class_def_rule.exit.thread
+  %.not39.i257 = icmp eq i32 %161, 0
+  br i1 %.not39.i257, label %162, label %class_def_rule.exit.thread
 
 162:                                              ; preds = %160
   %163 = tail call fastcc ptr @class_def_raw_rule(ptr noundef nonnull %0)
-  %.not40.i238 = icmp eq ptr %163, null
-  br i1 %.not40.i238, label %class_def_rule.exit.thread, label %class_def_rule.exit
+  %.not40.i258 = icmp eq ptr %163, null
+  br i1 %.not40.i258, label %class_def_rule.exit.thread, label %class_def_rule.exit
 
 class_def_rule.exit.thread:                       ; preds = %162, %.thread44.i, %148, %160, %158
   %164 = load i32, ptr %2, align 8, !tbaa !20
@@ -1623,9 +1623,9 @@ class_def_rule.exit:                              ; preds = %155, %162
   br label %208
 
 208:                                              ; preds = %if_stmt_rule.exit.thread.thread, %if_stmt_rule.exit.thread._crit_edge, %function_def_rule.exit.thread.thread, %function_def_rule.exit.thread._crit_edge, %170, %178, %186, %194, %202, %.thread154, %10
-  %.sink232 = phi i32 [ %171, %170 ], [ %179, %178 ], [ %187, %186 ], [ %195, %194 ], [ %203, %202 ], [ %207, %.thread154 ], [ %11, %10 ], [ %.pre, %function_def_rule.exit.thread._crit_edge ], [ %34, %function_def_rule.exit.thread.thread ], [ %.pre228, %if_stmt_rule.exit.thread._crit_edge ], [ %138, %if_stmt_rule.exit.thread.thread ]
+  %.sink252 = phi i32 [ %171, %170 ], [ %179, %178 ], [ %187, %186 ], [ %195, %194 ], [ %203, %202 ], [ %207, %.thread154 ], [ %11, %10 ], [ %.pre, %function_def_rule.exit.thread._crit_edge ], [ %34, %function_def_rule.exit.thread.thread ], [ %.pre228, %if_stmt_rule.exit.thread._crit_edge ], [ %138, %if_stmt_rule.exit.thread.thread ]
   %.0 = phi ptr [ null, %170 ], [ null, %178 ], [ null, %186 ], [ null, %194 ], [ null, %202 ], [ %.171, %.thread154 ], [ null, %10 ], [ null, %function_def_rule.exit.thread._crit_edge ], [ null, %function_def_rule.exit.thread.thread ], [ null, %if_stmt_rule.exit.thread._crit_edge ], [ null, %if_stmt_rule.exit.thread.thread ]
-  %209 = add i32 %.sink232, -1
+  %209 = add i32 %.sink252, -1
   store i32 %209, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -1693,20 +1693,20 @@ define internal fastcc ptr @simple_stmts_rule(ptr noundef %0) unnamed_addr #0 {
   %27 = add i32 %25, 1
   store i32 %27, ptr %2, align 8, !tbaa !20
   %28 = icmp eq i32 %25, 6000
-  br i1 %28, label %29, label %.thread75
+  br i1 %28, label %29, label %.thread84
 
 29:                                               ; preds = %26
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %30 = icmp eq i32 %.pre, 0
-  br i1 %30, label %.thread75, label %_gather_4_rule.exit.thread
+  br i1 %30, label %.thread84, label %_gather_4_rule.exit.thread
 
-.thread75:                                        ; preds = %26, %29
+.thread84:                                        ; preds = %26, %29
   %31 = tail call fastcc ptr @simple_stmt_rule(ptr noundef nonnull %0)
   %.not22.i = icmp eq ptr %31, null
   br i1 %.not22.i, label %_gather_4_rule.exit.thread, label %32
 
-32:                                               ; preds = %.thread75
+32:                                               ; preds = %.thread84
   %33 = load i32, ptr %2, align 8, !tbaa !20
   %34 = add i32 %33, 1
   store i32 %34, ptr %2, align 8, !tbaa !20
@@ -1823,7 +1823,7 @@ _loop0_3_rule.exit.thread.i:                      ; preds = %_loop0_3_rule.exit.
   store i32 %71, ptr %2, align 8, !tbaa !20
   br label %_gather_4_rule.exit.thread
 
-_gather_4_rule.exit.thread:                       ; preds = %.thread75, %_loop0_3_rule.exit.thread.i, %29
+_gather_4_rule.exit.thread:                       ; preds = %.thread84, %_loop0_3_rule.exit.thread.i, %29
   %storemerge.in.i56 = load i32, ptr %2, align 8, !tbaa !20
   %storemerge.i57 = add i32 %storemerge.in.i56, -1
   store i32 %storemerge.i57, ptr %2, align 8, !tbaa !20
@@ -1862,9 +1862,9 @@ _gather_4_rule.exit:                              ; preds = %63, %.preheader.i.i
   br label %82
 
 82:                                               ; preds = %.sink.split, %23
-  %.sink83 = phi i32 [ %25, %23 ], [ %81, %.sink.split ]
+  %.sink92 = phi i32 [ %25, %23 ], [ %81, %.sink.split ]
   %.0 = phi ptr [ null, %23 ], [ %.0.ph, %.sink.split ]
-  %83 = add i32 %.sink83, -1
+  %83 = add i32 %.sink92, -1
   store i32 %83, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -2096,22 +2096,22 @@ define internal fastcc ptr @with_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %35 = add i32 %33, 1
   store i32 %35, ptr %2, align 8, !tbaa !20
   %36 = icmp eq i32 %33, 6000
-  br i1 %36, label %37, label %.thread285
+  br i1 %36, label %37, label %.thread306
 
 37:                                               ; preds = %34
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %38 = icmp eq i32 %.pre, 0
-  br i1 %38, label %.thread285, label %.thread
+  br i1 %38, label %.thread306, label %.thread
 
-.thread285:                                       ; preds = %34, %37
+.thread306:                                       ; preds = %34, %37
   %39 = load i32, ptr %11, align 8, !tbaa !22
   %40 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 682) #5
   %41 = load i32, ptr %8, align 8, !tbaa !21
   %.not54.i = icmp eq i32 %41, 0
   br i1 %.not54.i, label %42, label %.thread
 
-42:                                               ; preds = %.thread285
+42:                                               ; preds = %.thread306
   %43 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 633) #5
   %.not55.i = icmp eq ptr %43, null
   br i1 %.not55.i, label %60, label %44
@@ -2219,7 +2219,7 @@ define internal fastcc ptr @with_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %61, %64, %66, %68, %70, %73, %75, %77, %79, %.thread285, %87, %58, %60, %37
+.thread:                                          ; preds = %.thread.sink.split, %61, %64, %66, %68, %70, %73, %75, %77, %79, %.thread306, %87, %58, %60, %37
   %89 = load i32, ptr %2, align 8, !tbaa !20
   %90 = add i32 %89, -1
   store i32 %90, ptr %2, align 8, !tbaa !20
@@ -2540,9 +2540,9 @@ define internal fastcc ptr @with_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread237
 
 .thread237:                                       ; preds = %.thread237.sink.split, %32
-  %.sink287 = phi i32 [ %33, %32 ], [ %229, %.thread237.sink.split ]
+  %.sink308 = phi i32 [ %33, %32 ], [ %229, %.thread237.sink.split ]
   %.0 = phi ptr [ null, %32 ], [ %.0.ph, %.thread237.sink.split ]
-  %230 = add i32 %.sink287, -1
+  %230 = add i32 %.sink308, -1
   store i32 %230, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -2661,22 +2661,22 @@ define internal fastcc ptr @for_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %35 = add i32 %33, 1
   store i32 %35, ptr %2, align 8, !tbaa !20
   %36 = icmp eq i32 %33, 6000
-  br i1 %36, label %37, label %.thread186
+  br i1 %36, label %37, label %.thread199
 
 37:                                               ; preds = %34
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %38 = icmp eq i32 %.pre, 0
-  br i1 %38, label %.thread186, label %.thread
+  br i1 %38, label %.thread199, label %.thread
 
-.thread186:                                       ; preds = %34, %37
+.thread199:                                       ; preds = %34, %37
   %39 = load i32, ptr %11, align 8, !tbaa !22
   %40 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 682) #5
   %41 = load i32, ptr %8, align 8, !tbaa !21
   %.not50.i = icmp eq i32 %41, 0
   br i1 %.not50.i, label %42, label %.thread
 
-42:                                               ; preds = %.thread186
+42:                                               ; preds = %.thread199
   %43 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 678) #5
   %.not51.i = icmp eq ptr %43, null
   br i1 %.not51.i, label %58, label %44
@@ -2776,7 +2776,7 @@ define internal fastcc ptr @for_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %59, %62, %64, %66, %68, %70, %72, %74, %.thread186, %82, %56, %58, %37
+.thread:                                          ; preds = %.thread.sink.split, %59, %62, %64, %66, %68, %70, %72, %74, %.thread199, %82, %56, %58, %37
   %84 = load i32, ptr %2, align 8, !tbaa !20
   %85 = add i32 %84, -1
   store i32 %85, ptr %2, align 8, !tbaa !20
@@ -2974,9 +2974,9 @@ define internal fastcc ptr @for_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread168
 
 .thread168:                                       ; preds = %.thread168.sink.split, %32
-  %.sink188 = phi i32 [ %33, %32 ], [ %169, %.thread168.sink.split ]
+  %.sink201 = phi i32 [ %33, %32 ], [ %169, %.thread168.sink.split ]
   %.0 = phi ptr [ null, %32 ], [ %.0.ph, %.thread168.sink.split ]
-  %170 = add i32 %.sink188, -1
+  %170 = add i32 %.sink201, -1
   store i32 %170, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -3487,9 +3487,9 @@ invalid_try_stmt_rule.exit:                       ; preds = %65, %47
   br label %.thread200
 
 .thread200:                                       ; preds = %.thread200.sink.split, %32
-  %.sink237 = phi i32 [ %33, %32 ], [ %229, %.thread200.sink.split ]
+  %.sink255 = phi i32 [ %33, %32 ], [ %229, %.thread200.sink.split ]
   %.0 = phi ptr [ null, %32 ], [ %.0.ph, %.thread200.sink.split ]
-  %230 = add i32 %.sink237, -1
+  %230 = add i32 %.sink255, -1
   store i32 %230, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -3559,21 +3559,21 @@ define internal fastcc ptr @while_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %35 = add i32 %33, 1
   store i32 %35, ptr %2, align 8, !tbaa !20
   %36 = icmp eq i32 %33, 6000
-  br i1 %36, label %37, label %.thread88
+  br i1 %36, label %37, label %.thread95
 
 37:                                               ; preds = %34
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %38 = icmp eq i32 %.pre, 0
-  br i1 %38, label %.thread88, label %.thread
+  br i1 %38, label %.thread95, label %.thread
 
-.thread88:                                        ; preds = %34, %37
+.thread95:                                        ; preds = %34, %37
   %39 = load i32, ptr %11, align 8, !tbaa !22
   %40 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 673) #5
   %.not42.i = icmp eq ptr %40, null
   br i1 %.not42.i, label %51, label %41
 
-41:                                               ; preds = %.thread88
+41:                                               ; preds = %.thread95
   %42 = tail call fastcc ptr @named_expression_rule(ptr noundef nonnull %0)
   %.not43.i = icmp eq ptr %42, null
   br i1 %.not43.i, label %51, label %43
@@ -3594,7 +3594,7 @@ define internal fastcc ptr @while_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %.not45.i = icmp eq ptr %50, null
   br i1 %.not45.i, label %.thread, label %.thread.sink.split
 
-51:                                               ; preds = %43, %41, %.thread88
+51:                                               ; preds = %43, %41, %.thread95
   store i32 %39, ptr %11, align 8, !tbaa !22
   %52 = load i32, ptr %8, align 8, !tbaa !21
   %.not46.i = icmp eq i32 %52, 0
@@ -3723,9 +3723,9 @@ define internal fastcc ptr @while_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread78
 
 .thread78:                                        ; preds = %.thread78.sink.split, %32
-  %.sink90 = phi i32 [ %33, %32 ], [ %105, %.thread78.sink.split ]
+  %.sink97 = phi i32 [ %33, %32 ], [ %105, %.thread78.sink.split ]
   %.0 = phi ptr [ null, %32 ], [ %.0.ph, %.thread78.sink.split ]
-  %106 = add i32 %.sink90, -1
+  %106 = add i32 %.sink97, -1
   store i32 %106, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -3755,9 +3755,9 @@ define internal fastcc ptr @match_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread85
+  br i1 %15, label %20, label %.thread90
 
-.thread85:                                        ; preds = %10
+.thread90:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -3782,11 +3782,11 @@ define internal fastcc ptr @match_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread85, %24
-  %.pn.in = phi ptr [ %19, %.thread85 ], [ %29, %24 ]
+30:                                               ; preds = %.thread90, %24
+  %.pn.in = phi ptr [ %19, %.thread90 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in88 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in88, align 4, !tbaa !26
+  %.in93 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in93, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_expect_soft_keyword(ptr noundef nonnull %0, ptr noundef nonnull @.str.45) #5
@@ -3878,36 +3878,36 @@ define internal fastcc ptr @match_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %68 = load i32, ptr %11, align 8, !tbaa !22
   %69 = load i32, ptr %56, align 4, !tbaa !38
   %.not42.i.i = icmp eq i32 %69, 0
-  br i1 %.not42.i.i, label %.thread196.i, label %70
+  br i1 %.not42.i.i, label %.thread205.i, label %70
 
 70:                                               ; preds = %67
   %71 = load i32, ptr %2, align 8, !tbaa !20
   %72 = add i32 %71, 1
   store i32 %72, ptr %2, align 8, !tbaa !20
   %73 = icmp eq i32 %71, 6000
-  br i1 %73, label %74, label %.thread194.i
+  br i1 %73, label %74, label %.thread203.i
 
 74:                                               ; preds = %70
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre.i = load i32, ptr %8, align 8, !tbaa !21
   %75 = icmp eq i32 %.pre.i, 0
-  br i1 %75, label %..thread194.i_crit_edge, label %76
+  br i1 %75, label %..thread203.i_crit_edge, label %76
 
-..thread194.i_crit_edge:                          ; preds = %74
-  %.pre183 = load i32, ptr %11, align 8, !tbaa !22
-  br label %.thread194.i
+..thread203.i_crit_edge:                          ; preds = %74
+  %.pre188 = load i32, ptr %11, align 8, !tbaa !22
+  br label %.thread203.i
 
 76:                                               ; preds = %74
   %77 = load i32, ptr %2, align 8, !tbaa !20
-  br label %.thread198.i
+  br label %.thread207.i
 
-.thread194.i:                                     ; preds = %..thread194.i_crit_edge, %70
-  %78 = phi i32 [ %.pre183, %..thread194.i_crit_edge ], [ %68, %70 ]
+.thread203.i:                                     ; preds = %..thread203.i_crit_edge, %70
+  %78 = phi i32 [ %.pre188, %..thread203.i_crit_edge ], [ %68, %70 ]
   %79 = tail call ptr @_PyPegen_expect_soft_keyword(ptr noundef nonnull %0, ptr noundef nonnull @.str.44) #5
   %.not46.i76.i = icmp eq ptr %79, null
   br i1 %.not46.i76.i, label %103, label %80
 
-80:                                               ; preds = %.thread194.i
+80:                                               ; preds = %.thread203.i
   %81 = tail call fastcc ptr @patterns_rule(ptr noundef nonnull %0)
   %.not47.i77.i = icmp eq ptr %81, null
   br i1 %.not47.i77.i, label %103, label %82
@@ -3959,7 +3959,7 @@ guard_rule.exit.i.i:                              ; preds = %94, %92
 
 .thread68.i.i:                                    ; preds = %guard_rule.exit.i.i
   store i32 %78, ptr %11, align 8, !tbaa !22
-  br label %.thread198.i
+  br label %.thread207.i
 
 95:                                               ; preds = %guard_rule.exit.i.i
   %96 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 4) #5
@@ -3980,9 +3980,9 @@ guard_rule.exit.i.i:                              ; preds = %94, %92
 
 .thread64.i.i:                                    ; preds = %101
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread198.i
+  br label %.thread207.i
 
-103:                                              ; preds = %95, %guard_rule.exit.thread.i.i, %80, %.thread194.i
+103:                                              ; preds = %95, %guard_rule.exit.thread.i.i, %80, %.thread203.i
   %.pr67.i.i = load i32, ptr %8, align 8, !tbaa !21
   store i32 %78, ptr %11, align 8, !tbaa !22
   %.not51.i.i = icmp eq i32 %.pr67.i.i, 0
@@ -3990,7 +3990,7 @@ guard_rule.exit.i.i:                              ; preds = %94, %92
 
 ._crit_edge.i.i:                                  ; preds = %103
   %.pre.i.i = load i32, ptr %2, align 8, !tbaa !20
-  br label %.thread198.i
+  br label %.thread207.i
 
 104:                                              ; preds = %103
   %105 = tail call ptr @_PyPegen_expect_soft_keyword(ptr noundef nonnull %0, ptr noundef nonnull @.str.44) #5
@@ -4078,15 +4078,15 @@ guard_rule.exit87.i:                              ; preds = %120, %118
 
 .thread74.i.i:                                    ; preds = %133
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread198.i
+  br label %.thread207.i
 
 135:                                              ; preds = %125, %123, %121, %guard_rule.exit87.i, %guard_rule.exit87.thread.i, %106, %104
   %.pre187.i = load i32, ptr %2, align 8, !tbaa !20
   br label %136
 
-.thread198.i:                                     ; preds = %.thread74.i.i, %._crit_edge.i.i, %.thread64.i.i, %.thread68.i.i, %76
+.thread207.i:                                     ; preds = %.thread74.i.i, %._crit_edge.i.i, %.thread64.i.i, %.thread68.i.i, %76
   %storemerge134.in.ph.i = phi i32 [ %.pre189.i, %.thread74.i.i ], [ %.pre188.i, %.thread64.i.i ], [ %77, %76 ], [ %.pre.i.i, %._crit_edge.i.i ], [ %storemerge.i.i.i, %.thread68.i.i ]
-  %storemerge134201.i = add i32 %storemerge134.in.ph.i, -1
+  %storemerge134210.i = add i32 %storemerge134.in.ph.i, -1
   br label %.thread131.i
 
 136:                                              ; preds = %135, %133, %101
@@ -4096,14 +4096,14 @@ guard_rule.exit87.i:                              ; preds = %120, %118
   %storemerge134.i = add i32 %137, -1
   store i32 %storemerge134.i, ptr %2, align 8, !tbaa !20
   store i32 %68, ptr %11, align 8, !tbaa !22
-  br i1 %138, label %.thread196.i, label %.thread131.i
+  br i1 %138, label %.thread205.i, label %.thread131.i
 
-.thread196.i:                                     ; preds = %136, %67
+.thread205.i:                                     ; preds = %136, %67
   %139 = tail call ptr @_PyPegen_expect_soft_keyword(ptr noundef nonnull %0, ptr noundef nonnull @.str.44) #5
   %.not45.i.i = icmp eq ptr %139, null
   br i1 %.not45.i.i, label %case_block_rule.exit.thread116.loopexit.i, label %140
 
-140:                                              ; preds = %.thread196.i
+140:                                              ; preds = %.thread205.i
   %141 = tail call fastcc ptr @patterns_rule(ptr noundef nonnull %0)
   %.not46.i.i = icmp eq ptr %141, null
   br i1 %.not46.i.i, label %case_block_rule.exit.thread116.loopexit.i, label %142
@@ -4179,15 +4179,15 @@ guard_rule.exit.i:                                ; preds = %154, %152
   %165 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread131.i
 
-case_block_rule.exit.thread116.loopexit.i:        ; preds = %157, %155, %guard_rule.exit.i, %140, %.thread196.i
+case_block_rule.exit.thread116.loopexit.i:        ; preds = %157, %155, %guard_rule.exit.i, %140, %.thread205.i
   %.pre191.i = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread131.i
 
 case_block_rule.exit.thread119.i:                 ; preds = %159, %127, %97
-  %.sink249.i = phi i32 [ -2, %97 ], [ -2, %127 ], [ -1, %159 ]
+  %.sink258.i = phi i32 [ -2, %97 ], [ -2, %127 ], [ -1, %159 ]
   %.235.i122.i = phi ptr [ %99, %97 ], [ %131, %127 ], [ %161, %159 ]
   %166 = load i32, ptr %2, align 8, !tbaa !20
-  %167 = add i32 %166, %.sink249.i
+  %167 = add i32 %166, %.sink258.i
   store i32 %167, ptr %2, align 8, !tbaa !20
   %168 = icmp eq i64 %.053.i, %.054.i
   br i1 %168, label %169, label %174
@@ -4218,9 +4218,9 @@ case_block_rule.exit.thread119.i:                 ; preds = %159, %127, %97
   %179 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread131.i
 
-.thread131.i:                                     ; preds = %136, %.thread198.i, %178, %case_block_rule.exit.thread116.loopexit.i, %.thread109.i, %guard_rule.exit.thread.i, %65
-  %.sink250.i = phi i32 [ %165, %.thread109.i ], [ %66, %65 ], [ %179, %178 ], [ %.pre191.i, %case_block_rule.exit.thread116.loopexit.i ], [ %storemerge.i104.i, %guard_rule.exit.thread.i ], [ %storemerge134201.i, %.thread198.i ], [ %storemerge134.i, %136 ]
-  %180 = add i32 %.sink250.i, -1
+.thread131.i:                                     ; preds = %136, %.thread207.i, %178, %case_block_rule.exit.thread116.loopexit.i, %.thread109.i, %guard_rule.exit.thread.i, %65
+  %.sink259.i = phi i32 [ %165, %.thread109.i ], [ %66, %65 ], [ %179, %178 ], [ %.pre191.i, %case_block_rule.exit.thread116.loopexit.i ], [ %storemerge.i104.i, %guard_rule.exit.thread.i ], [ %storemerge134210.i, %.thread207.i ], [ %storemerge134.i, %136 ]
+  %180 = add i32 %.sink259.i, -1
   store i32 %180, ptr %2, align 8, !tbaa !20
   store i32 %.052.i, ptr %11, align 8, !tbaa !22
   %181 = icmp eq i64 %.053.i, 0
@@ -4323,21 +4323,21 @@ _loop1_39_rule.exit.thread:                       ; preds = %52, %184, %.thread1
   %225 = add i32 %224, 1
   store i32 %225, ptr %2, align 8, !tbaa !20
   %226 = icmp eq i32 %224, 6000
-  br i1 %226, label %227, label %.thread185
+  br i1 %226, label %227, label %.thread208
 
 227:                                              ; preds = %223
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pre184 = load i32, ptr %8, align 8, !tbaa !21
-  %228 = icmp eq i32 %.pre184, 0
-  br i1 %228, label %.thread185, label %.thread82
+  %.pre189 = load i32, ptr %8, align 8, !tbaa !21
+  %228 = icmp eq i32 %.pre189, 0
+  br i1 %228, label %.thread208, label %.thread82
 
-.thread185:                                       ; preds = %223, %227
+.thread208:                                       ; preds = %223, %227
   %229 = load i32, ptr %11, align 8, !tbaa !22
   %230 = tail call ptr @_PyPegen_expect_soft_keyword(ptr noundef nonnull %0, ptr noundef nonnull @.str.45) #5
   %.not43.i = icmp eq ptr %230, null
   br i1 %.not43.i, label %248, label %231
 
-231:                                              ; preds = %.thread185
+231:                                              ; preds = %.thread208
   %232 = tail call fastcc ptr @subject_expr_rule(ptr noundef nonnull %0)
   %.not44.i = icmp eq ptr %232, null
   br i1 %.not44.i, label %248, label %233
@@ -4375,7 +4375,7 @@ INVALID_VERSION_CHECK.exit.i:                     ; preds = %239
   %.not46.i = icmp eq ptr %247, null
   br i1 %.not46.i, label %.thread82, label %.thread82.sink.split
 
-248:                                              ; preds = %233, %231, %.thread185
+248:                                              ; preds = %233, %231, %.thread208
   store i32 %229, ptr %11, align 8, !tbaa !22
   %249 = load i32, ptr %8, align 8, !tbaa !21
   %.not47.i = icmp eq i32 %249, 0
@@ -5096,9 +5096,9 @@ CHECK_CALL.exit163:                               ; preds = %197, %194, %187
   br label %.thread184
 
 .thread184:                                       ; preds = %.thread184.sink.split, %32
-  %.sink215 = phi i32 [ %33, %32 ], [ %209, %.thread184.sink.split ]
+  %.sink236 = phi i32 [ %33, %32 ], [ %209, %.thread184.sink.split ]
   %.0 = phi ptr [ null, %32 ], [ %.0.ph, %.thread184.sink.split ]
-  %210 = add i32 %.sink215, -1
+  %210 = add i32 %.sink236, -1
   store i32 %210, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -5375,9 +5375,9 @@ invalid_named_expression_rule.exit..thread73_crit_edge: ; preds = %invalid_named
   br label %119
 
 119:                                              ; preds = %.sink.split, %18
-  %.sink89 = phi i32 [ %19, %18 ], [ %118, %.sink.split ]
+  %.sink98 = phi i32 [ %19, %18 ], [ %118, %.sink.split ]
   %.0 = phi ptr [ null, %18 ], [ %.0.ph, %.sink.split ]
-  %120 = add i32 %.sink89, -1
+  %120 = add i32 %.sink98, -1
   store i32 %120, ptr %3, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -5407,9 +5407,9 @@ define internal fastcc ptr @assignment_expression_rule(ptr noundef %0) unnamed_a
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread66
+  br i1 %15, label %20, label %.thread70
 
-.thread66:                                        ; preds = %10
+.thread70:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -5434,11 +5434,11 @@ define internal fastcc ptr @assignment_expression_rule(ptr noundef %0) unnamed_a
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread66, %24
-  %.pn.in = phi ptr [ %19, %.thread66 ], [ %29, %24 ]
+30:                                               ; preds = %.thread70, %24
+  %.pn.in = phi ptr [ %19, %.thread70 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in69 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in69, align 4, !tbaa !26
+  %.in73 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in73, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %0) #5
@@ -5612,13 +5612,13 @@ define internal fastcc ptr @expression_rule(ptr noundef %0) unnamed_addr #0 {
   %49 = add i32 %45, 1
   store i32 %49, ptr %3, align 8, !tbaa !20
   %50 = icmp eq i32 %45, 6000
-  br i1 %50, label %51, label %.thread132
+  br i1 %50, label %51, label %.thread147
 
 51:                                               ; preds = %48
   call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %9, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.pre, 0
-  br i1 %.not.i, label %.thread132, label %52
+  br i1 %.not.i, label %.thread147, label %52
 
 52:                                               ; preds = %51
   %53 = load i32, ptr %3, align 8, !tbaa !20
@@ -5626,13 +5626,13 @@ define internal fastcc ptr @expression_rule(ptr noundef %0) unnamed_addr #0 {
   store i32 %54, ptr %3, align 8, !tbaa !20
   br label %155
 
-.thread132:                                       ; preds = %48, %51
+.thread147:                                       ; preds = %48, %51
   %55 = load i32, ptr %21, align 8, !tbaa !22
   %56 = call i32 @_PyPegen_lookahead(i32 noundef 0, ptr noundef nonnull @_tmp_111_rule, ptr noundef nonnull %0) #5
   %.not78.i = icmp eq i32 %56, 0
   br i1 %.not78.i, label %91, label %57
 
-57:                                               ; preds = %.thread132
+57:                                               ; preds = %.thread147
   %58 = call fastcc ptr @disjunction_rule(ptr noundef nonnull %0)
   %.not79.i = icmp eq ptr %58, null
   br i1 %.not79.i, label %91, label %59
@@ -5688,7 +5688,7 @@ define internal fastcc ptr @expression_rule(ptr noundef %0) unnamed_addr #0 {
   store i32 %90, ptr %3, align 8, !tbaa !20
   br label %155
 
-91:                                               ; preds = %.thread132, %57, %59
+91:                                               ; preds = %.thread147, %57, %59
   store i32 %55, ptr %21, align 8, !tbaa !22
   %92 = load i32, ptr %9, align 8, !tbaa !21
   %.not83.i = icmp eq i32 %92, 0
@@ -6137,8 +6137,8 @@ define internal fastcc ptr @bitwise_or_rule(ptr noundef %0) unnamed_addr #0 {
 48:                                               ; preds = %.thread, %43
   %.pn.in = phi ptr [ %39, %.thread ], [ %47, %43 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in83 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %49 = load i32, ptr %.in83, align 4, !tbaa !26
+  %.in89 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %49 = load i32, ptr %.in89, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %50 = load i32, ptr %.in, align 8, !tbaa !29
   %51 = call fastcc ptr @bitwise_or_rule(ptr noundef nonnull %0)
@@ -6489,8 +6489,8 @@ define internal fastcc ptr @bitwise_xor_rule(ptr noundef %0) unnamed_addr #0 {
 48:                                               ; preds = %.thread, %43
   %.pn.in = phi ptr [ %39, %.thread ], [ %47, %43 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in83 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %49 = load i32, ptr %.in83, align 4, !tbaa !26
+  %.in89 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %49 = load i32, ptr %.in89, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %50 = load i32, ptr %.in, align 8, !tbaa !29
   %51 = call fastcc ptr @bitwise_xor_rule(ptr noundef nonnull %0)
@@ -6689,8 +6689,8 @@ define internal fastcc ptr @bitwise_and_rule(ptr noundef %0) unnamed_addr #0 {
 48:                                               ; preds = %.thread, %43
   %.pn.in = phi ptr [ %39, %.thread ], [ %47, %43 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in83 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %49 = load i32, ptr %.in83, align 4, !tbaa !26
+  %.in89 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %49 = load i32, ptr %.in89, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %50 = load i32, ptr %.in, align 8, !tbaa !29
   %51 = call fastcc ptr @bitwise_and_rule(ptr noundef nonnull %0)
@@ -6888,8 +6888,8 @@ define internal fastcc ptr @shift_expr_rule(ptr noundef %0) unnamed_addr #0 {
 49:                                               ; preds = %.thread, %44
   %.pn.in = phi ptr [ %40, %.thread ], [ %48, %44 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in95 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %50 = load i32, ptr %.in95, align 4, !tbaa !26
+  %.in105 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %50 = load i32, ptr %.in105, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %51 = load i32, ptr %.in, align 8, !tbaa !29
   %52 = call fastcc ptr @shift_expr_rule(ptr noundef nonnull %0)
@@ -7142,8 +7142,8 @@ define internal fastcc ptr @sum_rule(ptr noundef %0) unnamed_addr #0 {
 48:                                               ; preds = %.thread, %43
   %.pn.in = phi ptr [ %39, %.thread ], [ %47, %43 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in95 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %49 = load i32, ptr %.in95, align 4, !tbaa !26
+  %.in105 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %49 = load i32, ptr %.in105, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %50 = load i32, ptr %.in, align 8, !tbaa !29
   %51 = call fastcc ptr @sum_rule(ptr noundef nonnull %0)
@@ -7555,8 +7555,8 @@ define internal fastcc ptr @term_rule(ptr noundef %0) unnamed_addr #0 {
 49:                                               ; preds = %.thread, %44
   %.pn.in = phi ptr [ %40, %.thread ], [ %48, %44 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in131 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %50 = load i32, ptr %.in131, align 4, !tbaa !26
+  %.in153 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %50 = load i32, ptr %.in153, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %51 = load i32, ptr %.in, align 8, !tbaa !29
   %52 = call fastcc ptr @term_rule(ptr noundef nonnull %0)
@@ -8269,9 +8269,9 @@ define internal fastcc ptr @power_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread74
+  br i1 %15, label %20, label %.thread79
 
-.thread74:                                        ; preds = %10
+.thread79:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -8296,11 +8296,11 @@ define internal fastcc ptr @power_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread74, %24
-  %.pn.in = phi ptr [ %19, %.thread74 ], [ %29, %24 ]
+30:                                               ; preds = %.thread79, %24
+  %.pn.in = phi ptr [ %19, %.thread79 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in77 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in77, align 4, !tbaa !26
+  %.in82 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in82, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call fastcc ptr @await_primary_rule(ptr noundef nonnull %0)
@@ -8636,8 +8636,8 @@ define internal fastcc ptr @primary_rule(ptr noundef %0) unnamed_addr #0 {
 48:                                               ; preds = %.thread, %43
   %.pn.in = phi ptr [ %39, %.thread ], [ %47, %43 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in123 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %49 = load i32, ptr %.in123, align 4, !tbaa !26
+  %.in141 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %49 = load i32, ptr %.in141, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %50 = load i32, ptr %.in, align 8, !tbaa !29
   %51 = call fastcc ptr @primary_rule(ptr noundef nonnull %0)
@@ -8950,8 +8950,8 @@ define internal fastcc ptr @genexp_rule(ptr noundef %0) unnamed_addr #0 {
 30:                                               ; preds = %.thread, %24
   %.pn.in = phi ptr [ %19, %.thread ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in84 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in84, align 4, !tbaa !26
+  %.in88 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in88, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 7) #5
@@ -8971,8 +8971,8 @@ define internal fastcc ptr @genexp_rule(ptr noundef %0) unnamed_addr #0 {
 
 39:                                               ; preds = %38, %34
   %40 = load i32, ptr %8, align 8, !tbaa !21
-  %.not.i86 = icmp eq i32 %40, 0
-  br i1 %.not.i86, label %41, label %for_if_clauses_rule.exit.thread73.sink.split
+  %.not.i90 = icmp eq i32 %40, 0
+  br i1 %.not.i90, label %41, label %for_if_clauses_rule.exit.thread73.sink.split
 
 41:                                               ; preds = %39
   %42 = load i32, ptr %11, align 8, !tbaa !22
@@ -9253,8 +9253,8 @@ define internal fastcc ptr @slices_rule(ptr noundef %0) unnamed_addr #0 {
 30:                                               ; preds = %.thread, %24
   %.pn.in = phi ptr [ %19, %.thread ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in79 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in79, align 4, !tbaa !26
+  %.in83 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in83, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call fastcc ptr @slice_rule(ptr noundef nonnull %0)
@@ -9277,35 +9277,35 @@ define internal fastcc ptr @slices_rule(ptr noundef %0) unnamed_addr #0 {
   %40 = add i32 %39, 1
   store i32 %40, ptr %2, align 8, !tbaa !20
   %41 = icmp eq i32 %39, 6000
-  br i1 %41, label %42, label %.thread101
+  br i1 %41, label %42, label %.thread117
 
 42:                                               ; preds = %38
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %storemerge.in.pre129.pre.i = load i32, ptr %2, align 8, !tbaa !20
-  %.pre99 = load i32, ptr %8, align 8, !tbaa !21
-  %43 = icmp eq i32 %.pre99, 0
-  br i1 %43, label %.thread101, label %_gather_64_rule.exit.thread
+  %.pre103 = load i32, ptr %8, align 8, !tbaa !21
+  %43 = icmp eq i32 %.pre103, 0
+  br i1 %43, label %.thread117, label %_gather_64_rule.exit.thread
 
-.thread101:                                       ; preds = %38, %42
-  %storemerge.in.pre129.i104 = phi i32 [ %storemerge.in.pre129.pre.i, %42 ], [ %40, %38 ]
+.thread117:                                       ; preds = %38, %42
+  %storemerge.in.pre129.i120 = phi i32 [ %storemerge.in.pre129.pre.i, %42 ], [ %40, %38 ]
   %44 = load i32, ptr %11, align 8, !tbaa !22
-  %45 = add i32 %storemerge.in.pre129.i104, 1
+  %45 = add i32 %storemerge.in.pre129.i120, 1
   store i32 %45, ptr %2, align 8, !tbaa !20
-  %46 = icmp eq i32 %storemerge.in.pre129.i104, 6000
+  %46 = icmp eq i32 %storemerge.in.pre129.i120, 6000
   br i1 %46, label %47, label %.thread.i
 
-47:                                               ; preds = %.thread101
+47:                                               ; preds = %.thread117
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre.i = load i32, ptr %8, align 8, !tbaa !21
   %48 = icmp eq i32 %.pre.i, 0
   br i1 %48, label %..thread.i_crit_edge, label %_tmp_156_rule.exit.thread.i
 
 ..thread.i_crit_edge:                             ; preds = %47
-  %.pre100 = load i32, ptr %11, align 8, !tbaa !22
+  %.pre104 = load i32, ptr %11, align 8, !tbaa !22
   br label %.thread.i
 
-.thread.i:                                        ; preds = %..thread.i_crit_edge, %.thread101
-  %49 = phi i32 [ %.pre100, %..thread.i_crit_edge ], [ %44, %.thread101 ]
+.thread.i:                                        ; preds = %..thread.i_crit_edge, %.thread117
+  %49 = phi i32 [ %.pre104, %..thread.i_crit_edge ], [ %44, %.thread117 ]
   %50 = tail call fastcc ptr @slice_rule(ptr noundef nonnull %0)
   %.not27.i.i = icmp eq ptr %50, null
   br i1 %.not27.i.i, label %51, label %55
@@ -9468,8 +9468,8 @@ _tmp_156_rule.exit.thread.i:                      ; preds = %_tmp_156_rule.exit.
 
 _gather_64_rule.exit.thread:                      ; preds = %42, %_tmp_156_rule.exit.thread.i
   %storemerge.in.i.ph = phi i32 [ %108, %_tmp_156_rule.exit.thread.i ], [ %storemerge.in.pre129.pre.i, %42 ]
-  %storemerge.i83 = add i32 %storemerge.in.i.ph, -1
-  store i32 %storemerge.i83, ptr %2, align 8, !tbaa !20
+  %storemerge.i87 = add i32 %storemerge.in.i.ph, -1
+  store i32 %storemerge.i87, ptr %2, align 8, !tbaa !20
   br label %127
 
 _gather_64_rule.exit:                             ; preds = %100, %.preheader.i
@@ -9583,8 +9583,8 @@ define internal fastcc ptr @atom_rule(ptr noundef %0) unnamed_addr #0 {
 30:                                               ; preds = %.thread, %24
   %.pn.in = phi ptr [ %19, %.thread ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in262 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in262, align 4, !tbaa !26
+  %.in276 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in276, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %0) #5
@@ -9951,11 +9951,11 @@ define internal fastcc void @invalid_comprehension_rule(ptr noundef %0) unnamed_
   br i1 %17, label %..thread_crit_edge, label %for_if_clauses_rule.exit.thread101.sink.split
 
 ..thread_crit_edge:                               ; preds = %16
-  %.pre127 = load i32, ptr %11, align 8, !tbaa !22
+  %.pre131 = load i32, ptr %11, align 8, !tbaa !22
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %10
-  %18 = phi i32 [ %.pre127, %..thread_crit_edge ], [ %12, %10 ]
+  %18 = phi i32 [ %.pre131, %..thread_crit_edge ], [ %12, %10 ]
   %19 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 9) #5
   %.not36.i = icmp eq ptr %19, null
   br i1 %.not36.i, label %20, label %28
@@ -10054,25 +10054,25 @@ for_if_clauses_rule.exit.thread101:               ; preds = %for_if_clauses_rule
   %63 = add i32 %62, 1
   store i32 %63, ptr %2, align 8, !tbaa !20
   %64 = icmp eq i32 %62, 6000
-  br i1 %64, label %65, label %.thread117
+  br i1 %64, label %65, label %.thread121
 
 65:                                               ; preds = %61
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre115 = load i32, ptr %8, align 8, !tbaa !21
   %66 = icmp eq i32 %.pre115, 0
-  br i1 %66, label %..thread117_crit_edge, label %_tmp_118_rule.exit.thread
+  br i1 %66, label %..thread121_crit_edge, label %_tmp_118_rule.exit.thread
 
-..thread117_crit_edge:                            ; preds = %65
-  %.pre128 = load i32, ptr %11, align 8, !tbaa !22
-  br label %.thread117
+..thread121_crit_edge:                            ; preds = %65
+  %.pre132 = load i32, ptr %11, align 8, !tbaa !22
+  br label %.thread121
 
-.thread117:                                       ; preds = %..thread117_crit_edge, %61
-  %67 = phi i32 [ %.pre128, %..thread117_crit_edge ], [ %12, %61 ]
+.thread121:                                       ; preds = %..thread121_crit_edge, %61
+  %67 = phi i32 [ %.pre132, %..thread121_crit_edge ], [ %12, %61 ]
   %68 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 9) #5
   %.not27.i = icmp eq ptr %68, null
   br i1 %.not27.i, label %69, label %75
 
-69:                                               ; preds = %.thread117
+69:                                               ; preds = %.thread121
   store i32 %67, ptr %11, align 8, !tbaa !22
   %70 = load i32, ptr %8, align 8, !tbaa !21
   %.not28.i = icmp eq i32 %70, 0
@@ -10089,7 +10089,7 @@ _tmp_118_rule.exit.thread:                        ; preds = %71, %65, %69
   store i32 %74, ptr %2, align 8, !tbaa !20
   br label %102
 
-75:                                               ; preds = %71, %.thread117
+75:                                               ; preds = %71, %.thread121
   %76 = load i32, ptr %2, align 8, !tbaa !20
   %77 = add i32 %76, -1
   store i32 %77, ptr %2, align 8, !tbaa !20
@@ -10148,38 +10148,38 @@ _tmp_118_rule.exit.thread:                        ; preds = %71, %65, %69
   %106 = add i32 %105, 1
   store i32 %106, ptr %2, align 8, !tbaa !20
   %107 = icmp eq i32 %105, 6000
-  br i1 %107, label %108, label %.thread130
+  br i1 %107, label %108, label %.thread138
 
 108:                                              ; preds = %104
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pre129 = load i32, ptr %8, align 8, !tbaa !21
-  %109 = icmp eq i32 %.pre129, 0
-  br i1 %109, label %.thread130, label %_tmp_118_rule.exit.thread124
+  %.pre133 = load i32, ptr %8, align 8, !tbaa !21
+  %109 = icmp eq i32 %.pre133, 0
+  br i1 %109, label %.thread138, label %_tmp_118_rule.exit.thread128
 
-.thread130:                                       ; preds = %104, %108
+.thread138:                                       ; preds = %104, %108
   %110 = load i32, ptr %11, align 8, !tbaa !22
   %111 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 9) #5
-  %.not27.i121 = icmp eq ptr %111, null
-  br i1 %.not27.i121, label %112, label %118
+  %.not27.i125 = icmp eq ptr %111, null
+  br i1 %.not27.i125, label %112, label %118
 
-112:                                              ; preds = %.thread130
+112:                                              ; preds = %.thread138
   store i32 %110, ptr %11, align 8, !tbaa !22
   %113 = load i32, ptr %8, align 8, !tbaa !21
-  %.not28.i122 = icmp eq i32 %113, 0
-  br i1 %.not28.i122, label %114, label %_tmp_118_rule.exit.thread124
+  %.not28.i126 = icmp eq i32 %113, 0
+  br i1 %.not28.i126, label %114, label %_tmp_118_rule.exit.thread128
 
 114:                                              ; preds = %112
   %115 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 25) #5
-  %.not29.i123 = icmp eq ptr %115, null
-  br i1 %.not29.i123, label %_tmp_118_rule.exit.thread124, label %118
+  %.not29.i127 = icmp eq ptr %115, null
+  br i1 %.not29.i127, label %_tmp_118_rule.exit.thread128, label %118
 
-_tmp_118_rule.exit.thread124:                     ; preds = %114, %108, %112
+_tmp_118_rule.exit.thread128:                     ; preds = %114, %108, %112
   %116 = load i32, ptr %2, align 8, !tbaa !20
   %117 = add i32 %116, -1
   store i32 %117, ptr %2, align 8, !tbaa !20
   br label %141
 
-118:                                              ; preds = %114, %.thread130
+118:                                              ; preds = %114, %.thread138
   %119 = load i32, ptr %2, align 8, !tbaa !20
   %120 = add i32 %119, -1
   store i32 %120, ptr %2, align 8, !tbaa !20
@@ -10216,7 +10216,7 @@ _tmp_118_rule.exit.thread124:                     ; preds = %114, %108, %112
   %.not89 = icmp eq ptr %140, null
   br i1 %.not89, label %.thread113, label %142
 
-141:                                              ; preds = %_tmp_118_rule.exit.thread124, %124, %122, %118
+141:                                              ; preds = %_tmp_118_rule.exit.thread128, %124, %122, %118
   store i32 %12, ptr %11, align 8, !tbaa !22
   br label %.thread113
 
@@ -10423,18 +10423,18 @@ INVALID_VERSION_CHECK.exit:                       ; preds = %45
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %81 = icmp eq i32 %.pre, 0
-  br i1 %81, label %.thread, label %.loopexit282
+  br i1 %81, label %.thread, label %.loopexit294
 
 .thread:                                          ; preds = %76, %80
   %82 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 682) #5
   %83 = load i32, ptr %8, align 8, !tbaa !21
   %.not25.i = icmp eq i32 %83, 0
-  br i1 %.not25.i, label %84, label %.loopexit282
+  br i1 %.not25.i, label %84, label %.loopexit294
 
 84:                                               ; preds = %.thread
   %85 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 678) #5
   %.not26.i = icmp eq ptr %85, null
-  br i1 %.not26.i, label %.loopexit282, label %86
+  br i1 %.not26.i, label %.loopexit294, label %86
 
 86:                                               ; preds = %84
   %87 = load i32, ptr %2, align 8, !tbaa !20
@@ -10631,12 +10631,12 @@ _tmp_131_rule.exit.i:                             ; preds = %._crit_edge.i
   %161 = add i32 %160, -1
   store i32 %161, ptr %2, align 8, !tbaa !20
   %.not27.i = icmp eq ptr %159, null
-  br i1 %.not27.i, label %.loopexit282, label %162
+  br i1 %.not27.i, label %.loopexit294, label %162
 
 162:                                              ; preds = %_tmp_131_rule.exit.i
   %163 = tail call i32 @_PyPegen_lookahead_with_int(i32 noundef 0, ptr noundef nonnull @_PyPegen_expect_token, ptr noundef nonnull %0, i32 noundef 679) #5
   %.not28.i = icmp eq i32 %163, 0
-  br i1 %.not28.i, label %.loopexit282, label %164
+  br i1 %.not28.i, label %.loopexit294, label %164
 
 164:                                              ; preds = %162
   %165 = load ptr, ptr @PyExc_SyntaxError, align 8, !tbaa !41
@@ -10647,17 +10647,17 @@ _tmp_131_rule.exit.i:                             ; preds = %._crit_edge.i
 168:                                              ; preds = %164
   %169 = tail call ptr @PyErr_Occurred() #5
   %.not29.i = icmp eq ptr %169, null
-  br i1 %.not29.i, label %.loopexit282, label %.thread63.i
+  br i1 %.not29.i, label %.loopexit294, label %.thread63.i
 
 .thread63.i:                                      ; preds = %168
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.loopexit282
+  br label %.loopexit294
 
 .sink.split.i:                                    ; preds = %94, %._crit_edge._tmp_131_rule.exit.thread58_crit_edge.i, %_loop0_165_rule.exit.thread47.i, %140, %114, %108, %102, %_tmp_131_rule.exit.thread.i
-  %.sink110.i = phi i32 [ %93, %_tmp_131_rule.exit.thread.i ], [ %.pre.i, %._crit_edge._tmp_131_rule.exit.thread58_crit_edge.i ], [ %storemerge.i50.i, %_loop0_165_rule.exit.thread47.i ], [ %104, %102 ], [ %111, %108 ], [ %116, %114 ], [ %143, %140 ], [ %.pre96.i, %94 ]
-  %170 = add i32 %.sink110.i, -1
+  %.sink118.i = phi i32 [ %93, %_tmp_131_rule.exit.thread.i ], [ %.pre.i, %._crit_edge._tmp_131_rule.exit.thread58_crit_edge.i ], [ %storemerge.i50.i, %_loop0_165_rule.exit.thread47.i ], [ %104, %102 ], [ %111, %108 ], [ %116, %114 ], [ %143, %140 ], [ %.pre96.i, %94 ]
+  %170 = add i32 %.sink118.i, -1
   store i32 %170, ptr %2, align 8, !tbaa !20
-  br label %.loopexit282
+  br label %.loopexit294
 
 invalid_for_if_clause_rule.exit:                  ; preds = %164
   %171 = load i32, ptr %2, align 8, !tbaa !20
@@ -10665,7 +10665,7 @@ invalid_for_if_clause_rule.exit:                  ; preds = %164
   store i32 %172, ptr %2, align 8, !tbaa !20
   br label %for_if_clause_rule.exit.thread105
 
-.loopexit282:                                     ; preds = %80, %.thread, %84, %_tmp_131_rule.exit.i, %162, %.sink.split.i, %.thread63.i, %168
+.loopexit294:                                     ; preds = %80, %.thread, %84, %_tmp_131_rule.exit.i, %162, %.sink.split.i, %.thread63.i, %168
   %173 = load i32, ptr %2, align 8, !tbaa !20
   %174 = add i32 %173, -1
   store i32 %174, ptr %2, align 8, !tbaa !20
@@ -10674,7 +10674,7 @@ invalid_for_if_clause_rule.exit:                  ; preds = %164
   %.not102.i = icmp eq i32 %.pr, 0
   br i1 %.not102.i, label %for_if_clause_rule.exit.thread, label %175
 
-175:                                              ; preds = %.loopexit282
+175:                                              ; preds = %.loopexit294
   %176 = load i32, ptr %8, align 8, !tbaa !21
   %.not103.i = icmp eq i32 %176, 0
   br i1 %.not103.i, label %177, label %for_if_clause_rule.exit.thread
@@ -10713,7 +10713,7 @@ for_if_clause_rule.exit.thread105:                ; preds = %invalid_for_if_clau
   %188 = tail call ptr @PyErr_NoMemory() #5
   br label %208
 
-for_if_clause_rule.exit.thread:                   ; preds = %72, %74, %61, %63, %53, %37, %39, %26, %.loopexit, %69, %.loopexit282, %177, %175, %71, %52
+for_if_clause_rule.exit.thread:                   ; preds = %72, %74, %61, %63, %53, %37, %39, %26, %.loopexit, %69, %.loopexit294, %177, %175, %71, %52
   %189 = load i32, ptr %2, align 8, !tbaa !20
   %190 = add i32 %189, -1
   store i32 %190, ptr %2, align 8, !tbaa !20
@@ -10828,8 +10828,8 @@ define internal fastcc ptr @star_targets_rule(ptr noundef %0) unnamed_addr #0 {
 30:                                               ; preds = %.thread, %24
   %.pn.in = phi ptr [ %19, %.thread ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in85 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in85, align 4, !tbaa !26
+  %.in90 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in90, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call fastcc ptr @star_target_rule(ptr noundef nonnull %0)
@@ -12162,8 +12162,8 @@ define internal fastcc ptr @t_primary_rule(ptr noundef %0) unnamed_addr #0 {
 48:                                               ; preds = %.thread, %43
   %.pn.in = phi ptr [ %39, %.thread ], [ %47, %43 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in123 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %49 = load i32, ptr %.in123, align 4, !tbaa !26
+  %.in141 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %49 = load i32, ptr %.in141, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %50 = load i32, ptr %.in, align 8, !tbaa !29
   %51 = call fastcc ptr @t_primary_rule(ptr noundef nonnull %0)
@@ -12527,9 +12527,9 @@ define internal fastcc ptr @star_atom_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread155
+  br i1 %15, label %20, label %.thread163
 
-.thread155:                                       ; preds = %10
+.thread163:                                       ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -12554,11 +12554,11 @@ define internal fastcc ptr @star_atom_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread138
 
-30:                                               ; preds = %.thread155, %24
-  %.pn.in = phi ptr [ %19, %.thread155 ], [ %29, %24 ]
+30:                                               ; preds = %.thread163, %24
+  %.pn.in = phi ptr [ %19, %.thread163 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in158 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in158, align 4, !tbaa !26
+  %.in166 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in166, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %0) #5
@@ -12992,25 +12992,25 @@ define internal fastcc ptr @star_targets_list_seq_rule(ptr noundef %0) unnamed_a
   %14 = add i32 %13, 1
   store i32 %14, ptr %2, align 8, !tbaa !20
   %15 = icmp eq i32 %13, 6000
-  br i1 %15, label %16, label %.thread67
+  br i1 %15, label %16, label %.thread73
 
 16:                                               ; preds = %10
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %17 = icmp eq i32 %.pre, 0
-  br i1 %17, label %.thread67, label %_gather_95_rule.exit.thread
+  br i1 %17, label %.thread73, label %_gather_95_rule.exit.thread
 
 _gather_95_rule.exit.thread:                      ; preds = %16
   %18 = load i32, ptr %2, align 8, !tbaa !20
   br label %.sink.split
 
-.thread67:                                        ; preds = %10, %16
+.thread73:                                        ; preds = %10, %16
   %19 = tail call fastcc ptr @star_target_rule(ptr noundef nonnull %0)
   %.not22.i = icmp eq ptr %19, null
   %.pre66 = load i32, ptr %2, align 8, !tbaa !20
   br i1 %.not22.i, label %.sink.split, label %20
 
-20:                                               ; preds = %.thread67
+20:                                               ; preds = %.thread73
   %21 = add i32 %.pre66, 1
   store i32 %21, ptr %2, align 8, !tbaa !20
   %22 = icmp eq i32 %.pre66, 6000
@@ -13043,34 +13043,34 @@ _gather_95_rule.exit.thread:                      ; preds = %16
 
 .lr.ph.preheader:                                 ; preds = %.preheader48
   %32 = tail call fastcc ptr @star_target_rule(ptr noundef nonnull %0)
-  %.not70.i72 = icmp eq ptr %32, null
-  br i1 %.not70.i72, label %.critedge.i, label %.lr.ph76
+  %.not70.i78 = icmp eq ptr %32, null
+  br i1 %.not70.i78, label %.critedge.i, label %.lr.ph82
 
 .lr.ph:                                           ; preds = %40
   %33 = tail call fastcc ptr @star_target_rule(ptr noundef nonnull %0)
   %.not70.i = icmp eq ptr %33, null
-  br i1 %.not70.i, label %.critedge.i, label %.lr.ph76, !llvm.loop !70
+  br i1 %.not70.i, label %.critedge.i, label %.lr.ph82, !llvm.loop !70
 
-.lr.ph76:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph82:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %34 = phi ptr [ %33, %.lr.ph ], [ %32, %.lr.ph.preheader ]
-  %.059.i5375 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.058.i5474 = phi i64 [ %41, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.054.i5573 = phi ptr [ %.256.i, %.lr.ph ], [ %28, %.lr.ph.preheader ]
-  %35 = icmp eq i64 %.058.i5474, %.059.i5375
+  %.059.i5381 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.058.i5480 = phi i64 [ %41, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.054.i5579 = phi ptr [ %.256.i, %.lr.ph ], [ %28, %.lr.ph.preheader ]
+  %35 = icmp eq i64 %.058.i5480, %.059.i5381
   br i1 %35, label %36, label %40
 
-36:                                               ; preds = %.lr.ph76
-  %37 = shl i64 %.058.i5474, 1
-  %38 = shl i64 %.058.i5474, 4
-  %39 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i5573, i64 noundef %38) #5
+36:                                               ; preds = %.lr.ph82
+  %37 = shl i64 %.058.i5480, 1
+  %38 = shl i64 %.058.i5480, 4
+  %39 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i5579, i64 noundef %38) #5
   %.not71.not.i = icmp eq ptr %39, null
   br i1 %.not71.not.i, label %_gather_95_rule.exit.thread42.sink.split.sink.split.sink.split, label %40
 
-40:                                               ; preds = %36, %.lr.ph76
-  %.160.i = phi i64 [ %.059.i5375, %.lr.ph76 ], [ %37, %36 ]
-  %.256.i = phi ptr [ %.054.i5573, %.lr.ph76 ], [ %39, %36 ]
-  %41 = add i64 %.058.i5474, 1
-  %42 = getelementptr ptr, ptr %.256.i, i64 %.058.i5474
+40:                                               ; preds = %36, %.lr.ph82
+  %.160.i = phi i64 [ %.059.i5381, %.lr.ph82 ], [ %37, %36 ]
+  %.256.i = phi ptr [ %.054.i5579, %.lr.ph82 ], [ %39, %36 ]
+  %41 = add i64 %.058.i5480, 1
+  %42 = getelementptr ptr, ptr %.256.i, i64 %.058.i5480
   store ptr %34, ptr %42, align 8, !tbaa !25
   %43 = load i32, ptr %11, align 8, !tbaa !22
   %44 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -13111,7 +13111,7 @@ _gather_95_rule.exit.thread:                      ; preds = %16
   br i1 %exitcond.not, label %_gather_95_rule.exit, label %50, !llvm.loop !71
 
 _gather_95_rule.exit.thread42.sink.split.sink.split.sink.split: ; preds = %36, %.critedge.i
-  %.054.i.lcssa.sink = phi ptr [ %.054.i.lcssa, %.critedge.i ], [ %.054.i5573, %36 ]
+  %.054.i.lcssa.sink = phi ptr [ %.054.i.lcssa, %.critedge.i ], [ %.054.i5579, %36 ]
   tail call void @PyMem_Free(ptr noundef %.054.i.lcssa.sink) #5
   br label %_gather_95_rule.exit.thread42.sink.split.sink.split
 
@@ -13143,9 +13143,9 @@ _gather_95_rule.exit:                             ; preds = %50, %.preheader
   %.not24 = icmp eq i32 %62, 0
   br i1 %.not24, label %65, label %64
 
-.sink.split:                                      ; preds = %.thread67, %_gather_95_rule.exit.thread42.sink.split, %_gather_95_rule.exit.thread
-  %.sink70 = phi i32 [ %18, %_gather_95_rule.exit.thread ], [ %.pre66, %.thread67 ], [ %storemerge.i34, %_gather_95_rule.exit.thread42.sink.split ]
-  %63 = add i32 %.sink70, -1
+.sink.split:                                      ; preds = %.thread73, %_gather_95_rule.exit.thread42.sink.split, %_gather_95_rule.exit.thread
+  %.sink76 = phi i32 [ %18, %_gather_95_rule.exit.thread ], [ %.pre66, %.thread73 ], [ %storemerge.i34, %_gather_95_rule.exit.thread42.sink.split ]
+  %63 = add i32 %.sink76, -1
   store i32 %63, ptr %2, align 8, !tbaa !20
   br label %64
 
@@ -13721,8 +13721,8 @@ define internal fastcc ptr @comparison_rule(ptr noundef %0) unnamed_addr #0 {
 30:                                               ; preds = %.thread, %24
   %.pn.in = phi ptr [ %19, %.thread ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in399 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in399, align 4, !tbaa !26
+  %.in418 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in418, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call fastcc ptr @bitwise_or_rule(ptr noundef nonnull %0)
@@ -13791,25 +13791,25 @@ define internal fastcc ptr @comparison_rule(ptr noundef %0) unnamed_addr #0 {
   %59 = add i32 %58, 1
   store i32 %59, ptr %2, align 8, !tbaa !20
   %60 = icmp eq i32 %58, 6000
-  br i1 %60, label %61, label %.thread309
+  br i1 %60, label %61, label %.thread328
 
 61:                                               ; preds = %56
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre306 = load i32, ptr %8, align 8, !tbaa !21
   %62 = icmp eq i32 %.pre306, 0
-  br i1 %62, label %.thread309, label %eq_bitwise_or_rule.exit.i.thread.thread412
+  br i1 %62, label %.thread328, label %eq_bitwise_or_rule.exit.i.thread.thread431
 
-eq_bitwise_or_rule.exit.i.thread.thread412:       ; preds = %61
+eq_bitwise_or_rule.exit.i.thread.thread431:       ; preds = %61
   %63 = load i32, ptr %2, align 8, !tbaa !20
   %64 = add i32 %63, -1
   br label %compare_op_bitwise_or_pair_rule.exit.thread
 
-.thread309:                                       ; preds = %56, %61
+.thread328:                                       ; preds = %56, %61
   %65 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 27) #5
   %.not24.i.i = icmp eq ptr %65, null
   br i1 %.not24.i.i, label %eq_bitwise_or_rule.exit.i.thread, label %66
 
-66:                                               ; preds = %.thread309
+66:                                               ; preds = %.thread328
   %67 = tail call fastcc ptr @bitwise_or_rule(ptr noundef nonnull %0)
   %.not25.i.i = icmp eq ptr %67, null
   br i1 %.not25.i.i, label %eq_bitwise_or_rule.exit.i.thread, label %68
@@ -13830,7 +13830,7 @@ eq_bitwise_or_rule.exit.i.thread.thread:          ; preds = %71
   %74 = add i32 %73, -1
   br label %compare_op_bitwise_or_pair_rule.exit.thread
 
-eq_bitwise_or_rule.exit.i.thread:                 ; preds = %66, %.thread309, %71
+eq_bitwise_or_rule.exit.i.thread:                 ; preds = %66, %.thread328, %71
   %.pr.pr = load i32, ptr %8, align 8, !tbaa !21
   %75 = load i32, ptr %2, align 8, !tbaa !20
   %76 = add i32 %75, -1
@@ -13842,38 +13842,38 @@ eq_bitwise_or_rule.exit.i.thread:                 ; preds = %66, %.thread309, %7
 77:                                               ; preds = %eq_bitwise_or_rule.exit.i.thread
   store i32 %75, ptr %2, align 8, !tbaa !20
   %78 = icmp eq i32 %76, 6000
-  br i1 %78, label %79, label %.thread311
+  br i1 %78, label %79, label %.thread330
 
 79:                                               ; preds = %77
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre307 = load i32, ptr %8, align 8, !tbaa !21
   %80 = icmp eq i32 %.pre307, 0
   %.pr = load i32, ptr %2, align 8, !tbaa !20
-  br i1 %80, label %.thread311, label %noteq_bitwise_or_rule.exit.i.thread.thread417
+  br i1 %80, label %.thread330, label %noteq_bitwise_or_rule.exit.i.thread.thread436
 
-noteq_bitwise_or_rule.exit.i.thread.thread417:    ; preds = %79
+noteq_bitwise_or_rule.exit.i.thread.thread436:    ; preds = %79
   %81 = add i32 %.pr, -1
   br label %compare_op_bitwise_or_pair_rule.exit.thread
 
-.thread311:                                       ; preds = %79, %77
+.thread330:                                       ; preds = %79, %77
   %82 = phi i32 [ %75, %77 ], [ %.pr, %79 ]
   %83 = add i32 %82, 1
   store i32 %83, ptr %2, align 8, !tbaa !20
   %84 = icmp eq i32 %82, 6000
-  br i1 %84, label %85, label %.thread581
+  br i1 %84, label %85, label %.thread623
 
-85:                                               ; preds = %.thread311
+85:                                               ; preds = %.thread330
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pre576 = load i32, ptr %8, align 8, !tbaa !21
-  %86 = icmp eq i32 %.pre576, 0
-  br i1 %86, label %.thread581, label %_tmp_62_rule.exit.thread
+  %.pre595 = load i32, ptr %8, align 8, !tbaa !21
+  %86 = icmp eq i32 %.pre595, 0
+  br i1 %86, label %.thread623, label %_tmp_62_rule.exit.thread
 
-.thread581:                                       ; preds = %.thread311, %85
+.thread623:                                       ; preds = %.thread330, %85
   %87 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 28) #5
   %.not23.i = icmp eq ptr %87, null
   br i1 %.not23.i, label %_tmp_62_rule.exit.thread, label %88
 
-88:                                               ; preds = %.thread581
+88:                                               ; preds = %.thread623
   %89 = tail call i32 @_PyPegen_check_barry_as_flufl(ptr noundef nonnull %0, ptr noundef nonnull %87) #5
   %.not24.i = icmp eq i32 %89, 0
   br i1 %.not24.i, label %94, label %90
@@ -13887,7 +13887,7 @@ noteq_bitwise_or_rule.exit.i.thread.thread417:    ; preds = %79
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %_tmp_62_rule.exit.thread
 
-_tmp_62_rule.exit.thread:                         ; preds = %.thread581, %.thread28.i, %85, %90
+_tmp_62_rule.exit.thread:                         ; preds = %.thread623, %.thread28.i, %85, %90
   %92 = load i32, ptr %2, align 8, !tbaa !20
   %93 = add i32 %92, -1
   br label %noteq_bitwise_or_rule.exit.i.thread
@@ -13901,7 +13901,7 @@ _tmp_62_rule.exit.thread:                         ; preds = %.thread581, %.threa
   br i1 %.not25.i149.i, label %.noteq_bitwise_or_rule.exit.i.thread_crit_edge, label %98
 
 .noteq_bitwise_or_rule.exit.i.thread_crit_edge:   ; preds = %94
-  %.pre577 = load i32, ptr %2, align 8, !tbaa !20
+  %.pre596 = load i32, ptr %2, align 8, !tbaa !20
   br label %noteq_bitwise_or_rule.exit.i.thread
 
 98:                                               ; preds = %94
@@ -13912,16 +13912,16 @@ _tmp_62_rule.exit.thread:                         ; preds = %.thread581, %.threa
 101:                                              ; preds = %98
   %102 = tail call ptr @PyErr_Occurred() #5
   %.not26.i153.i = icmp eq ptr %102, null
-  %.pre578 = load i32, ptr %2, align 8, !tbaa !20
+  %.pre597 = load i32, ptr %2, align 8, !tbaa !20
   br i1 %.not26.i153.i, label %noteq_bitwise_or_rule.exit.i.thread, label %noteq_bitwise_or_rule.exit.i.thread.thread
 
 noteq_bitwise_or_rule.exit.i.thread.thread:       ; preds = %101
   store i32 1, ptr %8, align 8, !tbaa !21
-  %103 = add i32 %.pre578, -1
+  %103 = add i32 %.pre597, -1
   br label %compare_op_bitwise_or_pair_rule.exit.thread
 
 noteq_bitwise_or_rule.exit.i.thread:              ; preds = %.noteq_bitwise_or_rule.exit.i.thread_crit_edge, %_tmp_62_rule.exit.thread, %101
-  %104 = phi i32 [ %.pre577, %.noteq_bitwise_or_rule.exit.i.thread_crit_edge ], [ %93, %_tmp_62_rule.exit.thread ], [ %.pre578, %101 ]
+  %104 = phi i32 [ %.pre596, %.noteq_bitwise_or_rule.exit.i.thread_crit_edge ], [ %93, %_tmp_62_rule.exit.thread ], [ %.pre597, %101 ]
   %.pr180.pr = load i32, ptr %8, align 8, !tbaa !21
   %105 = add i32 %104, -1
   store i32 %105, ptr %2, align 8, !tbaa !20
@@ -13932,23 +13932,23 @@ noteq_bitwise_or_rule.exit.i.thread:              ; preds = %.noteq_bitwise_or_r
 106:                                              ; preds = %noteq_bitwise_or_rule.exit.i.thread
   store i32 %104, ptr %2, align 8, !tbaa !20
   %107 = icmp eq i32 %105, 6000
-  br i1 %107, label %108, label %.thread583
+  br i1 %107, label %108, label %.thread625
 
 108:                                              ; preds = %106
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pre579 = load i32, ptr %8, align 8, !tbaa !21
-  %109 = icmp eq i32 %.pre579, 0
-  br i1 %109, label %.thread583, label %.thread423
+  %.pre598 = load i32, ptr %8, align 8, !tbaa !21
+  %109 = icmp eq i32 %.pre598, 0
+  br i1 %109, label %.thread625, label %.thread442
 
-.thread583:                                       ; preds = %106, %108
+.thread625:                                       ; preds = %106, %108
   %110 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 29) #5
-  %.not24.i404 = icmp eq ptr %110, null
-  br i1 %.not24.i404, label %120, label %111
+  %.not24.i423 = icmp eq ptr %110, null
+  br i1 %.not24.i423, label %120, label %111
 
-111:                                              ; preds = %.thread583
+111:                                              ; preds = %.thread625
   %112 = tail call fastcc ptr @bitwise_or_rule(ptr noundef nonnull %0)
-  %.not25.i405 = icmp eq ptr %112, null
-  br i1 %.not25.i405, label %120, label %113
+  %.not25.i424 = icmp eq ptr %112, null
+  br i1 %.not25.i424, label %120, label %113
 
 113:                                              ; preds = %111
   %114 = tail call ptr @_PyPegen_cmpop_expr_pair(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull %112) #5
@@ -13962,43 +13962,43 @@ noteq_bitwise_or_rule.exit.i.thread:              ; preds = %.noteq_bitwise_or_r
 
 .thread29.i:                                      ; preds = %116
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread423
+  br label %.thread442
 
-.thread423:                                       ; preds = %108, %.thread29.i
+.thread442:                                       ; preds = %108, %.thread29.i
   %118 = load i32, ptr %2, align 8, !tbaa !20
   %119 = add i32 %118, -1
   store i32 %119, ptr %2, align 8, !tbaa !20
   br label %compare_op_bitwise_or_pair_rule.exit.thread
 
-120:                                              ; preds = %.thread583, %111, %116
-  %.pr422 = load i32, ptr %8, align 8, !tbaa !21
+120:                                              ; preds = %.thread625, %111, %116
+  %.pr441 = load i32, ptr %8, align 8, !tbaa !21
   %121 = load i32, ptr %2, align 8, !tbaa !20
   %122 = add i32 %121, -1
   store i32 %122, ptr %2, align 8, !tbaa !20
   store i32 %57, ptr %11, align 8, !tbaa !22
-  %.not104.i = icmp eq i32 %.pr422, 0
+  %.not104.i = icmp eq i32 %.pr441, 0
   br i1 %.not104.i, label %123, label %compare_op_bitwise_or_pair_rule.exit.thread
 
 123:                                              ; preds = %120
   store i32 %121, ptr %2, align 8, !tbaa !20
   %124 = icmp eq i32 %122, 6000
-  br i1 %124, label %125, label %.thread585
+  br i1 %124, label %125, label %.thread627
 
 125:                                              ; preds = %123
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pre580 = load i32, ptr %8, align 8, !tbaa !21
-  %126 = icmp eq i32 %.pre580, 0
-  br i1 %126, label %.thread585, label %.thread430
+  %.pre599 = load i32, ptr %8, align 8, !tbaa !21
+  %126 = icmp eq i32 %.pre599, 0
+  br i1 %126, label %.thread627, label %.thread449
 
-.thread585:                                       ; preds = %123, %125
+.thread627:                                       ; preds = %123, %125
   %127 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 20) #5
-  %.not24.i408 = icmp eq ptr %127, null
-  br i1 %.not24.i408, label %137, label %128
+  %.not24.i427 = icmp eq ptr %127, null
+  br i1 %.not24.i427, label %137, label %128
 
-128:                                              ; preds = %.thread585
+128:                                              ; preds = %.thread627
   %129 = tail call fastcc ptr @bitwise_or_rule(ptr noundef nonnull %0)
-  %.not25.i409 = icmp eq ptr %129, null
-  br i1 %.not25.i409, label %137, label %130
+  %.not25.i428 = icmp eq ptr %129, null
+  br i1 %.not25.i428, label %137, label %130
 
 130:                                              ; preds = %128
   %131 = tail call ptr @_PyPegen_cmpop_expr_pair(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull %129) #5
@@ -14007,48 +14007,48 @@ noteq_bitwise_or_rule.exit.i.thread:              ; preds = %.noteq_bitwise_or_r
 
 133:                                              ; preds = %130
   %134 = tail call ptr @PyErr_Occurred() #5
-  %.not26.i410 = icmp eq ptr %134, null
-  br i1 %.not26.i410, label %137, label %.thread29.i411
+  %.not26.i429 = icmp eq ptr %134, null
+  br i1 %.not26.i429, label %137, label %.thread29.i430
 
-.thread29.i411:                                   ; preds = %133
+.thread29.i430:                                   ; preds = %133
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread430
+  br label %.thread449
 
-.thread430:                                       ; preds = %125, %.thread29.i411
+.thread449:                                       ; preds = %125, %.thread29.i430
   %135 = load i32, ptr %2, align 8, !tbaa !20
   %136 = add i32 %135, -1
   store i32 %136, ptr %2, align 8, !tbaa !20
   br label %compare_op_bitwise_or_pair_rule.exit.thread
 
-137:                                              ; preds = %.thread585, %128, %133
-  %.pr428 = load i32, ptr %8, align 8, !tbaa !21
+137:                                              ; preds = %.thread627, %128, %133
+  %.pr447 = load i32, ptr %8, align 8, !tbaa !21
   %138 = load i32, ptr %2, align 8, !tbaa !20
   %139 = add i32 %138, -1
   store i32 %139, ptr %2, align 8, !tbaa !20
   store i32 %57, ptr %11, align 8, !tbaa !22
-  %.not106.i = icmp eq i32 %.pr428, 0
+  %.not106.i = icmp eq i32 %.pr447, 0
   br i1 %.not106.i, label %140, label %compare_op_bitwise_or_pair_rule.exit.thread
 
 140:                                              ; preds = %137
   store i32 %138, ptr %2, align 8, !tbaa !20
   %141 = icmp eq i32 %139, 6000
-  br i1 %141, label %142, label %.thread816
+  br i1 %141, label %142, label %.thread882
 
 142:                                              ; preds = %140
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pre815 = load i32, ptr %8, align 8, !tbaa !21
-  %143 = icmp eq i32 %.pre815, 0
-  br i1 %143, label %.thread816, label %.thread655
+  %.pre857 = load i32, ptr %8, align 8, !tbaa !21
+  %143 = icmp eq i32 %.pre857, 0
+  br i1 %143, label %.thread882, label %.thread697
 
-.thread816:                                       ; preds = %140, %142
+.thread882:                                       ; preds = %140, %142
   %144 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 30) #5
-  %.not24.i648 = icmp eq ptr %144, null
-  br i1 %.not24.i648, label %154, label %145
+  %.not24.i690 = icmp eq ptr %144, null
+  br i1 %.not24.i690, label %154, label %145
 
-145:                                              ; preds = %.thread816
+145:                                              ; preds = %.thread882
   %146 = tail call fastcc ptr @bitwise_or_rule(ptr noundef nonnull %0)
-  %.not25.i649 = icmp eq ptr %146, null
-  br i1 %.not25.i649, label %154, label %147
+  %.not25.i691 = icmp eq ptr %146, null
+  br i1 %.not25.i691, label %154, label %147
 
 147:                                              ; preds = %145
   %148 = tail call ptr @_PyPegen_cmpop_expr_pair(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull %146) #5
@@ -14057,26 +14057,26 @@ noteq_bitwise_or_rule.exit.i.thread:              ; preds = %.noteq_bitwise_or_r
 
 150:                                              ; preds = %147
   %151 = tail call ptr @PyErr_Occurred() #5
-  %.not26.i650 = icmp eq ptr %151, null
-  br i1 %.not26.i650, label %154, label %.thread29.i651
+  %.not26.i692 = icmp eq ptr %151, null
+  br i1 %.not26.i692, label %154, label %.thread29.i693
 
-.thread29.i651:                                   ; preds = %150
+.thread29.i693:                                   ; preds = %150
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread655
+  br label %.thread697
 
-.thread655:                                       ; preds = %142, %.thread29.i651
+.thread697:                                       ; preds = %142, %.thread29.i693
   %152 = load i32, ptr %2, align 8, !tbaa !20
   %153 = add i32 %152, -1
   store i32 %153, ptr %2, align 8, !tbaa !20
   br label %compare_op_bitwise_or_pair_rule.exit.thread
 
-154:                                              ; preds = %.thread816, %145, %150
-  %.pr654 = load i32, ptr %8, align 8, !tbaa !21
+154:                                              ; preds = %.thread882, %145, %150
+  %.pr696 = load i32, ptr %8, align 8, !tbaa !21
   %155 = load i32, ptr %2, align 8, !tbaa !20
   %156 = add i32 %155, -1
   store i32 %156, ptr %2, align 8, !tbaa !20
   store i32 %57, ptr %11, align 8, !tbaa !22
-  %.not108.i = icmp eq i32 %.pr654, 0
+  %.not108.i = icmp eq i32 %.pr696, 0
   br i1 %.not108.i, label %157, label %compare_op_bitwise_or_pair_rule.exit.thread
 
 157:                                              ; preds = %154
@@ -14185,9 +14185,9 @@ compare_op_bitwise_or_pair_rule.exit:             ; preds = %181
   %199 = tail call ptr @PyErr_NoMemory() #5
   br label %_loop1_61_rule.exit.thread.sink.split
 
-compare_op_bitwise_or_pair_rule.exit.thread:      ; preds = %154, %137, %120, %noteq_bitwise_or_rule.exit.i.thread, %eq_bitwise_or_rule.exit.i.thread, %.thread655, %.thread430, %.thread423, %noteq_bitwise_or_rule.exit.i.thread.thread417, %eq_bitwise_or_rule.exit.i.thread.thread412, %noteq_bitwise_or_rule.exit.i.thread.thread, %eq_bitwise_or_rule.exit.i.thread.thread, %179, %173, %167, %161, %54, %compare_op_bitwise_or_pair_rule.exit
-  %.sink396 = phi i32 [ %180, %179 ], [ %174, %173 ], [ %168, %167 ], [ %162, %161 ], [ %55, %54 ], [ %183, %compare_op_bitwise_or_pair_rule.exit ], [ %74, %eq_bitwise_or_rule.exit.i.thread.thread ], [ %103, %noteq_bitwise_or_rule.exit.i.thread.thread ], [ %64, %eq_bitwise_or_rule.exit.i.thread.thread412 ], [ %81, %noteq_bitwise_or_rule.exit.i.thread.thread417 ], [ %119, %.thread423 ], [ %136, %.thread430 ], [ %153, %.thread655 ], [ %156, %154 ], [ %76, %eq_bitwise_or_rule.exit.i.thread ], [ %105, %noteq_bitwise_or_rule.exit.i.thread ], [ %122, %120 ], [ %139, %137 ]
-  %200 = add i32 %.sink396, -1
+compare_op_bitwise_or_pair_rule.exit.thread:      ; preds = %154, %137, %120, %noteq_bitwise_or_rule.exit.i.thread, %eq_bitwise_or_rule.exit.i.thread, %.thread697, %.thread449, %.thread442, %noteq_bitwise_or_rule.exit.i.thread.thread436, %eq_bitwise_or_rule.exit.i.thread.thread431, %noteq_bitwise_or_rule.exit.i.thread.thread, %eq_bitwise_or_rule.exit.i.thread.thread, %179, %173, %167, %161, %54, %compare_op_bitwise_or_pair_rule.exit
+  %.sink415 = phi i32 [ %180, %179 ], [ %174, %173 ], [ %168, %167 ], [ %162, %161 ], [ %55, %54 ], [ %183, %compare_op_bitwise_or_pair_rule.exit ], [ %74, %eq_bitwise_or_rule.exit.i.thread.thread ], [ %103, %noteq_bitwise_or_rule.exit.i.thread.thread ], [ %64, %eq_bitwise_or_rule.exit.i.thread.thread431 ], [ %81, %noteq_bitwise_or_rule.exit.i.thread.thread436 ], [ %119, %.thread442 ], [ %136, %.thread449 ], [ %153, %.thread697 ], [ %156, %154 ], [ %76, %eq_bitwise_or_rule.exit.i.thread ], [ %105, %noteq_bitwise_or_rule.exit.i.thread ], [ %122, %120 ], [ %139, %137 ]
+  %200 = add i32 %.sink415, -1
   store i32 %200, ptr %2, align 8, !tbaa !20
   store i32 %.052.i, ptr %11, align 8, !tbaa !22
   %201 = icmp eq i64 %.053.i, 0
@@ -14671,8 +14671,8 @@ define internal fastcc ptr @star_expressions_rule(ptr noundef %0) unnamed_addr #
 30:                                               ; preds = %.thread, %24
   %.pn.in = phi ptr [ %19, %.thread ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in180 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in180, align 4, !tbaa !26
+  %.in191 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in191, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call fastcc ptr @star_expression_rule(ptr noundef nonnull %0)
@@ -15365,9 +15365,9 @@ invalid_starred_expression_unpacking_rule.exit:   ; preds = %63, %38, %66
   br label %.thread79
 
 .thread79:                                        ; preds = %.thread79.sink.split, %32
-  %.sink96 = phi i32 [ %33, %32 ], [ %96, %.thread79.sink.split ]
+  %.sink102 = phi i32 [ %33, %32 ], [ %96, %.thread79.sink.split ]
   %.0 = phi ptr [ null, %32 ], [ %.0.ph, %.thread79.sink.split ]
-  %97 = add i32 %.sink96, -1
+  %97 = add i32 %.sink102, -1
   store i32 %97, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -15397,9 +15397,9 @@ define internal fastcc ptr @star_named_expression_rule(ptr noundef %0) unnamed_a
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread70
+  br i1 %15, label %20, label %.thread74
 
-.thread70:                                        ; preds = %10
+.thread74:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -15424,11 +15424,11 @@ define internal fastcc ptr @star_named_expression_rule(ptr noundef %0) unnamed_a
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread70, %24
-  %.pn.in = phi ptr [ %19, %.thread70 ], [ %29, %24 ]
+30:                                               ; preds = %.thread74, %24
+  %.pn.in = phi ptr [ %19, %.thread74 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in73 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in73, align 4, !tbaa !26
+  %.in77 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in77, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 16) #5
@@ -15662,40 +15662,40 @@ define internal fastcc ptr @_loop0_57_rule(ptr noundef %0) unnamed_addr #0 {
 
 .lr.ph.preheader:                                 ; preds = %.preheader76
   %19 = tail call fastcc ptr @star_named_expression_rule(ptr noundef nonnull %0)
-  %.not7097 = icmp eq ptr %19, null
-  br i1 %.not7097, label %.critedge, label %.lr.ph101
+  %.not70100 = icmp eq ptr %19, null
+  br i1 %.not70100, label %.critedge, label %.lr.ph104
 
 .lr.ph:                                           ; preds = %28
   %20 = tail call fastcc ptr @star_named_expression_rule(ptr noundef nonnull %0)
   %.not70 = icmp eq ptr %20, null
-  br i1 %.not70, label %.critedge, label %.lr.ph101, !llvm.loop !78
+  br i1 %.not70, label %.critedge, label %.lr.ph104, !llvm.loop !78
 
-.lr.ph101:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph104:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %21 = phi ptr [ %20, %.lr.ph ], [ %19, %.lr.ph.preheader ]
-  %.05981100 = phi i64 [ %.160, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.0588299 = phi i64 [ %29, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0548398 = phi ptr [ %.256, %.lr.ph ], [ %13, %.lr.ph.preheader ]
-  %22 = icmp eq i64 %.0588299, %.05981100
+  %.05981103 = phi i64 [ %.160, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.05882102 = phi i64 [ %29, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.05483101 = phi ptr [ %.256, %.lr.ph ], [ %13, %.lr.ph.preheader ]
+  %22 = icmp eq i64 %.05882102, %.05981103
   br i1 %22, label %23, label %28
 
-23:                                               ; preds = %.lr.ph101
-  %24 = shl i64 %.0588299, 1
-  %25 = shl i64 %.0588299, 4
-  %26 = tail call ptr @PyMem_Realloc(ptr noundef %.0548398, i64 noundef %25) #5
+23:                                               ; preds = %.lr.ph104
+  %24 = shl i64 %.05882102, 1
+  %25 = shl i64 %.05882102, 4
+  %26 = tail call ptr @PyMem_Realloc(ptr noundef %.05483101, i64 noundef %25) #5
   %.not71.not = icmp eq ptr %26, null
   br i1 %.not71.not, label %.thread, label %28
 
 .thread:                                          ; preds = %23
-  tail call void @PyMem_Free(ptr noundef %.0548398) #5
+  tail call void @PyMem_Free(ptr noundef %.05483101) #5
   store i32 1, ptr %8, align 8, !tbaa !21
   %27 = tail call ptr @PyErr_NoMemory() #5
   br label %.critedge74
 
-28:                                               ; preds = %23, %.lr.ph101
-  %.160 = phi i64 [ %.05981100, %.lr.ph101 ], [ %24, %23 ]
-  %.256 = phi ptr [ %.0548398, %.lr.ph101 ], [ %26, %23 ]
-  %29 = add i64 %.0588299, 1
-  %30 = getelementptr ptr, ptr %.256, i64 %.0588299
+28:                                               ; preds = %23, %.lr.ph104
+  %.160 = phi i64 [ %.05981103, %.lr.ph104 ], [ %24, %23 ]
+  %.256 = phi ptr [ %.05483101, %.lr.ph104 ], [ %26, %23 ]
+  %29 = add i64 %.05882102, 1
+  %30 = getelementptr ptr, ptr %.256, i64 %.05882102
   store ptr %21, ptr %30, align 8, !tbaa !25
   %31 = load i32, ptr %11, align 8, !tbaa !22
   %32 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -15789,7 +15789,7 @@ define internal fastcc ptr @args_rule(ptr noundef %0) unnamed_addr #0 {
   %19 = load ptr, ptr %18, align 8, !tbaa !24
   %20 = sext i32 %14 to i64
   %21 = getelementptr ptr, ptr %19, i64 %20
-  %.pre142 = load i32, ptr %2, align 8, !tbaa !20
+  %.pre151 = load i32, ptr %2, align 8, !tbaa !20
   br label %33
 
 22:                                               ; preds = %12
@@ -15809,49 +15809,49 @@ define internal fastcc ptr @args_rule(ptr noundef %0) unnamed_addr #0 {
   %30 = load ptr, ptr %29, align 8, !tbaa !24
   %31 = sext i32 %14 to i64
   %32 = getelementptr ptr, ptr %30, i64 %31
-  %.pre143 = load i32, ptr %2, align 8, !tbaa !20
+  %.pre152 = load i32, ptr %2, align 8, !tbaa !20
   br i1 %28, label %33, label %.thread108
 
 33:                                               ; preds = %.thread, %27
-  %34 = phi i32 [ %.pre142, %.thread ], [ %.pre143, %27 ]
+  %34 = phi i32 [ %.pre151, %.thread ], [ %.pre152, %27 ]
   %.pn.in = phi ptr [ %21, %.thread ], [ %32, %27 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in137 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %35 = load i32, ptr %.in137, align 4, !tbaa !26
+  %.in146 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %35 = load i32, ptr %.in146, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %36 = load i32, ptr %.in, align 8, !tbaa !29
   %37 = add i32 %34, 1
   store i32 %37, ptr %2, align 8, !tbaa !20
   %38 = icmp eq i32 %34, 6000
-  br i1 %38, label %39, label %.thread127
+  br i1 %38, label %39, label %.thread136
 
 39:                                               ; preds = %33
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre125 = load i32, ptr %8, align 8, !tbaa !21
   %40 = icmp eq i32 %.pre125, 0
-  %.pre146 = load i32, ptr %2, align 8, !tbaa !20
-  br i1 %40, label %.thread127, label %.sink.split
+  %.pre155 = load i32, ptr %2, align 8, !tbaa !20
+  br i1 %40, label %.thread136, label %.sink.split
 
-.thread127:                                       ; preds = %39, %33
-  %41 = phi i32 [ %37, %33 ], [ %.pre146, %39 ]
+.thread136:                                       ; preds = %39, %33
+  %41 = phi i32 [ %37, %33 ], [ %.pre155, %39 ]
   %42 = add i32 %41, 1
   store i32 %42, ptr %2, align 8, !tbaa !20
   %43 = icmp eq i32 %41, 6000
-  br i1 %43, label %44, label %.thread147
+  br i1 %43, label %44, label %.thread167
 
-44:                                               ; preds = %.thread127
+44:                                               ; preds = %.thread136
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pre144 = load i32, ptr %8, align 8, !tbaa !21
-  %45 = icmp eq i32 %.pre144, 0
-  br i1 %45, label %.thread147, label %_tmp_159_rule.exit.thread
+  %.pre153 = load i32, ptr %8, align 8, !tbaa !21
+  %45 = icmp eq i32 %.pre153, 0
+  br i1 %45, label %.thread167, label %_tmp_159_rule.exit.thread
 
-.thread147:                                       ; preds = %.thread127, %44
+.thread167:                                       ; preds = %.thread136, %44
   %46 = load i32, ptr %13, align 8, !tbaa !22
   %47 = tail call fastcc ptr @starred_expression_rule(ptr noundef nonnull %0)
   %.not28.i = icmp eq ptr %47, null
   br i1 %.not28.i, label %48, label %56
 
-48:                                               ; preds = %.thread147
+48:                                               ; preds = %.thread167
   store i32 %46, ptr %13, align 8, !tbaa !22
   %49 = load i32, ptr %8, align 8, !tbaa !21
   %.not29.i = icmp eq i32 %49, 0
@@ -15872,8 +15872,8 @@ _tmp_159_rule.exit.thread:                        ; preds = %50, %52, %44, %48
   %55 = add i32 %54, -1
   br label %.sink.split
 
-56:                                               ; preds = %52, %.thread147
-  %.0.i = phi ptr [ %47, %.thread147 ], [ %51, %52 ]
+56:                                               ; preds = %52, %.thread167
+  %.0.i = phi ptr [ %47, %.thread167 ], [ %51, %52 ]
   %57 = load i32, ptr %2, align 8, !tbaa !20
   %58 = add i32 %57, -1
   store i32 %58, ptr %2, align 8, !tbaa !20
@@ -15882,7 +15882,7 @@ _tmp_159_rule.exit.thread:                        ; preds = %50, %52, %44, %48
   br i1 %.not23.i, label %..sink.split_crit_edge, label %_gather_87_rule.exit
 
 ..sink.split_crit_edge:                           ; preds = %56
-  %.pre145 = load i32, ptr %2, align 8, !tbaa !20
+  %.pre154 = load i32, ptr %2, align 8, !tbaa !20
   br label %.sink.split
 
 _gather_87_rule.exit:                             ; preds = %56
@@ -15908,8 +15908,8 @@ _gather_87_rule.exit:                             ; preds = %56
   br i1 %.not.i88, label %68, label %_tmp_88_rule.exit.thread
 
 _tmp_88_rule.exit.thread:                         ; preds = %66
-  %storemerge.in131 = load i32, ptr %2, align 8, !tbaa !20
-  %storemerge132 = add i32 %storemerge.in131, -1
+  %storemerge.in140 = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge141 = add i32 %storemerge.in140, -1
   br label %.thread115
 
 68:                                               ; preds = %66
@@ -15929,15 +15929,15 @@ _tmp_88_rule.exit.thread:                         ; preds = %66
 
 _tmp_88_rule.exit:                                ; preds = %73, %71
   %.0.i89.ph = phi ptr [ %72, %71 ], [ null, %73 ]
-  %.pr129 = load i32, ptr %8, align 8, !tbaa !21
+  %.pr138 = load i32, ptr %8, align 8, !tbaa !21
   %storemerge.in = load i32, ptr %2, align 8, !tbaa !20
   %storemerge = add i32 %storemerge.in, -1
   store i32 %storemerge, ptr %2, align 8, !tbaa !20
-  %.not83 = icmp eq i32 %.pr129, 0
+  %.not83 = icmp eq i32 %.pr138, 0
   br i1 %.not83, label %74, label %.thread115
 
 .thread115:                                       ; preds = %_tmp_88_rule.exit.thread, %_tmp_88_rule.exit
-  %storemerge134 = phi i32 [ %storemerge132, %_tmp_88_rule.exit.thread ], [ %storemerge, %_tmp_88_rule.exit ]
+  %storemerge143 = phi i32 [ %storemerge141, %_tmp_88_rule.exit.thread ], [ %storemerge, %_tmp_88_rule.exit ]
   store i32 %14, ptr %13, align 8, !tbaa !22
   br label %.thread108
 
@@ -15972,7 +15972,7 @@ _tmp_88_rule.exit:                                ; preds = %73, %71
   br label %.thread108
 
 .sink.split:                                      ; preds = %..sink.split_crit_edge, %_tmp_159_rule.exit.thread, %39
-  %92 = phi i32 [ %.pre145, %..sink.split_crit_edge ], [ %55, %_tmp_159_rule.exit.thread ], [ %.pre146, %39 ]
+  %92 = phi i32 [ %.pre154, %..sink.split_crit_edge ], [ %55, %_tmp_159_rule.exit.thread ], [ %.pre155, %39 ]
   %93 = add i32 %92, -1
   store i32 %93, ptr %2, align 8, !tbaa !20
   br label %94
@@ -16058,9 +16058,9 @@ CHECK_CALL_NULL_ALLOWED.exit96:                   ; preds = %CHECK_CALL_NULL_ALL
   br label %.thread108
 
 .thread108:                                       ; preds = %27, %94, %.thread115, %125, %101, %90, %77, %25, %.thread112, %10
-  %.sink136 = phi i32 [ %126, %125 ], [ %102, %101 ], [ %91, %90 ], [ %78, %77 ], [ %26, %25 ], [ %128, %.thread112 ], [ %11, %10 ], [ %storemerge134, %.thread115 ], [ %95, %94 ], [ %.pre143, %27 ]
+  %.sink145 = phi i32 [ %126, %125 ], [ %102, %101 ], [ %91, %90 ], [ %78, %77 ], [ %26, %25 ], [ %128, %.thread112 ], [ %11, %10 ], [ %storemerge143, %.thread115 ], [ %95, %94 ], [ %.pre152, %27 ]
   %.0 = phi ptr [ null, %125 ], [ null, %101 ], [ null, %90 ], [ null, %77 ], [ null, %25 ], [ %.268, %.thread112 ], [ null, %10 ], [ null, %.thread115 ], [ null, %94 ], [ null, %27 ]
-  %129 = add i32 %.sink136, -1
+  %129 = add i32 %.sink145, -1
   store i32 %129, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -16097,66 +16097,66 @@ define internal fastcc ptr @invalid_arguments_rule(ptr noundef %0) unnamed_addr 
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %17 = icmp eq i32 %.pre, 0
-  %.pr368 = load i32, ptr %2, align 8, !tbaa !20
+  %.pr392 = load i32, ptr %2, align 8, !tbaa !20
   br i1 %17, label %..thread_crit_edge, label %_tmp_103_rule.exit.thread.sink.split
 
 ..thread_crit_edge:                               ; preds = %16
-  %.pre412 = load i32, ptr %11, align 8, !tbaa !22
+  %.pre436 = load i32, ptr %11, align 8, !tbaa !22
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %10
-  %18 = phi i32 [ %12, %10 ], [ %.pre412, %..thread_crit_edge ]
-  %19 = phi i32 [ %14, %10 ], [ %.pr368, %..thread_crit_edge ]
+  %18 = phi i32 [ %12, %10 ], [ %.pre436, %..thread_crit_edge ]
+  %19 = phi i32 [ %14, %10 ], [ %.pr392, %..thread_crit_edge ]
   %20 = add i32 %19, 1
   store i32 %20, ptr %2, align 8, !tbaa !20
   %21 = icmp eq i32 %19, 6000
-  br i1 %21, label %22, label %.thread369
+  br i1 %21, label %22, label %.thread393
 
 22:                                               ; preds = %.thread
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre363 = load i32, ptr %8, align 8, !tbaa !21
   %23 = icmp eq i32 %.pre363, 0
-  %.pr372 = load i32, ptr %2, align 8, !tbaa !20
-  br i1 %23, label %.thread369, label %.sink.split
+  %.pr396 = load i32, ptr %2, align 8, !tbaa !20
+  br i1 %23, label %.thread393, label %.sink.split
 
-.thread369:                                       ; preds = %22, %.thread
-  %24 = phi i32 [ %20, %.thread ], [ %.pr372, %22 ]
+.thread393:                                       ; preds = %22, %.thread
+  %24 = phi i32 [ %20, %.thread ], [ %.pr396, %22 ]
   %25 = add i32 %24, 1
   store i32 %25, ptr %2, align 8, !tbaa !20
   %26 = icmp eq i32 %24, 6000
-  br i1 %26, label %27, label %.thread373
+  br i1 %26, label %27, label %.thread397
 
-27:                                               ; preds = %.thread369
+27:                                               ; preds = %.thread393
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre364 = load i32, ptr %8, align 8, !tbaa !21
   %28 = icmp eq i32 %.pre364, 0
-  %.pre415 = load i32, ptr %2, align 8, !tbaa !20
-  br i1 %28, label %.thread373, label %_tmp_161_rule.exit.thread227.sink.split
+  %.pre439 = load i32, ptr %2, align 8, !tbaa !20
+  br i1 %28, label %.thread397, label %_tmp_161_rule.exit.thread227.sink.split
 
-.thread373:                                       ; preds = %27, %.thread369
-  %29 = phi i32 [ %25, %.thread369 ], [ %.pre415, %27 ]
+.thread397:                                       ; preds = %27, %.thread393
+  %29 = phi i32 [ %25, %.thread393 ], [ %.pre439, %27 ]
   %30 = add i32 %29, 1
   store i32 %30, ptr %2, align 8, !tbaa !20
   %31 = icmp eq i32 %29, 6000
-  br i1 %31, label %32, label %.thread416
+  br i1 %31, label %32, label %.thread465
 
-32:                                               ; preds = %.thread373
+32:                                               ; preds = %.thread397
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pre413 = load i32, ptr %8, align 8, !tbaa !21
-  %33 = icmp eq i32 %.pre413, 0
-  br i1 %33, label %.thread416, label %_tmp_159_rule.exit.thread
+  %.pre437 = load i32, ptr %8, align 8, !tbaa !21
+  %33 = icmp eq i32 %.pre437, 0
+  br i1 %33, label %.thread465, label %_tmp_159_rule.exit.thread
 
-.thread416:                                       ; preds = %.thread373, %32
+.thread465:                                       ; preds = %.thread397, %32
   %34 = load i32, ptr %11, align 8, !tbaa !22
   %35 = tail call fastcc ptr @starred_expression_rule(ptr noundef nonnull %0)
-  %.not28.i392 = icmp eq ptr %35, null
-  br i1 %.not28.i392, label %36, label %45
+  %.not28.i416 = icmp eq ptr %35, null
+  br i1 %.not28.i416, label %36, label %45
 
-36:                                               ; preds = %.thread416
+36:                                               ; preds = %.thread465
   store i32 %34, ptr %11, align 8, !tbaa !22
   %37 = load i32, ptr %8, align 8, !tbaa !21
-  %.not29.i393 = icmp eq i32 %37, 0
-  br i1 %.not29.i393, label %38, label %_tmp_159_rule.exit.thread
+  %.not29.i417 = icmp eq i32 %37, 0
+  br i1 %.not29.i417, label %38, label %_tmp_159_rule.exit.thread
 
 38:                                               ; preds = %36
   %39 = tail call fastcc ptr @_tmp_85_rule(ptr noundef nonnull %0)
@@ -16177,8 +16177,8 @@ _tmp_159_rule.exit.thread:                        ; preds = %32, %36, %42
   %44 = add i32 %43, -1
   br label %_tmp_161_rule.exit.thread227.sink.split
 
-45:                                               ; preds = %40, %.thread416
-  %.0.i = phi ptr [ %35, %.thread416 ], [ %39, %40 ]
+45:                                               ; preds = %40, %.thread465
+  %.0.i = phi ptr [ %35, %.thread465 ], [ %39, %40 ]
   %46 = load i32, ptr %2, align 8, !tbaa !20
   %47 = add i32 %46, -1
   store i32 %47, ptr %2, align 8, !tbaa !20
@@ -16187,7 +16187,7 @@ _tmp_159_rule.exit.thread:                        ; preds = %32, %36, %42
   br i1 %.not23.i.i, label %._tmp_161_rule.exit.thread227.sink.split_crit_edge, label %_gather_87_rule.exit.i
 
 ._tmp_161_rule.exit.thread227.sink.split_crit_edge: ; preds = %45
-  %.pre414 = load i32, ptr %2, align 8, !tbaa !20
+  %.pre438 = load i32, ptr %2, align 8, !tbaa !20
   br label %_tmp_161_rule.exit.thread227.sink.split
 
 _gather_87_rule.exit.i:                           ; preds = %45
@@ -16209,7 +16209,7 @@ _gather_87_rule.exit.i:                           ; preds = %45
   br i1 %.not27.i199, label %_tmp_161_rule.exit.thread227, label %_tmp_161_rule.exit
 
 _tmp_161_rule.exit.thread227.sink.split:          ; preds = %._tmp_161_rule.exit.thread227.sink.split_crit_edge, %_tmp_159_rule.exit.thread, %27
-  %56 = phi i32 [ %.pre414, %._tmp_161_rule.exit.thread227.sink.split_crit_edge ], [ %44, %_tmp_159_rule.exit.thread ], [ %.pre415, %27 ]
+  %56 = phi i32 [ %.pre438, %._tmp_161_rule.exit.thread227.sink.split_crit_edge ], [ %44, %_tmp_159_rule.exit.thread ], [ %.pre439, %27 ]
   %57 = add i32 %56, -1
   store i32 %57, ptr %2, align 8, !tbaa !20
   br label %_tmp_161_rule.exit.thread227
@@ -16227,8 +16227,8 @@ _tmp_161_rule.exit:                               ; preds = %54
   br i1 %.not27.i, label %63, label %69
 
 .sink.split:                                      ; preds = %22, %_tmp_161_rule.exit.thread227
-  %.pr372.sink = phi i32 [ %58, %_tmp_161_rule.exit.thread227 ], [ %.pr372, %22 ]
-  %62 = add i32 %.pr372.sink, -1
+  %.pr396.sink = phi i32 [ %58, %_tmp_161_rule.exit.thread227 ], [ %.pr396, %22 ]
+  %62 = add i32 %.pr396.sink, -1
   store i32 %62, ptr %2, align 8, !tbaa !20
   br label %63
 
@@ -16268,11 +16268,11 @@ _tmp_103_rule.exit.thread.thread:                 ; preds = %63
 
 77:                                               ; preds = %73
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pr397 = load i32, ptr %2, align 8, !tbaa !20
+  %.pr421 = load i32, ptr %2, align 8, !tbaa !20
   br label %78
 
 78:                                               ; preds = %77, %73
-  %79 = phi i32 [ %.pr397, %77 ], [ %75, %73 ]
+  %79 = phi i32 [ %.pr421, %77 ], [ %75, %73 ]
   %80 = load i32, ptr %8, align 8, !tbaa !21
   %.not.i188 = icmp eq i32 %80, 0
   br i1 %.not.i188, label %81, label %_tmp_103_rule.exit.thread.sink.split
@@ -16281,20 +16281,20 @@ _tmp_103_rule.exit.thread.thread:                 ; preds = %63
   %82 = add i32 %79, 1
   store i32 %82, ptr %2, align 8, !tbaa !20
   %83 = icmp eq i32 %79, 6000
-  br i1 %83, label %84, label %.thread375
+  br i1 %83, label %84, label %.thread399
 
 84:                                               ; preds = %81
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre366 = load i32, ptr %8, align 8, !tbaa !21
   %85 = icmp eq i32 %.pre366, 0
-  br i1 %85, label %.thread375, label %_gather_105_rule.exit.thread275
+  br i1 %85, label %.thread399, label %_gather_105_rule.exit.thread275
 
-.thread375:                                       ; preds = %81, %84
+.thread399:                                       ; preds = %81, %84
   %86 = tail call fastcc ptr @starred_expression_rule(ptr noundef nonnull %0)
   %.not19.i = icmp eq ptr %86, null
   br i1 %.not19.i, label %_gather_105_rule.exit.thread275, label %87
 
-87:                                               ; preds = %.thread375
+87:                                               ; preds = %.thread399
   %88 = tail call i32 @_PyPegen_lookahead_with_int(i32 noundef 0, ptr noundef nonnull @_PyPegen_expect_token, ptr noundef nonnull %0, i32 noundef 22) #5
   %.not20.i = icmp eq i32 %88, 0
   br i1 %.not20.i, label %_gather_105_rule.exit.thread275, label %89
@@ -16421,8 +16421,8 @@ _tmp_103_rule.exit.thread.thread:                 ; preds = %63
   br i1 %exitcond.not, label %_gather_105_rule.exit, label %131, !llvm.loop !81
 
 _gather_105_rule.exit.thread275.sink.split.sink.split: ; preds = %115, %.critedge.i
-  %.054.i344.lcssa420.sink = phi ptr [ %.054.i335, %.critedge.i ], [ %.054.i344, %115 ]
-  tail call void @PyMem_Free(ptr noundef %.054.i344.lcssa420.sink) #5
+  %.054.i344.lcssa469.sink = phi ptr [ %.054.i335, %.critedge.i ], [ %.054.i344, %115 ]
+  tail call void @PyMem_Free(ptr noundef %.054.i344.lcssa469.sink) #5
   br label %_gather_105_rule.exit.thread275.sink.split
 
 _gather_105_rule.exit.thread275.sink.split:       ; preds = %_gather_105_rule.exit.thread275.sink.split.sink.split, %95
@@ -16430,7 +16430,7 @@ _gather_105_rule.exit.thread275.sink.split:       ; preds = %_gather_105_rule.ex
   %137 = tail call ptr @PyErr_NoMemory() #5
   br label %_gather_105_rule.exit.thread275
 
-_gather_105_rule.exit.thread275:                  ; preds = %_gather_105_rule.exit.thread275.sink.split, %.thread375, %87, %98, %93, %84
+_gather_105_rule.exit.thread275:                  ; preds = %_gather_105_rule.exit.thread275.sink.split, %.thread399, %87, %98, %93, %84
   %storemerge.in.i266 = load i32, ptr %2, align 8, !tbaa !20
   %storemerge.i267 = add i32 %storemerge.in.i266, -1
   br label %_tmp_103_rule.exit.thread.sink.split
@@ -16465,15 +16465,15 @@ _gather_105_rule.exit:                            ; preds = %131, %.preheader
   br label %.thread307
 
 _tmp_103_rule.exit.thread.sink.split:             ; preds = %78, %67, %16, %_gather_105_rule.exit.thread275
-  %.pr368.sink = phi i32 [ %storemerge.i267, %_gather_105_rule.exit.thread275 ], [ %.pr368, %16 ], [ %.pre365, %67 ], [ %79, %78 ]
-  %150 = add i32 %.pr368.sink, -1
+  %.pr392.sink = phi i32 [ %storemerge.i267, %_gather_105_rule.exit.thread275 ], [ %.pr392, %16 ], [ %.pre365, %67 ], [ %79, %78 ]
+  %150 = add i32 %.pr392.sink, -1
   store i32 %150, ptr %2, align 8, !tbaa !20
   br label %_tmp_103_rule.exit.thread
 
 _tmp_103_rule.exit.thread:                        ; preds = %_tmp_103_rule.exit.thread.sink.split, %69, %_gather_105_rule.exit
-  %.pr377 = load i32, ptr %8, align 8, !tbaa !21
+  %.pr401 = load i32, ptr %8, align 8, !tbaa !21
   store i32 %12, ptr %11, align 8, !tbaa !22
-  %.not155 = icmp eq i32 %.pr377, 0
+  %.not155 = icmp eq i32 %.pr401, 0
   br i1 %.not155, label %151, label %.thread307
 
 151:                                              ; preds = %_tmp_103_rule.exit.thread
@@ -16805,7 +16805,7 @@ define internal fastcc ptr @kwargs_rule(ptr noundef %0) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i32, ptr %8, align 8, !tbaa !21
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %.sink.split121
+  br i1 %.not, label %10, label %.sink.split132
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16882,16 +16882,16 @@ _gather_92_rule.exit:                             ; preds = %34
 39:                                               ; preds = %_gather_92_rule.exit
   %40 = tail call ptr @_PyPegen_join_sequences(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %36) #5
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %.sink.split121
+  br i1 %41, label %42, label %.sink.split132
 
 42:                                               ; preds = %39
   %43 = tail call ptr @PyErr_Occurred() #5
   %.not49 = icmp eq ptr %43, null
-  br i1 %.not49, label %.sink.split121, label %.thread93
+  br i1 %.not49, label %.sink.split132, label %.thread93
 
 .thread93:                                        ; preds = %42
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.sink.split121
+  br label %.sink.split132
 
 .sink.split:                                      ; preds = %32, %34, %30, %.thread, %19, %16
   %44 = load i32, ptr %2, align 8, !tbaa !20
@@ -16909,23 +16909,23 @@ thread-pre-split:                                 ; preds = %24, %.sink.split, %
   %49 = add i32 %46, 1
   store i32 %49, ptr %2, align 8, !tbaa !20
   %50 = icmp eq i32 %46, 6000
-  br i1 %50, label %51, label %.thread115
+  br i1 %50, label %51, label %.thread126
 
 51:                                               ; preds = %48
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre113 = load i32, ptr %8, align 8, !tbaa !21
   %52 = icmp eq i32 %.pre113, 0
-  br i1 %52, label %.thread115, label %.sink.split118
+  br i1 %52, label %.thread126, label %.sink.split129
 
-.thread115:                                       ; preds = %48, %51
+.thread126:                                       ; preds = %48, %51
   %53 = tail call fastcc ptr @kwarg_or_starred_rule(ptr noundef nonnull %0)
   %.not22.i68 = icmp eq ptr %53, null
-  br i1 %.not22.i68, label %.sink.split118, label %54
+  br i1 %.not22.i68, label %.sink.split129, label %54
 
-54:                                               ; preds = %.thread115
+54:                                               ; preds = %.thread126
   %55 = tail call fastcc ptr @_loop0_89_rule(ptr noundef nonnull %0)
   %.not23.i69 = icmp eq ptr %55, null
-  br i1 %.not23.i69, label %.sink.split118, label %_gather_90_rule.exit74
+  br i1 %.not23.i69, label %.sink.split129, label %_gather_90_rule.exit74
 
 _gather_90_rule.exit74:                           ; preds = %54
   %56 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %0, ptr noundef nonnull %53, ptr noundef nonnull %55) #5
@@ -16933,15 +16933,15 @@ _gather_90_rule.exit74:                           ; preds = %54
   %58 = add i32 %57, -1
   store i32 %58, ptr %2, align 8, !tbaa !20
   %.not51 = icmp eq ptr %56, null
-  br i1 %.not51, label %61, label %.sink.split121
+  br i1 %.not51, label %61, label %.sink.split132
 
-.sink.split118:                                   ; preds = %.thread115, %54, %51
+.sink.split129:                                   ; preds = %.thread126, %54, %51
   %59 = load i32, ptr %2, align 8, !tbaa !20
   %60 = add i32 %59, -1
   br label %61
 
-61:                                               ; preds = %.sink.split118, %_gather_90_rule.exit74
-  %62 = phi i32 [ %58, %_gather_90_rule.exit74 ], [ %60, %.sink.split118 ]
+61:                                               ; preds = %.sink.split129, %_gather_90_rule.exit74
+  %62 = phi i32 [ %58, %_gather_90_rule.exit74 ], [ %60, %.sink.split129 ]
   store i32 %12, ptr %11, align 8, !tbaa !22
   %63 = load i32, ptr %8, align 8, !tbaa !21
   %.not52 = icmp eq i32 %63, 0
@@ -16951,51 +16951,51 @@ _gather_90_rule.exit74:                           ; preds = %54
   %65 = add i32 %62, 1
   store i32 %65, ptr %2, align 8, !tbaa !20
   %66 = icmp eq i32 %62, 6000
-  br i1 %66, label %67, label %.thread130
+  br i1 %66, label %67, label %.thread154
 
 67:                                               ; preds = %64
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pre129 = load i32, ptr %8, align 8, !tbaa !21
-  %68 = icmp eq i32 %.pre129, 0
-  br i1 %68, label %.thread130, label %_gather_92_rule.exit124.thread
+  %.pre140 = load i32, ptr %8, align 8, !tbaa !21
+  %68 = icmp eq i32 %.pre140, 0
+  br i1 %68, label %.thread154, label %_gather_92_rule.exit135.thread
 
-.thread130:                                       ; preds = %64, %67
+.thread154:                                       ; preds = %64, %67
   %69 = tail call fastcc ptr @kwarg_or_double_starred_rule(ptr noundef nonnull %0)
-  %.not22.i122 = icmp eq ptr %69, null
-  br i1 %.not22.i122, label %_gather_92_rule.exit124.thread, label %70
+  %.not22.i133 = icmp eq ptr %69, null
+  br i1 %.not22.i133, label %_gather_92_rule.exit135.thread, label %70
 
-70:                                               ; preds = %.thread130
+70:                                               ; preds = %.thread154
   %71 = tail call fastcc ptr @_loop0_91_rule(ptr noundef nonnull %0)
-  %.not23.i123 = icmp eq ptr %71, null
-  br i1 %.not23.i123, label %_gather_92_rule.exit124.thread, label %_gather_92_rule.exit124
+  %.not23.i134 = icmp eq ptr %71, null
+  br i1 %.not23.i134, label %_gather_92_rule.exit135.thread, label %_gather_92_rule.exit135
 
-_gather_92_rule.exit124.thread:                   ; preds = %.thread130, %70, %67
-  %storemerge.in.i126 = load i32, ptr %2, align 8, !tbaa !20
-  %storemerge.i127 = add i32 %storemerge.in.i126, -1
-  store i32 %storemerge.i127, ptr %2, align 8, !tbaa !20
+_gather_92_rule.exit135.thread:                   ; preds = %.thread154, %70, %67
+  %storemerge.in.i137 = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge.i138 = add i32 %storemerge.in.i137, -1
+  store i32 %storemerge.i138, ptr %2, align 8, !tbaa !20
   br label %73
 
-_gather_92_rule.exit124:                          ; preds = %70
+_gather_92_rule.exit135:                          ; preds = %70
   %72 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %0, ptr noundef nonnull %69, ptr noundef nonnull %71) #5
   %storemerge.in.i = load i32, ptr %2, align 8, !tbaa !20
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %2, align 8, !tbaa !20
   %.not53 = icmp eq ptr %72, null
-  br i1 %.not53, label %73, label %.sink.split121
+  br i1 %.not53, label %73, label %.sink.split132
 
-73:                                               ; preds = %_gather_92_rule.exit124.thread, %_gather_92_rule.exit124
+73:                                               ; preds = %_gather_92_rule.exit135.thread, %_gather_92_rule.exit135
   store i32 %12, ptr %11, align 8, !tbaa !22
-  br label %.sink.split121
+  br label %.sink.split132
 
-.sink.split121:                                   ; preds = %_gather_90_rule.exit74, %_gather_92_rule.exit124, %73, %42, %39, %7, %.thread93
-  %.0.ph = phi ptr [ null, %.thread93 ], [ null, %7 ], [ %56, %_gather_90_rule.exit74 ], [ null, %73 ], [ %72, %_gather_92_rule.exit124 ], [ null, %42 ], [ %40, %39 ]
+.sink.split132:                                   ; preds = %_gather_90_rule.exit74, %_gather_92_rule.exit135, %73, %42, %39, %7, %.thread93
+  %.0.ph = phi ptr [ null, %.thread93 ], [ null, %7 ], [ %56, %_gather_90_rule.exit74 ], [ null, %73 ], [ %72, %_gather_92_rule.exit135 ], [ null, %42 ], [ %40, %39 ]
   %74 = load i32, ptr %2, align 8, !tbaa !20
   br label %75
 
-75:                                               ; preds = %.sink.split121, %61, %thread-pre-split
-  %.sink120 = phi i32 [ %46, %thread-pre-split ], [ %62, %61 ], [ %74, %.sink.split121 ]
-  %.0 = phi ptr [ null, %thread-pre-split ], [ null, %61 ], [ %.0.ph, %.sink.split121 ]
-  %76 = add i32 %.sink120, -1
+75:                                               ; preds = %.sink.split132, %61, %thread-pre-split
+  %.sink131 = phi i32 [ %46, %thread-pre-split ], [ %62, %61 ], [ %74, %.sink.split132 ]
+  %.0 = phi ptr [ null, %thread-pre-split ], [ null, %61 ], [ %.0.ph, %.sink.split132 ]
+  %76 = add i32 %.sink131, -1
   store i32 %76, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -17082,35 +17082,35 @@ define internal fastcc ptr @_loop0_86_rule(ptr noundef %0) unnamed_addr #0 {
   %32 = add i32 %31, 1
   store i32 %32, ptr %2, align 8, !tbaa !20
   %33 = icmp eq i32 %31, 6000
-  br i1 %33, label %34, label %.thread170
+  br i1 %33, label %34, label %.thread178
 
 34:                                               ; preds = %30
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %35 = icmp eq i32 %.pre, 0
-  br i1 %35, label %.thread170, label %_tmp_85_rule.exit.thread
+  br i1 %35, label %.thread178, label %_tmp_85_rule.exit.thread
 
-.thread170:                                       ; preds = %30, %34
+.thread178:                                       ; preds = %30, %34
   %36 = load i32, ptr %11, align 8, !tbaa !22
   %37 = tail call fastcc ptr @assignment_expression_rule(ptr noundef nonnull %0)
-  %.not28.i98 = icmp eq ptr %37, null
-  br i1 %.not28.i98, label %38, label %46
+  %.not28.i101 = icmp eq ptr %37, null
+  br i1 %.not28.i101, label %38, label %46
 
-38:                                               ; preds = %.thread170
+38:                                               ; preds = %.thread178
   store i32 %36, ptr %11, align 8, !tbaa !22
   %39 = load i32, ptr %8, align 8, !tbaa !21
-  %.not29.i99 = icmp eq i32 %39, 0
-  br i1 %.not29.i99, label %40, label %_tmp_85_rule.exit.thread
+  %.not29.i102 = icmp eq i32 %39, 0
+  br i1 %.not29.i102, label %40, label %_tmp_85_rule.exit.thread
 
 40:                                               ; preds = %38
   %41 = tail call fastcc ptr @expression_rule(ptr noundef nonnull %0)
-  %.not30.i100 = icmp eq ptr %41, null
-  br i1 %.not30.i100, label %_tmp_85_rule.exit.thread, label %42
+  %.not30.i103 = icmp eq ptr %41, null
+  br i1 %.not30.i103, label %_tmp_85_rule.exit.thread, label %42
 
 42:                                               ; preds = %40
   %43 = tail call i32 @_PyPegen_lookahead_with_int(i32 noundef 0, ptr noundef nonnull @_PyPegen_expect_token, ptr noundef nonnull %0, i32 noundef 53) #5
-  %.not31.i101 = icmp eq i32 %43, 0
-  br i1 %.not31.i101, label %_tmp_85_rule.exit.thread, label %46
+  %.not31.i104 = icmp eq i32 %43, 0
+  br i1 %.not31.i104, label %_tmp_85_rule.exit.thread, label %46
 
 _tmp_85_rule.exit.thread:                         ; preds = %34, %38, %40, %42
   %44 = load i32, ptr %2, align 8, !tbaa !20
@@ -17118,8 +17118,8 @@ _tmp_85_rule.exit.thread:                         ; preds = %34, %38, %40, %42
   store i32 %45, ptr %2, align 8, !tbaa !20
   br label %_tmp_159_rule.exit.thread
 
-46:                                               ; preds = %42, %.thread170
-  %.0.i97 = phi ptr [ %37, %.thread170 ], [ %41, %42 ]
+46:                                               ; preds = %42, %.thread178
+  %.0.i100 = phi ptr [ %37, %.thread178 ], [ %41, %42 ]
   %47 = load i32, ptr %2, align 8, !tbaa !20
   %48 = add i32 %47, -1
   store i32 %48, ptr %2, align 8, !tbaa !20
@@ -17134,7 +17134,7 @@ _tmp_159_rule.exit.thread:                        ; preds = %23, %28, %46, %_tmp
   br label %.critedge
 
 52:                                               ; preds = %46, %25
-  %.0.i = phi ptr [ %27, %25 ], [ %.0.i97, %46 ]
+  %.0.i = phi ptr [ %27, %25 ], [ %.0.i100, %46 ]
   %53 = load i32, ptr %2, align 8, !tbaa !20
   %54 = add i32 %53, -1
   store i32 %54, ptr %2, align 8, !tbaa !20
@@ -17417,40 +17417,40 @@ define internal fastcc ptr @_loop0_89_rule(ptr noundef %0) unnamed_addr #0 {
 
 .lr.ph.preheader:                                 ; preds = %.preheader76
   %19 = tail call fastcc ptr @kwarg_or_starred_rule(ptr noundef nonnull %0)
-  %.not7097 = icmp eq ptr %19, null
-  br i1 %.not7097, label %.critedge, label %.lr.ph101
+  %.not70100 = icmp eq ptr %19, null
+  br i1 %.not70100, label %.critedge, label %.lr.ph104
 
 .lr.ph:                                           ; preds = %28
   %20 = tail call fastcc ptr @kwarg_or_starred_rule(ptr noundef nonnull %0)
   %.not70 = icmp eq ptr %20, null
-  br i1 %.not70, label %.critedge, label %.lr.ph101, !llvm.loop !84
+  br i1 %.not70, label %.critedge, label %.lr.ph104, !llvm.loop !84
 
-.lr.ph101:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph104:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %21 = phi ptr [ %20, %.lr.ph ], [ %19, %.lr.ph.preheader ]
-  %.05981100 = phi i64 [ %.160, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.0588299 = phi i64 [ %29, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0548398 = phi ptr [ %.256, %.lr.ph ], [ %13, %.lr.ph.preheader ]
-  %22 = icmp eq i64 %.0588299, %.05981100
+  %.05981103 = phi i64 [ %.160, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.05882102 = phi i64 [ %29, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.05483101 = phi ptr [ %.256, %.lr.ph ], [ %13, %.lr.ph.preheader ]
+  %22 = icmp eq i64 %.05882102, %.05981103
   br i1 %22, label %23, label %28
 
-23:                                               ; preds = %.lr.ph101
-  %24 = shl i64 %.0588299, 1
-  %25 = shl i64 %.0588299, 4
-  %26 = tail call ptr @PyMem_Realloc(ptr noundef %.0548398, i64 noundef %25) #5
+23:                                               ; preds = %.lr.ph104
+  %24 = shl i64 %.05882102, 1
+  %25 = shl i64 %.05882102, 4
+  %26 = tail call ptr @PyMem_Realloc(ptr noundef %.05483101, i64 noundef %25) #5
   %.not71.not = icmp eq ptr %26, null
   br i1 %.not71.not, label %.thread, label %28
 
 .thread:                                          ; preds = %23
-  tail call void @PyMem_Free(ptr noundef %.0548398) #5
+  tail call void @PyMem_Free(ptr noundef %.05483101) #5
   store i32 1, ptr %8, align 8, !tbaa !21
   %27 = tail call ptr @PyErr_NoMemory() #5
   br label %.critedge74
 
-28:                                               ; preds = %23, %.lr.ph101
-  %.160 = phi i64 [ %.05981100, %.lr.ph101 ], [ %24, %23 ]
-  %.256 = phi ptr [ %.0548398, %.lr.ph101 ], [ %26, %23 ]
-  %29 = add i64 %.0588299, 1
-  %30 = getelementptr ptr, ptr %.256, i64 %.0588299
+28:                                               ; preds = %23, %.lr.ph104
+  %.160 = phi i64 [ %.05981103, %.lr.ph104 ], [ %24, %23 ]
+  %.256 = phi ptr [ %.05483101, %.lr.ph104 ], [ %26, %23 ]
+  %29 = add i64 %.05882102, 1
+  %30 = getelementptr ptr, ptr %.256, i64 %.05882102
   store ptr %21, ptr %30, align 8, !tbaa !25
   %31 = load i32, ptr %11, align 8, !tbaa !22
   %32 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -17534,25 +17534,25 @@ define internal fastcc void @invalid_kwarg_rule(ptr noundef %0) unnamed_addr #0 
   %14 = add i32 %13, 1
   store i32 %14, ptr %2, align 8, !tbaa !20
   %15 = icmp eq i32 %13, 6000
-  br i1 %15, label %16, label %.thread129
+  br i1 %15, label %16, label %.thread138
 
 16:                                               ; preds = %10
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %17 = icmp eq i32 %.pre, 0
-  br i1 %17, label %..thread129_crit_edge, label %_tmp_109_rule.exit.thread
+  br i1 %17, label %..thread138_crit_edge, label %_tmp_109_rule.exit.thread
 
-..thread129_crit_edge:                            ; preds = %16
-  %.pre137 = load i32, ptr %11, align 8, !tbaa !22
-  br label %.thread129
+..thread138_crit_edge:                            ; preds = %16
+  %.pre146 = load i32, ptr %11, align 8, !tbaa !22
+  br label %.thread138
 
-.thread129:                                       ; preds = %..thread129_crit_edge, %10
-  %18 = phi i32 [ %.pre137, %..thread129_crit_edge ], [ %12, %10 ]
+.thread138:                                       ; preds = %..thread138_crit_edge, %10
+  %18 = phi i32 [ %.pre146, %..thread138_crit_edge ], [ %12, %10 ]
   %19 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 610) #5
   %.not36.i = icmp eq ptr %19, null
   br i1 %.not36.i, label %20, label %30
 
-20:                                               ; preds = %.thread129
+20:                                               ; preds = %.thread138
   store i32 %18, ptr %11, align 8, !tbaa !22
   %21 = load i32, ptr %8, align 8, !tbaa !21
   %.not37.i = icmp eq i32 %21, 0
@@ -17580,8 +17580,8 @@ _tmp_109_rule.exit.thread:                        ; preds = %26, %16, %20, %24
   store i32 %29, ptr %2, align 8, !tbaa !20
   br label %52
 
-30:                                               ; preds = %26, %22, %.thread129
-  %.0.i = phi ptr [ %19, %.thread129 ], [ %23, %22 ], [ %27, %26 ]
+30:                                               ; preds = %26, %22, %.thread138
+  %.0.i = phi ptr [ %19, %.thread138 ], [ %23, %22 ], [ %27, %26 ]
   %31 = load i32, ptr %2, align 8, !tbaa !20
   %32 = add i32 %31, -1
   store i32 %32, ptr %2, align 8, !tbaa !20
@@ -17658,9 +17658,9 @@ _tmp_109_rule.exit.thread:                        ; preds = %26, %16, %20, %24
   br i1 %.not21.i, label %for_if_clauses_rule.exit.thread, label %69
 
 for_if_clauses_rule.exit.thread:                  ; preds = %67, %65
-  %storemerge.in.i134 = load i32, ptr %2, align 8, !tbaa !20
-  %storemerge.i135 = add i32 %storemerge.in.i134, -1
-  store i32 %storemerge.i135, ptr %2, align 8, !tbaa !20
+  %storemerge.in.i143 = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge.i144 = add i32 %storemerge.in.i143, -1
+  store i32 %storemerge.i144, ptr %2, align 8, !tbaa !20
   br label %84
 
 69:                                               ; preds = %67
@@ -18071,40 +18071,40 @@ define internal fastcc ptr @_loop0_91_rule(ptr noundef %0) unnamed_addr #0 {
 
 .lr.ph.preheader:                                 ; preds = %.preheader76
   %19 = tail call fastcc ptr @kwarg_or_double_starred_rule(ptr noundef nonnull %0)
-  %.not7097 = icmp eq ptr %19, null
-  br i1 %.not7097, label %.critedge, label %.lr.ph101
+  %.not70100 = icmp eq ptr %19, null
+  br i1 %.not70100, label %.critedge, label %.lr.ph104
 
 .lr.ph:                                           ; preds = %28
   %20 = tail call fastcc ptr @kwarg_or_double_starred_rule(ptr noundef nonnull %0)
   %.not70 = icmp eq ptr %20, null
-  br i1 %.not70, label %.critedge, label %.lr.ph101, !llvm.loop !87
+  br i1 %.not70, label %.critedge, label %.lr.ph104, !llvm.loop !87
 
-.lr.ph101:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph104:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %21 = phi ptr [ %20, %.lr.ph ], [ %19, %.lr.ph.preheader ]
-  %.05981100 = phi i64 [ %.160, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.0588299 = phi i64 [ %29, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0548398 = phi ptr [ %.256, %.lr.ph ], [ %13, %.lr.ph.preheader ]
-  %22 = icmp eq i64 %.0588299, %.05981100
+  %.05981103 = phi i64 [ %.160, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.05882102 = phi i64 [ %29, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.05483101 = phi ptr [ %.256, %.lr.ph ], [ %13, %.lr.ph.preheader ]
+  %22 = icmp eq i64 %.05882102, %.05981103
   br i1 %22, label %23, label %28
 
-23:                                               ; preds = %.lr.ph101
-  %24 = shl i64 %.0588299, 1
-  %25 = shl i64 %.0588299, 4
-  %26 = tail call ptr @PyMem_Realloc(ptr noundef %.0548398, i64 noundef %25) #5
+23:                                               ; preds = %.lr.ph104
+  %24 = shl i64 %.05882102, 1
+  %25 = shl i64 %.05882102, 4
+  %26 = tail call ptr @PyMem_Realloc(ptr noundef %.05483101, i64 noundef %25) #5
   %.not71.not = icmp eq ptr %26, null
   br i1 %.not71.not, label %.thread, label %28
 
 .thread:                                          ; preds = %23
-  tail call void @PyMem_Free(ptr noundef %.0548398) #5
+  tail call void @PyMem_Free(ptr noundef %.05483101) #5
   store i32 1, ptr %8, align 8, !tbaa !21
   %27 = tail call ptr @PyErr_NoMemory() #5
   br label %.critedge74
 
-28:                                               ; preds = %23, %.lr.ph101
-  %.160 = phi i64 [ %.05981100, %.lr.ph101 ], [ %24, %23 ]
-  %.256 = phi ptr [ %.0548398, %.lr.ph101 ], [ %26, %23 ]
-  %29 = add i64 %.0588299, 1
-  %30 = getelementptr ptr, ptr %.256, i64 %.0588299
+28:                                               ; preds = %23, %.lr.ph104
+  %.160 = phi i64 [ %.05981103, %.lr.ph104 ], [ %24, %23 ]
+  %.256 = phi ptr [ %.05483101, %.lr.ph104 ], [ %26, %23 ]
+  %29 = add i64 %.05882102, 1
+  %30 = getelementptr ptr, ptr %.256, i64 %.05882102
   store ptr %21, ptr %30, align 8, !tbaa !25
   %31 = load i32, ptr %11, align 8, !tbaa !22
   %32 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -18370,9 +18370,9 @@ define internal fastcc ptr @slice_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread84
+  br i1 %15, label %20, label %.thread87
 
-.thread84:                                        ; preds = %10
+.thread87:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -18397,11 +18397,11 @@ define internal fastcc ptr @slice_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread84, %24
-  %.pn.in = phi ptr [ %19, %.thread84 ], [ %29, %24 ]
+30:                                               ; preds = %.thread87, %24
+  %.pn.in = phi ptr [ %19, %.thread87 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in87 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in87, align 4, !tbaa !26
+  %.in90 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in90, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call fastcc ptr @expression_rule(ptr noundef nonnull %0)
@@ -18425,21 +18425,21 @@ define internal fastcc ptr @slice_rule(ptr noundef %0) unnamed_addr #0 {
   %42 = add i32 %41, 1
   store i32 %42, ptr %2, align 8, !tbaa !20
   %43 = icmp eq i32 %41, 6000
-  br i1 %43, label %44, label %.thread97
+  br i1 %43, label %44, label %.thread105
 
 44:                                               ; preds = %40
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pre96 = load i32, ptr %8, align 8, !tbaa !21
-  %45 = icmp eq i32 %.pre96, 0
-  br i1 %45, label %.thread97, label %_tmp_65_rule.exit.thread
+  %.pre99 = load i32, ptr %8, align 8, !tbaa !21
+  %45 = icmp eq i32 %.pre99, 0
+  br i1 %45, label %.thread105, label %_tmp_65_rule.exit.thread
 
-.thread97:                                        ; preds = %40, %44
+.thread105:                                       ; preds = %40, %44
   %46 = load i32, ptr %11, align 8, !tbaa !22
   %47 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 11) #5
   %.not23.i = icmp eq ptr %47, null
   br i1 %.not23.i, label %57, label %48
 
-48:                                               ; preds = %.thread97
+48:                                               ; preds = %.thread105
   %49 = tail call fastcc ptr @expression_rule(ptr noundef nonnull %0)
   %50 = load i32, ptr %8, align 8, !tbaa !21
   %.not24.i = icmp eq i32 %50, 0
@@ -18447,9 +18447,9 @@ define internal fastcc ptr @slice_rule(ptr noundef %0) unnamed_addr #0 {
 
 51:                                               ; preds = %48
   %52 = icmp eq ptr %49, null
-  br i1 %52, label %55, label %_tmp_65_rule.exit.thread92
+  br i1 %52, label %55, label %_tmp_65_rule.exit.thread95
 
-_tmp_65_rule.exit.thread92:                       ; preds = %51
+_tmp_65_rule.exit.thread95:                       ; preds = %51
   %53 = load i32, ptr %2, align 8, !tbaa !20
   %54 = add i32 %53, -1
   store i32 %54, ptr %2, align 8, !tbaa !20
@@ -18464,7 +18464,7 @@ _tmp_65_rule.exit.thread92:                       ; preds = %51
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %_tmp_65_rule.exit.thread
 
-57:                                               ; preds = %48, %.thread97
+57:                                               ; preds = %48, %.thread105
   store i32 %46, ptr %11, align 8, !tbaa !22
   br label %_tmp_65_rule.exit
 
@@ -18475,15 +18475,15 @@ _tmp_65_rule.exit.thread:                         ; preds = %44, %.thread28.i
   br label %.thread79
 
 _tmp_65_rule.exit:                                ; preds = %55, %57
-  %.pr89 = load i32, ptr %8, align 8, !tbaa !21
+  %.pr92 = load i32, ptr %8, align 8, !tbaa !21
   %60 = load i32, ptr %2, align 8, !tbaa !20
   %61 = add i32 %60, -1
   store i32 %61, ptr %2, align 8, !tbaa !20
-  %.not68 = icmp eq i32 %.pr89, 0
+  %.not68 = icmp eq i32 %.pr92, 0
   br i1 %.not68, label %62, label %.thread79
 
-62:                                               ; preds = %_tmp_65_rule.exit.thread92, %_tmp_65_rule.exit
-  %.0.i95 = phi ptr [ %49, %_tmp_65_rule.exit.thread92 ], [ null, %_tmp_65_rule.exit ]
+62:                                               ; preds = %_tmp_65_rule.exit.thread95, %_tmp_65_rule.exit
+  %.0.i98 = phi ptr [ %49, %_tmp_65_rule.exit.thread95 ], [ null, %_tmp_65_rule.exit ]
   %63 = tail call ptr @_PyPegen_get_last_nonnwhitespace_token(ptr noundef nonnull %0) #5
   %64 = icmp eq ptr %63, null
   br i1 %64, label %.thread, label %65
@@ -18495,7 +18495,7 @@ _tmp_65_rule.exit:                                ; preds = %55, %57
   %69 = load i32, ptr %68, align 8, !tbaa !31
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %71 = load ptr, ptr %70, align 8, !tbaa !32
-  %72 = tail call ptr @_PyAST_Slice(ptr noundef %33, ptr noundef %38, ptr noundef %.0.i95, i32 noundef %31, i32 noundef %32, i32 noundef %67, i32 noundef %69, ptr noundef %71) #5
+  %72 = tail call ptr @_PyAST_Slice(ptr noundef %33, ptr noundef %38, ptr noundef %.0.i98, i32 noundef %31, i32 noundef %32, i32 noundef %67, i32 noundef %69, ptr noundef %71) #5
   %73 = icmp eq ptr %72, null
   br i1 %73, label %74, label %.thread
 
@@ -18731,29 +18731,29 @@ define internal fastcc ptr @strings_rule(ptr noundef %0) unnamed_addr #0 {
   %70 = add i32 %69, 1
   store i32 %70, ptr %3, align 8, !tbaa !20
   %71 = icmp eq i32 %69, 6000
-  br i1 %71, label %72, label %.thread175
+  br i1 %71, label %72, label %.thread186
 
 72:                                               ; preds = %67
   call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre171 = load i32, ptr %9, align 8, !tbaa !21
   %73 = icmp eq i32 %.pre171, 0
-  br i1 %73, label %.thread175, label %fstring_rule.exit.i.thread.thread217
+  br i1 %73, label %.thread186, label %fstring_rule.exit.i.thread.thread228
 
-fstring_rule.exit.i.thread.thread217:             ; preds = %72
+fstring_rule.exit.i.thread.thread228:             ; preds = %72
   %74 = load i32, ptr %3, align 8, !tbaa !20
   %75 = add i32 %74, -1
   br label %.loopexit
 
-.thread175:                                       ; preds = %67, %72
+.thread186:                                       ; preds = %67, %72
   %76 = call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 59) #5
   %.not29.i.i = icmp eq ptr %76, null
-  %.pre310 = load i32, ptr %3, align 8, !tbaa !20
+  %.pre321 = load i32, ptr %3, align 8, !tbaa !20
   br i1 %.not29.i.i, label %fstring_rule.exit.i.thread, label %77
 
-77:                                               ; preds = %.thread175
-  %78 = add i32 %.pre310, 1
+77:                                               ; preds = %.thread186
+  %78 = add i32 %.pre321, 1
   store i32 %78, ptr %3, align 8, !tbaa !20
-  %79 = icmp eq i32 %.pre310, 6000
+  %79 = icmp eq i32 %.pre321, 6000
   br i1 %79, label %80, label %81
 
 80:                                               ; preds = %77
@@ -18777,7 +18777,7 @@ fstring_rule.exit.i.thread.thread217:             ; preds = %72
   br i1 %.not63.i, label %.preheader99.i, label %_loop0_78_rule.exit.thread
 
 .preheader99.i:                                   ; preds = %86, %111
-  %.054.i212 = phi ptr [ %.155.i214, %111 ], [ %85, %86 ]
+  %.054.i223 = phi ptr [ %.155.i225, %111 ], [ %85, %86 ]
   %.050.i = phi i64 [ %.151.i, %111 ], [ 1, %86 ]
   %.049.i = phi i64 [ %112, %111 ], [ 0, %86 ]
   %.048.i = phi i32 [ %114, %111 ], [ %84, %86 ]
@@ -18838,15 +18838,15 @@ fstring_middle_rule.exit.thread84.i:              ; preds = %101, %94
 107:                                              ; preds = %fstring_middle_rule.exit.thread84.i
   %108 = shl i64 %.050.i, 1
   %109 = shl i64 %.050.i, 4
-  %110 = call ptr @PyMem_Realloc(ptr noundef %.054.i212, i64 noundef %109) #5
+  %110 = call ptr @PyMem_Realloc(ptr noundef %.054.i223, i64 noundef %109) #5
   %.not65.not.i = icmp eq ptr %110, null
   br i1 %.not65.not.i, label %_loop0_78_rule.exit.thread.sink.split.sink.split, label %111
 
 111:                                              ; preds = %107, %fstring_middle_rule.exit.thread84.i
-  %.155.i214 = phi ptr [ %.054.i212, %fstring_middle_rule.exit.thread84.i ], [ %110, %107 ]
+  %.155.i225 = phi ptr [ %.054.i223, %fstring_middle_rule.exit.thread84.i ], [ %110, %107 ]
   %.151.i = phi i64 [ %.050.i, %fstring_middle_rule.exit.thread84.i ], [ %108, %107 ]
   %112 = add i64 %.049.i, 1
-  %113 = getelementptr ptr, ptr %.155.i214, i64 %.049.i
+  %113 = getelementptr ptr, ptr %.155.i225, i64 %.049.i
   store ptr %.126.i87.i, ptr %113, align 8, !tbaa !25
   %114 = load i32, ptr %21, align 8, !tbaa !22
   br label %.preheader99.i, !llvm.loop !89
@@ -18858,12 +18858,12 @@ fstring_middle_rule.exit.thread84.i:              ; preds = %101, %94
   store i32 %.048.i, ptr %21, align 8, !tbaa !22
   %117 = load ptr, ptr %57, align 8, !tbaa !32
   %118 = call ptr @_Py_asdl_generic_seq_new(i64 noundef %.049.i, ptr noundef %117) #5
-  %.not66.i213 = icmp eq ptr %118, null
-  br i1 %.not66.i213, label %_loop0_78_rule.exit.thread.sink.split.sink.split, label %.preheader.i
+  %.not66.i224 = icmp eq ptr %118, null
+  br i1 %.not66.i224, label %_loop0_78_rule.exit.thread.sink.split.sink.split, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.thread96.i
   %119 = icmp sgt i64 %.049.i, 0
-  br i1 %119, label %.lr.ph.i, label %.loopexit220
+  br i1 %119, label %.lr.ph.i, label %.loopexit231
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 8
@@ -18871,17 +18871,17 @@ fstring_middle_rule.exit.thread84.i:              ; preds = %101, %94
 
 121:                                              ; preds = %121, %.lr.ph.i
   %.0118.i = phi i64 [ 0, %.lr.ph.i ], [ %126, %121 ]
-  %122 = getelementptr ptr, ptr %.054.i212, i64 %.0118.i
+  %122 = getelementptr ptr, ptr %.054.i223, i64 %.0118.i
   %123 = load ptr, ptr %122, align 8, !tbaa !25
   %124 = load ptr, ptr %120, align 8, !tbaa !35
   %125 = getelementptr ptr, ptr %124, i64 %.0118.i
   store ptr %123, ptr %125, align 8, !tbaa !25
   %126 = add nuw nsw i64 %.0118.i, 1
   %exitcond.not.i = icmp eq i64 %126, %.049.i
-  br i1 %exitcond.not.i, label %.loopexit220, label %121, !llvm.loop !90
+  br i1 %exitcond.not.i, label %.loopexit231, label %121, !llvm.loop !90
 
 _loop0_78_rule.exit.thread.sink.split.sink.split: ; preds = %107, %.thread96.i
-  call void @PyMem_Free(ptr noundef %.054.i212) #5
+  call void @PyMem_Free(ptr noundef %.054.i223) #5
   br label %_loop0_78_rule.exit.thread.sink.split
 
 _loop0_78_rule.exit.thread.sink.split:            ; preds = %_loop0_78_rule.exit.thread.sink.split.sink.split, %83
@@ -18894,20 +18894,20 @@ _loop0_78_rule.exit.thread:                       ; preds = %_loop0_78_rule.exit
   %129 = add i32 %128, -1
   br label %fstring_rule.exit.i.thread
 
-.loopexit220:                                     ; preds = %121, %.preheader.i
-  call void @PyMem_Free(ptr noundef %.054.i212) #5
+.loopexit231:                                     ; preds = %121, %.preheader.i
+  call void @PyMem_Free(ptr noundef %.054.i223) #5
   %130 = load i32, ptr %3, align 8, !tbaa !20
   %131 = add i32 %130, -1
   store i32 %131, ptr %3, align 8, !tbaa !20
   %132 = call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 61) #5
   %.not31.i.i = icmp eq ptr %132, null
-  br i1 %.not31.i.i, label %.loopexit220.fstring_rule.exit.i.thread_crit_edge, label %133
+  br i1 %.not31.i.i, label %.loopexit231.fstring_rule.exit.i.thread_crit_edge, label %133
 
-.loopexit220.fstring_rule.exit.i.thread_crit_edge: ; preds = %.loopexit220
-  %.pre309 = load i32, ptr %3, align 8, !tbaa !20
+.loopexit231.fstring_rule.exit.i.thread_crit_edge: ; preds = %.loopexit231
+  %.pre320 = load i32, ptr %3, align 8, !tbaa !20
   br label %fstring_rule.exit.i.thread
 
-133:                                              ; preds = %.loopexit220
+133:                                              ; preds = %.loopexit231
   %134 = call ptr @_PyPegen_joined_str(ptr noundef nonnull %0, ptr noundef nonnull %76, ptr noundef nonnull %118, ptr noundef nonnull %132) #5
   %135 = icmp eq ptr %134, null
   br i1 %135, label %136, label %155
@@ -18915,16 +18915,16 @@ _loop0_78_rule.exit.thread:                       ; preds = %_loop0_78_rule.exit
 136:                                              ; preds = %133
   %137 = call ptr @PyErr_Occurred() #5
   %.not32.i.i = icmp eq ptr %137, null
-  %.pre311 = load i32, ptr %3, align 8, !tbaa !20
+  %.pre322 = load i32, ptr %3, align 8, !tbaa !20
   br i1 %.not32.i.i, label %fstring_rule.exit.i.thread, label %fstring_rule.exit.i.thread.thread
 
 fstring_rule.exit.i.thread.thread:                ; preds = %136
   store i32 1, ptr %9, align 8, !tbaa !21
-  %138 = add i32 %.pre311, -1
+  %138 = add i32 %.pre322, -1
   br label %.loopexit
 
-fstring_rule.exit.i.thread:                       ; preds = %.loopexit220.fstring_rule.exit.i.thread_crit_edge, %_loop0_78_rule.exit.thread, %.thread175, %136
-  %139 = phi i32 [ %.pre309, %.loopexit220.fstring_rule.exit.i.thread_crit_edge ], [ %129, %_loop0_78_rule.exit.thread ], [ %.pre310, %.thread175 ], [ %.pre311, %136 ]
+fstring_rule.exit.i.thread:                       ; preds = %.loopexit231.fstring_rule.exit.i.thread_crit_edge, %_loop0_78_rule.exit.thread, %.thread186, %136
+  %139 = phi i32 [ %.pre320, %.loopexit231.fstring_rule.exit.i.thread_crit_edge ], [ %129, %_loop0_78_rule.exit.thread ], [ %.pre321, %.thread186 ], [ %.pre322, %136 ]
   %.pr.pr = load i32, ptr %9, align 8, !tbaa !21
   %140 = add i32 %139, -1
   store i32 %140, ptr %3, align 8, !tbaa !20
@@ -18932,28 +18932,28 @@ fstring_rule.exit.i.thread:                       ; preds = %.loopexit220.fstrin
   %.not28.i = icmp eq i32 %.pr.pr, 0
   br i1 %.not28.i, label %143, label %.loopexit
 
-.loopexit:                                        ; preds = %fstring_rule.exit.i.thread, %fstring_rule.exit.i.thread.thread217, %fstring_rule.exit.i.thread.thread
-  %141 = phi i32 [ %138, %fstring_rule.exit.i.thread.thread ], [ %75, %fstring_rule.exit.i.thread.thread217 ], [ %140, %fstring_rule.exit.i.thread ]
+.loopexit:                                        ; preds = %fstring_rule.exit.i.thread, %fstring_rule.exit.i.thread.thread228, %fstring_rule.exit.i.thread.thread
+  %141 = phi i32 [ %138, %fstring_rule.exit.i.thread.thread ], [ %75, %fstring_rule.exit.i.thread.thread228 ], [ %140, %fstring_rule.exit.i.thread ]
   %142 = add i32 %141, -1
   br label %_tmp_157_rule.exit.thread
 
 143:                                              ; preds = %fstring_rule.exit.i.thread
   store i32 %139, ptr %3, align 8, !tbaa !20
   %144 = icmp eq i32 %140, 6000
-  br i1 %144, label %145, label %.thread177
+  br i1 %144, label %145, label %.thread188
 
 145:                                              ; preds = %143
   call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre172 = load i32, ptr %9, align 8, !tbaa !21
   %146 = icmp eq i32 %.pre172, 0
-  br i1 %146, label %.thread177, label %_tmp_157_rule.exit
+  br i1 %146, label %.thread188, label %_tmp_157_rule.exit
 
-.thread177:                                       ; preds = %143, %145
+.thread188:                                       ; preds = %143, %145
   %147 = call ptr @_PyPegen_string_token(ptr noundef nonnull %0) #5
   %.not23.i.i = icmp eq ptr %147, null
   br i1 %.not23.i.i, label %_tmp_157_rule.exit, label %148
 
-148:                                              ; preds = %.thread177
+148:                                              ; preds = %.thread188
   %149 = call ptr @_PyPegen_constant_from_string(ptr noundef nonnull %0, ptr noundef nonnull %147) #5
   %150 = icmp eq ptr %149, null
   br i1 %150, label %151, label %155
@@ -18967,7 +18967,7 @@ fstring_rule.exit.i.thread:                       ; preds = %.loopexit220.fstrin
   store i32 1, ptr %9, align 8, !tbaa !21
   br label %_tmp_157_rule.exit
 
-_tmp_157_rule.exit:                               ; preds = %145, %.thread177, %.thread27.i.i, %151
+_tmp_157_rule.exit:                               ; preds = %145, %.thread188, %.thread27.i.i, %151
   %153 = load i32, ptr %3, align 8, !tbaa !20
   %154 = add i32 %153, -2
   br label %_tmp_157_rule.exit.thread
@@ -19170,11 +19170,11 @@ define internal fastcc ptr @_tmp_67_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %23, label %..thread_crit_edge, label %group_rule.exit.thread.thread
 
 ..thread_crit_edge:                               ; preds = %22
-  %.pre77 = load i32, ptr %13, align 8, !tbaa !22
+  %.pre82 = load i32, ptr %13, align 8, !tbaa !22
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %19
-  %24 = phi i32 [ %.pre77, %..thread_crit_edge ], [ %14, %19 ]
+  %24 = phi i32 [ %.pre82, %..thread_crit_edge ], [ %14, %19 ]
   %25 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 7) #5
   %.not34.i = icmp eq ptr %25, null
   br i1 %.not34.i, label %46, label %26
@@ -19232,11 +19232,11 @@ _tmp_70_rule.exit.thread:                         ; preds = %38, %31, %36
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %48 = load i32, ptr %47, align 4, !tbaa !38
   %.not37.i = icmp eq i32 %48, 0
-  %.pre71.pre78 = load i32, ptr %8, align 8, !tbaa !21
+  %.pre71.pre83 = load i32, ptr %8, align 8, !tbaa !21
   br i1 %.not37.i, label %group_rule.exit.thread, label %49
 
 49:                                               ; preds = %46
-  %.not38.i = icmp eq i32 %.pre71.pre78, 0
+  %.not38.i = icmp eq i32 %.pre71.pre83, 0
   br i1 %.not38.i, label %50, label %group_rule.exit.thread.thread
 
 50:                                               ; preds = %49
@@ -19257,7 +19257,7 @@ group_rule.exit.thread.thread:                    ; preds = %49, %22
   br label %64
 
 group_rule.exit.thread:                           ; preds = %46, %50
-  %.pre71 = phi i32 [ %.pre71.pre78, %46 ], [ %.pre71.pre, %50 ]
+  %.pre71 = phi i32 [ %.pre71.pre83, %46 ], [ %.pre71.pre, %50 ]
   %56 = load i32, ptr %2, align 8, !tbaa !20
   %57 = add i32 %56, -1
   store i32 %57, ptr %2, align 8, !tbaa !20
@@ -19280,9 +19280,9 @@ group_rule.exit.thread:                           ; preds = %46, %50
   br label %64
 
 64:                                               ; preds = %group_rule.exit.thread, %group_rule.exit.thread.thread, %16, %62, %10
-  %.sink74 = phi i32 [ %63, %62 ], [ %11, %10 ], [ %18, %16 ], [ %55, %group_rule.exit.thread.thread ], [ %57, %group_rule.exit.thread ]
+  %.sink79 = phi i32 [ %63, %62 ], [ %11, %10 ], [ %18, %16 ], [ %55, %group_rule.exit.thread.thread ], [ %57, %group_rule.exit.thread ]
   %.0 = phi ptr [ %.129, %62 ], [ null, %10 ], [ null, %16 ], [ null, %group_rule.exit.thread.thread ], [ null, %group_rule.exit.thread ]
-  %65 = add i32 %.sink74, -1
+  %65 = add i32 %.sink79, -1
   store i32 %65, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -19345,9 +19345,9 @@ define internal fastcc ptr @_tmp_68_rule(ptr noundef %0) unnamed_addr #0 {
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %26 = load i32, ptr %25, align 4, !tbaa !23
   %27 = icmp eq i32 %24, %26
-  br i1 %27, label %32, label %.thread61
+  br i1 %27, label %32, label %.thread66
 
-.thread61:                                        ; preds = %.thread
+.thread66:                                        ; preds = %.thread
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = sext i32 %24 to i64
@@ -19372,11 +19372,11 @@ define internal fastcc ptr @_tmp_68_rule(ptr noundef %0) unnamed_addr #0 {
   %41 = getelementptr ptr, ptr %39, i64 %40
   br i1 %37, label %42, label %listcomp_rule.exit.thread
 
-42:                                               ; preds = %.thread61, %36
-  %.pn.in = phi ptr [ %31, %.thread61 ], [ %41, %36 ]
+42:                                               ; preds = %.thread66, %36
+  %.pn.in = phi ptr [ %31, %.thread66 ], [ %41, %36 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in64 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %43 = load i32, ptr %.in64, align 4, !tbaa !26
+  %.in69 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %43 = load i32, ptr %.in69, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %44 = load i32, ptr %.in, align 8, !tbaa !29
   %45 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 9) #5
@@ -19451,9 +19451,9 @@ listcomp_rule.exit.thread:                        ; preds = %67, %72, %70, %64, 
   br label %78
 
 78:                                               ; preds = %73, %listcomp_rule.exit.thread, %._crit_edge58, %16, %10
-  %.sink63 = phi i32 [ %11, %10 ], [ %18, %16 ], [ %.pre59, %._crit_edge58 ], [ %77, %listcomp_rule.exit.thread ], [ %75, %73 ]
+  %.sink68 = phi i32 [ %11, %10 ], [ %18, %16 ], [ %.pre59, %._crit_edge58 ], [ %77, %listcomp_rule.exit.thread ], [ %75, %73 ]
   %.0 = phi ptr [ null, %10 ], [ null, %16 ], [ %15, %._crit_edge58 ], [ null, %listcomp_rule.exit.thread ], [ %62, %73 ]
-  %79 = add i32 %.sink63, -1
+  %79 = add i32 %.sink68, -1
   store i32 %79, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -19494,20 +19494,20 @@ define internal fastcc ptr @_tmp_69_rule(ptr noundef %0) unnamed_addr #0 {
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %19 = icmp eq i32 %.pre, 0
-  br i1 %19, label %..thread_crit_edge, label %dict_rule.exit.thread.thread177
+  br i1 %19, label %..thread_crit_edge, label %dict_rule.exit.thread.thread188
 
 ..thread_crit_edge:                               ; preds = %18
-  %.pre189 = load i32, ptr %13, align 8, !tbaa !22
+  %.pre200 = load i32, ptr %13, align 8, !tbaa !22
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %12
-  %20 = phi i32 [ %.pre189, %..thread_crit_edge ], [ %14, %12 ]
+  %20 = phi i32 [ %.pre200, %..thread_crit_edge ], [ %14, %12 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !23
   %23 = icmp eq i32 %20, %22
-  br i1 %23, label %28, label %.thread143
+  br i1 %23, label %28, label %.thread154
 
-.thread143:                                       ; preds = %.thread
+.thread154:                                       ; preds = %.thread
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !24
   %26 = sext i32 %20 to i64
@@ -19532,11 +19532,11 @@ define internal fastcc ptr @_tmp_69_rule(ptr noundef %0) unnamed_addr #0 {
   %38 = load i32, ptr %2, align 8, !tbaa !20
   br label %dict_rule.exit.thread
 
-39:                                               ; preds = %.thread143, %31
-  %.pn.in = phi ptr [ %27, %.thread143 ], [ %36, %31 ]
+39:                                               ; preds = %.thread154, %31
+  %.pn.in = phi ptr [ %27, %.thread154 ], [ %36, %31 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in170 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %40 = load i32, ptr %.in170, align 4, !tbaa !26
+  %.in181 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %40 = load i32, ptr %.in181, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %41 = load i32, ptr %.in, align 8, !tbaa !29
   %42 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 25) #5
@@ -19552,34 +19552,34 @@ define internal fastcc ptr @_tmp_69_rule(ptr noundef %0) unnamed_addr #0 {
 
 47:                                               ; preds = %43
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %storemerge.in160.pre190.pre = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge.in171.pre201.pre = load i32, ptr %2, align 8, !tbaa !20
   br label %48
 
 48:                                               ; preds = %47, %43
-  %storemerge.in160.pre190 = phi i32 [ %storemerge.in160.pre190.pre, %47 ], [ %45, %43 ]
+  %storemerge.in171.pre201 = phi i32 [ %storemerge.in171.pre201.pre, %47 ], [ %45, %43 ]
   %49 = load i32, ptr %8, align 8, !tbaa !21
   %.not.i65 = icmp eq i32 %49, 0
   br i1 %.not.i65, label %50, label %.thread85.sink.split
 
 50:                                               ; preds = %48
   %51 = load i32, ptr %13, align 8, !tbaa !22
-  %52 = add i32 %storemerge.in160.pre190, 1
+  %52 = add i32 %storemerge.in171.pre201, 1
   store i32 %52, ptr %2, align 8, !tbaa !20
-  %53 = icmp eq i32 %storemerge.in160.pre190, 6000
-  br i1 %53, label %54, label %.thread145
+  %53 = icmp eq i32 %storemerge.in171.pre201, 6000
+  br i1 %53, label %54, label %.thread156
 
 54:                                               ; preds = %50
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre135 = load i32, ptr %8, align 8, !tbaa !21
   %55 = icmp eq i32 %.pre135, 0
-  br i1 %55, label %.thread145, label %double_starred_kvpairs_rule.exit.sink.split
+  br i1 %55, label %.thread156, label %double_starred_kvpairs_rule.exit.sink.split
 
-.thread145:                                       ; preds = %50, %54
+.thread156:                                       ; preds = %50, %54
   %56 = tail call fastcc ptr @double_starred_kvpair_rule(ptr noundef nonnull %0)
   %.not22.i.i = icmp eq ptr %56, null
   br i1 %.not22.i.i, label %double_starred_kvpairs_rule.exit.sink.split, label %57
 
-57:                                               ; preds = %.thread145
+57:                                               ; preds = %.thread156
   %58 = tail call fastcc ptr @_loop0_81_rule(ptr noundef nonnull %0)
   %.not23.i.i = icmp eq ptr %58, null
   br i1 %.not23.i.i, label %double_starred_kvpairs_rule.exit.sink.split, label %_gather_82_rule.exit.i
@@ -19596,15 +19596,15 @@ _gather_82_rule.exit.i:                           ; preds = %57
   %63 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %64 = load i32, ptr %8, align 8, !tbaa !21
   %.not24.i = icmp eq i32 %64, 0
-  %storemerge.in149 = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge.in160 = load i32, ptr %2, align 8, !tbaa !20
   br i1 %.not24.i, label %double_starred_kvpairs_rule.exit.thread, label %.thread85.sink.split
 
 double_starred_kvpairs_rule.exit.thread:          ; preds = %62
-  %storemerge150 = add i32 %storemerge.in149, -1
-  store i32 %storemerge150, ptr %2, align 8, !tbaa !20
+  %storemerge161 = add i32 %storemerge.in160, -1
+  store i32 %storemerge161, ptr %2, align 8, !tbaa !20
   br label %69
 
-double_starred_kvpairs_rule.exit.sink.split:      ; preds = %.thread145, %57, %54
+double_starred_kvpairs_rule.exit.sink.split:      ; preds = %.thread156, %57, %54
   %65 = load i32, ptr %2, align 8, !tbaa !20
   %66 = add i32 %65, -1
   br label %double_starred_kvpairs_rule.exit
@@ -19616,20 +19616,20 @@ double_starred_kvpairs_rule.exit:                 ; preds = %double_starred_kvpa
   %67 = icmp eq i32 %.pre136.pr, 0
   %storemerge = add i32 %storemerge.in, -1
   store i32 %storemerge, ptr %2, align 8, !tbaa !20
-  br i1 %67, label %69, label %dict_rule.exit.thread.thread196
+  br i1 %67, label %69, label %dict_rule.exit.thread.thread225
 
-dict_rule.exit.thread.thread196:                  ; preds = %double_starred_kvpairs_rule.exit
+dict_rule.exit.thread.thread225:                  ; preds = %double_starred_kvpairs_rule.exit
   %68 = add i32 %storemerge.in, -2
   store i32 %14, ptr %13, align 8, !tbaa !22
   br label %228
 
 .thread85.sink.split:                             ; preds = %62, %48
-  %storemerge.in160 = phi i32 [ %storemerge.in160.pre190, %48 ], [ %storemerge.in149, %62 ]
-  %storemerge161 = add i32 %storemerge.in160, -1
+  %storemerge.in171 = phi i32 [ %storemerge.in171.pre201, %48 ], [ %storemerge.in160, %62 ]
+  %storemerge172 = add i32 %storemerge.in171, -1
   br label %dict_rule.exit.thread
 
 69:                                               ; preds = %double_starred_kvpairs_rule.exit.thread, %double_starred_kvpairs_rule.exit
-  %.0.i66151 = phi ptr [ %59, %double_starred_kvpairs_rule.exit.thread ], [ null, %double_starred_kvpairs_rule.exit ]
+  %.0.i66162 = phi ptr [ %59, %double_starred_kvpairs_rule.exit.thread ], [ null, %double_starred_kvpairs_rule.exit ]
   %70 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 26) #5
   %.not71.i = icmp eq ptr %70, null
   br i1 %.not71.i, label %94, label %71
@@ -19648,7 +19648,7 @@ dict_rule.exit.thread.thread196:                  ; preds = %double_starred_kvpa
   %78 = load i32, ptr %77, align 4, !tbaa !30
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %80 = load i32, ptr %79, align 8, !tbaa !31
-  %81 = tail call ptr @_PyPegen_get_keys(ptr noundef nonnull %0, ptr noundef %.0.i66151) #5
+  %81 = tail call ptr @_PyPegen_get_keys(ptr noundef nonnull %0, ptr noundef %.0.i66162) #5
   %82 = icmp eq ptr %81, null
   br i1 %82, label %83, label %CHECK_CALL.exit64
 
@@ -19657,7 +19657,7 @@ dict_rule.exit.thread.thread196:                  ; preds = %double_starred_kvpa
   br label %CHECK_CALL.exit64
 
 CHECK_CALL.exit64:                                ; preds = %76, %83
-  %84 = tail call ptr @_PyPegen_get_values(ptr noundef nonnull %0, ptr noundef %.0.i66151) #5
+  %84 = tail call ptr @_PyPegen_get_values(ptr noundef nonnull %0, ptr noundef %.0.i66162) #5
   %85 = icmp eq ptr %84, null
   br i1 %85, label %86, label %CHECK_CALL.exit
 
@@ -19685,7 +19685,7 @@ dict_rule.exit.thread92:                          ; preds = %91
   %.pr = load i32, ptr %8, align 8, !tbaa !21
   store i32 %20, ptr %13, align 8, !tbaa !22
   %.not73.i = icmp eq i32 %.pr, 0
-  br i1 %.not73.i, label %95, label %dict_rule.exit.thread.thread177
+  br i1 %.not73.i, label %95, label %dict_rule.exit.thread.thread188
 
 95:                                               ; preds = %94
   %96 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 25) #5
@@ -19713,56 +19713,56 @@ dict_rule.exit.thread.thread:                     ; preds = %91, %28
   store i32 %14, ptr %13, align 8, !tbaa !22
   br label %228
 
-dict_rule.exit.thread.thread177:                  ; preds = %94, %18
-  %.sink167.ph176 = load i32, ptr %2, align 8, !tbaa !20
-  %102 = add i32 %.sink167.ph176, -1
+dict_rule.exit.thread.thread188:                  ; preds = %94, %18
+  %.sink178.ph187 = load i32, ptr %2, align 8, !tbaa !20
+  %102 = add i32 %.sink178.ph187, -1
   store i32 %102, ptr %2, align 8, !tbaa !20
   store i32 %14, ptr %13, align 8, !tbaa !22
   br label %228
 
 dict_rule.exit.thread:                            ; preds = %.thread85.sink.split, %74, %37, %dict_rule.exit.thread89, %dict_rule.exit.thread92
-  %.sink167.ph.ph = phi i32 [ %75, %74 ], [ %38, %37 ], [ %98, %dict_rule.exit.thread89 ], [ %93, %dict_rule.exit.thread92 ], [ %storemerge161, %.thread85.sink.split ]
+  %.sink178.ph.ph = phi i32 [ %75, %74 ], [ %38, %37 ], [ %98, %dict_rule.exit.thread89 ], [ %93, %dict_rule.exit.thread92 ], [ %storemerge172, %.thread85.sink.split ]
   %.pr128.pr.pr = load i32, ptr %8, align 8, !tbaa !21
-  %103 = add i32 %.sink167.ph.ph, -1
+  %103 = add i32 %.sink178.ph.ph, -1
   store i32 %14, ptr %13, align 8, !tbaa !22
   %.not46 = icmp eq i32 %.pr128.pr.pr, 0
   br i1 %.not46, label %104, label %228
 
 104:                                              ; preds = %dict_rule.exit.thread
-  store i32 %.sink167.ph.ph, ptr %2, align 8, !tbaa !20
+  store i32 %.sink178.ph.ph, ptr %2, align 8, !tbaa !20
   %105 = icmp eq i32 %103, 6000
-  br i1 %105, label %106, label %.thread162
+  br i1 %105, label %106, label %.thread173
 
 106:                                              ; preds = %104
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre139 = load i32, ptr %8, align 8, !tbaa !21
   %107 = icmp eq i32 %.pre139, 0
-  br i1 %107, label %..thread162_crit_edge, label %set_rule.exit.thread.thread181
+  br i1 %107, label %..thread173_crit_edge, label %set_rule.exit.thread.thread192
 
-..thread162_crit_edge:                            ; preds = %106
-  %.pre193 = load i32, ptr %13, align 8, !tbaa !22
-  br label %.thread162
+..thread173_crit_edge:                            ; preds = %106
+  %.pre204 = load i32, ptr %13, align 8, !tbaa !22
+  br label %.thread173
 
-set_rule.exit.thread.thread181:                   ; preds = %106
+set_rule.exit.thread.thread192:                   ; preds = %106
   %108 = load i32, ptr %2, align 8, !tbaa !20
   %109 = add i32 %108, -1
   store i32 %14, ptr %13, align 8, !tbaa !22
   br label %228
 
-.thread162:                                       ; preds = %..thread162_crit_edge, %104
-  %110 = phi i32 [ %.pre193, %..thread162_crit_edge ], [ %14, %104 ]
+.thread173:                                       ; preds = %..thread173_crit_edge, %104
+  %110 = phi i32 [ %.pre204, %..thread173_crit_edge ], [ %14, %104 ]
   %111 = load i32, ptr %21, align 4, !tbaa !23
   %112 = icmp eq i32 %110, %111
-  br i1 %112, label %117, label %.thread164
+  br i1 %112, label %117, label %.thread175
 
-.thread164:                                       ; preds = %.thread162
+.thread175:                                       ; preds = %.thread173
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !24
   %115 = sext i32 %110 to i64
   %116 = getelementptr ptr, ptr %114, i64 %115
   br label %126
 
-117:                                              ; preds = %.thread162
+117:                                              ; preds = %.thread173
   %118 = tail call i32 @_PyPegen_fill_token(ptr noundef nonnull %0) #5
   %119 = icmp slt i32 %118, 0
   br i1 %119, label %set_rule.exit.thread.thread, label %120
@@ -19776,13 +19776,13 @@ set_rule.exit.thread.thread181:                   ; preds = %106
   %125 = getelementptr ptr, ptr %123, i64 %124
   br i1 %121, label %126, label %set_rule.exit.thread
 
-126:                                              ; preds = %.thread164, %120
-  %.pn173.in = phi ptr [ %116, %.thread164 ], [ %125, %120 ]
-  %.pn173 = load ptr, ptr %.pn173.in, align 8, !tbaa !25
-  %.in174 = getelementptr inbounds nuw i8, ptr %.pn173, i64 20
-  %127 = load i32, ptr %.in174, align 4, !tbaa !26
-  %.in172 = getelementptr inbounds nuw i8, ptr %.pn173, i64 24
-  %128 = load i32, ptr %.in172, align 8, !tbaa !29
+126:                                              ; preds = %.thread175, %120
+  %.pn184.in = phi ptr [ %116, %.thread175 ], [ %125, %120 ]
+  %.pn184 = load ptr, ptr %.pn184.in, align 8, !tbaa !25
+  %.in185 = getelementptr inbounds nuw i8, ptr %.pn184, i64 20
+  %127 = load i32, ptr %.in185, align 4, !tbaa !26
+  %.in183 = getelementptr inbounds nuw i8, ptr %.pn184, i64 24
+  %128 = load i32, ptr %.in183, align 8, !tbaa !29
   %129 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 25) #5
   %.not47.i = icmp eq ptr %129, null
   br i1 %.not47.i, label %set_rule.exit.thread, label %130
@@ -19842,31 +19842,31 @@ set_rule.exit.thread:                             ; preds = %132, %130, %126, %1
 153:                                              ; preds = %set_rule.exit.thread
   store i32 %151, ptr %2, align 8, !tbaa !20
   %154 = icmp eq i32 %152, 6000
-  br i1 %154, label %155, label %.thread200
+  br i1 %154, label %155, label %.thread229
 
 155:                                              ; preds = %153
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pre194 = load i32, ptr %8, align 8, !tbaa !21
-  %156 = icmp eq i32 %.pre194, 0
-  br i1 %156, label %.thread200, label %.thread187
+  %.pre205 = load i32, ptr %8, align 8, !tbaa !21
+  %156 = icmp eq i32 %.pre205, 0
+  br i1 %156, label %.thread229, label %.thread198
 
-.thread200:                                       ; preds = %153, %155
+.thread229:                                       ; preds = %153, %155
   %157 = load i32, ptr %13, align 8, !tbaa !22
   %158 = load i32, ptr %21, align 4, !tbaa !23
   %159 = icmp eq i32 %157, %158
   br i1 %159, label %164, label %.thread.i
 
-.thread.i:                                        ; preds = %.thread200
+.thread.i:                                        ; preds = %.thread229
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %161 = load ptr, ptr %160, align 8, !tbaa !24
   %162 = sext i32 %157 to i64
   %163 = getelementptr ptr, ptr %161, i64 %162
   br label %173
 
-164:                                              ; preds = %.thread200
+164:                                              ; preds = %.thread229
   %165 = tail call i32 @_PyPegen_fill_token(ptr noundef nonnull %0) #5
   %166 = icmp slt i32 %165, 0
-  br i1 %166, label %.thread187.sink.split, label %167
+  br i1 %166, label %.thread198.sink.split, label %167
 
 167:                                              ; preds = %164
   %.pre.i = load i32, ptr %8, align 8, !tbaa !21
@@ -19880,8 +19880,8 @@ set_rule.exit.thread:                             ; preds = %132, %130, %126, %1
 173:                                              ; preds = %167, %.thread.i
   %.pn.in.i = phi ptr [ %163, %.thread.i ], [ %172, %167 ]
   %.pn.i = load ptr, ptr %.pn.in.i, align 8, !tbaa !25
-  %.in85.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 20
-  %174 = load i32, ptr %.in85.i, align 4, !tbaa !26
+  %.in89.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 20
+  %174 = load i32, ptr %.in89.i, align 4, !tbaa !26
   %.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 24
   %175 = load i32, ptr %.in.i, align 8, !tbaa !29
   %176 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 25) #5
@@ -19950,7 +19950,7 @@ for_if_clauses_rule.exit.thread.i:                ; preds = %184
 209:                                              ; preds = %197
   %210 = tail call ptr @PyErr_Occurred() #5
   %.not66.i = icmp eq ptr %210, null
-  br i1 %.not66.i, label %220, label %.thread187.sink.split
+  br i1 %.not66.i, label %220, label %.thread198.sink.split
 
 for_if_clauses_rule.exit.thread74.i:              ; preds = %192, %188, %for_if_clauses_rule.exit.thread.i, %177, %173
   store i32 %157, ptr %13, align 8, !tbaa !22
@@ -19962,7 +19962,7 @@ for_if_clauses_rule.exit.thread74.i:              ; preds = %192, %188, %for_if_
 213:                                              ; preds = %for_if_clauses_rule.exit.thread74.i
   %214 = load i32, ptr %8, align 8, !tbaa !21
   %.not68.i = icmp eq i32 %214, 0
-  br i1 %.not68.i, label %215, label %.thread187
+  br i1 %.not68.i, label %215, label %.thread198
 
 215:                                              ; preds = %213
   tail call fastcc void @invalid_dict_comprehension_rule(ptr noundef nonnull %0)
@@ -19974,23 +19974,23 @@ dictcomp_rule.exit:                               ; preds = %197
   store i32 %217, ptr %2, align 8, !tbaa !20
   br label %226
 
-.thread187.sink.split:                            ; preds = %209, %164
+.thread198.sink.split:                            ; preds = %209, %164
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread187
+  br label %.thread198
 
-.thread187:                                       ; preds = %.thread187.sink.split, %155, %213
+.thread198:                                       ; preds = %.thread198.sink.split, %155, %213
   %218 = load i32, ptr %2, align 8, !tbaa !20
   %219 = add i32 %218, -1
   store i32 %14, ptr %13, align 8, !tbaa !22
   br label %228
 
 220:                                              ; preds = %167, %194, %215, %for_if_clauses_rule.exit.thread74.i, %209
-  %.pr186 = load i32, ptr %8, align 8, !tbaa !21
+  %.pr197 = load i32, ptr %8, align 8, !tbaa !21
   %221 = load i32, ptr %2, align 8, !tbaa !20
   %222 = add i32 %221, -1
   store i32 %222, ptr %2, align 8, !tbaa !20
   store i32 %14, ptr %13, align 8, !tbaa !22
-  %.not50 = icmp eq i32 %.pr186, 0
+  %.not50 = icmp eq i32 %.pr197, 0
   br i1 %.not50, label %223, label %228
 
 223:                                              ; preds = %220
@@ -20007,10 +20007,10 @@ dictcomp_rule.exit:                               ; preds = %197
   %227 = load i32, ptr %2, align 8, !tbaa !20
   br label %228
 
-228:                                              ; preds = %dict_rule.exit.thread.thread196, %220, %.thread187, %set_rule.exit.thread.thread181, %dict_rule.exit.thread.thread177, %set_rule.exit.thread, %set_rule.exit.thread.thread, %dict_rule.exit.thread, %dict_rule.exit.thread.thread, %226, %10
-  %.sink169 = phi i32 [ %227, %226 ], [ %11, %10 ], [ %storemerge132, %dict_rule.exit.thread.thread ], [ %103, %dict_rule.exit.thread ], [ %storemerge133, %set_rule.exit.thread.thread ], [ %152, %set_rule.exit.thread ], [ %102, %dict_rule.exit.thread.thread177 ], [ %109, %set_rule.exit.thread.thread181 ], [ %219, %.thread187 ], [ %222, %220 ], [ %68, %dict_rule.exit.thread.thread196 ]
-  %.0 = phi ptr [ %.136, %226 ], [ null, %10 ], [ null, %dict_rule.exit.thread.thread ], [ null, %dict_rule.exit.thread ], [ null, %set_rule.exit.thread.thread ], [ null, %set_rule.exit.thread ], [ null, %dict_rule.exit.thread.thread177 ], [ null, %set_rule.exit.thread.thread181 ], [ null, %.thread187 ], [ null, %220 ], [ null, %dict_rule.exit.thread.thread196 ]
-  %229 = add i32 %.sink169, -1
+228:                                              ; preds = %dict_rule.exit.thread.thread225, %220, %.thread198, %set_rule.exit.thread.thread192, %dict_rule.exit.thread.thread188, %set_rule.exit.thread, %set_rule.exit.thread.thread, %dict_rule.exit.thread, %dict_rule.exit.thread.thread, %226, %10
+  %.sink180 = phi i32 [ %227, %226 ], [ %11, %10 ], [ %storemerge132, %dict_rule.exit.thread.thread ], [ %103, %dict_rule.exit.thread ], [ %storemerge133, %set_rule.exit.thread.thread ], [ %152, %set_rule.exit.thread ], [ %102, %dict_rule.exit.thread.thread188 ], [ %109, %set_rule.exit.thread.thread192 ], [ %219, %.thread198 ], [ %222, %220 ], [ %68, %dict_rule.exit.thread.thread225 ]
+  %.0 = phi ptr [ %.136, %226 ], [ null, %10 ], [ null, %dict_rule.exit.thread.thread ], [ null, %dict_rule.exit.thread ], [ null, %set_rule.exit.thread.thread ], [ null, %set_rule.exit.thread ], [ null, %dict_rule.exit.thread.thread188 ], [ null, %set_rule.exit.thread.thread192 ], [ null, %.thread198 ], [ null, %220 ], [ null, %dict_rule.exit.thread.thread225 ]
+  %229 = add i32 %.sink180, -1
   store i32 %229, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -20076,8 +20076,8 @@ define internal fastcc ptr @fstring_replacement_field_rule(ptr noundef %0) unnam
 30:                                               ; preds = %.thread, %24
   %.pn.in = phi ptr [ %19, %.thread ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in108 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in108, align 4, !tbaa !26
+  %.in114 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in114, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 25) #5
@@ -20192,21 +20192,21 @@ annotated_rhs_rule.exit.thread:                   ; preds = %annotated_rhs_rule.
   %84 = add i32 %83, 1
   store i32 %84, ptr %2, align 8, !tbaa !20
   %85 = icmp eq i32 %83, 6000
-  br i1 %85, label %86, label %.thread118
+  br i1 %85, label %86, label %.thread144
 
 86:                                               ; preds = %82
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pre117 = load i32, ptr %8, align 8, !tbaa !21
-  %87 = icmp eq i32 %.pre117, 0
-  br i1 %87, label %.thread118, label %invalid_replacement_field_rule.exit.thread
+  %.pre123 = load i32, ptr %8, align 8, !tbaa !21
+  %87 = icmp eq i32 %.pre123, 0
+  br i1 %87, label %.thread144, label %invalid_replacement_field_rule.exit.thread
 
-.thread118:                                       ; preds = %82, %86
+.thread144:                                       ; preds = %82, %86
   %88 = load i32, ptr %11, align 8, !tbaa !22
   %89 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 25) #5
   %.not208.i = icmp eq ptr %89, null
   br i1 %.not208.i, label %107, label %90
 
-90:                                               ; preds = %.thread118
+90:                                               ; preds = %.thread144
   %91 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 22) #5
   %.not209.i = icmp eq ptr %91, null
   br i1 %.not209.i, label %107, label %92
@@ -20234,7 +20234,7 @@ annotated_rhs_rule.exit.thread:                   ; preds = %annotated_rhs_rule.
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %invalid_replacement_field_rule.exit.thread
 
-107:                                              ; preds = %90, %.thread118
+107:                                              ; preds = %90, %.thread144
   store i32 %88, ptr %11, align 8, !tbaa !22
   %108 = load i32, ptr %8, align 8, !tbaa !21
   %.not211.i = icmp eq i32 %108, 0
@@ -20371,7 +20371,7 @@ annotated_rhs_rule.exit.thread:                   ; preds = %annotated_rhs_rule.
   %177 = load ptr, ptr @PyExc_SyntaxError, align 8, !tbaa !41
   %178 = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %0, ptr noundef %177, i32 noundef 1, ptr noundef nonnull @.str.71) #5
   %179 = icmp eq ptr %178, null
-  br i1 %179, label %180, label %invalid_replacement_field_rule.exit.thread114
+  br i1 %179, label %180, label %invalid_replacement_field_rule.exit.thread120
 
 180:                                              ; preds = %176
   %181 = tail call ptr @PyErr_Occurred() #5
@@ -20412,7 +20412,7 @@ annotated_rhs_rule.exit.thread:                   ; preds = %annotated_rhs_rule.
   %193 = load ptr, ptr @PyExc_SyntaxError, align 8, !tbaa !41
   %194 = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %0, ptr noundef %193, i32 noundef 1, ptr noundef nonnull @.str.72) #5
   %195 = icmp eq ptr %194, null
-  br i1 %195, label %.thread293.i, label %invalid_replacement_field_rule.exit.thread114
+  br i1 %195, label %.thread293.i, label %invalid_replacement_field_rule.exit.thread120
 
 .thread293.i:                                     ; preds = %192, %190
   %196 = tail call ptr @PyErr_Occurred() #5
@@ -20458,7 +20458,7 @@ annotated_rhs_rule.exit.thread:                   ; preds = %annotated_rhs_rule.
   %210 = load ptr, ptr @PyExc_SyntaxError, align 8, !tbaa !41
   %211 = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %0, ptr noundef %210, i32 noundef 1, ptr noundef nonnull @.str.73) #5
   %212 = icmp eq ptr %211, null
-  br i1 %212, label %.thread301.i, label %invalid_replacement_field_rule.exit.thread114
+  br i1 %212, label %.thread301.i, label %invalid_replacement_field_rule.exit.thread120
 
 .thread301.i:                                     ; preds = %209, %207
   %213 = tail call ptr @PyErr_Occurred() #5
@@ -20542,7 +20542,7 @@ annotated_rhs_rule.exit.thread:                   ; preds = %annotated_rhs_rule.
   %240 = load ptr, ptr @PyExc_SyntaxError, align 8, !tbaa !41
   %241 = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %0, ptr noundef %240, i32 noundef 1, ptr noundef nonnull @.str.74) #5
   %242 = icmp eq ptr %241, null
-  br i1 %242, label %.thread316.i, label %invalid_replacement_field_rule.exit.thread114
+  br i1 %242, label %.thread316.i, label %invalid_replacement_field_rule.exit.thread120
 
 .thread316.i:                                     ; preds = %239, %237
   %243 = tail call ptr @PyErr_Occurred() #5
@@ -20609,7 +20609,7 @@ annotated_rhs_rule.exit.thread:                   ; preds = %annotated_rhs_rule.
   %263 = load ptr, ptr @PyExc_SyntaxError, align 8, !tbaa !41
   %264 = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %0, ptr noundef %263, i32 noundef 1, ptr noundef nonnull @.str.75) #5
   %265 = icmp eq ptr %264, null
-  br i1 %265, label %.thread329.i, label %invalid_replacement_field_rule.exit.thread114
+  br i1 %265, label %.thread329.i, label %invalid_replacement_field_rule.exit.thread120
 
 .thread329.i:                                     ; preds = %262, %260
   %266 = tail call ptr @PyErr_Occurred() #5
@@ -20666,7 +20666,7 @@ annotated_rhs_rule.exit.thread:                   ; preds = %annotated_rhs_rule.
   %282 = load ptr, ptr @PyExc_SyntaxError, align 8, !tbaa !41
   %283 = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %0, ptr noundef %282, i32 noundef 1, ptr noundef nonnull @.str.76) #5
   %284 = icmp eq ptr %283, null
-  br i1 %284, label %.thread342.i, label %invalid_replacement_field_rule.exit.thread114
+  br i1 %284, label %.thread342.i, label %invalid_replacement_field_rule.exit.thread120
 
 .thread342.i:                                     ; preds = %281, %279
   %285 = tail call ptr @PyErr_Occurred() #5
@@ -20683,7 +20683,7 @@ invalid_replacement_field_rule.exit.thread:       ; preds = %268, %270, %272, %2
   store i32 %287, ptr %2, align 8, !tbaa !20
   br label %.thread102
 
-invalid_replacement_field_rule.exit.thread114:    ; preds = %176, %192, %209, %239, %262, %281
+invalid_replacement_field_rule.exit.thread120:    ; preds = %176, %192, %209, %239, %262, %281
   %.0.i.ph = phi ptr [ %283, %281 ], [ %264, %262 ], [ %241, %239 ], [ %211, %209 ], [ %194, %192 ], [ %178, %176 ]
   %288 = load i32, ptr %2, align 8, !tbaa !20
   %289 = add i32 %288, -1
@@ -20702,8 +20702,8 @@ invalid_replacement_field_rule.exit:              ; preds = %223
   store i32 %12, ptr %11, align 8, !tbaa !22
   br label %.thread95
 
-.thread95:                                        ; preds = %invalid_replacement_field_rule.exit.thread114, %invalid_replacement_field_rule.exit, %.thread102, %annotated_rhs_rule.exit.thread, %73, %64, %80, %61, %24, %7, %75, %23
-  %.0 = phi ptr [ null, %23 ], [ null, %75 ], [ null, %7 ], [ null, %24 ], [ null, %61 ], [ null, %80 ], [ %290, %invalid_replacement_field_rule.exit ], [ null, %.thread102 ], [ null, %annotated_rhs_rule.exit.thread ], [ null, %73 ], [ %71, %64 ], [ %.0.i.ph, %invalid_replacement_field_rule.exit.thread114 ]
+.thread95:                                        ; preds = %invalid_replacement_field_rule.exit.thread120, %invalid_replacement_field_rule.exit, %.thread102, %annotated_rhs_rule.exit.thread, %73, %64, %80, %61, %24, %7, %75, %23
+  %.0 = phi ptr [ null, %23 ], [ null, %75 ], [ null, %7 ], [ null, %24 ], [ null, %61 ], [ null, %80 ], [ %290, %invalid_replacement_field_rule.exit ], [ null, %.thread102 ], [ null, %annotated_rhs_rule.exit.thread ], [ null, %73 ], [ %71, %64 ], [ %.0.i.ph, %invalid_replacement_field_rule.exit.thread120 ]
   %293 = load i32, ptr %2, align 8, !tbaa !20
   %294 = add i32 %293, -1
   store i32 %294, ptr %2, align 8, !tbaa !20
@@ -20843,9 +20843,9 @@ define internal fastcc ptr @fstring_full_format_spec_rule(ptr noundef %0) unname
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread58
+  br i1 %15, label %20, label %.thread62
 
-.thread58:                                        ; preds = %10
+.thread62:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -20870,11 +20870,11 @@ define internal fastcc ptr @fstring_full_format_spec_rule(ptr noundef %0) unname
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread58, %24
-  %.pn.in = phi ptr [ %19, %.thread58 ], [ %29, %24 ]
+30:                                               ; preds = %.thread62, %24
+  %.pn.in = phi ptr [ %19, %.thread62 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in61 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in61, align 4, !tbaa !26
+  %.in65 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in65, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 11) #5
@@ -20950,9 +20950,9 @@ define internal fastcc ptr @yield_expr_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread97
+  br i1 %15, label %20, label %.thread102
 
-.thread97:                                        ; preds = %10
+.thread102:                                       ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -20977,11 +20977,11 @@ define internal fastcc ptr @yield_expr_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread97, %24
-  %.pn.in = phi ptr [ %19, %.thread97 ], [ %29, %24 ]
+30:                                               ; preds = %.thread102, %24
+  %.pn.in = phi ptr [ %19, %.thread102 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in100 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in100, align 4, !tbaa !26
+  %.in105 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in105, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 580) #5
@@ -21626,8 +21626,8 @@ define internal fastcc ptr @tuple_rule(ptr noundef %0) unnamed_addr #0 {
 30:                                               ; preds = %.thread, %24
   %.pn.in = phi ptr [ %19, %.thread ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in74 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in74, align 4, !tbaa !26
+  %.in78 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in78, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 7) #5
@@ -21725,9 +21725,9 @@ _tmp_80_rule.exit:                                ; preds = %54, %52, %49
   br label %.thread59
 
 .sink.split:                                      ; preds = %39, %_tmp_80_rule.exit.thread
-  %storemerge.in70 = load i32, ptr %2, align 8, !tbaa !20
-  %storemerge71 = add i32 %storemerge.in70, -1
-  store i32 %storemerge71, ptr %2, align 8, !tbaa !20
+  %storemerge.in74 = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge75 = add i32 %storemerge.in74, -1
+  store i32 %storemerge75, ptr %2, align 8, !tbaa !20
   br label %72
 
 72:                                               ; preds = %.sink.split, %55, %_tmp_80_rule.exit, %30
@@ -21916,13 +21916,13 @@ define internal fastcc ptr @list_rule(ptr noundef %0) unnamed_addr #0 {
 30:                                               ; preds = %.thread, %24
   %.pn.in = phi ptr [ %19, %.thread ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in96 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in96, align 4, !tbaa !26
+  %.in102 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in102, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 9) #5
   %.not47 = icmp eq ptr %33, null
-  br i1 %.not47, label %star_named_expressions_rule.exit.thread90, label %34
+  br i1 %.not47, label %star_named_expressions_rule.exit.thread96, label %34
 
 34:                                               ; preds = %30
   %35 = load i32, ptr %2, align 8, !tbaa !20
@@ -21938,13 +21938,13 @@ define internal fastcc ptr @list_rule(ptr noundef %0) unnamed_addr #0 {
 39:                                               ; preds = %38, %34
   %40 = load i32, ptr %8, align 8, !tbaa !21
   %.not.i = icmp eq i32 %40, 0
-  br i1 %.not.i, label %41, label %star_named_expressions_rule.exit.thread85
+  br i1 %.not.i, label %41, label %star_named_expressions_rule.exit.thread91
 
-star_named_expressions_rule.exit.thread85:        ; preds = %39
-  %storemerge.in88 = load i32, ptr %2, align 8, !tbaa !20
-  %storemerge89 = add i32 %storemerge.in88, -1
-  store i32 %storemerge89, ptr %2, align 8, !tbaa !20
-  br label %star_named_expressions_rule.exit.thread90
+star_named_expressions_rule.exit.thread91:        ; preds = %39
+  %storemerge.in94 = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge95 = add i32 %storemerge.in94, -1
+  store i32 %storemerge95, ptr %2, align 8, !tbaa !20
+  br label %star_named_expressions_rule.exit.thread96
 
 41:                                               ; preds = %39
   %42 = load i32, ptr %11, align 8, !tbaa !22
@@ -21952,20 +21952,20 @@ star_named_expressions_rule.exit.thread85:        ; preds = %39
   %44 = add i32 %43, 1
   store i32 %44, ptr %2, align 8, !tbaa !20
   %45 = icmp eq i32 %43, 6000
-  br i1 %45, label %46, label %.thread78
+  br i1 %45, label %46, label %.thread84
 
 46:                                               ; preds = %41
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre75 = load i32, ptr %8, align 8, !tbaa !21
   %47 = icmp eq i32 %.pre75, 0
-  br i1 %47, label %.thread78, label %star_named_expressions_rule.exit.sink.split
+  br i1 %47, label %.thread84, label %star_named_expressions_rule.exit.sink.split
 
-.thread78:                                        ; preds = %41, %46
+.thread84:                                        ; preds = %41, %46
   %48 = tail call fastcc ptr @star_named_expression_rule(ptr noundef nonnull %0)
   %.not22.i = icmp eq ptr %48, null
   br i1 %.not22.i, label %star_named_expressions_rule.exit.sink.split, label %49
 
-49:                                               ; preds = %.thread78
+49:                                               ; preds = %.thread84
   %50 = tail call fastcc ptr @_loop0_57_rule(ptr noundef nonnull %0)
   %.not23.i53 = icmp eq ptr %50, null
   br i1 %.not23.i53, label %star_named_expressions_rule.exit.sink.split, label %_gather_58_rule.exit
@@ -21982,12 +21982,12 @@ _gather_58_rule.exit:                             ; preds = %49
   %55 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %56 = load i32, ptr %8, align 8, !tbaa !21
   %.not24.i = icmp eq i32 %56, 0
-  %storemerge.in82 = load i32, ptr %2, align 8, !tbaa !20
-  %storemerge83 = add i32 %storemerge.in82, -1
-  store i32 %storemerge83, ptr %2, align 8, !tbaa !20
-  br i1 %.not24.i, label %star_named_expressions_rule.exit.thread, label %star_named_expressions_rule.exit.thread90
+  %storemerge.in88 = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge89 = add i32 %storemerge.in88, -1
+  store i32 %storemerge89, ptr %2, align 8, !tbaa !20
+  br i1 %.not24.i, label %star_named_expressions_rule.exit.thread, label %star_named_expressions_rule.exit.thread96
 
-star_named_expressions_rule.exit.sink.split:      ; preds = %.thread78, %49, %46
+star_named_expressions_rule.exit.sink.split:      ; preds = %.thread84, %49, %46
   %57 = load i32, ptr %2, align 8, !tbaa !20
   %58 = add i32 %57, -1
   store i32 %58, ptr %2, align 8, !tbaa !20
@@ -22000,13 +22000,13 @@ star_named_expressions_rule.exit:                 ; preds = %star_named_expressi
   %storemerge.in = load i32, ptr %2, align 8, !tbaa !20
   %storemerge = add i32 %storemerge.in, -1
   store i32 %storemerge, ptr %2, align 8, !tbaa !20
-  br i1 %59, label %star_named_expressions_rule.exit.thread, label %star_named_expressions_rule.exit.thread90
+  br i1 %59, label %star_named_expressions_rule.exit.thread, label %star_named_expressions_rule.exit.thread96
 
 star_named_expressions_rule.exit.thread:          ; preds = %54, %star_named_expressions_rule.exit
-  %.0.i84 = phi ptr [ null, %star_named_expressions_rule.exit ], [ %51, %54 ]
+  %.0.i90 = phi ptr [ null, %star_named_expressions_rule.exit ], [ %51, %54 ]
   %60 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 10) #5
   %.not49 = icmp eq ptr %60, null
-  br i1 %.not49, label %star_named_expressions_rule.exit.thread90, label %61
+  br i1 %.not49, label %star_named_expressions_rule.exit.thread96, label %61
 
 61:                                               ; preds = %star_named_expressions_rule.exit.thread
   %62 = tail call ptr @_PyPegen_get_last_nonnwhitespace_token(ptr noundef nonnull %0) #5
@@ -22020,7 +22020,7 @@ star_named_expressions_rule.exit.thread:          ; preds = %54, %star_named_exp
   %68 = load i32, ptr %67, align 8, !tbaa !31
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %70 = load ptr, ptr %69, align 8, !tbaa !32
-  %71 = tail call ptr @_PyAST_List(ptr noundef %.0.i84, i32 noundef 1, i32 noundef %31, i32 noundef %32, i32 noundef %66, i32 noundef %68, ptr noundef %70) #5
+  %71 = tail call ptr @_PyAST_List(ptr noundef %.0.i90, i32 noundef 1, i32 noundef %31, i32 noundef %32, i32 noundef %66, i32 noundef %68, ptr noundef %70) #5
   %72 = icmp eq ptr %71, null
   br i1 %72, label %73, label %.thread68
 
@@ -22033,12 +22033,12 @@ star_named_expressions_rule.exit.thread:          ; preds = %54, %star_named_exp
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %.thread68
 
-star_named_expressions_rule.exit.thread90:        ; preds = %54, %star_named_expressions_rule.exit.thread85, %star_named_expressions_rule.exit.thread, %star_named_expressions_rule.exit, %30
+star_named_expressions_rule.exit.thread96:        ; preds = %54, %star_named_expressions_rule.exit.thread91, %star_named_expressions_rule.exit.thread, %star_named_expressions_rule.exit, %30
   store i32 %12, ptr %11, align 8, !tbaa !22
   br label %.thread68
 
-.thread68:                                        ; preds = %star_named_expressions_rule.exit.thread90, %73, %64, %61, %24, %7, %75, %23
-  %.0 = phi ptr [ null, %23 ], [ null, %75 ], [ null, %7 ], [ null, %24 ], [ null, %61 ], [ null, %star_named_expressions_rule.exit.thread90 ], [ null, %73 ], [ %71, %64 ]
+.thread68:                                        ; preds = %star_named_expressions_rule.exit.thread96, %73, %64, %61, %24, %7, %75, %23
+  %.0 = phi ptr [ null, %23 ], [ null, %75 ], [ null, %7 ], [ null, %24 ], [ null, %61 ], [ null, %star_named_expressions_rule.exit.thread96 ], [ null, %73 ], [ %71, %64 ]
   %76 = load i32, ptr %2, align 8, !tbaa !20
   %77 = add i32 %76, -1
   store i32 %77, ptr %2, align 8, !tbaa !20
@@ -22102,8 +22102,8 @@ define internal fastcc ptr @setcomp_rule(ptr noundef %0) unnamed_addr #0 {
 30:                                               ; preds = %.thread, %24
   %.pn.in = phi ptr [ %19, %.thread ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in84 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in84, align 4, !tbaa !26
+  %.in88 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in88, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 25) #5
@@ -22509,8 +22509,8 @@ invalid_kvpair_rule.exit._crit_edge:              ; preds = %invalid_kvpair_rule
   br label %146
 
 146:                                              ; preds = %invalid_kvpair_rule.exit.thread, %invalid_kvpair_rule.exit._crit_edge, %143, %.thread96, %119, %.thread101, %10
-  %.sink106 = phi i32 [ %144, %143 ], [ %116, %.thread96 ], [ %120, %119 ], [ %145, %.thread101 ], [ %11, %10 ], [ %.pre103, %invalid_kvpair_rule.exit._crit_edge ], [ %96, %invalid_kvpair_rule.exit.thread ]
-  %147 = add i32 %.sink106, -1
+  %.sink112 = phi i32 [ %144, %143 ], [ %116, %.thread96 ], [ %120, %119 ], [ %145, %.thread101 ], [ %11, %10 ], [ %.pre103, %invalid_kvpair_rule.exit._crit_edge ], [ %96, %invalid_kvpair_rule.exit.thread ]
+  %147 = add i32 %.sink112, -1
   store i32 %147, ptr %2, align 8, !tbaa !20
   ret void
 }
@@ -22626,40 +22626,40 @@ define internal fastcc ptr @_loop0_81_rule(ptr noundef %0) unnamed_addr #0 {
 
 .lr.ph.preheader:                                 ; preds = %.preheader76
   %19 = tail call fastcc ptr @double_starred_kvpair_rule(ptr noundef nonnull %0)
-  %.not7097 = icmp eq ptr %19, null
-  br i1 %.not7097, label %.critedge, label %.lr.ph101
+  %.not70100 = icmp eq ptr %19, null
+  br i1 %.not70100, label %.critedge, label %.lr.ph104
 
 .lr.ph:                                           ; preds = %28
   %20 = tail call fastcc ptr @double_starred_kvpair_rule(ptr noundef nonnull %0)
   %.not70 = icmp eq ptr %20, null
-  br i1 %.not70, label %.critedge, label %.lr.ph101, !llvm.loop !98
+  br i1 %.not70, label %.critedge, label %.lr.ph104, !llvm.loop !98
 
-.lr.ph101:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph104:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %21 = phi ptr [ %20, %.lr.ph ], [ %19, %.lr.ph.preheader ]
-  %.05981100 = phi i64 [ %.160, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.0588299 = phi i64 [ %29, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0548398 = phi ptr [ %.256, %.lr.ph ], [ %13, %.lr.ph.preheader ]
-  %22 = icmp eq i64 %.0588299, %.05981100
+  %.05981103 = phi i64 [ %.160, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.05882102 = phi i64 [ %29, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.05483101 = phi ptr [ %.256, %.lr.ph ], [ %13, %.lr.ph.preheader ]
+  %22 = icmp eq i64 %.05882102, %.05981103
   br i1 %22, label %23, label %28
 
-23:                                               ; preds = %.lr.ph101
-  %24 = shl i64 %.0588299, 1
-  %25 = shl i64 %.0588299, 4
-  %26 = tail call ptr @PyMem_Realloc(ptr noundef %.0548398, i64 noundef %25) #5
+23:                                               ; preds = %.lr.ph104
+  %24 = shl i64 %.05882102, 1
+  %25 = shl i64 %.05882102, 4
+  %26 = tail call ptr @PyMem_Realloc(ptr noundef %.05483101, i64 noundef %25) #5
   %.not71.not = icmp eq ptr %26, null
   br i1 %.not71.not, label %.thread, label %28
 
 .thread:                                          ; preds = %23
-  tail call void @PyMem_Free(ptr noundef %.0548398) #5
+  tail call void @PyMem_Free(ptr noundef %.05483101) #5
   store i32 1, ptr %8, align 8, !tbaa !21
   %27 = tail call ptr @PyErr_NoMemory() #5
   br label %.critedge74
 
-28:                                               ; preds = %23, %.lr.ph101
-  %.160 = phi i64 [ %.05981100, %.lr.ph101 ], [ %24, %23 ]
-  %.256 = phi ptr [ %.0548398, %.lr.ph101 ], [ %26, %23 ]
-  %29 = add i64 %.0588299, 1
-  %30 = getelementptr ptr, ptr %.256, i64 %.0588299
+28:                                               ; preds = %23, %.lr.ph104
+  %.160 = phi i64 [ %.05981103, %.lr.ph104 ], [ %24, %23 ]
+  %.256 = phi ptr [ %.05483101, %.lr.ph104 ], [ %26, %23 ]
+  %29 = add i64 %.05882102, 1
+  %30 = getelementptr ptr, ptr %.256, i64 %.05882102
   store ptr %21, ptr %30, align 8, !tbaa !25
   %31 = load i32, ptr %11, align 8, !tbaa !22
   %32 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -23084,8 +23084,8 @@ define internal fastcc ptr @lambdef_rule(ptr noundef %0) unnamed_addr #0 {
 30:                                               ; preds = %.thread, %24
   %.pn.in = phi ptr [ %19, %.thread ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in79 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in79, align 4, !tbaa !26
+  %.in85 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in85, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 609) #5
@@ -23113,25 +23113,25 @@ define internal fastcc ptr @lambdef_rule(ptr noundef %0) unnamed_addr #0 {
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %44 = load i32, ptr %43, align 4, !tbaa !38
   %.not28.i = icmp eq i32 %44, 0
-  br i1 %.not28.i, label %.thread73, label %45
+  br i1 %.not28.i, label %.thread79, label %45
 
 45:                                               ; preds = %41
   tail call fastcc void @invalid_lambda_parameters_rule(ptr noundef nonnull %0)
   store i32 %42, ptr %11, align 8, !tbaa !22
   %.pre70 = load i32, ptr %8, align 8, !tbaa !21
   %46 = icmp eq i32 %.pre70, 0
-  br i1 %46, label %.thread73, label %lambda_params_rule.exit.thread.sink.split
+  br i1 %46, label %.thread79, label %lambda_params_rule.exit.thread.sink.split
 
-.thread73:                                        ; preds = %41, %45
+.thread79:                                        ; preds = %41, %45
   %47 = tail call fastcc ptr @lambda_parameters_rule(ptr noundef nonnull %0)
   %.not30.i = icmp eq ptr %47, null
   br i1 %.not30.i, label %48, label %lambda_params_rule.exit
 
-48:                                               ; preds = %.thread73
+48:                                               ; preds = %.thread79
   store i32 %42, ptr %11, align 8, !tbaa !22
   br label %lambda_params_rule.exit
 
-lambda_params_rule.exit:                          ; preds = %48, %.thread73
+lambda_params_rule.exit:                          ; preds = %48, %.thread79
   %49 = load i32, ptr %2, align 8, !tbaa !20
   %50 = add i32 %49, -1
   store i32 %50, ptr %2, align 8, !tbaa !20
@@ -23292,9 +23292,9 @@ define internal fastcc ptr @expression_without_invalid_rule(ptr noundef %0) unna
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load i32, ptr %15, align 4, !tbaa !23
   %17 = icmp eq i32 %14, %16
-  br i1 %17, label %22, label %.thread114
+  br i1 %17, label %22, label %.thread121
 
-.thread114:                                       ; preds = %12
+.thread121:                                       ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !24
   %20 = sext i32 %14 to i64
@@ -23319,11 +23319,11 @@ define internal fastcc ptr @expression_without_invalid_rule(ptr noundef %0) unna
   %31 = getelementptr ptr, ptr %29, i64 %30
   br i1 %27, label %32, label %.thread
 
-32:                                               ; preds = %.thread114, %26
-  %.pn.in = phi ptr [ %21, %.thread114 ], [ %31, %26 ]
+32:                                               ; preds = %.thread121, %26
+  %.pn.in = phi ptr [ %21, %.thread121 ], [ %31, %26 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in117 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %33 = load i32, ptr %.in117, align 4, !tbaa !26
+  %.in124 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %33 = load i32, ptr %.in124, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %34 = load i32, ptr %.in, align 8, !tbaa !29
   %35 = tail call fastcc ptr @disjunction_rule(ptr noundef nonnull %0)
@@ -23578,21 +23578,21 @@ define internal fastcc void @invalid_lambda_parameters_rule(ptr noundef %0) unna
   %35 = add i32 %33, 1
   store i32 %35, ptr %2, align 8, !tbaa !20
   %36 = icmp eq i32 %33, 6000
-  br i1 %36, label %37, label %.thread217
+  br i1 %36, label %37, label %.thread223
 
 37:                                               ; preds = %34
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %38 = icmp eq i32 %.pre, 0
-  br i1 %38, label %.thread217, label %_tmp_125_rule.exit.thread.sink.split
+  br i1 %38, label %.thread223, label %_tmp_125_rule.exit.thread.sink.split
 
-.thread217:                                       ; preds = %34, %37
+.thread223:                                       ; preds = %34, %37
   %39 = load i32, ptr %11, align 8, !tbaa !22
   %40 = tail call fastcc ptr @lambda_slash_no_default_rule(ptr noundef nonnull %0)
   %.not27.i = icmp eq ptr %40, null
   br i1 %.not27.i, label %41, label %45
 
-41:                                               ; preds = %.thread217
+41:                                               ; preds = %.thread223
   store i32 %39, ptr %11, align 8, !tbaa !22
   %42 = load i32, ptr %8, align 8, !tbaa !21
   %.not28.i = icmp eq i32 %42, 0
@@ -23603,7 +23603,7 @@ define internal fastcc void @invalid_lambda_parameters_rule(ptr noundef %0) unna
   %.not29.i = icmp eq ptr %44, null
   br i1 %.not29.i, label %_tmp_125_rule.exit.thread.sink.split, label %45
 
-45:                                               ; preds = %.thread217, %43
+45:                                               ; preds = %.thread223, %43
   %46 = load i32, ptr %2, align 8, !tbaa !20
   %47 = add i32 %46, -1
   store i32 %47, ptr %2, align 8, !tbaa !20
@@ -23875,8 +23875,8 @@ _tmp_125_rule.exit.thread:                        ; preds = %_tmp_125_rule.exit.
   br label %173
 
 173:                                              ; preds = %.sink.split, %31
-  %.sink220 = phi i32 [ %33, %31 ], [ %172, %.sink.split ]
-  %174 = add i32 %.sink220, -1
+  %.sink226 = phi i32 [ %33, %31 ], [ %172, %.sink.split ]
+  %174 = add i32 %.sink226, -1
   store i32 %174, ptr %2, align 8, !tbaa !20
   ret void
 }
@@ -24892,8 +24892,8 @@ define internal fastcc ptr @_loop1_76_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not70, label %36, label %35
 
 35:                                               ; preds = %._crit_edge.thread, %33, %._crit_edge
-  %.058.lcssa92 = phi ptr [ %13, %._crit_edge.thread ], [ %.159, %33 ], [ %.159, %._crit_edge ]
-  tail call void @PyMem_Free(ptr noundef nonnull %.058.lcssa92) #5
+  %.058.lcssa96 = phi ptr [ %13, %._crit_edge.thread ], [ %.159, %33 ], [ %.159, %._crit_edge ]
+  tail call void @PyMem_Free(ptr noundef nonnull %.058.lcssa96) #5
   br label %50
 
 36:                                               ; preds = %33
@@ -25135,8 +25135,8 @@ define internal fastcc ptr @_loop1_74_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not70, label %36, label %35
 
 35:                                               ; preds = %._crit_edge.thread, %33, %._crit_edge
-  %.058.lcssa92 = phi ptr [ %13, %._crit_edge.thread ], [ %.159, %33 ], [ %.159, %._crit_edge ]
-  tail call void @PyMem_Free(ptr noundef nonnull %.058.lcssa92) #5
+  %.058.lcssa96 = phi ptr [ %13, %._crit_edge.thread ], [ %.159, %33 ], [ %.159, %._crit_edge ]
+  tail call void @PyMem_Free(ptr noundef nonnull %.058.lcssa96) #5
   br label %50
 
 36:                                               ; preds = %33
@@ -25307,9 +25307,9 @@ define internal fastcc ptr @lambda_param_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread53
+  br i1 %15, label %20, label %.thread56
 
-.thread53:                                        ; preds = %10
+.thread56:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -25334,11 +25334,11 @@ define internal fastcc ptr @lambda_param_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread53, %24
-  %.pn.in = phi ptr [ %19, %.thread53 ], [ %29, %24 ]
+30:                                               ; preds = %.thread56, %24
+  %.pn.in = phi ptr [ %19, %.thread56 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in56 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in56, align 4, !tbaa !26
+  %.in59 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in59, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %0) #5
@@ -25486,9 +25486,9 @@ invalid_default_rule.exit:                        ; preds = %.thread, %28, %25, 
   br label %49
 
 49:                                               ; preds = %.sink.split, %19
-  %.sink42 = phi i32 [ %21, %19 ], [ %48, %.sink.split ]
+  %.sink44 = phi i32 [ %21, %19 ], [ %48, %.sink.split ]
   %.0 = phi ptr [ null, %19 ], [ %.0.ph, %.sink.split ]
-  %50 = add i32 %.sink42, -1
+  %50 = add i32 %.sink44, -1
   store i32 %50, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -25737,8 +25737,8 @@ define internal fastcc ptr @_loop1_73_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not70, label %36, label %35
 
 35:                                               ; preds = %._crit_edge.thread, %33, %._crit_edge
-  %.058.lcssa92 = phi ptr [ %13, %._crit_edge.thread ], [ %.159, %33 ], [ %.159, %._crit_edge ]
-  tail call void @PyMem_Free(ptr noundef nonnull %.058.lcssa92) #5
+  %.058.lcssa96 = phi ptr [ %13, %._crit_edge.thread ], [ %.159, %33 ], [ %.159, %._crit_edge ]
+  tail call void @PyMem_Free(ptr noundef nonnull %.058.lcssa96) #5
   br label %50
 
 36:                                               ; preds = %33
@@ -25931,7 +25931,7 @@ define internal fastcc ptr @lambda_star_etc_rule(ptr noundef %0) unnamed_addr #0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %14 = load i32, ptr %13, align 4, !tbaa !38
   %.not76 = icmp eq i32 %14, 0
-  br i1 %.not76, label %.thread160, label %15
+  br i1 %.not76, label %.thread173, label %15
 
 15:                                               ; preds = %10
   %16 = load i32, ptr %2, align 8, !tbaa !20
@@ -26057,7 +26057,7 @@ _tmp_129_rule.exit:                               ; preds = %46, %51
 66:                                               ; preds = %62
   %67 = tail call ptr @PyErr_Occurred() #5
   %.not66.i = icmp eq ptr %67, null
-  br i1 %.not66.i, label %invalid_lambda_star_etc_rule.exit.thread125, label %.thread162
+  br i1 %.not66.i, label %invalid_lambda_star_etc_rule.exit.thread125, label %.thread175
 
 68:                                               ; preds = %_tmp_129_rule.exit.thread, %_tmp_129_rule.exit, %.thread
   store i32 %21, ptr %11, align 8, !tbaa !22
@@ -26097,7 +26097,7 @@ _tmp_129_rule.exit:                               ; preds = %46, %51
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %77, i64 noundef %80, i64 noundef %83, i64 noundef %86, i64 noundef %89, ptr noundef nonnull @.str.98)
   %90 = tail call ptr @PyErr_Occurred() #5
   %.not71.i = icmp eq ptr %90, null
-  br i1 %.not71.i, label %invalid_lambda_star_etc_rule.exit.thread125, label %.thread162
+  br i1 %.not71.i, label %invalid_lambda_star_etc_rule.exit.thread125, label %.thread175
 
 91:                                               ; preds = %70, %72, %74
   store i32 %21, ptr %11, align 8, !tbaa !22
@@ -26147,7 +26147,7 @@ _tmp_129_rule.exit:                               ; preds = %46, %51
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %104, i64 noundef %107, i64 noundef %110, i64 noundef %113, i64 noundef %116, ptr noundef nonnull @.str.99)
   %117 = tail call ptr @PyErr_Occurred() #5
   %.not78.i = icmp eq ptr %117, null
-  br i1 %.not78.i, label %invalid_lambda_star_etc_rule.exit.thread125, label %.thread162
+  br i1 %.not78.i, label %invalid_lambda_star_etc_rule.exit.thread125, label %.thread175
 
 118:                                              ; preds = %62
   %119 = load i32, ptr %2, align 8, !tbaa !20
@@ -26155,7 +26155,7 @@ _tmp_129_rule.exit:                               ; preds = %46, %51
   store i32 %120, ptr %2, align 8, !tbaa !20
   br label %.thread132
 
-.thread162:                                       ; preds = %103, %76, %66
+.thread175:                                       ; preds = %103, %76, %66
   store i32 1, ptr %8, align 8, !tbaa !21
   %121 = load i32, ptr %2, align 8, !tbaa !20
   %122 = add i32 %121, -1
@@ -26170,14 +26170,14 @@ invalid_lambda_star_etc_rule.exit.thread125:      ; preds = %103, %76, %93, %95,
   %.pre158.pr = load i32, ptr %8, align 8, !tbaa !21
   store i32 %12, ptr %11, align 8, !tbaa !22
   %125 = icmp eq i32 %.pre158.pr, 0
-  br i1 %125, label %.thread160, label %.thread132
+  br i1 %125, label %.thread173, label %.thread132
 
-.thread160:                                       ; preds = %10, %invalid_lambda_star_etc_rule.exit.thread125
+.thread173:                                       ; preds = %10, %invalid_lambda_star_etc_rule.exit.thread125
   %126 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 16) #5
   %.not79 = icmp eq ptr %126, null
   br i1 %.not79, label %139, label %127
 
-127:                                              ; preds = %.thread160
+127:                                              ; preds = %.thread173
   %128 = tail call fastcc ptr @lambda_param_no_default_rule(ptr noundef nonnull %0)
   %.not80 = icmp eq ptr %128, null
   br i1 %.not80, label %139, label %129
@@ -26211,7 +26211,7 @@ invalid_lambda_star_etc_rule.exit.thread125:      ; preds = %103, %76, %93, %95,
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %.thread132
 
-139:                                              ; preds = %129, %127, %.thread160
+139:                                              ; preds = %129, %127, %.thread173
   %.pr = load i32, ptr %8, align 8, !tbaa !21
   store i32 %12, ptr %11, align 8, !tbaa !22
   %.not84 = icmp eq i32 %.pr, 0
@@ -26285,8 +26285,8 @@ invalid_lambda_star_etc_rule.exit.thread125:      ; preds = %103, %76, %93, %95,
   store i32 %12, ptr %11, align 8, !tbaa !22
   br label %.thread132
 
-.thread132:                                       ; preds = %162, %118, %137, %134, %152, %149, %160, %157, %154, %.thread149, %139, %.thread138, %invalid_lambda_star_etc_rule.exit.thread125, %.thread162, %7, %.thread155, %.thread144, %.thread135
-  %.0 = phi ptr [ null, %.thread135 ], [ null, %.thread144 ], [ null, %.thread155 ], [ null, %7 ], [ null, %.thread162 ], [ null, %invalid_lambda_star_etc_rule.exit.thread125 ], [ null, %.thread138 ], [ null, %139 ], [ null, %.thread149 ], [ null, %154 ], [ null, %162 ], [ %64, %118 ], [ null, %137 ], [ %135, %134 ], [ null, %152 ], [ %150, %149 ], [ null, %160 ], [ %158, %157 ]
+.thread132:                                       ; preds = %162, %118, %137, %134, %152, %149, %160, %157, %154, %.thread149, %139, %.thread138, %invalid_lambda_star_etc_rule.exit.thread125, %.thread175, %7, %.thread155, %.thread144, %.thread135
+  %.0 = phi ptr [ null, %.thread135 ], [ null, %.thread144 ], [ null, %.thread155 ], [ null, %7 ], [ null, %.thread175 ], [ null, %invalid_lambda_star_etc_rule.exit.thread125 ], [ null, %.thread138 ], [ null, %139 ], [ null, %.thread149 ], [ null, %154 ], [ null, %162 ], [ %64, %118 ], [ null, %137 ], [ %135, %134 ], [ null, %152 ], [ %150, %149 ], [ null, %160 ], [ %158, %157 ]
   %163 = load i32, ptr %2, align 8, !tbaa !20
   %164 = add i32 %163, -1
   store i32 %164, ptr %2, align 8, !tbaa !20
@@ -26320,7 +26320,7 @@ define internal fastcc ptr @lambda_kwds_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %14 = load i32, ptr %13, align 4, !tbaa !38
   %.not33 = icmp eq i32 %14, 0
-  br i1 %.not33, label %.thread43, label %15
+  br i1 %.not33, label %.thread47, label %15
 
 15:                                               ; preds = %10
   %16 = load i32, ptr %2, align 8, !tbaa !20
@@ -26333,7 +26333,7 @@ define internal fastcc ptr @lambda_kwds_rule(ptr noundef %0) unnamed_addr #0 {
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %20 = icmp eq i32 %.pre, 0
-  br i1 %20, label %.thread, label %.thread45
+  br i1 %20, label %.thread, label %.thread49
 
 .thread:                                          ; preds = %15, %19
   %21 = load i32, ptr %11, align 8, !tbaa !22
@@ -26368,13 +26368,13 @@ define internal fastcc ptr @lambda_kwds_rule(ptr noundef %0) unnamed_addr #0 {
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %28, i64 noundef %31, i64 noundef %34, i64 noundef %37, i64 noundef %40, ptr noundef nonnull @.str.100)
   %41 = tail call ptr @PyErr_Occurred() #5
   %.not73.i = icmp eq ptr %41, null
-  br i1 %.not73.i, label %94, label %.thread45.sink.split
+  br i1 %.not73.i, label %94, label %.thread49.sink.split
 
 42:                                               ; preds = %25, %23, %.thread
   store i32 %21, ptr %11, align 8, !tbaa !22
   %43 = load i32, ptr %8, align 8, !tbaa !21
   %.not74.i = icmp eq i32 %43, 0
-  br i1 %.not74.i, label %44, label %.thread45
+  br i1 %.not74.i, label %44, label %.thread49
 
 44:                                               ; preds = %42
   %45 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 35) #5
@@ -26413,13 +26413,13 @@ define internal fastcc ptr @lambda_kwds_rule(ptr noundef %0) unnamed_addr #0 {
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %53, i64 noundef %56, i64 noundef %59, i64 noundef %62, i64 noundef %65, ptr noundef nonnull @.str.101)
   %66 = tail call ptr @PyErr_Occurred() #5
   %.not79.i = icmp eq ptr %66, null
-  br i1 %.not79.i, label %94, label %.thread45.sink.split
+  br i1 %.not79.i, label %94, label %.thread49.sink.split
 
 67:                                               ; preds = %50, %48, %46, %44
   store i32 %21, ptr %11, align 8, !tbaa !22
   %68 = load i32, ptr %8, align 8, !tbaa !21
   %.not80.i = icmp eq i32 %68, 0
-  br i1 %.not80.i, label %69, label %.thread45
+  br i1 %.not80.i, label %69, label %.thread49
 
 69:                                               ; preds = %67
   %70 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 35) #5
@@ -26458,13 +26458,13 @@ define internal fastcc ptr @lambda_kwds_rule(ptr noundef %0) unnamed_addr #0 {
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %78, i64 noundef %81, i64 noundef %84, i64 noundef %87, i64 noundef %90, ptr noundef nonnull @.str.101)
   %91 = tail call ptr @PyErr_Occurred() #5
   %.not85.i = icmp eq ptr %91, null
-  br i1 %.not85.i, label %94, label %.thread45.sink.split
+  br i1 %.not85.i, label %94, label %.thread49.sink.split
 
-.thread45.sink.split:                             ; preds = %77, %52, %27
+.thread49.sink.split:                             ; preds = %77, %52, %27
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread45
+  br label %.thread49
 
-.thread45:                                        ; preds = %.thread45.sink.split, %67, %42, %19
+.thread49:                                        ; preds = %.thread49.sink.split, %67, %42, %19
   %92 = load i32, ptr %2, align 8, !tbaa !20
   %93 = add i32 %92, -1
   store i32 %93, ptr %2, align 8, !tbaa !20
@@ -26477,19 +26477,19 @@ define internal fastcc ptr @lambda_kwds_rule(ptr noundef %0) unnamed_addr #0 {
   store i32 %96, ptr %2, align 8, !tbaa !20
   store i32 %12, ptr %11, align 8, !tbaa !22
   %97 = icmp eq i32 %.pre41.pr, 0
-  br i1 %97, label %.thread43, label %101
+  br i1 %97, label %.thread47, label %101
 
-.thread43:                                        ; preds = %10, %94
+.thread47:                                        ; preds = %10, %94
   %98 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 35) #5
   %.not35 = icmp eq ptr %98, null
   br i1 %.not35, label %.sink.split, label %99
 
-99:                                               ; preds = %.thread43
+99:                                               ; preds = %.thread47
   %100 = tail call fastcc ptr @lambda_param_no_default_rule(ptr noundef nonnull %0)
   %.not36 = icmp eq ptr %100, null
   br i1 %.not36, label %.sink.split, label %101
 
-.sink.split:                                      ; preds = %99, %.thread43, %.thread45
+.sink.split:                                      ; preds = %99, %.thread47, %.thread49
   store i32 %12, ptr %11, align 8, !tbaa !22
   br label %101
 
@@ -26641,27 +26641,27 @@ define internal fastcc ptr @type_params_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %14 = load i32, ptr %13, align 4, !tbaa !38
   %.not36 = icmp eq i32 %14, 0
-  br i1 %.not36, label %.thread75, label %15
+  br i1 %.not36, label %.thread84, label %15
 
 15:                                               ; preds = %10
   %16 = load i32, ptr %2, align 8, !tbaa !20
   %17 = add i32 %16, 1
   store i32 %17, ptr %2, align 8, !tbaa !20
   %18 = icmp eq i32 %16, 6000
-  br i1 %18, label %19, label %.thread73
+  br i1 %18, label %19, label %.thread82
 
 19:                                               ; preds = %15
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %20 = icmp eq i32 %.pre, 0
-  br i1 %20, label %.thread73, label %.thread77
+  br i1 %20, label %.thread82, label %.thread86
 
-.thread73:                                        ; preds = %15, %19
+.thread82:                                        ; preds = %15, %19
   %21 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 9) #5
   %.not25.i = icmp eq ptr %21, null
   br i1 %.not25.i, label %36, label %22
 
-22:                                               ; preds = %.thread73
+22:                                               ; preds = %.thread82
   %23 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 10) #5
   %.not26.i = icmp eq ptr %23, null
   br i1 %.not26.i, label %36, label %24
@@ -26681,30 +26681,30 @@ define internal fastcc ptr @type_params_rule(ptr noundef %0) unnamed_addr #0 {
 
 33:                                               ; preds = %24
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread77
+  br label %.thread86
 
-.thread77:                                        ; preds = %33, %19
+.thread86:                                        ; preds = %33, %19
   %34 = load i32, ptr %2, align 8, !tbaa !20
   %35 = add i32 %34, -1
   store i32 %35, ptr %2, align 8, !tbaa !20
   store i32 %12, ptr %11, align 8, !tbaa !22
   br label %.thread
 
-36:                                               ; preds = %.thread73, %22, %24
+36:                                               ; preds = %.thread82, %22, %24
   %.pre66.pr = load i32, ptr %8, align 8, !tbaa !21
   %37 = load i32, ptr %2, align 8, !tbaa !20
   %38 = add i32 %37, -1
   store i32 %38, ptr %2, align 8, !tbaa !20
   store i32 %12, ptr %11, align 8, !tbaa !22
   %39 = icmp eq i32 %.pre66.pr, 0
-  br i1 %39, label %.thread75, label %.thread
+  br i1 %39, label %.thread84, label %.thread
 
-.thread75:                                        ; preds = %10, %36
+.thread84:                                        ; preds = %10, %36
   %40 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 9) #5
   %.not38 = icmp eq ptr %40, null
   br i1 %.not38, label %110, label %41
 
-41:                                               ; preds = %.thread75
+41:                                               ; preds = %.thread84
   %42 = load i32, ptr %2, align 8, !tbaa !20
   %43 = add i32 %42, 1
   store i32 %43, ptr %2, align 8, !tbaa !20
@@ -26918,12 +26918,12 @@ INVALID_VERSION_CHECK.exit:                       ; preds = %101
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %.thread
 
-110:                                              ; preds = %type_param_seq_rule.exit.thread, %99, %.thread75
+110:                                              ; preds = %type_param_seq_rule.exit.thread, %99, %.thread84
   store i32 %12, ptr %11, align 8, !tbaa !22
   br label %.thread
 
-.thread:                                          ; preds = %110, %108, %INVALID_VERSION_CHECK.exit, %101, %36, %.thread77, %7, %.thread51
-  %.0 = phi ptr [ null, %.thread51 ], [ null, %7 ], [ null, %.thread77 ], [ null, %36 ], [ null, %110 ], [ %106, %INVALID_VERSION_CHECK.exit ], [ null, %108 ], [ %95, %101 ]
+.thread:                                          ; preds = %110, %108, %INVALID_VERSION_CHECK.exit, %101, %36, %.thread86, %7, %.thread51
+  %.0 = phi ptr [ null, %.thread51 ], [ null, %7 ], [ null, %.thread86 ], [ null, %36 ], [ null, %110 ], [ %106, %INVALID_VERSION_CHECK.exit ], [ null, %108 ], [ %95, %101 ]
   %111 = load i32, ptr %2, align 8, !tbaa !20
   %112 = add i32 %111, -1
   store i32 %112, ptr %2, align 8, !tbaa !20
@@ -26960,7 +26960,7 @@ define internal fastcc ptr @params_rule(ptr noundef %0) unnamed_addr #0 {
   %16 = load i32, ptr %15, align 4, !tbaa !38
   %.not28 = icmp eq i32 %16, 0
   %.pr = load i32, ptr %2, align 8, !tbaa !20
-  br i1 %.not28, label %.thread45, label %17
+  br i1 %.not28, label %.thread68, label %17
 
 17:                                               ; preds = %12
   %18 = add i32 %.pr, 1
@@ -26972,7 +26972,7 @@ define internal fastcc ptr @params_rule(ptr noundef %0) unnamed_addr #0 {
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %21 = icmp eq i32 %.pre, 0
-  br i1 %21, label %.thread, label %.thread50
+  br i1 %21, label %.thread, label %.thread73
 
 .thread:                                          ; preds = %17, %20
   %22 = load i32, ptr %13, align 8, !tbaa !22
@@ -27006,7 +27006,7 @@ define internal fastcc ptr @params_rule(ptr noundef %0) unnamed_addr #0 {
 
 .thread.i:                                        ; preds = %26
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread50
+  br label %.thread73
 
 41:                                               ; preds = %24, %.thread
   store i32 %22, ptr %13, align 8, !tbaa !22
@@ -27019,25 +27019,25 @@ define internal fastcc ptr @params_rule(ptr noundef %0) unnamed_addr #0 {
   %45 = add i32 %43, 1
   store i32 %45, ptr %2, align 8, !tbaa !20
   %46 = icmp eq i32 %43, 6000
-  br i1 %46, label %47, label %.thread204.i
+  br i1 %46, label %47, label %.thread210.i
 
 47:                                               ; preds = %44
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre.i = load i32, ptr %8, align 8, !tbaa !21
   %48 = icmp eq i32 %.pre.i, 0
-  br i1 %48, label %..thread204.i_crit_edge, label %_tmp_119_rule.exit.thread.i
+  br i1 %48, label %..thread210.i_crit_edge, label %_tmp_119_rule.exit.thread.i
 
-..thread204.i_crit_edge:                          ; preds = %47
+..thread210.i_crit_edge:                          ; preds = %47
   %.pre40 = load i32, ptr %13, align 8, !tbaa !22
-  br label %.thread204.i
+  br label %.thread210.i
 
-.thread204.i:                                     ; preds = %..thread204.i_crit_edge, %44
-  %49 = phi i32 [ %.pre40, %..thread204.i_crit_edge ], [ %22, %44 ]
+.thread210.i:                                     ; preds = %..thread210.i_crit_edge, %44
+  %49 = phi i32 [ %.pre40, %..thread210.i_crit_edge ], [ %22, %44 ]
   %50 = tail call fastcc ptr @slash_no_default_rule(ptr noundef nonnull %0)
   %.not27.i.i = icmp eq ptr %50, null
   br i1 %.not27.i.i, label %51, label %57
 
-51:                                               ; preds = %.thread204.i
+51:                                               ; preds = %.thread210.i
   store i32 %49, ptr %13, align 8, !tbaa !22
   %52 = load i32, ptr %8, align 8, !tbaa !21
   %.not28.i.i = icmp eq i32 %52, 0
@@ -27054,7 +27054,7 @@ _tmp_119_rule.exit.thread.i:                      ; preds = %53, %51, %47
   store i32 %56, ptr %2, align 8, !tbaa !20
   br label %78
 
-57:                                               ; preds = %53, %.thread204.i
+57:                                               ; preds = %53, %.thread210.i
   %58 = load i32, ptr %2, align 8, !tbaa !20
   %59 = add i32 %58, -1
   store i32 %59, ptr %2, align 8, !tbaa !20
@@ -27088,13 +27088,13 @@ _tmp_119_rule.exit.thread.i:                      ; preds = %53, %51, %47
 
 .thread176.i:                                     ; preds = %63
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread50
+  br label %.thread73
 
 78:                                               ; preds = %61, %57, %_tmp_119_rule.exit.thread.i
   store i32 %22, ptr %13, align 8, !tbaa !22
   %79 = load i32, ptr %8, align 8, !tbaa !21
   %.not145.i = icmp eq i32 %79, 0
-  br i1 %.not145.i, label %80, label %.thread50
+  br i1 %.not145.i, label %80, label %.thread73
 
 80:                                               ; preds = %78
   %81 = tail call fastcc ptr @slash_no_default_rule(ptr noundef nonnull %0)
@@ -27104,7 +27104,7 @@ _tmp_119_rule.exit.thread.i:                      ; preds = %53, %51, %47
 
 .thread184.i:                                     ; preds = %80
   store i32 %22, ptr %13, align 8, !tbaa !22
-  br label %.thread50
+  br label %.thread73
 
 83:                                               ; preds = %80
   %84 = tail call fastcc ptr @_loop0_28_rule(ptr noundef nonnull %0)
@@ -27142,13 +27142,13 @@ _tmp_119_rule.exit.thread.i:                      ; preds = %53, %51, %47
 
 .thread180.i:                                     ; preds = %89
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread50
+  br label %.thread73
 
 104:                                              ; preds = %87, %85, %83
   %.pr.i = load i32, ptr %8, align 8, !tbaa !21
   store i32 %22, ptr %13, align 8, !tbaa !22
   %.not151.i = icmp eq i32 %.pr.i, 0
-  br i1 %.not151.i, label %105, label %.thread50
+  br i1 %.not151.i, label %105, label %.thread73
 
 105:                                              ; preds = %104
   %106 = tail call fastcc ptr @_loop0_28_rule(ptr noundef nonnull %0)
@@ -27169,7 +27169,7 @@ _tmp_119_rule.exit.thread.i:                      ; preds = %53, %51, %47
   %112 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %113 = load i32, ptr %8, align 8, !tbaa !21
   %.not155.i = icmp eq i32 %113, 0
-  br i1 %.not155.i, label %114, label %.thread50
+  br i1 %.not155.i, label %114, label %.thread73
 
 114:                                              ; preds = %111
   %115 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 8) #5
@@ -27197,19 +27197,19 @@ _tmp_119_rule.exit.thread.i:                      ; preds = %53, %51, %47
 
 .thread186.i:                                     ; preds = %116
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread50
+  br label %.thread73
 
 131:                                              ; preds = %114, %109, %107, %105
   %.pr191.i = load i32, ptr %8, align 8, !tbaa !21
   store i32 %22, ptr %13, align 8, !tbaa !22
   %.not158.i = icmp eq i32 %.pr191.i, 0
-  br i1 %.not158.i, label %132, label %.thread50
+  br i1 %.not158.i, label %132, label %.thread73
 
 132:                                              ; preds = %131
   tail call fastcc void @_tmp_119_rule(ptr noundef nonnull %0)
   %133 = load i32, ptr %8, align 8, !tbaa !21
   %.not159.i = icmp eq i32 %133, 0
-  br i1 %.not159.i, label %134, label %.thread50
+  br i1 %.not159.i, label %134, label %.thread73
 
 134:                                              ; preds = %132
   %135 = tail call fastcc ptr @_loop0_32_rule(ptr noundef nonnull %0)
@@ -27257,13 +27257,13 @@ _tmp_119_rule.exit.thread.i:                      ; preds = %53, %51, %47
 
 .thread194.i:                                     ; preds = %144
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread50
+  br label %.thread73
 
 159:                                              ; preds = %142, %140, %138, %136, %134
   %.pr199.i = load i32, ptr %8, align 8, !tbaa !21
   store i32 %22, ptr %13, align 8, !tbaa !22
   %.not166.i = icmp eq i32 %.pr199.i, 0
-  br i1 %.not166.i, label %160, label %.thread50
+  br i1 %.not166.i, label %160, label %.thread73
 
 160:                                              ; preds = %159
   %161 = tail call fastcc ptr @_loop1_33_rule(ptr noundef nonnull %0)
@@ -27301,9 +27301,9 @@ _tmp_119_rule.exit.thread.i:                      ; preds = %53, %51, %47
 
 181:                                              ; preds = %166
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread50
+  br label %.thread73
 
-.thread50:                                        ; preds = %132, %111, %20, %.thread.i, %.thread176.i, %78, %.thread184.i, %.thread180.i, %104, %.thread186.i, %131, %.thread194.i, %159, %181
+.thread73:                                        ; preds = %132, %111, %20, %.thread.i, %.thread176.i, %78, %.thread184.i, %.thread180.i, %104, %.thread186.i, %131, %.thread194.i, %159, %181
   %182 = load i32, ptr %2, align 8, !tbaa !20
   br label %.sink.split
 
@@ -27314,11 +27314,11 @@ _tmp_119_rule.exit.thread.i:                      ; preds = %53, %51, %47
   %186 = add i32 %184, -1
   store i32 %186, ptr %2, align 8, !tbaa !20
   store i32 %14, ptr %13, align 8, !tbaa !22
-  br i1 %185, label %.thread45, label %188
+  br i1 %185, label %.thread68, label %188
 
-.sink.split:                                      ; preds = %41, %.thread50
-  %.sink54 = phi i32 [ %182, %.thread50 ], [ %43, %41 ]
-  %187 = add i32 %.sink54, -1
+.sink.split:                                      ; preds = %41, %.thread73
+  %.sink77 = phi i32 [ %182, %.thread73 ], [ %43, %41 ]
+  %187 = add i32 %.sink77, -1
   store i32 %187, ptr %2, align 8, !tbaa !20
   store i32 %14, ptr %13, align 8, !tbaa !22
   br label %188
@@ -27327,26 +27327,26 @@ _tmp_119_rule.exit.thread.i:                      ; preds = %53, %51, %47
   %189 = load i32, ptr %2, align 8, !tbaa !20
   br label %267
 
-.thread45:                                        ; preds = %12, %183
+.thread68:                                        ; preds = %12, %183
   %190 = phi i32 [ %186, %183 ], [ %.pr, %12 ]
   %191 = add i32 %190, 1
   store i32 %191, ptr %2, align 8, !tbaa !20
   %192 = icmp eq i32 %190, 6000
-  br i1 %192, label %193, label %.thread52
+  br i1 %192, label %193, label %.thread75
 
-193:                                              ; preds = %.thread45
+193:                                              ; preds = %.thread68
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre42 = load i32, ptr %8, align 8, !tbaa !21
   %194 = icmp eq i32 %.pre42, 0
-  br i1 %194, label %.thread52, label %.thread162.i
+  br i1 %194, label %.thread75, label %.thread162.i
 
-.thread52:                                        ; preds = %.thread45, %193
+.thread75:                                        ; preds = %.thread68, %193
   %195 = load i32, ptr %13, align 8, !tbaa !22
   %196 = tail call fastcc ptr @slash_no_default_rule(ptr noundef nonnull %0)
   %.not109.i = icmp eq ptr %196, null
   br i1 %.not109.i, label %216, label %197
 
-197:                                              ; preds = %.thread52
+197:                                              ; preds = %.thread75
   %198 = tail call fastcc ptr @_loop0_28_rule(ptr noundef nonnull %0)
   %.not110.i = icmp eq ptr %198, null
   br i1 %.not110.i, label %216, label %199
@@ -27397,7 +27397,7 @@ INVALID_VERSION_CHECK.exit.i:                     ; preds = %207
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %.thread162.i
 
-216:                                              ; preds = %199, %197, %.thread52
+216:                                              ; preds = %199, %197, %.thread75
   %.pr.i34 = load i32, ptr %8, align 8, !tbaa !21
   store i32 %195, ptr %13, align 8, !tbaa !22
   %.not114.i = icmp eq i32 %.pr.i34, 0
@@ -27543,9 +27543,9 @@ INVALID_VERSION_CHECK.exit.i:                     ; preds = %207
   br label %267
 
 267:                                              ; preds = %.thread162.i, %262, %188, %10
-  %.sink55 = phi i32 [ %189, %188 ], [ %11, %10 ], [ %266, %.thread162.i ], [ %264, %262 ]
+  %.sink78 = phi i32 [ %189, %188 ], [ %11, %10 ], [ %266, %.thread162.i ], [ %264, %262 ]
   %.0 = phi ptr [ null, %188 ], [ null, %10 ], [ null, %.thread162.i ], [ %.0.i, %262 ]
-  %268 = add i32 %.sink55, -1
+  %268 = add i32 %.sink78, -1
   store i32 %268, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -27728,9 +27728,9 @@ define internal fastcc ptr @func_type_comment_rule(ptr noundef %0) unnamed_addr 
   br label %54
 
 54:                                               ; preds = %.sink.split, %21
-  %.sink75 = phi i32 [ %22, %21 ], [ %53, %.sink.split ]
+  %.sink78 = phi i32 [ %22, %21 ], [ %53, %.sink.split ]
   %.0 = phi ptr [ null, %21 ], [ %.0.ph, %.sink.split ]
-  %55 = add i32 %.sink75, -1
+  %55 = add i32 %.sink78, -1
   store i32 %55, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -29131,8 +29131,8 @@ define internal fastcc ptr @_loop1_30_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not70, label %36, label %35
 
 35:                                               ; preds = %._crit_edge.thread, %33, %._crit_edge
-  %.058.lcssa92 = phi ptr [ %13, %._crit_edge.thread ], [ %.159, %33 ], [ %.159, %._crit_edge ]
-  tail call void @PyMem_Free(ptr noundef nonnull %.058.lcssa92) #5
+  %.058.lcssa96 = phi ptr [ %13, %._crit_edge.thread ], [ %.159, %33 ], [ %.159, %._crit_edge ]
+  tail call void @PyMem_Free(ptr noundef nonnull %.058.lcssa96) #5
   br label %50
 
 36:                                               ; preds = %33
@@ -29316,8 +29316,8 @@ define internal fastcc ptr @_loop1_33_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not70, label %36, label %35
 
 35:                                               ; preds = %._crit_edge.thread, %33, %._crit_edge
-  %.058.lcssa92 = phi ptr [ %13, %._crit_edge.thread ], [ %.159, %33 ], [ %.159, %._crit_edge ]
-  tail call void @PyMem_Free(ptr noundef nonnull %.058.lcssa92) #5
+  %.058.lcssa96 = phi ptr [ %13, %._crit_edge.thread ], [ %.159, %33 ], [ %.159, %._crit_edge ]
+  tail call void @PyMem_Free(ptr noundef nonnull %.058.lcssa96) #5
   br label %50
 
 36:                                               ; preds = %33
@@ -29559,8 +29559,8 @@ define internal fastcc ptr @_loop1_31_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not70, label %36, label %35
 
 35:                                               ; preds = %._crit_edge.thread, %33, %._crit_edge
-  %.058.lcssa92 = phi ptr [ %13, %._crit_edge.thread ], [ %.159, %33 ], [ %.159, %._crit_edge ]
-  tail call void @PyMem_Free(ptr noundef nonnull %.058.lcssa92) #5
+  %.058.lcssa96 = phi ptr [ %13, %._crit_edge.thread ], [ %.159, %33 ], [ %.159, %._crit_edge ]
+  tail call void @PyMem_Free(ptr noundef nonnull %.058.lcssa96) #5
   br label %50
 
 36:                                               ; preds = %33
@@ -29745,9 +29745,9 @@ define internal fastcc ptr @param_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread61
+  br i1 %15, label %20, label %.thread65
 
-.thread61:                                        ; preds = %10
+.thread65:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -29772,11 +29772,11 @@ define internal fastcc ptr @param_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread61, %24
-  %.pn.in = phi ptr [ %19, %.thread61 ], [ %29, %24 ]
+30:                                               ; preds = %.thread65, %24
+  %.pn.in = phi ptr [ %19, %.thread65 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in64 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in64, align 4, !tbaa !26
+  %.in68 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in68, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %0) #5
@@ -30131,28 +30131,28 @@ define internal fastcc ptr @star_etc_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %14 = load i32, ptr %13, align 4, !tbaa !38
   %.not98 = icmp eq i32 %14, 0
-  br i1 %.not98, label %.thread167, label %15
+  br i1 %.not98, label %.thread184, label %15
 
 15:                                               ; preds = %10
   %16 = load i32, ptr %2, align 8, !tbaa !20
   %17 = add i32 %16, 1
   store i32 %17, ptr %2, align 8, !tbaa !20
   %18 = icmp eq i32 %16, 6000
-  br i1 %18, label %19, label %.thread165
+  br i1 %18, label %19, label %.thread182
 
 19:                                               ; preds = %15
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %20 = icmp eq i32 %.pre, 0
-  br i1 %20, label %.thread165, label %.thread169
+  br i1 %20, label %.thread182, label %.thread186
 
-.thread165:                                       ; preds = %15, %19
+.thread182:                                       ; preds = %15, %19
   %21 = load i32, ptr %11, align 8, !tbaa !22
   %22 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 16) #5
   %.not84.i = icmp eq ptr %22, null
   br i1 %.not84.i, label %77, label %23
 
-23:                                               ; preds = %.thread165
+23:                                               ; preds = %.thread182
   %24 = load i32, ptr %2, align 8, !tbaa !20
   %25 = add i32 %24, 1
   store i32 %25, ptr %2, align 8, !tbaa !20
@@ -30265,13 +30265,13 @@ _tmp_122_rule.exit.i:                             ; preds = %51, %46
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %63, i64 noundef %66, i64 noundef %69, i64 noundef %72, i64 noundef %75, ptr noundef nonnull @.str.97)
   %76 = tail call ptr @PyErr_Occurred() #5
   %.not86.i = icmp eq ptr %76, null
-  br i1 %.not86.i, label %146, label %.thread169.sink.split
+  br i1 %.not86.i, label %146, label %.thread186.sink.split
 
-77:                                               ; preds = %_tmp_122_rule.exit.i, %_tmp_122_rule.exit.thread.i, %.thread165
+77:                                               ; preds = %_tmp_122_rule.exit.i, %_tmp_122_rule.exit.thread.i, %.thread182
   store i32 %21, ptr %11, align 8, !tbaa !22
   %78 = load i32, ptr %8, align 8, !tbaa !21
   %.not87.i = icmp eq i32 %78, 0
-  br i1 %.not87.i, label %79, label %.thread169
+  br i1 %.not87.i, label %79, label %.thread186
 
 79:                                               ; preds = %77
   %80 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 16) #5
@@ -30297,13 +30297,13 @@ _tmp_122_rule.exit.i:                             ; preds = %51, %46
 89:                                               ; preds = %85
   %90 = tail call ptr @PyErr_Occurred() #5
   %.not91.i = icmp eq ptr %90, null
-  br i1 %.not91.i, label %146, label %.thread169.sink.split
+  br i1 %.not91.i, label %146, label %.thread186.sink.split
 
 91:                                               ; preds = %83, %81, %79
   store i32 %21, ptr %11, align 8, !tbaa !22
   %92 = load i32, ptr %8, align 8, !tbaa !21
   %.not92.i = icmp eq i32 %92, 0
-  br i1 %.not92.i, label %93, label %.thread169
+  br i1 %.not92.i, label %93, label %.thread186
 
 93:                                               ; preds = %91
   %94 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 16) #5
@@ -30337,13 +30337,13 @@ _tmp_122_rule.exit.i:                             ; preds = %51, %46
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %100, i64 noundef %103, i64 noundef %106, i64 noundef %109, i64 noundef %112, ptr noundef nonnull @.str.98)
   %113 = tail call ptr @PyErr_Occurred() #5
   %.not96.i = icmp eq ptr %113, null
-  br i1 %.not96.i, label %146, label %.thread169.sink.split
+  br i1 %.not96.i, label %146, label %.thread186.sink.split
 
 114:                                              ; preds = %97, %95, %93
   store i32 %21, ptr %11, align 8, !tbaa !22
   %115 = load i32, ptr %8, align 8, !tbaa !21
   %.not97.i = icmp eq i32 %115, 0
-  br i1 %.not97.i, label %116, label %.thread169
+  br i1 %.not97.i, label %116, label %.thread186
 
 116:                                              ; preds = %114
   %117 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 16) #5
@@ -30387,7 +30387,7 @@ _tmp_122_rule.exit.i:                             ; preds = %51, %46
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %127, i64 noundef %130, i64 noundef %133, i64 noundef %136, i64 noundef %139, ptr noundef nonnull @.str.99)
   %140 = tail call ptr @PyErr_Occurred() #5
   %.not103.i = icmp eq ptr %140, null
-  br i1 %.not103.i, label %146, label %.thread169.sink.split
+  br i1 %.not103.i, label %146, label %.thread186.sink.split
 
 141:                                              ; preds = %85
   %142 = load i32, ptr %2, align 8, !tbaa !20
@@ -30395,11 +30395,11 @@ _tmp_122_rule.exit.i:                             ; preds = %51, %46
   store i32 %143, ptr %2, align 8, !tbaa !20
   br label %.thread127
 
-.thread169.sink.split:                            ; preds = %126, %99, %89, %62
+.thread186.sink.split:                            ; preds = %126, %99, %89, %62
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread169
+  br label %.thread186
 
-.thread169:                                       ; preds = %.thread169.sink.split, %19, %77, %91, %114
+.thread186:                                       ; preds = %.thread186.sink.split, %19, %77, %91, %114
   %144 = load i32, ptr %2, align 8, !tbaa !20
   %145 = add i32 %144, -1
   store i32 %145, ptr %2, align 8, !tbaa !20
@@ -30413,14 +30413,14 @@ _tmp_122_rule.exit.i:                             ; preds = %51, %46
   store i32 %148, ptr %2, align 8, !tbaa !20
   store i32 %12, ptr %11, align 8, !tbaa !22
   %149 = icmp eq i32 %.pre164.pr, 0
-  br i1 %149, label %.thread167, label %.thread127
+  br i1 %149, label %.thread184, label %.thread127
 
-.thread167:                                       ; preds = %10, %146
+.thread184:                                       ; preds = %10, %146
   %150 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 16) #5
   %.not101 = icmp eq ptr %150, null
   br i1 %.not101, label %163, label %151
 
-151:                                              ; preds = %.thread167
+151:                                              ; preds = %.thread184
   %152 = tail call fastcc ptr @param_no_default_rule(ptr noundef nonnull %0)
   %.not102 = icmp eq ptr %152, null
   br i1 %.not102, label %163, label %153
@@ -30454,7 +30454,7 @@ _tmp_122_rule.exit.i:                             ; preds = %51, %46
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %.thread127
 
-163:                                              ; preds = %153, %151, %.thread167
+163:                                              ; preds = %153, %151, %.thread184
   %.pr = load i32, ptr %8, align 8, !tbaa !21
   store i32 %12, ptr %11, align 8, !tbaa !22
   %.not106 = icmp eq i32 %.pr, 0
@@ -30573,8 +30573,8 @@ _tmp_122_rule.exit.i:                             ; preds = %51, %46
   store i32 %12, ptr %11, align 8, !tbaa !22
   br label %.thread127
 
-.thread127:                                       ; preds = %201, %141, %161, %158, %176, %173, %191, %188, %199, %196, %193, %.thread155, %178, %.thread144, %163, %.thread133, %146, %.thread169, %7, %.thread161, %.thread150, %.thread139, %.thread130
-  %.0 = phi ptr [ null, %.thread130 ], [ null, %.thread139 ], [ null, %.thread150 ], [ null, %.thread161 ], [ null, %7 ], [ null, %.thread169 ], [ null, %146 ], [ null, %.thread133 ], [ null, %163 ], [ null, %.thread144 ], [ null, %178 ], [ null, %.thread155 ], [ null, %193 ], [ null, %201 ], [ %87, %141 ], [ null, %161 ], [ %159, %158 ], [ null, %176 ], [ %174, %173 ], [ null, %191 ], [ %189, %188 ], [ null, %199 ], [ %197, %196 ]
+.thread127:                                       ; preds = %201, %141, %161, %158, %176, %173, %191, %188, %199, %196, %193, %.thread155, %178, %.thread144, %163, %.thread133, %146, %.thread186, %7, %.thread161, %.thread150, %.thread139, %.thread130
+  %.0 = phi ptr [ null, %.thread130 ], [ null, %.thread139 ], [ null, %.thread150 ], [ null, %.thread161 ], [ null, %7 ], [ null, %.thread186 ], [ null, %146 ], [ null, %.thread133 ], [ null, %163 ], [ null, %.thread144 ], [ null, %178 ], [ null, %.thread155 ], [ null, %193 ], [ null, %201 ], [ %87, %141 ], [ null, %161 ], [ %159, %158 ], [ null, %176 ], [ %174, %173 ], [ null, %191 ], [ %189, %188 ], [ null, %199 ], [ %197, %196 ]
   %202 = load i32, ptr %2, align 8, !tbaa !20
   %203 = add i32 %202, -1
   store i32 %203, ptr %2, align 8, !tbaa !20
@@ -30606,7 +30606,7 @@ define internal fastcc ptr @kwds_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %14 = load i32, ptr %13, align 4, !tbaa !38
   %.not33 = icmp eq i32 %14, 0
-  br i1 %.not33, label %.thread43, label %15
+  br i1 %.not33, label %.thread47, label %15
 
 15:                                               ; preds = %10
   %16 = load i32, ptr %2, align 8, !tbaa !20
@@ -30619,7 +30619,7 @@ define internal fastcc ptr @kwds_rule(ptr noundef %0) unnamed_addr #0 {
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %20 = icmp eq i32 %.pre, 0
-  br i1 %20, label %.thread, label %.thread45
+  br i1 %20, label %.thread, label %.thread49
 
 .thread:                                          ; preds = %15, %19
   %21 = load i32, ptr %11, align 8, !tbaa !22
@@ -30654,13 +30654,13 @@ define internal fastcc ptr @kwds_rule(ptr noundef %0) unnamed_addr #0 {
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %28, i64 noundef %31, i64 noundef %34, i64 noundef %37, i64 noundef %40, ptr noundef nonnull @.str.100)
   %41 = tail call ptr @PyErr_Occurred() #5
   %.not73.i = icmp eq ptr %41, null
-  br i1 %.not73.i, label %94, label %.thread45.sink.split
+  br i1 %.not73.i, label %94, label %.thread49.sink.split
 
 42:                                               ; preds = %25, %23, %.thread
   store i32 %21, ptr %11, align 8, !tbaa !22
   %43 = load i32, ptr %8, align 8, !tbaa !21
   %.not74.i = icmp eq i32 %43, 0
-  br i1 %.not74.i, label %44, label %.thread45
+  br i1 %.not74.i, label %44, label %.thread49
 
 44:                                               ; preds = %42
   %45 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 35) #5
@@ -30699,13 +30699,13 @@ define internal fastcc ptr @kwds_rule(ptr noundef %0) unnamed_addr #0 {
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %53, i64 noundef %56, i64 noundef %59, i64 noundef %62, i64 noundef %65, ptr noundef nonnull @.str.101)
   %66 = tail call ptr @PyErr_Occurred() #5
   %.not79.i = icmp eq ptr %66, null
-  br i1 %.not79.i, label %94, label %.thread45.sink.split
+  br i1 %.not79.i, label %94, label %.thread49.sink.split
 
 67:                                               ; preds = %50, %48, %46, %44
   store i32 %21, ptr %11, align 8, !tbaa !22
   %68 = load i32, ptr %8, align 8, !tbaa !21
   %.not80.i = icmp eq i32 %68, 0
-  br i1 %.not80.i, label %69, label %.thread45
+  br i1 %.not80.i, label %69, label %.thread49
 
 69:                                               ; preds = %67
   %70 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 35) #5
@@ -30744,13 +30744,13 @@ define internal fastcc ptr @kwds_rule(ptr noundef %0) unnamed_addr #0 {
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %78, i64 noundef %81, i64 noundef %84, i64 noundef %87, i64 noundef %90, ptr noundef nonnull @.str.101)
   %91 = tail call ptr @PyErr_Occurred() #5
   %.not85.i = icmp eq ptr %91, null
-  br i1 %.not85.i, label %94, label %.thread45.sink.split
+  br i1 %.not85.i, label %94, label %.thread49.sink.split
 
-.thread45.sink.split:                             ; preds = %77, %52, %27
+.thread49.sink.split:                             ; preds = %77, %52, %27
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread45
+  br label %.thread49
 
-.thread45:                                        ; preds = %.thread45.sink.split, %67, %42, %19
+.thread49:                                        ; preds = %.thread49.sink.split, %67, %42, %19
   %92 = load i32, ptr %2, align 8, !tbaa !20
   %93 = add i32 %92, -1
   store i32 %93, ptr %2, align 8, !tbaa !20
@@ -30763,19 +30763,19 @@ define internal fastcc ptr @kwds_rule(ptr noundef %0) unnamed_addr #0 {
   store i32 %96, ptr %2, align 8, !tbaa !20
   store i32 %12, ptr %11, align 8, !tbaa !22
   %97 = icmp eq i32 %.pre41.pr, 0
-  br i1 %97, label %.thread43, label %101
+  br i1 %97, label %.thread47, label %101
 
-.thread43:                                        ; preds = %10, %94
+.thread47:                                        ; preds = %10, %94
   %98 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 35) #5
   %.not35 = icmp eq ptr %98, null
   br i1 %.not35, label %.sink.split, label %99
 
-99:                                               ; preds = %.thread43
+99:                                               ; preds = %.thread47
   %100 = tail call fastcc ptr @param_no_default_rule(ptr noundef nonnull %0)
   %.not36 = icmp eq ptr %100, null
   br i1 %.not36, label %.sink.split, label %101
 
-.sink.split:                                      ; preds = %99, %.thread43, %.thread45
+.sink.split:                                      ; preds = %99, %.thread47, %.thread49
   store i32 %12, ptr %11, align 8, !tbaa !22
   br label %101
 
@@ -30964,9 +30964,9 @@ define internal fastcc ptr @param_star_annotation_rule(ptr noundef %0) unnamed_a
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread61
+  br i1 %15, label %20, label %.thread65
 
-.thread61:                                        ; preds = %10
+.thread65:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -30991,11 +30991,11 @@ define internal fastcc ptr @param_star_annotation_rule(ptr noundef %0) unnamed_a
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread61, %24
-  %.pn.in = phi ptr [ %19, %.thread61 ], [ %29, %24 ]
+30:                                               ; preds = %.thread65, %24
+  %.pn.in = phi ptr [ %19, %.thread65 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in64 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in64, align 4, !tbaa !26
+  %.in68 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in68, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %0) #5
@@ -31361,21 +31361,21 @@ define internal fastcc ptr @elif_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %35 = add i32 %33, 1
   store i32 %35, ptr %2, align 8, !tbaa !20
   %36 = icmp eq i32 %33, 6000
-  br i1 %36, label %37, label %.thread140
+  br i1 %36, label %37, label %.thread152
 
 37:                                               ; preds = %34
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %38 = icmp eq i32 %.pre, 0
-  br i1 %38, label %.thread140, label %.thread
+  br i1 %38, label %.thread152, label %.thread
 
-.thread140:                                       ; preds = %34, %37
+.thread152:                                       ; preds = %34, %37
   %39 = load i32, ptr %11, align 8, !tbaa !22
   %40 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 670) #5
   %.not42.i = icmp eq ptr %40, null
   br i1 %.not42.i, label %51, label %41
 
-41:                                               ; preds = %.thread140
+41:                                               ; preds = %.thread152
   %42 = tail call fastcc ptr @named_expression_rule(ptr noundef nonnull %0)
   %.not43.i = icmp eq ptr %42, null
   br i1 %.not43.i, label %51, label %43
@@ -31396,7 +31396,7 @@ define internal fastcc ptr @elif_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %.not45.i = icmp eq ptr %50, null
   br i1 %.not45.i, label %.thread, label %.thread.sink.split
 
-51:                                               ; preds = %43, %41, %.thread140
+51:                                               ; preds = %43, %41, %.thread152
   store i32 %39, ptr %11, align 8, !tbaa !22
   %52 = load i32, ptr %8, align 8, !tbaa !21
   %.not46.i = icmp eq i32 %52, 0
@@ -31590,9 +31590,9 @@ CHECK_CALL.exit:                                  ; preds = %91, %98
   br label %.thread122
 
 .thread122:                                       ; preds = %.thread122.sink.split, %32
-  %.sink142 = phi i32 [ %33, %32 ], [ %135, %.thread122.sink.split ]
+  %.sink154 = phi i32 [ %33, %32 ], [ %135, %.thread122.sink.split ]
   %.0 = phi ptr [ null, %32 ], [ %.0.ph, %.thread122.sink.split ]
-  %136 = add i32 %.sink142, -1
+  %136 = add i32 %.sink154, -1
   store i32 %136, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -31624,27 +31624,27 @@ define internal fastcc ptr @else_block_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %14 = load i32, ptr %13, align 4, !tbaa !38
   %.not34 = icmp eq i32 %14, 0
-  br i1 %.not34, label %.thread56, label %15
+  br i1 %.not34, label %.thread59, label %15
 
 15:                                               ; preds = %10
   %16 = load i32, ptr %2, align 8, !tbaa !20
   %17 = add i32 %16, 1
   store i32 %17, ptr %2, align 8, !tbaa !20
   %18 = icmp eq i32 %16, 6000
-  br i1 %18, label %19, label %.thread54
+  br i1 %18, label %19, label %.thread57
 
 19:                                               ; preds = %15
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %20 = icmp eq i32 %.pre, 0
-  br i1 %20, label %.thread54, label %.thread58
+  br i1 %20, label %.thread57, label %.thread61
 
-.thread54:                                        ; preds = %15, %19
+.thread57:                                        ; preds = %15, %19
   %21 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 671) #5
   %.not26.i = icmp eq ptr %21, null
   br i1 %.not26.i, label %41, label %22
 
-22:                                               ; preds = %.thread54
+22:                                               ; preds = %.thread57
   %23 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 11) #5
   %.not27.i = icmp eq ptr %23, null
   br i1 %.not27.i, label %41, label %24
@@ -31674,7 +31674,7 @@ define internal fastcc ptr @else_block_rule(ptr noundef %0) unnamed_addr #0 {
 
 .thread33.i:                                      ; preds = %34
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread58
+  br label %.thread61
 
 36:                                               ; preds = %28
   %37 = load i32, ptr %2, align 8, !tbaa !20
@@ -31682,28 +31682,28 @@ define internal fastcc ptr @else_block_rule(ptr noundef %0) unnamed_addr #0 {
   store i32 %38, ptr %2, align 8, !tbaa !20
   br label %51
 
-.thread58:                                        ; preds = %.thread33.i, %19
+.thread61:                                        ; preds = %.thread33.i, %19
   %39 = load i32, ptr %2, align 8, !tbaa !20
   %40 = add i32 %39, -1
   store i32 %40, ptr %2, align 8, !tbaa !20
   store i32 %12, ptr %11, align 8, !tbaa !22
   br label %51
 
-41:                                               ; preds = %.thread54, %22, %24, %26, %34
+41:                                               ; preds = %.thread57, %22, %24, %26, %34
   %.pre53.pr = load i32, ptr %8, align 8, !tbaa !21
   %42 = load i32, ptr %2, align 8, !tbaa !20
   %43 = add i32 %42, -1
   store i32 %43, ptr %2, align 8, !tbaa !20
   store i32 %12, ptr %11, align 8, !tbaa !22
   %44 = icmp eq i32 %.pre53.pr, 0
-  br i1 %44, label %.thread56, label %51
+  br i1 %44, label %.thread59, label %51
 
-.thread56:                                        ; preds = %10, %41
+.thread59:                                        ; preds = %10, %41
   %45 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 671) #5
   %.not37 = icmp eq ptr %45, null
   br i1 %.not37, label %50, label %46
 
-46:                                               ; preds = %.thread56
+46:                                               ; preds = %.thread59
   %47 = tail call ptr @_PyPegen_expect_forced_token(ptr noundef nonnull %0, i32 noundef 11, ptr noundef nonnull @.str.106) #5
   %.not38 = icmp eq ptr %47, null
   br i1 %.not38, label %50, label %48
@@ -31713,12 +31713,12 @@ define internal fastcc ptr @else_block_rule(ptr noundef %0) unnamed_addr #0 {
   %.not39 = icmp eq ptr %49, null
   br i1 %.not39, label %50, label %51
 
-50:                                               ; preds = %.thread56, %46, %48
+50:                                               ; preds = %.thread59, %46, %48
   store i32 %12, ptr %11, align 8, !tbaa !22
   br label %51
 
-51:                                               ; preds = %36, %48, %50, %41, %.thread58, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %.thread58 ], [ null, %41 ], [ %32, %36 ], [ null, %50 ], [ %49, %48 ]
+51:                                               ; preds = %36, %48, %50, %41, %.thread61, %7
+  %.0 = phi ptr [ null, %7 ], [ null, %.thread61 ], [ null, %41 ], [ %32, %36 ], [ null, %50 ], [ %49, %48 ]
   %52 = load i32, ptr %2, align 8, !tbaa !20
   %53 = add i32 %52, -1
   store i32 %53, ptr %2, align 8, !tbaa !20
@@ -31790,21 +31790,21 @@ define internal fastcc ptr @class_def_raw_rule(ptr noundef %0) unnamed_addr #0 {
   %35 = add i32 %33, 1
   store i32 %35, ptr %2, align 8, !tbaa !20
   %36 = icmp eq i32 %33, 6000
-  br i1 %36, label %37, label %.thread99
+  br i1 %36, label %37, label %.thread107
 
 37:                                               ; preds = %34
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %38 = icmp eq i32 %.pre, 0
-  br i1 %38, label %.thread99, label %.thread
+  br i1 %38, label %.thread107, label %.thread
 
-.thread99:                                        ; preds = %34, %37
+.thread107:                                       ; preds = %34, %37
   %39 = load i32, ptr %11, align 8, !tbaa !22
   %40 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 685) #5
   %.not50.i = icmp eq ptr %40, null
   br i1 %.not50.i, label %57, label %41
 
-41:                                               ; preds = %.thread99
+41:                                               ; preds = %.thread107
   %42 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %0) #5
   %.not51.i = icmp eq ptr %42, null
   br i1 %.not51.i, label %57, label %43
@@ -31837,7 +31837,7 @@ define internal fastcc ptr @class_def_raw_rule(ptr noundef %0) unnamed_addr #0 {
   %.not55.i = icmp eq ptr %56, null
   br i1 %.not55.i, label %.thread, label %.thread.sink.split
 
-57:                                               ; preds = %49, %41, %.thread99
+57:                                               ; preds = %49, %41, %.thread107
   %.pr.i = load i32, ptr %8, align 8, !tbaa !21
   store i32 %39, ptr %11, align 8, !tbaa !22
   %.not56.i = icmp eq i32 %.pr.i, 0
@@ -31999,9 +31999,9 @@ define internal fastcc ptr @class_def_raw_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread89
 
 .thread89:                                        ; preds = %.thread89.sink.split, %32
-  %.sink101 = phi i32 [ %33, %32 ], [ %128, %.thread89.sink.split ]
+  %.sink109 = phi i32 [ %33, %32 ], [ %128, %.thread89.sink.split ]
   %.0 = phi ptr [ null, %32 ], [ %.0.ph, %.thread89.sink.split ]
-  %129 = add i32 %.sink101, -1
+  %129 = add i32 %.sink109, -1
   store i32 %129, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -32905,9 +32905,9 @@ define internal fastcc ptr @expressions_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread130
+  br i1 %15, label %20, label %.thread141
 
-.thread130:                                       ; preds = %10
+.thread141:                                       ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -32932,11 +32932,11 @@ define internal fastcc ptr @expressions_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread130, %24
-  %.pn.in = phi ptr [ %19, %.thread130 ], [ %29, %24 ]
+30:                                               ; preds = %.thread141, %24
+  %.pn.in = phi ptr [ %19, %.thread141 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in136 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in136, align 4, !tbaa !26
+  %.in147 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in147, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call fastcc ptr @expression_rule(ptr noundef nonnull %0)
@@ -33283,20 +33283,20 @@ define internal fastcc ptr @with_item_rule(ptr noundef %0) unnamed_addr #0 {
   %33 = add i32 %31, 1
   store i32 %33, ptr %2, align 8, !tbaa !20
   %34 = icmp eq i32 %31, 6000
-  br i1 %34, label %35, label %.thread78
+  br i1 %34, label %35, label %.thread85
 
 35:                                               ; preds = %32
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %36 = icmp eq i32 %.pre, 0
-  br i1 %36, label %.thread78, label %invalid_with_item_rule.exit
+  br i1 %36, label %.thread85, label %invalid_with_item_rule.exit
 
-.thread78:                                        ; preds = %32, %35
+.thread85:                                        ; preds = %32, %35
   %37 = tail call fastcc ptr @expression_rule(ptr noundef nonnull %0)
   %.not26.i = icmp eq ptr %37, null
   br i1 %.not26.i, label %invalid_with_item_rule.exit, label %38
 
-38:                                               ; preds = %.thread78
+38:                                               ; preds = %.thread85
   %39 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 666) #5
   %.not27.i = icmp eq ptr %39, null
   br i1 %.not27.i, label %invalid_with_item_rule.exit, label %40
@@ -33352,7 +33352,7 @@ _RAISE_SYNTAX_ERROR_INVALID_TARGET.exit.i:        ; preds = %CHECK_CALL_NULL_ALL
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %invalid_with_item_rule.exit
 
-invalid_with_item_rule.exit:                      ; preds = %.thread78, %38, %40, %42, %35, %_RAISE_SYNTAX_ERROR_INVALID_TARGET.exit.i, %65
+invalid_with_item_rule.exit:                      ; preds = %.thread85, %38, %40, %42, %35, %_RAISE_SYNTAX_ERROR_INVALID_TARGET.exit.i, %65
   %66 = load i32, ptr %2, align 8, !tbaa !20
   %67 = add i32 %66, -1
   store i32 %67, ptr %2, align 8, !tbaa !20
@@ -33396,9 +33396,9 @@ invalid_with_item_rule.exit:                      ; preds = %.thread78, %38, %40
   br label %81
 
 81:                                               ; preds = %.sink.split, %30
-  %.sink80 = phi i32 [ %31, %30 ], [ %80, %.sink.split ]
+  %.sink87 = phi i32 [ %31, %30 ], [ %80, %.sink.split ]
   %.0 = phi ptr [ null, %30 ], [ %.0.ph, %.sink.split ]
-  %82 = add i32 %.sink80, -1
+  %82 = add i32 %.sink87, -1
   store i32 %82, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -33494,27 +33494,27 @@ define internal fastcc ptr @finally_block_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %14 = load i32, ptr %13, align 4, !tbaa !38
   %.not34 = icmp eq i32 %14, 0
-  br i1 %.not34, label %.thread56, label %15
+  br i1 %.not34, label %.thread59, label %15
 
 15:                                               ; preds = %10
   %16 = load i32, ptr %2, align 8, !tbaa !20
   %17 = add i32 %16, 1
   store i32 %17, ptr %2, align 8, !tbaa !20
   %18 = icmp eq i32 %16, 6000
-  br i1 %18, label %19, label %.thread54
+  br i1 %18, label %19, label %.thread57
 
 19:                                               ; preds = %15
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %20 = icmp eq i32 %.pre, 0
-  br i1 %20, label %.thread54, label %.thread58
+  br i1 %20, label %.thread57, label %.thread61
 
-.thread54:                                        ; preds = %15, %19
+.thread57:                                        ; preds = %15, %19
   %21 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 659) #5
   %.not26.i = icmp eq ptr %21, null
   br i1 %.not26.i, label %41, label %22
 
-22:                                               ; preds = %.thread54
+22:                                               ; preds = %.thread57
   %23 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 11) #5
   %.not27.i = icmp eq ptr %23, null
   br i1 %.not27.i, label %41, label %24
@@ -33544,7 +33544,7 @@ define internal fastcc ptr @finally_block_rule(ptr noundef %0) unnamed_addr #0 {
 
 .thread33.i:                                      ; preds = %34
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread58
+  br label %.thread61
 
 36:                                               ; preds = %28
   %37 = load i32, ptr %2, align 8, !tbaa !20
@@ -33552,28 +33552,28 @@ define internal fastcc ptr @finally_block_rule(ptr noundef %0) unnamed_addr #0 {
   store i32 %38, ptr %2, align 8, !tbaa !20
   br label %51
 
-.thread58:                                        ; preds = %.thread33.i, %19
+.thread61:                                        ; preds = %.thread33.i, %19
   %39 = load i32, ptr %2, align 8, !tbaa !20
   %40 = add i32 %39, -1
   store i32 %40, ptr %2, align 8, !tbaa !20
   store i32 %12, ptr %11, align 8, !tbaa !22
   br label %51
 
-41:                                               ; preds = %.thread54, %22, %24, %26, %34
+41:                                               ; preds = %.thread57, %22, %24, %26, %34
   %.pre53.pr = load i32, ptr %8, align 8, !tbaa !21
   %42 = load i32, ptr %2, align 8, !tbaa !20
   %43 = add i32 %42, -1
   store i32 %43, ptr %2, align 8, !tbaa !20
   store i32 %12, ptr %11, align 8, !tbaa !22
   %44 = icmp eq i32 %.pre53.pr, 0
-  br i1 %44, label %.thread56, label %51
+  br i1 %44, label %.thread59, label %51
 
-.thread56:                                        ; preds = %10, %41
+.thread59:                                        ; preds = %10, %41
   %45 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 659) #5
   %.not37 = icmp eq ptr %45, null
   br i1 %.not37, label %50, label %46
 
-46:                                               ; preds = %.thread56
+46:                                               ; preds = %.thread59
   %47 = tail call ptr @_PyPegen_expect_forced_token(ptr noundef nonnull %0, i32 noundef 11, ptr noundef nonnull @.str.106) #5
   %.not38 = icmp eq ptr %47, null
   br i1 %.not38, label %50, label %48
@@ -33583,12 +33583,12 @@ define internal fastcc ptr @finally_block_rule(ptr noundef %0) unnamed_addr #0 {
   %.not39 = icmp eq ptr %49, null
   br i1 %.not39, label %50, label %51
 
-50:                                               ; preds = %.thread56, %46, %48
+50:                                               ; preds = %.thread59, %46, %48
   store i32 %12, ptr %11, align 8, !tbaa !22
   br label %51
 
-51:                                               ; preds = %36, %48, %50, %41, %.thread58, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %.thread58 ], [ null, %41 ], [ %32, %36 ], [ null, %50 ], [ %49, %48 ]
+51:                                               ; preds = %36, %48, %50, %41, %.thread61, %7
+  %.0 = phi ptr [ null, %7 ], [ null, %.thread61 ], [ null, %41 ], [ %32, %36 ], [ null, %50 ], [ %49, %48 ]
   %52 = load i32, ptr %2, align 8, !tbaa !20
   %53 = add i32 %52, -1
   store i32 %53, ptr %2, align 8, !tbaa !20
@@ -33707,25 +33707,25 @@ define internal fastcc ptr @_loop1_37_rule(ptr noundef %0) unnamed_addr #0 {
   %53 = add i32 %51, 1
   store i32 %53, ptr %2, align 8, !tbaa !20
   %54 = icmp eq i32 %51, 6000
-  br i1 %54, label %55, label %.thread270
+  br i1 %54, label %55, label %.thread285
 
 55:                                               ; preds = %52
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %.not.i74 = icmp eq i32 %.pre, 0
-  br i1 %.not.i74, label %.thread270, label %56
+  br i1 %.not.i74, label %.thread285, label %56
 
 56:                                               ; preds = %55
   %57 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread
 
-.thread270:                                       ; preds = %52, %55
+.thread285:                                       ; preds = %52, %55
   %58 = load i32, ptr %11, align 8, !tbaa !22
   %59 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 663) #5
   %.not47.i = icmp eq ptr %59, null
   br i1 %.not47.i, label %90, label %60
 
-60:                                               ; preds = %.thread270
+60:                                               ; preds = %.thread285
   %61 = tail call fastcc ptr @expression_rule(ptr noundef nonnull %0)
   %.not48.i = icmp eq ptr %61, null
   br i1 %.not48.i, label %90, label %62
@@ -33808,7 +33808,7 @@ _tmp_22_rule.exit.i:                              ; preds = %74, %72
   %89 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread
 
-90:                                               ; preds = %79, %77, %75, %_tmp_22_rule.exit.thread.i, %60, %.thread270
+90:                                               ; preds = %79, %77, %75, %_tmp_22_rule.exit.thread.i, %60, %.thread285
   %.pr68.i = load i32, ptr %8, align 8, !tbaa !21
   store i32 %58, ptr %11, align 8, !tbaa !22
   %.not54.i = icmp eq i32 %.pr68.i, 0
@@ -34053,29 +34053,29 @@ _tmp_22_rule.exit:                                ; preds = %127, %129
   %186 = add i32 %184, 1
   store i32 %186, ptr %2, align 8, !tbaa !20
   %187 = icmp eq i32 %184, 6000
-  br i1 %187, label %188, label %.thread589
+  br i1 %187, label %188, label %.thread622
 
 188:                                              ; preds = %185
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pre587 = load i32, ptr %8, align 8, !tbaa !21
-  %189 = icmp eq i32 %.pre587, 0
-  br i1 %189, label %..thread589_crit_edge, label %190
+  %.pre602 = load i32, ptr %8, align 8, !tbaa !21
+  %189 = icmp eq i32 %.pre602, 0
+  br i1 %189, label %..thread622_crit_edge, label %190
 
-..thread589_crit_edge:                            ; preds = %188
-  %.pre889 = load i32, ptr %11, align 8, !tbaa !22
-  br label %.thread589
+..thread622_crit_edge:                            ; preds = %188
+  %.pre922 = load i32, ptr %11, align 8, !tbaa !22
+  br label %.thread622
 
 190:                                              ; preds = %188
   %191 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread107
 
-.thread589:                                       ; preds = %..thread589_crit_edge, %185
-  %192 = phi i32 [ %.pre889, %..thread589_crit_edge ], [ %32, %185 ]
+.thread622:                                       ; preds = %..thread622_crit_edge, %185
+  %192 = phi i32 [ %.pre922, %..thread622_crit_edge ], [ %32, %185 ]
   %193 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 663) #5
   %.not83.i = icmp eq ptr %193, null
   br i1 %.not83.i, label %225, label %194
 
-194:                                              ; preds = %.thread589
+194:                                              ; preds = %.thread622
   %195 = tail call fastcc ptr @expression_rule(ptr noundef nonnull %0)
   %.not84.i = icmp eq ptr %195, null
   br i1 %.not84.i, label %225, label %196
@@ -34103,10 +34103,10 @@ _tmp_22_rule.exit:                                ; preds = %127, %129
 
 205:                                              ; preds = %204, %200
   %206 = load i32, ptr %8, align 8, !tbaa !21
-  %.not.i.i341 = icmp eq i32 %206, 0
-  br i1 %.not.i.i341, label %207, label %_tmp_22_rule.exit.thread.i342
+  %.not.i.i356 = icmp eq i32 %206, 0
+  br i1 %.not.i.i356, label %207, label %_tmp_22_rule.exit.thread.i357
 
-_tmp_22_rule.exit.thread.i342:                    ; preds = %205
+_tmp_22_rule.exit.thread.i357:                    ; preds = %205
   %storemerge.in.i106.i = load i32, ptr %2, align 8, !tbaa !20
   %storemerge.i107.i = add i32 %storemerge.in.i106.i, -1
   store i32 %storemerge.i107.i, ptr %2, align 8, !tbaa !20
@@ -34115,31 +34115,31 @@ _tmp_22_rule.exit.thread.i342:                    ; preds = %205
 207:                                              ; preds = %205
   %208 = load i32, ptr %11, align 8, !tbaa !22
   %209 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 666) #5
-  %.not22.i.i345 = icmp eq ptr %209, null
-  br i1 %.not22.i.i345, label %212, label %210
+  %.not22.i.i360 = icmp eq ptr %209, null
+  br i1 %.not22.i.i360, label %212, label %210
 
 210:                                              ; preds = %207
   %211 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %0) #5
-  %.not23.i.i346 = icmp eq ptr %211, null
-  br i1 %.not23.i.i346, label %212, label %_tmp_22_rule.exit.i347
+  %.not23.i.i361 = icmp eq ptr %211, null
+  br i1 %.not23.i.i361, label %212, label %_tmp_22_rule.exit.i362
 
 212:                                              ; preds = %210, %207
   store i32 %208, ptr %11, align 8, !tbaa !22
-  br label %_tmp_22_rule.exit.i347
+  br label %_tmp_22_rule.exit.i362
 
-_tmp_22_rule.exit.i347:                           ; preds = %212, %210
-  %.pr.i348 = load i32, ptr %8, align 8, !tbaa !21
-  %storemerge.in.i.i349 = load i32, ptr %2, align 8, !tbaa !20
-  %storemerge.i.i350 = add i32 %storemerge.in.i.i349, -1
-  store i32 %storemerge.i.i350, ptr %2, align 8, !tbaa !20
-  %.not87.i = icmp eq i32 %.pr.i348, 0
+_tmp_22_rule.exit.i362:                           ; preds = %212, %210
+  %.pr.i363 = load i32, ptr %8, align 8, !tbaa !21
+  %storemerge.in.i.i364 = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge.i.i365 = add i32 %storemerge.in.i.i364, -1
+  store i32 %storemerge.i.i365, ptr %2, align 8, !tbaa !20
+  %.not87.i = icmp eq i32 %.pr.i363, 0
   br i1 %.not87.i, label %213, label %.thread113.i
 
-.thread113.i:                                     ; preds = %_tmp_22_rule.exit.i347
+.thread113.i:                                     ; preds = %_tmp_22_rule.exit.i362
   store i32 %192, ptr %11, align 8, !tbaa !22
   br label %.thread107
 
-213:                                              ; preds = %_tmp_22_rule.exit.i347
+213:                                              ; preds = %_tmp_22_rule.exit.i362
   %214 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 11) #5
   %.not88.i = icmp eq ptr %214, null
   br i1 %.not88.i, label %225, label %215
@@ -34155,21 +34155,21 @@ _tmp_22_rule.exit.i347:                           ; preds = %212, %210
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %216, i64 noundef %219, i64 noundef %222, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.133)
   %223 = tail call ptr @PyErr_Occurred() #5
   %.not89.i = icmp eq ptr %223, null
-  br i1 %.not89.i, label %invalid_except_stmt_rule.exit.thread355, label %.thread.i
+  br i1 %.not89.i, label %invalid_except_stmt_rule.exit.thread370, label %.thread.i
 
 .thread.i:                                        ; preds = %215
   store i32 1, ptr %8, align 8, !tbaa !21
   %224 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread107
 
-225:                                              ; preds = %213, %_tmp_22_rule.exit.thread.i342, %198, %196, %194, %.thread589
+225:                                              ; preds = %213, %_tmp_22_rule.exit.thread.i357, %198, %196, %194, %.thread622
   %.pr112.i = load i32, ptr %8, align 8, !tbaa !21
   store i32 %192, ptr %11, align 8, !tbaa !22
   %.not90.i = icmp eq i32 %.pr112.i, 0
-  br i1 %.not90.i, label %226, label %._crit_edge.i343
+  br i1 %.not90.i, label %226, label %._crit_edge.i358
 
-._crit_edge.i343:                                 ; preds = %225
-  %.pre.i344 = load i32, ptr %2, align 8, !tbaa !20
+._crit_edge.i358:                                 ; preds = %225
+  %.pre.i359 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread107
 
 226:                                              ; preds = %225
@@ -34195,44 +34195,44 @@ _tmp_22_rule.exit.i347:                           ; preds = %212, %210
 
 235:                                              ; preds = %234, %230
   %236 = load i32, ptr %8, align 8, !tbaa !21
-  %.not.i683 = icmp eq i32 %236, 0
-  br i1 %.not.i683, label %237, label %_tmp_22_rule.exit688.thread
+  %.not.i716 = icmp eq i32 %236, 0
+  br i1 %.not.i716, label %237, label %_tmp_22_rule.exit721.thread
 
-_tmp_22_rule.exit688.thread:                      ; preds = %235
-  %storemerge.in.i684690 = load i32, ptr %2, align 8, !tbaa !20
-  %storemerge.i685691 = add i32 %storemerge.in.i684690, -1
-  store i32 %storemerge.i685691, ptr %2, align 8, !tbaa !20
+_tmp_22_rule.exit721.thread:                      ; preds = %235
+  %storemerge.in.i717723 = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge.i718724 = add i32 %storemerge.in.i717723, -1
+  store i32 %storemerge.i718724, ptr %2, align 8, !tbaa !20
   br label %.thread123.i
 
 237:                                              ; preds = %235
   %238 = load i32, ptr %11, align 8, !tbaa !22
   %239 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 666) #5
-  %.not22.i686 = icmp eq ptr %239, null
-  br i1 %.not22.i686, label %242, label %240
+  %.not22.i719 = icmp eq ptr %239, null
+  br i1 %.not22.i719, label %242, label %240
 
 240:                                              ; preds = %237
   %241 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %0) #5
-  %.not23.i687 = icmp eq ptr %241, null
-  br i1 %.not23.i687, label %242, label %_tmp_22_rule.exit688
+  %.not23.i720 = icmp eq ptr %241, null
+  br i1 %.not23.i720, label %242, label %_tmp_22_rule.exit721
 
 242:                                              ; preds = %240, %237
   store i32 %238, ptr %11, align 8, !tbaa !22
-  br label %_tmp_22_rule.exit688
+  br label %_tmp_22_rule.exit721
 
-_tmp_22_rule.exit688:                             ; preds = %240, %242
-  %.pr689 = load i32, ptr %8, align 8, !tbaa !21
-  %storemerge.in.i684 = load i32, ptr %2, align 8, !tbaa !20
-  %storemerge.i685 = add i32 %storemerge.in.i684, -1
-  store i32 %storemerge.i685, ptr %2, align 8, !tbaa !20
-  %.not93.i = icmp eq i32 %.pr689, 0
+_tmp_22_rule.exit721:                             ; preds = %240, %242
+  %.pr722 = load i32, ptr %8, align 8, !tbaa !21
+  %storemerge.in.i717 = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge.i718 = add i32 %storemerge.in.i717, -1
+  store i32 %storemerge.i718, ptr %2, align 8, !tbaa !20
+  %.not93.i = icmp eq i32 %.pr722, 0
   br i1 %.not93.i, label %244, label %.thread123.i
 
-.thread123.i:                                     ; preds = %_tmp_22_rule.exit688, %_tmp_22_rule.exit688.thread
-  %243 = phi i32 [ %storemerge.i685691, %_tmp_22_rule.exit688.thread ], [ %storemerge.i685, %_tmp_22_rule.exit688 ]
+.thread123.i:                                     ; preds = %_tmp_22_rule.exit721, %_tmp_22_rule.exit721.thread
+  %243 = phi i32 [ %storemerge.i718724, %_tmp_22_rule.exit721.thread ], [ %storemerge.i718, %_tmp_22_rule.exit721 ]
   store i32 %192, ptr %11, align 8, !tbaa !22
   br label %.thread107
 
-244:                                              ; preds = %_tmp_22_rule.exit688
+244:                                              ; preds = %_tmp_22_rule.exit721
   %245 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 4) #5
   %.not94.i = icmp eq ptr %245, null
   br i1 %.not94.i, label %253, label %246
@@ -34246,7 +34246,7 @@ _tmp_22_rule.exit688:                             ; preds = %240, %242
 250:                                              ; preds = %246
   %251 = tail call ptr @PyErr_Occurred() #5
   %.not95.i = icmp eq ptr %251, null
-  br i1 %.not95.i, label %invalid_except_stmt_rule.exit.thread355, label %.thread118.i
+  br i1 %.not95.i, label %invalid_except_stmt_rule.exit.thread370, label %.thread118.i
 
 .thread118.i:                                     ; preds = %250
   store i32 1, ptr %8, align 8, !tbaa !21
@@ -34257,10 +34257,10 @@ _tmp_22_rule.exit688:                             ; preds = %240, %242
   %.pr122.i = load i32, ptr %8, align 8, !tbaa !21
   store i32 %192, ptr %11, align 8, !tbaa !22
   %.not96.i = icmp eq i32 %.pr122.i, 0
-  br i1 %.not96.i, label %254, label %.loopexit.loopexit791
+  br i1 %.not96.i, label %254, label %.loopexit.loopexit824
 
-.loopexit.loopexit791:                            ; preds = %253
-  %.pre890 = load i32, ptr %2, align 8, !tbaa !20
+.loopexit.loopexit824:                            ; preds = %253
+  %.pre923 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread107
 
 254:                                              ; preds = %253
@@ -34282,7 +34282,7 @@ _tmp_22_rule.exit688:                             ; preds = %240, %242
 262:                                              ; preds = %258
   %263 = tail call ptr @PyErr_Occurred() #5
   %.not99.i = icmp eq ptr %263, null
-  br i1 %.not99.i, label %invalid_except_stmt_rule.exit.thread355, label %.thread129.i
+  br i1 %.not99.i, label %invalid_except_stmt_rule.exit.thread370, label %.thread129.i
 
 .thread129.i:                                     ; preds = %262
   store i32 1, ptr %8, align 8, !tbaa !21
@@ -34337,7 +34337,7 @@ _tmp_22_rule.exit688:                             ; preds = %240, %242
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %278, i64 noundef %281, i64 noundef %284, i64 noundef %287, i64 noundef %290, ptr noundef nonnull @.str.134, ptr noundef %291)
   %292 = tail call ptr @PyErr_Occurred() #5
   %.not105.i = icmp eq ptr %292, null
-  br i1 %.not105.i, label %invalid_except_stmt_rule.exit.thread355, label %.thread132.i
+  br i1 %.not105.i, label %invalid_except_stmt_rule.exit.thread370, label %.thread132.i
 
 .thread132.i:                                     ; preds = %277
   store i32 1, ptr %8, align 8, !tbaa !21
@@ -34346,19 +34346,19 @@ _tmp_22_rule.exit688:                             ; preds = %240, %242
 
 294:                                              ; preds = %275, %273, %271, %269
   store i32 %192, ptr %11, align 8, !tbaa !22
-  br label %invalid_except_stmt_rule.exit.thread355
+  br label %invalid_except_stmt_rule.exit.thread370
 
-invalid_except_stmt_rule.exit.thread355:          ; preds = %294, %215, %277, %250, %262
+invalid_except_stmt_rule.exit.thread370:          ; preds = %294, %215, %277, %250, %262
   %295 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread107
 
-.thread107:                                       ; preds = %.thread123.i, %.loopexit.loopexit791, %.thread113.i, %._crit_edge.i343, %190, %267, %.thread.i, %.thread118.i, %.thread129.i, %.thread132.i, %invalid_except_stmt_rule.exit.thread355
-  %storemerge.in = phi i32 [ %295, %invalid_except_stmt_rule.exit.thread355 ], [ %storemerge.i.i350, %.thread113.i ], [ %.pre.i344, %._crit_edge.i343 ], [ %191, %190 ], [ %268, %267 ], [ %224, %.thread.i ], [ %252, %.thread118.i ], [ %264, %.thread129.i ], [ %293, %.thread132.i ], [ %.pre890, %.loopexit.loopexit791 ], [ %243, %.thread123.i ]
+.thread107:                                       ; preds = %.thread123.i, %.loopexit.loopexit824, %.thread113.i, %._crit_edge.i358, %190, %267, %.thread.i, %.thread118.i, %.thread129.i, %.thread132.i, %invalid_except_stmt_rule.exit.thread370
+  %storemerge.in = phi i32 [ %295, %invalid_except_stmt_rule.exit.thread370 ], [ %storemerge.i.i365, %.thread113.i ], [ %.pre.i359, %._crit_edge.i358 ], [ %191, %190 ], [ %268, %267 ], [ %224, %.thread.i ], [ %252, %.thread118.i ], [ %264, %.thread129.i ], [ %293, %.thread132.i ], [ %.pre923, %.loopexit.loopexit824 ], [ %243, %.thread123.i ]
   %storemerge = add i32 %storemerge.in, -1
   br label %except_block_rule.exit.thread
 
 except_block_rule.exit.thread115.loopexit:        ; preds = %180
-  %.pre588 = load i32, ptr %2, align 8, !tbaa !20
+  %.pre603 = load i32, ptr %2, align 8, !tbaa !20
   br label %except_block_rule.exit.thread
 
 except_block_rule.exit.thread130:                 ; preds = %152, %176
@@ -34403,8 +34403,8 @@ except_block_rule.exit.thread119:                 ; preds = %except_block_rule.e
   br label %328
 
 except_block_rule.exit.thread:                    ; preds = %_tmp_22_rule.exit, %182, %50, %.thread107, %except_block_rule.exit.thread115.loopexit, %.loopexit.loopexit, %except_block_rule.exit.thread130, %178, %166, %154, %137, %111, %38, %29
-  %.sink338 = phi i32 [ %296, %except_block_rule.exit.thread130 ], [ %179, %178 ], [ %167, %166 ], [ %155, %154 ], [ %138, %137 ], [ %112, %111 ], [ %39, %38 ], [ %30, %29 ], [ %.pre265, %.loopexit.loopexit ], [ %.pre588, %except_block_rule.exit.thread115.loopexit ], [ %storemerge, %.thread107 ], [ %storemerge.i, %_tmp_22_rule.exit ], [ %184, %182 ], [ %51, %50 ]
-  %310 = add i32 %.sink338, -1
+  %.sink353 = phi i32 [ %296, %except_block_rule.exit.thread130 ], [ %179, %178 ], [ %167, %166 ], [ %155, %154 ], [ %138, %137 ], [ %112, %111 ], [ %39, %38 ], [ %30, %29 ], [ %.pre265, %.loopexit.loopexit ], [ %.pre603, %except_block_rule.exit.thread115.loopexit ], [ %storemerge, %.thread107 ], [ %storemerge.i, %_tmp_22_rule.exit ], [ %184, %182 ], [ %51, %50 ]
+  %310 = add i32 %.sink353, -1
   store i32 %310, ptr %2, align 8, !tbaa !20
   store i32 %.052, ptr %11, align 8, !tbaa !22
   %311 = icmp eq i64 %.053, 0
@@ -34567,20 +34567,20 @@ define internal fastcc ptr @_loop1_38_rule(ptr noundef %0) unnamed_addr #0 {
   %50 = add i32 %49, 1
   store i32 %50, ptr %2, align 8, !tbaa !20
   %51 = icmp eq i32 %49, 6000
-  br i1 %51, label %52, label %.thread206
+  br i1 %51, label %52, label %.thread216
 
 52:                                               ; preds = %48
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %53 = icmp eq i32 %.pre, 0
-  br i1 %53, label %.thread206, label %.thread
+  br i1 %53, label %.thread216, label %.thread
 
-.thread206:                                       ; preds = %48, %52
+.thread216:                                       ; preds = %48, %52
   %54 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 663) #5
   %.not30.i = icmp eq ptr %54, null
   br i1 %.not30.i, label %.thread, label %55
 
-55:                                               ; preds = %.thread206
+55:                                               ; preds = %.thread216
   %56 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 16) #5
   %.not31.i = icmp eq ptr %56, null
   br i1 %.not31.i, label %.thread, label %57
@@ -34667,7 +34667,7 @@ _tmp_22_rule.exit.i:                              ; preds = %71, %69
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %.thread
 
-.thread:                                          ; preds = %.thread206, %55, %57, %_tmp_22_rule.exit.thread.i, %_tmp_22_rule.exit.i, %72, %74, %76, %84, %52, %.thread43.i
+.thread:                                          ; preds = %.thread216, %55, %57, %_tmp_22_rule.exit.thread.i, %_tmp_22_rule.exit.i, %72, %74, %76, %84, %52, %.thread43.i
   %86 = load i32, ptr %2, align 8, !tbaa !20
   %87 = add i32 %86, -1
   store i32 %87, ptr %2, align 8, !tbaa !20
@@ -34810,47 +34810,47 @@ _tmp_22_rule.exit:                                ; preds = %109, %111
   %141 = add i32 %140, 1
   store i32 %141, ptr %2, align 8, !tbaa !20
   %142 = icmp eq i32 %140, 6000
-  br i1 %142, label %143, label %.thread415
+  br i1 %142, label %143, label %.thread438
 
 143:                                              ; preds = %139
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pre413 = load i32, ptr %8, align 8, !tbaa !21
-  %144 = icmp eq i32 %.pre413, 0
-  br i1 %144, label %..thread415_crit_edge, label %145
+  %.pre423 = load i32, ptr %8, align 8, !tbaa !21
+  %144 = icmp eq i32 %.pre423, 0
+  br i1 %144, label %..thread438_crit_edge, label %145
 
-..thread415_crit_edge:                            ; preds = %143
-  %.pre652 = load i32, ptr %11, align 8, !tbaa !22
-  br label %.thread415
+..thread438_crit_edge:                            ; preds = %143
+  %.pre675 = load i32, ptr %11, align 8, !tbaa !22
+  br label %.thread438
 
 145:                                              ; preds = %143
   %146 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread91
 
-.thread415:                                       ; preds = %..thread415_crit_edge, %139
-  %147 = phi i32 [ %.pre652, %..thread415_crit_edge ], [ %30, %139 ]
+.thread438:                                       ; preds = %..thread438_crit_edge, %139
+  %147 = phi i32 [ %.pre675, %..thread438_crit_edge ], [ %30, %139 ]
   %148 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 663) #5
-  %.not87.i252 = icmp eq ptr %148, null
-  br i1 %.not87.i252, label %182, label %149
+  %.not87.i262 = icmp eq ptr %148, null
+  br i1 %.not87.i262, label %182, label %149
 
-149:                                              ; preds = %.thread415
+149:                                              ; preds = %.thread438
   %150 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 16) #5
-  %.not88.i253 = icmp eq ptr %150, null
-  br i1 %.not88.i253, label %182, label %151
+  %.not88.i263 = icmp eq ptr %150, null
+  br i1 %.not88.i263, label %182, label %151
 
 151:                                              ; preds = %149
   %152 = tail call fastcc ptr @expression_rule(ptr noundef nonnull %0)
-  %.not89.i254 = icmp eq ptr %152, null
-  br i1 %.not89.i254, label %182, label %153
+  %.not89.i264 = icmp eq ptr %152, null
+  br i1 %.not89.i264, label %182, label %153
 
 153:                                              ; preds = %151
   %154 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
-  %.not90.i255 = icmp eq ptr %154, null
-  br i1 %.not90.i255, label %182, label %155
+  %.not90.i265 = icmp eq ptr %154, null
+  br i1 %.not90.i265, label %182, label %155
 
 155:                                              ; preds = %153
   %156 = tail call fastcc ptr @expressions_rule(ptr noundef nonnull %0)
-  %.not91.i256 = icmp eq ptr %156, null
-  br i1 %.not91.i256, label %182, label %157
+  %.not91.i266 = icmp eq ptr %156, null
+  br i1 %.not91.i266, label %182, label %157
 
 157:                                              ; preds = %155
   %158 = load i32, ptr %2, align 8, !tbaa !20
@@ -34865,10 +34865,10 @@ _tmp_22_rule.exit:                                ; preds = %109, %111
 
 162:                                              ; preds = %161, %157
   %163 = load i32, ptr %8, align 8, !tbaa !21
-  %.not.i.i257 = icmp eq i32 %163, 0
-  br i1 %.not.i.i257, label %164, label %_tmp_22_rule.exit.thread.i258
+  %.not.i.i267 = icmp eq i32 %163, 0
+  br i1 %.not.i.i267, label %164, label %_tmp_22_rule.exit.thread.i268
 
-_tmp_22_rule.exit.thread.i258:                    ; preds = %162
+_tmp_22_rule.exit.thread.i268:                    ; preds = %162
   %storemerge.in.i114.i = load i32, ptr %2, align 8, !tbaa !20
   %storemerge.i115.i = add i32 %storemerge.in.i114.i, -1
   store i32 %storemerge.i115.i, ptr %2, align 8, !tbaa !20
@@ -34877,31 +34877,31 @@ _tmp_22_rule.exit.thread.i258:                    ; preds = %162
 164:                                              ; preds = %162
   %165 = load i32, ptr %11, align 8, !tbaa !22
   %166 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 666) #5
-  %.not22.i.i259 = icmp eq ptr %166, null
-  br i1 %.not22.i.i259, label %169, label %167
+  %.not22.i.i269 = icmp eq ptr %166, null
+  br i1 %.not22.i.i269, label %169, label %167
 
 167:                                              ; preds = %164
   %168 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %0) #5
-  %.not23.i.i260 = icmp eq ptr %168, null
-  br i1 %.not23.i.i260, label %169, label %_tmp_22_rule.exit.i261
+  %.not23.i.i270 = icmp eq ptr %168, null
+  br i1 %.not23.i.i270, label %169, label %_tmp_22_rule.exit.i271
 
 169:                                              ; preds = %167, %164
   store i32 %165, ptr %11, align 8, !tbaa !22
-  br label %_tmp_22_rule.exit.i261
+  br label %_tmp_22_rule.exit.i271
 
-_tmp_22_rule.exit.i261:                           ; preds = %169, %167
-  %.pr.i262 = load i32, ptr %8, align 8, !tbaa !21
-  %storemerge.in.i.i263 = load i32, ptr %2, align 8, !tbaa !20
-  %storemerge.i.i264 = add i32 %storemerge.in.i.i263, -1
-  store i32 %storemerge.i.i264, ptr %2, align 8, !tbaa !20
-  %.not92.i265 = icmp eq i32 %.pr.i262, 0
-  br i1 %.not92.i265, label %170, label %.thread121.i
+_tmp_22_rule.exit.i271:                           ; preds = %169, %167
+  %.pr.i272 = load i32, ptr %8, align 8, !tbaa !21
+  %storemerge.in.i.i273 = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge.i.i274 = add i32 %storemerge.in.i.i273, -1
+  store i32 %storemerge.i.i274, ptr %2, align 8, !tbaa !20
+  %.not92.i275 = icmp eq i32 %.pr.i272, 0
+  br i1 %.not92.i275, label %170, label %.thread121.i
 
-.thread121.i:                                     ; preds = %_tmp_22_rule.exit.i261
+.thread121.i:                                     ; preds = %_tmp_22_rule.exit.i271
   store i32 %147, ptr %11, align 8, !tbaa !22
   br label %.thread91
 
-170:                                              ; preds = %_tmp_22_rule.exit.i261
+170:                                              ; preds = %_tmp_22_rule.exit.i271
   %171 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 11) #5
   %.not93.i = icmp eq ptr %171, null
   br i1 %.not93.i, label %182, label %172
@@ -34917,14 +34917,14 @@ _tmp_22_rule.exit.i261:                           ; preds = %169, %167
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %173, i64 noundef %176, i64 noundef %179, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.133)
   %180 = tail call ptr @PyErr_Occurred() #5
   %.not94.i = icmp eq ptr %180, null
-  br i1 %.not94.i, label %invalid_except_star_stmt_rule.exit.thread270, label %.thread.i
+  br i1 %.not94.i, label %invalid_except_star_stmt_rule.exit.thread280, label %.thread.i
 
 .thread.i:                                        ; preds = %172
   store i32 1, ptr %8, align 8, !tbaa !21
   %181 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread91
 
-182:                                              ; preds = %170, %_tmp_22_rule.exit.thread.i258, %155, %153, %151, %149, %.thread415
+182:                                              ; preds = %170, %_tmp_22_rule.exit.thread.i268, %155, %153, %151, %149, %.thread438
   %.pr120.i = load i32, ptr %8, align 8, !tbaa !21
   store i32 %147, ptr %11, align 8, !tbaa !22
   %.not95.i = icmp eq i32 %.pr120.i, 0
@@ -34962,44 +34962,44 @@ _tmp_22_rule.exit.i261:                           ; preds = %169, %167
 
 194:                                              ; preds = %193, %189
   %195 = load i32, ptr %8, align 8, !tbaa !21
-  %.not.i475 = icmp eq i32 %195, 0
-  br i1 %.not.i475, label %196, label %_tmp_22_rule.exit480.thread
+  %.not.i498 = icmp eq i32 %195, 0
+  br i1 %.not.i498, label %196, label %_tmp_22_rule.exit503.thread
 
-_tmp_22_rule.exit480.thread:                      ; preds = %194
-  %storemerge.in.i476484 = load i32, ptr %2, align 8, !tbaa !20
-  %storemerge.i477485 = add i32 %storemerge.in.i476484, -1
-  store i32 %storemerge.i477485, ptr %2, align 8, !tbaa !20
+_tmp_22_rule.exit503.thread:                      ; preds = %194
+  %storemerge.in.i499507 = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge.i500508 = add i32 %storemerge.in.i499507, -1
+  store i32 %storemerge.i500508, ptr %2, align 8, !tbaa !20
   br label %.thread131.i
 
 196:                                              ; preds = %194
   %197 = load i32, ptr %11, align 8, !tbaa !22
   %198 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 666) #5
-  %.not22.i478 = icmp eq ptr %198, null
-  br i1 %.not22.i478, label %201, label %199
+  %.not22.i501 = icmp eq ptr %198, null
+  br i1 %.not22.i501, label %201, label %199
 
 199:                                              ; preds = %196
   %200 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %0) #5
-  %.not23.i479 = icmp eq ptr %200, null
-  br i1 %.not23.i479, label %201, label %_tmp_22_rule.exit480
+  %.not23.i502 = icmp eq ptr %200, null
+  br i1 %.not23.i502, label %201, label %_tmp_22_rule.exit503
 
 201:                                              ; preds = %199, %196
   store i32 %197, ptr %11, align 8, !tbaa !22
-  br label %_tmp_22_rule.exit480
+  br label %_tmp_22_rule.exit503
 
-_tmp_22_rule.exit480:                             ; preds = %199, %201
-  %.pr483 = load i32, ptr %8, align 8, !tbaa !21
-  %storemerge.in.i476 = load i32, ptr %2, align 8, !tbaa !20
-  %storemerge.i477 = add i32 %storemerge.in.i476, -1
-  store i32 %storemerge.i477, ptr %2, align 8, !tbaa !20
-  %.not99.i = icmp eq i32 %.pr483, 0
+_tmp_22_rule.exit503:                             ; preds = %199, %201
+  %.pr506 = load i32, ptr %8, align 8, !tbaa !21
+  %storemerge.in.i499 = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge.i500 = add i32 %storemerge.in.i499, -1
+  store i32 %storemerge.i500, ptr %2, align 8, !tbaa !20
+  %.not99.i = icmp eq i32 %.pr506, 0
   br i1 %.not99.i, label %203, label %.thread131.i
 
-.thread131.i:                                     ; preds = %_tmp_22_rule.exit480, %_tmp_22_rule.exit480.thread
-  %202 = phi i32 [ %storemerge.i477485, %_tmp_22_rule.exit480.thread ], [ %storemerge.i477, %_tmp_22_rule.exit480 ]
+.thread131.i:                                     ; preds = %_tmp_22_rule.exit503, %_tmp_22_rule.exit503.thread
+  %202 = phi i32 [ %storemerge.i500508, %_tmp_22_rule.exit503.thread ], [ %storemerge.i500, %_tmp_22_rule.exit503 ]
   store i32 %147, ptr %11, align 8, !tbaa !22
   br label %.thread91
 
-203:                                              ; preds = %_tmp_22_rule.exit480
+203:                                              ; preds = %_tmp_22_rule.exit503
   %204 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 4) #5
   %.not100.i = icmp eq ptr %204, null
   br i1 %.not100.i, label %212, label %205
@@ -35013,7 +35013,7 @@ _tmp_22_rule.exit480:                             ; preds = %199, %201
 209:                                              ; preds = %205
   %210 = tail call ptr @PyErr_Occurred() #5
   %.not101.i = icmp eq ptr %210, null
-  br i1 %.not101.i, label %invalid_except_star_stmt_rule.exit.thread270, label %.thread126.i
+  br i1 %.not101.i, label %invalid_except_star_stmt_rule.exit.thread280, label %.thread126.i
 
 .thread126.i:                                     ; preds = %209
   store i32 1, ptr %8, align 8, !tbaa !21
@@ -35027,18 +35027,18 @@ _tmp_22_rule.exit480:                             ; preds = %199, %201
   br i1 %.not102.i, label %213, label %.loopexit.loopexit
 
 .loopexit.loopexit:                               ; preds = %212
-  %.pre653 = load i32, ptr %2, align 8, !tbaa !20
+  %.pre676 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread91
 
 213:                                              ; preds = %212
   %214 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 663) #5
   %.not103.i = icmp eq ptr %214, null
-  br i1 %.not103.i, label %.loopexit489, label %215
+  br i1 %.not103.i, label %.loopexit512, label %215
 
 215:                                              ; preds = %213
   %216 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 16) #5
   %.not104.i = icmp eq ptr %216, null
-  br i1 %.not104.i, label %.loopexit489, label %217
+  br i1 %.not104.i, label %.loopexit512, label %217
 
 217:                                              ; preds = %215
   %218 = load i32, ptr %2, align 8, !tbaa !20
@@ -35053,8 +35053,8 @@ _tmp_22_rule.exit480:                             ; preds = %199, %201
 
 222:                                              ; preds = %221, %217
   %223 = load i32, ptr %8, align 8, !tbaa !21
-  %.not.i481 = icmp eq i32 %223, 0
-  br i1 %.not.i481, label %224, label %_tmp_141_rule.exit.thread
+  %.not.i504 = icmp eq i32 %223, 0
+  br i1 %.not.i504, label %224, label %_tmp_141_rule.exit.thread
 
 224:                                              ; preds = %222
   %225 = load i32, ptr %11, align 8, !tbaa !22
@@ -35077,7 +35077,7 @@ _tmp_141_rule.exit.thread:                        ; preds = %222, %227, %229
   %231 = load i32, ptr %2, align 8, !tbaa !20
   %232 = add i32 %231, -1
   store i32 %232, ptr %2, align 8, !tbaa !20
-  br label %.loopexit489
+  br label %.loopexit512
 
 233:                                              ; preds = %229, %224
   %234 = load i32, ptr %2, align 8, !tbaa !20
@@ -35091,24 +35091,24 @@ _tmp_141_rule.exit.thread:                        ; preds = %222, %227, %229
 239:                                              ; preds = %233
   %240 = tail call ptr @PyErr_Occurred() #5
   %.not106.i = icmp eq ptr %240, null
-  br i1 %.not106.i, label %invalid_except_star_stmt_rule.exit.thread270, label %.thread137.i
+  br i1 %.not106.i, label %invalid_except_star_stmt_rule.exit.thread280, label %.thread137.i
 
 .thread137.i:                                     ; preds = %239
   store i32 1, ptr %8, align 8, !tbaa !21
   %241 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread91
 
-.loopexit489:                                     ; preds = %215, %213, %_tmp_141_rule.exit.thread
+.loopexit512:                                     ; preds = %215, %213, %_tmp_141_rule.exit.thread
   store i32 %147, ptr %11, align 8, !tbaa !22
   %242 = load i32, ptr %8, align 8, !tbaa !21
   %.not107.i = icmp eq i32 %242, 0
   br i1 %.not107.i, label %245, label %243
 
-243:                                              ; preds = %.loopexit489
+243:                                              ; preds = %.loopexit512
   %244 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread91
 
-245:                                              ; preds = %.loopexit489
+245:                                              ; preds = %.loopexit512
   %246 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 663) #5
   %.not108.i = icmp eq ptr %246, null
   br i1 %.not108.i, label %272, label %247
@@ -35151,7 +35151,7 @@ _tmp_141_rule.exit.thread:                        ; preds = %222, %227, %229
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %256, i64 noundef %259, i64 noundef %262, i64 noundef %265, i64 noundef %268, ptr noundef nonnull @.str.137, ptr noundef %269)
   %270 = tail call ptr @PyErr_Occurred() #5
   %.not113.i = icmp eq ptr %270, null
-  br i1 %.not113.i, label %invalid_except_star_stmt_rule.exit.thread270, label %.thread140.i
+  br i1 %.not113.i, label %invalid_except_star_stmt_rule.exit.thread280, label %.thread140.i
 
 .thread140.i:                                     ; preds = %255
   store i32 1, ptr %8, align 8, !tbaa !21
@@ -35160,9 +35160,9 @@ _tmp_141_rule.exit.thread:                        ; preds = %222, %227, %229
 
 272:                                              ; preds = %253, %251, %249, %247, %245
   store i32 %147, ptr %11, align 8, !tbaa !22
-  br label %invalid_except_star_stmt_rule.exit.thread270
+  br label %invalid_except_star_stmt_rule.exit.thread280
 
-invalid_except_star_stmt_rule.exit.thread270:     ; preds = %272, %172, %255, %209, %239
+invalid_except_star_stmt_rule.exit.thread280:     ; preds = %272, %172, %255, %209, %239
   %273 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread91
 
@@ -35172,8 +35172,8 @@ invalid_except_star_stmt_rule.exit:               ; preds = %205, %233
   %275 = add i32 %274, -1
   br label %except_star_block_rule.exit.thread103
 
-.thread91:                                        ; preds = %.thread131.i, %.loopexit.loopexit, %.thread121.i, %._crit_edge.i, %145, %243, %.thread.i, %.thread126.i, %.thread137.i, %.thread140.i, %invalid_except_star_stmt_rule.exit.thread270
-  %storemerge.in = phi i32 [ %273, %invalid_except_star_stmt_rule.exit.thread270 ], [ %storemerge.i.i264, %.thread121.i ], [ %.pre.i, %._crit_edge.i ], [ %146, %145 ], [ %244, %243 ], [ %181, %.thread.i ], [ %211, %.thread126.i ], [ %241, %.thread137.i ], [ %271, %.thread140.i ], [ %.pre653, %.loopexit.loopexit ], [ %202, %.thread131.i ]
+.thread91:                                        ; preds = %.thread131.i, %.loopexit.loopexit, %.thread121.i, %._crit_edge.i, %145, %243, %.thread.i, %.thread126.i, %.thread137.i, %.thread140.i, %invalid_except_star_stmt_rule.exit.thread280
+  %storemerge.in = phi i32 [ %273, %invalid_except_star_stmt_rule.exit.thread280 ], [ %storemerge.i.i274, %.thread121.i ], [ %.pre.i, %._crit_edge.i ], [ %146, %145 ], [ %244, %243 ], [ %181, %.thread.i ], [ %211, %.thread126.i ], [ %241, %.thread137.i ], [ %271, %.thread140.i ], [ %.pre676, %.loopexit.loopexit ], [ %202, %.thread131.i ]
   %storemerge = add i32 %storemerge.in, -1
   store i32 %storemerge, ptr %2, align 8, !tbaa !20
   br label %.thread115
@@ -35600,9 +35600,9 @@ define internal fastcc ptr @subject_expr_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread78
+  br i1 %15, label %20, label %.thread82
 
-.thread78:                                        ; preds = %10
+.thread82:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -35627,11 +35627,11 @@ define internal fastcc ptr @subject_expr_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread78, %24
-  %.pn.in = phi ptr [ %19, %.thread78 ], [ %29, %24 ]
+30:                                               ; preds = %.thread82, %24
+  %.pn.in = phi ptr [ %19, %.thread82 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in81 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in81, align 4, !tbaa !26
+  %.in85 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in85, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call fastcc ptr @star_named_expression_rule(ptr noundef nonnull %0)
@@ -35737,9 +35737,9 @@ define internal fastcc ptr @patterns_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread68
+  br i1 %15, label %20, label %.thread72
 
-.thread68:                                        ; preds = %10
+.thread72:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -35764,11 +35764,11 @@ define internal fastcc ptr @patterns_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread68, %24
-  %.pn.in = phi ptr [ %19, %.thread68 ], [ %29, %24 ]
+30:                                               ; preds = %.thread72, %24
+  %.pn.in = phi ptr [ %19, %.thread72 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in71 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in71, align 4, !tbaa !26
+  %.in75 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in75, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call fastcc ptr @open_sequence_pattern_rule(ptr noundef nonnull %0)
@@ -35884,21 +35884,21 @@ define internal fastcc ptr @open_sequence_pattern_rule(ptr noundef %0) unnamed_a
   %26 = add i32 %24, 1
   store i32 %26, ptr %2, align 8, !tbaa !20
   %27 = icmp eq i32 %24, 6000
-  br i1 %27, label %28, label %.thread95
+  br i1 %27, label %28, label %.thread102
 
 28:                                               ; preds = %25
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre89 = load i32, ptr %8, align 8, !tbaa !21
   %29 = icmp eq i32 %.pre89, 0
-  br i1 %29, label %.thread95, label %maybe_star_pattern_rule.exit
+  br i1 %29, label %.thread102, label %maybe_star_pattern_rule.exit
 
-.thread95:                                        ; preds = %25, %28
+.thread102:                                       ; preds = %25, %28
   %30 = load i32, ptr %11, align 8, !tbaa !22
   %31 = tail call fastcc ptr @as_pattern_rule(ptr noundef nonnull %0)
   %.not27.i38 = icmp eq ptr %31, null
   br i1 %.not27.i38, label %32, label %36
 
-32:                                               ; preds = %.thread95
+32:                                               ; preds = %.thread102
   store i32 %30, ptr %11, align 8, !tbaa !22
   %33 = load i32, ptr %8, align 8, !tbaa !21
   %.not28.i43 = icmp eq i32 %33, 0
@@ -35913,8 +35913,8 @@ pattern_rule.exit:                                ; preds = %34
   store i32 %30, ptr %11, align 8, !tbaa !22
   br label %maybe_star_pattern_rule.exit
 
-36:                                               ; preds = %.thread95, %34
-  %.122.i42.ph = phi ptr [ %35, %34 ], [ %31, %.thread95 ]
+36:                                               ; preds = %.thread102, %34
+  %.122.i42.ph = phi ptr [ %35, %34 ], [ %31, %.thread102 ]
   %37 = load i32, ptr %2, align 8, !tbaa !20
   %38 = add i32 %37, -1
   br label %41
@@ -35947,10 +35947,10 @@ maybe_star_pattern_rule.exit:                     ; preds = %32, %28, %pattern_r
 50:                                               ; preds = %49, %45
   %51 = load i32, ptr %8, align 8, !tbaa !21
   %.not.i31 = icmp eq i32 %51, 0
-  br i1 %.not.i31, label %52, label %maybe_sequence_pattern_rule.exit.thread102
+  br i1 %.not.i31, label %52, label %maybe_sequence_pattern_rule.exit.thread109
 
-maybe_sequence_pattern_rule.exit.thread102:       ; preds = %50
-  %storemerge.in105 = load i32, ptr %2, align 8, !tbaa !20
+maybe_sequence_pattern_rule.exit.thread109:       ; preds = %50
+  %storemerge.in112 = load i32, ptr %2, align 8, !tbaa !20
   br label %maybe_star_pattern_rule.exit.thread.sink.split
 
 52:                                               ; preds = %50
@@ -35963,9 +35963,9 @@ maybe_sequence_pattern_rule.exit.thread102:       ; preds = %50
   %56 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %57 = load i32, ptr %8, align 8, !tbaa !21
   %.not24.i = icmp eq i32 %57, 0
-  %storemerge.in99 = load i32, ptr %2, align 8, !tbaa !20
-  %storemerge100 = add i32 %storemerge.in99, -1
-  store i32 %storemerge100, ptr %2, align 8, !tbaa !20
+  %storemerge.in106 = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge107 = add i32 %storemerge.in106, -1
+  store i32 %storemerge107, ptr %2, align 8, !tbaa !20
   br i1 %.not24.i, label %maybe_sequence_pattern_rule.exit.thread, label %maybe_star_pattern_rule.exit.thread
 
 maybe_sequence_pattern_rule.exit:                 ; preds = %52
@@ -35991,10 +35991,10 @@ maybe_sequence_pattern_rule.exit.thread:          ; preds = %55, %maybe_sequence
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %.thread83
 
-maybe_star_pattern_rule.exit.thread.sink.split:   ; preds = %22, %maybe_star_pattern_rule.exit, %18, %maybe_sequence_pattern_rule.exit.thread102
-  %storemerge.in105.sink = phi i32 [ %storemerge.in105, %maybe_sequence_pattern_rule.exit.thread102 ], [ %19, %18 ], [ %40, %maybe_star_pattern_rule.exit ], [ %24, %22 ]
-  %storemerge106 = add i32 %storemerge.in105.sink, -1
-  store i32 %storemerge106, ptr %2, align 8, !tbaa !20
+maybe_star_pattern_rule.exit.thread.sink.split:   ; preds = %22, %maybe_star_pattern_rule.exit, %18, %maybe_sequence_pattern_rule.exit.thread109
+  %storemerge.in112.sink = phi i32 [ %storemerge.in112, %maybe_sequence_pattern_rule.exit.thread109 ], [ %19, %18 ], [ %40, %maybe_star_pattern_rule.exit ], [ %24, %22 ]
+  %storemerge113 = add i32 %storemerge.in112.sink, -1
+  store i32 %storemerge113, ptr %2, align 8, !tbaa !20
   br label %maybe_star_pattern_rule.exit.thread
 
 maybe_star_pattern_rule.exit.thread:              ; preds = %maybe_star_pattern_rule.exit.thread.sink.split, %55, %maybe_sequence_pattern_rule.exit, %41
@@ -36143,9 +36143,9 @@ pattern_rule.exit.thread:                         ; preds = %28, %26, %22
   br label %35
 
 35:                                               ; preds = %30, %pattern_rule.exit.thread, %._crit_edge, %16, %10
-  %.sink59 = phi i32 [ %11, %10 ], [ %18, %16 ], [ %.pre57, %._crit_edge ], [ %34, %pattern_rule.exit.thread ], [ %32, %30 ]
+  %.sink62 = phi i32 [ %11, %10 ], [ %18, %16 ], [ %.pre57, %._crit_edge ], [ %34, %pattern_rule.exit.thread ], [ %32, %30 ]
   %.0 = phi ptr [ null, %10 ], [ null, %16 ], [ %15, %._crit_edge ], [ null, %pattern_rule.exit.thread ], [ %.122.i.ph, %30 ]
-  %36 = add i32 %.sink59, -1
+  %36 = add i32 %.sink62, -1
   store i32 %36, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -36447,9 +36447,9 @@ define internal fastcc ptr @wildcard_pattern_rule(ptr noundef %0) unnamed_addr #
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread51
+  br i1 %15, label %20, label %.thread53
 
-.thread51:                                        ; preds = %10
+.thread53:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -36474,11 +36474,11 @@ define internal fastcc ptr @wildcard_pattern_rule(ptr noundef %0) unnamed_addr #
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread51, %24
-  %.pn.in = phi ptr [ %19, %.thread51 ], [ %29, %24 ]
+30:                                               ; preds = %.thread53, %24
+  %.pn.in = phi ptr [ %19, %.thread53 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in54 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in54, align 4, !tbaa !26
+  %.in56 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in56, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_expect_soft_keyword(ptr noundef nonnull %0, ptr noundef nonnull @.str.43) #5
@@ -36646,34 +36646,34 @@ define internal fastcc ptr @_gather_45_rule(ptr noundef %0) unnamed_addr #0 {
 
 .lr.ph.preheader:                                 ; preds = %.preheader37
   %27 = tail call fastcc ptr @maybe_star_pattern_rule(ptr noundef nonnull %0)
-  %.not70.i58 = icmp eq ptr %27, null
-  br i1 %.not70.i58, label %.critedge.i, label %.lr.ph62
+  %.not70.i63 = icmp eq ptr %27, null
+  br i1 %.not70.i63, label %.critedge.i, label %.lr.ph67
 
 .lr.ph:                                           ; preds = %35
   %28 = tail call fastcc ptr @maybe_star_pattern_rule(ptr noundef nonnull %0)
   %.not70.i = icmp eq ptr %28, null
-  br i1 %.not70.i, label %.critedge.i, label %.lr.ph62, !llvm.loop !152
+  br i1 %.not70.i, label %.critedge.i, label %.lr.ph67, !llvm.loop !152
 
-.lr.ph62:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph67:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %29 = phi ptr [ %28, %.lr.ph ], [ %27, %.lr.ph.preheader ]
-  %.059.i4261 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.058.i4360 = phi i64 [ %36, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.054.i4459 = phi ptr [ %.256.i, %.lr.ph ], [ %23, %.lr.ph.preheader ]
-  %30 = icmp eq i64 %.058.i4360, %.059.i4261
+  %.059.i4266 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.058.i4365 = phi i64 [ %36, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.054.i4464 = phi ptr [ %.256.i, %.lr.ph ], [ %23, %.lr.ph.preheader ]
+  %30 = icmp eq i64 %.058.i4365, %.059.i4266
   br i1 %30, label %31, label %35
 
-31:                                               ; preds = %.lr.ph62
-  %32 = shl i64 %.058.i4360, 1
-  %33 = shl i64 %.058.i4360, 4
-  %34 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i4459, i64 noundef %33) #5
+31:                                               ; preds = %.lr.ph67
+  %32 = shl i64 %.058.i4365, 1
+  %33 = shl i64 %.058.i4365, 4
+  %34 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i4464, i64 noundef %33) #5
   %.not71.not.i = icmp eq ptr %34, null
   br i1 %.not71.not.i, label %_loop0_44_rule.exit.thread.sink.split.sink.split.sink.split, label %35
 
-35:                                               ; preds = %31, %.lr.ph62
-  %.160.i = phi i64 [ %.059.i4261, %.lr.ph62 ], [ %32, %31 ]
-  %.256.i = phi ptr [ %.054.i4459, %.lr.ph62 ], [ %34, %31 ]
-  %36 = add i64 %.058.i4360, 1
-  %37 = getelementptr ptr, ptr %.256.i, i64 %.058.i4360
+35:                                               ; preds = %31, %.lr.ph67
+  %.160.i = phi i64 [ %.059.i4266, %.lr.ph67 ], [ %32, %31 ]
+  %.256.i = phi ptr [ %.054.i4464, %.lr.ph67 ], [ %34, %31 ]
+  %36 = add i64 %.058.i4365, 1
+  %37 = getelementptr ptr, ptr %.256.i, i64 %.058.i4365
   store ptr %29, ptr %37, align 8, !tbaa !25
   %38 = load i32, ptr %11, align 8, !tbaa !22
   %39 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -36722,8 +36722,8 @@ define internal fastcc ptr @_gather_45_rule(ptr noundef %0) unnamed_addr #0 {
   br label %55
 
 _loop0_44_rule.exit.thread.sink.split.sink.split.sink.split: ; preds = %31, %.critedge.i
-  %.054.i44.lcssa55.sink = phi ptr [ %.054.i.lcssa, %.critedge.i ], [ %.054.i4459, %31 ]
-  tail call void @PyMem_Free(ptr noundef %.054.i44.lcssa55.sink) #5
+  %.054.i44.lcssa60.sink = phi ptr [ %.054.i.lcssa, %.critedge.i ], [ %.054.i4464, %31 ]
+  tail call void @PyMem_Free(ptr noundef %.054.i44.lcssa60.sink) #5
   br label %_loop0_44_rule.exit.thread.sink.split.sink.split
 
 _loop0_44_rule.exit.thread.sink.split.sink.split: ; preds = %_loop0_44_rule.exit.thread.sink.split.sink.split.sink.split, %21
@@ -36774,9 +36774,9 @@ define internal fastcc ptr @as_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread72
+  br i1 %15, label %20, label %.thread76
 
-.thread72:                                        ; preds = %10
+.thread76:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -36801,11 +36801,11 @@ define internal fastcc ptr @as_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread72, %24
-  %.pn.in = phi ptr [ %19, %.thread72 ], [ %29, %24 ]
+30:                                               ; preds = %.thread76, %24
+  %.pn.in = phi ptr [ %19, %.thread76 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in75 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in75, align 4, !tbaa !26
+  %.in79 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in79, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call fastcc ptr @or_pattern_rule(ptr noundef nonnull %0)
@@ -36866,21 +36866,21 @@ define internal fastcc ptr @as_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   %62 = add i32 %61, 1
   store i32 %62, ptr %2, align 8, !tbaa !20
   %63 = icmp eq i32 %61, 6000
-  br i1 %63, label %64, label %.thread78
+  br i1 %63, label %64, label %.thread89
 
 64:                                               ; preds = %60
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pre77 = load i32, ptr %8, align 8, !tbaa !21
-  %65 = icmp eq i32 %.pre77, 0
-  br i1 %65, label %.thread78, label %invalid_as_pattern_rule.exit
+  %.pre81 = load i32, ptr %8, align 8, !tbaa !21
+  %65 = icmp eq i32 %.pre81, 0
+  br i1 %65, label %.thread89, label %invalid_as_pattern_rule.exit
 
-.thread78:                                        ; preds = %60, %64
+.thread89:                                        ; preds = %60, %64
   %66 = load i32, ptr %11, align 8, !tbaa !22
   %67 = tail call fastcc ptr @or_pattern_rule(ptr noundef nonnull %0)
   %.not49.i = icmp eq ptr %67, null
   br i1 %.not49.i, label %87, label %68
 
-68:                                               ; preds = %.thread78
+68:                                               ; preds = %.thread89
   %69 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 666) #5
   %.not50.i = icmp eq ptr %69, null
   br i1 %.not50.i, label %87, label %70
@@ -36909,7 +36909,7 @@ define internal fastcc ptr @as_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   %.not52.i = icmp eq ptr %86, null
   br i1 %.not52.i, label %invalid_as_pattern_rule.exit, label %invalid_as_pattern_rule.exit.sink.split
 
-87:                                               ; preds = %70, %68, %.thread78
+87:                                               ; preds = %70, %68, %.thread89
   store i32 %66, ptr %11, align 8, !tbaa !22
   %88 = load i32, ptr %8, align 8, !tbaa !21
   %.not53.i = icmp eq i32 %88, 0
@@ -36998,9 +36998,9 @@ define internal fastcc ptr @or_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load i32, ptr %15, align 4, !tbaa !23
   %17 = icmp eq i32 %14, %16
-  br i1 %17, label %22, label %.thread97
+  br i1 %17, label %22, label %.thread105
 
-.thread97:                                        ; preds = %12
+.thread105:                                       ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !24
   %20 = sext i32 %14 to i64
@@ -37030,37 +37030,37 @@ define internal fastcc ptr @or_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   %34 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread68
 
-35:                                               ; preds = %.thread97, %27
-  %.pn.in = phi ptr [ %21, %.thread97 ], [ %32, %27 ]
+35:                                               ; preds = %.thread105, %27
+  %.pn.in = phi ptr [ %21, %.thread105 ], [ %32, %27 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in102 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %36 = load i32, ptr %.in102, align 4, !tbaa !26
+  %.in110 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %36 = load i32, ptr %.in110, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %37 = load i32, ptr %.in, align 8, !tbaa !29
   %38 = load i32, ptr %2, align 8, !tbaa !20
   %39 = add i32 %38, 1
   store i32 %39, ptr %2, align 8, !tbaa !20
   %40 = icmp eq i32 %38, 6000
-  br i1 %40, label %41, label %.thread99
+  br i1 %40, label %41, label %.thread107
 
 41:                                               ; preds = %35
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre93 = load i32, ptr %8, align 8, !tbaa !21
   %42 = icmp eq i32 %.pre93, 0
-  br i1 %42, label %.thread99, label %_gather_41_rule.exit.thread
+  br i1 %42, label %.thread107, label %_gather_41_rule.exit.thread
 
 _gather_41_rule.exit.thread:                      ; preds = %41
   %43 = load i32, ptr %2, align 8, !tbaa !20
   %44 = add i32 %43, -1
   br label %125
 
-.thread99:                                        ; preds = %35, %41
+.thread107:                                       ; preds = %35, %41
   %45 = tail call fastcc ptr @closed_pattern_rule(ptr noundef nonnull %0)
   %.not22.i = icmp eq ptr %45, null
   %.pre94 = load i32, ptr %2, align 8, !tbaa !20
   br i1 %.not22.i, label %_gather_41_rule.exit.thread66, label %46
 
-46:                                               ; preds = %.thread99
+46:                                               ; preds = %.thread107
   %47 = add i32 %.pre94, 1
   store i32 %47, ptr %2, align 8, !tbaa !20
   %48 = icmp eq i32 %.pre94, 6000
@@ -37106,8 +37106,8 @@ _gather_41_rule.exit.thread:                      ; preds = %41
 
 .lr.ph.preheader:                                 ; preds = %.preheader75
   %65 = tail call fastcc ptr @closed_pattern_rule(ptr noundef nonnull %0)
-  %.not70.i105 = icmp eq ptr %65, null
-  br i1 %.not70.i105, label %.critedge.i, label %.lr.ph109
+  %.not70.i113 = icmp eq ptr %65, null
+  br i1 %.not70.i113, label %.critedge.i, label %.lr.ph117
 
 66:                                               ; preds = %62
   %67 = load i32, ptr %2, align 8, !tbaa !20
@@ -37117,36 +37117,36 @@ _gather_41_rule.exit.thread:                      ; preds = %41
 .lr.ph:                                           ; preds = %79
   %69 = tail call fastcc ptr @closed_pattern_rule(ptr noundef nonnull %0)
   %.not70.i = icmp eq ptr %69, null
-  br i1 %.not70.i, label %.critedge.i, label %.lr.ph109, !llvm.loop !154
+  br i1 %.not70.i, label %.critedge.i, label %.lr.ph117, !llvm.loop !154
 
-.lr.ph109:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph117:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %70 = phi ptr [ %69, %.lr.ph ], [ %65, %.lr.ph.preheader ]
-  %.059.i80108 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.058.i81107 = phi i64 [ %80, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.054.i82106 = phi ptr [ %.256.i, %.lr.ph ], [ %57, %.lr.ph.preheader ]
-  %71 = icmp eq i64 %.058.i81107, %.059.i80108
+  %.059.i80116 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.058.i81115 = phi i64 [ %80, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.054.i82114 = phi ptr [ %.256.i, %.lr.ph ], [ %57, %.lr.ph.preheader ]
+  %71 = icmp eq i64 %.058.i81115, %.059.i80116
   br i1 %71, label %72, label %79
 
-72:                                               ; preds = %.lr.ph109
-  %73 = shl i64 %.058.i81107, 1
-  %74 = shl i64 %.058.i81107, 4
-  %75 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i82106, i64 noundef %74) #5
+72:                                               ; preds = %.lr.ph117
+  %73 = shl i64 %.058.i81115, 1
+  %74 = shl i64 %.058.i81115, 4
+  %75 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i82114, i64 noundef %74) #5
   %.not71.not.i = icmp eq ptr %75, null
   br i1 %.not71.not.i, label %.thread, label %79
 
 .thread:                                          ; preds = %72
-  tail call void @PyMem_Free(ptr noundef %.054.i82106) #5
+  tail call void @PyMem_Free(ptr noundef %.054.i82114) #5
   store i32 1, ptr %8, align 8, !tbaa !21
   %76 = tail call ptr @PyErr_NoMemory() #5
   %77 = load i32, ptr %2, align 8, !tbaa !20
   %78 = add i32 %77, -1
   br label %_gather_41_rule.exit.thread66
 
-79:                                               ; preds = %72, %.lr.ph109
-  %.160.i = phi i64 [ %.059.i80108, %.lr.ph109 ], [ %73, %72 ]
-  %.256.i = phi ptr [ %.054.i82106, %.lr.ph109 ], [ %75, %72 ]
-  %80 = add i64 %.058.i81107, 1
-  %81 = getelementptr ptr, ptr %.256.i, i64 %.058.i81107
+79:                                               ; preds = %72, %.lr.ph117
+  %.160.i = phi i64 [ %.059.i80116, %.lr.ph117 ], [ %73, %72 ]
+  %.256.i = phi ptr [ %.054.i82114, %.lr.ph117 ], [ %75, %72 ]
+  %80 = add i64 %.058.i81115, 1
+  %81 = getelementptr ptr, ptr %.256.i, i64 %.058.i81115
   store ptr %70, ptr %81, align 8, !tbaa !25
   %82 = load i32, ptr %13, align 8, !tbaa !22
   %83 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 18) #5
@@ -37194,8 +37194,8 @@ _loop0_40_rule.exit.thread55:                     ; preds = %.critedge.i
   %exitcond.not = icmp eq i64 %95, %.058.i.lcssa
   br i1 %exitcond.not, label %_gather_41_rule.exit, label %90, !llvm.loop !155
 
-_gather_41_rule.exit.thread66:                    ; preds = %_loop0_40_rule.exit.thread55, %.thread99, %52, %58, %66, %.thread
-  %96 = phi i32 [ %storemerge.i58, %_loop0_40_rule.exit.thread55 ], [ %.pre94, %.thread99 ], [ %54, %52 ], [ %61, %58 ], [ %68, %66 ], [ %78, %.thread ]
+_gather_41_rule.exit.thread66:                    ; preds = %_loop0_40_rule.exit.thread55, %.thread107, %52, %58, %66, %.thread
+  %96 = phi i32 [ %storemerge.i58, %_loop0_40_rule.exit.thread55 ], [ %.pre94, %.thread107 ], [ %54, %52 ], [ %61, %58 ], [ %68, %66 ], [ %78, %.thread ]
   %97 = add i32 %96, -1
   br label %125
 
@@ -37343,9 +37343,9 @@ define internal fastcc ptr @closed_pattern_rule(ptr noundef %0) unnamed_addr #0 
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %34 = load i32, ptr %33, align 4, !tbaa !23
   %35 = icmp eq i32 %32, %34
-  br i1 %35, label %40, label %.thread239.i
+  br i1 %35, label %40, label %.thread254.i
 
-.thread239.i:                                     ; preds = %.thread
+.thread254.i:                                     ; preds = %.thread
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !24
   %38 = sext i32 %32 to i64
@@ -37366,11 +37366,11 @@ define internal fastcc ptr @closed_pattern_rule(ptr noundef %0) unnamed_addr #0 
   %48 = getelementptr ptr, ptr %46, i64 %47
   br i1 %44, label %49, label %164
 
-49:                                               ; preds = %43, %.thread239.i
-  %.pn.in.i = phi ptr [ %39, %.thread239.i ], [ %48, %43 ]
+49:                                               ; preds = %43, %.thread254.i
+  %.pn.in.i = phi ptr [ %39, %.thread254.i ], [ %48, %43 ]
   %.pn.i = load ptr, ptr %.pn.in.i, align 8, !tbaa !25
-  %.in242.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 20
-  %50 = load i32, ptr %.in242.i, align 4, !tbaa !26
+  %.in257.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 20
+  %50 = load i32, ptr %.in257.i, align 4, !tbaa !26
   %.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 24
   %51 = load i32, ptr %.in.i, align 8, !tbaa !29
   %52 = call fastcc ptr @signed_number_rule(ptr noundef nonnull %0)
@@ -37751,9 +37751,9 @@ define internal fastcc ptr @capture_pattern_rule(ptr noundef %0) unnamed_addr #0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread53
+  br i1 %15, label %20, label %.thread56
 
-.thread53:                                        ; preds = %10
+.thread56:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -37778,11 +37778,11 @@ define internal fastcc ptr @capture_pattern_rule(ptr noundef %0) unnamed_addr #0
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread53, %24
-  %.pn.in = phi ptr [ %19, %.thread53 ], [ %29, %24 ]
+30:                                               ; preds = %.thread56, %24
+  %.pn.in = phi ptr [ %19, %.thread56 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in56 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in56, align 4, !tbaa !26
+  %.in59 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in59, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call fastcc ptr @pattern_capture_target_rule(ptr noundef nonnull %0)
@@ -37853,9 +37853,9 @@ define internal fastcc ptr @value_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread55
+  br i1 %15, label %20, label %.thread58
 
-.thread55:                                        ; preds = %10
+.thread58:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -37880,11 +37880,11 @@ define internal fastcc ptr @value_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread55, %24
-  %.pn.in = phi ptr [ %19, %.thread55 ], [ %29, %24 ]
+30:                                               ; preds = %.thread58, %24
+  %.pn.in = phi ptr [ %19, %.thread58 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in58 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in58, align 4, !tbaa !26
+  %.in61 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in61, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call fastcc ptr @attr_rule(ptr noundef nonnull %0)
@@ -38083,8 +38083,8 @@ define internal fastcc ptr @sequence_pattern_rule(ptr noundef %0) unnamed_addr #
 35:                                               ; preds = %.thread, %27
   %.pn.in = phi ptr [ %21, %.thread ], [ %32, %27 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in127 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %36 = load i32, ptr %.in127, align 4, !tbaa !26
+  %.in134 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %36 = load i32, ptr %.in134, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %37 = load i32, ptr %.in, align 8, !tbaa !29
   %38 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 9) #5
@@ -38105,11 +38105,11 @@ define internal fastcc ptr @sequence_pattern_rule(ptr noundef %0) unnamed_addr #
 44:                                               ; preds = %43, %39
   %45 = load i32, ptr %8, align 8, !tbaa !21
   %.not.i = icmp eq i32 %45, 0
-  br i1 %.not.i, label %46, label %maybe_sequence_pattern_rule.exit.thread116
+  br i1 %.not.i, label %46, label %maybe_sequence_pattern_rule.exit.thread123
 
-maybe_sequence_pattern_rule.exit.thread116:       ; preds = %44
-  %storemerge.in119 = load i32, ptr %2, align 8, !tbaa !20
-  %storemerge120 = add i32 %storemerge.in119, -1
+maybe_sequence_pattern_rule.exit.thread123:       ; preds = %44
+  %storemerge.in126 = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge127 = add i32 %storemerge.in126, -1
   br label %.thread95
 
 46:                                               ; preds = %44
@@ -38122,12 +38122,12 @@ maybe_sequence_pattern_rule.exit.thread116:       ; preds = %44
   %50 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %51 = load i32, ptr %8, align 8, !tbaa !21
   %.not24.i = icmp eq i32 %51, 0
-  %storemerge.in113 = load i32, ptr %2, align 8, !tbaa !20
-  %storemerge114 = add i32 %storemerge.in113, -1
+  %storemerge.in120 = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge121 = add i32 %storemerge.in120, -1
   br i1 %.not24.i, label %maybe_sequence_pattern_rule.exit.thread, label %.thread95
 
 maybe_sequence_pattern_rule.exit.thread:          ; preds = %49
-  store i32 %storemerge114, ptr %2, align 8, !tbaa !20
+  store i32 %storemerge121, ptr %2, align 8, !tbaa !20
   br label %53
 
 maybe_sequence_pattern_rule.exit:                 ; preds = %46
@@ -38139,8 +38139,8 @@ maybe_sequence_pattern_rule.exit:                 ; preds = %46
   store i32 %storemerge, ptr %2, align 8, !tbaa !20
   br i1 %52, label %53, label %.thread95
 
-.thread95:                                        ; preds = %49, %maybe_sequence_pattern_rule.exit.thread116, %maybe_sequence_pattern_rule.exit
-  %storemerge121 = phi i32 [ %storemerge120, %maybe_sequence_pattern_rule.exit.thread116 ], [ %storemerge, %maybe_sequence_pattern_rule.exit ], [ %storemerge114, %49 ]
+.thread95:                                        ; preds = %49, %maybe_sequence_pattern_rule.exit.thread123, %maybe_sequence_pattern_rule.exit
+  %storemerge128 = phi i32 [ %storemerge127, %maybe_sequence_pattern_rule.exit.thread123 ], [ %storemerge, %maybe_sequence_pattern_rule.exit ], [ %storemerge121, %49 ]
   store i32 %14, ptr %13, align 8, !tbaa !22
   br label %.thread88
 
@@ -38245,9 +38245,9 @@ maybe_sequence_pattern_rule.exit:                 ; preds = %46
   br label %.thread88
 
 .thread88:                                        ; preds = %.thread95, %._crit_edge106, %97, %84, %71, %58, %25, %.thread92, %33, %10
-  %.sink126 = phi i32 [ %98, %97 ], [ %85, %84 ], [ %72, %71 ], [ %59, %58 ], [ %26, %25 ], [ %100, %.thread92 ], [ %34, %33 ], [ %11, %10 ], [ %.pre107, %._crit_edge106 ], [ %storemerge121, %.thread95 ]
+  %.sink133 = phi i32 [ %98, %97 ], [ %85, %84 ], [ %72, %71 ], [ %59, %58 ], [ %26, %25 ], [ %100, %.thread92 ], [ %34, %33 ], [ %11, %10 ], [ %.pre107, %._crit_edge106 ], [ %storemerge128, %.thread95 ]
   %.0 = phi ptr [ null, %97 ], [ null, %84 ], [ null, %71 ], [ null, %58 ], [ null, %25 ], [ %.264, %.thread92 ], [ null, %33 ], [ null, %10 ], [ null, %._crit_edge106 ], [ null, %.thread95 ]
-  %101 = add i32 %.sink126, -1
+  %101 = add i32 %.sink133, -1
   store i32 %101, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -38277,9 +38277,9 @@ define internal fastcc ptr @mapping_pattern_rule(ptr noundef %0) unnamed_addr #0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread213
+  br i1 %15, label %20, label %.thread225
 
-.thread213:                                       ; preds = %10
+.thread225:                                       ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -38304,11 +38304,11 @@ define internal fastcc ptr @mapping_pattern_rule(ptr noundef %0) unnamed_addr #0
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread213, %24
-  %.pn.in = phi ptr [ %19, %.thread213 ], [ %29, %24 ]
+30:                                               ; preds = %.thread225, %24
+  %.pn.in = phi ptr [ %19, %.thread225 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in216 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in216, align 4, !tbaa !26
+  %.in228 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in228, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 25) #5
@@ -38383,9 +38383,9 @@ define internal fastcc ptr @mapping_pattern_rule(ptr noundef %0) unnamed_addr #0
   br i1 %.not23.i, label %double_star_pattern_rule.exit.thread, label %66
 
 double_star_pattern_rule.exit.thread:             ; preds = %62, %64, %60
-  %storemerge.in.i219 = load i32, ptr %2, align 8, !tbaa !20
-  %storemerge.i220 = add i32 %storemerge.in.i219, -1
-  store i32 %storemerge.i220, ptr %2, align 8, !tbaa !20
+  %storemerge.in.i231 = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge.i232 = add i32 %storemerge.in.i231, -1
+  store i32 %storemerge.i232, ptr %2, align 8, !tbaa !20
   br label %88
 
 66:                                               ; preds = %64
@@ -38626,9 +38626,9 @@ define internal fastcc ptr @class_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread251
+  br i1 %15, label %20, label %.thread268
 
-.thread251:                                       ; preds = %10
+.thread268:                                       ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -38653,32 +38653,32 @@ define internal fastcc ptr @class_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread251, %24
-  %.pn.in = phi ptr [ %19, %.thread251 ], [ %29, %24 ]
+30:                                               ; preds = %.thread268, %24
+  %.pn.in = phi ptr [ %19, %.thread268 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in256 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in256, align 4, !tbaa !26
+  %.in273 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in273, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = load i32, ptr %2, align 8, !tbaa !20
   %34 = add i32 %33, 1
   store i32 %34, ptr %2, align 8, !tbaa !20
   %35 = icmp eq i32 %33, 6000
-  br i1 %35, label %36, label %.thread253
+  br i1 %35, label %36, label %.thread270
 
 36:                                               ; preds = %30
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre250 = load i32, ptr %8, align 8, !tbaa !21
   %37 = icmp eq i32 %.pre250, 0
-  br i1 %37, label %.thread253, label %name_or_attr_rule.exit.thread
+  br i1 %37, label %.thread270, label %name_or_attr_rule.exit.thread
 
-.thread253:                                       ; preds = %30, %36
+.thread270:                                       ; preds = %30, %36
   %38 = load i32, ptr %11, align 8, !tbaa !22
   %39 = tail call fastcc ptr @attr_rule(ptr noundef nonnull %0)
   %.not27.i = icmp eq ptr %39, null
   br i1 %.not27.i, label %40, label %46
 
-40:                                               ; preds = %.thread253
+40:                                               ; preds = %.thread270
   store i32 %38, ptr %11, align 8, !tbaa !22
   %41 = load i32, ptr %8, align 8, !tbaa !21
   %.not28.i = icmp eq i32 %41, 0
@@ -38695,8 +38695,8 @@ name_or_attr_rule.exit.thread:                    ; preds = %42, %36, %40
   store i32 %45, ptr %2, align 8, !tbaa !20
   br label %67
 
-46:                                               ; preds = %42, %.thread253
-  %.0.i = phi ptr [ %39, %.thread253 ], [ %43, %42 ]
+46:                                               ; preds = %42, %.thread270
+  %.0.i = phi ptr [ %39, %.thread270 ], [ %43, %42 ]
   %47 = load i32, ptr %2, align 8, !tbaa !20
   %48 = add i32 %47, -1
   store i32 %48, ptr %2, align 8, !tbaa !20
@@ -38745,39 +38745,39 @@ name_or_attr_rule.exit.thread:                    ; preds = %42, %36, %40
   %71 = add i32 %70, 1
   store i32 %71, ptr %2, align 8, !tbaa !20
   %72 = icmp eq i32 %70, 6000
-  br i1 %72, label %73, label %.thread275
+  br i1 %72, label %73, label %.thread312
 
 73:                                               ; preds = %69
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pre273 = load i32, ptr %8, align 8, !tbaa !21
-  %74 = icmp eq i32 %.pre273, 0
-  br i1 %74, label %.thread275, label %name_or_attr_rule.exit.thread268
+  %.pre290 = load i32, ptr %8, align 8, !tbaa !21
+  %74 = icmp eq i32 %.pre290, 0
+  br i1 %74, label %.thread312, label %name_or_attr_rule.exit.thread285
 
-.thread275:                                       ; preds = %69, %73
+.thread312:                                       ; preds = %69, %73
   %75 = load i32, ptr %11, align 8, !tbaa !22
   %76 = tail call fastcc ptr @attr_rule(ptr noundef nonnull %0)
-  %.not27.i259 = icmp eq ptr %76, null
-  br i1 %.not27.i259, label %77, label %83
+  %.not27.i276 = icmp eq ptr %76, null
+  br i1 %.not27.i276, label %77, label %83
 
-77:                                               ; preds = %.thread275
+77:                                               ; preds = %.thread312
   store i32 %75, ptr %11, align 8, !tbaa !22
   %78 = load i32, ptr %8, align 8, !tbaa !21
-  %.not28.i260 = icmp eq i32 %78, 0
-  br i1 %.not28.i260, label %79, label %name_or_attr_rule.exit.thread268
+  %.not28.i277 = icmp eq i32 %78, 0
+  br i1 %.not28.i277, label %79, label %name_or_attr_rule.exit.thread285
 
 79:                                               ; preds = %77
   %80 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %0) #5
-  %.not29.i261 = icmp eq ptr %80, null
-  br i1 %.not29.i261, label %name_or_attr_rule.exit.thread268, label %83
+  %.not29.i278 = icmp eq ptr %80, null
+  br i1 %.not29.i278, label %name_or_attr_rule.exit.thread285, label %83
 
-name_or_attr_rule.exit.thread268:                 ; preds = %79, %73, %77
+name_or_attr_rule.exit.thread285:                 ; preds = %79, %73, %77
   %81 = load i32, ptr %2, align 8, !tbaa !20
   %82 = add i32 %81, -1
   store i32 %82, ptr %2, align 8, !tbaa !20
   br label %109
 
-83:                                               ; preds = %79, %.thread275
-  %.0.i258 = phi ptr [ %76, %.thread275 ], [ %80, %79 ]
+83:                                               ; preds = %79, %.thread312
+  %.0.i275 = phi ptr [ %76, %.thread312 ], [ %80, %79 ]
   %84 = load i32, ptr %2, align 8, !tbaa !20
   %85 = add i32 %84, -1
   store i32 %85, ptr %2, align 8, !tbaa !20
@@ -38817,7 +38817,7 @@ name_or_attr_rule.exit.thread268:                 ; preds = %79, %73, %77
   %101 = load i32, ptr %100, align 8, !tbaa !31
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %103 = load ptr, ptr %102, align 8, !tbaa !32
-  %104 = tail call ptr @_PyAST_MatchClass(ptr noundef nonnull %.0.i258, ptr noundef nonnull %88, ptr noundef null, ptr noundef null, i32 noundef %31, i32 noundef %32, i32 noundef %99, i32 noundef %101, ptr noundef %103) #5
+  %104 = tail call ptr @_PyAST_MatchClass(ptr noundef nonnull %.0.i275, ptr noundef nonnull %88, ptr noundef null, ptr noundef null, i32 noundef %31, i32 noundef %32, i32 noundef %99, i32 noundef %101, ptr noundef %103) #5
   %105 = icmp eq ptr %104, null
   br i1 %105, label %106, label %.thread
 
@@ -38830,7 +38830,7 @@ name_or_attr_rule.exit.thread268:                 ; preds = %79, %73, %77
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %.thread
 
-109:                                              ; preds = %name_or_attr_rule.exit.thread268, %92, %87, %83
+109:                                              ; preds = %name_or_attr_rule.exit.thread285, %92, %87, %83
   %.pr = load i32, ptr %8, align 8, !tbaa !21
   store i32 %12, ptr %11, align 8, !tbaa !22
   %.not189 = icmp eq i32 %.pr, 0
@@ -38841,39 +38841,39 @@ name_or_attr_rule.exit.thread268:                 ; preds = %79, %73, %77
   %112 = add i32 %111, 1
   store i32 %112, ptr %2, align 8, !tbaa !20
   %113 = icmp eq i32 %111, 6000
-  br i1 %113, label %114, label %.thread277
+  br i1 %113, label %114, label %.thread314
 
 114:                                              ; preds = %110
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pre274 = load i32, ptr %8, align 8, !tbaa !21
-  %115 = icmp eq i32 %.pre274, 0
-  br i1 %115, label %.thread277, label %name_or_attr_rule.exit267.thread
+  %.pre291 = load i32, ptr %8, align 8, !tbaa !21
+  %115 = icmp eq i32 %.pre291, 0
+  br i1 %115, label %.thread314, label %name_or_attr_rule.exit284.thread
 
-.thread277:                                       ; preds = %110, %114
+.thread314:                                       ; preds = %110, %114
   %116 = load i32, ptr %11, align 8, !tbaa !22
   %117 = tail call fastcc ptr @attr_rule(ptr noundef nonnull %0)
-  %.not27.i264 = icmp eq ptr %117, null
-  br i1 %.not27.i264, label %118, label %124
+  %.not27.i281 = icmp eq ptr %117, null
+  br i1 %.not27.i281, label %118, label %124
 
-118:                                              ; preds = %.thread277
+118:                                              ; preds = %.thread314
   store i32 %116, ptr %11, align 8, !tbaa !22
   %119 = load i32, ptr %8, align 8, !tbaa !21
-  %.not28.i265 = icmp eq i32 %119, 0
-  br i1 %.not28.i265, label %120, label %name_or_attr_rule.exit267.thread
+  %.not28.i282 = icmp eq i32 %119, 0
+  br i1 %.not28.i282, label %120, label %name_or_attr_rule.exit284.thread
 
 120:                                              ; preds = %118
   %121 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %0) #5
-  %.not29.i266 = icmp eq ptr %121, null
-  br i1 %.not29.i266, label %name_or_attr_rule.exit267.thread, label %124
+  %.not29.i283 = icmp eq ptr %121, null
+  br i1 %.not29.i283, label %name_or_attr_rule.exit284.thread, label %124
 
-name_or_attr_rule.exit267.thread:                 ; preds = %120, %114, %118
+name_or_attr_rule.exit284.thread:                 ; preds = %120, %114, %118
   %122 = load i32, ptr %2, align 8, !tbaa !20
   %123 = add i32 %122, -1
   store i32 %123, ptr %2, align 8, !tbaa !20
   br label %159
 
-124:                                              ; preds = %120, %.thread277
-  %.0.i263 = phi ptr [ %117, %.thread277 ], [ %121, %120 ]
+124:                                              ; preds = %120, %.thread314
+  %.0.i280 = phi ptr [ %117, %.thread314 ], [ %121, %120 ]
   %125 = load i32, ptr %2, align 8, !tbaa !20
   %126 = add i32 %125, -1
   store i32 %126, ptr %2, align 8, !tbaa !20
@@ -38940,7 +38940,7 @@ CHECK_CALL.exit207:                               ; preds = %CHECK_CALL.exit, %1
 CHECK_CALL.exit208:                               ; preds = %CHECK_CALL.exit207, %151
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %153 = load ptr, ptr %152, align 8, !tbaa !32
-  %154 = tail call ptr @_PyAST_MatchClass(ptr noundef nonnull %.0.i263, ptr noundef null, ptr noundef %146, ptr noundef %149, i32 noundef %31, i32 noundef %32, i32 noundef %140, i32 noundef %142, ptr noundef %153) #5
+  %154 = tail call ptr @_PyAST_MatchClass(ptr noundef nonnull %.0.i280, ptr noundef null, ptr noundef %146, ptr noundef %149, i32 noundef %31, i32 noundef %32, i32 noundef %140, i32 noundef %142, ptr noundef %153) #5
   %155 = icmp eq ptr %154, null
   br i1 %155, label %156, label %.thread
 
@@ -38953,7 +38953,7 @@ CHECK_CALL.exit208:                               ; preds = %CHECK_CALL.exit207,
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %.thread
 
-159:                                              ; preds = %name_or_attr_rule.exit267.thread, %133, %128, %124
+159:                                              ; preds = %name_or_attr_rule.exit284.thread, %133, %128, %124
   %.pr239 = load i32, ptr %8, align 8, !tbaa !21
   store i32 %12, ptr %11, align 8, !tbaa !22
   %.not196 = icmp eq i32 %.pr239, 0
@@ -39127,8 +39127,8 @@ define internal fastcc ptr @signed_number_rule(ptr noundef %0) unnamed_addr #0 {
 30:                                               ; preds = %.thread, %24
   %.pn.in = phi ptr [ %19, %.thread ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in73 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in73, align 4, !tbaa !26
+  %.in77 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in77, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_number_token(ptr noundef nonnull %0) #5
@@ -39264,9 +39264,9 @@ define internal fastcc ptr @complex_number_rule(ptr noundef %0) unnamed_addr #0 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread105
+  br i1 %15, label %20, label %.thread114
 
-.thread105:                                       ; preds = %10
+.thread114:                                       ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -39291,11 +39291,11 @@ define internal fastcc ptr @complex_number_rule(ptr noundef %0) unnamed_addr #0 
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread105, %24
-  %.pn.in = phi ptr [ %19, %.thread105 ], [ %29, %24 ]
+30:                                               ; preds = %.thread114, %24
+  %.pn.in = phi ptr [ %19, %.thread114 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in108 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in108, align 4, !tbaa !26
+  %.in117 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in117, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call fastcc ptr @signed_real_number_rule(ptr noundef nonnull %0)
@@ -39500,28 +39500,28 @@ define internal fastcc ptr @signed_real_number_rule(ptr noundef %0) unnamed_addr
 35:                                               ; preds = %.thread, %27
   %.pn.in = phi ptr [ %21, %.thread ], [ %32, %27 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in81 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %36 = load i32, ptr %.in81, align 4, !tbaa !26
+  %.in86 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %36 = load i32, ptr %.in86, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %37 = load i32, ptr %.in, align 8, !tbaa !29
   %38 = load i32, ptr %2, align 8, !tbaa !20
   %39 = add i32 %38, 1
   store i32 %39, ptr %2, align 8, !tbaa !20
   %40 = icmp eq i32 %38, 6000
-  br i1 %40, label %41, label %.thread78
+  br i1 %40, label %41, label %.thread83
 
 41:                                               ; preds = %35
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre76 = load i32, ptr %8, align 8, !tbaa !21
   %42 = icmp eq i32 %.pre76, 0
-  br i1 %42, label %.thread78, label %.thread66
+  br i1 %42, label %.thread83, label %.thread66
 
-.thread78:                                        ; preds = %35, %41
+.thread83:                                        ; preds = %35, %41
   %43 = tail call ptr @_PyPegen_number_token(ptr noundef nonnull %0) #5
   %.not23.i = icmp eq ptr %43, null
   br i1 %.not23.i, label %54, label %44
 
-44:                                               ; preds = %.thread78
+44:                                               ; preds = %.thread83
   %45 = tail call ptr @_PyPegen_ensure_real(ptr noundef nonnull %0, ptr noundef nonnull %43) #5
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %49
@@ -39547,7 +39547,7 @@ define internal fastcc ptr @signed_real_number_rule(ptr noundef %0) unnamed_addr
   store i32 %14, ptr %13, align 8, !tbaa !22
   br label %.thread69
 
-54:                                               ; preds = %.thread78, %47
+54:                                               ; preds = %.thread83, %47
   %.pr = load i32, ptr %8, align 8, !tbaa !21
   %55 = load i32, ptr %2, align 8, !tbaa !20
   %56 = add i32 %55, -1
@@ -39606,9 +39606,9 @@ define internal fastcc ptr @signed_real_number_rule(ptr noundef %0) unnamed_addr
   br label %.thread69
 
 .thread69:                                        ; preds = %54, %.thread66, %77, %64, %25, %.thread73, %33, %10
-  %.sink80 = phi i32 [ %78, %77 ], [ %65, %64 ], [ %26, %25 ], [ %80, %.thread73 ], [ %34, %33 ], [ %11, %10 ], [ %53, %.thread66 ], [ %56, %54 ]
+  %.sink85 = phi i32 [ %78, %77 ], [ %65, %64 ], [ %26, %25 ], [ %80, %.thread73 ], [ %34, %33 ], [ %11, %10 ], [ %53, %.thread66 ], [ %56, %54 ]
   %.0 = phi ptr [ null, %77 ], [ null, %64 ], [ null, %25 ], [ %.145, %.thread73 ], [ null, %33 ], [ null, %10 ], [ null, %.thread66 ], [ null, %54 ]
-  %81 = add i32 %.sink80, -1
+  %81 = add i32 %.sink85, -1
   store i32 %81, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -39817,29 +39817,29 @@ define internal fastcc ptr @attr_rule(ptr noundef %0) unnamed_addr #0 {
 48:                                               ; preds = %.thread, %43
   %.pn.in = phi ptr [ %39, %.thread ], [ %47, %43 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in102 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %49 = load i32, ptr %.in102, align 4, !tbaa !26
+  %.in108 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %49 = load i32, ptr %.in108, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %50 = load i32, ptr %.in, align 8, !tbaa !29
   %51 = load i32, ptr %3, align 8, !tbaa !20
   %52 = add i32 %51, 1
   store i32 %52, ptr %3, align 8, !tbaa !20
   %53 = icmp eq i32 %51, 6000
-  br i1 %53, label %54, label %.thread92
+  br i1 %53, label %54, label %.thread98
 
 54:                                               ; preds = %48
   call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre90 = load i32, ptr %19, align 8, !tbaa !21
   %55 = icmp eq i32 %.pre90, 0
-  br i1 %55, label %.thread92, label %name_or_attr_rule.exit.thread.sink.split
+  br i1 %55, label %.thread98, label %name_or_attr_rule.exit.thread.sink.split
 
-.thread92:                                        ; preds = %48, %54
+.thread98:                                        ; preds = %48, %54
   %56 = load i32, ptr %15, align 8, !tbaa !22
   %57 = call fastcc ptr @attr_rule(ptr noundef nonnull %0)
   %.not27.i = icmp eq ptr %57, null
   br i1 %.not27.i, label %58, label %62
 
-58:                                               ; preds = %.thread92
+58:                                               ; preds = %.thread98
   store i32 %56, ptr %15, align 8, !tbaa !22
   %59 = load i32, ptr %19, align 8, !tbaa !21
   %.not28.i = icmp eq i32 %59, 0
@@ -39850,8 +39850,8 @@ define internal fastcc ptr @attr_rule(ptr noundef %0) unnamed_addr #0 {
   %.not29.i = icmp eq ptr %61, null
   br i1 %.not29.i, label %name_or_attr_rule.exit.thread.sink.split, label %62
 
-62:                                               ; preds = %.thread92, %60
-  %.122.i.ph = phi ptr [ %61, %60 ], [ %57, %.thread92 ]
+62:                                               ; preds = %.thread98, %60
+  %.122.i.ph = phi ptr [ %61, %60 ], [ %57, %.thread98 ]
   %63 = load i32, ptr %3, align 8, !tbaa !20
   %64 = add i32 %63, -1
   store i32 %64, ptr %3, align 8, !tbaa !20
@@ -40066,26 +40066,26 @@ define internal fastcc ptr @items_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = add i32 %storemerge.in.pre, 1
   store i32 %13, ptr %2, align 8, !tbaa !20
   %14 = icmp eq i32 %storemerge.in.pre, 6000
-  br i1 %14, label %15, label %.thread64
+  br i1 %14, label %15, label %.thread70
 
 15:                                               ; preds = %10
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %16 = icmp eq i32 %.pre, 0
-  br i1 %16, label %.thread64, label %_gather_47_rule.exit.thread
+  br i1 %16, label %.thread70, label %_gather_47_rule.exit.thread
 
 _gather_47_rule.exit.thread:                      ; preds = %15
   %17 = load i32, ptr %2, align 8, !tbaa !20
   %18 = add i32 %17, -1
   br label %75
 
-.thread64:                                        ; preds = %10, %15
+.thread70:                                        ; preds = %10, %15
   %19 = tail call fastcc ptr @key_value_pattern_rule(ptr noundef nonnull %0)
   %.not22.i = icmp eq ptr %19, null
   %.pre60 = load i32, ptr %2, align 8, !tbaa !20
   br i1 %.not22.i, label %_gather_47_rule.exit.thread36, label %20
 
-20:                                               ; preds = %.thread64
+20:                                               ; preds = %.thread70
   %21 = add i32 %.pre60, 1
   store i32 %21, ptr %2, align 8, !tbaa !20
   %22 = icmp eq i32 %.pre60, 6000
@@ -40131,8 +40131,8 @@ _gather_47_rule.exit.thread:                      ; preds = %15
 
 .lr.ph.preheader:                                 ; preds = %.preheader42
   %39 = tail call fastcc ptr @key_value_pattern_rule(ptr noundef nonnull %0)
-  %.not70.i68 = icmp eq ptr %39, null
-  br i1 %.not70.i68, label %.critedge.i, label %.lr.ph72
+  %.not70.i74 = icmp eq ptr %39, null
+  br i1 %.not70.i74, label %.critedge.i, label %.lr.ph78
 
 40:                                               ; preds = %36
   %41 = load i32, ptr %2, align 8, !tbaa !20
@@ -40142,36 +40142,36 @@ _gather_47_rule.exit.thread:                      ; preds = %15
 .lr.ph:                                           ; preds = %53
   %43 = tail call fastcc ptr @key_value_pattern_rule(ptr noundef nonnull %0)
   %.not70.i = icmp eq ptr %43, null
-  br i1 %.not70.i, label %.critedge.i, label %.lr.ph72, !llvm.loop !158
+  br i1 %.not70.i, label %.critedge.i, label %.lr.ph78, !llvm.loop !158
 
-.lr.ph72:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph78:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %44 = phi ptr [ %43, %.lr.ph ], [ %39, %.lr.ph.preheader ]
-  %.059.i4771 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.058.i4870 = phi i64 [ %54, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.054.i4969 = phi ptr [ %.256.i, %.lr.ph ], [ %31, %.lr.ph.preheader ]
-  %45 = icmp eq i64 %.058.i4870, %.059.i4771
+  %.059.i4777 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.058.i4876 = phi i64 [ %54, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.054.i4975 = phi ptr [ %.256.i, %.lr.ph ], [ %31, %.lr.ph.preheader ]
+  %45 = icmp eq i64 %.058.i4876, %.059.i4777
   br i1 %45, label %46, label %53
 
-46:                                               ; preds = %.lr.ph72
-  %47 = shl i64 %.058.i4870, 1
-  %48 = shl i64 %.058.i4870, 4
-  %49 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i4969, i64 noundef %48) #5
+46:                                               ; preds = %.lr.ph78
+  %47 = shl i64 %.058.i4876, 1
+  %48 = shl i64 %.058.i4876, 4
+  %49 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i4975, i64 noundef %48) #5
   %.not71.not.i = icmp eq ptr %49, null
   br i1 %.not71.not.i, label %.thread, label %53
 
 .thread:                                          ; preds = %46
-  tail call void @PyMem_Free(ptr noundef %.054.i4969) #5
+  tail call void @PyMem_Free(ptr noundef %.054.i4975) #5
   store i32 1, ptr %8, align 8, !tbaa !21
   %50 = tail call ptr @PyErr_NoMemory() #5
   %51 = load i32, ptr %2, align 8, !tbaa !20
   %52 = add i32 %51, -1
   br label %_gather_47_rule.exit.thread36
 
-53:                                               ; preds = %46, %.lr.ph72
-  %.160.i = phi i64 [ %.059.i4771, %.lr.ph72 ], [ %47, %46 ]
-  %.256.i = phi ptr [ %.054.i4969, %.lr.ph72 ], [ %49, %46 ]
-  %54 = add i64 %.058.i4870, 1
-  %55 = getelementptr ptr, ptr %.256.i, i64 %.058.i4870
+53:                                               ; preds = %46, %.lr.ph78
+  %.160.i = phi i64 [ %.059.i4777, %.lr.ph78 ], [ %47, %46 ]
+  %.256.i = phi ptr [ %.054.i4975, %.lr.ph78 ], [ %49, %46 ]
+  %54 = add i64 %.058.i4876, 1
+  %55 = getelementptr ptr, ptr %.256.i, i64 %.058.i4876
   store ptr %44, ptr %55, align 8, !tbaa !25
   %56 = load i32, ptr %11, align 8, !tbaa !22
   %57 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -40219,8 +40219,8 @@ _loop0_46_rule.exit.thread25:                     ; preds = %.critedge.i
   %exitcond.not = icmp eq i64 %69, %.058.i.lcssa
   br i1 %exitcond.not, label %_gather_47_rule.exit, label %64, !llvm.loop !159
 
-_gather_47_rule.exit.thread36:                    ; preds = %_loop0_46_rule.exit.thread25, %.thread64, %26, %32, %40, %.thread
-  %70 = phi i32 [ %storemerge.i28, %_loop0_46_rule.exit.thread25 ], [ %.pre60, %.thread64 ], [ %28, %26 ], [ %35, %32 ], [ %42, %40 ], [ %52, %.thread ]
+_gather_47_rule.exit.thread36:                    ; preds = %_loop0_46_rule.exit.thread25, %.thread70, %26, %32, %40, %.thread
+  %70 = phi i32 [ %storemerge.i28, %_loop0_46_rule.exit.thread25 ], [ %.pre60, %.thread70 ], [ %28, %26 ], [ %35, %32 ], [ %42, %40 ], [ %52, %.thread ]
   %71 = add i32 %70, -1
   br label %75
 
@@ -40336,8 +40336,8 @@ define internal fastcc ptr @key_value_pattern_rule(ptr noundef %0) unnamed_addr 
 41:                                               ; preds = %35, %.thread.i.i
   %.pn.in.i.i = phi ptr [ %31, %.thread.i.i ], [ %40, %35 ]
   %.pn.i.i = load ptr, ptr %.pn.in.i.i, align 8, !tbaa !25
-  %.in175.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 20
-  %42 = load i32, ptr %.in175.i.i, align 4, !tbaa !26
+  %.in184.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 20
+  %42 = load i32, ptr %.in184.i.i, align 4, !tbaa !26
   %.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 24
   %43 = load i32, ptr %.in.i.i, align 8, !tbaa !29
   %44 = tail call fastcc ptr @signed_number_rule(ptr noundef nonnull %0)
@@ -40571,8 +40571,8 @@ pattern_rule.exit:                                ; preds = %139
   br label %.thread59
 
 pattern_rule.exit.thread.sink.split:              ; preds = %117, %114, %.thread40.i, %16, %pattern_rule.exit, %130, %137
-  %.sink68 = phi i32 [ %138, %137 ], [ %131, %130 ], [ %141, %pattern_rule.exit ], [ %116, %114 ], [ %113, %.thread40.i ], [ %.pr, %16 ], [ %.pre66, %117 ]
-  %149 = add i32 %.sink68, -1
+  %.sink82 = phi i32 [ %138, %137 ], [ %131, %130 ], [ %141, %pattern_rule.exit ], [ %116, %114 ], [ %113, %.thread40.i ], [ %.pr, %16 ], [ %.pre66, %117 ]
+  %149 = add i32 %.sink82, -1
   store i32 %149, ptr %2, align 8, !tbaa !20
   br label %pattern_rule.exit.thread
 
@@ -40637,26 +40637,26 @@ _gather_50_rule.exit.thread:                      ; preds = %15
   %19 = add i32 %18, 1
   store i32 %19, ptr %2, align 8, !tbaa !20
   %20 = icmp eq i32 %18, 6000
-  br i1 %20, label %21, label %.thread60
+  br i1 %20, label %21, label %.thread64
 
 21:                                               ; preds = %.thread
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre54 = load i32, ptr %8, align 8, !tbaa !21
   %22 = icmp eq i32 %.pre54, 0
-  br i1 %22, label %.thread60, label %23
+  br i1 %22, label %.thread64, label %23
 
 23:                                               ; preds = %21
   %24 = load i32, ptr %2, align 8, !tbaa !20
   %25 = add i32 %24, -1
   br label %_gather_50_rule.exit.thread48
 
-.thread60:                                        ; preds = %.thread, %21
+.thread64:                                        ; preds = %.thread, %21
   %26 = load i32, ptr %11, align 8, !tbaa !22
   %27 = tail call fastcc ptr @as_pattern_rule(ptr noundef nonnull %0)
   %.not27.i = icmp eq ptr %27, null
   br i1 %.not27.i, label %28, label %37
 
-28:                                               ; preds = %.thread60
+28:                                               ; preds = %.thread64
   store i32 %26, ptr %11, align 8, !tbaa !22
   %29 = load i32, ptr %8, align 8, !tbaa !21
   %.not28.i = icmp eq i32 %29, 0
@@ -40677,8 +40677,8 @@ pattern_rule.exit:                                ; preds = %33
   %36 = add i32 %35, -1
   br label %_gather_50_rule.exit.thread48
 
-37:                                               ; preds = %.thread60, %33
-  %.122.i.ph = phi ptr [ %34, %33 ], [ %27, %.thread60 ]
+37:                                               ; preds = %.thread64, %33
+  %.122.i.ph = phi ptr [ %34, %33 ], [ %27, %.thread64 ]
   %38 = load i32, ptr %2, align 8, !tbaa !20
   %39 = add i32 %38, -1
   store i32 %39, ptr %2, align 8, !tbaa !20
@@ -40742,26 +40742,26 @@ define internal fastcc ptr @keyword_patterns_rule(ptr noundef %0) unnamed_addr #
   %13 = add i32 %storemerge.in.pre, 1
   store i32 %13, ptr %2, align 8, !tbaa !20
   %14 = icmp eq i32 %storemerge.in.pre, 6000
-  br i1 %14, label %15, label %.thread64
+  br i1 %14, label %15, label %.thread70
 
 15:                                               ; preds = %10
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %16 = icmp eq i32 %.pre, 0
-  br i1 %16, label %.thread64, label %_gather_52_rule.exit.thread
+  br i1 %16, label %.thread70, label %_gather_52_rule.exit.thread
 
 _gather_52_rule.exit.thread:                      ; preds = %15
   %17 = load i32, ptr %2, align 8, !tbaa !20
   %18 = add i32 %17, -1
   br label %75
 
-.thread64:                                        ; preds = %10, %15
+.thread70:                                        ; preds = %10, %15
   %19 = tail call fastcc ptr @keyword_pattern_rule(ptr noundef nonnull %0)
   %.not22.i = icmp eq ptr %19, null
   %.pre60 = load i32, ptr %2, align 8, !tbaa !20
   br i1 %.not22.i, label %_gather_52_rule.exit.thread36, label %20
 
-20:                                               ; preds = %.thread64
+20:                                               ; preds = %.thread70
   %21 = add i32 %.pre60, 1
   store i32 %21, ptr %2, align 8, !tbaa !20
   %22 = icmp eq i32 %.pre60, 6000
@@ -40807,8 +40807,8 @@ _gather_52_rule.exit.thread:                      ; preds = %15
 
 .lr.ph.preheader:                                 ; preds = %.preheader42
   %39 = tail call fastcc ptr @keyword_pattern_rule(ptr noundef nonnull %0)
-  %.not70.i68 = icmp eq ptr %39, null
-  br i1 %.not70.i68, label %.critedge.i, label %.lr.ph72
+  %.not70.i74 = icmp eq ptr %39, null
+  br i1 %.not70.i74, label %.critedge.i, label %.lr.ph78
 
 40:                                               ; preds = %36
   %41 = load i32, ptr %2, align 8, !tbaa !20
@@ -40818,36 +40818,36 @@ _gather_52_rule.exit.thread:                      ; preds = %15
 .lr.ph:                                           ; preds = %53
   %43 = tail call fastcc ptr @keyword_pattern_rule(ptr noundef nonnull %0)
   %.not70.i = icmp eq ptr %43, null
-  br i1 %.not70.i, label %.critedge.i, label %.lr.ph72, !llvm.loop !160
+  br i1 %.not70.i, label %.critedge.i, label %.lr.ph78, !llvm.loop !160
 
-.lr.ph72:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph78:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %44 = phi ptr [ %43, %.lr.ph ], [ %39, %.lr.ph.preheader ]
-  %.059.i4771 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.058.i4870 = phi i64 [ %54, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.054.i4969 = phi ptr [ %.256.i, %.lr.ph ], [ %31, %.lr.ph.preheader ]
-  %45 = icmp eq i64 %.058.i4870, %.059.i4771
+  %.059.i4777 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.058.i4876 = phi i64 [ %54, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.054.i4975 = phi ptr [ %.256.i, %.lr.ph ], [ %31, %.lr.ph.preheader ]
+  %45 = icmp eq i64 %.058.i4876, %.059.i4777
   br i1 %45, label %46, label %53
 
-46:                                               ; preds = %.lr.ph72
-  %47 = shl i64 %.058.i4870, 1
-  %48 = shl i64 %.058.i4870, 4
-  %49 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i4969, i64 noundef %48) #5
+46:                                               ; preds = %.lr.ph78
+  %47 = shl i64 %.058.i4876, 1
+  %48 = shl i64 %.058.i4876, 4
+  %49 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i4975, i64 noundef %48) #5
   %.not71.not.i = icmp eq ptr %49, null
   br i1 %.not71.not.i, label %.thread, label %53
 
 .thread:                                          ; preds = %46
-  tail call void @PyMem_Free(ptr noundef %.054.i4969) #5
+  tail call void @PyMem_Free(ptr noundef %.054.i4975) #5
   store i32 1, ptr %8, align 8, !tbaa !21
   %50 = tail call ptr @PyErr_NoMemory() #5
   %51 = load i32, ptr %2, align 8, !tbaa !20
   %52 = add i32 %51, -1
   br label %_gather_52_rule.exit.thread36
 
-53:                                               ; preds = %46, %.lr.ph72
-  %.160.i = phi i64 [ %.059.i4771, %.lr.ph72 ], [ %47, %46 ]
-  %.256.i = phi ptr [ %.054.i4969, %.lr.ph72 ], [ %49, %46 ]
-  %54 = add i64 %.058.i4870, 1
-  %55 = getelementptr ptr, ptr %.256.i, i64 %.058.i4870
+53:                                               ; preds = %46, %.lr.ph78
+  %.160.i = phi i64 [ %.059.i4777, %.lr.ph78 ], [ %47, %46 ]
+  %.256.i = phi ptr [ %.054.i4975, %.lr.ph78 ], [ %49, %46 ]
+  %54 = add i64 %.058.i4876, 1
+  %55 = getelementptr ptr, ptr %.256.i, i64 %.058.i4876
   store ptr %44, ptr %55, align 8, !tbaa !25
   %56 = load i32, ptr %11, align 8, !tbaa !22
   %57 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -40895,8 +40895,8 @@ _loop0_51_rule.exit.thread25:                     ; preds = %.critedge.i
   %exitcond.not = icmp eq i64 %69, %.058.i.lcssa
   br i1 %exitcond.not, label %_gather_52_rule.exit, label %64, !llvm.loop !161
 
-_gather_52_rule.exit.thread36:                    ; preds = %_loop0_51_rule.exit.thread25, %.thread64, %26, %32, %40, %.thread
-  %70 = phi i32 [ %storemerge.i28, %_loop0_51_rule.exit.thread25 ], [ %.pre60, %.thread64 ], [ %28, %26 ], [ %35, %32 ], [ %42, %40 ], [ %52, %.thread ]
+_gather_52_rule.exit.thread36:                    ; preds = %_loop0_51_rule.exit.thread25, %.thread70, %26, %32, %40, %.thread
+  %70 = phi i32 [ %storemerge.i28, %_loop0_51_rule.exit.thread25 ], [ %.pre60, %.thread70 ], [ %28, %26 ], [ %35, %32 ], [ %42, %40 ], [ %52, %.thread ]
   %71 = add i32 %70, -1
   br label %75
 
@@ -40965,11 +40965,11 @@ define internal fastcc void @invalid_class_pattern_rule(ptr noundef %0) unnamed_
   br i1 %19, label %..thread_crit_edge, label %name_or_attr_rule.exit.thread
 
 ..thread_crit_edge:                               ; preds = %18
-  %.pre84 = load i32, ptr %13, align 8, !tbaa !22
+  %.pre86 = load i32, ptr %13, align 8, !tbaa !22
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %12
-  %20 = phi i32 [ %.pre84, %..thread_crit_edge ], [ %14, %12 ]
+  %20 = phi i32 [ %.pre86, %..thread_crit_edge ], [ %14, %12 ]
   %21 = tail call fastcc ptr @attr_rule(ptr noundef nonnull %0)
   %.not27.i = icmp eq ptr %21, null
   br i1 %.not27.i, label %22, label %28
@@ -41007,11 +41007,11 @@ name_or_attr_rule.exit.thread:                    ; preds = %24, %18, %22
 
 35:                                               ; preds = %32
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pr78 = load i32, ptr %2, align 8, !tbaa !20
+  %.pr80 = load i32, ptr %2, align 8, !tbaa !20
   br label %36
 
 36:                                               ; preds = %35, %32
-  %37 = phi i32 [ %.pr78, %35 ], [ %33, %32 ]
+  %37 = phi i32 [ %.pr80, %35 ], [ %33, %32 ]
   %38 = load i32, ptr %8, align 8, !tbaa !21
   %.not.i32 = icmp eq i32 %38, 0
   br i1 %.not.i32, label %40, label %invalid_class_argument_pattern_rule.exit.thread
@@ -41024,73 +41024,73 @@ invalid_class_argument_pattern_rule.exit.thread:  ; preds = %36
   %41 = add i32 %37, 1
   store i32 %41, ptr %2, align 8, !tbaa !20
   %42 = icmp eq i32 %37, 6000
-  br i1 %42, label %43, label %.thread69
+  br i1 %42, label %43, label %.thread71
 
 43:                                               ; preds = %40
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre63 = load i32, ptr %8, align 8, !tbaa !21
   %44 = icmp eq i32 %.pre63, 0
   %.pr = load i32, ptr %2, align 8, !tbaa !20
-  br i1 %44, label %.thread69, label %_tmp_142_rule.exit.thread
+  br i1 %44, label %.thread71, label %_tmp_142_rule.exit.thread
 
 _tmp_142_rule.exit.thread:                        ; preds = %43
-  %storemerge75 = add i32 %.pr, -1
-  store i32 %storemerge75, ptr %2, align 8, !tbaa !20
+  %storemerge77 = add i32 %.pr, -1
+  store i32 %storemerge77, ptr %2, align 8, !tbaa !20
   br label %invalid_class_argument_pattern_rule.exit.thread59
 
-.thread69:                                        ; preds = %43, %40
+.thread71:                                        ; preds = %43, %40
   %45 = phi i32 [ %41, %40 ], [ %.pr, %43 ]
   %46 = load i32, ptr %13, align 8, !tbaa !22
   %47 = add i32 %45, 1
   store i32 %47, ptr %2, align 8, !tbaa !20
   %48 = icmp eq i32 %45, 6000
-  br i1 %48, label %49, label %.thread71
+  br i1 %48, label %49, label %.thread73
 
-49:                                               ; preds = %.thread69
+49:                                               ; preds = %.thread71
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre64 = load i32, ptr %8, align 8, !tbaa !21
   %50 = icmp eq i32 %.pre64, 0
-  %.pr79 = load i32, ptr %2, align 8, !tbaa !20
-  br i1 %50, label %.thread71, label %positional_patterns_rule.exit.i.thread
+  %.pr81 = load i32, ptr %2, align 8, !tbaa !20
+  br i1 %50, label %.thread73, label %positional_patterns_rule.exit.i.thread
 
 positional_patterns_rule.exit.i.thread:           ; preds = %49
-  %51 = add i32 %.pr79, -1
+  %51 = add i32 %.pr81, -1
   br label %positional_patterns_rule.exit.i.thread47.sink.split
 
-.thread71:                                        ; preds = %49, %.thread69
-  %52 = phi i32 [ %47, %.thread69 ], [ %.pr79, %49 ]
+.thread73:                                        ; preds = %49, %.thread71
+  %52 = phi i32 [ %47, %.thread71 ], [ %.pr81, %49 ]
   %53 = add i32 %52, 1
   store i32 %53, ptr %2, align 8, !tbaa !20
   %54 = icmp eq i32 %52, 6000
-  br i1 %54, label %55, label %.thread91
+  br i1 %54, label %55, label %.thread98
 
-55:                                               ; preds = %.thread71
+55:                                               ; preds = %.thread73
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pre85 = load i32, ptr %8, align 8, !tbaa !21
-  %storemerge.in.i81.pre87.pre = load i32, ptr %2, align 8, !tbaa !20
-  %56 = icmp eq i32 %.pre85, 0
-  br i1 %56, label %.thread91, label %_gather_50_rule.exit.thread
+  %.pre87 = load i32, ptr %8, align 8, !tbaa !21
+  %storemerge.in.i83.pre89.pre = load i32, ptr %2, align 8, !tbaa !20
+  %56 = icmp eq i32 %.pre87, 0
+  br i1 %56, label %.thread98, label %_gather_50_rule.exit.thread
 
-.thread91:                                        ; preds = %.thread71, %55
-  %storemerge.in.i81.pre8794 = phi i32 [ %storemerge.in.i81.pre87.pre, %55 ], [ %53, %.thread71 ]
+.thread98:                                        ; preds = %.thread73, %55
+  %storemerge.in.i83.pre89101 = phi i32 [ %storemerge.in.i83.pre89.pre, %55 ], [ %53, %.thread73 ]
   %57 = load i32, ptr %13, align 8, !tbaa !22
-  %58 = add i32 %storemerge.in.i81.pre8794, 1
+  %58 = add i32 %storemerge.in.i83.pre89101, 1
   store i32 %58, ptr %2, align 8, !tbaa !20
-  %59 = icmp eq i32 %storemerge.in.i81.pre8794, 6000
+  %59 = icmp eq i32 %storemerge.in.i83.pre89101, 6000
   br i1 %59, label %60, label %.thread.i
 
-60:                                               ; preds = %.thread91
+60:                                               ; preds = %.thread98
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre.i = load i32, ptr %8, align 8, !tbaa !21
   %61 = icmp eq i32 %.pre.i, 0
   br i1 %61, label %..thread.i_crit_edge, label %pattern_rule.exit.thread.sink.split.i
 
 ..thread.i_crit_edge:                             ; preds = %60
-  %.pre86 = load i32, ptr %13, align 8, !tbaa !22
+  %.pre88 = load i32, ptr %13, align 8, !tbaa !22
   br label %.thread.i
 
-.thread.i:                                        ; preds = %..thread.i_crit_edge, %.thread91
-  %62 = phi i32 [ %.pre86, %..thread.i_crit_edge ], [ %57, %.thread91 ]
+.thread.i:                                        ; preds = %..thread.i_crit_edge, %.thread98
+  %62 = phi i32 [ %.pre88, %..thread.i_crit_edge ], [ %57, %.thread98 ]
   %63 = tail call fastcc ptr @as_pattern_rule(ptr noundef nonnull %0)
   %.not27.i.i = icmp eq ptr %63, null
   br i1 %.not27.i.i, label %64, label %68
@@ -41112,11 +41112,11 @@ positional_patterns_rule.exit.i.thread:           ; preds = %49
   %70 = add i32 %69, -1
   store i32 %70, ptr %2, align 8, !tbaa !20
   %71 = tail call fastcc ptr @_loop0_49_rule(ptr noundef nonnull %0)
-  %.not23.i77 = icmp eq ptr %71, null
-  br i1 %.not23.i77, label %.pattern_rule.exit.thread.i_crit_edge, label %_gather_50_rule.exit
+  %.not23.i79 = icmp eq ptr %71, null
+  br i1 %.not23.i79, label %.pattern_rule.exit.thread.i_crit_edge, label %_gather_50_rule.exit
 
 .pattern_rule.exit.thread.i_crit_edge:            ; preds = %68
-  %storemerge.in.i81.pre.pre = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge.in.i83.pre.pre = load i32, ptr %2, align 8, !tbaa !20
   br label %_gather_50_rule.exit.thread
 
 pattern_rule.exit.thread.sink.split.i:            ; preds = %66, %64, %60
@@ -41125,8 +41125,8 @@ pattern_rule.exit.thread.sink.split.i:            ; preds = %66, %64, %60
   br label %_gather_50_rule.exit.thread
 
 _gather_50_rule.exit.thread:                      ; preds = %pattern_rule.exit.thread.sink.split.i, %.pattern_rule.exit.thread.i_crit_edge, %55
-  %storemerge.in.i81 = phi i32 [ %storemerge.in.i81.pre87.pre, %55 ], [ %storemerge.in.i81.pre.pre, %.pattern_rule.exit.thread.i_crit_edge ], [ %73, %pattern_rule.exit.thread.sink.split.i ]
-  %74 = add i32 %storemerge.in.i81, -2
+  %storemerge.in.i83 = phi i32 [ %storemerge.in.i83.pre89.pre, %55 ], [ %storemerge.in.i83.pre.pre, %.pattern_rule.exit.thread.i_crit_edge ], [ %73, %pattern_rule.exit.thread.sink.split.i ]
+  %74 = add i32 %storemerge.in.i83, -2
   br label %positional_patterns_rule.exit.i.thread47.sink.split
 
 _gather_50_rule.exit:                             ; preds = %68
@@ -41156,11 +41156,11 @@ positional_patterns_rule.exit.i.thread47:         ; preds = %positional_patterns
   br label %_tmp_142_rule.exit
 
 _tmp_142_rule.exit:                               ; preds = %positional_patterns_rule.exit.i.thread47, %79
-  %.pr73 = load i32, ptr %8, align 8, !tbaa !21
+  %.pr75 = load i32, ptr %8, align 8, !tbaa !21
   %storemerge.in = load i32, ptr %2, align 8, !tbaa !20
   %storemerge = add i32 %storemerge.in, -1
   store i32 %storemerge, ptr %2, align 8, !tbaa !20
-  %.not25.i = icmp eq i32 %.pr73, 0
+  %.not25.i = icmp eq i32 %.pr75, 0
   br i1 %.not25.i, label %81, label %invalid_class_argument_pattern_rule.exit.thread59
 
 81:                                               ; preds = %_tmp_142_rule.exit
@@ -41588,9 +41588,9 @@ define internal fastcc ptr @simple_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %51 = load i32, ptr %21, align 8, !tbaa !22
   %52 = load i32, ptr %23, align 4, !tbaa !23
   %53 = icmp eq i32 %51, %52
-  br i1 %53, label %57, label %.thread237.i
+  br i1 %53, label %57, label %.thread254.i
 
-.thread237.i:                                     ; preds = %.thread
+.thread254.i:                                     ; preds = %.thread
   %54 = load ptr, ptr %33, align 8, !tbaa !24
   %55 = sext i32 %51 to i64
   %56 = getelementptr ptr, ptr %54, i64 %55
@@ -41613,11 +41613,11 @@ define internal fastcc ptr @simple_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %65 = getelementptr ptr, ptr %63, i64 %64
   br i1 %62, label %66, label %.thread247
 
-66:                                               ; preds = %61, %.thread237.i
-  %.pn.in.i = phi ptr [ %56, %.thread237.i ], [ %65, %61 ]
+66:                                               ; preds = %61, %.thread254.i
+  %.pn.in.i = phi ptr [ %56, %.thread254.i ], [ %65, %61 ]
   %.pn.i = load ptr, ptr %.pn.in.i, align 8, !tbaa !25
-  %.in240.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 20
-  %67 = load i32, ptr %.in240.i, align 4, !tbaa !26
+  %.in257.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 20
+  %67 = load i32, ptr %.in257.i, align 4, !tbaa !26
   %.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 24
   %68 = load i32, ptr %.in.i, align 8, !tbaa !29
   %69 = call ptr @_PyPegen_name_token(ptr noundef nonnull %0) #5
@@ -42323,9 +42323,9 @@ define internal fastcc ptr @type_alias_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread68
+  br i1 %15, label %20, label %.thread72
 
-.thread68:                                        ; preds = %10
+.thread72:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -42350,11 +42350,11 @@ define internal fastcc ptr @type_alias_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread68, %24
-  %.pn.in = phi ptr [ %19, %.thread68 ], [ %29, %24 ]
+30:                                               ; preds = %.thread72, %24
+  %.pn.in = phi ptr [ %19, %.thread72 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in71 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in71, align 4, !tbaa !26
+  %.in75 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in75, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_expect_soft_keyword(ptr noundef nonnull %0, ptr noundef nonnull @.str.46) #5
@@ -42456,9 +42456,9 @@ define internal fastcc ptr @return_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread55
+  br i1 %15, label %20, label %.thread57
 
-.thread55:                                        ; preds = %10
+.thread57:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -42483,11 +42483,11 @@ define internal fastcc ptr @return_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread55, %24
-  %.pn.in = phi ptr [ %19, %.thread55 ], [ %29, %24 ]
+30:                                               ; preds = %.thread57, %24
+  %.pn.in = phi ptr [ %19, %.thread57 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in58 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in58, align 4, !tbaa !26
+  %.in60 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in60, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 522) #5
@@ -42615,20 +42615,20 @@ define internal fastcc ptr @import_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %16 = load i32, ptr %15, align 4, !tbaa !38
   %.not37 = icmp eq i32 %16, 0
-  %.pr122 = load i32, ptr %2, align 8, !tbaa !20
-  br i1 %.not37, label %.thread118, label %17
+  %.pr155 = load i32, ptr %2, align 8, !tbaa !20
+  br i1 %.not37, label %.thread151, label %17
 
 17:                                               ; preds = %12
-  %18 = add i32 %.pr122, 1
+  %18 = add i32 %.pr155, 1
   store i32 %18, ptr %2, align 8, !tbaa !20
-  %19 = icmp eq i32 %.pr122, 6000
+  %19 = icmp eq i32 %.pr155, 6000
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %17
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %21 = icmp eq i32 %.pre, 0
-  br i1 %21, label %.thread, label %.thread120
+  br i1 %21, label %.thread, label %.thread153
 
 .thread:                                          ; preds = %17, %20
   %22 = load i32, ptr %13, align 8, !tbaa !22
@@ -42816,13 +42816,13 @@ _gather_133_rule.exit.i:                          ; preds = %63, %.preheader.i.i
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %80, i64 noundef %83, i64 noundef %86, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.153)
   %87 = tail call ptr @PyErr_Occurred() #5
   %.not48.i = icmp eq ptr %87, null
-  br i1 %.not48.i, label %105, label %.thread120.sink.split
+  br i1 %.not48.i, label %105, label %.thread153.sink.split
 
 88:                                               ; preds = %77, %75, %_gather_133_rule.exit.i, %_gather_133_rule.exit.thread.i, %.thread
   store i32 %22, ptr %13, align 8, !tbaa !22
   %89 = load i32, ptr %8, align 8, !tbaa !21
   %.not49.i = icmp eq i32 %89, 0
-  br i1 %.not49.i, label %90, label %.thread120
+  br i1 %.not49.i, label %90, label %.thread153
 
 90:                                               ; preds = %88
   %91 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 622) #5
@@ -42845,13 +42845,13 @@ _gather_133_rule.exit.i:                          ; preds = %63, %.preheader.i.i
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %95, i64 noundef %98, i64 noundef %101, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.154)
   %102 = tail call ptr @PyErr_Occurred() #5
   %.not52.i = icmp eq ptr %102, null
-  br i1 %.not52.i, label %105, label %.thread120.sink.split
+  br i1 %.not52.i, label %105, label %.thread153.sink.split
 
-.thread120.sink.split:                            ; preds = %94, %79
+.thread153.sink.split:                            ; preds = %94, %79
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread120
+  br label %.thread153
 
-.thread120:                                       ; preds = %.thread120.sink.split, %88, %20
+.thread153:                                       ; preds = %.thread153.sink.split, %88, %20
   %103 = load i32, ptr %2, align 8, !tbaa !20
   %104 = add i32 %103, -1
   store i32 %104, ptr %2, align 8, !tbaa !20
@@ -42865,40 +42865,40 @@ _gather_133_rule.exit.i:                          ; preds = %63, %.preheader.i.i
   store i32 %107, ptr %2, align 8, !tbaa !20
   store i32 %14, ptr %13, align 8, !tbaa !22
   %108 = icmp eq i32 %.pre114.pr, 0
-  br i1 %108, label %.thread118, label %109
+  br i1 %108, label %.thread151, label %109
 
-109:                                              ; preds = %.thread120, %105
+109:                                              ; preds = %.thread153, %105
   %110 = load i32, ptr %2, align 8, !tbaa !20
   br label %345
 
-.thread118:                                       ; preds = %12, %105
-  %111 = phi i32 [ %107, %105 ], [ %.pr122, %12 ]
+.thread151:                                       ; preds = %12, %105
+  %111 = phi i32 [ %107, %105 ], [ %.pr155, %12 ]
   %112 = add i32 %111, 1
   store i32 %112, ptr %2, align 8, !tbaa !20
   %113 = icmp eq i32 %111, 6000
-  br i1 %113, label %114, label %.thread123
+  br i1 %113, label %114, label %.thread156
 
-114:                                              ; preds = %.thread118
+114:                                              ; preds = %.thread151
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre115 = load i32, ptr %8, align 8, !tbaa !21
   %115 = icmp eq i32 %.pre115, 0
-  br i1 %115, label %.thread123, label %.thread70
+  br i1 %115, label %.thread156, label %.thread70
 
-.thread123:                                       ; preds = %.thread118, %114
+.thread156:                                       ; preds = %.thread151, %114
   %116 = load i32, ptr %13, align 8, !tbaa !22
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %118 = load i32, ptr %117, align 4, !tbaa !23
   %119 = icmp eq i32 %116, %118
-  br i1 %119, label %124, label %.thread73.i
+  br i1 %119, label %124, label %.thread82.i
 
-.thread73.i:                                      ; preds = %.thread123
+.thread82.i:                                      ; preds = %.thread156
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %121 = load ptr, ptr %120, align 8, !tbaa !24
   %122 = sext i32 %116 to i64
   %123 = getelementptr ptr, ptr %121, i64 %122
   br label %133
 
-124:                                              ; preds = %.thread123
+124:                                              ; preds = %.thread156
   %125 = tail call i32 @_PyPegen_fill_token(ptr noundef nonnull %0) #5
   %126 = icmp slt i32 %125, 0
   br i1 %126, label %.thread70.sink.split, label %127
@@ -42912,11 +42912,11 @@ _gather_133_rule.exit.i:                          ; preds = %63, %.preheader.i.i
   %132 = getelementptr ptr, ptr %130, i64 %131
   br i1 %128, label %133, label %211
 
-133:                                              ; preds = %127, %.thread73.i
-  %.pn.in.i = phi ptr [ %123, %.thread73.i ], [ %132, %127 ]
+133:                                              ; preds = %127, %.thread82.i
+  %.pn.in.i = phi ptr [ %123, %.thread82.i ], [ %132, %127 ]
   %.pn.i = load ptr, ptr %.pn.in.i, align 8, !tbaa !25
-  %.in82.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 20
-  %134 = load i32, ptr %.in82.i, align 4, !tbaa !26
+  %.in91.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 20
+  %134 = load i32, ptr %.in91.i, align 4, !tbaa !26
   %.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 24
   %135 = load i32, ptr %.in.i, align 8, !tbaa !29
   %136 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 622) #5
@@ -43148,28 +43148,28 @@ dotted_as_names_rule.exit.thread.i:               ; preds = %_gather_24_rule.exi
 214:                                              ; preds = %211
   store i32 %212, ptr %2, align 8, !tbaa !20
   %215 = icmp eq i32 %213, 6000
-  br i1 %215, label %216, label %.thread125
+  br i1 %215, label %216, label %.thread158
 
 216:                                              ; preds = %214
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre116 = load i32, ptr %8, align 8, !tbaa !21
   %217 = icmp eq i32 %.pre116, 0
-  br i1 %217, label %.thread125, label %342
+  br i1 %217, label %.thread158, label %342
 
-.thread125:                                       ; preds = %214, %216
+.thread158:                                       ; preds = %214, %216
   %218 = load i32, ptr %13, align 8, !tbaa !22
   %219 = load i32, ptr %117, align 4, !tbaa !23
   %220 = icmp eq i32 %218, %219
-  br i1 %220, label %225, label %.thread119.i
+  br i1 %220, label %225, label %.thread132.i
 
-.thread119.i:                                     ; preds = %.thread125
+.thread132.i:                                     ; preds = %.thread158
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %222 = load ptr, ptr %221, align 8, !tbaa !24
   %223 = sext i32 %218 to i64
   %224 = getelementptr ptr, ptr %222, i64 %223
   br label %234
 
-225:                                              ; preds = %.thread125
+225:                                              ; preds = %.thread158
   %226 = tail call i32 @_PyPegen_fill_token(ptr noundef nonnull %0) #5
   %227 = icmp slt i32 %226, 0
   br i1 %227, label %.sink.split, label %228
@@ -43183,11 +43183,11 @@ dotted_as_names_rule.exit.thread.i:               ; preds = %_gather_24_rule.exi
   %233 = getelementptr ptr, ptr %231, i64 %232
   br i1 %229, label %234, label %342
 
-234:                                              ; preds = %228, %.thread119.i
-  %.pn.in.i56 = phi ptr [ %224, %.thread119.i ], [ %233, %228 ]
+234:                                              ; preds = %228, %.thread132.i
+  %.pn.in.i56 = phi ptr [ %224, %.thread132.i ], [ %233, %228 ]
   %.pn.i57 = load ptr, ptr %.pn.in.i56, align 8, !tbaa !25
-  %.in125.i = getelementptr inbounds nuw i8, ptr %.pn.i57, i64 20
-  %235 = load i32, ptr %.in125.i, align 4, !tbaa !26
+  %.in138.i = getelementptr inbounds nuw i8, ptr %.pn.i57, i64 20
+  %235 = load i32, ptr %.in138.i, align 4, !tbaa !26
   %.in.i58 = getelementptr inbounds nuw i8, ptr %.pn.i57, i64 24
   %236 = load i32, ptr %.in.i58, align 8, !tbaa !29
   %237 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 621) #5
@@ -43434,9 +43434,9 @@ _loop0_18_rule.exit.thread.i:                     ; preds = %_loop0_18_rule.exit
   br label %345
 
 345:                                              ; preds = %206, %339, %342, %211, %.thread70, %109, %10
-  %.sink144 = phi i32 [ %110, %109 ], [ %11, %10 ], [ %210, %.thread70 ], [ %213, %211 ], [ %208, %206 ], [ %344, %342 ], [ %341, %339 ]
+  %.sink177 = phi i32 [ %110, %109 ], [ %11, %10 ], [ %210, %.thread70 ], [ %213, %211 ], [ %208, %206 ], [ %344, %342 ], [ %341, %339 ]
   %.0 = phi ptr [ null, %109 ], [ null, %10 ], [ null, %.thread70 ], [ null, %211 ], [ %202, %206 ], [ null, %342 ], [ %.0.i55, %339 ]
-  %346 = add i32 %.sink144, -1
+  %346 = add i32 %.sink177, -1
   store i32 %346, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -43470,9 +43470,9 @@ define internal fastcc ptr @raise_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load i32, ptr %15, align 4, !tbaa !23
   %17 = icmp eq i32 %14, %16
-  br i1 %17, label %22, label %.thread104
+  br i1 %17, label %22, label %.thread110
 
-.thread104:                                       ; preds = %12
+.thread110:                                       ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !24
   %20 = sext i32 %14 to i64
@@ -43502,11 +43502,11 @@ define internal fastcc ptr @raise_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %34 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread
 
-35:                                               ; preds = %.thread104, %27
-  %.pn.in = phi ptr [ %21, %.thread104 ], [ %32, %27 ]
+35:                                               ; preds = %.thread110, %27
+  %.pn.in = phi ptr [ %21, %.thread110 ], [ %32, %27 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in107 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %36 = load i32, ptr %.in107, align 4, !tbaa !26
+  %.in113 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %36 = load i32, ptr %.in113, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %37 = load i32, ptr %.in, align 8, !tbaa !29
   %38 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 525) #5
@@ -43653,9 +43653,9 @@ _tmp_13_rule.exit:                                ; preds = %51, %53
   br label %.thread
 
 .thread:                                          ; preds = %.thread92, %._crit_edge102, %91, %78, %70, %57, %25, %.thread88, %33, %10
-  %.sink106 = phi i32 [ %92, %91 ], [ %79, %78 ], [ %71, %70 ], [ %58, %57 ], [ %26, %25 ], [ %94, %.thread88 ], [ %34, %33 ], [ %11, %10 ], [ %.pre103, %._crit_edge102 ], [ %storemerge.i, %.thread92 ]
+  %.sink112 = phi i32 [ %92, %91 ], [ %79, %78 ], [ %71, %70 ], [ %58, %57 ], [ %26, %25 ], [ %94, %.thread88 ], [ %34, %33 ], [ %11, %10 ], [ %.pre103, %._crit_edge102 ], [ %storemerge.i, %.thread92 ]
   %.0 = phi ptr [ null, %91 ], [ null, %78 ], [ null, %70 ], [ null, %57 ], [ null, %25 ], [ %.261, %.thread88 ], [ null, %33 ], [ null, %10 ], [ null, %._crit_edge102 ], [ null, %.thread92 ]
-  %95 = add i32 %.sink106, -1
+  %95 = add i32 %.sink112, -1
   store i32 %95, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
@@ -43687,9 +43687,9 @@ define internal fastcc ptr @del_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread70
+  br i1 %15, label %20, label %.thread73
 
-.thread70:                                        ; preds = %10
+.thread73:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -43714,11 +43714,11 @@ define internal fastcc ptr @del_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread70, %24
-  %.pn.in = phi ptr [ %19, %.thread70 ], [ %29, %24 ]
+30:                                               ; preds = %.thread73, %24
+  %.pn.in = phi ptr [ %19, %.thread73 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in73 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in73, align 4, !tbaa !26
+  %.in76 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in76, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 613) #5
@@ -43810,9 +43810,9 @@ define internal fastcc ptr @yield_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread53
+  br i1 %15, label %20, label %.thread56
 
-.thread53:                                        ; preds = %10
+.thread56:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -43837,11 +43837,11 @@ define internal fastcc ptr @yield_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread53, %24
-  %.pn.in = phi ptr [ %19, %.thread53 ], [ %29, %24 ]
+30:                                               ; preds = %.thread56, %24
+  %.pn.in = phi ptr [ %19, %.thread56 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in56 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in56, align 4, !tbaa !26
+  %.in59 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in59, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call fastcc ptr @yield_expr_rule(ptr noundef nonnull %0)
@@ -43910,9 +43910,9 @@ define internal fastcc ptr @assert_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread63
+  br i1 %15, label %20, label %.thread67
 
-.thread63:                                        ; preds = %10
+.thread67:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -43937,11 +43937,11 @@ define internal fastcc ptr @assert_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread63, %24
-  %.pn.in = phi ptr [ %19, %.thread63 ], [ %29, %24 ]
+30:                                               ; preds = %.thread67, %24
+  %.pn.in = phi ptr [ %19, %.thread67 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in66 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in66, align 4, !tbaa !26
+  %.in70 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in70, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 529) #5
@@ -44065,9 +44065,9 @@ define internal fastcc ptr @global_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread57
+  br i1 %15, label %20, label %.thread60
 
-.thread57:                                        ; preds = %10
+.thread60:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -44092,11 +44092,11 @@ define internal fastcc ptr @global_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread57, %24
-  %.pn.in = phi ptr [ %19, %.thread57 ], [ %29, %24 ]
+30:                                               ; preds = %.thread60, %24
+  %.pn.in = phi ptr [ %19, %.thread60 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in60 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in60, align 4, !tbaa !26
+  %.in63 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in63, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 526) #5
@@ -44179,9 +44179,9 @@ define internal fastcc ptr @nonlocal_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread57
+  br i1 %15, label %20, label %.thread60
 
-.thread57:                                        ; preds = %10
+.thread60:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -44206,11 +44206,11 @@ define internal fastcc ptr @nonlocal_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread57, %24
-  %.pn.in = phi ptr [ %19, %.thread57 ], [ %29, %24 ]
+30:                                               ; preds = %.thread60, %24
+  %.pn.in = phi ptr [ %19, %.thread60 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in60 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in60, align 4, !tbaa !26
+  %.in63 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in63, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 527) #5
@@ -45324,9 +45324,9 @@ define internal fastcc ptr @single_subscript_attribute_target_rule(ptr noundef %
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread109
+  br i1 %15, label %20, label %.thread117
 
-.thread109:                                       ; preds = %10
+.thread117:                                       ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -45351,11 +45351,11 @@ define internal fastcc ptr @single_subscript_attribute_target_rule(ptr noundef %
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread109, %24
-  %.pn.in = phi ptr [ %19, %.thread109 ], [ %29, %24 ]
+30:                                               ; preds = %.thread117, %24
+  %.pn.in = phi ptr [ %19, %.thread117 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in112 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in112, align 4, !tbaa !26
+  %.in120 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in120, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call fastcc ptr @t_primary_rule(ptr noundef nonnull %0)
@@ -45999,9 +45999,9 @@ define internal fastcc ptr @dotted_as_name_rule(ptr noundef %0) unnamed_addr #0 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread64
+  br i1 %15, label %20, label %.thread68
 
-.thread64:                                        ; preds = %10
+.thread68:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -46026,11 +46026,11 @@ define internal fastcc ptr @dotted_as_name_rule(ptr noundef %0) unnamed_addr #0 
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread64, %24
-  %.pn.in = phi ptr [ %19, %.thread64 ], [ %29, %24 ]
+30:                                               ; preds = %.thread68, %24
+  %.pn.in = phi ptr [ %19, %.thread68 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in67 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in67, align 4, !tbaa !26
+  %.in71 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in71, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call fastcc ptr @dotted_name_rule(ptr noundef nonnull %0)
@@ -46189,8 +46189,8 @@ define internal fastcc ptr @import_from_targets_rule(ptr noundef %0) unnamed_add
 30:                                               ; preds = %.thread, %24
   %.pn.in = phi ptr [ %19, %.thread ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in129 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in129, align 4, !tbaa !26
+  %.in134 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in134, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 7) #5
@@ -46782,9 +46782,9 @@ define internal fastcc ptr @import_from_as_name_rule(ptr noundef %0) unnamed_add
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread64
+  br i1 %15, label %20, label %.thread68
 
-.thread64:                                        ; preds = %10
+.thread68:                                        ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -46809,11 +46809,11 @@ define internal fastcc ptr @import_from_as_name_rule(ptr noundef %0) unnamed_add
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread
 
-30:                                               ; preds = %.thread64, %24
-  %.pn.in = phi ptr [ %19, %.thread64 ], [ %29, %24 ]
+30:                                               ; preds = %.thread68, %24
+  %.pn.in = phi ptr [ %19, %.thread68 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in67 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in67, align 4, !tbaa !26
+  %.in71 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in71, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %0) #5
@@ -46943,25 +46943,25 @@ define internal fastcc ptr @del_targets_rule(ptr noundef %0) unnamed_addr #0 {
   %14 = add i32 %13, 1
   store i32 %14, ptr %2, align 8, !tbaa !20
   %15 = icmp eq i32 %13, 6000
-  br i1 %15, label %16, label %.thread67
+  br i1 %15, label %16, label %.thread73
 
 16:                                               ; preds = %10
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %17 = icmp eq i32 %.pre, 0
-  br i1 %17, label %.thread67, label %_gather_99_rule.exit.thread
+  br i1 %17, label %.thread73, label %_gather_99_rule.exit.thread
 
 _gather_99_rule.exit.thread:                      ; preds = %16
   %18 = load i32, ptr %2, align 8, !tbaa !20
   br label %.sink.split
 
-.thread67:                                        ; preds = %10, %16
+.thread73:                                        ; preds = %10, %16
   %19 = tail call fastcc ptr @del_target_rule(ptr noundef nonnull %0)
   %.not22.i = icmp eq ptr %19, null
   %.pre66 = load i32, ptr %2, align 8, !tbaa !20
   br i1 %.not22.i, label %.sink.split, label %20
 
-20:                                               ; preds = %.thread67
+20:                                               ; preds = %.thread73
   %21 = add i32 %.pre66, 1
   store i32 %21, ptr %2, align 8, !tbaa !20
   %22 = icmp eq i32 %.pre66, 6000
@@ -46994,34 +46994,34 @@ _gather_99_rule.exit.thread:                      ; preds = %16
 
 .lr.ph.preheader:                                 ; preds = %.preheader48
   %32 = tail call fastcc ptr @del_target_rule(ptr noundef nonnull %0)
-  %.not70.i72 = icmp eq ptr %32, null
-  br i1 %.not70.i72, label %.critedge.i, label %.lr.ph76
+  %.not70.i78 = icmp eq ptr %32, null
+  br i1 %.not70.i78, label %.critedge.i, label %.lr.ph82
 
 .lr.ph:                                           ; preds = %40
   %33 = tail call fastcc ptr @del_target_rule(ptr noundef nonnull %0)
   %.not70.i = icmp eq ptr %33, null
-  br i1 %.not70.i, label %.critedge.i, label %.lr.ph76, !llvm.loop !189
+  br i1 %.not70.i, label %.critedge.i, label %.lr.ph82, !llvm.loop !189
 
-.lr.ph76:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph82:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %34 = phi ptr [ %33, %.lr.ph ], [ %32, %.lr.ph.preheader ]
-  %.059.i5375 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.058.i5474 = phi i64 [ %41, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.054.i5573 = phi ptr [ %.256.i, %.lr.ph ], [ %28, %.lr.ph.preheader ]
-  %35 = icmp eq i64 %.058.i5474, %.059.i5375
+  %.059.i5381 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.058.i5480 = phi i64 [ %41, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.054.i5579 = phi ptr [ %.256.i, %.lr.ph ], [ %28, %.lr.ph.preheader ]
+  %35 = icmp eq i64 %.058.i5480, %.059.i5381
   br i1 %35, label %36, label %40
 
-36:                                               ; preds = %.lr.ph76
-  %37 = shl i64 %.058.i5474, 1
-  %38 = shl i64 %.058.i5474, 4
-  %39 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i5573, i64 noundef %38) #5
+36:                                               ; preds = %.lr.ph82
+  %37 = shl i64 %.058.i5480, 1
+  %38 = shl i64 %.058.i5480, 4
+  %39 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i5579, i64 noundef %38) #5
   %.not71.not.i = icmp eq ptr %39, null
   br i1 %.not71.not.i, label %_gather_99_rule.exit.thread42.sink.split.sink.split.sink.split, label %40
 
-40:                                               ; preds = %36, %.lr.ph76
-  %.160.i = phi i64 [ %.059.i5375, %.lr.ph76 ], [ %37, %36 ]
-  %.256.i = phi ptr [ %.054.i5573, %.lr.ph76 ], [ %39, %36 ]
-  %41 = add i64 %.058.i5474, 1
-  %42 = getelementptr ptr, ptr %.256.i, i64 %.058.i5474
+40:                                               ; preds = %36, %.lr.ph82
+  %.160.i = phi i64 [ %.059.i5381, %.lr.ph82 ], [ %37, %36 ]
+  %.256.i = phi ptr [ %.054.i5579, %.lr.ph82 ], [ %39, %36 ]
+  %41 = add i64 %.058.i5480, 1
+  %42 = getelementptr ptr, ptr %.256.i, i64 %.058.i5480
   store ptr %34, ptr %42, align 8, !tbaa !25
   %43 = load i32, ptr %11, align 8, !tbaa !22
   %44 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -47062,7 +47062,7 @@ _gather_99_rule.exit.thread:                      ; preds = %16
   br i1 %exitcond.not, label %_gather_99_rule.exit, label %50, !llvm.loop !190
 
 _gather_99_rule.exit.thread42.sink.split.sink.split.sink.split: ; preds = %36, %.critedge.i
-  %.054.i.lcssa.sink = phi ptr [ %.054.i.lcssa, %.critedge.i ], [ %.054.i5573, %36 ]
+  %.054.i.lcssa.sink = phi ptr [ %.054.i.lcssa, %.critedge.i ], [ %.054.i5579, %36 ]
   tail call void @PyMem_Free(ptr noundef %.054.i.lcssa.sink) #5
   br label %_gather_99_rule.exit.thread42.sink.split.sink.split
 
@@ -47094,9 +47094,9 @@ _gather_99_rule.exit:                             ; preds = %50, %.preheader
   %.not24 = icmp eq i32 %62, 0
   br i1 %.not24, label %65, label %64
 
-.sink.split:                                      ; preds = %.thread67, %_gather_99_rule.exit.thread42.sink.split, %_gather_99_rule.exit.thread
-  %.sink70 = phi i32 [ %18, %_gather_99_rule.exit.thread ], [ %.pre66, %.thread67 ], [ %storemerge.i34, %_gather_99_rule.exit.thread42.sink.split ]
-  %63 = add i32 %.sink70, -1
+.sink.split:                                      ; preds = %.thread73, %_gather_99_rule.exit.thread42.sink.split, %_gather_99_rule.exit.thread
+  %.sink76 = phi i32 [ %18, %_gather_99_rule.exit.thread ], [ %.pre66, %.thread73 ], [ %storemerge.i34, %_gather_99_rule.exit.thread42.sink.split ]
+  %63 = add i32 %.sink76, -1
   store i32 %63, ptr %2, align 8, !tbaa !20
   br label %64
 
@@ -47525,9 +47525,9 @@ define internal fastcc ptr @del_t_atom_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %20, label %.thread155
+  br i1 %15, label %20, label %.thread163
 
-.thread155:                                       ; preds = %10
+.thread163:                                       ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = sext i32 %12 to i64
@@ -47552,11 +47552,11 @@ define internal fastcc ptr @del_t_atom_rule(ptr noundef %0) unnamed_addr #0 {
   %29 = getelementptr ptr, ptr %27, i64 %28
   br i1 %25, label %30, label %.thread138
 
-30:                                               ; preds = %.thread155, %24
-  %.pn.in = phi ptr [ %19, %.thread155 ], [ %29, %24 ]
+30:                                               ; preds = %.thread163, %24
+  %.pn.in = phi ptr [ %19, %.thread163 ], [ %29, %24 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in158 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %31 = load i32, ptr %.in158, align 4, !tbaa !26
+  %.in166 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %31 = load i32, ptr %.in166, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %32 = load i32, ptr %.in, align 8, !tbaa !29
   %33 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %0) #5

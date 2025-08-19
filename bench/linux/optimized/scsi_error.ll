@@ -1028,7 +1028,7 @@ define dso_local range(i32 8201, 8200) i32 @scsi_check_sense(ptr noundef capture
   %43 = load i64, ptr %42, align 4
   %44 = and i64 %43, 9007199254740992
   %45 = icmp eq i64 %44, 0
-  br i1 %45, label %46, label %.thread11
+  br i1 %45, label %46, label %.thread17
 
 46:                                               ; preds = %41
   call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.4, ptr noundef %3, ptr noundef null, ptr noundef nonnull @.str.9) #14
@@ -1067,9 +1067,9 @@ thread-pre-split:                                 ; preds = %46, %37
 58:                                               ; preds = %55, %thread-pre-split
   %59 = phi i32 [ %48, %thread-pre-split ], [ %57, %55 ]
   %60 = icmp eq i32 %59, 9
-  br i1 %60, label %.thread, label %.thread11
+  br i1 %60, label %.thread, label %.thread17
 
-.thread11:                                        ; preds = %41, %58
+.thread17:                                        ; preds = %41, %58
   %61 = phi i32 [ %59, %58 ], [ 8, %41 ]
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 360
   %63 = zext nneg i32 %61 to i64
@@ -1079,7 +1079,7 @@ thread-pre-split:                                 ; preds = %46, %37
   %66 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %65, ptr noundef nonnull %64) #14
   br label %.thread
 
-.thread:                                          ; preds = %7, %.thread11, %58
+.thread:                                          ; preds = %7, %.thread17, %58
   %67 = load i8, ptr %2, align 8
   %68 = icmp ugt i8 %67, 111
   %69 = and i8 %67, 1
@@ -2682,10 +2682,10 @@ define dso_local void @scsi_eh_ready_devs(ptr noundef %0, ptr noundef %1, ptr no
 
 314:                                              ; preds = %236, %233
   %315 = load volatile ptr, ptr %1, align 8
-  %.not146 = icmp eq ptr %315, %1
+  %.not209 = icmp eq ptr %315, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not146, label %scsi_eh_offline_sdevs.exit, label %316
+  br i1 %.not209, label %scsi_eh_offline_sdevs.exit, label %316
 
 316:                                              ; preds = %._crit_edge, %314
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2773,8 +2773,8 @@ define dso_local void @scsi_eh_ready_devs(ptr noundef %0, ptr noundef %1, ptr no
 
 362:                                              ; preds = %355
   %363 = call i32 %360(ptr noundef nonnull %353) #14
-  %.not126 = icmp eq i32 %363, 8194
-  br i1 %.not126, label %364, label %scsi_try_bus_reset.exit
+  %.not189 = icmp eq i32 %363, 8194
+  br i1 %.not189, label %364, label %scsi_try_bus_reset.exit
 
 364:                                              ; preds = %362
   %365 = getelementptr inbounds nuw i8, ptr %358, i64 320
@@ -2832,8 +2832,8 @@ scsi_try_bus_reset.exit:                          ; preds = %362
   br i1 %394, label %.thread67, label %395
 
 395:                                              ; preds = %392
-  %396 = select i1 %.not126, ptr %317, ptr %209
-  %397 = select i1 %.not126, ptr %5, ptr %2
+  %396 = select i1 %.not189, ptr %317, ptr %209
+  %397 = select i1 %.not189, ptr %5, ptr %2
   br label %398
 
 398:                                              ; preds = %411, %395
@@ -4580,19 +4580,19 @@ define internal fastcc range(i32 0, 2) i32 @scsi_eh_test_devices(ptr noundef %0,
   %71 = tail call fastcc i32 @scsi_send_eh_cmnd(ptr noundef %15, ptr noundef nonnull @scsi_eh_tur.tur_command, i32 noundef 6, i32 noundef %70, i32 noundef 0)
   switch i32 %71, label %.loopexit19 [
     i32 8193, label %72
-    i32 8194, label %.loopexit19.loopexit27
+    i32 8194, label %.loopexit19.loopexit36
   ]
 
 72:                                               ; preds = %.loopexit18
   %73 = add nsw i32 %67, -1
   %74 = icmp eq i32 %67, 0
-  br i1 %74, label %.loopexit19.loopexit27, label %.loopexit18
+  br i1 %74, label %.loopexit19.loopexit36, label %.loopexit18
 
-.loopexit19.loopexit27:                           ; preds = %.loopexit18, %72
+.loopexit19.loopexit36:                           ; preds = %.loopexit18, %72
   br label %.loopexit19
 
-.loopexit19:                                      ; preds = %64, %.preheader17, %.loopexit18, %.loopexit19.loopexit27, %.critedge, %.critedge, %.critedge
-  %75 = phi i1 [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.loopexit19.loopexit27 ], [ false, %.loopexit18 ], [ true, %.preheader17 ], [ true, %64 ]
+.loopexit19:                                      ; preds = %64, %.preheader17, %.loopexit18, %.loopexit19.loopexit36, %.critedge, %.critedge, %.critedge
+  %75 = phi i1 [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.loopexit19.loopexit36 ], [ false, %.loopexit18 ], [ true, %.preheader17 ], [ true, %64 ]
   %76 = load ptr, ptr %0, align 8
   %77 = icmp eq ptr %76, %0
   br i1 %77, label %.loopexit, label %.preheader

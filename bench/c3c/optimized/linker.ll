@@ -223,7 +223,7 @@ switch.lookup:                                    ; preds = %1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @concat_string_parts(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread57, label %2
+  br i1 %.not, label %.thread58, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 -8
@@ -252,7 +252,7 @@ define dso_local ptr @concat_string_parts(ptr noundef readonly captures(address_
   %11 = zext i32 %10 to i64
   br label %13
 
-.thread57:                                        ; preds = %1
+.thread58:                                        ; preds = %1
   %12 = tail call ptr @calloc_string(i64 noundef 0) #11
   br label %._crit_edge43
 
@@ -283,9 +283,9 @@ define dso_local ptr @concat_string_parts(ptr noundef readonly captures(address_
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
   br i1 %exitcond53.not, label %._crit_edge43, label %.lr.ph42, !llvm.loop !9
 
-._crit_edge43:                                    ; preds = %.lr.ph42, %.thread57, %13
-  %23 = phi ptr [ %14, %13 ], [ %12, %.thread57 ], [ %14, %.lr.ph42 ]
-  %.033.lcssa = phi ptr [ %14, %13 ], [ %12, %.thread57 ], [ %22, %.lr.ph42 ]
+._crit_edge43:                                    ; preds = %.lr.ph42, %.thread58, %13
+  %23 = phi ptr [ %14, %13 ], [ %12, %.thread58 ], [ %14, %.lr.ph42 ]
+  %.033.lcssa = phi ptr [ %14, %13 ], [ %12, %.thread58 ], [ %22, %.lr.ph42 ]
   %24 = getelementptr inbounds i8, ptr %.033.lcssa, i64 -1
   store i8 0, ptr %24, align 1
   ret ptr %23
@@ -422,7 +422,7 @@ switch.lookup:                                    ; preds = %29
   call fastcc void @linker_setup(ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef %0, i32 noundef %.020)
   %72 = load ptr, ptr %4, align 8
   %.not.i36 = icmp eq ptr %72, null
-  br i1 %.not.i36, label %.thread57.i, label %73
+  br i1 %.not.i36, label %.thread58.i, label %73
 
 73:                                               ; preds = %71
   %74 = getelementptr inbounds i8, ptr %72, i64 -8
@@ -451,7 +451,7 @@ switch.lookup:                                    ; preds = %29
   %82 = zext i32 %81 to i64
   br label %84
 
-.thread57.i:                                      ; preds = %71
+.thread58.i:                                      ; preds = %71
   %83 = call ptr @calloc_string(i64 noundef 0) #11
   br label %concat_string_parts.exit
 
@@ -481,9 +481,9 @@ switch.lookup:                                    ; preds = %29
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
   br i1 %exitcond53.not.i, label %concat_string_parts.exit, label %.lr.ph42.i, !llvm.loop !9
 
-concat_string_parts.exit:                         ; preds = %.lr.ph42.i, %.thread57.i, %84
-  %93 = phi ptr [ %85, %84 ], [ %83, %.thread57.i ], [ %85, %.lr.ph42.i ]
-  %.033.lcssa.i = phi ptr [ %85, %84 ], [ %83, %.thread57.i ], [ %92, %.lr.ph42.i ]
+concat_string_parts.exit:                         ; preds = %.lr.ph42.i, %.thread58.i, %84
+  %93 = phi ptr [ %85, %84 ], [ %83, %.thread58.i ], [ %85, %.lr.ph42.i ]
+  %.033.lcssa.i = phi ptr [ %85, %84 ], [ %83, %.thread58.i ], [ %92, %.lr.ph42.i ]
   %94 = getelementptr inbounds i8, ptr %.033.lcssa.i, i64 -1
   store i8 0, ptr %94, align 1
   %95 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 170), align 2
@@ -954,11 +954,11 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr noundef
   br i1 %218, label %.sink.split.sink.split, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %215, %172, %129, %118, %107
-  %.0.i177.sink203 = phi ptr [ %.0.i135, %107 ], [ %.0.i142, %118 ], [ %.0.i149, %129 ], [ %.0.i163, %172 ], [ %.0.i177, %215 ]
-  %.sink202 = phi i32 [ %108, %107 ], [ %119, %118 ], [ %130, %129 ], [ %173, %172 ], [ %216, %215 ]
+  %.0.i177.sink232 = phi ptr [ %.0.i135, %107 ], [ %.0.i142, %118 ], [ %.0.i149, %129 ], [ %.0.i163, %172 ], [ %.0.i177, %215 ]
+  %.sink231 = phi i32 [ %108, %107 ], [ %119, %118 ], [ %130, %129 ], [ %173, %172 ], [ %216, %215 ]
   %.str.31.sink.ph = phi ptr [ @.str.17, %107 ], [ @.str.30, %118 ], [ @.str.31, %129 ], [ @.str.30, %172 ], [ @.str.31, %215 ]
-  %219 = getelementptr inbounds nuw i8, ptr %.0.i177.sink203, i64 4
-  %220 = shl i32 %.sink202, 1
+  %219 = getelementptr inbounds nuw i8, ptr %.0.i177.sink232, i64 4
+  %220 = shl i32 %.sink231, 1
   %221 = zext i32 %220 to i64
   %222 = shl nuw nsw i64 %221, 3
   %223 = or disjoint i64 %222, 8
@@ -969,7 +969,7 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr noundef
   %227 = zext i32 %226 to i64
   %228 = shl nuw nsw i64 %227, 3
   %229 = add nuw nsw i64 %228, 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %224, ptr noundef nonnull align 4 dereferenceable(1) %.0.i177.sink203, i64 %229, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %224, ptr noundef nonnull align 4 dereferenceable(1) %.0.i177.sink232, i64 %229, i1 false)
   %230 = load i32, ptr %225, align 4
   %231 = shl i32 %230, 1
   store i32 %231, ptr %225, align 4
@@ -977,14 +977,14 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr noundef
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %215, %172, %129, %118, %107
-  %.sink186 = phi i32 [ %109, %107 ], [ %120, %118 ], [ %131, %129 ], [ %174, %172 ], [ %217, %215 ], [ %.pre18.i179, %.sink.split.sink.split ]
-  %.1.i178.sink185 = phi ptr [ %.0.i135, %107 ], [ %.0.i142, %118 ], [ %.0.i149, %129 ], [ %.0.i163, %172 ], [ %.0.i177, %215 ], [ %224, %.sink.split.sink.split ]
+  %.sink215 = phi i32 [ %109, %107 ], [ %120, %118 ], [ %131, %129 ], [ %174, %172 ], [ %217, %215 ], [ %.pre18.i179, %.sink.split.sink.split ]
+  %.1.i178.sink214 = phi ptr [ %.0.i135, %107 ], [ %.0.i142, %118 ], [ %.0.i149, %129 ], [ %.0.i163, %172 ], [ %.0.i177, %215 ], [ %224, %.sink.split.sink.split ]
   %.str.31.sink = phi ptr [ @.str.17, %107 ], [ @.str.30, %118 ], [ @.str.31, %129 ], [ @.str.30, %172 ], [ @.str.31, %215 ], [ %.str.31.sink.ph, %.sink.split.sink.split ]
-  %232 = add i32 %.sink186, 1
-  store i32 %232, ptr %.1.i178.sink185, align 4
-  %233 = getelementptr inbounds nuw i8, ptr %.1.i178.sink185, i64 8
+  %232 = add i32 %.sink215, 1
+  store i32 %232, ptr %.1.i178.sink214, align 4
+  %233 = getelementptr inbounds nuw i8, ptr %.1.i178.sink214, i64 8
   store ptr %233, ptr %1, align 8
-  %234 = load i32, ptr %.1.i178.sink185, align 4
+  %234 = load i32, ptr %.1.i178.sink214, align 4
   %235 = add i32 %234, -1
   %236 = zext i32 %235 to i64
   %237 = getelementptr inbounds nuw ptr, ptr %233, i64 %236
@@ -1115,7 +1115,7 @@ define internal fastcc void @linker_setup(ptr noundef nonnull %0, ptr noundef re
   %74 = zext i32 %73 to i64
   %75 = getelementptr inbounds nuw ptr, ptr %71, i64 %74
   store ptr %3, ptr %75, align 8
-  switch i32 %4, label %default.unreachable [
+  switch i32 %4, label %default.unreachable656 [
     i32 5, label %193
     i32 3, label %76
     i32 2, label %90
@@ -1327,16 +1327,16 @@ expand_.exit261:                                  ; preds = %119, %123
   %173 = icmp eq i32 %172, %171
   br i1 %173, label %.sink.split.sink.split, label %.sink.split
 
-default.unreachable:                              ; preds = %68
+default.unreachable656:                           ; preds = %68
   unreachable
 
 .sink.split.sink.split:                           ; preds = %170, %156, %110, %98, %86
-  %.0.i272.sink404 = phi ptr [ %.0.i237, %86 ], [ %.0.i244, %98 ], [ %.0.i251, %110 ], [ %.0.i265, %156 ], [ %.0.i272, %170 ]
-  %.sink403 = phi i32 [ %87, %86 ], [ %99, %98 ], [ %111, %110 ], [ %157, %156 ], [ %171, %170 ]
+  %.0.i272.sink691 = phi ptr [ %.0.i237, %86 ], [ %.0.i244, %98 ], [ %.0.i251, %110 ], [ %.0.i265, %156 ], [ %.0.i272, %170 ]
+  %.sink690 = phi i32 [ %87, %86 ], [ %99, %98 ], [ %111, %110 ], [ %157, %156 ], [ %171, %170 ]
   %.str.37.sink.ph = phi ptr [ @.str.32, %86 ], [ @.str.33, %98 ], [ @.str.34, %110 ], [ @.str.36, %156 ], [ @.str.37, %170 ]
   %.ph.ph = phi ptr [ @.str.39, %86 ], [ @.str.39, %98 ], [ @.str.39, %110 ], [ @.str.38, %156 ], [ @.str.38, %170 ]
-  %174 = getelementptr inbounds nuw i8, ptr %.0.i272.sink404, i64 4
-  %175 = shl i32 %.sink403, 1
+  %174 = getelementptr inbounds nuw i8, ptr %.0.i272.sink691, i64 4
+  %175 = shl i32 %.sink690, 1
   %176 = zext i32 %175 to i64
   %177 = shl nuw nsw i64 %176, 3
   %178 = or disjoint i64 %177, 8
@@ -1347,7 +1347,7 @@ default.unreachable:                              ; preds = %68
   %182 = zext i32 %181 to i64
   %183 = shl nuw nsw i64 %182, 3
   %184 = add nuw nsw i64 %183, 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %179, ptr noundef nonnull align 4 dereferenceable(1) %.0.i272.sink404, i64 %184, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %179, ptr noundef nonnull align 4 dereferenceable(1) %.0.i272.sink691, i64 %184, i1 false)
   %185 = load i32, ptr %180, align 4
   %186 = shl i32 %185, 1
   store i32 %186, ptr %180, align 4
@@ -1355,15 +1355,15 @@ default.unreachable:                              ; preds = %68
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %170, %156, %110, %98, %86
-  %.sink387 = phi i32 [ %88, %86 ], [ %100, %98 ], [ %112, %110 ], [ %158, %156 ], [ %172, %170 ], [ %.pre18.i274, %.sink.split.sink.split ]
-  %.1.i273.sink386 = phi ptr [ %.0.i237, %86 ], [ %.0.i244, %98 ], [ %.0.i251, %110 ], [ %.0.i265, %156 ], [ %.0.i272, %170 ], [ %179, %.sink.split.sink.split ]
+  %.sink674 = phi i32 [ %88, %86 ], [ %100, %98 ], [ %112, %110 ], [ %158, %156 ], [ %172, %170 ], [ %.pre18.i274, %.sink.split.sink.split ]
+  %.1.i273.sink673 = phi ptr [ %.0.i237, %86 ], [ %.0.i244, %98 ], [ %.0.i251, %110 ], [ %.0.i265, %156 ], [ %.0.i272, %170 ], [ %179, %.sink.split.sink.split ]
   %.str.37.sink = phi ptr [ @.str.32, %86 ], [ @.str.33, %98 ], [ @.str.34, %110 ], [ @.str.36, %156 ], [ @.str.37, %170 ], [ %.str.37.sink.ph, %.sink.split.sink.split ]
   %.ph = phi ptr [ @.str.39, %86 ], [ @.str.39, %98 ], [ @.str.39, %110 ], [ @.str.38, %156 ], [ @.str.38, %170 ], [ %.ph.ph, %.sink.split.sink.split ]
-  %187 = add i32 %.sink387, 1
-  store i32 %187, ptr %.1.i273.sink386, align 4
-  %188 = getelementptr inbounds nuw i8, ptr %.1.i273.sink386, i64 8
+  %187 = add i32 %.sink674, 1
+  store i32 %187, ptr %.1.i273.sink673, align 4
+  %188 = getelementptr inbounds nuw i8, ptr %.1.i273.sink673, i64 8
   store ptr %188, ptr %0, align 8
-  %189 = load i32, ptr %.1.i273.sink386, align 4
+  %189 = load i32, ptr %.1.i273.sink673, align 4
   %190 = add i32 %189, -1
   %191 = zext i32 %190 to i64
   %192 = getelementptr inbounds nuw ptr, ptr %188, i64 %191
@@ -1534,12 +1534,12 @@ default.unreachable:                              ; preds = %68
   unreachable
 
 .sink.split.sink.split.i:                         ; preds = %254, %243
-  %.0.i135.sink203.i = phi ptr [ %.0.i128.i, %243 ], [ %.0.i135.i, %254 ]
-  %.sink202.i = phi i32 [ %244, %243 ], [ %255, %254 ]
+  %.0.i135.sink235.i = phi ptr [ %.0.i128.i, %243 ], [ %.0.i135.i, %254 ]
+  %.sink234.i = phi i32 [ %244, %243 ], [ %255, %254 ]
   %.str.45.sink.ph.i = phi ptr [ @.str.44, %243 ], [ @.str.45, %254 ]
   %.0100.ph.ph.i = phi i1 [ false, %243 ], [ true, %254 ]
-  %259 = getelementptr inbounds nuw i8, ptr %.0.i135.sink203.i, i64 4
-  %260 = shl i32 %.sink202.i, 1
+  %259 = getelementptr inbounds nuw i8, ptr %.0.i135.sink235.i, i64 4
+  %260 = shl i32 %.sink234.i, 1
   %261 = zext i32 %260 to i64
   %262 = shl nuw nsw i64 %261, 3
   %263 = or disjoint i64 %262, 8
@@ -1550,7 +1550,7 @@ default.unreachable:                              ; preds = %68
   %267 = zext i32 %266 to i64
   %268 = shl nuw nsw i64 %267, 3
   %269 = add nuw nsw i64 %268, 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %264, ptr noundef nonnull align 4 dereferenceable(1) %.0.i135.sink203.i, i64 %269, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %264, ptr noundef nonnull align 4 dereferenceable(1) %.0.i135.sink235.i, i64 %269, i1 false)
   %270 = load i32, ptr %265, align 4
   %271 = shl i32 %270, 1
   store i32 %271, ptr %265, align 4
@@ -1558,15 +1558,15 @@ default.unreachable:                              ; preds = %68
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %254, %243
-  %.sink186.i = phi i32 [ %245, %243 ], [ %256, %254 ], [ %.pre18.i137.i, %.sink.split.sink.split.i ]
-  %.1.i136.sink185.i = phi ptr [ %.0.i128.i, %243 ], [ %.0.i135.i, %254 ], [ %264, %.sink.split.sink.split.i ]
+  %.sink218.i = phi i32 [ %245, %243 ], [ %256, %254 ], [ %.pre18.i137.i, %.sink.split.sink.split.i ]
+  %.1.i136.sink217.i = phi ptr [ %.0.i128.i, %243 ], [ %.0.i135.i, %254 ], [ %264, %.sink.split.sink.split.i ]
   %.str.45.sink.i = phi ptr [ @.str.44, %243 ], [ @.str.45, %254 ], [ %.str.45.sink.ph.i, %.sink.split.sink.split.i ]
   %.0100.ph.i = phi i1 [ false, %243 ], [ true, %254 ], [ %.0100.ph.ph.i, %.sink.split.sink.split.i ]
-  %272 = add i32 %.sink186.i, 1
-  store i32 %272, ptr %.1.i136.sink185.i, align 4
-  %273 = getelementptr inbounds nuw i8, ptr %.1.i136.sink185.i, i64 8
+  %272 = add i32 %.sink218.i, 1
+  store i32 %272, ptr %.1.i136.sink217.i, align 4
+  %273 = getelementptr inbounds nuw i8, ptr %.1.i136.sink217.i, i64 8
   store ptr %273, ptr %0, align 8
-  %274 = load i32, ptr %.1.i136.sink185.i, align 4
+  %274 = load i32, ptr %.1.i136.sink217.i, align 4
   %275 = add i32 %274, -1
   %276 = zext i32 %275 to i64
   %277 = getelementptr inbounds nuw ptr, ptr %273, i64 %276
@@ -6101,12 +6101,12 @@ expand_.exit511.i:                                ; preds = %2720, %2716
 
 .sink.split.i291:                                 ; preds = %2741, %2740, %2739, %2738, %expand_.exit511.i, %1879, %1814
   %.1.i509.sink.i = phi ptr [ %.1.i340.i, %1879 ], [ %.1.i.i298, %1814 ], [ %.1.i509.i, %expand_.exit511.i ], [ %.1.i509.i, %2738 ], [ %.1.i509.i, %2739 ], [ %.1.i509.i, %2740 ], [ %.1.i509.i, %2741 ]
-  %.sink514.i = phi ptr [ %1882, %1879 ], [ %1817, %1814 ], [ %2736, %expand_.exit511.i ], [ %2736, %2738 ], [ %2736, %2739 ], [ %2736, %2740 ], [ %2736, %2741 ]
+  %.sink604.i = phi ptr [ %1882, %1879 ], [ %1817, %1814 ], [ %2736, %expand_.exit511.i ], [ %2736, %2738 ], [ %2736, %2739 ], [ %2736, %2740 ], [ %2736, %2741 ]
   %.0.i512.sink.i = phi ptr [ @.str.122, %1879 ], [ @.str.120, %1814 ], [ @.str.113, %expand_.exit511.i ], [ @.str.114, %2738 ], [ @.str.115, %2739 ], [ @.str.116, %2740 ], [ @.str.117, %2741 ]
   %2743 = load i32, ptr %.1.i509.sink.i, align 4
   %2744 = add i32 %2743, -1
   %2745 = zext i32 %2744 to i64
-  %2746 = getelementptr inbounds nuw ptr, ptr %.sink514.i, i64 %2745
+  %2746 = getelementptr inbounds nuw ptr, ptr %.sink604.i, i64 %2745
   store ptr %.0.i512.sink.i, ptr %2746, align 8
   br label %linker_setup_windows.exit
 
@@ -6899,7 +6899,7 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
   store ptr %32, ptr %222, align 8
   %223 = load ptr, ptr %4, align 8
   %.not.i118 = icmp eq ptr %223, null
-  br i1 %.not.i118, label %.thread57.i, label %224
+  br i1 %.not.i118, label %.thread58.i, label %224
 
 224:                                              ; preds = %215
   %225 = getelementptr inbounds i8, ptr %223, i64 -8
@@ -6928,7 +6928,7 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
   %233 = zext i32 %232 to i64
   br label %235
 
-.thread57.i:                                      ; preds = %215
+.thread58.i:                                      ; preds = %215
   %234 = call ptr @calloc_string(i64 noundef 0) #11
   br label %concat_string_parts.exit
 
@@ -6958,9 +6958,9 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
   br i1 %exitcond53.not.i, label %concat_string_parts.exit, label %.lr.ph42.i, !llvm.loop !9
 
-concat_string_parts.exit:                         ; preds = %.lr.ph42.i, %.thread57.i, %235
-  %244 = phi ptr [ %236, %235 ], [ %234, %.thread57.i ], [ %236, %.lr.ph42.i ]
-  %.033.lcssa.i = phi ptr [ %236, %235 ], [ %234, %.thread57.i ], [ %243, %.lr.ph42.i ]
+concat_string_parts.exit:                         ; preds = %.lr.ph42.i, %.thread58.i, %235
+  %244 = phi ptr [ %236, %235 ], [ %234, %.thread58.i ], [ %236, %.lr.ph42.i ]
+  %.033.lcssa.i = phi ptr [ %236, %235 ], [ %234, %.thread58.i ], [ %243, %.lr.ph42.i ]
   %245 = getelementptr inbounds i8, ptr %.033.lcssa.i, i64 -1
   store i8 0, ptr %245, align 1
   %246 = call i32 @system(ptr noundef %244) #11
@@ -7047,7 +7047,7 @@ define dso_local noundef zeroext i1 @dynamic_lib_linker(ptr noundef %0, ptr noun
   call fastcc void @linker_setup(ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef %0, i32 noundef %38)
   %39 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %39, null
-  br i1 %.not.i, label %.thread57.i, label %40
+  br i1 %.not.i, label %.thread58.i, label %40
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds i8, ptr %39, i64 -8
@@ -7076,7 +7076,7 @@ define dso_local noundef zeroext i1 @dynamic_lib_linker(ptr noundef %0, ptr noun
   %49 = zext i32 %48 to i64
   br label %51
 
-.thread57.i:                                      ; preds = %37
+.thread58.i:                                      ; preds = %37
   %50 = call ptr @calloc_string(i64 noundef 0) #11
   br label %concat_string_parts.exit
 
@@ -7106,9 +7106,9 @@ define dso_local noundef zeroext i1 @dynamic_lib_linker(ptr noundef %0, ptr noun
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
   br i1 %exitcond53.not.i, label %concat_string_parts.exit, label %.lr.ph42.i, !llvm.loop !9
 
-concat_string_parts.exit:                         ; preds = %.lr.ph42.i, %.thread57.i, %51
-  %60 = phi ptr [ %52, %51 ], [ %50, %.thread57.i ], [ %52, %.lr.ph42.i ]
-  %.033.lcssa.i = phi ptr [ %52, %51 ], [ %50, %.thread57.i ], [ %59, %.lr.ph42.i ]
+concat_string_parts.exit:                         ; preds = %.lr.ph42.i, %.thread58.i, %51
+  %60 = phi ptr [ %52, %51 ], [ %50, %.thread58.i ], [ %52, %.lr.ph42.i ]
+  %.033.lcssa.i = phi ptr [ %52, %51 ], [ %50, %.thread58.i ], [ %59, %.lr.ph42.i ]
   %61 = getelementptr inbounds i8, ptr %.033.lcssa.i, i64 -1
   store i8 0, ptr %61, align 1
   %62 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 170), align 2

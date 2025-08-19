@@ -2829,18 +2829,18 @@ define zeroext i16 @de_gmm_ms_radio_acc_cap(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %178, label %switch.lookup, label %188
 
 179:                                              ; preds = %174
-  %switch.tableidx4393 = add i8 %175, -1
-  %180 = icmp ult i8 %switch.tableidx4393, 3
-  br i1 %180, label %switch.lookup4392, label %188
+  %switch.tableidx4462 = add i8 %175, -1
+  %180 = icmp ult i8 %switch.tableidx4462, 3
+  br i1 %180, label %switch.lookup4461, label %188
 
 181:                                              ; preds = %174
   %182 = icmp ult i32 %.113659, -1879048192
   br i1 %182, label %183, label %188
 
 183:                                              ; preds = %181
-  %switch.tableidx4397 = add i8 %175, -2
-  %184 = icmp ult i8 %switch.tableidx4397, 4
-  br i1 %184, label %switch.lookup4396, label %188
+  %switch.tableidx4466 = add i8 %175, -2
+  %184 = icmp ult i8 %switch.tableidx4466, 4
+  br i1 %184, label %switch.lookup4465, label %188
 
 switch.lookup:                                    ; preds = %177
   %185 = zext nneg i8 %switch.tableidx to i64
@@ -2848,20 +2848,20 @@ switch.lookup:                                    ; preds = %177
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %188
 
-switch.lookup4392:                                ; preds = %179
-  %186 = zext nneg i8 %switch.tableidx4393 to i64
-  %switch.gep4394 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.4, i64 0, i64 %186
-  %switch.load4395 = load ptr, ptr %switch.gep4394, align 8
+switch.lookup4461:                                ; preds = %179
+  %186 = zext nneg i8 %switch.tableidx4462 to i64
+  %switch.gep4463 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.4, i64 0, i64 %186
+  %switch.load4464 = load ptr, ptr %switch.gep4463, align 8
   br label %188
 
-switch.lookup4396:                                ; preds = %183
-  %187 = zext nneg i8 %switch.tableidx4397 to i64
-  %switch.gep4398 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.5, i64 0, i64 %187
-  %switch.load4399 = load ptr, ptr %switch.gep4398, align 8
+switch.lookup4465:                                ; preds = %183
+  %187 = zext nneg i8 %switch.tableidx4466 to i64
+  %switch.gep4467 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.5, i64 0, i64 %187
+  %switch.load4468 = load ptr, ptr %switch.gep4467, align 8
   br label %188
 
-188:                                              ; preds = %183, %switch.lookup4396, %179, %switch.lookup4392, %177, %switch.lookup, %181
-  %.13989 = phi ptr [ @.str.70, %181 ], [ %switch.load, %switch.lookup ], [ @.str.65, %177 ], [ %switch.load4395, %switch.lookup4392 ], [ @.str.65, %179 ], [ %switch.load4399, %switch.lookup4396 ], [ @.str.65, %183 ]
+188:                                              ; preds = %183, %switch.lookup4465, %179, %switch.lookup4461, %177, %switch.lookup, %181
+  %.13989 = phi ptr [ @.str.70, %181 ], [ %switch.load, %switch.lookup ], [ @.str.65, %177 ], [ %switch.load4464, %switch.lookup4461 ], [ @.str.65, %179 ], [ %switch.load4468, %switch.lookup4465 ], [ @.str.65, %183 ]
   %189 = load i32, ptr @hf_gsm_a_gm_rf_power_capability, align 4
   %190 = xor i32 %.33927, -1
   %191 = add i32 %.13, %190
@@ -2974,44 +2974,44 @@ switch.lookup4396:                                ; preds = %183
   ]
 
 249:                                              ; preds = %246
-  %switch.tableidx4401 = add i8 %247, -1
-  %250 = icmp ult i8 %switch.tableidx4401, 3
-  br i1 %250, label %switch.lookup4400, label %260
+  %switch.tableidx4470 = add i8 %247, -1
+  %250 = icmp ult i8 %switch.tableidx4470, 3
+  br i1 %250, label %switch.lookup4469, label %260
 
 251:                                              ; preds = %246
-  %switch.tableidx4405 = add i8 %247, -1
-  %252 = icmp ult i8 %switch.tableidx4405, 3
-  br i1 %252, label %switch.lookup4404, label %260
+  %switch.tableidx4474 = add i8 %247, -1
+  %252 = icmp ult i8 %switch.tableidx4474, 3
+  br i1 %252, label %switch.lookup4473, label %260
 
 253:                                              ; preds = %246
   %254 = icmp ult i32 %.43652, -1879048192
   br i1 %254, label %255, label %260
 
 255:                                              ; preds = %253
-  %switch.tableidx4409 = add i8 %247, -2
-  %256 = icmp ult i8 %switch.tableidx4409, 4
-  br i1 %256, label %switch.lookup4408, label %260
+  %switch.tableidx4478 = add i8 %247, -2
+  %256 = icmp ult i8 %switch.tableidx4478, 4
+  br i1 %256, label %switch.lookup4477, label %260
 
-switch.lookup4400:                                ; preds = %249
-  %257 = zext nneg i8 %switch.tableidx4401 to i64
-  %switch.gep4402 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.3, i64 0, i64 %257
-  %switch.load4403 = load ptr, ptr %switch.gep4402, align 8
+switch.lookup4469:                                ; preds = %249
+  %257 = zext nneg i8 %switch.tableidx4470 to i64
+  %switch.gep4471 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.3, i64 0, i64 %257
+  %switch.load4472 = load ptr, ptr %switch.gep4471, align 8
   br label %260
 
-switch.lookup4404:                                ; preds = %251
-  %258 = zext nneg i8 %switch.tableidx4405 to i64
-  %switch.gep4406 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.4, i64 0, i64 %258
-  %switch.load4407 = load ptr, ptr %switch.gep4406, align 8
+switch.lookup4473:                                ; preds = %251
+  %258 = zext nneg i8 %switch.tableidx4474 to i64
+  %switch.gep4475 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.4, i64 0, i64 %258
+  %switch.load4476 = load ptr, ptr %switch.gep4475, align 8
   br label %260
 
-switch.lookup4408:                                ; preds = %255
-  %259 = zext nneg i8 %switch.tableidx4409 to i64
-  %switch.gep4410 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.5, i64 0, i64 %259
-  %switch.load4411 = load ptr, ptr %switch.gep4410, align 8
+switch.lookup4477:                                ; preds = %255
+  %259 = zext nneg i8 %switch.tableidx4478 to i64
+  %switch.gep4479 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.5, i64 0, i64 %259
+  %switch.load4480 = load ptr, ptr %switch.gep4479, align 8
   br label %260
 
-260:                                              ; preds = %255, %switch.lookup4408, %251, %switch.lookup4404, %249, %switch.lookup4400, %253
-  %.23990 = phi ptr [ @.str.70, %253 ], [ %switch.load4403, %switch.lookup4400 ], [ @.str.65, %249 ], [ %switch.load4407, %switch.lookup4404 ], [ @.str.65, %251 ], [ %switch.load4411, %switch.lookup4408 ], [ @.str.65, %255 ]
+260:                                              ; preds = %255, %switch.lookup4477, %251, %switch.lookup4473, %249, %switch.lookup4469, %253
+  %.23990 = phi ptr [ @.str.70, %253 ], [ %switch.load4472, %switch.lookup4469 ], [ @.str.65, %249 ], [ %switch.load4476, %switch.lookup4473 ], [ @.str.65, %251 ], [ %switch.load4480, %switch.lookup4477 ], [ @.str.65, %255 ]
   %261 = load i32, ptr @hf_gsm_a_gm_rf_power_capability, align 4
   %262 = xor i32 %.73931, -1
   %263 = add i32 %.15, %262
@@ -7633,12 +7633,12 @@ proto_item_set_generated.exit:                    ; preds = %7, %21, %24
 
 52:                                               ; preds = %49, %49, %49, %49, %49, %49, %49, %49, %51, %51, %51, %.thread
   %hf_gsm_a_gm_sm_pco_length.sink = phi ptr [ @hf_gsm_a_gm_sm_pco_length, %.thread ], [ @hf_gsm_a_gm_sm_pco_length2, %51 ], [ @hf_gsm_a_gm_sm_pco_length2, %51 ], [ @hf_gsm_a_gm_sm_pco_length2, %51 ], [ @hf_gsm_a_gm_sm_pco_length2, %49 ], [ @hf_gsm_a_gm_sm_pco_length2, %49 ], [ @hf_gsm_a_gm_sm_pco_length2, %49 ], [ @hf_gsm_a_gm_sm_pco_length2, %49 ], [ @hf_gsm_a_gm_sm_pco_length2, %49 ], [ @hf_gsm_a_gm_sm_pco_length2, %49 ], [ @hf_gsm_a_gm_sm_pco_length2, %49 ], [ @hf_gsm_a_gm_sm_pco_length2, %49 ]
-  %.sink541 = phi i32 [ 1, %.thread ], [ 2, %51 ], [ 2, %51 ], [ 2, %51 ], [ 2, %49 ], [ 2, %49 ], [ 2, %49 ], [ 2, %49 ], [ 2, %49 ], [ 2, %49 ], [ 2, %49 ], [ 2, %49 ]
-  %.sink539 = phi i32 [ -3, %.thread ], [ -4, %51 ], [ -4, %51 ], [ -4, %51 ], [ -4, %49 ], [ -4, %49 ], [ -4, %49 ], [ -4, %49 ], [ -4, %49 ], [ -4, %49 ], [ -4, %49 ], [ -4, %49 ]
+  %.sink559 = phi i32 [ 1, %.thread ], [ 2, %51 ], [ 2, %51 ], [ 2, %51 ], [ 2, %49 ], [ 2, %49 ], [ 2, %49 ], [ 2, %49 ], [ 2, %49 ], [ 2, %49 ], [ 2, %49 ], [ 2, %49 ]
+  %.sink557 = phi i32 [ -3, %.thread ], [ -4, %51 ], [ -4, %51 ], [ -4, %51 ], [ -4, %49 ], [ -4, %49 ], [ -4, %49 ], [ -4, %49 ], [ -4, %49 ], [ -4, %49 ], [ -4, %49 ], [ -4, %49 ]
   %.sink = phi i32 [ 3, %.thread ], [ 4, %51 ], [ 4, %51 ], [ 4, %51 ], [ 4, %49 ], [ 4, %49 ], [ 4, %49 ], [ 4, %49 ], [ 4, %49 ], [ 4, %49 ], [ 4, %49 ], [ 4, %49 ]
   %53 = load i32, ptr %hf_gsm_a_gm_sm_pco_length.sink, align 4
-  %54 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %47, i32 noundef %53, ptr noundef %0, i32 noundef %48, i32 noundef %.sink541, i32 noundef 0, ptr noundef nonnull %8)
-  %55 = add nsw i32 %.0507533, %.sink539
+  %54 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %47, i32 noundef %53, ptr noundef %0, i32 noundef %48, i32 noundef %.sink559, i32 noundef 0, ptr noundef nonnull %8)
+  %55 = add nsw i32 %.0507533, %.sink557
   %56 = add i32 %.0534, %.sink
   switch i16 %40, label %454 [
     i16 1, label %57
@@ -9031,11 +9031,11 @@ qos_calc_bitrate.exit365:                         ; preds = %167, %173, %176
   %205 = icmp ult i8 %201, 75
   %206 = icmp ult i8 %201, -69
   %..i = select i1 %206, i32 1000, i32 2000
-  %.9.i = select i1 %206, i32 -58000, i32 -244000
-  %.sink8.i = select i1 %205, i32 100, i32 %..i
-  %.sink7.i = select i1 %205, i32 8600, i32 %.9.i
-  %207 = mul nuw nsw i32 %.sink8.i, %202
-  %208 = add nsw i32 %207, %.sink7.i
+  %.10.i = select i1 %206, i32 -58000, i32 -244000
+  %.sink9.i = select i1 %205, i32 100, i32 %..i
+  %.sink8.i = select i1 %205, i32 8600, i32 %.10.i
+  %207 = mul nuw nsw i32 %.sink9.i, %202
+  %208 = add nsw i32 %207, %.sink8.i
   %209 = urem i32 %208, 1000
   %210 = udiv i32 %208, 1000
   %211 = icmp eq i32 %209, 0
@@ -9069,11 +9069,11 @@ qos_calc_bitrate.exit365:                         ; preds = %167, %173, %176
   %228 = icmp ult i8 %224, 75
   %229 = icmp ult i8 %224, -69
   %..i366 = select i1 %229, i32 1000, i32 2000
-  %.9.i367 = select i1 %229, i32 -58000, i32 -244000
-  %.sink8.i368 = select i1 %228, i32 100, i32 %..i366
-  %.sink7.i369 = select i1 %228, i32 8600, i32 %.9.i367
-  %230 = mul nuw nsw i32 %.sink8.i368, %225
-  %231 = add nsw i32 %230, %.sink7.i369
+  %.10.i367 = select i1 %229, i32 -58000, i32 -244000
+  %.sink9.i368 = select i1 %228, i32 100, i32 %..i366
+  %.sink8.i369 = select i1 %228, i32 8600, i32 %.10.i367
+  %230 = mul nuw nsw i32 %.sink9.i368, %225
+  %231 = add nsw i32 %230, %.sink8.i369
   %232 = urem i32 %231, 1000
   %233 = udiv i32 %231, 1000
   %234 = icmp eq i32 %232, 0
@@ -9107,11 +9107,11 @@ qos_calc_bitrate.exit365:                         ; preds = %167, %173, %176
   %251 = icmp ult i8 %247, 75
   %252 = icmp ult i8 %247, -69
   %..i370 = select i1 %252, i32 1000, i32 2000
-  %.9.i371 = select i1 %252, i32 -58000, i32 -244000
-  %.sink8.i372 = select i1 %251, i32 100, i32 %..i370
-  %.sink7.i373 = select i1 %251, i32 8600, i32 %.9.i371
-  %253 = mul nuw nsw i32 %.sink8.i372, %248
-  %254 = add nsw i32 %253, %.sink7.i373
+  %.10.i371 = select i1 %252, i32 -58000, i32 -244000
+  %.sink9.i372 = select i1 %251, i32 100, i32 %..i370
+  %.sink8.i373 = select i1 %251, i32 8600, i32 %.10.i371
+  %253 = mul nuw nsw i32 %.sink9.i372, %248
+  %254 = add nsw i32 %253, %.sink8.i373
   %255 = urem i32 %254, 1000
   %256 = udiv i32 %254, 1000
   %257 = icmp eq i32 %255, 0
@@ -9145,11 +9145,11 @@ qos_calc_bitrate.exit365:                         ; preds = %167, %173, %176
   %274 = icmp ult i8 %270, 75
   %275 = icmp ult i8 %270, -69
   %..i374 = select i1 %275, i32 1000, i32 2000
-  %.9.i375 = select i1 %275, i32 -58000, i32 -244000
-  %.sink8.i376 = select i1 %274, i32 100, i32 %..i374
-  %.sink7.i377 = select i1 %274, i32 8600, i32 %.9.i375
-  %276 = mul nuw nsw i32 %.sink8.i376, %271
-  %277 = add nsw i32 %276, %.sink7.i377
+  %.10.i375 = select i1 %275, i32 -58000, i32 -244000
+  %.sink9.i376 = select i1 %274, i32 100, i32 %..i374
+  %.sink8.i377 = select i1 %274, i32 8600, i32 %.10.i375
+  %276 = mul nuw nsw i32 %.sink9.i376, %271
+  %277 = add nsw i32 %276, %.sink8.i377
   %278 = urem i32 %277, 1000
   %279 = udiv i32 %277, 1000
   %280 = icmp eq i32 %278, 0
@@ -9564,7 +9564,7 @@ define hidden noundef zeroext i16 @de_sm_tflow_temp(ptr noundef %0, ptr noundef 
   %83 = load i32, ptr @ett_sm_tft, align 4
   %84 = tail call ptr @proto_item_add_subtree(ptr noundef %82, i32 noundef %83)
   %85 = add i32 %.3336394, 1
-  switch i8 %80, label %.thread441 [
+  switch i8 %80, label %.thread447 [
     i8 16, label %86
     i8 17, label %92
     i8 32, label %98
@@ -9701,23 +9701,23 @@ define hidden noundef zeroext i16 @de_sm_tflow_temp(ptr noundef %0, ptr noundef 
   %165 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %164, ptr noundef %0, i32 noundef %85, i32 noundef 2, i32 noundef 0)
   br label %167
 
-.thread441:                                       ; preds = %79
+.thread447:                                       ; preds = %79
   %166 = sub i32 %.3342393, %.0353392
-  %.5338445 = add i32 %.0353392, %.3336394
+  %.5338451 = add i32 %.0353392, %.3336394
   br label %.loopexit373
 
 167:                                              ; preds = %86, %92, %98, %104, %110, %116, %119, %122, %128, %131, %137, %140, %146, %152, %155, %158, %163
-  %.sink462 = phi i32 [ -9, %86 ], [ -9, %92 ], [ -33, %98 ], [ -18, %104 ], [ -18, %110 ], [ -2, %116 ], [ -3, %119 ], [ -5, %122 ], [ -3, %128 ], [ -5, %131 ], [ -5, %137 ], [ -3, %140 ], [ -4, %146 ], [ -7, %152 ], [ -3, %155 ], [ -2, %158 ], [ -3, %163 ]
+  %.sink468 = phi i32 [ -9, %86 ], [ -9, %92 ], [ -33, %98 ], [ -18, %104 ], [ -18, %110 ], [ -2, %116 ], [ -3, %119 ], [ -5, %122 ], [ -3, %128 ], [ -5, %131 ], [ -5, %137 ], [ -3, %140 ], [ -4, %146 ], [ -7, %152 ], [ -3, %155 ], [ -2, %158 ], [ -3, %163 ]
   %.0353.pn = phi i32 [ 9, %86 ], [ 9, %92 ], [ 33, %98 ], [ 18, %104 ], [ 18, %110 ], [ 2, %116 ], [ 3, %119 ], [ 5, %122 ], [ 3, %128 ], [ 5, %131 ], [ 5, %137 ], [ 3, %140 ], [ 4, %146 ], [ 7, %152 ], [ 3, %155 ], [ 2, %158 ], [ 3, %163 ]
-  %168 = add i32 %.3342393, %.sink462
-  %169 = add nsw i32 %.0353392, %.sink462
+  %168 = add i32 %.3342393, %.sink468
+  %169 = add nsw i32 %.0353392, %.sink468
   %.5338 = add i32 %.0353.pn, %.3336394
   %170 = icmp sgt i32 %169, 0
   br i1 %170, label %.lr.ph, label %.loopexit373
 
-.loopexit373:                                     ; preds = %167, %.thread441, %71
-  %.3342.lcssa = phi i32 [ %76, %71 ], [ %166, %.thread441 ], [ %168, %167 ]
-  %.3336.lcssa = phi i32 [ %75, %71 ], [ %.5338445, %.thread441 ], [ %.5338, %167 ]
+.loopexit373:                                     ; preds = %167, %.thread447, %71
+  %.3342.lcssa = phi i32 [ %76, %71 ], [ %166, %.thread447 ], [ %168, %167 ]
+  %.3336.lcssa = phi i32 [ %75, %71 ], [ %.5338451, %.thread447 ], [ %.5338, %167 ]
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %171 = sub i32 %.3336.lcssa, %.0333398
   tail call void @proto_item_set_len(ptr noundef %43, i32 noundef %171)
@@ -10557,11 +10557,11 @@ qos_calc_bitrate.exit:                            ; preds = %11, %17, %20
   %34 = icmp ult i8 %30, 75
   %35 = icmp ult i8 %30, -69
   %..i = select i1 %35, i32 1000, i32 2000
-  %.9.i = select i1 %35, i32 -58000, i32 -244000
-  %.sink8.i = select i1 %34, i32 100, i32 %..i
-  %.sink7.i = select i1 %34, i32 8600, i32 %.9.i
-  %36 = mul nuw nsw i32 %.sink8.i, %31
-  %37 = add nsw i32 %36, %.sink7.i
+  %.10.i = select i1 %35, i32 -58000, i32 -244000
+  %.sink9.i = select i1 %34, i32 100, i32 %..i
+  %.sink8.i = select i1 %34, i32 8600, i32 %.10.i
+  %36 = mul nuw nsw i32 %.sink9.i, %31
+  %37 = add nsw i32 %36, %.sink8.i
   %38 = urem i32 %37, 1000
   %39 = udiv i32 %37, 1000
   %40 = icmp eq i32 %38, 0

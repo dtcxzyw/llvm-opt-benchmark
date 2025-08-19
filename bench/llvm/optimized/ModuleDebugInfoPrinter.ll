@@ -287,8 +287,8 @@ _ZNK4llvm7DIScope11getFilenameEv.exit.i._ZNK4llvm7DIScope11getFilenameEv.exit.th
 
 _ZNK4llvm7DIScope11getFilenameEv.exit.thread.i:   ; preds = %_ZNK4llvm7DIScope11getFilenameEv.exit.i._ZNK4llvm7DIScope11getFilenameEv.exit.thread.i_crit_edge, %_ZNK4llvm7DIScope7getFileEv.exit.i.i
   %107 = phi i64 [ %.pre, %_ZNK4llvm7DIScope11getFilenameEv.exit.i._ZNK4llvm7DIScope11getFilenameEv.exit.thread.i_crit_edge ], [ %77, %_ZNK4llvm7DIScope7getFileEv.exit.i.i ]
-  %.sroa.0.1.i117.i = phi ptr [ %.sroa.0.1.i.i, %_ZNK4llvm7DIScope11getFilenameEv.exit.i._ZNK4llvm7DIScope11getFilenameEv.exit.thread.i_crit_edge ], [ @.str.15, %_ZNK4llvm7DIScope7getFileEv.exit.i.i ]
-  %.sroa.3.1.i114.i = phi i64 [ %.sroa.3.1.i.i, %_ZNK4llvm7DIScope11getFilenameEv.exit.i._ZNK4llvm7DIScope11getFilenameEv.exit.thread.i_crit_edge ], [ 0, %_ZNK4llvm7DIScope7getFileEv.exit.i.i ]
+  %.sroa.0.1.i172.i = phi ptr [ %.sroa.0.1.i.i, %_ZNK4llvm7DIScope11getFilenameEv.exit.i._ZNK4llvm7DIScope11getFilenameEv.exit.thread.i_crit_edge ], [ @.str.15, %_ZNK4llvm7DIScope7getFileEv.exit.i.i ]
+  %.sroa.3.1.i169.i = phi i64 [ %.sroa.3.1.i.i, %_ZNK4llvm7DIScope11getFilenameEv.exit.i._ZNK4llvm7DIScope11getFilenameEv.exit.thread.i_crit_edge ], [ 0, %_ZNK4llvm7DIScope7getFileEv.exit.i.i ]
   %108 = and i64 %107, 2
   %.not.i.i.i.i.i137.i = icmp eq i64 %108, 0
   br i1 %.not.i.i.i.i.i137.i, label %112, label %109
@@ -313,8 +313,8 @@ _ZNK4llvm7DIScope7getFileEv.exit.i138.i:          ; preds = %112, %109
   br i1 %.not.not.i140.i, label %_ZNK4llvm7DIScope12getDirectoryEv.exit.i, label %_ZNK4llvm7DIScope7getFileEv.exit.thread.i141.i
 
 _ZNK4llvm7DIScope7getFileEv.exit.thread.i141.i:   ; preds = %_ZNK4llvm7DIScope7getFileEv.exit.i138.i, %_ZNK4llvm7DIScope11getFilenameEv.exit.i
-  %.sroa.0.1.i115.i = phi ptr [ %.sroa.0.1.i117.i, %_ZNK4llvm7DIScope7getFileEv.exit.i138.i ], [ %.sroa.0.1.i.i, %_ZNK4llvm7DIScope11getFilenameEv.exit.i ]
-  %.sroa.3.1.i112.i = phi i64 [ %.sroa.3.1.i114.i, %_ZNK4llvm7DIScope7getFileEv.exit.i138.i ], [ %.sroa.3.1.i.i, %_ZNK4llvm7DIScope11getFilenameEv.exit.i ]
+  %.sroa.0.1.i170.i = phi ptr [ %.sroa.0.1.i172.i, %_ZNK4llvm7DIScope7getFileEv.exit.i138.i ], [ %.sroa.0.1.i.i, %_ZNK4llvm7DIScope11getFilenameEv.exit.i ]
+  %.sroa.3.1.i167.i = phi i64 [ %.sroa.3.1.i169.i, %_ZNK4llvm7DIScope7getFileEv.exit.i138.i ], [ %.sroa.3.1.i.i, %_ZNK4llvm7DIScope11getFilenameEv.exit.i ]
   %119 = phi ptr [ %118, %_ZNK4llvm7DIScope7getFileEv.exit.i138.i ], [ %23, %_ZNK4llvm7DIScope11getFilenameEv.exit.i ]
   %120 = getelementptr inbounds i8, ptr %119, i64 -16
   %121 = load i64, ptr %120, align 8
@@ -348,11 +348,11 @@ _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i143.i: ; preds = %1
   br label %_ZNK4llvm7DIScope12getDirectoryEv.exit.i
 
 _ZNK4llvm7DIScope12getDirectoryEv.exit.i:         ; preds = %133, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i143.i, %_ZNK4llvm7DIScope7getFileEv.exit.i138.i
-  %.sroa.0.1.i116.i = phi ptr [ %.sroa.0.1.i115.i, %133 ], [ %.sroa.0.1.i115.i, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i143.i ], [ %.sroa.0.1.i117.i, %_ZNK4llvm7DIScope7getFileEv.exit.i138.i ]
-  %.sroa.3.1.i113.i = phi i64 [ %.sroa.3.1.i112.i, %133 ], [ %.sroa.3.1.i112.i, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i143.i ], [ %.sroa.3.1.i114.i, %_ZNK4llvm7DIScope7getFileEv.exit.i138.i ]
+  %.sroa.0.1.i171.i = phi ptr [ %.sroa.0.1.i170.i, %133 ], [ %.sroa.0.1.i170.i, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i143.i ], [ %.sroa.0.1.i172.i, %_ZNK4llvm7DIScope7getFileEv.exit.i138.i ]
+  %.sroa.3.1.i168.i = phi i64 [ %.sroa.3.1.i167.i, %133 ], [ %.sroa.3.1.i167.i, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i143.i ], [ %.sroa.3.1.i169.i, %_ZNK4llvm7DIScope7getFileEv.exit.i138.i ]
   %.sroa.3.1.i146.i = phi i64 [ %136, %133 ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i143.i ], [ 0, %_ZNK4llvm7DIScope7getFileEv.exit.i138.i ]
   %.sroa.0.1.i147.i = phi ptr [ %135, %133 ], [ null, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i143.i ], [ @.str.15, %_ZNK4llvm7DIScope7getFileEv.exit.i138.i ]
-  tail call fastcc void @_ZL9printFileRN4llvm11raw_ostreamENS_9StringRefES2_j(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %.sroa.0.1.i116.i, i64 %.sroa.3.1.i113.i, ptr %.sroa.0.1.i147.i, i64 %.sroa.3.1.i146.i, i32 noundef 0)
+  tail call fastcc void @_ZL9printFileRN4llvm11raw_ostreamENS_9StringRefES2_j(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %.sroa.0.1.i171.i, i64 %.sroa.3.1.i168.i, ptr %.sroa.0.1.i147.i, i64 %.sroa.3.1.i146.i, i32 noundef 0)
   %137 = load ptr, ptr %13, align 8, !tbaa !57
   %138 = load ptr, ptr %12, align 8, !tbaa !52
   %.not.i150.i = icmp ult ptr %137, %138
@@ -542,8 +542,8 @@ _ZNK4llvm7DIScope11getFilenameEv.exit177.i._ZNK4llvm7DIScope11getFilenameEv.exit
 
 _ZNK4llvm7DIScope11getFilenameEv.exit177.thread.i: ; preds = %_ZNK4llvm7DIScope11getFilenameEv.exit177.i._ZNK4llvm7DIScope11getFilenameEv.exit177.thread.i_crit_edge, %_ZNK4llvm7DIScope7getFileEv.exit.i165.i
   %228 = phi i64 [ %.pre3, %_ZNK4llvm7DIScope11getFilenameEv.exit177.i._ZNK4llvm7DIScope11getFilenameEv.exit177.thread.i_crit_edge ], [ %198, %_ZNK4llvm7DIScope7getFileEv.exit.i165.i ]
-  %.sroa.0.1.i174125.i = phi ptr [ %.sroa.0.1.i174.i, %_ZNK4llvm7DIScope11getFilenameEv.exit177.i._ZNK4llvm7DIScope11getFilenameEv.exit177.thread.i_crit_edge ], [ @.str.15, %_ZNK4llvm7DIScope7getFileEv.exit.i165.i ]
-  %.sroa.3.1.i173122.i = phi i64 [ %.sroa.3.1.i173.i, %_ZNK4llvm7DIScope11getFilenameEv.exit177.i._ZNK4llvm7DIScope11getFilenameEv.exit177.thread.i_crit_edge ], [ 0, %_ZNK4llvm7DIScope7getFileEv.exit.i165.i ]
+  %.sroa.0.1.i174180.i = phi ptr [ %.sroa.0.1.i174.i, %_ZNK4llvm7DIScope11getFilenameEv.exit177.i._ZNK4llvm7DIScope11getFilenameEv.exit177.thread.i_crit_edge ], [ @.str.15, %_ZNK4llvm7DIScope7getFileEv.exit.i165.i ]
+  %.sroa.3.1.i173177.i = phi i64 [ %.sroa.3.1.i173.i, %_ZNK4llvm7DIScope11getFilenameEv.exit177.i._ZNK4llvm7DIScope11getFilenameEv.exit177.thread.i_crit_edge ], [ 0, %_ZNK4llvm7DIScope7getFileEv.exit.i165.i ]
   %229 = and i64 %228, 2
   %.not.i.i.i.i.i178.i = icmp eq i64 %229, 0
   br i1 %.not.i.i.i.i.i178.i, label %233, label %230
@@ -567,8 +567,8 @@ _ZNK4llvm7DIScope7getFileEv.exit.i179.i:          ; preds = %233, %230
   br i1 %.not.not.i181.i, label %_ZNK4llvm7DIScope12getDirectoryEv.exit191.i, label %_ZNK4llvm7DIScope7getFileEv.exit.thread.i182.i
 
 _ZNK4llvm7DIScope7getFileEv.exit.thread.i182.i:   ; preds = %_ZNK4llvm7DIScope7getFileEv.exit.i179.i, %_ZNK4llvm7DIScope11getFilenameEv.exit177.i
-  %.sroa.0.1.i174123.i = phi ptr [ %.sroa.0.1.i174125.i, %_ZNK4llvm7DIScope7getFileEv.exit.i179.i ], [ %.sroa.0.1.i174.i, %_ZNK4llvm7DIScope11getFilenameEv.exit177.i ]
-  %.sroa.3.1.i173120.i = phi i64 [ %.sroa.3.1.i173122.i, %_ZNK4llvm7DIScope7getFileEv.exit.i179.i ], [ %.sroa.3.1.i173.i, %_ZNK4llvm7DIScope11getFilenameEv.exit177.i ]
+  %.sroa.0.1.i174178.i = phi ptr [ %.sroa.0.1.i174180.i, %_ZNK4llvm7DIScope7getFileEv.exit.i179.i ], [ %.sroa.0.1.i174.i, %_ZNK4llvm7DIScope11getFilenameEv.exit177.i ]
+  %.sroa.3.1.i173175.i = phi i64 [ %.sroa.3.1.i173177.i, %_ZNK4llvm7DIScope7getFileEv.exit.i179.i ], [ %.sroa.3.1.i173.i, %_ZNK4llvm7DIScope11getFilenameEv.exit177.i ]
   %239 = phi ptr [ %238, %_ZNK4llvm7DIScope7getFileEv.exit.i179.i ], [ %153, %_ZNK4llvm7DIScope11getFilenameEv.exit177.i ]
   %240 = getelementptr inbounds i8, ptr %239, i64 -16
   %241 = load i64, ptr %240, align 8
@@ -602,13 +602,13 @@ _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i184.i: ; preds = %2
   br label %_ZNK4llvm7DIScope12getDirectoryEv.exit191.i
 
 _ZNK4llvm7DIScope12getDirectoryEv.exit191.i:      ; preds = %253, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i184.i, %_ZNK4llvm7DIScope7getFileEv.exit.i179.i
-  %.sroa.0.1.i174124.i = phi ptr [ %.sroa.0.1.i174123.i, %253 ], [ %.sroa.0.1.i174123.i, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i184.i ], [ %.sroa.0.1.i174125.i, %_ZNK4llvm7DIScope7getFileEv.exit.i179.i ]
-  %.sroa.3.1.i173121.i = phi i64 [ %.sroa.3.1.i173120.i, %253 ], [ %.sroa.3.1.i173120.i, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i184.i ], [ %.sroa.3.1.i173122.i, %_ZNK4llvm7DIScope7getFileEv.exit.i179.i ]
+  %.sroa.0.1.i174179.i = phi ptr [ %.sroa.0.1.i174178.i, %253 ], [ %.sroa.0.1.i174178.i, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i184.i ], [ %.sroa.0.1.i174180.i, %_ZNK4llvm7DIScope7getFileEv.exit.i179.i ]
+  %.sroa.3.1.i173176.i = phi i64 [ %.sroa.3.1.i173175.i, %253 ], [ %.sroa.3.1.i173175.i, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i184.i ], [ %.sroa.3.1.i173177.i, %_ZNK4llvm7DIScope7getFileEv.exit.i179.i ]
   %.sroa.3.1.i187.i = phi i64 [ %256, %253 ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i184.i ], [ 0, %_ZNK4llvm7DIScope7getFileEv.exit.i179.i ]
   %.sroa.0.1.i188.i = phi ptr [ %255, %253 ], [ null, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i184.i ], [ @.str.15, %_ZNK4llvm7DIScope7getFileEv.exit.i179.i ]
   %257 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %258 = load i32, ptr %257, align 8, !tbaa !80
-  tail call fastcc void @_ZL9printFileRN4llvm11raw_ostreamENS_9StringRefES2_j(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %.sroa.0.1.i174124.i, i64 %.sroa.3.1.i173121.i, ptr %.sroa.0.1.i188.i, i64 %.sroa.3.1.i187.i, i32 noundef %258)
+  tail call fastcc void @_ZL9printFileRN4llvm11raw_ostreamENS_9StringRefES2_j(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %.sroa.0.1.i174179.i, i64 %.sroa.3.1.i173176.i, ptr %.sroa.0.1.i188.i, i64 %.sroa.3.1.i187.i, i32 noundef %258)
   %259 = load i64, ptr %165, align 8
   %260 = and i64 %259, 2
   %.not.i.i.i.i.i192.i = icmp eq i64 %260, 0
@@ -1344,8 +1344,8 @@ _ZNK4llvm7DIScope11getFilenameEv.exit328.i._ZNK4llvm7DIScope11getFilenameEv.exit
 
 _ZNK4llvm7DIScope11getFilenameEv.exit328.thread.i: ; preds = %_ZNK4llvm7DIScope11getFilenameEv.exit328.i._ZNK4llvm7DIScope11getFilenameEv.exit328.thread.i_crit_edge, %_ZNK4llvm7DIScope7getFileEv.exit.i316.i
   %633 = phi i64 [ %.pre4, %_ZNK4llvm7DIScope11getFilenameEv.exit328.i._ZNK4llvm7DIScope11getFilenameEv.exit328.thread.i_crit_edge ], [ %603, %_ZNK4llvm7DIScope7getFileEv.exit.i316.i ]
-  %.sroa.0.1.i325133.i = phi ptr [ %.sroa.0.1.i325.i, %_ZNK4llvm7DIScope11getFilenameEv.exit328.i._ZNK4llvm7DIScope11getFilenameEv.exit328.thread.i_crit_edge ], [ @.str.15, %_ZNK4llvm7DIScope7getFileEv.exit.i316.i ]
-  %.sroa.3.1.i324130.i = phi i64 [ %.sroa.3.1.i324.i, %_ZNK4llvm7DIScope11getFilenameEv.exit328.i._ZNK4llvm7DIScope11getFilenameEv.exit328.thread.i_crit_edge ], [ 0, %_ZNK4llvm7DIScope7getFileEv.exit.i316.i ]
+  %.sroa.0.1.i325188.i = phi ptr [ %.sroa.0.1.i325.i, %_ZNK4llvm7DIScope11getFilenameEv.exit328.i._ZNK4llvm7DIScope11getFilenameEv.exit328.thread.i_crit_edge ], [ @.str.15, %_ZNK4llvm7DIScope7getFileEv.exit.i316.i ]
+  %.sroa.3.1.i324185.i = phi i64 [ %.sroa.3.1.i324.i, %_ZNK4llvm7DIScope11getFilenameEv.exit328.i._ZNK4llvm7DIScope11getFilenameEv.exit328.thread.i_crit_edge ], [ 0, %_ZNK4llvm7DIScope7getFileEv.exit.i316.i ]
   %634 = and i64 %633, 2
   %.not.i.i.i.i.i329.i = icmp eq i64 %634, 0
   br i1 %.not.i.i.i.i.i329.i, label %638, label %635
@@ -1369,8 +1369,8 @@ _ZNK4llvm7DIScope7getFileEv.exit.i330.i:          ; preds = %638, %635
   br i1 %.not.not.i332.i, label %_ZNK4llvm7DIScope12getDirectoryEv.exit342.i, label %_ZNK4llvm7DIScope7getFileEv.exit.thread.i333.i
 
 _ZNK4llvm7DIScope7getFileEv.exit.thread.i333.i:   ; preds = %_ZNK4llvm7DIScope7getFileEv.exit.i330.i, %_ZNK4llvm7DIScope11getFilenameEv.exit328.i
-  %.sroa.0.1.i325131.i = phi ptr [ %.sroa.0.1.i325133.i, %_ZNK4llvm7DIScope7getFileEv.exit.i330.i ], [ %.sroa.0.1.i325.i, %_ZNK4llvm7DIScope11getFilenameEv.exit328.i ]
-  %.sroa.3.1.i324128.i = phi i64 [ %.sroa.3.1.i324130.i, %_ZNK4llvm7DIScope7getFileEv.exit.i330.i ], [ %.sroa.3.1.i324.i, %_ZNK4llvm7DIScope11getFilenameEv.exit328.i ]
+  %.sroa.0.1.i325186.i = phi ptr [ %.sroa.0.1.i325188.i, %_ZNK4llvm7DIScope7getFileEv.exit.i330.i ], [ %.sroa.0.1.i325.i, %_ZNK4llvm7DIScope11getFilenameEv.exit328.i ]
+  %.sroa.3.1.i324183.i = phi i64 [ %.sroa.3.1.i324185.i, %_ZNK4llvm7DIScope7getFileEv.exit.i330.i ], [ %.sroa.3.1.i324.i, %_ZNK4llvm7DIScope11getFilenameEv.exit328.i ]
   %644 = phi ptr [ %643, %_ZNK4llvm7DIScope7getFileEv.exit.i330.i ], [ %536, %_ZNK4llvm7DIScope11getFilenameEv.exit328.i ]
   %645 = getelementptr inbounds i8, ptr %644, i64 -16
   %646 = load i64, ptr %645, align 8
@@ -1404,13 +1404,13 @@ _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i335.i: ; preds = %6
   br label %_ZNK4llvm7DIScope12getDirectoryEv.exit342.i
 
 _ZNK4llvm7DIScope12getDirectoryEv.exit342.i:      ; preds = %658, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i335.i, %_ZNK4llvm7DIScope7getFileEv.exit.i330.i
-  %.sroa.0.1.i325132.i = phi ptr [ %.sroa.0.1.i325131.i, %658 ], [ %.sroa.0.1.i325131.i, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i335.i ], [ %.sroa.0.1.i325133.i, %_ZNK4llvm7DIScope7getFileEv.exit.i330.i ]
-  %.sroa.3.1.i324129.i = phi i64 [ %.sroa.3.1.i324128.i, %658 ], [ %.sroa.3.1.i324128.i, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i335.i ], [ %.sroa.3.1.i324130.i, %_ZNK4llvm7DIScope7getFileEv.exit.i330.i ]
+  %.sroa.0.1.i325187.i = phi ptr [ %.sroa.0.1.i325186.i, %658 ], [ %.sroa.0.1.i325186.i, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i335.i ], [ %.sroa.0.1.i325188.i, %_ZNK4llvm7DIScope7getFileEv.exit.i330.i ]
+  %.sroa.3.1.i324184.i = phi i64 [ %.sroa.3.1.i324183.i, %658 ], [ %.sroa.3.1.i324183.i, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i335.i ], [ %.sroa.3.1.i324185.i, %_ZNK4llvm7DIScope7getFileEv.exit.i330.i ]
   %.sroa.3.1.i338.i = phi i64 [ %661, %658 ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i335.i ], [ 0, %_ZNK4llvm7DIScope7getFileEv.exit.i330.i ]
   %.sroa.0.1.i339.i = phi ptr [ %660, %658 ], [ null, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i335.i ], [ @.str.15, %_ZNK4llvm7DIScope7getFileEv.exit.i330.i ]
   %662 = getelementptr inbounds nuw i8, ptr %536, i64 16
   %663 = load i32, ptr %662, align 8, !tbaa !91
-  tail call fastcc void @_ZL9printFileRN4llvm11raw_ostreamENS_9StringRefES2_j(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %.sroa.0.1.i325132.i, i64 %.sroa.3.1.i324129.i, ptr %.sroa.0.1.i339.i, i64 %.sroa.3.1.i338.i, i32 noundef %663)
+  tail call fastcc void @_ZL9printFileRN4llvm11raw_ostreamENS_9StringRefES2_j(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %.sroa.0.1.i325187.i, i64 %.sroa.3.1.i324184.i, ptr %.sroa.0.1.i339.i, i64 %.sroa.3.1.i338.i, i32 noundef %663)
   %664 = load i8, ptr %536, align 8, !tbaa !73
   %.not83.i = icmp eq i8 %664, 12
   br i1 %.not83.i, label %665, label %710

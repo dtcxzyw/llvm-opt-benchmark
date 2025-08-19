@@ -2214,26 +2214,26 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit: ; preds 
   store i32 %1125, ptr %1130, align 4, !tbaa !33
   %1131 = add nuw nsw i32 %.019.i3054, 1
   %exitcond3222.not = icmp eq i32 %1131, %.sroa.speculated
-  br i1 %exitcond3222.not, label %.critedge.i881.thread3286, label %1108, !llvm.loop !71
+  br i1 %exitcond3222.not, label %.critedge.i881.thread3553, label %1108, !llvm.loop !71
 
 .critedge.i881:                                   ; preds = %1114, %1115, %1109, %1119
   %.not2839 = icmp eq i32 %.019.i3054, 0
-  br i1 %.not2839, label %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit, label %.critedge.i881.thread3286
+  br i1 %.not2839, label %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit, label %.critedge.i881.thread3553
 
-.critedge.i881.thread3286:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit, %.critedge.i881
+.critedge.i881.thread3553:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit, %.critedge.i881
   %.sroa.speculated.pn = phi i32 [ %.019.i3054, %.critedge.i881 ], [ %.sroa.speculated, %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit ]
   %1132 = mul nuw nsw i32 %.sroa.speculated.pn, %1098
   %.not.i1092 = icmp sgt i32 %1132, %1095
   br i1 %.not.i1092, label %1136, label %1133
 
-1133:                                             ; preds = %.critedge.i881.thread3286
+1133:                                             ; preds = %.critedge.i881.thread3553
   %1134 = zext nneg i32 %1132 to i64
   %1135 = getelementptr inbounds nuw i8, ptr %1090, i64 %1134
   store ptr %1135, ptr %2, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.backedge
 
-1136:                                             ; preds = %.critedge.i881.thread3286
+1136:                                             ; preds = %.critedge.i881.thread3553
   %1137 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1132, i32 noundef %1095)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.backedge
@@ -2518,26 +2518,26 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i: ; pred
   store i64 %1276, ptr %1280, align 8, !tbaa !50
   %1281 = add nuw nsw i32 %.019.i8843041, 1
   %exitcond3221.not = icmp eq i32 %1281, %.sroa.speculated1509
-  br i1 %exitcond3221.not, label %.critedge.i885.thread3291, label %1258, !llvm.loop !72
+  br i1 %exitcond3221.not, label %.critedge.i885.thread3558, label %1258, !llvm.loop !72
 
 .critedge.i885:                                   ; preds = %1265, %1266, %1260, %1270
   %.not2838 = icmp eq i32 %.019.i8843041, 0
-  br i1 %.not2838, label %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit, label %.critedge.i885.thread3291
+  br i1 %.not2838, label %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit, label %.critedge.i885.thread3558
 
-.critedge.i885.thread3291:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i, %.critedge.i885
+.critedge.i885.thread3558:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i, %.critedge.i885
   %.sroa.speculated1509.pn = phi i32 [ %.019.i8843041, %.critedge.i885 ], [ %.sroa.speculated1509, %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i ]
   %1282 = mul nuw nsw i32 %.sroa.speculated1509.pn, %1248
   %.not.i1107 = icmp sgt i32 %1282, %1245
   br i1 %.not.i1107, label %1286, label %1283
 
-1283:                                             ; preds = %.critedge.i885.thread3291
+1283:                                             ; preds = %.critedge.i885.thread3558
   %1284 = zext nneg i32 %1282 to i64
   %1285 = getelementptr inbounds nuw i8, ptr %1240, i64 %1284
   store ptr %1285, ptr %2, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.backedge
 
-1286:                                             ; preds = %.critedge.i885.thread3291
+1286:                                             ; preds = %.critedge.i885.thread3558
   %1287 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1282, i32 noundef %1245)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.backedge
@@ -2817,25 +2817,25 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i890: ; p
   store i32 %1425, ptr %1430, align 4, !tbaa !33
   %1431 = add nuw nsw i32 %.019.i8883028, 1
   %exitcond3220.not = icmp eq i32 %1431, %.sroa.speculated1518
-  br i1 %exitcond3220.not, label %.critedge.i889.thread3296, label %1408, !llvm.loop !73
+  br i1 %exitcond3220.not, label %.critedge.i889.thread3563, label %1408, !llvm.loop !73
 
 .critedge.i889:                                   ; preds = %1414, %1415, %1409, %1419
   %.not2837 = icmp eq i32 %.019.i8883028, 0
-  br i1 %.not2837, label %.backedge, label %.critedge.i889.thread3296
+  br i1 %.not2837, label %.backedge, label %.critedge.i889.thread3563
 
-.critedge.i889.thread3296:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i890, %.critedge.i889
+.critedge.i889.thread3563:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i890, %.critedge.i889
   %.sroa.speculated1518.pn = phi i32 [ %.019.i8883028, %.critedge.i889 ], [ %.sroa.speculated1518, %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i890 ]
   %1432 = mul nuw nsw i32 %.sroa.speculated1518.pn, %1398
   %.not.i1124 = icmp sgt i32 %1432, %1395
   br i1 %.not.i1124, label %1436, label %1433
 
-1433:                                             ; preds = %.critedge.i889.thread3296
+1433:                                             ; preds = %.critedge.i889.thread3563
   %1434 = zext nneg i32 %1432 to i64
   %1435 = getelementptr inbounds nuw i8, ptr %1390, i64 %1434
   store ptr %1435, ptr %2, align 8, !tbaa !14
   br label %.backedge
 
-1436:                                             ; preds = %.critedge.i889.thread3296
+1436:                                             ; preds = %.critedge.i889.thread3563
   %1437 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1432, i32 noundef %1395)
   br label %.backedge
 
@@ -3110,25 +3110,25 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i898: ; p
   store i64 %1576, ptr %1580, align 8, !tbaa !50
   %1581 = add nuw nsw i32 %.019.i8963015, 1
   %exitcond3219.not = icmp eq i32 %1581, %.sroa.speculated1530
-  br i1 %exitcond3219.not, label %.critedge.i897.thread3301, label %1558, !llvm.loop !74
+  br i1 %exitcond3219.not, label %.critedge.i897.thread3568, label %1558, !llvm.loop !74
 
 .critedge.i897:                                   ; preds = %1565, %1566, %1560, %1570
   %.not2836 = icmp eq i32 %.019.i8963015, 0
-  br i1 %.not2836, label %.backedge, label %.critedge.i897.thread3301
+  br i1 %.not2836, label %.backedge, label %.critedge.i897.thread3568
 
-.critedge.i897.thread3301:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i898, %.critedge.i897
+.critedge.i897.thread3568:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i898, %.critedge.i897
   %.sroa.speculated1530.pn = phi i32 [ %.019.i8963015, %.critedge.i897 ], [ %.sroa.speculated1530, %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i898 ]
   %1582 = mul nuw nsw i32 %.sroa.speculated1530.pn, %1548
   %.not.i1141 = icmp sgt i32 %1582, %1545
   br i1 %.not.i1141, label %1586, label %1583
 
-1583:                                             ; preds = %.critedge.i897.thread3301
+1583:                                             ; preds = %.critedge.i897.thread3568
   %1584 = zext nneg i32 %1582 to i64
   %1585 = getelementptr inbounds nuw i8, ptr %1540, i64 %1584
   store ptr %1585, ptr %2, align 8, !tbaa !14
   br label %.backedge
 
-1586:                                             ; preds = %.critedge.i897.thread3301
+1586:                                             ; preds = %.critedge.i897.thread3568
   %1587 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1582, i32 noundef %1545)
   br label %.backedge
 
@@ -3403,25 +3403,25 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i906: ; p
   store float %1726, ptr %1730, align 4, !tbaa !75
   %1731 = add nuw nsw i32 %.019.i9043002, 1
   %exitcond3218.not = icmp eq i32 %1731, %.sroa.speculated1542
-  br i1 %exitcond3218.not, label %.critedge.i905.thread3306, label %1708, !llvm.loop !81
+  br i1 %exitcond3218.not, label %.critedge.i905.thread3573, label %1708, !llvm.loop !81
 
 .critedge.i905:                                   ; preds = %1715, %1716, %1710, %1720
   %.not2835 = icmp eq i32 %.019.i9043002, 0
-  br i1 %.not2835, label %.backedge, label %.critedge.i905.thread3306
+  br i1 %.not2835, label %.backedge, label %.critedge.i905.thread3573
 
-.critedge.i905.thread3306:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i906, %.critedge.i905
+.critedge.i905.thread3573:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i906, %.critedge.i905
   %.sroa.speculated1542.pn = phi i32 [ %.019.i9043002, %.critedge.i905 ], [ %.sroa.speculated1542, %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i906 ]
   %1732 = mul nuw nsw i32 %.sroa.speculated1542.pn, %1698
   %.not.i1157 = icmp sgt i32 %1732, %1695
   br i1 %.not.i1157, label %1736, label %1733
 
-1733:                                             ; preds = %.critedge.i905.thread3306
+1733:                                             ; preds = %.critedge.i905.thread3573
   %1734 = zext nneg i32 %1732 to i64
   %1735 = getelementptr inbounds nuw i8, ptr %1690, i64 %1734
   store ptr %1735, ptr %2, align 8, !tbaa !14
   br label %.backedge
 
-1736:                                             ; preds = %.critedge.i905.thread3306
+1736:                                             ; preds = %.critedge.i905.thread3573
   %1737 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1732, i32 noundef %1695)
   br label %.backedge
 
@@ -3696,25 +3696,25 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i914: ; p
   store double %1876, ptr %1880, align 8, !tbaa !82
   %1881 = add nuw nsw i32 %.019.i9122990, 1
   %exitcond3217.not = icmp eq i32 %1881, %.sroa.speculated1554
-  br i1 %exitcond3217.not, label %.critedge.i913.thread3311, label %1858, !llvm.loop !88
+  br i1 %exitcond3217.not, label %.critedge.i913.thread3578, label %1858, !llvm.loop !88
 
 .critedge.i913:                                   ; preds = %1865, %1866, %1860, %1870
   %.not = icmp eq i32 %.019.i9122990, 0
-  br i1 %.not, label %.backedge, label %.critedge.i913.thread3311
+  br i1 %.not, label %.backedge, label %.critedge.i913.thread3578
 
-.critedge.i913.thread3311:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i914, %.critedge.i913
+.critedge.i913.thread3578:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i914, %.critedge.i913
   %.sroa.speculated1554.pn = phi i32 [ %.019.i9122990, %.critedge.i913 ], [ %.sroa.speculated1554, %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i914 ]
   %1882 = mul nuw nsw i32 %.sroa.speculated1554.pn, %1848
   %.not.i1173 = icmp sgt i32 %1882, %1845
   br i1 %.not.i1173, label %1886, label %1883
 
-1883:                                             ; preds = %.critedge.i913.thread3311
+1883:                                             ; preds = %.critedge.i913.thread3578
   %1884 = zext nneg i32 %1882 to i64
   %1885 = getelementptr inbounds nuw i8, ptr %1840, i64 %1884
   store ptr %1885, ptr %2, align 8, !tbaa !14
   br label %.backedge
 
-1886:                                             ; preds = %.critedge.i913.thread3311
+1886:                                             ; preds = %.critedge.i913.thread3578
   %1887 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1882, i32 noundef %1845)
   br label %.backedge
 
@@ -9025,26 +9025,26 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit: ; preds 
   store i32 %1138, ptr %1143, align 4, !tbaa !33
   %1144 = add nuw nsw i32 %.019.i3062, 1
   %exitcond3230.not = icmp eq i32 %1144, %.sroa.speculated
-  br i1 %exitcond3230.not, label %.critedge.i881.thread3294, label %1121, !llvm.loop !71
+  br i1 %exitcond3230.not, label %.critedge.i881.thread3563, label %1121, !llvm.loop !71
 
 .critedge.i881:                                   ; preds = %1127, %1128, %1122, %1132
   %.not2847 = icmp eq i32 %.019.i3062, 0
-  br i1 %.not2847, label %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit, label %.critedge.i881.thread3294
+  br i1 %.not2847, label %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit, label %.critedge.i881.thread3563
 
-.critedge.i881.thread3294:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit, %.critedge.i881
+.critedge.i881.thread3563:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit, %.critedge.i881
   %.sroa.speculated.pn = phi i32 [ %.019.i3062, %.critedge.i881 ], [ %.sroa.speculated, %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit ]
   %1145 = mul nuw nsw i32 %.sroa.speculated.pn, %1111
   %.not.i1096 = icmp sgt i32 %1145, %1108
   br i1 %.not.i1096, label %1149, label %1146
 
-1146:                                             ; preds = %.critedge.i881.thread3294
+1146:                                             ; preds = %.critedge.i881.thread3563
   %1147 = zext nneg i32 %1145 to i64
   %1148 = getelementptr inbounds nuw i8, ptr %1103, i64 %1147
   store ptr %1148, ptr %2, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.backedge
 
-1149:                                             ; preds = %.critedge.i881.thread3294
+1149:                                             ; preds = %.critedge.i881.thread3563
   %1150 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1145, i32 noundef %1108)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.backedge
@@ -9329,26 +9329,26 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i: ; pred
   store i64 %1289, ptr %1293, align 8, !tbaa !50
   %1294 = add nuw nsw i32 %.019.i8843049, 1
   %exitcond3229.not = icmp eq i32 %1294, %.sroa.speculated1516
-  br i1 %exitcond3229.not, label %.critedge.i885.thread3299, label %1271, !llvm.loop !72
+  br i1 %exitcond3229.not, label %.critedge.i885.thread3568, label %1271, !llvm.loop !72
 
 .critedge.i885:                                   ; preds = %1278, %1279, %1273, %1283
   %.not2846 = icmp eq i32 %.019.i8843049, 0
-  br i1 %.not2846, label %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit, label %.critedge.i885.thread3299
+  br i1 %.not2846, label %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit, label %.critedge.i885.thread3568
 
-.critedge.i885.thread3299:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i, %.critedge.i885
+.critedge.i885.thread3568:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i, %.critedge.i885
   %.sroa.speculated1516.pn = phi i32 [ %.019.i8843049, %.critedge.i885 ], [ %.sroa.speculated1516, %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i ]
   %1295 = mul nuw nsw i32 %.sroa.speculated1516.pn, %1261
   %.not.i1111 = icmp sgt i32 %1295, %1258
   br i1 %.not.i1111, label %1299, label %1296
 
-1296:                                             ; preds = %.critedge.i885.thread3299
+1296:                                             ; preds = %.critedge.i885.thread3568
   %1297 = zext nneg i32 %1295 to i64
   %1298 = getelementptr inbounds nuw i8, ptr %1253, i64 %1297
   store ptr %1298, ptr %2, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.backedge
 
-1299:                                             ; preds = %.critedge.i885.thread3299
+1299:                                             ; preds = %.critedge.i885.thread3568
   %1300 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1295, i32 noundef %1258)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.backedge
@@ -9628,25 +9628,25 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i890: ; p
   store i32 %1438, ptr %1443, align 4, !tbaa !33
   %1444 = add nuw nsw i32 %.019.i8883036, 1
   %exitcond3228.not = icmp eq i32 %1444, %.sroa.speculated1525
-  br i1 %exitcond3228.not, label %.critedge.i889.thread3304, label %1421, !llvm.loop !73
+  br i1 %exitcond3228.not, label %.critedge.i889.thread3573, label %1421, !llvm.loop !73
 
 .critedge.i889:                                   ; preds = %1427, %1428, %1422, %1432
   %.not2845 = icmp eq i32 %.019.i8883036, 0
-  br i1 %.not2845, label %.backedge, label %.critedge.i889.thread3304
+  br i1 %.not2845, label %.backedge, label %.critedge.i889.thread3573
 
-.critedge.i889.thread3304:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i890, %.critedge.i889
+.critedge.i889.thread3573:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i890, %.critedge.i889
   %.sroa.speculated1525.pn = phi i32 [ %.019.i8883036, %.critedge.i889 ], [ %.sroa.speculated1525, %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i890 ]
   %1445 = mul nuw nsw i32 %.sroa.speculated1525.pn, %1411
   %.not.i1128 = icmp sgt i32 %1445, %1408
   br i1 %.not.i1128, label %1449, label %1446
 
-1446:                                             ; preds = %.critedge.i889.thread3304
+1446:                                             ; preds = %.critedge.i889.thread3573
   %1447 = zext nneg i32 %1445 to i64
   %1448 = getelementptr inbounds nuw i8, ptr %1403, i64 %1447
   store ptr %1448, ptr %2, align 8, !tbaa !14
   br label %.backedge
 
-1449:                                             ; preds = %.critedge.i889.thread3304
+1449:                                             ; preds = %.critedge.i889.thread3573
   %1450 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1445, i32 noundef %1408)
   br label %.backedge
 
@@ -9921,25 +9921,25 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i898: ; p
   store i64 %1589, ptr %1593, align 8, !tbaa !50
   %1594 = add nuw nsw i32 %.019.i8963023, 1
   %exitcond3227.not = icmp eq i32 %1594, %.sroa.speculated1537
-  br i1 %exitcond3227.not, label %.critedge.i897.thread3309, label %1571, !llvm.loop !74
+  br i1 %exitcond3227.not, label %.critedge.i897.thread3578, label %1571, !llvm.loop !74
 
 .critedge.i897:                                   ; preds = %1578, %1579, %1573, %1583
   %.not2844 = icmp eq i32 %.019.i8963023, 0
-  br i1 %.not2844, label %.backedge, label %.critedge.i897.thread3309
+  br i1 %.not2844, label %.backedge, label %.critedge.i897.thread3578
 
-.critedge.i897.thread3309:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i898, %.critedge.i897
+.critedge.i897.thread3578:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i898, %.critedge.i897
   %.sroa.speculated1537.pn = phi i32 [ %.019.i8963023, %.critedge.i897 ], [ %.sroa.speculated1537, %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i898 ]
   %1595 = mul nuw nsw i32 %.sroa.speculated1537.pn, %1561
   %.not.i1145 = icmp sgt i32 %1595, %1558
   br i1 %.not.i1145, label %1599, label %1596
 
-1596:                                             ; preds = %.critedge.i897.thread3309
+1596:                                             ; preds = %.critedge.i897.thread3578
   %1597 = zext nneg i32 %1595 to i64
   %1598 = getelementptr inbounds nuw i8, ptr %1553, i64 %1597
   store ptr %1598, ptr %2, align 8, !tbaa !14
   br label %.backedge
 
-1599:                                             ; preds = %.critedge.i897.thread3309
+1599:                                             ; preds = %.critedge.i897.thread3578
   %1600 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1595, i32 noundef %1558)
   br label %.backedge
 
@@ -10214,25 +10214,25 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i906: ; p
   store float %1739, ptr %1743, align 4, !tbaa !75
   %1744 = add nuw nsw i32 %.019.i9043010, 1
   %exitcond3226.not = icmp eq i32 %1744, %.sroa.speculated1549
-  br i1 %exitcond3226.not, label %.critedge.i905.thread3314, label %1721, !llvm.loop !81
+  br i1 %exitcond3226.not, label %.critedge.i905.thread3583, label %1721, !llvm.loop !81
 
 .critedge.i905:                                   ; preds = %1728, %1729, %1723, %1733
   %.not2843 = icmp eq i32 %.019.i9043010, 0
-  br i1 %.not2843, label %.backedge, label %.critedge.i905.thread3314
+  br i1 %.not2843, label %.backedge, label %.critedge.i905.thread3583
 
-.critedge.i905.thread3314:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i906, %.critedge.i905
+.critedge.i905.thread3583:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i906, %.critedge.i905
   %.sroa.speculated1549.pn = phi i32 [ %.019.i9043010, %.critedge.i905 ], [ %.sroa.speculated1549, %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i906 ]
   %1745 = mul nuw nsw i32 %.sroa.speculated1549.pn, %1711
   %.not.i1161 = icmp sgt i32 %1745, %1708
   br i1 %.not.i1161, label %1749, label %1746
 
-1746:                                             ; preds = %.critedge.i905.thread3314
+1746:                                             ; preds = %.critedge.i905.thread3583
   %1747 = zext nneg i32 %1745 to i64
   %1748 = getelementptr inbounds nuw i8, ptr %1703, i64 %1747
   store ptr %1748, ptr %2, align 8, !tbaa !14
   br label %.backedge
 
-1749:                                             ; preds = %.critedge.i905.thread3314
+1749:                                             ; preds = %.critedge.i905.thread3583
   %1750 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1745, i32 noundef %1708)
   br label %.backedge
 
@@ -10507,25 +10507,25 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i914: ; p
   store double %1889, ptr %1893, align 8, !tbaa !82
   %1894 = add nuw nsw i32 %.019.i9122998, 1
   %exitcond3225.not = icmp eq i32 %1894, %.sroa.speculated1561
-  br i1 %exitcond3225.not, label %.critedge.i913.thread3319, label %1871, !llvm.loop !88
+  br i1 %exitcond3225.not, label %.critedge.i913.thread3588, label %1871, !llvm.loop !88
 
 .critedge.i913:                                   ; preds = %1878, %1879, %1873, %1883
   %.not = icmp eq i32 %.019.i9122998, 0
-  br i1 %.not, label %.backedge, label %.critedge.i913.thread3319
+  br i1 %.not, label %.backedge, label %.critedge.i913.thread3588
 
-.critedge.i913.thread3319:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i914, %.critedge.i913
+.critedge.i913.thread3588:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i914, %.critedge.i913
   %.sroa.speculated1561.pn = phi i32 [ %.019.i9122998, %.critedge.i913 ], [ %.sroa.speculated1561, %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i914 ]
   %1895 = mul nuw nsw i32 %.sroa.speculated1561.pn, %1861
   %.not.i1177 = icmp sgt i32 %1895, %1858
   br i1 %.not.i1177, label %1899, label %1896
 
-1896:                                             ; preds = %.critedge.i913.thread3319
+1896:                                             ; preds = %.critedge.i913.thread3588
   %1897 = zext nneg i32 %1895 to i64
   %1898 = getelementptr inbounds nuw i8, ptr %1853, i64 %1897
   store ptr %1898, ptr %2, align 8, !tbaa !14
   br label %.backedge
 
-1899:                                             ; preds = %.critedge.i913.thread3319
+1899:                                             ; preds = %.critedge.i913.thread3588
   %1900 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1895, i32 noundef %1858)
   br label %.backedge
 
@@ -15836,26 +15836,26 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit: ; preds 
   store i32 %1138, ptr %1143, align 4, !tbaa !33
   %1144 = add nuw nsw i32 %.019.i3062, 1
   %exitcond3230.not = icmp eq i32 %1144, %.sroa.speculated
-  br i1 %exitcond3230.not, label %.critedge.i881.thread3294, label %1121, !llvm.loop !71
+  br i1 %exitcond3230.not, label %.critedge.i881.thread3563, label %1121, !llvm.loop !71
 
 .critedge.i881:                                   ; preds = %1127, %1128, %1122, %1132
   %.not2847 = icmp eq i32 %.019.i3062, 0
-  br i1 %.not2847, label %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit, label %.critedge.i881.thread3294
+  br i1 %.not2847, label %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveIjLNS2_9FieldTypeE7EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit, label %.critedge.i881.thread3563
 
-.critedge.i881.thread3294:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit, %.critedge.i881
+.critedge.i881.thread3563:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit, %.critedge.i881
   %.sroa.speculated.pn = phi i32 [ %.019.i3062, %.critedge.i881 ], [ %.sroa.speculated, %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit ]
   %1145 = mul nuw nsw i32 %.sroa.speculated.pn, %1111
   %.not.i1096 = icmp sgt i32 %1145, %1108
   br i1 %.not.i1096, label %1149, label %1146
 
-1146:                                             ; preds = %.critedge.i881.thread3294
+1146:                                             ; preds = %.critedge.i881.thread3563
   %1147 = zext nneg i32 %1145 to i64
   %1148 = getelementptr inbounds nuw i8, ptr %1103, i64 %1147
   store ptr %1148, ptr %2, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.backedge
 
-1149:                                             ; preds = %.critedge.i881.thread3294
+1149:                                             ; preds = %.critedge.i881.thread3563
   %1150 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1145, i32 noundef %1108)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.backedge
@@ -16140,26 +16140,26 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i: ; pred
   store i64 %1289, ptr %1293, align 8, !tbaa !50
   %1294 = add nuw nsw i32 %.019.i8843049, 1
   %exitcond3229.not = icmp eq i32 %1294, %.sroa.speculated1516
-  br i1 %exitcond3229.not, label %.critedge.i885.thread3299, label %1271, !llvm.loop !72
+  br i1 %exitcond3229.not, label %.critedge.i885.thread3568, label %1271, !llvm.loop !72
 
 .critedge.i885:                                   ; preds = %1278, %1279, %1273, %1283
   %.not2846 = icmp eq i32 %.019.i8843049, 0
-  br i1 %.not2846, label %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit, label %.critedge.i885.thread3299
+  br i1 %.not2846, label %_ZN6google8protobuf8internal14WireFormatLite30ReadRepeatedFixedSizePrimitiveImLNS2_9FieldTypeE6EEEbijPNS0_2io16CodedInputStreamEPNS0_13RepeatedFieldIT_EE.exit, label %.critedge.i885.thread3568
 
-.critedge.i885.thread3299:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i, %.critedge.i885
+.critedge.i885.thread3568:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i, %.critedge.i885
   %.sroa.speculated1516.pn = phi i32 [ %.019.i8843049, %.critedge.i885 ], [ %.sroa.speculated1516, %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i ]
   %1295 = mul nuw nsw i32 %.sroa.speculated1516.pn, %1261
   %.not.i1111 = icmp sgt i32 %1295, %1258
   br i1 %.not.i1111, label %1299, label %1296
 
-1296:                                             ; preds = %.critedge.i885.thread3299
+1296:                                             ; preds = %.critedge.i885.thread3568
   %1297 = zext nneg i32 %1295 to i64
   %1298 = getelementptr inbounds nuw i8, ptr %1253, i64 %1297
   store ptr %1298, ptr %2, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.backedge
 
-1299:                                             ; preds = %.critedge.i885.thread3299
+1299:                                             ; preds = %.critedge.i885.thread3568
   %1300 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1295, i32 noundef %1258)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.backedge
@@ -16439,25 +16439,25 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i890: ; p
   store i32 %1438, ptr %1443, align 4, !tbaa !33
   %1444 = add nuw nsw i32 %.019.i8883036, 1
   %exitcond3228.not = icmp eq i32 %1444, %.sroa.speculated1525
-  br i1 %exitcond3228.not, label %.critedge.i889.thread3304, label %1421, !llvm.loop !73
+  br i1 %exitcond3228.not, label %.critedge.i889.thread3573, label %1421, !llvm.loop !73
 
 .critedge.i889:                                   ; preds = %1427, %1428, %1422, %1432
   %.not2845 = icmp eq i32 %.019.i8883036, 0
-  br i1 %.not2845, label %.backedge, label %.critedge.i889.thread3304
+  br i1 %.not2845, label %.backedge, label %.critedge.i889.thread3573
 
-.critedge.i889.thread3304:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i890, %.critedge.i889
+.critedge.i889.thread3573:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i890, %.critedge.i889
   %.sroa.speculated1525.pn = phi i32 [ %.019.i8883036, %.critedge.i889 ], [ %.sroa.speculated1525, %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i890 ]
   %1445 = mul nuw nsw i32 %.sroa.speculated1525.pn, %1411
   %.not.i1128 = icmp sgt i32 %1445, %1408
   br i1 %.not.i1128, label %1449, label %1446
 
-1446:                                             ; preds = %.critedge.i889.thread3304
+1446:                                             ; preds = %.critedge.i889.thread3573
   %1447 = zext nneg i32 %1445 to i64
   %1448 = getelementptr inbounds nuw i8, ptr %1403, i64 %1447
   store ptr %1448, ptr %2, align 8, !tbaa !14
   br label %.backedge
 
-1449:                                             ; preds = %.critedge.i889.thread3304
+1449:                                             ; preds = %.critedge.i889.thread3573
   %1450 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1445, i32 noundef %1408)
   br label %.backedge
 
@@ -16732,25 +16732,25 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i898: ; p
   store i64 %1589, ptr %1593, align 8, !tbaa !50
   %1594 = add nuw nsw i32 %.019.i8963023, 1
   %exitcond3227.not = icmp eq i32 %1594, %.sroa.speculated1537
-  br i1 %exitcond3227.not, label %.critedge.i897.thread3309, label %1571, !llvm.loop !74
+  br i1 %exitcond3227.not, label %.critedge.i897.thread3578, label %1571, !llvm.loop !74
 
 .critedge.i897:                                   ; preds = %1578, %1579, %1573, %1583
   %.not2844 = icmp eq i32 %.019.i8963023, 0
-  br i1 %.not2844, label %.backedge, label %.critedge.i897.thread3309
+  br i1 %.not2844, label %.backedge, label %.critedge.i897.thread3578
 
-.critedge.i897.thread3309:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i898, %.critedge.i897
+.critedge.i897.thread3578:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i898, %.critedge.i897
   %.sroa.speculated1537.pn = phi i32 [ %.019.i8963023, %.critedge.i897 ], [ %.sroa.speculated1537, %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i898 ]
   %1595 = mul nuw nsw i32 %.sroa.speculated1537.pn, %1561
   %.not.i1145 = icmp sgt i32 %1595, %1558
   br i1 %.not.i1145, label %1599, label %1596
 
-1596:                                             ; preds = %.critedge.i897.thread3309
+1596:                                             ; preds = %.critedge.i897.thread3578
   %1597 = zext nneg i32 %1595 to i64
   %1598 = getelementptr inbounds nuw i8, ptr %1553, i64 %1597
   store ptr %1598, ptr %2, align 8, !tbaa !14
   br label %.backedge
 
-1599:                                             ; preds = %.critedge.i897.thread3309
+1599:                                             ; preds = %.critedge.i897.thread3578
   %1600 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1595, i32 noundef %1558)
   br label %.backedge
 
@@ -17025,25 +17025,25 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i906: ; p
   store float %1739, ptr %1743, align 4, !tbaa !75
   %1744 = add nuw nsw i32 %.019.i9043010, 1
   %exitcond3226.not = icmp eq i32 %1744, %.sroa.speculated1549
-  br i1 %exitcond3226.not, label %.critedge.i905.thread3314, label %1721, !llvm.loop !81
+  br i1 %exitcond3226.not, label %.critedge.i905.thread3583, label %1721, !llvm.loop !81
 
 .critedge.i905:                                   ; preds = %1728, %1729, %1723, %1733
   %.not2843 = icmp eq i32 %.019.i9043010, 0
-  br i1 %.not2843, label %.backedge, label %.critedge.i905.thread3314
+  br i1 %.not2843, label %.backedge, label %.critedge.i905.thread3583
 
-.critedge.i905.thread3314:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i906, %.critedge.i905
+.critedge.i905.thread3583:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i906, %.critedge.i905
   %.sroa.speculated1549.pn = phi i32 [ %.019.i9043010, %.critedge.i905 ], [ %.sroa.speculated1549, %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i906 ]
   %1745 = mul nuw nsw i32 %.sroa.speculated1549.pn, %1711
   %.not.i1161 = icmp sgt i32 %1745, %1708
   br i1 %.not.i1161, label %1749, label %1746
 
-1746:                                             ; preds = %.critedge.i905.thread3314
+1746:                                             ; preds = %.critedge.i905.thread3583
   %1747 = zext nneg i32 %1745 to i64
   %1748 = getelementptr inbounds nuw i8, ptr %1703, i64 %1747
   store ptr %1748, ptr %2, align 8, !tbaa !14
   br label %.backedge
 
-1749:                                             ; preds = %.critedge.i905.thread3314
+1749:                                             ; preds = %.critedge.i905.thread3583
   %1750 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1745, i32 noundef %1708)
   br label %.backedge
 
@@ -17318,25 +17318,25 @@ _ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i914: ; p
   store double %1889, ptr %1893, align 8, !tbaa !82
   %1894 = add nuw nsw i32 %.019.i9122998, 1
   %exitcond3225.not = icmp eq i32 %1894, %.sroa.speculated1561
-  br i1 %exitcond3225.not, label %.critedge.i913.thread3319, label %1871, !llvm.loop !88
+  br i1 %exitcond3225.not, label %.critedge.i913.thread3588, label %1871, !llvm.loop !88
 
 .critedge.i913:                                   ; preds = %1878, %1879, %1873, %1883
   %.not = icmp eq i32 %.019.i9122998, 0
-  br i1 %.not, label %.backedge, label %.critedge.i913.thread3319
+  br i1 %.not, label %.backedge, label %.critedge.i913.thread3588
 
-.critedge.i913.thread3319:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i914, %.critedge.i913
+.critedge.i913.thread3588:                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i914, %.critedge.i913
   %.sroa.speculated1561.pn = phi i32 [ %.019.i9122998, %.critedge.i913 ], [ %.sroa.speculated1561, %_ZN6google8protobuf2io16CodedInputStream18ExpectTagFromArrayEPKhj.exit.i914 ]
   %1895 = mul nuw nsw i32 %.sroa.speculated1561.pn, %1861
   %.not.i1177 = icmp sgt i32 %1895, %1858
   br i1 %.not.i1177, label %1899, label %1896
 
-1896:                                             ; preds = %.critedge.i913.thread3319
+1896:                                             ; preds = %.critedge.i913.thread3588
   %1897 = zext nneg i32 %1895 to i64
   %1898 = getelementptr inbounds nuw i8, ptr %1853, i64 %1897
   store ptr %1898, ptr %2, align 8, !tbaa !14
   br label %.backedge
 
-1899:                                             ; preds = %.critedge.i913.thread3319
+1899:                                             ; preds = %.critedge.i913.thread3588
   %1900 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1895, i32 noundef %1858)
   br label %.backedge
 

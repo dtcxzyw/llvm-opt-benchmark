@@ -1376,13 +1376,13 @@ _ZNSt6vectorIN8QuantLib4DateESaIS1_EE6resizeEm.exit: ; preds = %if.then.i._ZNSt6
   br i1 %cmp85179.not, label %if.end.thread, label %for.body
 
 if.end.thread:                                    ; preds = %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE6resizeEm.exit
-  %_M_finish.i.i103184 = getelementptr inbounds nuw i8, ptr %this, i64 240
-  %73 = load ptr, ptr %_M_finish.i.i103184, align 8, !tbaa !107
+  %_M_finish.i.i103204 = getelementptr inbounds nuw i8, ptr %this, i64 240
+  %73 = load ptr, ptr %_M_finish.i.i103204, align 8, !tbaa !107
   %74 = load ptr, ptr %dt_, align 8, !tbaa !108
-  %sub.ptr.lhs.cast.i.i104185 = ptrtoint ptr %73 to i64
-  %sub.ptr.rhs.cast.i.i105186 = ptrtoint ptr %74 to i64
-  %sub.ptr.sub.i.i106187 = sub i64 %sub.ptr.lhs.cast.i.i104185, %sub.ptr.rhs.cast.i.i105186
-  %sub.ptr.div.i.i107188 = ashr exact i64 %sub.ptr.sub.i.i106187, 3
+  %sub.ptr.lhs.cast.i.i104205 = ptrtoint ptr %73 to i64
+  %sub.ptr.rhs.cast.i.i105206 = ptrtoint ptr %74 to i64
+  %sub.ptr.sub.i.i106207 = sub i64 %sub.ptr.lhs.cast.i.i104205, %sub.ptr.rhs.cast.i.i105206
+  %sub.ptr.div.i.i107208 = ashr exact i64 %sub.ptr.sub.i.i106207, 3
   br label %if.else.i109
 
 for.body:                                         ; preds = %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE6resizeEm.exit, %invoke.cont90
@@ -1424,12 +1424,12 @@ if.then.i115:                                     ; preds = %if.end
           to label %invoke.cont99 unwind label %lpad51
 
 if.else.i109:                                     ; preds = %if.end.thread, %if.end
-  %sub.ptr.div.i.i107191 = phi i64 [ %sub.ptr.div.i.i107188, %if.end.thread ], [ %sub.ptr.div.i.i107, %if.end ]
+  %sub.ptr.div.i.i107211 = phi i64 [ %sub.ptr.div.i.i107208, %if.end.thread ], [ %sub.ptr.div.i.i107, %if.end ]
   %82 = phi ptr [ %74, %if.end.thread ], [ %81, %if.end ]
   %83 = phi ptr [ %73, %if.end.thread ], [ %80, %if.end ]
-  %_M_finish.i.i103190 = phi ptr [ %_M_finish.i.i103184, %if.end.thread ], [ %_M_finish.i.i103, %if.end ]
+  %_M_finish.i.i103210 = phi ptr [ %_M_finish.i.i103204, %if.end.thread ], [ %_M_finish.i.i103, %if.end ]
   %84 = phi i64 [ 0, %if.end.thread ], [ %79, %if.end ]
-  %cmp4.i110 = icmp ult i64 %84, %sub.ptr.div.i.i107191
+  %cmp4.i110 = icmp ult i64 %84, %sub.ptr.div.i.i107211
   br i1 %cmp4.i110, label %if.then5.i111, label %invoke.cont99
 
 if.then5.i111:                                    ; preds = %if.else.i109
@@ -1438,7 +1438,7 @@ if.then5.i111:                                    ; preds = %if.else.i109
   br i1 %tobool.not.i.i113, label %invoke.cont99, label %invoke.cont.i.i114
 
 invoke.cont.i.i114:                               ; preds = %if.then5.i111
-  store ptr %add.ptr.i112, ptr %_M_finish.i.i103190, align 8, !tbaa !107
+  store ptr %add.ptr.i112, ptr %_M_finish.i.i103210, align 8, !tbaa !107
   br label %invoke.cont99
 
 invoke.cont99:                                    ; preds = %invoke.cont.i.i114, %if.then5.i111, %if.else.i109, %if.then.i115
@@ -3064,13 +3064,13 @@ _ZNSt6vectorIN8QuantLib4DateESaIS1_EE6resizeEm.exit: ; preds = %if.then.i._ZNSt6
   br i1 %cmp80183.not, label %if.end.thread, label %for.body
 
 if.end.thread:                                    ; preds = %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE6resizeEm.exit
-  %_M_finish.i.i107188 = getelementptr inbounds nuw i8, ptr %this, i64 240
-  %69 = load ptr, ptr %_M_finish.i.i107188, align 8, !tbaa !107
+  %_M_finish.i.i107208 = getelementptr inbounds nuw i8, ptr %this, i64 240
+  %69 = load ptr, ptr %_M_finish.i.i107208, align 8, !tbaa !107
   %70 = load ptr, ptr %dt_, align 8, !tbaa !108
-  %sub.ptr.lhs.cast.i.i108189 = ptrtoint ptr %69 to i64
-  %sub.ptr.rhs.cast.i.i109190 = ptrtoint ptr %70 to i64
-  %sub.ptr.sub.i.i110191 = sub i64 %sub.ptr.lhs.cast.i.i108189, %sub.ptr.rhs.cast.i.i109190
-  %sub.ptr.div.i.i111192 = ashr exact i64 %sub.ptr.sub.i.i110191, 3
+  %sub.ptr.lhs.cast.i.i108209 = ptrtoint ptr %69 to i64
+  %sub.ptr.rhs.cast.i.i109210 = ptrtoint ptr %70 to i64
+  %sub.ptr.sub.i.i110211 = sub i64 %sub.ptr.lhs.cast.i.i108209, %sub.ptr.rhs.cast.i.i109210
+  %sub.ptr.div.i.i111212 = ashr exact i64 %sub.ptr.sub.i.i110211, 3
   br label %if.else.i113
 
 for.body:                                         ; preds = %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE6resizeEm.exit, %invoke.cont85
@@ -3112,12 +3112,12 @@ if.then.i119:                                     ; preds = %if.end
           to label %invoke.cont94 unwind label %lpad46
 
 if.else.i113:                                     ; preds = %if.end.thread, %if.end
-  %sub.ptr.div.i.i111195 = phi i64 [ %sub.ptr.div.i.i111192, %if.end.thread ], [ %sub.ptr.div.i.i111, %if.end ]
+  %sub.ptr.div.i.i111215 = phi i64 [ %sub.ptr.div.i.i111212, %if.end.thread ], [ %sub.ptr.div.i.i111, %if.end ]
   %78 = phi ptr [ %70, %if.end.thread ], [ %77, %if.end ]
   %79 = phi ptr [ %69, %if.end.thread ], [ %76, %if.end ]
-  %_M_finish.i.i107194 = phi ptr [ %_M_finish.i.i107188, %if.end.thread ], [ %_M_finish.i.i107, %if.end ]
+  %_M_finish.i.i107214 = phi ptr [ %_M_finish.i.i107208, %if.end.thread ], [ %_M_finish.i.i107, %if.end ]
   %80 = phi i64 [ 0, %if.end.thread ], [ %75, %if.end ]
-  %cmp4.i114 = icmp ult i64 %80, %sub.ptr.div.i.i111195
+  %cmp4.i114 = icmp ult i64 %80, %sub.ptr.div.i.i111215
   br i1 %cmp4.i114, label %if.then5.i115, label %invoke.cont94
 
 if.then5.i115:                                    ; preds = %if.else.i113
@@ -3126,7 +3126,7 @@ if.then5.i115:                                    ; preds = %if.else.i113
   br i1 %tobool.not.i.i117, label %invoke.cont94, label %invoke.cont.i.i118
 
 invoke.cont.i.i118:                               ; preds = %if.then5.i115
-  store ptr %add.ptr.i116, ptr %_M_finish.i.i107194, align 8, !tbaa !107
+  store ptr %add.ptr.i116, ptr %_M_finish.i.i107214, align 8, !tbaa !107
   br label %invoke.cont94
 
 invoke.cont94:                                    ; preds = %invoke.cont.i.i118, %if.then5.i115, %if.else.i113, %if.then.i119
@@ -10721,7 +10721,7 @@ for.body.i.i.i:                                   ; preds = %if.then, %for.inc.i
           to label %for.inc.i.i.i unwind label %invoke.cont2.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
-  %dec.i.i.i = add i64 %__n.addr.08.i.i.i, -1
+  %dec.i.i.i = add nsw i64 %__n.addr.08.i.i.i, -1
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN8QuantLib4DateEmS1_ET_S3_T0_RSaIT1_E.exit, label %for.body.i.i.i, !llvm.loop !226
@@ -10782,7 +10782,7 @@ for.body.i.i.i21:                                 ; preds = %_ZNKSt6vectorIN8Qua
           to label %for.inc.i.i.i29 unwind label %invoke.cont2.i.i.i24
 
 for.inc.i.i.i29:                                  ; preds = %for.body.i.i.i21
-  %dec.i.i.i30 = add i64 %__n.addr.08.i.i.i23, -1
+  %dec.i.i.i30 = add nsw i64 %__n.addr.08.i.i.i23, -1
   %incdec.ptr.i.i.i31 = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i22, i64 8
   %cmp.not.i.i.i32 = icmp eq i64 %dec.i.i.i30, 0
   br i1 %cmp.not.i.i.i32, label %try.cont, label %for.body.i.i.i21, !llvm.loop !226
@@ -10903,13 +10903,13 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store double 0.000000e+00, ptr %0, align 8, !tbaa !116
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 8
-  %sub.i.i.i = add i64 %__n, -1
+  %sub.i.i.i = add nsw i64 %__n, -1
   %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %3 = shl i64 %__n, 3
-  %4 = add i64 %3, -8
+  %3 = shl nuw nsw i64 %__n, 3
+  %4 = add nsw i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !116
   %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 3
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i

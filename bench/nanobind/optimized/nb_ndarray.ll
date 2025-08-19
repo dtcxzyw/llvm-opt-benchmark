@@ -1207,8 +1207,8 @@ _ZNK8nanobind6dlpack5dtypeeqERKS1_.exit:          ; preds = %333, %324, %_ZNK8na
   %or.cond220 = or i1 %.not208, %.not207
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond492.not = select i1 %or.cond220, i1 %exitcond.not, i1 false
-  br i1 %or.cond492.not, label %381, label %.loopexit432, !llvm.loop !17
+  %or.cond528.not = select i1 %or.cond220, i1 %exitcond.not, i1 false
+  br i1 %or.cond528.not, label %381, label %.loopexit432, !llvm.loop !17
 
 .loopexit432:                                     ; preds = %381, %.preheader431, %351, %367, %361
   %.0178415 = phi i1 [ %.0178414, %367 ], [ true, %361 ], [ %360, %351 ], [ %.0178414, %.preheader431 ], [ %.0178414, %381 ]
@@ -1933,8 +1933,8 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit: ; preds = %.noexc336
   %635 = load i64, ptr %634, align 8
   %636 = mul nsw i64 %635, %.0460
   %637 = add nsw i64 %.0168459, -1
-  %.not488 = icmp eq i64 %.0168459, 0
-  br i1 %.not488, label %._crit_edge462, label %631, !llvm.loop !46
+  %.not524 = icmp eq i64 %.0168459, 0
+  br i1 %.not524, label %._crit_edge462, label %631, !llvm.loop !46
 
 _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit: ; preds = %._crit_edge462, %616
   %638 = load ptr, ptr %7, align 8
@@ -2546,7 +2546,7 @@ _ZN8nanobind18gil_scoped_acquireD2Ev.exit:        ; preds = %49, %2, %1
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS_6dlpack5dtypeEbiic(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 %5, i1 noundef zeroext %6, i32 noundef %7, i32 noundef %8, i8 noundef signext %9) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN8nanobind6detail14ndarray_createEPvmPKmP7_objectPKlNS_6dlpack5dtypeEbiic(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 %5, i1 noundef zeroext %6, i32 noundef %7, i32 noundef %8, i8 noundef signext %9) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %11 = tail call ptr @PyMem_Malloc(i64 noundef 64)
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %12, label %_ZN8nanobind6detail15scoped_pymallocINS0_16managed_dltensorEEC2Em.exit
@@ -3736,11 +3736,11 @@ define internal noundef range(i32 -1, 1) i32 @_ZN8nanobind6detailL19nd_ndarray_t
   %23 = add nsw i32 %22, -8
   %24 = tail call i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 29)
   %25 = icmp ult i32 %24, 8
-  %switch.maskindex76 = trunc i32 %24 to i8
-  %switch.shifted77 = lshr i8 -117, %switch.maskindex76
-  %switch.lobit78 = trunc i8 %switch.shifted77 to i1
-  %or.cond81 = select i1 %25, i1 %switch.lobit78, i1 false
-  br i1 %or.cond81, label %switch.lookup75, label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit55.sink.split
+  %switch.maskindex77 = trunc i32 %24 to i8
+  %switch.shifted78 = lshr i8 -117, %switch.maskindex77
+  %switch.lobit79 = trunc i8 %switch.shifted78 to i1
+  %or.cond82 = select i1 %25, i1 %switch.lobit79, i1 false
+  br i1 %or.cond82, label %switch.lookup76, label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit55.sink.split
 
 26:                                               ; preds = %9
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 21
@@ -3774,14 +3774,14 @@ switch.lookup:                                    ; preds = %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %37
 
-switch.lookup75:                                  ; preds = %19
+switch.lookup76:                                  ; preds = %19
   %36 = zext nneg i32 %24 to i64
-  %switch.gep79 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi.8, i64 0, i64 %36
-  %switch.load80 = load ptr, ptr %switch.gep79, align 8
+  %switch.gep80 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi.8, i64 0, i64 %36
+  %switch.load81 = load ptr, ptr %switch.gep80, align 8
   br label %37
 
-37:                                               ; preds = %switch.lookup75, %switch.lookup, %9, %31, %26, %30, %29, %34
-  %.050 = phi ptr [ @.str.49, %29 ], [ @.str.50, %30 ], [ @.str.52, %34 ], [ @.str.48, %26 ], [ @.str.51, %31 ], [ @.str.53, %9 ], [ %switch.load, %switch.lookup ], [ %switch.load80, %switch.lookup75 ]
+37:                                               ; preds = %switch.lookup76, %switch.lookup, %9, %31, %26, %30, %29, %34
+  %.050 = phi ptr [ @.str.49, %29 ], [ @.str.50, %30 ], [ @.str.52, %34 ], [ @.str.48, %26 ], [ @.str.51, %31 ], [ @.str.53, %9 ], [ %switch.load, %switch.lookup ], [ %switch.load81, %switch.lookup76 ]
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 22
   %39 = load i16, ptr %38, align 2
   %.not52 = icmp eq i16 %39, 1

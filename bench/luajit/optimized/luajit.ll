@@ -181,9 +181,9 @@ define internal noundef i32 @pmain(ptr noundef %0) #0 {
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %16 = load i8, ptr %15, align 1, !tbaa !9
   %.not35.i = icmp eq i8 %16, 0
-  br i1 %.not35.i, label %.thread118, label %collectargs.exit.thread
+  br i1 %.not35.i, label %.thread128, label %collectargs.exit.thread
 
-.thread118:                                       ; preds = %14
+.thread128:                                       ; preds = %14
   %17 = or i32 %.0, 1
   br label %.sink.split.i
 
@@ -221,10 +221,10 @@ define internal noundef i32 @pmain(ptr noundef %0) #0 {
   %35 = add nsw i32 %.045.i, 1
   br label %collectargs.exit
 
-.sink.split.i:                                    ; preds = %.thread118, %18, %7
-  %.1 = phi i32 [ %.0, %18 ], [ %.0, %7 ], [ %17, %.thread118 ]
-  %.sink70.i = phi i32 [ 2, %18 ], [ 16, %7 ], [ 2, %.thread118 ]
-  %36 = or i32 %.sink70.i, %.1
+.sink.split.i:                                    ; preds = %.thread128, %18, %7
+  %.1 = phi i32 [ %.0, %18 ], [ %.0, %7 ], [ %17, %.thread128 ]
+  %.sink71.i = phi i32 [ 2, %18 ], [ 16, %7 ], [ 2, %.thread128 ]
+  %36 = or i32 %.sink71.i, %.1
   br label %37
 
 37:                                               ; preds = %.sink.split.i, %27, %22, %7
@@ -1253,9 +1253,9 @@ define internal fastcc i32 @runcmdopt(ptr noundef %0, ptr noundef %1) unnamed_ad
   br i1 %18, label %19, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.lcssa41 = phi i32 [ %17, %._crit_edge ], [ 1, %.preheader ]
-  %.020.lcssa40 = phi ptr [ %15, %._crit_edge ], [ %1, %.preheader ]
-  tail call void @lua_pushstring(ptr noundef %0, ptr noundef nonnull %.020.lcssa40) #9
+  %.lcssa45 = phi i32 [ %17, %._crit_edge ], [ 1, %.preheader ]
+  %.020.lcssa44 = phi ptr [ %15, %._crit_edge ], [ %1, %.preheader ]
+  tail call void @lua_pushstring(ptr noundef %0, ptr noundef nonnull %.020.lcssa44) #9
   br label %20
 
 19:                                               ; preds = %._crit_edge
@@ -1263,7 +1263,7 @@ define internal fastcc i32 @runcmdopt(ptr noundef %0, ptr noundef %1) unnamed_ad
   br label %20
 
 20:                                               ; preds = %._crit_edge.thread, %19, %3, %2
-  %.021 = phi i32 [ %.lcssa41, %._crit_edge.thread ], [ %17, %19 ], [ 0, %3 ], [ 0, %2 ]
+  %.021 = phi i32 [ %.lcssa45, %._crit_edge.thread ], [ %17, %19 ], [ 0, %3 ], [ 0, %2 ]
   %21 = tail call i32 @lua_pcall(ptr noundef %0, i32 noundef %.021, i32 noundef 0, i32 noundef 0) #9
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %report.exit, label %22

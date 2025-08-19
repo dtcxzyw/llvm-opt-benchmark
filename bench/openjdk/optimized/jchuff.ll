@@ -1327,8 +1327,8 @@ emit_restart.exit:                                ; preds = %110, %105, %17, %2
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %152, %._crit_edge.i, %126
-  %.057.lcssa103.i = phi i32 [ %149, %152 ], [ %149, %._crit_edge.i ], [ 0, %126 ]
-  %159 = zext nneg i32 %.057.lcssa103.i to i64
+  %.057.lcssa104.i = phi i32 [ %149, %152 ], [ %149, %._crit_edge.i ], [ 0, %126 ]
+  %159 = zext nneg i32 %.057.lcssa104.i to i64
   %160 = getelementptr inbounds nuw [256 x i32], ptr %140, i64 0, i64 %159
   %161 = load i32, ptr %160, align 4
   %162 = getelementptr inbounds nuw i8, ptr %140, i64 1024
@@ -1440,14 +1440,14 @@ dump_buffer.exit35.i110:                          ; preds = %210
   %225 = phi i32 [ %178, %175 ], [ %222, %220 ]
   store i32 %224, ptr %12, align 8
   store i32 %225, ptr %125, align 4
-  %.not70.i = icmp eq i32 %.057.lcssa103.i, 0
+  %.not70.i = icmp eq i32 %.057.lcssa104.i, 0
   br i1 %.not70.i, label %274, label %226
 
 226:                                              ; preds = %.loopexit136
-  %notmask.i88 = shl nsw i32 -1, %.057.lcssa103.i
+  %notmask.i88 = shl nsw i32 -1, %.057.lcssa104.i
   %227 = xor i32 %notmask.i88, -1
   %228 = and i32 %.059.i, %227
-  %229 = add nsw i32 %225, %.057.lcssa103.i
+  %229 = add nsw i32 %225, %.057.lcssa104.i
   %230 = sub nsw i32 24, %229
   %231 = shl i32 %228, %230
   %232 = or i32 %231, %224
@@ -1544,8 +1544,8 @@ emit_bits.exit100:                                ; preds = %270, %226
 
 .backedge.i.outer:                                ; preds = %.thread.i, %274
   %.ph = phi i32 [ %.031.lcssa.i51, %.thread.i ], [ %275, %274 ]
-  %.ph250 = phi i32 [ %.030.lcssa.i52, %.thread.i ], [ %276, %274 ]
-  %indvars.iv.i41.ph = phi i64 [ %indvars.iv.next107.i, %.thread.i ], [ 1, %274 ]
+  %.ph265 = phi i32 [ %.030.lcssa.i52, %.thread.i ], [ %276, %274 ]
+  %indvars.iv.i41.ph = phi i64 [ %indvars.iv.next108.i, %.thread.i ], [ 1, %274 ]
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.outer, %475
@@ -1566,7 +1566,7 @@ emit_bits.exit100:                                ; preds = %270, %226
 
 .lr.ph86.i:                                       ; preds = %.preheader.i, %.loopexit
   %288 = phi i32 [ %.031.lcssa.i77, %.loopexit ], [ %.ph, %.preheader.i ]
-  %289 = phi i32 [ %.030.lcssa.i78, %.loopexit ], [ %.ph250, %.preheader.i ]
+  %289 = phi i32 [ %.030.lcssa.i78, %.loopexit ], [ %.ph265, %.preheader.i ]
   %.185.i = phi i32 [ %349, %.loopexit ], [ %.05597.i, %.preheader.i ]
   %290 = load i32, ptr %277, align 4
   %291 = load i8, ptr %278, align 4
@@ -1680,7 +1680,7 @@ dump_buffer.exit35.i84:                           ; preds = %335
 
 ._crit_edge87.i:                                  ; preds = %.loopexit, %.preheader.i
   %351 = phi i32 [ %.ph, %.preheader.i ], [ %.031.lcssa.i77, %.loopexit ]
-  %352 = phi i32 [ %.ph250, %.preheader.i ], [ %.030.lcssa.i78, %.loopexit ]
+  %352 = phi i32 [ %.ph265, %.preheader.i ], [ %.030.lcssa.i78, %.loopexit ]
   %.1.lcssa.i = phi i32 [ %.05597.i, %.preheader.i ], [ %349, %.loopexit ]
   %.263.i = tail call i32 @llvm.abs.i32(i32 %286, i1 true)
   %.lobit77.i = ashr i16 %284, 15
@@ -1707,9 +1707,9 @@ dump_buffer.exit35.i84:                           ; preds = %335
   br label %._crit_edge94.thread.i
 
 ._crit_edge94.thread.i:                           ; preds = %357, %._crit_edge94.i, %._crit_edge87.i
-  %.158.lcssa105.i = phi i32 [ %355, %357 ], [ %355, %._crit_edge94.i ], [ 1, %._crit_edge87.i ]
+  %.158.lcssa106.i = phi i32 [ %355, %357 ], [ %355, %._crit_edge94.i ], [ 1, %._crit_edge87.i ]
   %364 = shl i32 %.1.lcssa.i, 4
-  %365 = add nsw i32 %.158.lcssa105.i, %364
+  %365 = add nsw i32 %.158.lcssa106.i, %364
   %366 = sext i32 %365 to i64
   %367 = getelementptr inbounds [256 x i32], ptr %145, i64 0, i64 %366
   %368 = load i32, ptr %367, align 4
@@ -1819,10 +1819,10 @@ dump_buffer.exit35.i71:                           ; preds = %414
   %.030.lcssa.i65 = phi i32 [ %383, %380 ], [ %426, %424 ]
   store i32 %.031.lcssa.i64, ptr %12, align 8
   store i32 %.030.lcssa.i65, ptr %125, align 4
-  %notmask.i49 = shl nsw i32 -1, %.158.lcssa105.i
+  %notmask.i49 = shl nsw i32 -1, %.158.lcssa106.i
   %428 = xor i32 %notmask.i49, -1
   %429 = and i32 %.160.i, %428
-  %430 = add nsw i32 %.030.lcssa.i65, %.158.lcssa105.i
+  %430 = add nsw i32 %.030.lcssa.i65, %.158.lcssa106.i
   %431 = sub nsw i32 24, %430
   %432 = shl i32 %429, %431
   %433 = or i32 %.031.lcssa.i64, %432
@@ -1913,9 +1913,9 @@ dump_buffer.exit35.i58:                           ; preds = %461
   %.030.lcssa.i52 = phi i32 [ %430, %.loopexit132 ], [ %473, %471 ]
   store i32 %.031.lcssa.i51, ptr %12, align 8
   store i32 %.030.lcssa.i52, ptr %125, align 4
-  %indvars.iv.next107.i = add nuw nsw i64 %indvars.iv.i41, 1
-  %exitcond.not108.i = icmp eq i64 %indvars.iv.next107.i, 64
-  br i1 %exitcond.not108.i, label %encode_one_block.exit, label %.backedge.i.outer, !llvm.loop !34
+  %indvars.iv.next108.i = add nuw nsw i64 %indvars.iv.i41, 1
+  %exitcond.not109.i = icmp eq i64 %indvars.iv.next108.i, 64
+  br i1 %exitcond.not109.i, label %encode_one_block.exit, label %.backedge.i.outer, !llvm.loop !34
 
 477:                                              ; preds = %475
   %478 = load i32, ptr %145, align 4
@@ -1939,7 +1939,7 @@ dump_buffer.exit35.i58:                           ; preds = %461
   %notmask.i = shl nsw i32 -1, %480
   %490 = xor i32 %notmask.i, -1
   %491 = and i32 %478, %490
-  %492 = add nsw i32 %.ph250, %480
+  %492 = add nsw i32 %.ph265, %480
   %493 = sub nsw i32 24, %492
   %494 = shl i32 %491, %493
   %495 = or i32 %.ph, %494

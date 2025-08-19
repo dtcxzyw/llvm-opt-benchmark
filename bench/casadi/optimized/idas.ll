@@ -911,10 +911,10 @@ IDACheckNvector.exit.thread:                      ; preds = %19, %23, %27, %31, 
   br i1 %exitcond.not.i, label %115, label %102, !llvm.loop !97
 
 .loopexit.sink.split.sink.split:                  ; preds = %78, %86, %92
-  %.sink78.in = phi ptr [ %80, %92 ], [ %76, %86 ], [ %72, %78 ]
+  %.sink82.in = phi ptr [ %80, %92 ], [ %76, %86 ], [ %72, %78 ]
   %.sink.in.ph = phi ptr [ %84, %92 ], [ %80, %86 ], [ %76, %78 ]
-  %.sink78 = load ptr, ptr %.sink78.in, align 8, !tbaa !57
-  call void @N_VDestroy(ptr noundef %.sink78) #13
+  %.sink82 = load ptr, ptr %.sink82.in, align 8, !tbaa !57
+  call void @N_VDestroy(ptr noundef %.sink82) #13
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %74
@@ -1416,10 +1416,10 @@ define range(i32 -21, 1) i32 @IDAQuadInit(ptr noundef captures(address_is_null) 
   br i1 %.not.not.i, label %33, label %.loopexit27, !llvm.loop !129
 
 .loopexit.sink.split.sink.split:                  ; preds = %20, %31
-  %.sink38.in = phi ptr [ %18, %31 ], [ %14, %20 ]
+  %.sink39.in = phi ptr [ %18, %31 ], [ %14, %20 ]
   %.sink.in.ph = phi ptr [ %22, %31 ], [ %18, %20 ]
-  %.sink38 = load ptr, ptr %.sink38.in, align 8, !tbaa !57
-  call void @N_VDestroy(ptr noundef %.sink38) #13
+  %.sink39 = load ptr, ptr %.sink39.in, align 8, !tbaa !57
+  call void @N_VDestroy(ptr noundef %.sink39) #13
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %16
@@ -2617,18 +2617,18 @@ define range(i32 -40, 1) i32 @IDAQuadSensInit(ptr noundef %0, ptr noundef %1, pt
   br i1 %exitcond.not.i, label %77, label %56, !llvm.loop !177
 
 .loopexit.sink.split.sink.split:                  ; preds = %25, %35
-  %.sink49.in = phi ptr [ %23, %35 ], [ %18, %25 ]
-  %.sink46.in.ph = phi ptr [ %28, %35 ], [ %23, %25 ]
-  %.sink49 = load ptr, ptr %.sink49.in, align 8, !tbaa !150
+  %.sink51.in = phi ptr [ %23, %35 ], [ %18, %25 ]
+  %.sink48.in.ph = phi ptr [ %28, %35 ], [ %23, %25 ]
+  %.sink51 = load ptr, ptr %.sink51.in, align 8, !tbaa !150
   %75 = load i32, ptr %15, align 4, !tbaa !139
-  tail call void @N_VDestroyVectorArray(ptr noundef %.sink49, i32 noundef %75) #13
+  tail call void @N_VDestroyVectorArray(ptr noundef %.sink51, i32 noundef %75) #13
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %20
-  %.sink46.in = phi ptr [ %18, %20 ], [ %.sink46.in.ph, %.loopexit.sink.split.sink.split ]
-  %.sink46 = load ptr, ptr %.sink46.in, align 8, !tbaa !150
+  %.sink48.in = phi ptr [ %18, %20 ], [ %.sink48.in.ph, %.loopexit.sink.split.sink.split ]
+  %.sink48 = load ptr, ptr %.sink48.in, align 8, !tbaa !150
   %76 = load i32, ptr %15, align 4, !tbaa !139
-  tail call void @N_VDestroyVectorArray(ptr noundef %.sink46, i32 noundef %76) #13
+  tail call void @N_VDestroyVectorArray(ptr noundef %.sink48, i32 noundef %76) #13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i, %.loopexit.sink.split, %13, %61
@@ -8098,9 +8098,9 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %52 = load i32, ptr %51, align 8, !tbaa !108
   %53 = icmp sgt i32 %52, 0
-  br i1 %53, label %.lr.ph.i, label %._crit_edge.thread.thread122
+  br i1 %53, label %.lr.ph.i, label %._crit_edge.thread.thread132
 
-._crit_edge.thread.thread122:                     ; preds = %39
+._crit_edge.thread.thread132:                     ; preds = %39
   %54 = load double, ptr %20, align 8, !tbaa !290
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 1736
   store double %54, ptr %55, align 8, !tbaa !291
@@ -8115,7 +8115,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.thread.i, %.lr.ph.i
-  %indvars.iv.ph.i = phi i64 [ %indvars.iv.next362.i, %.thread.i ], [ 0, %.lr.ph.i ]
+  %indvars.iv.ph.i = phi i64 [ %indvars.iv.next366.i, %.thread.i ], [ 0, %.lr.ph.i ]
   %60 = phi i1 [ false, %.thread.i ], [ true, %.lr.ph.i ]
   %.0211264.ph.i = phi i32 [ %.0211264.i, %.thread.i ], [ 0, %.lr.ph.i ]
   %.0217263.ph.i = phi i32 [ %107, %.thread.i ], [ 0, %.lr.ph.i ]
@@ -8191,18 +8191,18 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
 
 .thread.i:                                        ; preds = %98
   %107 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %indvars.iv.next362.i = add nuw nsw i64 %indvars.iv.i, 1
+  %indvars.iv.next366.i = add nuw nsw i64 %indvars.iv.i, 1
   %108 = load i32, ptr %51, align 8, !tbaa !108
   %109 = sext i32 %108 to i64
-  %110 = icmp slt i64 %indvars.iv.next362.i, %109
+  %110 = icmp slt i64 %indvars.iv.next366.i, %109
   br i1 %110, label %.outer.i, label %.preheader248.i, !llvm.loop !292
 
 ._crit_edge.i:                                    ; preds = %103
-  %.not147 = icmp eq i32 %.1212.i, 0
+  %.not157 = icmp eq i32 %.1212.i, 0
   br i1 %60, label %119, label %.preheader248.i
 
 .preheader248.i:                                  ; preds = %.thread.i, %._crit_edge.i
-  %.1218363370.i = phi i32 [ %.0217263.ph.i, %._crit_edge.i ], [ %107, %.thread.i ]
+  %.1218367374.i = phi i32 [ %.0217263.ph.i, %._crit_edge.i ], [ %107, %.thread.i ]
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   %112 = load double, ptr %20, align 8, !tbaa !290
   %113 = load double, ptr %111, align 8, !tbaa !217
@@ -8241,7 +8241,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   br i1 %exitcond344.not.i, label %._crit_edge308.i, label %126, !llvm.loop !293
 
 ._crit_edge308.i:                                 ; preds = %126
-  br i1 %.not147, label %.lr.ph, label %.lr.ph310.i
+  br i1 %.not157, label %.lr.ph, label %.lr.ph310.i
 
 .lr.ph310.i:                                      ; preds = %._crit_edge308.i
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 1704
@@ -8297,7 +8297,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   %.0215292.i = phi i32 [ -1, %.lr.ph293.i ], [ %.0216291.i, %.backedge.i ]
   %.0216291.i = phi i32 [ 0, %.lr.ph293.i ], [ %.0216.be.i, %.backedge.i ]
   %.v290.i = phi double [ 5.000000e-01, %.lr.ph293.i ], [ %.v.be.i, %.backedge.i ]
-  %.2219289.i = phi i32 [ %.1218363370.i, %.lr.ph293.i ], [ %.3220.lcssa379.i, %.backedge.i ]
+  %.2219289.i = phi i32 [ %.1218367374.i, %.lr.ph293.i ], [ %.3220.lcssa383.i, %.backedge.i ]
   %.0233288.i = phi double [ 1.000000e+00, %.lr.ph293.i ], [ %.1234.i, %.backedge.i ]
   %163 = icmp eq i32 %.0215292.i, %.0216291.i
   %164 = fmul double %.v290.i, %.0233288.i
@@ -8386,18 +8386,18 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
 .preheader247.i:                                  ; preds = %218
   %230 = load i32, ptr %51, align 8, !tbaa !108
   %231 = icmp sgt i32 %230, 0
-  br i1 %231, label %.lr.ph274.outer.i, label %.thread403.i
+  br i1 %231, label %.lr.ph274.outer.i, label %.thread407.i
 
-.thread403.i:                                     ; preds = %.preheader247.i
+.thread407.i:                                     ; preds = %.preheader247.i
   store double %.1232.i, ptr %111, align 8, !tbaa !217
   br label %._crit_edge287.i
 
-.lr.ph274.outer.i:                                ; preds = %.preheader247.i, %.thread383.i
-  %indvars.iv320.ph.i = phi i64 [ %indvars.iv.next321388.i, %.thread383.i ], [ 0, %.preheader247.i ]
-  %232 = phi i1 [ false, %.thread383.i ], [ true, %.preheader247.i ]
-  %.2213272.ph.i = phi i32 [ %.2213272.i, %.thread383.i ], [ 0, %.preheader247.i ]
-  %.3220271.ph.i = phi i32 [ %278, %.thread383.i ], [ %.2219289.i, %.preheader247.i ]
-  %.2229269.ph.i = phi double [ %272, %.thread383.i ], [ 0.000000e+00, %.preheader247.i ]
+.lr.ph274.outer.i:                                ; preds = %.preheader247.i, %.thread387.i
+  %indvars.iv320.ph.i = phi i64 [ %indvars.iv.next321392.i, %.thread387.i ], [ 0, %.preheader247.i ]
+  %232 = phi i1 [ false, %.thread387.i ], [ true, %.preheader247.i ]
+  %.2213272.ph.i = phi i32 [ %.2213272.i, %.thread387.i ], [ 0, %.preheader247.i ]
+  %.3220271.ph.i = phi i32 [ %278, %.thread387.i ], [ %.2219289.i, %.preheader247.i ]
+  %.2229269.ph.i = phi double [ %272, %.thread387.i ], [ 0.000000e+00, %.preheader247.i ]
   br label %.lr.ph274.i
 
 .lr.ph274.i:                                      ; preds = %274, %.lr.ph274.outer.i
@@ -8457,7 +8457,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   %271 = fdiv double %259, %270
   %272 = tail call double @SUNRabs(double noundef %271) #13
   %273 = fcmp ogt double %272, %.2229269.ph.i
-  br i1 %273, label %.thread383.i, label %274
+  br i1 %273, label %.thread387.i, label %274
 
 274:                                              ; preds = %269, %262, %253, %252, %242, %.lr.ph274.i
   %.3214.i = phi i32 [ 1, %252 ], [ %.2213272.i, %242 ], [ %.2213272.i, %269 ], [ %.2213272.i, %262 ], [ %.2213272.i, %253 ], [ %.2213272.i, %.lr.ph274.i ]
@@ -8467,25 +8467,25 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   %277 = icmp slt i64 %indvars.iv.next321.i, %276
   br i1 %277, label %.lr.ph274.i, label %._crit_edge275.i, !llvm.loop !295
 
-.thread383.i:                                     ; preds = %269
+.thread387.i:                                     ; preds = %269
   %278 = trunc nuw nsw i64 %indvars.iv320.i to i32
-  %indvars.iv.next321388.i = add nuw nsw i64 %indvars.iv320.i, 1
+  %indvars.iv.next321392.i = add nuw nsw i64 %indvars.iv320.i, 1
   %279 = load i32, ptr %51, align 8, !tbaa !108
   %280 = sext i32 %279 to i64
-  %281 = icmp slt i64 %indvars.iv.next321388.i, %280
-  br i1 %281, label %.lr.ph274.outer.i, label %._crit_edge275.thread392.i, !llvm.loop !295
+  %281 = icmp slt i64 %indvars.iv.next321392.i, %280
+  br i1 %281, label %.lr.ph274.outer.i, label %._crit_edge275.thread396.i, !llvm.loop !295
 
 ._crit_edge275.i:                                 ; preds = %274
-  br i1 %232, label %302, label %._crit_edge275.thread392.i
+  br i1 %232, label %302, label %._crit_edge275.thread396.i
 
-._crit_edge275.thread392.i:                       ; preds = %.thread383.i, %._crit_edge275.i
-  %.4389396.i = phi i32 [ %.3220271.ph.i, %._crit_edge275.i ], [ %278, %.thread383.i ]
-  %282 = phi i32 [ %275, %._crit_edge275.i ], [ %279, %.thread383.i ]
+._crit_edge275.thread396.i:                       ; preds = %.thread387.i, %._crit_edge275.i
+  %.4393400.i = phi i32 [ %.3220271.ph.i, %._crit_edge275.i ], [ %278, %.thread387.i ]
+  %282 = phi i32 [ %275, %._crit_edge275.i ], [ %279, %.thread387.i ]
   store double %.1232.i, ptr %20, align 8, !tbaa !290
   %283 = icmp sgt i32 %282, 0
   br i1 %283, label %.lr.ph282.i, label %._crit_edge283.i
 
-.lr.ph282.i:                                      ; preds = %._crit_edge275.thread392.i
+.lr.ph282.i:                                      ; preds = %._crit_edge275.thread396.i
   %284 = load ptr, ptr %118, align 8, !tbaa !194
   %285 = load ptr, ptr %31, align 8, !tbaa !193
   %wide.trip.count.i = zext nneg i32 %282 to i64
@@ -8505,8 +8505,8 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   %.pre348.i = load double, ptr %20, align 8, !tbaa !290
   br label %._crit_edge283.i
 
-._crit_edge283.i:                                 ; preds = %._crit_edge283.loopexit.i, %._crit_edge275.thread392.i
-  %290 = phi double [ %.pre348.i, %._crit_edge283.loopexit.i ], [ %.1232.i, %._crit_edge275.thread392.i ]
+._crit_edge283.i:                                 ; preds = %._crit_edge283.loopexit.i, %._crit_edge275.thread396.i
+  %290 = phi double [ %.pre348.i, %._crit_edge283.loopexit.i ], [ %.1232.i, %._crit_edge275.thread396.i ]
   %291 = load double, ptr %111, align 8, !tbaa !217
   %292 = fsub double %290, %291
   %293 = tail call double @SUNRabs(double noundef %292) #13
@@ -8515,7 +8515,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   br i1 %295, label %.backedge.i, label %.loopexit246.i
 
 .backedge.i:                                      ; preds = %._crit_edge287.i, %._crit_edge283.i
-  %.3220.lcssa379.i = phi i32 [ %.4389396.i, %._crit_edge283.i ], [ %.3220.lcssa380402406.i, %._crit_edge287.i ]
+  %.3220.lcssa383.i = phi i32 [ %.4393400.i, %._crit_edge283.i ], [ %.3220.lcssa384406410.i, %._crit_edge287.i ]
   %.v.be.i = phi double [ 5.000000e-01, %._crit_edge283.i ], [ 2.000000e+00, %._crit_edge287.i ]
   %.0216.be.i = phi i32 [ 1, %._crit_edge283.i ], [ 2, %._crit_edge287.i ]
   %296 = load double, ptr %20, align 8, !tbaa !290
@@ -8575,9 +8575,9 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   %.pre349.i = load double, ptr %111, align 8, !tbaa !217
   br label %._crit_edge287.i
 
-._crit_edge287.i:                                 ; preds = %._crit_edge287.loopexit.i, %312, %.thread403.i
-  %.3220.lcssa380402406.i = phi i32 [ %.3220271.ph.i, %._crit_edge287.loopexit.i ], [ %.3220271.ph.i, %312 ], [ %.2219289.i, %.thread403.i ]
-  %319 = phi double [ %.pre349.i, %._crit_edge287.loopexit.i ], [ %.1232.i, %312 ], [ %.1232.i, %.thread403.i ]
+._crit_edge287.i:                                 ; preds = %._crit_edge287.loopexit.i, %312, %.thread407.i
+  %.3220.lcssa384406410.i = phi i32 [ %.3220271.ph.i, %._crit_edge287.loopexit.i ], [ %.3220271.ph.i, %312 ], [ %.2219289.i, %.thread407.i ]
+  %319 = phi double [ %.pre349.i, %._crit_edge287.loopexit.i ], [ %.1232.i, %312 ], [ %.1232.i, %.thread407.i ]
   %320 = load double, ptr %20, align 8, !tbaa !290
   %321 = fsub double %320, %319
   %322 = tail call double @SUNRabs(double noundef %321) #13
@@ -8686,7 +8686,7 @@ IDARootfind.exit:                                 ; preds = %378, %158
   br i1 %384, label %.lr.ph, label %._crit_edge.thread.thread
 
 .lr.ph:                                           ; preds = %._crit_edge308.i, %IDARootfind.exit
-  %.0221.i.shrunk117 = phi i1 [ true, %IDARootfind.exit ], [ false, %._crit_edge308.i ]
+  %.0221.i.shrunk127 = phi i1 [ true, %IDARootfind.exit ], [ false, %._crit_edge308.i ]
   %385 = phi i32 [ %383, %IDARootfind.exit ], [ %104, %._crit_edge308.i ]
   %386 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   %387 = load ptr, ptr %386, align 8, !tbaa !197
@@ -8732,7 +8732,7 @@ IDARootfind.exit:                                 ; preds = %378, %158
   %407 = load double, ptr %406, align 8, !tbaa !291
   %408 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   store double %407, ptr %408, align 8, !tbaa !217
-  br i1 %.not147, label %IDARootfind.exit.thread, label %421
+  br i1 %.not157, label %IDARootfind.exit.thread, label %421
 
 ._crit_edge:                                      ; preds = %399
   %409 = getelementptr inbounds nuw i8, ptr %0, i64 1736
@@ -8761,7 +8761,7 @@ IDARootfind.exit:                                 ; preds = %378, %158
   br i1 %exitcond.not, label %._crit_edge83, label %417, !llvm.loop !301
 
 ._crit_edge83:                                    ; preds = %417, %._crit_edge
-  br i1 %.0221.i.shrunk117, label %421, label %IDARootfind.exit.thread
+  br i1 %.0221.i.shrunk127, label %421, label %IDARootfind.exit.thread
 
 421:                                              ; preds = %._crit_edge.thread.thread, %._crit_edge.thread, %._crit_edge83
   %422 = phi ptr [ %406, %._crit_edge.thread ], [ %409, %._crit_edge83 ], [ %403, %._crit_edge.thread.thread ]
@@ -8771,8 +8771,8 @@ IDARootfind.exit:                                 ; preds = %378, %158
   %426 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %423, ptr noundef %424, ptr noundef %425)
   br label %IDARootfind.exit.thread
 
-IDARootfind.exit.thread:                          ; preds = %218, %._crit_edge.thread.thread122, %._crit_edge.thread, %._crit_edge83, %18, %421
-  %.0 = phi i32 [ 1, %421 ], [ -10, %18 ], [ 0, %._crit_edge83 ], [ 0, %._crit_edge.thread ], [ 0, %._crit_edge.thread.thread122 ], [ -10, %218 ]
+IDARootfind.exit.thread:                          ; preds = %218, %._crit_edge.thread.thread132, %._crit_edge.thread, %._crit_edge83, %18, %421
+  %.0 = phi i32 [ 1, %421 ], [ -10, %18 ], [ 0, %._crit_edge83 ], [ 0, %._crit_edge.thread ], [ 0, %._crit_edge.thread.thread132 ], [ -10, %218 ]
   ret i32 %.0
 }
 
@@ -9534,7 +9534,7 @@ define range(i32 -27, 1) i32 @IDAGetDky(ptr noundef readonly captures(address_is
   %47 = add nuw i32 %2, 1
   %wide.trip.count = zext i32 %47 to i64
   %.not8691 = icmp slt i32 %45, 1
-  %scevgep118 = getelementptr i8, ptr %5, i64 -8
+  %scevgep120 = getelementptr i8, ptr %5, i64 -8
   br label %48
 
 .loopexit88:                                      ; preds = %74, %.lr.ph96.preheader
@@ -9545,9 +9545,9 @@ define range(i32 -27, 1) i32 @IDAGetDky(ptr noundef readonly captures(address_is
 48:                                               ; preds = %.lr.ph99, %.loopexit88
   %indvars.iv109 = phi i64 [ 1, %.lr.ph99 ], [ %indvars.iv.next110, %.loopexit88 ]
   %indvar = phi i64 [ 0, %.lr.ph99 ], [ %indvar.next, %.loopexit88 ]
-  %sext120 = shl i64 %indvars.iv109, 32
-  %49 = ashr exact i64 %sext120, 29
-  %scevgep119 = getelementptr i8, ptr %scevgep118, i64 %49
+  %sext122 = shl i64 %indvars.iv109, 32
+  %49 = ashr exact i64 %sext122, 29
+  %scevgep121 = getelementptr i8, ptr %scevgep120, i64 %49
   %indvars114 = trunc i64 %indvars.iv109 to i32
   %50 = shl nuw nsw i64 %indvar, 3
   %51 = add nuw nsw i64 %50, 8
@@ -9594,7 +9594,7 @@ define range(i32 -27, 1) i32 @IDAGetDky(ptr noundef readonly captures(address_is
 .lr.ph:                                           ; preds = %74
   %76 = trunc nuw nsw i64 %indvar to i32
   %77 = uitofp nneg i32 %76 to double
-  %load_initial = load double, ptr %scevgep119, align 8
+  %load_initial = load double, ptr %scevgep121, align 8
   br label %78
 
 .lr.ph96.preheader:                               ; preds = %78
@@ -9753,7 +9753,7 @@ define range(i32 -30, 1) i32 @IDAGetQuadDky(ptr noundef readonly captures(addres
   %46 = add nuw i32 %2, 1
   %wide.trip.count = zext i32 %46 to i64
   %.not8691 = icmp slt i32 %44, 1
-  %scevgep118 = getelementptr i8, ptr %5, i64 -8
+  %scevgep120 = getelementptr i8, ptr %5, i64 -8
   br label %47
 
 .loopexit88:                                      ; preds = %73, %.lr.ph96.preheader
@@ -9764,9 +9764,9 @@ define range(i32 -30, 1) i32 @IDAGetQuadDky(ptr noundef readonly captures(addres
 47:                                               ; preds = %.lr.ph99, %.loopexit88
   %indvars.iv109 = phi i64 [ 1, %.lr.ph99 ], [ %indvars.iv.next110, %.loopexit88 ]
   %indvar = phi i64 [ 0, %.lr.ph99 ], [ %indvar.next, %.loopexit88 ]
-  %sext120 = shl i64 %indvars.iv109, 32
-  %48 = ashr exact i64 %sext120, 29
-  %scevgep119 = getelementptr i8, ptr %scevgep118, i64 %48
+  %sext122 = shl i64 %indvars.iv109, 32
+  %48 = ashr exact i64 %sext122, 29
+  %scevgep121 = getelementptr i8, ptr %scevgep120, i64 %48
   %indvars114 = trunc i64 %indvars.iv109 to i32
   %49 = shl nuw nsw i64 %indvar, 3
   %50 = add nuw nsw i64 %49, 8
@@ -9813,7 +9813,7 @@ define range(i32 -30, 1) i32 @IDAGetQuadDky(ptr noundef readonly captures(addres
 .lr.ph:                                           ; preds = %73
   %75 = trunc nuw nsw i64 %indvar to i32
   %76 = uitofp nneg i32 %75 to double
-  %load_initial = load double, ptr %scevgep119, align 8
+  %load_initial = load double, ptr %scevgep121, align 8
   br label %77
 
 .lr.ph96.preheader:                               ; preds = %77
@@ -10028,7 +10028,7 @@ define range(i32 -40, 1) i32 @IDAGetSensDky1(ptr noundef readonly captures(addre
   %59 = add nuw i32 %2, 1
   %wide.trip.count = zext i32 %59 to i64
   %.not95100 = icmp slt i32 %57, 1
-  %scevgep127 = getelementptr i8, ptr %6, i64 -8
+  %scevgep130 = getelementptr i8, ptr %6, i64 -8
   br label %60
 
 .loopexit97:                                      ; preds = %86, %.lr.ph105.preheader
@@ -10039,9 +10039,9 @@ define range(i32 -40, 1) i32 @IDAGetSensDky1(ptr noundef readonly captures(addre
 60:                                               ; preds = %.lr.ph108, %.loopexit97
   %indvars.iv118 = phi i64 [ 1, %.lr.ph108 ], [ %indvars.iv.next119, %.loopexit97 ]
   %indvar = phi i64 [ 0, %.lr.ph108 ], [ %indvar.next, %.loopexit97 ]
-  %sext129 = shl i64 %indvars.iv118, 32
-  %61 = ashr exact i64 %sext129, 29
-  %scevgep128 = getelementptr i8, ptr %scevgep127, i64 %61
+  %sext132 = shl i64 %indvars.iv118, 32
+  %61 = ashr exact i64 %sext132, 29
+  %scevgep131 = getelementptr i8, ptr %scevgep130, i64 %61
   %indvars123 = trunc i64 %indvars.iv118 to i32
   %62 = shl nuw nsw i64 %indvar, 3
   %63 = add nuw nsw i64 %62, 8
@@ -10088,7 +10088,7 @@ define range(i32 -40, 1) i32 @IDAGetSensDky1(ptr noundef readonly captures(addre
 .lr.ph:                                           ; preds = %86
   %88 = trunc nuw nsw i64 %indvar to i32
   %89 = uitofp nneg i32 %88 to double
-  %load_initial = load double, ptr %scevgep128, align 8
+  %load_initial = load double, ptr %scevgep131, align 8
   br label %90
 
 .lr.ph105.preheader:                              ; preds = %90
@@ -10404,7 +10404,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef readonly captures(a
   %64 = add nuw i32 %2, 1
   %wide.trip.count = zext i32 %64 to i64
   %.not97102 = icmp slt i32 %62, 1
-  %scevgep129 = getelementptr i8, ptr %6, i64 -8
+  %scevgep132 = getelementptr i8, ptr %6, i64 -8
   br label %65
 
 .loopexit99:                                      ; preds = %91, %.lr.ph107.preheader
@@ -10415,9 +10415,9 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef readonly captures(a
 65:                                               ; preds = %.lr.ph110, %.loopexit99
   %indvars.iv120 = phi i64 [ 1, %.lr.ph110 ], [ %indvars.iv.next121, %.loopexit99 ]
   %indvar = phi i64 [ 0, %.lr.ph110 ], [ %indvar.next, %.loopexit99 ]
-  %sext131 = shl i64 %indvars.iv120, 32
-  %66 = ashr exact i64 %sext131, 29
-  %scevgep130 = getelementptr i8, ptr %scevgep129, i64 %66
+  %sext134 = shl i64 %indvars.iv120, 32
+  %66 = ashr exact i64 %sext134, 29
+  %scevgep133 = getelementptr i8, ptr %scevgep132, i64 %66
   %indvars125 = trunc i64 %indvars.iv120 to i32
   %67 = shl nuw nsw i64 %indvar, 3
   %68 = add nuw nsw i64 %67, 8
@@ -10464,7 +10464,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef readonly captures(a
 .lr.ph:                                           ; preds = %91
   %93 = trunc nuw nsw i64 %indvar to i32
   %94 = uitofp nneg i32 %93 to double
-  %load_initial = load double, ptr %scevgep130, align 8
+  %load_initial = load double, ptr %scevgep133, align 8
   br label %95
 
 .lr.ph107.preheader:                              ; preds = %95

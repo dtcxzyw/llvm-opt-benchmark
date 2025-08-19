@@ -721,14 +721,14 @@ WebRates.exit.critedge:                           ; preds = %dotprod.exit.i
   %109 = fdiv double -1.000000e+00, %84
   %110 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv116
   %111 = load ptr, ptr %110, align 8, !tbaa !29
-  %.sroa.0.0..sroa.0.0.136 = load double, ptr %.sroa.0, align 16, !tbaa !31
+  %.sroa.0.0..sroa.0.0.138 = load double, ptr %.sroa.0, align 16, !tbaa !31
   %112 = load double, ptr %61, align 8, !tbaa !31
-  %113 = fsub double %.sroa.0.0..sroa.0.0.136, %112
+  %113 = fsub double %.sroa.0.0..sroa.0.0.138, %112
   %114 = fmul double %109, %113
   store double %114, ptr %111, align 8, !tbaa !31
-  %.sroa.6.0..sroa.6.8.137 = load double, ptr %.sroa.6, align 8, !tbaa !31
+  %.sroa.6.0..sroa.6.8.139 = load double, ptr %.sroa.6, align 8, !tbaa !31
   %115 = load double, ptr %67, align 8, !tbaa !31
-  %116 = fsub double %.sroa.6.0..sroa.6.8.137, %115
+  %116 = fsub double %.sroa.6.0..sroa.6.8.139, %115
   %117 = fmul double %109, %116
   %118 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store double %117, ptr %118, align 8, !tbaa !31

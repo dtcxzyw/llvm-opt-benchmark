@@ -34,7 +34,7 @@ define internal noundef i32 @decode_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
+define internal range(i32 4, 0) i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = alloca [4 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -231,8 +231,8 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %103 = load i32, ptr %102, align 4, !tbaa !36
   %104 = and i32 %103, 1
   %.not242 = icmp eq i32 %104, 0
-  %or.cond328 = select i1 %.not241, i1 %.not242, i1 false
-  br i1 %or.cond328, label %.preheader, label %._crit_edge312
+  %or.cond346 = select i1 %.not241, i1 %.not242, i1 false
+  br i1 %or.cond346, label %.preheader, label %._crit_edge312
 
 .preheader:                                       ; preds = %98
   %105 = icmp sgt i32 %103, 1

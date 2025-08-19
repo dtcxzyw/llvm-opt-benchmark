@@ -214,7 +214,7 @@ define hidden range(i32 -2, 2) i32 @X509_policy_check(ptr noundef writeonly capt
   br i1 %or.cond.i, label %tree_init.exit, label %tree_init.exit.thread57
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %13
-  %.191.lcssa157.i = phi i32 [ %.393.i, %._crit_edge.i ], [ %.090.i, %13 ]
+  %.191.lcssa162.i = phi i32 [ %.393.i, %._crit_edge.i ], [ %.090.i, %13 ]
   %48 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #9
   %.not111.i = icmp eq ptr %48, null
   br i1 %.not111.i, label %tree_init.exit.thread, label %49
@@ -348,7 +348,7 @@ define hidden range(i32 -2, 2) i32 @X509_policy_check(ptr noundef writeonly capt
   br i1 %111, label %.lr.ph148.i, label %._crit_edge149.i, !llvm.loop !63
 
 ._crit_edge149.i:                                 ; preds = %110, %.preheader.i
-  %.not115.i = icmp eq i32 %.191.lcssa157.i, 0
+  %.not115.i = icmp eq i32 %.191.lcssa162.i, 0
   br i1 %.not115.i, label %114, label %.thread72
 
 112:                                              ; preds = %58, %55
@@ -857,8 +857,8 @@ tree_add_auth_node.exit44.thread52.i:             ; preds = %tree_add_auth_node.
 
 ._crit_edge59.i:                                  ; preds = %._crit_edge.i32, %.lr.ph58.i, %tree_add_auth_node.exit.thread47.i
   %336 = icmp eq ptr %.027.i, %6
-  %.140 = select i1 %336, ptr %6, ptr %297
-  %337 = load ptr, ptr %.140, align 8, !tbaa !35
+  %.178 = select i1 %336, ptr %6, ptr %297
+  %337 = load ptr, ptr %.178, align 8, !tbaa !35
   %338 = call i64 @sk_num(ptr noundef %3) #8
   %339 = icmp eq i64 %338, 0
   br i1 %339, label %.loopexit, label %340

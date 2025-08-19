@@ -532,8 +532,8 @@ define dso_local noundef ptr @_ZN5clang7CodeGen11CodeGenTBAA17getTypeInfoHelperE
   %127 = shl i64 %126, 39
   %128 = and i64 %127, 140737488355328
   %.masked.masked.masked = or i64 %116, %118
-  %.masked242.masked = or i64 %.masked.masked.masked, %120
-  %.masked = or i64 %.masked242.masked, %100
+  %.masked259.masked = or i64 %.masked.masked.masked, %120
+  %.masked = or i64 %.masked259.masked, %100
   %129 = or i64 %.masked, %124
   %130 = or i64 %129, %128
   %131 = xor i64 %130, 1610612736
@@ -1272,13 +1272,13 @@ define dso_local noundef ptr @_ZN5clang7CodeGen11CodeGenTBAA11getTypeInfoENS_8Qu
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 72
   %39 = load i64, ptr %38, align 8
-  %.fr28.i = freeze i64 %39
-  %40 = and i64 %.fr28.i, 8388608
+  %.fr29.i = freeze i64 %39
+  %40 = and i64 %.fr29.i, 8388608
   %.not26.i = icmp eq i64 %40, 0
   br i1 %.not26.i, label %41, label %_ZL15isValidBaseTypeN5clang8QualTypeE.exit.thread
 
 41:                                               ; preds = %37
-  %42 = trunc i64 %.fr28.i to i16
+  %42 = trunc i64 %.fr29.i to i16
   %43 = icmp ult i16 %42, 8192
   %.mask.i.i = and i16 %42, -8192
   %.not27.i = icmp eq i16 %.mask.i.i, 24576
@@ -2701,13 +2701,13 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %55, %63
 89:                                               ; preds = %86
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 72
   %91 = load i64, ptr %90, align 8
-  %.fr28.i = freeze i64 %91
-  %92 = and i64 %.fr28.i, 8388608
+  %.fr29.i = freeze i64 %91
+  %92 = and i64 %.fr29.i, 8388608
   %.not26.i = icmp eq i64 %92, 0
   br i1 %.not26.i, label %93, label %_ZL15isValidBaseTypeN5clang8QualTypeE.exit.thread
 
 93:                                               ; preds = %89
-  %94 = trunc i64 %.fr28.i to i16
+  %94 = trunc i64 %.fr29.i to i16
   %95 = icmp ult i16 %94, 8192
   %.mask.i.i = and i16 %94, -8192
   %.not27.i = icmp eq i16 %.mask.i.i, 24576
@@ -3026,13 +3026,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9MDBuilder15TBAAStructFieldELb1EE9push_back
 199:                                              ; preds = %196
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 72
   %201 = load i64, ptr %200, align 8
-  %.fr28.i122 = freeze i64 %201
-  %202 = and i64 %.fr28.i122, 8388608
+  %.fr29.i122 = freeze i64 %201
+  %202 = and i64 %.fr29.i122, 8388608
   %.not26.i123 = icmp eq i64 %202, 0
   br i1 %.not26.i123, label %203, label %_ZL15isValidBaseTypeN5clang8QualTypeE.exit126.thread
 
 203:                                              ; preds = %199
-  %204 = trunc i64 %.fr28.i122 to i16
+  %204 = trunc i64 %.fr29.i122 to i16
   %205 = icmp ult i16 %204, 8192
   %.mask.i.i124 = and i16 %204, -8192
   %.not27.i125 = icmp eq i16 %.mask.i.i124, 24576
@@ -3472,13 +3472,13 @@ define dso_local noundef ptr @_ZN5clang7CodeGen11CodeGenTBAA15getBaseTypeInfoENS
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %20 = load i64, ptr %19, align 8
-  %.fr28.i = freeze i64 %20
-  %21 = and i64 %.fr28.i, 8388608
+  %.fr29.i = freeze i64 %20
+  %21 = and i64 %.fr29.i, 8388608
   %.not26.i = icmp eq i64 %21, 0
   br i1 %.not26.i, label %22, label %_ZN5clang7CodeGen11CodeGenTBAA20getValidBaseTypeInfoENS_8QualTypeE.exit
 
 22:                                               ; preds = %18
-  %23 = trunc i64 %.fr28.i to i16
+  %23 = trunc i64 %.fr29.i to i16
   %24 = icmp ult i16 %23, 8192
   %.mask.i.i = and i16 %23, -8192
   %.not27.i = icmp eq i16 %.mask.i.i, 24576
@@ -4802,10 +4802,10 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9MDBuilder15TBAAStru
   br i1 %46, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPN4llvm9MDBuilder15TBAAStructFieldElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang7CodeGen11CodeGenTBAA21getBaseTypeInfoHelperEPKNS7_4TypeEE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %45, %49
-  %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %49 ], [ %.127.i.i.i.i, %45 ]
+  %.0133.i.i.i.i.i = phi i64 [ %.048.i.i.i.i.i, %49 ], [ %.127.i.i.i.i, %45 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
-  %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %47 = getelementptr inbounds nuw %"struct.llvm::MDBuilder::TBAAStructField", ptr %0, i64 %.04.i.i.i.i.i
+  %.048.i.i.i.i.i = lshr i64 %.04.in.i.i.i.i.i, 1
+  %47 = getelementptr inbounds nuw %"struct.llvm::MDBuilder::TBAAStructField", ptr %0, i64 %.048.i.i.i.i.i
   %.val.i.i.i.i.i = load i64, ptr %47, align 8, !tbaa !213
   %48 = icmp ult i64 %.val.i.i.i.i.i, %.sroa.02.0.copyload.i.i.i
   br i1 %48, label %49, label %"_ZSt13__adjust_heapIPN4llvm9MDBuilder15TBAAStructFieldElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang7CodeGen11CodeGenTBAA21getBaseTypeInfoHelperEPKNS7_4TypeEE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
@@ -4813,11 +4813,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9MDBuilder15TBAAStru
 49:                                               ; preds = %.lr.ph.i.i.i.i.i
   %50 = getelementptr inbounds nuw %"struct.llvm::MDBuilder::TBAAStructField", ptr %0, i64 %.0133.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %47, i64 24, i1 false), !tbaa.struct !681
-  %51 = icmp sgt i64 %.04.i.i.i.i.i, %.013.i.i.i
+  %51 = icmp samesign ugt i64 %.048.i.i.i.i.i, %.013.i.i.i
   br i1 %51, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPN4llvm9MDBuilder15TBAAStructFieldElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang7CodeGen11CodeGenTBAA21getBaseTypeInfoHelperEPKNS7_4TypeEE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", !llvm.loop !736
 
 "_ZSt13__adjust_heapIPN4llvm9MDBuilder15TBAAStructFieldElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang7CodeGen11CodeGenTBAA21getBaseTypeInfoHelperEPKNS7_4TypeEE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i": ; preds = %49, %.lr.ph.i.i.i.i.i, %45
-  %.013.lcssa.i.i.i.i.i = phi i64 [ %.127.i.i.i.i, %45 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %49 ]
+  %.013.lcssa.i.i.i.i.i = phi i64 [ %.127.i.i.i.i, %45 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.048.i.i.i.i.i, %49 ]
   %52 = getelementptr inbounds nuw %"struct.llvm::MDBuilder::TBAAStructField", ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store i64 %.sroa.02.0.copyload.i.i.i, ptr %52, align 8, !tbaa !156
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -4890,10 +4890,10 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9MDBuilder15TBAAStru
   br label %.lr.ph.i.i.i.i14.i
 
 .lr.ph.i.i.i.i14.i:                               ; preds = %.lr.ph.i.i.i.i14.i.preheader, %84
-  %.0133.i.i.i.i15.i = phi i64 [ %.04.i.i45.i.i17.i, %84 ], [ %.0133.i.i.i.i15.i.ph, %.lr.ph.i.i.i.i14.i.preheader ]
+  %.0133.i.i.i.i15.i = phi i64 [ %.048.i.i.i.i17.i, %84 ], [ %.0133.i.i.i.i15.i.ph, %.lr.ph.i.i.i.i14.i.preheader ]
   %.04.in.i.i.i.i16.i = add nsw i64 %.0133.i.i.i.i15.i, -1
-  %.04.i.i45.i.i17.i = lshr i64 %.04.in.i.i.i.i16.i, 1
-  %82 = getelementptr inbounds nuw %"struct.llvm::MDBuilder::TBAAStructField", ptr %0, i64 %.04.i.i45.i.i17.i
+  %.048.i.i.i.i17.i = lshr i64 %.04.in.i.i.i.i16.i, 1
+  %82 = getelementptr inbounds nuw %"struct.llvm::MDBuilder::TBAAStructField", ptr %0, i64 %.048.i.i.i.i17.i
   %.val.i.i.i.i18.i = load i64, ptr %82, align 8, !tbaa !213
   %83 = icmp ult i64 %.val.i.i.i.i18.i, %.sroa.02.0.copyload.i.i7.i
   br i1 %83, label %84, label %"_ZSt10__pop_heapIPN4llvm9MDBuilder15TBAAStructFieldEN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang7CodeGen11CodeGenTBAA21getBaseTypeInfoHelperEPKNS7_4TypeEE3$_0EEEvT_SF_SF_RT0_.exit.i19.i"
@@ -4901,8 +4901,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9MDBuilder15TBAAStru
 84:                                               ; preds = %.lr.ph.i.i.i.i14.i
   %85 = getelementptr inbounds nuw %"struct.llvm::MDBuilder::TBAAStructField", ptr %0, i64 %.0133.i.i.i.i15.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, ptr noundef nonnull align 8 dereferenceable(24) %82, i64 24, i1 false), !tbaa.struct !681
-  %.not6.i.i22.i = icmp ult i64 %.04.in.i.i.i.i16.i, 2
-  br i1 %.not6.i.i22.i, label %"_ZSt10__pop_heapIPN4llvm9MDBuilder15TBAAStructFieldEN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang7CodeGen11CodeGenTBAA21getBaseTypeInfoHelperEPKNS7_4TypeEE3$_0EEEvT_SF_SF_RT0_.exit.i19.i", label %.lr.ph.i.i.i.i14.i, !llvm.loop !736
+  %.not4.i.i22.i = icmp ult i64 %.04.in.i.i.i.i16.i, 2
+  br i1 %.not4.i.i22.i, label %"_ZSt10__pop_heapIPN4llvm9MDBuilder15TBAAStructFieldEN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang7CodeGen11CodeGenTBAA21getBaseTypeInfoHelperEPKNS7_4TypeEE3$_0EEEvT_SF_SF_RT0_.exit.i19.i", label %.lr.ph.i.i.i.i14.i, !llvm.loop !736
 
 "_ZSt10__pop_heapIPN4llvm9MDBuilder15TBAAStructFieldEN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang7CodeGen11CodeGenTBAA21getBaseTypeInfoHelperEPKNS7_4TypeEE3$_0EEEvT_SF_SF_RT0_.exit.i19.i": ; preds = %84, %.lr.ph.i.i.i.i14.i, %81
   %.013.lcssa.i.i.i.i20.i = phi i64 [ 0, %81 ], [ %.0133.i.i.i.i15.i, %.lr.ph.i.i.i.i14.i ], [ 0, %84 ]
@@ -5152,13 +5152,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4TypeEPNS_6MDNodeENS_12DenseMapInfo
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %65 = zext i32 %.sink28 to i64
-  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink26, i64 %65
-  store ptr %.sink25, ptr %0, align 8
+  %65 = zext i32 %.sink32 to i64
+  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %65
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %66, ptr %.sroa.4.0..sroa_idx, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16

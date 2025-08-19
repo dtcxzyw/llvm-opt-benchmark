@@ -623,11 +623,11 @@ define internal ptr @get_entity(ptr noundef %0, ptr noundef %1) #0 {
 .critedge.thread:                                 ; preds = %11
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %27 = load ptr, ptr %26, align 8, !tbaa !53
-  %.not47 = icmp eq ptr %27, null
-  br i1 %.not47, label %.critedge._crit_edge, label %.thread51
+  %.not51 = icmp eq ptr %27, null
+  br i1 %.not51, label %.critedge._crit_edge, label %.thread55
 
 .critedge._crit_edge:                             ; preds = %.critedge.thread, %.critedge
-  %.14550 = phi ptr [ null, %.critedge.thread ], [ %.144, %.critedge ]
+  %.14554 = phi ptr [ null, %.critedge.thread ], [ %.144, %.critedge ]
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !50
   br label %51
@@ -636,16 +636,16 @@ define internal ptr @get_entity(ptr noundef %0, ptr noundef %1) #0 {
   %29 = getelementptr inbounds nuw i8, ptr %.144, i64 92
   %30 = load i32, ptr %29, align 4, !tbaa !76
   %31 = icmp eq i32 %30, 6
-  br i1 %31, label %32, label %.thread51
+  br i1 %31, label %32, label %.thread55
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load ptr, ptr %33, align 8, !tbaa !50
   %.not37 = icmp eq ptr %34, null
-  br i1 %.not37, label %.thread51, label %51
+  br i1 %.not37, label %.thread55, label %51
 
-.thread51:                                        ; preds = %.critedge.thread, %32, %28
-  %.1454953 = phi ptr [ %.144, %32 ], [ %.144, %28 ], [ null, %.critedge.thread ]
+.thread55:                                        ; preds = %.critedge.thread, %32, %28
+  %.1455357 = phi ptr [ %.144, %32 ], [ %.144, %28 ], [ null, %.critedge.thread ]
   %35 = phi ptr [ %24, %32 ], [ %24, %28 ], [ %26, %.critedge.thread ]
   %36 = tail call i32 @xmlStrlen(ptr noundef %1) #11
   %37 = sext i32 %36 to i64
@@ -671,17 +671,17 @@ define internal ptr @get_entity(ptr noundef %0, ptr noundef %1) #0 {
   br label %68
 
 51:                                               ; preds = %.critedge._crit_edge, %32
-  %.14548 = phi ptr [ %.14550, %.critedge._crit_edge ], [ %.144, %32 ]
+  %.14552 = phi ptr [ %.14554, %.critedge._crit_edge ], [ %.144, %32 ]
   %52 = phi ptr [ %.pre, %.critedge._crit_edge ], [ %34, %32 ]
   %53 = icmp ne ptr %52, null
-  %54 = icmp ne ptr %.14548, null
+  %54 = icmp ne ptr %.14552, null
   %or.cond = and i1 %54, %53
   br i1 %or.cond, label %55, label %68
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !47
-  %58 = getelementptr inbounds nuw i8, ptr %.14548, i64 80
+  %58 = getelementptr inbounds nuw i8, ptr %.14552, i64 80
   %59 = load ptr, ptr %58, align 8, !tbaa !80
   %60 = tail call i32 @xmlStrlen(ptr noundef %59) #11
   tail call void %52(ptr noundef %57, ptr noundef %59, i32 noundef %60) #11
@@ -697,8 +697,8 @@ define internal ptr @get_entity(ptr noundef %0, ptr noundef %1) #0 {
   tail call fastcc void @external_entity_ref_handler(ptr noundef nonnull %0, ptr noundef %63, ptr noundef %65, ptr noundef %67)
   br label %68
 
-68:                                               ; preds = %21, %.thread, %61, %.thread51, %55, %51, %2
-  %.0 = phi ptr [ %.14548, %55 ], [ %.14548, %51 ], [ %.1454953, %.thread51 ], [ %.144, %61 ], [ %.144, %.thread ], [ null, %2 ], [ %.144, %21 ]
+68:                                               ; preds = %21, %.thread, %61, %.thread55, %55, %51, %2
+  %.0 = phi ptr [ %.14552, %55 ], [ %.14552, %51 ], [ %.1455357, %.thread55 ], [ %.144, %61 ], [ %.144, %.thread ], [ null, %2 ], [ %.144, %21 ]
   ret ptr %.0
 }
 
@@ -857,10 +857,10 @@ define internal void @cdata_handler(ptr noundef readonly captures(none) %0, ptr 
   br i1 %.not, label %12, label %.sink.split
 
 .sink.split:                                      ; preds = %3, %7
-  %.sink11 = phi ptr [ %9, %7 ], [ %5, %3 ]
+  %.sink12 = phi ptr [ %9, %7 ], [ %5, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !47
-  tail call void %.sink11(ptr noundef %11, ptr noundef %1, i32 noundef %2) #11
+  tail call void %.sink12(ptr noundef %11, ptr noundef %1, i32 noundef %2) #11
   br label %12
 
 12:                                               ; preds = %.sink.split, %7

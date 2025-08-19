@@ -1015,12 +1015,12 @@ _ZN6vectorIiLb0EjE4backEv.exit.i:                 ; preds = %_ZN8rationalaSERKS_
   %154 = load i32, ptr %153, align 4, !tbaa !37
   %155 = icmp ult i32 %151, %154
   %spec.select.i.i = call i32 @llvm.umin.i32(i32 %151, i32 %154)
-  %spec.select44.i.i = select i1 %155, i32 %146, i32 %145
+  %spec.select50.i.i = select i1 %155, i32 %146, i32 %145
   br label %156
 
 156:                                              ; preds = %148, %._crit_edge40.i.i
   %157 = phi i32 [ %.pre37.pre.i.i, %._crit_edge40.i.i ], [ %spec.select.i.i, %148 ]
-  %158 = phi i32 [ %145, %._crit_edge40.i.i ], [ %spec.select44.i.i, %148 ]
+  %158 = phi i32 [ %145, %._crit_edge40.i.i ], [ %spec.select50.i.i, %148 ]
   %159 = icmp ult i32 %157, %143
   br i1 %159, label %160, label %._crit_edge.loopexit.i.i
 
@@ -1467,12 +1467,12 @@ _ZN6vectorIiLb0EjE4backEv.exit.i:                 ; preds = %125
   %162 = load i32, ptr %161, align 4, !tbaa !37
   %163 = icmp ult i32 %159, %162
   %spec.select.i.i = call i32 @llvm.umin.i32(i32 %159, i32 %162)
-  %spec.select44.i.i = select i1 %163, i32 %154, i32 %153
+  %spec.select50.i.i = select i1 %163, i32 %154, i32 %153
   br label %164
 
 164:                                              ; preds = %156, %._crit_edge40.i.i
   %165 = phi i32 [ %.pre37.pre.i.i, %._crit_edge40.i.i ], [ %spec.select.i.i, %156 ]
-  %166 = phi i32 [ %153, %._crit_edge40.i.i ], [ %spec.select44.i.i, %156 ]
+  %166 = phi i32 [ %153, %._crit_edge40.i.i ], [ %spec.select50.i.i, %156 ]
   %167 = icmp ult i32 %165, %151
   br i1 %167, label %168, label %._crit_edge.loopexit.i.i
 
@@ -3320,12 +3320,12 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i:         ; preds = %2
   br i1 %9, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.preheader, label %_ZN6vectorIjLb0EjE7reserveEjRKj.exit
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.preheader:    ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i
-  %.ph14 = phi ptr [ %5, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
+  %.ph21 = phi ptr [ %5, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
   %.0.i17.i.i.ph = phi i32 [ %8, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i:              ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.preheader, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
-  %10 = phi ptr [ %.pr.pre.i.i, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i ], [ %.ph14, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.preheader ]
+  %10 = phi ptr [ %.pr.pre.i.i, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i ], [ %.ph21, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.preheader ]
   %11 = icmp eq ptr %10, null
   br i1 %11, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
 
@@ -3920,8 +3920,8 @@ _ZN8rationalaSERKS_.exit:                         ; preds = %136, %132, %112, %1
   br label %140
 
 140:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  %.0.lcssa25 = phi i32 [ -1, %._crit_edge.thread ], [ %.0.lcssa, %._crit_edge ]
-  ret i32 %.0.lcssa25
+  %.0.lcssa30 = phi i32 [ -1, %._crit_edge.thread ], [ %.0.lcssa, %._crit_edge ]
+  ret i32 %.0.lcssa30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5255,7 +5255,7 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i:     ; preds = %_ZNK6vectorIiLb0EjE
 _ZNK6vectorIiLb0EjE4sizeEv.exit.i.i.i:            ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i, %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i.i
   %20 = phi i32 [ %25, %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i.i ], [ %16, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i ]
   %.pr.i.i.i = phi ptr [ %.pr.pre.i.i.i, %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i.i ], [ %5, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i ]
-  %.0.i17.ph.i.i.i = phi i32 [ %.0.i17.i.i.i17, %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i.i ], [ %15, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i ]
+  %.0.i17.ph.i.i.i = phi i32 [ %.0.i17.i.i.i28, %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i.i ], [ %15, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i ]
   %21 = icmp eq ptr %.pr.i.i.i, null
   br i1 %21, label %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i.i, label %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i.i
 
@@ -5266,7 +5266,7 @@ _ZNK6vectorIiLb0EjE8capacityEv.exit.i.i.i:        ; preds = %_ZNK6vectorIiLb0EjE
   br i1 %24, label %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i.i, label %26
 
 _ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i.i: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i3, %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i.i, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i.i.i
-  %.0.i17.i.i.i17 = phi i32 [ %.0.i17.ph.i.i.i, %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i.i ], [ %.0.i17.ph.i.i.i, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i.i.i ], [ 0, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i3 ]
+  %.0.i17.i.i.i28 = phi i32 [ %.0.i17.ph.i.i.i, %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i.i ], [ %.0.i17.ph.i.i.i, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i.i.i ], [ 0, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i3 ]
   %25 = phi i32 [ %20, %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i.i ], [ %20, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i.i.i ], [ %14, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i3 ]
   tail call void @_ZN6vectorIiLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.pr.pre.i.i.i = load ptr, ptr %4, align 8, !tbaa !38
@@ -5491,12 +5491,12 @@ _ZN4heapIN2lp8lpvar_ltEE7move_upEi.exit:          ; preds = %44, %.lr.ph.i
   %65 = load i32, ptr %64, align 4, !tbaa !37
   %66 = icmp ult i32 %62, %65
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %62, i32 %65)
-  %spec.select44.i = select i1 %66, i32 %57, i32 %56
+  %spec.select50.i = select i1 %66, i32 %57, i32 %56
   br label %67
 
 67:                                               ; preds = %59, %._crit_edge40.i
   %68 = phi i32 [ %.pre37.pre.i, %._crit_edge40.i ], [ %spec.select.i, %59 ]
-  %69 = phi i32 [ %56, %._crit_edge40.i ], [ %spec.select44.i, %59 ]
+  %69 = phi i32 [ %56, %._crit_edge40.i ], [ %spec.select50.i, %59 ]
   %70 = icmp ult i32 %68, %53
   br i1 %70, label %71, label %._crit_edge.loopexit.i
 
@@ -5923,9 +5923,9 @@ _ZN6vectorIjLb1EjE3endEv.exit:                    ; preds = %1
   %7 = getelementptr inbounds i8, ptr %4, i64 -4
   %8 = load i32, ptr %7, align 4, !tbaa !37
   %.not.i.i = icmp eq i32 %8, 0
-  br i1 %.not.i.i, label %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalS3_E14sort_non_basisEvEUljjE_EvT_S6_T0_.exit.thread17, label %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalS3_E14sort_non_basisEvEUljjE_EvT_S6_T0_.exit
+  br i1 %.not.i.i, label %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalS3_E14sort_non_basisEvEUljjE_EvT_S6_T0_.exit.thread19, label %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalS3_E14sort_non_basisEvEUljjE_EvT_S6_T0_.exit
 
-_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalS3_E14sort_non_basisEvEUljjE_EvT_S6_T0_.exit.thread17: ; preds = %_ZN6vectorIjLb1EjE3endEv.exit
+_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalS3_E14sort_non_basisEvEUljjE_EvT_S6_T0_.exit.thread19: ; preds = %_ZN6vectorIjLb1EjE3endEv.exit
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 280
   br label %18
 
@@ -5944,9 +5944,9 @@ _ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalS3_E14sort_non_basisEvEUljjE_E
   %17 = icmp eq ptr %.pre14, null
   br i1 %17, label %_ZNK6vectorIjLb1EjE4sizeEv.exit, label %18
 
-18:                                               ; preds = %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalS3_E14sort_non_basisEvEUljjE_EvT_S6_T0_.exit.thread17, %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalS3_E14sort_non_basisEvEUljjE_EvT_S6_T0_.exit
-  %19 = phi ptr [ %9, %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalS3_E14sort_non_basisEvEUljjE_EvT_S6_T0_.exit.thread17 ], [ %16, %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalS3_E14sort_non_basisEvEUljjE_EvT_S6_T0_.exit ]
-  %20 = phi ptr [ %4, %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalS3_E14sort_non_basisEvEUljjE_EvT_S6_T0_.exit.thread17 ], [ %.pre14, %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalS3_E14sort_non_basisEvEUljjE_EvT_S6_T0_.exit ]
+18:                                               ; preds = %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalS3_E14sort_non_basisEvEUljjE_EvT_S6_T0_.exit.thread19, %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalS3_E14sort_non_basisEvEUljjE_EvT_S6_T0_.exit
+  %19 = phi ptr [ %9, %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalS3_E14sort_non_basisEvEUljjE_EvT_S6_T0_.exit.thread19 ], [ %16, %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalS3_E14sort_non_basisEvEUljjE_EvT_S6_T0_.exit ]
+  %20 = phi ptr [ %4, %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalS3_E14sort_non_basisEvEUljjE_EvT_S6_T0_.exit.thread19 ], [ %.pre14, %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalS3_E14sort_non_basisEvEUljjE_EvT_S6_T0_.exit ]
   %21 = getelementptr inbounds i8, ptr %20, i64 -4
   %22 = load i32, ptr %21, align 4, !tbaa !37
   %23 = zext i32 %22 to i64
@@ -6929,7 +6929,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
 
 11:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS6_E14sort_non_basisEvEUljjE_EEET_SA_SA_T0_.exit
   %12 = phi i64 [ %7, %.lr.ph ], [ %105, %_ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS6_E14sort_non_basisEvEUljjE_EEET_SA_SA_T0_.exit ]
-  %.028 = phi ptr [ %1, %.lr.ph ], [ %.1.lcssa86.i.i, %_ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS6_E14sort_non_basisEvEUljjE_EEET_SA_SA_T0_.exit ]
+  %.028 = phi ptr [ %1, %.lr.ph ], [ %.1.lcssa88.i.i, %_ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS6_E14sort_non_basisEvEUljjE_EEET_SA_SA_T0_.exit ]
   %.01527 = phi i64 [ %2, %.lr.ph ], [ %103, %_ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS6_E14sort_non_basisEvEUljjE_EEET_SA_SA_T0_.exit ]
   %13 = icmp eq i64 %.01527, 0
   br i1 %13, label %14, label %29
@@ -7023,8 +7023,8 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
   %70 = sub i64 %68, %69
   %71 = sdiv exact i64 %70, 12
   %72 = and i64 %71, 4294967295
-  %.not82.i.i = icmp eq i64 %72, 0
-  br i1 %.not82.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit.preheader.split.split.i.i, label %.lr.ph54.i.i
+  %.not84.i.i = icmp eq i64 %72, 0
+  br i1 %.not84.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit.preheader.split.split.i.i, label %.lr.ph54.i.i
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i16
   %73 = add i32 %47, -1
@@ -7080,23 +7080,23 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E1
   br i1 %or.cond.i.i, label %.lr.ph45.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit.us.preheader.i.i, !llvm.loop !208
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit19.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit.us.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit.preheader.split.split.i.i
-  %.lcssa2488.i.i = phi i32 [ %.lcssa24.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit.preheader.split.split.i.i ], [ %.lcssa24.ph.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit.us.i.i ]
-  %.1.lcssa86.i.i = phi ptr [ %.1.lcssa.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit.preheader.split.split.i.i ], [ %.1.lcssa.ph.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit.us.i.i ]
+  %.lcssa2490.i.i = phi i32 [ %.lcssa24.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit.preheader.split.split.i.i ], [ %.lcssa24.ph.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit.us.i.i ]
+  %.1.lcssa88.i.i = phi ptr [ %.1.lcssa.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit.preheader.split.split.i.i ], [ %.1.lcssa.ph.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit.us.i.i ]
   %.us-phi60.i.i = phi ptr [ %.114.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit.preheader.split.split.i.i ], [ %.114.us.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit.us.i.i ]
   %.us-phi61.i.i = phi i32 [ %86, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit.preheader.split.split.i.i ], [ %74, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit.us.i.i ]
-  %100 = icmp ult ptr %.1.lcssa86.i.i, %.us-phi60.i.i
+  %100 = icmp ult ptr %.1.lcssa88.i.i, %.us-phi60.i.i
   br i1 %100, label %101, label %_ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS6_E14sort_non_basisEvEUljjE_EEET_SA_SA_T0_.exit
 
 101:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit19.thread.i.i
-  store i32 %.us-phi61.i.i, ptr %.1.lcssa86.i.i, align 4, !tbaa !37
-  store i32 %.lcssa2488.i.i, ptr %.us-phi60.i.i, align 4, !tbaa !37
-  %102 = getelementptr inbounds nuw i8, ptr %.1.lcssa86.i.i, i64 4
+  store i32 %.us-phi61.i.i, ptr %.1.lcssa88.i.i, align 4, !tbaa !37
+  store i32 %.lcssa2490.i.i, ptr %.us-phi60.i.i, align 4, !tbaa !37
+  %102 = getelementptr inbounds nuw i8, ptr %.1.lcssa88.i.i, i64 4
   br label %36, !llvm.loop !209
 
 _ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS6_E14sort_non_basisEvEUljjE_EEET_SA_SA_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjS9_EEbT_T0_.exit19.thread.i.i
   %103 = add nsw i64 %.01527, -1
-  tail call void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS6_E14sort_non_basisEvEUljjE_EEEvT_SA_T0_T1_(ptr noundef nonnull %.1.lcssa86.i.i, ptr noundef %.028, i64 noundef %103, ptr %3)
-  %104 = ptrtoint ptr %.1.lcssa86.i.i to i64
+  tail call void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS6_E14sort_non_basisEvEUljjE_EEEvT_SA_T0_T1_(ptr noundef nonnull %.1.lcssa88.i.i, ptr noundef %.028, i64 noundef %103, ptr %3)
+  %104 = ptrtoint ptr %.1.lcssa88.i.i to i64
   %105 = sub i64 %104, %5
   %106 = icmp sgt i64 %105, 64
   br i1 %106, label %11, label %_ZSt14__partial_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS6_E14sort_non_basisEvEUljjE_EEEvT_SA_SA_T0_.exit, !llvm.loop !210
@@ -7191,11 +7191,11 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14
   br i1 %spec.select.i.i.us.not.i.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS6_E14sort_non_basisEvEUljjE_EEEvT_T0_.exit.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.us.i.i
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.i.i: ; preds = %55, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i.i
-  %.not25.i.i = phi i1 [ true, %55 ], [ %39, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i.i ]
+  %.not26.i.i = phi i1 [ true, %55 ], [ %39, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i.i ]
   %54 = phi i32 [ %56, %55 ], [ %27, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i.i ]
   %.015.i.i = phi ptr [ %.0.i.i, %55 ], [ %.012.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i.i ]
   %.0914.i.i = phi ptr [ %.015.i.i, %55 ], [ %.09.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i.i ]
-  br i1 %.not25.i.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS6_E14sort_non_basisEvEUljjE_EEEvT_T0_.exit.i, label %55
+  br i1 %.not26.i.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS6_E14sort_non_basisEvEUljjE_EEEvT_T0_.exit.i, label %55
 
 55:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.i.i
   store i32 %54, ptr %.0914.i.i, align 4, !tbaa !37
@@ -7360,8 +7360,8 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN2lp21lp_primal_core_solverI8rationalS4_E14
   %88 = sub i64 %86, %87
   %89 = sdiv exact i64 %88, 12
   %90 = and i64 %89, 4294967295
-  %.not40.i = icmp eq i64 %90, 0
-  br i1 %.not40.i, label %_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN2lp21lp_primal_core_solverI8rationalS6_E14sort_non_basisEvEUljjE_EEEvT_T0_SB_T1_RT2_.exit, label %91
+  %.not43.i = icmp eq i64 %90, 0
+  br i1 %.not43.i, label %_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN2lp21lp_primal_core_solverI8rationalS6_E14sort_non_basisEvEUljjE_EEEvT_T0_SB_T1_RT2_.exit, label %91
 
 91:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIPjjEEbT_RT0_.exit.us.i
   %92 = getelementptr inbounds i32, ptr %0, i64 %.01318.us.i
@@ -7652,11 +7652,11 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14
   br i1 %spec.select.i.i.us.not.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS6_E14sort_non_basisEvEUljjE_EEEvT_T0_.exit, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.us.i
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.i: ; preds = %73, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i
-  %.not25.i = phi i1 [ true, %73 ], [ %57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i ]
+  %.not26.i = phi i1 [ true, %73 ], [ %57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i ]
   %72 = phi i32 [ %74, %73 ], [ %45, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i ]
   %.015.i = phi ptr [ %.0.i, %73 ], [ %.pn21, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i ]
   %.0914.i = phi ptr [ %.015.i, %73 ], [ %.022, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i ]
-  br i1 %.not25.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS6_E14sort_non_basisEvEUljjE_EEEvT_T0_.exit, label %73
+  br i1 %.not26.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS6_E14sort_non_basisEvEUljjE_EEEvT_T0_.exit, label %73
 
 73:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalS4_E14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.i
   store i32 %72, ptr %.0914.i, align 4, !tbaa !37
@@ -8053,12 +8053,12 @@ _ZN8rationalD2Ev.exit70:                          ; preds = %.noexc.i69
   br i1 %132, label %.backedge.backedge, label %._crit_edge
 
 .backedge.backedge:                               ; preds = %124, %.thread
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %124 ], [ %indvars.iv.next167, %.thread ]
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %124 ], [ %indvars.iv.next177, %.thread ]
   br label %.backedge, !llvm.loop !225
 
 .thread:                                          ; preds = %_ZN8rationalD2Ev.exit70
-  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv, 1
-  %133 = icmp samesign ult i64 %indvars.iv.next167, %43
+  %indvars.iv.next177 = add nuw nsw i64 %indvars.iv, 1
+  %133 = icmp samesign ult i64 %indvars.iv.next177, %43
   br i1 %133, label %.backedge.backedge, label %._crit_edge.thread
 
 ._crit_edge:                                      ; preds = %124
@@ -13322,8 +13322,8 @@ _ZN8rationalaSERKS_.exit:                         ; preds = %99, %95, %75, %73, 
   br label %103
 
 103:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  %.0.lcssa25 = phi i32 [ -1, %._crit_edge.thread ], [ %.0.lcssa, %._crit_edge ]
-  ret i32 %.0.lcssa25
+  %.0.lcssa30 = phi i32 [ -1, %._crit_edge.thread ], [ %.0.lcssa, %._crit_edge ]
+  ret i32 %.0.lcssa30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -14461,7 +14461,7 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i:     ; preds = %_ZNK6vectorIiLb0EjE
 _ZNK6vectorIiLb0EjE4sizeEv.exit.i.i.i:            ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i, %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i.i
   %20 = phi i32 [ %25, %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i.i ], [ %16, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i ]
   %.pr.i.i.i = phi ptr [ %.pr.pre.i.i.i, %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i.i ], [ %5, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i ]
-  %.0.i17.ph.i.i.i = phi i32 [ %.0.i17.i.i.i17, %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i.i ], [ %15, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i ]
+  %.0.i17.ph.i.i.i = phi i32 [ %.0.i17.i.i.i28, %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i.i ], [ %15, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i ]
   %21 = icmp eq ptr %.pr.i.i.i, null
   br i1 %21, label %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i.i, label %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i.i
 
@@ -14472,7 +14472,7 @@ _ZNK6vectorIiLb0EjE8capacityEv.exit.i.i.i:        ; preds = %_ZNK6vectorIiLb0EjE
   br i1 %24, label %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i.i, label %26
 
 _ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i.i: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i3, %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i.i, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i.i.i
-  %.0.i17.i.i.i17 = phi i32 [ %.0.i17.ph.i.i.i, %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i.i ], [ %.0.i17.ph.i.i.i, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i.i.i ], [ 0, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i3 ]
+  %.0.i17.i.i.i28 = phi i32 [ %.0.i17.ph.i.i.i, %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i.i ], [ %.0.i17.ph.i.i.i, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i.i.i ], [ 0, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i3 ]
   %25 = phi i32 [ %20, %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i.i ], [ %20, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i.i.i ], [ %14, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i3 ]
   tail call void @_ZN6vectorIiLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.pr.pre.i.i.i = load ptr, ptr %4, align 8, !tbaa !38
@@ -14865,9 +14865,9 @@ _ZN6vectorIjLb1EjE3endEv.exit:                    ; preds = %1
   %7 = getelementptr inbounds i8, ptr %4, i64 -4
   %8 = load i32, ptr %7, align 4, !tbaa !37
   %.not.i.i = icmp eq i32 %8, 0
-  br i1 %.not.i.i, label %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalNS1_12numeric_pairIS3_EEE14sort_non_basisEvEUljjE_EvT_S8_T0_.exit.thread17, label %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalNS1_12numeric_pairIS3_EEE14sort_non_basisEvEUljjE_EvT_S8_T0_.exit
+  br i1 %.not.i.i, label %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalNS1_12numeric_pairIS3_EEE14sort_non_basisEvEUljjE_EvT_S8_T0_.exit.thread19, label %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalNS1_12numeric_pairIS3_EEE14sort_non_basisEvEUljjE_EvT_S8_T0_.exit
 
-_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalNS1_12numeric_pairIS3_EEE14sort_non_basisEvEUljjE_EvT_S8_T0_.exit.thread17: ; preds = %_ZN6vectorIjLb1EjE3endEv.exit
+_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalNS1_12numeric_pairIS3_EEE14sort_non_basisEvEUljjE_EvT_S8_T0_.exit.thread19: ; preds = %_ZN6vectorIjLb1EjE3endEv.exit
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 280
   br label %18
 
@@ -14886,9 +14886,9 @@ _ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalNS1_12numeric_pairIS3_EEE14sor
   %17 = icmp eq ptr %.pre14, null
   br i1 %17, label %_ZNK6vectorIjLb1EjE4sizeEv.exit, label %18
 
-18:                                               ; preds = %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalNS1_12numeric_pairIS3_EEE14sort_non_basisEvEUljjE_EvT_S8_T0_.exit.thread17, %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalNS1_12numeric_pairIS3_EEE14sort_non_basisEvEUljjE_EvT_S8_T0_.exit
-  %19 = phi ptr [ %9, %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalNS1_12numeric_pairIS3_EEE14sort_non_basisEvEUljjE_EvT_S8_T0_.exit.thread17 ], [ %16, %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalNS1_12numeric_pairIS3_EEE14sort_non_basisEvEUljjE_EvT_S8_T0_.exit ]
-  %20 = phi ptr [ %4, %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalNS1_12numeric_pairIS3_EEE14sort_non_basisEvEUljjE_EvT_S8_T0_.exit.thread17 ], [ %.pre14, %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalNS1_12numeric_pairIS3_EEE14sort_non_basisEvEUljjE_EvT_S8_T0_.exit ]
+18:                                               ; preds = %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalNS1_12numeric_pairIS3_EEE14sort_non_basisEvEUljjE_EvT_S8_T0_.exit.thread19, %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalNS1_12numeric_pairIS3_EEE14sort_non_basisEvEUljjE_EvT_S8_T0_.exit
+  %19 = phi ptr [ %9, %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalNS1_12numeric_pairIS3_EEE14sort_non_basisEvEUljjE_EvT_S8_T0_.exit.thread19 ], [ %16, %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalNS1_12numeric_pairIS3_EEE14sort_non_basisEvEUljjE_EvT_S8_T0_.exit ]
+  %20 = phi ptr [ %4, %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalNS1_12numeric_pairIS3_EEE14sort_non_basisEvEUljjE_EvT_S8_T0_.exit.thread19 ], [ %.pre14, %_ZSt4sortIPjZN2lp21lp_primal_core_solverI8rationalNS1_12numeric_pairIS3_EEE14sort_non_basisEvEUljjE_EvT_S8_T0_.exit ]
   %21 = getelementptr inbounds i8, ptr %20, i64 -4
   %22 = load i32, ptr %21, align 4, !tbaa !37
   %23 = zext i32 %22 to i64
@@ -15583,7 +15583,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
 
 11:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS4_12numeric_pairIS6_EEE14sort_non_basisEvEUljjE_EEET_SC_SC_T0_.exit
   %12 = phi i64 [ %7, %.lr.ph ], [ %105, %_ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS4_12numeric_pairIS6_EEE14sort_non_basisEvEUljjE_EEET_SC_SC_T0_.exit ]
-  %.028 = phi ptr [ %1, %.lr.ph ], [ %.1.lcssa86.i.i, %_ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS4_12numeric_pairIS6_EEE14sort_non_basisEvEUljjE_EEET_SC_SC_T0_.exit ]
+  %.028 = phi ptr [ %1, %.lr.ph ], [ %.1.lcssa88.i.i, %_ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS4_12numeric_pairIS6_EEE14sort_non_basisEvEUljjE_EEET_SC_SC_T0_.exit ]
   %.01527 = phi i64 [ %2, %.lr.ph ], [ %103, %_ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS4_12numeric_pairIS6_EEE14sort_non_basisEvEUljjE_EEET_SC_SC_T0_.exit ]
   %13 = icmp eq i64 %.01527, 0
   br i1 %13, label %14, label %29
@@ -15677,8 +15677,8 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
   %70 = sub i64 %68, %69
   %71 = sdiv exact i64 %70, 12
   %72 = and i64 %71, 4294967295
-  %.not82.i.i = icmp eq i64 %72, 0
-  br i1 %.not82.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit.preheader.split.split.i.i, label %.lr.ph54.i.i
+  %.not84.i.i = icmp eq i64 %72, 0
+  br i1 %.not84.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit.preheader.split.split.i.i, label %.lr.ph54.i.i
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i16
   %73 = add i32 %47, -1
@@ -15734,23 +15734,23 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_1
   br i1 %or.cond.i.i, label %.lr.ph45.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit.us.preheader.i.i, !llvm.loop !298
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit19.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit.us.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit.preheader.split.split.i.i
-  %.lcssa2488.i.i = phi i32 [ %.lcssa24.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit.preheader.split.split.i.i ], [ %.lcssa24.ph.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit.us.i.i ]
-  %.1.lcssa86.i.i = phi ptr [ %.1.lcssa.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit.preheader.split.split.i.i ], [ %.1.lcssa.ph.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit.us.i.i ]
+  %.lcssa2490.i.i = phi i32 [ %.lcssa24.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit.preheader.split.split.i.i ], [ %.lcssa24.ph.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit.us.i.i ]
+  %.1.lcssa88.i.i = phi ptr [ %.1.lcssa.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit.preheader.split.split.i.i ], [ %.1.lcssa.ph.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit.us.i.i ]
   %.us-phi60.i.i = phi ptr [ %.114.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit.preheader.split.split.i.i ], [ %.114.us.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit.us.i.i ]
   %.us-phi61.i.i = phi i32 [ %86, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit.preheader.split.split.i.i ], [ %74, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit.us.i.i ]
-  %100 = icmp ult ptr %.1.lcssa86.i.i, %.us-phi60.i.i
+  %100 = icmp ult ptr %.1.lcssa88.i.i, %.us-phi60.i.i
   br i1 %100, label %101, label %_ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS4_12numeric_pairIS6_EEE14sort_non_basisEvEUljjE_EEET_SC_SC_T0_.exit
 
 101:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit19.thread.i.i
-  store i32 %.us-phi61.i.i, ptr %.1.lcssa86.i.i, align 4, !tbaa !37
-  store i32 %.lcssa2488.i.i, ptr %.us-phi60.i.i, align 4, !tbaa !37
-  %102 = getelementptr inbounds nuw i8, ptr %.1.lcssa86.i.i, i64 4
+  store i32 %.us-phi61.i.i, ptr %.1.lcssa88.i.i, align 4, !tbaa !37
+  store i32 %.lcssa2490.i.i, ptr %.us-phi60.i.i, align 4, !tbaa !37
+  %102 = getelementptr inbounds nuw i8, ptr %.1.lcssa88.i.i, i64 4
   br label %36, !llvm.loop !299
 
 _ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS4_12numeric_pairIS6_EEE14sort_non_basisEvEUljjE_EEET_SC_SC_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjSB_EEbT_T0_.exit19.thread.i.i
   %103 = add nsw i64 %.01527, -1
-  tail call void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS4_12numeric_pairIS6_EEE14sort_non_basisEvEUljjE_EEEvT_SC_T0_T1_(ptr noundef nonnull %.1.lcssa86.i.i, ptr noundef %.028, i64 noundef %103, ptr %3)
-  %104 = ptrtoint ptr %.1.lcssa86.i.i to i64
+  tail call void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS4_12numeric_pairIS6_EEE14sort_non_basisEvEUljjE_EEEvT_SC_T0_T1_(ptr noundef nonnull %.1.lcssa88.i.i, ptr noundef %.028, i64 noundef %103, ptr %3)
+  %104 = ptrtoint ptr %.1.lcssa88.i.i to i64
   %105 = sub i64 %104, %5
   %106 = icmp sgt i64 %105, 64
   br i1 %106, label %11, label %_ZSt14__partial_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS4_12numeric_pairIS6_EEE14sort_non_basisEvEUljjE_EEEvT_SC_SC_T0_.exit, !llvm.loop !300
@@ -15845,11 +15845,11 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12
   br i1 %spec.select.i.i.us.not.i.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS4_12numeric_pairIS6_EEE14sort_non_basisEvEUljjE_EEEvT_T0_.exit.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.us.i.i
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.i.i: ; preds = %55, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i.i
-  %.not25.i.i = phi i1 [ true, %55 ], [ %39, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i.i ]
+  %.not26.i.i = phi i1 [ true, %55 ], [ %39, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i.i ]
   %54 = phi i32 [ %56, %55 ], [ %27, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i.i ]
   %.015.i.i = phi ptr [ %.0.i.i, %55 ], [ %.012.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i.i ]
   %.0914.i.i = phi ptr [ %.015.i.i, %55 ], [ %.09.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i.i ]
-  br i1 %.not25.i.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS4_12numeric_pairIS6_EEE14sort_non_basisEvEUljjE_EEEvT_T0_.exit.i, label %55
+  br i1 %.not26.i.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS4_12numeric_pairIS6_EEE14sort_non_basisEvEUljjE_EEEvT_T0_.exit.i, label %55
 
 55:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.i.i
   store i32 %54, ptr %.0914.i.i, align 4, !tbaa !37
@@ -16014,8 +16014,8 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN2lp21lp_primal_core_solverI8rationalNS2_12
   %88 = sub i64 %86, %87
   %89 = sdiv exact i64 %88, 12
   %90 = and i64 %89, 4294967295
-  %.not40.i = icmp eq i64 %90, 0
-  br i1 %.not40.i, label %_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN2lp21lp_primal_core_solverI8rationalNS4_12numeric_pairIS6_EEE14sort_non_basisEvEUljjE_EEEvT_T0_SD_T1_RT2_.exit, label %91
+  %.not43.i = icmp eq i64 %90, 0
+  br i1 %.not43.i, label %_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN2lp21lp_primal_core_solverI8rationalNS4_12numeric_pairIS6_EEE14sort_non_basisEvEUljjE_EEEvT_T0_SD_T1_RT2_.exit, label %91
 
 91:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIPjjEEbT_RT0_.exit.us.i
   %92 = getelementptr inbounds i32, ptr %0, i64 %.01318.us.i
@@ -16303,11 +16303,11 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12
   br i1 %spec.select.i.i.us.not.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS4_12numeric_pairIS6_EEE14sort_non_basisEvEUljjE_EEEvT_T0_.exit, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.us.i
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.i: ; preds = %73, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i
-  %.not25.i = phi i1 [ true, %73 ], [ %57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i ]
+  %.not26.i = phi i1 [ true, %73 ], [ %57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i ]
   %72 = phi i32 [ %74, %73 ], [ %45, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i ]
   %.015.i = phi ptr [ %.0.i, %73 ], [ %.pn21, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i ]
   %.0914.i = phi ptr [ %.015.i, %73 ], [ %.022, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.preheader.i ]
-  br i1 %.not25.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS4_12numeric_pairIS6_EEE14sort_non_basisEvEUljjE_EEEvT_T0_.exit, label %73
+  br i1 %.not26.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS4_12numeric_pairIS6_EEE14sort_non_basisEvEUljjE_EEEvT_T0_.exit, label %73
 
 73:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS2_12numeric_pairIS4_EEE14sort_non_basisEvEUljjE_EclIjPjEEbRT_T0_.exit.i
   store i32 %72, ptr %.0914.i, align 4, !tbaa !37
@@ -16733,12 +16733,12 @@ _ZN8rationalD2Ev.exit68:                          ; preds = %.noexc.i67
   br i1 %132, label %.backedge.backedge, label %._crit_edge
 
 .backedge.backedge:                               ; preds = %124, %.thread
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %124 ], [ %indvars.iv.next152, %.thread ]
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %124 ], [ %indvars.iv.next162, %.thread ]
   br label %.backedge, !llvm.loop !312
 
 .thread:                                          ; preds = %_ZN8rationalD2Ev.exit68
-  %indvars.iv.next152 = add nuw nsw i64 %indvars.iv, 1
-  %133 = icmp samesign ult i64 %indvars.iv.next152, %43
+  %indvars.iv.next162 = add nuw nsw i64 %indvars.iv, 1
+  %133 = icmp samesign ult i64 %indvars.iv.next162, %43
   br i1 %133, label %.backedge.backedge, label %._crit_edge.thread
 
 ._crit_edge:                                      ; preds = %124

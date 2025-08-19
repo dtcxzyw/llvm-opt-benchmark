@@ -1321,11 +1321,11 @@ define range(i32 -2147483648, 6) i32 @arkRelax(ptr noundef %0, ptr noundef captu
   br i1 %319, label %arkRelaxNewtonSolve.exit.thread48.i, label %253
 
 arkRelaxNewtonSolve.exit.thread52.sink.split.i:   ; preds = %66, %48, %99, %.preheader.i.i, %228, %211
-  %.lcssa181.sink.i = phi i64 [ %225, %211 ], [ %225, %228 ], [ %96, %.preheader.i.i ], [ %96, %99 ], [ %63, %48 ], [ %63, %66 ]
-  %.lcssa185.sink.i = phi ptr [ %224, %211 ], [ %224, %228 ], [ %95, %.preheader.i.i ], [ %95, %99 ], [ %62, %48 ], [ %62, %66 ]
+  %.lcssa197.sink.i = phi i64 [ %225, %211 ], [ %225, %228 ], [ %96, %.preheader.i.i ], [ %96, %99 ], [ %63, %48 ], [ %63, %66 ]
+  %.lcssa201.sink.i = phi ptr [ %224, %211 ], [ %224, %228 ], [ %95, %.preheader.i.i ], [ %95, %99 ], [ %62, %48 ], [ %62, %66 ]
   %.0.i.ph.ph.i = phi i32 [ 1, %228 ], [ -45, %211 ], [ 1, %99 ], [ -45, %.preheader.i.i ], [ 1, %66 ], [ -45, %48 ]
-  %320 = add nsw i64 %.lcssa181.sink.i, 2
-  store i64 %320, ptr %.lcssa185.sink.i, align 8, !tbaa !29
+  %320 = add nsw i64 %.lcssa197.sink.i, 2
+  store i64 %320, ptr %.lcssa201.sink.i, align 8, !tbaa !29
   br label %arkRelaxNewtonSolve.exit.thread52.i
 
 arkRelaxNewtonSolve.exit.thread52.i:              ; preds = %229, %arkRelaxNewtonSolve.exit.thread52.sink.split.i, %116, %114, %80
@@ -1335,11 +1335,11 @@ arkRelaxNewtonSolve.exit.thread52.i:              ; preds = %229, %arkRelaxNewto
   br label %arkRelaxNewtonSolve.exit.thread.i
 
 arkRelaxNewtonSolve.exit.i:                       ; preds = %67, %100, %150, %139
-  %.lcssa154.sink.i = phi double [ %140, %139 ], [ %140, %150 ], [ %104, %100 ], [ %71, %67 ]
+  %.lcssa170.sink.i = phi double [ %140, %139 ], [ %140, %150 ], [ %104, %100 ], [ %71, %67 ]
   %.3.i.lcssa.sink.i = phi double [ %.3.i.i, %139 ], [ %.3.i.i, %150 ], [ %.1131202.i.i, %100 ], [ %.0133200.i.i, %67 ]
   %321 = phi ptr [ %125, %139 ], [ %125, %150 ], [ %94, %100 ], [ %61, %67 ]
   %322 = getelementptr inbounds nuw i8, ptr %42, i64 80
-  store double %.lcssa154.sink.i, ptr %322, align 8, !tbaa !54
+  store double %.lcssa170.sink.i, ptr %322, align 8, !tbaa !54
   store double %.3.i.lcssa.sink.i, ptr %43, align 8, !tbaa !48
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

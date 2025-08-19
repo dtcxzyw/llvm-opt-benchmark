@@ -10781,14 +10781,14 @@ define hidden void @"_ZN11ruff_linter5rules5isort8settings1_110_$LT$impl$u20$ser
   br label %42
 
 42:                                               ; preds = %64, %39
-  %.sink38.i = phi i64 [ %49, %64 ], [ %33, %39 ]
-  %.sink37.i = phi ptr [ %65, %64 ], [ %40, %39 ]
+  %.sink39.i = phi i64 [ %49, %64 ], [ %33, %39 ]
+  %.sink38.i = phi ptr [ %65, %64 ], [ %40, %39 ]
   %.sink.i = phi i64 [ 45, %64 ], [ 42, %39 ]
   store i64 0, ptr %0, align 8, !alias.scope !12, !noalias !15
   %.sroa.421.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sink38.i, ptr %.sroa.421.0..sroa_idx.i, align 8, !alias.scope !12, !noalias !15
+  store i64 %.sink39.i, ptr %.sroa.421.0..sroa_idx.i, align 8, !alias.scope !12, !noalias !15
   %.sroa.522.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.sink37.i, ptr %.sroa.522.0..sroa_idx.i, align 8, !alias.scope !12, !noalias !15
+  store ptr %.sink38.i, ptr %.sroa.522.0..sroa_idx.i, align 8, !alias.scope !12, !noalias !15
   %.sroa.623.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sink.i, ptr %.sroa.623.0..sroa_idx.i, align 8, !alias.scope !12, !noalias !15
   %.sroa.724.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 48

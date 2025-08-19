@@ -110,13 +110,13 @@ define hidden noundef i32 @phpdbg_do_print_exec(ptr readnone captures(none) %0) 
   %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !39
   %7 = and i64 %6, 2147483648
   %.not2 = icmp eq i64 %7, 0
-  br i1 %.not2, label %8, label %.thread6
+  br i1 %.not2, label %8, label %.thread7
 
 8:                                                ; preds = %5
   %9 = tail call i32 @phpdbg_compile() #11
   %.pr.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1360), align 8, !tbaa !38
   %.not3 = icmp eq ptr %.pr.pre, null
-  br i1 %.not3, label %.thread6, label %..thread_crit_edge
+  br i1 %.not3, label %.thread7, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %8
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1344), align 8, !tbaa !4
@@ -131,14 +131,14 @@ define hidden noundef i32 @phpdbg_do_print_exec(ptr readnone captures(none) %0) 
   %15 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 2, i32 noundef %12, ptr noundef nonnull @.str.15, ptr noundef %10, i32 noundef %14) #11
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1360), align 8, !tbaa !38
   tail call fastcc void @phpdbg_print_function_helper(ptr noundef %16)
-  br label %.thread6
+  br label %.thread7
 
 17:                                               ; preds = %1
   %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !40
   %19 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %18, ptr noundef nonnull @.str.16) #11
-  br label %.thread6
+  br label %.thread7
 
-.thread6:                                         ; preds = %5, %8, %.thread, %17
+.thread7:                                         ; preds = %5, %8, %.thread, %17
   ret i32 0
 }
 

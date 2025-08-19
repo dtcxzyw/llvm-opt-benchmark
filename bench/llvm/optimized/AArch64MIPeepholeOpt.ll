@@ -976,8 +976,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit53.i:               ; preds = %.critedge49.i
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit55.sink.split.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit55.sink.split.i: ; preds = %369, %.critedge49.i
-  %.sink69.i = phi ptr [ %44, %369 ], [ %43, %.critedge49.i ]
-  store ptr null, ptr %.sink69.i, align 8, !tbaa !198
+  %.sink79.i = phi ptr [ %44, %369 ], [ %43, %.critedge49.i ]
+  store ptr null, ptr %.sink79.i, align 8, !tbaa !198
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit55.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit55.i: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit55.sink.split.i, %_ZN4llvm8DebugLocC2ERKS0_.exit53.i
@@ -1946,8 +1946,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit51.i:               ; preds = %_ZN4llvm8DebugLocD2
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit53.sink.split.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit53.sink.split.i: ; preds = %762, %_ZN4llvm8DebugLocD2Ev.exit.i180
-  %.sink91.i = phi ptr [ %15, %762 ], [ %14, %_ZN4llvm8DebugLocD2Ev.exit.i180 ]
-  store ptr null, ptr %.sink91.i, align 8, !tbaa !198
+  %.sink99.i = phi ptr [ %15, %762 ], [ %14, %_ZN4llvm8DebugLocD2Ev.exit.i180 ]
+  store ptr null, ptr %.sink99.i, align 8, !tbaa !198
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit53.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit53.i: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit53.sink.split.i, %_ZN4llvm8DebugLocC2ERKS0_.exit51.i
@@ -2030,8 +2030,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit62.i:               ; preds = %_ZN4llvm8DebugLocD2
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit64.sink.split.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit64.sink.split.i: ; preds = %783, %_ZN4llvm8DebugLocD2Ev.exit60.i
-  %.sink92.i = phi ptr [ %17, %783 ], [ %16, %_ZN4llvm8DebugLocD2Ev.exit60.i ]
-  store ptr null, ptr %.sink92.i, align 8, !tbaa !198
+  %.sink100.i = phi ptr [ %17, %783 ], [ %16, %_ZN4llvm8DebugLocD2Ev.exit60.i ]
+  store ptr null, ptr %.sink100.i, align 8, !tbaa !198
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit64.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit64.i: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit64.sink.split.i, %_ZN4llvm8DebugLocC2ERKS0_.exit62.i
@@ -3245,7 +3245,7 @@ define internal { i64, i8 } @_ZNSt17_Function_handlerIFSt8optionalISt4pairIjjEEj
 
 8:                                                ; preds = %5
   %.not.i.i.i.i.i.i = icmp eq i32 %.val10, 64
-  br i1 %.not.i.i.i.i.i.i, label %.preheader13, label %9
+  br i1 %.not.i.i.i.i.i.i, label %.preheader21, label %9
 
 9:                                                ; preds = %8
   %10 = zext nneg i32 %.val10 to i64
@@ -3258,13 +3258,13 @@ define internal { i64, i8 } @_ZNSt17_Function_handlerIFSt8optionalISt4pairIjjEEj
   %14 = zext nneg i32 %13 to i64
   %15 = lshr i64 -1, %14
   %16 = icmp eq i64 %15, %7
-  br i1 %16, label %42, label %.preheader13
+  br i1 %16, label %42, label %.preheader21
 
-.preheader13:                                     ; preds = %12, %8
+.preheader21:                                     ; preds = %12, %8
   br label %17
 
-17:                                               ; preds = %.preheader13, %17
-  %.045.i.i.i.i.i.i = phi i32 [ %.146.i.i.i.i.i.i, %17 ], [ %.val10, %.preheader13 ]
+17:                                               ; preds = %.preheader21, %17
+  %.045.i.i.i.i.i.i = phi i32 [ %.146.i.i.i.i.i.i, %17 ], [ %.val10, %.preheader21 ]
   %18 = lshr i32 %.045.i.i.i.i.i.i, 1
   %19 = zext nneg i32 %18 to i64
   %notmask.i.i.i.i.i.i = shl nsw i64 -1, %19
@@ -3337,7 +3337,7 @@ _ZN4llvm16isShiftedMask_64Em.exit56.i.i.i.i.i.i:  ; preds = %_ZN4llvm16isShifted
 
 57:                                               ; preds = %48
   %.not.i.i20.i.i.i.i = icmp eq i32 %.val10, 64
-  br i1 %.not.i.i20.i.i.i.i, label %.preheader12, label %58
+  br i1 %.not.i.i20.i.i.i.i, label %.preheader20, label %58
 
 58:                                               ; preds = %57
   %59 = zext nneg i32 %.val10 to i64
@@ -3350,13 +3350,13 @@ _ZN4llvm16isShiftedMask_64Em.exit56.i.i.i.i.i.i:  ; preds = %_ZN4llvm16isShifted
   %63 = zext nneg i32 %62 to i64
   %64 = lshr i64 -1, %63
   %65 = icmp eq i64 %64, %56
-  br i1 %65, label %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit34.thread.i.i.i.i, label %.preheader12
+  br i1 %65, label %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit34.thread.i.i.i.i, label %.preheader20
 
-.preheader12:                                     ; preds = %61, %57
+.preheader20:                                     ; preds = %61, %57
   br label %66
 
-66:                                               ; preds = %.preheader12, %66
-  %.045.i.i23.i.i.i.i = phi i32 [ %.146.i.i26.i.i.i.i, %66 ], [ %.val10, %.preheader12 ]
+66:                                               ; preds = %.preheader20, %66
+  %.045.i.i23.i.i.i.i = phi i32 [ %.146.i.i26.i.i.i.i, %66 ], [ %.val10, %.preheader20 ]
   %67 = lshr i32 %.045.i.i23.i.i.i.i, 1
   %68 = zext nneg i32 %67 to i64
   %notmask.i.i24.i.i.i.i = shl nsw i64 -1, %68
@@ -3407,7 +3407,7 @@ _ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit34.i.i.i.i: ; preds = %_ZN4llvm
   br i1 %or.cond.i.i35.i.i.i.i, label %154, label %92
 
 92:                                               ; preds = %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit34.i.i.i.i
-  br i1 %.not.i.i20.i.i.i.i, label %.preheader11, label %93
+  br i1 %.not.i.i20.i.i.i.i, label %.preheader19, label %93
 
 93:                                               ; preds = %92
   %94 = zext nneg i32 %.val10 to i64
@@ -3420,13 +3420,13 @@ _ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit34.i.i.i.i: ; preds = %_ZN4llvm
   %98 = zext nneg i32 %97 to i64
   %99 = lshr i64 -1, %98
   %100 = icmp eq i64 %99, %91
-  br i1 %100, label %.thread.i.i.i.i, label %.preheader11
+  br i1 %100, label %.thread.i.i.i.i, label %.preheader19
 
-.preheader11:                                     ; preds = %96, %92
+.preheader19:                                     ; preds = %96, %92
   br label %101
 
-101:                                              ; preds = %.preheader11, %101
-  %.045.i.i38.i.i.i.i = phi i32 [ %.146.i.i41.i.i.i.i, %101 ], [ %.val10, %.preheader11 ]
+101:                                              ; preds = %.preheader19, %101
+  %.045.i.i38.i.i.i.i = phi i32 [ %.146.i.i41.i.i.i.i, %101 ], [ %.val10, %.preheader19 ]
   %102 = lshr i32 %.045.i.i38.i.i.i.i, 1
   %103 = zext nneg i32 %102 to i64
   %notmask.i.i39.i.i.i.i = shl nsw i64 -1, %103
@@ -3841,8 +3841,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit21.i.i.i:           ; preds = %_ZN4llvm8DebugLocD2
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.sink.split.i.i.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.sink.split.i.i.i: ; preds = %58, %_ZN4llvm8DebugLocD2Ev.exit.i.i.i
-  %.sink45.i.i.i = phi ptr [ %17, %58 ], [ %16, %_ZN4llvm8DebugLocD2Ev.exit.i.i.i ]
-  store ptr null, ptr %.sink45.i.i.i, align 8, !tbaa !198
+  %.sink51.i.i.i = phi ptr [ %17, %58 ], [ %16, %_ZN4llvm8DebugLocD2Ev.exit.i.i.i ]
+  store ptr null, ptr %.sink51.i.i.i, align 8, !tbaa !198
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.i.i.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.i.i.i: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.sink.split.i.i.i, %_ZN4llvm8DebugLocC2ERKS0_.exit21.i.i.i
@@ -4166,7 +4166,7 @@ define internal { i64, i8 } @_ZNSt17_Function_handlerIFSt8optionalISt4pairIjjEEm
 
 8:                                                ; preds = %5
   %.not.i.i.i.i.i.i = icmp eq i32 %.val10, 64
-  br i1 %.not.i.i.i.i.i.i, label %.preheader13, label %9
+  br i1 %.not.i.i.i.i.i.i, label %.preheader21, label %9
 
 9:                                                ; preds = %8
   %10 = zext nneg i32 %.val10 to i64
@@ -4179,13 +4179,13 @@ define internal { i64, i8 } @_ZNSt17_Function_handlerIFSt8optionalISt4pairIjjEEm
   %14 = zext nneg i32 %13 to i64
   %15 = lshr i64 -1, %14
   %16 = icmp eq i64 %.val, %15
-  br i1 %16, label %42, label %.preheader13
+  br i1 %16, label %42, label %.preheader21
 
-.preheader13:                                     ; preds = %12, %8
+.preheader21:                                     ; preds = %12, %8
   br label %17
 
-17:                                               ; preds = %.preheader13, %17
-  %.045.i.i.i.i.i.i = phi i32 [ %.146.i.i.i.i.i.i, %17 ], [ %.val10, %.preheader13 ]
+17:                                               ; preds = %.preheader21, %17
+  %.045.i.i.i.i.i.i = phi i32 [ %.146.i.i.i.i.i.i, %17 ], [ %.val10, %.preheader21 ]
   %18 = lshr i32 %.045.i.i.i.i.i.i, 1
   %19 = zext nneg i32 %18 to i64
   %notmask.i.i.i.i.i.i = shl nsw i64 -1, %19
@@ -4259,7 +4259,7 @@ _ZN4llvm16isShiftedMask_64Em.exit56.i.i.i.i.i.i:  ; preds = %_ZN4llvm16isShifted
 
 58:                                               ; preds = %48
   %.not.i.i20.i.i.i.i = icmp eq i32 %.val10, 64
-  br i1 %.not.i.i20.i.i.i.i, label %.preheader12, label %59
+  br i1 %.not.i.i20.i.i.i.i, label %.preheader20, label %59
 
 59:                                               ; preds = %58
   %60 = zext nneg i32 %.val10 to i64
@@ -4272,13 +4272,13 @@ _ZN4llvm16isShiftedMask_64Em.exit56.i.i.i.i.i.i:  ; preds = %_ZN4llvm16isShifted
   %64 = zext nneg i32 %63 to i64
   %65 = lshr i64 -1, %64
   %66 = icmp eq i64 %56, %65
-  br i1 %66, label %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit34.thread.i.i.i.i, label %.preheader12
+  br i1 %66, label %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit34.thread.i.i.i.i, label %.preheader20
 
-.preheader12:                                     ; preds = %62, %58
+.preheader20:                                     ; preds = %62, %58
   br label %67
 
-67:                                               ; preds = %.preheader12, %67
-  %.045.i.i23.i.i.i.i = phi i32 [ %.146.i.i26.i.i.i.i, %67 ], [ %.val10, %.preheader12 ]
+67:                                               ; preds = %.preheader20, %67
+  %.045.i.i23.i.i.i.i = phi i32 [ %.146.i.i26.i.i.i.i, %67 ], [ %.val10, %.preheader20 ]
   %68 = lshr i32 %.045.i.i23.i.i.i.i, 1
   %69 = zext nneg i32 %68 to i64
   %notmask.i.i24.i.i.i.i = shl nsw i64 -1, %69
@@ -4329,7 +4329,7 @@ _ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit34.i.i.i.i: ; preds = %_ZN4llvm
   br i1 %or.cond.i.i35.i.i.i.i, label %156, label %93
 
 93:                                               ; preds = %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit34.i.i.i.i
-  br i1 %.not.i.i20.i.i.i.i, label %.preheader11, label %94
+  br i1 %.not.i.i20.i.i.i.i, label %.preheader19, label %94
 
 94:                                               ; preds = %93
   %95 = zext nneg i32 %.val10 to i64
@@ -4342,13 +4342,13 @@ _ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit34.i.i.i.i: ; preds = %_ZN4llvm
   %99 = zext nneg i32 %98 to i64
   %100 = lshr i64 -1, %99
   %101 = icmp eq i64 %54, %100
-  br i1 %101, label %.thread.i.i.i.i, label %.preheader11
+  br i1 %101, label %.thread.i.i.i.i, label %.preheader19
 
-.preheader11:                                     ; preds = %97, %93
+.preheader19:                                     ; preds = %97, %93
   br label %102
 
-102:                                              ; preds = %.preheader11, %102
-  %.045.i.i38.i.i.i.i = phi i32 [ %.146.i.i41.i.i.i.i, %102 ], [ %.val10, %.preheader11 ]
+102:                                              ; preds = %.preheader19, %102
+  %.045.i.i38.i.i.i.i = phi i32 [ %.146.i.i41.i.i.i.i, %102 ], [ %.val10, %.preheader19 ]
   %103 = lshr i32 %.045.i.i38.i.i.i.i, 1
   %104 = zext nneg i32 %103 to i64
   %notmask.i.i39.i.i.i.i = shl nsw i64 -1, %104
@@ -4750,8 +4750,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit21.i.i.i:           ; preds = %_ZN4llvm8DebugLocD2
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.sink.split.i.i.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.sink.split.i.i.i: ; preds = %58, %_ZN4llvm8DebugLocD2Ev.exit.i.i.i
-  %.sink45.i.i.i = phi ptr [ %17, %58 ], [ %16, %_ZN4llvm8DebugLocD2Ev.exit.i.i.i ]
-  store ptr null, ptr %.sink45.i.i.i, align 8, !tbaa !198
+  %.sink51.i.i.i = phi ptr [ %17, %58 ], [ %16, %_ZN4llvm8DebugLocD2Ev.exit.i.i.i ]
+  store ptr null, ptr %.sink51.i.i.i, align 8, !tbaa !198
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.i.i.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.i.i.i: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.sink.split.i.i.i, %_ZN4llvm8DebugLocC2ERKS0_.exit21.i.i.i
@@ -5160,8 +5160,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit21.i.i.i:           ; preds = %_ZN4llvm8DebugLocD2
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.sink.split.i.i.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.sink.split.i.i.i: ; preds = %62, %_ZN4llvm8DebugLocD2Ev.exit.i.i.i
-  %.sink49.i.i.i = phi ptr [ %19, %62 ], [ %18, %_ZN4llvm8DebugLocD2Ev.exit.i.i.i ]
-  store ptr null, ptr %.sink49.i.i.i, align 8, !tbaa !198
+  %.sink55.i.i.i = phi ptr [ %19, %62 ], [ %18, %_ZN4llvm8DebugLocD2Ev.exit.i.i.i ]
+  store ptr null, ptr %.sink55.i.i.i, align 8, !tbaa !198
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.i.i.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.i.i.i: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.sink.split.i.i.i, %_ZN4llvm8DebugLocC2ERKS0_.exit21.i.i.i
@@ -5572,8 +5572,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit21.i.i.i:           ; preds = %_ZN4llvm8DebugLocD2
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.sink.split.i.i.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.sink.split.i.i.i: ; preds = %62, %_ZN4llvm8DebugLocD2Ev.exit.i.i.i
-  %.sink49.i.i.i = phi ptr [ %19, %62 ], [ %18, %_ZN4llvm8DebugLocD2Ev.exit.i.i.i ]
-  store ptr null, ptr %.sink49.i.i.i, align 8, !tbaa !198
+  %.sink55.i.i.i = phi ptr [ %19, %62 ], [ %18, %_ZN4llvm8DebugLocD2Ev.exit.i.i.i ]
+  store ptr null, ptr %.sink55.i.i.i, align 8, !tbaa !198
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.i.i.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.i.i.i: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.sink.split.i.i.i, %_ZN4llvm8DebugLocC2ERKS0_.exit21.i.i.i
@@ -6023,8 +6023,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit21.i.i.i:           ; preds = %_ZN4llvm8DebugLocD2
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.sink.split.i.i.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.sink.split.i.i.i: ; preds = %62, %_ZN4llvm8DebugLocD2Ev.exit.i.i.i
-  %.sink49.i.i.i = phi ptr [ %19, %62 ], [ %18, %_ZN4llvm8DebugLocD2Ev.exit.i.i.i ]
-  store ptr null, ptr %.sink49.i.i.i, align 8, !tbaa !198
+  %.sink55.i.i.i = phi ptr [ %19, %62 ], [ %18, %_ZN4llvm8DebugLocD2Ev.exit.i.i.i ]
+  store ptr null, ptr %.sink55.i.i.i, align 8, !tbaa !198
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.i.i.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.i.i.i: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.sink.split.i.i.i, %_ZN4llvm8DebugLocC2ERKS0_.exit21.i.i.i
@@ -6470,8 +6470,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit21.i.i.i:           ; preds = %_ZN4llvm8DebugLocD2
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.sink.split.i.i.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.sink.split.i.i.i: ; preds = %62, %_ZN4llvm8DebugLocD2Ev.exit.i.i.i
-  %.sink49.i.i.i = phi ptr [ %19, %62 ], [ %18, %_ZN4llvm8DebugLocD2Ev.exit.i.i.i ]
-  store ptr null, ptr %.sink49.i.i.i, align 8, !tbaa !198
+  %.sink55.i.i.i = phi ptr [ %19, %62 ], [ %18, %_ZN4llvm8DebugLocD2Ev.exit.i.i.i ]
+  store ptr null, ptr %.sink55.i.i.i, align 8, !tbaa !198
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.i.i.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.i.i.i: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit23.sink.split.i.i.i, %_ZN4llvm8DebugLocC2ERKS0_.exit21.i.i.i
@@ -6769,8 +6769,8 @@ define linkonce_odr hidden void @_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread: ; preds = %.lr.ph.i, %18
-  %.sink15 = phi ptr [ %21, %18 ], [ %.02937.i, %.lr.ph.i ]
-  %.sink14 = phi i8 [ 1, %18 ], [ 0, %.lr.ph.i ]
+  %.sink18 = phi ptr [ %21, %18 ], [ %.02937.i, %.lr.ph.i ]
+  %.sink17 = phi i8 [ 1, %18 ], [ 0, %.lr.ph.i ]
   %.ph = phi ptr [ %20, %18 ], [ %8, %.lr.ph.i ]
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %23 = load i32, ptr %22, align 4
@@ -6792,17 +6792,17 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit: ; preds = %3, %._crit_edge.i
   br label %31
 
 31:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread
-  %.fca.0.extract11 = phi ptr [ %.sink15, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %.fca.0.extract, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
-  %.fca.1.insert.merged.i9 = phi i8 [ %.sink14, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %30, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
+  %.fca.0.extract14 = phi ptr [ %.sink18, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %.fca.0.extract, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
+  %.fca.1.insert.merged.i12 = phi i8 [ %.sink17, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %30, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
   %32 = phi ptr [ %.ph, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %.pre5, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
   %33 = phi i32 [ %23, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %spec.select, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
   %.v.i5.i = zext i32 %33 to i64
   %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %.v.i5.i
-  %.not3.i4.i.i6.i = icmp eq ptr %.fca.0.extract11, %34
+  %.not3.i4.i.i6.i = icmp eq ptr %.fca.0.extract14, %34
   br i1 %.not3.i4.i.i6.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE12makeIteratorEPKPKv.exit, label %.lr.ph.i5.i.i7.i
 
 .lr.ph.i5.i.i7.i:                                 ; preds = %31, %.critedge2.i7.i.i9.i
-  %.sroa.0.3.i = phi ptr [ %36, %.critedge2.i7.i.i9.i ], [ %.fca.0.extract11, %31 ]
+  %.sroa.0.3.i = phi ptr [ %36, %.critedge2.i7.i.i9.i ], [ %.fca.0.extract14, %31 ]
   %35 = load ptr, ptr %.sroa.0.3.i, align 8, !tbaa !3
   %switch.i6.i.i8.i = icmp ugt ptr %35, inttoptr (i64 -3 to ptr)
   br i1 %switch.i6.i.i8.i, label %.critedge2.i7.i.i9.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE12makeIteratorEPKPKv.exit
@@ -6813,12 +6813,12 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit: ; preds = %3, %._crit_edge.i
   br i1 %.not.i8.i.i10.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE12makeIteratorEPKPKv.exit, label %.lr.ph.i5.i.i7.i, !llvm.loop !269
 
 _ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE12makeIteratorEPKPKv.exit: ; preds = %.lr.ph.i5.i.i7.i, %.critedge2.i7.i.i9.i, %31
-  %.sroa.0.4.i = phi ptr [ %.fca.0.extract11, %31 ], [ %36, %.critedge2.i7.i.i9.i ], [ %.sroa.0.3.i, %.lr.ph.i5.i.i7.i ]
+  %.sroa.0.4.i = phi ptr [ %.fca.0.extract14, %31 ], [ %36, %.critedge2.i7.i.i9.i ], [ %.sroa.0.3.i, %.lr.ph.i5.i.i7.i ]
   store ptr %.sroa.0.4.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %34, ptr %.sroa.4.0..sroa_idx, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.fca.1.insert.merged.i9, ptr %37, align 8, !tbaa !469, !alias.scope !473
+  store i8 %.fca.1.insert.merged.i12, ptr %37, align 8, !tbaa !469, !alias.scope !473
   ret void
 }
 

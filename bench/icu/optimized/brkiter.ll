@@ -584,7 +584,7 @@ define noundef ptr @_ZN6icu_7713BreakIterator13buildInstanceERKNS_6LocaleEPKcR10
 23:                                               ; preds = %19
   %24 = load i32, ptr %2, align 4, !tbaa !13
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.thread91, label %26
+  br i1 %25, label %.thread95, label %26
 
 26:                                               ; preds = %23
   %27 = invoke ptr @ures_getByKeyWithFallback_77(ptr noundef %22, ptr noundef nonnull @.str.1, ptr noundef nonnull %8, ptr noundef nonnull %2)
@@ -607,13 +607,13 @@ define noundef ptr @_ZN6icu_7713BreakIterator13buildInstanceERKNS_6LocaleEPKcR10
 35:                                               ; preds = %32
   store i32 0, ptr %7, align 4, !tbaa !12
   %36 = icmp sgt i32 %.pre, 0
-  br i1 %36, label %.thread91, label %37
+  br i1 %36, label %.thread95, label %37
 
 37:                                               ; preds = %35
   store i32 15, ptr %2, align 4, !tbaa !13
-  br label %.thread91
+  br label %.thread95
 
-38:                                               ; preds = %65, %.thread91, %45, %43, %30, %28, %26, %19
+38:                                               ; preds = %65, %.thread95, %45, %43, %30, %28, %26, %19
   %39 = landingpad { ptr, i32 }
           cleanup
   br label %114
@@ -622,7 +622,7 @@ define noundef ptr @_ZN6icu_7713BreakIterator13buildInstanceERKNS_6LocaleEPKcR10
   %41 = icmp slt i32 %.pre, 1
   %42 = icmp ne ptr %31, null
   %or.cond = select i1 %41, i1 %42, i1 false
-  br i1 %or.cond, label %43, label %.thread91
+  br i1 %or.cond, label %43, label %.thread95
 
 43:                                               ; preds = %40
   %44 = invoke ptr @ures_getLocaleInternal_77(ptr noundef %29, ptr noundef nonnull %2)
@@ -670,15 +670,15 @@ define noundef ptr @_ZN6icu_7713BreakIterator13buildInstanceERKNS_6LocaleEPKcR10
   %63 = ashr exact i64 %sext, 32
   %64 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %63
   store i8 0, ptr %64, align 1, !tbaa !17
-  br label %.thread91
+  br label %.thread95
 
-.thread91:                                        ; preds = %37, %35, %40, %62, %23
+.thread95:                                        ; preds = %37, %35, %40, %62, %23
   %.068 = phi ptr [ %29, %62 ], [ %29, %40 ], [ %9, %23 ], [ %29, %35 ], [ %29, %37 ]
   %.067 = phi ptr [ %27, %62 ], [ %27, %40 ], [ %8, %23 ], [ %27, %35 ], [ %27, %37 ]
   invoke void @ures_close_77(ptr noundef %.067)
           to label %65 unwind label %38
 
-65:                                               ; preds = %.thread91
+65:                                               ; preds = %.thread95
   invoke void @ures_close_77(ptr noundef %.068)
           to label %66 unwind label %38
 

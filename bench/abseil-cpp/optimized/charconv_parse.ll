@@ -149,8 +149,8 @@ define weak_odr dso_local void @_ZN4absl16strings_internal10ParseFloatILi10EEENS
 
 _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.lr.ph62.i, %44, %.critedge2.i
   %.1148 = phi i1 [ false, %.critedge2.i ], [ %spec.select.i, %44 ], [ %.061.i, %.lr.ph62.i ]
-  %.2.lcssa75.i = phi ptr [ %.1.lcssa.i, %.critedge2.i ], [ %scevgep71.i, %44 ], [ %.260.i, %.lr.ph62.i ]
-  %47 = ptrtoint ptr %.2.lcssa75.i to i64
+  %.2.lcssa79.i = phi ptr [ %.1.lcssa.i, %.critedge2.i ], [ %scevgep71.i, %44 ], [ %.260.i, %.lr.ph62.i ]
+  %47 = ptrtoint ptr %.2.lcssa79.i to i64
   %48 = sub i64 %47, %.pre-phi
   %49 = trunc i64 %48 to i32
   %sext = shl i64 %48, 32
@@ -176,9 +176,9 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.l
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 1
   %63 = icmp eq i64 %.039.lcssa.i, 0
-  br i1 %63, label %.preheader, label %.thread175
+  br i1 %63, label %.preheader, label %.thread194
 
-.thread175:                                       ; preds = %61
+.thread194:                                       ; preds = %61
   %.pre173 = ptrtoint ptr %62 to i64
   br label %.critedge.i114
 
@@ -237,12 +237,12 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.l
   %.pre171 = ptrtoint ptr %.038.lcssa.i115.ph to i64
   br label %.critedge.i114
 
-.critedge.i114:                                   ; preds = %.thread175, %.critedge.i114.loopexit, %77
-  %.2184 = phi ptr [ %.3.lcssa, %.critedge.i114.loopexit ], [ %.3.lcssa, %77 ], [ %62, %.thread175 ]
-  %.285183 = phi i32 [ %76, %.critedge.i114.loopexit ], [ %76, %77 ], [ %.083, %.thread175 ]
-  %.pre-phi174182 = phi i64 [ %71, %.critedge.i114.loopexit ], [ %71, %77 ], [ %.pre173, %.thread175 ]
-  %.pre-phi172 = phi i64 [ %.pre171, %.critedge.i114.loopexit ], [ %71, %77 ], [ %.pre173, %.thread175 ]
-  %.038.lcssa.i115 = phi ptr [ %.038.lcssa.i115.ph, %.critedge.i114.loopexit ], [ %.3.lcssa, %77 ], [ %62, %.thread175 ]
+.critedge.i114:                                   ; preds = %.thread194, %.critedge.i114.loopexit, %77
+  %.2203 = phi ptr [ %.3.lcssa, %.critedge.i114.loopexit ], [ %.3.lcssa, %77 ], [ %62, %.thread194 ]
+  %.285202 = phi i32 [ %76, %.critedge.i114.loopexit ], [ %76, %77 ], [ %.083, %.thread194 ]
+  %.pre-phi174201 = phi i64 [ %71, %.critedge.i114.loopexit ], [ %71, %77 ], [ %.pre173, %.thread194 ]
+  %.pre-phi172 = phi i64 [ %.pre171, %.critedge.i114.loopexit ], [ %71, %77 ], [ %.pre173, %.thread194 ]
+  %.038.lcssa.i115 = phi ptr [ %.038.lcssa.i115.ph, %.critedge.i114.loopexit ], [ %.3.lcssa, %77 ], [ %62, %.thread194 ]
   %83 = sub i64 %6, %.pre-phi172
   %84 = zext nneg i32 %.089 to i64
   %85 = icmp sgt i64 %83, %84
@@ -315,16 +315,16 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.l
 
 _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit142: ; preds = %.critedge4.i126, %.critedge2.i116
   %.2149 = phi i1 [ %.1148, %.critedge2.i116 ], [ %spec.select156, %.critedge4.i126 ]
-  %.2.lcssa75.i120 = phi ptr [ %.1.lcssa.i119, %.critedge2.i116 ], [ %.2.lcssa.i127, %.critedge4.i126 ]
-  %108 = ptrtoint ptr %.2.lcssa75.i120 to i64
-  %109 = sub i64 %108, %.pre-phi174182
+  %.2.lcssa79.i120 = phi ptr [ %.1.lcssa.i119, %.critedge2.i116 ], [ %.2.lcssa.i127, %.critedge4.i126 ]
+  %108 = ptrtoint ptr %.2.lcssa79.i120 to i64
+  %109 = sub i64 %108, %.pre-phi174201
   %110 = trunc i64 %109 to i32
   %sext157 = shl i64 %109, 32
   %111 = ashr exact i64 %sext157, 32
-  %112 = getelementptr inbounds i8, ptr %.2184, i64 %111
+  %112 = getelementptr inbounds i8, ptr %.2203, i64 %111
   %113 = icmp slt i32 %110, 50000000
   %.089. = tail call i32 @llvm.smin.i32(i32 %.089, i32 %110)
-  %.588 = sub nsw i32 %.285183, %.089.
+  %.588 = sub nsw i32 %.285202, %.089.
   br i1 %113, label %114, label %161
 
 114:                                              ; preds = %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EmEEiPKcS3_iPT0_Pb.exit142, %58, %53
@@ -788,8 +788,8 @@ define weak_odr dso_local void @_ZN4absl16strings_internal10ParseFloatILi16EEENS
 
 _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.critedge4.i, %.critedge2.i
   %.1147 = phi i8 [ 0, %.critedge2.i ], [ %spec.select155, %.critedge4.i ]
-  %.2.lcssa75.i = phi ptr [ %.1.lcssa.i, %.critedge2.i ], [ %.2.lcssa.i, %.critedge4.i ]
-  %50 = ptrtoint ptr %.2.lcssa75.i to i64
+  %.2.lcssa80.i = phi ptr [ %.1.lcssa.i, %.critedge2.i ], [ %.2.lcssa.i, %.critedge4.i ]
+  %50 = ptrtoint ptr %.2.lcssa80.i to i64
   %51 = sub i64 %50, %.pre-phi
   %52 = trunc i64 %51 to i32
   %sext = shl i64 %51, 32
@@ -815,9 +815,9 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.c
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %66 = icmp eq i64 %.039.lcssa.i, 0
-  br i1 %66, label %.preheader, label %.thread176
+  br i1 %66, label %.preheader, label %.thread197
 
-.thread176:                                       ; preds = %64
+.thread197:                                       ; preds = %64
   %.pre174 = ptrtoint ptr %65 to i64
   br label %.critedge.i112
 
@@ -876,12 +876,12 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.c
   %.pre172 = ptrtoint ptr %.038.lcssa.i113.ph to i64
   br label %.critedge.i112
 
-.critedge.i112:                                   ; preds = %.thread176, %.critedge.i112.loopexit, %80
-  %.2185 = phi ptr [ %.3.lcssa, %.critedge.i112.loopexit ], [ %.3.lcssa, %80 ], [ %65, %.thread176 ]
-  %.283184 = phi i32 [ %79, %.critedge.i112.loopexit ], [ %79, %80 ], [ %.081, %.thread176 ]
-  %.pre-phi175183 = phi i64 [ %74, %.critedge.i112.loopexit ], [ %74, %80 ], [ %.pre174, %.thread176 ]
-  %.pre-phi173 = phi i64 [ %.pre172, %.critedge.i112.loopexit ], [ %74, %80 ], [ %.pre174, %.thread176 ]
-  %.038.lcssa.i113 = phi ptr [ %.038.lcssa.i113.ph, %.critedge.i112.loopexit ], [ %.3.lcssa, %80 ], [ %65, %.thread176 ]
+.critedge.i112:                                   ; preds = %.thread197, %.critedge.i112.loopexit, %80
+  %.2206 = phi ptr [ %.3.lcssa, %.critedge.i112.loopexit ], [ %.3.lcssa, %80 ], [ %65, %.thread197 ]
+  %.283205 = phi i32 [ %79, %.critedge.i112.loopexit ], [ %79, %80 ], [ %.081, %.thread197 ]
+  %.pre-phi175204 = phi i64 [ %74, %.critedge.i112.loopexit ], [ %74, %80 ], [ %.pre174, %.thread197 ]
+  %.pre-phi173 = phi i64 [ %.pre172, %.critedge.i112.loopexit ], [ %74, %80 ], [ %.pre174, %.thread197 ]
+  %.038.lcssa.i113 = phi ptr [ %.038.lcssa.i113.ph, %.critedge.i112.loopexit ], [ %.3.lcssa, %80 ], [ %65, %.thread197 ]
   %86 = sub i64 %6, %.pre-phi173
   %87 = zext nneg i32 %.087 to i64
   %88 = icmp sgt i64 %86, %87
@@ -957,16 +957,16 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.c
 
 _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit140: ; preds = %.critedge4.i124, %.critedge2.i114
   %.2148 = phi i8 [ %.1147, %.critedge2.i114 ], [ %spec.select156, %.critedge4.i124 ]
-  %.2.lcssa75.i118 = phi ptr [ %.1.lcssa.i117, %.critedge2.i114 ], [ %.2.lcssa.i125, %.critedge4.i124 ]
-  %114 = ptrtoint ptr %.2.lcssa75.i118 to i64
-  %115 = sub i64 %114, %.pre-phi175183
+  %.2.lcssa80.i118 = phi ptr [ %.1.lcssa.i117, %.critedge2.i114 ], [ %.2.lcssa.i125, %.critedge4.i124 ]
+  %114 = ptrtoint ptr %.2.lcssa80.i118 to i64
+  %115 = sub i64 %114, %.pre-phi175204
   %116 = trunc i64 %115 to i32
   %sext158 = shl i64 %115, 32
   %117 = ashr exact i64 %sext158, 32
-  %118 = getelementptr inbounds i8, ptr %.2185, i64 %117
+  %118 = getelementptr inbounds i8, ptr %.2206, i64 %117
   %119 = icmp slt i32 %116, 12500000
   %.087. = tail call i32 @llvm.smin.i32(i32 %.087, i32 %116)
-  %.586 = sub nsw i32 %.283184, %.087.
+  %.586 = sub nsw i32 %.283205, %.087.
   br i1 %119, label %120, label %166
 
 120:                                              ; preds = %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit140, %61, %56

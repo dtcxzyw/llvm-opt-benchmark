@@ -737,7 +737,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json5value3ser76_$LT$imp
   %5 = alloca { [40 x i8] }, align 1
   %6 = alloca { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } }, align 8
   %7 = load i8, ptr %0, align 8, !range !254, !noundef !11
-  switch i8 %7, label %default.unreachable94 [
+  switch i8 %7, label %default.unreachable120 [
     i8 0, label %8
     i8 1, label %22
     i8 2, label %52
@@ -746,7 +746,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json5value3ser76_$LT$imp
     i8 5, label %287
   ]
 
-default.unreachable94:                            ; preds = %52, %2
+default.unreachable120:                           ; preds = %52, %2
   unreachable
 
 8:                                                ; preds = %2
@@ -841,7 +841,7 @@ default.unreachable94:                            ; preds = %52, %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !307)
   %54 = load i64, ptr %53, align 8, !range !310, !alias.scope !307, !noundef !11
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  switch i64 %54, label %default.unreachable94 [
+  switch i64 %54, label %default.unreachable120 [
     i64 0, label %56
     i64 1, label %115
     i64 2, label %179
@@ -1076,8 +1076,8 @@ default.unreachable94:                            ; preds = %52, %2
 179:                                              ; preds = %52
   %180 = load double, ptr %55, align 8, !alias.scope !307, !noundef !11
   %181 = tail call double @llvm.fabs.f64(double %180)
-  %or.cond3.i.i = fcmp ueq double %181, 0x7FF0000000000000
-  br i1 %or.cond3.i.i, label %select.unfold.i.i, label %182
+  %or.cond4.i.i = fcmp ueq double %181, 0x7FF0000000000000
+  br i1 %or.cond4.i.i, label %select.unfold.i.i, label %182
 
 182:                                              ; preds = %179
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !307
@@ -1212,12 +1212,12 @@ _ZN10serde_json3ser9Formatter10write_null17h328a4b2c6f358636E.exit.i.i: ; preds 
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hae6d54c8d9cf7a14E.exit.preheader"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hae6d54c8d9cf7a14E.exit.preheader": ; preds = %246, %231
-  %.ph118 = xor i1 %238, true
+  %.ph144 = xor i1 %238, true
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hae6d54c8d9cf7a14E.exit"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hae6d54c8d9cf7a14E.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hae6d54c8d9cf7a14E.exit.preheader", %_ZN10serde_json3ser9Formatter17begin_array_value17h4b777d851eaadbb7E.exit.i.i
   %253 = phi i1 [ false, %_ZN10serde_json3ser9Formatter17begin_array_value17h4b777d851eaadbb7E.exit.i.i ], [ %238, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hae6d54c8d9cf7a14E.exit.preheader" ]
-  %254 = phi i1 [ false, %_ZN10serde_json3ser9Formatter17begin_array_value17h4b777d851eaadbb7E.exit.i.i ], [ %.ph118, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hae6d54c8d9cf7a14E.exit.preheader" ]
+  %254 = phi i1 [ false, %_ZN10serde_json3ser9Formatter17begin_array_value17h4b777d851eaadbb7E.exit.i.i ], [ %.ph144, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hae6d54c8d9cf7a14E.exit.preheader" ]
   %.sroa.051.0 = phi ptr [ %257, %_ZN10serde_json3ser9Formatter17begin_array_value17h4b777d851eaadbb7E.exit.i.i ], [ %.val.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hae6d54c8d9cf7a14E.exit.preheader" ]
   %255 = icmp eq ptr %.sroa.051.0, %224
   br i1 %255, label %273, label %256
@@ -1504,7 +1504,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json5value3ser76_$LT$imp
   %5 = alloca { [40 x i8] }, align 1
   %6 = alloca { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } }, align 8
   %7 = load i8, ptr %0, align 8, !range !254, !noundef !11
-  switch i8 %7, label %default.unreachable94 [
+  switch i8 %7, label %default.unreachable120 [
     i8 0, label %8
     i8 1, label %22
     i8 2, label %52
@@ -1513,7 +1513,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json5value3ser76_$LT$imp
     i8 5, label %287
   ]
 
-default.unreachable94:                            ; preds = %52, %2
+default.unreachable120:                           ; preds = %52, %2
   unreachable
 
 8:                                                ; preds = %2
@@ -1608,7 +1608,7 @@ default.unreachable94:                            ; preds = %52, %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !654)
   %54 = load i64, ptr %53, align 8, !range !310, !alias.scope !654, !noundef !11
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  switch i64 %54, label %default.unreachable94 [
+  switch i64 %54, label %default.unreachable120 [
     i64 0, label %56
     i64 1, label %115
     i64 2, label %179
@@ -1843,8 +1843,8 @@ default.unreachable94:                            ; preds = %52, %2
 179:                                              ; preds = %52
   %180 = load double, ptr %55, align 8, !alias.scope !654, !noundef !11
   %181 = tail call double @llvm.fabs.f64(double %180)
-  %or.cond3.i.i = fcmp ueq double %181, 0x7FF0000000000000
-  br i1 %or.cond3.i.i, label %select.unfold.i.i, label %182
+  %or.cond4.i.i = fcmp ueq double %181, 0x7FF0000000000000
+  br i1 %or.cond4.i.i, label %select.unfold.i.i, label %182
 
 182:                                              ; preds = %179
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !654
@@ -1979,12 +1979,12 @@ _ZN10serde_json3ser9Formatter10write_null17h014401fd1f18ad6cE.exit.i.i: ; preds 
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc2a337e75d268605E.exit.preheader"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc2a337e75d268605E.exit.preheader": ; preds = %246, %231
-  %.ph118 = xor i1 %238, true
+  %.ph144 = xor i1 %238, true
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc2a337e75d268605E.exit"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc2a337e75d268605E.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc2a337e75d268605E.exit.preheader", %_ZN10serde_json3ser9Formatter17begin_array_value17h7a0166ccdbf8c8b0E.exit.i.i
   %253 = phi i1 [ false, %_ZN10serde_json3ser9Formatter17begin_array_value17h7a0166ccdbf8c8b0E.exit.i.i ], [ %238, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc2a337e75d268605E.exit.preheader" ]
-  %254 = phi i1 [ false, %_ZN10serde_json3ser9Formatter17begin_array_value17h7a0166ccdbf8c8b0E.exit.i.i ], [ %.ph118, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc2a337e75d268605E.exit.preheader" ]
+  %254 = phi i1 [ false, %_ZN10serde_json3ser9Formatter17begin_array_value17h7a0166ccdbf8c8b0E.exit.i.i ], [ %.ph144, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc2a337e75d268605E.exit.preheader" ]
   %.sroa.051.0 = phi ptr [ %257, %_ZN10serde_json3ser9Formatter17begin_array_value17h7a0166ccdbf8c8b0E.exit.i.i ], [ %.val.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc2a337e75d268605E.exit.preheader" ]
   %255 = icmp eq ptr %.sroa.051.0, %224
   br i1 %255, label %273, label %256
@@ -3139,8 +3139,8 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !1017, !noalias !1014
+  %.sroa.0.i.1.i.1.i.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx11, align 1, !alias.scope !1017, !noalias !1014
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
 
 15:                                               ; preds = %6
@@ -3152,13 +3152,13 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !1017, !noalias !1014
+  %.sroa.0.i.1.i.1.i.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx10, align 1, !alias.scope !1017, !noalias !1014
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !1017, !noalias !1014
+  %.sroa.0.i.2.i.2.i.2..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx12, align 2, !alias.scope !1017, !noalias !1014
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
 
 26:                                               ; preds = %6

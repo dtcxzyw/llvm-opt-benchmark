@@ -1000,7 +1000,7 @@ define dso_local range(i32 -1, 1) i32 @bitmap_writer_build(ptr noundef %0) local
   br label %37
 
 37:                                               ; preds = %.lr.ph129, %246
-  %38 = phi i32 [ %.pre, %.lr.ph129 ], [ %.lcssa118155, %246 ]
+  %38 = phi i32 [ %.pre, %.lr.ph129 ], [ %.lcssa118175, %246 ]
   %.0126 = phi i64 [ %25, %.lr.ph129 ], [ %247, %246 ]
   %.046125 = phi i32 [ 0, %.lr.ph129 ], [ %.2, %246 ]
   %39 = load ptr, ptr %26, align 8, !tbaa !79
@@ -1446,20 +1446,20 @@ bb_data_at.exit82:                                ; preds = %._crit_edge4.i.i79,
   br i1 %243, label %244, label %246
 
 244:                                              ; preds = %.thread, %242
-  %.lcssa118156 = phi i32 [ %.promoted, %.thread ], [ %221, %242 ]
+  %.lcssa118176 = phi i32 [ %.promoted, %.thread ], [ %221, %242 ]
   %245 = load ptr, ptr %68, align 8, !tbaa !93
   call void @bitmap_free(ptr noundef %245) #19
   br label %246
 
 246:                                              ; preds = %242, %244
-  %.lcssa118155 = phi i32 [ %221, %242 ], [ %.lcssa118156, %244 ]
+  %.lcssa118175 = phi i32 [ %221, %242 ], [ %.lcssa118176, %244 ]
   store ptr null, ptr %68, align 8, !tbaa !93
   %247 = add i64 %.0126, -1
   %.not58.not = icmp eq i64 %247, 0
   br i1 %.not58.not, label %.loopexit, label %37, !llvm.loop !106
 
 .loopexit:                                        ; preds = %246, %139, %..loopexit_crit_edge, %.thread81.sink.split.i
-  %248 = phi i32 [ %.promoted, %.thread81.sink.split.i ], [ %.pre150, %..loopexit_crit_edge ], [ %.promoted, %139 ], [ %.lcssa118155, %246 ]
+  %248 = phi i32 [ %.promoted, %.thread81.sink.split.i ], [ %.pre150, %..loopexit_crit_edge ], [ %.promoted, %139 ], [ %.lcssa118175, %246 ]
   %.not58114 = phi i1 [ true, %.thread81.sink.split.i ], [ false, %..loopexit_crit_edge ], [ true, %139 ], [ false, %246 ]
   call void @clear_prio_queue(ptr noundef nonnull %5) #19
   call void @clear_prio_queue(ptr noundef nonnull %6) #19
@@ -2665,11 +2665,11 @@ write_selected_commits_v1.exit:                   ; preds = %106, %81, %._crit_e
 
 ._crit_edge232.thread.i:                          ; preds = %140
   %147 = getelementptr i8, ptr %34, i64 8
-  %.val126301.i = load i32, ptr %147, align 8, !tbaa !159
+  %.val126322.i = load i32, ptr %147, align 8, !tbaa !159
   %148 = getelementptr i8, ptr %34, i64 2416
-  %.val127302.i = load i64, ptr %148, align 8, !tbaa !161
-  %149 = zext i32 %.val126301.i to i64
-  %150 = add nsw i64 %.val127302.i, %149
+  %.val127323.i = load i64, ptr %148, align 8, !tbaa !161
+  %149 = zext i32 %.val126322.i to i64
+  %150 = add nsw i64 %.val127323.i, %149
   br label %st_mult.exit.i
 
 .lr.ph231.i:                                      ; preds = %140

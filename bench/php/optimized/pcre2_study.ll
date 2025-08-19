@@ -481,7 +481,7 @@ thread-pre-split:                                 ; preds = %5
 
 29:                                               ; preds = %thread-pre-split, %.thread461
   %30 = phi i8 [ %.pr, %thread-pre-split ], [ 121, %.thread461 ]
-  %.0301 = phi i32 [ 1, %thread-pre-split ], [ %.2303548, %.thread461 ]
+  %.0301 = phi i32 [ 1, %thread-pre-split ], [ %.2303567, %.thread461 ]
   %.0269 = phi ptr [ %1, %thread-pre-split ], [ %757, %.thread461 ]
   %31 = getelementptr inbounds nuw i8, ptr %.0269, i64 1
   %32 = getelementptr inbounds nuw i8, ptr %.0269, i64 3
@@ -503,79 +503,79 @@ thread-pre-split:                                 ; preds = %5
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.preheader
   %.1288519 = phi ptr [ %.1288519.ph, %.backedge.preheader ], [ %.1288519.be, %.backedge.backedge ]
   %35 = load i8, ptr %.1288519, align 1, !tbaa !17
-  switch i8 %35, label %.thread470.loopexit592 [
-    i8 -90, label %.thread470.loopexit628
-    i8 -89, label %.thread470.loopexit628
-    i8 13, label %.thread470.loopexit628
-    i8 12, label %.thread470.loopexit628
-    i8 14, label %.thread470.loopexit628
-    i8 28, label %.thread470.loopexit628
-    i8 -88, label %.thread470.loopexit628
-    i8 -93, label %.thread470.loopexit628
-    i8 -92, label %.thread470.loopexit628
-    i8 -115, label %.thread470.loopexit628
-    i8 -109, label %.thread470.loopexit628
-    i8 -105, label %.thread470.loopexit628
-    i8 -104, label %.thread470.loopexit628
-    i8 -108, label %.thread470.loopexit628
-    i8 116, label %.thread470.loopexit628
-    i8 117, label %.thread470.loopexit628
-    i8 -106, label %.thread470.loopexit628
-    i8 25, label %.thread470.loopexit628
-    i8 26, label %.thread470.loopexit628
-    i8 0, label %.thread470.loopexit628
-    i8 24, label %.thread470.loopexit628
-    i8 23, label %.thread470.loopexit628
-    i8 22, label %.thread470.loopexit628
-    i8 -91, label %.thread470.loopexit628
-    i8 -100, label %.thread470.loopexit628
-    i8 31, label %.thread470.loopexit628
-    i8 67, label %.thread470.loopexit628
-    i8 80, label %.thread470.loopexit628
-    i8 32, label %.thread470.loopexit628
-    i8 62, label %.thread470.loopexit628
-    i8 75, label %.thread470.loopexit628
-    i8 64, label %.thread470.loopexit628
-    i8 77, label %.thread470.loopexit628
-    i8 60, label %.thread470.loopexit628
-    i8 73, label %.thread470.loopexit628
-    i8 66, label %.thread470.loopexit628
-    i8 79, label %.thread470.loopexit628
-    i8 61, label %.thread470.loopexit628
-    i8 74, label %.thread470.loopexit628
-    i8 69, label %.thread470.loopexit628
-    i8 82, label %.thread470.loopexit628
-    i8 70, label %.thread470.loopexit628
-    i8 83, label %.thread470.loopexit628
-    i8 68, label %.thread470.loopexit628
-    i8 81, label %.thread470.loopexit628
-    i8 71, label %.thread470.loopexit628
-    i8 84, label %.thread470.loopexit628
-    i8 15, label %.thread470.loopexit628
-    i8 63, label %.thread470.loopexit628
-    i8 76, label %.thread470.loopexit628
-    i8 59, label %.thread470.loopexit628
-    i8 72, label %.thread470.loopexit628
-    i8 65, label %.thread470.loopexit628
-    i8 78, label %.thread470.loopexit628
-    i8 18, label %.thread470.loopexit628
-    i8 20, label %.thread470.loopexit628
-    i8 -99, label %.thread470.loopexit628
-    i8 -98, label %.thread470.loopexit628
-    i8 118, label %.thread470.loopexit628
-    i8 114, label %.thread470.loopexit628
-    i8 115, label %.thread470.loopexit628
-    i8 126, label %.thread470.loopexit628
-    i8 127, label %.thread470.loopexit628
-    i8 -107, label %.thread470.loopexit628
-    i8 -110, label %.thread470.loopexit628
-    i8 3, label %.thread470.loopexit628
-    i8 -97, label %.thread470.loopexit628
-    i8 -96, label %.thread470.loopexit628
-    i8 1, label %.thread470.loopexit628
-    i8 2, label %.thread470.loopexit628
-    i8 -95, label %.thread470.loopexit628
-    i8 -94, label %.thread470.loopexit628
+  switch i8 %35, label %.thread470.loopexit611 [
+    i8 -90, label %.thread470.loopexit647
+    i8 -89, label %.thread470.loopexit647
+    i8 13, label %.thread470.loopexit647
+    i8 12, label %.thread470.loopexit647
+    i8 14, label %.thread470.loopexit647
+    i8 28, label %.thread470.loopexit647
+    i8 -88, label %.thread470.loopexit647
+    i8 -93, label %.thread470.loopexit647
+    i8 -92, label %.thread470.loopexit647
+    i8 -115, label %.thread470.loopexit647
+    i8 -109, label %.thread470.loopexit647
+    i8 -105, label %.thread470.loopexit647
+    i8 -104, label %.thread470.loopexit647
+    i8 -108, label %.thread470.loopexit647
+    i8 116, label %.thread470.loopexit647
+    i8 117, label %.thread470.loopexit647
+    i8 -106, label %.thread470.loopexit647
+    i8 25, label %.thread470.loopexit647
+    i8 26, label %.thread470.loopexit647
+    i8 0, label %.thread470.loopexit647
+    i8 24, label %.thread470.loopexit647
+    i8 23, label %.thread470.loopexit647
+    i8 22, label %.thread470.loopexit647
+    i8 -91, label %.thread470.loopexit647
+    i8 -100, label %.thread470.loopexit647
+    i8 31, label %.thread470.loopexit647
+    i8 67, label %.thread470.loopexit647
+    i8 80, label %.thread470.loopexit647
+    i8 32, label %.thread470.loopexit647
+    i8 62, label %.thread470.loopexit647
+    i8 75, label %.thread470.loopexit647
+    i8 64, label %.thread470.loopexit647
+    i8 77, label %.thread470.loopexit647
+    i8 60, label %.thread470.loopexit647
+    i8 73, label %.thread470.loopexit647
+    i8 66, label %.thread470.loopexit647
+    i8 79, label %.thread470.loopexit647
+    i8 61, label %.thread470.loopexit647
+    i8 74, label %.thread470.loopexit647
+    i8 69, label %.thread470.loopexit647
+    i8 82, label %.thread470.loopexit647
+    i8 70, label %.thread470.loopexit647
+    i8 83, label %.thread470.loopexit647
+    i8 68, label %.thread470.loopexit647
+    i8 81, label %.thread470.loopexit647
+    i8 71, label %.thread470.loopexit647
+    i8 84, label %.thread470.loopexit647
+    i8 15, label %.thread470.loopexit647
+    i8 63, label %.thread470.loopexit647
+    i8 76, label %.thread470.loopexit647
+    i8 59, label %.thread470.loopexit647
+    i8 72, label %.thread470.loopexit647
+    i8 65, label %.thread470.loopexit647
+    i8 78, label %.thread470.loopexit647
+    i8 18, label %.thread470.loopexit647
+    i8 20, label %.thread470.loopexit647
+    i8 -99, label %.thread470.loopexit647
+    i8 -98, label %.thread470.loopexit647
+    i8 118, label %.thread470.loopexit647
+    i8 114, label %.thread470.loopexit647
+    i8 115, label %.thread470.loopexit647
+    i8 126, label %.thread470.loopexit647
+    i8 127, label %.thread470.loopexit647
+    i8 -107, label %.thread470.loopexit647
+    i8 -110, label %.thread470.loopexit647
+    i8 3, label %.thread470.loopexit647
+    i8 -97, label %.thread470.loopexit647
+    i8 -96, label %.thread470.loopexit647
+    i8 1, label %.thread470.loopexit647
+    i8 2, label %.thread470.loopexit647
+    i8 -95, label %.thread470.loopexit647
+    i8 -94, label %.thread470.loopexit647
     i8 27, label %36
     i8 16, label %40
     i8 5, label %70
@@ -601,11 +601,11 @@ thread-pre-split:                                 ; preds = %5
     i8 125, label %.thread470
     i8 119, label %158
     i8 120, label %162
-    i8 -127, label %.preheader621
-    i8 -126, label %.preheader621
-    i8 -125, label %.preheader621
-    i8 -123, label %.preheader621
-    i8 -122, label %.preheader621
+    i8 -127, label %.preheader640
+    i8 -126, label %.preheader640
+    i8 -125, label %.preheader640
+    i8 -123, label %.preheader640
+    i8 -122, label %.preheader640
     i8 -103, label %186
     i8 -102, label %186
     i8 -101, label %186
@@ -629,15 +629,15 @@ thread-pre-split:                                 ; preds = %5
     i8 53, label %227
     i8 58, label %227
     i8 41, label %230
-    i8 29, label %.loopexit557
-    i8 35, label %.loopexit557
-    i8 36, label %.loopexit557
-    i8 43, label %.loopexit557
+    i8 29, label %.loopexit576
+    i8 35, label %.loopexit576
+    i8 36, label %.loopexit576
+    i8 43, label %.loopexit576
     i8 54, label %234
-    i8 30, label %.loopexit558
-    i8 48, label %.loopexit558
-    i8 49, label %.loopexit558
-    i8 56, label %.loopexit558
+    i8 30, label %.loopexit577
+    i8 48, label %.loopexit577
+    i8 49, label %.loopexit577
+    i8 56, label %.loopexit577
     i8 19, label %238
     i8 17, label %251
     i8 21, label %251
@@ -660,13 +660,13 @@ thread-pre-split:                                 ; preds = %5
     i8 89, label %391
     i8 90, label %391
     i8 96, label %391
-    i8 113, label %.thread470.loopexit628
+    i8 113, label %.thread470.loopexit647
     i8 112, label %542
     i8 111, label %694
     i8 110, label %.thread447
   ]
 
-.preheader621:                                    ; preds = %.backedge, %.backedge, %.backedge, %.backedge, %.backedge
+.preheader640:                                    ; preds = %.backedge, %.backedge, %.backedge, %.backedge, %.backedge
   br label %172
 
 36:                                               ; preds = %.backedge
@@ -795,8 +795,8 @@ thread-pre-split:                                 ; preds = %5
     i8 8, label %.backedge.backedge
   ]
 
-98:                                               ; preds = %.backedge620, %._crit_edge
-  %.1284513 = phi ptr [ %95, %._crit_edge ], [ %.1284513.be, %.backedge620 ]
+98:                                               ; preds = %.backedge639, %._crit_edge
+  %.1284513 = phi ptr [ %95, %._crit_edge ], [ %.1284513.be, %.backedge639 ]
   %99 = load i8, ptr %.1284513, align 1, !tbaa !17
   switch i8 %99, label %96 [
     i8 -128, label %100
@@ -846,17 +846,17 @@ thread-pre-split:                                 ; preds = %5
 ._crit_edge511:                                   ; preds = %.lr.ph510, %100
   %.2285.lcssa = phi ptr [ %109, %100 ], [ %120, %.lr.ph510 ]
   %123 = getelementptr inbounds nuw i8, ptr %.2285.lcssa, i64 3
-  br label %.backedge620
+  br label %.backedge639
 
 124:                                              ; preds = %98, %98, %98, %98
   %125 = getelementptr inbounds nuw i8, ptr %.1284513, i64 1
-  br label %.backedge620
+  br label %.backedge639
 
 126:                                              ; preds = %98
   %127 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_OP_lengths_8, i64 119), align 1, !tbaa !17
   %128 = zext i8 %127 to i64
   %129 = getelementptr inbounds nuw i8, ptr %.1284513, i64 %128
-  br label %.backedge620
+  br label %.backedge639
 
 130:                                              ; preds = %98
   %131 = getelementptr inbounds nuw i8, ptr %.1284513, i64 5
@@ -868,9 +868,9 @@ thread-pre-split:                                 ; preds = %5
   %137 = zext i8 %136 to i64
   %138 = getelementptr inbounds nuw i8, ptr %.1284513, i64 %134
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 %137
-  br label %.backedge620
+  br label %.backedge639
 
-.backedge620:                                     ; preds = %130, %126, %124, %._crit_edge511
+.backedge639:                                     ; preds = %130, %126, %124, %._crit_edge511
   %.1284513.be = phi ptr [ %123, %._crit_edge511 ], [ %125, %124 ], [ %129, %126 ], [ %139, %130 ]
   br label %98
 
@@ -886,7 +886,7 @@ thread-pre-split:                                 ; preds = %5
 
 143:                                              ; preds = %96, %140, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge
   %144 = call fastcc i32 @set_start_bits(ptr noundef %0, ptr noundef nonnull %.1288519, i32 noundef %2, i32 noundef %3, ptr noundef %4)
-  switch i32 %144, label %.thread470.loopexit592 [
+  switch i32 %144, label %.thread470.loopexit611 [
     i32 1, label %.thread461
     i32 2, label %.preheader477
   ]
@@ -928,8 +928,8 @@ thread-pre-split:                                 ; preds = %5
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 %169
   br label %.backedge.backedge
 
-172:                                              ; preds = %.preheader621, %172
-  %.8 = phi ptr [ %181, %172 ], [ %.1288519, %.preheader621 ]
+172:                                              ; preds = %.preheader640, %172
+  %.8 = phi ptr [ %181, %172 ], [ %.1288519, %.preheader640 ]
   %173 = getelementptr inbounds nuw i8, ptr %.8, i64 1
   %174 = load i8, ptr %173, align 1, !tbaa !17
   %175 = zext i8 %174 to i64
@@ -951,9 +951,9 @@ thread-pre-split:                                 ; preds = %5
   %187 = getelementptr inbounds nuw i8, ptr %.1288519, i64 1
   %188 = call fastcc i32 @set_start_bits(ptr noundef %0, ptr noundef nonnull %187, i32 noundef %2, i32 noundef %3, ptr noundef %4)
   switch i32 %188, label %.preheader478 [
-    i32 4, label %.thread470.loopexit592
-    i32 3, label %.thread470.loopexit592
-    i32 0, label %.thread470.loopexit592
+    i32 4, label %.thread470.loopexit611
+    i32 3, label %.thread470.loopexit611
+    i32 0, label %.thread470.loopexit611
   ]
 
 .preheader478:                                    ; preds = %186, %.preheader478
@@ -1020,9 +1020,9 @@ thread-pre-split:                                 ; preds = %5
 
 230:                                              ; preds = %.backedge
   %231 = getelementptr inbounds nuw i8, ptr %.1288519, i64 2
-  br label %.loopexit557
+  br label %.loopexit576
 
-.loopexit557:                                     ; preds = %.backedge, %.backedge, %.backedge, %.backedge, %230
+.loopexit576:                                     ; preds = %.backedge, %.backedge, %.backedge, %.backedge, %230
   %.2289 = phi ptr [ %231, %230 ], [ %.1288519, %.backedge ], [ %.1288519, %.backedge ], [ %.1288519, %.backedge ], [ %.1288519, %.backedge ]
   %232 = getelementptr inbounds nuw i8, ptr %.2289, i64 1
   %233 = call fastcc ptr @set_table_bit(ptr noundef %0, ptr noundef nonnull %232, i32 noundef 0, i32 noundef %2, i32 noundef %3)
@@ -1030,9 +1030,9 @@ thread-pre-split:                                 ; preds = %5
 
 234:                                              ; preds = %.backedge
   %235 = getelementptr inbounds nuw i8, ptr %.1288519, i64 2
-  br label %.loopexit558
+  br label %.loopexit577
 
-.loopexit558:                                     ; preds = %.backedge, %.backedge, %.backedge, %.backedge, %234
+.loopexit577:                                     ; preds = %.backedge, %.backedge, %.backedge, %.backedge, %234
   %.3290 = phi ptr [ %235, %234 ], [ %.1288519, %.backedge ], [ %.1288519, %.backedge ], [ %.1288519, %.backedge ], [ %.1288519, %.backedge ]
   %236 = getelementptr inbounds nuw i8, ptr %.3290, i64 1
   %237 = call fastcc ptr @set_table_bit(ptr noundef %0, ptr noundef nonnull %236, i32 noundef 1, i32 noundef %2, i32 noundef %3)
@@ -1343,7 +1343,7 @@ thread-pre-split:                                 ; preds = %5
   %.4291 = phi ptr [ %390, %389 ], [ %.1288519, %.backedge ], [ %.1288519, %.backedge ], [ %.1288519, %.backedge ], [ %.1288519, %.backedge ], [ %.1288519, %.backedge ], [ %.1288519, %.backedge ]
   %392 = getelementptr inbounds nuw i8, ptr %.4291, i64 1
   %393 = load i8, ptr %392, align 1, !tbaa !17
-  switch i8 %393, label %.thread470.loopexit592 [
+  switch i8 %393, label %.thread470.loopexit611 [
     i8 11, label %510
     i8 10, label %500
     i8 19, label %394
@@ -1657,7 +1657,7 @@ set_nottype_bits.exit381:                         ; preds = %498, %457, %539, %5
   %547 = and i32 %545, 3
   %548 = icmp eq i32 %547, 1
   %or.cond = or i1 %.not311, %548
-  br i1 %or.cond, label %.thread470.loopexit592, label %549
+  br i1 %or.cond, label %.thread470.loopexit611, label %549
 
 549:                                              ; preds = %542
   %550 = and i32 %545, 2
@@ -2075,13 +2075,13 @@ study_char_list.exit:                             ; preds = %.loopexit83.i, %571
   %747 = getelementptr inbounds nuw i8, ptr %.11452, i64 2
   %748 = load i8, ptr %747, align 1, !tbaa !17
   %749 = or i8 %748, %746
-  %.not585 = icmp eq i8 %749, 0
-  %spec.select322.idx = select i1 %.not585, i64 5, i64 0
+  %.not604 = icmp eq i8 %749, 0
+  %spec.select322.idx = select i1 %.not604, i64 5, i64 0
   %spec.select322 = getelementptr inbounds nuw i8, ptr %.11452, i64 %spec.select322.idx
-  br i1 %.not585, label %.backedge.backedge, label %.thread461
+  br i1 %.not604, label %.backedge.backedge, label %.thread461
 
-.thread461:                                       ; preds = %.loopexit485, %.backedge, %143, %744, %383, %342, %301, %68, %43, %362, %.preheader.i358, %353, %321, %.preheader.i337, %312, %280, %.preheader.i, %271, %254, %259, %243, %248, %.loopexit558, %.loopexit557
-  %.2303548 = phi i32 [ %.0301, %43 ], [ %.0301, %362 ], [ %.0301, %.preheader.i358 ], [ %.0301, %353 ], [ %.0301, %321 ], [ %.0301, %.preheader.i337 ], [ %.0301, %312 ], [ %.0301, %280 ], [ %.0301, %.preheader.i ], [ %.0301, %271 ], [ %.0301, %254 ], [ %.0301, %259 ], [ %.0301, %243 ], [ %.0301, %248 ], [ %.0301, %.loopexit558 ], [ %.0301, %.loopexit557 ], [ %.0301, %68 ], [ %.0301, %301 ], [ %.0301, %342 ], [ %.0301, %383 ], [ %.0301, %143 ], [ 2, %.backedge ], [ %.0301, %.loopexit485 ], [ %.0301, %744 ]
+.thread461:                                       ; preds = %.loopexit485, %.backedge, %143, %744, %383, %342, %301, %68, %43, %362, %.preheader.i358, %353, %321, %.preheader.i337, %312, %280, %.preheader.i, %271, %254, %259, %243, %248, %.loopexit577, %.loopexit576
+  %.2303567 = phi i32 [ %.0301, %43 ], [ %.0301, %362 ], [ %.0301, %.preheader.i358 ], [ %.0301, %353 ], [ %.0301, %321 ], [ %.0301, %.preheader.i337 ], [ %.0301, %312 ], [ %.0301, %280 ], [ %.0301, %.preheader.i ], [ %.0301, %271 ], [ %.0301, %254 ], [ %.0301, %259 ], [ %.0301, %243 ], [ %.0301, %248 ], [ %.0301, %.loopexit577 ], [ %.0301, %.loopexit576 ], [ %.0301, %68 ], [ %.0301, %301 ], [ %.0301, %342 ], [ %.0301, %383 ], [ %.0301, %143 ], [ 2, %.backedge ], [ %.0301, %.loopexit485 ], [ %.0301, %744 ]
   %750 = load i8, ptr %31, align 1, !tbaa !17
   %751 = zext i8 %750 to i64
   %752 = shl nuw nsw i64 %751, 8
@@ -2094,15 +2094,15 @@ study_char_list.exit:                             ; preds = %.loopexit83.i, %571
   %759 = icmp eq i8 %758, 121
   br i1 %759, label %29, label %.thread470
 
-.thread470.loopexit592:                           ; preds = %542, %391, %186, %186, %186, %143, %.backedge
+.thread470.loopexit611:                           ; preds = %542, %391, %186, %186, %186, %143, %.backedge
   %.0.ph = phi i32 [ 3, %.backedge ], [ %144, %143 ], [ %188, %186 ], [ %188, %186 ], [ %188, %186 ], [ 0, %391 ], [ 0, %542 ]
   br label %.thread470
 
-.thread470.loopexit628:                           ; preds = %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge
+.thread470.loopexit647:                           ; preds = %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge
   br label %.thread470
 
-.thread470:                                       ; preds = %.thread461, %40, %.preheader489, %.backedge, %.backedge, %.backedge, %.backedge, %.thread470.loopexit628, %.thread470.loopexit592, %5
-  %.0 = phi i32 [ 4, %5 ], [ %.0.ph, %.thread470.loopexit592 ], [ 0, %.thread470.loopexit628 ], [ 2, %.backedge ], [ 2, %.backedge ], [ 2, %.backedge ], [ 2, %.backedge ], [ 3, %.preheader489 ], [ 0, %40 ], [ %.2303548, %.thread461 ]
+.thread470:                                       ; preds = %.thread461, %40, %.preheader489, %.backedge, %.backedge, %.backedge, %.backedge, %.thread470.loopexit647, %.thread470.loopexit611, %5
+  %.0 = phi i32 [ 4, %5 ], [ %.0.ph, %.thread470.loopexit611 ], [ 0, %.thread470.loopexit647 ], [ 2, %.backedge ], [ 2, %.backedge ], [ 2, %.backedge ], [ 2, %.backedge ], [ 3, %.preheader489 ], [ 0, %40 ], [ %.2303567, %.thread461 ]
   ret i32 %.0
 }
 
@@ -2177,21 +2177,21 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
     i8 -112, label %72
     i8 -116, label %72
     i8 -111, label %72
-    i8 -90, label %.thread570.loopexit659
-    i8 -89, label %.thread570.loopexit659
+    i8 -90, label %.thread570.loopexit684
+    i8 -89, label %.thread570.loopexit684
     i8 121, label %100
     i8 122, label %100
     i8 123, label %100
     i8 124, label %100
     i8 125, label %100
     i8 0, label %100
-    i8 -128, label %.preheader658
-    i8 -127, label %.preheader658
-    i8 -126, label %.preheader658
-    i8 -125, label %.preheader658
-    i8 -124, label %.preheader658
-    i8 -122, label %.preheader658
-    i8 -123, label %.preheader658
+    i8 -128, label %.preheader683
+    i8 -127, label %.preheader683
+    i8 -126, label %.preheader683
+    i8 -125, label %.preheader683
+    i8 -124, label %.preheader683
+    i8 -122, label %.preheader683
+    i8 -123, label %.preheader683
     i8 126, label %.loopexit
     i8 127, label %.loopexit
     i8 -109, label %.loopexit
@@ -2327,7 +2327,7 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
     i8 -95, label %532
   ]
 
-.preheader658:                                    ; preds = %31, %31, %31, %31, %31, %31, %31
+.preheader683:                                    ; preds = %31, %31, %31, %31, %31, %31, %31
   br label %119
 
 34:                                               ; preds = %31, %31
@@ -2363,10 +2363,10 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
 55:                                               ; preds = %31, %31, %31, %31, %31, %51, %47, %34
   %56 = call fastcc i32 @find_minlength(ptr noundef %0, ptr noundef nonnull %spec.select501, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %57 = icmp slt i32 %56, 0
-  br i1 %57, label %.thread570, label %.preheader648
+  br i1 %57, label %.thread570, label %.preheader673
 
-.preheader648:                                    ; preds = %55, %.preheader648
-  %.7392 = phi ptr [ %66, %.preheader648 ], [ %spec.select501, %55 ]
+.preheader673:                                    ; preds = %55, %.preheader673
+  %.7392 = phi ptr [ %66, %.preheader673 ], [ %spec.select501, %55 ]
   %58 = getelementptr inbounds nuw i8, ptr %.7392, i64 1
   %59 = load i8, ptr %58, align 1, !tbaa !17
   %60 = zext i8 %59 to i64
@@ -2378,9 +2378,9 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 %64
   %67 = load i8, ptr %66, align 1, !tbaa !17
   %68 = icmp eq i8 %67, 121
-  br i1 %68, label %.preheader648, label %69
+  br i1 %68, label %.preheader673, label %69
 
-69:                                               ; preds = %.preheader648
+69:                                               ; preds = %.preheader673
   %70 = add nsw i32 %56, %spec.select
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 3
   br label %.backedge
@@ -2461,8 +2461,8 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
   %118 = getelementptr inbounds nuw i8, ptr %spec.select501, i64 3
   br label %.backedge
 
-119:                                              ; preds = %.preheader658, %119
-  %.9394 = phi ptr [ %128, %119 ], [ %spec.select501, %.preheader658 ]
+119:                                              ; preds = %.preheader683, %119
+  %.9394 = phi ptr [ %128, %119 ], [ %spec.select501, %.preheader683 ]
   %120 = getelementptr inbounds nuw i8, ptr %.9394, i64 1
   %121 = load i8, ptr %120, align 1, !tbaa !17
   %122 = zext i8 %121 to i64
@@ -3183,11 +3183,11 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
   %537 = getelementptr inbounds nuw i8, ptr %spec.select501, i64 %536
   br label %.backedge
 
-.thread570.loopexit659:                           ; preds = %31, %31
+.thread570.loopexit684:                           ; preds = %31, %31
   br label %.thread570
 
-.thread570:                                       ; preds = %330, %._crit_edge609, %393, %._crit_edge, %.critedge511, %235, %105, %81, %55, %31, %.thread570.loopexit659, %18, %7
-  %.0361 = phi i32 [ 0, %7 ], [ -1, %18 ], [ -1, %.thread570.loopexit659 ], [ -3, %31 ], [ %419, %._crit_edge ], [ -2, %393 ], [ %56, %55 ], [ %82, %81 ], [ %.3407, %105 ], [ -1, %235 ], [ %498, %.critedge511 ], [ -2, %330 ], [ %352, %._crit_edge609 ]
+.thread570:                                       ; preds = %330, %._crit_edge609, %393, %._crit_edge, %.critedge511, %235, %105, %81, %55, %31, %.thread570.loopexit684, %18, %7
+  %.0361 = phi i32 [ 0, %7 ], [ -1, %18 ], [ -1, %.thread570.loopexit684 ], [ -3, %31 ], [ %419, %._crit_edge ], [ -2, %393 ], [ %56, %55 ], [ %82, %81 ], [ %.3407, %105 ], [ -1, %235 ], [ %498, %.critedge511 ], [ -2, %330 ], [ %352, %._crit_edge609 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0361
 }

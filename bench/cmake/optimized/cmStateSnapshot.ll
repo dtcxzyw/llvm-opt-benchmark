@@ -849,8 +849,8 @@ define dso_local noundef zeroext i1 @_ZN15cmStateSnapshot10RaiseScopeERKNSt7__cx
   %15 = icmp eq i64 %7, 0
   %or.cond = or i1 %.not.i, %15
   %.not11.i = icmp eq i64 %.sroa.24.0.copyload, 0
-  %or.cond34 = or i1 %or.cond, %.not11.i
-  br i1 %or.cond34, label %_ZNK15cmStateSnapshot7IsValidEv.exit.thread, label %16
+  %or.cond35 = or i1 %or.cond, %.not11.i
+  br i1 %or.cond35, label %_ZNK15cmStateSnapshot7IsValidEv.exit.thread, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr i8, ptr %9, i64 -192

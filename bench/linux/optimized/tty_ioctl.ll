@@ -1007,14 +1007,14 @@ define internal fastcc i32 @set_termios(ptr noundef %0, ptr noundef %1, i32 noun
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 88
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.critedge.thread17, label %.lr.ph
+  br i1 %49, label %.critedge.thread26, label %.lr.ph
 
 .lr.ph:                                           ; preds = %44, %.critedge10
   %50 = phi ptr [ %59, %.critedge10 ], [ %48, %44 ]
   %51 = phi i64 [ %56, %.critedge10 ], [ %45, %44 ]
   %52 = call i32 %50(ptr noundef %0) #12
   %53 = icmp eq i32 %52, 0
-  br i1 %53, label %.critedge.thread17, label %54
+  br i1 %53, label %.critedge.thread26, label %54
 
 54:                                               ; preds = %.lr.ph
   %55 = icmp eq i64 %51, 0
@@ -1027,9 +1027,9 @@ define internal fastcc i32 @set_termios(ptr noundef %0, ptr noundef %1, i32 noun
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 88
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %.critedge.thread17, label %.lr.ph
+  br i1 %60, label %.critedge.thread26, label %.lr.ph
 
-.critedge.thread17:                               ; preds = %.lr.ph, %.critedge10, %44
+.critedge.thread26:                               ; preds = %.lr.ph, %.critedge10, %44
   call void @finish_wait(ptr noundef nonnull %34, ptr noundef nonnull %5) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge.thread
@@ -1040,7 +1040,7 @@ define internal fastcc i32 @set_termios(ptr noundef %0, ptr noundef %1, i32 noun
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %.loopexit, label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.critedge.thread17, %35, %41, %.critedge
+.critedge.thread:                                 ; preds = %.critedge.thread26, %35, %41, %.critedge
   %63 = call i32 @tty_write_lock(ptr noundef %0, i1 noundef zeroext false) #12
   %64 = icmp slt i32 %63, 0
   br i1 %64, label %.backedge, label %65

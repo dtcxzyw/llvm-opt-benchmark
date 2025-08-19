@@ -1703,9 +1703,9 @@ define dso_local void @xhci_handle_command_timeout(ptr noundef %0) local_unnamed
   %97 = phi ptr [ %93, %90 ], [ %85, %82 ]
   %98 = icmp eq ptr %96, null
   %99 = icmp eq ptr %97, null
-  %.not20 = or i1 %98, %99
+  %.not35 = or i1 %98, %99
   %100 = icmp ugt ptr %95, %97
-  %or.cond = select i1 %.not20, i1 true, i1 %100
+  %or.cond = select i1 %.not35, i1 true, i1 %100
   br i1 %or.cond, label %111, label %101
 
 101:                                              ; preds = %94
@@ -2701,7 +2701,7 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_irq(ptr noundef %0) local_unn
   %237 = icmp ult i8 %236, 2
   tail call void @llvm.assume(i1 %237)
   %238 = icmp eq i8 %236, 0
-  br i1 %238, label %239, label %.thread83
+  br i1 %238, label %239, label %.thread137
 
 239:                                              ; preds = %233
   %240 = load volatile i64, ptr @jiffies, align 64
@@ -2715,7 +2715,7 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_irq(ptr noundef %0) local_unn
   %245 = load i64, ptr %242, align 8
   %246 = tail call i32 @mod_timer(ptr noundef nonnull %244, i64 noundef %245) #14
   tail call void @usb_hcd_start_port_resume(ptr noundef %166, i32 noundef %154) #14
-  br label %.thread83
+  br label %.thread137
 
 247:                                              ; preds = %215
   %248 = and i32 %168, 4194304
@@ -2723,10 +2723,10 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_irq(ptr noundef %0) local_unn
   %.pre82 = and i32 %168, 12288
   %250 = icmp eq i32 %.pre82, 0
   %251 = or i1 %249, %250
-  br i1 %251, label %.thread83, label %252
+  br i1 %251, label %.thread137, label %252
 
 252:                                              ; preds = %247
-  switch i32 %198, label %.thread83 [
+  switch i32 %198, label %.thread137 [
     i32 0, label %253
     i32 32, label %253
     i32 64, label %253
@@ -2758,7 +2758,7 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_irq(ptr noundef %0) local_unn
   %268 = shl nuw i32 1, %154
   %269 = and i32 %267, %268
   %270 = icmp eq i32 %269, 0
-  br i1 %270, label %.thread83, label %271
+  br i1 %270, label %.thread137, label %271
 
 271:                                              ; preds = %265
   tail call void @xhci_test_and_clear_bit(ptr noundef nonnull %9, ptr noundef nonnull %146, i32 noundef 4194304) #14
@@ -2767,13 +2767,13 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_irq(ptr noundef %0) local_unn
   tail call void @usb_wakeup_notification(ptr noundef %273, i32 noundef %255) #14
   br label %.thread
 
-.thread83:                                        ; preds = %233, %239, %265, %252, %247
+.thread137:                                       ; preds = %233, %239, %265, %252, %247
   %274 = phi i1 [ true, %265 ], [ true, %252 ], [ true, %247 ], [ true, %233 ], [ false, %239 ]
   %275 = load i32, ptr %195, align 8
   %276 = icmp slt i32 %275, 64
   br i1 %276, label %277, label %.loopexit
 
-277:                                              ; preds = %.thread83
+277:                                              ; preds = %.thread137
   %278 = getelementptr i8, ptr %145, i64 -72
   %279 = load i8, ptr %278, align 8, !range !52, !noundef !53
   %280 = icmp eq i8 %279, 0
@@ -2820,7 +2820,7 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_irq(ptr noundef %0) local_unn
   %306 = select i1 %303, i1 true, i1 %305
   br i1 %306, label %.loopexit, label %293, !llvm.loop !54
 
-.loopexit:                                        ; preds = %293, %283, %.thread83
+.loopexit:                                        ; preds = %293, %283, %.thread137
   br i1 %274, label %307, label %.thread
 
 307:                                              ; preds = %.thread55, %.loopexit
@@ -5180,8 +5180,8 @@ define internal fastcc void @queue_trb(ptr noundef readonly captures(none) %0, p
   %or.cond = select i1 %63, i1 true, i1 %65
   %66 = and i64 %.pre, 1
   %67 = icmp eq i64 %66, 0
-  %or.cond5 = select i1 %or.cond, i1 %67, i1 false
-  br i1 %or.cond5, label %68, label %71
+  %or.cond7 = select i1 %or.cond, i1 %67, i1 false
+  br i1 %or.cond7, label %68, label %71
 
 68:                                               ; preds = %61
   %69 = and i32 %58, -58385
@@ -5541,7 +5541,7 @@ giveback_first_trb.exit:                          ; preds = %185, %141, %22, %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @xhci_queue_isoc_tx_prepare(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_isoc_tx_prepare(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %7 = sext i32 %3 to i64
   %8 = getelementptr [256 x ptr], ptr %6, i64 0, i64 %7
@@ -5861,7 +5861,7 @@ define dso_local i32 @xhci_queue_isoc_tx_prepare(ptr noundef %0, i32 noundef %1,
 
 266:                                              ; preds = %231
   %267 = icmp samesign ugt i32 %258, %260
-  br i1 %267, label %268, label %.thread55
+  br i1 %267, label %268, label %.thread69
 
 268:                                              ; preds = %266
   %269 = icmp samesign ugt i32 %257, %260
@@ -5877,11 +5877,11 @@ define dso_local i32 @xhci_queue_isoc_tx_prepare(ptr noundef %0, i32 noundef %1,
   %276 = select i1 %273, i1 %275, i1 false
   br i1 %276, label %.thread15, label %286
 
-.thread55:                                        ; preds = %266
+.thread69:                                        ; preds = %266
   %277 = icmp eq i64 %160, 0
-  br i1 %277, label %.thread15, label %.thread56
+  br i1 %277, label %.thread15, label %.thread70
 
-.thread15:                                        ; preds = %.thread55, %272
+.thread15:                                        ; preds = %.thread69, %272
   %278 = add nuw nsw i32 %258, 1
   %279 = load ptr, ptr %57, align 8
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 28
@@ -5894,9 +5894,9 @@ define dso_local i32 @xhci_queue_isoc_tx_prepare(ptr noundef %0, i32 noundef %1,
   br label %291
 
 286:                                              ; preds = %272
-  br i1 %.sink, label %.thread56, label %291
+  br i1 %.sink, label %.thread70, label %291
 
-.thread56:                                        ; preds = %.thread55, %286
+.thread70:                                        ; preds = %.thread69, %286
   %287 = load ptr, ptr %0, align 8
   %288 = load ptr, ptr %287, align 8
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %288, ptr noundef nonnull @.str.90, i32 noundef %257, i32 noundef %250, i32 noundef %216, i32 noundef %258, i32 noundef %260) #13
@@ -5911,8 +5911,8 @@ define dso_local i32 @xhci_queue_isoc_tx_prepare(ptr noundef %0, i32 noundef %1,
   %293 = and i32 %292, 2146435072
   br label %294
 
-294:                                              ; preds = %.thread56, %291, %227, %221
-  %295 = phi i32 [ -2147483648, %221 ], [ %293, %291 ], [ -2147483648, %.thread56 ], [ -2147483648, %227 ]
+294:                                              ; preds = %.thread70, %291, %227, %221
+  %295 = phi i32 [ -2147483648, %221 ], [ %293, %291 ], [ -2147483648, %.thread70 ], [ -2147483648, %227 ]
   %296 = shl i32 %204, 16
   %297 = and i32 %296, 983040
   %298 = icmp eq i64 %160, 0
@@ -8943,7 +8943,6 @@ define internal fastcc void @xhci_invalidate_cancelled_tds(ptr noundef nonnull r
   br i1 %219, label %220, label %269
 
 220:                                              ; preds = %192, %218
-  %.ph = phi i8 [ 1, %218 ], [ %196, %192 ]
   %221 = load ptr, ptr %190, align 8
   %222 = icmp eq ptr %194, %221
   %223 = select i1 %222, i8 1, i8 %197
@@ -8951,9 +8950,9 @@ define internal fastcc void @xhci_invalidate_cancelled_tds(ptr noundef nonnull r
   %225 = load i32, ptr %224, align 4
   %226 = and i32 %225, 64512
   %227 = icmp eq i32 %226, 6144
-  br i1 %227, label %.thread29, label %.thread31
+  br i1 %227, label %.thread55, label %.thread57
 
-.thread29:                                        ; preds = %220
+.thread55:                                        ; preds = %220
   %228 = lshr i32 %225, 1
   %229 = and i32 %228, 1
   %230 = xor i32 %229, %195
@@ -8967,10 +8966,10 @@ define internal fastcc void @xhci_invalidate_cancelled_tds(ptr noundef nonnull r
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %.pre28 = and i32 %.pre, 64512
   %235 = icmp eq i32 %.pre28, 6144
-  br i1 %235, label %242, label %.thread31
+  br i1 %235, label %242, label %.thread57
 
-.thread31:                                        ; preds = %220, %231
-  %236 = phi i8 [ 0, %231 ], [ %.ph, %220 ]
+.thread57:                                        ; preds = %220, %231
+  %236 = phi i8 [ 0, %231 ], [ 1, %220 ]
   %237 = phi i8 [ %234, %231 ], [ %223, %220 ]
   %238 = phi i1 [ true, %231 ], [ false, %220 ]
   %239 = load ptr, ptr %193, align 8
@@ -8978,17 +8977,17 @@ define internal fastcc void @xhci_invalidate_cancelled_tds(ptr noundef nonnull r
   %241 = icmp eq ptr %240, %194
   br i1 %241, label %242, label %250
 
-242:                                              ; preds = %.thread29, %.thread31, %231
-  %243 = phi i32 [ %230, %.thread29 ], [ %195, %.thread31 ], [ %195, %231 ]
-  %244 = phi i8 [ %.ph, %.thread29 ], [ %236, %.thread31 ], [ 0, %231 ]
-  %245 = phi i8 [ %223, %.thread29 ], [ %237, %.thread31 ], [ %234, %231 ]
-  %246 = phi i1 [ false, %.thread29 ], [ %238, %.thread31 ], [ true, %231 ]
+242:                                              ; preds = %.thread55, %.thread57, %231
+  %243 = phi i32 [ %230, %.thread55 ], [ %195, %.thread57 ], [ %195, %231 ]
+  %244 = phi i8 [ 1, %.thread55 ], [ %236, %.thread57 ], [ 0, %231 ]
+  %245 = phi i8 [ %223, %.thread55 ], [ %237, %.thread57 ], [ %234, %231 ]
+  %246 = phi i1 [ false, %.thread55 ], [ %238, %.thread57 ], [ true, %231 ]
   %247 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %248 = load ptr, ptr %247, align 8
   %249 = load ptr, ptr %248, align 8
   br label %252
 
-250:                                              ; preds = %.thread31
+250:                                              ; preds = %.thread57
   %251 = getelementptr i8, ptr %194, i64 16
   br label %252
 

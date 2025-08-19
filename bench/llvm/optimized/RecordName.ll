@@ -1062,9 +1062,9 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i31: ; preds = %132, %136
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i19, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i31, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i25
-  %.sink82 = phi i64 [ 2, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i25 ], [ 1, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i31 ], [ 1, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i19 ]
+  %.sink99 = phi i64 [ 2, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i25 ], [ 1, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i31 ], [ 1, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i19 ]
   %.pre.i.i28 = load i64, ptr %100, align 8, !tbaa !13
-  %140 = add i64 %.pre.i.i28, %.sink82
+  %140 = add i64 %.pre.i.i28, %.sink99
   store i64 %140, ptr %100, align 8, !tbaa !13
   br label %141
 

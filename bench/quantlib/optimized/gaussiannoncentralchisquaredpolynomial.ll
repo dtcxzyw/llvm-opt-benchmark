@@ -957,7 +957,7 @@ if.then.i.i.i8:                                   ; preds = %lpad.body
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit13
 
 _ZNSt6vectorIdSaIdEED2Ev.exit13:                  ; preds = %lpad.body.thread, %lpad.body, %if.then.i.i.i8
-  %eh.lpad-body30 = phi { ptr, i32 } [ %5, %lpad.body.thread ], [ %0, %lpad.body ], [ %0, %if.then.i.i.i8 ]
+  %eh.lpad-body34 = phi { ptr, i32 } [ %5, %lpad.body.thread ], [ %0, %lpad.body ], [ %0, %if.then.i.i.i8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %7 = load ptr, ptr %c_, align 8, !tbaa !37
   %tobool.not.i.i.i14 = icmp eq ptr %7, null
@@ -987,7 +987,7 @@ if.then.i.i.i22:                                  ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit27
 
 _ZNSt6vectorIdSaIdEED2Ev.exit27:                  ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit20, %if.then.i.i.i22
-  resume { ptr, i32 } %eh.lpad-body30
+  resume { ptr, i32 } %eh.lpad-body34
 }
 
 declare i32 @__gxx_personality_v0(...)

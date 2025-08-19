@@ -824,7 +824,7 @@ masks_form_is_in_roi.exit:                        ; preds = %91
 
 183:                                              ; preds = %.lr.ph320, %.loopexit305
   %indvars.iv350 = phi i64 [ %180, %.lr.ph320 ], [ %indvars.iv.next351, %.loopexit305 ]
-  %indvars352 = trunc i64 %indvars.iv350 to i32
+  %indvars352 = trunc nsw i64 %indvars.iv350 to i32
   %184 = icmp slt i64 %indvars.iv350, %181
   br i1 %184, label %.loopexit305, label %185
 
@@ -862,7 +862,7 @@ masks_form_is_in_roi.exit:                        ; preds = %91
 
 .lr.ph317.split.us:                               ; preds = %.lr.ph317, %..loopexit302_crit_edge.us
   %indvars.iv347 = phi i64 [ %indvars.iv.next348, %..loopexit302_crit_edge.us ], [ %177, %.lr.ph317 ]
-  %indvars349 = trunc i64 %indvars.iv347 to i32
+  %indvars349 = trunc nsw i64 %indvars.iv347 to i32
   %206 = icmp slt i64 %indvars.iv347, %201
   br i1 %206, label %..loopexit302_crit_edge.us, label %207
 
@@ -904,7 +904,7 @@ masks_form_is_in_roi.exit:                        ; preds = %91
   %233 = add nsw i64 %indvars.iv347, %178
   %234 = add nsw i64 %177, %232
   %235 = sub nsw i64 %233, %234
-  %236 = add i64 %235, %231
+  %236 = add nsw i64 %235, %231
   %237 = mul i64 %236, %25
   %238 = getelementptr float, ptr %2, i64 %237
   br label %239
@@ -1286,7 +1286,7 @@ masks_get_delta.exit.thread:                      ; preds = %332, %masks_get_del
   %444 = mul nsw i64 %443, %407
   %445 = add nsw i64 %374, %416
   %446 = sub nsw i64 %indvars.iv358, %445
-  %447 = add i64 %446, %444
+  %447 = add nsw i64 %446, %444
   %448 = mul i64 %447, %25
   %449 = getelementptr float, ptr %2, i64 %448
   br label %450
@@ -2352,11 +2352,11 @@ _reset_form_creation.exit.i:                      ; preds = %78, %74
   %103 = load ptr, ptr %102, align 8, !tbaa !170
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 184
   store ptr %2, ptr %104, align 8, !tbaa !174
-  %spec.select28.i = select i1 %16, ptr %2, ptr null
+  %spec.select32.i = select i1 %16, ptr %2, ptr null
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 172
   store i32 %17, ptr %105, align 4, !tbaa !180
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 192
-  store ptr %spec.select28.i, ptr %106, align 8, !tbaa !181
+  store ptr %spec.select32.i, ptr %106, align 8, !tbaa !181
   tail call void (...) @dt_control_queue_redraw_center() #19
   br label %_add_shape.exit
 

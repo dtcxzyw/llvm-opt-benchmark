@@ -111,28 +111,28 @@ sub_0:                                            ; preds = %15
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %37 = load i32, ptr %36, align 8, !tbaa !19
   %.not47 = icmp eq i32 %37, 0
-  br i1 %.not47, label %.thread54, label %38
+  br i1 %.not47, label %.thread60, label %38
 
 38:                                               ; preds = %35
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.10, ptr noundef nonnull %34, i32 noundef %37) #4
   store i32 0, ptr %36, align 8, !tbaa !19
   %.pr.pre = load ptr, ptr %33, align 8, !tbaa !18
   %.not48 = icmp eq ptr %.pr.pre, null
-  br i1 %.not48, label %.thread, label %.thread54
+  br i1 %.not48, label %.thread, label %.thread60
 
-.thread54:                                        ; preds = %35, %38
-  %.pr57 = phi ptr [ %.pr.pre, %38 ], [ %34, %35 ]
+.thread60:                                        ; preds = %35, %38
+  %.pr63 = phi ptr [ %.pr.pre, %38 ], [ %34, %35 ]
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %40 = tail call i32 @av_expr_parse(ptr noundef nonnull %39, ptr noundef nonnull %.pr57, ptr noundef nonnull @var_names, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %0) #4
+  %40 = tail call i32 @av_expr_parse(ptr noundef nonnull %39, ptr noundef nonnull %.pr63, ptr noundef nonnull @var_names, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %0) #4
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %42, label %.thread
 
-42:                                               ; preds = %.thread54
+42:                                               ; preds = %.thread60
   %43 = load ptr, ptr %33, align 8, !tbaa !18
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.11, ptr noundef %43) #4
   br label %59
 
-.thread:                                          ; preds = %32, %.thread54, %38
+.thread:                                          ; preds = %32, %.thread60, %38
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %45 = load i32, ptr %44, align 4, !tbaa !26
   %.not49 = icmp eq i32 %45, 0

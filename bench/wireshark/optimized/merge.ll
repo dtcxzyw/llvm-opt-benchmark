@@ -922,7 +922,7 @@ merge_close_in_files.exit:                        ; preds = %.lr.ph.i198, %285
   br i1 %.not172, label %._crit_edge, label %38, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %315
-  switch i32 %306, label %default.unreachable379 [
+  switch i32 %306, label %default.unreachable398 [
     i32 0, label %.thread239
     i32 1, label %354
     i32 2, label %319
@@ -986,7 +986,7 @@ merge_close_in_files.exit:                        ; preds = %.lr.ph.i198, %285
   call void @report_cfile_close_failure(ptr noundef %0, i32 noundef %352, ptr noundef %353)
   br label %354
 
-default.unreachable379:                           ; preds = %._crit_edge
+default.unreachable398:                           ; preds = %._crit_edge
   unreachable
 
 354:                                              ; preds = %._crit_edge, %351, %342, %336, %329, %326, %319
@@ -1310,7 +1310,7 @@ merge_read_packet.exit:                           ; preds = %70, %.thread63.i, %
   %87 = load ptr, ptr %7, align 8
   %88 = load ptr, ptr %25, align 8
   %89 = call zeroext i1 %87(i32 noundef 3, i32 noundef %85, ptr noundef %2, i32 noundef %3, ptr noundef %88)
-  br i1 %89, label %map_rec_interface_id.exit.thread283, label %.thread
+  br i1 %89, label %map_rec_interface_id.exit.thread299, label %.thread
 
 .thread:                                          ; preds = %84, %86
   %90 = call i32 @wtap_file_type_subtype_supports_block(i32 noundef %1, i32 noundef 1)
@@ -1488,24 +1488,24 @@ map_rec_interface_id.exit:                        ; preds = %118, %.loopexit205,
   %.0143200 = phi ptr [ null, %merge_read_packet.exit.thread ], [ %.0143, %78 ], [ null, %merge_read_packet.exit ], [ %.0143, %91 ], [ %.0143, %.loopexit205 ], [ %.0143, %118 ]
   %.1150 = phi i32 [ %.0149.ph, %merge_read_packet.exit.thread ], [ %.0149.ph, %merge_read_packet.exit ], [ %.0149.ph, %78 ], [ %85, %91 ], [ %85, %.loopexit205 ], [ %85, %118 ]
   %.0140 = phi i32 [ 0, %merge_read_packet.exit.thread ], [ 4, %78 ], [ 0, %merge_read_packet.exit ], [ 5, %118 ], [ 6, %.loopexit205 ], [ 6, %91 ]
-  br i1 %.not166, label %185, label %map_rec_interface_id.exit.thread283
+  br i1 %.not166, label %185, label %map_rec_interface_id.exit.thread299
 
-map_rec_interface_id.exit.thread283:              ; preds = %86, %map_rec_interface_id.exit
-  %.0140290 = phi i32 [ %.0140, %map_rec_interface_id.exit ], [ 1, %86 ]
+map_rec_interface_id.exit.thread299:              ; preds = %86, %map_rec_interface_id.exit
+  %.0140306 = phi i32 [ %.0140, %map_rec_interface_id.exit ], [ 1, %86 ]
   %180 = phi i1 [ false, %map_rec_interface_id.exit ], [ true, %86 ]
-  %.1150289 = phi i32 [ %.1150, %map_rec_interface_id.exit ], [ %85, %86 ]
-  %.0143200287 = phi ptr [ %.0143200, %map_rec_interface_id.exit ], [ %.0143, %86 ]
+  %.1150305 = phi i32 [ %.1150, %map_rec_interface_id.exit ], [ %85, %86 ]
+  %.0143200303 = phi ptr [ %.0143200, %map_rec_interface_id.exit ], [ %.0143, %86 ]
   %181 = phi i1 [ %179, %map_rec_interface_id.exit ], [ false, %86 ]
   %182 = load ptr, ptr %7, align 8
   %183 = load ptr, ptr %25, align 8
-  %184 = call zeroext i1 %182(i32 noundef 4, i32 noundef %.1150289, ptr noundef %2, i32 noundef %3, ptr noundef %183)
+  %184 = call zeroext i1 %182(i32 noundef 4, i32 noundef %.1150305, ptr noundef %2, i32 noundef %3, ptr noundef %183)
   br label %185
 
-185:                                              ; preds = %map_rec_interface_id.exit.thread283, %map_rec_interface_id.exit
-  %.0140291 = phi i32 [ %.0140290, %map_rec_interface_id.exit.thread283 ], [ %.0140, %map_rec_interface_id.exit ]
-  %186 = phi i1 [ %180, %map_rec_interface_id.exit.thread283 ], [ false, %map_rec_interface_id.exit ]
-  %.0143200288 = phi ptr [ %.0143200287, %map_rec_interface_id.exit.thread283 ], [ %.0143200, %map_rec_interface_id.exit ]
-  %187 = phi i1 [ %181, %map_rec_interface_id.exit.thread283 ], [ %179, %map_rec_interface_id.exit ]
+185:                                              ; preds = %map_rec_interface_id.exit.thread299, %map_rec_interface_id.exit
+  %.0140307 = phi i32 [ %.0140306, %map_rec_interface_id.exit.thread299 ], [ %.0140, %map_rec_interface_id.exit ]
+  %186 = phi i1 [ %180, %map_rec_interface_id.exit.thread299 ], [ false, %map_rec_interface_id.exit ]
+  %.0143200304 = phi ptr [ %.0143200303, %map_rec_interface_id.exit.thread299 ], [ %.0143200, %map_rec_interface_id.exit ]
+  %187 = phi i1 [ %181, %map_rec_interface_id.exit.thread299 ], [ %179, %map_rec_interface_id.exit ]
   %or.cond = or i1 %187, %186
   br i1 %or.cond, label %188, label %.loopexit201
 
@@ -1516,11 +1516,11 @@ map_rec_interface_id.exit.thread283:              ; preds = %86, %map_rec_interf
 
 190:                                              ; preds = %188
   %191 = call fastcc zeroext i1 @process_new_idbs(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef %5, ptr noundef %8, ptr noundef %11, ptr noundef %12)
-  %spec.select = select i1 %191, i32 %.0140291, i32 6
+  %spec.select = select i1 %191, i32 %.0140307, i32 6
   br label %192
 
 192:                                              ; preds = %190, %188
-  %.2 = phi i32 [ %.0140291, %188 ], [ %spec.select, %190 ]
+  %.2 = phi i32 [ %.0140307, %188 ], [ %spec.select, %190 ]
   br i1 %.not170, label %.loopexit204, label %.preheader203
 
 .preheader203:                                    ; preds = %192, %.loopexit202
@@ -1569,7 +1569,7 @@ map_rec_interface_id.exit.thread283:              ; preds = %86, %map_rec_interf
   br i1 %exitcond.not, label %.loopexit204, label %.preheader203, !llvm.loop !28
 
 .loopexit204:                                     ; preds = %.loopexit202, %192
-  %.2145 = phi ptr [ %.0143200288, %192 ], [ %193, %.loopexit202 ]
+  %.2145 = phi ptr [ %.0143200304, %192 ], [ %193, %.loopexit202 ]
   br i1 %.not172, label %.loopexit201, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit204, %.loopexit
@@ -1618,8 +1618,8 @@ map_rec_interface_id.exit.thread283:              ; preds = %86, %map_rec_interf
   br i1 %exitcond279.not, label %.loopexit201, label %.preheader, !llvm.loop !30
 
 .loopexit201:                                     ; preds = %.loopexit, %.loopexit204, %185
-  %.1144 = phi ptr [ %.2145, %.loopexit204 ], [ %.0143200288, %185 ], [ %214, %.loopexit ]
-  %.1 = phi i32 [ %.2, %.loopexit204 ], [ %.0140291, %185 ], [ %.2, %.loopexit ]
+  %.1144 = phi ptr [ %.2145, %.loopexit204 ], [ %.0143200304, %185 ], [ %214, %.loopexit ]
+  %.1 = phi i32 [ %.2, %.loopexit204 ], [ %.0140307, %185 ], [ %.2, %.loopexit ]
   %or.cond3 = icmp ult i32 %.1, 2
   br i1 %or.cond3, label %235, label %237
 

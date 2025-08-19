@@ -1703,9 +1703,9 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   br label %395
 
 395:                                              ; preds = %392, %.thread595
-  %.sink631 = phi ptr [ null, %.thread595 ], [ %394, %392 ]
+  %.sink667 = phi ptr [ null, %.thread595 ], [ %394, %392 ]
   %396 = getelementptr inbounds nuw i8, ptr %30, i64 56
-  store ptr %.sink631, ptr %396, align 8
+  store ptr %.sink667, ptr %396, align 8
   %397 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 0)
   %398 = load ptr, ptr @bta2dp_handle, align 8
   %399 = call i32 @call_dissector_with_data(ptr noundef %398, ptr noundef %397, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %30)
@@ -2021,9 +2021,9 @@ get_sep_type.exit:                                ; preds = %get_sep_media_type.
   %575 = load i32, ptr %22, align 4
   %switch.selectcmp = icmp ne i32 %575, 1
   %switch.select = sext i1 %switch.selectcmp to i32
-  %switch.selectcmp634 = icmp eq i32 %575, 0
-  %switch.select635 = select i1 %switch.selectcmp634, i32 1, i32 %switch.select
-  store i32 %switch.select635, ptr %36, align 4
+  %switch.selectcmp670 = icmp eq i32 %575, 0
+  %switch.select671 = select i1 %switch.selectcmp670, i32 1, i32 %switch.select
+  store i32 %switch.select671, ptr %36, align 4
   store i32 1, ptr %68, align 16
   store ptr %36, ptr %69, align 8
   store i32 1, ptr %70, align 16
@@ -2711,25 +2711,25 @@ define internal i32 @dissect_aptx(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 switch.lookup:                                    ; preds = %30
   %37 = and i8 %32, 15
-  %switch.tableidx104 = add nsw i8 %37, -1
-  %38 = icmp ult i8 %switch.tableidx104, 8
-  %switch.shifted106 = lshr i8 -117, %switch.tableidx104
-  %switch.lobit107 = trunc i8 %switch.shifted106 to i1
-  %or.cond110 = select i1 %38, i1 %switch.lobit107, i1 false
-  br i1 %or.cond110, label %switch.lookup105, label %39
+  %switch.tableidx118 = add nsw i8 %37, -1
+  %38 = icmp ult i8 %switch.tableidx118, 8
+  %switch.shifted120 = lshr i8 -117, %switch.tableidx118
+  %switch.lobit121 = trunc i8 %switch.shifted120 to i1
+  %or.cond124 = select i1 %38, i1 %switch.lobit121, i1 false
+  br i1 %or.cond124, label %switch.lookup119, label %39
 
 39:                                               ; preds = %switch.lookup
   %40 = tail call i32 @tvb_reported_length(ptr noundef %0)
   br label %138
 
-switch.lookup105:                                 ; preds = %switch.lookup
+switch.lookup119:                                 ; preds = %switch.lookup
   %41 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x double], ptr @switch.table.dissect_aptx, i64 0, i64 %41
   %switch.load = load double, ptr %switch.gep, align 8
-  %42 = zext nneg i8 %switch.tableidx104 to i64
-  %switch.gep108 = getelementptr inbounds nuw [8 x double], ptr @switch.table.dissect_aptx.1, i64 0, i64 %42
-  %switch.load109 = load double, ptr %switch.gep108, align 8
-  %43 = fmul double %switch.load, %switch.load109
+  %42 = zext nneg i8 %switch.tableidx118 to i64
+  %switch.gep122 = getelementptr inbounds nuw [8 x double], ptr @switch.table.dissect_aptx.1, i64 0, i64 %42
+  %switch.load123 = load double, ptr %switch.gep122, align 8
+  %43 = fmul double %switch.load, %switch.load123
   %44 = fdiv double 1.600000e+01, %43
   %45 = fmul double %44, 1.000000e+03
   %46 = tail call i32 @tvb_reported_length(ptr noundef %0)
@@ -2741,7 +2741,7 @@ switch.lookup105:                                 ; preds = %switch.lookup
   %.not.i = icmp eq ptr %51, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %52
 
-52:                                               ; preds = %switch.lookup105
+52:                                               ; preds = %switch.lookup119
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %54 = load ptr, ptr %53, align 8
   %.not5.i = icmp eq ptr %54, null
@@ -2754,7 +2754,7 @@ switch.lookup105:                                 ; preds = %switch.lookup
   store i32 %58, ptr %56, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %switch.lookup105, %52, %55
+proto_item_set_generated.exit:                    ; preds = %switch.lookup119, %52, %55
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %60 = load ptr, ptr %59, align 8
   %.not72 = icmp eq ptr %60, null
@@ -3027,13 +3027,13 @@ switch.lookup:                                    ; preds = %60
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.dissect_ldac, i64 0, i64 %65
   %switch.load = load i32, ptr %switch.gep, align 4
   %66 = zext nneg i32 %.0113122 to i64
-  %switch.gep134 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.dissect_ldac.2, i64 0, i64 %66
-  %switch.load135 = load i32, ptr %switch.gep134, align 4
+  %switch.gep137 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.dissect_ldac.2, i64 0, i64 %66
+  %switch.load138 = load i32, ptr %switch.gep137, align 4
   br label %67
 
 67:                                               ; preds = %60, %switch.lookup
   %.1114 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %60 ]
-  %.0 = phi i32 [ %switch.load135, %switch.lookup ], [ 1000, %60 ]
+  %.0 = phi i32 [ %switch.load138, %switch.lookup ], [ 1000, %60 ]
   %68 = load i32, ptr @hf_ldac_sampling_frequency, align 4
   %69 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %68, ptr noundef %0, i32 noundef %63, i32 noundef 1, i32 noundef 0)
   %70 = load i32, ptr @hf_ldac_channel_config_index, align 4
@@ -4900,18 +4900,18 @@ define internal fastcc noundef i32 @dissect_capabilities(ptr noundef %0, ptr nou
   %66 = load i32, ptr @hf_btavdtp_maximum_recovery_window_size, align 4
   %67 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %66, ptr noundef %0, i32 noundef %62, i32 noundef 1, i32 noundef 0)
   %68 = icmp eq i8 %63, 0
-  br i1 %68, label %.sink.split280, label %69
+  br i1 %68, label %.sink.split296, label %69
 
 69:                                               ; preds = %61
   %70 = icmp ugt i8 %63, 23
-  br i1 %70, label %.sink.split280, label %71
+  br i1 %70, label %.sink.split296, label %71
 
-.sink.split280:                                   ; preds = %69, %61
-  %.str.536.sink281 = phi ptr [ @.str.535, %61 ], [ @.str.536, %69 ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef nonnull %.str.536.sink281)
+.sink.split296:                                   ; preds = %69, %61
+  %.str.536.sink297 = phi ptr [ @.str.535, %61 ], [ @.str.536, %69 ]
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef nonnull %.str.536.sink297)
   br label %71
 
-71:                                               ; preds = %.sink.split280, %69
+71:                                               ; preds = %.sink.split296, %69
   %72 = add i32 %.0249279, 5
   %73 = add nsw i32 %36, -3
   br label %.thread273

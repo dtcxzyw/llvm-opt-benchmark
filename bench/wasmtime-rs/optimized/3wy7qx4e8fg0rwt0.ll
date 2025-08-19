@@ -293,7 +293,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h6ca3caf12adad6f8E.exit.i.i: ;
   %63 = load ptr, ptr %62, align 8, !noalias !18, !nonnull !7, !align !25, !noundef !7
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %65 = load i64, ptr %64, align 8, !noalias !18, !noundef !7
-  %66 = getelementptr inbounds { [2 x i64] }, ptr %.011.i, i64 %34
+  %66 = getelementptr inbounds nuw { [2 x i64] }, ptr %.011.i, i64 %34
   %67 = load ptr, ptr %66, align 8, !noalias !26, !nonnull !7, !align !25, !noundef !7
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %69 = load i64, ptr %68, align 8, !noalias !26, !noundef !7

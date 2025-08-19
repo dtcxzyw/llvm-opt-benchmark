@@ -1770,13 +1770,13 @@ define hidden noundef i32 @mbedtls_ripemd160_update(ptr noundef captures(none) %
   br i1 %.not45, label %35, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %18, %._crit_edge
-  %.1.lcssa60 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %2, %18 ]
-  %.137.lcssa59 = phi ptr [ %.137.lcssa, %._crit_edge ], [ %1, %18 ]
-  %.05358 = phi i32 [ 0, %._crit_edge ], [ %7, %18 ]
+  %.1.lcssa64 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %2, %18 ]
+  %.137.lcssa63 = phi ptr [ %.137.lcssa, %._crit_edge ], [ %1, %18 ]
+  %.05762 = phi i32 [ 0, %._crit_edge ], [ %7, %18 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %33 = zext nneg i32 %.05358 to i64
+  %33 = zext nneg i32 %.05762 to i64
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %.137.lcssa59, i64 %.1.lcssa60, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %.137.lcssa63, i64 %.1.lcssa64, i1 false)
   br label %35
 
 35:                                               ; preds = %._crit_edge, %._crit_edge.thread, %3
@@ -1852,13 +1852,13 @@ define hidden noundef i32 @mbedtls_ripemd160_finish(ptr noundef %0, ptr noundef 
   br i1 %.not45.i, label %mbedtls_ripemd160_update.exit, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %21
-  %.1.lcssa60.i = phi i64 [ %.1.lcssa.i, %._crit_edge.i ], [ %13, %21 ]
-  %.137.lcssa59.i = phi ptr [ %.137.lcssa.i, %._crit_edge.i ], [ @ripemd160_padding, %21 ]
-  %.05358.i = phi i32 [ 0, %._crit_edge.i ], [ %10, %21 ]
+  %.1.lcssa64.i = phi i64 [ %.1.lcssa.i, %._crit_edge.i ], [ %13, %21 ]
+  %.137.lcssa63.i = phi ptr [ %.137.lcssa.i, %._crit_edge.i ], [ @ripemd160_padding, %21 ]
+  %.05762.i = phi i32 [ 0, %._crit_edge.i ], [ %10, %21 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %36 = zext nneg i32 %.05358.i to i64
+  %36 = zext nneg i32 %.05762.i to i64
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 %36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr align 1 %.137.lcssa59.i, i64 %.1.lcssa60.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr align 1 %.137.lcssa63.i, i64 %.1.lcssa64.i, i1 false)
   br label %mbedtls_ripemd160_update.exit
 
 mbedtls_ripemd160_update.exit:                    ; preds = %._crit_edge.i, %._crit_edge.thread.i
@@ -1897,13 +1897,13 @@ mbedtls_ripemd160_update.exit:                    ; preds = %._crit_edge.i, %._c
   br i1 %.not45.i34, label %mbedtls_ripemd160_free.exit, label %._crit_edge.thread.i35
 
 ._crit_edge.thread.i35:                           ; preds = %47, %49, %48
-  %.1.lcssa60.i36 = phi i64 [ %55, %49 ], [ 8, %48 ], [ 8, %47 ]
-  %.137.lcssa59.i37 = phi ptr [ %54, %49 ], [ %3, %48 ], [ %3, %47 ]
-  %.05358.i38 = phi i32 [ 0, %49 ], [ %39, %48 ], [ 0, %47 ]
+  %.1.lcssa64.i36 = phi i64 [ %55, %49 ], [ 8, %48 ], [ 8, %47 ]
+  %.137.lcssa63.i37 = phi ptr [ %54, %49 ], [ %3, %48 ], [ %3, %47 ]
+  %.05762.i38 = phi i32 [ 0, %49 ], [ %39, %48 ], [ 0, %47 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %57 = zext nneg i32 %.05358.i38 to i64
+  %57 = zext nneg i32 %.05762.i38 to i64
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 %57
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %58, ptr nonnull align 1 %.137.lcssa59.i37, i64 %.1.lcssa60.i36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %58, ptr nonnull align 1 %.137.lcssa63.i37, i64 %.1.lcssa64.i36, i1 false)
   br label %mbedtls_ripemd160_free.exit
 
 mbedtls_ripemd160_free.exit:                      ; preds = %49, %._crit_edge.thread.i35

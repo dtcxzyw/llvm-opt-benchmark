@@ -99,8 +99,8 @@ define dso_local i32 @tr2_dst_get_trace_fd(ptr noundef captures(none) %0) local_
 
 .thread:                                          ; preds = %.tail
   %17 = tail call i32 @strcasecmp(ptr noundef nonnull %11, ptr noundef nonnull @.str.2) #14
-  %.not3551 = icmp eq i32 %17, 0
-  br i1 %.not3551, label %18, label %.tail44.thread
+  %.not3552 = icmp eq i32 %17, 0
+  br i1 %.not3552, label %18, label %.tail44.thread
 
 18:                                               ; preds = %12, %.thread, %.tail.thread, %.tail, %8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -424,9 +424,9 @@ strbuf_setlen.exit:                               ; preds = %83, %85
   %89 = call i32 (ptr, i32, ...) @open64(ptr noundef %88, i32 noundef 193, i32 noundef 438) #13
   store i32 %89, ptr %74, align 4, !tbaa !4
   %.not32 = icmp eq i32 %89, -1
-  br i1 %.not32, label %75, label %.loopexit.thread51
+  br i1 %.not32, label %75, label %.loopexit.thread61
 
-.loopexit.thread51:                               ; preds = %87
+.loopexit.thread61:                               ; preds = %87
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %149
 
@@ -559,8 +559,8 @@ tr2_dst_trace_disable.exit:                       ; preds = %139, %143
   call void @strbuf_release(ptr noundef nonnull %6) #13
   br label %155
 
-149:                                              ; preds = %.loopexit.thread51, %.loopexit
-  %150 = phi ptr [ %90, %.loopexit.thread51 ], [ %114, %.loopexit ]
+149:                                              ; preds = %.loopexit.thread61, %.loopexit
+  %150 = phi ptr [ %90, %.loopexit.thread61 ], [ %114, %.loopexit ]
   call void @strbuf_release(ptr noundef nonnull %6) #13
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %152 = load i8, ptr %151, align 4

@@ -392,7 +392,7 @@ define dso_local noundef range(i32 0, 2) i32 @intel_gmch_probe(ptr noundef %0, p
   %41 = add nuw nsw i64 %40, 1
   %42 = getelementptr [36 x %struct.intel_gtt_driver_description], ptr @intel_gtt_chipsets, i64 0, i64 %41
   %43 = icmp eq i64 %41, 35
-  br i1 %43, label %thread-pre-split.loopexit42, label %34, !llvm.loop !14
+  br i1 %43, label %thread-pre-split.loopexit51, label %34, !llvm.loop !14
 
 .thread10:                                        ; preds = %22, %17, %._crit_edge
   %44 = phi ptr [ %.lcssa21, %._crit_edge ], [ %11, %17 ], [ %11, %22 ]
@@ -404,13 +404,13 @@ define dso_local noundef range(i32 0, 2) i32 @intel_gmch_probe(ptr noundef %0, p
   store ptr %48, ptr @intel_private, align 8
   br label %51
 
-thread-pre-split.loopexit42:                      ; preds = %.thread
+thread-pre-split.loopexit51:                      ; preds = %.thread
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %50 = load ptr, ptr %49, align 8
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %.thread.us, %thread-pre-split.loopexit42
-  %.us-phi27 = phi ptr [ %50, %thread-pre-split.loopexit42 ], [ %28, %.thread.us ]
+thread-pre-split:                                 ; preds = %.thread.us, %thread-pre-split.loopexit51
+  %.us-phi27 = phi ptr [ %50, %thread-pre-split.loopexit51 ], [ %28, %.thread.us ]
   %.pr = load ptr, ptr @intel_private, align 8
   br label %51
 

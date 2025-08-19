@@ -162,7 +162,7 @@ asn1_bio_setup_ex.exit:                           ; preds = %25, %27
   %31 = load ptr, ptr %18, align 8, !tbaa !16
   %32 = call fastcc i32 @asn1_bio_flush_ex(ptr noundef %0, ptr noundef %5, ptr noundef %31, i32 noundef 2)
   %33 = icmp slt i32 %32, 1
-  br i1 %33, label %.loopexit91, label %.backedge
+  br i1 %33, label %.loopexit102, label %.backedge
 
 34:                                               ; preds = %23
   %35 = load i32, ptr %15, align 4, !tbaa !17
@@ -191,7 +191,7 @@ asn1_bio_setup_ex.exit:                           ; preds = %25, %27
   %48 = load i32, ptr %14, align 8, !tbaa !18
   %49 = call i32 @BIO_write(ptr noundef %6, ptr noundef %47, i32 noundef %48) #6
   %50 = icmp slt i32 %49, 1
-  br i1 %50, label %.loopexit91, label %51
+  br i1 %50, label %.loopexit102, label %51
 
 51:                                               ; preds = %43
   %52 = load i32, ptr %14, align 8, !tbaa !18
@@ -216,7 +216,7 @@ asn1_bio_setup_ex.exit:                           ; preds = %25, %27
   %..074 = call i32 @llvm.smin.i32(i32 %.074.ph, i32 %59)
   %60 = call i32 @BIO_write(ptr noundef %6, ptr noundef %.072.ph, i32 noundef %..074) #6
   %61 = icmp slt i32 %60, 1
-  br i1 %61, label %.loopexit91, label %62
+  br i1 %61, label %.loopexit102, label %62
 
 62:                                               ; preds = %58
   %63 = add nuw nsw i32 %60, %.070.ph
@@ -235,13 +235,13 @@ asn1_bio_setup_ex.exit:                           ; preds = %25, %27
 
 71:                                               ; preds = %70, %62
   %72 = icmp eq i32 %68, 0
-  br i1 %72, label %.loopexit91, label %.outer
+  br i1 %72, label %.loopexit102, label %.outer
 
 73:                                               ; preds = %23, %23
   call void @BIO_clear_flags(ptr noundef %0, i32 noundef 15) #6
   br label %.loopexit
 
-.loopexit91:                                      ; preds = %71, %58, %43, %30
+.loopexit102:                                     ; preds = %71, %58, %43, %30
   %.2 = phi i32 [ %.070.ph, %30 ], [ %.070.ph, %43 ], [ %63, %71 ], [ %.070.ph, %58 ]
   %.069 = phi i32 [ %49, %43 ], [ %32, %30 ], [ %60, %58 ], [ %60, %71 ]
   call void @BIO_clear_flags(ptr noundef %0, i32 noundef 15) #6
@@ -250,8 +250,8 @@ asn1_bio_setup_ex.exit:                           ; preds = %25, %27
   %75 = select i1 %74, i32 %.2, i32 %.069
   br label %.loopexit
 
-.loopexit:                                        ; preds = %34, %asn1_bio_setup_ex.exit.thread, %3, %.loopexit91, %73
-  %.0 = phi i32 [ %75, %.loopexit91 ], [ 0, %73 ], [ 0, %3 ], [ -1, %asn1_bio_setup_ex.exit.thread ], [ -1, %34 ]
+.loopexit:                                        ; preds = %34, %asn1_bio_setup_ex.exit.thread, %3, %.loopexit102, %73
+  %.0 = phi i32 [ %75, %.loopexit102 ], [ 0, %73 ], [ 0, %3 ], [ -1, %asn1_bio_setup_ex.exit.thread ], [ -1, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

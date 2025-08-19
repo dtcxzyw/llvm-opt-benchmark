@@ -5831,7 +5831,7 @@ lean_obj_tag.exit:                                ; preds = %5, %8
   %13 = ptrtoint ptr %0 to i64
   %14 = and i64 %13, 1
   %.not52 = icmp eq i64 %14, 0
-  br i1 %.not52, label %15, label %common.ret53
+  br i1 %.not52, label %15, label %common.ret57
 
 15:                                               ; preds = %12
   %16 = load i32, ptr %0, align 4, !tbaa !4
@@ -5841,15 +5841,15 @@ lean_obj_tag.exit:                                ; preds = %5, %8
 18:                                               ; preds = %15
   %19 = add nsw i32 %16, -1
   store i32 %19, ptr %0, align 4, !tbaa !4
-  br label %common.ret53
+  br label %common.ret57
 
 20:                                               ; preds = %15
   %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %common.ret53, label %21
+  br i1 %.not.i, label %common.ret57, label %21
 
 21:                                               ; preds = %20
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #6
-  br label %common.ret53
+  br label %common.ret57
 
 22:                                               ; preds = %lean_obj_tag.exit
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6021,14 +6021,14 @@ lean_dec.exit:                                    ; preds = %76, %75, %73, %lean
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %0) #6
   br label %lean_inc.exit
 
-common.ret53:                                     ; preds = %12, %18, %20, %21, %lean_inc.exit
-  %common.ret53.op = phi ptr [ %86, %lean_inc.exit ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
-  ret ptr %common.ret53.op
+common.ret57:                                     ; preds = %12, %18, %20, %21, %lean_inc.exit
+  %common.ret57.op = phi ptr [ %86, %lean_inc.exit ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
+  ret ptr %common.ret57.op
 
 lean_inc.exit:                                    ; preds = %84, %83, %81, %lean_dec.exit
   %85 = tail call ptr @l_Lake_DRBMap_ofList___rarg(ptr noundef %0, ptr noundef %34)
   %86 = tail call ptr @l_Lean_RBNode_insert___rarg(ptr noundef %0, ptr noundef %85, ptr noundef %51, ptr noundef %61) #6
-  br label %common.ret53
+  br label %common.ret57
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6934,7 +6934,7 @@ lean_dec.exit.backedge:                           ; preds = %25, %29, %38, %37, 
   br label %lean_dec.exit
 
 29:                                               ; preds = %21
-  %30 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %23) #6
+  %30 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #6
   br label %lean_dec.exit.backedge
 
 31:                                               ; preds = %13
@@ -8450,18 +8450,18 @@ _init_l_Lake_DRBMap_maxDepth___rarg___closed__1.exit: ; preds = %_init_l_Lake_DR
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_DRBMap_maxDepth___rarg___closed__1.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %74, %_init_l_Lake_DRBMap_maxDepth___rarg___closed__1.exit ]
-  %77 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !4
+  %.sink26 = phi ptr [ %4, %3 ], [ %74, %_init_l_Lake_DRBMap_maxDepth___rarg___closed__1.exit ]
+  %77 = getelementptr inbounds nuw i8, ptr %.sink26, i64 4
+  store i32 1, ptr %.sink26, align 4, !tbaa !4
   store i32 131096, ptr %77, align 4
-  %78 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.sink26, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %78, align 8, !tbaa !10
-  %79 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %.sink26, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %79, align 8, !tbaa !10
   br label %80
 
 80:                                               ; preds = %.sink.split, %lean_dec_ref.exit10, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink26, %.sink.split ]
   ret ptr %.0
 }
 

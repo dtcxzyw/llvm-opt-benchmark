@@ -6354,10 +6354,10 @@ define internal noundef i32 @_control_import_job_run(ptr noundef %0) #0 {
   %38 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %37
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = call i32 @dt_control_job_get_state(ptr noundef %0) #17
-  %.not139160 = icmp eq i32 %40, 4
-  br i1 %.not139160, label %.critedge, label %.lr.ph171
+  %.not139166 = icmp eq i32 %40, 4
+  br i1 %.not139166, label %.critedge, label %.lr.ph177
 
-.lr.ph171:                                        ; preds = %.lr.ph
+.lr.ph177:                                        ; preds = %.lr.ph
   %41 = add nsw i64 %25, -1290608000
   %42 = sitofp i64 %41 to double
   %43 = fadd reassoc nsz arcp contract afn double %42, -2.500000e-01
@@ -6389,20 +6389,20 @@ define internal noundef i32 @_control_import_job_run(ptr noundef %0) #0 {
   %or.cond5 = select i1 %53, i1 %55, i1 false
   br i1 %or.cond5, label %198, label %202
 
-56:                                               ; preds = %.lr.ph171, %47
-  %.092141170 = phi ptr [ null, %.lr.ph171 ], [ %.193114, %47 ]
-  %.087142169 = phi double [ %46, %.lr.ph171 ], [ %.188116, %47 ]
-  %.084143168 = phi double [ 5.000000e-01, %.lr.ph171 ], [ %.185118, %47 ]
-  %.081144167 = phi ptr [ null, %.lr.ph171 ], [ %.182120, %47 ]
-  %.080145166 = phi ptr [ null, %.lr.ph171 ], [ %.1122, %47 ]
-  %.056146165 = phi i32 [ -1, %.lr.ph171 ], [ %.157124, %47 ]
-  %.054147164 = phi double [ %46, %.lr.ph171 ], [ %.155, %47 ]
-  %.053148163 = phi ptr [ %19, %.lr.ph171 ], [ %197, %47 ]
-  %.050150162 = phi double [ 0.000000e+00, %.lr.ph171 ], [ %180, %47 ]
-  %.0151161 = phi i32 [ 0, %.lr.ph171 ], [ %179, %47 ]
+56:                                               ; preds = %.lr.ph177, %47
+  %.092141176 = phi ptr [ null, %.lr.ph177 ], [ %.193114, %47 ]
+  %.087142175 = phi double [ %46, %.lr.ph177 ], [ %.188116, %47 ]
+  %.084143174 = phi double [ 5.000000e-01, %.lr.ph177 ], [ %.185118, %47 ]
+  %.081144173 = phi ptr [ null, %.lr.ph177 ], [ %.182120, %47 ]
+  %.080145172 = phi ptr [ null, %.lr.ph177 ], [ %.1122, %47 ]
+  %.056146171 = phi i32 [ -1, %.lr.ph177 ], [ %.157124, %47 ]
+  %.054147170 = phi double [ %46, %.lr.ph177 ], [ %.155, %47 ]
+  %.053148169 = phi ptr [ %19, %.lr.ph177 ], [ %197, %47 ]
+  %.050150168 = phi double [ 0.000000e+00, %.lr.ph177 ], [ %180, %47 ]
+  %.0151167 = phi i32 [ 0, %.lr.ph177 ], [ %179, %47 ]
   %57 = load ptr, ptr %18, align 8, !tbaa !205
   %.not66 = icmp eq ptr %57, null
-  %58 = load ptr, ptr %.053148163, align 8, !tbaa !61
+  %58 = load ptr, ptr %.053148169, align 8, !tbaa !61
   br i1 %.not66, label %152, label %59
 
 59:                                               ; preds = %56
@@ -6429,12 +6429,12 @@ define internal noundef i32 @_control_import_job_run(ptr noundef %0) #0 {
 65:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %66 = call i32 @stat(ptr noundef %58, ptr noundef nonnull %9) #17
-  %67 = call i32 @dt_has_same_path_basename(ptr noundef %58, ptr noundef %.081144167) #17
+  %67 = call i32 @dt_has_same_path_basename(ptr noundef %58, ptr noundef %.081144173) #17
   %.not57.i = icmp eq i32 %67, 0
   br i1 %.not57.i, label %70, label %68
 
 68:                                               ; preds = %65
-  %69 = call ptr @dt_copy_filename_extension(ptr noundef %.080145166, ptr noundef %58) #17
+  %69 = call ptr @dt_copy_filename_extension(ptr noundef %.080145172, ptr noundef %58) #17
   br label %84
 
 70:                                               ; preds = %65
@@ -6536,7 +6536,7 @@ define internal noundef i32 @_control_import_job_run(ptr noundef %0) #0 {
   call void @g_object_unref(ptr noundef %110) #17
   %120 = zext nneg i32 %105 to i64
   %121 = inttoptr i64 %120 to ptr
-  %122 = call ptr @g_list_prepend(ptr noundef %.092141170, ptr noundef nonnull %121) #17
+  %122 = call ptr @g_list_prepend(ptr noundef %.092141176, ptr noundef nonnull %121) #17
   %123 = and i32 %105, 3
   %124 = icmp eq i32 %123, 3
   br i1 %124, label %125, label %127
@@ -6554,15 +6554,15 @@ define internal noundef i32 @_control_import_job_run(ptr noundef %0) #0 {
   br label %128
 
 128:                                              ; preds = %127, %107
-  %.294 = phi ptr [ %122, %127 ], [ %.092141170, %107 ]
+  %.294 = phi ptr [ %122, %127 ], [ %.092141176, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %129
 
 129:                                              ; preds = %128, %91, %88
-  %.395 = phi ptr [ %.092141170, %88 ], [ %.092141170, %91 ], [ %.294, %128 ]
+  %.395 = phi ptr [ %.092141176, %88 ], [ %.092141176, %91 ], [ %.294, %128 ]
   %130 = load ptr, ptr %6, align 8, !tbaa !67
   call void @g_free(ptr noundef %130) #17
-  call void @g_free(ptr noundef %.080145166) #17
+  call void @g_free(ptr noundef %.080145172) #17
   br i1 %.not58.i, label %_control_import_image_copy.exit.thread103, label %_control_import_image_copy.exit
 
 _control_import_image_copy.exit.thread103:        ; preds = %129
@@ -6585,7 +6585,7 @@ _control_import_image_copy.exit:                  ; preds = %129
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %132 = icmp ne i32 %131, -1
-  %133 = icmp eq i32 %.056146165, -1
+  %133 = icmp eq i32 %.056146171, -1
   %or.cond = select i1 %132, i1 %133, i1 false
   br i1 %or.cond, label %134, label %_collection_update.exit
 
@@ -6608,14 +6608,14 @@ _control_import_image_copy.exit:                  ; preds = %129
   %144 = fmul reassoc nsz arcp contract afn double %143, 0x3EB0C6F7A0B5ED8D
   %145 = fadd reassoc nsz arcp contract afn double %144, %141
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %146 = fsub reassoc nsz arcp contract afn double %145, %.087142169
-  %147 = fcmp reassoc nsz arcp contract afn ogt double %146, %.084143168
+  %146 = fsub reassoc nsz arcp contract afn double %145, %.087142175
+  %147 = fcmp reassoc nsz arcp contract afn ogt double %146, %.084143174
   br i1 %147, label %148, label %_collection_update.exit.thread129
 
 148:                                              ; preds = %134
-  %149 = fcmp reassoc nsz arcp contract afn olt double %.084143168, 3.000000e+00
-  %150 = fadd reassoc nsz arcp contract afn double %.084143168, 1.000000e-01
-  %.286 = select nsz i1 %149, double %150, double %.084143168
+  %149 = fcmp reassoc nsz arcp contract afn olt double %.084143174, 3.000000e+00
+  %150 = fadd reassoc nsz arcp contract afn double %.084143174, 1.000000e-01
+  %.286 = select nsz i1 %149, double %150, double %.084143174
   %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !75
   call void @dt_collection_update_query(ptr noundef %151, i32 noundef 3, i32 noundef 43, ptr noundef null) #17
   call void (...) @dt_control_queue_redraw_center() #17
@@ -6638,7 +6638,7 @@ _control_import_image_copy.exit:                  ; preds = %129
 159:                                              ; preds = %152
   %160 = zext nneg i32 %155 to i64
   %161 = inttoptr i64 %160 to ptr
-  %162 = call ptr @g_list_prepend(ptr noundef %.092141170, ptr noundef nonnull %161) #17
+  %162 = call ptr @g_list_prepend(ptr noundef %.092141176, ptr noundef nonnull %161) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %163 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #17
   %164 = load i64, ptr %3, align 8, !tbaa !88
@@ -6649,62 +6649,62 @@ _control_import_image_copy.exit:                  ; preds = %129
   %169 = fmul reassoc nsz arcp contract afn double %168, 0x3EB0C6F7A0B5ED8D
   %170 = fadd reassoc nsz arcp contract afn double %169, %166
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %171 = fsub reassoc nsz arcp contract afn double %170, %.087142169
-  %172 = fcmp reassoc nsz arcp contract afn ogt double %171, %.084143168
+  %171 = fsub reassoc nsz arcp contract afn double %170, %.087142175
+  %172 = fcmp reassoc nsz arcp contract afn ogt double %171, %.084143174
   br i1 %172, label %173, label %_collection_update.exit.i
 
 173:                                              ; preds = %159
-  %174 = fcmp reassoc nsz arcp contract afn olt double %.084143168, 3.000000e+00
-  %175 = fadd reassoc nsz arcp contract afn double %.084143168, 1.000000e-01
-  %.5 = select nsz i1 %174, double %175, double %.084143168
+  %174 = fcmp reassoc nsz arcp contract afn olt double %.084143174, 3.000000e+00
+  %175 = fadd reassoc nsz arcp contract afn double %.084143174, 1.000000e-01
+  %.5 = select nsz i1 %174, double %175, double %.084143174
   %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !75
   call void @dt_collection_update_query(ptr noundef %176, i32 noundef 3, i32 noundef 43, ptr noundef null) #17
   call void (...) @dt_control_queue_redraw_center() #17
   br label %_collection_update.exit.i
 
 _collection_update.exit.i:                        ; preds = %173, %159
-  %.390 = phi nsz double [ %170, %173 ], [ %.087142169, %159 ]
-  %.4 = phi nsz double [ %.5, %173 ], [ %.084143168, %159 ]
+  %.390 = phi nsz double [ %170, %173 ], [ %.087142175, %159 ]
+  %.4 = phi nsz double [ %.5, %173 ], [ %.084143174, %159 ]
   call void @dt_conf_set_int(ptr noundef nonnull @.str.201, i32 noundef %155) #17
   br label %_control_import_image_insitu.exit
 
 _control_import_image_insitu.exit:                ; preds = %157, %_collection_update.exit.i
-  %.597 = phi ptr [ %162, %_collection_update.exit.i ], [ %.092141170, %157 ]
-  %.491 = phi nsz double [ %.390, %_collection_update.exit.i ], [ %.087142169, %157 ]
-  %.6 = phi nsz double [ %.4, %_collection_update.exit.i ], [ %.084143168, %157 ]
+  %.597 = phi ptr [ %162, %_collection_update.exit.i ], [ %.092141176, %157 ]
+  %.491 = phi nsz double [ %.390, %_collection_update.exit.i ], [ %.087142175, %157 ]
+  %.6 = phi nsz double [ %.4, %_collection_update.exit.i ], [ %.084143174, %157 ]
   call void @g_free(ptr noundef %153) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_collection_update.exit
 
 _collection_update.exit.thread129:                ; preds = %134, %148
-  %.188.ph = phi double [ %.087142169, %134 ], [ %145, %148 ]
-  %.185.ph = phi double [ %.084143168, %134 ], [ %.286, %148 ]
-  %177 = add i32 %.0151161, 1
+  %.188.ph = phi double [ %.087142175, %134 ], [ %145, %148 ]
+  %.185.ph = phi double [ %.084143174, %134 ], [ %.286, %148 ]
+  %177 = add i32 %.0151167, 1
   br label %_collection_update.exit.thread
 
 _collection_update.exit:                          ; preds = %_control_import_image_copy.exit, %_control_import_image_insitu.exit
   %.193 = phi ptr [ %.597, %_control_import_image_insitu.exit ], [ %.395, %_control_import_image_copy.exit ]
-  %.188 = phi nsz double [ %.491, %_control_import_image_insitu.exit ], [ %.087142169, %_control_import_image_copy.exit ]
-  %.185 = phi nsz double [ %.6, %_control_import_image_insitu.exit ], [ %.084143168, %_control_import_image_copy.exit ]
-  %.182 = phi ptr [ %.081144167, %_control_import_image_insitu.exit ], [ %58, %_control_import_image_copy.exit ]
-  %.1 = phi ptr [ %.080145166, %_control_import_image_insitu.exit ], [ %.054.i, %_control_import_image_copy.exit ]
+  %.188 = phi nsz double [ %.491, %_control_import_image_insitu.exit ], [ %.087142175, %_control_import_image_copy.exit ]
+  %.185 = phi nsz double [ %.6, %_control_import_image_insitu.exit ], [ %.084143174, %_control_import_image_copy.exit ]
+  %.182 = phi ptr [ %.081144173, %_control_import_image_insitu.exit ], [ %58, %_control_import_image_copy.exit ]
+  %.1 = phi ptr [ %.080145172, %_control_import_image_insitu.exit ], [ %.054.i, %_control_import_image_copy.exit ]
   %.152 = phi i32 [ %154, %_control_import_image_insitu.exit ], [ %131, %_control_import_image_copy.exit ]
   %.152.fr = freeze i32 %.152
   %.not67 = icmp ne i32 %.152.fr, -1
   %178 = zext i1 %.not67 to i32
-  %spec.select = add i32 %.0151161, %178
+  %spec.select = add i32 %.0151167, %178
   br label %_collection_update.exit.thread
 
 _collection_update.exit.thread:                   ; preds = %_collection_update.exit, %_control_import_image_copy.exit.thread103, %_control_import_image_copy.exit.thread, %_collection_update.exit.thread129
   %.152126 = phi i32 [ %131, %_collection_update.exit.thread129 ], [ -1, %_control_import_image_copy.exit.thread ], [ -1, %_control_import_image_copy.exit.thread103 ], [ %.152.fr, %_collection_update.exit ]
-  %.157124 = phi i32 [ %131, %_collection_update.exit.thread129 ], [ %.056146165, %_control_import_image_copy.exit.thread ], [ %.056146165, %_control_import_image_copy.exit.thread103 ], [ %.056146165, %_collection_update.exit ]
-  %.1122 = phi ptr [ %.054.i, %_collection_update.exit.thread129 ], [ %.080145166, %_control_import_image_copy.exit.thread ], [ %.054.i, %_control_import_image_copy.exit.thread103 ], [ %.1, %_collection_update.exit ]
-  %.182120 = phi ptr [ %58, %_collection_update.exit.thread129 ], [ %.081144167, %_control_import_image_copy.exit.thread ], [ %58, %_control_import_image_copy.exit.thread103 ], [ %.182, %_collection_update.exit ]
-  %.185118 = phi double [ %.185.ph, %_collection_update.exit.thread129 ], [ %.084143168, %_control_import_image_copy.exit.thread ], [ %.084143168, %_control_import_image_copy.exit.thread103 ], [ %.185, %_collection_update.exit ]
-  %.188116 = phi double [ %.188.ph, %_collection_update.exit.thread129 ], [ %.087142169, %_control_import_image_copy.exit.thread ], [ %.087142169, %_control_import_image_copy.exit.thread103 ], [ %.188, %_collection_update.exit ]
-  %.193114 = phi ptr [ %.395, %_collection_update.exit.thread129 ], [ %.092141170, %_control_import_image_copy.exit.thread ], [ %.395, %_control_import_image_copy.exit.thread103 ], [ %.193, %_collection_update.exit ]
-  %179 = phi i32 [ %177, %_collection_update.exit.thread129 ], [ %.0151161, %_control_import_image_copy.exit.thread ], [ %.0151161, %_control_import_image_copy.exit.thread103 ], [ %spec.select, %_collection_update.exit ]
-  %180 = fadd reassoc nsz arcp contract afn double %.050150162, %38
+  %.157124 = phi i32 [ %131, %_collection_update.exit.thread129 ], [ %.056146171, %_control_import_image_copy.exit.thread ], [ %.056146171, %_control_import_image_copy.exit.thread103 ], [ %.056146171, %_collection_update.exit ]
+  %.1122 = phi ptr [ %.054.i, %_collection_update.exit.thread129 ], [ %.080145172, %_control_import_image_copy.exit.thread ], [ %.054.i, %_control_import_image_copy.exit.thread103 ], [ %.1, %_collection_update.exit ]
+  %.182120 = phi ptr [ %58, %_collection_update.exit.thread129 ], [ %.081144173, %_control_import_image_copy.exit.thread ], [ %58, %_control_import_image_copy.exit.thread103 ], [ %.182, %_collection_update.exit ]
+  %.185118 = phi double [ %.185.ph, %_collection_update.exit.thread129 ], [ %.084143174, %_control_import_image_copy.exit.thread ], [ %.084143174, %_control_import_image_copy.exit.thread103 ], [ %.185, %_collection_update.exit ]
+  %.188116 = phi double [ %.188.ph, %_collection_update.exit.thread129 ], [ %.087142175, %_control_import_image_copy.exit.thread ], [ %.087142175, %_control_import_image_copy.exit.thread103 ], [ %.188, %_collection_update.exit ]
+  %.193114 = phi ptr [ %.395, %_collection_update.exit.thread129 ], [ %.092141176, %_control_import_image_copy.exit.thread ], [ %.395, %_control_import_image_copy.exit.thread103 ], [ %.193, %_collection_update.exit ]
+  %179 = phi i32 [ %177, %_collection_update.exit.thread129 ], [ %.0151167, %_control_import_image_copy.exit.thread ], [ %.0151167, %_control_import_image_copy.exit.thread103 ], [ %spec.select, %_collection_update.exit ]
+  %180 = fadd reassoc nsz arcp contract afn double %.050150168, %38
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %181 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #17
   %182 = load i64, ptr %2, align 8, !tbaa !88
@@ -6715,7 +6715,7 @@ _collection_update.exit.thread:                   ; preds = %_collection_update.
   %187 = fmul reassoc nsz arcp contract afn double %186, 0x3EB0C6F7A0B5ED8D
   %188 = fadd reassoc nsz arcp contract afn double %187, %184
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %189 = fsub reassoc nsz arcp contract afn double %188, %.054147164
+  %189 = fsub reassoc nsz arcp contract afn double %188, %.054147170
   %190 = fcmp reassoc nsz arcp contract afn ogt double %189, 5.000000e-01
   br i1 %190, label %191, label %195
 
@@ -6729,8 +6729,8 @@ _collection_update.exit.thread:                   ; preds = %_collection_update.
   br label %195
 
 195:                                              ; preds = %191, %_collection_update.exit.thread
-  %.155 = phi nsz double [ %188, %191 ], [ %.054147164, %_collection_update.exit.thread ]
-  %196 = getelementptr inbounds nuw i8, ptr %.053148163, i64 8
+  %.155 = phi nsz double [ %188, %191 ], [ %.054147170, %_collection_update.exit.thread ]
+  %196 = getelementptr inbounds nuw i8, ptr %.053148169, i64 8
   %197 = load ptr, ptr %196, align 8, !tbaa !63
   %.not = icmp eq ptr %197, null
   br i1 %.not, label %.critedge, label %47

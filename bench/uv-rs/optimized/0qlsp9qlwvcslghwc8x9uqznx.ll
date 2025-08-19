@@ -3114,12 +3114,12 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.
   br i1 %145, label %189, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcf6330a9af5932b0E.exit180thread-pre-split"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcf6330a9af5932b0E.exit180thread-pre-split": ; preds = %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h7804cdb57f52c48fE.exit"
-  %lhsc308.pr = load i8, ptr %119, align 1
+  %lhsc321.pr = load i8, ptr %119, align 1
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcf6330a9af5932b0E.exit180"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcf6330a9af5932b0E.exit180": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcf6330a9af5932b0E.exit180thread-pre-split", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcf6330a9af5932b0E.exit175"
-  %lhsc308 = phi i8 [ %lhsc308.pr, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcf6330a9af5932b0E.exit180thread-pre-split" ], [ %lhsc, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcf6330a9af5932b0E.exit175" ]
-  %146 = icmp eq i8 %lhsc308, 49
+  %lhsc321 = phi i8 [ %lhsc321.pr, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcf6330a9af5932b0E.exit180thread-pre-split" ], [ %lhsc, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcf6330a9af5932b0E.exit175" ]
+  %146 = icmp eq i8 %lhsc321, 49
   br i1 %146, label %147, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcf6330a9af5932b0E.exit180.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcf6330a9af5932b0E.exit180.thread": ; preds = %140, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcf6330a9af5932b0E.exit180"
@@ -8118,7 +8118,7 @@ _ZN3std4path4Path12strip_prefix17heff6e00afa4a65a3E.exit.i: ; preds = %901
           to label %825 unwind label %677, !noalias !1378
 
 1014:                                             ; preds = %975, %964, %961, %957
-  %.sink562.i = phi ptr [ %967, %964 ], [ %960, %961 ], [ %956, %957 ], [ %973, %975 ]
+  %.sink590.i = phi ptr [ %967, %964 ], [ %960, %961 ], [ %956, %957 ], [ %973, %975 ]
   %.sroa.0181.23.i = phi i8 [ 1, %964 ], [ 1, %961 ], [ 1, %957 ], [ 0, %975 ]
   invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$$LP$u64$C$alloc..string..String$RP$$GT$17h8d28b30b0a878ad6E"(ptr noalias noundef align 8 dereferenceable(32) %70)
           to label %1017 unwind label %1015, !noalias !1378
@@ -8146,7 +8146,7 @@ _ZN3std4path4Path12strip_prefix17heff6e00afa4a65a3E.exit.i: ; preds = %901
   br label %"_ZN4core3ptr80drop_in_place$LT$std..io..Chain$LT$$RF$$u5b$u8$u5d$$C$fs_err..file..File$GT$$GT$17hf93e919db38bc2ceE.exit.thread.i"
 
 1020:                                             ; preds = %1022, %1021, %1017
-  %.sroa.21.9 = phi ptr [ %943, %1022 ], [ %952, %1021 ], [ %.sink562.i, %1017 ]
+  %.sroa.21.9 = phi ptr [ %943, %1022 ], [ %952, %1021 ], [ %.sink590.i, %1017 ]
   %.sroa.0181.26.i = phi i8 [ 1, %1022 ], [ 1, %1021 ], [ %.sroa.0181.23.i, %1017 ]
   %.sroa.0186.12.i = phi i8 [ 1, %1022 ], [ 0, %1021 ], [ 0, %1017 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %72), !noalias !1361

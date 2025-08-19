@@ -2505,7 +2505,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %.not = icmp eq i64 %54, 0
-  br i1 %.not, label %.invoke259, label %103
+  br i1 %.not, label %.invoke266, label %103
 
 _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread246: ; preds = %41, %48, %38, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit, %35
   %59 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1
@@ -2561,17 +2561,17 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %.not256 = icmp eq i64 %85, 0
-  br i1 %.not256, label %.invoke259, label %91
+  br i1 %.not256, label %.invoke266, label %91
 
 90:                                               ; preds = %79, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %101
 
-.invoke259:                                       ; preds = %49, %80
+.invoke266:                                       ; preds = %49, %80
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.6212de1d646d3d301f038beb2b45bdcc.13, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6212de1d646d3d301f038beb2b45bdcc.46) #16
-          to label %.cont260 unwind label %235
+          to label %.cont267 unwind label %235
 
-.cont260:                                         ; preds = %.invoke259
+.cont267:                                         ; preds = %.invoke266
   unreachable
 
 91:                                               ; preds = %80
@@ -3051,7 +3051,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit164
   %.pn.pn238 = phi { ptr, i32 } [ %.pn, %230 ], [ %.pn, %"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h8ad7dada4af35b91E.exit" ], [ %lpad.thr_comm, %235 ]
   resume { ptr, i32 } %.pn.pn238
 
-235:                                              ; preds = %.invoke259, %129, %.noexc158, %.critedge9.i, %103, %43, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread, %64, %73, %91
+235:                                              ; preds = %.invoke266, %129, %.noexc158, %.critedge9.i, %103, %43, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread, %64, %73, %91
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr144drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..ErrorKind$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h54c0b1bf85798aeeE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(112) %1)

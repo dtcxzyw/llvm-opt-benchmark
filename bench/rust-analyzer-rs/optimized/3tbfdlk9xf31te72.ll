@@ -669,14 +669,14 @@ define hidden void @"_ZN4core3ptr105drop_in_place$LT$core..ops..control_flow..Co
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !232)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  switch i64 %2, label %default.unreachable1.i [
+  switch i64 %2, label %default.unreachable [
     i64 0, label %12
     i64 1, label %18
     i64 2, label %24
     i64 3, label %6
   ]
 
-default.unreachable1.i:                           ; preds = %4
+default.unreachable:                              ; preds = %4
   unreachable
 
 6:                                                ; preds = %4
@@ -18282,11 +18282,11 @@ common.resume:                                    ; preds = %20, %"_ZN4core3ptr8
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE.exit46.sink.split": ; preds = %195, %178
-  %.sink53 = phi ptr [ %179, %178 ], [ %196, %195 ]
+  %.sink59 = phi ptr [ %179, %178 ], [ %196, %195 ]
   %.sink = phi ptr [ %172, %178 ], [ %189, %195 ]
   %.sroa.4.0.ph = phi ptr [ %168, %178 ], [ undef, %195 ]
   %.sroa.0.0.ph = phi i64 [ %167, %178 ], [ 36, %195 ]
-  %182 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17hf48cccaea0084990E.llvm.13346703328537446882(ptr noundef nonnull %.sink53, i8 noundef 2), !noalias !8
+  %182 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17hf48cccaea0084990E.llvm.13346703328537446882(ptr noundef nonnull %.sink59, i8 noundef 2), !noalias !8
   call void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17hd4b67a9455ef6461E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sink)
   br label %"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE.exit46"
 
@@ -19077,9 +19077,9 @@ _ZN6syntax3ted9ws_before17hccb4be8748735043E.exit.thread: ; preds = %216, %126, 
 
 252:                                              ; preds = %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$21next_sibling_or_token17h45994974085dddbcE.exit.i", %.noexc55
   %.sink.i.sink.i = phi { i64, ptr } [ %.sink.i.i, %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$21next_sibling_or_token17h45994974085dddbcE.exit.i" ], [ %241, %.noexc55 ]
-  %.sink19.i = phi i64 [ %250, %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$21next_sibling_or_token17h45994974085dddbcE.exit.i" ], [ %242, %.noexc55 ]
+  %.sink21.i = phi i64 [ %250, %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$21next_sibling_or_token17h45994974085dddbcE.exit.i" ], [ %242, %.noexc55 ]
   %253 = extractvalue { i64, ptr } %.sink.i.sink.i, 1
-  store i64 %.sink19.i, ptr %3, align 8, !noalias !5993
+  store i64 %.sink21.i, ptr %3, align 8, !noalias !5993
   %254 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %253, ptr %254, align 8, !noalias !5993
   %255 = invoke fastcc noundef ptr @_ZN6syntax3ted10ws_between17h22f1c6f3c0a0d4d1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %236, ptr noalias noundef readonly align 8 dereferenceable(16) %3)

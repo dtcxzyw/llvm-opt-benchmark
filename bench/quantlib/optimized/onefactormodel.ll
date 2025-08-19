@@ -4410,8 +4410,8 @@ for.body.lr.ph:                                   ; preds = %do.end
   %latestPostAdjustment_.i.i = getelementptr inbounds nuw i8, ptr %asset, i64 24
   %sext = shl i64 %call37, 32
   %26 = ashr exact i64 %sext, 32
-  %sext94 = shl i64 %call39, 32
-  %27 = ashr exact i64 %sext94, 32
+  %sext112 = shl i64 %call39, 32
+  %27 = ashr exact i64 %sext112, 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN8QuantLib5ArrayD2Ev.exit63
@@ -5492,7 +5492,7 @@ for.body17.lr.ph:                                 ; preds = %_ZNK8QuantLib14OneF
   br label %for.body17
 
 for.cond.cleanup16:                               ; preds = %_ZNK8QuantLib14OneFactorModel13ShortRateTree10descendantEmmm.exit, %_ZNK8QuantLib14OneFactorModel13ShortRateTree8discountEmm.exit
-  %inc28 = add i64 %j.0, 1
+  %inc28 = add nuw i64 %j.0, 1
   br label %for.cond3, !llvm.loop !162
 
 for.body17:                                       ; preds = %for.body17.lr.ph, %_ZNK8QuantLib14OneFactorModel13ShortRateTree10descendantEmmm.exit
@@ -6423,13 +6423,13 @@ lpad34.body:                                      ; preds = %call5.i.i.i.i2.i.i.
   br i1 %cmp.not.i.i38, label %ehcleanup41, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i39
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i39: ; preds = %lpad34.body.thread, %lpad34.body
-  %eh.lpad-body69 = phi { ptr, i32 } [ %37, %lpad34.body.thread ], [ %38, %lpad34.body ]
+  %eh.lpad-body81 = phi { ptr, i32 } [ %37, %lpad34.body.thread ], [ %38, %lpad34.body ]
   %39 = phi ptr [ %call.i25, %lpad34.body.thread ], [ %.pre, %lpad34.body ]
   call void @_ZdaPv(ptr noundef nonnull %39) #30
   br label %ehcleanup41
 
 ehcleanup41:                                      ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i39, %lpad34.body, %lpad31
-  %.pn7 = phi { ptr, i32 } [ %36, %lpad31 ], [ %38, %lpad34.body ], [ %eh.lpad-body69, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i39 ]
+  %.pn7 = phi { ptr, i32 } [ %36, %lpad31 ], [ %38, %lpad34.body ], [ %eh.lpad-body81, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp30)
   br label %ehcleanup43
 

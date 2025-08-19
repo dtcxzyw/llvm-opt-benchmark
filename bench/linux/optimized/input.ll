@@ -4930,13 +4930,13 @@ define internal fastcc i32 @input_print_bitmap(ptr noundef writeonly captures(no
 
 .outer:                                           ; preds = %60, %5
   %.ph = phi i64 [ %16, %60 ], [ %11, %5 ]
-  %.ph9 = phi i32 [ %67, %60 ], [ 0, %5 ]
+  %.ph10 = phi i32 [ %67, %60 ], [ 0, %5 ]
   %12 = phi i1 [ false, %60 ], [ true, %5 ]
   br label %13
 
 13:                                               ; preds = %.outer, %.thread
   %14 = phi i64 [ %16, %.thread ], [ %.ph, %.outer ]
-  %15 = phi i32 [ 0, %.thread ], [ %.ph9, %.outer ]
+  %15 = phi i32 [ 0, %.thread ], [ %.ph10, %.outer ]
   %16 = add nsw i64 %14, -1
   %17 = sext i32 %15 to i64
   %18 = getelementptr i8, ptr %0, i64 %17
@@ -5011,15 +5011,15 @@ define internal fastcc i32 @input_print_bitmap(ptr noundef writeonly captures(no
 
 .thread:                                          ; preds = %54
   %68 = icmp samesign ugt i64 %14, 1
-  br i1 %68, label %13, label %.thread8, !llvm.loop !59
+  br i1 %68, label %13, label %.thread9, !llvm.loop !59
 
-.thread8:                                         ; preds = %.thread
+.thread9:                                         ; preds = %.thread
   %69 = sext i32 %1 to i64
   %70 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %69, ptr noundef nonnull @.str.28, i32 noundef 0) #19
   br label %.thread3
 
-.thread3:                                         ; preds = %58, %.thread8
-  %71 = phi i32 [ %70, %.thread8 ], [ %56, %58 ]
+.thread3:                                         ; preds = %58, %.thread9
+  %71 = phi i32 [ %70, %.thread9 ], [ %56, %58 ]
   %72 = icmp eq i32 %4, 0
   br i1 %72, label %81, label %73
 

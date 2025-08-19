@@ -2383,7 +2383,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIS_IN3ue212PositionInfoESaIS1_EESaI
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPSt6vectorIN3ue212PositionInfoESaIS2_EEmS4_ET_S6_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt6vectorIN3ue212PositionInfoESaIS2_EEmS4_ET_S6_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 24
+  %19 = mul nuw nsw i64 %1, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8
@@ -3244,7 +3244,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
 
 .split.preheader:                                 ; preds = %9
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %0, i64 %17
   %19 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %0, i64 %16
   br label %.split
 
@@ -3282,13 +3282,13 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.020.i.i.us = phi i64 [ %.0921.i.i.us, %38 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.0921.in.i.i.us = add nsw i64 %.020.i.i.us, -1
   %.0921.i.i.us = sdiv i64 %.0921.in.i.i.us, 2
-  %35 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %0, i64 %.0921.i.i.us
+  %35 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %0, i64 %.0921.i.i.us
   %36 = load i32, ptr %35, align 4
   %37 = icmp ult i32 %36, %.sroa.012.0.extract.trunc.i.i.us
   br i1 %37, label %38, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us
 
 38:                                               ; preds = %.lr.ph.i.i.us
-  %39 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %0, i64 %.020.i.i.us
+  %39 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %0, i64 %.020.i.i.us
   %40 = load i64, ptr %35, align 4
   store i64 %40, ptr %39, align 4
   %41 = icmp sgt i64 %.0921.i.i.us, %.09.us
@@ -3296,7 +3296,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %38, %.split.us, %._crit_edge.i.us
   %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.09.us, %.split.us ], [ %.0921.i.i.us, %38 ], [ %.020.i.i.us, %.lr.ph.i.i.us ]
-  %42 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %0, i64 %.0.lcssa.i.i.us
+  %42 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %0, i64 %.0.lcssa.i.i.us
   store i64 %.sroa.02.0.copyload.us, ptr %42, align 4
   %.not.us = icmp eq i64 %.09.us, 0
   %43 = add nsw i64 %.09.us, -1
@@ -3347,13 +3347,13 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vecto
   %.020.i.i = phi i64 [ %.0921.i.i, %66 ], [ %.1.i, %61 ]
   %.0921.in.i.i = add nsw i64 %.020.i.i, -1
   %.0921.i.i = sdiv i64 %.0921.in.i.i, 2
-  %63 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %0, i64 %.0921.i.i
+  %63 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %0, i64 %.0921.i.i
   %64 = load i32, ptr %63, align 4
   %65 = icmp ult i32 %64, %.sroa.012.0.extract.trunc.i.i
   br i1 %65, label %66, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
 
 66:                                               ; preds = %.lr.ph.i.i
-  %67 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %0, i64 %.020.i.i
+  %67 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %0, i64 %.020.i.i
   %68 = load i64, ptr %63, align 4
   store i64 %68, ptr %67, align 4
   %69 = icmp sgt i64 %.0921.i.i, %.09
@@ -3361,7 +3361,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vecto
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit: ; preds = %.lr.ph.i.i, %66, %61
   %.0.lcssa.i.i = phi i64 [ %.1.i, %61 ], [ %.0921.i.i, %66 ], [ %.020.i.i, %.lr.ph.i.i ]
-  %70 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %0, i64 %.0.lcssa.i.i
+  %70 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %0, i64 %.0.lcssa.i.i
   store i64 %.sroa.02.0.copyload, ptr %70, align 4
   %.not = icmp eq i64 %.09, 0
   %71 = add nsw i64 %.09, -1

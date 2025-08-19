@@ -36,12 +36,12 @@ _ZNSt12_Vector_baseIPhSaIS0_EE11_M_allocateEm.exit.i:
   %2 = alloca %"class.zmq::radix_tree_t", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %0)
   %3 = invoke noalias noundef nonnull dereferenceable(80000) ptr @_Znwm(i64 noundef 80000) #12
-          to label %_ZNSt12_Vector_baseIPhSaIS0_EE11_M_allocateEm.exit.i31 unwind label %.thread151
+          to label %_ZNSt12_Vector_baseIPhSaIS0_EE11_M_allocateEm.exit.i31 unwind label %.thread161
 
 _ZNSt12_Vector_baseIPhSaIS0_EE11_M_allocateEm.exit.i31: ; preds = %_ZNSt12_Vector_baseIPhSaIS0_EE11_M_allocateEm.exit.i
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = invoke noalias noundef nonnull dereferenceable(8000000) ptr @_Znwm(i64 noundef 8000000) #12
-          to label %_ZNSt6vectorIPhSaIS0_EE7reserveEm.exit36 unwind label %.thread151
+          to label %_ZNSt6vectorIPhSaIS0_EE7reserveEm.exit36 unwind label %.thread161
 
 _ZNSt6vectorIPhSaIS0_EE7reserveEm.exit36:         ; preds = %_ZNSt12_Vector_baseIPhSaIS0_EE11_M_allocateEm.exit.i31
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -56,7 +56,7 @@ _ZNSt6vectorIPhSaIS0_EE7reserveEm.exit36:         ; preds = %_ZNSt12_Vector_base
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %43
 
-.thread151:                                       ; preds = %_ZNSt12_Vector_baseIPhSaIS0_EE11_M_allocateEm.exit.i, %_ZNSt12_Vector_baseIPhSaIS0_EE11_M_allocateEm.exit.i31
+.thread161:                                       ; preds = %_ZNSt12_Vector_baseIPhSaIS0_EE11_M_allocateEm.exit.i, %_ZNSt12_Vector_baseIPhSaIS0_EE11_M_allocateEm.exit.i31
   %.sroa.063.0 = phi ptr [ %3, %_ZNSt12_Vector_baseIPhSaIS0_EE11_M_allocateEm.exit.i31 ], [ null, %_ZNSt12_Vector_baseIPhSaIS0_EE11_M_allocateEm.exit.i ]
   %10 = landingpad { ptr, i32 }
           cleanup
@@ -373,25 +373,25 @@ _ZNSt6vectorIPhSaIS0_EED2Ev.exit49:               ; preds = %._crit_edge122, %94
   br i1 %.not.i.i.i50, label %_ZNSt6vectorIPhSaIS0_EED2Ev.exit51, label %.thread
 
 .thread:                                          ; preds = %.loopexit.split-lp84, %.loopexit83, %105
-  %.pn28.pn149 = phi { ptr, i32 } [ %.pn28.pn, %105 ], [ %lpad.loopexit.split-lp86, %.loopexit.split-lp84 ], [ %lpad.loopexit85, %.loopexit83 ]
-  %.sroa.063.2147 = phi ptr [ %.sroa.063.4, %105 ], [ %.sroa.063.1102, %.loopexit.split-lp84 ], [ %.sroa.063.1102, %.loopexit83 ]
+  %.pn28.pn159 = phi { ptr, i32 } [ %.pn28.pn, %105 ], [ %lpad.loopexit.split-lp86, %.loopexit.split-lp84 ], [ %lpad.loopexit85, %.loopexit83 ]
+  %.sroa.063.2157 = phi ptr [ %.sroa.063.4, %105 ], [ %.sroa.063.1102, %.loopexit.split-lp84 ], [ %.sroa.063.1102, %.loopexit83 ]
   %107 = phi ptr [ %106, %105 ], [ %5, %.loopexit.split-lp84 ], [ %5, %.loopexit83 ]
   call void @_ZdlPv(ptr noundef nonnull %107) #14
   br label %_ZNSt6vectorIPhSaIS0_EED2Ev.exit51
 
-_ZNSt6vectorIPhSaIS0_EED2Ev.exit51:               ; preds = %.thread151, %105, %.thread
-  %.pn28.pn150 = phi { ptr, i32 } [ %.pn28.pn, %105 ], [ %.pn28.pn149, %.thread ], [ %10, %.thread151 ]
-  %.sroa.063.2148 = phi ptr [ %.sroa.063.4, %105 ], [ %.sroa.063.2147, %.thread ], [ %.sroa.063.0, %.thread151 ]
+_ZNSt6vectorIPhSaIS0_EED2Ev.exit51:               ; preds = %.thread161, %105, %.thread
+  %.pn28.pn160 = phi { ptr, i32 } [ %.pn28.pn, %105 ], [ %.pn28.pn159, %.thread ], [ %10, %.thread161 ]
+  %.sroa.063.2158 = phi ptr [ %.sroa.063.4, %105 ], [ %.sroa.063.2157, %.thread ], [ %.sroa.063.0, %.thread161 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %0)
-  %.not.i.i.i52 = icmp eq ptr %.sroa.063.2148, null
+  %.not.i.i.i52 = icmp eq ptr %.sroa.063.2158, null
   br i1 %.not.i.i.i52, label %_ZNSt6vectorIPhSaIS0_EED2Ev.exit53, label %108
 
 108:                                              ; preds = %_ZNSt6vectorIPhSaIS0_EED2Ev.exit51
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.063.2148) #14
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.063.2158) #14
   br label %_ZNSt6vectorIPhSaIS0_EED2Ev.exit53
 
 _ZNSt6vectorIPhSaIS0_EED2Ev.exit53:               ; preds = %_ZNSt6vectorIPhSaIS0_EED2Ev.exit51, %108
-  resume { ptr, i32 } %.pn28.pn150
+  resume { ptr, i32 } %.pn28.pn160
 }
 
 declare i32 @__gxx_personality_v0(...)

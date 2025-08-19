@@ -583,8 +583,8 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 100
   %35 = load i32, ptr %34, align 4, !tbaa !67
   %.not221 = icmp eq i32 %33, %35
-  %or.cond252 = select i1 %.not220, i1 %.not221, i1 false
-  br i1 %or.cond252, label %41, label %._crit_edge241
+  %or.cond263 = select i1 %.not220, i1 %.not221, i1 false
+  br i1 %or.cond263, label %41, label %._crit_edge241
 
 ._crit_edge241:                                   ; preds = %27
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -619,8 +619,8 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 268
   %50 = load i32, ptr %49, align 4, !tbaa !70
   %.not225 = icmp eq i32 %.pre251, %50
-  %or.cond253 = select i1 %.not224, i1 %.not225, i1 false
-  br i1 %or.cond253, label %56, label %._crit_edge246
+  %or.cond264 = select i1 %.not224, i1 %.not225, i1 false
+  br i1 %or.cond264, label %56, label %._crit_edge246
 
 ._crit_edge246:                                   ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 24

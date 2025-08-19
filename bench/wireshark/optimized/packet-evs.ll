@@ -685,14 +685,14 @@ switch.lookup:                                    ; preds = %proto_item_set_gene
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.dissect_evs, i64 0, i64 %181
   %switch.load = load ptr, ptr %switch.gep, align 8
   %182 = zext nneg i8 %178 to i64
-  %switch.gep236 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.dissect_evs.1, i64 0, i64 %182
-  %switch.load237 = load ptr, ptr %switch.gep236, align 8
+  %switch.gep244 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.dissect_evs.1, i64 0, i64 %182
+  %switch.load245 = load ptr, ptr %switch.gep244, align 8
   %183 = and i8 %176, 15
   %184 = zext nneg i8 %183 to i32
   %185 = call ptr @val_to_str_const(i32 noundef %184, ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.237)
   %186 = load ptr, ptr %5, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %186, ptr noundef nonnull @.str.267, ptr noundef %185)
-  call void @proto_tree_add_bitmask_list(ptr noundef %180, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %switch.load237, i32 noundef 0)
+  call void @proto_tree_add_bitmask_list(ptr noundef %180, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %switch.load245, i32 noundef 0)
   %187 = load ptr, ptr %17, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %187, i32 noundef 25, ptr noundef nonnull @.str.232, ptr noundef %185)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

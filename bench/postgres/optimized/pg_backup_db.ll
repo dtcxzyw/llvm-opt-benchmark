@@ -82,9 +82,9 @@ define dso_local void @ConnectDatabase(ptr noundef %0, ptr noundef readonly capt
   unreachable
 
 9:                                                ; preds = %3
-  br i1 %2, label %.thread82, label %26
+  br i1 %2, label %.thread90, label %26
 
-.thread82:                                        ; preds = %9
+.thread90:                                        ; preds = %9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -112,9 +112,9 @@ define dso_local void @ConnectDatabase(ptr noundef %0, ptr noundef readonly capt
   %31 = icmp eq i32 %.fr79, 2
   %32 = icmp eq ptr %30, null
   %or.cond = select i1 %31, i1 %32, i1 false
-  br i1 %or.cond, label %.thread87, label %48
+  br i1 %or.cond, label %.thread95, label %48
 
-.thread87:                                        ; preds = %26
+.thread95:                                        ; preds = %26
   %33 = tail call ptr @simple_prompt(ptr noundef nonnull @.str.1, i1 noundef zeroext false) #11
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -150,41 +150,41 @@ define dso_local void @ConnectDatabase(ptr noundef %0, ptr noundef readonly capt
   %.not80 = icmp eq i32 %.fr79, 1
   br i1 %.not80, label %.split.us, label %.split.preheader
 
-.split.preheader:                                 ; preds = %.thread87, %48
-  %63 = phi ptr [ %47, %.thread87 ], [ %62, %48 ]
-  %64 = phi ptr [ %46, %.thread87 ], [ %61, %48 ]
-  %65 = phi ptr [ %45, %.thread87 ], [ %60, %48 ]
-  %66 = phi ptr [ %44, %.thread87 ], [ %59, %48 ]
-  %67 = phi ptr [ %43, %.thread87 ], [ %58, %48 ]
-  %68 = phi ptr [ %42, %.thread87 ], [ %57, %48 ]
-  %69 = phi ptr [ %41, %.thread87 ], [ %56, %48 ]
-  %70 = phi ptr [ %40, %.thread87 ], [ %55, %48 ]
-  %71 = phi ptr [ %39, %.thread87 ], [ %54, %48 ]
-  %72 = phi ptr [ %38, %.thread87 ], [ %53, %48 ]
-  %73 = phi ptr [ %37, %.thread87 ], [ %52, %48 ]
-  %74 = phi ptr [ %36, %.thread87 ], [ %51, %48 ]
-  %75 = phi ptr [ %35, %.thread87 ], [ %50, %48 ]
-  %76 = phi ptr [ %34, %.thread87 ], [ %49, %48 ]
-  %.06091 = phi ptr [ %33, %.thread87 ], [ %30, %48 ]
+.split.preheader:                                 ; preds = %.thread95, %48
+  %63 = phi ptr [ %47, %.thread95 ], [ %62, %48 ]
+  %64 = phi ptr [ %46, %.thread95 ], [ %61, %48 ]
+  %65 = phi ptr [ %45, %.thread95 ], [ %60, %48 ]
+  %66 = phi ptr [ %44, %.thread95 ], [ %59, %48 ]
+  %67 = phi ptr [ %43, %.thread95 ], [ %58, %48 ]
+  %68 = phi ptr [ %42, %.thread95 ], [ %57, %48 ]
+  %69 = phi ptr [ %41, %.thread95 ], [ %56, %48 ]
+  %70 = phi ptr [ %40, %.thread95 ], [ %55, %48 ]
+  %71 = phi ptr [ %39, %.thread95 ], [ %54, %48 ]
+  %72 = phi ptr [ %38, %.thread95 ], [ %53, %48 ]
+  %73 = phi ptr [ %37, %.thread95 ], [ %52, %48 ]
+  %74 = phi ptr [ %36, %.thread95 ], [ %51, %48 ]
+  %75 = phi ptr [ %35, %.thread95 ], [ %50, %48 ]
+  %76 = phi ptr [ %34, %.thread95 ], [ %49, %48 ]
+  %.06099 = phi ptr [ %33, %.thread95 ], [ %30, %48 ]
   br label %.split
 
-.split.us:                                        ; preds = %.thread82, %48
-  %77 = phi ptr [ %25, %.thread82 ], [ %62, %48 ]
-  %78 = phi ptr [ %24, %.thread82 ], [ %61, %48 ]
-  %79 = phi ptr [ %23, %.thread82 ], [ %60, %48 ]
-  %80 = phi ptr [ %22, %.thread82 ], [ %59, %48 ]
-  %81 = phi ptr [ %21, %.thread82 ], [ %58, %48 ]
-  %82 = phi ptr [ %20, %.thread82 ], [ %57, %48 ]
-  %83 = phi ptr [ %19, %.thread82 ], [ %56, %48 ]
-  %84 = phi ptr [ %18, %.thread82 ], [ %55, %48 ]
-  %85 = phi ptr [ %17, %.thread82 ], [ %54, %48 ]
-  %86 = phi ptr [ %16, %.thread82 ], [ %53, %48 ]
-  %87 = phi ptr [ %15, %.thread82 ], [ %52, %48 ]
-  %88 = phi ptr [ %14, %.thread82 ], [ %51, %48 ]
-  %89 = phi ptr [ %13, %.thread82 ], [ %50, %48 ]
-  %90 = phi ptr [ %12, %.thread82 ], [ %49, %48 ]
-  %.06086 = phi ptr [ %11, %.thread82 ], [ %30, %48 ]
-  %91 = phi ptr [ %10, %.thread82 ], [ %29, %48 ]
+.split.us:                                        ; preds = %.thread90, %48
+  %77 = phi ptr [ %25, %.thread90 ], [ %62, %48 ]
+  %78 = phi ptr [ %24, %.thread90 ], [ %61, %48 ]
+  %79 = phi ptr [ %23, %.thread90 ], [ %60, %48 ]
+  %80 = phi ptr [ %22, %.thread90 ], [ %59, %48 ]
+  %81 = phi ptr [ %21, %.thread90 ], [ %58, %48 ]
+  %82 = phi ptr [ %20, %.thread90 ], [ %57, %48 ]
+  %83 = phi ptr [ %19, %.thread90 ], [ %56, %48 ]
+  %84 = phi ptr [ %18, %.thread90 ], [ %55, %48 ]
+  %85 = phi ptr [ %17, %.thread90 ], [ %54, %48 ]
+  %86 = phi ptr [ %16, %.thread90 ], [ %53, %48 ]
+  %87 = phi ptr [ %15, %.thread90 ], [ %52, %48 ]
+  %88 = phi ptr [ %14, %.thread90 ], [ %51, %48 ]
+  %89 = phi ptr [ %13, %.thread90 ], [ %50, %48 ]
+  %90 = phi ptr [ %12, %.thread90 ], [ %49, %48 ]
+  %.06094 = phi ptr [ %11, %.thread90 ], [ %30, %48 ]
+  %91 = phi ptr [ %10, %.thread90 ], [ %29, %48 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @.str.2, ptr %4, align 16
@@ -197,7 +197,7 @@ define dso_local void @ConnectDatabase(ptr noundef %0, ptr noundef readonly capt
   %94 = load ptr, ptr %85, align 8
   store ptr %94, ptr %84, align 8
   store ptr @.str.5, ptr %83, align 8
-  store ptr %.06086, ptr %82, align 8
+  store ptr %.06094, ptr %82, align 8
   store ptr @.str.6, ptr %81, align 8
   %95 = load ptr, ptr %1, align 8
   store ptr %95, ptr %80, align 8
@@ -240,7 +240,7 @@ define dso_local void @ConnectDatabase(ptr noundef %0, ptr noundef readonly capt
   br label %.split78
 
 .split:                                           ; preds = %.split.preheader, %138
-  %.1 = phi ptr [ %140, %138 ], [ %.06091, %.split.preheader ]
+  %.1 = phi ptr [ %140, %138 ], [ %.06099, %.split.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @.str.2, ptr %4, align 16
@@ -313,7 +313,7 @@ define dso_local void @ConnectDatabase(ptr noundef %0, ptr noundef readonly capt
 
 .split78:                                         ; preds = %130, %133, %108, %111
   %141 = phi ptr [ %91, %111 ], [ %91, %108 ], [ %29, %133 ], [ %29, %130 ]
-  %.us-phi = phi ptr [ %.06086, %111 ], [ %.06086, %108 ], [ %.1, %133 ], [ %.1, %130 ]
+  %.us-phi = phi ptr [ %.06094, %111 ], [ %.06094, %108 ], [ %.1, %133 ], [ %.1, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %142 = load ptr, ptr %6, align 8
@@ -1188,7 +1188,7 @@ define dso_local void @IssueACLPerBlob(ptr noundef %0, ptr noundef readonly capt
 .thread:                                          ; preds = %16
   %23 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.027, ptr noundef nonnull dereferenceable(14) @.str.27, i64 noundef 13) #14
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %.thread44
+  br i1 %24, label %25, label %.thread45
 
 25:                                               ; preds = %.thread, %20
   %26 = getelementptr inbounds nuw i8, ptr %.027, i64 13
@@ -1211,7 +1211,7 @@ define dso_local void @IssueACLPerBlob(ptr noundef %0, ptr noundef readonly capt
 
 37:                                               ; preds = %20
   %38 = icmp eq i8 %15, 59
-  br i1 %38, label %39, label %.thread44
+  br i1 %38, label %39, label %.thread45
 
 39:                                               ; preds = %37
   store i8 0, ptr %.027, align 1
@@ -1231,14 +1231,14 @@ define dso_local void @IssueACLPerBlob(ptr noundef %0, ptr noundef readonly capt
   %.not36 = icmp eq i16 %47, 0
   br i1 %.not36, label %.loopexit, label %42, !llvm.loop !12
 
-.thread44:                                        ; preds = %.thread, %37
+.thread45:                                        ; preds = %.thread, %37
   %48 = getelementptr inbounds nuw i8, ptr %.027, i64 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %42, %30, %.thread44
-  %.132 = phi ptr [ %.031.ph, %.thread44 ], [ %.031.ph, %30 ], [ %.3, %42 ]
-  %.130 = phi ptr [ %.029.ph, %.thread44 ], [ %.128, %30 ], [ null, %42 ]
-  %.2 = phi ptr [ %48, %.thread44 ], [ %.128, %30 ], [ %.3, %42 ]
+.loopexit:                                        ; preds = %42, %30, %.thread45
+  %.132 = phi ptr [ %.031.ph, %.thread45 ], [ %.031.ph, %30 ], [ %.3, %42 ]
+  %.130 = phi ptr [ %.029.ph, %.thread45 ], [ %.128, %30 ], [ null, %42 ]
+  %.2 = phi ptr [ %48, %.thread45 ], [ %.128, %30 ], [ %.3, %42 ]
   br label %.outer, !llvm.loop !10
 
 49:                                               ; preds = %14

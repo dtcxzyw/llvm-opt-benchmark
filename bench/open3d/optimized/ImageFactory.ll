@@ -445,7 +445,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1, !tbaa !26
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %21 = add i64 %11, -1
+  %21 = add nsw i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
 
@@ -860,8 +860,8 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit76:             ; preds = %_ZSt6fill_nIPfmfET_
   %85 = load i32, ptr %84, align 4, !tbaa !41
   %factor.op.mul = mul i32 %81, %83
   %factor.op.mul109 = mul i32 %factor.op.mul, %85
-  %.not129 = icmp eq i32 %41, 0
-  br i1 %.not129, label %._crit_edge108.thread, label %.lr.ph105.us.preheader
+  %.not130 = icmp eq i32 %41, 0
+  br i1 %.not130, label %._crit_edge108.thread, label %.lr.ph105.us.preheader
 
 .lr.ph105.us.preheader:                           ; preds = %.lr.ph107
   %wide.trip.count127 = zext nneg i32 %52 to i64

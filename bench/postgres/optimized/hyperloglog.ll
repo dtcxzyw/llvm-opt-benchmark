@@ -281,10 +281,10 @@ define dso_local double @estimateHyperLogLog(ptr noundef readonly captures(none)
   br label %._crit_edge39.thread.sink.split
 
 ._crit_edge39.thread.sink.split:                  ; preds = %44, %38
-  %.sink55 = phi double [ %40, %38 ], [ %46, %44 ]
-  %.sink54 = phi double [ %20, %38 ], [ 0xC1F0000000000000, %44 ]
-  %47 = tail call double @log(double noundef %.sink55) #11
-  %48 = fmul double %47, %.sink54
+  %.sink56 = phi double [ %40, %38 ], [ %46, %44 ]
+  %.sink55 = phi double [ %20, %38 ], [ 0xC1F0000000000000, %44 ]
+  %47 = tail call double @log(double noundef %.sink56) #11
+  %48 = fmul double %47, %.sink55
   br label %._crit_edge39.thread
 
 ._crit_edge39.thread:                             ; preds = %._crit_edge39.thread.sink.split, %._crit_edge.thread, %.preheader, %._crit_edge39, %41

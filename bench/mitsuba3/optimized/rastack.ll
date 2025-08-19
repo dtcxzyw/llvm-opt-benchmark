@@ -134,8 +134,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RAStackAllocator19calculateStac
 
 43:                                               ; preds = %.backedge, %.loopexit35
   %44 = phi ptr [ %5, %.loopexit35 ], [ %.be, %.backedge ]
-  %45 = phi ptr [ %9, %.loopexit35 ], [ %.be88, %.backedge ]
-  %46 = phi ptr [ %2, %.loopexit35 ], [ %.be89, %.backedge ]
+  %45 = phi ptr [ %9, %.loopexit35 ], [ %.be119, %.backedge ]
+  %46 = phi ptr [ %2, %.loopexit35 ], [ %.be120, %.backedge ]
   %47 = ptrtoint ptr %45 to i64
   %48 = ptrtoint ptr %44 to i64
   %49 = sub i64 %47, %48
@@ -191,19 +191,19 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RAStackAllocator19calculateStac
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 12
   %84 = load i32, ptr %83, align 4, !tbaa !22
   %85 = icmp ugt i32 %84, %80
-  br i1 %85, label %86, label %.preheader87
+  br i1 %85, label %86, label %.preheader118
 
 86:                                               ; preds = %79
   store ptr %81, ptr %53, align 8, !tbaa !27
   store ptr %82, ptr %44, align 8, !tbaa !27
-  br label %.preheader87
+  br label %.preheader118
 
-.preheader87:                                     ; preds = %86, %79
+.preheader118:                                    ; preds = %86, %79
   br label %87
 
-87:                                               ; preds = %.preheader87, %119
-  %88 = phi ptr [ %103, %119 ], [ %53, %.preheader87 ]
-  %89 = phi ptr [ %117, %119 ], [ %54, %.preheader87 ]
+87:                                               ; preds = %.preheader118, %119
+  %88 = phi ptr [ %103, %119 ], [ %53, %.preheader118 ]
+  %89 = phi ptr [ %117, %119 ], [ %54, %.preheader118 ]
   br label %90
 
 90:                                               ; preds = %93, %87
@@ -337,8 +337,8 @@ split:                                            ; preds = %107, %._crit_edge
 
 .backedge:                                        ; preds = %160, %129
   %.be = phi ptr [ %132, %129 ], [ %164, %160 ]
-  %.be88 = phi ptr [ %133, %129 ], [ %162, %160 ]
-  %.be89 = phi ptr [ %135, %129 ], [ %163, %160 ]
+  %.be119 = phi ptr [ %133, %129 ], [ %162, %160 ]
+  %.be120 = phi ptr [ %135, %129 ], [ %163, %160 ]
   br label %43, !llvm.loop !34
 
 165:                                              ; preds = %.loopexit33

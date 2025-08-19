@@ -2757,9 +2757,9 @@ remove_escape_chars.exit152.thread:               ; preds = %118, %._crit_edge.i
   br i1 %141, label %75, label %remove_escape_chars.exit.thread, !llvm.loop !10
 
 remove_escape_chars.exit.thread.sink.split:       ; preds = %remove_escape_chars.exit140, %remove_escape_chars.exit
-  %.sink171 = phi ptr [ %37, %remove_escape_chars.exit ], [ %105, %remove_escape_chars.exit140 ]
-  tail call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %.sink171, ptr noundef nonnull @.str.16)
-  %142 = tail call i32 @call_data_dissector(ptr noundef nonnull %.sink171, ptr noundef %1, ptr noundef %2)
+  %.sink192 = phi ptr [ %37, %remove_escape_chars.exit ], [ %105, %remove_escape_chars.exit140 ]
+  tail call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %.sink192, ptr noundef nonnull @.str.16)
+  %142 = tail call i32 @call_data_dissector(ptr noundef nonnull %.sink192, ptr noundef %1, ptr noundef %2)
   br label %remove_escape_chars.exit.thread
 
 remove_escape_chars.exit.thread:                  ; preds = %remove_escape_chars.exit152.thread, %remove_escape_chars.exit.thread.sink.split, %remove_escape_chars.exit128.thread, %remove_escape_chars.exit140, %._crit_edge.i137, %82, %remove_escape_chars.exit, %._crit_edge.i, %12
@@ -4339,8 +4339,8 @@ define internal i32 @dissect_lcp_prefix_elision_opt(ptr noundef %0, ptr noundef 
   %9 = load i32, ptr @ett_lcp_prefix_elision_opt, align 4
   %10 = call fastcc zeroext i1 @dissect_lcp_var_opt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %9, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %or.cond = icmp sgt i32 %7, 3
-  %or.cond27.not = select i1 %10, i1 %or.cond, i1 false
-  br i1 %or.cond27.not, label %.lr.ph, label %.loopexit
+  %or.cond28.not = select i1 %10, i1 %or.cond, i1 false
+  br i1 %or.cond28.not, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %4
   %11 = add nsw i32 %7, -2

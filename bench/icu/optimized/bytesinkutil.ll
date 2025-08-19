@@ -484,7 +484,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712ByteSinkUtil12appendChange
 
 .lr.ph113:                                        ; preds = %11, %._crit_edge.thread
   %.065111 = phi i32 [ %95, %._crit_edge.thread ], [ 0, %11 ]
-  %.071110 = phi i32 [ %.172.lcssa118, %._crit_edge.thread ], [ 0, %11 ]
+  %.071110 = phi i32 [ %.172.lcssa123, %._crit_edge.thread ], [ 0, %11 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %12 = sub nsw i32 %2, %.071110
   %13 = icmp slt i32 %12, 715827882
@@ -619,15 +619,15 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712ByteSinkUtil12appendChange
   br i1 %.not78, label %96, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph113, %._crit_edge
-  %.061.lcssa119 = phi i32 [ %.162, %._crit_edge ], [ 0, %.lr.ph113 ]
-  %.172.lcssa118 = phi i32 [ %.27383, %._crit_edge ], [ %.071110, %.lr.ph113 ]
+  %.061.lcssa124 = phi i32 [ %.162, %._crit_edge ], [ 0, %.lr.ph113 ]
+  %.172.lcssa123 = phi i32 [ %.27383, %._crit_edge ], [ %.071110, %.lr.ph113 ]
   %92 = load ptr, ptr %3, align 8, !tbaa !15
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %94 = load ptr, ptr %93, align 8
-  call void %94(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20, i32 noundef %.061.lcssa119)
-  %95 = add nsw i32 %.061.lcssa119, %.065111
+  call void %94(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20, i32 noundef %.061.lcssa124)
+  %95 = add nsw i32 %.061.lcssa124, %.065111
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.not79 = icmp slt i32 %.172.lcssa118, %2
+  %.not79 = icmp slt i32 %.172.lcssa123, %2
   br i1 %.not79, label %.lr.ph113, label %.thread102
 
 96:                                               ; preds = %._crit_edge

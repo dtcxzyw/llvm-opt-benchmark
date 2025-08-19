@@ -302,28 +302,28 @@ stbrp__skyline_find_min_y.exit.loopexit.us:       ; preds = %52
   br i1 %24, label %64, label %56
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %24, label %._crit_edge.thread193, label %._crit_edge
+  br i1 %24, label %._crit_edge.thread211, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %66, %.lr.ph.split
   %.088.lcssa = phi i32 [ 0, %.lr.ph.split ], [ %.189.us, %66 ]
   %.080.lcssa = phi i32 [ 0, %.lr.ph.split ], [ %.181.us, %66 ]
   %.0.lcssa = phi ptr [ %17, %.lr.ph.split ], [ %.1.us, %66 ]
   %71 = icmp eq ptr %.0.lcssa, null
-  br i1 %71, label %._crit_edge.thread, label %._crit_edge.thread193
+  br i1 %71, label %._crit_edge.thread, label %._crit_edge.thread211
 
-._crit_edge.thread193:                            ; preds = %.lr.ph.split, %._crit_edge
-  %.0.lcssa199 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %17, %.lr.ph.split ]
-  %.080.lcssa198 = phi i32 [ %.080.lcssa, %._crit_edge ], [ 0, %.lr.ph.split ]
-  %.088.lcssa197 = phi i32 [ %.088.lcssa, %._crit_edge ], [ 1073741824, %.lr.ph.split ]
-  %72 = load ptr, ptr %.0.lcssa199, align 8, !tbaa !26
+._crit_edge.thread211:                            ; preds = %.lr.ph.split, %._crit_edge
+  %.0.lcssa217 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %17, %.lr.ph.split ]
+  %.080.lcssa216 = phi i32 [ %.080.lcssa, %._crit_edge ], [ 0, %.lr.ph.split ]
+  %.088.lcssa215 = phi i32 [ %.088.lcssa, %._crit_edge ], [ 1073741824, %.lr.ph.split ]
+  %72 = load ptr, ptr %.0.lcssa217, align 8, !tbaa !26
   %73 = load i32, ptr %72, align 8, !tbaa !21
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %16, %._crit_edge, %._crit_edge.thread193
-  %.0.lcssa192 = phi ptr [ %.0.lcssa199, %._crit_edge.thread193 ], [ null, %._crit_edge ], [ null, %16 ]
-  %.080.lcssa191 = phi i32 [ %.080.lcssa198, %._crit_edge.thread193 ], [ %.080.lcssa, %._crit_edge ], [ 1073741824, %16 ]
-  %.088.lcssa190 = phi i32 [ %.088.lcssa197, %._crit_edge.thread193 ], [ %.088.lcssa, %._crit_edge ], [ 1073741824, %16 ]
-  %74 = phi i32 [ %73, %._crit_edge.thread193 ], [ 0, %._crit_edge ], [ 0, %16 ]
+._crit_edge.thread:                               ; preds = %16, %._crit_edge, %._crit_edge.thread211
+  %.0.lcssa210 = phi ptr [ %.0.lcssa217, %._crit_edge.thread211 ], [ null, %._crit_edge ], [ null, %16 ]
+  %.080.lcssa209 = phi i32 [ %.080.lcssa216, %._crit_edge.thread211 ], [ %.080.lcssa, %._crit_edge ], [ 1073741824, %16 ]
+  %.088.lcssa208 = phi i32 [ %.088.lcssa215, %._crit_edge.thread211 ], [ %.088.lcssa, %._crit_edge ], [ 1073741824, %16 ]
+  %74 = phi i32 [ %73, %._crit_edge.thread211 ], [ 0, %._crit_edge ], [ 0, %16 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %76 = load i32, ptr %75, align 8, !tbaa !10
   %77 = icmp eq i32 %76, 1
@@ -346,13 +346,13 @@ stbrp__skyline_find_min_y.exit.loopexit.us:       ; preds = %52
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %129
-  %.3180 = phi ptr [ %.4, %129 ], [ %.0.lcssa192, %.preheader.preheader ]
+  %.3180 = phi ptr [ %.4, %129 ], [ %.0.lcssa210, %.preheader.preheader ]
   %.173179 = phi ptr [ %131, %129 ], [ %.173179.ph, %.preheader.preheader ]
   %.175178 = phi ptr [ %.276, %129 ], [ %18, %.preheader.preheader ]
   %.178177 = phi ptr [ %.279, %129 ], [ %17, %.preheader.preheader ]
-  %.383176 = phi i32 [ %.484, %129 ], [ %.080.lcssa191, %.preheader.preheader ]
+  %.383176 = phi i32 [ %.484, %129 ], [ %.080.lcssa209, %.preheader.preheader ]
   %.186175 = phi i32 [ %.287, %129 ], [ %74, %.preheader.preheader ]
-  %.290174 = phi i32 [ %.391, %129 ], [ %.088.lcssa190, %.preheader.preheader ]
+  %.290174 = phi i32 [ %.391, %129 ], [ %.088.lcssa208, %.preheader.preheader ]
   %83 = load i32, ptr %.173179, align 8, !tbaa !21
   %84 = sub nsw i32 %83, %9
   br label %85
@@ -459,8 +459,8 @@ stbrp__skyline_find_min_y.exit121:                ; preds = %117, %89
 
 .loopexit:                                        ; preds = %129, %._crit_edge.thread
   %.085 = phi i32 [ %74, %._crit_edge.thread ], [ %.287, %129 ]
-  %.282 = phi i32 [ %.080.lcssa191, %._crit_edge.thread ], [ %.484, %129 ]
-  %.2 = phi ptr [ %.0.lcssa192, %._crit_edge.thread ], [ %.4, %129 ]
+  %.282 = phi i32 [ %.080.lcssa209, %._crit_edge.thread ], [ %.484, %129 ]
+  %.2 = phi ptr [ %.0.lcssa210, %._crit_edge.thread ], [ %.4, %129 ]
   %132 = zext i32 %.282 to i64
   %133 = shl nuw i64 %132, 32
   %134 = zext i32 %.085 to i64

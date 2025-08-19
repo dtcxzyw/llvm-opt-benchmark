@@ -5918,8 +5918,8 @@ x25519_ge_p3_to_cached.exit110.i:                 ; preds = %256
 
 276:                                              ; preds = %273
   %277 = add nsw i32 %.0121.i, -1
-  %.not127.i = icmp eq i32 %.0121.i, 0
-  br i1 %.not127.i, label %ge_double_scalarmult_vartime.exit, label %269, !llvm.loop !46
+  %.not135.i = icmp eq i32 %.0121.i, 0
+  br i1 %.not135.i, label %ge_double_scalarmult_vartime.exit, label %269, !llvm.loop !46
 
 278:                                              ; preds = %273, %269
   %279 = icmp sgt i32 %.0121.i, -1

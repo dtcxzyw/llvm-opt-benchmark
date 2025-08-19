@@ -750,14 +750,14 @@ H5FD__get_onion_revision_count.exit:              ; preds = %73, %81
 .lr.ph.preheader:                                 ; preds = %.preheader
   %92 = call i32 @H5FD_close(ptr noundef nonnull %91) #18
   %93 = icmp slt i32 %92, 0
-  br i1 %93, label %.lr.ph39, label %._crit_edge
+  br i1 %93, label %.lr.ph43, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph39
+.lr.ph:                                           ; preds = %.lr.ph43
   %94 = call i32 @H5FD_close(ptr noundef nonnull %99) #18
   %95 = icmp slt i32 %94, 0
-  br i1 %95, label %.lr.ph39, label %._crit_edge
+  br i1 %95, label %.lr.ph43, label %._crit_edge
 
-.lr.ph39:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph43:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %96 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
   %97 = load i64, ptr @H5E_CANTCLOSEFILE_g, align 8, !tbaa !10
   %98 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FDonion_get_revision_count, i32 noundef 1654, i64 noundef %96, i64 noundef %97, ptr noundef nonnull @.str.23) #18
@@ -765,9 +765,9 @@ H5FD__get_onion_revision_count.exit:              ; preds = %73, %81
   %.not29 = icmp eq ptr %99, null
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph39, %.lr.ph.preheader, %.preheader
-  %.021.lcssa = phi i32 [ %.021.ph, %.preheader ], [ %.021.ph, %.lr.ph.preheader ], [ -1, %.lr.ph39 ], [ -1, %.lr.ph ]
-  %.0.lcssa = phi i1 [ %.0.ph, %.preheader ], [ %.0.ph, %.lr.ph.preheader ], [ true, %.lr.ph39 ], [ true, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph43, %.lr.ph.preheader, %.preheader
+  %.021.lcssa = phi i32 [ %.021.ph, %.preheader ], [ %.021.ph, %.lr.ph.preheader ], [ -1, %.lr.ph43 ], [ -1, %.lr.ph ]
+  %.0.lcssa = phi i1 [ %.0.ph, %.preheader ], [ %.0.ph, %.lr.ph.preheader ], [ true, %.lr.ph43 ], [ true, %.lr.ph ]
   br i1 %.020.ph, label %100, label %102, !prof !9
 
 100:                                              ; preds = %._crit_edge
@@ -2332,7 +2332,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_read(ptr noundef %0, i32 nound
 
 62:                                               ; preds = %55
   %.not109 = icmp eq i64 %.pre133, 0
-  br i1 %.not109, label %.thread134, label %63
+  br i1 %.not109, label %.thread140, label %63
 
 63:                                               ; preds = %62
   %64 = load ptr, ptr %42, align 8, !tbaa !76
@@ -2363,12 +2363,12 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_read(ptr noundef %0, i32 nound
 78:                                               ; preds = %._crit_edge, %55
   %79 = phi i64 [ %.pre, %._crit_edge ], [ %.pre133, %55 ]
   %.not111 = icmp eq i64 %79, 0
-  br i1 %.not111, label %.thread134, label %80
+  br i1 %.not111, label %.thread140, label %80
 
 80:                                               ; preds = %78
   %81 = call i32 @H5FD__onion_archival_index_find(ptr noundef nonnull %28, i64 noundef %47, ptr noundef nonnull %7) #18
   %.not112 = icmp eq i32 %81, 0
-  br i1 %.not112, label %.thread134, label %82
+  br i1 %.not112, label %.thread140, label %82
 
 82:                                               ; preds = %80
   %83 = load ptr, ptr %43, align 8, !tbaa !26
@@ -2386,7 +2386,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_read(ptr noundef %0, i32 nound
   %93 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_read, i32 noundef 1359, i64 noundef %91, i64 noundef %92, ptr noundef nonnull @.str.117) #18
   br label %.thread117
 
-.thread134:                                       ; preds = %62, %80, %78
+.thread140:                                       ; preds = %62, %80, %78
   %94 = mul i64 %47, %33
   %95 = add i64 %.092, %94
   %96 = load i64, ptr %44, align 8, !tbaa !73
@@ -2397,13 +2397,13 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_read(ptr noundef %0, i32 nound
   %.not113 = icmp eq i64 %100, 0
   br i1 %.not113, label %105, label %101
 
-101:                                              ; preds = %.thread134
+101:                                              ; preds = %.thread140
   %102 = load ptr, ptr %45, align 8, !tbaa !40
   %103 = call i32 @H5FD_read(ptr noundef %102, i32 noundef %1, i64 noundef %95, i64 noundef %100, ptr noundef %.099126) #18
   %104 = icmp slt i32 %103, 0
   br i1 %104, label %108, label %105
 
-105:                                              ; preds = %101, %.thread134
+105:                                              ; preds = %101, %.thread140
   %106 = icmp ult i64 %100, %59
   br i1 %106, label %.lr.ph.preheader, label %.thread
 
@@ -2643,7 +2643,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_write(ptr noundef %0, i32 noun
 
 .lr.ph189.preheader:                              ; preds = %._crit_edge
   %scevgep199 = getelementptr i8, ptr %34, i64 %128
-  %130 = sub nuw i64 %33, %128
+  %130 = sub nuw nsw i64 %33, %128
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep199, i8 0, i64 %130, i1 false), !tbaa !41
   br label %.thread
 

@@ -1575,9 +1575,9 @@ switch.lookup:                                    ; preds = %72, %70
   %78 = load ptr, ptr %0, align 8, !tbaa !4
   %79 = load i8, ptr %77, align 4, !tbaa !32
   %80 = zext nneg i8 %79 to i64
-  %switch.gep89 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4Luau7CodeGen12toDotDjGraphB5cxx11ERKNS0_10IrFunctionE, i64 0, i64 %80
-  %switch.load90 = load ptr, ptr %switch.gep89, align 8
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull @.str.156, ptr noundef nonnull %switch.load90, i32 noundef %71)
+  %switch.gep97 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4Luau7CodeGen12toDotDjGraphB5cxx11ERKNS0_10IrFunctionE, i64 0, i64 %80
+  %switch.load98 = load ptr, ptr %switch.gep97, align 8
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull @.str.156, ptr noundef nonnull %switch.load98, i32 noundef %71)
   %81 = getelementptr inbounds nuw i8, ptr %.01113.i, i64 4
   %.not.i = icmp eq ptr %81, %66
   br i1 %.not.i, label %_ZN4Luau7CodeGenL14appendBlockSetERNS0_17IrToStringContextENS0_20BlockIteratorWrapperE.exit, label %70
@@ -1613,18 +1613,18 @@ _ZN4Luau7CodeGenL14appendBlockSetERNS0_17IrToStringContextENS0_20BlockIteratorWr
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %101
 
-101:                                              ; preds = %switch.lookup91, %.lr.ph.i65
-  %.014.i66 = phi i1 [ false, %.lr.ph.i65 ], [ true, %switch.lookup91 ]
-  %.01113.i67 = phi ptr [ %96, %.lr.ph.i65 ], [ %112, %switch.lookup91 ]
+101:                                              ; preds = %switch.lookup99, %.lr.ph.i65
+  %.014.i66 = phi i1 [ false, %.lr.ph.i65 ], [ true, %switch.lookup99 ]
+  %.01113.i67 = phi ptr [ %96, %.lr.ph.i65 ], [ %112, %switch.lookup99 ]
   %102 = load i32, ptr %.01113.i67, align 4, !tbaa !58
-  br i1 %.014.i66, label %103, label %switch.lookup91
+  br i1 %.014.i66, label %103, label %switch.lookup99
 
 103:                                              ; preds = %101
   %104 = load ptr, ptr %0, align 8, !tbaa !4
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %104, ptr noundef nonnull @.str.155)
-  br label %switch.lookup91
+  br label %switch.lookup99
 
-switch.lookup91:                                  ; preds = %103, %101
+switch.lookup99:                                  ; preds = %103, %101
   %105 = load ptr, ptr %100, align 8, !tbaa !43
   %106 = zext i32 %102 to i64
   %107 = load ptr, ptr %105, align 8, !tbaa !44
@@ -1632,14 +1632,14 @@ switch.lookup91:                                  ; preds = %103, %101
   %109 = load ptr, ptr %0, align 8, !tbaa !4
   %110 = load i8, ptr %108, align 4, !tbaa !32
   %111 = zext nneg i8 %110 to i64
-  %switch.gep92 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4Luau7CodeGen12toDotDjGraphB5cxx11ERKNS0_10IrFunctionE, i64 0, i64 %111
-  %switch.load93 = load ptr, ptr %switch.gep92, align 8
-  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull @.str.156, ptr noundef nonnull %switch.load93, i32 noundef %102)
+  %switch.gep100 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4Luau7CodeGen12toDotDjGraphB5cxx11ERKNS0_10IrFunctionE, i64 0, i64 %111
+  %switch.load101 = load ptr, ptr %switch.gep100, align 8
+  tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull @.str.156, ptr noundef nonnull %switch.load101, i32 noundef %102)
   %112 = getelementptr inbounds nuw i8, ptr %.01113.i67, i64 4
   %.not.i70 = icmp eq ptr %112, %97
   br i1 %.not.i70, label %_ZN4Luau7CodeGenL14appendBlockSetERNS0_17IrToStringContextENS0_20BlockIteratorWrapperE.exit71, label %101
 
-_ZN4Luau7CodeGenL14appendBlockSetERNS0_17IrToStringContextENS0_20BlockIteratorWrapperE.exit71: ; preds = %switch.lookup91
+_ZN4Luau7CodeGenL14appendBlockSetERNS0_17IrToStringContextENS0_20BlockIteratorWrapperE.exit71: ; preds = %switch.lookup99
   %113 = load ptr, ptr %0, align 8, !tbaa !4
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull @.str.186)
   br label %.critedge
@@ -2778,7 +2778,7 @@ _ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_7IrBlockEj.exit: ; pred
           cleanup
   br label %99
 
-._crit_edge125:                                   ; preds = %.loopexit135, %78, %74
+._crit_edge125:                                   ; preds = %.loopexit151, %78, %74
   %81 = add nuw i64 %.066126, 1
   %82 = load ptr, ptr %35, align 8, !tbaa !94
   %83 = load ptr, ptr %34, align 8, !tbaa !96
@@ -2794,8 +2794,8 @@ _ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_7IrBlockEj.exit: ; pred
           cleanup
   br label %99
 
-.lr.ph120:                                        ; preds = %.lr.ph124, %.loopexit135
-  %.061122 = phi ptr [ %97, %.loopexit135 ], [ %75, %.lr.ph124 ]
+.lr.ph120:                                        ; preds = %.lr.ph124, %.loopexit151
+  %.061122 = phi ptr [ %97, %.loopexit151 ], [ %75, %.lr.ph124 ]
   %91 = load i32, ptr %.061122, align 4, !tbaa !58
   br label %94
 
@@ -2808,18 +2808,18 @@ _ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_7IrBlockEj.exit: ; pred
   %.051117 = phi ptr [ %64, %.lr.ph120 ], [ %93, %92 ]
   %95 = load i32, ptr %.051117, align 4, !tbaa !58
   %.not72 = icmp eq i32 %95, %91
-  br i1 %.not72, label %.loopexit135, label %92
+  br i1 %.not72, label %.loopexit151, label %92
 
 .critedge:                                        ; preds = %92
   invoke void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.210, i32 noundef %61, i32 noundef %91)
-          to label %.loopexit135 unwind label %.split
+          to label %.loopexit151 unwind label %.split
 
 .split:                                           ; preds = %.critedge
   %96 = landingpad { ptr, i32 }
           cleanup
   br label %99
 
-.loopexit135:                                     ; preds = %94, %.critedge
+.loopexit151:                                     ; preds = %94, %.critedge
   %97 = getelementptr inbounds nuw i8, ptr %.061122, i64 4
   %.not70 = icmp eq ptr %97, %76
   br i1 %.not70, label %._crit_edge125, label %.lr.ph120

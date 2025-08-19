@@ -88,12 +88,12 @@ define void @dgges3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.not555 = icmp eq i32 %57, 0
   %not..not555 = xor i1 %.not555, true
   %. = zext i1 %not..not555 to i32
-  %not..not555694 = xor i1 %.not555, true
+  %not..not555708 = xor i1 %.not555, true
   br label %58
 
 58:                                               ; preds = %56, %21
   %.sink = phi i32 [ 0, %21 ], [ %., %56 ]
-  %.not560 = phi i1 [ false, %21 ], [ %not..not555694, %56 ]
+  %.not560 = phi i1 [ false, %21 ], [ %not..not555708, %56 ]
   %59 = phi i1 [ false, %21 ], [ %.not555, %56 ]
   store i32 %.sink, ptr %31, align 4, !tbaa !3
   %60 = tail call i32 @lsame_(ptr noundef %1, ptr noundef nonnull @.str) #5
@@ -104,15 +104,15 @@ define void @dgges3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %62 = tail call i32 @lsame_(ptr noundef %1, ptr noundef nonnull @.str.1) #5
   %.not557 = icmp eq i32 %62, 0
   %not..not557 = xor i1 %.not557, true
-  %.691 = zext i1 %not..not557 to i32
-  %not..not557695 = xor i1 %.not557, true
+  %.705 = zext i1 %not..not557 to i32
+  %not..not557709 = xor i1 %.not557, true
   br label %63
 
 63:                                               ; preds = %61, %58
-  %.sink664 = phi i32 [ 0, %58 ], [ %.691, %61 ]
-  %.not561 = phi i1 [ false, %58 ], [ %not..not557695, %61 ]
+  %.sink678 = phi i32 [ 0, %58 ], [ %.705, %61 ]
+  %.not561 = phi i1 [ false, %58 ], [ %not..not557709, %61 ]
   %64 = phi i1 [ false, %58 ], [ %.not557, %61 ]
-  store i32 %.sink664, ptr %32, align 4, !tbaa !3
+  store i32 %.sink678, ptr %32, align 4, !tbaa !3
   %65 = tail call i32 @lsame_(ptr noundef %2, ptr noundef nonnull @.str.2) #5
   store i32 0, ptr %20, align 4, !tbaa !3
   %66 = load i32, ptr %18, align 4, !tbaa !3
@@ -151,16 +151,16 @@ define void @dgges3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %82 = icmp slt i32 %81, 1
   %83 = icmp samesign ult i32 %81, %72
   %or.cond617 = select i1 %.not560, i1 %83, i1 false
-  %or.cond665 = select i1 %82, i1 true, i1 %or.cond617
-  br i1 %or.cond665, label %.thread597.sink.split, label %84
+  %or.cond679 = select i1 %82, i1 true, i1 %or.cond617
+  br i1 %or.cond679, label %.thread597.sink.split, label %84
 
 84:                                               ; preds = %80
   %85 = load i32, ptr %16, align 4, !tbaa !3
   %86 = icmp slt i32 %85, 1
   %87 = icmp samesign ult i32 %85, %72
   %or.cond618 = select i1 %.not561, i1 %87, i1 false
-  %or.cond666 = select i1 %86, i1 true, i1 %or.cond618
-  br i1 %or.cond666, label %.thread597.sink.split, label %88
+  %or.cond680 = select i1 %86, i1 true, i1 %or.cond618
+  br i1 %or.cond680, label %.thread597.sink.split, label %88
 
 88:                                               ; preds = %84
   %89 = load i32, ptr %18, align 4, !tbaa !3
@@ -256,12 +256,12 @@ define void @dgges3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not570, label %143, label %.thread597
 
 .thread597.sink.split:                            ; preds = %63, %88, %84, %80, %77, %74, %71, %69
-  %.sink667 = phi i32 [ %.mux, %63 ], [ -3, %69 ], [ -5, %71 ], [ -7, %74 ], [ -9, %77 ], [ -15, %80 ], [ -17, %84 ], [ -19, %88 ]
-  store i32 %.sink667, ptr %20, align 4, !tbaa !3
+  %.sink681 = phi i32 [ %.mux, %63 ], [ -3, %69 ], [ -5, %71 ], [ -7, %74 ], [ -9, %77 ], [ -15, %80 ], [ -17, %84 ], [ -19, %88 ]
+  store i32 %.sink681, ptr %20, align 4, !tbaa !3
   br label %.thread597
 
 .thread597:                                       ; preds = %.thread597.sink.split, %93, %.thread
-  %140 = phi i32 [ %.pr596.pr, %.thread ], [ %.pr, %93 ], [ %.sink667, %.thread597.sink.split ]
+  %140 = phi i32 [ %.pr596.pr, %.thread ], [ %.pr, %93 ], [ %.sink681, %.thread597.sink.split ]
   %141 = sub nsw i32 0, %140
   store i32 %141, ptr %22, align 4, !tbaa !3
   %142 = call i32 @xerbla_(ptr noundef nonnull @.str.5, ptr noundef nonnull %22, i32 noundef 6) #5
@@ -437,8 +437,8 @@ define void @dgges3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %235 = icmp slt i32 %233, 1
   %.pre = load i32, ptr %4, align 4, !tbaa !3
   %.not587 = icmp sgt i32 %233, %.pre
-  %or.cond668 = select i1 %235, i1 true, i1 %.not587
-  br i1 %or.cond668, label %236, label %.loopexit.sink.split
+  %or.cond682 = select i1 %235, i1 true, i1 %.not587
+  br i1 %or.cond682, label %236, label %.loopexit.sink.split
 
 236:                                              ; preds = %234
   %237 = icmp sle i32 %233, %.pre
@@ -593,10 +593,10 @@ define void @dgges3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.sink.split
 
 .sink.split:                                      ; preds = %291, %302
-  %.sink685 = phi double [ %309, %302 ], [ %296, %291 ]
-  %310 = fcmp oge double %.sink685, 0.000000e+00
-  %311 = fneg double %.sink685
-  %312 = select i1 %310, double %.sink685, double %311
+  %.sink699 = phi double [ %309, %302 ], [ %296, %291 ]
+  %310 = fcmp oge double %.sink699, 0.000000e+00
+  %311 = fneg double %.sink699
+  %312 = select i1 %310, double %.sink699, double %311
   store double %312, ptr %17, align 8, !tbaa !7
   %313 = getelementptr inbounds nuw double, ptr %49, i64 %indvars.iv653
   %314 = load double, ptr %313, align 8, !tbaa !7
@@ -772,8 +772,8 @@ define void @dgges3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not584.not, label %.lr.ph641, label %.loopexit, !llvm.loop !13
 
 .loopexit.sink.split:                             ; preds = %234, %239, %241
-  %.sink688 = phi i32 [ %242, %241 ], [ %240, %239 ], [ %233, %234 ]
-  store i32 %.sink688, ptr %20, align 4, !tbaa !3
+  %.sink702 = phi i32 [ %242, %241 ], [ %240, %239 ], [ %233, %234 ]
+  store i32 %.sink702, ptr %20, align 4, !tbaa !3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread610, %.loopexit.sink.split, %367, %366

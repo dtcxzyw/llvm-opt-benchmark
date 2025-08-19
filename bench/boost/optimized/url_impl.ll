@@ -52,9 +52,9 @@ define void @_ZN5boost4urls6detail8url_impl8set_sizeEim(ptr noundef nonnull alig
   %6 = add nsw i32 %1, 1
   %7 = icmp eq i32 %6, -1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %7, label %_ZNK5boost4urls6detail8url_impl3lenEi.exit.thread13, label %_ZNK5boost4urls6detail8url_impl6offsetEi.exit.i
+  br i1 %7, label %_ZNK5boost4urls6detail8url_impl3lenEi.exit.thread14, label %_ZNK5boost4urls6detail8url_impl6offsetEi.exit.i
 
-_ZNK5boost4urls6detail8url_impl3lenEi.exit.thread13: ; preds = %5
+_ZNK5boost4urls6detail8url_impl3lenEi.exit.thread14: ; preds = %5
   %9 = sext i32 %1 to i64
   %10 = getelementptr inbounds [8 x i64], ptr %8, i64 0, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !13
@@ -66,9 +66,9 @@ _ZNK5boost4urls6detail8url_impl6offsetEi.exit.i:  ; preds = %5
   %14 = getelementptr inbounds [8 x i64], ptr %8, i64 0, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !13
   %16 = icmp eq i32 %1, -1
-  br i1 %16, label %_ZNK5boost4urls6detail8url_impl3lenEi.exit.thread11, label %_ZNK5boost4urls6detail8url_impl3lenEi.exit
+  br i1 %16, label %_ZNK5boost4urls6detail8url_impl3lenEi.exit.thread12, label %_ZNK5boost4urls6detail8url_impl3lenEi.exit
 
-_ZNK5boost4urls6detail8url_impl3lenEi.exit.thread11: ; preds = %_ZNK5boost4urls6detail8url_impl6offsetEi.exit.i
+_ZNK5boost4urls6detail8url_impl3lenEi.exit.thread12: ; preds = %_ZNK5boost4urls6detail8url_impl6offsetEi.exit.i
   %17 = sub i64 %2, %15
   br label %.lr.ph
 
@@ -82,8 +82,8 @@ _ZNK5boost4urls6detail8url_impl3lenEi.exit:       ; preds = %_ZNK5boost4urls6det
   %23 = icmp slt i32 %1, 7
   br i1 %23, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %_ZNK5boost4urls6detail8url_impl3lenEi.exit.thread13, %_ZNK5boost4urls6detail8url_impl3lenEi.exit.thread11, %_ZNK5boost4urls6detail8url_impl3lenEi.exit
-  %24 = phi i64 [ %17, %_ZNK5boost4urls6detail8url_impl3lenEi.exit.thread11 ], [ %22, %_ZNK5boost4urls6detail8url_impl3lenEi.exit ], [ %12, %_ZNK5boost4urls6detail8url_impl3lenEi.exit.thread13 ]
+.lr.ph:                                           ; preds = %_ZNK5boost4urls6detail8url_impl3lenEi.exit.thread14, %_ZNK5boost4urls6detail8url_impl3lenEi.exit.thread12, %_ZNK5boost4urls6detail8url_impl3lenEi.exit
+  %24 = phi i64 [ %17, %_ZNK5boost4urls6detail8url_impl3lenEi.exit.thread12 ], [ %22, %_ZNK5boost4urls6detail8url_impl3lenEi.exit ], [ %12, %_ZNK5boost4urls6detail8url_impl3lenEi.exit.thread14 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = sext i32 %1 to i64
   br label %27

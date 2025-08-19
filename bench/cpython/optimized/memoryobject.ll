@@ -2389,8 +2389,8 @@ define internal fastcc void @init_shape_strides(ptr noundef nonnull captures(non
 ._crit_edge.thread:                               ; preds = %.preheader34
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %42 = load ptr, ptr %41, align 8, !tbaa !128
-  %.not40 = icmp eq ptr %42, null
-  br i1 %.not40, label %50, label %init_strides_from_shape.exit
+  %.not42 = icmp eq ptr %42, null
+  br i1 %.not42, label %50, label %init_strides_from_shape.exit
 
 .lr.ph37:                                         ; preds = %._crit_edge
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -7954,8 +7954,8 @@ define internal ptr @memoryview_cast(ptr noundef readonly captures(address_is_nu
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %48 = load i32, ptr %47, align 4, !tbaa !103
   %.not38.i = icmp eq i32 %48, 1
-  %or.cond57.i = select i1 %.not37.i, i1 %.not38.i, i1 false
-  br i1 %or.cond57.i, label %.thread53.i, label %._crit_edge.i
+  %or.cond61.i = select i1 %.not37.i, i1 %.not38.i, i1 false
+  br i1 %or.cond61.i, label %.thread53.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %46
   %49 = sext i32 %48 to i64

@@ -229,9 +229,9 @@ define noundef ptr @Fraig_ManCreate(ptr noundef captures(address_is_null) %0) lo
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.25168)
   %2 = tail call i32 @Aig_ManRandom(i32 noundef 1) #12
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %.thread210, label %4
+  br i1 %3, label %.thread212, label %4
 
-.thread210:                                       ; preds = %1
+.thread212:                                       ; preds = %1
   store i32 2048, ptr %.sroa.4, align 4, !tbaa !27
   store i32 99, ptr %.sroa.6, align 8, !tbaa !28
   store i32 20, ptr %.sroa.8, align 4, !tbaa !29
@@ -275,22 +275,22 @@ define noundef ptr @Fraig_ManCreate(ptr noundef captures(address_is_null) %0) lo
   store i32 32768, ptr %0, align 8, !tbaa !25
   br label %9
 
-9:                                                ; preds = %.thread210, %.thread, %8, %6
-  %.0.sroa.phi131208 = phi ptr [ %0, %.thread ], [ %0, %8 ], [ %0, %6 ], [ %.sroa.0, %.thread210 ]
-  %.0.sroa.phi131.sroa.phi165206 = phi ptr [ %.0.sroa.phi131.sroa.gep167, %.thread ], [ %.0.sroa.phi131.sroa.gep167, %8 ], [ %.0.sroa.phi131.sroa.gep167, %6 ], [ %.sroa.4, %.thread210 ]
-  %.0.sroa.phi131.sroa.phi162204 = phi ptr [ %.0.sroa.phi131.sroa.gep164, %.thread ], [ %.0.sroa.phi131.sroa.gep164, %8 ], [ %.0.sroa.phi131.sroa.gep164, %6 ], [ %.sroa.25168, %.thread210 ]
-  %.0.sroa.phi131.sroa.phi159202 = phi ptr [ %.0.sroa.phi131.sroa.gep161, %.thread ], [ %.0.sroa.phi131.sroa.gep161, %8 ], [ %.0.sroa.phi131.sroa.gep161, %6 ], [ %.sroa.24, %.thread210 ]
-  %.0.sroa.phi131.sroa.phi156200 = phi ptr [ %.0.sroa.phi131.sroa.gep158, %.thread ], [ %.0.sroa.phi131.sroa.gep158, %8 ], [ %.0.sroa.phi131.sroa.gep158, %6 ], [ %.sroa.22, %.thread210 ]
-  %.0.sroa.phi131.sroa.phi153198 = phi ptr [ %.0.sroa.phi131.sroa.gep155, %.thread ], [ %.0.sroa.phi131.sroa.gep155, %8 ], [ %.0.sroa.phi131.sroa.gep155, %6 ], [ %.sroa.20, %.thread210 ]
-  %.0.sroa.phi131.sroa.phi150196 = phi ptr [ %.0.sroa.phi131.sroa.gep152, %.thread ], [ %.0.sroa.phi131.sroa.gep152, %8 ], [ %.0.sroa.phi131.sroa.gep152, %6 ], [ %.sroa.18, %.thread210 ]
-  %.0.sroa.phi131.sroa.phi147194 = phi ptr [ %.0.sroa.phi131.sroa.gep149, %.thread ], [ %.0.sroa.phi131.sroa.gep149, %8 ], [ %.0.sroa.phi131.sroa.gep149, %6 ], [ %.sroa.16, %.thread210 ]
-  %.0.sroa.phi131.sroa.phi144192 = phi ptr [ %.0.sroa.phi131.sroa.gep146, %.thread ], [ %.0.sroa.phi131.sroa.gep146, %8 ], [ %.0.sroa.phi131.sroa.gep146, %6 ], [ %.sroa.14, %.thread210 ]
-  %.0.sroa.phi131.sroa.phi141190 = phi ptr [ %.0.sroa.phi131.sroa.gep143, %.thread ], [ %.0.sroa.phi131.sroa.gep143, %8 ], [ %.0.sroa.phi131.sroa.gep143, %6 ], [ %.sroa.12, %.thread210 ]
-  %.0.sroa.phi131.sroa.phi138188 = phi ptr [ %.0.sroa.phi131.sroa.gep140, %.thread ], [ %.0.sroa.phi131.sroa.gep140, %8 ], [ %.0.sroa.phi131.sroa.gep140, %6 ], [ %.sroa.10, %.thread210 ]
-  %.0.sroa.phi131.sroa.phi135186 = phi ptr [ %.0.sroa.phi131.sroa.gep137, %.thread ], [ %.0.sroa.phi131.sroa.gep137, %8 ], [ %.0.sroa.phi131.sroa.gep137, %6 ], [ %.sroa.8, %.thread210 ]
-  %.0.sroa.phi131.sroa.phi184 = phi ptr [ %.0.sroa.phi131.sroa.gep134, %.thread ], [ %.0.sroa.phi131.sroa.gep134, %8 ], [ %.0.sroa.phi131.sroa.gep134, %6 ], [ %.sroa.6, %.thread210 ]
-  %10 = phi i32 [ 128, %.thread ], [ 32768, %8 ], [ %.pre, %6 ], [ 2048, %.thread210 ]
-  %11 = load i32, ptr %.0.sroa.phi131.sroa.phi165206, align 4, !tbaa !27
+9:                                                ; preds = %.thread212, %.thread, %8, %6
+  %.0.sroa.phi131210 = phi ptr [ %0, %.thread ], [ %0, %8 ], [ %0, %6 ], [ %.sroa.0, %.thread212 ]
+  %.0.sroa.phi131.sroa.phi165208 = phi ptr [ %.0.sroa.phi131.sroa.gep167, %.thread ], [ %.0.sroa.phi131.sroa.gep167, %8 ], [ %.0.sroa.phi131.sroa.gep167, %6 ], [ %.sroa.4, %.thread212 ]
+  %.0.sroa.phi131.sroa.phi162206 = phi ptr [ %.0.sroa.phi131.sroa.gep164, %.thread ], [ %.0.sroa.phi131.sroa.gep164, %8 ], [ %.0.sroa.phi131.sroa.gep164, %6 ], [ %.sroa.25168, %.thread212 ]
+  %.0.sroa.phi131.sroa.phi159204 = phi ptr [ %.0.sroa.phi131.sroa.gep161, %.thread ], [ %.0.sroa.phi131.sroa.gep161, %8 ], [ %.0.sroa.phi131.sroa.gep161, %6 ], [ %.sroa.24, %.thread212 ]
+  %.0.sroa.phi131.sroa.phi156202 = phi ptr [ %.0.sroa.phi131.sroa.gep158, %.thread ], [ %.0.sroa.phi131.sroa.gep158, %8 ], [ %.0.sroa.phi131.sroa.gep158, %6 ], [ %.sroa.22, %.thread212 ]
+  %.0.sroa.phi131.sroa.phi153200 = phi ptr [ %.0.sroa.phi131.sroa.gep155, %.thread ], [ %.0.sroa.phi131.sroa.gep155, %8 ], [ %.0.sroa.phi131.sroa.gep155, %6 ], [ %.sroa.20, %.thread212 ]
+  %.0.sroa.phi131.sroa.phi150198 = phi ptr [ %.0.sroa.phi131.sroa.gep152, %.thread ], [ %.0.sroa.phi131.sroa.gep152, %8 ], [ %.0.sroa.phi131.sroa.gep152, %6 ], [ %.sroa.18, %.thread212 ]
+  %.0.sroa.phi131.sroa.phi147196 = phi ptr [ %.0.sroa.phi131.sroa.gep149, %.thread ], [ %.0.sroa.phi131.sroa.gep149, %8 ], [ %.0.sroa.phi131.sroa.gep149, %6 ], [ %.sroa.16, %.thread212 ]
+  %.0.sroa.phi131.sroa.phi144194 = phi ptr [ %.0.sroa.phi131.sroa.gep146, %.thread ], [ %.0.sroa.phi131.sroa.gep146, %8 ], [ %.0.sroa.phi131.sroa.gep146, %6 ], [ %.sroa.14, %.thread212 ]
+  %.0.sroa.phi131.sroa.phi141192 = phi ptr [ %.0.sroa.phi131.sroa.gep143, %.thread ], [ %.0.sroa.phi131.sroa.gep143, %8 ], [ %.0.sroa.phi131.sroa.gep143, %6 ], [ %.sroa.12, %.thread212 ]
+  %.0.sroa.phi131.sroa.phi138190 = phi ptr [ %.0.sroa.phi131.sroa.gep140, %.thread ], [ %.0.sroa.phi131.sroa.gep140, %8 ], [ %.0.sroa.phi131.sroa.gep140, %6 ], [ %.sroa.10, %.thread212 ]
+  %.0.sroa.phi131.sroa.phi135188 = phi ptr [ %.0.sroa.phi131.sroa.gep137, %.thread ], [ %.0.sroa.phi131.sroa.gep137, %8 ], [ %.0.sroa.phi131.sroa.gep137, %6 ], [ %.sroa.8, %.thread212 ]
+  %.0.sroa.phi131.sroa.phi186 = phi ptr [ %.0.sroa.phi131.sroa.gep134, %.thread ], [ %.0.sroa.phi131.sroa.gep134, %8 ], [ %.0.sroa.phi131.sroa.gep134, %6 ], [ %.sroa.6, %.thread212 ]
+  %10 = phi i32 [ 128, %.thread ], [ 32768, %8 ], [ %.pre, %6 ], [ 2048, %.thread212 ]
+  %11 = load i32, ptr %.0.sroa.phi131.sroa.phi165208, align 4, !tbaa !27
   %12 = icmp slt i32 %11, 128
   br i1 %12, label %.sink.split, label %13
 
@@ -300,18 +300,18 @@ define noundef ptr @Fraig_ManCreate(ptr noundef captures(address_is_null) %0) lo
 
 .sink.split:                                      ; preds = %13, %9
   %.sink = phi i32 [ 128, %9 ], [ 32768, %13 ]
-  store i32 %.sink, ptr %.0.sroa.phi131.sroa.phi165206, align 4, !tbaa !27
+  store i32 %.sink, ptr %.0.sroa.phi131.sroa.phi165208, align 4, !tbaa !27
   br label %15
 
 15:                                               ; preds = %.sink.split, %13
   %16 = phi i32 [ %11, %13 ], [ %.sink, %.sink.split ]
-  %17 = load i32, ptr %.0.sroa.phi131.sroa.phi138188, align 8, !tbaa !30
+  %17 = load i32, ptr %.0.sroa.phi131.sroa.phi138190, align 8, !tbaa !30
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %18, label %19
 
 18:                                               ; preds = %15
-  store i32 128, ptr %.0.sroa.phi131.sroa.phi165206, align 4, !tbaa !27
-  store i32 128, ptr %.0.sroa.phi131208, align 8, !tbaa !25
+  store i32 128, ptr %.0.sroa.phi131.sroa.phi165208, align 4, !tbaa !27
+  store i32 128, ptr %.0.sroa.phi131210, align 8, !tbaa !25
   br label %19
 
 19:                                               ; preds = %18, %15
@@ -332,36 +332,36 @@ define noundef ptr @Fraig_ManCreate(ptr noundef captures(address_is_null) %0) lo
   %32 = add nuw nsw i32 %28, %31
   %33 = getelementptr inbounds nuw i8, ptr %calloc, i64 76
   store i32 %32, ptr %33, align 4, !tbaa !49
-  %34 = load i32, ptr %.0.sroa.phi131.sroa.phi184, align 8, !tbaa !28
+  %34 = load i32, ptr %.0.sroa.phi131.sroa.phi186, align 8, !tbaa !28
   %35 = getelementptr inbounds nuw i8, ptr %calloc, i64 80
   store i32 %34, ptr %35, align 8, !tbaa !50
-  %36 = load i32, ptr %.0.sroa.phi131.sroa.phi135186, align 4, !tbaa !29
+  %36 = load i32, ptr %.0.sroa.phi131.sroa.phi135188, align 4, !tbaa !29
   %37 = getelementptr inbounds nuw i8, ptr %calloc, i64 84
   store i32 %36, ptr %37, align 4, !tbaa !51
   %38 = getelementptr inbounds nuw i8, ptr %calloc, i64 88
   store i32 %17, ptr %38, align 8, !tbaa !52
-  %39 = load i32, ptr %.0.sroa.phi131.sroa.phi141190, align 4, !tbaa !31
+  %39 = load i32, ptr %.0.sroa.phi131.sroa.phi141192, align 4, !tbaa !31
   %40 = getelementptr inbounds nuw i8, ptr %calloc, i64 92
   store i32 %39, ptr %40, align 4, !tbaa !53
-  %41 = load i32, ptr %.0.sroa.phi131.sroa.phi144192, align 8, !tbaa !32
+  %41 = load i32, ptr %.0.sroa.phi131.sroa.phi144194, align 8, !tbaa !32
   %42 = getelementptr inbounds nuw i8, ptr %calloc, i64 96
   store i32 %41, ptr %42, align 8, !tbaa !54
-  %43 = load i32, ptr %.0.sroa.phi131.sroa.phi147194, align 4, !tbaa !33
+  %43 = load i32, ptr %.0.sroa.phi131.sroa.phi147196, align 4, !tbaa !33
   %44 = getelementptr inbounds nuw i8, ptr %calloc, i64 100
   store i32 %43, ptr %44, align 4, !tbaa !55
-  %45 = load i32, ptr %.0.sroa.phi131.sroa.phi150196, align 8, !tbaa !34
+  %45 = load i32, ptr %.0.sroa.phi131.sroa.phi150198, align 8, !tbaa !34
   %46 = getelementptr inbounds nuw i8, ptr %calloc, i64 104
   store i32 %45, ptr %46, align 8, !tbaa !56
-  %47 = load i32, ptr %.0.sroa.phi131.sroa.phi153198, align 4, !tbaa !35
+  %47 = load i32, ptr %.0.sroa.phi131.sroa.phi153200, align 4, !tbaa !35
   %48 = getelementptr inbounds nuw i8, ptr %calloc, i64 108
   store i32 %47, ptr %48, align 4, !tbaa !57
-  %49 = load i32, ptr %.0.sroa.phi131.sroa.phi156200, align 8, !tbaa !58
+  %49 = load i32, ptr %.0.sroa.phi131.sroa.phi156202, align 8, !tbaa !58
   %50 = getelementptr inbounds nuw i8, ptr %calloc, i64 112
   store i32 %49, ptr %50, align 8, !tbaa !59
-  %51 = load i32, ptr %.0.sroa.phi131.sroa.phi159202, align 4, !tbaa !60
+  %51 = load i32, ptr %.0.sroa.phi131.sroa.phi159204, align 4, !tbaa !60
   %52 = getelementptr inbounds nuw i8, ptr %calloc, i64 116
   store i32 %51, ptr %52, align 4, !tbaa !61
-  %53 = load i64, ptr %.0.sroa.phi131.sroa.phi162204, align 8, !tbaa !62
+  %53 = load i64, ptr %.0.sroa.phi131.sroa.phi162206, align 8, !tbaa !62
   %54 = getelementptr inbounds nuw i8, ptr %calloc, i64 120
   store i64 %53, ptr %54, align 8, !tbaa !63
   %55 = tail call ptr @Fraig_MemFixedStart(i32 noundef 160) #12
@@ -1024,8 +1024,8 @@ Fraig_UtilInfoAlloc.exit:                         ; preds = %20, %1
   %indvars.iv61 = phi i64 [ 0, %..preheader_crit_edge.us.us ], [ %indvars.iv.next62, %40 ]
   %41 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv61
   %42 = load i32, ptr %41, align 4, !tbaa !119
-  %gep72 = getelementptr inbounds nuw i32, ptr %invariant.gep71, i64 %indvars.iv61
-  store i32 %42, ptr %gep72, align 4, !tbaa !119
+  %gep73 = getelementptr inbounds nuw i32, ptr %invariant.gep72, i64 %indvars.iv61
+  store i32 %42, ptr %gep73, align 4, !tbaa !119
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
   br i1 %exitcond65.not, label %._crit_edge.us.us, label %40, !llvm.loop !120
@@ -1043,7 +1043,7 @@ Fraig_UtilInfoAlloc.exit:                         ; preds = %20, %1
 ..preheader_crit_edge.us.us:                      ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %35, i64 112
   %48 = load ptr, ptr %47, align 8, !tbaa !122
-  %invariant.gep71 = getelementptr inbounds nuw i32, ptr %37, i64 %33
+  %invariant.gep72 = getelementptr inbounds nuw i32, ptr %37, i64 %33
   br label %40
 
 ._crit_edge.us.us:                                ; preds = %40

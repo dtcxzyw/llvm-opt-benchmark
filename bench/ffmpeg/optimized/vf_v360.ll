@@ -2175,16 +2175,16 @@ set_dimensions.exit493:                           ; preds = %set_dimensions.exit
   %694 = load i8, ptr %92, align 1, !tbaa !93
   %695 = or i8 %694, %693
   %or.cond = icmp ne i8 %695, 0
-  %spec.select580 = select i1 %or.cond, i32 2, i32 1
-  %spec.select581 = zext i1 %or.cond to i32
+  %spec.select592 = select i1 %or.cond, i32 2, i32 1
+  %spec.select593 = zext i1 %or.cond to i32
   %696 = getelementptr inbounds nuw i8, ptr %8, i64 540
-  store i32 %spec.select580, ptr %696, align 4, !tbaa !52
+  store i32 %spec.select592, ptr %696, align 4, !tbaa !52
   %697 = getelementptr inbounds nuw i8, ptr %8, i64 580
   store i32 0, ptr %697, align 4, !tbaa !90
   %698 = getelementptr inbounds nuw i8, ptr %8, i64 576
-  store i32 %spec.select581, ptr %698, align 8, !tbaa !90
+  store i32 %spec.select593, ptr %698, align 8, !tbaa !90
   %699 = getelementptr inbounds nuw i8, ptr %8, i64 572
-  store i32 %spec.select581, ptr %699, align 4, !tbaa !90
+  store i32 %spec.select593, ptr %699, align 4, !tbaa !90
   %700 = getelementptr inbounds nuw i8, ptr %8, i64 568
   store i32 0, ptr %700, align 8, !tbaa !90
   %701 = getelementptr inbounds nuw i8, ptr %8, i64 560
@@ -2218,7 +2218,7 @@ set_dimensions.exit493:                           ; preds = %set_dimensions.exit
   br i1 %.not478552, label %.lr.ph, label %.thread543
 
 .lr.ph:                                           ; preds = %683, %.critedge548.preheader
-  %714 = phi i32 [ %.pre, %.critedge548.preheader ], [ %spec.select580, %683 ]
+  %714 = phi i32 [ %.pre, %.critedge548.preheader ], [ %spec.select592, %683 ]
   %715 = and i64 %692, 128
   %.not477 = icmp eq i64 %715, 0
   %716 = select i1 %.not477, i32 0, i32 %15
@@ -2275,14 +2275,14 @@ set_dimensions.exit493:                           ; preds = %set_dimensions.exit
   %750 = getelementptr inbounds nuw [2 x ptr], ptr %749, i64 0, i64 %indvars.iv566
   %751 = load ptr, ptr %750, align 8, !tbaa !117
   %.not65.i = icmp eq ptr %751, null
-  br i1 %.not65.i, label %755, label %.thread88.i
+  br i1 %.not65.i, label %755, label %.thread90.i
 
 .thread537:                                       ; preds = %731
   %752 = getelementptr inbounds nuw i8, ptr %734, i64 16
   %753 = getelementptr inbounds nuw [2 x ptr], ptr %752, i64 0, i64 %indvars.iv566
   %754 = load ptr, ptr %753, align 8, !tbaa !117
   %.not65.i539 = icmp eq ptr %754, null
-  br i1 %.not65.i539, label %755, label %.thread92.i
+  br i1 %.not65.i539, label %755, label %.thread94.i
 
 755:                                              ; preds = %.thread537, %744
   %756 = phi ptr [ %753, %.thread537 ], [ %750, %744 ]
@@ -2295,16 +2295,16 @@ set_dimensions.exit493:                           ; preds = %set_dimensions.exit
   %761 = icmp eq ptr %760, null
   %.not66.i = icmp eq ptr %.pre.i, null
   %brmerge.i = select i1 %.not66.i, i1 true, i1 %761
-  br i1 %brmerge.i, label %.loopexit, label %.thread92.i
+  br i1 %brmerge.i, label %.loopexit, label %.thread94.i
 
-.thread88.i:                                      ; preds = %744
+.thread90.i:                                      ; preds = %744
   %762 = icmp eq ptr %748, null
-  br i1 %762, label %.loopexit, label %.thread92.i
+  br i1 %762, label %.loopexit, label %.thread94.i
 
-.thread92.i:                                      ; preds = %.thread537, %.thread88.i, %755
+.thread94.i:                                      ; preds = %.thread537, %.thread90.i, %755
   br i1 %.not68.i, label %.thread.i, label %763
 
-763:                                              ; preds = %.thread92.i
+763:                                              ; preds = %.thread94.i
   %764 = getelementptr inbounds nuw i8, ptr %734, i64 32
   %765 = getelementptr inbounds nuw [2 x ptr], ptr %764, i64 0, i64 %indvars.iv566
   %766 = load ptr, ptr %765, align 8, !tbaa !117
@@ -2320,7 +2320,7 @@ set_dimensions.exit493:                           ; preds = %set_dimensions.exit
   %.not70.i = icmp eq ptr %771, null
   br i1 %.not70.i, label %.loopexit, label %.thread.i
 
-.thread.i:                                        ; preds = %767, %763, %.thread92.i
+.thread.i:                                        ; preds = %767, %763, %.thread94.i
   br i1 %or.cond.i, label %.critedge.i, label %772
 
 772:                                              ; preds = %.thread.i
@@ -2546,8 +2546,8 @@ allocate_plane.exit:                              ; preds = %allocate_plane.exit
   %943 = tail call i32 @ff_filter_execute(ptr noundef %3, ptr noundef nonnull @v360_slice, ptr noundef null, ptr noundef null, i32 noundef %942) #16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %775, %767, %755, %.thread88.i, %709, %623, %427, %.thread543, %.thread528, %528, %426, %237
-  %.0428 = phi i32 [ -558323010, %426 ], [ -558323010, %528 ], [ 0, %.thread543 ], [ -22, %.thread528 ], [ -22, %237 ], [ %.0451, %427 ], [ %624, %623 ], [ -12, %709 ], [ -12, %.thread88.i ], [ -12, %755 ], [ -12, %767 ], [ -12, %775 ]
+.loopexit:                                        ; preds = %775, %767, %755, %.thread90.i, %709, %623, %427, %.thread543, %.thread528, %528, %426, %237
+  %.0428 = phi i32 [ -558323010, %426 ], [ -558323010, %528 ], [ 0, %.thread543 ], [ -22, %.thread528 ], [ -22, %237 ], [ %.0451, %427 ], [ %624, %623 ], [ -12, %709 ], [ -12, %.thread90.i ], [ -12, %755 ], [ -12, %767 ], [ -12, %775 ]
   ret i32 %.0428
 }
 
@@ -9164,14 +9164,14 @@ define internal noundef i32 @barrel_to_xyz(ptr readnone captures(none) %0, i32 n
   %42 = fdiv nsz float %41, %39
   %43 = select i1 %36, i32 0, i32 %35
   %.sink = sub nsw i32 %2, %43
-  %.sink56 = select i1 %36, float 0x3FEFAE1480000000, float 0xBFEFAE1480000000
+  %.sink63 = select i1 %36, float 0x3FEFAE1480000000, float 0xBFEFAE1480000000
   %.146 = select nsz i1 %36, float -1.000000e+00, float 1.000000e+00
   %44 = sitofp i32 %35 to float
   %45 = sitofp i32 %.sink to float
   %46 = tail call nsz float @llvm.fmuladd.f32(float %45, float 2.000000e+00, float 1.000000e+00)
   %47 = fdiv nsz float %46, %44
   %48 = fadd nsz float %47, -1.000000e+00
-  %49 = fdiv nsz float %48, %.sink56
+  %49 = fdiv nsz float %48, %.sink63
   %.1.in = fadd nsz float %42, -1.000000e+00
   %.1 = fdiv nsz float %.1.in, 0x3FEFAE1480000000
   br label %50

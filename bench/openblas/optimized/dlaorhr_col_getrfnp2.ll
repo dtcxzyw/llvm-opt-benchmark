@@ -48,9 +48,9 @@ define void @dlaorhr_col_getrfnp2_(ptr noundef readonly captures(none) %0, ptr n
 
 .thread:                                          ; preds = %21, %18, %6
   %.sink = phi i32 [ -1, %6 ], [ -2, %18 ], [ -4, %21 ]
-  %.neg101 = phi i32 [ 1, %6 ], [ 2, %18 ], [ 4, %21 ]
+  %.neg103 = phi i32 [ 1, %6 ], [ 2, %18 ], [ 4, %21 ]
   store i32 %.sink, ptr %5, align 4, !tbaa !3
-  store i32 %.neg101, ptr %7, align 4, !tbaa !3
+  store i32 %.neg103, ptr %7, align 4, !tbaa !3
   %24 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %7, i32 noundef 20) #4
   br label %.loopexit
 

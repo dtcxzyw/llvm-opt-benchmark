@@ -338,14 +338,14 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   %46 = load ptr, ptr %45, align 8
   %47 = call i32 %46(ptr noundef nonnull %24, ptr noundef nonnull %4) #9
   %48 = icmp eq i32 %47, 0
-  br i1 %48, label %.lr.ph68._crit_edge, label %.lr.ph90.preheader
+  br i1 %48, label %.lr.ph68._crit_edge, label %.lr.ph93.preheader
 
-.lr.ph90.preheader:                               ; preds = %.lr.ph68.preheader
+.lr.ph93.preheader:                               ; preds = %.lr.ph68.preheader
   %49 = tail call ptr @__errno_location() #10
-  br label %.lr.ph90
+  br label %.lr.ph93
 
 .lr.ph68:                                         ; preds = %90
-  %50 = add i32 %.0276689, 1
+  %50 = add i32 %.0276692, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %51 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #9
@@ -358,18 +358,18 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   %57 = load ptr, ptr %56, align 8
   %58 = call i32 %57(ptr noundef nonnull %24, ptr noundef nonnull %4) #9
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %.lr.ph68._crit_edge, label %.lr.ph90, !llvm.loop !10
+  br i1 %59, label %.lr.ph68._crit_edge, label %.lr.ph93, !llvm.loop !10
 
 .lr.ph68._crit_edge:                              ; preds = %.lr.ph68, %.lr.ph68.preheader
   %.467.lcssa = phi i32 [ %.3, %.lr.ph68.preheader ], [ 10, %.lr.ph68 ]
-  %.lcssa86 = phi i64 [ %41, %.lr.ph68.preheader ], [ %52, %.lr.ph68 ]
+  %.lcssa89 = phi i64 [ %41, %.lr.ph68.preheader ], [ %52, %.lr.ph68 ]
   %.lcssa = phi i64 [ %42, %.lr.ph68.preheader ], [ %53, %.lr.ph68 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %60 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #9
   %61 = load i64, ptr %1, align 8
   %62 = load i64, ptr %22, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %reass.add = sub i64 %61, %.lcssa86
+  %reass.add = sub i64 %61, %.lcssa89
   %reass.mul = mul i64 %reass.add, 1000000000
   %63 = sub i64 %62, %.lcssa
   %64 = add i64 %63, %reass.mul
@@ -392,15 +392,15 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 432, ptr noundef nonnull @__func__.ProcessSyncRequests) #9
   br label %.thread
 
-.lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph68
-  %.0276689 = phi i32 [ %50, %.lr.ph68 ], [ 0, %.lr.ph90.preheader ]
+.lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.lr.ph68
+  %.0276692 = phi i32 [ %50, %.lr.ph68 ], [ 0, %.lr.ph93.preheader ]
   %76 = load i32, ptr %49, align 4
   %77 = icmp ne i32 %76, 2
-  %78 = icmp sgt i32 %.0276689, 0
+  %78 = icmp sgt i32 %.0276692, 0
   %or.cond = select i1 %77, i1 true, i1 %78
   br i1 %or.cond, label %79, label %85
 
-79:                                               ; preds = %.lr.ph90
+79:                                               ; preds = %.lr.ph93
   %80 = call i32 @data_sync_elevel(i32 noundef 21) #9
   %81 = call zeroext i1 @errstart(i32 noundef %80, ptr noundef null) #9
   br i1 %81, label %82, label %90
@@ -410,7 +410,7 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   %84 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %4) #9
   br label %.sink.split
 
-85:                                               ; preds = %.lr.ph90
+85:                                               ; preds = %.lr.ph93
   %86 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #9
   br i1 %86, label %87, label %90
 

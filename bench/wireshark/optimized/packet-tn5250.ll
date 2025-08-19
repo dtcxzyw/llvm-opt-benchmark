@@ -4640,8 +4640,8 @@ dissect_erase_to_address.exit.thread:             ; preds = %714
   br i1 %737, label %738, label %._crit_edge._crit_edge.i
 
 ._crit_edge._crit_edge.i:                         ; preds = %._crit_edge.i, %717
-  %.0.lcssa24.i = phi i32 [ %.0.lcssa.i, %._crit_edge.i ], [ %728, %717 ]
-  %.pre.i = sub i32 %.0.lcssa24.i, %728
+  %.0.lcssa25.i = phi i32 [ %.0.lcssa.i, %._crit_edge.i ], [ %728, %717 ]
+  %.pre.i = sub i32 %.0.lcssa25.i, %728
   br label %dissect_tn5250_ra_data.exit
 
 738:                                              ; preds = %._crit_edge.i
@@ -4704,8 +4704,8 @@ dissect_tn5250_ra_data.exit:                      ; preds = %._crit_edge._crit_e
   br i1 %763, label %764, label %._crit_edge._crit_edge.i94
 
 ._crit_edge._crit_edge.i94:                       ; preds = %._crit_edge.i101, %743
-  %.0.lcssa24.i95 = phi i32 [ %.0.lcssa.i102, %._crit_edge.i101 ], [ %754, %743 ]
-  %.pre.i96 = sub i32 %.0.lcssa24.i95, %754
+  %.0.lcssa25.i95 = phi i32 [ %.0.lcssa.i102, %._crit_edge.i101 ], [ %754, %743 ]
+  %.pre.i96 = sub i32 %.0.lcssa25.i95, %754
   br label %dissect_tn5250_ra_data.exit103
 
 764:                                              ; preds = %._crit_edge.i101
@@ -4993,8 +4993,8 @@ dissect_start_of_field.exit:                      ; preds = %870, %874
   br i1 %888, label %889, label %._crit_edge._crit_edge.i110
 
 ._crit_edge._crit_edge.i110:                      ; preds = %._crit_edge.i117, %dissect_start_of_field.exit
-  %.0.lcssa24.i111 = phi i32 [ %.0.lcssa.i118, %._crit_edge.i117 ], [ %879, %dissect_start_of_field.exit ]
-  %.pre.i112 = sub i32 %.0.lcssa24.i111, %879
+  %.0.lcssa25.i111 = phi i32 [ %.0.lcssa.i118, %._crit_edge.i117 ], [ %879, %dissect_start_of_field.exit ]
+  %.pre.i112 = sub i32 %.0.lcssa25.i111, %879
   br label %dissect_tn5250_ra_data.exit119
 
 889:                                              ; preds = %._crit_edge.i117
@@ -5697,10 +5697,10 @@ dissect_create_window.exit.i:                     ; preds = %941, %.thread.i.i, 
 
 .sink.split.i.i:                                  ; preds = %979, %970
   %hf_tn5250_wdsf_ds_ct_numeric_twobyte.sink.i.i = phi ptr [ @hf_tn5250_wdsf_ds_ct_numeric_onebyte, %970 ], [ @hf_tn5250_wdsf_ds_ct_numeric_twobyte, %979 ]
-  %.sink72.i.i = phi i32 [ 1, %970 ], [ 2, %979 ]
+  %.sink73.i.i = phi i32 [ 1, %970 ], [ 2, %979 ]
   %981 = load i32, ptr %hf_tn5250_wdsf_ds_ct_numeric_twobyte.sink.i.i, align 4
-  %982 = tail call ptr @proto_tree_add_item(ptr noundef %899, i32 noundef %981, ptr noundef %1, i32 noundef %977, i32 noundef %.sink72.i.i, i32 noundef 0)
-  %983 = add i32 %.sink72.i.i, %977
+  %982 = tail call ptr @proto_tree_add_item(ptr noundef %899, i32 noundef %981, ptr noundef %1, i32 noundef %977, i32 noundef %.sink73.i.i, i32 noundef 0)
+  %983 = add i32 %.sink73.i.i, %977
   br label %984
 
 984:                                              ; preds = %.sink.split.i.i, %979
@@ -7145,7 +7145,7 @@ tn5250_add_hf_items.exit.us:                      ; preds = %.lr.ph227, %tn5250_
 
 .lr.ph.i:                                         ; preds = %.lr.ph227, %.lr.ph.i.backedge
   %322 = phi ptr [ %.be, %.lr.ph.i.backedge ], [ %321, %.lr.ph227 ]
-  %323 = phi ptr [ %.be296, %.lr.ph.i.backedge ], [ %8, %.lr.ph227 ]
+  %323 = phi ptr [ %.be312, %.lr.ph.i.backedge ], [ %8, %.lr.ph227 ]
   %.041.i = phi i32 [ %.041.i.be, %.lr.ph.i.backedge ], [ 0, %.lr.ph227 ]
   %.03440.i = phi i32 [ %349, %.lr.ph.i.backedge ], [ %317, %.lr.ph227 ]
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 16
@@ -7196,7 +7196,7 @@ tn5250_add_hf_items.exit.us:                      ; preds = %.lr.ph227, %tn5250_
 
 .lr.ph.i.backedge:                                ; preds = %348, %tn5250_add_hf_items.exit.loopexit
   %.be = phi ptr [ %353, %348 ], [ %321, %tn5250_add_hf_items.exit.loopexit ]
-  %.be296 = phi ptr [ %352, %348 ], [ %8, %tn5250_add_hf_items.exit.loopexit ]
+  %.be312 = phi ptr [ %352, %348 ], [ %8, %tn5250_add_hf_items.exit.loopexit ]
   %.041.i.be = phi i32 [ %350, %348 ], [ 0, %tn5250_add_hf_items.exit.loopexit ]
   br label %.lr.ph.i, !llvm.loop !24
 
@@ -7328,13 +7328,13 @@ dissect_unknown_data.exit.thread:                 ; preds = %427, %420, %.lr.ph2
   br i1 %431, label %.lr.ph241, label %._crit_edge.loopexit, !llvm.loop !28
 
 ._crit_edge.loopexit:                             ; preds = %dissect_unknown_data.exit.thread, %dissect_unknown_data.exit.thread.thread
-  %.1258 = phi i32 [ %254, %dissect_unknown_data.exit.thread.thread ], [ %.1, %dissect_unknown_data.exit.thread ]
+  %.1274 = phi i32 [ %254, %dissect_unknown_data.exit.thread.thread ], [ %.1, %dissect_unknown_data.exit.thread ]
   %432 = zext i16 %250 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
   %.0191.lcssa = phi i32 [ 0, %3 ], [ %432, %._crit_edge.loopexit ]
-  %.0188.lcssa = phi i32 [ %2, %3 ], [ %.1258, %._crit_edge.loopexit ]
+  %.0188.lcssa = phi i32 [ %2, %3 ], [ %.1274, %._crit_edge.loopexit ]
   %.neg.i199 = sub i32 %2, %.0188.lcssa
   %433 = add i32 %.neg.i199, %.0191.lcssa
   %434 = icmp sgt i32 %433, 0

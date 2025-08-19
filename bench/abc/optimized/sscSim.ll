@@ -1543,14 +1543,14 @@ Ssc_SimFindBit.exit:                              ; preds = %.lr.ph.split.i, %Ss
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %109, %111, %101, %103
-  %.sink54 = phi ptr [ %102, %101 ], [ %104, %103 ], [ %110, %109 ], [ %112, %111 ]
+  %.sink62 = phi ptr [ %102, %101 ], [ %104, %103 ], [ %110, %109 ], [ %112, %111 ]
   %.sink = phi i32 [ 16, %101 ], [ 16, %103 ], [ %106, %109 ], [ %106, %111 ]
-  store ptr %.sink54, ptr %68, align 8, !tbaa !40
+  store ptr %.sink62, ptr %68, align 8, !tbaa !40
   store i32 %.sink, ptr %65, align 8, !tbaa !63
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %78
-  %.pre.i50 = phi ptr [ %76, %78 ], [ %.sink54, %Vec_IntPush.exit.sink.split ]
+  %.pre.i50 = phi ptr [ %76, %78 ], [ %.sink62, %Vec_IntPush.exit.sink.split ]
   %113 = add nsw i32 %95, 1
   store i32 %113, ptr %66, align 4, !tbaa !37
   %114 = sext i32 %95 to i64

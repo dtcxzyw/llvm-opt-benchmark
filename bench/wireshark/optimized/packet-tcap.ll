@@ -907,16 +907,16 @@ proto_item_set_generated.exit.i:                  ; preds = %161, %158, %154
   br label %.loopexit.sink.split.i
 
 .loopexit.sink.split.i:                           ; preds = %173, %append_tcaphash_begincall.exit89.i, %append_tcaphash_begincall.exit.i
-  %.sink160.in = phi ptr [ %194, %173 ], [ %133, %append_tcaphash_begincall.exit89.i ], [ %99, %append_tcaphash_begincall.exit.i ]
+  %.sink232.in = phi ptr [ %194, %173 ], [ %133, %append_tcaphash_begincall.exit89.i ], [ %99, %append_tcaphash_begincall.exit.i ]
   %.073.ph.i = phi ptr [ %179, %173 ], [ %125, %append_tcaphash_begincall.exit89.i ], [ %91, %append_tcaphash_begincall.exit.i ]
-  %.sink182 = load ptr, ptr %.sink160.in, align 8
-  %203 = getelementptr inbounds nuw i8, ptr %.sink182, i64 16
+  %.sink254 = load ptr, ptr %.sink232.in, align 8
+  %203 = getelementptr inbounds nuw i8, ptr %.sink254, i64 16
   store i32 0, ptr %203, align 8
-  %.sink160 = load ptr, ptr %.sink160.in, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %.sink160, i64 56
+  %.sink232 = load ptr, ptr %.sink232.in, align 8
+  %204 = getelementptr inbounds nuw i8, ptr %.sink232, i64 56
   store i8 0, ptr %204, align 8
-  %.sink38.i = load ptr, ptr %.sink160.in, align 8
-  %205 = getelementptr inbounds nuw i8, ptr %.sink38.i, i64 24
+  %.sink55.i = load ptr, ptr %.sink232.in, align 8
+  %205 = getelementptr inbounds nuw i8, ptr %.sink55.i, i64 24
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %205, ptr noundef nonnull readonly align 8 dereferenceable(16) %206, i64 16, i1 false)
   br label %.loopexit.i
@@ -996,9 +996,9 @@ proto_item_set_generated.exit98.i:                ; preds = %231, %228, %proto_i
   br i1 %.not5.i100.i, label %tcaphash_begin_matching.exit, label %proto_item_set_generated.exit92.sink.split.i
 
 proto_item_set_generated.exit92.sink.split.i:     ; preds = %240, %170
-  %.sink43.i = phi ptr [ %172, %170 ], [ %242, %240 ]
+  %.sink60.i = phi ptr [ %172, %170 ], [ %242, %240 ]
   %.074.ph.i = phi ptr [ %49, %170 ], [ %.073.i, %240 ]
-  %243 = getelementptr inbounds nuw i8, ptr %.sink43.i, i64 28
+  %243 = getelementptr inbounds nuw i8, ptr %.sink60.i, i64 28
   %244 = load i32, ptr %243, align 4
   %245 = or i32 %244, 2
   store i32 %245, ptr %243, align 4
@@ -1129,9 +1129,9 @@ tcaphash_begin_matching.exit:                     ; preds = %150, %proto_item_se
   br label %316
 
 316:                                              ; preds = %310, %306
-  %.sink145.i = phi i32 [ %315, %310 ], [ %309, %306 ]
+  %.sink168.i = phi i32 [ %315, %310 ], [ %309, %306 ]
   %317 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %.sink145.i, ptr %317, align 4
+  store i32 %.sink168.i, ptr %317, align 4
   %318 = load i32, ptr %298, align 4
   store i32 %318, ptr %9, align 4
   %319 = load ptr, ptr @tcaphash_begin, align 8
@@ -1195,8 +1195,8 @@ find_tcaphash_begin.exit.i:                       ; preds = %330, %316, %475
   br label %351
 
 351:                                              ; preds = %346, %342
-  %.sink147.i = phi i32 [ %350, %346 ], [ %345, %342 ]
-  store i32 %.sink147.i, ptr %317, align 4
+  %.sink170.i = phi i32 [ %350, %346 ], [ %345, %342 ]
+  store i32 %.sink170.i, ptr %317, align 4
   %352 = load i32, ptr %298, align 4
   store i32 %352, ptr %9, align 4
   %353 = load ptr, ptr @tcaphash_begin, align 8
@@ -1355,9 +1355,9 @@ create_tcaphash_cont.exit.i:                      ; preds = %389, %379
   br label %439
 
 439:                                              ; preds = %427, %419
-  %.sink149.i = phi i32 [ %438, %427 ], [ %426, %419 ]
+  %.sink172.i = phi i32 [ %438, %427 ], [ %426, %419 ]
   %440 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 %.sink149.i, ptr %440, align 4
+  store i32 %.sink172.i, ptr %440, align 4
   store i32 %410, ptr %10, align 4
   %441 = load ptr, ptr %369, align 8
   %442 = load ptr, ptr @tcaphash_end, align 8
@@ -1559,8 +1559,8 @@ tcaphash_cont_matching.exit:                      ; preds = %364, %351, %475, %c
   %543 = load ptr, ptr %542, align 8
   %544 = getelementptr inbounds nuw i8, ptr %543, i64 12
   %545 = load i32, ptr %544, align 4
-  %.not66.i.not.not = icmp ne i32 %540, %545
-  br i1 %.not66.i.not.not, label %546, label %proto_item_set_generated.exit157.i
+  %.not102.i.not.not = icmp ne i32 %540, %545
+  br i1 %.not102.i.not.not, label %546, label %proto_item_set_generated.exit157.i
 
 546:                                              ; preds = %541
   %547 = getelementptr inbounds nuw i8, ptr %543, i64 16
@@ -2009,7 +2009,7 @@ proto_item_set_generated.exit170.i:               ; preds = %759, %756, %proto_i
 proto_item_set_generated.exit157.i:               ; preds = %546, %541, %764, %proto_item_set_generated.exit170.i, %append_tcaphash_ansicall.exit158.i, %append_tcaphash_ansicall.exit.i, %604, %601, %proto_item_set_generated.exit154.i, %553
   %.0131.i = phi ptr [ %560, %553 ], [ %643, %append_tcaphash_ansicall.exit.i ], [ %684, %append_tcaphash_ansicall.exit158.i ], [ %763, %proto_item_set_generated.exit170.i ], [ %770, %764 ], [ %560, %proto_item_set_generated.exit154.i ], [ %560, %601 ], [ %560, %604 ], [ %543, %541 ], [ %543, %546 ]
   %.1130.i = phi ptr [ %.0129.i, %553 ], [ %650, %append_tcaphash_ansicall.exit.i ], [ %691, %append_tcaphash_ansicall.exit158.i ], [ %.0129.i, %proto_item_set_generated.exit170.i ], [ %787, %764 ], [ %.0129.i, %proto_item_set_generated.exit154.i ], [ %.0129.i, %601 ], [ %.0129.i, %604 ], [ %.0129.i, %541 ], [ %.0129.i, %546 ]
-  %.0128.i = phi i1 [ true, %553 ], [ false, %append_tcaphash_ansicall.exit.i ], [ false, %append_tcaphash_ansicall.exit158.i ], [ false, %proto_item_set_generated.exit170.i ], [ false, %764 ], [ true, %proto_item_set_generated.exit154.i ], [ true, %601 ], [ true, %604 ], [ %.not66.i.not.not, %541 ], [ %.not66.i.not.not, %546 ]
+  %.0128.i = phi i1 [ true, %553 ], [ false, %append_tcaphash_ansicall.exit.i ], [ false, %append_tcaphash_ansicall.exit158.i ], [ false, %proto_item_set_generated.exit170.i ], [ false, %764 ], [ true, %proto_item_set_generated.exit154.i ], [ true, %601 ], [ true, %604 ], [ %.not102.i.not.not, %541 ], [ %.not102.i.not.not, %546 ]
   %.1.i = phi ptr [ null, %553 ], [ null, %append_tcaphash_ansicall.exit.i ], [ null, %append_tcaphash_ansicall.exit158.i ], [ %.0.i42, %proto_item_set_generated.exit170.i ], [ null, %764 ], [ %566, %proto_item_set_generated.exit154.i ], [ %566, %601 ], [ %566, %604 ], [ null, %541 ], [ null, %546 ]
   %804 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !6, !noundef !7
   %805 = trunc nuw i8 %804 to i1
@@ -2133,8 +2133,8 @@ proto_item_set_generated.exit182.i:               ; preds = %855, %852, %847
   br i1 %.not5.i184.i, label %tcaphash_ansi_matching.exit, label %proto_item_set_generated.exit179.sink.split.i
 
 proto_item_set_generated.exit179.sink.split.i:    ; preds = %863, %844
-  %.sink65.i = phi ptr [ %846, %844 ], [ %865, %863 ]
-  %866 = getelementptr inbounds nuw i8, ptr %.sink65.i, i64 28
+  %.sink101.i = phi ptr [ %846, %844 ], [ %865, %863 ]
+  %866 = getelementptr inbounds nuw i8, ptr %.sink101.i, i64 28
   %867 = load i32, ptr %866, align 4
   %868 = or i32 %867, 2
   store i32 %868, ptr %866, align 4
@@ -2270,9 +2270,9 @@ define internal fastcc ptr @tcaphash_end_matching(ptr noundef %0, ptr noundef no
   br label %75
 
 75:                                               ; preds = %69, %65
-  %.sink94 = phi i32 [ %74, %69 ], [ %68, %65 ]
+  %.sink113 = phi i32 [ %74, %69 ], [ %68, %65 ]
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %.sink94, ptr %76, align 4
+  store i32 %.sink113, ptr %76, align 4
   store i32 %56, ptr %6, align 4
   %77 = load ptr, ptr @tcaphash_begin, align 8
   %78 = call ptr @wmem_map_lookup(ptr noundef %77, ptr noundef nonnull %6)
@@ -2489,9 +2489,9 @@ define hidden void @tcapsrt_close(ptr noundef captures(address_is_null) %0, ptr 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %16, %22
-  %.sink72 = phi ptr [ %30, %22 ], [ %12, %16 ]
+  %.sink84 = phi ptr [ %30, %22 ], [ %12, %16 ]
   %.sink = load ptr, ptr @tcaphash_end, align 8
-  %31 = load ptr, ptr %.sink72, align 8
+  %31 = load ptr, ptr %.sink84, align 8
   %32 = tail call ptr @wmem_map_remove(ptr noundef %.sink, ptr noundef %31)
   br label %33
 
@@ -2508,7 +2508,7 @@ define hidden void @tcapsrt_close(ptr noundef captures(address_is_null) %0, ptr 
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %41 = load ptr, ptr %40, align 8
   %.not65 = icmp eq ptr %41, null
-  br i1 %.not65, label %.sink.split73, label %42
+  br i1 %.not65, label %.sink.split85, label %42
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 32
@@ -2527,16 +2527,16 @@ define hidden void @tcapsrt_close(ptr noundef captures(address_is_null) %0, ptr 
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store ptr %49, ptr %52, align 8
   %53 = load ptr, ptr %34, align 8
-  br label %.sink.split73
+  br label %.sink.split85
 
-.sink.split73:                                    ; preds = %39, %45
-  %.sink76 = phi ptr [ %53, %45 ], [ %35, %39 ]
-  %.sink74 = load ptr, ptr @tcaphash_cont, align 8
-  %54 = load ptr, ptr %.sink76, align 8
-  %55 = tail call ptr @wmem_map_remove(ptr noundef %.sink74, ptr noundef %54)
+.sink.split85:                                    ; preds = %39, %45
+  %.sink88 = phi ptr [ %53, %45 ], [ %35, %39 ]
+  %.sink86 = load ptr, ptr @tcaphash_cont, align 8
+  %54 = load ptr, ptr %.sink88, align 8
+  %55 = tail call ptr @wmem_map_remove(ptr noundef %.sink86, ptr noundef %54)
   br label %56
 
-56:                                               ; preds = %.sink.split73, %42, %33
+56:                                               ; preds = %.sink.split85, %42, %33
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
@@ -2549,7 +2549,7 @@ define hidden void @tcapsrt_close(ptr noundef captures(address_is_null) %0, ptr 
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %64 = load ptr, ptr %63, align 8
   %.not67 = icmp eq ptr %64, null
-  br i1 %.not67, label %.sink.split77, label %65
+  br i1 %.not67, label %.sink.split89, label %65
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %58, i64 32
@@ -2568,16 +2568,16 @@ define hidden void @tcapsrt_close(ptr noundef captures(address_is_null) %0, ptr 
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
   store ptr %72, ptr %75, align 8
   %76 = load ptr, ptr %57, align 8
-  br label %.sink.split77
+  br label %.sink.split89
 
-.sink.split77:                                    ; preds = %62, %68
-  %.sink80 = phi ptr [ %76, %68 ], [ %58, %62 ]
-  %.sink78 = load ptr, ptr @tcaphash_begin, align 8
-  %77 = load ptr, ptr %.sink80, align 8
-  %78 = tail call ptr @wmem_map_remove(ptr noundef %.sink78, ptr noundef %77)
+.sink.split89:                                    ; preds = %62, %68
+  %.sink92 = phi ptr [ %76, %68 ], [ %58, %62 ]
+  %.sink90 = load ptr, ptr @tcaphash_begin, align 8
+  %77 = load ptr, ptr %.sink92, align 8
+  %78 = tail call ptr @wmem_map_remove(ptr noundef %.sink90, ptr noundef %77)
   br label %79
 
-79:                                               ; preds = %.sink.split77, %65, %56
+79:                                               ; preds = %.sink.split89, %65, %56
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
@@ -2590,7 +2590,7 @@ define hidden void @tcapsrt_close(ptr noundef captures(address_is_null) %0, ptr 
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %87 = load ptr, ptr %86, align 8
   %.not69 = icmp eq ptr %87, null
-  br i1 %.not69, label %.sink.split81, label %88
+  br i1 %.not69, label %.sink.split93, label %88
 
 88:                                               ; preds = %85
   %89 = getelementptr inbounds nuw i8, ptr %81, i64 32
@@ -2609,16 +2609,16 @@ define hidden void @tcapsrt_close(ptr noundef captures(address_is_null) %0, ptr 
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 32
   store ptr %95, ptr %98, align 8
   %99 = load ptr, ptr %80, align 8
-  br label %.sink.split81
+  br label %.sink.split93
 
-.sink.split81:                                    ; preds = %85, %91
-  %.sink84 = phi ptr [ %99, %91 ], [ %81, %85 ]
-  %.sink82 = load ptr, ptr @tcaphash_ansi, align 8
-  %100 = load ptr, ptr %.sink84, align 8
-  %101 = tail call ptr @wmem_map_remove(ptr noundef %.sink82, ptr noundef %100)
+.sink.split93:                                    ; preds = %85, %91
+  %.sink96 = phi ptr [ %99, %91 ], [ %81, %85 ]
+  %.sink94 = load ptr, ptr @tcaphash_ansi, align 8
+  %100 = load ptr, ptr %.sink96, align 8
+  %101 = tail call ptr @wmem_map_remove(ptr noundef %.sink94, ptr noundef %100)
   br label %102
 
-102:                                              ; preds = %.sink.split81, %88, %79
+102:                                              ; preds = %.sink.split93, %88, %79
   %103 = load i8, ptr @gtcap_PersistentSRT, align 1, !range !6, !noundef !7
   %104 = trunc nuw i8 %103 to i1
   br i1 %104, label %109, label %105
@@ -3855,8 +3855,8 @@ define internal i32 @dissect_tcap_Component(i1 zeroext %0, ptr noundef %1, i32 n
 
 79:                                               ; preds = %73, %26
   %80 = load ptr, ptr @requested_subdissector_handle, align 8
-  %.not87.i = icmp eq ptr %80, null
-  br i1 %.not87.i, label %81, label %dissect_tcap_ITU_ComponentPDU.exit
+  %.not94.i = icmp eq ptr %80, null
+  br i1 %.not94.i, label %81, label %dissect_tcap_ITU_ComponentPDU.exit
 
 81:                                               ; preds = %79
   %82 = load ptr, ptr @ber_oid_dissector_table, align 8

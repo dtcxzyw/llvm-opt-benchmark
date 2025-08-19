@@ -147,13 +147,13 @@ define internal noalias noundef ptr @cpparser(ptr noundef %0, ptr readnone captu
 
 44:                                               ; preds = %34, %39
   %.sink = phi ptr [ %43, %39 ], [ %35, %34 ]
-  %.sink40 = phi i64 [ -1266637395197952, %39 ], [ -1125899906842624, %34 ]
+  %.sink42 = phi i64 [ -1266637395197952, %39 ], [ -1125899906842624, %34 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %46 = load ptr, ptr %45, align 8, !tbaa !44
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %47, ptr %45, align 8, !tbaa !44
   %48 = ptrtoint ptr %.sink to i64
-  %49 = or i64 %.sink40, %48
+  %49 = or i64 %.sink42, %48
   store i64 %49, ptr %46, align 8, !tbaa !40
   ret ptr null
 }

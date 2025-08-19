@@ -1337,16 +1337,16 @@ _ZN19JfrCheckpointWriter12session_dataEPmbPK20JfrCheckpointContext.exit.thread11
   br i1 %32, label %_ZN19JfrCheckpointWriter12session_dataEPmbPK20JfrCheckpointContext.exit.thread, label %.thread
 
 .thread:                                          ; preds = %15, %25
-  %.pre.i18 = phi ptr [ %.pre.i.pre, %25 ], [ %18, %15 ]
+  %.pre.i19 = phi ptr [ %.pre.i.pre, %25 ], [ %18, %15 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %.pre.i18, i64 %34
+  %35 = getelementptr inbounds i8, ptr %.pre.i19, i64 %34
   store ptr %35, ptr %16, align 8
   br label %_ZN19JfrCheckpointWriter12session_dataEPmbPK20JfrCheckpointContext.exit.thread
 
 _ZN19JfrCheckpointWriter12session_dataEPmbPK20JfrCheckpointContext.exit.thread: ; preds = %25, %.thread
-  %.pre.i19 = phi ptr [ %.pre.i.pre, %25 ], [ %.pre.i18, %.thread ]
-  tail call void @_ZN7JfrBlob4makeEPKhm(ptr dead_on_unwind writable sret(%class.RefCountHandle) align 8 %0, ptr noundef %.pre.i19, i64 noundef %21) #9
+  %.pre.i20 = phi ptr [ %.pre.i.pre, %25 ], [ %.pre.i19, %.thread ]
+  tail call void @_ZN7JfrBlob4makeEPKhm(ptr dead_on_unwind writable sret(%class.RefCountHandle) align 8 %0, ptr noundef %.pre.i20, i64 noundef %21) #9
   br label %44
 
 _ZN19JfrCheckpointWriter12session_dataEPmbPK20JfrCheckpointContext.exit: ; preds = %3

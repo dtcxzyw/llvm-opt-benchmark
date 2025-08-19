@@ -5741,8 +5741,8 @@ _ZN7rocksdb6StatusD2Ev.exit82.i:                  ; preds = %_ZNKSt14default_del
 
 131:                                              ; preds = %122
   %132 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.not122.i = icmp eq ptr %123, %124
-  br i1 %.not122.i, label %._crit_edge.i, label %_ZNSt12_Vector_baseISt4pairIPN7rocksdb18ColumnFamilyHandleESt10unique_ptrINS1_8IteratorESt14default_deleteIS5_EEESaIS9_EE11_M_allocateEm.exit.i.i
+  %.not150.i = icmp eq ptr %123, %124
+  br i1 %.not150.i, label %._crit_edge.i, label %_ZNSt12_Vector_baseISt4pairIPN7rocksdb18ColumnFamilyHandleESt10unique_ptrINS1_8IteratorESt14default_deleteIS5_EEESaIS9_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseISt4pairIPN7rocksdb18ColumnFamilyHandleESt10unique_ptrINS1_8IteratorESt14default_deleteIS5_EEESaIS9_EE11_M_allocateEm.exit.i.i: ; preds = %131
   %133 = shl nuw nsw i64 %127, 1
@@ -6386,8 +6386,8 @@ _ZN7rocksdb6StatusD2Ev.exit85.i:                  ; preds = %_ZNKSt14default_del
 
 137:                                              ; preds = %128
   %138 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.not131.i = icmp eq ptr %129, %130
-  br i1 %.not131.i, label %._crit_edge.i, label %_ZNSt12_Vector_baseISt4pairIPN7rocksdb18ColumnFamilyHandleESt10unique_ptrINS1_8IteratorESt14default_deleteIS5_EEESaIS9_EE11_M_allocateEm.exit.i.i
+  %.not159.i = icmp eq ptr %129, %130
+  br i1 %.not159.i, label %._crit_edge.i, label %_ZNSt12_Vector_baseISt4pairIPN7rocksdb18ColumnFamilyHandleESt10unique_ptrINS1_8IteratorESt14default_deleteIS5_EEESaIS9_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseISt4pairIPN7rocksdb18ColumnFamilyHandleESt10unique_ptrINS1_8IteratorESt14default_deleteIS5_EEESaIS9_EE11_M_allocateEm.exit.i.i: ; preds = %137
   %139 = shl nuw nsw i64 %133, 1
@@ -8546,7 +8546,7 @@ define void @_ZN7rocksdb19TransactionBaseImpl16UndoGetForUpdateEPNS_18ColumnFami
 14:                                               ; preds = %13
   %15 = load ptr, ptr %6, align 8, !tbaa !11
   %16 = icmp eq ptr %15, %7
-  br i1 %16, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %16, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %14
   %17 = load i64, ptr %8, align 8, !tbaa !16
@@ -8557,14 +8557,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %21 = icmp eq ptr %19, %20
   br i1 %21, label %25, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %14
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %14
   %22 = load ptr, ptr %5, align 8, !tbaa !11
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = icmp eq ptr %22, %23
   br i1 %24, label %25, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-25:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %26 = phi ptr [ %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+25:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %26 = phi ptr [ %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !16
   %29 = icmp ult i64 %28, 16
@@ -8601,7 +8601,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %38, ptr %7, align 8, !tbaa !17
   br label %44
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %39 = load i64, ptr %7, align 8, !tbaa !17
   store ptr %22, ptr %6, align 8, !tbaa !11
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -12208,13 +12208,13 @@ _ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.
   br i1 %.not.i.i.i1.i.i.i.i.i.i.i11.i.i.i, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS3_19MultiCfIteratorInfoENS3_19MultiCfIteratorImplINS3_18CoalescingIterator9ResetFuncENS7_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS4_IS5_NSB_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_JRSt7variantIJSF_SJ_EEEEDcOT0_DpOT1_.exit.i.i, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_18CoalescingIterator9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_18CoalescingIterator9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i: ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i
-  %.sink15.i.i.i = phi ptr [ %9, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i ], [ %16, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i ]
+  %.sink17.i.i.i = phi ptr [ %9, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i ], [ %16, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %21 = load ptr, ptr %20, align 8, !tbaa !838
   %22 = ptrtoint ptr %21 to i64
-  %23 = ptrtoint ptr %.sink15.i.i.i to i64
+  %23 = ptrtoint ptr %.sink17.i.i.i to i64
   %24 = sub i64 %22, %23
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink15.i.i.i, i64 noundef %24) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink17.i.i.i, i64 noundef %24) #28
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS3_19MultiCfIteratorInfoENS3_19MultiCfIteratorImplINS3_18CoalescingIterator9ResetFuncENS7_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS4_IS5_NSB_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_JRSt7variantIJSF_SJ_EEEEDcOT0_DpOT1_.exit.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS3_19MultiCfIteratorInfoENS3_19MultiCfIteratorImplINS3_18CoalescingIterator9ResetFuncENS7_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS4_IS5_NSB_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_JRSt7variantIJSF_SJ_EEEEDcOT0_DpOT1_.exit.i.i: ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_18CoalescingIterator9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i
@@ -12749,13 +12749,13 @@ _ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.
   br i1 %.not.i.i.i1.i.i.i.i.i.i.i11.i.i.i.i.i.i.i, label %_ZZN7rocksdb19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS1_12PopulateFuncEE11SeekToFirstEvENKUlvE_clEv.exit, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_18CoalescingIterator9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_18CoalescingIterator9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i: ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sink15.i.i.i.i.i.i.i = phi ptr [ %24, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i ]
+  %.sink17.i.i.i.i.i.i.i = phi ptr [ %24, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %36 = load ptr, ptr %35, align 8, !tbaa !838
   %37 = ptrtoint ptr %36 to i64
-  %38 = ptrtoint ptr %.sink15.i.i.i.i.i.i.i to i64
+  %38 = ptrtoint ptr %.sink17.i.i.i.i.i.i.i to i64
   %39 = sub i64 %37, %38
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink15.i.i.i.i.i.i.i, i64 noundef %39) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink17.i.i.i.i.i.i.i, i64 noundef %39) #28
   br label %_ZZN7rocksdb19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS1_12PopulateFuncEE11SeekToFirstEvENKUlvE_clEv.exit
 
 _ZZN7rocksdb19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS1_12PopulateFuncEE11SeekToFirstEvENKUlvE_clEv.exit: ; preds = %14, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_18CoalescingIterator9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i
@@ -13566,13 +13566,13 @@ _ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE8pop_backEv.exit.i63: ; pr
   %236 = sdiv exact i64 %235, 24
   %237 = sub i64 0, %232
   %238 = icmp eq i64 %236, %237
-  br i1 %238, label %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68.thread164, label %239
+  br i1 %238, label %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68.thread196, label %239
 
 239:                                              ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE8pop_backEv.exit.i63
   invoke void @_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE8downheapEm(ptr noundef nonnull align 8 dereferenceable(248) %1, i64 noundef 0)
           to label %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68 unwind label %.loopexit
 
-_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68.thread164: ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE8pop_backEv.exit.i63
+_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68.thread196: ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE8pop_backEv.exit.i63
   store i64 -1, ptr %100, align 8, !tbaa !680
   br label %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68.thread123
 
@@ -13588,7 +13588,7 @@ _ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18C
   %240 = icmp eq i64 %.pre159, %.pre161
   br i1 %240, label %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68.thread123, label %101
 
-_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68.thread123: ; preds = %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68, %123, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68.thread164, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit.thread, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit
+_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68.thread123: ; preds = %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68, %123, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68.thread196, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit.thread, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit
   %241 = load i64, ptr %5, align 8, !tbaa !679, !noalias !857
   %242 = getelementptr inbounds nuw i8, ptr %5, i64 216
   %243 = load ptr, ptr %242, align 8, !tbaa !837, !noalias !857
@@ -14331,13 +14331,13 @@ _ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.
   br i1 %.not.i.i.i1.i.i.i.i.i.i.i11.i.i.i.i.i.i.i, label %_ZZN7rocksdb19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS1_12PopulateFuncEE10SeekToLastEvENKUlvE_clEv.exit, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_18CoalescingIterator9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_18CoalescingIterator9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i: ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sink15.i.i.i.i.i.i.i = phi ptr [ %24, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i ]
+  %.sink17.i.i.i.i.i.i.i = phi ptr [ %24, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %36 = load ptr, ptr %35, align 8, !tbaa !838
   %37 = ptrtoint ptr %36 to i64
-  %38 = ptrtoint ptr %.sink15.i.i.i.i.i.i.i to i64
+  %38 = ptrtoint ptr %.sink17.i.i.i.i.i.i.i to i64
   %39 = sub i64 %37, %38
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink15.i.i.i.i.i.i.i, i64 noundef %39) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink17.i.i.i.i.i.i.i, i64 noundef %39) #28
   br label %_ZZN7rocksdb19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS1_12PopulateFuncEE10SeekToLastEvENKUlvE_clEv.exit
 
 _ZZN7rocksdb19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS1_12PopulateFuncEE10SeekToLastEvENKUlvE_clEv.exit: ; preds = %14, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_18CoalescingIterator9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i
@@ -15148,13 +15148,13 @@ _ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE8pop_backEv.exit.i63: ; pr
   %236 = sdiv exact i64 %235, 24
   %237 = sub i64 0, %232
   %238 = icmp eq i64 %236, %237
-  br i1 %238, label %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68.thread164, label %239
+  br i1 %238, label %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68.thread196, label %239
 
 239:                                              ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE8pop_backEv.exit.i63
   invoke void @_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE8downheapEm(ptr noundef nonnull align 8 dereferenceable(248) %1, i64 noundef 0)
           to label %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68 unwind label %.loopexit
 
-_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68.thread164: ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE8pop_backEv.exit.i63
+_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68.thread196: ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE8pop_backEv.exit.i63
   store i64 -1, ptr %100, align 8, !tbaa !862
   br label %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68.thread123
 
@@ -15170,7 +15170,7 @@ _ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18C
   %240 = icmp eq i64 %.pre159, %.pre161
   br i1 %240, label %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68.thread123, label %101
 
-_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68.thread123: ; preds = %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68, %123, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68.thread164, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit.thread, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit
+_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68.thread123: ; preds = %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68, %123, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68.thread196, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit.thread, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit
   %241 = load i64, ptr %5, align 8, !tbaa !679, !noalias !865
   %242 = getelementptr inbounds nuw i8, ptr %5, i64 216
   %243 = load ptr, ptr %242, align 8, !tbaa !837, !noalias !865
@@ -15734,13 +15734,13 @@ _ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.
   br i1 %.not.i.i.i1.i.i.i.i.i.i.i11.i.i.i.i.i.i.i, label %_ZZN7rocksdb19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS1_12PopulateFuncEE4SeekERKNS_5SliceEENKUlvE_clEv.exit, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_18CoalescingIterator9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_18CoalescingIterator9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i: ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sink15.i.i.i.i.i.i.i = phi ptr [ %24, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i ]
+  %.sink17.i.i.i.i.i.i.i = phi ptr [ %24, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %36 = load ptr, ptr %35, align 8, !tbaa !838
   %37 = ptrtoint ptr %36 to i64
-  %38 = ptrtoint ptr %.sink15.i.i.i.i.i.i.i to i64
+  %38 = ptrtoint ptr %.sink17.i.i.i.i.i.i.i to i64
   %39 = sub i64 %37, %38
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink15.i.i.i.i.i.i.i, i64 noundef %39) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink17.i.i.i.i.i.i.i, i64 noundef %39) #28
   br label %_ZZN7rocksdb19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS1_12PopulateFuncEE4SeekERKNS_5SliceEENKUlvE_clEv.exit
 
 _ZZN7rocksdb19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS1_12PopulateFuncEE4SeekERKNS_5SliceEENKUlvE_clEv.exit: ; preds = %14, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_18CoalescingIterator9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i
@@ -16100,13 +16100,13 @@ _ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.
   br i1 %.not.i.i.i1.i.i.i.i.i.i.i11.i.i.i.i.i.i.i, label %_ZZN7rocksdb19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS1_12PopulateFuncEE11SeekForPrevERKNS_5SliceEENKUlvE_clEv.exit, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_18CoalescingIterator9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_18CoalescingIterator9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i: ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sink15.i.i.i.i.i.i.i = phi ptr [ %24, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i ]
+  %.sink17.i.i.i.i.i.i.i = phi ptr [ %24, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %36 = load ptr, ptr %35, align 8, !tbaa !838
   %37 = ptrtoint ptr %36 to i64
-  %38 = ptrtoint ptr %.sink15.i.i.i.i.i.i.i to i64
+  %38 = ptrtoint ptr %.sink17.i.i.i.i.i.i.i to i64
   %39 = sub i64 %37, %38
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink15.i.i.i.i.i.i.i, i64 noundef %39) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink17.i.i.i.i.i.i.i, i64 noundef %39) #28
   br label %_ZZN7rocksdb19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS1_12PopulateFuncEE11SeekForPrevERKNS_5SliceEENKUlvE_clEv.exit
 
 _ZZN7rocksdb19MultiCfIteratorImplINS_18CoalescingIterator9ResetFuncENS1_12PopulateFuncEE11SeekForPrevERKNS_5SliceEENKUlvE_clEv.exit: ; preds = %14, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_18CoalescingIterator9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i
@@ -17063,13 +17063,13 @@ _ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.
   br i1 %.not.i.i.i1.i.i.i.i.i.i.i11.i.i.i.i.i.i, label %59, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_18CoalescingIterator9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_18CoalescingIterator9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i: ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sink15.i.i.i.i.i.i = phi ptr [ %43, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %50, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i ]
+  %.sink17.i.i.i.i.i.i = phi ptr [ %43, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %50, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i ]
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 304
   %55 = load ptr, ptr %54, align 8, !tbaa !838
   %56 = ptrtoint ptr %55 to i64
-  %57 = ptrtoint ptr %.sink15.i.i.i.i.i.i to i64
+  %57 = ptrtoint ptr %.sink17.i.i.i.i.i.i to i64
   %58 = sub i64 %56, %57
-  call void @_ZdlPvm(ptr noundef nonnull %.sink15.i.i.i.i.i.i, i64 noundef %58) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sink17.i.i.i.i.i.i, i64 noundef %58) #28
   br label %59
 
 59:                                               ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_18CoalescingIterator9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %29
@@ -17914,13 +17914,13 @@ _ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.
   br i1 %.not.i.i.i1.i.i.i.i.i.i.i11.i.i.i.i.i.i, label %59, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_18CoalescingIterator9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_18CoalescingIterator9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i: ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sink15.i.i.i.i.i.i = phi ptr [ %43, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %50, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i ]
+  %.sink17.i.i.i.i.i.i = phi ptr [ %43, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %50, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i ]
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 304
   %55 = load ptr, ptr %54, align 8, !tbaa !838
   %56 = ptrtoint ptr %55 to i64
-  %57 = ptrtoint ptr %.sink15.i.i.i.i.i.i to i64
+  %57 = ptrtoint ptr %.sink17.i.i.i.i.i.i to i64
   %58 = sub i64 %56, %57
-  call void @_ZdlPvm(ptr noundef nonnull %.sink15.i.i.i.i.i.i, i64 noundef %58) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sink17.i.i.i.i.i.i, i64 noundef %58) #28
   br label %59
 
 59:                                               ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_18CoalescingIterator9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %29
@@ -18560,13 +18560,13 @@ _ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.
   br i1 %.not.i.i.i1.i.i.i.i.i.i.i11.i.i.i, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS3_19MultiCfIteratorInfoENS3_19MultiCfIteratorImplINS3_26AttributeGroupIteratorImpl9ResetFuncENS7_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS4_IS5_NSB_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_JRSt7variantIJSF_SJ_EEEEDcOT0_DpOT1_.exit.i.i, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_26AttributeGroupIteratorImpl9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_26AttributeGroupIteratorImpl9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i: ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i
-  %.sink15.i.i.i = phi ptr [ %9, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i ], [ %16, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i ]
+  %.sink17.i.i.i = phi ptr [ %9, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i ], [ %16, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %21 = load ptr, ptr %20, align 8, !tbaa !838
   %22 = ptrtoint ptr %21 to i64
-  %23 = ptrtoint ptr %.sink15.i.i.i to i64
+  %23 = ptrtoint ptr %.sink17.i.i.i to i64
   %24 = sub i64 %22, %23
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink15.i.i.i, i64 noundef %24) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink17.i.i.i, i64 noundef %24) #28
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS3_19MultiCfIteratorInfoENS3_19MultiCfIteratorImplINS3_26AttributeGroupIteratorImpl9ResetFuncENS7_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS4_IS5_NSB_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_JRSt7variantIJSF_SJ_EEEEDcOT0_DpOT1_.exit.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS3_19MultiCfIteratorInfoENS3_19MultiCfIteratorImplINS3_26AttributeGroupIteratorImpl9ResetFuncENS7_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS4_IS5_NSB_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_JRSt7variantIJSF_SJ_EEEEDcOT0_DpOT1_.exit.i.i: ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_26AttributeGroupIteratorImpl9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i
@@ -18843,13 +18843,13 @@ _ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.
   br i1 %.not.i.i.i1.i.i.i.i.i.i.i11.i.i.i.i.i.i.i, label %_ZZN7rocksdb19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS1_12PopulateFuncEE11SeekToFirstEvENKUlvE_clEv.exit, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_26AttributeGroupIteratorImpl9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_26AttributeGroupIteratorImpl9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i: ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sink15.i.i.i.i.i.i.i = phi ptr [ %24, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i ]
+  %.sink17.i.i.i.i.i.i.i = phi ptr [ %24, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %36 = load ptr, ptr %35, align 8, !tbaa !838
   %37 = ptrtoint ptr %36 to i64
-  %38 = ptrtoint ptr %.sink15.i.i.i.i.i.i.i to i64
+  %38 = ptrtoint ptr %.sink17.i.i.i.i.i.i.i to i64
   %39 = sub i64 %37, %38
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink15.i.i.i.i.i.i.i, i64 noundef %39) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink17.i.i.i.i.i.i.i, i64 noundef %39) #28
   br label %_ZZN7rocksdb19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS1_12PopulateFuncEE11SeekToFirstEvENKUlvE_clEv.exit
 
 _ZZN7rocksdb19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS1_12PopulateFuncEE11SeekToFirstEvENKUlvE_clEv.exit: ; preds = %14, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_26AttributeGroupIteratorImpl9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i
@@ -19656,13 +19656,13 @@ _ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE8pop_backEv.exit.i63: ; pr
   %236 = sdiv exact i64 %235, 24
   %237 = sub i64 0, %232
   %238 = icmp eq i64 %236, %237
-  br i1 %238, label %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68.thread164, label %239
+  br i1 %238, label %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68.thread196, label %239
 
 239:                                              ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE8pop_backEv.exit.i63
   invoke void @_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE8downheapEm(ptr noundef nonnull align 8 dereferenceable(248) %1, i64 noundef 0)
           to label %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68 unwind label %.loopexit
 
-_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68.thread164: ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE8pop_backEv.exit.i63
+_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68.thread196: ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE8pop_backEv.exit.i63
   store i64 -1, ptr %100, align 8, !tbaa !748
   br label %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68.thread123
 
@@ -19678,7 +19678,7 @@ _ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26A
   %240 = icmp eq i64 %.pre159, %.pre161
   br i1 %240, label %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68.thread123, label %101
 
-_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68.thread123: ; preds = %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68, %123, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68.thread164, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit.thread, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit
+_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68.thread123: ; preds = %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68, %123, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit68.thread196, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit.thread, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEE3popEv.exit
   %241 = load i64, ptr %5, align 8, !tbaa !679, !noalias !885
   %242 = getelementptr inbounds nuw i8, ptr %5, i64 216
   %243 = load ptr, ptr %242, align 8, !tbaa !837, !noalias !885
@@ -20244,13 +20244,13 @@ _ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.
   br i1 %.not.i.i.i1.i.i.i.i.i.i.i11.i.i.i.i.i.i.i, label %_ZZN7rocksdb19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS1_12PopulateFuncEE10SeekToLastEvENKUlvE_clEv.exit, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_26AttributeGroupIteratorImpl9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_26AttributeGroupIteratorImpl9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i: ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sink15.i.i.i.i.i.i.i = phi ptr [ %24, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i ]
+  %.sink17.i.i.i.i.i.i.i = phi ptr [ %24, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %36 = load ptr, ptr %35, align 8, !tbaa !838
   %37 = ptrtoint ptr %36 to i64
-  %38 = ptrtoint ptr %.sink15.i.i.i.i.i.i.i to i64
+  %38 = ptrtoint ptr %.sink17.i.i.i.i.i.i.i to i64
   %39 = sub i64 %37, %38
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink15.i.i.i.i.i.i.i, i64 noundef %39) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink17.i.i.i.i.i.i.i, i64 noundef %39) #28
   br label %_ZZN7rocksdb19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS1_12PopulateFuncEE10SeekToLastEvENKUlvE_clEv.exit
 
 _ZZN7rocksdb19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS1_12PopulateFuncEE10SeekToLastEvENKUlvE_clEv.exit: ; preds = %14, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_26AttributeGroupIteratorImpl9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i
@@ -21057,13 +21057,13 @@ _ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE8pop_backEv.exit.i63: ; pr
   %236 = sdiv exact i64 %235, 24
   %237 = sub i64 0, %232
   %238 = icmp eq i64 %236, %237
-  br i1 %238, label %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68.thread164, label %239
+  br i1 %238, label %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68.thread196, label %239
 
 239:                                              ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE8pop_backEv.exit.i63
   invoke void @_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE8downheapEm(ptr noundef nonnull align 8 dereferenceable(248) %1, i64 noundef 0)
           to label %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68 unwind label %.loopexit
 
-_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68.thread164: ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE8pop_backEv.exit.i63
+_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68.thread196: ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE8pop_backEv.exit.i63
   store i64 -1, ptr %100, align 8, !tbaa !890
   br label %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68.thread123
 
@@ -21079,7 +21079,7 @@ _ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26A
   %240 = icmp eq i64 %.pre159, %.pre161
   br i1 %240, label %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68.thread123, label %101
 
-_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68.thread123: ; preds = %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68, %123, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68.thread164, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit.thread, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit
+_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68.thread123: ; preds = %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68, %123, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit68.thread196, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit.thread, %_ZN7rocksdb10BinaryHeapINS_19MultiCfIteratorInfoENS_19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS3_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEE3popEv.exit
   %241 = load i64, ptr %5, align 8, !tbaa !679, !noalias !893
   %242 = getelementptr inbounds nuw i8, ptr %5, i64 216
   %243 = load ptr, ptr %242, align 8, !tbaa !837, !noalias !893
@@ -21643,13 +21643,13 @@ _ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.
   br i1 %.not.i.i.i1.i.i.i.i.i.i.i11.i.i.i.i.i.i.i, label %_ZZN7rocksdb19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS1_12PopulateFuncEE4SeekERKNS_5SliceEENKUlvE_clEv.exit, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_26AttributeGroupIteratorImpl9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_26AttributeGroupIteratorImpl9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i: ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sink15.i.i.i.i.i.i.i = phi ptr [ %24, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i ]
+  %.sink17.i.i.i.i.i.i.i = phi ptr [ %24, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %36 = load ptr, ptr %35, align 8, !tbaa !838
   %37 = ptrtoint ptr %36 to i64
-  %38 = ptrtoint ptr %.sink15.i.i.i.i.i.i.i to i64
+  %38 = ptrtoint ptr %.sink17.i.i.i.i.i.i.i to i64
   %39 = sub i64 %37, %38
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink15.i.i.i.i.i.i.i, i64 noundef %39) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink17.i.i.i.i.i.i.i, i64 noundef %39) #28
   br label %_ZZN7rocksdb19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS1_12PopulateFuncEE4SeekERKNS_5SliceEENKUlvE_clEv.exit
 
 _ZZN7rocksdb19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS1_12PopulateFuncEE4SeekERKNS_5SliceEENKUlvE_clEv.exit: ; preds = %14, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_26AttributeGroupIteratorImpl9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i
@@ -22005,13 +22005,13 @@ _ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.
   br i1 %.not.i.i.i1.i.i.i.i.i.i.i11.i.i.i.i.i.i.i, label %_ZZN7rocksdb19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS1_12PopulateFuncEE11SeekForPrevERKNS_5SliceEENKUlvE_clEv.exit, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_26AttributeGroupIteratorImpl9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_26AttributeGroupIteratorImpl9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i: ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sink15.i.i.i.i.i.i.i = phi ptr [ %24, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i ]
+  %.sink17.i.i.i.i.i.i.i = phi ptr [ %24, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %36 = load ptr, ptr %35, align 8, !tbaa !838
   %37 = ptrtoint ptr %36 to i64
-  %38 = ptrtoint ptr %.sink15.i.i.i.i.i.i.i to i64
+  %38 = ptrtoint ptr %.sink17.i.i.i.i.i.i.i to i64
   %39 = sub i64 %37, %38
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink15.i.i.i.i.i.i.i, i64 noundef %39) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink17.i.i.i.i.i.i.i, i64 noundef %39) #28
   br label %_ZZN7rocksdb19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS1_12PopulateFuncEE11SeekForPrevERKNS_5SliceEENKUlvE_clEv.exit
 
 _ZZN7rocksdb19MultiCfIteratorImplINS_26AttributeGroupIteratorImpl9ResetFuncENS1_12PopulateFuncEE11SeekForPrevERKNS_5SliceEENKUlvE_clEv.exit: ; preds = %14, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_26AttributeGroupIteratorImpl9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i.i
@@ -22960,13 +22960,13 @@ _ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.
   br i1 %.not.i.i.i1.i.i.i.i.i.i.i11.i.i.i.i.i.i, label %59, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_26AttributeGroupIteratorImpl9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_26AttributeGroupIteratorImpl9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i: ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sink15.i.i.i.i.i.i = phi ptr [ %43, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %50, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i ]
+  %.sink17.i.i.i.i.i.i = phi ptr [ %43, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %50, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i ]
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 304
   %55 = load ptr, ptr %54, align 8, !tbaa !838
   %56 = ptrtoint ptr %55 to i64
-  %57 = ptrtoint ptr %.sink15.i.i.i.i.i.i to i64
+  %57 = ptrtoint ptr %.sink17.i.i.i.i.i.i to i64
   %58 = sub i64 %56, %57
-  call void @_ZdlPvm(ptr noundef nonnull %.sink15.i.i.i.i.i.i, i64 noundef %58) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sink17.i.i.i.i.i.i, i64 noundef %58) #28
   br label %59
 
 59:                                               ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_26AttributeGroupIteratorImpl9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %29
@@ -23807,13 +23807,13 @@ _ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.
   br i1 %.not.i.i.i1.i.i.i.i.i.i.i11.i.i.i.i.i.i, label %59, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_26AttributeGroupIteratorImpl9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_26AttributeGroupIteratorImpl9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i: ; preds = %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sink15.i.i.i.i.i.i = phi ptr [ %43, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %50, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i ]
+  %.sink17.i.i.i.i.i.i = phi ptr [ %43, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %50, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i ]
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 304
   %55 = load ptr, ptr %54, align 8, !tbaa !838
   %56 = ptrtoint ptr %55 to i64
-  %57 = ptrtoint ptr %.sink15.i.i.i.i.i.i to i64
+  %57 = ptrtoint ptr %.sink17.i.i.i.i.i.i to i64
   %58 = sub i64 %56, %57
-  call void @_ZdlPvm(ptr noundef nonnull %.sink15.i.i.i.i.i.i, i64 noundef %58) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sink17.i.i.i.i.i.i, i64 noundef %58) #28
   br label %59
 
 59:                                               ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJN7rocksdb10BinaryHeapINS4_19MultiCfIteratorInfoENS4_19MultiCfIteratorImplINS4_26AttributeGroupIteratorImpl9ResetFuncENS8_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEENS5_IS6_NSC_ISt4lessIiEEEEEEE8_M_resetEvEUlOT_E_RSt7variantIJSG_SK_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_SS_.exit.sink.split.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i10.i.i.i.i.i.i, %_ZN7rocksdb10autovectorINS_19MultiCfIteratorInfoELm8EE5clearEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %29

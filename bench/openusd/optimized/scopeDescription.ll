@@ -747,13 +747,13 @@ _ZN3tbb6detail2d110spin_mutex4lockEv.exit.i:      ; preds = %_ZN3tbb6detail2d014
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.047.064.i.i.i.i, i64 96
   %.val2.i27.i.i.i.i = load i64, ptr %34, align 8, !noalias !9
   %35 = icmp eq i64 %.val2.i27.i.i.i.i, %1
-  br i1 %35, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i.loopexit.split.loop.exit47, label %36
+  br i1 %35, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i.loopexit.split.loop.exit53, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.047.064.i.i.i.i, i64 144
   %.val2.i28.i.i.i.i = load i64, ptr %37, align 8, !noalias !9
   %38 = icmp eq i64 %.val2.i28.i.i.i.i, %1
-  br i1 %38, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i.loopexit.split.loop.exit49, label %39
+  br i1 %38, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i.loopexit.split.loop.exit55, label %39
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.047.064.i.i.i.i, i64 192
@@ -806,16 +806,16 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.047.064.i.i.i.i, i64 48
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i.loopexit.split.loop.exit47: ; preds = %33
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i.loopexit.split.loop.exit53: ; preds = %33
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.047.064.i.i.i.i, i64 96
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i.loopexit.split.loop.exit49: ; preds = %36
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i.loopexit.split.loop.exit55: ; preds = %36
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.047.064.i.i.i.i, i64 144
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i: ; preds = %.lr.ph.i.i.i9.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i.loopexit.split.loop.exit, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i.loopexit.split.loop.exit47, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i.loopexit.split.loop.exit49, %52, %48, %44
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.047.0.lcssa.i.i.i.i, %44 ], [ %.sroa.047.1.i.i.i.i, %48 ], [ %spec.select.i.i.i.i, %52 ], [ %54, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i.loopexit.split.loop.exit ], [ %55, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i.loopexit.split.loop.exit47 ], [ %56, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i.loopexit.split.loop.exit49 ], [ %.sroa.047.064.i.i.i.i, %.lr.ph.i.i.i9.i ]
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i: ; preds = %.lr.ph.i.i.i9.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i.loopexit.split.loop.exit, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i.loopexit.split.loop.exit53, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i.loopexit.split.loop.exit55, %52, %48, %44
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.047.0.lcssa.i.i.i.i, %44 ], [ %.sroa.047.1.i.i.i.i, %48 ], [ %spec.select.i.i.i.i, %52 ], [ %54, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i.loopexit.split.loop.exit ], [ %55, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i.loopexit.split.loop.exit53 ], [ %56, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryESt6vectorIS5_SaIS5_EEEEZNS4_10LockThreadENSt6thread2idEEUlRKS5_E_ET_SG_SG_T0_.exit.i.loopexit.split.loop.exit55 ], [ %.sroa.047.064.i.i.i.i, %.lr.ph.i.i.i9.i ]
   %57 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %.val4.i
   br i1 %57, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry10LockThreadENSt6thread2idE.exit.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry10LockThreadENSt6thread2idE.exit
 
@@ -1323,10 +1323,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_TimedTryAcquireERN3tbb6det
 
 106:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_TimedTryAcquireERN3tbb6detail2d118unique_scoped_lockINS3_10spin_mutexEEERS5_i.exit51.i
   %.07.i53.add.i = add nuw nsw i64 %.07.i53.idx.i, 1
-  %.ptr312.i = getelementptr inbounds nuw i8, ptr @.str.10, i64 %.07.i53.add.i
+  %.ptr332.i = getelementptr inbounds nuw i8, ptr @.str.10, i64 %.07.i53.add.i
   %107 = getelementptr inbounds nuw i8, ptr %.sroa.0190.8.i, i64 1
   store i8 %105, ptr %.sroa.0190.8.i, align 1
-  %108 = load i8, ptr %.ptr312.i, align 1
+  %108 = load i8, ptr %.ptr332.i, align 1
   %exitcond.i = icmp eq i64 %.07.i53.add.i, 56
   br i1 %exitcond.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_MessageWriter5WriteEPKc.exit56.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_TimedTryAcquireERN3tbb6detail2d118unique_scoped_lockINS3_10spin_mutexEEERS5_i.exit51.i, !llvm.loop !16
 
@@ -1368,10 +1368,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_MessageWriter5WriteEPKc.ex
 
 119:                                              ; preds = %117
   %.07.i63.add.i = add nuw nsw i64 %.07.i63.idx.i, 1
-  %.ptr313.i = getelementptr inbounds nuw i8, ptr @.str.11, i64 %.07.i63.add.i
+  %.ptr333.i = getelementptr inbounds nuw i8, ptr @.str.11, i64 %.07.i63.add.i
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.0190.12.i, i64 1
   store i8 %118, ptr %.sroa.0190.12.i, align 1
-  %121 = load i8, ptr %.ptr313.i, align 1
+  %121 = load i8, ptr %.ptr333.i, align 1
   %exitcond305.i = icmp eq i64 %.07.i63.add.i, 34
   br i1 %exitcond305.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_MessageWriter5WriteEPKc.exit66.i, label %117, !llvm.loop !16
 
@@ -1407,10 +1407,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_TimedTryAcquireERN3tbb6det
 
 128:                                              ; preds = %.preheader280.i
   %.07.i69.add.i = add nuw nsw i64 %.07.i69.idx.i, 1
-  %.ptr314.i = getelementptr inbounds nuw i8, ptr @.str.12, i64 %.07.i69.add.i
+  %.ptr334.i = getelementptr inbounds nuw i8, ptr @.str.12, i64 %.07.i69.add.i
   %129 = getelementptr inbounds nuw i8, ptr %.sroa.0190.14.i, i64 1
   store i8 %127, ptr %.sroa.0190.14.i, align 1
-  %130 = load i8, ptr %.ptr314.i, align 1
+  %130 = load i8, ptr %.ptr334.i, align 1
   %exitcond306.i = icmp eq i64 %.07.i69.add.i, 7
   br i1 %exitcond306.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_MessageWriter5WriteEPKc.exit72.i, label %.preheader280.i, !llvm.loop !16
 
@@ -1458,10 +1458,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_MessageWriter5WriteEPKc.ex
 
 143:                                              ; preds = %.preheader279.i
   %.07.i80.add.i = add nuw nsw i64 %.07.i80.idx.i, 1
-  %.ptr315.i = getelementptr inbounds nuw i8, ptr @.str.13, i64 %.07.i80.add.i
+  %.ptr335.i = getelementptr inbounds nuw i8, ptr @.str.13, i64 %.07.i80.add.i
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.0190.18.i, i64 1
   store i8 %142, ptr %.sroa.0190.18.i, align 1
-  %145 = load i8, ptr %.ptr315.i, align 1
+  %145 = load i8, ptr %.ptr335.i, align 1
   %exitcond307.i = icmp eq i64 %.07.i80.add.i, 7
   br i1 %exitcond307.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_MessageWriter5WriteEPKc.exit83.i, label %.preheader279.i, !llvm.loop !16
 
@@ -1483,10 +1483,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_MessageWriter5WriteEPKc.ex
 
 148:                                              ; preds = %146
   %.07.i85.add.i = add nuw nsw i64 %.07.i85.idx.i, 1
-  %.ptr316.i = getelementptr inbounds nuw i8, ptr @.str.14, i64 %.07.i85.add.i
+  %.ptr336.i = getelementptr inbounds nuw i8, ptr @.str.14, i64 %.07.i85.add.i
   %149 = getelementptr inbounds nuw i8, ptr %.sroa.0190.20.i, i64 1
   store i8 %147, ptr %.sroa.0190.20.i, align 1
-  %150 = load i8, ptr %.ptr316.i, align 1
+  %150 = load i8, ptr %.ptr336.i, align 1
   %exitcond308.i = icmp eq i64 %.07.i85.add.i, 20
   br i1 %exitcond308.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_MessageWriter5WriteEPKc.exit88.i, label %146, !llvm.loop !16
 
@@ -1612,10 +1612,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_MessageWriter5WriteEPKc.ex
 
 180:                                              ; preds = %.preheader.i
   %.07.i113.add.i = add nuw nsw i64 %.07.i113.idx.i, 1
-  %.ptr317.i = getelementptr inbounds nuw i8, ptr @.str.17, i64 %.07.i113.add.i
+  %.ptr337.i = getelementptr inbounds nuw i8, ptr @.str.17, i64 %.07.i113.add.i
   %181 = getelementptr inbounds nuw i8, ptr %.sroa.0190.29.i, i64 1
   store i8 %179, ptr %.sroa.0190.29.i, align 1
-  %182 = load i8, ptr %.ptr317.i, align 1
+  %182 = load i8, ptr %.ptr337.i, align 1
   %exitcond309.i = icmp eq i64 %.07.i113.add.i, 7
   br i1 %exitcond309.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_MessageWriter5WriteEPKc.exit117.i, label %.preheader.i, !llvm.loop !16
 
@@ -1656,10 +1656,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_MessageWriter5WriteEPKc.ex
 
 192:                                              ; preds = %190
   %.07.i126.add.i = add nuw nsw i64 %.07.i126.idx.i, 1
-  %.ptr318.i = getelementptr inbounds nuw i8, ptr @.str.18, i64 %.07.i126.add.i
+  %.ptr338.i = getelementptr inbounds nuw i8, ptr @.str.18, i64 %.07.i126.add.i
   %193 = getelementptr inbounds nuw i8, ptr %.sroa.0190.33.i, i64 1
   store i8 %191, ptr %.sroa.0190.33.i, align 1
-  %194 = load i8, ptr %.ptr318.i, align 1
+  %194 = load i8, ptr %.ptr338.i, align 1
   %exitcond310.i = icmp eq i64 %.07.i126.add.i, 4
   br i1 %exitcond310.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_MessageWriter5WriteEPKc.exit130.i, label %190, !llvm.loop !16
 
@@ -2682,11 +2682,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN32pxrInternal_v0_24__pxr
   br label %10
 
 10:                                               ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEET_SB_SB_T0_.exit"
-  %11 = phi i64 [ %7, %.lr.ph ], [ %200, %"_ZSt27__unguarded_partition_pivotIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEET_SB_SB_T0_.exit" ]
+  %11 = phi i64 [ %7, %.lr.ph ], [ %195, %"_ZSt27__unguarded_partition_pivotIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEET_SB_SB_T0_.exit" ]
   %.034 = phi ptr [ %1, %.lr.ph ], [ %.1.lcssa.i.i, %"_ZSt27__unguarded_partition_pivotIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEET_SB_SB_T0_.exit" ]
-  %.01733 = phi i64 [ %2, %.lr.ph ], [ %146, %"_ZSt27__unguarded_partition_pivotIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEET_SB_SB_T0_.exit" ]
+  %.01733 = phi i64 [ %2, %.lr.ph ], [ %141, %"_ZSt27__unguarded_partition_pivotIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEET_SB_SB_T0_.exit" ]
   %12 = icmp eq i64 %.01733, 0
-  br i1 %12, label %.split.i.i.i, label %145
+  br i1 %12, label %.split.i.i.i, label %140
 
 .split.i.i.i:                                     ; preds = %10
   %13 = lshr exact i64 %11, 3
@@ -2701,8 +2701,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN32pxrInternal_v0_24__pxr
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i.i.i.i"
   %.040.i.i.i.i = phi i64 [ %33, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i.i.i.i" ], [ %15, %.split.i.i.i ]
-  %21 = shl i64 %.040.i.i.i.i, 1
-  %22 = add i64 %21, 2
+  %21 = shl nuw nsw i64 %.040.i.i.i.i, 1
+  %22 = add nuw nsw i64 %21, 2
   %23 = getelementptr inbounds nuw ptr, ptr %0, i64 %22
   %24 = getelementptr inbounds nuw ptr, ptr %0, i64 %21
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -2743,488 +2743,477 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN32pxrInternal_v0_24__pxr
   %.0.lcssa.i.i.i.i = phi i64 [ %15, %.split.i.i.i ], [ %33, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i.i.i.i" ]
   %38 = and i64 %11, 8
   %39 = icmp eq i64 %38, 0
-  %40 = ashr exact i64 %14, 1
-  %41 = icmp eq i64 %.0.lcssa.i.i.i.i, %40
-  %or.cond.i.i.i = select i1 %39, i1 %41, i1 false
-  br i1 %or.cond.i.i.i, label %42, label %48
+  %40 = icmp eq i64 %.0.lcssa.i.i.i.i, %15
+  %or.cond.i.i.i = and i1 %39, %40
+  br i1 %or.cond.i.i.i, label %41, label %45
 
-42:                                               ; preds = %._crit_edge.i.i.i.i
-  %43 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
-  %44 = or disjoint i64 %43, 1
-  %45 = getelementptr inbounds nuw ptr, ptr %0, i64 %44
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
-  store ptr %46, ptr %47, align 8
-  br label %48
+41:                                               ; preds = %._crit_edge.i.i.i.i
+  %42 = or disjoint i64 %14, 1
+  %43 = getelementptr inbounds nuw ptr, ptr %0, i64 %42
+  %44 = load ptr, ptr %43, align 8
+  store ptr %44, ptr %16, align 8
+  br label %45
 
-48:                                               ; preds = %42, %._crit_edge.i.i.i.i
-  %.128.i.i.i.i = phi i64 [ %44, %42 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %49 = icmp samesign ugt i64 %.128.i.i.i.i, %15
-  br i1 %49, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i"
+45:                                               ; preds = %41, %._crit_edge.i.i.i.i
+  %.128.i.i.i.i = phi i64 [ %42, %41 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %46 = icmp samesign ugt i64 %.128.i.i.i.i, %15
+  br i1 %46, label %.lr.ph.i.i.i.i.i, label %.split15.lr.ph.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %48, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i.i"
-  %.0136.i.i.i.i.i = phi i64 [ %.07.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i.i" ], [ %.128.i.i.i.i, %48 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %45, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i.i"
+  %.0136.i.i.i.i.i = phi i64 [ %.0712.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i.i" ], [ %.128.i.i.i.i, %45 ]
   %.07.in.i.i.i.i.i = add nsw i64 %.0136.i.i.i.i.i, -1
-  %.07.i.i.i.i.i = sdiv i64 %.07.in.i.i.i.i.i, 2
-  %50 = getelementptr inbounds nuw ptr, ptr %0, i64 %.07.i.i.i.i.i
-  %.val14.i.i.i.i.i = load ptr, ptr %50, align 8
+  %.0712.i.i.i.i.i = lshr i64 %.07.in.i.i.i.i.i, 1
+  %47 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0712.i.i.i.i.i
+  %.val14.i.i.i.i.i = load ptr, ptr %47, align 8
   %.val14.val.i.i.i.i.i = load i64, ptr %.val14.i.i.i.i.i, align 8
   %.val15.val.i.i.i.i.i = load i64, ptr %17, align 8
-  %51 = icmp eq i64 %.val14.val.i.i.i.i.i, %.val15.val.i.i.i.i.i
-  br i1 %51, label %"_ZSt13__adjust_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i", label %52
+  %48 = icmp eq i64 %.val14.val.i.i.i.i.i, %.val15.val.i.i.i.i.i
+  br i1 %48, label %.split15.lr.ph.i.i.i, label %49
 
-52:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %53 = icmp eq i64 %.val14.val.i.i.i.i.i, %3
-  br i1 %53, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i.i.i.i"
+49:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %50 = icmp eq i64 %.val14.val.i.i.i.i.i, %3
+  br i1 %50, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %52
-  %54 = icmp ne i64 %.val15.val.i.i.i.i.i, %3
-  %55 = icmp ult i64 %.val14.val.i.i.i.i.i, %.val15.val.i.i.i.i.i
-  %spec.select.i.i.i.i.i.i.i = and i1 %54, %55
-  br i1 %spec.select.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i.i", label %"_ZSt13__adjust_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i"
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %49
+  %51 = icmp ne i64 %.val15.val.i.i.i.i.i, %3
+  %52 = icmp ult i64 %.val14.val.i.i.i.i.i, %.val15.val.i.i.i.i.i
+  %spec.select.i.i.i.i.i.i.i = and i1 %51, %52
+  br i1 %spec.select.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i.i", label %.split15.lr.ph.i.i.i
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i.i.i.i", %52
-  %56 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0136.i.i.i.i.i
-  store ptr %.val14.i.i.i.i.i, ptr %56, align 8
-  %57 = icmp sgt i64 %.07.i.i.i.i.i, %15
-  br i1 %57, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i", !llvm.loop !38
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i.i.i.i", %49
+  %53 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0136.i.i.i.i.i
+  store ptr %.val14.i.i.i.i.i, ptr %53, align 8
+  %54 = icmp samesign ugt i64 %.0712.i.i.i.i.i, %15
+  br i1 %54, label %.lr.ph.i.i.i.i.i, label %.split15.lr.ph.i.i.i, !llvm.loop !38
 
-"_ZSt13__adjust_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i, %48
-  %.013.lcssa.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %48 ], [ %.0136.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i.i.i.i" ], [ %.07.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i.i" ], [ %.0136.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %58 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store ptr %17, ptr %58, align 8
-  %59 = icmp ult i64 %14, 2
-  br i1 %59, label %.lr.ph.i5.i.preheader, label %.split15.lr.ph.i.i.i
-
-.split15.lr.ph.i.i.i:                             ; preds = %"_ZSt13__adjust_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i"
-  %60 = or disjoint i64 %14, 1
-  %61 = getelementptr inbounds nuw ptr, ptr %0, i64 %60
-  %62 = getelementptr inbounds nuw ptr, ptr %0, i64 %40
+.split15.lr.ph.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i.i", %45
+  %.013.lcssa.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %45 ], [ %.0136.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i.i.i.i" ], [ %.0712.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i.i" ], [ %.0136.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %55 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  store ptr %17, ptr %55, align 8
+  %56 = or disjoint i64 %14, 1
+  %57 = getelementptr inbounds nuw ptr, ptr %0, i64 %56
   br label %.split15.i.i.i
 
 .split15.i.i.i:                                   ; preds = %"_ZSt13__adjust_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_T0_SC_T1_T2_.exit44.i.i.i", %.split15.lr.ph.i.i.i
-  %.050.i.i.i = phi i64 [ %15, %.split15.lr.ph.i.i.i ], [ %63, %"_ZSt13__adjust_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_T0_SC_T1_T2_.exit44.i.i.i" ]
-  %63 = add nsw i64 %.050.i.i.i, -1
-  %64 = getelementptr inbounds nuw ptr, ptr %0, i64 %63
-  %65 = load ptr, ptr %64, align 8
-  %.not.i.i.i = icmp sgt i64 %.050.i.i.i, %19
+  %.049.i.i.i = phi i64 [ %15, %.split15.lr.ph.i.i.i ], [ %58, %"_ZSt13__adjust_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_T0_SC_T1_T2_.exit44.i.i.i" ]
+  %58 = add nsw i64 %.049.i.i.i, -1
+  %59 = getelementptr inbounds nuw ptr, ptr %0, i64 %58
+  %60 = load ptr, ptr %59, align 8
+  %.not.i.i.i = icmp sgt i64 %.049.i.i.i, %19
   br i1 %.not.i.i.i, label %._crit_edge.i18.i.i.i, label %.lr.ph.i32.i.i.i
 
 .lr.ph.i32.i.i.i:                                 ; preds = %.split15.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i42.i.i.i"
-  %.040.i33.i.i.i = phi i64 [ %78, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i42.i.i.i" ], [ %63, %.split15.i.i.i ]
-  %66 = shl i64 %.040.i33.i.i.i, 1
-  %67 = add i64 %66, 2
-  %68 = getelementptr inbounds nuw ptr, ptr %0, i64 %67
-  %69 = getelementptr inbounds nuw ptr, ptr %0, i64 %66
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %.val29.i34.i.i.i = load ptr, ptr %68, align 8
-  %.val30.i35.i.i.i = load ptr, ptr %70, align 8
+  %.040.i33.i.i.i = phi i64 [ %73, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i42.i.i.i" ], [ %58, %.split15.i.i.i ]
+  %61 = shl nuw nsw i64 %.040.i33.i.i.i, 1
+  %62 = add nuw nsw i64 %61, 2
+  %63 = getelementptr inbounds nuw ptr, ptr %0, i64 %62
+  %64 = getelementptr inbounds nuw ptr, ptr %0, i64 %61
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %.val29.i34.i.i.i = load ptr, ptr %63, align 8
+  %.val30.i35.i.i.i = load ptr, ptr %65, align 8
   %.val29.val.i36.i.i.i = load i64, ptr %.val29.i34.i.i.i, align 8
   %.val30.val.i37.i.i.i = load i64, ptr %.val30.i35.i.i.i, align 8
-  %71 = icmp eq i64 %.val29.val.i36.i.i.i, %.val30.val.i37.i.i.i
-  br i1 %71, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i42.i.i.i", label %72
+  %66 = icmp eq i64 %.val29.val.i36.i.i.i, %.val30.val.i37.i.i.i
+  br i1 %66, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i42.i.i.i", label %67
 
-72:                                               ; preds = %.lr.ph.i32.i.i.i
-  %73 = icmp eq i64 %.val29.val.i36.i.i.i, %3
-  br i1 %73, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i43.i.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.i38.i.i.i"
+67:                                               ; preds = %.lr.ph.i32.i.i.i
+  %68 = icmp eq i64 %.val29.val.i36.i.i.i, %3
+  br i1 %68, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i43.i.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.i38.i.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i43.i.i.i": ; preds = %72
-  %74 = or disjoint i64 %66, 1
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i43.i.i.i": ; preds = %67
+  %69 = or disjoint i64 %61, 1
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i42.i.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.i38.i.i.i": ; preds = %72
-  %75 = icmp ne i64 %.val30.val.i37.i.i.i, %3
-  %76 = icmp ult i64 %.val29.val.i36.i.i.i, %.val30.val.i37.i.i.i
-  %spec.select.i.i.i39.i.i.i = and i1 %75, %76
-  %77 = or disjoint i64 %66, 1
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.i38.i.i.i": ; preds = %67
+  %70 = icmp ne i64 %.val30.val.i37.i.i.i, %3
+  %71 = icmp ult i64 %.val29.val.i36.i.i.i, %.val30.val.i37.i.i.i
+  %spec.select.i.i.i39.i.i.i = and i1 %70, %71
+  %72 = or disjoint i64 %61, 1
   %cond.fr.i40.i.i.i = freeze i1 %spec.select.i.i.i39.i.i.i
-  %spec.select.i41.i.i.i = select i1 %cond.fr.i40.i.i.i, i64 %77, i64 %67
+  %spec.select.i41.i.i.i = select i1 %cond.fr.i40.i.i.i, i64 %72, i64 %62
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i42.i.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i42.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.i38.i.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i43.i.i.i", %.lr.ph.i32.i.i.i
-  %78 = phi i64 [ %74, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i43.i.i.i" ], [ %67, %.lr.ph.i32.i.i.i ], [ %spec.select.i41.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.i38.i.i.i" ]
-  %79 = getelementptr inbounds nuw ptr, ptr %0, i64 %78
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds nuw ptr, ptr %0, i64 %.040.i33.i.i.i
-  store ptr %80, ptr %81, align 8
-  %82 = icmp slt i64 %78, %19
-  br i1 %82, label %.lr.ph.i32.i.i.i, label %._crit_edge.i18.i.i.i, !llvm.loop !37
+  %73 = phi i64 [ %69, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i43.i.i.i" ], [ %62, %.lr.ph.i32.i.i.i ], [ %spec.select.i41.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.i38.i.i.i" ]
+  %74 = getelementptr inbounds nuw ptr, ptr %0, i64 %73
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds nuw ptr, ptr %0, i64 %.040.i33.i.i.i
+  store ptr %75, ptr %76, align 8
+  %77 = icmp slt i64 %73, %19
+  br i1 %77, label %.lr.ph.i32.i.i.i, label %._crit_edge.i18.i.i.i, !llvm.loop !37
 
 ._crit_edge.i18.i.i.i:                            ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i42.i.i.i", %.split15.i.i.i
-  %.0.lcssa.i19.i.i.i = phi i64 [ %63, %.split15.i.i.i ], [ %78, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i42.i.i.i" ]
-  %83 = icmp eq i64 %.0.lcssa.i19.i.i.i, %40
-  %or.cond47.i.i.i = select i1 %39, i1 %83, i1 false
-  br i1 %or.cond47.i.i.i, label %84, label %86
+  %.0.lcssa.i19.i.i.i = phi i64 [ %58, %.split15.i.i.i ], [ %73, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i42.i.i.i" ]
+  %78 = icmp eq i64 %.0.lcssa.i19.i.i.i, %15
+  %or.cond47.i.i.i = and i1 %39, %78
+  br i1 %or.cond47.i.i.i, label %79, label %81
 
-84:                                               ; preds = %._crit_edge.i18.i.i.i
-  %85 = load ptr, ptr %61, align 8
-  store ptr %85, ptr %62, align 8
-  br label %86
+79:                                               ; preds = %._crit_edge.i18.i.i.i
+  %80 = load ptr, ptr %57, align 8
+  store ptr %80, ptr %16, align 8
+  br label %81
 
-86:                                               ; preds = %84, %._crit_edge.i18.i.i.i
-  %.128.i20.i.i.i = phi i64 [ %60, %84 ], [ %.0.lcssa.i19.i.i.i, %._crit_edge.i18.i.i.i ]
-  %87 = icmp samesign ugt i64 %.128.i20.i.i.i, %63
-  br i1 %87, label %.lr.ph.i.i22.i.i.i, label %"_ZSt13__adjust_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_T0_SC_T1_T2_.exit44.i.i.i"
+81:                                               ; preds = %79, %._crit_edge.i18.i.i.i
+  %.128.i20.i.i.i = phi i64 [ %56, %79 ], [ %.0.lcssa.i19.i.i.i, %._crit_edge.i18.i.i.i ]
+  %82 = icmp samesign ugt i64 %.128.i20.i.i.i, %58
+  br i1 %82, label %.lr.ph.i.i22.i.i.i, label %"_ZSt13__adjust_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_T0_SC_T1_T2_.exit44.i.i.i"
 
-.lr.ph.i.i22.i.i.i:                               ; preds = %86, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i31.i.i.i"
-  %.0136.i.i23.i.i.i = phi i64 [ %.07.i.i25.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i31.i.i.i" ], [ %.128.i20.i.i.i, %86 ]
+.lr.ph.i.i22.i.i.i:                               ; preds = %81, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i31.i.i.i"
+  %.0136.i.i23.i.i.i = phi i64 [ %.0712.i.i25.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i31.i.i.i" ], [ %.128.i20.i.i.i, %81 ]
   %.07.in.i.i24.i.i.i = add nsw i64 %.0136.i.i23.i.i.i, -1
-  %.07.i.i25.i.i.i = sdiv i64 %.07.in.i.i24.i.i.i, 2
-  %88 = getelementptr inbounds nuw ptr, ptr %0, i64 %.07.i.i25.i.i.i
-  %.val14.i.i26.i.i.i = load ptr, ptr %88, align 8
+  %.0712.i.i25.i.i.i = lshr i64 %.07.in.i.i24.i.i.i, 1
+  %83 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0712.i.i25.i.i.i
+  %.val14.i.i26.i.i.i = load ptr, ptr %83, align 8
   %.val14.val.i.i27.i.i.i = load i64, ptr %.val14.i.i26.i.i.i, align 8
-  %.val15.val.i.i28.i.i.i = load i64, ptr %65, align 8
-  %89 = icmp eq i64 %.val14.val.i.i27.i.i.i, %.val15.val.i.i28.i.i.i
-  br i1 %89, label %"_ZSt13__adjust_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_T0_SC_T1_T2_.exit44.i.i.i", label %90
+  %.val15.val.i.i28.i.i.i = load i64, ptr %60, align 8
+  %84 = icmp eq i64 %.val14.val.i.i27.i.i.i, %.val15.val.i.i28.i.i.i
+  br i1 %84, label %"_ZSt13__adjust_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_T0_SC_T1_T2_.exit44.i.i.i", label %85
 
-90:                                               ; preds = %.lr.ph.i.i22.i.i.i
-  %91 = icmp eq i64 %.val14.val.i.i27.i.i.i, %3
-  br i1 %91, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i31.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i29.i.i.i"
+85:                                               ; preds = %.lr.ph.i.i22.i.i.i
+  %86 = icmp eq i64 %.val14.val.i.i27.i.i.i, %3
+  br i1 %86, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i31.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i29.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i29.i.i.i": ; preds = %90
-  %92 = icmp ne i64 %.val15.val.i.i28.i.i.i, %3
-  %93 = icmp ult i64 %.val14.val.i.i27.i.i.i, %.val15.val.i.i28.i.i.i
-  %spec.select.i.i.i.i30.i.i.i = and i1 %92, %93
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i29.i.i.i": ; preds = %85
+  %87 = icmp ne i64 %.val15.val.i.i28.i.i.i, %3
+  %88 = icmp ult i64 %.val14.val.i.i27.i.i.i, %.val15.val.i.i28.i.i.i
+  %spec.select.i.i.i.i30.i.i.i = and i1 %87, %88
   br i1 %spec.select.i.i.i.i30.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i31.i.i.i", label %"_ZSt13__adjust_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_T0_SC_T1_T2_.exit44.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i31.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i29.i.i.i", %90
-  %94 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0136.i.i23.i.i.i
-  store ptr %.val14.i.i26.i.i.i, ptr %94, align 8
-  %.not48.i.i.i = icmp slt i64 %.07.i.i25.i.i.i, %.050.i.i.i
-  br i1 %.not48.i.i.i, label %"_ZSt13__adjust_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_T0_SC_T1_T2_.exit44.i.i.i", label %.lr.ph.i.i22.i.i.i, !llvm.loop !38
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i31.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i29.i.i.i", %85
+  %89 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0136.i.i23.i.i.i
+  store ptr %.val14.i.i26.i.i.i, ptr %89, align 8
+  %90 = icmp samesign ugt i64 %.0712.i.i25.i.i.i, %58
+  br i1 %90, label %.lr.ph.i.i22.i.i.i, label %"_ZSt13__adjust_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_T0_SC_T1_T2_.exit44.i.i.i", !llvm.loop !38
 
-"_ZSt13__adjust_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_T0_SC_T1_T2_.exit44.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i31.i.i.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i29.i.i.i", %.lr.ph.i.i22.i.i.i, %86
-  %.013.lcssa.i.i21.i.i.i = phi i64 [ %.128.i20.i.i.i, %86 ], [ %.0136.i.i23.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i29.i.i.i" ], [ %.07.i.i25.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i31.i.i.i" ], [ %.0136.i.i23.i.i.i, %.lr.ph.i.i22.i.i.i ]
-  %95 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i21.i.i.i
-  store ptr %65, ptr %95, align 8
-  %96 = icmp eq i64 %63, 0
-  br i1 %96, label %.lr.ph.i5.i.preheader, label %.split15.i.i.i, !llvm.loop !39
+"_ZSt13__adjust_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_T0_SC_T1_T2_.exit44.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i31.i.i.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i29.i.i.i", %.lr.ph.i.i22.i.i.i, %81
+  %.013.lcssa.i.i21.i.i.i = phi i64 [ %.128.i20.i.i.i, %81 ], [ %.0136.i.i23.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i29.i.i.i" ], [ %.0712.i.i25.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i31.i.i.i" ], [ %.0136.i.i23.i.i.i, %.lr.ph.i.i22.i.i.i ]
+  %91 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i21.i.i.i
+  store ptr %60, ptr %91, align 8
+  %92 = icmp eq i64 %58, 0
+  br i1 %92, label %.lr.ph.i5.i, label %.split15.i.i.i, !llvm.loop !39
 
-.lr.ph.i5.i.preheader:                            ; preds = %"_ZSt13__adjust_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_T0_SC_T1_T2_.exit44.i.i.i", %"_ZSt13__adjust_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i"
-  br label %.lr.ph.i5.i
+.lr.ph.i5.i:                                      ; preds = %"_ZSt13__adjust_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_T0_SC_T1_T2_.exit44.i.i.i", %"_ZSt10__pop_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_RT0_.exit.i20.i"
+  %.01.i.i = phi ptr [ %93, %"_ZSt10__pop_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_RT0_.exit.i20.i" ], [ %.034, %"_ZSt13__adjust_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_T0_SC_T1_T2_.exit44.i.i.i" ]
+  %93 = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
+  %94 = load ptr, ptr %93, align 8
+  %95 = load ptr, ptr %0, align 8
+  store ptr %95, ptr %93, align 8
+  %96 = ptrtoint ptr %93 to i64
+  %97 = sub i64 %96, %5
+  %98 = ashr exact i64 %97, 3
+  %99 = add nsw i64 %98, -1
+  %100 = sdiv i64 %99, 2
+  %101 = icmp sgt i64 %98, 2
+  br i1 %101, label %.lr.ph.i.i.i25.i, label %._crit_edge.i.i.i6.i
 
-.lr.ph.i5.i:                                      ; preds = %.lr.ph.i5.i.preheader, %"_ZSt10__pop_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_RT0_.exit.i20.i"
-  %.01.i.i = phi ptr [ %97, %"_ZSt10__pop_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_RT0_.exit.i20.i" ], [ %.034, %.lr.ph.i5.i.preheader ]
-  %97 = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
-  %98 = load ptr, ptr %97, align 8
-  %99 = load ptr, ptr %0, align 8
-  store ptr %99, ptr %97, align 8
-  %100 = ptrtoint ptr %97 to i64
-  %101 = sub i64 %100, %5
-  %102 = ashr exact i64 %101, 3
-  %103 = add nsw i64 %102, -1
-  %104 = sdiv i64 %103, 2
-  %105 = icmp sgt i64 %102, 2
-  br i1 %105, label %.lr.ph.i.i.i24.i, label %._crit_edge.i.i.i6.i
+.lr.ph.i.i.i25.i:                                 ; preds = %.lr.ph.i5.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i.i.i35.i"
+  %.040.i.i.i26.i = phi i64 [ %114, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i.i.i35.i" ], [ 0, %.lr.ph.i5.i ]
+  %102 = shl nuw nsw i64 %.040.i.i.i26.i, 1
+  %103 = add nuw nsw i64 %102, 2
+  %104 = getelementptr inbounds nuw ptr, ptr %0, i64 %103
+  %105 = getelementptr inbounds nuw ptr, ptr %0, i64 %102
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  %.val29.i.i.i27.i = load ptr, ptr %104, align 8
+  %.val30.i.i.i28.i = load ptr, ptr %106, align 8
+  %.val29.val.i.i.i29.i = load i64, ptr %.val29.i.i.i27.i, align 8
+  %.val30.val.i.i.i30.i = load i64, ptr %.val30.i.i.i28.i, align 8
+  %107 = icmp eq i64 %.val29.val.i.i.i29.i, %.val30.val.i.i.i30.i
+  br i1 %107, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i.i.i35.i", label %108
 
-.lr.ph.i.i.i24.i:                                 ; preds = %.lr.ph.i5.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i.i.i34.i"
-  %.040.i.i.i25.i = phi i64 [ %118, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i.i.i34.i" ], [ 0, %.lr.ph.i5.i ]
-  %106 = shl i64 %.040.i.i.i25.i, 1
-  %107 = add i64 %106, 2
-  %108 = getelementptr inbounds nuw ptr, ptr %0, i64 %107
-  %109 = getelementptr inbounds nuw ptr, ptr %0, i64 %106
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %.val29.i.i.i26.i = load ptr, ptr %108, align 8
-  %.val30.i.i.i27.i = load ptr, ptr %110, align 8
-  %.val29.val.i.i.i28.i = load i64, ptr %.val29.i.i.i26.i, align 8
-  %.val30.val.i.i.i29.i = load i64, ptr %.val30.i.i.i27.i, align 8
-  %111 = icmp eq i64 %.val29.val.i.i.i28.i, %.val30.val.i.i.i29.i
-  br i1 %111, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i.i.i34.i", label %112
+108:                                              ; preds = %.lr.ph.i.i.i25.i
+  %109 = icmp eq i64 %.val29.val.i.i.i29.i, %3
+  br i1 %109, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i.i.i36.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.i.i.i31.i"
 
-112:                                              ; preds = %.lr.ph.i.i.i24.i
-  %113 = icmp eq i64 %.val29.val.i.i.i28.i, %3
-  br i1 %113, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i.i.i35.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.i.i.i30.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i.i.i36.i": ; preds = %108
+  %110 = or disjoint i64 %102, 1
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i.i.i35.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i.i.i35.i": ; preds = %112
-  %114 = or disjoint i64 %106, 1
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i.i.i34.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.i.i.i31.i": ; preds = %108
+  %111 = icmp ne i64 %.val30.val.i.i.i30.i, %3
+  %112 = icmp ult i64 %.val29.val.i.i.i29.i, %.val30.val.i.i.i30.i
+  %spec.select.i.i.i.i.i32.i = and i1 %111, %112
+  %113 = or disjoint i64 %102, 1
+  %cond.fr.i.i.i33.i = freeze i1 %spec.select.i.i.i.i.i32.i
+  %spec.select.i.i.i34.i = select i1 %cond.fr.i.i.i33.i, i64 %113, i64 %103
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i.i.i35.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.i.i.i30.i": ; preds = %112
-  %115 = icmp ne i64 %.val30.val.i.i.i29.i, %3
-  %116 = icmp ult i64 %.val29.val.i.i.i28.i, %.val30.val.i.i.i29.i
-  %spec.select.i.i.i.i.i31.i = and i1 %115, %116
-  %117 = or disjoint i64 %106, 1
-  %cond.fr.i.i.i32.i = freeze i1 %spec.select.i.i.i.i.i31.i
-  %spec.select.i.i.i33.i = select i1 %cond.fr.i.i.i32.i, i64 %117, i64 %107
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i.i.i34.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i.i.i35.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.i.i.i31.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i.i.i36.i", %.lr.ph.i.i.i25.i
+  %114 = phi i64 [ %110, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i.i.i36.i" ], [ %103, %.lr.ph.i.i.i25.i ], [ %spec.select.i.i.i34.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.i.i.i31.i" ]
+  %115 = getelementptr inbounds nuw ptr, ptr %0, i64 %114
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds nuw ptr, ptr %0, i64 %.040.i.i.i26.i
+  store ptr %116, ptr %117, align 8
+  %118 = icmp slt i64 %114, %100
+  br i1 %118, label %.lr.ph.i.i.i25.i, label %._crit_edge.i.i.i6.i, !llvm.loop !37
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i.i.i34.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.i.i.i30.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i.i.i35.i", %.lr.ph.i.i.i24.i
-  %118 = phi i64 [ %114, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i.i.i35.i" ], [ %107, %.lr.ph.i.i.i24.i ], [ %spec.select.i.i.i33.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.i.i.i30.i" ]
-  %119 = getelementptr inbounds nuw ptr, ptr %0, i64 %118
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds nuw ptr, ptr %0, i64 %.040.i.i.i25.i
-  store ptr %120, ptr %121, align 8
-  %122 = icmp slt i64 %118, %104
-  br i1 %122, label %.lr.ph.i.i.i24.i, label %._crit_edge.i.i.i6.i, !llvm.loop !37
+._crit_edge.i.i.i6.i:                             ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i.i.i35.i", %.lr.ph.i5.i
+  %.0.lcssa.i.i.i7.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %114, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i.i.i35.i" ]
+  %119 = and i64 %97, 8
+  %120 = icmp eq i64 %119, 0
+  br i1 %120, label %121, label %130
 
-._crit_edge.i.i.i6.i:                             ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i.i.i34.i", %.lr.ph.i5.i
-  %.0.lcssa.i.i.i7.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %118, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread37.i.i.i34.i" ]
-  %123 = and i64 %101, 8
-  %124 = icmp eq i64 %123, 0
-  br i1 %124, label %125, label %134
+121:                                              ; preds = %._crit_edge.i.i.i6.i
+  %122 = add nsw i64 %98, -2
+  %123 = ashr exact i64 %122, 1
+  %124 = icmp eq i64 %.0.lcssa.i.i.i7.i, %123
+  br i1 %124, label %.thread.i.i24.i, label %130
 
-125:                                              ; preds = %._crit_edge.i.i.i6.i
-  %126 = add nsw i64 %102, -2
-  %127 = ashr exact i64 %126, 1
-  %128 = icmp eq i64 %.0.lcssa.i.i.i7.i, %127
-  br i1 %128, label %.thread.i.i23.i, label %134
-
-.thread.i.i23.i:                                  ; preds = %125
-  %129 = shl nsw i64 %.0.lcssa.i.i.i7.i, 1
-  %130 = or disjoint i64 %129, 1
-  %131 = getelementptr inbounds nuw ptr, ptr %0, i64 %130
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
-  store ptr %132, ptr %133, align 8
+.thread.i.i24.i:                                  ; preds = %121
+  %125 = shl nuw nsw i64 %.0.lcssa.i.i.i7.i, 1
+  %126 = or disjoint i64 %125, 1
+  %127 = getelementptr inbounds nuw ptr, ptr %0, i64 %126
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
+  store ptr %128, ptr %129, align 8
   br label %.lr.ph.i.i.i.i11.i.preheader
 
-134:                                              ; preds = %125, %._crit_edge.i.i.i6.i
+130:                                              ; preds = %121, %._crit_edge.i.i.i6.i
   %.not.i.i8.i = icmp eq i64 %.0.lcssa.i.i.i7.i, 0
   br i1 %.not.i.i8.i, label %"_ZSt10__pop_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_RT0_.exit.i20.i", label %.lr.ph.i.i.i.i11.i.preheader
 
-.lr.ph.i.i.i.i11.i.preheader:                     ; preds = %134, %.thread.i.i23.i
-  %.0136.i.i.i.i12.i.ph = phi i64 [ %.0.lcssa.i.i.i7.i, %134 ], [ %130, %.thread.i.i23.i ]
+.lr.ph.i.i.i.i11.i.preheader:                     ; preds = %130, %.thread.i.i24.i
+  %.0136.i.i.i.i12.i.ph = phi i64 [ %.0.lcssa.i.i.i7.i, %130 ], [ %126, %.thread.i.i24.i ]
   br label %.lr.ph.i.i.i.i11.i
 
 .lr.ph.i.i.i.i11.i:                               ; preds = %.lr.ph.i.i.i.i11.i.preheader, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i22.i"
-  %.0136.i.i.i.i12.i = phi i64 [ %.07.i.i.i.i14.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i22.i" ], [ %.0136.i.i.i.i12.i.ph, %.lr.ph.i.i.i.i11.i.preheader ]
+  %.0136.i.i.i.i12.i = phi i64 [ %.0712.i.i.i.i14.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i22.i" ], [ %.0136.i.i.i.i12.i.ph, %.lr.ph.i.i.i.i11.i.preheader ]
   %.07.in.i.i.i.i13.i = add nsw i64 %.0136.i.i.i.i12.i, -1
-  %.07.i.i.i.i14.i = sdiv i64 %.07.in.i.i.i.i13.i, 2
-  %135 = getelementptr inbounds nuw ptr, ptr %0, i64 %.07.i.i.i.i14.i
-  %.val14.i.i.i.i15.i = load ptr, ptr %135, align 8
+  %.0712.i.i.i.i14.i = lshr i64 %.07.in.i.i.i.i13.i, 1
+  %131 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0712.i.i.i.i14.i
+  %.val14.i.i.i.i15.i = load ptr, ptr %131, align 8
   %.val14.val.i.i.i.i16.i = load i64, ptr %.val14.i.i.i.i15.i, align 8
-  %.val15.val.i.i.i.i17.i = load i64, ptr %98, align 8
-  %136 = icmp eq i64 %.val14.val.i.i.i.i16.i, %.val15.val.i.i.i.i17.i
-  br i1 %136, label %"_ZSt10__pop_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_RT0_.exit.i20.i", label %137
+  %.val15.val.i.i.i.i17.i = load i64, ptr %94, align 8
+  %132 = icmp eq i64 %.val14.val.i.i.i.i16.i, %.val15.val.i.i.i.i17.i
+  br i1 %132, label %"_ZSt10__pop_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_RT0_.exit.i20.i", label %133
 
-137:                                              ; preds = %.lr.ph.i.i.i.i11.i
-  %138 = icmp eq i64 %.val14.val.i.i.i.i16.i, %3
-  br i1 %138, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i22.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i.i.i18.i"
+133:                                              ; preds = %.lr.ph.i.i.i.i11.i
+  %134 = icmp eq i64 %.val14.val.i.i.i.i16.i, %3
+  br i1 %134, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i22.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i.i.i18.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i.i.i18.i": ; preds = %137
-  %139 = icmp ne i64 %.val15.val.i.i.i.i17.i, %3
-  %140 = icmp ult i64 %.val14.val.i.i.i.i16.i, %.val15.val.i.i.i.i17.i
-  %spec.select.i.i.i.i.i.i19.i = and i1 %139, %140
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i.i.i18.i": ; preds = %133
+  %135 = icmp ne i64 %.val15.val.i.i.i.i17.i, %3
+  %136 = icmp ult i64 %.val14.val.i.i.i.i16.i, %.val15.val.i.i.i.i17.i
+  %spec.select.i.i.i.i.i.i19.i = and i1 %135, %136
   br i1 %spec.select.i.i.i.i.i.i19.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i22.i", label %"_ZSt10__pop_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_RT0_.exit.i20.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i22.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i.i.i18.i", %137
-  %141 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0136.i.i.i.i12.i
-  store ptr %.val14.i.i.i.i15.i, ptr %141, align 8
-  %142 = icmp sgt i64 %.0136.i.i.i.i12.i, 2
-  br i1 %142, label %.lr.ph.i.i.i.i11.i, label %"_ZSt10__pop_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_RT0_.exit.i20.i", !llvm.loop !38
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i22.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i.i.i18.i", %133
+  %137 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0136.i.i.i.i12.i
+  store ptr %.val14.i.i.i.i15.i, ptr %137, align 8
+  %.not8.i.i23.i = icmp ult i64 %.07.in.i.i.i.i13.i, 2
+  br i1 %.not8.i.i23.i, label %"_ZSt10__pop_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_RT0_.exit.i20.i", label %.lr.ph.i.i.i.i11.i, !llvm.loop !38
 
-"_ZSt10__pop_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_RT0_.exit.i20.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i22.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i.i.i18.i", %.lr.ph.i.i.i.i11.i, %134
-  %.013.lcssa.i.i.i.i21.i = phi i64 [ 0, %134 ], [ %.0136.i.i.i.i12.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i.i.i18.i" ], [ %.07.i.i.i.i14.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i22.i" ], [ %.0136.i.i.i.i12.i, %.lr.ph.i.i.i.i11.i ]
-  %143 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i21.i
-  store ptr %98, ptr %143, align 8
-  %144 = icmp sgt i64 %101, 8
-  br i1 %144, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_T0_.exit", !llvm.loop !40
+"_ZSt10__pop_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_RT0_.exit.i20.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i22.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i.i.i18.i", %.lr.ph.i.i.i.i11.i, %130
+  %.013.lcssa.i.i.i.i21.i = phi i64 [ 0, %130 ], [ %.0136.i.i.i.i12.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.i.i.i.i18.i" ], [ 0, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryES9_EEbT_RT0_.exit.thread.i.i.i.i22.i" ], [ %.0136.i.i.i.i12.i, %.lr.ph.i.i.i.i11.i ]
+  %138 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i21.i
+  store ptr %94, ptr %138, align 8
+  %139 = icmp sgt i64 %97, 8
+  br i1 %139, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_T0_.exit", !llvm.loop !40
 
-145:                                              ; preds = %10
-  %146 = add nsw i64 %.01733, -1
-  %147 = lshr i64 %11, 4
-  %148 = getelementptr inbounds nuw ptr, ptr %0, i64 %147
-  %149 = getelementptr inbounds i8, ptr %.034, i64 -8
+140:                                              ; preds = %10
+  %141 = add nsw i64 %.01733, -1
+  %142 = lshr i64 %11, 4
+  %143 = getelementptr inbounds nuw ptr, ptr %0, i64 %142
+  %144 = getelementptr inbounds i8, ptr %.034, i64 -8
   %.val34.i.i = load ptr, ptr %9, align 8
-  %.val35.i.i = load ptr, ptr %148, align 8
+  %.val35.i.i = load ptr, ptr %143, align 8
   %.val34.val.i.i = load i64, ptr %.val34.i.i, align 8
   %.val35.val.i.i = load i64, ptr %.val35.i.i, align 8
-  %150 = icmp eq i64 %.val34.val.i.i, %.val35.val.i.i
-  br i1 %150, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread53.i.i", label %151
+  %145 = icmp eq i64 %.val34.val.i.i, %.val35.val.i.i
+  br i1 %145, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread53.i.i", label %146
 
-151:                                              ; preds = %145
-  %152 = icmp eq i64 %.val34.val.i.i, %3
-  br i1 %152, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.i.i"
+146:                                              ; preds = %140
+  %147 = icmp eq i64 %.val34.val.i.i, %3
+  br i1 %147, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.i.i": ; preds = %151
-  %153 = icmp ne i64 %.val35.val.i.i, %3
-  %154 = icmp ult i64 %.val34.val.i.i, %.val35.val.i.i
-  %spec.select.i.i.i.i18 = and i1 %153, %154
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.i.i": ; preds = %146
+  %148 = icmp ne i64 %.val35.val.i.i, %3
+  %149 = icmp ult i64 %.val34.val.i.i, %.val35.val.i.i
+  %spec.select.i.i.i.i18 = and i1 %148, %149
   br i1 %spec.select.i.i.i.i18, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread53.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.i.i", %151
-  %.val32.i.i = load ptr, ptr %149, align 8
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.i.i", %146
+  %.val32.i.i = load ptr, ptr %144, align 8
   %.val32.val.i.i = load i64, ptr %.val32.i.i, align 8
-  %155 = icmp eq i64 %.val35.val.i.i, %.val32.val.i.i
-  br i1 %155, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit38.thread56.i.i", label %156
+  %150 = icmp eq i64 %.val35.val.i.i, %.val32.val.i.i
+  br i1 %150, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit38.thread56.i.i", label %151
 
-156:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i.i"
-  %157 = icmp eq i64 %.val35.val.i.i, %3
-  br i1 %157, label %"_ZSt22__move_median_to_firstIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit38.i.i"
+151:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i.i"
+  %152 = icmp eq i64 %.val35.val.i.i, %3
+  br i1 %152, label %"_ZSt22__move_median_to_firstIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit38.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit38.i.i": ; preds = %156
-  %158 = icmp ne i64 %.val32.val.i.i, %3
-  %159 = icmp ult i64 %.val35.val.i.i, %.val32.val.i.i
-  %spec.select.i.i36.i.i = and i1 %158, %159
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit38.i.i": ; preds = %151
+  %153 = icmp ne i64 %.val32.val.i.i, %3
+  %154 = icmp ult i64 %.val35.val.i.i, %.val32.val.i.i
+  %spec.select.i.i36.i.i = and i1 %153, %154
   br i1 %spec.select.i.i36.i.i, label %"_ZSt22__move_median_to_firstIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit38.thread56.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit38.thread56.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit38.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i.i"
-  %160 = icmp eq i64 %.val34.val.i.i, %.val32.val.i.i
-  br i1 %160, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit41.thread59.i.i", label %161
+  %155 = icmp eq i64 %.val34.val.i.i, %.val32.val.i.i
+  br i1 %155, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit41.thread59.i.i", label %156
 
-161:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit38.thread56.i.i"
-  br i1 %152, label %"_ZSt22__move_median_to_firstIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit41.i.i"
+156:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit38.thread56.i.i"
+  br i1 %147, label %"_ZSt22__move_median_to_firstIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit41.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit41.i.i": ; preds = %161
-  %162 = icmp ne i64 %.val32.val.i.i, %3
-  %163 = icmp ult i64 %.val34.val.i.i, %.val32.val.i.i
-  %spec.select.i.i39.i.i = and i1 %162, %163
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit41.i.i": ; preds = %156
+  %157 = icmp ne i64 %.val32.val.i.i, %3
+  %158 = icmp ult i64 %.val34.val.i.i, %.val32.val.i.i
+  %spec.select.i.i39.i.i = and i1 %157, %158
   br i1 %spec.select.i.i39.i.i, label %"_ZSt22__move_median_to_firstIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit41.thread59.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit41.thread59.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit41.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit38.thread56.i.i"
   br label %"_ZSt22__move_median_to_firstIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread53.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.i.i", %145
-  %.val26.i.i = load ptr, ptr %149, align 8
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread53.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.i.i", %140
+  %.val26.i.i = load ptr, ptr %144, align 8
   %.val26.val.i.i = load i64, ptr %.val26.i.i, align 8
-  %164 = icmp eq i64 %.val34.val.i.i, %.val26.val.i.i
-  br i1 %164, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit44.thread62.i.i", label %165
+  %159 = icmp eq i64 %.val34.val.i.i, %.val26.val.i.i
+  br i1 %159, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit44.thread62.i.i", label %160
 
-165:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread53.i.i"
-  %166 = icmp eq i64 %.val34.val.i.i, %3
-  br i1 %166, label %"_ZSt22__move_median_to_firstIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit44.i.i"
+160:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread53.i.i"
+  %161 = icmp eq i64 %.val34.val.i.i, %3
+  br i1 %161, label %"_ZSt22__move_median_to_firstIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit44.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit44.i.i": ; preds = %165
-  %167 = icmp ne i64 %.val26.val.i.i, %3
-  %168 = icmp ult i64 %.val34.val.i.i, %.val26.val.i.i
-  %spec.select.i.i42.i.i = and i1 %167, %168
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit44.i.i": ; preds = %160
+  %162 = icmp ne i64 %.val26.val.i.i, %3
+  %163 = icmp ult i64 %.val34.val.i.i, %.val26.val.i.i
+  %spec.select.i.i42.i.i = and i1 %162, %163
   br i1 %spec.select.i.i42.i.i, label %"_ZSt22__move_median_to_firstIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit44.thread62.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit44.thread62.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit44.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread53.i.i"
-  %169 = icmp eq i64 %.val35.val.i.i, %.val26.val.i.i
-  br i1 %169, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit47.thread65.i.i", label %170
+  %164 = icmp eq i64 %.val35.val.i.i, %.val26.val.i.i
+  br i1 %164, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit47.thread65.i.i", label %165
 
-170:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit44.thread62.i.i"
-  %171 = icmp eq i64 %.val35.val.i.i, %3
-  br i1 %171, label %"_ZSt22__move_median_to_firstIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit47.i.i"
+165:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit44.thread62.i.i"
+  %166 = icmp eq i64 %.val35.val.i.i, %3
+  br i1 %166, label %"_ZSt22__move_median_to_firstIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit47.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit47.i.i": ; preds = %170
-  %172 = icmp ne i64 %.val26.val.i.i, %3
-  %173 = icmp ult i64 %.val35.val.i.i, %.val26.val.i.i
-  %spec.select.i.i45.i.i = and i1 %172, %173
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit47.i.i": ; preds = %165
+  %167 = icmp ne i64 %.val26.val.i.i, %3
+  %168 = icmp ult i64 %.val35.val.i.i, %.val26.val.i.i
+  %spec.select.i.i45.i.i = and i1 %167, %168
   br i1 %spec.select.i.i45.i.i, label %"_ZSt22__move_median_to_firstIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit47.thread65.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit47.thread65.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit47.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit44.thread62.i.i"
   br label %"_ZSt22__move_median_to_firstIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit47.thread65.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit47.i.i", %170, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit44.i.i", %165, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit41.thread59.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit41.i.i", %161, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit38.i.i", %156
-  %.val34.sink.i.i = phi ptr [ %.val35.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit47.thread65.i.i" ], [ %.val34.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit41.thread59.i.i" ], [ %.val35.i.i, %156 ], [ %.val35.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit38.i.i" ], [ %.val32.i.i, %161 ], [ %.val32.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit41.i.i" ], [ %.val34.i.i, %165 ], [ %.val34.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit44.i.i" ], [ %.val26.i.i, %170 ], [ %.val26.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit47.i.i" ]
-  %.sink67.i.i = phi ptr [ %148, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit47.thread65.i.i" ], [ %9, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit41.thread59.i.i" ], [ %148, %156 ], [ %148, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit38.i.i" ], [ %149, %161 ], [ %149, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit41.i.i" ], [ %9, %165 ], [ %9, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit44.i.i" ], [ %149, %170 ], [ %149, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit47.i.i" ]
-  %174 = load ptr, ptr %0, align 8
+"_ZSt22__move_median_to_firstIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit47.thread65.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit47.i.i", %165, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit44.i.i", %160, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit41.thread59.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit41.i.i", %156, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit38.i.i", %151
+  %.val34.sink.i.i = phi ptr [ %.val35.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit47.thread65.i.i" ], [ %.val34.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit41.thread59.i.i" ], [ %.val35.i.i, %151 ], [ %.val35.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit38.i.i" ], [ %.val32.i.i, %156 ], [ %.val32.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit41.i.i" ], [ %.val34.i.i, %160 ], [ %.val34.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit44.i.i" ], [ %.val26.i.i, %165 ], [ %.val26.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit47.i.i" ]
+  %.sink67.i.i = phi ptr [ %143, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit47.thread65.i.i" ], [ %9, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit41.thread59.i.i" ], [ %143, %151 ], [ %143, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit38.i.i" ], [ %144, %156 ], [ %144, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit41.i.i" ], [ %9, %160 ], [ %9, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit44.i.i" ], [ %144, %165 ], [ %144, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit47.i.i" ]
+  %169 = load ptr, ptr %0, align 8
   store ptr %.val34.sink.i.i, ptr %0, align 8
-  store ptr %174, ptr %.sink67.i.i, align 8
-  br label %175
+  store ptr %169, ptr %.sink67.i.i, align 8
+  br label %170
 
-175:                                              ; preds = %197, %"_ZSt22__move_median_to_firstIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i"
-  %.013.i.i = phi ptr [ %.034, %"_ZSt22__move_median_to_firstIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i" ], [ %.114.lcssa.i.i, %197 ]
-  %.0.i.i = phi ptr [ %9, %"_ZSt22__move_median_to_firstIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i" ], [ %198, %197 ]
+170:                                              ; preds = %192, %"_ZSt22__move_median_to_firstIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i"
+  %.013.i.i = phi ptr [ %.034, %"_ZSt22__move_median_to_firstIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i" ], [ %.114.lcssa.i.i, %192 ]
+  %.0.i.i = phi ptr [ %9, %"_ZSt22__move_median_to_firstIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i" ], [ %193, %192 ]
   %.val17.i.i = load ptr, ptr %0, align 8
   %.val17.val.i.i = load i64, ptr %.val17.i.i, align 8
   %.1.val24.i.i = load ptr, ptr %.0.i.i, align 8
   %.1.val.val25.i.i = load i64, ptr %.1.val24.i.i, align 8
-  %176 = icmp eq i64 %.1.val.val25.i.i, %.val17.val.i.i
-  br i1 %176, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i", label %.lr.ph.i.i
+  %171 = icmp eq i64 %.1.val.val25.i.i, %.val17.val.i.i
+  br i1 %171, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i", label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %175
-  %177 = icmp ne i64 %.val17.val.i.i, %3
-  %.fr.i.i = freeze i1 %177
-  %178 = icmp eq i64 %.1.val.val25.i.i, %3
+.lr.ph.i.i:                                       ; preds = %170
+  %172 = icmp ne i64 %.val17.val.i.i, %3
+  %.fr.i.i = freeze i1 %172
+  %173 = icmp eq i64 %.1.val.val25.i.i, %3
   br i1 %.fr.i.i, label %.lr.ph.split.i.preheader.i, label %.lr.ph.split.us.i.i
 
 .lr.ph.split.i.preheader.i:                       ; preds = %.lr.ph.i.i
-  %179 = icmp ult i64 %.1.val.val25.i.i, %.val17.val.i.i
-  %or.cond.i16.i = or i1 %178, %179
+  %174 = icmp ult i64 %.1.val.val25.i.i, %.val17.val.i.i
+  %or.cond.i16.i = or i1 %173, %174
   br i1 %or.cond.i16.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i13.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i"
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i
-  br i1 %178, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.us.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i"
+  br i1 %173, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.us.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.us.i.i": ; preds = %.lr.ph.split.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.us.i.i"
-  %.126.us42.i.i = phi ptr [ %180, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.us.i.i" ], [ %.0.i.i, %.lr.ph.split.us.i.i ]
-  %180 = getelementptr inbounds nuw i8, ptr %.126.us42.i.i, i64 8
-  %.1.val.us.i.i = load ptr, ptr %180, align 8
+  %.126.us42.i.i = phi ptr [ %175, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.us.i.i" ], [ %.0.i.i, %.lr.ph.split.us.i.i ]
+  %175 = getelementptr inbounds nuw i8, ptr %.126.us42.i.i, i64 8
+  %.1.val.us.i.i = load ptr, ptr %175, align 8
   %.1.val.val.us.i.i = load i64, ptr %.1.val.us.i.i, align 8
-  %181 = icmp ne i64 %.1.val.val.us.i.i, %.val17.val.i.i
-  %182 = icmp eq i64 %.1.val.val.us.i.i, %3
-  %or.cond62.i.i = select i1 %181, i1 %182, i1 false
+  %176 = icmp ne i64 %.1.val.val.us.i.i, %.val17.val.i.i
+  %177 = icmp eq i64 %.1.val.val.us.i.i, %3
+  %or.cond62.i.i = select i1 %176, i1 %177, i1 false
   br i1 %or.cond62.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.us.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i", !llvm.loop !41
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i13._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.loopexit_crit_edge.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i13.i"
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i", !llvm.loop !41
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.us.i.i", %.lr.ph.split.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i13._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.loopexit_crit_edge.i", %.lr.ph.split.us.i.i, %.lr.ph.split.i.preheader.i, %175
-  %.1.lcssa.i.i = phi ptr [ %.0.i.i, %175 ], [ %.0.i.i, %.lr.ph.split.us.i.i ], [ %190, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i13._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.loopexit_crit_edge.i" ], [ %.0.i.i, %.lr.ph.split.i.preheader.i ], [ %190, %.lr.ph.split.i.i ], [ %180, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.us.i.i" ]
-  %.1.val.lcssa.i.i = phi ptr [ %.1.val24.i.i, %175 ], [ %.1.val24.i.i, %.lr.ph.split.us.i.i ], [ %.1.val.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i13._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.loopexit_crit_edge.i" ], [ %.1.val24.i.i, %.lr.ph.split.i.preheader.i ], [ %.1.val.i.i, %.lr.ph.split.i.i ], [ %.1.val.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.us.i.i" ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.us.i.i", %.lr.ph.split.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i13._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.loopexit_crit_edge.i", %.lr.ph.split.us.i.i, %.lr.ph.split.i.preheader.i, %170
+  %.1.lcssa.i.i = phi ptr [ %.0.i.i, %170 ], [ %.0.i.i, %.lr.ph.split.us.i.i ], [ %185, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i13._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.loopexit_crit_edge.i" ], [ %.0.i.i, %.lr.ph.split.i.preheader.i ], [ %185, %.lr.ph.split.i.i ], [ %175, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.us.i.i" ]
+  %.1.val.lcssa.i.i = phi ptr [ %.1.val24.i.i, %170 ], [ %.1.val24.i.i, %.lr.ph.split.us.i.i ], [ %.1.val.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i13._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.loopexit_crit_edge.i" ], [ %.1.val24.i.i, %.lr.ph.split.i.preheader.i ], [ %.1.val.i.i, %.lr.ph.split.i.i ], [ %.1.val.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.us.i.i" ]
   %.11445.i.i = getelementptr inbounds i8, ptr %.013.i.i, i64 -8
   %.114.val46.i.i = load ptr, ptr %.11445.i.i, align 8
   %.114.val.val47.i.i = load i64, ptr %.114.val46.i.i, align 8
-  %183 = icmp eq i64 %.val17.val.i.i, %.114.val.val47.i.i
-  br i1 %183, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit20.thread.i.i", label %.lr.ph51.i.i
+  %178 = icmp eq i64 %.val17.val.i.i, %.114.val.val47.i.i
+  br i1 %178, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit20.thread.i.i", label %.lr.ph51.i.i
 
 .lr.ph51.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i"
-  %184 = icmp eq i64 %.val17.val.i.i, %3
-  br i1 %184, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.us.i.i", label %.lr.ph51.split.i.i
+  %179 = icmp eq i64 %.val17.val.i.i, %3
+  br i1 %179, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.us.i.i", label %.lr.ph51.split.i.i
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.us.i.i": ; preds = %.lr.ph51.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.us.i.i"
   %.11448.us.i.i = phi ptr [ %.114.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.us.i.i" ], [ %.11445.i.i, %.lr.ph51.i.i ]
   %.114.us.i.i = getelementptr inbounds i8, ptr %.11448.us.i.i, i64 -8
   %.114.val.us.i.i = load ptr, ptr %.114.us.i.i, align 8
   %.114.val.val.us.i.i = load i64, ptr %.114.val.us.i.i, align 8
-  %185 = icmp eq i64 %3, %.114.val.val.us.i.i
-  br i1 %185, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit20.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.us.i.i", !llvm.loop !42
+  %180 = icmp eq i64 %3, %.114.val.val.us.i.i
+  br i1 %180, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit20.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.us.i.i", !llvm.loop !42
 
 .lr.ph51.split.i.i:                               ; preds = %.lr.ph51.i.i
-  %186 = icmp ne i64 %.114.val.val47.i.i, %3
-  %187 = icmp ult i64 %.val17.val.i.i, %.114.val.val47.i.i
-  %spec.select.i.i1858.i.i = and i1 %186, %187
+  %181 = icmp ne i64 %.114.val.val47.i.i, %3
+  %182 = icmp ult i64 %.val17.val.i.i, %.114.val.val47.i.i
+  %spec.select.i.i1858.i.i = and i1 %181, %182
   br i1 %spec.select.i.i1858.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit20.thread.i.i"
 
 .lr.ph.split.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i13.i"
-  %188 = icmp eq i64 %.1.val.val.i.i, %3
-  %189 = icmp ult i64 %.1.val.val.i.i, %.val17.val.i.i
-  %or.cond.i.i = or i1 %188, %189
+  %183 = icmp eq i64 %.1.val.val.i.i, %3
+  %184 = icmp ult i64 %.1.val.val.i.i, %.val17.val.i.i
+  %or.cond.i.i = or i1 %183, %184
   br i1 %or.cond.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i13.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i", !llvm.loop !41
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i13.i": ; preds = %.lr.ph.split.i.preheader.i, %.lr.ph.split.i.i
-  %.126.i17.i = phi ptr [ %190, %.lr.ph.split.i.i ], [ %.0.i.i, %.lr.ph.split.i.preheader.i ]
-  %190 = getelementptr inbounds nuw i8, ptr %.126.i17.i, i64 8
-  %.1.val.i.i = load ptr, ptr %190, align 8
+  %.126.i17.i = phi ptr [ %185, %.lr.ph.split.i.i ], [ %.0.i.i, %.lr.ph.split.i.preheader.i ]
+  %185 = getelementptr inbounds nuw i8, ptr %.126.i17.i, i64 8
+  %.1.val.i.i = load ptr, ptr %185, align 8
   %.1.val.val.i.i = load i64, ptr %.1.val.i.i, align 8
-  %191 = icmp eq i64 %.1.val.val.i.i, %.val17.val.i.i
-  br i1 %191, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i13._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.loopexit_crit_edge.i", label %.lr.ph.split.i.i, !llvm.loop !41
+  %186 = icmp eq i64 %.1.val.val.i.i, %.val17.val.i.i
+  br i1 %186, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.thread.i13._ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.loopexit_crit_edge.i", label %.lr.ph.split.i.i, !llvm.loop !41
 
-192:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.i.i"
-  %193 = icmp ne i64 %.114.val.val.i.i, %3
-  %194 = icmp ult i64 %.val17.val.i.i, %.114.val.val.i.i
-  %spec.select.i.i18.i.i = and i1 %193, %194
+187:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.i.i"
+  %188 = icmp ne i64 %.114.val.val.i.i, %3
+  %189 = icmp ult i64 %.val17.val.i.i, %.114.val.val.i.i
+  %spec.select.i.i18.i.i = and i1 %188, %189
   br i1 %spec.select.i.i18.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit20.thread.i.i", !llvm.loop !42
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.i.i": ; preds = %.lr.ph51.split.i.i, %192
-  %.1144859.i.i = phi ptr [ %.114.i.i, %192 ], [ %.11445.i.i, %.lr.ph51.split.i.i ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.i.i": ; preds = %.lr.ph51.split.i.i, %187
+  %.1144859.i.i = phi ptr [ %.114.i.i, %187 ], [ %.11445.i.i, %.lr.ph51.split.i.i ]
   %.114.i.i = getelementptr inbounds i8, ptr %.1144859.i.i, i64 -8
   %.114.val.i.i = load ptr, ptr %.114.i.i, align 8
   %.114.val.val.i.i = load i64, ptr %.114.val.i.i, align 8
-  %195 = icmp eq i64 %.val17.val.i.i, %.114.val.val.i.i
-  br i1 %195, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit20.thread.i.i", label %192, !llvm.loop !42
+  %190 = icmp eq i64 %.val17.val.i.i, %.114.val.val.i.i
+  br i1 %190, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit20.thread.i.i", label %187, !llvm.loop !42
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit20.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.i.i", %192, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.us.i.i", %.lr.ph51.split.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i"
-  %.114.lcssa.i.i = phi ptr [ %.11445.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i" ], [ %.11445.i.i, %.lr.ph51.split.i.i ], [ %.114.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.us.i.i" ], [ %.114.i.i, %192 ], [ %.114.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.i.i" ]
-  %.114.val.lcssa.i.i = phi ptr [ %.114.val46.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i" ], [ %.114.val46.i.i, %.lr.ph51.split.i.i ], [ %.114.val.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.us.i.i" ], [ %.114.val.i.i, %192 ], [ %.114.val.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.i.i" ]
-  %196 = icmp ult ptr %.1.lcssa.i.i, %.114.lcssa.i.i
-  br i1 %196, label %197, label %"_ZSt27__unguarded_partition_pivotIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEET_SB_SB_T0_.exit"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit20.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.i.i", %187, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.us.i.i", %.lr.ph51.split.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i"
+  %.114.lcssa.i.i = phi ptr [ %.11445.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i" ], [ %.11445.i.i, %.lr.ph51.split.i.i ], [ %.114.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.us.i.i" ], [ %.114.i.i, %187 ], [ %.114.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.i.i" ]
+  %.114.val.lcssa.i.i = phi ptr [ %.114.val46.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.preheader.i.i" ], [ %.114.val46.i.i, %.lr.ph51.split.i.i ], [ %.114.val.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.us.i.i" ], [ %.114.val.i.i, %187 ], [ %.114.val.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit.backedge.i.i" ]
+  %191 = icmp ult ptr %.1.lcssa.i.i, %.114.lcssa.i.i
+  br i1 %191, label %192, label %"_ZSt27__unguarded_partition_pivotIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEET_SB_SB_T0_.exit"
 
-197:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit20.thread.i.i"
+192:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit20.thread.i.i"
   store ptr %.114.val.lcssa.i.i, ptr %.1.lcssa.i.i, align 8
   store ptr %.1.val.lcssa.i.i, ptr %.114.lcssa.i.i, align 8
-  %198 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i.i, i64 8
-  br label %175, !llvm.loop !43
+  %193 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i.i, i64 8
+  br label %170, !llvm.loop !43
 
 "_ZSt27__unguarded_partition_pivotIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEET_SB_SB_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit20.thread.i.i"
-  tail call fastcc void @"_ZSt16__introsort_loopIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_T0_T1_"(ptr noundef %.1.lcssa.i.i, ptr noundef %.034, i64 noundef %146, i64 %3)
-  %199 = ptrtoint ptr %.1.lcssa.i.i to i64
-  %200 = sub i64 %199, %5
-  %201 = icmp sgt i64 %200, 128
-  br i1 %201, label %10, label %"_ZSt14__partial_sortIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_T0_.exit", !llvm.loop !44
+  tail call fastcc void @"_ZSt16__introsort_loopIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_T0_T1_"(ptr noundef %.1.lcssa.i.i, ptr noundef %.034, i64 noundef %141, i64 %3)
+  %194 = ptrtoint ptr %.1.lcssa.i.i to i64
+  %195 = sub i64 %194, %5
+  %196 = icmp sgt i64 %195, 128
+  br i1 %196, label %10, label %"_ZSt14__partial_sortIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_T0_.exit", !llvm.loop !44
 
 "_ZSt14__partial_sortIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEET_SB_SB_T0_.exit", %"_ZSt10__pop_heapIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_SB_RT0_.exit.i20.i", %4
   ret void

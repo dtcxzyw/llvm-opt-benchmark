@@ -949,8 +949,8 @@ _ZNSt6vectorIN4ncnn4RectESaIS1_EE6resizeEm.exit:  ; preds = %._ZNSt6vectorIN4ncn
   br i1 %218, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %215
-  %219 = shl i64 %208, 2
-  %220 = add i64 %219, -4
+  %219 = shl nuw nsw i64 %208, 2
+  %220 = add nsw i64 %219, -4
   call void @llvm.memset.p0.i64(ptr align 4 %216, i8 0, i64 %220, i1 false), !tbaa !45
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %217, 2
   %221 = getelementptr inbounds nuw i8, ptr %216, i64 %.idx.i.i.i.i.i.i
@@ -1194,8 +1194,8 @@ _ZN4ncnnL17intersection_areaERKNS_4RectES2_.exit.i: ; preds = %311, %306, %301, 
   br i1 %.not.i.i156, label %333, label %331
 
 .thread.i:                                        ; preds = %.lr.ph71.i
-  %.not.i94.i = icmp eq ptr %275, %.sroa.19203.1
-  br i1 %.not.i94.i, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i, label %331
+  %.not.i111.i = icmp eq ptr %275, %.sroa.19203.1
+  br i1 %.not.i111.i, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i, label %331
 
 331:                                              ; preds = %.thread.i, %330
   store i64 %storemerge70.i, ptr %276, align 8, !tbaa !84
@@ -1415,14 +1415,14 @@ _ZNK4ncnn3Mat5emptyEv.exit142:                    ; preds = %399
   br i1 %.not.i.i.i159, label %_ZNSt6vectorImSaImEED2Ev.exit, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.noexc140, %.critedge
-  %.0311 = phi i32 [ %.0, %.critedge ], [ 0, %.noexc140 ]
+  %.0366 = phi i32 [ %.0, %.critedge ], [ 0, %.noexc140 ]
   %419 = ptrtoint ptr %.sroa.19203.4 to i64
   %420 = sub i64 %419, %351
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0193.4, i64 noundef %420) #21
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %.critedge, %.critedge.thread
-  %.0312 = phi i32 [ %.0, %.critedge ], [ %.0311, %.critedge.thread ]
+  %.0367 = phi i32 [ %.0, %.critedge ], [ %.0366, %.critedge.thread ]
   %421 = load ptr, ptr %12, align 8, !tbaa !77
   %.not.i.i.i160 = icmp eq ptr %421, null
   br i1 %.not.i.i.i160, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %422
@@ -1497,7 +1497,7 @@ _ZN4ncnn3MatD2Ev.exit97:                          ; preds = %436, %_ZNSt6vectorI
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.0312
+  ret i32 %.0367
 
 .body:                                            ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit46.i, %373, %412
   %.sroa.0193.0 = phi ptr [ %.sroa.0193.4, %412 ], [ %.sroa.0193.4, %373 ], [ %.sroa.0193.1, %_ZNSt6vectorIfSaIfEED2Ev.exit46.i ]
@@ -2293,7 +2293,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN4ncnn4RectESaIS1_EE17_M_default_a
 19:                                               ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN4ncnn4RectEmS1_ET_S3_T0_RSaIT1_E.exit, label %23
 

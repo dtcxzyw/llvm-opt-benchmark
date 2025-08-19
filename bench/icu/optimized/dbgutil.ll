@@ -658,7 +658,7 @@ define range(i32 -1, 2147483647) i32 @udbg_enumByString(i32 noundef %0, ptr noun
   %18 = load i16, ptr %17, align 8, !tbaa !22
   %19 = and i16 %18, 1
   %.not = icmp eq i16 %19, 0
-  br i1 %.not, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %.loopexit.loopexit.split.loop.exit26
+  br i1 %.not, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %.loopexit.loopexit.split.loop.exit27
 
 20:                                               ; preds = %9
   %21 = icmp slt i16 %14, 0
@@ -689,7 +689,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %20
   %40 = select i1 %.not.i.i.i, ptr %39, ptr %37
   %41 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %40, i32 noundef %25)
   %.not16 = icmp eq i8 %41, 0
-  br i1 %.not16, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %.loopexit.loopexit.split.loop.exit24
+  br i1 %.not16, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %.loopexit.loopexit.split.loop.exit25
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread:   ; preds = %20, %16, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -698,16 +698,16 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread:   ; preds = %20, %16, %_ZNK6icu_
   %.not17 = icmp slt i64 %indvars.iv.next, %43
   br i1 %.not17, label %9, label %.loopexit, !llvm.loop !26
 
-.loopexit.loopexit.split.loop.exit24:             ; preds = %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
+.loopexit.loopexit.split.loop.exit25:             ; preds = %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
   %44 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit26:             ; preds = %16
+.loopexit.loopexit.split.loop.exit27:             ; preds = %16
   %45 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, %.loopexit.loopexit.split.loop.exit24, %.loopexit.loopexit.split.loop.exit26, %3, %2
-  %.013 = phi i32 [ -1, %2 ], [ -1, %3 ], [ %44, %.loopexit.loopexit.split.loop.exit24 ], [ %45, %.loopexit.loopexit.split.loop.exit26 ], [ -1, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread ]
+.loopexit:                                        ; preds = %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, %.loopexit.loopexit.split.loop.exit25, %.loopexit.loopexit.split.loop.exit27, %3, %2
+  %.013 = phi i32 [ -1, %2 ], [ -1, %3 ], [ %44, %.loopexit.loopexit.split.loop.exit25 ], [ %45, %.loopexit.loopexit.split.loop.exit27 ], [ -1, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread ]
   ret i32 %.013
 }
 

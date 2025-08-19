@@ -240,19 +240,19 @@ init_ata.exit:                                    ; preds = %._crit_edge.i, %.pr
   br label %111
 
 111:                                              ; preds = %106, %.lr.ph167
-  br i1 %.not136, label %112, label %.thread195
+  br i1 %.not136, label %112, label %.thread216
 
 112:                                              ; preds = %111
   %.not139161 = icmp eq i32 %102, -1
   br i1 %.not139161, label %._crit_edge165, label %.lr.ph164.split.us
 
-.thread195:                                       ; preds = %111
+.thread216:                                       ; preds = %111
   %113 = getelementptr inbounds nuw i32, ptr %.0145, i64 %indvars.iv185
   %114 = load i32, ptr %113, align 4, !tbaa !13
-  %.not139161196 = icmp eq i32 %114, -1
-  br i1 %.not139161196, label %._crit_edge165, label %.lr.ph164.split.preheader
+  %.not139161217 = icmp eq i32 %114, -1
+  br i1 %.not139161217, label %._crit_edge165, label %.lr.ph164.split.preheader
 
-.lr.ph164.split.preheader:                        ; preds = %.thread195
+.lr.ph164.split.preheader:                        ; preds = %.thread216
   %115 = getelementptr inbounds i32, ptr %22, i64 %103
   br label %.lr.ph164.split
 
@@ -354,7 +354,7 @@ init_ata.exit:                                    ; preds = %._crit_edge.i, %.pr
   %.not139 = icmp eq i32 %166, -1
   br i1 %.not139, label %._crit_edge165, label %.lr.ph164.split, !llvm.loop !24
 
-._crit_edge165:                                   ; preds = %._crit_edge160, %.thread.us, %.thread195, %.lr.ph164.split.us, %112
+._crit_edge165:                                   ; preds = %._crit_edge160, %.thread.us, %.thread216, %.lr.ph164.split.us, %112
   %167 = load i32, ptr %104, align 4, !tbaa !13
   %.not140 = icmp eq i32 %167, -1
   br i1 %.not140, label %170, label %168

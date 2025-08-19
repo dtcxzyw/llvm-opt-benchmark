@@ -1408,9 +1408,9 @@ cops_c_type_to_str.exit.i:                        ; preds = %switch.lookup, %77,
   br label %cops_c_type_to_str.exit75.i
 
 89:                                               ; preds = %cops_c_type_to_str.exit.i, %cops_c_type_to_str.exit.i
-  %switch.tableidx315 = add i8 %60, -1
-  %90 = icmp ult i8 %switch.tableidx315, 5
-  br i1 %90, label %switch.lookup314, label %99
+  %switch.tableidx332 = add i8 %60, -1
+  %90 = icmp ult i8 %switch.tableidx332, 5
+  br i1 %90, label %switch.lookup331, label %99
 
 91:                                               ; preds = %cops_c_type_to_str.exit.i
   %switch.selectcmp22.i67.i = icmp eq i8 %60, 2
@@ -1441,14 +1441,14 @@ cops_c_type_to_str.exit.i:                        ; preds = %switch.lookup, %77,
 99:                                               ; preds = %89, %97, %95, %92, %86, %cops_c_type_to_str.exit.i
   br label %cops_c_type_to_str.exit75.i
 
-switch.lookup314:                                 ; preds = %89
-  %100 = zext nneg i8 %switch.tableidx315 to i64
-  %switch.gep316 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_cops_pdu.1, i64 0, i64 %100
-  %switch.load317 = load ptr, ptr %switch.gep316, align 8
+switch.lookup331:                                 ; preds = %89
+  %100 = zext nneg i8 %switch.tableidx332 to i64
+  %switch.gep333 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_cops_pdu.1, i64 0, i64 %100
+  %switch.load334 = load ptr, ptr %switch.gep333, align 8
   br label %cops_c_type_to_str.exit75.i
 
-cops_c_type_to_str.exit75.i:                      ; preds = %switch.lookup314, %99, %97, %95, %94, %92, %91, %88, %86
-  %.0.i62.i = phi ptr [ @.str.661, %99 ], [ @.str.670, %86 ], [ @.str.680, %92 ], [ @.str.683, %95 ], [ @.str.684, %97 ], [ %switch.select21.i74.i, %88 ], [ %switch.select25.i70.i, %91 ], [ %switch.select29.i66.i, %94 ], [ %switch.load317, %switch.lookup314 ]
+cops_c_type_to_str.exit75.i:                      ; preds = %switch.lookup331, %99, %97, %95, %94, %92, %91, %88, %86
+  %.0.i62.i = phi ptr [ @.str.661, %99 ], [ @.str.670, %86 ], [ @.str.680, %92 ], [ @.str.683, %95 ], [ @.str.684, %97 ], [ %switch.select21.i74.i, %88 ], [ %switch.select25.i70.i, %91 ], [ %switch.select29.i66.i, %94 ], [ %switch.load334, %switch.lookup331 ]
   %101 = load i32, ptr @hf_cops_obj_c_type, align 4
   %102 = zext i8 %60 to i32
   %char0.i = load i8, ptr %.0.i62.i, align 1
@@ -2056,7 +2056,7 @@ proto_item_set_generated.exit:                    ; preds = %408, %405, %402, %3
   %434 = icmp eq i8 %13, 9
   %brmerge287 = or i1 %or.cond29, %or.cond56
   %invariant.op = and i1 %341, %25
-  %invariant.op331 = and i1 %434, %25
+  %invariant.op348 = and i1 %434, %25
   br label %435
 
 435:                                              ; preds = %.lr.ph285, %.thread265
@@ -2108,7 +2108,7 @@ proto_item_set_generated.exit:                    ; preds = %408, %405, %402, %3
   %457 = load i8, ptr %456, align 1, !range !6, !noundef !7
   %458 = trunc nuw i8 %457 to i1
   %.not = xor i1 %458, true
-  %or.cond64.reass.reass.reass = and i1 %.not, %invariant.op331
+  %or.cond64.reass.reass.reass = and i1 %.not, %invariant.op348
   br i1 %or.cond64.reass.reass.reass, label %459, label %.thread265
 
 459:                                              ; preds = %450, %451, %455, %449, %445

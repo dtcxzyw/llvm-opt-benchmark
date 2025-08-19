@@ -763,10 +763,10 @@ _ZN4core3ops8function6FnOnce9call_once17hbc590d00681d6cd2E.llvm.1541675802211412
   br label %110
 
 110:                                              ; preds = %108, %104, %100
-  %.sink252 = phi ptr [ null, %108 ], [ %105, %104 ], [ null, %100 ]
+  %.sink263 = phi ptr [ null, %108 ], [ %105, %104 ], [ null, %100 ]
   %.sink = phi ptr [ %109, %108 ], [ %106, %104 ], [ %101, %100 ]
   %111 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %.sink252, ptr %111, align 8
+  store ptr %.sink263, ptr %111, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %.sink, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 0, ptr %8, align 8
@@ -1537,10 +1537,10 @@ _ZN10async_task5utils14abort_on_panic17h89e4c88835624583E.exit: ; preds = %24
   br label %57
 
 57:                                               ; preds = %55, %51, %47
-  %.sink246 = phi ptr [ null, %55 ], [ %52, %51 ], [ null, %47 ]
+  %.sink253 = phi ptr [ null, %55 ], [ %52, %51 ], [ null, %47 ]
   %.sink = phi ptr [ %56, %55 ], [ %53, %51 ], [ %48, %47 ]
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %.sink246, ptr %58, align 8
+  store ptr %.sink253, ptr %58, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.sink, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 0, ptr %4, align 8

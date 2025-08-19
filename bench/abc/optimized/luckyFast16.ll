@@ -2277,27 +2277,27 @@ arrangeQuoters_superFast_iVar5.exit79:            ; preds = %150, %139
   br i1 %.not46, label %.lr.ph.preheader.i90, label %170
 
 170:                                              ; preds = %.thread, %169
-  %.sink.i56171180 = phi i32 [ 0, %.thread ], [ %.sink.i56, %169 ]
-  %.0.i57172179 = phi i32 [ 0, %.thread ], [ %.0.i57, %169 ]
-  %171 = zext nneg i32 %.0.i57172179 to i64
+  %.sink.i56173182 = phi i32 [ 0, %.thread ], [ %.sink.i56, %169 ]
+  %.0.i57174181 = phi i32 [ 0, %.thread ], [ %.0.i57, %169 ]
+  %171 = zext nneg i32 %.0.i57174181 to i64
   %172 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 0, i64 %171
   %173 = load i32, ptr %172, align 4, !tbaa !6
-  %174 = xor i32 %.0.i57172179, 1
+  %174 = xor i32 %.0.i57174181, 1
   %175 = zext nneg i32 %174 to i64
   %176 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 0, i64 %175
   %177 = load i32, ptr %176, align 4, !tbaa !6
-  %178 = sext i32 %.sink.i56171180 to i64
+  %178 = sext i32 %.sink.i56173182 to i64
   %179 = icmp eq i32 %173, 0
   %180 = icmp eq i32 %177, 1
   %or.cond.i80 = and i1 %179, %180
   br i1 %or.cond.i80, label %arrangeQuoters_superFast_iVar5.exit, label %181
 
 181:                                              ; preds = %170
-  %182 = icmp sgt i32 %.sink.i56171180, 1
+  %182 = icmp sgt i32 %.sink.i56173182, 1
   br i1 %182, label %.lr.ph.i82, label %._crit_edge.i81
 
 .lr.ph.i82:                                       ; preds = %181
-  %183 = add nsw i32 %.sink.i56171180, -1
+  %183 = add nsw i32 %.sink.i56173182, -1
   %184 = getelementptr inbounds nuw i32, ptr %6, i64 %178
   %185 = sext i32 %173 to i64
   %186 = sub nsw i64 0, %185
@@ -2503,14 +2503,14 @@ minTemp3_fast_iVar5.exit:                         ; preds = %230, %224, %227
   br label %arrangeQuoters_superFast_iVar5.exit.sink.split
 
 arrangeQuoters_superFast_iVar5.exit.sink.split:   ; preds = %arrangeQuoters_superFast_iVar5.exit79, %._crit_edge.i, %._crit_edge.i67, %._crit_edge.i81, %._crit_edge.i96, %._crit_edge.i103
-  %.sink193 = phi i32 [ %306, %._crit_edge.i103 ], [ %269, %._crit_edge.i96 ], [ %208, %._crit_edge.i81 ], [ %138, %._crit_edge.i67 ], [ %105, %._crit_edge.i ], [ %168, %arrangeQuoters_superFast_iVar5.exit79 ]
-  %.sink192 = phi i32 [ %273, %._crit_edge.i103 ], [ %237, %._crit_edge.i96 ], [ %173, %._crit_edge.i81 ], [ %.0.i, %._crit_edge.i67 ], [ %70, %._crit_edge.i ], [ %.0.i50, %arrangeQuoters_superFast_iVar5.exit79 ]
-  %.sink189 = load i32, ptr %3, align 4, !tbaa !6
-  %307 = tail call i32 @llvm.abs.i32(i32 %.sink193, i1 true)
+  %.sink195 = phi i32 [ %306, %._crit_edge.i103 ], [ %269, %._crit_edge.i96 ], [ %208, %._crit_edge.i81 ], [ %138, %._crit_edge.i67 ], [ %105, %._crit_edge.i ], [ %168, %arrangeQuoters_superFast_iVar5.exit79 ]
+  %.sink194 = phi i32 [ %273, %._crit_edge.i103 ], [ %237, %._crit_edge.i96 ], [ %173, %._crit_edge.i81 ], [ %.0.i, %._crit_edge.i67 ], [ %70, %._crit_edge.i ], [ %.0.i50, %arrangeQuoters_superFast_iVar5.exit79 ]
+  %.sink191 = load i32, ptr %3, align 4, !tbaa !6
+  %307 = tail call i32 @llvm.abs.i32(i32 %.sink195, i1 true)
   %308 = shl i32 %307, 2
-  %309 = add i32 %.sink192, -4
+  %309 = add i32 %.sink194, -4
   %310 = add i32 %309, %308
-  %311 = tail call i32 @adjustInfoAfterSwap(ptr noundef %2, i32 noundef %.sink189, i32 noundef 5, i32 noundef %310) #9
+  %311 = tail call i32 @adjustInfoAfterSwap(ptr noundef %2, i32 noundef %.sink191, i32 noundef 5, i32 noundef %310) #9
   store i32 %311, ptr %3, align 4, !tbaa !6
   br label %arrangeQuoters_superFast_iVar5.exit
 
@@ -3131,7 +3131,7 @@ minTemp2_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i89,
   %75 = load i32, ptr %74, align 4, !tbaa !6
   %76 = sub nsw i32 3, %75
   %77 = sub nsw i32 3, %71
-  %78 = sext i32 %.sink.i85 to i64
+  %78 = zext nneg i32 %.sink.i85 to i64
   %79 = icmp eq i32 %71, 0
   %80 = icmp eq i32 %75, 1
   %or.cond.i91 = and i1 %79, %80
@@ -3145,7 +3145,7 @@ minTemp2_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i89,
 .lr.ph.i:                                         ; preds = %81
   %84 = shl i32 8, %8
   %85 = sext i32 %.pre to i64
-  %86 = getelementptr inbounds i64, ptr %7, i64 %78
+  %86 = getelementptr inbounds nuw i64, ptr %7, i64 %78
   %87 = sub nsw i64 0, %85
   %88 = shl i32 %71, %8
   %89 = sext i32 %88 to i64
@@ -3184,7 +3184,7 @@ minTemp2_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i89,
   br i1 %113, label %101, label %._crit_edge.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %101, %81
-  %114 = shl nsw i64 %78, 3
+  %114 = shl nuw nsw i64 %78, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr nonnull align 16 %7, i64 %114, i1 false)
   %115 = load i32, ptr %4, align 4, !tbaa !6
   %116 = sub nsw i32 %71, %75
@@ -3203,7 +3203,7 @@ minTemp2_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i89,
   %125 = tail call noundef i32 @llvm.smax.i32(i32 %.sink.i85, i32 %.sink.i)
   %126 = xor i32 %.0.i69, 3
   %127 = xor i32 %.0.i, 3
-  %128 = sext i32 %125 to i64
+  %128 = zext nneg i32 %125 to i64
   %or.cond.i93 = and i1 %26, %46
   br i1 %or.cond.i93, label %arrangeQuoters_superFast_moreThen5.exit, label %129
 
@@ -3215,7 +3215,7 @@ minTemp2_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i89,
 .lr.ph.i96:                                       ; preds = %129
   %132 = shl i32 8, %8
   %133 = sext i32 %.pre to i64
-  %134 = getelementptr inbounds i64, ptr %7, i64 %128
+  %134 = getelementptr inbounds nuw i64, ptr %7, i64 %128
   %135 = sub nsw i64 0, %133
   %136 = shl i32 %.0.i, %8
   %137 = sext i32 %136 to i64
@@ -3254,7 +3254,7 @@ minTemp2_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i89,
   br i1 %161, label %149, label %._crit_edge.i95, !llvm.loop !23
 
 ._crit_edge.i95:                                  ; preds = %149, %129
-  %162 = shl nsw i64 %128, 3
+  %162 = shl nuw nsw i64 %128, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr nonnull align 16 %7, i64 %162, i1 false)
   %163 = load i32, ptr %4, align 4, !tbaa !6
   %164 = sub nsw i32 %.0.i, %.0.i69
@@ -3267,7 +3267,7 @@ minTemp2_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i89,
 
 170:                                              ; preds = %122
   %171 = tail call noundef i32 @llvm.smax.i32(i32 %.sink.i85, i32 %.sink.i68)
-  %172 = sext i32 %171 to i64
+  %172 = zext nneg i32 %171 to i64
   %173 = sub nsw i32 %171, %.pre
   %174 = icmp sgt i32 %173, 0
   br i1 %174, label %.lr.ph.i103, label %arrangeQuoters_superFast_moreThen5.exit106
@@ -3277,7 +3277,7 @@ minTemp2_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i89,
   %176 = xor i32 %.0.i, 3
   %177 = shl i32 8, %8
   %178 = sext i32 %.pre to i64
-  %179 = getelementptr inbounds i64, ptr %7, i64 %172
+  %179 = getelementptr inbounds nuw i64, ptr %7, i64 %172
   %180 = sub nsw i64 0, %178
   %181 = shl i32 %.0.i69, %8
   %182 = sext i32 %181 to i64
@@ -3316,7 +3316,7 @@ minTemp2_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i89,
   br i1 %206, label %194, label %arrangeQuoters_superFast_moreThen5.exit106, !llvm.loop !23
 
 arrangeQuoters_superFast_moreThen5.exit106:       ; preds = %194, %170
-  %207 = shl nsw i64 %172, 3
+  %207 = shl nuw nsw i64 %172, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr nonnull align 16 %7, i64 %207, i1 false)
   %208 = load i32, ptr %4, align 4, !tbaa !6
   %209 = sub nsw i32 %.0.i69, %.0.i
@@ -3341,7 +3341,7 @@ arrangeQuoters_superFast_moreThen5.exit106:       ; preds = %194, %170
   %223 = load i32, ptr %222, align 4, !tbaa !6
   %224 = sub nsw i32 3, %223
   %225 = sub nsw i32 3, %219
-  %226 = sext i32 %.sink.i85 to i64
+  %226 = zext nneg i32 %.sink.i85 to i64
   %227 = icmp eq i32 %219, 0
   %228 = icmp eq i32 %223, 1
   %or.cond.i107 = and i1 %227, %228
@@ -3355,7 +3355,7 @@ arrangeQuoters_superFast_moreThen5.exit106:       ; preds = %194, %170
 .lr.ph.i110:                                      ; preds = %229
   %232 = shl i32 8, %8
   %233 = sext i32 %.pre to i64
-  %234 = getelementptr inbounds i64, ptr %7, i64 %226
+  %234 = getelementptr inbounds nuw i64, ptr %7, i64 %226
   %235 = sub nsw i64 0, %233
   %236 = shl i32 %219, %8
   %237 = sext i32 %236 to i64
@@ -3394,7 +3394,7 @@ arrangeQuoters_superFast_moreThen5.exit106:       ; preds = %194, %170
   br i1 %261, label %249, label %._crit_edge.i109, !llvm.loop !23
 
 ._crit_edge.i109:                                 ; preds = %249, %229
-  %262 = shl nsw i64 %226, 3
+  %262 = shl nuw nsw i64 %226, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr nonnull align 16 %7, i64 %262, i1 false)
   %263 = load i32, ptr %4, align 4, !tbaa !6
   %264 = sub nsw i32 %219, %223
@@ -3422,7 +3422,7 @@ arrangeQuoters_superFast_moreThen5.exit106:       ; preds = %194, %170
 
 .preheader.us.i119:                               ; preds = %._crit_edge.us.i126, %.preheader.us.preheader.i116
   %.02735.us.i = phi i32 [ %288, %._crit_edge.us.i126 ], [ %275, %.preheader.us.preheader.i116 ]
-  %278 = sext i32 %.02735.us.i to i64
+  %278 = zext nneg i32 %.02735.us.i to i64
   br label %279
 
 279:                                              ; preds = %287, %.preheader.us.i119
@@ -3451,18 +3451,18 @@ arrangeQuoters_superFast_moreThen5.exit106:       ; preds = %194, %170
   br i1 %.not.us.i, label %minTemp3_fast_moreThen5.exit, label %.preheader.us.i119, !llvm.loop !31
 
 .split38.us.i:                                    ; preds = %279
-  %289 = add nsw i32 %.02735.us.i, 1
+  %289 = add nuw nsw i32 %.02735.us.i, 1
   br label %minTemp3_fast_moreThen5.exit
 
 .split.us.i127:                                   ; preds = %279
-  %290 = add nsw i32 %.02735.us.i, 1
+  %290 = add nuw nsw i32 %.02735.us.i, 1
   br label %minTemp3_fast_moreThen5.exit
 
 minTemp3_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i126, %270, %.split38.us.i, %.split.us.i127
   %.sink.i122 = phi i32 [ %290, %.split.us.i127 ], [ %289, %.split38.us.i ], [ 0, %270 ], [ 0, %._crit_edge.us.i126 ]
   %.0.i123 = phi i32 [ 1, %.split.us.i127 ], [ 0, %.split38.us.i ], [ 0, %270 ], [ 0, %._crit_edge.us.i126 ]
   %291 = icmp sgt i32 %.sink.i122, %.sink.i85
-  %292 = sext i32 %.sink.i to i64
+  %292 = zext nneg i32 %.sink.i to i64
   br i1 %291, label %293, label %346
 
 293:                                              ; preds = %minTemp3_fast_moreThen5.exit
@@ -3488,7 +3488,7 @@ minTemp3_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i126
 .lr.ph.i131:                                      ; preds = %305
   %308 = shl i32 8, %8
   %309 = sext i32 %.pre to i64
-  %310 = getelementptr inbounds i64, ptr %7, i64 %292
+  %310 = getelementptr inbounds nuw i64, ptr %7, i64 %292
   %311 = sub nsw i64 0, %309
   %312 = shl i32 %297, %8
   %313 = sext i32 %312 to i64
@@ -3527,7 +3527,7 @@ minTemp3_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i126
   br i1 %337, label %325, label %._crit_edge.i130, !llvm.loop !23
 
 ._crit_edge.i130:                                 ; preds = %325, %305
-  %338 = shl nsw i64 %292, 3
+  %338 = shl nuw nsw i64 %292, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr nonnull align 16 %7, i64 %338, i1 false)
   %339 = load i32, ptr %4, align 4, !tbaa !6
   %340 = sub nsw i32 %297, %300
@@ -3561,7 +3561,7 @@ minTemp3_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i126
 .lr.ph.i138:                                      ; preds = %358
   %361 = shl i32 8, %8
   %362 = sext i32 %.pre to i64
-  %363 = getelementptr inbounds i64, ptr %7, i64 %292
+  %363 = getelementptr inbounds nuw i64, ptr %7, i64 %292
   %364 = sub nsw i64 0, %362
   %365 = shl i32 %349, %8
   %366 = sext i32 %365 to i64
@@ -3600,7 +3600,7 @@ minTemp3_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i126
   br i1 %390, label %378, label %._crit_edge.i137, !llvm.loop !23
 
 ._crit_edge.i137:                                 ; preds = %378, %358
-  %391 = shl nsw i64 %292, 3
+  %391 = shl nuw nsw i64 %292, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr nonnull align 16 %7, i64 %391, i1 false)
   %392 = load i32, ptr %4, align 4, !tbaa !6
   %393 = sub nsw i32 %349, %353

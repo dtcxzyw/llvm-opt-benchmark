@@ -7772,8 +7772,8 @@ define { ptr, i64 } @_ZN21uv_distribution_types4file9UrlString8base_str17hb42cc0
 
 .lr.ph.split.split.i.i:                           ; preds = %21, %1
   %6 = phi i64 [ %19, %21 ], [ 0, %1 ]
-  %7 = sub nuw i64 %4, %6
-  %8 = getelementptr inbounds i8, ptr %5, i64 %6
+  %7 = sub nuw nsw i64 %4, %6
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %6
   %9 = icmp samesign ult i64 %7, 16
   br i1 %9, label %.preheader.i.i.i, label %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i
 
@@ -7802,7 +7802,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i: ; preds = %.lr.ph.spl
 
 _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.lr.ph.i.i.i, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i
   %.sroa.4.0.i26.i.i = phi i64 [ %17, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i ], [ %.sroa.01.05.i.i.i, %.lr.ph.i.i.i ]
-  %18 = add i64 %6, 1
+  %18 = add nuw i64 %6, 1
   %19 = add i64 %18, %.sroa.4.0.i26.i.i
   %.not13.i.i = icmp ugt i64 %19, %4
   %20 = add i64 %.sroa.4.0.i26.i.i, %6
@@ -7813,7 +7813,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.
   br i1 %.not13.i.i, label %.loopexit14, label %.lr.ph.split.split.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd917e375b74e7eafE.exit.i.i": ; preds = %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i
-  %22 = getelementptr inbounds i8, ptr %5, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 %20
   %lhsc.i = load i8, ptr %22, align 1, !alias.scope !1482, !noalias !1483
   %23 = icmp eq i8 %lhsc.i, 63
   br i1 %23, label %"_ZN4core6option15Option$LT$T$GT$7or_else17ha009b4465e0c9d09E.exit", label %21
@@ -7825,8 +7825,8 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.
 
 .lr.ph.split.split.i.i.i.i:                       ; preds = %41, %.loopexit14
   %26 = phi i64 [ %39, %41 ], [ 0, %.loopexit14 ]
-  %27 = sub nuw i64 %25, %26
-  %28 = getelementptr inbounds i8, ptr %5, i64 %26
+  %27 = sub nuw nsw i64 %25, %26
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 %26
   %29 = icmp samesign ult i64 %27, 16
   br i1 %29, label %.preheader.i.i.i.i.i, label %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i.i.i
 
@@ -7855,7 +7855,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i.i.i: ; preds = %.lr.ph
 
 _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i.i.i
   %.sroa.4.0.i26.i.i.i.i = phi i64 [ %37, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i.i.i ], [ %.sroa.01.05.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %38 = add i64 %26, 1
+  %38 = add nuw i64 %26, 1
   %39 = add i64 %38, %.sroa.4.0.i26.i.i.i.i
   %.not13.i.i.i.i = icmp ugt i64 %39, %25
   %40 = add i64 %.sroa.4.0.i26.i.i.i.i, %26
@@ -7866,7 +7866,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i.i.i: ; preds 
   br i1 %.not13.i.i.i.i, label %.loopexit, label %.lr.ph.split.split.i.i.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd917e375b74e7eafE.exit.i.i.i.i": ; preds = %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i.i.i
-  %42 = getelementptr inbounds i8, ptr %5, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 %40
   %lhsc.i.i.i = load i8, ptr %42, align 1, !alias.scope !1502, !noalias !1503
   %43 = icmp eq i8 %lhsc.i.i.i, 35
   br i1 %43, label %"_ZN4core6option15Option$LT$T$GT$7or_else17ha009b4465e0c9d09E.exit", label %41
@@ -7895,8 +7895,8 @@ define noundef nonnull ptr @_ZN21uv_distribution_types4file9UrlString16without_f
 
 .lr.ph.split.split.i.i:                           ; preds = %22, %1
   %7 = phi i64 [ %20, %22 ], [ 0, %1 ]
-  %8 = sub nuw i64 %5, %7
-  %9 = getelementptr inbounds i8, ptr %6, i64 %7
+  %8 = sub nuw nsw i64 %5, %7
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %7
   %10 = icmp samesign ult i64 %8, 16
   br i1 %10, label %.preheader.i.i.i, label %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i
 
@@ -7925,7 +7925,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i: ; preds = %.lr.ph.spl
 
 _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.lr.ph.i.i.i, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i
   %.sroa.4.0.i26.i.i = phi i64 [ %18, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i ], [ %.sroa.01.05.i.i.i, %.lr.ph.i.i.i ]
-  %19 = add i64 %7, 1
+  %19 = add nuw i64 %7, 1
   %20 = add i64 %19, %.sroa.4.0.i26.i.i
   %.not13.i.i = icmp ugt i64 %20, %5
   %21 = add i64 %.sroa.4.0.i26.i.i, %7
@@ -7936,7 +7936,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.
   br i1 %.not13.i.i, label %.loopexit, label %.lr.ph.split.split.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd917e375b74e7eafE.exit.i.i": ; preds = %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i
-  %23 = getelementptr inbounds i8, ptr %6, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 %21
   %lhsc.i = load i8, ptr %23, align 1, !alias.scope !1520, !noalias !1521
   %24 = icmp eq i8 %lhsc.i, 35
   br i1 %24, label %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h8561a7a01d7716caE.exit", label %22

@@ -2151,8 +2151,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit5:                ; preds = %25, %27
   %switch.load = load i64, ptr %switch.gep, align 8
   %33 = and i16 %31, 255
   %34 = zext nneg i16 %33 to i64
-  %switch.gep33 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK4llvm14SpillPlacement15BlockConstraint5printERNS_11raw_ostreamE.5, i64 0, i64 %34
-  %switch.load34 = load ptr, ptr %switch.gep33, align 8
+  %switch.gep35 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK4llvm14SpillPlacement15BlockConstraint5printERNS_11raw_ostreamE.5, i64 0, i64 %34
+  %switch.load36 = load ptr, ptr %switch.gep35, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i4, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !187
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i4, i64 32
@@ -2164,13 +2164,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit5:                ; preds = %25, %27
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit5
-  %44 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i4, ptr noundef nonnull %switch.load34, i64 noundef %switch.load) #18
+  %44 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i4, ptr noundef nonnull %switch.load36, i64 noundef %switch.load) #18
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %44, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !191
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 45:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %38, ptr noundef nonnull align 1 dereferenceable(1) %switch.load34, i64 %switch.load, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %38, ptr noundef nonnull align 1 dereferenceable(1) %switch.load36, i64 %switch.load, i1 false)
   %46 = load ptr, ptr %37, align 8, !tbaa !191
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 %switch.load
   store ptr %47, ptr %37, align 8, !tbaa !191
@@ -2205,10 +2205,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8:                ; preds = %55, %57
   %62 = lshr i16 %61, 8
   %trunc.i9 = zext nneg i16 %62 to i64
   %63 = zext nneg i16 %62 to i64
-  %switch.gep35 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZNK4llvm14SpillPlacement15BlockConstraint5printERNS_11raw_ostreamE.4, i64 0, i64 %63
-  %switch.load36 = load i64, ptr %switch.gep35, align 8
-  %switch.gep37 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK4llvm14SpillPlacement15BlockConstraint5printERNS_11raw_ostreamE.5, i64 0, i64 %trunc.i9
-  %switch.load38 = load ptr, ptr %switch.gep37, align 8
+  %switch.gep37 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZNK4llvm14SpillPlacement15BlockConstraint5printERNS_11raw_ostreamE.4, i64 0, i64 %63
+  %switch.load38 = load i64, ptr %switch.gep37, align 8
+  %switch.gep39 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK4llvm14SpillPlacement15BlockConstraint5printERNS_11raw_ostreamE.5, i64 0, i64 %trunc.i9
+  %switch.load40 = load ptr, ptr %switch.gep39, align 8
   %64 = getelementptr inbounds nuw i8, ptr %.0.i.i7, i64 24
   %65 = load ptr, ptr %64, align 8, !tbaa !187
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i7, i64 32
@@ -2216,19 +2216,19 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8:                ; preds = %55, %57
   %68 = ptrtoint ptr %65 to i64
   %69 = ptrtoint ptr %67 to i64
   %70 = sub i64 %68, %69
-  %71 = icmp ugt i64 %switch.load36, %70
+  %71 = icmp ugt i64 %switch.load38, %70
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit8
-  %73 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i7, ptr noundef nonnull %switch.load38, i64 noundef %switch.load36) #18
+  %73 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i7, ptr noundef nonnull %switch.load40, i64 noundef %switch.load38) #18
   %.phi.trans.insert27 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %.pre28 = load ptr, ptr %.phi.trans.insert27, align 8, !tbaa !191
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit17
 
 74:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %67, ptr noundef nonnull align 1 dereferenceable(1) %switch.load38, i64 %switch.load36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %67, ptr noundef nonnull align 1 dereferenceable(1) %switch.load40, i64 %switch.load38, i1 false)
   %75 = load ptr, ptr %66, align 8, !tbaa !191
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 %switch.load36
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 %switch.load38
   store ptr %76, ptr %66, align 8, !tbaa !191
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit17
 
@@ -2835,13 +2835,13 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11AnalysisKeyEbLj8ENS_12DenseMapIn
   br label %.loopexit
 
 .loopexit:                                        ; preds = %32, %15, %65
-  %.sink32 = phi i32 [ %74, %65 ], [ %13, %15 ], [ %13, %32 ]
-  %.sink30 = phi ptr [ %72, %65 ], [ %10, %15 ], [ %10, %32 ]
-  %.sink29 = phi ptr [ %54, %65 ], [ %24, %15 ], [ %38, %32 ]
+  %.sink36 = phi i32 [ %74, %65 ], [ %13, %15 ], [ %13, %32 ]
+  %.sink34 = phi ptr [ %72, %65 ], [ %10, %15 ], [ %10, %32 ]
+  %.sink33 = phi ptr [ %54, %65 ], [ %24, %15 ], [ %38, %32 ]
   %.sink = phi i8 [ 1, %65 ], [ 0, %15 ], [ 0, %32 ]
-  %75 = zext i32 %.sink32 to i64
-  %76 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %75
-  store ptr %.sink29, ptr %0, align 8
+  %75 = zext i32 %.sink36 to i64
+  %76 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink34, i64 %75
+  store ptr %.sink33, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %76, ptr %.sroa.4.0..sroa_idx, align 8
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16

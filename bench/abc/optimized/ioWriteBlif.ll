@@ -932,8 +932,8 @@ define void @Io_WriteTimingInfo(ptr noundef captures(none) %0, ptr noundef %1) l
   %.phi.trans.insert144 = getelementptr inbounds nuw i8, ptr %137, i64 4
   %.pre145 = load float, ptr %.phi.trans.insert144, align 4, !tbaa !60
   %140 = fcmp une float %.pre145, 0.000000e+00
-  %or.cond146 = select i1 %139, i1 true, i1 %140
-  br i1 %or.cond146, label %.critedge4._crit_edge, label %144
+  %or.cond148 = select i1 %139, i1 true, i1 %140
+  br i1 %or.cond148, label %.critedge4._crit_edge, label %144
 
 .critedge4._crit_edge:                            ; preds = %.critedge4
   %141 = fpext float %138 to double
@@ -1127,10 +1127,10 @@ define void @Io_NtkWriteNodeInt(ptr noundef captures(none) %0, ptr noundef reado
   %11 = getelementptr i8, ptr %1, i64 28
   %.val161 = load i32, ptr %11, align 4, !tbaa !52
   %12 = icmp sgt i32 %.val161, 7
-  %indvars.iv210.sroa.gep219 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %indvars.iv210.sroa.gep222 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %indvars.iv210.sroa.gep225 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %indvars.iv210.sroa.gep228 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %indvars.iv210.sroa.gep221 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %indvars.iv210.sroa.gep224 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %indvars.iv210.sroa.gep227 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %indvars.iv210.sroa.gep230 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %12, label %13, label %22
 
 13:                                               ; preds = %3
@@ -1330,17 +1330,17 @@ define void @Io_NtkWriteNodeInt(ptr noundef captures(none) %0, ptr noundef reado
 
 113:                                              ; preds = %75, %._crit_edge188
   %114 = phi i1 [ true, %75 ], [ false, %._crit_edge188 ]
-  %indvars.iv210.sroa.phi = phi ptr [ %10, %75 ], [ %indvars.iv210.sroa.gep219, %._crit_edge188 ]
-  %indvars.iv210.sroa.phi220 = phi ptr [ %9, %75 ], [ %indvars.iv210.sroa.gep222, %._crit_edge188 ]
-  %indvars.iv210.sroa.phi223 = phi ptr [ %8, %75 ], [ %indvars.iv210.sroa.gep225, %._crit_edge188 ]
-  %indvars.iv210.sroa.phi226 = phi ptr [ %7, %75 ], [ %indvars.iv210.sroa.gep228, %._crit_edge188 ]
+  %indvars.iv210.sroa.phi = phi ptr [ %10, %75 ], [ %indvars.iv210.sroa.gep221, %._crit_edge188 ]
+  %indvars.iv210.sroa.phi222 = phi ptr [ %9, %75 ], [ %indvars.iv210.sroa.gep224, %._crit_edge188 ]
+  %indvars.iv210.sroa.phi225 = phi ptr [ %8, %75 ], [ %indvars.iv210.sroa.gep227, %._crit_edge188 ]
+  %indvars.iv210.sroa.phi228 = phi ptr [ %7, %75 ], [ %indvars.iv210.sroa.gep230, %._crit_edge188 ]
   %indvars.iv210 = phi i32 [ 0, %75 ], [ 1, %._crit_edge188 ]
   %.val162 = load ptr, ptr %1, align 8, !tbaa !39
   %115 = getelementptr inbounds nuw i8, ptr %.val162, i64 256
   %116 = load ptr, ptr %115, align 8, !tbaa !71
-  %.in = select i1 %56, ptr %indvars.iv210.sroa.phi223, ptr %indvars.iv210.sroa.phi226
+  %.in = select i1 %56, ptr %indvars.iv210.sroa.phi225, ptr %indvars.iv210.sroa.phi228
   %117 = load i64, ptr %.in, align 8, !tbaa !65
-  %118 = load i32, ptr %indvars.iv210.sroa.phi220, align 4, !tbaa !26
+  %118 = load i32, ptr %indvars.iv210.sroa.phi222, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %117, ptr %5, align 8, !tbaa !65
   %119 = call i32 @Kit_TruthIsop(ptr noundef nonnull %5, i32 noundef %118, ptr noundef %2, i32 noundef 1) #10
@@ -1369,7 +1369,7 @@ Io_NtkDeriveSop.exit:                             ; preds = %113, %120, %122, %1
   %.0.i = phi ptr [ %123, %124 ], [ %123, %122 ], [ @.str.12, %120 ], [ @.str.38, %113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %125 = call i64 @fwrite(ptr nonnull @.str.8, i64 6, i64 1, ptr %0)
-  %126 = load i32, ptr %indvars.iv210.sroa.phi220, align 4, !tbaa !26
+  %126 = load i32, ptr %indvars.iv210.sroa.phi222, align 4, !tbaa !26
   %127 = icmp sgt i32 %126, 0
   br i1 %127, label %.lr.ph187, label %._crit_edge188
 
@@ -1392,7 +1392,7 @@ Io_NtkDeriveSop.exit:                             ; preds = %113, %120, %122, %1
   %138 = call ptr @Abc_ObjName(ptr noundef %137) #10
   %139 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %138) #10
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
-  %140 = load i32, ptr %indvars.iv210.sroa.phi220, align 4, !tbaa !26
+  %140 = load i32, ptr %indvars.iv210.sroa.phi222, align 4, !tbaa !26
   %141 = sext i32 %140 to i64
   %142 = icmp slt i64 %indvars.iv.next208, %141
   br i1 %142, label %.lr.ph187, label %._crit_edge188, !llvm.loop !72
@@ -1571,8 +1571,8 @@ Io_NtkDeriveSop.exit169:                          ; preds = %._crit_edge, %221, 
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %fputs = call i32 @fputs(ptr %.0.i168, ptr %0)
   %indvars.iv.next204 = add nsw i64 %indvars.iv203, -1
-  %.not216 = icmp eq i64 %indvars.iv203, 0
-  br i1 %.not216, label %226, label %169, !llvm.loop !76
+  %.not218 = icmp eq i64 %indvars.iv203, 0
+  br i1 %.not218, label %226, label %169, !llvm.loop !76
 
 226:                                              ; preds = %Io_NtkDeriveSop.exit169
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

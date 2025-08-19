@@ -1300,7 +1300,7 @@ if.end95:                                         ; preds = %_ZN4llvh23SmallVect
   br i1 %cmp96.not, label %if.end101, label %if.then97
 
 if.then97:                                        ; preds = %for.cond.preheader, %if.end95
-  %e.097 = phi i32 [ %e.0, %if.end95 ], [ 0, %for.cond.preheader ]
+  %e.0100 = phi i32 [ %e.0, %if.end95 ], [ 0, %for.cond.preheader ]
   %42 = load ptr, ptr %n, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %42, i64 1
   store i8 46, ptr %ref.tmp99, align 1
@@ -1308,8 +1308,8 @@ if.then97:                                        ; preds = %for.cond.preheader,
   br label %if.end101
 
 if.end101:                                        ; preds = %if.then97, %if.end95
-  %e.098 = phi i32 [ %e.097, %if.then97 ], [ %e.0, %if.end95 ]
-  %cmp102 = icmp eq i32 %e.098, 0
+  %e.0101 = phi i32 [ %e.0100, %if.then97 ], [ %e.0, %if.end95 ]
+  %cmp102 = icmp eq i32 %e.0101, 0
   br i1 %cmp102, label %_ZN4llvh9StringRefC2EPKc.exit, label %if.else105
 
 _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %if.end101
@@ -1329,7 +1329,7 @@ if.else105:                                       ; preds = %if.end101
   store ptr @.str.9, ptr %Fmt.i.i.i, align 8, !alias.scope !36
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh13format_objectIJiEEE, i64 16), ptr %ref.tmp106, align 8, !alias.scope !36
   %Vals.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp106, i64 16
-  store i32 %e.098, ptr %Vals.i.i, align 8, !alias.scope !36
+  store i32 %e.0101, ptr %Vals.i.i, align 8, !alias.scope !36
   %call107 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp106) #12
   call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %os) #12
   br label %if.end108
@@ -1789,8 +1789,8 @@ if.then.i112:                                     ; preds = %_ZN4llvh9StringRefC
 
 _ZN4llvh15SmallVectorImplIcE7reserveEm.exit:      ; preds = %_ZN4llvh9StringRefC2EPKc.exit221, %if.then.i112
   %sub180 = sub nsw i32 0, %40
-  %cmp181153.not = icmp eq i32 %40, 0
-  br i1 %cmp181153.not, label %for.end186, label %for.body182.preheader
+  %cmp181153 = icmp slt i32 %40, 0
+  br i1 %cmp181153, label %for.body182.preheader, label %for.end186
 
 for.body182.preheader:                            ; preds = %_ZN4llvh15SmallVectorImplIcE7reserveEm.exit
   %.pre = load i32, ptr %Size.i.i.i.i.i.i104, align 8

@@ -198,16 +198,16 @@ if.end.i.i.i.i.i.i.i125:                          ; preds = %call5.i.i.i.i2.i.i.
 
 if.then.i.i.i.i.i139:                             ; preds = %call5.i.i.i.i2.i.i.noexc133, %if.end.i.i.i.i.i.i.i125
   %__first.addr.0.i.i.i.i.i128.ph = phi ptr [ %add.ptr.i.i.i.i.i.i.i127, %if.end.i.i.i.i.i.i.i125 ], [ %incdec.ptr.i.i.i.i.i122, %call5.i.i.i.i2.i.i.noexc133 ]
-  %_M_finish.i.i7.i129304 = getelementptr inbounds nuw i8, ptr %this, i64 160
-  store ptr %__first.addr.0.i.i.i.i.i128.ph, ptr %_M_finish.i.i7.i129304, align 8, !tbaa !21
-  %stdDev_305 = getelementptr inbounds nuw i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stdDev_305, i8 0, i64 24, i1 false)
+  %_M_finish.i.i7.i129311 = getelementptr inbounds nuw i8, ptr %this, i64 160
+  store ptr %__first.addr.0.i.i.i.i.i128.ph, ptr %_M_finish.i.i7.i129311, align 8, !tbaa !21
+  %stdDev_312 = getelementptr inbounds nuw i8, ptr %this, i64 176
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stdDev_312, i8 0, i64 24, i1 false)
   %mul.i.i.i.i.i.i140 = shl nuw nsw i64 %steps, 3
   %call5.i.i.i.i2.i.i155 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i140) #8
           to label %call5.i.i.i.i2.i.i.noexc154 unwind label %lpad29
 
 call5.i.i.i.i2.i.i.noexc154:                      ; preds = %if.then.i.i.i.i.i139
-  store ptr %call5.i.i.i.i2.i.i155, ptr %stdDev_305, align 8, !tbaa !17
+  store ptr %call5.i.i.i.i2.i.i155, ptr %stdDev_312, align 8, !tbaa !17
   %add.ptr.i.i.i141 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i155, i64 %steps
   %_M_end_of_storage.i.i.i142 = getelementptr inbounds nuw i8, ptr %this, i64 192
   store ptr %add.ptr.i.i.i141, ptr %_M_end_of_storage.i.i.i142, align 8, !tbaa !18
@@ -237,18 +237,18 @@ invoke.cont30:                                    ; preds = %_ZNSt6vectorIdSaIdE
 
 for.body.lr.ph:                                   ; preds = %if.end.i.i.i.i.i.i.i146, %call5.i.i.i.i2.i.i.noexc154
   %__first.addr.0.i.i.i.i.i149.ph = phi ptr [ %add.ptr.i.i.i.i.i.i.i148, %if.end.i.i.i.i.i.i.i146 ], [ %incdec.ptr.i.i.i.i.i143, %call5.i.i.i.i2.i.i.noexc154 ]
-  %_M_finish.i.i7.i150334 = getelementptr inbounds nuw i8, ptr %this, i64 184
-  store ptr %__first.addr.0.i.i.i.i.i149.ph, ptr %_M_finish.i.i7.i150334, align 8, !tbaa !21
+  %_M_finish.i.i7.i150341 = getelementptr inbounds nuw i8, ptr %this, i64 184
+  store ptr %__first.addr.0.i.i.i.i.i149.ph, ptr %_M_finish.i.i7.i150341, align 8, !tbaa !21
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %invoke.cont30
-  %rightWeight_294307348 = phi ptr [ %rightWeight_, %invoke.cont30 ], [ %rightWeight_277, %for.body ]
-  %rightIndex_248257291310346 = phi ptr [ %rightIndex_, %invoke.cont30 ], [ %rightIndex_237, %for.body ]
-  %bridgeIndex_218225245260288313344 = phi ptr [ %bridgeIndex_, %invoke.cont30 ], [ %bridgeIndex_213, %for.body ]
-  %sqrtdt_209215228242263285316342 = phi ptr [ %sqrtdt_, %invoke.cont30 ], [ %sqrtdt_207, %for.body ]
-  %leftIndex_231239266282319340 = phi ptr [ %leftIndex_, %invoke.cont30 ], [ %leftIndex_223, %for.body ]
-  %leftWeight_269279322338 = phi ptr [ %leftWeight_, %invoke.cont30 ], [ %leftWeight_255, %for.body ]
-  %stdDev_325336 = phi ptr [ %stdDev_, %invoke.cont30 ], [ %stdDev_305, %for.body ]
+  %rightWeight_294314355 = phi ptr [ %rightWeight_, %invoke.cont30 ], [ %rightWeight_277, %for.body ]
+  %rightIndex_248257291317353 = phi ptr [ %rightIndex_, %invoke.cont30 ], [ %rightIndex_237, %for.body ]
+  %bridgeIndex_218225245260288320351 = phi ptr [ %bridgeIndex_, %invoke.cont30 ], [ %bridgeIndex_213, %for.body ]
+  %sqrtdt_209215228242263285323349 = phi ptr [ %sqrtdt_, %invoke.cont30 ], [ %sqrtdt_207, %for.body ]
+  %leftIndex_231239266282326347 = phi ptr [ %leftIndex_, %invoke.cont30 ], [ %leftIndex_223, %for.body ]
+  %leftWeight_269279329345 = phi ptr [ %leftWeight_, %invoke.cont30 ], [ %leftWeight_255, %for.body ]
+  %stdDev_332343 = phi ptr [ %stdDev_, %invoke.cont30 ], [ %stdDev_312, %for.body ]
   invoke void @_ZN8QuantLib14BrownianBridge10initializeEv(ptr noundef nonnull align 8 dereferenceable(200) %this)
           to label %invoke.cont34 unwind label %lpad33
 
@@ -302,7 +302,7 @@ invoke.cont34:                                    ; preds = %for.cond.cleanup
 lpad33:                                           ; preds = %for.cond.cleanup
   %15 = landingpad { ptr, i32 }
           cleanup
-  %16 = load ptr, ptr %stdDev_325336, align 8, !tbaa !17
+  %16 = load ptr, ptr %stdDev_332343, align 8, !tbaa !17
   %tobool.not.i.i.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i, label %ehcleanup, label %if.then.i.i.i
 
@@ -316,14 +316,14 @@ if.then.i.i.i:                                    ; preds = %lpad33
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %if.then.i.i.i, %lpad33, %lpad29
-  %leftWeight_269279321 = phi ptr [ %leftWeight_255, %lpad29 ], [ %leftWeight_269279322338, %lpad33 ], [ %leftWeight_269279322338, %if.then.i.i.i ]
-  %leftIndex_231239266282318 = phi ptr [ %leftIndex_223, %lpad29 ], [ %leftIndex_231239266282319340, %lpad33 ], [ %leftIndex_231239266282319340, %if.then.i.i.i ]
-  %sqrtdt_209215228242263285315 = phi ptr [ %sqrtdt_207, %lpad29 ], [ %sqrtdt_209215228242263285316342, %lpad33 ], [ %sqrtdt_209215228242263285316342, %if.then.i.i.i ]
-  %bridgeIndex_218225245260288312 = phi ptr [ %bridgeIndex_213, %lpad29 ], [ %bridgeIndex_218225245260288313344, %lpad33 ], [ %bridgeIndex_218225245260288313344, %if.then.i.i.i ]
-  %rightIndex_248257291309 = phi ptr [ %rightIndex_237, %lpad29 ], [ %rightIndex_248257291310346, %lpad33 ], [ %rightIndex_248257291310346, %if.then.i.i.i ]
-  %rightWeight_294306 = phi ptr [ %rightWeight_277, %lpad29 ], [ %rightWeight_294307348, %lpad33 ], [ %rightWeight_294307348, %if.then.i.i.i ]
+  %leftWeight_269279328 = phi ptr [ %leftWeight_255, %lpad29 ], [ %leftWeight_269279329345, %lpad33 ], [ %leftWeight_269279329345, %if.then.i.i.i ]
+  %leftIndex_231239266282325 = phi ptr [ %leftIndex_223, %lpad29 ], [ %leftIndex_231239266282326347, %lpad33 ], [ %leftIndex_231239266282326347, %if.then.i.i.i ]
+  %sqrtdt_209215228242263285322 = phi ptr [ %sqrtdt_207, %lpad29 ], [ %sqrtdt_209215228242263285323349, %lpad33 ], [ %sqrtdt_209215228242263285323349, %if.then.i.i.i ]
+  %bridgeIndex_218225245260288319 = phi ptr [ %bridgeIndex_213, %lpad29 ], [ %bridgeIndex_218225245260288320351, %lpad33 ], [ %bridgeIndex_218225245260288320351, %if.then.i.i.i ]
+  %rightIndex_248257291316 = phi ptr [ %rightIndex_237, %lpad29 ], [ %rightIndex_248257291317353, %lpad33 ], [ %rightIndex_248257291317353, %if.then.i.i.i ]
+  %rightWeight_294313 = phi ptr [ %rightWeight_277, %lpad29 ], [ %rightWeight_294314355, %lpad33 ], [ %rightWeight_294314355, %if.then.i.i.i ]
   %.pn = phi { ptr, i32 } [ %14, %lpad29 ], [ %15, %lpad33 ], [ %15, %if.then.i.i.i ]
-  %18 = load ptr, ptr %rightWeight_294306, align 8, !tbaa !17
+  %18 = load ptr, ptr %rightWeight_294313, align 8, !tbaa !17
   %tobool.not.i.i.i157 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i157, label %ehcleanup35, label %if.then.i.i.i158
 
@@ -337,11 +337,11 @@ if.then.i.i.i158:                                 ; preds = %ehcleanup
   br label %ehcleanup35
 
 ehcleanup35:                                      ; preds = %if.then.i.i.i158, %ehcleanup, %lpad25
-  %rightIndex_248257290 = phi ptr [ %rightIndex_237, %lpad25 ], [ %rightIndex_248257291309, %ehcleanup ], [ %rightIndex_248257291309, %if.then.i.i.i158 ]
-  %bridgeIndex_218225245260287 = phi ptr [ %bridgeIndex_213, %lpad25 ], [ %bridgeIndex_218225245260288312, %ehcleanup ], [ %bridgeIndex_218225245260288312, %if.then.i.i.i158 ]
-  %sqrtdt_209215228242263284 = phi ptr [ %sqrtdt_207, %lpad25 ], [ %sqrtdt_209215228242263285315, %ehcleanup ], [ %sqrtdt_209215228242263285315, %if.then.i.i.i158 ]
-  %leftIndex_231239266281 = phi ptr [ %leftIndex_223, %lpad25 ], [ %leftIndex_231239266282318, %ehcleanup ], [ %leftIndex_231239266282318, %if.then.i.i.i158 ]
-  %leftWeight_269278 = phi ptr [ %leftWeight_255, %lpad25 ], [ %leftWeight_269279321, %ehcleanup ], [ %leftWeight_269279321, %if.then.i.i.i158 ]
+  %rightIndex_248257290 = phi ptr [ %rightIndex_237, %lpad25 ], [ %rightIndex_248257291316, %ehcleanup ], [ %rightIndex_248257291316, %if.then.i.i.i158 ]
+  %bridgeIndex_218225245260287 = phi ptr [ %bridgeIndex_213, %lpad25 ], [ %bridgeIndex_218225245260288319, %ehcleanup ], [ %bridgeIndex_218225245260288319, %if.then.i.i.i158 ]
+  %sqrtdt_209215228242263284 = phi ptr [ %sqrtdt_207, %lpad25 ], [ %sqrtdt_209215228242263285322, %ehcleanup ], [ %sqrtdt_209215228242263285322, %if.then.i.i.i158 ]
+  %leftIndex_231239266281 = phi ptr [ %leftIndex_223, %lpad25 ], [ %leftIndex_231239266282325, %ehcleanup ], [ %leftIndex_231239266282325, %if.then.i.i.i158 ]
+  %leftWeight_269278 = phi ptr [ %leftWeight_255, %lpad25 ], [ %leftWeight_269279328, %ehcleanup ], [ %leftWeight_269279328, %if.then.i.i.i158 ]
   %.pn.pn = phi { ptr, i32 } [ %13, %lpad25 ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i158 ]
   %20 = load ptr, ptr %leftWeight_269278, align 8, !tbaa !17
   %tobool.not.i.i.i164 = icmp eq ptr %20, null
@@ -1265,16 +1265,16 @@ if.end.i.i.i.i.i.i.i126:                          ; preds = %call5.i.i.i.i2.i.i.
 
 if.then.i.i.i.i.i140:                             ; preds = %call5.i.i.i.i2.i.i.noexc134, %if.end.i.i.i.i.i.i.i126
   %__first.addr.0.i.i.i.i.i129.ph = phi ptr [ %add.ptr.i.i.i.i.i.i.i128, %if.end.i.i.i.i.i.i.i126 ], [ %incdec.ptr.i.i.i.i.i123, %call5.i.i.i.i2.i.i.noexc134 ]
-  %_M_finish.i.i7.i130308 = getelementptr inbounds nuw i8, ptr %this, i64 160
-  store ptr %__first.addr.0.i.i.i.i.i129.ph, ptr %_M_finish.i.i7.i130308, align 8, !tbaa !21
-  %stdDev_309 = getelementptr inbounds nuw i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stdDev_309, i8 0, i64 24, i1 false)
+  %_M_finish.i.i7.i130315 = getelementptr inbounds nuw i8, ptr %this, i64 160
+  store ptr %__first.addr.0.i.i.i.i.i129.ph, ptr %_M_finish.i.i7.i130315, align 8, !tbaa !21
+  %stdDev_316 = getelementptr inbounds nuw i8, ptr %this, i64 176
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stdDev_316, i8 0, i64 24, i1 false)
   %mul.i.i.i.i.i.i141 = shl nuw nsw i64 %sub, 3
   %call5.i.i.i.i2.i.i156 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i141) #8
           to label %call5.i.i.i.i2.i.i.noexc155 unwind label %lpad29
 
 call5.i.i.i.i2.i.i.noexc155:                      ; preds = %if.then.i.i.i.i.i140
-  store ptr %call5.i.i.i.i2.i.i156, ptr %stdDev_309, align 8, !tbaa !17
+  store ptr %call5.i.i.i.i2.i.i156, ptr %stdDev_316, align 8, !tbaa !17
   %add.ptr.i.i.i142 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i156, i64 %sub
   %_M_end_of_storage.i.i.i143 = getelementptr inbounds nuw i8, ptr %this, i64 192
   store ptr %add.ptr.i.i.i142, ptr %_M_end_of_storage.i.i.i143, align 8, !tbaa !18
@@ -1304,19 +1304,19 @@ invoke.cont30:                                    ; preds = %_ZNSt6vectorIdSaIdE
 
 for.body.lr.ph:                                   ; preds = %if.end.i.i.i.i.i.i.i147, %call5.i.i.i.i2.i.i.noexc155
   %__first.addr.0.i.i.i.i.i150.ph = phi ptr [ %add.ptr.i.i.i.i.i.i.i149, %if.end.i.i.i.i.i.i.i147 ], [ %incdec.ptr.i.i.i.i.i144, %call5.i.i.i.i2.i.i.noexc155 ]
-  %_M_finish.i.i7.i151338 = getelementptr inbounds nuw i8, ptr %this, i64 184
-  store ptr %__first.addr.0.i.i.i.i.i150.ph, ptr %_M_finish.i.i7.i151338, align 8, !tbaa !21
+  %_M_finish.i.i7.i151345 = getelementptr inbounds nuw i8, ptr %this, i64 184
+  store ptr %__first.addr.0.i.i.i.i.i150.ph, ptr %_M_finish.i.i7.i151345, align 8, !tbaa !21
   %10 = load ptr, ptr %timeGrid, align 8, !tbaa !17
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %invoke.cont30
-  %rightWeight_298311352 = phi ptr [ %rightWeight_, %invoke.cont30 ], [ %rightWeight_281, %for.body ]
-  %rightIndex_252261295314350 = phi ptr [ %rightIndex_, %invoke.cont30 ], [ %rightIndex_241, %for.body ]
-  %bridgeIndex_222229249264292317348 = phi ptr [ %bridgeIndex_, %invoke.cont30 ], [ %bridgeIndex_217, %for.body ]
-  %sqrtdt_213219232246267289320346 = phi ptr [ %sqrtdt_, %invoke.cont30 ], [ %sqrtdt_211, %for.body ]
-  %leftIndex_235243270286323344 = phi ptr [ %leftIndex_, %invoke.cont30 ], [ %leftIndex_227, %for.body ]
-  %leftWeight_273283326342 = phi ptr [ %leftWeight_, %invoke.cont30 ], [ %leftWeight_259, %for.body ]
-  %stdDev_329340 = phi ptr [ %stdDev_, %invoke.cont30 ], [ %stdDev_309, %for.body ]
+  %rightWeight_298318359 = phi ptr [ %rightWeight_, %invoke.cont30 ], [ %rightWeight_281, %for.body ]
+  %rightIndex_252261295321357 = phi ptr [ %rightIndex_, %invoke.cont30 ], [ %rightIndex_241, %for.body ]
+  %bridgeIndex_222229249264292324355 = phi ptr [ %bridgeIndex_, %invoke.cont30 ], [ %bridgeIndex_217, %for.body ]
+  %sqrtdt_213219232246267289327353 = phi ptr [ %sqrtdt_, %invoke.cont30 ], [ %sqrtdt_211, %for.body ]
+  %leftIndex_235243270286330351 = phi ptr [ %leftIndex_, %invoke.cont30 ], [ %leftIndex_227, %for.body ]
+  %leftWeight_273283333349 = phi ptr [ %leftWeight_, %invoke.cont30 ], [ %leftWeight_259, %for.body ]
+  %stdDev_336347 = phi ptr [ %stdDev_, %invoke.cont30 ], [ %stdDev_316, %for.body ]
   invoke void @_ZN8QuantLib14BrownianBridge10initializeEv(ptr noundef nonnull align 8 dereferenceable(200) %this)
           to label %invoke.cont38 unwind label %lpad37
 
@@ -1371,7 +1371,7 @@ invoke.cont38:                                    ; preds = %for.cond.cleanup
 lpad37:                                           ; preds = %for.cond.cleanup
   %19 = landingpad { ptr, i32 }
           cleanup
-  %20 = load ptr, ptr %stdDev_329340, align 8, !tbaa !17
+  %20 = load ptr, ptr %stdDev_336347, align 8, !tbaa !17
   %tobool.not.i.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i, label %ehcleanup39, label %if.then.i.i.i
 
@@ -1385,14 +1385,14 @@ if.then.i.i.i:                                    ; preds = %lpad37
   br label %ehcleanup39
 
 ehcleanup39:                                      ; preds = %if.then.i.i.i, %lpad37, %lpad29
-  %leftWeight_273283325 = phi ptr [ %leftWeight_259, %lpad29 ], [ %leftWeight_273283326342, %lpad37 ], [ %leftWeight_273283326342, %if.then.i.i.i ]
-  %leftIndex_235243270286322 = phi ptr [ %leftIndex_227, %lpad29 ], [ %leftIndex_235243270286323344, %lpad37 ], [ %leftIndex_235243270286323344, %if.then.i.i.i ]
-  %sqrtdt_213219232246267289319 = phi ptr [ %sqrtdt_211, %lpad29 ], [ %sqrtdt_213219232246267289320346, %lpad37 ], [ %sqrtdt_213219232246267289320346, %if.then.i.i.i ]
-  %bridgeIndex_222229249264292316 = phi ptr [ %bridgeIndex_217, %lpad29 ], [ %bridgeIndex_222229249264292317348, %lpad37 ], [ %bridgeIndex_222229249264292317348, %if.then.i.i.i ]
-  %rightIndex_252261295313 = phi ptr [ %rightIndex_241, %lpad29 ], [ %rightIndex_252261295314350, %lpad37 ], [ %rightIndex_252261295314350, %if.then.i.i.i ]
-  %rightWeight_298310 = phi ptr [ %rightWeight_281, %lpad29 ], [ %rightWeight_298311352, %lpad37 ], [ %rightWeight_298311352, %if.then.i.i.i ]
+  %leftWeight_273283332 = phi ptr [ %leftWeight_259, %lpad29 ], [ %leftWeight_273283333349, %lpad37 ], [ %leftWeight_273283333349, %if.then.i.i.i ]
+  %leftIndex_235243270286329 = phi ptr [ %leftIndex_227, %lpad29 ], [ %leftIndex_235243270286330351, %lpad37 ], [ %leftIndex_235243270286330351, %if.then.i.i.i ]
+  %sqrtdt_213219232246267289326 = phi ptr [ %sqrtdt_211, %lpad29 ], [ %sqrtdt_213219232246267289327353, %lpad37 ], [ %sqrtdt_213219232246267289327353, %if.then.i.i.i ]
+  %bridgeIndex_222229249264292323 = phi ptr [ %bridgeIndex_217, %lpad29 ], [ %bridgeIndex_222229249264292324355, %lpad37 ], [ %bridgeIndex_222229249264292324355, %if.then.i.i.i ]
+  %rightIndex_252261295320 = phi ptr [ %rightIndex_241, %lpad29 ], [ %rightIndex_252261295321357, %lpad37 ], [ %rightIndex_252261295321357, %if.then.i.i.i ]
+  %rightWeight_298317 = phi ptr [ %rightWeight_281, %lpad29 ], [ %rightWeight_298318359, %lpad37 ], [ %rightWeight_298318359, %if.then.i.i.i ]
   %.pn = phi { ptr, i32 } [ %17, %lpad29 ], [ %19, %lpad37 ], [ %19, %if.then.i.i.i ]
-  %22 = load ptr, ptr %rightWeight_298310, align 8, !tbaa !17
+  %22 = load ptr, ptr %rightWeight_298317, align 8, !tbaa !17
   %tobool.not.i.i.i161 = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.i161, label %ehcleanup40, label %if.then.i.i.i162
 
@@ -1406,11 +1406,11 @@ if.then.i.i.i162:                                 ; preds = %ehcleanup39
   br label %ehcleanup40
 
 ehcleanup40:                                      ; preds = %if.then.i.i.i162, %ehcleanup39, %lpad25
-  %rightIndex_252261294 = phi ptr [ %rightIndex_241, %lpad25 ], [ %rightIndex_252261295313, %ehcleanup39 ], [ %rightIndex_252261295313, %if.then.i.i.i162 ]
-  %bridgeIndex_222229249264291 = phi ptr [ %bridgeIndex_217, %lpad25 ], [ %bridgeIndex_222229249264292316, %ehcleanup39 ], [ %bridgeIndex_222229249264292316, %if.then.i.i.i162 ]
-  %sqrtdt_213219232246267288 = phi ptr [ %sqrtdt_211, %lpad25 ], [ %sqrtdt_213219232246267289319, %ehcleanup39 ], [ %sqrtdt_213219232246267289319, %if.then.i.i.i162 ]
-  %leftIndex_235243270285 = phi ptr [ %leftIndex_227, %lpad25 ], [ %leftIndex_235243270286322, %ehcleanup39 ], [ %leftIndex_235243270286322, %if.then.i.i.i162 ]
-  %leftWeight_273282 = phi ptr [ %leftWeight_259, %lpad25 ], [ %leftWeight_273283325, %ehcleanup39 ], [ %leftWeight_273283325, %if.then.i.i.i162 ]
+  %rightIndex_252261294 = phi ptr [ %rightIndex_241, %lpad25 ], [ %rightIndex_252261295320, %ehcleanup39 ], [ %rightIndex_252261295320, %if.then.i.i.i162 ]
+  %bridgeIndex_222229249264291 = phi ptr [ %bridgeIndex_217, %lpad25 ], [ %bridgeIndex_222229249264292323, %ehcleanup39 ], [ %bridgeIndex_222229249264292323, %if.then.i.i.i162 ]
+  %sqrtdt_213219232246267288 = phi ptr [ %sqrtdt_211, %lpad25 ], [ %sqrtdt_213219232246267289326, %ehcleanup39 ], [ %sqrtdt_213219232246267289326, %if.then.i.i.i162 ]
+  %leftIndex_235243270285 = phi ptr [ %leftIndex_227, %lpad25 ], [ %leftIndex_235243270286329, %ehcleanup39 ], [ %leftIndex_235243270286329, %if.then.i.i.i162 ]
+  %leftWeight_273282 = phi ptr [ %leftWeight_259, %lpad25 ], [ %leftWeight_273283332, %ehcleanup39 ], [ %leftWeight_273283332, %if.then.i.i.i162 ]
   %.pn.pn = phi { ptr, i32 } [ %16, %lpad25 ], [ %.pn, %ehcleanup39 ], [ %.pn, %if.then.i.i.i162 ]
   %24 = load ptr, ptr %leftWeight_273282, align 8, !tbaa !17
   %tobool.not.i.i.i168 = icmp eq ptr %24, null

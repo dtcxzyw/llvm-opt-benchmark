@@ -648,20 +648,20 @@ define internal noundef zeroext i1 @logcat_text_dump_text(ptr noundef %0, ptr no
   br label %121
 
 get_priority.exit.sink.split:                     ; preds = %46, %42
-  %.sink117 = phi i8 [ %44, %42 ], [ %48, %46 ]
-  %.sink114.ph = phi i64 [ 21, %42 ], [ 25, %46 ]
+  %.sink125 = phi i8 [ %44, %42 ], [ %48, %46 ]
+  %.sink122.ph = phi i64 [ 21, %42 ], [ 25, %46 ]
   %.sink.ph = phi ptr [ %43, %42 ], [ %47, %46 ]
-  %52 = zext nneg i8 %.sink117 to i64
+  %52 = zext nneg i8 %.sink125 to i64
   %53 = getelementptr [10 x i8], ptr @get_priority.priorities, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = sext i8 %54 to i32
   br label %get_priority.exit
 
 get_priority.exit:                                ; preds = %get_priority.exit.sink.split, %46, %42
-  %.sink114 = phi i64 [ 21, %42 ], [ 25, %46 ], [ %.sink114.ph, %get_priority.exit.sink.split ]
+  %.sink122 = phi i64 [ 21, %42 ], [ 25, %46 ], [ %.sink122.ph, %get_priority.exit.sink.split ]
   %.sink = phi ptr [ %43, %42 ], [ %47, %46 ], [ %.sink.ph, %get_priority.exit.sink.split ]
   %.084 = phi i32 [ 63, %42 ], [ 63, %46 ], [ %55, %get_priority.exit.sink.split ]
-  %56 = getelementptr i8, ptr %2, i64 %.sink114
+  %56 = getelementptr i8, ptr %2, i64 %.sink122
   %57 = tail call i64 @strlen(ptr noundef %56) #11
   %58 = trunc i64 %57 to i32
   %59 = add i32 %58, 2

@@ -366,7 +366,7 @@ define dso_local void @cache_tree_invalidate_path(ptr noundef captures(none) %0,
   %14 = load i32, ptr %13, align 8, !tbaa !14
   %sext34.i = shl i64 %8, 32
   %15 = ashr exact i64 %sext34.i, 32
-  br i1 %.not30.i, label %.preheader, label %.preheader42
+  br i1 %.not30.i, label %.preheader, label %.preheader48
 
 .preheader:                                       ; preds = %.lr.ph.i
   %16 = getelementptr inbounds nuw i8, ptr %.tr49.i, i64 48
@@ -457,13 +457,13 @@ move_array.exit.i:                                ; preds = %st_mult.exit.i.i, %
   store i32 %59, ptr %17, align 8, !tbaa !14
   br label %.loopexit
 
-.preheader42:                                     ; preds = %.lr.ph.i, %subtree_name_cmp.exit.i.i.i
+.preheader48:                                     ; preds = %.lr.ph.i, %subtree_name_cmp.exit.i.i.i
   %.024.i.i.i = phi i32 [ %.226.i.i.i, %subtree_name_cmp.exit.i.i.i ], [ %14, %.lr.ph.i ]
   %.021.i.i.i = phi i32 [ %.223.i.i.i, %subtree_name_cmp.exit.i.i.i ], [ 0, %.lr.ph.i ]
   %60 = icmp slt i32 %.021.i.i.i, %.024.i.i.i
   br i1 %60, label %61, label %78
 
-61:                                               ; preds = %.preheader42
+61:                                               ; preds = %.preheader48
   %62 = sub nsw i32 %.024.i.i.i, %.021.i.i.i
   %63 = lshr i32 %62, 1
   %64 = add nuw nsw i32 %63, %.021.i.i.i
@@ -491,9 +491,9 @@ subtree_name_cmp.exit.i.i.i:                      ; preds = %74, %72, %61
   %77 = add nuw nsw i32 %64, 1
   %.226.i.i.i = select i1 %76, i32 %64, i32 %.024.i.i.i
   %.223.i.i.i = select i1 %76, i32 %.021.i.i.i, i32 %77
-  br i1 %.not.not.i.i.i, label %cache_tree_subtree_pos.exit.i.i, label %.preheader42, !llvm.loop !21
+  br i1 %.not.not.i.i.i, label %cache_tree_subtree_pos.exit.i.i, label %.preheader48, !llvm.loop !21
 
-78:                                               ; preds = %.preheader42
+78:                                               ; preds = %.preheader48
   %79 = xor i32 %.021.i.i.i, -1
   br label %cache_tree_subtree_pos.exit.i.i
 
@@ -1180,20 +1180,20 @@ must_check_existence.exit:                        ; preds = %173, %168
   br i1 %.not.i200.not, label %182, label %179
 
 must_check_existence.exit.thread:                 ; preds = %170
-  %bcmp.i259 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %.0145, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
-  %.not.i200.not260 = icmp eq i32 %bcmp.i259, 0
-  br i1 %.not.i200.not260, label %182, label %.thread261
+  %bcmp.i271 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %.0145, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
+  %.not.i200.not272 = icmp eq i32 %bcmp.i271, 0
+  br i1 %.not.i200.not272, label %182, label %.thread273
 
 179:                                              ; preds = %must_check_existence.exit
-  br i1 %178, label %187, label %.thread261
+  br i1 %178, label %187, label %.thread273
 
-.thread261:                                       ; preds = %must_check_existence.exit.thread, %179
+.thread273:                                       ; preds = %must_check_existence.exit.thread, %179
   %180 = load ptr, ptr @the_repository, align 8, !tbaa !40
   %181 = call i32 @repo_has_object_file(ptr noundef %180, ptr noundef nonnull %.0145) #18
   %.not185 = icmp eq i32 %181, 0
   br i1 %.not185, label %182, label %187
 
-182:                                              ; preds = %must_check_existence.exit.thread, %.thread261, %must_check_existence.exit
+182:                                              ; preds = %must_check_existence.exit.thread, %.thread273, %must_check_existence.exit
   call void @strbuf_release(ptr noundef nonnull %8) #18
   br i1 %.not191, label %183, label %.thread211
 
@@ -1203,7 +1203,7 @@ must_check_existence.exit.thread:                 ; preds = %170
   %186 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.20, i32 noundef %.0144, ptr noundef %184, i32 noundef %185, ptr noundef nonnull %115) #18
   br label %.thread211
 
-187:                                              ; preds = %.thread261, %179
+187:                                              ; preds = %.thread273, %179
   %188 = getelementptr inbounds nuw i8, ptr %114, i64 56
   %189 = load i32, ptr %188, align 8, !tbaa !20
   %190 = and i32 %189, 131072
@@ -1874,10 +1874,10 @@ cache_tree_find.exit.i:                           ; preds = %66
   br i1 %.not20.i, label %write_index_as_tree_internal.exit.thread, label %write_index_as_tree_internal.exit
 
 write_index_as_tree_internal.exit:                ; preds = %23, %.preheader.i.i, %cache_tree_find.exit.i
-  %.sink50.i = phi ptr [ %65, %cache_tree_find.exit.i ], [ %26, %.preheader.i.i ], [ %26, %23 ]
-  %69 = getelementptr inbounds nuw i8, ptr %.sink50.i, i64 4
+  %.sink55.i = phi ptr [ %65, %cache_tree_find.exit.i ], [ %26, %.preheader.i.i ], [ %26, %23 ]
+  %69 = getelementptr inbounds nuw i8, ptr %.sink55.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull readonly align 4 dereferenceable(32) %69, i64 32, i1 false)
-  %70 = getelementptr inbounds nuw i8, ptr %.sink50.i, i64 36
+  %70 = getelementptr inbounds nuw i8, ptr %.sink55.i, i64 36
   %71 = load i32, ptr %70, align 4, !tbaa !52
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %71, ptr %72, align 4, !tbaa !52

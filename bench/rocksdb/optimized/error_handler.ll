@@ -597,13 +597,13 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.thre
   br label %.backedge.i, !llvm.loop !38
 
 ._crit_edge.thread.i.i:                           ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.thread.i.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.thread79.i
-  %.020.lcssa31.i.i = phi ptr [ %6, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.thread79.i ], [ %.02126.i.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.thread.i.i ]
+  %.020.lcssa34.i.i = phi ptr [ %6, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.thread79.i ], [ %.02126.i.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.thread.i.i ]
   %38 = load ptr, ptr %8, align 8, !tbaa !24
-  %39 = icmp eq ptr %.020.lcssa31.i.i, %38
+  %39 = icmp eq ptr %.020.lcssa34.i.i, %38
   br i1 %39, label %51, label %40
 
 40:                                               ; preds = %._crit_edge.thread.i.i
-  %41 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa31.i.i) #24
+  %41 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa34.i.i) #24
   %.phi.trans.insert105.i = getelementptr inbounds nuw i8, ptr %41, i64 36
   %.pre106.i = load i32, ptr %.phi.trans.insert105.i, align 4, !tbaa !27
   %.phi.trans.insert107.i = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
@@ -613,7 +613,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.thre
 ._crit_edge.i.thread.i:                           ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.thread.i.thread.i, %40
   %42 = phi i32 [ %.pre108.i, %40 ], [ %26, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.thread.i.thread.i ]
   %43 = phi i32 [ %.pre106.i, %40 ], [ %30, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.thread.i.thread.i ]
-  %.020.lcssa30.i.i = phi ptr [ %.020.lcssa31.i.i, %40 ], [ %.02126.i.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.thread.i.thread.i ]
+  %.020.lcssa33.i.i = phi ptr [ %.020.lcssa34.i.i, %40 ], [ %.02126.i.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.thread.i.thread.i ]
   %.sroa.06.0.i.i = phi ptr [ %41, %40 ], [ %.02126.i.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.thread.i.thread.i ]
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 32
   %45 = icmp slt i32 %43, %42
@@ -630,7 +630,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit5.i.i
   br i1 %50, label %51, label %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEESt4pairIKS3_NS1_6Status8SeverityEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE17_M_insert_unique_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EOT_RT0_.exit.i
 
 51:                                               ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.i, %12, %._crit_edge.thread.i.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit5.i.i, %._crit_edge.i.thread.i
-  %.sroa.12.0.i.ph = phi ptr [ %.020.lcssa30.i.i, %._crit_edge.i.thread.i ], [ %.020.lcssa30.i.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit5.i.i ], [ %.020.lcssa31.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %13, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.i ]
+  %.sroa.12.0.i.ph = phi ptr [ %.020.lcssa33.i.i, %._crit_edge.i.thread.i ], [ %.020.lcssa33.i.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit5.i.i ], [ %.020.lcssa34.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %13, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEEEclERKS3_S6_.exit.i ]
   %52 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %52, label %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEESt4pairIKS3_NS1_6Status8SeverityEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i, label %53
 
@@ -2067,8 +2067,8 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %.body87
 
 .thread.i86:                                      ; preds = %91, %105
-  %storemerge295 = phi ptr [ %.pre.i79, %105 ], [ null, %91 ]
-  store ptr %storemerge295, ptr %102, align 8, !tbaa !143
+  %storemerge318 = phi ptr [ %.pre.i79, %105 ], [ null, %91 ]
+  store ptr %storemerge318, ptr %102, align 8, !tbaa !143
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   invoke void @_ZN7rocksdb12ErrorHandler29CheckAndSetRecoveryAndBGErrorERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(16) %14)
           to label %108 unwind label %135
@@ -2220,8 +2220,8 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %.body113
 
 .thread.i112:                                     ; preds = %145, %159
-  %storemerge294 = phi ptr [ %.pre.i105, %159 ], [ null, %145 ]
-  store ptr %storemerge294, ptr %156, align 8, !tbaa !143
+  %storemerge317 = phi ptr [ %.pre.i105, %159 ], [ null, %145 ]
+  store ptr %storemerge317, ptr %156, align 8, !tbaa !143
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   invoke void @_ZN7rocksdb12ErrorHandler29CheckAndSetRecoveryAndBGErrorERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(16) %16)
           to label %162 unwind label %172
@@ -4104,8 +4104,8 @@ _ZNSt6vectorISt5tupleIJN7rocksdb10HistogramsEmEESaIS3_EED2Ev.exit137: ; preds = 
 .loopexit.invoke:                                 ; preds = %_ZNSt6vectorIN7rocksdb7TickersESaIS1_EED2Ev.exit96, %.loopexit
   %140 = phi ptr [ %131, %.loopexit ], [ %83, %_ZNSt6vectorIN7rocksdb7TickersESaIS1_EED2Ev.exit96 ]
   %141 = phi ptr [ %139, %.loopexit ], [ %83, %_ZNSt6vectorIN7rocksdb7TickersESaIS1_EED2Ev.exit96 ]
-  %.pn395 = load ptr, ptr %13, align 8, !tbaa !83
-  %142 = getelementptr inbounds nuw i8, ptr %.pn395, i64 312
+  %.pn413 = load ptr, ptr %13, align 8, !tbaa !83
+  %142 = getelementptr inbounds nuw i8, ptr %.pn413, i64 312
   %143 = load ptr, ptr %8, align 8, !tbaa !40
   invoke void @_ZN7rocksdb12EventHelpers24NotifyOnErrorRecoveryEndERKSt6vectorISt10shared_ptrINS_13EventListenerEESaIS4_EERKNS_6StatusESB_PNS_17InstrumentedMutexE(ptr noundef nonnull align 8 dereferenceable(24) %142, ptr noundef nonnull align 8 dereferenceable(16) %140, ptr noundef nonnull align 8 dereferenceable(16) %141, ptr noundef %143)
           to label %.critedge unwind label %87
@@ -4847,18 +4847,18 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7Sub
   br i1 %33, label %._crit_edge.thread, label %40
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.020.lcssa33 = phi ptr [ %.02128, %._crit_edge ], [ %4, %2 ]
+  %.020.lcssa44 = phi ptr [ %.02128, %._crit_edge ], [ %4, %2 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !24
-  %37 = icmp eq ptr %.020.lcssa33, %36
+  %37 = icmp eq ptr %.020.lcssa44, %36
   br i1 %37, label %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEEEclERKS6_S9_.exit5.thread, label %38
 
 38:                                               ; preds = %._crit_edge.thread
-  %39 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa33) #24
+  %39 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa44) #24
   br label %40
 
 40:                                               ; preds = %38, %._crit_edge
-  %.020.lcssa32 = phi ptr [ %.020.lcssa33, %38 ], [ %.02128, %._crit_edge ]
+  %.020.lcssa43 = phi ptr [ %.020.lcssa44, %38 ], [ %.02128, %._crit_edge ]
   %.sroa.06.0 = phi ptr [ %39, %38 ], [ %.02128, %._crit_edge ]
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.06.0, i64 32
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.06.0, i64 36
@@ -4907,7 +4907,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7Sub
 
 _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEEEclERKS6_S9_.exit5.thread: ; preds = %57, %49, %40, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEEEclERKS6_S9_.exit5, %._crit_edge.thread, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEEEclERKS6_S9_.exit5.thread25
   %.sroa.019.0 = phi ptr [ %.sroa.06.0, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEEEclERKS6_S9_.exit5.thread25 ], [ null, %._crit_edge.thread ], [ null, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEEEclERKS6_S9_.exit5 ], [ null, %40 ], [ null, %49 ], [ null, %57 ]
-  %.sroa.4.0 = phi ptr [ null, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEEEclERKS6_S9_.exit5.thread25 ], [ %.020.lcssa33, %._crit_edge.thread ], [ %.020.lcssa32, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEEEclERKS6_S9_.exit5 ], [ %.020.lcssa32, %40 ], [ %.020.lcssa32, %49 ], [ %.020.lcssa32, %57 ]
+  %.sroa.4.0 = phi ptr [ null, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEEEclERKS6_S9_.exit5.thread25 ], [ %.020.lcssa44, %._crit_edge.thread ], [ %.020.lcssa43, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeENS3_7SubCodeEbEEEclERKS6_S9_.exit5 ], [ %.020.lcssa43, %40 ], [ %.020.lcssa43, %49 ], [ %.020.lcssa43, %57 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.019.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -5025,14 +5025,14 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclER
   br i1 %.not.i83, label %._crit_edge.i.thread, label %.backedge.backedge
 
 ._crit_edge.thread.i:                             ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread80
-  %.020.lcssa33.i = phi ptr [ %4, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread80 ], [ %.02128.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i ]
+  %.020.lcssa40.i = phi ptr [ %4, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread80 ], [ %.02128.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %54 = load ptr, ptr %53, align 8, !tbaa !24
-  %55 = icmp eq ptr %.020.lcssa33.i, %54
+  %55 = icmp eq ptr %.020.lcssa40.i, %54
   br i1 %55, label %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread, label %56
 
 56:                                               ; preds = %._crit_edge.thread.i
-  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa33.i) #24
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa40.i) #24
   %.phi.trans.insert110 = getelementptr inbounds nuw i8, ptr %57, i64 36
   %.pre111 = load i32, ptr %.phi.trans.insert110, align 4, !tbaa !27
   %.phi.trans.insert112 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -5042,7 +5042,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclER
 ._crit_edge.i.thread:                             ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i.thread, %56
   %58 = phi i32 [ %.pre113, %56 ], [ %33, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i.thread ]
   %59 = phi i32 [ %.pre111, %56 ], [ %39, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i.thread ]
-  %.020.lcssa32.i = phi ptr [ %.020.lcssa33.i, %56 ], [ %.02128.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i.thread ]
+  %.020.lcssa39.i = phi ptr [ %.020.lcssa40.i, %56 ], [ %.02128.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i.thread ]
   %.sroa.06.0.i = phi ptr [ %57, %56 ], [ %.02128.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i.thread ]
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 32
   %61 = icmp slt i32 %59, %58
@@ -5204,19 +5204,19 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclER
   br i1 %.not.i2190, label %._crit_edge.i22.thread, label %.backedge100.backedge
 
 ._crit_edge.thread.i31:                           ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i18, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit11.thread87
-  %.020.lcssa33.i32 = phi ptr [ %4, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit11.thread87 ], [ %.02128.i15, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i18 ]
-  %140 = icmp eq ptr %.020.lcssa33.i32, %96
+  %.020.lcssa40.i32 = phi ptr [ %4, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit11.thread87 ], [ %.02128.i15, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i18 ]
+  %140 = icmp eq ptr %.020.lcssa40.i32, %96
   br i1 %140, label %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread, label %141
 
 141:                                              ; preds = %._crit_edge.thread.i31
-  %142 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa33.i32) #24
+  %142 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa40.i32) #24
   %.phi.trans.insert108 = getelementptr inbounds nuw i8, ptr %142, i64 36
   %.pre109 = load i32, ptr %.phi.trans.insert108, align 4, !tbaa !27
   br label %._crit_edge.i22.thread
 
 ._crit_edge.i22.thread:                           ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i18.thread, %141
   %143 = phi i32 [ %.pre109, %141 ], [ %126, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i18.thread ]
-  %.020.lcssa32.i23 = phi ptr [ %.020.lcssa33.i32, %141 ], [ %.02128.i15, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i18.thread ]
+  %.020.lcssa39.i23 = phi ptr [ %.020.lcssa40.i32, %141 ], [ %.02128.i15, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i18.thread ]
   %.sroa.06.0.i24 = phi ptr [ %142, %141 ], [ %.02128.i15, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i18.thread ]
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i24, i64 32
   %145 = icmp slt i32 %143, %78
@@ -5365,21 +5365,21 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclER
   br i1 %.not.i4596, label %._crit_edge.i46.thread, label %.backedge101.backedge
 
 ._crit_edge.thread.i55:                           ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i42, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit35.thread93
-  %.020.lcssa33.i56 = phi ptr [ %4, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit35.thread93 ], [ %.02128.i39, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i42 ]
+  %.020.lcssa40.i56 = phi ptr [ %4, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit35.thread93 ], [ %.02128.i39, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i42 ]
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %216 = load ptr, ptr %215, align 8, !tbaa !24
-  %217 = icmp eq ptr %.020.lcssa33.i56, %216
+  %217 = icmp eq ptr %.020.lcssa40.i56, %216
   br i1 %217, label %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread, label %218
 
 218:                                              ; preds = %._crit_edge.thread.i55
-  %219 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa33.i56) #24
+  %219 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa40.i56) #24
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %219, i64 36
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !27
   br label %._crit_edge.i46.thread
 
 ._crit_edge.i46.thread:                           ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i42.thread, %218
   %220 = phi i32 [ %.pre, %218 ], [ %201, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i42.thread ]
-  %.020.lcssa32.i47 = phi ptr [ %.020.lcssa33.i56, %218 ], [ %.02128.i39, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i42.thread ]
+  %.020.lcssa39.i47 = phi ptr [ %.020.lcssa40.i56, %218 ], [ %.02128.i39, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i42.thread ]
   %.sroa.06.0.i48 = phi ptr [ %219, %218 ], [ %.02128.i39, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread.i42.thread ]
   %221 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i48, i64 32
   %222 = icmp slt i32 %220, %78
@@ -5412,7 +5412,7 @@ _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclER
 
 _ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit.thread: ; preds = %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.thread25.i50, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.i49, %225, %._crit_edge.i46.thread, %._crit_edge.thread.i55, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.thread25.i26, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.i25, %148, %._crit_edge.i22.thread, %._crit_edge.thread.i31, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.thread25.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.i, %64, %._crit_edge.i.thread, %._crit_edge.thread.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit35.thread, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit11.thread, %165, %20, %9, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit34, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit34.thread, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit10.thread, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit
   %.sroa.078.0 = phi ptr [ null, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit ], [ %96, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit10.thread ], [ null, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit34.thread ], [ %1, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit34 ], [ null, %9 ], [ null, %20 ], [ %1, %165 ], [ %spec.select, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit11.thread ], [ %spec.select98, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit35.thread ], [ %.sroa.06.0.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.thread25.i ], [ null, %._crit_edge.thread.i ], [ null, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.i ], [ null, %._crit_edge.i.thread ], [ null, %64 ], [ %.sroa.06.0.i24, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.thread25.i26 ], [ null, %._crit_edge.thread.i31 ], [ null, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.i25 ], [ null, %._crit_edge.i22.thread ], [ null, %148 ], [ %.sroa.06.0.i48, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.thread25.i50 ], [ null, %._crit_edge.thread.i55 ], [ null, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.i49 ], [ null, %._crit_edge.i46.thread ], [ null, %225 ]
-  %.sroa.12.0 = phi ptr [ %11, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit ], [ %96, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit10.thread ], [ %171, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit34.thread ], [ null, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit34 ], [ %11, %9 ], [ %11, %20 ], [ null, %165 ], [ %spec.select97, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit11.thread ], [ %spec.select99, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit35.thread ], [ null, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.thread25.i ], [ %.020.lcssa33.i, %._crit_edge.thread.i ], [ %.020.lcssa32.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.i ], [ %.020.lcssa32.i, %._crit_edge.i.thread ], [ %.020.lcssa32.i, %64 ], [ null, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.thread25.i26 ], [ %.020.lcssa33.i32, %._crit_edge.thread.i31 ], [ %.020.lcssa32.i23, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.i25 ], [ %.020.lcssa32.i23, %._crit_edge.i22.thread ], [ %.020.lcssa32.i23, %148 ], [ null, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.thread25.i50 ], [ %.020.lcssa33.i56, %._crit_edge.thread.i55 ], [ %.020.lcssa32.i47, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.i49 ], [ %.020.lcssa32.i47, %._crit_edge.i46.thread ], [ %.020.lcssa32.i47, %225 ]
+  %.sroa.12.0 = phi ptr [ %11, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit ], [ %96, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit10.thread ], [ %171, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit34.thread ], [ null, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit34 ], [ %11, %9 ], [ %11, %20 ], [ null, %165 ], [ %spec.select97, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit11.thread ], [ %spec.select99, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit35.thread ], [ null, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.thread25.i ], [ %.020.lcssa40.i, %._crit_edge.thread.i ], [ %.020.lcssa39.i, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.i ], [ %.020.lcssa39.i, %._crit_edge.i.thread ], [ %.020.lcssa39.i, %64 ], [ null, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.thread25.i26 ], [ %.020.lcssa40.i32, %._crit_edge.thread.i31 ], [ %.020.lcssa39.i23, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.i25 ], [ %.020.lcssa39.i23, %._crit_edge.i22.thread ], [ %.020.lcssa39.i23, %148 ], [ null, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.thread25.i50 ], [ %.020.lcssa40.i56, %._crit_edge.thread.i55 ], [ %.020.lcssa39.i47, %_ZNKSt4lessISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEEEclERKS5_S8_.exit5.i49 ], [ %.020.lcssa39.i47, %._crit_edge.i46.thread ], [ %.020.lcssa39.i47, %225 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.078.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -891,7 +891,7 @@ define internal i64 @sg_read(ptr noundef readonly captures(none) %0, ptr noundef
 144:                                              ; preds = %141
   %145 = load volatile i32, ptr %136, align 4
   %146 = icmp eq i32 %145, 0
-  br i1 %146, label %147, label %.thread112
+  br i1 %146, label %147, label %.thread129
 
 147:                                              ; preds = %144, %141
   %148 = icmp eq i64 %.fr38.us, 0
@@ -992,9 +992,9 @@ define internal i64 @sg_read(ptr noundef readonly captures(none) %0, ptr noundef
 191:                                              ; preds = %188
   %192 = load volatile i32, ptr %136, align 4
   %193 = icmp eq i32 %192, 0
-  br i1 %193, label %194, label %.thread112
+  br i1 %193, label %194, label %.thread129
 
-.thread112:                                       ; preds = %191, %144
+.thread129:                                       ; preds = %191, %144
   call void @finish_wait(ptr noundef nonnull %134, ptr noundef nonnull %6) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread36
@@ -1022,13 +1022,13 @@ define internal i64 @sg_read(ptr noundef readonly captures(none) %0, ptr noundef
   %198 = icmp eq i64 %197, 0
   br i1 %198, label %.thread36, label %199
 
-.thread36:                                        ; preds = %.thread112, %129, %.loopexit
+.thread36:                                        ; preds = %.thread129, %129, %.loopexit
   br label %199
 
 199:                                              ; preds = %.loopexit, %.thread36
   %200 = phi i64 [ -19, %.thread36 ], [ %.us-phi74, %.loopexit ]
-  %sext144 = shl i64 %200, 32
-  %201 = ashr exact i64 %sext144, 32
+  %sext161 = shl i64 %200, 32
+  %201 = ashr exact i64 %sext161, 32
   br label %.thread
 
 .thread31:                                        ; preds = %122, %.split76.us, %.split56.us
@@ -5207,7 +5207,7 @@ define internal noundef range(i32 0, 3) i32 @sg_vma_fault(ptr noundef captures(n
 
 75:                                               ; preds = %35
   %76 = add i64 %37, %32
-  %77 = sub nuw i64 %33, %37
+  %77 = sub nuw nsw i64 %33, %37
   %78 = add nuw nsw i32 %31, 1
   %79 = icmp eq i32 %78, %19
   br i1 %79, label %.loopexit, label %30, !llvm.loop !79
@@ -5322,12 +5322,12 @@ define internal fastcc i32 @open_wait(ptr noundef %0, i32 noundef %1) unnamed_ad
   %46 = call i32 @__SCT__might_resched() #17
   %47 = load volatile i32, ptr %8, align 4
   %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %.sink.split29
+  br i1 %48, label %49, label %.sink.split32
 
 49:                                               ; preds = %45
   %50 = load i8, ptr %13, align 4, !range !23, !noundef !24
   %51 = icmp eq i8 %50, 0
-  br i1 %51, label %.sink.split29, label %52
+  br i1 %51, label %.sink.split32, label %52
 
 52:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -5358,7 +5358,7 @@ define internal fastcc i32 @open_wait(ptr noundef %0, i32 noundef %1) unnamed_ad
 .thread9.thread:                                  ; preds = %.lr.ph18, %61, %52
   call void @finish_wait(ptr noundef nonnull %9, ptr noundef nonnull %4) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.sink.split29
+  br label %.sink.split32
 
 .thread9:                                         ; preds = %59
   %65 = trunc i64 %56 to i32
@@ -5367,11 +5367,11 @@ define internal fastcc i32 @open_wait(ptr noundef %0, i32 noundef %1) unnamed_ad
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %.loopexit
 
-.sink.split29:                                    ; preds = %49, %45, %.thread9.thread
+.sink.split32:                                    ; preds = %49, %45, %.thread9.thread
   call void @mutex_lock(ptr noundef nonnull %7) #17
   br label %67
 
-67:                                               ; preds = %.sink.split29, %.thread9
+67:                                               ; preds = %.sink.split32, %.thread9
   %68 = load volatile i32, ptr %8, align 4
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %42, label %.loopexit, !llvm.loop !81

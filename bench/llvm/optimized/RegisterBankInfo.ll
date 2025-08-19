@@ -442,13 +442,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjPKNS_19TargetRegisterClassENS_12DenseMapInf
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %9, %54
-  %.sink27 = phi i32 [ %58, %54 ], [ %7, %9 ], [ %7, %22 ]
-  %.sink25 = phi ptr [ %57, %54 ], [ %5, %9 ], [ %5, %22 ]
-  %.sink24 = phi ptr [ %45, %54 ], [ %14, %9 ], [ %28, %22 ]
+  %.sink31 = phi i32 [ %58, %54 ], [ %7, %9 ], [ %7, %22 ]
+  %.sink29 = phi ptr [ %57, %54 ], [ %5, %9 ], [ %5, %22 ]
+  %.sink28 = phi ptr [ %45, %54 ], [ %14, %9 ], [ %28, %22 ]
   %.sink = phi i8 [ 1, %54 ], [ 0, %9 ], [ 0, %22 ]
-  %59 = zext i32 %.sink27 to i64
-  %60 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink25, i64 %59
-  store ptr %.sink24, ptr %0, align 8
+  %59 = zext i32 %.sink31 to i64
+  %60 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink29, i64 %59
+  store ptr %.sink28, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %60, ptr %.sroa.4.0..sroa_idx, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1515,8 +1515,8 @@ _ZN4llvm10hash_valueERKNS_16RegisterBankInfo14PartialMappingE.exit.i: ; preds = 
   %15 = phi i32 [ %14, %13 ], [ 0, %7 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   store i32 %8, ptr %.sroa.0.i, align 8
-  %.sroa.0.i.4.i.4.i.4..sroa_idx16 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 4
-  store i32 %10, ptr %.sroa.0.i.4.i.4.i.4..sroa_idx16, align 4
+  %.sroa.0.i.4.i.4.i.4..sroa_idx21 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 4
+  store i32 %10, ptr %.sroa.0.i.4.i.4.i.4..sroa_idx21, align 4
   %.sroa.0.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 8
   store i32 %15, ptr %.sroa.0.i.8.i.8.i.8..sroa_idx, align 8
   %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..0.copyload.i.i30.i.i = load i64, ptr %.sroa.0.i, align 8
@@ -2506,7 +2506,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16RegisterBankInfo12ValueMapping6v
 
 15:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %16 = phi ptr [ %12, %._crit_edge.thread ], [ %13, %._crit_edge ]
-  %.024.lcssa38 = phi i32 [ 0, %._crit_edge.thread ], [ %.sroa.speculated, %._crit_edge ]
+  %.024.lcssa42 = phi i32 [ 0, %._crit_edge.thread ], [ %.sroa.speculated, %._crit_edge ]
   store i64 0, ptr %5, align 8, !tbaa !37
   br label %_ZN4llvm5APIntC2Ejmbb.exit
 
@@ -2521,7 +2521,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16RegisterBankInfo12ValueMapping6v
 _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %15, %17
   %18 = phi i1 [ true, %15 ], [ false, %17 ]
   %19 = phi ptr [ %16, %15 ], [ %13, %17 ]
-  %.024.lcssa37 = phi i32 [ %.024.lcssa38, %15 ], [ %.sroa.speculated, %17 ]
+  %.024.lcssa41 = phi i32 [ %.024.lcssa42, %15 ], [ %.sroa.speculated, %17 ]
   %.idx32.pre-phi = phi i64 [ %.idx, %15 ], [ %.pre35, %17 ]
   %20 = phi i32 [ %9, %15 ], [ %.pre33, %17 ]
   %21 = phi ptr [ %7, %15 ], [ %.pre, %17 ]
@@ -2570,7 +2570,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %._crit_edge31, %31,
   %37 = getelementptr inbounds nuw i8, ptr %.01629, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !312
   %39 = add i32 %38, %36
-  store i32 %.024.lcssa37, ptr %23, align 8, !tbaa !386, !alias.scope !388
+  store i32 %.024.lcssa41, ptr %23, align 8, !tbaa !386, !alias.scope !388
   br i1 %18, label %40, label %41
 
 40:                                               ; preds = %35

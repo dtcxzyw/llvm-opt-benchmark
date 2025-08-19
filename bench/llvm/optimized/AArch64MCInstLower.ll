@@ -883,7 +883,7 @@ define hidden { i8, i64 } @_ZNK4llvm18AArch64MCInstLower22lowerSymbolOperandCOFF
 10:                                               ; preds = %3
   %11 = and i32 %8, 7
   %12 = icmp eq i32 %11, 2
-  br i1 %12, label %.thread, label %13
+  br i1 %12, label %.thread.thread, label %13
 
 13:                                               ; preds = %10
   %14 = icmp eq i32 %11, 7
@@ -898,7 +898,7 @@ define hidden { i8, i64 } @_ZNK4llvm18AArch64MCInstLower22lowerSymbolOperandCOFF
 
 18:                                               ; preds = %15
   %19 = icmp eq i32 %17, 1
-  br i1 %19, label %.thread, label %20
+  br i1 %19, label %.thread.thread, label %20
 
 20:                                               ; preds = %18
   %21 = icmp eq i32 %17, 2
@@ -916,67 +916,65 @@ define hidden { i8, i64 } @_ZNK4llvm18AArch64MCInstLower22lowerSymbolOperandCOFF
 
 22:                                               ; preds = %._crit_edge
   %23 = or i32 %.0, 112
-  br label %32
+  br label %.thread.thread
 
 24:                                               ; preds = %._crit_edge
   %25 = or i32 %.0, 96
-  br label %32
+  br label %.thread.thread
 
 26:                                               ; preds = %._crit_edge
   %27 = or i32 %.0, 80
-  br label %32
+  br label %.thread.thread
 
-.thread:                                          ; preds = %10, %18, %._crit_edge
-  %.053 = phi i32 [ %.0, %._crit_edge ], [ 41, %10 ], [ 17, %18 ]
-  %.pre-phi51 = phi i32 [ %.pre-phi, %._crit_edge ], [ 2, %10 ], [ 1, %18 ]
-  %28 = icmp eq i32 %.pre-phi51, 6
-  %29 = or disjoint i32 %.053, 64
-  %spec.select47 = select i1 %28, i32 %29, i32 %.053
-  %30 = add nsw i32 %.pre-phi51, -3
+.thread:                                          ; preds = %._crit_edge
+  %28 = icmp eq i32 %.pre-phi, 6
+  %29 = or disjoint i32 %.0, 64
+  %spec.select63 = select i1 %28, i32 %29, i32 %.0
+  %30 = add nsw i32 %.pre-phi, -3
   %31 = icmp ult i32 %30, 4
-  br label %32
+  br label %.thread.thread
 
-32:                                               ; preds = %.thread, %24, %26, %22
-  %.pre-phi52 = phi i1 [ true, %22 ], [ true, %24 ], [ true, %26 ], [ %31, %.thread ]
-  %.1 = phi i32 [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %spec.select47, %.thread ]
-  %33 = load ptr, ptr %0, align 8, !tbaa !156
-  %34 = tail call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %2, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %33, ptr null) #12
-  %35 = load i32, ptr %1, align 8
-  %36 = and i32 %35, 255
-  %37 = icmp eq i32 %36, 8
-  br i1 %37, label %52, label %38
+.thread.thread:                                   ; preds = %.thread, %18, %10, %24, %26, %22
+  %.pre-phi57 = phi i1 [ true, %22 ], [ true, %24 ], [ true, %26 ], [ false, %18 ], [ false, %10 ], [ %31, %.thread ]
+  %.1 = phi i32 [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ 17, %18 ], [ 41, %10 ], [ %spec.select63, %.thread ]
+  %32 = load ptr, ptr %0, align 8, !tbaa !156
+  %33 = tail call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %2, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %32, ptr null) #12
+  %34 = load i32, ptr %1, align 8
+  %35 = and i32 %34, 255
+  %36 = icmp eq i32 %35, 8
+  br i1 %36, label %51, label %37
 
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %40 = load i32, ptr %39, align 8, !tbaa !16
-  %41 = sext i32 %40 to i64
-  %42 = shl nsw i64 %41, 32
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %44 = load i32, ptr %43, align 4, !tbaa !16
-  %45 = zext i32 %44 to i64
-  %46 = or disjoint i64 %42, %45
-  %.not44 = icmp eq i64 %46, 0
-  br i1 %.not44, label %52, label %47
+37:                                               ; preds = %.thread.thread
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %39 = load i32, ptr %38, align 8, !tbaa !16
+  %40 = sext i32 %39 to i64
+  %41 = shl nsw i64 %40, 32
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %43 = load i32, ptr %42, align 4, !tbaa !16
+  %44 = zext i32 %43 to i64
+  %45 = or disjoint i64 %41, %44
+  %.not44 = icmp eq i64 %45, 0
+  br i1 %.not44, label %51, label %46
 
-47:                                               ; preds = %38
-  %48 = load ptr, ptr %0, align 8, !tbaa !156
-  %49 = tail call noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noundef %46, ptr noundef nonnull align 8 dereferenceable(2432) %48, i1 noundef zeroext false, i32 noundef 0) #12
-  %50 = load ptr, ptr %0, align 8, !tbaa !156
-  %51 = tail call noundef ptr @_ZN4llvm12MCBinaryExpr6createENS0_6OpcodeEPKNS_6MCExprES4_RNS_9MCContextENS_5SMLocE(i32 noundef 0, ptr noundef %34, ptr noundef %49, ptr noundef nonnull align 8 dereferenceable(2432) %50, ptr null) #12
-  br label %52
+46:                                               ; preds = %37
+  %47 = load ptr, ptr %0, align 8, !tbaa !156
+  %48 = tail call noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noundef %45, ptr noundef nonnull align 8 dereferenceable(2432) %47, i1 noundef zeroext false, i32 noundef 0) #12
+  %49 = load ptr, ptr %0, align 8, !tbaa !156
+  %50 = tail call noundef ptr @_ZN4llvm12MCBinaryExpr6createENS0_6OpcodeEPKNS_6MCExprES4_RNS_9MCContextENS_5SMLocE(i32 noundef 0, ptr noundef %33, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(2432) %49, ptr null) #12
+  br label %51
 
-52:                                               ; preds = %47, %38, %32
-  %.041 = phi ptr [ %34, %32 ], [ %51, %47 ], [ %34, %38 ]
-  %53 = and i32 %8, 32
-  %.not43 = icmp eq i32 %53, 0
-  %54 = or i32 %.1, 256
-  %spec.select48 = select i1 %.pre-phi52, i32 %54, i32 %.1
+51:                                               ; preds = %46, %37, %.thread.thread
+  %.041 = phi ptr [ %33, %.thread.thread ], [ %50, %46 ], [ %33, %37 ]
+  %52 = and i32 %8, 32
+  %.not43 = icmp eq i32 %52, 0
+  %53 = or i32 %.1, 256
+  %spec.select48 = select i1 %.pre-phi57, i32 %53, i32 %.1
   %.2 = select i1 %.not43, i32 %.1, i32 %spec.select48
-  %55 = load ptr, ptr %0, align 8, !tbaa !156
-  %56 = tail call noundef ptr @_ZN4llvm13AArch64MCExpr6createEPKNS_6MCExprENS0_11VariantKindERNS_9MCContextE(ptr noundef %.041, i32 noundef %.2, ptr noundef nonnull align 8 dereferenceable(2432) %55) #12
-  %57 = icmp eq ptr %56, null
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %spec.select = select i1 %57, ptr null, ptr %58
+  %54 = load ptr, ptr %0, align 8, !tbaa !156
+  %55 = tail call noundef ptr @_ZN4llvm13AArch64MCExpr6createEPKNS_6MCExprENS0_11VariantKindERNS_9MCContextE(ptr noundef %.041, i32 noundef %.2, ptr noundef nonnull align 8 dereferenceable(2432) %54) #12
+  %56 = icmp eq ptr %55, null
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %spec.select = select i1 %56, ptr null, ptr %57
   %.fca.1.load.cast.i = ptrtoint ptr %spec.select to i64
   %.fca.1.insert.i = insertvalue { i8, i64 } { i8 5, i64 poison }, i64 %.fca.1.load.cast.i, 1
   ret { i8, i64 } %.fca.1.insert.i

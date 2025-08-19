@@ -266,8 +266,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm15CodeGenCoverage5parseERNS_12Memor
   %strlen73 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.02241.us)
   %scevgep74 = getelementptr i8, ptr %.02241.us, i64 1
   %scevgep75 = getelementptr i8, ptr %scevgep74, i64 %strlen73
-  %.not96.not = icmp ne ptr %scevgep75, %10
-  br i1 %.not96.not, label %_ZN4llvm9StringRefC2EPKc.exit.us, label %.critedge
+  %.not103.not = icmp ne ptr %scevgep75, %10
+  br i1 %.not103.not, label %_ZN4llvm9StringRefC2EPKc.exit.us, label %.critedge
 
 _ZN4llvm9StringRefC2EPKc.exit.us:                 ; preds = %.preheader.us
   %char0 = load i8, ptr %.02241.us, align 1
@@ -289,8 +289,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.split.us52:     ; preds = %_ZN4llvm9StringRefC
   call void @llvm.assume(i1 true) [ "align"(ptr %.325.us45, i64 1) ]
   %.0.copyload.i.i.us47 = load i64, ptr %.325.us45, align 1
   %18 = getelementptr inbounds nuw i8, ptr %.325.us45, i64 8
-  %.not97 = icmp eq i64 %.0.copyload.i.i.us47, -1
-  br i1 %.not97, label %..split.us50.loopexit_crit_edge, label %19
+  %.not104 = icmp eq i64 %.0.copyload.i.i.us47, -1
+  br i1 %.not104, label %..split.us50.loopexit_crit_edge, label %19
 
 19:                                               ; preds = %17
   tail call void @_ZN4llvm15CodeGenCoverage10setCoveredEm(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %.0.copyload.i.i.us47)
@@ -334,8 +334,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.split.us.us:    ; preds = %_ZN4llvm9StringRefC
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.02241)
   %scevgep = getelementptr i8, ptr %.02241, i64 1
   %scevgep72 = getelementptr i8, ptr %scevgep, i64 %strlen
-  %.not93.not = icmp ne ptr %scevgep72, %29
-  br i1 %.not93.not, label %_ZN4llvm9StringRefC2EPKc.exit, label %.critedge
+  %.not100.not = icmp ne ptr %scevgep72, %29
+  br i1 %.not100.not, label %_ZN4llvm9StringRefC2EPKc.exit, label %.critedge
 
 _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %.preheader
   %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.02241) #19
@@ -345,8 +345,8 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %.preheader
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZN4llvm9StringRefC2EPKc.exit
   %bcmp.i = tail call i32 @bcmp(ptr %2, ptr nonnull %.02241, i64 %.fr58)
   %bcmp.i.fr = freeze i32 %bcmp.i
-  %.not94 = icmp eq i32 %bcmp.i.fr, 0
-  br i1 %.not94, label %_ZN4llvmeqENS_9StringRefES0_.exit.split, label %_ZN4llvmeqENS_9StringRefES0_.exit.split.us
+  %.not101 = icmp eq i32 %bcmp.i.fr, 0
+  br i1 %.not101, label %_ZN4llvmeqENS_9StringRefES0_.exit.split, label %_ZN4llvmeqENS_9StringRefES0_.exit.split.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.split.us:       ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %_ZN4llvmeqENS_9StringRefES0_.exit
   %32 = ptrtoint ptr %29 to i64
@@ -378,15 +378,15 @@ _ZN4llvmeqENS_9StringRefES0_.exit.split:          ; preds = %_ZN4llvmeqENS_9Stri
   %42 = ptrtoint ptr %.325 to i64
   %43 = sub i64 %41, %42
   %44 = icmp slt i64 %43, 8
-  %or.cond114 = or i1 %.not33, %44
-  br i1 %or.cond114, label %.critedge, label %45
+  %or.cond121 = or i1 %.not33, %44
+  br i1 %or.cond121, label %.critedge, label %45
 
 45:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.split
   call void @llvm.assume(i1 true) [ "align"(ptr %.325, i64 1) ]
   %.0.copyload.i.i = load i64, ptr %.325, align 1
   %46 = getelementptr inbounds nuw i8, ptr %.325, i64 8
-  %.not95 = icmp eq i64 %.0.copyload.i.i, -1
-  br i1 %.not95, label %..split.us.loopexit66_crit_edge, label %47
+  %.not102 = icmp eq i64 %.0.copyload.i.i, -1
+  br i1 %.not102, label %..split.us.loopexit66_crit_edge, label %47
 
 47:                                               ; preds = %45
   tail call void @_ZN4llvm15CodeGenCoverage10setCoveredEm(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %.0.copyload.i.i)
@@ -403,7 +403,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.split:          ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !36
 
 .critedge:                                        ; preds = %.split.us, %.preheader, %34, %_ZN4llvmeqENS_9StringRefES0_.exit.split, %.split.us50, %.preheader.us, %23, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us52, %4
-  %.not38 = phi i1 [ true, %4 ], [ %.not33.us46, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us52 ], [ false, %23 ], [ %.not96.not, %.preheader.us ], [ %.not96.not, %.split.us50 ], [ %.not33, %_ZN4llvmeqENS_9StringRefES0_.exit.split ], [ false, %34 ], [ %.not93.not, %.preheader ], [ %.not93.not, %.split.us ]
+  %.not38 = phi i1 [ true, %4 ], [ %.not33.us46, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us52 ], [ false, %23 ], [ %.not103.not, %.preheader.us ], [ %.not103.not, %.split.us50 ], [ %.not33, %_ZN4llvmeqENS_9StringRefES0_.exit.split ], [ false, %34 ], [ %.not100.not, %.preheader ], [ %.not100.not, %.split.us ]
   ret i1 %.not38
 }
 

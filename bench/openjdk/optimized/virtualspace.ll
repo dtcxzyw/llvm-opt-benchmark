@@ -605,19 +605,19 @@ _ZL14reserve_memoryPcmmib.exit:                   ; preds = %88, %90, %99
   br i1 %.not42, label %108, label %.sink.split
 
 .sink.split:                                      ; preds = %_ZL22reserve_memory_specialPcmmmb.exit, %_ZL22reserve_memory_specialPcmmmb.exit.us98, %_ZL22reserve_memory_specialPcmmmb.exit.us83, %_ZL22reserve_memory_specialPcmmmb.exit.us83.us, %_ZL22reserve_memory_specialPcmmmb.exit.us65, %_ZL22reserve_memory_specialPcmmmb.exit.us, %_ZL14reserve_memoryPcmmib.exit, %12
-  %.sink182 = phi ptr [ %11, %12 ], [ %.0.i, %_ZL14reserve_memoryPcmmib.exit ], [ %43, %_ZL22reserve_memory_specialPcmmmb.exit.us ], [ %49, %_ZL22reserve_memory_specialPcmmmb.exit.us65 ], [ %55, %_ZL22reserve_memory_specialPcmmmb.exit.us83.us ], [ %61, %_ZL22reserve_memory_specialPcmmmb.exit.us83 ], [ %67, %_ZL22reserve_memory_specialPcmmmb.exit.us98 ], [ %73, %_ZL22reserve_memory_specialPcmmmb.exit ]
-  %.sink178 = phi i64 [ %13, %12 ], [ %.0, %_ZL14reserve_memoryPcmmib.exit ], [ %.1.us, %_ZL22reserve_memory_specialPcmmmb.exit.us ], [ %.1.us56, %_ZL22reserve_memory_specialPcmmmb.exit.us65 ], [ %.1.us73.us, %_ZL22reserve_memory_specialPcmmmb.exit.us83.us ], [ %.1.us73, %_ZL22reserve_memory_specialPcmmmb.exit.us83 ], [ %.1.us91, %_ZL22reserve_memory_specialPcmmmb.exit.us98 ], [ %.1, %_ZL22reserve_memory_specialPcmmmb.exit ]
-  %.sink176 = phi i8 [ 1, %12 ], [ 0, %_ZL14reserve_memoryPcmmib.exit ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us65 ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us83.us ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us83 ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us98 ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit ]
+  %.sink208 = phi ptr [ %11, %12 ], [ %.0.i, %_ZL14reserve_memoryPcmmib.exit ], [ %43, %_ZL22reserve_memory_specialPcmmmb.exit.us ], [ %49, %_ZL22reserve_memory_specialPcmmmb.exit.us65 ], [ %55, %_ZL22reserve_memory_specialPcmmmb.exit.us83.us ], [ %61, %_ZL22reserve_memory_specialPcmmmb.exit.us83 ], [ %67, %_ZL22reserve_memory_specialPcmmmb.exit.us98 ], [ %73, %_ZL22reserve_memory_specialPcmmmb.exit ]
+  %.sink204 = phi i64 [ %13, %12 ], [ %.0, %_ZL14reserve_memoryPcmmib.exit ], [ %.1.us, %_ZL22reserve_memory_specialPcmmmb.exit.us ], [ %.1.us56, %_ZL22reserve_memory_specialPcmmmb.exit.us65 ], [ %.1.us73.us, %_ZL22reserve_memory_specialPcmmmb.exit.us83.us ], [ %.1.us73, %_ZL22reserve_memory_specialPcmmmb.exit.us83 ], [ %.1.us91, %_ZL22reserve_memory_specialPcmmmb.exit.us98 ], [ %.1, %_ZL22reserve_memory_specialPcmmmb.exit ]
+  %.sink202 = phi i8 [ 1, %12 ], [ 0, %_ZL14reserve_memoryPcmmib.exit ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us65 ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us83.us ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us83 ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us98 ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit ]
   %101 = zext i1 %5 to i8
-  store ptr %.sink182, ptr %0, align 8
+  store ptr %.sink208, ptr %0, align 8
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %2, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sink178, ptr %104, align 8
+  store i64 %.sink204, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 %.sink176, ptr %105, align 8
+  store i8 %.sink202, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %101, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1220,17 +1220,17 @@ define hidden void @_ZN17ReservedHeapSpace26initialize_compressed_heapEmmm(ptr n
 
 52:                                               ; preds = %49
   %53 = tail call noundef zeroext i1 @_ZN2os12unmap_memoryEPcm(ptr noundef nonnull %42, i64 noundef %45) #13
-  br label %_ZN13ReservedSpace7releaseEv.exit.thread126
+  br label %_ZN13ReservedSpace7releaseEv.exit.thread142
 
 54:                                               ; preds = %49
   %55 = tail call noundef zeroext i1 @_ZN2os22release_memory_specialEPcm(ptr noundef nonnull %42, i64 noundef %45) #13
-  br label %_ZN13ReservedSpace7releaseEv.exit.thread126
+  br label %_ZN13ReservedSpace7releaseEv.exit.thread142
 
 56:                                               ; preds = %38
   %57 = tail call noundef zeroext i1 @_ZN2os14release_memoryEPcm(ptr noundef nonnull %42, i64 noundef %45) #13
-  br label %_ZN13ReservedSpace7releaseEv.exit.thread126
+  br label %_ZN13ReservedSpace7releaseEv.exit.thread142
 
-_ZN13ReservedSpace7releaseEv.exit.thread126:      ; preds = %52, %54, %56
+_ZN13ReservedSpace7releaseEv.exit.thread142:      ; preds = %52, %54, %56
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %58, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %0, i8 0, i64 41, i1 false)
@@ -1245,7 +1245,7 @@ _ZN13ReservedSpace7releaseEv.exit:                ; preds = %_ZN13ReservedSpace7
   %60 = icmp eq ptr %59, null
   br i1 %60, label %_ZN13ReservedSpace7releaseEv.exit.thread, label %_ZN13ReservedSpace10initializeEmmmPcb.exit
 
-_ZN13ReservedSpace7releaseEv.exit.thread:         ; preds = %_ZN13ReservedSpace7releaseEv.exit.thread126, %37, %_ZN13ReservedSpace7releaseEv.exit
+_ZN13ReservedSpace7releaseEv.exit.thread:         ; preds = %_ZN13ReservedSpace7releaseEv.exit.thread142, %37, %_ZN13ReservedSpace7releaseEv.exit
   %.not79 = icmp ugt ptr %24, inttoptr (i64 4294967296 to ptr)
   br i1 %.not79, label %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit, label %61
 
@@ -1434,8 +1434,8 @@ _ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93: ; preds = %.cr
   br label %_ZL38get_attach_addresses_for_disjoint_modev.exit
 
 _ZL38get_attach_addresses_for_disjoint_modev.exit: ; preds = %.critedge2.i96, %.lr.ph, %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93, %._crit_edge
-  %.lcssa1834.i = phi i64 [ %.lcssa103, %._crit_edge ], [ 0, %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93 ], [ %.lcssa103, %.lr.ph ], [ %144, %.critedge2.i96 ]
-  %159 = getelementptr inbounds nuw [13 x i64], ptr @_ZZL38get_attach_addresses_for_disjoint_modevE9addresses, i64 0, i64 %.lcssa1834.i
+  %.lcssa1835.i = phi i64 [ %.lcssa103, %._crit_edge ], [ 0, %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93 ], [ %.lcssa103, %.lr.ph ], [ %144, %.critedge2.i96 ]
+  %159 = getelementptr inbounds nuw [13 x i64], ptr @_ZZL38get_attach_addresses_for_disjoint_modevE9addresses, i64 0, i64 %.lcssa1835.i
   %160 = load ptr, ptr %159, align 8
   %.not81111 = icmp eq ptr %160, null
   br i1 %.not81111, label %.critedge, label %.lr.ph113

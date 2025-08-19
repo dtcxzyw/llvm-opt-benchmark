@@ -428,7 +428,7 @@ define internal fastcc noundef ptr @scan_positives(ptr noundef %0, ptr noundef r
   br i1 %.not, label %.critedge, label %25
 
 25:                                               ; preds = %22
-  %26 = add i64 %13, -1
+  %26 = add nsw i64 %13, -1
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %28, label %.critedge
 
@@ -556,9 +556,9 @@ define dso_local noundef i32 @dcache_readdir(ptr noundef readonly captures(none)
   %25 = load i64, ptr %24, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull %19) #15
   %26 = tail call zeroext i1 %18(ptr noundef %1, ptr noundef nonnull @.str.4, i32 noundef 2, i64 noundef 1, i64 noundef %25, i32 noundef 4) #15
-  br i1 %26, label %.thread13, label %78
+  br i1 %26, label %.thread16, label %78
 
-.thread13:                                        ; preds = %16
+.thread16:                                        ; preds = %16
   store i64 2, ptr %7, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 152
@@ -571,9 +571,9 @@ define dso_local noundef i32 @dcache_readdir(ptr noundef readonly captures(none)
   %spec.select = select i1 %30, ptr %31, ptr %32
   br label %33
 
-33:                                               ; preds = %29, %.thread13
-  %34 = phi ptr [ %28, %.thread13 ], [ %32, %29 ]
-  %35 = phi ptr [ %27, %.thread13 ], [ %spec.select, %29 ]
+33:                                               ; preds = %29, %.thread16
+  %34 = phi ptr [ %28, %.thread16 ], [ %32, %29 ]
+  %35 = phi ptr [ %27, %.thread16 ], [ %spec.select, %29 ]
   %36 = tail call fastcc ptr @scan_positives(ptr noundef %6, ptr noundef nonnull %35, i64 noundef 1, ptr noundef null)
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.loopexit, label %.preheader
@@ -1198,22 +1198,22 @@ define dso_local void @simple_recursive_removal(ptr noundef %0, ptr noundef read
   %13 = load i32, ptr %9, align 8
   %14 = and i32 %13, 6291456
   %15 = icmp eq i32 %14, 2097152
-  br i1 %15, label %16, label %.preheader45
+  br i1 %15, label %16, label %.preheader50
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %18 = load i32, ptr %17, align 4
   %19 = or i32 %18, 16
   store i32 %19, ptr %17, align 4
-  br label %.preheader45
+  br label %.preheader50
 
-.preheader45:                                     ; preds = %16, %8
+.preheader50:                                     ; preds = %16, %8
   br label %20
 
-20:                                               ; preds = %.preheader45, %.critedge12
-  %21 = phi ptr [ %64, %.critedge12 ], [ %11, %.preheader45 ]
-  %22 = phi ptr [ %23, %.critedge12 ], [ null, %.preheader45 ]
-  %23 = phi ptr [ %62, %.critedge12 ], [ %9, %.preheader45 ]
+20:                                               ; preds = %.preheader50, %.critedge12
+  %21 = phi ptr [ %64, %.critedge12 ], [ %11, %.preheader50 ]
+  %22 = phi ptr [ %23, %.critedge12 ], [ null, %.preheader50 ]
+  %23 = phi ptr [ %62, %.critedge12 ], [ %9, %.preheader50 ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   tail call void @_raw_spin_lock(ptr noundef nonnull %24) #15
   %25 = icmp eq ptr %22, null

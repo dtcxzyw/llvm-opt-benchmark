@@ -3044,7 +3044,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.i: ; preds = %_ZN3CFF15cff1_
   br label %_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE7rmovetoERS2_RS3_.exit
 
 _ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i: ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.i, %_ZN3CFF15cff1_cs_opset_tI23cff1_cs_opset_extents_t20cff1_extents_param_t25cff1_path_procs_extents_tE11check_widthEjRNS_20cff1_cs_interp_env_tERS2_.exit164
-  %.0.i.i16.i = phi ptr [ %307, %_ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.i ], [ @_hb_CrapPool, %_ZN3CFF15cff1_cs_opset_tI23cff1_cs_opset_extents_t20cff1_extents_param_t25cff1_path_procs_extents_tE11check_widthEjRNS_20cff1_cs_interp_env_tERS2_.exit164 ]
+  %.0.i.i17.i = phi ptr [ %307, %_ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.i ], [ @_hb_CrapPool, %_ZN3CFF15cff1_cs_opset_tI23cff1_cs_opset_extents_t20cff1_extents_param_t25cff1_path_procs_extents_tE11check_widthEjRNS_20cff1_cs_interp_env_tERS2_.exit164 ]
   %312 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 1, ptr %312, align 8
   %313 = load i64, ptr @_hb_NullPool, align 16
@@ -3053,10 +3053,10 @@ _ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i: ; preds = %_ZN3CFF
   br label %_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE7rmovetoERS2_RS3_.exit
 
 _ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE7rmovetoERS2_RS3_.exit: ; preds = %308, %_ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i
-  %.0.i.i15.i = phi ptr [ %307, %308 ], [ %.0.i.i16.i, %_ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i ]
+  %.0.i.i16.i = phi ptr [ %307, %308 ], [ %.0.i.i17.i, %_ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i ]
   %315 = phi double [ %.pre.i166, %308 ], [ %314, %_ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i ]
   %316 = fadd double %.sroa.0.0.copyload.i, %315
-  %317 = load double, ptr %.0.i.i15.i, align 8
+  %317 = load double, ptr %.0.i.i16.i, align 8
   %318 = fadd double %.sroa.4.0.copyload.i, %317
   store i8 0, ptr %2, align 8
   store double %316, ptr %302, align 8
@@ -3445,14 +3445,14 @@ define linkonce_odr hidden noundef i32 @_ZNK3CFF7Charset9get_glyphEjj(ptr nounde
   %16 = zext i8 %15 to i32
   %17 = or disjoint i32 %13, %16
   %18 = icmp eq i32 %17, %1
-  br i1 %18, label %.loopexit.loopexit.split.loop.exit14.i, label %19
+  br i1 %18, label %.loopexit.loopexit.split.loop.exit15.i, label %19
 
 19:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZNK3CFF8Charset09get_glyphEjj.exit, label %.lr.ph.i, !llvm.loop !14
 
-.loopexit.loopexit.split.loop.exit14.i:           ; preds = %.lr.ph.i
+.loopexit.loopexit.split.loop.exit15.i:           ; preds = %.lr.ph.i
   %20 = trunc nuw i64 %indvars.iv.i to i32
   br label %_ZNK3CFF8Charset09get_glyphEjj.exit
 
@@ -3481,8 +3481,8 @@ define linkonce_odr hidden noundef i32 @_ZNK3CFF7Charset9get_glyphEjj(ptr nounde
   %.pre26.i = zext i8 %.pre.i to i32
   %33 = add nuw nsw i32 %32, %.pre26.i
   %.not19.i = icmp ugt i32 %1, %33
-  %or.cond29.i = select i1 %.not18.i, i1 true, i1 %.not19.i
-  br i1 %or.cond29.i, label %.lr.ph._crit_edge.i, label %34
+  %or.cond32.i = select i1 %.not18.i, i1 true, i1 %.not19.i
+  br i1 %or.cond32.i, label %.lr.ph._crit_edge.i, label %34
 
 34:                                               ; preds = %.lr.ph.i8
   %35 = add i32 %.01522.i, %1
@@ -3553,8 +3553,8 @@ define linkonce_odr hidden noundef i32 @_ZNK3CFF7Charset9get_glyphEjj(ptr nounde
   %.not.i19 = icmp ult i32 %65, %2
   br i1 %.not.i19, label %.lr.ph.i12, label %_ZNK3CFF8Charset09get_glyphEjj.exit, !llvm.loop !16
 
-_ZNK3CFF8Charset09get_glyphEjj.exit:              ; preds = %63, %.lr.ph._crit_edge.i, %19, %60, %40, %34, %21, %.loopexit.loopexit.split.loop.exit14.i, %5, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ %20, %.loopexit.loopexit.split.loop.exit14.i ], [ %36, %34 ], [ 0, %21 ], [ %62, %60 ], [ 0, %40 ], [ 0, %19 ], [ 0, %.lr.ph._crit_edge.i ], [ 0, %63 ]
+_ZNK3CFF8Charset09get_glyphEjj.exit:              ; preds = %63, %.lr.ph._crit_edge.i, %19, %60, %40, %34, %21, %.loopexit.loopexit.split.loop.exit15.i, %5, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ %20, %.loopexit.loopexit.split.loop.exit15.i ], [ %36, %34 ], [ 0, %21 ], [ %62, %60 ], [ 0, %40 ], [ 0, %19 ], [ 0, %.lr.ph._crit_edge.i ], [ 0, %63 ]
   ret i32 %.0
 }
 
@@ -8241,7 +8241,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.i: ; preds = %_ZN3CFF15cff1_
   br label %_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE7rmovetoERS2_RS3_.exit
 
 _ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i: ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.i, %_ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_path_t17cff1_path_param_t22cff1_path_procs_path_tE11check_widthEjRNS_20cff1_cs_interp_env_tERS2_.exit164
-  %.0.i.i13.i = phi ptr [ %311, %_ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.i ], [ @_hb_CrapPool, %_ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_path_t17cff1_path_param_t22cff1_path_procs_path_tE11check_widthEjRNS_20cff1_cs_interp_env_tERS2_.exit164 ]
+  %.0.i.i14.i = phi ptr [ %311, %_ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.i ], [ @_hb_CrapPool, %_ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_path_t17cff1_path_param_t22cff1_path_procs_path_tE11check_widthEjRNS_20cff1_cs_interp_env_tERS2_.exit164 ]
   %316 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 1, ptr %316, align 8
   %317 = load i64, ptr @_hb_NullPool, align 16
@@ -8250,14 +8250,14 @@ _ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i: ; preds = %_ZN3CFF
   br label %_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE7rmovetoERS2_RS3_.exit
 
 _ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE7rmovetoERS2_RS3_.exit: ; preds = %312, %_ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i
-  %.0.i.i12.i = phi ptr [ %311, %312 ], [ %.0.i.i13.i, %_ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i ]
+  %.0.i.i13.i = phi ptr [ %311, %312 ], [ %.0.i.i14.i, %_ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i ]
   %319 = phi double [ %.pre.i166, %312 ], [ %318, %_ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i ]
   %320 = load double, ptr %7, align 8
   %321 = fadd double %319, %320
   store double %321, ptr %7, align 8
   %322 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %323 = load double, ptr %322, align 8
-  %324 = load double, ptr %.0.i.i12.i, align 8
+  %324 = load double, ptr %.0.i.i13.i, align 8
   %325 = fadd double %323, %324
   store double %325, ptr %322, align 8
   call void @_ZN17cff1_path_param_t7move_toERKN3CFF7point_tE(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(16) %7)

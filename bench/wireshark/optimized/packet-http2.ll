@@ -463,9 +463,9 @@ define noundef zeroext i1 @http2_get_stream_id_le(i32 noundef %0, i32 noundef %1
 8:                                                ; preds = %3
   %9 = tail call ptr @g_hash_table_get_keys(ptr noundef nonnull %7)
   %.not1415.i = icmp eq ptr %9, null
-  br i1 %.not1415.i, label %get_http2_stream_count.exit.thread24, label %.lr.ph.i
+  br i1 %.not1415.i, label %get_http2_stream_count.exit.thread26, label %.lr.ph.i
 
-get_http2_stream_count.exit.thread24:             ; preds = %8
+get_http2_stream_count.exit.thread26:             ; preds = %8
   tail call void @g_list_free(ptr noundef %9)
   br label %.lr.ph.preheader
 
@@ -486,10 +486,10 @@ get_http2_stream_count.exit:                      ; preds = %.lr.ph.i
   %16 = icmp sgt i32 %13, -1
   br i1 %16, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %3, %get_http2_stream_count.exit.thread24, %get_http2_stream_count.exit
-  %.012.i23 = phi i32 [ %13, %get_http2_stream_count.exit ], [ 0, %get_http2_stream_count.exit.thread24 ], [ 0, %3 ]
+.lr.ph.preheader:                                 ; preds = %3, %get_http2_stream_count.exit.thread26, %get_http2_stream_count.exit
+  %.012.i25 = phi i32 [ %13, %get_http2_stream_count.exit ], [ 0, %get_http2_stream_count.exit.thread26 ], [ 0, %3 ]
   %17 = and i32 %1, 2147483647
-  %18 = tail call i32 @llvm.umin.i32(i32 %17, i32 %.012.i23)
+  %18 = tail call i32 @llvm.umin.i32(i32 %17, i32 %.012.i25)
   %19 = zext nneg i32 %18 to i64
   br label %.lr.ph
 

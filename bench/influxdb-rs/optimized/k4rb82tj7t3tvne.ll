@@ -1605,7 +1605,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..file..statistics..Statistics$u2
   %.sroa.0116 = alloca { i64, [4 x i64] }, align 8
   %.sroa.0104 = alloca { i64, [4 x i64] }, align 8
   %9 = load i64, ptr %1, align 8, !range !363, !noundef !5
-  switch i64 %9, label %default.unreachable128 [
+  switch i64 %9, label %default.unreachable133 [
     i64 0, label %10
     i64 1, label %30
     i64 2, label %54
@@ -1616,7 +1616,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..file..statistics..Statistics$u2
     i64 7, label %212
   ]
 
-default.unreachable128:                           ; preds = %2
+default.unreachable133:                           ; preds = %2
   unreachable
 
 10:                                               ; preds = %2

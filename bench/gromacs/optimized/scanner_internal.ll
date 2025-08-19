@@ -470,12 +470,12 @@ _Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t.exi
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #21
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.040, label %.sink.split87, label %125
+  br i1 %.040, label %.sink.split92, label %125
 
 .sink.split:                                      ; preds = %.thread, %.thread71
   %.pn.pn70.ph = phi { ptr, i32 } [ %73, %.thread71 ], [ %72, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split87
+  br label %.sink.split92
 
 76:                                               ; preds = %_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t.exit
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -485,22 +485,22 @@ _Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t.exi
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %81 = load ptr, ptr %80, align 8, !tbaa !32
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %.sink.split84, label %89
+  br i1 %82, label %.sink.split89, label %89
 
 83:                                               ; preds = %56
   %84 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %85 = load ptr, ptr %84, align 8, !tbaa !53
   %86 = load ptr, ptr %85, align 8, !tbaa !32
   %87 = icmp eq ptr %86, null
-  br i1 %87, label %.sink.split84, label %89
+  br i1 %87, label %.sink.split89, label %89
 
-.sink.split84:                                    ; preds = %83, %76
+.sink.split89:                                    ; preds = %83, %76
   %.sink = phi ptr [ %80, %76 ], [ %85, %83 ]
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store ptr %.sink, ptr %88, align 8, !tbaa !4
   br label %89
 
-89:                                               ; preds = %.sink.split84, %83, %76
+89:                                               ; preds = %.sink.split89, %83, %76
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %91 = load i32, ptr %90, align 8, !tbaa !52
   %92 = add nsw i32 %91, 1
@@ -581,13 +581,13 @@ _Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t.exi
 .thread75:                                        ; preds = %112
   %119 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split86
+  br label %.sink.split91
 
 .thread79:                                        ; preds = %115
   %120 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #21
-  br label %.sink.split86
+  br label %.sink.split91
 
 121:                                              ; preds = %116, %118
   %.0 = phi i1 [ false, %118 ], [ true, %116 ]
@@ -598,12 +598,12 @@ _Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t.exi
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #21
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %.0, label %.sink.split87, label %125
+  br i1 %.0, label %.sink.split92, label %125
 
-.sink.split86:                                    ; preds = %.thread75, %.thread79
+.sink.split91:                                    ; preds = %.thread75, %.thread79
   %.pn59.pn78.ph = phi { ptr, i32 } [ %120, %.thread79 ], [ %119, %.thread75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.sink.split87
+  br label %.sink.split92
 
 switch.lookup:                                    ; preds = %108
   %123 = zext nneg i32 %switch.tableidx to i64
@@ -615,14 +615,14 @@ switch.lookup:                                    ; preds = %108
   %.051 = phi i32 [ 269, %63 ], [ 272, %65 ], [ 277, %16 ], [ 270, %60 ], [ 276, %101 ], [ %switch.load, %switch.lookup ]
   ret i32 %.051
 
-.sink.split87:                                    ; preds = %121, %.sink.split86, %74, %.sink.split
-  %.sink88 = phi ptr [ %67, %.sink.split ], [ %67, %74 ], [ %114, %.sink.split86 ], [ %114, %121 ]
-  %.pn59.pn.pn.ph = phi { ptr, i32 } [ %.pn.pn70.ph, %.sink.split ], [ %75, %74 ], [ %.pn59.pn78.ph, %.sink.split86 ], [ %122, %121 ]
-  call void @__cxa_free_exception(ptr %.sink88) #21
+.sink.split92:                                    ; preds = %121, %.sink.split91, %74, %.sink.split
+  %.sink93 = phi ptr [ %67, %.sink.split ], [ %67, %74 ], [ %114, %.sink.split91 ], [ %114, %121 ]
+  %.pn59.pn.pn.ph = phi { ptr, i32 } [ %.pn.pn70.ph, %.sink.split ], [ %75, %74 ], [ %.pn59.pn78.ph, %.sink.split91 ], [ %122, %121 ]
+  call void @__cxa_free_exception(ptr %.sink93) #21
   br label %125
 
-125:                                              ; preds = %.sink.split87, %121, %74
-  %.pn59.pn.pn = phi { ptr, i32 } [ %122, %121 ], [ %75, %74 ], [ %.pn59.pn.pn.ph, %.sink.split87 ]
+125:                                              ; preds = %.sink.split92, %121, %74
+  %.pn59.pn.pn = phi { ptr, i32 } [ %122, %121 ], [ %75, %74 ], [ %.pn59.pn.pn.ph, %.sink.split92 ]
   resume { ptr, i32 } %.pn59.pn.pn
 
 126:                                              ; preds = %118, %71
@@ -1106,12 +1106,12 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
 
 ._crit_edge.us.thread:                            ; preds = %73, %52, %40
   %.0139240.lcssa.sink = phi i32 [ %.0139240.us, %40 ], [ %.0139240.us, %52 ], [ %.0139240, %73 ]
-  %.us-phi250275 = phi ptr [ %34, %40 ], [ %34, %52 ], [ %67, %73 ]
-  %.us-phi249274 = phi i8 [ 1, %52 ], [ 0, %40 ], [ 0, %73 ]
-  %77 = getelementptr inbounds nuw i8, ptr %.us-phi250275, i64 8
+  %.us-phi250303 = phi ptr [ %34, %40 ], [ %34, %52 ], [ %67, %73 ]
+  %.us-phi249302 = phi i8 [ 1, %52 ], [ 0, %40 ], [ 0, %73 ]
+  %77 = getelementptr inbounds nuw i8, ptr %.us-phi250303, i64 8
   %78 = load i32, ptr %77, align 8, !tbaa !85
   %79 = icmp ne i32 %78, 0
-  %80 = trunc nuw i8 %.us-phi249274 to i1
+  %80 = trunc nuw i8 %.us-phi249302 to i1
   %or.cond3 = select i1 %79, i1 true, i1 %80
   br i1 %or.cond3, label %83, label %81
 
@@ -1126,17 +1126,17 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
 
 85:                                               ; preds = %83
   %86 = xor i32 %.0139240.lcssa.sink, -1
-  %87 = add i32 %19, %86
+  %87 = add nsw i32 %19, %86
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i32 %87, ptr %88, align 8, !tbaa !25
   %89 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  store ptr %.us-phi250275, ptr %89, align 8, !tbaa !4
+  store ptr %.us-phi250303, ptr %89, align 8, !tbaa !4
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  store i8 %.us-phi249274, ptr %90, align 8, !tbaa !29
+  store i8 %.us-phi249302, ptr %90, align 8, !tbaa !29
   br label %_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t.exit170
 
 91:                                               ; preds = %83
-  %92 = load ptr, ptr %.us-phi250275, align 8, !tbaa !32
+  %92 = load ptr, ptr %.us-phi250303, align 8, !tbaa !32
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %95 = load i64, ptr %94, align 8, !tbaa !26
@@ -1189,7 +1189,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i: ; pred
   %119 = load i64, ptr %94, align 8, !tbaa !26
   %120 = trunc i64 %119 to i32
   store i32 %120, ptr %97, align 4, !tbaa !27
-  %.pre = load ptr, ptr %.us-phi250275, align 8, !tbaa !32
+  %.pre = load ptr, ptr %.us-phi250303, align 8, !tbaa !32
   br label %_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t.exit
 
 _Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t.exit: ; preds = %91, %99, %104, %106, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i
@@ -1215,7 +1215,7 @@ _Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t.exi
   store i8 111, ptr %129, align 1, !tbaa !37
   %130 = load ptr, ptr %0, align 8, !tbaa !37
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 2
-  %132 = load ptr, ptr %.us-phi250275, align 8, !tbaa !32
+  %132 = load ptr, ptr %.us-phi250303, align 8, !tbaa !32
   %133 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(1) %132) #21
   br label %_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t.exit170
 
@@ -1661,13 +1661,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182: ; preds = %26
 .thread:                                          ; preds = %300
   %306 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split282
+  br label %.sink.split310
 
 .thread204:                                       ; preds = %302
   %307 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #21
-  br label %.sink.split282
+  br label %.sink.split310
 
 308:                                              ; preds = %303, %305
   %.0107 = phi i1 [ false, %305 ], [ true, %303 ]
@@ -1680,13 +1680,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182: ; preds = %26
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.0107, label %310, label %345
 
-.sink.split282:                                   ; preds = %.thread, %.thread204
+.sink.split310:                                   ; preds = %.thread, %.thread204
   %.pn153.pn203.ph = phi { ptr, i32 } [ %307, %.thread204 ], [ %306, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %310
 
-310:                                              ; preds = %.sink.split282, %308
-  %.pn153.pn203 = phi { ptr, i32 } [ %309, %308 ], [ %.pn153.pn203.ph, %.sink.split282 ]
+310:                                              ; preds = %.sink.split310, %308
+  %.pn153.pn203 = phi { ptr, i32 } [ %309, %308 ], [ %.pn153.pn203.ph, %.sink.split310 ]
   call void @__cxa_free_exception(ptr %301) #21
   br label %345
 
@@ -1761,13 +1761,13 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %311, %3
 .thread207:                                       ; preds = %328
   %334 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split283
+  br label %.sink.split311
 
 .thread211:                                       ; preds = %330
   %335 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #21
-  br label %.sink.split283
+  br label %.sink.split311
 
 336:                                              ; preds = %331, %333
   %.0 = phi i1 [ false, %333 ], [ true, %331 ]
@@ -1780,13 +1780,13 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %311, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %.0, label %338, label %345
 
-.sink.split283:                                   ; preds = %.thread207, %.thread211
+.sink.split311:                                   ; preds = %.thread207, %.thread211
   %.pn150.pn210.ph = phi { ptr, i32 } [ %335, %.thread211 ], [ %334, %.thread207 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %338
 
-338:                                              ; preds = %.sink.split283, %336
-  %.pn150.pn210 = phi { ptr, i32 } [ %337, %336 ], [ %.pn150.pn210.ph, %.sink.split283 ]
+338:                                              ; preds = %.sink.split311, %336
+  %.pn150.pn210 = phi { ptr, i32 } [ %337, %336 ], [ %.pn150.pn210.ph, %.sink.split311 ]
   call void @__cxa_free_exception(ptr %329) #21
   br label %345
 

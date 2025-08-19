@@ -1785,8 +1785,8 @@ _ZN4llvm5APIntD2Ev.exit149.i:                     ; preds = %576, %573, %_ZN4llv
   %578 = icmp ult i32 %577, 65
   %579 = load ptr, ptr %27, align 8
   %580 = icmp eq ptr %579, null
-  %or.cond316.i = select i1 %578, i1 true, i1 %580
-  br i1 %or.cond316.i, label %_ZNSt6vectorIN12_GLOBAL__N_18IntRangeESaIS1_EE8pop_backEv.exit.i, label %_ZNSt6vectorIN12_GLOBAL__N_18IntRangeESaIS1_EE8pop_backEv.exit.sink.split.i
+  %or.cond390.i = select i1 %578, i1 true, i1 %580
+  br i1 %or.cond390.i, label %_ZNSt6vectorIN12_GLOBAL__N_18IntRangeESaIS1_EE8pop_backEv.exit.i, label %_ZNSt6vectorIN12_GLOBAL__N_18IntRangeESaIS1_EE8pop_backEv.exit.sink.split.i
 
 _ZNSt6vectorIN12_GLOBAL__N_18IntRangeESaIS1_EE8pop_backEv.exit.sink.split.i: ; preds = %_ZN4llvm5APIntD2Ev.exit149.i, %556
   %.sink.i = phi ptr [ %557, %556 ], [ %579, %_ZN4llvm5APIntD2Ev.exit149.i ]
@@ -4738,10 +4738,10 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %8 = alloca %"struct.(anonymous namespace)::CaseRange", align 8
   %9 = alloca %"struct.(anonymous namespace)::CaseRange", align 8
   %10 = alloca %"struct.(anonymous namespace)::CaseRange", align 8
-  %.fr31 = freeze ptr %1
+  %.fr32 = freeze ptr %1
   %.fr27 = freeze ptr %0
   %11 = ptrtoint ptr %.fr27 to i64
-  %12 = ptrtoint ptr %.fr31 to i64
+  %12 = ptrtoint ptr %.fr32 to i64
   %13 = sub i64 %12, %11
   %14 = icmp sgt i64 %13, 384
   br i1 %14, label %.lr.ph, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_19CaseRangeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_7CaseCmpEEEEvT_SD_SD_T0_.exit
@@ -4754,7 +4754,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 17:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_19CaseRangeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_7CaseCmpEEEET_SD_SD_T0_.exit
   %.fr54.i26 = phi i64 [ %13, %.lr.ph ], [ %150, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_19CaseRangeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_7CaseCmpEEEET_SD_SD_T0_.exit ]
   %.025 = phi i64 [ %2, %.lr.ph ], [ %101, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_19CaseRangeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_7CaseCmpEEEET_SD_SD_T0_.exit ]
-  %storemerge24 = phi ptr [ %.fr31, %.lr.ph ], [ %.sroa.012.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_19CaseRangeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_7CaseCmpEEEET_SD_SD_T0_.exit ]
+  %storemerge24 = phi ptr [ %.fr32, %.lr.ph ], [ %.sroa.012.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_19CaseRangeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_7CaseCmpEEEET_SD_SD_T0_.exit ]
   %18 = icmp eq i64 %.025, 0
   br i1 %18, label %19, label %100
 
@@ -4767,7 +4767,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %25 = and i64 %20, 1
   %26 = icmp eq i64 %25, 0
   %27 = or disjoint i64 %21, 1
-  %28 = getelementptr inbounds %"struct.(anonymous namespace)::CaseRange", ptr %.fr27, i64 %27
+  %28 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CaseRange", ptr %.fr27, i64 %27
   %29 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CaseRange", ptr %.fr27, i64 %22
   br label %30
 
@@ -4825,7 +4825,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %.06.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.097.i.i.i.i.i, %55 ]
   %.097.in.i.i.i.i.i = add nsw i64 %.06.i.i.i.i.i, -1
   %.097.i.i.i.i.i = sdiv i64 %.097.in.i.i.i.i.i, 2
-  %51 = getelementptr inbounds %"struct.(anonymous namespace)::CaseRange", ptr %.fr27, i64 %.097.i.i.i.i.i
+  %51 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CaseRange", ptr %.fr27, i64 %.097.i.i.i.i.i
   %.val2.i.i.i.i.i.i = load ptr, ptr %51, align 8, !tbaa !15
   %52 = getelementptr inbounds nuw i8, ptr %.val2.i.i.i.i.i.i, i64 24
   %53 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %52, ptr noundef nonnull readonly align 8 dereferenceable(12) %49) #20
@@ -4833,14 +4833,14 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   br i1 %54, label %55, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_19CaseRangeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterINS2_7CaseCmpEEEEvT_T0_SE_T1_T2_.exit.i.i.i
 
 55:                                               ; preds = %50
-  %56 = getelementptr inbounds %"struct.(anonymous namespace)::CaseRange", ptr %.fr27, i64 %.06.i.i.i.i.i
+  %56 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CaseRange", ptr %.fr27, i64 %.06.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false), !tbaa.struct !120
   %57 = icmp sgt i64 %.097.i.i.i.i.i, %.08.i.i.i
   br i1 %57, label %50, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_19CaseRangeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterINS2_7CaseCmpEEEEvT_T0_SE_T1_T2_.exit.i.i.i, !llvm.loop !297
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_19CaseRangeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterINS2_7CaseCmpEEEEvT_T0_SE_T1_T2_.exit.i.i.i: ; preds = %55, %50, %47
   %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %47 ], [ %.06.i.i.i.i.i, %50 ], [ %.097.i.i.i.i.i, %55 ]
-  %58 = getelementptr inbounds %"struct.(anonymous namespace)::CaseRange", ptr %.fr27, i64 %.0.lcssa.i.i.i.i.i
+  %58 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CaseRange", ptr %.fr27, i64 %.0.lcssa.i.i.i.i.i
   store ptr %.sroa.05.0.copyload.i.i.i, ptr %58, align 8, !tbaa !121
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %.sroa.46.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !tbaa !121
@@ -5257,13 +5257,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_5APIntENS_12DenseMapInfo
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %67, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %66, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %67, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %66, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %68 = zext i32 %.sink28 to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink26, i64 %68
-  store ptr %.sink25, ptr %0, align 8
+  %68 = zext i32 %.sink32 to i64
+  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %68
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %69, ptr %.sroa.4.0..sroa_idx, align 8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 16

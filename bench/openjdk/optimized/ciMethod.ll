@@ -346,7 +346,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %117, %116, %62
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 114
   store i8 1, ptr %129, align 2
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 113
-  %.pre44.pre4548 = load ptr, ptr %1, align 8
+  %.pre44.pre4557 = load ptr, ptr %1, align 8
   br label %141
 
 131:                                              ; preds = %_ZN11MutexLockerD2Ev.exit
@@ -366,9 +366,9 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %117, %116, %62
   br i1 %138, label %146, label %141
 
 141:                                              ; preds = %.thread, %131
-  %.pre44.pre4549 = phi ptr [ %.pre44.pre4548, %.thread ], [ %.pre44.pre45, %131 ]
+  %.pre44.pre4558 = phi ptr [ %.pre44.pre4557, %.thread ], [ %.pre44.pre45, %131 ]
   %142 = phi ptr [ %130, %.thread ], [ %140, %131 ]
-  %143 = getelementptr inbounds nuw i8, ptr %.pre44.pre4549, i64 40
+  %143 = getelementptr inbounds nuw i8, ptr %.pre44.pre4558, i64 40
   %.sroa.0.0.copyload.i.i = load i32, ptr %143, align 8
   %144 = and i32 %.sroa.0.0.copyload.i.i, 2
   %.not41 = icmp eq i32 %144, 0
@@ -381,7 +381,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %117, %116, %62
 
 146:                                              ; preds = %145, %141, %131
   %147 = phi ptr [ %142, %145 ], [ %142, %141 ], [ %140, %131 ]
-  %.pre44 = phi ptr [ %.pre44.pre, %145 ], [ %.pre44.pre4549, %141 ], [ %.pre44.pre45, %131 ]
+  %.pre44 = phi ptr [ %.pre44.pre, %145 ], [ %.pre44.pre4558, %141 ], [ %.pre44.pre45, %131 ]
   %148 = load i8, ptr %147, align 1
   %149 = trunc i8 %148 to i1
   br i1 %149, label %150, label %154
@@ -520,7 +520,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN5ciEnv10ge
   %230 = load i64, ptr @TieredStopAtLevel, align 8
   %231 = icmp eq i64 %230, 0
   %232 = select i1 %229, i1 true, i1 %231
-  br i1 %232, label %.thread50, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
+  br i1 %232, label %.thread59, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
 
 _ZN14CompilerConfig10is_c1_onlyEv.exit.i:         ; preds = %227
   %233 = load i8, ptr @TieredCompilation, align 1
@@ -536,7 +536,7 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i:         ; preds = %227
 _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
   %240 = icmp ne i32 %237, 2
   %241 = and i1 %240, %234
-  br i1 %241, label %247, label %.thread50
+  br i1 %241, label %247, label %.thread59
 
 _ZN14CompilerConfig15is_c1_profilingEv.exit:      ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
   %242 = icmp eq i64 %230, 1
@@ -544,7 +544,7 @@ _ZN14CompilerConfig15is_c1_profilingEv.exit:      ; preds = %_ZN14CompilerConfig
   %244 = xor i1 %234, true
   %245 = or i1 %243, %244
   %246 = or i1 %238, %245
-  br i1 %246, label %.thread50, label %247
+  br i1 %246, label %.thread59, label %247
 
 247:                                              ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i, %_ZN14CompilerConfig15is_c1_profilingEv.exit, %222
   %248 = load ptr, ptr %1, align 8
@@ -564,7 +564,7 @@ _ZN14CompilerConfig15is_c1_profilingEv.exit:      ; preds = %_ZN14CompilerConfig
   %259 = zext i16 %258 to i32
   br label %261
 
-.thread50:                                        ; preds = %_ZN14CompilerConfig15is_c1_profilingEv.exit, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i, %227
+.thread59:                                        ; preds = %_ZN14CompilerConfig15is_c1_profilingEv.exit, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i, %227
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %260, align 8
   br label %264
@@ -576,7 +576,7 @@ _ZN14CompilerConfig15is_c1_profilingEv.exit:      ; preds = %_ZN14CompilerConfig
   %263 = icmp eq i32 %249, 0
   br i1 %263, label %264, label %266
 
-264:                                              ; preds = %.thread50, %261
+264:                                              ; preds = %.thread59, %261
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 1, ptr %265, align 4
   br label %266
@@ -1464,7 +1464,7 @@ declare void @_ZN10ciTypeFlowC1EP5ciEnvP8ciMethodi(ptr noundef nonnull align 8 d
 declare void @_ZN10ciTypeFlow7do_flowEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8ciMethod21get_osr_flow_analysisEi(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN8ciMethod21get_osr_flow_analysisEi(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1808
@@ -1911,11 +1911,11 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
   %77 = icmp eq i32 %spec.select, 1
   %78 = icmp ne i64 %42, 0
   %or.cond = and i1 %78, %77
-  %cond.fr89 = freeze i1 %or.cond
+  %cond.fr98 = freeze i1 %or.cond
   %79 = load ptr, ptr %39, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = zext nneg i32 %53 to i64
-  %82 = select i1 %cond.fr89, i64 %81, i64 0
+  %82 = select i1 %cond.fr98, i64 %81, i64 0
   br label %83
 
 83:                                               ; preds = %.lr.ph69, %_ZN13ciCallProfile12add_receiverEP7ciKlassi.exit
@@ -1955,7 +1955,7 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
   %103 = getelementptr inbounds nuw [3 x i32], ptr %18, i64 0, i64 %indvars.iv.next.i
   %104 = load i32, ptr %103, align 4
   %105 = icmp sgt i32 %spec.store.select, %104
-  br i1 %105, label %106, label %.critedge.loopexit.split.loop.exit17.i
+  br i1 %105, label %106, label %.critedge.loopexit.split.loop.exit19.i
 
 106:                                              ; preds = %102
   %107 = getelementptr inbounds nuw [3 x ptr], ptr %19, i64 0, i64 %indvars.iv.next.i
@@ -1967,12 +1967,12 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
   %111 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %111, label %102, label %.critedge.i, !llvm.loop !18
 
-.critedge.loopexit.split.loop.exit17.i:           ; preds = %102
+.critedge.loopexit.split.loop.exit19.i:           ; preds = %102
   %112 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %106, %.critedge.loopexit.split.loop.exit17.i, %91
-  %.0.lcssa.i = phi i32 [ %99, %91 ], [ %112, %.critedge.loopexit.split.loop.exit17.i ], [ 0, %106 ]
+.critedge.i:                                      ; preds = %106, %.critedge.loopexit.split.loop.exit19.i, %91
+  %.0.lcssa.i = phi i32 [ %99, %91 ], [ %112, %.critedge.loopexit.split.loop.exit19.i ], [ 0, %106 ]
   %113 = sext i32 %.0.lcssa.i to i64
   %114 = getelementptr inbounds [3 x ptr], ptr %19, i64 0, i64 %113
   store ptr %89, ptr %114, align 8
@@ -2012,12 +2012,12 @@ _ZN13ciCallProfile12add_receiverEP7ciKlassi.exit: ; preds = %118, %.critedge.i, 
 128:                                              ; preds = %125, %124
   store i32 %spec.select, ptr %16, align 4
   %129 = tail call i32 @llvm.sadd.sat.i32(i32 %53, i32 %.143)
-  br i1 %cond.fr89, label %132, label %.thread
+  br i1 %cond.fr98, label %132, label %.thread
 
 130:                                              ; preds = %._crit_edge70, %125
-  %or.cond7984 = phi i1 [ %cond.fr89, %._crit_edge70 ], [ false, %125 ]
+  %or.cond8893 = phi i1 [ %cond.fr98, %._crit_edge70 ], [ false, %125 ]
   %131 = tail call i32 @llvm.sadd.sat.i32(i32 %53, i32 %.143)
-  br i1 %or.cond7984, label %132, label %.thread
+  br i1 %or.cond8893, label %132, label %.thread
 
 132:                                              ; preds = %128, %130
   br label %.thread
@@ -2228,7 +2228,7 @@ define hidden void @_ZN13ciCallProfile12add_receiverEP7ciKlassi(ptr noundef nonn
   %10 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv.next
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %2, %11
-  br i1 %12, label %13, label %.critedge.loopexit.split.loop.exit17
+  br i1 %12, label %13, label %.critedge.loopexit.split.loop.exit19
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw [3 x ptr], ptr %7, i64 0, i64 %indvars.iv.next
@@ -2240,12 +2240,12 @@ define hidden void @_ZN13ciCallProfile12add_receiverEP7ciKlassi(ptr noundef nonn
   %18 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %18, label %9, label %.critedge, !llvm.loop !18
 
-.critedge.loopexit.split.loop.exit17:             ; preds = %9
+.critedge.loopexit.split.loop.exit19:             ; preds = %9
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %13, %.critedge.loopexit.split.loop.exit17, %3
-  %.0.lcssa = phi i32 [ %4, %3 ], [ %19, %.critedge.loopexit.split.loop.exit17 ], [ 0, %13 ]
+.critedge:                                        ; preds = %13, %.critedge.loopexit.split.loop.exit19, %3
+  %.0.lcssa = phi i32 [ %4, %3 ], [ %19, %.critedge.loopexit.split.loop.exit19 ], [ 0, %13 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = sext i32 %.0.lcssa to i64
   %22 = getelementptr inbounds [3 x ptr], ptr %20, i64 0, i64 %21
@@ -6660,15 +6660,15 @@ define hidden noundef zeroext i1 @_ZN8ciMethod18is_consistent_infoEPS_S0_(ptr no
   %91 = zext nneg i32 %.043 to i64
   %wide.trip.count = zext nneg i32 %85 to i64
   %invariant.gep = getelementptr inbounds nuw ptr, ptr %88, i64 %.044
-  %invariant.gep59 = getelementptr inbounds nuw ptr, ptr %90, i64 %91
+  %invariant.gep61 = getelementptr inbounds nuw ptr, ptr %90, i64 %91
   br label %92
 
 92:                                               ; preds = %.lr.ph, %_ZL17basic_types_matchP6ciTypeS0_.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL17basic_types_matchP6ciTypeS0_.exit.thread ]
   %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %indvars.iv
   %93 = load ptr, ptr %gep, align 8
-  %gep60 = getelementptr inbounds nuw ptr, ptr %invariant.gep59, i64 %indvars.iv
-  %94 = load ptr, ptr %gep60, align 8
+  %gep62 = getelementptr inbounds nuw ptr, ptr %invariant.gep61, i64 %indvars.iv
+  %94 = load ptr, ptr %gep62, align 8
   %95 = icmp eq ptr %93, %94
   br i1 %95, label %_ZL17basic_types_matchP6ciTypeS0_.exit.thread, label %_ZL17basic_types_matchP6ciTypeS0_.exit
 

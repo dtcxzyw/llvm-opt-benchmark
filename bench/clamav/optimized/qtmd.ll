@@ -693,23 +693,23 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %213 = add i16 %.311222100, %212
   %214 = load i16, ptr %168, align 2, !tbaa !40
   %215 = icmp ugt i16 %214, 3800
-  br i1 %215, label %216, label %.preheader2826
+  br i1 %215, label %216, label %.preheader2866
 
 216:                                              ; preds = %201
   tail call fastcc void @qtmd_update_model(ptr noundef %67)
-  br label %.preheader2826
+  br label %.preheader2866
 
-.preheader2826:                                   ; preds = %216, %201
+.preheader2866:                                   ; preds = %216, %201
   br label %217
 
-217:                                              ; preds = %.preheader2826, %._crit_edge1927
-  %.51145 = phi i16 [ %294, %._crit_edge1927 ], [ %.311432099, %.preheader2826 ]
-  %.51124 = phi i16 [ %229, %._crit_edge1927 ], [ %213, %.preheader2826 ]
-  %.51104 = phi i16 [ %231, %._crit_edge1927 ], [ %208, %.preheader2826 ]
-  %.71002 = phi i32 [ %296, %._crit_edge1927 ], [ %.510002104, %.preheader2826 ]
-  %.7952 = phi i32 [ %295, %._crit_edge1927 ], [ %.59502105, %.preheader2826 ]
-  %.9882 = phi ptr [ %.10883.lcssa, %._crit_edge1927 ], [ %.78802106, %.preheader2826 ]
-  %.9834 = phi ptr [ %.10835.lcssa, %._crit_edge1927 ], [ %.78322107, %.preheader2826 ]
+217:                                              ; preds = %.preheader2866, %._crit_edge1927
+  %.51145 = phi i16 [ %294, %._crit_edge1927 ], [ %.311432099, %.preheader2866 ]
+  %.51124 = phi i16 [ %229, %._crit_edge1927 ], [ %213, %.preheader2866 ]
+  %.51104 = phi i16 [ %231, %._crit_edge1927 ], [ %208, %.preheader2866 ]
+  %.71002 = phi i32 [ %296, %._crit_edge1927 ], [ %.510002104, %.preheader2866 ]
+  %.7952 = phi i32 [ %295, %._crit_edge1927 ], [ %.59502105, %.preheader2866 ]
+  %.9882 = phi ptr [ %.10883.lcssa, %._crit_edge1927 ], [ %.78802106, %.preheader2866 ]
+  %.9834 = phi ptr [ %.10835.lcssa, %._crit_edge1927 ], [ %.78322107, %.preheader2866 ]
   %218 = zext i16 %.51124 to i32
   %219 = zext i16 %.51104 to i32
   %220 = xor i32 %219, %218
@@ -967,23 +967,23 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %355 = add i16 %.51124, %354
   %356 = load i16, ptr %309, align 2, !tbaa !40
   %357 = icmp ugt i16 %356, 3800
-  br i1 %357, label %358, label %.preheader2818
+  br i1 %357, label %358, label %.preheader2858
 
 358:                                              ; preds = %343
   tail call fastcc void @qtmd_update_model(ptr noundef %305)
-  br label %.preheader2818
+  br label %.preheader2858
 
-.preheader2818:                                   ; preds = %358, %343
+.preheader2858:                                   ; preds = %358, %343
   br label %359
 
-359:                                              ; preds = %.preheader2818, %._crit_edge2094
-  %.71147 = phi i16 [ %406, %._crit_edge2094 ], [ %.51145, %.preheader2818 ]
-  %.71126 = phi i16 [ %371, %._crit_edge2094 ], [ %355, %.preheader2818 ]
-  %.71106 = phi i16 [ %373, %._crit_edge2094 ], [ %350, %.preheader2818 ]
-  %.101005 = phi i32 [ %408, %._crit_edge2094 ], [ %.71002, %.preheader2818 ]
-  %.10955 = phi i32 [ %407, %._crit_edge2094 ], [ %.7952, %.preheader2818 ]
-  %.14887 = phi ptr [ %.15888.lcssa, %._crit_edge2094 ], [ %.9882, %.preheader2818 ]
-  %.14839 = phi ptr [ %.15840.lcssa, %._crit_edge2094 ], [ %.9834, %.preheader2818 ]
+359:                                              ; preds = %.preheader2858, %._crit_edge2094
+  %.71147 = phi i16 [ %406, %._crit_edge2094 ], [ %.51145, %.preheader2858 ]
+  %.71126 = phi i16 [ %371, %._crit_edge2094 ], [ %355, %.preheader2858 ]
+  %.71106 = phi i16 [ %373, %._crit_edge2094 ], [ %350, %.preheader2858 ]
+  %.101005 = phi i32 [ %408, %._crit_edge2094 ], [ %.71002, %.preheader2858 ]
+  %.10955 = phi i32 [ %407, %._crit_edge2094 ], [ %.7952, %.preheader2858 ]
+  %.14887 = phi ptr [ %.15888.lcssa, %._crit_edge2094 ], [ %.9882, %.preheader2858 ]
+  %.14839 = phi ptr [ %.15840.lcssa, %._crit_edge2094 ], [ %.9834, %.preheader2858 ]
   %360 = zext i16 %.71126 to i32
   %361 = zext i16 %.71106 to i32
   %362 = xor i32 %361, %360
@@ -1179,23 +1179,23 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %463 = add i16 %.51124, %462
   %464 = load i16, ptr %418, align 2, !tbaa !40
   %465 = icmp ugt i16 %464, 3800
-  br i1 %465, label %466, label %.preheader2820
+  br i1 %465, label %466, label %.preheader2860
 
 466:                                              ; preds = %451
   tail call fastcc void @qtmd_update_model(ptr noundef %79)
-  br label %.preheader2820
+  br label %.preheader2860
 
-.preheader2820:                                   ; preds = %466, %451
+.preheader2860:                                   ; preds = %466, %451
   br label %467
 
-467:                                              ; preds = %.preheader2820, %._crit_edge2045
-  %.111151 = phi i16 [ %514, %._crit_edge2045 ], [ %.51145, %.preheader2820 ]
-  %.111130 = phi i16 [ %479, %._crit_edge2045 ], [ %463, %.preheader2820 ]
-  %.111110 = phi i16 [ %481, %._crit_edge2045 ], [ %458, %.preheader2820 ]
-  %.151010 = phi i32 [ %516, %._crit_edge2045 ], [ %.71002, %.preheader2820 ]
-  %.15960 = phi i32 [ %515, %._crit_edge2045 ], [ %.7952, %.preheader2820 ]
-  %.21894 = phi ptr [ %.22895.lcssa, %._crit_edge2045 ], [ %.9882, %.preheader2820 ]
-  %.21846 = phi ptr [ %.22847.lcssa, %._crit_edge2045 ], [ %.9834, %.preheader2820 ]
+467:                                              ; preds = %.preheader2860, %._crit_edge2045
+  %.111151 = phi i16 [ %514, %._crit_edge2045 ], [ %.51145, %.preheader2860 ]
+  %.111130 = phi i16 [ %479, %._crit_edge2045 ], [ %463, %.preheader2860 ]
+  %.111110 = phi i16 [ %481, %._crit_edge2045 ], [ %458, %.preheader2860 ]
+  %.151010 = phi i32 [ %516, %._crit_edge2045 ], [ %.71002, %.preheader2860 ]
+  %.15960 = phi i32 [ %515, %._crit_edge2045 ], [ %.7952, %.preheader2860 ]
+  %.21894 = phi ptr [ %.22895.lcssa, %._crit_edge2045 ], [ %.9882, %.preheader2860 ]
+  %.21846 = phi ptr [ %.22847.lcssa, %._crit_edge2045 ], [ %.9834, %.preheader2860 ]
   %468 = zext i16 %.111130 to i32
   %469 = zext i16 %.111110 to i32
   %470 = xor i32 %469, %468
@@ -1469,23 +1469,23 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %611 = add i16 %.51124, %610
   %612 = load i16, ptr %566, align 2, !tbaa !40
   %613 = icmp ugt i16 %612, 3800
-  br i1 %613, label %614, label %.preheader2822
+  br i1 %613, label %614, label %.preheader2862
 
 614:                                              ; preds = %599
   tail call fastcc void @qtmd_update_model(ptr noundef %76)
-  br label %.preheader2822
+  br label %.preheader2862
 
-.preheader2822:                                   ; preds = %614, %599
+.preheader2862:                                   ; preds = %614, %599
   br label %615
 
-615:                                              ; preds = %.preheader2822, %._crit_edge2012
-  %.141154 = phi i16 [ %662, %._crit_edge2012 ], [ %.51145, %.preheader2822 ]
-  %.141133 = phi i16 [ %627, %._crit_edge2012 ], [ %611, %.preheader2822 ]
-  %.141113 = phi i16 [ %629, %._crit_edge2012 ], [ %606, %.preheader2822 ]
-  %.231018 = phi i32 [ %664, %._crit_edge2012 ], [ %.71002, %.preheader2822 ]
-  %.23968 = phi i32 [ %663, %._crit_edge2012 ], [ %.7952, %.preheader2822 ]
-  %.33906 = phi ptr [ %.34907.lcssa, %._crit_edge2012 ], [ %.9882, %.preheader2822 ]
-  %.33858 = phi ptr [ %.34859.lcssa, %._crit_edge2012 ], [ %.9834, %.preheader2822 ]
+615:                                              ; preds = %.preheader2862, %._crit_edge2012
+  %.141154 = phi i16 [ %662, %._crit_edge2012 ], [ %.51145, %.preheader2862 ]
+  %.141133 = phi i16 [ %627, %._crit_edge2012 ], [ %611, %.preheader2862 ]
+  %.141113 = phi i16 [ %629, %._crit_edge2012 ], [ %606, %.preheader2862 ]
+  %.231018 = phi i32 [ %664, %._crit_edge2012 ], [ %.71002, %.preheader2862 ]
+  %.23968 = phi i32 [ %663, %._crit_edge2012 ], [ %.7952, %.preheader2862 ]
+  %.33906 = phi ptr [ %.34907.lcssa, %._crit_edge2012 ], [ %.9882, %.preheader2862 ]
+  %.33858 = phi ptr [ %.34859.lcssa, %._crit_edge2012 ], [ %.9834, %.preheader2862 ]
   %616 = zext i16 %.141133 to i32
   %617 = zext i16 %.141113 to i32
   %618 = xor i32 %617, %616
@@ -1759,23 +1759,23 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %759 = add i16 %.51124, %758
   %760 = load i16, ptr %714, align 2, !tbaa !40
   %761 = icmp ugt i16 %760, 3800
-  br i1 %761, label %762, label %.preheader2825
+  br i1 %761, label %762, label %.preheader2865
 
 762:                                              ; preds = %747
   tail call fastcc void @qtmd_update_model(ptr noundef %70)
-  br label %.preheader2825
+  br label %.preheader2865
 
-.preheader2825:                                   ; preds = %762, %747
+.preheader2865:                                   ; preds = %762, %747
   br label %763
 
-763:                                              ; preds = %.preheader2825, %._crit_edge1946
-  %.161156 = phi i16 [ %810, %._crit_edge1946 ], [ %.51145, %.preheader2825 ]
-  %.161135 = phi i16 [ %775, %._crit_edge1946 ], [ %759, %.preheader2825 ]
-  %.161115 = phi i16 [ %777, %._crit_edge1946 ], [ %754, %.preheader2825 ]
-  %.301025 = phi i32 [ %812, %._crit_edge1946 ], [ %.71002, %.preheader2825 ]
-  %.30975 = phi i32 [ %811, %._crit_edge1946 ], [ %.7952, %.preheader2825 ]
-  %.44917 = phi ptr [ %.45918.lcssa, %._crit_edge1946 ], [ %.9882, %.preheader2825 ]
-  %.44869 = phi ptr [ %.45870.lcssa, %._crit_edge1946 ], [ %.9834, %.preheader2825 ]
+763:                                              ; preds = %.preheader2865, %._crit_edge1946
+  %.161156 = phi i16 [ %810, %._crit_edge1946 ], [ %.51145, %.preheader2865 ]
+  %.161135 = phi i16 [ %775, %._crit_edge1946 ], [ %759, %.preheader2865 ]
+  %.161115 = phi i16 [ %777, %._crit_edge1946 ], [ %754, %.preheader2865 ]
+  %.301025 = phi i32 [ %812, %._crit_edge1946 ], [ %.71002, %.preheader2865 ]
+  %.30975 = phi i32 [ %811, %._crit_edge1946 ], [ %.7952, %.preheader2865 ]
+  %.44917 = phi ptr [ %.45918.lcssa, %._crit_edge1946 ], [ %.9882, %.preheader2865 ]
+  %.44869 = phi ptr [ %.45870.lcssa, %._crit_edge1946 ], [ %.9834, %.preheader2865 ]
   %764 = zext i16 %.161135 to i32
   %765 = zext i16 %.161115 to i32
   %766 = xor i32 %765, %764
@@ -2063,23 +2063,23 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %912 = add i16 %.161135, %911
   %913 = load i16, ptr %867, align 2, !tbaa !40
   %914 = icmp ugt i16 %913, 3800
-  br i1 %914, label %915, label %.preheader2824
+  br i1 %914, label %915, label %.preheader2864
 
 915:                                              ; preds = %900
   tail call fastcc void @qtmd_update_model(ptr noundef %73)
-  br label %.preheader2824
+  br label %.preheader2864
 
-.preheader2824:                                   ; preds = %915, %900
+.preheader2864:                                   ; preds = %915, %900
   br label %916
 
-916:                                              ; preds = %.preheader2824, %._crit_edge1979
-  %.181158 = phi i16 [ %963, %._crit_edge1979 ], [ %.161156, %.preheader2824 ]
-  %.181137 = phi i16 [ %928, %._crit_edge1979 ], [ %912, %.preheader2824 ]
-  %.181117 = phi i16 [ %930, %._crit_edge1979 ], [ %907, %.preheader2824 ]
-  %.371032 = phi i32 [ %965, %._crit_edge1979 ], [ %.331028.lcssa, %.preheader2824 ]
-  %.37982 = phi i32 [ %964, %._crit_edge1979 ], [ %.33978.lcssa, %.preheader2824 ]
-  %.55928 = phi ptr [ %.56929.lcssa, %._crit_edge1979 ], [ %.49922.lcssa, %.preheader2824 ]
-  %.55 = phi ptr [ %.56.lcssa, %._crit_edge1979 ], [ %.49.lcssa, %.preheader2824 ]
+916:                                              ; preds = %.preheader2864, %._crit_edge1979
+  %.181158 = phi i16 [ %963, %._crit_edge1979 ], [ %.161156, %.preheader2864 ]
+  %.181137 = phi i16 [ %928, %._crit_edge1979 ], [ %912, %.preheader2864 ]
+  %.181117 = phi i16 [ %930, %._crit_edge1979 ], [ %907, %.preheader2864 ]
+  %.371032 = phi i32 [ %965, %._crit_edge1979 ], [ %.331028.lcssa, %.preheader2864 ]
+  %.37982 = phi i32 [ %964, %._crit_edge1979 ], [ %.33978.lcssa, %.preheader2864 ]
+  %.55928 = phi ptr [ %.56929.lcssa, %._crit_edge1979 ], [ %.49922.lcssa, %.preheader2864 ]
+  %.55 = phi ptr [ %.56.lcssa, %._crit_edge1979 ], [ %.49.lcssa, %.preheader2864 ]
   %917 = zext i16 %.181137 to i32
   %918 = zext i16 %.181117 to i32
   %919 = xor i32 %918, %917
@@ -2824,8 +2824,8 @@ define internal fastcc void @qtmd_update_model(ptr noundef nonnull captures(none
   br label %25
 
 .preheader56:                                     ; preds = %25
-  %.not96 = icmp eq i32 %20, 1
-  br i1 %.not96, label %.lr.ph69, label %.lr.ph67
+  %.not99 = icmp eq i32 %20, 1
+  br i1 %.not99, label %.lr.ph69, label %.lr.ph67
 
 .lr.ph67:                                         ; preds = %.preheader56
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2858,10 +2858,10 @@ define internal fastcc void @qtmd_update_model(ptr noundef nonnull captures(none
   br i1 %36, label %.lr.ph69, label %.loopexit
 
 .lr.ph69:                                         ; preds = %.preheader56, %.preheader
-  %.lcssa91 = phi i32 [ %33, %.preheader ], [ 0, %.preheader56 ]
+  %.lcssa94 = phi i32 [ %33, %.preheader ], [ 0, %.preheader56 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !37
-  %39 = zext nneg i32 %.lcssa91 to i64
+  %39 = zext nneg i32 %.lcssa94 to i64
   br label %64
 
 40:                                               ; preds = %.lr.ph67, %.loopexit55
@@ -2915,8 +2915,8 @@ define internal fastcc void @qtmd_update_model(ptr noundef nonnull captures(none
   %70 = add i16 %69, %67
   store i16 %70, ptr %68, align 2, !tbaa !40
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, -1
-  %.not97 = icmp eq i64 %indvars.iv84, 0
-  br i1 %.not97, label %.loopexit, label %64
+  %.not100 = icmp eq i64 %indvars.iv84, 0
+  br i1 %.not100, label %.loopexit, label %64
 
 .loopexit:                                        ; preds = %11, %64, %18, %4, %.preheader
   ret void

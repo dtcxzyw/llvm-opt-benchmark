@@ -106,9 +106,8 @@ define hidden nonnull ptr @png_format_number(ptr noundef readnone captures(addre
   br i1 %7, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.thread.us
-  %.056.us = phi i32 [ %.251.us, %.thread.us ], [ 0, %.lr.ph ]
   %.02855.us = phi i32 [ %.350.us, %.thread.us ], [ 1, %.lr.ph ]
-  %.03154.us = phi i32 [ %33, %.thread.us ], [ 0, %.lr.ph ]
+  %.03154.us = phi i32 [ %26, %.thread.us ], [ 0, %.lr.ph ]
   %.03253.us = phi i64 [ %.13349.us, %.thread.us ], [ %3, %.lr.ph ]
   %.03452.us = phi ptr [ %.337.us, %.thread.us ], [ %5, %.lr.ph ]
   %8 = icmp ne i64 %.03253.us, 0
@@ -118,17 +117,16 @@ define hidden nonnull ptr @png_format_number(ptr noundef readnone captures(addre
 
 11:                                               ; preds = %.lr.ph.split.us
   switch i32 %2, label %.thread.us [
-    i32 5, label %26
+    i32 3, label %13
     i32 2, label %19
     i32 1, label %20
     i32 4, label %12
-    i32 3, label %13
   ]
 
 12:                                               ; preds = %11
   br label %13
 
-13:                                               ; preds = %12, %11
+13:                                               ; preds = %11, %12
   %.230.us = phi i32 [ 2, %12 ], [ %.02855.us, %11 ]
   %14 = and i64 %.03253.us, 15
   %15 = getelementptr inbounds nuw [17 x i8], ptr @png_format_number.digits, i64 0, i64 %14
@@ -151,91 +149,75 @@ define hidden nonnull ptr @png_format_number(ptr noundef readnone captures(addre
   %25 = udiv i64 %.03253.us, 10
   br label %.thread.us
 
-26:                                               ; preds = %11
-  %.not.us = icmp eq i32 %.056.us, 0
-  %27 = urem i64 %.03253.us, 10
-  %28 = udiv i64 %.03253.us, 10
-  %.not39.us = icmp eq i64 %27, 0
-  %or.cond41.us = and i1 %.not.us, %.not39.us
-  br i1 %or.cond41.us, label %.thread.us, label %29
+.thread.us:                                       ; preds = %11, %13, %20
+  %.350.us = phi i32 [ %.230.us, %13 ], [ %.129.us, %20 ], [ %.02855.us, %11 ]
+  %.13349.us = phi i64 [ %18, %13 ], [ %25, %20 ], [ 0, %11 ]
+  %.337.us = phi ptr [ %17, %13 ], [ %24, %20 ], [ %.03452.us, %11 ]
+  %26 = add nuw nsw i32 %.03154.us, 1
+  %27 = icmp ugt ptr %.337.us, %0
+  br i1 %27, label %.lr.ph.split.us, label %.critedge, !llvm.loop !8
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw [17 x i8], ptr @png_format_number.digits, i64 0, i64 %27
-  %31 = load i8, ptr %30, align 1
-  %32 = getelementptr inbounds i8, ptr %.03452.us, i64 -1
-  store i8 %31, ptr %32, align 1
-  br label %.thread.us
+.lr.ph.split:                                     ; preds = %.lr.ph, %48
+  %.056 = phi i32 [ %.251, %48 ], [ 0, %.lr.ph ]
+  %.02855 = phi i32 [ 5, %48 ], [ 1, %.lr.ph ]
+  %.03154 = phi i32 [ %49, %48 ], [ 0, %.lr.ph ]
+  %.03253 = phi i64 [ %.13349, %48 ], [ %3, %.lr.ph ]
+  %.03452 = phi ptr [ %.337, %48 ], [ %5, %.lr.ph ]
+  %28 = icmp ne i64 %.03253, 0
+  %29 = icmp slt i32 %.03154, %.02855
+  %30 = or i1 %28, %29
+  br i1 %30, label %31, label %.critedge
 
-.thread.us:                                       ; preds = %26, %29, %11, %13, %20
-  %.251.us = phi i32 [ %.056.us, %20 ], [ %.056.us, %13 ], [ %.056.us, %11 ], [ 1, %29 ], [ 0, %26 ]
-  %.350.us = phi i32 [ %.129.us, %20 ], [ %.230.us, %13 ], [ %.02855.us, %11 ], [ 5, %29 ], [ 5, %26 ]
-  %.13349.us = phi i64 [ %25, %20 ], [ %18, %13 ], [ 0, %11 ], [ %28, %29 ], [ %28, %26 ]
-  %.337.us = phi ptr [ %24, %20 ], [ %17, %13 ], [ %.03452.us, %11 ], [ %32, %29 ], [ %.03452.us, %26 ]
-  %33 = add nuw nsw i32 %.03154.us, 1
-  %34 = icmp ugt ptr %.337.us, %0
-  br i1 %34, label %.lr.ph.split.us, label %.critedge, !llvm.loop !8
-
-.lr.ph.split:                                     ; preds = %.lr.ph, %55
-  %.056 = phi i32 [ %.251, %55 ], [ 0, %.lr.ph ]
-  %.02855 = phi i32 [ 5, %55 ], [ 1, %.lr.ph ]
-  %.03154 = phi i32 [ %56, %55 ], [ 0, %.lr.ph ]
-  %.03253 = phi i64 [ %.13349, %55 ], [ %3, %.lr.ph ]
-  %.03452 = phi ptr [ %.337, %55 ], [ %5, %.lr.ph ]
-  %35 = icmp ne i64 %.03253, 0
-  %36 = icmp slt i32 %.03154, %.02855
-  %37 = or i1 %35, %36
-  br i1 %37, label %38, label %.critedge
-
-38:                                               ; preds = %.lr.ph.split
+31:                                               ; preds = %.lr.ph.split
   %.not = icmp eq i32 %.056, 0
-  %39 = urem i64 %.03253, 10
-  %40 = udiv i64 %.03253, 10
-  %.not39 = icmp eq i64 %39, 0
+  %32 = urem i64 %.03253, 10
+  %33 = udiv i64 %.03253, 10
+  %.not39 = icmp eq i64 %32, 0
   %or.cond41 = and i1 %.not, %.not39
-  br i1 %or.cond41, label %41, label %.thread
+  br i1 %or.cond41, label %34, label %.thread
 
-41:                                               ; preds = %38
-  %42 = udiv i64 %.03253, 10
-  %43 = add nuw nsw i32 %.03154, 1
-  %44 = icmp eq i32 %43, 5
-  %45 = icmp ugt ptr %.03452, %0
-  %or.cond42 = and i1 %44, %45
-  br i1 %or.cond42, label %52, label %55
+34:                                               ; preds = %31
+  %35 = udiv i64 %.03253, 10
+  %36 = add nuw nsw i32 %.03154, 1
+  %37 = icmp eq i32 %36, 5
+  %38 = icmp ugt ptr %.03452, %0
+  %or.cond42 = and i1 %37, %38
+  br i1 %or.cond42, label %45, label %48
 
-.thread:                                          ; preds = %38
-  %46 = getelementptr inbounds nuw [17 x i8], ptr @png_format_number.digits, i64 0, i64 %39
-  %47 = load i8, ptr %46, align 1
-  %48 = getelementptr inbounds i8, ptr %.03452, i64 -1
-  store i8 %47, ptr %48, align 1
-  %49 = add nuw nsw i32 %.03154, 1
-  %50 = icmp eq i32 %49, 5
-  %51 = icmp ugt ptr %48, %0
-  %or.cond4264 = and i1 %50, %51
-  br i1 %or.cond4264, label %.sink.split, label %55
+.thread:                                          ; preds = %31
+  %39 = getelementptr inbounds nuw [17 x i8], ptr @png_format_number.digits, i64 0, i64 %32
+  %40 = load i8, ptr %39, align 1
+  %41 = getelementptr inbounds i8, ptr %.03452, i64 -1
+  store i8 %40, ptr %41, align 1
+  %42 = add nuw nsw i32 %.03154, 1
+  %43 = icmp eq i32 %42, 5
+  %44 = icmp ugt ptr %41, %0
+  %or.cond4267 = and i1 %43, %44
+  br i1 %or.cond4267, label %.sink.split, label %48
 
-52:                                               ; preds = %41
-  %53 = icmp ult i64 %.03253, 10
-  br i1 %53, label %.sink.split, label %55
+45:                                               ; preds = %34
+  %46 = icmp ult i64 %.03253, 10
+  br i1 %46, label %.sink.split, label %48
 
-.sink.split:                                      ; preds = %52, %.thread
-  %.sink75 = phi ptr [ %48, %.thread ], [ %.03452, %52 ]
-  %.sink = phi i8 [ 46, %.thread ], [ 48, %52 ]
-  %.251.ph = phi i32 [ 1, %.thread ], [ 0, %52 ]
-  %.13349.ph = phi i64 [ %40, %.thread ], [ 0, %52 ]
-  %54 = getelementptr inbounds i8, ptr %.sink75, i64 -1
-  store i8 %.sink, ptr %54, align 1
-  br label %55
+.sink.split:                                      ; preds = %45, %.thread
+  %.sink75 = phi ptr [ %41, %.thread ], [ %.03452, %45 ]
+  %.sink = phi i8 [ 46, %.thread ], [ 48, %45 ]
+  %.251.ph = phi i32 [ 1, %.thread ], [ 0, %45 ]
+  %.13349.ph = phi i64 [ %33, %.thread ], [ 0, %45 ]
+  %47 = getelementptr inbounds i8, ptr %.sink75, i64 -1
+  store i8 %.sink, ptr %47, align 1
+  br label %48
 
-55:                                               ; preds = %.sink.split, %.thread, %52, %41
-  %56 = phi i32 [ 5, %52 ], [ %43, %41 ], [ %49, %.thread ], [ 5, %.sink.split ]
-  %.251 = phi i32 [ 0, %52 ], [ 0, %41 ], [ 1, %.thread ], [ %.251.ph, %.sink.split ]
-  %.13349 = phi i64 [ %42, %52 ], [ %42, %41 ], [ %40, %.thread ], [ %.13349.ph, %.sink.split ]
-  %.337 = phi ptr [ %.03452, %52 ], [ %.03452, %41 ], [ %48, %.thread ], [ %54, %.sink.split ]
-  %57 = icmp ugt ptr %.337, %0
-  br i1 %57, label %.lr.ph.split, label %.critedge, !llvm.loop !8
+48:                                               ; preds = %.sink.split, %.thread, %45, %34
+  %49 = phi i32 [ 5, %45 ], [ %36, %34 ], [ %42, %.thread ], [ 5, %.sink.split ]
+  %.251 = phi i32 [ 0, %45 ], [ 0, %34 ], [ 1, %.thread ], [ %.251.ph, %.sink.split ]
+  %.13349 = phi i64 [ %35, %45 ], [ %35, %34 ], [ %33, %.thread ], [ %.13349.ph, %.sink.split ]
+  %.337 = phi ptr [ %.03452, %45 ], [ %.03452, %34 ], [ %41, %.thread ], [ %47, %.sink.split ]
+  %50 = icmp ugt ptr %.337, %0
+  br i1 %50, label %.lr.ph.split, label %.critedge, !llvm.loop !8
 
-.critedge:                                        ; preds = %.lr.ph.split.us, %.thread.us, %.lr.ph.split, %55, %4
-  %.034.lcssa = phi ptr [ %5, %4 ], [ %.337, %55 ], [ %.03452, %.lr.ph.split ], [ %.337.us, %.thread.us ], [ %.03452.us, %.lr.ph.split.us ]
+.critedge:                                        ; preds = %.lr.ph.split.us, %.thread.us, %.lr.ph.split, %48, %4
+  %.034.lcssa = phi ptr [ %5, %4 ], [ %.337, %48 ], [ %.03452, %.lr.ph.split ], [ %.337.us, %.thread.us ], [ %.03452.us, %.lr.ph.split.us ]
   ret ptr %.034.lcssa
 }
 
@@ -348,109 +330,348 @@ png_safecat.exit:                                 ; preds = %.loopexit.i, %5, %3
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @png_warning_parameter_unsigned(ptr noundef writeonly captures(address) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #6 {
   %5 = alloca [24 x i8], align 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 23
+  %7 = icmp eq i32 %2, 5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %7 = call ptr @png_format_number(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %2, i64 noundef %3)
-  %8 = add i32 %1, -1
-  %or.cond.i = icmp ult i32 %8, 8
-  br i1 %or.cond.i, label %9, label %png_warning_parameter.exit
+  br i1 %7, label %.lr.ph.split.i, label %.lr.ph.split.us.i
 
-9:                                                ; preds = %4
-  %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr [32 x i8], ptr %0, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 -32
-  %.not.i.not.i = icmp eq ptr %12, null
-  br i1 %.not.i.not.i, label %png_warning_parameter.exit, label %13
+.lr.ph.split.us.i:                                ; preds = %4, %.thread.us.i
+  %8 = phi i8 [ %27, %.thread.us.i ], [ 0, %4 ]
+  %.02855.us.i = phi i32 [ %.350.us.i, %.thread.us.i ], [ 1, %4 ]
+  %.03154.us.i = phi i32 [ %28, %.thread.us.i ], [ 0, %4 ]
+  %.03253.us.i = phi i64 [ %.13349.us.i, %.thread.us.i ], [ %3, %4 ]
+  %.03452.us.i = phi ptr [ %.337.us.i, %.thread.us.i ], [ %6, %4 ]
+  %9 = icmp ne i64 %.03253.us.i, 0
+  %10 = icmp slt i32 %.03154.us.i, %.02855.us.i
+  %11 = select i1 %9, i1 true, i1 %10
+  br i1 %11, label %12, label %png_format_number.exit
 
-13:                                               ; preds = %9
-  %14 = load i8, ptr %7, align 1
-  %.not.i = icmp eq i8 %14, 0
-  br i1 %.not.i, label %.loopexit.i.i, label %.lr.ph.i.i
+12:                                               ; preds = %.lr.ph.split.us.i
+  switch i32 %2, label %.thread.us.i [
+    i32 3, label %14
+    i32 2, label %20
+    i32 1, label %21
+    i32 4, label %13
+  ]
 
-.lr.ph.i.i:                                       ; preds = %13, %.lr.ph.i.i
-  %15 = phi i8 [ %19, %.lr.ph.i.i ], [ %14, %13 ]
-  %.020.i.i = phi ptr [ %16, %.lr.ph.i.i ], [ %7, %13 ]
-  %.219.i.i = phi i64 [ %17, %.lr.ph.i.i ], [ 0, %13 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 1
-  %17 = add nuw nsw i64 %.219.i.i, 1
-  %18 = getelementptr inbounds nuw i8, ptr %12, i64 %.219.i.i
-  store i8 %15, ptr %18, align 1
-  %19 = load i8, ptr %16, align 1
-  %20 = icmp ne i8 %19, 0
-  %21 = icmp samesign ult i64 %.219.i.i, 30
-  %22 = select i1 %20, i1 %21, i1 false
-  br i1 %22, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !6
+13:                                               ; preds = %12
+  br label %14
 
-.loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %13
-  %.1.i.i = phi i64 [ 0, %13 ], [ %17, %.lr.ph.i.i ]
-  %23 = getelementptr inbounds i8, ptr %12, i64 %.1.i.i
-  store i8 0, ptr %23, align 1
+14:                                               ; preds = %13, %12
+  %.230.us.i = phi i32 [ 2, %13 ], [ %.02855.us.i, %12 ]
+  %15 = and i64 %.03253.us.i, 15
+  %16 = getelementptr inbounds nuw [17 x i8], ptr @png_format_number.digits, i64 0, i64 %15
+  %17 = load i8, ptr %16, align 1
+  %18 = getelementptr inbounds i8, ptr %.03452.us.i, i64 -1
+  store i8 %17, ptr %18, align 1
+  %19 = lshr i64 %.03253.us.i, 4
+  br label %.thread.us.i
+
+20:                                               ; preds = %12
+  br label %21
+
+21:                                               ; preds = %20, %12
+  %.129.us.i = phi i32 [ 2, %20 ], [ %.02855.us.i, %12 ]
+  %22 = urem i64 %.03253.us.i, 10
+  %23 = getelementptr inbounds nuw [17 x i8], ptr @png_format_number.digits, i64 0, i64 %22
+  %24 = load i8, ptr %23, align 1
+  %25 = getelementptr inbounds i8, ptr %.03452.us.i, i64 -1
+  store i8 %24, ptr %25, align 1
+  %26 = udiv i64 %.03253.us.i, 10
+  br label %.thread.us.i
+
+.thread.us.i:                                     ; preds = %21, %14, %12
+  %27 = phi i8 [ %17, %14 ], [ %24, %21 ], [ %8, %12 ]
+  %.350.us.i = phi i32 [ %.230.us.i, %14 ], [ %.129.us.i, %21 ], [ %.02855.us.i, %12 ]
+  %.13349.us.i = phi i64 [ %19, %14 ], [ %26, %21 ], [ 0, %12 ]
+  %.337.us.i = phi ptr [ %18, %14 ], [ %25, %21 ], [ %.03452.us.i, %12 ]
+  %28 = add nuw nsw i32 %.03154.us.i, 1
+  %29 = icmp ugt ptr %.337.us.i, %5
+  br i1 %29, label %.lr.ph.split.us.i, label %png_format_number.exit, !llvm.loop !8
+
+.lr.ph.split.i:                                   ; preds = %4, %51
+  %30 = phi i8 [ %52, %51 ], [ 0, %4 ]
+  %.056.i = phi i32 [ %.251.i, %51 ], [ 0, %4 ]
+  %.02855.i = phi i32 [ 5, %51 ], [ 1, %4 ]
+  %.03154.i = phi i32 [ %53, %51 ], [ 0, %4 ]
+  %.03253.i = phi i64 [ %.13349.i, %51 ], [ %3, %4 ]
+  %.03452.i = phi ptr [ %.337.i, %51 ], [ %6, %4 ]
+  %31 = icmp ne i64 %.03253.i, 0
+  %32 = icmp slt i32 %.03154.i, %.02855.i
+  %33 = or i1 %32, %31
+  br i1 %33, label %34, label %png_format_number.exit
+
+34:                                               ; preds = %.lr.ph.split.i
+  %.not.i = icmp eq i32 %.056.i, 0
+  %35 = urem i64 %.03253.i, 10
+  %36 = udiv i64 %.03253.i, 10
+  %.not39.i = icmp eq i64 %35, 0
+  %or.cond41.i = and i1 %.not.i, %.not39.i
+  br i1 %or.cond41.i, label %37, label %.thread.i
+
+37:                                               ; preds = %34
+  %38 = udiv i64 %.03253.i, 10
+  %39 = add nuw nsw i32 %.03154.i, 1
+  %40 = icmp eq i32 %39, 5
+  %41 = icmp ugt ptr %.03452.i, %5
+  %or.cond42.i = and i1 %40, %41
+  br i1 %or.cond42.i, label %48, label %51
+
+.thread.i:                                        ; preds = %34
+  %42 = getelementptr inbounds nuw [17 x i8], ptr @png_format_number.digits, i64 0, i64 %35
+  %43 = load i8, ptr %42, align 1
+  %44 = getelementptr inbounds i8, ptr %.03452.i, i64 -1
+  store i8 %43, ptr %44, align 1
+  %45 = add nuw nsw i32 %.03154.i, 1
+  %46 = icmp eq i32 %45, 5
+  %47 = icmp ugt ptr %44, %5
+  %or.cond4267.i = and i1 %46, %47
+  br i1 %or.cond4267.i, label %.sink.split.i, label %51
+
+48:                                               ; preds = %37
+  %49 = icmp ult i64 %.03253.i, 10
+  br i1 %49, label %.sink.split.i, label %51
+
+.sink.split.i:                                    ; preds = %48, %.thread.i
+  %.sink75.i = phi ptr [ %44, %.thread.i ], [ %.03452.i, %48 ]
+  %.sink.i = phi i8 [ 46, %.thread.i ], [ 48, %48 ]
+  %.251.ph.i = phi i32 [ 1, %.thread.i ], [ 0, %48 ]
+  %.13349.ph.i = phi i64 [ %36, %.thread.i ], [ 0, %48 ]
+  %50 = getelementptr inbounds i8, ptr %.sink75.i, i64 -1
+  store i8 %.sink.i, ptr %50, align 1
+  br label %51
+
+51:                                               ; preds = %.sink.split.i, %48, %.thread.i, %37
+  %52 = phi i8 [ %30, %48 ], [ %30, %37 ], [ %43, %.thread.i ], [ %.sink.i, %.sink.split.i ]
+  %53 = phi i32 [ 5, %48 ], [ %39, %37 ], [ %45, %.thread.i ], [ 5, %.sink.split.i ]
+  %.251.i = phi i32 [ 0, %48 ], [ 0, %37 ], [ 1, %.thread.i ], [ %.251.ph.i, %.sink.split.i ]
+  %.13349.i = phi i64 [ %38, %48 ], [ %38, %37 ], [ %36, %.thread.i ], [ %.13349.ph.i, %.sink.split.i ]
+  %.337.i = phi ptr [ %.03452.i, %48 ], [ %.03452.i, %37 ], [ %44, %.thread.i ], [ %50, %.sink.split.i ]
+  %54 = icmp ugt ptr %.337.i, %5
+  br i1 %54, label %.lr.ph.split.i, label %png_format_number.exit, !llvm.loop !8
+
+png_format_number.exit:                           ; preds = %.lr.ph.split.us.i, %.thread.us.i, %.lr.ph.split.i, %51
+  %55 = phi i8 [ %30, %.lr.ph.split.i ], [ %52, %51 ], [ %8, %.lr.ph.split.us.i ], [ %27, %.thread.us.i ]
+  %.034.lcssa.i = phi ptr [ %.03452.i, %.lr.ph.split.i ], [ %.337.i, %51 ], [ %.03452.us.i, %.lr.ph.split.us.i ], [ %.337.us.i, %.thread.us.i ]
+  %56 = add i32 %1, -1
+  %or.cond.i = icmp ult i32 %56, 8
+  br i1 %or.cond.i, label %57, label %png_warning_parameter.exit
+
+57:                                               ; preds = %png_format_number.exit
+  %58 = zext nneg i32 %1 to i64
+  %59 = getelementptr [32 x i8], ptr %0, i64 %58
+  %60 = getelementptr i8, ptr %59, i64 -32
+  %.not.i.not.i = icmp eq ptr %60, null
+  br i1 %.not.i.not.i, label %png_warning_parameter.exit, label %61
+
+61:                                               ; preds = %57
+  %.not.i3 = icmp eq i8 %55, 0
+  br i1 %.not.i3, label %.loopexit.i.i, label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %61, %.lr.ph.i.i
+  %62 = phi i8 [ %66, %.lr.ph.i.i ], [ %55, %61 ]
+  %.020.i.i = phi ptr [ %63, %.lr.ph.i.i ], [ %.034.lcssa.i, %61 ]
+  %.219.i.i = phi i64 [ %64, %.lr.ph.i.i ], [ 0, %61 ]
+  %63 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 1
+  %64 = add nuw nsw i64 %.219.i.i, 1
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 %.219.i.i
+  store i8 %62, ptr %65, align 1
+  %66 = load i8, ptr %63, align 1
+  %67 = icmp ne i8 %66, 0
+  %68 = icmp samesign ult i64 %.219.i.i, 30
+  %69 = select i1 %67, i1 %68, i1 false
+  br i1 %69, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !6
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %61
+  %.1.i.i = phi i64 [ 0, %61 ], [ %64, %.lr.ph.i.i ]
+  %70 = getelementptr inbounds i8, ptr %60, i64 %.1.i.i
+  store i8 0, ptr %70, align 1
   br label %png_warning_parameter.exit
 
-png_warning_parameter.exit:                       ; preds = %4, %9, %.loopexit.i.i
+png_warning_parameter.exit:                       ; preds = %png_format_number.exit, %57, %.loopexit.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @png_warning_parameter_signed(ptr noundef writeonly captures(address) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @png_warning_parameter_signed(ptr noundef writeonly captures(address) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = alloca [24 x i8], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = icmp slt i32 %3, 0
   %7 = tail call i32 @llvm.abs.i32(i32 %3, i1 false)
   %spec.select = zext i32 %7 to i64
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %9 = call ptr @png_format_number(ptr noundef nonnull %5, ptr noundef nonnull %8, i32 noundef %2, i64 noundef %spec.select)
-  %10 = icmp ugt ptr %9, %5
-  %or.cond = select i1 %6, i1 %10, i1 false
-  br i1 %or.cond, label %11, label %13
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 23
+  %9 = icmp eq i32 %2, 5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  br i1 %9, label %.lr.ph.split.i, label %.lr.ph.split.us.i
 
-11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %9, i64 -1
-  store i8 45, ptr %12, align 1
-  br label %13
+.lr.ph.split.us.i:                                ; preds = %4, %.thread.us.i
+  %10 = phi i8 [ %29, %.thread.us.i ], [ 0, %4 ]
+  %.02855.us.i = phi i32 [ %.350.us.i, %.thread.us.i ], [ 1, %4 ]
+  %.03154.us.i = phi i32 [ %30, %.thread.us.i ], [ 0, %4 ]
+  %.03253.us.i = phi i64 [ %.13349.us.i, %.thread.us.i ], [ %spec.select, %4 ]
+  %.03452.us.i = phi ptr [ %.337.us.i, %.thread.us.i ], [ %8, %4 ]
+  %11 = icmp ne i64 %.03253.us.i, 0
+  %12 = icmp slt i32 %.03154.us.i, %.02855.us.i
+  %13 = select i1 %11, i1 true, i1 %12
+  br i1 %13, label %14, label %png_format_number.exit
 
-13:                                               ; preds = %11, %4
-  %.0 = phi ptr [ %12, %11 ], [ %9, %4 ]
-  %14 = add i32 %1, -1
-  %or.cond.i = icmp ult i32 %14, 8
-  br i1 %or.cond.i, label %15, label %png_warning_parameter.exit
+14:                                               ; preds = %.lr.ph.split.us.i
+  switch i32 %2, label %.thread.us.i [
+    i32 3, label %16
+    i32 2, label %22
+    i32 1, label %23
+    i32 4, label %15
+  ]
 
-15:                                               ; preds = %13
-  %16 = zext nneg i32 %1 to i64
-  %17 = getelementptr [32 x i8], ptr %0, i64 %16
-  %18 = getelementptr i8, ptr %17, i64 -32
-  %.not.i.not.i = icmp eq ptr %18, null
-  br i1 %.not.i.not.i, label %png_warning_parameter.exit, label %19
+15:                                               ; preds = %14
+  br label %16
 
-19:                                               ; preds = %15
-  %20 = load i8, ptr %.0, align 1
-  %.not.i = icmp eq i8 %20, 0
-  br i1 %.not.i, label %.loopexit.i.i, label %.lr.ph.i.i
+16:                                               ; preds = %15, %14
+  %.230.us.i = phi i32 [ 2, %15 ], [ %.02855.us.i, %14 ]
+  %17 = and i64 %.03253.us.i, 15
+  %18 = getelementptr inbounds nuw [17 x i8], ptr @png_format_number.digits, i64 0, i64 %17
+  %19 = load i8, ptr %18, align 1
+  %20 = getelementptr inbounds i8, ptr %.03452.us.i, i64 -1
+  store i8 %19, ptr %20, align 1
+  %21 = lshr i64 %.03253.us.i, 4
+  br label %.thread.us.i
 
-.lr.ph.i.i:                                       ; preds = %19, %.lr.ph.i.i
-  %21 = phi i8 [ %25, %.lr.ph.i.i ], [ %20, %19 ]
-  %.020.i.i = phi ptr [ %22, %.lr.ph.i.i ], [ %.0, %19 ]
-  %.219.i.i = phi i64 [ %23, %.lr.ph.i.i ], [ 0, %19 ]
-  %22 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 1
-  %23 = add nuw nsw i64 %.219.i.i, 1
-  %24 = getelementptr inbounds nuw i8, ptr %18, i64 %.219.i.i
-  store i8 %21, ptr %24, align 1
-  %25 = load i8, ptr %22, align 1
-  %26 = icmp ne i8 %25, 0
-  %27 = icmp samesign ult i64 %.219.i.i, 30
-  %28 = select i1 %26, i1 %27, i1 false
-  br i1 %28, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !6
+22:                                               ; preds = %14
+  br label %23
 
-.loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %19
-  %.1.i.i = phi i64 [ 0, %19 ], [ %23, %.lr.ph.i.i ]
-  %29 = getelementptr inbounds i8, ptr %18, i64 %.1.i.i
-  store i8 0, ptr %29, align 1
+23:                                               ; preds = %22, %14
+  %.129.us.i = phi i32 [ 2, %22 ], [ %.02855.us.i, %14 ]
+  %24 = urem i64 %.03253.us.i, 10
+  %25 = getelementptr inbounds nuw [17 x i8], ptr @png_format_number.digits, i64 0, i64 %24
+  %26 = load i8, ptr %25, align 1
+  %27 = getelementptr inbounds i8, ptr %.03452.us.i, i64 -1
+  store i8 %26, ptr %27, align 1
+  %28 = udiv i64 %.03253.us.i, 10
+  br label %.thread.us.i
+
+.thread.us.i:                                     ; preds = %23, %16, %14
+  %29 = phi i8 [ %19, %16 ], [ %26, %23 ], [ %10, %14 ]
+  %.350.us.i = phi i32 [ %.230.us.i, %16 ], [ %.129.us.i, %23 ], [ %.02855.us.i, %14 ]
+  %.13349.us.i = phi i64 [ %21, %16 ], [ %28, %23 ], [ 0, %14 ]
+  %.337.us.i = phi ptr [ %20, %16 ], [ %27, %23 ], [ %.03452.us.i, %14 ]
+  %30 = add nuw nsw i32 %.03154.us.i, 1
+  %31 = icmp ugt ptr %.337.us.i, %5
+  br i1 %31, label %.lr.ph.split.us.i, label %png_format_number.exit, !llvm.loop !8
+
+.lr.ph.split.i:                                   ; preds = %4, %53
+  %32 = phi i8 [ %54, %53 ], [ 0, %4 ]
+  %.056.i = phi i32 [ %.251.i, %53 ], [ 0, %4 ]
+  %.02855.i = phi i32 [ 5, %53 ], [ 1, %4 ]
+  %.03154.i = phi i32 [ %55, %53 ], [ 0, %4 ]
+  %.03253.i = phi i64 [ %.13349.i, %53 ], [ %spec.select, %4 ]
+  %.03452.i = phi ptr [ %.337.i, %53 ], [ %8, %4 ]
+  %33 = icmp ne i64 %.03253.i, 0
+  %34 = icmp slt i32 %.03154.i, %.02855.i
+  %35 = or i1 %34, %33
+  br i1 %35, label %36, label %png_format_number.exit
+
+36:                                               ; preds = %.lr.ph.split.i
+  %.not.i = icmp eq i32 %.056.i, 0
+  %37 = urem i64 %.03253.i, 10
+  %38 = udiv i64 %.03253.i, 10
+  %.not39.i = icmp eq i64 %37, 0
+  %or.cond41.i = and i1 %.not.i, %.not39.i
+  br i1 %or.cond41.i, label %39, label %.thread.i
+
+39:                                               ; preds = %36
+  %40 = udiv i64 %.03253.i, 10
+  %41 = add nuw nsw i32 %.03154.i, 1
+  %42 = icmp eq i32 %41, 5
+  %43 = icmp ugt ptr %.03452.i, %5
+  %or.cond42.i = and i1 %42, %43
+  br i1 %or.cond42.i, label %50, label %53
+
+.thread.i:                                        ; preds = %36
+  %44 = getelementptr inbounds nuw [17 x i8], ptr @png_format_number.digits, i64 0, i64 %37
+  %45 = load i8, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %.03452.i, i64 -1
+  store i8 %45, ptr %46, align 1
+  %47 = add nuw nsw i32 %.03154.i, 1
+  %48 = icmp eq i32 %47, 5
+  %49 = icmp ugt ptr %46, %5
+  %or.cond4267.i = and i1 %48, %49
+  br i1 %or.cond4267.i, label %.sink.split.i, label %53
+
+50:                                               ; preds = %39
+  %51 = icmp ult i64 %.03253.i, 10
+  br i1 %51, label %.sink.split.i, label %53
+
+.sink.split.i:                                    ; preds = %50, %.thread.i
+  %.sink75.i = phi ptr [ %46, %.thread.i ], [ %.03452.i, %50 ]
+  %.sink.i = phi i8 [ 46, %.thread.i ], [ 48, %50 ]
+  %.251.ph.i = phi i32 [ 1, %.thread.i ], [ 0, %50 ]
+  %.13349.ph.i = phi i64 [ %38, %.thread.i ], [ 0, %50 ]
+  %52 = getelementptr inbounds i8, ptr %.sink75.i, i64 -1
+  store i8 %.sink.i, ptr %52, align 1
+  br label %53
+
+53:                                               ; preds = %.sink.split.i, %50, %.thread.i, %39
+  %54 = phi i8 [ %32, %50 ], [ %32, %39 ], [ %45, %.thread.i ], [ %.sink.i, %.sink.split.i ]
+  %55 = phi i32 [ 5, %50 ], [ %41, %39 ], [ %47, %.thread.i ], [ 5, %.sink.split.i ]
+  %.251.i = phi i32 [ 0, %50 ], [ 0, %39 ], [ 1, %.thread.i ], [ %.251.ph.i, %.sink.split.i ]
+  %.13349.i = phi i64 [ %40, %50 ], [ %40, %39 ], [ %38, %.thread.i ], [ %.13349.ph.i, %.sink.split.i ]
+  %.337.i = phi ptr [ %.03452.i, %50 ], [ %.03452.i, %39 ], [ %46, %.thread.i ], [ %52, %.sink.split.i ]
+  %56 = icmp ugt ptr %.337.i, %5
+  br i1 %56, label %.lr.ph.split.i, label %png_format_number.exit, !llvm.loop !8
+
+png_format_number.exit:                           ; preds = %.lr.ph.split.us.i, %.thread.us.i, %.lr.ph.split.i, %53
+  %57 = phi i8 [ %32, %.lr.ph.split.i ], [ %54, %53 ], [ %10, %.lr.ph.split.us.i ], [ %29, %.thread.us.i ]
+  %.034.lcssa.i = phi ptr [ %.03452.i, %.lr.ph.split.i ], [ %.337.i, %53 ], [ %.03452.us.i, %.lr.ph.split.us.i ], [ %.337.us.i, %.thread.us.i ]
+  %58 = icmp ugt ptr %.034.lcssa.i, %5
+  %or.cond = and i1 %6, %58
+  br i1 %or.cond, label %59, label %61
+
+59:                                               ; preds = %png_format_number.exit
+  %60 = getelementptr inbounds i8, ptr %.034.lcssa.i, i64 -1
+  store i8 45, ptr %60, align 1
+  br label %61
+
+61:                                               ; preds = %59, %png_format_number.exit
+  %62 = phi i8 [ 45, %59 ], [ %57, %png_format_number.exit ]
+  %.0 = phi ptr [ %60, %59 ], [ %.034.lcssa.i, %png_format_number.exit ]
+  %63 = add i32 %1, -1
+  %or.cond.i = icmp ult i32 %63, 8
+  br i1 %or.cond.i, label %64, label %png_warning_parameter.exit
+
+64:                                               ; preds = %61
+  %65 = zext nneg i32 %1 to i64
+  %66 = getelementptr [32 x i8], ptr %0, i64 %65
+  %67 = getelementptr i8, ptr %66, i64 -32
+  %.not.i.not.i = icmp eq ptr %67, null
+  br i1 %.not.i.not.i, label %png_warning_parameter.exit, label %68
+
+68:                                               ; preds = %64
+  %.not.i14 = icmp eq i8 %62, 0
+  br i1 %.not.i14, label %.loopexit.i.i, label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %68, %.lr.ph.i.i
+  %69 = phi i8 [ %73, %.lr.ph.i.i ], [ %62, %68 ]
+  %.020.i.i = phi ptr [ %70, %.lr.ph.i.i ], [ %.0, %68 ]
+  %.219.i.i = phi i64 [ %71, %.lr.ph.i.i ], [ 0, %68 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 1
+  %71 = add nuw nsw i64 %.219.i.i, 1
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 %.219.i.i
+  store i8 %69, ptr %72, align 1
+  %73 = load i8, ptr %70, align 1
+  %74 = icmp ne i8 %73, 0
+  %75 = icmp samesign ult i64 %.219.i.i, 30
+  %76 = select i1 %74, i1 %75, i1 false
+  br i1 %76, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !6
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %68
+  %.1.i.i = phi i64 [ 0, %68 ], [ %71, %.lr.ph.i.i ]
+  %77 = getelementptr inbounds i8, ptr %67, i64 %.1.i.i
+  store i8 0, ptr %77, align 1
   br label %png_warning_parameter.exit
 
-png_warning_parameter.exit:                       ; preds = %13, %15, %.loopexit.i.i
+png_warning_parameter.exit:                       ; preds = %61, %64, %.loopexit.i.i
   ret void
 }
 
@@ -746,8 +967,8 @@ define hidden void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) lo
 
 37:                                               ; preds = %32, %16
   %.1.i = phi i32 [ %30, %16 ], [ %34, %32 ]
-  %.not11.i = icmp eq i32 %.0391.i, 0
-  br i1 %.not11.i, label %38, label %8, !llvm.loop !22
+  %.not12.i = icmp eq i32 %.0391.i, 0
+  br i1 %.not12.i, label %38, label %8, !llvm.loop !22
 
 38:                                               ; preds = %37
   %39 = icmp eq ptr %1, null
@@ -774,7 +995,7 @@ define hidden void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) lo
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %50 = load i8, ptr %49, align 1
   %.not.i = icmp eq i8 %50, 0
-  br i1 %.not.i, label %.critedge.split.loop.exit12.i, label %51
+  br i1 %.not.i, label %.critedge.split.loop.exit13.i, label %51
 
 51:                                               ; preds = %48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -784,12 +1005,12 @@ define hidden void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) lo
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 195
   br i1 %exitcond.not.i, label %.critedge.i, label %48, !llvm.loop !23
 
-.critedge.split.loop.exit12.i:                    ; preds = %48
+.critedge.split.loop.exit13.i:                    ; preds = %48
   %53 = trunc nsw i64 %indvars.iv5.i to i32
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %51, %.critedge.split.loop.exit12.i
-  %.2.lcssa.i = phi i32 [ %53, %.critedge.split.loop.exit12.i ], [ %47, %51 ]
+.critedge.i:                                      ; preds = %51, %.critedge.split.loop.exit13.i
+  %.2.lcssa.i = phi i32 [ %53, %.critedge.split.loop.exit13.i ], [ %47, %51 ]
   %54 = sext i32 %.2.lcssa.i to i64
   %55 = getelementptr inbounds i8, ptr %3, i64 %54
   store i8 0, ptr %55, align 1
@@ -1015,8 +1236,8 @@ define internal fastcc void @png_format_buffer(i32 %.456.val, ptr noundef nonnul
 
 32:                                               ; preds = %27, %11
   %.1 = phi i32 [ %25, %11 ], [ %29, %27 ]
-  %.not11 = icmp eq i32 %.0391, 0
-  br i1 %.not11, label %33, label %3, !llvm.loop !22
+  %.not12 = icmp eq i32 %.0391, 0
+  br i1 %.not12, label %33, label %3, !llvm.loop !22
 
 33:                                               ; preds = %32
   %34 = icmp eq ptr %1, null
@@ -1043,7 +1264,7 @@ define internal fastcc void @png_format_buffer(i32 %.456.val, ptr noundef nonnul
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %45 = load i8, ptr %44, align 1
   %.not = icmp eq i8 %45, 0
-  br i1 %.not, label %.critedge.split.loop.exit12, label %46
+  br i1 %.not, label %.critedge.split.loop.exit13, label %46
 
 46:                                               ; preds = %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1053,12 +1274,12 @@ define internal fastcc void @png_format_buffer(i32 %.456.val, ptr noundef nonnul
   %exitcond.not = icmp eq i64 %indvars.iv.next, 195
   br i1 %exitcond.not, label %.critedge, label %43, !llvm.loop !23
 
-.critedge.split.loop.exit12:                      ; preds = %43
+.critedge.split.loop.exit13:                      ; preds = %43
   %48 = trunc nsw i64 %indvars.iv5 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %46, %.critedge.split.loop.exit12
-  %.2.lcssa = phi i32 [ %48, %.critedge.split.loop.exit12 ], [ %42, %46 ]
+.critedge:                                        ; preds = %46, %.critedge.split.loop.exit13
+  %.2.lcssa = phi i32 [ %48, %.critedge.split.loop.exit13 ], [ %42, %46 ]
   %49 = sext i32 %.2.lcssa to i64
   %50 = getelementptr inbounds i8, ptr %0, i64 %49
   store i8 0, ptr %50, align 1
@@ -1143,7 +1364,7 @@ define hidden void @png_fixed_error(ptr noalias noundef %0, ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @png_set_longjmp_fn(ptr noalias noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #4 {
@@ -1220,7 +1441,7 @@ png_warning.exit:                                 ; preds = %26, %.split14.i, %1
   ret ptr %.023
 }
 
-declare noalias ptr @png_malloc_warn(ptr noundef, i64 noundef) local_unnamed_addr #10
+declare noalias ptr @png_malloc_warn(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define hidden void @png_free_jmpbuf(ptr noalias noundef %0) local_unnamed_addr #4 {
@@ -1265,12 +1486,12 @@ define hidden void @png_free_jmpbuf(ptr noalias noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #11
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: noreturn nounwind
-declare void @longjmp(ptr noundef, i32 noundef) #12
+declare void @longjmp(ptr noundef, i32 noundef) #11
 
-declare void @png_free(ptr noundef, ptr noundef) local_unnamed_addr #10
+declare void @png_free(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: noreturn nounwind uwtable
 define hidden void @png_longjmp(ptr noalias noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1299,10 +1520,10 @@ define hidden void @png_longjmp(ptr noalias noundef readonly captures(address_is
 }
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #13
+declare void @abort() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @png_set_error_fn(ptr noalias noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #14 {
+define hidden void @png_set_error_fn(ptr noalias noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #13 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %10, label %6
 
@@ -1320,7 +1541,7 @@ define hidden void @png_set_error_fn(ptr noalias noundef writeonly captures(addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @png_get_error_ptr(ptr noalias noundef readonly captures(address_is_null) %0) local_unnamed_addr #15 {
+define hidden ptr @png_get_error_ptr(ptr noalias noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -1409,8 +1630,8 @@ png_safecat.exit:                                 ; preds = %.lr.ph.i, %5, %.pre
 
 .preheader.i23:                                   ; preds = %30
   %32 = load i8, ptr %1, align 1
-  %.not36 = icmp eq i8 %32, 0
-  br i1 %.not36, label %png_safecat.exit28, label %.lr.ph.i25
+  %.not41 = icmp eq i8 %32, 0
+  br i1 %.not41, label %png_safecat.exit28, label %.lr.ph.i25
 
 .lr.ph.i25:                                       ; preds = %.preheader.i23, %.lr.ph.i25
   %33 = phi i8 [ %37, %.lr.ph.i25 ], [ %32, %.preheader.i23 ]
@@ -1438,7 +1659,7 @@ png_safecat.exit28:                               ; preds = %.lr.ph.i25, %30, %.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @png_safe_warning(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #8 {
+define hidden void @png_safe_warning(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1513,7 +1734,7 @@ define hidden i32 @png_safe_execute(ptr noundef %0, ptr noundef readonly capture
   ret i32 %.0
 }
 
-declare void @png_image_free(ptr noundef) local_unnamed_addr #10
+declare void @png_image_free(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #16
@@ -1535,14 +1756,14 @@ attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #5 = { cold nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nofree nounwind }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

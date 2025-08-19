@@ -909,8 +909,8 @@ _ZNSt12__shared_ptrIN2cv6legacy8tracking7TrackerELN9__gnu_cxx12_Lock_policyE2EED
   %309 = ptrtoint ptr %307 to i64
   %310 = ptrtoint ptr %308 to i64
   %311 = sub i64 %309, %310
-  %sext330 = shl i64 %311, 27
-  %312 = ashr i64 %sext330, 32
+  %sext359 = shl i64 %311, 27
+  %312 = ashr i64 %sext359, 32
   %.not118 = icmp slt i64 %indvars.iv.next325, %312
   br i1 %.not118, label %.lr.ph319, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, !llvm.loop !91
 
@@ -934,8 +934,8 @@ _ZNSt12__shared_ptrIN2cv6legacy8tracking7TrackerELN9__gnu_cxx12_Lock_policyE2EED
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %318 = load i32, ptr %12, align 8
   %319 = icmp sgt i32 %318, 0
-  %or.cond333 = select i1 %316, i1 %319, i1 false
-  br i1 %or.cond333, label %.lr.ph321, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
+  %or.cond362 = select i1 %316, i1 %319, i1 false
+  br i1 %or.cond362, label %.lr.ph321, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
 320:                                              ; preds = %315
   %321 = landingpad { ptr, i32 }

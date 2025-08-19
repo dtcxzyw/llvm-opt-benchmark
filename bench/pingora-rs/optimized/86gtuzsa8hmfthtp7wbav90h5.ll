@@ -1940,7 +1940,7 @@ define void @_ZN13pingora_cache13cache_control14DirectiveValue22parse_as_delta_s
   %35 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %27, i32 %32)
   %36 = extractvalue { i32, i1 } %35, 1
   %37 = add nuw i32 %32, %27
-  br i1 %36, label %.thread33, label %.preheader62.i
+  br i1 %36, label %.thread38, label %.preheader62.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %42
   %.sroa.03.173.i = phi ptr [ %45, %42 ], [ %.sroa.03.173.i.ph, %.lr.ph.i.preheader ]
@@ -1963,8 +1963,8 @@ define void @_ZN13pingora_cache13cache_control14DirectiveValue22parse_as_delta_s
 47:                                               ; preds = %23
   %48 = add i8 %29, -48
   %49 = icmp ult i8 %48, 10
-  %.sroa.4.0.extract.trunc26 = select i1 %49, i8 2, i8 1
-  br i1 %49, label %.thread33, label %.thread
+  %.sroa.4.0.extract.trunc31 = select i1 %49, i8 2, i8 1
+  br i1 %49, label %.thread38, label %.thread
 
 .loopexit:                                        ; preds = %.preheader62.i, %42
   %.sroa.016.1.i = phi i32 [ %46, %42 ], [ %.sroa.016.0.i, %.preheader62.i ]
@@ -1973,19 +1973,19 @@ define void @_ZN13pingora_cache13cache_control14DirectiveValue22parse_as_delta_s
   store i32 0, ptr %0, align 8
   br label %68
 
-.thread33:                                        ; preds = %34, %47
+.thread38:                                        ; preds = %34, %47
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -2147483648, ptr %51, align 4
   store i32 0, ptr %0, align 8
   br label %68
 
 .thread:                                          ; preds = %30, %.lr.ph.i, %12, %14, %14, %47
-  %.sroa.4.0.extract.trunc2632 = phi i8 [ %.sroa.4.0.extract.trunc26, %47 ], [ 0, %12 ], [ 1, %14 ], [ 1, %14 ], [ 1, %.lr.ph.i ], [ 1, %30 ]
+  %.sroa.4.0.extract.trunc3137 = phi i8 [ %.sroa.4.0.extract.trunc31, %47 ], [ 0, %12 ], [ 1, %14 ], [ 1, %14 ], [ 1, %.lr.ph.i ], [ 1, %30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 28, ptr %4, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !184
   call void @"_ZN89_$LT$pingora_error..immut_str..ImmutStr$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h3dd15727f5debf00E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 @anon.fa65a06ff5335d2d3f6a4af7ffe44b42.96, i64 noundef 28), !noalias !184
-  %52 = invoke { ptr, ptr } @"_ZN5alloc5boxed7convert156_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$4from17h7fe94fb6b123ea58E"(i8 noundef range(i8 0, 5) %.sroa.4.0.extract.trunc2632)
+  %52 = invoke { ptr, ptr } @"_ZN5alloc5boxed7convert156_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$4from17h7fe94fb6b123ea58E"(i8 noundef range(i8 0, 5) %.sroa.4.0.extract.trunc3137)
           to label %_ZN13pingora_error5Error7because17ha310ece8dfef068aE.exit unwind label %53, !noalias !184
 
 53:                                               ; preds = %.thread
@@ -2027,7 +2027,7 @@ _ZN13pingora_error5Error7because17ha310ece8dfef068aE.exit: ; preds = %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %68
 
-68:                                               ; preds = %.loopexit, %_ZN13pingora_error5Error7because17ha310ece8dfef068aE.exit, %.thread33, %9
+68:                                               ; preds = %.loopexit, %_ZN13pingora_error5Error7because17ha310ece8dfef068aE.exit, %.thread38, %9
   ret void
 }
 
@@ -2167,8 +2167,8 @@ define { ptr, i64 } @"_ZN102_$LT$pingora_cache..cache_control..ListValueIter$u20
   br i1 %39, label %41, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.thread.i", !prof !219
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.thread.i": ; preds = %.backedge.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.i"
-  %.sroa.0.0.i1235.i = phi i64 [ %.sroa.03.011.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.i" ], [ %.sroa.0.0.i.i, %.backedge.i.i ]
-  %40 = icmp ugt i64 %.sroa.0.0.i1235.i, %.sroa.5.0.i.ph
+  %.sroa.0.0.i1237.i = phi i64 [ %.sroa.03.011.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.i" ], [ %.sroa.0.0.i.i, %.backedge.i.i ]
+  %40 = icmp ugt i64 %.sroa.0.0.i1237.i, %.sroa.5.0.i.ph
   br i1 %40, label %42, label %_ZN13pingora_cache13cache_control8trim_ows17h47bbdb4d229bae10E.exit, !prof !220
 
 41:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.i"
@@ -2176,12 +2176,12 @@ define { ptr, i64 } @"_ZN102_$LT$pingora_cache..cache_control..ListValueIter$u20
   unreachable
 
 42:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.thread.i"
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E(i64 noundef %.sroa.0.0.i1235.i, i64 noundef %.sroa.5.0.i.ph, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fa65a06ff5335d2d3f6a4af7ffe44b42.98) #22, !noalias !221
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E(i64 noundef %.sroa.0.0.i1237.i, i64 noundef %.sroa.5.0.i.ph, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fa65a06ff5335d2d3f6a4af7ffe44b42.98) #22, !noalias !221
   unreachable
 
 _ZN13pingora_cache13cache_control8trim_ows17h47bbdb4d229bae10E.exit: ; preds = %24, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.thread.i"
   %.sroa.03.0172227.i = phi i64 [ %.sroa.0.0.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.thread.i" ], [ 0, %24 ]
-  %.sroa.06.02326.i = phi i64 [ %.sroa.0.0.i1235.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.thread.i" ], [ 0, %24 ]
+  %.sroa.06.02326.i = phi i64 [ %.sroa.0.0.i1237.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.thread.i" ], [ 0, %24 ]
   %43 = sub nuw i64 %.sroa.06.02326.i, %.sroa.03.0172227.i
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.03.0172227.i
   br label %"_ZN96_$LT$core..slice..iter..Split$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h537930bda0f22b6fE.exit"
@@ -2228,14 +2228,14 @@ define void @_ZN13pingora_cache13cache_control12CacheControl18from_headers_named
   %32 = alloca [72 x i8], align 8
   %33 = alloca [24 x i8], align 8
   %34 = tail call noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$12contains_key17h3e4a9d6837b7495dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %3, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
-  %.sink295.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink295.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sink295.i.sroa.gep3 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sink295.i.sroa.gep4 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %.sink295.i.sroa.gep6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink295.i.sroa.gep7 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sink295.i.sroa.gep9 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sink295.i.sroa.gep10 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sink327.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink327.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sink327.i.sroa.gep3 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink327.i.sroa.gep4 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %.sink327.i.sroa.gep6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink327.i.sroa.gep7 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sink327.i.sroa.gep9 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink327.i.sroa.gep10 = getelementptr inbounds nuw i8, ptr %12, i64 24
   br i1 %34, label %36, label %35
 
 35:                                               ; preds = %4
@@ -2668,20 +2668,20 @@ _ZN14regex_automata4util8captures14GroupInfoInner9group_len17h2c5ac0eaea0e45baE.
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %206, %198
-  %.sink295.i.sroa.phi = phi ptr [ %.sink295.i.sroa.gep, %198 ], [ %.sink295.i.sroa.gep1, %206 ]
-  %.sink295.i.sroa.phi2 = phi ptr [ %.sink295.i.sroa.gep3, %198 ], [ %.sink295.i.sroa.gep4, %206 ]
-  %.sink295.i.sroa.phi5 = phi ptr [ %.sink295.i.sroa.gep6, %198 ], [ %.sink295.i.sroa.gep7, %206 ]
-  %.sink295.i.sroa.phi8 = phi ptr [ %.sink295.i.sroa.gep9, %198 ], [ %.sink295.i.sroa.gep10, %206 ]
-  %.sink295.i = phi ptr [ %5, %198 ], [ %12, %206 ]
-  %.sink293.i = phi i64 [ 1, %198 ], [ 2, %206 ]
-  %.sink288.i = phi ptr [ inttoptr (i64 8 to ptr), %198 ], [ %11, %206 ]
+  %.sink327.i.sroa.phi = phi ptr [ %.sink327.i.sroa.gep, %198 ], [ %.sink327.i.sroa.gep1, %206 ]
+  %.sink327.i.sroa.phi2 = phi ptr [ %.sink327.i.sroa.gep3, %198 ], [ %.sink327.i.sroa.gep4, %206 ]
+  %.sink327.i.sroa.phi5 = phi ptr [ %.sink327.i.sroa.gep6, %198 ], [ %.sink327.i.sroa.gep7, %206 ]
+  %.sink327.i.sroa.phi8 = phi ptr [ %.sink327.i.sroa.gep9, %198 ], [ %.sink327.i.sroa.gep10, %206 ]
+  %.sink327.i = phi ptr [ %5, %198 ], [ %12, %206 ]
+  %.sink325.i = phi i64 [ 1, %198 ], [ 2, %206 ]
+  %.sink320.i = phi ptr [ inttoptr (i64 8 to ptr), %198 ], [ %11, %206 ]
   %.sink.i = phi i64 [ 0, %198 ], [ 2, %206 ]
   %208 = phi ptr [ @anon.fa65a06ff5335d2d3f6a4af7ffe44b42.45, %198 ], [ @anon.fa65a06ff5335d2d3f6a4af7ffe44b42.41, %206 ]
-  store i64 %.sink293.i, ptr %.sink295.i.sroa.phi, align 8, !noalias !227
-  store ptr null, ptr %.sink295.i.sroa.phi2, align 8, !noalias !227
-  store ptr %.sink288.i, ptr %.sink295.i.sroa.phi5, align 8, !noalias !227
-  store i64 %.sink.i, ptr %.sink295.i.sroa.phi8, align 8, !noalias !227
-  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink295.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %208) #22
+  store i64 %.sink325.i, ptr %.sink327.i.sroa.phi, align 8, !noalias !227
+  store ptr null, ptr %.sink327.i.sroa.phi2, align 8, !noalias !227
+  store ptr %.sink320.i, ptr %.sink327.i.sroa.phi5, align 8, !noalias !227
+  store i64 %.sink.i, ptr %.sink327.i.sroa.phi8, align 8, !noalias !227
+  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink327.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %208) #22
           to label %.cont.i unwind label %.loopexit.split-lp.i, !noalias !227
 
 .cont.i:                                          ; preds = %.invoke.i
@@ -4102,8 +4102,8 @@ define internal fastcc void @"_ZN114_$LT$pingora_cache..cache_control..CacheCont
   br i1 %43, label %45, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.thread.i.i", !prof !219
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.thread.i.i": ; preds = %.backedge.i.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.i.i"
-  %.sroa.0.0.i1235.i.i = phi i64 [ %.sroa.03.011.i.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.i.i" ], [ %.sroa.0.0.i.i.i, %.backedge.i.i.i ]
-  %44 = icmp ugt i64 %.sroa.0.0.i1235.i.i, %.sroa.5.0.i.ph.i
+  %.sroa.0.0.i1237.i.i = phi i64 [ %.sroa.03.011.i.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.i.i" ], [ %.sroa.0.0.i.i.i, %.backedge.i.i.i ]
+  %44 = icmp ugt i64 %.sroa.0.0.i1237.i.i, %.sroa.5.0.i.ph.i
   br i1 %44, label %46, label %"_ZN102_$LT$pingora_cache..cache_control..ListValueIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he316613c72b6c358E.exit", !prof !220
 
 45:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.i.i"
@@ -4111,7 +4111,7 @@ define internal fastcc void @"_ZN114_$LT$pingora_cache..cache_control..CacheCont
   unreachable
 
 46:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.thread.i.i"
-  call void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E(i64 noundef %.sroa.0.0.i1235.i.i, i64 noundef %.sroa.5.0.i.ph.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fa65a06ff5335d2d3f6a4af7ffe44b42.98) #22, !noalias !496
+  call void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E(i64 noundef %.sroa.0.0.i1237.i.i, i64 noundef %.sroa.5.0.i.ph.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fa65a06ff5335d2d3f6a4af7ffe44b42.98) #22, !noalias !496
   unreachable
 
 "_ZN102_$LT$pingora_cache..cache_control..ListValueIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he316613c72b6c358E.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.thread.i.i", %.loopexit.i.i, %14
@@ -4119,7 +4119,7 @@ define internal fastcc void @"_ZN114_$LT$pingora_cache..cache_control..CacheCont
   %.sroa.5.115 = phi i64 [ %.sroa.5.1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.thread.i.i" ], [ %.sroa.5.1, %.loopexit.i.i ], [ 0, %14 ]
   %.sroa.8.114 = phi i8 [ %.sroa.8.1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.thread.i.i" ], [ %.sroa.8.1, %.loopexit.i.i ], [ 1, %14 ]
   %.sroa.03.0172227.i.i = phi i64 [ %.sroa.0.0.i.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.thread.i.i" ], [ 0, %.loopexit.i.i ], [ 0, %14 ]
-  %.sroa.06.02326.i.i = phi i64 [ %.sroa.0.0.i1235.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.thread.i.i" ], [ 0, %.loopexit.i.i ], [ 0, %14 ]
+  %.sroa.06.02326.i.i = phi i64 [ %.sroa.0.0.i1237.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.thread.i.i" ], [ 0, %.loopexit.i.i ], [ 0, %14 ]
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.033, i64 %.sroa.03.0172227.i.i
   %48 = sub nuw i64 %.sroa.06.02326.i.i, %.sroa.03.0172227.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -6279,14 +6279,14 @@ define internal { i64, ptr } @"_ZN107_$LT$pingora_cache..max_file_size..MaxFileS
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 90
   %12 = load i8, ptr %11, align 2, !range !80, !noundef !3
-  switch i8 %12, label %default.unreachable43 [
+  switch i8 %12, label %default.unreachable44 [
     i8 0, label %13
     i8 1, label %104
     i8 2, label %105
     i8 3, label %106
   ]
 
-default.unreachable43:                            ; preds = %2
+default.unreachable44:                            ; preds = %2
   unreachable
 
 13:                                               ; preds = %2

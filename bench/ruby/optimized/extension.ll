@@ -522,7 +522,7 @@ define internal i64 @parse_stream(i32 noundef %0, ptr noundef readonly captures(
   %14 = load i64, ptr %13, align 8, !tbaa !7
   %15 = tail call i32 @rb_keyword_given_p() #9
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %.thread21, label %16
+  br i1 %.not, label %.thread22, label %16
 
 16:                                               ; preds = %10
   %17 = tail call i64 @rb_hash_dup(i64 noundef %14) #9
@@ -535,11 +535,11 @@ define internal i64 @parse_stream(i32 noundef %0, ptr noundef readonly captures(
   %22 = icmp eq i32 %18, 1
   br i1 %22, label %rb_scan_args_set.exit, label %.thread
 
-.thread21:                                        ; preds = %10
+.thread22:                                        ; preds = %10
   %23 = icmp eq i32 %0, 1
   br i1 %23, label %rb_scan_args_set.exit.thread, label %.thread
 
-rb_scan_args_set.exit.thread:                     ; preds = %.thread21
+rb_scan_args_set.exit.thread:                     ; preds = %.thread22
   %24 = load i64, ptr %1, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 104, i1 false)
@@ -547,8 +547,8 @@ rb_scan_args_set.exit.thread:                     ; preds = %.thread21
   store i32 1, ptr %25, align 8, !tbaa !13
   br label %extract_options.exit
 
-.thread:                                          ; preds = %.thread21, %3, %20, %16
-  %.0.i13 = phi i32 [ %18, %20 ], [ 0, %16 ], [ %0, %3 ], [ %0, %.thread21 ]
+.thread:                                          ; preds = %.thread22, %3, %20, %16
+  %.0.i13 = phi i32 [ %18, %20 ], [ 0, %16 ], [ %0, %3 ], [ %0, %.thread22 ]
   tail call void @rb_error_arity(i32 noundef %.0.i13, i32 noundef 1, i32 noundef 1) #11
   unreachable
 
@@ -1087,7 +1087,7 @@ define internal fastcc void @string_options(i32 noundef %0, ptr noundef readonly
   %12 = load i64, ptr %11, align 8, !tbaa !7
   %13 = tail call i32 @rb_keyword_given_p() #9
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %.thread14, label %14
+  br i1 %.not, label %.thread16, label %14
 
 14:                                               ; preds = %8
   %15 = tail call i64 @rb_hash_dup(i64 noundef %12) #9
@@ -1100,18 +1100,18 @@ define internal fastcc void @string_options(i32 noundef %0, ptr noundef readonly
   %20 = icmp eq i32 %16, 1
   br i1 %20, label %rb_scan_args_set.exit, label %.thread
 
-.thread14:                                        ; preds = %8
+.thread16:                                        ; preds = %8
   %21 = icmp eq i32 %0, 1
   br i1 %21, label %rb_scan_args_set.exit.thread, label %.thread
 
-rb_scan_args_set.exit.thread:                     ; preds = %.thread14
+rb_scan_args_set.exit.thread:                     ; preds = %.thread16
   %22 = load i64, ptr %1, align 8, !tbaa !7
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 1, ptr %23, align 8, !tbaa !13
   br label %extract_options.exit
 
-.thread:                                          ; preds = %.thread14, %4, %18, %14
-  %.0.i6 = phi i32 [ %16, %18 ], [ 0, %14 ], [ %0, %4 ], [ %0, %.thread14 ]
+.thread:                                          ; preds = %.thread16, %4, %18, %14
+  %.0.i6 = phi i32 [ %16, %18 ], [ 0, %14 ], [ %0, %4 ], [ %0, %.thread16 ]
   tail call void @rb_error_arity(i32 noundef %.0.i6, i32 noundef 1, i32 noundef 1) #11
   unreachable
 
@@ -2868,27 +2868,27 @@ define internal fastcc void @file_options(i32 noundef %0, ptr noundef readonly c
   %11 = load i64, ptr %10, align 8, !tbaa !7
   %12 = tail call i32 @rb_keyword_given_p() #9
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %.thread20, label %13
+  br i1 %.not, label %.thread21, label %13
 
 13:                                               ; preds = %7
   %14 = tail call i64 @rb_hash_dup(i64 noundef %11) #9
   %15 = add nsw i32 %0, -1
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.thread, label %.thread20
+  br i1 %16, label %.thread, label %.thread21
 
-.thread20:                                        ; preds = %7, %13
-  %.0.i24 = phi i32 [ %15, %13 ], [ %0, %7 ]
-  %.087.i23 = phi i64 [ %14, %13 ], [ 4, %7 ]
+.thread21:                                        ; preds = %7, %13
+  %.0.i25 = phi i32 [ %15, %13 ], [ %0, %7 ]
+  %.087.i24 = phi i64 [ %14, %13 ], [ 4, %7 ]
   %17 = load i64, ptr %1, align 8, !tbaa !7
-  %18 = icmp eq i32 %.0.i24, 1
+  %18 = icmp eq i32 %.0.i25, 1
   br i1 %18, label %rb_scan_args_set.exit, label %.thread
 
-.thread:                                          ; preds = %5, %.thread20, %13
-  %.0.i17 = phi i32 [ %.0.i24, %.thread20 ], [ 0, %13 ], [ %0, %5 ]
+.thread:                                          ; preds = %5, %.thread21, %13
+  %.0.i17 = phi i32 [ %.0.i25, %.thread21 ], [ 0, %13 ], [ %0, %5 ]
   tail call void @rb_error_arity(i32 noundef %.0.i17, i32 noundef 1, i32 noundef 1) #11
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %.thread20
+rb_scan_args_set.exit:                            ; preds = %.thread21
   %19 = icmp eq i64 %17, 0
   %20 = and i64 %17, 7
   %21 = icmp ne i64 %20, 0
@@ -2909,7 +2909,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 Check_Type.exit:                                  ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   %27 = tail call i64 @rb_str_encode_ospath(i64 noundef %17) #9
   store i64 %27, ptr %4, align 8, !tbaa !7
-  tail call fastcc void @extract_options(ptr noundef %3, i64 noundef %27, i64 noundef %.087.i23)
+  tail call fastcc void @extract_options(ptr noundef %3, i64 noundef %27, i64 noundef %.087.i24)
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %29 = tail call ptr @pm_string_source(ptr noundef nonnull %28) #9
   %30 = tail call i32 @pm_string_file_init(ptr noundef nonnull %2, ptr noundef %29) #9

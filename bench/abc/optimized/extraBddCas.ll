@@ -201,7 +201,7 @@ define internal fastcc void @EvaluateEncodings_rec(ptr noundef %0, ptr noundef %
   %45 = uitofp i32 %44 to double
   %46 = tail call double @Extra_Power2(i32 noundef %20) #11
   %47 = fcmp olt double %46, %45
-  br i1 %47, label %.loopexit125, label %48
+  br i1 %47, label %.loopexit128, label %48
 
 48:                                               ; preds = %36
   %49 = load ptr, ptr %37, align 8, !tbaa !24
@@ -222,7 +222,7 @@ define internal fastcc void @EvaluateEncodings_rec(ptr noundef %0, ptr noundef %
 
 59:                                               ; preds = %48
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %39) #11
-  br label %.loopexit125
+  br label %.loopexit128
 
 60:                                               ; preds = %48
   %61 = shl nuw nsw i64 %indvars.iv, 1
@@ -257,16 +257,16 @@ define internal fastcc void @EvaluateEncodings_rec(ptr noundef %0, ptr noundef %
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %69) #11
   br label %.lr.ph.preheader
 
-.loopexit125:                                     ; preds = %36, %59
+.loopexit128:                                     ; preds = %36, %59
   %.lcssa.sink = phi ptr [ %50, %59 ], [ %39, %36 ]
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.lcssa.sink) #11
   %70 = and i64 %indvars.iv, 4294967295
   %.not93 = icmp eq i64 %70, 0
   br i1 %.not93, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %68, %.loopexit, %.loopexit125
-  %.082110 = phi i64 [ %indvars.iv, %.loopexit125 ], [ %indvars.iv.next, %.loopexit ], [ %indvars.iv.next, %68 ]
-  %wide.trip.count = and i64 %.082110, 4294967295
+.lr.ph.preheader:                                 ; preds = %68, %.loopexit, %.loopexit128
+  %.082113 = phi i64 [ %indvars.iv, %.loopexit128 ], [ %indvars.iv.next, %.loopexit ], [ %indvars.iv.next, %68 ]
+  %wide.trip.count = and i64 %.082113, 4294967295
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -283,7 +283,7 @@ define internal fastcc void @EvaluateEncodings_rec(ptr noundef %0, ptr noundef %
   %exitcond.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
-._crit_edge:                                      ; preds = %.lr.ph, %.loopexit125
+._crit_edge:                                      ; preds = %.lr.ph, %.loopexit128
   %77 = load i32, ptr @s_nVarsBest, align 4, !tbaa !29
   %78 = icmp eq i32 %77, 5
   %79 = load i32, ptr @s_MultiStart, align 4

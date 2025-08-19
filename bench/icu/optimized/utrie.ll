@@ -563,7 +563,7 @@ _ZL15utrie_fillBlockPjiijja.exit:                 ; preds = %.lr.ph.i, %52, %16
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 139412
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 139408
   %.not.i110 = icmp eq i8 %4, 0
-  %77 = zext i32 %.083 to i64
+  %77 = zext nneg i32 %.083 to i64
   br label %78
 
 78:                                               ; preds = %.lr.ph, %_ZL15utrie_fillBlockPjiijja.exit117
@@ -1347,7 +1347,7 @@ _ZL18_findSameDataBlockPKjiii.exit.thread:        ; preds = %39, %54
   %57 = zext nneg i32 %.07824 to i64
   %58 = getelementptr inbounds nuw i32, ptr %40, i64 %57
   %59 = sext i32 %.077.ph37 to i64
-  %60 = add i32 %.07824, 28
+  %60 = add nuw i32 %.07824, 28
   br label %61
 
 61:                                               ; preds = %.preheader8, %74
@@ -1814,7 +1814,7 @@ define void @utrie_enum_77(ptr noundef readonly captures(address_is_null) %0, pt
 
 .preheader242.us.preheader:                       ; preds = %28
   %30 = zext nneg i32 %26 to i64
-  %invariant.gep355 = getelementptr inbounds nuw i16, ptr %7, i64 %30
+  %invariant.gep370 = getelementptr inbounds nuw i16, ptr %7, i64 %30
   br label %.preheader242.us
 
 31:                                               ; preds = %28
@@ -1855,8 +1855,8 @@ define void @utrie_enum_77(ptr noundef readonly captures(address_is_null) %0, pt
   %.2169274.us.us = phi i32 [ %.0167282.us, %.preheader242.us.preheader ], [ %.3170.us.us, %50 ]
   %.1182272.us.us = phi i32 [ %.0181281.us, %.preheader242.us.preheader ], [ %51, %50 ]
   %.2191271.us.us = phi i32 [ %.0189280.us, %.preheader242.us.preheader ], [ %.3192.us.us, %50 ]
-  %gep356 = getelementptr inbounds nuw i16, ptr %invariant.gep355, i64 %indvars.iv321
-  %42 = load i16, ptr %gep356, align 2, !tbaa !37
+  %gep371 = getelementptr inbounds nuw i16, ptr %invariant.gep370, i64 %indvars.iv321
+  %42 = load i16, ptr %gep371, align 2, !tbaa !37
   %43 = zext i16 %42 to i32
   %44 = tail call noundef i32 %spec.store.select(ptr noundef %3, i32 noundef %43)
   %.not230.us.us = icmp eq i32 %44, %.2191271.us.us
@@ -1886,7 +1886,7 @@ define void @utrie_enum_77(ptr noundef readonly captures(address_is_null) %0, pt
   br i1 %exitcond324.not, label %.loopexit243.split.us.us, label %.preheader242.us, !llvm.loop !68
 
 .preheader240:                                    ; preds = %.loopexit243.split, %.loopexit243.split.us.us
-  %.0340 = phi i32 [ %19, %.loopexit243.split.us.us ], [ 0, %.loopexit243.split ]
+  %.0355 = phi i32 [ %19, %.loopexit243.split.us.us ], [ 0, %.loopexit243.split ]
   %.us-phi285 = phi i32 [ %.4193.us, %.loopexit243.split.us.us ], [ %.4193, %.loopexit243.split ]
   %.us-phi286 = phi i32 [ %.2183.us, %.loopexit243.split.us.us ], [ %.2183, %.loopexit243.split ]
   %.us-phi287 = phi i32 [ %.4171.us, %.loopexit243.split.us.us ], [ %.4171, %.loopexit243.split ]
@@ -2009,7 +2009,7 @@ define void @utrie_enum_77(ptr noundef readonly captures(address_is_null) %0, pt
   %88 = load i16, ptr %87, align 2, !tbaa !37
   %89 = zext i16 %88 to i32
   %90 = shl nuw nsw i32 %89, 2
-  %91 = icmp eq i32 %90, %.0340
+  %91 = icmp eq i32 %90, %.0355
   br i1 %91, label %92, label %101
 
 92:                                               ; preds = %84
@@ -2027,7 +2027,7 @@ define void @utrie_enum_77(ptr noundef readonly captures(address_is_null) %0, pt
 
 97:                                               ; preds = %93, %95, %92
   %.6173 = phi i32 [ %.5172304, %92 ], [ %.3184303, %95 ], [ %.3184303, %93 ]
-  %.7 = phi i32 [ %.6306, %92 ], [ %.0340, %95 ], [ %.0340, %93 ]
+  %.7 = phi i32 [ %.6306, %92 ], [ %.0355, %95 ], [ %.0355, %93 ]
   %98 = add nsw i32 %.0166305, 32
   %99 = add nuw nsw i32 %.3184303, 32768
   br label %.backedge
@@ -2084,12 +2084,12 @@ define void @utrie_enum_77(ptr noundef readonly captures(address_is_null) %0, pt
   br i1 %123, label %134, label %124
 
 124:                                              ; preds = %.preheader237.split.us
-  %125 = icmp eq i32 %122, %.0340
+  %125 = icmp eq i32 %122, %.0355
   br i1 %125, label %127, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %124
   %126 = zext nneg i32 %122 to i64
-  %invariant.gep359 = getelementptr inbounds nuw i16, ptr %7, i64 %126
+  %invariant.gep374 = getelementptr inbounds nuw i16, ptr %7, i64 %126
   br label %.preheader.us
 
 127:                                              ; preds = %124
@@ -2107,7 +2107,7 @@ define void @utrie_enum_77(ptr noundef readonly captures(address_is_null) %0, pt
 
 132:                                              ; preds = %130, %128, %127
   %.10177.us = phi i32 [ %.9176.us, %127 ], [ %.5186.us, %130 ], [ %.5186.us, %128 ]
-  %.11.us = phi i32 [ %.10.us, %127 ], [ %.0340, %130 ], [ %.0340, %128 ]
+  %.11.us = phi i32 [ %.10.us, %127 ], [ %.0355, %130 ], [ %.0355, %128 ]
   %133 = add nuw nsw i32 %.5186.us, 32
   br label %.loopexit.split.us.us
 
@@ -2131,8 +2131,8 @@ define void @utrie_enum_77(ptr noundef readonly captures(address_is_null) %0, pt
   %.11178292.us.us = phi i32 [ %.9176.us, %.preheader.us.preheader ], [ %.12179.us.us, %146 ]
   %.6187290.us.us = phi i32 [ %.5186.us, %.preheader.us.preheader ], [ %147, %146 ]
   %.11200289.us.us = phi i32 [ %.9198.us, %.preheader.us.preheader ], [ %.12201.us.us, %146 ]
-  %gep360 = getelementptr inbounds nuw i16, ptr %invariant.gep359, i64 %indvars.iv332
-  %138 = load i16, ptr %gep360, align 2, !tbaa !37
+  %gep375 = getelementptr inbounds nuw i16, ptr %invariant.gep374, i64 %indvars.iv332
+  %138 = load i16, ptr %gep375, align 2, !tbaa !37
   %139 = zext i16 %138 to i32
   %140 = tail call noundef i32 %spec.store.select(ptr noundef %3, i32 noundef %139)
   %.not220.us.us = icmp eq i32 %140, %.11200289.us.us
@@ -2176,7 +2176,7 @@ define void @utrie_enum_77(ptr noundef readonly captures(address_is_null) %0, pt
 
 153:                                              ; preds = %149, %151, %148
   %.7174 = phi i32 [ %.5172304, %148 ], [ %.3184303, %151 ], [ %.3184303, %149 ]
-  %.8 = phi i32 [ %.6306, %148 ], [ %.0340, %151 ], [ %.0340, %149 ]
+  %.8 = phi i32 [ %.6306, %148 ], [ %.0355, %151 ], [ %.0355, %149 ]
   %154 = add nuw nsw i32 %.3184303, 1024
   br label %.loopexit239
 
@@ -2198,12 +2198,12 @@ define void @utrie_enum_77(ptr noundef readonly captures(address_is_null) %0, pt
   br label %.loopexit.split
 
 162:                                              ; preds = %.preheader237.split
-  %163 = icmp eq i32 %158, %.0340
+  %163 = icmp eq i32 %158, %.0355
   br i1 %163, label %165, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %162
   %164 = zext nneg i32 %158 to i64
-  %invariant.gep357 = getelementptr inbounds nuw i32, ptr %13, i64 %164
+  %invariant.gep372 = getelementptr inbounds nuw i32, ptr %13, i64 %164
   br label %.preheader
 
 165:                                              ; preds = %162
@@ -2221,7 +2221,7 @@ define void @utrie_enum_77(ptr noundef readonly captures(address_is_null) %0, pt
 
 170:                                              ; preds = %166, %168, %165
   %.10177 = phi i32 [ %.9176, %165 ], [ %.5186, %168 ], [ %.5186, %166 ]
-  %.11 = phi i32 [ %.10, %165 ], [ %.0340, %168 ], [ %.0340, %166 ]
+  %.11 = phi i32 [ %.10, %165 ], [ %.0355, %168 ], [ %.0355, %166 ]
   %171 = add nuw nsw i32 %.5186, 32
   br label %.loopexit.split
 
@@ -2231,8 +2231,8 @@ define void @utrie_enum_77(ptr noundef readonly captures(address_is_null) %0, pt
   %.11178292 = phi i32 [ %.9176, %.preheader.preheader ], [ %.12179, %179 ]
   %.6187290 = phi i32 [ %.5186, %.preheader.preheader ], [ %180, %179 ]
   %.11200289 = phi i32 [ %.9198, %.preheader.preheader ], [ %.12201, %179 ]
-  %gep358 = getelementptr inbounds nuw i32, ptr %invariant.gep357, i64 %indvars.iv325
-  %172 = load i32, ptr %gep358, align 4, !tbaa !12
+  %gep373 = getelementptr inbounds nuw i32, ptr %invariant.gep372, i64 %indvars.iv325
+  %172 = load i32, ptr %gep373, align 4, !tbaa !12
   %173 = tail call noundef i32 %spec.store.select(ptr noundef %3, i32 noundef %172)
   %.not220 = icmp eq i32 %173, %.11200289
   br i1 %.not220, label %179, label %174

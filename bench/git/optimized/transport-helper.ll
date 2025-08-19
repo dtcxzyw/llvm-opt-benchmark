@@ -1470,9 +1470,9 @@ strbuf_addch.exit.i:                              ; preds = %strbuf_avail.exit.t
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %97, %95
-  %.sink89.i = phi ptr [ %96, %95 ], [ %99, %97 ]
-  %100 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink89.i) #21
-  call void @strbuf_add(ptr noundef nonnull %9, ptr noundef nonnull %.sink89.i, i64 noundef %100) #19
+  %.sink97.i = phi ptr [ %96, %95 ], [ %99, %97 ]
+  %100 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink97.i) #21
+  call void @strbuf_add(ptr noundef nonnull %9, ptr noundef nonnull %.sink97.i, i64 noundef %100) #19
   br label %101
 
 101:                                              ; preds = %.sink.split.i, %78
@@ -3581,7 +3581,7 @@ recvline.exit:                                    ; preds = %25, %24
   br i1 %.not124.i, label %40, label %43
 
 40:                                               ; preds = %39
-  br i1 %.not125.i, label %41, label %.thread140.i
+  br i1 %.not125.i, label %41, label %.thread149.i
 
 41:                                               ; preds = %40, %38
   %42 = call fastcc ptr @_(ptr noundef nonnull @.str.118)
@@ -3589,21 +3589,21 @@ recvline.exit:                                    ; preds = %25, %24
   unreachable
 
 43:                                               ; preds = %39
-  br i1 %.not125.i, label %53, label %.thread140.i
+  br i1 %.not125.i, label %53, label %.thread149.i
 
-.thread140.i:                                     ; preds = %40, %43
+.thread149.i:                                     ; preds = %40, %43
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 160
   %45 = load ptr, ptr %44, align 8, !tbaa !116
   %.not127.i = icmp eq ptr %45, null
   br i1 %.not127.i, label %46, label %.preheader.i
 
-46:                                               ; preds = %.thread140.i
+46:                                               ; preds = %.thread149.i
   %47 = call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #19
   store ptr %47, ptr %44, align 8, !tbaa !116
   br label %53
 
-.preheader.i:                                     ; preds = %.thread140.i, %.preheader.i
-  %storemerge128.i = phi ptr [ %49, %.preheader.i ], [ %45, %.thread140.i ]
+.preheader.i:                                     ; preds = %.thread149.i, %.preheader.i
+  %storemerge128.i = phi ptr [ %49, %.preheader.i ], [ %45, %.thread149.i ]
   %48 = getelementptr inbounds nuw i8, ptr %storemerge128.i, i64 32
   %49 = load ptr, ptr %48, align 8, !tbaa !118
   %.not129.i = icmp eq ptr %49, null

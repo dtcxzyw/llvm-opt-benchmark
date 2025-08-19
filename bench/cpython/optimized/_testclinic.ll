@@ -8271,7 +8271,7 @@ define internal ptr @varpos_kwonly_opt(ptr readnone captures(none) %0, ptr nound
   %16 = icmp sgt i64 %2, -1
   %17 = icmp ne ptr %1, null
   %or.cond3 = and i1 %17, %16
-  br i1 %or.cond3, label %.thread41, label %.thread48
+  br i1 %or.cond3, label %.thread41, label %.thread52
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -8280,10 +8280,10 @@ define internal ptr @varpos_kwonly_opt(ptr readnone captures(none) %0, ptr nound
   %.not28 = icmp eq ptr %21, null
   br i1 %.not28, label %Py_XDECREF.exit, label %23
 
-.thread48:                                        ; preds = %15
+.thread52:                                        ; preds = %15
   %22 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @varpos_kwonly_opt._parser, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %5) #10
-  %.not2850 = icmp eq ptr %22, null
-  br i1 %.not2850, label %Py_XDECREF.exit, label %.thread41
+  %.not2854 = icmp eq ptr %22, null
+  br i1 %.not2854, label %Py_XDECREF.exit, label %.thread41
 
 23:                                               ; preds = %18
   %24 = icmp eq i64 %20, 0
@@ -8293,8 +8293,8 @@ define internal ptr @varpos_kwonly_opt(ptr readnone captures(none) %0, ptr nound
   %26 = load ptr, ptr %21, align 8, !tbaa !6
   br label %.thread41
 
-.thread41:                                        ; preds = %.thread48, %15, %23, %25
-  %.0 = phi ptr [ %26, %25 ], [ @_Py_FalseStruct, %23 ], [ @_Py_FalseStruct, %15 ], [ @_Py_FalseStruct, %.thread48 ]
+.thread41:                                        ; preds = %.thread52, %15, %23, %25
+  %.0 = phi ptr [ %26, %25 ], [ @_Py_FalseStruct, %23 ], [ @_Py_FalseStruct, %15 ], [ @_Py_FalseStruct, %.thread52 ]
   %27 = call ptr @_PyTuple_FromArray(ptr noundef %1, i64 noundef %2) #10
   %28 = icmp eq ptr %27, null
   br i1 %28, label %Py_XDECREF.exit, label %29
@@ -8315,8 +8315,8 @@ define internal ptr @varpos_kwonly_opt(ptr readnone captures(none) %0, ptr nound
   call void @_Py_Dealloc(ptr noundef nonnull %27) #10
   br label %Py_XDECREF.exit
 
-Py_XDECREF.exit:                                  ; preds = %.thread48, %18, %.thread41, %29, %32, %35
-  %.02347 = phi ptr [ %30, %29 ], [ %30, %32 ], [ %30, %35 ], [ null, %.thread41 ], [ null, %18 ], [ null, %.thread48 ]
+Py_XDECREF.exit:                                  ; preds = %.thread52, %18, %.thread41, %29, %32, %35
+  %.02347 = phi ptr [ %30, %29 ], [ %30, %32 ], [ %30, %35 ], [ null, %.thread41 ], [ null, %18 ], [ null, %.thread52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.02347
 }
@@ -10830,8 +10830,8 @@ _Py_NewRef.exit:                                  ; preds = %14
 
 19:                                               ; preds = %_Py_NewRef.exit
   %20 = add nuw i32 %15, 2
-  %.not.i.i21 = icmp slt i32 %20, 0
-  %spec.store.select = select i1 %.not.i.i21, i32 %20, i32 %17
+  %.not.i.i23 = icmp slt i32 %20, 0
+  %spec.store.select = select i1 %.not.i.i23, i32 %20, i32 %17
   store i32 %spec.store.select, ptr %1, align 8
   br label %Py_XDECREF.exit
 

@@ -680,8 +680,8 @@ define hidden noundef ptr @_ZN9CMoveNode11is_cmove_idEP14PhaseTransformP4NodeS3_
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %2
-  %or.cond16 = select i1 %10, i1 %13, i1 false
-  br i1 %or.cond16, label %16, label %._crit_edge
+  %or.cond17 = select i1 %10, i1 %13, i1 false
+  br i1 %or.cond17, label %16, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %5
   %14 = icmp eq ptr %12, %3
@@ -781,8 +781,8 @@ define hidden noundef ptr @_ZN9CMoveNode8IdentityEP8PhaseGVN(ptr noundef nonnull
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, %8
-  %or.cond16.i = select i1 %46, i1 %49, i1 false
-  br i1 %or.cond16.i, label %52, label %._crit_edge.i
+  %or.cond17.i = select i1 %46, i1 %49, i1 false
+  br i1 %or.cond17.i, label %52, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %41
   %50 = icmp eq ptr %48, %6
@@ -888,13 +888,13 @@ define hidden noundef ptr @_ZNK9CMoveNode5ValueEP8PhaseGVN(ptr noundef nonnull r
   br label %.sink.split
 
 .sink.split:                                      ; preds = %39, %36, %42
-  %.sink17 = phi ptr [ %47, %42 ], [ %34, %36 ], [ %25, %39 ]
+  %.sink21 = phi ptr [ %47, %42 ], [ %34, %36 ], [ %25, %39 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %49 = load ptr, ptr %48, align 8
-  %50 = load ptr, ptr %.sink17, align 8
+  %50 = load ptr, ptr %.sink21, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = tail call noundef ptr %52(ptr noundef nonnull align 8 dereferenceable(20) %.sink17, ptr noundef %49, i1 noundef zeroext false) #5
+  %53 = tail call noundef ptr %52(ptr noundef nonnull align 8 dereferenceable(20) %.sink21, ptr noundef %49, i1 noundef zeroext false) #5
   br label %54
 
 54:                                               ; preds = %.sink.split, %18, %27, %2
@@ -1209,11 +1209,11 @@ switch.lookup:                                    ; preds = %14
   %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb, i64 0, i64 %18
   %switch.load = load i64, ptr %switch.gep, align 8
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep47 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb.3, i64 0, i64 %19
-  %switch.load48 = load i64, ptr %switch.gep47, align 8
+  %switch.gep50 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb.3, i64 0, i64 %19
+  %switch.load51 = load i64, ptr %switch.gep50, align 8
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep49 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb.4, i64 0, i64 %20
-  %switch.load50 = load i32, ptr %switch.gep49, align 4
+  %switch.gep52 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb.4, i64 0, i64 %20
+  %switch.load53 = load i32, ptr %switch.gep52, align 4
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -1227,7 +1227,7 @@ switch.lookup:                                    ; preds = %14
 28:                                               ; preds = %switch.lookup
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = zext nneg i32 %switch.load50 to i64
+  %31 = zext nneg i32 %switch.load53 to i64
   %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1241,7 +1241,7 @@ switch.lookup:                                    ; preds = %14
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr @_ZN5TypeF4ZEROE, align 8
   %.not46 = icmp eq ptr %42, %43
-  %44 = xor i32 %switch.load50, 3
+  %44 = xor i32 %switch.load53, 3
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr inbounds nuw ptr, ptr %30, i64 %45
   %47 = load ptr, ptr %46, align 8
@@ -1259,7 +1259,7 @@ switch.lookup:                                    ; preds = %14
 55:                                               ; preds = %28, %48
   %.036 = phi ptr [ %33, %48 ], [ %47, %28 ]
   %56 = load ptr, ptr %6, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %switch.load48
+  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %switch.load51
   %58 = load ptr, ptr %57, align 8
   %.not42 = icmp eq ptr %.036, %58
   br i1 %.not42, label %59, label %98
@@ -1365,11 +1365,11 @@ switch.lookup:                                    ; preds = %14
   %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb, i64 0, i64 %18
   %switch.load = load i64, ptr %switch.gep, align 8
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep47 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb.3, i64 0, i64 %19
-  %switch.load48 = load i64, ptr %switch.gep47, align 8
+  %switch.gep50 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb.3, i64 0, i64 %19
+  %switch.load51 = load i64, ptr %switch.gep50, align 8
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep49 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb.4, i64 0, i64 %20
-  %switch.load50 = load i32, ptr %switch.gep49, align 4
+  %switch.gep52 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb.4, i64 0, i64 %20
+  %switch.load53 = load i32, ptr %switch.gep52, align 4
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -1383,7 +1383,7 @@ switch.lookup:                                    ; preds = %14
 28:                                               ; preds = %switch.lookup
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = zext nneg i32 %switch.load50 to i64
+  %31 = zext nneg i32 %switch.load53 to i64
   %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1397,7 +1397,7 @@ switch.lookup:                                    ; preds = %14
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr @_ZN5TypeD4ZEROE, align 8
   %.not46 = icmp eq ptr %42, %43
-  %44 = xor i32 %switch.load50, 3
+  %44 = xor i32 %switch.load53, 3
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr inbounds nuw ptr, ptr %30, i64 %45
   %47 = load ptr, ptr %46, align 8
@@ -1415,7 +1415,7 @@ switch.lookup:                                    ; preds = %14
 55:                                               ; preds = %28, %48
   %.036 = phi ptr [ %33, %48 ], [ %47, %28 ]
   %56 = load ptr, ptr %6, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %switch.load48
+  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %switch.load51
   %58 = load ptr, ptr %57, align 8
   %.not42 = icmp eq ptr %.036, %58
   br i1 %.not42, label %59, label %98

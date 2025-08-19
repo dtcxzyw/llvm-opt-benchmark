@@ -852,14 +852,14 @@ define dso_local range(i32 0, 4034) i32 @lllp_distribution(ptr noundef %0, i32 n
   br i1 %77, label %81, label %96
 
 81:                                               ; preds = %75
-  br i1 %80, label %82, label %.thread213
+  br i1 %80, label %82, label %.thread251
 
 82:                                               ; preds = %81
   %83 = load i16, ptr %66, align 8
   %84 = zext i16 %83 to i32
   %85 = and i32 %84, 384
   %or.cond144 = icmp eq i32 %85, 0
-  br i1 %or.cond144, label %86, label %.thread212
+  br i1 %or.cond144, label %86, label %.thread250
 
 86:                                               ; preds = %82
   %87 = and i32 %84, 32
@@ -888,16 +888,16 @@ define dso_local range(i32 0, 4034) i32 @lllp_distribution(ptr noundef %0, i32 n
   br label %191
 
 96:                                               ; preds = %75
-  br i1 %80, label %.thread212, label %.thread213
+  br i1 %80, label %.thread250, label %.thread251
 
-.thread212:                                       ; preds = %82, %96
+.thread250:                                       ; preds = %82, %96
   %97 = load i16, ptr %66, align 8
   %98 = zext i16 %97 to i32
   %99 = and i32 %98, 256
   %.not142 = icmp eq i32 %99, 0
   br i1 %.not142, label %159, label %100
 
-100:                                              ; preds = %.thread212
+100:                                              ; preds = %.thread250
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr null, ptr %22, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -1068,12 +1068,12 @@ _validate_mask.exit:                              ; preds = %103, %105, %108, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %.thread213
+  br label %.thread251
 
-159:                                              ; preds = %.thread212
+159:                                              ; preds = %.thread250
   %160 = and i32 %98, 128
   %.not143 = icmp eq i32 %160, 0
-  br i1 %.not143, label %.thread213, label %161
+  br i1 %.not143, label %.thread251, label %161
 
 161:                                              ; preds = %159
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -1159,15 +1159,15 @@ _validate_map.exit:                               ; preds = %164, %166, %169, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %.thread213
+  br label %.thread251
 
-.thread213:                                       ; preds = %81, %_validate_mask.exit, %_validate_map.exit, %159, %96
+.thread251:                                       ; preds = %81, %_validate_mask.exit, %_validate_map.exit, %159, %96
   %.2 = phi i32 [ %.0.i, %_validate_mask.exit ], [ %.0.i153, %_validate_map.exit ], [ 0, %159 ], [ 0, %96 ], [ 0, %81 ]
   call void @slurm_xfree(ptr noundef nonnull %35) #7
   br label %191
 
-191:                                              ; preds = %72, %74, %91, %.thread213
-  %.0110 = phi i32 [ %.2, %.thread213 ], [ %.1111, %91 ], [ 4032, %74 ], [ 4032, %72 ]
+191:                                              ; preds = %72, %74, %91, %.thread251
+  %.0110 = phi i32 [ %.2, %.thread251 ], [ %.1111, %91 ], [ 4032, %74 ], [ 4032, %72 ]
   %192 = load i16, ptr %66, align 8
   %193 = zext i16 %192 to i32
   call void @slurm_sprint_cpu_bind_type(ptr noundef nonnull %28, i32 noundef %193) #7
@@ -1314,10 +1314,10 @@ switch.early.test:                                ; preds = %219
   br label %.critedge
 
 264:                                              ; preds = %249, %247, %244, %241, %233, %238, %225, %230
-  %.sink220 = phi i16 [ 8, %230 ], [ 8, %225 ], [ 4, %238 ], [ 4, %233 ], [ 2, %241 ], [ 2, %244 ], [ 4, %247 ], [ 8, %249 ]
+  %.sink258 = phi i16 [ 8, %230 ], [ 8, %225 ], [ 4, %238 ], [ 4, %233 ], [ 2, %241 ], [ 2, %244 ], [ 4, %247 ], [ 8, %249 ]
   %.0113 = phi ptr [ @.str.10, %230 ], [ @.str.10, %225 ], [ @.str.10, %238 ], [ @.str.10, %233 ], [ @.str.10, %241 ], [ @.str.9, %244 ], [ @.str.9, %247 ], [ @.str.9, %249 ]
   %265 = load i16, ptr %66, align 8
-  %266 = or i16 %265, %.sink220
+  %266 = or i16 %265, %.sink258
   store i16 %266, ptr %66, align 8
   call void @slurm_xfree(ptr noundef nonnull %36) #7
   %267 = load i16, ptr %66, align 8
@@ -2269,7 +2269,7 @@ define internal fastcc ptr @_alloc_mask(ptr noundef readonly captures(none) %0, 
   br label %.preheader89.us.us.us
 
 25:                                               ; preds = %._crit_edge103.split.us.us.us
-  %.not81.us.us = icmp eq i32 %.255.us.us.us159166, 0
+  %.not81.us.us = icmp eq i32 %.255.us.us.us163170, 0
   br i1 %.not81.us.us, label %28, label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge103.split.us.us.us, %25
@@ -2287,29 +2287,29 @@ define internal fastcc ptr @_alloc_mask(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond151.not, label %._crit_edge, label %.preheader90.us.us, !llvm.loop !33
 
 .preheader89.us.us.us:                            ; preds = %33, %.preheader90.us.us
-  %.053102.us.us.us = phi i32 [ 0, %.preheader90.us.us ], [ %.255.us.us.us159166, %33 ]
+  %.053102.us.us.us = phi i32 [ 0, %.preheader90.us.us ], [ %.255.us.us.us163170, %33 ]
   %.060101.us.us.us = phi i32 [ 0, %.preheader90.us.us ], [ %.161.us.us.us, %33 ]
   %.163100.us.us.us = phi i32 [ %.062111.us.us, %.preheader90.us.us ], [ %34, %33 ]
   %.06999.us.us.us = phi i32 [ 0, %.preheader90.us.us ], [ %35, %33 ]
   br label %.outer
 
 30:                                               ; preds = %.thread
-  br i1 %.not83.us.us.us, label %33, label %.sink.split187
+  br i1 %.not83.us.us.us, label %33, label %.sink.split191
 
-.sink.split187:                                   ; preds = %._crit_edge.us.us.us, %30
-  %.sink191 = phi ptr [ %6, %30 ], [ %spec.select, %._crit_edge.us.us.us ]
-  %.255.us.us.us159166.ph = phi i32 [ %.15494.us.us.us.ph, %30 ], [ 1, %._crit_edge.us.us.us ]
+.sink.split191:                                   ; preds = %._crit_edge.us.us.us, %30
+  %.sink195 = phi ptr [ %6, %30 ], [ %spec.select, %._crit_edge.us.us.us ]
+  %.255.us.us.us163170.ph = phi i32 [ %.15494.us.us.us.ph, %30 ], [ 1, %._crit_edge.us.us.us ]
   %.ph = phi i32 [ %49, %30 ], [ %43, %._crit_edge.us.us.us ]
-  %.161.us.us.us.ph = phi i32 [ 1, %30 ], [ %spec.select193, %._crit_edge.us.us.us ]
-  %31 = load i32, ptr %.sink191, align 4
+  %.161.us.us.us.ph = phi i32 [ 1, %30 ], [ %spec.select197, %._crit_edge.us.us.us ]
+  %31 = load i32, ptr %.sink195, align 4
   %32 = add nsw i32 %31, 1
-  store i32 %32, ptr %.sink191, align 4
+  store i32 %32, ptr %.sink195, align 4
   br label %33
 
-33:                                               ; preds = %.sink.split187, %30
-  %.255.us.us.us159166 = phi i32 [ %.15494.us.us.us.ph, %30 ], [ %.255.us.us.us159166.ph, %.sink.split187 ]
-  %34 = phi i32 [ %49, %30 ], [ %.ph, %.sink.split187 ]
-  %.161.us.us.us = phi i32 [ 1, %30 ], [ %.161.us.us.us.ph, %.sink.split187 ]
+33:                                               ; preds = %.sink.split191, %30
+  %.255.us.us.us163170 = phi i32 [ %.15494.us.us.us.ph, %30 ], [ %.255.us.us.us163170.ph, %.sink.split191 ]
+  %34 = phi i32 [ %49, %30 ], [ %.ph, %.sink.split191 ]
+  %.161.us.us.us = phi i32 [ 1, %30 ], [ %.161.us.us.us.ph, %.sink.split191 ]
   %35 = add nuw nsw i32 %.06999.us.us.us, 1
   %exitcond150.not = icmp eq i32 %35, %22
   br i1 %exitcond150.not, label %._crit_edge103.split.us.us.us, label %.preheader89.us.us.us, !llvm.loop !34
@@ -2322,14 +2322,14 @@ define internal fastcc ptr @_alloc_mask(ptr noundef readonly captures(none) %0, 
   %39 = sext i32 %spec.select.us.us.us to i64
   %40 = tail call i32 @slurm_bit_test(ptr noundef nonnull %15, i64 noundef %39) #7
   %.not85.us.us.us = icmp eq i32 %40, 0
-  br i1 %.not85.us.us.us, label %.thread, label %._crit_edge210, !llvm.loop !35
+  br i1 %.not85.us.us.us, label %.thread, label %._crit_edge214, !llvm.loop !35
 
-._crit_edge210:                                   ; preds = %36, %.outer
+._crit_edge214:                                   ; preds = %36, %.outer
   %.05693.us.us.us.lcssa = phi i32 [ %.05693.us.us.us.ph, %.outer ], [ 1, %36 ]
   %.06591.us.us.us.lcssa = phi i32 [ %.06591.us.us.us.ph, %.outer ], [ %50, %36 ]
-  %spec.select.us.us.us.lcssa = phi i32 [ %spec.select.us.us.us206, %.outer ], [ %spec.select.us.us.us, %36 ]
-  %.lcssa195 = phi i64 [ %47, %.outer ], [ %39, %36 ]
-  tail call void @slurm_bit_set(ptr noundef %18, i64 noundef %.lcssa195) #7
+  %spec.select.us.us.us.lcssa = phi i32 [ %spec.select.us.us.us210, %.outer ], [ %spec.select.us.us.us, %36 ]
+  %.lcssa199 = phi i64 [ %47, %.outer ], [ %39, %36 ]
+  tail call void @slurm_bit_set(ptr noundef %18, i64 noundef %.lcssa199) #7
   %41 = load i32, ptr %4, align 4
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %4, align 4
@@ -2338,34 +2338,34 @@ define internal fastcc ptr @_alloc_mask(ptr noundef readonly captures(none) %0, 
   %exitcond.not = icmp eq i32 %44, %24
   br i1 %exitcond.not, label %._crit_edge.us.us.us, label %.outer, !llvm.loop !35
 
-.outer:                                           ; preds = %._crit_edge210, %.preheader89.us.us.us
-  %.not83.us.us.us = phi i1 [ false, %._crit_edge210 ], [ true, %.preheader89.us.us.us ]
-  %.15494.us.us.us.ph = phi i32 [ 1, %._crit_edge210 ], [ %.053102.us.us.us, %.preheader89.us.us.us ]
-  %.05693.us.us.us.ph = phi i32 [ %.05693.us.us.us.lcssa, %._crit_edge210 ], [ 0, %.preheader89.us.us.us ]
-  %.26492.us.us.us.ph = phi i32 [ %43, %._crit_edge210 ], [ %.163100.us.us.us, %.preheader89.us.us.us ]
-  %.06591.us.us.us.ph = phi i32 [ %44, %._crit_edge210 ], [ 0, %.preheader89.us.us.us ]
+.outer:                                           ; preds = %._crit_edge214, %.preheader89.us.us.us
+  %.not83.us.us.us = phi i1 [ false, %._crit_edge214 ], [ true, %.preheader89.us.us.us ]
+  %.15494.us.us.us.ph = phi i32 [ 1, %._crit_edge214 ], [ %.053102.us.us.us, %.preheader89.us.us.us ]
+  %.05693.us.us.us.ph = phi i32 [ %.05693.us.us.us.lcssa, %._crit_edge214 ], [ 0, %.preheader89.us.us.us ]
+  %.26492.us.us.us.ph = phi i32 [ %43, %._crit_edge214 ], [ %.163100.us.us.us, %.preheader89.us.us.us ]
+  %.06591.us.us.us.ph = phi i32 [ %44, %._crit_edge214 ], [ 0, %.preheader89.us.us.us ]
   %45 = sext i32 %.26492.us.us.us.ph to i64
   %46 = tail call i64 @slurm_bit_size(ptr noundef nonnull %15) #7
-  %.not84.us.us.us205 = icmp sgt i64 %46, %45
-  %spec.select.us.us.us206 = select i1 %.not84.us.us.us205, i32 %.26492.us.us.us.ph, i32 0
-  %47 = sext i32 %spec.select.us.us.us206 to i64
+  %.not84.us.us.us209 = icmp sgt i64 %46, %45
+  %spec.select.us.us.us210 = select i1 %.not84.us.us.us209, i32 %.26492.us.us.us.ph, i32 0
+  %47 = sext i32 %spec.select.us.us.us210 to i64
   %48 = tail call i32 @slurm_bit_test(ptr noundef nonnull %15, i64 noundef %47) #7
-  %.not85.us.us.us207 = icmp eq i32 %48, 0
-  br i1 %.not85.us.us.us207, label %.thread, label %._crit_edge210
+  %.not85.us.us.us211 = icmp eq i32 %48, 0
+  br i1 %.not85.us.us.us211, label %.thread, label %._crit_edge214
 
 .thread:                                          ; preds = %.outer, %36
-  %spec.select.us.us.us209 = phi i32 [ %spec.select.us.us.us, %36 ], [ %spec.select.us.us.us206, %.outer ]
-  %.06591.us.us.us208 = phi i32 [ %50, %36 ], [ %.06591.us.us.us.ph, %.outer ]
-  %49 = add nsw i32 %spec.select.us.us.us209, 1
-  %50 = add nuw nsw i32 %.06591.us.us.us208, 1
-  %exitcond.not157 = icmp eq i32 %50, %24
-  br i1 %exitcond.not157, label %30, label %36, !llvm.loop !35
+  %spec.select.us.us.us213 = phi i32 [ %spec.select.us.us.us, %36 ], [ %spec.select.us.us.us210, %.outer ]
+  %.06591.us.us.us212 = phi i32 [ %50, %36 ], [ %.06591.us.us.us.ph, %.outer ]
+  %49 = add nsw i32 %spec.select.us.us.us213, 1
+  %50 = add nuw nsw i32 %.06591.us.us.us212, 1
+  %exitcond.not161 = icmp eq i32 %50, %24
+  br i1 %exitcond.not161, label %30, label %36, !llvm.loop !35
 
-._crit_edge.us.us.us:                             ; preds = %._crit_edge210
+._crit_edge.us.us.us:                             ; preds = %._crit_edge214
   %.not82.us.us.us = icmp eq i32 %.05693.us.us.us.lcssa, 0
   %spec.select = select i1 %.not82.us.us.us, ptr %3, ptr %6
-  %spec.select193 = select i1 %.not82.us.us.us, i32 %.060101.us.us.us, i32 1
-  br label %.sink.split187
+  %spec.select197 = select i1 %.not82.us.us.us, i32 %.060101.us.us.us, i32 1
+  br label %.sink.split191
 
 ._crit_edge103.split.us.us.us:                    ; preds = %33
   %.not80.us.us = icmp eq i32 %.161.us.us.us, 0

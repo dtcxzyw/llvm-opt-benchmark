@@ -527,7 +527,7 @@ _ZN5faiss11MatrixStats11PerDimStats3addEf.exit:   ; preds = %98, %78, %71
   br label %.loopexit.i.i, !llvm.loop !62
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i129, %133, %..loopexit_crit_edge21.i.i.i.i133, %.loopexit160
-  %.pre-phi230 = phi i64 [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i133 ], [ %.pre-phi, %.loopexit160 ], [ %135, %133 ], [ %.pre-phi, %.lr.ph.i.i.i.i129 ]
+  %.pre-phi258 = phi i64 [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i133 ], [ %.pre-phi, %.loopexit160 ], [ %135, %133 ], [ %.pre-phi, %.lr.ph.i.i.i.i129 ]
   %165 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
           to label %.noexc134 unwind label %172
 
@@ -537,7 +537,7 @@ _ZN5faiss11MatrixStats11PerDimStats3addEf.exit:   ; preds = %98, %78, %71
   store i64 %126, ptr %166, align 8, !tbaa !63
   %167 = getelementptr inbounds nuw i8, ptr %165, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %167, i8 0, i64 16, i1 false)
-  %168 = invoke ptr @_ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %16, i64 noundef %.pre-phi230, i64 noundef %126, ptr noundef nonnull %165, i64 noundef 1)
+  %168 = invoke ptr @_ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %16, i64 noundef %.pre-phi258, i64 noundef %126, ptr noundef nonnull %165, i64 noundef 1)
           to label %.loopexit unwind label %_ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i
 
 _ZNSt10_HashtableImSt4pairIKmN5faiss11MatrixStats10OccurrenceEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i.i: ; preds = %.noexc134
@@ -771,10 +771,10 @@ _ZNSt13unordered_mapImN5faiss11MatrixStats10OccurrenceESt4hashImESt8equal_toImES
   br i1 %exitcond220.not, label %._crit_edge192, label %229, !llvm.loop !73
 
 ._crit_edge192.thread:                            ; preds = %226, %._crit_edge192
-  %.098.lcssa243 = phi i64 [ %.199, %._crit_edge192 ], [ 0, %226 ]
-  %.0100.lcssa241 = phi i64 [ %.1101, %._crit_edge192 ], [ 0, %226 ]
-  %.0102.lcssa239 = phi double [ %.1103, %._crit_edge192 ], [ 0x7FF0000000000000, %226 ]
-  %.0104.lcssa237 = phi double [ %.1105, %._crit_edge192 ], [ 0.000000e+00, %226 ]
+  %.098.lcssa271 = phi i64 [ %.199, %._crit_edge192 ], [ 0, %226 ]
+  %.0100.lcssa269 = phi i64 [ %.1101, %._crit_edge192 ], [ 0, %226 ]
+  %.0102.lcssa267 = phi double [ %.1103, %._crit_edge192 ], [ 0x7FF0000000000000, %226 ]
+  %.0104.lcssa265 = phi double [ %.1105, %._crit_edge192 ], [ 0.000000e+00, %226 ]
   tail call void (ptr, ptr, ...) @_ZN5faiss11MatrixStats10do_commentEPKcz(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull @.str.12)
   br label %277
 
@@ -787,11 +787,11 @@ _ZNSt13unordered_mapImN5faiss11MatrixStats10OccurrenceESt4hashImESt8equal_toImES
   br label %277
 
 277:                                              ; preds = %272, %._crit_edge192.thread
-  %.098.lcssa242 = phi i64 [ %.199, %272 ], [ %.098.lcssa243, %._crit_edge192.thread ]
-  %.0100.lcssa240 = phi i64 [ %.1101, %272 ], [ %.0100.lcssa241, %._crit_edge192.thread ]
-  %.0102.lcssa238 = phi double [ %.1103, %272 ], [ %.0102.lcssa239, %._crit_edge192.thread ]
-  %.0104.lcssa236 = phi double [ %.1105, %272 ], [ %.0104.lcssa237, %._crit_edge192.thread ]
-  %278 = icmp eq i64 %.098.lcssa242, 0
+  %.098.lcssa270 = phi i64 [ %.199, %272 ], [ %.098.lcssa271, %._crit_edge192.thread ]
+  %.0100.lcssa268 = phi i64 [ %.1101, %272 ], [ %.0100.lcssa269, %._crit_edge192.thread ]
+  %.0102.lcssa266 = phi double [ %.1103, %272 ], [ %.0102.lcssa267, %._crit_edge192.thread ]
+  %.0104.lcssa264 = phi double [ %.1105, %272 ], [ %.0104.lcssa265, %._crit_edge192.thread ]
+  %278 = icmp eq i64 %.098.lcssa270, 0
   br i1 %278, label %279, label %280
 
 279:                                              ; preds = %277
@@ -799,11 +799,11 @@ _ZNSt13unordered_mapImN5faiss11MatrixStats10OccurrenceESt4hashImESt8equal_toImES
   br label %281
 
 280:                                              ; preds = %277
-  tail call void (ptr, ptr, ...) @_ZN5faiss11MatrixStats10do_commentEPKcz(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull @.str.15, i64 noundef %.098.lcssa242)
+  tail call void (ptr, ptr, ...) @_ZN5faiss11MatrixStats10do_commentEPKcz(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull @.str.15, i64 noundef %.098.lcssa270)
   br label %281
 
 281:                                              ; preds = %280, %279
-  %282 = icmp eq i64 %.0100.lcssa240, 0
+  %282 = icmp eq i64 %.0100.lcssa268, 0
   br i1 %282, label %283, label %284
 
 283:                                              ; preds = %281
@@ -811,16 +811,16 @@ _ZNSt13unordered_mapImN5faiss11MatrixStats10OccurrenceESt4hashImESt8equal_toImES
   br label %285
 
 284:                                              ; preds = %281
-  tail call void (ptr, ptr, ...) @_ZN5faiss11MatrixStats10do_commentEPKcz(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull @.str.17, i64 noundef %.0100.lcssa240)
+  tail call void (ptr, ptr, ...) @_ZN5faiss11MatrixStats10do_commentEPKcz(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull @.str.17, i64 noundef %.0100.lcssa268)
   br label %285
 
 285:                                              ; preds = %284, %283
-  tail call void (ptr, ptr, ...) @_ZN5faiss11MatrixStats10do_commentEPKcz(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull @.str.18, double noundef %.0102.lcssa238, double noundef %.0104.lcssa236)
+  tail call void (ptr, ptr, ...) @_ZN5faiss11MatrixStats10do_commentEPKcz(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull @.str.18, double noundef %.0102.lcssa266, double noundef %.0104.lcssa264)
   br i1 %.not206, label %._crit_edge202.thread, label %.lr.ph201
 
 .lr.ph201:                                        ; preds = %285
   %286 = load ptr, ptr %15, align 8, !tbaa !50
-  %287 = fmul double %.0104.lcssa236, 1.000000e-04
+  %287 = fmul double %.0104.lcssa264, 1.000000e-04
   br label %288
 
 ._crit_edge202:                                   ; preds = %288

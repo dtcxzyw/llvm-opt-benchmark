@@ -607,7 +607,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_16BucketESt14defa
 _ZN12_GLOBAL__N_16Bucket8addFieldEPN5clang9FieldDeclEi.exit.i: ; preds = %260, %254, %.thread.i
   %264 = phi ptr [ %.phi.trans.insert.i44, %254 ], [ %.phi.trans.insert.i44, %260 ], [ %249, %.thread.i ]
   %265 = phi ptr [ %259, %254 ], [ %259, %260 ], [ %250, %.thread.i ]
-  %.sroa.0161.1198.i = phi ptr [ %.sroa.0161.0172.i, %254 ], [ %.sroa.0161.0172.i, %260 ], [ %248, %.thread.i ]
+  %.sroa.0161.1234.i = phi ptr [ %.sroa.0161.0172.i, %254 ], [ %.sroa.0161.0172.i, %260 ], [ %248, %.thread.i ]
   %266 = phi i32 [ %.pre.i45, %254 ], [ %.pre.i.i.i, %260 ], [ 0, %.thread.i ]
   %267 = load ptr, ptr %265, align 8, !tbaa !3
   %268 = zext i32 %266 to i64
@@ -984,7 +984,7 @@ thread-pre-split.i:                               ; preds = %_ZN4llvm23SmallVect
 
 435:                                              ; preds = %thread-pre-split.i, %_ZN4llvm15SmallVectorImplIPN5clang9FieldDeclEE5eraseEPKS3_.exit120.i, %_ZN4llvm15SmallVectorImplIPN5clang9FieldDeclEE5eraseEPKS3_.exit105.i, %_ZN4llvm15SmallVectorImplIPN5clang9FieldDeclEE5eraseEPKS3_.exit.i
   %436 = phi i32 [ %.pr.i, %thread-pre-split.i ], [ %392, %_ZN4llvm15SmallVectorImplIPN5clang9FieldDeclEE5eraseEPKS3_.exit105.i ], [ %434, %_ZN4llvm15SmallVectorImplIPN5clang9FieldDeclEE5eraseEPKS3_.exit120.i ], [ %283, %_ZN4llvm15SmallVectorImplIPN5clang9FieldDeclEE5eraseEPKS3_.exit.i ]
-  %.sroa.0161.2.i = phi ptr [ null, %thread-pre-split.i ], [ null, %_ZN4llvm15SmallVectorImplIPN5clang9FieldDeclEE5eraseEPKS3_.exit105.i ], [ null, %_ZN4llvm15SmallVectorImplIPN5clang9FieldDeclEE5eraseEPKS3_.exit120.i ], [ %.sroa.0161.1198.i, %_ZN4llvm15SmallVectorImplIPN5clang9FieldDeclEE5eraseEPKS3_.exit.i ]
+  %.sroa.0161.2.i = phi ptr [ null, %thread-pre-split.i ], [ null, %_ZN4llvm15SmallVectorImplIPN5clang9FieldDeclEE5eraseEPKS3_.exit105.i ], [ null, %_ZN4llvm15SmallVectorImplIPN5clang9FieldDeclEE5eraseEPKS3_.exit120.i ], [ %.sroa.0161.1234.i, %_ZN4llvm15SmallVectorImplIPN5clang9FieldDeclEE5eraseEPKS3_.exit.i ]
   %.2.i = phi i64 [ %.2.ph.i, %thread-pre-split.i ], [ %.1.i, %_ZN4llvm15SmallVectorImplIPN5clang9FieldDeclEE5eraseEPKS3_.exit105.i ], [ %412, %_ZN4llvm15SmallVectorImplIPN5clang9FieldDeclEE5eraseEPKS3_.exit120.i ], [ %.1.i, %_ZN4llvm15SmallVectorImplIPN5clang9FieldDeclEE5eraseEPKS3_.exit.i ]
   %.not.i.i46 = icmp eq i32 %436, 0
   br i1 %.not.i.i46, label %._crit_edge.i, label %220
@@ -1516,8 +1516,8 @@ define linkonce_odr void @_ZNSt8seed_seqC2IN9__gnu_cxx17__normal_iteratorIPcNSt7
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not9 = icmp eq ptr %2, %1
-  br i1 %.not9, label %_ZNSt6vectorIjSaIjEE7reserveEm.exit, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i
+  %.not16 = icmp eq ptr %2, %1
+  br i1 %.not16, label %_ZNSt6vectorIjSaIjEE7reserveEm.exit, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8

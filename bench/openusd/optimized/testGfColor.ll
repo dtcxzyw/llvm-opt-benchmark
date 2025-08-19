@@ -349,151 +349,151 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readnone captures
   %170 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__17GfColorSpaceNamesE seq_cst, align 8
   %171 = inttoptr i64 %170 to ptr
   %.not.i.i = icmp eq i64 %170, 0
-  %.sink1814.sroa.gep = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %.sink1814.sroa.gep2082 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %.sink1814.sroa.gep2083 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %.sink1814.sroa.gep2084 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %.sink1814.sroa.gep2085 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %.sink1814.sroa.gep2087 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %.sink1814.sroa.gep2088 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %.sink1814.sroa.gep2089 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %.sink1814.sroa.gep2090 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %.sink1814.sroa.gep2091 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %.sink1814.sroa.gep2093 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %.sink1814.sroa.gep2094 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %.sink1814.sroa.gep2095 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %.sink1814.sroa.gep2096 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %.sink1814.sroa.gep2097 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %.sink1814.sroa.gep2099 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %.sink1814.sroa.gep2100 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  %.sink1814.sroa.gep2101 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %.sink1814.sroa.gep2102 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %.sink1814.sroa.gep2103 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %.sink1814.sroa.gep2105 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  %.sink1814.sroa.gep2106 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %.sink1814.sroa.gep2107 = getelementptr inbounds nuw i8, ptr %46, i64 40
-  %.sink1814.sroa.gep2108 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  %.sink1814.sroa.gep2109 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  %.sink1822.sroa.gep = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %.sink1822.sroa.gep2110 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %.sink1822.sroa.gep2111 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %.sink1822.sroa.gep2112 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %.sink1822.sroa.gep2113 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %.sink1822.sroa.gep2114 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %.sink1822.sroa.gep2116 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %.sink1822.sroa.gep2117 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %.sink1822.sroa.gep2118 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %.sink1822.sroa.gep2119 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %.sink1822.sroa.gep2120 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %.sink1822.sroa.gep2121 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %.sink1822.sroa.gep2123 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %.sink1822.sroa.gep2124 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %.sink1822.sroa.gep2125 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %.sink1822.sroa.gep2126 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %.sink1822.sroa.gep2127 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %.sink1822.sroa.gep2128 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %.sink1822.sroa.gep2130 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %.sink1822.sroa.gep2131 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %.sink1822.sroa.gep2132 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %.sink1822.sroa.gep2133 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %.sink1822.sroa.gep2134 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %.sink1822.sroa.gep2135 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %.sink1822.sroa.gep2137 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  %.sink1822.sroa.gep2138 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %.sink1822.sroa.gep2139 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %.sink1822.sroa.gep2140 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %.sink1822.sroa.gep2141 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  %.sink1822.sroa.gep2142 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  %.sink1830.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sink1830.sroa.gep2143 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sink1830.sroa.gep2144 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sink1830.sroa.gep2145 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sink1830.sroa.gep2146 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sink1830.sroa.gep2147 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sink1830.sroa.gep2148 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sink1830.sroa.gep2149 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sink1830.sroa.gep2150 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sink1830.sroa.gep2151 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sink1830.sroa.gep2152 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink1830.sroa.gep2153 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink1830.sroa.gep2154 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink1830.sroa.gep2155 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink1830.sroa.gep2156 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink1830.sroa.gep2157 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink1830.sroa.gep2158 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink1830.sroa.gep2159 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink1830.sroa.gep2161 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sink1830.sroa.gep2162 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sink1830.sroa.gep2163 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sink1830.sroa.gep2164 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sink1830.sroa.gep2165 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sink1830.sroa.gep2166 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sink1830.sroa.gep2167 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sink1830.sroa.gep2168 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sink1830.sroa.gep2169 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sink1830.sroa.gep2170 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sink1830.sroa.gep2171 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink1830.sroa.gep2172 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink1830.sroa.gep2173 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink1830.sroa.gep2174 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink1830.sroa.gep2175 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink1830.sroa.gep2176 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink1830.sroa.gep2177 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink1830.sroa.gep2178 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink1830.sroa.gep2180 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %.sink1830.sroa.gep2181 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %.sink1830.sroa.gep2182 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %.sink1830.sroa.gep2183 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %.sink1830.sroa.gep2184 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sink1830.sroa.gep2185 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sink1830.sroa.gep2186 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.sink1830.sroa.gep2187 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.sink1830.sroa.gep2188 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sink1830.sroa.gep2189 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sink1830.sroa.gep2190 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sink1830.sroa.gep2191 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sink1830.sroa.gep2192 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink1830.sroa.gep2193 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink1830.sroa.gep2194 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sink1830.sroa.gep2195 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sink1830.sroa.gep2196 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sink1830.sroa.gep2197 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sink1830.sroa.gep2199 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %.sink1830.sroa.gep2200 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %.sink1830.sroa.gep2201 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.sink1830.sroa.gep2202 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.sink1830.sroa.gep2203 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %.sink1830.sroa.gep2204 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %.sink1830.sroa.gep2205 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sink1830.sroa.gep2206 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sink1830.sroa.gep2207 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %.sink1830.sroa.gep2208 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %.sink1830.sroa.gep2209 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink1830.sroa.gep2210 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink1830.sroa.gep2211 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink1830.sroa.gep2212 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink1830.sroa.gep2213 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sink1830.sroa.gep2214 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sink1830.sroa.gep2215 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink1830.sroa.gep2216 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink1830.sroa.gep2218 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %.sink1830.sroa.gep2219 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %.sink1830.sroa.gep2220 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %.sink1830.sroa.gep2221 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %.sink1830.sroa.gep2222 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %.sink1830.sroa.gep2223 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %.sink1830.sroa.gep2224 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %.sink1830.sroa.gep2225 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %.sink1830.sroa.gep2226 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %.sink1830.sroa.gep2227 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %.sink1830.sroa.gep2228 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %.sink1830.sroa.gep2229 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %.sink1830.sroa.gep2230 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %.sink1830.sroa.gep2231 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %.sink1830.sroa.gep2232 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %.sink1830.sroa.gep2233 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %.sink1830.sroa.gep2234 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %.sink1830.sroa.gep2235 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %.sink1927.sroa.gep = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %.sink1927.sroa.gep2195 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %.sink1927.sroa.gep2196 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %.sink1927.sroa.gep2197 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %.sink1927.sroa.gep2198 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %.sink1927.sroa.gep2200 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %.sink1927.sroa.gep2201 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %.sink1927.sroa.gep2202 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %.sink1927.sroa.gep2203 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %.sink1927.sroa.gep2204 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %.sink1927.sroa.gep2206 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %.sink1927.sroa.gep2207 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %.sink1927.sroa.gep2208 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %.sink1927.sroa.gep2209 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %.sink1927.sroa.gep2210 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %.sink1927.sroa.gep2212 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  %.sink1927.sroa.gep2213 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  %.sink1927.sroa.gep2214 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  %.sink1927.sroa.gep2215 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  %.sink1927.sroa.gep2216 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %.sink1927.sroa.gep2218 = getelementptr inbounds nuw i8, ptr %48, i64 40
+  %.sink1927.sroa.gep2219 = getelementptr inbounds nuw i8, ptr %47, i64 40
+  %.sink1927.sroa.gep2220 = getelementptr inbounds nuw i8, ptr %46, i64 40
+  %.sink1927.sroa.gep2221 = getelementptr inbounds nuw i8, ptr %45, i64 40
+  %.sink1927.sroa.gep2222 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %.sink1935.sroa.gep = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %.sink1935.sroa.gep2223 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %.sink1935.sroa.gep2224 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %.sink1935.sroa.gep2225 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %.sink1935.sroa.gep2226 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %.sink1935.sroa.gep2227 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %.sink1935.sroa.gep2229 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %.sink1935.sroa.gep2230 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %.sink1935.sroa.gep2231 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %.sink1935.sroa.gep2232 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %.sink1935.sroa.gep2233 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %.sink1935.sroa.gep2234 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %.sink1935.sroa.gep2236 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %.sink1935.sroa.gep2237 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %.sink1935.sroa.gep2238 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %.sink1935.sroa.gep2239 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %.sink1935.sroa.gep2240 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %.sink1935.sroa.gep2241 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %.sink1935.sroa.gep2243 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %.sink1935.sroa.gep2244 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %.sink1935.sroa.gep2245 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %.sink1935.sroa.gep2246 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %.sink1935.sroa.gep2247 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %.sink1935.sroa.gep2248 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %.sink1935.sroa.gep2250 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  %.sink1935.sroa.gep2251 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %.sink1935.sroa.gep2252 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  %.sink1935.sroa.gep2253 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %.sink1935.sroa.gep2254 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  %.sink1935.sroa.gep2255 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  %.sink1943.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sink1943.sroa.gep2256 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sink1943.sroa.gep2257 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sink1943.sroa.gep2258 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sink1943.sroa.gep2259 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink1943.sroa.gep2260 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink1943.sroa.gep2261 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink1943.sroa.gep2262 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink1943.sroa.gep2263 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink1943.sroa.gep2264 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink1943.sroa.gep2265 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink1943.sroa.gep2266 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink1943.sroa.gep2267 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink1943.sroa.gep2268 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink1943.sroa.gep2269 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink1943.sroa.gep2270 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink1943.sroa.gep2271 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink1943.sroa.gep2272 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink1943.sroa.gep2274 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sink1943.sroa.gep2275 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sink1943.sroa.gep2276 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sink1943.sroa.gep2277 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sink1943.sroa.gep2278 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sink1943.sroa.gep2279 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sink1943.sroa.gep2280 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink1943.sroa.gep2281 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink1943.sroa.gep2282 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink1943.sroa.gep2283 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink1943.sroa.gep2284 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink1943.sroa.gep2285 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink1943.sroa.gep2286 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink1943.sroa.gep2287 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink1943.sroa.gep2288 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink1943.sroa.gep2289 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink1943.sroa.gep2290 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink1943.sroa.gep2291 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink1943.sroa.gep2293 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sink1943.sroa.gep2294 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sink1943.sroa.gep2295 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sink1943.sroa.gep2296 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sink1943.sroa.gep2297 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sink1943.sroa.gep2298 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sink1943.sroa.gep2299 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sink1943.sroa.gep2300 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sink1943.sroa.gep2301 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sink1943.sroa.gep2302 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sink1943.sroa.gep2303 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink1943.sroa.gep2304 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink1943.sroa.gep2305 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink1943.sroa.gep2306 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink1943.sroa.gep2307 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink1943.sroa.gep2308 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink1943.sroa.gep2309 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink1943.sroa.gep2310 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink1943.sroa.gep2312 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %.sink1943.sroa.gep2313 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %.sink1943.sroa.gep2314 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sink1943.sroa.gep2315 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sink1943.sroa.gep2316 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sink1943.sroa.gep2317 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sink1943.sroa.gep2318 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink1943.sroa.gep2319 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink1943.sroa.gep2320 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sink1943.sroa.gep2321 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sink1943.sroa.gep2322 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink1943.sroa.gep2323 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink1943.sroa.gep2324 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink1943.sroa.gep2325 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink1943.sroa.gep2326 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink1943.sroa.gep2327 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink1943.sroa.gep2328 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink1943.sroa.gep2329 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink1943.sroa.gep2331 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %.sink1943.sroa.gep2332 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %.sink1943.sroa.gep2333 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %.sink1943.sroa.gep2334 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %.sink1943.sroa.gep2335 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %.sink1943.sroa.gep2336 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %.sink1943.sroa.gep2337 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %.sink1943.sroa.gep2338 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %.sink1943.sroa.gep2339 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %.sink1943.sroa.gep2340 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %.sink1943.sroa.gep2341 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %.sink1943.sroa.gep2342 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %.sink1943.sroa.gep2343 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %.sink1943.sroa.gep2344 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %.sink1943.sroa.gep2345 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %.sink1943.sroa.gep2346 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %.sink1943.sroa.gep2347 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %.sink1943.sroa.gep2348 = getelementptr inbounds nuw i8, ptr %4, i64 40
   br i1 %.not.i.i, label %172, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_33GfColorSpaceNames_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
 
 172:                                              ; preds = %2
@@ -1392,9 +1392,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKS0_.exit.thread: ; preds = %52
   %.not.i.i.i.i.i.i210 = icmp eq i8 %538, 0
   %539 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %540 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  br i1 %.not.i.i.i.i.i.i210, label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKS0_.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKS0_.exit.thread1803
+  br i1 %.not.i.i.i.i.i.i210, label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKS0_.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKS0_.exit.thread1916
 
-_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKS0_.exit.thread1803: ; preds = %536
+_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKS0_.exit.thread1916: ; preds = %536
   %541 = load i32, ptr %537, align 4
   %542 = add nsw i32 %541, 1
   store i32 %542, ptr %537, align 4
@@ -1414,8 +1414,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKS0_.exit: ; preds = %536
   %.not.i.i.i.i.i211 = icmp eq ptr %.pre1801, null
   br i1 %.not.i.i.i.i.i211, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit213, label %544
 
-544:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKS0_.exit.thread1803, %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKS0_.exit
-  %545 = phi ptr [ %532, %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKS0_.exit.thread1803 ], [ %.pre1801, %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKS0_.exit ]
+544:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKS0_.exit.thread1916, %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKS0_.exit
+  %545 = phi ptr [ %532, %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKS0_.exit.thread1916 ], [ %.pre1801, %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKS0_.exit ]
   %546 = getelementptr inbounds nuw i8, ptr %545, i64 8
   %547 = load i8, ptr @__libc_single_threaded, align 1, !noalias !13
   %.not.i.i.i.i.i.i212 = icmp eq i8 %547, 0
@@ -2228,10 +2228,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit298: ; preds = %826, %844,
   %.sroa.22.0.copyload.i9.i = load float, ptr %.sroa.22.0..sroa_idx.i8.i, align 8
   %foldExtExtBinop = fsub <2 x float> %.sroa.01.0.copyload.i.i, %.sroa.01.0.copyload.i7.i
   %865 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %foldExtExtBinop1832 = fsub <2 x float> %.sroa.01.0.copyload.i.i, %.sroa.01.0.copyload.i7.i
+  %foldExtExtBinop1945 = fsub <2 x float> %.sroa.01.0.copyload.i.i, %.sroa.01.0.copyload.i7.i
   %866 = fsub float %.sroa.22.0.copyload.i.i, %.sroa.22.0.copyload.i9.i
-  %foldExtExtBinop1834 = fmul <2 x float> %foldExtExtBinop1832, %foldExtExtBinop1832
-  %867 = extractelement <2 x float> %foldExtExtBinop1834, i64 1
+  %foldExtExtBinop1947 = fmul <2 x float> %foldExtExtBinop1945, %foldExtExtBinop1945
+  %867 = extractelement <2 x float> %foldExtExtBinop1947, i64 1
   %868 = call float @llvm.fmuladd.f32(float %865, float %865, float %867)
   %869 = call noundef float @llvm.fmuladd.f32(float %866, float %866, float %868)
   %870 = fpext float %869 to double
@@ -2271,12 +2271,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit298: ; preds = %826, %844,
   %.sroa.01.0.copyload.i7.i304 = load <2 x float>, ptr %877, align 8
   %.sroa.22.0..sroa_idx.i8.i305 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %.sroa.22.0.copyload.i9.i306 = load float, ptr %.sroa.22.0..sroa_idx.i8.i305, align 8
-  %foldExtExtBinop1836 = fsub <2 x float> %.sroa.01.0.copyload.i.i301, %.sroa.01.0.copyload.i7.i304
-  %878 = extractelement <2 x float> %foldExtExtBinop1836, i64 0
-  %foldExtExtBinop1838 = fsub <2 x float> %.sroa.01.0.copyload.i.i301, %.sroa.01.0.copyload.i7.i304
+  %foldExtExtBinop1949 = fsub <2 x float> %.sroa.01.0.copyload.i.i301, %.sroa.01.0.copyload.i7.i304
+  %878 = extractelement <2 x float> %foldExtExtBinop1949, i64 0
+  %foldExtExtBinop1951 = fsub <2 x float> %.sroa.01.0.copyload.i.i301, %.sroa.01.0.copyload.i7.i304
   %879 = fsub float %.sroa.22.0.copyload.i.i303, %.sroa.22.0.copyload.i9.i306
-  %foldExtExtBinop1840 = fmul <2 x float> %foldExtExtBinop1838, %foldExtExtBinop1838
-  %880 = extractelement <2 x float> %foldExtExtBinop1840, i64 1
+  %foldExtExtBinop1953 = fmul <2 x float> %foldExtExtBinop1951, %foldExtExtBinop1951
+  %880 = extractelement <2 x float> %foldExtExtBinop1953, i64 1
   %881 = call float @llvm.fmuladd.f32(float %878, float %878, float %880)
   %882 = call noundef float @llvm.fmuladd.f32(float %879, float %879, float %881)
   %883 = fpext float %882 to double
@@ -2540,12 +2540,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit333: ; preds = %_ZN32pxrIn
   %.sroa.01.0.copyload.i7.i337 = load <2 x float>, ptr %998, align 8
   %.sroa.22.0..sroa_idx.i8.i338 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %.sroa.22.0.copyload.i9.i339 = load float, ptr %.sroa.22.0..sroa_idx.i8.i338, align 8
-  %foldExtExtBinop1842 = fsub <2 x float> %.sroa.01.0.copyload.i.i334, %.sroa.01.0.copyload.i7.i337
-  %999 = extractelement <2 x float> %foldExtExtBinop1842, i64 0
-  %foldExtExtBinop1844 = fsub <2 x float> %.sroa.01.0.copyload.i.i334, %.sroa.01.0.copyload.i7.i337
+  %foldExtExtBinop1955 = fsub <2 x float> %.sroa.01.0.copyload.i.i334, %.sroa.01.0.copyload.i7.i337
+  %999 = extractelement <2 x float> %foldExtExtBinop1955, i64 0
+  %foldExtExtBinop1957 = fsub <2 x float> %.sroa.01.0.copyload.i.i334, %.sroa.01.0.copyload.i7.i337
   %1000 = fsub float %.sroa.22.0.copyload.i.i336, %.sroa.22.0.copyload.i9.i339
-  %foldExtExtBinop1846 = fmul <2 x float> %foldExtExtBinop1844, %foldExtExtBinop1844
-  %1001 = extractelement <2 x float> %foldExtExtBinop1846, i64 1
+  %foldExtExtBinop1959 = fmul <2 x float> %foldExtExtBinop1957, %foldExtExtBinop1957
+  %1001 = extractelement <2 x float> %foldExtExtBinop1959, i64 1
   %1002 = call float @llvm.fmuladd.f32(float %999, float %999, float %1001)
   %1003 = call noundef float @llvm.fmuladd.f32(float %1000, float %1000, float %1002)
   %1004 = fpext float %1003 to double
@@ -2753,35 +2753,35 @@ _ZNK11GfColorTest15GetChromaticityEv.exit372:     ; preds = %_ZNK11GfColorTest15
           to label %1084 unwind label %3934
 
 1084:                                             ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit372
-  %foldExtExtBinop1848 = fsub <2 x float> %306, %356
-  %1085 = extractelement <2 x float> %foldExtExtBinop1848, i64 0
+  %foldExtExtBinop1961 = fsub <2 x float> %306, %356
+  %1085 = extractelement <2 x float> %foldExtExtBinop1961, i64 0
   %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %306, i64 1
-  %foldExtExtBinop1850 = fsub <2 x float> %306, %356
-  %foldExtExtBinop1852 = fmul <2 x float> %foldExtExtBinop1850, %foldExtExtBinop1850
-  %1086 = extractelement <2 x float> %foldExtExtBinop1852, i64 1
+  %foldExtExtBinop1963 = fsub <2 x float> %306, %356
+  %foldExtExtBinop1965 = fmul <2 x float> %foldExtExtBinop1963, %foldExtExtBinop1963
+  %1086 = extractelement <2 x float> %foldExtExtBinop1965, i64 1
   %1087 = call noundef float @llvm.fmuladd.f32(float %1085, float %1085, float %1086)
   %1088 = fpext float %1087 to double
   %1089 = fcmp ugt double %1088, 0x3DDB7CDFC28AE400
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
-  br i1 %1089, label %.invoke1805, label %1090
+  br i1 %1089, label %.invoke1918, label %1090
 
 1090:                                             ; preds = %1084
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
-  %foldExtExtBinop1854 = fsub <2 x float> %306, %1081
-  %1091 = extractelement <2 x float> %foldExtExtBinop1854, i64 0
-  %foldExtExtBinop1856 = fsub <2 x float> %306, %1081
-  %foldExtExtBinop1858 = fmul <2 x float> %foldExtExtBinop1856, %foldExtExtBinop1856
-  %1092 = extractelement <2 x float> %foldExtExtBinop1858, i64 1
+  %foldExtExtBinop1967 = fsub <2 x float> %306, %1081
+  %1091 = extractelement <2 x float> %foldExtExtBinop1967, i64 0
+  %foldExtExtBinop1969 = fsub <2 x float> %306, %1081
+  %foldExtExtBinop1971 = fmul <2 x float> %foldExtExtBinop1969, %foldExtExtBinop1969
+  %1092 = extractelement <2 x float> %foldExtExtBinop1971, i64 1
   %1093 = call noundef float @llvm.fmuladd.f32(float %1091, float %1091, float %1092)
   %1094 = fpext float %1093 to double
   %1095 = fcmp ugt double %1094, 0x3DDB7CDFC28AE400
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
-  br i1 %1095, label %.invoke1805, label %1096
+  br i1 %1095, label %.invoke1918, label %1096
 
 1096:                                             ; preds = %1090
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
-  %foldExtExtBinop1860 = fsub <2 x float> %1082, %1083
-  %1097 = extractelement <2 x float> %foldExtExtBinop1860, i64 0
+  %foldExtExtBinop1973 = fsub <2 x float> %1082, %1083
+  %1097 = extractelement <2 x float> %foldExtExtBinop1973, i64 0
   %.sroa.01692.4.vec.extract = extractelement <2 x float> %1083, i64 1
   %.sroa.0.4.vec.extract.i.i382 = extractelement <2 x float> %1082, i64 1
   %1098 = fsub float %.sroa.0.4.vec.extract.i.i382, %.sroa.01692.4.vec.extract
@@ -2790,51 +2790,51 @@ _ZNK11GfColorTest15GetChromaticityEv.exit372:     ; preds = %_ZNK11GfColorTest15
   %1101 = fpext float %1100 to double
   %1102 = fcmp ugt double %1101, 0x3F3A36E2D7731900
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
-  br i1 %1102, label %.invoke1805, label %1103
+  br i1 %1102, label %.invoke1918, label %1103
 
 1103:                                             ; preds = %1096
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
-  %foldExtExtBinop1862 = fsub <2 x float> %306, %1082
-  %1104 = extractelement <2 x float> %foldExtExtBinop1862, i64 0
+  %foldExtExtBinop1975 = fsub <2 x float> %306, %1082
+  %1104 = extractelement <2 x float> %foldExtExtBinop1975, i64 0
   %1105 = fsub float %.sroa.0.4.vec.extract.i.i, %.sroa.0.4.vec.extract.i.i382
   %1106 = fmul float %1105, %1105
   %1107 = call noundef float @llvm.fmuladd.f32(float %1104, float %1104, float %1106)
   %1108 = fpext float %1107 to double
   %1109 = fcmp ugt double %1108, 0x3F647AE151EB8520
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
-  br i1 %1109, label %.invoke1805, label %1110
+  br i1 %1109, label %.invoke1918, label %1110
 
 1110:                                             ; preds = %1103
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
-  %foldExtExtBinop1864 = fsub <2 x float> %306, %1083
-  %1111 = extractelement <2 x float> %foldExtExtBinop1864, i64 0
+  %foldExtExtBinop1977 = fsub <2 x float> %306, %1083
+  %1111 = extractelement <2 x float> %foldExtExtBinop1977, i64 0
   %1112 = fsub float %.sroa.0.4.vec.extract.i.i, %.sroa.01692.4.vec.extract
   %1113 = fmul float %1112, %1112
   %1114 = call noundef float @llvm.fmuladd.f32(float %1111, float %1111, float %1113)
   %1115 = fpext float %1114 to double
   %1116 = fcmp ugt double %1115, 0x3F3A36E2D7731900
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
-  br i1 %1116, label %.invoke1805, label %1118
+  br i1 %1116, label %.invoke1918, label %1118
 
-.invoke1805:                                      ; preds = %1110, %1103, %1096, %1090, %1084
-  %.sink1814.sroa.phi = phi ptr [ %.sink1814.sroa.gep, %1084 ], [ %.sink1814.sroa.gep2082, %1090 ], [ %.sink1814.sroa.gep2083, %1096 ], [ %.sink1814.sroa.gep2084, %1103 ], [ %.sink1814.sroa.gep2085, %1110 ]
-  %.sink1814.sroa.phi2086 = phi ptr [ %.sink1814.sroa.gep2087, %1084 ], [ %.sink1814.sroa.gep2088, %1090 ], [ %.sink1814.sroa.gep2089, %1096 ], [ %.sink1814.sroa.gep2090, %1103 ], [ %.sink1814.sroa.gep2091, %1110 ]
-  %.sink1814.sroa.phi2092 = phi ptr [ %.sink1814.sroa.gep2093, %1084 ], [ %.sink1814.sroa.gep2094, %1090 ], [ %.sink1814.sroa.gep2095, %1096 ], [ %.sink1814.sroa.gep2096, %1103 ], [ %.sink1814.sroa.gep2097, %1110 ]
-  %.sink1814.sroa.phi2098 = phi ptr [ %.sink1814.sroa.gep2099, %1084 ], [ %.sink1814.sroa.gep2100, %1090 ], [ %.sink1814.sroa.gep2101, %1096 ], [ %.sink1814.sroa.gep2102, %1103 ], [ %.sink1814.sroa.gep2103, %1110 ]
-  %.sink1814.sroa.phi2104 = phi ptr [ %.sink1814.sroa.gep2105, %1084 ], [ %.sink1814.sroa.gep2106, %1090 ], [ %.sink1814.sroa.gep2107, %1096 ], [ %.sink1814.sroa.gep2108, %1103 ], [ %.sink1814.sroa.gep2109, %1110 ]
-  %.sink1814 = phi ptr [ %48, %1084 ], [ %47, %1090 ], [ %46, %1096 ], [ %45, %1103 ], [ %44, %1110 ]
-  %.sink1811 = phi i64 [ 158, %1084 ], [ 159, %1090 ], [ 160, %1096 ], [ 161, %1103 ], [ 162, %1110 ]
+.invoke1918:                                      ; preds = %1110, %1103, %1096, %1090, %1084
+  %.sink1927.sroa.phi = phi ptr [ %.sink1927.sroa.gep, %1084 ], [ %.sink1927.sroa.gep2195, %1090 ], [ %.sink1927.sroa.gep2196, %1096 ], [ %.sink1927.sroa.gep2197, %1103 ], [ %.sink1927.sroa.gep2198, %1110 ]
+  %.sink1927.sroa.phi2199 = phi ptr [ %.sink1927.sroa.gep2200, %1084 ], [ %.sink1927.sroa.gep2201, %1090 ], [ %.sink1927.sroa.gep2202, %1096 ], [ %.sink1927.sroa.gep2203, %1103 ], [ %.sink1927.sroa.gep2204, %1110 ]
+  %.sink1927.sroa.phi2205 = phi ptr [ %.sink1927.sroa.gep2206, %1084 ], [ %.sink1927.sroa.gep2207, %1090 ], [ %.sink1927.sroa.gep2208, %1096 ], [ %.sink1927.sroa.gep2209, %1103 ], [ %.sink1927.sroa.gep2210, %1110 ]
+  %.sink1927.sroa.phi2211 = phi ptr [ %.sink1927.sroa.gep2212, %1084 ], [ %.sink1927.sroa.gep2213, %1090 ], [ %.sink1927.sroa.gep2214, %1096 ], [ %.sink1927.sroa.gep2215, %1103 ], [ %.sink1927.sroa.gep2216, %1110 ]
+  %.sink1927.sroa.phi2217 = phi ptr [ %.sink1927.sroa.gep2218, %1084 ], [ %.sink1927.sroa.gep2219, %1090 ], [ %.sink1927.sroa.gep2220, %1096 ], [ %.sink1927.sroa.gep2221, %1103 ], [ %.sink1927.sroa.gep2222, %1110 ]
+  %.sink1927 = phi ptr [ %48, %1084 ], [ %47, %1090 ], [ %46, %1096 ], [ %45, %1103 ], [ %44, %1110 ]
+  %.sink1924 = phi i64 [ 158, %1084 ], [ 159, %1090 ], [ 160, %1096 ], [ 161, %1103 ], [ 162, %1110 ]
   %1117 = phi ptr [ @.str.10, %1084 ], [ @.str.11, %1090 ], [ @.str.12, %1096 ], [ @.str.13, %1103 ], [ @.str.14, %1110 ]
-  store ptr @.str, ptr %.sink1814, align 8
-  store ptr @__func__.main, ptr %.sink1814.sroa.phi, align 8
-  store i64 %.sink1811, ptr %.sink1814.sroa.phi2086, align 8
-  store ptr @__PRETTY_FUNCTION__.main, ptr %.sink1814.sroa.phi2092, align 8
-  store i8 0, ptr %.sink1814.sroa.phi2098, align 8
-  store i32 4, ptr %.sink1814.sroa.phi2104, align 8
-  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink1814, ptr noundef nonnull @.str.57, ptr noundef nonnull %1117) #17
-          to label %.cont1806 unwind label %3934
+  store ptr @.str, ptr %.sink1927, align 8
+  store ptr @__func__.main, ptr %.sink1927.sroa.phi, align 8
+  store i64 %.sink1924, ptr %.sink1927.sroa.phi2199, align 8
+  store ptr @__PRETTY_FUNCTION__.main, ptr %.sink1927.sroa.phi2205, align 8
+  store i8 0, ptr %.sink1927.sroa.phi2211, align 8
+  store i32 4, ptr %.sink1927.sroa.phi2217, align 8
+  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink1927, ptr noundef nonnull @.str.57, ptr noundef nonnull %1117) #17
+          to label %.cont1919 unwind label %3934
 
-.cont1806:                                        ; preds = %.invoke1805
+.cont1919:                                        ; preds = %.invoke1918
   unreachable
 
 1118:                                             ; preds = %1110
@@ -3220,12 +3220,12 @@ _ZN11GfColorTestD2Ev.exit427:                     ; preds = %_ZN11GfColorTestD2E
   %.sroa.01.0.copyload.i7.i433 = load <2 x float>, ptr %355, align 8
   %.sroa.22.0..sroa_idx.i8.i434 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %.sroa.22.0.copyload.i9.i435 = load float, ptr %.sroa.22.0..sroa_idx.i8.i434, align 8
-  %foldExtExtBinop1866 = fsub <2 x float> %.sroa.01.0.copyload.i.i430, %.sroa.01.0.copyload.i7.i433
-  %1301 = extractelement <2 x float> %foldExtExtBinop1866, i64 0
-  %foldExtExtBinop1868 = fsub <2 x float> %.sroa.01.0.copyload.i.i430, %.sroa.01.0.copyload.i7.i433
+  %foldExtExtBinop1979 = fsub <2 x float> %.sroa.01.0.copyload.i.i430, %.sroa.01.0.copyload.i7.i433
+  %1301 = extractelement <2 x float> %foldExtExtBinop1979, i64 0
+  %foldExtExtBinop1981 = fsub <2 x float> %.sroa.01.0.copyload.i.i430, %.sroa.01.0.copyload.i7.i433
   %1302 = fsub float %.sroa.22.0.copyload.i.i432, %.sroa.22.0.copyload.i9.i435
-  %foldExtExtBinop1870 = fmul <2 x float> %foldExtExtBinop1868, %foldExtExtBinop1868
-  %1303 = extractelement <2 x float> %foldExtExtBinop1870, i64 1
+  %foldExtExtBinop1983 = fmul <2 x float> %foldExtExtBinop1981, %foldExtExtBinop1981
+  %1303 = extractelement <2 x float> %foldExtExtBinop1983, i64 1
   %1304 = call float @llvm.fmuladd.f32(float %1301, float %1301, float %1303)
   %1305 = call noundef float @llvm.fmuladd.f32(float %1302, float %1302, float %1304)
   %1306 = fpext float %1305 to double
@@ -3263,12 +3263,12 @@ _ZN11GfColorTestD2Ev.exit427:                     ; preds = %_ZN11GfColorTestD2E
   %.sroa.22.0.copyload.i.i446 = load float, ptr %.sroa.22.0..sroa_idx.i.i445, align 8
   %.sroa.01.0.copyload.i7.i447 = load <2 x float>, ptr %305, align 8
   %.sroa.22.0.copyload.i9.i449 = load float, ptr %.sroa.22.0..sroa_idx.i.i, align 8
-  %foldExtExtBinop1872 = fsub <2 x float> %.sroa.01.0.copyload.i.i444, %.sroa.01.0.copyload.i7.i447
-  %1313 = extractelement <2 x float> %foldExtExtBinop1872, i64 0
-  %foldExtExtBinop1874 = fsub <2 x float> %.sroa.01.0.copyload.i.i444, %.sroa.01.0.copyload.i7.i447
+  %foldExtExtBinop1985 = fsub <2 x float> %.sroa.01.0.copyload.i.i444, %.sroa.01.0.copyload.i7.i447
+  %1313 = extractelement <2 x float> %foldExtExtBinop1985, i64 0
+  %foldExtExtBinop1987 = fsub <2 x float> %.sroa.01.0.copyload.i.i444, %.sroa.01.0.copyload.i7.i447
   %1314 = fsub float %.sroa.22.0.copyload.i.i446, %.sroa.22.0.copyload.i9.i449
-  %foldExtExtBinop1876 = fmul <2 x float> %foldExtExtBinop1874, %foldExtExtBinop1874
-  %1315 = extractelement <2 x float> %foldExtExtBinop1876, i64 1
+  %foldExtExtBinop1989 = fmul <2 x float> %foldExtExtBinop1987, %foldExtExtBinop1987
+  %1315 = extractelement <2 x float> %foldExtExtBinop1989, i64 1
   %1316 = call float @llvm.fmuladd.f32(float %1313, float %1313, float %1315)
   %1317 = call noundef float @llvm.fmuladd.f32(float %1314, float %1314, float %1316)
   %1318 = fpext float %1317 to double
@@ -3562,11 +3562,11 @@ _ZNK11GfColorTest15GetChromaticityEv.exit483:     ; preds = %_ZN11GfColorTestC2E
           to label %1429 unwind label %3948
 
 1429:                                             ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit483
-  %foldExtExtBinop1878 = fsub <2 x float> %1427, %1428
-  %1430 = extractelement <2 x float> %foldExtExtBinop1878, i64 0
-  %foldExtExtBinop1880 = fsub <2 x float> %1427, %1428
-  %foldExtExtBinop1882 = fmul <2 x float> %foldExtExtBinop1880, %foldExtExtBinop1880
-  %1431 = extractelement <2 x float> %foldExtExtBinop1882, i64 1
+  %foldExtExtBinop1991 = fsub <2 x float> %1427, %1428
+  %1430 = extractelement <2 x float> %foldExtExtBinop1991, i64 0
+  %foldExtExtBinop1993 = fsub <2 x float> %1427, %1428
+  %foldExtExtBinop1995 = fmul <2 x float> %foldExtExtBinop1993, %foldExtExtBinop1993
+  %1431 = extractelement <2 x float> %foldExtExtBinop1995, i64 1
   %1432 = call noundef float @llvm.fmuladd.f32(float %1430, float %1430, float %1431)
   %1433 = fpext float %1432 to double
   %1434 = fcmp ugt double %1433, 0x3DDB7CDFC28AE400
@@ -3601,11 +3601,11 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColor
           to label %1439 unwind label %3950
 
 1439:                                             ; preds = %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColorSpaceE.exit491
-  %foldExtExtBinop1884 = fsub <2 x float> %1427, %1438
-  %1440 = extractelement <2 x float> %foldExtExtBinop1884, i64 0
-  %foldExtExtBinop1886 = fsub <2 x float> %1427, %1438
-  %foldExtExtBinop1888 = fmul <2 x float> %foldExtExtBinop1886, %foldExtExtBinop1886
-  %1441 = extractelement <2 x float> %foldExtExtBinop1888, i64 1
+  %foldExtExtBinop1997 = fsub <2 x float> %1427, %1438
+  %1440 = extractelement <2 x float> %foldExtExtBinop1997, i64 0
+  %foldExtExtBinop1999 = fsub <2 x float> %1427, %1438
+  %foldExtExtBinop2001 = fmul <2 x float> %foldExtExtBinop1999, %foldExtExtBinop1999
+  %1441 = extractelement <2 x float> %foldExtExtBinop2001, i64 1
   %1442 = call noundef float @llvm.fmuladd.f32(float %1440, float %1440, float %1441)
   %1443 = fpext float %1442 to double
   %1444 = fcmp ugt double %1443, 0x3F4D7DBF32617C20
@@ -3640,11 +3640,11 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColor
           to label %1449 unwind label %3952
 
 1449:                                             ; preds = %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColorSpaceE.exit499
-  %foldExtExtBinop1890 = fsub <2 x float> %1427, %1448
-  %1450 = extractelement <2 x float> %foldExtExtBinop1890, i64 0
-  %foldExtExtBinop1892 = fsub <2 x float> %1427, %1448
-  %foldExtExtBinop1894 = fmul <2 x float> %foldExtExtBinop1892, %foldExtExtBinop1892
-  %1451 = extractelement <2 x float> %foldExtExtBinop1894, i64 1
+  %foldExtExtBinop2003 = fsub <2 x float> %1427, %1448
+  %1450 = extractelement <2 x float> %foldExtExtBinop2003, i64 0
+  %foldExtExtBinop2005 = fsub <2 x float> %1427, %1448
+  %foldExtExtBinop2007 = fmul <2 x float> %foldExtExtBinop2005, %foldExtExtBinop2005
+  %1451 = extractelement <2 x float> %foldExtExtBinop2007, i64 1
   %1452 = call noundef float @llvm.fmuladd.f32(float %1450, float %1450, float %1451)
   %1453 = fpext float %1452 to double
   %1454 = fcmp ugt double %1453, 0x3F4D7DBF32617C20
@@ -3679,11 +3679,11 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColor
           to label %1459 unwind label %3954
 
 1459:                                             ; preds = %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColorSpaceE.exit507
-  %foldExtExtBinop1896 = fsub <2 x float> %1427, %1458
-  %1460 = extractelement <2 x float> %foldExtExtBinop1896, i64 0
-  %foldExtExtBinop1898 = fsub <2 x float> %1427, %1458
-  %foldExtExtBinop1900 = fmul <2 x float> %foldExtExtBinop1898, %foldExtExtBinop1898
-  %1461 = extractelement <2 x float> %foldExtExtBinop1900, i64 1
+  %foldExtExtBinop2009 = fsub <2 x float> %1427, %1458
+  %1460 = extractelement <2 x float> %foldExtExtBinop2009, i64 0
+  %foldExtExtBinop2011 = fsub <2 x float> %1427, %1458
+  %foldExtExtBinop2013 = fmul <2 x float> %foldExtExtBinop2011, %foldExtExtBinop2011
+  %1461 = extractelement <2 x float> %foldExtExtBinop2013, i64 1
   %1462 = call noundef float @llvm.fmuladd.f32(float %1460, float %1460, float %1461)
   %1463 = fpext float %1462 to double
   %1464 = fcmp ugt double %1463, 0x3F4D7DBF32617C20
@@ -3720,12 +3720,12 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColor
   %.sroa.22.0.copyload.i.i518 = load float, ptr %.sroa.22.0..sroa_idx.i.i517, align 8
   %.sroa.01.0.copyload.i7.i519 = load <2 x float>, ptr %1312, align 8
   %.sroa.22.0.copyload.i9.i521 = load float, ptr %.sroa.22.0..sroa_idx.i.i445, align 8
-  %foldExtExtBinop1902 = fsub <2 x float> %.sroa.01.0.copyload.i.i516, %.sroa.01.0.copyload.i7.i519
-  %1470 = extractelement <2 x float> %foldExtExtBinop1902, i64 0
-  %foldExtExtBinop1904 = fsub <2 x float> %.sroa.01.0.copyload.i.i516, %.sroa.01.0.copyload.i7.i519
+  %foldExtExtBinop2015 = fsub <2 x float> %.sroa.01.0.copyload.i.i516, %.sroa.01.0.copyload.i7.i519
+  %1470 = extractelement <2 x float> %foldExtExtBinop2015, i64 0
+  %foldExtExtBinop2017 = fsub <2 x float> %.sroa.01.0.copyload.i.i516, %.sroa.01.0.copyload.i7.i519
   %1471 = fsub float %.sroa.22.0.copyload.i.i518, %.sroa.22.0.copyload.i9.i521
-  %foldExtExtBinop1906 = fmul <2 x float> %foldExtExtBinop1904, %foldExtExtBinop1904
-  %1472 = extractelement <2 x float> %foldExtExtBinop1906, i64 1
+  %foldExtExtBinop2019 = fmul <2 x float> %foldExtExtBinop2017, %foldExtExtBinop2017
+  %1472 = extractelement <2 x float> %foldExtExtBinop2019, i64 1
   %1473 = call float @llvm.fmuladd.f32(float %1470, float %1470, float %1472)
   %1474 = call noundef float @llvm.fmuladd.f32(float %1471, float %1471, float %1473)
   %1475 = fpext float %1474 to double
@@ -4714,12 +4714,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit621: ; preds = %_ZN32pxrIn
   %.sroa.01.0.copyload.i7.i628 = load <2 x float>, ptr %1921, align 8
   %.sroa.22.0..sroa_idx.i8.i629 = getelementptr inbounds nuw i8, ptr %115, i64 24
   %.sroa.22.0.copyload.i9.i630 = load float, ptr %.sroa.22.0..sroa_idx.i8.i629, align 8
-  %foldExtExtBinop1908 = fsub <2 x float> %.sroa.01.0.copyload.i.i625, %.sroa.01.0.copyload.i7.i628
-  %1923 = extractelement <2 x float> %foldExtExtBinop1908, i64 0
-  %foldExtExtBinop1910 = fsub <2 x float> %.sroa.01.0.copyload.i.i625, %.sroa.01.0.copyload.i7.i628
+  %foldExtExtBinop2021 = fsub <2 x float> %.sroa.01.0.copyload.i.i625, %.sroa.01.0.copyload.i7.i628
+  %1923 = extractelement <2 x float> %foldExtExtBinop2021, i64 0
+  %foldExtExtBinop2023 = fsub <2 x float> %.sroa.01.0.copyload.i.i625, %.sroa.01.0.copyload.i7.i628
   %1924 = fsub float %.sroa.22.0.copyload.i.i627, %.sroa.22.0.copyload.i9.i630
-  %foldExtExtBinop1912 = fmul <2 x float> %foldExtExtBinop1910, %foldExtExtBinop1910
-  %1925 = extractelement <2 x float> %foldExtExtBinop1912, i64 1
+  %foldExtExtBinop2025 = fmul <2 x float> %foldExtExtBinop2023, %foldExtExtBinop2023
+  %1925 = extractelement <2 x float> %foldExtExtBinop2025, i64 1
   %1926 = call float @llvm.fmuladd.f32(float %1923, float %1923, float %1925)
   %1927 = call noundef float @llvm.fmuladd.f32(float %1924, float %1924, float %1926)
   %1928 = fpext float %1927 to double
@@ -5535,21 +5535,21 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit716: ; preds = %_ZN32pxrIn
   br i1 %2280, label %.invoke, label %2283
 
 .invoke:                                          ; preds = %2281, %2297, %2294, %2291, %2288, %2285
-  %.sink1822.sroa.phi = phi ptr [ %.sink1822.sroa.gep, %2285 ], [ %.sink1822.sroa.gep2110, %2288 ], [ %.sink1822.sroa.gep2111, %2291 ], [ %.sink1822.sroa.gep2112, %2294 ], [ %.sink1822.sroa.gep2113, %2297 ], [ %.sink1822.sroa.gep2114, %2281 ]
-  %.sink1822.sroa.phi2115 = phi ptr [ %.sink1822.sroa.gep2116, %2285 ], [ %.sink1822.sroa.gep2117, %2288 ], [ %.sink1822.sroa.gep2118, %2291 ], [ %.sink1822.sroa.gep2119, %2294 ], [ %.sink1822.sroa.gep2120, %2297 ], [ %.sink1822.sroa.gep2121, %2281 ]
-  %.sink1822.sroa.phi2122 = phi ptr [ %.sink1822.sroa.gep2123, %2285 ], [ %.sink1822.sroa.gep2124, %2288 ], [ %.sink1822.sroa.gep2125, %2291 ], [ %.sink1822.sroa.gep2126, %2294 ], [ %.sink1822.sroa.gep2127, %2297 ], [ %.sink1822.sroa.gep2128, %2281 ]
-  %.sink1822.sroa.phi2129 = phi ptr [ %.sink1822.sroa.gep2130, %2285 ], [ %.sink1822.sroa.gep2131, %2288 ], [ %.sink1822.sroa.gep2132, %2291 ], [ %.sink1822.sroa.gep2133, %2294 ], [ %.sink1822.sroa.gep2134, %2297 ], [ %.sink1822.sroa.gep2135, %2281 ]
-  %.sink1822.sroa.phi2136 = phi ptr [ %.sink1822.sroa.gep2137, %2285 ], [ %.sink1822.sroa.gep2138, %2288 ], [ %.sink1822.sroa.gep2139, %2291 ], [ %.sink1822.sroa.gep2140, %2294 ], [ %.sink1822.sroa.gep2141, %2297 ], [ %.sink1822.sroa.gep2142, %2281 ]
-  %.sink1822 = phi ptr [ %27, %2285 ], [ %26, %2288 ], [ %25, %2291 ], [ %24, %2294 ], [ %23, %2297 ], [ %28, %2281 ]
-  %.sink1819 = phi i64 [ 220, %2285 ], [ 221, %2288 ], [ 222, %2291 ], [ 223, %2294 ], [ 224, %2297 ], [ 219, %2281 ]
+  %.sink1935.sroa.phi = phi ptr [ %.sink1935.sroa.gep, %2285 ], [ %.sink1935.sroa.gep2223, %2288 ], [ %.sink1935.sroa.gep2224, %2291 ], [ %.sink1935.sroa.gep2225, %2294 ], [ %.sink1935.sroa.gep2226, %2297 ], [ %.sink1935.sroa.gep2227, %2281 ]
+  %.sink1935.sroa.phi2228 = phi ptr [ %.sink1935.sroa.gep2229, %2285 ], [ %.sink1935.sroa.gep2230, %2288 ], [ %.sink1935.sroa.gep2231, %2291 ], [ %.sink1935.sroa.gep2232, %2294 ], [ %.sink1935.sroa.gep2233, %2297 ], [ %.sink1935.sroa.gep2234, %2281 ]
+  %.sink1935.sroa.phi2235 = phi ptr [ %.sink1935.sroa.gep2236, %2285 ], [ %.sink1935.sroa.gep2237, %2288 ], [ %.sink1935.sroa.gep2238, %2291 ], [ %.sink1935.sroa.gep2239, %2294 ], [ %.sink1935.sroa.gep2240, %2297 ], [ %.sink1935.sroa.gep2241, %2281 ]
+  %.sink1935.sroa.phi2242 = phi ptr [ %.sink1935.sroa.gep2243, %2285 ], [ %.sink1935.sroa.gep2244, %2288 ], [ %.sink1935.sroa.gep2245, %2291 ], [ %.sink1935.sroa.gep2246, %2294 ], [ %.sink1935.sroa.gep2247, %2297 ], [ %.sink1935.sroa.gep2248, %2281 ]
+  %.sink1935.sroa.phi2249 = phi ptr [ %.sink1935.sroa.gep2250, %2285 ], [ %.sink1935.sroa.gep2251, %2288 ], [ %.sink1935.sroa.gep2252, %2291 ], [ %.sink1935.sroa.gep2253, %2294 ], [ %.sink1935.sroa.gep2254, %2297 ], [ %.sink1935.sroa.gep2255, %2281 ]
+  %.sink1935 = phi ptr [ %27, %2285 ], [ %26, %2288 ], [ %25, %2291 ], [ %24, %2294 ], [ %23, %2297 ], [ %28, %2281 ]
+  %.sink1932 = phi i64 [ 220, %2285 ], [ 221, %2288 ], [ 222, %2291 ], [ 223, %2294 ], [ 224, %2297 ], [ 219, %2281 ]
   %2282 = phi ptr [ @.str.31, %2285 ], [ @.str.32, %2288 ], [ @.str.33, %2291 ], [ @.str.34, %2294 ], [ @.str.35, %2297 ], [ @.str.30, %2281 ]
-  store ptr @.str, ptr %.sink1822, align 8
-  store ptr @__func__.main, ptr %.sink1822.sroa.phi, align 8
-  store i64 %.sink1819, ptr %.sink1822.sroa.phi2115, align 8
-  store ptr @__PRETTY_FUNCTION__.main, ptr %.sink1822.sroa.phi2122, align 8
-  store i8 0, ptr %.sink1822.sroa.phi2129, align 8
-  store i32 4, ptr %.sink1822.sroa.phi2136, align 8
-  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink1822, ptr noundef nonnull @.str.57, ptr noundef nonnull %2282) #17
+  store ptr @.str, ptr %.sink1935, align 8
+  store ptr @__func__.main, ptr %.sink1935.sroa.phi, align 8
+  store i64 %.sink1932, ptr %.sink1935.sroa.phi2228, align 8
+  store ptr @__PRETTY_FUNCTION__.main, ptr %.sink1935.sroa.phi2235, align 8
+  store i8 0, ptr %.sink1935.sroa.phi2242, align 8
+  store i32 4, ptr %.sink1935.sroa.phi2249, align 8
+  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink1935, ptr noundef nonnull @.str.57, ptr noundef nonnull %2282) #17
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -5614,11 +5614,11 @@ _ZN11GfColorTestC2Ev.exit:                        ; preds = %2298
           to label %2301 unwind label %3982
 
 2301:                                             ; preds = %2299
-  %foldExtExtBinop1914 = fsub <2 x float> %2300, %394
-  %2302 = extractelement <2 x float> %foldExtExtBinop1914, i64 0
-  %foldExtExtBinop1916 = fsub <2 x float> %2300, %394
-  %foldExtExtBinop1918 = fmul <2 x float> %foldExtExtBinop1916, %foldExtExtBinop1916
-  %2303 = extractelement <2 x float> %foldExtExtBinop1918, i64 1
+  %foldExtExtBinop2027 = fsub <2 x float> %2300, %394
+  %2302 = extractelement <2 x float> %foldExtExtBinop2027, i64 0
+  %foldExtExtBinop2029 = fsub <2 x float> %2300, %394
+  %foldExtExtBinop2031 = fmul <2 x float> %foldExtExtBinop2029, %foldExtExtBinop2029
+  %2303 = extractelement <2 x float> %foldExtExtBinop2031, i64 1
   %2304 = call noundef float @llvm.fmuladd.f32(float %2302, float %2302, float %2303)
   %2305 = fpext float %2304 to double
   %2306 = fcmp ugt double %2305, 0x3F1A36E2D7731900
@@ -5762,12 +5762,12 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
   %.sroa.01.0.copyload.i7.i769 = load <2 x float>, ptr %2352, align 8
   %.sroa.22.0..sroa_idx.i8.i770 = getelementptr inbounds nuw i8, ptr %127, i64 24
   %.sroa.22.0.copyload.i9.i771 = load float, ptr %.sroa.22.0..sroa_idx.i8.i770, align 8
-  %foldExtExtBinop1920 = fsub <2 x float> %.sroa.01.0.copyload.i.i766, %.sroa.01.0.copyload.i7.i769
-  %2353 = extractelement <2 x float> %foldExtExtBinop1920, i64 0
-  %foldExtExtBinop1922 = fsub <2 x float> %.sroa.01.0.copyload.i.i766, %.sroa.01.0.copyload.i7.i769
+  %foldExtExtBinop2033 = fsub <2 x float> %.sroa.01.0.copyload.i.i766, %.sroa.01.0.copyload.i7.i769
+  %2353 = extractelement <2 x float> %foldExtExtBinop2033, i64 0
+  %foldExtExtBinop2035 = fsub <2 x float> %.sroa.01.0.copyload.i.i766, %.sroa.01.0.copyload.i7.i769
   %2354 = fsub float %.sroa.22.0.copyload.i.i768, %.sroa.22.0.copyload.i9.i771
-  %foldExtExtBinop1924 = fmul <2 x float> %foldExtExtBinop1922, %foldExtExtBinop1922
-  %2355 = extractelement <2 x float> %foldExtExtBinop1924, i64 1
+  %foldExtExtBinop2037 = fmul <2 x float> %foldExtExtBinop2035, %foldExtExtBinop2035
+  %2355 = extractelement <2 x float> %foldExtExtBinop2037, i64 1
   %2356 = call float @llvm.fmuladd.f32(float %2353, float %2353, float %2355)
   %2357 = call noundef float @llvm.fmuladd.f32(float %2354, float %2354, float %2356)
   %2358 = fpext float %2357 to double
@@ -5886,12 +5886,12 @@ _ZN11GfColorTestD2Ev.exit784:                     ; preds = %2362, %2381, %2394,
   %.sroa.01.0.copyload.i7.i790 = load <2 x float>, ptr %2403, align 8
   %.sroa.22.0..sroa_idx.i8.i791 = getelementptr inbounds nuw i8, ptr %129, i64 24
   %.sroa.22.0.copyload.i9.i792 = load float, ptr %.sroa.22.0..sroa_idx.i8.i791, align 8
-  %foldExtExtBinop1926 = fsub <2 x float> %.sroa.01.0.copyload.i.i787, %.sroa.01.0.copyload.i7.i790
-  %2404 = extractelement <2 x float> %foldExtExtBinop1926, i64 0
-  %foldExtExtBinop1928 = fsub <2 x float> %.sroa.01.0.copyload.i.i787, %.sroa.01.0.copyload.i7.i790
+  %foldExtExtBinop2039 = fsub <2 x float> %.sroa.01.0.copyload.i.i787, %.sroa.01.0.copyload.i7.i790
+  %2404 = extractelement <2 x float> %foldExtExtBinop2039, i64 0
+  %foldExtExtBinop2041 = fsub <2 x float> %.sroa.01.0.copyload.i.i787, %.sroa.01.0.copyload.i7.i790
   %2405 = fsub float %.sroa.22.0.copyload.i.i789, %.sroa.22.0.copyload.i9.i792
-  %foldExtExtBinop1930 = fmul <2 x float> %foldExtExtBinop1928, %foldExtExtBinop1928
-  %2406 = extractelement <2 x float> %foldExtExtBinop1930, i64 1
+  %foldExtExtBinop2043 = fmul <2 x float> %foldExtExtBinop2041, %foldExtExtBinop2041
+  %2406 = extractelement <2 x float> %foldExtExtBinop2043, i64 1
   %2407 = call float @llvm.fmuladd.f32(float %2404, float %2404, float %2406)
   %2408 = call noundef float @llvm.fmuladd.f32(float %2405, float %2405, float %2407)
   %2409 = fpext float %2408 to double
@@ -6010,12 +6010,12 @@ _ZN11GfColorTestD2Ev.exit805:                     ; preds = %2413, %2432, %2445,
   %.sroa.01.0.copyload.i7.i811 = load <2 x float>, ptr %2454, align 8
   %.sroa.22.0..sroa_idx.i8.i812 = getelementptr inbounds nuw i8, ptr %131, i64 24
   %.sroa.22.0.copyload.i9.i813 = load float, ptr %.sroa.22.0..sroa_idx.i8.i812, align 8
-  %foldExtExtBinop1932 = fsub <2 x float> %.sroa.01.0.copyload.i.i808, %.sroa.01.0.copyload.i7.i811
-  %2455 = extractelement <2 x float> %foldExtExtBinop1932, i64 0
-  %foldExtExtBinop1934 = fsub <2 x float> %.sroa.01.0.copyload.i.i808, %.sroa.01.0.copyload.i7.i811
+  %foldExtExtBinop2045 = fsub <2 x float> %.sroa.01.0.copyload.i.i808, %.sroa.01.0.copyload.i7.i811
+  %2455 = extractelement <2 x float> %foldExtExtBinop2045, i64 0
+  %foldExtExtBinop2047 = fsub <2 x float> %.sroa.01.0.copyload.i.i808, %.sroa.01.0.copyload.i7.i811
   %2456 = fsub float %.sroa.22.0.copyload.i.i810, %.sroa.22.0.copyload.i9.i813
-  %foldExtExtBinop1936 = fmul <2 x float> %foldExtExtBinop1934, %foldExtExtBinop1934
-  %2457 = extractelement <2 x float> %foldExtExtBinop1936, i64 1
+  %foldExtExtBinop2049 = fmul <2 x float> %foldExtExtBinop2047, %foldExtExtBinop2047
+  %2457 = extractelement <2 x float> %foldExtExtBinop2049, i64 1
   %2458 = call float @llvm.fmuladd.f32(float %2455, float %2455, float %2457)
   %2459 = call noundef float @llvm.fmuladd.f32(float %2456, float %2456, float %2458)
   %2460 = fpext float %2459 to double
@@ -6160,12 +6160,12 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
   %.sroa.01.0.copyload.i7.i844 = load <2 x float>, ptr %2507, align 8
   %.sroa.22.0..sroa_idx.i8.i845 = getelementptr inbounds nuw i8, ptr %136, i64 24
   %.sroa.22.0.copyload.i9.i846 = load float, ptr %.sroa.22.0..sroa_idx.i8.i845, align 8
-  %foldExtExtBinop1938 = fsub <2 x float> %.sroa.01.0.copyload.i.i841, %.sroa.01.0.copyload.i7.i844
-  %2508 = extractelement <2 x float> %foldExtExtBinop1938, i64 0
-  %foldExtExtBinop1940 = fsub <2 x float> %.sroa.01.0.copyload.i.i841, %.sroa.01.0.copyload.i7.i844
+  %foldExtExtBinop2051 = fsub <2 x float> %.sroa.01.0.copyload.i.i841, %.sroa.01.0.copyload.i7.i844
+  %2508 = extractelement <2 x float> %foldExtExtBinop2051, i64 0
+  %foldExtExtBinop2053 = fsub <2 x float> %.sroa.01.0.copyload.i.i841, %.sroa.01.0.copyload.i7.i844
   %2509 = fsub float %.sroa.22.0.copyload.i.i843, %.sroa.22.0.copyload.i9.i846
-  %foldExtExtBinop1942 = fmul <2 x float> %foldExtExtBinop1940, %foldExtExtBinop1940
-  %2510 = extractelement <2 x float> %foldExtExtBinop1942, i64 1
+  %foldExtExtBinop2055 = fmul <2 x float> %foldExtExtBinop2053, %foldExtExtBinop2053
+  %2510 = extractelement <2 x float> %foldExtExtBinop2055, i64 1
   %2511 = call float @llvm.fmuladd.f32(float %2508, float %2508, float %2510)
   %2512 = call noundef float @llvm.fmuladd.f32(float %2509, float %2509, float %2511)
   %2513 = fpext float %2512 to double
@@ -6284,12 +6284,12 @@ _ZN11GfColorTestD2Ev.exit859:                     ; preds = %2517, %2536, %2549,
   %.sroa.01.0.copyload.i7.i865 = load <2 x float>, ptr %2558, align 8
   %.sroa.22.0..sroa_idx.i8.i866 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %.sroa.22.0.copyload.i9.i867 = load float, ptr %.sroa.22.0..sroa_idx.i8.i866, align 8
-  %foldExtExtBinop1944 = fsub <2 x float> %.sroa.01.0.copyload.i.i862, %.sroa.01.0.copyload.i7.i865
-  %2559 = extractelement <2 x float> %foldExtExtBinop1944, i64 0
-  %foldExtExtBinop1946 = fsub <2 x float> %.sroa.01.0.copyload.i.i862, %.sroa.01.0.copyload.i7.i865
+  %foldExtExtBinop2057 = fsub <2 x float> %.sroa.01.0.copyload.i.i862, %.sroa.01.0.copyload.i7.i865
+  %2559 = extractelement <2 x float> %foldExtExtBinop2057, i64 0
+  %foldExtExtBinop2059 = fsub <2 x float> %.sroa.01.0.copyload.i.i862, %.sroa.01.0.copyload.i7.i865
   %2560 = fsub float %.sroa.22.0.copyload.i.i864, %.sroa.22.0.copyload.i9.i867
-  %foldExtExtBinop1948 = fmul <2 x float> %foldExtExtBinop1946, %foldExtExtBinop1946
-  %2561 = extractelement <2 x float> %foldExtExtBinop1948, i64 1
+  %foldExtExtBinop2061 = fmul <2 x float> %foldExtExtBinop2059, %foldExtExtBinop2059
+  %2561 = extractelement <2 x float> %foldExtExtBinop2061, i64 1
   %2562 = call float @llvm.fmuladd.f32(float %2559, float %2559, float %2561)
   %2563 = call noundef float @llvm.fmuladd.f32(float %2560, float %2560, float %2562)
   %2564 = fpext float %2563 to double
@@ -6408,12 +6408,12 @@ _ZN11GfColorTestD2Ev.exit880:                     ; preds = %2568, %2587, %2600,
   %.sroa.01.0.copyload.i7.i886 = load <2 x float>, ptr %2609, align 8
   %.sroa.22.0..sroa_idx.i8.i887 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %.sroa.22.0.copyload.i9.i888 = load float, ptr %.sroa.22.0..sroa_idx.i8.i887, align 8
-  %foldExtExtBinop1950 = fsub <2 x float> %.sroa.01.0.copyload.i.i883, %.sroa.01.0.copyload.i7.i886
-  %2610 = extractelement <2 x float> %foldExtExtBinop1950, i64 0
-  %foldExtExtBinop1952 = fsub <2 x float> %.sroa.01.0.copyload.i.i883, %.sroa.01.0.copyload.i7.i886
+  %foldExtExtBinop2063 = fsub <2 x float> %.sroa.01.0.copyload.i.i883, %.sroa.01.0.copyload.i7.i886
+  %2610 = extractelement <2 x float> %foldExtExtBinop2063, i64 0
+  %foldExtExtBinop2065 = fsub <2 x float> %.sroa.01.0.copyload.i.i883, %.sroa.01.0.copyload.i7.i886
   %2611 = fsub float %.sroa.22.0.copyload.i.i885, %.sroa.22.0.copyload.i9.i888
-  %foldExtExtBinop1954 = fmul <2 x float> %foldExtExtBinop1952, %foldExtExtBinop1952
-  %2612 = extractelement <2 x float> %foldExtExtBinop1954, i64 1
+  %foldExtExtBinop2067 = fmul <2 x float> %foldExtExtBinop2065, %foldExtExtBinop2065
+  %2612 = extractelement <2 x float> %foldExtExtBinop2067, i64 1
   %2613 = call float @llvm.fmuladd.f32(float %2610, float %2610, float %2612)
   %2614 = call noundef float @llvm.fmuladd.f32(float %2611, float %2611, float %2613)
   %2615 = fpext float %2614 to double
@@ -6558,12 +6558,12 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
   %.sroa.01.0.copyload.i7.i919 = load <2 x float>, ptr %2662, align 8
   %.sroa.22.0..sroa_idx.i8.i920 = getelementptr inbounds nuw i8, ptr %145, i64 24
   %.sroa.22.0.copyload.i9.i921 = load float, ptr %.sroa.22.0..sroa_idx.i8.i920, align 8
-  %foldExtExtBinop1956 = fsub <2 x float> %.sroa.01.0.copyload.i.i916, %.sroa.01.0.copyload.i7.i919
-  %2663 = extractelement <2 x float> %foldExtExtBinop1956, i64 0
-  %foldExtExtBinop1958 = fsub <2 x float> %.sroa.01.0.copyload.i.i916, %.sroa.01.0.copyload.i7.i919
+  %foldExtExtBinop2069 = fsub <2 x float> %.sroa.01.0.copyload.i.i916, %.sroa.01.0.copyload.i7.i919
+  %2663 = extractelement <2 x float> %foldExtExtBinop2069, i64 0
+  %foldExtExtBinop2071 = fsub <2 x float> %.sroa.01.0.copyload.i.i916, %.sroa.01.0.copyload.i7.i919
   %2664 = fsub float %.sroa.22.0.copyload.i.i918, %.sroa.22.0.copyload.i9.i921
-  %foldExtExtBinop1960 = fmul <2 x float> %foldExtExtBinop1958, %foldExtExtBinop1958
-  %2665 = extractelement <2 x float> %foldExtExtBinop1960, i64 1
+  %foldExtExtBinop2073 = fmul <2 x float> %foldExtExtBinop2071, %foldExtExtBinop2071
+  %2665 = extractelement <2 x float> %foldExtExtBinop2073, i64 1
   %2666 = call float @llvm.fmuladd.f32(float %2663, float %2663, float %2665)
   %2667 = call noundef float @llvm.fmuladd.f32(float %2664, float %2664, float %2666)
   %2668 = fpext float %2667 to double
@@ -6682,12 +6682,12 @@ _ZN11GfColorTestD2Ev.exit934:                     ; preds = %2672, %2691, %2704,
   %.sroa.01.0.copyload.i7.i940 = load <2 x float>, ptr %2713, align 8
   %.sroa.22.0..sroa_idx.i8.i941 = getelementptr inbounds nuw i8, ptr %147, i64 24
   %.sroa.22.0.copyload.i9.i942 = load float, ptr %.sroa.22.0..sroa_idx.i8.i941, align 8
-  %foldExtExtBinop1962 = fsub <2 x float> %.sroa.01.0.copyload.i.i937, %.sroa.01.0.copyload.i7.i940
-  %2714 = extractelement <2 x float> %foldExtExtBinop1962, i64 0
-  %foldExtExtBinop1964 = fsub <2 x float> %.sroa.01.0.copyload.i.i937, %.sroa.01.0.copyload.i7.i940
+  %foldExtExtBinop2075 = fsub <2 x float> %.sroa.01.0.copyload.i.i937, %.sroa.01.0.copyload.i7.i940
+  %2714 = extractelement <2 x float> %foldExtExtBinop2075, i64 0
+  %foldExtExtBinop2077 = fsub <2 x float> %.sroa.01.0.copyload.i.i937, %.sroa.01.0.copyload.i7.i940
   %2715 = fsub float %.sroa.22.0.copyload.i.i939, %.sroa.22.0.copyload.i9.i942
-  %foldExtExtBinop1966 = fmul <2 x float> %foldExtExtBinop1964, %foldExtExtBinop1964
-  %2716 = extractelement <2 x float> %foldExtExtBinop1966, i64 1
+  %foldExtExtBinop2079 = fmul <2 x float> %foldExtExtBinop2077, %foldExtExtBinop2077
+  %2716 = extractelement <2 x float> %foldExtExtBinop2079, i64 1
   %2717 = call float @llvm.fmuladd.f32(float %2714, float %2714, float %2716)
   %2718 = call noundef float @llvm.fmuladd.f32(float %2715, float %2715, float %2717)
   %2719 = fpext float %2718 to double
@@ -6806,12 +6806,12 @@ _ZN11GfColorTestD2Ev.exit955:                     ; preds = %2723, %2742, %2755,
   %.sroa.01.0.copyload.i7.i961 = load <2 x float>, ptr %2764, align 8
   %.sroa.22.0..sroa_idx.i8.i962 = getelementptr inbounds nuw i8, ptr %149, i64 24
   %.sroa.22.0.copyload.i9.i963 = load float, ptr %.sroa.22.0..sroa_idx.i8.i962, align 8
-  %foldExtExtBinop1968 = fsub <2 x float> %.sroa.01.0.copyload.i.i958, %.sroa.01.0.copyload.i7.i961
-  %2765 = extractelement <2 x float> %foldExtExtBinop1968, i64 0
-  %foldExtExtBinop1970 = fsub <2 x float> %.sroa.01.0.copyload.i.i958, %.sroa.01.0.copyload.i7.i961
+  %foldExtExtBinop2081 = fsub <2 x float> %.sroa.01.0.copyload.i.i958, %.sroa.01.0.copyload.i7.i961
+  %2765 = extractelement <2 x float> %foldExtExtBinop2081, i64 0
+  %foldExtExtBinop2083 = fsub <2 x float> %.sroa.01.0.copyload.i.i958, %.sroa.01.0.copyload.i7.i961
   %2766 = fsub float %.sroa.22.0.copyload.i.i960, %.sroa.22.0.copyload.i9.i963
-  %foldExtExtBinop1972 = fmul <2 x float> %foldExtExtBinop1970, %foldExtExtBinop1970
-  %2767 = extractelement <2 x float> %foldExtExtBinop1972, i64 1
+  %foldExtExtBinop2085 = fmul <2 x float> %foldExtExtBinop2083, %foldExtExtBinop2083
+  %2767 = extractelement <2 x float> %foldExtExtBinop2085, i64 1
   %2768 = call float @llvm.fmuladd.f32(float %2765, float %2765, float %2767)
   %2769 = call noundef float @llvm.fmuladd.f32(float %2766, float %2766, float %2768)
   %2770 = fpext float %2769 to double
@@ -7676,18 +7676,18 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1063:    ; preds = %_ZNK11GfColorTest15
           to label %_ZNK11GfColorTest15GetChromaticityEv.exit1065 unwind label %4045
 
 _ZNK11GfColorTest15GetChromaticityEv.exit1065:    ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1063
-  %foldExtExtBinop1974 = fsub <2 x float> %3155, %3154
-  %3157 = extractelement <2 x float> %foldExtExtBinop1974, i64 0
-  %foldExtExtBinop1976 = fsub <2 x float> %3155, %3154
-  %3158 = extractelement <2 x float> %foldExtExtBinop1976, i64 1
-  %foldExtExtBinop1978 = fsub <2 x float> %3156, %3154
-  %3159 = extractelement <2 x float> %foldExtExtBinop1978, i64 0
-  %foldExtExtBinop1980 = fsub <2 x float> %3156, %3154
-  %3160 = extractelement <2 x float> %foldExtExtBinop1980, i64 1
-  %foldExtExtBinop1982 = fsub <2 x float> %3153, %3154
-  %3161 = extractelement <2 x float> %foldExtExtBinop1982, i64 0
-  %foldExtExtBinop1984 = fsub <2 x float> %3153, %3154
-  %3162 = extractelement <2 x float> %foldExtExtBinop1984, i64 1
+  %foldExtExtBinop2087 = fsub <2 x float> %3155, %3154
+  %3157 = extractelement <2 x float> %foldExtExtBinop2087, i64 0
+  %foldExtExtBinop2089 = fsub <2 x float> %3155, %3154
+  %3158 = extractelement <2 x float> %foldExtExtBinop2089, i64 1
+  %foldExtExtBinop2091 = fsub <2 x float> %3156, %3154
+  %3159 = extractelement <2 x float> %foldExtExtBinop2091, i64 0
+  %foldExtExtBinop2093 = fsub <2 x float> %3156, %3154
+  %3160 = extractelement <2 x float> %foldExtExtBinop2093, i64 1
+  %foldExtExtBinop2095 = fsub <2 x float> %3153, %3154
+  %3161 = extractelement <2 x float> %foldExtExtBinop2095, i64 0
+  %foldExtExtBinop2097 = fsub <2 x float> %3153, %3154
+  %3162 = extractelement <2 x float> %foldExtExtBinop2097, i64 1
   %3163 = fmul float %3158, %3158
   %3164 = call noundef float @llvm.fmuladd.f32(float %3157, float %3157, float %3163)
   %3165 = fmul float %3158, %3160
@@ -7717,13 +7717,13 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1065:    ; preds = %_ZNK11GfColorTest15
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit.thread: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1065
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  br label %.invoke1807
+  br label %.invoke1920
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1065
   %3187 = fadd float %3180, %3184
   %3188 = fcmp ugt float %3187, 1.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  br i1 %3188, label %.invoke1807, label %3189
+  br i1 %3188, label %.invoke1920, label %3189
 
 3189:                                             ; preds = %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -7743,18 +7743,18 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1075:    ; preds = %_ZNK11GfColorTest15
           to label %_ZNK11GfColorTest15GetChromaticityEv.exit1077 unwind label %4045
 
 _ZNK11GfColorTest15GetChromaticityEv.exit1077:    ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1075
-  %foldExtExtBinop1986 = fsub <2 x float> %3192, %3191
-  %3194 = extractelement <2 x float> %foldExtExtBinop1986, i64 0
-  %foldExtExtBinop1988 = fsub <2 x float> %3192, %3191
-  %3195 = extractelement <2 x float> %foldExtExtBinop1988, i64 1
-  %foldExtExtBinop1990 = fsub <2 x float> %3193, %3191
-  %3196 = extractelement <2 x float> %foldExtExtBinop1990, i64 0
-  %foldExtExtBinop1992 = fsub <2 x float> %3193, %3191
-  %3197 = extractelement <2 x float> %foldExtExtBinop1992, i64 1
-  %foldExtExtBinop1994 = fsub <2 x float> %3190, %3191
-  %3198 = extractelement <2 x float> %foldExtExtBinop1994, i64 0
-  %foldExtExtBinop1996 = fsub <2 x float> %3190, %3191
-  %3199 = extractelement <2 x float> %foldExtExtBinop1996, i64 1
+  %foldExtExtBinop2099 = fsub <2 x float> %3192, %3191
+  %3194 = extractelement <2 x float> %foldExtExtBinop2099, i64 0
+  %foldExtExtBinop2101 = fsub <2 x float> %3192, %3191
+  %3195 = extractelement <2 x float> %foldExtExtBinop2101, i64 1
+  %foldExtExtBinop2103 = fsub <2 x float> %3193, %3191
+  %3196 = extractelement <2 x float> %foldExtExtBinop2103, i64 0
+  %foldExtExtBinop2105 = fsub <2 x float> %3193, %3191
+  %3197 = extractelement <2 x float> %foldExtExtBinop2105, i64 1
+  %foldExtExtBinop2107 = fsub <2 x float> %3190, %3191
+  %3198 = extractelement <2 x float> %foldExtExtBinop2107, i64 0
+  %foldExtExtBinop2109 = fsub <2 x float> %3190, %3191
+  %3199 = extractelement <2 x float> %foldExtExtBinop2109, i64 1
   %3200 = fmul float %3195, %3195
   %3201 = call noundef float @llvm.fmuladd.f32(float %3194, float %3194, float %3200)
   %3202 = fmul float %3195, %3197
@@ -7784,13 +7784,13 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1077:    ; preds = %_ZNK11GfColorTest15
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085.thread: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1077
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  br label %.invoke1807
+  br label %.invoke1920
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1077
   %3224 = fadd float %3217, %3221
   %3225 = fcmp ugt float %3224, 1.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  br i1 %3225, label %.invoke1807, label %3226
+  br i1 %3225, label %.invoke1920, label %3226
 
 3226:                                             ; preds = %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -7810,18 +7810,18 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1093:    ; preds = %_ZNK11GfColorTest15
           to label %_ZNK11GfColorTest15GetChromaticityEv.exit1095 unwind label %4045
 
 _ZNK11GfColorTest15GetChromaticityEv.exit1095:    ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1093
-  %foldExtExtBinop1998 = fsub <2 x float> %3229, %3228
-  %3231 = extractelement <2 x float> %foldExtExtBinop1998, i64 0
-  %foldExtExtBinop2000 = fsub <2 x float> %3229, %3228
-  %3232 = extractelement <2 x float> %foldExtExtBinop2000, i64 1
-  %foldExtExtBinop2002 = fsub <2 x float> %3230, %3228
-  %3233 = extractelement <2 x float> %foldExtExtBinop2002, i64 0
-  %foldExtExtBinop2004 = fsub <2 x float> %3230, %3228
-  %3234 = extractelement <2 x float> %foldExtExtBinop2004, i64 1
-  %foldExtExtBinop2006 = fsub <2 x float> %3227, %3228
-  %3235 = extractelement <2 x float> %foldExtExtBinop2006, i64 0
-  %foldExtExtBinop2008 = fsub <2 x float> %3227, %3228
-  %3236 = extractelement <2 x float> %foldExtExtBinop2008, i64 1
+  %foldExtExtBinop2111 = fsub <2 x float> %3229, %3228
+  %3231 = extractelement <2 x float> %foldExtExtBinop2111, i64 0
+  %foldExtExtBinop2113 = fsub <2 x float> %3229, %3228
+  %3232 = extractelement <2 x float> %foldExtExtBinop2113, i64 1
+  %foldExtExtBinop2115 = fsub <2 x float> %3230, %3228
+  %3233 = extractelement <2 x float> %foldExtExtBinop2115, i64 0
+  %foldExtExtBinop2117 = fsub <2 x float> %3230, %3228
+  %3234 = extractelement <2 x float> %foldExtExtBinop2117, i64 1
+  %foldExtExtBinop2119 = fsub <2 x float> %3227, %3228
+  %3235 = extractelement <2 x float> %foldExtExtBinop2119, i64 0
+  %foldExtExtBinop2121 = fsub <2 x float> %3227, %3228
+  %3236 = extractelement <2 x float> %foldExtExtBinop2121, i64 1
   %3237 = fmul float %3232, %3232
   %3238 = call noundef float @llvm.fmuladd.f32(float %3231, float %3231, float %3237)
   %3239 = fmul float %3232, %3234
@@ -7851,13 +7851,13 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1095:    ; preds = %_ZNK11GfColorTest15
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103.thread: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1095
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  br label %.invoke1807
+  br label %.invoke1920
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1095
   %3261 = fadd float %3254, %3258
   %3262 = fcmp ugt float %3261, 1.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  br i1 %3262, label %.invoke1807, label %3263
+  br i1 %3262, label %.invoke1920, label %3263
 
 3263:                                             ; preds = %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -7877,18 +7877,18 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1111:    ; preds = %_ZNK11GfColorTest15
           to label %_ZNK11GfColorTest15GetChromaticityEv.exit1113 unwind label %4045
 
 _ZNK11GfColorTest15GetChromaticityEv.exit1113:    ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1111
-  %foldExtExtBinop2010 = fsub <2 x float> %3266, %3265
-  %3268 = extractelement <2 x float> %foldExtExtBinop2010, i64 0
-  %foldExtExtBinop2012 = fsub <2 x float> %3266, %3265
-  %3269 = extractelement <2 x float> %foldExtExtBinop2012, i64 1
-  %foldExtExtBinop2014 = fsub <2 x float> %3267, %3265
-  %3270 = extractelement <2 x float> %foldExtExtBinop2014, i64 0
-  %foldExtExtBinop2016 = fsub <2 x float> %3267, %3265
-  %3271 = extractelement <2 x float> %foldExtExtBinop2016, i64 1
-  %foldExtExtBinop2018 = fsub <2 x float> %3264, %3265
-  %3272 = extractelement <2 x float> %foldExtExtBinop2018, i64 0
-  %foldExtExtBinop2020 = fsub <2 x float> %3264, %3265
-  %3273 = extractelement <2 x float> %foldExtExtBinop2020, i64 1
+  %foldExtExtBinop2123 = fsub <2 x float> %3266, %3265
+  %3268 = extractelement <2 x float> %foldExtExtBinop2123, i64 0
+  %foldExtExtBinop2125 = fsub <2 x float> %3266, %3265
+  %3269 = extractelement <2 x float> %foldExtExtBinop2125, i64 1
+  %foldExtExtBinop2127 = fsub <2 x float> %3267, %3265
+  %3270 = extractelement <2 x float> %foldExtExtBinop2127, i64 0
+  %foldExtExtBinop2129 = fsub <2 x float> %3267, %3265
+  %3271 = extractelement <2 x float> %foldExtExtBinop2129, i64 1
+  %foldExtExtBinop2131 = fsub <2 x float> %3264, %3265
+  %3272 = extractelement <2 x float> %foldExtExtBinop2131, i64 0
+  %foldExtExtBinop2133 = fsub <2 x float> %3264, %3265
+  %3273 = extractelement <2 x float> %foldExtExtBinop2133, i64 1
   %3274 = fmul float %3269, %3269
   %3275 = call noundef float @llvm.fmuladd.f32(float %3268, float %3268, float %3274)
   %3276 = fmul float %3269, %3271
@@ -7918,13 +7918,13 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1113:    ; preds = %_ZNK11GfColorTest15
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121.thread: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1113
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  br label %.invoke1807
+  br label %.invoke1920
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1113
   %3298 = fadd float %3291, %3295
   %3299 = fcmp ugt float %3298, 1.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  br i1 %3299, label %.invoke1807, label %3300
+  br i1 %3299, label %.invoke1920, label %3300
 
 3300:                                             ; preds = %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -7944,18 +7944,18 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1129:    ; preds = %_ZNK11GfColorTest15
           to label %_ZNK11GfColorTest15GetChromaticityEv.exit1131 unwind label %4045
 
 _ZNK11GfColorTest15GetChromaticityEv.exit1131:    ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1129
-  %foldExtExtBinop2022 = fsub <2 x float> %3303, %3302
-  %3305 = extractelement <2 x float> %foldExtExtBinop2022, i64 0
-  %foldExtExtBinop2024 = fsub <2 x float> %3303, %3302
-  %3306 = extractelement <2 x float> %foldExtExtBinop2024, i64 1
-  %foldExtExtBinop2026 = fsub <2 x float> %3304, %3302
-  %3307 = extractelement <2 x float> %foldExtExtBinop2026, i64 0
-  %foldExtExtBinop2028 = fsub <2 x float> %3304, %3302
-  %3308 = extractelement <2 x float> %foldExtExtBinop2028, i64 1
-  %foldExtExtBinop2030 = fsub <2 x float> %3301, %3302
-  %3309 = extractelement <2 x float> %foldExtExtBinop2030, i64 0
-  %foldExtExtBinop2032 = fsub <2 x float> %3301, %3302
-  %3310 = extractelement <2 x float> %foldExtExtBinop2032, i64 1
+  %foldExtExtBinop2135 = fsub <2 x float> %3303, %3302
+  %3305 = extractelement <2 x float> %foldExtExtBinop2135, i64 0
+  %foldExtExtBinop2137 = fsub <2 x float> %3303, %3302
+  %3306 = extractelement <2 x float> %foldExtExtBinop2137, i64 1
+  %foldExtExtBinop2139 = fsub <2 x float> %3304, %3302
+  %3307 = extractelement <2 x float> %foldExtExtBinop2139, i64 0
+  %foldExtExtBinop2141 = fsub <2 x float> %3304, %3302
+  %3308 = extractelement <2 x float> %foldExtExtBinop2141, i64 1
+  %foldExtExtBinop2143 = fsub <2 x float> %3301, %3302
+  %3309 = extractelement <2 x float> %foldExtExtBinop2143, i64 0
+  %foldExtExtBinop2145 = fsub <2 x float> %3301, %3302
+  %3310 = extractelement <2 x float> %foldExtExtBinop2145, i64 1
   %3311 = fmul float %3306, %3306
   %3312 = call noundef float @llvm.fmuladd.f32(float %3305, float %3305, float %3311)
   %3313 = fmul float %3306, %3308
@@ -7985,13 +7985,13 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1131:    ; preds = %_ZNK11GfColorTest15
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139.thread: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1131
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  br label %.invoke1807
+  br label %.invoke1920
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1131
   %3335 = fadd float %3328, %3332
   %3336 = fcmp ugt float %3335, 1.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  br i1 %3336, label %.invoke1807, label %3337
+  br i1 %3336, label %.invoke1920, label %3337
 
 3337:                                             ; preds = %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -8011,18 +8011,18 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1147:    ; preds = %_ZNK11GfColorTest15
           to label %_ZNK11GfColorTest15GetChromaticityEv.exit1149 unwind label %4045
 
 _ZNK11GfColorTest15GetChromaticityEv.exit1149:    ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1147
-  %foldExtExtBinop2034 = fsub <2 x float> %3340, %3339
-  %3342 = extractelement <2 x float> %foldExtExtBinop2034, i64 0
-  %foldExtExtBinop2036 = fsub <2 x float> %3340, %3339
-  %3343 = extractelement <2 x float> %foldExtExtBinop2036, i64 1
-  %foldExtExtBinop2038 = fsub <2 x float> %3341, %3339
-  %3344 = extractelement <2 x float> %foldExtExtBinop2038, i64 0
-  %foldExtExtBinop2040 = fsub <2 x float> %3341, %3339
-  %3345 = extractelement <2 x float> %foldExtExtBinop2040, i64 1
-  %foldExtExtBinop2042 = fsub <2 x float> %3338, %3339
-  %3346 = extractelement <2 x float> %foldExtExtBinop2042, i64 0
-  %foldExtExtBinop2044 = fsub <2 x float> %3338, %3339
-  %3347 = extractelement <2 x float> %foldExtExtBinop2044, i64 1
+  %foldExtExtBinop2147 = fsub <2 x float> %3340, %3339
+  %3342 = extractelement <2 x float> %foldExtExtBinop2147, i64 0
+  %foldExtExtBinop2149 = fsub <2 x float> %3340, %3339
+  %3343 = extractelement <2 x float> %foldExtExtBinop2149, i64 1
+  %foldExtExtBinop2151 = fsub <2 x float> %3341, %3339
+  %3344 = extractelement <2 x float> %foldExtExtBinop2151, i64 0
+  %foldExtExtBinop2153 = fsub <2 x float> %3341, %3339
+  %3345 = extractelement <2 x float> %foldExtExtBinop2153, i64 1
+  %foldExtExtBinop2155 = fsub <2 x float> %3338, %3339
+  %3346 = extractelement <2 x float> %foldExtExtBinop2155, i64 0
+  %foldExtExtBinop2157 = fsub <2 x float> %3338, %3339
+  %3347 = extractelement <2 x float> %foldExtExtBinop2157, i64 1
   %3348 = fmul float %3343, %3343
   %3349 = call noundef float @llvm.fmuladd.f32(float %3342, float %3342, float %3348)
   %3350 = fmul float %3343, %3345
@@ -8052,13 +8052,13 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1149:    ; preds = %_ZNK11GfColorTest15
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157.thread: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1149
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  br label %.invoke1807
+  br label %.invoke1920
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1149
   %3372 = fadd float %3365, %3369
   %3373 = fcmp ugt float %3372, 1.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  br i1 %3373, label %.invoke1807, label %3374
+  br i1 %3373, label %.invoke1920, label %3374
 
 3374:                                             ; preds = %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -8078,18 +8078,18 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1165:    ; preds = %_ZNK11GfColorTest15
           to label %_ZNK11GfColorTest15GetChromaticityEv.exit1167 unwind label %4045
 
 _ZNK11GfColorTest15GetChromaticityEv.exit1167:    ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1165
-  %foldExtExtBinop2046 = fsub <2 x float> %3377, %3376
-  %3379 = extractelement <2 x float> %foldExtExtBinop2046, i64 0
-  %foldExtExtBinop2048 = fsub <2 x float> %3377, %3376
-  %3380 = extractelement <2 x float> %foldExtExtBinop2048, i64 1
-  %foldExtExtBinop2050 = fsub <2 x float> %3378, %3376
-  %3381 = extractelement <2 x float> %foldExtExtBinop2050, i64 0
-  %foldExtExtBinop2052 = fsub <2 x float> %3378, %3376
-  %3382 = extractelement <2 x float> %foldExtExtBinop2052, i64 1
-  %foldExtExtBinop2054 = fsub <2 x float> %3375, %3376
-  %3383 = extractelement <2 x float> %foldExtExtBinop2054, i64 0
-  %foldExtExtBinop2056 = fsub <2 x float> %3375, %3376
-  %3384 = extractelement <2 x float> %foldExtExtBinop2056, i64 1
+  %foldExtExtBinop2159 = fsub <2 x float> %3377, %3376
+  %3379 = extractelement <2 x float> %foldExtExtBinop2159, i64 0
+  %foldExtExtBinop2161 = fsub <2 x float> %3377, %3376
+  %3380 = extractelement <2 x float> %foldExtExtBinop2161, i64 1
+  %foldExtExtBinop2163 = fsub <2 x float> %3378, %3376
+  %3381 = extractelement <2 x float> %foldExtExtBinop2163, i64 0
+  %foldExtExtBinop2165 = fsub <2 x float> %3378, %3376
+  %3382 = extractelement <2 x float> %foldExtExtBinop2165, i64 1
+  %foldExtExtBinop2167 = fsub <2 x float> %3375, %3376
+  %3383 = extractelement <2 x float> %foldExtExtBinop2167, i64 0
+  %foldExtExtBinop2169 = fsub <2 x float> %3375, %3376
+  %3384 = extractelement <2 x float> %foldExtExtBinop2169, i64 1
   %3385 = fmul float %3380, %3380
   %3386 = call noundef float @llvm.fmuladd.f32(float %3379, float %3379, float %3385)
   %3387 = fmul float %3380, %3382
@@ -8119,13 +8119,13 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1167:    ; preds = %_ZNK11GfColorTest15
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175.thread: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1167
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br label %.invoke1807
+  br label %.invoke1920
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1167
   %3409 = fadd float %3402, %3406
   %3410 = fcmp ugt float %3409, 1.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br i1 %3410, label %.invoke1807, label %3411
+  br i1 %3410, label %.invoke1920, label %3411
 
 3411:                                             ; preds = %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -8145,18 +8145,18 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1183:    ; preds = %_ZNK11GfColorTest15
           to label %_ZNK11GfColorTest15GetChromaticityEv.exit1185 unwind label %4045
 
 _ZNK11GfColorTest15GetChromaticityEv.exit1185:    ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1183
-  %foldExtExtBinop2058 = fsub <2 x float> %3414, %3413
-  %3416 = extractelement <2 x float> %foldExtExtBinop2058, i64 0
-  %foldExtExtBinop2060 = fsub <2 x float> %3414, %3413
-  %3417 = extractelement <2 x float> %foldExtExtBinop2060, i64 1
-  %foldExtExtBinop2062 = fsub <2 x float> %3415, %3413
-  %3418 = extractelement <2 x float> %foldExtExtBinop2062, i64 0
-  %foldExtExtBinop2064 = fsub <2 x float> %3415, %3413
-  %3419 = extractelement <2 x float> %foldExtExtBinop2064, i64 1
-  %foldExtExtBinop2066 = fsub <2 x float> %3412, %3413
-  %3420 = extractelement <2 x float> %foldExtExtBinop2066, i64 0
-  %foldExtExtBinop2068 = fsub <2 x float> %3412, %3413
-  %3421 = extractelement <2 x float> %foldExtExtBinop2068, i64 1
+  %foldExtExtBinop2171 = fsub <2 x float> %3414, %3413
+  %3416 = extractelement <2 x float> %foldExtExtBinop2171, i64 0
+  %foldExtExtBinop2173 = fsub <2 x float> %3414, %3413
+  %3417 = extractelement <2 x float> %foldExtExtBinop2173, i64 1
+  %foldExtExtBinop2175 = fsub <2 x float> %3415, %3413
+  %3418 = extractelement <2 x float> %foldExtExtBinop2175, i64 0
+  %foldExtExtBinop2177 = fsub <2 x float> %3415, %3413
+  %3419 = extractelement <2 x float> %foldExtExtBinop2177, i64 1
+  %foldExtExtBinop2179 = fsub <2 x float> %3412, %3413
+  %3420 = extractelement <2 x float> %foldExtExtBinop2179, i64 0
+  %foldExtExtBinop2181 = fsub <2 x float> %3412, %3413
+  %3421 = extractelement <2 x float> %foldExtExtBinop2181, i64 1
   %3422 = fmul float %3417, %3417
   %3423 = call noundef float @llvm.fmuladd.f32(float %3416, float %3416, float %3422)
   %3424 = fmul float %3417, %3419
@@ -8186,13 +8186,13 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1185:    ; preds = %_ZNK11GfColorTest15
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193.thread: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1185
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br label %.invoke1807
+  br label %.invoke1920
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1185
   %3446 = fadd float %3439, %3443
   %3447 = fcmp ugt float %3446, 1.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br i1 %3447, label %.invoke1807, label %3448
+  br i1 %3447, label %.invoke1920, label %3448
 
 3448:                                             ; preds = %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -8212,18 +8212,18 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1201:    ; preds = %_ZNK11GfColorTest15
           to label %_ZNK11GfColorTest15GetChromaticityEv.exit1203 unwind label %4045
 
 _ZNK11GfColorTest15GetChromaticityEv.exit1203:    ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1201
-  %foldExtExtBinop2070 = fsub <2 x float> %3451, %3450
-  %3453 = extractelement <2 x float> %foldExtExtBinop2070, i64 0
-  %foldExtExtBinop2072 = fsub <2 x float> %3451, %3450
-  %3454 = extractelement <2 x float> %foldExtExtBinop2072, i64 1
-  %foldExtExtBinop2074 = fsub <2 x float> %3452, %3450
-  %3455 = extractelement <2 x float> %foldExtExtBinop2074, i64 0
-  %foldExtExtBinop2076 = fsub <2 x float> %3452, %3450
-  %3456 = extractelement <2 x float> %foldExtExtBinop2076, i64 1
-  %foldExtExtBinop2078 = fsub <2 x float> %3449, %3450
-  %3457 = extractelement <2 x float> %foldExtExtBinop2078, i64 0
-  %foldExtExtBinop2080 = fsub <2 x float> %3449, %3450
-  %3458 = extractelement <2 x float> %foldExtExtBinop2080, i64 1
+  %foldExtExtBinop2183 = fsub <2 x float> %3451, %3450
+  %3453 = extractelement <2 x float> %foldExtExtBinop2183, i64 0
+  %foldExtExtBinop2185 = fsub <2 x float> %3451, %3450
+  %3454 = extractelement <2 x float> %foldExtExtBinop2185, i64 1
+  %foldExtExtBinop2187 = fsub <2 x float> %3452, %3450
+  %3455 = extractelement <2 x float> %foldExtExtBinop2187, i64 0
+  %foldExtExtBinop2189 = fsub <2 x float> %3452, %3450
+  %3456 = extractelement <2 x float> %foldExtExtBinop2189, i64 1
+  %foldExtExtBinop2191 = fsub <2 x float> %3449, %3450
+  %3457 = extractelement <2 x float> %foldExtExtBinop2191, i64 0
+  %foldExtExtBinop2193 = fsub <2 x float> %3449, %3450
+  %3458 = extractelement <2 x float> %foldExtExtBinop2193, i64 1
   %3459 = fmul float %3454, %3454
   %3460 = call noundef float @llvm.fmuladd.f32(float %3453, float %3453, float %3459)
   %3461 = fmul float %3454, %3456
@@ -8253,33 +8253,33 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1203:    ; preds = %_ZNK11GfColorTest15
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211.thread: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1203
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br label %.invoke1807
+  br label %.invoke1920
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1203
   %3483 = fadd float %3476, %3480
   %3484 = fcmp ugt float %3483, 1.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br i1 %3484, label %.invoke1807, label %3486
+  br i1 %3484, label %.invoke1920, label %3486
 
-.invoke1807:                                      ; preds = %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit.thread
-  %.sink1830.sroa.phi = phi ptr [ %.sink1830.sroa.gep, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit.thread ], [ %.sink1830.sroa.gep2143, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit ], [ %.sink1830.sroa.gep2144, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085.thread ], [ %.sink1830.sroa.gep2145, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085 ], [ %.sink1830.sroa.gep2146, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103.thread ], [ %.sink1830.sroa.gep2147, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103 ], [ %.sink1830.sroa.gep2148, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121.thread ], [ %.sink1830.sroa.gep2149, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121 ], [ %.sink1830.sroa.gep2150, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139.thread ], [ %.sink1830.sroa.gep2151, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139 ], [ %.sink1830.sroa.gep2152, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157.thread ], [ %.sink1830.sroa.gep2153, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157 ], [ %.sink1830.sroa.gep2154, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175.thread ], [ %.sink1830.sroa.gep2155, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175 ], [ %.sink1830.sroa.gep2156, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193.thread ], [ %.sink1830.sroa.gep2157, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193 ], [ %.sink1830.sroa.gep2158, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211.thread ], [ %.sink1830.sroa.gep2159, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211 ]
-  %.sink1830.sroa.phi2160 = phi ptr [ %.sink1830.sroa.gep2161, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit.thread ], [ %.sink1830.sroa.gep2162, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit ], [ %.sink1830.sroa.gep2163, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085.thread ], [ %.sink1830.sroa.gep2164, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085 ], [ %.sink1830.sroa.gep2165, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103.thread ], [ %.sink1830.sroa.gep2166, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103 ], [ %.sink1830.sroa.gep2167, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121.thread ], [ %.sink1830.sroa.gep2168, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121 ], [ %.sink1830.sroa.gep2169, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139.thread ], [ %.sink1830.sroa.gep2170, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139 ], [ %.sink1830.sroa.gep2171, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157.thread ], [ %.sink1830.sroa.gep2172, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157 ], [ %.sink1830.sroa.gep2173, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175.thread ], [ %.sink1830.sroa.gep2174, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175 ], [ %.sink1830.sroa.gep2175, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193.thread ], [ %.sink1830.sroa.gep2176, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193 ], [ %.sink1830.sroa.gep2177, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211.thread ], [ %.sink1830.sroa.gep2178, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211 ]
-  %.sink1830.sroa.phi2179 = phi ptr [ %.sink1830.sroa.gep2180, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit.thread ], [ %.sink1830.sroa.gep2181, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit ], [ %.sink1830.sroa.gep2182, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085.thread ], [ %.sink1830.sroa.gep2183, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085 ], [ %.sink1830.sroa.gep2184, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103.thread ], [ %.sink1830.sroa.gep2185, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103 ], [ %.sink1830.sroa.gep2186, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121.thread ], [ %.sink1830.sroa.gep2187, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121 ], [ %.sink1830.sroa.gep2188, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139.thread ], [ %.sink1830.sroa.gep2189, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139 ], [ %.sink1830.sroa.gep2190, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157.thread ], [ %.sink1830.sroa.gep2191, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157 ], [ %.sink1830.sroa.gep2192, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175.thread ], [ %.sink1830.sroa.gep2193, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175 ], [ %.sink1830.sroa.gep2194, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193.thread ], [ %.sink1830.sroa.gep2195, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193 ], [ %.sink1830.sroa.gep2196, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211.thread ], [ %.sink1830.sroa.gep2197, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211 ]
-  %.sink1830.sroa.phi2198 = phi ptr [ %.sink1830.sroa.gep2199, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit.thread ], [ %.sink1830.sroa.gep2200, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit ], [ %.sink1830.sroa.gep2201, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085.thread ], [ %.sink1830.sroa.gep2202, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085 ], [ %.sink1830.sroa.gep2203, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103.thread ], [ %.sink1830.sroa.gep2204, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103 ], [ %.sink1830.sroa.gep2205, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121.thread ], [ %.sink1830.sroa.gep2206, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121 ], [ %.sink1830.sroa.gep2207, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139.thread ], [ %.sink1830.sroa.gep2208, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139 ], [ %.sink1830.sroa.gep2209, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157.thread ], [ %.sink1830.sroa.gep2210, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157 ], [ %.sink1830.sroa.gep2211, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175.thread ], [ %.sink1830.sroa.gep2212, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175 ], [ %.sink1830.sroa.gep2213, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193.thread ], [ %.sink1830.sroa.gep2214, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193 ], [ %.sink1830.sroa.gep2215, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211.thread ], [ %.sink1830.sroa.gep2216, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211 ]
-  %.sink1830.sroa.phi2217 = phi ptr [ %.sink1830.sroa.gep2218, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit.thread ], [ %.sink1830.sroa.gep2219, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit ], [ %.sink1830.sroa.gep2220, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085.thread ], [ %.sink1830.sroa.gep2221, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085 ], [ %.sink1830.sroa.gep2222, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103.thread ], [ %.sink1830.sroa.gep2223, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103 ], [ %.sink1830.sroa.gep2224, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121.thread ], [ %.sink1830.sroa.gep2225, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121 ], [ %.sink1830.sroa.gep2226, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139.thread ], [ %.sink1830.sroa.gep2227, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139 ], [ %.sink1830.sroa.gep2228, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157.thread ], [ %.sink1830.sroa.gep2229, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157 ], [ %.sink1830.sroa.gep2230, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175.thread ], [ %.sink1830.sroa.gep2231, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175 ], [ %.sink1830.sroa.gep2232, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193.thread ], [ %.sink1830.sroa.gep2233, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193 ], [ %.sink1830.sroa.gep2234, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211.thread ], [ %.sink1830.sroa.gep2235, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211 ]
-  %.sink1830 = phi ptr [ %12, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit.thread ], [ %12, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit ], [ %11, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085.thread ], [ %11, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085 ], [ %10, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103.thread ], [ %10, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103 ], [ %9, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121.thread ], [ %9, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121 ], [ %8, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139.thread ], [ %8, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139 ], [ %7, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157.thread ], [ %7, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157 ], [ %6, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175.thread ], [ %6, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175 ], [ %5, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193.thread ], [ %5, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193 ], [ %4, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211.thread ], [ %4, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211 ]
-  %.sink1827 = phi i64 [ 289, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit.thread ], [ 289, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit ], [ 293, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085.thread ], [ 293, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085 ], [ 297, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103.thread ], [ 297, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103 ], [ 303, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121.thread ], [ 303, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121 ], [ 307, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139.thread ], [ 307, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139 ], [ 311, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157.thread ], [ 311, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157 ], [ 317, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175.thread ], [ 317, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175 ], [ 321, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193.thread ], [ 321, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193 ], [ 325, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211.thread ], [ 325, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211 ]
+.invoke1920:                                      ; preds = %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit.thread
+  %.sink1943.sroa.phi = phi ptr [ %.sink1943.sroa.gep, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit.thread ], [ %.sink1943.sroa.gep2256, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit ], [ %.sink1943.sroa.gep2257, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085.thread ], [ %.sink1943.sroa.gep2258, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085 ], [ %.sink1943.sroa.gep2259, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103.thread ], [ %.sink1943.sroa.gep2260, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103 ], [ %.sink1943.sroa.gep2261, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121.thread ], [ %.sink1943.sroa.gep2262, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121 ], [ %.sink1943.sroa.gep2263, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139.thread ], [ %.sink1943.sroa.gep2264, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139 ], [ %.sink1943.sroa.gep2265, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157.thread ], [ %.sink1943.sroa.gep2266, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157 ], [ %.sink1943.sroa.gep2267, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175.thread ], [ %.sink1943.sroa.gep2268, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175 ], [ %.sink1943.sroa.gep2269, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193.thread ], [ %.sink1943.sroa.gep2270, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193 ], [ %.sink1943.sroa.gep2271, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211.thread ], [ %.sink1943.sroa.gep2272, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211 ]
+  %.sink1943.sroa.phi2273 = phi ptr [ %.sink1943.sroa.gep2274, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit.thread ], [ %.sink1943.sroa.gep2275, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit ], [ %.sink1943.sroa.gep2276, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085.thread ], [ %.sink1943.sroa.gep2277, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085 ], [ %.sink1943.sroa.gep2278, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103.thread ], [ %.sink1943.sroa.gep2279, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103 ], [ %.sink1943.sroa.gep2280, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121.thread ], [ %.sink1943.sroa.gep2281, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121 ], [ %.sink1943.sroa.gep2282, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139.thread ], [ %.sink1943.sroa.gep2283, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139 ], [ %.sink1943.sroa.gep2284, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157.thread ], [ %.sink1943.sroa.gep2285, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157 ], [ %.sink1943.sroa.gep2286, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175.thread ], [ %.sink1943.sroa.gep2287, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175 ], [ %.sink1943.sroa.gep2288, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193.thread ], [ %.sink1943.sroa.gep2289, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193 ], [ %.sink1943.sroa.gep2290, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211.thread ], [ %.sink1943.sroa.gep2291, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211 ]
+  %.sink1943.sroa.phi2292 = phi ptr [ %.sink1943.sroa.gep2293, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit.thread ], [ %.sink1943.sroa.gep2294, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit ], [ %.sink1943.sroa.gep2295, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085.thread ], [ %.sink1943.sroa.gep2296, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085 ], [ %.sink1943.sroa.gep2297, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103.thread ], [ %.sink1943.sroa.gep2298, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103 ], [ %.sink1943.sroa.gep2299, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121.thread ], [ %.sink1943.sroa.gep2300, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121 ], [ %.sink1943.sroa.gep2301, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139.thread ], [ %.sink1943.sroa.gep2302, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139 ], [ %.sink1943.sroa.gep2303, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157.thread ], [ %.sink1943.sroa.gep2304, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157 ], [ %.sink1943.sroa.gep2305, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175.thread ], [ %.sink1943.sroa.gep2306, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175 ], [ %.sink1943.sroa.gep2307, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193.thread ], [ %.sink1943.sroa.gep2308, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193 ], [ %.sink1943.sroa.gep2309, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211.thread ], [ %.sink1943.sroa.gep2310, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211 ]
+  %.sink1943.sroa.phi2311 = phi ptr [ %.sink1943.sroa.gep2312, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit.thread ], [ %.sink1943.sroa.gep2313, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit ], [ %.sink1943.sroa.gep2314, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085.thread ], [ %.sink1943.sroa.gep2315, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085 ], [ %.sink1943.sroa.gep2316, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103.thread ], [ %.sink1943.sroa.gep2317, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103 ], [ %.sink1943.sroa.gep2318, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121.thread ], [ %.sink1943.sroa.gep2319, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121 ], [ %.sink1943.sroa.gep2320, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139.thread ], [ %.sink1943.sroa.gep2321, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139 ], [ %.sink1943.sroa.gep2322, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157.thread ], [ %.sink1943.sroa.gep2323, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157 ], [ %.sink1943.sroa.gep2324, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175.thread ], [ %.sink1943.sroa.gep2325, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175 ], [ %.sink1943.sroa.gep2326, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193.thread ], [ %.sink1943.sroa.gep2327, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193 ], [ %.sink1943.sroa.gep2328, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211.thread ], [ %.sink1943.sroa.gep2329, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211 ]
+  %.sink1943.sroa.phi2330 = phi ptr [ %.sink1943.sroa.gep2331, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit.thread ], [ %.sink1943.sroa.gep2332, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit ], [ %.sink1943.sroa.gep2333, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085.thread ], [ %.sink1943.sroa.gep2334, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085 ], [ %.sink1943.sroa.gep2335, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103.thread ], [ %.sink1943.sroa.gep2336, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103 ], [ %.sink1943.sroa.gep2337, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121.thread ], [ %.sink1943.sroa.gep2338, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121 ], [ %.sink1943.sroa.gep2339, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139.thread ], [ %.sink1943.sroa.gep2340, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139 ], [ %.sink1943.sroa.gep2341, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157.thread ], [ %.sink1943.sroa.gep2342, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157 ], [ %.sink1943.sroa.gep2343, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175.thread ], [ %.sink1943.sroa.gep2344, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175 ], [ %.sink1943.sroa.gep2345, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193.thread ], [ %.sink1943.sroa.gep2346, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193 ], [ %.sink1943.sroa.gep2347, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211.thread ], [ %.sink1943.sroa.gep2348, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211 ]
+  %.sink1943 = phi ptr [ %12, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit.thread ], [ %12, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit ], [ %11, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085.thread ], [ %11, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085 ], [ %10, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103.thread ], [ %10, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103 ], [ %9, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121.thread ], [ %9, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121 ], [ %8, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139.thread ], [ %8, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139 ], [ %7, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157.thread ], [ %7, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157 ], [ %6, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175.thread ], [ %6, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175 ], [ %5, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193.thread ], [ %5, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193 ], [ %4, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211.thread ], [ %4, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211 ]
+  %.sink1940 = phi i64 [ 289, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit.thread ], [ 289, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit ], [ 293, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085.thread ], [ 293, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085 ], [ 297, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103.thread ], [ 297, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103 ], [ 303, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121.thread ], [ 303, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121 ], [ 307, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139.thread ], [ 307, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139 ], [ 311, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157.thread ], [ 311, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157 ], [ 317, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175.thread ], [ 317, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175 ], [ 321, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193.thread ], [ 321, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193 ], [ 325, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211.thread ], [ 325, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211 ]
   %3485 = phi ptr [ @.str.46, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit.thread ], [ @.str.46, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit ], [ @.str.47, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085.thread ], [ @.str.47, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085 ], [ @.str.48, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103.thread ], [ @.str.48, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103 ], [ @.str.49, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121.thread ], [ @.str.49, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121 ], [ @.str.50, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139.thread ], [ @.str.50, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139 ], [ @.str.51, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157.thread ], [ @.str.51, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157 ], [ @.str.52, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175.thread ], [ @.str.52, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175 ], [ @.str.53, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193.thread ], [ @.str.53, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193 ], [ @.str.54, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211.thread ], [ @.str.54, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211 ]
-  store ptr @.str, ptr %.sink1830, align 8
-  store ptr @__func__.main, ptr %.sink1830.sroa.phi, align 8
-  store i64 %.sink1827, ptr %.sink1830.sroa.phi2160, align 8
-  store ptr @__PRETTY_FUNCTION__.main, ptr %.sink1830.sroa.phi2179, align 8
-  store i8 0, ptr %.sink1830.sroa.phi2198, align 8
-  store i32 4, ptr %.sink1830.sroa.phi2217, align 8
-  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink1830, ptr noundef nonnull @.str.57, ptr noundef nonnull %3485) #17
-          to label %.cont1808 unwind label %4045
+  store ptr @.str, ptr %.sink1943, align 8
+  store ptr @__func__.main, ptr %.sink1943.sroa.phi, align 8
+  store i64 %.sink1940, ptr %.sink1943.sroa.phi2273, align 8
+  store ptr @__PRETTY_FUNCTION__.main, ptr %.sink1943.sroa.phi2292, align 8
+  store i8 0, ptr %.sink1943.sroa.phi2311, align 8
+  store i32 4, ptr %.sink1943.sroa.phi2330, align 8
+  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink1943, ptr noundef nonnull @.str.57, ptr noundef nonnull %3485) #17
+          to label %.cont1921 unwind label %4045
 
-.cont1808:                                        ; preds = %.invoke1807
+.cont1921:                                        ; preds = %.invoke1920
   unreachable
 
 3486:                                             ; preds = %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211
@@ -9284,7 +9284,7 @@ _ZN11GfColorTestD2Ev.exit1291:                    ; preds = %3831, %3849, %3862,
           cleanup
   br label %3936
 
-3934:                                             ; preds = %.invoke1805, %_ZNK11GfColorTest15GetChromaticityEv.exit372, %_ZNK11GfColorTest15GetChromaticityEv.exit370, %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColorSpaceE.exit368
+3934:                                             ; preds = %.invoke1918, %_ZNK11GfColorTest15GetChromaticityEv.exit372, %_ZNK11GfColorTest15GetChromaticityEv.exit370, %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColorSpaceE.exit368
   %3935 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN11GfColorTestD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %98) #16
@@ -9640,7 +9640,7 @@ _ZN11GfColorTestD2Ev.exit1291:                    ; preds = %3831, %3849, %3862,
           cleanup
   br label %4047
 
-4045:                                             ; preds = %.invoke1807, %_ZNK11GfColorTest15GetChromaticityEv.exit1201, %_ZNK11GfColorTest15GetChromaticityEv.exit1199, %_ZNK11GfColorTest15GetChromaticityEv.exit1197, %3448, %_ZNK11GfColorTest15GetChromaticityEv.exit1183, %_ZNK11GfColorTest15GetChromaticityEv.exit1181, %_ZNK11GfColorTest15GetChromaticityEv.exit1179, %3411, %_ZNK11GfColorTest15GetChromaticityEv.exit1165, %_ZNK11GfColorTest15GetChromaticityEv.exit1163, %_ZNK11GfColorTest15GetChromaticityEv.exit1161, %3374, %_ZNK11GfColorTest15GetChromaticityEv.exit1147, %_ZNK11GfColorTest15GetChromaticityEv.exit1145, %_ZNK11GfColorTest15GetChromaticityEv.exit1143, %3337, %_ZNK11GfColorTest15GetChromaticityEv.exit1129, %_ZNK11GfColorTest15GetChromaticityEv.exit1127, %_ZNK11GfColorTest15GetChromaticityEv.exit1125, %3300, %_ZNK11GfColorTest15GetChromaticityEv.exit1111, %_ZNK11GfColorTest15GetChromaticityEv.exit1109, %_ZNK11GfColorTest15GetChromaticityEv.exit1107, %3263, %_ZNK11GfColorTest15GetChromaticityEv.exit1093, %_ZNK11GfColorTest15GetChromaticityEv.exit1091, %_ZNK11GfColorTest15GetChromaticityEv.exit1089, %3226, %_ZNK11GfColorTest15GetChromaticityEv.exit1075, %_ZNK11GfColorTest15GetChromaticityEv.exit1073, %_ZNK11GfColorTest15GetChromaticityEv.exit1071, %3189, %_ZNK11GfColorTest15GetChromaticityEv.exit1063, %_ZNK11GfColorTest15GetChromaticityEv.exit1061, %_ZNK11GfColorTest15GetChromaticityEv.exit1059, %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1057
+4045:                                             ; preds = %.invoke1920, %_ZNK11GfColorTest15GetChromaticityEv.exit1201, %_ZNK11GfColorTest15GetChromaticityEv.exit1199, %_ZNK11GfColorTest15GetChromaticityEv.exit1197, %3448, %_ZNK11GfColorTest15GetChromaticityEv.exit1183, %_ZNK11GfColorTest15GetChromaticityEv.exit1181, %_ZNK11GfColorTest15GetChromaticityEv.exit1179, %3411, %_ZNK11GfColorTest15GetChromaticityEv.exit1165, %_ZNK11GfColorTest15GetChromaticityEv.exit1163, %_ZNK11GfColorTest15GetChromaticityEv.exit1161, %3374, %_ZNK11GfColorTest15GetChromaticityEv.exit1147, %_ZNK11GfColorTest15GetChromaticityEv.exit1145, %_ZNK11GfColorTest15GetChromaticityEv.exit1143, %3337, %_ZNK11GfColorTest15GetChromaticityEv.exit1129, %_ZNK11GfColorTest15GetChromaticityEv.exit1127, %_ZNK11GfColorTest15GetChromaticityEv.exit1125, %3300, %_ZNK11GfColorTest15GetChromaticityEv.exit1111, %_ZNK11GfColorTest15GetChromaticityEv.exit1109, %_ZNK11GfColorTest15GetChromaticityEv.exit1107, %3263, %_ZNK11GfColorTest15GetChromaticityEv.exit1093, %_ZNK11GfColorTest15GetChromaticityEv.exit1091, %_ZNK11GfColorTest15GetChromaticityEv.exit1089, %3226, %_ZNK11GfColorTest15GetChromaticityEv.exit1075, %_ZNK11GfColorTest15GetChromaticityEv.exit1073, %_ZNK11GfColorTest15GetChromaticityEv.exit1071, %3189, %_ZNK11GfColorTest15GetChromaticityEv.exit1063, %_ZNK11GfColorTest15GetChromaticityEv.exit1061, %_ZNK11GfColorTest15GetChromaticityEv.exit1059, %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1057
   %4046 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN11GfColorTestD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %167) #16

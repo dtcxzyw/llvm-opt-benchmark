@@ -1529,13 +1529,13 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEmNS1_4HashESt8e
   %71 = getelementptr i8, ptr %67, i64 -416
   %.val4.val.i.i.i = load i64, ptr %71, align 4, !noalias !20
   %72 = icmp eq i64 %.val4.val.i.i.i, %.0.copyload.i2.i
-  br i1 %72, label %"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit60", label %73
+  br i1 %72, label %"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit64", label %73
 
 73:                                               ; preds = %70
   %74 = getelementptr i8, ptr %67, i64 -624
   %.val6.val.i.i.i = load i64, ptr %74, align 4, !noalias !20
   %75 = icmp eq i64 %.val6.val.i.i.i, %.0.copyload.i2.i
-  br i1 %75, label %"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit58", label %76
+  br i1 %75, label %"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit62", label %76
 
 76:                                               ; preds = %73
   %77 = getelementptr i8, ptr %67, i64 -832
@@ -1588,16 +1588,16 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEmNS1_4HashESt8e
   %93 = getelementptr i8, ptr %67, i64 -624
   br label %"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit"
 
-"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit58": ; preds = %73
+"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit62": ; preds = %73
   %94 = getelementptr i8, ptr %67, i64 -416
   br label %"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit"
 
-"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit60": ; preds = %70
+"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit64": ; preds = %70
   %95 = getelementptr i8, ptr %67, i64 -208
   br label %"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit"
 
-"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit": ; preds = %.lr.ph.i.i.i, %"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit58", %"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit60", %84, %._crit_edge.i._crit_edge.i.i, %._crit_edge.i._crit_edge20.i.i
-  %.sink.i.i.i = phi ptr [ %83, %84 ], [ %87, %._crit_edge.i._crit_edge.i.i ], [ %spec.select.i.i15, %._crit_edge.i._crit_edge20.i.i ], [ %93, %"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit" ], [ %94, %"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit58" ], [ %95, %"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit60" ], [ %67, %.lr.ph.i.i.i ]
+"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit": ; preds = %.lr.ph.i.i.i, %"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit62", %"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit64", %84, %._crit_edge.i._crit_edge.i.i, %._crit_edge.i._crit_edge20.i.i
+  %.sink.i.i.i = phi ptr [ %83, %84 ], [ %87, %._crit_edge.i._crit_edge.i.i ], [ %spec.select.i.i15, %._crit_edge.i._crit_edge20.i.i ], [ %93, %"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit" ], [ %94, %"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit62" ], [ %95, %"_ZSt7find_ifISt16reverse_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEEZNKS4_9FindEntryERKS3_E3$_0ET_SD_SD_T0_.exit.loopexit.split.loop.exit64" ], [ %67, %.lr.ph.i.i.i ]
   %96 = icmp eq ptr %.sink.i.i.i, %spec.select.i.i
   %97 = getelementptr inbounds i8, ptr %.sink.i.i.i, i64 -208
   %spec.select = select i1 %96, ptr %10, ptr %97

@@ -98,8 +98,8 @@ define internal range(i32 -1094995529, 1) i32 @hcom_init(ptr noundef %0) #0 {
   %.not49 = icmp sgt i32 %36, %51
   %52 = sext i16 %47 to i32
   %or.cond52.not = icmp ugt i32 %36, %52
-  %or.cond56 = select i1 %.not49, i1 %or.cond52.not, i1 false
-  br i1 %or.cond56, label %53, label %.loopexit
+  %or.cond59 = select i1 %.not49, i1 %or.cond52.not, i1 false
+  br i1 %or.cond59, label %53, label %.loopexit
 
 53:                                               ; preds = %50, %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -153,8 +153,8 @@ define internal i32 @hcom_decode(ptr noundef %0, ptr noundef %1, ptr noundef wri
   br i1 %or.cond3.i.i, label %.preheader, label %56
 
 .preheader:                                       ; preds = %15
-  %.not44 = icmp eq i32 %20, 0
-  br i1 %.not44, label %._crit_edge, label %.lr.ph
+  %.not47 = icmp eq i32 %20, 0
+  br i1 %.not47, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -217,8 +217,8 @@ define internal i32 @hcom_decode(ptr noundef %0, ptr noundef %1, ptr noundef wri
 
 54:                                               ; preds = %48, %26
   %.1 = phi i32 [ %51, %48 ], [ %.03342, %26 ]
-  %exitcond.not45 = icmp eq i32 %20, %spec.select.i
-  br i1 %exitcond.not45, label %._crit_edge, label %26, !llvm.loop !57
+  %exitcond.not48 = icmp eq i32 %20, %spec.select.i
+  br i1 %exitcond.not48, label %._crit_edge, label %26, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %54, %.preheader
   %.033.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %54 ]

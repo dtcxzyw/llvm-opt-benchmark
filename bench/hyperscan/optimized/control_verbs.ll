@@ -53,14 +53,14 @@ define hidden noundef ptr @_ZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeE(pt
 14:                                               ; preds = %._crit_edge
   %15 = sext i8 %94 to i64
   %.not271 = icmp eq i8 %94, 75
-  %spec.select306 = select i1 %.not271, ptr %214, ptr %.5138.lcssa
+  %spec.select322 = select i1 %.not271, ptr %214, ptr %.5138.lcssa
   br label %.lr.ph264
 
 .lr.ph264:                                        ; preds = %14, %4
   %16 = phi i64 [ 75, %4 ], [ %15, %14 ]
-  %.1288 = phi ptr [ %0, %4 ], [ %214, %14 ]
-  %.1146285 = phi ptr [ null, %4 ], [ %.3148, %14 ]
-  %.2135.lcssa = phi ptr [ %0, %4 ], [ %spec.select306, %14 ]
+  %.1304 = phi ptr [ %0, %4 ], [ %214, %14 ]
+  %.1146301 = phi ptr [ null, %4 ], [ %.3148, %14 ]
+  %.2135.lcssa = phi ptr [ %0, %4 ], [ %spec.select322, %14 ]
   %17 = getelementptr inbounds [77 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE25_ControlVerbs_key_offsets, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i64
@@ -74,7 +74,7 @@ define hidden noundef ptr @_ZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeE(pt
   %27 = zext nneg i32 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 -1
-  %30 = load i8, ptr %.1288, align 1
+  %30 = load i8, ptr %.1304, align 1
   br label %31
 
 31:                                               ; preds = %.lr.ph264, %45
@@ -128,7 +128,7 @@ define hidden noundef ptr @_ZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeE(pt
   %57 = zext nneg i32 %56 to i64
   %58 = getelementptr i8, ptr %28, i64 %57
   %59 = getelementptr i8, ptr %58, i64 -2
-  %60 = load i8, ptr %.1288, align 1
+  %60 = load i8, ptr %.1304, align 1
   br label %61
 
 61:                                               ; preds = %.lr.ph269, %84
@@ -187,9 +187,9 @@ define hidden noundef ptr @_ZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeE(pt
 
 91:                                               ; preds = %217, %86
   %.4165 = phi i64 [ %222, %217 ], [ %90, %86 ]
-  %.2147 = phi ptr [ %.0145, %217 ], [ %.1146285, %86 ]
+  %.2147 = phi ptr [ %.0145, %217 ], [ %.1146301, %86 ]
   %.4137 = phi ptr [ %.0133, %217 ], [ %.2135.lcssa, %86 ]
-  %.2 = phi ptr [ %.0, %217 ], [ %.1288, %86 ]
+  %.2 = phi ptr [ %.0, %217 ], [ %.1304, %86 ]
   %92 = and i64 %.4165, 4294967295
   %93 = getelementptr inbounds nuw [83 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE25_ControlVerbs_trans_targs, i64 0, i64 %92
   %94 = load i8, ptr %93, align 1
@@ -685,7 +685,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = icmp eq ptr %13, %14
-  br i1 %15, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %15, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -697,14 +697,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %21 = icmp eq ptr %19, %20
   br i1 %21, label %25, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %22 = load ptr, ptr %1, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = icmp eq ptr %22, %23
   br i1 %24, label %25, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-25:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %26 = phi ptr [ %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+25:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %26 = phi ptr [ %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = icmp ult i64 %28, 16
@@ -746,7 +746,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %40, ptr %14, align 8
   br label %47
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %41 = load i64, ptr %14, align 8
   store ptr %22, ptr %12, align 8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8

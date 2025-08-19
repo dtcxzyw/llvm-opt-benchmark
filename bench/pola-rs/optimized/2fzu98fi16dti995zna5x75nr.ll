@@ -497,10 +497,10 @@ _ZN3std4sync6poison4once4Once9call_once17h411f3af38dcc71daE.exit: ; preds = %2, 
   br label %20
 
 20:                                               ; preds = %._crit_edge, %._crit_edge.thread
-  %.not714 = phi i8 [ 1, %._crit_edge.thread ], [ 0, %._crit_edge ]
+  %.not716 = phi i8 [ 1, %._crit_edge.thread ], [ 0, %._crit_edge ]
   %.sroa.5.0 = phi i8 [ %19, %._crit_edge.thread ], [ undef, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i8 %.not714, ptr %6, align 1
+  store i8 %.not716, ptr %6, align 1
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %.sroa.5.0, ptr %21, align 1
   call void asm sideeffect "", "r,~{memory}"(ptr nonnull %6) #21, !srcloc !40

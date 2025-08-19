@@ -531,7 +531,7 @@ define range(i32 -1, 1) i32 @redisReaderGetReply(ptr noundef %0, ptr noundef wri
   br label %39
 
 39:                                               ; preds = %.lr.ph, %processItem.exit
-  %40 = phi i32 [ %30, %.lr.ph ], [ %.pr171, %processItem.exit ]
+  %40 = phi i32 [ %30, %.lr.ph ], [ %.pr283, %processItem.exit ]
   %41 = load ptr, ptr %31, align 8, !tbaa !17
   %42 = zext nneg i32 %40 to i64
   %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %42
@@ -802,7 +802,7 @@ readLine.exit.i.i:                                ; preds = %.lr.ph.i.i.i.i
   br i1 %131, label %133, label %.thread.i.i.i
 
 133:                                              ; preds = %130
-  switch i8 %132, label %.thread70.i.i.i [
+  switch i8 %132, label %.thread72.i.i.i [
     i8 48, label %string2ll.exit.i.i
     i8 45, label %.loopexit.i.i
   ]
@@ -824,14 +824,14 @@ readLine.exit.i.i:                                ; preds = %.lr.ph.i.i.i.i
   %or.cond56.i.i.i = icmp ult i8 %137, 9
   br i1 %or.cond56.i.i.i, label %140, label %.loopexit.i.i
 
-.thread70.i.i.i:                                  ; preds = %133
+.thread72.i.i.i:                                  ; preds = %133
   %138 = add i8 %132, -49
-  %or.cond5674.i.i.i = icmp ult i8 %138, 9
-  br i1 %or.cond5674.i.i.i, label %.thread89.i.i.i, label %143
+  %or.cond5676.i.i.i = icmp ult i8 %138, 9
+  br i1 %or.cond5676.i.i.i, label %.thread91.i.i.i, label %143
 
-.thread89.i.i.i:                                  ; preds = %.thread70.i.i.i
-  %narrow82.i.i.i = add nsw i8 %132, -48
-  %139 = zext nneg i8 %narrow82.i.i.i to i64
+.thread91.i.i.i:                                  ; preds = %.thread72.i.i.i
+  %narrow84.i.i.i = add nsw i8 %132, -48
+  %139 = zext nneg i8 %narrow84.i.i.i to i64
   br label %string2ll.exit.i.i
 
 140:                                              ; preds = %135
@@ -840,7 +840,7 @@ readLine.exit.i.i:                                ; preds = %.lr.ph.i.i.i.i
   %142 = icmp ult i64 %.045.i.i.i, %128
   br i1 %142, label %.lr.ph.i.i.i, label %.critedge58.i.i.i
 
-143:                                              ; preds = %.thread70.i.i.i
+143:                                              ; preds = %.thread72.i.i.i
   %144 = icmp eq i8 %132, 48
   br i1 %144, label %string2ll.exit.i.i, label %.loopexit.i.i
 
@@ -908,8 +908,8 @@ readLine.exit.i.i:                                ; preds = %.lr.ph.i.i.i.i
   %.pre229.i.i = load ptr, ptr %33, align 8, !tbaa !9
   br label %175
 
-string2ll.exit.i.i:                               ; preds = %160, %158, %143, %.thread89.i.i.i, %133
-  %storemerge.sink.i.i.i = phi i64 [ 0, %133 ], [ 0, %143 ], [ %159, %158 ], [ %.0.lcssa.i.i.i, %160 ], [ %139, %.thread89.i.i.i ]
+string2ll.exit.i.i:                               ; preds = %160, %158, %143, %.thread91.i.i.i, %133
+  %storemerge.sink.i.i.i = phi i64 [ 0, %133 ], [ 0, %143 ], [ %159, %158 ], [ %.0.lcssa.i.i.i, %160 ], [ %139, %.thread91.i.i.i ]
   %169 = load ptr, ptr %36, align 8, !tbaa !21
   %.not127.i.i = icmp eq ptr %169, null
   br i1 %.not127.i.i, label %.thread194.i.i, label %170
@@ -1402,12 +1402,12 @@ __redisReaderSetErrorOOM.exit.i.i:                ; preds = %323, %320, %318, %3
   br label %processItem.exit
 
 .thread116.sink.split.i:                          ; preds = %62, %52
-  %.sink184.i = phi i32 [ 14, %62 ], [ 1, %52 ]
-  store i32 %.sink184.i, ptr %44, align 8, !tbaa !38
+  %.sink285.i = phi i32 [ 14, %62 ], [ 1, %52 ]
+  store i32 %.sink285.i, ptr %44, align 8, !tbaa !38
   br label %.thread116.i
 
 .thread116.i:                                     ; preds = %.thread116.sink.split.i, %99, %99
-  %353 = phi i32 [ %45, %99 ], [ %45, %99 ], [ %.sink184.i, %.thread116.sink.split.i ]
+  %353 = phi i32 [ %45, %99 ], [ %45, %99 ], [ %.sink285.i, %.thread116.sink.split.i ]
   %354 = load ptr, ptr %33, align 8, !tbaa !9
   %355 = load i64, ptr %32, align 8, !tbaa !36
   %356 = getelementptr inbounds nuw i8, ptr %354, i64 %355
@@ -1454,7 +1454,7 @@ seekNewline.exit.i.i:                             ; preds = %.lr.ph.i.i26.i
   br i1 %378, label %380, label %.thread.i.i29.i
 
 380:                                              ; preds = %377
-  switch i8 %379, label %.thread70.i.i61.i [
+  switch i8 %379, label %.thread72.i.i61.i [
     i8 48, label %.thread.i40.i
     i8 45, label %.loopexit.i34.i
   ]
@@ -1476,14 +1476,14 @@ seekNewline.exit.i.i:                             ; preds = %.lr.ph.i.i26.i
   %or.cond56.i.i33.i = icmp ult i8 %384, 9
   br i1 %or.cond56.i.i33.i, label %387, label %.loopexit.i34.i
 
-.thread70.i.i61.i:                                ; preds = %380
+.thread72.i.i61.i:                                ; preds = %380
   %385 = add i8 %379, -49
-  %or.cond5674.i.i62.i = icmp ult i8 %385, 9
-  br i1 %or.cond5674.i.i62.i, label %.thread89.i.i63.i, label %390
+  %or.cond5676.i.i62.i = icmp ult i8 %385, 9
+  br i1 %or.cond5676.i.i62.i, label %.thread91.i.i63.i, label %390
 
-.thread89.i.i63.i:                                ; preds = %.thread70.i.i61.i
-  %narrow82.i.i64.i = add nsw i8 %379, -48
-  %386 = zext nneg i8 %narrow82.i.i64.i to i64
+.thread91.i.i63.i:                                ; preds = %.thread72.i.i61.i
+  %narrow84.i.i64.i = add nsw i8 %379, -48
+  %386 = zext nneg i8 %narrow84.i.i64.i to i64
   br label %.thread.i40.i
 
 387:                                              ; preds = %382
@@ -1492,7 +1492,7 @@ seekNewline.exit.i.i:                             ; preds = %.lr.ph.i.i26.i
   %389 = icmp ult i64 %.045.i.i32.i, %374
   br i1 %389, label %.lr.ph.i61.i.i, label %.critedge58.i.i38.i
 
-390:                                              ; preds = %.thread70.i.i61.i
+390:                                              ; preds = %.thread72.i.i61.i
   %391 = icmp eq i8 %379, 48
   br i1 %391, label %.thread.i40.i, label %.loopexit.i34.i
 
@@ -1626,8 +1626,8 @@ __redisReaderSetError.exit66.i.i:                 ; preds = %425, %422, %420, %4
   %437 = call ptr %435(ptr noundef nonnull %44) #12
   br label %469
 
-.thread.i40.i:                                    ; preds = %429, %405, %390, %.thread89.i.i63.i, %380
-  %storemerge.sink.i8082.i.i = phi i64 [ 0, %429 ], [ %386, %.thread89.i.i63.i ], [ %.0.lcssa.i.i39.i, %405 ], [ 0, %390 ], [ 0, %380 ]
+.thread.i40.i:                                    ; preds = %429, %405, %390, %.thread91.i.i63.i, %380
+  %storemerge.sink.i8082.i.i = phi i64 [ 0, %429 ], [ %386, %.thread91.i.i63.i ], [ %.0.lcssa.i.i39.i, %405 ], [ 0, %390 ], [ 0, %380 ]
   %438 = add i64 %374, 4
   %439 = add i64 %438, %storemerge.sink.i8082.i.i
   %440 = add i64 %439, %355
@@ -1805,8 +1805,8 @@ __redisReaderSetErrorOOM.exit.i48.i:              ; preds = %478, %475, %473, %4
   br label %processItem.exit
 
 .thread113.sink.split.i:                          ; preds = %63, %60, %59, %52
-  %.sink185.i = phi i32 [ 9, %59 ], [ 10, %60 ], [ 12, %63 ], [ 2, %52 ]
-  store i32 %.sink185.i, ptr %44, align 8, !tbaa !38
+  %.sink286.i = phi i32 [ 9, %59 ], [ 10, %60 ], [ 12, %63 ], [ 2, %52 ]
+  store i32 %.sink286.i, ptr %44, align 8, !tbaa !38
   br label %.thread113.i
 
 .thread113.i:                                     ; preds = %.thread113.sink.split.i, %99, %99, %99, %99
@@ -1936,7 +1936,7 @@ readLine.exit.i72.i:                              ; preds = %.lr.ph.i.i.i66.i
   br i1 %571, label %573, label %.thread.i.i75.i
 
 573:                                              ; preds = %570
-  switch i8 %572, label %.thread70.i.i104.i [
+  switch i8 %572, label %.thread72.i.i104.i [
     i8 48, label %string2ll.exit.thread83.i.i
     i8 45, label %.loopexit.i80.i
   ]
@@ -1958,14 +1958,14 @@ readLine.exit.i72.i:                              ; preds = %.lr.ph.i.i.i66.i
   %or.cond56.i.i79.i = icmp ult i8 %577, 9
   br i1 %or.cond56.i.i79.i, label %580, label %.loopexit.i80.i
 
-.thread70.i.i104.i:                               ; preds = %573
+.thread72.i.i104.i:                               ; preds = %573
   %578 = add i8 %572, -49
-  %or.cond5674.i.i105.i = icmp ult i8 %578, 9
-  br i1 %or.cond5674.i.i105.i, label %.thread89.i.i106.i, label %583
+  %or.cond5676.i.i105.i = icmp ult i8 %578, 9
+  br i1 %or.cond5676.i.i105.i, label %.thread91.i.i106.i, label %583
 
-.thread89.i.i106.i:                               ; preds = %.thread70.i.i104.i
-  %narrow82.i.i107.i = add nsw i8 %572, -48
-  %579 = zext nneg i8 %narrow82.i.i107.i to i64
+.thread91.i.i106.i:                               ; preds = %.thread72.i.i104.i
+  %narrow84.i.i107.i = add nsw i8 %572, -48
+  %579 = zext nneg i8 %narrow84.i.i107.i to i64
   br label %string2ll.exit.thread83.i.i
 
 580:                                              ; preds = %575
@@ -1974,7 +1974,7 @@ readLine.exit.i72.i:                              ; preds = %.lr.ph.i.i.i66.i
   %582 = icmp ult i64 %.045.i.i78.i, %568
   br i1 %582, label %.lr.ph.i64.i.i, label %.critedge58.i.i86.i
 
-583:                                              ; preds = %.thread70.i.i104.i
+583:                                              ; preds = %.thread72.i.i104.i
   %584 = icmp eq i8 %572, 48
   br i1 %584, label %string2ll.exit.thread83.i.i, label %.loopexit.i80.i
 
@@ -2055,8 +2055,8 @@ string2ll.exit.i93.i:                             ; preds = %596
   %611 = icmp slt i64 %610, -1
   br i1 %611, label %616, label %string2ll.exit.thread83.i.i
 
-string2ll.exit.thread83.i.i:                      ; preds = %string2ll.exit.i93.i, %598, %583, %.thread89.i.i106.i, %573
-  %storemerge.sink.i85.i.i = phi i64 [ %610, %string2ll.exit.i93.i ], [ %579, %.thread89.i.i106.i ], [ %.0.lcssa.i.i87.i, %598 ], [ 0, %583 ], [ 0, %573 ]
+string2ll.exit.thread83.i.i:                      ; preds = %string2ll.exit.i93.i, %598, %583, %.thread91.i.i106.i, %573
+  %storemerge.sink.i85.i.i = phi i64 [ %610, %string2ll.exit.i93.i ], [ %579, %.thread91.i.i106.i ], [ %.0.lcssa.i.i87.i, %598 ], [ 0, %583 ], [ 0, %573 ]
   %.in.i.i = load i32, ptr %15, align 4, !tbaa !24
   %612 = icmp eq i32 %.in.i.i, 0
   %613 = load i64, ptr %35, align 8, !tbaa !23
@@ -2205,8 +2205,8 @@ __redisReaderSetError.exit68.i.i:                 ; preds = %623, %620, %618, %6
   br label %processItem.exit
 
 processItem.exit:                                 ; preds = %329, %349, %486, %506, %672, %673
-  %.pr171 = load i32, ptr %15, align 4, !tbaa !24
-  %674 = icmp sgt i32 %.pr171, -1
+  %.pr283 = load i32, ptr %15, align 4, !tbaa !24
+  %674 = icmp sgt i32 %.pr283, -1
   br i1 %674, label %39, label %processItem.exit.thread
 
 processItem.exit.thread:                          ; preds = %processItem.exit, %readBytes.exit.i, %99, %readLine.exit.i.i, %.thread.i, %107, %.thread.i40.i, %.thread116.i, %360, %readLine.exit.i72.i, %redisReaderGrow.exit.thread.i.i, %549, %47, %556, %367, %114, %._crit_edge.i44.i, %._crit_edge.i.i, %28, %653, %637, %221, %__redisReaderSetErrorProtocolByte.exit

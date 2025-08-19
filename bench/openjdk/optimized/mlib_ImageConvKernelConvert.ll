@@ -172,8 +172,8 @@ define range(i32 0, 2) i32 @j2d_mlib_ImageConvKernelConvert(ptr noundef captures
 67:                                               ; preds = %._crit_edge300, %._crit_edge300
   %68 = tail call i32 @llvm.smax.i32(i32 %.1219, i32 %.1217)
   %69 = xor i32 %.0207, 31
-  %.highbits380 = lshr i32 %68, %69
-  %.not251.not = icmp eq i32 %.highbits380, 0
+  %.highbits396 = lshr i32 %68, %69
+  %.not251.not = icmp eq i32 %.highbits396, 0
   br i1 %.not251.not, label %.lr.ph309.preheader, label %.lr.ph311.preheader
 
 .lr.ph306:                                        ; preds = %._crit_edge300
@@ -287,9 +287,9 @@ select.unfold.loopexit:                           ; preds = %74
   %106 = fcmp ogt double %105, 0.000000e+00
   %107 = tail call double @llvm.fmuladd.f64(double %105, double %103, double 5.000000e-01)
   %108 = tail call double @llvm.fmuladd.f64(double %105, double %103, double -5.000000e-01)
-  %.sink379 = select i1 %106, double %107, double %108
-  %109 = fcmp ogt double %.sink379, 0x41DFFFFFFFC00000
-  %.0202 = select i1 %109, double 0x41DFFFFFFFC00000, double %.sink379
+  %.sink395 = select i1 %106, double %107, double %108
+  %109 = fcmp ogt double %.sink395, 0x41DFFFFFFFC00000
+  %.0202 = select i1 %109, double 0x41DFFFFFFFC00000, double %.sink395
   %110 = fcmp olt double %.0202, 0xC1E0000000000000
   %.1203 = select i1 %110, double 0xC1E0000000000000, double %.0202
   %.sink365 = fptosi double %.1203 to i32

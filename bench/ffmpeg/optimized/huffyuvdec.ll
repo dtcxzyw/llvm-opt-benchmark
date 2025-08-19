@@ -83,9 +83,9 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
 
 30:                                               ; preds = %26
   %31 = icmp sgt i32 %25, 3
-  br i1 %31, label %37, label %.thread214
+  br i1 %31, label %37, label %.thread221
 
-.thread214:                                       ; preds = %30
+.thread221:                                       ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 3, ptr %32, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 60
@@ -216,9 +216,9 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
   br i1 %108, label %214, label %.thread
 
 109:                                              ; preds = %10, %26
-  %.sink218 = phi i32 [ 1, %26 ], [ 0, %10 ]
+  %.sink225 = phi i32 [ 1, %26 ], [ 0, %10 ]
   %110 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i32 %.sink218, ptr %110, align 8, !tbaa !41
+  store i32 %.sink225, ptr %110, align 8, !tbaa !41
   %111 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store i32 8, ptr %111, align 4, !tbaa !42
   %112 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -261,9 +261,9 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
   br label %126
 
 126:                                              ; preds = %125, %124, %121, %120, %119
-  %.sink220 = phi i32 [ 0, %125 ], [ 0, %124 ], [ %123, %121 ], [ 1, %120 ], [ 0, %119 ]
+  %.sink227 = phi i32 [ 0, %125 ], [ 0, %124 ], [ %123, %121 ], [ 1, %120 ], [ 0, %119 ]
   %127 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 %.sink220, ptr %127, align 8, !tbaa !48
+  store i32 %.sink227, ptr %127, align 8, !tbaa !48
   %128 = and i32 %116, -8
   %129 = getelementptr inbounds nuw i8, ptr %3, i64 44
   store i32 %128, ptr %129, align 4, !tbaa !50
@@ -722,12 +722,12 @@ read_old_huffman_tables.exit:                     ; preds = %205
   ]
 
 .thread202.sink.split:                            ; preds = %240, %283
-  %.sink222 = phi i32 [ 0, %283 ], [ 4, %240 ]
-  store i32 %.sink222, ptr %16, align 8, !tbaa !36
+  %.sink229 = phi i32 [ 0, %283 ], [ 4, %240 ]
+  store i32 %.sink229, ptr %16, align 8, !tbaa !36
   br label %.thread202
 
 .thread202:                                       ; preds = %.thread202.sink.split, %302, %302
-  %307 = phi i32 [ %.pr, %302 ], [ %.pr, %302 ], [ %.sink222, %.thread202.sink.split ]
+  %307 = phi i32 [ %.pr, %302 ], [ %.pr, %302 ], [ %.sink229, %.thread202.sink.split ]
   %308 = load i32, ptr %4, align 8, !tbaa !27
   %309 = and i32 %308, 1
   %.not190 = icmp eq i32 %309, 0
@@ -757,8 +757,8 @@ read_old_huffman_tables.exit:                     ; preds = %205
   br label %.thread
 
 .thread199.thread.sink.split:                     ; preds = %240, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262
-  %.sink223 = phi i32 [ 30, %262 ], [ 71, %263 ], [ 73, %264 ], [ 75, %265 ], [ 135, %266 ], [ 137, %267 ], [ 77, %268 ], [ 111, %269 ], [ 5, %270 ], [ 66, %271 ], [ 68, %272 ], [ 131, %273 ], [ 133, %274 ], [ 49, %275 ], [ 70, %276 ], [ 64, %277 ], [ 127, %278 ], [ 129, %279 ], [ 47, %280 ], [ 7, %281 ], [ 31, %282 ], [ 60, %284 ], [ 62, %285 ], [ 123, %286 ], [ 125, %287 ], [ 45, %288 ], [ 6, %289 ], [ 79, %290 ], [ 85, %291 ], [ 91, %292 ], [ 97, %293 ], [ 78, %294 ], [ 83, %295 ], [ 89, %296 ], [ 95, %297 ], [ 33, %298 ], [ 81, %299 ], [ 87, %300 ], [ 93, %301 ], [ 8, %240 ]
-  store i32 %.sink223, ptr %16, align 8, !tbaa !36
+  %.sink230 = phi i32 [ 30, %262 ], [ 71, %263 ], [ 73, %264 ], [ 75, %265 ], [ 135, %266 ], [ 137, %267 ], [ 77, %268 ], [ 111, %269 ], [ 5, %270 ], [ 66, %271 ], [ 68, %272 ], [ 131, %273 ], [ 133, %274 ], [ 49, %275 ], [ 70, %276 ], [ 64, %277 ], [ 127, %278 ], [ 129, %279 ], [ 47, %280 ], [ 7, %281 ], [ 31, %282 ], [ 60, %284 ], [ 62, %285 ], [ 123, %286 ], [ 125, %287 ], [ 45, %288 ], [ 6, %289 ], [ 79, %290 ], [ 85, %291 ], [ 91, %292 ], [ 97, %293 ], [ 78, %294 ], [ 83, %295 ], [ 89, %296 ], [ 95, %297 ], [ 33, %298 ], [ 81, %299 ], [ 87, %300 ], [ 93, %301 ], [ 8, %240 ]
+  store i32 %.sink230, ptr %16, align 8, !tbaa !36
   br label %.thread199.thread
 
 .thread199.thread:                                ; preds = %.thread199.thread.sink.split, %316, %.thread199
@@ -782,8 +782,8 @@ read_old_huffman_tables.exit:                     ; preds = %205
   %.not192 = icmp eq ptr %327, null
   br i1 %.not192, label %.thread, label %321
 
-.thread:                                          ; preds = %206, %321, %322, %.thread214, %240, %220, %read_old_huffman_tables.exit, %1, %99, %319, %310
-  %.0172 = phi i32 [ -1094995529, %310 ], [ -1094995529, %319 ], [ %107, %99 ], [ %8, %1 ], [ %212, %read_old_huffman_tables.exit ], [ -1094995529, %220 ], [ -1094995529, %240 ], [ -1094995529, %.thread214 ], [ -12, %322 ], [ 0, %321 ], [ %210, %206 ]
+.thread:                                          ; preds = %206, %321, %322, %.thread221, %240, %220, %read_old_huffman_tables.exit, %1, %99, %319, %310
+  %.0172 = phi i32 [ -1094995529, %310 ], [ -1094995529, %319 ], [ %107, %99 ], [ %8, %1 ], [ %212, %read_old_huffman_tables.exit ], [ -1094995529, %220 ], [ -1094995529, %240 ], [ -1094995529, %.thread221 ], [ -12, %322 ], [ 0, %321 ], [ %210, %206 ]
   ret i32 %.0172
 }
 
@@ -907,29 +907,29 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br i1 %90, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %54, %60, %89
-  %.091153 = phi i32 [ %80, %89 ], [ %28, %60 ], [ %28, %54 ]
-  %.092152 = phi i32 [ %68, %89 ], [ undef, %60 ], [ undef, %54 ]
-  %.093151 = phi i32 [ %70, %89 ], [ 1, %60 ], [ 1, %54 ]
-  %.not136 = icmp eq i32 %.093151, 1
-  %91 = zext i32 %.092152 to i64
+  %.091173 = phi i32 [ %80, %89 ], [ %28, %60 ], [ %28, %54 ]
+  %.092172 = phi i32 [ %68, %89 ], [ undef, %60 ], [ undef, %54 ]
+  %.093171 = phi i32 [ %70, %89 ], [ 1, %60 ], [ 1, %54 ]
+  %.not136 = icmp eq i32 %.093171, 1
+  %91 = zext i32 %.092172 to i64
   %92 = zext nneg i32 %.094 to i64
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %96 = add i32 %.091153, -1
+  %96 = add i32 %.091173, -1
   %97 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %98 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %99 = getelementptr inbounds nuw i8, ptr %18, i64 3
-  %100 = icmp sgt i32 %.091153, 1
-  %101 = add nsw i32 %.091153, -2
+  %100 = icmp sgt i32 %.091173, 1
+  %101 = add nsw i32 %.091173, -2
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %103 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %104 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %scevgep.i537.i = getelementptr inbounds nuw i8, ptr %5, i64 12
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %107 = icmp slt i32 %.091153, 2
-  %108 = icmp eq i32 %.091153, 2
+  %107 = icmp slt i32 %.091173, 2
+  %108 = icmp eq i32 %.091173, 2
   %109 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %110 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %scevgep.i533.i = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -942,7 +942,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %115 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %116 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %scevgep.i.i = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %wide.trip.count = zext nneg i32 %.093151 to i64
+  %wide.trip.count = zext nneg i32 %.093171 to i64
   br label %117
 
 117:                                              ; preds = %.lr.ph, %1004
@@ -971,7 +971,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %132 = zext nneg i32 %123 to i64
   %133 = trunc nuw nsw i64 %indvars.iv to i32
   %.neg = xor i32 %133, -1
-  %.neg108 = mul i32 %.091153, %.neg
+  %.neg108 = mul i32 %.091173, %.neg
   %134 = add i32 %.neg108, %28
   %135 = load ptr, ptr %39, align 8, !tbaa !68
   %136 = load ptr, ptr %34, align 8, !tbaa !67
@@ -1085,13 +1085,13 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %203 = load i32, ptr %185, align 4, !tbaa !51
   %204 = ashr i32 %141, %203
   %205 = load i32, ptr %186, align 8, !tbaa !52
-  %206 = ashr i32 %.091153, %205
+  %206 = ashr i32 %.091173, %205
   %207 = select i1 %202, i32 %171, i32 %173
   br label %208
 
 208:                                              ; preds = %201, %197
   %.0489.i = phi i32 [ %207, %201 ], [ %172, %197 ]
-  %.0488.i = phi i32 [ %206, %201 ], [ %.091153, %197 ]
+  %.0488.i = phi i32 [ %206, %201 ], [ %.091173, %197 ]
   %.0480.i = phi i32 [ %204, %201 ], [ %141, %197 ]
   %209 = load i32, ptr %187, align 8, !tbaa !49
   switch i32 %209, label %.loopexit.i [
@@ -1370,9 +1370,9 @@ add_median_prediction.exit522.i:                  ; preds = %338, %336
   %363 = mul nsw i32 %362, %.024.i.i
   store i32 %363, ptr %116, align 8, !tbaa !58
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %scevgep.i.i, i8 0, i64 20, i1 false), !tbaa !58
-  %364 = sub nsw i32 %.091153, %353
+  %364 = sub nsw i32 %.091173, %353
   call void %350(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %9, i32 noundef %353, i32 noundef 3, i32 noundef %364) #9
-  store i32 %.091153, ptr %352, align 4, !tbaa !69
+  store i32 %.091173, ptr %352, align 4, !tbaa !69
   br label %draw_slice.exit.i
 
 draw_slice.exit.i:                                ; preds = %351, %._crit_edge581.i
@@ -1642,7 +1642,7 @@ draw_slice.exit.i:                                ; preds = %351, %._crit_edge58
 
 558:                                              ; preds = %555, %552, %540
   %559 = add nsw i32 %.0484569.i, 1
-  %.not507.i = icmp slt i32 %559, %.091153
+  %.not507.i = icmp slt i32 %559, %.091173
   br i1 %.not507.i, label %560, label %._crit_edge573.i
 
 560:                                              ; preds = %558, %534
@@ -1744,7 +1744,7 @@ draw_slice.exit526.i:                             ; preds = %563, %560
 622:                                              ; preds = %617, %612, %609, %604
   %623 = add nsw i32 %.1485.i, 1
   %624 = add nuw nsw i32 %.0481570.i, 1
-  %625 = icmp slt i32 %623, %.091153
+  %625 = icmp slt i32 %623, %.091173
   br i1 %625, label %534, label %._crit_edge573.i, !llvm.loop !87
 
 ._crit_edge573.i:                                 ; preds = %622, %558, %520
@@ -1770,9 +1770,9 @@ draw_slice.exit526.i:                             ; preds = %563, %560
   %638 = mul nsw i32 %637, %.024.i528.i
   store i32 %638, ptr %114, align 8, !tbaa !58
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %scevgep.i529.i, i8 0, i64 20, i1 false), !tbaa !58
-  %639 = sub nsw i32 %.091153, %629
+  %639 = sub nsw i32 %.091173, %629
   call void %626(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef %629, i32 noundef 3, i32 noundef %639) #9
-  store i32 %.091153, ptr %628, align 4, !tbaa !69
+  store i32 %.091173, ptr %628, align 4, !tbaa !69
   br label %draw_slice.exit530.i
 
 draw_slice.exit530.i:                             ; preds = %627, %._crit_edge573.i
@@ -1960,7 +1960,7 @@ draw_slice.exit530.i:                             ; preds = %627, %._crit_edge57
   br label %774
 
 774:                                              ; preds = %748, %732
-  %775 = icmp samesign ult i32 %.1482.i, %.091153
+  %775 = icmp samesign ult i32 %.1482.i, %.091173
   br i1 %775, label %.lr.ph566.i, label %._crit_edge567.i
 
 .lr.ph566.i:                                      ; preds = %774
@@ -2006,7 +2006,7 @@ draw_slice.exit530.i:                             ; preds = %627, %._crit_edge57
 
 ._crit_edge562.i:                                 ; preds = %.lr.ph561.i, %.preheader558.i
   %.6.lcssa.i = phi i32 [ %.4563.i, %.preheader558.i ], [ %799, %.lr.ph561.i ]
-  %.not504.i = icmp slt i32 %.6.lcssa.i, %.091153
+  %.not504.i = icmp slt i32 %.6.lcssa.i, %.091173
   br i1 %.not504.i, label %801, label %._crit_edge567.i
 
 801:                                              ; preds = %._crit_edge562.i, %786
@@ -2076,13 +2076,13 @@ draw_slice.exit534.i:                             ; preds = %803, %801
   br label %842
 
 842:                                              ; preds = %829, %draw_slice.exit534.i
-  %843 = add nsw i32 %.5.i, 1
+  %843 = add nuw nsw i32 %.5.i, 1
   %844 = add nuw nsw i32 %.2483564.i, 1
-  %845 = icmp slt i32 %843, %.091153
+  %845 = icmp slt i32 %843, %.091173
   br i1 %845, label %786, label %._crit_edge567.i, !llvm.loop !89
 
 ._crit_edge567.i:                                 ; preds = %842, %._crit_edge562.i, %774
-  call fastcc void @draw_slice(ptr noundef nonnull %140, ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.091153)
+  call fastcc void @draw_slice(ptr noundef nonnull %140, ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.091173)
   br label %846
 
 .thread552.i:                                     ; preds = %702, %668, %417
@@ -2286,7 +2286,7 @@ draw_slice.exit534.i:                             ; preds = %803, %801
 973:                                              ; preds = %972, %970
   %974 = load i32, ptr %158, align 4, !tbaa !37
   %975 = xor i32 %974, -1
-  %976 = add i32 %.091153, %975
+  %976 = add i32 %.091173, %975
   %977 = icmp slt i32 %.0472559.i, %976
   br i1 %977, label %978, label %986
 
@@ -2329,9 +2329,9 @@ draw_slice.exit534.i:                             ; preds = %803, %801
   %1001 = mul nsw i32 %1000, %.024.i536.i
   store i32 %1001, ptr %104, align 8, !tbaa !58
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %scevgep.i537.i, i8 0, i64 20, i1 false), !tbaa !58
-  %1002 = sub nsw i32 %.091153, %992
+  %1002 = sub nsw i32 %.091173, %992
   call void %989(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %5, i32 noundef %992, i32 noundef 3, i32 noundef %1002) #9
-  store i32 %.091153, ptr %991, align 4, !tbaa !69
+  store i32 %.091173, ptr %991, align 4, !tbaa !69
   br label %1003
 
 .thread555.i:                                     ; preds = %941
@@ -2440,13 +2440,13 @@ bytestream2_init.exit:                            ; preds = %3
   br i1 %19, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %bytestream2_init.exit, %11
-  %.048 = phi i32 [ %18, %11 ], [ 3, %bytestream2_init.exit ]
+  %.054 = phi i32 [ %18, %11 ], [ 3, %bytestream2_init.exit ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %22 = ptrtoint ptr %7 to i64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 65664
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 344192
-  %wide.trip.count = zext nneg i32 %.048 to i64
+  %wide.trip.count = zext nneg i32 %.054 to i64
   br label %26
 
 25:                                               ; preds = %58
@@ -2655,7 +2655,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @generate_joint_tables(ptr 
   %49 = shl i32 %48, 24
   %50 = ashr exact i32 %49, 24
   %51 = and i32 %37, %50
-  %52 = zext i32 %51 to i64
+  %52 = zext nneg i32 %51 to i64
   %.not175.us = icmp eq i64 %indvars.iv209, %52
   br i1 %.not175.us, label %.preheader.us, label %..loopexit_crit_edge.us
 
@@ -2681,7 +2681,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @generate_joint_tables(ptr 
   %61 = shl i32 %60, 24
   %62 = ashr exact i32 %61, 24
   %63 = and i32 %62, %37
-  %64 = zext i32 %63 to i64
+  %64 = zext nneg i32 %63 to i64
   %.not176.us = icmp eq i64 %indvars.iv, %64
   br i1 %.not176.us, label %65, label %83
 
@@ -4337,8 +4337,8 @@ get_vlc2.exit727:                                 ; preds = %get_vlc2.exit723, %
   %1100 = and i32 %1, 1
   %.not697 = icmp ne i32 %1100, 0
   %1101 = icmp sgt i32 %.val734, %.val739
-  %or.cond808 = select i1 %.not697, i1 %1101, i1 false
-  br i1 %or.cond808, label %1102, label %1179
+  %or.cond815 = select i1 %.not697, i1 %1101, i1 false
+  br i1 %or.cond815, label %1102, label %1179
 
 1102:                                             ; preds = %.critedge4
   %1103 = sext i32 %2 to i64

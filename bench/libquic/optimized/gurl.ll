@@ -225,13 +225,13 @@ _ZNKSt14default_deleteI4GURLEclEPS0_.exit.i:      ; preds = %36
   br label %_ZNSt10unique_ptrI4GURLSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrI4GURLSt14default_deleteIS0_EED2Ev.exit: ; preds = %.thread, %36, %_ZNKSt14default_deleteI4GURLEclEPS0_.exit.i
-  %.pn13 = phi { ptr, i32 } [ %35, %.thread ], [ %37, %36 ], [ %37, %_ZNKSt14default_deleteI4GURLEclEPS0_.exit.i ]
+  %.pn16 = phi { ptr, i32 } [ %35, %.thread ], [ %37, %36 ], [ %37, %_ZNKSt14default_deleteI4GURLEclEPS0_.exit.i ]
   store ptr null, ptr %25, align 8, !tbaa !32
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %22) #18
   br label %38
 
 38:                                               ; preds = %_ZNSt10unique_ptrI4GURLSt14default_deleteIS0_EED2Ev.exit, %33
-  %.pn.pn = phi { ptr, i32 } [ %.pn13, %_ZNSt10unique_ptrI4GURLSt14default_deleteIS0_EED2Ev.exit ], [ %34, %33 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn16, %_ZNSt10unique_ptrI4GURLSt14default_deleteIS0_EED2Ev.exit ], [ %34, %33 ]
   %39 = load ptr, ptr %0, align 8, !tbaa !28
   %40 = icmp eq ptr %39, %4
   br i1 %40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

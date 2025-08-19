@@ -65,14 +65,14 @@ define hidden range(i32 -255, 256) i32 @_mi_strnicmp(ptr noundef readonly captur
   br i1 %20, label %26, label %.critedge..critedge.thread_crit_edge
 
 .critedge..critedge.thread_crit_edge:             ; preds = %.preheader, %.critedge
-  %.lcssa42 = phi i8 [ %.lcssa.ph, %.critedge ], [ 0, %.preheader ]
-  %.013.lcssa41 = phi ptr [ %.013.lcssa.ph, %.critedge ], [ %1, %.preheader ]
-  %.pre = load i8, ptr %.013.lcssa41, align 1, !tbaa !3
+  %.lcssa45 = phi i8 [ %.lcssa.ph, %.critedge ], [ 0, %.preheader ]
+  %.013.lcssa44 = phi ptr [ %.013.lcssa.ph, %.critedge ], [ %1, %.preheader ]
+  %.pre = load i8, ptr %.013.lcssa44, align 1, !tbaa !3
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %10, %.critedge..critedge.thread_crit_edge
   %21 = phi i8 [ %.pre, %.critedge..critedge.thread_crit_edge ], [ %7, %10 ]
-  %22 = phi i8 [ %.lcssa42, %.critedge..critedge.thread_crit_edge ], [ %6, %10 ]
+  %22 = phi i8 [ %.lcssa45, %.critedge..critedge.thread_crit_edge ], [ %6, %10 ]
   %23 = sext i8 %22 to i32
   %24 = sext i8 %21 to i32
   %25 = sub nsw i32 %23, %24
@@ -723,8 +723,8 @@ mi_outc.exit51.i:                                 ; preds = %216, %.split.i
   %224 = phi ptr [ %.5306, %211 ], [ %223, %mi_outc.exit51.i ]
   %.not46.i = icmp ne i8 %.0198, 0
   %.not.i52.i = icmp ult ptr %224, %10
-  %or.cond60.i = select i1 %.not46.i, i1 %.not.i52.i, i1 false
-  br i1 %or.cond60.i, label %225, label %mi_outc.exit53.i
+  %or.cond70.i = select i1 %.not46.i, i1 %.not.i52.i, i1 false
+  br i1 %or.cond70.i, label %225, label %mi_outc.exit53.i
 
 225:                                              ; preds = %.split56.us.i
   store i8 %.0198, ptr %224, align 1, !tbaa !3
@@ -941,8 +941,8 @@ mi_outc.exit51.i273:                              ; preds = %318, %.split.i270
 .split56.us.i261:                                 ; preds = %mi_outc.exit51.i273
   %.not46.i262 = icmp ne i8 %.0190317, 0
   %.not.i52.i263 = icmp ult ptr %322, %10
-  %or.cond60.i264 = select i1 %.not46.i262, i1 %.not.i52.i263, i1 false
-  br i1 %or.cond60.i264, label %323, label %mi_outc.exit53.i265
+  %or.cond70.i264 = select i1 %.not46.i262, i1 %.not.i52.i263, i1 false
+  br i1 %or.cond70.i264, label %323, label %mi_outc.exit53.i265
 
 323:                                              ; preds = %.split56.us.i261
   store i8 %.0190317, ptr %322, align 1, !tbaa !3

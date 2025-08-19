@@ -62,7 +62,7 @@ define internal fastcc noundef double @_ZN7Imf_3_412_GLOBAL__N_15denomEdd(double
   %4 = tail call double @llvm.floor.f64(double %3)
   %5 = fsub double %0, %4
   %6 = fcmp ogt double %1, %5
-  br i1 %6, label %common.ret23, label %7
+  br i1 %6, label %common.ret24, label %7
 
 7:                                                ; preds = %2
   %8 = fdiv double 1.000000e+00, %0
@@ -70,11 +70,11 @@ define internal fastcc noundef double @_ZN7Imf_3_412_GLOBAL__N_15denomEdd(double
   %10 = tail call double @llvm.floor.f64(double %9)
   %11 = fsub double %8, %10
   %12 = fcmp ogt double %1, %11
-  br i1 %12, label %common.ret23, label %13
+  br i1 %12, label %common.ret24, label %13
 
-common.ret23:                                     ; preds = %7, %2, %13
-  %common.ret23.op = phi double [ %25, %13 ], [ 1.000000e+00, %2 ], [ %10, %7 ]
-  ret double %common.ret23.op
+common.ret24:                                     ; preds = %7, %2, %13
+  %common.ret24.op = phi double [ %25, %13 ], [ 1.000000e+00, %2 ], [ %10, %7 ]
+  ret double %common.ret24.op
 
 13:                                               ; preds = %7
   %14 = fdiv double 1.000000e+00, %11
@@ -89,7 +89,7 @@ common.ret23:                                     ; preds = %7, %2, %13
   %23 = fdiv double %1, %22
   %24 = tail call fastcc noundef double @_ZN7Imf_3_412_GLOBAL__N_15denomEdd(double noundef %11, double noundef %23)
   %25 = tail call double @llvm.fmuladd.f64(double %10, double %24, double %21)
-  br label %common.ret23
+  br label %common.ret24
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

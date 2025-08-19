@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Multilevel_delete(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %common.ret12, label %2
+  br i1 %.not, label %common.ret13, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29,7 +29,7 @@ define void @Multilevel_delete(ptr noundef captures(address_is_null) %0) local_u
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %.sink.split, label %12
 
-common.ret12:                                     ; preds = %1, %12
+common.ret13:                                     ; preds = %1, %12
   ret void
 
 .sink.split:                                      ; preds = %5, %8
@@ -47,7 +47,7 @@ common.ret12:                                     ; preds = %1, %12
   %18 = load ptr, ptr %17, align 8, !tbaa !18
   tail call void @Multilevel_delete(ptr noundef %18)
   tail call void @free(ptr noundef nonnull %0) #12
-  br label %common.ret12
+  br label %common.ret13
 }
 
 declare void @SparseMatrix_delete(ptr noundef) local_unnamed_addr #1

@@ -3316,7 +3316,7 @@ define void @_ZN10uv_publish20files_for_publishing17h43351fed1361c64fE(ptr dead_
   br label %309
 
 309:                                              ; preds = %.sink.split.i.i, %.lr.ph.i17.i
-  %310 = phi i64 [ %.promoted.i14.i, %.lr.ph.i17.i ], [ %.ph69.i.i, %.sink.split.i.i ]
+  %310 = phi i64 [ %.promoted.i14.i, %.lr.ph.i17.i ], [ %.ph76.i.i, %.sink.split.i.i ]
   %311 = phi i64 [ %295, %.lr.ph.i17.i ], [ %.sink.i.i, %.sink.split.i.i ]
   %312 = phi i64 [ %303, %.lr.ph.i17.i ], [ %323, %.sink.split.i.i ]
   %313 = getelementptr inbounds i8, ptr %297, i64 %312
@@ -3338,8 +3338,8 @@ define void @_ZN10uv_publish20files_for_publishing17h43351fed1361c64fE(ptr dead_
 
 .sink.split.i.i:                                  ; preds = %354, %344, %320
   %.sink.i.i = phi i64 [ %308, %344 ], [ 0, %354 ], [ 0, %320 ]
-  %.ph69.i.i = phi i64 [ %345, %344 ], [ %356, %354 ], [ %321, %320 ]
-  %323 = add i64 %.ph69.i.i, %301
+  %.ph76.i.i = phi i64 [ %345, %344 ], [ %356, %354 ], [ %321, %320 ]
+  %323 = add i64 %.ph76.i.i, %301
   %324 = icmp ult i64 %323, %298
   br i1 %324, label %309, label %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h42db795c5d9331b4E.exit.thread"
 

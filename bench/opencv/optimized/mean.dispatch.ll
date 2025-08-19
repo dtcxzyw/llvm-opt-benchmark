@@ -3787,7 +3787,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.split.us.split.us:    ; preds = %_ZNK2cv3Mat8elemSiz
   %152 = sext i32 %149 to i64
   %153 = add i64 %.177174.us.us.us, %152
   %.not119.us.us.us = icmp slt i32 %151, %invariant.op
-  br i1 %.not119.us.us.us, label %154, label %.preheader243
+  br i1 %.not119.us.us.us, label %154, label %.preheader257
 
 154:                                              ; preds = %150
   %155 = load i64, ptr %134, align 8, !tbaa !119
@@ -3795,13 +3795,13 @@ _ZNK2cv3Mat8elemSizeEv.exit.split.us.split.us:    ; preds = %_ZNK2cv3Mat8elemSiz
   %156 = add nsw i32 %.sroa.speculated.us.us.us, %.085172.us.us.us
   %.not121.us.us.us = icmp slt i32 %156, %111
   %or.cond.us.us.us = select i1 %.not120.us.us.us, i1 true, i1 %.not121.us.us.us
-  br i1 %or.cond.us.us.us, label %.loopexit.us.us.us, label %.preheader243
+  br i1 %or.cond.us.us.us, label %.loopexit.us.us.us, label %.preheader257
 
-.preheader243:                                    ; preds = %154, %150
+.preheader257:                                    ; preds = %154, %150
   br label %157
 
-157:                                              ; preds = %.preheader243, %157
-  %indvars.iv = phi i64 [ %indvars.iv.next, %157 ], [ 0, %.preheader243 ]
+157:                                              ; preds = %.preheader257, %157
+  %indvars.iv = phi i64 [ %indvars.iv.next, %157 ], [ 0, %.preheader257 ]
   %158 = getelementptr inbounds nuw i32, ptr %112, i64 %indvars.iv
   %159 = load i32, ptr %158, align 4, !tbaa !11
   %160 = sitofp i32 %159 to double
@@ -3950,8 +3950,8 @@ _ZNK2cv3Mat8elemSizeEv.exit.split:                ; preds = %_ZNK2cv3Mat8elemSiz
   %214 = load ptr, ptr %17, align 8, !tbaa !113
   %.not.i.i145 = icmp eq ptr %214, %112
   %215 = icmp eq ptr %214, null
-  %or.cond236 = or i1 %.not.i.i145, %215
-  br i1 %or.cond236, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit147, label %216
+  %or.cond250 = or i1 %.not.i.i145, %215
+  br i1 %or.cond250, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit147, label %216
 
 216:                                              ; preds = %.split191.us
   call void @_ZdaPv(ptr noundef nonnull %214) #17
@@ -5185,8 +5185,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %443
   %447 = load ptr, ptr %29, align 8, !tbaa !141
   %.not.i.i308 = icmp eq ptr %447, %298
   %448 = icmp eq ptr %447, null
-  %or.cond467 = or i1 %.not.i.i308, %448
-  br i1 %or.cond467, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit309, label %449
+  %or.cond489 = or i1 %.not.i.i308, %448
+  br i1 %or.cond489, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit309, label %449
 
 449:                                              ; preds = %.split382.us
   call void @_ZdaPv(ptr noundef nonnull %447) #17

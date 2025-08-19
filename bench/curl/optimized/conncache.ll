@@ -936,13 +936,13 @@ cpool_shutdown_dest_count.exit119:                ; preds = %.lr.ph.i112, %87
 
 .lr.ph147.preheader:                              ; preds = %101
   %107 = tail call fastcc ptr @cpool_get_oldest_idle(ptr noundef %.0.i.ph)
-  %.not95156 = icmp eq ptr %107, null
-  br i1 %.not95156, label %.lr.ph147..thread.loopexit_crit_edge, label %.lr.ph157
+  %.not95172 = icmp eq ptr %107, null
+  br i1 %.not95172, label %.lr.ph147..thread.loopexit_crit_edge, label %.lr.ph173
 
-.lr.ph147:                                        ; preds = %.lr.ph157
+.lr.ph147:                                        ; preds = %.lr.ph173
   %108 = tail call fastcc ptr @cpool_get_oldest_idle(ptr noundef %.0.i.ph)
   %.not95 = icmp eq ptr %108, null
-  br i1 %.not95, label %.lr.ph147..thread.loopexit_crit_edge, label %.lr.ph157
+  br i1 %.not95, label %.lr.ph147..thread.loopexit_crit_edge, label %.lr.ph173
 
 .lr.ph147..thread.loopexit_crit_edge:             ; preds = %.lr.ph147, %.lr.ph147.preheader
   %.3146.lcssa = phi i64 [ %103, %.lr.ph147.preheader ], [ %112, %.lr.ph147 ]
@@ -952,7 +952,7 @@ cpool_shutdown_dest_count.exit119:                ; preds = %.lr.ph.i112, %87
   %110 = select i1 %109, i32 0, i32 2
   br label %.thread
 
-.lr.ph157:                                        ; preds = %.lr.ph147.preheader, %.lr.ph147
+.lr.ph173:                                        ; preds = %.lr.ph147.preheader, %.lr.ph147
   %111 = phi ptr [ %108, %.lr.ph147 ], [ %107, %.lr.ph147.preheader ]
   tail call void @Curl_cpool_disconnect(ptr noundef nonnull %0, ptr noundef nonnull %111, i1 noundef zeroext false)
   %112 = tail call i64 @Curl_llist_count(ptr noundef nonnull %102) #8
@@ -961,8 +961,8 @@ cpool_shutdown_dest_count.exit119:                ; preds = %.lr.ph.i112, %87
   %.not94 = icmp ult i64 %114, %.072
   br i1 %.not94, label %.thread, label %.lr.ph147
 
-.thread:                                          ; preds = %.lr.ph157, %101, %.lr.ph147..thread.loopexit_crit_edge, %.critedge, %100
-  %.268 = phi i32 [ 0, %100 ], [ %.mux, %.critedge ], [ 0, %101 ], [ %110, %.lr.ph147..thread.loopexit_crit_edge ], [ 0, %.lr.ph157 ]
+.thread:                                          ; preds = %.lr.ph173, %101, %.lr.ph147..thread.loopexit_crit_edge, %.critedge, %100
+  %.268 = phi i32 [ 0, %100 ], [ %.mux, %.critedge ], [ 0, %101 ], [ %110, %.lr.ph147..thread.loopexit_crit_edge ], [ 0, %.lr.ph173 ]
   %115 = load i8, ptr %44, align 8
   %116 = and i8 %115, -2
   store i8 %116, ptr %44, align 8
@@ -1761,7 +1761,7 @@ define internal fastcc void @cpool_discard_conn(ptr noundef %0, ptr noundef %1, 
   %18 = and i64 %16, -1073741825
   %19 = or disjoint i64 %17, %18
   store i64 %19, ptr %15, align 8
-  br i1 %spec.select, label %.thread42, label %20
+  br i1 %spec.select, label %.thread44, label %20
 
 20:                                               ; preds = %12
   tail call void @Curl_attach_connection(ptr noundef %1, ptr noundef nonnull %2) #8
@@ -1769,9 +1769,9 @@ define internal fastcc void @cpool_discard_conn(ptr noundef %0, ptr noundef %1, 
   tail call void @Curl_detach_connection(ptr noundef %1) #8
   %.pre = load i8, ptr %8, align 1, !tbaa !145, !range !110
   %21 = trunc nuw i8 %.pre to i1
-  br i1 %21, label %.thread42, label %22
+  br i1 %21, label %.thread44, label %22
 
-.thread42:                                        ; preds = %12, %20
+.thread44:                                        ; preds = %12, %20
   tail call fastcc void @cpool_close_and_destroy(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %1, i1 noundef zeroext false)
   br label %63
 
@@ -1881,7 +1881,7 @@ cpool_shutdown_destroy_oldest.exit.thread:        ; preds = %22, %cpool_update_s
   call void @Curl_llist_append(ptr noundef nonnull %62, ptr noundef nonnull %2, ptr noundef nonnull %2) #8
   br label %63
 
-63:                                               ; preds = %4, %cpool_shutdown_destroy_oldest.exit.thread, %61, %.thread42
+63:                                               ; preds = %4, %cpool_shutdown_destroy_oldest.exit.thread, %61, %.thread44
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }

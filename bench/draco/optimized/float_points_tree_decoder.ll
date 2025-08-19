@@ -6311,7 +6311,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5
 
 300:                                              ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit, %287
   %.not102 = icmp eq i32 %.0, 0
-  br i1 %.not102, label %.loopexit.thread234, label %301
+  br i1 %.not102, label %.loopexit.thread269, label %301
 
 301:                                              ; preds = %300
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -6337,7 +6337,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5
 
 _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit143: ; preds = %305, %308
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.loopexit.thread234
+  br label %.loopexit.thread269
 
 309:                                              ; preds = %308
   %310 = landingpad { ptr, i32 }
@@ -6348,7 +6348,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5
 ..loopexit_crit_edge:                             ; preds = %134
   br label %.backedge, !llvm.loop !181
 
-.loopexit.thread234:                              ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit143, %300
+.loopexit.thread269:                              ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit143, %300
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.backedge
 
@@ -6356,7 +6356,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread192
 
-.backedge:                                        ; preds = %227, %.preheader196, %.preheader195, %..loopexit_crit_edge, %.loopexit.thread234
+.backedge:                                        ; preds = %227, %.preheader196, %.preheader195, %..loopexit_crit_edge, %.loopexit.thread269
   %311 = load ptr, ptr %46, align 8, !tbaa !171
   %312 = load ptr, ptr %56, align 8, !tbaa !171
   %313 = icmp eq ptr %311, %312
@@ -7523,7 +7523,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5
 
 299:                                              ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit, %286
   %.not100 = icmp eq i32 %.0, 0
-  br i1 %.not100, label %.loopexit.thread230, label %300
+  br i1 %.not100, label %.loopexit.thread265, label %300
 
 300:                                              ; preds = %299
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -7549,7 +7549,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5
 
 _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit140: ; preds = %304, %307
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.loopexit.thread230
+  br label %.loopexit.thread265
 
 308:                                              ; preds = %307
   %309 = landingpad { ptr, i32 }
@@ -7560,7 +7560,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5
 ..loopexit_crit_edge:                             ; preds = %134
   br label %.backedge, !llvm.loop !217
 
-.loopexit.thread230:                              ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit140, %299
+.loopexit.thread265:                              ; preds = %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit140, %299
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.backedge
 
@@ -7568,7 +7568,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread189
 
-.backedge:                                        ; preds = %227, %.preheader193, %.preheader192, %..loopexit_crit_edge, %.loopexit.thread230
+.backedge:                                        ; preds = %227, %.preheader193, %.preheader192, %..loopexit_crit_edge, %.loopexit.thread265
   %310 = load ptr, ptr %46, align 8, !tbaa !208
   %311 = load ptr, ptr %56, align 8, !tbaa !208
   %312 = icmp eq ptr %310, %311

@@ -93,8 +93,8 @@ define internal i32 @roq_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load ptr, ptr %6, align 8, !tbaa !27
   %21 = tail call i32 @avio_feof(ptr noundef %20) #4
-  %.not117154 = icmp eq i32 %21, 0
-  br i1 %.not117154, label %.lr.ph, label %.thread
+  %.not117159 = icmp eq i32 %21, 0
+  br i1 %.not117159, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2, %129
   %22 = call i32 @avio_read(ptr noundef %7, ptr noundef nonnull %3, i32 noundef 8) #4
@@ -222,13 +222,13 @@ define internal i32 @roq_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   store i32 0, ptr %85, align 8, !tbaa !50
   %86 = icmp eq i16 %27, 4129
   %spec.select = select i1 %86, i32 2, i32 1
-  %spec.select145 = select i1 %86, i64 3, i64 4
+  %spec.select150 = select i1 %86, i64 3, i64 4
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 128
   store i32 1, ptr %87, align 8, !tbaa !55
   %88 = getelementptr inbounds nuw i8, ptr %83, i64 132
   store i32 %spec.select, ptr %88, align 4, !tbaa !55
   %89 = getelementptr inbounds nuw i8, ptr %83, i64 136
-  store i64 %spec.select145, ptr %89, align 8, !tbaa !11
+  store i64 %spec.select150, ptr %89, align 8, !tbaa !11
   %90 = getelementptr inbounds nuw i8, ptr %83, i64 144
   store ptr null, ptr %90, align 8, !tbaa !56
   %91 = load ptr, ptr %82, align 8, !tbaa !45
@@ -294,7 +294,7 @@ define internal i32 @roq_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = call i32 @avio_read(ptr noundef %7, ptr noundef nonnull %125, i32 noundef %28) #4
   %.not120 = icmp eq i32 %126, %28
-  %spec.select146 = select i1 %.not120, i32 %28, i32 -5
+  %spec.select151 = select i1 %.not120, i32 %28, i32 -5
   br label %.thread
 
 127:                                              ; preds = %26
@@ -309,7 +309,7 @@ define internal i32 @roq_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %.not117, label %.lr.ph, label %.thread, !llvm.loop !64
 
 .thread:                                          ; preds = %129, %.lr.ph, %23, %32, %34, %2, %122, %70, %77, %.thread130, %101, %67, %62, %56, %53, %127
-  %.1 = phi i32 [ -1094995529, %127 ], [ -1094995529, %53 ], [ -5, %56 ], [ -1094995529, %62 ], [ -5, %67 ], [ -1094995529, %101 ], [ %106, %.thread130 ], [ -12, %77 ], [ %65, %70 ], [ %spec.select146, %122 ], [ -541478725, %2 ], [ -5, %34 ], [ -12, %32 ], [ -1094995529, %23 ], [ -5, %.lr.ph ], [ -541478725, %129 ]
+  %.1 = phi i32 [ -1094995529, %127 ], [ -1094995529, %53 ], [ -5, %56 ], [ -1094995529, %62 ], [ -5, %67 ], [ -1094995529, %101 ], [ %106, %.thread130 ], [ -12, %77 ], [ %65, %70 ], [ %spec.select151, %122 ], [ -541478725, %2 ], [ -5, %34 ], [ -12, %32 ], [ -1094995529, %23 ], [ -5, %.lr.ph ], [ -541478725, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }

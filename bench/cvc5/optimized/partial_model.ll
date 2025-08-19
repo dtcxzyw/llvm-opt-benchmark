@@ -3463,15 +3463,15 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 ._crit_edge.thread:                               ; preds = %1, %._crit_edge
-  %.07.lcssa24 = phi i64 [ %.1, %._crit_edge ], [ 0, %1 ]
+  %.07.lcssa31 = phi i64 [ %.1, %._crit_edge ], [ 0, %1 ]
   %55 = phi ptr [ %.pre, %._crit_edge ], [ %4, %1 ]
   %56 = phi ptr [ %.pre13, %._crit_edge ], [ %5, %1 ]
-  %.pre-phi2023 = phi i64 [ %.pre19, %._crit_edge ], [ 0, %1 ]
-  %57 = icmp ult i64 %.07.lcssa24, %.pre-phi2023
+  %.pre-phi2030 = phi i64 [ %.pre19, %._crit_edge ], [ 0, %1 ]
+  %57 = icmp ult i64 %.07.lcssa31, %.pre-phi2030
   br i1 %57, label %58, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 58:                                               ; preds = %._crit_edge.thread
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %.07.lcssa24
+  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %.07.lcssa31
   %.not.i.i = icmp eq ptr %55, %59
   br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit, label %60
 
@@ -9606,13 +9606,13 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !111
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !111
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -9987,7 +9987,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal6theory5arith6linea
           to label %_ZSt10_ConstructIN4cvc58internal6theory5arith6linear14ArithVariables7VarInfoEJEEvPT_DpOT0_.exit.i.i.i unwind label %21
 
 _ZSt10_ConstructIN4cvc58internal6theory5arith6linear14ArithVariables7VarInfoEJEEvPT_DpOT0_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
-  %19 = add i64 %.01013.i.i.i, -1
+  %19 = add nsw i64 %.01013.i.i.i, -1
   %20 = getelementptr inbounds nuw i8, ptr %.014.i.i.i, i64 120
   %.not.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN4cvc58internal6theory5arith6linear14ArithVariables7VarInfoEmS6_ET_S8_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !263
@@ -10052,7 +10052,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith6linear14ArithVariables7VarInfoESaIS6_
           to label %_ZSt10_ConstructIN4cvc58internal6theory5arith6linear14ArithVariables7VarInfoEJEEvPT_DpOT0_.exit.i.i.i44 unwind label %41
 
 _ZSt10_ConstructIN4cvc58internal6theory5arith6linear14ArithVariables7VarInfoEJEEvPT_DpOT0_.exit.i.i.i44: ; preds = %.lr.ph.i.i.i40
-  %39 = add i64 %.01013.i.i.i42, -1
+  %39 = add nsw i64 %.01013.i.i.i42, -1
   %40 = getelementptr inbounds nuw i8, ptr %.014.i.i.i41, i64 120
   %.not.i.i.i45 = icmp eq i64 %39, 0
   br i1 %.not.i.i.i45, label %_ZSt27__uninitialized_default_n_aIPN4cvc58internal6theory5arith6linear14ArithVariables7VarInfoEmS6_ET_S8_T0_RSaIT1_E.exit47, label %.lr.ph.i.i.i40, !llvm.loop !263
@@ -11108,7 +11108,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal6theory5arith6linea
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPN4cvc58internal6theory5arith6linear10BoundsInfoEmS5_ET_S7_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN4cvc58internal6theory5arith6linear10BoundsInfoEmS5_ET_S7_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 4
+  %19 = shl nuw nsw i64 %1, 4
   tail call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !221

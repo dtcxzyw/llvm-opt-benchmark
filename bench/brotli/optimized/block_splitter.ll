@@ -722,13 +722,13 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   br i1 %.not389.i.i, label %.thread409.i.i, label %.thread411.i.i
 
 .thread411.i.i:                                   ; preds = %.thread.i.i, %335
-  %.sink518.i.i = phi i64 [ %345, %.thread.i.i ], [ 288230376151711695, %335 ]
+  %.sink539.i.i = phi i64 [ %345, %.thread.i.i ], [ 288230376151711695, %335 ]
   %346 = phi i64 [ %339, %.thread.i.i ], [ 0, %335 ]
   %347 = phi ptr [ %340, %.thread.i.i ], [ %337, %335 ]
   %348 = phi ptr [ %342, %.thread.i.i ], [ null, %335 ]
-  %349 = mul i64 %.sink518.i.i, 1040
+  %349 = mul i64 %.sink539.i.i, 1040
   %350 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %349) #8
-  %351 = shl nuw nsw i64 %.sink518.i.i, 2
+  %351 = shl nuw nsw i64 %.sink539.i.i, 2
   %352 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %351) #8
   br label %.thread409.i.i
 
@@ -737,7 +737,7 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   %354 = phi i64 [ %346, %.thread411.i.i ], [ %339, %.thread.i.i ]
   %355 = phi ptr [ %347, %.thread411.i.i ], [ %340, %.thread.i.i ]
   %356 = phi ptr [ %348, %.thread411.i.i ], [ %342, %.thread.i.i ]
-  %357 = phi i64 [ %.sink518.i.i, %.thread411.i.i ], [ %345, %.thread.i.i ]
+  %357 = phi i64 [ %.sink539.i.i, %.thread411.i.i ], [ %345, %.thread.i.i ]
   %358 = phi ptr [ %352, %.thread411.i.i ], [ null, %.thread.i.i ]
   br i1 %.not.i169.i, label %363, label %359
 
@@ -1190,16 +1190,16 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   %565 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %564) #8
   %566 = load i64, ptr %555, align 8, !tbaa !24
   %.not396.i.i = icmp eq i64 %566, 0
-  br i1 %.not396.i.i, label %.thread513.i.i, label %567
+  br i1 %.not396.i.i, label %.thread534.i.i, label %567
 
 567:                                              ; preds = %563
   %568 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %569 = load ptr, ptr %568, align 8, !tbaa !11
   %570 = shl i64 %566, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %565, ptr align 4 %569, i64 %570, i1 false)
-  br label %.thread513.i.i
+  br label %.thread534.i.i
 
-.thread513.i.i:                                   ; preds = %567, %563
+.thread534.i.i:                                   ; preds = %567, %563
   %571 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %572 = load ptr, ptr %571, align 8, !tbaa !11
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %572) #8
@@ -1210,7 +1210,7 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
 573:                                              ; preds = %554
   br i1 %.not.i169.i, label %ClusterBlocksLiteral.exit.i, label %.lr.ph480.i.i
 
-.lr.ph480.i.i:                                    ; preds = %573, %.thread513.i.i
+.lr.ph480.i.i:                                    ; preds = %573, %.thread534.i.i
   %574 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %575 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br label %576
@@ -1276,7 +1276,7 @@ ClusterBlocksLiteral.exit.i:                      ; preds = %._crit_edge481.loop
 SplitByteVectorLiteral.exit:                      ; preds = %.thread467, %ClusterBlocksLiteral.exit.i
   %599 = phi ptr [ %47, %.thread467 ], [ %.ph, %ClusterBlocksLiteral.exit.i ]
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %599) #8
-  br i1 %.not.i, label %.thread519, label %.lr.ph.preheader
+  br i1 %.not.i, label %.thread650, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %SplitByteVectorLiteral.exit.thread, %SplitByteVectorLiteral.exit
   %600 = shl i64 %2, 1
@@ -1293,10 +1293,10 @@ SplitByteVectorLiteral.exit:                      ; preds = %.thread467, %Cluste
   %exitcond.not = icmp eq i64 %605, %2
   br i1 %exitcond.not, label %606, label %.lr.ph, !llvm.loop !85
 
-.thread519:                                       ; preds = %SplitByteVectorLiteral.exit
+.thread650:                                       ; preds = %SplitByteVectorLiteral.exit
   store i64 1, ptr %8, align 8, !tbaa !20
   tail call void @BrotliFree(ptr noundef %0, ptr noundef null) #8
-  br label %.thread528
+  br label %.thread659
 
 606:                                              ; preds = %.lr.ph
   %.lhs.trunc.i66 = trunc i64 %2 to i16
@@ -1356,7 +1356,7 @@ SplitByteVectorLiteral.exit:                      ; preds = %.thread467, %Cluste
   %634 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %635 = load i64, ptr %634, align 8, !tbaa !24
   %636 = icmp ult i64 %635, %.pre-phi.i233
-  br i1 %636, label %637, label %.thread520
+  br i1 %636, label %637, label %.thread651
 
 637:                                              ; preds = %632
   %638 = icmp eq i64 %635, 0
@@ -1390,9 +1390,9 @@ SplitByteVectorLiteral.exit:                      ; preds = %.thread467, %Cluste
   store ptr %644, ptr %651, align 8, !tbaa !11
   store i64 %.0136.i235, ptr %634, align 8, !tbaa !24
   %.pre186.i = load i64, ptr %614, align 8, !tbaa !22
-  br label %.thread520
+  br label %.thread651
 
-.thread520:                                       ; preds = %650, %632
+.thread651:                                       ; preds = %650, %632
   %653 = phi i64 [ %.pre186.i, %650 ], [ %633, %632 ]
   store i64 1, ptr %8, align 8, !tbaa !20
   %654 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -1906,13 +1906,13 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   br i1 %.not389.i.i149, label %.thread409.i.i151, label %.thread411.i.i150
 
 .thread411.i.i150:                                ; preds = %.thread.i.i148, %897
-  %.sink522.i.i = phi i64 [ %907, %.thread.i.i148 ], [ 288230376151711695, %897 ]
+  %.sink544.i.i = phi i64 [ %907, %.thread.i.i148 ], [ 288230376151711695, %897 ]
   %908 = phi i64 [ %901, %.thread.i.i148 ], [ 0, %897 ]
   %909 = phi ptr [ %902, %.thread.i.i148 ], [ %899, %897 ]
   %910 = phi ptr [ %904, %.thread.i.i148 ], [ null, %897 ]
-  %911 = mul i64 %.sink522.i.i, 2832
+  %911 = mul i64 %.sink544.i.i, 2832
   %912 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %911) #8
-  %913 = shl nuw nsw i64 %.sink522.i.i, 2
+  %913 = shl nuw nsw i64 %.sink544.i.i, 2
   %914 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %913) #8
   br label %.thread409.i.i151
 
@@ -1921,7 +1921,7 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %916 = phi i64 [ %908, %.thread411.i.i150 ], [ %901, %.thread.i.i148 ]
   %917 = phi ptr [ %909, %.thread411.i.i150 ], [ %902, %.thread.i.i148 ]
   %918 = phi ptr [ %910, %.thread411.i.i150 ], [ %904, %.thread.i.i148 ]
-  %919 = phi i64 [ %.sink522.i.i, %.thread411.i.i150 ], [ %907, %.thread.i.i148 ]
+  %919 = phi i64 [ %.sink544.i.i, %.thread411.i.i150 ], [ %907, %.thread.i.i148 ]
   %920 = phi ptr [ %914, %.thread411.i.i150 ], [ null, %.thread.i.i148 ]
   br i1 %.not.i169.i146, label %925, label %921
 
@@ -2380,16 +2380,16 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %1128 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %1127) #8
   %1129 = load i64, ptr %1118, align 8, !tbaa !24
   %.not396.i.i226 = icmp eq i64 %1129, 0
-  br i1 %.not396.i.i226, label %.thread516.i.i, label %1130
+  br i1 %.not396.i.i226, label %.thread538.i.i, label %1130
 
 1130:                                             ; preds = %1126
   %1131 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %1132 = load ptr, ptr %1131, align 8, !tbaa !11
   %1133 = shl i64 %1129, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %1128, ptr align 4 %1132, i64 %1133, i1 false)
-  br label %.thread516.i.i
+  br label %.thread538.i.i
 
-.thread516.i.i:                                   ; preds = %1130, %1126
+.thread538.i.i:                                   ; preds = %1130, %1126
   %1134 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %1135 = load ptr, ptr %1134, align 8, !tbaa !11
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %1135) #8
@@ -2400,7 +2400,7 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
 1136:                                             ; preds = %1117
   br i1 %.not.i169.i146, label %1161, label %.lr.ph481.i.i
 
-.lr.ph481.i.i:                                    ; preds = %1136, %.thread516.i.i
+.lr.ph481.i.i:                                    ; preds = %1136, %.thread538.i.i
   %1137 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %1138 = getelementptr inbounds nuw i8, ptr %8, i64 24
   br label %1139
@@ -2463,10 +2463,10 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %736) #8
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %601) #8
   %1163 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %700) #8
-  br i1 %.not.i, label %.thread528, label %.lr.ph494.preheader
+  br i1 %.not.i, label %.thread659, label %.lr.ph494.preheader
 
-.lr.ph494.preheader:                              ; preds = %.thread520, %1161
-  %1164 = phi ptr [ %663, %.thread520 ], [ %1163, %1161 ]
+.lr.ph494.preheader:                              ; preds = %.thread651, %1161
+  %1164 = phi ptr [ %663, %.thread651 ], [ %1163, %1161 ]
   br label %.lr.ph494
 
 .lr.ph494:                                        ; preds = %.lr.ph494.preheader, %1179
@@ -2508,10 +2508,10 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %1183 = icmp ugt i64 %.1, 27199
   %spec.select = select i1 %1183, i64 50, i64 %1182
   %1184 = icmp eq i64 %.1, 0
-  br i1 %1184, label %.thread528, label %1186
+  br i1 %1184, label %.thread659, label %1186
 
-.thread528:                                       ; preds = %1161, %.thread519, %._crit_edge495
-  %1185 = phi ptr [ %1164, %._crit_edge495 ], [ null, %.thread519 ], [ %1163, %1161 ]
+.thread659:                                       ; preds = %1161, %.thread650, %._crit_edge495
+  %1185 = phi ptr [ %1164, %._crit_edge495 ], [ null, %.thread650 ], [ %1163, %1161 ]
   store i64 1, ptr %9, align 8, !tbaa !20
   br label %SplitByteVectorDistance.exit
 
@@ -3114,13 +3114,13 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   br i1 %.not389.i.i326, label %.thread409.i.i329, label %.thread411.i.i327
 
 .thread411.i.i327:                                ; preds = %.thread.i.i325, %1474
-  %.sink522.i.i328 = phi i64 [ %1484, %.thread.i.i325 ], [ 288230376151711695, %1474 ]
+  %.sink544.i.i328 = phi i64 [ %1484, %.thread.i.i325 ], [ 288230376151711695, %1474 ]
   %1485 = phi i64 [ %1478, %.thread.i.i325 ], [ 0, %1474 ]
   %1486 = phi ptr [ %1479, %.thread.i.i325 ], [ %1476, %1474 ]
   %1487 = phi ptr [ %1481, %.thread.i.i325 ], [ null, %1474 ]
-  %1488 = mul i64 %.sink522.i.i328, 2192
+  %1488 = mul i64 %.sink544.i.i328, 2192
   %1489 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %1488) #8
-  %1490 = shl nuw nsw i64 %.sink522.i.i328, 2
+  %1490 = shl nuw nsw i64 %.sink544.i.i328, 2
   %1491 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %1490) #8
   br label %.thread409.i.i329
 
@@ -3129,7 +3129,7 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   %1493 = phi i64 [ %1485, %.thread411.i.i327 ], [ %1478, %.thread.i.i325 ]
   %1494 = phi ptr [ %1486, %.thread411.i.i327 ], [ %1479, %.thread.i.i325 ]
   %1495 = phi ptr [ %1487, %.thread411.i.i327 ], [ %1481, %.thread.i.i325 ]
-  %1496 = phi i64 [ %.sink522.i.i328, %.thread411.i.i327 ], [ %1484, %.thread.i.i325 ]
+  %1496 = phi i64 [ %.sink544.i.i328, %.thread411.i.i327 ], [ %1484, %.thread.i.i325 ]
   %1497 = phi ptr [ %1491, %.thread411.i.i327 ], [ null, %.thread.i.i325 ]
   br i1 %.not.i169.i323, label %1502, label %1498
 
@@ -3588,16 +3588,16 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   %1705 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %1704) #8
   %1706 = load i64, ptr %1695, align 8, !tbaa !24
   %.not396.i.i432 = icmp eq i64 %1706, 0
-  br i1 %.not396.i.i432, label %.thread516.i.i433, label %1707
+  br i1 %.not396.i.i432, label %.thread538.i.i433, label %1707
 
 1707:                                             ; preds = %1703
   %1708 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %1709 = load ptr, ptr %1708, align 8, !tbaa !11
   %1710 = shl i64 %1706, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %1705, ptr align 4 %1709, i64 %1710, i1 false)
-  br label %.thread516.i.i433
+  br label %.thread538.i.i433
 
-.thread516.i.i433:                                ; preds = %1707, %1703
+.thread538.i.i433:                                ; preds = %1707, %1703
   %1711 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %1712 = load ptr, ptr %1711, align 8, !tbaa !11
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %1712) #8
@@ -3608,7 +3608,7 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
 1713:                                             ; preds = %1694
   br i1 %.not.i169.i323, label %ClusterBlocksDistance.exit.i, label %.lr.ph481.i.i415
 
-.lr.ph481.i.i415:                                 ; preds = %1713, %.thread516.i.i433
+.lr.ph481.i.i415:                                 ; preds = %1713, %.thread538.i.i433
   %1714 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %1715 = getelementptr inbounds nuw i8, ptr %9, i64 24
   br label %1716
@@ -3671,8 +3671,8 @@ ClusterBlocksDistance.exit.i:                     ; preds = %._crit_edge482.loop
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %1313) #8
   br label %SplitByteVectorDistance.exit
 
-SplitByteVectorDistance.exit:                     ; preds = %.thread528, %1230, %ClusterBlocksDistance.exit.i
-  %1739 = phi ptr [ %1185, %.thread528 ], [ %1164, %1230 ], [ %1164, %ClusterBlocksDistance.exit.i ]
+SplitByteVectorDistance.exit:                     ; preds = %.thread659, %1230, %ClusterBlocksDistance.exit.i
+  %1739 = phi ptr [ %1185, %.thread659 ], [ %1164, %1230 ], [ %1164, %ClusterBlocksDistance.exit.i ]
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %1739) #8
   ret void
 }

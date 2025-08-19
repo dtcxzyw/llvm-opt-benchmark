@@ -237,7 +237,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_13CwiseBinaryOpINS_8internal13s
 91:                                               ; preds = %90
   %92 = sdiv i64 9223372036854775807, %88
   %93 = icmp sgt i64 %89, %92
-  br i1 %93, label %.invoke262, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i
+  br i1 %93, label %.invoke293, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i: ; preds = %91, %90
   %94 = mul nsw i64 %89, %88
@@ -250,21 +250,21 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 97:                                               ; preds = %95
   %98 = icmp samesign ugt i64 %94, 2305843009213693951
-  br i1 %98, label %.invoke262, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i104
+  br i1 %98, label %.invoke293, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i104
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i104: ; preds = %97
   %99 = shl nuw i64 %94, 3
   %100 = call noalias ptr @malloc(i64 noundef %99) #12
   %101 = icmp eq ptr %100, null
-  br i1 %101, label %.invoke262, label %.sink.split.i102
+  br i1 %101, label %.invoke293, label %.sink.split.i102
 
-.invoke262:                                       ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i104, %97, %91
+.invoke293:                                       ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i104, %97, %91
   %102 = call ptr @__cxa_allocate_exception(i64 8) #13
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %102, align 8, !tbaa !27
   invoke void @__cxa_throw(ptr nonnull %102, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #14
-          to label %.cont263 unwind label %112
+          to label %.cont294 unwind label %112
 
-.cont263:                                         ; preds = %.invoke262
+.cont294:                                         ; preds = %.invoke293
   unreachable
 
 .sink.split.i102:                                 ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i104, %95
@@ -304,7 +304,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i104: ; preds = %97
   %exitcond15.not.i.i.i.i.i.i.i = icmp eq i64 %111, %88
   br i1 %exitcond15.not.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseINS0_IdLin1ELin1ELi1ELin1ELin1EEEEEEERKT_.exit, label %.preheader.us.i.i.i.i.i.i.i, !llvm.loop !39
 
-112:                                              ; preds = %.invoke262
+112:                                              ; preds = %.invoke293
   %113 = landingpad { ptr, i32 }
           cleanup
   br label %.body87
@@ -337,7 +337,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseINS0_IdLin1ELi
 126:                                              ; preds = %123
   %127 = sdiv i64 9223372036854775807, %119
   %128 = icmp sgt i64 %118, %127
-  br i1 %128, label %.invoke264, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i
+  br i1 %128, label %.invoke295, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i: ; preds = %126, %123
   %129 = mul nsw i64 %119, %118
@@ -353,21 +353,21 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 134:                                              ; preds = %131
   %135 = icmp samesign ugt i64 %129, 2305843009213693951
-  br i1 %135, label %.invoke264, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i111
+  br i1 %135, label %.invoke295, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i111
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i111: ; preds = %134
   %136 = shl nuw i64 %129, 3
   %137 = call noalias ptr @malloc(i64 noundef %136) #12
   %138 = icmp eq ptr %137, null
-  br i1 %138, label %.invoke264, label %.sink.split.i109
+  br i1 %138, label %.invoke295, label %.sink.split.i109
 
-.invoke264:                                       ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i111, %134, %126
+.invoke295:                                       ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i111, %134, %126
   %139 = call ptr @__cxa_allocate_exception(i64 8) #13
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %139, align 8, !tbaa !27
   invoke void @__cxa_throw(ptr nonnull %139, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #14
-          to label %.cont265 unwind label %200
+          to label %.cont296 unwind label %200
 
-.cont265:                                         ; preds = %.invoke264
+.cont296:                                         ; preds = %.invoke295
   unreachable
 
 .sink.split.i109:                                 ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i111, %131
@@ -526,7 +526,7 @@ _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIddLNS2_14Com
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.body
 
-200:                                              ; preds = %.invoke264
+200:                                              ; preds = %.invoke295
   %201 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -576,9 +576,9 @@ _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIddLNS2_14Com
   br i1 %215, label %218, label %.thread
 
 .thread:                                          ; preds = %.preheader, %._crit_edge209
-  %.048.lcssa245 = phi i32 [ %.048.lcssa.ph, %._crit_edge209 ], [ 0, %.preheader ]
+  %.048.lcssa276 = phi i32 [ %.048.lcssa.ph, %._crit_edge209 ], [ 0, %.preheader ]
   %216 = add nsw i32 %.069218, 1
-  %217 = icmp eq i32 %.048.lcssa245, %216
+  %217 = icmp eq i32 %.048.lcssa276, %216
   br label %.loopexit166
 
 218:                                              ; preds = %._crit_edge209

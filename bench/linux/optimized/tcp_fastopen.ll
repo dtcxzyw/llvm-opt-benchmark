@@ -632,16 +632,16 @@ define dso_local ptr @tcp_try_fastopen(ptr noundef %0, ptr noundef %1, ptr nound
   br label %133
 
 133:                                              ; preds = %.thread22, %132
-  %.sink32 = phi i64 [ 8, %132 ], [ 12, %.thread22 ]
-  %.sink30 = phi i64 [ 32, %132 ], [ 8, %.thread22 ]
+  %.sink45 = phi i64 [ 8, %132 ], [ 12, %.thread22 ]
+  %.sink43 = phi i64 [ 32, %132 ], [ 8, %.thread22 ]
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 180
   %137 = load i16, ptr %136, align 4
   %138 = zext i16 %137 to i64
   %139 = getelementptr i8, ptr %135, i64 %138
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 %.sink32
-  %141 = tail call i64 @__siphash_unaligned(ptr noundef nonnull %140, i64 noundef %.sink30, ptr noundef nonnull %128) #9
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 %.sink45
+  %141 = tail call i64 @__siphash_unaligned(ptr noundef nonnull %140, i64 noundef %.sink43, ptr noundef nonnull %128) #9
   store i64 %141, ptr %8, align 8
   store i8 8, ptr %19, align 8
   br label %142

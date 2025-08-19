@@ -447,8 +447,8 @@ define void @ff_j_rev_dct(ptr noundef captures(none) %0) local_unnamed_addr #0 {
 328:                                              ; preds = %33, %34, %299
   %.1760 = getelementptr inbounds nuw i8, ptr %.0759839, i64 16
   %329 = add nsw i32 %.0757840, -1
-  %.not843 = icmp eq i32 %.0757840, 0
-  br i1 %.not843, label %.preheader, label %2, !llvm.loop !9
+  %.not844 = icmp eq i32 %.0757840, 0
+  br i1 %.not844, label %.preheader, label %2, !llvm.loop !9
 
 .preheader:                                       ; preds = %328, %611
   %.1758842 = phi i32 [ %641, %611 ], [ 7, %328 ]
@@ -861,8 +861,8 @@ define void @ff_j_rev_dct(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   store i16 %639, ptr %341, align 2, !tbaa !4
   %640 = getelementptr inbounds nuw i8, ptr %.2841, i64 2
   %641 = add nsw i32 %.1758842, -1
-  %.not844 = icmp eq i32 %.1758842, 0
-  br i1 %.not844, label %642, label %.preheader, !llvm.loop !11
+  %.not845 = icmp eq i32 %.1758842, 0
+  br i1 %.not845, label %642, label %.preheader, !llvm.loop !11
 
 642:                                              ; preds = %611
   ret void

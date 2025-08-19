@@ -5921,9 +5921,9 @@ to_log.exit179.us:                                ; preds = %102, %91
 
 124:                                              ; preds = %119
   %125 = icmp eq i32 %65, -1
-  br i1 %125, label %.thread230, label %130
+  br i1 %125, label %.thread240, label %130
 
-.thread230:                                       ; preds = %124
+.thread240:                                       ; preds = %124
   %126 = getelementptr inbounds nuw %struct.dt_iop_tonecurve_node_t, ptr %15, i64 %121, i32 1
   %127 = load float, ptr %126, align 4, !tbaa !22
   br label %140
@@ -5945,9 +5945,9 @@ to_log.exit:                                      ; preds = %119
   %139 = icmp eq i32 %65, 1
   br i1 %139, label %to_log.exit155, label %140
 
-140:                                              ; preds = %.thread230, %130
-  %141 = phi float [ %127, %.thread230 ], [ %138, %130 ]
-  %.0.i152.ph232 = phi float [ %123, %.thread230 ], [ %136, %130 ]
+140:                                              ; preds = %.thread240, %130
+  %141 = phi float [ %127, %.thread240 ], [ %138, %130 ]
+  %.0.i152.ph242 = phi float [ %123, %.thread240 ], [ %136, %130 ]
   %142 = fmul reassoc nsz arcp contract afn float %141, %63
   %143 = fadd reassoc nsz arcp contract afn float %142, 1.000000e+00
   %144 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %143)
@@ -5957,7 +5957,7 @@ to_log.exit:                                      ; preds = %119
   br label %to_log.exit155
 
 to_log.exit155:                                   ; preds = %to_log.exit, %130, %140
-  %.pn211.in = phi float [ %.0.i152.ph232, %140 ], [ %136, %130 ], [ %123, %to_log.exit ]
+  %.pn211.in = phi float [ %.0.i152.ph242, %140 ], [ %136, %130 ], [ %123, %to_log.exit ]
   %.0.i154 = phi nsz float [ %147, %140 ], [ %138, %130 ], [ %129, %to_log.exit ]
   %.pn211 = fpext float %.pn211.in to double
   %.in = fsub reassoc nsz arcp contract afn double %120, %.pn211
@@ -6086,8 +6086,8 @@ to_lin.exit167:                                   ; preds = %.thread196, %to_lin
   br i1 %215, label %.lr.ph37.preheader.i, label %.thread.._crit_edge38_crit_edge.i
 
 .thread.._crit_edge38_crit_edge.i:                ; preds = %213, %.thread.i, %.preheader.i
-  %.247.i = phi i32 [ %.2.i, %.thread.i ], [ %.pre.i, %.preheader.i ], [ %.pre.i, %213 ]
-  %.pre44.i = sext i32 %.247.i to i64
+  %.248.i = phi i32 [ %.2.i, %.thread.i ], [ %.pre.i, %.preheader.i ], [ %.pre.i, %213 ]
+  %.pre44.i = sext i32 %.248.i to i64
   br label %_add_node.exit
 
 .lr.ph37.preheader.i:                             ; preds = %.thread.i
@@ -6110,7 +6110,7 @@ to_lin.exit167:                                   ; preds = %.thread196, %to_lin
   br i1 %224, label %.lr.ph37.i, label %_add_node.exit
 
 _add_node.exit:                                   ; preds = %.lr.ph37.i, %.thread.._crit_edge38_crit_edge.i
-  %.246.i = phi i32 [ %.247.i, %.thread.._crit_edge38_crit_edge.i ], [ %.2.i, %.lr.ph37.i ]
+  %.247.i = phi i32 [ %.248.i, %.thread.._crit_edge38_crit_edge.i ], [ %.2.i, %.lr.ph37.i ]
   %.pre-phi.i = phi i64 [ %.pre44.i, %.thread.._crit_edge38_crit_edge.i ], [ %217, %.lr.ph37.i ]
   %225 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %15, i64 %.pre-phi.i
   store float %.0.i181, ptr %225, align 4, !tbaa !11
@@ -6118,7 +6118,7 @@ _add_node.exit:                                   ; preds = %.lr.ph37.i, %.threa
   store float %.0.i149, ptr %226, align 4, !tbaa !22
   %227 = add nsw i32 %.pre.i, 1
   store i32 %227, ptr %13, align 4, !tbaa !13
-  store i32 %.246.i, ptr %116, align 8, !tbaa !141
+  store i32 %.247.i, ptr %116, align 8, !tbaa !141
   %228 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !224
   %229 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %12
   call void @dt_dev_add_history_item_target(ptr noundef %228, ptr noundef %2, i32 noundef 1, ptr noundef %229) #21
@@ -6904,8 +6904,8 @@ define internal fastcc i32 @_add_node(ptr noundef captures(none) %0, ptr noundef
   br i1 %13, label %.lr.ph37.preheader, label %.thread.._crit_edge38_crit_edge
 
 .thread.._crit_edge38_crit_edge:                  ; preds = %11, %.preheader, %.thread
-  %.247 = phi i32 [ %.2, %.thread ], [ %.pre, %.preheader ], [ %.pre, %11 ]
-  %.pre44 = sext i32 %.247 to i64
+  %.248 = phi i32 [ %.2, %.thread ], [ %.pre, %.preheader ], [ %.pre, %11 ]
+  %.pre44 = sext i32 %.248 to i64
   br label %._crit_edge38
 
 .lr.ph37.preheader:                               ; preds = %.thread
@@ -6914,7 +6914,7 @@ define internal fastcc i32 @_add_node(ptr noundef captures(none) %0, ptr noundef
   br label %.lr.ph37
 
 ._crit_edge38:                                    ; preds = %.lr.ph37, %.thread.._crit_edge38_crit_edge
-  %.246 = phi i32 [ %.247, %.thread.._crit_edge38_crit_edge ], [ %.2, %.lr.ph37 ]
+  %.247 = phi i32 [ %.248, %.thread.._crit_edge38_crit_edge ], [ %.2, %.lr.ph37 ]
   %.pre-phi = phi i64 [ %.pre44, %.thread.._crit_edge38_crit_edge ], [ %15, %.lr.ph37 ]
   %16 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %0, i64 %.pre-phi
   store float %2, ptr %16, align 4, !tbaa !11
@@ -6922,7 +6922,7 @@ define internal fastcc i32 @_add_node(ptr noundef captures(none) %0, ptr noundef
   store float %3, ptr %17, align 4, !tbaa !22
   %18 = add nsw i32 %.pre, 1
   store i32 %18, ptr %1, align 4, !tbaa !13
-  ret i32 %.246
+  ret i32 %.247
 
 .lr.ph37:                                         ; preds = %.lr.ph37.preheader, %.lr.ph37
   %indvars.iv41 = phi i64 [ %14, %.lr.ph37.preheader ], [ %indvars.iv.next42, %.lr.ph37 ]

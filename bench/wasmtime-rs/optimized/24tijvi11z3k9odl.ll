@@ -3741,7 +3741,7 @@ define hidden void @_ZN6wiggle19validate_size_align17h471ea62db683fac1E(ptr noal
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17hee425af40dedac5dE.exit": ; preds = %31, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i"
   %.sroa.4.0.copyload.sink.i = phi i64 [ %.sroa.4.0.copyload.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i" ], [ %27, %31 ]
   %.sroa.5.0.copyload.sink.i = phi ptr [ %.sroa.5.0.copyload.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i" ], [ @anon.671675c1a4a640a3c56f13f914c22246.3.llvm.7437452962731462277, %31 ]
-  %.sink11.i = phi i64 [ %46, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i" ], [ 0, %31 ]
+  %.sink13.i = phi i64 [ %46, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i" ], [ 0, %31 ]
   %.sink.i = phi i64 [ %47, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i" ], [ 0, %31 ]
   %48 = or i64 %.sink.i, %.sroa.4.0.copyload.sink.i
   %or.cond.not = icmp eq i64 %48, 0
@@ -3766,7 +3766,7 @@ define hidden void @_ZN6wiggle19validate_size_align17h471ea62db683fac1E(ptr noal
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.5.0.copyload.sink.i, ptr %52, align 8
   %.sroa.466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink11.i, ptr %.sroa.466.0..sroa_idx, align 8
+  store i64 %.sink13.i, ptr %.sroa.466.0..sroa_idx, align 8
   %.sroa.567.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %.sroa.567.0..sroa_idx, align 8
   %.sroa.668.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -3904,12 +3904,12 @@ define hidden void @_ZN6wiggle19validate_size_align17h7511fafcfbb2b349E(ptr noal
   br label %54
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17heb59a7c5c5bdc790E.exit.thread": ; preds = %31, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17heb59a7c5c5bdc790E.exit"
-  %.sink11.i154 = phi i64 [ %46, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17heb59a7c5c5bdc790E.exit" ], [ 0, %31 ]
-  %.sroa.5.0.copyload.sink.i153 = phi ptr [ %.sroa.5.0.copyload.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17heb59a7c5c5bdc790E.exit" ], [ @anon.671675c1a4a640a3c56f13f914c22246.3.llvm.7437452962731462277, %31 ]
+  %.sink13.i157 = phi i64 [ %46, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17heb59a7c5c5bdc790E.exit" ], [ 0, %31 ]
+  %.sroa.5.0.copyload.sink.i156 = phi ptr [ %.sroa.5.0.copyload.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17heb59a7c5c5bdc790E.exit" ], [ @anon.671675c1a4a640a3c56f13f914c22246.3.llvm.7437452962731462277, %31 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.5.0.copyload.sink.i153, ptr %52, align 8
+  store ptr %.sroa.5.0.copyload.sink.i156, ptr %52, align 8
   %.sroa.466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink11.i154, ptr %.sroa.466.0..sroa_idx, align 8
+  store i64 %.sink13.i157, ptr %.sroa.466.0..sroa_idx, align 8
   %.sroa.567.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %.sroa.567.0..sroa_idx, align 8
   %.sroa.668.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -4032,7 +4032,7 @@ define hidden void @_ZN6wiggle19validate_size_align17hfab9d8c251dfdd4dE(ptr noal
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17h7d6bda58600f782dE.exit": ; preds = %31, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i"
   %.sroa.4.0.copyload.sink.i = phi i64 [ %.sroa.4.0.copyload.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i" ], [ %27, %31 ]
   %.sroa.5.0.copyload.sink.i = phi ptr [ %.sroa.5.0.copyload.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i" ], [ @anon.671675c1a4a640a3c56f13f914c22246.3.llvm.7437452962731462277, %31 ]
-  %.sink11.i = phi i64 [ %46, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i" ], [ 0, %31 ]
+  %.sink13.i = phi i64 [ %46, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i" ], [ 0, %31 ]
   %.sink.i = phi i64 [ %47, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i" ], [ 0, %31 ]
   %48 = or i64 %.sink.i, %.sroa.4.0.copyload.sink.i
   %or.cond.not = icmp eq i64 %48, 0
@@ -4057,7 +4057,7 @@ define hidden void @_ZN6wiggle19validate_size_align17hfab9d8c251dfdd4dE(ptr noal
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.5.0.copyload.sink.i, ptr %52, align 8
   %.sroa.466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink11.i, ptr %.sroa.466.0..sroa_idx, align 8
+  store i64 %.sink13.i, ptr %.sroa.466.0..sroa_idx, align 8
   %.sroa.567.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %.sroa.567.0..sroa_idx, align 8
   %.sroa.668.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28

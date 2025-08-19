@@ -8858,9 +8858,9 @@ for.body.i.i.i.i.i.preheader:                     ; preds = %_ZNSt12_Vector_base
   %14 = lshr i64 %13, 3
   %15 = add nuw nsw i64 %14, 1
   %min.iters.check = icmp ult i64 %13, 56
-  br i1 %min.iters.check, label %for.body.i.i.i.i.i.preheader10, label %vector.memcheck
+  br i1 %min.iters.check, label %for.body.i.i.i.i.i.preheader14, label %vector.memcheck
 
-for.body.i.i.i.i.i.preheader10:                   ; preds = %middle.block, %vector.memcheck, %for.body.i.i.i.i.i.preheader
+for.body.i.i.i.i.i.preheader14:                   ; preds = %middle.block, %vector.memcheck, %for.body.i.i.i.i.i.preheader
   %__cur.08.i.i.i.i.i.ph = phi ptr [ %ind.end, %middle.block ], [ %call5.i.i.i.i.i15, %for.body.i.i.i.i.i.preheader ], [ %call5.i.i.i.i.i15, %vector.memcheck ]
   %__first.addr.07.i.i.i.i.i.ph = phi ptr [ %ind.end27, %middle.block ], [ %9, %for.body.i.i.i.i.i.preheader ], [ %9, %vector.memcheck ]
   br label %for.body.i.i.i.i.i
@@ -8874,7 +8874,7 @@ vector.memcheck:                                  ; preds = %for.body.i.i.i.i.i.
   %bound0 = icmp ult ptr %call5.i.i.i.i.i15, %scevgep26
   %bound1 = icmp ult ptr %9, %scevgep24
   %found.conflict = and i1 %bound0, %bound1
-  br i1 %found.conflict, label %for.body.i.i.i.i.i.preheader10, label %vector.ph
+  br i1 %found.conflict, label %for.body.i.i.i.i.i.preheader14, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.vec = and i64 %15, 4611686018427387900
@@ -8903,15 +8903,15 @@ middle.block:                                     ; preds = %vector.body
   %ind.end = getelementptr i8, ptr %call5.i.i.i.i.i15, i64 %20
   %ind.end27 = getelementptr i8, ptr %9, i64 %20
   %cmp.n = icmp eq i64 %15, %n.vec
-  br i1 %cmp.n, label %_ZNSt6vectorISt10unique_ptrI21IShaderConstantSetterSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.i.thread, label %for.body.i.i.i.i.i.preheader10
+  br i1 %cmp.n, label %_ZNSt6vectorISt10unique_ptrI21IShaderConstantSetterSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.i.thread, label %for.body.i.i.i.i.i.preheader14
 
 _ZNSt6vectorISt10unique_ptrI21IShaderConstantSetterSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.i.thread: ; preds = %middle.block
   %incdec.ptr.i.i6 = getelementptr i8, ptr %ind.end, i64 8
   br label %if.then.i41.i.i
 
-for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader10, %for.body.i.i.i.i.i
-  %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__cur.08.i.i.i.i.i.ph, %for.body.i.i.i.i.i.preheader10 ]
-  %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__first.addr.07.i.i.i.i.i.ph, %for.body.i.i.i.i.i.preheader10 ]
+for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader14, %for.body.i.i.i.i.i
+  %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__cur.08.i.i.i.i.i.ph, %for.body.i.i.i.i.i.preheader14 ]
+  %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__first.addr.07.i.i.i.i.i.ph, %for.body.i.i.i.i.i.preheader14 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
   %21 = load i64, ptr %__first.addr.07.i.i.i.i.i, align 8, !tbaa !25, !alias.scope !170, !noalias !167
@@ -9711,9 +9711,9 @@ for.body.i.i.i.i.i.preheader:                     ; preds = %_ZNKSt6vectorISt10u
   %9 = lshr i64 %8, 3
   %10 = add nuw nsw i64 %9, 1
   %min.iters.check = icmp ult i64 %8, 152
-  br i1 %min.iters.check, label %for.body.i.i.i.i.i.preheader8, label %vector.memcheck
+  br i1 %min.iters.check, label %for.body.i.i.i.i.i.preheader10, label %vector.memcheck
 
-for.body.i.i.i.i.i.preheader8:                    ; preds = %middle.block, %vector.memcheck, %for.body.i.i.i.i.i.preheader
+for.body.i.i.i.i.i.preheader10:                   ; preds = %middle.block, %vector.memcheck, %for.body.i.i.i.i.i.preheader
   %__cur.08.i.i.i.i.i.ph = phi ptr [ %ind.end, %middle.block ], [ %call5.i.i.i.i.i, %for.body.i.i.i.i.i.preheader ], [ %call5.i.i.i.i.i, %vector.memcheck ]
   %__first.addr.07.i.i.i.i.i.ph = phi ptr [ %ind.end4, %middle.block ], [ %4, %for.body.i.i.i.i.i.preheader ], [ %4, %vector.memcheck ]
   br label %for.body.i.i.i.i.i
@@ -9726,7 +9726,7 @@ vector.memcheck:                                  ; preds = %for.body.i.i.i.i.i.
   %bound0 = icmp ult ptr %call5.i.i.i.i.i, %scevgep3
   %bound1 = icmp ult ptr %4, %scevgep
   %found.conflict = and i1 %bound0, %bound1
-  br i1 %found.conflict, label %for.body.i.i.i.i.i.preheader8, label %vector.ph
+  br i1 %found.conflict, label %for.body.i.i.i.i.i.preheader10, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.vec = and i64 %10, 4611686018427387900
@@ -9755,15 +9755,15 @@ middle.block:                                     ; preds = %vector.body
   %ind.end = getelementptr i8, ptr %call5.i.i.i.i.i, i64 %16
   %ind.end4 = getelementptr i8, ptr %4, i64 %16
   %cmp.n = icmp eq i64 %10, %n.vec
-  br i1 %cmp.n, label %_ZNSt6vectorISt10unique_ptrI28IShaderConstantSetterFactorySt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.i.thread, label %for.body.i.i.i.i.i.preheader8
+  br i1 %cmp.n, label %_ZNSt6vectorISt10unique_ptrI28IShaderConstantSetterFactorySt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.i.thread, label %for.body.i.i.i.i.i.preheader10
 
 _ZNSt6vectorISt10unique_ptrI28IShaderConstantSetterFactorySt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.i.thread: ; preds = %middle.block
   %incdec.ptr.i.i4 = getelementptr i8, ptr %ind.end, i64 8
   br label %if.then.i41.i.i
 
-for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader8, %for.body.i.i.i.i.i
-  %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__cur.08.i.i.i.i.i.ph, %for.body.i.i.i.i.i.preheader8 ]
-  %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__first.addr.07.i.i.i.i.i.ph, %for.body.i.i.i.i.i.preheader8 ]
+for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader10, %for.body.i.i.i.i.i
+  %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__cur.08.i.i.i.i.i.ph, %for.body.i.i.i.i.i.preheader10 ]
+  %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__first.addr.07.i.i.i.i.i.ph, %for.body.i.i.i.i.i.preheader10 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !184)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
   %17 = load i64, ptr %__first.addr.07.i.i.i.i.i, align 8, !tbaa !25, !alias.scope !187, !noalias !184

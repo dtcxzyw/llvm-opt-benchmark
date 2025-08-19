@@ -1409,7 +1409,7 @@ _mi_page_malloc.exit:                             ; preds = %50
   br i1 %60, label %61, label %_mi_segment_page_start.exit.i.i, !prof !45
 
 61:                                               ; preds = %_mi_page_malloc.exit.thread, %_mi_page_malloc.exit
-  %.0.i3156 = phi ptr [ %52, %_mi_page_malloc.exit.thread ], [ %59, %_mi_page_malloc.exit ]
+  %.0.i3163 = phi ptr [ %52, %_mi_page_malloc.exit.thread ], [ %59, %_mi_page_malloc.exit ]
   %62 = phi i32 [ 0, %_mi_page_malloc.exit.thread ], [ %.pre, %_mi_page_malloc.exit ]
   %63 = zext nneg i32 %62 to i64
   br label %mi_page_usable_block_size.exit
@@ -1421,10 +1421,10 @@ _mi_segment_page_start.exit.i.i:                  ; preds = %_mi_page_malloc.exi
   br label %mi_page_usable_block_size.exit
 
 mi_page_usable_block_size.exit:                   ; preds = %61, %_mi_segment_page_start.exit.i.i
-  %.0.i3155 = phi ptr [ %.0.i3156, %61 ], [ %59, %_mi_segment_page_start.exit.i.i ]
+  %.0.i3162 = phi ptr [ %.0.i3163, %61 ], [ %59, %_mi_segment_page_start.exit.i.i ]
   %.0.i.i = phi i64 [ %63, %61 ], [ %66, %_mi_segment_page_start.exit.i.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.0.i3155, i64 8) ]
-  tail call void @llvm.memset.p0.i64(ptr align 8 %.0.i3155, i8 0, i64 %.0.i.i, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr %.0.i3162, i64 8) ]
+  tail call void @llvm.memset.p0.i64(ptr align 8 %.0.i3162, i8 0, i64 %.0.i.i, i1 false)
   br label %_mi_page_malloc.exit35
 
 .critedge:                                        ; preds = %.thread, %46
@@ -1464,7 +1464,7 @@ mi_page_usable_block_size.exit:                   ; preds = %61, %_mi_segment_pa
   br label %_mi_page_malloc.exit35
 
 _mi_page_malloc.exit35:                           ; preds = %5, %81, %80, %70, %45, %mi_page_usable_block_size.exit
-  %.0 = phi ptr [ null, %45 ], [ %.0.i3155, %mi_page_usable_block_size.exit ], [ %68, %80 ], [ %68, %81 ], [ %68, %70 ], [ null, %5 ]
+  %.0 = phi ptr [ null, %45 ], [ %.0.i3162, %mi_page_usable_block_size.exit ], [ %68, %80 ], [ %68, %81 ], [ %68, %70 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -2158,9 +2158,9 @@ define hidden void @_mi_page_retire(ptr noundef %0) local_unnamed_addr #1 {
 
 18:                                               ; preds = %13
   %19 = icmp ugt i32 %7, 131072
-  br i1 %19, label %mi_page_queue_of.exit.thread25, label %24
+  br i1 %19, label %mi_page_queue_of.exit.thread30, label %24
 
-mi_page_queue_of.exit.thread25:                   ; preds = %18
+mi_page_queue_of.exit.thread30:                   ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load atomic i64, ptr %20 monotonic, align 8
   %22 = inttoptr i64 %21 to ptr
@@ -2250,9 +2250,9 @@ mi_page_queue_of.exit:                            ; preds = %1
   store i64 %69, ptr %75, align 8, !tbaa !60
   br label %_PyMem_mi_page_maybe_free.exit
 
-.critedge:                                        ; preds = %mi_page_queue_of.exit.thread25, %mi_page_queue_of.exit, %49, %53, %44
-  %79 = phi ptr [ %42, %mi_page_queue_of.exit ], [ %45, %49 ], [ %45, %53 ], [ %45, %44 ], [ %23, %mi_page_queue_of.exit.thread25 ]
-  %80 = phi ptr [ %39, %mi_page_queue_of.exit ], [ %46, %49 ], [ %46, %53 ], [ %46, %44 ], [ %20, %mi_page_queue_of.exit.thread25 ]
+.critedge:                                        ; preds = %mi_page_queue_of.exit.thread30, %mi_page_queue_of.exit, %49, %53, %44
+  %79 = phi ptr [ %42, %mi_page_queue_of.exit ], [ %45, %49 ], [ %45, %53 ], [ %45, %44 ], [ %23, %mi_page_queue_of.exit.thread30 ]
+  %80 = phi ptr [ %39, %mi_page_queue_of.exit ], [ %46, %49 ], [ %46, %53 ], [ %46, %44 ], [ %20, %mi_page_queue_of.exit.thread30 ]
   store i8 %4, ptr %2, align 2
   %81 = load atomic i64, ptr %80 monotonic, align 8
   %82 = inttoptr i64 %81 to ptr
@@ -3142,7 +3142,7 @@ define hidden ptr @_mi_heap_realloc_zero(ptr noundef %0, ptr noundef %1, i64 nou
   br i1 %5, label %_mi_usable_size.exit.thread, label %6
 
 _mi_usable_size.exit.thread:                      ; preds = %4
-  %.not45 = icmp ne i64 %2, 0
+  %.not50 = icmp ne i64 %2, 0
   br label %.critedge
 
 6:                                                ; preds = %4
@@ -3196,8 +3196,8 @@ _mi_usable_size.exit:                             ; preds = %26, %_mi_segment_pa
   br i1 %or.cond39.not, label %.critedge, label %mi_free.exit, !prof !72
 
 .critedge:                                        ; preds = %_mi_usable_size.exit.thread, %_mi_usable_size.exit
-  %.not49 = phi i1 [ %.not45, %_mi_usable_size.exit.thread ], [ %.not, %_mi_usable_size.exit ]
-  %.0.i48 = phi i64 [ 0, %_mi_usable_size.exit.thread ], [ %.0.i, %_mi_usable_size.exit ]
+  %.not54 = phi i1 [ %.not50, %_mi_usable_size.exit.thread ], [ %.not, %_mi_usable_size.exit ]
+  %.0.i53 = phi i64 [ 0, %_mi_usable_size.exit.thread ], [ %.0.i, %_mi_usable_size.exit ]
   %36 = icmp ult i64 %2, 1025
   br i1 %36, label %37, label %mi_heap_malloc.exit, !prof !49
 
@@ -3229,11 +3229,11 @@ mi_heap_malloc.exit:                              ; preds = %.critedge, %37
 
 51:                                               ; preds = %mi_heap_malloc.exit.thread, %mi_heap_malloc.exit
   %.0.i.i.i42 = phi ptr [ %44, %mi_heap_malloc.exit.thread ], [ %50, %mi_heap_malloc.exit ]
-  %or.cond38 = and i1 %3, %.not49
+  %or.cond38 = and i1 %3, %.not54
   br i1 %or.cond38, label %52, label %56
 
 52:                                               ; preds = %51
-  %53 = tail call i64 @llvm.usub.sat.i64(i64 %.0.i48, i64 8)
+  %53 = tail call i64 @llvm.usub.sat.i64(i64 %.0.i53, i64 8)
   %54 = getelementptr i8, ptr %.0.i.i.i42, i64 %53
   %55 = sub i64 %2, %53
   tail call void @llvm.memset.p0.i64(ptr align 1 %54, i8 0, i64 %55, i1 false)
@@ -3251,7 +3251,7 @@ mi_heap_malloc.exit:                              ; preds = %.critedge, %37
   br i1 %5, label %mi_free.exit, label %60, !prof !13
 
 60:                                               ; preds = %59
-  %61 = tail call i64 @llvm.umin.i64(i64 %2, i64 %.0.i48)
+  %61 = tail call i64 @llvm.umin.i64(i64 %2, i64 %.0.i53)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i42, ptr nonnull readonly align 1 %1, i64 %61, i1 false)
   %62 = ptrtoint ptr %1 to i64
   %63 = add i64 %62, -1
@@ -4134,7 +4134,7 @@ define internal fastcc ptr @mi_try_new(i64 noundef %0) unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_new_aligned(i64 noundef %0, i64 noundef %1) local_unnamed_addr #1 {
+define hidden noalias nonnull ptr @mi_new_aligned(i64 noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
   %or.cond.not.i.i = icmp eq i64 %4, 1
@@ -4279,10 +4279,10 @@ mi_try_new_handler.exit:                          ; preds = %.split, %mi_try_new
   br i1 %.not, label %.split27.us, label %mi_try_new_handler.exit, !llvm.loop !80
 
 .critedge.sink.split:                             ; preds = %mi_try_new_handler.exit.us.us38, %mi_try_new_handler.exit.us.us, %.split.us.split.split.split.us, %.split.us.split.us
-  %.lcssa14.us.us.sink86 = phi ptr [ %16, %.split.us.split.us ], [ %37, %.split.us.split.split.split.us ], [ %27, %mi_try_new_handler.exit.us.us ], [ %51, %mi_try_new_handler.exit.us.us38 ]
+  %.lcssa14.us.us.sink100 = phi ptr [ %16, %.split.us.split.us ], [ %37, %.split.us.split.split.split.us ], [ %27, %mi_try_new_handler.exit.us.us ], [ %51, %mi_try_new_handler.exit.us.us38 ]
   %.lcssa.us.us.sink = phi ptr [ %18, %.split.us.split.us ], [ %39, %.split.us.split.split.split.us ], [ %29, %mi_try_new_handler.exit.us.us ], [ %53, %mi_try_new_handler.exit.us.us38 ]
-  %67 = getelementptr inbounds nuw i8, ptr %.lcssa14.us.us.sink86, i64 16
-  %68 = getelementptr inbounds nuw i8, ptr %.lcssa14.us.us.sink86, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %.lcssa14.us.us.sink100, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %.lcssa14.us.us.sink100, i64 24
   %69 = load i32, ptr %68, align 8, !tbaa !14
   %70 = add i32 %69, 1
   store i32 %70, ptr %68, align 8, !tbaa !14
@@ -7771,10 +7771,10 @@ mi_os_prim_free.exit.i:                           ; preds = %135, %133
   %143 = load i8, ptr @mi_os_mem_config.3, align 8, !tbaa !108, !range !38, !noundef !39
   %144 = trunc nuw i8 %143 to i1
   %spec.select.i.i103.i = select i1 %144, i32 16418, i32 34
-  %.b36 = load i1, ptr @mi_os_mem_config.1, align 8
+  %.b53 = load i1, ptr @mi_os_mem_config.1, align 8
   %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @options, i64 200), align 8
   %146 = icmp eq i32 %145, 0
-  %or.cond16.i = select i1 %.b36, i1 %146, i1 false
+  %or.cond16.i = select i1 %.b53, i1 %146, i1 false
   br i1 %or.cond16.i, label %147, label %unix_mmap_prim.exit116.i, !prof !118
 
 147:                                              ; preds = %141
@@ -8199,8 +8199,8 @@ mi_bitmap_mask_.exit24.i.i:                       ; preds = %89
   %112 = xor i64 %.033.ph.i, -1
   %113 = atomicrmw and ptr %111, i64 %112 acq_rel, align 8
   %114 = and i64 %113, %.033.ph.i
-  %.not46.i = icmp eq i64 %114, %.033.ph.i
-  br i1 %.not46.i, label %.critedge50, label %122
+  %.not47.i = icmp eq i64 %114, %.033.ph.i
+  br i1 %.not47.i, label %.critedge50, label %122
 
 .lr.ph.i:                                         ; preds = %mi_bitmap_mask_.exit24.i.i
   %115 = lshr i64 %105, 6
@@ -8442,7 +8442,7 @@ mi_bitmap_mask_.exit24.i:                         ; preds = %4
   %27 = xor i64 %.033.ph, -1
   %28 = atomicrmw and ptr %26, i64 %27 acq_rel, align 8
   %29 = and i64 %28, %.033.ph
-  %.not46 = icmp eq i64 %29, %.033.ph
+  %.not47 = icmp eq i64 %29, %.033.ph
   br label %37
 
 .lr.ph:                                           ; preds = %mi_bitmap_mask_.exit24.i
@@ -8475,7 +8475,7 @@ mi_bitmap_mask_.exit24.i:                         ; preds = %4
   br label %37
 
 37:                                               ; preds = %._crit_edge.thread, %34, %._crit_edge
-  %.3 = phi i1 [ %.1.lcssa, %._crit_edge ], [ %spec.select27, %34 ], [ %.not46, %._crit_edge.thread ]
+  %.3 = phi i1 [ %.1.lcssa, %._crit_edge ], [ %spec.select27, %34 ], [ %.not47, %._crit_edge.thread ]
   ret i1 %.3
 }
 
@@ -10587,17 +10587,17 @@ mi_bitmap_mask_.exit.i.us55:                      ; preds = %.lr.ph.split.split.
   %57 = getelementptr i64, ptr %0, i64 %spec.store.select.us54
   %58 = cmpxchg ptr %57, i64 %53, i64 %53 acq_rel acquire, align 8
   %59 = extractvalue { i64, i1 } %58, 1
-  br i1 %59, label %_mi_bitmap_try_find_claim_field.exit, label %.lr.ph127, !llvm.loop !162
+  br i1 %59, label %_mi_bitmap_try_find_claim_field.exit, label %.lr.ph143, !llvm.loop !162
 
-.lr.ph127:                                        ; preds = %.lr.ph.split.i.us59.preheader
+.lr.ph143:                                        ; preds = %.lr.ph.split.i.us59.preheader
   br label %60, !llvm.loop !162
 
-60:                                               ; preds = %.lr.ph127, %60
-  %61 = phi { i64, i1 } [ %58, %.lr.ph127 ], [ %63, %60 ]
+60:                                               ; preds = %.lr.ph143, %60
+  %61 = phi { i64, i1 } [ %58, %.lr.ph143 ], [ %63, %60 ]
   %62 = extractvalue { i64, i1 } %61, 0
   %63 = cmpxchg ptr %57, i64 %62, i64 %62 acq_rel acquire, align 8
   %64 = extractvalue { i64, i1 } %63, 1
-  br i1 %64, label %._mi_bitmap_try_find_claim_field.exit.loopexit112_crit_edge, label %60, !llvm.loop !162
+  br i1 %64, label %._mi_bitmap_try_find_claim_field.exit.loopexit128_crit_edge, label %60, !llvm.loop !162
 
 .loopexit20.us71:                                 ; preds = %mi_bitmap_mask_.exit.i.us55, %.lr.ph.split.split.split.us
   %65 = add nuw i64 %.01231.us51, 1
@@ -10655,12 +10655,12 @@ mi_bitmap_mask_.exit.i:                           ; preds = %.lr.ph.split.split.
   %.not.not.i = icmp ugt i64 %.139.i, %8
   br i1 %.not.not.i, label %.loopexit20, label %.lr.ph.split.i
 
-._mi_bitmap_try_find_claim_field.exit.loopexit112_crit_edge: ; preds = %60
+._mi_bitmap_try_find_claim_field.exit.loopexit128_crit_edge: ; preds = %60
   br label %_mi_bitmap_try_find_claim_field.exit, !llvm.loop !162
 
-_mi_bitmap_try_find_claim_field.exit:             ; preds = %75, %44, %21, %.lr.ph.split.i.us59.preheader, %._mi_bitmap_try_find_claim_field.exit.loopexit112_crit_edge
-  %spec.store.select28 = phi i64 [ %spec.store.select.us54, %._mi_bitmap_try_find_claim_field.exit.loopexit112_crit_edge ], [ %spec.store.select.us54, %.lr.ph.split.i.us59.preheader ], [ %spec.store.select.us, %21 ], [ %spec.store.select.us40, %44 ], [ %spec.store.select, %75 ]
-  %.us-phi.i = phi i64 [ %56, %._mi_bitmap_try_find_claim_field.exit.loopexit112_crit_edge ], [ %56, %.lr.ph.split.i.us59.preheader ], [ %.03852.us.i.us, %21 ], [ %.03852.i.us, %44 ], [ %.03852.i, %75 ]
+_mi_bitmap_try_find_claim_field.exit:             ; preds = %75, %44, %21, %.lr.ph.split.i.us59.preheader, %._mi_bitmap_try_find_claim_field.exit.loopexit128_crit_edge
+  %spec.store.select28 = phi i64 [ %spec.store.select.us54, %._mi_bitmap_try_find_claim_field.exit.loopexit128_crit_edge ], [ %spec.store.select.us54, %.lr.ph.split.i.us59.preheader ], [ %spec.store.select.us, %21 ], [ %spec.store.select.us40, %44 ], [ %spec.store.select, %75 ]
+  %.us-phi.i = phi i64 [ %56, %._mi_bitmap_try_find_claim_field.exit.loopexit128_crit_edge ], [ %56, %.lr.ph.split.i.us59.preheader ], [ %.03852.us.i.us, %21 ], [ %.03852.i.us, %44 ], [ %.03852.i, %75 ]
   %87 = shl i64 %spec.store.select28, 6
   %88 = add i64 %.us-phi.i, %87
   store i64 %88, ptr %4, align 8, !tbaa !99
@@ -11197,9 +11197,9 @@ mi_bitmap_mask_.exit.i:                           ; preds = %16
 
 30:                                               ; preds = %.lr.ph.split.i
   %31 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %23, i1 true)
-  %32 = add i64 %.03852.i, %31
-  %33 = sub i64 64, %32
-  %34 = add i64 %33, %.03852.i
+  %32 = add nuw nsw i64 %.03852.i, %31
+  %33 = sub nsw i64 64, %32
+  %34 = add nsw i64 %33, %.03852.i
   %35 = shl i64 %.04051.i, %33
   br label %36
 
@@ -11212,7 +11212,7 @@ mi_bitmap_mask_.exit.i:                           ; preds = %16
 
 _mi_bitmap_try_find_claim_field.exit:             ; preds = %25
   %37 = shl i64 %spec.store.select, 6
-  %38 = add i64 %.03852.i, %37
+  %38 = add nuw i64 %.03852.i, %37
   store i64 %38, ptr %4, align 8, !tbaa !99
   br label %.critedge
 
@@ -11273,9 +11273,9 @@ mi_bitmap_mask_.exit.i.i:                         ; preds = %51
 
 64:                                               ; preds = %.lr.ph.split.i.i
   %65 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %57, i1 true)
-  %66 = add i64 %.03852.i.i, %65
-  %67 = sub i64 64, %66
-  %68 = add i64 %67, %.03852.i.i
+  %66 = add nuw nsw i64 %.03852.i.i, %65
+  %67 = sub nsw i64 64, %66
+  %68 = add nsw i64 %67, %.03852.i.i
   %69 = shl i64 %.04051.i.i, %67
   br label %70
 
@@ -11414,7 +11414,7 @@ mi_bitmap_mask_.exit128.i:                        ; preds = %75
 mi_bitmap_try_find_claim_field_across.exit:       ; preds = %59, %110
   %.03852.i.lcssa.sink.i = phi i64 [ %89, %110 ], [ %.03852.i.i, %59 ]
   %129 = shl i64 %spec.store.select, 6
-  %130 = add i64 %.03852.i.lcssa.sink.i, %129
+  %130 = add nuw i64 %.03852.i.lcssa.sink.i, %129
   store i64 %130, ptr %4, align 8, !tbaa !99
   br label %.critedge
 
@@ -11481,9 +11481,9 @@ mi_bitmap_mask_.exit24.i:                         ; preds = %5
   %28 = getelementptr i64, ptr %0, i64 %6
   %29 = atomicrmw or ptr %28, i64 %.052.ph acq_rel, align 8
   %30 = and i64 %29, %.052.ph
-  %.not67 = icmp eq i64 %30, 0
-  %.not3368 = icmp ne i64 %30, %.052.ph
-  %.02669 = zext i1 %.not3368 to i8
+  %.not69 = icmp eq i64 %30, 0
+  %.not3370 = icmp ne i64 %30, %.052.ph
+  %.02671 = zext i1 %.not3370 to i8
   br label %36
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -11518,8 +11518,8 @@ mi_bitmap_mask_.exit24.i:                         ; preds = %5
   br label %36
 
 36:                                               ; preds = %._crit_edge.thread, %33, %._crit_edge
-  %.329 = phi i8 [ %.127.lcssa, %._crit_edge ], [ %spec.select43, %33 ], [ %.02669, %._crit_edge.thread ]
-  %.3 = phi i1 [ %.1.lcssa, %._crit_edge ], [ %spec.select42, %33 ], [ %.not67, %._crit_edge.thread ]
+  %.329 = phi i8 [ %.127.lcssa, %._crit_edge ], [ %spec.select43, %33 ], [ %.02671, %._crit_edge.thread ]
+  %.3 = phi i1 [ %.1.lcssa, %._crit_edge ], [ %spec.select42, %33 ], [ %.not69, %._crit_edge.thread ]
   %.not38 = icmp eq ptr %4, null
   br i1 %.not38, label %38, label %37
 
@@ -11580,7 +11580,7 @@ mi_bitmap_mask_.exit24.i.i:                       ; preds = %4
   %26 = getelementptr i64, ptr %0, i64 %5
   %27 = load atomic i64, ptr %26 monotonic, align 8
   %28 = and i64 %27, %.046.ph.i
-  %.not61.i = icmp eq i64 %28, %.046.ph.i
+  %.not63.i = icmp eq i64 %28, %.046.ph.i
   br label %mi_bitmap_is_claimedx_across.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -11609,7 +11609,7 @@ mi_bitmap_mask_.exit24.i.i:                       ; preds = %4
   br label %mi_bitmap_is_claimedx_across.exit
 
 mi_bitmap_is_claimedx_across.exit:                ; preds = %._crit_edge.thread.i, %._crit_edge.i, %31
-  %.3.i = phi i1 [ %.1.lcssa.i, %._crit_edge.i ], [ %spec.select38.i, %31 ], [ %.not61.i, %._crit_edge.thread.i ]
+  %.3.i = phi i1 [ %.1.lcssa.i, %._crit_edge.i ], [ %spec.select38.i, %31 ], [ %.not63.i, %._crit_edge.thread.i ]
   ret i1 %.3.i
 }
 
@@ -11663,7 +11663,7 @@ mi_bitmap_mask_.exit24.i.i:                       ; preds = %4
   %27 = getelementptr i64, ptr %0, i64 %5
   %28 = load atomic i64, ptr %27 monotonic, align 8
   %29 = and i64 %28, %.046.ph.i
-  %.not2962.i = icmp ne i64 %29, 0
+  %.not2964.i = icmp ne i64 %29, 0
   br label %mi_bitmap_is_claimedx_across.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -11692,7 +11692,7 @@ mi_bitmap_mask_.exit24.i.i:                       ; preds = %4
   br label %mi_bitmap_is_claimedx_across.exit
 
 mi_bitmap_is_claimedx_across.exit:                ; preds = %._crit_edge.thread.i, %._crit_edge.i, %32
-  %.326.i = phi i1 [ %.124.lcssa.i, %._crit_edge.i ], [ %spec.select39.i, %32 ], [ %.not2962.i, %._crit_edge.thread.i ]
+  %.326.i = phi i1 [ %.124.lcssa.i, %._crit_edge.i ], [ %spec.select39.i, %32 ], [ %.not2964.i, %._crit_edge.thread.i ]
   ret i1 %.326.i
 }
 
@@ -16088,14 +16088,14 @@ define hidden range(i32 -255, 256) i32 @_mi_strnicmp(ptr noundef readonly captur
   br i1 %20, label %26, label %.critedge..critedge.thread_crit_edge
 
 .critedge..critedge.thread_crit_edge:             ; preds = %.preheader, %.critedge
-  %.lcssa42 = phi i8 [ %.lcssa.ph, %.critedge ], [ 0, %.preheader ]
-  %.013.lcssa41 = phi ptr [ %.013.lcssa.ph, %.critedge ], [ %1, %.preheader ]
-  %.pre = load i8, ptr %.013.lcssa41, align 1, !tbaa !54
+  %.lcssa45 = phi i8 [ %.lcssa.ph, %.critedge ], [ 0, %.preheader ]
+  %.013.lcssa44 = phi ptr [ %.013.lcssa.ph, %.critedge ], [ %1, %.preheader ]
+  %.pre = load i8, ptr %.013.lcssa44, align 1, !tbaa !54
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %10, %.critedge..critedge.thread_crit_edge
   %21 = phi i8 [ %.pre, %.critedge..critedge.thread_crit_edge ], [ %7, %10 ]
-  %22 = phi i8 [ %.lcssa42, %.critedge..critedge.thread_crit_edge ], [ %6, %10 ]
+  %22 = phi i8 [ %.lcssa45, %.critedge..critedge.thread_crit_edge ], [ %6, %10 ]
   %23 = sext i8 %22 to i32
   %24 = sext i8 %21 to i32
   %25 = sub nsw i32 %23, %24
@@ -17123,21 +17123,21 @@ define hidden i32 @_mi_prim_reset(ptr noundef %0, i64 noundef %1) local_unnamed_
   %6 = tail call ptr @__errno_location() #64
   %7 = load i32, ptr %6, align 4, !tbaa !96
   %8 = icmp eq i32 %7, 11
-  br i1 %8, label %.lr.ph24, label %.critedge
+  br i1 %8, label %.lr.ph27, label %.critedge
 
-9:                                                ; preds = %.lr.ph24
+9:                                                ; preds = %.lr.ph27
   %10 = load i32, ptr %6, align 4, !tbaa !96
   %11 = icmp eq i32 %10, 11
-  br i1 %11, label %.lr.ph24, label %.critedge, !llvm.loop !233
+  br i1 %11, label %.lr.ph27, label %.critedge, !llvm.loop !233
 
-.lr.ph24:                                         ; preds = %.lr.ph, %9
+.lr.ph27:                                         ; preds = %.lr.ph, %9
   store i32 0, ptr %6, align 4, !tbaa !96
   %12 = tail call i32 @madvise(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 4, 15) %4) #54
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %.critedge11, label %9, !llvm.loop !233
 
 .critedge:                                        ; preds = %9, %.lr.ph
-  %.lcssa22 = phi i32 [ %5, %.lr.ph ], [ %12, %9 ]
+  %.lcssa25 = phi i32 [ %5, %.lr.ph ], [ %12, %9 ]
   %.lcssa = phi i32 [ %7, %.lr.ph ], [ %10, %9 ]
   %13 = icmp eq i32 %.lcssa, 22
   %14 = icmp eq i64 %3, 8
@@ -17149,8 +17149,8 @@ define hidden i32 @_mi_prim_reset(ptr noundef %0, i64 noundef %1) local_unnamed_
   %16 = tail call i32 @madvise(ptr noundef %0, i64 noundef %1, i32 noundef 4) #54
   br label %.critedge11
 
-.critedge11:                                      ; preds = %.lr.ph24, %2, %15, %.critedge
-  %.0 = phi i32 [ %16, %15 ], [ %.lcssa22, %.critedge ], [ 0, %2 ], [ 0, %.lr.ph24 ]
+.critedge11:                                      ; preds = %.lr.ph27, %2, %15, %.critedge
+  %.0 = phi i32 [ %16, %15 ], [ %.lcssa25, %.critedge ], [ 0, %2 ], [ 0, %.lr.ph27 ]
   ret i32 %.0
 }
 
@@ -18297,8 +18297,8 @@ define hidden void @_mi_heap_delayed_free_all(ptr noundef captures(none) %0) loc
   %.old1.not.i5 = icmp eq i64 %3, 0
   br i1 %.old1.not.i5, label %_mi_heap_delayed_free_partial.exit.thread, label %.preheader.preheader.i
 
-.preheader.preheader.i:                           ; preds = %1, %_mi_heap_delayed_free_partial.exit.thread12
-  %4 = phi i64 [ %126, %_mi_heap_delayed_free_partial.exit.thread12 ], [ %3, %1 ]
+.preheader.preheader.i:                           ; preds = %1, %_mi_heap_delayed_free_partial.exit.thread15
+  %4 = phi i64 [ %126, %_mi_heap_delayed_free_partial.exit.thread15 ], [ %3, %1 ]
   %5 = inttoptr i64 %4 to ptr
   br label %.preheader.i
 
@@ -18548,19 +18548,19 @@ _mi_free_delayed_block.exit:                      ; preds = %30
   br i1 %.not.i, label %_mi_heap_delayed_free_partial.exit, label %.lr.ph.i, !llvm.loop !43
 
 .loopexit.i.thread:                               ; preds = %122
-  %.not.i10 = icmp eq i64 %.3.val.i, 0
-  br i1 %.not.i10, label %_mi_heap_delayed_free_partial.exit.thread12, label %.lr.ph.i.outer, !llvm.loop !43
+  %.not.i13 = icmp eq i64 %.3.val.i, 0
+  br i1 %.not.i13, label %_mi_heap_delayed_free_partial.exit.thread15, label %.lr.ph.i.outer, !llvm.loop !43
 
 _mi_heap_delayed_free_partial.exit:               ; preds = %.loopexit.i
-  br i1 %.02532.i.ph, label %_mi_heap_delayed_free_partial.exit.thread, label %_mi_heap_delayed_free_partial.exit.thread12
+  br i1 %.02532.i.ph, label %_mi_heap_delayed_free_partial.exit.thread, label %_mi_heap_delayed_free_partial.exit.thread15
 
-_mi_heap_delayed_free_partial.exit.thread12:      ; preds = %.loopexit.i.thread, %_mi_heap_delayed_free_partial.exit
+_mi_heap_delayed_free_partial.exit.thread15:      ; preds = %.loopexit.i.thread, %_mi_heap_delayed_free_partial.exit
   tail call void @llvm.x86.sse2.pause()
   %126 = load atomic i64, ptr %2 monotonic, align 8
   %.old1.not.i = icmp eq i64 %126, 0
   br i1 %.old1.not.i, label %_mi_heap_delayed_free_partial.exit.thread, label %.preheader.preheader.i, !llvm.loop !240
 
-_mi_heap_delayed_free_partial.exit.thread:        ; preds = %_mi_heap_delayed_free_partial.exit, %.critedge.i, %_mi_heap_delayed_free_partial.exit.thread12, %1
+_mi_heap_delayed_free_partial.exit.thread:        ; preds = %_mi_heap_delayed_free_partial.exit, %.critedge.i, %_mi_heap_delayed_free_partial.exit.thread15, %1
   ret void
 }
 
@@ -19885,15 +19885,15 @@ mi_page_to_full.exit.i.i:                         ; preds = %.sink.split.i.i.i.i
   br i1 %or.cond.i.i, label %tailrecurse.i.i, label %mi_find_free_page.exit
 
 mi_page_queue_find_free_ex.exit.sink.split.i:     ; preds = %_mi_page_free_collect.exit.i.i, %mi_page_extend_free.exit.i.i, %.sink.split.i.i.i, %118, %_mi_page_free_collect.exit.i, %.sink.split.i.i, %72
-  %.02649.i72.sink.i = phi ptr [ %33, %.sink.split.i.i ], [ %33, %72 ], [ %33, %_mi_page_free_collect.exit.i ], [ %.02649.i.i, %mi_page_extend_free.exit.i.i ], [ %.02649.i.i, %.sink.split.i.i.i ], [ %.02649.i.i, %118 ], [ %.02649.i.i, %_mi_page_free_collect.exit.i.i ]
-  %204 = getelementptr inbounds nuw i8, ptr %.02649.i72.sink.i, i64 15
+  %.02649.i83.sink.i = phi ptr [ %33, %.sink.split.i.i ], [ %33, %72 ], [ %33, %_mi_page_free_collect.exit.i ], [ %.02649.i.i, %mi_page_extend_free.exit.i.i ], [ %.02649.i.i, %.sink.split.i.i.i ], [ %.02649.i.i, %118 ], [ %.02649.i.i, %_mi_page_free_collect.exit.i.i ]
+  %204 = getelementptr inbounds nuw i8, ptr %.02649.i83.sink.i, i64 15
   %205 = load i8, ptr %204, align 1
   %206 = and i8 %205, 1
   store i8 %206, ptr %204, align 1
   br label %mi_find_free_page.exit
 
 mi_find_free_page.exit:                           ; preds = %._crit_edge.i.i, %mi_page_queue_find_free_ex.exit.sink.split.i, %10, %9
-  %.0 = phi ptr [ null, %9 ], [ %11, %10 ], [ %.02649.i72.sink.i, %mi_page_queue_find_free_ex.exit.sink.split.i ], [ %202, %._crit_edge.i.i ]
+  %.0 = phi ptr [ null, %9 ], [ %11, %10 ], [ %.02649.i83.sink.i, %mi_page_queue_find_free_ex.exit.sink.split.i ], [ %202, %._crit_edge.i.i ]
   ret ptr %.0
 }
 
@@ -21651,9 +21651,9 @@ mi_abandoned_visited_revisit.exit:                ; preds = %42, %23, %9, %6, %3
   br i1 %83, label %mi_abandoned_visited_revisit.exit.thread.i.sink.split, label %76, !prof !266, !llvm.loop !268
 
 mi_abandoned_visited_revisit.exit.thread.i.sink.split: ; preds = %76, %64
-  %.lcssa37.sink44 = phi i64 [ %65, %64 ], [ %77, %76 ]
-  %85 = atomicrmw add ptr %49, i64 %.lcssa37.sink44 monotonic, align 64
-  %86 = atomicrmw sub ptr %48, i64 %.lcssa37.sink44 monotonic, align 64
+  %.lcssa41.sink48 = phi i64 [ %65, %64 ], [ %77, %76 ]
+  %85 = atomicrmw add ptr %49, i64 %.lcssa41.sink48 monotonic, align 64
+  %86 = atomicrmw sub ptr %48, i64 %.lcssa41.sink48 monotonic, align 64
   br label %mi_abandoned_visited_revisit.exit.thread.i
 
 mi_abandoned_visited_revisit.exit.thread.i:       ; preds = %mi_abandoned_visited_revisit.exit.thread.i.sink.split, %52
@@ -24074,8 +24074,8 @@ define hidden i32 @_mi_prim_alloc(i64 noundef %0, i64 noundef %1, i1 noundef zer
   %9 = load i8, ptr @mi_os_mem_config.3, align 8, !tbaa !108, !range !38, !noundef !39
   %10 = trunc nuw i8 %9 to i1
   %spec.select.i = select i1 %10, i32 16418, i32 34
-  %.b13 = load i1, ptr @mi_os_mem_config.1, align 8
-  br i1 %.b13, label %11, label %.thread100.i
+  %.b16 = load i1, ptr @mi_os_mem_config.1, align 8
+  br i1 %.b16, label %11, label %.thread100.i
 
 11:                                               ; preds = %7
   %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @options, i64 200), align 8, !tbaa !105
@@ -24139,8 +24139,8 @@ _mi_os_use_large_page.exit.i:                     ; preds = %mi_option_is_enable
   %34 = tail call fastcc ptr @unix_mmap_prim(ptr noundef null, i64 noundef %0, i64 noundef %1, i32 noundef range(i32 0, 4) %8, i32 noundef %spec.select.i)
   %35 = icmp ne ptr %34, null
   %or.cond11.i = and i1 %3, %35
-  %.b11 = load i1, ptr @mi_os_mem_config.1, align 8
-  %or.cond107.not.i = select i1 %or.cond11.i, i1 %.b11, i1 false
+  %.b14 = load i1, ptr @mi_os_mem_config.1, align 8
+  %or.cond107.not.i = select i1 %or.cond11.i, i1 %.b14, i1 false
   br i1 %or.cond107.not.i, label %36, label %unix_mmap.exit
 
 36:                                               ; preds = %.thread100.i
@@ -24158,8 +24158,8 @@ mi_option_is_enabled.exit.i84.i:                  ; preds = %39, %36
   %41 = or i64 %1, %0
   %42 = and i64 %41, 2097151
   %43 = icmp eq i64 %42, 0
-  %or.cond18 = and i1 %.not.i85.i, %43
-  br i1 %or.cond18, label %44, label %unix_mmap.exit.thread
+  %or.cond21 = and i1 %.not.i85.i, %43
+  br i1 %or.cond21, label %44, label %unix_mmap.exit.thread
 
 44:                                               ; preds = %mi_option_is_enabled.exit.i84.i
   %45 = tail call i32 @madvise(ptr noundef nonnull %34, i64 noundef %0, i32 noundef 14) #54
@@ -24305,14 +24305,14 @@ _mi_strlen.exit:                                  ; preds = %3
   br i1 %26, label %_mi_strnicmp.exit.thread, label %.critedge..critedge.thread_crit_edge.i
 
 .critedge..critedge.thread_crit_edge.i:           ; preds = %.critedge.i, %.preheader.i
-  %.lcssa42.i = phi i8 [ %.lcssa.ph.i, %.critedge.i ], [ 0, %.preheader.i ]
-  %.013.lcssa41.i = phi ptr [ %.013.lcssa.ph.i, %.critedge.i ], [ %10, %.preheader.i ]
-  %.pre.i = load i8, ptr %.013.lcssa41.i, align 1, !tbaa !54
+  %.lcssa45.i = phi i8 [ %.lcssa.ph.i, %.critedge.i ], [ 0, %.preheader.i ]
+  %.013.lcssa44.i = phi ptr [ %.013.lcssa.ph.i, %.critedge.i ], [ %10, %.preheader.i ]
+  %.pre.i = load i8, ptr %.013.lcssa44.i, align 1, !tbaa !54
   br label %_mi_strnicmp.exit
 
 _mi_strnicmp.exit:                                ; preds = %16, %.critedge..critedge.thread_crit_edge.i
   %27 = phi i8 [ %.pre.i, %.critedge..critedge.thread_crit_edge.i ], [ %13, %16 ]
-  %28 = phi i8 [ %.lcssa42.i, %.critedge..critedge.thread_crit_edge.i ], [ %12, %16 ]
+  %28 = phi i8 [ %.lcssa45.i, %.critedge..critedge.thread_crit_edge.i ], [ %12, %16 ]
   %29 = icmp eq i8 %28, %27
   br i1 %29, label %_mi_strnicmp.exit.thread, label %50
 
@@ -29289,7 +29289,7 @@ mi_bitmap_mask_.exit24.i.i39:                     ; preds = %66
   %90 = getelementptr i64, ptr %65, i64 %68
   %91 = atomicrmw or ptr %90, i64 %.052.ph.i acq_rel, align 8
   %92 = and i64 %91, %.052.ph.i
-  %.not67.i = icmp eq i64 %92, 0
+  %.not69.i = icmp eq i64 %92, 0
   br label %_mi_bitmap_claim_across.exit
 
 .lr.ph.i44:                                       ; preds = %.lr.ph.i44.preheader, %.lr.ph.i44
@@ -29318,7 +29318,7 @@ mi_bitmap_mask_.exit24.i.i39:                     ; preds = %66
   br label %_mi_bitmap_claim_across.exit
 
 _mi_bitmap_claim_across.exit:                     ; preds = %._crit_edge.thread.i49, %._crit_edge.i45, %95
-  %.3.i47 = phi i1 [ %.1.lcssa.i46, %._crit_edge.i45 ], [ %spec.select42.i, %95 ], [ %.not67.i, %._crit_edge.thread.i49 ]
+  %.3.i47 = phi i1 [ %.1.lcssa.i46, %._crit_edge.i45 ], [ %spec.select42.i, %95 ], [ %.not69.i, %._crit_edge.thread.i49 ]
   %98 = getelementptr inbounds nuw i8, ptr %3, i64 18
   %99 = zext i1 %.3.i47 to i8
   store i8 %99, ptr %98, align 2, !tbaa !148
@@ -29390,8 +29390,8 @@ mi_bitmap_mask_.exit24.i.i50:                     ; preds = %107
   %132 = getelementptr i64, ptr %102, i64 %110
   %133 = atomicrmw or ptr %132, i64 %.052.ph.i83 acq_rel, align 8
   %134 = and i64 %133, %.052.ph.i83
-  %.not3368.i85.not = icmp eq i64 %134, %.052.ph.i83
-  br i1 %.not3368.i85.not, label %mi_arena_try_claim.exit, label %140
+  %.not3370.i85.not = icmp eq i64 %134, %.052.ph.i83
+  br i1 %.not3370.i85.not, label %mi_arena_try_claim.exit, label %140
 
 .lr.ph.i59:                                       ; preds = %.lr.ph.i59.preheader, %.lr.ph.i59
   %.03059.i60 = phi ptr [ %.030.i68, %.lr.ph.i59 ], [ %.03054.i57, %.lr.ph.i59.preheader ]
@@ -29495,7 +29495,7 @@ mi_bitmap_mask_.exit24.i.i.i:                     ; preds = %150
   %173 = getelementptr i64, ptr %102, i64 %152
   %174 = load atomic i64, ptr %173 monotonic, align 8
   %175 = and i64 %174, %.046.ph.i.i
-  %.not61.i.i = icmp eq i64 %175, %.046.ph.i.i
+  %.not63.i.i = icmp eq i64 %175, %.046.ph.i.i
   br label %_mi_bitmap_is_claimed_across.exit
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
@@ -29524,7 +29524,7 @@ mi_bitmap_mask_.exit24.i.i.i:                     ; preds = %150
   br label %_mi_bitmap_is_claimed_across.exit
 
 _mi_bitmap_is_claimed_across.exit:                ; preds = %._crit_edge.thread.i.i, %._crit_edge.i.i, %178
-  %.3.i.i = phi i1 [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ %spec.select38.i.i, %178 ], [ %.not61.i.i, %._crit_edge.thread.i.i ]
+  %.3.i.i = phi i1 [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ %spec.select38.i.i, %178 ], [ %.not63.i.i, %._crit_edge.thread.i.i ]
   %181 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %182 = zext i1 %.3.i.i to i8
   store i8 %182, ptr %181, align 1, !tbaa !147
@@ -29592,8 +29592,8 @@ mi_bitmap_mask_.exit24.i.i.i:                     ; preds = %4
   %33 = getelementptr i64, ptr %11, i64 %12
   %34 = load atomic i64, ptr %33 monotonic, align 8
   %35 = and i64 %34, %.046.ph.i.i
-  %.not61.i.i = icmp eq i64 %35, %.046.ph.i.i
-  br i1 %.not61.i.i, label %41, label %43
+  %.not63.i.i = icmp eq i64 %35, %.046.ph.i.i
+  br i1 %.not63.i.i, label %41, label %43
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
   %.02753.i.i = phi ptr [ %.027.i.i, %.lr.ph.i.i ], [ %.02748.i.i, %.lr.ph.i.preheader.i ]
@@ -32755,9 +32755,9 @@ define internal fastcc noundef ptr @allocate_from_new_pool(ptr noundef captures(
   br i1 %.not78, label %61, label %.sink.split
 
 .sink.split:                                      ; preds = %57, %40
-  %.sink81 = phi ptr [ %42, %40 ], [ %59, %57 ]
+  %.sink88 = phi ptr [ %42, %40 ], [ %59, %57 ]
   %.071.ph = phi ptr [ %34, %40 ], [ %45, %57 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.sink81, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %.sink88, i64 40
   store ptr null, ptr %60, align 8, !tbaa !592
   br label %61
 

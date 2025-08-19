@@ -161,18 +161,18 @@ define void @mempool_procfs_unregister(ptr noundef readonly captures(address) %0
 
 .lr.ph.preheader:                                 ; preds = %1
   %3 = icmp eq ptr %2, %0
-  br i1 %3, label %.lr.ph._crit_edge, label %.lr.ph14
+  br i1 %3, label %.lr.ph._crit_edge, label %.lr.ph17
 
-.lr.ph14:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph17:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %4 = phi ptr [ %6, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
-.lr.ph:                                           ; preds = %.lr.ph14
+.lr.ph:                                           ; preds = %.lr.ph17
   %7 = icmp eq ptr %6, %0
-  br i1 %7, label %.lr.ph._crit_edge.loopexit, label %.lr.ph14, !llvm.loop !8
+  br i1 %7, label %.lr.ph._crit_edge.loopexit, label %.lr.ph17, !llvm.loop !8
 
 .lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -185,7 +185,7 @@ define void @mempool_procfs_unregister(ptr noundef readonly captures(address) %0
   store ptr %10, ptr %.010.lcssa, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph14, %1, %.lr.ph._crit_edge
+.loopexit:                                        ; preds = %.lr.ph17, %1, %.lr.ph._crit_edge
   ret void
 }
 

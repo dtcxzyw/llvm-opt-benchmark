@@ -388,8 +388,8 @@ gcsna_message_GCSNAServiceReject.exit.i:          ; preds = %.lr.ph.i19.i, %145,
 gcsna_message_decode.exit:                        ; preds = %gcsna_message_GCSNA1xCircuitService.exit.i, %80, %gcsna_message_GCSNAServiceReject.exit.i
   %.129 = phi i32 [ %79, %gcsna_message_GCSNA1xCircuitService.exit.i ], [ %88, %80 ], [ %storemerge.i.i, %gcsna_message_GCSNAServiceReject.exit.i ]
   %151 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.129)
-  %.not42 = icmp eq i32 %151, 0
-  br i1 %.not42, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !10
+  %.not45 = icmp eq i32 %151, 0
+  br i1 %.not45, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !10
 
 152:                                              ; preds = %.lr.ph
   %153 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %17)

@@ -243,8 +243,8 @@ PACKET_get_length_prefixed_1.exit:                ; preds = %77, %82
 
 PACKET_get_length_prefixed_1.exit.thread:         ; preds = %76
   %87 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 167, ptr noundef nonnull @.str.22, i32 noundef 0) #3
-  %.not55135 = icmp eq i32 %87, 0
-  br i1 %.not55135, label %PACKET_forward.exit.thread, label %PACKET_get_length_prefixed_2.exit.thread
+  %.not55145 = icmp eq i32 %87, 0
+  br i1 %.not55145, label %PACKET_forward.exit.thread, label %PACKET_get_length_prefixed_2.exit.thread
 
 88:                                               ; preds = %PACKET_get_length_prefixed_1.exit
   %89 = icmp samesign ult i64 %.sroa.18.4, 2
@@ -280,8 +280,8 @@ PACKET_get_length_prefixed_2.exit:                ; preds = %88, %90, %100
 
 PACKET_get_length_prefixed_2.exit.thread:         ; preds = %PACKET_get_length_prefixed_1.exit.thread
   %105 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 169, ptr noundef nonnull @.str.23, i32 noundef 0) #3
-  %.not56149 = icmp eq i32 %105, 0
-  br i1 %.not56149, label %PACKET_forward.exit.thread, label %PACKET_get_length_prefixed_1.exit86
+  %.not56159 = icmp eq i32 %105, 0
+  br i1 %.not56159, label %PACKET_forward.exit.thread, label %PACKET_get_length_prefixed_1.exit86
 
 106:                                              ; preds = %PACKET_get_length_prefixed_2.exit
   %.not.i.i.i83 = icmp eq i64 %.sroa.18.5, 0
@@ -352,7 +352,7 @@ PACKET_as_length_prefixed_2.exit:                 ; preds = %117, %119, %128
   %.sroa.11.0.ph = phi i64 [ %.sroa.11.6, %180 ], [ %.sroa.11.4, %.preheader ]
   %.sroa.0.0.ph = phi ptr [ %.sroa.0.1, %180 ], [ null, %.preheader ]
   %.sroa.5.0.ph = phi i64 [ %.sroa.5.1, %180 ], [ 0, %.preheader ]
-  %.0111.ph = phi i32 [ %.1112167172, %180 ], [ 0, %.preheader ]
+  %.0111.ph = phi i32 [ %.1112177182, %180 ], [ 0, %.preheader ]
   %.1.ph = phi i32 [ %181, %180 ], [ 0, %.preheader ]
   br label %137
 
@@ -361,7 +361,7 @@ PACKET_as_length_prefixed_2.exit:                 ; preds = %117, %119, %128
   %.sroa.11.0 = phi i64 [ %.sroa.11.0.ph, %.outer ], [ %.sroa.11.6, %.backedge ]
   %.sroa.0.0 = phi ptr [ %.sroa.0.0.ph, %.outer ], [ %.sroa.0.1, %.backedge ]
   %.sroa.5.0 = phi i64 [ %.sroa.5.0.ph, %.outer ], [ %.sroa.5.1, %.backedge ]
-  %.0111 = phi i32 [ %.0111.ph, %.outer ], [ %.1112167172, %.backedge ]
+  %.0111 = phi i32 [ %.0111.ph, %.outer ], [ %.1112177182, %.backedge ]
   switch i64 %.sroa.11.0, label %PACKET_get_net_2.exit [
     i64 0, label %182
     i64 1, label %PACKET_get_net_2.exit.thread
@@ -383,8 +383,8 @@ PACKET_get_net_2.exit:                            ; preds = %137
 
 PACKET_get_net_2.exit.thread:                     ; preds = %137
   %148 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 179, ptr noundef nonnull @.str.25, i32 noundef 0) #3
-  %.not60164 = icmp eq i32 %148, 0
-  br i1 %.not60164, label %PACKET_forward.exit.thread, label %PACKET_get_length_prefixed_2.exit96
+  %.not60174 = icmp eq i32 %148, 0
+  br i1 %.not60174, label %PACKET_forward.exit.thread, label %PACKET_get_length_prefixed_2.exit96
 
 149:                                              ; preds = %PACKET_get_net_2.exit
   %150 = icmp ult i64 %146, 2
@@ -409,7 +409,7 @@ PACKET_get_net_2.exit.thread:                     ; preds = %137
   br label %PACKET_get_length_prefixed_2.exit96
 
 PACKET_get_length_prefixed_2.exit96:              ; preds = %PACKET_get_net_2.exit.thread, %149, %151, %161
-  %.1112167172 = phi i32 [ %144, %149 ], [ %144, %151 ], [ %144, %161 ], [ %.0111, %PACKET_get_net_2.exit.thread ]
+  %.1112177182 = phi i32 [ %144, %149 ], [ %144, %151 ], [ %144, %161 ], [ %.0111, %PACKET_get_net_2.exit.thread ]
   %.sroa.098.6 = phi ptr [ %145, %149 ], [ %145, %151 ], [ %163, %161 ], [ %.sroa.098.0, %PACKET_get_net_2.exit.thread ]
   %.sroa.11.6 = phi i64 [ %146, %149 ], [ %146, %151 ], [ %164, %161 ], [ 1, %PACKET_get_net_2.exit.thread ]
   %.sroa.0.1 = phi ptr [ %.sroa.0.0, %149 ], [ %.sroa.0.0, %151 ], [ %162, %161 ], [ %.sroa.0.0, %PACKET_get_net_2.exit.thread ]
@@ -420,7 +420,7 @@ PACKET_get_length_prefixed_2.exit96:              ; preds = %PACKET_get_net_2.ex
   br i1 %.not61, label %PACKET_forward.exit.thread, label %166
 
 166:                                              ; preds = %PACKET_get_length_prefixed_2.exit96
-  %167 = icmp eq i32 %.1112167172, 35
+  %167 = icmp eq i32 %.1112177182, 35
   %or.cond = and i1 %51, %167
   br i1 %or.cond, label %168, label %174
 
@@ -442,7 +442,7 @@ PACKET_equal.exit:                                ; preds = %168, %169
   br label %PACKET_forward.exit.thread
 
 174:                                              ; preds = %166
-  %175 = icmp eq i32 %.1112167172, 21
+  %175 = icmp eq i32 %.1112177182, 21
   br i1 %175, label %176, label %.backedge
 
 176:                                              ; preds = %174

@@ -1102,7 +1102,7 @@ get_slice_offset.exit310:                         ; preds = %get_slice_offset.ex
   br i1 %.not337, label %get_slice_offset.exit313, label %362
 
 362:                                              ; preds = %360
-  %363 = shl nsw i64 %361, 3
+  %363 = shl nuw nsw i64 %361, 3
   %364 = getelementptr inbounds nuw i8, ptr %27, i64 %363
   %365 = getelementptr inbounds i8, ptr %364, i64 -4
   %366 = load i32, ptr %365, align 1, !tbaa !10
@@ -2928,7 +2928,8 @@ rv34_process_block.exit.i.i:                      ; preds = %1327, %1325, %1314
   br label %1351
 
 1351:                                             ; preds = %1380, %.loopexit198.i.i
-  %indvars.iv254.i.i = phi i64 [ 1, %.loopexit198.i.i ], [ %indvars.iv.next255.i.i, %1380 ]
+  %exitcond257.not.i.i = phi i1 [ false, %.loopexit198.i.i ], [ true, %1380 ]
+  %indvars.iv254.i.i = phi i64 [ 1, %.loopexit198.i.i ], [ 2, %1380 ]
   %.5227.i.i = phi i32 [ %.2.i.i, %.loopexit198.i.i ], [ %1379, %1380 ]
   %1352 = getelementptr inbounds nuw [3 x ptr], ptr %259, i64 0, i64 %indvars.iv254.i.i
   %1353 = load ptr, ptr %1352, align 8, !tbaa !117
@@ -2981,8 +2982,6 @@ rv34_process_block.exit188.i.i:                   ; preds = %1374, %1372, %1354
   br i1 %exitcond253.not.i.i, label %1380, label %1354, !llvm.loop !184
 
 1380:                                             ; preds = %rv34_process_block.exit188.i.i
-  %indvars.iv.next255.i.i = add nuw nsw i64 %indvars.iv254.i.i, 1
-  %exitcond257.not.i.i = icmp eq i64 %indvars.iv.next255.i.i, 3
   br i1 %exitcond257.not.i.i, label %.loopexit.i, label %1351, !llvm.loop !185
 
 1381:                                             ; preds = %check_slice_end.exit.i
@@ -3478,10 +3477,10 @@ define internal fastcc range(i32 -2147483648, 2) i32 @finish_frame(ptr %.32.val,
   br i1 %29, label %31, label %.sink.split
 
 .sink.split:                                      ; preds = %26, %17
-  %.sink1.in = phi ptr [ %18, %17 ], [ %24, %26 ]
-  %.sink1 = load ptr, ptr %.sink1.in, align 8, !tbaa !189
-  tail call void @ff_print_debug_info(ptr noundef nonnull %.32.val, ptr noundef %.sink1, ptr noundef %0) #15
-  %.sink = load ptr, ptr %.sink1.in, align 8, !tbaa !189
+  %.sink3.in = phi ptr [ %18, %17 ], [ %24, %26 ]
+  %.sink3 = load ptr, ptr %.sink3.in, align 8, !tbaa !189
+  tail call void @ff_print_debug_info(ptr noundef nonnull %.32.val, ptr noundef %.sink3, ptr noundef %0) #15
+  %.sink = load ptr, ptr %.sink3.in, align 8, !tbaa !189
   %30 = tail call i32 @ff_mpv_export_qp_table(ptr noundef nonnull %.32.val, ptr noundef %0, ptr noundef %.sink, i32 noundef 0) #15
   br label %31
 
@@ -3824,7 +3823,8 @@ adjust_pred16.exit105:                            ; preds = %80, %90, %94, %95
   br label %118
 
 118:                                              ; preds = %adjust_pred16.exit105, %149
-  %indvars.iv123 = phi i64 [ 1, %adjust_pred16.exit105 ], [ %indvars.iv.next124, %149 ]
+  %exitcond126.not = phi i1 [ false, %adjust_pred16.exit105 ], [ true, %149 ]
+  %indvars.iv123 = phi i64 [ 1, %adjust_pred16.exit105 ], [ 2, %149 ]
   %.2115 = phi i32 [ %75, %adjust_pred16.exit105 ], [ %148, %149 ]
   %119 = getelementptr inbounds nuw [3 x ptr], ptr %20, i64 0, i64 %indvars.iv123
   %120 = load ptr, ptr %119, align 8, !tbaa !117
@@ -3880,8 +3880,6 @@ rv34_process_block.exit:                          ; preds = %143, %141, %123
   br i1 %exitcond122.not, label %149, label %123, !llvm.loop !198
 
 149:                                              ; preds = %rv34_process_block.exit
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  %exitcond126.not = icmp eq i64 %indvars.iv.next124, 3
   br i1 %exitcond126.not, label %150, label %118, !llvm.loop !199
 
 150:                                              ; preds = %149

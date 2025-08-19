@@ -231,13 +231,13 @@ init.exit:                                        ; preds = %.init.exit_crit_edg
 
 ._crit_edge66.i.thread:                           ; preds = %.lr.ph65.i
   %67 = load i32, ptr @external, align 4, !tbaa !4
-  %.not49.i16 = icmp eq i32 %67, 0
-  br i1 %.not49.i16, label %74, label %.lr.ph70.i
+  %.not49.i26 = icmp eq i32 %67, 0
+  br i1 %.not49.i26, label %74, label %.lr.ph70.i
 
 ._crit_edge66.thread.i:                           ; preds = %50
   %68 = load i32, ptr @external, align 4, !tbaa !4
-  %.not4991.i = icmp eq i32 %68, 0
-  br i1 %.not4991.i, label %74, label %.loopexit.i
+  %.not4997.i = icmp eq i32 %68, 0
+  br i1 %.not4997.i, label %74, label %.loopexit.i
 
 .lr.ph70.i:                                       ; preds = %._crit_edge66.i.thread, %.lr.ph70.i
   %.04069.i = phi i32 [ %69, %.lr.ph70.i ], [ 0, %._crit_edge66.i.thread ]
@@ -253,13 +253,13 @@ init.exit:                                        ; preds = %.init.exit_crit_edg
 
 74:                                               ; preds = %._crit_edge66.i.thread, %._crit_edge66.thread.i, %._crit_edge66.i
   %75 = phi ptr [ null, %._crit_edge66.thread.i ], [ %.pre.i, %._crit_edge66.i ], [ %.pre.i, %._crit_edge66.i.thread ]
-  %.not48628994.i = phi i1 [ true, %._crit_edge66.thread.i ], [ true, %._crit_edge66.i ], [ false, %._crit_edge66.i.thread ]
+  %.not486295100.i = phi i1 [ true, %._crit_edge66.thread.i ], [ true, %._crit_edge66.i ], [ false, %._crit_edge66.i.thread ]
   call fastcc void @gwrite(ptr noundef nonnull %51, i32 noundef %.013, i32 noundef 0)
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph70.i, %._crit_edge66.i, %74, %._crit_edge66.thread.i
   %76 = phi ptr [ %75, %74 ], [ null, %._crit_edge66.thread.i ], [ null, %._crit_edge66.i ], [ %.pre.i, %.lr.ph70.i ]
-  %.not48628993.i = phi i1 [ %.not48628994.i, %74 ], [ true, %._crit_edge66.thread.i ], [ true, %._crit_edge66.i ], [ false, %.lr.ph70.i ]
+  %.not48629599.i = phi i1 [ %.not486295100.i, %74 ], [ true, %._crit_edge66.thread.i ], [ true, %._crit_edge66.i ], [ false, %.lr.ph70.i ]
   %77 = load i32, ptr @doTree, align 4, !tbaa !4
   %.not51.i = icmp eq i32 %77, 0
   br i1 %.not51.i, label %99, label %78
@@ -267,7 +267,7 @@ init.exit:                                        ; preds = %.init.exit_crit_edg
 78:                                               ; preds = %.loopexit.i
   %79 = load i32, ptr @Agstrictundirected, align 4
   %80 = call ptr @agopen(ptr noundef nonnull @.str.9, i32 %79, ptr noundef null) #20
-  br i1 %.not48628993.i, label %._crit_edge75.i, label %.lr.ph74.i
+  br i1 %.not48629599.i, label %._crit_edge75.i, label %.lr.ph74.i
 
 .lr.ph74.i:                                       ; preds = %78, %addCutPts.exit.i
   %.272.i = phi ptr [ %97, %addCutPts.exit.i ], [ %76, %78 ]
@@ -316,7 +316,7 @@ addCutPts.exit.i:                                 ; preds = %92, %.lr.ph74.i
   br i1 %.not53.i, label %116, label %.preheader.i
 
 .preheader.i:                                     ; preds = %99
-  br i1 %.not48628993.i, label %._crit_edge80.i, label %.lr.ph79.i
+  br i1 %.not48629599.i, label %._crit_edge80.i, label %.lr.ph79.i
 
 .lr.ph79.i:                                       ; preds = %.preheader.i, %.lr.ph79.i
   %.14178.i = phi i32 [ %101, %.lr.ph79.i ], [ 0, %.preheader.i ]
@@ -361,7 +361,7 @@ addCutPts.exit.i:                                 ; preds = %92, %.lr.ph74.i
   %117 = load ptr, ptr %47, align 8, !tbaa !51
   call void @free(ptr noundef %117) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 32, i1 false)
-  br i1 %.not48628993.i, label %123, label %118
+  br i1 %.not48629599.i, label %123, label %118
 
 118:                                              ; preds = %116
   %119 = getelementptr inbounds nuw i8, ptr %76, i64 16
@@ -845,8 +845,8 @@ agxblen.exit.i.i.i:                               ; preds = %15
   br i1 %.not.i26.i.i.i, label %27, label %.thread.i
 
 .thread.i:                                        ; preds = %21, %agxblen.exit.i.i.i
-  %.val.i25.i.i15.i = phi i8 [ %.val.i25.pre.i.i.i, %21 ], [ 0, %agxblen.exit.i.i.i ]
-  %22 = zext i8 %.val.i25.i.i15.i to i64
+  %.val.i25.i.i19.i = phi i8 [ %.val.i25.pre.i.i.i, %21 ], [ 0, %agxblen.exit.i.i.i ]
+  %22 = zext i8 %.val.i25.i.i19.i to i64
   %23 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %22
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull readonly align 1 %7, i64 %16, i1 false)
   %24 = trunc i64 %16 to i8

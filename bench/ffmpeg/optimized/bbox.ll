@@ -79,7 +79,7 @@ define range(i32 0, 2) i32 @ff_calculate_bounding_box(ptr noundef writeonly capt
 .preheader74.us.i:                                ; preds = %..loopexit75_crit_edge.us.i, %.preheader74.us.preheader.i
   %indvars.iv144.i.in = phi i64 [ %24, %.preheader74.us.preheader.i ], [ %indvars.iv144.i, %..loopexit75_crit_edge.us.i ]
   %indvars.iv144.i = add nsw i64 %indvars.iv144.i.in, -1
-  %invariant.gep171.i = getelementptr i8, ptr %1, i64 %indvars.iv144.i
+  %invariant.gep174.i = getelementptr i8, ptr %1, i64 %indvars.iv144.i
   br label %28
 
 27:                                               ; preds = %28
@@ -90,8 +90,8 @@ define range(i32 0, 2) i32 @ff_calculate_bounding_box(ptr noundef writeonly capt
 28:                                               ; preds = %27, %.preheader74.us.i
   %indvars.iv139.i = phi i64 [ 0, %.preheader74.us.i ], [ %indvars.iv.next140.i, %27 ]
   %29 = mul nsw i64 %indvars.iv139.i, %23
-  %gep172.i = getelementptr i8, ptr %invariant.gep171.i, i64 %29
-  %30 = load i8, ptr %gep172.i, align 1, !tbaa !6
+  %gep175.i = getelementptr i8, ptr %invariant.gep174.i, i64 %29
+  %30 = load i8, ptr %gep175.i, align 1, !tbaa !6
   %31 = zext i8 %30 to i32
   %32 = icmp slt i32 %5, %31
   br i1 %32, label %.loopexit76.loopexit.i, label %27
@@ -142,7 +142,7 @@ define range(i32 0, 2) i32 @ff_calculate_bounding_box(ptr noundef writeonly capt
   br i1 %exitcond152.not.i, label %.loopexit72.thread.i, label %.preheader71.us.i, !llvm.loop !13
 
 .loopexit72.thread.i:                             ; preds = %._crit_edge.us104.i, %.preheader71.lr.ph.i, %.loopexit76.i, %.loopexit76.thread.i
-  %.06187160.ph.i = phi i32 [ %.06187.i, %.preheader71.lr.ph.i ], [ %22, %.loopexit76.thread.i ], [ %.06187.i, %.loopexit76.i ], [ %.06187.i, %._crit_edge.us104.i ]
+  %.06187163.ph.i = phi i32 [ %.06187.i, %.preheader71.lr.ph.i ], [ %22, %.loopexit76.thread.i ], [ %.06187.i, %.loopexit76.i ], [ %.06187.i, %._crit_edge.us104.i ]
   %.06285.ph.i = phi i32 [ %4, %.preheader71.lr.ph.i ], [ 0, %.loopexit76.thread.i ], [ 0, %.loopexit76.i ], [ %4, %._crit_edge.us104.i ]
   %44 = add nsw i32 %4, -1
   br label %bbox_8.exit.sink.split
@@ -256,7 +256,7 @@ define range(i32 0, 2) i32 @ff_calculate_bounding_box(ptr noundef writeonly capt
 .preheader74.us.i55:                              ; preds = %..loopexit75_crit_edge.us.i62, %.preheader74.us.preheader.i53
   %indvars.iv144.i56.in = phi i64 [ %75, %.preheader74.us.preheader.i53 ], [ %indvars.iv144.i56, %..loopexit75_crit_edge.us.i62 ]
   %indvars.iv144.i56 = add nsw i64 %indvars.iv144.i56.in, -1
-  %invariant.gep171.i57 = getelementptr i16, ptr %1, i64 %indvars.iv144.i56
+  %invariant.gep174.i57 = getelementptr i16, ptr %1, i64 %indvars.iv144.i56
   br label %79
 
 78:                                               ; preds = %79
@@ -267,8 +267,8 @@ define range(i32 0, 2) i32 @ff_calculate_bounding_box(ptr noundef writeonly capt
 79:                                               ; preds = %78, %.preheader74.us.i55
   %indvars.iv139.i58 = phi i64 [ 0, %.preheader74.us.i55 ], [ %indvars.iv.next140.i60, %78 ]
   %80 = mul nsw i64 %indvars.iv139.i58, %74
-  %gep172.i59 = getelementptr i16, ptr %invariant.gep171.i57, i64 %80
-  %81 = load i16, ptr %gep172.i59, align 2, !tbaa !17
+  %gep175.i59 = getelementptr i16, ptr %invariant.gep174.i57, i64 %80
+  %81 = load i16, ptr %gep175.i59, align 2, !tbaa !17
   %82 = zext i16 %81 to i32
   %83 = icmp slt i32 %5, %82
   br i1 %83, label %.loopexit76.loopexit.i66, label %78
@@ -319,7 +319,7 @@ define range(i32 0, 2) i32 @ff_calculate_bounding_box(ptr noundef writeonly capt
   br i1 %exitcond152.not.i38, label %.loopexit72.thread.i20, label %.preheader71.us.i31, !llvm.loop !23
 
 .loopexit72.thread.i20:                           ; preds = %._crit_edge.us104.i37, %.preheader71.lr.ph.i28, %.loopexit76.i18, %.loopexit76.thread.i52
-  %.06187160.ph.i21 = phi i32 [ %.06187.i19, %.preheader71.lr.ph.i28 ], [ %73, %.loopexit76.thread.i52 ], [ %.06187.i19, %.loopexit76.i18 ], [ %.06187.i19, %._crit_edge.us104.i37 ]
+  %.06187163.ph.i21 = phi i32 [ %.06187.i19, %.preheader71.lr.ph.i28 ], [ %73, %.loopexit76.thread.i52 ], [ %.06187.i19, %.loopexit76.i18 ], [ %.06187.i19, %._crit_edge.us104.i37 ]
   %.06285.ph.i22 = phi i32 [ %4, %.preheader71.lr.ph.i28 ], [ 0, %.loopexit76.thread.i52 ], [ 0, %.loopexit76.i18 ], [ %4, %._crit_edge.us104.i37 ]
   %95 = add nsw i32 %4, -1
   br label %bbox_8.exit.sink.split
@@ -364,14 +364,14 @@ define range(i32 0, 2) i32 @ff_calculate_bounding_box(ptr noundef writeonly capt
 
 bbox_8.exit.sink.split:                           ; preds = %._crit_edge.us112.i49, %103, %._crit_edge.us112.i, %52, %.loopexit72.thread.i20, %.loopexit72.i39, %.loopexit72.thread.i, %.loopexit72.i
   %.06389.i14.sink = phi i32 [ %.06389.i, %.loopexit72.i ], [ %.06389.i, %.loopexit72.thread.i ], [ %.06389.i14, %.loopexit72.i39 ], [ %.06389.i14, %.loopexit72.thread.i20 ], [ %.06389.i, %52 ], [ %.06389.i, %._crit_edge.us112.i ], [ %.06389.i14, %103 ], [ %.06389.i14, %._crit_edge.us112.i49 ]
-  %.06285165.i24.sink = phi i32 [ %.062101.us.i, %.loopexit72.i ], [ %.06285.ph.i, %.loopexit72.thread.i ], [ %.062101.us.i33, %.loopexit72.i39 ], [ %.06285.ph.i22, %.loopexit72.thread.i20 ], [ %.062101.us.i, %52 ], [ %.062101.us.i, %._crit_edge.us112.i ], [ %.062101.us.i33, %103 ], [ %.062101.us.i33, %._crit_edge.us112.i49 ]
-  %.06187160164.i25.sink = phi i32 [ %.06187.i, %.loopexit72.i ], [ %.06187160.ph.i, %.loopexit72.thread.i ], [ %.06187.i19, %.loopexit72.i39 ], [ %.06187160.ph.i21, %.loopexit72.thread.i20 ], [ %.06187.i, %52 ], [ %.06187.i, %._crit_edge.us112.i ], [ %.06187.i19, %103 ], [ %.06187.i19, %._crit_edge.us112.i49 ]
+  %.06285168.i24.sink = phi i32 [ %.062101.us.i, %.loopexit72.i ], [ %.06285.ph.i, %.loopexit72.thread.i ], [ %.062101.us.i33, %.loopexit72.i39 ], [ %.06285.ph.i22, %.loopexit72.thread.i20 ], [ %.062101.us.i, %52 ], [ %.062101.us.i, %._crit_edge.us112.i ], [ %.062101.us.i33, %103 ], [ %.062101.us.i33, %._crit_edge.us112.i49 ]
+  %.06187163167.i25.sink = phi i32 [ %.06187.i, %.loopexit72.i ], [ %.06187163.ph.i, %.loopexit72.thread.i ], [ %.06187.i19, %.loopexit72.i39 ], [ %.06187163.ph.i21, %.loopexit72.thread.i20 ], [ %.06187.i, %52 ], [ %.06187.i, %._crit_edge.us112.i ], [ %.06187.i19, %103 ], [ %.06187.i19, %._crit_edge.us112.i49 ]
   %.06083.i26.sink = phi i32 [ %45, %.loopexit72.i ], [ %44, %.loopexit72.thread.i ], [ %96, %.loopexit72.i39 ], [ %95, %.loopexit72.thread.i20 ], [ %.060109.us.i, %52 ], [ %50, %._crit_edge.us112.i ], [ %.060109.us.i45, %103 ], [ %101, %._crit_edge.us112.i49 ]
   store i32 %.06389.i14.sink, ptr %0, align 4, !tbaa !26
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.06285165.i24.sink, ptr %110, align 4, !tbaa !29
+  store i32 %.06285168.i24.sink, ptr %110, align 4, !tbaa !29
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.06187160164.i25.sink, ptr %111, align 4, !tbaa !30
+  store i32 %.06187163167.i25.sink, ptr %111, align 4, !tbaa !30
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.06083.i26.sink, ptr %112, align 4, !tbaa !31
   br label %bbox_8.exit

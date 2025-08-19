@@ -203,13 +203,13 @@ define internal range(i32 -2147483648, 1) i32 @gxf_write_header(ptr noundef %0) 
 
 83:                                               ; preds = %79, %77
   %.sink = phi i32 [ 50, %79 ], [ 60, %77 ]
-  %.sink170 = phi i32 [ 64, %79 ], [ 128, %77 ]
+  %.sink173 = phi i32 [ 64, %79 ], [ 128, %77 ]
   %84 = phi i32 [ 50, %79 ], [ 60000, %77 ]
   %85 = phi i32 [ 1, %79 ], [ 1001, %77 ]
   %86 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i32 %.sink, ptr %86, align 8, !tbaa !55
   %87 = load i32, ptr %16, align 4, !tbaa !28
-  %88 = or i32 %87, %.sink170
+  %88 = or i32 %87, %.sink173
   store i32 %88, ptr %16, align 4, !tbaa !28
   store i32 %85, ptr %22, align 4, !tbaa !62
   store i32 %84, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !62
@@ -253,10 +253,10 @@ gxf_find_lines_index.exit:                        ; preds = %101
   br label %.loopexit
 
 .loopexit:                                        ; preds = %100, %gxf_find_lines_index.exit
-  %.sink174 = phi ptr [ %96, %gxf_find_lines_index.exit ], [ %29, %100 ]
-  %.sink172 = phi i32 [ %106, %gxf_find_lines_index.exit ], [ -1, %100 ]
-  %107 = getelementptr inbounds nuw i8, ptr %.sink174, i64 28
-  store i32 %.sink172, ptr %107, align 4, !tbaa !58
+  %.sink177 = phi ptr [ %96, %gxf_find_lines_index.exit ], [ %29, %100 ]
+  %.sink175 = phi i32 [ %106, %gxf_find_lines_index.exit ], [ -1, %100 ]
+  %107 = getelementptr inbounds nuw i8, ptr %.sink177, i64 28
+  store i32 %.sink175, ptr %107, align 4, !tbaa !58
   %108 = getelementptr inbounds nuw i8, ptr %97, i64 48
   %109 = load i64, ptr %108, align 8, !tbaa !71
   %110 = trunc i64 %109 to i32
@@ -1752,14 +1752,14 @@ declare i32 @ff_interleave_add_packet(ptr noundef, ptr noundef, ptr noundef) loc
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @gxf_compare_field_nb(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #7 {
-  %.sroa.023 = alloca i32, align 4
-  %.sroa.424 = alloca i32, align 4
+  %.sroa.024 = alloca i32, align 4
+  %.sroa.425 = alloca i32, align 4
   %.sroa.0 = alloca ptr, align 16
   %.sroa.4 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.023)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.424)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.024)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.425)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1771,9 +1771,9 @@ define internal range(i32 0, 2) i32 @gxf_compare_field_nb(ptr noundef readonly c
 10:                                               ; preds = %3, %36
   %11 = phi i1 [ true, %3 ], [ false, %36 ]
   %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.4, %36 ]
-  %indvars.iv.sroa.phi21 = phi ptr [ %.sroa.023, %3 ], [ %.sroa.424, %36 ]
-  %indvars.iv.sroa.phi25.sroa.speculated = phi ptr [ %2, %3 ], [ %1, %36 ]
-  %12 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi25.sroa.speculated, i64 36
+  %indvars.iv.sroa.phi22 = phi ptr [ %.sroa.024, %3 ], [ %.sroa.425, %36 ]
+  %indvars.iv.sroa.phi26.sroa.speculated = phi ptr [ %2, %3 ], [ %1, %36 ]
+  %12 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi26.sroa.speculated, i64 36
   %13 = load i32, ptr %12, align 4, !tbaa !86
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds ptr, ptr %7, i64 %14
@@ -1785,7 +1785,7 @@ define internal range(i32 0, 2) i32 @gxf_compare_field_nb(ptr noundef readonly c
   %20 = load ptr, ptr %19, align 8, !tbaa !46
   %21 = load i32, ptr %20, align 8, !tbaa !51
   %22 = icmp eq i32 %21, 1
-  %23 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi25.sroa.speculated, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi26.sroa.speculated, i64 16
   %24 = load i64, ptr %23, align 8, !tbaa !89
   br i1 %22, label %25, label %34
 
@@ -1806,17 +1806,17 @@ define internal range(i32 0, 2) i32 @gxf_compare_field_nb(ptr noundef readonly c
 
 36:                                               ; preds = %34, %25
   %.sink = phi i32 [ %33, %25 ], [ %35, %34 ]
-  store i32 %.sink, ptr %indvars.iv.sroa.phi21, align 4, !tbaa !62
+  store i32 %.sink, ptr %indvars.iv.sroa.phi22, align 4, !tbaa !62
   br i1 %11, label %10, label %37, !llvm.loop !125
 
 37:                                               ; preds = %36
-  %.sroa.424.0..sroa.424.4. = load i32, ptr %.sroa.424, align 4, !tbaa !62
-  %.sroa.023.0..sroa.023.0. = load i32, ptr %.sroa.023, align 4, !tbaa !62
-  %38 = icmp sgt i32 %.sroa.424.0..sroa.424.4., %.sroa.023.0..sroa.023.0.
+  %.sroa.425.0..sroa.425.4. = load i32, ptr %.sroa.425, align 4, !tbaa !62
+  %.sroa.024.0..sroa.024.0. = load i32, ptr %.sroa.024, align 4, !tbaa !62
+  %38 = icmp sgt i32 %.sroa.425.0..sroa.425.4., %.sroa.024.0..sroa.024.0.
   br i1 %38, label %48, label %39
 
 39:                                               ; preds = %37
-  %40 = icmp eq i32 %.sroa.424.0..sroa.424.4., %.sroa.023.0..sroa.023.0.
+  %40 = icmp eq i32 %.sroa.425.0..sroa.425.4., %.sroa.024.0..sroa.024.0.
   br i1 %40, label %41, label %48
 
 41:                                               ; preds = %39
@@ -1834,8 +1834,8 @@ define internal range(i32 0, 2) i32 @gxf_compare_field_nb(ptr noundef readonly c
   %49 = phi i32 [ 1, %37 ], [ 0, %39 ], [ %47, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.023)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.424)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.024)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.425)
   ret i32 %49
 }
 

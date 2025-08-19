@@ -54,20 +54,20 @@ define hidden i32 @SDL_GetScancodeFromKeySym(i32 noundef %0, i32 noundef %1) loc
   %.04154 = phi i32 [ 268963840, %17 ], [ %0, %15 ], [ %14, %13 ]
   %19 = add i32 %1, -8
   %20 = icmp ult i32 %19, 248
-  br i1 %20, label %21, label %.preheader89
+  br i1 %20, label %21, label %.preheader91
 
 21:                                               ; preds = %.thread
   %22 = zext nneg i32 %19 to i64
   %23 = getelementptr inbounds nuw [248 x i32], ptr @LinuxKeycodeKeysyms, i64 0, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %.04154, %24
-  br i1 %25, label %.loopexit55, label %.preheader89
+  br i1 %25, label %.loopexit55, label %.preheader91
 
-.preheader89:                                     ; preds = %21, %.thread
+.preheader91:                                     ; preds = %21, %.thread
   br label %26
 
-26:                                               ; preds = %.preheader89, %30
-  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %30 ], [ 0, %.preheader89 ]
+26:                                               ; preds = %.preheader91, %30
+  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %30 ], [ 0, %.preheader91 ]
   %27 = getelementptr inbounds nuw [248 x i32], ptr @LinuxKeycodeKeysyms, i64 0, i64 %indvars.iv66
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %.04154, %28

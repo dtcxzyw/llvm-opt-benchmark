@@ -423,13 +423,13 @@ define { ptr, i64 } @_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_
   %21 = icmp ne i64 %16, %18
   %. = zext i1 %21 to i8
   %.0 = select i1 %20, i8 -1, i8 %.
-  switch i8 %.0, label %default.unreachable99 [
+  switch i8 %.0, label %default.unreachable105 [
     i8 -1, label %22
     i8 0, label %27
     i8 1, label %30
   ]
 
-default.unreachable99:                            ; preds = %1
+default.unreachable105:                           ; preds = %1
   unreachable
 
 22:                                               ; preds = %1
@@ -1276,7 +1276,7 @@ define void @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc94e2e352be76bffE.exit": ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %1, i64 %53
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 %53
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr nonnull readonly align 1 %2, i64 %3, i1 false), !alias.scope !77, !noalias !81
   %68 = load i64, ptr %52, align 8, !noundef !4
   %69 = add i64 %68, %3

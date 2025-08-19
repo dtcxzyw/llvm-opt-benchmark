@@ -1687,10 +1687,10 @@ _ZN4lean4expraSERKS0_.exit:                       ; preds = %75, %_ZN4lean3incEP
 
 .invoke:                                          ; preds = %97, %85
   %90 = phi ptr [ %3, %85 ], [ %106, %97 ]
-  %.pn57.in = phi i64 [ %86, %85 ], [ %107, %97 ]
+  %.pn63.in = phi i64 [ %86, %85 ], [ %107, %97 ]
   %91 = phi ptr [ %89, %85 ], [ %108, %97 ]
-  %.pn57 = trunc i64 %.pn57.in to i32
-  %92 = sub i32 %.pn57, %.0.lcssa
+  %.pn63 = trunc i64 %.pn63.in to i32
+  %92 = sub i32 %.pn63, %.0.lcssa
   invoke void @_ZN4lean6mk_appERKNS_4exprEjPS1_(ptr dead_on_unwind writable sret(%"class.lean::expr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %90, i32 noundef %92, ptr noundef %91)
           to label %_ZN4lean4exprC2ERKS0_.exit43 unwind label %.loopexit.split-lp
 

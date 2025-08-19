@@ -97,12 +97,12 @@ define dso_local range(i32 0, 12) i32 @lzma_filters_copy(ptr noundef readonly ca
   br i1 %.not4763, label %.loopexit, label %.lr.ph65.preheader
 
 .lr.ph65.preheader:                               ; preds = %.lr.ph60, %.thread
-  %.13876 = phi i32 [ %.138, %.thread ], [ 8, %.lr.ph60 ]
-  %.036587075 = phi i64 [ %.03658, %.thread ], [ 4, %.lr.ph60 ]
+  %.13881 = phi i32 [ %.138, %.thread ], [ 8, %.lr.ph60 ]
+  %.036587080 = phi i64 [ %.03658, %.thread ], [ 4, %.lr.ph60 ]
   br label %.lr.ph65
 
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %.lr.ph65
-  %.164 = phi i64 [ %37, %.lr.ph65 ], [ %.036587075, %.lr.ph65.preheader ]
+  %.164 = phi i64 [ %37, %.lr.ph65 ], [ %.036587080, %.lr.ph65.preheader ]
   %37 = add nsw i64 %.164, -1
   %38 = getelementptr inbounds nuw [5 x %struct.lzma_filter], ptr %4, i64 0, i64 %37, i32 1
   %39 = load ptr, ptr %38, align 8, !tbaa !10
@@ -111,7 +111,7 @@ define dso_local range(i32 0, 12) i32 @lzma_filters_copy(ptr noundef readonly ca
   br i1 %.not47, label %.loopexit, label %.lr.ph65, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph65, %.thread, %._crit_edge61
-  %.140 = phi i32 [ 0, %._crit_edge61 ], [ %.138, %.thread ], [ %.13876, %.lr.ph65 ]
+  %.140 = phi i32 [ 0, %._crit_edge61 ], [ %.138, %.thread ], [ %.13881, %.lr.ph65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %40
 

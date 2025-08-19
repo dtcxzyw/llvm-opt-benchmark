@@ -277,8 +277,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang9MacroInfo13isIdenticalToERKS0_RN
   %20 = load i16, ptr %19, align 4
   %21 = xor i16 %20, %18
   %22 = and i16 %21, 14
-  %or.cond143 = icmp eq i16 %22, 0
-  br i1 %or.cond143, label %23, label %.thread
+  %or.cond157 = icmp eq i16 %22, 0
+  br i1 %or.cond157, label %23, label %.thread
 
 23:                                               ; preds = %16
   br i1 %3, label %.critedge, label %24
@@ -354,8 +354,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang9MacroInfo13isIdenticalToERKS0_RN
   %62 = load i16, ptr %61, align 2, !tbaa !38
   %63 = xor i16 %62, %60
   %64 = and i16 %63, 3
-  %or.cond144 = icmp eq i16 %64, 0
-  br i1 %or.cond144, label %65, label %.thread
+  %or.cond158 = icmp eq i16 %64, 0
+  br i1 %or.cond158, label %65, label %.thread
 
 65:                                               ; preds = %58, %57
   switch i16 %54, label %_ZNK5clang5Token17getIdentifierInfoEv.exit [
@@ -445,23 +445,23 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit74:     ; preds = %switch.hole_check, 
   br i1 %brmerge.not, label %79, label %141
 
 79:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit74
-  %switch.tableidx150 = add i16 %54, -1
-  %80 = icmp ult i16 %switch.tableidx150, 19
-  br i1 %80, label %switch.hole_check151, label %81
+  %switch.tableidx164 = add i16 %54, -1
+  %80 = icmp ult i16 %switch.tableidx164, 19
+  br i1 %80, label %switch.hole_check165, label %81
 
-81:                                               ; preds = %switch.hole_check151, %79
+81:                                               ; preds = %switch.hole_check165, %79
   %82 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !39
   br label %_ZNK5clang5Token17getIdentifierInfoEv.exit76
 
-switch.hole_check151:                             ; preds = %79
-  %switch.maskindex152 = zext nneg i16 %switch.tableidx150 to i32
-  %switch.shifted153 = lshr i32 524225, %switch.maskindex152
-  %switch.lobit154 = trunc i32 %switch.shifted153 to i1
-  br i1 %switch.lobit154, label %_ZNK5clang5Token17getIdentifierInfoEv.exit76, label %81
+switch.hole_check165:                             ; preds = %79
+  %switch.maskindex166 = zext nneg i16 %switch.tableidx164 to i32
+  %switch.shifted167 = lshr i32 524225, %switch.maskindex166
+  %switch.lobit168 = trunc i32 %switch.shifted167 to i1
+  br i1 %switch.lobit168, label %_ZNK5clang5Token17getIdentifierInfoEv.exit76, label %81
 
-_ZNK5clang5Token17getIdentifierInfoEv.exit76:     ; preds = %switch.hole_check151, %81
-  %.0.i75 = phi ptr [ %83, %81 ], [ null, %switch.hole_check151 ]
+_ZNK5clang5Token17getIdentifierInfoEv.exit76:     ; preds = %switch.hole_check165, %81
+  %.0.i75 = phi ptr [ %83, %81 ], [ null, %switch.hole_check165 ]
   %84 = load ptr, ptr %38, align 8, !tbaa !33
   %85 = load i32, ptr %12, align 8, !tbaa !32
   %86 = zext i32 %85 to i64
@@ -491,23 +491,23 @@ _ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit: ; preds = %.l
   br i1 %97, label %.thread, label %98
 
 98:                                               ; preds = %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit
-  %switch.tableidx155 = add i16 %54, -1
-  %99 = icmp ult i16 %switch.tableidx155, 19
-  br i1 %99, label %switch.hole_check156, label %100
+  %switch.tableidx169 = add i16 %54, -1
+  %99 = icmp ult i16 %switch.tableidx169, 19
+  br i1 %99, label %switch.hole_check170, label %100
 
-100:                                              ; preds = %switch.hole_check156, %98
+100:                                              ; preds = %switch.hole_check170, %98
   %101 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %102 = load ptr, ptr %101, align 8, !tbaa !39
   br label %_ZNK5clang5Token17getIdentifierInfoEv.exit78
 
-switch.hole_check156:                             ; preds = %98
-  %switch.maskindex157 = zext nneg i16 %switch.tableidx155 to i32
-  %switch.shifted158 = lshr i32 524225, %switch.maskindex157
-  %switch.lobit159 = trunc i32 %switch.shifted158 to i1
-  br i1 %switch.lobit159, label %_ZNK5clang5Token17getIdentifierInfoEv.exit78, label %100
+switch.hole_check170:                             ; preds = %98
+  %switch.maskindex171 = zext nneg i16 %switch.tableidx169 to i32
+  %switch.shifted172 = lshr i32 524225, %switch.maskindex171
+  %switch.lobit173 = trunc i32 %switch.shifted172 to i1
+  br i1 %switch.lobit173, label %_ZNK5clang5Token17getIdentifierInfoEv.exit78, label %100
 
-_ZNK5clang5Token17getIdentifierInfoEv.exit78:     ; preds = %switch.hole_check156, %100
-  %.0.i77 = phi ptr [ %102, %100 ], [ null, %switch.hole_check156 ]
+_ZNK5clang5Token17getIdentifierInfoEv.exit78:     ; preds = %switch.hole_check170, %100
+  %.0.i77 = phi ptr [ %102, %100 ], [ null, %switch.hole_check170 ]
   %103 = load ptr, ptr %39, align 8, !tbaa !33
   %104 = load i32, ptr %14, align 8, !tbaa !32
   %105 = zext i32 %104 to i64
@@ -1284,12 +1284,12 @@ _ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader: ; preds = %4
   %9 = and i8 %.sroa.020.044.i.i, 1
   %10 = zext nneg i8 %9 to i64
   %11 = shl nuw nsw i64 %10, 32
-  %.sroa.6.8.insert.shift.i.i32121 = select i1 %8, i64 %11, i64 4294967296
-  %.sroa.3.8.insert.ext.i.i33122 = zext i32 %.sroa.024.042.i.i to i64
-  %.sroa.3.8.insert.insert.i.i34123 = or disjoint i64 %.sroa.6.8.insert.shift.i.i32121, %.sroa.3.8.insert.ext.i.i33122
+  %.sroa.6.8.insert.shift.i.i32123 = select i1 %8, i64 %11, i64 4294967296
+  %.sroa.3.8.insert.ext.i.i33124 = zext i32 %.sroa.024.042.i.i to i64
+  %.sroa.3.8.insert.insert.i.i34125 = or disjoint i64 %.sroa.6.8.insert.shift.i.i32123, %.sroa.3.8.insert.ext.i.i33124
   %12 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 8
-  %.sroa.0.0.copyload.i.i124 = load i32, ptr %12, align 8, !tbaa !3
-  %13 = icmp eq i32 %.sroa.0.0.copyload.i.i124, 0
+  %.sroa.0.0.copyload.i.i126 = load i32, ptr %12, align 8, !tbaa !3
+  %13 = icmp eq i32 %.sroa.0.0.copyload.i.i126, 0
   br i1 %13, label %.critedge, label %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18
 
 14:                                               ; preds = %4
@@ -1325,17 +1325,17 @@ _ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit: ; preds = %.pre
   br i1 %26, label %.critedge, label %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18, !llvm.loop !297
 
 _ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18: ; preds = %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit
-  %.sroa.0.0.copyload.i.i128 = phi i32 [ %.sroa.0.0.copyload.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.sroa.0.0.copyload.i.i124, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
-  %.sroa.3.8.insert.insert.i.i34127 = phi i64 [ %.sroa.3.8.insert.insert.i.i34, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.sroa.3.8.insert.insert.i.i34123, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
-  %.sroa.038.067126 = phi ptr [ %.045.i.i20, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.045.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
-  %.sroa.024.042.i.i23.lcssa.sink125 = phi i32 [ %.sroa.024.042.i.i23, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.sroa.024.042.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
-  %27 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.0.0.copyload.i.i128, i32 %1) #15
+  %.sroa.0.0.copyload.i.i130 = phi i32 [ %.sroa.0.0.copyload.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.sroa.0.0.copyload.i.i126, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
+  %.sroa.3.8.insert.insert.i.i34129 = phi i64 [ %.sroa.3.8.insert.insert.i.i34, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.sroa.3.8.insert.insert.i.i34125, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
+  %.sroa.038.067128 = phi ptr [ %.045.i.i20, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.045.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
+  %.sroa.024.042.i.i23.lcssa.sink127 = phi i32 [ %.sroa.024.042.i.i23, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.sroa.024.042.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
+  %27 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.0.0.copyload.i.i130, i32 %1) #15
   br i1 %27, label %.critedge, label %31
 
 .critedge:                                        ; preds = %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader
-  %.sroa.024.042.i.i23.lcssa.sink.lcssa = phi i32 [ %.sroa.024.042.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ], [ %.sroa.024.042.i.i23.lcssa.sink125, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18 ], [ %.sroa.024.042.i.i23, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ]
-  %.sroa.038.067.lcssa = phi ptr [ %.045.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ], [ %.sroa.038.067126, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18 ], [ %.045.i.i20, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ]
-  %.sroa.3.8.insert.insert.i.i34.lcssa = phi i64 [ %.sroa.3.8.insert.insert.i.i34123, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ], [ %.sroa.3.8.insert.insert.i.i34127, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18 ], [ %.sroa.3.8.insert.insert.i.i34, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ]
+  %.sroa.024.042.i.i23.lcssa.sink.lcssa = phi i32 [ %.sroa.024.042.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ], [ %.sroa.024.042.i.i23.lcssa.sink127, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18 ], [ %.sroa.024.042.i.i23, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ]
+  %.sroa.038.067.lcssa = phi ptr [ %.045.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ], [ %.sroa.038.067128, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18 ], [ %.045.i.i20, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ]
+  %.sroa.3.8.insert.insert.i.i34.lcssa = phi i64 [ %.sroa.3.8.insert.insert.i.i34125, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ], [ %.sroa.3.8.insert.insert.i.i34129, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18 ], [ %.sroa.3.8.insert.insert.i.i34, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ]
   %.not63 = icmp eq i32 %.sroa.024.042.i.i23.lcssa.sink.lcssa, 0
   br i1 %.not63, label %30, label %28
 
@@ -1347,7 +1347,7 @@ _ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18: ; preds = %_ZNK5clang1
   br label %.thread
 
 31:                                               ; preds = %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18
-  %32 = load ptr, ptr %.sroa.038.067126, align 8, !tbaa !293
+  %32 = load ptr, ptr %.sroa.038.067128, align 8, !tbaa !293
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.thread, label %.preheader.i
 

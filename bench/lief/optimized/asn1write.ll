@@ -1226,9 +1226,9 @@ define hidden i32 @mbedtls_asn1_write_bitstring(ptr noundef captures(none) %0, p
 
 16:                                               ; preds = %11
   %.not29 = icmp ult i64 %5, 8
-  br i1 %.not29, label %.thread30, label %19
+  br i1 %.not29, label %.thread34, label %19
 
-.thread30:                                        ; preds = %16
+.thread34:                                        ; preds = %16
   %17 = trunc i64 %8 to i8
   %18 = getelementptr inbounds i8, ptr %9, i64 -1
   store ptr %18, ptr %0, align 8, !tbaa !5
@@ -1271,8 +1271,8 @@ define hidden i32 @mbedtls_asn1_write_bitstring(ptr noundef captures(none) %0, p
   %.not.i.i = icmp samesign ult i64 %.025.i.i, 256
   br i1 %.not.i.i, label %.loopexit.i.i, label %.preheader23.i.i, !llvm.loop !3
 
-.loopexit.i.i:                                    ; preds = %.preheader23.i.i, %.thread30, %33
-  %.017.i.i = phi i32 [ 1, %33 ], [ 1, %.thread30 ], [ %35, %.preheader23.i.i ]
+.loopexit.i.i:                                    ; preds = %.preheader23.i.i, %.thread34, %33
+  %.017.i.i = phi i32 [ 1, %33 ], [ 1, %.thread34 ], [ %35, %.preheader23.i.i ]
   %37 = zext nneg i32 %.017.i.i to i64
   %38 = load ptr, ptr %0, align 8, !tbaa !5
   %39 = ptrtoint ptr %38 to i64

@@ -1097,7 +1097,7 @@ define internal i32 @do_corr(ptr noundef %0) #0 {
 
 .lr.ph:                                           ; preds = %.preheader141
   %99 = load ptr, ptr %81, align 8, !tbaa !63
-  %invariant.gep219 = getelementptr inbounds nuw %struct.QSums, ptr %99, i64 %indvars.iv194
+  %invariant.gep226 = getelementptr inbounds nuw %struct.QSums, ptr %99, i64 %indvars.iv194
   br label %102
 
 .lr.ph161.preheader:                              ; preds = %._crit_edge.thread
@@ -1115,15 +1115,15 @@ define internal i32 @do_corr(ptr noundef %0) #0 {
   %.0125152 = phi double [ 0.000000e+00, %.lr.ph ], [ %110, %102 ]
   %.0126151 = phi double [ 0.000000e+00, %.lr.ph ], [ %106, %102 ]
   %103 = mul nuw nsw i64 %indvars.iv189, %82
-  %gep220 = getelementptr inbounds nuw %struct.QSums, ptr %invariant.gep219, i64 %103
-  %104 = load float, ptr %gep220, align 4, !tbaa !82
+  %gep227 = getelementptr inbounds nuw %struct.QSums, ptr %invariant.gep226, i64 %103
+  %104 = load float, ptr %gep227, align 4, !tbaa !82
   %105 = fpext nsz float %104 to double
   %106 = fadd nsz double %.0126151, %105
-  %107 = getelementptr inbounds nuw i8, ptr %gep220, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %gep227, i64 4
   %108 = load float, ptr %107, align 4, !tbaa !82
   %109 = fpext nsz float %108 to double
   %110 = fadd nsz double %.0125152, %109
-  %111 = getelementptr inbounds nuw i8, ptr %gep220, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %gep227, i64 8
   %112 = load float, ptr %111, align 4, !tbaa !82
   %113 = fpext nsz float %112 to double
   %114 = fadd nsz double %.0124153, %113

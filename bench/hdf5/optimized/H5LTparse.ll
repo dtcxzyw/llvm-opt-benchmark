@@ -1828,10 +1828,10 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %1015, %992, %969, %946, %923
-  %.sink405 = phi ptr [ %3, %923 ], [ %4, %946 ], [ %5, %969 ], [ %6, %992 ], [ %7, %1015 ], [ %.sink, %.sink.split.sink.split ]
+  %.sink415 = phi ptr [ %3, %923 ], [ %4, %946 ], [ %5, %969 ], [ %6, %992 ], [ %7, %1015 ], [ %.sink, %.sink.split.sink.split ]
   %1017 = load i64, ptr @enum_id, align 8, !tbaa !15
   %1018 = load ptr, ptr @enum_memb_symbol, align 8, !tbaa !24
-  %1019 = call i32 @H5Tenum_insert(i64 noundef %1017, ptr noundef %1018, ptr noundef nonnull %.sink405) #10
+  %1019 = call i32 @H5Tenum_insert(i64 noundef %1017, ptr noundef %1018, ptr noundef nonnull %.sink415) #10
   br label %1020
 
 1020:                                             ; preds = %.sink.split, %1012
@@ -1913,13 +1913,13 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %.not326, label %1058, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %31, %.loopexit
-  %.5395 = phi ptr [ %.5, %.loopexit ], [ %24, %31 ]
-  %.0267394 = phi i64 [ %.0267, %.loopexit ], [ 1, %31 ]
-  call void @free(ptr noundef %.5395) #10
+  %.5405 = phi ptr [ %.5, %.loopexit ], [ %24, %31 ]
+  %.0267404 = phi i64 [ %.0267, %.loopexit ], [ 1, %31 ]
+  call void @free(ptr noundef %.5405) #10
   br label %1058
 
 1058:                                             ; preds = %.loopexit, %.loopexit.thread, %85
-  %.0 = phi i64 [ %86, %85 ], [ %.0267394, %.loopexit.thread ], [ %.0267, %.loopexit ]
+  %.0 = phi i64 [ %86, %85 ], [ %.0267404, %.loopexit.thread ], [ %.0267, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i64 %.0

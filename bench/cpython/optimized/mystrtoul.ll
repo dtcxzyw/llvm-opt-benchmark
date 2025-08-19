@@ -235,8 +235,8 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   br i1 %or.cond, label %97, label %.preheader136.preheader
 
 .preheader136.preheader:                          ; preds = %15, %37, %28, %19, %95
-  %.1163 = phi ptr [ %.1, %95 ], [ %.0101.lcssa, %15 ], [ %38, %37 ], [ %29, %28 ], [ %20, %19 ]
-  %.0105162 = phi i32 [ %2, %95 ], [ 10, %15 ], [ 2, %37 ], [ 8, %28 ], [ 16, %19 ]
+  %.1172 = phi ptr [ %.1, %95 ], [ %.0101.lcssa, %15 ], [ %38, %37 ], [ %29, %28 ], [ %20, %19 ]
+  %.0105171 = phi i32 [ %2, %95 ], [ 10, %15 ], [ 2, %37 ], [ 8, %28 ], [ 16, %19 ]
   br label %.preheader136
 
 97:                                               ; preds = %95
@@ -248,19 +248,19 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   br label %149
 
 .preheader136:                                    ; preds = %.preheader136.preheader, %.preheader136
-  %.4 = phi ptr [ %101, %.preheader136 ], [ %.1163, %.preheader136.preheader ]
+  %.4 = phi ptr [ %101, %.preheader136 ], [ %.1172, %.preheader136.preheader ]
   %99 = load i8, ptr %.4, align 1, !tbaa !4
   %100 = icmp eq i8 %99, 48
   %101 = getelementptr i8, ptr %.4, i64 1
   br i1 %100, label %.preheader136, label %102, !llvm.loop !16
 
 102:                                              ; preds = %.preheader136
-  %103 = zext nneg i32 %.0105162 to i64
+  %103 = zext nneg i32 %.0105171 to i64
   %104 = zext i8 %99 to i64
   %105 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %104
   %106 = load i8, ptr %105, align 1, !tbaa !4
   %107 = zext i8 %106 to i32
-  %108 = icmp samesign ugt i32 %.0105162, %107
+  %108 = icmp samesign ugt i32 %.0105171, %107
   br i1 %108, label %.lr.ph153, label %._crit_edge
 
 .lr.ph153:                                        ; preds = %102
@@ -308,7 +308,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   %134 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %133
   %135 = load i8, ptr %134, align 1, !tbaa !4
   %136 = zext i8 %135 to i32
-  %137 = icmp samesign ugt i32 %.0105162, %136
+  %137 = icmp samesign ugt i32 %.0105171, %136
   br i1 %137, label %112, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %129, %102
@@ -332,7 +332,7 @@ select.unfold:                                    ; preds = %124, %119, %121
   %141 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %140
   %142 = load i8, ptr %141, align 1, !tbaa !4
   %143 = zext i8 %142 to i32
-  %144 = icmp samesign ugt i32 %.0105162, %143
+  %144 = icmp samesign ugt i32 %.0105171, %143
   %145 = getelementptr i8, ptr %.6, i64 1
   br i1 %144, label %.preheader, label %146, !llvm.loop !20
 

@@ -1122,21 +1122,21 @@ vfio_add_kvm_msi_virq.exit:                       ; preds = %24, %28
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 36
   %50 = load i8, ptr %49, align 4, !range !6, !noundef !7
   %51 = trunc nuw i8 %50 to i1
-  br i1 %51, label %.sink.split48.i, label %57
+  br i1 %51, label %.sink.split49.i, label %57
 
-.sink.split48.i:                                  ; preds = %.lr.ph.split.i
+.sink.split49.i:                                  ; preds = %.lr.ph.split.i
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %53 = load i32, ptr %52, align 8
   %54 = icmp slt i32 %53, 0
   %55 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %47, i64 %indvars.iv.i, i32 1
-  %.sink49.i = select i1 %54, ptr %48, ptr %55
-  %56 = tail call i32 @event_notifier_get_fd(ptr noundef nonnull %.sink49.i) #27
+  %.sink50.i = select i1 %54, ptr %48, ptr %55
+  %56 = tail call i32 @event_notifier_get_fd(ptr noundef nonnull %.sink50.i) #27
   %.pre = load i32, ptr %4, align 16
   br label %57
 
-57:                                               ; preds = %.sink.split48.i, %.lr.ph.split.i
-  %58 = phi i32 [ %46, %.lr.ph.split.i ], [ %.pre, %.sink.split48.i ]
-  %.0.i = phi i32 [ -1, %.lr.ph.split.i ], [ %56, %.sink.split48.i ]
+57:                                               ; preds = %.sink.split49.i, %.lr.ph.split.i
+  %58 = phi i32 [ %46, %.lr.ph.split.i ], [ %.pre, %.sink.split49.i ]
+  %.0.i = phi i32 [ -1, %.lr.ph.split.i ], [ %56, %.sink.split49.i ]
   %59 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i
   store i32 %.0.i, ptr %59, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2381,19 +2381,19 @@ define internal fastcc i32 @vfio_enable_vectors(ptr noundef %0, i1 noundef zeroe
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 36
   %61 = load i8, ptr %60, align 4, !range !6, !noundef !7
   %62 = trunc nuw i8 %61 to i1
-  br i1 %62, label %.sink.split48, label %68
+  br i1 %62, label %.sink.split49, label %68
 
-.sink.split48:                                    ; preds = %.lr.ph.split
+.sink.split49:                                    ; preds = %.lr.ph.split
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %64 = load i32, ptr %63, align 8
   %65 = icmp slt i32 %64, 0
   %66 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %58, i64 %indvars.iv, i32 1
-  %.sink49 = select i1 %65, ptr %59, ptr %66
-  %67 = tail call i32 @event_notifier_get_fd(ptr noundef nonnull %.sink49) #27
+  %.sink50 = select i1 %65, ptr %59, ptr %66
+  %67 = tail call i32 @event_notifier_get_fd(ptr noundef nonnull %.sink50) #27
   br label %68
 
-68:                                               ; preds = %.sink.split48, %.lr.ph.split
-  %.0 = phi i32 [ -1, %.lr.ph.split ], [ %67, %.sink.split48 ]
+68:                                               ; preds = %.sink.split49, %.lr.ph.split
+  %.0 = phi i32 [ -1, %.lr.ph.split ], [ %67, %.sink.split49 ]
   %69 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
   store i32 %.0, ptr %69, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3726,8 +3726,8 @@ define internal void @vfio_realize(ptr noundef %0, ptr noundef %1) #0 {
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 3644
   %25 = load i32, ptr %24, align 4
   %.not195 = icmp eq i32 %25, -1
-  %or.cond249 = select i1 %.not194, i1 %.not195, i1 false
-  br i1 %or.cond249, label %26, label %._crit_edge
+  %or.cond262 = select i1 %.not194, i1 %.not195, i1 false
+  br i1 %or.cond262, label %26, label %._crit_edge
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 3648
@@ -5628,9 +5628,9 @@ vfio_pci_fixup_msix_region.exit:                  ; preds = %trace_vfio_msix_ear
   br label %301
 
 301:                                              ; preds = %.thread77.i, %291
-  %.sink79.i = phi ptr [ %219, %.thread77.i ], [ %295, %291 ]
+  %.sink82.i = phi ptr [ %219, %.thread77.i ], [ %295, %291 ]
   %.sink.i = phi i32 [ %300, %.thread77.i ], [ 0, %291 ]
-  %302 = getelementptr inbounds nuw i8, ptr %.sink79.i, i64 4
+  %302 = getelementptr inbounds nuw i8, ptr %.sink82.i, i64 4
   store i32 %.sink.i, ptr %302, align 4
   %303 = trunc i32 %253 to i8
   %304 = load ptr, ptr %115, align 8

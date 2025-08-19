@@ -329,7 +329,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_N
   br i1 %.not28, label %22, label %20
 
 20:                                               ; preds = %3
-  %21 = mul i64 %1, 12
+  %21 = mul nuw nsw i64 %1, 12
   %scevgep.i = getelementptr i8, ptr %6, i64 %21
   store ptr %scevgep.i, ptr %5, align 8, !tbaa !51
   br label %39
@@ -716,7 +716,7 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull alig
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %21 = add i64 %11, -1
+  %21 = add nsw i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i, label %23
 

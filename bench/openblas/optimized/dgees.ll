@@ -140,13 +140,13 @@ define void @dgees_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capture
   br label %.sink.split
 
 .sink.split:                                      ; preds = %64, %73
-  %.sink419 = phi i32 [ %81, %73 ], [ %72, %64 ]
+  %.sink426 = phi i32 [ %81, %73 ], [ %72, %64 ]
   %.sink = phi i32 [ %80, %73 ], [ %67, %64 ]
-  %82 = add nsw i32 %.sink419, %71
+  %82 = add nsw i32 %.sink426, %71
   store i32 %82, ptr %17, align 4, !tbaa !3
   %83 = call i32 @llvm.smax.i32(i32 %.sink, i32 %82)
   %84 = sitofp i32 %83 to double
-  %85 = icmp eq i32 %.sink419, 0
+  %85 = icmp eq i32 %.sink426, 0
   br label %86
 
 86:                                               ; preds = %.sink.split, %62
@@ -165,12 +165,12 @@ define void @dgees_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capture
   br i1 %.not355, label %93, label %.thread368
 
 .thread368.sink.split:                            ; preds = %86, %56, %53, %50, %48, %45
-  %.sink421 = phi i32 [ -1, %45 ], [ -2, %48 ], [ -4, %50 ], [ -6, %53 ], [ -11, %56 ], [ -13, %86 ]
-  store i32 %.sink421, ptr %14, align 4, !tbaa !3
+  %.sink428 = phi i32 [ -1, %45 ], [ -2, %48 ], [ -4, %50 ], [ -6, %53 ], [ -11, %56 ], [ -13, %86 ]
+  store i32 %.sink428, ptr %14, align 4, !tbaa !3
   br label %.thread368
 
 .thread368:                                       ; preds = %.thread368.sink.split, %60, %.thread
-  %90 = phi i32 [ %.pr365.pr, %.thread ], [ %.pr, %60 ], [ %.sink421, %.thread368.sink.split ]
+  %90 = phi i32 [ %.pr365.pr, %.thread ], [ %.pr, %60 ], [ %.sink428, %.thread368.sink.split ]
   %91 = sub nsw i32 0, %90
   store i32 %91, ptr %16, align 4, !tbaa !3
   %92 = call i32 @xerbla_(ptr noundef nonnull @.str.6, ptr noundef nonnull %16, i32 noundef 6) #5

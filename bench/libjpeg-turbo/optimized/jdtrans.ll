@@ -84,7 +84,7 @@ define ptr @jpeg_read_coefficients(ptr noundef %0) local_unnamed_addr #0 {
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !48
   %.not24.i = icmp eq ptr %39, null
-  br i1 %.not24.i, label %.thread49, label %40
+  br i1 %.not24.i, label %.thread53, label %40
 
 40:                                               ; preds = %29
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -126,13 +126,13 @@ define ptr @jpeg_read_coefficients(ptr noundef %0) local_unnamed_addr #0 {
   store i32 0, ptr %63, align 8, !tbaa !55
   %64 = getelementptr inbounds nuw i8, ptr %39, i64 28
   store i32 1, ptr %64, align 4, !tbaa !56
-  br label %.thread49
+  br label %.thread53
 
-.thread49:                                        ; preds = %55, %29
+.thread53:                                        ; preds = %55, %29
   store i32 209, ptr %11, align 4, !tbaa !37
   br label %.preheader
 
-.preheader:                                       ; preds = %10, %.thread49
+.preheader:                                       ; preds = %10, %.thread53
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 420

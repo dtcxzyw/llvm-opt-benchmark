@@ -383,21 +383,21 @@ _ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i.thread: ; preds = %18, %24
   br i1 %.not.i21, label %._crit_edge.i.thread, label %.lr.ph.i.backedge
 
 ._crit_edge.thread.i:                             ; preds = %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i, %4
-  %.020.lcssa33.i = phi ptr [ %13, %4 ], [ %.02128.i, %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i ]
+  %.020.lcssa40.i = phi ptr [ %13, %4 ], [ %.02128.i, %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !30
-  %32 = icmp eq ptr %.020.lcssa33.i, %31
+  %32 = icmp eq ptr %.020.lcssa40.i, %31
   br i1 %32, label %48, label %33
 
 33:                                               ; preds = %._crit_edge.thread.i
-  %34 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa33.i) #18
+  %34 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa40.i) #18
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %34, i64 44
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !24
   br label %._crit_edge.i.thread
 
 ._crit_edge.i.thread:                             ; preds = %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i.thread, %33
   %35 = phi i32 [ %.pre, %33 ], [ %16, %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i.thread ]
-  %.020.lcssa32.i = phi ptr [ %.020.lcssa33.i, %33 ], [ %.02128.i, %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i.thread ]
+  %.020.lcssa39.i = phi ptr [ %.020.lcssa40.i, %33 ], [ %.02128.i, %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i.thread ]
   %.sroa.06.0.i = phi ptr [ %34, %33 ], [ %.02128.i, %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit.thread.i.thread ]
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 32
   %37 = icmp slt i32 %35, %11
@@ -423,7 +423,7 @@ _ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit5.i:  ; preds = %44
   br i1 %47, label %48, label %70
 
 48:                                               ; preds = %._crit_edge.thread.i, %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit5.i, %._crit_edge.i.thread, %40
-  %.sroa.4.0.i.ph = phi ptr [ %.020.lcssa32.i, %40 ], [ %.020.lcssa32.i, %._crit_edge.i.thread ], [ %.020.lcssa32.i, %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit5.i ], [ %.020.lcssa33.i, %._crit_edge.thread.i ]
+  %.sroa.4.0.i.ph = phi ptr [ %.020.lcssa39.i, %40 ], [ %.020.lcssa39.i, %._crit_edge.i.thread ], [ %.020.lcssa39.i, %_ZNKSt4lessISt5tupleIJibmEEEclERKS1_S4_.exit5.i ], [ %.020.lcssa40.i, %._crit_edge.thread.i ]
   %49 = icmp eq ptr %.sroa.4.0.i.ph, %13
   br i1 %49, label %.thread29, label %50
 

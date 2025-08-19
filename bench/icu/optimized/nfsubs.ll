@@ -2148,7 +2148,7 @@ _ZN6icu_7713UnicodeString6insertEiDs.exit:        ; preds = %25
           to label %36 unwind label %38
 
 36:                                               ; preds = %31
-  %37 = add i32 %.02541, 1
+  %37 = add nsw i32 %.02541, 1
   %exitcond.not = icmp eq i32 %37, 0
   br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !74
 
@@ -2842,7 +2842,7 @@ define noundef signext i8 @_ZNK6icu_7721NumeratorSubstitution7doParseERKNS_13Uni
           cleanup
   br label %98
 
-.loopexit:                                        ; preds = %.lr.ph108
+.loopexit:                                        ; preds = %.lr.ph110
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -2899,12 +2899,12 @@ _ZN6icu_7713UnicodeString6removeEii.exit:         ; preds = %._ZN6icu_7713Unicod
 
 .lr.ph.preheader:                                 ; preds = %_ZN6icu_7713UnicodeString6removeEii.exit
   %59 = and i16 %52, 2
-  %.not.i.i.i107 = icmp eq i16 %59, 0
+  %.not.i.i.i109 = icmp eq i16 %59, 0
   %60 = load ptr, ptr %32, align 8
-  %61 = select i1 %.not.i.i.i107, ptr %60, ptr %31
+  %61 = select i1 %.not.i.i.i109, ptr %60, ptr %31
   %62 = load i16, ptr %61, align 2, !tbaa !15
   %63 = icmp eq i16 %62, 32
-  br i1 %63, label %.lr.ph108, label %.lr.ph..critedge2.loopexit_crit_edge
+  br i1 %63, label %.lr.ph110, label %.lr.ph..critedge2.loopexit_crit_edge
 
 .lr.ph:                                           ; preds = %_ZN6icu_7713UnicodeString6removeEii.exit49
   %64 = and i16 %72, 2
@@ -2913,20 +2913,20 @@ _ZN6icu_7713UnicodeString6removeEii.exit:         ; preds = %._ZN6icu_7713Unicod
   %66 = select i1 %.not.i.i.i, ptr %65, ptr %31
   %67 = load i16, ptr %66, align 2, !tbaa !15
   %68 = icmp eq i16 %67, 32
-  br i1 %68, label %.lr.ph108, label %.lr.ph..critedge2.loopexit_crit_edge, !llvm.loop !80
+  br i1 %68, label %.lr.ph110, label %.lr.ph..critedge2.loopexit_crit_edge, !llvm.loop !80
 
 .lr.ph..critedge2.loopexit_crit_edge:             ; preds = %.lr.ph, %.lr.ph.preheader
-  %.lcssa101 = phi i32 [ %56, %.lr.ph.preheader ], [ %76, %.lr.ph ]
-  %.lcssa98 = phi i16 [ %52, %.lr.ph.preheader ], [ %72, %.lr.ph ]
-  %.pre85 = ashr i16 %.lcssa98, 5
+  %.lcssa103 = phi i32 [ %56, %.lr.ph.preheader ], [ %76, %.lr.ph ]
+  %.lcssa100 = phi i16 [ %52, %.lr.ph.preheader ], [ %72, %.lr.ph ]
+  %.pre85 = ashr i16 %.lcssa100, 5
   %.pre86 = sext i16 %.pre85 to i32
   br label %.critedge2
 
-.lr.ph108:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph110:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %69 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %11, i32 noundef 0, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0)
           to label %_ZN6icu_7713UnicodeString6removeEii.exit49 unwind label %.loopexit
 
-_ZN6icu_7713UnicodeString6removeEii.exit49:       ; preds = %.lr.ph108
+_ZN6icu_7713UnicodeString6removeEii.exit49:       ; preds = %.lr.ph110
   %70 = load i32, ptr %30, align 8, !tbaa !66
   %71 = add nsw i32 %70, 1
   store i32 %71, ptr %30, align 8, !tbaa !66
@@ -2941,8 +2941,8 @@ _ZN6icu_7713UnicodeString6removeEii.exit49:       ; preds = %.lr.ph108
 
 .critedge2:                                       ; preds = %_ZN6icu_7713UnicodeString6removeEii.exit49, %.lr.ph..critedge2.loopexit_crit_edge, %_ZN6icu_7713UnicodeString6removeEii.exit
   %.pre-phi84 = phi i32 [ %55, %_ZN6icu_7713UnicodeString6removeEii.exit ], [ %.pre86, %.lr.ph..critedge2.loopexit_crit_edge ], [ %75, %_ZN6icu_7713UnicodeString6removeEii.exit49 ]
-  %79 = phi i32 [ %56, %_ZN6icu_7713UnicodeString6removeEii.exit ], [ %.lcssa101, %.lr.ph..critedge2.loopexit_crit_edge ], [ %76, %_ZN6icu_7713UnicodeString6removeEii.exit49 ]
-  %80 = phi i16 [ %52, %_ZN6icu_7713UnicodeString6removeEii.exit ], [ %.lcssa98, %.lr.ph..critedge2.loopexit_crit_edge ], [ %72, %_ZN6icu_7713UnicodeString6removeEii.exit49 ]
+  %79 = phi i32 [ %56, %_ZN6icu_7713UnicodeString6removeEii.exit ], [ %.lcssa103, %.lr.ph..critedge2.loopexit_crit_edge ], [ %76, %_ZN6icu_7713UnicodeString6removeEii.exit49 ]
+  %80 = phi i16 [ %52, %_ZN6icu_7713UnicodeString6removeEii.exit ], [ %.lcssa100, %.lr.ph..critedge2.loopexit_crit_edge ], [ %72, %_ZN6icu_7713UnicodeString6removeEii.exit49 ]
   %81 = icmp slt i16 %80, 0
   %82 = select i1 %81, i32 %79, i32 %.pre-phi84
   %83 = icmp slt i32 %82, 1

@@ -275,7 +275,7 @@ define hidden void @_ZN12pingora_core9protocols3tls8noop_tls10connectors7connect
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17h3271dcb1dd3ab969E"(ptr noundef nonnull align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17h3271dcb1dd3ab969E"(ptr noundef nonnull align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [40 x i8], align 8
   %3 = alloca [72 x i8], align 8
   %4 = alloca [32 x i8], align 8
@@ -327,7 +327,7 @@ select.unfold:                                    ; preds = %9, %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17h7cebf2c2c07953a7E"(ptr noundef nonnull align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17h7cebf2c2c07953a7E"(ptr noundef nonnull align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [40 x i8], align 8
   %3 = alloca [72 x i8], align 8
   %4 = alloca [32 x i8], align 8
@@ -591,7 +591,7 @@ define hidden noundef range(i8 2, 13) i8 @"_ZN2h25codec12framed_write16Encoder$L
 77:                                               ; preds = %206, %153, %.thread426, %73
   unreachable
 
-default.unreachable510:                           ; preds = %.critedge364
+default.unreachable532:                           ; preds = %.critedge364
   unreachable
 
 78:                                               ; preds = %64
@@ -747,7 +747,7 @@ default.unreachable510:                           ; preds = %.critedge364
 
 .critedge364:                                     ; preds = %116, %110, %120, %112, %142, %124
   %115 = load i8, ptr %1, align 8, !range !50, !noundef !22
-  switch i8 %115, label %default.unreachable510 [
+  switch i8 %115, label %default.unreachable532 [
     i8 0, label %143
     i8 1, label %146
     i8 2, label %153
@@ -1455,7 +1455,7 @@ default.unreachable510:                           ; preds = %.critedge364
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %.critedge371
 
-334:                                              ; preds = %.invoke511, %365, %.thread470, %343, %165
+334:                                              ; preds = %.invoke533, %365, %.thread470, %343, %165
   %335 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr47drop_in_place$LT$h2..frame..go_away..GoAway$GT$17hb878398ce79032cfE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %32) #23
@@ -1514,7 +1514,7 @@ default.unreachable510:                           ; preds = %.critedge364
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %.not342 = icmp eq i64 %355, 0
-  br i1 %.not342, label %.invoke511, label %360
+  br i1 %.not342, label %.invoke533, label %360
 
 360:                                              ; preds = %350
   %.sroa.6103.0..sroa_idx104 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -1534,7 +1534,7 @@ default.unreachable510:                           ; preds = %.critedge364
   store i64 0, ptr %364, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %.not504 = icmp eq i64 %355, 1
-  br i1 %.not504, label %.invoke511, label %365, !prof !49
+  br i1 %.not504, label %.invoke533, label %365, !prof !49
 
 365:                                              ; preds = %360
   store ptr %353, ptr %28, align 8
@@ -1572,11 +1572,11 @@ default.unreachable510:                           ; preds = %.critedge364
   invoke void @_ZN12tracing_core5event5Event8dispatch17ha4ef22fc47242eeeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %351, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %371 unwind label %334
 
-.invoke511:                                       ; preds = %360, %350
+.invoke533:                                       ; preds = %360, %350
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.8be78e2afc5b276395140eb3af14a39a.9, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8be78e2afc5b276395140eb3af14a39a.29) #22
-          to label %.cont512 unwind label %334
+          to label %.cont534 unwind label %334
 
-.cont512:                                         ; preds = %.invoke511
+.cont534:                                         ; preds = %.invoke533
   unreachable
 
 371:                                              ; preds = %365
@@ -2191,7 +2191,7 @@ define hidden { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT
   %50 = load i64, ptr %38, align 8, !noundef !22
   %51 = load i64, ptr %39, align 8, !noundef !22
   %.not2.i.not = icmp ugt i64 %50, %51
-  br i1 %.not2.i.not, label %.thread225, label %"_ZN2h25codec12framed_write16Encoder$LT$B$GT$8is_empty17hc253d243059e568fE.exit._crit_edge"
+  br i1 %.not2.i.not, label %.thread234, label %"_ZN2h25codec12framed_write16Encoder$LT$B$GT$8is_empty17hc253d243059e568fE.exit._crit_edge"
 
 52:                                               ; preds = %.backedge
   %53 = invoke noundef zeroext i1 @_ZN5bytes3buf8buf_impl3Buf13has_remaining17hb9379916ef123127E(ptr noundef nonnull align 8 %40)
@@ -2224,7 +2224,7 @@ define hidden { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT
 
 57:                                               ; preds = %"_ZN2h25codec12framed_write16Encoder$LT$B$GT$8is_empty17hc253d243059e568fE.exit"
   %switch.not = icmp samesign ult i8 %.pre, 2
-  br i1 %switch.not, label %77, label %.thread225
+  br i1 %switch.not, label %77, label %.thread234
 
 "_ZN2h25codec12framed_write16Encoder$LT$B$GT$8is_empty17hc253d243059e568fE.exit._crit_edge": ; preds = %"_ZN2h25codec12framed_write16Encoder$LT$B$GT$8is_empty17hc253d243059e568fE.exit", %49
   %.sroa.5.0.copyload.i = phi i8 [ %48, %49 ], [ %.pre, %"_ZN2h25codec12framed_write16Encoder$LT$B$GT$8is_empty17hc253d243059e568fE.exit" ]
@@ -2422,18 +2422,18 @@ define hidden { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT
 .backedge.backedge:                               ; preds = %106, %129, %135
   br label %.backedge
 
-.thread225:                                       ; preds = %49, %57
+.thread234:                                       ; preds = %49, %57
   %107 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17h9e420ea5df983dc6E monotonic, align 8
   %.not120 = icmp eq i64 %107, 5
   br i1 %.not120, label %.critedge132, label %108
 
-108:                                              ; preds = %.thread225
+108:                                              ; preds = %.thread234
   %109 = icmp ult i64 %107, 5
   call void @llvm.assume(i1 %109)
   %110 = icmp eq i64 %107, 0
   br i1 %110, label %112, label %.critedge132
 
-.critedge132:                                     ; preds = %112, %.thread225, %116, %108, %128, %120
+.critedge132:                                     ; preds = %112, %.thread234, %116, %108, %128, %120
   %111 = invoke { i64, ptr } @_ZN10tokio_util4util8poll_buf14poll_write_buf17hc9a89b4ba715d58dE(ptr noalias noundef nonnull align 8 dereferenceable(16) %44, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(40) %41)
           to label %129 unwind label %.loopexit
 

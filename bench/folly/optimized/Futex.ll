@@ -885,7 +885,7 @@ _ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl100000
   br i1 %29, label %._crit_edge.thread, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.split, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %._crit_edge
-  %.05.lcssa22 = phi i32 [ 0, %._crit_edge ], [ %28, %._crit_edge.split ], [ 0, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ]
+  %.05.lcssa25 = phi i32 [ 0, %._crit_edge ], [ %28, %._crit_edge.split ], [ 0, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ]
   %30 = load ptr, ptr %4, align 8, !tbaa !39
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %31
@@ -895,12 +895,12 @@ _ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl100000
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %._crit_edge, %._crit_edge.thread, %31
-  %.05.lcssa21 = phi i32 [ 0, %._crit_edge ], [ %.05.lcssa22, %._crit_edge.thread ], [ %.05.lcssa22, %31 ]
+  %.05.lcssa24 = phi i32 [ 0, %._crit_edge ], [ %.05.lcssa25, %._crit_edge.thread ], [ %.05.lcssa25, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.05.lcssa21
+  ret i32 %.05.lcssa24
 
 33:                                               ; preds = %.thread, %25
-  %.us-phi19 = phi { ptr, i32 } [ %24, %.thread ], [ %26, %25 ]
+  %.us-phi22 = phi { ptr, i32 } [ %24, %.thread ], [ %26, %25 ]
   %34 = load ptr, ptr %4, align 8, !tbaa !39
   %.not.i.i8 = icmp eq ptr %34, null
   br i1 %.not.i.i8, label %_ZNSt11unique_lockISt5mutexED2Ev.exit9, label %35
@@ -910,9 +910,9 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %._crit_edge, %._cri
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit9
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit9:           ; preds = %25, %33, %35
-  %.us-phi18 = phi { ptr, i32 } [ %26, %25 ], [ %.us-phi19, %33 ], [ %.us-phi19, %35 ]
+  %.us-phi21 = phi { ptr, i32 } [ %26, %25 ], [ %.us-phi22, %33 ], [ %.us-phi22, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %.us-phi18
+  resume { ptr, i32 } %.us-phi21
 }
 
 ; Function Attrs: nounwind
@@ -1010,7 +1010,7 @@ _ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl100000
   br i1 %29, label %._crit_edge.thread, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.split, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %._crit_edge
-  %.05.lcssa22 = phi i32 [ 0, %._crit_edge ], [ %28, %._crit_edge.split ], [ 0, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ]
+  %.05.lcssa25 = phi i32 [ 0, %._crit_edge ], [ %28, %._crit_edge.split ], [ 0, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ]
   %30 = load ptr, ptr %4, align 8, !tbaa !39
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %31
@@ -1020,12 +1020,12 @@ _ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl100000
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %._crit_edge, %._crit_edge.thread, %31
-  %.05.lcssa21 = phi i32 [ 0, %._crit_edge ], [ %.05.lcssa22, %._crit_edge.thread ], [ %.05.lcssa22, %31 ]
+  %.05.lcssa24 = phi i32 [ 0, %._crit_edge ], [ %.05.lcssa25, %._crit_edge.thread ], [ %.05.lcssa25, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.05.lcssa21
+  ret i32 %.05.lcssa24
 
 33:                                               ; preds = %.thread, %25
-  %.us-phi19 = phi { ptr, i32 } [ %24, %.thread ], [ %26, %25 ]
+  %.us-phi22 = phi { ptr, i32 } [ %24, %.thread ], [ %26, %25 ]
   %34 = load ptr, ptr %4, align 8, !tbaa !39
   %.not.i.i8 = icmp eq ptr %34, null
   br i1 %.not.i.i8, label %_ZNSt11unique_lockISt5mutexED2Ev.exit9, label %35
@@ -1035,9 +1035,9 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %._crit_edge, %._cri
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit9
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit9:           ; preds = %25, %33, %35
-  %.us-phi18 = phi { ptr, i32 } [ %26, %25 ], [ %.us-phi19, %33 ], [ %.us-phi19, %35 ]
+  %.us-phi21 = phi { ptr, i32 } [ %26, %25 ], [ %.us-phi22, %33 ], [ %.us-phi22, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %.us-phi18
+  resume { ptr, i32 } %.us-phi21
 }
 
 ; Function Attrs: nounwind

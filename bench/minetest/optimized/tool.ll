@@ -4711,7 +4711,7 @@ lpad97:                                           ; preds = %_Z19calculateResult
 cleanup108:                                       ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %_Z19calculateResultWearjt.exit, %if.end79, %if.end15.i.i.i, %for.body
   %result_wear.3 = phi i32 [ %result_wear.0363, %for.body ], [ %result_wear.0363, %if.end79 ], [ %retval.0.i336, %_Z19calculateResultWearjt.exit ], [ %result_wear.0363, %if.end15.i.i.i ], [ %result_wear.0363, %for.cond.i.i.i ], [ %result_wear.0363, %if.end3.i.i.i.i.i ], [ %result_wear.0363, %lor.lhs.false.i.i.i.i.i ]
   %result_time.3 = phi float [ %result_time.0364, %for.body ], [ %result_time.0364, %if.end79 ], [ %time.0, %_Z19calculateResultWearjt.exit ], [ %result_time.0364, %if.end15.i.i.i ], [ %result_time.0364, %for.cond.i.i.i ], [ %result_time.0364, %if.end3.i.i.i.i.i ], [ %result_time.0364, %lor.lhs.false.i.i.i.i.i ]
-  %result_diggable.3 = phi i8 [ %result_diggable.0365, %for.body ], [ %result_diggable.0365, %if.end79 ], [ 1, %_Z19calculateResultWearjt.exit ], [ %result_diggable.0365, %if.end15.i.i.i ], [ %result_diggable.0365, %for.cond.i.i.i ], [ %result_diggable.0365, %if.end3.i.i.i.i.i ], [ %result_diggable.0365, %lor.lhs.false.i.i.i.i.i ]
+  %result_diggable.3 = phi i8 [ %result_diggable.0365, %for.body ], [ 1, %if.end79 ], [ 1, %_Z19calculateResultWearjt.exit ], [ %result_diggable.0365, %if.end15.i.i.i ], [ %result_diggable.0365, %for.cond.i.i.i ], [ %result_diggable.0365, %if.end3.i.i.i.i.i ], [ %result_diggable.0365, %lor.lhs.false.i.i.i.i.i ]
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.0366, align 8, !tbaa !17
   %cmp.i300.not = icmp eq ptr %__begin1.sroa.0.0, null
   br i1 %cmp.i300.not, label %for.cond.cleanup, label %for.body

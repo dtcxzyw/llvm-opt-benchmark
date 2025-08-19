@@ -70,7 +70,7 @@ define internal void @sbr_sum64x5_c(ptr noundef captures(none) %0) #1 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i64 0, -2147483648) i64 @sbr_sum_square_c(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 {
+define internal i64 @sbr_sum_square_c(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph107.preheader, label %.loopexit
 
@@ -223,25 +223,26 @@ define internal range(i64 0, -2147483648) i64 @sbr_sum_square_c(ptr noundef read
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %.sroa.0.08.i.i = phi i32 [ %78, %.lr.ph.i.i ], [ %.sroa.0.0.i.i, %.preheader.i.i ]
   %.sroa.8.07.i.i = phi i32 [ %79, %.lr.ph.i.i ], [ %.sroa.8.0.extract.trunc.i.i, %.preheader.i.i ]
-  %78 = shl nuw nsw i32 %.sroa.0.08.i.i, 1
+  %78 = shl nsw i32 %.sroa.0.08.i.i, 1
   %79 = add nsw i32 %.sroa.8.07.i.i, -1
-  %80 = icmp samesign ult i32 %.sroa.0.08.i.i, 268435456
-  br i1 %80, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !26
+  %80 = add nsw i32 %78, 536870911
+  %81 = icmp ult i32 %80, 1073741823
+  br i1 %81, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !26
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.sroa.8.0.lcssa.i.i = phi i32 [ %.sroa.8.0.extract.trunc.i.i, %.preheader.i.i ], [ %79, %.lr.ph.i.i ]
   %.sroa.0.0.lcssa.i.i = phi i32 [ %.sroa.0.0.i.i, %.preheader.i.i ], [ %78, %.lr.ph.i.i ]
-  %81 = icmp slt i32 %.sroa.8.0.lcssa.i.i, -149
+  %82 = icmp slt i32 %.sroa.8.0.lcssa.i.i, -149
   %spec.select.i.i = tail call i32 @llvm.smax.i32(i32 %.sroa.8.0.lcssa.i.i, i32 -149)
-  %spec.select6.i.i = select i1 %81, i32 0, i32 %.sroa.0.0.lcssa.i.i
-  %82 = zext i32 %spec.select.i.i to i64
-  %83 = shl nuw i64 %82, 32
-  %84 = zext nneg i32 %spec.select6.i.i to i64
-  %85 = or disjoint i64 %83, %84
+  %spec.select6.i.i = select i1 %82, i32 0, i32 %.sroa.0.0.lcssa.i.i
+  %83 = zext i32 %spec.select.i.i to i64
+  %84 = shl nuw i64 %83, 32
+  %85 = zext i32 %spec.select6.i.i to i64
+  %86 = or disjoint i64 %84, %85
   br label %av_int2sf.exit
 
 av_int2sf.exit:                                   ; preds = %.loopexit, %._crit_edge.i.i
-  %.sroa.05.0.insert.insert.i.i = phi i64 [ %85, %._crit_edge.i.i ], [ -639950127104, %.loopexit ]
+  %.sroa.05.0.insert.insert.i.i = phi i64 [ %86, %._crit_edge.i.i ], [ -639950127104, %.loopexit ]
   ret i64 %.sroa.05.0.insert.insert.i.i
 }
 
@@ -1418,8 +1419,8 @@ define internal void @sbr_hf_apply_noise_0(ptr noundef captures(none) %0, ptr no
   br i1 %exitcond.not, label %sbr_hf_apply_noise.exit, label %.lr.ph, !llvm.loop !40
 
 sbr_hf_apply_noise.exit.sink.split:               ; preds = %31, %16
-  %.lcssa15.sink = phi i32 [ %19, %16 ], [ %35, %31 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa15.sink) #6
+  %.lcssa18.sink = phi i32 [ %19, %16 ], [ %35, %31 ]
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa18.sink) #6
   br label %sbr_hf_apply_noise.exit
 
 sbr_hf_apply_noise.exit:                          ; preds = %.thread, %sbr_hf_apply_noise.exit.sink.split, %6
@@ -1526,8 +1527,8 @@ define internal void @sbr_hf_apply_noise_1(ptr noundef captures(none) %0, ptr no
   br i1 %exitcond.not, label %sbr_hf_apply_noise.exit, label %.lr.ph, !llvm.loop !40
 
 sbr_hf_apply_noise.exit.sink.split:               ; preds = %35, %19
-  %.lcssa18.sink = phi i32 [ %22, %19 ], [ %39, %35 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa18.sink) #6
+  %.lcssa21.sink = phi i32 [ %22, %19 ], [ %39, %35 ]
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa21.sink) #6
   br label %sbr_hf_apply_noise.exit
 
 sbr_hf_apply_noise.exit:                          ; preds = %.thread, %sbr_hf_apply_noise.exit.sink.split, %6
@@ -1628,8 +1629,8 @@ define internal void @sbr_hf_apply_noise_2(ptr noundef captures(none) %0, ptr no
   br i1 %exitcond.not, label %sbr_hf_apply_noise.exit, label %.lr.ph, !llvm.loop !40
 
 sbr_hf_apply_noise.exit.sink.split:               ; preds = %31, %16
-  %.lcssa15.sink = phi i32 [ %19, %16 ], [ %35, %31 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa15.sink) #6
+  %.lcssa18.sink = phi i32 [ %19, %16 ], [ %35, %31 ]
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa18.sink) #6
   br label %sbr_hf_apply_noise.exit
 
 sbr_hf_apply_noise.exit:                          ; preds = %.thread, %sbr_hf_apply_noise.exit.sink.split, %6
@@ -1736,8 +1737,8 @@ define internal void @sbr_hf_apply_noise_3(ptr noundef captures(none) %0, ptr no
   br i1 %exitcond.not, label %sbr_hf_apply_noise.exit, label %.lr.ph, !llvm.loop !40
 
 sbr_hf_apply_noise.exit.sink.split:               ; preds = %34, %18
-  %.lcssa18.sink = phi i32 [ %21, %18 ], [ %38, %34 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa18.sink) #6
+  %.lcssa21.sink = phi i32 [ %21, %18 ], [ %38, %34 ]
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa21.sink) #6
   br label %sbr_hf_apply_noise.exit
 
 sbr_hf_apply_noise.exit:                          ; preds = %.thread, %sbr_hf_apply_noise.exit.sink.split, %6

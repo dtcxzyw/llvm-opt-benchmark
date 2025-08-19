@@ -625,12 +625,12 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %_ZN4llvm15MachineFu
   br label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPNS_12MachineInstrELj8EED2Ev.exit: ; preds = %14, %.loopexit, %161
-  %.not.i8991 = phi i1 [ %.not.i.not, %.loopexit ], [ %.not.i.not, %161 ], [ false, %14 ]
+  %.not.i104106 = phi i1 [ %.not.i.not, %.loopexit ], [ %.not.i.not, %161 ], [ false, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %162
 
 162:                                              ; preds = %11, %2, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj8EED2Ev.exit
-  %.0 = phi i1 [ %.not.i8991, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj8EED2Ev.exit ], [ false, %2 ], [ false, %11 ]
+  %.0 = phi i1 [ %.not.i104106, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj8EED2Ev.exit ], [ false, %2 ], [ false, %11 ]
   ret i1 %.0
 }
 

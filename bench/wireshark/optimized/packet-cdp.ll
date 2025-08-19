@@ -1915,7 +1915,7 @@ dissect_spare_poe_tlv.exit:                       ; preds = %741, %746
   %967 = load i32, ptr @hf_cdp_tlvlength, align 4
   %968 = call ptr @proto_tree_add_item(ptr noundef %964, i32 noundef %967, ptr noundef %0, i32 noundef %53, i32 noundef 2, i32 noundef 0)
   %.not1095 = icmp eq i16 %54, 4
-  br i1 %.not1095, label %.loopexit1212, label %969
+  br i1 %.not1095, label %.loopexit1236, label %969
 
 969:                                              ; preds = %961
   %970 = load i32, ptr @hf_cdp_data, align 4
@@ -1938,9 +1938,9 @@ dissect_spare_poe_tlv.exit:                       ; preds = %741, %746
   %.11028 = phi i32 [ %66, %65 ], [ 4, %44 ], [ %.21029, %.loopexit ]
   %977 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.11028)
   %978 = call i32 @call_data_dissector(ptr noundef %977, ptr noundef %1, ptr noundef %18)
-  br label %.loopexit1212
+  br label %.loopexit1236
 
-.loopexit1212:                                    ; preds = %961, %.loopexit1101
+.loopexit1236:                                    ; preds = %961, %.loopexit1101
   %979 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2158,17 +2158,17 @@ define internal fastcc range(i32 -1, 65791) i32 @dissect_address_tlv(ptr noundef
   br i1 %or.cond24, label %.thread, label %86
 
 .thread:                                          ; preds = %73, %71
-  %.sink152 = phi i32 [ 2, %71 ], [ 3, %73 ]
+  %.sink157 = phi i32 [ 2, %71 ], [ 3, %73 ]
   %.str.263.sink = phi ptr [ @.str.263, %71 ], [ @.str.264, %73 ]
   %hf_cdp_nrgyz_ip_address.sink = phi ptr [ @hf_cdp_nrgyz_ip_address, %71 ], [ @hf_cdp_nrgyz_ip6_address, %73 ]
-  %.sink149 = phi i32 [ 4, %71 ], [ %65, %73 ]
+  %.sink154 = phi i32 [ 4, %71 ], [ %65, %73 ]
   %77 = load ptr, ptr %6, align 8
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %79 = load ptr, ptr %78, align 8
-  %80 = call ptr @tvb_address_to_str(ptr noundef %79, ptr noundef %0, i32 noundef %.sink152, i32 noundef %63)
+  %80 = call ptr @tvb_address_to_str(ptr noundef %79, ptr noundef %0, i32 noundef %.sink157, i32 noundef %63)
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %77, ptr noundef nonnull %.str.263.sink, ptr noundef %80)
   %81 = load i32, ptr %hf_cdp_nrgyz_ip_address.sink, align 4
-  %82 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %81, ptr noundef %0, i32 noundef %63, i32 noundef %.sink149, i32 noundef 0)
+  %82 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %81, ptr noundef %0, i32 noundef %63, i32 noundef %.sink154, i32 noundef 0)
   %83 = icmp eq i32 %81, 0
   br i1 %83, label %.thread147, label %94
 

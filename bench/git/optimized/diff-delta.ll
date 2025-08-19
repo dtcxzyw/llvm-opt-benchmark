@@ -773,34 +773,34 @@ define dso_local noalias ptr @create_delta(ptr noundef readonly captures(none) %
   br i1 %.not300, label %239, label %._crit_edge401.thread
 
 ._crit_edge401.thread:                            ; preds = %.preheader339, %._crit_edge401
-  %.4224440 = phi i64 [ %.6226, %._crit_edge401 ], [ %51, %.preheader339 ]
-  %.1246439 = phi i32 [ %.3248, %._crit_edge401 ], [ %60, %.preheader339 ]
-  %.0216.lcssa437 = phi ptr [ %.0216.lcssa, %._crit_edge401 ], [ %12, %.preheader339 ]
-  %234 = trunc i32 %.1246439 to i8
-  %235 = xor i32 %.1246439, -1
+  %.4224453 = phi i64 [ %.6226, %._crit_edge401 ], [ %51, %.preheader339 ]
+  %.1246452 = phi i32 [ %.3248, %._crit_edge401 ], [ %60, %.preheader339 ]
+  %.0216.lcssa450 = phi ptr [ %.0216.lcssa, %._crit_edge401 ], [ %12, %.preheader339 ]
+  %234 = trunc i32 %.1246452 to i8
+  %235 = xor i32 %.1246452, -1
   %236 = sext i32 %235 to i64
-  %237 = getelementptr i8, ptr %.0216.lcssa437, i64 %.4224440
+  %237 = getelementptr i8, ptr %.0216.lcssa450, i64 %.4224453
   %238 = getelementptr i8, ptr %237, i64 %236
   store i8 %234, ptr %238, align 1, !tbaa !6
   br label %239
 
 239:                                              ; preds = %._crit_edge401.thread, %._crit_edge401
-  %.4224441 = phi i64 [ %.4224440, %._crit_edge401.thread ], [ %.6226, %._crit_edge401 ]
-  %.0216.lcssa438 = phi ptr [ %.0216.lcssa437, %._crit_edge401.thread ], [ %.0216.lcssa, %._crit_edge401 ]
-  %240 = icmp ule i64 %.4224441, %4
+  %.4224454 = phi i64 [ %.4224453, %._crit_edge401.thread ], [ %.6226, %._crit_edge401 ]
+  %.0216.lcssa451 = phi ptr [ %.0216.lcssa450, %._crit_edge401.thread ], [ %.0216.lcssa, %._crit_edge401 ]
+  %240 = icmp ule i64 %.4224454, %4
   %or.cond307.not = or i1 %.not, %240
   br i1 %or.cond307.not, label %242, label %241
 
 241:                                              ; preds = %239
-  tail call void @free(ptr noundef nonnull %.0216.lcssa438) #12
+  tail call void @free(ptr noundef nonnull %.0216.lcssa451) #12
   br label %243
 
 242:                                              ; preds = %239
-  store i64 %.4224441, ptr %3, align 8, !tbaa !25
+  store i64 %.4224454, ptr %3, align 8, !tbaa !25
   br label %243
 
 243:                                              ; preds = %.thread329, %9, %5, %242, %241
-  %.0 = phi ptr [ null, %241 ], [ %.0216.lcssa438, %242 ], [ null, %5 ], [ null, %9 ], [ null, %.thread329 ]
+  %.0 = phi ptr [ null, %241 ], [ %.0216.lcssa451, %242 ], [ null, %5 ], [ null, %9 ], [ null, %.thread329 ]
   ret ptr %.0
 }
 

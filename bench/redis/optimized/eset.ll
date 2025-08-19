@@ -412,264 +412,260 @@ fb_ffs.exit.i:                                    ; preds = %45, %36
   %.141.i.lcssa.i.i = phi i64 [ %41, %36 ], [ %47, %45 ]
   %.039.i.lcssa.i.i = phi i64 [ %37, %36 ], [ %43, %45 ]
   %49 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.141.i.lcssa.i.i, i1 true)
-  %50 = shl i64 %.039.i.lcssa.i.i, 6
+  %50 = shl nuw nsw i64 %.039.i.lcssa.i.i, 6
   %51 = or disjoint i64 %50, %49
-  %52 = and i64 %51, 4294967295
-  %53 = icmp samesign ult i64 %52, 200
-  br i1 %53, label %.lr.ph.i, label %eset_first_fit.exit
+  %52 = icmp samesign ult i64 %51, 200
+  br i1 %52, label %.lr.ph.i, label %eset_first_fit.exit
 
 .lr.ph.i:                                         ; preds = %fb_ffs.exit.i
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %56
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %55
 
-56:                                               ; preds = %fb_ffs.exit37.i, %.lr.ph.i
-  %57 = phi i64 [ %52, %.lr.ph.i ], [ %98, %fb_ffs.exit37.i ]
-  %.025.in46.i = phi i64 [ %51, %.lr.ph.i ], [ %97, %fb_ffs.exit37.i ]
+55:                                               ; preds = %fb_ffs.exit37.i, %.lr.ph.i
+  %.025.in46.i = phi i64 [ %51, %.lr.ph.i ], [ %94, %fb_ffs.exit37.i ]
   %.02645.i = phi i32 [ %4, %.lr.ph.i ], [ %spec.store.select.i, %fb_ffs.exit37.i ]
   %.sroa.5.044.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.5.1.i, %fb_ffs.exit37.i ]
   %.sroa.0.043.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.0.1.i, %fb_ffs.exit37.i ]
   %.02742.i = phi ptr [ null, %.lr.ph.i ], [ %.2.i, %fb_ffs.exit37.i ]
-  %58 = icmp eq i32 %.02645.i, 64
-  %spec.store.select.i = select i1 %58, i32 63, i32 %.02645.i
-  %59 = and i64 %.025.in46.i, 4294967295
-  %60 = getelementptr inbounds nuw [200 x i64], ptr @je_sz_pind2sz_tab, i64 0, i64 %59
-  %61 = load i64, ptr %60, align 8, !tbaa !24
-  %62 = zext nneg i32 %spec.store.select.i to i64
-  %63 = lshr i64 %61, %62
-  %64 = icmp ugt i64 %63, %9
-  br i1 %64, label %eset_first_fit.exit, label %65
+  %56 = icmp eq i32 %.02645.i, 64
+  %spec.store.select.i = select i1 %56, i32 63, i32 %.02645.i
+  %57 = getelementptr inbounds nuw [200 x i64], ptr @je_sz_pind2sz_tab, i64 0, i64 %.025.in46.i
+  %58 = load i64, ptr %57, align 8, !tbaa !24
+  %59 = zext nneg i32 %spec.store.select.i to i64
+  %60 = lshr i64 %58, %59
+  %61 = icmp ugt i64 %60, %9
+  br i1 %61, label %eset_first_fit.exit, label %62
 
-65:                                               ; preds = %56
-  %66 = icmp eq ptr %.02742.i, null
-  br i1 %66, label %75, label %67
+62:                                               ; preds = %55
+  %63 = icmp eq ptr %.02742.i, null
+  br i1 %63, label %72, label %64
 
-67:                                               ; preds = %65
-  %.idx.i = shl nuw nsw i64 %57, 5
-  %68 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx.i
-  %69 = load i64, ptr %68, align 8
-  %.not.i.i = icmp eq i64 %69, %.sroa.0.043.i
-  br i1 %.not.i.i, label %edata_cmp_summary_comp.exit.i, label %70
+64:                                               ; preds = %62
+  %.idx.i = shl nuw nsw i64 %.025.in46.i, 5
+  %65 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i
+  %66 = load i64, ptr %65, align 8
+  %.not.i.i = icmp eq i64 %66, %.sroa.0.043.i
+  br i1 %.not.i.i, label %edata_cmp_summary_comp.exit.i, label %67
 
-70:                                               ; preds = %67
-  %71 = icmp ult i64 %69, %.sroa.0.043.i
-  br i1 %71, label %75, label %79
+67:                                               ; preds = %64
+  %68 = icmp ult i64 %66, %.sroa.0.043.i
+  br i1 %68, label %72, label %76
 
-edata_cmp_summary_comp.exit.i:                    ; preds = %67
-  %72 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %73 = load i64, ptr %72, align 8
-  %74 = icmp ult i64 %73, %.sroa.5.044.i
-  br i1 %74, label %75, label %79
+edata_cmp_summary_comp.exit.i:                    ; preds = %64
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %70 = load i64, ptr %69, align 8
+  %71 = icmp ult i64 %70, %.sroa.5.044.i
+  br i1 %71, label %72, label %76
 
-75:                                               ; preds = %edata_cmp_summary_comp.exit.i, %70, %65
-  %76 = getelementptr inbounds nuw [200 x %struct.eset_bin_s], ptr %55, i64 0, i64 %57
-  %77 = tail call ptr @je_edata_heap_first(ptr noundef nonnull %76) #7
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %.sroa.0.0.copyload.i = load i64, ptr %78, align 8, !tbaa !24
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %76, i64 24
+72:                                               ; preds = %edata_cmp_summary_comp.exit.i, %67, %62
+  %73 = getelementptr inbounds nuw [200 x %struct.eset_bin_s], ptr %54, i64 0, i64 %.025.in46.i
+  %74 = tail call ptr @je_edata_heap_first(ptr noundef nonnull %73) #7
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %.sroa.0.0.copyload.i = load i64, ptr %75, align 8, !tbaa !24
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %73, i64 24
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !24
-  br label %79
+  br label %76
 
-79:                                               ; preds = %75, %edata_cmp_summary_comp.exit.i, %70
-  %.2.i = phi ptr [ %77, %75 ], [ %.02742.i, %edata_cmp_summary_comp.exit.i ], [ %.02742.i, %70 ]
-  %.sroa.0.1.i = phi i64 [ %.sroa.0.0.copyload.i, %75 ], [ %.sroa.0.043.i, %edata_cmp_summary_comp.exit.i ], [ %.sroa.0.043.i, %70 ]
-  %.sroa.5.1.i = phi i64 [ %.sroa.5.0.copyload.i, %75 ], [ %.sroa.5.044.i, %edata_cmp_summary_comp.exit.i ], [ %.sroa.5.044.i, %70 ]
-  %80 = icmp eq i64 %57, 199
-  br i1 %80, label %eset_first_fit.exit, label %81
+76:                                               ; preds = %72, %edata_cmp_summary_comp.exit.i, %67
+  %.2.i = phi ptr [ %74, %72 ], [ %.02742.i, %edata_cmp_summary_comp.exit.i ], [ %.02742.i, %67 ]
+  %.sroa.0.1.i = phi i64 [ %.sroa.0.0.copyload.i, %72 ], [ %.sroa.0.043.i, %edata_cmp_summary_comp.exit.i ], [ %.sroa.0.043.i, %67 ]
+  %.sroa.5.1.i = phi i64 [ %.sroa.5.0.copyload.i, %72 ], [ %.sroa.5.044.i, %edata_cmp_summary_comp.exit.i ], [ %.sroa.5.044.i, %67 ]
+  %77 = icmp eq i64 %.025.in46.i, 199
+  br i1 %77, label %eset_first_fit.exit, label %78
 
-81:                                               ; preds = %79
-  %82 = add nuw nsw i64 %57, 1
-  %83 = lshr i64 %82, 6
-  %84 = getelementptr inbounds nuw i64, ptr %0, i64 %83
-  %85 = load i64, ptr %84, align 8, !tbaa !24
-  %86 = and i64 %82, 63
-  %notmask.i.i30.i = shl nsw i64 -1, %86
-  %87 = and i64 %85, %notmask.i.i30.i
-  %88 = icmp eq i64 %87, 0
-  br i1 %88, label %.lr.ph.i35.i, label %fb_ffs.exit37.i
+78:                                               ; preds = %76
+  %79 = add nuw nsw i64 %.025.in46.i, 1
+  %80 = lshr i64 %79, 6
+  %81 = getelementptr inbounds nuw i64, ptr %0, i64 %80
+  %82 = load i64, ptr %81, align 8, !tbaa !24
+  %83 = and i64 %79, 63
+  %notmask.i.i30.i = shl nsw i64 -1, %83
+  %84 = and i64 %82, %notmask.i.i30.i
+  %85 = icmp eq i64 %84, 0
+  br i1 %85, label %.lr.ph.i35.i, label %fb_ffs.exit37.i
 
-.lr.ph.i35.i:                                     ; preds = %81, %91
-  %.039.i4.i36.i = phi i64 [ %89, %91 ], [ %83, %81 ]
-  %89 = add nuw nsw i64 %.039.i4.i36.i, 1
-  %90 = icmp eq i64 %89, 4
-  br i1 %90, label %eset_first_fit.exit, label %91
+.lr.ph.i35.i:                                     ; preds = %78, %88
+  %.039.i4.i36.i = phi i64 [ %86, %88 ], [ %80, %78 ]
+  %86 = add nuw nsw i64 %.039.i4.i36.i, 1
+  %87 = icmp eq i64 %86, 4
+  br i1 %87, label %eset_first_fit.exit, label %88
 
-91:                                               ; preds = %.lr.ph.i35.i
-  %92 = getelementptr inbounds nuw i64, ptr %0, i64 %89
-  %93 = load i64, ptr %92, align 8, !tbaa !24
-  %94 = icmp eq i64 %93, 0
-  br i1 %94, label %.lr.ph.i35.i, label %fb_ffs.exit37.i, !llvm.loop !25
+88:                                               ; preds = %.lr.ph.i35.i
+  %89 = getelementptr inbounds nuw i64, ptr %0, i64 %86
+  %90 = load i64, ptr %89, align 8, !tbaa !24
+  %91 = icmp eq i64 %90, 0
+  br i1 %91, label %.lr.ph.i35.i, label %fb_ffs.exit37.i, !llvm.loop !25
 
-fb_ffs.exit37.i:                                  ; preds = %91, %81
-  %.141.i.lcssa.i32.i = phi i64 [ %87, %81 ], [ %93, %91 ]
-  %.039.i.lcssa.i33.i = phi i64 [ %83, %81 ], [ %89, %91 ]
-  %95 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.141.i.lcssa.i32.i, i1 true)
-  %96 = shl i64 %.039.i.lcssa.i33.i, 6
-  %97 = or disjoint i64 %96, %95
-  %98 = and i64 %97, 4294967295
-  %99 = icmp samesign ult i64 %98, 200
-  br i1 %99, label %56, label %eset_first_fit.exit, !llvm.loop !26
+fb_ffs.exit37.i:                                  ; preds = %88, %78
+  %.141.i.lcssa.i32.i = phi i64 [ %84, %78 ], [ %90, %88 ]
+  %.039.i.lcssa.i33.i = phi i64 [ %80, %78 ], [ %86, %88 ]
+  %92 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.141.i.lcssa.i32.i, i1 true)
+  %93 = shl nuw nsw i64 %.039.i.lcssa.i33.i, 6
+  %94 = or disjoint i64 %93, %92
+  %95 = icmp samesign ult i64 %94, 200
+  br i1 %95, label %55, label %eset_first_fit.exit, !llvm.loop !26
 
-eset_first_fit.exit:                              ; preds = %.lr.ph.i.i, %56, %79, %fb_ffs.exit37.i, %.lr.ph.i35.i, %30, %34, %fb_ffs.exit.i
-  %.0.i = phi ptr [ %35, %34 ], [ null, %30 ], [ null, %fb_ffs.exit.i ], [ %.2.i, %.lr.ph.i35.i ], [ %.2.i, %fb_ffs.exit37.i ], [ %.02742.i, %56 ], [ %.2.i, %79 ], [ null, %.lr.ph.i.i ]
-  %100 = icmp ugt i64 %2, 4096
-  %101 = icmp eq ptr %.0.i, null
-  %or.cond = select i1 %100, i1 %101, i1 false
-  br i1 %or.cond, label %102, label %eset_fit_alignment.exit
+eset_first_fit.exit:                              ; preds = %.lr.ph.i.i, %55, %76, %fb_ffs.exit37.i, %.lr.ph.i35.i, %30, %34, %fb_ffs.exit.i
+  %.0.i = phi ptr [ %35, %34 ], [ null, %30 ], [ null, %fb_ffs.exit.i ], [ %.2.i, %.lr.ph.i35.i ], [ %.2.i, %fb_ffs.exit37.i ], [ %.02742.i, %55 ], [ %.2.i, %76 ], [ null, %.lr.ph.i.i ]
+  %96 = icmp ugt i64 %2, 4096
+  %97 = icmp eq ptr %.0.i, null
+  %or.cond = select i1 %96, i1 %97, i1 false
+  br i1 %or.cond, label %98, label %eset_fit_alignment.exit
 
-102:                                              ; preds = %eset_first_fit.exit
-  %103 = tail call i64 @je_sz_psz_quantize_ceil(i64 noundef %1) #7
-  %104 = icmp ugt i64 %103, 8070450532247928832
-  br i1 %104, label %sz_psz2ind.exit37.i, label %105, !prof !19
+98:                                               ; preds = %eset_first_fit.exit
+  %99 = tail call i64 @je_sz_psz_quantize_ceil(i64 noundef %1) #7
+  %100 = icmp ugt i64 %99, 8070450532247928832
+  br i1 %100, label %sz_psz2ind.exit37.i, label %101, !prof !19
 
-105:                                              ; preds = %102
-  %106 = icmp ne i64 %103, 0
-  tail call void @llvm.assume(i1 %106)
-  %107 = add nsw i64 %103, -1
-  %108 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %107, i1 false)
-  %109 = trunc nuw nsw i64 %108 to i32
-  %110 = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %109)
-  %111 = icmp samesign ult i64 %103, 16385
-  %112 = add nuw nsw i32 %110, 11
-  %113 = zext nneg i32 %112 to i64
-  %114 = select i1 %111, i64 12, i64 %113
-  %115 = lshr i64 %107, %114
-  %116 = trunc i64 %115 to i32
-  %117 = and i32 %116, 3
-  %118 = shl nuw nsw i32 %110, 2
-  %119 = or disjoint i32 %117, %118
-  %120 = zext nneg i32 %119 to i64
+101:                                              ; preds = %98
+  %102 = icmp ne i64 %99, 0
+  tail call void @llvm.assume(i1 %102)
+  %103 = add nsw i64 %99, -1
+  %104 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %103, i1 false)
+  %105 = trunc nuw nsw i64 %104 to i32
+  %106 = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %105)
+  %107 = icmp samesign ult i64 %99, 16385
+  %108 = add nuw nsw i32 %106, 11
+  %109 = zext nneg i32 %108 to i64
+  %110 = select i1 %107, i64 12, i64 %109
+  %111 = lshr i64 %103, %110
+  %112 = trunc i64 %111 to i32
+  %113 = and i32 %112, 3
+  %114 = shl nuw nsw i32 %106, 2
+  %115 = or disjoint i32 %113, %114
+  %116 = zext nneg i32 %115 to i64
   br label %sz_psz2ind.exit37.i
 
-sz_psz2ind.exit37.i:                              ; preds = %105, %102
-  %.0.i36.i = phi i64 [ %120, %105 ], [ 199, %102 ]
-  %121 = tail call i64 @je_sz_psz_quantize_ceil(i64 noundef %9) #7
-  %122 = icmp ugt i64 %121, 8070450532247928832
-  br i1 %122, label %sz_psz2ind.exit.i20, label %123, !prof !19
+sz_psz2ind.exit37.i:                              ; preds = %101, %98
+  %.0.i36.i = phi i64 [ %116, %101 ], [ 199, %98 ]
+  %117 = tail call i64 @je_sz_psz_quantize_ceil(i64 noundef %9) #7
+  %118 = icmp ugt i64 %117, 8070450532247928832
+  br i1 %118, label %sz_psz2ind.exit.i20, label %119, !prof !19
 
-123:                                              ; preds = %sz_psz2ind.exit37.i
-  %124 = icmp ne i64 %121, 0
-  tail call void @llvm.assume(i1 %124)
-  %125 = add nsw i64 %121, -1
-  %126 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %125, i1 false)
-  %127 = trunc nuw nsw i64 %126 to i32
-  %128 = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %127)
-  %129 = icmp samesign ult i64 %121, 16385
-  %130 = add nuw nsw i32 %128, 11
-  %131 = zext nneg i32 %130 to i64
-  %132 = select i1 %129, i64 12, i64 %131
-  %133 = lshr i64 %125, %132
-  %134 = trunc i64 %133 to i32
-  %135 = and i32 %134, 3
-  %136 = shl nuw nsw i32 %128, 2
-  %137 = or disjoint i32 %135, %136
+119:                                              ; preds = %sz_psz2ind.exit37.i
+  %120 = icmp ne i64 %117, 0
+  tail call void @llvm.assume(i1 %120)
+  %121 = add nsw i64 %117, -1
+  %122 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %121, i1 false)
+  %123 = trunc nuw nsw i64 %122 to i32
+  %124 = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %123)
+  %125 = icmp samesign ult i64 %117, 16385
+  %126 = add nuw nsw i32 %124, 11
+  %127 = zext nneg i32 %126 to i64
+  %128 = select i1 %125, i64 12, i64 %127
+  %129 = lshr i64 %121, %128
+  %130 = trunc i64 %129 to i32
+  %131 = and i32 %130, 3
+  %132 = shl nuw nsw i32 %124, 2
+  %133 = or disjoint i32 %131, %132
   br label %sz_psz2ind.exit.i20
 
-sz_psz2ind.exit.i20:                              ; preds = %123, %sz_psz2ind.exit37.i
-  %.0.i.i21 = phi i32 [ %137, %123 ], [ 199, %sz_psz2ind.exit37.i ]
-  %138 = lshr i64 %.0.i36.i, 6
-  %139 = getelementptr inbounds nuw i64, ptr %0, i64 %138
-  %140 = load i64, ptr %139, align 8, !tbaa !24
-  %141 = and i64 %.0.i36.i, 63
-  %notmask.i.i.i22 = shl nsw i64 -1, %141
-  %142 = and i64 %140, %notmask.i.i.i22
-  %143 = icmp eq i64 %142, 0
-  br i1 %143, label %.lr.ph.i.i27, label %._crit_edge.i.i
+sz_psz2ind.exit.i20:                              ; preds = %119, %sz_psz2ind.exit37.i
+  %.0.i.i21 = phi i32 [ %133, %119 ], [ 199, %sz_psz2ind.exit37.i ]
+  %134 = lshr i64 %.0.i36.i, 6
+  %135 = getelementptr inbounds nuw i64, ptr %0, i64 %134
+  %136 = load i64, ptr %135, align 8, !tbaa !24
+  %137 = and i64 %.0.i36.i, 63
+  %notmask.i.i.i22 = shl nsw i64 -1, %137
+  %138 = and i64 %136, %notmask.i.i.i22
+  %139 = icmp eq i64 %138, 0
+  br i1 %139, label %.lr.ph.i.i27, label %._crit_edge.i.i
 
-.lr.ph.i.i27:                                     ; preds = %sz_psz2ind.exit.i20, %146
-  %.039.i4.i.i28 = phi i64 [ %144, %146 ], [ %138, %sz_psz2ind.exit.i20 ]
-  %144 = add nuw nsw i64 %.039.i4.i.i28, 1
-  %145 = icmp eq i64 %144, 4
-  br i1 %145, label %fb_ffs.exit.i25, label %146
+.lr.ph.i.i27:                                     ; preds = %sz_psz2ind.exit.i20, %142
+  %.039.i4.i.i28 = phi i64 [ %140, %142 ], [ %134, %sz_psz2ind.exit.i20 ]
+  %140 = add nuw nsw i64 %.039.i4.i.i28, 1
+  %141 = icmp eq i64 %140, 4
+  br i1 %141, label %fb_ffs.exit.i25, label %142
 
-146:                                              ; preds = %.lr.ph.i.i27
-  %147 = getelementptr inbounds nuw i64, ptr %0, i64 %144
-  %148 = load i64, ptr %147, align 8, !tbaa !24
-  %149 = icmp eq i64 %148, 0
-  br i1 %149, label %.lr.ph.i.i27, label %._crit_edge.i.i, !llvm.loop !25
+142:                                              ; preds = %.lr.ph.i.i27
+  %143 = getelementptr inbounds nuw i64, ptr %0, i64 %140
+  %144 = load i64, ptr %143, align 8, !tbaa !24
+  %145 = icmp eq i64 %144, 0
+  br i1 %145, label %.lr.ph.i.i27, label %._crit_edge.i.i, !llvm.loop !25
 
-._crit_edge.i.i:                                  ; preds = %146, %sz_psz2ind.exit.i20
-  %.141.i.lcssa.i.i23 = phi i64 [ %142, %sz_psz2ind.exit.i20 ], [ %148, %146 ]
-  %.039.i.lcssa.i.i24 = phi i64 [ %138, %sz_psz2ind.exit.i20 ], [ %144, %146 ]
-  %150 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.141.i.lcssa.i.i23, i1 true)
-  %151 = shl i64 %.039.i.lcssa.i.i24, 6
-  %152 = or disjoint i64 %151, %150
+._crit_edge.i.i:                                  ; preds = %142, %sz_psz2ind.exit.i20
+  %.141.i.lcssa.i.i23 = phi i64 [ %138, %sz_psz2ind.exit.i20 ], [ %144, %142 ]
+  %.039.i.lcssa.i.i24 = phi i64 [ %134, %sz_psz2ind.exit.i20 ], [ %140, %142 ]
+  %146 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.141.i.lcssa.i.i23, i1 true)
+  %147 = shl nuw nsw i64 %.039.i.lcssa.i.i24, 6
+  %148 = or disjoint i64 %147, %146
   br label %fb_ffs.exit.i25
 
 fb_ffs.exit.i25:                                  ; preds = %.lr.ph.i.i27, %._crit_edge.i.i
-  %.0.i.i.i = phi i64 [ %152, %._crit_edge.i.i ], [ 200, %.lr.ph.i.i27 ]
-  %153 = add i64 %7, -1
-  %.02855.i = trunc i64 %.0.i.i.i to i32
+  %.0.i.i.i = phi i64 [ %148, %._crit_edge.i.i ], [ 200, %.lr.ph.i.i27 ]
+  %149 = add i64 %7, -1
+  %.02855.i = trunc nuw nsw i64 %.0.i.i.i to i32
   %.not3556.i = icmp ugt i32 %.0.i.i21, %.02855.i
   br i1 %.not3556.i, label %.lr.ph.i26, label %eset_fit_alignment.exit
 
 .lr.ph.i26:                                       ; preds = %fb_ffs.exit.i25
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %155 = sub i64 0, %7
-  br label %156
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %151 = sub i64 0, %7
+  br label %152
 
-156:                                              ; preds = %fb_ffs.exit46.i, %.lr.ph.i26
+152:                                              ; preds = %fb_ffs.exit46.i, %.lr.ph.i26
   %.028.in57.i = phi i64 [ %.0.i.i.i, %.lr.ph.i26 ], [ %.0.i.i43.i, %fb_ffs.exit46.i ]
-  %157 = and i64 %.028.in57.i, 4294967295
-  %158 = getelementptr inbounds nuw [200 x %struct.eset_bin_s], ptr %154, i64 0, i64 %157
-  %159 = tail call ptr @je_edata_heap_first(ptr noundef nonnull %158) #7
-  %160 = getelementptr i8, ptr %159, i64 8
-  %.val38.i = load ptr, ptr %160, align 8, !tbaa !20
-  %161 = ptrtoint ptr %.val38.i to i64
-  %162 = and i64 %161, -4096
-  %163 = getelementptr i8, ptr %159, i64 16
-  %.val.i = load i64, ptr %163, align 8, !tbaa !18
-  %164 = and i64 %.val.i, -4096
-  %165 = add i64 %153, %162
-  %166 = and i64 %165, %155
-  %167 = icmp ult i64 %166, %162
-  %168 = add i64 %164, %162
-  %.not.i = icmp ule i64 %168, %166
-  %or.cond.not70.i = select i1 %167, i1 true, i1 %.not.i
-  %169 = sub nuw i64 %168, %166
-  %.not34.i = icmp ult i64 %169, %1
-  %or.cond68.i = select i1 %or.cond.not70.i, i1 true, i1 %.not34.i
-  br i1 %or.cond68.i, label %select.unfold.i, label %eset_fit_alignment.exit
+  %153 = and i64 %.028.in57.i, 4294967295
+  %154 = getelementptr inbounds nuw [200 x %struct.eset_bin_s], ptr %150, i64 0, i64 %153
+  %155 = tail call ptr @je_edata_heap_first(ptr noundef nonnull %154) #7
+  %156 = getelementptr i8, ptr %155, i64 8
+  %.val38.i = load ptr, ptr %156, align 8, !tbaa !20
+  %157 = ptrtoint ptr %.val38.i to i64
+  %158 = and i64 %157, -4096
+  %159 = getelementptr i8, ptr %155, i64 16
+  %.val.i = load i64, ptr %159, align 8, !tbaa !18
+  %160 = and i64 %.val.i, -4096
+  %161 = add i64 %149, %158
+  %162 = and i64 %161, %151
+  %163 = icmp ult i64 %162, %158
+  %164 = add i64 %160, %158
+  %.not.i = icmp ule i64 %164, %162
+  %or.cond.not79.i = select i1 %163, i1 true, i1 %.not.i
+  %165 = sub nuw i64 %164, %162
+  %.not34.i = icmp ult i64 %165, %1
+  %or.cond77.i = select i1 %or.cond.not79.i, i1 true, i1 %.not34.i
+  br i1 %or.cond77.i, label %select.unfold.i, label %eset_fit_alignment.exit
 
-select.unfold.i:                                  ; preds = %156
-  %170 = add nuw nsw i64 %157, 1
-  %171 = lshr i64 %170, 6
-  %172 = getelementptr inbounds nuw i64, ptr %0, i64 %171
-  %173 = load i64, ptr %172, align 8, !tbaa !24
-  %174 = and i64 %170, 63
-  %notmask.i.i39.i = shl nsw i64 -1, %174
-  %175 = and i64 %173, %notmask.i.i39.i
-  %176 = icmp eq i64 %175, 0
-  br i1 %176, label %.lr.ph.i44.i, label %._crit_edge.i40.i
+select.unfold.i:                                  ; preds = %152
+  %166 = add nuw nsw i64 %153, 1
+  %167 = lshr i64 %166, 6
+  %168 = getelementptr inbounds nuw i64, ptr %0, i64 %167
+  %169 = load i64, ptr %168, align 8, !tbaa !24
+  %170 = and i64 %166, 63
+  %notmask.i.i39.i = shl nsw i64 -1, %170
+  %171 = and i64 %169, %notmask.i.i39.i
+  %172 = icmp eq i64 %171, 0
+  br i1 %172, label %.lr.ph.i44.i, label %._crit_edge.i40.i
 
-.lr.ph.i44.i:                                     ; preds = %select.unfold.i, %179
-  %.039.i4.i45.i = phi i64 [ %177, %179 ], [ %171, %select.unfold.i ]
-  %177 = add nuw nsw i64 %.039.i4.i45.i, 1
-  %178 = icmp eq i64 %177, 4
-  br i1 %178, label %fb_ffs.exit46.i, label %179
+.lr.ph.i44.i:                                     ; preds = %select.unfold.i, %175
+  %.039.i4.i45.i = phi i64 [ %173, %175 ], [ %167, %select.unfold.i ]
+  %173 = add nuw nsw i64 %.039.i4.i45.i, 1
+  %174 = icmp eq i64 %173, 4
+  br i1 %174, label %fb_ffs.exit46.i, label %175
 
-179:                                              ; preds = %.lr.ph.i44.i
-  %180 = getelementptr inbounds nuw i64, ptr %0, i64 %177
-  %181 = load i64, ptr %180, align 8, !tbaa !24
-  %182 = icmp eq i64 %181, 0
-  br i1 %182, label %.lr.ph.i44.i, label %._crit_edge.i40.i, !llvm.loop !25
+175:                                              ; preds = %.lr.ph.i44.i
+  %176 = getelementptr inbounds nuw i64, ptr %0, i64 %173
+  %177 = load i64, ptr %176, align 8, !tbaa !24
+  %178 = icmp eq i64 %177, 0
+  br i1 %178, label %.lr.ph.i44.i, label %._crit_edge.i40.i, !llvm.loop !25
 
-._crit_edge.i40.i:                                ; preds = %179, %select.unfold.i
-  %.141.i.lcssa.i41.i = phi i64 [ %175, %select.unfold.i ], [ %181, %179 ]
-  %.039.i.lcssa.i42.i = phi i64 [ %171, %select.unfold.i ], [ %177, %179 ]
-  %183 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.141.i.lcssa.i41.i, i1 true)
-  %184 = shl i64 %.039.i.lcssa.i42.i, 6
-  %185 = or disjoint i64 %184, %183
+._crit_edge.i40.i:                                ; preds = %175, %select.unfold.i
+  %.141.i.lcssa.i41.i = phi i64 [ %171, %select.unfold.i ], [ %177, %175 ]
+  %.039.i.lcssa.i42.i = phi i64 [ %167, %select.unfold.i ], [ %173, %175 ]
+  %179 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.141.i.lcssa.i41.i, i1 true)
+  %180 = shl i64 %.039.i.lcssa.i42.i, 6
+  %181 = or disjoint i64 %180, %179
   br label %fb_ffs.exit46.i
 
 fb_ffs.exit46.i:                                  ; preds = %.lr.ph.i44.i, %._crit_edge.i40.i
-  %.0.i.i43.i = phi i64 [ %185, %._crit_edge.i40.i ], [ 200, %.lr.ph.i44.i ]
+  %.0.i.i43.i = phi i64 [ %181, %._crit_edge.i40.i ], [ 200, %.lr.ph.i44.i ]
   %.028.i = trunc i64 %.0.i.i43.i to i32
   %.not35.i = icmp ugt i32 %.0.i.i21, %.028.i
-  br i1 %.not35.i, label %156, label %eset_fit_alignment.exit, !llvm.loop !27
+  br i1 %.not35.i, label %152, label %eset_fit_alignment.exit, !llvm.loop !27
 
-eset_fit_alignment.exit:                          ; preds = %fb_ffs.exit46.i, %156, %fb_ffs.exit.i25, %eset_first_fit.exit, %5
-  %.016 = phi ptr [ null, %5 ], [ %.0.i, %eset_first_fit.exit ], [ null, %fb_ffs.exit.i25 ], [ %159, %156 ], [ null, %fb_ffs.exit46.i ]
+eset_fit_alignment.exit:                          ; preds = %fb_ffs.exit46.i, %152, %fb_ffs.exit.i25, %eset_first_fit.exit, %5
+  %.016 = phi ptr [ null, %5 ], [ %.0.i, %eset_first_fit.exit ], [ null, %fb_ffs.exit.i25 ], [ %155, %152 ], [ null, %fb_ffs.exit46.i ]
   ret ptr %.016
 }
 

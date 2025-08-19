@@ -609,12 +609,12 @@ H5HL__dirty.exit:                                 ; preds = %27
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.0118155 = load ptr, ptr %42, align 8, !tbaa !50
   %.not.not156 = icmp eq ptr %.0118155, null
-  br i1 %.not.not156, label %H5HL__remove_free.exit.thread164, label %.lr.ph
+  br i1 %.not.not156, label %H5HL__remove_free.exit.thread172, label %.lr.ph
 
-H5HL__remove_free.exit.thread164:                 ; preds = %H5HL__dirty.exit
+H5HL__remove_free.exit.thread172:                 ; preds = %H5HL__dirty.exit
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %44 = load i64, ptr %43, align 8, !tbaa !23
-  %.166 = tail call i64 @llvm.umax.i64(i64 %41, i64 %44)
+  %.174 = tail call i64 @llvm.umax.i64(i64 %41, i64 %44)
   br label %100
 
 .lr.ph:                                           ; preds = %H5HL__dirty.exit, %90
@@ -728,10 +728,10 @@ H5HL__remove_free.exit.thread164:                 ; preds = %H5HL__dirty.exit
   %99 = icmp eq i64 %98, %94
   br i1 %99, label %111, label %100
 
-100:                                              ; preds = %H5HL__remove_free.exit.thread164, %92
-  %.170 = phi i64 [ %.166, %H5HL__remove_free.exit.thread164 ], [ %., %92 ]
-  %101 = phi ptr [ %43, %H5HL__remove_free.exit.thread164 ], [ %93, %92 ]
-  %.0119.lcssa169 = phi ptr [ null, %H5HL__remove_free.exit.thread164 ], [ %.1, %92 ]
+100:                                              ; preds = %H5HL__remove_free.exit.thread172, %92
+  %.178 = phi i64 [ %.174, %H5HL__remove_free.exit.thread172 ], [ %., %92 ]
+  %101 = phi ptr [ %43, %H5HL__remove_free.exit.thread172 ], [ %93, %92 ]
+  %.0119.lcssa176 = phi ptr [ null, %H5HL__remove_free.exit.thread172 ], [ %.1, %92 ]
   %102 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #7
   %103 = zext i8 %102 to i64
   %104 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #7
@@ -740,15 +740,15 @@ H5HL__remove_free.exit.thread164:                 ; preds = %H5HL__dirty.exit
   %107 = add nuw nsw i64 %106, %105
   %108 = and i64 %107, 1016
   %109 = add nuw nsw i64 %108, %41
-  %110 = icmp ult i64 %.170, %109
-  %spec.select = select i1 %110, i64 %41, i64 %.170
+  %110 = icmp ult i64 %.178, %109
+  %spec.select = select i1 %110, i64 %41, i64 %.178
   %.pre163 = load i64, ptr %101, align 8, !tbaa !23
   br label %111
 
 111:                                              ; preds = %100, %92
-  %.not171 = phi i1 [ false, %92 ], [ %.not.not156, %100 ]
+  %.not179 = phi i1 [ false, %92 ], [ %.not.not156, %100 ]
   %112 = phi ptr [ %93, %92 ], [ %101, %100 ]
-  %.0119.lcssa168 = phi ptr [ %.1, %92 ], [ %.0119.lcssa169, %100 ]
+  %.0119.lcssa177 = phi ptr [ %.1, %92 ], [ %.0119.lcssa176, %100 ]
   %113 = phi i64 [ %94, %92 ], [ %.pre163, %100 ]
   %.0120 = phi i64 [ %., %92 ], [ %spec.select, %100 ]
   %114 = add i64 %113, %.0120
@@ -815,11 +815,11 @@ H5HL__remove_free.exit.thread164:                 ; preds = %H5HL__dirty.exit
   br label %.thread144
 
 153:                                              ; preds = %146, %145
-  br i1 %.not171, label %173, label %154
+  br i1 %.not179, label %173, label %154
 
 154:                                              ; preds = %153
-  %155 = load i64, ptr %.0119.lcssa168, align 8, !tbaa !26
-  %156 = getelementptr inbounds nuw i8, ptr %.0119.lcssa168, i64 8
+  %155 = load i64, ptr %.0119.lcssa177, align 8, !tbaa !26
+  %156 = getelementptr inbounds nuw i8, ptr %.0119.lcssa177, i64 8
   %157 = load i64, ptr %156, align 8, !tbaa !28
   %158 = add i64 %157, %155
   %159 = icmp eq i64 %158, %113
@@ -827,7 +827,7 @@ H5HL__remove_free.exit.thread164:                 ; preds = %H5HL__dirty.exit
 
 160:                                              ; preds = %154
   %161 = add i64 %155, %41
-  store i64 %161, ptr %.0119.lcssa168, align 8, !tbaa !26
+  store i64 %161, ptr %.0119.lcssa177, align 8, !tbaa !26
   %162 = sub i64 %.0120, %41
   %163 = add i64 %157, %162
   store i64 %163, ptr %156, align 8, !tbaa !28
@@ -842,7 +842,7 @@ H5HL__remove_free.exit.thread164:                 ; preds = %H5HL__dirty.exit
   br i1 %171, label %172, label %198
 
 172:                                              ; preds = %160
-  tail call fastcc void @H5HL__remove_free(ptr noundef nonnull %1, ptr noundef %.0119.lcssa168)
+  tail call fastcc void @H5HL__remove_free(ptr noundef nonnull %1, ptr noundef %.0119.lcssa177)
   br label %198
 
 173:                                              ; preds = %154, %153
@@ -1502,15 +1502,15 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__minimize_heap_space(ptr nound
 
 ._crit_edge.i.thread:                             ; preds = %63, %._crit_edge.i
   %79 = phi i64 [ %71, %._crit_edge.i ], [ %64, %63 ]
-  %.pre.i6574 = phi ptr [ %.pre.i63, %._crit_edge.i ], [ %54, %63 ]
-  %80 = getelementptr inbounds nuw i8, ptr %.pre.i6574, i64 16
+  %.pre.i6578 = phi ptr [ %.pre.i63, %._crit_edge.i ], [ %54, %63 ]
+  %80 = getelementptr inbounds nuw i8, ptr %.pre.i6578, i64 16
   store ptr %50, ptr %80, align 8, !tbaa !51
   %.pre15.i = load ptr, ptr %49, align 8, !tbaa !51
   %.not14.i = icmp eq ptr %.pre15.i, null
   br i1 %.not14.i, label %81, label %.thread
 
 81:                                               ; preds = %._crit_edge.i.thread
-  store ptr %.pre.i6574, ptr %12, align 8, !tbaa !25
+  store ptr %.pre.i6578, ptr %12, align 8, !tbaa !25
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge.i, %81, %._crit_edge.i.thread

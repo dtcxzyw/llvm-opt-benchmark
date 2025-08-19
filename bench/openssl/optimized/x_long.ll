@@ -63,12 +63,12 @@ define internal range(i32 0, 2) i32 @long_c2i(ptr noundef writeonly captures(non
 
 .thread:                                          ; preds = %8
   %14 = icmp samesign ugt i32 %2, 8
-  br i1 %14, label %16, label %.thread85
+  br i1 %14, label %16, label %.thread87
 
-.thread85:                                        ; preds = %.thread
+.thread87:                                        ; preds = %.thread
   %15 = load i8, ptr %1, align 1, !tbaa !3
-  %.not3586 = icmp sgt i8 %15, -1
-  %spec.select5987 = select i1 %.not3586, i64 0, i64 255
+  %.not3588 = icmp sgt i8 %15, -1
+  %spec.select5989 = select i1 %.not3588, i64 0, i64 255
   br label %.lr.ph.preheader
 
 16:                                               ; preds = %.thread, %11
@@ -102,21 +102,21 @@ define internal range(i32 0, 2) i32 @long_c2i(ptr noundef writeonly captures(non
   %27 = icmp eq i32 %2, 1
   br i1 %27, label %.lr.ph.preheader, label %._crit_edge.thread
 
-.lr.ph.preheader:                                 ; preds = %18, %.thread85, %25
-  %.179 = phi i64 [ %spec.select59, %25 ], [ %spec.select5987, %.thread85 ], [ %.0, %18 ]
-  %.031414778 = phi ptr [ %1, %25 ], [ %1, %.thread85 ], [ %19, %18 ]
-  %.032404977 = phi i32 [ 1, %25 ], [ %2, %.thread85 ], [ %12, %18 ]
-  %wide.trip.count = zext nneg i32 %.032404977 to i64
+.lr.ph.preheader:                                 ; preds = %18, %.thread87, %25
+  %.181 = phi i64 [ %spec.select59, %25 ], [ %spec.select5989, %.thread87 ], [ %.0, %18 ]
+  %.031414780 = phi ptr [ %1, %25 ], [ %1, %.thread87 ], [ %19, %18 ]
+  %.032404979 = phi i32 [ 1, %25 ], [ %2, %.thread87 ], [ %12, %18 ]
+  %wide.trip.count = zext nneg i32 %.032404979 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.02761 = phi i64 [ 0, %.lr.ph.preheader ], [ %33, %.lr.ph ]
   %28 = shl i64 %.02761, 8
-  %29 = getelementptr inbounds nuw i8, ptr %.031414778, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i8, ptr %.031414780, i64 %indvars.iv
   %30 = load i8, ptr %29, align 1, !tbaa !3
   %31 = zext i8 %30 to i64
-  %32 = xor i64 %.179, %31
+  %32 = xor i64 %.181, %31
   %33 = or i64 %32, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -133,11 +133,11 @@ define internal range(i32 0, 2) i32 @long_c2i(ptr noundef writeonly captures(non
   br label %42
 
 ._crit_edge.thread:                               ; preds = %17, %25, %._crit_edge
-  %.027.lcssa91 = phi i64 [ %33, %._crit_edge ], [ 0, %25 ], [ 0, %17 ]
-  %.18090 = phi i64 [ %.179, %._crit_edge ], [ %spec.select59, %25 ], [ 0, %17 ]
-  %.not36 = icmp ne i64 %.18090, 0
+  %.027.lcssa93 = phi i64 [ %33, %._crit_edge ], [ 0, %25 ], [ 0, %17 ]
+  %.18292 = phi i64 [ %.181, %._crit_edge ], [ %spec.select59, %25 ], [ 0, %17 ]
+  %.not36 = icmp ne i64 %.18292, 0
   %36 = sext i1 %.not36 to i64
-  %spec.select = xor i64 %.027.lcssa91, %36
+  %spec.select = xor i64 %.027.lcssa93, %36
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %38 = load i64, ptr %37, align 8, !tbaa !8
   %39 = icmp eq i64 %spec.select, %38

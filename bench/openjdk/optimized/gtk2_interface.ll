@@ -4658,8 +4658,8 @@ define internal range(i32 1, 4) i32 @gtk2_copy_image(ptr noundef writeonly captu
   %24 = icmp sgt i32 %20, 0
   %or.cond = and i1 %24, %23
   %25 = icmp sgt i32 %2, 0
-  %or.cond104 = and i1 %or.cond, %25
-  br i1 %or.cond104, label %.preheader.lr.ph, label %.thread71
+  %or.cond108 = and i1 %or.cond, %25
+  br i1 %or.cond108, label %.preheader.lr.ph, label %.thread71
 
 .preheader.lr.ph:                                 ; preds = %3
   %26 = icmp sgt i32 %1, 0

@@ -493,7 +493,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef 
 17:                                               ; preds = %3
   store i8 0, ptr %5, align 1, !tbaa !39
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %19 = add i64 %1, -1
+  %19 = add nsw i64 %1, -1
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit, label %21
 

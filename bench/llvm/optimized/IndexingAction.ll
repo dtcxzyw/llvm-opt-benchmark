@@ -1288,9 +1288,9 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14IdentifierInfoENS_13TinyPtrVecto
 98:                                               ; preds = %96
   %99 = and i64 %.0.copyload.i.i.i.i.i.i.i, 4
   %100 = icmp eq i64 %99, 0
-  br i1 %100, label %_ZNK5clang12Preprocessor19getLeafModuleMacrosEPKNS_14IdentifierInfoE.exit.thread59.i, label %_ZNK5clang12Preprocessor19getLeafModuleMacrosEPKNS_14IdentifierInfoE.exit.i
+  br i1 %100, label %_ZNK5clang12Preprocessor19getLeafModuleMacrosEPKNS_14IdentifierInfoE.exit.thread71.i, label %_ZNK5clang12Preprocessor19getLeafModuleMacrosEPKNS_14IdentifierInfoE.exit.i
 
-_ZNK5clang12Preprocessor19getLeafModuleMacrosEPKNS_14IdentifierInfoE.exit.thread59.i: ; preds = %98
+_ZNK5clang12Preprocessor19getLeafModuleMacrosEPKNS_14IdentifierInfoE.exit.thread71.i: ; preds = %98
   %101 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i, i64 16
   br label %.lr.ph.preheader.i
 
@@ -1306,13 +1306,13 @@ _ZNK5clang12Preprocessor19getLeafModuleMacrosEPKNS_14IdentifierInfoE.exit.i: ; p
   %.not49.i = icmp eq i32 %106, 0
   br i1 %.not49.i, label %.loopexit.i, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %_ZNK5clang12Preprocessor19getLeafModuleMacrosEPKNS_14IdentifierInfoE.exit.i, %_ZNK5clang12Preprocessor19getLeafModuleMacrosEPKNS_14IdentifierInfoE.exit.thread59.i
-  %110 = phi ptr [ %101, %_ZNK5clang12Preprocessor19getLeafModuleMacrosEPKNS_14IdentifierInfoE.exit.thread59.i ], [ %109, %_ZNK5clang12Preprocessor19getLeafModuleMacrosEPKNS_14IdentifierInfoE.exit.i ]
-  %.sroa.08.0.i63.i = phi ptr [ %97, %_ZNK5clang12Preprocessor19getLeafModuleMacrosEPKNS_14IdentifierInfoE.exit.thread59.i ], [ %104, %_ZNK5clang12Preprocessor19getLeafModuleMacrosEPKNS_14IdentifierInfoE.exit.i ]
+.lr.ph.preheader.i:                               ; preds = %_ZNK5clang12Preprocessor19getLeafModuleMacrosEPKNS_14IdentifierInfoE.exit.i, %_ZNK5clang12Preprocessor19getLeafModuleMacrosEPKNS_14IdentifierInfoE.exit.thread71.i
+  %110 = phi ptr [ %101, %_ZNK5clang12Preprocessor19getLeafModuleMacrosEPKNS_14IdentifierInfoE.exit.thread71.i ], [ %109, %_ZNK5clang12Preprocessor19getLeafModuleMacrosEPKNS_14IdentifierInfoE.exit.i ]
+  %.sroa.08.0.i75.i = phi ptr [ %97, %_ZNK5clang12Preprocessor19getLeafModuleMacrosEPKNS_14IdentifierInfoE.exit.thread71.i ], [ %104, %_ZNK5clang12Preprocessor19getLeafModuleMacrosEPKNS_14IdentifierInfoE.exit.i ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %.lr.ph.preheader.i
-  %.050.i = phi ptr [ %136, %.critedge.i ], [ %.sroa.08.0.i63.i, %.lr.ph.preheader.i ]
+  %.050.i = phi ptr [ %136, %.critedge.i ], [ %.sroa.08.0.i75.i, %.lr.ph.preheader.i ]
   %111 = load ptr, ptr %.050.i, align 8, !tbaa !554
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %113 = load ptr, ptr %112, align 8, !tbaa !556

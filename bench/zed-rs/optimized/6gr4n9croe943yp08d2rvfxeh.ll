@@ -194,9 +194,9 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   br label %25
 
 24:                                               ; preds = %21, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit.thread"
-  %.sink7.i.sroa.phi.ph = phi ptr [ %.sroa.5, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit.thread" ], [ %.sroa.5, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit" ], [ %.sroa.10, %21 ]
+  %.sink9.i.sroa.phi.ph = phi ptr [ %.sroa.5, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit.thread" ], [ %.sroa.5, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit" ], [ %.sroa.10, %21 ]
   %.sink.i18.ph = phi i64 [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit.thread" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit" ], [ %.sroa.0.0.sroa.speculated.i17, %21 ]
-  store i64 %.sink.i18.ph, ptr %.sink7.i.sroa.phi.ph, align 8, !alias.scope !5, !noalias !15
+  store i64 %.sink.i18.ph, ptr %.sink9.i.sroa.phi.ph, align 8, !alias.scope !5, !noalias !15
   %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.8.21 = load i64, ptr %.sroa.5, align 8, !range !16, !noundef !4
   %.sroa.10.0..sroa.10.0..sroa.10.0..sroa.10.16. = load i64, ptr %.sroa.10, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
@@ -319,9 +319,9 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   br label %22
 
 22:                                               ; preds = %21, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit.thread.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit.i"
-  %.sink7.i.sroa.phi.ph.i = phi ptr [ %.sroa.5.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit.thread.i" ], [ %.sroa.5.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit.i" ], [ %.sroa.10.i, %21 ]
+  %.sink9.i.sroa.phi.ph.i = phi ptr [ %.sroa.5.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit.thread.i" ], [ %.sroa.5.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit.i" ], [ %.sroa.10.i, %21 ]
   %.sink.i18.ph.i = phi i64 [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit.thread.i" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit.i" ], [ %.sroa.0.0.sroa.speculated.i17.i, %21 ]
-  store i64 %.sink.i18.ph.i, ptr %.sink7.i.sroa.phi.ph.i, align 8, !alias.scope !20, !noalias !30
+  store i64 %.sink.i18.ph.i, ptr %.sink9.i.sroa.phi.ph.i, align 8, !alias.scope !20, !noalias !30
   %.sroa.5.i.0..sroa.5.i.0..sroa.5.i.0..sroa.5.0..sroa.5.0..sroa.5.8.21.i = load i64, ptr %.sroa.5.i, align 8, !range !16, !noalias !17, !noundef !4
   %.sroa.10.i.0..sroa.10.i.0..sroa.10.i.0..sroa.10.0..sroa.10.0..sroa.10.16..i = load i64, ptr %.sroa.10.i, align 8, !noalias !17
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)
@@ -393,9 +393,9 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h679fd35d4
   br label %19
 
 19:                                               ; preds = %18, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit.thread.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit.i"
-  %.sink7.i.sroa.phi.ph.i = phi ptr [ %.sroa.5.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit.thread.i" ], [ %.sroa.5.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit.i" ], [ %.sroa.10.i, %18 ]
+  %.sink9.i.sroa.phi.ph.i = phi ptr [ %.sroa.5.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit.thread.i" ], [ %.sroa.5.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit.i" ], [ %.sroa.10.i, %18 ]
   %.sink.i18.ph.i = phi i64 [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit.thread.i" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE.exit.i" ], [ %.sroa.0.0.sroa.speculated.i17.i, %18 ]
-  store i64 %.sink.i18.ph.i, ptr %.sink7.i.sroa.phi.ph.i, align 8, !alias.scope !34, !noalias !44
+  store i64 %.sink.i18.ph.i, ptr %.sink9.i.sroa.phi.ph.i, align 8, !alias.scope !34, !noalias !44
   %.sroa.5.i.0..sroa.5.i.0..sroa.5.i.0..sroa.5.0..sroa.5.0..sroa.5.8.21.i = load i64, ptr %.sroa.5.i, align 8, !range !16, !noalias !31, !noundef !4
   %.sroa.10.i.0..sroa.10.i.0..sroa.10.i.0..sroa.10.0..sroa.10.0..sroa.10.16..i = load i64, ptr %.sroa.10.i, align 8, !noalias !31
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)

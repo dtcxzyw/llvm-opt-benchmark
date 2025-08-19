@@ -3609,8 +3609,8 @@ define internal fastcc void @add_events(ptr noundef %0, i32 noundef range(i32 1,
 
 28:                                               ; preds = %16, %19
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not38 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not38, label %29, label %16, !llvm.loop !11
+  %.not41 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not41, label %29, label %16, !llvm.loop !11
 
 29:                                               ; preds = %28
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1

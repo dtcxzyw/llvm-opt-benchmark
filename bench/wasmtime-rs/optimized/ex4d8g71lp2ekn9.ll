@@ -740,8 +740,8 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
           to label %245 unwind label %237
 
 245:                                              ; preds = %244, %272
-  %.sink130 = phi ptr [ %27, %272 ], [ %22, %244 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %.sink130, i64 32, i1 false)
+  %.sink131 = phi ptr [ %27, %272 ], [ %22, %244 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %.sink131, i64 32, i1 false)
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %19)
           to label %276 unwind label %274
 
@@ -1285,8 +1285,8 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
           to label %215 unwind label %106
 
 391:                                              ; preds = %388, %409
-  %.sink131 = phi ptr [ %49, %409 ], [ %44, %388 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %.sink131, i64 32, i1 false)
+  %.sink132 = phi ptr [ %49, %409 ], [ %44, %388 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %.sink132, i64 32, i1 false)
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %43)
           to label %413 unwind label %411
 
@@ -1684,9 +1684,9 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
           to label %.invoke unwind label %415
 
 .invoke:                                          ; preds = %492, %367
-  %.sink133 = phi ptr [ %19, %367 ], [ %43, %492 ]
+  %.sink134 = phi ptr [ %19, %367 ], [ %43, %492 ]
   %493 = phi ptr [ %28, %367 ], [ %50, %492 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sink133, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sink134, i64 32, i1 false)
   %494 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %494, ptr noundef nonnull align 8 dereferenceable(24) %64, i64 24, i1 false)
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %493)
@@ -3444,7 +3444,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %167) #7
           to label %348 unwind label %274
 
-.loopexit254:                                     ; preds = %.invoke294, %586, %600, %601, %603, %608, %609
+.loopexit254:                                     ; preds = %.invoke307, %586, %600, %601, %603, %608, %609
   %lpad.loopexit256 = landingpad { ptr, i32 }
           cleanup
   br label %591
@@ -3521,14 +3521,14 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 613:                                              ; preds = %610
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %162, ptr noundef nonnull align 8 dereferenceable(32) %161, i64 32, i1 false)
-  br label %.invoke294
+  br label %.invoke307
 
-.invoke294:                                       ; preds = %620, %613
+.invoke307:                                       ; preds = %620, %613
   %614 = phi ptr [ %162, %613 ], [ %164, %620 ]
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr nonnull align 8 %169, ptr nonnull align 8 %614)
           to label %615 unwind label %.loopexit254
 
-615:                                              ; preds = %.invoke294
+615:                                              ; preds = %.invoke307
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %167)
           to label %346 unwind label %.loopexit249
 
@@ -3548,7 +3548,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 620:                                              ; preds = %619
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef nonnull align 8 dereferenceable(32) %163, i64 32, i1 false)
-  br label %.invoke294
+  br label %.invoke307
 
 621:                                              ; preds = %228
   %622 = landingpad { ptr, i32 }

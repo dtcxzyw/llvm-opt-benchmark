@@ -418,7 +418,7 @@ define noundef ptr @_ZN6icu_7715NumberingSystem14createInstanceERKNS_6LocaleER10
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds [96 x i8], ptr %3, i64 0, i64 %42
   store i8 0, ptr %43, align 1, !tbaa !6
-  br label %.loopexit100
+  br label %.loopexit105
 
 44:                                               ; preds = %36
   %bcmp59 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %3, ptr noundef nonnull dereferenceable(7) @_ZN6icu_77L7gNativeE, i64 7)
@@ -435,7 +435,7 @@ define noundef ptr @_ZN6icu_7715NumberingSystem14createInstanceERKNS_6LocaleER10
 46:                                               ; preds = %44
   %bcmp64 = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %3, ptr noundef nonnull dereferenceable(12) @_ZN6icu_77L12gTraditionalE, i64 12)
   %.not65 = icmp eq i32 %bcmp64, 0
-  br i1 %.not65, label %47, label %.loopexit100
+  br i1 %.not65, label %47, label %.loopexit105
 
 47:                                               ; preds = %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(7) %3, ptr noundef nonnull align 1 dereferenceable(7) @_ZN6icu_77L7gNativeE, i64 7, i1 false) #17
@@ -444,11 +444,11 @@ define noundef ptr @_ZN6icu_7715NumberingSystem14createInstanceERKNS_6LocaleER10
 .preheader.backedge:                              ; preds = %47, %45
   br label %.preheader, !llvm.loop !29
 
-.loopexit100:                                     ; preds = %46, %40
+.loopexit105:                                     ; preds = %46, %40
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, label %48
 
-48:                                               ; preds = %.loopexit100
+48:                                               ; preds = %.loopexit105
   invoke void @ures_close_77(ptr noundef nonnull %26)
           to label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit unwind label %49
 
@@ -459,7 +459,7 @@ define noundef ptr @_ZN6icu_7715NumberingSystem14createInstanceERKNS_6LocaleER10
   call void @__clang_call_terminate(ptr %51) #18
   unreachable
 
-_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit: ; preds = %.loopexit100, %48
+_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit: ; preds = %.loopexit105, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i76 = icmp eq ptr %25, null
   br i1 %.not.i76, label %57, label %52
@@ -955,7 +955,7 @@ define void @initNumsysNames_77(ptr noundef nonnull align 4 dereferenceable(4) %
 _ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit: ; preds = %6
   %.pre = load i32, ptr %0, align 4, !tbaa !20
   %11 = icmp slt i32 %.pre, 1
-  br i1 %11, label %14, label %.thread58
+  br i1 %11, label %14, label %.thread62
 
 12:                                               ; preds = %6
   %13 = landingpad { ptr, i32 }
@@ -983,7 +983,7 @@ _ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit: ; preds = %6
   %. = select i1 %22, i32 7, i32 2
   store i32 %., ptr %0, align 4, !tbaa !20
   invoke void @ures_close_77(ptr noundef %17)
-          to label %.thread58.sink.split unwind label %.loopexit.split-lp
+          to label %.thread62.sink.split unwind label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %.preheader
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1104,25 +1104,25 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit43: ; preds = %_ZN6icu_771
 55:                                               ; preds = %.critedge
   %56 = load i32, ptr %0, align 4, !tbaa !20
   %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %.thread58.sink.split, label %.thread61
+  br i1 %57, label %.thread62.sink.split, label %.thread65
 
-.thread61:                                        ; preds = %55
+.thread65:                                        ; preds = %55
   store ptr %4, ptr @_ZN6icu_7712_GLOBAL__N_112gNumsysNamesE, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit
 
-.thread58.sink.split:                             ; preds = %55, %21
+.thread62.sink.split:                             ; preds = %55, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %.thread58
+  br label %.thread62
 
-.thread58:                                        ; preds = %.thread58.sink.split, %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit
+.thread62:                                        ; preds = %.thread62.sink.split, %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit
   %58 = load ptr, ptr %4, align 8, !tbaa !3
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8
   call void %60(ptr noundef nonnull align 8 dereferenceable(40) %4) #17
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit
 
-_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %7, %10, %.thread61, %.thread58
+_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %7, %10, %.thread65, %.thread62
   ret void
 
 61:                                               ; preds = %.loopexit, %.loopexit.split-lp, %54

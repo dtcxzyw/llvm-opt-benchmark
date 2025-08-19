@@ -1268,7 +1268,7 @@ define noundef zeroext i1 @_Z26mergeBondedInteractionListN3gmx8ArrayRefIK21Bonde
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.048.i, i64 8
   %43 = load i64, ptr %42, align 8, !tbaa !11
   %44 = icmp eq i64 %41, %43
-  br i1 %44, label %.lr.ph104, label %.lr.ph45.i.preheader
+  br i1 %44, label %.lr.ph123, label %.lr.ph45.i.preheader
 
 ._crit_edge.i:                                    ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i
   br i1 %56, label %.thread.i, label %.lr.ph45.i.preheader
@@ -1281,26 +1281,26 @@ define noundef zeroext i1 @_Z26mergeBondedInteractionListN3gmx8ArrayRefIK21Bonde
   %49 = icmp eq i64 %46, %48
   br i1 %49, label %.lr.ph, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit35.thread41.i
 
-.lr.ph104:                                        ; preds = %.lr.ph.i.preheader, %.lr.ph.i.backedge
+.lr.ph123:                                        ; preds = %.lr.ph.i.preheader, %.lr.ph.i.backedge
   %50 = phi i64 [ %62, %.lr.ph.i.backedge ], [ %41, %.lr.ph.i.preheader ]
   %51 = phi ptr [ %60, %.lr.ph.i.backedge ], [ %.sroa.0.048.i, %.lr.ph.i.preheader ]
   %52 = phi ptr [ %59, %.lr.ph.i.backedge ], [ %.sroa.035.068, %.lr.ph.i.preheader ]
-  %indvars.iv.i103 = phi i64 [ %indvars.iv.i.be, %.lr.ph.i.backedge ], [ 0, %.lr.ph.i.preheader ]
+  %indvars.iv.i122 = phi i64 [ %indvars.iv.i.be, %.lr.ph.i.backedge ], [ 0, %.lr.ph.i.preheader ]
   %53 = icmp eq i64 %50, 0
   br i1 %53, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i: ; preds = %.lr.ph104
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i: ; preds = %.lr.ph123
   %54 = load ptr, ptr %51, align 8, !tbaa !31
   %55 = load ptr, ptr %52, align 8, !tbaa !31
   %bcmp.i.i = call i32 @bcmp(ptr %55, ptr %54, i64 %50)
   %56 = icmp eq i32 %bcmp.i.i, 0
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i103, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i122, 1
   %57 = icmp slt i64 %indvars.iv.next.i, %37
   %58 = select i1 %57, i1 %56, i1 false
   br i1 %58, label %.lr.ph.i.backedge, label %._crit_edge.i
 
 .lr.ph.i.backedge:                                ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.thread
-  %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ], [ %indvars.iv.next.i82, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.thread ]
+  %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ], [ %indvars.iv.next.i101, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.thread ]
   %59 = getelementptr inbounds nuw [6 x %"class.std::__cxx11::basic_string"], ptr %.sroa.035.068, i64 0, i64 %indvars.iv.i.be
   %60 = getelementptr inbounds nuw [6 x %"class.std::__cxx11::basic_string"], ptr %.sroa.0.048.i, i64 0, i64 %indvars.iv.i.be
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
@@ -1308,11 +1308,11 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %64 = load i64, ptr %63, align 8, !tbaa !11
   %65 = icmp eq i64 %62, %64
-  br i1 %65, label %.lr.ph104, label %.lr.ph45.i.preheader, !llvm.loop !74
+  br i1 %65, label %.lr.ph123, label %.lr.ph45.i.preheader, !llvm.loop !74
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.thread: ; preds = %.lr.ph104
-  %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i103, 1
-  %66 = icmp slt i64 %indvars.iv.next.i82, %37
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.thread: ; preds = %.lr.ph123
+  %indvars.iv.next.i101 = add nuw nsw i64 %indvars.iv.i122, 1
+  %66 = icmp slt i64 %indvars.iv.next.i101, %37
   br i1 %66, label %.lr.ph.i.backedge, label %.thread.i
 
 .lr.ph:                                           ; preds = %.lr.ph45.i.preheader, %.lr.ph45.i.backedge

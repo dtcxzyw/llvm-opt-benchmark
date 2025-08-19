@@ -1192,9 +1192,9 @@ _ZN19XReferenceProcessor4dropEP7oopDesc13ReferenceType.exit: ; preds = %34, %swi
   br i1 %.not.i, label %_ZN19XReferenceProcessor4keepEP7oopDesc13ReferenceType.exit, label %46
 
 46:                                               ; preds = %45
-  %switch.tableidx32 = add i8 %30, -1
-  %47 = icmp ult i8 %switch.tableidx32, 4
-  br i1 %47, label %switch.lookup31, label %48
+  %switch.tableidx34 = add i8 %30, -1
+  %47 = icmp ult i8 %switch.tableidx34, 4
+  br i1 %47, label %switch.lookup33, label %48
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr @g_assert_poison, align 8
@@ -1202,14 +1202,14 @@ _ZN19XReferenceProcessor4dropEP7oopDesc13ReferenceType.exit: ; preds = %34, %swi
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.21, i32 noundef 61) #13
   unreachable
 
-switch.lookup31:                                  ; preds = %46
-  %50 = zext nneg i8 %switch.tableidx32 to i64
-  %switch.gep33 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN19XReferenceProcessor4workEv.1, i64 0, i64 %50
-  %switch.load34 = load ptr, ptr %switch.gep33, align 8
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.11, i64 noundef %.pre.i, ptr noundef nonnull %switch.load34)
+switch.lookup33:                                  ; preds = %46
+  %50 = zext nneg i8 %switch.tableidx34 to i64
+  %switch.gep35 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN19XReferenceProcessor4workEv.1, i64 0, i64 %50
+  %switch.load36 = load ptr, ptr %switch.gep35, align 8
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.11, i64 noundef %.pre.i, ptr noundef nonnull %switch.load36)
   br label %_ZN19XReferenceProcessor4keepEP7oopDesc13ReferenceType.exit
 
-_ZN19XReferenceProcessor4keepEP7oopDesc13ReferenceType.exit: ; preds = %45, %switch.lookup31
+_ZN19XReferenceProcessor4keepEP7oopDesc13ReferenceType.exit: ; preds = %45, %switch.lookup33
   %51 = load i32, ptr %3, align 4
   %52 = load i64, ptr %11, align 8
   %53 = zext i32 %51 to i64

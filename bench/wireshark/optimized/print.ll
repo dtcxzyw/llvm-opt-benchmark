@@ -1527,7 +1527,7 @@ format_field_values.exit:                         ; preds = %66, %90, %.critedge
   %109 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %110 = load ptr, ptr %109, align 8
   call void @proto_tree_children_foreach(ptr noundef %110, ptr noundef nonnull @proto_tree_get_node_field_values, ptr noundef nonnull %6)
-  switch i32 %0, label %default.unreachable75 [
+  switch i32 %0, label %default.unreachable90 [
     i32 0, label %.preheader
     i32 3, label %.preheader2
     i32 1, label %214
@@ -1846,7 +1846,7 @@ print_escaped_xml.exit:                           ; preds = %.lr.ph30.split, %19
   %269 = icmp samesign ult i64 %indvars.iv.next60, %268
   br i1 %269, label %.lr.ph20, label %.loopexit, !llvm.loop !20
 
-default.unreachable75:                            ; preds = %._crit_edge14
+default.unreachable90:                            ; preds = %._crit_edge14
   unreachable
 
 .loopexit:                                        ; preds = %264, %208, %170, %.preheader4, %.preheader2, %.preheader, %._crit_edge28
@@ -2335,11 +2335,11 @@ define internal fastcc void @ek_write_attr(ptr noundef %0, ptr noundef %1) unnam
   br label %ek_write_name.exit.i
 
 ek_write_name.exit.i:                             ; preds = %36, %28
-  %.sink1.i.i = phi ptr [ %39, %36 ], [ %35, %28 ]
+  %.sink2.i.i = phi ptr [ %39, %36 ], [ %35, %28 ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %41 = load ptr, ptr %40, align 8
-  tail call void @json_dumper_set_member_name(ptr noundef %41, ptr noundef %.sink1.i.i)
-  tail call void @g_free(ptr noundef %.sink1.i.i)
+  tail call void @json_dumper_set_member_name(ptr noundef %41, ptr noundef %.sink2.i.i)
+  tail call void @g_free(ptr noundef %.sink2.i.i)
   %42 = tail call i32 @g_slist_length(ptr noundef %0)
   %43 = icmp ugt i32 %42, 1
   br i1 %43, label %44, label %46
@@ -2466,11 +2466,11 @@ ek_write_attr_hex.exit:                           ; preds = %79, %._crit_edge.i,
   br label %ek_write_name.exit
 
 ek_write_name.exit:                               ; preds = %84, %92
-  %.sink1.i = phi ptr [ %95, %92 ], [ %91, %84 ]
+  %.sink2.i = phi ptr [ %95, %92 ], [ %91, %84 ]
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %97 = load ptr, ptr %96, align 8
-  tail call void @json_dumper_set_member_name(ptr noundef %97, ptr noundef %.sink1.i)
-  tail call void @g_free(ptr noundef %.sink1.i)
+  tail call void @json_dumper_set_member_name(ptr noundef %97, ptr noundef %.sink2.i)
+  tail call void @g_free(ptr noundef %.sink2.i)
   %98 = tail call i32 @g_slist_length(ptr noundef %0)
   %99 = icmp ugt i32 %98, 1
   br i1 %99, label %100, label %102
@@ -4010,7 +4010,7 @@ define internal void @output_field_prime_edt(ptr noundef %0, ptr noundef readonl
   br i1 %.not1316, label %.loopexit, label %.lr.ph18
 
 .lr.ph18:                                         ; preds = %.preheader14, %.preheader
-  %.0.lcssa21 = phi ptr [ %8, %.preheader ], [ %3, %.preheader14 ]
+  %.0.lcssa22 = phi ptr [ %8, %.preheader ], [ %3, %.preheader14 ]
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %11
 
@@ -4023,7 +4023,7 @@ define internal void @output_field_prime_edt(ptr noundef %0, ptr noundef readonl
   br i1 %.not12, label %.preheader, label %.lr.ph, !llvm.loop !40
 
 11:                                               ; preds = %.lr.ph18, %11
-  %.117 = phi ptr [ %.0.lcssa21, %.lr.ph18 ], [ %16, %11 ]
+  %.117 = phi ptr [ %.0.lcssa22, %.lr.ph18 ], [ %16, %11 ]
   %12 = load ptr, ptr %6, align 8
   %13 = getelementptr inbounds nuw i8, ptr %.117, i64 48
   %14 = load i32, ptr %13, align 8

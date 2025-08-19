@@ -407,20 +407,20 @@ _ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit:           ; preds = %67, %69
   br i1 %.not.i.i.i17, label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit18, label %._crit_edge29.thread
 
 ._crit_edge29.thread:                             ; preds = %._crit_edge, %._crit_edge29
-  %.lcssa46 = phi i64 [ %83, %._crit_edge29 ], [ %79, %._crit_edge ]
-  %.lcssa2245 = phi ptr [ %39, %._crit_edge29 ], [ %75, %._crit_edge ]
-  %.1.lcssa43 = phi i32 [ %.015, %._crit_edge29 ], [ %.2.lcssa, %._crit_edge ]
+  %.lcssa56 = phi i64 [ %83, %._crit_edge29 ], [ %79, %._crit_edge ]
+  %.lcssa2255 = phi ptr [ %39, %._crit_edge29 ], [ %75, %._crit_edge ]
+  %.1.lcssa53 = phi i32 [ %.015, %._crit_edge29 ], [ %.2.lcssa, %._crit_edge ]
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %85 = load ptr, ptr %84, align 8, !tbaa !34
   %86 = ptrtoint ptr %85 to i64
-  %87 = sub i64 %86, %.lcssa46
-  call void @_ZdlPvm(ptr noundef nonnull %.lcssa2245, i64 noundef %87) #18
+  %87 = sub i64 %86, %.lcssa56
+  call void @_ZdlPvm(ptr noundef nonnull %.lcssa2255, i64 noundef %87) #18
   br label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit18
 
 _ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit18:         ; preds = %._crit_edge29, %._crit_edge29.thread
-  %.1.lcssa44 = phi i32 [ %.015, %._crit_edge29 ], [ %.1.lcssa43, %._crit_edge29.thread ]
+  %.1.lcssa54 = phi i32 [ %.015, %._crit_edge29 ], [ %.1.lcssa53, %._crit_edge29.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.1.lcssa44
+  ret i32 %.1.lcssa54
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2313,13 +2313,13 @@ _ZNSt6vectorIPK10ExpressionSaIS2_EED2Ev.exit:     ; preds = %_ZNSt6vectorIPK5Blo
   br i1 %.not.i.i.i16, label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17, label %._crit_edge33.thread
 
 ._crit_edge33.thread:                             ; preds = %._crit_edge31, %._crit_edge33
-  %.lcssa44 = phi i64 [ %105, %._crit_edge33 ], [ %101, %._crit_edge31 ]
-  %.lcssa2643 = phi ptr [ %71, %._crit_edge33 ], [ %97, %._crit_edge31 ]
+  %.lcssa58 = phi i64 [ %105, %._crit_edge33 ], [ %101, %._crit_edge31 ]
+  %.lcssa2657 = phi ptr [ %71, %._crit_edge33 ], [ %97, %._crit_edge31 ]
   %106 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %107 = load ptr, ptr %106, align 8, !tbaa !34
   %108 = ptrtoint ptr %107 to i64
-  %109 = sub i64 %108, %.lcssa44
-  call void @_ZdlPvm(ptr noundef nonnull %.lcssa2643, i64 noundef %109) #18
+  %109 = sub i64 %108, %.lcssa58
+  call void @_ZdlPvm(ptr noundef nonnull %.lcssa2657, i64 noundef %109) #18
   br label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17
 
 _ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17:         ; preds = %._crit_edge33, %._crit_edge33.thread
@@ -2602,10 +2602,10 @@ define dso_local void @_ZN10Bookkeeper26record_pointer_comparisonsEPK10Expressio
   br label %.thread14.sink.split
 
 .thread14.sink.split:                             ; preds = %16, %13, %8
-  %_ZN10Bookkeeper14cmp_ptr_to_ptrE.sink16 = phi ptr [ @_ZN10Bookkeeper15cmp_ptr_to_nullE, %8 ], [ @_ZN10Bookkeeper15cmp_ptr_to_nullE, %13 ], [ %_ZN10Bookkeeper14cmp_ptr_to_ptrE._ZN10Bookkeeper15cmp_ptr_to_addrE, %16 ]
-  %20 = load i32, ptr %_ZN10Bookkeeper14cmp_ptr_to_ptrE.sink16, align 4, !tbaa !12
+  %_ZN10Bookkeeper14cmp_ptr_to_ptrE.sink17 = phi ptr [ @_ZN10Bookkeeper15cmp_ptr_to_nullE, %8 ], [ @_ZN10Bookkeeper15cmp_ptr_to_nullE, %13 ], [ %_ZN10Bookkeeper14cmp_ptr_to_ptrE._ZN10Bookkeeper15cmp_ptr_to_addrE, %16 ]
+  %20 = load i32, ptr %_ZN10Bookkeeper14cmp_ptr_to_ptrE.sink17, align 4, !tbaa !12
   %21 = add nsw i32 %20, 1
-  store i32 %21, ptr %_ZN10Bookkeeper14cmp_ptr_to_ptrE.sink16, align 4, !tbaa !12
+  store i32 %21, ptr %_ZN10Bookkeeper14cmp_ptr_to_ptrE.sink17, align 4, !tbaa !12
   br label %.thread14
 
 .thread14:                                        ; preds = %.thread14.sink.split, %11, %15, %5, %2
@@ -2652,10 +2652,10 @@ define dso_local void @_ZN10Bookkeeper22record_volatile_accessEPK8Variableib(ptr
   br i1 %22, label %_ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit.sink.split, label %_ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit
 
 _ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit.sink.split: ; preds = %19, %11
-  %_ZN10Bookkeeper16rhs_bitfield_cntE.sink20 = phi ptr [ @_ZN10Bookkeeper16lhs_bitfield_cntE, %11 ], [ @_ZN10Bookkeeper16rhs_bitfield_cntE, %19 ]
-  %23 = load i32, ptr %_ZN10Bookkeeper16rhs_bitfield_cntE.sink20, align 4, !tbaa !12
+  %_ZN10Bookkeeper16rhs_bitfield_cntE.sink22 = phi ptr [ @_ZN10Bookkeeper16lhs_bitfield_cntE, %11 ], [ @_ZN10Bookkeeper16rhs_bitfield_cntE, %19 ]
+  %23 = load i32, ptr %_ZN10Bookkeeper16rhs_bitfield_cntE.sink22, align 4, !tbaa !12
   %24 = add nsw i32 %23, 1
-  store i32 %24, ptr %_ZN10Bookkeeper16rhs_bitfield_cntE.sink20, align 4, !tbaa !12
+  store i32 %24, ptr %_ZN10Bookkeeper16rhs_bitfield_cntE.sink22, align 4, !tbaa !12
   br label %_ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit
 
 _ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit: ; preds = %_ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit.sink.split, %19, %11
@@ -2682,10 +2682,10 @@ _ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit: ; preds = %_ZN10Bookk
   br label %31
 
 31:                                               ; preds = %27, %28, %.lr.ph.split.us
-  %_ZN10Bookkeeper18write_volatile_cntE.sink22 = phi ptr [ @_ZN10Bookkeeper22write_non_volatile_cntE, %.lr.ph.split.us ], [ @_ZN10Bookkeeper18write_volatile_cntE, %28 ], [ @_ZN10Bookkeeper18write_volatile_cntE, %27 ]
-  %32 = load i32, ptr %_ZN10Bookkeeper18write_volatile_cntE.sink22, align 4, !tbaa !12
+  %_ZN10Bookkeeper18write_volatile_cntE.sink24 = phi ptr [ @_ZN10Bookkeeper22write_non_volatile_cntE, %.lr.ph.split.us ], [ @_ZN10Bookkeeper18write_volatile_cntE, %28 ], [ @_ZN10Bookkeeper18write_volatile_cntE, %27 ]
+  %32 = load i32, ptr %_ZN10Bookkeeper18write_volatile_cntE.sink24, align 4, !tbaa !12
   %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %_ZN10Bookkeeper18write_volatile_cntE.sink22, align 4, !tbaa !12
+  store i32 %33, ptr %_ZN10Bookkeeper18write_volatile_cntE.sink24, align 4, !tbaa !12
   %34 = add nuw i32 %.015.us, 1
   %exitcond17.not = icmp eq i32 %.015.us, %1
   br i1 %exitcond17.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !156
@@ -2706,10 +2706,10 @@ _ZN10Bookkeeper23record_bitfields_writesEPK8Variable.exit: ; preds = %_ZN10Bookk
   br label %40
 
 40:                                               ; preds = %.lr.ph.split, %36, %37
-  %_ZN10Bookkeeper21read_non_volatile_cntE.sink24 = phi ptr [ @_ZN10Bookkeeper17read_volatile_cntE, %37 ], [ @_ZN10Bookkeeper17read_volatile_cntE, %36 ], [ @_ZN10Bookkeeper21read_non_volatile_cntE, %.lr.ph.split ]
-  %41 = load i32, ptr %_ZN10Bookkeeper21read_non_volatile_cntE.sink24, align 4, !tbaa !12
+  %_ZN10Bookkeeper21read_non_volatile_cntE.sink26 = phi ptr [ @_ZN10Bookkeeper17read_volatile_cntE, %37 ], [ @_ZN10Bookkeeper17read_volatile_cntE, %36 ], [ @_ZN10Bookkeeper21read_non_volatile_cntE, %.lr.ph.split ]
+  %41 = load i32, ptr %_ZN10Bookkeeper21read_non_volatile_cntE.sink26, align 4, !tbaa !12
   %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %_ZN10Bookkeeper21read_non_volatile_cntE.sink24, align 4, !tbaa !12
+  store i32 %42, ptr %_ZN10Bookkeeper21read_non_volatile_cntE.sink26, align 4, !tbaa !12
   %43 = add nuw i32 %.015, 1
   %exitcond.not = icmp eq i32 %.015, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !156
@@ -3171,13 +3171,13 @@ define linkonce_odr dso_local void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(pt
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !12
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !12
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

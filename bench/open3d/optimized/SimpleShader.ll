@@ -7502,7 +7502,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi
   br i1 %.not28.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = mul i64 %12, 12
+  %22 = mul nuw nsw i64 %12, 12
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %22
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !31
   br label %_ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit
@@ -9640,9 +9640,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %102,
   br label %_ZNSt12__shared_ptrIN6open3d8geometry19OctreeColorLeafNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i
 
 _ZNSt12__shared_ptrIN6open3d8geometry19OctreeColorLeafNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i: ; preds = %105, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %90, %_ZSt20dynamic_pointer_castIN6open3d8geometry19OctreeColorLeafNodeENS1_10OctreeNodeEESt10shared_ptrIT_ERKS4_IT0_E.exit.i.i.i, %55, %._crit_edge.i.i.i
-  %.sroa.10.0177.i.i.i = phi float [ %76, %_ZSt20dynamic_pointer_castIN6open3d8geometry19OctreeColorLeafNodeENS1_10OctreeNodeEESt10shared_ptrIT_ERKS4_IT0_E.exit.i.i.i ], [ %86, %90 ], [ %86, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %86, %105 ], [ 0.000000e+00, %55 ], [ 0.000000e+00, %._crit_edge.i.i.i ]
-  %.sroa.9.0176.i.i.i = phi float [ %73, %_ZSt20dynamic_pointer_castIN6open3d8geometry19OctreeColorLeafNodeENS1_10OctreeNodeEESt10shared_ptrIT_ERKS4_IT0_E.exit.i.i.i ], [ %83, %90 ], [ %83, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %83, %105 ], [ 0.000000e+00, %55 ], [ 0.000000e+00, %._crit_edge.i.i.i ]
-  %.sroa.0148.0175.i.i.i = phi float [ %70, %_ZSt20dynamic_pointer_castIN6open3d8geometry19OctreeColorLeafNodeENS1_10OctreeNodeEESt10shared_ptrIT_ERKS4_IT0_E.exit.i.i.i ], [ %80, %90 ], [ %80, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %80, %105 ], [ 0.000000e+00, %55 ], [ 0.000000e+00, %._crit_edge.i.i.i ]
+  %.sroa.10.0205.i.i.i = phi float [ %76, %_ZSt20dynamic_pointer_castIN6open3d8geometry19OctreeColorLeafNodeENS1_10OctreeNodeEESt10shared_ptrIT_ERKS4_IT0_E.exit.i.i.i ], [ %86, %90 ], [ %86, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %86, %105 ], [ 0.000000e+00, %55 ], [ 0.000000e+00, %._crit_edge.i.i.i ]
+  %.sroa.9.0204.i.i.i = phi float [ %73, %_ZSt20dynamic_pointer_castIN6open3d8geometry19OctreeColorLeafNodeENS1_10OctreeNodeEESt10shared_ptrIT_ERKS4_IT0_E.exit.i.i.i ], [ %83, %90 ], [ %83, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %83, %105 ], [ 0.000000e+00, %55 ], [ 0.000000e+00, %._crit_edge.i.i.i ]
+  %.sroa.0148.0203.i.i.i = phi float [ %70, %_ZSt20dynamic_pointer_castIN6open3d8geometry19OctreeColorLeafNodeENS1_10OctreeNodeEESt10shared_ptrIT_ERKS4_IT0_E.exit.i.i.i ], [ %80, %90 ], [ %80, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %80, %105 ], [ 0.000000e+00, %55 ], [ 0.000000e+00, %._crit_edge.i.i.i ]
   %106 = load ptr, ptr @_ZN6open3d13visualization4glslL27cuboid_lines_vertex_indicesE, align 8, !tbaa !145
   %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6open3d13visualization4glslL27cuboid_lines_vertex_indicesE, i64 8), align 8, !tbaa !145
   %.not110136.i.i.i = icmp eq ptr %106, %107
@@ -9826,11 +9826,11 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backERKS2_.exit
   br i1 %.not.i39.i.i.i, label %183, label %180
 
 180:                                              ; preds = %_ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backERKS2_.exit38.i.i.i
-  store float %.sroa.0148.0175.i.i.i, ptr %177, align 4
+  store float %.sroa.0148.0203.i.i.i, ptr %177, align 4
   %.sroa.9.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %177, i64 4
-  store float %.sroa.9.0176.i.i.i, ptr %.sroa.9.0..sroa_idx.i.i.i, align 4
+  store float %.sroa.9.0204.i.i.i, ptr %.sroa.9.0..sroa_idx.i.i.i, align 4
   %.sroa.10.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %177, i64 8
-  store float %.sroa.10.0177.i.i.i, ptr %.sroa.10.0..sroa_idx.i.i.i, align 4, !tbaa !14
+  store float %.sroa.10.0205.i.i.i, ptr %.sroa.10.0..sroa_idx.i.i.i, align 4, !tbaa !14
   %181 = load ptr, ptr %176, align 8, !tbaa !31
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 12
   store ptr %182, ptr %176, align 8, !tbaa !31
@@ -9859,11 +9859,11 @@ _ZNKSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE12_M_check_lenEmPKc.
 
 .noexc53.i.i.i:                                   ; preds = %_ZNKSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE12_M_check_lenEmPKc.exit.i.i40.i.i.i
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 %187
-  store float %.sroa.0148.0175.i.i.i, ptr %196, align 4
+  store float %.sroa.0148.0203.i.i.i, ptr %196, align 4
   %.sroa.9.0..sroa_idx152.i.i.i = getelementptr inbounds nuw i8, ptr %196, i64 4
-  store float %.sroa.9.0176.i.i.i, ptr %.sroa.9.0..sroa_idx152.i.i.i, align 4
+  store float %.sroa.9.0204.i.i.i, ptr %.sroa.9.0..sroa_idx152.i.i.i, align 4
   %.sroa.10.0..sroa_idx158.i.i.i = getelementptr inbounds nuw i8, ptr %196, i64 8
-  store float %.sroa.10.0177.i.i.i, ptr %.sroa.10.0..sroa_idx158.i.i.i, align 4, !tbaa !14
+  store float %.sroa.10.0205.i.i.i, ptr %.sroa.10.0..sroa_idx158.i.i.i, align 4, !tbaa !14
   %.not10.i.i.i.i.i43.i.i.i = icmp eq ptr %184, %177
   br i1 %.not10.i.i.i.i.i43.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32.i.i48.i.i.i, label %.lr.ph.i.i.i.i.i44.i.i.i
 
@@ -9903,11 +9903,11 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backERKS2_.exit
   br i1 %.not.i55.i.i.i, label %210, label %207
 
 207:                                              ; preds = %_ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backERKS2_.exit54.i.i.i
-  store float %.sroa.0148.0175.i.i.i, ptr %204, align 4
+  store float %.sroa.0148.0203.i.i.i, ptr %204, align 4
   %.sroa.9.0..sroa_idx154.i.i.i = getelementptr inbounds nuw i8, ptr %204, i64 4
-  store float %.sroa.9.0176.i.i.i, ptr %.sroa.9.0..sroa_idx154.i.i.i, align 4
+  store float %.sroa.9.0204.i.i.i, ptr %.sroa.9.0..sroa_idx154.i.i.i, align 4
   %.sroa.10.0..sroa_idx160.i.i.i = getelementptr inbounds nuw i8, ptr %204, i64 8
-  store float %.sroa.10.0177.i.i.i, ptr %.sroa.10.0..sroa_idx160.i.i.i, align 4, !tbaa !14
+  store float %.sroa.10.0205.i.i.i, ptr %.sroa.10.0..sroa_idx160.i.i.i, align 4, !tbaa !14
   %208 = load ptr, ptr %203, align 8, !tbaa !31
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 12
   store ptr %209, ptr %203, align 8, !tbaa !31
@@ -9936,11 +9936,11 @@ _ZNKSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE12_M_check_lenEmPKc.
 
 .noexc69.i.i.i:                                   ; preds = %_ZNKSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE12_M_check_lenEmPKc.exit.i.i56.i.i.i
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 %214
-  store float %.sroa.0148.0175.i.i.i, ptr %223, align 4
+  store float %.sroa.0148.0203.i.i.i, ptr %223, align 4
   %.sroa.9.0..sroa_idx156.i.i.i = getelementptr inbounds nuw i8, ptr %223, i64 4
-  store float %.sroa.9.0176.i.i.i, ptr %.sroa.9.0..sroa_idx156.i.i.i, align 4
+  store float %.sroa.9.0204.i.i.i, ptr %.sroa.9.0..sroa_idx156.i.i.i, align 4
   %.sroa.10.0..sroa_idx162.i.i.i = getelementptr inbounds nuw i8, ptr %223, i64 8
-  store float %.sroa.10.0177.i.i.i, ptr %.sroa.10.0..sroa_idx162.i.i.i, align 4, !tbaa !14
+  store float %.sroa.10.0205.i.i.i, ptr %.sroa.10.0..sroa_idx162.i.i.i, align 4, !tbaa !14
   %.not10.i.i.i.i.i59.i.i.i = icmp eq ptr %211, %204
   br i1 %.not10.i.i.i.i.i59.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32.i.i64.i.i.i, label %.lr.ph.i.i.i.i.i60.i.i.i
 

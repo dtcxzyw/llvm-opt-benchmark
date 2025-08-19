@@ -275,8 +275,8 @@ define void @Sbd_ProblemAddClausesInit(ptr noundef %0, i32 noundef %1, i32 nound
 
 .lr.ph47.preheader:                               ; preds = %._crit_edge
   %27 = sext i32 %.03551 to i64
-  %invariant.gep71 = getelementptr i32, ptr %3, i64 %27
-  %invariant.gep69 = getelementptr i32, ptr %3, i64 %27
+  %invariant.gep76 = getelementptr i32, ptr %3, i64 %27
+  %invariant.gep74 = getelementptr i32, ptr %3, i64 %27
   br label %.lr.ph47
 
 .loopexit:                                        ; preds = %32
@@ -294,17 +294,17 @@ define void @Sbd_ProblemAddClausesInit(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %31, label %.lr.ph44, label %._crit_edge48
 
 .lr.ph44:                                         ; preds = %.lr.ph47
-  %gep72 = getelementptr i32, ptr %invariant.gep71, i64 %indvars.iv63
+  %gep77 = getelementptr i32, ptr %invariant.gep76, i64 %indvars.iv63
   br label %32
 
 32:                                               ; preds = %.lr.ph44, %32
   %indvars.iv60 = phi i64 [ %indvars.iv58, %.lr.ph44 ], [ %indvars.iv.next61, %32 ]
-  %33 = load i32, ptr %gep72, align 4, !tbaa !12
+  %33 = load i32, ptr %gep77, align 4, !tbaa !12
   %34 = shl nsw i32 %33, 1
   %35 = or disjoint i32 %34, 1
   store i32 %35, ptr %6, align 16, !tbaa !12
-  %gep70 = getelementptr i32, ptr %invariant.gep69, i64 %indvars.iv60
-  %36 = load i32, ptr %gep70, align 4, !tbaa !12
+  %gep75 = getelementptr i32, ptr %invariant.gep74, i64 %indvars.iv60
+  %36 = load i32, ptr %gep75, align 4, !tbaa !12
   %37 = shl nsw i32 %36, 1
   %38 = or disjoint i32 %37, 1
   store i32 %38, ptr %11, align 4, !tbaa !12
@@ -783,14 +783,14 @@ Sbd_ProblemCountParams.exit:                      ; preds = %.lr.ph.i, %Abc_Cloc
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %91, %93, %83, %85
-  %.sink258 = phi ptr [ %84, %83 ], [ %86, %85 ], [ %92, %91 ], [ %94, %93 ]
+  %.sink264 = phi ptr [ %84, %83 ], [ %86, %85 ], [ %92, %91 ], [ %94, %93 ]
   %.sink = phi i32 [ 16, %83 ], [ 16, %85 ], [ %88, %91 ], [ %88, %93 ]
-  store ptr %.sink258, ptr %18, align 8, !tbaa !23
+  store ptr %.sink264, ptr %18, align 8, !tbaa !23
   store i32 %.sink, ptr %15, align 8, !tbaa !36
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %.lr.ph187
-  %.pre.i248 = phi ptr [ %74, %.lr.ph187 ], [ %.sink258, %Vec_IntPush.exit.sink.split ]
+  %.pre.i248 = phi ptr [ %74, %.lr.ph187 ], [ %.sink264, %Vec_IntPush.exit.sink.split ]
   %95 = add nsw i32 %73, 1
   store i32 %95, ptr %16, align 4, !tbaa !35
   %96 = sext i32 %73 to i64
@@ -926,9 +926,9 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %Vec_IntPush.exit165.sink.split
 
 Vec_IntPush.exit165.sink.split:                   ; preds = %155, %157, %147, %149
-  %.sink259 = phi i32 [ 16, %149 ], [ 16, %147 ], [ %152, %157 ], [ %152, %155 ]
+  %.sink265 = phi i32 [ 16, %149 ], [ 16, %147 ], [ %152, %157 ], [ %152, %155 ]
   %.pre.i161206.ph = phi ptr [ %150, %149 ], [ %148, %147 ], [ %158, %157 ], [ %156, %155 ]
-  store i32 %.sink259, ptr %15, align 8, !tbaa !36
+  store i32 %.sink265, ptr %15, align 8, !tbaa !36
   br label %Vec_IntPush.exit165
 
 Vec_IntPush.exit165:                              ; preds = %Vec_IntPush.exit165.sink.split, %.lr.ph197
@@ -949,12 +949,12 @@ Vec_IntPush.exit165:                              ; preds = %Vec_IntPush.exit165
   br i1 %exitcond247.not, label %.threadthread-pre-split.sink.split, label %99, !llvm.loop !57
 
 .threadthread-pre-split.sink.split:               ; preds = %131, %.critedge2, %._crit_edge198
-  %.pre.i161203.lcssa255.sink = phi ptr [ %.pre.i161204, %._crit_edge198 ], [ %.pre.i161203, %.critedge2 ], [ %.pre.i161203, %131 ]
-  store ptr %.pre.i161203.lcssa255.sink, ptr %18, align 8
+  %.pre.i161203.lcssa261.sink = phi ptr [ %.pre.i161204, %._crit_edge198 ], [ %.pre.i161203, %.critedge2 ], [ %.pre.i161203, %131 ]
+  store ptr %.pre.i161203.lcssa261.sink, ptr %18, align 8
   br label %.threadthread-pre-split
 
 .threadthread-pre-split:                          ; preds = %.threadthread-pre-split.sink.split, %.preheader171
-  %163 = phi ptr [ %.promoted, %.preheader171 ], [ %.pre.i161203.lcssa255.sink, %.threadthread-pre-split.sink.split ]
+  %163 = phi ptr [ %.promoted, %.preheader171 ], [ %.pre.i161203.lcssa261.sink, %.threadthread-pre-split.sink.split ]
   %.val152.pr = load i32, ptr %16, align 4, !tbaa !35
   br label %.thread
 

@@ -106,11 +106,11 @@ define range(i32 -1, 1) i32 @JDK_Canonicalize(ptr noundef readonly captures(none
   %46 = getelementptr inbounds nuw i8, ptr %28, i64 %45
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 47
-  %spec.select72 = select i1 %48, ptr %.2, ptr %22
+  %spec.select76 = select i1 %48, ptr %.2, ptr %22
   br label %49
 
 49:                                               ; preds = %43, %41
-  %.3 = phi ptr [ %22, %41 ], [ %spec.select72, %43 ]
+  %.3 = phi ptr [ %22, %41 ], [ %spec.select76, %43 ]
   %sext = shl i64 %34, 32
   %50 = ashr exact i64 %sext, 32
   %51 = getelementptr inbounds i8, ptr %28, i64 %50

@@ -132,9 +132,9 @@ define dso_local void @_ZNK4llvm3pdb13PDBSymbolFunc12getArgumentsEv(ptr dead_on_
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %32 = load ptr, ptr %3, align 8, !tbaa !54, !noalias !47
   %.not.i.i.i2.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i2.i, label %_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thread6.i, label %33
+  br i1 %.not.i.i.i2.i, label %_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thread20.i, label %33
 
-_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thread6.i: ; preds = %2
+_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thread20.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !47
   br label %_ZNSt10unique_ptrIN4llvm3pdb24ConcreteSymbolEnumeratorINS1_13PDBSymbolDataEEESt14default_deleteIS4_EED2Ev.exit.i.i
 
@@ -146,13 +146,13 @@ _ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thre
 
 _ZN4llvm23unique_dyn_cast_or_nullINS_3pdb13PDBSymbolDataENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE.exit.i.i: ; preds = %33
   %.not.i.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i.i, label %_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thread.i, label %_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thread4.i
+  br i1 %.not.i.i.i, label %_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thread.i, label %_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thread18.i
 
 _ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thread.i: ; preds = %_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb13PDBSymbolDataENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !47
   br label %_ZNSt10unique_ptrIN4llvm3pdb24ConcreteSymbolEnumeratorINS1_13PDBSymbolDataEEESt14default_deleteIS4_EED2Ev.exit.i.i
 
-_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thread4.i: ; preds = %_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb13PDBSymbolDataENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE.exit.i.i
+_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thread18.i: ; preds = %_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb13PDBSymbolDataENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE.exit.i.i
   %37 = load ptr, ptr %36, align 8, !tbaa !19, !noalias !47
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8, !noalias !47
@@ -325,8 +325,8 @@ _ZNSt10unique_ptrIN4llvm3pdb24ConcreteSymbolEnumeratorINS1_13PDBSymbolDataEEESt1
   %.pre.i = load ptr, ptr %11, align 8, !tbaa !19, !noalias !16
   br label %_ZNSt10unique_ptrIN4llvm3pdb24ConcreteSymbolEnumeratorINS1_13PDBSymbolDataEEESt14default_deleteIS4_EED2Ev.exit.i.i
 
-_ZNSt10unique_ptrIN4llvm3pdb24ConcreteSymbolEnumeratorINS1_13PDBSymbolDataEEESt14default_deleteIS4_EED2Ev.exit.i.i: ; preds = %_ZNSt10unique_ptrIN4llvm3pdb24ConcreteSymbolEnumeratorINS1_13PDBSymbolDataEEESt14default_deleteIS4_EED2Ev.exit.i.loopexit.i, %_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.i, %_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thread4.i, %_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thread.i, %_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thread6.i
-  %109 = phi ptr [ %.pre.i, %_ZNSt10unique_ptrIN4llvm3pdb24ConcreteSymbolEnumeratorINS1_13PDBSymbolDataEEESt14default_deleteIS4_EED2Ev.exit.i.loopexit.i ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_121FunctionArgEnumeratorE, i64 16), %_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thread.i ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_121FunctionArgEnumeratorE, i64 16), %_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.i ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_121FunctionArgEnumeratorE, i64 16), %_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thread4.i ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_121FunctionArgEnumeratorE, i64 16), %_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thread6.i ]
+_ZNSt10unique_ptrIN4llvm3pdb24ConcreteSymbolEnumeratorINS1_13PDBSymbolDataEEESt14default_deleteIS4_EED2Ev.exit.i.i: ; preds = %_ZNSt10unique_ptrIN4llvm3pdb24ConcreteSymbolEnumeratorINS1_13PDBSymbolDataEEESt14default_deleteIS4_EED2Ev.exit.i.loopexit.i, %_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.i, %_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thread18.i, %_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thread.i, %_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thread20.i
+  %109 = phi ptr [ %.pre.i, %_ZNSt10unique_ptrIN4llvm3pdb24ConcreteSymbolEnumeratorINS1_13PDBSymbolDataEEESt14default_deleteIS4_EED2Ev.exit.i.loopexit.i ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_121FunctionArgEnumeratorE, i64 16), %_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thread.i ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_121FunctionArgEnumeratorE, i64 16), %_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.i ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_121FunctionArgEnumeratorE, i64 16), %_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thread18.i ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_121FunctionArgEnumeratorE, i64 16), %_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_13PDBSymbolDataEE7getNextEv.exit.thread20.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !16
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 40
   %111 = load ptr, ptr %110, align 8, !noalias !16

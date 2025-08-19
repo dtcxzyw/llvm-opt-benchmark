@@ -328,9 +328,9 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__20GfOrthogonaliz
   br label %119
 
 119:                                              ; preds = %70, %6
-  %.sroa.0417.0.copyload431.sink512 = phi <2 x float> [ %.sroa.0417.0.copyload431, %70 ], [ %.sroa.0417.0.copyload, %6 ]
-  %.sroa.0357.0.copyload372.sink511 = phi <2 x float> [ %.sroa.0357.0.copyload372, %70 ], [ %.sroa.0357.0.copyload, %6 ]
-  %.sroa.0293.0.copyload309.sink510 = phi <2 x float> [ %.sroa.0293.0.copyload309, %70 ], [ %.sroa.0293.0.copyload, %6 ]
+  %.sroa.0417.0.copyload431.sink514 = phi <2 x float> [ %.sroa.0417.0.copyload431, %70 ], [ %.sroa.0417.0.copyload, %6 ]
+  %.sroa.0357.0.copyload372.sink513 = phi <2 x float> [ %.sroa.0357.0.copyload372, %70 ], [ %.sroa.0357.0.copyload, %6 ]
+  %.sroa.0293.0.copyload309.sink512 = phi <2 x float> [ %.sroa.0293.0.copyload309, %70 ], [ %.sroa.0293.0.copyload, %6 ]
   %.sroa.15.0.copyload476 = phi float [ %.sroa.21.0.copyload325, %70 ], [ %69, %6 ]
   %.sroa.15352.0.copyload470 = phi float [ %.sroa.20.0.copyload386, %70 ], [ %.sroa.20.0.copyload, %6 ]
   %.sroa.15412.0.copyload464 = phi float [ %.sroa.19.0.copyload443, %70 ], [ %.sroa.19.0.copyload, %6 ]
@@ -340,12 +340,12 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__20GfOrthogonaliz
   %.sroa.20.0 = phi float [ %102, %70 ], [ %.sroa.20.0.copyload, %6 ]
   %.sroa.0417.0 = phi <2 x float> [ %.sroa.0417.4.vec.insert, %70 ], [ %.sroa.0417.0.copyload, %6 ]
   %.sroa.19.0 = phi float [ %86, %70 ], [ %.sroa.19.0.copyload, %6 ]
-  %120 = extractelement <2 x float> %.sroa.0417.0.copyload431.sink512, i64 0
-  %121 = extractelement <2 x float> %.sroa.0417.0.copyload431.sink512, i64 1
-  %122 = extractelement <2 x float> %.sroa.0357.0.copyload372.sink511, i64 0
-  %123 = extractelement <2 x float> %.sroa.0357.0.copyload372.sink511, i64 1
-  %124 = extractelement <2 x float> %.sroa.0293.0.copyload309.sink510, i64 0
-  %125 = extractelement <2 x float> %.sroa.0293.0.copyload309.sink510, i64 1
+  %120 = extractelement <2 x float> %.sroa.0417.0.copyload431.sink514, i64 0
+  %121 = extractelement <2 x float> %.sroa.0417.0.copyload431.sink514, i64 1
+  %122 = extractelement <2 x float> %.sroa.0357.0.copyload372.sink513, i64 0
+  %123 = extractelement <2 x float> %.sroa.0357.0.copyload372.sink513, i64 1
+  %124 = extractelement <2 x float> %.sroa.0293.0.copyload309.sink512, i64 0
+  %125 = extractelement <2 x float> %.sroa.0293.0.copyload309.sink512, i64 1
   %foldExtExtBinop = fsub <2 x float> %.sroa.0417.0, %.sroa.0357.0
   %126 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.0357.4.vec.extract376 = extractelement <2 x float> %.sroa.0357.0, i64 1
@@ -361,8 +361,8 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__20GfOrthogonaliz
   br i1 %134, label %135, label %.loopexit
 
 135:                                              ; preds = %119
-  %foldExtExtBinop514 = fsub <2 x float> %.sroa.0417.0, %.sroa.0293.0
-  %136 = extractelement <2 x float> %foldExtExtBinop514, i64 0
+  %foldExtExtBinop516 = fsub <2 x float> %.sroa.0417.0, %.sroa.0293.0
+  %136 = extractelement <2 x float> %foldExtExtBinop516, i64 0
   %.sroa.0293.4.vec.extract313 = extractelement <2 x float> %.sroa.0293.0, i64 1
   %137 = fsub float %.sroa.0.4.vec.extract.i.i, %.sroa.0293.4.vec.extract313
   %138 = fsub float %.sroa.19.0, %.sroa.21.0
@@ -374,8 +374,8 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__20GfOrthogonaliz
   br i1 %143, label %144, label %.loopexit
 
 144:                                              ; preds = %135
-  %foldExtExtBinop516 = fsub <2 x float> %.sroa.0357.0, %.sroa.0293.0
-  %145 = extractelement <2 x float> %foldExtExtBinop516, i64 0
+  %foldExtExtBinop518 = fsub <2 x float> %.sroa.0357.0, %.sroa.0293.0
+  %145 = extractelement <2 x float> %foldExtExtBinop518, i64 0
   %146 = fsub float %.sroa.0357.4.vec.extract376, %.sroa.0293.4.vec.extract313
   %147 = fsub float %.sroa.20.0, %.sroa.21.0
   %148 = fmul float %146, %146
@@ -392,9 +392,9 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__20GfOrthogonaliz
   br label %153
 
 153:                                              ; preds = %.preheader, %352
-  %.sroa.0.0.copyload.i185 = phi <2 x float> [ %.sroa.0293.0.copyload309.sink510, %.preheader ], [ %.sroa.0271.0, %352 ]
-  %.sroa.0.0.copyload.i167 = phi <2 x float> [ %.sroa.0357.0.copyload372.sink511, %.preheader ], [ %.sroa.0357.0.copyload373, %352 ]
-  %.sroa.0.0.copyload.i = phi <2 x float> [ %.sroa.0417.0.copyload431.sink512, %.preheader ], [ %.sroa.0417.0.copyload432, %352 ]
+  %.sroa.0.0.copyload.i185 = phi <2 x float> [ %.sroa.0293.0.copyload309.sink512, %.preheader ], [ %.sroa.0271.0, %352 ]
+  %.sroa.0.0.copyload.i167 = phi <2 x float> [ %.sroa.0357.0.copyload372.sink513, %.preheader ], [ %.sroa.0357.0.copyload373, %352 ]
+  %.sroa.0.0.copyload.i = phi <2 x float> [ %.sroa.0417.0.copyload431.sink514, %.preheader ], [ %.sroa.0417.0.copyload432, %352 ]
   %.sroa.15.0.copyload = phi float [ %.sroa.15.0.copyload476, %.preheader ], [ %.sroa.8.0, %352 ]
   %.sroa.8284.0.copyload = phi float [ %125, %.preheader ], [ %302, %352 ]
   %.sroa.0279.0.copyload = phi float [ %124, %.preheader ], [ %301, %352 ]
@@ -570,26 +570,26 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__20GfOrthogonaliz
   %.sroa.8340.0 = phi float [ %258, %226 ], [ %219, %153 ]
   %.sroa.0393.0 = phi <2 x float> [ %.sroa.0393.4.vec.insert, %226 ], [ %.sroa.0.4.vec.insert.i.i164, %153 ]
   %.sroa.8400.0 = phi float [ %242, %226 ], [ %213, %153 ]
-  %foldExtExtBinop518 = fsub <2 x float> %.sroa.0.0.copyload.i, %.sroa.0393.0
-  %276 = extractelement <2 x float> %foldExtExtBinop518, i64 0
   %foldExtExtBinop520 = fsub <2 x float> %.sroa.0.0.copyload.i, %.sroa.0393.0
+  %276 = extractelement <2 x float> %foldExtExtBinop520, i64 0
+  %foldExtExtBinop522 = fsub <2 x float> %.sroa.0.0.copyload.i, %.sroa.0393.0
   %277 = fsub float %.sroa.15412.0.copyload, %.sroa.8400.0
-  %foldExtExtBinop522 = fsub <2 x float> %.sroa.0.0.copyload.i167, %.sroa.0333.0
-  %278 = extractelement <2 x float> %foldExtExtBinop522, i64 0
   %foldExtExtBinop524 = fsub <2 x float> %.sroa.0.0.copyload.i167, %.sroa.0333.0
+  %278 = extractelement <2 x float> %foldExtExtBinop524, i64 0
+  %foldExtExtBinop526 = fsub <2 x float> %.sroa.0.0.copyload.i167, %.sroa.0333.0
   %279 = fsub float %.sroa.15352.0.copyload, %.sroa.8340.0
   %.sroa.0271.0.vec.extract274 = extractelement <2 x float> %.sroa.0271.0, i64 0
-  %foldExtExtBinop526 = fsub <2 x float> %.sroa.0.0.copyload.i185, %.sroa.0271.0
-  %280 = extractelement <2 x float> %foldExtExtBinop526, i64 0
+  %foldExtExtBinop528 = fsub <2 x float> %.sroa.0.0.copyload.i185, %.sroa.0271.0
+  %280 = extractelement <2 x float> %foldExtExtBinop528, i64 0
   %.sroa.0271.4.vec.extract277 = extractelement <2 x float> %.sroa.0271.0, i64 1
   %281 = fsub float %.sroa.0.4.vec.extract.i190, %.sroa.0271.4.vec.extract277
   %282 = fsub float %.sroa.15.0.copyload, %.sroa.8.0
-  %foldExtExtBinop528 = fmul <2 x float> %foldExtExtBinop520, %foldExtExtBinop520
-  %283 = extractelement <2 x float> %foldExtExtBinop528, i64 1
+  %foldExtExtBinop530 = fmul <2 x float> %foldExtExtBinop522, %foldExtExtBinop522
+  %283 = extractelement <2 x float> %foldExtExtBinop530, i64 1
   %284 = tail call float @llvm.fmuladd.f32(float %276, float %276, float %283)
   %285 = tail call noundef float @llvm.fmuladd.f32(float %277, float %277, float %284)
-  %foldExtExtBinop530 = fmul <2 x float> %foldExtExtBinop524, %foldExtExtBinop524
-  %286 = extractelement <2 x float> %foldExtExtBinop530, i64 1
+  %foldExtExtBinop532 = fmul <2 x float> %foldExtExtBinop526, %foldExtExtBinop526
+  %286 = extractelement <2 x float> %foldExtExtBinop532, i64 1
   %287 = tail call float @llvm.fmuladd.f32(float %278, float %278, float %286)
   %288 = tail call noundef float @llvm.fmuladd.f32(float %279, float %279, float %287)
   %289 = fadd float %288, %285

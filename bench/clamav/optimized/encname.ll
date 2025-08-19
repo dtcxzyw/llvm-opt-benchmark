@@ -60,7 +60,7 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr noundef nonnull align 8 ca
   %28 = phi i8 [ %25, %22 ], [ %20, %18 ]
   %.2 = phi i64 [ %23, %22 ], [ %.1107, %18 ]
   %29 = lshr i8 %28, 6
-  switch i8 %29, label %default.unreachable116 [
+  switch i8 %29, label %default.unreachable121 [
     i8 0, label %30
     i8 1, label %38
     i8 2, label %47
@@ -184,7 +184,7 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr noundef nonnull align 8 ca
   %or.cond95 = select i1 %93, i1 %94, i1 false
   br i1 %or.cond95, label %.lr.ph104, label %.critedge2, !llvm.loop !15
 
-default.unreachable116:                           ; preds = %26
+default.unreachable121:                           ; preds = %26
   unreachable
 
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph104, %68, %84, %67, %61, %47, %38, %30, %49, %39, %31

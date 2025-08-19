@@ -647,8 +647,8 @@ list_length.exit137.i:                            ; preds = %.critedge125.i
   br label %141
 
 141:                                              ; preds = %138, %135
-  %.sink220.i = phi ptr [ %137, %135 ], [ %140, %138 ]
-  %142 = tail call ptr @lappend(ptr noundef nonnull %.192.i, ptr noundef %.sink220.i) #5
+  %.sink228.i = phi ptr [ %137, %135 ], [ %140, %138 ]
+  %142 = tail call ptr @lappend(ptr noundef nonnull %.192.i, ptr noundef %.sink228.i) #5
   %.not.i138.i = icmp eq ptr %142, null
   br i1 %.not.i138.i, label %list_length.exit139.thread.i, label %list_length.exit139.i
 

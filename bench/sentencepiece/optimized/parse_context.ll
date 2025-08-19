@@ -330,8 +330,8 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread.i: ; preds = %.lr.ph.i
   %44 = load i8, ptr %.ptr83.i, align 1, !tbaa !25
   %45 = zext i8 %44 to i32
   %46 = add nsw i32 %45, -1
-  %47 = trunc i64 %indvars.iv.i.i.i to i32
-  %48 = mul i32 %47, 7
+  %47 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
+  %48 = mul nuw nsw i32 %47, 7
   %49 = shl i32 %46, %48
   %50 = add i32 %49, %.01321.i.i.i
   %51 = icmp slt i8 %44, 0
@@ -348,14 +348,14 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.i: ; preds = %52, %42
   br i1 %53, label %_ZN6google8protobuf8internal12_GLOBAL__N_121ParseEndsInSlopRegionEPKcii.exit.thread, label %54
 
 54:                                               ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread.i
-  %.0.i.idx124.i = phi i64 [ %.039.add71.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread.i ], [ %.0.i.idx.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.i ]
-  %.038123.i = phi i32 [ %32, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread.i ], [ %.038.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.i ]
-  %.0.i.ptr125.i = getelementptr inbounds i8, ptr %9, i64 %.0.i.idx124.i
-  %55 = icmp eq i32 %.038123.i, 0
+  %.0.i.idx126.i = phi i64 [ %.039.add71.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread.i ], [ %.0.i.idx.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.i ]
+  %.038125.i = phi i32 [ %32, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread.i ], [ %.038.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.i ]
+  %.0.i.ptr127.i = getelementptr inbounds i8, ptr %9, i64 %.0.i.idx126.i
+  %55 = icmp eq i32 %.038125.i, 0
   br i1 %55, label %_ZN6google8protobuf8internal12_GLOBAL__N_121ParseEndsInSlopRegionEPKcii.exit, label %56
 
 56:                                               ; preds = %54
-  %57 = and i32 %.038123.i, 7
+  %57 = and i32 %.038125.i, 7
   switch i32 %57, label %_ZN6google8protobuf8internal12_GLOBAL__N_121ParseEndsInSlopRegionEPKcii.exit.thread [
     i32 0, label %58
     i32 1, label %69
@@ -366,22 +366,22 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.i: ; preds = %52, %42
   ]
 
 58:                                               ; preds = %56
-  %59 = load i8, ptr %.0.i.ptr125.i, align 1, !tbaa !25
+  %59 = load i8, ptr %.0.i.ptr127.i, align 1, !tbaa !25
   %.not.i.i = icmp sgt i8 %59, -1
   br i1 %.not.i.i, label %60, label %61
 
 60:                                               ; preds = %58
-  %.0.i.add.i = add nsw i64 %.0.i.idx124.i, 1
+  %.0.i.add.i = add nsw i64 %.0.i.idx126.i, 1
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds nuw i8, ptr %.0.i.ptr125.i, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.0.i.ptr127.i, i64 1
   %63 = load i8, ptr %62, align 1, !tbaa !25
   %.not16.i.i = icmp sgt i8 %63, -1
   br i1 %.not16.i.i, label %64, label %.critedge.i.i.i.i
 
 64:                                               ; preds = %61
-  %.0.i.add61.i = add nsw i64 %.0.i.idx124.i, 2
+  %.0.i.add61.i = add nsw i64 %.0.i.idx126.i, 2
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i
 
 65:                                               ; preds = %.critedge.i.i.i.i
@@ -391,7 +391,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.i: ; preds = %52, %42
 
 .critedge.i.i.i.i:                                ; preds = %61, %65
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %65 ], [ 2, %61 ]
-  %.0.i.add62.i = add nsw i64 %indvars.iv.i.i.i.i, %.0.i.idx124.i
+  %.0.i.add62.i = add nsw i64 %indvars.iv.i.i.i.i, %.0.i.idx126.i
   %.ptr74.i = getelementptr inbounds i8, ptr %9, i64 %.0.i.add62.i
   %66 = load i8, ptr %.ptr74.i, align 1, !tbaa !25
   %67 = icmp slt i8 %66, 0
@@ -402,17 +402,17 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.i: ; preds = %52, %42
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i
 
 69:                                               ; preds = %56
-  %.0.i.add64.i = add nsw i64 %.0.i.idx124.i, 8
+  %.0.i.add64.i = add nsw i64 %.0.i.idx126.i, 8
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i
 
 70:                                               ; preds = %56
-  %71 = load i8, ptr %.0.i.ptr125.i, align 1, !tbaa !25
+  %71 = load i8, ptr %.0.i.ptr127.i, align 1, !tbaa !25
   %72 = zext i8 %71 to i32
   %73 = icmp sgt i8 %71, -1
   br i1 %73, label %74, label %.critedge.i.i29.i
 
 74:                                               ; preds = %70
-  %.0.i.add65.i = add nsw i64 %.0.i.idx124.i, 1
+  %.0.i.add65.i = add nsw i64 %.0.i.idx126.i, 1
   br label %95
 
 75:                                               ; preds = %.critedge.i.i29.i
@@ -423,13 +423,13 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.i: ; preds = %52, %42
 .critedge.i.i29.i:                                ; preds = %70, %75
   %indvars.iv.i.i30.i = phi i64 [ %indvars.iv.next.i.i32.i, %75 ], [ 1, %70 ]
   %.02234.i.i.i = phi i32 [ %82, %75 ], [ %72, %70 ]
-  %.0.i.add66.i = add nsw i64 %indvars.iv.i.i30.i, %.0.i.idx124.i
+  %.0.i.add66.i = add nsw i64 %indvars.iv.i.i30.i, %.0.i.idx126.i
   %.ptr80.i = getelementptr inbounds i8, ptr %9, i64 %.0.i.add66.i
   %76 = load i8, ptr %.ptr80.i, align 1, !tbaa !25
   %77 = zext i8 %76 to i32
   %78 = add nsw i32 %77, -1
-  %79 = trunc i64 %indvars.iv.i.i30.i to i32
-  %80 = mul i32 %79, 7
+  %79 = trunc nuw nsw i64 %indvars.iv.i.i30.i to i32
+  %80 = mul nuw nsw i32 %79, 7
   %81 = shl nsw i32 %78, %80
   %82 = add i32 %81, %.02234.i.i.i
   %83 = icmp slt i8 %76, 0
@@ -440,7 +440,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.i: ; preds = %52, %42
   br label %95
 
 85:                                               ; preds = %75
-  %86 = getelementptr inbounds nuw i8, ptr %.0.i.ptr125.i, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %.0.i.ptr127.i, i64 4
   %87 = load i8, ptr %86, align 1, !tbaa !25
   %88 = icmp ugt i8 %87, 7
   br i1 %88, label %_ZN6google8protobuf8internal12_GLOBAL__N_121ParseEndsInSlopRegionEPKcii.exit.thread, label %89, !prof !27
@@ -451,7 +451,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.i: ; preds = %52, %42
   %92 = add i32 %82, -268435456
   %93 = add i32 %92, %91
   %94 = icmp ugt i32 %93, 2147483631
-  %.0.i.add68.i = add nsw i64 %.0.i.idx124.i, 5
+  %.0.i.add68.i = add nsw i64 %.0.i.idx126.i, 5
   br i1 %94, label %_ZN6google8protobuf8internal12_GLOBAL__N_121ParseEndsInSlopRegionEPKcii.exit.thread, label %95, !prof !27
 
 95:                                               ; preds = %89, %84, %74
@@ -476,11 +476,11 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %95
   br i1 %102, label %_ZN6google8protobuf8internal12_GLOBAL__N_121ParseEndsInSlopRegionEPKcii.exit, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i
 
 103:                                              ; preds = %56
-  %.0.i.add63.i = add nsw i64 %.0.i.idx124.i, 4
+  %.0.i.add63.i = add nsw i64 %.0.i.idx126.i, 4
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i: ; preds = %103, %100, %98, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %69, %68, %64, %60
-  %.140.idx.i = phi i64 [ %.0.i.add64.i, %69 ], [ %storemerge.i.ph.add.i, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ %.0.i.idx124.i, %98 ], [ %.0.i.add63.i, %103 ], [ %.add.i, %68 ], [ %.0.i.add61.i, %64 ], [ %.0.i.add.i, %60 ], [ %.0.i.idx124.i, %100 ]
+  %.140.idx.i = phi i64 [ %.0.i.add64.i, %69 ], [ %storemerge.i.ph.add.i, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ %.0.i.idx126.i, %98 ], [ %.0.i.add63.i, %103 ], [ %.add.i, %68 ], [ %.0.i.add61.i, %64 ], [ %.0.i.add.i, %60 ], [ %.0.i.idx126.i, %100 ]
   %.119.i = phi i32 [ %.01897.i, %69 ], [ %.01897.i, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ %99, %98 ], [ %.01897.i, %103 ], [ %.01897.i, %68 ], [ %.01897.i, %64 ], [ %.01897.i, %60 ], [ %101, %100 ]
   %104 = icmp slt i64 %.140.idx.i, 16
   br i1 %104, label %.lr.ph.i, label %_ZN6google8protobuf8internal12_GLOBAL__N_121ParseEndsInSlopRegionEPKcii.exit.thread, !llvm.loop !30
@@ -1023,8 +1023,8 @@ define noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS
   %11 = load i8, ptr %10, align 1, !tbaa !25
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %12, -1
-  %14 = trunc i64 %indvars.iv.i.i.i to i32
-  %15 = mul i32 %14, 7
+  %14 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
+  %15 = mul nuw nsw i32 %14, 7
   %16 = shl nsw i32 %13, %15
   %17 = add i32 %16, %.02234.i.i.i
   %18 = icmp slt i8 %11, 0
@@ -1131,8 +1131,8 @@ define noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS
   %11 = load i8, ptr %10, align 1, !tbaa !25
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %12, -1
-  %14 = trunc i64 %indvars.iv.i.i.i.i to i32
-  %15 = mul i32 %14, 7
+  %14 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
+  %15 = mul nuw nsw i32 %14, 7
   %16 = shl nsw i32 %13, %15
   %17 = add i32 %16, %.02234.i.i.i.i
   %18 = icmp slt i8 %11, 0
@@ -1789,8 +1789,8 @@ define noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7
   %11 = load i8, ptr %10, align 1, !tbaa !25
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %12, -1
-  %14 = trunc i64 %indvars.iv.i.i to i32
-  %15 = mul i32 %14, 7
+  %14 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %15 = mul nuw nsw i32 %14, 7
   %16 = shl nsw i32 %13, %15
   %17 = add i32 %16, %.02234.i.i
   %18 = icmp slt i8 %11, 0
@@ -1916,8 +1916,8 @@ define noundef ptr @_ZN6google8protobuf8internal19PackedFixed32ParserEPvPKcPNS1_
   %11 = load i8, ptr %10, align 1, !tbaa !25
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %12, -1
-  %14 = trunc i64 %indvars.iv.i.i.i to i32
-  %15 = mul i32 %14, 7
+  %14 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
+  %15 = mul nuw nsw i32 %14, 7
   %16 = shl nsw i32 %13, %15
   %17 = add i32 %16, %.02234.i.i.i
   %18 = icmp slt i8 %11, 0
@@ -1977,8 +1977,8 @@ define noundef ptr @_ZN6google8protobuf8internal20PackedSFixed32ParserEPvPKcPNS1
   %11 = load i8, ptr %10, align 1, !tbaa !25
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %12, -1
-  %14 = trunc i64 %indvars.iv.i.i.i to i32
-  %15 = mul i32 %14, 7
+  %14 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
+  %15 = mul nuw nsw i32 %14, 7
   %16 = shl nsw i32 %13, %15
   %17 = add i32 %16, %.02234.i.i.i
   %18 = icmp slt i8 %11, 0
@@ -2038,8 +2038,8 @@ define noundef ptr @_ZN6google8protobuf8internal19PackedFixed64ParserEPvPKcPNS1_
   %11 = load i8, ptr %10, align 1, !tbaa !25
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %12, -1
-  %14 = trunc i64 %indvars.iv.i.i.i to i32
-  %15 = mul i32 %14, 7
+  %14 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
+  %15 = mul nuw nsw i32 %14, 7
   %16 = shl nsw i32 %13, %15
   %17 = add i32 %16, %.02234.i.i.i
   %18 = icmp slt i8 %11, 0
@@ -2099,8 +2099,8 @@ define noundef ptr @_ZN6google8protobuf8internal20PackedSFixed64ParserEPvPKcPNS1
   %11 = load i8, ptr %10, align 1, !tbaa !25
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %12, -1
-  %14 = trunc i64 %indvars.iv.i.i.i to i32
-  %15 = mul i32 %14, 7
+  %14 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
+  %15 = mul nuw nsw i32 %14, 7
   %16 = shl nsw i32 %13, %15
   %17 = add i32 %16, %.02234.i.i.i
   %18 = icmp slt i8 %11, 0
@@ -2160,8 +2160,8 @@ define noundef ptr @_ZN6google8protobuf8internal17PackedFloatParserEPvPKcPNS1_12
   %11 = load i8, ptr %10, align 1, !tbaa !25
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %12, -1
-  %14 = trunc i64 %indvars.iv.i.i.i to i32
-  %15 = mul i32 %14, 7
+  %14 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
+  %15 = mul nuw nsw i32 %14, 7
   %16 = shl nsw i32 %13, %15
   %17 = add i32 %16, %.02234.i.i.i
   %18 = icmp slt i8 %11, 0
@@ -2221,8 +2221,8 @@ define noundef ptr @_ZN6google8protobuf8internal18PackedDoubleParserEPvPKcPNS1_1
   %11 = load i8, ptr %10, align 1, !tbaa !25
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %12, -1
-  %14 = trunc i64 %indvars.iv.i.i.i to i32
-  %15 = mul i32 %14, 7
+  %14 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
+  %15 = mul nuw nsw i32 %14, 7
   %16 = shl nsw i32 %13, %15
   %17 = add i32 %16, %.02234.i.i.i
   %18 = icmp slt i8 %11, 0
@@ -2342,8 +2342,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread21: ; preds = %7
   %41 = load i8, ptr %40, align 1, !tbaa !25
   %42 = zext i8 %41 to i32
   %43 = add nsw i32 %42, -1
-  %44 = trunc i64 %indvars.iv.i.i to i32
-  %45 = mul i32 %44, 7
+  %44 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %45 = mul nuw nsw i32 %44, 7
   %46 = shl i32 %43, %45
   %47 = add i32 %46, %.01321.i.i
   %48 = icmp slt i8 %41, 0
@@ -2568,8 +2568,8 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   %12 = load i8, ptr %11, align 1, !tbaa !25
   %13 = zext i8 %12 to i32
   %14 = add nsw i32 %13, -1
-  %15 = trunc i64 %indvars.iv.i.i to i32
-  %16 = mul i32 %15, 7
+  %15 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %16 = mul nuw nsw i32 %15, 7
   %17 = shl nsw i32 %14, %16
   %18 = add i32 %17, %.02234.i.i
   %19 = icmp slt i8 %12, 0
@@ -2980,8 +2980,8 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   %12 = load i8, ptr %11, align 1, !tbaa !25
   %13 = zext i8 %12 to i32
   %14 = add nsw i32 %13, -1
-  %15 = trunc i64 %indvars.iv.i.i to i32
-  %16 = mul i32 %15, 7
+  %15 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %16 = mul nuw nsw i32 %15, 7
   %17 = shl nsw i32 %14, %16
   %18 = add i32 %17, %.02234.i.i
   %19 = icmp slt i8 %12, 0
@@ -3389,8 +3389,8 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   %12 = load i8, ptr %11, align 1, !tbaa !25
   %13 = zext i8 %12 to i32
   %14 = add nsw i32 %13, -1
-  %15 = trunc i64 %indvars.iv.i.i to i32
-  %16 = mul i32 %15, 7
+  %15 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %16 = mul nuw nsw i32 %15, 7
   %17 = shl nsw i32 %14, %16
   %18 = add i32 %17, %.02234.i.i
   %19 = icmp slt i8 %12, 0
@@ -3795,8 +3795,8 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   %12 = load i8, ptr %11, align 1, !tbaa !25
   %13 = zext i8 %12 to i32
   %14 = add nsw i32 %13, -1
-  %15 = trunc i64 %indvars.iv.i.i to i32
-  %16 = mul i32 %15, 7
+  %15 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %16 = mul nuw nsw i32 %15, 7
   %17 = shl nsw i32 %14, %16
   %18 = add i32 %17, %.02234.i.i
   %19 = icmp slt i8 %12, 0
@@ -4201,8 +4201,8 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   %12 = load i8, ptr %11, align 1, !tbaa !25
   %13 = zext i8 %12 to i32
   %14 = add nsw i32 %13, -1
-  %15 = trunc i64 %indvars.iv.i.i to i32
-  %16 = mul i32 %15, 7
+  %15 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %16 = mul nuw nsw i32 %15, 7
   %17 = shl nsw i32 %14, %16
   %18 = add i32 %17, %.02234.i.i
   %19 = icmp slt i8 %12, 0
@@ -4620,8 +4620,8 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   %12 = load i8, ptr %11, align 1, !tbaa !25
   %13 = zext i8 %12 to i32
   %14 = add nsw i32 %13, -1
-  %15 = trunc i64 %indvars.iv.i.i to i32
-  %16 = mul i32 %15, 7
+  %15 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %16 = mul nuw nsw i32 %15, 7
   %17 = shl nsw i32 %14, %16
   %18 = add i32 %17, %.02234.i.i
   %19 = icmp slt i8 %12, 0
@@ -5036,8 +5036,8 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   %12 = load i8, ptr %11, align 1, !tbaa !25
   %13 = zext i8 %12 to i32
   %14 = add nsw i32 %13, -1
-  %15 = trunc i64 %indvars.iv.i.i to i32
-  %16 = mul i32 %15, 7
+  %15 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %16 = mul nuw nsw i32 %15, 7
   %17 = shl nsw i32 %14, %16
   %18 = add i32 %17, %.02234.i.i
   %19 = icmp slt i8 %12, 0
@@ -6253,8 +6253,8 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal28UnknownFieldLiteP
   %12 = load i8, ptr %11, align 1, !tbaa !25
   %13 = zext i8 %12 to i32
   %14 = add nsw i32 %13, -1
-  %15 = trunc i64 %indvars.iv.i.i to i32
-  %16 = mul i32 %15, 7
+  %15 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %16 = mul nuw nsw i32 %15, 7
   %17 = shl nsw i32 %14, %16
   %18 = add i32 %17, %.02234.i.i
   %19 = icmp slt i8 %12, 0

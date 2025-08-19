@@ -1304,12 +1304,12 @@ for.body54.i.i:                                   ; preds = %land.rhs49.i.i
   br i1 %exitcond61.not.i.i, label %for.end74.i.i, label %land.rhs49.i.i
 
 for.end74.i.i:                                    ; preds = %for.body54.i.i
-  %.pr62.i.i = load ptr, ptr %recv_cb50.i.i, align 8
-  %cmp76.not.i.i = icmp eq ptr %.pr62.i.i, null
+  %.pr63.i.i = load ptr, ptr %recv_cb50.i.i, align 8
+  %cmp76.not.i.i = icmp eq ptr %.pr63.i.i, null
   br i1 %cmp76.not.i.i, label %uv__udp_recvmmsg.exit.i, label %if.then78.i.i
 
 if.then78.i.i:                                    ; preds = %for.end74.i.i
-  call void %.pr62.i.i(ptr noundef nonnull %add.ptr, i64 noundef 0, ptr noundef nonnull %buf.i, ptr noundef null, i32 noundef 16) #11
+  call void %.pr63.i.i(ptr noundef nonnull %add.ptr, i64 noundef 0, ptr noundef nonnull %buf.i, ptr noundef null, i32 noundef 16) #11
   br label %uv__udp_recvmmsg.exit.i
 
 uv__udp_recvmmsg.exit.i:                          ; preds = %land.rhs49.i.i, %if.then78.i.i, %for.end74.i.i, %if.else.i.i, %if.then40.i.i
@@ -1319,7 +1319,7 @@ uv__udp_recvmmsg.exit.i:                          ; preds = %land.rhs49.i.i, %if
   call void @llvm.lifetime.end.p0(ptr nonnull %chunk_buf.i.i)
   %conv.i = sext i32 %call.i.i to i64
   %sub.i = call i32 @llvm.smax.i32(i32 %call.i.i, i32 0)
-  %spec.select.i = sub i32 %count.0.i, %sub.i
+  %spec.select.i = sub nsw i32 %count.0.i, %sub.i
   br label %do.cond42.i
 
 if.end11.i:                                       ; preds = %if.end.i

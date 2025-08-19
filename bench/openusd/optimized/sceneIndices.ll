@@ -331,13 +331,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28UsdImagingCreateSceneIndices
   %44 = load atomic i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector10_isEnabledE acquire, align 4
   %45 = icmp eq i32 %44, 1
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.sink.sroa.gep325 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink.sroa.gep327 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %.sink.sroa.gep328 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink.sroa.gep330 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %.sink.sroa.gep331 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sink.sroa.gep333 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %.sink.sroa.gep334 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink.sroa.gep400 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink.sroa.gep402 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %.sink.sroa.gep403 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink.sroa.gep405 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %.sink.sroa.gep406 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink.sroa.gep408 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %.sink.sroa.gep409 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br i1 %45, label %46, label %53
 
 46:                                               ; preds = %2
@@ -2977,18 +2977,18 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBase
   br i1 %.not.i229, label %.invoke, label %1192
 
 .invoke:                                          ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EED2Ev.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit67
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit67 ], [ %.sink.sroa.gep325, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EED2Ev.exit ]
-  %.sink.sroa.phi326 = phi ptr [ %.sink.sroa.gep327, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit67 ], [ %.sink.sroa.gep328, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EED2Ev.exit ]
-  %.sink.sroa.phi329 = phi ptr [ %.sink.sroa.gep330, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit67 ], [ %.sink.sroa.gep331, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EED2Ev.exit ]
-  %.sink.sroa.phi332 = phi ptr [ %.sink.sroa.gep333, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit67 ], [ %.sink.sroa.gep334, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EED2Ev.exit ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit67 ], [ %.sink.sroa.gep400, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EED2Ev.exit ]
+  %.sink.sroa.phi401 = phi ptr [ %.sink.sroa.gep402, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit67 ], [ %.sink.sroa.gep403, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EED2Ev.exit ]
+  %.sink.sroa.phi404 = phi ptr [ %.sink.sroa.gep405, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit67 ], [ %.sink.sroa.gep406, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EED2Ev.exit ]
+  %.sink.sroa.phi407 = phi ptr [ %.sink.sroa.gep408, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit67 ], [ %.sink.sroa.gep409, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EED2Ev.exit ]
   %.sink = phi ptr [ %17, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit67 ], [ %7, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EED2Ev.exit ]
   %__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_25UsdImagingStageSceneIndexEEptEv.sink = phi ptr [ @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_25UsdImagingStageSceneIndexEEptEv, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit67 ], [ @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEptEv, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EED2Ev.exit ]
   %1191 = phi ptr [ @_ZTSN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_25UsdImagingStageSceneIndexEEE, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit67 ], [ @_ZTSN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEE, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EED2Ev.exit ]
   store ptr @.str.5, ptr %.sink, align 8
   store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEptEv, ptr %.sink.sroa.phi, align 8
-  store i64 936, ptr %.sink.sroa.phi326, align 8
-  store ptr %__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_25UsdImagingStageSceneIndexEEptEv.sink, ptr %.sink.sroa.phi329, align 8
-  store i8 0, ptr %.sink.sroa.phi332, align 8
+  store i64 936, ptr %.sink.sroa.phi401, align 8
+  store ptr %__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_25UsdImagingStageSceneIndexEEptEv.sink, ptr %.sink.sroa.phi404, align 8
+  store i8 0, ptr %.sink.sroa.phi407, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__40Tf_PostNullSmartPtrDereferenceFatalErrorERKNS_13TfCallContextEPKc(ptr noundef nonnull align 8 dereferenceable(33) %.sink, ptr noundef nonnull %1191) #20
           to label %.cont unwind label %347
 

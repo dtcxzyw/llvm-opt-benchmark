@@ -220,8 +220,8 @@ read_ip_port.exit.thread.thread:                  ; preds = %10
 37:                                               ; preds = %.critedge.i, %.outer.split.us.i
   %.434 = phi ptr [ %.131, %.critedge.i ], [ %.232, %.outer.split.us.i ]
   %.3 = phi i16 [ %.029, %.critedge.i ], [ %.1, %.outer.split.us.i ]
-  %.us-phi30.i = phi i1 [ %.012.ph26.i, %.critedge.i ], [ %.113.i, %.outer.split.us.i ]
-  br i1 %.us-phi30.i, label %read_ip_port.exit, label %read_ip_port.exit.thread
+  %.us-phi31.i = phi i1 [ %.012.ph26.i, %.critedge.i ], [ %.113.i, %.outer.split.us.i ]
+  br i1 %.us-phi31.i, label %read_ip_port.exit, label %read_ip_port.exit.thread
 
 read_ip_port.exit.thread:                         ; preds = %37, %.outer.split.us.i, %.critedge.i
   %.str.18.sink = phi ptr [ @.str.17, %.critedge.i ], [ @.str.17, %.outer.split.us.i ], [ @.str.18, %37 ]
@@ -2357,22 +2357,22 @@ define internal fastcc noundef i32 @prte_ras_slurm_discover(ptr noundef %0, ptr 
 19:                                               ; preds = %17, %12, %10
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #21
   %21 = trunc i64 %20 to i32
-  %.not185295 = icmp slt i32 %21, 0
-  br i1 %.not185295, label %.loopexit166.thread, label %.lr.ph.preheader
+  %.not185307 = icmp slt i32 %21, 0
+  br i1 %.not185307, label %.loopexit166.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %19, %.backedge
   %22 = phi i32 [ %105, %.backedge ], [ %21, %19 ]
   %23 = phi i64 [ %104, %.backedge ], [ %20, %19 ]
-  %.0111299 = phi i1 [ true, %.backedge ], [ false, %19 ]
-  %.0114298 = phi i1 [ %.0114.be, %.backedge ], [ false, %19 ]
-  %.0120296 = phi ptr [ %.0120.be, %.backedge ], [ %6, %19 ]
+  %.0111311 = phi i1 [ true, %.backedge ], [ false, %19 ]
+  %.0114310 = phi i1 [ %.0114.be, %.backedge ], [ false, %19 ]
+  %.0120308 = phi ptr [ %.0120.be, %.backedge ], [ %6, %19 ]
   %24 = and i64 %23, 2147483647
   %25 = add nuw i32 %22, 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.0120296, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr %.0120308, i64 %indvars.iv
   %27 = load i8, ptr %26, align 1, !tbaa !17
   switch i8 %27, label %28 [
     i8 91, label %.loopexit166.sink.split.loopexit
@@ -2383,18 +2383,18 @@ define internal fastcc noundef i32 @prte_ras_slurm_discover(ptr noundef %0, ptr 
 28:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv, %24
-  br i1 %exitcond.not, label %.loopexit166.thread240, label %.lr.ph, !llvm.loop !115
+  br i1 %exitcond.not, label %.loopexit166.thread252, label %.lr.ph, !llvm.loop !115
 
-.loopexit166.thread240:                           ; preds = %28
-  br i1 %.0114298, label %.preheader165, label %87
+.loopexit166.thread252:                           ; preds = %28
+  br i1 %.0114310, label %.preheader165, label %87
 
 .loopexit166.sink.split.loopexit:                 ; preds = %.lr.ph
   br label %.loopexit166.sink.split
 
 .loopexit166.sink.split:                          ; preds = %.lr.ph, %.loopexit166.sink.split.loopexit
   %.1115.ph = phi i1 [ true, %.loopexit166.sink.split.loopexit ], [ false, %.lr.ph ]
-  %.1112.ph = phi i1 [ %.0111299, %.loopexit166.sink.split.loopexit ], [ true, %.lr.ph ]
-  %29 = getelementptr inbounds nuw i8, ptr %.0120296, i64 %indvars.iv
+  %.1112.ph = phi i1 [ %.0111311, %.loopexit166.sink.split.loopexit ], [ true, %.lr.ph ]
+  %29 = getelementptr inbounds nuw i8, ptr %.0120308, i64 %indvars.iv
   store i8 0, ptr %29, align 1, !tbaa !17
   br label %.loopexit166
 
@@ -2415,18 +2415,18 @@ define internal fastcc noundef i32 @prte_ras_slurm_discover(ptr noundef %0, ptr 
 34:                                               ; preds = %.loopexit166
   br i1 %.1115, label %.preheader165, label %87
 
-.preheader165:                                    ; preds = %.loopexit166.thread240, %34
-  %.0116176244252 = phi i32 [ %25, %.loopexit166.thread240 ], [ %30, %34 ]
-  %35 = icmp slt i32 %.0116176244252, %22
+.preheader165:                                    ; preds = %.loopexit166.thread252, %34
+  %.0116176256264 = phi i32 [ %25, %.loopexit166.thread252 ], [ %30, %34 ]
+  %35 = icmp slt i32 %.0116176256264, %22
   br i1 %35, label %.lr.ph195.preheader, label %.preheader165._crit_edge
 
 .lr.ph195.preheader:                              ; preds = %.preheader165
-  %36 = zext i32 %.0116176244252 to i64
+  %36 = zext i32 %.0116176256264 to i64
   br label %.lr.ph195
 
 .lr.ph195:                                        ; preds = %.lr.ph195.preheader, %40
   %indvars.iv228 = phi i64 [ %36, %.lr.ph195.preheader ], [ %indvars.iv.next229, %40 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.0120296, i64 %indvars.iv228
+  %37 = getelementptr inbounds nuw i8, ptr %.0120308, i64 %indvars.iv228
   %38 = load i8, ptr %37, align 1, !tbaa !17
   %39 = icmp eq i8 %38, 93
   br i1 %39, label %45, label %40
@@ -2445,9 +2445,9 @@ define internal fastcc noundef i32 @prte_ras_slurm_discover(ptr noundef %0, ptr 
   br label %213
 
 45:                                               ; preds = %.lr.ph195
-  %46 = getelementptr inbounds nuw i8, ptr %.0120296, i64 %indvars.iv228
+  %46 = getelementptr inbounds nuw i8, ptr %.0120308, i64 %indvars.iv228
   store i8 0, ptr %46, align 1, !tbaa !17
-  %47 = getelementptr inbounds nuw i8, ptr %.0120296, i64 %36
+  %47 = getelementptr inbounds nuw i8, ptr %.0120308, i64 %36
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
   %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #21
   %50 = trunc i64 %49 to i32
@@ -2468,7 +2468,7 @@ define internal fastcc noundef i32 @prte_ras_slurm_discover(ptr noundef %0, ptr 
 
 55:                                               ; preds = %.lr.ph.i
   store i8 0, ptr %52, align 1, !tbaa !17
-  %56 = call fastcc i32 @prte_ras_slurm_parse_range(ptr noundef nonnull readonly %.0120296, ptr noundef %.03043.i, ptr noundef nonnull %4)
+  %56 = call fastcc i32 @prte_ras_slurm_parse_range(ptr noundef nonnull readonly %.0120308, ptr noundef %.03043.i, ptr noundef nonnull %4)
   switch i32 %56, label %prte_ras_slurm_parse_ranges.exit [
     i32 0, label %57
     i32 -43, label %.thread156
@@ -2510,7 +2510,7 @@ define internal fastcc noundef i32 @prte_ras_slurm_discover(ptr noundef %0, ptr 
   br label %72
 
 72:                                               ; preds = %70, %65, %63
-  %73 = call fastcc i32 @prte_ras_slurm_parse_range(ptr noundef nonnull readonly %.0120296, ptr noundef %.030.lcssa.i, ptr noundef nonnull %4)
+  %73 = call fastcc i32 @prte_ras_slurm_parse_range(ptr noundef nonnull readonly %.0120308, ptr noundef %.030.lcssa.i, ptr noundef nonnull %4)
   switch i32 %73, label %prte_ras_slurm_parse_ranges.exit [
     i32 0, label %prte_ras_slurm_parse_ranges.exit.thread153
     i32 -43, label %.thread156
@@ -2521,27 +2521,27 @@ define internal fastcc noundef i32 @prte_ras_slurm_discover(ptr noundef %0, ptr 
   br label %79
 
 prte_ras_slurm_parse_ranges.exit:                 ; preds = %55, %72
-  %.lcssa270.sink = phi i32 [ %73, %72 ], [ %56, %55 ]
-  %.sink279 = phi i32 [ 619, %72 ], [ 602, %55 ]
-  %75 = call ptr @prte_strerror(i32 noundef %.lcssa270.sink) #20
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %75, ptr noundef nonnull @.str.7, i32 noundef %.sink279) #20
-  %.not144 = icmp eq i32 %.lcssa270.sink, 0
+  %.lcssa282.sink = phi i32 [ %73, %72 ], [ %56, %55 ]
+  %.sink291 = phi i32 [ 619, %72 ], [ 602, %55 ]
+  %75 = call ptr @prte_strerror(i32 noundef %.lcssa282.sink) #20
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %75, ptr noundef nonnull @.str.7, i32 noundef %.sink291) #20
+  %.not144 = icmp eq i32 %.lcssa282.sink, 0
   br i1 %.not144, label %prte_ras_slurm_parse_ranges.exit.thread153, label %76
 
 76:                                               ; preds = %prte_ras_slurm_parse_ranges.exit
   %77 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, i32 noundef 1, ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.36) #20
-  %78 = call ptr @prte_strerror(i32 noundef %.lcssa270.sink) #20
+  %78 = call ptr @prte_strerror(i32 noundef %.lcssa282.sink) #20
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %78, ptr noundef nonnull @.str.7, i32 noundef 460) #20
   br label %79
 
 79:                                               ; preds = %.thread156, %76
-  %.0.i152159 = phi i32 [ -43, %.thread156 ], [ %.lcssa270.sink, %76 ]
+  %.0.i152159 = phi i32 [ -43, %.thread156 ], [ %.lcssa282.sink, %76 ]
   call void @free(ptr noundef %6) #20
   br label %213
 
 prte_ras_slurm_parse_ranges.exit.thread153:       ; preds = %72, %._crit_edge.i, %prte_ras_slurm_parse_ranges.exit
   %80 = and i64 %indvars.iv228, 4294967295
-  %81 = getelementptr inbounds nuw i8, ptr %.0120296, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr %.0120308, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 1
   %83 = load i8, ptr %82, align 1, !tbaa !17
   %84 = icmp eq i8 %83, 44
@@ -2551,9 +2551,9 @@ prte_ras_slurm_parse_ranges.exit.thread153:       ; preds = %72, %._crit_edge.i,
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 2
   br label %.backedge
 
-87:                                               ; preds = %.loopexit166.thread240, %34
-  %.0116176244251 = phi i32 [ %25, %.loopexit166.thread240 ], [ %30, %34 ]
-  %.1112246247 = phi i1 [ %.0111299, %.loopexit166.thread240 ], [ %.1112, %34 ]
+87:                                               ; preds = %.loopexit166.thread252, %34
+  %.0116176256263 = phi i32 [ %25, %.loopexit166.thread252 ], [ %30, %34 ]
+  %.1112258259 = phi i1 [ %.0111311, %.loopexit166.thread252 ], [ %.1112, %34 ]
   %88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ras_base_framework, i64 76), align 4, !tbaa !18
   %or.cond3 = icmp ult i32 %88, 64
   br i1 %or.cond3, label %89, label %96
@@ -2567,11 +2567,11 @@ prte_ras_slurm_parse_ranges.exit.thread153:       ; preds = %72, %._crit_edge.i,
 
 94:                                               ; preds = %89
   %95 = call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #20
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %88, ptr noundef nonnull @.str.37, ptr noundef %95, ptr noundef nonnull %.0120296) #20
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %88, ptr noundef nonnull @.str.37, ptr noundef %95, ptr noundef nonnull %.0120308) #20
   br label %96
 
 96:                                               ; preds = %94, %89, %87
-  %97 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %4, ptr noundef nonnull %.0120296) #20
+  %97 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %4, ptr noundef nonnull %.0120308) #20
   switch i32 %97, label %98 [
     i32 0, label %100
     i32 -43, label %.loopexit167
@@ -2587,10 +2587,10 @@ prte_ras_slurm_parse_ranges.exit.thread153:       ; preds = %72, %._crit_edge.i,
   br label %213
 
 100:                                              ; preds = %96
-  %101 = zext nneg i32 %.0116176244251 to i64
-  %102 = getelementptr inbounds nuw i8, ptr %.0120296, i64 %101
+  %101 = zext nneg i32 %.0116176256263 to i64
+  %102 = getelementptr inbounds nuw i8, ptr %.0120308, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 1
-  br i1 %.1112246247, label %.backedge, label %.thread160
+  br i1 %.1112258259, label %.backedge, label %.thread160
 
 .backedge:                                        ; preds = %100, %85
   %.0120.be = phi ptr [ %103, %100 ], [ %86, %85 ]
@@ -2719,16 +2719,16 @@ prte_ras_slurm_parse_ranges.exit.thread153:       ; preds = %72, %._crit_edge.i,
   %157 = getelementptr inbounds nuw i8, ptr %2, i64 248
   %158 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %159 = load ptr, ptr %155, align 8, !tbaa !38
-  %.not147300 = icmp eq ptr %159, null
-  br i1 %.not147300, label %.critedge, label %.lr.ph302
+  %.not147312 = icmp eq ptr %159, null
+  br i1 %.not147312, label %.critedge, label %.lr.ph314
 
-.lr.ph302:                                        ; preds = %.lr.ph206, %.loopexit
-  %indvars.iv234301 = phi i64 [ %indvars.iv.next235, %.loopexit ], [ 0, %.lr.ph206 ]
+.lr.ph314:                                        ; preds = %.lr.ph206, %.loopexit
+  %indvars.iv234313 = phi i64 [ %indvars.iv.next235, %.loopexit ], [ 0, %.lr.ph206 ]
   %160 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ras_base_framework, i64 76), align 4, !tbaa !18
   %or.cond5 = icmp ult i32 %160, 64
   br i1 %or.cond5, label %161, label %175
 
-161:                                              ; preds = %.lr.ph302
+161:                                              ; preds = %.lr.ph314
   %162 = zext nneg i32 %160 to i64
   %163 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %162, i32 2
   %164 = load i32, ptr %163, align 4, !tbaa !28
@@ -2738,16 +2738,16 @@ prte_ras_slurm_parse_ranges.exit.thread153:       ; preds = %72, %._crit_edge.i,
 166:                                              ; preds = %161
   %167 = call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #20
   %168 = load ptr, ptr %4, align 8, !tbaa !50
-  %169 = getelementptr inbounds nuw ptr, ptr %168, i64 %indvars.iv234301
+  %169 = getelementptr inbounds nuw ptr, ptr %168, i64 %indvars.iv234313
   %170 = load ptr, ptr %169, align 8, !tbaa !38
-  %171 = getelementptr inbounds nuw i32, ptr %calloc, i64 %indvars.iv234301
+  %171 = getelementptr inbounds nuw i32, ptr %calloc, i64 %indvars.iv234313
   %172 = load i32, ptr %171, align 4, !tbaa !30
   %173 = icmp eq i32 %172, 1
   %174 = select i1 %173, ptr @.str.40, ptr @.str.41
   call void (i32, ptr, ...) @pmix_output(i32 noundef %160, ptr noundef nonnull @.str.39, ptr noundef %167, ptr noundef %170, i32 noundef %172, ptr noundef nonnull %174) #20
   br label %175
 
-175:                                              ; preds = %166, %161, %.lr.ph302
+175:                                              ; preds = %166, %161, %.lr.ph314
   %176 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_node_t_class, i64 56), align 8, !tbaa !51
   %177 = call noalias noundef ptr @malloc(i64 noundef %176) #23
   %178 = load i32, ptr @pmix_class_init_epoch, align 4, !tbaa !30
@@ -2795,7 +2795,7 @@ prte_ras_slurm_parse_ranges.exit.thread153:       ; preds = %72, %._crit_edge.i,
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %182
   %194 = load ptr, ptr %4, align 8, !tbaa !50
-  %195 = getelementptr inbounds nuw ptr, ptr %194, i64 %indvars.iv234301
+  %195 = getelementptr inbounds nuw ptr, ptr %194, i64 %indvars.iv234313
   %196 = load ptr, ptr %195, align 8, !tbaa !38
   %197 = call noalias ptr @strdup(ptr noundef %196) #20
   %198 = getelementptr inbounds nuw i8, ptr %177, i64 152
@@ -2806,7 +2806,7 @@ prte_ras_slurm_parse_ranges.exit.thread153:       ; preds = %72, %._crit_edge.i,
   store i32 0, ptr %200, align 4, !tbaa !122
   %201 = getelementptr inbounds nuw i8, ptr %177, i64 232
   store i32 0, ptr %201, align 8, !tbaa !123
-  %202 = getelementptr inbounds nuw i32, ptr %calloc, i64 %indvars.iv234301
+  %202 = getelementptr inbounds nuw i32, ptr %calloc, i64 %indvars.iv234313
   %203 = load i32, ptr %202, align 4, !tbaa !30
   %204 = getelementptr inbounds nuw i8, ptr %177, i64 220
   store i32 %203, ptr %204, align 4, !tbaa !107
@@ -2821,11 +2821,11 @@ prte_ras_slurm_parse_ranges.exit.thread153:       ; preds = %72, %._crit_edge.i,
   %209 = load volatile i64, ptr %158, align 8, !tbaa !54
   %210 = add i64 %209, 1
   store volatile i64 %210, ptr %158, align 8, !tbaa !54
-  %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234301, 1
+  %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234313, 1
   %211 = getelementptr inbounds nuw ptr, ptr %194, i64 %indvars.iv.next235
   %212 = load ptr, ptr %211, align 8, !tbaa !38
   %.not147 = icmp eq ptr %212, null
-  br i1 %.not147, label %.critedge, label %.lr.ph302, !llvm.loop !124
+  br i1 %.not147, label %.critedge, label %.lr.ph314, !llvm.loop !124
 
 .critedge:                                        ; preds = %.loopexit, %.lr.ph206, %.loopexit164
   %.lcssa = phi ptr [ null, %.loopexit164 ], [ %155, %.lr.ph206 ], [ %194, %.loopexit ]

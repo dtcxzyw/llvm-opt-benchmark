@@ -2193,7 +2193,7 @@ _ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit: ; 
   br i1 %.not.i32, label %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit34, label %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i33
 
 _ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i33: ; preds = %.thread, %92
-  %.pn.pn38 = phi { ptr, i32 } [ %33, %.thread ], [ %.pn, %92 ]
+  %.pn.pn46 = phi { ptr, i32 } [ %33, %.thread ], [ %.pn, %92 ]
   %93 = phi ptr [ %.cast, %.thread ], [ %.pre, %92 ]
   %94 = load ptr, ptr %93, align 8, !tbaa !3
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
@@ -2202,11 +2202,11 @@ _ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i33: ; preds = %.t
   br label %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit34
 
 _ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit34: ; preds = %92, %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i33
-  %.pn.pn39 = phi { ptr, i32 } [ %.pn, %92 ], [ %.pn.pn38, %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i33 ]
+  %.pn.pn47 = phi { ptr, i32 } [ %.pn, %92 ], [ %.pn.pn46, %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5arrow6ResultISt10unique_ptrINS_15ResizableBufferESt14default_deleteIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  resume { ptr, i32 } %.pn.pn39
+  resume { ptr, i32 } %.pn.pn47
 
 97:                                               ; preds = %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit, %15
   %98 = load ptr, ptr %5, align 8, !tbaa !60
@@ -2460,7 +2460,7 @@ _ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit: ; 
   br i1 %.not.i31, label %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit33, label %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i32
 
 _ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i32: ; preds = %.thread, %91
-  %.pn.pn37 = phi { ptr, i32 } [ %32, %.thread ], [ %.pn, %91 ]
+  %.pn.pn45 = phi { ptr, i32 } [ %32, %.thread ], [ %.pn, %91 ]
   %92 = phi ptr [ %.cast, %.thread ], [ %.pre, %91 ]
   %93 = load ptr, ptr %92, align 8, !tbaa !3
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
@@ -2469,11 +2469,11 @@ _ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i32: ; preds = %.t
   br label %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit33
 
 _ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit33: ; preds = %91, %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i32
-  %.pn.pn38 = phi { ptr, i32 } [ %.pn, %91 ], [ %.pn.pn37, %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i32 ]
+  %.pn.pn46 = phi { ptr, i32 } [ %.pn, %91 ], [ %.pn.pn45, %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5arrow6ResultISt10unique_ptrINS_15ResizableBufferESt14default_deleteIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %.pn.pn38
+  resume { ptr, i32 } %.pn.pn46
 
 96:                                               ; preds = %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit, %14
   %97 = load ptr, ptr %4, align 8, !tbaa !60
@@ -7233,7 +7233,7 @@ _ZNSt6vectorIN5arrow8internal12MemoryRegionESaIS2_EED2Ev.exit: ; preds = %.loope
   br i1 %.not.i.i.i45, label %_ZNSt6vectorIN5arrow8internal12MemoryRegionESaIS2_EED2Ev.exit46, label %.thread
 
 .thread:                                          ; preds = %72, %_ZN5arrow6ResultIlED2Ev.exit42, %104
-  %.pn3267 = phi { ptr, i32 } [ %105, %104 ], [ %73, %72 ], [ %75, %_ZN5arrow6ResultIlED2Ev.exit42 ]
+  %.pn3277 = phi { ptr, i32 } [ %105, %104 ], [ %73, %72 ], [ %75, %_ZN5arrow6ResultIlED2Ev.exit42 ]
   %106 = phi ptr [ %.pre60, %104 ], [ %34, %72 ], [ %34, %_ZN5arrow6ResultIlED2Ev.exit42 ]
   %107 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %108 = load ptr, ptr %107, align 8, !tbaa !414
@@ -7244,7 +7244,7 @@ _ZNSt6vectorIN5arrow8internal12MemoryRegionESaIS2_EED2Ev.exit: ; preds = %.loope
   br label %_ZNSt6vectorIN5arrow8internal12MemoryRegionESaIS2_EED2Ev.exit46
 
 _ZNSt6vectorIN5arrow8internal12MemoryRegionESaIS2_EED2Ev.exit46: ; preds = %.thread, %104, %57
-  %.pn32.pn = phi { ptr, i32 } [ %58, %57 ], [ %105, %104 ], [ %.pn3267, %.thread ]
+  %.pn32.pn = phi { ptr, i32 } [ %58, %57 ], [ %105, %104 ], [ %.pn3277, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i.i47 = icmp eq ptr %.sroa.049.0, null
   %or.cond55 = or i1 %.not56.not, %.not.i.i47
@@ -7810,7 +7810,7 @@ _ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit:     ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %27, align 16, !tbaa !530
   %.not.i40 = icmp eq ptr %29, null
-  br i1 %.not.i40, label %.invoke96, label %32
+  br i1 %.not.i40, label %.invoke109, label %32
 
 30:                                               ; preds = %.invoke
   %31 = landingpad { ptr, i32 }
@@ -7820,25 +7820,25 @@ _ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit:     ; preds = %21
 32:                                               ; preds = %_ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit
   %33 = load i8, ptr %28, align 8, !tbaa !533, !range !73, !noundef !74
   %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %.invoke96, label %35
+  br i1 %34, label %.invoke109, label %35
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr %29, align 8, !tbaa !520
   %.not.i.i41 = icmp eq ptr %36, null
-  br i1 %.not.i.i41, label %.invoke96, label %37
+  br i1 %.not.i.i41, label %.invoke109, label %37
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %39 = load i8, ptr %38, align 8, !tbaa !523, !range !73, !noundef !74
   %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %.invoke96, label %42
+  br i1 %40, label %.invoke109, label %42
 
-.invoke96:                                        ; preds = %37, %35, %32, %_ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit
+.invoke109:                                       ; preds = %37, %35, %32, %_ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit
   %41 = phi i32 [ 1, %_ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit ], [ 35, %32 ], [ 1, %35 ], [ 35, %37 ]
   invoke void @_ZSt20__throw_system_errori(i32 noundef %41) #33
-          to label %.cont97 unwind label %50
+          to label %.cont110 unwind label %50
 
-.cont97:                                          ; preds = %.invoke96
+.cont110:                                         ; preds = %.invoke109
   unreachable
 
 42:                                               ; preds = %37
@@ -7856,9 +7856,9 @@ _ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit:     ; preds = %21
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %.promoted = load i8, ptr %48, align 8, !tbaa !533
   %49 = trunc nuw i8 %.promoted to i1
-  br i1 %49, label %52, label %.invoke98
+  br i1 %49, label %52, label %.invoke111
 
-50:                                               ; preds = %.invoke96
+50:                                               ; preds = %.invoke109
   %51 = landingpad { ptr, i32 }
           cleanup
   br label %91
@@ -7872,15 +7872,15 @@ _ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit:     ; preds = %21
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %56 = load i8, ptr %55, align 8, !tbaa !523, !range !73, !noundef !74
   %57 = trunc nuw i8 %56 to i1
-  br i1 %57, label %58, label %.invoke98
+  br i1 %57, label %58, label %.invoke111
 
-.invoke98:                                        ; preds = %54, %.preheader58
+.invoke111:                                       ; preds = %54, %.preheader58
   %storemerge = phi i8 [ 0, %.preheader58 ], [ 1, %54 ]
   store i8 %storemerge, ptr %48, align 8
   invoke void @_ZSt20__throw_system_errori(i32 noundef 1) #33
-          to label %.cont99 unwind label %62
+          to label %.cont112 unwind label %62
 
-.cont99:                                          ; preds = %.invoke98
+.cont112:                                         ; preds = %.invoke111
   unreachable
 
 58:                                               ; preds = %54
@@ -7893,7 +7893,7 @@ _ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit:     ; preds = %21
   store i8 0, ptr %55, align 8, !tbaa !523
   br label %.thread
 
-62:                                               ; preds = %.invoke98
+62:                                               ; preds = %.invoke111
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %91
@@ -7909,19 +7909,19 @@ _ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit:     ; preds = %21
   %65 = getelementptr inbounds nuw [2 x %"class.std::unique_lock.201"], ptr %3, i64 0, i64 %64, i32 1
   %66 = load i8, ptr %65, align 8, !tbaa !533, !range !73, !noundef !74
   %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %.preheader100, label %7, !llvm.loop !535
+  br i1 %67, label %.preheader113, label %7, !llvm.loop !535
 
-.preheader100:                                    ; preds = %.loopexit, %.preheader100
-  %.026.idx71 = phi i64 [ %.026.add, %.preheader100 ], [ 0, %.loopexit ]
+.preheader113:                                    ; preds = %.loopexit, %.preheader113
+  %.026.idx71 = phi i64 [ %.026.add, %.preheader113 ], [ 0, %.loopexit ]
   %.026.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.026.idx71
   store ptr null, ptr %.026.ptr, align 16, !tbaa !530
   %68 = getelementptr inbounds nuw i8, ptr %.026.ptr, i64 8
   store i8 0, ptr %68, align 8, !tbaa !533
   %.026.add = add nuw nsw i64 %.026.idx71, 16
   %.not35 = icmp eq i64 %.026.add, 32
-  br i1 %.not35, label %.preheader.preheader, label %.preheader100
+  br i1 %.not35, label %.preheader.preheader, label %.preheader113
 
-.preheader.preheader:                             ; preds = %.preheader100
+.preheader.preheader:                             ; preds = %.preheader113
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %.preheader
 

@@ -66528,7 +66528,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %272 = load ptr, ptr %127, align 8, !tbaa !50
   %.sroa.5.017.i.i.i360 = load i64, ptr %271, align 8, !tbaa !68
   %.not18.i.i.i361 = icmp eq i64 %.sroa.5.017.i.i.i360, -1
-  br i1 %.not18.i.i.i361, label %.thread837, label %.lr.ph.i.i.i362
+  br i1 %.not18.i.i.i361, label %.thread972, label %.lr.ph.i.i.i362
 
 .lr.ph.i.i.i362:                                  ; preds = %270, %277
   %.sroa.5.019.i.i.i363 = phi i64 [ %.sroa.5.0.i.i.i364, %277 ], [ %.sroa.5.017.i.i.i360, %270 ]
@@ -66541,9 +66541,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 277:                                              ; preds = %.lr.ph.i.i.i362
   %.sroa.5.0.i.i.i364 = load i64, ptr %276, align 8, !tbaa !68
   %.not.i.i.i365 = icmp eq i64 %.sroa.5.0.i.i.i364, -1
-  br i1 %.not.i.i.i365, label %.thread837, label %.lr.ph.i.i.i362, !llvm.loop !77
+  br i1 %.not.i.i.i365, label %.thread972, label %.lr.ph.i.i.i362, !llvm.loop !77
 
-.thread837:                                       ; preds = %277, %270
+.thread972:                                       ; preds = %277, %270
   %278 = load ptr, ptr %148, align 8, !tbaa !50
   store ptr %278, ptr %15, align 8
   %279 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -66565,7 +66565,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %285 = icmp eq ptr %276, %.pre.i371
   br i1 %285, label %286, label %287
 
-286:                                              ; preds = %.thread837, %280
+286:                                              ; preds = %.thread972, %280
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %14)
           to label %_ZN7testing8internal8EqHelper7CompareIN4entt8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImiESt6vectorIS9_SaIS9_EEEEEESG_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSQ_RKSI_RKSJ_.exit unwind label %291
 
@@ -66947,7 +66947,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %410 = load ptr, ptr %127, align 8, !tbaa !50
   %.sroa.5.017.i.i.i426 = load i64, ptr %409, align 8, !tbaa !68
   %.not18.i.i.i427 = icmp eq i64 %.sroa.5.017.i.i.i426, -1
-  br i1 %.not18.i.i.i427, label %.thread839, label %.lr.ph.i.i.i428
+  br i1 %.not18.i.i.i427, label %.thread974, label %.lr.ph.i.i.i428
 
 .lr.ph.i.i.i428:                                  ; preds = %408, %415
   %.sroa.5.019.i.i.i429 = phi i64 [ %.sroa.5.0.i.i.i430, %415 ], [ %.sroa.5.017.i.i.i426, %408 ]
@@ -66960,9 +66960,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 415:                                              ; preds = %.lr.ph.i.i.i428
   %.sroa.5.0.i.i.i430 = load i64, ptr %414, align 8, !tbaa !68
   %.not.i.i.i431 = icmp eq i64 %.sroa.5.0.i.i.i430, -1
-  br i1 %.not.i.i.i431, label %.thread839, label %.lr.ph.i.i.i428, !llvm.loop !108
+  br i1 %.not.i.i.i431, label %.thread974, label %.lr.ph.i.i.i428, !llvm.loop !108
 
-.thread839:                                       ; preds = %415, %408
+.thread974:                                       ; preds = %415, %408
   %416 = load ptr, ptr %148, align 8, !tbaa !50
   store ptr %416, ptr %25, align 8
   %417 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -66984,7 +66984,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %423 = icmp eq ptr %414, %.pre.i437
   br i1 %423, label %424, label %425
 
-424:                                              ; preds = %.thread839, %418
+424:                                              ; preds = %.thread974, %418
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %24)
           to label %_ZN7testing8internal8EqHelper7CompareIN4entt8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS9_SaIS9_EEEEEESF_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSP_RKSH_RKSI_.exit440 unwind label %429
 
@@ -67366,7 +67366,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %548 = load ptr, ptr %127, align 8, !tbaa !50
   %.sroa.5.017.i.i.i493 = load i64, ptr %547, align 8, !tbaa !68
   %.not18.i.i.i494 = icmp eq i64 %.sroa.5.017.i.i.i493, -1
-  br i1 %.not18.i.i.i494, label %.thread841, label %.lr.ph.i.i.i495
+  br i1 %.not18.i.i.i494, label %.thread976, label %.lr.ph.i.i.i495
 
 .lr.ph.i.i.i495:                                  ; preds = %546, %553
   %.sroa.5.019.i.i.i496 = phi i64 [ %.sroa.5.0.i.i.i497, %553 ], [ %.sroa.5.017.i.i.i493, %546 ]
@@ -67379,9 +67379,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 553:                                              ; preds = %.lr.ph.i.i.i495
   %.sroa.5.0.i.i.i497 = load i64, ptr %552, align 8, !tbaa !68
   %.not.i.i.i498 = icmp eq i64 %.sroa.5.0.i.i.i497, -1
-  br i1 %.not.i.i.i498, label %.thread841, label %.lr.ph.i.i.i495, !llvm.loop !107
+  br i1 %.not.i.i.i498, label %.thread976, label %.lr.ph.i.i.i495, !llvm.loop !107
 
-.thread841:                                       ; preds = %553, %546
+.thread976:                                       ; preds = %553, %546
   %554 = load ptr, ptr %148, align 8, !tbaa !50
   store ptr %554, ptr %35, align 8
   %555 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -67403,7 +67403,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %561 = icmp eq ptr %552, %.pre.i504
   br i1 %561, label %562, label %563
 
-562:                                              ; preds = %.thread841, %556
+562:                                              ; preds = %.thread976, %556
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %34)
           to label %_ZN7testing8internal8EqHelper7CompareIN4entt8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImiESt6vectorIS9_SaIS9_EEEEEESG_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSQ_RKSI_RKSJ_.exit507 unwind label %567
 
@@ -67793,7 +67793,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %694 = getelementptr inbounds nuw i64, ptr %686, i64 %692
   %.sroa.5.017.i.i.i560 = load i64, ptr %694, align 8, !tbaa !68
   %.not18.i.i.i561 = icmp eq i64 %.sroa.5.017.i.i.i560, -1
-  br i1 %.not18.i.i.i561, label %.thread843, label %.lr.ph.i.i.i562
+  br i1 %.not18.i.i.i561, label %.thread978, label %.lr.ph.i.i.i562
 
 .lr.ph.i.i.i562:                                  ; preds = %684, %699
   %.sroa.5.019.i.i.i563 = phi i64 [ %.sroa.5.0.i.i.i564, %699 ], [ %.sroa.5.017.i.i.i560, %684 ]
@@ -67806,9 +67806,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 699:                                              ; preds = %.lr.ph.i.i.i562
   %.sroa.5.0.i.i.i564 = load i64, ptr %698, align 8, !tbaa !68
   %.not.i.i.i565 = icmp eq i64 %.sroa.5.0.i.i.i564, -1
-  br i1 %.not.i.i.i565, label %.thread843, label %.lr.ph.i.i.i562, !llvm.loop !76
+  br i1 %.not.i.i.i565, label %.thread978, label %.lr.ph.i.i.i562, !llvm.loop !76
 
-.thread843:                                       ; preds = %699, %684
+.thread978:                                       ; preds = %699, %684
   %700 = load ptr, ptr %148, align 8, !tbaa !50
   store ptr %700, ptr %45, align 8
   %701 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -67834,7 +67834,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %44)
           to label %_ZN7testing8internal11CmpHelperNEIN4entt8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS8_SaIS8_EEEEEESE_EENS_15AssertionResultEPKcSH_RKT_RKT0_.exit unwind label %712
 
-708:                                              ; preds = %.thread843, %702
+708:                                              ; preds = %.thread978, %702
   invoke void @_ZN7testing8internal18CmpHelperOpFailureIN4entt8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS8_SaIS8_EEEEEESE_EENS_15AssertionResultEPKcSH_RKT_RKT0_SH_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %44, ptr noundef nonnull @.str.254, ptr noundef nonnull @.str.22, ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull @.str.325)
           to label %_ZN7testing8internal11CmpHelperNEIN4entt8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS8_SaIS8_EEEEEESE_EENS_15AssertionResultEPKcSH_RKT_RKT0_.exit unwind label %712
 
@@ -68017,7 +68017,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %771 = load i32, ptr %770, align 4, !tbaa !69
   %772 = icmp eq i32 %771, 1
   %773 = getelementptr inbounds %"struct.std::pair.182", ptr %768, i64 %.sroa.5.019.i.i.i596
-  br i1 %772, label %.loopexit884, label %774
+  br i1 %772, label %.loopexit1019, label %774
 
 774:                                              ; preds = %.lr.ph.i.i.i595
   %.sroa.5.0.i.i.i597 = load i64, ptr %773, align 8, !tbaa !68
@@ -68026,9 +68026,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 ._crit_edge.i.i.i599:                             ; preds = %774, %759
   %775 = load ptr, ptr %148, align 8, !tbaa !50
-  br label %.loopexit884
+  br label %.loopexit1019
 
-.loopexit884:                                     ; preds = %.lr.ph.i.i.i595, %._crit_edge.i.i.i599
+.loopexit1019:                                    ; preds = %.lr.ph.i.i.i595, %._crit_edge.i.i.i599
   %.sroa.0.1.i.i.i600 = phi ptr [ %775, %._crit_edge.i.i.i599 ], [ %773, %.lr.ph.i.i.i595 ]
   %776 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i600, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
@@ -68037,11 +68037,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %778 = icmp eq i32 %777, 1
   br i1 %778, label %779, label %780
 
-779:                                              ; preds = %.loopexit884
+779:                                              ; preds = %.loopexit1019
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %49)
           to label %_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit unwind label %784
 
-780:                                              ; preds = %.loopexit884
+780:                                              ; preds = %.loopexit1019
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %49, ptr noundef nonnull @.str.255, ptr noundef nonnull @.str.103, ptr noundef nonnull align 4 dereferenceable(4) %776, ptr noundef nonnull align 4 dereferenceable(4) %50)
           to label %_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit unwind label %784
 
@@ -68433,7 +68433,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %919 = getelementptr inbounds nuw i64, ptr %911, i64 %917
   %.sroa.5.017.i.i.i660 = load i64, ptr %919, align 8, !tbaa !68
   %.not18.i.i.i661 = icmp eq i64 %.sroa.5.017.i.i.i660, -1
-  br i1 %.not18.i.i.i661, label %.thread846, label %.lr.ph.i.i.i662
+  br i1 %.not18.i.i.i661, label %.thread981, label %.lr.ph.i.i.i662
 
 .lr.ph.i.i.i662:                                  ; preds = %909, %924
   %.sroa.5.019.i.i.i663 = phi i64 [ %.sroa.5.0.i.i.i664, %924 ], [ %.sroa.5.017.i.i.i660, %909 ]
@@ -68446,9 +68446,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 924:                                              ; preds = %.lr.ph.i.i.i662
   %.sroa.5.0.i.i.i664 = load i64, ptr %923, align 8, !tbaa !68
   %.not.i.i.i665 = icmp eq i64 %.sroa.5.0.i.i.i664, -1
-  br i1 %.not.i.i.i665, label %.thread846, label %.lr.ph.i.i.i662, !llvm.loop !77
+  br i1 %.not.i.i.i665, label %.thread981, label %.lr.ph.i.i.i662, !llvm.loop !77
 
-.thread846:                                       ; preds = %924, %909
+.thread981:                                       ; preds = %924, %909
   %925 = load ptr, ptr %148, align 8, !tbaa !50
   store ptr %925, ptr %59, align 8
   %926 = getelementptr inbounds nuw i8, ptr %59, i64 8
@@ -68474,7 +68474,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %58)
           to label %_ZN7testing8internal11CmpHelperNEIN4entt8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImiESt6vectorIS8_SaIS8_EEEEEESF_EENS_15AssertionResultEPKcSI_RKT_RKT0_.exit unwind label %937
 
-933:                                              ; preds = %.thread846, %927
+933:                                              ; preds = %.thread981, %927
   invoke void @_ZN7testing8internal18CmpHelperOpFailureIN4entt8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImiESt6vectorIS8_SaIS8_EEEEEESF_EENS_15AssertionResultEPKcSI_RKT_RKT0_SI_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %58, ptr noundef nonnull @.str.257, ptr noundef nonnull @.str.248, ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull @.str.325)
           to label %_ZN7testing8internal11CmpHelperNEIN4entt8internal18dense_set_iteratorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImiESt6vectorIS8_SaIS8_EEEEEESF_EENS_15AssertionResultEPKcSI_RKT_RKT0_.exit unwind label %937
 
@@ -86460,13 +86460,13 @@ define linkonce_odr dso_local void @_ZNSt6vectorImSaImEE17_M_default_appendEm(pt
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 8, !tbaa !68
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !68
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -98489,7 +98489,7 @@ _ZNK4entt9dense_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashI
   %38 = load ptr, ptr %37, align 8, !tbaa !46
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %40 = icmp eq ptr %38, %39
-  br i1 %40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i
+  br i1 %40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNK4entt9dense_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS6_ESt8equal_toIvESaIS6_EE15value_to_bucketIS6_EEmRKT_.exit
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -98501,14 +98501,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %46 = icmp eq ptr %44, %45
   br i1 %46, label %50, label %.thread.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i: ; preds = %_ZNK4entt9dense_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS6_ESt8equal_toIvESaIS6_EE15value_to_bucketIS6_EEmRKT_.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i: ; preds = %_ZNK4entt9dense_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS6_ESt8equal_toIvESaIS6_EE15value_to_bucketIS6_EEmRKT_.exit
   %47 = load ptr, ptr %36, align 8, !tbaa !46
   %48 = getelementptr inbounds i8, ptr %31, i64 -16
   %49 = icmp eq ptr %47, %48
   br i1 %49, label %50, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i
 
-50:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  %51 = phi ptr [ %47, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i ], [ %44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
+50:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %51 = phi ptr [ %47, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i ], [ %44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   %52 = getelementptr inbounds i8, ptr %31, i64 -24
   %53 = load i64, ptr %52, align 8, !tbaa !44
   %54 = icmp ult i64 %53, 16
@@ -98550,7 +98550,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i: ;
   store i64 %65, ptr %39, align 8, !tbaa !47
   br label %72
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i
   %66 = load i64, ptr %39, align 8, !tbaa !47
   store ptr %47, ptr %37, align 8, !tbaa !46
   %67 = getelementptr inbounds i8, ptr %31, i64 -24
@@ -102072,7 +102072,7 @@ define linkonce_odr hidden void @_ZNSt6vectorImN4test18throwing_allocatorImEEE17
   br i1 %.not23, label %21, label %_ZSt27__uninitialized_default_n_aIPmmN4test18throwing_allocatorImEEET_S4_T0_RT1_.exit
 
 _ZSt27__uninitialized_default_n_aIPmmN4test18throwing_allocatorImEEET_S4_T0_RT1_.exit: ; preds = %3
-  %20 = shl nuw i64 %1, 3
+  %20 = shl nuw nsw i64 %1, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 %20, i1 false), !tbaa !68
   %scevgep.i = getelementptr i8, ptr %6, i64 %20
   store ptr %scevgep.i, ptr %5, align 8, !tbaa !812
@@ -103141,7 +103141,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorImNSt3pmr21polymorphic_allocator
   br i1 %.not37, label %21, label %_ZSt27__uninitialized_default_n_aIPmmNSt3pmr21polymorphic_allocatorImEEET_S4_T0_RT1_.exit
 
 _ZSt27__uninitialized_default_n_aIPmmNSt3pmr21polymorphic_allocatorImEEET_S4_T0_RT1_.exit: ; preds = %3
-  %20 = shl nuw i64 %1, 3
+  %20 = shl nuw nsw i64 %1, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 %20, i1 false), !tbaa !68
   %scevgep.i = getelementptr i8, ptr %6, i64 %20
   store ptr %scevgep.i, ptr %5, align 8, !tbaa !948

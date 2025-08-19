@@ -531,9 +531,9 @@ rb_ll2num_inline.exit27:                          ; preds = %48, %51
   br label %59
 
 59:                                               ; preds = %rb_ll2num_inline.exit27, %56
-  %.sink28 = phi i64 [ %58, %56 ], [ 4, %rb_ll2num_inline.exit27 ]
+  %.sink29 = phi i64 [ %58, %56 ], [ 4, %rb_ll2num_inline.exit27 ]
   %60 = load i64, ptr @sym_shape, align 8, !tbaa !6
-  %61 = call i64 @rb_hash_aset(i64 noundef %6, i64 noundef %60, i64 noundef %.sink28) #9
+  %61 = call i64 @rb_hash_aset(i64 noundef %6, i64 noundef %60, i64 noundef %.sink29) #9
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %63 = load ptr, ptr %62, align 8, !tbaa !36
   %.not20 = icmp eq ptr %63, null
@@ -545,9 +545,9 @@ rb_ll2num_inline.exit27:                          ; preds = %48, %51
   br label %67
 
 67:                                               ; preds = %59, %64
-  %.sink29 = phi i64 [ %66, %64 ], [ 4, %59 ]
+  %.sink30 = phi i64 [ %66, %64 ], [ 4, %59 ]
   %68 = load i64, ptr @sym_strides, align 8, !tbaa !6
-  %69 = call i64 @rb_hash_aset(i64 noundef %6, i64 noundef %68, i64 noundef %.sink29) #9
+  %69 = call i64 @rb_hash_aset(i64 noundef %6, i64 noundef %68, i64 noundef %.sink30) #9
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %71 = load ptr, ptr %70, align 8, !tbaa !37
   %.not21 = icmp eq ptr %71, null
@@ -559,9 +559,9 @@ rb_ll2num_inline.exit27:                          ; preds = %48, %51
   br label %75
 
 75:                                               ; preds = %67, %72
-  %.sink30 = phi i64 [ %74, %72 ], [ 4, %67 ]
+  %.sink31 = phi i64 [ %74, %72 ], [ 4, %67 ]
   %76 = load i64, ptr @sym_sub_offsets, align 8, !tbaa !6
-  %77 = call i64 @rb_hash_aset(i64 noundef %6, i64 noundef %76, i64 noundef %.sink30) #9
+  %77 = call i64 @rb_hash_aset(i64 noundef %6, i64 noundef %76, i64 noundef %.sink31) #9
   %78 = call zeroext i1 @rb_memory_view_release(ptr noundef nonnull %3) #9
   br label %79
 
@@ -1419,8 +1419,8 @@ rb_num2ll_inline.exit79:                          ; preds = %93, %95
   %99 = add nsw i64 %.0.i, -1
   %100 = getelementptr inbounds i64, ptr %48, i64 %99
   store i64 %21, ptr %100, align 8, !tbaa !6
-  %.not99 = icmp eq i64 %.0.i, 1
-  br i1 %.not99, label %.loopexit, label %.lr.ph95.preheader
+  %.not102 = icmp eq i64 %.0.i, 1
+  br i1 %.not102, label %.loopexit, label %.lr.ph95.preheader
 
 .lr.ph95.preheader:                               ; preds = %._crit_edge
   %101 = shl i64 %.0.i, 3

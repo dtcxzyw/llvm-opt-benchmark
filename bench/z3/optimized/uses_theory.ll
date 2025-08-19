@@ -629,11 +629,11 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i124.i.i: ; preds = %.noexc1
 
 _ZN12_GLOBAL__N_14procclEP3app.exit106.i.i:       ; preds = %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i124.i.i, %._crit_edge.i126.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i97.i.i, %._crit_edge.i99.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i77.i.i, %._crit_edge.i79.i.i
   %.sink.i.i = phi i32 [ %78, %._crit_edge.i79.i.i ], [ %.pre2.i78.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i77.i.i ], [ %108, %._crit_edge.i99.i.i ], [ %.pre2.i98.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i97.i.i ], [ %191, %._crit_edge.i126.i.i ], [ %.pre2.i125.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i124.i.i ]
-  %.sink295.i.i = phi ptr [ %.pre.i80.i.i, %._crit_edge.i79.i.i ], [ %84, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i77.i.i ], [ %.pre.i100.i.i, %._crit_edge.i99.i.i ], [ %114, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i97.i.i ], [ %.pre.i127.i.i, %._crit_edge.i126.i.i ], [ %197, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i124.i.i ]
-  %.0.i263.sink.i.i = phi ptr [ %54, %._crit_edge.i79.i.i ], [ %54, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i77.i.i ], [ %54, %._crit_edge.i99.i.i ], [ %54, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i97.i.i ], [ %.0.i.i.i, %._crit_edge.i126.i.i ], [ %.0.i.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i124.i.i ]
+  %.sink312.i.i = phi ptr [ %.pre.i80.i.i, %._crit_edge.i79.i.i ], [ %84, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i77.i.i ], [ %.pre.i100.i.i, %._crit_edge.i99.i.i ], [ %114, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i97.i.i ], [ %.pre.i127.i.i, %._crit_edge.i126.i.i ], [ %197, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i124.i.i ]
+  %.0.i280.sink.i.i = phi ptr [ %54, %._crit_edge.i79.i.i ], [ %54, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i77.i.i ], [ %54, %._crit_edge.i99.i.i ], [ %54, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i97.i.i ], [ %.0.i.i.i, %._crit_edge.i126.i.i ], [ %.0.i.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i124.i.i ]
   %208 = zext i32 %.sink.i.i to i64
-  %209 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sink295.i.i, i64 %208
-  store ptr %.0.i263.sink.i.i, ptr %209, align 8
+  %209 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sink312.i.i, i64 %208
+  store ptr %.0.i280.sink.i.i, ptr %209, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %209, i64 8
   store i32 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8
   %210 = load i32, ptr %27, align 8, !tbaa !18

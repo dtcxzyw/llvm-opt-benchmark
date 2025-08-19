@@ -59,7 +59,7 @@ define void @_ZN3url12ParseFileURLEPKciPNS_6ParsedE(ptr noundef %0, i32 noundef 
   br label %.lr.ph14.preheader.i.i
 
 .lr.ph14.preheader.i.i:                           ; preds = %.lr.ph.i.preheader.i, %.critedge.i.i
-  %.191.i = phi i32 [ %25, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
+  %.196.i = phi i32 [ %25, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
   %26 = getelementptr i8, ptr %0, i64 %19
   %27 = getelementptr i8, ptr %26, i64 -1
   %28 = load i8, ptr %27, align 1, !tbaa !9
@@ -67,7 +67,7 @@ define void @_ZN3url12ParseFileURLEPKciPNS_6ParsedE(ptr noundef %0, i32 noundef 
   br i1 %29, label %.lr.ph79.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
 .lr.ph79.i:                                       ; preds = %.lr.ph14.preheader.i.i
-  %30 = sext i32 %.191.i to i64
+  %30 = sext i32 %.196.i to i64
   br label %35
 
 .lr.ph14.i.i:                                     ; preds = %35
@@ -92,15 +92,15 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %.lr.ph14.i.i
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, %.lr.ph14.preheader.i.i, %3
   %.166.i = phi i32 [ %1, %3 ], [ %1, %.lr.ph14.preheader.i.i ], [ %37, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
-  %.2.i = phi i32 [ 0, %3 ], [ %.191.i, %.lr.ph14.preheader.i.i ], [ %.191.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
+  %.2.i = phi i32 [ 0, %3 ], [ %.196.i, %.lr.ph14.preheader.i.i ], [ %.196.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
   %38 = icmp slt i32 %.2.i, %.166.i
   br i1 %38, label %.lr.ph.preheader.i32.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit._ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.thread_crit_edge.i
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit._ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.thread_crit_edge.i: ; preds = %24, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i
-  %.2101.i = phi i32 [ %.2.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i ], [ %.191.i, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %1, %24 ]
-  %.16699.i = phi i32 [ %.166.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i ], [ %.191.i, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %1, %24 ]
-  %.pre.i = sext i32 %.2101.i to i64
-  %.pre88.i = sub nsw i32 %.16699.i, %.2101.i
+  %.2106.i = phi i32 [ %.2.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i ], [ %.196.i, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %1, %24 ]
+  %.166104.i = phi i32 [ %.166.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i ], [ %.196.i, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %1, %24 ]
+  %.pre.i = sext i32 %.2106.i to i64
+  %.pre88.i = sub nsw i32 %.166104.i, %.2106.i
   br label %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.thread.i
 
 .lr.ph.preheader.i32.i:                           ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
@@ -134,8 +134,8 @@ _ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i: ; preds = %42, %.critedge.lo
   br i1 %.not.i, label %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.thread.i, label %53
 
 _ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.thread.i: ; preds = %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit._ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.thread_crit_edge.i
-  %.2100.i = phi i32 [ %.2101.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit._ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.thread_crit_edge.i ], [ %.2.i, %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i ]
-  %.16698.i = phi i32 [ %.16699.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit._ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.thread_crit_edge.i ], [ %.166.i, %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i ]
+  %.2105.i = phi i32 [ %.2106.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit._ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.thread_crit_edge.i ], [ %.2.i, %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i ]
+  %.166103.i = phi i32 [ %.166104.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit._ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.thread_crit_edge.i ], [ %.166.i, %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i ]
   %.pre-phi89.i = phi i32 [ %.pre88.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit._ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.thread_crit_edge.i ], [ %40, %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i ]
   %.pre-phi.i = phi i64 [ %.pre.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit._ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.thread_crit_edge.i ], [ %39, %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i ]
   %44 = getelementptr inbounds i8, ptr %0, i64 %.pre-phi.i
@@ -144,7 +144,7 @@ _ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.thread.i: ; preds = %_ZN3url23C
 
 46:                                               ; preds = %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.thread.i
   %47 = load i32, ptr %2, align 8, !tbaa !14
-  %48 = add nsw i32 %47, %.2100.i
+  %48 = add nsw i32 %47, %.2105.i
   store i32 %48, ptr %2, align 8, !tbaa !14
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %50 = load i32, ptr %49, align 4, !tbaa !8
@@ -153,17 +153,17 @@ _ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.thread.i: ; preds = %_ZN3url23C
   br label %55
 
 53:                                               ; preds = %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.thread.i, %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i
-  %.2102.i = phi i32 [ %.2100.i, %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.thread.i ], [ %.2.i, %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i ]
-  %.16697.i = phi i32 [ %.16698.i, %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.thread.i ], [ %.166.i, %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i ]
+  %.2107.i = phi i32 [ %.2105.i, %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.thread.i ], [ %.2.i, %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i ]
+  %.166102.i = phi i32 [ %.166103.i, %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.thread.i ], [ %.166.i, %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i ]
   store i32 0, ptr %2, align 4, !tbaa !3
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %54, align 4, !tbaa !8
   br label %55
 
 55:                                               ; preds = %53, %46
-  %.16696.i = phi i32 [ %.16697.i, %53 ], [ %.16698.i, %46 ]
-  %.0.i = phi i32 [ %.2102.i, %53 ], [ %52, %46 ]
-  %56 = icmp eq i32 %.0.i, %.16696.i
+  %.166101.i = phi i32 [ %.166102.i, %53 ], [ %.166103.i, %46 ]
+  %.0.i = phi i32 [ %.2107.i, %53 ], [ %52, %46 ]
+  %56 = icmp eq i32 %.0.i, %.166101.i
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %55
@@ -178,12 +178,12 @@ _ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.thread.i: ; preds = %_ZN3url23C
   br label %_ZN3url12_GLOBAL__N_114DoParseFileURLIcEEvPKT_iPNS_6ParsedE.exit
 
 62:                                               ; preds = %55
-  %63 = icmp slt i32 %.0.i, %.16696.i
+  %63 = icmp slt i32 %.0.i, %.166101.i
   br i1 %63, label %.lr.ph.preheader.i38.i, label %.thread.i
 
 .lr.ph.preheader.i38.i:                           ; preds = %62
   %64 = sext i32 %.0.i to i64
-  %65 = sub i32 %.16696.i, %.0.i
+  %65 = sub i32 %.166101.i, %.0.i
   %wide.trip.count.i39.i = zext i32 %65 to i64
   %invariant.gep.i40.i = getelementptr i8, ptr %0, i64 %64
   br label %.lr.ph.i41.i
@@ -214,7 +214,7 @@ _ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit47.i: ; preds = %67, %.critedge.
   br i1 %70, label %71, label %103
 
 71:                                               ; preds = %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit47.i
-  %72 = icmp slt i32 %69, %.16696.i
+  %72 = icmp slt i32 %69, %.166101.i
   br i1 %72, label %.lr.ph.preheader.i.i.i, label %_ZN3url13FindNextSlashIcEEiPKT_ii.exit.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %71
@@ -233,7 +233,7 @@ _ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit47.i: ; preds = %67, %.critedge.
 76:                                               ; preds = %.lr.ph.i.i.i
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next.i.i.i to i32
-  %exitcond.not.i.i.i = icmp eq i32 %.16696.i, %lftr.wideiv.i.i.i
+  %exitcond.not.i.i.i = icmp eq i32 %.166101.i, %lftr.wideiv.i.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN3url13FindNextSlashIcEEiPKT_ii.exit.thread.i.i, label %.lr.ph.i.i.i, !llvm.loop !18
 
 .critedge.loopexit.split.loop.exit.i.i.i:         ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.i
@@ -242,15 +242,15 @@ _ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit47.i: ; preds = %67, %.critedge.
 
 _ZN3url13FindNextSlashIcEEiPKT_ii.exit.i.i:       ; preds = %.critedge.loopexit.split.loop.exit.i.i.i, %71
   %.0.lcssa.i.i.i = phi i32 [ %69, %71 ], [ %77, %.critedge.loopexit.split.loop.exit.i.i.i ]
-  %78 = icmp eq i32 %.0.lcssa.i.i.i, %.16696.i
+  %78 = icmp eq i32 %.0.lcssa.i.i.i, %.166101.i
   br i1 %78, label %_ZN3url13FindNextSlashIcEEiPKT_ii.exit.thread.i.i, label %88
 
 _ZN3url13FindNextSlashIcEEiPKT_ii.exit.thread.i.i: ; preds = %76, %_ZN3url13FindNextSlashIcEEiPKT_ii.exit.i.i
-  %.not30.i.i = icmp eq i32 %.16696.i, %69
+  %.not30.i.i = icmp eq i32 %.166101.i, %69
   br i1 %.not30.i.i, label %82, label %79
 
 79:                                               ; preds = %_ZN3url13FindNextSlashIcEEiPKT_ii.exit.thread.i.i
-  %80 = sub nsw i32 %.16696.i, %69
+  %80 = sub nsw i32 %.166101.i, %69
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.4.0.insert.ext.i.i = zext i32 %80 to i64
   %.sroa.4.0.insert.shift.i.i = shl nuw i64 %.sroa.4.0.insert.ext.i.i, 32
@@ -295,12 +295,12 @@ _ZN3url13FindNextSlashIcEEiPKT_ii.exit.thread.i.i: ; preds = %76, %_ZN3url13Find
   br label %95
 
 95:                                               ; preds = %92, %89
-  %96 = icmp slt i32 %.0.lcssa.i.i.i, %.16696.i
+  %96 = icmp slt i32 %.0.lcssa.i.i.i, %.166101.i
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %95
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %98 = sub nsw i32 %.16696.i, %.0.lcssa.i.i.i
+  %98 = sub nsw i32 %.166101.i, %.0.lcssa.i.i.i
   %.sroa.2.0.insert.ext.i31.i.i = zext nneg i32 %98 to i64
   %.sroa.2.0.insert.shift.i32.i.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i31.i.i, 32
   %.sroa.0.0.insert.ext.i33.i.i = zext i32 %.0.lcssa.i.i.i to i64
@@ -331,7 +331,7 @@ _ZN3url13FindNextSlashIcEEiPKT_ii.exit.thread.i.i: ; preds = %76, %_ZN3url13Find
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 -1, ptr %108, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %109 = sub nsw i32 %.16696.i, %106
+  %109 = sub nsw i32 %.166101.i, %106
   %.sroa.2.0.insert.ext.i.i48.i = zext i32 %109 to i64
   %.sroa.2.0.insert.shift.i.i49.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i48.i, 32
   %.sroa.0.0.insert.ext.i.i50.i = zext i32 %106 to i64
@@ -400,7 +400,7 @@ define void @_ZN3url12ParseFileURLEPKtiPNS_6ParsedE(ptr noundef %0, i32 noundef 
   br label %.lr.ph14.preheader.i.i
 
 .lr.ph14.preheader.i.i:                           ; preds = %.lr.ph.i.preheader.i, %.critedge.i.i
-  %.191.i = phi i32 [ %25, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
+  %.196.i = phi i32 [ %25, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
   %26 = getelementptr i16, ptr %0, i64 %19
   %27 = getelementptr i8, ptr %26, i64 -2
   %28 = load i16, ptr %27, align 2, !tbaa !19
@@ -408,7 +408,7 @@ define void @_ZN3url12ParseFileURLEPKtiPNS_6ParsedE(ptr noundef %0, i32 noundef 
   br i1 %29, label %.lr.ph79.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
 .lr.ph79.i:                                       ; preds = %.lr.ph14.preheader.i.i
-  %30 = sext i32 %.191.i to i64
+  %30 = sext i32 %.196.i to i64
   br label %35
 
 .lr.ph14.i.i:                                     ; preds = %35
@@ -433,15 +433,15 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %.lr.ph14.i.i
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, %.lr.ph14.preheader.i.i, %3
   %.166.i = phi i32 [ %1, %3 ], [ %1, %.lr.ph14.preheader.i.i ], [ %37, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
-  %.2.i = phi i32 [ 0, %3 ], [ %.191.i, %.lr.ph14.preheader.i.i ], [ %.191.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
+  %.2.i = phi i32 [ 0, %3 ], [ %.196.i, %.lr.ph14.preheader.i.i ], [ %.196.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
   %38 = icmp slt i32 %.2.i, %.166.i
   br i1 %38, label %.lr.ph.preheader.i32.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit._ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.thread_crit_edge.i
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit._ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.thread_crit_edge.i: ; preds = %24, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i
-  %.2101.i = phi i32 [ %.2.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i ], [ %.191.i, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %1, %24 ]
-  %.16699.i = phi i32 [ %.166.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i ], [ %.191.i, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %1, %24 ]
-  %.pre.i = sext i32 %.2101.i to i64
-  %.pre88.i = sub nsw i32 %.16699.i, %.2101.i
+  %.2106.i = phi i32 [ %.2.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i ], [ %.196.i, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %1, %24 ]
+  %.166104.i = phi i32 [ %.166.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i ], [ %.196.i, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %1, %24 ]
+  %.pre.i = sext i32 %.2106.i to i64
+  %.pre88.i = sub nsw i32 %.166104.i, %.2106.i
   br label %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.thread.i
 
 .lr.ph.preheader.i32.i:                           ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
@@ -475,8 +475,8 @@ _ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i: ; preds = %42, %.critedge.lo
   br i1 %.not.i, label %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.thread.i, label %53
 
 _ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.thread.i: ; preds = %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit._ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.thread_crit_edge.i
-  %.2100.i = phi i32 [ %.2101.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit._ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.thread_crit_edge.i ], [ %.2.i, %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i ]
-  %.16698.i = phi i32 [ %.16699.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit._ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.thread_crit_edge.i ], [ %.166.i, %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i ]
+  %.2105.i = phi i32 [ %.2106.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit._ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.thread_crit_edge.i ], [ %.2.i, %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i ]
+  %.166103.i = phi i32 [ %.166104.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit._ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.thread_crit_edge.i ], [ %.166.i, %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i ]
   %.pre-phi89.i = phi i32 [ %.pre88.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit._ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.thread_crit_edge.i ], [ %40, %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i ]
   %.pre-phi.i = phi i64 [ %.pre.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit._ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.thread_crit_edge.i ], [ %39, %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i ]
   %44 = getelementptr inbounds i16, ptr %0, i64 %.pre-phi.i
@@ -485,7 +485,7 @@ _ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.thread.i: ; preds = %_ZN3url23C
 
 46:                                               ; preds = %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.thread.i
   %47 = load i32, ptr %2, align 8, !tbaa !14
-  %48 = add nsw i32 %47, %.2100.i
+  %48 = add nsw i32 %47, %.2105.i
   store i32 %48, ptr %2, align 8, !tbaa !14
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %50 = load i32, ptr %49, align 4, !tbaa !8
@@ -494,17 +494,17 @@ _ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.thread.i: ; preds = %_ZN3url23C
   br label %55
 
 53:                                               ; preds = %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.thread.i, %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i
-  %.2102.i = phi i32 [ %.2100.i, %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.thread.i ], [ %.2.i, %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i ]
-  %.16697.i = phi i32 [ %.16698.i, %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.thread.i ], [ %.166.i, %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i ]
+  %.2107.i = phi i32 [ %.2105.i, %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.thread.i ], [ %.2.i, %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i ]
+  %.166102.i = phi i32 [ %.166103.i, %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.thread.i ], [ %.166.i, %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i ]
   store i32 0, ptr %2, align 4, !tbaa !3
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %54, align 4, !tbaa !8
   br label %55
 
 55:                                               ; preds = %53, %46
-  %.16696.i = phi i32 [ %.16697.i, %53 ], [ %.16698.i, %46 ]
-  %.0.i = phi i32 [ %.2102.i, %53 ], [ %52, %46 ]
-  %56 = icmp eq i32 %.0.i, %.16696.i
+  %.166101.i = phi i32 [ %.166102.i, %53 ], [ %.166103.i, %46 ]
+  %.0.i = phi i32 [ %.2107.i, %53 ], [ %52, %46 ]
+  %56 = icmp eq i32 %.0.i, %.166101.i
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %55
@@ -519,12 +519,12 @@ _ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.thread.i: ; preds = %_ZN3url23C
   br label %_ZN3url12_GLOBAL__N_114DoParseFileURLItEEvPKT_iPNS_6ParsedE.exit
 
 62:                                               ; preds = %55
-  %63 = icmp slt i32 %.0.i, %.16696.i
+  %63 = icmp slt i32 %.0.i, %.166101.i
   br i1 %63, label %.lr.ph.preheader.i38.i, label %.thread.i
 
 .lr.ph.preheader.i38.i:                           ; preds = %62
   %64 = sext i32 %.0.i to i64
-  %65 = sub i32 %.16696.i, %.0.i
+  %65 = sub i32 %.166101.i, %.0.i
   %wide.trip.count.i39.i = zext i32 %65 to i64
   %invariant.gep.i40.i = getelementptr i16, ptr %0, i64 %64
   br label %.lr.ph.i41.i
@@ -555,7 +555,7 @@ _ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit47.i: ; preds = %67, %.critedge.
   br i1 %70, label %71, label %103
 
 71:                                               ; preds = %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit47.i
-  %72 = icmp slt i32 %69, %.16696.i
+  %72 = icmp slt i32 %69, %.166101.i
   br i1 %72, label %.lr.ph.preheader.i.i.i, label %_ZN3url13FindNextSlashItEEiPKT_ii.exit.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %71
@@ -574,7 +574,7 @@ _ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit47.i: ; preds = %67, %.critedge.
 76:                                               ; preds = %.lr.ph.i.i.i
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next.i.i.i to i32
-  %exitcond.not.i.i.i = icmp eq i32 %.16696.i, %lftr.wideiv.i.i.i
+  %exitcond.not.i.i.i = icmp eq i32 %.166101.i, %lftr.wideiv.i.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN3url13FindNextSlashItEEiPKT_ii.exit.thread.i.i, label %.lr.ph.i.i.i, !llvm.loop !24
 
 .critedge.loopexit.split.loop.exit.i.i.i:         ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.i
@@ -583,15 +583,15 @@ _ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit47.i: ; preds = %67, %.critedge.
 
 _ZN3url13FindNextSlashItEEiPKT_ii.exit.i.i:       ; preds = %.critedge.loopexit.split.loop.exit.i.i.i, %71
   %.0.lcssa.i.i.i = phi i32 [ %69, %71 ], [ %77, %.critedge.loopexit.split.loop.exit.i.i.i ]
-  %78 = icmp eq i32 %.0.lcssa.i.i.i, %.16696.i
+  %78 = icmp eq i32 %.0.lcssa.i.i.i, %.166101.i
   br i1 %78, label %_ZN3url13FindNextSlashItEEiPKT_ii.exit.thread.i.i, label %88
 
 _ZN3url13FindNextSlashItEEiPKT_ii.exit.thread.i.i: ; preds = %76, %_ZN3url13FindNextSlashItEEiPKT_ii.exit.i.i
-  %.not30.i.i = icmp eq i32 %.16696.i, %69
+  %.not30.i.i = icmp eq i32 %.166101.i, %69
   br i1 %.not30.i.i, label %82, label %79
 
 79:                                               ; preds = %_ZN3url13FindNextSlashItEEiPKT_ii.exit.thread.i.i
-  %80 = sub nsw i32 %.16696.i, %69
+  %80 = sub nsw i32 %.166101.i, %69
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.4.0.insert.ext.i.i = zext i32 %80 to i64
   %.sroa.4.0.insert.shift.i.i = shl nuw i64 %.sroa.4.0.insert.ext.i.i, 32
@@ -636,12 +636,12 @@ _ZN3url13FindNextSlashItEEiPKT_ii.exit.thread.i.i: ; preds = %76, %_ZN3url13Find
   br label %95
 
 95:                                               ; preds = %92, %89
-  %96 = icmp slt i32 %.0.lcssa.i.i.i, %.16696.i
+  %96 = icmp slt i32 %.0.lcssa.i.i.i, %.166101.i
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %95
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %98 = sub nsw i32 %.16696.i, %.0.lcssa.i.i.i
+  %98 = sub nsw i32 %.166101.i, %.0.lcssa.i.i.i
   %.sroa.2.0.insert.ext.i31.i.i = zext nneg i32 %98 to i64
   %.sroa.2.0.insert.shift.i32.i.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i31.i.i, 32
   %.sroa.0.0.insert.ext.i33.i.i = zext i32 %.0.lcssa.i.i.i to i64
@@ -672,7 +672,7 @@ _ZN3url13FindNextSlashItEEiPKT_ii.exit.thread.i.i: ; preds = %76, %_ZN3url13Find
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 -1, ptr %108, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %109 = sub nsw i32 %.16696.i, %106
+  %109 = sub nsw i32 %.166101.i, %106
   %.sroa.2.0.insert.ext.i.i48.i = zext i32 %109 to i64
   %.sroa.2.0.insert.shift.i.i49.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i48.i, 32
   %.sroa.0.0.insert.ext.i.i50.i = zext i32 %106 to i64

@@ -2985,14 +2985,14 @@ define hidden noundef i32 @s7comm_decode_ud_cpu_diagnostic_message(ptr noundef %
   br i1 %2, label %.critedge.sink.split, label %.critedge
 
 .sink.split:                                      ; preds = %21, %16
-  %.sink71 = phi ptr [ %15, %16 ], [ %20, %21 ]
+  %.sink73 = phi ptr [ %15, %16 ], [ %20, %21 ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.8, ptr noundef nonnull %.sink71)
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.8, ptr noundef nonnull %.sink73)
   br label %26
 
 26:                                               ; preds = %.sink.split, %21, %16
-  %.065 = phi ptr [ %15, %16 ], [ %20, %21 ], [ %.sink71, %.sink.split ]
+  %.065 = phi ptr [ %15, %16 ], [ %20, %21 ], [ %.sink73, %.sink.split ]
   %27 = load i32, ptr @hf_s7comm_cpu_diag_msg_eventid, align 4
   %28 = load i32, ptr @ett_s7comm_cpu_diag_msg_eventid, align 4
   %29 = tail call ptr @proto_tree_add_bitmask(ptr noundef %9, ptr noundef %0, i32 noundef %4, i32 noundef %27, i32 noundef %28, ptr noundef nonnull @s7comm_cpu_diag_msg_eventid_fields, i32 noundef 0)
@@ -4162,11 +4162,11 @@ s7comm_decode_ud_cpu_ar_send_pre_reass.exit.i:    ; preds = %279, %277
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %316, %314
-  %.str.2356.sink208.i = phi ptr [ @.str.2357, %316 ], [ @.str.2356, %314 ]
+  %.str.2356.sink214.i = phi ptr [ @.str.2357, %316 ], [ @.str.2356, %314 ]
   %.0172.ph.i = phi ptr [ %317, %316 ], [ %312, %314 ]
   %318 = load ptr, ptr %130, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %318, i32 noundef 25, ptr noundef nonnull %.str.2356.sink208.i, ptr noundef nonnull %9)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %220, ptr noundef nonnull %.str.2356.sink208.i, ptr noundef nonnull %9)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %318, i32 noundef 25, ptr noundef nonnull %.str.2356.sink214.i, ptr noundef nonnull %9)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %220, ptr noundef nonnull %.str.2356.sink214.i, ptr noundef nonnull %9)
   br label %319
 
 319:                                              ; preds = %.sink.split.i, %314, %313, %302, %298, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i
@@ -4743,11 +4743,11 @@ define internal fastcc i32 @s7comm_decode_response_read_data(ptr noundef %0, ptr
   %.not = icmp ne i16 %29, 0
   %30 = lshr i16 %26, 3
   %narrow = zext i1 %.not to i16
-  %spec.select130 = add nuw nsw i16 %30, %narrow
+  %spec.select131 = add nuw nsw i16 %30, %narrow
   br label %31
 
 31:                                               ; preds = %28, %22
-  %.2103 = phi i16 [ %26, %22 ], [ %spec.select130, %28 ]
+  %.2103 = phi i16 [ %26, %22 ], [ %spec.select131, %28 ]
   %32 = and i16 %.2103, 1
   %.not108 = icmp ne i16 %32, 0
   %33 = icmp sgt i32 %9, %indvars.iv
@@ -7666,7 +7666,7 @@ tailrecurse:                                      ; preds = %665, %6
   ]
 
 14:                                               ; preds = %8
-  switch i8 %.tr99, label %default.unreachable329 [
+  switch i8 %.tr99, label %default.unreachable342 [
     i8 1, label %15
     i8 2, label %19
     i8 0, label %19
@@ -8120,12 +8120,12 @@ tailrecurse:                                      ; preds = %665, %6
   %357 = tail call fastcc i32 @s7comm_add_timestamp_to_tree(ptr noundef %0, ptr noundef %13, i32 noundef %356, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %s7comm_decode_ud_tis_istack.exit
 
-default.unreachable329:                           ; preds = %461, %358, %14
+default.unreachable342:                           ; preds = %461, %358, %14
   unreachable
 
 358:                                              ; preds = %8
   %359 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.tr102)
-  switch i8 %.tr99, label %default.unreachable329 [
+  switch i8 %.tr99, label %default.unreachable342 [
     i8 1, label %360
     i8 2, label %364
     i8 0, label %364
@@ -8262,7 +8262,7 @@ default.unreachable329:                           ; preds = %461, %358, %14
   br label %s7comm_decode_ud_tis_istack.exit
 
 461:                                              ; preds = %8
-  switch i8 %.tr99, label %default.unreachable329 [
+  switch i8 %.tr99, label %default.unreachable342 [
     i8 1, label %.sink.split.i
     i8 2, label %462
     i8 0, label %462

@@ -1056,13 +1056,13 @@ Vec_WecGrow.exit.i:                               ; preds = %133, %131
   br label %Vec_WecPushLevel.exit.sink.split
 
 Vec_WecPushLevel.exit.sink.split:                 ; preds = %147, %Vec_WecGrow.exit.i
-  %.sink122 = phi i32 [ %138, %Vec_WecGrow.exit.i ], [ %125, %147 ]
-  %.sink119 = phi ptr [ %137, %Vec_WecGrow.exit.i ], [ %150, %147 ]
+  %.sink141 = phi i32 [ %138, %Vec_WecGrow.exit.i ], [ %125, %147 ]
+  %.sink138 = phi ptr [ %137, %Vec_WecGrow.exit.i ], [ %150, %147 ]
   %.sink = phi i32 [ 16, %Vec_WecGrow.exit.i ], [ %140, %147 ]
   %.val8.pre.i113.ph = phi ptr [ %135, %Vec_WecGrow.exit.i ], [ %148, %147 ]
-  %151 = zext nneg i32 %.sink122 to i64
+  %151 = zext nneg i32 %.sink141 to i64
   %152 = shl nuw nsw i64 %151, 4
-  tail call void @llvm.memset.p0.i64(ptr align 8 %.sink119, i8 0, i64 %152, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 8 %.sink138, i8 0, i64 %152, i1 false)
   store i32 %.sink, ptr %37, align 8, !tbaa !23
   br label %Vec_WecPushLevel.exit
 

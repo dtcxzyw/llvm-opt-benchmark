@@ -125,7 +125,7 @@ define i32 @Lzma2Dec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2,
 
 24:                                               ; preds = %.lr.ph, %.backedge
   %25 = phi i32 [ %10, %.lr.ph ], [ %187, %.backedge ]
-  %.0103159 = phi ptr [ %2, %.lr.ph ], [ %.1104169, %.backedge ]
+  %.0103159 = phi ptr [ %2, %.lr.ph ], [ %.1104181, %.backedge ]
   %26 = load i64, ptr %11, align 8, !tbaa !20
   %27 = icmp eq i32 %25, 9
   br i1 %27, label %.thread151, label %28
@@ -158,7 +158,7 @@ define i32 @Lzma2Dec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   store i64 %38, ptr %3, align 8, !tbaa !18
   %39 = getelementptr inbounds nuw i8, ptr %.0103159, i64 1
   %40 = load i8, ptr %.0103159, align 1, !tbaa !3
-  switch i32 %25, label %.thread165 [
+  switch i32 %25, label %.thread177 [
     i32 0, label %41
     i32 1, label %52
     i32 2, label %57
@@ -171,7 +171,7 @@ define i32 @Lzma2Dec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   store i8 %40, ptr %17, align 4, !tbaa !21
   %42 = zext i8 %40 to i32
   %43 = icmp eq i8 %40, 0
-  br i1 %43, label %.thread165, label %44
+  br i1 %43, label %.thread177, label %44
 
 44:                                               ; preds = %41
   %45 = icmp sgt i8 %40, -1
@@ -179,17 +179,17 @@ define i32 @Lzma2Dec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2,
 
 46:                                               ; preds = %44
   %47 = icmp samesign ugt i8 %40, 2
-  br i1 %47, label %.thread165, label %48
+  br i1 %47, label %.thread177, label %48
 
 48:                                               ; preds = %46
   store i32 0, ptr %18, align 4, !tbaa !22
-  br label %.thread165
+  br label %.thread177
 
 49:                                               ; preds = %44
   %50 = shl nuw nsw i32 %42, 16
   %51 = and i32 %50, 2031616
   store i32 %51, ptr %18, align 4, !tbaa !22
-  br label %.thread165
+  br label %.thread177
 
 52:                                               ; preds = %37
   %53 = zext i8 %40 to i32
@@ -197,7 +197,7 @@ define i32 @Lzma2Dec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   %55 = load i32, ptr %18, align 4, !tbaa !22
   %56 = or i32 %55, %54
   store i32 %56, ptr %18, align 4, !tbaa !22
-  br label %.thread165
+  br label %.thread177
 
 57:                                               ; preds = %37
   %58 = zext i8 %40 to i32
@@ -208,13 +208,13 @@ define i32 @Lzma2Dec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   %62 = load i8, ptr %17, align 4, !tbaa !21
   %63 = icmp sgt i8 %62, -1
   %64 = select i1 %63, i32 6, i32 3
-  br label %.thread165
+  br label %.thread177
 
 65:                                               ; preds = %37
   %66 = zext i8 %40 to i32
   %67 = shl nuw nsw i32 %66, 8
   store i32 %67, ptr %16, align 8, !tbaa !23
-  br label %.thread165
+  br label %.thread177
 
 68:                                               ; preds = %37
   %69 = zext i8 %40 to i32
@@ -225,17 +225,17 @@ define i32 @Lzma2Dec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   %73 = load i8, ptr %17, align 4, !tbaa !21
   %74 = and i8 %73, 64
   %.not.i = icmp eq i8 %74, 0
-  br i1 %.not.i, label %75, label %.thread165
+  br i1 %.not.i, label %75, label %.thread177
 
 75:                                               ; preds = %68
   %76 = load i32, ptr %15, align 8, !tbaa !17
   %.not37.i = icmp eq i32 %76, 0
   %77 = select i1 %.not37.i, i32 6, i32 9
-  br label %.thread165
+  br label %.thread177
 
 78:                                               ; preds = %37
   %79 = icmp ugt i8 %40, -32
-  br i1 %79, label %.thread165, label %80
+  br i1 %79, label %.thread177, label %80
 
 80:                                               ; preds = %78
   %81 = urem i8 %40, 9
@@ -248,15 +248,15 @@ define i32 @Lzma2Dec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   %.zext39.i = zext nneg i8 %85 to i32
   %86 = add nuw nsw i32 %.zext39.i, %82
   %87 = icmp samesign ugt i32 %86, 4
-  br i1 %87, label %.thread165, label %88
+  br i1 %87, label %.thread177, label %88
 
 88:                                               ; preds = %80
   store i32 %82, ptr %0, align 8, !tbaa !25
   store i32 %.zext39.i, ptr %14, align 4, !tbaa !26
   store i32 0, ptr %15, align 8, !tbaa !17
-  br label %.thread165
+  br label %.thread177
 
-.thread165:                                       ; preds = %88, %80, %78, %75, %68, %65, %57, %52, %49, %48, %46, %41, %37
+.thread177:                                       ; preds = %88, %80, %78, %75, %68, %65, %57, %52, %49, %48, %46, %41, %37
   %.0.i = phi i32 [ 2, %52 ], [ %64, %57 ], [ 4, %65 ], [ 8, %41 ], [ 9, %46 ], [ 1, %49 ], [ 1, %48 ], [ %77, %75 ], [ 5, %68 ], [ 6, %88 ], [ 9, %78 ], [ 9, %80 ], [ 9, %37 ]
   store i32 %.0.i, ptr %9, align 8, !tbaa !6
   br label %.backedge
@@ -282,7 +282,7 @@ define i32 @Lzma2Dec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2,
 
 99:                                               ; preds = %97
   store i32 3, ptr %5, align 4, !tbaa !19
-  br label %.thread171
+  br label %.thread183
 
 100:                                              ; preds = %97
   %101 = icmp eq i32 %25, 6
@@ -301,7 +301,7 @@ define i32 @Lzma2Dec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2,
 106:                                              ; preds = %102
   %107 = load i32, ptr %19, align 8, !tbaa !15
   %.not133 = icmp eq i32 %107, 0
-  br i1 %.not133, label %.thread, label %.thread171
+  br i1 %.not133, label %.thread, label %.thread183
 
 .thread:                                          ; preds = %105, %106
   store i32 0, ptr %19, align 8, !tbaa !15
@@ -321,7 +321,7 @@ define i32 @Lzma2Dec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2,
 112:                                              ; preds = %111, %108
   %113 = phi i64 [ %spec.select134, %111 ], [ %109, %108 ]
   %114 = icmp eq i64 %113, 0
-  br i1 %114, label %.thread171, label %115
+  br i1 %114, label %.thread183, label %115
 
 115:                                              ; preds = %112
   %116 = load ptr, ptr %21, align 8, !tbaa !27
@@ -386,7 +386,7 @@ LzmaDec_UpdateWithUncompressed.exit:              ; preds = %._crit_edge.i, %123
 150:                                              ; preds = %143
   %151 = load i32, ptr %19, align 8, !tbaa !15
   %.not127 = icmp eq i32 %151, 0
-  br i1 %.not127, label %152, label %.thread171
+  br i1 %.not127, label %152, label %.thread183
 
 152:                                              ; preds = %150
   br i1 %148, label %.thread139, label %153
@@ -394,7 +394,7 @@ LzmaDec_UpdateWithUncompressed.exit:              ; preds = %._crit_edge.i, %123
 153:                                              ; preds = %152
   %154 = load i32, ptr %20, align 4, !tbaa !16
   %.not128 = icmp eq i32 %154, 0
-  br i1 %.not128, label %.thread139, label %.thread171
+  br i1 %.not128, label %.thread139, label %.thread183
 
 .thread139:                                       ; preds = %143, %152, %153
   call void @LzmaDec_InitDicAndState(ptr noundef nonnull %0, i32 noundef %147, i32 noundef %149) #5
@@ -434,12 +434,12 @@ LzmaDec_UpdateWithUncompressed.exit:              ; preds = %._crit_edge.i, %123
   %173 = add i32 %172, %.neg157
   store i32 %173, ptr %18, align 4, !tbaa !22
   %.not129 = icmp eq i32 %163, 0
-  br i1 %.not129, label %174, label %.thread171
+  br i1 %.not129, label %174, label %.thread183
 
 174:                                              ; preds = %161
   %175 = load i32, ptr %5, align 4, !tbaa !19
   %176 = icmp eq i32 %175, 3
-  br i1 %176, label %.thread171, label %177
+  br i1 %176, label %.thread183, label %177
 
 177:                                              ; preds = %174
   %178 = icmp eq i64 %164, 0
@@ -453,7 +453,7 @@ LzmaDec_UpdateWithUncompressed.exit:              ; preds = %._crit_edge.i, %123
   %or.cond155 = select i1 %.not130, i1 %.not131, i1 false
   %.not132 = icmp eq i32 %169, %168
   %or.cond156 = select i1 %or.cond155, i1 %.not132, i1 false
-  br i1 %or.cond156, label %181, label %.thread171
+  br i1 %or.cond156, label %181, label %.thread183
 
 181:                                              ; preds = %180
   store i32 0, ptr %9, align 8, !tbaa !6
@@ -469,7 +469,7 @@ LzmaDec_UpdateWithUncompressed.exit:              ; preds = %._crit_edge.i, %123
   store i32 2, ptr %5, align 4, !tbaa !19
   br label %186
 
-.thread171:                                       ; preds = %112, %106, %161, %174, %180, %153, %150, %99
+.thread183:                                       ; preds = %112, %106, %161, %174, %180, %153, %150, %99
   %.2.ph = phi i32 [ 0, %99 ], [ 1, %112 ], [ 1, %106 ], [ %163, %161 ], [ 0, %174 ], [ 1, %180 ], [ 1, %153 ], [ 1, %150 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread151
@@ -480,9 +480,9 @@ LzmaDec_UpdateWithUncompressed.exit:              ; preds = %._crit_edge.i, %123
   %.pr = load i32, ptr %9, align 8, !tbaa !6
   br label %.backedge
 
-.backedge:                                        ; preds = %186, %.thread165
-  %187 = phi i32 [ %.pr, %186 ], [ %.0.i, %.thread165 ]
-  %.1104169 = phi ptr [ %.2105, %186 ], [ %39, %.thread165 ]
+.backedge:                                        ; preds = %186, %.thread177
+  %187 = phi i32 [ %.pr, %186 ], [ %.0.i, %.thread177 ]
+  %.1104181 = phi ptr [ %.2105, %186 ], [ %39, %.thread177 ]
   %.not = icmp eq i32 %187, 8
   br i1 %.not, label %._crit_edge, label %24
 
@@ -490,8 +490,8 @@ LzmaDec_UpdateWithUncompressed.exit:              ; preds = %._crit_edge.i, %123
   store i32 1, ptr %5, align 4, !tbaa !19
   br label %.thread151
 
-.thread151:                                       ; preds = %24, %.thread171, %36, %30, %._crit_edge
-  %.10 = phi i32 [ 0, %._crit_edge ], [ 0, %36 ], [ 0, %30 ], [ %.2.ph, %.thread171 ], [ 1, %24 ]
+.thread151:                                       ; preds = %24, %.thread183, %36, %30, %._crit_edge
+  %.10 = phi i32 [ 0, %._crit_edge ], [ 0, %36 ], [ 0, %30 ], [ %.2.ph, %.thread183 ], [ 1, %24 ]
   ret i32 %.10
 }
 

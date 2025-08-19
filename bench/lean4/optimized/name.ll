@@ -4208,7 +4208,7 @@ _ZN4lean4nameC2ERKS0_.exit:                       ; preds = %_ZN4lean4nameC2ERKS
   %16 = getelementptr i8, ptr %12, i64 4
   %.val.i.i.i.i.i = load i32, ptr %16, align 4
   %17 = icmp ult i32 %.val.i.i.i.i.i, 16777216
-  br i1 %17, label %.thread30, label %22
+  br i1 %17, label %.thread33, label %22
 
 .thread:                                          ; preds = %_ZN4lean4nameC2ERKS0_.exit
   %18 = and i64 %13, 8589934590
@@ -4318,20 +4318,20 @@ _ZN4lean4nameaSERKS0_.exit:                       ; preds = %59, %_ZN4lean3incEP
   br label %_ZN4lean4nameC2ERKS0_.exit
 
 60:                                               ; preds = %26
-  br i1 %.not.i.i.i.i.i, label %.thread30, label %_ZN4lean10object_refD2Ev.exit
+  br i1 %.not.i.i.i.i.i, label %.thread33, label %_ZN4lean10object_refD2Ev.exit
 
-.thread30:                                        ; preds = %15, %60
-  %.033 = phi i1 [ true, %60 ], [ false, %15 ]
+.thread33:                                        ; preds = %15, %60
+  %.036 = phi i1 [ true, %60 ], [ false, %15 ]
   %61 = load i32, ptr %12, align 4, !tbaa !9
   %62 = icmp sgt i32 %61, 1
   br i1 %62, label %63, label %65, !prof !12
 
-63:                                               ; preds = %.thread30
+63:                                               ; preds = %.thread33
   %64 = add nsw i32 %61, -1
   store i32 %64, ptr %12, align 4, !tbaa !9
   br label %_ZN4lean10object_refD2Ev.exit
 
-65:                                               ; preds = %.thread30
+65:                                               ; preds = %.thread33
   %.not.i.i.i14 = icmp eq i32 %61, 0
   br i1 %.not.i.i.i14, label %_ZN4lean10object_refD2Ev.exit, label %66
 
@@ -4347,7 +4347,7 @@ _ZN4lean4nameaSERKS0_.exit:                       ; preds = %59, %_ZN4lean3incEP
   unreachable
 
 _ZN4lean10object_refD2Ev.exit:                    ; preds = %.thread, %60, %63, %65, %66
-  %.023 = phi i1 [ true, %60 ], [ %.033, %63 ], [ %.033, %65 ], [ %.033, %66 ], [ false, %.thread ]
+  %.023 = phi i1 [ true, %60 ], [ %.036, %63 ], [ %.036, %65 ], [ %.036, %66 ], [ false, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.023
 }

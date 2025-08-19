@@ -556,13 +556,13 @@ _ZNSt5arrayIN3gmx16SimulationSignalELm3EEC2Ev.exit: ; preds = %52
   %162 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 4
   %.val.i.i.i.i.i = load i32, ptr %162, align 4, !tbaa !170
   %.not36.i.i.i.i.i = icmp eq i32 %.val.i.i.i.i.i, 0
-  br i1 %.not36.i.i.i.i.i, label %163, label %.loopexit349.loopexit.split.loop.exit411
+  br i1 %.not36.i.i.i.i.i, label %163, label %.loopexit349.loopexit.split.loop.exit455
 
 163:                                              ; preds = %161
   %164 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 8
   %.val30.i.i.i.i.i = load i32, ptr %164, align 4, !tbaa !170
   %.not37.i.i.i.i.i = icmp eq i32 %.val30.i.i.i.i.i, 0
-  br i1 %.not37.i.i.i.i.i, label %165, label %.loopexit349.loopexit.split.loop.exit409
+  br i1 %.not37.i.i.i.i.i, label %165, label %.loopexit349.loopexit.split.loop.exit453
 
 165:                                              ; preds = %163
   %166 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 12
@@ -618,16 +618,16 @@ _ZNSt5arrayIN3gmx16SimulationSignalELm3EEC2Ev.exit: ; preds = %52
   %179 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 12
   br label %.loopexit349
 
-.loopexit349.loopexit.split.loop.exit409:         ; preds = %163
+.loopexit349.loopexit.split.loop.exit453:         ; preds = %163
   %180 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 8
   br label %.loopexit349
 
-.loopexit349.loopexit.split.loop.exit411:         ; preds = %161
+.loopexit349.loopexit.split.loop.exit455:         ; preds = %161
   %181 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 4
   br label %.loopexit349
 
-.loopexit349:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit349.loopexit.split.loop.exit, %.loopexit349.loopexit.split.loop.exit409, %.loopexit349.loopexit.split.loop.exit411, %178, %175, %172
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %172 ], [ %.1.i.i.i.i.i, %175 ], [ %.2.i.i.i.i.i, %178 ], [ %179, %.loopexit349.loopexit.split.loop.exit ], [ %180, %.loopexit349.loopexit.split.loop.exit409 ], [ %181, %.loopexit349.loopexit.split.loop.exit411 ], [ %.02949.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+.loopexit349:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit349.loopexit.split.loop.exit, %.loopexit349.loopexit.split.loop.exit453, %.loopexit349.loopexit.split.loop.exit455, %178, %175, %172
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %172 ], [ %.1.i.i.i.i.i, %175 ], [ %.2.i.i.i.i.i, %178 ], [ %179, %.loopexit349.loopexit.split.loop.exit ], [ %180, %.loopexit349.loopexit.split.loop.exit453 ], [ %181, %.loopexit349.loopexit.split.loop.exit455 ], [ %.02949.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.not327 = icmp eq ptr %157, %.028.i.i.i.i.i
   br i1 %.not327, label %.thread, label %182
 

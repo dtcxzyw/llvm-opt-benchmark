@@ -2893,10 +2893,10 @@ define internal range(i32 -110, 1) i32 @g4x_do_reset(ptr noundef readonly captur
   br label %.outer
 
 .outer:                                           ; preds = %57, %27
-  %.ph21 = phi i64 [ %60, %57 ], [ %36, %27 ]
-  %.ph22 = phi i32 [ %59, %57 ], [ 50000000, %27 ]
-  %.ph23 = phi i32 [ %55, %57 ], [ %35, %27 ]
-  %37 = sext i32 %.ph22 to i64
+  %.ph28 = phi i64 [ %60, %57 ], [ %36, %27 ]
+  %.ph29 = phi i32 [ %59, %57 ], [ 50000000, %27 ]
+  %.ph30 = phi i32 [ %55, %57 ], [ %35, %27 ]
+  %37 = sext i32 %.ph29 to i64
   br label %38
 
 38:                                               ; preds = %.outer, %54
@@ -2926,7 +2926,7 @@ define internal range(i32 -110, 1) i32 @g4x_do_reset(ptr noundef readonly captur
   br i1 %50, label %61, label %51
 
 51:                                               ; preds = %46
-  %52 = sub i64 %39, %.ph21
+  %52 = sub i64 %39, %.ph28
   %53 = icmp ult i64 %52, %37
   br i1 %53, label %54, label %.thread12
 
@@ -2935,12 +2935,12 @@ define internal range(i32 -110, 1) i32 @g4x_do_reset(ptr noundef readonly captur
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !72
   %55 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !73
-  %56 = icmp eq i32 %.ph23, %55
+  %56 = icmp eq i32 %.ph30, %55
   br i1 %56, label %38, label %57, !prof !11
 
 57:                                               ; preds = %54
   %58 = trunc i64 %52 to i32
-  %59 = sub i32 %.ph22, %58
+  %59 = sub i32 %.ph29, %58
   %60 = call i64 @local_clock() #10
   br label %.outer
 
@@ -2952,10 +2952,10 @@ define internal range(i32 -110, 1) i32 @g4x_do_reset(ptr noundef readonly captur
   br label %.sink.split
 
 .sink.split:                                      ; preds = %61, %85
-  %.ph17 = phi i32 [ %87, %85 ], [ 50000000, %61 ]
-  %.ph18 = phi i32 [ %83, %85 ], [ %63, %61 ]
+  %.ph24 = phi i32 [ %87, %85 ], [ 50000000, %61 ]
+  %.ph25 = phi i32 [ %83, %85 ], [ %63, %61 ]
   %64 = call i64 @local_clock() #10
-  %65 = sext i32 %.ph17 to i64
+  %65 = sext i32 %.ph24 to i64
   br label %66
 
 66:                                               ; preds = %.sink.split, %82
@@ -2994,12 +2994,12 @@ define internal range(i32 -110, 1) i32 @g4x_do_reset(ptr noundef readonly captur
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !79
   %83 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !80
-  %84 = icmp eq i32 %.ph18, %83
+  %84 = icmp eq i32 %.ph25, %83
   br i1 %84, label %66, label %85, !prof !11
 
 85:                                               ; preds = %82
   %86 = trunc i64 %80 to i32
-  %87 = sub i32 %.ph17, %86
+  %87 = sub i32 %.ph24, %86
   br label %.sink.split
 
 .thread12:                                        ; preds = %51, %79, %74
@@ -3049,10 +3049,10 @@ define internal range(i32 -110, 1) i32 @g33_do_reset(ptr noundef readonly captur
   br label %.outer
 
 .outer:                                           ; preds = %32, %3
-  %.ph3 = phi i64 [ %35, %32 ], [ %11, %3 ]
-  %.ph4 = phi i32 [ %34, %32 ], [ 50000000, %3 ]
-  %.ph5 = phi i32 [ %30, %32 ], [ %10, %3 ]
-  %12 = sext i32 %.ph4 to i64
+  %.ph5 = phi i64 [ %35, %32 ], [ %11, %3 ]
+  %.ph6 = phi i32 [ %34, %32 ], [ 50000000, %3 ]
+  %.ph7 = phi i32 [ %30, %32 ], [ %10, %3 ]
+  %12 = sext i32 %.ph6 to i64
   br label %13
 
 13:                                               ; preds = %.outer, %29
@@ -3082,7 +3082,7 @@ define internal range(i32 -110, 1) i32 @g33_do_reset(ptr noundef readonly captur
   br i1 %25, label %36, label %26
 
 26:                                               ; preds = %21
-  %27 = sub i64 %14, %.ph3
+  %27 = sub i64 %14, %.ph5
   %28 = icmp ult i64 %27, %12
   br i1 %28, label %29, label %36
 
@@ -3091,12 +3091,12 @@ define internal range(i32 -110, 1) i32 @g33_do_reset(ptr noundef readonly captur
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !86
   %30 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !87
-  %31 = icmp eq i32 %.ph5, %30
+  %31 = icmp eq i32 %.ph7, %30
   br i1 %31, label %13, label %32, !prof !11
 
 32:                                               ; preds = %29
   %33 = trunc i64 %27 to i32
-  %34 = sub i32 %.ph4, %33
+  %34 = sub i32 %.ph6, %33
   %35 = call i64 @local_clock() #10
   br label %.outer
 
@@ -3122,10 +3122,10 @@ define internal range(i32 -110, 1) i32 @i915_do_reset(ptr noundef readonly captu
   br label %.outer
 
 .outer:                                           ; preds = %32, %3
-  %.ph19 = phi i64 [ %35, %32 ], [ %12, %3 ]
-  %.ph20 = phi i32 [ %34, %32 ], [ 50000000, %3 ]
-  %.ph21 = phi i32 [ %30, %32 ], [ %11, %3 ]
-  %13 = sext i32 %.ph20 to i64
+  %.ph24 = phi i64 [ %35, %32 ], [ %12, %3 ]
+  %.ph25 = phi i32 [ %34, %32 ], [ 50000000, %3 ]
+  %.ph26 = phi i32 [ %30, %32 ], [ %11, %3 ]
+  %13 = sext i32 %.ph25 to i64
   br label %14
 
 14:                                               ; preds = %.outer, %29
@@ -3155,7 +3155,7 @@ define internal range(i32 -110, 1) i32 @i915_do_reset(ptr noundef readonly captu
   br i1 %.not, label %26, label %36
 
 26:                                               ; preds = %22
-  %27 = sub i64 %15, %.ph19
+  %27 = sub i64 %15, %.ph24
   %28 = icmp ult i64 %27, %13
   br i1 %28, label %29, label %36
 
@@ -3164,12 +3164,12 @@ define internal range(i32 -110, 1) i32 @i915_do_reset(ptr noundef readonly captu
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !93
   %30 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !94
-  %31 = icmp eq i32 %.ph21, %30
+  %31 = icmp eq i32 %.ph26, %30
   br i1 %31, label %14, label %32, !prof !11
 
 32:                                               ; preds = %29
   %33 = trunc i64 %27 to i32
-  %34 = sub i32 %.ph20, %33
+  %34 = sub i32 %.ph25, %33
   %35 = call i64 @local_clock() #10
   br label %.outer
 
@@ -3186,10 +3186,10 @@ define internal range(i32 -110, 1) i32 @i915_do_reset(ptr noundef readonly captu
   br label %.sink.split
 
 .sink.split:                                      ; preds = %38, %61
-  %.ph15 = phi i32 [ %63, %61 ], [ 50000000, %38 ]
-  %.ph16 = phi i32 [ %59, %61 ], [ %39, %38 ]
+  %.ph20 = phi i32 [ %63, %61 ], [ 50000000, %38 ]
+  %.ph21 = phi i32 [ %59, %61 ], [ %39, %38 ]
   %40 = call i64 @local_clock() #10
-  %41 = sext i32 %.ph15 to i64
+  %41 = sext i32 %.ph20 to i64
   br label %42
 
 42:                                               ; preds = %.sink.split, %58
@@ -3228,12 +3228,12 @@ define internal range(i32 -110, 1) i32 @i915_do_reset(ptr noundef readonly captu
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !100
   %59 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !101
-  %60 = icmp eq i32 %.ph16, %59
+  %60 = icmp eq i32 %.ph21, %59
   br i1 %60, label %42, label %61, !prof !11
 
 61:                                               ; preds = %58
   %62 = trunc i64 %56 to i32
-  %63 = sub i32 %.ph15, %62
+  %63 = sub i32 %.ph20, %62
   br label %.sink.split
 
 .thread9:                                         ; preds = %55, %50, %36

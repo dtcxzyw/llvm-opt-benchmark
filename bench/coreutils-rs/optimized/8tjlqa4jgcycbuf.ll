@@ -152,7 +152,7 @@ define void @_ZN6uu_pwd12logical_path17h32c6f387717b4209E(ptr noalias noundef sr
 
 29:                                               ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i", %.backedge.i
   %30 = phi i64 [ %74, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i" ], [ %27, %.backedge.i ]
-  %31 = phi ptr [ %.sink13.i.i.i.i.i.i, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i" ], [ %28, %.backedge.i ]
+  %31 = phi ptr [ %.sink16.i.i.i.i.i.i, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i" ], [ %28, %.backedge.i ]
   %32 = ptrtoint ptr %31 to i64
   %33 = icmp eq ptr %31, %26
   br i1 %33, label %select.unfold.i.i, label %34
@@ -211,17 +211,17 @@ define void @_ZN6uu_pwd12logical_path17h32c6f387717b4209E(ptr noalias noundef sr
   br i1 %71, label %select.unfold.i.i, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i"
 
 "_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i": ; preds = %60, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c760e62cf412fc7E.exit15.i.i.i.i.i.i.i.i", %48, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c760e62cf412fc7E.exit13.i.i.i.i.i.i.i.i"
-  %.sink13.i.i.i.i.i.i = phi ptr [ %41, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c760e62cf412fc7E.exit13.i.i.i.i.i.i.i.i" ], [ %51, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c760e62cf412fc7E.exit15.i.i.i.i.i.i.i.i" ], [ %35, %48 ], [ %62, %60 ]
-  %.sroa.4.0.i.ph10.i9.i.i.i.i.i.i = phi i32 [ %46, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c760e62cf412fc7E.exit13.i.i.i.i.i.i.i.i" ], [ %58, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c760e62cf412fc7E.exit15.i.i.i.i.i.i.i.i" ], [ %49, %48 ], [ %70, %60 ]
-  %72 = ptrtoint ptr %.sink13.i.i.i.i.i.i to i64
+  %.sink16.i.i.i.i.i.i = phi ptr [ %41, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c760e62cf412fc7E.exit13.i.i.i.i.i.i.i.i" ], [ %51, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c760e62cf412fc7E.exit15.i.i.i.i.i.i.i.i" ], [ %35, %48 ], [ %62, %60 ]
+  %.sroa.4.0.i.ph10.i12.i.i.i.i.i.i = phi i32 [ %46, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c760e62cf412fc7E.exit13.i.i.i.i.i.i.i.i" ], [ %58, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c760e62cf412fc7E.exit15.i.i.i.i.i.i.i.i" ], [ %49, %48 ], [ %70, %60 ]
+  %72 = ptrtoint ptr %.sink16.i.i.i.i.i.i to i64
   %73 = sub i64 %72, %32
   %74 = add i64 %73, %30
-  %.not.i.i.i.i.i = icmp eq i32 %.sroa.4.0.i.ph10.i9.i.i.i.i.i.i, 47
+  %.not.i.i.i.i.i = icmp eq i32 %.sroa.4.0.i.ph10.i12.i.i.i.i.i.i, 47
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i, label %29
 
 select.unfold.i.i:                                ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i", %60, %29
   %75 = phi i64 [ %74, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i" ], [ %30, %60 ], [ %30, %29 ]
-  %76 = phi ptr [ %.sink13.i.i.i.i.i.i, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i" ], [ %62, %60 ], [ %26, %29 ]
+  %76 = phi ptr [ %.sink16.i.i.i.i.i.i, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i" ], [ %62, %60 ], [ %26, %29 ]
   %.pre.i.i.i16.i.i = phi i64 [ %74, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i" ], [ %.pre.i.i.i1718.i.i, %60 ], [ %.pre.i.i.i1718.i.i, %29 ]
   %77 = phi i1 [ false, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i" ], [ true, %60 ], [ true, %29 ]
   %.pn25.i.i = phi i64 [ %30, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i" ], [ %.pn1.i.i, %60 ], [ %.pn1.i.i, %29 ]
@@ -241,8 +241,8 @@ select.unfold.i.i:                                ; preds = %"_ZN97_$LT$core..st
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h0462692abe0194adE.exit.i.i": ; preds = %select.unfold.i.i
   %lhsc.i.i.i.i = load i8, ptr %.sroa.0.0.i.i.ph.i.i, align 1, !alias.scope !63, !noalias !62
   %80 = icmp eq i8 %lhsc.i.i.i.i, 46
-  %brmerge30.i.i = or i1 %77, %80
-  br i1 %brmerge30.i.i, label %81, label %.backedge.i.backedge
+  %brmerge34.i.i = or i1 %77, %80
+  br i1 %brmerge34.i.i, label %81, label %.backedge.i.backedge
 
 .critedge.backedge.i.i:                           ; preds = %select.unfold.i.i
   br i1 %77, label %.thread.i, label %.backedge.i.backedge

@@ -236,8 +236,8 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h189b22620c39dc34E(ptr no
   br label %7
 
 7:                                                ; preds = %.lr.ph, %37
-  %.sroa.0.051 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.160, %37 ]
-  %.sroa.4.050 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.159, %37 ]
+  %.sroa.0.051 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.161, %37 ]
+  %.sroa.4.050 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.160, %37 ]
   %8 = call { i64, ptr } @"_ZN69_$LT$std..sys..pal..unix..stdio..Stderr$u20$as$u20$std..io..Write$GT$5write17h76708309fa42c308E"(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.051, i64 noundef %.sroa.4.050)
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -272,13 +272,13 @@ default.unreachable:                              ; preds = %14
 
 17:                                               ; preds = %12
   %18 = icmp ult i64 %.sroa.4.050, %11
-  br i1 %18, label %.noexc, label %.thread55
+  br i1 %18, label %.noexc, label %.thread56
 
 .noexc:                                           ; preds = %17
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef range(i64 1, 0) %11, i64 noundef range(i64 1, 0) %.sroa.4.050, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5f06955e692ee08fc3ede7d3d32a5d92.6) #23
   unreachable
 
-.thread55:                                        ; preds = %17
+.thread56:                                        ; preds = %17
   %19 = sub nuw i64 %.sroa.4.050, %11
   %20 = getelementptr inbounds i8, ptr %.sroa.0.051, i64 %11
   br label %37
@@ -320,10 +320,10 @@ default.unreachable:                              ; preds = %14
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !57
   br label %37
 
-37:                                               ; preds = %.thread55, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h672461eb528a85e2E.exit"
-  %.sroa.0.160 = phi ptr [ %20, %.thread55 ], [ %.sroa.0.051, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h672461eb528a85e2E.exit" ]
-  %.sroa.4.159 = phi i64 [ %19, %.thread55 ], [ %.sroa.4.050, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h672461eb528a85e2E.exit" ]
-  %38 = icmp eq i64 %.sroa.4.159, 0
+37:                                               ; preds = %.thread56, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h672461eb528a85e2E.exit"
+  %.sroa.0.161 = phi ptr [ %20, %.thread56 ], [ %.sroa.0.051, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h672461eb528a85e2E.exit" ]
+  %.sroa.4.160 = phi i64 [ %19, %.thread56 ], [ %.sroa.4.050, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h672461eb528a85e2E.exit" ]
+  %38 = icmp eq i64 %.sroa.4.160, 0
   br i1 %38, label %.loopexit, label %7
 }
 
@@ -5237,14 +5237,14 @@ define internal fastcc void @"_ZN8settings14settings_store13SettingsStore13load_
   %11 = alloca [24 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i8, ptr %12, align 8, !range !64, !noundef !5
-  switch i8 %13, label %default.unreachable59 [
+  switch i8 %13, label %default.unreachable68 [
     i8 0, label %15
     i8 1, label %38
     i8 2, label %39
     i8 3, label %14
   ]
 
-default.unreachable59:                            ; preds = %87, %3
+default.unreachable68:                            ; preds = %87, %3
   unreachable
 
 14:                                               ; preds = %3
@@ -5437,7 +5437,7 @@ common.ret:                                       ; preds = %144, %70
   %.val27 = load ptr, ptr %80, align 8, !nonnull !5, !noundef !5
   %88 = ptrtoint ptr %.val27 to i64
   %89 = and i64 %88, 3
-  switch i64 %89, label %default.unreachable59 [
+  switch i64 %89, label %default.unreachable68 [
     i64 2, label %91
     i64 3, label %90
     i64 0, label %95
@@ -11252,7 +11252,7 @@ define internal { i64, ptr } @"_ZN8settings14settings_store13SettingsStore20upda
   %35 = alloca [24 x i8], align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 99
   %37 = load i8, ptr %36, align 1, !range !351, !noundef !5
-  switch i8 %37, label %default.unreachable188 [
+  switch i8 %37, label %default.unreachable214 [
     i8 0, label %38
     i8 1, label %52
     i8 2, label %53
@@ -11263,7 +11263,7 @@ define internal { i64, ptr } @"_ZN8settings14settings_store13SettingsStore20upda
     i8 7, label %47
   ]
 
-default.unreachable188:                           ; preds = %2
+default.unreachable214:                           ; preds = %2
   unreachable
 
 38:                                               ; preds = %2
@@ -12458,7 +12458,7 @@ define internal { i64, ptr } @"_ZN8settings14settings_store13SettingsStore20upda
   %35 = alloca [24 x i8], align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 99
   %37 = load i8, ptr %36, align 1, !range !351, !noundef !5
-  switch i8 %37, label %default.unreachable188 [
+  switch i8 %37, label %default.unreachable214 [
     i8 0, label %38
     i8 1, label %52
     i8 2, label %53
@@ -12469,7 +12469,7 @@ define internal { i64, ptr } @"_ZN8settings14settings_store13SettingsStore20upda
     i8 7, label %47
   ]
 
-default.unreachable188:                           ; preds = %2
+default.unreachable214:                           ; preds = %2
   unreachable
 
 38:                                               ; preds = %2
@@ -13664,7 +13664,7 @@ define internal { i64, ptr } @"_ZN8settings14settings_store13SettingsStore20upda
   %35 = alloca [24 x i8], align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 103
   %37 = load i8, ptr %36, align 1, !range !351, !noundef !5
-  switch i8 %37, label %default.unreachable188 [
+  switch i8 %37, label %default.unreachable214 [
     i8 0, label %38
     i8 1, label %52
     i8 2, label %53
@@ -13675,7 +13675,7 @@ define internal { i64, ptr } @"_ZN8settings14settings_store13SettingsStore20upda
     i8 7, label %47
   ]
 
-default.unreachable188:                           ; preds = %2
+default.unreachable214:                           ; preds = %2
   unreachable
 
 38:                                               ; preds = %2
@@ -14870,7 +14870,7 @@ define internal { i64, ptr } @"_ZN8settings14settings_store13SettingsStore20upda
   %35 = alloca [24 x i8], align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 103
   %37 = load i8, ptr %36, align 1, !range !351, !noundef !5
-  switch i8 %37, label %default.unreachable188 [
+  switch i8 %37, label %default.unreachable214 [
     i8 0, label %38
     i8 1, label %52
     i8 2, label %53
@@ -14881,7 +14881,7 @@ define internal { i64, ptr } @"_ZN8settings14settings_store13SettingsStore20upda
     i8 7, label %47
   ]
 
-default.unreachable188:                           ; preds = %2
+default.unreachable214:                           ; preds = %2
   unreachable
 
 38:                                               ; preds = %2
@@ -16077,7 +16077,7 @@ define internal { i64, ptr } @"_ZN8settings14settings_store13SettingsStore20upda
   %36 = alloca [24 x i8], align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %38 = load i8, ptr %37, align 8, !range !351, !noundef !5
-  switch i8 %38, label %default.unreachable191 [
+  switch i8 %38, label %default.unreachable219 [
     i8 0, label %39
     i8 1, label %53
     i8 2, label %54
@@ -16088,7 +16088,7 @@ define internal { i64, ptr } @"_ZN8settings14settings_store13SettingsStore20upda
     i8 7, label %48
   ]
 
-default.unreachable191:                           ; preds = %2
+default.unreachable219:                           ; preds = %2
   unreachable
 
 39:                                               ; preds = %2
@@ -17339,7 +17339,7 @@ define internal { i64, ptr } @"_ZN8settings14settings_store13SettingsStore20upda
   %35 = alloca [24 x i8], align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %37 = load i8, ptr %36, align 8, !range !351, !noundef !5
-  switch i8 %37, label %default.unreachable195 [
+  switch i8 %37, label %default.unreachable221 [
     i8 0, label %38
     i8 1, label %52
     i8 2, label %53
@@ -17350,7 +17350,7 @@ define internal { i64, ptr } @"_ZN8settings14settings_store13SettingsStore20upda
     i8 7, label %47
   ]
 
-default.unreachable195:                           ; preds = %2
+default.unreachable221:                           ; preds = %2
   unreachable
 
 38:                                               ; preds = %2

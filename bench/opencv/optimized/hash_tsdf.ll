@@ -6459,8 +6459,8 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5kinfu17Has
   %.not58234.i.i.i = icmp sgt i32 %138, %150
   %or.cond.i.i.i = select i1 %.not57237.i.i.i, i1 true, i1 %.not58234.i.i.i
   %.not59232.i.i.i = icmp sgt i32 %141, %153
-  %or.cond316.i.i.i = select i1 %or.cond.i.i.i, i1 true, i1 %.not59232.i.i.i
-  br i1 %or.cond316.i.i.i, label %.loopexit214.i.i.i, label %.preheader213.i.i.i
+  %or.cond352.i.i.i = select i1 %or.cond.i.i.i, i1 true, i1 %.not59232.i.i.i
+  br i1 %or.cond352.i.i.i, label %.loopexit214.i.i.i, label %.preheader213.i.i.i
 
 .preheader213.i.i.i:                              ; preds = %71, %._crit_edge236.split.i.i.i
   %.053238.i.i.i = phi i32 [ %154, %._crit_edge236.split.i.i.i ], [ %135, %71 ]

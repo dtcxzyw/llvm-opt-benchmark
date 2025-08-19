@@ -2959,7 +2959,7 @@ _ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exit.i.i: ; pr
   br label %_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE5clearEv.exit
 
 _ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE5clearEv.exit: ; preds = %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit, %for.end, %_ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exit.i.i
-  %delim.addr.0.lcssa86 = phi ptr [ @.str.24, %for.end ], [ @.str.24, %_ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exit.i.i ], [ %delim, %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit ]
+  %delim.addr.0.lcssa89 = phi ptr [ @.str.24, %for.end ], [ @.str.24, %_ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exit.i.i ], [ %delim, %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit ]
   %call.i.i73 = tail call noundef zeroext i1 @_ZN4llvh21llvm_is_multithreadedEv() #22
   br i1 %call.i.i73, label %if.then.i.i76, label %if.else.i.i74
 
@@ -2975,7 +2975,7 @@ if.else.i.i74:                                    ; preds = %_ZNSt6vectorIN4llvh
   br label %_ZN4llvh3sys15SmartScopedLockILb1EED2Ev.exit
 
 _ZN4llvh3sys15SmartScopedLockILb1EED2Ev.exit:     ; preds = %if.then.i.i76, %if.else.i.i74
-  ret ptr %delim.addr.0.lcssa86
+  ret ptr %delim.addr.0.lcssa89
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

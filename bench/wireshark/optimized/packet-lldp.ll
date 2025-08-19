@@ -3339,9 +3339,9 @@ define internal fastcc range(i32 -1, 5) i32 @dissect_lldp_time_to_live(ptr nound
   br i1 %.not5.i50, label %proto_item_set_generated.exit, label %proto_item_set_generated.exit.sink.split
 
 proto_item_set_generated.exit.sink.split:         ; preds = %24, %17
-  %.sink54 = phi ptr [ %19, %17 ], [ %26, %24 ]
+  %.sink58 = phi ptr [ %19, %17 ], [ %26, %24 ]
   %.0.ph = phi ptr [ %14, %17 ], [ %21, %24 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.sink54, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %.sink58, i64 28
   %28 = load i32, ptr %27, align 4
   %29 = or i32 %28, 2
   store i32 %29, ptr %27, align 4
@@ -3475,12 +3475,12 @@ switch.lookup:                                    ; preds = %.lr.ph8
   %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.dissect_dcbx_tlv, i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep18 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.dissect_dcbx_tlv.13, i64 0, i64 %14
-  %switch.load19 = load i32, ptr %switch.gep18, align 4
+  %switch.gep21 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.dissect_dcbx_tlv.13, i64 0, i64 %14
+  %switch.load22 = load i32, ptr %switch.gep21, align 4
   %narrow = add nuw nsw i16 %11, 2
   %15 = zext nneg i16 %narrow to i32
   %16 = load i32, ptr %switch.load, align 4
-  %17 = tail call ptr @val_to_str_const(i32 noundef %switch.load19, ptr noundef nonnull @dcbx_subtypes, ptr noundef nonnull @.str.94)
+  %17 = tail call ptr @val_to_str_const(i32 noundef %switch.load22, ptr noundef nonnull @dcbx_subtypes, ptr noundef nonnull @.str.94)
   %18 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.02006, i32 noundef %15, i32 noundef %16, ptr noundef null, ptr noundef nonnull @.str.1214, ptr noundef %17)
   br label %19
 
@@ -3611,7 +3611,7 @@ switch.lookup:                                    ; preds = %.lr.ph8
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %.in = phi i8 [ %120, %.loopexit ], [ %119, %.lr.ph.preheader ]
   %.25 = phi i32 [ %143, %.loopexit ], [ %49, %.lr.ph.preheader ]
-  %120 = add i8 %.in, -1
+  %120 = add nsw i8 %.in, -1
   %121 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.25)
   %122 = load i32, ptr @ett_org_spc_dcbx_cee_app, align 4
   %123 = zext i16 %121 to i32
@@ -3660,8 +3660,8 @@ switch.lookup:                                    ; preds = %.lr.ph8
 .loopexit1:                                       ; preds = %.loopexit, %117, %39, %50, %96, %144, %32
   %.1201 = phi i32 [ %38, %32 ], [ %49, %39 ], [ %95, %50 ], [ %116, %96 ], [ %147, %144 ], [ %49, %117 ], [ %143, %.loopexit ]
   %148 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1201)
-  %.not12 = icmp eq i32 %148, 0
-  br i1 %.not12, label %._crit_edge, label %.lr.ph8, !llvm.loop !16
+  %.not15 = icmp eq i32 %148, 0
+  br i1 %.not15, label %._crit_edge, label %.lr.ph8, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.loopexit1, %2
   ret void
@@ -4613,11 +4613,11 @@ define internal fastcc void @dissect_profinet_tlv(ptr noundef %0, ptr noundef re
   br i1 %.not8.i.i, label %set_name_of_station_for_profinet_specialized_column_info.exit, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %32, %29
-  %.sink9.i.i = phi ptr [ %31, %29 ], [ %33, %32 ]
+  %.sink10.i.i = phi ptr [ %31, %29 ], [ %33, %32 ]
   store i8 1, ptr %13, align 8
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %35, i32 noundef 25, ptr noundef nonnull @.str.1238, ptr noundef nonnull %.sink9.i.i)
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %35, i32 noundef 25, ptr noundef nonnull @.str.1238, ptr noundef nonnull %.sink10.i.i)
   br label %set_name_of_station_for_profinet_specialized_column_info.exit
 
 36:                                               ; preds = %15
@@ -4632,11 +4632,11 @@ define internal fastcc void @dissect_profinet_tlv(ptr noundef %0, ptr noundef re
   br i1 %.not8.i24.i, label %set_name_of_station_for_profinet_specialized_column_info.exit, label %.sink.split.i22.i
 
 .sink.split.i22.i:                                ; preds = %39, %36
-  %.sink9.i23.i = phi ptr [ %38, %36 ], [ %40, %39 ]
+  %.sink10.i23.i = phi ptr [ %38, %36 ], [ %40, %39 ]
   store i8 1, ptr %13, align 8
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef nonnull @.str.1238, ptr noundef nonnull %.sink9.i23.i)
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef nonnull @.str.1238, ptr noundef nonnull %.sink10.i23.i)
   br label %set_name_of_station_for_profinet_specialized_column_info.exit
 
 set_name_of_station_for_profinet_specialized_column_info.exit: ; preds = %12, %19, %32, %.sink.split.i.i, %39, %.sink.split.i22.i
@@ -4683,20 +4683,20 @@ set_port_id_for_profinet_specialized_column_info.exit: ; preds = %48, %45, %set_
   %56 = load i32, ptr @hf_profinet_port_rx_delay_remote, align 4
   %57 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %56, ptr noundef %0, i32 noundef 5, i32 noundef 4, i32 noundef %55)
   %.not149 = icmp eq i32 %55, 0
-  %.str.1230.sink159 = select i1 %.not149, ptr @.str.1230, ptr @.str.1229
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull %.str.1230.sink159)
+  %.str.1230.sink164 = select i1 %.not149, ptr @.str.1230, ptr @.str.1229
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull %.str.1230.sink164)
   %58 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 9)
   %59 = load i32, ptr @hf_profinet_port_tx_delay_local, align 4
   %60 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %59, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef %58)
   %.not150 = icmp eq i32 %58, 0
-  %.str.1230.sink160 = select i1 %.not150, ptr @.str.1230, ptr @.str.1229
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %60, ptr noundef nonnull %.str.1230.sink160)
+  %.str.1230.sink165 = select i1 %.not150, ptr @.str.1230, ptr @.str.1229
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %60, ptr noundef nonnull %.str.1230.sink165)
   %61 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 13)
   %62 = load i32, ptr @hf_profinet_port_tx_delay_remote, align 4
   %63 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %62, ptr noundef %0, i32 noundef 13, i32 noundef 4, i32 noundef %61)
   %.not151 = icmp eq i32 %61, 0
-  %.str.1230.sink161 = select i1 %.not151, ptr @.str.1230, ptr @.str.1229
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %63, ptr noundef nonnull %.str.1230.sink161)
+  %.str.1230.sink166 = select i1 %.not151, ptr @.str.1230, ptr @.str.1229
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %63, ptr noundef nonnull %.str.1230.sink166)
   %64 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 17)
   %65 = load i32, ptr @hf_profinet_cable_delay_local, align 4
   %66 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %65, ptr noundef %0, i32 noundef 17, i32 noundef 4, i32 noundef %64)

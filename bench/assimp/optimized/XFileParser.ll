@@ -2866,7 +2866,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit51: ; preds = %
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.lr.ph.i
   %.promoted1116.i = phi i32 [ %.promoted.i, %.lr.ph.lr.ph.i ], [ %.promoted1116.i.be, %.lr.ph.i.backedge ]
   %291 = phi i32 [ %.promoted.i, %.lr.ph.lr.ph.i ], [ %.be, %.lr.ph.i.backedge ]
-  %292 = phi ptr [ %.promoted12.i, %.lr.ph.lr.ph.i ], [ %.be115, %.lr.ph.i.backedge ]
+  %292 = phi ptr [ %.promoted12.i, %.lr.ph.lr.ph.i ], [ %.be133, %.lr.ph.i.backedge ]
   %293 = load i8, ptr %292, align 1
   %294 = zext i8 %293 to i32
   %295 = call i32 @isspace(i32 noundef %294) #28
@@ -2893,7 +2893,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit51: ; preds = %
 .lr.ph.i.backedge:                                ; preds = %300, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
   %.promoted1116.i.be = phi i32 [ %.promoted1114.i, %300 ], [ %.promoted1115.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
   %.be = phi i32 [ %301, %300 ], [ %.promoted1115.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
-  %.be115 = phi ptr [ %302, %300 ], [ %316, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %.be133 = phi ptr [ %302, %300 ], [ %316, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
   br label %.lr.ph.i, !llvm.loop !14
 
 304:                                              ; preds = %.lr.ph.i
@@ -4119,8 +4119,8 @@ _ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit: ; preds = %50, %52, %54
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.backedge, %.lr.ph.lr.ph.i.i
   %.promoted1116.i.i = phi i32 [ %.promoted.i.i, %.lr.ph.lr.ph.i.i ], [ %.promoted1116.i.i.be, %.lr.ph.i.i.backedge ]
-  %86 = phi i32 [ %.promoted.i.i, %.lr.ph.lr.ph.i.i ], [ %.be207, %.lr.ph.i.i.backedge ]
-  %87 = phi ptr [ %.promoted12.i.i, %.lr.ph.lr.ph.i.i ], [ %.be208, %.lr.ph.i.i.backedge ]
+  %86 = phi i32 [ %.promoted.i.i, %.lr.ph.lr.ph.i.i ], [ %.be255, %.lr.ph.i.i.backedge ]
+  %87 = phi ptr [ %.promoted12.i.i, %.lr.ph.lr.ph.i.i ], [ %.be256, %.lr.ph.i.i.backedge ]
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = call i32 @isspace(i32 noundef %89) #28
@@ -4146,8 +4146,8 @@ _ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit: ; preds = %50, %52, %54
 
 .lr.ph.i.i.backedge:                              ; preds = %95, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i
   %.promoted1116.i.i.be = phi i32 [ %.promoted1114.i.i, %95 ], [ %.promoted1115.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
-  %.be207 = phi i32 [ %96, %95 ], [ %.promoted1115.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
-  %.be208 = phi ptr [ %97, %95 ], [ %111, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  %.be255 = phi i32 [ %96, %95 ], [ %.promoted1115.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  %.be256 = phi ptr [ %97, %95 ], [ %111, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
   br label %.lr.ph.i.i, !llvm.loop !14
 
 99:                                               ; preds = %.lr.ph.i.i
@@ -4284,7 +4284,7 @@ _ZN6Assimp11XFileParser7ReadIntEv.exit.thread:    ; preds = %._crit_edge33.i
 .lr.ph.i.i62:                                     ; preds = %.lr.ph.i.i62.backedge, %.lr.ph.lr.ph.i.i60
   %.promoted1116.i.i64 = phi i32 [ %.promoted.i.i61, %.lr.ph.lr.ph.i.i60 ], [ %.promoted1116.i.i64.be, %.lr.ph.i.i62.backedge ]
   %154 = phi i32 [ %.promoted.i.i61, %.lr.ph.lr.ph.i.i60 ], [ %.be, %.lr.ph.i.i62.backedge ]
-  %155 = phi ptr [ %.promoted12.i.i58, %.lr.ph.lr.ph.i.i60 ], [ %.be206, %.lr.ph.i.i62.backedge ]
+  %155 = phi ptr [ %.promoted12.i.i58, %.lr.ph.lr.ph.i.i60 ], [ %.be254, %.lr.ph.i.i62.backedge ]
   %156 = load i8, ptr %155, align 1
   %157 = zext i8 %156 to i32
   %158 = call i32 @isspace(i32 noundef %157) #28
@@ -4311,7 +4311,7 @@ _ZN6Assimp11XFileParser7ReadIntEv.exit.thread:    ; preds = %._crit_edge33.i
 .lr.ph.i.i62.backedge:                            ; preds = %163, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i68
   %.promoted1116.i.i64.be = phi i32 [ %.promoted1114.i.i66, %163 ], [ %.promoted1115.i.i69, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i68 ]
   %.be = phi i32 [ %164, %163 ], [ %.promoted1115.i.i69, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i68 ]
-  %.be206 = phi ptr [ %165, %163 ], [ %179, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i68 ]
+  %.be254 = phi ptr [ %165, %163 ], [ %179, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i68 ]
   br label %.lr.ph.i.i62, !llvm.loop !14
 
 167:                                              ; preds = %.lr.ph.i.i62
@@ -5253,7 +5253,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit14.i: ; preds =
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit14.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
   %78 = load ptr, ptr %5, align 8
   %79 = icmp eq ptr %78, %15
-  br i1 %79, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %79, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %80 = load i64, ptr %16, align 8
@@ -5264,14 +5264,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %84 = icmp eq ptr %82, %83
   br i1 %84, label %88, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %85 = load ptr, ptr %6, align 8
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %87 = icmp eq ptr %85, %86
   br i1 %87, label %88, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-88:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %89 = phi ptr [ %85, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %82, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+88:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %89 = phi ptr [ %85, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %82, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %91 = load i64, ptr %90, align 8
   %92 = icmp ult i64 %91, 16
@@ -5308,7 +5308,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %101, ptr %15, align 8
   br label %107
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %102 = load i64, ptr %15, align 8
   store ptr %85, ptr %5, align 8
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -6591,7 +6591,7 @@ define hidden noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef non
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.lr.ph.i
   %.promoted1116.i = phi i32 [ %.promoted.i, %.lr.ph.lr.ph.i ], [ %.promoted1116.i.be, %.lr.ph.i.backedge ]
   %58 = phi i32 [ %.promoted.i, %.lr.ph.lr.ph.i ], [ %.be, %.lr.ph.i.backedge ]
-  %59 = phi ptr [ %.promoted12.i, %.lr.ph.lr.ph.i ], [ %.be42, %.lr.ph.i.backedge ]
+  %59 = phi ptr [ %.promoted12.i, %.lr.ph.lr.ph.i ], [ %.be49, %.lr.ph.i.backedge ]
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
   %62 = tail call i32 @isspace(i32 noundef %61) #28
@@ -6618,7 +6618,7 @@ define hidden noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef non
 .lr.ph.i.backedge:                                ; preds = %67, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
   %.promoted1116.i.be = phi i32 [ %.promoted1114.i, %67 ], [ %.promoted1115.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
   %.be = phi i32 [ %68, %67 ], [ %.promoted1115.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
-  %.be42 = phi ptr [ %69, %67 ], [ %83, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %.be49 = phi ptr [ %69, %67 ], [ %83, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
   br label %.lr.ph.i, !llvm.loop !14
 
 71:                                               ; preds = %.lr.ph.i
@@ -6864,7 +6864,7 @@ define hidden noundef i32 @_ZN6Assimp11XFileParser7ReadIntEv(ptr noundef nonnull
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.lr.ph.i
   %.promoted1116.i = phi i32 [ %.promoted.i, %.lr.ph.lr.ph.i ], [ %.promoted1116.i.be, %.lr.ph.i.backedge ]
   %44 = phi i32 [ %.promoted.i, %.lr.ph.lr.ph.i ], [ %.be, %.lr.ph.i.backedge ]
-  %45 = phi ptr [ %.promoted12.i, %.lr.ph.lr.ph.i ], [ %.be60, %.lr.ph.i.backedge ]
+  %45 = phi ptr [ %.promoted12.i, %.lr.ph.lr.ph.i ], [ %.be69, %.lr.ph.i.backedge ]
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   %48 = tail call i32 @isspace(i32 noundef %47) #28
@@ -6891,7 +6891,7 @@ define hidden noundef i32 @_ZN6Assimp11XFileParser7ReadIntEv(ptr noundef nonnull
 .lr.ph.i.backedge:                                ; preds = %53, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
   %.promoted1116.i.be = phi i32 [ %.promoted1114.i, %53 ], [ %.promoted1115.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
   %.be = phi i32 [ %54, %53 ], [ %.promoted1115.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
-  %.be60 = phi ptr [ %55, %53 ], [ %69, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %.be69 = phi ptr [ %55, %53 ], [ %69, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
   br label %.lr.ph.i, !llvm.loop !14
 
 57:                                               ; preds = %.lr.ph.i
@@ -7024,7 +7024,7 @@ define hidden { <2 x float>, float } @_ZN6Assimp11XFileParser11ReadVector3Ev(ptr
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.backedge, %.lr.ph.lr.ph.i.i
   %.promoted1116.i.i = phi i32 [ %.promoted.i.i, %.lr.ph.lr.ph.i.i ], [ %.promoted1116.i.i.be, %.lr.ph.i.i.backedge ]
   %13 = phi i32 [ %.promoted.i.i, %.lr.ph.lr.ph.i.i ], [ %.be, %.lr.ph.i.i.backedge ]
-  %14 = phi ptr [ %.promoted12.i.i, %.lr.ph.lr.ph.i.i ], [ %.be42, %.lr.ph.i.i.backedge ]
+  %14 = phi ptr [ %.promoted12.i.i, %.lr.ph.lr.ph.i.i ], [ %.be48, %.lr.ph.i.i.backedge ]
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = tail call i32 @isspace(i32 noundef %16) #28
@@ -7051,7 +7051,7 @@ define hidden { <2 x float>, float } @_ZN6Assimp11XFileParser11ReadVector3Ev(ptr
 .lr.ph.i.i.backedge:                              ; preds = %22, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i
   %.promoted1116.i.i.be = phi i32 [ %.promoted1114.i.i, %22 ], [ %.promoted1115.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
   %.be = phi i32 [ %23, %22 ], [ %.promoted1115.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
-  %.be42 = phi ptr [ %24, %22 ], [ %38, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  %.be48 = phi ptr [ %24, %22 ], [ %38, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
   br label %.lr.ph.i.i, !llvm.loop !14
 
 26:                                               ; preds = %.lr.ph.i.i
@@ -7147,7 +7147,7 @@ define hidden void @_ZN6Assimp11XFileParser16TestForSeparatorEv(ptr noundef nonn
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.lr.ph.i
   %.promoted1116.i = phi i32 [ %.promoted.i, %.lr.ph.lr.ph.i ], [ %.promoted1116.i.be, %.lr.ph.i.backedge ]
   %10 = phi i32 [ %.promoted.i, %.lr.ph.lr.ph.i ], [ %.be, %.lr.ph.i.backedge ]
-  %11 = phi ptr [ %.promoted12.i, %.lr.ph.lr.ph.i ], [ %.be36, %.lr.ph.i.backedge ]
+  %11 = phi ptr [ %.promoted12.i, %.lr.ph.lr.ph.i ], [ %.be42, %.lr.ph.i.backedge ]
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = tail call i32 @isspace(i32 noundef %13) #28
@@ -7174,7 +7174,7 @@ define hidden void @_ZN6Assimp11XFileParser16TestForSeparatorEv(ptr noundef nonn
 .lr.ph.i.backedge:                                ; preds = %19, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
   %.promoted1116.i.be = phi i32 [ %.promoted1114.i, %19 ], [ %.promoted1115.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
   %.be = phi i32 [ %20, %19 ], [ %.promoted1115.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
-  %.be36 = phi ptr [ %21, %19 ], [ %35, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %.be42 = phi ptr [ %21, %19 ], [ %35, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
   br label %.lr.ph.i, !llvm.loop !14
 
 23:                                               ; preds = %.lr.ph.i
@@ -7464,8 +7464,8 @@ _ZN6Assimp5XFile4FaceD2Ev.exit:                   ; preds = %76, %69
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.backedge, %.lr.ph.lr.ph.i.i
   %.promoted1116.i.i = phi i32 [ %.promoted.i.i, %.lr.ph.lr.ph.i.i ], [ %.promoted1116.i.i.be, %.lr.ph.i.i.backedge ]
-  %88 = phi i32 [ %.promoted.i.i, %.lr.ph.lr.ph.i.i ], [ %.be160, %.lr.ph.i.i.backedge ]
-  %89 = phi ptr [ %.promoted12.i.i, %.lr.ph.lr.ph.i.i ], [ %.be161, %.lr.ph.i.i.backedge ]
+  %88 = phi i32 [ %.promoted.i.i, %.lr.ph.lr.ph.i.i ], [ %.be202, %.lr.ph.i.i.backedge ]
+  %89 = phi ptr [ %.promoted12.i.i, %.lr.ph.lr.ph.i.i ], [ %.be203, %.lr.ph.i.i.backedge ]
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i32
   %92 = call i32 @isspace(i32 noundef %91) #28
@@ -7491,8 +7491,8 @@ _ZN6Assimp5XFile4FaceD2Ev.exit:                   ; preds = %76, %69
 
 .lr.ph.i.i.backedge:                              ; preds = %97, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i
   %.promoted1116.i.i.be = phi i32 [ %.promoted1114.i.i, %97 ], [ %.promoted1115.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
-  %.be160 = phi i32 [ %98, %97 ], [ %.promoted1115.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
-  %.be161 = phi ptr [ %99, %97 ], [ %113, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  %.be202 = phi i32 [ %98, %97 ], [ %.promoted1115.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  %.be203 = phi ptr [ %99, %97 ], [ %113, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
   br label %.lr.ph.i.i, !llvm.loop !14
 
 101:                                              ; preds = %.lr.ph.i.i
@@ -7629,7 +7629,7 @@ _ZN6Assimp11XFileParser16TestForSeparatorEv.exit: ; preds = %._crit_edge85, %_ZN
 .lr.ph.i.i36:                                     ; preds = %.lr.ph.i.i36.backedge, %.lr.ph.lr.ph.i.i34
   %.promoted1116.i.i38 = phi i32 [ %.promoted.i.i35, %.lr.ph.lr.ph.i.i34 ], [ %.promoted1116.i.i38.be, %.lr.ph.i.i36.backedge ]
   %155 = phi i32 [ %.promoted.i.i35, %.lr.ph.lr.ph.i.i34 ], [ %.be, %.lr.ph.i.i36.backedge ]
-  %156 = phi ptr [ %.promoted12.i.i32, %.lr.ph.lr.ph.i.i34 ], [ %.be159, %.lr.ph.i.i36.backedge ]
+  %156 = phi ptr [ %.promoted12.i.i32, %.lr.ph.lr.ph.i.i34 ], [ %.be201, %.lr.ph.i.i36.backedge ]
   %157 = load i8, ptr %156, align 1
   %158 = zext i8 %157 to i32
   %159 = call i32 @isspace(i32 noundef %158) #28
@@ -7656,7 +7656,7 @@ _ZN6Assimp11XFileParser16TestForSeparatorEv.exit: ; preds = %._crit_edge85, %_ZN
 .lr.ph.i.i36.backedge:                            ; preds = %164, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i42
   %.promoted1116.i.i38.be = phi i32 [ %.promoted1114.i.i40, %164 ], [ %.promoted1115.i.i43, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i42 ]
   %.be = phi i32 [ %165, %164 ], [ %.promoted1115.i.i43, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i42 ]
-  %.be159 = phi ptr [ %166, %164 ], [ %180, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i42 ]
+  %.be201 = phi ptr [ %166, %164 ], [ %180, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i42 ]
   br label %.lr.ph.i.i36, !llvm.loop !14
 
 168:                                              ; preds = %.lr.ph.i.i36
@@ -8168,7 +8168,7 @@ _ZN6Assimp11XFileParser20CheckForClosingBraceEv.exit: ; preds = %_ZNSt7__cxx1112
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.lr.ph.i
   %.promoted1116.i = phi i32 [ %.promoted.i, %.lr.ph.lr.ph.i ], [ %.promoted1116.i.be, %.lr.ph.i.backedge ]
   %78 = phi i32 [ %.promoted.i, %.lr.ph.lr.ph.i ], [ %.be, %.lr.ph.i.backedge ]
-  %79 = phi ptr [ %.promoted12.i, %.lr.ph.lr.ph.i ], [ %.be60, %.lr.ph.i.backedge ]
+  %79 = phi ptr [ %.promoted12.i, %.lr.ph.lr.ph.i ], [ %.be75, %.lr.ph.i.backedge ]
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i32
   %82 = call i32 @isspace(i32 noundef %81) #28
@@ -8195,7 +8195,7 @@ _ZN6Assimp11XFileParser20CheckForClosingBraceEv.exit: ; preds = %_ZNSt7__cxx1112
 .lr.ph.i.backedge:                                ; preds = %87, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
   %.promoted1116.i.be = phi i32 [ %.promoted1114.i, %87 ], [ %.promoted1115.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
   %.be = phi i32 [ %88, %87 ], [ %.promoted1115.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
-  %.be60 = phi ptr [ %89, %87 ], [ %103, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %.be75 = phi ptr [ %89, %87 ], [ %103, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
   br label %.lr.ph.i, !llvm.loop !14
 
 91:                                               ; preds = %.lr.ph.i
@@ -9371,7 +9371,7 @@ define hidden void @_ZN6Assimp11XFileParser20GetNextTokenAsStringERNSt7__cxx1112
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = icmp eq ptr %8, %9
-  br i1 %10, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %10, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9383,14 +9383,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %16 = icmp eq ptr %14, %15
   br i1 %16, label %20, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %7
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %7
   %17 = load ptr, ptr %3, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %19 = icmp eq ptr %17, %18
   br i1 %19, label %20, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-20:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %21 = phi ptr [ %17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+20:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %21 = phi ptr [ %17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = icmp ult i64 %23, 16
@@ -9432,7 +9432,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %35, ptr %9, align 8
   br label %42
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %36 = load i64, ptr %9, align 8
   store ptr %17, ptr %1, align 8
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -9496,7 +9496,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.lr.ph.i
   %.promoted1116.i = phi i32 [ %.promoted.i, %.lr.ph.lr.ph.i ], [ %.promoted1116.i.be, %.lr.ph.i.backedge ]
   %58 = phi i32 [ %.promoted.i, %.lr.ph.lr.ph.i ], [ %.be, %.lr.ph.i.backedge ]
-  %59 = phi ptr [ %.promoted12.i, %.lr.ph.lr.ph.i ], [ %.be69, %.lr.ph.i.backedge ]
+  %59 = phi ptr [ %.promoted12.i, %.lr.ph.lr.ph.i ], [ %.be99, %.lr.ph.i.backedge ]
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
   %62 = tail call i32 @isspace(i32 noundef %61) #28
@@ -9523,7 +9523,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 .lr.ph.i.backedge:                                ; preds = %67, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
   %.promoted1116.i.be = phi i32 [ %.promoted1114.i, %67 ], [ %.promoted1115.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
   %.be = phi i32 [ %68, %67 ], [ %.promoted1115.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
-  %.be69 = phi ptr [ %69, %67 ], [ %83, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %.be99 = phi ptr [ %69, %67 ], [ %83, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
   br label %.lr.ph.i, !llvm.loop !14
 
 71:                                               ; preds = %.lr.ph.i
@@ -9617,15 +9617,15 @@ _ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit: ; preds = %71, %72, %_ZN
 .lr.ph:                                           ; preds = %100
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %104 = load i8, ptr %101, align 1
-  %.not1060 = icmp eq i8 %104, 34
-  br i1 %.not1060, label %.critedge, label %.lr.ph61
+  %.not1090 = icmp eq i8 %104, 34
+  br i1 %.not1090, label %.critedge, label %.lr.ph91
 
 105:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
   %106 = load i8, ptr %113, align 1
   %.not10 = icmp eq i8 %106, 34
-  br i1 %.not10, label %.critedge, label %.lr.ph61, !llvm.loop !34
+  br i1 %.not10, label %.critedge, label %.lr.ph91, !llvm.loop !34
 
-.lr.ph61:                                         ; preds = %.lr.ph, %105
+.lr.ph91:                                         ; preds = %.lr.ph, %105
   %107 = phi ptr [ %113, %105 ], [ %101, %.lr.ph ]
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 1
   store ptr %108, ptr %53, align 8
@@ -9633,11 +9633,11 @@ _ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit: ; preds = %71, %72, %_ZN
   %110 = icmp eq i64 %109, 4611686018427387903
   br i1 %110, label %111, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
 
-111:                                              ; preds = %.lr.ph61
+111:                                              ; preds = %.lr.ph91
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.110) #30
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds = %.lr.ph61
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds = %.lr.ph91
   %112 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %107, i64 noundef 1)
   %113 = load ptr, ptr %53, align 8
   %114 = load ptr, ptr %54, align 8
@@ -9817,7 +9817,7 @@ define linkonce_odr hidden void @_ZNSt6vectorI10aiVector2tIfESaIS1_EE6resizeEm(p
   br i1 %.not28.i, label %22, label %_ZSt27__uninitialized_default_n_aIP10aiVector2tIfEmS1_ET_S3_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIP10aiVector2tIfEmS1_ET_S3_T0_RSaIT1_E.exit.i: ; preds = %11
-  %21 = shl nuw i64 %12, 3
+  %21 = shl nuw nsw i64 %12, 3
   tail call void @llvm.memset.p0.i64(ptr align 4 %4, i8 0, i64 %21, i1 false)
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
   store ptr %scevgep.i.i.i.i, ptr %3, align 8
@@ -9914,7 +9914,7 @@ define hidden <2 x float> @_ZN6Assimp11XFileParser11ReadVector2Ev(ptr noundef no
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.backedge, %.lr.ph.lr.ph.i.i
   %.promoted1116.i.i = phi i32 [ %.promoted.i.i, %.lr.ph.lr.ph.i.i ], [ %.promoted1116.i.i.be, %.lr.ph.i.i.backedge ]
   %12 = phi i32 [ %.promoted.i.i, %.lr.ph.lr.ph.i.i ], [ %.be, %.lr.ph.i.i.backedge ]
-  %13 = phi ptr [ %.promoted12.i.i, %.lr.ph.lr.ph.i.i ], [ %.be42, %.lr.ph.i.i.backedge ]
+  %13 = phi ptr [ %.promoted12.i.i, %.lr.ph.lr.ph.i.i ], [ %.be48, %.lr.ph.i.i.backedge ]
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = tail call i32 @isspace(i32 noundef %15) #28
@@ -9941,7 +9941,7 @@ define hidden <2 x float> @_ZN6Assimp11XFileParser11ReadVector2Ev(ptr noundef no
 .lr.ph.i.i.backedge:                              ; preds = %21, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i
   %.promoted1116.i.i.be = phi i32 [ %.promoted1114.i.i, %21 ], [ %.promoted1115.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
   %.be = phi i32 [ %22, %21 ], [ %.promoted1115.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
-  %.be42 = phi ptr [ %23, %21 ], [ %37, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  %.be48 = phi ptr [ %23, %21 ], [ %37, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
   br label %.lr.ph.i.i, !llvm.loop !14
 
 25:                                               ; preds = %.lr.ph.i.i
@@ -10159,7 +10159,7 @@ define hidden { <2 x float>, <2 x float> } @_ZN6Assimp11XFileParser8ReadRGBAEv(p
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.backedge, %.lr.ph.lr.ph.i.i
   %.promoted1116.i.i = phi i32 [ %.promoted.i.i, %.lr.ph.lr.ph.i.i ], [ %.promoted1116.i.i.be, %.lr.ph.i.i.backedge ]
   %14 = phi i32 [ %.promoted.i.i, %.lr.ph.lr.ph.i.i ], [ %.be, %.lr.ph.i.i.backedge ]
-  %15 = phi ptr [ %.promoted12.i.i, %.lr.ph.lr.ph.i.i ], [ %.be39, %.lr.ph.i.i.backedge ]
+  %15 = phi ptr [ %.promoted12.i.i, %.lr.ph.lr.ph.i.i ], [ %.be45, %.lr.ph.i.i.backedge ]
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = tail call i32 @isspace(i32 noundef %17) #28
@@ -10186,7 +10186,7 @@ define hidden { <2 x float>, <2 x float> } @_ZN6Assimp11XFileParser8ReadRGBAEv(p
 .lr.ph.i.i.backedge:                              ; preds = %23, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i
   %.promoted1116.i.i.be = phi i32 [ %.promoted1114.i.i, %23 ], [ %.promoted1115.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
   %.be = phi i32 [ %24, %23 ], [ %.promoted1115.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
-  %.be39 = phi ptr [ %25, %23 ], [ %39, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  %.be45 = phi ptr [ %25, %23 ], [ %39, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
   br label %.lr.ph.i.i, !llvm.loop !14
 
 27:                                               ; preds = %.lr.ph.i.i
@@ -10281,7 +10281,7 @@ define hidden void @_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv(ptr nounde
 .lr.ph:                                           ; preds = %.lr.ph.backedge, %.lr.ph.lr.ph
   %.promoted1116 = phi i32 [ %.promoted, %.lr.ph.lr.ph ], [ %.promoted1116.be, %.lr.ph.backedge ]
   %10 = phi i32 [ %.promoted, %.lr.ph.lr.ph ], [ %.be, %.lr.ph.backedge ]
-  %11 = phi ptr [ %.promoted12, %.lr.ph.lr.ph ], [ %.be41, %.lr.ph.backedge ]
+  %11 = phi ptr [ %.promoted12, %.lr.ph.lr.ph ], [ %.be44, %.lr.ph.backedge ]
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = tail call i32 @isspace(i32 noundef %13) #28
@@ -10308,7 +10308,7 @@ define hidden void @_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv(ptr nounde
 .lr.ph.backedge:                                  ; preds = %19, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit
   %.promoted1116.be = phi i32 [ %.promoted1114, %19 ], [ %.promoted1115, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit ]
   %.be = phi i32 [ %20, %19 ], [ %.promoted1115, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit ]
-  %.be41 = phi ptr [ %21, %19 ], [ %35, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit ]
+  %.be44 = phi ptr [ %21, %19 ], [ %35, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit ]
   br label %.lr.ph, !llvm.loop !14
 
 23:                                               ; preds = %.lr.ph
@@ -10596,7 +10596,7 @@ define hidden void @_ZN6Assimp11XFileParser7ReadRGBEv(ptr dead_on_unwind noalias
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.backedge, %.lr.ph.lr.ph.i.i
   %.promoted1116.i.i = phi i32 [ %.promoted.i.i, %.lr.ph.lr.ph.i.i ], [ %.promoted1116.i.i.be, %.lr.ph.i.i.backedge ]
   %16 = phi i32 [ %.promoted.i.i, %.lr.ph.lr.ph.i.i ], [ %.be, %.lr.ph.i.i.backedge ]
-  %17 = phi ptr [ %.promoted12.i.i, %.lr.ph.lr.ph.i.i ], [ %.be37, %.lr.ph.i.i.backedge ]
+  %17 = phi ptr [ %.promoted12.i.i, %.lr.ph.lr.ph.i.i ], [ %.be43, %.lr.ph.i.i.backedge ]
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = tail call i32 @isspace(i32 noundef %19) #28
@@ -10623,7 +10623,7 @@ define hidden void @_ZN6Assimp11XFileParser7ReadRGBEv(ptr dead_on_unwind noalias
 .lr.ph.i.i.backedge:                              ; preds = %25, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i
   %.promoted1116.i.i.be = phi i32 [ %.promoted1114.i.i, %25 ], [ %.promoted1115.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
   %.be = phi i32 [ %26, %25 ], [ %.promoted1115.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
-  %.be37 = phi ptr [ %27, %25 ], [ %41, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  %.be43 = phi ptr [ %27, %25 ], [ %41, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
   br label %.lr.ph.i.i, !llvm.loop !14
 
 29:                                               ; preds = %.lr.ph.i.i
@@ -10908,7 +10908,7 @@ _ZNSt6vectorIPN6Assimp5XFile8AnimBoneESaIS3_EE9push_backERKS3_.exit: ; preds = %
 62:                                               ; preds = %61
   %63 = load ptr, ptr %6, align 8
   %64 = icmp eq ptr %63, %7
-  br i1 %64, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %64, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %62
   %65 = load i64, ptr %8, align 8
@@ -10918,13 +10918,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %68 = icmp eq ptr %67, %39
   br i1 %68, label %71, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %62
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %62
   %69 = load ptr, ptr %5, align 8
   %70 = icmp eq ptr %69, %39
   br i1 %70, label %71, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-71:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
-  %72 = phi ptr [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %67, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+71:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
+  %72 = phi ptr [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %67, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %73 = load i64, ptr %40, align 8
   %74 = icmp ult i64 %73, 16
   call void @llvm.assume(i1 %74)
@@ -10959,7 +10959,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %82, ptr %7, align 8
   br label %87
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %83 = load i64, ptr %7, align 8
   store ptr %69, ptr %6, align 8
   %84 = load i64, ptr %40, align 8
@@ -15915,7 +15915,7 @@ define linkonce_odr hidden void @_ZNSt6vectorI10aiVector3tIfESaIS1_EE17_M_defaul
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIP10aiVector3tIfEmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIP10aiVector3tIfEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 12
+  %19 = mul nuw nsw i64 %1, 12
   tail call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8
@@ -15998,7 +15998,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE17_M_d
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPN6Assimp5XFile4FaceEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN6Assimp5XFile4FaceEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 24
+  %19 = mul nuw nsw i64 %1, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8
@@ -22410,8 +22410,8 @@ define linkonce_odr hidden noundef i64 @_ZN6Assimp12strtoul10_64I17DeadlyImportE
   br i1 %.not, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %narrow.us127 = add nsw i8 %6, -48
-  %8 = zext nneg i8 %narrow.us127 to i64
+  %narrow.us134 = add nsw i8 %6, -48
+  %8 = zext nneg i8 %narrow.us134 to i64
   br label %13
 
 .lr.ph.split.us:                                  ; preds = %13
@@ -22425,9 +22425,9 @@ define linkonce_odr hidden noundef i64 @_ZN6Assimp12strtoul10_64I17DeadlyImportE
 13:                                               ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %14 = phi i64 [ %8, %.lr.ph.split.us.preheader ], [ %11, %.lr.ph.split.us ]
   %15 = phi ptr [ %0, %.lr.ph.split.us.preheader ], [ %16, %.lr.ph.split.us ]
-  %.02863.us128 = phi i32 [ 0, %.lr.ph.split.us.preheader ], [ %17, %.lr.ph.split.us ]
+  %.02863.us135 = phi i32 [ 0, %.lr.ph.split.us.preheader ], [ %17, %.lr.ph.split.us ]
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  %17 = add i32 %.02863.us128, 1
+  %17 = add i32 %.02863.us135, 1
   %18 = load i8, ptr %16, align 1
   %19 = add i8 %18, -58
   %or.cond42.us = icmp ult i8 %19, -10
@@ -22435,8 +22435,8 @@ define linkonce_odr hidden noundef i64 @_ZN6Assimp12strtoul10_64I17DeadlyImportE
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %20 = load i32, ptr %2, align 4
-  %narrow125 = add nsw i8 %6, -48
-  %21 = zext nneg i8 %narrow125 to i64
+  %narrow132 = add nsw i8 %6, -48
+  %21 = zext nneg i8 %narrow132 to i64
   br label %47
 
 22:                                               ; preds = %3
@@ -22503,8 +22503,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %29
   br i1 %45, label %.split.us, label %47, !llvm.loop !142
 
 .split.us:                                        ; preds = %41, %.lr.ph.split.us
-  %.lcssa101.sink = phi ptr [ %16, %.lr.ph.split.us ], [ %50, %41 ]
-  store ptr %.lcssa101.sink, ptr %4, align 8
+  %.lcssa108.sink = phi ptr [ %16, %.lr.ph.split.us ], [ %50, %41 ]
+  store ptr %.lcssa108.sink, ptr %4, align 8
   %46 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @_ZN6Assimp6Logger4warnIJRA24_KcRPS2_RA37_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %46, ptr noundef nonnull align 1 dereferenceable(24) @.str.124, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(37) @.str.125)
   br label %.thread
@@ -22512,9 +22512,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %29
 47:                                               ; preds = %.lr.ph.split, %41
   %48 = phi i64 [ %21, %.lr.ph.split ], [ %44, %41 ]
   %49 = phi ptr [ %0, %.lr.ph.split ], [ %50, %41 ]
-  %.02863126 = phi i32 [ 0, %.lr.ph.split ], [ %51, %41 ]
+  %.02863133 = phi i32 [ 0, %.lr.ph.split ], [ %51, %41 ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
-  %51 = add i32 %.02863126, 1
+  %51 = add i32 %.02863133, 1
   %52 = icmp eq i32 %20, %51
   br i1 %52, label %53, label %60
 
@@ -22550,15 +22550,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %29
   br i1 %or.cond42, label %._crit_edge, label %41, !llvm.loop !142
 
 ._crit_edge:                                      ; preds = %60, %13
-  %.lcssa103.sink = phi ptr [ %16, %13 ], [ %50, %60 ]
+  %.lcssa110.sink = phi ptr [ %16, %13 ], [ %50, %60 ]
   %.028.lcssa = phi i32 [ %17, %13 ], [ %51, %60 ]
   %.026.lcssa = phi i64 [ %14, %13 ], [ %48, %60 ]
-  store ptr %.lcssa103.sink, ptr %4, align 8
+  store ptr %.lcssa110.sink, ptr %4, align 8
   %.not39 = icmp eq ptr %1, null
   br i1 %.not39, label %64, label %63
 
 63:                                               ; preds = %._crit_edge
-  store ptr %.lcssa103.sink, ptr %1, align 8
+  store ptr %.lcssa110.sink, ptr %1, align 8
   br label %64
 
 64:                                               ; preds = %63, %._crit_edge

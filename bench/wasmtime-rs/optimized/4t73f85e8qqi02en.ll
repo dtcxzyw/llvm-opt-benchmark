@@ -277,7 +277,7 @@ _ZN4core3ops8function6FnOnce9call_once17h6e3087070812fe25E.exit.i: ; preds = %13
 
 18:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17h6e3087070812fe25E.exit.i, %_ZN4core3ops8function6FnOnce9call_once17h6e3087070812fe25E.exit.thread.i
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c0b20b0ebc8b2b2E.llvm.3847999990672408200"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hffc6341bce1dcf3cE.exit.thread36 unwind label %19, !noalias !78
+          to label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hffc6341bce1dcf3cE.exit.thread39 unwind label %19, !noalias !78
 
 19:                                               ; preds = %18
   %20 = landingpad { ptr, i32 }
@@ -286,7 +286,7 @@ _ZN4core3ops8function6FnOnce9call_once17h6e3087070812fe25E.exit.i: ; preds = %13
   invoke fastcc void @"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h5e615b730161e9afE"(ptr noalias noundef align 16 dereferenceable(32) %4) #25
           to label %common.resume unwind label %21, !noalias !78
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17hffc6341bce1dcf3cE.exit.thread36: ; preds = %18
+_ZN4core4iter8adapters7flatten17and_then_or_clear17hffc6341bce1dcf3cE.exit.thread39: ; preds = %18
   store ptr null, ptr %5, align 8, !alias.scope !75, !noalias !78
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h5e615b730161e9afE.exit"
 
@@ -308,7 +308,7 @@ common.resume:                                    ; preds = %47, %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
   br label %33
 
-"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h5e615b730161e9afE.exit": ; preds = %10, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hffc6341bce1dcf3cE.exit.thread36
+"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h5e615b730161e9afE.exit": ; preds = %10, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hffc6341bce1dcf3cE.exit.thread39
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !80
   tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
   %25 = load ptr, ptr %1, align 8, !alias.scope !95, !noalias !98, !noundef !4

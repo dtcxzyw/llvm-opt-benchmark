@@ -1571,8 +1571,8 @@ define internal fastcc noundef ptr @brin_range_deserialize(i32 noundef %0, ptr n
 48:                                               ; preds = %42
   %49 = load i32, ptr %.0114158.us162, align 4
   %50 = lshr i32 %49, 2
-  %narrow153.us238 = add nuw nsw i32 %50, 7
-  %51 = and i32 %narrow153.us238, 2147483640
+  %narrow153.us243 = add nuw nsw i32 %50, 7
+  %51 = and i32 %narrow153.us243, 2147483640
   %52 = lshr i32 %49, 2
   br label %53
 
@@ -1635,7 +1635,7 @@ define internal fastcc noundef ptr @brin_range_deserialize(i32 noundef %0, ptr n
   br i1 %82, label %.lr.ph189, label %._crit_edge190
 
 .lr.ph189:                                        ; preds = %.lr.ph.split, %._crit_edge.thread
-  %.0116244 = phi ptr [ %.0116, %._crit_edge.thread ], [ null, %.lr.ph.split ]
+  %.0116249 = phi ptr [ %.0116, %._crit_edge.thread ], [ null, %.lr.ph.split ]
   %83 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %84 = zext nneg i32 %28 to i64
   %85 = add nuw nsw i64 %84, 7
@@ -1700,7 +1700,7 @@ fetch_att.exit.us:                                ; preds = %93, %91, %89, %88
 .lr.ph189.split.split.us:                         ; preds = %.lr.ph189.split.split.us.preheader, %.lr.ph189.split.split.us
   %indvars.iv228 = phi i64 [ 0, %.lr.ph189.split.split.us.preheader ], [ %indvars.iv.next229, %.lr.ph189.split.split.us ]
   %.2185.us192 = phi ptr [ %29, %.lr.ph189.split.split.us.preheader ], [ %101, %.lr.ph189.split.split.us ]
-  %.1117184.us193 = phi ptr [ %.0116244, %.lr.ph189.split.split.us.preheader ], [ %100, %.lr.ph189.split.split.us ]
+  %.1117184.us193 = phi ptr [ %.0116249, %.lr.ph189.split.split.us.preheader ], [ %100, %.lr.ph189.split.split.us ]
   %98 = ptrtoint ptr %.1117184.us193 to i64
   %99 = getelementptr inbounds nuw [0 x i64], ptr %83, i64 0, i64 %indvars.iv228
   store i64 %98, ptr %99, align 8
@@ -1728,7 +1728,7 @@ fetch_att.exit.us:                                ; preds = %93, %91, %89, %88
 .lr.ph189.split.split.split.us:                   ; preds = %.lr.ph189.split.split.split.us.preheader, %157
   %indvars.iv223 = phi i64 [ 0, %.lr.ph189.split.split.split.us.preheader ], [ %indvars.iv.next224, %157 ]
   %.2185.us197 = phi ptr [ %29, %.lr.ph189.split.split.split.us.preheader ], [ %160, %157 ]
-  %.1117184.us198 = phi ptr [ %.0116244, %.lr.ph189.split.split.split.us.preheader ], [ %159, %157 ]
+  %.1117184.us198 = phi ptr [ %.0116249, %.lr.ph189.split.split.split.us.preheader ], [ %159, %157 ]
   %102 = ptrtoint ptr %.1117184.us198 to i64
   %103 = getelementptr inbounds nuw [0 x i64], ptr %83, i64 0, i64 %indvars.iv223
   store i64 %102, ptr %103, align 8
@@ -1791,15 +1791,15 @@ fetch_att.exit.us:                                ; preds = %93, %91, %89, %88
 137:                                              ; preds = %131
   %138 = load i32, ptr %.2185.us197, align 4
   %139 = lshr i32 %138, 2
-  %narrow154.us242 = add nuw nsw i32 %139, 7
-  %140 = and i32 %narrow154.us242, 2147483640
+  %narrow154.us247 = add nuw nsw i32 %139, 7
+  %140 = and i32 %narrow154.us247, 2147483640
   %141 = lshr i32 %138, 2
   br label %142
 
 142:                                              ; preds = %137, %133
-  %.in250 = phi i32 [ %135, %133 ], [ %140, %137 ]
+  %.in255 = phi i32 [ %135, %133 ], [ %140, %137 ]
   %143 = phi i32 [ %136, %133 ], [ %141, %137 ]
-  %144 = zext nneg i32 %.in250 to i64
+  %144 = zext nneg i32 %.in255 to i64
   %145 = zext nneg i32 %143 to i64
   br label %157
 
@@ -1829,7 +1829,7 @@ fetch_att.exit.us:                                ; preds = %93, %91, %89, %88
 .lr.ph189.split.split.split.us201:                ; preds = %.lr.ph189.split.split.split.us201.preheader, %.lr.ph189.split.split.split.us201
   %indvars.iv = phi i64 [ 0, %.lr.ph189.split.split.split.us201.preheader ], [ %indvars.iv.next, %.lr.ph189.split.split.split.us201 ]
   %.2185.us203 = phi ptr [ %29, %.lr.ph189.split.split.split.us201.preheader ], [ %168, %.lr.ph189.split.split.split.us201 ]
-  %.1117184.us204 = phi ptr [ %.0116244, %.lr.ph189.split.split.split.us201.preheader ], [ %167, %.lr.ph189.split.split.split.us201 ]
+  %.1117184.us204 = phi ptr [ %.0116249, %.lr.ph189.split.split.split.us201.preheader ], [ %167, %.lr.ph189.split.split.split.us201 ]
   %161 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2185.us203) #14
   %162 = add i64 %161, 1
   %163 = ptrtoint ptr %.1117184.us204 to i64
@@ -2026,8 +2026,8 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_multi_consistent(ptr noundef r
 
 110:                                              ; preds = %105, %77
   %111 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %82, i32 noundef %15, i64 noundef %45, i64 noundef %59) #12
-  %.not260 = icmp eq i64 %111, 0
-  br i1 %.not260, label %._crit_edge.us.thread, label %.thread135.us
+  %.not267 = icmp eq i64 %111, 0
+  br i1 %.not267, label %._crit_edge.us.thread, label %.thread135.us
 
 .thread135.us:                                    ; preds = %110, %49
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
@@ -2156,8 +2156,8 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_multi_consistent(ptr noundef r
 
 minmax_multi_get_strategy_procinfo.exit:          ; preds = %146, %179
   %184 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %151, i32 noundef %15, i64 noundef %114, i64 noundef %129) #12
-  %.not259 = icmp eq i64 %184, 0
-  br i1 %.not259, label %.thread, label %120
+  %.not266 = icmp eq i64 %184, 0
+  br i1 %.not266, label %.thread, label %120
 
 185:                                              ; preds = %121
   %186 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %125, i32 noundef %127, i16 noundef zeroext 5)
@@ -3359,7 +3359,7 @@ define dso_local i64 @brin_minmax_multi_summary_out(ptr noundef readonly capture
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %1, %52, %._crit_edge
-  %.033.lcssa61 = phi i32 [ %37, %52 ], [ %37, %._crit_edge ], [ 0, %1 ]
+  %.033.lcssa64 = phi i32 [ %37, %52 ], [ %37, %._crit_edge ], [ 0, %1 ]
   %57 = load i32, ptr %23, align 8
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %.lr.ph49, label %._crit_edge50.thread
@@ -3370,7 +3370,7 @@ define dso_local i64 @brin_minmax_multi_summary_out(ptr noundef readonly capture
 
 60:                                               ; preds = %.lr.ph49, %60
   %.147 = phi i32 [ 0, %.lr.ph49 ], [ %71, %60 ]
-  %.13446 = phi i32 [ %.033.lcssa61, %.lr.ph49 ], [ %61, %60 ]
+  %.13446 = phi i32 [ %.033.lcssa64, %.lr.ph49 ], [ %61, %60 ]
   %.13645 = phi ptr [ null, %.lr.ph49 ], [ %70, %60 ]
   %61 = add i32 %.13446, 1
   %62 = sext i32 %.13446 to i64

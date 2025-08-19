@@ -1369,8 +1369,8 @@ ZSTD_storeSeq.exit6.i:                            ; preds = %439, %.lr.ph.i142.i
   br i1 %475, label %ZSTD_storeSeqOnly.exit14.sink.split.i, label %ZSTD_storeSeqOnly.exit14.i, !prof !51
 
 ZSTD_storeSeqOnly.exit14.sink.split.i:            ; preds = %470, %221
-  %.sink560.i = phi ptr [ %222, %221 ], [ %471, %470 ]
-  %.sink556.ph.i = phi i64 [ %225, %221 ], [ %474, %470 ]
+  %.sink597.i = phi ptr [ %222, %221 ], [ %471, %470 ]
+  %.sink593.ph.i = phi i64 [ %225, %221 ], [ %474, %470 ]
   %.ph.i = phi i32 [ %126, %221 ], [ %415, %470 ]
   %.6288.i.ph.i = phi ptr [ %130, %221 ], [ %.5287.i.i, %470 ]
   %.6.i.ph.i = phi i64 [ %174, %221 ], [ %.5.i.i, %470 ]
@@ -1378,7 +1378,7 @@ ZSTD_storeSeqOnly.exit14.sink.split.i:            ; preds = %470, %221
   %.2251.i.ph.i = phi i32 [ %.1250.i371.fr.i, %221 ], [ %.4270.i.i, %470 ]
   store i32 2, ptr %72, align 8, !tbaa !45
   %476 = load ptr, ptr %1, align 8, !tbaa !46
-  %477 = ptrtoint ptr %.sink560.i to i64
+  %477 = ptrtoint ptr %.sink597.i to i64
   %478 = ptrtoint ptr %476 to i64
   %479 = sub i64 %477, %478
   %480 = lshr exact i64 %479, 3
@@ -1387,17 +1387,17 @@ ZSTD_storeSeqOnly.exit14.sink.split.i:            ; preds = %470, %221
   br label %ZSTD_storeSeqOnly.exit14.i
 
 ZSTD_storeSeqOnly.exit14.i:                       ; preds = %ZSTD_storeSeqOnly.exit14.sink.split.i, %470, %221
-  %.sink556.i = phi i64 [ %225, %221 ], [ %474, %470 ], [ %.sink556.ph.i, %ZSTD_storeSeqOnly.exit14.sink.split.i ]
-  %.sink555.i = phi ptr [ %222, %221 ], [ %471, %470 ], [ %.sink560.i, %ZSTD_storeSeqOnly.exit14.sink.split.i ]
+  %.sink593.i = phi i64 [ %225, %221 ], [ %474, %470 ], [ %.sink593.ph.i, %ZSTD_storeSeqOnly.exit14.sink.split.i ]
+  %.sink592.i = phi ptr [ %222, %221 ], [ %471, %470 ], [ %.sink597.i, %ZSTD_storeSeqOnly.exit14.sink.split.i ]
   %482 = phi i32 [ %126, %221 ], [ %415, %470 ], [ %.ph.i, %ZSTD_storeSeqOnly.exit14.sink.split.i ]
   %.6288.i.i = phi ptr [ %130, %221 ], [ %.5287.i.i, %470 ], [ %.6288.i.ph.i, %ZSTD_storeSeqOnly.exit14.sink.split.i ]
   %.6.i.i = phi i64 [ %174, %221 ], [ %.5.i.i, %470 ], [ %.6.i.ph.i, %ZSTD_storeSeqOnly.exit14.sink.split.i ]
   %.2254.i.i = phi i32 [ %.1253.i370.i, %221 ], [ %.1250.i371.fr.i, %470 ], [ %.2254.i.ph.i, %ZSTD_storeSeqOnly.exit14.sink.split.i ]
   %.2251.i.i = phi i32 [ %.1250.i371.fr.i, %221 ], [ %.4270.i.i, %470 ], [ %.2251.i.ph.i, %ZSTD_storeSeqOnly.exit14.sink.split.i ]
-  %483 = trunc i64 %.sink556.i to i16
-  %484 = getelementptr inbounds nuw i8, ptr %.sink555.i, i64 6
+  %483 = trunc i64 %.sink593.i to i16
+  %484 = getelementptr inbounds nuw i8, ptr %.sink592.i, i64 6
   store i16 %483, ptr %484, align 2, !tbaa !54
-  %storemerge.i = getelementptr inbounds nuw i8, ptr %.sink555.i, i64 8
+  %storemerge.i = getelementptr inbounds nuw i8, ptr %.sink592.i, i64 8
   store ptr %storemerge.i, ptr %73, align 8, !tbaa !41
   %485 = getelementptr inbounds nuw i8, ptr %.6288.i.i, i64 %.6.i.i
   %.not322.i.i = icmp ugt ptr %485, %40
@@ -2569,8 +2569,8 @@ ZSTD_storeSeq.exit6.i161:                         ; preds = %971, %.lr.ph.i142.i
   br i1 %1007, label %ZSTD_storeSeqOnly.exit14.sink.split.i149, label %ZSTD_storeSeqOnly.exit14.i95, !prof !51
 
 ZSTD_storeSeqOnly.exit14.sink.split.i149:         ; preds = %1002, %755
-  %.sink559.i = phi ptr [ %756, %755 ], [ %1003, %1002 ]
-  %.sink555.ph.i = phi i64 [ %759, %755 ], [ %1006, %1002 ]
+  %.sink596.i = phi ptr [ %756, %755 ], [ %1003, %1002 ]
+  %.sink592.ph.i = phi i64 [ %759, %755 ], [ %1006, %1002 ]
   %.ph.i150 = phi i32 [ %660, %755 ], [ %947, %1002 ]
   %.6288.i.ph.i151 = phi ptr [ %664, %755 ], [ %.5287.i.i88, %1002 ]
   %.6.i.ph.i152 = phi i64 [ %708, %755 ], [ %.5.i.i90, %1002 ]
@@ -2578,7 +2578,7 @@ ZSTD_storeSeqOnly.exit14.sink.split.i149:         ; preds = %1002, %755
   %.2251.i.ph.i154 = phi i32 [ %.1250.i371.fr.i32, %755 ], [ %.4270.i.i91, %1002 ]
   store i32 2, ptr %610, align 8, !tbaa !45
   %1008 = load ptr, ptr %1, align 8, !tbaa !46
-  %1009 = ptrtoint ptr %.sink559.i to i64
+  %1009 = ptrtoint ptr %.sink596.i to i64
   %1010 = ptrtoint ptr %1008 to i64
   %1011 = sub i64 %1009, %1010
   %1012 = lshr exact i64 %1011, 3
@@ -2587,17 +2587,17 @@ ZSTD_storeSeqOnly.exit14.sink.split.i149:         ; preds = %1002, %755
   br label %ZSTD_storeSeqOnly.exit14.i95
 
 ZSTD_storeSeqOnly.exit14.i95:                     ; preds = %ZSTD_storeSeqOnly.exit14.sink.split.i149, %1002, %755
-  %.sink555.i96 = phi i64 [ %759, %755 ], [ %1006, %1002 ], [ %.sink555.ph.i, %ZSTD_storeSeqOnly.exit14.sink.split.i149 ]
-  %.sink554.i = phi ptr [ %756, %755 ], [ %1003, %1002 ], [ %.sink559.i, %ZSTD_storeSeqOnly.exit14.sink.split.i149 ]
+  %.sink592.i96 = phi i64 [ %759, %755 ], [ %1006, %1002 ], [ %.sink592.ph.i, %ZSTD_storeSeqOnly.exit14.sink.split.i149 ]
+  %.sink591.i = phi ptr [ %756, %755 ], [ %1003, %1002 ], [ %.sink596.i, %ZSTD_storeSeqOnly.exit14.sink.split.i149 ]
   %1014 = phi i32 [ %660, %755 ], [ %947, %1002 ], [ %.ph.i150, %ZSTD_storeSeqOnly.exit14.sink.split.i149 ]
   %.6288.i.i97 = phi ptr [ %664, %755 ], [ %.5287.i.i88, %1002 ], [ %.6288.i.ph.i151, %ZSTD_storeSeqOnly.exit14.sink.split.i149 ]
   %.6.i.i98 = phi i64 [ %708, %755 ], [ %.5.i.i90, %1002 ], [ %.6.i.ph.i152, %ZSTD_storeSeqOnly.exit14.sink.split.i149 ]
   %.2254.i.i99 = phi i32 [ %.1253.i370.i30, %755 ], [ %.1250.i371.fr.i32, %1002 ], [ %.2254.i.ph.i153, %ZSTD_storeSeqOnly.exit14.sink.split.i149 ]
   %.2251.i.i100 = phi i32 [ %.1250.i371.fr.i32, %755 ], [ %.4270.i.i91, %1002 ], [ %.2251.i.ph.i154, %ZSTD_storeSeqOnly.exit14.sink.split.i149 ]
-  %1015 = trunc i64 %.sink555.i96 to i16
-  %1016 = getelementptr inbounds nuw i8, ptr %.sink554.i, i64 6
+  %1015 = trunc i64 %.sink592.i96 to i16
+  %1016 = getelementptr inbounds nuw i8, ptr %.sink591.i, i64 6
   store i16 %1015, ptr %1016, align 2, !tbaa !54
-  %storemerge.i101 = getelementptr inbounds nuw i8, ptr %.sink554.i, i64 8
+  %storemerge.i101 = getelementptr inbounds nuw i8, ptr %.sink591.i, i64 8
   store ptr %storemerge.i101, ptr %611, align 8, !tbaa !41
   %1017 = getelementptr inbounds nuw i8, ptr %.6288.i.i97, i64 %.6.i.i98
   %.not322.i.i102 = icmp ugt ptr %1017, %40
@@ -3765,8 +3765,8 @@ ZSTD_storeSeq.exit6.i487:                         ; preds = %1500, %.lr.ph.i142.
   br i1 %1536, label %ZSTD_storeSeqOnly.exit14.sink.split.i473, label %ZSTD_storeSeqOnly.exit14.i417, !prof !51
 
 ZSTD_storeSeqOnly.exit14.sink.split.i473:         ; preds = %1531, %1284
-  %.sink559.i474 = phi ptr [ %1285, %1284 ], [ %1532, %1531 ]
-  %.sink555.ph.i475 = phi i64 [ %1288, %1284 ], [ %1535, %1531 ]
+  %.sink596.i474 = phi ptr [ %1285, %1284 ], [ %1532, %1531 ]
+  %.sink592.ph.i475 = phi i64 [ %1288, %1284 ], [ %1535, %1531 ]
   %.ph.i476 = phi i32 [ %1189, %1284 ], [ %1476, %1531 ]
   %.6288.i.ph.i477 = phi ptr [ %1193, %1284 ], [ %.5287.i.i409, %1531 ]
   %.6.i.ph.i478 = phi i64 [ %1237, %1284 ], [ %.5.i.i411, %1531 ]
@@ -3774,7 +3774,7 @@ ZSTD_storeSeqOnly.exit14.sink.split.i473:         ; preds = %1531, %1284
   %.2251.i.ph.i480 = phi i32 [ %.1250.i371.fr.i350, %1284 ], [ %.4270.i.i412, %1531 ]
   store i32 2, ptr %1139, align 8, !tbaa !45
   %1537 = load ptr, ptr %1, align 8, !tbaa !46
-  %1538 = ptrtoint ptr %.sink559.i474 to i64
+  %1538 = ptrtoint ptr %.sink596.i474 to i64
   %1539 = ptrtoint ptr %1537 to i64
   %1540 = sub i64 %1538, %1539
   %1541 = lshr exact i64 %1540, 3
@@ -3783,17 +3783,17 @@ ZSTD_storeSeqOnly.exit14.sink.split.i473:         ; preds = %1531, %1284
   br label %ZSTD_storeSeqOnly.exit14.i417
 
 ZSTD_storeSeqOnly.exit14.i417:                    ; preds = %ZSTD_storeSeqOnly.exit14.sink.split.i473, %1531, %1284
-  %.sink555.i418 = phi i64 [ %1288, %1284 ], [ %1535, %1531 ], [ %.sink555.ph.i475, %ZSTD_storeSeqOnly.exit14.sink.split.i473 ]
-  %.sink554.i419 = phi ptr [ %1285, %1284 ], [ %1532, %1531 ], [ %.sink559.i474, %ZSTD_storeSeqOnly.exit14.sink.split.i473 ]
+  %.sink592.i418 = phi i64 [ %1288, %1284 ], [ %1535, %1531 ], [ %.sink592.ph.i475, %ZSTD_storeSeqOnly.exit14.sink.split.i473 ]
+  %.sink591.i419 = phi ptr [ %1285, %1284 ], [ %1532, %1531 ], [ %.sink596.i474, %ZSTD_storeSeqOnly.exit14.sink.split.i473 ]
   %1543 = phi i32 [ %1189, %1284 ], [ %1476, %1531 ], [ %.ph.i476, %ZSTD_storeSeqOnly.exit14.sink.split.i473 ]
   %.6288.i.i420 = phi ptr [ %1193, %1284 ], [ %.5287.i.i409, %1531 ], [ %.6288.i.ph.i477, %ZSTD_storeSeqOnly.exit14.sink.split.i473 ]
   %.6.i.i421 = phi i64 [ %1237, %1284 ], [ %.5.i.i411, %1531 ], [ %.6.i.ph.i478, %ZSTD_storeSeqOnly.exit14.sink.split.i473 ]
   %.2254.i.i422 = phi i32 [ %.1253.i370.i348, %1284 ], [ %.1250.i371.fr.i350, %1531 ], [ %.2254.i.ph.i479, %ZSTD_storeSeqOnly.exit14.sink.split.i473 ]
   %.2251.i.i423 = phi i32 [ %.1250.i371.fr.i350, %1284 ], [ %.4270.i.i412, %1531 ], [ %.2251.i.ph.i480, %ZSTD_storeSeqOnly.exit14.sink.split.i473 ]
-  %1544 = trunc i64 %.sink555.i418 to i16
-  %1545 = getelementptr inbounds nuw i8, ptr %.sink554.i419, i64 6
+  %1544 = trunc i64 %.sink592.i418 to i16
+  %1545 = getelementptr inbounds nuw i8, ptr %.sink591.i419, i64 6
   store i16 %1544, ptr %1545, align 2, !tbaa !54
-  %storemerge.i424 = getelementptr inbounds nuw i8, ptr %.sink554.i419, i64 8
+  %storemerge.i424 = getelementptr inbounds nuw i8, ptr %.sink591.i419, i64 8
   store ptr %storemerge.i424, ptr %1140, align 8, !tbaa !41
   %1546 = getelementptr inbounds nuw i8, ptr %.6288.i.i420, i64 %.6.i.i421
   %.not322.i.i425 = icmp ugt ptr %1546, %40
@@ -4961,8 +4961,8 @@ ZSTD_storeSeq.exit6.i815:                         ; preds = %2029, %.lr.ph.i142.
   br i1 %2065, label %ZSTD_storeSeqOnly.exit14.sink.split.i801, label %ZSTD_storeSeqOnly.exit14.i745, !prof !51
 
 ZSTD_storeSeqOnly.exit14.sink.split.i801:         ; preds = %2060, %1813
-  %.sink559.i802 = phi ptr [ %1814, %1813 ], [ %2061, %2060 ]
-  %.sink555.ph.i803 = phi i64 [ %1817, %1813 ], [ %2064, %2060 ]
+  %.sink596.i802 = phi ptr [ %1814, %1813 ], [ %2061, %2060 ]
+  %.sink592.ph.i803 = phi i64 [ %1817, %1813 ], [ %2064, %2060 ]
   %.ph.i804 = phi i32 [ %1718, %1813 ], [ %2005, %2060 ]
   %.6288.i.ph.i805 = phi ptr [ %1722, %1813 ], [ %.5287.i.i737, %2060 ]
   %.6.i.ph.i806 = phi i64 [ %1766, %1813 ], [ %.5.i.i739, %2060 ]
@@ -4970,7 +4970,7 @@ ZSTD_storeSeqOnly.exit14.sink.split.i801:         ; preds = %2060, %1813
   %.2251.i.ph.i808 = phi i32 [ %.1250.i371.fr.i678, %1813 ], [ %.4270.i.i740, %2060 ]
   store i32 2, ptr %1668, align 8, !tbaa !45
   %2066 = load ptr, ptr %1, align 8, !tbaa !46
-  %2067 = ptrtoint ptr %.sink559.i802 to i64
+  %2067 = ptrtoint ptr %.sink596.i802 to i64
   %2068 = ptrtoint ptr %2066 to i64
   %2069 = sub i64 %2067, %2068
   %2070 = lshr exact i64 %2069, 3
@@ -4979,17 +4979,17 @@ ZSTD_storeSeqOnly.exit14.sink.split.i801:         ; preds = %2060, %1813
   br label %ZSTD_storeSeqOnly.exit14.i745
 
 ZSTD_storeSeqOnly.exit14.i745:                    ; preds = %ZSTD_storeSeqOnly.exit14.sink.split.i801, %2060, %1813
-  %.sink555.i746 = phi i64 [ %1817, %1813 ], [ %2064, %2060 ], [ %.sink555.ph.i803, %ZSTD_storeSeqOnly.exit14.sink.split.i801 ]
-  %.sink554.i747 = phi ptr [ %1814, %1813 ], [ %2061, %2060 ], [ %.sink559.i802, %ZSTD_storeSeqOnly.exit14.sink.split.i801 ]
+  %.sink592.i746 = phi i64 [ %1817, %1813 ], [ %2064, %2060 ], [ %.sink592.ph.i803, %ZSTD_storeSeqOnly.exit14.sink.split.i801 ]
+  %.sink591.i747 = phi ptr [ %1814, %1813 ], [ %2061, %2060 ], [ %.sink596.i802, %ZSTD_storeSeqOnly.exit14.sink.split.i801 ]
   %2072 = phi i32 [ %1718, %1813 ], [ %2005, %2060 ], [ %.ph.i804, %ZSTD_storeSeqOnly.exit14.sink.split.i801 ]
   %.6288.i.i748 = phi ptr [ %1722, %1813 ], [ %.5287.i.i737, %2060 ], [ %.6288.i.ph.i805, %ZSTD_storeSeqOnly.exit14.sink.split.i801 ]
   %.6.i.i749 = phi i64 [ %1766, %1813 ], [ %.5.i.i739, %2060 ], [ %.6.i.ph.i806, %ZSTD_storeSeqOnly.exit14.sink.split.i801 ]
   %.2254.i.i750 = phi i32 [ %.1253.i370.i676, %1813 ], [ %.1250.i371.fr.i678, %2060 ], [ %.2254.i.ph.i807, %ZSTD_storeSeqOnly.exit14.sink.split.i801 ]
   %.2251.i.i751 = phi i32 [ %.1250.i371.fr.i678, %1813 ], [ %.4270.i.i740, %2060 ], [ %.2251.i.ph.i808, %ZSTD_storeSeqOnly.exit14.sink.split.i801 ]
-  %2073 = trunc i64 %.sink555.i746 to i16
-  %2074 = getelementptr inbounds nuw i8, ptr %.sink554.i747, i64 6
+  %2073 = trunc i64 %.sink592.i746 to i16
+  %2074 = getelementptr inbounds nuw i8, ptr %.sink591.i747, i64 6
   store i16 %2073, ptr %2074, align 2, !tbaa !54
-  %storemerge.i752 = getelementptr inbounds nuw i8, ptr %.sink554.i747, i64 8
+  %storemerge.i752 = getelementptr inbounds nuw i8, ptr %.sink591.i747, i64 8
   store ptr %storemerge.i752, ptr %1669, align 8, !tbaa !41
   %2075 = getelementptr inbounds nuw i8, ptr %.6288.i.i748, i64 %.6.i.i749
   %.not322.i.i753 = icmp ugt ptr %2075, %40
@@ -6249,15 +6249,15 @@ ZSTD_storeSeq.exit473.i.i:                        ; preds = %504, %.lr.ph.i114.i
   br i1 %540, label %ZSTD_storeSeqOnly.exit.i.sink.split.i, label %ZSTD_storeSeqOnly.exit.i.i, !prof !51
 
 ZSTD_storeSeqOnly.exit.i.sink.split.i:            ; preds = %535, %200
-  %.sink311.i = phi ptr [ %201, %200 ], [ %536, %535 ]
-  %.sink307.ph.i = phi i64 [ %204, %200 ], [ %539, %535 ]
+  %.sink357.i = phi ptr [ %201, %200 ], [ %536, %535 ]
+  %.sink353.ph.i = phi i64 [ %204, %200 ], [ %539, %535 ]
   %.2400.i.ph.i = phi i64 [ %153, %200 ], [ %.4402.i.i, %535 ]
   %.2392.i.ph.i = phi i32 [ %.0390.i243.i, %200 ], [ %.0384.i244.i, %535 ]
   %.2386.i.ph.i = phi i32 [ %.0384.i244.i, %200 ], [ %.3417.i.i, %535 ]
   %.2.i.ph.i = phi ptr [ %146, %200 ], [ %.4.i.i, %535 ]
   store i32 2, ptr %94, align 8, !tbaa !45
   %541 = load ptr, ptr %1, align 8, !tbaa !46
-  %542 = ptrtoint ptr %.sink311.i to i64
+  %542 = ptrtoint ptr %.sink357.i to i64
   %543 = ptrtoint ptr %541 to i64
   %544 = sub i64 %542, %543
   %545 = lshr exact i64 %544, 3
@@ -6266,16 +6266,16 @@ ZSTD_storeSeqOnly.exit.i.sink.split.i:            ; preds = %535, %200
   br label %ZSTD_storeSeqOnly.exit.i.i
 
 ZSTD_storeSeqOnly.exit.i.i:                       ; preds = %ZSTD_storeSeqOnly.exit.i.sink.split.i, %535, %200
-  %.sink307.i = phi i64 [ %204, %200 ], [ %539, %535 ], [ %.sink307.ph.i, %ZSTD_storeSeqOnly.exit.i.sink.split.i ]
-  %.sink306.i = phi ptr [ %201, %200 ], [ %536, %535 ], [ %.sink311.i, %ZSTD_storeSeqOnly.exit.i.sink.split.i ]
+  %.sink353.i = phi i64 [ %204, %200 ], [ %539, %535 ], [ %.sink353.ph.i, %ZSTD_storeSeqOnly.exit.i.sink.split.i ]
+  %.sink352.i = phi ptr [ %201, %200 ], [ %536, %535 ], [ %.sink357.i, %ZSTD_storeSeqOnly.exit.i.sink.split.i ]
   %.2400.i.i = phi i64 [ %153, %200 ], [ %.4402.i.i, %535 ], [ %.2400.i.ph.i, %ZSTD_storeSeqOnly.exit.i.sink.split.i ]
   %.2392.i.i = phi i32 [ %.0390.i243.i, %200 ], [ %.0384.i244.i, %535 ], [ %.2392.i.ph.i, %ZSTD_storeSeqOnly.exit.i.sink.split.i ]
   %.2386.i.i = phi i32 [ %.0384.i244.i, %200 ], [ %.3417.i.i, %535 ], [ %.2386.i.ph.i, %ZSTD_storeSeqOnly.exit.i.sink.split.i ]
   %.2.i.i = phi ptr [ %146, %200 ], [ %.4.i.i, %535 ], [ %.2.i.ph.i, %ZSTD_storeSeqOnly.exit.i.sink.split.i ]
-  %547 = trunc i64 %.sink307.i to i16
-  %548 = getelementptr inbounds nuw i8, ptr %.sink306.i, i64 6
+  %547 = trunc i64 %.sink353.i to i16
+  %548 = getelementptr inbounds nuw i8, ptr %.sink352.i, i64 6
   store i16 %547, ptr %548, align 2, !tbaa !54
-  %549 = getelementptr inbounds nuw i8, ptr %.sink306.i, i64 8
+  %549 = getelementptr inbounds nuw i8, ptr %.sink352.i, i64 8
   store ptr %549, ptr %95, align 8, !tbaa !41
   %550 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 %.2400.i.i
   %.not455.i.i = icmp ugt ptr %550, %36
@@ -7355,15 +7355,15 @@ ZSTD_storeSeq.exit473.i.i120:                     ; preds = %1059, %.lr.ph.i114.
   br i1 %1095, label %ZSTD_storeSeqOnly.exit.i.sink.split.i107, label %ZSTD_storeSeqOnly.exit.i.i86, !prof !51
 
 ZSTD_storeSeqOnly.exit.i.sink.split.i107:         ; preds = %1090, %755
-  %.sink311.i108 = phi ptr [ %756, %755 ], [ %1091, %1090 ]
-  %.sink307.ph.i109 = phi i64 [ %759, %755 ], [ %1094, %1090 ]
+  %.sink357.i108 = phi ptr [ %756, %755 ], [ %1091, %1090 ]
+  %.sink353.ph.i109 = phi i64 [ %759, %755 ], [ %1094, %1090 ]
   %.2400.i.ph.i110 = phi i64 [ %708, %755 ], [ %.4402.i.i80, %1090 ]
   %.2392.i.ph.i111 = phi i32 [ %.0390.i243.i44, %755 ], [ %.0384.i244.i43, %1090 ]
   %.2386.i.ph.i112 = phi i32 [ %.0384.i244.i43, %755 ], [ %.3417.i.i79, %1090 ]
   %.2.i.ph.i113 = phi ptr [ %701, %755 ], [ %.4.i.i81, %1090 ]
   store i32 2, ptr %651, align 8, !tbaa !45
   %1096 = load ptr, ptr %1, align 8, !tbaa !46
-  %1097 = ptrtoint ptr %.sink311.i108 to i64
+  %1097 = ptrtoint ptr %.sink357.i108 to i64
   %1098 = ptrtoint ptr %1096 to i64
   %1099 = sub i64 %1097, %1098
   %1100 = lshr exact i64 %1099, 3
@@ -7372,16 +7372,16 @@ ZSTD_storeSeqOnly.exit.i.sink.split.i107:         ; preds = %1090, %755
   br label %ZSTD_storeSeqOnly.exit.i.i86
 
 ZSTD_storeSeqOnly.exit.i.i86:                     ; preds = %ZSTD_storeSeqOnly.exit.i.sink.split.i107, %1090, %755
-  %.sink307.i87 = phi i64 [ %759, %755 ], [ %1094, %1090 ], [ %.sink307.ph.i109, %ZSTD_storeSeqOnly.exit.i.sink.split.i107 ]
-  %.sink306.i88 = phi ptr [ %756, %755 ], [ %1091, %1090 ], [ %.sink311.i108, %ZSTD_storeSeqOnly.exit.i.sink.split.i107 ]
+  %.sink353.i87 = phi i64 [ %759, %755 ], [ %1094, %1090 ], [ %.sink353.ph.i109, %ZSTD_storeSeqOnly.exit.i.sink.split.i107 ]
+  %.sink352.i88 = phi ptr [ %756, %755 ], [ %1091, %1090 ], [ %.sink357.i108, %ZSTD_storeSeqOnly.exit.i.sink.split.i107 ]
   %.2400.i.i89 = phi i64 [ %708, %755 ], [ %.4402.i.i80, %1090 ], [ %.2400.i.ph.i110, %ZSTD_storeSeqOnly.exit.i.sink.split.i107 ]
   %.2392.i.i90 = phi i32 [ %.0390.i243.i44, %755 ], [ %.0384.i244.i43, %1090 ], [ %.2392.i.ph.i111, %ZSTD_storeSeqOnly.exit.i.sink.split.i107 ]
   %.2386.i.i91 = phi i32 [ %.0384.i244.i43, %755 ], [ %.3417.i.i79, %1090 ], [ %.2386.i.ph.i112, %ZSTD_storeSeqOnly.exit.i.sink.split.i107 ]
   %.2.i.i92 = phi ptr [ %701, %755 ], [ %.4.i.i81, %1090 ], [ %.2.i.ph.i113, %ZSTD_storeSeqOnly.exit.i.sink.split.i107 ]
-  %1102 = trunc i64 %.sink307.i87 to i16
-  %1103 = getelementptr inbounds nuw i8, ptr %.sink306.i88, i64 6
+  %1102 = trunc i64 %.sink353.i87 to i16
+  %1103 = getelementptr inbounds nuw i8, ptr %.sink352.i88, i64 6
   store i16 %1102, ptr %1103, align 2, !tbaa !54
-  %1104 = getelementptr inbounds nuw i8, ptr %.sink306.i88, i64 8
+  %1104 = getelementptr inbounds nuw i8, ptr %.sink352.i88, i64 8
   store ptr %1104, ptr %652, align 8, !tbaa !41
   %1105 = getelementptr inbounds nuw i8, ptr %.2.i.i92, i64 %.2400.i.i89
   %.not455.i.i93 = icmp ugt ptr %1105, %36
@@ -8456,15 +8456,15 @@ ZSTD_storeSeq.exit473.i.i365:                     ; preds = %1611, %.lr.ph.i114.
   br i1 %1647, label %ZSTD_storeSeqOnly.exit.i.sink.split.i352, label %ZSTD_storeSeqOnly.exit.i.i329, !prof !51
 
 ZSTD_storeSeqOnly.exit.i.sink.split.i352:         ; preds = %1642, %1307
-  %.sink311.i353 = phi ptr [ %1308, %1307 ], [ %1643, %1642 ]
-  %.sink307.ph.i354 = phi i64 [ %1311, %1307 ], [ %1646, %1642 ]
+  %.sink357.i353 = phi ptr [ %1308, %1307 ], [ %1643, %1642 ]
+  %.sink353.ph.i354 = phi i64 [ %1311, %1307 ], [ %1646, %1642 ]
   %.2400.i.ph.i355 = phi i64 [ %1260, %1307 ], [ %.4402.i.i323, %1642 ]
   %.2392.i.ph.i356 = phi i32 [ %.0390.i243.i285, %1307 ], [ %.0384.i244.i284, %1642 ]
   %.2386.i.ph.i357 = phi i32 [ %.0384.i244.i284, %1307 ], [ %.3417.i.i322, %1642 ]
   %.2.i.ph.i358 = phi ptr [ %1253, %1307 ], [ %.4.i.i324, %1642 ]
   store i32 2, ptr %1203, align 8, !tbaa !45
   %1648 = load ptr, ptr %1, align 8, !tbaa !46
-  %1649 = ptrtoint ptr %.sink311.i353 to i64
+  %1649 = ptrtoint ptr %.sink357.i353 to i64
   %1650 = ptrtoint ptr %1648 to i64
   %1651 = sub i64 %1649, %1650
   %1652 = lshr exact i64 %1651, 3
@@ -8473,16 +8473,16 @@ ZSTD_storeSeqOnly.exit.i.sink.split.i352:         ; preds = %1642, %1307
   br label %ZSTD_storeSeqOnly.exit.i.i329
 
 ZSTD_storeSeqOnly.exit.i.i329:                    ; preds = %ZSTD_storeSeqOnly.exit.i.sink.split.i352, %1642, %1307
-  %.sink307.i330 = phi i64 [ %1311, %1307 ], [ %1646, %1642 ], [ %.sink307.ph.i354, %ZSTD_storeSeqOnly.exit.i.sink.split.i352 ]
-  %.sink306.i331 = phi ptr [ %1308, %1307 ], [ %1643, %1642 ], [ %.sink311.i353, %ZSTD_storeSeqOnly.exit.i.sink.split.i352 ]
+  %.sink353.i330 = phi i64 [ %1311, %1307 ], [ %1646, %1642 ], [ %.sink353.ph.i354, %ZSTD_storeSeqOnly.exit.i.sink.split.i352 ]
+  %.sink352.i331 = phi ptr [ %1308, %1307 ], [ %1643, %1642 ], [ %.sink357.i353, %ZSTD_storeSeqOnly.exit.i.sink.split.i352 ]
   %.2400.i.i332 = phi i64 [ %1260, %1307 ], [ %.4402.i.i323, %1642 ], [ %.2400.i.ph.i355, %ZSTD_storeSeqOnly.exit.i.sink.split.i352 ]
   %.2392.i.i333 = phi i32 [ %.0390.i243.i285, %1307 ], [ %.0384.i244.i284, %1642 ], [ %.2392.i.ph.i356, %ZSTD_storeSeqOnly.exit.i.sink.split.i352 ]
   %.2386.i.i334 = phi i32 [ %.0384.i244.i284, %1307 ], [ %.3417.i.i322, %1642 ], [ %.2386.i.ph.i357, %ZSTD_storeSeqOnly.exit.i.sink.split.i352 ]
   %.2.i.i335 = phi ptr [ %1253, %1307 ], [ %.4.i.i324, %1642 ], [ %.2.i.ph.i358, %ZSTD_storeSeqOnly.exit.i.sink.split.i352 ]
-  %1654 = trunc i64 %.sink307.i330 to i16
-  %1655 = getelementptr inbounds nuw i8, ptr %.sink306.i331, i64 6
+  %1654 = trunc i64 %.sink353.i330 to i16
+  %1655 = getelementptr inbounds nuw i8, ptr %.sink352.i331, i64 6
   store i16 %1654, ptr %1655, align 2, !tbaa !54
-  %1656 = getelementptr inbounds nuw i8, ptr %.sink306.i331, i64 8
+  %1656 = getelementptr inbounds nuw i8, ptr %.sink352.i331, i64 8
   store ptr %1656, ptr %1204, align 8, !tbaa !41
   %1657 = getelementptr inbounds nuw i8, ptr %.2.i.i335, i64 %.2400.i.i332
   %.not455.i.i336 = icmp ugt ptr %1657, %36
@@ -9557,15 +9557,15 @@ ZSTD_storeSeq.exit473.i.i611:                     ; preds = %2163, %.lr.ph.i114.
   br i1 %2199, label %ZSTD_storeSeqOnly.exit.i.sink.split.i598, label %ZSTD_storeSeqOnly.exit.i.i575, !prof !51
 
 ZSTD_storeSeqOnly.exit.i.sink.split.i598:         ; preds = %2194, %1859
-  %.sink311.i599 = phi ptr [ %1860, %1859 ], [ %2195, %2194 ]
-  %.sink307.ph.i600 = phi i64 [ %1863, %1859 ], [ %2198, %2194 ]
+  %.sink357.i599 = phi ptr [ %1860, %1859 ], [ %2195, %2194 ]
+  %.sink353.ph.i600 = phi i64 [ %1863, %1859 ], [ %2198, %2194 ]
   %.2400.i.ph.i601 = phi i64 [ %1812, %1859 ], [ %.4402.i.i569, %2194 ]
   %.2392.i.ph.i602 = phi i32 [ %.0390.i243.i531, %1859 ], [ %.0384.i244.i530, %2194 ]
   %.2386.i.ph.i603 = phi i32 [ %.0384.i244.i530, %1859 ], [ %.3417.i.i568, %2194 ]
   %.2.i.ph.i604 = phi ptr [ %1805, %1859 ], [ %.4.i.i570, %2194 ]
   store i32 2, ptr %1755, align 8, !tbaa !45
   %2200 = load ptr, ptr %1, align 8, !tbaa !46
-  %2201 = ptrtoint ptr %.sink311.i599 to i64
+  %2201 = ptrtoint ptr %.sink357.i599 to i64
   %2202 = ptrtoint ptr %2200 to i64
   %2203 = sub i64 %2201, %2202
   %2204 = lshr exact i64 %2203, 3
@@ -9574,16 +9574,16 @@ ZSTD_storeSeqOnly.exit.i.sink.split.i598:         ; preds = %2194, %1859
   br label %ZSTD_storeSeqOnly.exit.i.i575
 
 ZSTD_storeSeqOnly.exit.i.i575:                    ; preds = %ZSTD_storeSeqOnly.exit.i.sink.split.i598, %2194, %1859
-  %.sink307.i576 = phi i64 [ %1863, %1859 ], [ %2198, %2194 ], [ %.sink307.ph.i600, %ZSTD_storeSeqOnly.exit.i.sink.split.i598 ]
-  %.sink306.i577 = phi ptr [ %1860, %1859 ], [ %2195, %2194 ], [ %.sink311.i599, %ZSTD_storeSeqOnly.exit.i.sink.split.i598 ]
+  %.sink353.i576 = phi i64 [ %1863, %1859 ], [ %2198, %2194 ], [ %.sink353.ph.i600, %ZSTD_storeSeqOnly.exit.i.sink.split.i598 ]
+  %.sink352.i577 = phi ptr [ %1860, %1859 ], [ %2195, %2194 ], [ %.sink357.i599, %ZSTD_storeSeqOnly.exit.i.sink.split.i598 ]
   %.2400.i.i578 = phi i64 [ %1812, %1859 ], [ %.4402.i.i569, %2194 ], [ %.2400.i.ph.i601, %ZSTD_storeSeqOnly.exit.i.sink.split.i598 ]
   %.2392.i.i579 = phi i32 [ %.0390.i243.i531, %1859 ], [ %.0384.i244.i530, %2194 ], [ %.2392.i.ph.i602, %ZSTD_storeSeqOnly.exit.i.sink.split.i598 ]
   %.2386.i.i580 = phi i32 [ %.0384.i244.i530, %1859 ], [ %.3417.i.i568, %2194 ], [ %.2386.i.ph.i603, %ZSTD_storeSeqOnly.exit.i.sink.split.i598 ]
   %.2.i.i581 = phi ptr [ %1805, %1859 ], [ %.4.i.i570, %2194 ], [ %.2.i.ph.i604, %ZSTD_storeSeqOnly.exit.i.sink.split.i598 ]
-  %2206 = trunc i64 %.sink307.i576 to i16
-  %2207 = getelementptr inbounds nuw i8, ptr %.sink306.i577, i64 6
+  %2206 = trunc i64 %.sink353.i576 to i16
+  %2207 = getelementptr inbounds nuw i8, ptr %.sink352.i577, i64 6
   store i16 %2206, ptr %2207, align 2, !tbaa !54
-  %2208 = getelementptr inbounds nuw i8, ptr %.sink306.i577, i64 8
+  %2208 = getelementptr inbounds nuw i8, ptr %.sink352.i577, i64 8
   store ptr %2208, ptr %1756, align 8, !tbaa !41
   %2209 = getelementptr inbounds nuw i8, ptr %.2.i.i581, i64 %.2400.i.i578
   %.not455.i.i582 = icmp ugt ptr %2209, %36
@@ -10648,15 +10648,15 @@ ZSTD_storeSeq.exit360:                            ; preds = %314, %.lr.ph.i446, 
   br label %.thread, !llvm.loop !72
 
 ZSTD_storeSeqOnly.exit.sink.split:                ; preds = %345, %233, %156
-  %.sink577 = phi ptr [ %157, %156 ], [ %234, %233 ], [ %346, %345 ]
-  %.sink573.ph = phi i64 [ %160, %156 ], [ %237, %233 ], [ %349, %345 ]
+  %.sink611 = phi ptr [ %157, %156 ], [ %234, %233 ], [ %346, %345 ]
+  %.sink607.ph = phi i64 [ %160, %156 ], [ %237, %233 ], [ %349, %345 ]
   %.0327.ph = phi i64 [ %109, %156 ], [ %.1328.lcssa, %233 ], [ %.3330, %345 ]
   %.1319.ph = phi i32 [ %.0318538, %156 ], [ %.0312539, %233 ], [ %.0312539, %345 ]
   %.1313.ph = phi i32 [ %.0312539, %156 ], [ %173, %233 ], [ %.0333, %345 ]
   %.1.ph = phi ptr [ %102, %156 ], [ %.2.lcssa, %233 ], [ %.4, %345 ]
   store i32 2, ptr %56, align 8, !tbaa !45
   %357 = load ptr, ptr %1, align 8, !tbaa !46
-  %358 = ptrtoint ptr %.sink577 to i64
+  %358 = ptrtoint ptr %.sink611 to i64
   %359 = ptrtoint ptr %357 to i64
   %360 = sub i64 %358, %359
   %361 = lshr exact i64 %360, 3
@@ -10665,16 +10665,16 @@ ZSTD_storeSeqOnly.exit.sink.split:                ; preds = %345, %233, %156
   br label %ZSTD_storeSeqOnly.exit
 
 ZSTD_storeSeqOnly.exit:                           ; preds = %ZSTD_storeSeqOnly.exit.sink.split, %345, %233, %156
-  %.sink573 = phi i64 [ %160, %156 ], [ %237, %233 ], [ %349, %345 ], [ %.sink573.ph, %ZSTD_storeSeqOnly.exit.sink.split ]
-  %.sink572 = phi ptr [ %157, %156 ], [ %234, %233 ], [ %346, %345 ], [ %.sink577, %ZSTD_storeSeqOnly.exit.sink.split ]
+  %.sink607 = phi i64 [ %160, %156 ], [ %237, %233 ], [ %349, %345 ], [ %.sink607.ph, %ZSTD_storeSeqOnly.exit.sink.split ]
+  %.sink606 = phi ptr [ %157, %156 ], [ %234, %233 ], [ %346, %345 ], [ %.sink611, %ZSTD_storeSeqOnly.exit.sink.split ]
   %.0327 = phi i64 [ %109, %156 ], [ %.1328.lcssa, %233 ], [ %.3330, %345 ], [ %.0327.ph, %ZSTD_storeSeqOnly.exit.sink.split ]
   %.1319 = phi i32 [ %.0318538, %156 ], [ %.0312539, %233 ], [ %.0312539, %345 ], [ %.1319.ph, %ZSTD_storeSeqOnly.exit.sink.split ]
   %.1313 = phi i32 [ %.0312539, %156 ], [ %173, %233 ], [ %.0333, %345 ], [ %.1313.ph, %ZSTD_storeSeqOnly.exit.sink.split ]
   %.1 = phi ptr [ %102, %156 ], [ %.2.lcssa, %233 ], [ %.4, %345 ], [ %.1.ph, %ZSTD_storeSeqOnly.exit.sink.split ]
-  %363 = trunc i64 %.sink573 to i16
-  %364 = getelementptr inbounds nuw i8, ptr %.sink572, i64 6
+  %363 = trunc i64 %.sink607 to i16
+  %364 = getelementptr inbounds nuw i8, ptr %.sink606, i64 6
   store i16 %363, ptr %364, align 2, !tbaa !54
-  %365 = getelementptr inbounds nuw i8, ptr %.sink572, i64 8
+  %365 = getelementptr inbounds nuw i8, ptr %.sink606, i64 8
   store ptr %365, ptr %57, align 8, !tbaa !41
   %366 = getelementptr inbounds nuw i8, ptr %.1, i64 %.0327
   %.not344 = icmp ugt ptr %366, %17

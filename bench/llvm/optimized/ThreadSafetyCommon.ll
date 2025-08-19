@@ -2582,13 +2582,13 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %_ZNK5clang11ParmVar
   %73 = icmp ult i16 %72, 6
   %74 = zext i32 %22 to i64
   %. = select i1 %73, i64 -72, i64 -48
-  %.65 = select i1 %73, i64 120, i64 96
+  %.69 = select i1 %73, i64 120, i64 96
   %75 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.
   %76 = load ptr, ptr %75, align 8, !tbaa !405
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %78 = load ptr, ptr %77, align 8
   %79 = tail call noundef ptr %78(ptr noundef nonnull align 8 dereferenceable(136) %75) #18
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 %.65
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 %.69
   %81 = load ptr, ptr %80, align 8, !tbaa !407
   %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %74
   %83 = load ptr, ptr %82, align 8, !tbaa !408
@@ -5353,20 +5353,20 @@ define dso_local noundef ptr @_ZN5clang12threadSafety12SExprBuilder14translateBi
   br label %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit
 
 _ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit: ; preds = %36, %33, %30, %27
-  %.0.i.i.i.i.i13.sink23 = phi ptr [ %29, %27 ], [ %31, %30 ], [ %35, %33 ], [ %37, %36 ]
-  %.sink18 = phi ptr [ %11, %27 ], [ %11, %30 ], [ %8, %33 ], [ %8, %36 ]
+  %.0.i.i.i.i.i13.sink25 = phi ptr [ %29, %27 ], [ %31, %30 ], [ %35, %33 ], [ %37, %36 ]
+  %.sink20 = phi ptr [ %11, %27 ], [ %11, %30 ], [ %8, %33 ], [ %8, %36 ]
   %.sink = phi ptr [ %8, %27 ], [ %8, %30 ], [ %11, %33 ], [ %11, %36 ]
-  store i8 20, ptr %.0.i.i.i.i.i13.sink23, align 8, !tbaa !260
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i13.sink23, i64 1
+  store i8 20, ptr %.0.i.i.i.i.i13.sink25, align 8, !tbaa !260
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i13.sink25, i64 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %38, i8 0, i64 15, i1 false)
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i13.sink23, i64 16
-  store ptr %.sink18, ptr %39, align 8, !tbaa !447
-  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i13.sink23, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i13.sink25, i64 16
+  store ptr %.sink20, ptr %39, align 8, !tbaa !447
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i13.sink25, i64 24
   store ptr %.sink, ptr %40, align 8, !tbaa !449
   %41 = zext i8 %1 to i16
-  %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i13.sink23, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i13.sink25, i64 2
   store i16 %41, ptr %42, align 2, !tbaa !182
-  ret ptr %.0.i.i.i.i.i13.sink23
+  ret ptr %.0.i.i.i.i.i13.sink25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8489,13 +8489,13 @@ _ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit: ; preds = %86, %
   %108 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   %109 = load ptr, ptr %108, align 8, !tbaa !198
   %110 = icmp eq ptr %109, %92
-  br i1 %110, label %_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit.loopexit.split.loop.exit55, label %111
+  br i1 %110, label %_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit.loopexit.split.loop.exit67, label %111
 
 111:                                              ; preds = %107
   %112 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
   %113 = load ptr, ptr %112, align 8, !tbaa !198
   %114 = icmp eq ptr %113, %92
-  br i1 %114, label %_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit.loopexit.split.loop.exit57, label %115
+  br i1 %114, label %_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit.loopexit.split.loop.exit69, label %115
 
 115:                                              ; preds = %111
   %116 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 32
@@ -8510,7 +8510,7 @@ _ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit: ; preds = %86, %
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %.split
   %.pre-phi56.i.i.i.i.i = phi i64 [ %119, %._crit_edge.loopexit.i.i.i.i.i ], [ %96, %.split ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %94, %.split ]
-  switch i64 %.pre-phi56.i.i.i.i.i, label %._crit_edge.i.i.i.unreachabledefault.i.i [
+  switch i64 %.pre-phi56.i.i.i.i.i, label %default.unreachable [
     i64 3, label %120
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i.i
@@ -8542,7 +8542,7 @@ _ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit: ; preds = %86, %
   %130 = icmp eq ptr %129, %92
   br i1 %130, label %_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit, label %131
 
-._crit_edge.i.i.i.unreachabledefault.i.i:         ; preds = %._crit_edge.i.i.i.i.i
+default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i
   unreachable
 
 131:                                              ; preds = %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge.i.i.i.i.i
@@ -8552,16 +8552,16 @@ _ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit.loopex
   %132 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   br label %_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit
 
-_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit.loopexit.split.loop.exit55: ; preds = %107
+_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit.loopexit.split.loop.exit67: ; preds = %107
   %133 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   br label %_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit
 
-_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit.loopexit.split.loop.exit57: ; preds = %111
+_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit.loopexit.split.loop.exit69: ; preds = %111
   %134 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
   br label %_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit
 
-_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit: ; preds = %100, %_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit.loopexit.split.loop.exit, %_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit.loopexit.split.loop.exit55, %_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit.loopexit.split.loop.exit57, %120, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i, %131
-  %.028.i.i.i.i.i = phi ptr [ %97, %131 ], [ %.029.lcssa.i.i.i.i.i, %120 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %132, %_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit.loopexit.split.loop.exit ], [ %133, %_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit.loopexit.split.loop.exit55 ], [ %134, %_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit.loopexit.split.loop.exit57 ], [ %.02946.i.i.i.i.i, %100 ]
+_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit: ; preds = %100, %_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit.loopexit.split.loop.exit, %_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit.loopexit.split.loop.exit67, %_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit.loopexit.split.loop.exit69, %120, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i, %131
+  %.028.i.i.i.i.i = phi ptr [ %97, %131 ], [ %.029.lcssa.i.i.i.i.i, %120 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %132, %_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit.loopexit.split.loop.exit ], [ %133, %_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit.loopexit.split.loop.exit67 ], [ %134, %_ZNK5clang12threadSafety3til10BasicBlock20findPredecessorIndexEPKS2_.exit.loopexit.split.loop.exit69 ], [ %.02946.i.i.i.i.i, %100 ]
   %135 = ptrtoint ptr %.028.i.i.i.i.i to i64
   %136 = ptrtoint ptr %94 to i64
   %137 = sub i64 %135, %136
@@ -9233,13 +9233,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEPNS2_12threadSafety3til5SExpr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %65 = zext i32 %.sink28 to i64
-  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.538", ptr %.sink26, i64 %65
-  store ptr %.sink25, ptr %0, align 8
+  %65 = zext i32 %.sink32 to i64
+  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.538", ptr %.sink30, i64 %65
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %66, ptr %.sroa.4.0..sroa_idx, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9914,13 +9914,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEjNS_12DenseMapInfoIS5_vE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %65 = zext i32 %.sink28 to i64
-  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink26, i64 %65
-  store ptr %.sink25, ptr %0, align 8
+  %65 = zext i32 %.sink32 to i64
+  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %65
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %66, ptr %.sroa.4.0..sroa_idx, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10166,7 +10166,7 @@ define linkonce_odr void @_ZNSt6vectorIN5clang12threadSafety12SExprBuilder9Block
   br i1 %.not27, label %20, label %_ZSt27__uninitialized_default_n_aIPN5clang12threadSafety12SExprBuilder9BlockInfoEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN5clang12threadSafety12SExprBuilder9BlockInfoEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 24
+  %19 = mul nuw nsw i64 %1, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !487

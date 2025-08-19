@@ -13124,7 +13124,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h7fa50f12de45ede5E.exit.i.i.i: 
   store i64 %spec.store.select.i.i.i.i, ptr %10, align 8, !alias.scope !3697, !noalias !3698
   store i64 %62, ptr %5, align 8, !alias.scope !3692, !noalias !3699
   call void @llvm.experimental.noalias.scope.decl(metadata !3702)
-  br i1 %.not.i.i.i.i, label %64, label %.thread5.i.i
+  br i1 %.not.i.i.i.i, label %64, label %.thread8.i.i
 
 64:                                               ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17h7fa50f12de45ede5E.exit.i.i.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17h7fa50f12de45ede5E.exit.thread.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !3705)
@@ -13142,7 +13142,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h7fa50f12de45ede5E.exit.i.i.i: 
   %69 = icmp eq i64 %68, -9223372036854775808
   br i1 %69, label %.loopexit.loopexit.i.i, label %74
 
-.thread5.i.i:                                     ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17h7fa50f12de45ede5E.exit.i.i.i
+.thread8.i.i:                                     ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17h7fa50f12de45ede5E.exit.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx8.i.i.i.i, i64 16, i1 false), !noalias !3718
   br label %75
 
@@ -13169,12 +13169,12 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h7fa50f12de45ede5E.exit.i.i.i: 
   %.pre25 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !3718, !noalias !3721
   br label %75
 
-75:                                               ; preds = %74, %.thread5.i.i
-  %76 = phi i64 [ %61, %.thread5.i.i ], [ %.pre25, %74 ]
-  %.sroa.0.17.i.i = phi i64 [ %62, %.thread5.i.i ], [ %68, %74 ]
+75:                                               ; preds = %74, %.thread8.i.i
+  %76 = phi i64 [ %61, %.thread8.i.i ], [ %.pre25, %74 ]
+  %.sroa.0.110.i.i = phi i64 [ %62, %.thread8.i.i ], [ %68, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !3690
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3722
-  store i64 %.sroa.0.17.i.i, ptr %6, align 8, !noalias !3722
+  store i64 %.sroa.0.110.i.i, ptr %6, align 8, !noalias !3722
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.i.i, i64 16, i1 false), !noalias !3722
   %77 = icmp ult i64 %76, 384307168202282326
   call void @llvm.assume(i1 %77)
@@ -15640,13 +15640,13 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %64 = load ptr, ptr %63, align 8, !alias.scope !4388, !noalias !4384, !nonnull !24, !noundef !24
   %65 = atomicrmw add ptr %64, i64 1 monotonic, align 8, !noalias !4389
   %66 = icmp slt i64 %65, 0
-  switch i64 %44, label %default.unreachable.i.i [
+  switch i64 %44, label %default.unreachable [
     i64 0, label %67
     i64 1, label %68
     i64 2, label %69
   ]
 
-default.unreachable.i.i:                          ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i.i"
+default.unreachable:                              ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i.i"
   unreachable
 
 67:                                               ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i.i"

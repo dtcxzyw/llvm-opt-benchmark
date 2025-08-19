@@ -5794,8 +5794,8 @@ _ZL12next_controlP4Node.exit46:                   ; preds = %100, %_ZNK10RegionN
   %129 = load i32, ptr %128, align 4
   %130 = and i32 %129, 511
   %131 = icmp eq i32 %130, 328
-  %or.cond82 = select i1 %127, i1 %131, i1 false
-  br i1 %or.cond82, label %136, label %_ZL12next_controlP4Node.exit46._crit_edge
+  %or.cond90 = select i1 %127, i1 %131, i1 false
+  br i1 %or.cond90, label %136, label %_ZL12next_controlP4Node.exit46._crit_edge
 
 _ZL12next_controlP4Node.exit46._crit_edge:        ; preds = %_ZL12next_controlP4Node.exit46
   %132 = and i32 %129, 255
@@ -5816,8 +5816,8 @@ _ZL12next_controlP4Node.exit46._crit_edge:        ; preds = %_ZL12next_controlP4
   br i1 %143, label %.preheader.i47.sink.split, label %._crit_edge
 
 .preheader.i47.sink.split:                        ; preds = %136, %169
-  %.sink86 = phi ptr [ %164, %169 ], [ %139, %136 ]
-  %144 = getelementptr inbounds nuw i8, ptr %.sink86, i64 8
+  %.sink94 = phi ptr [ %164, %169 ], [ %139, %136 ]
+  %144 = getelementptr inbounds nuw i8, ptr %.sink94, i64 8
   %145 = load ptr, ptr %144, align 8
   %146 = load ptr, ptr %145, align 8
   br label %.preheader.i47
@@ -5864,8 +5864,8 @@ _ZNK10RegionNode7is_copyEv.exit.i52:              ; preds = %151
   br i1 %.not.i50, label %_ZL12next_controlP4Node.exit53, label %.preheader.i47.sink.split, !llvm.loop !29
 
 .preheader.i54.sink.split:                        ; preds = %47, %197
-  %.sink89 = phi ptr [ %192, %197 ], [ %.2, %47 ]
-  %172 = getelementptr inbounds nuw i8, ptr %.sink89, i64 8
+  %.sink97 = phi ptr [ %192, %197 ], [ %.2, %47 ]
+  %172 = getelementptr inbounds nuw i8, ptr %.sink97, i64 8
   %173 = load ptr, ptr %172, align 8
   %174 = load ptr, ptr %173, align 8
   br label %.preheader.i54
@@ -7578,7 +7578,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP16AbstractLock
   br i1 %.not, label %_ZN13GrowableArrayIP16AbstractLockNodeE10deallocateEPS1_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -7590,8 +7590,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP16AbstractLock
   br label %_ZN13GrowableArrayIP16AbstractLockNodeE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP16AbstractLockNodeE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIP16AbstractLockNodeE10deallocateEPS1_.exit

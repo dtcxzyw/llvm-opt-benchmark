@@ -2641,12 +2641,12 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateINS_9SelectionEE11create
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #28
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.015, label %.sink.split64, label %69
+  br i1 %.015, label %.sink.split67, label %69
 
 .sink.split:                                      ; preds = %.thread, %.thread47
   %.pn33.pn46.ph = phi { ptr, i32 } [ %35, %.thread47 ], [ %34, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.sink.split64
+  br label %.sink.split67
 
 38:                                               ; preds = %24
   %39 = icmp ne ptr %4, null
@@ -2689,13 +2689,13 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateINS_9SelectionEE11create
 .thread50:                                        ; preds = %44
   %50 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split63
+  br label %.sink.split66
 
 .thread54:                                        ; preds = %46
   %51 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #28
-  br label %.sink.split63
+  br label %.sink.split66
 
 52:                                               ; preds = %47, %49
   %.0 = phi i1 [ false, %49 ], [ true, %47 ]
@@ -2706,12 +2706,12 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateINS_9SelectionEE11create
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #28
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %.0, label %.sink.split64, label %69
+  br i1 %.0, label %.sink.split67, label %69
 
-.sink.split63:                                    ; preds = %.thread50, %.thread54
+.sink.split66:                                    ; preds = %.thread50, %.thread54
   %.pn.pn53.ph = phi { ptr, i32 } [ %51, %.thread54 ], [ %50, %.thread50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.sink.split64
+  br label %.sink.split67
 
 54:                                               ; preds = %38
   %55 = and i64 %26, 512
@@ -2751,14 +2751,14 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateINS_9SelectionEE11create
   store ptr %.sink, ptr %0, align 8, !tbaa !23
   ret void
 
-.sink.split64:                                    ; preds = %52, %.sink.split63, %36, %.sink.split
-  %.sink65 = phi ptr [ %29, %.sink.split ], [ %29, %36 ], [ %45, %.sink.split63 ], [ %45, %52 ]
-  %.pn33.pn.pn.ph = phi { ptr, i32 } [ %.pn33.pn46.ph, %.sink.split ], [ %37, %36 ], [ %.pn.pn53.ph, %.sink.split63 ], [ %53, %52 ]
-  call void @__cxa_free_exception(ptr %.sink65) #28
+.sink.split67:                                    ; preds = %52, %.sink.split66, %36, %.sink.split
+  %.sink68 = phi ptr [ %29, %.sink.split ], [ %29, %36 ], [ %45, %.sink.split66 ], [ %45, %52 ]
+  %.pn33.pn.pn.ph = phi { ptr, i32 } [ %.pn33.pn46.ph, %.sink.split ], [ %37, %36 ], [ %.pn.pn53.ph, %.sink.split66 ], [ %53, %52 ]
+  call void @__cxa_free_exception(ptr %.sink68) #28
   br label %69
 
-69:                                               ; preds = %.sink.split64, %52, %36
-  %.pn33.pn.pn = phi { ptr, i32 } [ %37, %36 ], [ %53, %52 ], [ %.pn33.pn.pn.ph, %.sink.split64 ]
+69:                                               ; preds = %.sink.split67, %52, %36
+  %.pn33.pn.pn = phi { ptr, i32 } [ %37, %36 ], [ %53, %52 ], [ %.pn33.pn.pn.ph, %.sink.split67 ]
   resume { ptr, i32 } %.pn33.pn.pn
 
 70:                                               ; preds = %49, %33
@@ -3122,12 +3122,12 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateINS_9SelectionEE20setDef
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #28
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.05, label %.sink.split44, label %40
+  br i1 %.05, label %.sink.split45, label %40
 
 .sink.split:                                      ; preds = %.thread, %.thread32
   %.pn18.pn31.ph = phi { ptr, i32 } [ %19, %.thread32 ], [ %18, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.sink.split44
+  br label %.sink.split45
 
 22:                                               ; preds = %2
   %23 = and i64 %10, 32
@@ -3164,13 +3164,13 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateINS_9SelectionEE20setDef
 .thread35:                                        ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split43
+  br label %.sink.split44
 
 .thread39:                                        ; preds = %26
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #28
-  br label %.sink.split43
+  br label %.sink.split44
 
 32:                                               ; preds = %27, %29
   %.0 = phi i1 [ false, %29 ], [ true, %27 ]
@@ -3181,12 +3181,12 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateINS_9SelectionEE20setDef
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #28
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.0, label %.sink.split44, label %40
+  br i1 %.0, label %.sink.split45, label %40
 
-.sink.split43:                                    ; preds = %.thread35, %.thread39
+.sink.split44:                                    ; preds = %.thread35, %.thread39
   %.pn.pn38.ph = phi { ptr, i32 } [ %31, %.thread39 ], [ %30, %.thread35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split44
+  br label %.sink.split45
 
 34:                                               ; preds = %22
   %35 = or i64 %10, 2048
@@ -3207,14 +3207,14 @@ _ZNKSt14default_deleteIN3gmx9SelectionEEclEPS1_.exit.i.i.i.i: ; preds = %34
 _ZNSt10unique_ptrIN3gmx9SelectionESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN3gmx9SelectionEEclEPS1_.exit.i.i.i.i, %34
   ret void
 
-.sink.split44:                                    ; preds = %32, %.sink.split43, %20, %.sink.split
-  %.sink = phi ptr [ %13, %.sink.split ], [ %13, %20 ], [ %25, %.sink.split43 ], [ %25, %32 ]
-  %.pn18.pn.pn.ph = phi { ptr, i32 } [ %.pn18.pn31.ph, %.sink.split ], [ %21, %20 ], [ %.pn.pn38.ph, %.sink.split43 ], [ %33, %32 ]
+.sink.split45:                                    ; preds = %32, %.sink.split44, %20, %.sink.split
+  %.sink = phi ptr [ %13, %.sink.split ], [ %13, %20 ], [ %25, %.sink.split44 ], [ %25, %32 ]
+  %.pn18.pn.pn.ph = phi { ptr, i32 } [ %.pn18.pn31.ph, %.sink.split ], [ %21, %20 ], [ %.pn.pn38.ph, %.sink.split44 ], [ %33, %32 ]
   call void @__cxa_free_exception(ptr %.sink) #28
   br label %40
 
-40:                                               ; preds = %.sink.split44, %32, %20
-  %.pn18.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %33, %32 ], [ %.pn18.pn.pn.ph, %.sink.split44 ]
+40:                                               ; preds = %.sink.split45, %32, %20
+  %.pn18.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %33, %32 ], [ %.pn18.pn.pn.ph, %.sink.split45 ]
   resume { ptr, i32 } %.pn18.pn.pn
 
 41:                                               ; preds = %29, %17
@@ -3975,12 +3975,12 @@ define void @_ZN3gmx22SelectionOptionStorage13addSelectionsERKSt6vectorINS_9Sele
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #28
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.019, label %.sink.split58, label %100
+  br i1 %.019, label %.sink.split61, label %100
 
 .sink.split:                                      ; preds = %.thread, %.thread42
   %.pn24.pn41.ph = phi { ptr, i32 } [ %30, %.thread42 ], [ %29, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.sink.split58
+  br label %.sink.split61
 
 33:                                               ; preds = %11
   %34 = load ptr, ptr %0, align 8, !tbaa !12
@@ -4049,13 +4049,13 @@ define void @_ZN3gmx22SelectionOptionStorage13addSelectionsERKSt6vectorINS_9Sele
 .thread45:                                        ; preds = %50
   %56 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split57
+  br label %.sink.split60
 
 .thread50:                                        ; preds = %52
   %57 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #28
-  br label %.sink.split57
+  br label %.sink.split60
 
 58:                                               ; preds = %53, %55
   %.011 = phi i1 [ false, %55 ], [ true, %53 ]
@@ -4066,12 +4066,12 @@ define void @_ZN3gmx22SelectionOptionStorage13addSelectionsERKSt6vectorINS_9Sele
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #28
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.011, label %.sink.split58, label %100
+  br i1 %.011, label %.sink.split61, label %100
 
-.sink.split57:                                    ; preds = %.thread45, %.thread50
+.sink.split60:                                    ; preds = %.thread45, %.thread50
   %.pn.pn49.ph = phi { ptr, i32 } [ %57, %.thread50 ], [ %56, %.thread45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.sink.split58
+  br label %.sink.split61
 
 60:                                               ; preds = %._crit_edge56, %44
   %61 = phi i64 [ %.pre, %._crit_edge56 ], [ %49, %44 ]
@@ -4148,14 +4148,14 @@ _ZN3gmx21OptionStorageTemplateINS_9SelectionEE12commitValuesEv.exit: ; preds = %
 99:                                               ; preds = %_ZN3gmx21OptionStorageTemplateINS_9SelectionEE12commitValuesEv.exit, %._crit_edge
   ret void
 
-.sink.split58:                                    ; preds = %58, %.sink.split57, %31, %.sink.split
-  %.sink = phi ptr [ %24, %.sink.split ], [ %24, %31 ], [ %51, %.sink.split57 ], [ %51, %58 ]
-  %.pn24.pn.pn.ph = phi { ptr, i32 } [ %.pn24.pn41.ph, %.sink.split ], [ %32, %31 ], [ %.pn.pn49.ph, %.sink.split57 ], [ %59, %58 ]
+.sink.split61:                                    ; preds = %58, %.sink.split60, %31, %.sink.split
+  %.sink = phi ptr [ %24, %.sink.split ], [ %24, %31 ], [ %51, %.sink.split60 ], [ %51, %58 ]
+  %.pn24.pn.pn.ph = phi { ptr, i32 } [ %.pn24.pn41.ph, %.sink.split ], [ %32, %31 ], [ %.pn.pn49.ph, %.sink.split60 ], [ %59, %58 ]
   call void @__cxa_free_exception(ptr %.sink) #28
   br label %100
 
-100:                                              ; preds = %.sink.split58, %58, %31
-  %.pn24.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %59, %58 ], [ %.pn24.pn.pn.ph, %.sink.split58 ]
+100:                                              ; preds = %.sink.split61, %58, %31
+  %.pn24.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %59, %58 ], [ %.pn24.pn.pn.ph, %.sink.split61 ]
   resume { ptr, i32 } %.pn24.pn.pn
 
 101:                                              ; preds = %55, %28
@@ -5165,8 +5165,8 @@ define void @_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFla
   %.not75 = icmp ne ptr %17, %18
   %19 = icmp eq i64 %1, 1
   %20 = and i1 %19, %.not75
-  %or.cond82 = and i1 %20, %2
-  br i1 %or.cond82, label %.lr.ph.split.us, label %._crit_edge
+  %or.cond98 = and i1 %20, %2
+  br i1 %or.cond98, label %.lr.ph.split.us, label %._crit_edge
 
 .lr.ph.split.us:                                  ; preds = %3, %25
   %.sroa.056.076.us = phi ptr [ %26, %25 ], [ %17, %3 ]

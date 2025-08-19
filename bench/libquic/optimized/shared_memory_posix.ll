@@ -449,7 +449,7 @@ define noundef zeroext i1 @_ZN4base12SharedMemory6CreateERKNS_25SharedMemoryCrea
   store i32 -1, ptr %5, align 4, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN4base8FilePathC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %20 unwind label %.thread244
+          to label %20 unwind label %.thread252
 
 20:                                               ; preds = %19
   %21 = load ptr, ptr %1, align 8, !tbaa !3
@@ -565,7 +565,7 @@ _ZN4base13ScopedGenericIPNS_8FilePathENS_12_GLOBAL__N_124ScopedPathUnlinkerTrait
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %235
 
-.thread244:                                       ; preds = %19
+.thread252:                                       ; preds = %19
   %60 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1096,9 +1096,9 @@ _ZNK4base8internal16ScopedFILECloserclEP8_IO_FILE.exit.i188: ; preds = %235
   %236 = call i32 @fclose(ptr noundef nonnull %.sroa.0194.1)
   br label %_ZNSt10unique_ptrI8_IO_FILEN4base8internal16ScopedFILECloserEED2Ev.exit189
 
-_ZNSt10unique_ptrI8_IO_FILEN4base8internal16ScopedFILECloserEED2Ev.exit189: ; preds = %.thread244, %235, %_ZNK4base8internal16ScopedFILECloserclEP8_IO_FILE.exit.i188
-  %.pn131.pn.pn.pn.pn248 = phi { ptr, i32 } [ %60, %.thread244 ], [ %.pn131.pn.pn.pn, %235 ], [ %.pn131.pn.pn.pn, %_ZNK4base8internal16ScopedFILECloserclEP8_IO_FILE.exit.i188 ]
-  resume { ptr, i32 } %.pn131.pn.pn.pn.pn248
+_ZNSt10unique_ptrI8_IO_FILEN4base8internal16ScopedFILECloserEED2Ev.exit189: ; preds = %.thread252, %235, %_ZNK4base8internal16ScopedFILECloserclEP8_IO_FILE.exit.i188
+  %.pn131.pn.pn.pn.pn256 = phi { ptr, i32 } [ %60, %.thread252 ], [ %.pn131.pn.pn.pn, %235 ], [ %.pn131.pn.pn.pn, %_ZNK4base8internal16ScopedFILECloserclEP8_IO_FILE.exit.i188 ]
+  resume { ptr, i32 } %.pn131.pn.pn.pn.pn256
 
 _ZNSt10unique_ptrI8_IO_FILEN4base8internal16ScopedFILECloserEED2Ev.exit186: ; preds = %_ZNK4base8internal16ScopedFILECloserclEP8_IO_FILE.exit.i185, %_ZN4base13ScopedGenericIiNS_8internal19ScopedFDCloseTraitsEED2Ev.exit183, %2
   %.073 = phi i1 [ false, %2 ], [ %.2, %_ZN4base13ScopedGenericIiNS_8internal19ScopedFDCloseTraitsEED2Ev.exit183 ], [ %.2, %_ZNK4base8internal16ScopedFILECloserclEP8_IO_FILE.exit.i185 ]
@@ -2004,11 +2004,11 @@ _ZN7logging11CheckGEImplB5cxx11EiiPKc.exit:       ; preds = %11
   br i1 %.not, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %32, %27
-  %.sink23 = phi ptr [ %29, %27 ], [ %34, %32 ]
+  %.sink26 = phi ptr [ %29, %27 ], [ %34, %32 ]
   %.ph.ph = phi i1 [ false, %27 ], [ true, %32 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !24
-  %37 = call i32 @munmap(ptr noundef nonnull %.sink23, i64 noundef %36) #22
+  %37 = call i32 @munmap(ptr noundef nonnull %.sink26, i64 noundef %36) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   br label %.sink.split
 

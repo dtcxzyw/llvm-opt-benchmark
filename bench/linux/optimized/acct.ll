@@ -838,17 +838,17 @@ define internal fastcc void @do_acct_process(ptr noundef captures(none) %0) unna
 .thread16:                                        ; preds = %110, %107
   %120 = phi i64 [ %104, %107 ], [ %113, %110 ]
   %121 = phi i32 [ %105, %107 ], [ %115, %110 ]
-  %.fr115 = freeze i32 %121
-  %122 = icmp sgt i32 %.fr115, 31
-  %123 = shl i32 %.fr115, 19
+  %.fr128 = freeze i32 %121
+  %122 = icmp sgt i32 %.fr128, 31
+  %123 = shl i32 %.fr128, 19
   %124 = trunc i64 %120 to i32
   %125 = and i32 %124, 524287
   %126 = or disjoint i32 %125, %123
-  %spec.select114 = select i1 %122, i32 16777215, i32 %126
+  %spec.select127 = select i1 %122, i32 16777215, i32 %126
   br label %127
 
 127:                                              ; preds = %.thread16, %.thread16.thread
-  %128 = phi i32 [ %119, %.thread16.thread ], [ %spec.select114, %.thread16 ]
+  %128 = phi i32 [ %119, %.thread16.thread ], [ %spec.select127, %.thread16 ]
   %129 = lshr i32 %128, 16
   %130 = trunc i32 %129 to i8
   %131 = getelementptr inbounds nuw i8, ptr %3, i64 53

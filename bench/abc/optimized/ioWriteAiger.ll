@@ -208,14 +208,14 @@ Vec_IntAlloc.exit:                                ; preds = %1, %7
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %65, %67, %57, %59
-  %.sink65 = phi ptr [ %58, %57 ], [ %60, %59 ], [ %66, %65 ], [ %68, %67 ]
+  %.sink69 = phi ptr [ %58, %57 ], [ %60, %59 ], [ %66, %65 ], [ %68, %67 ]
   %.sink = phi i32 [ 16, %57 ], [ 16, %59 ], [ %62, %65 ], [ %62, %67 ]
-  store ptr %.sink65, ptr %12, align 8, !tbaa !31
+  store ptr %.sink69, ptr %12, align 8, !tbaa !31
   store i32 %.sink, ptr %4, align 8, !tbaa !30
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %27
-  %.pre.i61 = phi ptr [ %21, %27 ], [ %.sink65, %Vec_IntPush.exit.sink.split ]
+  %.pre.i61 = phi ptr [ %21, %27 ], [ %.sink69, %Vec_IntPush.exit.sink.split ]
   %69 = add nsw i32 %51, 1
   store i32 %69, ptr %6, align 4, !tbaa !29
   %70 = sext i32 %51 to i64
@@ -303,14 +303,14 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %Vec_IntPush.exit47.sink.split
 
 Vec_IntPush.exit47.sink.split:                    ; preds = %112, %114, %104, %106
-  %.sink67 = phi ptr [ %105, %104 ], [ %107, %106 ], [ %113, %112 ], [ %115, %114 ]
-  %.sink66 = phi i32 [ 16, %104 ], [ 16, %106 ], [ %109, %112 ], [ %109, %114 ]
-  store ptr %.sink67, ptr %12, align 8, !tbaa !31
-  store i32 %.sink66, ptr %4, align 8, !tbaa !30
+  %.sink71 = phi ptr [ %105, %104 ], [ %107, %106 ], [ %113, %112 ], [ %115, %114 ]
+  %.sink70 = phi i32 [ 16, %104 ], [ 16, %106 ], [ %109, %112 ], [ %109, %114 ]
+  store ptr %.sink71, ptr %12, align 8, !tbaa !31
+  store i32 %.sink70, ptr %4, align 8, !tbaa !30
   br label %Vec_IntPush.exit47
 
 Vec_IntPush.exit47:                               ; preds = %Vec_IntPush.exit47.sink.split, %.lr.ph54
-  %.pre.i4363 = phi ptr [ %77, %.lr.ph54 ], [ %.sink67, %Vec_IntPush.exit47.sink.split ]
+  %.pre.i4363 = phi ptr [ %77, %.lr.ph54 ], [ %.sink71, %Vec_IntPush.exit47.sink.split ]
   %116 = add nsw i32 %98, 1
   store i32 %116, ptr %6, align 4, !tbaa !29
   %117 = sext i32 %98 to i64

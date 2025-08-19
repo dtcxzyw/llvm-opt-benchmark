@@ -22822,7 +22822,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
 
 1611:                                             ; preds = %1586
   %1612 = and i32 %1595, 3
-  switch i32 %1612, label %default.unreachable28 [
+  switch i32 %1612, label %default.unreachable46 [
     i32 0, label %1617
     i32 1, label %1628
     i32 2, label %1639
@@ -22874,7 +22874,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1649 = or disjoint i32 %1648, %1641
   br label %1650
 
-default.unreachable28:                            ; preds = %1923, %1839, %1683, %1611
+default.unreachable46:                            ; preds = %1923, %1839, %1683, %1611
   unreachable
 
 1650:                                             ; preds = %1639, %1628, %1617, %1613
@@ -22927,7 +22927,7 @@ default.unreachable28:                            ; preds = %1923, %1839, %1683,
 
 1683:                                             ; preds = %1658
   %1684 = and i32 %1667, 3
-  switch i32 %1684, label %default.unreachable28 [
+  switch i32 %1684, label %default.unreachable46 [
     i32 0, label %1685
     i32 1, label %1689
     i32 2, label %1700
@@ -23127,7 +23127,7 @@ default.unreachable28:                            ; preds = %1923, %1839, %1683,
 
 1839:                                             ; preds = %1814
   %1840 = and i32 %1823, 3
-  switch i32 %1840, label %default.unreachable28 [
+  switch i32 %1840, label %default.unreachable46 [
     i32 0, label %1841
     i32 1, label %1852
     i32 2, label %1863
@@ -23241,7 +23241,7 @@ default.unreachable28:                            ; preds = %1923, %1839, %1683,
 
 1923:                                             ; preds = %1898
   %1924 = and i32 %1907, 3
-  switch i32 %1924, label %default.unreachable28 [
+  switch i32 %1924, label %default.unreachable46 [
     i32 0, label %1925
     i32 1, label %1932
     i32 2, label %1943
@@ -23297,8 +23297,8 @@ default.unreachable28:                            ; preds = %1923, %1839, %1683,
   br label %1965
 
 1965:                                             ; preds = %1954, %1943, %1932, %1925
-  %.sink33 = phi i32 [ %1964, %1954 ], [ %1953, %1943 ], [ %1942, %1932 ], [ %1931, %1925 ]
-  store i32 %.sink33, ptr %13, align 4, !tbaa !56
+  %.sink51 = phi i32 [ %1964, %1954 ], [ %1953, %1943 ], [ %1942, %1932 ], [ %1931, %1925 ]
+  store i32 %.sink51, ptr %13, align 4, !tbaa !56
   %1966 = load i32, ptr %90, align 8
   %1967 = and i32 %1966, 6
   %1968 = icmp eq i32 %1967, 0

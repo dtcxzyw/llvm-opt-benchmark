@@ -1027,7 +1027,7 @@ define dso_local void @checkMultiPartAof(ptr noundef %0, ptr noundef %1, i32 nou
   %21 = select i1 %.not44, ptr @.str.49, ptr @.str.48
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, ptr noundef nonnull %21)
   %23 = tail call i32 @checkSingleAof(ptr noundef %16, ptr noundef %17, i32 noundef %19, i32 noundef %2, i32 noundef %20)
-  switch i32 %23, label %default.unreachable53 [
+  switch i32 %23, label %default.unreachable56 [
     i32 0, label %24
     i32 1, label %26
     i32 3, label %28
@@ -1051,7 +1051,7 @@ define dso_local void @checkMultiPartAof(ptr noundef %0, ptr noundef %1, i32 nou
   %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, ptr noundef %16)
   br label %printAofStyle.exit
 
-default.unreachable53:                            ; preds = %.lr.ph, %15
+default.unreachable56:                            ; preds = %.lr.ph, %15
   unreachable
 
 printAofStyle.exit:                               ; preds = %24, %26, %28, %31
@@ -1087,7 +1087,7 @@ printAofStyle.exit:                               ; preds = %24, %26, %28, %31
   %46 = icmp eq i32 %45, %.1
   %47 = zext i1 %46 to i32
   %48 = call i32 @checkSingleAof(ptr noundef %43, ptr noundef %44, i32 noundef %47, i32 noundef %2, i32 noundef 0)
-  switch i32 %48, label %default.unreachable53 [
+  switch i32 %48, label %default.unreachable56 [
     i32 0, label %49
     i32 1, label %51
     i32 3, label %53

@@ -1515,8 +1515,8 @@ define internal void @pfifo_fast_reset(ptr noundef %0) #0 align 16 {
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %.thread, label %.lr.ph, !prof !43
 
-.lr.ph:                                           ; preds = %9, %.thread9
-  %16 = phi i32 [ %43, %.thread9 ], [ %14, %9 ]
+.lr.ph:                                           ; preds = %9, %.thread17
+  %16 = phi i32 [ %43, %.thread17 ], [ %14, %9 ]
   %17 = load ptr, ptr %6, align 8
   %18 = load i32, ptr %11, align 64
   %19 = sext i32 %18 to i64
@@ -1533,7 +1533,7 @@ define internal void @pfifo_fast_reset(ptr noundef %0) #0 align 16 {
   %28 = icmp slt i32 %26, %27
   %29 = icmp slt i32 %24, %16
   %30 = and i1 %29, %28
-  br i1 %30, label %.thread9, label %31, !prof !42
+  br i1 %30, label %.thread17, label %31, !prof !42
 
 31:                                               ; preds = %23
   %32 = icmp slt i32 %18, %25
@@ -1560,9 +1560,9 @@ define internal void @pfifo_fast_reset(ptr noundef %0) #0 align 16 {
   %spec.store.select = select i1 %41, i32 %24, i32 0, !prof !46
   store i32 %spec.store.select, ptr %12, align 4
   %spec.select = select i1 %41, i32 %24, i32 0, !prof !46
-  br label %.thread9
+  br label %.thread17
 
-.thread9:                                         ; preds = %40, %23
+.thread17:                                        ; preds = %40, %23
   %42 = phi i32 [ %24, %23 ], [ %spec.select, %40 ]
   store volatile i32 %42, ptr %11, align 64
   tail call void @kfree_skb_reason(ptr noundef nonnull %21, i32 noundef 2) #20
@@ -1570,7 +1570,7 @@ define internal void @pfifo_fast_reset(ptr noundef %0) #0 align 16 {
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %.thread, label %.lr.ph, !prof !44, !llvm.loop !52
 
-.thread:                                          ; preds = %.lr.ph, %.thread9, %9, %3
+.thread:                                          ; preds = %.lr.ph, %.thread17, %9, %3
   %45 = add nuw nsw i64 %4, 1
   %46 = icmp eq i64 %45, 3
   br i1 %46, label %47, label %3, !llvm.loop !53
@@ -1785,8 +1785,8 @@ define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(pt
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %.thread7.loopexit37, label %.lr.ph, !prof !61, !llvm.loop !62
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.thread47
-  %82 = phi i32 [ %109, %.thread47 ], [ %47, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %.thread62
+  %82 = phi i32 [ %109, %.thread62 ], [ %47, %.lr.ph ]
   %83 = load ptr, ptr %41, align 8
   %84 = load i32, ptr %42, align 64
   %85 = sext i32 %84 to i64
@@ -1803,7 +1803,7 @@ define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(pt
   %94 = icmp slt i32 %92, %93
   %95 = icmp slt i32 %90, %82
   %96 = and i1 %95, %94
-  br i1 %96, label %.thread47, label %97, !prof !42
+  br i1 %96, label %.thread62, label %97, !prof !42
 
 97:                                               ; preds = %89
   %98 = icmp slt i32 %84, %91
@@ -1827,13 +1827,13 @@ define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(pt
 106:                                              ; preds = %97, %.loopexit11.loopexit
   %.pre = phi i32 [ %.pre.pre, %.loopexit11.loopexit ], [ %82, %97 ]
   %107 = icmp slt i32 %90, %.pre
-  %spec.store.select62 = select i1 %107, i32 %90, i32 0, !prof !46
-  store i32 %spec.store.select62, ptr %43, align 4
-  %spec.select63 = select i1 %107, i32 %90, i32 0, !prof !46
-  br label %.thread47
+  %spec.store.select77 = select i1 %107, i32 %90, i32 0, !prof !46
+  store i32 %spec.store.select77, ptr %43, align 4
+  %spec.select78 = select i1 %107, i32 %90, i32 0, !prof !46
+  br label %.thread62
 
-.thread47:                                        ; preds = %106, %89
-  %108 = phi i32 [ %90, %89 ], [ %spec.select63, %106 ]
+.thread62:                                        ; preds = %106, %89
+  %108 = phi i32 [ %90, %89 ], [ %spec.select78, %106 ]
   store volatile i32 %108, ptr %42, align 64
   tail call void @kfree_skb_reason(ptr noundef nonnull %87, i32 noundef 2) #20
   %109 = load i32, ptr %40, align 64
@@ -1841,11 +1841,11 @@ define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(pt
   br i1 %110, label %.thread7, label %.lr.ph.split, !prof !44, !llvm.loop !62
 
 .thread7.loopexit37:                              ; preds = %.split27.us
-  %spec.select64 = select i1 %79, i32 %76, i32 0
+  %spec.select79 = select i1 %79, i32 %76, i32 0
   br label %.thread7
 
-.thread7:                                         ; preds = %.lr.ph.split.us, %.lr.ph.split, %.thread47, %.thread7.loopexit37, %31
-  %.lcssa13 = phi i32 [ 0, %31 ], [ %spec.select64, %.thread7.loopexit37 ], [ 0, %.thread47 ], [ 0, %.lr.ph.split ], [ %49, %.lr.ph.split.us ]
+.thread7:                                         ; preds = %.lr.ph.split.us, %.lr.ph.split, %.thread62, %.thread7.loopexit37, %31
+  %.lcssa13 = phi i32 [ 0, %31 ], [ %spec.select79, %.thread7.loopexit37 ], [ 0, %.thread62 ], [ 0, %.lr.ph.split ], [ %49, %.lr.ph.split.us ]
   store i32 %1, ptr %40, align 64
   store i32 %21, ptr %44, align 4
   store i32 %.lcssa13, ptr %34, align 64

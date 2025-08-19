@@ -226,7 +226,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_prioq_cell_in(ptr nounde
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %0, align 8
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %.thread13.thread37, label %.lr.ph
+  br i1 %43, label %.thread13.thread50, label %.lr.ph
 
 .lr.ph:                                           ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -243,7 +243,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_prioq_cell_in(ptr nounde
   %52 = icmp eq i32 %48, %50
   %53 = select i1 %52, i1 %15, i1 false
   %54 = select i1 %51, i1 true, i1 %53
-  br i1 %54, label %.thread13, label %.lr.ph70
+  br i1 %54, label %.thread13, label %.lr.ph83
 
 .lr.ph.split.us:                                  ; preds = %61
   %55 = getelementptr inbounds nuw i8, ptr %63, i64 4
@@ -252,15 +252,15 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_prioq_cell_in(ptr nounde
   %58 = icmp eq i32 %48, %56
   %59 = select i1 %58, i1 %15, i1 false
   %60 = select i1 %57, i1 true, i1 %59
-  br i1 %60, label %.thread13, label %.lr.ph70
+  br i1 %60, label %.thread13, label %.lr.ph83
 
-61:                                               ; preds = %.lr.ph70
+61:                                               ; preds = %.lr.ph83
   %62 = getelementptr inbounds nuw i8, ptr %66, i64 40
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %.thread13.thread, label %.lr.ph.split.us
 
-.lr.ph70:                                         ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
+.lr.ph83:                                         ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %65 = phi i32 [ %67, %.lr.ph.split.us ], [ 10000, %.lr.ph.split.us.preheader ]
   %66 = phi ptr [ %63, %.lr.ph.split.us ], [ %42, %.lr.ph.split.us.preheader ]
   %67 = add nsw i32 %65, -1
@@ -311,7 +311,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_prioq_cell_in(ptr nounde
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %.thread14, label %69
 
-.thread14:                                        ; preds = %95, %.lr.ph70
+.thread14:                                        ; preds = %95, %.lr.ph83
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %10, i64 noundef %11) #7
   %98 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #8
   br label %112
@@ -320,29 +320,29 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_prioq_cell_in(ptr nounde
   %.lcssa16 = phi ptr [ null, %.lr.ph.split.us.preheader ], [ %66, %.lr.ph.split.us ], [ %74, %79 ], [ %74, %89 ]
   %.lcssa = phi ptr [ %42, %.lr.ph.split.us.preheader ], [ %63, %.lr.ph.split.us ], [ %73, %79 ], [ %73, %89 ]
   %99 = icmp eq ptr %.lcssa16, null
-  br i1 %99, label %.thread13.thread37, label %.thread13.thread
+  br i1 %99, label %.thread13.thread50, label %.thread13.thread
 
 .thread13.thread:                                 ; preds = %69, %61, %.thread13
-  %.lcssa35 = phi ptr [ %.lcssa, %.thread13 ], [ null, %61 ], [ null, %69 ]
-  %.lcssa1634 = phi ptr [ %.lcssa16, %.thread13 ], [ %66, %61 ], [ %73, %69 ]
-  %100 = getelementptr inbounds nuw i8, ptr %.lcssa1634, i64 40
+  %.lcssa48 = phi ptr [ %.lcssa, %.thread13 ], [ null, %61 ], [ null, %69 ]
+  %.lcssa1647 = phi ptr [ %.lcssa16, %.thread13 ], [ %66, %61 ], [ %73, %69 ]
+  %100 = getelementptr inbounds nuw i8, ptr %.lcssa1647, i64 40
   store ptr %1, ptr %100, align 8
-  br label %.thread13.thread37
+  br label %.thread13.thread50
 
-.thread13.thread37:                               ; preds = %40, %.thread13.thread, %.thread13
-  %.lcssa36 = phi ptr [ %.lcssa35, %.thread13.thread ], [ %.lcssa, %.thread13 ], [ null, %40 ]
+.thread13.thread50:                               ; preds = %40, %.thread13.thread, %.thread13
+  %.lcssa49 = phi ptr [ %.lcssa48, %.thread13.thread ], [ %.lcssa, %.thread13 ], [ null, %40 ]
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr %.lcssa36, ptr %101, align 8
+  store ptr %.lcssa49, ptr %101, align 8
   %102 = load ptr, ptr %0, align 8
-  %103 = icmp eq ptr %102, %.lcssa36
+  %103 = icmp eq ptr %102, %.lcssa49
   br i1 %103, label %104, label %105
 
-104:                                              ; preds = %.thread13.thread37
+104:                                              ; preds = %.thread13.thread50
   store ptr %1, ptr %0, align 8
   br label %105
 
-105:                                              ; preds = %104, %.thread13.thread37
-  %106 = icmp eq ptr %.lcssa36, null
+105:                                              ; preds = %104, %.thread13.thread50
+  %106 = icmp eq ptr %.lcssa49, null
   br i1 %106, label %107, label %108
 
 107:                                              ; preds = %105

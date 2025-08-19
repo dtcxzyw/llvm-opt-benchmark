@@ -4691,8 +4691,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 
 199:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
   %200 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %.not597 = icmp eq ptr %191, %192
-  br i1 %.not597, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_12ColumnWriterESt14default_deleteIS2_ELb1EEESaIS5_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_12ColumnWriterESt14default_deleteIS2_ELb1EEESaIS5_EE11_M_allocateEm.exit.i
+  %.not696 = icmp eq ptr %191, %192
+  br i1 %.not696, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_12ColumnWriterESt14default_deleteIS2_ELb1EEESaIS5_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_12ColumnWriterESt14default_deleteIS2_ELb1EEESaIS5_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_12ColumnWriterESt14default_deleteIS2_ELb1EEESaIS5_EE11_M_allocateEm.exit.i: ; preds = %199
   %201 = shl nuw nsw i64 %196, 3
@@ -5979,7 +5979,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br label %.loopexit565
 
 .body297:                                         ; preds = %.body496.thread, %.body496, %597
-  %eh.lpad-body497600 = phi { ptr, i32 } [ %596, %.body496.thread ], [ %591, %.body496 ], [ %591, %597 ]
+  %eh.lpad-body497699 = phi { ptr, i32 } [ %596, %.body496.thread ], [ %591, %.body496 ], [ %591, %597 ]
   br label %658
 
 658:                                              ; preds = %658, %.body297
@@ -5990,7 +5990,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br i1 %661, label %.loopexit565, label %658
 
 .loopexit565:                                     ; preds = %658, %.loopexit565.loopexit585, %.thread525
-  %.pn154 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread525 ], [ %lpad.thr_comm.split-lp, %.loopexit565.loopexit585 ], [ %eh.lpad-body497600, %658 ]
+  %.pn154 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread525 ], [ %lpad.thr_comm.split-lp, %.loopexit565.loopexit585 ], [ %eh.lpad-body497699, %658 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %821
 
@@ -13434,7 +13434,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_8string_tES1_NS_21
   %26 = load ptr, ptr %25, align 8, !tbaa !210
   %.not.i = icmp eq ptr %26, null
   %.not59 = icmp eq i64 %4, 0
-  br i1 %.not.i, label %.preheader, label %.thread64
+  br i1 %.not.i, label %.preheader, label %.thread70
 
 .preheader:                                       ; preds = %.thread
   br i1 %.not59, label %.loopexit, label %.lr.ph57
@@ -13479,10 +13479,10 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_8string_tES1_NS_21
   %.not58 = icmp eq i64 %46, %24
   br i1 %.not58, label %.loopexit, label %.lr.ph.split.us.preheader
 
-.thread64:                                        ; preds = %.thread
+.thread70:                                        ; preds = %.thread
   br i1 %.not59, label %.loopexit, label %.critedge.preheader
 
-.critedge.preheader:                              ; preds = %.thread64
+.critedge.preheader:                              ; preds = %.thread70
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -13585,7 +13585,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.cri
   %exitcond.not = icmp eq i64 %93, %4
   br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !518
 
-.loopexit:                                        ; preds = %77, %92, %30, %.thread64, %38, %.preheader
+.loopexit:                                        ; preds = %77, %92, %30, %.thread70, %38, %.preheader
   ret void
 }
 
@@ -17634,28 +17634,28 @@ define linkonce_odr void @_ZN6duckdb21StringStatisticsState6UpdateERKNS_8string_
   %23 = load ptr, ptr %22, align 8, !tbaa !54
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = icmp eq ptr %23, %24
-  br i1 %25, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %25, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load i64, ptr %26, align 8, !tbaa !35
   %28 = icmp ult i64 %27, 16
   call void @llvm.assume(i1 %28)
-  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %18, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %18, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
   %.not22.i = icmp eq ptr %5, %22
   br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i, !prof !297
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %29, align 8, !tbaa !35
   store i8 0, ptr %23, align 1, !tbaa !3
   %.pre.i = load ptr, ptr %5, align 8, !tbaa !54
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i
-  %30 = phi ptr [ %20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i
+  %30 = phi ptr [ %20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i ]
   store i64 0, ptr %21, align 8, !tbaa !35
   store i8 0, ptr %30, align 1, !tbaa !3
   %31 = load ptr, ptr %5, align 8, !tbaa !54
@@ -17683,28 +17683,28 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %38 = load ptr, ptr %37, align 8, !tbaa !54
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %40 = icmp eq ptr %38, %39
-  br i1 %40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i14, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i8
+  br i1 %40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i14, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i8
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i14: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %42 = load i64, ptr %41, align 8, !tbaa !35
   %43 = icmp ult i64 %42, 16
   call void @llvm.assume(i1 %43)
-  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i8
+  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i8
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i8: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i14
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i8: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i14
   %.not22.i11 = icmp eq ptr %6, %37
   br i1 %.not22.i11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit16, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i12, !prof !297
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i12: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i8
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i12: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %44, align 8, !tbaa !35
   store i8 0, ptr %38, align 1, !tbaa !3
   %.pre.i13 = load ptr, ptr %6, align 8, !tbaa !54
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit16
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit16: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i12
-  %45 = phi ptr [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i8 ], [ %.pre.i13, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i12 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit16: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i12
+  %45 = phi ptr [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i8 ], [ %.pre.i13, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i12 ]
   store i64 0, ptr %36, align 8, !tbaa !35
   store i8 0, ptr %45, align 1, !tbaa !3
   %46 = load ptr, ptr %6, align 8, !tbaa !54
@@ -17858,7 +17858,7 @@ _ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit:     ; preds = %._crit_edge.i.i.i, 
   %109 = load ptr, ptr %108, align 8, !tbaa !54
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %111 = icmp eq ptr %109, %110
-  br i1 %111, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i20
+  br i1 %111, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i20
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i26: ; preds = %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -17869,13 +17869,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i26: 
   %116 = icmp eq ptr %115, %94
   br i1 %116, label %119, label %.thread.i27
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i20: ; preds = %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i20: ; preds = %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit
   %117 = load ptr, ptr %8, align 8, !tbaa !54
   %118 = icmp eq ptr %117, %94
   br i1 %118, label %119, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i21
 
-119:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i26
-  %120 = phi ptr [ %117, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i20 ], [ %115, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i26 ]
+119:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i26
+  %120 = phi ptr [ %117, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i20 ], [ %115, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i26 ]
   %121 = load i64, ptr %105, align 8, !tbaa !35
   %122 = icmp ult i64 %121, 16
   call void @llvm.assume(i1 %122)
@@ -17915,7 +17915,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i24: ;
   store i64 %132, ptr %110, align 8, !tbaa !3
   br label %138
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i21: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i20
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i21: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i20
   %133 = load i64, ptr %110, align 8, !tbaa !3
   store ptr %117, ptr %108, align 8, !tbaa !54
   %134 = load i64, ptr %105, align 8, !tbaa !35
@@ -18097,7 +18097,7 @@ _ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit36:   ; preds = %._crit_edge.i.i.i33
   %204 = load ptr, ptr %203, align 8, !tbaa !54
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %206 = icmp eq ptr %204, %205
-  br i1 %206, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i37
+  br i1 %206, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i37
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i43: ; preds = %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit36
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -18108,13 +18108,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i43: 
   %211 = icmp eq ptr %210, %189
   br i1 %211, label %214, label %.thread.i44
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i37: ; preds = %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit36
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i37: ; preds = %_ZNK6duckdb8string_t9GetStringB5cxx11Ev.exit36
   %212 = load ptr, ptr %10, align 8, !tbaa !54
   %213 = icmp eq ptr %212, %189
   br i1 %213, label %214, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i38
 
-214:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i43
-  %215 = phi ptr [ %212, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i37 ], [ %210, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i43 ]
+214:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i43
+  %215 = phi ptr [ %212, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i37 ], [ %210, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i43 ]
   %216 = load i64, ptr %200, align 8, !tbaa !35
   %217 = icmp ult i64 %216, 16
   call void @llvm.assume(i1 %217)
@@ -18154,7 +18154,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i41: ;
   store i64 %227, ptr %205, align 8, !tbaa !3
   br label %233
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i38: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i37
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i38: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i37
   %228 = load i64, ptr %205, align 8, !tbaa !3
   store ptr %212, ptr %203, align 8, !tbaa !54
   %229 = load i64, ptr %200, align 8, !tbaa !35
@@ -18650,7 +18650,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIaiNS_19ParquetCastOpe
   %26 = load ptr, ptr %25, align 8, !tbaa !210
   %.not.i = icmp eq ptr %26, null
   %.not56 = icmp eq i64 %4, 0
-  br i1 %.not.i, label %.preheader, label %.thread61
+  br i1 %.not.i, label %.preheader, label %.thread67
 
 .preheader:                                       ; preds = %.thread
   br i1 %.not56, label %.loopexit, label %.lr.ph54
@@ -18687,10 +18687,10 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIaiNS_19ParquetCastOpe
   %.not55 = icmp eq i64 %43, %24
   br i1 %.not55, label %.loopexit, label %.lr.ph.split.us.preheader
 
-.thread61:                                        ; preds = %.thread
+.thread67:                                        ; preds = %.thread
   br i1 %.not56, label %.loopexit, label %.critedge.preheader
 
-.critedge.preheader:                              ; preds = %.thread61
+.critedge.preheader:                              ; preds = %.thread67
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 208
   br label %.critedge
@@ -18777,7 +18777,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.cri
   %exitcond.not = icmp eq i64 %84, %4
   br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !703
 
-.loopexit:                                        ; preds = %70, %83, %29, %.thread61, %35, %.preheader
+.loopexit:                                        ; preds = %70, %83, %29, %.thread67, %35, %.preheader
   ret void
 }
 
@@ -21011,7 +21011,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIsiNS_19ParquetCastOpe
   %26 = load ptr, ptr %25, align 8, !tbaa !210
   %.not.i = icmp eq ptr %26, null
   %.not56 = icmp eq i64 %4, 0
-  br i1 %.not.i, label %.preheader, label %.thread61
+  br i1 %.not.i, label %.preheader, label %.thread67
 
 .preheader:                                       ; preds = %.thread
   br i1 %.not56, label %.loopexit, label %.lr.ph54
@@ -21048,10 +21048,10 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIsiNS_19ParquetCastOpe
   %.not55 = icmp eq i64 %43, %24
   br i1 %.not55, label %.loopexit, label %.lr.ph.split.us.preheader
 
-.thread61:                                        ; preds = %.thread
+.thread67:                                        ; preds = %.thread
   br i1 %.not56, label %.loopexit, label %.critedge.preheader
 
-.critedge.preheader:                              ; preds = %.thread61
+.critedge.preheader:                              ; preds = %.thread67
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 208
   br label %.critedge
@@ -21138,7 +21138,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.cri
   %exitcond.not = icmp eq i64 %84, %4
   br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !774
 
-.loopexit:                                        ; preds = %70, %83, %29, %.thread61, %35, %.preheader
+.loopexit:                                        ; preds = %70, %83, %29, %.thread67, %35, %.preheader
   ret void
 }
 
@@ -23162,7 +23162,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIiiNS_19ParquetCastOpe
   %26 = load ptr, ptr %25, align 8, !tbaa !210
   %.not.i = icmp eq ptr %26, null
   %.not56 = icmp eq i64 %4, 0
-  br i1 %.not.i, label %.preheader, label %.thread61
+  br i1 %.not.i, label %.preheader, label %.thread67
 
 .preheader:                                       ; preds = %.thread
   br i1 %.not56, label %.loopexit, label %.lr.ph54
@@ -23199,10 +23199,10 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIiiNS_19ParquetCastOpe
   %.not55 = icmp eq i64 %43, %24
   br i1 %.not55, label %.loopexit, label %.lr.ph.split.us.preheader
 
-.thread61:                                        ; preds = %.thread
+.thread67:                                        ; preds = %.thread
   br i1 %.not56, label %.loopexit, label %.critedge.preheader
 
-.critedge.preheader:                              ; preds = %.thread61
+.critedge.preheader:                              ; preds = %.thread67
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 208
   br label %.critedge
@@ -23289,7 +23289,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.cri
   %exitcond.not = icmp eq i64 %84, %4
   br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !845
 
-.loopexit:                                        ; preds = %70, %83, %29, %.thread61, %35, %.preheader
+.loopexit:                                        ; preds = %70, %83, %29, %.thread67, %35, %.preheader
   ret void
 }
 
@@ -25288,7 +25288,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_19ParquetCastOpe
   %26 = load ptr, ptr %25, align 8, !tbaa !210
   %.not.i = icmp eq ptr %26, null
   %.not56 = icmp eq i64 %4, 0
-  br i1 %.not.i, label %.preheader, label %.thread61
+  br i1 %.not.i, label %.preheader, label %.thread67
 
 .preheader:                                       ; preds = %.thread
   br i1 %.not56, label %.loopexit, label %.lr.ph54
@@ -25325,10 +25325,10 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_19ParquetCastOpe
   %.not55 = icmp eq i64 %43, %24
   br i1 %.not55, label %.loopexit, label %.lr.ph.split.us.preheader
 
-.thread61:                                        ; preds = %.thread
+.thread67:                                        ; preds = %.thread
   br i1 %.not56, label %.loopexit, label %.critedge.preheader
 
-.critedge.preheader:                              ; preds = %.thread61
+.critedge.preheader:                              ; preds = %.thread67
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 208
   br label %.critedge
@@ -25415,7 +25415,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.cri
   %exitcond.not = icmp eq i64 %84, %4
   br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !916
 
-.loopexit:                                        ; preds = %70, %83, %29, %.thread61, %35, %.preheader
+.loopexit:                                        ; preds = %70, %83, %29, %.thread67, %35, %.preheader
   ret void
 }
 
@@ -27613,7 +27613,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10dtime_tz_tElNS_2
   %26 = load ptr, ptr %25, align 8, !tbaa !210
   %.not.i = icmp eq ptr %26, null
   %.not57 = icmp eq i64 %4, 0
-  br i1 %.not.i, label %.preheader, label %.thread62
+  br i1 %.not.i, label %.preheader, label %.thread68
 
 .preheader:                                       ; preds = %.thread
   br i1 %.not57, label %.loopexit, label %.lr.ph55
@@ -27650,10 +27650,10 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10dtime_tz_tElNS_2
   %.not56 = icmp eq i64 %42, %24
   br i1 %.not56, label %.loopexit, label %.lr.ph.split.us.preheader
 
-.thread62:                                        ; preds = %.thread
+.thread68:                                        ; preds = %.thread
   br i1 %.not57, label %.loopexit, label %.critedge.preheader
 
-.critedge.preheader:                              ; preds = %.thread62
+.critedge.preheader:                              ; preds = %.thread68
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 208
   br label %.critedge
@@ -27740,7 +27740,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.cri
   %exitcond.not = icmp eq i64 %81, %4
   br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !987
 
-.loopexit:                                        ; preds = %68, %80, %29, %.thread62, %34, %.preheader
+.loopexit:                                        ; preds = %68, %80, %29, %.thread68, %34, %.preheader
   ret void
 }
 
@@ -29483,7 +29483,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tEdNS_22P
   %26 = load ptr, ptr %25, align 8, !tbaa !210
   %.not.i = icmp eq ptr %26, null
   %.not58 = icmp eq i64 %4, 0
-  br i1 %.not.i, label %.preheader, label %.thread63
+  br i1 %.not.i, label %.preheader, label %.thread69
 
 .preheader:                                       ; preds = %.thread
   br i1 %.not58, label %.loopexit, label %.lr.ph56
@@ -29522,10 +29522,10 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tEdNS_22P
   %.not57 = icmp eq i64 %42, %24
   br i1 %.not57, label %.loopexit, label %.lr.ph.split.us.preheader
 
-.thread63:                                        ; preds = %.thread
+.thread69:                                        ; preds = %.thread
   br i1 %.not58, label %.loopexit, label %.critedge.preheader
 
-.critedge.preheader:                              ; preds = %.thread63
+.critedge.preheader:                              ; preds = %.thread69
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 208
   br label %.critedge
@@ -29616,7 +29616,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.cri
   %exitcond.not = icmp eq i64 %81, %4
   br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !1052
 
-.loopexit:                                        ; preds = %68, %80, %29, %.thread63, %34, %.preheader
+.loopexit:                                        ; preds = %68, %80, %29, %.thread69, %34, %.preheader
   ret void
 }
 
@@ -31725,7 +31725,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10uhugeint_tEdNS_2
   %26 = load ptr, ptr %25, align 8, !tbaa !210
   %.not.i = icmp eq ptr %26, null
   %.not58 = icmp eq i64 %4, 0
-  br i1 %.not.i, label %.preheader, label %.thread63
+  br i1 %.not.i, label %.preheader, label %.thread69
 
 .preheader:                                       ; preds = %.thread
   br i1 %.not58, label %.loopexit, label %.lr.ph56
@@ -31764,10 +31764,10 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10uhugeint_tEdNS_2
   %.not57 = icmp eq i64 %42, %24
   br i1 %.not57, label %.loopexit, label %.lr.ph.split.us.preheader
 
-.thread63:                                        ; preds = %.thread
+.thread69:                                        ; preds = %.thread
   br i1 %.not58, label %.loopexit, label %.critedge.preheader
 
-.critedge.preheader:                              ; preds = %.thread63
+.critedge.preheader:                              ; preds = %.thread69
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 208
   br label %.critedge
@@ -31858,7 +31858,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.cri
   %exitcond.not = icmp eq i64 %81, %4
   br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !1122
 
-.loopexit:                                        ; preds = %68, %80, %29, %.thread63, %34, %.preheader
+.loopexit:                                        ; preds = %68, %80, %29, %.thread69, %34, %.preheader
   ret void
 }
 
@@ -33687,7 +33687,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_26ParquetTimesta
   %26 = load ptr, ptr %25, align 8, !tbaa !210
   %.not.i = icmp eq ptr %26, null
   %.not56 = icmp eq i64 %4, 0
-  br i1 %.not.i, label %.preheader, label %.thread61
+  br i1 %.not.i, label %.preheader, label %.thread67
 
 .preheader:                                       ; preds = %.thread
   br i1 %.not56, label %.loopexit, label %.lr.ph54
@@ -33724,10 +33724,10 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_26ParquetTimesta
   %.not55 = icmp eq i64 %43, %24
   br i1 %.not55, label %.loopexit, label %.lr.ph.split.us.preheader
 
-.thread61:                                        ; preds = %.thread
+.thread67:                                        ; preds = %.thread
   br i1 %.not56, label %.loopexit, label %.critedge.preheader
 
-.critedge.preheader:                              ; preds = %.thread61
+.critedge.preheader:                              ; preds = %.thread67
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 208
   br label %.critedge
@@ -33814,7 +33814,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.cri
   %exitcond.not = icmp eq i64 %84, %4
   br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !1190
 
-.loopexit:                                        ; preds = %70, %83, %29, %.thread61, %35, %.preheader
+.loopexit:                                        ; preds = %70, %83, %29, %.thread67, %35, %.preheader
   ret void
 }
 
@@ -35704,7 +35704,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_25ParquetTimesta
   %26 = load ptr, ptr %25, align 8, !tbaa !210
   %.not.i = icmp eq ptr %26, null
   %.not56 = icmp eq i64 %4, 0
-  br i1 %.not.i, label %.preheader, label %.thread61
+  br i1 %.not.i, label %.preheader, label %.thread67
 
 .preheader:                                       ; preds = %.thread
   br i1 %.not56, label %.loopexit, label %.lr.ph54
@@ -35741,10 +35741,10 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_25ParquetTimesta
   %.not55 = icmp eq i64 %43, %24
   br i1 %.not55, label %.loopexit, label %.lr.ph.split.us.preheader
 
-.thread61:                                        ; preds = %.thread
+.thread67:                                        ; preds = %.thread
   br i1 %.not56, label %.loopexit, label %.critedge.preheader
 
-.critedge.preheader:                              ; preds = %.thread61
+.critedge.preheader:                              ; preds = %.thread67
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 208
   br label %.critedge
@@ -35831,7 +35831,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.cri
   %exitcond.not = icmp eq i64 %84, %4
   br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !1256
 
-.loopexit:                                        ; preds = %70, %83, %29, %.thread61, %35, %.preheader
+.loopexit:                                        ; preds = %70, %83, %29, %.thread67, %35, %.preheader
   ret void
 }
 
@@ -37727,7 +37727,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIhiNS_19ParquetCastOpe
   %26 = load ptr, ptr %25, align 8, !tbaa !210
   %.not.i = icmp eq ptr %26, null
   %.not56 = icmp eq i64 %4, 0
-  br i1 %.not.i, label %.preheader, label %.thread61
+  br i1 %.not.i, label %.preheader, label %.thread67
 
 .preheader:                                       ; preds = %.thread
   br i1 %.not56, label %.loopexit, label %.lr.ph54
@@ -37764,10 +37764,10 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIhiNS_19ParquetCastOpe
   %.not55 = icmp eq i64 %43, %24
   br i1 %.not55, label %.loopexit, label %.lr.ph.split.us.preheader
 
-.thread61:                                        ; preds = %.thread
+.thread67:                                        ; preds = %.thread
   br i1 %.not56, label %.loopexit, label %.critedge.preheader
 
-.critedge.preheader:                              ; preds = %.thread61
+.critedge.preheader:                              ; preds = %.thread67
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 208
   br label %.critedge
@@ -37854,7 +37854,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.cri
   %exitcond.not = icmp eq i64 %84, %4
   br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !1322
 
-.loopexit:                                        ; preds = %70, %83, %29, %.thread61, %35, %.preheader
+.loopexit:                                        ; preds = %70, %83, %29, %.thread67, %35, %.preheader
   ret void
 }
 
@@ -39878,7 +39878,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterItiNS_19ParquetCastOpe
   %26 = load ptr, ptr %25, align 8, !tbaa !210
   %.not.i = icmp eq ptr %26, null
   %.not56 = icmp eq i64 %4, 0
-  br i1 %.not.i, label %.preheader, label %.thread61
+  br i1 %.not.i, label %.preheader, label %.thread67
 
 .preheader:                                       ; preds = %.thread
   br i1 %.not56, label %.loopexit, label %.lr.ph54
@@ -39915,10 +39915,10 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterItiNS_19ParquetCastOpe
   %.not55 = icmp eq i64 %43, %24
   br i1 %.not55, label %.loopexit, label %.lr.ph.split.us.preheader
 
-.thread61:                                        ; preds = %.thread
+.thread67:                                        ; preds = %.thread
   br i1 %.not56, label %.loopexit, label %.critedge.preheader
 
-.critedge.preheader:                              ; preds = %.thread61
+.critedge.preheader:                              ; preds = %.thread67
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 208
   br label %.critedge
@@ -40005,7 +40005,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.cri
   %exitcond.not = icmp eq i64 %84, %4
   br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !1393
 
-.loopexit:                                        ; preds = %70, %83, %29, %.thread61, %35, %.preheader
+.loopexit:                                        ; preds = %70, %83, %29, %.thread67, %35, %.preheader
   ret void
 }
 
@@ -42029,7 +42029,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIjjNS_19ParquetCastOpe
   %26 = load ptr, ptr %25, align 8, !tbaa !210
   %.not.i = icmp eq ptr %26, null
   %.not56 = icmp eq i64 %4, 0
-  br i1 %.not.i, label %.preheader, label %.thread61
+  br i1 %.not.i, label %.preheader, label %.thread67
 
 .preheader:                                       ; preds = %.thread
   br i1 %.not56, label %.loopexit, label %.lr.ph54
@@ -42066,10 +42066,10 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIjjNS_19ParquetCastOpe
   %.not55 = icmp eq i64 %43, %24
   br i1 %.not55, label %.loopexit, label %.lr.ph.split.us.preheader
 
-.thread61:                                        ; preds = %.thread
+.thread67:                                        ; preds = %.thread
   br i1 %.not56, label %.loopexit, label %.critedge.preheader
 
-.critedge.preheader:                              ; preds = %.thread61
+.critedge.preheader:                              ; preds = %.thread67
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 208
   br label %.critedge
@@ -42156,7 +42156,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.cri
   %exitcond.not = icmp eq i64 %84, %4
   br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !1464
 
-.loopexit:                                        ; preds = %70, %83, %29, %.thread61, %35, %.preheader
+.loopexit:                                        ; preds = %70, %83, %29, %.thread67, %35, %.preheader
   ret void
 }
 
@@ -44367,7 +44367,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterImmNS_19ParquetCastOpe
   %26 = load ptr, ptr %25, align 8, !tbaa !210
   %.not.i = icmp eq ptr %26, null
   %.not56 = icmp eq i64 %4, 0
-  br i1 %.not.i, label %.preheader, label %.thread61
+  br i1 %.not.i, label %.preheader, label %.thread67
 
 .preheader:                                       ; preds = %.thread
   br i1 %.not56, label %.loopexit, label %.lr.ph54
@@ -44404,10 +44404,10 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterImmNS_19ParquetCastOpe
   %.not55 = icmp eq i64 %43, %24
   br i1 %.not55, label %.loopexit, label %.lr.ph.split.us.preheader
 
-.thread61:                                        ; preds = %.thread
+.thread67:                                        ; preds = %.thread
   br i1 %.not56, label %.loopexit, label %.critedge.preheader
 
-.critedge.preheader:                              ; preds = %.thread61
+.critedge.preheader:                              ; preds = %.thread67
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 208
   br label %.critedge
@@ -44494,7 +44494,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.cri
   %exitcond.not = icmp eq i64 %84, %4
   br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !1535
 
-.loopexit:                                        ; preds = %70, %83, %29, %.thread61, %35, %.preheader
+.loopexit:                                        ; preds = %70, %83, %29, %.thread67, %35, %.preheader
   ret void
 }
 
@@ -46694,7 +46694,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_14float_na_equalEf
   %26 = load ptr, ptr %25, align 8, !tbaa !210
   %.not.i = icmp eq ptr %26, null
   %.not57 = icmp eq i64 %4, 0
-  br i1 %.not.i, label %.preheader, label %.thread62
+  br i1 %.not.i, label %.preheader, label %.thread68
 
 .preheader:                                       ; preds = %.thread
   br i1 %.not57, label %.loopexit, label %.lr.ph55
@@ -46731,10 +46731,10 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_14float_na_equalEf
   %.not56 = icmp eq i64 %42, %24
   br i1 %.not56, label %.loopexit, label %.lr.ph.split.us.preheader
 
-.thread62:                                        ; preds = %.thread
+.thread68:                                        ; preds = %.thread
   br i1 %.not57, label %.loopexit, label %.critedge.preheader
 
-.critedge.preheader:                              ; preds = %.thread62
+.critedge.preheader:                              ; preds = %.thread68
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 208
   br label %.critedge
@@ -46821,7 +46821,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.cri
   %exitcond.not = icmp eq i64 %81, %4
   br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !1607
 
-.loopexit:                                        ; preds = %68, %80, %29, %.thread62, %34, %.preheader
+.loopexit:                                        ; preds = %68, %80, %29, %.thread68, %34, %.preheader
   ret void
 }
 
@@ -49160,7 +49160,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_15double_na_equalE
   %26 = load ptr, ptr %25, align 8, !tbaa !210
   %.not.i = icmp eq ptr %26, null
   %.not57 = icmp eq i64 %4, 0
-  br i1 %.not.i, label %.preheader, label %.thread62
+  br i1 %.not.i, label %.preheader, label %.thread68
 
 .preheader:                                       ; preds = %.thread
   br i1 %.not57, label %.loopexit, label %.lr.ph55
@@ -49197,10 +49197,10 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_15double_na_equalE
   %.not56 = icmp eq i64 %42, %24
   br i1 %.not56, label %.loopexit, label %.lr.ph.split.us.preheader
 
-.thread62:                                        ; preds = %.thread
+.thread68:                                        ; preds = %.thread
   br i1 %.not57, label %.loopexit, label %.critedge.preheader
 
-.critedge.preheader:                              ; preds = %.thread62
+.critedge.preheader:                              ; preds = %.thread68
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 208
   br label %.critedge
@@ -49287,7 +49287,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.cri
   %exitcond.not = icmp eq i64 %81, %4
   br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !1679
 
-.loopexit:                                        ; preds = %68, %80, %29, %.thread62, %34, %.preheader
+.loopexit:                                        ; preds = %68, %80, %29, %.thread68, %34, %.preheader
   ret void
 }
 
@@ -51353,7 +51353,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tENS_21Pa
   %26 = load ptr, ptr %25, align 8, !tbaa !210
   %.not.i = icmp eq ptr %26, null
   %.not58 = icmp eq i64 %4, 0
-  br i1 %.not.i, label %.preheader, label %.thread63
+  br i1 %.not.i, label %.preheader, label %.thread69
 
 .preheader:                                       ; preds = %.thread
   br i1 %.not58, label %.loopexit, label %.lr.ph56
@@ -51392,10 +51392,10 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tENS_21Pa
   %.not57 = icmp eq i64 %42, %24
   br i1 %.not57, label %.loopexit, label %.lr.ph.split.us.preheader
 
-.thread63:                                        ; preds = %.thread
+.thread69:                                        ; preds = %.thread
   br i1 %.not58, label %.loopexit, label %.critedge.preheader
 
-.critedge.preheader:                              ; preds = %.thread63
+.critedge.preheader:                              ; preds = %.thread69
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 208
   br label %.critedge
@@ -51486,7 +51486,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.cri
   %exitcond.not = icmp eq i64 %81, %4
   br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !1751
 
-.loopexit:                                        ; preds = %68, %80, %29, %.thread63, %34, %.preheader
+.loopexit:                                        ; preds = %68, %80, %29, %.thread69, %34, %.preheader
   ret void
 }
 
@@ -53892,7 +53892,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25
   %26 = load ptr, ptr %25, align 8, !tbaa !210
   %.not.i = icmp eq ptr %26, null
   %.not58 = icmp eq i64 %4, 0
-  br i1 %.not.i, label %.preheader, label %.thread63
+  br i1 %.not.i, label %.preheader, label %.thread69
 
 .preheader:                                       ; preds = %.thread
   br i1 %.not58, label %.loopexit, label %.lr.ph56
@@ -53931,10 +53931,10 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25
   %.not57 = icmp eq i64 %42, %24
   br i1 %.not57, label %.loopexit, label %.lr.ph.split.us.preheader
 
-.thread63:                                        ; preds = %.thread
+.thread69:                                        ; preds = %.thread
   br i1 %.not58, label %.loopexit, label %.critedge.preheader
 
-.critedge.preheader:                              ; preds = %.thread63
+.critedge.preheader:                              ; preds = %.thread69
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 208
   br label %.critedge
@@ -54025,7 +54025,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.cri
   %exitcond.not = icmp eq i64 %81, %4
   br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !1816
 
-.loopexit:                                        ; preds = %68, %80, %29, %.thread63, %34, %.preheader
+.loopexit:                                        ; preds = %68, %80, %29, %.thread69, %34, %.preheader
   ret void
 }
 
@@ -55261,11 +55261,11 @@ define linkonce_odr void @_ZN6duckdb19PrimitiveDictionaryINS_10interval_tENS_25P
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !1862
   %32 = icmp eq i32 %31, %.sroa.0.sroa.5.0.extract.trunc
-  %or.cond19.i.i.i = select i1 %29, i1 %32, i1 false
+  %or.cond21.i.i.i = select i1 %29, i1 %32, i1 false
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !1863
   %35 = icmp eq i64 %34, %2
-  %or.cond.i = select i1 %or.cond19.i.i.i, i1 %35, i1 false
+  %or.cond.i = select i1 %or.cond21.i.i.i, i1 %35, i1 false
   br i1 %or.cond.i, label %_ZNK6duckdb19PrimitiveDictionaryINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE6LookupERKS1_.exit, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %26
@@ -55620,11 +55620,11 @@ define linkonce_odr noundef i32 @_ZNK6duckdb19PrimitiveDictionaryINS_10interval_
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !1862
   %30 = icmp eq i32 %29, %14
-  %or.cond19.i.i.i = select i1 %27, i1 %30, i1 false
+  %or.cond21.i.i.i = select i1 %27, i1 %30, i1 false
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !1863
   %33 = icmp eq i64 %32, %15
-  %or.cond.i = select i1 %or.cond19.i.i.i, i1 %33, i1 false
+  %or.cond.i = select i1 %or.cond21.i.i.i, i1 %33, i1 false
   br i1 %or.cond.i, label %_ZNK6duckdb19PrimitiveDictionaryINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE6LookupERKS1_.exit.loopexit, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %24

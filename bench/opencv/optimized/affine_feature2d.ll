@@ -601,10 +601,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_126calcAffineCovariantRegionsERKN2c
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %297 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %298 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0392.i.4.i.4.i.4.gep390.sroa_idx139 = getelementptr inbounds nuw i8, ptr %.sroa.0392.i, i64 4
-  %.sroa.0392.i.4.i.4.i.4.gep390.sroa_idx140 = getelementptr inbounds nuw i8, ptr %.sroa.0392.i, i64 4
-  %.sroa.0401.i.4.i.4.i.4.gep400.sroa_idx142 = getelementptr inbounds nuw i8, ptr %.sroa.0401.i, i64 4
-  %.sroa.0392.i.4.i.4.i.4.gep390.sroa_idx141 = getelementptr inbounds nuw i8, ptr %.sroa.0392.i, i64 4
+  %.sroa.0392.i.4.i.4.i.4.gep390.sroa_idx162 = getelementptr inbounds nuw i8, ptr %.sroa.0392.i, i64 4
+  %.sroa.0392.i.4.i.4.i.4.gep390.sroa_idx163 = getelementptr inbounds nuw i8, ptr %.sroa.0392.i, i64 4
+  %.sroa.0401.i.4.i.4.i.4.gep400.sroa_idx165 = getelementptr inbounds nuw i8, ptr %.sroa.0401.i, i64 4
+  %.sroa.0392.i.4.i.4.i.4.gep390.sroa_idx164 = getelementptr inbounds nuw i8, ptr %.sroa.0392.i, i64 4
   br label %314
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN2cv11xfeatures2d17Elliptic_KeyPointESaIS2_EE9push_backERKS2_.exit, %3
@@ -758,7 +758,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit.i:             ; preds = %329
   %371 = sitofp i32 %361 to float
   store float %371, ptr %.sroa.0392.i, align 8, !tbaa !41
   %372 = sitofp i32 %365 to float
-  store float %372, ptr %.sroa.0392.i.4.i.4.i.4.gep390.sroa_idx139, align 4, !tbaa !41
+  store float %372, ptr %.sroa.0392.i.4.i.4.i.4.gep390.sroa_idx162, align 4, !tbaa !41
   %373 = fcmp ole float %.sroa.speculated361.i, 0.000000e+00
   %374 = fcmp ole float %.sroa.speculated355.i, 0.000000e+00
   %or.cond3.i = select i1 %373, i1 true, i1 %374
@@ -1706,7 +1706,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit254.i:          ; preds = %436
           to label %659 unwind label %455
 
 659:                                              ; preds = %657
-  br i1 %658, label %.thread475.i, label %.preheader438.i, !llvm.loop !93
+  br i1 %658, label %.thread482.i, label %.preheader438.i, !llvm.loop !93
 
 .preheader438.i:                                  ; preds = %659
   %660 = add nsw i32 %.0202.i, -1
@@ -1724,7 +1724,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit254.i:          ; preds = %436
   %672 = sext i32 %660 to i64
   br label %.preheader.i
 
-.thread475.i:                                     ; preds = %659
+.thread482.i:                                     ; preds = %659
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %92) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %92)
   br label %.loopexit114
@@ -1748,13 +1748,13 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit254.i:          ; preds = %436
   %682 = sitofp i32 %.0410449.i to float
   store float %682, ptr %.sroa.0392.i, align 8, !tbaa !41
   %683 = sitofp i32 %.0407450.i to float
-  store float %683, ptr %.sroa.0392.i.4.i.4.i.4.gep390.sroa_idx140, align 4, !tbaa !41
+  store float %683, ptr %.sroa.0392.i.4.i.4.i.4.gep390.sroa_idx163, align 4, !tbaa !41
   %684 = sub nsw i32 %.3201.i, %.0198.i
   %685 = sitofp i32 %684 to float
   store float %685, ptr %.sroa.0401.i, align 8, !tbaa !41
   %686 = sub nsw i32 %.3205.i, %.0202.i
   %687 = sitofp i32 %686 to float
-  store float %687, ptr %.sroa.0401.i.4.i.4.i.4.gep400.sroa_idx142, align 4, !tbaa !41
+  store float %687, ptr %.sroa.0401.i.4.i.4.i.4.gep400.sroa_idx165, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %99)
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
@@ -1889,7 +1889,7 @@ _ZNK2cv4MatxIdLi2ELi2EE3invEiPb.exit.i:           ; preds = %_ZNK2cv8internal14M
   %.sroa.0392.i.0. = load float, ptr %.sroa.0392.i, align 8, !tbaa !41
   %740 = fadd float %.sroa.0307.0.vec.extract.i, %.sroa.0392.i.0.
   %.sroa.0.i271.i.0.vec.insert = insertelement <2 x float> poison, float %740, i64 0
-  %.sroa.0392.i.4. = load float, ptr %.sroa.0392.i.4.i.4.i.4.gep390.sroa_idx141, align 4, !tbaa !41
+  %.sroa.0392.i.4. = load float, ptr %.sroa.0392.i.4.i.4.i.4.gep390.sroa_idx164, align 4, !tbaa !41
   %741 = fadd float %.sroa.0307.4.vec.extract.i, %.sroa.0392.i.4.
   %.sroa.0.i271.i.4.vec.insert = insertelement <2 x float> %.sroa.0.i271.i.0.vec.insert, float %741, i64 1
   store <2 x float> %.sroa.0.i271.i.4.vec.insert, ptr %.sroa.0392.i, align 8, !tbaa !52
@@ -2041,11 +2041,11 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i.i:             ; preds = %782
   %or.cond.i72 = select i1 %.not.i71, i1 %791, i1 false
   %792 = load i32, ptr %287, align 8
   %793 = icmp eq i32 %792, 2
-  %or.cond15.i73 = select i1 %or.cond.i72, i1 %793, i1 false
+  %or.cond16.i73 = select i1 %or.cond.i72, i1 %793, i1 false
   %794 = load i32, ptr %288, align 4
   %795 = icmp eq i32 %794, 2
-  %or.cond18.i74 = select i1 %or.cond15.i73, i1 %795, i1 false
-  br i1 %or.cond18.i74, label %796, label %800
+  %or.cond19.i74 = select i1 %or.cond16.i73, i1 %795, i1 false
+  br i1 %or.cond19.i74, label %796, label %800
 
 796:                                              ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit.i.i
   %797 = load i32, ptr %33, align 8, !tbaa !75
@@ -2458,11 +2458,11 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit37.i.i:           ; preds = %903
   %or.cond.i62 = select i1 %.not.i61, i1 %912, i1 false
   %913 = load i32, ptr %293, align 8
   %914 = icmp eq i32 %913, 2
-  %or.cond15.i = select i1 %or.cond.i62, i1 %914, i1 false
+  %or.cond16.i = select i1 %or.cond.i62, i1 %914, i1 false
   %915 = load i32, ptr %294, align 4
   %916 = icmp eq i32 %915, 2
-  %or.cond18.i = select i1 %or.cond15.i, i1 %916, i1 false
-  br i1 %or.cond18.i, label %917, label %921
+  %or.cond19.i = select i1 %or.cond16.i, i1 %916, i1 false
+  br i1 %or.cond19.i, label %917, label %921
 
 917:                                              ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit37.i.i
   %918 = load i32, ptr %18, align 8, !tbaa !75
@@ -2772,8 +2772,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   br label %.body
 
-.loopexit114:                                     ; preds = %1012, %380, %370, %.thread475.i
-  %.2.i = phi i1 [ false, %.thread475.i ], [ %.2185.i, %1012 ], [ false, %370 ], [ false, %380 ]
+.loopexit114:                                     ; preds = %1012, %380, %370, %.thread482.i
+  %.2.i = phi i1 [ false, %.thread482.i ], [ %.2185.i, %1012 ], [ false, %370 ], [ false, %380 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %90) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %90)
   call void @llvm.lifetime.end.p0(ptr nonnull %89)
@@ -3224,7 +3224,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_130calcAffineCovariantDescriptorsER
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %10, ptr %48, align 8, !tbaa !26
   store i64 4294967297, ptr %47, align 8
-  %.sroa.0175.sroa.0.4.gep174.sroa_idx224 = getelementptr inbounds nuw i8, ptr %.sroa.0175.sroa.0, i64 4
+  %.sroa.0175.sroa.0.4.gep174.sroa_idx227 = getelementptr inbounds nuw i8, ptr %.sroa.0175.sroa.0, i64 4
   %49 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
   %50 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3Mat5setToERKNS_11_InputArrayES3_(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %49)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -3270,7 +3270,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_130calcAffineCovariantDescriptorsER
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %85 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %86 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %.sroa.0175.sroa.0.4.gep174.sroa_idx225 = getelementptr inbounds nuw i8, ptr %.sroa.0175.sroa.0, i64 4
+  %.sroa.0175.sroa.0.4.gep174.sroa_idx228 = getelementptr inbounds nuw i8, ptr %.sroa.0175.sroa.0, i64 4
   br label %87
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit, %4
@@ -3355,7 +3355,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_130calcAffineCovariantDescriptorsER
   store float %139, ptr %.sroa.0175.sroa.0, align 8, !tbaa !41
   %140 = load i32, ptr %66, align 8, !tbaa !63
   %141 = sitofp i32 %140 to float
-  store float %141, ptr %.sroa.0175.sroa.0.4.gep174.sroa_idx225, align 4, !tbaa !41
+  store float %141, ptr %.sroa.0175.sroa.0.4.gep174.sroa_idx228, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   br label %.preheader19.i.i
 
@@ -3371,7 +3371,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_130calcAffineCovariantDescriptorsER
 
 144:                                              ; preds = %144, %.preheader19.i.i
   %145 = phi i1 [ true, %.preheader19.i.i ], [ false, %144 ]
-  %indvars.iv.i.i.sroa.phi = phi ptr [ %.sroa.0175.sroa.0, %.preheader19.i.i ], [ %.sroa.0175.sroa.0.4.gep174.sroa_idx224, %144 ]
+  %indvars.iv.i.i.sroa.phi = phi ptr [ %.sroa.0175.sroa.0, %.preheader19.i.i ], [ %.sroa.0175.sroa.0.4.gep174.sroa_idx227, %144 ]
   %indvars.iv.i.i = phi i64 [ 0, %.preheader19.i.i ], [ 1, %144 ]
   %.01620.i.i = phi float [ 0.000000e+00, %.preheader19.i.i ], [ %150, %144 ]
   %146 = or disjoint i64 %indvars.iv.i.i, %indvars.iv24.i.i
@@ -4605,8 +4605,8 @@ _ZN2cv11xfeatures2d20AffineFeature2D_ImplC1ENS_3PtrINS_9Feature2DEEES4_.exit: ; 
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN2cv9Feature2DELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %52
 
 52:                                               ; preds = %_ZN2cv11xfeatures2d20AffineFeature2D_ImplC1ENS_3PtrINS_9Feature2DEEES4_.exit.thread, %_ZN2cv11xfeatures2d20AffineFeature2D_ImplC1ENS_3PtrINS_9Feature2DEEES4_.exit
-  %.pr17 = phi ptr [ %45, %_ZN2cv11xfeatures2d20AffineFeature2D_ImplC1ENS_3PtrINS_9Feature2DEEES4_.exit.thread ], [ %.pr.pre, %_ZN2cv11xfeatures2d20AffineFeature2D_ImplC1ENS_3PtrINS_9Feature2DEEES4_.exit ]
-  %53 = getelementptr inbounds nuw i8, ptr %.pr17, i64 8
+  %.pr21 = phi ptr [ %45, %_ZN2cv11xfeatures2d20AffineFeature2D_ImplC1ENS_3PtrINS_9Feature2DEEES4_.exit.thread ], [ %.pr.pre, %_ZN2cv11xfeatures2d20AffineFeature2D_ImplC1ENS_3PtrINS_9Feature2DEEES4_.exit ]
+  %53 = getelementptr inbounds nuw i8, ptr %.pr21, i64 8
   %54 = load atomic i64, ptr %53 acquire, align 8
   %55 = icmp eq i64 %54, 4294967297
   %56 = trunc i64 %54 to i32
@@ -4614,16 +4614,16 @@ _ZN2cv11xfeatures2d20AffineFeature2D_ImplC1ENS_3PtrINS_9Feature2DEEES4_.exit: ; 
 
 57:                                               ; preds = %52
   store i32 0, ptr %53, align 8, !tbaa !8
-  %58 = getelementptr inbounds nuw i8, ptr %.pr17, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %.pr21, i64 12
   store i32 0, ptr %58, align 4, !tbaa !13
-  %59 = load ptr, ptr %.pr17, align 8, !tbaa !14
+  %59 = load ptr, ptr %.pr21, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  tail call void %61(ptr noundef nonnull align 8 dereferenceable(16) %.pr17) #24
-  %62 = load ptr, ptr %.pr17, align 8, !tbaa !14
+  tail call void %61(ptr noundef nonnull align 8 dereferenceable(16) %.pr21) #24
+  %62 = load ptr, ptr %.pr21, align 8, !tbaa !14
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8
-  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %.pr17) #24
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %.pr21) #24
   br label %_ZNSt12__shared_ptrIN2cv9Feature2DELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 65:                                               ; preds = %52
@@ -4646,7 +4646,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %69, %67
   br i1 %71, label %72, label %_ZNSt12__shared_ptrIN2cv9Feature2DELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !164
 
 72:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr17) #24
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr21) #24
   br label %_ZNSt12__shared_ptrIN2cv9Feature2DELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv9Feature2DELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZN2cv3PtrINS_9Feature2DEEC2ERKS2_.exit.i, %_ZN2cv11xfeatures2d20AffineFeature2D_ImplC1ENS_3PtrINS_9Feature2DEEES4_.exit, %57, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %72

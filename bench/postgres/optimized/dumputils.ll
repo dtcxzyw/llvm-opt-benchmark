@@ -552,9 +552,9 @@ define dso_local noundef zeroext i1 @buildACLCommands(ptr noundef %0, ptr nounde
   br label %.sink.split
 
 .sink.split:                                      ; preds = %25, %29, %._crit_edge210
-  %.sink262 = phi ptr [ %59, %._crit_edge210 ], [ %31, %29 ], [ %26, %25 ]
+  %.sink272 = phi ptr [ %59, %._crit_edge210 ], [ %31, %29 ], [ %26, %25 ]
   %.0147.ph = phi i1 [ %.1, %._crit_edge210 ], [ false, %29 ], [ false, %25 ]
-  call void @free(ptr noundef %.sink262) #8
+  call void @free(ptr noundef %.sink272) #8
   br label %198
 
 198:                                              ; preds = %.sink.split, %10, %16
@@ -799,88 +799,88 @@ AddAcl.exit:                                      ; preds = %AddAcl.exit.sink.sp
   %.1 = phi i1 [ false, %72 ], [ %..0284, %.sink.split ]
   %79 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 120) #9
   %.not362 = icmp eq ptr %79, null
-  br i1 %.not362, label %84, label %.sink.split34
+  br i1 %.not362, label %84, label %.sink.split79
 
-.sink.split34:                                    ; preds = %78
+.sink.split79:                                    ; preds = %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1
   %81 = load i8, ptr %80, align 1
   %82 = icmp eq i8 %81, 42
   %83 = icmp ne ptr %6, null
   %or.cond7 = and i1 %83, %82
-  %.53 = select i1 %or.cond7, ptr %6, ptr %5
+  %.98 = select i1 %or.cond7, ptr %6, ptr %5
   %.1286. = and i1 %or.cond7, %.1286
   %not.or.cond7 = xor i1 %or.cond7, true
   %..1 = and i1 %.1, %not.or.cond7
-  tail call fastcc void @AddAcl(ptr noundef %.53, ptr noundef nonnull @.str.38, ptr noundef %2)
+  tail call fastcc void @AddAcl(ptr noundef %.98, ptr noundef nonnull @.str.38, ptr noundef %2)
   br label %84
 
-84:                                               ; preds = %.sink.split34, %78
-  %.2287 = phi i1 [ false, %78 ], [ %.1286., %.sink.split34 ]
-  %.2 = phi i1 [ false, %78 ], [ %..1, %.sink.split34 ]
+84:                                               ; preds = %.sink.split79, %78
+  %.2287 = phi i1 [ false, %78 ], [ %.1286., %.sink.split79 ]
+  %.2 = phi i1 [ false, %78 ], [ %..1, %.sink.split79 ]
   %85 = icmp eq ptr %2, null
   br i1 %85, label %86, label %113
 
 86:                                               ; preds = %84
   %87 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 100) #9
   %.not363 = icmp eq ptr %87, null
-  br i1 %.not363, label %92, label %.sink.split36
+  br i1 %.not363, label %92, label %.sink.split81
 
-.sink.split36:                                    ; preds = %86
+.sink.split81:                                    ; preds = %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
   %89 = load i8, ptr %88, align 1
   %90 = icmp eq i8 %89, 42
   %91 = icmp ne ptr %6, null
   %or.cond9 = and i1 %91, %90
-  %.54 = select i1 %or.cond9, ptr %6, ptr %5
+  %.99 = select i1 %or.cond9, ptr %6, ptr %5
   %.2287. = and i1 %or.cond9, %.2287
   %not.or.cond9 = xor i1 %or.cond9, true
   %..2 = and i1 %.2, %not.or.cond9
-  tail call fastcc void @AddAcl(ptr noundef %.54, ptr noundef nonnull @.str.39, ptr noundef null)
+  tail call fastcc void @AddAcl(ptr noundef %.99, ptr noundef nonnull @.str.39, ptr noundef null)
   br label %92
 
-92:                                               ; preds = %.sink.split36, %86
-  %.3288 = phi i1 [ false, %86 ], [ %.2287., %.sink.split36 ]
-  %.3 = phi i1 [ false, %86 ], [ %..2, %.sink.split36 ]
+92:                                               ; preds = %.sink.split81, %86
+  %.3288 = phi i1 [ false, %86 ], [ %.2287., %.sink.split81 ]
+  %.3 = phi i1 [ false, %86 ], [ %..2, %.sink.split81 ]
   %93 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 116) #9
   %.not364 = icmp eq ptr %93, null
-  br i1 %.not364, label %98, label %.sink.split38
+  br i1 %.not364, label %98, label %.sink.split83
 
-.sink.split38:                                    ; preds = %92
+.sink.split83:                                    ; preds = %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 1
   %95 = load i8, ptr %94, align 1
   %96 = icmp eq i8 %95, 42
   %97 = icmp ne ptr %6, null
   %or.cond11 = and i1 %97, %96
-  %.55 = select i1 %or.cond11, ptr %6, ptr %5
+  %.100 = select i1 %or.cond11, ptr %6, ptr %5
   %.3288. = and i1 %or.cond11, %.3288
   %not.or.cond11 = xor i1 %or.cond11, true
   %..3 = select i1 %not.or.cond11, i1 %.3, i1 false
-  tail call fastcc void @AddAcl(ptr noundef %.55, ptr noundef nonnull @.str.40, ptr noundef null)
+  tail call fastcc void @AddAcl(ptr noundef %.100, ptr noundef nonnull @.str.40, ptr noundef null)
   br label %98
 
-98:                                               ; preds = %.sink.split38, %92
-  %.4289 = phi i1 [ false, %92 ], [ %.3288., %.sink.split38 ]
-  %.4 = phi i1 [ false, %92 ], [ %..3, %.sink.split38 ]
+98:                                               ; preds = %.sink.split83, %92
+  %.4289 = phi i1 [ false, %92 ], [ %.3288., %.sink.split83 ]
+  %.4 = phi i1 [ false, %92 ], [ %..3, %.sink.split83 ]
   %99 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 68) #9
   %.not365 = icmp eq ptr %99, null
-  br i1 %.not365, label %104, label %.sink.split40
+  br i1 %.not365, label %104, label %.sink.split85
 
-.sink.split40:                                    ; preds = %98
+.sink.split85:                                    ; preds = %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 1
   %101 = load i8, ptr %100, align 1
   %102 = icmp eq i8 %101, 42
   %103 = icmp ne ptr %6, null
   %or.cond13 = and i1 %103, %102
-  %.56 = select i1 %or.cond13, ptr %6, ptr %5
+  %.101 = select i1 %or.cond13, ptr %6, ptr %5
   %.4289. = select i1 %or.cond13, i1 %.4289, i1 false
   %not.or.cond13 = xor i1 %or.cond13, true
   %..4 = select i1 %not.or.cond13, i1 %.4, i1 false
-  tail call fastcc void @AddAcl(ptr noundef %.56, ptr noundef nonnull @.str.41, ptr noundef null)
+  tail call fastcc void @AddAcl(ptr noundef %.101, ptr noundef nonnull @.str.41, ptr noundef null)
   br label %104
 
-104:                                              ; preds = %.sink.split40, %98
-  %.5290 = phi i1 [ false, %98 ], [ %.4289., %.sink.split40 ]
-  %.5 = phi i1 [ false, %98 ], [ %..4, %.sink.split40 ]
+104:                                              ; preds = %.sink.split85, %98
+  %.5290 = phi i1 [ false, %98 ], [ %.4289., %.sink.split85 ]
+  %.5 = phi i1 [ false, %98 ], [ %..4, %.sink.split85 ]
   %105 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 109) #9
   %.not366 = icmp eq ptr %105, null
   br i1 %.not366, label %113, label %106
@@ -1031,22 +1031,22 @@ AddAcl.exit:                                      ; preds = %AddAcl.exit.sink.sp
 174:                                              ; preds = %168, %171
   %175 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 67) #9
   %.not355 = icmp eq ptr %175, null
-  br i1 %.not355, label %180, label %.sink.split42
+  br i1 %.not355, label %180, label %.sink.split87
 
-.sink.split42:                                    ; preds = %174
+.sink.split87:                                    ; preds = %174
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 1
   %177 = load i8, ptr %176, align 1
   %178 = icmp eq i8 %177, 42
   %179 = icmp ne ptr %6, null
   %or.cond25 = and i1 %179, %178
-  %.57 = select i1 %or.cond25, ptr %6, ptr %5
+  %.102 = select i1 %or.cond25, ptr %6, ptr %5
   %not.or.cond25 = xor i1 %or.cond25, true
-  tail call fastcc void @AddAcl(ptr noundef %.57, ptr noundef nonnull @.str.52, ptr noundef %2)
+  tail call fastcc void @AddAcl(ptr noundef %.102, ptr noundef nonnull @.str.52, ptr noundef %2)
   br label %180
 
-180:                                              ; preds = %.sink.split42, %174
-  %.8293 = phi i1 [ false, %174 ], [ %or.cond25, %.sink.split42 ]
-  %.8 = phi i1 [ false, %174 ], [ %not.or.cond25, %.sink.split42 ]
+180:                                              ; preds = %.sink.split87, %174
+  %.8293 = phi i1 [ false, %174 ], [ %or.cond25, %.sink.split87 ]
+  %.8 = phi i1 [ false, %174 ], [ %not.or.cond25, %.sink.split87 ]
   %181 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 85) #9
   %.not356 = icmp eq ptr %181, null
   br i1 %.not356, label %dequoteAclUserName.exit.thread, label %182
@@ -1075,42 +1075,42 @@ AddAcl.exit:                                      ; preds = %AddAcl.exit.sink.sp
 192:                                              ; preds = %189
   %193 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 67) #9
   %.not352 = icmp eq ptr %193, null
-  br i1 %.not352, label %198, label %.sink.split44
+  br i1 %.not352, label %198, label %.sink.split89
 
-.sink.split44:                                    ; preds = %192
+.sink.split89:                                    ; preds = %192
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 1
   %195 = load i8, ptr %194, align 1
   %196 = icmp eq i8 %195, 42
   %197 = icmp ne ptr %6, null
   %or.cond29 = and i1 %197, %196
-  %.60 = select i1 %or.cond29, ptr %6, ptr %5
+  %.105 = select i1 %or.cond29, ptr %6, ptr %5
   %not.or.cond29 = xor i1 %or.cond29, true
-  tail call fastcc void @AddAcl(ptr noundef %.60, ptr noundef nonnull @.str.52, ptr noundef %2)
+  tail call fastcc void @AddAcl(ptr noundef %.105, ptr noundef nonnull @.str.52, ptr noundef %2)
   br label %198
 
-198:                                              ; preds = %.sink.split44, %192
-  %.9294 = phi i1 [ false, %192 ], [ %or.cond29, %.sink.split44 ]
-  %.9 = phi i1 [ false, %192 ], [ %not.or.cond29, %.sink.split44 ]
+198:                                              ; preds = %.sink.split89, %192
+  %.9294 = phi i1 [ false, %192 ], [ %or.cond29, %.sink.split89 ]
+  %.9 = phi i1 [ false, %192 ], [ %not.or.cond29, %.sink.split89 ]
   %199 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 99) #9
   %.not353 = icmp eq ptr %199, null
-  br i1 %.not353, label %204, label %.sink.split46
+  br i1 %.not353, label %204, label %.sink.split91
 
-.sink.split46:                                    ; preds = %198
+.sink.split91:                                    ; preds = %198
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 1
   %201 = load i8, ptr %200, align 1
   %202 = icmp eq i8 %201, 42
   %203 = icmp ne ptr %6, null
   %or.cond31 = and i1 %203, %202
-  %.63 = select i1 %or.cond31, ptr %6, ptr %5
+  %.108 = select i1 %or.cond31, ptr %6, ptr %5
   %.9294. = and i1 %or.cond31, %.9294
   %not.or.cond31 = xor i1 %or.cond31, true
   %..9 = and i1 %.9, %not.or.cond31
-  tail call fastcc void @AddAcl(ptr noundef %.63, ptr noundef nonnull @.str.54, ptr noundef %2)
+  tail call fastcc void @AddAcl(ptr noundef %.108, ptr noundef nonnull @.str.54, ptr noundef %2)
   br label %204
 
-204:                                              ; preds = %.sink.split46, %198
-  %.10295 = phi i1 [ false, %198 ], [ %.9294., %.sink.split46 ]
-  %.10 = phi i1 [ false, %198 ], [ %..9, %.sink.split46 ]
+204:                                              ; preds = %.sink.split91, %198
+  %.10295 = phi i1 [ false, %198 ], [ %.9294., %.sink.split91 ]
+  %.10 = phi i1 [ false, %198 ], [ %..9, %.sink.split91 ]
   %205 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 84) #9
   %.not354 = icmp eq ptr %205, null
   br i1 %.not354, label %dequoteAclUserName.exit.thread, label %206
@@ -1234,22 +1234,22 @@ AddAcl.exit:                                      ; preds = %AddAcl.exit.sink.sp
 269:                                              ; preds = %266
   %270 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 115) #9
   %.not345 = icmp eq ptr %270, null
-  br i1 %.not345, label %275, label %.sink.split48
+  br i1 %.not345, label %275, label %.sink.split93
 
-.sink.split48:                                    ; preds = %269
+.sink.split93:                                    ; preds = %269
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 1
   %272 = load i8, ptr %271, align 1
   %273 = icmp eq i8 %272, 42
   %274 = icmp ne ptr %6, null
   %or.cond45 = and i1 %274, %273
-  %.64 = select i1 %or.cond45, ptr %6, ptr %5
+  %.109 = select i1 %or.cond45, ptr %6, ptr %5
   %not.or.cond45 = xor i1 %or.cond45, true
-  tail call fastcc void @AddAcl(ptr noundef %.64, ptr noundef nonnull @.str.63, ptr noundef %2)
+  tail call fastcc void @AddAcl(ptr noundef %.109, ptr noundef nonnull @.str.63, ptr noundef %2)
   br label %275
 
-275:                                              ; preds = %.sink.split48, %269
-  %.11296 = phi i1 [ false, %269 ], [ %or.cond45, %.sink.split48 ]
-  %.11 = phi i1 [ false, %269 ], [ %not.or.cond45, %.sink.split48 ]
+275:                                              ; preds = %.sink.split93, %269
+  %.11296 = phi i1 [ false, %269 ], [ %or.cond45, %.sink.split93 ]
+  %.11 = phi i1 [ false, %269 ], [ %not.or.cond45, %.sink.split93 ]
   %276 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 65) #9
   %.not346 = icmp eq ptr %276, null
   br i1 %.not346, label %dequoteAclUserName.exit.thread, label %277
@@ -1278,22 +1278,22 @@ AddAcl.exit:                                      ; preds = %AddAcl.exit.sink.sp
 287:                                              ; preds = %284
   %288 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 114) #9
   %.not343 = icmp eq ptr %288, null
-  br i1 %.not343, label %293, label %.sink.split50
+  br i1 %.not343, label %293, label %.sink.split95
 
-.sink.split50:                                    ; preds = %287
+.sink.split95:                                    ; preds = %287
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 1
   %290 = load i8, ptr %289, align 1
   %291 = icmp eq i8 %290, 42
   %292 = icmp ne ptr %6, null
   %or.cond49 = and i1 %292, %291
-  %.67 = select i1 %or.cond49, ptr %6, ptr %5
+  %.112 = select i1 %or.cond49, ptr %6, ptr %5
   %not.or.cond49 = xor i1 %or.cond49, true
-  tail call fastcc void @AddAcl(ptr noundef %.67, ptr noundef nonnull @.str.35, ptr noundef %2)
+  tail call fastcc void @AddAcl(ptr noundef %.112, ptr noundef nonnull @.str.35, ptr noundef %2)
   br label %293
 
-293:                                              ; preds = %.sink.split50, %287
-  %.12297 = phi i1 [ false, %287 ], [ %or.cond49, %.sink.split50 ]
-  %.12 = phi i1 [ false, %287 ], [ %not.or.cond49, %.sink.split50 ]
+293:                                              ; preds = %.sink.split95, %287
+  %.12297 = phi i1 [ false, %287 ], [ %or.cond49, %.sink.split95 ]
+  %.12 = phi i1 [ false, %287 ], [ %not.or.cond49, %.sink.split95 ]
   %294 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 119) #9
   %.not344 = icmp eq ptr %294, null
   br i1 %.not344, label %dequoteAclUserName.exit.thread, label %295
@@ -1347,8 +1347,8 @@ AddAcl.exit386.thread9:                           ; preds = %AddAcl.exit386.thre
   br i1 %.not369, label %dequoteAclUserName.exit.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %.thread16, %AddAcl.exit386.thread9
-  %.sink52 = phi ptr [ %6, %AddAcl.exit386.thread9 ], [ %5, %.thread16 ]
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %.sink52, ptr noundef nonnull @.str.67, ptr noundef nonnull %2) #8
+  %.sink97 = phi ptr [ %6, %AddAcl.exit386.thread9 ], [ %5, %.thread16 ]
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %.sink97, ptr noundef nonnull @.str.67, ptr noundef nonnull %2) #8
   br label %dequoteAclUserName.exit.thread
 
 dequoteAclUserName.exit.thread:                   ; preds = %.loopexit.i, %.preheader.i, %.loopexit.i376, %AddAcl.exit386.thread9, %.thread16, %303, %AddAcl.exit386, %293, %275, %259, %249, %239, %229, %216, %204, %180, %161, %151, %138, %113, %187, %211, %282, %300, %125, %131, %301, %283, %212, %188, %.thread.sink.split, %17

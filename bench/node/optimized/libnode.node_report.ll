@@ -2602,7 +2602,7 @@ if.end10.i.i.i.i:                                 ; preds = %if.end.i.i.i31.i
   %conv.i13.i.i.i.i = sext i8 %225 to i32
   %call.i.i14.i.i.i.i = call i32 @iswspace(i32 noundef range(i32 -128, 128) %conv.i13.i.i.i.i) #24
   %tobool.not.i.i15.i.i.i.i = icmp eq i32 %call.i.i14.i.i.i.i, 0
-  br i1 %tobool.not.i.i15.i.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i.loopexit.split.loop.exit580", label %if.end16.i.i.i.i
+  br i1 %tobool.not.i.i15.i.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i.loopexit.split.loop.exit606", label %if.end16.i.i.i.i
 
 if.end16.i.i.i.i:                                 ; preds = %if.end10.i.i.i.i
   %incdec.ptr.i16.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.056.i.i.i.i, i64 3
@@ -2610,7 +2610,7 @@ if.end16.i.i.i.i:                                 ; preds = %if.end10.i.i.i.i
   %conv.i17.i.i.i.i = sext i8 %226 to i32
   %call.i.i18.i.i.i.i = call i32 @iswspace(i32 noundef range(i32 -128, 128) %conv.i17.i.i.i.i) #24
   %tobool.not.i.i19.i.i.i.i = icmp eq i32 %call.i.i18.i.i.i.i, 0
-  br i1 %tobool.not.i.i19.i.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i.loopexit.split.loop.exit582", label %if.end22.i.i.i.i
+  br i1 %tobool.not.i.i19.i.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i.loopexit.split.loop.exit608", label %if.end22.i.i.i.i
 
 if.end22.i.i.i.i:                                 ; preds = %if.end16.i.i.i.i
   %incdec.ptr.i20.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.056.i.i.i.i, i64 4
@@ -2668,16 +2668,16 @@ sw.bb38.i.i.i.i:                                  ; preds = %if.end36.i.i.i.i, %
   %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.056.i.i.i.i, i64 1
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i.loopexit.split.loop.exit580": ; preds = %if.end10.i.i.i.i
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i.loopexit.split.loop.exit606": ; preds = %if.end10.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.056.i.i.i.i, i64 2
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i.loopexit.split.loop.exit582": ; preds = %if.end16.i.i.i.i
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i.loopexit.split.loop.exit608": ; preds = %if.end16.i.i.i.i
   %incdec.ptr.i16.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.056.i.i.i.i, i64 3
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i": ; preds = %for.body.i.i.i30.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i.loopexit.split.loop.exit580", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i.loopexit.split.loop.exit582", %sw.bb38.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb.i.i.i.i, %for.end.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %call40.i, %for.end.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.le, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i12.i.i.i.i.le, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i.loopexit.split.loop.exit580" ], [ %incdec.ptr.i16.i.i.i.i.le, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i.loopexit.split.loop.exit582" ], [ %__first.sroa.0.056.i.i.i.i, %for.body.i.i.i30.i ]
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i": ; preds = %for.body.i.i.i30.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i.loopexit.split.loop.exit606", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i.loopexit.split.loop.exit608", %sw.bb38.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb.i.i.i.i, %for.end.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %call40.i, %for.end.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.le, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i.loopexit.split.loop.exit" ], [ %incdec.ptr.i12.i.i.i.i.le, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i.loopexit.split.loop.exit606" ], [ %incdec.ptr.i16.i.i.i.i.le, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN4node6reportL25PrintJavaScriptErrorStackEPNSA_10JSONWriterEPN2v87IsolateENSE_5LocalINSE_5ValueEEEPKcE3$_0ET_SN_SN_T0_.exit.i.loopexit.split.loop.exit608" ], [ %__first.sroa.0.056.i.i.i.i, %for.body.i.i.i30.i ]
   %call49.i = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_(ptr noundef nonnull align 8 dereferenceable(32) %l.i, ptr %call32.i, ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i) #24
   call void @_ZN4node10JSONWriter12json_elementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(20) %writer, ptr noundef nonnull align 8 dereferenceable(32) %l.i)
   %sext20.i = add i64 %sext19.i, 4294967296
@@ -4091,8 +4091,8 @@ _ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit: ; preds = %_ZN
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit.thread: ; preds = %_ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit
   call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %workers_mutex) #24
   %.pre568 = load ptr, ptr %worker_infos, align 8
-  %_M_finish.i359571 = getelementptr inbounds nuw i8, ptr %worker_infos, i64 8
-  %471 = load ptr, ptr %_M_finish.i359571, align 8
+  %_M_finish.i359597 = getelementptr inbounds nuw i8, ptr %worker_infos, i64 8
+  %471 = load ptr, ptr %_M_finish.i359597, align 8
   br label %for.cond73.preheader
 
 for.body.i339:                                    ; preds = %_ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit, %"_ZZN4node6reportL15WriteNodeReportEPN2v87IsolateEPNS_11EnvironmentEPKcS7_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSoNS1_5LocalINS1_5ValueEEEbENK3$_0clEPNS_6worker6WorkerE.exit.i"
@@ -4147,11 +4147,11 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i345
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i.i.i.i, label %if.end.sink.split.i.i.i.i.i
 
 if.end.sink.split.i.i.i.i.i:                      ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i347
-  %.sink4.i.i.i.i.i = phi ptr [ %476, %if.then.i.i.i.i.i347 ], [ %477, %if.else.i.i.i.i.i ]
-  %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.sink4.i.i.i.i.i, align 8
+  %.sink6.i.i.i.i.i = phi ptr [ %476, %if.then.i.i.i.i.i347 ], [ %477, %if.else.i.i.i.i.i ]
+  %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.sink6.i.i.i.i.i, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 8
   %478 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
-  call void %478(ptr noundef nonnull align 8 dereferenceable(24) %.sink4.i.i.i.i.i) #24
+  call void %478(ptr noundef nonnull align 8 dereferenceable(24) %.sink6.i.i.i.i.i) #24
   br label %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i.i.i.i
 
 _ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i.i.i.i: ; preds = %if.end.sink.split.i.i.i.i.i, %if.else.i.i.i.i.i, %if.then.i.i.i.i.i347
@@ -4251,7 +4251,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserv
   br i1 %cmp65558, label %while.body, label %for.cond73.preheader
 
 for.cond73.preheader:                             ; preds = %while.body, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit.thread, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit
-  %_M_finish.i359577 = phi ptr [ %_M_finish.i359, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit ], [ %_M_finish.i359571, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit.thread ], [ %_M_finish.i359, %while.body ]
+  %_M_finish.i359603 = phi ptr [ %_M_finish.i359, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit ], [ %_M_finish.i359597, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit.thread ], [ %_M_finish.i359, %while.body ]
   %.lcssa543 = phi ptr [ %486, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit ], [ %471, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit.thread ], [ %487, %while.body ]
   %.lcssa542 = phi ptr [ %485, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit ], [ %.pre568, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit.thread ], [ %488, %while.body ]
   %cmp.i361.not560 = icmp eq ptr %.lcssa542, %.lcssa543
@@ -4280,7 +4280,7 @@ for.body75:                                       ; preds = %for.cond73.preheade
 for.end80:                                        ; preds = %for.body75, %for.cond73.preheader
   call void @uv_mutex_unlock(ptr noundef nonnull %workers_mutex) #24
   %489 = load ptr, ptr %worker_infos, align 8
-  %490 = load ptr, ptr %_M_finish.i359577, align 8
+  %490 = load ptr, ptr %_M_finish.i359603, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %489, %490
   br i1 %cmp.not3.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %for.body.i.i.i.i364
 
@@ -7418,8 +7418,8 @@ entry:
 
 while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit"
   %__secondChild.032 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESF_EEbT_T0_.exit" ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__secondChild.032, 1
-  %mul = add i64 %add, 2
+  %add = shl nuw nsw i64 %__secondChild.032, 1
+  %mul = add nuw nsw i64 %add, 2
   %add.ptr = getelementptr inbounds nuw %"struct.std::pair.263", ptr %__first, i64 %mul
   %0 = getelementptr inbounds nuw %"struct.std::pair.263", ptr %__first, i64 %add
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7472,7 +7472,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp9, label %if.then10, label %if.end18
 
 if.then10:                                        ; preds = %land.lhs.true
-  %add11 = shl nsw i64 %__secondChild.0.lcssa, 1
+  %add11 = shl nuw nsw i64 %__secondChild.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
   %add.ptr14 = getelementptr inbounds nuw %"struct.std::pair.263", ptr %__first, i64 %sub13
   %add.ptr15 = getelementptr inbounds nuw %"struct.std::pair.263", ptr %__first, i64 %__secondChild.0.lcssa
@@ -7491,10 +7491,10 @@ if.end18:                                         ; preds = %if.then10, %land.lh
   br i1 %cmp3.i, label %land.rhs.i, label %"_ZSt11__push_heapIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_ElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZN4node6reportL22PrintComponentVersionsEPNSA_10JSONWriterEE3$_0EEEvT_T0_SH_T1_RT2_.exit"
 
 land.rhs.i:                                       ; preds = %if.end18, %while.body.i
-  %__holeIndex.addr.04.i = phi i64 [ %__parent.05.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end18 ]
+  %__holeIndex.addr.04.i = phi i64 [ %__parent.057.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end18 ]
   %__parent.05.in.i = add nsw i64 %__holeIndex.addr.04.i, -1
-  %__parent.05.i = sdiv i64 %__parent.05.in.i, 2
-  %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair.263", ptr %__first, i64 %__parent.05.i
+  %__parent.057.i = lshr i64 %__parent.05.in.i, 1
+  %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair.263", ptr %__first, i64 %__parent.057.i
   %add.ptr.val.i = load i64, ptr %add.ptr.i, align 8
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.0.0.copyload, i64 %add.ptr.val.i)
   %cmp.i2.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
@@ -7525,11 +7525,11 @@ while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__op
   %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   %second3.i.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second3.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second.i.i, i64 16, i1 false)
-  %cmp.i = icmp sgt i64 %__parent.05.i, %__holeIndex
+  %cmp.i = icmp samesign ugt i64 %__parent.057.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %"_ZSt11__push_heapIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_ElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZN4node6reportL22PrintComponentVersionsEPNSA_10JSONWriterEE3$_0EEEvT_T0_SH_T1_RT2_.exit", !llvm.loop !55
 
 "_ZSt11__push_heapIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_ElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZN4node6reportL22PrintComponentVersionsEPNSA_10JSONWriterEE3$_0EEEvT_T0_SH_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESE_EEbT_RT0_.exit.i", %while.body.i, %if.end18
-  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end18 ], [ %__holeIndex.addr.04.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESE_EEbT_RT0_.exit.i" ], [ %__parent.05.i, %while.body.i ]
+  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end18 ], [ %__holeIndex.addr.04.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4node6reportL22PrintComponentVersionsEPNS2_10JSONWriterEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESD_ESE_EEbT_RT0_.exit.i" ], [ %__parent.057.i, %while.body.i ]
   %agg.tmp.sroa.3.0.__value.sroa_idx = getelementptr inbounds nuw i8, ptr %__value, i64 16
   %add.ptr6.i = getelementptr inbounds nuw %"struct.std::pair.263", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %add.ptr6.i, align 8

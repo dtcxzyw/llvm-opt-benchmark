@@ -576,7 +576,7 @@ PerformAuthentication.exit:                       ; preds = %70, %95
   %.070.shrunk113117 = phi i1 [ false, %128 ], [ false, %118 ], [ false, %113 ], [ %.070.shrunk, %110 ], [ true, %53 ], [ true, %55 ], [ true, %44 ], [ true, %65 ], [ true, %.thread ]
   %135 = load i8, ptr @am_walsender, align 1, !range !8, !noundef !9
   %136 = trunc nuw i8 %135 to i1
-  br i1 %136, label %137, label %.thread125
+  br i1 %136, label %137, label %.thread138
 
 137:                                              ; preds = %.thread114
   %138 = call i32 @GetUserId() #12
@@ -599,7 +599,7 @@ PerformAuthentication.exit:                       ; preds = %70, %95
   %148 = load i8, ptr @am_db_walsender, align 1, !range !8
   %149 = trunc nuw i8 %148 to i1
   %or.cond12 = select i1 %147, i1 true, i1 %149
-  br i1 %or.cond12, label %.thread125, label %150
+  br i1 %or.cond12, label %.thread138, label %150
 
 150:                                              ; preds = %145
   %151 = load ptr, ptr @MyProcPort, align 8
@@ -627,10 +627,10 @@ PerformAuthentication.exit:                       ; preds = %70, %95
   call void @CommitTransactionCommand() #12
   br label %.critedge102
 
-.thread125:                                       ; preds = %.thread114, %145
+.thread138:                                       ; preds = %.thread114, %145
   br i1 %14, label %183, label %160
 
-160:                                              ; preds = %.thread125
+160:                                              ; preds = %.thread138
   %.not87 = icmp eq ptr %0, null
   br i1 %.not87, label %181, label %161
 
@@ -685,7 +685,7 @@ GetDatabaseTuple.exit:                            ; preds = %161, %168
   call void @CommitTransactionCommand() #12
   br label %.critedge102
 
-183:                                              ; preds = %.thread125
+183:                                              ; preds = %.thread138
   store i32 1663, ptr @MyDatabaseTableSpace, align 4
   br label %.critedge
 

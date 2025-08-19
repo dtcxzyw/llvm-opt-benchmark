@@ -59983,14 +59983,14 @@ common.resume:                                    ; preds = %.body3, %32
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17h72708779e9457675E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !2294, !noundef !4
-  switch i8 %2, label %default.unreachable2 [
+  switch i8 %2, label %default.unreachable4 [
     i8 0, label %15
     i8 1, label %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$$u5b$alloc..boxed..Box$LT$str$GT$$u5d$$GT$$GT$17h1b218fb1364866a1E.exit"
     i8 2, label %21
     i8 3, label %3
   ]
 
-default.unreachable2:                             ; preds = %1
+default.unreachable4:                             ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -63667,14 +63667,14 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$gpui..app..entity_map..Entit
 define hidden void @"_ZN4core3ptr59drop_in_place$LT$language..language_settings..Formatter$GT$17h8aa762884602b7a8E.llvm.17800909824106940392"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !2083, !noundef !4
-  switch i64 %3, label %default.unreachable3 [
+  switch i64 %3, label %default.unreachable6 [
     i64 0, label %23
     i64 1, label %"_ZN4core3ptr154drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$bool$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc88ad9170014d91dE.exit"
     i64 2, label %31
     i64 3, label %4
   ]
 
-default.unreachable3:                             ; preds = %1
+default.unreachable6:                             ; preds = %1
   unreachable
 
 4:                                                ; preds = %1
@@ -104127,7 +104127,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hb02eff011714ce34E.exit: ; pred
   %24 = load i64, ptr %23, align 8, !alias.scope !35850, !noalias !35853, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %26 = load ptr, ptr %25, align 8, !noalias !35855, !nonnull !4, !noundef !4
-  %.idx29 = mul nsw i64 %24, 48
+  %.idx37 = mul nsw i64 %24, 48
   %27 = icmp eq i64 %22, %24
   br i1 %27, label %35, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc45bace842a3ec0E.llvm.16711830050994594654.exit.lr.ph.i"
 
@@ -104145,7 +104145,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hb02eff011714ce34E.exit: ; pred
   %32 = add i64 %31, 1
   store i64 %32, ptr %21, align 8, !noalias !35855
   %33 = add nsw i64 %.idx, 48
-  %34 = icmp eq i64 %33, %.idx29
+  %34 = icmp eq i64 %33, %.idx37
   br i1 %34, label %"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drain$LT$T$C$A$GT$$GT$4fill17h7d4843ffa1f0d29aE.exit13.thread.sink.split", label %"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drain$LT$T$C$A$GT$$GT$4fill17h7d4843ffa1f0d29aE.exit"
 
 "_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drain$LT$T$C$A$GT$$GT$4fill17h7d4843ffa1f0d29aE.exit": ; preds = %29, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc45bace842a3ec0E.llvm.16711830050994594654.exit.lr.ph.i"
@@ -104188,7 +104188,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hb02eff011714ce34E.exit: ; pred
   %49 = load i64, ptr %48, align 8, !noalias !35869, !noundef !4
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %51 = load ptr, ptr %50, align 8, !noalias !35869, !nonnull !4, !noundef !4
-  %.idx31 = mul nsw i64 %43, 48
+  %.idx39 = mul nsw i64 %43, 48
   %52 = icmp eq i64 %49, %43
   br i1 %52, label %"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drain$LT$T$C$A$GT$$GT$4fill17h7d4843ffa1f0d29aE.exit13.thread", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc45bace842a3ec0E.llvm.16711830050994594654.exit.lr.ph.i6"
 
@@ -104199,14 +104199,14 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hb02eff011714ce34E.exit: ; pred
 
 54:                                               ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc45bace842a3ec0E.llvm.16711830050994594654.exit.lr.ph.i6"
   %.sroa.5.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.idx30 = mul nsw i64 %49, 48
-  %55 = getelementptr inbounds i8, ptr %51, i64 %.idx30
+  %.idx38 = mul nsw i64 %49, 48
+  %55 = getelementptr inbounds i8, ptr %51, i64 %.idx38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %55, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.5.0..sroa_idx.i8, i64 48, i1 false), !noalias !35864
   %56 = load i64, ptr %48, align 8, !noalias !35869, !noundef !4
   %57 = add i64 %56, 1
   store i64 %57, ptr %48, align 8, !noalias !35869
-  %58 = add nsw i64 %.idx30, 48
-  %59 = icmp eq i64 %58, %.idx31
+  %58 = add nsw i64 %.idx38, 48
+  %59 = icmp eq i64 %58, %.idx39
   br i1 %59, label %"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drain$LT$T$C$A$GT$$GT$4fill17h7d4843ffa1f0d29aE.exit13.thread.sink.split", label %"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drain$LT$T$C$A$GT$$GT$4fill17h7d4843ffa1f0d29aE.exit13"
 
 "_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drain$LT$T$C$A$GT$$GT$4fill17h7d4843ffa1f0d29aE.exit13": ; preds = %54, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc45bace842a3ec0E.llvm.16711830050994594654.exit.lr.ph.i6"

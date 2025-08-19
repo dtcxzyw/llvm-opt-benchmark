@@ -310,7 +310,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %.sroa.028.0121.i = phi i64 [ 0, %.lr.ph125.i ], [ %.sroa.028.1123.i, %.loopexit.i ]
   %110 = load i64, ptr %103, align 8, !noalias !6, !noundef !9
   %111 = icmp ult i64 %.sroa.028.0121.i, %110
-  br i1 %111, label %160, label %.invoke209.i
+  br i1 %111, label %160, label %.invoke228.i
 
 ._crit_edge126.i:                                 ; preds = %.loopexit.i, %100
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !6
@@ -340,8 +340,8 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h31bbedd59de2cd87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #20
           to label %86 unwind label %158, !noalias !6
 
-120:                                              ; preds = %.invoke209.i, %154, %117, %._crit_edge126.i
-  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke209.i ]
+120:                                              ; preds = %.invoke228.i, %154, %117, %._crit_edge126.i
+  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke228.i ]
   %121 = landingpad { ptr, i32 }
           cleanup
   br label %119
@@ -498,7 +498,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %166 = load ptr, ptr %106, align 8, !noalias !6, !nonnull !9
   %167 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %166, i64 %.sroa.028.0121.i
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  br i1 %165, label %.lr.ph119.split.i, label %.invoke209.i
+  br i1 %165, label %.lr.ph119.split.i, label %.invoke228.i
 
 .lr.ph119.split.i:                                ; preds = %.lr.ph119.i
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 16
@@ -525,16 +525,16 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 180:                                              ; preds = %172
   %181 = add i64 %163, -1
   %umin.le.i = tail call i64 @llvm.umin.i64(i64 %170, i64 %181)
-  br label %.invoke209.i
+  br label %.invoke228.i
 
-.invoke209.i:                                     ; preds = %.lr.ph119.i, %109, %180
+.invoke228.i:                                     ; preds = %.lr.ph119.i, %109, %180
   %182 = phi i64 [ %umin.le.i, %180 ], [ %.sroa.028.0121.i, %109 ], [ %.sroa.028.0121.i, %.lr.ph119.i ]
   %183 = phi i64 [ %170, %180 ], [ %164, %.lr.ph119.i ], [ %110, %109 ]
   %184 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.14, %180 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.13, %.lr.ph119.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.12, %109 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %182, i64 noundef %183, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %184) #19
-          to label %.cont210.i unwind label %120, !noalias !6
+          to label %.cont229.i unwind label %120, !noalias !6
 
-.cont210.i:                                       ; preds = %.invoke209.i
+.cont229.i:                                       ; preds = %.invoke228.i
   unreachable
 
 185:                                              ; preds = %72
@@ -867,7 +867,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %.sroa.028.0121.i = phi i64 [ 0, %.lr.ph125.i ], [ %.sroa.028.1123.i, %.loopexit.i ]
   %110 = load i64, ptr %103, align 8, !noalias !42, !noundef !9
   %111 = icmp ult i64 %.sroa.028.0121.i, %110
-  br i1 %111, label %160, label %.invoke209.i
+  br i1 %111, label %160, label %.invoke228.i
 
 ._crit_edge126.i:                                 ; preds = %.loopexit.i, %100
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !42
@@ -897,8 +897,8 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h31bbedd59de2cd87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #20
           to label %86 unwind label %158, !noalias !42
 
-120:                                              ; preds = %.invoke209.i, %154, %117, %._crit_edge126.i
-  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke209.i ]
+120:                                              ; preds = %.invoke228.i, %154, %117, %._crit_edge126.i
+  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke228.i ]
   %121 = landingpad { ptr, i32 }
           cleanup
   br label %119
@@ -1055,7 +1055,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %166 = load ptr, ptr %106, align 8, !noalias !42, !nonnull !9
   %167 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %166, i64 %.sroa.028.0121.i
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  br i1 %165, label %.lr.ph119.split.i, label %.invoke209.i
+  br i1 %165, label %.lr.ph119.split.i, label %.invoke228.i
 
 .lr.ph119.split.i:                                ; preds = %.lr.ph119.i
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 16
@@ -1082,16 +1082,16 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 180:                                              ; preds = %172
   %181 = add i64 %163, -1
   %umin.le.i = tail call i64 @llvm.umin.i64(i64 %170, i64 %181)
-  br label %.invoke209.i
+  br label %.invoke228.i
 
-.invoke209.i:                                     ; preds = %.lr.ph119.i, %109, %180
+.invoke228.i:                                     ; preds = %.lr.ph119.i, %109, %180
   %182 = phi i64 [ %umin.le.i, %180 ], [ %.sroa.028.0121.i, %109 ], [ %.sroa.028.0121.i, %.lr.ph119.i ]
   %183 = phi i64 [ %170, %180 ], [ %164, %.lr.ph119.i ], [ %110, %109 ]
   %184 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.14, %180 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.13, %.lr.ph119.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.12, %109 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %182, i64 noundef %183, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %184) #19
-          to label %.cont210.i unwind label %120, !noalias !42
+          to label %.cont229.i unwind label %120, !noalias !42
 
-.cont210.i:                                       ; preds = %.invoke209.i
+.cont229.i:                                       ; preds = %.invoke228.i
   unreachable
 
 185:                                              ; preds = %72
@@ -1424,7 +1424,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %.sroa.028.0121.i = phi i64 [ 0, %.lr.ph125.i ], [ %.sroa.028.1123.i, %.loopexit.i ]
   %110 = load i64, ptr %103, align 8, !noalias !72, !noundef !9
   %111 = icmp ult i64 %.sroa.028.0121.i, %110
-  br i1 %111, label %160, label %.invoke209.i
+  br i1 %111, label %160, label %.invoke228.i
 
 ._crit_edge126.i:                                 ; preds = %.loopexit.i, %100
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !72
@@ -1454,8 +1454,8 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h31bbedd59de2cd87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #20
           to label %86 unwind label %158, !noalias !72
 
-120:                                              ; preds = %.invoke209.i, %154, %117, %._crit_edge126.i
-  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke209.i ]
+120:                                              ; preds = %.invoke228.i, %154, %117, %._crit_edge126.i
+  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke228.i ]
   %121 = landingpad { ptr, i32 }
           cleanup
   br label %119
@@ -1612,7 +1612,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %166 = load ptr, ptr %106, align 8, !noalias !72, !nonnull !9
   %167 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %166, i64 %.sroa.028.0121.i
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  br i1 %165, label %.lr.ph119.split.i, label %.invoke209.i
+  br i1 %165, label %.lr.ph119.split.i, label %.invoke228.i
 
 .lr.ph119.split.i:                                ; preds = %.lr.ph119.i
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 16
@@ -1639,16 +1639,16 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 180:                                              ; preds = %172
   %181 = add i64 %163, -1
   %umin.le.i = tail call i64 @llvm.umin.i64(i64 %170, i64 %181)
-  br label %.invoke209.i
+  br label %.invoke228.i
 
-.invoke209.i:                                     ; preds = %.lr.ph119.i, %109, %180
+.invoke228.i:                                     ; preds = %.lr.ph119.i, %109, %180
   %182 = phi i64 [ %umin.le.i, %180 ], [ %.sroa.028.0121.i, %109 ], [ %.sroa.028.0121.i, %.lr.ph119.i ]
   %183 = phi i64 [ %170, %180 ], [ %164, %.lr.ph119.i ], [ %110, %109 ]
   %184 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.14, %180 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.13, %.lr.ph119.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.12, %109 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %182, i64 noundef %183, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %184) #19
-          to label %.cont210.i unwind label %120, !noalias !72
+          to label %.cont229.i unwind label %120, !noalias !72
 
-.cont210.i:                                       ; preds = %.invoke209.i
+.cont229.i:                                       ; preds = %.invoke228.i
   unreachable
 
 185:                                              ; preds = %72
@@ -1981,7 +1981,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %.sroa.028.0121.i = phi i64 [ 0, %.lr.ph125.i ], [ %.sroa.028.1123.i, %.loopexit.i ]
   %110 = load i64, ptr %103, align 8, !noalias !102, !noundef !9
   %111 = icmp ult i64 %.sroa.028.0121.i, %110
-  br i1 %111, label %160, label %.invoke209.i
+  br i1 %111, label %160, label %.invoke228.i
 
 ._crit_edge126.i:                                 ; preds = %.loopexit.i, %100
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !102
@@ -2011,8 +2011,8 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h31bbedd59de2cd87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #20
           to label %86 unwind label %158, !noalias !102
 
-120:                                              ; preds = %.invoke209.i, %154, %117, %._crit_edge126.i
-  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke209.i ]
+120:                                              ; preds = %.invoke228.i, %154, %117, %._crit_edge126.i
+  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke228.i ]
   %121 = landingpad { ptr, i32 }
           cleanup
   br label %119
@@ -2169,7 +2169,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %166 = load ptr, ptr %106, align 8, !noalias !102, !nonnull !9
   %167 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %166, i64 %.sroa.028.0121.i
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  br i1 %165, label %.lr.ph119.split.i, label %.invoke209.i
+  br i1 %165, label %.lr.ph119.split.i, label %.invoke228.i
 
 .lr.ph119.split.i:                                ; preds = %.lr.ph119.i
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 16
@@ -2196,16 +2196,16 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 180:                                              ; preds = %172
   %181 = add i64 %163, -1
   %umin.le.i = tail call i64 @llvm.umin.i64(i64 %170, i64 %181)
-  br label %.invoke209.i
+  br label %.invoke228.i
 
-.invoke209.i:                                     ; preds = %.lr.ph119.i, %109, %180
+.invoke228.i:                                     ; preds = %.lr.ph119.i, %109, %180
   %182 = phi i64 [ %umin.le.i, %180 ], [ %.sroa.028.0121.i, %109 ], [ %.sroa.028.0121.i, %.lr.ph119.i ]
   %183 = phi i64 [ %170, %180 ], [ %164, %.lr.ph119.i ], [ %110, %109 ]
   %184 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.14, %180 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.13, %.lr.ph119.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.12, %109 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %182, i64 noundef %183, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %184) #19
-          to label %.cont210.i unwind label %120, !noalias !102
+          to label %.cont229.i unwind label %120, !noalias !102
 
-.cont210.i:                                       ; preds = %.invoke209.i
+.cont229.i:                                       ; preds = %.invoke228.i
   unreachable
 
 185:                                              ; preds = %72
@@ -2538,7 +2538,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %.sroa.028.0121.i = phi i64 [ 0, %.lr.ph125.i ], [ %.sroa.028.1123.i, %.loopexit.i ]
   %110 = load i64, ptr %103, align 8, !noalias !132, !noundef !9
   %111 = icmp ult i64 %.sroa.028.0121.i, %110
-  br i1 %111, label %160, label %.invoke209.i
+  br i1 %111, label %160, label %.invoke228.i
 
 ._crit_edge126.i:                                 ; preds = %.loopexit.i, %100
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !132
@@ -2568,8 +2568,8 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h31bbedd59de2cd87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #20
           to label %86 unwind label %158, !noalias !132
 
-120:                                              ; preds = %.invoke209.i, %154, %117, %._crit_edge126.i
-  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke209.i ]
+120:                                              ; preds = %.invoke228.i, %154, %117, %._crit_edge126.i
+  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke228.i ]
   %121 = landingpad { ptr, i32 }
           cleanup
   br label %119
@@ -2726,7 +2726,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %166 = load ptr, ptr %106, align 8, !noalias !132, !nonnull !9
   %167 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %166, i64 %.sroa.028.0121.i
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  br i1 %165, label %.lr.ph119.split.i, label %.invoke209.i
+  br i1 %165, label %.lr.ph119.split.i, label %.invoke228.i
 
 .lr.ph119.split.i:                                ; preds = %.lr.ph119.i
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 16
@@ -2753,16 +2753,16 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 180:                                              ; preds = %172
   %181 = add i64 %163, -1
   %umin.le.i = tail call i64 @llvm.umin.i64(i64 %170, i64 %181)
-  br label %.invoke209.i
+  br label %.invoke228.i
 
-.invoke209.i:                                     ; preds = %.lr.ph119.i, %109, %180
+.invoke228.i:                                     ; preds = %.lr.ph119.i, %109, %180
   %182 = phi i64 [ %umin.le.i, %180 ], [ %.sroa.028.0121.i, %109 ], [ %.sroa.028.0121.i, %.lr.ph119.i ]
   %183 = phi i64 [ %170, %180 ], [ %164, %.lr.ph119.i ], [ %110, %109 ]
   %184 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.14, %180 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.13, %.lr.ph119.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.12, %109 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %182, i64 noundef %183, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %184) #19
-          to label %.cont210.i unwind label %120, !noalias !132
+          to label %.cont229.i unwind label %120, !noalias !132
 
-.cont210.i:                                       ; preds = %.invoke209.i
+.cont229.i:                                       ; preds = %.invoke228.i
   unreachable
 
 185:                                              ; preds = %72
@@ -3095,7 +3095,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %.sroa.028.0121.i = phi i64 [ 0, %.lr.ph125.i ], [ %.sroa.028.1123.i, %.loopexit.i ]
   %110 = load i64, ptr %103, align 8, !noalias !162, !noundef !9
   %111 = icmp ult i64 %.sroa.028.0121.i, %110
-  br i1 %111, label %160, label %.invoke209.i
+  br i1 %111, label %160, label %.invoke228.i
 
 ._crit_edge126.i:                                 ; preds = %.loopexit.i, %100
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !162
@@ -3125,8 +3125,8 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h31bbedd59de2cd87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #20
           to label %86 unwind label %158, !noalias !162
 
-120:                                              ; preds = %.invoke209.i, %154, %117, %._crit_edge126.i
-  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke209.i ]
+120:                                              ; preds = %.invoke228.i, %154, %117, %._crit_edge126.i
+  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke228.i ]
   %121 = landingpad { ptr, i32 }
           cleanup
   br label %119
@@ -3283,7 +3283,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %166 = load ptr, ptr %106, align 8, !noalias !162, !nonnull !9
   %167 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %166, i64 %.sroa.028.0121.i
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  br i1 %165, label %.lr.ph119.split.i, label %.invoke209.i
+  br i1 %165, label %.lr.ph119.split.i, label %.invoke228.i
 
 .lr.ph119.split.i:                                ; preds = %.lr.ph119.i
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 16
@@ -3310,16 +3310,16 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 180:                                              ; preds = %172
   %181 = add i64 %163, -1
   %umin.le.i = tail call i64 @llvm.umin.i64(i64 %170, i64 %181)
-  br label %.invoke209.i
+  br label %.invoke228.i
 
-.invoke209.i:                                     ; preds = %.lr.ph119.i, %109, %180
+.invoke228.i:                                     ; preds = %.lr.ph119.i, %109, %180
   %182 = phi i64 [ %umin.le.i, %180 ], [ %.sroa.028.0121.i, %109 ], [ %.sroa.028.0121.i, %.lr.ph119.i ]
   %183 = phi i64 [ %170, %180 ], [ %164, %.lr.ph119.i ], [ %110, %109 ]
   %184 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.14, %180 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.13, %.lr.ph119.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.12, %109 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %182, i64 noundef %183, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %184) #19
-          to label %.cont210.i unwind label %120, !noalias !162
+          to label %.cont229.i unwind label %120, !noalias !162
 
-.cont210.i:                                       ; preds = %.invoke209.i
+.cont229.i:                                       ; preds = %.invoke228.i
   unreachable
 
 185:                                              ; preds = %72
@@ -3652,7 +3652,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %.sroa.028.0121.i = phi i64 [ 0, %.lr.ph125.i ], [ %.sroa.028.1123.i, %.loopexit.i ]
   %110 = load i64, ptr %103, align 8, !noalias !192, !noundef !9
   %111 = icmp ult i64 %.sroa.028.0121.i, %110
-  br i1 %111, label %160, label %.invoke209.i
+  br i1 %111, label %160, label %.invoke228.i
 
 ._crit_edge126.i:                                 ; preds = %.loopexit.i, %100
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !192
@@ -3682,8 +3682,8 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h31bbedd59de2cd87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #20
           to label %86 unwind label %158, !noalias !192
 
-120:                                              ; preds = %.invoke209.i, %154, %117, %._crit_edge126.i
-  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke209.i ]
+120:                                              ; preds = %.invoke228.i, %154, %117, %._crit_edge126.i
+  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke228.i ]
   %121 = landingpad { ptr, i32 }
           cleanup
   br label %119
@@ -3840,7 +3840,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %166 = load ptr, ptr %106, align 8, !noalias !192, !nonnull !9
   %167 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %166, i64 %.sroa.028.0121.i
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  br i1 %165, label %.lr.ph119.split.i, label %.invoke209.i
+  br i1 %165, label %.lr.ph119.split.i, label %.invoke228.i
 
 .lr.ph119.split.i:                                ; preds = %.lr.ph119.i
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 16
@@ -3867,16 +3867,16 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 180:                                              ; preds = %172
   %181 = add i64 %163, -1
   %umin.le.i = tail call i64 @llvm.umin.i64(i64 %170, i64 %181)
-  br label %.invoke209.i
+  br label %.invoke228.i
 
-.invoke209.i:                                     ; preds = %.lr.ph119.i, %109, %180
+.invoke228.i:                                     ; preds = %.lr.ph119.i, %109, %180
   %182 = phi i64 [ %umin.le.i, %180 ], [ %.sroa.028.0121.i, %109 ], [ %.sroa.028.0121.i, %.lr.ph119.i ]
   %183 = phi i64 [ %170, %180 ], [ %164, %.lr.ph119.i ], [ %110, %109 ]
   %184 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.14, %180 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.13, %.lr.ph119.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.12, %109 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %182, i64 noundef %183, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %184) #19
-          to label %.cont210.i unwind label %120, !noalias !192
+          to label %.cont229.i unwind label %120, !noalias !192
 
-.cont210.i:                                       ; preds = %.invoke209.i
+.cont229.i:                                       ; preds = %.invoke228.i
   unreachable
 
 185:                                              ; preds = %72
@@ -4209,7 +4209,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %.sroa.028.0121.i = phi i64 [ 0, %.lr.ph125.i ], [ %.sroa.028.1123.i, %.loopexit.i ]
   %110 = load i64, ptr %103, align 8, !noalias !222, !noundef !9
   %111 = icmp ult i64 %.sroa.028.0121.i, %110
-  br i1 %111, label %160, label %.invoke209.i
+  br i1 %111, label %160, label %.invoke228.i
 
 ._crit_edge126.i:                                 ; preds = %.loopexit.i, %100
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !222
@@ -4239,8 +4239,8 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h31bbedd59de2cd87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #20
           to label %86 unwind label %158, !noalias !222
 
-120:                                              ; preds = %.invoke209.i, %154, %117, %._crit_edge126.i
-  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke209.i ]
+120:                                              ; preds = %.invoke228.i, %154, %117, %._crit_edge126.i
+  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke228.i ]
   %121 = landingpad { ptr, i32 }
           cleanup
   br label %119
@@ -4397,7 +4397,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %166 = load ptr, ptr %106, align 8, !noalias !222, !nonnull !9
   %167 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %166, i64 %.sroa.028.0121.i
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  br i1 %165, label %.lr.ph119.split.i, label %.invoke209.i
+  br i1 %165, label %.lr.ph119.split.i, label %.invoke228.i
 
 .lr.ph119.split.i:                                ; preds = %.lr.ph119.i
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 16
@@ -4424,16 +4424,16 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 180:                                              ; preds = %172
   %181 = add i64 %163, -1
   %umin.le.i = tail call i64 @llvm.umin.i64(i64 %170, i64 %181)
-  br label %.invoke209.i
+  br label %.invoke228.i
 
-.invoke209.i:                                     ; preds = %.lr.ph119.i, %109, %180
+.invoke228.i:                                     ; preds = %.lr.ph119.i, %109, %180
   %182 = phi i64 [ %umin.le.i, %180 ], [ %.sroa.028.0121.i, %109 ], [ %.sroa.028.0121.i, %.lr.ph119.i ]
   %183 = phi i64 [ %170, %180 ], [ %164, %.lr.ph119.i ], [ %110, %109 ]
   %184 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.14, %180 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.13, %.lr.ph119.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.12, %109 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %182, i64 noundef %183, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %184) #19
-          to label %.cont210.i unwind label %120, !noalias !222
+          to label %.cont229.i unwind label %120, !noalias !222
 
-.cont210.i:                                       ; preds = %.invoke209.i
+.cont229.i:                                       ; preds = %.invoke228.i
   unreachable
 
 185:                                              ; preds = %72
@@ -4766,7 +4766,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %.sroa.028.0121.i = phi i64 [ 0, %.lr.ph125.i ], [ %.sroa.028.1123.i, %.loopexit.i ]
   %110 = load i64, ptr %103, align 8, !noalias !252, !noundef !9
   %111 = icmp ult i64 %.sroa.028.0121.i, %110
-  br i1 %111, label %160, label %.invoke209.i
+  br i1 %111, label %160, label %.invoke228.i
 
 ._crit_edge126.i:                                 ; preds = %.loopexit.i, %100
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !252
@@ -4796,8 +4796,8 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h31bbedd59de2cd87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #20
           to label %86 unwind label %158, !noalias !252
 
-120:                                              ; preds = %.invoke209.i, %154, %117, %._crit_edge126.i
-  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke209.i ]
+120:                                              ; preds = %.invoke228.i, %154, %117, %._crit_edge126.i
+  %.sroa.023.8.i = phi i1 [ false, %154 ], [ true, %._crit_edge126.i ], [ true, %117 ], [ true, %.invoke228.i ]
   %121 = landingpad { ptr, i32 }
           cleanup
   br label %119
@@ -4954,7 +4954,7 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
   %166 = load ptr, ptr %106, align 8, !noalias !252, !nonnull !9
   %167 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %166, i64 %.sroa.028.0121.i
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  br i1 %165, label %.lr.ph119.split.i, label %.invoke209.i
+  br i1 %165, label %.lr.ph119.split.i, label %.invoke228.i
 
 .lr.ph119.split.i:                                ; preds = %.lr.ph119.i
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 16
@@ -4981,16 +4981,16 @@ define internal fastcc void @"_ZN10rayon_core11thread_pool10ThreadPool7install28
 180:                                              ; preds = %172
   %181 = add i64 %163, -1
   %umin.le.i = tail call i64 @llvm.umin.i64(i64 %170, i64 %181)
-  br label %.invoke209.i
+  br label %.invoke228.i
 
-.invoke209.i:                                     ; preds = %.lr.ph119.i, %109, %180
+.invoke228.i:                                     ; preds = %.lr.ph119.i, %109, %180
   %182 = phi i64 [ %umin.le.i, %180 ], [ %.sroa.028.0121.i, %109 ], [ %.sroa.028.0121.i, %.lr.ph119.i ]
   %183 = phi i64 [ %170, %180 ], [ %164, %.lr.ph119.i ], [ %110, %109 ]
   %184 = phi ptr [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.14, %180 ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.13, %.lr.ph119.i ], [ @anon.a170a8b7ecd99b8c4e1a3db419f55da5.12, %109 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %182, i64 noundef %183, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %184) #19
-          to label %.cont210.i unwind label %120, !noalias !252
+          to label %.cont229.i unwind label %120, !noalias !252
 
-.cont210.i:                                       ; preds = %.invoke209.i
+.cont229.i:                                       ; preds = %.invoke228.i
   unreachable
 
 185:                                              ; preds = %72
@@ -103605,7 +103605,7 @@ define internal fastcc void @_ZN11polars_core9datatypes9any_value8AnyValue11into
   %19 = alloca [24 x i8], align 8
   %20 = alloca [48 x i8], align 8
   %21 = load i8, ptr %1, align 16, !range !8025, !noundef !9
-  switch i8 %21, label %default.unreachable47 [
+  switch i8 %21, label %default.unreachable53 [
     i8 0, label %22
     i8 1, label %23
     i8 2, label %24
@@ -103641,7 +103641,7 @@ define internal fastcc void @_ZN11polars_core9datatypes9any_value8AnyValue11into
     i8 32, label %227
   ]
 
-default.unreachable47:                            ; preds = %2
+default.unreachable53:                            ; preds = %2
   unreachable
 
 22:                                               ; preds = %2
@@ -111517,7 +111517,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
   %5 = alloca [24 x i8], align 8
   %.sroa.03 = alloca [23 x i8], align 8
   %6 = load i8, ptr %1, align 16, !range !8147, !noundef !9
-  switch i8 %6, label %default.unreachable23 [
+  switch i8 %6, label %default.unreachable25 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
@@ -111548,7 +111548,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
     i8 27, label %74
   ]
 
-default.unreachable23:                            ; preds = %2
+default.unreachable25:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2

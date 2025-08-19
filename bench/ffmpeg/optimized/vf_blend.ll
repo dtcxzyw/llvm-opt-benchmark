@@ -3022,8 +3022,8 @@ define internal void @blend_harmonic_8bit(ptr noundef readonly captures(none) %0
   %21 = getelementptr inbounds nuw i8, ptr %.03944.us, i64 %indvars.iv
   %22 = load i8, ptr %21, align 1, !tbaa !89
   %23 = icmp eq i8 %22, 0
-  %or.cond57 = select i1 %20, i1 %23, i1 false
-  br i1 %or.cond57, label %._crit_edge55, label %._crit_edge
+  %or.cond59 = select i1 %20, i1 %23, i1 false
+  br i1 %or.cond59, label %._crit_edge55, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %16
   %24 = zext i8 %18 to i64
@@ -5427,8 +5427,8 @@ define internal void @blend_harmonic_9bit(ptr noundef readonly captures(none) %0
   %24 = getelementptr inbounds nuw i16, ptr %.03944.us, i64 %indvars.iv
   %25 = load i16, ptr %24, align 2, !tbaa !85
   %26 = icmp eq i16 %25, 0
-  %or.cond57 = select i1 %23, i1 %26, i1 false
-  br i1 %or.cond57, label %._crit_edge55, label %._crit_edge
+  %or.cond59 = select i1 %23, i1 %26, i1 false
+  br i1 %or.cond59, label %._crit_edge55, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %19
   %27 = zext i16 %21 to i64
@@ -7772,8 +7772,8 @@ define internal void @blend_harmonic_10bit(ptr noundef readonly captures(none) %
   %24 = getelementptr inbounds nuw i16, ptr %.03944.us, i64 %indvars.iv
   %25 = load i16, ptr %24, align 2, !tbaa !85
   %26 = icmp eq i16 %25, 0
-  %or.cond57 = select i1 %23, i1 %26, i1 false
-  br i1 %or.cond57, label %._crit_edge55, label %._crit_edge
+  %or.cond59 = select i1 %23, i1 %26, i1 false
+  br i1 %or.cond59, label %._crit_edge55, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %19
   %27 = zext i16 %21 to i64
@@ -10117,8 +10117,8 @@ define internal void @blend_harmonic_12bit(ptr noundef readonly captures(none) %
   %24 = getelementptr inbounds nuw i16, ptr %.03944.us, i64 %indvars.iv
   %25 = load i16, ptr %24, align 2, !tbaa !85
   %26 = icmp eq i16 %25, 0
-  %or.cond57 = select i1 %23, i1 %26, i1 false
-  br i1 %or.cond57, label %._crit_edge55, label %._crit_edge
+  %or.cond59 = select i1 %23, i1 %26, i1 false
+  br i1 %or.cond59, label %._crit_edge55, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %19
   %27 = zext i16 %21 to i64
@@ -12462,8 +12462,8 @@ define internal void @blend_harmonic_14bit(ptr noundef readonly captures(none) %
   %24 = getelementptr inbounds nuw i16, ptr %.03944.us, i64 %indvars.iv
   %25 = load i16, ptr %24, align 2, !tbaa !85
   %26 = icmp eq i16 %25, 0
-  %or.cond57 = select i1 %23, i1 %26, i1 false
-  br i1 %or.cond57, label %._crit_edge55, label %._crit_edge
+  %or.cond59 = select i1 %23, i1 %26, i1 false
+  br i1 %or.cond59, label %._crit_edge55, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %19
   %27 = zext i16 %21 to i64
@@ -14792,8 +14792,8 @@ define internal void @blend_harmonic_16bit(ptr noundef readonly captures(none) %
   %24 = getelementptr inbounds nuw i16, ptr %.03944.us, i64 %indvars.iv
   %25 = load i16, ptr %24, align 2, !tbaa !85
   %26 = icmp eq i16 %25, 0
-  %or.cond57 = select i1 %23, i1 %26, i1 false
-  br i1 %or.cond57, label %._crit_edge55, label %._crit_edge
+  %or.cond59 = select i1 %23, i1 %26, i1 false
+  br i1 %or.cond59, label %._crit_edge55, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %19
   %27 = zext i16 %21 to i64
@@ -17044,12 +17044,12 @@ define internal void @blend_harmonic_32bit(ptr noundef readonly captures(none) %
   %23 = getelementptr inbounds nuw float, ptr %.03944.us, i64 %indvars.iv
   %24 = load float, ptr %23, align 4, !tbaa !81
   %25 = fcmp nsz oeq float %24, 0.000000e+00
-  %or.cond55 = select i1 %22, i1 %25, i1 false
+  %or.cond57 = select i1 %22, i1 %25, i1 false
   %26 = fmul nsz float %21, 2.000000e+00
   %27 = fmul nsz float %26, %24
   %28 = fadd nsz float %21, %24
   %29 = fdiv nsz float %27, %28
-  %30 = select nsz i1 %or.cond55, float 0.000000e+00, float %29
+  %30 = select nsz i1 %or.cond57, float 0.000000e+00, float %29
   %31 = fsub nsz float %30, %21
   %32 = tail call nsz float @llvm.fmuladd.f32(float %31, float %13, float %21)
   %33 = getelementptr inbounds nuw float, ptr %.03845.us, i64 %indvars.iv

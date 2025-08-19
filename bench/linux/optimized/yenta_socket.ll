@@ -2700,10 +2700,10 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
   br label %221
 
 221:                                              ; preds = %216, %216, %216, %220
-  %.sink29 = phi i32 [ -241, %220 ], [ -16, %216 ], [ -16, %216 ], [ -16, %216 ]
-  %.sink28 = phi i32 [ 32, %220 ], [ 1, %216 ], [ 1, %216 ], [ 1, %216 ]
-  %222 = and i32 %149, %.sink29
-  %223 = or disjoint i32 %222, %.sink28
+  %.sink47 = phi i32 [ -241, %220 ], [ -16, %216 ], [ -16, %216 ], [ -16, %216 ]
+  %.sink46 = phi i32 [ 32, %220 ], [ 1, %216 ], [ 1, %216 ], [ 1, %216 ]
+  %222 = and i32 %149, %.sink47
+  %223 = or disjoint i32 %222, %.sink46
   %224 = icmp eq i32 %223, %149
   br i1 %224, label %.thread21, label %225
 
@@ -2764,9 +2764,9 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %132, %100, %.thread20
-  %.sink30 = phi ptr [ %253, %.thread20 ], [ %104, %100 ], [ %137, %132 ]
+  %.sink48 = phi ptr [ %253, %.thread20 ], [ %104, %100 ], [ %137, %132 ]
   %.str.25.sink = phi ptr [ %251, %.thread20 ], [ @.str.23, %100 ], [ @.str.25, %132 ]
-  %254 = getelementptr inbounds nuw i8, ptr %.sink30, i64 184
+  %254 = getelementptr inbounds nuw i8, ptr %.sink48, i64 184
   call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %254, ptr noundef nonnull %.str.25.sink) #12
   br label %.thread
 

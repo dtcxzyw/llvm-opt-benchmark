@@ -1695,7 +1695,7 @@ define internal fastcc i32 @dissect_zb_direct_common(ptr noundef captures(none) 
   br i1 %80, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %73, %.critedge.i
-  %.05648.i = phi ptr [ %54, %.critedge.i ], [ %.157.i, %73 ]
+  %.05656.i = phi ptr [ %54, %.critedge.i ], [ %.157.i, %73 ]
   %81 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %82 = getelementptr i8, ptr %3, i64 16
   %83 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -1714,7 +1714,7 @@ define internal fastcc i32 @dissect_zb_direct_common(ptr noundef captures(none) 
   br i1 %92, label %decrypt_data.exit.thread.i.thread.i.us, label %.preheader41.i.preheader
 
 decrypt_data.exit.thread.i.thread.i.us:           ; preds = %.lr.ph.i, %decrypt_data.exit.thread.i.thread.i.us
-  %.222.i.us = phi ptr [ %99, %decrypt_data.exit.thread.i.thread.i.us ], [ %.05648.i, %.lr.ph.i ]
+  %.222.i.us = phi ptr [ %99, %decrypt_data.exit.thread.i.thread.i.us ], [ %.05656.i, %.lr.ph.i ]
   %96 = load ptr, ptr %0, align 8
   %97 = call ptr @tvb_get_ptr(ptr noundef %96, i32 noundef 0, i32 noundef %91)
   %98 = getelementptr inbounds nuw i8, ptr %.222.i.us, i64 8
@@ -1723,7 +1723,7 @@ decrypt_data.exit.thread.i.thread.i.us:           ; preds = %.lr.ph.i, %decrypt_
   br i1 %100, label %._crit_edge.i, label %decrypt_data.exit.thread.i.thread.i.us, !llvm.loop !19
 
 .preheader41.i.preheader:                         ; preds = %.lr.ph.i, %141
-  %.222.i = phi ptr [ %143, %141 ], [ %.05648.i, %.lr.ph.i ]
+  %.222.i = phi ptr [ %143, %141 ], [ %.05656.i, %.lr.ph.i ]
   %101 = load ptr, ptr %0, align 8
   %102 = call ptr @tvb_get_ptr(ptr noundef %101, i32 noundef 0, i32 noundef %91)
   %103 = load ptr, ptr %.222.i, align 8
@@ -1941,9 +1941,9 @@ create_auth_string.exit.i.i:                      ; preds = %182
   %188 = getelementptr i8, ptr %173, i64 4
   store i8 0, ptr %155, align 1
   %189 = call zeroext i1 @zbee_sec_ccm_decrypt(ptr noundef nonnull %175, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef %188, ptr noundef nonnull %7, i32 noundef 34, i32 noundef %163, i32 noundef 4)
-  br i1 %189, label %.thread57.i, label %192
+  br i1 %189, label %.thread65.i, label %192
 
-.thread57.i:                                      ; preds = %create_auth_string.exit.i.i
+.thread65.i:                                      ; preds = %create_auth_string.exit.i.i
   %190 = zext nneg i32 %163 to i64
   %191 = call ptr @__memcpy_chk(ptr noundef %53, ptr noundef nonnull %7, i64 noundef range(i64 0, 65536) %190, i64 noundef 512) #13, !alias.scope !28
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1964,10 +1964,10 @@ create_auth_string.exit.i.i:                      ; preds = %182
   %196 = icmp eq ptr %.5.i, null
   br i1 %196, label %.loopexit.thread.i, label %.lr.ph28.i, !llvm.loop !32
 
-.loopexit.i:                                      ; preds = %.thread57.i, %try_decrypt.exit.i, %try_decrypt.exit.thread.i
-  %.892.in.i = phi i32 [ %95, %try_decrypt.exit.thread.i ], [ %95, %try_decrypt.exit.i ], [ %163, %.thread57.i ]
+.loopexit.i:                                      ; preds = %.thread65.i, %try_decrypt.exit.i, %try_decrypt.exit.thread.i
+  %.8100.in.i = phi i32 [ %95, %try_decrypt.exit.thread.i ], [ %95, %try_decrypt.exit.i ], [ %163, %.thread65.i ]
   %197 = load ptr, ptr %0, align 8
-  %198 = and i32 %.892.in.i, 65535
+  %198 = and i32 %.8100.in.i, 65535
   %199 = call ptr @tvb_new_child_real_data(ptr noundef %197, ptr noundef %53, i32 noundef %198, i32 noundef %198)
   store ptr %199, ptr %0, align 8
   call void @add_new_data_source(ptr noundef %1, ptr noundef %199, ptr noundef nonnull @.str.122)
@@ -2132,11 +2132,11 @@ proto_item_set_generated.exit:                    ; preds = %switch.lookup, %15,
   br i1 %or.cond.i, label %zb_direct_encryption_disable.exit.thread, label %zb_direct_encryption_disable.exit.thread.sink.split
 
 zb_direct_encryption_disable.exit.thread.sink.split: ; preds = %43, %44, %32
-  %.sink46 = phi i16 [ %28, %32 ], [ %40, %44 ], [ %40, %43 ]
+  %.sink49 = phi i16 [ %28, %32 ], [ %40, %44 ], [ %40, %43 ]
   %.pre.i.sink = phi i32 [ %34, %32 ], [ %.pre.i, %44 ], [ %.pre.i, %43 ]
-  %50 = add i16 %.sink46, 1
+  %50 = add i16 %.sink49, 1
   store i16 %50, ptr @enc_h, align 16
-  %51 = zext i16 %.sink46 to i64
+  %51 = zext i16 %.sink49 to i64
   %52 = getelementptr [4096 x i32], ptr getelementptr inbounds nuw (i8, ptr @enc_h, i64 4), i64 0, i64 %51
   store i32 %.pre.i.sink, ptr %52, align 4
   br label %zb_direct_encryption_disable.exit.thread

@@ -1385,9 +1385,9 @@ Kit_TruthCopy.exit181.loopexit:                   ; preds = %select.unfold.i178
 Kit_TruthCopy.exit181:                            ; preds = %Kit_TruthCopy.exit181.loopexit, %Kit_TruthAnd.exit175
   %267 = phi i32 [ %.pre209, %Kit_TruthCopy.exit181.loopexit ], [ %257, %Kit_TruthAnd.exit175 ]
   %..i = tail call i32 @llvm.smin.i32(i32 %.0103.lcssa, i32 %.0.lcssa)
-  %.13.i = tail call i32 @llvm.smax.i32(i32 %.0103.lcssa, i32 %.0.lcssa)
+  %.16.i = tail call i32 @llvm.smax.i32(i32 %.0103.lcssa, i32 %.0.lcssa)
   %268 = mul nsw i32 %267, %..i
-  %269 = add nsw i32 %268, %.13.i
+  %269 = add nsw i32 %268, %.16.i
   %.0.i = mul nsw i32 %269, 1000
   br label %270
 

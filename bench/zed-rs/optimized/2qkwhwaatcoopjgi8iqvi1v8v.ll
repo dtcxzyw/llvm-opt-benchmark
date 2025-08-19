@@ -1431,13 +1431,13 @@ define hidden { i64, i64 } @_ZN4core5slice5index5range17hb6e8a59a26342566E.llvm.
   %.val = load i64, ptr %0, align 8, !range !633, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val21 = load ptr, ptr %4, align 8
-  switch i64 %.val, label %default.unreachable24 [
+  switch i64 %.val, label %default.unreachable26 [
     i64 0, label %5
     i64 1, label %8
     i64 2, label %12
   ]
 
-default.unreachable24:                            ; preds = %12, %3
+default.unreachable26:                            ; preds = %12, %3
   unreachable
 
 5:                                                ; preds = %3
@@ -1459,7 +1459,7 @@ default.unreachable24:                            ; preds = %12, %3
   %.val22 = load i64, ptr %13, align 8, !range !633, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val23 = load ptr, ptr %14, align 8
-  switch i64 %.val22, label %default.unreachable24 [
+  switch i64 %.val22, label %default.unreachable26 [
     i64 0, label %18
     i64 1, label %22
     i64 2, label %28
@@ -3735,8 +3735,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h1f682f3f5
   %17 = load i64, ptr %16, align 8, !noundef !4
   %18 = load i64, ptr %0, align 8, !noundef !4
   %19 = sub i64 %18, %17
-  %.not13 = icmp ult i64 %13, %19
-  br i1 %.not13, label %25, label %38
+  %.not14 = icmp ult i64 %13, %19
+  br i1 %.not14, label %25, label %38
 
 20:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hee782b8326ca16f5E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

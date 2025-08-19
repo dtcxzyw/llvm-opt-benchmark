@@ -120,13 +120,13 @@ Vec_PtrFree.exit.i:                               ; preds = %53, %50
   br i1 %exitcond.not, label %.critedge.i.thread, label %.lr.ph.i, !llvm.loop !30
 
 .critedge.i:                                      ; preds = %.critedge, %.critedge2
-  %.pre47 = phi ptr [ %.pre.pre, %.critedge2 ], [ %21, %.critedge ]
-  %.not.i9.i = icmp eq ptr %.pre47, null
+  %.pre48 = phi ptr [ %.pre.pre, %.critedge2 ], [ %21, %.critedge ]
+  %.not.i9.i = icmp eq ptr %.pre48, null
   br i1 %.not.i9.i, label %Vec_VecFree.exit, label %.critedge.i.thread
 
 .critedge.i.thread:                               ; preds = %54, %.critedge.i
-  %.pre4750 = phi ptr [ %.pre47, %.critedge.i ], [ %.pre.pre, %54 ]
-  tail call void @free(ptr noundef nonnull %.pre4750) #9
+  %.pre4851 = phi ptr [ %.pre48, %.critedge.i ], [ %.pre.pre, %54 ]
+  tail call void @free(ptr noundef nonnull %.pre4851) #9
   br label %Vec_VecFree.exit
 
 Vec_VecFree.exit:                                 ; preds = %.critedge.i, %.critedge.i.thread
@@ -711,8 +711,8 @@ Hop_NodeBalanceFindLeft.exit:                     ; preds = %39, %._crit_edge.sp
   %48 = getelementptr ptr, ptr %.val46.i, i64 %47
   %49 = getelementptr i8, ptr %48, i64 -8
   %50 = load ptr, ptr %49, align 8, !tbaa !20
-  %51 = sext i32 %44 to i64
-  %52 = getelementptr inbounds ptr, ptr %.val46.i, i64 %51
+  %51 = zext nneg i32 %44 to i64
+  %52 = getelementptr inbounds nuw ptr, ptr %.val46.i, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !20
   %54 = ptrtoint ptr %50 to i64
   %55 = and i64 %54, -2
@@ -781,7 +781,7 @@ Hop_NodeBalanceFindLeft.exit:                     ; preds = %39, %._crit_edge.sp
   %87 = getelementptr inbounds ptr, ptr %.val49.i.sink, i64 %indvars.iv.i16
   store ptr %53, ptr %87, align 8, !tbaa !20
   %.val50.i = load ptr, ptr %12, align 8, !tbaa !19
-  %88 = getelementptr inbounds ptr, ptr %.val50.i, i64 %51
+  %88 = getelementptr inbounds nuw ptr, ptr %.val50.i, i64 %51
   store ptr %69, ptr %88, align 8, !tbaa !20
   br label %Hop_NodeBalancePermute.exit
 

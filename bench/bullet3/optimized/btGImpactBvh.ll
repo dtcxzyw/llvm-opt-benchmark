@@ -130,9 +130,9 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN9btBvhTree20_calc_splitting_axi
   %74 = fmul float %71, %.sroa.14.0.lcssa
   %75 = fcmp olt float %72, %73
   %..i = select i1 %75, float %73, float %72
-  %.4.i = zext i1 %75 to i32
+  %.5.i = zext i1 %75 to i32
   %76 = fcmp olt float %..i, %74
-  %77 = select i1 %76, i32 2, i32 %.4.i
+  %77 = select i1 %76, i32 2, i32 %.5.i
   ret i32 %77
 }
 
@@ -314,7 +314,7 @@ common.ret:                                       ; preds = %4
   %20 = load i32, ptr %19, align 4, !tbaa !21
   %21 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %17, i64 %15, i32 1
   store i32 %20, ptr %21, align 4, !tbaa !36
-  br label %common.ret73
+  br label %common.ret76
 
 22:                                               ; preds = %4
   %23 = tail call noundef i32 @_ZN9btBvhTree20_calc_splitting_axisER18GIM_BVH_DATA_ARRAYii(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef %2, i32 noundef %3)
@@ -329,7 +329,7 @@ common.ret:                                       ; preds = %4
   %wide.trip.count = sext i32 %3 to i64
   br label %.cont38
 
-common.ret73:                                     ; preds = %._crit_edge, %common.ret
+common.ret76:                                     ; preds = %._crit_edge, %common.ret
   ret void
 
 ._crit_edge:                                      ; preds = %.cont38, %22
@@ -365,7 +365,7 @@ common.ret73:                                     ; preds = %._crit_edge, %commo
   %.neg = sub nsw i32 %5, %34
   %35 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %33, i64 %31, i32 1
   store i32 %.neg, ptr %35, align 4, !tbaa !36
-  br label %common.ret73
+  br label %common.ret76
 
 .cont38:                                          ; preds = %.lr.ph, %.cont38
   %indvars.iv = phi i64 [ %28, %.lr.ph ], [ %indvars.iv.next, %.cont38 ]
@@ -862,8 +862,8 @@ define dso_local noundef zeroext i1 @_ZNK12btGImpactBvh8boxQueryERK6btAABBR20btA
 16:                                               ; preds = %.lr.ph, %69
   %.01939 = phi i32 [ 0, %.lr.ph ], [ %.1, %69 ]
   %17 = load ptr, ptr %6, align 8, !tbaa !34
-  %18 = sext i32 %.01939 to i64
-  %19 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %17, i64 %18
+  %18 = zext nneg i32 %.01939 to i64
+  %19 = getelementptr inbounds nuw %class.GIM_BVH_TREE_NODE, ptr %17, i64 %18
   %.sroa.0.0.copyload = load float, ptr %19, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
@@ -892,7 +892,7 @@ define dso_local noundef zeroext i1 @_ZNK12btGImpactBvh8boxQueryERK6btAABBR20btA
   %30 = load float, ptr %11, align 4
   %31 = fcmp olt float %.sroa.8.0.copyload, %30
   %or.cond38 = select i1 %or.cond35, i1 true, i1 %31
-  %32 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %17, i64 %18, i32 1
+  %32 = getelementptr inbounds nuw %class.GIM_BVH_TREE_NODE, ptr %17, i64 %18, i32 1
   %33 = load i32, ptr %32, align 4, !tbaa !36
   %34 = icmp sgt i32 %33, -1
   br i1 %or.cond38, label %65, label %_ZNK6btAABB13has_collisionERKS_.exit
@@ -984,7 +984,7 @@ _ZN20btAlignedObjectArrayIiE9push_backERKi.exit:  ; preds = %35, %39, %_ZN20btAl
   br i1 %34, label %.thread, label %67
 
 .thread:                                          ; preds = %_ZNK6btAABB13has_collisionERKS_.exit, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit, %65
-  %66 = add nsw i32 %.01939, 1
+  %66 = add nuw nsw i32 %.01939, 1
   br label %69
 
 67:                                               ; preds = %65
@@ -1515,9 +1515,9 @@ _ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.i.i.i: ; preds = %_ZN20bt
 
 _ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.thread.i.i.i: ; preds = %48
   %.old.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.old5.i.i = load i8, ptr %.old.i.i, align 8, !tbaa !92, !range !43, !noundef !65
-  %.old6.i.i = trunc nuw i8 %.old5.i.i to i1
-  br i1 %.old6.i.i, label %58, label %_ZN20btAlignedObjectArrayI8GIM_PAIRE10deallocateEv.exit.i.i.i
+  %.old8.i.i = load i8, ptr %.old.i.i, align 8, !tbaa !92, !range !43, !noundef !65
+  %.old9.i.i = trunc nuw i8 %.old8.i.i to i1
+  br i1 %.old9.i.i, label %58, label %_ZN20btAlignedObjectArrayI8GIM_PAIRE10deallocateEv.exit.i.i.i
 
 58:                                               ; preds = %_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.thread.i.i.i, %_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.i.i.i
   call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %47)

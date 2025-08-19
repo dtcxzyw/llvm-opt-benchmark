@@ -2269,8 +2269,8 @@ get_type_attr_as_size.exit140.i:                  ; preds = %52, %48
   br i1 %117, label %120, label %.preheader148.i
 
 .preheader148.i:                                  ; preds = %115
-  %.not162.i = icmp eq i64 %79, 0
-  br i1 %.not162.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not185.i = icmp eq i64 %79, 0
+  br i1 %.not185.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader148.i
   %118 = getelementptr inbounds nuw i8, ptr %61, i64 24

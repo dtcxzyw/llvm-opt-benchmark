@@ -225,17 +225,17 @@ define range(i32 0, 2) i32 @ossl_quic_txpim_pkt_append_chunk(ptr noundef capture
   br i1 %14, label %29, label %.thread
 
 .thread:                                          ; preds = %8, %10
-  %spec.store.select24 = phi i64 [ %13, %10 ], [ 4, %8 ]
+  %spec.store.select26 = phi i64 [ %13, %10 ], [ 4, %8 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %16 = load ptr, ptr %15, align 8, !tbaa !21
-  %17 = shl nuw nsw i64 %spec.store.select24, 5
+  %17 = shl nuw nsw i64 %spec.store.select26, 5
   %18 = tail call ptr @CRYPTO_realloc(ptr noundef %16, i64 noundef %17, ptr noundef nonnull @.str, i32 noundef 173) #11
   %19 = icmp eq ptr %18, null
   br i1 %19, label %29, label %20
 
 20:                                               ; preds = %.thread
   store ptr %18, ptr %15, align 8, !tbaa !21
-  store i64 %spec.store.select24, ptr %3, align 8, !tbaa !34
+  store i64 %spec.store.select26, ptr %3, align 8, !tbaa !34
   %.pre22 = load i64, ptr %4, align 8, !tbaa !28
   br label %21
 

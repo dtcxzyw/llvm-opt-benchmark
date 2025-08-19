@@ -2167,9 +2167,9 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdE
   %340 = load ptr, ptr %184, align 8
   %341 = load ptr, ptr %20, align 8
   %.not491 = icmp eq ptr %340, %341
-  br i1 %.not491, label %.thread558, label %.lr.ph451
+  br i1 %.not491, label %.thread604, label %.lr.ph451
 
-.thread558:                                       ; preds = %.preheader390
+.thread604:                                       ; preds = %.preheader390
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
   %342 = getelementptr inbounds nuw i8, ptr %33, i64 16
   br label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.exit.i
@@ -2210,7 +2210,7 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdE
   %.not147 = icmp eq i32 %364, 2
   br i1 %.not147, label %368, label %557
 
-366:                                              ; preds = %516, %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread, %514, %.thread, %494, %488, %485, %.noexc228, %476, %554, %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread552.thread, %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread552, %496, %454, %428, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit217, %394, %363
+366:                                              ; preds = %516, %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread, %514, %.thread, %494, %488, %485, %.noexc228, %476, %554, %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread598.thread, %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread598, %496, %454, %428, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit217, %394, %363
   %367 = landingpad { ptr, i32 }
           cleanup
   br label %568
@@ -2522,18 +2522,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit223: ; preds = %434, %439
   %510 = fcmp oeq double %369, %509
   %or.cond12 = and i1 %393, %510
   %or.cond15 = select i1 %or.cond12, i1 %351, i1 false
-  br i1 %or.cond15, label %511, label %.thread560
+  br i1 %or.cond15, label %511, label %.thread606
 
 511:                                              ; preds = %.thread368
   %512 = fsub double %414, %.0124
-  br i1 %393, label %.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread552
+  br i1 %393, label %.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread598
 
-.thread560:                                       ; preds = %.thread368
-  br i1 %393, label %.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread552.thread
+.thread606:                                       ; preds = %.thread368
+  br i1 %393, label %.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread598.thread
 
-.thread:                                          ; preds = %.thread560, %501, %.thread366, %500, %511
-  %.sroa.6339.0540 = phi i1 [ true, %511 ], [ true, %500 ], [ true, %.thread366 ], [ true, %501 ], [ false, %.thread560 ]
-  %.sroa.0337.2538 = phi double [ %512, %511 ], [ 0.000000e+00, %500 ], [ 0.000000e+00, %.thread366 ], [ %503, %501 ], [ %.sroa.0337.0447, %.thread560 ]
+.thread:                                          ; preds = %.thread606, %501, %.thread366, %500, %511
+  %.sroa.6339.0586 = phi i1 [ true, %511 ], [ true, %500 ], [ true, %.thread366 ], [ true, %501 ], [ false, %.thread606 ]
+  %.sroa.0337.2584 = phi double [ %512, %511 ], [ 0.000000e+00, %500 ], [ 0.000000e+00, %.thread366 ], [ %503, %501 ], [ %.sroa.0337.0447, %.thread606 ]
   %513 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame16SupportsTangentsEv(ptr noundef nonnull align 8 dereferenceable(72) %25)
           to label %.noexc233 unwind label %366
 
@@ -2548,8 +2548,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd
   br i1 %385, label %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__L22_SetRightTangentLengthEPNS_10TsKeyFrameEd.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread: ; preds = %507, %504, %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit
-  %.sroa.0337.2537551 = phi double [ %.sroa.0337.2538, %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit ], [ %508, %507 ], [ %.sroa.0337.0447, %504 ]
-  %.sroa.6339.0539549 = phi i1 [ %.sroa.6339.0540, %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit ], [ true, %507 ], [ false, %504 ]
+  %.sroa.0337.2583597 = phi double [ %.sroa.0337.2584, %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit ], [ %508, %507 ], [ %.sroa.0337.0447, %504 ]
+  %.sroa.6339.0585595 = phi i1 [ %.sroa.6339.0586, %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit ], [ true, %507 ], [ false, %504 ]
   %515 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame16SupportsTangentsEv(ptr noundef nonnull align 8 dereferenceable(72) %25)
           to label %.noexc235 unwind label %366
 
@@ -2561,21 +2561,21 @@ _ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd
           to label %_ZN32pxrInternal_v0_24__pxrReserved__L22_SetRightTangentLengthEPNS_10TsKeyFrameEd.exit unwind label %366
 
 _ZN32pxrInternal_v0_24__pxrReserved__L22_SetRightTangentLengthEPNS_10TsKeyFrameEd.exit: ; preds = %.noexc235, %516, %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit
-  %.sroa.0337.2537550 = phi double [ %.sroa.0337.2537551, %.noexc235 ], [ %.sroa.0337.2537551, %516 ], [ %.sroa.0337.2538, %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit ]
-  %.sroa.6339.0539548 = phi i1 [ %.sroa.6339.0539549, %.noexc235 ], [ %.sroa.6339.0539549, %516 ], [ %.sroa.6339.0540, %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit ]
-  br i1 %.sroa.6339.0539548, label %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread552, label %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread552.thread
+  %.sroa.0337.2583596 = phi double [ %.sroa.0337.2583597, %.noexc235 ], [ %.sroa.0337.2583597, %516 ], [ %.sroa.0337.2584, %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit ]
+  %.sroa.6339.0585594 = phi i1 [ %.sroa.6339.0585595, %.noexc235 ], [ %.sroa.6339.0585595, %516 ], [ %.sroa.6339.0586, %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit ]
+  br i1 %.sroa.6339.0585594, label %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread598, label %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread598.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread552: ; preds = %511, %_ZN32pxrInternal_v0_24__pxrReserved__L22_SetRightTangentLengthEPNS_10TsKeyFrameEd.exit
-  %.sroa.0337.2537550555 = phi double [ %.sroa.0337.2537550, %_ZN32pxrInternal_v0_24__pxrReserved__L22_SetRightTangentLengthEPNS_10TsKeyFrameEd.exit ], [ %512, %511 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread598: ; preds = %511, %_ZN32pxrInternal_v0_24__pxrReserved__L22_SetRightTangentLengthEPNS_10TsKeyFrameEd.exit
+  %.sroa.0337.2583596601 = phi double [ %.sroa.0337.2583596, %_ZN32pxrInternal_v0_24__pxrReserved__L22_SetRightTangentLengthEPNS_10TsKeyFrameEd.exit ], [ %512, %511 ]
   %517 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame16SupportsTangentsEv(ptr noundef nonnull align 8 dereferenceable(72) %25)
           to label %518 unwind label %366
 
-518:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread552
-  br i1 %517, label %519, label %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread552.thread
+518:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread598
+  br i1 %517, label %519, label %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread598.thread
 
 519:                                              ; preds = %518
   store ptr %358, ptr %356, align 8
-  store double %.sroa.0337.2537550555, ptr %30, align 8
+  store double %.sroa.0337.2583596601, ptr %30, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrame19SetLeftTangentSlopeENS_7VtValueE(ptr noundef nonnull align 8 dereferenceable(72) %25, ptr noundef nonnull %30)
           to label %520 unwind label %547
 
@@ -2606,7 +2606,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd
 533:                                              ; preds = %525, %520
   store ptr null, ptr %356, align 8
   store ptr %358, ptr %359, align 8
-  store double %.sroa.0337.2537550555, ptr %31, align 8
+  store double %.sroa.0337.2583596601, ptr %31, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrame20SetRightTangentSlopeENS_7VtValueE(ptr noundef nonnull align 8 dereferenceable(72) %25, ptr noundef nonnull %31)
           to label %534 unwind label %549
 
@@ -2636,7 +2636,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit242: ; preds = %534, %539
   store ptr null, ptr %359, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread552.thread
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread598.thread
 
 547:                                              ; preds = %519
   %548 = landingpad { ptr, i32 }
@@ -2650,14 +2650,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit242: ; preds = %534, %539
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %31) #24
   br label %568
 
-_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread552.thread: ; preds = %.thread560, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit242, %518, %_ZN32pxrInternal_v0_24__pxrReserved__L22_SetRightTangentLengthEPNS_10TsKeyFrameEd.exit
-  %.sroa.0337.2537550556 = phi double [ %.sroa.0337.2537550555, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit242 ], [ %.sroa.0337.2537550555, %518 ], [ %.sroa.0337.2537550, %_ZN32pxrInternal_v0_24__pxrReserved__L22_SetRightTangentLengthEPNS_10TsKeyFrameEd.exit ], [ %.sroa.0337.0447, %.thread560 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread598.thread: ; preds = %.thread606, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit242, %518, %_ZN32pxrInternal_v0_24__pxrReserved__L22_SetRightTangentLengthEPNS_10TsKeyFrameEd.exit
+  %.sroa.0337.2583596602 = phi double [ %.sroa.0337.2583596601, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit242 ], [ %.sroa.0337.2583596601, %518 ], [ %.sroa.0337.2583596, %_ZN32pxrInternal_v0_24__pxrReserved__L22_SetRightTangentLengthEPNS_10TsKeyFrameEd.exit ], [ %.sroa.0337.0447, %.thread606 ]
   %551 = load ptr, ptr %20, align 8
   %552 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %551, i64 %.0136448
   %553 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameaSERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %552, ptr noundef nonnull align 8 dereferenceable(72) %25)
           to label %554 unwind label %366
 
-554:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread552.thread
+554:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread598.thread
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %32, ptr noundef nonnull align 8 dereferenceable(72) %25)
           to label %555 unwind label %366
 
@@ -2670,7 +2670,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd
   br label %557
 
 557:                                              ; preds = %392, %365, %556
-  %.sroa.0337.1 = phi double [ %.sroa.0337.2537550556, %556 ], [ %.sroa.0337.0447, %392 ], [ %.sroa.0337.0447, %365 ]
+  %.sroa.0337.1 = phi double [ %.sroa.0337.2583596602, %556 ], [ %.sroa.0337.0447, %392 ], [ %.sroa.0337.0447, %365 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %25) #24
   %558 = add nuw i64 %.0136448, 1
   %559 = load ptr, ptr %184, align 8
@@ -2709,13 +2709,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd
 
 572:                                              ; preds = %._crit_edge452
   %573 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %.not530 = icmp eq i64 %569, 0
-  br i1 %.not530, label %581, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.exit.i
+  %.not576 = icmp eq i64 %569, 0
+  br i1 %.not576, label %581, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.exit.i
 
-_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.exit.i: ; preds = %.thread558, %572
-  %574 = phi ptr [ %342, %.thread558 ], [ %573, %572 ]
-  %575 = phi ptr [ %341, %.thread558 ], [ %560, %572 ]
-  %576 = phi i64 [ 2, %.thread558 ], [ %569, %572 ]
+_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_M_allocateEm.exit.i: ; preds = %.thread604, %572
+  %574 = phi ptr [ %342, %.thread604 ], [ %573, %572 ]
+  %575 = phi ptr [ %341, %.thread604 ], [ %560, %572 ]
+  %576 = phi i64 [ 2, %.thread604 ], [ %569, %572 ]
   %577 = mul nuw nsw i64 %576, 24
   %578 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %577) #28
           to label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE13_M_deallocateEPS2_m.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -4429,8 +4429,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 
 92:                                               ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %.not56 = icmp eq ptr %68, %69
-  br i1 %.not56, label %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE11_M_allocateEm.exit.i
+  %.not73 = icmp eq ptr %68, %69
+  br i1 %.not73, label %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE11_M_allocateEm.exit.i: ; preds = %92
   %94 = mul nuw nsw i64 %73, 56

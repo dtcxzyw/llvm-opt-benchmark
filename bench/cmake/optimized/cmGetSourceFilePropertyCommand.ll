@@ -932,7 +932,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbbEZ30cmGetSource
   br i1 %6, label %._crit_edge.i.i.i.i.i, label %._crit_edge.i.i53.i.i.i
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %2
-  %.sink19.i.sroa.gep3.i.i = getelementptr inbounds nuw i8, ptr %3, i64 17
+  %.sink26.i.sroa.gep3.i.i = getelementptr inbounds nuw i8, ptr %3, i64 17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %7, ptr %3, align 8, !tbaa !11
@@ -941,7 +941,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbbEZ30cmGetSource
   br label %9
 
 ._crit_edge.i.i53.i.i.i:                          ; preds = %2
-  %.sink19.i.sroa.gep.i.i = getelementptr inbounds nuw i8, ptr %4, i64 17
+  %.sink26.i.sroa.gep.i.i = getelementptr inbounds nuw i8, ptr %4, i64 17
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %8, ptr %4, align 8, !tbaa !11
@@ -950,9 +950,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbbEZ30cmGetSource
   br label %9
 
 9:                                                ; preds = %._crit_edge.i.i53.i.i.i, %._crit_edge.i.i.i.i.i
-  %.sink19.i.sroa.phi.i.i = phi ptr [ %.sink19.i.sroa.gep.i.i, %._crit_edge.i.i53.i.i.i ], [ %.sink19.i.sroa.gep3.i.i, %._crit_edge.i.i.i.i.i ]
+  %.sink26.i.sroa.phi.i.i = phi ptr [ %.sink26.i.sroa.gep.i.i, %._crit_edge.i.i53.i.i.i ], [ %.sink26.i.sroa.gep3.i.i, %._crit_edge.i.i.i.i.i ]
   %10 = phi ptr [ %8, %._crit_edge.i.i53.i.i.i ], [ %7, %._crit_edge.i.i.i.i.i ]
-  store i8 0, ptr %.sink19.i.sroa.phi.i.i, align 1, !tbaa !18
+  store i8 0, ptr %.sink26.i.sroa.phi.i.i, align 1, !tbaa !18
   invoke void @_ZN10cmMakefile13AddDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(2880) %.val2, ptr noundef nonnull align 8 dereferenceable(32) %.val, i64 1, ptr nonnull %10)
           to label %_ZN10cmMakefile13AddDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE7cmValue.exit.i.i.i unwind label %25
 

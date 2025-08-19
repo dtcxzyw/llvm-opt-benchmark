@@ -95,7 +95,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %.lr.ph
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i18:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
   %bcmp.i.i.i19 = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %.sroa.0.0.copyload.i.i, ptr noundef nonnull dereferenceable(15) @.str.2, i64 15)
   %23 = icmp eq i32 %bcmp.i.i.i19, 0
-  %spec.select388 = select i1 %23, i64 4294967297, i64 %.sroa.26.20.insert.mask
+  %spec.select390 = select i1 %23, i64 4294967297, i64 %.sroa.26.20.insert.mask
   br label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit93
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i26:          ; preds = %.lr.ph
@@ -111,13 +111,13 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i34:          ; preds = %.lr.ph
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i42:          ; preds = %.lr.ph
   %bcmp.i.i.i43 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %.sroa.0.0.copyload.i.i, ptr noundef nonnull dereferenceable(10) @.str.5, i64 10)
   %26 = icmp eq i32 %bcmp.i.i.i43, 0
-  %spec.select389 = select i1 %26, i64 4294967300, i64 %.sroa.26.20.insert.mask
+  %spec.select391 = select i1 %26, i64 4294967300, i64 %.sroa.26.20.insert.mask
   br label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit93
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i50:          ; preds = %.lr.ph
   %bcmp.i.i.i51 = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %.sroa.0.0.copyload.i.i, ptr noundef nonnull dereferenceable(13) @.str.6, i64 13)
   %27 = icmp eq i32 %bcmp.i.i.i51, 0
-  %spec.select390 = select i1 %27, i64 4294967301, i64 %.sroa.26.20.insert.mask
+  %spec.select392 = select i1 %27, i64 4294967301, i64 %.sroa.26.20.insert.mask
   br label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit93
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i58:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i26
@@ -128,7 +128,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i58:          ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i66:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i34
   %bcmp.i.i.i67 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %.sroa.0.0.copyload.i.i, ptr noundef nonnull dereferenceable(11) @.str.8, i64 11)
   %29 = icmp eq i32 %bcmp.i.i.i67, 0
-  %spec.select391 = select i1 %29, i64 4294967302, i64 %.sroa.26.20.insert.mask
+  %spec.select393 = select i1 %29, i64 4294967302, i64 %.sroa.26.20.insert.mask
   br label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit93
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i74:          ; preds = %.lr.ph
@@ -139,7 +139,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i74:          ; preds = %.lr.ph
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i82:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i74
   %bcmp.i.i.i83 = call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %.sroa.0.0.copyload.i.i, ptr noundef nonnull dereferenceable(14) @.str.10, i64 14)
   %31 = icmp eq i32 %bcmp.i.i.i83, 0
-  %spec.select392 = select i1 %31, i64 4294967305, i64 %.sroa.26.20.insert.mask
+  %spec.select394 = select i1 %31, i64 4294967305, i64 %.sroa.26.20.insert.mask
   br label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit93
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i90:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i58
@@ -149,7 +149,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i90:          ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit93
 
 _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit93: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i82, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i66, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i50, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i42, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i18, %.lr.ph, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i90, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i26, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i34, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i58, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i74
-  %.sroa.26.11 = phi i64 [ 4294967304, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i74 ], [ 4294967303, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i58 ], [ 4294967298, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i26 ], [ 4294967299, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i34 ], [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i90 ], [ %.sroa.26.20.insert.mask, %.lr.ph ], [ %spec.select388, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i18 ], [ %spec.select389, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i42 ], [ %spec.select390, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i50 ], [ %spec.select391, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i66 ], [ %spec.select392, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i82 ]
+  %.sroa.26.11 = phi i64 [ 4294967304, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i74 ], [ 4294967303, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i58 ], [ 4294967298, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i26 ], [ 4294967299, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i34 ], [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i90 ], [ %.sroa.26.20.insert.mask, %.lr.ph ], [ %spec.select390, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i18 ], [ %spec.select391, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i42 ], [ %spec.select392, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i50 ], [ %spec.select393, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i66 ], [ %spec.select394, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i82 ]
   %33 = and i64 %.sroa.26.11, 4294967296
   %.not377 = icmp eq i64 %33, 0
   %.sroa.26.16.extract.trunc = trunc i64 %.sroa.26.11 to i32

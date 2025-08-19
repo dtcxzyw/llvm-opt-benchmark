@@ -33,13 +33,13 @@ define hidden { i1, i8 } @"_ZN101_$LT$bstr..escape_bytes..UnescapeBytes$LT$I$GT$
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %thread-pre-split.backedge, %1
-  %12 = phi ptr [ %.promoted82, %1 ], [ %.be160, %thread-pre-split.backedge ]
+  %12 = phi ptr [ %.promoted82, %1 ], [ %.be177, %thread-pre-split.backedge ]
   %.pr = load i8, ptr %0, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %thread-pre-split
   %13 = phi ptr [ %12, %thread-pre-split ], [ %.be, %.backedge.backedge ]
-  %14 = phi i8 [ %.pr, %thread-pre-split ], [ %.be159, %.backedge.backedge ]
+  %14 = phi i8 [ %.pr, %thread-pre-split ], [ %.be176, %.backedge.backedge ]
   switch i8 %14, label %default.unreachable [
     i8 0, label %15
     i8 1, label %55
@@ -337,7 +337,7 @@ default.unreachable:                              ; preds = %.backedge
 
 .backedge.backedge:                               ; preds = %179, %198, %202
   %.be = phi ptr [ %199, %202 ], [ %98, %198 ], [ %53, %179 ]
-  %.be159 = phi i8 [ 4, %202 ], [ 3, %198 ], [ 2, %179 ]
+  %.be176 = phi i8 [ 4, %202 ], [ 3, %198 ], [ 2, %179 ]
   br label %.backedge
 
 180:                                              ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit"
@@ -388,7 +388,7 @@ default.unreachable:                              ; preds = %.backedge
   br label %thread-pre-split.backedge
 
 thread-pre-split.backedge:                        ; preds = %192, %180
-  %.be160 = phi ptr [ %98, %192 ], [ %53, %180 ]
+  %.be177 = phi ptr [ %98, %192 ], [ %53, %180 ]
   br label %thread-pre-split
 
 193:                                              ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit62"

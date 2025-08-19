@@ -308,8 +308,8 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
   %66 = icmp sgt i32 %65, -1
   %.pre75 = load i32, ptr %10, align 4, !tbaa !31
   %.not65 = icmp slt i32 %65, %.pre75
-  %or.cond76 = select i1 %66, i1 %.not65, i1 false
-  br i1 %or.cond76, label %86, label %67
+  %or.cond80 = select i1 %66, i1 %.not65, i1 false
+  br i1 %or.cond80, label %86, label %67
 
 67:                                               ; preds = %63
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 520
@@ -340,8 +340,8 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
   %88 = load i32, ptr %87, align 4, !tbaa !38
   %89 = icmp sgt i32 %88, -1
   %.not66 = icmp slt i32 %88, %.pre
-  %or.cond77 = select i1 %89, i1 %.not66, i1 false
-  br i1 %or.cond77, label %109, label %90
+  %or.cond81 = select i1 %89, i1 %.not66, i1 false
+  br i1 %or.cond81, label %109, label %90
 
 90:                                               ; preds = %86
   %91 = getelementptr inbounds nuw i8, ptr %4, i64 520
@@ -372,8 +372,8 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
   %111 = load i32, ptr %110, align 8, !tbaa !39
   %112 = icmp sgt i32 %111, -1
   %.not67 = icmp slt i32 %111, %.pre75
-  %or.cond78 = select i1 %112, i1 %.not67, i1 false
-  br i1 %or.cond78, label %132, label %113
+  %or.cond82 = select i1 %112, i1 %.not67, i1 false
+  br i1 %or.cond82, label %132, label %113
 
 113:                                              ; preds = %109
   %114 = getelementptr inbounds nuw i8, ptr %4, i64 520

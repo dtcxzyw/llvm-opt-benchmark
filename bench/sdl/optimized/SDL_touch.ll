@@ -903,20 +903,20 @@ define hidden void @SDL_DelTouch(i64 noundef %0) local_unnamed_addr #2 {
   %9 = load ptr, ptr %8, align 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, %0
-  br i1 %11, label %._crit_edge.loopexit.split.loop.exit11.i, label %12
+  br i1 %11, label %._crit_edge.loopexit.split.loop.exit12.i, label %12
 
 12:                                               ; preds = %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %SDL_GetTouchIndex.exit, label %7, !llvm.loop !5
 
-._crit_edge.loopexit.split.loop.exit11.i:         ; preds = %7
+._crit_edge.loopexit.split.loop.exit12.i:         ; preds = %7
   %sext = shl i64 %indvars.iv.i, 32
   %13 = ashr exact i64 %sext, 32
   br label %SDL_GetTouchIndex.exit
 
-SDL_GetTouchIndex.exit:                           ; preds = %12, %4, %._crit_edge.loopexit.split.loop.exit11.i
-  %.0.i = phi i64 [ -1, %4 ], [ %13, %._crit_edge.loopexit.split.loop.exit11.i ], [ -1, %12 ]
+SDL_GetTouchIndex.exit:                           ; preds = %12, %4, %._crit_edge.loopexit.split.loop.exit12.i
+  %.0.i = phi i64 [ -1, %4 ], [ %13, %._crit_edge.loopexit.split.loop.exit12.i ], [ -1, %12 ]
   %14 = tail call ptr @SDL_GetTouch(i64 noundef %0)
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %37, label %.preheader

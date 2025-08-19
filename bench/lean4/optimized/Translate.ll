@@ -6962,7 +6962,7 @@ define internal fastcc ptr @_init_l_Lake_Package_mkConfigString___closed__12() u
   br label %lean_nat_add.exit
 
 12:                                               ; preds = %4
-  %13 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %6) #5
+  %13 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #5
   br label %lean_nat_add.exit
 
 .critedge.i:                                      ; preds = %0

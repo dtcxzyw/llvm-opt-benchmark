@@ -256,7 +256,7 @@ markScratchInUse.exit.thread:                     ; preds = %15
   %124 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %125 = load i32, ptr %124, align 8
   %126 = icmp ugt i32 %123, %125
-  br i1 %126, label %.thread138, label %127
+  br i1 %126, label %.thread158, label %127
 
 127:                                              ; preds = %.thread
   %128 = getelementptr inbounds nuw i8, ptr %22, i64 44
@@ -266,42 +266,42 @@ markScratchInUse.exit.thread:                     ; preds = %15
   %132 = icmp ugt i32 %129, %131
   br i1 %132, label %.thread135, label %143
 
-.thread138:                                       ; preds = %.thread
+.thread158:                                       ; preds = %.thread
   store i32 %123, ptr %124, align 8
   %133 = getelementptr inbounds nuw i8, ptr %22, i64 44
   %134 = load i32, ptr %133, align 4
   %135 = getelementptr inbounds nuw i8, ptr %39, i64 384
   %136 = load i32, ptr %135, align 64
   %137 = icmp ugt i32 %134, %136
-  br i1 %137, label %.thread135, label %.thread141
+  br i1 %137, label %.thread135, label %.thread161
 
-.thread135:                                       ; preds = %.thread138, %127
-  %138 = phi ptr [ %135, %.thread138 ], [ %130, %127 ]
-  %139 = phi i32 [ %134, %.thread138 ], [ %129, %127 ]
+.thread135:                                       ; preds = %.thread158, %127
+  %138 = phi ptr [ %135, %.thread158 ], [ %130, %127 ]
+  %139 = phi i32 [ %134, %.thread158 ], [ %129, %127 ]
   store i32 %139, ptr %138, align 16
   %140 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %141 = load i32, ptr %140, align 8
   %142 = getelementptr inbounds nuw i8, ptr %39, i64 388
   store i32 %141, ptr %142, align 4
-  br label %.thread141
+  br label %.thread161
 
 143:                                              ; preds = %127
   %.not126 = icmp eq i32 %.10, 0
-  br i1 %.not126, label %153, label %.thread141
+  br i1 %.not126, label %153, label %.thread161
 
-.thread141:                                       ; preds = %.thread138, %.thread135, %143
+.thread161:                                       ; preds = %.thread158, %.thread135, %143
   %144 = load ptr, ptr %1, align 8
   %.not127 = icmp eq ptr %144, null
   br i1 %.not127, label %149, label %145
 
-145:                                              ; preds = %.thread141
+145:                                              ; preds = %.thread161
   %146 = load ptr, ptr @hs_scratch_free, align 8
   %147 = getelementptr inbounds nuw i8, ptr %144, i64 488
   %148 = load ptr, ptr %147, align 8
   tail call void %146(ptr noundef %148) #5
   br label %149
 
-149:                                              ; preds = %145, %.thread141
+149:                                              ; preds = %145, %.thread161
   %150 = tail call fastcc i32 @alloc_scratch(ptr noundef nonnull %39, ptr noundef %1)
   %151 = load ptr, ptr @hs_scratch_free, align 8
   tail call void %151(ptr noundef nonnull %24) #5

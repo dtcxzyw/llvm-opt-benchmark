@@ -1836,7 +1836,7 @@ _ZN5boost4urls7grammar9lut_chars9constructEhb.exit14: ; preds = %8, %5, %15, %13
   %.sroa.6.2 = phi i64 [ 0, %15 ], [ 0, %14 ], [ %12, %13 ], [ 0, %5 ], [ 0, %8 ]
   %.sroa.10.1 = phi i64 [ 0, %15 ], [ %12, %14 ], [ 0, %13 ], [ 0, %5 ], [ 0, %8 ]
   %.sroa.14.0 = phi i64 [ %12, %15 ], [ 0, %14 ], [ 0, %13 ], [ 0, %5 ], [ 0, %8 ]
-  %16 = add i8 %1, 1
+  %16 = add nuw i8 %1, 1
   call void @_ZN5boost4urls7grammar9lut_chars9constructINS1_22implementation_defined13digit_chars_tEEES2_T_h(ptr dead_on_unwind nonnull writable sret(%"class.boost::urls::grammar::lut_chars") align 8 %3, i8 noundef zeroext %16) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !115)
   %17 = load i64, ptr %3, align 8, !tbaa !7, !noalias !115
@@ -3448,7 +3448,7 @@ _ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit: ; preds
   %94 = load i32, ptr %93, align 8, !tbaa !151
   %95 = icmp eq i32 %94, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %95, label %.lr.ph130, label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit60.thread
+  br i1 %95, label %.lr.ph135, label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit60.thread
 
 96:                                               ; preds = %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit60
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -3456,7 +3456,7 @@ _ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit: ; preds
   %97 = load i32, ptr %93, align 8, !tbaa !151
   %98 = icmp eq i32 %97, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %98, label %.lr.ph130, label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit60.thread
+  br i1 %98, label %.lr.ph135, label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit60.thread
 
 _ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit60.thread: ; preds = %96, %.lr.ph
   %storemerge8395.lcssa = phi ptr [ %.2.i.i.i.i, %.lr.ph ], [ %storemerge, %96 ]
@@ -3464,16 +3464,16 @@ _ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit60.thread
   %.pre106 = ptrtoint ptr %storemerge8395.lcssa to i64
   br label %.loopexit
 
-.lr.ph130:                                        ; preds = %.lr.ph, %96
+.lr.ph135:                                        ; preds = %.lr.ph, %96
   %99 = load ptr, ptr %2, align 8, !tbaa !3
   %100 = ptrtoint ptr %99 to i64
   %101 = sub i64 %52, %100
   %102 = icmp sgt i64 %101, 15
   br i1 %102, label %.lr.ph.i.i.i.i52, label %.preheader.i.i.i.i41
 
-.preheader.i.i.i.i41:                             ; preds = %124, %.lr.ph130
-  %.021.lcssa45.pre-phi.i.i.i.i42 = phi i64 [ %100, %.lr.ph130 ], [ %126, %124 ]
-  %.021.lcssa.i.i.i.i43 = phi ptr [ %99, %.lr.ph130 ], [ %125, %124 ]
+.preheader.i.i.i.i41:                             ; preds = %124, %.lr.ph135
+  %.021.lcssa45.pre-phi.i.i.i.i42 = phi i64 [ %100, %.lr.ph135 ], [ %126, %124 ]
+  %.021.lcssa.i.i.i.i43 = phi ptr [ %99, %.lr.ph135 ], [ %125, %124 ]
   %.not35.i.i.i.i44 = icmp eq ptr %.021.lcssa.i.i.i.i43, %3
   br i1 %.not35.i.i.i.i44, label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit60, label %.lr.ph37.preheader.i.i.i.i45
 
@@ -3482,8 +3482,8 @@ _ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit60.thread
   %scevgep.i.i.i.i46 = getelementptr i8, ptr %.021.lcssa.i.i.i.i43, i64 %103
   br label %.lr.ph37.i.i.i.i47
 
-.lr.ph.i.i.i.i52:                                 ; preds = %.lr.ph130, %124
-  %.02134.i.i.i.i53 = phi ptr [ %125, %124 ], [ %99, %.lr.ph130 ]
+.lr.ph.i.i.i.i52:                                 ; preds = %.lr.ph135, %124
+  %.02134.i.i.i.i53 = phi ptr [ %125, %124 ], [ %99, %.lr.ph135 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   br label %108
@@ -3563,11 +3563,11 @@ _ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit60: ; pre
   br label %142
 
 142:                                              ; preds = %.loopexit, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit40, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit34, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit
-  %.sink119 = phi i64 [ 8, %.loopexit ], [ 16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit40 ], [ 16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit34 ], [ 16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
-  %.sink118 = phi i64 [ %141, %.loopexit ], [ %47, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit40 ], [ %34, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit34 ], [ %19, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
+  %.sink124 = phi i64 [ 8, %.loopexit ], [ 16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit40 ], [ 16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit34 ], [ 16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
+  %.sink123 = phi i64 [ %141, %.loopexit ], [ %47, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit40 ], [ %34, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit34 ], [ %19, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
   %.sink = phi i32 [ 1, %.loopexit ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit40 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit34 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink119
-  store i64 %.sink118, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !7
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink124
+  store i64 %.sink123, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !7
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.sink, ptr %143, align 8, !tbaa !151
   ret void
@@ -3873,10 +3873,10 @@ select.unfold:                                    ; preds = %98
   br label %.thread
 
 .thread:                                          ; preds = %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit57, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit49, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit43, %.thread107, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit
-  %.sink182 = phi i64 [ %97, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit57 ], [ %87, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit49 ], [ %75, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit43 ], [ %.1, %.thread107 ], [ %65, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
+  %.sink188 = phi i64 [ %97, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit57 ], [ %87, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit49 ], [ %75, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit43 ], [ %.1, %.thread107 ], [ %65, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
   %.sink = phi i32 [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit57 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit49 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit43 ], [ 1, %.thread107 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
   %.sroa.662.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink182, ptr %.sroa.662.0..sroa_idx, align 8
+  store i64 %.sink188, ptr %.sroa.662.0..sroa_idx, align 8
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.sink, ptr %105, align 8, !tbaa !96
   ret void
@@ -3917,8 +3917,8 @@ _ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_1
   br label %_ZN5boost6system6resultINS_8optionalINS_4urls6detail24userinfo_template_rule_t10value_typeEEENS0_10error_codeEED2Ev.exit
 
 _ZN5boost6system6resultINS_8optionalINS_4urls6detail24userinfo_template_rule_t10value_typeEEENS0_10error_codeEED2Ev.exit: ; preds = %13, %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12tuple_rule_tINS0_6detail24userinfo_template_rule_tEJNS3_14squelch_rule_tINS3_13ch_delim_ruleEEEEEEEEEENS_6system6resultINT_10value_typeENSD_10error_codeEEERPKcSK_RKSF_.exit
-  %.sroa.928.056 = phi i8 [ 0, %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12tuple_rule_tINS0_6detail24userinfo_template_rule_tEJNS3_14squelch_rule_tINS3_13ch_delim_ruleEEEEEEEEEENS_6system6resultINT_10value_typeENSD_10error_codeEEERPKcSK_RKSF_.exit ], [ 1, %13 ]
-  %.sroa.10.055 = phi i8 [ 0, %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12tuple_rule_tINS0_6detail24userinfo_template_rule_tEJNS3_14squelch_rule_tINS3_13ch_delim_ruleEEEEEEEEEENS_6system6resultINT_10value_typeENSD_10error_codeEEERPKcSK_RKSF_.exit ], [ %16, %13 ]
+  %.sroa.928.057 = phi i8 [ 0, %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12tuple_rule_tINS0_6detail24userinfo_template_rule_tEJNS3_14squelch_rule_tINS3_13ch_delim_ruleEEEEEEEEEENS_6system6resultINT_10value_typeENSD_10error_codeEEERPKcSK_RKSF_.exit ], [ 1, %13 ]
+  %.sroa.10.056 = phi i8 [ 0, %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12tuple_rule_tINS0_6detail24userinfo_template_rule_tEJNS3_14squelch_rule_tINS3_13ch_delim_ruleEEEEEEEEEENS_6system6resultINT_10value_typeENSD_10error_codeEEERPKcSK_RKSF_.exit ], [ %16, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZNK5boost4urls6detail20host_template_rule_t5parseERPKcS4_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.71") align 8 %9, ptr noundef nonnull align 1 dereferenceable(1) @_ZN5boost4urls6detailL18host_template_ruleE, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) #22
@@ -3999,9 +3999,9 @@ _ZN5boost6system6resultINS_8optionalINS_4urls15pct_string_viewEEENS0_10error_cod
   %.sroa.927.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.sroa.927.0..sroa_idx, i8 0, i64 49, i1 false)
   %.sroa.928.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 129
-  store i8 %.sroa.928.056, ptr %.sroa.928.0..sroa_idx, align 1, !tbaa !83
+  store i8 %.sroa.928.057, ptr %.sroa.928.0..sroa_idx, align 1, !tbaa !83
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 130
-  store i8 %.sroa.10.055, ptr %.sroa.10.0..sroa_idx, align 2, !tbaa !83
+  store i8 %.sroa.10.056, ptr %.sroa.10.0..sroa_idx, align 2, !tbaa !83
   %.sroa.1129.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 131
   store i8 %.sroa.1129.049, ptr %.sroa.1129.0..sroa_idx, align 1, !tbaa !83
   %.sroa.1230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -4482,10 +4482,10 @@ select.unfold:                                    ; preds = %100
   br label %.thread
 
 .thread:                                          ; preds = %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit57, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit49, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit43, %.thread107, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit
-  %.sink176 = phi i64 [ %99, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit57 ], [ %89, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit49 ], [ %77, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit43 ], [ %.1, %.thread107 ], [ %67, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
+  %.sink182 = phi i64 [ %99, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit57 ], [ %89, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit49 ], [ %77, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit43 ], [ %.1, %.thread107 ], [ %67, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
   %.sink = phi i32 [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit57 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit49 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit43 ], [ 1, %.thread107 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
   %.sroa.662.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink176, ptr %.sroa.662.0..sroa_idx, align 8
+  store i64 %.sink182, ptr %.sroa.662.0..sroa_idx, align 8
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.sink, ptr %107, align 8, !tbaa !96
   ret void
@@ -4965,11 +4965,11 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit18: ; preds = %_
   br label %59
 
 59:                                               ; preds = %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit18, %47, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit
-  %.sink45 = phi i64 [ 16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit18 ], [ 8, %47 ], [ 16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
-  %.sink44 = phi i64 [ %58, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit18 ], [ %49, %47 ], [ %16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
+  %.sink48 = phi i64 [ 16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit18 ], [ 8, %47 ], [ 16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
+  %.sink47 = phi i64 [ %58, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit18 ], [ %49, %47 ], [ %16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
   %.sink = phi i32 [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit18 ], [ 1, %47 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
-  %.sroa.621.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink45
-  store i64 %.sink44, ptr %.sroa.621.0..sroa_idx, align 8, !tbaa !7
+  %.sroa.621.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink48
+  store i64 %.sink47, ptr %.sroa.621.0..sroa_idx, align 8, !tbaa !7
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.sink, ptr %60, align 8, !tbaa !151
   ret void

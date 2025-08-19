@@ -627,15 +627,15 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   br i1 %.0169229, label %89, label %.thread
 
 .thread:                                          ; preds = %.critedge.thread, %87
-  %.0166227391394 = phi i1 [ %.0166227, %87 ], [ false, %.critedge.thread ]
+  %.0166227398401 = phi i1 [ %.0166227, %87 ], [ false, %.critedge.thread ]
   %88 = load i32, ptr %64, align 8
   br label %89
 
 89:                                               ; preds = %.thread, %87
-  %.0166227391395 = phi i1 [ %.0166227, %87 ], [ %.0166227391394, %.thread ]
+  %.0166227398402 = phi i1 [ %.0166227, %87 ], [ %.0166227398401, %.thread ]
   %.1165 = phi i32 [ %.0164253, %87 ], [ %88, %.thread ]
   %90 = icmp eq i32 %.0160258, 0
-  %or.cond = select i1 %90, i1 true, i1 %.0166227391395
+  %or.cond = select i1 %90, i1 true, i1 %.0166227398402
   br i1 %or.cond, label %91, label %95
 
 91:                                               ; preds = %89
@@ -652,10 +652,10 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   br i1 %exitcond366.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge.sink.split:                           ; preds = %60, %44
-  %.lcssa426.sink = phi ptr [ %34, %44 ], [ %50, %60 ]
+  %.lcssa433.sink = phi ptr [ %34, %44 ], [ %50, %60 ]
   %.0162.lcssa.ph = phi i64 [ %.1163.us, %44 ], [ %.1163.us280, %60 ]
   %.0160.lcssa.ph = phi i32 [ %.1161.us, %44 ], [ %.1161.us281, %60 ]
-  %96 = load i32, ptr %.lcssa426.sink, align 8
+  %96 = load i32, ptr %.lcssa433.sink, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %95, %._crit_edge.sink.split
@@ -800,13 +800,13 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   br i1 %exitcond376.not, label %._crit_edge301, label %102, !llvm.loop !11
 
 ._crit_edge301:                                   ; preds = %192, %._crit_edge.thread
-  %.0160.lcssa400 = phi i32 [ 0, %._crit_edge.thread ], [ %.0160.lcssa, %192 ]
-  %.0162.lcssa399 = phi i64 [ 0, %._crit_edge.thread ], [ %.0162.lcssa, %192 ]
+  %.0160.lcssa407 = phi i32 [ 0, %._crit_edge.thread ], [ %.0160.lcssa, %192 ]
+  %.0162.lcssa406 = phi i64 [ 0, %._crit_edge.thread ], [ %.0162.lcssa, %192 ]
   %193 = getelementptr inbounds nuw i8, ptr %1, i64 1032
   %194 = load i64, ptr %193, align 8
   tail call void @WaitForWalSummarization(i64 noundef %194) #14
   %195 = load i64, ptr %193, align 8
-  %196 = tail call ptr @GetWalSummaries(i32 noundef 0, i64 noundef %.0162.lcssa399, i64 noundef %195) #14
+  %196 = tail call ptr @GetWalSummaries(i32 noundef 0, i64 noundef %.0162.lcssa406, i64 noundef %195) #14
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %.critedge192.thread, label %.lr.ph306
 
@@ -845,8 +845,8 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
 
 215:                                              ; preds = %214, %212
   %.0176 = phi i64 [ %213, %212 ], [ %208, %214 ]
-  %216 = icmp eq i32 %209, %.0160.lcssa400
-  %spec.select193 = select i1 %216, i64 %.0162.lcssa399, i64 %206
+  %216 = icmp eq i32 %209, %.0160.lcssa407
+  %spec.select193 = select i1 %216, i64 %.0162.lcssa406, i64 %206
   %217 = call ptr @FilterWalSummaries(ptr noundef %196, i32 noundef %209, i64 noundef %spec.select193, i64 noundef %.0176) #14
   %218 = call zeroext i1 @WalSummariesAreComplete(ptr noundef %217, i64 noundef %spec.select193, i64 noundef %.0176, ptr noundef nonnull %3) #14
   br i1 %218, label %239, label %.split312
@@ -884,7 +884,7 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
 239:                                              ; preds = %215
   %240 = call ptr @list_concat(ptr noundef %.0151304320, ptr noundef %217) #14
   %241 = load i32, ptr %204, align 8
-  %242 = icmp eq i32 %241, %.0160.lcssa400
+  %242 = icmp eq i32 %241, %.0160.lcssa407
   br i1 %242, label %.split317, label %._crit_edge387
 
 ._crit_edge387:                                   ; preds = %239
@@ -925,12 +925,12 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   %253 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %254 = load i32, ptr %251, align 4
   %255 = icmp sgt i32 %254, 0
-  br i1 %255, label %.lr.ph468, label %.critedge195
+  br i1 %255, label %.lr.ph475, label %.critedge195
 
-.lr.ph468:                                        ; preds = %.lr.ph330, %.critedge207._crit_edge
-  %indvars.iv384467 = phi i64 [ %indvars.iv.next385, %.critedge207._crit_edge ], [ 0, %.lr.ph330 ]
+.lr.ph475:                                        ; preds = %.lr.ph330, %.critedge207._crit_edge
+  %indvars.iv384474 = phi i64 [ %indvars.iv.next385, %.critedge207._crit_edge ], [ 0, %.lr.ph330 ]
   %256 = load ptr, ptr %252, align 8
-  %257 = getelementptr inbounds nuw %union.ListCell, ptr %256, i64 %indvars.iv384467
+  %257 = getelementptr inbounds nuw %union.ListCell, ptr %256, i64 %indvars.iv384474
   %258 = load ptr, ptr %257, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -947,14 +947,14 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   store ptr %10, ptr @CurrentMemoryContext, align 8
   ret void
 
-261:                                              ; preds = %.lr.ph468
+261:                                              ; preds = %.lr.ph475
   %262 = load i32, ptr %4, align 8
   %263 = call ptr @FilePathName(i32 noundef %262) #14
   %264 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, ptr noundef %263) #14
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 586, ptr noundef nonnull @__func__.PrepareForIncrementalBackup) #14
   br label %265
 
-265:                                              ; preds = %261, %.lr.ph468
+265:                                              ; preds = %261, %.lr.ph475
   %266 = load i32, ptr %4, align 8
   %267 = call ptr @FilePathName(i32 noundef %266) #14
   %268 = call ptr @CreateBlockRefTableReader(ptr noundef nonnull @ReadWalSummary, ptr noundef nonnull %4, ptr noundef %267, ptr noundef nonnull @ReportWalSummaryError, ptr noundef null) #14
@@ -1004,11 +1004,11 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %indvars.iv.next385 = add nuw nsw i64 %indvars.iv384467, 1
+  %indvars.iv.next385 = add nuw nsw i64 %indvars.iv384474, 1
   %284 = load i32, ptr %251, align 4
   %285 = sext i32 %284 to i64
   %286 = icmp slt i64 %indvars.iv.next385, %285
-  br i1 %286, label %.lr.ph468, label %.critedge195
+  br i1 %286, label %.lr.ph475, label %.critedge195
 }
 
 ; Function Attrs: cold
@@ -1252,7 +1252,7 @@ backup_file_lookup.exit:                          ; preds = %.lr.ph.i.i, %.lr.ph
   %97 = call i32 @BlockRefTableEntryGetBlocks(ptr noundef nonnull %79, i32 noundef %87, i32 noundef %90, ptr noundef %9, i32 noundef 131072) #14
   %98 = shl i32 %97, 13
   %99 = uitofp i32 %98 to double
-  %100 = uitofp i64 %7 to double
+  %100 = uitofp nneg i64 %7 to double
   %101 = fmul double %100, 9.000000e-01
   %102 = fcmp olt double %101, %99
   br i1 %102, label %backup_file_lookup.exit78.thread, label %103
@@ -1282,8 +1282,8 @@ backup_file_lookup.exit:                          ; preds = %.lr.ph.i.i, %.lr.ph
   %.not82 = icmp ne i32 %109, -1
   %110 = sub i32 %109, %87
   %111 = icmp ugt i32 %110, %89
-  %or.cond91 = select i1 %.not82, i1 %111, i1 false
-  br i1 %or.cond91, label %backup_file_lookup.exit78.thread.sink.split, label %backup_file_lookup.exit78.thread
+  %or.cond99 = select i1 %.not82, i1 %111, i1 false
+  br i1 %or.cond99, label %backup_file_lookup.exit78.thread.sink.split, label %backup_file_lookup.exit78.thread
 
 backup_file_lookup.exit78.thread.sink.split:      ; preds = %.loopexit, %83
   %.sink = phi i32 [ %84, %83 ], [ %110, %.loopexit ]

@@ -173,7 +173,7 @@ define internal fastcc void @__static_call_transform(ptr noundef %0, i32 noundef
   br i1 %12, label %.thread2, label %13
 
 13:                                               ; preds = %6, %9, %4
-  switch i32 %1, label %default.unreachable5 [
+  switch i32 %1, label %default.unreachable6 [
     i32 0, label %14
     i32 1, label %28
     i32 2, label %30
@@ -264,7 +264,7 @@ define internal fastcc void @__static_call_transform(ptr noundef %0, i32 noundef
   store i32 %66, ptr %67, align 1
   br label %68
 
-default.unreachable5:                             ; preds = %13
+default.unreachable6:                             ; preds = %13
   unreachable
 
 68:                                               ; preds = %56, %41, %40, %30, %28, %14

@@ -306,9 +306,9 @@ define dso_local i32 @Curl_conn_shutdown(ptr noundef %0, i32 noundef %1, ptr nou
   %21 = call i64 @Curl_shutdown_timeleft(ptr noundef %20, i32 noundef %1, ptr noundef nonnull %4) #12
   %22 = icmp slt i64 %21, 0
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2562
-  br i1 %22, label %25, label %.thread131
+  br i1 %22, label %25, label %.thread140
 
-.thread131:                                       ; preds = %19
+.thread140:                                       ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4712
   br label %.split.preheader
 
@@ -341,9 +341,9 @@ define dso_local i32 @Curl_conn_shutdown(ptr noundef %0, i32 noundef %1, ptr nou
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 4712
   br i1 %.not91, label %.split.us, label %.split.preheader
 
-.split.preheader:                                 ; preds = %.thread131, %36
-  %39 = phi ptr [ %24, %.thread131 ], [ %38, %36 ]
-  %40 = phi ptr [ %23, %.thread131 ], [ %37, %36 ]
+.split.preheader:                                 ; preds = %.thread140, %36
+  %39 = phi ptr [ %24, %.thread140 ], [ %38, %36 ]
+  %40 = phi ptr [ %23, %.thread140 ], [ %37, %36 ]
   br label %.split
 
 .split.us:                                        ; preds = %36, %55
@@ -403,10 +403,10 @@ define dso_local i32 @Curl_conn_shutdown(ptr noundef %0, i32 noundef %1, ptr nou
 .split112.us:                                     ; preds = %44, %61
   %66 = phi ptr [ %39, %61 ], [ %38, %44 ]
   %67 = phi ptr [ %40, %61 ], [ %37, %44 ]
-  %.not91133 = phi i1 [ false, %61 ], [ true, %44 ]
+  %.not91142 = phi i1 [ false, %61 ], [ true, %44 ]
   %.us-phi = phi i32 [ %65, %61 ], [ %48, %44 ]
   %.us-phi113 = phi ptr [ %.169110, %61 ], [ %.169110.us, %44 ]
-  br i1 %.not91133, label %.thread, label %68
+  br i1 %.not91142, label %.thread, label %68
 
 68:                                               ; preds = %.split112.us
   %69 = load i64, ptr %67, align 2
@@ -1286,8 +1286,8 @@ define dso_local noundef zeroext i1 @Curl_conn_is_multiplex(ptr noundef readonly
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !134
   %11 = and i32 %10, 7
-  %or.cond21.not.not = icmp eq i32 %11, 0
-  br i1 %or.cond21.not.not, label %12, label %._crit_edge.loopexit
+  %or.cond23.not.not = icmp eq i32 %11, 0
+  br i1 %or.cond23.not.not, label %12, label %._crit_edge.loopexit
 
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %.015, i64 8

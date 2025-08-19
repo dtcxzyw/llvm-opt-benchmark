@@ -207,9 +207,9 @@ define hidden void @_glfwPollMonitorsX11() local_unnamed_addr #0 {
   br label %70
 
 70:                                               ; preds = %.critedge, %.critedge, %69
-  %.sink129 = phi i64 [ 32, %69 ], [ 40, %.critedge ], [ 40, %.critedge ]
+  %.sink134 = phi i64 [ 32, %69 ], [ 40, %.critedge ], [ 40, %.critedge ]
   %.sink = phi i64 [ 40, %69 ], [ 32, %.critedge ], [ 32, %.critedge ]
-  %71 = getelementptr inbounds nuw i8, ptr %42, i64 %.sink129
+  %71 = getelementptr inbounds nuw i8, ptr %42, i64 %.sink134
   %72 = getelementptr inbounds nuw i8, ptr %42, i64 %.sink
   %.086.in = load i64, ptr %72, align 8, !tbaa !109
   %.086 = trunc i64 %.086.in to i32
@@ -486,11 +486,11 @@ getModeInfo.exit:                                 ; preds = %48, %49, %41
   br label %57
 
 57:                                               ; preds = %55, %55, %56
-  %.sink54 = phi i64 [ 8, %56 ], [ 12, %55 ], [ 12, %55 ]
+  %.sink57 = phi i64 [ 8, %56 ], [ 12, %55 ], [ 12, %55 ]
   %.sink = phi i64 [ 12, %56 ], [ 8, %55 ], [ 8, %55 ]
-  %58 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink54
-  %.sink52 = load i32, ptr %58, align 4, !tbaa !93, !noalias !161
-  store i32 %.sink52, ptr %4, align 4, !tbaa !164, !alias.scope !161
+  %58 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink57
+  %.sink55 = load i32, ptr %58, align 4, !tbaa !93, !noalias !161
+  store i32 %.sink55, ptr %4, align 4, !tbaa !164, !alias.scope !161
   %59 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink
   %.sink.i = load i32, ptr %59, align 4, !tbaa !93, !noalias !161
   store i32 %.sink.i, ptr %36, align 4, !tbaa !165, !alias.scope !161
@@ -661,11 +661,11 @@ getModeInfo.exit:                                 ; preds = %26
   br label %32
 
 32:                                               ; preds = %getModeInfo.exit, %getModeInfo.exit, %31
-  %.sink41 = phi i64 [ 8, %31 ], [ 12, %getModeInfo.exit ], [ 12, %getModeInfo.exit ]
+  %.sink44 = phi i64 [ 8, %31 ], [ 12, %getModeInfo.exit ], [ 12, %getModeInfo.exit ]
   %.sink = phi i64 [ 12, %31 ], [ 8, %getModeInfo.exit ], [ 8, %getModeInfo.exit ]
-  %33 = getelementptr inbounds nuw i8, ptr %27, i64 %.sink41
-  %.sink38 = load i32, ptr %33, align 4, !tbaa !93, !noalias !176
-  store i32 %.sink38, ptr %3, align 4, !tbaa !164, !alias.scope !176
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 %.sink44
+  %.sink41 = load i32, ptr %33, align 4, !tbaa !93, !noalias !176
+  store i32 %.sink41, ptr %3, align 4, !tbaa !164, !alias.scope !176
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 %.sink
   %.sink.i = load i32, ptr %34, align 4, !tbaa !93, !noalias !176
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -955,9 +955,9 @@ getModeInfo.exit:                                 ; preds = %32, %33, %12
   br label %40
 
 40:                                               ; preds = %getModeInfo.exit, %getModeInfo.exit, %39
-  %.sink103 = phi i64 [ 8, %39 ], [ 12, %getModeInfo.exit ], [ 12, %getModeInfo.exit ]
+  %.sink113 = phi i64 [ 8, %39 ], [ 12, %getModeInfo.exit ], [ 12, %getModeInfo.exit ]
   %.sink = phi i64 [ 12, %39 ], [ 8, %getModeInfo.exit ], [ 8, %getModeInfo.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink103
+  %41 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink113
   %42 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink
   %.062 = load i32, ptr %41, align 4, !tbaa !93
   %.066 = load i32, ptr %42, align 4, !tbaa !93
@@ -1063,20 +1063,20 @@ getModeInfo.exit:                                 ; preds = %32, %33, %12
   br i1 %.not, label %106, label %102
 
 102:                                              ; preds = %.thread, %100
-  %.2101 = phi i32 [ %.3, %.thread ], [ %.0, %100 ]
-  %.26099 = phi i32 [ %.361, %.thread ], [ %.058, %100 ]
-  %.36597 = phi i32 [ %.5, %.thread ], [ %.163, %100 ]
-  %.36995 = phi i32 [ %.571, %.thread ], [ %.167, %100 ]
+  %.2111 = phi i32 [ %.3, %.thread ], [ %.0, %100 ]
+  %.260109 = phi i32 [ %.361, %.thread ], [ %.058, %100 ]
+  %.365107 = phi i32 [ %.5, %.thread ], [ %.163, %100 ]
+  %.369105 = phi i32 [ %.571, %.thread ], [ %.167, %100 ]
   %103 = phi ptr [ %.pre89, %.thread ], [ %101, %100 ]
   %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !143
   %105 = call i32 %104(ptr noundef nonnull %103) #9
   br label %106
 
 106:                                              ; preds = %102, %100
-  %.2102 = phi i32 [ %.2101, %102 ], [ %.0, %100 ]
-  %.260100 = phi i32 [ %.26099, %102 ], [ %.058, %100 ]
-  %.36598 = phi i32 [ %.36597, %102 ], [ %.163, %100 ]
-  %.36996 = phi i32 [ %.36995, %102 ], [ %.167, %100 ]
+  %.2112 = phi i32 [ %.2111, %102 ], [ %.0, %100 ]
+  %.260110 = phi i32 [ %.260109, %102 ], [ %.058, %100 ]
+  %.365108 = phi i32 [ %.365107, %102 ], [ %.163, %100 ]
+  %.369106 = phi i32 [ %.369105, %102 ], [ %.167, %100 ]
   %107 = load ptr, ptr %7, align 8, !tbaa !186
   %.not84 = icmp eq ptr %107, null
   br i1 %.not84, label %111, label %108
@@ -1092,10 +1092,10 @@ getModeInfo.exit:                                 ; preds = %32, %33, %12
   br label %112
 
 112:                                              ; preds = %111, %56
-  %.268 = phi i32 [ %.36996, %111 ], [ %.167, %56 ]
-  %.264 = phi i32 [ %.36598, %111 ], [ %.163, %56 ]
-  %.159 = phi i32 [ %.260100, %111 ], [ %.058, %56 ]
-  %.1 = phi i32 [ %.2102, %111 ], [ %.0, %56 ]
+  %.268 = phi i32 [ %.369106, %111 ], [ %.167, %56 ]
+  %.264 = phi i32 [ %.365108, %111 ], [ %.163, %56 ]
+  %.159 = phi i32 [ %.260110, %111 ], [ %.058, %56 ]
+  %.1 = phi i32 [ %.2112, %111 ], [ %.0, %56 ]
   %.not85 = icmp eq ptr %1, null
   br i1 %.not85, label %114, label %113
 
@@ -1236,11 +1236,11 @@ getModeInfo.exit:                                 ; preds = %48, %49, %41
   br label %57
 
 57:                                               ; preds = %55, %55, %56
-  %.sink51 = phi i64 [ 8, %56 ], [ 12, %55 ], [ 12, %55 ]
+  %.sink56 = phi i64 [ 8, %56 ], [ 12, %55 ], [ 12, %55 ]
   %.sink = phi i64 [ 12, %56 ], [ 8, %55 ], [ 8, %55 ]
-  %58 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink51
-  %.sink50 = load i32, ptr %58, align 4, !tbaa !93, !noalias !188
-  store i32 %.sink50, ptr %3, align 4, !tbaa !164, !alias.scope !188
+  %58 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink56
+  %.sink55 = load i32, ptr %58, align 4, !tbaa !93, !noalias !188
+  store i32 %.sink55, ptr %3, align 4, !tbaa !164, !alias.scope !188
   %59 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink
   %.sink.i = load i32, ptr %59, align 4, !tbaa !93, !noalias !188
   store i32 %.sink.i, ptr %33, align 4, !tbaa !165, !alias.scope !188

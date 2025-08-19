@@ -761,7 +761,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.i.i:   ; preds = %95
 113:                                              ; preds = %111
   %114 = load i64, ptr %12, align 8, !tbaa !78
   %115 = icmp eq i64 %114, 1
-  br i1 %115, label %.thread84, label %.invoke, !prof !88
+  br i1 %115, label %.thread86, label %.invoke, !prof !88
 
 .invoke:                                          ; preds = %113
   invoke void @_ZN4absl12lts_2024072217internal_statusor6Helper5CrashERKNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(156) %12) #34
@@ -770,7 +770,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.i.i:   ; preds = %95
 .cont:                                            ; preds = %.invoke
   unreachable
 
-.thread84:                                        ; preds = %113
+.thread86:                                        ; preds = %113
   %116 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %118 = load i32, ptr %116, align 4, !tbaa !73
@@ -802,7 +802,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.i.i:   ; preds = %95
   call void @__clang_call_terminate(ptr %127) #32
   unreachable
 
-_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN17grpc_event_engine12experimental24ListenerSocketsContainer14ListenerSocketEED2Ev.exit: ; preds = %.thread84, %121, %123
+_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN17grpc_event_engine12experimental24ListenerSocketsContainer14ListenerSocketEED2Ev.exit: ; preds = %.thread86, %121, %123
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %130
 

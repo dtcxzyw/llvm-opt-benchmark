@@ -2392,18 +2392,18 @@ _init_l_Lake_OpaqueTargetConfig_instCoeNameTargetConfig___closed__1.exit: ; pred
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_OpaqueTargetConfig_instCoeNameTargetConfig___closed__1.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %94, %_init_l_Lake_OpaqueTargetConfig_instCoeNameTargetConfig___closed__1.exit ]
-  %97 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !8
+  %.sink29 = phi ptr [ %4, %3 ], [ %94, %_init_l_Lake_OpaqueTargetConfig_instCoeNameTargetConfig___closed__1.exit ]
+  %97 = getelementptr inbounds nuw i8, ptr %.sink29, i64 4
+  store i32 1, ptr %.sink29, align 4, !tbaa !8
   store i32 131096, ptr %97, align 4
-  %98 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %.sink29, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %98, align 8, !tbaa !4
-  %99 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %.sink29, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %99, align 8, !tbaa !4
   br label %100
 
 100:                                              ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink29, %.sink.split ]
   ret ptr %.0
 }
 

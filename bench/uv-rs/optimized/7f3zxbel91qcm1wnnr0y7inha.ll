@@ -816,10 +816,10 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h0f839c6814194311E.ex
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h0f839c6814194311E.exit.i, %._crit_edge.i.i10
-  %.sink27.i = phi i64 [ 16, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h0f839c6814194311E.exit.i ], [ %23, %._crit_edge.i.i10 ]
-  %.sink26.i = phi i64 [ %23, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h0f839c6814194311E.exit.i ], [ 16, %._crit_edge.i.i10 ]
-  %195 = getelementptr inbounds i8, ptr %.val10.i, i64 %.sink27.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %195, ptr nonnull align 1 %.val10.i, i64 %.sink26.i, i1 false), !noalias !137
+  %.sink30.i = phi i64 [ 16, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h0f839c6814194311E.exit.i ], [ %23, %._crit_edge.i.i10 ]
+  %.sink29.i = phi i64 [ %23, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h0f839c6814194311E.exit.i ], [ 16, %._crit_edge.i.i10 ]
+  %195 = getelementptr inbounds i8, ptr %.val10.i, i64 %.sink30.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %195, ptr nonnull align 1 %.val10.i, i64 %.sink29.i, i1 false), !noalias !137
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !137
   %196 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @_ZN4core3ops8function6FnOnce9call_once17hd5de295dab2f6431E, ptr %196, align 8, !noalias !137

@@ -1434,9 +1434,9 @@ define internal ptr @pytype_getbasebytoken(ptr readnone captures(none) %0, ptr n
   br label %26
 
 26:                                               ; preds = %20, %25
-  %.sink36 = phi ptr [ null, %25 ], [ %7, %20 ]
+  %.sink42 = phi ptr [ null, %25 ], [ %7, %20 ]
   %27 = load ptr, ptr %3, align 8, !tbaa !47
-  %28 = call i32 @PyType_GetBaseByToken(ptr noundef %27, ptr noundef %22, ptr noundef %.sink36) #8
+  %28 = call i32 @PyType_GetBaseByToken(ptr noundef %27, ptr noundef %22, ptr noundef %.sink42) #8
   %29 = load ptr, ptr %5, align 8, !tbaa !23
   %.not20 = icmp eq ptr %29, @_Py_TrueStruct
   br i1 %.not20, label %33, label %30

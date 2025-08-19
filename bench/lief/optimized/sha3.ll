@@ -190,7 +190,7 @@ define hidden noundef i32 @mbedtls_sha3_update(ptr noundef %0, ptr noundef reado
 59:                                               ; preds = %.lr.ph50, %80
   %.in = phi i64 [ %.034, %.lr.ph50 ], [ %60, %80 ]
   %.43949 = phi ptr [ %.035, %.lr.ph50 ], [ %61, %80 ]
-  %60 = add i64 %.in, -1
+  %60 = add nsw i64 %.in, -1
   %61 = getelementptr inbounds nuw i8, ptr %.43949, i64 1
   %62 = load i8, ptr %.43949, align 1, !tbaa !4
   %63 = zext i8 %62 to i64
@@ -728,14 +728,14 @@ switch.lookup:
   %switch.shiftamt = shl nuw nsw i64 %switch.cast, 4
   %switch.downshift = lshr i64 18014604670009372, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i16
-  %switch.cast32 = zext i32 %switch.tableidx to i64
-  %switch.shiftamt33 = shl nuw nsw i64 %switch.cast32, 4
-  %switch.downshift34 = lshr i64 20266645008679056, %switch.shiftamt33
-  %switch.masked35 = trunc i64 %switch.downshift34 to i16
+  %switch.cast33 = zext i32 %switch.tableidx to i64
+  %switch.shiftamt34 = shl nuw nsw i64 %switch.cast33, 4
+  %switch.downshift35 = lshr i64 20266645008679056, %switch.shiftamt34
+  %switch.masked36 = trunc i64 %switch.downshift35 to i16
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 204
   store i16 %switch.masked, ptr %10, align 4, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 206
-  store i16 %switch.masked35, ptr %11, align 2, !tbaa !13
+  store i16 %switch.masked36, ptr %11, align 2, !tbaa !13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(204) %4, i8 0, i64 204, i1 false)
   %12 = call i32 @mbedtls_sha3_update(ptr noundef nonnull %4, ptr noundef nonnull readonly %7, i64 noundef %9)
   %13 = call i32 @mbedtls_sha3_finish(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 64)
@@ -744,7 +744,7 @@ switch.lookup:
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %17, label %14
 
-default.unreachable31:                            ; preds = %17
+default.unreachable32:                            ; preds = %17
   unreachable
 
 14:                                               ; preds = %switch.lookup
@@ -756,7 +756,7 @@ default.unreachable31:                            ; preds = %17
   br label %37
 
 17:                                               ; preds = %switch.lookup
-  switch i32 %2, label %default.unreachable31 [
+  switch i32 %2, label %default.unreachable32 [
     i32 1, label %18
     i32 2, label %21
     i32 3, label %24

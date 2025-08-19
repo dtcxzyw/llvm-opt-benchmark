@@ -276,16 +276,16 @@ define internal fastcc range(i32 0, 2) i32 @bnrand_range(i32 noundef range(i32 0
   %19 = add nsw i32 %15, -2
   %20 = tail call i32 @BN_is_bit_set(ptr noundef nonnull %2, i32 noundef %19) #5
   %.not42 = icmp eq i32 %20, 0
-  br i1 %.not42, label %21, label %.preheader58
+  br i1 %.not42, label %21, label %.preheader62
 
-.preheader58:                                     ; preds = %21, %18
+.preheader62:                                     ; preds = %21, %18
   br label %43
 
 21:                                               ; preds = %18
   %22 = add nsw i32 %15, -3
   %23 = tail call i32 @BN_is_bit_set(ptr noundef nonnull %2, i32 noundef %22) #5
   %.not43 = icmp eq i32 %23, 0
-  br i1 %.not43, label %.preheader, label %.preheader58
+  br i1 %.not43, label %.preheader, label %.preheader62
 
 .preheader:                                       ; preds = %21
   %24 = add nsw i32 %15, 1
@@ -333,8 +333,8 @@ define internal fastcc range(i32 0, 2) i32 @bnrand_range(i32 noundef range(i32 0
   %42 = icmp sgt i32 %41, -1
   br i1 %42, label %25, label %.loopexit, !llvm.loop !13
 
-43:                                               ; preds = %.preheader58, %48
-  %.1 = phi i32 [ %46, %48 ], [ 100, %.preheader58 ]
+43:                                               ; preds = %.preheader62, %48
+  %.1 = phi i32 [ %46, %48 ], [ 100, %.preheader62 ]
   %44 = tail call fastcc i32 @bnrand(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %15, i32 noundef -1, i32 noundef 0, i32 noundef %3, ptr noundef %4)
   %.not48 = icmp eq i32 %44, 0
   br i1 %.not48, label %.loopexit, label %45

@@ -2062,7 +2062,7 @@ Vec_IntAlloc.exit.i53:                            ; preds = %Vec_IntAlloc.exit.i
 
 Vec_IntStartFull.exit56:                          ; preds = %Vec_IntAlloc.exit.thread.i55, %Vec_IntAlloc.exit.i53, %28
   %31 = phi ptr [ %18, %Vec_IntAlloc.exit.thread.i55 ], [ %22, %Vec_IntAlloc.exit.i53 ], [ %22, %28 ]
-  %.val4885 = phi ptr [ null, %Vec_IntAlloc.exit.thread.i55 ], [ %11, %Vec_IntAlloc.exit.i53 ], [ %11, %28 ]
+  %.val4888 = phi ptr [ null, %Vec_IntAlloc.exit.thread.i55 ], [ %11, %Vec_IntAlloc.exit.i53 ], [ %11, %28 ]
   %.val45 = phi ptr [ null, %Vec_IntAlloc.exit.thread.i55 ], [ null, %Vec_IntAlloc.exit.i53 ], [ %26, %28 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %31, ptr %32, align 8, !tbaa !103
@@ -2130,7 +2130,7 @@ Vec_IntAlloc.exit.i67:                            ; preds = %Vec_IntAlloc.exit.i
 
 Vec_IntStartFull.exit70:                          ; preds = %Vec_IntAlloc.exit.thread.i69, %Vec_IntAlloc.exit.i67, %56
   %59 = phi ptr [ %46, %Vec_IntAlloc.exit.thread.i69 ], [ %50, %Vec_IntAlloc.exit.i67 ], [ %50, %56 ]
-  %.val4688 = phi ptr [ null, %Vec_IntAlloc.exit.thread.i69 ], [ %39, %Vec_IntAlloc.exit.i67 ], [ %39, %56 ]
+  %.val4691 = phi ptr [ null, %Vec_IntAlloc.exit.thread.i69 ], [ %39, %Vec_IntAlloc.exit.i67 ], [ %39, %56 ]
   %.val47 = phi ptr [ null, %Vec_IntAlloc.exit.thread.i69 ], [ null, %Vec_IntAlloc.exit.i67 ], [ %54, %56 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %59, ptr %60, align 8, !tbaa !105
@@ -2170,13 +2170,13 @@ Vec_IntStartFull.exit70:                          ; preds = %Vec_IntAlloc.exit.t
   %78 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4, !tbaa !29
   %80 = sext i32 %77 to i64
-  %81 = getelementptr inbounds i32, ptr %.val4885, i64 %80
+  %81 = getelementptr inbounds i32, ptr %.val4888, i64 %80
   %82 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %82, ptr %81, align 4, !tbaa !29
   %83 = sext i32 %79 to i64
   %84 = getelementptr inbounds i32, ptr %.val45, i64 %83
   store i32 %82, ptr %84, align 4, !tbaa !29
-  %85 = getelementptr inbounds nuw i32, ptr %.val4688, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw i32, ptr %.val4691, i64 %indvars.iv
   store i32 %77, ptr %85, align 4, !tbaa !29
   %86 = getelementptr inbounds nuw i32, ptr %.val47, i64 %indvars.iv
   store i32 %79, ptr %86, align 4, !tbaa !29
@@ -2193,7 +2193,7 @@ Vec_IntStartFull.exit70:                          ; preds = %Vec_IntAlloc.exit.t
   %92 = trunc nuw nsw i64 %indvars.iv77 to i32
   %93 = add nsw i32 %.val40, %92
   %94 = sext i32 %.val49 to i64
-  %95 = getelementptr inbounds i32, ptr %.val4885, i64 %94
+  %95 = getelementptr inbounds i32, ptr %.val4888, i64 %94
   store i32 %93, ptr %95, align 4, !tbaa !29
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %96 = icmp samesign ult i64 %indvars.iv.next78, %74

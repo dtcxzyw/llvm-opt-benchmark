@@ -276,7 +276,7 @@ _ZNK7xgboost7RegTree9LeftChildEi.exit.thread:     ; preds = %49
   %64 = sext i32 %50 to i64
   %65 = load ptr, ptr %48, align 8, !tbaa !30
   %66 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %65, i64 %64, i32 1
-  %.0.i94 = load i32, ptr %66, align 4, !tbaa !33
+  %.0.i108 = load i32, ptr %66, align 4, !tbaa !33
   br label %81
 
 _ZNK7xgboost7RegTree9LeftChildEi.exit:            ; preds = %52
@@ -310,7 +310,7 @@ _ZNK7xgboost15MultiTargetTree10RightChildEi.exit.i: ; preds = %68
   br label %_ZNK7xgboost7RegTree10RightChildEi.exit
 
 81:                                               ; preds = %_ZNK7xgboost7RegTree9LeftChildEi.exit.thread, %_ZNK7xgboost7RegTree9LeftChildEi.exit
-  %.0.i97 = phi i32 [ %.0.i94, %_ZNK7xgboost7RegTree9LeftChildEi.exit.thread ], [ %.0.i, %_ZNK7xgboost7RegTree9LeftChildEi.exit ]
+  %.0.i111 = phi i32 [ %.0.i108, %_ZNK7xgboost7RegTree9LeftChildEi.exit.thread ], [ %.0.i, %_ZNK7xgboost7RegTree9LeftChildEi.exit ]
   %82 = phi i32 [ %50, %_ZNK7xgboost7RegTree9LeftChildEi.exit.thread ], [ %.pre, %_ZNK7xgboost7RegTree9LeftChildEi.exit ]
   %83 = sext i32 %82 to i64
   %84 = load ptr, ptr %48, align 8, !tbaa !30
@@ -318,7 +318,7 @@ _ZNK7xgboost15MultiTargetTree10RightChildEi.exit.i: ; preds = %68
   br label %_ZNK7xgboost7RegTree10RightChildEi.exit
 
 _ZNK7xgboost7RegTree10RightChildEi.exit:          ; preds = %_ZNK7xgboost15MultiTargetTree10RightChildEi.exit.i, %81
-  %.0.i96 = phi i32 [ %.0.i, %_ZNK7xgboost15MultiTargetTree10RightChildEi.exit.i ], [ %.0.i97, %81 ]
+  %.0.i110 = phi i32 [ %.0.i, %_ZNK7xgboost15MultiTargetTree10RightChildEi.exit.i ], [ %.0.i111, %81 ]
   %.0.in.i42 = phi ptr [ %80, %_ZNK7xgboost15MultiTargetTree10RightChildEi.exit.i ], [ %85, %81 ]
   %.0.i43 = load i32, ptr %.0.in.i42, align 4, !tbaa !33
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.068.084, i64 56
@@ -368,7 +368,7 @@ _ZNK7xgboost7RegTree10RightChildEi.exit:          ; preds = %_ZNK7xgboost15Multi
 "_ZSt10accumulateIN7xgboost6common18IndexTransformIterIZNS0_4tree11AssignNodesEPKNS0_7RegTreeERKSt6vectorINS3_16MultiExpandEntryESaIS8_EENS1_4SpanIiLm18446744073709551615EEESE_E3$_1EEdET0_T_SI_SH_.exit": ; preds = %.lr.ph.i53, %"_ZSt10accumulateIN7xgboost6common18IndexTransformIterIZNS0_4tree11AssignNodesEPKNS0_7RegTreeERKSt6vectorINS3_16MultiExpandEntryESaIS8_EENS1_4SpanIiLm18446744073709551615EEESE_E3$_0EEdET0_T_SI_SH_.exit"
   %.0.lcssa.i58 = phi double [ 0.000000e+00, %"_ZSt10accumulateIN7xgboost6common18IndexTransformIterIZNS0_4tree11AssignNodesEPKNS0_7RegTreeERKSt6vectorINS3_16MultiExpandEntryESaIS8_EENS1_4SpanIiLm18446744073709551615EEESE_E3$_0EEdET0_T_SI_SH_.exit" ], [ %108, %.lr.ph.i53 ]
   %110 = fcmp olt double %.0.lcssa.i58, %.0.lcssa.i
-  %.074 = select i1 %110, i32 %.0.i96, i32 %.0.i43
+  %.074 = select i1 %110, i32 %.0.i110, i32 %.0.i43
   %exitcond.not = icmp eq i64 %.02885, %2
   br i1 %exitcond.not, label %111, label %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit, !prof !44
 
@@ -377,7 +377,7 @@ _ZNK7xgboost7RegTree10RightChildEi.exit:          ; preds = %_ZNK7xgboost15Multi
   unreachable
 
 _ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit: ; preds = %"_ZSt10accumulateIN7xgboost6common18IndexTransformIterIZNS0_4tree11AssignNodesEPKNS0_7RegTreeERKSt6vectorINS3_16MultiExpandEntryESaIS8_EENS1_4SpanIiLm18446744073709551615EEESE_E3$_1EEdET0_T_SI_SH_.exit"
-  %.0 = select i1 %110, i32 %.0.i43, i32 %.0.i96
+  %.0 = select i1 %110, i32 %.0.i43, i32 %.0.i110
   %112 = getelementptr inbounds nuw i32, ptr %3, i64 %.02885
   store i32 %.0, ptr %112, align 4, !tbaa !33
   %exitcond91.not = icmp eq i64 %.02885, %4

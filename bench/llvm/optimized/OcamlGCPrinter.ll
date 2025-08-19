@@ -248,8 +248,8 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   unreachable
 
 ._crit_edge.thread:                               ; preds = %4, %._crit_edge
-  %.0.lcssa121 = phi i32 [ %.1, %._crit_edge ], [ 0, %4 ]
-  tail call void @_ZNK4llvm10AsmPrinter9emitInt16Ei(ptr noundef nonnull align 8 dereferenceable(777) %3, i32 noundef %.0.lcssa121) #19
+  %.0.lcssa137 = phi i32 [ %.1, %._crit_edge ], [ 0, %4 ]
+  tail call void @_ZNK4llvm10AsmPrinter9emitInt16Ei(ptr noundef nonnull align 8 dereferenceable(777) %3, i32 noundef %.0.lcssa137) #19
   %90 = icmp eq i32 %29, 4
   %spec.select = select i1 %90, i8 2, i8 3
   tail call void @_ZNK4llvm10AsmPrinter13emitAlignmentENS_5AlignEPKNS_12GlobalObjectEj(ptr noundef nonnull align 8 dereferenceable(777) %3, i8 %spec.select, ptr noundef null, i32 noundef 0) #19
@@ -408,9 +408,9 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit6
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %139, %146, %147
-  %.sink131 = phi i8 [ 5, %146 ], [ %.014.i.i, %147 ], [ %145, %139 ]
+  %.sink147 = phi i8 [ 5, %146 ], [ %.014.i.i, %147 ], [ %145, %139 ]
   %.sink = phi i8 [ 1, %146 ], [ 5, %147 ], [ 1, %139 ]
-  store i8 %.sink131, ptr %96, align 8, !tbaa !70
+  store i8 %.sink147, ptr %96, align 8, !tbaa !70
   store i8 %.sink, ptr %97, align 1, !tbaa !70
   %150 = load ptr, ptr %140, align 8, !tbaa !6
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 120
@@ -432,7 +432,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %139, %146, %147
   br i1 %.not92106, label %._crit_edge109, label %.lr.ph108.preheader
 
 .lr.ph108.preheader:                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit
-  %162 = trunc nuw i64 %116 to i32
+  %162 = trunc nuw nsw i64 %116 to i32
   br label %.lr.ph108
 
 ._crit_edge109:                                   ; preds = %._crit_edge105, %_ZN4llvmplERKNS_5TwineES2_.exit
@@ -599,13 +599,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit:
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 2
   %29 = load i8, ptr %28, align 1, !tbaa !62
   %30 = icmp eq i8 %29, 46
-  br i1 %30, label %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit29, label %31
+  br i1 %30, label %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit33, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 3
   %33 = load i8, ptr %32, align 1, !tbaa !62
   %34 = icmp eq i8 %33, 46
-  br i1 %34, label %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit31, label %35
+  br i1 %34, label %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit35, label %35
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 4
@@ -653,16 +653,16 @@ _ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 1
   br label %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit29: ; preds = %27
+_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit33: ; preds = %27
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 2
   br label %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit31: ; preds = %31
+_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit35: ; preds = %31
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 3
   br label %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit: ; preds = %20, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit29, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit31, %._crit_edge.i.i.i.i, %40, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %40 ], [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %15, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %51, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %52, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit29 ], [ %53, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit31 ], [ %.sroa.032.051.i.i.i.i, %20 ]
+_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit: ; preds = %20, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit33, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit35, %._crit_edge.i.i.i.i, %40, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %40 ], [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %15, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %51, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %52, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit33 ], [ %53, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit35 ], [ %.sroa.032.051.i.i.i.i, %20 ]
   %54 = ptrtoint ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i to i64
   %55 = ptrtoint ptr %12 to i64
   %56 = sub i64 %54, %55

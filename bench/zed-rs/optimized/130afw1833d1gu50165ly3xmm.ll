@@ -926,7 +926,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17h16a19e0c1d5ae10bE(p
 72:                                               ; preds = %71, %65
   %.sroa.03.0 = phi i32 [ %70, %65 ], [ %64, %71 ]
   %73 = load i32, ptr %7, align 8, !range !279, !noundef !4
-  switch i32 %73, label %default.unreachable164 [
+  switch i32 %73, label %default.unreachable167 [
     i32 0, label %95
     i32 1, label %134
     i32 2, label %74
@@ -936,7 +936,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17h16a19e0c1d5ae10bE(p
     i32 6, label %333
   ]
 
-default.unreachable164:                           ; preds = %72
+default.unreachable167:                           ; preds = %72
   unreachable
 
 74:                                               ; preds = %72
@@ -2255,7 +2255,7 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
 
 72:                                               ; preds = %65, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %65 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %65 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %65 ], [ 1, %._crit_edge.i.i ]
   %73 = icmp eq <16 x i8> %.sroa.0.0.copyload.i26.i.i, splat (i8 -1)
   %74 = bitcast <16 x i1> %73 to i16
   %.not.i.i = icmp eq i16 %74, 0
@@ -3623,7 +3623,7 @@ define void @"_ZN61_$LT$title_bar..TitleBar$u20$as$u20$gpui..element..Render$GT$
 314:                                              ; preds = %"_ZN61_$LT$title_bar..TitleBar$u20$as$u20$gpui..element..Render$GT$6render28_$u7b$$u7b$closure$u7d$$u7d$17hadf0fe5b5ba17275E.exit"
   %315 = trunc i32 %240 to i1
   %316 = and i32 %240, 256
-  %.not275 = icmp eq i32 %316, 0
+  %.not303 = icmp eq i32 %316, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %189), !noalias !1106
   call void @llvm.lifetime.start.p0(ptr nonnull %188), !noalias !1106
   call void @llvm.lifetime.start.p0(ptr nonnull %187), !noalias !1106
@@ -3631,8 +3631,8 @@ define void @"_ZN61_$LT$title_bar..TitleBar$u20$as$u20$gpui..element..Render$GT$
 
 317:                                              ; preds = %314
   %318 = and i32 %240, 65536
-  %.not276 = icmp eq i32 %318, 0
-  br i1 %.not276, label %320, label %331
+  %.not304 = icmp eq i32 %318, 0
+  br i1 %.not304, label %320, label %331
 
 319:                                              ; preds = %314
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %186, ptr noundef nonnull align 8 dereferenceable(720) %229, i64 720, i1 false)
@@ -3669,7 +3669,7 @@ _ZN4gpui6styled6Styled10rounded_tr17h3e04d85aa4ad198dE.exit.i: ; preds = %"_ZN79
 
 331:                                              ; preds = %_ZN4gpui6styled6Styled10rounded_tr17h3e04d85aa4ad198dE.exit.i, %317
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %186, ptr noundef nonnull align 8 dereferenceable(720) %198, i64 720, i1 false), !noalias !1115
-  br i1 %.not275, label %332, label %343
+  br i1 %.not303, label %332, label %343
 
 332:                                              ; preds = %331
   %333 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %186)
@@ -7183,8 +7183,8 @@ switch.lookup:                                    ; preds = %.noexc17.i
   %1356 = select i1 %1355, i64 %1354, i64 4
   %switch.gep = getelementptr inbounds [6 x i64], ptr @"switch.table._ZN61_$LT$title_bar..TitleBar$u20$as$u20$gpui..element..Render$GT$6render17h44abe7d45fe913c4E", i64 0, i64 %1356
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep279 = getelementptr inbounds [6 x ptr], ptr @"switch.table._ZN61_$LT$title_bar..TitleBar$u20$as$u20$gpui..element..Render$GT$6render17h44abe7d45fe913c4E.46", i64 0, i64 %1356
-  %switch.load280 = load ptr, ptr %switch.gep279, align 8
+  %switch.gep307 = getelementptr inbounds [6 x ptr], ptr @"switch.table._ZN61_$LT$title_bar..TitleBar$u20$as$u20$gpui..element..Render$GT$6render17h44abe7d45fe913c4E.46", i64 0, i64 %1356
+  %switch.load308 = load ptr, ptr %switch.gep307, align 8
   %1357 = icmp sgt i64 %.pr.i.i145, -9223372036854775803
   %cond1.i.i.i.i = icmp eq i64 %.pr.i.i145, -9223372036854775804
   %cond.i.i.i.i = or i1 %1357, %cond1.i.i.i.i
@@ -7217,7 +7217,7 @@ switch.lookup:                                    ; preds = %.noexc17.i
   br label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$auto_update..AutoUpdateStatus$GT$$GT$17h9d47d66982782f22E.exit.i.i"
 
 "_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$auto_update..AutoUpdateStatus$GT$$GT$17h9d47d66982782f22E.exit.i.i": ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h434b1d418a7e4e3cE.exit.i.i.i.i", %switch.lookup, %.noexc17.i, %.noexc14.i
-  %.sroa.0.07.i.i = phi ptr [ %switch.load280, %switch.lookup ], [ %switch.load280, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h434b1d418a7e4e3cE.exit.i.i.i.i" ], [ @anon.77a329833ce1a86754ce233f64315701.58, %.noexc17.i ], [ @anon.77a329833ce1a86754ce233f64315701.58, %.noexc14.i ]
+  %.sroa.0.07.i.i = phi ptr [ %switch.load308, %switch.lookup ], [ %switch.load308, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h434b1d418a7e4e3cE.exit.i.i.i.i" ], [ @anon.77a329833ce1a86754ce233f64315701.58, %.noexc17.i ], [ @anon.77a329833ce1a86754ce233f64315701.58, %.noexc14.i ]
   %.sroa.4.05.i.i = phi i64 [ %switch.load, %switch.lookup ], [ %switch.load, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h434b1d418a7e4e3cE.exit.i.i.i.i" ], [ 32, %.noexc17.i ], [ 32, %.noexc14.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !1725
   call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !1725
@@ -7682,8 +7682,8 @@ default.unreachable:                              ; preds = %1481
   call void @_ZN4gpui7element13ParentElement5child17hbae0291feb13e108E(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(720) %9, ptr noundef nonnull align 1 inttoptr (i64 1 to ptr), ptr noalias noundef readonly align 8 dereferenceable(56) @anon.77a329833ce1a86754ce233f64315701.39)
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1876
   %1486 = and i32 %239, 16777216
-  %.not277 = icmp eq i32 %1486, 0
-  br i1 %.not277, label %_ZN4gpui8elements3div18InteractiveElement13on_mouse_down17h5e997d79346ab783E.exit.i, label %1487
+  %.not305 = icmp eq i32 %1486, 0
+  br i1 %.not305, label %_ZN4gpui8elements3div18InteractiveElement13on_mouse_down17h5e997d79346ab783E.exit.i, label %1487
 
 1487:                                             ; preds = %.noexc165
   %1488 = invoke noundef align 8 dereferenceable(664) ptr @"_ZN84_$LT$gpui..elements..div..Div$u20$as$u20$gpui..elements..div..InteractiveElement$GT$13interactivity17h18e7a60333ec5d0eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %10)

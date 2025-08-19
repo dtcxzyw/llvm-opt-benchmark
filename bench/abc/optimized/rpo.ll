@@ -364,13 +364,13 @@ define i32 @Rpo_computeMinEdgeCost(ptr noundef readonly captures(none) %0, i32 n
   %23 = icmp sgt i32 %.02737, %18
   %or.cond = select i1 %22, i1 %23, i1 false
   %spec.select = select i1 %or.cond, i32 %18, i32 %.02737
-  %spec.select41 = select i1 %or.cond, i32 %20, i32 %.02638
+  %spec.select44 = select i1 %or.cond, i32 %20, i32 %.02638
   br label %24
 
 24:                                               ; preds = %21, %9, %.lr.ph
   %.130 = phi i32 [ %.02936, %.lr.ph ], [ %17, %9 ], [ %.02936, %21 ]
   %.128 = phi i32 [ %.02737, %.lr.ph ], [ %18, %9 ], [ %spec.select, %21 ]
-  %.1 = phi i32 [ %.02638, %.lr.ph ], [ %20, %9 ], [ %spec.select41, %21 ]
+  %.1 = phi i32 [ %.02638, %.lr.ph ], [ %20, %9 ], [ %spec.select44, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
@@ -1102,8 +1102,8 @@ Kit_TruthIsEqual.exit.thread:                     ; preds = %31, %23
   %.0154222 = phi i32 [ 0, %.lr.ph226 ], [ %.1155, %.loopexit213 ]
   %96 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %97 = load ptr, ptr %96, align 8, !tbaa !34
-  %.not260 = icmp eq ptr %97, null
-  br i1 %.not260, label %.loopexit213, label %.lr.ph219
+  %.not292 = icmp eq ptr %97, null
+  br i1 %.not292, label %.loopexit213, label %.lr.ph219
 
 .lr.ph219:                                        ; preds = %95
   %98 = shl nuw nsw i64 %indvars.iv, 4
@@ -1372,13 +1372,13 @@ Rpo_CheckORGroup.exit:                            ; preds = %143, %144
   %217 = icmp sgt i32 %.02737.i, %212
   %or.cond.i = select i1 %216, i1 %217, i1 false
   %spec.select.i192 = select i1 %or.cond.i, i32 %212, i32 %.02737.i
-  %spec.select41.i = select i1 %or.cond.i, i32 %214, i32 %.02638.i
+  %spec.select44.i = select i1 %or.cond.i, i32 %214, i32 %.02638.i
   br label %218
 
 218:                                              ; preds = %215, %203, %.lr.ph.i
   %.130.i = phi i32 [ %.02936.i, %.lr.ph.i ], [ %211, %203 ], [ %.02936.i, %215 ]
   %.128.i = phi i32 [ %.02737.i, %.lr.ph.i ], [ %212, %203 ], [ %spec.select.i192, %215 ]
-  %.1.i = phi i32 [ %.02638.i, %.lr.ph.i ], [ %214, %203 ], [ %spec.select41.i, %215 ]
+  %.1.i = phi i32 [ %.02638.i, %.lr.ph.i ], [ %214, %203 ], [ %spec.select44.i, %215 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i190, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Rpo_computeMinEdgeCost.exit, label %.lr.ph.i.backedge

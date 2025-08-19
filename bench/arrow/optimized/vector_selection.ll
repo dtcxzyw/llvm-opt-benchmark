@@ -1634,8 +1634,8 @@ _ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14defa
   store i8 1, ptr %189, align 2, !tbaa !70
   %190 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr @_ZN5arrow7compute8internal14OptionsWrapperINS0_11TakeOptionsEE4InitEPNS0_13KernelContextERKNS0_14KernelInitArgsE, ptr %190, align 8
-  %.sroa.4199.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store i64 0, ptr %.sroa.4199.0..sroa_idx, align 8
+  %.sroa.4309.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 24
+  store i64 0, ptr %.sroa.4309.0..sroa_idx, align 8
   %191 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr @_ZNSt17_Function_handlerIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEPSE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %191, align 8, !tbaa !71
   %192 = getelementptr inbounds nuw i8, ptr %27, i64 40
@@ -8405,8 +8405,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i: ; preds =
   %137 = ashr exact i64 %sext.i.i, 48
   %138 = add nsw i64 %137, %134
   store i64 %138, ptr %83, align 8, !tbaa !330, !noalias !314
-  %sext47 = shl i64 %.sroa.speculated.i.i, 48
-  %.pre = ashr exact i64 %sext47, 48
+  %sext306 = shl i64 %.sroa.speculated.i.i, 48
+  %.pre = ashr exact i64 %sext306, 48
   br label %.preheader.i.i.i.i.i
 
 _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i: ; preds = %129, %104
@@ -8424,8 +8424,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i: ; preds = %129, 
 
 .preheader.i.i.i.i.i:                             ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i
   %.pre-phi = phi i64 [ %139, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i ], [ %.pre, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i ]
-  %.sroa.0.0.i21.i = phi i16 [ %.sroa.0.0.extract.trunc.i.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i ], [ %136, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i ]
-  %143 = icmp sgt i16 %.sroa.0.0.i21.i, 0
+  %.sroa.0.0.i30.i = phi i16 [ %.sroa.0.0.extract.trunc.i.i, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i ], [ %136, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i ]
+  %143 = icmp sgt i16 %.sroa.0.0.i30.i, 0
   br i1 %143, label %.lr.ph47.i.i.i.i.i, label %.loopexit.i.i.i.i.i
 
 .lr.ph47.i.i.i.i.i:                               ; preds = %.preheader.i.i.i.i.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlbE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlbE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
@@ -8691,8 +8691,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i98: ; preds
   %278 = ashr exact i64 %sext.i.i100, 48
   %279 = add nsw i64 %278, %275
   store i64 %279, ptr %223, align 8, !tbaa !330, !noalias !339
-  %sext46 = shl i64 %.sroa.speculated.i.i99, 48
-  %.pre3 = ashr exact i64 %sext46, 48
+  %sext305 = shl i64 %.sroa.speculated.i.i99, 48
+  %.pre3 = ashr exact i64 %sext305, 48
   br label %.preheader.i.i.i.i.i101
 
 _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i116: ; preds = %270, %245
@@ -8710,8 +8710,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i116: ; preds = %27
 
 .preheader.i.i.i.i.i101:                          ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i116, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i98
   %.pre-phi4 = phi i64 [ %280, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i116 ], [ %.pre3, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i98 ]
-  %.sroa.0.0.i21.i102 = phi i16 [ %.sroa.0.0.extract.trunc.i.i118, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i116 ], [ %277, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i98 ]
-  %284 = icmp sgt i16 %.sroa.0.0.i21.i102, 0
+  %.sroa.0.0.i30.i102 = phi i16 [ %.sroa.0.0.extract.trunc.i.i118, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i116 ], [ %277, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i98 ]
+  %284 = icmp sgt i16 %.sroa.0.0.i30.i102, 0
   br i1 %284, label %.lr.ph17.i.i.i.i.i, label %.loopexit.i.i.i.i.i103
 
 .lr.ph17.i.i.i.i.i:                               ; preds = %.preheader.i.i.i.i.i101, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_8Int8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlaE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlaE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
@@ -8968,8 +8968,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i139: ; pred
   %410 = ashr exact i64 %sext.i.i141, 48
   %411 = add nsw i64 %410, %407
   store i64 %411, ptr %355, align 8, !tbaa !330, !noalias !348
-  %sext45 = shl i64 %.sroa.speculated.i.i140, 48
-  %.pre5 = ashr exact i64 %sext45, 48
+  %sext304 = shl i64 %.sroa.speculated.i.i140, 48
+  %.pre5 = ashr exact i64 %sext304, 48
   br label %.preheader.i.i.i.i.i142
 
 _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i162: ; preds = %402, %377
@@ -8987,8 +8987,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i162: ; preds = %40
 
 .preheader.i.i.i.i.i142:                          ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i162, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i139
   %.pre-phi6 = phi i64 [ %412, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i162 ], [ %.pre5, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i139 ]
-  %.sroa.0.0.i21.i143 = phi i16 [ %.sroa.0.0.extract.trunc.i.i164, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i162 ], [ %409, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i139 ]
-  %416 = icmp sgt i16 %.sroa.0.0.i21.i143, 0
+  %.sroa.0.0.i30.i143 = phi i16 [ %.sroa.0.0.extract.trunc.i.i164, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i162 ], [ %409, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i139 ]
+  %416 = icmp sgt i16 %.sroa.0.0.i30.i143, 0
   br i1 %416, label %.lr.ph17.i.i.i.i.i147, label %.loopexit.i.i.i.i.i144
 
 .lr.ph17.i.i.i.i.i147:                            ; preds = %.preheader.i.i.i.i.i142, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlhE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlhE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
@@ -9245,8 +9245,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i192: ; pred
   %542 = ashr exact i64 %sext.i.i194, 48
   %543 = add nsw i64 %542, %539
   store i64 %543, ptr %487, align 8, !tbaa !330, !noalias !357
-  %sext44 = shl i64 %.sroa.speculated.i.i193, 48
-  %.pre7 = ashr exact i64 %sext44, 48
+  %sext303 = shl i64 %.sroa.speculated.i.i193, 48
+  %.pre7 = ashr exact i64 %sext303, 48
   br label %.preheader.i.i.i.i.i195
 
 _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i215: ; preds = %534, %509
@@ -9264,8 +9264,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i215: ; preds = %53
 
 .preheader.i.i.i.i.i195:                          ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i215, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i192
   %.pre-phi8 = phi i64 [ %544, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i215 ], [ %.pre7, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i192 ]
-  %.sroa.0.0.i21.i196 = phi i16 [ %.sroa.0.0.extract.trunc.i.i217, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i215 ], [ %541, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i192 ]
-  %548 = icmp sgt i16 %.sroa.0.0.i21.i196, 0
+  %.sroa.0.0.i30.i196 = phi i16 [ %.sroa.0.0.extract.trunc.i.i217, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i215 ], [ %541, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i192 ]
+  %548 = icmp sgt i16 %.sroa.0.0.i30.i196, 0
   br i1 %548, label %.lr.ph17.i.i.i.i.i200, label %.loopexit.i.i.i.i.i197
 
 .lr.ph17.i.i.i.i.i200:                            ; preds = %.preheader.i.i.i.i.i195, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlsE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlsE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
@@ -9522,8 +9522,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i245: ; pred
   %674 = ashr exact i64 %sext.i.i247, 48
   %675 = add nsw i64 %674, %671
   store i64 %675, ptr %619, align 8, !tbaa !330, !noalias !367
-  %sext43 = shl i64 %.sroa.speculated.i.i246, 48
-  %.pre9 = ashr exact i64 %sext43, 48
+  %sext302 = shl i64 %.sroa.speculated.i.i246, 48
+  %.pre9 = ashr exact i64 %sext302, 48
   br label %.preheader.i.i.i.i.i248
 
 _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i268: ; preds = %666, %641
@@ -9541,8 +9541,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i268: ; preds = %66
 
 .preheader.i.i.i.i.i248:                          ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i268, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i245
   %.pre-phi10 = phi i64 [ %676, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i268 ], [ %.pre9, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i245 ]
-  %.sroa.0.0.i21.i249 = phi i16 [ %.sroa.0.0.extract.trunc.i.i270, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i268 ], [ %673, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i245 ]
-  %680 = icmp sgt i16 %.sroa.0.0.i21.i249, 0
+  %.sroa.0.0.i30.i249 = phi i16 [ %.sroa.0.0.extract.trunc.i.i270, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i268 ], [ %673, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i245 ]
+  %680 = icmp sgt i16 %.sroa.0.0.i30.i249, 0
   br i1 %680, label %.lr.ph17.i.i.i.i.i253, label %.loopexit.i.i.i.i.i250
 
 .lr.ph17.i.i.i.i.i253:                            ; preds = %.preheader.i.i.i.i.i248, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
@@ -9799,8 +9799,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i298: ; pred
   %806 = ashr exact i64 %sext.i.i300, 48
   %807 = add nsw i64 %806, %803
   store i64 %807, ptr %751, align 8, !tbaa !330, !noalias !376
-  %sext42 = shl i64 %.sroa.speculated.i.i299, 48
-  %.pre11 = ashr exact i64 %sext42, 48
+  %sext301 = shl i64 %.sroa.speculated.i.i299, 48
+  %.pre11 = ashr exact i64 %sext301, 48
   br label %.preheader.i.i.i.i.i301
 
 _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i321: ; preds = %798, %773
@@ -9818,8 +9818,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i321: ; preds = %79
 
 .preheader.i.i.i.i.i301:                          ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i321, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i298
   %.pre-phi12 = phi i64 [ %808, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i321 ], [ %.pre11, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i298 ]
-  %.sroa.0.0.i21.i302 = phi i16 [ %.sroa.0.0.extract.trunc.i.i323, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i321 ], [ %805, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i298 ]
-  %812 = icmp sgt i16 %.sroa.0.0.i21.i302, 0
+  %.sroa.0.0.i30.i302 = phi i16 [ %.sroa.0.0.extract.trunc.i.i323, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i321 ], [ %805, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i298 ]
+  %812 = icmp sgt i16 %.sroa.0.0.i30.i302, 0
   br i1 %812, label %.lr.ph17.i.i.i.i.i306, label %.loopexit.i.i.i.i.i303
 
 .lr.ph17.i.i.i.i.i306:                            ; preds = %.preheader.i.i.i.i.i301, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUliE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUliE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
@@ -10076,8 +10076,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i351: ; pred
   %938 = ashr exact i64 %sext.i.i353, 48
   %939 = add nsw i64 %938, %935
   store i64 %939, ptr %883, align 8, !tbaa !330, !noalias !385
-  %sext41 = shl i64 %.sroa.speculated.i.i352, 48
-  %.pre13 = ashr exact i64 %sext41, 48
+  %sext300 = shl i64 %.sroa.speculated.i.i352, 48
+  %.pre13 = ashr exact i64 %sext300, 48
   br label %.preheader.i.i.i.i.i354
 
 _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i374: ; preds = %930, %905
@@ -10095,8 +10095,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i374: ; preds = %93
 
 .preheader.i.i.i.i.i354:                          ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i374, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i351
   %.pre-phi14 = phi i64 [ %940, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i374 ], [ %.pre13, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i351 ]
-  %.sroa.0.0.i21.i355 = phi i16 [ %.sroa.0.0.extract.trunc.i.i376, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i374 ], [ %937, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i351 ]
-  %944 = icmp sgt i16 %.sroa.0.0.i21.i355, 0
+  %.sroa.0.0.i30.i355 = phi i16 [ %.sroa.0.0.extract.trunc.i.i376, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i374 ], [ %937, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i351 ]
+  %944 = icmp sgt i16 %.sroa.0.0.i30.i355, 0
   br i1 %944, label %.lr.ph17.i.i.i.i.i359, label %.loopexit.i.i.i.i.i356
 
 .lr.ph17.i.i.i.i.i359:                            ; preds = %.preheader.i.i.i.i.i354, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUljE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUljE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
@@ -10353,8 +10353,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i404: ; pred
   %1070 = ashr exact i64 %sext.i.i406, 48
   %1071 = add nsw i64 %1070, %1067
   store i64 %1071, ptr %1015, align 8, !tbaa !330, !noalias !394
-  %sext40 = shl i64 %.sroa.speculated.i.i405, 48
-  %.pre15 = ashr exact i64 %sext40, 48
+  %sext299 = shl i64 %.sroa.speculated.i.i405, 48
+  %.pre15 = ashr exact i64 %sext299, 48
   br label %.preheader.i.i.i.i.i407
 
 _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i427: ; preds = %1062, %1037
@@ -10372,8 +10372,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i427: ; preds = %10
 
 .preheader.i.i.i.i.i407:                          ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i427, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i404
   %.pre-phi16 = phi i64 [ %1072, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i427 ], [ %.pre15, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i404 ]
-  %.sroa.0.0.i21.i408 = phi i16 [ %.sroa.0.0.extract.trunc.i.i429, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i427 ], [ %1069, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i404 ]
-  %1076 = icmp sgt i16 %.sroa.0.0.i21.i408, 0
+  %.sroa.0.0.i30.i408 = phi i16 [ %.sroa.0.0.extract.trunc.i.i429, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i427 ], [ %1069, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i404 ]
+  %1076 = icmp sgt i16 %.sroa.0.0.i30.i408, 0
   br i1 %1076, label %.lr.ph17.i.i.i.i.i412, label %.loopexit.i.i.i.i.i409
 
 .lr.ph17.i.i.i.i.i412:                            ; preds = %.preheader.i.i.i.i.i407, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUllE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUllE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
@@ -10630,8 +10630,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i457: ; pred
   %1202 = ashr exact i64 %sext.i.i459, 48
   %1203 = add nsw i64 %1202, %1199
   store i64 %1203, ptr %1147, align 8, !tbaa !330, !noalias !403
-  %sext39 = shl i64 %.sroa.speculated.i.i458, 48
-  %.pre17 = ashr exact i64 %sext39, 48
+  %sext298 = shl i64 %.sroa.speculated.i.i458, 48
+  %.pre17 = ashr exact i64 %sext298, 48
   br label %.preheader.i.i.i.i.i460
 
 _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i480: ; preds = %1194, %1169
@@ -10649,8 +10649,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i480: ; preds = %11
 
 .preheader.i.i.i.i.i460:                          ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i480, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i457
   %.pre-phi18 = phi i64 [ %1204, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i480 ], [ %.pre17, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i457 ]
-  %.sroa.0.0.i21.i461 = phi i16 [ %.sroa.0.0.extract.trunc.i.i482, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i480 ], [ %1201, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i457 ]
-  %1208 = icmp sgt i16 %.sroa.0.0.i21.i461, 0
+  %.sroa.0.0.i30.i461 = phi i16 [ %.sroa.0.0.extract.trunc.i.i482, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i480 ], [ %1201, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i457 ]
+  %1208 = icmp sgt i16 %.sroa.0.0.i30.i461, 0
   br i1 %1208, label %.lr.ph17.i.i.i.i.i465, label %.loopexit.i.i.i.i.i462
 
 .lr.ph17.i.i.i.i.i465:                            ; preds = %.preheader.i.i.i.i.i460, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlmE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlmE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
@@ -10907,8 +10907,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i510: ; pred
   %1334 = ashr exact i64 %sext.i.i512, 48
   %1335 = add nsw i64 %1334, %1331
   store i64 %1335, ptr %1279, align 8, !tbaa !330, !noalias !412
-  %sext38 = shl i64 %.sroa.speculated.i.i511, 48
-  %.pre19 = ashr exact i64 %sext38, 48
+  %sext297 = shl i64 %.sroa.speculated.i.i511, 48
+  %.pre19 = ashr exact i64 %sext297, 48
   br label %.preheader.i.i.i.i.i513
 
 _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i533: ; preds = %1326, %1301
@@ -10926,8 +10926,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i533: ; preds = %13
 
 .preheader.i.i.i.i.i513:                          ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i533, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i510
   %.pre-phi20 = phi i64 [ %1336, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i533 ], [ %.pre19, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i510 ]
-  %.sroa.0.0.i21.i514 = phi i16 [ %.sroa.0.0.extract.trunc.i.i535, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i533 ], [ %1333, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i510 ]
-  %1340 = icmp sgt i16 %.sroa.0.0.i21.i514, 0
+  %.sroa.0.0.i30.i514 = phi i16 [ %.sroa.0.0.extract.trunc.i.i535, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i533 ], [ %1333, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i510 ]
+  %1340 = icmp sgt i16 %.sroa.0.0.i30.i514, 0
   br i1 %1340, label %.lr.ph17.i.i.i.i.i518, label %.loopexit.i.i.i.i.i515
 
 .lr.ph17.i.i.i.i.i518:                            ; preds = %.preheader.i.i.i.i.i513, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
@@ -11184,8 +11184,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i563: ; pred
   %1466 = ashr exact i64 %sext.i.i565, 48
   %1467 = add nsw i64 %1466, %1463
   store i64 %1467, ptr %1411, align 8, !tbaa !330, !noalias !421
-  %sext37 = shl i64 %.sroa.speculated.i.i564, 48
-  %.pre21 = ashr exact i64 %sext37, 48
+  %sext296 = shl i64 %.sroa.speculated.i.i564, 48
+  %.pre21 = ashr exact i64 %sext296, 48
   br label %.preheader.i.i.i.i.i566
 
 _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i585: ; preds = %1458, %1433
@@ -11203,8 +11203,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i585: ; preds = %14
 
 .preheader.i.i.i.i.i566:                          ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i585, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i563
   %.pre-phi22 = phi i64 [ %1468, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i585 ], [ %.pre21, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i563 ]
-  %.sroa.0.0.i21.i567 = phi i16 [ %.sroa.0.0.extract.trunc.i.i587, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i585 ], [ %1465, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i563 ]
-  %1472 = icmp sgt i16 %.sroa.0.0.i21.i567, 0
+  %.sroa.0.0.i30.i567 = phi i16 [ %.sroa.0.0.extract.trunc.i.i587, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i585 ], [ %1465, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i563 ]
+  %1472 = icmp sgt i16 %.sroa.0.0.i30.i567, 0
   br i1 %1472, label %.lr.ph17.i.i.i.i.i571, label %.loopexit.i.i.i.i.i568
 
 .lr.ph17.i.i.i.i.i571:                            ; preds = %.preheader.i.i.i.i.i566, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlfE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlfE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
@@ -11461,8 +11461,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i614: ; pred
   %1600 = ashr exact i64 %sext.i.i616, 48
   %1601 = add nsw i64 %1600, %1597
   store i64 %1601, ptr %1545, align 8, !tbaa !330, !noalias !432
-  %sext36 = shl i64 %.sroa.speculated.i.i615, 48
-  %.pre23 = ashr exact i64 %sext36, 48
+  %sext295 = shl i64 %.sroa.speculated.i.i615, 48
+  %.pre23 = ashr exact i64 %sext295, 48
   br label %.preheader.i.i.i.i.i617
 
 _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i636: ; preds = %1592, %1567
@@ -11480,8 +11480,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i636: ; preds = %15
 
 .preheader.i.i.i.i.i617:                          ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i636, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i614
   %.pre-phi24 = phi i64 [ %1602, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i636 ], [ %.pre23, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i614 ]
-  %.sroa.0.0.i21.i618 = phi i16 [ %.sroa.0.0.extract.trunc.i.i638, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i636 ], [ %1599, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i614 ]
-  %1606 = icmp sgt i16 %.sroa.0.0.i21.i618, 0
+  %.sroa.0.0.i30.i618 = phi i16 [ %.sroa.0.0.extract.trunc.i.i638, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i636 ], [ %1599, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i614 ]
+  %1606 = icmp sgt i16 %.sroa.0.0.i30.i618, 0
   br i1 %1606, label %.lr.ph17.i.i.i.i.i622, label %.loopexit.i.i.i.i.i619
 
 .lr.ph17.i.i.i.i.i622:                            ; preds = %.preheader.i.i.i.i.i617, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUldE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUldE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
@@ -12661,8 +12661,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i772: ; pred
   %2093 = ashr exact i64 %sext.i.i774, 48
   %2094 = add nsw i64 %2093, %2090
   store i64 %2094, ptr %2031, align 8, !tbaa !330, !noalias !491
-  %sext35 = shl i64 %.sroa.speculated.i.i773, 48
-  %.pre25 = ashr exact i64 %sext35, 48
+  %sext294 = shl i64 %.sroa.speculated.i.i773, 48
+  %.pre25 = ashr exact i64 %sext294, 48
   br label %.preheader.i.i.i.i.i775
 
 _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i791: ; preds = %2085, %2060
@@ -12680,8 +12680,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i791: ; preds = %20
 
 .preheader.i.i.i.i.i775:                          ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i791, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i772
   %.pre-phi26 = phi i64 [ %2095, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i791 ], [ %.pre25, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i772 ]
-  %.sroa.0.0.i27.i = phi i16 [ %.sroa.0.0.extract.trunc.i.i793, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i791 ], [ %2092, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i772 ]
-  %2099 = icmp sgt i16 %.sroa.0.0.i27.i, 0
+  %.sroa.0.0.i36.i = phi i16 [ %.sroa.0.0.extract.trunc.i.i793, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i791 ], [ %2092, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i772 ]
+  %2099 = icmp sgt i16 %.sroa.0.0.i36.i, 0
   br i1 %2099, label %.lr.ph50.i.i.i.i.i779, label %.loopexit.i.i.i.i.i776
 
 .lr.ph50.i.i.i.i.i779:                            ; preds = %.preheader.i.i.i.i.i775, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Decimal32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlNS_9Decimal32EE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSL_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SK_EEvSR_OSC_SS_ENKUllE_clEl.exit.i.i.i.i.i
@@ -12956,8 +12956,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i817: ; pred
   %2232 = ashr exact i64 %sext.i.i819, 48
   %2233 = add nsw i64 %2232, %2229
   store i64 %2233, ptr %2170, align 8, !tbaa !330, !noalias !500
-  %sext34 = shl i64 %.sroa.speculated.i.i818, 48
-  %.pre27 = ashr exact i64 %sext34, 48
+  %sext293 = shl i64 %.sroa.speculated.i.i818, 48
+  %.pre27 = ashr exact i64 %sext293, 48
   br label %.preheader.i.i.i.i.i820
 
 _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i842: ; preds = %2224, %2199
@@ -12975,8 +12975,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i842: ; preds = %22
 
 .preheader.i.i.i.i.i820:                          ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i842, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i817
   %.pre-phi28 = phi i64 [ %2234, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i842 ], [ %.pre27, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i817 ]
-  %.sroa.0.0.i27.i821 = phi i16 [ %.sroa.0.0.extract.trunc.i.i844, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i842 ], [ %2231, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i817 ]
-  %2238 = icmp sgt i16 %.sroa.0.0.i27.i821, 0
+  %.sroa.0.0.i36.i821 = phi i16 [ %.sroa.0.0.extract.trunc.i.i844, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i842 ], [ %2231, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i817 ]
+  %2238 = icmp sgt i16 %.sroa.0.0.i36.i821, 0
   br i1 %2238, label %.lr.ph50.i.i.i.i.i826, label %.loopexit.i.i.i.i.i822
 
 .lr.ph50.i.i.i.i.i826:                            ; preds = %.preheader.i.i.i.i.i820, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Decimal64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlNS_9Decimal64EE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSL_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SK_EEvSR_OSC_SS_ENKUllE_clEl.exit.i.i.i.i.i
@@ -13255,8 +13255,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i872: ; pred
   %2374 = ashr exact i64 %sext.i.i874, 48
   %2375 = add nsw i64 %2374, %2371
   store i64 %2375, ptr %2311, align 8, !tbaa !330, !noalias !509
-  %sext33 = shl i64 %.sroa.speculated.i.i873, 48
-  %.pre29 = ashr exact i64 %sext33, 48
+  %sext292 = shl i64 %.sroa.speculated.i.i873, 48
+  %.pre29 = ashr exact i64 %sext292, 48
   br label %.preheader.i.i.i.i.i875
 
 _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i891: ; preds = %2366, %2341
@@ -13274,8 +13274,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i891: ; preds = %23
 
 .preheader.i.i.i.i.i875:                          ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i891, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i872
   %.pre-phi30 = phi i64 [ %2376, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i891 ], [ %.pre29, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i872 ]
-  %.sroa.0.0.i26.i = phi i16 [ %.sroa.0.0.extract.trunc.i.i893, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i891 ], [ %2373, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i872 ]
-  %2380 = icmp sgt i16 %.sroa.0.0.i26.i, 0
+  %.sroa.0.0.i35.i = phi i16 [ %.sroa.0.0.extract.trunc.i.i893, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i891 ], [ %2373, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i872 ]
+  %2380 = icmp sgt i16 %.sroa.0.0.i35.i, 0
   br i1 %2380, label %.lr.ph52.i.i.i.i.i, label %.loopexit.i.i.i.i.i876
 
 .lr.ph52.i.i.i.i.i:                               ; preds = %.preheader.i.i.i.i.i875, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal128TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlNS_10Decimal128EE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSL_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SK_EEvSR_OSC_SS_ENKUllE_clEl.exit.i.i.i.i.i
@@ -13585,8 +13585,8 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i944: ; preds = %25
 
 .preheader.i.i.i.i.i924:                          ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i944, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i921
   %.pre-phi32 = phi i64 [ %2516, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i944 ], [ %.pre31, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i921 ]
-  %.sroa.0.0.i26.i925 = phi i16 [ %.sroa.0.0.extract.trunc.i.i946, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i944 ], [ %2513, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i921 ]
-  %2520 = icmp sgt i16 %.sroa.0.0.i26.i925, 0
+  %.sroa.0.0.i35.i925 = phi i16 [ %.sroa.0.0.extract.trunc.i.i946, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i944 ], [ %2513, %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.thread.i921 ]
+  %2520 = icmp sgt i16 %.sroa.0.0.i35.i925, 0
   br i1 %2520, label %.lr.ph50.i.i.i.i.i929, label %.loopexit.i.i.i.i.i926
 
 .lr.ph50.i.i.i.i.i929:                            ; preds = %.preheader.i.i.i.i.i924, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlNS_10Decimal256EE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSL_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SK_EEvSR_OSC_SS_ENKUllE_clEl.exit.i.i.i.i.i
@@ -18222,8 +18222,8 @@ _ZSt10_ConstructIN5arrow9ArraySpanEJRKS1_EEvPT_DpOT0_.exit.i: ; preds = %.lr.ph.
   %.0.i3.i.i = phi ptr [ %27, %.lr.ph.i.i ], [ %13, %23 ]
   tail call void @_ZSt8_DestroyIN5arrow9ArraySpanEEvPT_(ptr noundef %.0.i3.i.i)
   %27 = getelementptr inbounds nuw i8, ptr %.0.i3.i.i, i64 128
-  %.not.i.i.i13 = icmp eq ptr %27, %.014.i
-  br i1 %.not.i.i.i13, label %_ZSt8_DestroyIPN5arrow9ArraySpanEEvT_S3_.exit.i, label %.lr.ph.i.i, !llvm.loop !197
+  %.not.i.i.i14 = icmp eq ptr %27, %.014.i
+  br i1 %.not.i.i.i14, label %_ZSt8_DestroyIPN5arrow9ArraySpanEEvT_S3_.exit.i, label %.lr.ph.i.i, !llvm.loop !197
 
 _ZSt8_DestroyIPN5arrow9ArraySpanEEvT_S3_.exit.i:  ; preds = %.lr.ph.i.i, %23
   invoke void @__cxa_rethrow() #25
@@ -26271,9 +26271,9 @@ __cxx_global_var_init.exit:                       ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %122 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %123 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
-          to label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i.i3 unwind label %.thread77.i
+          to label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i.i3 unwind label %.thread98.i
 
-.thread77.i:                                      ; preds = %.noexc27.i
+.thread98.i:                                      ; preds = %.noexc27.i
   %124 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i2
@@ -26426,8 +26426,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i41
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52.i
 
-.body.i2:                                         ; preds = %127, %.thread77.i
-  %175 = phi { ptr, i32 } [ %124, %.thread77.i ], [ %128, %127 ]
+.body.i2:                                         ; preds = %127, %.thread98.i
+  %175 = phi { ptr, i32 } [ %124, %.thread98.i ], [ %128, %127 ]
   br label %176
 
 176:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46.i, %.body.i2
@@ -26568,9 +26568,9 @@ __cxx_global_var_init.4.exit:                     ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %225, align 1, !tbaa !39
   %226 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %227 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
-          to label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i.i22 unwind label %.thread75.i
+          to label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i.i22 unwind label %.thread94.i
 
-.thread75.i:                                      ; preds = %.noexc19.i14
+.thread94.i:                                      ; preds = %.noexc19.i14
   %228 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i15
@@ -26723,8 +26723,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i41
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52.i9
 
-.body.i15:                                        ; preds = %231, %.thread75.i
-  %279 = phi { ptr, i32 } [ %228, %.thread75.i ], [ %232, %231 ]
+.body.i15:                                        ; preds = %231, %.thread94.i
+  %279 = phi { ptr, i32 } [ %228, %.thread94.i ], [ %232, %231 ]
   br label %280
 
 280:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46.i17, %.body.i15

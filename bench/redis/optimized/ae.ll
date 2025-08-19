@@ -436,7 +436,7 @@ aeApiDelEvent.exit:                               ; preds = %.thread.i, %24
   %indvars.iv = phi i64 [ %32, %.preheader.preheader ], [ %indvars.iv.next, %36 ]
   %34 = trunc nuw i64 %indvars.iv to i32
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %36, label %.split.loop.exit29
+  br i1 %35, label %36, label %.split.loop.exit30
 
 36:                                               ; preds = %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -449,14 +449,14 @@ aeApiDelEvent.exit:                               ; preds = %.thread.i, %24
 
 .split.loop.exit:                                 ; preds = %36
   %indvars.le = trunc i64 %indvars.iv.next to i32
-  br label %.split.loop.exit29
+  br label %.split.loop.exit30
 
-.split.loop.exit29:                               ; preds = %.preheader, %.split.loop.exit
+.split.loop.exit30:                               ; preds = %.preheader, %.split.loop.exit
   %.0.lcssa = phi i32 [ %indvars.le, %.split.loop.exit ], [ %33, %.preheader ]
   store i32 %.0.lcssa, ptr %0, align 8, !tbaa !21
   br label %41
 
-41:                                               ; preds = %7, %.split.loop.exit29, %aeApiDelEvent.exit, %3
+41:                                               ; preds = %7, %.split.loop.exit30, %aeApiDelEvent.exit, %3
   ret void
 }
 

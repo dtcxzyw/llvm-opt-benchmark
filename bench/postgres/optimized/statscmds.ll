@@ -227,7 +227,7 @@ list_length.exit.thread:                          ; preds = %1, %list_length.exi
   br i1 %101, label %102, label %106
 
 102:                                              ; preds = %98
-  %103 = add nuw i32 %.02730.i, 1
+  %103 = add nuw nsw i32 %.02730.i, 1
   %104 = zext nneg i32 %.02730.i to i64
   %105 = getelementptr inbounds nuw [128 x i8], ptr %3, i64 0, i64 %104
   store i8 95, ptr %105, align 1
@@ -354,14 +354,14 @@ list_length.exit260:                              ; preds = %150
   %161 = getelementptr inbounds nuw i8, ptr %152, i64 16
   %162 = load i32, ptr %160, align 4
   %163 = icmp sgt i32 %162, 0
-  br i1 %163, label %.lr.ph548, label %.critedge248
+  br i1 %163, label %.lr.ph568, label %.critedge248
 
-.lr.ph548:                                        ; preds = %.lr.ph326, %296
-  %.0188324547 = phi ptr [ %.1189, %296 ], [ null, %.lr.ph326 ]
-  %.0325546 = phi i32 [ %.1, %296 ], [ 0, %.lr.ph326 ]
-  %indvars.iv415545 = phi i64 [ %indvars.iv.next416, %296 ], [ 0, %.lr.ph326 ]
+.lr.ph568:                                        ; preds = %.lr.ph326, %296
+  %.0188324567 = phi ptr [ %.1189, %296 ], [ null, %.lr.ph326 ]
+  %.0325566 = phi i32 [ %.1, %296 ], [ 0, %.lr.ph326 ]
+  %indvars.iv415565 = phi i64 [ %indvars.iv.next416, %296 ], [ 0, %.lr.ph326 ]
   %164 = load ptr, ptr %161, align 8
-  %165 = getelementptr inbounds nuw %union.ListCell, ptr %164, i64 %indvars.iv415545
+  %165 = getelementptr inbounds nuw %union.ListCell, ptr %164, i64 %indvars.iv415565
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load ptr, ptr %167, align 8
@@ -383,7 +383,7 @@ list_length.exit262:                              ; preds = %.critedge248
   %or.cond272 = select i1 %171, i1 true, i1 %.not.i265
   br i1 %or.cond272, label %list_length.exit262.thread, label %list_length.exit266
 
-172:                                              ; preds = %.lr.ph548
+172:                                              ; preds = %.lr.ph568
   %173 = call ptr @SearchSysCacheAttName(i32 noundef %29, ptr noundef nonnull %168) #10
   %.not242 = icmp eq ptr %173, null
   br i1 %.not242, label %174, label %178
@@ -452,14 +452,14 @@ list_length.exit262:                              ; preds = %.critedge248
 
 213:                                              ; preds = %199
   %214 = load i16, ptr %184, align 2
-  %215 = sext i32 %.0325546 to i64
+  %215 = sext i32 %.0325566 to i64
   %216 = getelementptr inbounds [8 x i16], ptr %4, i64 0, i64 %215
   store i16 %214, ptr %216, align 2
-  %217 = add i32 %.0325546, 1
+  %217 = add i32 %.0325566, 1
   call void @ReleaseSysCache(ptr noundef nonnull %173) #10
   br label %296
 
-218:                                              ; preds = %.lr.ph548
+218:                                              ; preds = %.lr.ph568
   %219 = getelementptr inbounds nuw i8, ptr %166, i64 16
   %220 = load ptr, ptr %219, align 8
   %221 = load i32, ptr %220, align 4
@@ -517,10 +517,10 @@ list_length.exit262:                              ; preds = %.critedge248
 
 254:                                              ; preds = %238
   %255 = load i16, ptr %224, align 8
-  %256 = sext i32 %.0325546 to i64
+  %256 = sext i32 %.0325566 to i64
   %257 = getelementptr inbounds [8 x i16], ptr %4, i64 0, i64 %256
   store i16 %255, ptr %257, align 2
-  %258 = add i32 %.0325546, 1
+  %258 = add i32 %.0325566, 1
   br label %296
 
 259:                                              ; preds = %218
@@ -592,18 +592,18 @@ list_length.exit264:                              ; preds = %279
   unreachable
 
 list_length.exit264.thread:                       ; preds = %279, %284, %list_length.exit264
-  %295 = call ptr @lappend(ptr noundef %.0188324547, ptr noundef nonnull %220) #10
+  %295 = call ptr @lappend(ptr noundef %.0188324567, ptr noundef nonnull %220) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %296
 
 296:                                              ; preds = %254, %list_length.exit264.thread, %213
-  %.1189 = phi ptr [ %.0188324547, %213 ], [ %.0188324547, %254 ], [ %295, %list_length.exit264.thread ]
-  %.1 = phi i32 [ %217, %213 ], [ %258, %254 ], [ %.0325546, %list_length.exit264.thread ]
-  %indvars.iv.next416 = add nuw nsw i64 %indvars.iv415545, 1
+  %.1189 = phi ptr [ %.0188324567, %213 ], [ %.0188324567, %254 ], [ %295, %list_length.exit264.thread ]
+  %.1 = phi i32 [ %217, %213 ], [ %258, %254 ], [ %.0325566, %list_length.exit264.thread ]
+  %indvars.iv.next416 = add nuw nsw i64 %indvars.iv415565, 1
   %297 = load i32, ptr %160, align 4
   %298 = sext i32 %297 to i64
   %299 = icmp slt i64 %indvars.iv.next416, %298
-  br i1 %299, label %.lr.ph548, label %.critedge248
+  br i1 %299, label %.lr.ph568, label %.critedge248
 
 list_length.exit266:                              ; preds = %list_length.exit262
   %300 = getelementptr inbounds nuw i8, ptr %.0188324.lcssa, i64 4
@@ -626,8 +626,8 @@ list_length.exit266:                              ; preds = %list_length.exit262
   unreachable
 
 list_length.exit262.thread:                       ; preds = %150, %.critedge248, %303, %list_length.exit266, %list_length.exit262
-  %.0.lcssa443 = phi i32 [ %.0325.lcssa, %.critedge248 ], [ %.0325.lcssa, %303 ], [ %.0325.lcssa, %list_length.exit266 ], [ %.0325.lcssa, %list_length.exit262 ], [ 0, %150 ]
-  %.0188.lcssa442 = phi ptr [ %.0188324.lcssa, %.critedge248 ], [ %.0188324.lcssa, %303 ], [ %.0188324.lcssa, %list_length.exit266 ], [ %.0188324.lcssa, %list_length.exit262 ], [ null, %150 ]
+  %.0.lcssa463 = phi i32 [ %.0325.lcssa, %.critedge248 ], [ %.0325.lcssa, %303 ], [ %.0325.lcssa, %list_length.exit266 ], [ %.0325.lcssa, %list_length.exit262 ], [ 0, %150 ]
+  %.0188.lcssa462 = phi ptr [ %.0188324.lcssa, %.critedge248 ], [ %.0188324.lcssa, %303 ], [ %.0188324.lcssa, %list_length.exit266 ], [ %.0188324.lcssa, %list_length.exit262 ], [ null, %150 ]
   %310 = phi i32 [ %154, %.critedge248 ], [ %154, %303 ], [ %154, %list_length.exit266 ], [ %154, %list_length.exit262 ], [ 0, %150 ]
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %312 = load ptr, ptr %311, align 8
@@ -666,7 +666,7 @@ list_length.exit262.thread:                       ; preds = %150, %.critedge248,
   %.0196.lcssa = phi i1 [ false, %list_length.exit262.thread ], [ false, %.lr.ph337 ], [ %.1197, %336 ]
   %325 = icmp sgt i32 %310, 1
   %or.cond = and i1 %325, %.not.lcssa
-  %.not234 = icmp eq ptr %.0188.lcssa442, null
+  %.not234 = icmp eq ptr %.0188.lcssa462, null
   %326 = icmp slt i32 %310, 2
   br i1 %326, label %337, label %343
 
@@ -700,7 +700,7 @@ list_length.exit262.thread:                       ; preds = %150, %.critedge248,
   br i1 %.not234, label %list_length.exit268.thread, label %list_length.exit268
 
 list_length.exit268:                              ; preds = %337
-  %338 = getelementptr inbounds nuw i8, ptr %.0188.lcssa442, i64 4
+  %338 = getelementptr inbounds nuw i8, ptr %.0188.lcssa462, i64 4
   %339 = load i32, ptr %338, align 4
   %.not235 = icmp eq i32 %339, 1
   br i1 %.not235, label %343, label %list_length.exit268.thread
@@ -714,13 +714,13 @@ list_length.exit268.thread:                       ; preds = %337, %list_length.e
   unreachable
 
 343:                                              ; preds = %list_length.exit268, %.critedge250
-  %344 = sext i32 %.0.lcssa443 to i64
+  %344 = sext i32 %.0.lcssa463 to i64
   call void @pg_qsort(ptr noundef nonnull %4, i64 noundef %344, i64 noundef 2, ptr noundef nonnull @compare_int16) #10
-  %345 = icmp sgt i32 %.0.lcssa443, 1
+  %345 = icmp sgt i32 %.0.lcssa463, 1
   br i1 %345, label %.lr.ph365.preheader, label %.preheader
 
 .lr.ph365.preheader:                              ; preds = %343
-  %wide.trip.count423 = zext nneg i32 %.0.lcssa443 to i64
+  %wide.trip.count423 = zext nneg i32 %.0.lcssa463 to i64
   %.pre437 = load i16, ptr %4, align 16
   br label %.lr.ph365
 
@@ -733,8 +733,8 @@ list_length.exit268.thread:                       ; preds = %337, %list_length.e
   br i1 %.not234, label %.critedge252, label %.lr.ph371
 
 .lr.ph371:                                        ; preds = %.preheader
-  %347 = getelementptr inbounds nuw i8, ptr %.0188.lcssa442, i64 4
-  %348 = getelementptr inbounds nuw i8, ptr %.0188.lcssa442, i64 16
+  %347 = getelementptr inbounds nuw i8, ptr %.0188.lcssa462, i64 4
+  %348 = getelementptr inbounds nuw i8, ptr %.0188.lcssa462, i64 16
   %349 = load i32, ptr %347, align 4
   %350 = icmp sgt i32 %349, 0
   br i1 %350, label %.lr.ph376.split, label %.critedge252
@@ -772,7 +772,7 @@ list_length.exit268.thread:                       ; preds = %337, %list_length.e
   br i1 %366, label %.lr.ph368, label %.critedge254.thread
 
 .critedge252:                                     ; preds = %.critedge254.thread, %.lr.ph371, %.preheader
-  %367 = call ptr @buildint2vector(ptr noundef nonnull %4, i32 noundef %.0.lcssa443) #10
+  %367 = call ptr @buildint2vector(ptr noundef nonnull %4, i32 noundef %.0.lcssa463) #10
   %368 = select i1 %or.cond, i1 true, i1 %.0196.lcssa
   br i1 %368, label %381, label %382
 
@@ -845,7 +845,7 @@ list_length.exit268.thread:                       ; preds = %337, %list_length.e
   %399 = getelementptr inbounds nuw [4 x i64], ptr %11, i64 0, i64 %398
   store i64 101, ptr %399, align 8
   %400 = call ptr @construct_array_builtin(ptr noundef nonnull %11, i32 noundef %397, i32 noundef 18) #10
-  %401 = call ptr @nodeToString(ptr noundef nonnull %.0188.lcssa442) #10
+  %401 = call ptr @nodeToString(ptr noundef nonnull %.0188.lcssa462) #10
   %402 = call ptr @cstring_to_text(ptr noundef %401) #10
   %403 = ptrtoint ptr %402 to i64
   call void @pfree(ptr noundef %401) #10
@@ -913,13 +913,13 @@ list_length.exit268.thread:                       ; preds = %337, %list_length.e
   store i32 %408, ptr %433, align 4
   %434 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %434, align 4
-  %435 = icmp sgt i32 %.0.lcssa443, 0
+  %435 = icmp sgt i32 %.0.lcssa463, 0
   br i1 %435, label %.lr.ph381, label %._crit_edge
 
 .lr.ph381:                                        ; preds = %432
   %436 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %437 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %wide.trip.count434 = zext nneg i32 %.0.lcssa443 to i64
+  %wide.trip.count434 = zext nneg i32 %.0.lcssa463 to i64
   br label %438
 
 438:                                              ; preds = %.lr.ph381, %438
@@ -936,7 +936,7 @@ list_length.exit268.thread:                       ; preds = %337, %list_length.e
   br i1 %exitcond435.not, label %._crit_edge.thread, label %438, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %432
-  %.not238 = icmp eq i32 %.0.lcssa443, 0
+  %.not238 = icmp eq i32 %.0.lcssa463, 0
   br i1 %.not238, label %442, label %._crit_edge.thread
 
 442:                                              ; preds = %._crit_edge
@@ -952,7 +952,7 @@ list_length.exit268.thread:                       ; preds = %337, %list_length.e
   br i1 %.not234, label %446, label %445
 
 445:                                              ; preds = %._crit_edge.thread
-  call void @recordDependencyOnSingleRelExpr(ptr noundef nonnull %10, ptr noundef nonnull %.0188.lcssa442, i32 noundef %29, i32 noundef 110, i32 noundef 97, i1 noundef zeroext false) #10
+  call void @recordDependencyOnSingleRelExpr(ptr noundef nonnull %10, ptr noundef nonnull %.0188.lcssa462, i32 noundef %29, i32 noundef 110, i32 noundef 97, i1 noundef zeroext false) #10
   br label %446
 
 446:                                              ; preds = %._crit_edge.thread, %445

@@ -133,12 +133,12 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i:        ; preds = %_ZN4llvm5APIntC2ERK
   %28 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %4) #21
   %29 = sub i32 %24, %28
   %30 = icmp ugt i32 %29, 64
-  br i1 %30, label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread, label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread6
+  br i1 %30, label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread, label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread8
 
-_ZNK4llvm5APInt15getLimitedValueEm.exit.thread6:  ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i
-  %.0.i.i.i8 = load i64, ptr %27, align 8, !tbaa !18
-  %spec.select.i9 = call i64 @llvm.umin.i64(i64 %.0.i.i.i8, i64 184467440737095516)
-  %31 = add nuw nsw i64 %spec.select.i9, 1
+_ZNK4llvm5APInt15getLimitedValueEm.exit.thread8:  ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i
+  %.0.i.i.i10 = load i64, ptr %27, align 8, !tbaa !18
+  %spec.select.i11 = call i64 @llvm.umin.i64(i64 %.0.i.i.i10, i64 184467440737095516)
+  %31 = add nuw nsw i64 %spec.select.i11, 1
   br label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread
 
 _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
@@ -147,8 +147,8 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %_ZN4llvm5APIntC2ERK
   %32 = add nuw nsw i64 %spec.select.i, 1
   br label %_ZN4llvm5APIntD2Ev.exit5
 
-_ZNK4llvm5APInt15getLimitedValueEm.exit.thread:   ; preds = %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread6, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i
-  %33 = phi i64 [ 184467440737095517, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i ], [ %31, %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread6 ]
+_ZNK4llvm5APInt15getLimitedValueEm.exit.thread:   ; preds = %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread8, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i
+  %33 = phi i64 [ 184467440737095517, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i ], [ %31, %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread8 ]
   %34 = icmp eq i64 %25, 0
   br i1 %34, label %_ZN4llvm5APIntD2Ev.exit5, label %_ZN4llvm5APIntD2Ev.exit
 
@@ -1464,9 +1464,9 @@ _ZN4llvm8SwitchCG9JumpTableC2ENS_8RegisterEjPNS_17MachineBasicBlockES4_St8option
   %289 = load ptr, ptr %19, align 8, !tbaa !310
   store ptr %289, ptr %287, align 8, !tbaa !310
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %289, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm8SwitchCG9JumpTableC2ENS_8RegisterEjPNS_17MachineBasicBlockES4_St8optionalINS_5SDLocEE.exit.thread197, label %_ZN4llvm8SwitchCG9JumpTableC2ENS_8RegisterEjPNS_17MachineBasicBlockES4_St8optionalINS_5SDLocEE.exit
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm8SwitchCG9JumpTableC2ENS_8RegisterEjPNS_17MachineBasicBlockES4_St8optionalINS_5SDLocEE.exit.thread244, label %_ZN4llvm8SwitchCG9JumpTableC2ENS_8RegisterEjPNS_17MachineBasicBlockES4_St8optionalINS_5SDLocEE.exit
 
-_ZN4llvm8SwitchCG9JumpTableC2ENS_8RegisterEjPNS_17MachineBasicBlockES4_St8optionalINS_5SDLocEE.exit.thread197: ; preds = %280
+_ZN4llvm8SwitchCG9JumpTableC2ENS_8RegisterEjPNS_17MachineBasicBlockES4_St8optionalINS_5SDLocEE.exit.thread244: ; preds = %280
   %290 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %291 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %292 = load i32, ptr %291, align 8, !tbaa !321
@@ -1485,7 +1485,7 @@ _ZN4llvm8SwitchCG9JumpTableC2ENS_8RegisterEjPNS_17MachineBasicBlockES4_St8option
   store i8 1, ptr %288, align 8, !tbaa !306
   br i1 %294, label %298, label %_ZNSt14_Optional_baseIN4llvm5SDLocELb0ELb0EED2Ev.exit
 
-298:                                              ; preds = %_ZN4llvm8SwitchCG9JumpTableC2ENS_8RegisterEjPNS_17MachineBasicBlockES4_St8optionalINS_5SDLocEE.exit.thread197, %_ZN4llvm8SwitchCG9JumpTableC2ENS_8RegisterEjPNS_17MachineBasicBlockES4_St8optionalINS_5SDLocEE.exit
+298:                                              ; preds = %_ZN4llvm8SwitchCG9JumpTableC2ENS_8RegisterEjPNS_17MachineBasicBlockES4_St8optionalINS_5SDLocEE.exit.thread244, %_ZN4llvm8SwitchCG9JumpTableC2ENS_8RegisterEjPNS_17MachineBasicBlockES4_St8optionalINS_5SDLocEE.exit
   store i8 0, ptr %268, align 8, !tbaa !306
   %299 = load ptr, ptr %19, align 8, !tbaa !310
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %299, null
@@ -2007,7 +2007,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %_ZNK4llvm18TargetLo
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %34 = zext i16 %24 to i64
   %35 = add nsw i64 %34, -1
-  %36 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %35
   %.sroa.0.0.copyload.i.i = load i64, ptr %36, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.2.0.copyload.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i, align 8
@@ -2216,19 +2216,19 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i:      ; preds = %_ZN4llvm5APIntC2ERK
   %132 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %4) #21
   %133 = sub i32 %128, %132
   %134 = icmp ugt i32 %133, 64
-  br i1 %134, label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread.i, label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread5.i
+  br i1 %134, label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread.i, label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread7.i
 
-_ZNK4llvm5APInt15getLimitedValueEm.exit.thread5.i: ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i
-  %.0.i.i.i7.i = load i64, ptr %131, align 8, !tbaa !18
-  %135 = call i64 @llvm.uadd.sat.i64(i64 %.0.i.i.i7.i, i64 1)
+_ZNK4llvm5APInt15getLimitedValueEm.exit.thread7.i: ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i
+  %.0.i.i.i9.i = load i64, ptr %131, align 8, !tbaa !18
+  %135 = call i64 @llvm.uadd.sat.i64(i64 %.0.i.i.i9.i, i64 1)
   br label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread.i
 
 _ZNK4llvm5APInt15getLimitedValueEm.exit.i:        ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i
   %136 = call i64 @llvm.uadd.sat.i64(i64 %129, i64 1)
   br label %_ZNK4llvm18TargetLoweringBase15rangeFitsInWordERKNS_5APIntES3_RKNS_10DataLayoutE.exit
 
-_ZNK4llvm5APInt15getLimitedValueEm.exit.thread.i: ; preds = %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread5.i, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i
-  %137 = phi i64 [ -1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i ], [ %135, %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread5.i ]
+_ZNK4llvm5APInt15getLimitedValueEm.exit.thread.i: ; preds = %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread7.i, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i
+  %137 = phi i64 [ -1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i ], [ %135, %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread7.i ]
   %138 = icmp eq i64 %129, 0
   br i1 %138, label %_ZNK4llvm18TargetLoweringBase15rangeFitsInWordERKNS_5APIntES3_RKNS_10DataLayoutE.exit, label %_ZN4llvm5APIntD2Ev.exit.i
 
@@ -2443,13 +2443,13 @@ _ZN4llvm9BitVectorD2Ev.exit91:                    ; preds = %.critedge77, %215
   %235 = phi i64 [ %223, %._crit_edge.thread ], [ %230, %._crit_edge ]
   %236 = phi ptr [ %219, %._crit_edge.thread ], [ %226, %._crit_edge ]
   %237 = phi ptr [ %218, %._crit_edge.thread ], [ %225, %._crit_edge ]
-  %.069.lcssa121 = phi i64 [ 0, %._crit_edge.thread ], [ %224, %._crit_edge ]
+  %.069.lcssa137 = phi i64 [ 0, %._crit_edge.thread ], [ %224, %._crit_edge ]
   %238 = phi ptr [ %.ph, %._crit_edge.thread ], [ %80, %._crit_edge ]
-  %239 = icmp ugt i64 %235, %.069.lcssa121
+  %239 = icmp ugt i64 %235, %.069.lcssa137
   br i1 %239, label %240, label %_ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EE6resizeEm.exit
 
 240:                                              ; preds = %234
-  %241 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %236, i64 %.069.lcssa121
+  %241 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %236, i64 %.069.lcssa137
   %.not.i.i92 = icmp eq ptr %237, %241
   br i1 %.not.i.i92, label %_ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EE6resizeEm.exit, label %242
 
@@ -2569,11 +2569,11 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i:        ; preds = %_ZN4llvm5APIntC2ERK
   %23 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %5) #21
   %24 = sub i32 %19, %23
   %25 = icmp ugt i32 %24, 64
-  br i1 %25, label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread, label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread5
+  br i1 %25, label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread, label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread7
 
-_ZNK4llvm5APInt15getLimitedValueEm.exit.thread5:  ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i
-  %.0.i.i.i7 = load i64, ptr %22, align 8, !tbaa !18
-  %26 = call i64 @llvm.uadd.sat.i64(i64 %.0.i.i.i7, i64 1)
+_ZNK4llvm5APInt15getLimitedValueEm.exit.thread7:  ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i
+  %.0.i.i.i9 = load i64, ptr %22, align 8, !tbaa !18
+  %26 = call i64 @llvm.uadd.sat.i64(i64 %.0.i.i.i9, i64 1)
   br label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread
 
 _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
@@ -2581,8 +2581,8 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %_ZN4llvm5APIntC2ERK
   %27 = call i64 @llvm.uadd.sat.i64(i64 %.0.i.i.i, i64 1)
   br label %_ZN4llvm5APIntD2Ev.exit4
 
-_ZNK4llvm5APInt15getLimitedValueEm.exit.thread:   ; preds = %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread5, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i
-  %28 = phi i64 [ -1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i ], [ %26, %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread5 ]
+_ZNK4llvm5APInt15getLimitedValueEm.exit.thread:   ; preds = %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread7, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i
+  %28 = phi i64 [ -1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i ], [ %26, %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread7 ]
   %29 = icmp eq i64 %20, 0
   br i1 %29, label %_ZN4llvm5APIntD2Ev.exit4, label %_ZN4llvm5APIntD2Ev.exit
 
@@ -3123,9 +3123,9 @@ _ZN4llvm5APIntD2Ev.exit100.thread:                ; preds = %_ZN4llvm5APIntC2ERK
 261:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit98
   %262 = load ptr, ptr %13, align 8, !tbaa !18
   %263 = icmp eq ptr %262, null
-  br i1 %263, label %_ZN4llvm5APIntD2Ev.exit100.thread248, label %_ZN4llvm5APIntD2Ev.exit100
+  br i1 %263, label %_ZN4llvm5APIntD2Ev.exit100.thread293, label %_ZN4llvm5APIntD2Ev.exit100
 
-_ZN4llvm5APIntD2Ev.exit100.thread248:             ; preds = %261
+_ZN4llvm5APIntD2Ev.exit100.thread293:             ; preds = %261
   store i64 %258, ptr %13, align 8
   store i32 %257, ptr %125, align 8, !tbaa !16
   br label %_ZN4llvm5APIntD2Ev.exit101
@@ -3147,7 +3147,7 @@ _ZN4llvm5APIntD2Ev.exit100:                       ; preds = %261
   call void @_ZdaPv(ptr noundef nonnull %266) #22
   br label %_ZN4llvm5APIntD2Ev.exit101
 
-_ZN4llvm5APIntD2Ev.exit101:                       ; preds = %_ZN4llvm5APIntD2Ev.exit100.thread248, %268, %265, %_ZN4llvm5APIntD2Ev.exit100, %_ZN4llvm5APIntD2Ev.exit100.thread, %_ZN4llvm5APIntaSERKS0_.exit
+_ZN4llvm5APIntD2Ev.exit101:                       ; preds = %_ZN4llvm5APIntD2Ev.exit100.thread293, %268, %265, %_ZN4llvm5APIntD2Ev.exit100, %_ZN4llvm5APIntD2Ev.exit100.thread, %_ZN4llvm5APIntaSERKS0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 0, ptr %20, align 4
   br i1 %.not204, label %._crit_edge226.thread, label %.preheader.lr.ph
@@ -3518,13 +3518,13 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG8CaseBitsESt6
   br i1 %.not.i.i103, label %396, label %392
 
 .thread:                                          ; preds = %.preheader
-  %.not.i.i103278 = icmp eq ptr %.sroa.12.0223, %.sroa.20.0222
-  br i1 %.not.i.i103278, label %_ZNKSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i, label %392
+  %.not.i.i103323 = icmp eq ptr %.sroa.12.0223, %.sroa.20.0222
+  br i1 %.not.i.i103323, label %_ZNKSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i, label %392
 
 392:                                              ; preds = %.thread, %389
   %393 = phi ptr [ %280, %.thread ], [ %391, %389 ]
   %394 = phi i64 [ %278, %.thread ], [ %388, %389 ]
-  %.lcssa197276280 = phi i64 [ 0, %.thread ], [ %.lcssa197, %389 ]
+  %.lcssa197321325 = phi i64 [ 0, %.thread ], [ %.lcssa197, %389 ]
   store i64 0, ptr %.sroa.12.0223, align 8, !tbaa !362
   %.sroa.5147.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.12.0223, i64 8
   store ptr %393, ptr %.sroa.5147.0..sroa_idx, align 8, !tbaa !212
@@ -3544,7 +3544,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG8CaseBitsESt6
   unreachable
 
 _ZNKSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %.thread, %396
-  %.lcssa197276279283 = phi i64 [ %.lcssa197, %396 ], [ 0, %.thread ]
+  %.lcssa197321324328 = phi i64 [ %.lcssa197, %396 ], [ 0, %.thread ]
   %399 = phi i64 [ %388, %396 ], [ %278, %.thread ]
   %400 = phi ptr [ %391, %396 ], [ %280, %.thread ]
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %277, i64 1)
@@ -3587,13 +3587,13 @@ _ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gn
   br label %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE9push_backEOS2_.exit: ; preds = %._crit_edge213, %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %392
-  %.lcssa197275 = phi i64 [ %.lcssa197276279283, %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.lcssa197276280, %392 ], [ %.lcssa197, %._crit_edge213 ]
+  %.lcssa197320 = phi i64 [ %.lcssa197321324328, %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.lcssa197321325, %392 ], [ %.lcssa197, %._crit_edge213 ]
   %.pre-phi = phi i64 [ %399, %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %394, %392 ], [ %388, %._crit_edge213 ]
   %410 = phi ptr [ %.pre241, %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.pre242.pre, %392 ], [ %.pre242.pre, %._crit_edge213 ]
   %.sroa.20.1 = phi ptr [ %409, %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.20.0222, %392 ], [ %.sroa.20.0222, %._crit_edge213 ]
   %.sroa.12.1 = phi ptr [ %407, %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %395, %392 ], [ %.sroa.12.0223, %._crit_edge213 ]
   %.sroa.0156.1 = phi ptr [ %403, %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.0156.0224, %392 ], [ %.sroa.0156.0224, %._crit_edge213 ]
-  %411 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseBits", ptr %.sroa.0156.1, i64 %.lcssa197275
+  %411 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseBits", ptr %.sroa.0156.1, i64 %.lcssa197320
   %412 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %410, i64 %.pre-phi, i32 2
   %413 = load ptr, ptr %412, align 8, !tbaa !9
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 24
@@ -3724,8 +3724,8 @@ _ZN4llvm5APIntD2Ev.exit115:                       ; preds = %_ZN4llvm5APIntC2ERK
   br i1 %.not88, label %._crit_edge226, label %.preheader, !llvm.loop !444
 
 ._crit_edge233:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit, %._crit_edge226, %._crit_edge226.thread
-  %.sroa.20.0.lcssa254265 = phi i64 [ %281, %._crit_edge226 ], [ 0, %._crit_edge226.thread ], [ %281, %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit ]
-  %.sroa.0156.0.lcssa256264 = phi ptr [ %.sroa.0156.1, %._crit_edge226 ], [ null, %._crit_edge226.thread ], [ %.sroa.0156.1, %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit ]
+  %.sroa.20.0.lcssa299310 = phi i64 [ %281, %._crit_edge226 ], [ 0, %._crit_edge226.thread ], [ %281, %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit ]
+  %.sroa.0156.0.lcssa301309 = phi ptr [ %.sroa.0156.1, %._crit_edge226 ], [ null, %._crit_edge226.thread ], [ %.sroa.0156.1, %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit ]
   %478 = phi ptr [ %282, %._crit_edge226 ], [ %269, %._crit_edge226.thread ], [ %282, %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit ]
   %479 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
@@ -3803,13 +3803,13 @@ _ZNSt6vectorIN4llvm8SwitchCG12BitTestBlockESaIS2_EE12emplace_backIJNS0_5APIntES6
 _ZN4llvm11SmallVectorINS_8SwitchCG11BitTestCaseELj3EED2Ev.exit: ; preds = %_ZNSt6vectorIN4llvm8SwitchCG12BitTestBlockESaIS2_EE12emplace_backIJNS0_5APIntES6_PNS0_5ValueENS0_8RegisterENS0_3MVT15SimpleValueTypeEbRbDnDnNS0_11SmallVectorINS1_11BitTestCaseELj3EEERNS0_17BranchProbabilityEEEERS2_DpOT_.exit, %506
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %.not.i.i.i118 = icmp eq ptr %.sroa.0156.0.lcssa256264, null
+  %.not.i.i.i118 = icmp eq ptr %.sroa.0156.0.lcssa301309, null
   br i1 %.not.i.i.i118, label %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EED2Ev.exit, label %507
 
 507:                                              ; preds = %_ZN4llvm11SmallVectorINS_8SwitchCG11BitTestCaseELj3EED2Ev.exit
-  %508 = ptrtoint ptr %.sroa.0156.0.lcssa256264 to i64
-  %509 = sub i64 %.sroa.20.0.lcssa254265, %508
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0156.0.lcssa256264, i64 noundef %509) #22
+  %508 = ptrtoint ptr %.sroa.0156.0.lcssa301309 to i64
+  %509 = sub i64 %.sroa.20.0.lcssa299310, %508
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0156.0.lcssa301309, i64 noundef %509) #22
   br label %_ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN4llvm8SwitchCG8CaseBitsESaIS2_EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorINS_8SwitchCG11BitTestCaseELj3EED2Ev.exit, %507
@@ -4198,15 +4198,15 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseCluster
   br label %_ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EE6resizeEm.exit
 
 ._crit_edge.thread:                               ; preds = %"_ZN4llvm4sortIRSt6vectorINS_8SwitchCG11CaseClusterESaIS3_EEZNS2_15sortAndRangeifyES6_E3$_0EEvOT_T0_.exit", %._crit_edge
-  %.0.lcssa58 = phi i64 [ %79, %._crit_edge ], [ 0, %"_ZN4llvm4sortIRSt6vectorINS_8SwitchCG11CaseClusterESaIS3_EEZNS2_15sortAndRangeifyES6_E3$_0EEvOT_T0_.exit" ]
+  %.0.lcssa66 = phi i64 [ %79, %._crit_edge ], [ 0, %"_ZN4llvm4sortIRSt6vectorINS_8SwitchCG11CaseClusterESaIS3_EEZNS2_15sortAndRangeifyES6_E3$_0EEvOT_T0_.exit" ]
   %83 = phi ptr [ %.pre46, %._crit_edge ], [ %70, %"_ZN4llvm4sortIRSt6vectorINS_8SwitchCG11CaseClusterESaIS3_EEZNS2_15sortAndRangeifyES6_E3$_0EEvOT_T0_.exit" ]
   %84 = phi ptr [ %.pre47, %._crit_edge ], [ %71, %"_ZN4llvm4sortIRSt6vectorINS_8SwitchCG11CaseClusterESaIS3_EEZNS2_15sortAndRangeifyES6_E3$_0EEvOT_T0_.exit" ]
-  %.pre-phi5457 = phi i64 [ %.pre53, %._crit_edge ], [ %75, %"_ZN4llvm4sortIRSt6vectorINS_8SwitchCG11CaseClusterESaIS3_EEZNS2_15sortAndRangeifyES6_E3$_0EEvOT_T0_.exit" ]
-  %85 = icmp ugt i64 %.pre-phi5457, %.0.lcssa58
+  %.pre-phi5465 = phi i64 [ %.pre53, %._crit_edge ], [ %75, %"_ZN4llvm4sortIRSt6vectorINS_8SwitchCG11CaseClusterESaIS3_EEZNS2_15sortAndRangeifyES6_E3$_0EEvOT_T0_.exit" ]
+  %85 = icmp ugt i64 %.pre-phi5465, %.0.lcssa66
   br i1 %85, label %86, label %_ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EE6resizeEm.exit
 
 86:                                               ; preds = %._crit_edge.thread
-  %87 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %84, i64 %.0.lcssa58
+  %87 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %84, i64 %.0.lcssa66
   %.not.i.i = icmp eq ptr %83, %87
   br i1 %.not.i.i, label %_ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EE6resizeEm.exit, label %88
 
@@ -4276,29 +4276,29 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i:          ; preds = %_ZN4llvm5APIntC2ERK
   %119 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %4) #21
   %120 = sub i32 %115, %119
   %121 = icmp ult i32 %120, 65
-  br i1 %121, label %.critedge.thread62, label %.critedge.thread
+  br i1 %121, label %.critedge.thread70, label %.critedge.thread
 
-.critedge.thread62:                               ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i
-  %.0.i.i64 = load i64, ptr %118, align 8, !tbaa !18
-  %122 = icmp eq i64 %.0.i.i64, 1
+.critedge.thread70:                               ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i
+  %.0.i.i72 = load i64, ptr %118, align 8, !tbaa !18
+  %122 = icmp eq i64 %.0.i.i72, 1
   br label %.critedge.thread
 
 .critedge:                                        ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
   %.0.i.i = load i64, ptr %4, align 8, !tbaa !18
   %123 = icmp eq i64 %.0.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.pre456770 = load ptr, ptr %0, align 8, !tbaa !3
+  %.pre457578 = load ptr, ptr %0, align 8, !tbaa !3
   br i1 %123, label %130, label %.critedge34.thread
 
-.critedge.thread:                                 ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i, %.critedge.thread62
-  %.ph61 = phi i1 [ %122, %.critedge.thread62 ], [ false, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i ]
+.critedge.thread:                                 ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i, %.critedge.thread70
+  %.ph69 = phi i1 [ %122, %.critedge.thread70 ], [ false, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i ]
   %124 = icmp eq i64 %116, 0
   br i1 %124, label %_ZN4llvm5APIntD2Ev.exit.thread, label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit.thread:                   ; preds = %.critedge.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.pre4567 = load ptr, ptr %0, align 8, !tbaa !3
-  br i1 %.ph61, label %130, label %.critedge34.thread
+  %.pre4575 = load ptr, ptr %0, align 8, !tbaa !3
+  br i1 %.ph69, label %130, label %.critedge34.thread
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.critedge.thread
   call void @_ZdaPv(ptr noundef nonnull %118) #22
@@ -4314,17 +4314,17 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.critedge.thread
 129:                                              ; preds = %126
   call void @_ZdaPv(ptr noundef nonnull %127) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.pre4569 = load ptr, ptr %0, align 8, !tbaa !3
-  br i1 %.ph61, label %130, label %.critedge34.thread
+  %.pre4577 = load ptr, ptr %0, align 8, !tbaa !3
+  br i1 %.ph69, label %130, label %.critedge34.thread
 
 .critedge34:                                      ; preds = %126, %_ZN4llvm5APIntD2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre45 = load ptr, ptr %0, align 8, !tbaa !3
-  br i1 %.ph61, label %130, label %.critedge34.thread
+  br i1 %.ph69, label %130, label %.critedge34.thread
 
 130:                                              ; preds = %.critedge, %129, %_ZN4llvm5APIntD2Ev.exit.thread, %.critedge34
-  %.pre4568 = phi ptr [ %.pre4567, %_ZN4llvm5APIntD2Ev.exit.thread ], [ %.pre45, %.critedge34 ], [ %.pre4569, %129 ], [ %.pre456770, %.critedge ]
-  %131 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %.pre4568, i64 %98
+  %.pre4576 = phi ptr [ %.pre4575, %_ZN4llvm5APIntD2Ev.exit.thread ], [ %.pre45, %.critedge34 ], [ %.pre4577, %129 ], [ %.pre457578, %.critedge ]
+  %131 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %.pre4576, i64 %98
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   store ptr %93, ptr %132, align 8, !tbaa !15
   %133 = getelementptr inbounds nuw i8, ptr %91, i64 32
@@ -4341,7 +4341,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.critedge.thread
   br label %146
 
 .critedge34.thread:                               ; preds = %.critedge, %129, %_ZN4llvm5APIntD2Ev.exit.thread, %89, %94, %.critedge34
-  %141 = phi ptr [ %90, %89 ], [ %90, %94 ], [ %.pre45, %.critedge34 ], [ %.pre4567, %_ZN4llvm5APIntD2Ev.exit.thread ], [ %.pre4569, %129 ], [ %.pre456770, %.critedge ]
+  %141 = phi ptr [ %90, %89 ], [ %90, %94 ], [ %.pre45, %.critedge34 ], [ %.pre4575, %_ZN4llvm5APIntD2Ev.exit.thread ], [ %.pre4577, %129 ], [ %.pre457578, %.critedge ]
   %142 = add i32 %.040, 1
   %143 = zext i32 %.040 to i64
   %144 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %141, i64 %143
@@ -6092,11 +6092,11 @@ _ZSt4moveIPN4llvm8SwitchCG11BitTestCaseES3_ET0_T_S5_S4_.exit35.i: ; preds = %53
   br i1 %.not.i.i.i12, label %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i, label %_ZSt4moveIPN4llvm8SwitchCG11BitTestCaseES3_ET0_T_S5_S4_.exit35.i.thread
 
 _ZSt4moveIPN4llvm8SwitchCG11BitTestCaseES3_ET0_T_S5_S4_.exit35.i.thread: ; preds = %53, %_ZSt4moveIPN4llvm8SwitchCG11BitTestCaseES3_ET0_T_S5_S4_.exit35.i
-  %.pre19.pre2230 = phi ptr [ %.pre19.pre22.pre, %_ZSt4moveIPN4llvm8SwitchCG11BitTestCaseES3_ET0_T_S5_S4_.exit35.i ], [ %.pre20, %53 ]
-  %.pre-phi29 = phi i64 [ %.pre25, %_ZSt4moveIPN4llvm8SwitchCG11BitTestCaseES3_ET0_T_S5_S4_.exit35.i ], [ %54, %53 ]
+  %.pre19.pre2234 = phi ptr [ %.pre19.pre22.pre, %_ZSt4moveIPN4llvm8SwitchCG11BitTestCaseES3_ET0_T_S5_S4_.exit35.i ], [ %.pre20, %53 ]
+  %.pre-phi33 = phi i64 [ %.pre25, %_ZSt4moveIPN4llvm8SwitchCG11BitTestCaseES3_ET0_T_S5_S4_.exit35.i ], [ %54, %53 ]
   %56 = load ptr, ptr %42, align 8, !tbaa !22
-  %gepdiff.i = shl nuw nsw i64 %.pre-phi29, 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr align 8 %.pre19.pre2230, i64 %gepdiff.i, i1 false)
+  %gepdiff.i = shl nuw nsw i64 %.pre-phi33, 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr align 8 %.pre19.pre2234, i64 %gepdiff.i, i1 false)
   %.pre19.pre = load ptr, ptr %14, align 8, !tbaa !22
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i
 
@@ -6380,7 +6380,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %27 = and i64 %22, 1
   %28 = icmp eq i64 %27, 0
   %29 = or disjoint i64 %23, 1
-  %30 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %29
   %31 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %24
   br label %32
 
@@ -6439,7 +6439,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.010.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %58 ]
   %.0911.in.i.i.i.i.i = add nsw i64 %.010.i.i.i.i.i, -1
   %.0911.i.i.i.i.i = sdiv i64 %.0911.in.i.i.i.i.i, 2
-  %53 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %.0911.i.i.i.i.i
+  %53 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %.0911.i.i.i.i.i
   %54 = getelementptr i8, ptr %53, i64 8
   %.val.i.i.i.i.i.i = load ptr, ptr %54, align 8, !tbaa !9
   %55 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i, i64 24
@@ -6448,14 +6448,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %57, label %58, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_15sortAndRangeifyERS8_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %.010.i.i.i.i.i
+  %59 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %.010.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %59, ptr noundef nonnull align 8 dereferenceable(36) %53, i64 36, i1 false), !tbaa.struct !82
   %60 = icmp sgt i64 %.0911.i.i.i.i.i, %.08.i.i.i
   br i1 %60, label %52, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_15sortAndRangeifyERS8_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", !llvm.loop !503
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseClusterESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_15sortAndRangeifyERS8_E3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i": ; preds = %58, %52, %49
   %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %49 ], [ %.010.i.i.i.i.i, %52 ], [ %.0911.i.i.i.i.i, %58 ]
-  %61 = getelementptr inbounds %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %.0.lcssa.i.i.i.i.i
+  %61 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::CaseCluster", ptr %0, i64 %.0.lcssa.i.i.i.i.i
   store i64 %.sroa.09.0.copyload.i.i.i, ptr %61, align 8
   %.sroa.4.0..sroa_idx36.i.i.i.i = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %.sroa.410.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx36.i.i.i.i, align 8, !tbaa !84

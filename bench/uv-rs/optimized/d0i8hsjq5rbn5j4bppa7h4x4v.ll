@@ -1269,16 +1269,16 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.exit.i: ;
   %160 = icmp ult i32 %115, 1114112
   call void @llvm.assume(i1 %160)
   %161 = icmp samesign ult i32 %115, 2048
-  br i1 %161, label %.thread319.i, label %.thread316.i
+  br i1 %161, label %.thread345.i, label %.thread342.i
 
-.thread319.i:                                     ; preds = %.thread.i
+.thread345.i:                                     ; preds = %.thread.i
   %162 = add i64 %.sroa.013.0.i, 2
   br label %170
 
-.thread316.i:                                     ; preds = %.thread.i
+.thread342.i:                                     ; preds = %.thread.i
   %163 = icmp samesign ult i32 %115, 65536
-  %.318.i = select i1 %163, i64 3, i64 4
-  %164 = add i64 %.318.i, %.sroa.013.0.i
+  %.344.i = select i1 %163, i64 3, i64 4
+  %164 = add i64 %.344.i, %.sroa.013.0.i
   br label %170
 
 165:                                              ; preds = %158
@@ -1292,8 +1292,8 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.exit.i: ;
   %169 = add i64 %.sroa.08.0.i, %.sroa.013.0.i
   br i1 %117, label %170, label %.backedge
 
-170:                                              ; preds = %168, %165, %.thread316.i, %.thread319.i, %.thread278.thread.i
-  %171 = phi i64 [ %167, %165 ], [ %169, %168 ], [ %123, %.thread278.thread.i ], [ %164, %.thread316.i ], [ %162, %.thread319.i ]
+170:                                              ; preds = %168, %165, %.thread342.i, %.thread345.i, %.thread278.thread.i
+  %171 = phi i64 [ %167, %165 ], [ %169, %168 ], [ %123, %.thread278.thread.i ], [ %164, %.thread342.i ], [ %162, %.thread345.i ]
   %172 = call noundef i32 @_ZN9uv_pep5086cursor6Cursor9peek_char17h1acafaa64d0fc738E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1), !noalias !301
   switch i32 %172, label %.backedge [
     i32 35, label %173

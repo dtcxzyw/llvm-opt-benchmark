@@ -754,9 +754,9 @@ define dso_local range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr n
   %110 = load ptr, ptr %40, align 8
   %111 = call i64 @slurm_bit_fls(ptr noundef %110) #9
   %112 = icmp sgt i64 %109, %111
-  %.sink202.in = select i1 %112, ptr %23, ptr %40
-  %.sink202 = load ptr, ptr %.sink202.in, align 8
-  %113 = call i64 @slurm_bit_fls(ptr noundef %.sink202) #9
+  %.sink209.in = select i1 %112, ptr %23, ptr %40
+  %.sink209 = load ptr, ptr %.sink209.in, align 8
+  %113 = call i64 @slurm_bit_fls(ptr noundef %.sink209) #9
   %114 = trunc i64 %113 to i32
   %.not191196 = icmp sgt i32 %107, %114
   br i1 %.not191196, label %._crit_edge, label %.lr.ph
@@ -930,9 +930,9 @@ define dso_local range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %225, %220
-  %.sink206.in = phi ptr [ %224, %220 ], [ %228, %225 ]
-  %.sink206 = load i16, ptr %.sink206.in, align 2
-  %229 = zext i16 %.sink206 to i32
+  %.sink213.in = phi ptr [ %224, %220 ], [ %228, %225 ]
+  %.sink213 = load i16, ptr %.sink213.in, align 2
+  %229 = zext i16 %.sink213 to i32
   %230 = load i32, ptr %100, align 8
   %231 = add i32 %230, %229
   store i32 %231, ptr %100, align 8
@@ -1335,8 +1335,8 @@ _dump_job_res.exit:                               ; preds = %31, %34
 .preheader:                                       ; preds = %.preheader.outer, %.loopexit
   %storemerge102118 = phi i32 [ %146, %.loopexit ], [ %storemerge102118.ph, %.preheader.outer ]
   %128 = load ptr, ptr %122, align 8
-  %129 = sext i32 %storemerge102118 to i64
-  %130 = getelementptr inbounds %struct.part_row_data_t, ptr %128, i64 %129
+  %129 = zext nneg i32 %storemerge102118 to i64
+  %130 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %128, i64 %129
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 12
   %132 = load i32, ptr %131, align 4
   %.not121 = icmp eq i32 %132, 0
@@ -1373,7 +1373,7 @@ _dump_job_res.exit:                               ; preds = %31, %34
   br label %.loopexit.thread
 
 .loopexit:                                        ; preds = %134, %.preheader
-  %146 = add nsw i32 %storemerge102118, 1
+  %146 = add nuw nsw i32 %storemerge102118, 1
   store i32 %146, ptr %4, align 4
   %147 = icmp slt i32 %146, %127
   br i1 %147, label %.preheader, label %._crit_edge, !llvm.loop !17
@@ -1385,10 +1385,10 @@ _dump_job_res.exit:                               ; preds = %31, %34
   store i32 %150, ptr %4, align 4
   %151 = zext i16 %148 to i32
   %152 = icmp samesign ult i32 %150, %151
-  br i1 %152, label %.preheader.outer, label %._crit_edge.thread129, !llvm.loop !17
+  br i1 %152, label %.preheader.outer, label %._crit_edge.thread144, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.loopexit
-  br i1 %126, label %._crit_edge.thread, label %._crit_edge.thread129
+  br i1 %126, label %._crit_edge.thread, label %._crit_edge.thread144
 
 ._crit_edge.thread:                               ; preds = %.preheader105, %._crit_edge
   %153 = load ptr, ptr %121, align 8
@@ -1397,7 +1397,7 @@ _dump_job_res.exit:                               ; preds = %31, %34
   %156 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.28, ptr noundef %0, ptr noundef %155) #9
   br label %174
 
-._crit_edge.thread129:                            ; preds = %.loopexit.thread, %._crit_edge
+._crit_edge.thread144:                            ; preds = %.loopexit.thread, %._crit_edge
   %157 = getelementptr inbounds nuw i8, ptr %.080114, i64 24
   store i8 1, ptr %157, align 8
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -1411,13 +1411,13 @@ _dump_job_res.exit:                               ; preds = %31, %34
   %.not103 = icmp ugt i32 %165, %163
   br i1 %.not103, label %169, label %166
 
-166:                                              ; preds = %._crit_edge.thread129
+166:                                              ; preds = %._crit_edge.thread144
   %167 = trunc nuw i32 %165 to i16
   %168 = sub i16 %162, %167
   store i16 %168, ptr %161, align 8
   br label %174
 
-169:                                              ; preds = %._crit_edge.thread129
+169:                                              ; preds = %._crit_edge.thread144
   %170 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.29) #9
   %171 = load i32, ptr %158, align 8
   %172 = zext i32 %171 to i64

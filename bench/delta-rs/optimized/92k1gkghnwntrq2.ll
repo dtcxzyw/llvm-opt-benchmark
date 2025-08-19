@@ -3906,14 +3906,14 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..Cop
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !275, !noundef !5
-  switch i64 %4, label %default.unreachable3 [
+  switch i64 %4, label %default.unreachable6 [
     i64 0, label %15
     i64 1, label %15
     i64 2, label %16
     i64 3, label %5
   ]
 
-default.unreachable3:                             ; preds = %1
+default.unreachable6:                             ; preds = %1
   unreachable
 
 5:                                                ; preds = %1

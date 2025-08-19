@@ -73,7 +73,7 @@ define internal range(i32 -2147483648, 1) i32 @aptx_encode_frame(ptr noundef %0,
   %11 = tail call i32 @ff_af_queue_add(ptr noundef nonnull %10, ptr noundef %2) #5
   %12 = icmp slt i32 %11, 0
   %indvars.iv.i.sroa.gep40 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %indvars.iv57.sroa.gep78 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %indvars.iv57.sroa.gep82 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br i1 %12, label %360, label %13
 
 13:                                               ; preds = %4
@@ -112,7 +112,7 @@ define internal range(i32 -2147483648, 1) i32 @aptx_encode_frame(ptr noundef %0,
 
 .preheader:                                       ; preds = %32, %43
   %33 = phi i1 [ true, %32 ], [ false, %43 ]
-  %indvars.iv57.sroa.phi = phi ptr [ %7, %32 ], [ %indvars.iv57.sroa.gep78, %43 ]
+  %indvars.iv57.sroa.phi = phi ptr [ %7, %32 ], [ %indvars.iv57.sroa.gep82, %43 ]
   %indvars.iv57 = phi i64 [ 0, %32 ], [ 1, %43 ]
   %34 = getelementptr inbounds nuw [8 x ptr], ptr %2, i64 0, i64 %indvars.iv57
   %35 = load ptr, ptr %34, align 8, !tbaa !43

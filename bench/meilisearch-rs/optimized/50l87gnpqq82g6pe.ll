@@ -715,7 +715,7 @@ define hidden void @"_ZN17meilisearch_types4keys1_81_$LT$impl$u20$serde..de..Des
 define hidden noundef align 8 ptr @"_ZN17meilisearch_types4keys1_83_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$meilisearch_types..keys..Action$GT$9serialize17h04a9e386dc35b9ccE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #1 {
   %3 = load i8, ptr %0, align 1, !range !224, !noundef !36
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  switch i8 %3, label %default.unreachable199 [
+  switch i8 %3, label %default.unreachable367 [
     i8 0, label %5
     i8 1, label %35
     i8 2, label %65
@@ -752,7 +752,7 @@ define hidden noundef align 8 ptr @"_ZN17meilisearch_types4keys1_83_$LT$impl$u20
     i8 33, label %995
   ]
 
-default.unreachable199:                           ; preds = %2
+default.unreachable367:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2

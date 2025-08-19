@@ -1652,15 +1652,15 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef nonnul
   %228 = and i32 %214, 65534
   %or.cond5 = icmp eq i32 %228, 65534
   %.pre242 = load ptr, ptr %10, align 8, !tbaa !109
-  br i1 %or.cond5, label %.preheader250, label %.thread
+  br i1 %or.cond5, label %.preheader265, label %.thread
 
-.preheader250:                                    ; preds = %227, %.preheader250
-  %.0 = phi ptr [ %229, %.preheader250 ], [ %.pre242, %227 ]
+.preheader265:                                    ; preds = %227, %.preheader265
+  %.0 = phi ptr [ %229, %.preheader265 ], [ %.pre242, %227 ]
   %229 = load ptr, ptr %.0, align 8, !tbaa !45
   %.not203 = icmp eq ptr %229, null
-  br i1 %.not203, label %230, label %.preheader250
+  br i1 %.not203, label %230, label %.preheader265
 
-230:                                              ; preds = %.preheader250
+230:                                              ; preds = %.preheader265
   %231 = getelementptr inbounds nuw i8, ptr %200, i64 40
   store ptr %.0, ptr %231, align 8, !tbaa !77
   %232 = getelementptr inbounds nuw i8, ptr %.0, i64 48
@@ -2025,17 +2025,17 @@ define internal fastcc range(i32 0, 9) i32 @cabd_merge(ptr noundef captures(addr
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %84 = load ptr, ptr %83, align 8, !tbaa !77
   %.not146 = icmp eq ptr %84, %44
-  br i1 %.not146, label %.preheader179, label %85
+  br i1 %.not146, label %.preheader186, label %85
 
 85:                                               ; preds = %82, %71
   store ptr %80, ptr %48, align 8, !tbaa !111
-  br label %.preheader179
+  br label %.preheader186
 
-.preheader179:                                    ; preds = %85, %82
+.preheader186:                                    ; preds = %85, %82
   br label %86
 
-86:                                               ; preds = %.preheader179, %86
-  %.1123 = phi ptr [ %87, %86 ], [ %.0122, %.preheader179 ]
+86:                                               ; preds = %.preheader186, %86
+  %.1123 = phi ptr [ %87, %86 ], [ %.0122, %.preheader186 ]
   %87 = load ptr, ptr %.1123, align 8, !tbaa !108
   %.not147 = icmp eq ptr %87, null
   br i1 %.not147, label %88, label %86
@@ -2759,10 +2759,10 @@ noned_init.exit:                                  ; preds = %25, %20, %45, %37, 
   br label %56
 
 56:                                               ; preds = %2, %noned_init.exit
-  %.sink36 = phi i32 [ %55, %noned_init.exit ], [ 8, %2 ]
+  %.sink38 = phi i32 [ %55, %noned_init.exit ], [ 8, %2 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 %.sink36, ptr %57, align 8, !tbaa !23
-  ret i32 %.sink36
+  store i32 %.sink38, ptr %57, align 8, !tbaa !23
+  ret i32 %.sink38
 }
 
 declare void @lzxd_set_output_length(ptr noundef, i64 noundef) local_unnamed_addr #1

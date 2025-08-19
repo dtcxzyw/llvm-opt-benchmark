@@ -165,8 +165,8 @@ define void @dlarrv_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %scevgep = getelementptr i8, ptr %19, i64 %118
   %119 = add nuw i32 %106, 1
   %wide.trip.count1108 = zext i32 %119 to i64
-  %invariant.gep1149 = getelementptr double, ptr %67, i64 %116
-  %invariant.gep1151 = getelementptr double, ptr %67, i64 %117
+  %invariant.gep1176 = getelementptr double, ptr %67, i64 %116
+  %invariant.gep1178 = getelementptr double, ptr %67, i64 %117
   br label %120
 
 120:                                              ; preds = %.lr.ph1033, %670
@@ -180,21 +180,21 @@ define void @dlarrv_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %123 = sext i32 %122 to i64
   %124 = getelementptr inbounds double, ptr %55, i64 %123
   %125 = load double, ptr %124, align 8, !tbaa !7
-  %126 = add i32 %.07051030, -1
+  %126 = add nsw i32 %.07051030, -1
   %127 = load i32, ptr %7, align 4, !tbaa !3
-  %128 = sext i32 %126 to i64
+  %128 = zext nneg i32 %126 to i64
+  %129 = sext i32 %127 to i64
   %smax = call i32 @llvm.smax.i32(i32 %127, i32 %126)
-  %129 = call i32 @llvm.smax.i32(i32 %127, i32 %126)
-  %smax1062 = sext i32 %129 to i64
+  %smax1062 = call i64 @llvm.smax.i64(i64 %129, i64 %128)
   br label %130
 
 130:                                              ; preds = %131, %120
   %indvars.iv = phi i64 [ %indvars.iv.next, %131 ], [ %128, %120 ]
   %exitcond.not = icmp eq i64 %indvars.iv, %smax1062
-  br i1 %exitcond.not, label %.split.loop.exit1147, label %131
+  br i1 %exitcond.not, label %.split.loop.exit1174, label %131
 
 131:                                              ; preds = %130
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %132 = getelementptr i32, ptr %16, i64 %indvars.iv
   %133 = load i32, ptr %132, align 4, !tbaa !3
   %134 = zext i32 %133 to i64
@@ -203,14 +203,14 @@ define void @dlarrv_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 .split.loop.exit:                                 ; preds = %131
   %136 = trunc nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit1147
+  br label %.split.loop.exit1174
 
-.split.loop.exit1147:                             ; preds = %130, %.split.loop.exit
+.split.loop.exit1174:                             ; preds = %130, %.split.loop.exit
   %.0728.lcssa = phi i32 [ %136, %.split.loop.exit ], [ %smax, %130 ]
   %137 = icmp slt i32 %.0728.lcssa, %.07051030
   br i1 %137, label %670, label %138
 
-138:                                              ; preds = %.split.loop.exit1147
+138:                                              ; preds = %.split.loop.exit1174
   %139 = load i32, ptr %8, align 4, !tbaa !3
   %140 = icmp slt i32 %.0728.lcssa, %139
   br i1 %140, label %144, label %141
@@ -270,8 +270,8 @@ define void @dlarrv_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %reass.sub1034 = sub i32 %122, %.07181027
   %168 = add i32 %reass.sub1034, 1
   store i32 %168, ptr %40, align 4, !tbaa !3
-  %reass.sub1035 = sub i32 %.0728.lcssa, %.07051030
-  %169 = add i32 %reass.sub1035, 1
+  %reass.sub1035 = sub nsw i32 %.0728.lcssa, %.07051030
+  %169 = add nsw i32 %reass.sub1035, 1
   store i32 %169, ptr %39, align 4, !tbaa !3
   %170 = icmp eq i32 %.07181027, %122
   br i1 %170, label %171, label %188
@@ -310,7 +310,7 @@ define void @dlarrv_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br i1 %.not797953, label %._crit_edge957, label %.lr.ph956.preheader
 
 .lr.ph956.preheader:                              ; preds = %188
-  %193 = sext i32 %.07051030 to i64
+  %193 = zext nneg i32 %.07051030 to i64
   %194 = add nuw i32 %192, 1
   %wide.trip.count1070 = zext i32 %194 to i64
   %invariant.gep = getelementptr double, ptr %57, i64 %193
@@ -349,8 +349,8 @@ define void @dlarrv_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %209 = add i32 %.07181027, %69
   %210 = sext i32 %209 to i64
   %211 = getelementptr inbounds double, ptr %67, i64 %210
-  %212 = sext i32 %.07051030 to i64
-  %invariant.gep1153 = getelementptr double, ptr %59, i64 %212
+  %212 = zext nneg i32 %.07051030 to i64
+  %invariant.gep1180 = getelementptr double, ptr %59, i64 %212
   br label %213
 
 213:                                              ; preds = %.lr.ph1020, %._crit_edge1004
@@ -462,12 +462,12 @@ define void @dlarrv_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %264 = getelementptr inbounds double, ptr %55, i64 %indvars.iv1072
   %265 = load double, ptr %264, align 8, !tbaa !7
   %266 = fmul double %263, %265
-  %gep1150 = getelementptr double, ptr %invariant.gep1149, i64 %indvars.iv1072
-  store double %266, ptr %gep1150, align 8, !tbaa !7
+  %gep1177 = getelementptr double, ptr %invariant.gep1176, i64 %indvars.iv1072
+  store double %266, ptr %gep1177, align 8, !tbaa !7
   %267 = load double, ptr %264, align 8, !tbaa !7
   %268 = fmul double %266, %267
-  %gep1152 = getelementptr double, ptr %invariant.gep1151, i64 %indvars.iv1072
-  store double %268, ptr %gep1152, align 8, !tbaa !7
+  %gep1179 = getelementptr double, ptr %invariant.gep1178, i64 %indvars.iv1072
+  store double %268, ptr %gep1179, align 8, !tbaa !7
   %indvars.iv.next1073 = add nsw i64 %indvars.iv1072, 1
   %exitcond1076.not = icmp eq i64 %indvars.iv.next1073, %123
   br i1 %exitcond1076.not, label %._crit_edge962, label %.lr.ph961, !llvm.loop !12
@@ -681,8 +681,8 @@ define void @dlarrv_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 386:                                              ; preds = %380, %372
   %storemerge821 = phi double [ %385, %380 ], [ %379, %372 ]
   store double %storemerge821, ptr %30, align 8, !tbaa !7
-  %gep1154 = getelementptr double, ptr %invariant.gep1153, i64 %indvars.iv1097
-  %387 = getelementptr i8, ptr %gep1154, i64 -8
+  %gep1181 = getelementptr double, ptr %invariant.gep1180, i64 %indvars.iv1097
+  %387 = getelementptr i8, ptr %gep1181, i64 -8
   %388 = load double, ptr %387, align 8, !tbaa !7
   store double %388, ptr %31, align 8, !tbaa !7
   br label %389
@@ -1230,10 +1230,10 @@ define void @dlarrv_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %669 = add nuw nsw i32 %.0728.lcssa, 1
   br label %670
 
-670:                                              ; preds = %.split.loop.exit1147, %144, %171, %._crit_edge1021
-  %.9739 = phi double [ %.07301026, %144 ], [ %.07301026, %171 ], [ %.1731.lcssa, %._crit_edge1021 ], [ %.07301026, %.split.loop.exit1147 ]
-  %.1706 = phi i32 [ %145, %144 ], [ %187, %171 ], [ %669, %._crit_edge1021 ], [ %.07051030, %.split.loop.exit1147 ]
-  %.9 = phi double [ %.06851031, %144 ], [ %.06851031, %171 ], [ %.1.lcssa, %._crit_edge1021 ], [ %.06851031, %.split.loop.exit1147 ]
+670:                                              ; preds = %.split.loop.exit1174, %144, %171, %._crit_edge1021
+  %.9739 = phi double [ %.07301026, %144 ], [ %.07301026, %171 ], [ %.1731.lcssa, %._crit_edge1021 ], [ %.07301026, %.split.loop.exit1174 ]
+  %.1706 = phi i32 [ %145, %144 ], [ %187, %171 ], [ %669, %._crit_edge1021 ], [ %.07051030, %.split.loop.exit1174 ]
+  %.9 = phi double [ %.06851031, %144 ], [ %.06851031, %171 ], [ %.1.lcssa, %._crit_edge1021 ], [ %.06851031, %.split.loop.exit1174 ]
   %.1719 = add nsw i32 %122, 1
   %indvars.iv.next1106 = add nuw nsw i64 %indvars.iv1105, 1
   %exitcond1109.not = icmp eq i64 %indvars.iv.next1106, %wide.trip.count1108
@@ -1313,6 +1313,9 @@ declare double @llvm.fabs.f64(double) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #5

@@ -548,12 +548,12 @@ define hidden noundef align 8 ptr @"_ZN58_$LT$serde_bare..Uint$u20$as$u20$serde.
   br i1 %exitcond.not, label %24, label %17, !prof !58
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.032.lcssa56 = phi i64 [ %21, %._crit_edge ], [ %5, %2 ]
-  %.035.lcssa55 = phi i64 [ %22, %._crit_edge ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw [10 x i8], ptr %4, i64 0, i64 %.035.lcssa55
-  %9 = trunc nuw nsw i64 %.032.lcssa56 to i8
+  %.032.lcssa58 = phi i64 [ %21, %._crit_edge ], [ %5, %2 ]
+  %.035.lcssa57 = phi i64 [ %22, %._crit_edge ], [ 0, %2 ]
+  %8 = getelementptr inbounds nuw [10 x i8], ptr %4, i64 0, i64 %.035.lcssa57
+  %9 = trunc nuw nsw i64 %.032.lcssa58 to i8
   store i8 %9, ptr %8, align 1
-  %umin = add nuw nsw i64 %.035.lcssa55, 1
+  %umin = add nuw nsw i64 %.035.lcssa57, 1
   br label %11
 
 10:                                               ; preds = %._crit_edge

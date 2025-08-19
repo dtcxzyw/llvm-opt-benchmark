@@ -55,8 +55,8 @@ define range(i32 -1, 2) i32 @uriCompareRangeA(ptr noundef readonly captures(addr
   %10 = icmp eq ptr %9, null
   %.pre = load ptr, ptr %1, align 8, !tbaa !3
   %11 = icmp eq ptr %.pre, null
-  %or.cond32 = select i1 %10, i1 true, i1 %11
-  br i1 %or.cond32, label %12, label %17
+  %or.cond37 = select i1 %10, i1 true, i1 %11
+  br i1 %or.cond37, label %12, label %17
 
 12:                                               ; preds = %8
   %13 = icmp ne ptr %9, null
@@ -352,7 +352,7 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   br i1 %.not241, label %112, label %123
 
 112:                                              ; preds = %109
-  br i1 %.not242, label %.sink.split371, label %113
+  br i1 %.not242, label %.sink.split390, label %113
 
 113:                                              ; preds = %112
   %114 = load ptr, ptr %.0186, align 8, !tbaa !21
@@ -372,7 +372,7 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   %121 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %122 = load ptr, ptr %121, align 8, !tbaa !20
   %.not240 = icmp eq ptr %120, %122
-  br i1 %.not240, label %168, label %.sink.split371
+  br i1 %.not240, label %168, label %.sink.split390
 
 123:                                              ; preds = %109
   store ptr @.str, ptr %111, align 8, !tbaa !21
@@ -504,13 +504,13 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   tail call void %166(ptr noundef %3, ptr noundef nonnull %.0186) #11
   br label %.thread297
 
-.sink.split371:                                   ; preds = %118, %112
+.sink.split390:                                   ; preds = %118, %112
   %.sink = phi ptr [ %.0186, %112 ], [ %120, %118 ]
   %167 = load ptr, ptr %14, align 8, !tbaa !26
   tail call void %167(ptr noundef nonnull %3, ptr noundef %.sink) #11
   br label %168
 
-168:                                              ; preds = %.sink.split371, %118
+168:                                              ; preds = %.sink.split390, %118
   %169 = load ptr, ptr %14, align 8, !tbaa !26
   tail call void %169(ptr noundef nonnull %3, ptr noundef nonnull %82) #11
   br label %.critedge
@@ -1006,8 +1006,8 @@ define range(i32 -1, 2) i32 @uriCompareRangeW(ptr noundef readonly captures(addr
   %10 = icmp eq ptr %9, null
   %.pre = load ptr, ptr %1, align 8, !tbaa !41
   %11 = icmp eq ptr %.pre, null
-  %or.cond30 = select i1 %10, i1 true, i1 %11
-  br i1 %or.cond30, label %12, label %17
+  %or.cond35 = select i1 %10, i1 true, i1 %11
+  br i1 %or.cond35, label %12, label %17
 
 12:                                               ; preds = %8
   %13 = icmp ne ptr %9, null
@@ -1306,7 +1306,7 @@ uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriI
   br i1 %.not241, label %114, label %125
 
 114:                                              ; preds = %111
-  br i1 %.not242, label %.sink.split371, label %115
+  br i1 %.not242, label %.sink.split391, label %115
 
 115:                                              ; preds = %114
   %116 = load ptr, ptr %.0186, align 8, !tbaa !53
@@ -1326,7 +1326,7 @@ uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriI
   %123 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %124 = load ptr, ptr %123, align 8, !tbaa !52
   %.not240 = icmp eq ptr %122, %124
-  br i1 %.not240, label %170, label %.sink.split371
+  br i1 %.not240, label %170, label %.sink.split391
 
 125:                                              ; preds = %111
   store ptr @.str.3, ptr %113, align 8, !tbaa !53
@@ -1458,13 +1458,13 @@ uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriI
   tail call void %168(ptr noundef %3, ptr noundef nonnull %.0186) #11
   br label %.thread297
 
-.sink.split371:                                   ; preds = %120, %114
+.sink.split391:                                   ; preds = %120, %114
   %.sink = phi ptr [ %.0186, %114 ], [ %122, %120 ]
   %169 = load ptr, ptr %14, align 8, !tbaa !26
   tail call void %169(ptr noundef nonnull %3, ptr noundef %.sink) #11
   br label %170
 
-170:                                              ; preds = %.sink.split371, %120
+170:                                              ; preds = %.sink.split391, %120
   %171 = load ptr, ptr %14, align 8, !tbaa !26
   tail call void %171(ptr noundef nonnull %3, ptr noundef nonnull %84) #11
   br label %.critedge

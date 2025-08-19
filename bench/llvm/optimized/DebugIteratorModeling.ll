@@ -1261,9 +1261,9 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit39.i: ; preds
   br label %56
 
 56:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit39.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit35.i
-  %.sink67.i = phi ptr [ %9, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit39.i ], [ %8, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit35.i ]
-  %57 = load ptr, ptr %.sink67.i, align 8, !tbaa !246
-  store ptr %26, ptr %.sink67.i, align 8, !tbaa !246
+  %.sink70.i = phi ptr [ %9, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit39.i ], [ %8, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit35.i ]
+  %57 = load ptr, ptr %.sink70.i, align 8, !tbaa !246
+  store ptr %26, ptr %.sink70.i, align 8, !tbaa !246
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %26) #15
   %.not.i.i40.i = icmp eq ptr %57, null
   br i1 %.not.i.i40.i, label %58, label %.thread.i.i
@@ -1460,9 +1460,9 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit39.i: ; preds
   br label %55
 
 55:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit39.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit35.i
-  %.sink67.i = phi ptr [ %9, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit39.i ], [ %8, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit35.i ]
-  %56 = load ptr, ptr %.sink67.i, align 8, !tbaa !246
-  store ptr %26, ptr %.sink67.i, align 8, !tbaa !246
+  %.sink70.i = phi ptr [ %9, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit39.i ], [ %8, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit35.i ]
+  %56 = load ptr, ptr %.sink70.i, align 8, !tbaa !246
+  store ptr %26, ptr %.sink70.i, align 8, !tbaa !246
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %26) #15
   %.not.i.i40.i = icmp eq ptr %56, null
   br i1 %.not.i.i40.i, label %57, label %.thread.i.i
@@ -1684,9 +1684,9 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit40.i: ; preds
   br label %68
 
 68:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit40.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit36.i
-  %.sink69.i = phi ptr [ %10, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit40.i ], [ %9, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit36.i ]
-  %69 = load ptr, ptr %.sink69.i, align 8, !tbaa !246
-  store ptr %27, ptr %.sink69.i, align 8, !tbaa !246
+  %.sink73.i = phi ptr [ %10, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit40.i ], [ %9, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit36.i ]
+  %69 = load ptr, ptr %.sink73.i, align 8, !tbaa !246
+  store ptr %27, ptr %.sink73.i, align 8, !tbaa !246
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %27) #15
   %.not.i.i41.i = icmp eq ptr %69, null
   br i1 %.not.i.i41.i, label %70, label %.thread.i.i
@@ -1936,8 +1936,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_121DebugIteratorModeling14reportDe
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %7 = alloca %"class.std::unique_ptr.287", align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %.0.copyload.i.i.i.i6.i = load i64, ptr %8, align 8
-  %9 = and i64 %.0.copyload.i.i.i.i6.i, -8
+  %.0.copyload.i.i.i.i7.i = load i64, ptr %8, align 8
+  %9 = and i64 %.0.copyload.i.i.i.i7.i, -8
   %10 = inttoptr i64 %9 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8

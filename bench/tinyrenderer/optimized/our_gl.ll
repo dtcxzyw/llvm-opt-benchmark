@@ -516,7 +516,7 @@ _ZNK3vecILi3EEixEi.exit.i.i:                      ; preds = %30, %29, %27
   br i1 %.not.i.i.i.i.i.i, label %_ZNK3matILi3ELi3EE8cofactorEii.exit.i.i, label %.preheader.i.i.i, !llvm.loop !60
 
 45:                                               ; preds = %_ZNK3vecILi3EEixEi.exit.i.i.i, %.preheader20.i.i.i
-  %.021.i.i.i = phi i32 [ 2, %.preheader20.i.i.i ], [ %46, %_ZNK3vecILi3EEixEi.exit.i.i.i ]
+  %.021.i.i.i = phi i32 [ 2, %.preheader20.i.i.i ], [ 1, %_ZNK3vecILi3EEixEi.exit.i.i.i ]
   %46 = add nsw i32 %.021.i.i.i, -1
   %47 = icmp samesign uge i32 %.021.i.i.i, %.013.i.i
   %48 = zext i1 %47 to i32
@@ -574,7 +574,7 @@ _ZNK3matILi3ELi3EE3detEv.exit:                    ; preds = %_ZNK3matILi3ELi3EE8
 63:                                               ; preds = %_ZmlILi3EEdRK3vecIXT_EES3_.exit.i, %62
   %indvars.iv.i = phi i64 [ 3, %62 ], [ %indvars.iv.next.i, %_ZmlILi3EEdRK3vecIXT_EES3_.exit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %64 = getelementptr inbounds [3 x %struct.vec.0], ptr %7, i64 0, i64 %indvars.iv.next.i
+  %64 = getelementptr inbounds nuw [3 x %struct.vec.0], ptr %7, i64 0, i64 %indvars.iv.next.i
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 16
   br label %67
@@ -688,7 +688,7 @@ _ZmlILi3EEdRK3vecIXT_EES3_.exit:                  ; preds = %_ZNK3vecILi3EEixEi.
   %indvars.iv.i = phi i64 [ 3, %_ZmlILi3EEdRK3vecIXT_EES3_.exit ], [ %indvars.iv.next.i, %_ZdvILi3EE3vecIXT_EERKS1_RKd.exit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !68
-  %23 = getelementptr inbounds [3 x %struct.vec.0], ptr %5, i64 0, i64 %indvars.iv.next.i
+  %23 = getelementptr inbounds nuw [3 x %struct.vec.0], ptr %5, i64 0, i64 %indvars.iv.next.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false), !tbaa.struct !71, !noalias !68
   br label %24
 
@@ -706,7 +706,7 @@ _ZmlILi3EEdRK3vecIXT_EES3_.exit:                  ; preds = %_ZNK3vecILi3EEixEi.
   br i1 %.not.i.i.i, label %_ZdvILi3EE3vecIXT_EERKS1_RKd.exit.i, label %24, !llvm.loop !21
 
 _ZdvILi3EE3vecIXT_EERKS1_RKd.exit.i:              ; preds = %24
-  %30 = getelementptr inbounds [3 x %struct.vec.0], ptr %0, i64 0, i64 %indvars.iv.next.i
+  %30 = getelementptr inbounds nuw [3 x %struct.vec.0], ptr %0, i64 0, i64 %indvars.iv.next.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !71
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !68
   %.not.i8 = icmp eq i64 %indvars.iv.next.i, 0
@@ -759,7 +759,7 @@ _ZdvILi3ELi3EE3matIXT_EXT0_EERKS1_RKd.exit:       ; preds = %_ZdvILi3EE3vecIXT_E
   br i1 %.not.i.i.i.i, label %_ZNK3matILi3ELi3EE8cofactorEii.exit, label %.preheader.i, !llvm.loop !60
 
 48:                                               ; preds = %_ZNK3vecILi3EEixEi.exit.i10, %.preheader20.i
-  %.021.i = phi i32 [ 2, %.preheader20.i ], [ %49, %_ZNK3vecILi3EEixEi.exit.i10 ]
+  %.021.i = phi i32 [ 2, %.preheader20.i ], [ 1, %_ZNK3vecILi3EEixEi.exit.i10 ]
   %49 = add nsw i32 %.021.i, -1
   %50 = icmp samesign uge i32 %.021.i, %.021
   %51 = zext i1 %50 to i32
@@ -1258,7 +1258,7 @@ _ZNK3vecILi3EEixEi.exit.i.i.i:                    ; preds = %78, %77, %75
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK3matILi3ELi3EE8cofactorEii.exit.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !60
 
 93:                                               ; preds = %_ZNK3vecILi3EEixEi.exit.i.i.i.i, %.preheader20.i.i.i.i
-  %.021.i.i.i.i = phi i32 [ 2, %.preheader20.i.i.i.i ], [ %94, %_ZNK3vecILi3EEixEi.exit.i.i.i.i ]
+  %.021.i.i.i.i = phi i32 [ 2, %.preheader20.i.i.i.i ], [ 1, %_ZNK3vecILi3EEixEi.exit.i.i.i.i ]
   %94 = add nsw i32 %.021.i.i.i.i, -1
   %95 = icmp samesign uge i32 %.021.i.i.i.i, %.013.i.i.i
   %96 = zext i1 %95 to i32
@@ -1360,7 +1360,7 @@ _ZmlILi3EEdRK3vecIXT_EES3_.exit.i:                ; preds = %_ZNK3vecILi3EEixEi.
   %indvars.iv.i.i58 = phi i64 [ 3, %_ZmlILi3EEdRK3vecIXT_EES3_.exit.i ], [ %indvars.iv.next.i.i59, %_ZdvILi3EE3vecIXT_EERKS1_RKd.exit.i.i ]
   %indvars.iv.next.i.i59 = add nsw i64 %indvars.iv.i.i58, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !113
-  %120 = getelementptr inbounds [3 x %struct.vec.0], ptr %15, i64 0, i64 %indvars.iv.next.i.i59
+  %120 = getelementptr inbounds nuw [3 x %struct.vec.0], ptr %15, i64 0, i64 %indvars.iv.next.i.i59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %120, i64 24, i1 false), !tbaa.struct !71, !noalias !113
   br label %121
 
@@ -1378,7 +1378,7 @@ _ZmlILi3EEdRK3vecIXT_EES3_.exit.i:                ; preds = %_ZNK3vecILi3EEixEi.
   br i1 %.not.i.i.i.i60, label %_ZdvILi3EE3vecIXT_EERKS1_RKd.exit.i.i, label %121, !llvm.loop !21
 
 _ZdvILi3EE3vecIXT_EERKS1_RKd.exit.i.i:            ; preds = %121
-  %127 = getelementptr inbounds [3 x %struct.vec.0], ptr %18, i64 0, i64 %indvars.iv.next.i.i59
+  %127 = getelementptr inbounds nuw [3 x %struct.vec.0], ptr %18, i64 0, i64 %indvars.iv.next.i.i59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !tbaa.struct !71
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !113
   %.not.i8.i = icmp eq i64 %indvars.iv.next.i.i59, 0
@@ -1427,7 +1427,7 @@ _ZdvILi3EE3vecIXT_EERKS1_RKd.exit.i.i:            ; preds = %121
   br i1 %.not.i.i.i.i.i53, label %_ZNK3matILi3ELi3EE8cofactorEii.exit.i, label %.preheader.i.i, !llvm.loop !60
 
 145:                                              ; preds = %_ZNK3vecILi3EEixEi.exit.i10.i, %.preheader20.i.i
-  %.021.i.i = phi i32 [ 2, %.preheader20.i.i ], [ %146, %_ZNK3vecILi3EEixEi.exit.i10.i ]
+  %.021.i.i = phi i32 [ 2, %.preheader20.i.i ], [ 1, %_ZNK3vecILi3EEixEi.exit.i10.i ]
   %146 = add nsw i32 %.021.i.i, -1
   %147 = icmp samesign uge i32 %.021.i.i, %.021.i
   %148 = zext i1 %147 to i32
@@ -1478,7 +1478,7 @@ _ZNK3matILi3ELi3EE8cofactorEii.exit.i:            ; preds = %.preheader.i.i
 161:                                              ; preds = %_ZmlILi3EEdRK3vecIXT_EES3_.exit.i.i, %.noexc
   %indvars.iv.i.i = phi i64 [ 3, %.noexc ], [ %indvars.iv.next.i.i, %_ZmlILi3EEdRK3vecIXT_EES3_.exit.i.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %162 = getelementptr inbounds [3 x %struct.vec.0], ptr %18, i64 0, i64 %indvars.iv.next.i.i
+  %162 = getelementptr inbounds nuw [3 x %struct.vec.0], ptr %18, i64 0, i64 %indvars.iv.next.i.i
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 16
   br label %165

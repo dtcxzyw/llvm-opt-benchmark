@@ -22956,8 +22956,8 @@ _ZN10async_task5utils14abort_on_panic17h8baca21185fcb832E.exit: ; preds = %157, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i114": ; preds = %286, %290, %248, %226, %.body.i128, %194, %.body153
   %.pn90 = phi { ptr, i32 } [ %280, %.body153 ], [ %195, %194 ], [ %185, %.body.i128 ], [ %227, %226 ], [ %249, %248 ], [ %280, %290 ], [ %287, %286 ]
   %168 = load i64, ptr %6, align 8, !range !5235, !noundef !11
-  %.not275 = icmp eq i64 %168, -9223372036854775806
-  br i1 %.not275, label %common.resume, label %293
+  %.not287 = icmp eq i64 %168, -9223372036854775806
+  br i1 %.not287, label %common.resume, label %293
 
 169:                                              ; preds = %.body.i108
   invoke fastcc void @"_ZN4core3ptr286drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$$LP$core..option..Option$LT$std..path..PathBuf$GT$$C$language..buffer..BufferSnapshot$C$usize$RP$$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hcdd162f17173b9b2E"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -23771,8 +23771,8 @@ _ZN10async_task5utils14abort_on_panic17he67464b1614d9357E.exit: ; preds = %120, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i116": ; preds = %229, %233, %191, %171, %.body.i127, %139, %.body151
   %.pn96 = phi { ptr, i32 } [ %223, %.body151 ], [ %136, %.body.i127 ], [ %140, %139 ], [ %172, %171 ], [ %192, %191 ], [ %223, %233 ], [ %230, %229 ]
   %131 = load i64, ptr %6, align 8, !range !5372, !noundef !11
-  %.not261 = icmp eq i64 %131, -9223372036854775805
-  br i1 %.not261, label %common.resume, label %236
+  %.not264 = icmp eq i64 %131, -9223372036854775805
+  br i1 %.not264, label %common.resume, label %236
 
 132:                                              ; preds = %.body.i111
   invoke fastcc void @"_ZN4core3ptr237drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$assistant_slash_command..SlashCommandOutput$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17he5d45b1c4731ec65E"(ptr noalias noundef align 8 dereferenceable(56) %4) #27
@@ -24528,8 +24528,8 @@ _ZN10async_task5utils14abort_on_panic17h7e09184885a763f8E.exit: ; preds = %111, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i110": ; preds = %220, %224, %182, %162, %.body.i121, %130, %.body145
   %.pn90 = phi { ptr, i32 } [ %214, %.body145 ], [ %131, %130 ], [ %127, %.body.i121 ], [ %163, %162 ], [ %183, %182 ], [ %214, %224 ], [ %221, %220 ]
   %122 = load i64, ptr %6, align 8, !range !5235, !noundef !11
-  %.not264 = icmp eq i64 %122, -9223372036854775806
-  br i1 %.not264, label %common.resume, label %227
+  %.not267 = icmp eq i64 %122, -9223372036854775806
+  br i1 %.not267, label %common.resume, label %227
 
 123:                                              ; preds = %.body.i105
   invoke fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$assistant_slash_command..ArgumentCompletion$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hef924d1cf34e1899E"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -25440,8 +25440,8 @@ _ZN10async_task5utils14abort_on_panic17h06ff7146f8a65be4E.exit: ; preds = %184, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i115": ; preds = %313, %317, %275, %253, %.body.i129, %221, %.body154
   %.pn90 = phi { ptr, i32 } [ %307, %.body154 ], [ %222, %221 ], [ %212, %.body.i129 ], [ %254, %253 ], [ %276, %275 ], [ %307, %317 ], [ %314, %313 ]
   %195 = load i64, ptr %6, align 8, !range !5235, !noundef !11
-  %.not276 = icmp eq i64 %195, -9223372036854775806
-  br i1 %.not276, label %common.resume, label %320
+  %.not291 = icmp eq i64 %195, -9223372036854775806
+  br i1 %.not291, label %common.resume, label %320
 
 196:                                              ; preds = %.body.i108
   invoke fastcc void @"_ZN4core3ptr225drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$assistant..context..ContextOperation$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h520ae05e1078a991E"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -26414,8 +26414,8 @@ _ZN10async_task5utils14abort_on_panic17h833d160d5d114fa9E.exit: ; preds = %196, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i117": ; preds = %325, %329, %287, %265, %.body.i131, %233, %.body156
   %.pn90 = phi { ptr, i32 } [ %319, %.body156 ], [ %224, %.body.i131 ], [ %234, %233 ], [ %266, %265 ], [ %288, %287 ], [ %319, %329 ], [ %326, %325 ]
   %207 = load i64, ptr %6, align 8, !range !6104, !noundef !11
-  %.not270 = icmp eq i64 %207, 2
-  br i1 %.not270, label %common.resume, label %332
+  %.not285 = icmp eq i64 %207, 2
+  br i1 %.not285, label %common.resume, label %332
 
 208:                                              ; preds = %.body.i110
   invoke fastcc void @"_ZN4core3ptr204drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$assistant..prompt_library..PromptStore$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h329ec93bdeb05d0cE"(ptr noalias noundef align 8 dereferenceable(128) %4) #27
@@ -27309,8 +27309,8 @@ _ZN10async_task5utils14abort_on_panic17heb7d65a20a5a89a2E.exit: ; preds = %160, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i122": ; preds = %287, %291, %249, %227, %.body.i135, %196, %.body160
   %.pn96 = phi { ptr, i32 } [ %281, %.body160 ], [ %187, %.body.i135 ], [ %197, %196 ], [ %228, %227 ], [ %250, %249 ], [ %281, %291 ], [ %288, %287 ]
   %171 = load i64, ptr %6, align 8, !range !6280, !noundef !11
-  %.not270 = icmp eq i64 %171, -9223372036854775803
-  br i1 %.not270, label %common.resume, label %294
+  %.not282 = icmp eq i64 %171, -9223372036854775803
+  br i1 %.not282, label %common.resume, label %294
 
 172:                                              ; preds = %.body.i116
   invoke fastcc void @"_ZN4core3ptr161drop_in_place$LT$core..result..Result$LT$assistant..workflow..WorkflowSuggestion$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h872e3ccc29069589E"(ptr noalias noundef align 8 dereferenceable(88) %4) #27
@@ -28235,8 +28235,8 @@ _ZN10async_task5utils14abort_on_panic17hc88ed2d4788c50b3E.exit: ; preds = %164, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i113": ; preds = %273, %277, %235, %215, %180, %184, %.body148
   %.pn90 = phi { ptr, i32 } [ %267, %.body148 ], [ %185, %184 ], [ %181, %180 ], [ %216, %215 ], [ %236, %235 ], [ %267, %277 ], [ %274, %273 ]
   %175 = load i64, ptr %10, align 8, !range !5235, !noundef !11
-  %.not271 = icmp eq i64 %175, -9223372036854775806
-  br i1 %.not271, label %common.resume, label %280
+  %.not278 = icmp eq i64 %175, -9223372036854775806
+  br i1 %.not278, label %common.resume, label %280
 
 176:                                              ; preds = %110
   invoke fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$assistant_slash_command..ArgumentCompletion$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hef924d1cf34e1899E"(ptr noalias noundef align 8 dereferenceable(24) %8) #27
@@ -29005,8 +29005,8 @@ _ZN10async_task5utils14abort_on_panic17hf9aeec623e6bef39E.exit: ; preds = %120, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i112": ; preds = %229, %233, %191, %171, %.body.i123, %139, %.body147
   %.pn90 = phi { ptr, i32 } [ %223, %.body147 ], [ %136, %.body.i123 ], [ %140, %139 ], [ %172, %171 ], [ %192, %191 ], [ %223, %233 ], [ %230, %229 ]
   %131 = load i64, ptr %6, align 8, !range !6104, !noundef !11
-  %.not258 = icmp eq i64 %131, 2
-  br i1 %.not258, label %common.resume, label %236
+  %.not261 = icmp eq i64 %131, 2
+  br i1 %.not261, label %common.resume, label %236
 
 132:                                              ; preds = %.body.i107
   invoke fastcc void @"_ZN4core3ptr229drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$assistant..context..Context$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h426b5305ed4c1d24E"(ptr noalias noundef align 8 dereferenceable(40) %4) #27
@@ -29864,8 +29864,8 @@ _ZN10async_task5utils14abort_on_panic17hea65a8e71eaa5debE.exit: ; preds = %126, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i120": ; preds = %294, %298, %256, %234, %.body.i134, %202, %.body159
   %.pn96 = phi { ptr, i32 } [ %288, %.body159 ], [ %193, %.body.i134 ], [ %203, %202 ], [ %235, %234 ], [ %257, %256 ], [ %288, %298 ], [ %295, %294 ]
   %176 = load i64, ptr %5, align 8, !range !5175, !noundef !11
-  %.not272 = icmp eq i64 %176, -9223372036854775807
-  br i1 %.not272, label %common.resume, label %301
+  %.not284 = icmp eq i64 %176, -9223372036854775807
+  br i1 %.not284, label %common.resume, label %301
 
 177:                                              ; preds = %.body.i114
   invoke fastcc void @"_ZN4core3ptr320drop_in_place$LT$core..result..Result$LT$$LP$alloc..vec..Vec$LT$$LP$multi_buffer..anchor..Anchor$C$core..ops..range..RangeInclusive$LT$u32$GT$$RP$$GT$$C$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h884e04bfe477cc5bE"(ptr noalias noundef align 8 dereferenceable(48) %5) #27
@@ -30680,8 +30680,8 @@ _ZN10async_task5utils14abort_on_panic17h1bb5bf484184f753E.exit: ; preds = %120, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i112": ; preds = %229, %233, %191, %171, %.body.i123, %139, %.body147
   %.pn90 = phi { ptr, i32 } [ %223, %.body147 ], [ %136, %.body.i123 ], [ %140, %139 ], [ %172, %171 ], [ %192, %191 ], [ %223, %233 ], [ %230, %229 ]
   %131 = load i64, ptr %6, align 8, !range !6104, !noundef !11
-  %.not258 = icmp eq i64 %131, 2
-  br i1 %.not258, label %common.resume, label %236
+  %.not261 = icmp eq i64 %131, 2
+  br i1 %.not261, label %common.resume, label %236
 
 132:                                              ; preds = %.body.i107
   invoke fastcc void @"_ZN4core3ptr240drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$assistant..context_store..ContextStore$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h359a8b55a873033bE"(ptr noalias noundef align 8 dereferenceable(40) %4) #27
@@ -31444,8 +31444,8 @@ _ZN10async_task5utils14abort_on_panic17hdf5023765ef82ef0E.exit: ; preds = %112, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i107": ; preds = %221, %225, %183, %163, %.body.i118, %131, %.body142
   %.pn85 = phi { ptr, i32 } [ %215, %.body142 ], [ %132, %131 ], [ %128, %.body.i118 ], [ %164, %163 ], [ %184, %183 ], [ %215, %225 ], [ %222, %221 ]
   %123 = load i64, ptr %6, align 8, !range !6104, !noundef !11
-  %.not262 = icmp eq i64 %123, 2
-  br i1 %.not262, label %common.resume, label %228
+  %.not265 = icmp eq i64 %123, 2
+  br i1 %.not265, label %common.resume, label %228
 
 124:                                              ; preds = %.body.i102
   invoke fastcc void @"_ZN4core3ptr236drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h45470e893317b0b3E"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -32360,8 +32360,8 @@ _ZN10async_task5utils14abort_on_panic17hfde7173f11a1d799E.exit: ; preds = %187, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i123": ; preds = %314, %318, %276, %254, %.body.i136, %223, %.body161
   %.pn96 = phi { ptr, i32 } [ %308, %.body161 ], [ %214, %.body.i136 ], [ %224, %223 ], [ %255, %254 ], [ %277, %276 ], [ %308, %318 ], [ %315, %314 ]
   %198 = load i64, ptr %6, align 8, !range !5235, !noundef !11
-  %.not271 = icmp eq i64 %198, -9223372036854775806
-  br i1 %.not271, label %common.resume, label %321
+  %.not286 = icmp eq i64 %198, -9223372036854775806
+  br i1 %.not286, label %common.resume, label %321
 
 199:                                              ; preds = %.body.i116
   invoke fastcc void @"_ZN4core3ptr209drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$assistant_slash_command..SlashCommandOutput$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb8f2249fbcf47149E"(ptr noalias noundef align 8 dereferenceable(56) %4) #27
@@ -33305,8 +33305,8 @@ _ZN10async_task5utils14abort_on_panic17hbf098b53947c38dbE.exit: ; preds = %173, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i115": ; preds = %282, %286, %244, %224, %189, %193, %.body150
   %.pn90 = phi { ptr, i32 } [ %276, %.body150 ], [ %190, %189 ], [ %194, %193 ], [ %225, %224 ], [ %245, %244 ], [ %276, %286 ], [ %283, %282 ]
   %184 = load i64, ptr %10, align 8, !range !6104, !noundef !11
-  %.not265 = icmp eq i64 %184, 2
-  br i1 %.not265, label %common.resume, label %289
+  %.not272 = icmp eq i64 %184, 2
+  br i1 %.not272, label %common.resume, label %289
 
 185:                                              ; preds = %119
   invoke fastcc void @"_ZN4core3ptr229drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$assistant..context..Context$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h426b5305ed4c1d24E"(ptr noalias noundef align 8 dereferenceable(40) %8) #27
@@ -34215,8 +34215,8 @@ _ZN10async_task5utils14abort_on_panic17hfd7d0154d9a54092E.exit: ; preds = %187, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i123": ; preds = %314, %318, %276, %254, %.body.i136, %223, %.body161
   %.pn96 = phi { ptr, i32 } [ %308, %.body161 ], [ %214, %.body.i136 ], [ %224, %223 ], [ %255, %254 ], [ %277, %276 ], [ %308, %318 ], [ %315, %314 ]
   %198 = load i64, ptr %6, align 8, !range !5235, !noundef !11
-  %.not271 = icmp eq i64 %198, -9223372036854775806
-  br i1 %.not271, label %common.resume, label %321
+  %.not286 = icmp eq i64 %198, -9223372036854775806
+  br i1 %.not286, label %common.resume, label %321
 
 199:                                              ; preds = %.body.i116
   invoke fastcc void @"_ZN4core3ptr198drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$assistant..context..SavedContext$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h5ee9a8ed9f9ac336E"(ptr noalias noundef align 8 dereferenceable(168) %4) #27
@@ -35065,8 +35065,8 @@ _ZN10async_task5utils14abort_on_panic17hebdc828f8e41f480E.exit: ; preds = %138, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i111": ; preds = %247, %251, %209, %189, %.body.i122, %157, %.body146
   %.pn90 = phi { ptr, i32 } [ %241, %.body146 ], [ %158, %157 ], [ %154, %.body.i122 ], [ %190, %189 ], [ %210, %209 ], [ %241, %251 ], [ %248, %247 ]
   %149 = load i64, ptr %6, align 8, !range !5235, !noundef !11
-  %.not265 = icmp eq i64 %149, -9223372036854775806
-  br i1 %.not265, label %common.resume, label %254
+  %.not271 = icmp eq i64 %149, -9223372036854775806
+  br i1 %.not271, label %common.resume, label %254
 
 150:                                              ; preds = %.body.i105
   invoke fastcc void @"_ZN4core3ptr208drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$project..Completion$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hc3eb324031ad89cbE"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -35575,8 +35575,8 @@ _ZN10async_task5utils14abort_on_panic17h7eafae972e5d4798E.exit: ; preds = %27, %
 47:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  %.sroa.2.0..sroa_idx314 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %6, ptr %.sroa.2.0..sroa_idx314, align 8
+  %.sroa.2.0..sroa_idx330 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %6, ptr %.sroa.2.0..sroa_idx330, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %7, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -36605,9 +36605,9 @@ _ZN4core3ops8function6FnOnce9call_once17h84dcc15d32e06039E.llvm.1752671377060393
 "_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hceca529e4265a9dcE.exit": ; preds = %62
   %100 = load i64, ptr %9, align 8, !range !6041, !noundef !11
   %trunc = trunc nuw i64 %100 to i1
-  br i1 %trunc, label %thread-pre-split.thread273, label %thread-pre-split
+  br i1 %trunc, label %thread-pre-split.thread283, label %thread-pre-split
 
-thread-pre-split.thread273:                       ; preds = %"_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hceca529e4265a9dcE.exit"
+thread-pre-split.thread283:                       ; preds = %"_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hceca529e4265a9dcE.exit"
   store i64 2, ptr %10, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.preheader.preheader
@@ -36670,7 +36670,7 @@ thread-pre-split.thread:                          ; preds = %105
   store i64 2, ptr %10, align 8
   br label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %thread-pre-split.thread273, %.critedge
+.preheader.preheader:                             ; preds = %thread-pre-split.thread283, %.critedge
   br label %.preheader
 
 108:                                              ; preds = %thread-pre-split, %thread-pre-split.thread, %.thread231
@@ -36915,8 +36915,8 @@ _ZN10async_task5utils14abort_on_panic17h1b6d3d9b222923f7E.exit: ; preds = %192, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i115": ; preds = %301, %305, %263, %243, %208, %212, %.body150
   %.pn90 = phi { ptr, i32 } [ %295, %.body150 ], [ %213, %212 ], [ %209, %208 ], [ %244, %243 ], [ %264, %263 ], [ %295, %305 ], [ %302, %301 ]
   %203 = load i64, ptr %10, align 8, !range !6104, !noundef !11
-  %.not278 = icmp eq i64 %203, 2
-  br i1 %.not278, label %common.resume, label %308
+  %.not288 = icmp eq i64 %203, 2
+  br i1 %.not288, label %common.resume, label %308
 
 204:                                              ; preds = %109
   invoke fastcc void @"_ZN4core3ptr240drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..window..WindowHandle$LT$assistant..prompt_library..PromptLibrary$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h013afaf963326273E"(ptr noalias noundef align 8 dereferenceable(32) %8) #27
@@ -37776,8 +37776,8 @@ _ZN10async_task5utils14abort_on_panic17h88281d7a1184bb2dE.exit: ; preds = %166, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i120": ; preds = %295, %299, %257, %235, %.body.i134, %203, %.body159
   %.pn96 = phi { ptr, i32 } [ %289, %.body159 ], [ %194, %.body.i134 ], [ %204, %203 ], [ %236, %235 ], [ %258, %257 ], [ %289, %299 ], [ %296, %295 ]
   %177 = load i64, ptr %6, align 8, !range !5235, !noundef !11
-  %.not272 = icmp eq i64 %177, -9223372036854775806
-  br i1 %.not272, label %common.resume, label %302
+  %.not284 = icmp eq i64 %177, -9223372036854775806
+  br i1 %.not284, label %common.resume, label %302
 
 178:                                              ; preds = %.body.i114
   invoke fastcc void @"_ZN4core3ptr323drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$indexed_docs..store..ProviderId$C$alloc..string..String$C$alloc..vec..Vec$LT$$LP$alloc..string..String$C$core..ops..range..Range$LT$usize$GT$$RP$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hede430edcf204095E"(ptr noalias noundef align 8 dereferenceable(64) %4) #27
@@ -38722,8 +38722,8 @@ _ZN10async_task5utils14abort_on_panic17h5239ccd89325016cE.exit: ; preds = %182, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i115": ; preds = %311, %315, %273, %251, %.body.i129, %219, %.body154
   %.pn90 = phi { ptr, i32 } [ %305, %.body154 ], [ %220, %219 ], [ %210, %.body.i129 ], [ %252, %251 ], [ %274, %273 ], [ %305, %315 ], [ %312, %311 ]
   %193 = load i64, ptr %6, align 8, !range !5175, !noundef !11
-  %.not276 = icmp eq i64 %193, -9223372036854775807
-  br i1 %.not276, label %common.resume, label %318
+  %.not291 = icmp eq i64 %193, -9223372036854775807
+  br i1 %.not291, label %common.resume, label %318
 
 194:                                              ; preds = %.body.i108
   invoke fastcc void @"_ZN4core3ptr168drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$proto..ContextOperation$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h4fca7912025c9a31E"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -39665,8 +39665,8 @@ _ZN10async_task5utils14abort_on_panic17h89753ab206c0318cE.exit: ; preds = %165, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i110": ; preds = %274, %278, %236, %216, %181, %185, %.body145
   %.pn85 = phi { ptr, i32 } [ %268, %.body145 ], [ %186, %185 ], [ %182, %181 ], [ %217, %216 ], [ %237, %236 ], [ %268, %278 ], [ %275, %274 ]
   %176 = load i64, ptr %10, align 8, !range !6104, !noundef !11
-  %.not269 = icmp eq i64 %176, 2
-  br i1 %.not269, label %common.resume, label %281
+  %.not276 = icmp eq i64 %176, 2
+  br i1 %.not276, label %common.resume, label %281
 
 177:                                              ; preds = %111
   invoke fastcc void @"_ZN4core3ptr361drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$alloc..string..String$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h486398f4117b48c3E"(ptr noalias noundef align 8 dereferenceable(24) %8) #27
@@ -40579,8 +40579,8 @@ _ZN10async_task5utils14abort_on_panic17h7cdd5b8c79ce2ed0E.exit: ; preds = %190, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i119": ; preds = %317, %321, %279, %257, %.body.i133, %226, %.body158
   %.pn90 = phi { ptr, i32 } [ %311, %.body158 ], [ %217, %.body.i133 ], [ %227, %226 ], [ %258, %257 ], [ %280, %279 ], [ %311, %321 ], [ %318, %317 ]
   %201 = load i64, ptr %6, align 8, !range !6104, !noundef !11
-  %.not269 = icmp eq i64 %201, 2
-  br i1 %.not269, label %common.resume, label %324
+  %.not284 = icmp eq i64 %201, 2
+  br i1 %.not284, label %common.resume, label %324
 
 202:                                              ; preds = %.body.i112
   invoke fastcc void @"_ZN4core3ptr204drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$assistant..prompt_library..PromptStore$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h329ec93bdeb05d0cE"(ptr noalias noundef align 8 dereferenceable(128) %4) #27
@@ -41524,8 +41524,8 @@ _ZN10async_task5utils14abort_on_panic17ha95e525ec5291dc8E.exit: ; preds = %173, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i115": ; preds = %282, %286, %244, %224, %189, %193, %.body150
   %.pn90 = phi { ptr, i32 } [ %276, %.body150 ], [ %190, %189 ], [ %194, %193 ], [ %225, %224 ], [ %245, %244 ], [ %276, %286 ], [ %283, %282 ]
   %184 = load i64, ptr %10, align 8, !range !6104, !noundef !11
-  %.not265 = icmp eq i64 %184, 2
-  br i1 %.not265, label %common.resume, label %289
+  %.not272 = icmp eq i64 %184, 2
+  br i1 %.not272, label %common.resume, label %289
 
 185:                                              ; preds = %119
   invoke fastcc void @"_ZN4core3ptr207drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$project..buffer_store..ProjectTransaction$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb53d141afe17a63fE"(ptr noalias noundef align 8 dereferenceable(40) %8) #27
@@ -42034,9 +42034,9 @@ _ZN10async_task5utils14abort_on_panic17h0342cc265b1bc1aaE.exit: ; preds = %26
 46:                                               ; preds = %38
   %47 = load i64, ptr %5, align 8, !range !6041, !noundef !11
   %trunc = trunc nuw i64 %47 to i1
-  br i1 %trunc, label %thread-pre-split.thread267, label %thread-pre-split
+  br i1 %trunc, label %thread-pre-split.thread273, label %thread-pre-split
 
-thread-pre-split.thread267:                       ; preds = %46
+thread-pre-split.thread273:                       ; preds = %46
   store i64 2, ptr %6, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
@@ -42099,7 +42099,7 @@ thread-pre-split.thread:                          ; preds = %52
   store i64 2, ptr %6, align 8
   br label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %thread-pre-split.thread267, %.critedge
+.preheader.preheader:                             ; preds = %thread-pre-split.thread273, %.critedge
   br label %.preheader
 
 55:                                               ; preds = %thread-pre-split, %thread-pre-split.thread, %.thread225
@@ -42347,8 +42347,8 @@ _ZN10async_task5utils14abort_on_panic17h41fcd7f3c9894f29E.exit: ; preds = %139, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i113": ; preds = %248, %252, %210, %190, %.body.i124, %158, %.body148
   %.pn90 = phi { ptr, i32 } [ %242, %.body148 ], [ %159, %158 ], [ %155, %.body.i124 ], [ %191, %190 ], [ %211, %210 ], [ %242, %252 ], [ %249, %248 ]
   %150 = load i64, ptr %6, align 8, !range !6104, !noundef !11
-  %.not272 = icmp eq i64 %150, 2
-  br i1 %.not272, label %common.resume, label %255
+  %.not278 = icmp eq i64 %150, 2
+  br i1 %.not278, label %common.resume, label %255
 
 151:                                              ; preds = %.body.i107
   invoke fastcc void @"_ZN4core3ptr240drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..window..WindowHandle$LT$assistant..prompt_library..PromptLibrary$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h013afaf963326273E"(ptr noalias noundef align 8 dereferenceable(32) %4) #27
@@ -43197,8 +43197,8 @@ _ZN10async_task5utils14abort_on_panic17hcf9f3972a031d142E.exit: ; preds = %157, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i114": ; preds = %286, %290, %248, %226, %.body.i128, %194, %.body153
   %.pn90 = phi { ptr, i32 } [ %280, %.body153 ], [ %195, %194 ], [ %185, %.body.i128 ], [ %227, %226 ], [ %249, %248 ], [ %280, %290 ], [ %287, %286 ]
   %168 = load i64, ptr %6, align 8, !range !5235, !noundef !11
-  %.not275 = icmp eq i64 %168, -9223372036854775806
-  br i1 %.not275, label %common.resume, label %293
+  %.not287 = icmp eq i64 %168, -9223372036854775806
+  br i1 %.not287, label %common.resume, label %293
 
 169:                                              ; preds = %.body.i108
   invoke fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$assistant_slash_command..ArgumentCompletion$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hef924d1cf34e1899E"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -44057,8 +44057,8 @@ _ZN10async_task5utils14abort_on_panic17h060f4eeae7cdcda3E.exit: ; preds = %138, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i111": ; preds = %247, %251, %209, %189, %.body.i122, %157, %.body146
   %.pn90 = phi { ptr, i32 } [ %241, %.body146 ], [ %158, %157 ], [ %154, %.body.i122 ], [ %190, %189 ], [ %210, %209 ], [ %241, %251 ], [ %248, %247 ]
   %149 = load i64, ptr %6, align 8, !range !5235, !noundef !11
-  %.not265 = icmp eq i64 %149, -9223372036854775806
-  br i1 %.not265, label %common.resume, label %254
+  %.not271 = icmp eq i64 %149, -9223372036854775806
+  br i1 %.not271, label %common.resume, label %254
 
 150:                                              ; preds = %.body.i105
   invoke fastcc void @"_ZN4core3ptr241drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$assistant..slash_command..auto_command..CommandToRun$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h07ac42b9b6566d5eE"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -44924,8 +44924,8 @@ _ZN10async_task5utils14abort_on_panic17h01ce88393483f26eE.exit: ; preds = %166, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i120": ; preds = %295, %299, %257, %235, %.body.i134, %203, %.body159
   %.pn96 = phi { ptr, i32 } [ %289, %.body159 ], [ %194, %.body.i134 ], [ %204, %203 ], [ %236, %235 ], [ %258, %257 ], [ %289, %299 ], [ %296, %295 ]
   %177 = load i64, ptr %6, align 8, !range !10537, !noundef !11
-  %.not272 = icmp eq i64 %177, 9
-  br i1 %.not272, label %common.resume, label %302
+  %.not284 = icmp eq i64 %177, 9
+  br i1 %.not284, label %common.resume, label %302
 
 178:                                              ; preds = %.body.i114
   invoke fastcc void @"_ZN4core3ptr178drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$heed..env..Env$C$heed..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h0167ce9ce4935f2aE"(ptr noalias noundef align 8 dereferenceable(48) %4) #27
@@ -45877,8 +45877,8 @@ _ZN10async_task5utils14abort_on_panic17h477b678a14384dd3E.exit: ; preds = %173, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i119": ; preds = %282, %286, %244, %224, %189, %193, %.body154
   %.pn96 = phi { ptr, i32 } [ %276, %.body154 ], [ %190, %189 ], [ %194, %193 ], [ %225, %224 ], [ %245, %244 ], [ %276, %286 ], [ %283, %282 ]
   %184 = load i64, ptr %10, align 8, !range !5175, !noundef !11
-  %.not268 = icmp eq i64 %184, -9223372036854775807
-  br i1 %.not268, label %common.resume, label %289
+  %.not275 = icmp eq i64 %184, -9223372036854775807
+  br i1 %.not275, label %common.resume, label %289
 
 185:                                              ; preds = %119
   invoke fastcc void @"_ZN4core3ptr180drop_in_place$LT$core..result..Result$LT$any_vec..any_vec..AnyVec$LT$dyn$u20$core..marker..Send$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17ha07baa6fa9867087E"(ptr noundef nonnull align 8 %8) #27
@@ -46761,8 +46761,8 @@ _ZN10async_task5utils14abort_on_panic17hbb0b60a4beaa397cE.exit: ; preds = %177, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i117": ; preds = %304, %308, %266, %244, %.body.i131, %213, %.body156
   %.pn90 = phi { ptr, i32 } [ %298, %.body156 ], [ %214, %213 ], [ %204, %.body.i131 ], [ %245, %244 ], [ %267, %266 ], [ %298, %308 ], [ %305, %304 ]
   %188 = load i64, ptr %6, align 8, !range !5175, !noundef !11
-  %.not275 = icmp eq i64 %188, -9223372036854775807
-  br i1 %.not275, label %common.resume, label %311
+  %.not290 = icmp eq i64 %188, -9223372036854775807
+  br i1 %.not290, label %common.resume, label %311
 
 189:                                              ; preds = %.body.i110
   invoke fastcc void @"_ZN4core3ptr181drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$assistant..model_selector..ModelInfo$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hbe2028bd6e3c56d4E"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -47742,8 +47742,8 @@ _ZN10async_task5utils14abort_on_panic17hfafbfd1d1a75949bE.exit: ; preds = %189, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i113": ; preds = %298, %302, %260, %240, %205, %209, %.body148
   %.pn90 = phi { ptr, i32 } [ %292, %.body148 ], [ %210, %209 ], [ %206, %205 ], [ %241, %240 ], [ %261, %260 ], [ %292, %302 ], [ %299, %298 ]
   %200 = load i64, ptr %10, align 8, !range !5175, !noundef !11
-  %.not271 = icmp eq i64 %200, -9223372036854775807
-  br i1 %.not271, label %common.resume, label %305
+  %.not281 = icmp eq i64 %200, -9223372036854775807
+  br i1 %.not281, label %common.resume, label %305
 
 201:                                              ; preds = %110
   invoke fastcc void @"_ZN4core3ptr168drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$fuzzy..paths..PathMatch$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h0858ec86d9c5ad66E"(ptr noalias noundef align 8 dereferenceable(24) %8) #27
@@ -48326,10 +48326,10 @@ _ZN10async_task5utils14abort_on_panic17h747038feb4d7d66bE.exit: ; preds = %29, %
   br label %85
 
 85:                                               ; preds = %83, %79, %75
-  %.sink257 = phi ptr [ null, %83 ], [ %80, %79 ], [ null, %75 ]
+  %.sink273 = phi ptr [ null, %83 ], [ %80, %79 ], [ null, %75 ]
   %.sink = phi ptr [ %84, %83 ], [ %81, %79 ], [ %76, %75 ]
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %.sink257, ptr %86, align 8
+  store ptr %.sink273, ptr %86, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.sink, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 0, ptr %4, align 8
@@ -49558,8 +49558,8 @@ _ZN10async_task5utils14abort_on_panic17hce611eb824c90121E.exit: ; preds = %182, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i115": ; preds = %311, %315, %273, %251, %.body.i129, %219, %.body154
   %.pn90 = phi { ptr, i32 } [ %305, %.body154 ], [ %220, %219 ], [ %210, %.body.i129 ], [ %252, %251 ], [ %274, %273 ], [ %305, %315 ], [ %312, %311 ]
   %193 = load i64, ptr %6, align 8, !range !5175, !noundef !11
-  %.not276 = icmp eq i64 %193, -9223372036854775807
-  br i1 %.not276, label %common.resume, label %318
+  %.not291 = icmp eq i64 %193, -9223372036854775807
+  br i1 %.not291, label %common.resume, label %318
 
 194:                                              ; preds = %.body.i108
   invoke fastcc void @"_ZN4core3ptr185drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$assistant..context..SavedContextMetadata$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h6005340b4e7b1766E"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -50489,8 +50489,8 @@ _ZN10async_task5utils14abort_on_panic17h81ba24e207305a4fE.exit: ; preds = %177, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i117": ; preds = %304, %308, %266, %244, %.body.i131, %213, %.body156
   %.pn90 = phi { ptr, i32 } [ %298, %.body156 ], [ %214, %213 ], [ %204, %.body.i131 ], [ %245, %244 ], [ %267, %266 ], [ %298, %308 ], [ %305, %304 ]
   %188 = load i64, ptr %6, align 8, !range !5175, !noundef !11
-  %.not275 = icmp eq i64 %188, -9223372036854775807
-  br i1 %.not275, label %common.resume, label %311
+  %.not290 = icmp eq i64 %188, -9223372036854775807
+  br i1 %.not290, label %common.resume, label %311
 
 189:                                              ; preds = %.body.i110
   invoke fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$assistant..slash_command_picker..SlashCommandEntry$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hf0e4f2b7128b01eeE"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -51284,8 +51284,8 @@ _ZN10async_task5utils14abort_on_panic17h908184d764bbf575E.exit: ; preds = %112, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i107": ; preds = %221, %225, %183, %163, %.body.i118, %131, %.body142
   %.pn85 = phi { ptr, i32 } [ %215, %.body142 ], [ %132, %131 ], [ %128, %.body.i118 ], [ %164, %163 ], [ %184, %183 ], [ %215, %225 ], [ %222, %221 ]
   %123 = load i64, ptr %6, align 8, !range !6104, !noundef !11
-  %.not262 = icmp eq i64 %123, 2
-  br i1 %.not262, label %common.resume, label %228
+  %.not265 = icmp eq i64 %123, 2
+  br i1 %.not265, label %common.resume, label %228
 
 124:                                              ; preds = %.body.i102
   invoke fastcc void @"_ZN4core3ptr361drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$alloc..string..String$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h486398f4117b48c3E"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -52995,8 +52995,8 @@ _ZN10async_task5utils14abort_on_panic17hc68c2338385cdcceE.exit: ; preds = %160, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i122": ; preds = %287, %291, %249, %227, %.body.i135, %196, %.body160
   %.pn96 = phi { ptr, i32 } [ %281, %.body160 ], [ %187, %.body.i135 ], [ %197, %196 ], [ %228, %227 ], [ %250, %249 ], [ %281, %291 ], [ %288, %287 ]
   %171 = load i64, ptr %6, align 8, !range !5235, !noundef !11
-  %.not270 = icmp eq i64 %171, -9223372036854775806
-  br i1 %.not270, label %common.resume, label %294
+  %.not282 = icmp eq i64 %171, -9223372036854775806
+  br i1 %.not282, label %common.resume, label %294
 
 172:                                              ; preds = %.body.i116
   invoke fastcc void @"_ZN4core3ptr323drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$indexed_docs..store..ProviderId$C$alloc..string..String$C$alloc..vec..Vec$LT$$LP$alloc..string..String$C$core..ops..range..Range$LT$usize$GT$$RP$$GT$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hede430edcf204095E"(ptr noalias noundef align 8 dereferenceable(64) %4) #27
@@ -53497,8 +53497,8 @@ _ZN10async_task5utils14abort_on_panic17h77798e0ed5a17143E.exit: ; preds = %22
 29:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  %.sroa.2.0..sroa_idx301 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %6, ptr %.sroa.2.0..sroa_idx301, align 8
+  %.sroa.2.0..sroa_idx308 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %6, ptr %.sroa.2.0..sroa_idx308, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %7, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -54550,8 +54550,8 @@ _ZN10async_task5utils14abort_on_panic17hf7cfdf5fe2e099f1E.exit: ; preds = %120, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i112": ; preds = %229, %233, %191, %171, %.body.i123, %139, %.body147
   %.pn90 = phi { ptr, i32 } [ %223, %.body147 ], [ %136, %.body.i123 ], [ %140, %139 ], [ %172, %171 ], [ %192, %191 ], [ %223, %233 ], [ %230, %229 ]
   %131 = load i64, ptr %6, align 8, !range !6104, !noundef !11
-  %.not258 = icmp eq i64 %131, 2
-  br i1 %.not258, label %common.resume, label %236
+  %.not261 = icmp eq i64 %131, 2
+  br i1 %.not261, label %common.resume, label %236
 
 132:                                              ; preds = %.body.i107
   invoke fastcc void @"_ZN4core3ptr215drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$gpui..view..View$LT$assistant..assistant_panel..ContextEditor$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h49106c79828b798fE"(ptr noalias noundef align 8 dereferenceable(40) %4) #27
@@ -55445,8 +55445,8 @@ _ZN10async_task5utils14abort_on_panic17h9a96d6b524970d34E.exit: ; preds = %164, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i113": ; preds = %273, %277, %235, %215, %180, %184, %.body148
   %.pn90 = phi { ptr, i32 } [ %267, %.body148 ], [ %185, %184 ], [ %181, %180 ], [ %216, %215 ], [ %236, %235 ], [ %267, %277 ], [ %274, %273 ]
   %175 = load i64, ptr %10, align 8, !range !5235, !noundef !11
-  %.not271 = icmp eq i64 %175, -9223372036854775806
-  br i1 %.not271, label %common.resume, label %280
+  %.not278 = icmp eq i64 %175, -9223372036854775806
+  br i1 %.not278, label %common.resume, label %280
 
 176:                                              ; preds = %110
   invoke fastcc void @"_ZN4core3ptr286drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$$LP$core..option..Option$LT$std..path..PathBuf$GT$$C$language..buffer..BufferSnapshot$C$usize$RP$$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hcdd162f17173b9b2E"(ptr noalias noundef align 8 dereferenceable(24) %8) #27
@@ -56353,8 +56353,8 @@ _ZN10async_task5utils14abort_on_panic17hb9b720ff449a8d8eE.exit: ; preds = %173, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i115": ; preds = %282, %286, %244, %224, %189, %193, %.body150
   %.pn90 = phi { ptr, i32 } [ %276, %.body150 ], [ %190, %189 ], [ %194, %193 ], [ %225, %224 ], [ %245, %244 ], [ %276, %286 ], [ %283, %282 ]
   %184 = load i64, ptr %10, align 8, !range !6104, !noundef !11
-  %.not265 = icmp eq i64 %184, 2
-  br i1 %.not265, label %common.resume, label %289
+  %.not272 = icmp eq i64 %184, 2
+  br i1 %.not272, label %common.resume, label %289
 
 185:                                              ; preds = %119
   invoke fastcc void @"_ZN4core3ptr240drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$assistant..context_store..ContextStore$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h359a8b55a873033bE"(ptr noalias noundef align 8 dereferenceable(40) %8) #27
@@ -57183,8 +57183,8 @@ _ZN10async_task5utils14abort_on_panic17h771dbfad473ba462E.exit: ; preds = %147, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i117": ; preds = %256, %260, %218, %198, %.body.i128, %166, %.body152
   %.pn96 = phi { ptr, i32 } [ %250, %.body152 ], [ %163, %.body.i128 ], [ %167, %166 ], [ %199, %198 ], [ %219, %218 ], [ %250, %260 ], [ %257, %256 ]
   %158 = load i64, ptr %6, align 8, !range !5235, !noundef !11
-  %.not262 = icmp eq i64 %158, -9223372036854775806
-  br i1 %.not262, label %common.resume, label %263
+  %.not268 = icmp eq i64 %158, -9223372036854775806
+  br i1 %.not268, label %common.resume, label %263
 
 159:                                              ; preds = %.body.i111
   invoke fastcc void @"_ZN4core3ptr209drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$assistant_slash_command..SlashCommandOutput$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb8f2249fbcf47149E"(ptr noalias noundef align 8 dereferenceable(56) %4) #27
@@ -57959,8 +57959,8 @@ _ZN10async_task5utils14abort_on_panic17hd95fe20c376c8233E.exit: ; preds = %120, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i112": ; preds = %229, %233, %191, %171, %.body.i123, %139, %.body147
   %.pn90 = phi { ptr, i32 } [ %223, %.body147 ], [ %136, %.body.i123 ], [ %140, %139 ], [ %172, %171 ], [ %192, %191 ], [ %223, %233 ], [ %230, %229 ]
   %131 = load i64, ptr %6, align 8, !range !6104, !noundef !11
-  %.not258 = icmp eq i64 %131, 2
-  br i1 %.not258, label %common.resume, label %236
+  %.not261 = icmp eq i64 %131, 2
+  br i1 %.not261, label %common.resume, label %236
 
 132:                                              ; preds = %.body.i107
   invoke fastcc void @"_ZN4core3ptr231drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..view..View$LT$assistant..assistant_panel..ContextEditor$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hc251377397e320d0E"(ptr noalias noundef align 8 dereferenceable(40) %4) #27
@@ -58813,8 +58813,8 @@ _ZN10async_task5utils14abort_on_panic17h48d0ae0bb78109eaE.exit: ; preds = %160, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i122": ; preds = %287, %291, %249, %227, %.body.i135, %196, %.body160
   %.pn96 = phi { ptr, i32 } [ %281, %.body160 ], [ %187, %.body.i135 ], [ %197, %196 ], [ %228, %227 ], [ %250, %249 ], [ %281, %291 ], [ %288, %287 ]
   %171 = load i64, ptr %6, align 8, !range !10537, !noundef !11
-  %.not270 = icmp eq i64 %171, 9
-  br i1 %.not270, label %common.resume, label %294
+  %.not282 = icmp eq i64 %171, 9
+  br i1 %.not282, label %common.resume, label %294
 
 172:                                              ; preds = %.body.i116
   invoke fastcc void @"_ZN4core3ptr178drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$heed..env..Env$C$heed..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h0167ce9ce4935f2aE"(ptr noalias noundef align 8 dereferenceable(48) %4) #27
@@ -59620,8 +59620,8 @@ _ZN10async_task5utils14abort_on_panic17h931ead59f2d53b91E.exit: ; preds = %120, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i112": ; preds = %229, %233, %191, %171, %.body.i123, %139, %.body147
   %.pn90 = phi { ptr, i32 } [ %223, %.body147 ], [ %136, %.body.i123 ], [ %140, %139 ], [ %172, %171 ], [ %192, %191 ], [ %223, %233 ], [ %230, %229 ]
   %131 = load i64, ptr %6, align 8, !range !6104, !noundef !11
-  %.not258 = icmp eq i64 %131, 2
-  br i1 %.not258, label %common.resume, label %236
+  %.not261 = icmp eq i64 %131, 2
+  br i1 %.not261, label %common.resume, label %236
 
 132:                                              ; preds = %.body.i107
   invoke fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..view..View$LT$assistant..assistant_panel..AssistantPanel$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17he05bc661bfa4ed7dE"(ptr noalias noundef align 8 dereferenceable(40) %4) #27
@@ -60577,8 +60577,8 @@ _ZN10async_task5utils14abort_on_panic17h1974adfa0f328324E.exit: ; preds = %191, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i113": ; preds = %300, %304, %262, %242, %207, %211, %.body148
   %.pn90 = phi { ptr, i32 } [ %294, %.body148 ], [ %212, %211 ], [ %208, %207 ], [ %243, %242 ], [ %263, %262 ], [ %294, %304 ], [ %301, %300 ]
   %202 = load i64, ptr %10, align 8, !range !5235, !noundef !11
-  %.not271 = icmp eq i64 %202, -9223372036854775806
-  br i1 %.not271, label %common.resume, label %307
+  %.not281 = icmp eq i64 %202, -9223372036854775806
+  br i1 %.not281, label %common.resume, label %307
 
 203:                                              ; preds = %110
   invoke fastcc void @"_ZN4core3ptr241drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$assistant..slash_command..auto_command..CommandToRun$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h07ac42b9b6566d5eE"(ptr noalias noundef align 8 dereferenceable(24) %8) #27
@@ -61128,9 +61128,9 @@ _ZN10async_task5utils14abort_on_panic17hd799ea55f87509c6E.exit: ; preds = %30, %
 "_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8530143051db687dE.exit": ; preds = %54
   %70 = load i64, ptr %5, align 8, !range !6896, !noundef !11
   %71 = icmp eq i64 %70, -9223372036854775808
-  br i1 %71, label %thread-pre-split.thread281, label %thread-pre-split
+  br i1 %71, label %thread-pre-split.thread296, label %thread-pre-split
 
-thread-pre-split.thread281:                       ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8530143051db687dE.exit"
+thread-pre-split.thread296:                       ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8530143051db687dE.exit"
   store i64 -9223372036854775807, ptr %6, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader
@@ -61191,7 +61191,7 @@ thread-pre-split.thread:                          ; preds = %76
   store i64 -9223372036854775807, ptr %6, align 8
   br label %.preheader
 
-.preheader:                                       ; preds = %thread-pre-split.thread281, %thread-pre-split, %.critedge
+.preheader:                                       ; preds = %thread-pre-split.thread296, %thread-pre-split, %.critedge
   %79 = getelementptr i8, ptr %0, i64 72
   br label %189
 
@@ -61467,8 +61467,8 @@ _ZN10async_task5utils14abort_on_panic17hb0399548d218edc0E.exit: ; preds = %176, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i124": ; preds = %303, %307, %265, %243, %.body.i138, %212, %.body163
   %.pn97 = phi { ptr, i32 } [ %297, %.body163 ], [ %213, %212 ], [ %203, %.body.i138 ], [ %244, %243 ], [ %266, %265 ], [ %297, %307 ], [ %304, %303 ]
   %187 = load i64, ptr %6, align 8, !range !5175, !noundef !11
-  %.not286 = icmp eq i64 %187, -9223372036854775807
-  br i1 %.not286, label %common.resume, label %310
+  %.not301 = icmp eq i64 %187, -9223372036854775807
+  br i1 %.not301, label %common.resume, label %310
 
 188:                                              ; preds = %.body.i117
   invoke fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..result..Result$LT$$LP$alloc..vec..Vec$LT$assistant..prompt_library..PromptMetadata$GT$$C$usize$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17he1605f1ad8b8f7b6E"(ptr noalias noundef align 8 dereferenceable(32) %4) #27
@@ -61970,8 +61970,8 @@ _ZN10async_task5utils14abort_on_panic17he9b1717d2a5153bbE.exit: ; preds = %26
 34:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8
-  %.sroa.2.0..sroa_idx307 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %10, ptr %.sroa.2.0..sroa_idx307, align 8
+  %.sroa.2.0..sroa_idx318 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %10, ptr %.sroa.2.0..sroa_idx318, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %11, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -63290,8 +63290,8 @@ _ZN10async_task5utils14abort_on_panic17h4be2467e4877f9dbE.exit: ; preds = %173, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i119": ; preds = %282, %286, %244, %224, %189, %193, %.body154
   %.pn96 = phi { ptr, i32 } [ %276, %.body154 ], [ %190, %189 ], [ %194, %193 ], [ %225, %224 ], [ %245, %244 ], [ %276, %286 ], [ %283, %282 ]
   %184 = load i64, ptr %10, align 8, !range !5372, !noundef !11
-  %.not268 = icmp eq i64 %184, -9223372036854775805
-  br i1 %.not268, label %common.resume, label %289
+  %.not275 = icmp eq i64 %184, -9223372036854775805
+  br i1 %.not275, label %common.resume, label %289
 
 185:                                              ; preds = %119
   invoke fastcc void @"_ZN4core3ptr237drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$core..option..Option$LT$assistant_slash_command..SlashCommandOutput$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17he5d45b1c4731ec65E"(ptr noalias noundef align 8 dereferenceable(56) %8) #27
@@ -64119,8 +64119,8 @@ _ZN10async_task5utils14abort_on_panic17hbcb719093b89e7baE.exit: ; preds = %152, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i116": ; preds = %279, %283, %241, %219, %.body.i129, %188, %.body154
   %.pn90 = phi { ptr, i32 } [ %273, %.body154 ], [ %189, %188 ], [ %179, %.body.i129 ], [ %220, %219 ], [ %242, %241 ], [ %273, %283 ], [ %280, %279 ]
   %163 = load i64, ptr %6, align 8, !range !5235, !noundef !11
-  %.not273 = icmp eq i64 %163, -9223372036854775806
-  br i1 %.not273, label %common.resume, label %286
+  %.not285 = icmp eq i64 %163, -9223372036854775806
+  br i1 %.not285, label %common.resume, label %286
 
 164:                                              ; preds = %.body.i110
   invoke fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$assistant_slash_command..ArgumentCompletion$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hef924d1cf34e1899E"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -65040,8 +65040,8 @@ _ZN10async_task5utils14abort_on_panic17h8accf01bbea967d8E.exit: ; preds = %177, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i117": ; preds = %304, %308, %266, %244, %.body.i131, %213, %.body156
   %.pn90 = phi { ptr, i32 } [ %298, %.body156 ], [ %214, %213 ], [ %204, %.body.i131 ], [ %245, %244 ], [ %267, %266 ], [ %298, %308 ], [ %305, %304 ]
   %188 = load i64, ptr %6, align 8, !range !5175, !noundef !11
-  %.not275 = icmp eq i64 %188, -9223372036854775807
-  br i1 %.not275, label %common.resume, label %311
+  %.not290 = icmp eq i64 %188, -9223372036854775807
+  br i1 %.not290, label %common.resume, label %311
 
 189:                                              ; preds = %.body.i110
   invoke fastcc void @"_ZN4core3ptr168drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$proto..ContextOperation$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h4fca7912025c9a31E"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -65968,8 +65968,8 @@ _ZN10async_task5utils14abort_on_panic17hf4e79834fe7b8759E.exit: ; preds = %179, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i117": ; preds = %306, %310, %268, %246, %.body.i130, %215, %.body155
   %.pn90 = phi { ptr, i32 } [ %300, %.body155 ], [ %216, %215 ], [ %206, %.body.i130 ], [ %247, %246 ], [ %269, %268 ], [ %300, %310 ], [ %307, %306 ]
   %190 = load i64, ptr %6, align 8, !range !5235, !noundef !11
-  %.not274 = icmp eq i64 %190, -9223372036854775806
-  br i1 %.not274, label %common.resume, label %313
+  %.not289 = icmp eq i64 %190, -9223372036854775806
+  br i1 %.not289, label %common.resume, label %313
 
 191:                                              ; preds = %.body.i110
   invoke fastcc void @"_ZN4core3ptr225drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$assistant..context..ContextOperation$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h520ae05e1078a991E"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -66773,8 +66773,8 @@ _ZN10async_task5utils14abort_on_panic17h2e17f3bd7bdc2af5E.exit: ; preds = %120, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i116": ; preds = %229, %233, %191, %171, %.body.i127, %139, %.body151
   %.pn96 = phi { ptr, i32 } [ %223, %.body151 ], [ %136, %.body.i127 ], [ %140, %139 ], [ %172, %171 ], [ %192, %191 ], [ %223, %233 ], [ %230, %229 ]
   %131 = load i64, ptr %6, align 8, !range !5175, !noundef !11
-  %.not261 = icmp eq i64 %131, -9223372036854775807
-  br i1 %.not261, label %common.resume, label %236
+  %.not264 = icmp eq i64 %131, -9223372036854775807
+  br i1 %.not264, label %common.resume, label %236
 
 132:                                              ; preds = %.body.i111
   invoke fastcc void @"_ZN4core3ptr180drop_in_place$LT$core..result..Result$LT$any_vec..any_vec..AnyVec$LT$dyn$u20$core..marker..Send$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17ha07baa6fa9867087E"(ptr noundef nonnull align 8 %4) #27
@@ -67547,8 +67547,8 @@ _ZN10async_task5utils14abort_on_panic17h35279c171f794385E.exit: ; preds = %120, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i116": ; preds = %229, %233, %191, %171, %.body.i127, %139, %.body151
   %.pn96 = phi { ptr, i32 } [ %223, %.body151 ], [ %136, %.body.i127 ], [ %140, %139 ], [ %172, %171 ], [ %192, %191 ], [ %223, %233 ], [ %230, %229 ]
   %131 = load i64, ptr %6, align 8, !range !5175, !noundef !11
-  %.not261 = icmp eq i64 %131, -9223372036854775807
-  br i1 %.not261, label %common.resume, label %236
+  %.not264 = icmp eq i64 %131, -9223372036854775807
+  br i1 %.not264, label %common.resume, label %236
 
 132:                                              ; preds = %.body.i111
   invoke fastcc void @"_ZN4core3ptr251drop_in_place$LT$core..result..Result$LT$$LP$alloc..vec..Vec$LT$std..path..PathBuf$GT$$C$alloc..vec..Vec$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h9f46cb7214dc4e89E"(ptr noalias noundef align 8 dereferenceable(48) %4) #27
@@ -68224,10 +68224,10 @@ _ZN4core3ops8function6FnOnce9call_once17h84dcc15d32e06039E.llvm.1752671377060393
   br label %110
 
 110:                                              ; preds = %108, %104, %100
-  %.sink252 = phi ptr [ null, %108 ], [ %105, %104 ], [ null, %100 ]
+  %.sink263 = phi ptr [ null, %108 ], [ %105, %104 ], [ null, %100 ]
   %.sink = phi ptr [ %109, %108 ], [ %106, %104 ], [ %101, %100 ]
   %111 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %.sink252, ptr %111, align 8
+  store ptr %.sink263, ptr %111, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %.sink, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 0, ptr %8, align 8
@@ -68998,10 +68998,10 @@ _ZN10async_task5utils14abort_on_panic17h5eb80748bbe380e1E.exit: ; preds = %24
   br label %57
 
 57:                                               ; preds = %55, %51, %47
-  %.sink246 = phi ptr [ null, %55 ], [ %52, %51 ], [ null, %47 ]
+  %.sink253 = phi ptr [ null, %55 ], [ %52, %51 ], [ null, %47 ]
   %.sink = phi ptr [ %56, %55 ], [ %53, %51 ], [ %48, %47 ]
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %.sink246, ptr %58, align 8
+  store ptr %.sink253, ptr %58, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.sink, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 0, ptr %4, align 8
@@ -70147,8 +70147,8 @@ _ZN10async_task5utils14abort_on_panic17hceb4fa273d60b9b7E.exit: ; preds = %165, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i110": ; preds = %274, %278, %236, %216, %181, %185, %.body145
   %.pn85 = phi { ptr, i32 } [ %268, %.body145 ], [ %186, %185 ], [ %182, %181 ], [ %217, %216 ], [ %237, %236 ], [ %268, %278 ], [ %275, %274 ]
   %176 = load i64, ptr %10, align 8, !range !6104, !noundef !11
-  %.not269 = icmp eq i64 %176, 2
-  br i1 %.not269, label %common.resume, label %281
+  %.not276 = icmp eq i64 %176, 2
+  br i1 %.not276, label %common.resume, label %281
 
 177:                                              ; preds = %111
   invoke fastcc void @"_ZN4core3ptr236drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h45470e893317b0b3E"(ptr noalias noundef align 8 dereferenceable(24) %8) #27
@@ -70898,8 +70898,8 @@ _ZN10async_task5utils14abort_on_panic17h5c1da0df9ee93619E.exit: ; preds = %111, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i110": ; preds = %220, %224, %182, %162, %.body.i121, %130, %.body145
   %.pn90 = phi { ptr, i32 } [ %214, %.body145 ], [ %131, %130 ], [ %127, %.body.i121 ], [ %163, %162 ], [ %183, %182 ], [ %214, %224 ], [ %221, %220 ]
   %122 = load i64, ptr %6, align 8, !range !5235, !noundef !11
-  %.not264 = icmp eq i64 %122, -9223372036854775806
-  br i1 %.not264, label %common.resume, label %227
+  %.not267 = icmp eq i64 %122, -9223372036854775806
+  br i1 %.not267, label %common.resume, label %227
 
 123:                                              ; preds = %.body.i105
   invoke fastcc void @"_ZN4core3ptr286drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$$LP$core..option..Option$LT$std..path..PathBuf$GT$$C$language..buffer..BufferSnapshot$C$usize$RP$$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hcdd162f17173b9b2E"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -71810,8 +71810,8 @@ _ZN10async_task5utils14abort_on_panic17h7742b45113d0666cE.exit: ; preds = %184, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i115": ; preds = %313, %317, %275, %253, %.body.i129, %221, %.body154
   %.pn90 = phi { ptr, i32 } [ %307, %.body154 ], [ %222, %221 ], [ %212, %.body.i129 ], [ %254, %253 ], [ %276, %275 ], [ %307, %317 ], [ %314, %313 ]
   %195 = load i64, ptr %6, align 8, !range !5235, !noundef !11
-  %.not276 = icmp eq i64 %195, -9223372036854775806
-  br i1 %.not276, label %common.resume, label %320
+  %.not291 = icmp eq i64 %195, -9223372036854775806
+  br i1 %.not291, label %common.resume, label %320
 
 196:                                              ; preds = %.body.i108
   invoke fastcc void @"_ZN4core3ptr208drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$project..Completion$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hc3eb324031ad89cbE"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -72686,8 +72686,8 @@ _ZN10async_task5utils14abort_on_panic17h0b743e2b5150ae92E.exit: ; preds = %152, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i116": ; preds = %279, %283, %241, %219, %.body.i129, %188, %.body154
   %.pn90 = phi { ptr, i32 } [ %273, %.body154 ], [ %189, %188 ], [ %179, %.body.i129 ], [ %220, %219 ], [ %242, %241 ], [ %273, %283 ], [ %280, %279 ]
   %163 = load i64, ptr %6, align 8, !range !5235, !noundef !11
-  %.not273 = icmp eq i64 %163, -9223372036854775806
-  br i1 %.not273, label %common.resume, label %286
+  %.not285 = icmp eq i64 %163, -9223372036854775806
+  br i1 %.not285, label %common.resume, label %286
 
 164:                                              ; preds = %.body.i110
   invoke fastcc void @"_ZN4core3ptr187drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..string..String$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h8ea72df4e3fd66f2E"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -74542,8 +74542,8 @@ _ZN10async_task5utils14abort_on_panic17h5719a89b7fe6e31dE.exit: ; preds = %191, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i113": ; preds = %300, %304, %262, %242, %207, %211, %.body148
   %.pn90 = phi { ptr, i32 } [ %294, %.body148 ], [ %212, %211 ], [ %208, %207 ], [ %243, %242 ], [ %263, %262 ], [ %294, %304 ], [ %301, %300 ]
   %202 = load i64, ptr %10, align 8, !range !5235, !noundef !11
-  %.not271 = icmp eq i64 %202, -9223372036854775806
-  br i1 %.not271, label %common.resume, label %307
+  %.not281 = icmp eq i64 %202, -9223372036854775806
+  br i1 %.not281, label %common.resume, label %307
 
 203:                                              ; preds = %110
   invoke fastcc void @"_ZN4core3ptr208drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$project..Completion$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hc3eb324031ad89cbE"(ptr noalias noundef align 8 dereferenceable(24) %8) #27
@@ -75510,8 +75510,8 @@ _ZN10async_task5utils14abort_on_panic17h00cfda10ea5659c6E.exit: ; preds = %200, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i119": ; preds = %309, %313, %271, %251, %216, %220, %.body154
   %.pn96 = phi { ptr, i32 } [ %303, %.body154 ], [ %217, %216 ], [ %221, %220 ], [ %252, %251 ], [ %272, %271 ], [ %303, %313 ], [ %310, %309 ]
   %211 = load i64, ptr %10, align 8, !range !5235, !noundef !11
-  %.not268 = icmp eq i64 %211, -9223372036854775806
-  br i1 %.not268, label %common.resume, label %316
+  %.not278 = icmp eq i64 %211, -9223372036854775806
+  br i1 %.not278, label %common.resume, label %316
 
 212:                                              ; preds = %119
   invoke fastcc void @"_ZN4core3ptr209drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$assistant_slash_command..SlashCommandOutput$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb8f2249fbcf47149E"(ptr noalias noundef align 8 dereferenceable(56) %8) #27
@@ -76401,8 +76401,8 @@ _ZN10async_task5utils14abort_on_panic17hd4973cd7a24b3a90E.exit: ; preds = %179, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i117": ; preds = %306, %310, %268, %246, %.body.i130, %215, %.body155
   %.pn90 = phi { ptr, i32 } [ %300, %.body155 ], [ %216, %215 ], [ %206, %.body.i130 ], [ %247, %246 ], [ %269, %268 ], [ %300, %310 ], [ %307, %306 ]
   %190 = load i64, ptr %6, align 8, !range !5235, !noundef !11
-  %.not274 = icmp eq i64 %190, -9223372036854775806
-  br i1 %.not274, label %common.resume, label %313
+  %.not289 = icmp eq i64 %190, -9223372036854775806
+  br i1 %.not289, label %common.resume, label %313
 
 191:                                              ; preds = %.body.i110
   invoke fastcc void @"_ZN4core3ptr208drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$project..Completion$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hc3eb324031ad89cbE"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -77322,8 +77322,8 @@ _ZN10async_task5utils14abort_on_panic17h1aa87d7ef26c61d6E.exit: ; preds = %177, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i117": ; preds = %304, %308, %266, %244, %.body.i131, %213, %.body156
   %.pn90 = phi { ptr, i32 } [ %298, %.body156 ], [ %214, %213 ], [ %204, %.body.i131 ], [ %245, %244 ], [ %267, %266 ], [ %298, %308 ], [ %305, %304 ]
   %188 = load i64, ptr %6, align 8, !range !5175, !noundef !11
-  %.not275 = icmp eq i64 %188, -9223372036854775807
-  br i1 %.not275, label %common.resume, label %311
+  %.not290 = icmp eq i64 %188, -9223372036854775807
+  br i1 %.not290, label %common.resume, label %311
 
 189:                                              ; preds = %.body.i110
   invoke fastcc void @"_ZN4core3ptr186drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$assistant..prompt_library..PromptMetadata$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hcd876d98541a7aa4E"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -79111,8 +79111,8 @@ _ZN10async_task5utils14abort_on_panic17hcc556e48dd708598E.exit: ; preds = %173, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i115": ; preds = %282, %286, %244, %224, %189, %193, %.body150
   %.pn90 = phi { ptr, i32 } [ %276, %.body150 ], [ %190, %189 ], [ %194, %193 ], [ %225, %224 ], [ %245, %244 ], [ %276, %286 ], [ %283, %282 ]
   %184 = load i64, ptr %10, align 8, !range !6104, !noundef !11
-  %.not265 = icmp eq i64 %184, 2
-  br i1 %.not265, label %common.resume, label %289
+  %.not272 = icmp eq i64 %184, 2
+  br i1 %.not272, label %common.resume, label %289
 
 185:                                              ; preds = %119
   invoke fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..view..View$LT$assistant..assistant_panel..AssistantPanel$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17he05bc661bfa4ed7dE"(ptr noalias noundef align 8 dereferenceable(40) %8) #27
@@ -80034,8 +80034,8 @@ _ZN10async_task5utils14abort_on_panic17hf102354ea6407b2dE.exit: ; preds = %193, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i121": ; preds = %322, %326, %284, %262, %.body.i135, %230, %.body160
   %.pn96 = phi { ptr, i32 } [ %316, %.body160 ], [ %221, %.body.i135 ], [ %231, %230 ], [ %263, %262 ], [ %285, %284 ], [ %316, %326 ], [ %323, %322 ]
   %204 = load i64, ptr %6, align 8, !range !5235, !noundef !11
-  %.not273 = icmp eq i64 %204, -9223372036854775806
-  br i1 %.not273, label %common.resume, label %329
+  %.not288 = icmp eq i64 %204, -9223372036854775806
+  br i1 %.not288, label %common.resume, label %329
 
 205:                                              ; preds = %.body.i114
   invoke fastcc void @"_ZN4core3ptr198drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$assistant..context..SavedContext$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h5ee9a8ed9f9ac336E"(ptr noalias noundef align 8 dereferenceable(168) %4) #27
@@ -80921,8 +80921,8 @@ _ZN10async_task5utils14abort_on_panic17hed7580a8b5049488E.exit: ; preds = %120, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i122": ; preds = %286, %290, %248, %226, %.body.i135, %195, %.body160
   %.pn96 = phi { ptr, i32 } [ %280, %.body160 ], [ %186, %.body.i135 ], [ %196, %195 ], [ %227, %226 ], [ %249, %248 ], [ %280, %290 ], [ %287, %286 ]
   %170 = load i64, ptr %5, align 8, !range !5175, !noundef !11
-  %.not270 = icmp eq i64 %170, -9223372036854775807
-  br i1 %.not270, label %common.resume, label %293
+  %.not282 = icmp eq i64 %170, -9223372036854775807
+  br i1 %.not282, label %common.resume, label %293
 
 171:                                              ; preds = %.body.i116
   invoke fastcc void @"_ZN4core3ptr320drop_in_place$LT$core..result..Result$LT$$LP$alloc..vec..Vec$LT$$LP$multi_buffer..anchor..Anchor$C$core..ops..range..RangeInclusive$LT$u32$GT$$RP$$GT$$C$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h884e04bfe477cc5bE"(ptr noalias noundef align 8 dereferenceable(48) %5) #27
@@ -81860,8 +81860,8 @@ _ZN10async_task5utils14abort_on_panic17h3e8d90a3123791daE.exit: ; preds = %185, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i123": ; preds = %312, %316, %274, %252, %.body.i137, %221, %.body162
   %.pn96 = phi { ptr, i32 } [ %306, %.body162 ], [ %212, %.body.i137 ], [ %222, %221 ], [ %253, %252 ], [ %275, %274 ], [ %306, %316 ], [ %313, %312 ]
   %196 = load i64, ptr %6, align 8, !range !5175, !noundef !11
-  %.not272 = icmp eq i64 %196, -9223372036854775807
-  br i1 %.not272, label %common.resume, label %319
+  %.not287 = icmp eq i64 %196, -9223372036854775807
+  br i1 %.not287, label %common.resume, label %319
 
 197:                                              ; preds = %.body.i116
   invoke fastcc void @"_ZN4core3ptr165drop_in_place$LT$core..result..Result$LT$assistant_slash_command..SlashCommandOutput$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdf10c5c1a06fd109E"(ptr noalias noundef align 8 dereferenceable(56) %4) #27
@@ -82820,8 +82820,8 @@ _ZN10async_task5utils14abort_on_panic17hd950aee20bc12f66E.exit: ; preds = %193, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i121": ; preds = %322, %326, %284, %262, %.body.i135, %230, %.body160
   %.pn96 = phi { ptr, i32 } [ %316, %.body160 ], [ %221, %.body.i135 ], [ %231, %230 ], [ %263, %262 ], [ %285, %284 ], [ %316, %326 ], [ %323, %322 ]
   %204 = load i64, ptr %6, align 8, !range !5235, !noundef !11
-  %.not273 = icmp eq i64 %204, -9223372036854775806
-  br i1 %.not273, label %common.resume, label %329
+  %.not288 = icmp eq i64 %204, -9223372036854775806
+  br i1 %.not288, label %common.resume, label %329
 
 205:                                              ; preds = %.body.i114
   invoke fastcc void @"_ZN4core3ptr209drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$assistant_slash_command..SlashCommandOutput$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb8f2249fbcf47149E"(ptr noalias noundef align 8 dereferenceable(56) %4) #27
@@ -83442,10 +83442,10 @@ _ZN10async_task5utils14abort_on_panic17h15f4407f8c97736cE.exit: ; preds = %28, %
   br label %82
 
 82:                                               ; preds = %80, %76, %71
-  %.sink256 = phi ptr [ null, %80 ], [ %77, %76 ], [ null, %71 ]
+  %.sink272 = phi ptr [ null, %80 ], [ %77, %76 ], [ null, %71 ]
   %.sink = phi ptr [ %81, %80 ], [ %78, %76 ], [ %72, %71 ]
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %.sink256, ptr %83, align 8
+  store ptr %.sink272, ptr %83, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.sink, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 0, ptr %4, align 8
@@ -84675,8 +84675,8 @@ _ZN10async_task5utils14abort_on_panic17h2d74edee721ca746E.exit: ; preds = %191, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i121": ; preds = %320, %324, %282, %260, %.body.i135, %228, %.body160
   %.pn96 = phi { ptr, i32 } [ %314, %.body160 ], [ %219, %.body.i135 ], [ %229, %228 ], [ %261, %260 ], [ %283, %282 ], [ %314, %324 ], [ %321, %320 ]
   %202 = load i64, ptr %6, align 8, !range !5175, !noundef !11
-  %.not273 = icmp eq i64 %202, -9223372036854775807
-  br i1 %.not273, label %common.resume, label %327
+  %.not288 = icmp eq i64 %202, -9223372036854775807
+  br i1 %.not288, label %common.resume, label %327
 
 203:                                              ; preds = %.body.i114
   invoke fastcc void @"_ZN4core3ptr165drop_in_place$LT$core..result..Result$LT$assistant_slash_command..SlashCommandOutput$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdf10c5c1a06fd109E"(ptr noalias noundef align 8 dereferenceable(56) %4) #27
@@ -85621,8 +85621,8 @@ _ZN10async_task5utils14abort_on_panic17hc6d556ceb33940deE.exit: ; preds = %182, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i115": ; preds = %311, %315, %273, %251, %.body.i129, %219, %.body154
   %.pn90 = phi { ptr, i32 } [ %305, %.body154 ], [ %220, %219 ], [ %210, %.body.i129 ], [ %252, %251 ], [ %274, %273 ], [ %305, %315 ], [ %312, %311 ]
   %193 = load i64, ptr %6, align 8, !range !5175, !noundef !11
-  %.not276 = icmp eq i64 %193, -9223372036854775807
-  br i1 %.not276, label %common.resume, label %318
+  %.not291 = icmp eq i64 %193, -9223372036854775807
+  br i1 %.not291, label %common.resume, label %318
 
 194:                                              ; preds = %.body.i108
   invoke fastcc void @"_ZN4core3ptr186drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$assistant..prompt_library..PromptMetadata$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hcd876d98541a7aa4E"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -86576,8 +86576,8 @@ _ZN10async_task5utils14abort_on_panic17h9b9688f0cd0a4ab8E.exit: ; preds = %173, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i115": ; preds = %282, %286, %244, %224, %189, %193, %.body150
   %.pn90 = phi { ptr, i32 } [ %276, %.body150 ], [ %190, %189 ], [ %194, %193 ], [ %225, %224 ], [ %245, %244 ], [ %276, %286 ], [ %283, %282 ]
   %184 = load i64, ptr %10, align 8, !range !6104, !noundef !11
-  %.not265 = icmp eq i64 %184, 2
-  br i1 %.not265, label %common.resume, label %289
+  %.not272 = icmp eq i64 %184, 2
+  br i1 %.not272, label %common.resume, label %289
 
 185:                                              ; preds = %119
   invoke fastcc void @"_ZN4core3ptr231drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..view..View$LT$assistant..assistant_panel..ContextEditor$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hc251377397e320d0E"(ptr noalias noundef align 8 dereferenceable(40) %8) #27
@@ -87437,8 +87437,8 @@ _ZN10async_task5utils14abort_on_panic17h9238d6eeca04ae0bE.exit: ; preds = %166, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i120": ; preds = %295, %299, %257, %235, %.body.i134, %203, %.body159
   %.pn96 = phi { ptr, i32 } [ %289, %.body159 ], [ %194, %.body.i134 ], [ %204, %203 ], [ %236, %235 ], [ %258, %257 ], [ %289, %299 ], [ %296, %295 ]
   %177 = load i64, ptr %6, align 8, !range !6280, !noundef !11
-  %.not272 = icmp eq i64 %177, -9223372036854775803
-  br i1 %.not272, label %common.resume, label %302
+  %.not284 = icmp eq i64 %177, -9223372036854775803
+  br i1 %.not284, label %common.resume, label %302
 
 178:                                              ; preds = %.body.i114
   invoke fastcc void @"_ZN4core3ptr161drop_in_place$LT$core..result..Result$LT$assistant..workflow..WorkflowSuggestion$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h872e3ccc29069589E"(ptr noalias noundef align 8 dereferenceable(88) %4) #27
@@ -88254,8 +88254,8 @@ _ZN10async_task5utils14abort_on_panic17hcebc6271881ac09bE.exit: ; preds = %120, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i112": ; preds = %229, %233, %191, %171, %.body.i123, %139, %.body147
   %.pn90 = phi { ptr, i32 } [ %223, %.body147 ], [ %136, %.body.i123 ], [ %140, %139 ], [ %172, %171 ], [ %192, %191 ], [ %223, %233 ], [ %230, %229 ]
   %131 = load i64, ptr %6, align 8, !range !6104, !noundef !11
-  %.not258 = icmp eq i64 %131, 2
-  br i1 %.not258, label %common.resume, label %236
+  %.not261 = icmp eq i64 %131, 2
+  br i1 %.not261, label %common.resume, label %236
 
 132:                                              ; preds = %.body.i107
   invoke fastcc void @"_ZN4core3ptr207drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$project..buffer_store..ProjectTransaction$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb53d141afe17a63fE"(ptr noalias noundef align 8 dereferenceable(40) %4) #27
@@ -88821,9 +88821,9 @@ _ZN10async_task5utils14abort_on_panic17h3afab06f0ed0c905E.exit: ; preds = %31, %
 "_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc12a9848dd5291adE.exit": ; preds = %55
   %74 = load i64, ptr %5, align 8, !range !6896, !noundef !11
   %75 = icmp eq i64 %74, -9223372036854775808
-  br i1 %75, label %thread-pre-split.thread281, label %thread-pre-split
+  br i1 %75, label %thread-pre-split.thread296, label %thread-pre-split
 
-thread-pre-split.thread281:                       ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc12a9848dd5291adE.exit"
+thread-pre-split.thread296:                       ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc12a9848dd5291adE.exit"
   store i64 -9223372036854775807, ptr %6, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
@@ -88884,7 +88884,7 @@ thread-pre-split.thread:                          ; preds = %80
   store i64 -9223372036854775807, ptr %6, align 8
   br label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %thread-pre-split.thread281, %thread-pre-split, %.critedge
+.preheader.preheader:                             ; preds = %thread-pre-split.thread296, %thread-pre-split, %.critedge
   br label %.preheader
 
 83:                                               ; preds = %thread-pre-split.thread, %.thread236, %thread-pre-split
@@ -89165,8 +89165,8 @@ _ZN10async_task5utils14abort_on_panic17he96d5b9a3c6dbc77E.exit: ; preds = %181, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i122": ; preds = %310, %314, %272, %250, %.body.i136, %218, %.body161
   %.pn97 = phi { ptr, i32 } [ %304, %.body161 ], [ %219, %218 ], [ %209, %.body.i136 ], [ %251, %250 ], [ %273, %272 ], [ %304, %314 ], [ %311, %310 ]
   %192 = load i64, ptr %6, align 8, !range !5175, !noundef !11
-  %.not287 = icmp eq i64 %192, -9223372036854775807
-  br i1 %.not287, label %common.resume, label %317
+  %.not302 = icmp eq i64 %192, -9223372036854775807
+  br i1 %.not302, label %common.resume, label %317
 
 193:                                              ; preds = %.body.i115
   invoke fastcc void @"_ZN4core3ptr202drop_in_place$LT$core..result..Result$LT$$LP$alloc..vec..Vec$LT$assistant..prompt_library..PromptMetadata$GT$$C$usize$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17he1605f1ad8b8f7b6E"(ptr noalias noundef align 8 dereferenceable(32) %4) #27
@@ -90118,8 +90118,8 @@ _ZN10async_task5utils14abort_on_panic17h31b0b916b3d35a47E.exit: ; preds = %173, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i119": ; preds = %282, %286, %244, %224, %189, %193, %.body154
   %.pn96 = phi { ptr, i32 } [ %276, %.body154 ], [ %190, %189 ], [ %194, %193 ], [ %225, %224 ], [ %245, %244 ], [ %276, %286 ], [ %283, %282 ]
   %184 = load i64, ptr %10, align 8, !range !5175, !noundef !11
-  %.not268 = icmp eq i64 %184, -9223372036854775807
-  br i1 %.not268, label %common.resume, label %289
+  %.not275 = icmp eq i64 %184, -9223372036854775807
+  br i1 %.not275, label %common.resume, label %289
 
 185:                                              ; preds = %119
   invoke fastcc void @"_ZN4core3ptr251drop_in_place$LT$core..result..Result$LT$$LP$alloc..vec..Vec$LT$std..path..PathBuf$GT$$C$alloc..vec..Vec$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h9f46cb7214dc4e89E"(ptr noalias noundef align 8 dereferenceable(48) %8) #27
@@ -90962,8 +90962,8 @@ _ZN10async_task5utils14abort_on_panic17h6db47c7b000582e0E.exit: ; preds = %157, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i114": ; preds = %286, %290, %248, %226, %.body.i128, %194, %.body153
   %.pn90 = phi { ptr, i32 } [ %280, %.body153 ], [ %195, %194 ], [ %185, %.body.i128 ], [ %227, %226 ], [ %249, %248 ], [ %280, %290 ], [ %287, %286 ]
   %168 = load i64, ptr %6, align 8, !range !5235, !noundef !11
-  %.not275 = icmp eq i64 %168, -9223372036854775806
-  br i1 %.not275, label %common.resume, label %293
+  %.not287 = icmp eq i64 %168, -9223372036854775806
+  br i1 %.not287, label %common.resume, label %293
 
 169:                                              ; preds = %.body.i108
   invoke fastcc void @"_ZN4core3ptr187drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..string..String$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h8ea72df4e3fd66f2E"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -92708,8 +92708,8 @@ _ZN10async_task5utils14abort_on_panic17h45c37a6b4bd3ed00E.exit: ; preds = %152, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i116": ; preds = %279, %283, %241, %219, %.body.i129, %188, %.body154
   %.pn90 = phi { ptr, i32 } [ %273, %.body154 ], [ %189, %188 ], [ %179, %.body.i129 ], [ %220, %219 ], [ %242, %241 ], [ %273, %283 ], [ %280, %279 ]
   %163 = load i64, ptr %6, align 8, !range !5235, !noundef !11
-  %.not273 = icmp eq i64 %163, -9223372036854775806
-  br i1 %.not273, label %common.resume, label %286
+  %.not285 = icmp eq i64 %163, -9223372036854775806
+  br i1 %.not285, label %common.resume, label %286
 
 164:                                              ; preds = %.body.i110
   invoke fastcc void @"_ZN4core3ptr286drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$$LP$core..option..Option$LT$std..path..PathBuf$GT$$C$language..buffer..BufferSnapshot$C$usize$RP$$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hcdd162f17173b9b2E"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -94287,8 +94287,8 @@ _ZN10async_task5utils14abort_on_panic17hde837bd8869b47daE.exit: ; preds = %136, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i111": ; preds = %245, %249, %207, %187, %.body.i122, %155, %.body146
   %.pn90 = phi { ptr, i32 } [ %239, %.body146 ], [ %156, %155 ], [ %152, %.body.i122 ], [ %188, %187 ], [ %208, %207 ], [ %239, %249 ], [ %246, %245 ]
   %147 = load i64, ptr %6, align 8, !range !5175, !noundef !11
-  %.not265 = icmp eq i64 %147, -9223372036854775807
-  br i1 %.not265, label %common.resume, label %252
+  %.not271 = icmp eq i64 %147, -9223372036854775807
+  br i1 %.not271, label %common.resume, label %252
 
 148:                                              ; preds = %.body.i105
   invoke fastcc void @"_ZN4core3ptr168drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$fuzzy..paths..PathMatch$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h0858ec86d9c5ad66E"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -94942,9 +94942,9 @@ _ZN4core3ops8function6FnOnce9call_once17h84dcc15d32e06039E.llvm.1752671377060393
 "_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17heabecb4ecc4bf45aE.exit": ; preds = %61
   %99 = load i64, ptr %8, align 8, !range !6041, !noundef !11
   %trunc = trunc nuw i64 %99 to i1
-  br i1 %trunc, label %thread-pre-split.thread273, label %thread-pre-split
+  br i1 %trunc, label %thread-pre-split.thread283, label %thread-pre-split
 
-thread-pre-split.thread273:                       ; preds = %"_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17heabecb4ecc4bf45aE.exit"
+thread-pre-split.thread283:                       ; preds = %"_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17heabecb4ecc4bf45aE.exit"
   store i64 2, ptr %9, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.preheader.preheader
@@ -95007,7 +95007,7 @@ thread-pre-split.thread:                          ; preds = %104
   store i64 2, ptr %9, align 8
   br label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %thread-pre-split.thread273, %.critedge
+.preheader.preheader:                             ; preds = %thread-pre-split.thread283, %.critedge
   br label %.preheader
 
 107:                                              ; preds = %thread-pre-split, %thread-pre-split.thread, %.thread231
@@ -95230,8 +95230,8 @@ _ZN10async_task5utils14abort_on_panic17h9c068f62b63279d7E.exit: ; preds = %139, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i115": ; preds = %294, %298, %256, %236, %201, %205, %.body150
   %.pn90 = phi { ptr, i32 } [ %288, %.body150 ], [ %206, %205 ], [ %202, %201 ], [ %237, %236 ], [ %257, %256 ], [ %288, %298 ], [ %295, %294 ]
   %196 = load i64, ptr %9, align 8, !range !6104, !noundef !11
-  %.not278 = icmp eq i64 %196, 2
-  br i1 %.not278, label %common.resume, label %301
+  %.not288 = icmp eq i64 %196, 2
+  br i1 %.not288, label %common.resume, label %301
 
 197:                                              ; preds = %108
   invoke fastcc void @"_ZN4core3ptr224drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$gpui..window..WindowHandle$LT$assistant..prompt_library..PromptLibrary$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb01b31243c1260f5E"(ptr noalias noundef align 8 dereferenceable(32) %9) #27
@@ -96128,8 +96128,8 @@ _ZN10async_task5utils14abort_on_panic17h308fe0e3162fd771E.exit: ; preds = %182, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i115": ; preds = %311, %315, %273, %251, %.body.i129, %219, %.body154
   %.pn90 = phi { ptr, i32 } [ %305, %.body154 ], [ %220, %219 ], [ %210, %.body.i129 ], [ %252, %251 ], [ %274, %273 ], [ %305, %315 ], [ %312, %311 ]
   %193 = load i64, ptr %6, align 8, !range !5175, !noundef !11
-  %.not276 = icmp eq i64 %193, -9223372036854775807
-  br i1 %.not276, label %common.resume, label %318
+  %.not291 = icmp eq i64 %193, -9223372036854775807
+  br i1 %.not291, label %common.resume, label %318
 
 194:                                              ; preds = %.body.i108
   invoke fastcc void @"_ZN4core3ptr181drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$assistant..model_selector..ModelInfo$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hbe2028bd6e3c56d4E"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -97083,8 +97083,8 @@ _ZN10async_task5utils14abort_on_panic17h1f0eed7cd310671cE.exit: ; preds = %173, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i115": ; preds = %282, %286, %244, %224, %189, %193, %.body150
   %.pn90 = phi { ptr, i32 } [ %276, %.body150 ], [ %190, %189 ], [ %194, %193 ], [ %225, %224 ], [ %245, %244 ], [ %276, %286 ], [ %283, %282 ]
   %184 = load i64, ptr %10, align 8, !range !6104, !noundef !11
-  %.not265 = icmp eq i64 %184, 2
-  br i1 %.not265, label %common.resume, label %289
+  %.not272 = icmp eq i64 %184, 2
+  br i1 %.not272, label %common.resume, label %289
 
 185:                                              ; preds = %119
   invoke fastcc void @"_ZN4core3ptr215drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$gpui..view..View$LT$assistant..assistant_panel..ContextEditor$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h49106c79828b798fE"(ptr noalias noundef align 8 dereferenceable(40) %8) #27
@@ -97982,8 +97982,8 @@ _ZN10async_task5utils14abort_on_panic17h5cfb8a0ba22f0a8bE.exit: ; preds = %182, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i115": ; preds = %311, %315, %273, %251, %.body.i129, %219, %.body154
   %.pn90 = phi { ptr, i32 } [ %305, %.body154 ], [ %220, %219 ], [ %210, %.body.i129 ], [ %252, %251 ], [ %274, %273 ], [ %305, %315 ], [ %312, %311 ]
   %193 = load i64, ptr %6, align 8, !range !5175, !noundef !11
-  %.not276 = icmp eq i64 %193, -9223372036854775807
-  br i1 %.not276, label %common.resume, label %318
+  %.not291 = icmp eq i64 %193, -9223372036854775807
+  br i1 %.not291, label %common.resume, label %318
 
 194:                                              ; preds = %.body.i108
   invoke fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$assistant..slash_command_picker..SlashCommandEntry$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hf0e4f2b7128b01eeE"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -98913,8 +98913,8 @@ _ZN10async_task5utils14abort_on_panic17h672df8a8401e6405E.exit: ; preds = %177, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i117": ; preds = %304, %308, %266, %244, %.body.i131, %213, %.body156
   %.pn90 = phi { ptr, i32 } [ %298, %.body156 ], [ %214, %213 ], [ %204, %.body.i131 ], [ %245, %244 ], [ %267, %266 ], [ %298, %308 ], [ %305, %304 ]
   %188 = load i64, ptr %6, align 8, !range !5175, !noundef !11
-  %.not275 = icmp eq i64 %188, -9223372036854775807
-  br i1 %.not275, label %common.resume, label %311
+  %.not290 = icmp eq i64 %188, -9223372036854775807
+  br i1 %.not290, label %common.resume, label %311
 
 189:                                              ; preds = %.body.i110
   invoke fastcc void @"_ZN4core3ptr185drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$assistant..context..SavedContextMetadata$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h6005340b4e7b1766E"(ptr noalias noundef align 8 dereferenceable(24) %4) #27
@@ -99458,9 +99458,9 @@ _ZN10async_task5utils14abort_on_panic17hdc576724419707f9E.exit: ; preds = %25
 45:                                               ; preds = %37
   %46 = load i64, ptr %4, align 8, !range !6041, !noundef !11
   %trunc = trunc nuw i64 %46 to i1
-  br i1 %trunc, label %thread-pre-split.thread267, label %thread-pre-split
+  br i1 %trunc, label %thread-pre-split.thread273, label %thread-pre-split
 
-thread-pre-split.thread267:                       ; preds = %45
+thread-pre-split.thread273:                       ; preds = %45
   store i64 2, ptr %5, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.preheader.preheader
@@ -99523,7 +99523,7 @@ thread-pre-split.thread:                          ; preds = %51
   store i64 2, ptr %5, align 8
   br label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %thread-pre-split.thread267, %.critedge
+.preheader.preheader:                             ; preds = %thread-pre-split.thread273, %.critedge
   br label %.preheader
 
 54:                                               ; preds = %thread-pre-split, %thread-pre-split.thread, %.thread225
@@ -99749,8 +99749,8 @@ _ZN10async_task5utils14abort_on_panic17hf228503ec84a699cE.exit: ; preds = %86, %
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h050e5c9153fcee2dE.exit.i113": ; preds = %241, %245, %203, %183, %.body.i124, %151, %.body148
   %.pn90 = phi { ptr, i32 } [ %235, %.body148 ], [ %152, %151 ], [ %148, %.body.i124 ], [ %184, %183 ], [ %204, %203 ], [ %235, %245 ], [ %242, %241 ]
   %143 = load i64, ptr %5, align 8, !range !6104, !noundef !11
-  %.not272 = icmp eq i64 %143, 2
-  br i1 %.not272, label %common.resume, label %248
+  %.not278 = icmp eq i64 %143, 2
+  br i1 %.not278, label %common.resume, label %248
 
 144:                                              ; preds = %.body.i107
   invoke fastcc void @"_ZN4core3ptr224drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$gpui..window..WindowHandle$LT$assistant..prompt_library..PromptLibrary$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hb01b31243c1260f5E"(ptr noalias noundef align 8 dereferenceable(32) %5) #27

@@ -3504,7 +3504,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h07aafcee516f7443E.exit: ; preds = %
 936:                                              ; preds = %949, %.lr.ph1146.i.i
   %.pn1152.i.i = phi i64 [ %921, %.lr.ph1146.i.i ], [ %937, %949 ]
   %.sroa.0398.71144.i.i = phi i64 [ %933, %.lr.ph1146.i.i ], [ %950, %949 ]
-  %937 = add i64 %.pn1152.i.i, -1
+  %937 = add nsw i64 %.pn1152.i.i, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %65), !noalias !222
   invoke fastcc void @_ZN21polars_parquet_format14parquet_format11ColumnOrder21write_to_out_protocol17hc0db0d5d6d39cc38E(ptr noalias noundef align 8 captures(none) dereferenceable(40) %65, ptr noalias noundef nonnull align 8 dereferenceable(72) %106)
           to label %945 unwind label %.loopexit.i.i, !noalias !233
@@ -7953,7 +7953,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4send
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.i.lr.ph.lr.ph
   %29 = phi i64 [ %22, %.lr.ph.i.lr.ph.lr.ph ], [ %.be, %.lr.ph.i.backedge ]
-  %30 = phi i64 [ %21, %.lr.ph.i.lr.ph.lr.ph ], [ %.be86, %.lr.ph.i.backedge ]
+  %30 = phi i64 [ %21, %.lr.ph.i.lr.ph.lr.ph ], [ %.be91, %.lr.ph.i.backedge ]
   %.sroa.0.059 = phi i32 [ 0, %.lr.ph.i.lr.ph.lr.ph ], [ %.sroa.0.059.be, %.lr.ph.i.backedge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !457)
   br label %31
@@ -8147,7 +8147,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit: ; preds = 
 
 .lr.ph.i.backedge:                                ; preds = %_ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit, %140
   %.be = phi i64 [ %101, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit ], [ %142, %140 ]
-  %.be86 = phi i64 [ %100, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit ], [ %141, %140 ]
+  %.be91 = phi i64 [ %100, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit ], [ %141, %140 ]
   %.sroa.0.059.be = phi i32 [ %99, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit ], [ 0, %140 ]
   br label %.lr.ph.i
 
@@ -8378,7 +8378,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4send
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.i.lr.ph.lr.ph
   %29 = phi i64 [ %22, %.lr.ph.i.lr.ph.lr.ph ], [ %.be, %.lr.ph.i.backedge ]
-  %30 = phi i64 [ %21, %.lr.ph.i.lr.ph.lr.ph ], [ %.be99, %.lr.ph.i.backedge ]
+  %30 = phi i64 [ %21, %.lr.ph.i.lr.ph.lr.ph ], [ %.be104, %.lr.ph.i.backedge ]
   %.sroa.0.068 = phi i32 [ 0, %.lr.ph.i.lr.ph.lr.ph ], [ %.sroa.0.068.be, %.lr.ph.i.backedge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !481)
   br label %31
@@ -8577,7 +8577,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit: ; preds = 
 
 .lr.ph.i.backedge:                                ; preds = %_ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit, %141
   %.be = phi i64 [ %102, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit ], [ %143, %141 ]
-  %.be99 = phi i64 [ %101, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit ], [ %142, %141 ]
+  %.be104 = phi i64 [ %101, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit ], [ %142, %141 ]
   %.sroa.0.068.be = phi i32 [ %100, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit ], [ 0, %141 ]
   br label %.lr.ph.i
 
@@ -8818,7 +8818,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4send
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.i.lr.ph.lr.ph
   %29 = phi i64 [ %22, %.lr.ph.i.lr.ph.lr.ph ], [ %.be, %.lr.ph.i.backedge ]
-  %30 = phi i64 [ %21, %.lr.ph.i.lr.ph.lr.ph ], [ %.be86, %.lr.ph.i.backedge ]
+  %30 = phi i64 [ %21, %.lr.ph.i.lr.ph.lr.ph ], [ %.be91, %.lr.ph.i.backedge ]
   %.sroa.0.059 = phi i32 [ 0, %.lr.ph.i.lr.ph.lr.ph ], [ %.sroa.0.059.be, %.lr.ph.i.backedge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !508)
   br label %31
@@ -9012,7 +9012,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit: ; preds = 
 
 .lr.ph.i.backedge:                                ; preds = %_ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit, %140
   %.be = phi i64 [ %101, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit ], [ %142, %140 ]
-  %.be86 = phi i64 [ %100, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit ], [ %141, %140 ]
+  %.be91 = phi i64 [ %100, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit ], [ %141, %140 ]
   %.sroa.0.059.be = phi i32 [ %99, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit ], [ 0, %140 ]
   br label %.lr.ph.i
 
@@ -9243,7 +9243,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4send
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.i.lr.ph.lr.ph
   %29 = phi i64 [ %22, %.lr.ph.i.lr.ph.lr.ph ], [ %.be, %.lr.ph.i.backedge ]
-  %30 = phi i64 [ %21, %.lr.ph.i.lr.ph.lr.ph ], [ %.be87, %.lr.ph.i.backedge ]
+  %30 = phi i64 [ %21, %.lr.ph.i.lr.ph.lr.ph ], [ %.be92, %.lr.ph.i.backedge ]
   %.sroa.0.060 = phi i32 [ 0, %.lr.ph.i.lr.ph.lr.ph ], [ %.sroa.0.060.be, %.lr.ph.i.backedge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !532)
   br label %31
@@ -9437,7 +9437,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit: ; preds = 
 
 .lr.ph.i.backedge:                                ; preds = %_ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit, %140
   %.be = phi i64 [ %101, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit ], [ %142, %140 ]
-  %.be87 = phi i64 [ %100, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit ], [ %141, %140 ]
+  %.be92 = phi i64 [ %100, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit ], [ %141, %140 ]
   %.sroa.0.060.be = phi i32 [ %99, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit ], [ 0, %140 ]
   br label %.lr.ph.i
 
@@ -15542,7 +15542,7 @@ define internal fastcc void @_ZN21polars_parquet_format14parquet_format11Logical
 82:                                               ; preds = %77
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   %83 = load i8, ptr %1, align 4, !range !641, !noundef !10
-  switch i8 %83, label %default.unreachable1220 [
+  switch i8 %83, label %default.unreachable1264 [
     i8 0, label %84
     i8 1, label %85
     i8 2, label %86
@@ -15559,7 +15559,7 @@ define internal fastcc void @_ZN21polars_parquet_format14parquet_format11Logical
     i8 13, label %101
   ]
 
-default.unreachable1220:                          ; preds = %82
+default.unreachable1264:                          ; preds = %82
   unreachable
 
 84:                                               ; preds = %82

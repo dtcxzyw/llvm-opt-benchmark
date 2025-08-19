@@ -385,8 +385,8 @@ define dso_local void @AddWALInfoToBackupManifest(ptr noundef captures(none) %0,
 20:                                               ; preds = %.lr.ph75
   %.pre = load i32, ptr %15, align 8
   %.not53 = icmp ne i32 %4, %.pre
-  %or.cond83.not = select i1 %.0426673, i1 %.not53, i1 false
-  br i1 %or.cond83.not, label %.split, label %24
+  %or.cond86.not = select i1 %.0426673, i1 %.not53, i1 false
+  br i1 %or.cond86.not, label %.split, label %24
 
 .split:                                           ; preds = %20
   %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9

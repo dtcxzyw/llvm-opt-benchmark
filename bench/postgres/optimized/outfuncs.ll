@@ -7275,8 +7275,8 @@ outChar.exit53:                                   ; preds = %50, %51
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %60 = load ptr, ptr %59, align 8
   call void @outNode(ptr noundef %0, ptr noundef %60)
-  %.b54 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b54, label %61, label %64
+  %.b56 = load i1, ptr @write_location_fields, align 1
+  br i1 %.b56, label %61, label %64
 
 61:                                               ; preds = %outChar.exit53
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -10052,8 +10052,8 @@ outChar.exit95:                                   ; preds = %109, %110
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %117 = load i32, ptr %116, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.772, i32 noundef %117) #7
-  %.b96 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b96, label %118, label %121
+  %.b100 = load i1, ptr @write_location_fields, align 1
+  br i1 %.b100, label %118, label %121
 
 118:                                              ; preds = %outChar.exit95
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 180
@@ -20353,8 +20353,8 @@ outBitmapset.exit66:                              ; preds = %.lr.ph.i65, %outBit
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %70 = load ptr, ptr %69, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %70)
-  %.b6768 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b6768, label %71, label %74
+  %.b6869 = load i1, ptr @write_location_fields, align 1
+  br i1 %.b6869, label %71, label %74
 
 71:                                               ; preds = %outBitmapset.exit66
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -20364,8 +20364,8 @@ outBitmapset.exit66:                              ; preds = %.lr.ph.i65, %outBit
 74:                                               ; preds = %outBitmapset.exit66, %71
   %75 = phi i32 [ %73, %71 ], [ -1, %outBitmapset.exit66 ]
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.372, i32 noundef %75) #7
-  %.b69 = load i1, ptr @write_location_fields, align 1
-  br i1 %.b69, label %76, label %79
+  %.b70 = load i1, ptr @write_location_fields, align 1
+  br i1 %.b70, label %76, label %79
 
 76:                                               ; preds = %74
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 148

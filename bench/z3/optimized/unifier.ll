@@ -382,11 +382,11 @@ _ZN6bufferI11expr_offsetLb1ELj16EE6expandEv.exit.i: ; preds = %.noexc13, %._crit
   unreachable
 
 _ZN6bufferI11expr_offsetLb1ELj16EED2Ev.exit:      ; preds = %3, %._crit_edge29, %70
-  %.sroa.0.0.copyload46 = phi ptr [ %.sroa.0.0.copyload, %._crit_edge29 ], [ %.sroa.0.0.copyload, %70 ], [ %1, %3 ]
-  %.sroa.2.0.copyload45 = phi i32 [ %.sroa.2.0.copyload, %._crit_edge29 ], [ %.sroa.2.0.copyload, %70 ], [ %2, %3 ]
+  %.sroa.0.0.copyload55 = phi ptr [ %.sroa.0.0.copyload, %._crit_edge29 ], [ %.sroa.0.0.copyload, %70 ], [ %1, %3 ]
+  %.sroa.2.0.copyload54 = phi i32 [ %.sroa.2.0.copyload, %._crit_edge29 ], [ %.sroa.2.0.copyload, %70 ], [ %2, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0.copyload46, 0
-  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.2.0.copyload45, 1
+  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0.copyload55, 0
+  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.2.0.copyload54, 1
   ret { ptr, i32 } %.fca.1.insert
 
 74:                                               ; preds = %66, %59
@@ -429,8 +429,8 @@ _ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE4sizeEv.exit
   br i1 %.not15.i, label %thread-pre-split.i.preheader, label %_ZN6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE3endEv.exit.i.i
 
 thread-pre-split.i.preheader:                     ; preds = %_ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE4sizeEv.exit.i, %_ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE4sizeEv.exit.thread.i
-  %.ph41 = phi ptr [ %7, %_ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE4sizeEv.exit.i ]
-  %.ph42 = phi i32 [ %12, %_ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE4sizeEv.exit.thread.i ], [ %11, %_ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE4sizeEv.exit.i ]
+  %.ph57 = phi ptr [ %7, %_ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE4sizeEv.exit.i ]
+  %.ph58 = phi i32 [ %12, %_ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE4sizeEv.exit.thread.i ], [ %11, %_ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE4sizeEv.exit.i ]
   %.0.i16.i.ph = phi i32 [ %10, %_ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE4sizeEv.exit.thread.i ], [ 0, %_ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE4sizeEv.exit.i ]
   br label %thread-pre-split.i
 
@@ -479,14 +479,14 @@ _ZN6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjED2Ev.exit.i.i: ; preds =
   br label %_ZN6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjED2Ev.exit
 
 thread-pre-split.i:                               ; preds = %thread-pre-split.i.preheader, %.noexc
-  %26 = phi ptr [ %.pr.pre.i, %.noexc ], [ %.ph41, %thread-pre-split.i.preheader ]
+  %26 = phi ptr [ %.pr.pre.i, %.noexc ], [ %.ph57, %thread-pre-split.i.preheader ]
   %27 = icmp eq ptr %26, null
   br i1 %27, label %_ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE8capacityEv.exit.thread.i, label %_ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE8capacityEv.exit.i
 
 _ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE8capacityEv.exit.i: ; preds = %thread-pre-split.i
   %28 = getelementptr inbounds i8, ptr %26, i64 -8
   %29 = load i32, ptr %28, align 4, !tbaa !9
-  %30 = icmp ugt i32 %.ph42, %29
+  %30 = icmp ugt i32 %.ph58, %29
   br i1 %30, label %_ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE8capacityEv.exit.thread.i, label %31
 
 _ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE8capacityEv.exit.thread.i: ; preds = %_ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE8capacityEv.exit.i, %thread-pre-split.i
@@ -499,10 +499,10 @@ _ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE8capacityEv.
 
 31:                                               ; preds = %_ZNK6vectorI7svectorIN15expr_offset_mapI11expr_offsetE4dataEjELb1EjE8capacityEv.exit.i
   %32 = getelementptr inbounds i8, ptr %26, i64 -4
-  store i32 %.ph42, ptr %32, align 4, !tbaa !9
-  %33 = zext i32 %.ph42 to i64
+  store i32 %.ph58, ptr %32, align 4, !tbaa !9
+  %33 = zext i32 %.ph58 to i64
   %34 = getelementptr inbounds nuw %class.svector.52, ptr %26, i64 %33
-  %.not1218.i = icmp eq i32 %.0.i16.i.ph, %.ph42
+  %.not1218.i = icmp eq i32 %.0.i16.i.ph, %.ph58
   br i1 %.not1218.i, label %_ZN6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjED2Ev.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %31
@@ -555,7 +555,7 @@ _ZNK6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE4sizeEv.exit.thread.i: 
 
 thread-pre-split.i20.preheader:                   ; preds = %_ZNK6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE4sizeEv.exit.i, %_ZNK6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE4sizeEv.exit.thread.i
   %.ph = phi ptr [ %46, %_ZNK6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE4sizeEv.exit.i ]
-  %.ph40 = phi i32 [ %51, %_ZNK6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE4sizeEv.exit.thread.i ], [ %50, %_ZNK6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE4sizeEv.exit.i ]
+  %.ph56 = phi i32 [ %51, %_ZNK6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE4sizeEv.exit.thread.i ], [ %50, %_ZNK6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE4sizeEv.exit.i ]
   %.0.i16.i23.ph = phi i32 [ %49, %_ZNK6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE4sizeEv.exit.thread.i ], [ 0, %_ZNK6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE4sizeEv.exit.i ]
   br label %thread-pre-split.i20
 
@@ -571,7 +571,7 @@ thread-pre-split.i20:                             ; preds = %thread-pre-split.i2
 _ZNK6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE8capacityEv.exit.i: ; preds = %thread-pre-split.i20
   %55 = getelementptr inbounds i8, ptr %53, i64 -8
   %56 = load i32, ptr %55, align 4, !tbaa !9
-  %57 = icmp ugt i32 %.ph40, %56
+  %57 = icmp ugt i32 %.ph56, %56
   br i1 %57, label %_ZNK6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE8capacityEv.exit.thread.i, label %58
 
 _ZNK6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE8capacityEv.exit.thread.i: ; preds = %_ZNK6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE8capacityEv.exit.i, %thread-pre-split.i20
@@ -581,10 +581,10 @@ _ZNK6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE8capacityEv.exit.thread
 
 58:                                               ; preds = %_ZNK6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE8capacityEv.exit.i
   %59 = getelementptr inbounds i8, ptr %53, i64 -4
-  store i32 %.ph40, ptr %59, align 4, !tbaa !9
-  %60 = zext i32 %.ph40 to i64
+  store i32 %.ph56, ptr %59, align 4, !tbaa !9
+  %60 = zext i32 %.ph56 to i64
   %61 = getelementptr inbounds nuw %"struct.expr_offset_map<expr_offset>::data", ptr %53, i64 %60
-  %.not1218.i24 = icmp eq i32 %.0.i16.i23.ph, %.ph40
+  %.not1218.i24 = icmp eq i32 %.0.i16.i23.ph, %.ph56
   br i1 %.not1218.i24, label %_ZN6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE6resizeEj.exit, label %.lr.ph.preheader.i25
 
 .lr.ph.preheader.i25:                             ; preds = %58
@@ -876,8 +876,8 @@ _ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.thread.i: ;
   br i1 %.not15.i, label %thread-pre-split.i.preheader, label %_ZN6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE3endEv.exit.i.i
 
 thread-pre-split.i.preheader:                     ; preds = %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.i, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.thread.i
-  %.ph41 = phi ptr [ %7, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.i ]
-  %.ph42 = phi i32 [ %12, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.thread.i ], [ %11, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.i ]
+  %.ph57 = phi ptr [ %7, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.i ]
+  %.ph58 = phi i32 [ %12, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.thread.i ], [ %11, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.i ]
   %.0.i16.i.ph = phi i32 [ %10, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.thread.i ], [ 0, %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE4sizeEv.exit.i ]
   br label %thread-pre-split.i
 
@@ -926,14 +926,14 @@ _ZN6vectorIN15expr_offset_mapIjE4dataELb0EjED2Ev.exit.i.i: ; preds = %18, %.lr.p
   br label %_ZN6vectorIN15expr_offset_mapIjE4dataELb0EjED2Ev.exit
 
 thread-pre-split.i:                               ; preds = %thread-pre-split.i.preheader, %.noexc
-  %26 = phi ptr [ %.pr.pre.i, %.noexc ], [ %.ph41, %thread-pre-split.i.preheader ]
+  %26 = phi ptr [ %.pr.pre.i, %.noexc ], [ %.ph57, %thread-pre-split.i.preheader ]
   %27 = icmp eq ptr %26, null
   br i1 %27, label %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE8capacityEv.exit.thread.i, label %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE8capacityEv.exit.i
 
 _ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE8capacityEv.exit.i: ; preds = %thread-pre-split.i
   %28 = getelementptr inbounds i8, ptr %26, i64 -8
   %29 = load i32, ptr %28, align 4, !tbaa !9
-  %30 = icmp ugt i32 %.ph42, %29
+  %30 = icmp ugt i32 %.ph58, %29
   br i1 %30, label %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE8capacityEv.exit.thread.i, label %31
 
 _ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE8capacityEv.exit.thread.i: ; preds = %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE8capacityEv.exit.i, %thread-pre-split.i
@@ -946,10 +946,10 @@ _ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE8capacityEv.exit.thread.
 
 31:                                               ; preds = %_ZNK6vectorI7svectorIN15expr_offset_mapIjE4dataEjELb1EjE8capacityEv.exit.i
   %32 = getelementptr inbounds i8, ptr %26, i64 -4
-  store i32 %.ph42, ptr %32, align 4, !tbaa !9
-  %33 = zext i32 %.ph42 to i64
+  store i32 %.ph58, ptr %32, align 4, !tbaa !9
+  %33 = zext i32 %.ph58 to i64
   %34 = getelementptr inbounds nuw %class.svector.54, ptr %26, i64 %33
-  %.not1218.i = icmp eq i32 %.0.i16.i.ph, %.ph42
+  %.not1218.i = icmp eq i32 %.0.i16.i.ph, %.ph58
   br i1 %.not1218.i, label %_ZN6vectorIN15expr_offset_mapIjE4dataELb0EjED2Ev.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %31
@@ -1002,7 +1002,7 @@ _ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.thread.i: ; preds = %_
 
 thread-pre-split.i20.preheader:                   ; preds = %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.i, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.thread.i
   %.ph = phi ptr [ %46, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.i ]
-  %.ph40 = phi i32 [ %51, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.thread.i ], [ %50, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.i ]
+  %.ph56 = phi i32 [ %51, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.thread.i ], [ %50, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.i ]
   %.0.i16.i23.ph = phi i32 [ %49, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.thread.i ], [ 0, %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE4sizeEv.exit.i ]
   br label %thread-pre-split.i20
 
@@ -1018,7 +1018,7 @@ thread-pre-split.i20:                             ; preds = %thread-pre-split.i2
 _ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE8capacityEv.exit.i: ; preds = %thread-pre-split.i20
   %55 = getelementptr inbounds i8, ptr %53, i64 -8
   %56 = load i32, ptr %55, align 4, !tbaa !9
-  %57 = icmp ugt i32 %.ph40, %56
+  %57 = icmp ugt i32 %.ph56, %56
   br i1 %57, label %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE8capacityEv.exit.thread.i, label %58
 
 _ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE8capacityEv.exit.thread.i: ; preds = %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE8capacityEv.exit.i, %thread-pre-split.i20
@@ -1028,10 +1028,10 @@ _ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE8capacityEv.exit.thread.i: ; preds 
 
 58:                                               ; preds = %_ZNK6vectorIN15expr_offset_mapIjE4dataELb0EjE8capacityEv.exit.i
   %59 = getelementptr inbounds i8, ptr %53, i64 -4
-  store i32 %.ph40, ptr %59, align 4, !tbaa !9
-  %60 = zext i32 %.ph40 to i64
+  store i32 %.ph56, ptr %59, align 4, !tbaa !9
+  %60 = zext i32 %.ph56 to i64
   %61 = getelementptr inbounds nuw %"struct.expr_offset_map<unsigned int>::data", ptr %53, i64 %60
-  %.not1218.i24 = icmp eq i32 %.0.i16.i23.ph, %.ph40
+  %.not1218.i24 = icmp eq i32 %.0.i16.i23.ph, %.ph56
   br i1 %.not1218.i24, label %_ZN6vectorIN15expr_offset_mapIjE4dataELb0EjE6resizeEj.exit, label %.lr.ph.preheader.i25
 
 .lr.ph.preheader.i25:                             ; preds = %58

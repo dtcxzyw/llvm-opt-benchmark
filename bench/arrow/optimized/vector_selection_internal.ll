@@ -29592,14 +29592,14 @@ _ZN5arrow6StatusD2Ev.exit104.i.i.i.i.i:           ; preds = %.noexc22.i.i.i, %_Z
   br label %430
 
 430:                                              ; preds = %_ZN5arrow6StatusD2Ev.exit104.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i.i
-  %.sink177.i.i.i.i.i = phi ptr [ %406, %_ZN5arrow6StatusD2Ev.exit104.i.i.i.i.i ], [ %343, %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i.i ]
-  %.sink171.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusD2Ev.exit104.i.i.i.i.i ], [ %315, %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i.i ]
-  %431 = getelementptr inbounds nuw i8, ptr %.sink177.i.i.i.i.i, i64 184
+  %.sink189.i.i.i.i.i = phi ptr [ %406, %_ZN5arrow6StatusD2Ev.exit104.i.i.i.i.i ], [ %343, %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i.i ]
+  %.sink183.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusD2Ev.exit104.i.i.i.i.i ], [ %315, %_ZN5arrow6StatusD2Ev.exit94.i.i.i.i.i ]
+  %431 = getelementptr inbounds nuw i8, ptr %.sink189.i.i.i.i.i, i64 184
   %432 = load ptr, ptr %431, align 8, !tbaa !225, !noalias !2817
-  %433 = getelementptr inbounds nuw i8, ptr %.sink177.i.i.i.i.i, i64 200
+  %433 = getelementptr inbounds nuw i8, ptr %.sink189.i.i.i.i.i, i64 200
   %434 = load i64, ptr %433, align 8, !tbaa !280, !noalias !2817
   %435 = getelementptr inbounds i8, ptr %432, i64 %434
-  store i32 %.sink171.i.i.i.i.i, ptr %435, align 1, !noalias !2817
+  store i32 %.sink183.i.i.i.i.i, ptr %435, align 1, !noalias !2817
   %436 = load i64, ptr %433, align 8, !tbaa !280, !noalias !2817
   %437 = add nsw i64 %436, 4
   store i64 %437, ptr %433, align 8, !tbaa !280, !noalias !2817
@@ -30374,14 +30374,14 @@ _ZN5arrow6StatusD2Ev.exit104.i.i.i154.i.i:        ; preds = %.noexc22.i152.i.i, 
   br label %860
 
 860:                                              ; preds = %_ZN5arrow6StatusD2Ev.exit104.i.i.i154.i.i, %_ZN5arrow6StatusD2Ev.exit94.i.i.i142.i.i
-  %.sink177.i.i.i143.i.i = phi ptr [ %836, %_ZN5arrow6StatusD2Ev.exit104.i.i.i154.i.i ], [ %773, %_ZN5arrow6StatusD2Ev.exit94.i.i.i142.i.i ]
-  %.sink171.i.i.i144.i.i = phi i32 [ 0, %_ZN5arrow6StatusD2Ev.exit104.i.i.i154.i.i ], [ %745, %_ZN5arrow6StatusD2Ev.exit94.i.i.i142.i.i ]
-  %861 = getelementptr inbounds nuw i8, ptr %.sink177.i.i.i143.i.i, i64 184
+  %.sink189.i.i.i143.i.i = phi ptr [ %836, %_ZN5arrow6StatusD2Ev.exit104.i.i.i154.i.i ], [ %773, %_ZN5arrow6StatusD2Ev.exit94.i.i.i142.i.i ]
+  %.sink183.i.i.i144.i.i = phi i32 [ 0, %_ZN5arrow6StatusD2Ev.exit104.i.i.i154.i.i ], [ %745, %_ZN5arrow6StatusD2Ev.exit94.i.i.i142.i.i ]
+  %861 = getelementptr inbounds nuw i8, ptr %.sink189.i.i.i143.i.i, i64 184
   %862 = load ptr, ptr %861, align 8, !tbaa !225, !noalias !2867
-  %863 = getelementptr inbounds nuw i8, ptr %.sink177.i.i.i143.i.i, i64 200
+  %863 = getelementptr inbounds nuw i8, ptr %.sink189.i.i.i143.i.i, i64 200
   %864 = load i64, ptr %863, align 8, !tbaa !280, !noalias !2867
   %865 = getelementptr inbounds i8, ptr %862, i64 %864
-  store i32 %.sink171.i.i.i144.i.i, ptr %865, align 1, !noalias !2867
+  store i32 %.sink183.i.i.i144.i.i, ptr %865, align 1, !noalias !2867
   %866 = load i64, ptr %863, align 8, !tbaa !280, !noalias !2867
   %867 = add nsw i64 %866, 4
   store i64 %867, ptr %863, align 8, !tbaa !280, !noalias !2867
@@ -31156,14 +31156,14 @@ _ZN5arrow6StatusD2Ev.exit104.i.i.i255.i.i:        ; preds = %.noexc22.i253.i.i, 
   br label %1290
 
 1290:                                             ; preds = %_ZN5arrow6StatusD2Ev.exit104.i.i.i255.i.i, %_ZN5arrow6StatusD2Ev.exit94.i.i.i243.i.i
-  %.sink177.i.i.i244.i.i = phi ptr [ %1266, %_ZN5arrow6StatusD2Ev.exit104.i.i.i255.i.i ], [ %1203, %_ZN5arrow6StatusD2Ev.exit94.i.i.i243.i.i ]
-  %.sink171.i.i.i245.i.i = phi i32 [ 0, %_ZN5arrow6StatusD2Ev.exit104.i.i.i255.i.i ], [ %1175, %_ZN5arrow6StatusD2Ev.exit94.i.i.i243.i.i ]
-  %1291 = getelementptr inbounds nuw i8, ptr %.sink177.i.i.i244.i.i, i64 184
+  %.sink189.i.i.i244.i.i = phi ptr [ %1266, %_ZN5arrow6StatusD2Ev.exit104.i.i.i255.i.i ], [ %1203, %_ZN5arrow6StatusD2Ev.exit94.i.i.i243.i.i ]
+  %.sink183.i.i.i245.i.i = phi i32 [ 0, %_ZN5arrow6StatusD2Ev.exit104.i.i.i255.i.i ], [ %1175, %_ZN5arrow6StatusD2Ev.exit94.i.i.i243.i.i ]
+  %1291 = getelementptr inbounds nuw i8, ptr %.sink189.i.i.i244.i.i, i64 184
   %1292 = load ptr, ptr %1291, align 8, !tbaa !225, !noalias !2916
-  %1293 = getelementptr inbounds nuw i8, ptr %.sink177.i.i.i244.i.i, i64 200
+  %1293 = getelementptr inbounds nuw i8, ptr %.sink189.i.i.i244.i.i, i64 200
   %1294 = load i64, ptr %1293, align 8, !tbaa !280, !noalias !2916
   %1295 = getelementptr inbounds i8, ptr %1292, i64 %1294
-  store i32 %.sink171.i.i.i245.i.i, ptr %1295, align 1, !noalias !2916
+  store i32 %.sink183.i.i.i245.i.i, ptr %1295, align 1, !noalias !2916
   %1296 = load i64, ptr %1293, align 8, !tbaa !280, !noalias !2916
   %1297 = add nsw i64 %1296, 4
   store i64 %1297, ptr %1293, align 8, !tbaa !280, !noalias !2916
@@ -31935,14 +31935,14 @@ _ZN5arrow6StatusD2Ev.exit104.i.i.i356.i.i:        ; preds = %.noexc22.i354.i.i, 
   br label %1717
 
 1717:                                             ; preds = %_ZN5arrow6StatusD2Ev.exit104.i.i.i356.i.i, %_ZN5arrow6StatusD2Ev.exit94.i.i.i344.i.i
-  %.sink177.i.i.i345.i.i = phi ptr [ %1693, %_ZN5arrow6StatusD2Ev.exit104.i.i.i356.i.i ], [ %1630, %_ZN5arrow6StatusD2Ev.exit94.i.i.i344.i.i ]
-  %.sink171.i.i.i346.i.i = phi i32 [ 0, %_ZN5arrow6StatusD2Ev.exit104.i.i.i356.i.i ], [ %1602, %_ZN5arrow6StatusD2Ev.exit94.i.i.i344.i.i ]
-  %1718 = getelementptr inbounds nuw i8, ptr %.sink177.i.i.i345.i.i, i64 184
+  %.sink189.i.i.i345.i.i = phi ptr [ %1693, %_ZN5arrow6StatusD2Ev.exit104.i.i.i356.i.i ], [ %1630, %_ZN5arrow6StatusD2Ev.exit94.i.i.i344.i.i ]
+  %.sink183.i.i.i346.i.i = phi i32 [ 0, %_ZN5arrow6StatusD2Ev.exit104.i.i.i356.i.i ], [ %1602, %_ZN5arrow6StatusD2Ev.exit94.i.i.i344.i.i ]
+  %1718 = getelementptr inbounds nuw i8, ptr %.sink189.i.i.i345.i.i, i64 184
   %1719 = load ptr, ptr %1718, align 8, !tbaa !225, !noalias !2965
-  %1720 = getelementptr inbounds nuw i8, ptr %.sink177.i.i.i345.i.i, i64 200
+  %1720 = getelementptr inbounds nuw i8, ptr %.sink189.i.i.i345.i.i, i64 200
   %1721 = load i64, ptr %1720, align 8, !tbaa !280, !noalias !2965
   %1722 = getelementptr inbounds i8, ptr %1719, i64 %1721
-  store i32 %.sink171.i.i.i346.i.i, ptr %1722, align 1, !noalias !2965
+  store i32 %.sink183.i.i.i346.i.i, ptr %1722, align 1, !noalias !2965
   %1723 = load i64, ptr %1720, align 8, !tbaa !280, !noalias !2965
   %1724 = add nsw i64 %1723, 4
   store i64 %1724, ptr %1720, align 8, !tbaa !280, !noalias !2965
@@ -32726,12 +32726,12 @@ _ZN5arrow6StatusD2Ev.exit93.i.i.i.i.i:            ; preds = %_ZNK5arrow8internal
   br label %235
 
 235:                                              ; preds = %_ZN5arrow6StatusD2Ev.exit93.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit89.i.i.i.i.i
-  %.sink137.in.i.i.i.i.i = phi ptr [ %79, %_ZN5arrow6StatusD2Ev.exit93.i.i.i.i.i ], [ %220, %_ZN5arrow6StatusD2Ev.exit89.i.i.i.i.i ]
-  %.sink137.i.i.i.i.i = load i8, ptr %.sink137.in.i.i.i.i.i, align 1, !tbaa !74, !noalias !3061
+  %.sink139.in.i.i.i.i.i = phi ptr [ %79, %_ZN5arrow6StatusD2Ev.exit93.i.i.i.i.i ], [ %220, %_ZN5arrow6StatusD2Ev.exit89.i.i.i.i.i ]
+  %.sink139.i.i.i.i.i = load i8, ptr %.sink139.in.i.i.i.i.i, align 1, !tbaa !74, !noalias !3061
   %236 = load ptr, ptr %76, align 8, !tbaa !225, !noalias !3056
   %237 = load i64, ptr %158, align 8, !tbaa !280, !noalias !3056
   %238 = getelementptr inbounds i8, ptr %236, i64 %237
-  store i8 %.sink137.i.i.i.i.i, ptr %238, align 1, !noalias !3061
+  store i8 %.sink139.i.i.i.i.i, ptr %238, align 1, !noalias !3061
   %239 = load i64, ptr %158, align 8, !tbaa !280, !noalias !3056
   %240 = add nsw i64 %239, 1
   store i64 %240, ptr %158, align 8, !tbaa !280, !noalias !3056
@@ -33114,12 +33114,12 @@ _ZN5arrow6StatusD2Ev.exit93.i.i.i117.i.i:         ; preds = %_ZNK5arrow8internal
   br label %411
 
 411:                                              ; preds = %_ZN5arrow6StatusD2Ev.exit93.i.i.i117.i.i, %_ZN5arrow6StatusD2Ev.exit89.i.i.i112.i.i
-  %.sink137.in.i.i.i114.i.i = phi ptr [ %79, %_ZN5arrow6StatusD2Ev.exit93.i.i.i117.i.i ], [ %396, %_ZN5arrow6StatusD2Ev.exit89.i.i.i112.i.i ]
-  %.sink137.i.i.i115.i.i = load i8, ptr %.sink137.in.i.i.i114.i.i, align 1, !tbaa !74, !noalias !3086
+  %.sink139.in.i.i.i114.i.i = phi ptr [ %79, %_ZN5arrow6StatusD2Ev.exit93.i.i.i117.i.i ], [ %396, %_ZN5arrow6StatusD2Ev.exit89.i.i.i112.i.i ]
+  %.sink139.i.i.i115.i.i = load i8, ptr %.sink139.in.i.i.i114.i.i, align 1, !tbaa !74, !noalias !3086
   %412 = load ptr, ptr %76, align 8, !tbaa !225, !noalias !3081
   %413 = load i64, ptr %334, align 8, !tbaa !280, !noalias !3081
   %414 = getelementptr inbounds i8, ptr %412, i64 %413
-  store i8 %.sink137.i.i.i115.i.i, ptr %414, align 1, !noalias !3086
+  store i8 %.sink139.i.i.i115.i.i, ptr %414, align 1, !noalias !3086
   %415 = load i64, ptr %334, align 8, !tbaa !280, !noalias !3081
   %416 = add nsw i64 %415, 1
   store i64 %416, ptr %334, align 8, !tbaa !280, !noalias !3081
@@ -33502,12 +33502,12 @@ _ZN5arrow6StatusD2Ev.exit93.i.i.i180.i.i:         ; preds = %_ZNK5arrow8internal
   br label %587
 
 587:                                              ; preds = %_ZN5arrow6StatusD2Ev.exit93.i.i.i180.i.i, %_ZN5arrow6StatusD2Ev.exit89.i.i.i175.i.i
-  %.sink137.in.i.i.i177.i.i = phi ptr [ %79, %_ZN5arrow6StatusD2Ev.exit93.i.i.i180.i.i ], [ %572, %_ZN5arrow6StatusD2Ev.exit89.i.i.i175.i.i ]
-  %.sink137.i.i.i178.i.i = load i8, ptr %.sink137.in.i.i.i177.i.i, align 1, !tbaa !74, !noalias !3111
+  %.sink139.in.i.i.i177.i.i = phi ptr [ %79, %_ZN5arrow6StatusD2Ev.exit93.i.i.i180.i.i ], [ %572, %_ZN5arrow6StatusD2Ev.exit89.i.i.i175.i.i ]
+  %.sink139.i.i.i178.i.i = load i8, ptr %.sink139.in.i.i.i177.i.i, align 1, !tbaa !74, !noalias !3111
   %588 = load ptr, ptr %76, align 8, !tbaa !225, !noalias !3106
   %589 = load i64, ptr %510, align 8, !tbaa !280, !noalias !3106
   %590 = getelementptr inbounds i8, ptr %588, i64 %589
-  store i8 %.sink137.i.i.i178.i.i, ptr %590, align 1, !noalias !3111
+  store i8 %.sink139.i.i.i178.i.i, ptr %590, align 1, !noalias !3111
   %591 = load i64, ptr %510, align 8, !tbaa !280, !noalias !3106
   %592 = add nsw i64 %591, 1
   store i64 %592, ptr %510, align 8, !tbaa !280, !noalias !3106
@@ -33887,12 +33887,12 @@ _ZN5arrow6StatusD2Ev.exit93.i.i.i243.i.i:         ; preds = %_ZNK5arrow8internal
   br label %760
 
 760:                                              ; preds = %_ZN5arrow6StatusD2Ev.exit93.i.i.i243.i.i, %_ZN5arrow6StatusD2Ev.exit89.i.i.i238.i.i
-  %.sink137.in.i.i.i240.i.i = phi ptr [ %79, %_ZN5arrow6StatusD2Ev.exit93.i.i.i243.i.i ], [ %745, %_ZN5arrow6StatusD2Ev.exit89.i.i.i238.i.i ]
-  %.sink137.i.i.i241.i.i = load i8, ptr %.sink137.in.i.i.i240.i.i, align 1, !tbaa !74, !noalias !3136
+  %.sink139.in.i.i.i240.i.i = phi ptr [ %79, %_ZN5arrow6StatusD2Ev.exit93.i.i.i243.i.i ], [ %745, %_ZN5arrow6StatusD2Ev.exit89.i.i.i238.i.i ]
+  %.sink139.i.i.i241.i.i = load i8, ptr %.sink139.in.i.i.i240.i.i, align 1, !tbaa !74, !noalias !3136
   %761 = load ptr, ptr %76, align 8, !tbaa !225, !noalias !3131
   %762 = load i64, ptr %686, align 8, !tbaa !280, !noalias !3131
   %763 = getelementptr inbounds i8, ptr %761, i64 %762
-  store i8 %.sink137.i.i.i241.i.i, ptr %763, align 1, !noalias !3136
+  store i8 %.sink139.i.i.i241.i.i, ptr %763, align 1, !noalias !3136
   %764 = load i64, ptr %686, align 8, !tbaa !280, !noalias !3131
   %765 = add nsw i64 %764, 1
   store i64 %765, ptr %686, align 8, !tbaa !280, !noalias !3131
@@ -47266,7 +47266,7 @@ define linkonce_odr void @_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE17
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPSt10shared_ptrIN5arrow6BufferEEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt10shared_ptrIN5arrow6BufferEEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 4
+  %19 = shl nuw nsw i64 %1, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !1570
@@ -63033,8 +63033,8 @@ _ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE6resizeEm.exit: ; preds =
   %120 = ptrtoint ptr %118 to i64
   %121 = ptrtoint ptr %119 to i64
   %122 = sub i64 %120, %121
-  %sext56 = shl i64 %122, 28
-  %123 = ashr i64 %sext56, 32
+  %sext69 = shl i64 %122, 28
+  %123 = ashr i64 %sext69, 32
   %.not = icmp slt i64 %indvars.iv.next, %123
   br i1 %.not, label %128, label %.critedge, !llvm.loop !4397
 
@@ -63604,7 +63604,7 @@ define linkonce_odr void @_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_E
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPSt10shared_ptrIN5arrow9ArrayDataEEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt10shared_ptrIN5arrow9ArrayDataEEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 4
+  %19 = shl nuw nsw i64 %1, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !3696

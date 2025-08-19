@@ -1641,10 +1641,10 @@ define dso_local i64 @bringetbitmap(ptr noundef readonly captures(none) %0, ptr 
   %105 = and i32 %104, 1
   %.not192 = icmp eq i32 %105, 0
   %. = select i1 %.not192, ptr %48, ptr %53
-  %.293 = select i1 %.not192, ptr %54, ptr %58
+  %.304 = select i1 %.not192, ptr %54, ptr %58
   %106 = getelementptr inbounds ptr, ptr %., i64 %95
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i32, ptr %.293, i64 %95
+  %108 = getelementptr inbounds i32, ptr %.304, i64 %95
   %109 = load i32, ptr %108, align 4
   %110 = sext i32 %109 to i64
   %111 = getelementptr inbounds ptr, ptr %107, i64 %110
@@ -1837,8 +1837,8 @@ check_null_keys.exit:                             ; preds = %181, %155, %149
   %211 = ptrtoint ptr %206 to i64
   %212 = sext i32 %139 to i64
   %213 = call i64 @FunctionCall4Coll(ptr noundef nonnull %188, i32 noundef %209, i64 noundef %88, i64 noundef %210, i64 noundef %211, i64 noundef %212) #10
-  %.not294 = icmp eq i64 %213, 0
-  br i1 %.not294, label %.thread209.thread, label %.loopexit..thread203_crit_edge
+  %.not305 = icmp eq i64 %213, 0
+  br i1 %.not305, label %.thread209.thread, label %.loopexit..thread203_crit_edge
 
 .loopexit..thread203_crit_edge:                   ; preds = %194, %.preheader, %.loopexit
   %.pre273 = load ptr, ptr %31, align 8
@@ -2423,9 +2423,9 @@ define internal fastcc void @brinsummarize(ptr noundef %0, ptr noundef %1, i32 n
   %.04256 = phi i32 [ %22, %17 ], [ %15, %6 ]
   store i32 0, ptr %12, align 4
   %25 = icmp ult i32 %.04057, %.04256
-  br i1 %25, label %.lr.ph, label %.thread86
+  br i1 %25, label %.lr.ph, label %.thread94
 
-.thread86:                                        ; preds = %.thread
+.thread94:                                        ; preds = %.thread
   call void @brinRevmapTerminate(ptr noundef %14) #10
   br label %145
 
@@ -2672,7 +2672,7 @@ summarize_range.exit:                             ; preds = %95
   call void @pfree(ptr noundef %.04371.ph) #10
   br label %145
 
-145:                                              ; preds = %.thread86, %143, %144, %24
+145:                                              ; preds = %.thread94, %143, %144, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void

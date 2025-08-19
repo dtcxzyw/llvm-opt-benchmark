@@ -474,8 +474,8 @@ define internal range(i32 0, 2) i32 @rsa_get_ctx_params(ptr noundef readonly cap
   br i1 %.not67, label %76, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader, %16
-  %indvars.iv89 = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv89, 1
+  %indvars.iv101 = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv101, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond, label %.thread, label %16, !llvm.loop !34
 
@@ -711,8 +711,8 @@ ossl_param_is_empty.exit:                         ; preds = %13
   br i1 %41, label %48, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader.preheader, %.preheader
-  %indvars.iv123 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv123, 1
+  %indvars.iv134 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv134, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond, label %.critedge106, label %.preheader, !llvm.loop !41
 

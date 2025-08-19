@@ -777,10 +777,10 @@ define void @clean_cache_remove(ptr noundef readonly captures(address_is_null) %
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %47, %34
-  %.sink67.i = phi ptr [ %49, %47 ], [ %36, %34 ]
-  %.0.lcssa66.sink.i = phi ptr [ %.0.i, %47 ], [ null, %34 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.sink67.i, i64 32
-  store ptr %.0.lcssa66.sink.i, ptr %50, align 8, !tbaa !71
+  %.sink74.i = phi ptr [ %49, %47 ], [ %36, %34 ]
+  %.0.lcssa73.sink.i = phi ptr [ %.0.i, %47 ], [ null, %34 ]
+  %50 = getelementptr inbounds nuw i8, ptr %.sink74.i, i64 32
+  store ptr %.0.lcssa73.sink.i, ptr %50, align 8, !tbaa !71
   br label %51
 
 51:                                               ; preds = %.sink.split.i, %37, %34

@@ -1354,7 +1354,7 @@ zval_ptr_dtor_nogc.exit.i:                        ; preds = %602, %597, %591
   br i1 %608, label %591, label %sccp_context_free.exit
 
 sccp_context_free.exit:                           ; preds = %zval_ptr_dtor_nogc.exit.i, %replace_constant_operands.exit.thread, %replace_constant_operands.exit
-  %.081.lcssa.i72 = phi i32 [ 0, %replace_constant_operands.exit.thread ], [ %.2.i, %replace_constant_operands.exit ], [ %.2.i, %zval_ptr_dtor_nogc.exit.i ]
+  %.081.lcssa.i97 = phi i32 [ 0, %replace_constant_operands.exit.thread ], [ %.2.i, %replace_constant_operands.exit ], [ %.2.i, %zval_ptr_dtor_nogc.exit.i ]
   %609 = load ptr, ptr %0, align 8, !tbaa !39
   %610 = getelementptr inbounds nuw i8, ptr %609, i64 8
   %611 = load ptr, ptr %610, align 8, !tbaa !36
@@ -1378,7 +1378,7 @@ sccp_context_free.exit:                           ; preds = %zval_ptr_dtor_nogc.
 
 zend_arena_release.exit:                          ; preds = %.critedge.i, %sccp_context_free.exit
   %.0.i.lcssa = phi ptr [ %609, %sccp_context_free.exit ], [ %614, %.critedge.i ]
-  %618 = add nsw i32 %.081.lcssa.i72, %117
+  %618 = add nsw i32 %.081.lcssa.i97, %117
   store ptr %10, ptr %.0.i.lcssa, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %618
@@ -1657,7 +1657,7 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
   store ptr %157, ptr %4, align 8, !tbaa !41
   %158 = load i32, ptr %152, align 4, !tbaa !81
   %159 = icmp sgt i32 %158, -1
-  br i1 %159, label %160, label %.thread1711
+  br i1 %159, label %160, label %.thread1888
 
 160:                                              ; preds = %155
   %161 = getelementptr i8, ptr %0, i64 104
@@ -1666,9 +1666,9 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
   %.phi.trans.insert1691 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.pre1692 = load i8, ptr %.phi.trans.insert1691, align 1, !tbaa !41
   %162 = icmp eq i8 %.pre1692, 0
-  br i1 %162, label %.critedge1289, label %.thread1711
+  br i1 %162, label %.critedge1289, label %.thread1888
 
-.thread1711:                                      ; preds = %155, %160
+.thread1888:                                      ; preds = %155, %160
   %163 = load ptr, ptr %4, align 8, !tbaa !41
   %164 = load i32, ptr %163, align 4, !tbaa !67
   %165 = icmp ne i32 %164, 0
@@ -1678,7 +1678,7 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
   %.not3.i = icmp eq i32 %166, 0
   br i1 %.not3.i, label %167, label %.critedge1289
 
-167:                                              ; preds = %.thread1711
+167:                                              ; preds = %.thread1888
   %168 = load ptr, ptr %4, align 8, !tbaa !41
   tail call void @rc_dtor_func(ptr noundef %168) #13
   br label %.critedge1289
@@ -1880,8 +1880,8 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
   br label %292
 
 .split:                                           ; preds = %243, %242
-  %.sink1731 = phi ptr [ %.0.i1595, %242 ], [ null, %243 ]
-  %259 = call fastcc i32 @ct_eval_assign_dim(ptr noundef %4, ptr noundef nonnull %.0.i1597, ptr noundef %.sink1731)
+  %.sink1908 = phi ptr [ %.0.i1595, %242 ], [ null, %243 ]
+  %259 = call fastcc i32 @ct_eval_assign_dim(ptr noundef %4, ptr noundef nonnull %.0.i1597, ptr noundef %.sink1908)
   %260 = icmp eq i32 %259, 0
   br i1 %260, label %261, label %278
 
@@ -2035,7 +2035,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
   %347 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %348 = load i32, ptr %347, align 4, !tbaa !86
   %349 = icmp sgt i32 %348, -1
-  br i1 %349, label %350, label %.thread1714
+  br i1 %349, label %350, label %.thread1891
 
 350:                                              ; preds = %346
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -2044,9 +2044,9 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
   tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1467, i32 noundef %348, ptr noundef nonnull %351)
   %.pre1690 = load i32, ptr %303, align 4, !tbaa !81
   %353 = icmp sgt i32 %.pre1690, -1
-  br i1 %353, label %.thread1714, label %.critedge1289
+  br i1 %353, label %.thread1891, label %.critedge1289
 
-.thread1714:                                      ; preds = %346, %350
+.thread1891:                                      ; preds = %346, %350
   %354 = phi i32 [ %.pre1690, %350 ], [ %304, %346 ]
   %355 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %356 = getelementptr i8, ptr %0, i64 104
@@ -2066,7 +2066,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
   %361 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %362 = load i32, ptr %361, align 4, !tbaa !86
   %363 = icmp sgt i32 %362, -1
-  br i1 %363, label %364, label %.thread1715
+  br i1 %363, label %364, label %.thread1892
 
 364:                                              ; preds = %360
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -2075,9 +2075,9 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
   tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1469, i32 noundef %362, ptr noundef nonnull %365)
   %.pre1684 = load i32, ptr %303, align 4, !tbaa !81
   %367 = icmp sgt i32 %.pre1684, -1
-  br i1 %367, label %.thread1715, label %.critedge1289
+  br i1 %367, label %.thread1892, label %.critedge1289
 
-.thread1715:                                      ; preds = %360, %364
+.thread1892:                                      ; preds = %360, %364
   %368 = phi i32 [ %.pre1684, %364 ], [ %304, %360 ]
   %369 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %370 = getelementptr i8, ptr %0, i64 104
@@ -2119,7 +2119,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
   store ptr %387, ptr %4, align 8, !tbaa !41
   %388 = load i32, ptr %303, align 4, !tbaa !81
   %389 = icmp sgt i32 %388, -1
-  br i1 %389, label %390, label %.thread1716
+  br i1 %389, label %390, label %.thread1893
 
 390:                                              ; preds = %385
   %391 = getelementptr i8, ptr %0, i64 104
@@ -2128,9 +2128,9 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
   %.phi.trans.insert1685 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.pre1686 = load i8, ptr %.phi.trans.insert1685, align 1, !tbaa !41
   %392 = icmp eq i8 %.pre1686, 0
-  br i1 %392, label %.critedge1289, label %.thread1716
+  br i1 %392, label %.critedge1289, label %.thread1893
 
-.thread1716:                                      ; preds = %385, %390
+.thread1893:                                      ; preds = %385, %390
   %393 = load ptr, ptr %4, align 8, !tbaa !41
   %394 = load i32, ptr %393, align 4, !tbaa !67
   %395 = icmp ne i32 %394, 0
@@ -2140,7 +2140,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
   %.not3.i1309 = icmp eq i32 %396, 0
   br i1 %.not3.i1309, label %397, label %.critedge1289
 
-397:                                              ; preds = %.thread1716
+397:                                              ; preds = %.thread1893
   %398 = load ptr, ptr %4, align 8, !tbaa !41
   tail call void @rc_dtor_func(ptr noundef %398) #13
   br label %.critedge1289
@@ -2194,17 +2194,17 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
   br i1 %418, label %421, label %422
 
 421:                                              ; preds = %416
-  br i1 %420, label %426, label %.thread1719
+  br i1 %420, label %426, label %.thread1896
 
 422:                                              ; preds = %416
-  br i1 %420, label %423, label %.thread1719
+  br i1 %420, label %423, label %.thread1896
 
 423:                                              ; preds = %422
   %424 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %425 = getelementptr i8, ptr %0, i64 104
   %.val1475 = load ptr, ptr %425, align 8, !tbaa !40
   tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1475, i32 noundef %419, ptr noundef nonnull %424)
-  br label %.thread1719
+  br label %.thread1896
 
 426:                                              ; preds = %421
   %427 = getelementptr i8, ptr %0, i64 104
@@ -2213,9 +2213,9 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
   %.phi.trans.insert1688 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.pre1689 = load i8, ptr %.phi.trans.insert1688, align 1, !tbaa !41
   %428 = icmp eq i8 %.pre1689, 0
-  br i1 %428, label %.critedge1289, label %.thread1719
+  br i1 %428, label %.critedge1289, label %.thread1896
 
-.thread1719:                                      ; preds = %421, %423, %422, %426
+.thread1896:                                      ; preds = %421, %423, %422, %426
   %429 = load ptr, ptr %4, align 8, !tbaa !41
   %430 = load i32, ptr %429, align 4, !tbaa !67
   %431 = icmp ne i32 %430, 0
@@ -2225,7 +2225,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
   %.not3.i1312 = icmp eq i32 %432, 0
   br i1 %.not3.i1312, label %433, label %.critedge1289
 
-433:                                              ; preds = %.thread1719
+433:                                              ; preds = %.thread1896
   %434 = load ptr, ptr %4, align 8, !tbaa !41
   tail call void @rc_dtor_func(ptr noundef %434) #13
   br label %.critedge1289
@@ -2529,7 +2529,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
   store ptr %594, ptr %4, align 8, !tbaa !41
   %595 = load i32, ptr %589, align 4, !tbaa !86
   %596 = icmp sgt i32 %595, -1
-  br i1 %596, label %597, label %.thread1721
+  br i1 %596, label %597, label %.thread1898
 
 597:                                              ; preds = %592
   %598 = getelementptr i8, ptr %0, i64 104
@@ -2538,9 +2538,9 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !41
   %599 = icmp eq i8 %.pre, 0
-  br i1 %599, label %.critedge1289, label %.thread1721
+  br i1 %599, label %.critedge1289, label %.thread1898
 
-.thread1721:                                      ; preds = %592, %597
+.thread1898:                                      ; preds = %592, %597
   %600 = load ptr, ptr %4, align 8, !tbaa !41
   %601 = load i32, ptr %600, align 4, !tbaa !67
   %602 = icmp ne i32 %601, 0
@@ -2550,7 +2550,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
   %.not3.i1318 = icmp eq i32 %603, 0
   br i1 %.not3.i1318, label %604, label %.critedge1289
 
-604:                                              ; preds = %.thread1721
+604:                                              ; preds = %.thread1898
   %605 = load ptr, ptr %4, align 8, !tbaa !41
   tail call void @rc_dtor_func(ptr noundef %605) #13
   br label %.critedge1289
@@ -2715,8 +2715,8 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
   br label %710
 
 .split1085:                                       ; preds = %673, %672
-  %.sink1732 = phi ptr [ %.0.i1595, %672 ], [ null, %673 ]
-  %683 = call fastcc i32 @ct_eval_add_array_elem(ptr noundef %4, ptr noundef nonnull %.0.i, ptr noundef %.sink1732)
+  %.sink1909 = phi ptr [ %.0.i1595, %672 ], [ null, %673 ]
+  %683 = call fastcc i32 @ct_eval_add_array_elem(ptr noundef %4, ptr noundef nonnull %.0.i, ptr noundef %.sink1909)
   %684 = icmp eq i32 %683, 0
   br i1 %684, label %685, label %697
 
@@ -2916,7 +2916,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
   store ptr %791, ptr %4, align 8, !tbaa !41
   %792 = load i32, ptr %776, align 4, !tbaa !86
   %793 = icmp sgt i32 %792, -1
-  br i1 %793, label %794, label %.thread1723
+  br i1 %793, label %794, label %.thread1900
 
 794:                                              ; preds = %789
   %795 = getelementptr i8, ptr %0, i64 104
@@ -2925,9 +2925,9 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
   %.phi.trans.insert1681 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.pre1682 = load i8, ptr %.phi.trans.insert1681, align 1, !tbaa !41
   %796 = icmp eq i8 %.pre1682, 0
-  br i1 %796, label %.critedge1289, label %.thread1723
+  br i1 %796, label %.critedge1289, label %.thread1900
 
-.thread1723:                                      ; preds = %789, %794
+.thread1900:                                      ; preds = %789, %794
   %797 = load ptr, ptr %4, align 8, !tbaa !41
   %798 = load i32, ptr %797, align 4, !tbaa !67
   %799 = icmp ne i32 %798, 0
@@ -2937,7 +2937,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
   %.not3.i1330 = icmp eq i32 %800, 0
   br i1 %.not3.i1330, label %801, label %.critedge1289
 
-801:                                              ; preds = %.thread1723
+801:                                              ; preds = %.thread1900
   %802 = load ptr, ptr %4, align 8, !tbaa !41
   tail call void @rc_dtor_func(ptr noundef %802) #13
   br label %.critedge1289
@@ -5926,16 +5926,16 @@ zval_ptr_dtor_nogc.exit1448:                      ; preds = %2261, %2256, %2253,
   br label %.critedge1289
 
 .critedge1299.sink.split:                         ; preds = %2242, %2236
-  %.sink1737 = phi i32 [ %2237, %2236 ], [ %2243, %2242 ]
+  %.sink1914 = phi i32 [ %2237, %2236 ], [ %2243, %2242 ]
   %2287 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call fastcc void @set_value(ptr noundef %0, ptr %2132, i32 noundef %.sink1737, ptr noundef nonnull %2287)
+  tail call fastcc void @set_value(ptr noundef %0, ptr %2132, i32 noundef %.sink1914, ptr noundef nonnull %2287)
   br label %.critedge1299
 
 .critedge1299:                                    ; preds = %2239, %.critedge1299.sink.split, %2236, %2242
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge1289
 
-.critedge1289:                                    ; preds = %1912, %1630, %1557, %179, %.thread, %1945, %1627, %1605, %1546, %1511, %1478, %533, %375, %357, %141, %get_op1_value.exit1598, %2005, %2000, %1997, %1972, %1967, %1964, %1932, %1927, %1924, %1902, %1897, %1894, %1849, %1844, %1841, %1812, %1807, %1804, %1780, %1775, %1772, %1747, %1742, %1739, %1714, %1709, %1706, %1683, %1678, %1675, %1647, %1642, %1639, %1599, %1594, %1591, %1570, %1565, %1562, %1540, %1535, %1532, %1505, %1500, %1497, %1472, %1467, %1464, %1431, %1426, %1423, %zval_ptr_dtor_nogc.exit1388, %zval_ptr_dtor_nogc.exit1364.thread, %zval_ptr_dtor_nogc.exit1343.thread, %950, %945, %942, %898, %893, %890, %775, %801, %.thread1723, %794, %773, %768, %765, %718, %713, %710, %660, %655, %652, %604, %.thread1721, %597, %487, %482, %479, %433, %.thread1719, %426, %397, %.thread1716, %390, %300, %295, %292, %221, %216, %213, %167, %.thread1711, %160, %zval_ptr_dtor_nogc.exit1448, %502, %522, %519, %505, %.thread1714, %350, %.thread1715, %364, %371, %903, %ct_eval_binary_op.exit.thread, %1303, %1299, %1401, %1397, %1441, %1437, %1475, %1474, %1485, %1481, %1508, %1507, %1518, %1514, %1543, %1542, %1575, %ct_eval_bool_cast.exit, %1602, %1601, %1618, %1613, %1624, %1620, %1653, %1649, %1686, %1685, %1717, %1716, %1750, %1749, %1783, %1782, %1818, %1814, %1855, %1851, %1862, %1858, %1871, %switch.lookup, %1877, %1873, %1905, %1904, %1943, %1938, %1952, %1948, %1975, %1974, %2010, %ct_eval_binary_op.exit1619.thread, %2130, %2126, %2284, %2280, %.critedge1295, %.critedge1299, %.loopexit, %1982, %1978, %1934, %1908, %1879, %1826, %1822, %1791, %1787, %1757, %1753, %1724, %1720, %1693, %1689, %1660, %1656, %1578, %1444, %1404, %1311, %1307, %912, %907, %875, %871, %861, %865, %803, %738, %734, %740, %749, %745, %552, %548, %555, %560, %573, %569, %588, %622, %499, %496, %435, %438, %133, %129, %136, %151, %225, %223, %75, %71, %88, %84
+.critedge1289:                                    ; preds = %1912, %1630, %1557, %179, %.thread, %1945, %1627, %1605, %1546, %1511, %1478, %533, %375, %357, %141, %get_op1_value.exit1598, %2005, %2000, %1997, %1972, %1967, %1964, %1932, %1927, %1924, %1902, %1897, %1894, %1849, %1844, %1841, %1812, %1807, %1804, %1780, %1775, %1772, %1747, %1742, %1739, %1714, %1709, %1706, %1683, %1678, %1675, %1647, %1642, %1639, %1599, %1594, %1591, %1570, %1565, %1562, %1540, %1535, %1532, %1505, %1500, %1497, %1472, %1467, %1464, %1431, %1426, %1423, %zval_ptr_dtor_nogc.exit1388, %zval_ptr_dtor_nogc.exit1364.thread, %zval_ptr_dtor_nogc.exit1343.thread, %950, %945, %942, %898, %893, %890, %775, %801, %.thread1900, %794, %773, %768, %765, %718, %713, %710, %660, %655, %652, %604, %.thread1898, %597, %487, %482, %479, %433, %.thread1896, %426, %397, %.thread1893, %390, %300, %295, %292, %221, %216, %213, %167, %.thread1888, %160, %zval_ptr_dtor_nogc.exit1448, %502, %522, %519, %505, %.thread1891, %350, %.thread1892, %364, %371, %903, %ct_eval_binary_op.exit.thread, %1303, %1299, %1401, %1397, %1441, %1437, %1475, %1474, %1485, %1481, %1508, %1507, %1518, %1514, %1543, %1542, %1575, %ct_eval_bool_cast.exit, %1602, %1601, %1618, %1613, %1624, %1620, %1653, %1649, %1686, %1685, %1717, %1716, %1750, %1749, %1783, %1782, %1818, %1814, %1855, %1851, %1862, %1858, %1871, %switch.lookup, %1877, %1873, %1905, %1904, %1943, %1938, %1952, %1948, %1975, %1974, %2010, %ct_eval_binary_op.exit1619.thread, %2130, %2126, %2284, %2280, %.critedge1295, %.critedge1299, %.loopexit, %1982, %1978, %1934, %1908, %1879, %1826, %1822, %1791, %1787, %1757, %1753, %1724, %1720, %1693, %1689, %1660, %1656, %1578, %1444, %1404, %1311, %1307, %912, %907, %875, %871, %861, %865, %803, %738, %734, %740, %749, %745, %552, %548, %555, %560, %573, %569, %588, %622, %499, %496, %435, %438, %133, %129, %136, %151, %225, %223, %75, %71, %88, %84
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

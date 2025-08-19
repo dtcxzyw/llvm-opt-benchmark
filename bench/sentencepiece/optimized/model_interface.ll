@@ -4557,18 +4557,18 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit: ; preds
   br i1 %11, label %._crit_edge.thread, label %17
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.033.lcssa42 = phi ptr [ %.03438, %._crit_edge ], [ %4, %2 ]
+  %.033.lcssa44 = phi ptr [ %.03438, %._crit_edge ], [ %4, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !80
-  %14 = icmp eq ptr %.033.lcssa42, %13
+  %14 = icmp eq ptr %.033.lcssa44, %13
   br i1 %14, label %24, label %15
 
 15:                                               ; preds = %._crit_edge.thread
-  %16 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.033.lcssa42) #31
+  %16 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.033.lcssa44) #31
   br label %17
 
 17:                                               ; preds = %15, %._crit_edge
-  %.033.lcssa43 = phi ptr [ %.033.lcssa42, %15 ], [ %.03438, %._crit_edge ]
+  %.033.lcssa43 = phi ptr [ %.033.lcssa44, %15 ], [ %.03438, %._crit_edge ]
   %.sroa.019.0 = phi ptr [ %16, %15 ], [ %.03438, %._crit_edge ]
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 32
   %.sroa.01.0.copyload.i5 = load i64, ptr %18, align 8, !tbaa !90
@@ -4602,7 +4602,7 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit18: ; pre
 
 24:                                               ; preds = %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit18, %._crit_edge.thread
   %.sroa.032.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit18 ]
-  %.sroa.4.0 = phi ptr [ %.033.lcssa42, %._crit_edge.thread ], [ %spec.select35, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit18 ]
+  %.sroa.4.0 = phi ptr [ %.033.lcssa44, %._crit_edge.thread ], [ %spec.select35, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit18 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.032.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -4696,8 +4696,8 @@ _ZNSt13_Bit_iteratorppEv.exit56.thread:           ; preds = %_ZNSt13_Bit_iterato
 _ZNSt13_Bit_iteratorppEv.exit57:                  ; preds = %_ZNSt13_Bit_iteratorppEv.exit56.thread, %48
   %51 = phi i32 [ %49, %48 ], [ 2, %_ZNSt13_Bit_iteratorppEv.exit56.thread ]
   %52 = phi i64 [ %.pre, %48 ], [ %33, %_ZNSt13_Bit_iteratorppEv.exit56.thread ]
-  %.sroa.079.4162167 = phi ptr [ %spec.select, %48 ], [ %32, %_ZNSt13_Bit_iteratorppEv.exit56.thread ]
-  %.sroa.31.4163166 = phi i32 [ %spec.select128, %48 ], [ 1, %_ZNSt13_Bit_iteratorppEv.exit56.thread ]
+  %.sroa.079.4165170 = phi ptr [ %spec.select, %48 ], [ %32, %_ZNSt13_Bit_iteratorppEv.exit56.thread ]
+  %.sroa.31.4166169 = phi i32 [ %spec.select128, %48 ], [ 1, %_ZNSt13_Bit_iteratorppEv.exit56.thread ]
   %53 = zext nneg i32 %51 to i64
   %54 = lshr i64 %52, %53
   %55 = trunc i64 %54 to i8
@@ -4714,10 +4714,10 @@ _ZNSt13_Bit_iteratorppEv.exit57.thread:           ; preds = %48
   br i1 %62, label %_ZNSt13_Bit_iteratorppEv.exit61, label %_ZNSt13_Bit_iteratorppEv.exit58
 
 63:                                               ; preds = %_ZNSt13_Bit_iteratorppEv.exit57
-  %64 = add i32 %.sroa.31.4163166, 2
+  %64 = add i32 %.sroa.31.4166169, 2
   %65 = icmp eq i32 %51, 63
   %spec.select129.idx = select i1 %65, i64 8, i64 0
-  %spec.select129 = getelementptr inbounds nuw i8, ptr %.sroa.079.4162167, i64 %spec.select129.idx
+  %spec.select129 = getelementptr inbounds nuw i8, ptr %.sroa.079.4165170, i64 %spec.select129.idx
   %spec.select130 = select i1 %65, i32 0, i32 %64
   br label %_ZNSt13_Bit_iteratorppEv.exit58
 
@@ -4822,7 +4822,7 @@ _ZNSt13_Bit_iteratorppEv.exit60.thread:           ; preds = %85
   br label %_ZNSt13_Bit_iteratorppEv.exit61
 
 _ZNSt13_Bit_iteratorppEv.exit61:                  ; preds = %_ZNSt13_Bit_iteratorppEv.exit57.thread, %_ZNSt13_Bit_iteratorppEv.exit57, %_ZNSt13_Bit_iteratorppEv.exit56, %_ZNSt13_Bit_iteratorppEv.exit.thread, %_ZNSt13_Bit_iteratorppEv.exit, %17, %_ZNSt13_Bit_iteratorppEv.exit56.thread, %_ZNSt13_Bit_iteratorppEv.exit60.thread, %_ZNSt13_Bit_iteratorppEv.exit60, %._crit_edge, %_ZNSt13_Bit_iteratorppEv.exit59, %69
-  %.sroa.020.0.in.sroa.speculated = phi ptr [ %.sroa.079.0.lcssa, %69 ], [ %.sroa.079.1, %_ZNSt13_Bit_iteratorppEv.exit59 ], [ %2, %._crit_edge ], [ %spec.select135, %_ZNSt13_Bit_iteratorppEv.exit60.thread ], [ %spec.select133, %_ZNSt13_Bit_iteratorppEv.exit60 ], [ %32, %_ZNSt13_Bit_iteratorppEv.exit56.thread ], [ %58, %_ZNSt13_Bit_iteratorppEv.exit57.thread ], [ %.sroa.079.4162167, %_ZNSt13_Bit_iteratorppEv.exit57 ], [ %spec.select, %_ZNSt13_Bit_iteratorppEv.exit56 ], [ %32, %_ZNSt13_Bit_iteratorppEv.exit.thread ], [ %.sroa.079.0140, %_ZNSt13_Bit_iteratorppEv.exit ], [ %.sroa.079.0140, %17 ]
+  %.sroa.020.0.in.sroa.speculated = phi ptr [ %.sroa.079.0.lcssa, %69 ], [ %.sroa.079.1, %_ZNSt13_Bit_iteratorppEv.exit59 ], [ %2, %._crit_edge ], [ %spec.select135, %_ZNSt13_Bit_iteratorppEv.exit60.thread ], [ %spec.select133, %_ZNSt13_Bit_iteratorppEv.exit60 ], [ %32, %_ZNSt13_Bit_iteratorppEv.exit56.thread ], [ %58, %_ZNSt13_Bit_iteratorppEv.exit57.thread ], [ %.sroa.079.4165170, %_ZNSt13_Bit_iteratorppEv.exit57 ], [ %spec.select, %_ZNSt13_Bit_iteratorppEv.exit56 ], [ %32, %_ZNSt13_Bit_iteratorppEv.exit.thread ], [ %.sroa.079.0140, %_ZNSt13_Bit_iteratorppEv.exit ], [ %.sroa.079.0140, %17 ]
   %.sroa.9.0 = phi i32 [ %.sroa.31.0.lcssa, %69 ], [ %.sroa.31.1, %_ZNSt13_Bit_iteratorppEv.exit59 ], [ %3, %._crit_edge ], [ %spec.select136, %_ZNSt13_Bit_iteratorppEv.exit60.thread ], [ %spec.select134, %_ZNSt13_Bit_iteratorppEv.exit60 ], [ 1, %_ZNSt13_Bit_iteratorppEv.exit56.thread ], [ 0, %_ZNSt13_Bit_iteratorppEv.exit57.thread ], [ %51, %_ZNSt13_Bit_iteratorppEv.exit57 ], [ %spec.select128, %_ZNSt13_Bit_iteratorppEv.exit56 ], [ 0, %_ZNSt13_Bit_iteratorppEv.exit.thread ], [ %25, %_ZNSt13_Bit_iteratorppEv.exit ], [ %.sroa.31.0141, %17 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.020.0.in.sroa.speculated, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.9.0, 1

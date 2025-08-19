@@ -881,9 +881,9 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
   br label %226
 
 226:                                              ; preds = %224, %218
-  %.sink77.i = phi double [ %211, %218 ], [ %225, %224 ]
+  %.sink87.i = phi double [ %211, %218 ], [ %225, %224 ]
   %.sink.i = phi float [ %223, %218 ], [ 0.000000e+00, %224 ]
-  %227 = tail call double @pow(double noundef %.sink77.i, double noundef %20) #20, !tbaa !94
+  %227 = tail call double @pow(double noundef %.sink87.i, double noundef %20) #20, !tbaa !94
   %228 = fmul double %217, %227
   store float %.sink.i, ptr %10, align 4, !tbaa !92
   %229 = fptrunc double %228 to float

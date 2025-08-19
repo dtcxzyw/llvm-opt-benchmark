@@ -198,9 +198,9 @@ define dso_local ptr @vu_gpa_to_va(ptr noundef readonly captures(none) %0, ptr n
   br i1 %.not31.i, label %22, label %20
 
 20:                                               ; preds = %12
-  br i1 %19, label %vu_gpa_to_mem_region.exit, label %.thread43.i
+  br i1 %19, label %vu_gpa_to_mem_region.exit, label %.thread46.i
 
-.thread43.i:                                      ; preds = %20
+.thread46.i:                                      ; preds = %20
   %21 = add i32 %15, 1
   br label %24
 
@@ -209,8 +209,8 @@ define dso_local ptr @vu_gpa_to_va(ptr noundef readonly captures(none) %0, ptr n
   %spec.select.i = select i1 %19, i32 %.02339.i, i32 %23
   br label %24
 
-24:                                               ; preds = %22, %.thread43.i
-  %25 = phi i32 [ %21, %.thread43.i ], [ %spec.select.i, %22 ]
+24:                                               ; preds = %22, %.thread46.i
+  %25 = phi i32 [ %21, %.thread46.i ], [ %spec.select.i, %22 ]
   %26 = add i32 %15, -1
   %.228.i = select i1 %.not31.i, i32 %26, i32 %.02638.i
   %.not.i = icmp sgt i32 %25, %.228.i
@@ -530,27 +530,27 @@ define internal fastcc noundef zeroext i1 @vu_message_write(ptr noundef %0, i32 
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 320
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %47 = load ptr, ptr %45, align 1
-  %.not4060 = icmp eq ptr %47, null
+  %.not4064 = icmp eq ptr %47, null
   %48 = load i32, ptr %43, align 1
   %49 = zext i32 %48 to i64
-  %.61 = select i1 %.not4060, ptr %46, ptr %47
-  %50 = call i64 @write(i32 noundef %1, ptr noundef nonnull %.61, i64 noundef %49) #21
-  %.162 = trunc i64 %50 to i32
-  %51 = icmp slt i32 %.162, 0
-  br i1 %51, label %.lr.ph63.preheader, label %.critedge4
+  %.65 = select i1 %.not4064, ptr %46, ptr %47
+  %50 = call i64 @write(i32 noundef %1, ptr noundef nonnull %.65, i64 noundef %49) #21
+  %.166 = trunc i64 %50 to i32
+  %51 = icmp slt i32 %.166, 0
+  br i1 %51, label %.lr.ph67.preheader, label %.critedge4
 
-.lr.ph63.preheader:                               ; preds = %.critedge6.preheader
+.lr.ph67.preheader:                               ; preds = %.critedge6.preheader
   %52 = tail call ptr @__errno_location() #22
-  br label %.lr.ph63
+  br label %.lr.ph67
 
-.lr.ph63:                                         ; preds = %.lr.ph63.preheader, %.critedge6.backedge
+.lr.ph67:                                         ; preds = %.lr.ph67.preheader, %.critedge6.backedge
   %53 = load i32, ptr %52, align 4
   switch i32 %53, label %.critedge4.thread42.sink.split [
     i32 4, label %.critedge6.backedge
     i32 11, label %.critedge6.backedge
   ]
 
-.critedge6.backedge:                              ; preds = %.lr.ph63, %.lr.ph63
+.critedge6.backedge:                              ; preds = %.lr.ph67, %.lr.ph67
   %54 = load ptr, ptr %45, align 1
   %.not40 = icmp eq ptr %54, null
   %55 = load i32, ptr %43, align 1
@@ -559,10 +559,10 @@ define internal fastcc noundef zeroext i1 @vu_message_write(ptr noundef %0, i32 
   %57 = call i64 @write(i32 noundef %1, ptr noundef nonnull %., i64 noundef %56) #21
   %.1 = trunc i64 %57 to i32
   %58 = icmp slt i32 %.1, 0
-  br i1 %58, label %.lr.ph63, label %.critedge4
+  br i1 %58, label %.lr.ph67, label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge6.backedge, %.critedge6.preheader
-  %.1.lcssa = phi i32 [ %.162, %.critedge6.preheader ], [ %.1, %.critedge6.backedge ]
+  %.1.lcssa = phi i32 [ %.166, %.critedge6.preheader ], [ %.1, %.critedge6.backedge ]
   %59 = icmp eq i32 %.1.lcssa, 0
   br i1 %59, label %.critedge4.thread42.sink.split.sink.split, label %.critedge4.thread42
 
@@ -570,8 +570,8 @@ define internal fastcc noundef zeroext i1 @vu_message_write(ptr noundef %0, i32 
   %.pre48 = tail call ptr @__errno_location() #22
   br label %.critedge4.thread42.sink.split
 
-.critedge4.thread42.sink.split:                   ; preds = %36, %.lr.ph63, %.critedge4.thread42.sink.split.sink.split
-  %.pre-phi49.sink = phi ptr [ %.pre48, %.critedge4.thread42.sink.split.sink.split ], [ %52, %.lr.ph63 ], [ %35, %36 ]
+.critedge4.thread42.sink.split:                   ; preds = %36, %.lr.ph67, %.critedge4.thread42.sink.split.sink.split
+  %.pre-phi49.sink = phi ptr [ %.pre48, %.critedge4.thread42.sink.split.sink.split ], [ %52, %.lr.ph67 ], [ %35, %36 ]
   %60 = load i32, ptr %.pre-phi49.sink, align 4
   %61 = call ptr @strerror(i32 noundef %60) #21
   call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.54, ptr noundef %61)
@@ -1907,9 +1907,9 @@ virtqueue_get_head.exit:                          ; preds = %virtqueue_num_heads
   br i1 %.not31.i.i, label %84, label %82
 
 82:                                               ; preds = %74
-  br i1 %81, label %vu_gpa_to_mem_region.exit.i, label %.thread43.i.i
+  br i1 %81, label %vu_gpa_to_mem_region.exit.i, label %.thread46.i.i
 
-.thread43.i.i:                                    ; preds = %82
+.thread46.i.i:                                    ; preds = %82
   %83 = add i32 %77, 1
   br label %86
 
@@ -1918,8 +1918,8 @@ virtqueue_get_head.exit:                          ; preds = %virtqueue_num_heads
   %spec.select.i.i = select i1 %81, i32 %.02339.i.i, i32 %85
   br label %86
 
-86:                                               ; preds = %84, %.thread43.i.i
-  %87 = phi i32 [ %83, %.thread43.i.i ], [ %spec.select.i.i, %84 ]
+86:                                               ; preds = %84, %.thread46.i.i
+  %87 = phi i32 [ %83, %.thread46.i.i ], [ %spec.select.i.i, %84 ]
   %88 = add i32 %77, -1
   %.228.i.i = select i1 %.not31.i.i, i32 %88, i32 %.02638.i.i
   %.not.i.i = icmp sgt i32 %87, %.228.i.i
@@ -2145,9 +2145,9 @@ define internal fastcc range(i32 -1, 1) i32 @virtqueue_read_indirect_desc(ptr no
   br i1 %.not31.i.i, label %22, label %20
 
 20:                                               ; preds = %12
-  br i1 %19, label %vu_gpa_to_mem_region.exit.i, label %.thread43.i.i
+  br i1 %19, label %vu_gpa_to_mem_region.exit.i, label %.thread46.i.i
 
-.thread43.i.i:                                    ; preds = %20
+.thread46.i.i:                                    ; preds = %20
   %21 = add i32 %15, 1
   br label %24
 
@@ -2156,8 +2156,8 @@ define internal fastcc range(i32 -1, 1) i32 @virtqueue_read_indirect_desc(ptr no
   %spec.select.i.i = select i1 %19, i32 %.02339.i.i, i32 %23
   br label %24
 
-24:                                               ; preds = %22, %.thread43.i.i
-  %25 = phi i32 [ %21, %.thread43.i.i ], [ %spec.select.i.i, %22 ]
+24:                                               ; preds = %22, %.thread46.i.i
+  %25 = phi i32 [ %21, %.thread46.i.i ], [ %spec.select.i.i, %22 ]
   %26 = add i32 %15, -1
   %.228.i.i = select i1 %.not31.i.i, i32 %26, i32 %.02638.i.i
   %.not.i.i = icmp sgt i32 %25, %.228.i.i
@@ -2861,9 +2861,9 @@ define internal fastcc noundef ptr @vu_queue_map_desc(ptr noundef %0, i32 %.0.va
   br i1 %.not31.i.i, label %38, label %36
 
 36:                                               ; preds = %28
-  br i1 %35, label %vu_gpa_to_mem_region.exit.i, label %.thread43.i.i
+  br i1 %35, label %vu_gpa_to_mem_region.exit.i, label %.thread46.i.i
 
-.thread43.i.i:                                    ; preds = %36
+.thread46.i.i:                                    ; preds = %36
   %37 = add i32 %31, 1
   br label %40
 
@@ -2872,8 +2872,8 @@ define internal fastcc noundef ptr @vu_queue_map_desc(ptr noundef %0, i32 %.0.va
   %spec.select.i.i = select i1 %35, i32 %.02339.i.i, i32 %39
   br label %40
 
-40:                                               ; preds = %38, %.thread43.i.i
-  %41 = phi i32 [ %37, %.thread43.i.i ], [ %spec.select.i.i, %38 ]
+40:                                               ; preds = %38, %.thread46.i.i
+  %41 = phi i32 [ %37, %.thread46.i.i ], [ %spec.select.i.i, %38 ]
   %42 = add i32 %31, -1
   %.228.i.i = select i1 %.not31.i.i, i32 %42, i32 %.02638.i.i
   %.not.i.i = icmp sgt i32 %41, %.228.i.i
@@ -3216,9 +3216,9 @@ vu_is_vq_usable.exit:                             ; preds = %22, %10
   br i1 %.not31.i.i.i, label %57, label %55
 
 55:                                               ; preds = %47
-  br i1 %54, label %vu_gpa_to_mem_region.exit.i.i, label %.thread43.i.i.i
+  br i1 %54, label %vu_gpa_to_mem_region.exit.i.i, label %.thread46.i.i.i
 
-.thread43.i.i.i:                                  ; preds = %55
+.thread46.i.i.i:                                  ; preds = %55
   %56 = add i32 %50, 1
   br label %59
 
@@ -3227,8 +3227,8 @@ vu_is_vq_usable.exit:                             ; preds = %22, %10
   %spec.select.i.i.i = select i1 %54, i32 %.02339.i.i.i, i32 %58
   br label %59
 
-59:                                               ; preds = %57, %.thread43.i.i.i
-  %60 = phi i32 [ %56, %.thread43.i.i.i ], [ %spec.select.i.i.i, %57 ]
+59:                                               ; preds = %57, %.thread46.i.i.i
+  %60 = phi i32 [ %56, %.thread46.i.i.i ], [ %spec.select.i.i.i, %57 ]
   %61 = add i32 %50, -1
   %.228.i.i.i = select i1 %.not31.i.i.i, i32 %61, i32 %.02638.i.i.i
   %.not.i.i.i = icmp sgt i32 %60, %.228.i.i.i
@@ -5139,9 +5139,9 @@ vmsg_close_fds.exit36:                            ; preds = %vmsg_close_fds.exit
   br i1 %.not31.i, label %46, label %44
 
 44:                                               ; preds = %36
-  br i1 %43, label %vu_gpa_to_mem_region.exit, label %.thread43.i
+  br i1 %43, label %vu_gpa_to_mem_region.exit, label %.thread46.i
 
-.thread43.i:                                      ; preds = %44
+.thread46.i:                                      ; preds = %44
   %45 = add i32 %39, 1
   br label %48
 
@@ -5150,8 +5150,8 @@ vmsg_close_fds.exit36:                            ; preds = %vmsg_close_fds.exit
   %spec.select.i = select i1 %43, i32 %.02339.i, i32 %47
   br label %48
 
-48:                                               ; preds = %46, %.thread43.i
-  %49 = phi i32 [ %45, %.thread43.i ], [ %spec.select.i, %46 ]
+48:                                               ; preds = %46, %.thread46.i
+  %49 = phi i32 [ %45, %.thread46.i ], [ %spec.select.i, %46 ]
   %50 = add i32 %39, -1
   %.228.i = select i1 %.not31.i, i32 %50, i32 %.02638.i
   %.not.i = icmp sgt i32 %49, %.228.i
@@ -5848,9 +5848,9 @@ define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %0, pt
   br i1 %.not31.i.i, label %30, label %28
 
 28:                                               ; preds = %20
-  br i1 %27, label %vu_gpa_to_mem_region.exit.i, label %.thread43.i.i
+  br i1 %27, label %vu_gpa_to_mem_region.exit.i, label %.thread46.i.i
 
-.thread43.i.i:                                    ; preds = %28
+.thread46.i.i:                                    ; preds = %28
   %29 = add i32 %23, 1
   br label %32
 
@@ -5859,8 +5859,8 @@ define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %0, pt
   %spec.select.i.i = select i1 %27, i32 %.02339.i.i, i32 %31
   br label %32
 
-32:                                               ; preds = %30, %.thread43.i.i
-  %33 = phi i32 [ %29, %.thread43.i.i ], [ %spec.select.i.i, %30 ]
+32:                                               ; preds = %30, %.thread46.i.i
+  %33 = phi i32 [ %29, %.thread46.i.i ], [ %spec.select.i.i, %30 ]
   %34 = add i32 %23, -1
   %.228.i.i = select i1 %.not31.i.i, i32 %34, i32 %.02638.i.i
   %.not.i.i = icmp sgt i32 %33, %.228.i.i

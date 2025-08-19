@@ -274,9 +274,9 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
   br label %124
 
 124:                                              ; preds = %121, %117
-  %.sink127 = phi i32 [ %123, %121 ], [ %120, %117 ]
+  %.sink148 = phi i32 [ %123, %121 ], [ %120, %117 ]
   %125 = getelementptr inbounds nuw i8, ptr %79, i64 220
-  store i32 %.sink127, ptr %125, align 4, !tbaa !55
+  store i32 %.sink148, ptr %125, align 4, !tbaa !55
   %126 = call i32 @pthread_mutex_lock(ptr noundef nonnull %48) #14
   %127 = icmp eq i32 %126, 35
   br i1 %127, label %128, label %pmix_obj_update.exit

@@ -358,12 +358,12 @@ SXNET_get_id_INTEGER.exit.thread:                 ; preds = %31, %26, %SXNET_get
   br label %61
 
 57:                                               ; preds = %52, %48, %SXNET_get_id_INTEGER.exit.thread, %23, %20
-  %.sink49 = phi i32 [ 178, %20 ], [ 182, %23 ], [ 195, %SXNET_get_id_INTEGER.exit.thread ], [ 200, %48 ], [ 204, %52 ]
+  %.sink57 = phi i32 [ 178, %20 ], [ 182, %23 ], [ 195, %SXNET_get_id_INTEGER.exit.thread ], [ 200, %48 ], [ 204, %52 ]
   %.sink = phi i32 [ 524301, %20 ], [ 524301, %23 ], [ 524301, %SXNET_get_id_INTEGER.exit.thread ], [ 524301, %48 ], [ 524303, %52 ]
   %.029 = phi ptr [ null, %20 ], [ %21, %23 ], [ %.1, %SXNET_get_id_INTEGER.exit.thread ], [ %.1, %48 ], [ %.1, %52 ]
   %.0 = phi ptr [ null, %20 ], [ null, %23 ], [ null, %SXNET_get_id_INTEGER.exit.thread ], [ %46, %48 ], [ %46, %52 ]
   tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink49, ptr noundef nonnull @__func__.SXNET_add_id_INTEGER) #5
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink57, ptr noundef nonnull @__func__.SXNET_add_id_INTEGER) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef %.sink, ptr noundef null) #5
   tail call void @ASN1_item_free(ptr noundef %.0, ptr noundef nonnull @SXNETID_it.local_it) #5
   %58 = load ptr, ptr %0, align 8, !tbaa !3

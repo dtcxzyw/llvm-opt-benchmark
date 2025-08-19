@@ -2321,17 +2321,17 @@ decode_mcu_fast.exit.thread:                      ; preds = %._crit_edge849.i
   br label %.thread54
 
 decode_mcu_fast.exit:                             ; preds = %59, %._crit_edge849.i
-  %.0600.lcssa.i98 = phi i64 [ %.32.i, %._crit_edge849.i ], [ %61, %59 ]
-  %.0601.lcssa.i97 = phi i32 [ %.12613.i, %._crit_edge849.i ], [ %63, %59 ]
-  %.0620.lcssa.i96 = phi ptr [ %.32652.i, %._crit_edge849.i ], [ %.pre91, %59 ]
-  %790 = ptrtoint ptr %.0620.lcssa.i96 to i64
+  %.0600.lcssa.i128 = phi i64 [ %.32.i, %._crit_edge849.i ], [ %61, %59 ]
+  %.0601.lcssa.i127 = phi i32 [ %.12613.i, %._crit_edge849.i ], [ %63, %59 ]
+  %.0620.lcssa.i126 = phi ptr [ %.32652.i, %._crit_edge849.i ], [ %.pre91, %59 ]
+  %790 = ptrtoint ptr %.0620.lcssa.i126 to i64
   %791 = ptrtoint ptr %.pre91 to i64
   %.neg.i = add i64 %44, %791
   %792 = sub i64 %.neg.i, %790
-  store ptr %.0620.lcssa.i96, ptr %42, align 8, !tbaa !65
+  store ptr %.0620.lcssa.i126, ptr %42, align 8, !tbaa !65
   store i64 %792, ptr %43, align 8, !tbaa !66
-  store i64 %.0600.lcssa.i98, ptr %60, align 8, !tbaa !98
-  store i32 %.0601.lcssa.i97, ptr %62, align 8, !tbaa !97
+  store i64 %.0600.lcssa.i128, ptr %60, align 8, !tbaa !98
+  store i32 %.0601.lcssa.i127, ptr %62, align 8, !tbaa !97
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !107
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %995

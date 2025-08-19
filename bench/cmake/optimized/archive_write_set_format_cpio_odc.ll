@@ -574,11 +574,11 @@ synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino
   br label %141
 
 141:                                              ; preds = %139, %137
-  %.sink119 = phi i64 [ %140, %139 ], [ %138, %137 ]
+  %.sink127 = phi i64 [ %140, %139 ], [ %138, %137 ]
   %142 = getelementptr inbounds nuw i8, ptr %5, i64 65
-  %..i106 = call i64 @llvm.umin.i64(i64 %.sink119, i64 8589934591)
+  %..i106 = call i64 @llvm.umin.i64(i64 %.sink127, i64 8589934591)
   %143 = call fastcc i64 @format_octal_recursive(i64 noundef %..i106, ptr noundef nonnull %142, i32 noundef 11)
-  %.0.in = icmp ult i64 %.sink119, 8589934592
+  %.0.in = icmp ult i64 %.sink127, 8589934592
   br i1 %.0.in, label %145, label %144
 
 144:                                              ; preds = %141

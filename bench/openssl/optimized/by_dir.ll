@@ -68,10 +68,10 @@ define internal range(i32 0, 2) i32 @new_dir(ptr noundef writeonly captures(none
   br label %17
 
 16:                                               ; preds = %4, %12
-  %.sink10 = phi i32 [ 123, %12 ], [ 116, %4 ]
+  %.sink11 = phi i32 [ 123, %12 ], [ 116, %4 ]
   %.sink = phi i32 [ 524303, %12 ], [ 524291, %4 ]
   tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink10, ptr noundef nonnull @__func__.new_dir) #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink11, ptr noundef nonnull @__func__.new_dir) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink, ptr noundef null) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %2, ptr noundef nonnull @.str.1, i32 noundef 130) #8
   br label %17
@@ -157,11 +157,11 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject_ex(ptr noundef %0, i32 
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %12 = icmp eq ptr %2, null
-  %.sink176.sroa.gep197 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink183.sroa.gep204 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %12, label %192, label %13
 
 13:                                               ; preds = %6
-  %.sink176.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %.sink183.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i32 %1, ptr %9, align 8, !tbaa !17
   %14 = icmp eq i32 %1, 1
   br i1 %14, label %18, label %15
@@ -177,9 +177,9 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject_ex(ptr noundef %0, i32 
   br label %.loopexit
 
 18:                                               ; preds = %15, %13
-  %.sink176.sroa.phi = phi ptr [ %.sink176.sroa.gep, %13 ], [ %.sink176.sroa.gep197, %15 ]
+  %.sink183.sroa.phi = phi ptr [ %.sink183.sroa.gep, %13 ], [ %.sink183.sroa.gep204, %15 ]
   %.097 = phi ptr [ @.str.2, %13 ], [ @.str.3, %15 ]
-  store ptr %2, ptr %.sink176.sroa.phi, align 8, !tbaa !19
+  store ptr %2, ptr %.sink183.sroa.phi, align 8, !tbaa !19
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %7, ptr %19, align 8, !tbaa !19
   %20 = call ptr @BUF_MEM_new() #8
@@ -286,18 +286,18 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject_ex(ptr noundef %0, i32 
   %74 = call i32 @stat(ptr noundef %73, ptr noundef nonnull %11) #8
   %75 = icmp sgt i32 %74, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %75, label %.lr.ph184, label %.thread
+  br i1 %75, label %.lr.ph191, label %.thread
 
-.lr.ph184:                                        ; preds = %.split.us.preheader, %.split.us
-  %.2102.us183 = phi i32 [ %80, %.split.us ], [ 0, %.split.us.preheader ]
+.lr.ph191:                                        ; preds = %.split.us.preheader, %.split.us
+  %.2102.us190 = phi i32 [ %80, %.split.us ], [ 0, %.split.us.preheader ]
   %76 = load ptr, ptr %35, align 8, !tbaa !30
   %77 = load i32, ptr %68, align 8, !tbaa !33
   %78 = call i32 @X509_load_cert_file_ex(ptr noundef %0, ptr noundef %76, i32 noundef %77, ptr noundef %4, ptr noundef %5) #8
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %.thread, label %.split.us
 
-.split.us:                                        ; preds = %.lr.ph184
-  %80 = add nuw nsw i32 %.2102.us183, 1
+.split.us:                                        ; preds = %.lr.ph191
+  %80 = add nuw nsw i32 %.2102.us190, 1
   %81 = load ptr, ptr %35, align 8, !tbaa !30
   %82 = load i64, ptr %36, align 8, !tbaa !32
   %83 = load ptr, ptr %41, align 8, !tbaa !21
@@ -307,7 +307,7 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject_ex(ptr noundef %0, i32 
   %86 = call i32 @stat(ptr noundef %85, ptr noundef nonnull %11) #8
   %87 = icmp sgt i32 %86, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %87, label %.lr.ph184, label %.thread
+  br i1 %87, label %.lr.ph191, label %.thread
 
 .split.split.us.preheader:                        ; preds = %49, %64
   %.1101.ph = phi i32 [ 0, %49 ], [ %.0100, %64 ]
@@ -322,18 +322,18 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject_ex(ptr noundef %0, i32 
   %94 = call i32 @stat(ptr noundef %93, ptr noundef nonnull %11) #8
   %95 = icmp sgt i32 %94, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %95, label %.lr.ph187, label %.thread
+  br i1 %95, label %.lr.ph194, label %.thread
 
-.lr.ph187:                                        ; preds = %.split.split.us.preheader, %.split.split.us
-  %.2102.us145186 = phi i32 [ %100, %.split.split.us ], [ %.1101.ph, %.split.split.us.preheader ]
+.lr.ph194:                                        ; preds = %.split.split.us.preheader, %.split.split.us
+  %.2102.us145193 = phi i32 [ %100, %.split.split.us ], [ %.1101.ph, %.split.split.us.preheader ]
   %96 = load ptr, ptr %35, align 8, !tbaa !30
   %97 = load i32, ptr %88, align 8, !tbaa !33
   %98 = call i32 @X509_load_crl_file(ptr noundef %0, ptr noundef %96, i32 noundef %97) #8
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %.thread, label %.split.split.us
 
-.split.split.us:                                  ; preds = %.lr.ph187
-  %100 = add nsw i32 %.2102.us145186, 1
+.split.split.us:                                  ; preds = %.lr.ph194
+  %100 = add nsw i32 %.2102.us145193, 1
   %101 = load ptr, ptr %35, align 8, !tbaa !30
   %102 = load i64, ptr %36, align 8, !tbaa !32
   %103 = load ptr, ptr %41, align 8, !tbaa !21
@@ -343,7 +343,7 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject_ex(ptr noundef %0, i32 
   %106 = call i32 @stat(ptr noundef %105, ptr noundef nonnull %11) #8
   %107 = icmp sgt i32 %106, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %107, label %.lr.ph187, label %.thread
+  br i1 %107, label %.lr.ph194, label %.thread
 
 .split.split:                                     ; preds = %67, %.split.split
   %.2102 = phi i32 [ %spec.select, %.split.split ], [ 0, %67 ]
@@ -360,9 +360,9 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject_ex(ptr noundef %0, i32 
   %spec.select = add nuw nsw i32 %.2102, %115
   br i1 %114, label %.split.split, label %.thread
 
-.thread:                                          ; preds = %.split.split, %.lr.ph184, %.split.us, %.lr.ph187, %.split.split.us, %.split.us.preheader, %.split.split.us.preheader
-  %.1160 = phi ptr [ %.1.ph, %.split.split.us.preheader ], [ null, %.split.us.preheader ], [ %.1.ph, %.split.split.us ], [ %.1.ph, %.lr.ph187 ], [ null, %.split.us ], [ null, %.lr.ph184 ], [ null, %.split.split ]
-  %.us-phi = phi i32 [ %.1101.ph, %.split.split.us.preheader ], [ 0, %.split.us.preheader ], [ %.2102.us145186, %.lr.ph187 ], [ %100, %.split.split.us ], [ %.2102.us183, %.lr.ph184 ], [ %80, %.split.us ], [ %spec.select, %.split.split ]
+.thread:                                          ; preds = %.split.split, %.lr.ph191, %.split.us, %.lr.ph194, %.split.split.us, %.split.us.preheader, %.split.split.us.preheader
+  %.1167 = phi ptr [ %.1.ph, %.split.split.us.preheader ], [ null, %.split.us.preheader ], [ %.1.ph, %.split.split.us ], [ %.1.ph, %.lr.ph194 ], [ null, %.split.us ], [ null, %.lr.ph191 ], [ null, %.split.split ]
+  %.us-phi = phi i32 [ %.1101.ph, %.split.split.us.preheader ], [ 0, %.split.us.preheader ], [ %.2102.us145193, %.lr.ph194 ], [ %100, %.split.split.us ], [ %.2102.us190, %.lr.ph191 ], [ %80, %.split.us ], [ %spec.select, %.split.split ]
   %116 = icmp sgt i32 %.us-phi, 0
   br i1 %116, label %117, label %.thread131
 
@@ -392,7 +392,7 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject_ex(ptr noundef %0, i32 
   br i1 %.not112, label %.thread135, label %134
 
 134:                                              ; preds = %131
-  %135 = icmp eq ptr %.1160, null
+  %135 = icmp eq ptr %.1167, null
   br i1 %135, label %136, label %.thread128
 
 136:                                              ; preds = %134
@@ -439,7 +439,7 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject_ex(ptr noundef %0, i32 
   br label %162
 
 .thread128:                                       ; preds = %134, %136
-  %.2130 = phi ptr [ %141, %136 ], [ %.1160, %134 ]
+  %.2130 = phi ptr [ %141, %136 ], [ %.1167, %134 ]
   %158 = getelementptr inbounds nuw i8, ptr %.2130, i64 8
   %159 = load i32, ptr %158, align 8, !tbaa !29
   %160 = icmp slt i32 %159, %.us-phi

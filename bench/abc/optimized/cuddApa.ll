@@ -347,7 +347,7 @@ define range(i32 -1, 2) i32 @Cudd_ApaCompare(i32 noundef %0, ptr noundef readonl
   %22 = zext i32 %.0.lcssa to i64
   %wide.trip.count68 = zext nneg i32 %15 to i64
   %invariant.gep = getelementptr inbounds nuw i32, ptr %1, i64 %21
-  %invariant.gep74 = getelementptr inbounds nuw i32, ptr %3, i64 %22
+  %invariant.gep79 = getelementptr inbounds nuw i32, ptr %3, i64 %22
   br label %.lr.ph53
 
 23:                                               ; preds = %27
@@ -359,8 +359,8 @@ define range(i32 -1, 2) i32 @Cudd_ApaCompare(i32 noundef %0, ptr noundef readonl
   %indvars.iv65 = phi i64 [ 0, %.lr.ph53.preheader ], [ %indvars.iv.next66, %23 ]
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv65
   %24 = load i32, ptr %gep, align 4, !tbaa !3
-  %gep75 = getelementptr inbounds nuw i32, ptr %invariant.gep74, i64 %indvars.iv65
-  %25 = load i32, ptr %gep75, align 4, !tbaa !3
+  %gep80 = getelementptr inbounds nuw i32, ptr %invariant.gep79, i64 %indvars.iv65
+  %25 = load i32, ptr %gep80, align 4, !tbaa !3
   %26 = icmp ugt i32 %24, %25
   br i1 %26, label %.loopexit, label %27
 
@@ -515,7 +515,7 @@ Cudd_ApaIntDivision.exit41:                       ; preds = %Cudd_ApaIntDivision
   %58 = zext i32 %.0.lcssa.i to i64
   %wide.trip.count68.i = zext nneg i32 %51 to i64
   %invariant.gep.i = getelementptr inbounds nuw i32, ptr %9, i64 %57
-  %invariant.gep74.i = getelementptr inbounds nuw i32, ptr %27, i64 %58
+  %invariant.gep79.i = getelementptr inbounds nuw i32, ptr %27, i64 %58
   br label %.lr.ph53.i
 
 59:                                               ; preds = %63
@@ -527,8 +527,8 @@ Cudd_ApaIntDivision.exit41:                       ; preds = %Cudd_ApaIntDivision
   %indvars.iv65.i = phi i64 [ 0, %.lr.ph53.preheader.i ], [ %indvars.iv.next66.i, %59 ]
   %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %indvars.iv65.i
   %60 = load i32, ptr %gep.i, align 4, !tbaa !3
-  %gep75.i = getelementptr inbounds nuw i32, ptr %invariant.gep74.i, i64 %indvars.iv65.i
-  %61 = load i32, ptr %gep75.i, align 4, !tbaa !3
+  %gep80.i = getelementptr inbounds nuw i32, ptr %invariant.gep79.i, i64 %indvars.iv65.i
+  %61 = load i32, ptr %gep80.i, align 4, !tbaa !3
   %62 = icmp ugt i32 %60, %61
   br i1 %62, label %Cudd_ApaCompare.exit.thread, label %63
 
@@ -641,9 +641,9 @@ Cudd_ApaCopy.exit:                                ; preds = %16
 
 Cudd_ApaCopy.exit.thread:                         ; preds = %16
   %20 = icmp sgt i32 %6, -1
-  br i1 %20, label %._crit_edge.thread67, label %._crit_edge.thread
+  br i1 %20, label %._crit_edge.thread71, label %._crit_edge.thread
 
-._crit_edge.thread67:                             ; preds = %Cudd_ApaCopy.exit.thread
+._crit_edge.thread71:                             ; preds = %Cudd_ApaCopy.exit.thread
   %21 = zext i32 %12 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %14, i8 0, i64 %21, i1 false), !tbaa !18
   br label %.lr.ph58.preheader
@@ -685,7 +685,7 @@ Cudd_ApaCopy.exit.thread:                         ; preds = %16
   tail call void @free(ptr noundef nonnull %9) #19
   br label %.sink.split
 
-.lr.ph58.preheader:                               ; preds = %._crit_edge.loopexit.i.us, %._crit_edge.thread67
+.lr.ph58.preheader:                               ; preds = %._crit_edge.loopexit.i.us, %._crit_edge.thread71
   tail call void @free(ptr noundef nonnull %9) #19
   %35 = zext nneg i32 %6 to i64
   %wide.trip.count = zext i32 %12 to i64

@@ -805,13 +805,13 @@ declare void @lean_dec_ref_cold(ptr noundef) local_unnamed_addr #2
 define linkonce_odr hidden void @_ZN4lean7rb_treeINS_4nameENS_14name_quick_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !65
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %common.ret1, label %3
+  br i1 %.not, label %common.ret2, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %5 = atomicrmw sub ptr %4, i32 1 acq_rel, align 4
   %6 = icmp eq i32 %5, 1
-  br i1 %6, label %7, label %common.ret1
+  br i1 %6, label %7, label %common.ret2
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -846,7 +846,7 @@ define linkonce_odr hidden void @_ZN4lean7rb_treeINS_4nameENS_14name_quick_cmpEE
   tail call void @__clang_call_terminate(ptr %21) #15
   unreachable
 
-common.ret1:                                      ; preds = %3, %1, %_ZN4lean10object_refD2Ev.exit
+common.ret2:                                      ; preds = %3, %1, %_ZN4lean10object_refD2Ev.exit
   ret void
 
 _ZN4lean10object_refD2Ev.exit:                    ; preds = %7, %15, %17, %18
@@ -854,7 +854,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %7, %15, %17, %18
   tail call void @_ZN4lean7rb_treeINS_4nameENS_14name_quick_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #14
   tail call void @_ZN4lean7rb_treeINS_4nameENS_14name_quick_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 32) #16
-  br label %common.ret1
+  br label %common.ret2
 }
 
 ; Function Attrs: nobuiltin nounwind
@@ -864,13 +864,13 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 define linkonce_odr hidden void @_ZN4lean7rb_treeISt4pairINS_4nameES2_ENS_6rb_mapIS2_S2_NS_14name_quick_cmpEE9entry_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !66
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %common.ret1, label %3
+  br i1 %.not, label %common.ret4, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %5 = atomicrmw sub ptr %4, i32 1 acq_rel, align 4
   %6 = icmp eq i32 %5, 1
-  br i1 %6, label %7, label %common.ret1
+  br i1 %6, label %7, label %common.ret4
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -938,7 +938,7 @@ _ZN4lean10object_refD2Ev.exit.i:                  ; preds = %19, %18, %16, %7
   tail call void @__clang_call_terminate(ptr %35) #15
   unreachable
 
-common.ret1:                                      ; preds = %3, %1, %_ZNSt4pairIN4lean4nameES1_ED2Ev.exit
+common.ret4:                                      ; preds = %3, %1, %_ZNSt4pairIN4lean4nameES1_ED2Ev.exit
   ret void
 
 _ZNSt4pairIN4lean4nameES1_ED2Ev.exit:             ; preds = %_ZN4lean10object_refD2Ev.exit.i, %29, %31, %32
@@ -946,7 +946,7 @@ _ZNSt4pairIN4lean4nameES1_ED2Ev.exit:             ; preds = %_ZN4lean10object_re
   tail call void @_ZN4lean7rb_treeISt4pairINS_4nameES2_ENS_6rb_mapIS2_S2_NS_14name_quick_cmpEE9entry_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #14
   tail call void @_ZN4lean7rb_treeISt4pairINS_4nameES2_ENS_6rb_mapIS2_S2_NS_14name_quick_cmpEE9entry_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #14
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(40) %2, i64 noundef 40) #16
-  br label %common.ret1
+  br label %common.ret4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3312,8 +3312,8 @@ _ZNK4lean10local_decl9get_valueEv.exit.thread:    ; preds = %_ZN4lean4exprC2ERKS
   %.pre246 = ptrtoint ptr %.pre243 to i64
   store ptr %.pre243, ptr %18, align 8, !tbaa !3
   %334 = and i64 %.pre246, 1
-  %.not.i.i.i132249 = icmp eq i64 %334, 0
-  br i1 %.not.i.i.i132249, label %335, label %_ZN4lean8optionalINS_4exprEED2Ev.exit
+  %.not.i.i.i132311 = icmp eq i64 %334, 0
+  br i1 %.not.i.i.i132311, label %335, label %_ZN4lean8optionalINS_4exprEED2Ev.exit
 
 335:                                              ; preds = %_ZNK4lean10local_decl9get_valueEv.exit.thread, %_ZNK4lean10local_decl9get_valueEv.exit
   %336 = phi ptr [ %.pre243, %_ZNK4lean10local_decl9get_valueEv.exit.thread ], [ %324, %_ZNK4lean10local_decl9get_valueEv.exit ]
@@ -4745,10 +4745,10 @@ _ZNK4lean10local_decl9get_valueEv.exit.thread:    ; preds = %18, %26, %28, %_ZNK
   unreachable
 
 .sink.split.sink.split:                           ; preds = %63, %48
-  %.sink36 = phi i32 [ %49, %48 ], [ %64, %63 ]
-  %.sink35 = phi ptr [ %45, %48 ], [ %60, %63 ]
-  %71 = add nsw i32 %.sink36, -1
-  store i32 %71, ptr %.sink35, align 4, !tbaa !8
+  %.sink40 = phi i32 [ %49, %48 ], [ %64, %63 ]
+  %.sink39 = phi ptr [ %45, %48 ], [ %60, %63 ]
+  %71 = add nsw i32 %.sink40, -1
+  store i32 %71, ptr %.sink39, align 4, !tbaa !8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %67, %66, %59, %.critedge, %52, %51, %43, %41, %_ZNK4lean10local_decl9get_valueEv.exit, %13
@@ -7198,7 +7198,7 @@ _ZN4lean4exprC2ERKS0_.exit:                       ; preds = %27, %25, %28
 
 39:                                               ; preds = %_ZNK4lean10local_decl9get_valueEv.exit, %35, %34, %32, %_ZN4lean4exprC2ERKS0_.exit
   %40 = phi ptr [ %23, %35 ], [ %23, %34 ], [ %23, %32 ], [ %23, %_ZN4lean4exprC2ERKS0_.exit ], [ %11, %_ZNK4lean10local_decl9get_valueEv.exit ]
-  %.not.i.i.i3135 = phi i1 [ true, %35 ], [ true, %34 ], [ true, %32 ], [ true, %_ZN4lean4exprC2ERKS0_.exit ], [ false, %_ZNK4lean10local_decl9get_valueEv.exit ]
+  %.not.i.i.i3842 = phi i1 [ true, %35 ], [ true, %34 ], [ true, %32 ], [ true, %_ZN4lean4exprC2ERKS0_.exit ], [ false, %_ZNK4lean10local_decl9get_valueEv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %41 = getelementptr i8, ptr %40, i64 4
   %.val.i.i.i.i21 = load i32, ptr %41, align 4
@@ -7334,7 +7334,7 @@ _ZN4leaneqERKNS_4nameES2_.exit:                   ; preds = %85
 
 _ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE8containsERKS1_.exit: ; preds = %75, %50, %_ZN4leaneqERKNS_4nameES2_.exit, %45, %84, %39
   %.0 = phi i1 [ false, %39 ], [ false, %45 ], [ false, %84 ], [ %91, %_ZN4leaneqERKNS_4nameES2_.exit ], [ false, %50 ], [ false, %75 ]
-  br i1 %.not.i.i.i3135, label %94, label %_ZN4lean10object_refD2Ev.exit
+  br i1 %.not.i.i.i3842, label %94, label %_ZN4lean10object_refD2Ev.exit
 
 94:                                               ; preds = %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE8containsERKS1_.exit
   %95 = load i32, ptr %40, align 4, !tbaa !8

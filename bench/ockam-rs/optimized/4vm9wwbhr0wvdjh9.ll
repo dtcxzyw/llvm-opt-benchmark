@@ -218,7 +218,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.1614125
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !alias.scope !135, !noalias !140, !nonnull !4, !noundef !4
-  %.promoted.i320 = load ptr, ptr %11, align 8, !alias.scope !135, !noalias !140
+  %.promoted.i322 = load ptr, ptr %11, align 8, !alias.scope !135, !noalias !140
   br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h6055d9ae242e73ceE.exit.i4.us"
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h6055d9ae242e73ceE.exit.i": ; preds = %3, %16
@@ -243,14 +243,14 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.1614125
   br i1 %22, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h6055d9ae242e73ceE.exit.i4.us", label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h6055d9ae242e73ceE.exit.i4"
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h6055d9ae242e73ceE.exit.i4.us": ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit.thread.thread, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit.thread
-  %.promoted.i321 = phi ptr [ %.promoted.i320, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit.thread.thread ], [ %.promoted.i3, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit.thread ]
+  %.promoted.i323 = phi ptr [ %.promoted.i322, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit.thread.thread ], [ %.promoted.i3, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit.thread ]
   %23 = phi ptr [ %13, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit.thread.thread ], [ %21, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit.thread ]
   %24 = phi ptr [ %11, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit.thread.thread ], [ %19, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit.thread ]
-  %25 = icmp eq ptr %.promoted.i321, %23
+  %25 = icmp eq ptr %.promoted.i323, %23
   br i1 %25, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit7, label %.split15.us
 
 .split15.us:                                      ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h6055d9ae242e73ceE.exit.i4.us"
-  %26 = getelementptr inbounds nuw i8, ptr %.promoted.i321, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.promoted.i323, i64 32
   store ptr %26, ptr %24, align 8, !alias.scope !147, !noalias !140
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit7.sink.split
 
@@ -267,7 +267,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.1614125
   br i1 %.not.i.i.i.i5, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit7.sink.split, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h6055d9ae242e73ceE.exit.i4"
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit7.sink.split: ; preds = %16, %29, %.split15.us
-  %.0.ph = phi ptr [ %.promoted.i321, %.split15.us ], [ %27, %29 ], [ %14, %16 ]
+  %.0.ph = phi ptr [ %.promoted.i323, %.split15.us ], [ %27, %29 ], [ %14, %16 ]
   store i8 1, ptr %1, align 1, !noalias !4
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf855f0f3456f1a2cE.llvm.16141255976661166362.exit7
 
@@ -4216,14 +4216,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %6 = alloca { ptr, ptr }, align 8
   %7 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %8 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State21transition_to_running17hdd9d466543a41f9dE(ptr noundef nonnull align 8 %7), !range !305
-  switch i8 %8, label %default.unreachable10 [
+  switch i8 %8, label %default.unreachable11 [
     i8 0, label %9
     i8 1, label %44
     i8 2, label %53
     i8 3, label %53
   ]
 
-default.unreachable10:                            ; preds = %1
+default.unreachable11:                            ; preds = %1
   unreachable
 
 9:                                                ; preds = %1
@@ -5160,14 +5160,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %6 = alloca { ptr, ptr }, align 8
   %7 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %8 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State21transition_to_running17hdd9d466543a41f9dE(ptr noundef nonnull align 8 %7), !range !305
-  switch i8 %8, label %default.unreachable10 [
+  switch i8 %8, label %default.unreachable11 [
     i8 0, label %9
     i8 1, label %44
     i8 2, label %53
     i8 3, label %53
   ]
 
-default.unreachable10:                            ; preds = %1
+default.unreachable11:                            ; preds = %1
   unreachable
 
 9:                                                ; preds = %1

@@ -953,8 +953,8 @@ _ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.thread80.i: ; preds = %77, %_Z
 
 91:                                               ; preds = %80
   %92 = load ptr, ptr %22, align 8, !tbaa !82
-  %.0.copyload.i.i.i.i6.i.i = load i64, ptr %41, align 8
-  %93 = and i64 %.0.copyload.i.i.i.i6.i.i, -8
+  %.0.copyload.i.i.i.i7.i.i = load i64, ptr %41, align 8
+  %93 = and i64 %.0.copyload.i.i.i.i7.i.i, -8
   %94 = inttoptr i64 %93 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 56

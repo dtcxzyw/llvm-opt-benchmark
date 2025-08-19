@@ -739,13 +739,13 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL13action_mirrorP14UBiDiTra
   br label %74
 
 74:                                               ; preds = %67, %48
-  %.sink55 = phi i32 [ 2, %67 ], [ 1, %48 ]
-  %.sink54 = phi i32 [ %70, %67 ], [ %.040, %48 ]
-  %.sink52 = phi ptr [ %68, %67 ], [ %51, %48 ]
+  %.sink58 = phi i32 [ 2, %67 ], [ 1, %48 ]
+  %.sink57 = phi i32 [ %70, %67 ], [ %.040, %48 ]
+  %.sink55 = phi ptr [ %68, %67 ], [ %51, %48 ]
   %.sink = phi i16 [ %73, %67 ], [ %50, %48 ]
-  %75 = add i32 %.040, %.sink55
-  %76 = zext i32 %.sink54 to i64
-  %77 = getelementptr inbounds nuw i16, ptr %.sink52, i64 %76
+  %75 = add i32 %.040, %.sink58
+  %76 = zext i32 %.sink57 to i64
+  %77 = getelementptr inbounds nuw i16, ptr %.sink55, i64 %76
   store i16 %.sink, ptr %77, align 2, !tbaa !39
   %78 = load i32, ptr %10, align 8, !tbaa !34
   %79 = icmp ult i32 %.2, %78

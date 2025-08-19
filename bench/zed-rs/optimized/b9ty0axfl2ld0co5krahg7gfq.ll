@@ -110,14 +110,14 @@ define internal fastcc void @"_ZN13async_process7Command6output28_$u7b$$u7b$clos
   %10 = alloca [496 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 608
   %12 = load i8, ptr %11, align 8, !range !4, !noundef !5
-  switch i8 %12, label %default.unreachable100 [
+  switch i8 %12, label %default.unreachable104 [
     i8 0, label %13
     i8 1, label %27
     i8 2, label %28
     i8 3, label %17
   ]
 
-default.unreachable100:                           ; preds = %75, %29, %3
+default.unreachable104:                           ; preds = %75, %29, %3
   unreachable
 
 13:                                               ; preds = %3
@@ -209,7 +209,7 @@ common.ret:                                       ; preds = %237, %25
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.547.sroa.2.i)
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 377
   %32 = load i8, ptr %31, align 1, !range !16, !noalias !17, !noundef !5
-  switch i8 %32, label %default.unreachable100 [
+  switch i8 %32, label %default.unreachable104 [
     i8 0, label %34
     i8 1, label %40
     i8 2, label %41
@@ -364,7 +364,7 @@ common.ret:                                       ; preds = %237, %25
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 432
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %78 = load i8, ptr %77, align 8, !range !4, !noalias !43, !noundef !5
-  switch i8 %78, label %default.unreachable100 [
+  switch i8 %78, label %default.unreachable104 [
     i8 0, label %79
     i8 1, label %102
     i8 2, label %103
@@ -2283,10 +2283,10 @@ define internal fastcc void @"_ZN4core3ptr94drop_in_place$LT$node_runtime..read_
 
 common.ret.sink.split:                            ; preds = %"_ZN4core3ptr96drop_in_place$LT$async_fs..File..open$LT$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfc930ca618b95a24E.exit", %6
   %.sink = phi i64 [ 8, %6 ], [ 48, %"_ZN4core3ptr96drop_in_place$LT$async_fs..File..open$LT$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfc930ca618b95a24E.exit" ]
-  %.sink15 = phi i64 [ %7, %6 ], [ %39, %"_ZN4core3ptr96drop_in_place$LT$async_fs..File..open$LT$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfc930ca618b95a24E.exit" ]
+  %.sink22 = phi i64 [ %7, %6 ], [ %39, %"_ZN4core3ptr96drop_in_place$LT$async_fs..File..open$LT$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfc930ca618b95a24E.exit" ]
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %5 = load ptr, ptr %4, align 8, !noalias !5, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %.sink15, i64 noundef 1) #21, !noalias !5
+  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %.sink22, i64 noundef 1) #21, !noalias !5
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %"_ZN4core3ptr96drop_in_place$LT$async_fs..File..open$LT$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfc930ca618b95a24E.exit", %6, %1
@@ -2308,10 +2308,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 common.ret.sink.split.i:                          ; preds = %"_ZN4core3ptr116drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$GT$$GT$17h3f61e1b494494552E.exit.i", %15
   %.sink.i = phi i64 [ 8, %15 ], [ 32, %"_ZN4core3ptr116drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$GT$$GT$17h3f61e1b494494552E.exit.i" ]
-  %.sink7.i = phi i64 [ %16, %15 ], [ %28, %"_ZN4core3ptr116drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$GT$$GT$17h3f61e1b494494552E.exit.i" ]
+  %.sink9.i = phi i64 [ %16, %15 ], [ %28, %"_ZN4core3ptr116drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$GT$$GT$17h3f61e1b494494552E.exit.i" ]
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink.i
   %14 = load ptr, ptr %13, align 8, !noalias !5, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %14, i64 noundef %.sink7.i, i64 noundef 1) #21, !noalias !5
+  tail call void @__rust_dealloc(ptr noundef nonnull %14, i64 noundef %.sink9.i, i64 noundef 1) #21, !noalias !5
   br label %"_ZN4core3ptr96drop_in_place$LT$async_fs..File..open$LT$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfc930ca618b95a24E.exit"
 
 15:                                               ; preds = %9
@@ -2436,10 +2436,10 @@ define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$async_fs..File..ope
 
 common.ret.sink.split:                            ; preds = %"_ZN4core3ptr116drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$GT$$GT$17h3f61e1b494494552E.exit", %6
   %.sink = phi i64 [ 8, %6 ], [ 32, %"_ZN4core3ptr116drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$GT$$GT$17h3f61e1b494494552E.exit" ]
-  %.sink7 = phi i64 [ %7, %6 ], [ %20, %"_ZN4core3ptr116drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$GT$$GT$17h3f61e1b494494552E.exit" ]
+  %.sink9 = phi i64 [ %7, %6 ], [ %20, %"_ZN4core3ptr116drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$GT$$GT$17h3f61e1b494494552E.exit" ]
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %5 = load ptr, ptr %4, align 8, !noalias !5, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %.sink7, i64 noundef 1) #21, !noalias !5
+  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %.sink9, i64 noundef 1) #21, !noalias !5
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %"_ZN4core3ptr116drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$GT$$GT$17h3f61e1b494494552E.exit", %6, %1
@@ -2590,8 +2590,8 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %17 = trunc i32 %16 to i8
   %18 = and i8 %17, 63
   %19 = or disjoint i8 %18, -128
-  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %19, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8, align 1, !alias.scope !1015, !noalias !1012
+  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %19, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx9, align 1, !alias.scope !1015, !noalias !1012
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 20:                                               ; preds = %6
@@ -2604,14 +2604,14 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %26 = trunc i32 %25 to i8
   %27 = and i8 %26, 63
   %28 = or disjoint i8 %27, -128
-  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %28, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx7, align 1, !alias.scope !1015, !noalias !1012
+  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %28, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8, align 1, !alias.scope !1015, !noalias !1012
   %29 = lshr i32 %1, 6
   %30 = trunc i32 %29 to i8
   %31 = and i8 %30, 63
   %32 = or disjoint i8 %31, -128
-  %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %32, ptr %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx9, align 2, !alias.scope !1015, !noalias !1012
+  %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %32, ptr %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx10, align 2, !alias.scope !1015, !noalias !1012
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i: ; preds = %20, %12, %8
@@ -3399,7 +3399,7 @@ define internal fastcc void @"_ZN12node_runtime30read_package_installed_version2
   %13 = alloca [24 x i8], align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %15 = load i8, ptr %14, align 8, !range !16, !noundef !5
-  switch i8 %15, label %default.unreachable168 [
+  switch i8 %15, label %default.unreachable183 [
     i8 0, label %17
     i8 1, label %51
     i8 2, label %52
@@ -3407,7 +3407,7 @@ define internal fastcc void @"_ZN12node_runtime30read_package_installed_version2
     i8 4, label %16
   ]
 
-default.unreachable168:                           ; preds = %118, %53, %3
+default.unreachable183:                           ; preds = %118, %53, %3
   unreachable
 
 16:                                               ; preds = %3
@@ -3477,13 +3477,13 @@ _ZN3std4path4Path4join17hbe3aaa081b2200cdE.exit54: ; preds = %28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1152)
   %35 = load i64, ptr %12, align 8, !alias.scope !1155, !noalias !1158, !noundef !5
   %36 = icmp eq i64 %35, 0
-  br i1 %36, label %.thread169, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6435588442613421834.exit.i.i1.i.i.i.i55"
+  br i1 %36, label %.thread184, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6435588442613421834.exit.i.i1.i.i.i.i55"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6435588442613421834.exit.i.i1.i.i.i.i55": ; preds = %_ZN3std4path4Path4join17hbe3aaa081b2200cdE.exit54
   tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %35, i64 noundef 1) #21, !noalias !1160
-  br label %.thread169
+  br label %.thread184
 
-.thread169:                                       ; preds = %_ZN3std4path4Path4join17hbe3aaa081b2200cdE.exit54, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6435588442613421834.exit.i.i1.i.i.i.i55"
+.thread184:                                       ; preds = %_ZN3std4path4Path4join17hbe3aaa081b2200cdE.exit54, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6435588442613421834.exit.i.i1.i.i.i.i55"
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store i8 0, ptr %18, align 1
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -3552,7 +3552,7 @@ _ZN3std4path4Path4join17hbe3aaa081b2200cdE.exit54: ; preds = %28
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.426.i)
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  switch i8 %.pre, label %default.unreachable168 [
+  switch i8 %.pre, label %default.unreachable183 [
     i8 0, label %57
     i8 1, label %83
     i8 2, label %84
@@ -3563,9 +3563,9 @@ _ZN3std4path4Path4join17hbe3aaa081b2200cdE.exit54: ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1185
   br label %85
 
-57:                                               ; preds = %.thread169, %53
-  %58 = phi ptr [ %39, %.thread169 ], [ %55, %53 ]
-  %59 = phi ptr [ %38, %.thread169 ], [ %54, %53 ]
+57:                                               ; preds = %.thread184, %53
+  %58 = phi ptr [ %39, %.thread184 ], [ %55, %53 ]
+  %59 = phi ptr [ %38, %.thread184 ], [ %54, %53 ]
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %59, i64 24, i1 false), !noalias !1185
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1185
@@ -3739,12 +3739,12 @@ _ZN3std4path4Path4join17hbe3aaa081b2200cdE.exit54: ; preds = %28
   br label %.body
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h61905ea5d45e55f4E.exit15.sink.split.i": ; preds = %105, %99
-  %.sink38.i = phi i64 [ %108, %105 ], [ %101, %99 ]
+  %.sink40.i = phi i64 [ %108, %105 ], [ %101, %99 ]
   %.sroa.022.0.ph.i = phi i64 [ 3, %105 ], [ %.sroa.022.0.copyload.i, %99 ]
   %.sroa.3.0.ph.i = phi ptr [ %.sroa.7.sroa.6.0.copyload.i, %105 ], [ %.sroa.3.0.copyload.i, %99 ]
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %104 = load ptr, ptr %103, align 8, !noalias !1185, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %104, i64 noundef %.sink38.i, i64 noundef 1) #21, !noalias !1224
+  tail call void @__rust_dealloc(ptr noundef nonnull %104, i64 noundef %.sink40.i, i64 noundef 1) #21, !noalias !1224
   br label %114
 
 105:                                              ; preds = %"_ZN4core3ptr116drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$std..fs..File$C$std..io..error..Error$GT$$GT$$GT$17h3f61e1b494494552E.exit.i"
@@ -3807,7 +3807,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr39drop
   tail call void @llvm.assume(i1 %119)
   %120 = ptrtoint ptr %.sroa.3.0.i137161 to i64
   %121 = and i64 %120, 3
-  switch i64 %121, label %default.unreachable168 [
+  switch i64 %121, label %default.unreachable183 [
     i64 2, label %123
     i64 3, label %122
     i64 0, label %127
@@ -3830,8 +3830,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr39drop
   br label %127
 
 127:                                              ; preds = %118, %124
-  %.sink170 = phi i64 [ 15, %124 ], [ 16, %118 ]
-  %128 = getelementptr i8, ptr %.sroa.3.0.i137161, i64 %.sink170
+  %.sink185 = phi i64 [ 15, %124 ], [ 16, %118 ]
+  %128 = getelementptr i8, ptr %.sroa.3.0.i137161, i64 %.sink185
   %.sroa.0.0.i = load i8, ptr %128, align 8, !range !1262, !noundef !5
   %129 = icmp eq i8 %.sroa.0.0.i, 0
   br i1 %129, label %.thread141, label %.thread138
@@ -4438,7 +4438,7 @@ common.resume:                                    ; preds = %34, %"_ZN63_$LT$all
 .lr.ph.i27.us.i:                                  ; preds = %74, %.sink.split.i.us.i
   %75 = phi i64 [ %.sink.i.us.i, %.sink.split.i.us.i ], [ %.sroa.307.0.us.i, %74 ]
   %76 = phi i64 [ %116, %.sink.split.i.us.i ], [ %72, %74 ]
-  %77 = phi i64 [ %.ph69.i.us.i, %.sink.split.i.us.i ], [ %.sroa.18.0.us.i, %74 ]
+  %77 = phi i64 [ %.ph76.i.us.i, %.sink.split.i.us.i ], [ %.sroa.18.0.us.i, %74 ]
   %78 = getelementptr inbounds i8, ptr %.sroa.1240.0.copyload.i, i64 %76
   %79 = load i8, ptr %78, align 1, !alias.scope !1534, !noalias !1539, !noundef !5
   %80 = and i8 %79, 63
@@ -4510,8 +4510,8 @@ common.resume:                                    ; preds = %34, %"_ZN63_$LT$all
 
 .sink.split.i.us.i:                               ; preds = %114, %111, %100
   %.sink.i.us.i = phi i64 [ %67, %100 ], [ 0, %111 ], [ 0, %114 ]
-  %.ph69.i.us.i = phi i64 [ %101, %100 ], [ %113, %111 ], [ %115, %114 ]
-  %116 = add i64 %.ph69.i.us.i, %66
+  %.ph76.i.us.i = phi i64 [ %101, %100 ], [ %113, %111 ], [ %115, %114 ]
+  %116 = add i64 %.ph76.i.us.i, %66
   %117 = icmp ult i64 %116, %.sroa.1341.0.copyload.i
   br i1 %117, label %.lr.ph.i27.us.i, label %.loopexit.i
 
@@ -5139,7 +5139,7 @@ define internal void @"_ZN83_$LT$node_runtime..ManagedNodeRuntime$u20$as$u20$nod
   %17 = alloca [56 x i8], align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 193
   %19 = load i8, ptr %18, align 1, !range !16, !noundef !5
-  switch i8 %19, label %default.unreachable181 [
+  switch i8 %19, label %default.unreachable185 [
     i8 0, label %21
     i8 1, label %50
     i8 2, label %51
@@ -5147,7 +5147,7 @@ define internal void @"_ZN83_$LT$node_runtime..ManagedNodeRuntime$u20$as$u20$nod
     i8 4, label %90
   ]
 
-default.unreachable181:                           ; preds = %3
+default.unreachable185:                           ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %98, %62, %20
@@ -5787,7 +5787,7 @@ define internal fastcc void @"_ZN83_$LT$node_runtime..ManagedNodeRuntime$u20$as$
   %39 = alloca [176 x i8], align 8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 139
   %41 = load i8, ptr %40, align 1, !range !213, !noundef !5
-  switch i8 %41, label %default.unreachable230 [
+  switch i8 %41, label %default.unreachable252 [
     i8 0, label %43
     i8 1, label %68
     i8 2, label %69
@@ -5797,7 +5797,7 @@ define internal fastcc void @"_ZN83_$LT$node_runtime..ManagedNodeRuntime$u20$as$
     i8 6, label %42
   ]
 
-default.unreachable230:                           ; preds = %70, %3
+default.unreachable252:                           ; preds = %70, %3
   unreachable
 
 42:                                               ; preds = %3
@@ -5877,7 +5877,7 @@ default.unreachable230:                           ; preds = %70, %3
 70:                                               ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 152
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !1817, !noalias !1818
-  switch i8 %.pre, label %default.unreachable230 [
+  switch i8 %.pre, label %default.unreachable252 [
     i8 0, label %71
     i8 1, label %165
     i8 2, label %166
@@ -7797,14 +7797,14 @@ define internal void @"_ZN82_$LT$node_runtime..SystemNodeRuntime$u20$as$u20$node
   %27 = alloca [24 x i8], align 8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 896
   %29 = load i8, ptr %28, align 8, !range !4, !noundef !5
-  switch i8 %29, label %default.unreachable147 [
+  switch i8 %29, label %default.unreachable153 [
     i8 0, label %31
     i8 1, label %151
     i8 2, label %152
     i8 3, label %30
   ]
 
-default.unreachable147:                           ; preds = %3
+default.unreachable153:                           ; preds = %3
   unreachable
 
 30:                                               ; preds = %3

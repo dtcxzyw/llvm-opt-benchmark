@@ -180,9 +180,9 @@ define void @ff_atrac3p_generate_tones(ptr noundef readonly captures(none) %0, p
   br label %53
 
 53:                                               ; preds = %48, %52, %42
-  %.sink88 = phi i32 [ %51, %48 ], [ 64, %52 ], [ %41, %42 ]
+  %.sink89 = phi i32 [ %51, %48 ], [ 64, %52 ], [ %41, %42 ]
   %54 = getelementptr inbounds nuw i8, ptr %17, i64 28
-  store i32 %.sink88, ptr %54, align 4, !tbaa !29
+  store i32 %.sink89, ptr %54, align 4, !tbaa !29
   %55 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %56 = load i32, ptr %55, align 4, !tbaa !29
   %57 = icmp sgt i32 %56, 31

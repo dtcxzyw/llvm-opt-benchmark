@@ -261,7 +261,7 @@ sub_1:                                            ; preds = %sub_0
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 0
-  br i1 %23, label %24, label %.thread65
+  br i1 %23, label %24, label %.thread78
 
 24:                                               ; preds = %.tail, %13
   tail call fastcc void @do_help()
@@ -278,12 +278,12 @@ sub_1:                                            ; preds = %sub_0
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %36, label %.tail56.thread
 
-.thread65:                                        ; preds = %.tail
+.thread78:                                        ; preds = %.tail
   %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(10) @.str.14) #18
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %36, label %sub_158
 
-sub_158:                                          ; preds = %.tail.thread, %.thread65
+sub_158:                                          ; preds = %.tail.thread, %.thread78
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %32 = load i8, ptr %31, align 1
   %.not64 = icmp eq i8 %32, 86
@@ -295,7 +295,7 @@ sub_158:                                          ; preds = %.tail.thread, %.thr
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %36, label %.tail56.thread
 
-36:                                               ; preds = %.tail.thread.thread, %.thread65, %.tail56, %.tail.thread
+36:                                               ; preds = %.tail.thread.thread, %.thread78, %.tail56, %.tail.thread
   %37 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.16)
   tail call void @exit(i32 noundef 0) #19
   unreachable

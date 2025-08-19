@@ -317,9 +317,9 @@ vermUnalignNocase.exit:                           ; preds = %vermSearchAlignedNo
   %173 = ptrtoint ptr %23 to i64
   %174 = and i64 %173, 15
   %.not.i36 = icmp eq i64 %174, 0
-  br i1 %.not.i36, label %.preheader275, label %175
+  br i1 %.not.i36, label %.preheader306, label %175
 
-.preheader275:                                    ; preds = %dvermPrecondition.exit73.thread, %164
+.preheader306:                                    ; preds = %dvermPrecondition.exit73.thread, %164
   %.020.i78.ph = phi ptr [ %185, %dvermPrecondition.exit73.thread ], [ %23, %164 ]
   br label %189
 
@@ -338,7 +338,7 @@ vermUnalignNocase.exit:                           ; preds = %vermSearchAlignedNo
 dvermPrecondition.exit73.thread:                  ; preds = %175
   %184 = sub nuw nsw i64 16, %174
   %185 = getelementptr inbounds nuw i8, ptr %23, i64 %184
-  br label %.preheader275
+  br label %.preheader306
 
 dvermPrecondition.exit73:                         ; preds = %175
   %186 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %183, i1 true)
@@ -346,8 +346,8 @@ dvermPrecondition.exit73:                         ; preds = %175
   %188 = getelementptr inbounds nuw i8, ptr %23, i64 %187
   br label %run_hwlm_accel.exit
 
-189:                                              ; preds = %.preheader275, %206
-  %.020.i78 = phi ptr [ %190, %206 ], [ %.020.i78.ph, %.preheader275 ]
+189:                                              ; preds = %.preheader306, %206
+  %.020.i78 = phi ptr [ %190, %206 ], [ %.020.i78.ph, %.preheader306 ]
   %190 = getelementptr inbounds nuw i8, ptr %.020.i78, i64 16
   %191 = icmp ult ptr %190, %24
   br i1 %191, label %192, label %dvermSearchAligned.exit.thread
@@ -424,9 +424,9 @@ dvermPrecondition.exit:                           ; preds = %dvermSearchAligned.
   %235 = ptrtoint ptr %23 to i64
   %236 = and i64 %235, 15
   %.not.i38 = icmp eq i64 %236, 0
-  br i1 %.not.i38, label %.preheader281, label %237
+  br i1 %.not.i38, label %.preheader312, label %237
 
-.preheader281:                                    ; preds = %dvermPreconditionNocase.exit68.thread, %226
+.preheader312:                                    ; preds = %dvermPreconditionNocase.exit68.thread, %226
   %.022.i.ph = phi ptr [ %248, %dvermPreconditionNocase.exit68.thread ], [ %23, %226 ]
   br label %252
 
@@ -446,7 +446,7 @@ dvermPrecondition.exit:                           ; preds = %dvermSearchAligned.
 dvermPreconditionNocase.exit68.thread:            ; preds = %237
   %247 = sub nuw nsw i64 16, %236
   %248 = getelementptr inbounds nuw i8, ptr %23, i64 %247
-  br label %.preheader281
+  br label %.preheader312
 
 dvermPreconditionNocase.exit68:                   ; preds = %237
   %249 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %246, i1 true)
@@ -454,8 +454,8 @@ dvermPreconditionNocase.exit68:                   ; preds = %237
   %251 = getelementptr inbounds nuw i8, ptr %23, i64 %250
   br label %run_hwlm_accel.exit
 
-252:                                              ; preds = %.preheader281, %272
-  %.022.i = phi ptr [ %253, %272 ], [ %.022.i.ph, %.preheader281 ]
+252:                                              ; preds = %.preheader312, %272
+  %.022.i = phi ptr [ %253, %272 ], [ %.022.i.ph, %.preheader312 ]
   %253 = getelementptr inbounds nuw i8, ptr %.022.i, i64 16
   %254 = icmp ult ptr %253, %24
   br i1 %254, label %255, label %dvermSearchAlignedNocase.exit.thread
@@ -922,9 +922,9 @@ vermUnalignNocase.exit:                           ; preds = %vermSearchAlignedNo
   %166 = ptrtoint ptr %1 to i64
   %167 = and i64 %166, 15
   %.not.i147 = icmp eq i64 %167, 0
-  br i1 %.not.i147, label %.preheader865, label %168
+  br i1 %.not.i147, label %.preheader936, label %168
 
-.preheader865:                                    ; preds = %dvermPrecondition.exit271.thread, %157
+.preheader936:                                    ; preds = %dvermPrecondition.exit271.thread, %157
   %.020.i303.ph = phi ptr [ %178, %dvermPrecondition.exit271.thread ], [ %1, %157 ]
   br label %182
 
@@ -943,7 +943,7 @@ vermUnalignNocase.exit:                           ; preds = %vermSearchAlignedNo
 dvermPrecondition.exit271.thread:                 ; preds = %168
   %177 = sub nuw nsw i64 16, %167
   %178 = getelementptr inbounds nuw i8, ptr %1, i64 %177
-  br label %.preheader865
+  br label %.preheader936
 
 dvermPrecondition.exit271:                        ; preds = %168
   %179 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %176, i1 true)
@@ -951,8 +951,8 @@ dvermPrecondition.exit271:                        ; preds = %168
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 %180
   br label %run_hwlm_accel.exit
 
-182:                                              ; preds = %.preheader865, %199
-  %.020.i303 = phi ptr [ %183, %199 ], [ %.020.i303.ph, %.preheader865 ]
+182:                                              ; preds = %.preheader936, %199
+  %.020.i303 = phi ptr [ %183, %199 ], [ %.020.i303.ph, %.preheader936 ]
   %183 = getelementptr inbounds nuw i8, ptr %.020.i303, i64 16
   %184 = icmp ult ptr %183, %20
   br i1 %184, label %185, label %dvermSearchAligned.exit.thread
@@ -1029,9 +1029,9 @@ dvermPrecondition.exit:                           ; preds = %dvermSearchAligned.
   %228 = ptrtoint ptr %1 to i64
   %229 = and i64 %228, 15
   %.not.i156 = icmp eq i64 %229, 0
-  br i1 %.not.i156, label %.preheader871, label %230
+  br i1 %.not.i156, label %.preheader942, label %230
 
-.preheader871:                                    ; preds = %dvermPreconditionNocase.exit254.thread, %219
+.preheader942:                                    ; preds = %dvermPreconditionNocase.exit254.thread, %219
   %.022.i.ph = phi ptr [ %241, %dvermPreconditionNocase.exit254.thread ], [ %1, %219 ]
   br label %245
 
@@ -1051,7 +1051,7 @@ dvermPrecondition.exit:                           ; preds = %dvermSearchAligned.
 dvermPreconditionNocase.exit254.thread:           ; preds = %230
   %240 = sub nuw nsw i64 16, %229
   %241 = getelementptr inbounds nuw i8, ptr %1, i64 %240
-  br label %.preheader871
+  br label %.preheader942
 
 dvermPreconditionNocase.exit254:                  ; preds = %230
   %242 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %239, i1 true)
@@ -1059,8 +1059,8 @@ dvermPreconditionNocase.exit254:                  ; preds = %230
   %244 = getelementptr inbounds nuw i8, ptr %1, i64 %243
   br label %run_hwlm_accel.exit
 
-245:                                              ; preds = %.preheader871, %265
-  %.022.i = phi ptr [ %246, %265 ], [ %.022.i.ph, %.preheader871 ]
+245:                                              ; preds = %.preheader942, %265
+  %.022.i = phi ptr [ %246, %265 ], [ %.022.i.ph, %.preheader942 ]
   %246 = getelementptr inbounds nuw i8, ptr %.022.i, i64 16
   %247 = icmp ult ptr %246, %20
   br i1 %247, label %248, label %dvermSearchAlignedNocase.exit.thread
@@ -1299,8 +1299,8 @@ vermUnalignNocase.exit171:                        ; preds = %vermSearchAlignedNo
   %377 = icmp eq i8 %376, %361
   %378 = load i8, ptr %.ptr504, align 16
   %379 = icmp eq i8 %378, %363
-  %or.cond821 = select i1 %377, i1 %379, i1 false
-  br i1 %or.cond821, label %dvermSearchAligned.exit317.split.loop.exit, label %380
+  %or.cond892 = select i1 %377, i1 %379, i1 false
+  br i1 %or.cond892, label %dvermSearchAligned.exit317.split.loop.exit, label %380
 
 380:                                              ; preds = %359
   %.not.i313.not = icmp eq i16 %375, 0
@@ -1741,9 +1741,9 @@ vermUnalignNocase.exit177:                        ; preds = %vermSearchAlignedNo
   %615 = ptrtoint ptr %468 to i64
   %616 = and i64 %615, 15
   %.not.i118 = icmp eq i64 %616, 0
-  br i1 %.not.i118, label %.preheader837, label %617
+  br i1 %.not.i118, label %.preheader908, label %617
 
-.preheader837:                                    ; preds = %dvermPrecondition.exit283.thread, %606
+.preheader908:                                    ; preds = %dvermPrecondition.exit283.thread, %606
   %.020.i318.ph = phi ptr [ %627, %dvermPrecondition.exit283.thread ], [ %468, %606 ]
   br label %631
 
@@ -1762,7 +1762,7 @@ vermUnalignNocase.exit177:                        ; preds = %vermSearchAlignedNo
 dvermPrecondition.exit283.thread:                 ; preds = %617
   %626 = sub nuw nsw i64 16, %616
   %627 = getelementptr inbounds nuw i8, ptr %468, i64 %626
-  br label %.preheader837
+  br label %.preheader908
 
 dvermPrecondition.exit283:                        ; preds = %617
   %628 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %625, i1 true)
@@ -1770,8 +1770,8 @@ dvermPrecondition.exit283:                        ; preds = %617
   %630 = getelementptr inbounds nuw i8, ptr %468, i64 %629
   br label %run_hwlm_accel.exit71
 
-631:                                              ; preds = %.preheader837, %648
-  %.020.i318 = phi ptr [ %632, %648 ], [ %.020.i318.ph, %.preheader837 ]
+631:                                              ; preds = %.preheader908, %648
+  %.020.i318 = phi ptr [ %632, %648 ], [ %.020.i318.ph, %.preheader908 ]
   %632 = getelementptr inbounds nuw i8, ptr %.020.i318, i64 16
   %633 = icmp ult ptr %632, %469
   br i1 %633, label %634, label %dvermSearchAligned.exit326.thread
@@ -1848,9 +1848,9 @@ dvermPrecondition.exit280:                        ; preds = %dvermSearchAligned.
   %677 = ptrtoint ptr %468 to i64
   %678 = and i64 %677, 15
   %.not.i120 = icmp eq i64 %678, 0
-  br i1 %.not.i120, label %.preheader843, label %679
+  br i1 %.not.i120, label %.preheader914, label %679
 
-.preheader843:                                    ; preds = %dvermPreconditionNocase.exit266.thread, %668
+.preheader914:                                    ; preds = %dvermPreconditionNocase.exit266.thread, %668
   %.022.i295.ph = phi ptr [ %690, %dvermPreconditionNocase.exit266.thread ], [ %468, %668 ]
   br label %694
 
@@ -1870,7 +1870,7 @@ dvermPrecondition.exit280:                        ; preds = %dvermSearchAligned.
 dvermPreconditionNocase.exit266.thread:           ; preds = %679
   %689 = sub nuw nsw i64 16, %678
   %690 = getelementptr inbounds nuw i8, ptr %468, i64 %689
-  br label %.preheader843
+  br label %.preheader914
 
 dvermPreconditionNocase.exit266:                  ; preds = %679
   %691 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %688, i1 true)
@@ -1878,8 +1878,8 @@ dvermPreconditionNocase.exit266:                  ; preds = %679
   %693 = getelementptr inbounds nuw i8, ptr %468, i64 %692
   br label %run_hwlm_accel.exit71
 
-694:                                              ; preds = %.preheader843, %714
-  %.022.i295 = phi ptr [ %695, %714 ], [ %.022.i295.ph, %.preheader843 ]
+694:                                              ; preds = %.preheader914, %714
+  %.022.i295 = phi ptr [ %695, %714 ], [ %.022.i295.ph, %.preheader914 ]
   %695 = getelementptr inbounds nuw i8, ptr %.022.i295, i64 16
   %696 = icmp ult ptr %695, %469
   br i1 %696, label %697, label %dvermSearchAlignedNocase.exit302.thread

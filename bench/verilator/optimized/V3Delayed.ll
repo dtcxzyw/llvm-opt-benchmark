@@ -3209,26 +3209,26 @@ define linkonce_odr dso_local void @_ZN14DelayedVisitor5visitEP9AstCAwait(ptr no
   br i1 %10, label %._crit_edge.thread.i.i.i, label %16
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %5
-  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %7, %5 ]
+  %.019.lcssa29.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %7, %5 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %12 = load ptr, ptr %11, align 8, !tbaa !61
-  %13 = icmp eq ptr %.019.lcssa28.i.i.i, %12
+  %13 = icmp eq ptr %.019.lcssa29.i.i.i, %12
   br i1 %13, label %select.unfold.i.i, label %14
 
 14:                                               ; preds = %._crit_edge.thread.i.i.i
-  %15 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #28
+  %15 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i) #28
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %15, i64 32
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !251
   br label %16
 
 16:                                               ; preds = %14, %._crit_edge.i.i.i
   %17 = phi ptr [ %.pre.i.i, %14 ], [ %9, %._crit_edge.i.i.i ]
-  %.019.lcssa29.i.i.i = phi ptr [ %.019.lcssa28.i.i.i, %14 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
+  %.019.lcssa28.i.i.i = phi ptr [ %.019.lcssa29.i.i.i, %14 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
   %18 = icmp ult ptr %17, %4
   br i1 %18, label %select.unfold.i.i, label %_ZNSt3setIP10AstSenTreeSt4lessIS1_ESaIS1_EE6insertEOS1_.exit
 
 select.unfold.i.i:                                ; preds = %16, %._crit_edge.thread.i.i.i
-  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %16 ]
+  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa29.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa28.i.i.i, %16 ]
   %19 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %7
   br i1 %19, label %_ZNSt8_Rb_treeIP10AstSenTreeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %20
 
@@ -8446,8 +8446,8 @@ _ZZN7AstNode11foreachImplIS_ZN14DelayedVisitor5visitEP12AstAssignDlyEUlPS_E_EEvP
   br i1 %34, label %.lr.ph.preheader, label %._crit_edge, !prof !388
 
 .lr.ph.preheader:                                 ; preds = %_ZZN7AstNode11foreachImplIS_ZN14DelayedVisitor5visitEP12AstAssignDlyEUlPS_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS4_E_clES4_.exit.thread, %_ZZN7AstNode11foreachImplIS_ZN14DelayedVisitor5visitEP12AstAssignDlyEUlPS_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS4_E_clES4_.exit
-  %.7.idx87 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplIS_ZN14DelayedVisitor5visitEP12AstAssignDlyEUlPS_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS4_E_clES4_.exit.thread ], [ %.6.idx, %_ZZN7AstNode11foreachImplIS_ZN14DelayedVisitor5visitEP12AstAssignDlyEUlPS_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS4_E_clES4_.exit ]
-  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx87
+  %.7.idx105 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplIS_ZN14DelayedVisitor5visitEP12AstAssignDlyEUlPS_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS4_E_clES4_.exit.thread ], [ %.6.idx, %_ZZN7AstNode11foreachImplIS_ZN14DelayedVisitor5visitEP12AstAssignDlyEUlPS_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS4_E_clES4_.exit ]
+  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx105
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZZN7AstNode11foreachImplIS_ZN14DelayedVisitor5visitEP12AstAssignDlyEUlPS_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlS4_E_clES4_.exit35
@@ -8662,13 +8662,13 @@ define linkonce_odr dso_local void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_a
 19:                                               ; preds = %3
   store ptr null, ptr %5, align 8, !tbaa !383
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !383
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -12184,7 +12184,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN12V3NumberData9ValueAndXEmS1_ET_S3_T0_RSaIT1_E.exit, label %23
 
@@ -19841,8 +19841,8 @@ define linkonce_odr dso_local noundef ptr @_ZN14DelayedVisitor10captureLhsEP8Ast
 _ZN7AstNode11privateCastI6AstSelPS_EEPT_S2_.exit: ; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %16, align 8, !tbaa !214
-  %.not143 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 257
-  br i1 %.not143, label %17, label %.thread
+  %.not167 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 257
+  br i1 %.not167, label %17, label %.thread
 
 17:                                               ; preds = %_ZN7AstNode11privateCastI6AstSelPS_EEPT_S2_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

@@ -740,9 +740,9 @@ _ZN4llvm5APIntC2ERKS0_.exit32:                    ; preds = %_ZNK4llvm6APSInt10i
   br i1 %141, label %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i, label %151
 
 _ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i:       ; preds = %_ZN4llvm5APIntC2ERKS0_.exit32, %_ZNK4llvm6APSInt10isNegativeEv.exit.thread
-  %.sink91 = phi ptr [ %13, %_ZNK4llvm6APSInt10isNegativeEv.exit.thread ], [ %17, %_ZN4llvm5APIntC2ERKS0_.exit32 ]
+  %.sink107 = phi ptr [ %13, %_ZNK4llvm6APSInt10isNegativeEv.exit.thread ], [ %17, %_ZN4llvm5APIntC2ERKS0_.exit32 ]
   %142 = phi i32 [ %138, %_ZNK4llvm6APSInt10isNegativeEv.exit.thread ], [ %.pr71, %_ZN4llvm5APIntC2ERKS0_.exit32 ]
-  %.pre86 = load i64, ptr %.sink91, align 8, !tbaa !13
+  %.pre86 = load i64, ptr %.sink107, align 8, !tbaa !13
   %143 = xor i64 %.pre86, -1
   %144 = add nuw nsw i32 %142, 63
   %145 = and i32 %144, 63
@@ -1386,8 +1386,8 @@ _ZN4llvm5APIntD2Ev.exit46:                        ; preds = %130, %127, %_ZNK4ll
   %.0 = phi i32 [ 0, %180 ], [ 1, %134 ], [ -1, %137 ], [ 1, %140 ], [ -1, %143 ], [ -1, %146 ], [ 1, %159 ], [ -1, %162 ], [ 1, %164 ], [ 1, %175 ], [ -1, %178 ]
   %182 = icmp ult i32 %132, 65
   %183 = icmp eq i64 %131, 0
-  %or.cond68 = select i1 %182, i1 true, i1 %183
-  br i1 %or.cond68, label %_ZN4llvm5APIntD2Ev.exit48, label %184
+  %or.cond82 = select i1 %182, i1 true, i1 %183
+  br i1 %or.cond82, label %_ZN4llvm5APIntD2Ev.exit48, label %184
 
 184:                                              ; preds = %181
   call void @_ZdaPv(ptr noundef nonnull %133) #21
@@ -2149,10 +2149,10 @@ define dso_local void @_ZNK4llvm12APFixedPoint3addERKS0_Pb(ptr dead_on_unwind no
   %.not36.i = select i1 %26, i1 %28, i1 false
   %29 = icmp sgt i32 %19, -1
   %or.cond32.not.i = or i1 %29, %24
-  %.sink37.sroa.gep = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sink37.sroa.gep38 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sink37.sroa.gep39 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink37.sroa.gep40 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink47.sroa.gep = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sink47.sroa.gep48 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sink47.sroa.gep49 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink47.sroa.gep50 = getelementptr inbounds nuw i8, ptr %16, i64 8
   br i1 %or.cond32.not.i, label %_ZNK4llvm19FixedPointSemantics18getCommonSemanticsERKS0_.exit, label %30
 
 30:                                               ; preds = %4
@@ -2295,13 +2295,13 @@ _ZNK4llvm12APFixedPoint8getValueEv.exit19:        ; preds = %_ZNK4llvm12APFixedP
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %90, %89, %85, %84
-  %.sink37.sroa.phi = phi ptr [ %.sink37.sroa.gep, %84 ], [ %.sink37.sroa.gep38, %85 ], [ %.sink37.sroa.gep39, %89 ], [ %.sink37.sroa.gep40, %90 ]
-  %.sink37 = phi ptr [ %15, %84 ], [ %15, %85 ], [ %16, %89 ], [ %16, %90 ]
-  %91 = load i64, ptr %.sink37, align 8
+  %.sink47.sroa.phi = phi ptr [ %.sink47.sroa.gep, %84 ], [ %.sink47.sroa.gep48, %85 ], [ %.sink47.sroa.gep49, %89 ], [ %.sink47.sroa.gep50, %90 ]
+  %.sink47 = phi ptr [ %15, %84 ], [ %15, %85 ], [ %16, %89 ], [ %16, %90 ]
+  %91 = load i64, ptr %.sink47, align 8
   store i64 %91, ptr %14, align 8
-  %92 = load i32, ptr %.sink37.sroa.phi, align 8, !tbaa !14
+  %92 = load i32, ptr %.sink47.sroa.phi, align 8, !tbaa !14
   store i32 %92, ptr %81, align 8, !tbaa !14
-  store i32 0, ptr %.sink37.sroa.phi, align 8, !tbaa !14
+  store i32 0, ptr %.sink47.sroa.phi, align 8, !tbaa !14
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %95, label %93
 
@@ -2318,8 +2318,8 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %90, %89, %85, %84
   br i1 %97, label %_ZN4llvm12APFixedPointC2ERKNS_5APIntERKNS_19FixedPointSemanticsE.exit.thread, label %_ZN4llvm12APFixedPointC2ERKNS_5APIntERKNS_19FixedPointSemanticsE.exit
 
 _ZN4llvm12APFixedPointC2ERKNS_5APIntERKNS_19FixedPointSemanticsE.exit.thread: ; preds = %95
-  %not.33 = xor i1 %24, true
-  %98 = zext i1 %not.33 to i8
+  %not.43 = xor i1 %24, true
+  %98 = zext i1 %not.43 to i8
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %92, ptr %99, align 8, !tbaa !14
   store i64 %91, ptr %0, align 8
@@ -2463,10 +2463,10 @@ define dso_local void @_ZNK4llvm12APFixedPoint3subERKS0_Pb(ptr dead_on_unwind no
   %.not36.i = select i1 %26, i1 %28, i1 false
   %29 = icmp sgt i32 %19, -1
   %or.cond32.not.i = or i1 %29, %24
-  %.sink37.sroa.gep = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sink37.sroa.gep38 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sink37.sroa.gep39 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink37.sroa.gep40 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink47.sroa.gep = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sink47.sroa.gep48 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sink47.sroa.gep49 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink47.sroa.gep50 = getelementptr inbounds nuw i8, ptr %16, i64 8
   br i1 %or.cond32.not.i, label %_ZNK4llvm19FixedPointSemantics18getCommonSemanticsERKS0_.exit, label %30
 
 30:                                               ; preds = %4
@@ -2609,13 +2609,13 @@ _ZNK4llvm12APFixedPoint8getValueEv.exit19:        ; preds = %_ZNK4llvm12APFixedP
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %90, %89, %85, %84
-  %.sink37.sroa.phi = phi ptr [ %.sink37.sroa.gep, %84 ], [ %.sink37.sroa.gep38, %85 ], [ %.sink37.sroa.gep39, %89 ], [ %.sink37.sroa.gep40, %90 ]
-  %.sink37 = phi ptr [ %15, %84 ], [ %15, %85 ], [ %16, %89 ], [ %16, %90 ]
-  %91 = load i64, ptr %.sink37, align 8
+  %.sink47.sroa.phi = phi ptr [ %.sink47.sroa.gep, %84 ], [ %.sink47.sroa.gep48, %85 ], [ %.sink47.sroa.gep49, %89 ], [ %.sink47.sroa.gep50, %90 ]
+  %.sink47 = phi ptr [ %15, %84 ], [ %15, %85 ], [ %16, %89 ], [ %16, %90 ]
+  %91 = load i64, ptr %.sink47, align 8
   store i64 %91, ptr %14, align 8
-  %92 = load i32, ptr %.sink37.sroa.phi, align 8, !tbaa !14
+  %92 = load i32, ptr %.sink47.sroa.phi, align 8, !tbaa !14
   store i32 %92, ptr %81, align 8, !tbaa !14
-  store i32 0, ptr %.sink37.sroa.phi, align 8, !tbaa !14
+  store i32 0, ptr %.sink47.sroa.phi, align 8, !tbaa !14
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %95, label %93
 
@@ -2632,8 +2632,8 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %90, %89, %85, %84
   br i1 %97, label %_ZN4llvm12APFixedPointC2ERKNS_5APIntERKNS_19FixedPointSemanticsE.exit.thread, label %_ZN4llvm12APFixedPointC2ERKNS_5APIntERKNS_19FixedPointSemanticsE.exit
 
 _ZN4llvm12APFixedPointC2ERKNS_5APIntERKNS_19FixedPointSemanticsE.exit.thread: ; preds = %95
-  %not.33 = xor i1 %24, true
-  %98 = zext i1 %not.33 to i8
+  %not.43 = xor i1 %24, true
+  %98 = zext i1 %not.43 to i8
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %92, ptr %99, align 8, !tbaa !14
   store i64 %91, ptr %0, align 8
@@ -3413,10 +3413,10 @@ _ZNK4llvm6APSIntgtERKS0_.exit52:                  ; preds = %278, %.thread72
   br i1 %292, label %_ZN4llvm12APFixedPointC2ERKNS_5APIntERKNS_19FixedPointSemanticsE.exit.thread, label %_ZN4llvm12APFixedPointC2ERKNS_5APIntERKNS_19FixedPointSemanticsE.exit
 
 _ZN4llvm12APFixedPointC2ERKNS_5APIntERKNS_19FixedPointSemanticsE.exit.thread: ; preds = %288
-  %.pre4.i75 = load i64, ptr %35, align 8
+  %.pre4.i102 = load i64, ptr %35, align 8
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %291, ptr %293, align 8, !tbaa !14
-  store i64 %.pre4.i75, ptr %0, align 8
+  store i64 %.pre4.i102, ptr %0, align 8
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 %183, ptr %294, align 4, !tbaa !17
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3799,20 +3799,20 @@ _ZN4llvm5APIntD2Ev.exit20:                        ; preds = %124, %121, %118
   %129 = icmp ult i32 %128, 65
   %130 = load ptr, ptr %18, align 8
   %131 = icmp eq ptr %130, null
-  %or.cond115 = select i1 %129, i1 true, i1 %131
-  br i1 %or.cond115, label %_ZN4llvm5APIntD2Ev.exit18, label %_ZN4llvm5APIntD2Ev.exit18.sink.split
+  %or.cond149 = select i1 %129, i1 true, i1 %131
+  br i1 %or.cond149, label %_ZN4llvm5APIntD2Ev.exit18, label %_ZN4llvm5APIntD2Ev.exit18.sink.split
 
 _ZN4llvm5APIntD2Ev.exit18.sink.split:             ; preds = %_ZN4llvm5APIntD2Ev.exit20, %_ZN4llvm5APIntD2Ev.exit
   %.sink = phi ptr [ %116, %_ZN4llvm5APIntD2Ev.exit ], [ %130, %_ZN4llvm5APIntD2Ev.exit20 ]
-  %.sink112.ph = phi ptr [ %20, %_ZN4llvm5APIntD2Ev.exit ], [ %22, %_ZN4llvm5APIntD2Ev.exit20 ]
+  %.sink146.ph = phi ptr [ %20, %_ZN4llvm5APIntD2Ev.exit ], [ %22, %_ZN4llvm5APIntD2Ev.exit20 ]
   call void @_ZdaPv(ptr noundef nonnull %.sink) #21
   br label %_ZN4llvm5APIntD2Ev.exit18
 
 _ZN4llvm5APIntD2Ev.exit18:                        ; preds = %_ZN4llvm5APIntD2Ev.exit18.sink.split, %_ZN4llvm5APIntD2Ev.exit20, %_ZN4llvm5APIntD2Ev.exit
-  %.sink112 = phi ptr [ %20, %_ZN4llvm5APIntD2Ev.exit ], [ %22, %_ZN4llvm5APIntD2Ev.exit20 ], [ %.sink112.ph, %_ZN4llvm5APIntD2Ev.exit18.sink.split ]
-  %132 = load i64, ptr %.sink112, align 8
+  %.sink146 = phi ptr [ %20, %_ZN4llvm5APIntD2Ev.exit ], [ %22, %_ZN4llvm5APIntD2Ev.exit20 ], [ %.sink146.ph, %_ZN4llvm5APIntD2Ev.exit18.sink.split ]
+  %132 = load i64, ptr %.sink146, align 8
   store i64 %132, ptr %18, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %.sink112, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %.sink146, i64 8
   %134 = load i32, ptr %133, align 8, !tbaa !14
   store i32 %134, ptr %98, align 8, !tbaa !14
   store i32 0, ptr %133, align 8, !tbaa !14
@@ -4055,9 +4055,9 @@ _ZN4llvm5APIntD2Ev.exit41.thread:                 ; preds = %_ZN4llvm5APIntC2ERK
 245:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
   %246 = load ptr, ptr %25, align 8, !tbaa !13
   %247 = icmp eq ptr %246, null
-  br i1 %247, label %_ZN4llvm5APIntD2Ev.exit41.thread105, label %_ZN4llvm5APIntD2Ev.exit41
+  br i1 %247, label %_ZN4llvm5APIntD2Ev.exit41.thread139, label %_ZN4llvm5APIntD2Ev.exit41
 
-_ZN4llvm5APIntD2Ev.exit41.thread105:              ; preds = %245
+_ZN4llvm5APIntD2Ev.exit41.thread139:              ; preds = %245
   store i64 %242, ptr %25, align 8
   store i32 %241, ptr %187, align 8, !tbaa !14
   br label %_ZN4llvm5APIntD2Ev.exit42
@@ -4079,7 +4079,7 @@ _ZN4llvm5APIntD2Ev.exit41:                        ; preds = %245
   call void @_ZdaPv(ptr noundef nonnull %250) #21
   br label %_ZN4llvm5APIntD2Ev.exit42
 
-_ZN4llvm5APIntD2Ev.exit42:                        ; preds = %_ZN4llvm5APIntD2Ev.exit41.thread105, %_ZNK4llvm6APSInt10isNegativeEv.exit.thread, %252, %249, %_ZN4llvm5APIntD2Ev.exit41, %_ZN4llvm5APIntD2Ev.exit41.thread, %_ZNK4llvm6APSInt10isNegativeEv.exit._ZNK4llvm6APSInt10isNegativeEv.exit39_crit_edge, %_ZNK4llvm6APSInt10isNegativeEv.exit39
+_ZN4llvm5APIntD2Ev.exit42:                        ; preds = %_ZN4llvm5APIntD2Ev.exit41.thread139, %_ZNK4llvm6APSInt10isNegativeEv.exit.thread, %252, %249, %_ZN4llvm5APIntD2Ev.exit41, %_ZN4llvm5APIntD2Ev.exit41.thread, %_ZNK4llvm6APSInt10isNegativeEv.exit._ZNK4llvm6APSInt10isNegativeEv.exit39_crit_edge, %_ZNK4llvm6APSInt10isNegativeEv.exit39
   %.pr93 = load i32, ptr %190, align 8, !tbaa !14
   %253 = icmp ugt i32 %.pr93, 64
   br i1 %253, label %_ZN4llvm5APIntD2Ev.exit42.thread, label %_ZN4llvm5APIntD2Ev.exit43
@@ -4431,10 +4431,10 @@ _ZNK4llvm6APSIntgtERKS0_.exit71:                  ; preds = %364, %.thread97
   br i1 %375, label %_ZN4llvm12APFixedPointC2ERKNS_5APIntERKNS_19FixedPointSemanticsE.exit.thread, label %_ZN4llvm12APFixedPointC2ERKNS_5APIntERKNS_19FixedPointSemanticsE.exit
 
 _ZN4llvm12APFixedPointC2ERKNS_5APIntERKNS_19FixedPointSemanticsE.exit.thread: ; preds = %371
-  %.pre4.i108 = load i64, ptr %35, align 8
+  %.pre4.i142 = load i64, ptr %35, align 8
   %376 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %374, ptr %376, align 8, !tbaa !14
-  store i64 %.pre4.i108, ptr %0, align 8
+  store i64 %.pre4.i142, ptr %0, align 8
   %377 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 %269, ptr %377, align 4, !tbaa !17
   %378 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4652,20 +4652,20 @@ _ZN4llvm6APSIntC2ERKS0_.exit:                     ; preds = %28, %30
   %46 = icmp ult i32 %45, 65
   %47 = load ptr, ptr %13, align 8
   %48 = icmp eq ptr %47, null
-  %or.cond61 = select i1 %46, i1 true, i1 %48
-  br i1 %or.cond61, label %_ZN4llvm5APIntD2Ev.exit, label %_ZN4llvm5APIntD2Ev.exit.sink.split
+  %or.cond79 = select i1 %46, i1 true, i1 %48
+  br i1 %or.cond79, label %_ZN4llvm5APIntD2Ev.exit, label %_ZN4llvm5APIntD2Ev.exit.sink.split
 
 _ZN4llvm5APIntD2Ev.exit.sink.split:               ; preds = %44, %39
   %.sink = phi ptr [ %42, %39 ], [ %47, %44 ]
-  %.sink58.ph = phi ptr [ %14, %39 ], [ %15, %44 ]
+  %.sink76.ph = phi ptr [ %14, %39 ], [ %15, %44 ]
   call void @_ZdaPv(ptr noundef nonnull %.sink) #21
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntD2Ev.exit.sink.split, %44, %39
-  %.sink58 = phi ptr [ %14, %39 ], [ %15, %44 ], [ %.sink58.ph, %_ZN4llvm5APIntD2Ev.exit.sink.split ]
-  %49 = load i64, ptr %.sink58, align 8
+  %.sink76 = phi ptr [ %14, %39 ], [ %15, %44 ], [ %.sink76.ph, %_ZN4llvm5APIntD2Ev.exit.sink.split ]
+  %49 = load i64, ptr %.sink76, align 8
   store i64 %49, ptr %13, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %.sink58, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.sink76, i64 8
   %51 = load i32, ptr %50, align 8, !tbaa !14
   store i32 %51, ptr %24, align 8, !tbaa !14
   store i32 0, ptr %50, align 8, !tbaa !14
@@ -5678,9 +5678,9 @@ _ZN4llvm5APIntD2Ev.exit39.thread:                 ; preds = %_ZN4llvmanENS_5APIn
 234:                                              ; preds = %_ZN4llvmanENS_5APIntERKS0_.exit
   %235 = load ptr, ptr %10, align 8, !tbaa !13
   %236 = icmp eq ptr %235, null
-  br i1 %236, label %_ZN4llvm5APIntD2Ev.exit39.thread77, label %_ZN4llvm5APIntD2Ev.exit39
+  br i1 %236, label %_ZN4llvm5APIntD2Ev.exit39.thread103, label %_ZN4llvm5APIntD2Ev.exit39
 
-_ZN4llvm5APIntD2Ev.exit39.thread77:               ; preds = %234
+_ZN4llvm5APIntD2Ev.exit39.thread103:              ; preds = %234
   store i64 %230, ptr %10, align 8
   store i32 %231, ptr %195, align 8, !tbaa !14
   br label %_ZN4llvm5APIntD2Ev.exit40
@@ -5703,8 +5703,8 @@ _ZN4llvm5APIntD2Ev.exit39:                        ; preds = %234
   %.pr67 = load i32, ptr %195, align 8, !tbaa !14
   br label %_ZN4llvm5APIntD2Ev.exit40
 
-_ZN4llvm5APIntD2Ev.exit40:                        ; preds = %_ZN4llvm5APIntD2Ev.exit39.thread77, %_ZN4llvm5APIntD2Ev.exit39.thread, %_ZN4llvm5APIntD2Ev.exit39, %238, %241
-  %242 = phi i32 [ %231, %_ZN4llvm5APIntD2Ev.exit39.thread ], [ %231, %_ZN4llvm5APIntD2Ev.exit39 ], [ %231, %238 ], [ %.pr67, %241 ], [ %231, %_ZN4llvm5APIntD2Ev.exit39.thread77 ]
+_ZN4llvm5APIntD2Ev.exit40:                        ; preds = %_ZN4llvm5APIntD2Ev.exit39.thread103, %_ZN4llvm5APIntD2Ev.exit39.thread, %_ZN4llvm5APIntD2Ev.exit39, %238, %241
+  %242 = phi i32 [ %231, %_ZN4llvm5APIntD2Ev.exit39.thread ], [ %231, %_ZN4llvm5APIntD2Ev.exit39 ], [ %231, %238 ], [ %.pr67, %241 ], [ %231, %_ZN4llvm5APIntD2Ev.exit39.thread103 ]
   %243 = icmp ult i32 %242, 65
   br i1 %243, label %247, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i
 
@@ -5898,12 +5898,12 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i:       ; preds = %_ZN4llvm5APIntC2ERK
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %19, %23, %16, %42, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i
-  %.sink13 = phi i32 [ %29, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i ], [ %.pre, %42 ], [ %.pre9, %23 ], [ %17, %19 ], [ %2, %16 ]
-  %.sink12 = phi i64 [ %41, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i ], [ %.pre8, %42 ], [ %.pre10, %23 ], [ %22, %19 ], [ 0, %16 ]
+  %.sink16 = phi i32 [ %29, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i ], [ %.pre, %42 ], [ %.pre9, %23 ], [ %17, %19 ], [ %2, %16 ]
+  %.sink15 = phi i64 [ %41, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i ], [ %.pre8, %42 ], [ %.pre10, %23 ], [ %22, %19 ], [ 0, %16 ]
   %.sink = phi i8 [ 0, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i ], [ 0, %42 ], [ 1, %23 ], [ 1, %19 ], [ 1, %16 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink13, ptr %43, align 8, !tbaa !14
-  store i64 %.sink12, ptr %0, align 8
+  store i32 %.sink16, ptr %43, align 8, !tbaa !14
+  store i64 %.sink15, ptr %0, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 %.sink, ptr %44, align 4, !tbaa !17
   ret void

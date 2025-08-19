@@ -641,7 +641,7 @@ _set_cond.exit:                                   ; preds = %.loopexit251.i, %25
 
 274:                                              ; preds = %272, %270, %_set_cond.exit
   %275 = load ptr, ptr @db_conn, align 8
-  switch i32 %0, label %default.unreachable220 [
+  switch i32 %0, label %default.unreachable282 [
     i32 0, label %276
     i32 1, label %281
     i32 2, label %286
@@ -693,7 +693,7 @@ _set_cond.exit:                                   ; preds = %.loopexit251.i, %25
   %.not145 = icmp eq i32 %290, 0
   br i1 %.not145, label %.sink.split, label %292
 
-default.unreachable220:                           ; preds = %274
+default.unreachable282:                           ; preds = %274
   unreachable
 
 .sink.split:                                      ; preds = %289, %284, %279
@@ -1048,13 +1048,13 @@ _merge_cluster_groups.exit:                       ; preds = %.outer._crit_edge.i
   br label %451, !llvm.loop !17
 
 439:                                              ; preds = %434, %432, %430, %428, %424, %422, %420, %418, %414, %410, %403
-  %.sink71.i = phi i16 [ 0, %410 ], [ 0, %403 ], [ 1, %414 ], [ 3, %418 ], [ 2, %420 ], [ 4, %422 ], [ 6, %430 ], [ 6, %428 ], [ 6, %424 ], [ 7, %432 ], [ 8, %434 ]
+  %.sink74.i = phi i16 [ 0, %410 ], [ 0, %403 ], [ 1, %414 ], [ 3, %418 ], [ 2, %420 ], [ 4, %422 ], [ 6, %430 ], [ 6, %428 ], [ 6, %424 ], [ 7, %432 ], [ 8, %434 ]
   %.str.46.sink.i = phi ptr [ @.str.45, %410 ], [ @.str.45, %403 ], [ @.str.46, %414 ], [ @.str.47, %418 ], [ @.str.49, %420 ], [ @.str.51, %422 ], [ @.str.55, %430 ], [ @.str.55, %428 ], [ @.str.55, %424 ], [ @.str.56, %432 ], [ @.str.57, %434 ]
   %.sink.i181 = phi i32 [ 9, %410 ], [ 9, %403 ], [ 9, %414 ], [ 12, %418 ], [ 9, %420 ], [ 9, %422 ], [ 10, %430 ], [ 10, %428 ], [ 10, %424 ], [ 9, %432 ], [ 9, %434 ]
   %print_fields_str.sink.i = phi ptr [ @print_fields_str, %410 ], [ @print_fields_str, %403 ], [ @print_fields_str, %414 ], [ @print_fields_time_from_mins, %418 ], [ @print_fields_uint32, %420 ], [ @print_fields_uint32, %422 ], [ @print_fields_uint32, %430 ], [ @print_fields_uint32, %428 ], [ @print_fields_uint32, %424 ], [ @print_fields_str, %432 ], [ @print_fields_str, %434 ]
   %440 = load ptr, ptr %4, align 8
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 24
-  store i16 %.sink71.i, ptr %441, align 8
+  store i16 %.sink74.i, ptr %441, align 8
   %442 = call ptr @xstrdup(ptr noundef nonnull %.str.46.sink.i) #12
   %443 = load ptr, ptr %4, align 8
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 8
@@ -1138,9 +1138,9 @@ _setup_print_fields_list.exit:                    ; preds = %388, %._crit_edge.i
   %470 = call i64 @strtol(ptr noundef nonnull captures(none) %468, ptr noundef null, i32 noundef 10) #12
   %471 = trunc i64 %470 to i32
   %.b66.i = load i1, ptr @print_job_count, align 4
-  %spec.select92.i = select i1 %.b66.i, i16 2, i16 5
+  %spec.select98.i = select i1 %.b66.i, i16 2, i16 5
   %472 = getelementptr inbounds nuw i8, ptr %469, i64 24
-  store i16 %spec.select92.i, ptr %472, align 8
+  store i16 %spec.select98.i, ptr %472, align 8
   %.b6275.i = load i1, ptr @individual_grouping, align 1
   br i1 %.b6275.i, label %473, label %475
 
@@ -1163,9 +1163,9 @@ _setup_print_fields_list.exit:                    ; preds = %388, %._crit_edge.i
   %spec.select80.i = select i1 %switch.i, i32 20, i32 13
   store i32 %spec.select80.i, ptr %469, align 8
   %.b65.i = load i1, ptr @print_job_count, align 4
-  %spec.select93.i = select i1 %.b65.i, ptr @print_fields_uint32, ptr @print_fields_str
+  %spec.select99.i = select i1 %.b65.i, ptr @print_fields_uint32, ptr @print_fields_str
   %481 = getelementptr inbounds nuw i8, ptr %469, i64 16
-  store ptr %spec.select93.i, ptr %481, align 8
+  store ptr %spec.select99.i, ptr %481, align 8
   %strchr77.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %468, i32 37)
   %.not78.i = icmp eq ptr %strchr77.i, null
   br i1 %.not78.i, label %487, label %482
@@ -1200,9 +1200,9 @@ _setup_print_fields_list.exit:                    ; preds = %388, %._crit_edge.i
 491:                                              ; preds = %._crit_edge.i184
   %492 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 494, ptr noundef nonnull @__func__._setup_grouping_print_fields_list) #12
   %.b64.i = load i1, ptr @print_job_count, align 4
-  %spec.select94.i = select i1 %.b64.i, i16 2, i16 5
+  %spec.select100.i = select i1 %.b64.i, i16 2, i16 5
   %493 = getelementptr inbounds nuw i8, ptr %492, i64 24
-  store i16 %spec.select94.i, ptr %493, align 8
+  store i16 %spec.select100.i, ptr %493, align 8
   %494 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.65, i32 noundef %.053.lcssa.i, ptr noundef nonnull %.052.i) #12
   %495 = getelementptr inbounds nuw i8, ptr %492, i64 8
   store ptr %494, ptr %495, align 8

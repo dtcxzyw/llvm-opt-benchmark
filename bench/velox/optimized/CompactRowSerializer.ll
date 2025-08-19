@@ -890,21 +890,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151: ; preds = %i
   br i1 %cmp.i.i.i.i.i.i153, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split.sink.split:                    ; preds = %if.then.i.i.i.i95, %if.then.i.i.i.i159
-  %.sink190 = phi ptr [ %85, %if.then.i.i.i.i159 ], [ %62, %if.then.i.i.i.i95 ]
-  %_M_weak_count.i.i.i.i160 = getelementptr inbounds nuw i8, ptr %.sink190, i64 12
+  %.sink208 = phi ptr [ %85, %if.then.i.i.i.i159 ], [ %62, %if.then.i.i.i.i95 ]
+  %_M_weak_count.i.i.i.i160 = getelementptr inbounds nuw i8, ptr %.sink208, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i160, align 4
-  %vtable.i.i.i.i161 = load ptr, ptr %.sink190, align 8
+  %vtable.i.i.i.i161 = load ptr, ptr %.sink208, align 8
   %vfn.i.i.i.i162 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i161, i64 16
   %94 = load ptr, ptr %vfn.i.i.i.i162, align 8
-  call void %94(ptr noundef nonnull align 8 dereferenceable(16) %.sink190) #23
+  call void %94(ptr noundef nonnull align 8 dereferenceable(16) %.sink208) #23
   br label %cleanup.sink.split
 
 cleanup.sink.split:                               ; preds = %cleanup.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i87
-  %.sink187 = phi ptr [ %62, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i87 ], [ %85, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151 ], [ %.sink190, %cleanup.sink.split.sink.split ]
-  %vtable2.i.i.i.i.i.i155 = load ptr, ptr %.sink187, align 8
+  %.sink205 = phi ptr [ %62, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i87 ], [ %85, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151 ], [ %.sink208, %cleanup.sink.split.sink.split ]
+  %vtable2.i.i.i.i.i.i155 = load ptr, ptr %.sink205, align 8
   %vfn3.i.i.i.i.i.i156 = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i155, i64 24
   %95 = load ptr, ptr %vfn3.i.i.i.i.i.i156, align 8
-  call void %95(ptr noundef nonnull align 8 dereferenceable(16) %.sink187) #23
+  call void %95(ptr noundef nonnull align 8 dereferenceable(16) %.sink205) #23
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i141, %_ZNSt10shared_ptrIN8facebook5velox9RowVectorEEaSEOS3_.exit131, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i87, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i77, %_ZNSt10shared_ptrIN8facebook5velox9RowVectorEED2Ev.exit

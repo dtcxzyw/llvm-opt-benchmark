@@ -359,9 +359,9 @@ define internal void @_ZNK4ncnn13GroupNorm_x8615forward_inplaceERNS_3MatERKNS_6O
   %.2.lcssa = phi ptr [ %34, %._crit_edge182 ], [ %67, %._crit_edge189.loopexit ]
   %72 = shufflevector <4 x float> %.0166.lcssa, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %73 = fadd fast <4 x float> %72, %.0166.lcssa
-  %shift281 = shufflevector <4 x float> %73, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop282 = fadd fast <4 x float> %73, %shift281
-  %74 = extractelement <4 x float> %foldExtExtBinop282, i64 0
+  %shift292 = shufflevector <4 x float> %73, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop293 = fadd fast <4 x float> %73, %shift292
+  %74 = extractelement <4 x float> %foldExtExtBinop293, i64 0
   %75 = icmp slt i32 %.0101.lcssa, %28
   br i1 %75, label %.lr.ph197, label %._crit_edge198
 
@@ -674,9 +674,9 @@ define internal void @_ZNK4ncnn13GroupNorm_x8615forward_inplaceERNS_3MatERKNS_6O
   %.2.lcssa = phi ptr [ %39, %._crit_edge175 ], [ %73, %._crit_edge182.loopexit ]
   %78 = shufflevector <4 x float> %.0158.lcssa, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %79 = fadd fast <4 x float> %78, %.0158.lcssa
-  %shift271 = shufflevector <4 x float> %79, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop272 = fadd fast <4 x float> %79, %shift271
-  %80 = extractelement <4 x float> %foldExtExtBinop272, i64 0
+  %shift280 = shufflevector <4 x float> %79, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop281 = fadd fast <4 x float> %79, %shift280
+  %80 = extractelement <4 x float> %foldExtExtBinop281, i64 0
   %81 = icmp slt i32 %.099.lcssa, %48
   br i1 %81, label %.lr.ph190, label %._crit_edge191
 

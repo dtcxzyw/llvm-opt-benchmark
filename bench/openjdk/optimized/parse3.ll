@@ -637,11 +637,11 @@ _ZN7ciField11layout_typeEv.exit:                  ; preds = %4, %21
   br label %_Z17is_reference_type9BasicTypeb.exit
 
 _Z17is_reference_type9BasicTypeb.exit:            ; preds = %40, %35
-  %.sink38 = phi ptr [ %44, %40 ], [ %36, %35 ]
-  %.sink36 = phi i32 [ %45, %40 ], [ %39, %35 ]
-  %46 = getelementptr inbounds nuw i8, ptr %.sink38, i64 16
+  %.sink41 = phi ptr [ %44, %40 ], [ %36, %35 ]
+  %.sink39 = phi i32 [ %45, %40 ], [ %39, %35 ]
+  %46 = getelementptr inbounds nuw i8, ptr %.sink41, i64 16
   %47 = load i32, ptr %46, align 8
-  %48 = add i32 %47, %.sink36
+  %48 = add i32 %47, %.sink39
   %.sink.in = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sink = load ptr, ptr %.sink.in, align 8
   %49 = zext i32 %48 to i64
@@ -1426,9 +1426,9 @@ define hidden void @_ZN5Parse17do_multianewarrayEv(ptr noundef nonnull align 8 d
   store ptr null, ptr %17, align 8
   %18 = add nsw i32 %10, -1
   %.not115 = icmp eq i8 %9, 0
-  br i1 %.not115, label %_ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge.thread128, label %.lr.ph
+  br i1 %.not115, label %_ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge.thread141, label %.lr.ph
 
-_ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge.thread128: ; preds = %1
+_ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge.thread141: ; preds = %1
   %19 = load i64, ptr @MultiArrayExpandLimit, align 8
   %20 = trunc i64 %19 to i32
   %21 = call noundef i32 @llvm.smin.i32(i32 %20, i32 100)
@@ -1459,15 +1459,15 @@ _ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge.thread128: ; preds = %1
   %39 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   store ptr %38, ptr %39, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not136 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not136, label %._crit_edge, label %25, !llvm.loop !9
+  %.not149 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not149, label %._crit_edge, label %25, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %25
   %40 = load i64, ptr @MultiArrayExpandLimit, align 8
   %41 = trunc i64 %40 to i32
   %42 = call noundef i32 @llvm.smin.i32(i32 %41, i32 100)
-  %.not137 = icmp eq i8 %9, 1
-  br i1 %.not137, label %.split, label %.lr.ph109
+  %.not150 = icmp eq i8 %9, 1
+  br i1 %.not150, label %.split, label %.lr.ph109
 
 .lr.ph109:                                        ; preds = %._crit_edge
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1526,12 +1526,12 @@ _ZN8GraphKit12find_int_conEP4Nodei.exit:          ; preds = %46, %51
   %72 = call noundef ptr @_ZN8GraphKit9new_arrayEP4NodeS1_iPS1_b(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %71, ptr noundef %67, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #7
   br label %80
 
-_ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge: ; preds = %_ZN8GraphKit12find_int_conEP4Nodei.exit, %45, %_ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge.thread128
-  %.169130 = phi i64 [ 1, %_ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge.thread128 ], [ 0, %_ZN8GraphKit12find_int_conEP4Nodei.exit ], [ %60, %45 ]
-  %73 = phi i32 [ %21, %_ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge.thread128 ], [ %42, %45 ], [ %42, %_ZN8GraphKit12find_int_conEP4Nodei.exit ]
-  %74 = icmp slt i64 %.169130, 1
+_ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge: ; preds = %_ZN8GraphKit12find_int_conEP4Nodei.exit, %45, %_ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge.thread141
+  %.169143 = phi i64 [ 1, %_ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge.thread141 ], [ 0, %_ZN8GraphKit12find_int_conEP4Nodei.exit ], [ %60, %45 ]
+  %73 = phi i32 [ %21, %_ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge.thread141 ], [ %42, %45 ], [ %42, %_ZN8GraphKit12find_int_conEP4Nodei.exit ]
+  %74 = icmp slt i64 %.169143, 1
   %75 = sext i32 %73 to i64
-  %.not = icmp sgt i64 %.169130, %75
+  %.not = icmp sgt i64 %.169143, %75
   %or.cond86 = or i1 %74, %.not
   br i1 %or.cond86, label %128, label %.split74
 
@@ -1934,11 +1934,11 @@ _ZN4Node7del_outEPS_.exit.i.i.i94:                ; preds = %300, %288, %269
   br label %_ZN8GraphKit4pushEP4Node.exit.sink.split
 
 _ZN8GraphKit4pushEP4Node.exit.sink.split:         ; preds = %124, %316
-  %.sink135 = phi i32 [ %317, %316 ], [ %125, %124 ]
-  %.sink133 = phi ptr [ %318, %316 ], [ %126, %124 ]
+  %.sink148 = phi i32 [ %317, %316 ], [ %125, %124 ]
+  %.sink146 = phi ptr [ %318, %316 ], [ %126, %124 ]
   %.sink = phi ptr [ %274, %316 ], [ %82, %124 ]
-  %320 = zext i32 %.sink135 to i64
-  %321 = getelementptr inbounds nuw ptr, ptr %.sink133, i64 %320
+  %320 = zext i32 %.sink148 to i64
+  %321 = getelementptr inbounds nuw ptr, ptr %.sink146, i64 %320
   store ptr %.sink, ptr %321, align 8
   br label %_ZN8GraphKit4pushEP4Node.exit
 

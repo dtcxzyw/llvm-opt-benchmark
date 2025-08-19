@@ -730,7 +730,7 @@ define hidden void @_ZN5ropey4tree13node_children12NodeChildren17update_child_in
   br i1 %10, label %11, label %47, !prof !88
 
 11:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h435e5dd35a2eaf23E.llvm.1041312438752767756.exit"
-  %12 = getelementptr inbounds [0 x ptr], ptr %0, i64 0, i64 %1
+  %12 = getelementptr inbounds nuw [0 x ptr], ptr %0, i64 0, i64 %1
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
@@ -811,7 +811,7 @@ _ZN5ropey4tree13node_children12NodeChildren13combined_info17h73c3a6d68a906663E.e
 
 _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit: ; preds = %_ZN5ropey4tree13node_children12NodeChildren13combined_info17h73c3a6d68a906663E.exit.i, %16
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %49 = getelementptr inbounds [0 x { i64, i64, i64, i64 }], ptr %48, i64 0, i64 %1
+  %49 = getelementptr inbounds nuw [0 x { i64, i64, i64, i64 }], ptr %48, i64 0, i64 %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -1406,7 +1406,7 @@ define hidden void @_ZN5ropey4tree13node_children12NodeChildren15distribute_with
 
 24:                                               ; preds = %22
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %indvars = trunc i64 %indvars.iv.next to i8
+  %indvars = trunc nuw i64 %indvars.iv.next to i8
   store i8 %indvars, ptr %5, align 8, !alias.scope !286, !noalias !287
   %25 = and i64 %indvars.iv.next, 255
   br i1 %.first_iter, label %_ZN5ropey4tree13node_children12NodeChildren3pop17hf88d853d71a22c8dE.exit, label %26, !prof !88
@@ -1587,7 +1587,7 @@ _ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit26: ; 
   ret void
 
 46:                                               ; preds = %_ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit26
-  %47 = getelementptr inbounds [0 x ptr], ptr %0, i64 0, i64 %43
+  %47 = getelementptr inbounds nuw [0 x ptr], ptr %0, i64 0, i64 %43
   %48 = load ptr, ptr %47, align 8, !nonnull !4, !noundef !4
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !332)
@@ -1624,7 +1624,7 @@ _ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit28: ; 
   unreachable
 
 60:                                               ; preds = %_ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit28
-  %61 = getelementptr inbounds [0 x ptr], ptr %0, i64 0, i64 %.sroa.0.0183
+  %61 = getelementptr inbounds nuw [0 x ptr], ptr %0, i64 0, i64 %.sroa.0.0183
   %62 = load ptr, ptr %61, align 8, !nonnull !4, !noundef !4
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !344)
@@ -2077,7 +2077,7 @@ define hidden void @_ZN5ropey4tree13node_children12NodeChildren6insert17h906c4f1
 _ZN5ropey4tree13node_children5inner20NodeChildrenInternal6insert17hcdd0295b64a031c6E.llvm.1041312438752767756.exit: ; preds = %.noexc2
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %37 = getelementptr inbounds { [4 x i64] }, ptr %36, i64 %27
-  %38 = getelementptr inbounds { [4 x i64] }, ptr %36, i64 %22
+  %38 = getelementptr inbounds nuw { [4 x i64] }, ptr %36, i64 %22
   %39 = shl i64 %29, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %38, ptr nonnull align 8 %37, i64 %39, i1 false), !alias.scope !486, !noalias !491
   %40 = getelementptr inbounds nuw [24 x { [4 x i64] }], ptr %36, i64 0, i64 %1
@@ -3472,7 +3472,7 @@ define hidden void @_ZN5ropey4tree13node_children5inner20NodeChildrenInternal6in
 36:                                               ; preds = %.noexc7
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %38 = getelementptr inbounds { [4 x i64] }, ptr %37, i64 %27
-  %39 = getelementptr inbounds { [4 x i64] }, ptr %37, i64 %22
+  %39 = getelementptr inbounds nuw { [4 x i64] }, ptr %37, i64 %22
   %40 = shl i64 %29, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %39, ptr nonnull align 8 %38, i64 %40, i1 false), !alias.scope !721, !noalias !726
   %41 = getelementptr inbounds nuw [24 x { [4 x i64] }], ptr %37, i64 0, i64 %1

@@ -3470,11 +3470,11 @@ terminate.lpad.i.i.i386:                          ; preds = %if.then.i.i.i.i.i39
   unreachable
 
 _ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit393thread-pre-split: ; preds = %if.then.i.i.i.i.i390, %.noexc.i.i.i387, %if.then.i.i.i380
-  %.pr692 = load ptr, ptr %pn3.i.i377, align 8, !tbaa !37
+  %.pr766 = load ptr, ptr %pn3.i.i377, align 8, !tbaa !37
   br label %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit393
 
 _ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit393: ; preds = %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit393thread-pre-split, %invoke.cont553
-  %259 = phi ptr [ %.pr692, %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit393thread-pre-split ], [ null, %invoke.cont553 ]
+  %259 = phi ptr [ %.pr766, %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit393thread-pre-split ], [ null, %invoke.cont553 ]
   %cmp.not.i.i395 = icmp eq ptr %259, null
   br i1 %cmp.not.i.i395, label %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEED2Ev.exit409, label %if.then.i.i396
 

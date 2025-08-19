@@ -2104,8 +2104,8 @@ define void @_Z34common_sampler_sample_and_accept_nP14common_samplerP13llama_con
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not79 = icmp eq ptr %8, %9
-  br i1 %.not79, label %_ZNSt6vectorIiSaIiEE7reserveEm.exit, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
+  %.not97 = icmp eq ptr %8, %9
+  br i1 %.not97, label %_ZNSt6vectorIiSaIiEE7reserveEm.exit, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2471,9 +2471,9 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
   store i32 0, ptr %18, align 4, !tbaa !91
   %21 = getelementptr i8, ptr %18, i64 4
   %22 = icmp eq ptr %8, %9
-  br i1 %22, label %.thread21, label %25
+  br i1 %22, label %.thread22, label %25
 
-.thread21:                                        ; preds = %.noexc13
+.thread22:                                        ; preds = %.noexc13
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %21, ptr %23, align 8, !tbaa !79
   %24 = ptrtoint ptr %18 to i64
@@ -2489,10 +2489,10 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
   %.not = icmp eq i64 %12, -4
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.thread21, %25
-  %30 = phi i64 [ %24, %.thread21 ], [ %29, %25 ]
-  %.0.i.i.i.i.i24 = phi ptr [ %21, %.thread21 ], [ %27, %25 ]
-  %31 = ptrtoint ptr %.0.i.i.i.i.i24 to i64
+.lr.ph.preheader:                                 ; preds = %.thread22, %25
+  %30 = phi i64 [ %24, %.thread22 ], [ %29, %25 ]
+  %.0.i.i.i.i.i25 = phi ptr [ %21, %.thread22 ], [ %27, %25 ]
+  %31 = ptrtoint ptr %.0.i.i.i.i.i25 to i64
   %32 = sub i64 %31, %30
   %33 = ashr exact i64 %32, 2
   br label %.lr.ph
@@ -3550,20 +3550,20 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE19common_sampler
 
 136:                                              ; preds = %127
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.36) #24
-          to label %.noexc168 unwind label %.thread275
+          to label %.noexc168 unwind label %.thread312
 
 .noexc168:                                        ; preds = %136
   unreachable
 
 137:                                              ; preds = %127
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not274 = icmp eq ptr %129, %130
-  br i1 %.not274, label %_ZNSt6vectorI19common_sampler_typeSaIS0_EE7reserveEm.exit, label %_ZNSt12_Vector_baseI19common_sampler_typeSaIS0_EE11_M_allocateEm.exit.i
+  %.not311 = icmp eq ptr %129, %130
+  br i1 %.not311, label %_ZNSt6vectorI19common_sampler_typeSaIS0_EE7reserveEm.exit, label %_ZNSt12_Vector_baseI19common_sampler_typeSaIS0_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseI19common_sampler_typeSaIS0_EE11_M_allocateEm.exit.i: ; preds = %137
   %139 = ashr exact i64 %133, 3
   %140 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %139) #25
-          to label %_ZNSt12_Vector_baseI19common_sampler_typeSaIS0_EE13_M_deallocateEPS0_m.exit.i unwind label %.thread275
+          to label %_ZNSt12_Vector_baseI19common_sampler_typeSaIS0_EE13_M_deallocateEPS0_m.exit.i unwind label %.thread312
 
 _ZNSt12_Vector_baseI19common_sampler_typeSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %_ZNSt12_Vector_baseI19common_sampler_typeSaIS0_EE11_M_allocateEm.exit.i
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3768,7 +3768,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE19common_sampler
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %284
 
-.thread275:                                       ; preds = %136, %_ZNSt12_Vector_baseI19common_sampler_typeSaIS0_EE11_M_allocateEm.exit.i
+.thread312:                                       ; preds = %136, %_ZNSt12_Vector_baseI19common_sampler_typeSaIS0_EE11_M_allocateEm.exit.i
   %216 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorI19common_sampler_typeSaIS0_EED2Ev.exit
@@ -3958,13 +3958,13 @@ _ZNSt6vectorI19common_sampler_typeSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNS
   call void @_ZdlPvm(ptr noundef nonnull %220, i64 noundef %283) #26
   br label %_ZNSt6vectorI19common_sampler_typeSaIS0_EED2Ev.exit
 
-_ZNSt6vectorI19common_sampler_typeSaIS0_EED2Ev.exit: ; preds = %.thread275, %279, %280
-  %.pn95.pn278 = phi { ptr, i32 } [ %216, %.thread275 ], [ %.pn95.pn, %279 ], [ %.pn95.pn, %280 ]
+_ZNSt6vectorI19common_sampler_typeSaIS0_EED2Ev.exit: ; preds = %.thread312, %279, %280
+  %.pn95.pn315 = phi { ptr, i32 } [ %216, %.thread312 ], [ %.pn95.pn, %279 ], [ %.pn95.pn, %280 ]
   call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE19common_sampler_typeSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #23
   br label %284
 
 284:                                              ; preds = %_ZNSt6vectorI19common_sampler_typeSaIS0_EED2Ev.exit, %.thread239
-  %.pn95.pn.pn = phi { ptr, i32 } [ %.pn95.pn278, %_ZNSt6vectorI19common_sampler_typeSaIS0_EED2Ev.exit ], [ %203, %.thread239 ]
+  %.pn95.pn.pn = phi { ptr, i32 } [ %.pn95.pn315, %_ZNSt6vectorI19common_sampler_typeSaIS0_EED2Ev.exit ], [ %203, %.thread239 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE19common_sampler_typeSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
   br label %285
@@ -4100,8 +4100,8 @@ _ZNSt13unordered_mapIc19common_sampler_typeSt4hashIcESt8equal_toIcESaISt4pairIKc
 
 29:                                               ; preds = %_ZNSt13unordered_mapIc19common_sampler_typeSt4hashIcESt8equal_toIcESaISt4pairIKcS0_EEEC2ESt16initializer_listIS7_EmRKS2_RKS4_RKS8_.exit
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not71 = icmp eq i64 %26, 0
-  br i1 %.not71, label %._crit_edge, label %_ZNSt12_Vector_baseI19common_sampler_typeSaIS0_EE11_M_allocateEm.exit.i
+  %.not83 = icmp eq i64 %26, 0
+  br i1 %.not83, label %._crit_edge, label %_ZNSt12_Vector_baseI19common_sampler_typeSaIS0_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseI19common_sampler_typeSaIS0_EE11_M_allocateEm.exit.i: ; preds = %29
   %31 = shl nuw nsw i64 %26, 2
@@ -4326,10 +4326,10 @@ _ZNSt6vectorI19common_sampler_typeSaIS0_EE9push_backERKS0_.exit: ; preds = %.lr.
   br label %_ZNSt6vectorI19common_sampler_typeSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI19common_sampler_typeSaIS0_EED2Ev.exit: ; preds = %.thread, %113, %114
-  %.pn77 = phi { ptr, i32 } [ %54, %.thread ], [ %.pn, %113 ], [ %.pn, %114 ]
+  %.pn89 = phi { ptr, i32 } [ %54, %.thread ], [ %.pn, %113 ], [ %.pn, %114 ]
   call void @_ZNSt13unordered_mapIc19common_sampler_typeSt4hashIcESt8equal_toIcESaISt4pairIKcS0_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  resume { ptr, i32 } %.pn77
+  resume { ptr, i32 } %.pn89
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -4952,7 +4952,7 @@ define linkonce_odr void @_ZNSt6vectorI16llama_token_dataSaIS0_EE17_M_default_ap
 19:                                               ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIP16llama_token_datamS0_ET_S2_T0_RSaIT1_E.exit, label %23
 

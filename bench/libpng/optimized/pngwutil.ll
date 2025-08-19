@@ -421,8 +421,8 @@ define void @png_write_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -117, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond98 = select i1 %15, i1 %switch.lobit, i1 false
-  br i1 %or.cond98, label %switch.lookup, label %16
+  %or.cond100 = select i1 %15, i1 %switch.lobit, i1 false
+  br i1 %or.cond100, label %switch.lookup, label %16
 
 16:                                               ; preds = %14
   tail call void @png_error(ptr noundef %0, ptr noundef nonnull @.str.2) #13
@@ -612,8 +612,8 @@ switch.lookup:                                    ; preds = %14, %19, %19, %17, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %106, %103
-  %.sink97 = phi i8 [ 8, %103 ], [ %spec.select, %106 ]
-  store i8 %.sink97, ptr %100, align 2, !tbaa !55
+  %.sink99 = phi i8 [ 8, %103 ], [ %spec.select, %106 ]
+  store i8 %.sink99, ptr %100, align 2, !tbaa !55
   br label %109
 
 109:                                              ; preds = %.sink.split, %68
@@ -3016,8 +3016,8 @@ define void @png_write_tEXt(ptr noalias noundef %0, ptr noundef %1, ptr noundef 
   %.024 = phi i64 [ %17, %16 ], [ 0, %13 ], [ 0, %11 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !191)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !191
-  %.not30 = icmp eq ptr %0, null
-  br i1 %.not30, label %png_write_chunk_data.exit22, label %png_write_chunk_header.exit
+  %.not35 = icmp eq ptr %0, null
+  br i1 %.not35, label %png_write_chunk_data.exit22, label %png_write_chunk_header.exit
 
 png_write_chunk_header.exit:                      ; preds = %.thread
   %22 = trunc nuw i64 %.024 to i32
@@ -3067,12 +3067,12 @@ png_write_chunk_data.exit:                        ; preds = %png_write_chunk_hea
   %.not = icmp ne i64 %.024, 0
   %43 = icmp ne ptr %2, null
   %44 = and i1 %43, %.not
-  br i1 %44, label %png_write_chunk_data.exit22.thread, label %png_write_chunk_data.exit22.thread29
+  br i1 %44, label %png_write_chunk_data.exit22.thread, label %png_write_chunk_data.exit22.thread34
 
 png_write_chunk_data.exit22.thread:               ; preds = %png_write_chunk_data.exit
   call void @png_write_data(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %.024) #12
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %.024) #12
-  br label %png_write_chunk_data.exit22.thread29
+  br label %png_write_chunk_data.exit22.thread34
 
 png_write_chunk_data.exit22:                      ; preds = %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !191
@@ -3080,7 +3080,7 @@ png_write_chunk_data.exit22:                      ; preds = %.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !194
   br label %png_write_chunk_end.exit
 
-png_write_chunk_data.exit22.thread29:             ; preds = %png_write_chunk_data.exit, %png_write_chunk_data.exit22.thread
+png_write_chunk_data.exit22.thread34:             ; preds = %png_write_chunk_data.exit, %png_write_chunk_data.exit22.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !197
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1196
   store i32 130, ptr %45, align 4, !tbaa !6, !alias.scope !194
@@ -3103,7 +3103,7 @@ png_write_chunk_data.exit22.thread29:             ; preds = %png_write_chunk_dat
   call void @png_write_data(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 4) #12
   br label %png_write_chunk_end.exit
 
-png_write_chunk_end.exit:                         ; preds = %png_write_chunk_data.exit22, %png_write_chunk_data.exit22.thread29
+png_write_chunk_end.exit:                         ; preds = %png_write_chunk_data.exit22, %png_write_chunk_data.exit22.thread34
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !194
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
@@ -4338,17 +4338,17 @@ define void @png_do_write_interlace(ptr noundef captures(none) %0, ptr noundef c
   %46 = getelementptr inbounds [7 x i8], ptr @png_pass_inc, i64 0, i64 %41
   %47 = load i8, ptr %46, align 1, !tbaa !3
   %48 = zext i8 %47 to i32
-  br label %.outer193
+  br label %.outer209
 
-.outer193:                                        ; preds = %.thread166, %.lr.ph130
-  %.0101128.ph = phi ptr [ %68, %.thread166 ], [ %1, %.lr.ph130 ]
-  %.0113125.ph = phi i32 [ %69, %.thread166 ], [ %44, %.lr.ph130 ]
+.outer209:                                        ; preds = %.thread182, %.lr.ph130
+  %.0101128.ph = phi ptr [ %68, %.thread182 ], [ %1, %.lr.ph130 ]
+  %.0113125.ph = phi i32 [ %69, %.thread182 ], [ %44, %.lr.ph130 ]
   br label %49
 
-49:                                               ; preds = %.outer193, %63
-  %.0109127 = phi i32 [ %64, %63 ], [ 6, %.outer193 ]
-  %.0111126 = phi i32 [ %61, %63 ], [ 0, %.outer193 ]
-  %.0113125 = phi i32 [ %65, %63 ], [ %.0113125.ph, %.outer193 ]
+49:                                               ; preds = %.outer209, %63
+  %.0109127 = phi i32 [ %64, %63 ], [ 6, %.outer209 ]
+  %.0111126 = phi i32 [ %61, %63 ], [ 0, %.outer209 ]
+  %.0113125 = phi i32 [ %65, %63 ], [ %.0113125.ph, %.outer209 ]
   %50 = lshr i32 %.0113125, 2
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 %51
@@ -4362,7 +4362,7 @@ define void @png_do_write_interlace(ptr noundef captures(none) %0, ptr noundef c
   %60 = shl i32 %59, %.0109127
   %61 = or i32 %60, %.0111126
   %62 = icmp eq i32 %.0109127, 0
-  br i1 %62, label %.thread166, label %63
+  br i1 %62, label %.thread182, label %63
 
 63:                                               ; preds = %49
   %64 = add i32 %.0109127, -2
@@ -4370,13 +4370,13 @@ define void @png_do_write_interlace(ptr noundef captures(none) %0, ptr noundef c
   %66 = icmp ult i32 %65, %8
   br i1 %66, label %49, label %._crit_edge131, !llvm.loop !256
 
-.thread166:                                       ; preds = %49
+.thread182:                                       ; preds = %49
   %67 = trunc i32 %61 to i8
   %68 = getelementptr inbounds nuw i8, ptr %.0101128.ph, i64 1
   store i8 %67, ptr %.0101128.ph, align 1, !tbaa !3
   %69 = add i32 %.0113125, %48
   %70 = icmp ult i32 %69, %8
-  br i1 %70, label %.outer193, label %.loopexit, !llvm.loop !256
+  br i1 %70, label %.outer209, label %.loopexit, !llvm.loop !256
 
 ._crit_edge131:                                   ; preds = %63
   %71 = icmp eq i32 %64, 6
@@ -4394,17 +4394,17 @@ define void @png_do_write_interlace(ptr noundef captures(none) %0, ptr noundef c
   %78 = getelementptr inbounds [7 x i8], ptr @png_pass_inc, i64 0, i64 %73
   %79 = load i8, ptr %78, align 1, !tbaa !3
   %80 = zext i8 %79 to i32
-  br label %.outer195
+  br label %.outer211
 
-.outer195:                                        ; preds = %.thread180, %.lr.ph
-  %.0100122.ph = phi i32 [ %101, %.thread180 ], [ %76, %.lr.ph ]
-  %.0107119.ph = phi ptr [ %100, %.thread180 ], [ %1, %.lr.ph ]
+.outer211:                                        ; preds = %.thread196, %.lr.ph
+  %.0100122.ph = phi i32 [ %101, %.thread196 ], [ %76, %.lr.ph ]
+  %.0107119.ph = phi ptr [ %100, %.thread196 ], [ %1, %.lr.ph ]
   br label %81
 
-81:                                               ; preds = %.outer195, %95
-  %.0100122 = phi i32 [ %97, %95 ], [ %.0100122.ph, %.outer195 ]
-  %.0103121 = phi i32 [ %93, %95 ], [ 0, %.outer195 ]
-  %.0105120 = phi i32 [ %96, %95 ], [ 4, %.outer195 ]
+81:                                               ; preds = %.outer211, %95
+  %.0100122 = phi i32 [ %97, %95 ], [ %.0100122.ph, %.outer211 ]
+  %.0103121 = phi i32 [ %93, %95 ], [ 0, %.outer211 ]
+  %.0105120 = phi i32 [ %96, %95 ], [ 4, %.outer211 ]
   %82 = lshr i32 %.0100122, 1
   %83 = zext nneg i32 %82 to i64
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 %83
@@ -4418,7 +4418,7 @@ define void @png_do_write_interlace(ptr noundef captures(none) %0, ptr noundef c
   %92 = shl i32 %91, %.0105120
   %93 = or i32 %92, %.0103121
   %94 = icmp eq i32 %.0105120, 0
-  br i1 %94, label %.thread180, label %95
+  br i1 %94, label %.thread196, label %95
 
 95:                                               ; preds = %81
   %96 = add i32 %.0105120, -4
@@ -4426,13 +4426,13 @@ define void @png_do_write_interlace(ptr noundef captures(none) %0, ptr noundef c
   %98 = icmp ult i32 %97, %8
   br i1 %98, label %81, label %._crit_edge, !llvm.loop !257
 
-.thread180:                                       ; preds = %81
+.thread196:                                       ; preds = %81
   %99 = trunc i32 %93 to i8
   %100 = getelementptr inbounds nuw i8, ptr %.0107119.ph, i64 1
   store i8 %99, ptr %.0107119.ph, align 1, !tbaa !3
   %101 = add i32 %.0100122, %80
   %102 = icmp ult i32 %101, %8
-  br i1 %102, label %.outer195, label %.loopexit, !llvm.loop !257
+  br i1 %102, label %.outer211, label %.loopexit, !llvm.loop !257
 
 ._crit_edge:                                      ; preds = %95
   %103 = icmp eq i32 %96, 4
@@ -4474,17 +4474,17 @@ define void @png_do_write_interlace(ptr noundef captures(none) %0, ptr noundef c
   br i1 %123, label %115, label %.loopexit, !llvm.loop !258
 
 .loopexit.sink.split:                             ; preds = %._crit_edge, %._crit_edge131, %._crit_edge141
-  %.sink227 = phi i32 [ %29, %._crit_edge141 ], [ %61, %._crit_edge131 ], [ %93, %._crit_edge ]
+  %.sink243 = phi i32 [ %29, %._crit_edge141 ], [ %61, %._crit_edge131 ], [ %93, %._crit_edge ]
   %.0107119.ph.sink = phi ptr [ %.0138.ph, %._crit_edge141 ], [ %.0101128.ph, %._crit_edge131 ], [ %.0107119.ph, %._crit_edge ]
   %.pre-phi149.ph = phi i32 [ %13, %._crit_edge141 ], [ %44, %._crit_edge131 ], [ %76, %._crit_edge ]
   %.pre-phi.ph = phi i64 [ %10, %._crit_edge141 ], [ %41, %._crit_edge131 ], [ %73, %._crit_edge ]
-  %124 = trunc i32 %.sink227 to i8
+  %124 = trunc i32 %.sink243 to i8
   store i8 %124, ptr %.0107119.ph.sink, align 1, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread180, %.thread166, %.thread, %120, %.loopexit.sink.split, %72, %40, %9, %104, %._crit_edge, %._crit_edge131, %._crit_edge141
-  %.pre-phi149 = phi i32 [ %110, %104 ], [ %76, %._crit_edge ], [ %44, %._crit_edge131 ], [ %13, %._crit_edge141 ], [ %13, %9 ], [ %44, %40 ], [ %76, %72 ], [ %.pre-phi149.ph, %.loopexit.sink.split ], [ %110, %120 ], [ %13, %.thread ], [ %44, %.thread166 ], [ %76, %.thread180 ]
-  %.pre-phi = phi i64 [ %107, %104 ], [ %73, %._crit_edge ], [ %41, %._crit_edge131 ], [ %10, %._crit_edge141 ], [ %10, %9 ], [ %41, %40 ], [ %73, %72 ], [ %.pre-phi.ph, %.loopexit.sink.split ], [ %107, %120 ], [ %10, %.thread ], [ %41, %.thread166 ], [ %73, %.thread180 ]
+.loopexit:                                        ; preds = %.thread196, %.thread182, %.thread, %120, %.loopexit.sink.split, %72, %40, %9, %104, %._crit_edge, %._crit_edge131, %._crit_edge141
+  %.pre-phi149 = phi i32 [ %110, %104 ], [ %76, %._crit_edge ], [ %44, %._crit_edge131 ], [ %13, %._crit_edge141 ], [ %13, %9 ], [ %44, %40 ], [ %76, %72 ], [ %.pre-phi149.ph, %.loopexit.sink.split ], [ %110, %120 ], [ %13, %.thread ], [ %44, %.thread182 ], [ %76, %.thread196 ]
+  %.pre-phi = phi i64 [ %107, %104 ], [ %73, %._crit_edge ], [ %41, %._crit_edge131 ], [ %10, %._crit_edge141 ], [ %10, %9 ], [ %41, %40 ], [ %73, %72 ], [ %.pre-phi.ph, %.loopexit.sink.split ], [ %107, %120 ], [ %10, %.thread ], [ %41, %.thread182 ], [ %73, %.thread196 ]
   %125 = load i32, ptr %0, align 8, !tbaa !254
   %126 = getelementptr inbounds [7 x i8], ptr @png_pass_inc, i64 0, i64 %.pre-phi
   %127 = load i8, ptr %126, align 1, !tbaa !3

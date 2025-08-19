@@ -1074,8 +1074,8 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   %125 = icmp samesign ult i32 %.010.i88, 1241513985
   %126 = and i32 %.010.i88, 536870912
   %127 = icmp eq i32 %126, 0
-  %or.cond138 = or i1 %125, %127
-  br i1 %or.cond138, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104", label %.lr.ph.i.i.i90
+  %or.cond143 = or i1 %125, %127
+  br i1 %or.cond143, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104", label %.lr.ph.i.i.i90
 
 .lr.ph.i.i.i90:                                   ; preds = %124, %.lr.ph.i.i.i90
   %.014.i.i.i91.in = phi i32 [ %128, %.lr.ph.i.i.i90 ], [ %.010.i88, %124 ]

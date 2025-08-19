@@ -453,10 +453,10 @@ define hidden void @"_ZN4core3ptr32drop_in_place$LT$vfs..Change$GT$17hcf6cb6a199
   ]
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0bc1d51c2821d2ccE.exit.sink.split": ; preds = %9, %5
-  %.sink3 = phi i64 [ %7, %5 ], [ %11, %9 ]
+  %.sink4 = phi i64 [ %7, %5 ], [ %11, %9 ]
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %4, i64 noundef %.sink3, i64 noundef 1) #18, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %4, i64 noundef %.sink4, i64 noundef 1) #18, !noalias !4
   br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0bc1d51c2821d2ccE.exit"
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0bc1d51c2821d2ccE.exit": ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0bc1d51c2821d2ccE.exit.sink.split", %9, %5, %1
@@ -538,10 +538,10 @@ define hidden void @"_ZN4core3ptr36drop_in_place$LT$fst..raw..Bound$GT$17hc124da
   ]
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0bc1d51c2821d2ccE.exit.sink.split": ; preds = %9, %5
-  %.sink3 = phi i64 [ %7, %5 ], [ %11, %9 ]
+  %.sink4 = phi i64 [ %7, %5 ], [ %11, %9 ]
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %4, i64 noundef %.sink3, i64 noundef 1) #18, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %4, i64 noundef %.sink4, i64 noundef 1) #18, !noalias !4
   br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0bc1d51c2821d2ccE.exit"
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0bc1d51c2821d2ccE.exit": ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0bc1d51c2821d2ccE.exit.sink.split", %9, %5, %1
@@ -603,10 +603,10 @@ define hidden void @"_ZN4core3ptr37drop_in_place$LT$fst..raw..Stream$GT$17hf9c87
   ]
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0bc1d51c2821d2ccE.exit.sink.split.i.i": ; preds = %22, %18
-  %.sink3.i.i = phi i64 [ %20, %18 ], [ %24, %22 ]
+  %.sink4.i.i = phi i64 [ %20, %18 ], [ %24, %22 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8, !alias.scope !193, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %.sink3.i.i, i64 noundef 1) #18, !noalias !193
+  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %.sink4.i.i, i64 noundef 1) #18, !noalias !193
   br label %"_ZN4core3ptr46drop_in_place$LT$fst..raw..StreamWithState$GT$17h9e0a87f94c049591E.exit"
 
 18:                                               ; preds = %"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$fst..raw..StreamState$LT$$LP$$RP$$GT$$GT$$GT$17h1cca55151a9c769eE.exit2.i"
@@ -635,10 +635,10 @@ define hidden void @"_ZN4core3ptr37drop_in_place$LT$vfs..ChangedFile$GT$17hbf68b
   ]
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0bc1d51c2821d2ccE.exit.sink.split.i": ; preds = %9, %5
-  %.sink3.i = phi i64 [ %7, %5 ], [ %11, %9 ]
+  %.sink4.i = phi i64 [ %7, %5 ], [ %11, %9 ]
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !alias.scope !216, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %4, i64 noundef %.sink3.i, i64 noundef 1) #18, !noalias !216
+  tail call void @__rust_dealloc(ptr noundef nonnull %4, i64 noundef %.sink4.i, i64 noundef 1) #18, !noalias !216
   br label %"_ZN4core3ptr32drop_in_place$LT$vfs..Change$GT$17hcf6cb6a1995280dfE.llvm.2289853374155540651.exit"
 
 5:                                                ; preds = %1
@@ -950,10 +950,10 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$fst..raw..StreamWithState$GT
   ]
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0bc1d51c2821d2ccE.exit.sink.split.i": ; preds = %22, %18
-  %.sink3.i = phi i64 [ %20, %18 ], [ %24, %22 ]
+  %.sink4.i = phi i64 [ %20, %18 ], [ %24, %22 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8, !alias.scope !402, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %.sink3.i, i64 noundef 1) #18, !noalias !402
+  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %.sink4.i, i64 noundef 1) #18, !noalias !402
   br label %"_ZN4core3ptr36drop_in_place$LT$fst..raw..Bound$GT$17hc124da62a7cc8668E.llvm.2289853374155540651.exit"
 
 18:                                               ; preds = %"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$fst..raw..StreamState$LT$$LP$$RP$$GT$$GT$$GT$17h1cca55151a9c769eE.exit2"
@@ -1889,10 +1889,10 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$fst..raw..Stream$LT$vfs..fil
   ]
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0bc1d51c2821d2ccE.exit.sink.split.i.i": ; preds = %22, %18
-  %.sink3.i.i = phi i64 [ %20, %18 ], [ %24, %22 ]
+  %.sink4.i.i = phi i64 [ %20, %18 ], [ %24, %22 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8, !alias.scope !910, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %.sink3.i.i, i64 noundef 1) #18, !noalias !910
+  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %.sink4.i.i, i64 noundef 1) #18, !noalias !910
   br label %"_ZN4core3ptr77drop_in_place$LT$fst..raw..StreamWithState$LT$vfs..file_set..PrefixOf$GT$$GT$17hb50897c2437582e6E.exit"
 
 18:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$fst..raw..StreamState$LT$usize$GT$$GT$$GT$17h7f11c06a011c10c1E.exit2.i"
@@ -2110,10 +2110,10 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$fst..inner_map..Stream$LT$vf
   ]
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0bc1d51c2821d2ccE.exit.sink.split.i.i.i": ; preds = %22, %18
-  %.sink3.i.i.i = phi i64 [ %20, %18 ], [ %24, %22 ]
+  %.sink4.i.i.i = phi i64 [ %20, %18 ], [ %24, %22 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8, !alias.scope !1060, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %.sink3.i.i.i, i64 noundef 1) #18, !noalias !1060
+  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %.sink4.i.i.i, i64 noundef 1) #18, !noalias !1060
   br label %"_ZN4core3ptr68drop_in_place$LT$fst..raw..Stream$LT$vfs..file_set..PrefixOf$GT$$GT$17h5d22fd200c6e67aeE.llvm.2289853374155540651.exit"
 
 18:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$fst..raw..StreamState$LT$usize$GT$$GT$$GT$17h7f11c06a011c10c1E.exit2.i.i"
@@ -2280,10 +2280,10 @@ define hidden void @"_ZN4core3ptr77drop_in_place$LT$fst..raw..StreamWithState$LT
   ]
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0bc1d51c2821d2ccE.exit.sink.split.i": ; preds = %22, %18
-  %.sink3.i = phi i64 [ %20, %18 ], [ %24, %22 ]
+  %.sink4.i = phi i64 [ %20, %18 ], [ %24, %22 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8, !alias.scope !1183, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %.sink3.i, i64 noundef 1) #18, !noalias !1183
+  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %.sink4.i, i64 noundef 1) #18, !noalias !1183
   br label %"_ZN4core3ptr36drop_in_place$LT$fst..raw..Bound$GT$17hc124da62a7cc8668E.llvm.2289853374155540651.exit"
 
 18:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$fst..raw..StreamState$LT$usize$GT$$GT$$GT$17h7f11c06a011c10c1E.exit2"

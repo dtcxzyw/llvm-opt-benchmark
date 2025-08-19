@@ -2180,22 +2180,22 @@ define internal void @scale2_timer_cb(ptr readnone captures(none) %0) #0 {
   %13 = add i32 %11, -3
   store i32 %13, ptr @session_tablet, align 4, !tbaa !3
   %14 = icmp ult i32 %13, 1400
-  br i1 %14, label %.sink.split18, label %18
+  br i1 %14, label %.sink.split28, label %18
 
 15:                                               ; preds = %9
   %16 = add i32 %11, 9
   store i32 %16, ptr @session_tablet, align 4, !tbaa !3
   %17 = icmp ugt i32 %16, 4500
-  br i1 %17, label %.sink.split18, label %18
+  br i1 %17, label %.sink.split28, label %18
 
-.sink.split18:                                    ; preds = %15, %12
-  %.ph19 = phi i32 [ %13, %12 ], [ %16, %15 ]
-  %.sink20 = xor i1 %.b1316, true
-  store i1 %.sink20, ptr @scale2_timer_cb.down2, align 1
+.sink.split28:                                    ; preds = %15, %12
+  %.ph29 = phi i32 [ %13, %12 ], [ %16, %15 ]
+  %.sink30 = xor i1 %.b1316, true
+  store i1 %.sink30, ptr @scale2_timer_cb.down2, align 1
   br label %18
 
-18:                                               ; preds = %.sink.split18, %15, %12
-  %19 = phi i32 [ %16, %15 ], [ %13, %12 ], [ %.ph19, %.sink.split18 ]
+18:                                               ; preds = %.sink.split28, %15, %12
+  %19 = phi i32 [ %16, %15 ], [ %13, %12 ], [ %.ph29, %.sink.split28 ]
   %.b1417 = load i1, ptr @scale2_timer_cb.down3, align 1
   %20 = load i32, ptr @session_mobile, align 4, !tbaa !3
   br i1 %.b1417, label %21, label %24
@@ -2204,22 +2204,22 @@ define internal void @scale2_timer_cb(ptr readnone captures(none) %0) #0 {
   %22 = add i32 %20, -57
   store i32 %22, ptr @session_mobile, align 4, !tbaa !3
   %23 = icmp ult i32 %22, 1400
-  br i1 %23, label %.sink.split21, label %27
+  br i1 %23, label %.sink.split31, label %27
 
 24:                                               ; preds = %18
   %25 = add i32 %20, 76
   store i32 %25, ptr @session_mobile, align 4, !tbaa !3
   %26 = icmp ugt i32 %25, 4500
-  br i1 %26, label %.sink.split21, label %27
+  br i1 %26, label %.sink.split31, label %27
 
-.sink.split21:                                    ; preds = %24, %21
-  %.ph22 = phi i32 [ %22, %21 ], [ %25, %24 ]
-  %.sink23 = xor i1 %.b1417, true
-  store i1 %.sink23, ptr @scale2_timer_cb.down3, align 1
+.sink.split31:                                    ; preds = %24, %21
+  %.ph32 = phi i32 [ %22, %21 ], [ %25, %24 ]
+  %.sink33 = xor i1 %.b1417, true
+  store i1 %.sink33, ptr @scale2_timer_cb.down3, align 1
   br label %27
 
-27:                                               ; preds = %.sink.split21, %24, %21
-  %28 = phi i32 [ %25, %24 ], [ %22, %21 ], [ %.ph22, %.sink.split21 ]
+27:                                               ; preds = %.sink.split31, %24, %21
+  %28 = phi i32 [ %25, %24 ], [ %22, %21 ], [ %.ph32, %.sink.split31 ]
   %29 = add i32 %19, %10
   %30 = add i32 %29, %28
   %31 = mul i32 %10, 354

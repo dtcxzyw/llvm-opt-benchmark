@@ -1058,11 +1058,11 @@ wait_frame.exit:                                  ; preds = %.lr.ph.i, %2
 113:                                              ; preds = %108
   %114 = icmp sgt i32 %97, %89
   %115 = sub i32 %89, %82
-  %spec.select6.i = select i1 %114, i32 %115, i32 %76
+  %spec.select15.i = select i1 %114, i32 %115, i32 %76
   br label %116
 
 116:                                              ; preds = %113, %110, %91
-  %.065.i = phi i32 [ %93, %91 ], [ %112, %110 ], [ %spec.select6.i, %113 ]
+  %.065.i = phi i32 [ %93, %91 ], [ %112, %110 ], [ %spec.select15.i, %113 ]
   %.064.i = phi i32 [ %92, %91 ], [ %.1.i, %110 ], [ %.1.i, %113 ]
   %117 = tail call i32 @llvm.smax.i32(i32 %.064.i, i32 0)
   %118 = getelementptr inbounds nuw i8, ptr %.069, i64 16

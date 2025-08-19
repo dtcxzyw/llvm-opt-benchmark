@@ -325,7 +325,7 @@ gv_calloc.exit.i:                                 ; preds = %124
   %142 = phi ptr [ %24, %._crit_edge265.thread ], [ %12, %.lr.ph26.i.i ]
   %143 = phi ptr [ %25, %._crit_edge265.thread ], [ %18, %.lr.ph26.i.i ]
   %144 = phi ptr [ %26, %._crit_edge265.thread ], [ %29, %.lr.ph26.i.i ]
-  %.fr376378 = phi double [ 0x7FF8000000000000, %._crit_edge265.thread ], [ %.fr, %.lr.ph26.i.i ]
+  %.fr390392 = phi double [ 0x7FF8000000000000, %._crit_edge265.thread ], [ %.fr, %.lr.ph26.i.i ]
   %145 = phi i64 [ 0, %._crit_edge265.thread ], [ %79, %.lr.ph26.i.i ]
   %146 = phi ptr [ %27, %._crit_edge265.thread ], [ %73, %.lr.ph26.i.i ]
   %147 = phi ptr [ %28, %._crit_edge265.thread ], [ %125, %.lr.ph26.i.i ]
@@ -679,7 +679,7 @@ gv_calloc.exit232:                                ; preds = %.thread.i231.crited
   br i1 %exitcond358.not, label %.preheader240, label %.lr.ph279, !llvm.loop !42
 
 .preheader:                                       ; preds = %._crit_edge292.split.us
-  %290 = tail call double @llvm.fabs.f64(double %.fr376378)
+  %290 = tail call double @llvm.fabs.f64(double %.fr390392)
   %291 = fcmp uge double %290, 0x3CB0000000000000
   %292 = and i1 %291, %.not.i
   br i1 %292, label %.lr.ph296.split.preheader, label %.loopexit
@@ -693,7 +693,7 @@ gv_calloc.exit232:                                ; preds = %.thread.i231.crited
   %294 = tail call i32 @conjugate_gradient_f(ptr noundef %142, ptr noundef %3, ptr noundef %143, i32 noundef %1, double noundef %4, i32 noundef %1, i1 noundef zeroext true) #15
   %295 = icmp sgt i32 %294, -1
   %brmerge.not = and i1 %295, %.not.i
-  br i1 %brmerge.not, label %.lr.ph286.us, label %.loopexit.loopexit393
+  br i1 %brmerge.not, label %.lr.ph286.us, label %.loopexit.loopexit407
 
 .lr.ph286.us:                                     ; preds = %293, %306
   %indvars.iv364 = phi i64 [ %indvars.iv.next365, %306 ], [ 0, %293 ]
@@ -773,23 +773,23 @@ gv_calloc.exit232:                                ; preds = %.thread.i231.crited
   %indvars.iv368 = phi i64 [ 0, %.lr.ph296.split.preheader ], [ %indvars.iv.next369, %.lr.ph296.split ]
   %333 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv368
   %334 = load double, ptr %333, align 8, !tbaa !15
-  %335 = fdiv double %334, %.fr376378
+  %335 = fdiv double %334, %.fr390392
   store double %335, ptr %333, align 8, !tbaa !15
   %336 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv368
   %337 = load double, ptr %336, align 8, !tbaa !15
-  %338 = fdiv double %337, %.fr376378
+  %338 = fdiv double %337, %.fr390392
   store double %338, ptr %336, align 8, !tbaa !15
   %indvars.iv.next369 = add nuw nsw i64 %indvars.iv368, 1
   %exitcond372.not = icmp eq i64 %indvars.iv.next369, %wide.trip.count371
   br i1 %exitcond372.not, label %.loopexit, label %.lr.ph296.split, !llvm.loop !46
 
-.loopexit.loopexit393:                            ; preds = %293
+.loopexit.loopexit407:                            ; preds = %293
   %not. = xor i1 %295, true
   %.mux = zext i1 %not. to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph296.split, %.loopexit.loopexit393, %.preheader
-  %.0217 = phi i32 [ 0, %.preheader ], [ %.mux, %.loopexit.loopexit393 ], [ 0, %.lr.ph296.split ]
+.loopexit:                                        ; preds = %.lr.ph296.split, %.loopexit.loopexit407, %.preheader
+  %.0217 = phi i32 [ 0, %.preheader ], [ %.mux, %.loopexit.loopexit407 ], [ 0, %.lr.ph296.split ]
   %339 = load ptr, ptr %144, align 8, !tbaa !8
   tail call void @free(ptr noundef %339) #15
   tail call void @free(ptr noundef %144) #15

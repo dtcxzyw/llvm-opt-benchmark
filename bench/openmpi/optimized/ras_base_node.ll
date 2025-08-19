@@ -120,7 +120,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %33
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %storemerge126 = load ptr, ptr %47, align 8, !tbaa !36
   %.not91127 = icmp eq ptr %storemerge126, %46
-  br i1 %.not91127, label %.loopexit164, label %.lr.ph
+  br i1 %.not91127, label %.loopexit183, label %.lr.ph
 
 .lr.ph:                                           ; preds = %45, %51
   %storemerge128 = phi ptr [ %storemerge, %51 ], [ %storemerge126, %45 ]
@@ -138,14 +138,14 @@ pmix_pointer_array_get_item.exit:                 ; preds = %33
   %52 = getelementptr inbounds nuw i8, ptr %storemerge128, i64 120
   %storemerge = load ptr, ptr %52, align 8, !tbaa !36
   %.not91 = icmp eq ptr %storemerge, %46
-  br i1 %.not91, label %.loopexit164, label %.lr.ph, !llvm.loop !44
+  br i1 %.not91, label %.loopexit183, label %.lr.ph, !llvm.loop !44
 
-.loopexit164:                                     ; preds = %51, %45
+.loopexit183:                                     ; preds = %51, %45
   %.pre153 = load i8, ptr @prte_hnp_is_allocated, align 1, !tbaa !43, !range !34
   %53 = trunc nuw i8 %.pre153 to i1
   br i1 %53, label %54, label %pmix_pointer_array_get_item.exit.thread
 
-54:                                               ; preds = %.thread, %.loopexit164
+54:                                               ; preds = %.thread, %.loopexit183
   %55 = load i16, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 272), align 8, !tbaa !46
   %56 = and i16 %55, 256
   %.not92 = icmp eq i16 %56, 0
@@ -174,9 +174,9 @@ pmix_pointer_array_get_item.exit:                 ; preds = %33
   store i8 %67, ptr %65, align 8, !tbaa !48
   br label %pmix_pointer_array_get_item.exit.thread
 
-pmix_pointer_array_get_item.exit.thread:          ; preds = %33, %61, %54, %.loopexit164, %pmix_pointer_array_get_item.exit
-  %.0.i112 = phi ptr [ %41, %54 ], [ %41, %61 ], [ %41, %.loopexit164 ], [ %41, %pmix_pointer_array_get_item.exit ], [ null, %33 ]
-  %.not = phi i1 [ true, %54 ], [ false, %61 ], [ true, %.loopexit164 ], [ %44, %pmix_pointer_array_get_item.exit ], [ false, %33 ]
+pmix_pointer_array_get_item.exit.thread:          ; preds = %33, %61, %54, %.loopexit183, %pmix_pointer_array_get_item.exit
+  %.0.i112 = phi ptr [ %41, %54 ], [ %41, %61 ], [ %41, %.loopexit183 ], [ %41, %pmix_pointer_array_get_item.exit ], [ null, %33 ]
+  %.not = phi i1 [ true, %54 ], [ false, %61 ], [ true, %.loopexit183 ], [ %44, %pmix_pointer_array_get_item.exit ], [ false, %33 ]
   %68 = load volatile i64, ptr %5, align 8, !tbaa !3
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %pmix_list_remove_first.exit.thread, label %.lr.ph139
@@ -296,8 +296,8 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %33, %61, %54, %.loo
   br label %140
 
 140:                                              ; preds = %137, %134
-  %storemerge160 = phi i8 [ %139, %137 ], [ %136, %134 ]
-  store i8 %storemerge160, ptr %76, align 8, !tbaa !48
+  %storemerge179 = phi i8 [ %139, %137 ], [ %136, %134 ]
+  store i8 %storemerge179, ptr %76, align 8, !tbaa !48
   %141 = getelementptr inbounds nuw i8, ptr %.lcssa119, i64 152
   %142 = load ptr, ptr %141, align 8, !tbaa !37
   %143 = call i32 @PMIx_Argv_append_unique_nosize(ptr noundef nonnull %77, ptr noundef %142) #12

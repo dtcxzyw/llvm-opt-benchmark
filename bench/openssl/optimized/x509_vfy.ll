@@ -306,10 +306,10 @@ dane_match_rpk.exit.loopexit.i:                   ; preds = %84
   br label %.sink.split
 
 dane_match_rpk.exit.i:                            ; preds = %dane_match_rpk.exit.loopexit.i, %.critedge15.i, %49
-  %.sink25.i = phi ptr [ %83, %.critedge15.i ], [ %.pre.i, %dane_match_rpk.exit.loopexit.i ], [ %.pre20.i, %49 ]
+  %.sink32.i = phi ptr [ %83, %.critedge15.i ], [ %.pre.i, %dane_match_rpk.exit.loopexit.i ], [ %.pre20.i, %49 ]
   %.sink.i = phi i32 [ 0, %.critedge15.i ], [ 65, %dane_match_rpk.exit.loopexit.i ], [ 65, %49 ]
   %88 = phi i32 [ 1, %.critedge15.i ], [ 0, %dane_match_rpk.exit.loopexit.i ], [ 0, %49 ]
-  call void @CRYPTO_free(ptr noundef %.sink25.i, ptr noundef nonnull @.str, i32 noundef 3134) #10
+  call void @CRYPTO_free(ptr noundef %.sink32.i, ptr noundef nonnull @.str, i32 noundef 3134) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1782,10 +1782,10 @@ define ptr @X509_CRL_diff(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %89, %94
-  %.sink90 = phi i32 [ 2270, %94 ], [ 2265, %89 ]
+  %.sink96 = phi i32 [ 2270, %94 ], [ 2265, %89 ]
   %.sink = phi i32 [ 524299, %94 ], [ 524301, %89 ]
   call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink90, ptr noundef nonnull @__func__.X509_CRL_diff) #10
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink96, ptr noundef nonnull @__func__.X509_CRL_diff) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %104
@@ -2698,9 +2698,9 @@ define internal range(i32 0, 2) i32 @internal_verify(ptr noundef %0) #0 {
 
 31:                                               ; preds = %24
   %32 = icmp sgt i32 %15, 1
-  br i1 %32, label %.thread110, label %36
+  br i1 %32, label %.thread114, label %36
 
-.thread110:                                       ; preds = %31
+.thread114:                                       ; preds = %31
   %33 = add nsw i32 %15, -2
   store i32 %33, ptr %19, align 4, !tbaa !55
   %34 = load ptr, ptr %13, align 8, !tbaa !56
@@ -2734,10 +2734,10 @@ verify_cb_cert.exit:                              ; preds = %36, %37
   %48 = icmp sgt i32 %15, 0
   br i1 %48, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.thread110, %47
-  %.066116 = phi i32 [ %33, %.thread110 ], [ %16, %47 ]
-  %.068115 = phi ptr [ %18, %.thread110 ], [ %.068, %47 ]
-  %.072114 = phi ptr [ %35, %.thread110 ], [ %18, %47 ]
+.lr.ph:                                           ; preds = %.thread114, %47
+  %.066120 = phi i32 [ %33, %.thread114 ], [ %16, %47 ]
+  %.068119 = phi ptr [ %18, %.thread114 ], [ %.068, %47 ]
+  %.072118 = phi ptr [ %35, %.thread114 ], [ %18, %47 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -2746,9 +2746,9 @@ verify_cb_cert.exit:                              ; preds = %36, %37
   br label %54
 
 54:                                               ; preds = %.lr.ph, %100
-  %.167102 = phi i32 [ %.066116, %.lr.ph ], [ %101, %100 ]
-  %.169101 = phi ptr [ %.068115, %.lr.ph ], [ %.173100, %100 ]
-  %.173100 = phi ptr [ %.072114, %.lr.ph ], [ %103, %100 ]
+  %.167102 = phi i32 [ %.066120, %.lr.ph ], [ %101, %100 ]
+  %.169101 = phi ptr [ %.068119, %.lr.ph ], [ %.173100, %100 ]
+  %.173100 = phi ptr [ %.072118, %.lr.ph ], [ %103, %100 ]
   %.not82 = icmp eq ptr %.169101, null
   br i1 %.not82, label %.critedge, label %55
 
@@ -2902,7 +2902,7 @@ define internal range(i32 0, 2) i32 @check_revocation(ptr noundef %0) #0 {
   br i1 %.not1623, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16, %19
-  %.030 = phi i32 [ %23, %19 ], [ 0, %16 ]
+  %.034 = phi i32 [ %23, %19 ], [ 0, %16 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -3082,7 +3082,7 @@ get_crl_delta.exit.i:                             ; preds = %.thread.i.i, %61
 
 90:                                               ; preds = %.sink.split, %.thread72.sink.split.i
   %91 = add nuw i32 %.01224, 1
-  %exitcond.not = icmp eq i32 %.01224, %.030
+  %exitcond.not = icmp eq i32 %.01224, %.034
   br i1 %exitcond.not, label %.loopexit, label %38, !llvm.loop !163
 
 .critedge:                                        ; preds = %76, %73, %.thread.i, %68
@@ -3602,10 +3602,10 @@ verify_cb_cert.exit:                              ; preds = %36
   br label %.loopexit
 
 68:                                               ; preds = %28, %7
-  %.sink55 = phi i32 [ 1779, %7 ], [ 1788, %28 ]
+  %.sink56 = phi i32 [ 1779, %7 ], [ 1788, %28 ]
   %.sink = phi i32 [ 524303, %7 ], [ 524299, %28 ]
   tail call void @ERR_new() #10
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink55, ptr noundef nonnull @__func__.check_policy) #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink56, ptr noundef nonnull @__func__.check_policy) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink, ptr noundef null) #10
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 17, ptr %69, align 8, !tbaa !58
@@ -4353,8 +4353,8 @@ X509_self_signed.exit:                            ; preds = %97
   br i1 %.not232, label %.critedge249.thread, label %146
 
 .critedge249.thread:                              ; preds = %130, %127, %123, %._crit_edge, %.critedge249
-  %.7189367 = phi i32 [ %.2184354, %.critedge249 ], [ %109, %._crit_edge ], [ %109, %123 ], [ %109, %127 ], [ %109, %130 ]
-  %.0193365 = phi i32 [ %76, %.critedge249 ], [ %.0173356, %._crit_edge ], [ %.0173356, %123 ], [ %.0173356, %127 ], [ %.0173356, %130 ]
+  %.7189385 = phi i32 [ %.2184354, %.critedge249 ], [ %109, %._crit_edge ], [ %109, %123 ], [ %109, %127 ], [ %109, %130 ]
+  %.0193383 = phi i32 [ %76, %.critedge249 ], [ %.0173356, %._crit_edge ], [ %.0173356, %123 ], [ %.0173356, %127 ], [ %.0173356, %130 ]
   %131 = load ptr, ptr %5, align 8, !tbaa !56
   %132 = load ptr, ptr %2, align 8, !tbaa !90
   %133 = call i32 @OPENSSL_sk_push(ptr noundef %131, ptr noundef %132) #10
@@ -4414,8 +4414,8 @@ X509_self_signed.exit:                            ; preds = %97
   br label %X509_self_signed.exit258
 
 X509_self_signed.exit258:                         ; preds = %141, %150
-  %.7189366 = phi i32 [ %.2184354, %150 ], [ %.7189367, %141 ]
-  %.2195 = phi i32 [ %151, %150 ], [ %.0193365, %141 ]
+  %.7189384 = phi i32 [ %.2184354, %150 ], [ %.7189385, %141 ]
+  %.2195 = phi i32 [ %151, %150 ], [ %.0193383, %141 ]
   %.0 = phi i1 [ true, %150 ], [ %145, %141 ]
   %155 = load i32, ptr %10, align 4, !tbaa !86
   %.not236 = icmp sgt i32 %155, %.2195
@@ -4427,7 +4427,7 @@ X509_self_signed.exit258:                         ; preds = %141, %150
   br i1 %.not237, label %158, label %.loopexit.sink.split
 
 158:                                              ; preds = %156
-  %159 = and i32 %.7189366, -2
+  %159 = and i32 %.7189384, -2
   br i1 %.0, label %.thread281, label %.thread285
 
 .thread281:                                       ; preds = %79, %.thread290, %158, %92
@@ -4586,14 +4586,14 @@ select.unfold:                                    ; preds = %222
   br i1 %224, label %291, label %225
 
 225:                                              ; preds = %.loopexit.thread, %.loopexit
-  %.1176370 = phi i32 [ 3, %.loopexit.thread ], [ %.1176, %.loopexit ]
+  %.1176388 = phi i32 [ 3, %.loopexit.thread ], [ %.1176, %.loopexit ]
   %226 = load ptr, ptr %5, align 8, !tbaa !56
   %227 = call i32 @OPENSSL_sk_num(ptr noundef %226) #10
   %.not244 = icmp sgt i32 %227, %67
   br i1 %.not244, label %242, label %228
 
 228:                                              ; preds = %225
-  %229 = icmp eq i32 %.1176370, 3
+  %229 = icmp eq i32 %.1176388, 3
   %or.cond10 = and i1 %17, %229
   br i1 %or.cond10, label %230, label %236
 
@@ -4609,7 +4609,7 @@ select.unfold:                                    ; preds = %222
   br label %236
 
 236:                                              ; preds = %234, %228
-  %.9 = phi i32 [ %235, %234 ], [ %.1176370, %228 ]
+  %.9 = phi i32 [ %235, %234 ], [ %.1176388, %228 ]
   %237 = icmp eq i32 %.9, 3
   br i1 %237, label %.thread315, label %242
 
@@ -4623,7 +4623,7 @@ select.unfold:                                    ; preds = %222
   br label %242
 
 242:                                              ; preds = %236, %240, %225
-  %.8 = phi i32 [ %241, %240 ], [ %.9, %236 ], [ %.1176370, %225 ]
+  %.8 = phi i32 [ %241, %240 ], [ %.9, %236 ], [ %.1176388, %225 ]
   switch i32 %.8, label %.thread317 [
     i32 1, label %291
     i32 2, label %243
@@ -5690,8 +5690,8 @@ verify_cb_cert.exit:                              ; preds = %405
   %.pre.i57 = load i32, ptr %.phi.trans.insert.i56, align 8, !tbaa !3
   %440 = and i32 %.pre.i57, 32
   %.not81.i = icmp eq i32 %440, 0
-  %or.cond128.i = select i1 %.not.i55, i1 true, i1 %.not81.i
-  br i1 %or.cond128.i, label %._crit_edge.i, label %.loopexit.i
+  %or.cond135.i = select i1 %.not.i55, i1 true, i1 %.not81.i
+  br i1 %or.cond135.i, label %._crit_edge.i, label %.loopexit.i
 
 ._crit_edge.i:                                    ; preds = %437
   %441 = and i32 %.pre.i57, 1024
@@ -5995,10 +5995,10 @@ define internal fastcc range(i32 -1, 2) i32 @dane_match_cert(i32 %.148.val, ptr 
   br i1 %or.cond.i, label %dane_i2d.exit.thread, label %.thread
 
 dane_i2d.exit.thread:                             ; preds = %51, %45
-  %.sink55 = phi i32 [ 2861, %45 ], [ 2866, %51 ]
+  %.sink64 = phi i32 [ 2861, %45 ], [ 2866, %51 ]
   %.sink = phi i32 [ 133, %45 ], [ 524301, %51 ]
   call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink55, ptr noundef nonnull @__func__.dane_i2d) #10
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink64, ptr noundef nonnull @__func__.dane_i2d) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %109
@@ -6060,7 +6060,7 @@ dane_i2d.exit.thread:                             ; preds = %51, %45
   br i1 %.not102, label %.thread22, label %85
 
 85:                                               ; preds = %79
-  %86 = zext i32 %.2414 to i64
+  %86 = zext nneg i32 %.2414 to i64
   %87 = call i32 @EVP_Digest(ptr noundef %.37820, i64 noundef %86, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %84, ptr noundef null) #10
   %.not103 = icmp eq i32 %87, 0
   br i1 %.not103, label %.loopexit, label %.thread22
@@ -6687,9 +6687,9 @@ crldp_check_crlissuer.exit.thread36.i.i:          ; preds = %150, %crldp_check_c
   br i1 %187, label %crldp_check_crlissuer.exit.thread.i.i, label %.preheader47.i.i.i
 
 .preheader47.i.i.i:                               ; preds = %184, %174
-  %.sink65.i.i.i = phi ptr [ %164, %174 ], [ %163, %184 ]
+  %.sink72.i.i.i = phi ptr [ %164, %174 ], [ %163, %184 ]
   %.039.ph.i.i.i = phi ptr [ %172, %174 ], [ %186, %184 ]
-  %188 = getelementptr inbounds nuw i8, ptr %.sink65.i.i.i, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %.sink72.i.i.i, i64 8
   %189 = load ptr, ptr %188, align 8, !tbaa !92
   %190 = call i32 @OPENSSL_sk_num(ptr noundef %189) #10
   %191 = icmp sgt i32 %190, 0
@@ -6974,8 +6974,8 @@ check_delta_base.exit.thread.i:                   ; preds = %check_delta_base.ex
   br label %get_delta_sk.exit
 
 get_delta_sk.exit:                                ; preds = %7, %.sink.split.i, %278, %268, %._crit_edge
-  %.053.lcssa109 = phi i32 [ %.154, %.sink.split.i ], [ %.154, %278 ], [ %.154, %268 ], [ %.154, %._crit_edge ], [ %10, %7 ]
-  %326 = icmp sgt i32 %.053.lcssa109, 447
+  %.053.lcssa124 = phi i32 [ %.154, %.sink.split.i ], [ %.154, %278 ], [ %.154, %268 ], [ %.154, %._crit_edge ], [ %10, %7 ]
+  %326 = icmp sgt i32 %.053.lcssa124, 447
   %.56 = zext i1 %326 to i32
   ret i32 %.56
 }

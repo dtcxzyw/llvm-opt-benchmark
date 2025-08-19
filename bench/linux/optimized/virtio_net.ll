@@ -996,9 +996,9 @@ define internal i32 @virtnet_probe(ptr noundef %0) #2 align 16 {
   %194 = and i64 %193, 1152921504606846976
   %195 = icmp eq i64 %194, 0
   %.phi.trans.insert = getelementptr i8, ptr %30, i64 2361
-  br i1 %195, label %197, label %.thread35
+  br i1 %195, label %197, label %.thread53
 
-.thread35:                                        ; preds = %192
+.thread53:                                        ; preds = %192
   store i8 1, ptr %.phi.trans.insert, align 1
   %196 = getelementptr i8, ptr %30, i64 2361
   br label %205
@@ -1013,14 +1013,14 @@ define internal i32 @virtnet_probe(ptr noundef %0) #2 align 16 {
   %201 = getelementptr i8, ptr %30, i64 2362
   %202 = load i8, ptr %201, align 2, !range !6, !noundef !7
   %203 = icmp eq i8 %202, 0
-  br i1 %203, label %.thread36, label %205
+  br i1 %203, label %.thread54, label %205
 
-.thread36:                                        ; preds = %200
+.thread54:                                        ; preds = %200
   %204 = getelementptr i8, ptr %30, i64 2362
   br label %231
 
-205:                                              ; preds = %197, %200, %.thread35
-  %206 = phi ptr [ %196, %.thread35 ], [ %199, %200 ], [ %199, %197 ]
+205:                                              ; preds = %197, %200, %.thread53
+  %206 = phi ptr [ %196, %.thread53 ], [ %199, %200 ], [ %199, %197 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 0, ptr %5, align 2, !annotation !15
   %207 = call i32 @__SCT__might_resched() #26
@@ -1068,9 +1068,9 @@ define internal i32 @virtnet_probe(ptr noundef %0) #2 align 16 {
   store i8 20, ptr %230, align 2
   br label %240
 
-231:                                              ; preds = %.thread36, %205
-  %232 = phi ptr [ %204, %.thread36 ], [ %228, %205 ]
-  %233 = phi ptr [ %199, %.thread36 ], [ %206, %205 ]
+231:                                              ; preds = %.thread54, %205
+  %232 = phi ptr [ %204, %.thread54 ], [ %228, %205 ]
+  %233 = phi ptr [ %199, %.thread54 ], [ %206, %205 ]
   call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 15) #26
   %234 = load i64, ptr %10, align 8
   %235 = and i64 %234, 4295000064
@@ -2387,9 +2387,9 @@ define internal fastcc i32 @init_vqs(ptr noundef initializes((248, 256)) %0) unn
 231:                                              ; preds = %227, %223
   %232 = load i16, ptr %13, align 4
   %233 = icmp eq i16 %232, 0
-  br i1 %233, label %.loopexit, label %.preheader14
+  br i1 %233, label %.loopexit, label %.preheader22
 
-.preheader14:                                     ; preds = %231, %243
+.preheader22:                                     ; preds = %231, %243
   %234 = phi i64 [ %244, %243 ], [ 0, %231 ]
   %235 = load ptr, ptr %25, align 8
   %236 = getelementptr %struct.receive_queue, ptr %235, i64 %234
@@ -2398,18 +2398,18 @@ define internal fastcc i32 @init_vqs(ptr noundef initializes((248, 256)) %0) unn
   %239 = icmp eq i32 %238, 0
   br i1 %239, label %240, label %243
 
-240:                                              ; preds = %.preheader14
+240:                                              ; preds = %.preheader22
   %241 = load ptr, ptr %25, align 8
   %242 = getelementptr %struct.receive_queue, ptr %241, i64 %234, i32 18
   store i8 1, ptr %242, align 8
   br label %243
 
-243:                                              ; preds = %240, %.preheader14
+243:                                              ; preds = %240, %.preheader22
   %244 = add nuw nsw i64 %234, 1
   %245 = load i16, ptr %13, align 4
   %246 = zext i16 %245 to i64
   %247 = icmp samesign ult i64 %244, %246
-  br i1 %247, label %.preheader14, label %.loopexit, !llvm.loop !39
+  br i1 %247, label %.preheader22, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %243, %231, %227
   tail call void @cpus_read_lock() #26
@@ -3151,9 +3151,9 @@ define internal noundef i32 @start_xmit(ptr noundef %0, ptr noundef %1) #2 align
 
 69:                                               ; preds = %51
   %.old = ptrtoint ptr %.pre to i64
-  %.old11 = sub i64 %48, %.old
-  %.old12 = trunc i64 %.old11 to i32
-  %.not.old = icmp ult i32 %.old12, %42
+  %.old16 = sub i64 %48, %.old
+  %.old17 = trunc i64 %.old16 to i32
+  %.not.old = icmp ult i32 %.old17, %42
   br i1 %.not.old, label %.thread, label %70
 
 70:                                               ; preds = %56, %69
@@ -10492,7 +10492,7 @@ define internal fastcc ptr @receive_mergeable_xdp(ptr noundef %0, ptr noundef re
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 144
   %84 = load i8, ptr %83, align 8, !range !6, !noundef !7
   %85 = icmp eq i8 %84, 0
-  br i1 %85, label %.thread23, label %86, !prof !40
+  br i1 %85, label %.thread30, label %86, !prof !40
 
 86:                                               ; preds = %80, %78
   %87 = shl i64 %63, 32
@@ -10506,14 +10506,14 @@ define internal fastcc ptr @receive_mergeable_xdp(ptr noundef %0, ptr noundef re
   %.phi.trans.insert19 = getelementptr inbounds nuw i8, ptr %.pre, i64 144
   %.pre20 = load i8, ptr %.phi.trans.insert19, align 8, !range !6
   %91 = icmp eq i8 %.pre20, 0
-  br i1 %91, label %.thread23, label %94
+  br i1 %91, label %.thread30, label %94
 
-.thread23:                                        ; preds = %80, %90
+.thread30:                                        ; preds = %80, %90
   %92 = call fastcc ptr @xdp_linearize_page(ptr noundef %2, ptr noundef nonnull %13, ptr noundef %55, i32 noundef %64, i32 noundef 256, ptr noundef nonnull %12)
   %93 = icmp eq ptr %92, null
   br i1 %93, label %.thread, label %._crit_edge21
 
-._crit_edge21:                                    ; preds = %.thread23
+._crit_edge21:                                    ; preds = %.thread30
   %.pre22 = ptrtoint ptr %92 to i64
   br label %117
 
@@ -11065,8 +11065,8 @@ define internal fastcc ptr @receive_mergeable_xdp(ptr noundef %0, ptr noundef re
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread
 
-.thread:                                          ; preds = %448, %54, %97, %94, %.thread23, %.critedge, %403, %.thread12, %126
-  %453 = phi ptr [ %127, %.critedge ], [ %127, %403 ], [ %127, %.thread12 ], [ %127, %126 ], [ %55, %.thread23 ], [ %55, %94 ], [ %55, %97 ], [ %55, %54 ], [ %127, %448 ]
+.thread:                                          ; preds = %448, %54, %97, %94, %.thread30, %.critedge, %403, %.thread12, %126
+  %453 = phi ptr [ %127, %.critedge ], [ %127, %403 ], [ %127, %.thread12 ], [ %127, %126 ], [ %55, %.thread30 ], [ %55, %94 ], [ %55, %97 ], [ %55, %54 ], [ %127, %448 ]
   %454 = getelementptr inbounds nuw i8, ptr %453, i64 8
   %455 = load volatile i64, ptr %454, align 8
   %456 = and i64 %455, 1

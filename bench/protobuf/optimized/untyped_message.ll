@@ -470,7 +470,7 @@ invoke.cont34:                                    ; preds = %invoke.cont29
   br label %cleanup37
 
 cleanup37:                                        ; preds = %cleanup.thread, %if.then.i.i12, %invoke.cont34
-  %cmp.i27 = phi i1 [ false, %if.then.i.i12 ], [ true, %invoke.cont34 ], [ false, %cleanup.thread ]
+  %cmp.i28 = phi i1 [ false, %if.then.i.i12 ], [ true, %invoke.cont34 ], [ false, %cleanup.thread ]
   %24 = load i64, ptr %type, align 8
   %and.i.i.i.i.i22 = and i64 %24, 1
   %cmp.i.i.i.i.i23 = icmp eq i64 %and.i.i.i.i.i22, 0
@@ -488,7 +488,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i24
   unreachable
 
 _ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit: ; preds = %cleanup37, %if.then.i.i.i.i24
-  br i1 %cmp.i27, label %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit.if.end40_crit_edge, label %return
+  br i1 %cmp.i28, label %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit.if.end40_crit_edge, label %return
 
 _ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit.if.end40_crit_edge: ; preds = %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit
   %.pre = load ptr, ptr %type_, align 8
@@ -884,7 +884,7 @@ invoke.cont31:                                    ; preds = %invoke.cont26
   br label %cleanup34
 
 cleanup34:                                        ; preds = %cleanup.thread, %if.then.i.i10, %invoke.cont31
-  %cmp.i25 = phi i1 [ false, %if.then.i.i10 ], [ true, %invoke.cont31 ], [ false, %cleanup.thread ]
+  %cmp.i26 = phi i1 [ false, %if.then.i.i10 ], [ true, %invoke.cont31 ], [ false, %cleanup.thread ]
   %23 = load i64, ptr %type, align 8
   %and.i.i.i.i.i20 = and i64 %23, 1
   %cmp.i.i.i.i.i21 = icmp eq i64 %and.i.i.i.i.i20, 0
@@ -902,7 +902,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i22
   unreachable
 
 _ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool4EnumEED2Ev.exit: ; preds = %cleanup34, %if.then.i.i.i.i22
-  br i1 %cmp.i25, label %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool4EnumEED2Ev.exit.if.end37_crit_edge, label %return
+  br i1 %cmp.i26, label %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool4EnumEED2Ev.exit.if.end37_crit_edge, label %return
 
 _ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool4EnumEED2Ev.exit.if.end37_crit_edge: ; preds = %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool4EnumEED2Ev.exit
   %.pre = load ptr, ptr %type_, align 8
@@ -1597,11 +1597,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp11.i, label %for.body.i, label %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit, !llvm.loop !20
 
 _ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.thread: ; preds = %land.lhs.true.i, %if.then6
-  %fields_24.i30 = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %13 = load ptr, ptr %fields_24.i30, align 8
-  %conv28.i31 = sext i32 %0 to i64
-  %add.ptr.i.idx32 = shl nsw i64 %conv28.i31, 5
-  %add.ptr.i33 = getelementptr inbounds i8, ptr %13, i64 %add.ptr.i.idx32
+  %fields_24.i32 = getelementptr inbounds nuw i8, ptr %this, i64 136
+  %13 = load ptr, ptr %fields_24.i32, align 8
+  %conv28.i33 = sext i32 %0 to i64
+  %add.ptr.i.idx34 = shl nsw i64 %conv28.i33, 5
+  %add.ptr.i35 = getelementptr inbounds i8, ptr %13, i64 %add.ptr.i.idx34
   br label %for.body.lr.ph
 
 _ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit: ; preds = %for.body.i
@@ -1614,7 +1614,7 @@ _ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit:
   br i1 %cmp10.not24, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.thread, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit
-  %add.ptr.i35 = phi ptr [ %add.ptr.i33, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.thread ], [ %add.ptr.i, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit ]
+  %add.ptr.i37 = phi ptr [ %add.ptr.i35, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.thread ], [ %add.ptr.i, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit ]
   %15 = phi ptr [ %13, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.thread ], [ %14, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit ]
   %fields_by_number_18 = getelementptr inbounds nuw i8, ptr %this, i64 176
   %capacity_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -1631,7 +1631,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %cmp13.us = icmp eq i32 %17, %number
   %spec.select.us = select i1 %cmp13.us, ptr %__begin3.025.us, ptr %found.026.us
   %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %__begin3.025.us, i64 32
-  %cmp10.not.us = icmp eq ptr %incdec.ptr.us, %add.ptr.i35
+  %cmp10.not.us = icmp eq ptr %incdec.ptr.us, %add.ptr.i37
   br i1 %cmp10.not.us, label %return, label %for.body.us
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1718,7 +1718,7 @@ if.then.i.i:                                      ; preds = %for.end.i.i.i
 
 for.inc:                                          ; preds = %for.body.i.i.i, %if.then.i.i
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin3.025, i64 32
-  %cmp10.not = icmp eq ptr %incdec.ptr, %add.ptr.i35
+  %cmp10.not = icmp eq ptr %incdec.ptr, %add.ptr.i37
   br i1 %cmp10.not, label %return, label %for.body
 
 if.end24:                                         ; preds = %if.end
@@ -7845,7 +7845,7 @@ if.then20:                                        ; preds = %if.else18
   %arrayidx1.i = getelementptr inbounds nuw i8, ptr %first, i64 %div6.i
   %1 = load i8, ptr %arrayidx1.i, align 1
   %sub.i31 = add nsw i64 %len, -1
-  %arrayidx2.i = getelementptr inbounds i8, ptr %first, i64 %sub.i31
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %first, i64 %sub.i31
   %2 = load i8, ptr %arrayidx2.i, align 1
   %conv.i32 = zext i8 %0 to i32
   %conv3.i33 = zext i8 %1 to i32

@@ -1939,9 +1939,9 @@ _ZN6Method20set_prev_event_countEi.exit:          ; preds = %_ZN6Method13set_pre
   br i1 %brmerge, label %_ZN6Method8set_rateEf.exit, label %_ZN6Method8set_rateEf.exit.sink.split
 
 _ZN6Method8set_rateEf.exit.sink.split:            ; preds = %48, %9, %44
-  %.sink47 = phi ptr [ %.pre43, %44 ], [ %12, %9 ], [ %30, %48 ]
+  %.sink54 = phi ptr [ %.pre43, %44 ], [ %12, %9 ], [ %30, %48 ]
   %.sink = phi float [ %47, %44 ], [ 0.000000e+00, %9 ], [ 0.000000e+00, %48 ]
-  %52 = getelementptr inbounds nuw i8, ptr %.sink47, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %.sink54, i64 24
   store float %.sink, ptr %52, align 8
   br label %_ZN6Method8set_rateEf.exit
 
@@ -2656,7 +2656,7 @@ tailrecurse.outer:                                ; preds = %48, %4
   br i1 %12, label %.loopexit, label %46
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %spec.select.i.us, label %.thread, label %.lr.ph170
+  br i1 %spec.select.i.us, label %.thread, label %.lr.ph174
 
 tailrecurse.outer._crit_edge:                     ; preds = %tailrecurse.outer
   %13 = load ptr, ptr %0, align 8
@@ -2729,9 +2729,9 @@ _ZNK5frame6senderEP11RegisterMap.exit:            ; preds = %27, %_ZNK11Register
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %17) #12
   br label %_ZN11MutexLockerD2Ev.exit
 
-.lr.ph170:                                        ; preds = %.lr.ph.split, %tailrecurse
+.lr.ph174:                                        ; preds = %.lr.ph.split, %tailrecurse
   %42 = phi i32 [ %87, %tailrecurse ], [ %10, %.lr.ph.split ]
-  %.tr5779169 = phi i8 [ 1, %tailrecurse ], [ %.tr57.ph, %.lr.ph.split ]
+  %.tr5779173 = phi i8 [ 1, %tailrecurse ], [ %.tr57.ph, %.lr.ph.split ]
   %43 = phi i32 [ 1, %tailrecurse ], [ %8, %.lr.ph.split ]
   %44 = and i32 %43, 255
   %45 = icmp eq i32 %44, 255
@@ -2745,7 +2745,7 @@ _ZNK5frame6senderEP11RegisterMap.exit:            ; preds = %27, %_ZNK11Register
   %49 = tail call noundef zeroext i1 @_ZN17CompilationPolicy15can_be_compiledERK12methodHandlei(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 1)
   br i1 %49, label %tailrecurse.outer, label %_ZN11MutexLockerD2Ev.exit
 
-50:                                               ; preds = %.lr.ph170
+50:                                               ; preds = %.lr.ph174
   %51 = load i32, ptr @_ZN9Arguments5_modeE, align 4
   %52 = icmp eq i32 %51, 0
   %53 = load i64, ptr @TieredStopAtLevel, align 8
@@ -2766,8 +2766,8 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i:       ; preds = %50
   %spec.select = select i1 %61, i32 1, i32 %.mux
   br label %_ZL36adjust_level_for_compilability_query9CompLevel.exit.thread.i
 
-62:                                               ; preds = %.lr.ph170
-  %spec.select.i.i = icmp ult i8 %.tr5779169, 5
+62:                                               ; preds = %.lr.ph174
+  %spec.select.i.i = icmp ult i8 %.tr5779173, 5
   br i1 %spec.select.i.i, label %_ZL36adjust_level_for_compilability_query9CompLevel.exit.thread.i, label %_ZN11MutexLockerD2Ev.exit
 
 _ZL36adjust_level_for_compilability_query9CompLevel.exit.thread.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i, %62, %50
@@ -2781,7 +2781,7 @@ _ZN17CompilationPolicy19can_be_osr_compiledERK12methodHandlei.exit: ; preds = %_
   br i1 %66, label %.thread, label %_ZN17CompilationPolicy19can_be_osr_compiledERK12methodHandlei.exit.thread
 
 _ZN17CompilationPolicy19can_be_osr_compiledERK12methodHandlei.exit.thread: ; preds = %_ZL36adjust_level_for_compilability_query9CompLevel.exit.thread.i, %_ZN17CompilationPolicy19can_be_osr_compiledERK12methodHandlei.exit
-  %67 = icmp eq i8 %.tr5779169, 4
+  %67 = icmp eq i8 %.tr5779173, 4
   br i1 %67, label %68, label %_ZN11MutexLockerD2Ev.exit
 
 68:                                               ; preds = %_ZN17CompilationPolicy19can_be_osr_compiledERK12methodHandlei.exit.thread
@@ -2819,18 +2819,18 @@ tailrecurse:                                      ; preds = %85, %81, %72
   %87 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
   %88 = and i32 %87, -2
   %spec.select.i = icmp eq i32 %88, 2
-  br i1 %spec.select.i, label %.thread, label %.lr.ph170
+  br i1 %spec.select.i, label %.thread, label %.lr.ph174
 
 .thread:                                          ; preds = %_ZN17CompilationPolicy19can_be_osr_compiledERK12methodHandlei.exit, %tailrecurse, %.lr.ph.split
   %89 = phi i32 [ %8, %.lr.ph.split ], [ %43, %_ZN17CompilationPolicy19can_be_osr_compiledERK12methodHandlei.exit ], [ 1, %tailrecurse ]
-  %.tr5779155 = phi i8 [ %.tr57.ph, %.lr.ph.split ], [ %.tr5779169, %_ZN17CompilationPolicy19can_be_osr_compiledERK12methodHandlei.exit ], [ 1, %tailrecurse ]
+  %.tr5779159 = phi i8 [ %.tr57.ph, %.lr.ph.split ], [ %.tr5779173, %_ZN17CompilationPolicy19can_be_osr_compiledERK12methodHandlei.exit ], [ 1, %tailrecurse ]
   %90 = load ptr, ptr %0, align 8
   %91 = tail call noundef zeroext i1 @_ZNK6Method21is_not_osr_compilableEi(ptr noundef nonnull align 8 dereferenceable(88) %90, i32 noundef %89) #12
   br i1 %91, label %_ZN11MutexLockerD2Ev.exit, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split.us, %.split83.us, %.thread
   %.tr56.ph129 = phi i32 [ %.tr56.ph, %.thread ], [ -1, %.split83.us ], [ -1, %.lr.ph.split.us ]
-  %.tr5770 = phi i8 [ %.tr5779155, %.thread ], [ %.tr57.ph, %.split83.us ], [ %.tr57.ph, %.lr.ph.split.us ]
+  %.tr5770 = phi i8 [ %.tr5779159, %.thread ], [ %.tr57.ph, %.split83.us ], [ %.tr57.ph, %.lr.ph.split.us ]
   %92 = phi i32 [ %89, %.thread ], [ %8, %.split83.us ], [ %8, %.lr.ph.split.us ]
   %93 = tail call noundef zeroext i1 @_ZN13CompileBroker23compilation_is_in_queueERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
   br i1 %93, label %_ZN11MutexLockerD2Ev.exit, label %94

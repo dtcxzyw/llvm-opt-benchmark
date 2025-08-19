@@ -622,8 +622,8 @@ get_region.exit.i:                                ; preds = %.lr.ph.i.i130, %153
   br label %227
 
 227:                                              ; preds = %223, %219, %213
-  %.sink179.i = phi i8 [ %215, %213 ], [ %226, %223 ], [ %222, %219 ]
-  %228 = zext i8 %.sink179.i to i32
+  %.sink186.i = phi i8 [ %215, %213 ], [ %226, %223 ], [ %222, %219 ]
+  %228 = zext i8 %.sink186.i to i32
   %229 = getelementptr inbounds nuw i8, ptr %.0127.i, i64 24
   store i32 %228, ptr %229, align 8, !tbaa !86
   %.0128.i = getelementptr inbounds nuw i8, ptr %.0112351, i64 16
@@ -635,7 +635,7 @@ get_region.exit.i:                                ; preds = %.lr.ph.i.i130, %153
   %232 = load ptr, ptr %231, align 8, !tbaa !82
   %233 = load i32, ptr %182, align 8, !tbaa !81
   %234 = sext i32 %233 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %232, i8 %.sink179.i, i64 %234, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %232, i8 %.sink186.i, i64 %234, i1 false)
   br label %235
 
 235:                                              ; preds = %230, %227
@@ -813,17 +813,17 @@ get_clut.exit.i:                                  ; preds = %.lr.ph.i.i136
   br i1 %313, label %dvbsub_parse_clut_segment.exit, label %314
 
 314:                                              ; preds = %get_clut.exit.i, %get_clut.exit.thread.i
-  %.091121.i = phi ptr [ %309, %get_clut.exit.thread.i ], [ %.08.i.i137, %get_clut.exit.i ]
-  %315 = getelementptr inbounds nuw i8, ptr %.091121.i, i64 4
+  %.091127.i = phi ptr [ %309, %get_clut.exit.thread.i ], [ %.08.i.i137, %get_clut.exit.i ]
+  %315 = getelementptr inbounds nuw i8, ptr %.091127.i, i64 4
   store i32 %303, ptr %315, align 4, !tbaa !104
   %316 = icmp ugt i16 %41, 6
   br i1 %316, label %.lr.ph.i143, label %dvbsub_parse_clut_segment.exit
 
 .lr.ph.i143:                                      ; preds = %314
   %317 = getelementptr inbounds nuw i8, ptr %.0112351, i64 12
-  %318 = getelementptr inbounds nuw i8, ptr %.091121.i, i64 88
-  %319 = getelementptr inbounds nuw i8, ptr %.091121.i, i64 24
-  %320 = getelementptr inbounds nuw i8, ptr %.091121.i, i64 8
+  %318 = getelementptr inbounds nuw i8, ptr %.091127.i, i64 88
+  %319 = getelementptr inbounds nuw i8, ptr %.091127.i, i64 24
+  %320 = getelementptr inbounds nuw i8, ptr %.091127.i, i64 8
   br label %321
 
 321:                                              ; preds = %432, %.lr.ph.i143
@@ -1748,11 +1748,11 @@ get_clut.exit:                                    ; preds = %.lr.ph.i146, %102, 
   br i1 %.not127, label %.loopexit8, label %107
 
 107:                                              ; preds = %get_clut.exit
-  %switch.selectcmp47 = icmp eq i32 %104, 2
+  %switch.selectcmp55 = icmp eq i32 %104, 2
   %switch.selectcmp = icmp eq i32 %104, 8
   %switch.select = select i1 %switch.selectcmp, i64 88, i64 24
-  %switch.select48 = select i1 %switch.selectcmp47, i64 8, i64 %switch.select
-  %108 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 %switch.select48
+  %switch.select56 = select i1 %switch.selectcmp55, i64 8, i64 %switch.select
+  %108 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 %switch.select56
   %109 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %110 = load i32, ptr %93, align 8, !tbaa !84
   %111 = shl nuw i32 1, %110
@@ -1775,8 +1775,8 @@ get_clut.exit:                                    ; preds = %.lr.ph.i146, %102, 
   %122 = icmp slt i32 %.pre, 0
   %or.cond = select i1 %121, i1 %122, i1 false
   %123 = icmp eq i32 %.pre, 1
-  %or.cond46 = select i1 %or.cond, i1 true, i1 %123
-  br i1 %or.cond46, label %124, label %275
+  %or.cond54 = select i1 %or.cond, i1 true, i1 %123
+  br i1 %or.cond54, label %124, label %275
 
 124:                                              ; preds = %120
   %125 = getelementptr inbounds nuw i8, ptr %.08.i138, i64 1052
@@ -2011,13 +2011,13 @@ get_clut.exit:                                    ; preds = %.lr.ph.i146, %102, 
   %251 = trunc nuw nsw i64 %indvars.iv157.i to i32
   %252 = tail call i32 @llvm.umax.i32(i32 %251, i32 2)
   %253 = add nsw i32 %252, -1
-  %.not168.i = icmp eq i64 %indvars.iv157.i, 0
-  br i1 %.not168.i, label %compute_default_clut.exit, label %.lr.ph.preheader.i
+  %.not170.i = icmp eq i64 %indvars.iv157.i, 0
+  br i1 %.not170.i, label %compute_default_clut.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %245, %250
   %254 = phi i32 [ %253, %250 ], [ 255, %245 ]
-  %.1.lcssa165.i = phi i64 [ %indvars.iv157.i, %250 ], [ 256, %245 ]
-  %255 = and i64 %.1.lcssa165.i, 4294967295
+  %.1.lcssa167.i = phi i64 [ %indvars.iv157.i, %250 ], [ 256, %245 ]
+  %255 = and i64 %.1.lcssa167.i, 4294967295
   br label %.lr.ph.i153
 
 .lr.ph.i153:                                      ; preds = %.lr.ph.i153, %.lr.ph.preheader.i
@@ -2677,9 +2677,9 @@ split:                                            ; preds = %39, %._crit_edge220
 
 .lr.ph184.i:                                      ; preds = %193
   %195 = trunc nuw i32 %.192.i to i8
-  %narrow226.i = add nuw nsw i32 %170, 11
+  %narrow230.i = add nuw nsw i32 %170, 11
   %196 = sub i32 %68, %.0189.i
-  %197 = call i32 @llvm.umin.i32(i32 %narrow226.i, i32 %196)
+  %197 = call i32 @llvm.umin.i32(i32 %narrow230.i, i32 %196)
   %umin220.i = zext nneg i32 %197 to i64
   %198 = add nuw nsw i64 %umin220.i, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.097188.i, i8 %195, i64 %198, i1 false), !tbaa !38
@@ -2736,9 +2736,9 @@ split:                                            ; preds = %39, %._crit_edge220
 
 .lr.ph178.i:                                      ; preds = %232
   %234 = trunc nuw i32 %.293.i to i8
-  %narrow225.i = add nuw nsw i32 %209, 28
+  %narrow229.i = add nuw nsw i32 %209, 28
   %235 = sub i32 %68, %.0189.i
-  %236 = call i32 @llvm.umin.i32(i32 %narrow225.i, i32 %235)
+  %236 = call i32 @llvm.umin.i32(i32 %narrow229.i, i32 %235)
   %umin215.i = zext nneg i32 %236 to i64
   %237 = add nuw nsw i64 %umin215.i, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.097188.i, i8 %234, i64 %237, i1 false), !tbaa !38
@@ -2956,9 +2956,9 @@ default.unreachable:                              ; preds = %407
   %352 = load i8, ptr %9, align 16
   %spec.select = select i1 %.not, i8 %352, i8 0
   %353 = lshr i32 %341, 29
-  %narrow258.i = add nuw nsw i32 %353, 1
+  %narrow263.i = add nuw nsw i32 %353, 1
   %354 = sub i32 %298, %.0213.i
-  %355 = call i32 @llvm.umin.i32(i32 %narrow258.i, i32 %354)
+  %355 = call i32 @llvm.umin.i32(i32 %narrow263.i, i32 %354)
   %umin251.i = zext nneg i32 %355 to i64
   %356 = add nuw nsw i64 %umin251.i, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0109212.i, i8 %spec.select, i64 %356, i1 false), !tbaa !38
@@ -3027,9 +3027,9 @@ default.unreachable:                              ; preds = %407
 
 .lr.ph202.i:                                      ; preds = %399
   %401 = trunc nuw i32 %.1103.i to i8
-  %narrow257.i = add nuw nsw i32 %375, 3
+  %narrow262.i = add nuw nsw i32 %375, 3
   %402 = sub i32 %298, %.0213.i
-  %403 = call i32 @llvm.umin.i32(i32 %narrow257.i, i32 %402)
+  %403 = call i32 @llvm.umin.i32(i32 %narrow262.i, i32 %402)
   %umin246.i = zext nneg i32 %403 to i64
   %404 = add nuw nsw i64 %umin246.i, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0109212.i, i8 %401, i64 %404, i1 false), !tbaa !38
@@ -3094,9 +3094,9 @@ default.unreachable:                              ; preds = %407
 
 .lr.ph196.i:                                      ; preds = %439
   %441 = trunc nuw i32 %.2104.i to i8
-  %narrow256.i = add nuw nsw i32 %416, 8
+  %narrow261.i = add nuw nsw i32 %416, 8
   %442 = sub i32 %298, %.0213.i
-  %443 = call i32 @llvm.umin.i32(i32 %narrow256.i, i32 %442)
+  %443 = call i32 @llvm.umin.i32(i32 %narrow261.i, i32 %442)
   %umin241.i = zext nneg i32 %443 to i64
   %444 = add nuw nsw i64 %umin241.i, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0109212.i, i8 %441, i64 %444, i1 false), !tbaa !38
@@ -3362,7 +3362,7 @@ default.unreachable:                              ; preds = %407
 
 .preheader.i:                                     ; preds = %579, %577
   %.5 = phi ptr [ %572, %577 ], [ %580, %579 ]
-  %.04666.i = phi i8 [ 0, %577 ], [ %581, %579 ]
+  %.04670.i = phi i8 [ 0, %577 ], [ %581, %579 ]
   %583 = icmp ne i8 %574, 0
   %584 = icmp slt i32 %.010.fr.i, %520
   %585 = and i1 %584, %583
@@ -3375,7 +3375,7 @@ default.unreachable:                              ; preds = %407
   %589 = call i32 @llvm.umin.i32(i32 %587, i32 %588)
   %umin.i112 = zext i32 %589 to i64
   %590 = add nuw nsw i64 %umin.i112, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0499.i, i8 %.04666.i, i64 %590, i1 false), !tbaa !38
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0499.i, i8 %.04670.i, i64 %590, i1 false), !tbaa !38
   %scevgep.i113 = getelementptr i8, ptr %.0499.i, i64 1
   %scevgep56.i = getelementptr i8, ptr %scevgep.i113, i64 %umin.i112
   %591 = add nsw i32 %.010.fr.i, 1

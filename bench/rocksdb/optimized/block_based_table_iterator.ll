@@ -353,7 +353,7 @@ define void @_ZN7rocksdb23BlockBasedTableIterator8SeekImplEPKNS_5SliceEb(ptr nou
   %50 = load ptr, ptr %49, align 8, !tbaa !110
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %52 = icmp eq ptr %50, %51
-  br i1 %52, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %52, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 992
@@ -365,14 +365,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %58 = icmp eq ptr %56, %57
   br i1 %58, label %62, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %48
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %48
   %59 = load ptr, ptr %9, align 8, !tbaa !110
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %61 = icmp eq ptr %59, %60
   br i1 %61, label %62, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-62:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %63 = phi ptr [ %59, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %56, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+62:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %63 = phi ptr [ %59, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %56, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %65 = load i64, ptr %64, align 8, !tbaa !108
   %66 = icmp ult i64 %65, 16
@@ -414,7 +414,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %77, ptr %51, align 8, !tbaa !109
   br label %84
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %78 = load i64, ptr %51, align 8, !tbaa !109
   store ptr %59, ptr %49, align 8, !tbaa !110
   %79 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -1626,7 +1626,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 _ZN7rocksdb6StatusD2Ev.exit61:                    ; preds = %.body.thread, %.body, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i60
   %167 = phi ptr [ %164, %.body.thread ], [ %166, %.body ], [ %166, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i60 ]
-  %.pn2189 = phi { ptr, i32 } [ %.pn21.ph, %.body.thread ], [ %165, %.body ], [ %165, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i60 ]
+  %.pn21107 = phi { ptr, i32 } [ %.pn21.ph, %.body.thread ], [ %165, %.body ], [ %165, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i60 ]
   store ptr null, ptr %167, align 8, !tbaa !157
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
@@ -1777,7 +1777,7 @@ _ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit: ; preds = %219, %223
   ret void
 
 common.resume:                                    ; preds = %_ZN7rocksdb6StatusD2Ev.exit61, %_ZNSt14_Function_baseD2Ev.exit38
-  %.pn23.pn = phi { ptr, i32 } [ %.pn23, %_ZNSt14_Function_baseD2Ev.exit38 ], [ %.pn2189, %_ZN7rocksdb6StatusD2Ev.exit61 ]
+  %.pn23.pn = phi { ptr, i32 } [ %.pn23, %_ZNSt14_Function_baseD2Ev.exit38 ], [ %.pn21107, %_ZN7rocksdb6StatusD2Ev.exit61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn23.pn
 }
@@ -3959,7 +3959,7 @@ _ZN7rocksdb13DataBlockIter10InvalidateERKNS_6StatusE.exit: ; preds = %.noexc38, 
 123:                                              ; preds = %118
   %124 = load ptr, ptr %107, align 8, !tbaa !272
   %.not54 = icmp eq ptr %124, null
-  br i1 %.not54, label %125, label %.thread58
+  br i1 %.not54, label %125, label %.thread69
 
 125:                                              ; preds = %123
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 73
@@ -4123,7 +4123,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb6Statusa
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %234
 
-.thread58:                                        ; preds = %123
+.thread69:                                        ; preds = %123
   %190 = getelementptr inbounds nuw i8, ptr %122, i64 584
   store ptr %124, ptr %190, align 8, !tbaa !385
   %191 = icmp eq ptr %122, null
@@ -4141,9 +4141,9 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb6Statusa
   %.not5.i = icmp eq ptr %.pre56, null
   br i1 %.not5.i, label %200, label %197
 
-197:                                              ; preds = %.thread58, %195
-  %spec.select5161 = phi ptr [ %spec.select50, %.thread58 ], [ %196, %195 ]
-  %198 = phi ptr [ %124, %.thread58 ], [ %.pre56, %195 ]
+197:                                              ; preds = %.thread69, %195
+  %spec.select5172 = phi ptr [ %spec.select50, %.thread69 ], [ %196, %195 ]
+  %198 = phi ptr [ %124, %.thread69 ], [ %.pre56, %195 ]
   %199 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %.invoke
 
@@ -4154,7 +4154,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb6Statusa
   br i1 %203, label %.invoke, label %_ZN7rocksdb13CachableEntryINS_5BlockEE10TransferToEPNS_9CleanableE.exit
 
 .invoke:                                          ; preds = %200, %197
-  %204 = phi ptr [ %spec.select5161, %197 ], [ %196, %200 ]
+  %204 = phi ptr [ %spec.select5172, %197 ], [ %196, %200 ]
   %205 = phi ptr [ @_ZN7rocksdb13CachableEntryINS_5BlockEE18ReleaseCacheHandleEPvS3_, %197 ], [ @_ZN7rocksdb13CachableEntryINS_5BlockEE11DeleteValueEPvS3_, %200 ]
   %.in = phi ptr [ %199, %197 ], [ %2, %200 ]
   %206 = phi ptr [ %198, %197 ], [ null, %200 ]
@@ -5523,7 +5523,7 @@ _ZN7rocksdb13DataBlockIter10InvalidateERKNS_6StatusE.exit116: ; preds = %.noexc1
 298:                                              ; preds = %293
   %299 = load ptr, ptr %283, align 8, !tbaa !272
   %.not129 = icmp eq ptr %299, null
-  br i1 %.not129, label %300, label %.thread136
+  br i1 %.not129, label %300, label %.thread163
 
 300:                                              ; preds = %298
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 73
@@ -5624,7 +5624,7 @@ _ZN7rocksdb6StatusD2Ev.exit119:                   ; preds = %318, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %340
 
-.thread136:                                       ; preds = %298
+.thread163:                                       ; preds = %298
   %337 = getelementptr inbounds nuw i8, ptr %297, i64 584
   store ptr %299, ptr %337, align 8, !tbaa !385
   %338 = icmp eq ptr %297, null
@@ -5642,9 +5642,9 @@ _ZN7rocksdb6StatusD2Ev.exit119:                   ; preds = %318, %_ZNKSt14defau
   %.not5.i = icmp eq ptr %.pre134, null
   br i1 %.not5.i, label %348, label %344
 
-344:                                              ; preds = %.thread136, %342
-  %spec.select126139 = phi ptr [ %spec.select125, %.thread136 ], [ %343, %342 ]
-  %345 = phi ptr [ %299, %.thread136 ], [ %.pre134, %342 ]
+344:                                              ; preds = %.thread163, %342
+  %spec.select126166 = phi ptr [ %spec.select125, %.thread163 ], [ %343, %342 ]
+  %345 = phi ptr [ %299, %.thread163 ], [ %.pre134, %342 ]
   %346 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %347 = load ptr, ptr %346, align 8, !tbaa !391
   br label %.invoke
@@ -5660,7 +5660,7 @@ _ZN7rocksdb6StatusD2Ev.exit119:                   ; preds = %318, %_ZNKSt14defau
   br label %.invoke
 
 .invoke:                                          ; preds = %344, %352
-  %354 = phi ptr [ %343, %352 ], [ %spec.select126139, %344 ]
+  %354 = phi ptr [ %343, %352 ], [ %spec.select126166, %344 ]
   %355 = phi ptr [ @_ZN7rocksdb13CachableEntryINS_5BlockEE11DeleteValueEPvS3_, %352 ], [ @_ZN7rocksdb13CachableEntryINS_5BlockEE18ReleaseCacheHandleEPvS3_, %344 ]
   %356 = phi ptr [ %353, %352 ], [ %347, %344 ]
   %357 = phi ptr [ null, %352 ], [ %345, %344 ]
@@ -5886,9 +5886,9 @@ _ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit: ; preds = 
   br i1 %.not.i13, label %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit14.thread, label %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit14
 
 _ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit14: ; preds = %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit, %42
-  %.pr31 = phi ptr [ %.pr.pre, %42 ], [ %37, %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit ]
-  %43 = getelementptr inbounds nuw i8, ptr %.pr31, i64 48
-  %44 = getelementptr inbounds nuw i8, ptr %.pr31, i64 16
+  %.pr32 = phi ptr [ %.pr.pre, %42 ], [ %37, %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit ]
+  %43 = getelementptr inbounds nuw i8, ptr %.pr32, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %.pr32, i64 16
   %45 = load ptr, ptr %43, align 8, !tbaa !171
   %46 = load ptr, ptr %44, align 8, !tbaa !171
   %.not25 = icmp eq ptr %45, %46

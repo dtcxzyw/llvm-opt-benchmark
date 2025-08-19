@@ -392,7 +392,7 @@ define dso_local range(i32 -1, 1) i32 @fsync_fname_ext(ptr noundef %0, i1 nounde
 8:                                                ; preds = %4
   %9 = tail call range(i32 -1, -2147483648) i32 @OpenTransientFilePerm(ptr noundef %0, i32 noundef 0, i32 noundef %5)
   %10 = icmp slt i32 %9, 0
-  br i1 %10, label %11, label %.thread84
+  br i1 %10, label %11, label %.thread88
 
 11:                                               ; preds = %8
   %12 = tail call ptr @__errno_location() #26
@@ -415,20 +415,20 @@ define dso_local range(i32 -1, 1) i32 @fsync_fname_ext(ptr noundef %0, i1 nounde
   br i1 %19, label %.sink.split, label %20
 
 20:                                               ; preds = %16, %14
-  br i1 %15, label %21, label %.thread84
+  br i1 %15, label %21, label %.thread88
 
 21:                                               ; preds = %20
   %22 = tail call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #25
   br i1 %22, label %.sink.split.sink.split, label %.sink.split
 
-.thread84:                                        ; preds = %8, %20
-  %phi.call688386 = phi i32 [ %phi.call68, %20 ], [ %9, %8 ]
+.thread88:                                        ; preds = %8, %20
+  %phi.call688790 = phi i32 [ %phi.call68, %20 ], [ %9, %8 ]
   %23 = load i8, ptr @enableFsync, align 1, !range !4, !noundef !5
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %.preheader.i.i, label %pg_fsync.exit.thread
 
-.preheader.i.i:                                   ; preds = %.thread84, %26
-  %25 = tail call i32 @fsync(i32 noundef %phi.call688386) #25
+.preheader.i.i:                                   ; preds = %.thread88, %26
+  %25 = tail call i32 @fsync(i32 noundef %phi.call688790) #25
   switch i32 %25, label %pg_fsync.exit.thread71 [
     i32 -1, label %26
     i32 0, label %pg_fsync.exit.thread
@@ -473,7 +473,7 @@ pg_fsync.exit.thread71._crit_edge:                ; preds = %pg_fsync.exit.threa
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %45 = load i32, ptr %44, align 8
-  %46 = icmp eq i32 %45, %phi.call688386
+  %46 = icmp eq i32 %45, %phi.call688790
   br i1 %46, label %.thread.i, label %48
 
 .thread.i:                                        ; preds = %43
@@ -495,7 +495,7 @@ pg_fsync.exit.thread71._crit_edge:                ; preds = %pg_fsync.exit.threa
   br label %53
 
 53:                                               ; preds = %51, %._crit_edge.i
-  %54 = tail call i32 @close(i32 noundef %phi.call688386) #25
+  %54 = tail call i32 @close(i32 noundef %phi.call688790) #25
   br label %CloseTransientFile.exit
 
 CloseTransientFile.exit:                          ; preds = %.thread.i, %53
@@ -503,7 +503,7 @@ CloseTransientFile.exit:                          ; preds = %.thread.i, %53
   %55 = tail call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #25
   br i1 %55, label %.sink.split.sink.split, label %.sink.split
 
-pg_fsync.exit.thread:                             ; preds = %.preheader.i.i, %.thread84, %31, %31
+pg_fsync.exit.thread:                             ; preds = %.preheader.i.i, %.thread88, %31, %31
   %56 = load i32, ptr @numAllocatedDescs, align 4
   %57 = add i32 %56, -1
   %58 = icmp sgt i32 %57, -1
@@ -524,7 +524,7 @@ pg_fsync.exit.thread:                             ; preds = %.preheader.i.i, %.t
 65:                                               ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %67 = load i32, ptr %66, align 8
-  %68 = icmp eq i32 %67, %phi.call688386
+  %68 = icmp eq i32 %67, %phi.call688790
   br i1 %68, label %.thread.i64, label %70
 
 .thread.i64:                                      ; preds = %65
@@ -546,7 +546,7 @@ pg_fsync.exit.thread:                             ; preds = %.preheader.i.i, %.t
   br label %75
 
 75:                                               ; preds = %73, %._crit_edge.i59
-  %76 = tail call i32 @close(i32 noundef %phi.call688386) #25
+  %76 = tail call i32 @close(i32 noundef %phi.call688790) #25
   br label %CloseTransientFile.exit65
 
 CloseTransientFile.exit65:                        ; preds = %.thread.i64, %75
@@ -1144,15 +1144,15 @@ select.unfold.i:                                  ; preds = %39, %37
   br i1 %47, label %.lr.ph.preheader.i, label %count_usable_fds.exit
 
 .lr.ph.preheader.i:                               ; preds = %select.unfold.i, %select.unfold.us.i, %.preheader.i
-  %.us-phi53.i33 = phi ptr [ %.us-phi53.i, %.preheader.i ], [ %.2.us.i, %select.unfold.us.i ], [ %.2.i, %select.unfold.i ]
-  %.us-phi52.i31 = phi i32 [ %.us-phi52.i, %.preheader.i ], [ %spec.select.us.i, %select.unfold.us.i ], [ %spec.select.i, %select.unfold.i ]
-  %.us-phi.i29 = phi i32 [ %.us-phi.i, %.preheader.i ], [ %smax21, %select.unfold.us.i ], [ %smax, %select.unfold.i ]
-  %wide.trip.count.i = zext nneg i32 %.us-phi.i29 to i64
+  %.us-phi53.i34 = phi ptr [ %.us-phi53.i, %.preheader.i ], [ %.2.us.i, %select.unfold.us.i ], [ %.2.i, %select.unfold.i ]
+  %.us-phi52.i32 = phi i32 [ %.us-phi52.i, %.preheader.i ], [ %spec.select.us.i, %select.unfold.us.i ], [ %spec.select.i, %select.unfold.i ]
+  %.us-phi.i30 = phi i32 [ %.us-phi.i, %.preheader.i ], [ %smax21, %select.unfold.us.i ], [ %smax, %select.unfold.i ]
+  %wide.trip.count.i = zext nneg i32 %.us-phi.i30 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %48 = getelementptr inbounds nuw i32, ptr %.us-phi53.i33, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw i32, ptr %.us-phi53.i34, i64 %indvars.iv.i
   %49 = load i32, ptr %48, align 4
   %50 = call i32 @close(i32 noundef %49) #25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1160,16 +1160,16 @@ select.unfold.i:                                  ; preds = %39, %37
   br i1 %exitcond.not.i, label %count_usable_fds.exit, label %.lr.ph.i, !llvm.loop !10
 
 count_usable_fds.exit:                            ; preds = %.lr.ph.i, %.preheader.i
-  %.us-phi53.i32 = phi ptr [ %.us-phi53.i, %.preheader.i ], [ %.us-phi53.i33, %.lr.ph.i ]
-  %.us-phi52.i30 = phi i32 [ %.us-phi52.i, %.preheader.i ], [ %.us-phi52.i31, %.lr.ph.i ]
-  %.us-phi.i28 = phi i32 [ %.us-phi.i, %.preheader.i ], [ %.us-phi.i29, %.lr.ph.i ]
-  call void @pfree(ptr noundef %.us-phi53.i32) #25
-  %reass.sub.i = sub i32 %.us-phi52.i30, %.us-phi.i28
+  %.us-phi53.i33 = phi ptr [ %.us-phi53.i, %.preheader.i ], [ %.us-phi53.i34, %.lr.ph.i ]
+  %.us-phi52.i31 = phi i32 [ %.us-phi52.i, %.preheader.i ], [ %.us-phi52.i32, %.lr.ph.i ]
+  %.us-phi.i29 = phi i32 [ %.us-phi.i, %.preheader.i ], [ %.us-phi.i30, %.lr.ph.i ]
+  call void @pfree(ptr noundef %.us-phi53.i33) #25
+  %reass.sub.i = sub i32 %.us-phi52.i31, %.us-phi.i29
   %51 = add i32 %reass.sub.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %52 = load i32, ptr @max_files_per_process, align 4
   %53 = sub i32 %52, %51
-  %54 = call i32 @llvm.smin.i32(i32 %.us-phi.i28, i32 %53)
+  %54 = call i32 @llvm.smin.i32(i32 %.us-phi.i29, i32 %53)
   %55 = add i32 %54, -10
   store i32 %55, ptr @max_safe_fds, align 4
   %56 = icmp slt i32 %55, 48
@@ -1192,7 +1192,7 @@ count_usable_fds.exit:                            ; preds = %.lr.ph.i, %.prehead
 
 66:                                               ; preds = %64
   %67 = load i32, ptr @max_safe_fds, align 4
-  %68 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %67, i32 noundef %.us-phi.i28, i32 noundef %51) #25
+  %68 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %67, i32 noundef %.us-phi.i29, i32 noundef %51) #25
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1078, ptr noundef nonnull @__func__.set_max_safe_fds) #25
   br label %69
 
@@ -2449,10 +2449,10 @@ LruInsert.exit.thread:                            ; preds = %ReleaseLruFiles.exi
 
 LruInsert.exit.sink.split:                        ; preds = %LruInsert.exit.thread, %43
   %.sink.in = phi ptr [ %46, %43 ], [ %39, %LruInsert.exit.thread ]
-  %.sink13 = phi ptr [ %2, %43 ], [ %.pre.i, %LruInsert.exit.thread ]
+  %.sink14 = phi ptr [ %2, %43 ], [ %.pre.i, %LruInsert.exit.thread ]
   %.sink = load i32, ptr %.sink.in, align 8
   %53 = sext i32 %.sink to i64
-  %54 = getelementptr inbounds %struct.vfd, ptr %.sink13, i64 %53, i32 4
+  %54 = getelementptr inbounds %struct.vfd, ptr %.sink14, i64 %53, i32 4
   store i32 %0, ptr %54, align 4
   br label %LruInsert.exit
 
@@ -3106,9 +3106,9 @@ define internal fastcc noundef zeroext i1 @reserveAllocatedDesc() unnamed_addr #
   br i1 %22, label %23, label %.sink.split
 
 .sink.split:                                      ; preds = %18, %7
-  %.sink14 = phi ptr [ %8, %7 ], [ %21, %18 ]
+  %.sink19 = phi ptr [ %8, %7 ], [ %21, %18 ]
   %.sink = phi i32 [ 16, %7 ], [ %16, %18 ]
-  store ptr %.sink14, ptr @allocatedDescs, align 8
+  store ptr %.sink19, ptr @allocatedDescs, align 8
   store i32 %.sink, ptr @maxAllocatedDescs, align 4
   br label %23
 
@@ -4576,10 +4576,10 @@ define dso_local zeroext i1 @looks_like_temp_rel_name(ptr noundef %0) local_unna
   %15 = icmp ne i32 %.037, 1
   %.not43 = icmp eq i8 %8, 95
   %or.cond = and i1 %15, %.not43
-  br i1 %or.cond, label %.preheader60, label %52
+  br i1 %or.cond, label %.preheader62, label %52
 
-.preheader60:                                     ; preds = %14, %.preheader60
-  %.138 = phi i32 [ %23, %.preheader60 ], [ %13, %14 ]
+.preheader62:                                     ; preds = %14, %.preheader62
+  %.138 = phi i32 [ %23, %.preheader62 ], [ %13, %14 ]
   %16 = sext i32 %.138 to i64
   %17 = getelementptr inbounds i8, ptr %0, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -4589,9 +4589,9 @@ define dso_local zeroext i1 @looks_like_temp_rel_name(ptr noundef %0) local_unna
   %22 = and i16 %21, 2048
   %.not44 = icmp eq i16 %22, 0
   %23 = add i32 %.138, 1
-  br i1 %.not44, label %24, label %.preheader60, !llvm.loop !26
+  br i1 %.not44, label %24, label %.preheader62, !llvm.loop !26
 
-24:                                               ; preds = %.preheader60
+24:                                               ; preds = %.preheader62
   %25 = icmp eq i32 %13, %.138
   br i1 %25, label %52, label %26
 

@@ -425,7 +425,7 @@ opj_cond_create.exit.thread.i:                    ; preds = %23, %18
   store ptr %35, ptr %43, align 8, !tbaa !38
   %44 = call ptr @opj_malloc(i64 noundef 48) #8
   %.not.i53.i = icmp eq ptr %44, null
-  br i1 %.not.i53.i, label %.loopexit104.i, label %45
+  br i1 %.not.i53.i, label %.loopexit112.i, label %45
 
 45:                                               ; preds = %41
   %46 = call i32 @pthread_cond_init(ptr noundef nonnull %44, ptr noundef null) #8
@@ -434,9 +434,9 @@ opj_cond_create.exit.thread.i:                    ; preds = %23, %18
 
 47:                                               ; preds = %45
   call void @opj_free(ptr noundef nonnull %44) #8
-  br label %.loopexit104.i
+  br label %.loopexit112.i
 
-.loopexit104.i:                                   ; preds = %41, %47
+.loopexit112.i:                                   ; preds = %41, %47
   %48 = load ptr, ptr %3, align 8, !tbaa !32
   %49 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %48, i64 %indvars.iv.i, i32 4
   store ptr null, ptr %49, align 8, !tbaa !39
@@ -445,7 +445,7 @@ opj_cond_create.exit.thread.i:                    ; preds = %23, %18
   %.not.i57.i = icmp eq ptr %51, null
   br i1 %.not.i57.i, label %.loopexit.sink.split.i, label %52
 
-52:                                               ; preds = %.loopexit104.i
+52:                                               ; preds = %.loopexit112.i
   %53 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %51) #8
   call void @opj_free(ptr noundef nonnull %51) #8
   br label %.loopexit.sink.split.i
@@ -460,7 +460,7 @@ opj_cond_create.exit.thread.i:                    ; preds = %23, %18
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %59 = call ptr @opj_malloc(i64 noundef 24) #8
   %.not.i58.i = icmp eq ptr %59, null
-  br i1 %.not.i58.i, label %.loopexit105.i, label %60
+  br i1 %.not.i58.i, label %.loopexit113.i, label %60
 
 60:                                               ; preds = %54
   store ptr @opj_worker_thread_function, ptr %59, align 8, !tbaa !3
@@ -475,9 +475,9 @@ opj_cond_create.exit.thread.i:                    ; preds = %23, %18
 
 66:                                               ; preds = %60
   call void @opj_free(ptr noundef nonnull %59) #8
-  br label %.loopexit105.i
+  br label %.loopexit113.i
 
-.loopexit105.i:                                   ; preds = %54, %66
+.loopexit113.i:                                   ; preds = %54, %66
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %67 = load ptr, ptr %3, align 8, !tbaa !32
   %68 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %67, i64 %indvars.iv.i, i32 1
@@ -487,14 +487,14 @@ opj_cond_create.exit.thread.i:                    ; preds = %23, %18
   %.not.i60.i = icmp eq ptr %70, null
   br i1 %.not.i60.i, label %opj_mutex_destroy.exit61.i, label %71
 
-71:                                               ; preds = %.loopexit105.i
+71:                                               ; preds = %.loopexit113.i
   %72 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %70) #8
   call void @opj_free(ptr noundef nonnull %70) #8
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !32
   br label %opj_mutex_destroy.exit61.i
 
-opj_mutex_destroy.exit61.i:                       ; preds = %71, %.loopexit105.i
-  %73 = phi ptr [ %67, %.loopexit105.i ], [ %.pre.i, %71 ]
+opj_mutex_destroy.exit61.i:                       ; preds = %71, %.loopexit113.i
+  %73 = phi ptr [ %67, %.loopexit113.i ], [ %.pre.i, %71 ]
   %74 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %73, i64 %indvars.iv.i, i32 4
   %75 = load ptr, ptr %74, align 8, !tbaa !39
   %.not.i62.i = icmp eq ptr %75, null
@@ -514,7 +514,7 @@ opj_mutex_destroy.exit61.i:                       ; preds = %71, %.loopexit105.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %27
   br i1 %exitcond.not.i, label %.loopexit.i, label %32, !llvm.loop !42
 
-.loopexit.sink.split.i:                           ; preds = %76, %opj_mutex_destroy.exit61.i, %52, %.loopexit104.i, %.loopexit65.i
+.loopexit.sink.split.i:                           ; preds = %76, %opj_mutex_destroy.exit61.i, %52, %.loopexit112.i, %.loopexit65.i
   %.sink.i = trunc i64 %indvars.iv.i to i32
   store i32 %.sink.i, ptr %31, align 8, !tbaa !33
   br label %.loopexit.i

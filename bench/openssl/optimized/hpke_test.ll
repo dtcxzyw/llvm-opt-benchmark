@@ -967,7 +967,7 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
   br i1 %163, label %38, label %._crit_edge183, !llvm.loop !24
 
 ._crit_edge183:                                   ; preds = %._crit_edge, %34
-  %.1.lcssa = phi i32 [ %.0186, %34 ], [ %.4.lcssa, %._crit_edge ]
+  %.1.lcssa = phi i32 [ 0, %34 ], [ %.4.lcssa, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

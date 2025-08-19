@@ -1408,13 +1408,13 @@ define hidden void @_ZN4core4iter6traits7collect22default_extend_tuple_b17h21c9e
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h79d21ea947814d67E.exit"
 
 .lr.ph.i.i.preheader:                             ; preds = %25, %"_ZN93_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$14extend_reserve17hd53ec12093e060a7E.llvm.592112742933196820.exit"
-  %.sroa.02.0.copyload5 = load ptr, ptr %0, align 8, !nonnull !15, !noundef !15
+  %.sroa.02.0.copyload6 = load ptr, ptr %0, align 8, !nonnull !15, !noundef !15
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !288
   store ptr %1, ptr %5, align 8, !noalias !288
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %10, align 8, !noalias !288
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %.sroa.02.0.copyload5, ptr %11, align 8, !noalias !288
+  store ptr %.sroa.02.0.copyload6, ptr %11, align 8, !noalias !288
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -2273,11 +2273,11 @@ define internal fastcc noalias noundef nonnull ptr @_ZN16uv_configuration6extras
           to label %9 unwind label %129
 
 134:                                              ; preds = %135, %9
-  %.pn5885 = phi { ptr, i32 } [ %.pn5886, %135 ], [ %.pn56, %9 ]
-  resume { ptr, i32 } %.pn5885
+  %.pn5888 = phi { ptr, i32 } [ %.pn5889, %135 ], [ %.pn56, %9 ]
+  resume { ptr, i32 } %.pn5888
 
 135:                                              ; preds = %.thread, %9
-  %.pn5886 = phi { ptr, i32 } [ %.pn56, %9 ], [ %8, %.thread ]
+  %.pn5889 = phi { ptr, i32 } [ %.pn56, %9 ], [ %8, %.thread ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$uv_configuration..extras..ExtrasSpecificationHistory$GT$17h5d99e4bd44496d17E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0) #33
           to label %134 unwind label %129
 }

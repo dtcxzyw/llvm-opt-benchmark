@@ -1209,23 +1209,23 @@ _preview2_request.exit.thread:                    ; preds = %182, %189, %191, %_
   %332 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !189
   %333 = and i32 %332, 67108864
   %.not256 = icmp eq i32 %333, 0
-  br i1 %.not256, label %.thread309, label %334
+  br i1 %.not256, label %.thread320, label %334
 
 334:                                              ; preds = %331
   %335 = load ptr, ptr %61, align 8, !tbaa !120
   call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.20, ptr noundef %335, ptr noundef nonnull %324, i32 noundef -2, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.16, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #19
   %.pre308 = load ptr, ptr %323, align 16, !tbaa !208
   %.not257 = icmp eq ptr %.pre308, null
-  br i1 %.not257, label %348, label %.thread309
+  br i1 %.not257, label %348, label %.thread320
 
-.thread309:                                       ; preds = %331, %334
+.thread320:                                       ; preds = %331, %334
   %336 = phi ptr [ %.pre308, %334 ], [ %324, %331 ]
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 208
   %338 = load ptr, ptr %337, align 16, !tbaa !206
   %.not258 = icmp eq ptr %338, null
   br i1 %.not258, label %348, label %339
 
-339:                                              ; preds = %.thread309
+339:                                              ; preds = %.thread320
   %340 = sitofp i32 %4 to double
   %341 = sitofp i32 %5 to double
   call fastcc void @_get_zoom_pos_bnd(ptr noundef nonnull %21, double noundef %340, double noundef %341, float noundef %.0211273, float noundef %.0212271, ptr noundef %14, ptr noundef %15, ptr noundef %16)
@@ -1238,8 +1238,8 @@ _preview2_request.exit.thread:                    ; preds = %182, %189, %191, %_
   call fastcc void @_module_gui_post_expose(ptr noundef %342, ptr noundef %1, float noundef %343, float noundef %344, float noundef %345, float noundef %346, float noundef %347)
   br label %348
 
-348:                                              ; preds = %334, %.thread309, %339, %325, %322, %317, %316
-  %.not263 = phi i1 [ false, %325 ], [ false, %322 ], [ false, %317 ], [ false, %316 ], [ true, %339 ], [ true, %.thread309 ], [ true, %334 ]
+348:                                              ; preds = %334, %.thread320, %339, %325, %322, %317, %316
+  %.not263 = phi i1 [ false, %325 ], [ false, %322 ], [ false, %317 ], [ false, %316 ], [ true, %339 ], [ true, %.thread320 ], [ true, %334 ]
   %349 = getelementptr inbounds nuw i8, ptr %271, i64 208
   %350 = load ptr, ptr %349, align 16, !tbaa !206
   %.not259 = icmp eq ptr %350, null
@@ -7732,7 +7732,7 @@ define internal range(i32 0, 2) i32 @_dev_load_requested_image(ptr noundef %0) #
   call void @dt_dev_masks_list_change(ptr noundef nonnull %0) #19
   %140 = call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.163) #19
   %.not165 = icmp eq ptr %140, null
-  br i1 %.not165, label %._crit_edge207.thread214, label %.preheader
+  br i1 %.not165, label %._crit_edge207.thread222, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge201
   %.0138202 = load ptr, ptr %64, align 8, !tbaa !136
@@ -7740,7 +7740,7 @@ define internal range(i32 0, 2) i32 @_dev_load_requested_image(ptr noundef %0) #
   br i1 %.not166203, label %._crit_edge207.thread, label %.lr.ph206.outer
 
 .lr.ph206.outer:                                  ; preds = %.preheader, %.thread
-  %.0138205.ph = phi ptr [ %.0138211, %.thread ], [ %.0138202, %.preheader ]
+  %.0138205.ph = phi ptr [ %.0138219, %.thread ], [ %.0138202, %.preheader ]
   %141 = phi i1 [ false, %.thread ], [ true, %.preheader ]
   br label %.lr.ph206
 
@@ -7794,7 +7794,7 @@ define internal range(i32 0, 2) i32 @_dev_load_requested_image(ptr noundef %0) #
   br i1 %.not164, label %._crit_edge201, label %.lr.ph200
 
 ._crit_edge207:                                   ; preds = %168
-  br i1 %141, label %._crit_edge207.thread, label %._crit_edge207.thread214
+  br i1 %141, label %._crit_edge207.thread, label %._crit_edge207.thread222
 
 .lr.ph206:                                        ; preds = %.lr.ph206.outer, %168
   %.0138205 = phi ptr [ %.0138, %168 ], [ %.0138205.ph, %.lr.ph206.outer ]
@@ -7815,15 +7815,15 @@ define internal range(i32 0, 2) i32 @_dev_load_requested_image(ptr noundef %0) #
 .thread:                                          ; preds = %.lr.ph206
   call void @dt_iop_request_focus(ptr noundef nonnull %163) #19
   %170 = getelementptr inbounds nuw i8, ptr %.0138205, i64 8
-  %.0138211 = load ptr, ptr %170, align 8, !tbaa !136
-  %.not166212 = icmp eq ptr %.0138211, null
-  br i1 %.not166212, label %._crit_edge207.thread214, label %.lr.ph206.outer
+  %.0138219 = load ptr, ptr %170, align 8, !tbaa !136
+  %.not166220 = icmp eq ptr %.0138219, null
+  br i1 %.not166220, label %._crit_edge207.thread222, label %.lr.ph206.outer
 
 ._crit_edge207.thread:                            ; preds = %.preheader, %._crit_edge207
   call void @dt_conf_set_string(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.106) #19
-  br label %._crit_edge207.thread214
+  br label %._crit_edge207.thread222
 
-._crit_edge207.thread214:                         ; preds = %.thread, %._crit_edge207, %._crit_edge207.thread, %._crit_edge201
+._crit_edge207.thread222:                         ; preds = %.thread, %._crit_edge207, %._crit_edge207.thread, %._crit_edge201
   %171 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !266
   %172 = and i32 %171, 1
   %173 = icmp ne i32 %172, 0
@@ -7832,7 +7832,7 @@ define internal range(i32 0, 2) i32 @_dev_load_requested_image(ptr noundef %0) #
   %or.cond = select i1 %173, i1 %175, i1 false
   br i1 %or.cond, label %176, label %180
 
-176:                                              ; preds = %._crit_edge207.thread214
+176:                                              ; preds = %._crit_edge207.thread222
   %177 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !189
   %178 = and i32 %177, 1048576
   %.not168 = icmp eq i32 %178, 0
@@ -7842,7 +7842,7 @@ define internal range(i32 0, 2) i32 @_dev_load_requested_image(ptr noundef %0) #
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.160, ptr noundef nonnull @.str.162, ptr noundef nonnull @.str.122, i32 noundef 1257, ptr noundef nonnull @__FUNCTION__._dev_load_requested_image) #19
   br label %180
 
-180:                                              ; preds = %176, %179, %._crit_edge207.thread214
+180:                                              ; preds = %176, %179, %._crit_edge207.thread222
   %181 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !277
   call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %181, i32 noundef 29) #19
   %182 = load ptr, ptr %26, align 8, !tbaa !166

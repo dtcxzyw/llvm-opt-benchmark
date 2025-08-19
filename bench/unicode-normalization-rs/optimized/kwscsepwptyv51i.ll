@@ -31,9 +31,9 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h174e2c69d9c944
   %.sroa.0.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 1
   %.sroa.0.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 2
   %.sroa.0.i.i.i.3.i.i.i.3.i.i.i.3.i.i.3.i.i.3.i.3.i.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 3
-  %.sroa.0.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx53 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 1
-  %.sroa.0.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx55 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 2
-  %.sroa.0.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx54 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 1
+  %.sroa.0.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx62 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 1
+  %.sroa.0.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx64 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 2
+  %.sroa.0.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx63 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 1
   br label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha6cebfed4dedef8bE.exit"
 
 "_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha6cebfed4dedef8bE.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha6cebfed4dedef8bE.exit.backedge", %2
@@ -267,7 +267,7 @@ _ZN21unicode_normalization11stream_safe20classify_nonstarters17hdc3d352c4dbebd42
   %99 = trunc i32 %.0.i121417 to i8
   %100 = and i8 %99, 63
   %101 = or disjoint i8 %100, -128
-  store i8 %101, ptr %.sroa.0.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx54, align 1, !alias.scope !42, !noalias !39
+  store i8 %101, ptr %.sroa.0.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx63, align 1, !alias.scope !42, !noalias !39
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i.i.i
 
 102:                                              ; preds = %92
@@ -279,11 +279,11 @@ _ZN21unicode_normalization11stream_safe20classify_nonstarters17hdc3d352c4dbebd42
   %107 = trunc i32 %106 to i8
   %108 = and i8 %107, 63
   %109 = or disjoint i8 %108, -128
-  store i8 %109, ptr %.sroa.0.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx53, align 1, !alias.scope !42, !noalias !39
+  store i8 %109, ptr %.sroa.0.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx62, align 1, !alias.scope !42, !noalias !39
   %110 = trunc i32 %.0.i1014.i to i8
   %111 = and i8 %110, 63
   %112 = or disjoint i8 %111, -128
-  store i8 %112, ptr %.sroa.0.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx55, align 2, !alias.scope !42, !noalias !39
+  store i8 %112, ptr %.sroa.0.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx64, align 2, !alias.scope !42, !noalias !39
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i.i.i
 
 113:                                              ; preds = %92

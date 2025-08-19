@@ -1566,13 +1566,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation2
   %34 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 8
   %.val30.i.i.i.i.i = load i32, ptr %34, align 4
   %35 = icmp slt i32 %.val30.i.i.i.i.i, 2
-  br i1 %35, label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit415", label %36
+  br i1 %35, label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit457", label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 12
   %.val31.i.i.i.i.i = load i32, ptr %37, align 4
   %38 = icmp slt i32 %.val31.i.i.i.i.i, 2
-  br i1 %38, label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit417", label %39
+  br i1 %38, label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit459", label %39
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 16
@@ -1624,16 +1624,16 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation2
   %54 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 4
   br label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit"
 
-"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit415": ; preds = %33
+"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit457": ; preds = %33
   %55 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 8
   br label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit"
 
-"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit417": ; preds = %36
+"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit459": ; preds = %36
   %56 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 12
   br label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit"
 
-"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit415", %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit417", %44, %48, %52
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %44 ], [ %.1.i.i.i.i.i, %48 ], [ %.2.i.i.i.i.i, %52 ], [ %54, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit" ], [ %55, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit415" ], [ %56, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit417" ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit457", %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit459", %44, %48, %52
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %44 ], [ %.1.i.i.i.i.i, %48 ], [ %.2.i.i.i.i.i, %52 ], [ %54, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit" ], [ %55, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit457" ], [ %56, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit459" ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.not320 = icmp eq ptr %22, %.028.i.i.i.i.i
   br i1 %.not320, label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.thread", label %57
 
@@ -1957,13 +1957,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation19_AppendInval
   %168 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i108, i64 8
   %.val30.i.i.i.i.i111 = load float, ptr %168, align 4
   %169 = fcmp olt float %.val30.i.i.i.i.i111, 0.000000e+00
-  br i1 %169, label %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit.loopexit.split.loop.exit423", label %170
+  br i1 %169, label %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit.loopexit.split.loop.exit465", label %170
 
 170:                                              ; preds = %167
   %171 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i108, i64 12
   %.val31.i.i.i.i.i112 = load float, ptr %171, align 4
   %172 = fcmp olt float %.val31.i.i.i.i.i112, 0.000000e+00
-  br i1 %172, label %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit.loopexit.split.loop.exit425", label %173
+  br i1 %172, label %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit.loopexit.split.loop.exit467", label %173
 
 173:                                              ; preds = %170
   %174 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i108, i64 16
@@ -2015,16 +2015,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation19_AppendInval
   %188 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i108, i64 4
   br label %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit"
 
-"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit.loopexit.split.loop.exit423": ; preds = %167
+"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit.loopexit.split.loop.exit465": ; preds = %167
   %189 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i108, i64 8
   br label %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit"
 
-"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit.loopexit.split.loop.exit425": ; preds = %170
+"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit.loopexit.split.loop.exit467": ; preds = %170
   %190 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i108, i64 12
   br label %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit"
 
-"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i106, %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit.loopexit.split.loop.exit423", %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit.loopexit.split.loop.exit425", %178, %182, %186
-  %.028.i.i.i.i.i100 = phi ptr [ %.029.lcssa.i.i.i.i.i97, %178 ], [ %.1.i.i.i.i.i101, %182 ], [ %.2.i.i.i.i.i98, %186 ], [ %188, %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit.loopexit.split.loop.exit" ], [ %189, %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit.loopexit.split.loop.exit423" ], [ %190, %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit.loopexit.split.loop.exit425" ], [ %.02943.i.i.i.i.i108, %.lr.ph.i.i.i.i.i106 ]
+"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i106, %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit.loopexit.split.loop.exit465", %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit.loopexit.split.loop.exit467", %178, %182, %186
+  %.028.i.i.i.i.i100 = phi ptr [ %.029.lcssa.i.i.i.i.i97, %178 ], [ %.1.i.i.i.i.i101, %182 ], [ %.2.i.i.i.i.i98, %186 ], [ %188, %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit.loopexit.split.loop.exit" ], [ %189, %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit.loopexit.split.loop.exit465" ], [ %190, %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit.loopexit.split.loop.exit467" ], [ %.02943.i.i.i.i.i108, %.lr.ph.i.i.i.i.i106 ]
   %.not321 = icmp eq ptr %156, %.028.i.i.i.i.i100
   br i1 %.not321, label %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_1EbT_S8_T0_.exit.thread", label %191
 
@@ -2142,13 +2142,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation19_AppendInval
   %227 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i141, i64 8
   %.val30.i.i.i.i.i144 = load float, ptr %227, align 4
   %228 = fcmp olt float %.val30.i.i.i.i.i144, 0.000000e+00
-  br i1 %228, label %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit.loopexit.split.loop.exit431", label %229
+  br i1 %228, label %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit.loopexit.split.loop.exit473", label %229
 
 229:                                              ; preds = %226
   %230 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i141, i64 12
   %.val31.i.i.i.i.i145 = load float, ptr %230, align 4
   %231 = fcmp olt float %.val31.i.i.i.i.i145, 0.000000e+00
-  br i1 %231, label %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit.loopexit.split.loop.exit433", label %232
+  br i1 %231, label %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit.loopexit.split.loop.exit475", label %232
 
 232:                                              ; preds = %229
   %233 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i141, i64 16
@@ -2200,16 +2200,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation19_AppendInval
   %247 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i141, i64 4
   br label %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit"
 
-"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit.loopexit.split.loop.exit431": ; preds = %226
+"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit.loopexit.split.loop.exit473": ; preds = %226
   %248 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i141, i64 8
   br label %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit"
 
-"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit.loopexit.split.loop.exit433": ; preds = %229
+"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit.loopexit.split.loop.exit475": ; preds = %229
   %249 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i141, i64 12
   br label %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit"
 
-"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i139, %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit.loopexit.split.loop.exit431", %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit.loopexit.split.loop.exit433", %237, %241, %245
-  %.028.i.i.i.i.i133 = phi ptr [ %.029.lcssa.i.i.i.i.i130, %237 ], [ %.1.i.i.i.i.i134, %241 ], [ %.2.i.i.i.i.i131, %245 ], [ %247, %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit.loopexit.split.loop.exit" ], [ %248, %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit.loopexit.split.loop.exit431" ], [ %249, %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit.loopexit.split.loop.exit433" ], [ %.02943.i.i.i.i.i141, %.lr.ph.i.i.i.i.i139 ]
+"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i139, %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit.loopexit.split.loop.exit473", %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit.loopexit.split.loop.exit475", %237, %241, %245
+  %.028.i.i.i.i.i133 = phi ptr [ %.029.lcssa.i.i.i.i.i130, %237 ], [ %.1.i.i.i.i.i134, %241 ], [ %.2.i.i.i.i.i131, %245 ], [ %247, %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit.loopexit.split.loop.exit" ], [ %248, %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit.loopexit.split.loop.exit473" ], [ %249, %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit.loopexit.split.loop.exit475" ], [ %.02943.i.i.i.i.i141, %.lr.ph.i.i.i.i.i139 ]
   %.not322 = icmp eq ptr %215, %.028.i.i.i.i.i133
   br i1 %.not322, label %"_ZSt6any_ofIPKfZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_2EbT_S8_T0_.exit.thread", label %250
 
@@ -2417,12 +2417,12 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i47.i.i.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i.i.i.i50.i.i.i.i.i, %312
   %.sroa.011.0.lcssa.i.i.i.i48.i.i.i.i.i = phi ptr [ %.sroa.0.2, %312 ], [ %.sroa.011.1.i.i.i.i55.i.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i.i.i.i50.i.i.i.i.i ]
   %.not.i.i.i49.i.i.i.i.i = icmp eq ptr %.sroa.011.0.lcssa.i.i.i.i48.i.i.i.i.i, %.sroa.17.2
-  br i1 %.not.i.i.i49.i.i.i.i.i, label %.loopexit326.loopexit.split.loop.exit441, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit57.i.i.i.i.i"
+  br i1 %.not.i.i.i49.i.i.i.i.i, label %.loopexit326.loopexit.split.loop.exit483, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit57.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit57.i.i.i.i.i": ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i47.i.i.i.i.i
   %322 = load i32, ptr %.sroa.011.0.lcssa.i.i.i.i48.i.i.i.i.i, align 4
   %323 = icmp slt i32 %.val31.i.i.i.i.i173, %322
-  br i1 %323, label %.loopexit326.loopexit.split.loop.exit447, label %324
+  br i1 %323, label %.loopexit326.loopexit.split.loop.exit489, label %324
 
 324:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit57.i.i.i.i.i"
   %325 = getelementptr inbounds nuw i8, ptr %.029134.i.i.i.i.i, i64 8
@@ -2447,12 +2447,12 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i58.i.i.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i.i.i.i61.i.i.i.i.i, %324
   %.sroa.011.0.lcssa.i.i.i.i59.i.i.i.i.i = phi ptr [ %.sroa.0.2, %324 ], [ %.sroa.011.1.i.i.i.i66.i.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i.i.i.i61.i.i.i.i.i ]
   %.not.i.i.i60.i.i.i.i.i = icmp eq ptr %.sroa.011.0.lcssa.i.i.i.i59.i.i.i.i.i, %.sroa.17.2
-  br i1 %.not.i.i.i60.i.i.i.i.i, label %.loopexit326.loopexit.split.loop.exit439, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit68.i.i.i.i.i"
+  br i1 %.not.i.i.i60.i.i.i.i.i, label %.loopexit326.loopexit.split.loop.exit481, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit68.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit68.i.i.i.i.i": ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i58.i.i.i.i.i
   %334 = load i32, ptr %.sroa.011.0.lcssa.i.i.i.i59.i.i.i.i.i, align 4
   %335 = icmp slt i32 %.val33.i.i.i.i.i, %334
-  br i1 %335, label %.loopexit326.loopexit.split.loop.exit445, label %336
+  br i1 %335, label %.loopexit326.loopexit.split.loop.exit487, label %336
 
 336:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit68.i.i.i.i.i"
   %337 = getelementptr inbounds nuw i8, ptr %.029134.i.i.i.i.i, i64 12
@@ -2482,7 +2482,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit79.i.i.i.i.i": ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i69.i.i.i.i.i
   %346 = load i32, ptr %.sroa.011.0.lcssa.i.i.i.i70.i.i.i.i.i, align 4
   %347 = icmp slt i32 %.val35.i.i.i.i.i, %346
-  br i1 %347, label %.loopexit326.loopexit.split.loop.exit443, label %348
+  br i1 %347, label %.loopexit326.loopexit.split.loop.exit485, label %348
 
 348:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit79.i.i.i.i.i"
   %349 = getelementptr inbounds nuw i8, ptr %.029134.i.i.i.i.i, i64 16
@@ -2629,28 +2629,28 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
   %397 = getelementptr inbounds nuw i8, ptr %.029134.i.i.i.i.i, i64 12
   br label %.loopexit326
 
-.loopexit326.loopexit.split.loop.exit439:         ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i58.i.i.i.i.i
+.loopexit326.loopexit.split.loop.exit481:         ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i58.i.i.i.i.i
   %398 = getelementptr inbounds nuw i8, ptr %.029134.i.i.i.i.i, i64 8
   br label %.loopexit326
 
-.loopexit326.loopexit.split.loop.exit441:         ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i47.i.i.i.i.i
+.loopexit326.loopexit.split.loop.exit483:         ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i47.i.i.i.i.i
   %399 = getelementptr inbounds nuw i8, ptr %.029134.i.i.i.i.i, i64 4
   br label %.loopexit326
 
-.loopexit326.loopexit.split.loop.exit443:         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit79.i.i.i.i.i"
+.loopexit326.loopexit.split.loop.exit485:         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit79.i.i.i.i.i"
   %400 = getelementptr inbounds nuw i8, ptr %.029134.i.i.i.i.i, i64 12
   br label %.loopexit326
 
-.loopexit326.loopexit.split.loop.exit445:         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit68.i.i.i.i.i"
+.loopexit326.loopexit.split.loop.exit487:         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit68.i.i.i.i.i"
   %401 = getelementptr inbounds nuw i8, ptr %.029134.i.i.i.i.i, i64 8
   br label %.loopexit326
 
-.loopexit326.loopexit.split.loop.exit447:         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit57.i.i.i.i.i"
+.loopexit326.loopexit.split.loop.exit489:         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit57.i.i.i.i.i"
   %402 = getelementptr inbounds nuw i8, ptr %.029134.i.i.i.i.i, i64 4
   br label %.loopexit326
 
-.loopexit326:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit.i.i.i.i.i", %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i.i.i.i.i.i, %.loopexit326.loopexit.split.loop.exit, %.loopexit326.loopexit.split.loop.exit439, %.loopexit326.loopexit.split.loop.exit441, %.loopexit326.loopexit.split.loop.exit443, %.loopexit326.loopexit.split.loop.exit445, %.loopexit326.loopexit.split.loop.exit447, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit112.i.i.i.i.i", %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i102.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit101.i.i.i.i.i", %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i91.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit90.i.i.i.i.i", %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i80.i.i.i.i.i
-  %.028.i.i.i.i.i167 = phi ptr [ %.029.lcssa.i.i.i.i.i164, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit90.i.i.i.i.i" ], [ %.1.i.i.i.i.i168, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit101.i.i.i.i.i" ], [ %.2.i.i.i.i.i165, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit112.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i164, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i80.i.i.i.i.i ], [ %.1.i.i.i.i.i168, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i91.i.i.i.i.i ], [ %.2.i.i.i.i.i165, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i102.i.i.i.i.i ], [ %397, %.loopexit326.loopexit.split.loop.exit ], [ %398, %.loopexit326.loopexit.split.loop.exit439 ], [ %399, %.loopexit326.loopexit.split.loop.exit441 ], [ %400, %.loopexit326.loopexit.split.loop.exit443 ], [ %401, %.loopexit326.loopexit.split.loop.exit445 ], [ %402, %.loopexit326.loopexit.split.loop.exit447 ], [ %.029134.i.i.i.i.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i.i.i.i.i.i ], [ %.029134.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit.i.i.i.i.i" ]
+.loopexit326:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit.i.i.i.i.i", %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i.i.i.i.i.i, %.loopexit326.loopexit.split.loop.exit, %.loopexit326.loopexit.split.loop.exit481, %.loopexit326.loopexit.split.loop.exit483, %.loopexit326.loopexit.split.loop.exit485, %.loopexit326.loopexit.split.loop.exit487, %.loopexit326.loopexit.split.loop.exit489, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit112.i.i.i.i.i", %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i102.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit101.i.i.i.i.i", %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i91.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit90.i.i.i.i.i", %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i80.i.i.i.i.i
+  %.028.i.i.i.i.i167 = phi ptr [ %.029.lcssa.i.i.i.i.i164, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit90.i.i.i.i.i" ], [ %.1.i.i.i.i.i168, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit101.i.i.i.i.i" ], [ %.2.i.i.i.i.i165, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit112.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i164, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i80.i.i.i.i.i ], [ %.1.i.i.i.i.i168, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i91.i.i.i.i.i ], [ %.2.i.i.i.i.i165, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i102.i.i.i.i.i ], [ %397, %.loopexit326.loopexit.split.loop.exit ], [ %398, %.loopexit326.loopexit.split.loop.exit481 ], [ %399, %.loopexit326.loopexit.split.loop.exit483 ], [ %400, %.loopexit326.loopexit.split.loop.exit485 ], [ %401, %.loopexit326.loopexit.split.loop.exit487 ], [ %402, %.loopexit326.loopexit.split.loop.exit489 ], [ %.029134.i.i.i.i.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i.i.i.i.i.i ], [ %.029134.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_3EclIPKiEEbT_.exit.i.i.i.i.i" ]
   %.not324 = icmp eq ptr %288, %.028.i.i.i.i.i167
   br i1 %.not324, label %.thread, label %403
 
@@ -2823,12 +2823,12 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i47.i.i.i.i.i248: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i.i.i.i50.i.i.i.i.i276, %454
   %.sroa.011.0.lcssa.i.i.i.i48.i.i.i.i.i249 = phi ptr [ %.sroa.0.2, %454 ], [ %.sroa.011.1.i.i.i.i55.i.i.i.i.i281, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i.i.i.i50.i.i.i.i.i276 ]
   %.not.i.i.i49.i.i.i.i.i250 = icmp eq ptr %.sroa.011.0.lcssa.i.i.i.i48.i.i.i.i.i249, %.sroa.17.2
-  br i1 %.not.i.i.i49.i.i.i.i.i250, label %.loopexit.loopexit.split.loop.exit460, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit57.i.i.i.i.i"
+  br i1 %.not.i.i.i49.i.i.i.i.i250, label %.loopexit.loopexit.split.loop.exit502, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit57.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit57.i.i.i.i.i": ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i47.i.i.i.i.i248
   %464 = load i32, ptr %.sroa.011.0.lcssa.i.i.i.i48.i.i.i.i.i249, align 4
   %465 = icmp slt i32 %.val31.i.i.i.i.i247, %464
-  br i1 %465, label %.loopexit.loopexit.split.loop.exit466, label %466
+  br i1 %465, label %.loopexit.loopexit.split.loop.exit508, label %466
 
 466:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit57.i.i.i.i.i"
   %467 = getelementptr inbounds nuw i8, ptr %.029134.i.i.i.i.i242, i64 8
@@ -2853,12 +2853,12 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i58.i.i.i.i.i252: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i.i.i.i61.i.i.i.i.i269, %466
   %.sroa.011.0.lcssa.i.i.i.i59.i.i.i.i.i253 = phi ptr [ %.sroa.0.2, %466 ], [ %.sroa.011.1.i.i.i.i66.i.i.i.i.i274, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i.i.i.i61.i.i.i.i.i269 ]
   %.not.i.i.i60.i.i.i.i.i254 = icmp eq ptr %.sroa.011.0.lcssa.i.i.i.i59.i.i.i.i.i253, %.sroa.17.2
-  br i1 %.not.i.i.i60.i.i.i.i.i254, label %.loopexit.loopexit.split.loop.exit458, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit68.i.i.i.i.i"
+  br i1 %.not.i.i.i60.i.i.i.i.i254, label %.loopexit.loopexit.split.loop.exit500, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit68.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit68.i.i.i.i.i": ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i58.i.i.i.i.i252
   %476 = load i32, ptr %.sroa.011.0.lcssa.i.i.i.i59.i.i.i.i.i253, align 4
   %477 = icmp slt i32 %.val33.i.i.i.i.i251, %476
-  br i1 %477, label %.loopexit.loopexit.split.loop.exit464, label %478
+  br i1 %477, label %.loopexit.loopexit.split.loop.exit506, label %478
 
 478:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit68.i.i.i.i.i"
   %479 = getelementptr inbounds nuw i8, ptr %.029134.i.i.i.i.i242, i64 12
@@ -2888,7 +2888,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit79.i.i.i.i.i": ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i69.i.i.i.i.i256
   %488 = load i32, ptr %.sroa.011.0.lcssa.i.i.i.i70.i.i.i.i.i257, align 4
   %489 = icmp slt i32 %.val35.i.i.i.i.i255, %488
-  br i1 %489, label %.loopexit.loopexit.split.loop.exit462, label %490
+  br i1 %489, label %.loopexit.loopexit.split.loop.exit504, label %490
 
 490:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit79.i.i.i.i.i"
   %491 = getelementptr inbounds nuw i8, ptr %.029134.i.i.i.i.i242, i64 16
@@ -3035,28 +3035,28 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
   %539 = getelementptr inbounds nuw i8, ptr %.029134.i.i.i.i.i242, i64 12
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit458:            ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i58.i.i.i.i.i252
+.loopexit.loopexit.split.loop.exit500:            ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i58.i.i.i.i.i252
   %540 = getelementptr inbounds nuw i8, ptr %.029134.i.i.i.i.i242, i64 8
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit460:            ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i47.i.i.i.i.i248
+.loopexit.loopexit.split.loop.exit502:            ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i47.i.i.i.i.i248
   %541 = getelementptr inbounds nuw i8, ptr %.029134.i.i.i.i.i242, i64 4
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit462:            ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit79.i.i.i.i.i"
+.loopexit.loopexit.split.loop.exit504:            ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit79.i.i.i.i.i"
   %542 = getelementptr inbounds nuw i8, ptr %.029134.i.i.i.i.i242, i64 12
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit464:            ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit68.i.i.i.i.i"
+.loopexit.loopexit.split.loop.exit506:            ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit68.i.i.i.i.i"
   %543 = getelementptr inbounds nuw i8, ptr %.029134.i.i.i.i.i242, i64 8
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit466:            ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit57.i.i.i.i.i"
+.loopexit.loopexit.split.loop.exit508:            ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit57.i.i.i.i.i"
   %544 = getelementptr inbounds nuw i8, ptr %.029134.i.i.i.i.i242, i64 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit.i.i.i.i.i", %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i.i.i.i.i.i244, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit458, %.loopexit.loopexit.split.loop.exit460, %.loopexit.loopexit.split.loop.exit462, %.loopexit.loopexit.split.loop.exit464, %.loopexit.loopexit.split.loop.exit466, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit112.i.i.i.i.i", %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i102.i.i.i.i.i199, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit101.i.i.i.i.i", %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i91.i.i.i.i.i218, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit90.i.i.i.i.i", %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i80.i.i.i.i.i229
-  %.028.i.i.i.i.i202 = phi ptr [ %.029.lcssa.i.i.i.i.i190, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit90.i.i.i.i.i" ], [ %.1.i.i.i.i.i216, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit101.i.i.i.i.i" ], [ %.2.i.i.i.i.i197, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit112.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i190, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i80.i.i.i.i.i229 ], [ %.1.i.i.i.i.i216, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i91.i.i.i.i.i218 ], [ %.2.i.i.i.i.i197, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i102.i.i.i.i.i199 ], [ %539, %.loopexit.loopexit.split.loop.exit ], [ %540, %.loopexit.loopexit.split.loop.exit458 ], [ %541, %.loopexit.loopexit.split.loop.exit460 ], [ %542, %.loopexit.loopexit.split.loop.exit462 ], [ %543, %.loopexit.loopexit.split.loop.exit464 ], [ %544, %.loopexit.loopexit.split.loop.exit466 ], [ %.029134.i.i.i.i.i242, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i.i.i.i.i.i244 ], [ %.029134.i.i.i.i.i242, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit.i.i.i.i.i" ]
+.loopexit:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit.i.i.i.i.i", %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i.i.i.i.i.i244, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit500, %.loopexit.loopexit.split.loop.exit502, %.loopexit.loopexit.split.loop.exit504, %.loopexit.loopexit.split.loop.exit506, %.loopexit.loopexit.split.loop.exit508, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit112.i.i.i.i.i", %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i102.i.i.i.i.i199, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit101.i.i.i.i.i", %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i91.i.i.i.i.i218, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit90.i.i.i.i.i", %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i80.i.i.i.i.i229
+  %.028.i.i.i.i.i202 = phi ptr [ %.029.lcssa.i.i.i.i.i190, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit90.i.i.i.i.i" ], [ %.1.i.i.i.i.i216, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit101.i.i.i.i.i" ], [ %.2.i.i.i.i.i197, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit112.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i190, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i80.i.i.i.i.i229 ], [ %.1.i.i.i.i.i216, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i91.i.i.i.i.i218 ], [ %.2.i.i.i.i.i197, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i102.i.i.i.i.i199 ], [ %539, %.loopexit.loopexit.split.loop.exit ], [ %540, %.loopexit.loopexit.split.loop.exit500 ], [ %541, %.loopexit.loopexit.split.loop.exit502 ], [ %542, %.loopexit.loopexit.split.loop.exit504 ], [ %543, %.loopexit.loopexit.split.loop.exit506 ], [ %544, %.loopexit.loopexit.split.loop.exit508 ], [ %.029134.i.i.i.i.i242, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_less_valEET_S9_S9_RKT0_T1_.exit.i.i.i.i.i.i.i.i244 ], [ %.029134.i.i.i.i.i242, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS2_17PxOsdMeshTopologyEE3$_4EclIPKiEEbT_.exit.i.i.i.i.i" ]
   %.not325 = icmp eq ptr %430, %.028.i.i.i.i.i202
   br i1 %.not325, label %.thread318, label %545
 
@@ -3468,13 +3468,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation2
   %19 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 8
   %.val30.i.i.i.i.i = load i32, ptr %19, align 4
   %20 = icmp slt i32 %.val30.i.i.i.i.i, 3
-  br i1 %20, label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit24", label %21
+  br i1 %20, label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit26", label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 12
   %.val31.i.i.i.i.i = load i32, ptr %22, align 4
   %23 = icmp slt i32 %.val31.i.i.i.i.i, 3
-  br i1 %23, label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit26", label %24
+  br i1 %23, label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit28", label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 16
@@ -3526,16 +3526,16 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation2
   %39 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 4
   br label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit"
 
-"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit24": ; preds = %18
+"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit26": ; preds = %18
   %40 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 8
   br label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit"
 
-"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit26": ; preds = %21
+"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit28": ; preds = %21
   %41 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 12
   br label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit"
 
-"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit24", %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit26", %29, %33, %37
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %29 ], [ %.1.i.i.i.i.i, %33 ], [ %.2.i.i.i.i.i, %37 ], [ %39, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit" ], [ %40, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit24" ], [ %41, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit26" ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit26", %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit28", %29, %33, %37
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %29 ], [ %.1.i.i.i.i.i, %33 ], [ %.2.i.i.i.i.i, %37 ], [ %39, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit" ], [ %40, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit26" ], [ %41, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit28" ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.not = icmp eq ptr %7, %.028.i.i.i.i.i
   br i1 %.not, label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.thread", label %42
 
@@ -3662,13 +3662,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation2
   %20 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 8
   %.val30.i.i.i.i.i = load i32, ptr %20, align 4
   %21 = icmp slt i32 %.val30.i.i.i.i.i, 0
-  br i1 %21, label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit43", label %22
+  br i1 %21, label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit51", label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 12
   %.val31.i.i.i.i.i = load i32, ptr %23, align 4
   %24 = icmp slt i32 %.val31.i.i.i.i.i, 0
-  br i1 %24, label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit45", label %25
+  br i1 %24, label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit53", label %25
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 16
@@ -3720,16 +3720,16 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation2
   %40 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 4
   br label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit"
 
-"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit43": ; preds = %19
+"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit51": ; preds = %19
   %41 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 8
   br label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit"
 
-"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit45": ; preds = %22
+"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit53": ; preds = %22
   %42 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 12
   br label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit"
 
-"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit43", %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit45", %30, %34, %38
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %30 ], [ %.1.i.i.i.i.i, %34 ], [ %.2.i.i.i.i.i, %38 ], [ %40, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit" ], [ %41, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit43" ], [ %42, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit45" ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit51", %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit53", %30, %34, %38
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %30 ], [ %.1.i.i.i.i.i, %34 ], [ %.2.i.i.i.i.i, %38 ], [ %40, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit" ], [ %41, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit51" ], [ %42, %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.loopexit.split.loop.exit53" ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.not30 = icmp eq ptr %8, %.028.i.i.i.i.i
   br i1 %.not30, label %"_ZSt6any_ofIPKiZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS2_17PxOsdMeshTopologyEE3$_0EbT_S8_T0_.exit.thread", label %43
 
@@ -5240,7 +5240,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6
 
 .split.split.preheader:                           ; preds = %.split
   %16 = or disjoint i64 %9, 1
-  %17 = getelementptr inbounds i32, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw i32, ptr %0, i64 %16
   %18 = getelementptr inbounds nuw i32, ptr %0, i64 %15
   br label %.split.split
 
@@ -5277,20 +5277,20 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6
   %.019.i.i.us = phi i64 [ %.0920.i.i.us, %37 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.0920.in.i.i.us = add nsw i64 %.019.i.i.us, -1
   %.0920.i.i.us = sdiv i64 %.0920.in.i.i.us, 2
-  %34 = getelementptr inbounds i32, ptr %0, i64 %.0920.i.i.us
+  %34 = getelementptr inbounds nuw i32, ptr %0, i64 %.0920.i.i.us
   %35 = load i32, ptr %34, align 4
   %36 = icmp slt i32 %35, %19
   br i1 %36, label %37, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
 
 37:                                               ; preds = %.lr.ph.i.i.us
-  %38 = getelementptr inbounds i32, ptr %0, i64 %.019.i.i.us
+  %38 = getelementptr inbounds nuw i32, ptr %0, i64 %.019.i.i.us
   store i32 %35, ptr %38, align 4
   %39 = icmp sgt i64 %.0920.i.i.us, %.0.us
   br i1 %39, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !49
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %37, %.split.split.us, %._crit_edge.i.us
   %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.0.us, %.split.split.us ], [ %.0920.i.i.us, %37 ], [ %.019.i.i.us, %.lr.ph.i.i.us ]
-  %40 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i.us
+  %40 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa.i.i.us
   store i32 %19, ptr %40, align 4
   %41 = icmp eq i64 %.0.us, 0
   %42 = add nsw i64 %.0.us, -1
@@ -5340,20 +5340,20 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5_
   %.019.i.i = phi i64 [ %.0920.i.i, %65 ], [ %.1.i, %60 ]
   %.0920.in.i.i = add nsw i64 %.019.i.i, -1
   %.0920.i.i = sdiv i64 %.0920.in.i.i, 2
-  %62 = getelementptr inbounds i32, ptr %0, i64 %.0920.i.i
+  %62 = getelementptr inbounds nuw i32, ptr %0, i64 %.0920.i.i
   %63 = load i32, ptr %62, align 4
   %64 = icmp slt i32 %63, %43
   br i1 %64, label %65, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
 65:                                               ; preds = %.lr.ph.i.i
-  %66 = getelementptr inbounds i32, ptr %0, i64 %.019.i.i
+  %66 = getelementptr inbounds nuw i32, ptr %0, i64 %.019.i.i
   store i32 %63, ptr %66, align 4
   %67 = icmp sgt i64 %.0920.i.i, %.0
   br i1 %67, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, !llvm.loop !49
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit: ; preds = %.lr.ph.i.i, %65, %60
   %.0.lcssa.i.i = phi i64 [ %.1.i, %60 ], [ %.0920.i.i, %65 ], [ %.019.i.i, %.lr.ph.i.i ]
-  %68 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i
+  %68 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa.i.i
   store i32 %43, ptr %68, align 4
   %69 = icmp eq i64 %.0, 0
   %70 = add nsw i64 %.0, -1

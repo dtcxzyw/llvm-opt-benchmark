@@ -195,9 +195,9 @@ define noundef ptr @_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS
   br i1 %.not1415.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2, %3
-  %.01122 = phi i32 [ %7, %3 ], [ 3, %2 ]
+  %.01123 = phi i32 [ %7, %3 ], [ 3, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %wide.trip.count = zext i32 %.01122 to i64
+  %wide.trip.count = zext i32 %.01123 to i64
   br label %.lr.ph
 
 9:                                                ; preds = %.lr.ph
@@ -352,8 +352,8 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE7acquireERS3_b.exit: ; preds = 
   br i1 %.not1415.not.i.i, label %.loopexit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %44, %_ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE7acquireERS3_b.exit
-  %.01122.i.i = phi i32 [ %48, %44 ], [ 3, %_ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE7acquireERS3_b.exit ]
-  %wide.trip.count.i.i = zext i32 %.01122.i.i to i64
+  %.01123.i.i = phi i32 [ %48, %44 ], [ 3, %_ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE7acquireERS3_b.exit ]
+  %wide.trip.count.i.i = zext i32 %.01123.i.i to i64
   br label %.lr.ph.i.i
 
 49:                                               ; preds = %.lr.ph.i.i
@@ -430,8 +430,8 @@ define void @_ZN3tbb6detail2r117thread_dispatcher13insert_clientERNS1_24thread_d
   br i1 %.not1415.not.i, label %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %2, %18
-  %.01122.i = phi i32 [ %22, %18 ], [ 3, %2 ]
-  %wide.trip.count.i = zext i32 %.01122.i to i64
+  %.01123.i = phi i32 [ %22, %18 ], [ 3, %2 ]
+  %wide.trip.count.i = zext i32 %.01123.i to i64
   br label %.lr.ph.i
 
 23:                                               ; preds = %.lr.ph.i
@@ -654,8 +654,8 @@ _ZN3tbb6detail2d18rw_mutex4lockEv.exit:           ; preds = %_ZN3tbb6detail2d18r
 
 .lr.ph.preheader.i.i:                             ; preds = %63, %48
   %68 = phi ptr [ %61, %63 ], [ null, %48 ]
-  %.01122.i.i = phi i32 [ %67, %63 ], [ 3, %48 ]
-  %wide.trip.count.i.i = zext i32 %.01122.i.i to i64
+  %.01123.i.i = phi i32 [ %67, %63 ], [ 3, %48 ]
+  %wide.trip.count.i.i = zext i32 %.01123.i.i to i64
   br label %.lr.ph.i.i
 
 69:                                               ; preds = %.lr.ph.i.i
@@ -749,8 +749,8 @@ define void @_ZN3tbb6detail2r117thread_dispatcher13remove_clientERNS1_24thread_d
 
 .lr.ph.preheader.i:                               ; preds = %2, %20
   %25 = phi ptr [ %18, %20 ], [ null, %2 ]
-  %.01122.i = phi i32 [ %24, %20 ], [ 3, %2 ]
-  %wide.trip.count.i = zext i32 %.01122.i to i64
+  %.01123.i = phi i32 [ %24, %20 ], [ 3, %2 ]
+  %wide.trip.count.i = zext i32 %.01123.i to i64
   br label %.lr.ph.i
 
 26:                                               ; preds = %.lr.ph.i
@@ -825,9 +825,9 @@ define noundef ptr @_ZN3tbb6detail2r117thread_dispatcher14client_in_needEPNS1_14
   br i1 %.not1415.not.i, label %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.thread, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %3, %4
-  %.01122.i = phi i32 [ %8, %4 ], [ 3, %3 ]
+  %.01123.i = phi i32 [ %8, %4 ], [ 3, %3 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %wide.trip.count.i = zext i32 %.01122.i to i64
+  %wide.trip.count.i = zext i32 %.01123.i to i64
   br label %.lr.ph.i
 
 10:                                               ; preds = %.lr.ph.i
@@ -960,7 +960,7 @@ _ZN3tbb6detail2r117thread_dispatcher15is_client_aliveEPNS1_24thread_dispatcher_c
 _ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.i: ; preds = %.lr.ph.i.i, %14
   %spec.select.i.i = phi ptr [ %17, %.lr.ph.i.i ], [ %1, %14 ]
   %.not.i5 = icmp eq ptr %spec.select.i.i, null
-  br i1 %.not.i5, label %.loopexit50, label %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit._ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.thread_crit_edge.i
+  br i1 %.not.i5, label %.loopexit60, label %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit._ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.thread_crit_edge.i
 
 _ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit._ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.thread_crit_edge.i: ; preds = %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.i
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 16
@@ -1004,11 +1004,11 @@ _ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatche
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.loopexit.i
-  br i1 %35, label %.loopexit50, label %36
+  br i1 %35, label %.loopexit60, label %36
 
 36:                                               ; preds = %.noexc
   %.not30.i = icmp eq ptr %.sroa.023.1.i, %spec.select.i29.i
-  br i1 %.not30.i, label %.loopexit50, label %20, !llvm.loop !93
+  br i1 %.not30.i, label %.loopexit60, label %20, !llvm.loop !93
 
 .loopexit:                                        ; preds = %.loopexit.i26
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1042,8 +1042,8 @@ _ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatche
   br i1 %.not1415.not.i.i8, label %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.thread.i22, label %.lr.ph.preheader.i.i9
 
 .lr.ph.preheader.i.i9:                            ; preds = %41, %.loopexit41
-  %.01122.i.i10 = phi i32 [ %45, %41 ], [ 3, %.loopexit41 ]
-  %wide.trip.count.i.i11 = zext i32 %.01122.i.i10 to i64
+  %.01123.i.i10 = phi i32 [ %45, %41 ], [ 3, %.loopexit41 ]
+  %wide.trip.count.i.i11 = zext i32 %.01123.i.i10 to i64
   br label %.lr.ph.i.i12
 
 46:                                               ; preds = %.lr.ph.i.i12
@@ -1062,7 +1062,7 @@ _ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatche
 _ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.i14: ; preds = %.lr.ph.i.i12, %46
   %spec.select.i.i15 = phi ptr [ %49, %.lr.ph.i.i12 ], [ %40, %46 ]
   %.not.i16 = icmp eq ptr %spec.select.i.i15, null
-  br i1 %.not.i16, label %.loopexit50, label %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit._ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.thread_crit_edge.i17
+  br i1 %.not.i16, label %.loopexit60, label %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit._ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.thread_crit_edge.i17
 
 _ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit._ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.thread_crit_edge.i17: ; preds = %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.i14
   %.phi.trans.insert.i18 = getelementptr inbounds nuw i8, ptr %spec.select.i.i15, i64 16
@@ -1106,13 +1106,13 @@ _ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatche
           to label %.noexc35 unwind label %.loopexit
 
 .noexc35:                                         ; preds = %.loopexit.i26
-  br i1 %67, label %.loopexit50, label %68
+  br i1 %67, label %.loopexit60, label %68
 
 68:                                               ; preds = %.noexc35
   %.not30.i29 = icmp eq ptr %.sroa.023.1.i27, %spec.select.i29.i23
-  br i1 %.not30.i29, label %.loopexit50, label %52, !llvm.loop !93
+  br i1 %.not30.i29, label %.loopexit60, label %52, !llvm.loop !93
 
-.loopexit50:                                      ; preds = %36, %.noexc, %68, %.noexc35, %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.i14, %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.i
+.loopexit60:                                      ; preds = %36, %.noexc, %68, %.noexc35, %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.i14, %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.i
   %.0 = phi ptr [ null, %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.i ], [ null, %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.i14 ], [ %.sroa.023.0.i24, %.noexc35 ], [ null, %68 ], [ %.sroa.023.0.i, %.noexc ], [ null, %36 ]
   store ptr null, ptr %3, align 8, !tbaa !85
   %69 = atomicrmw sub ptr %4, i64 4 seq_cst, align 8
@@ -1120,11 +1120,11 @@ _ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatche
   %.not.i3.i.i = icmp eq i64 %70, 0
   br i1 %.not.i3.i.i, label %.invoke.i, label %.invoke4.i
 
-.invoke4.i:                                       ; preds = %.loopexit50
+.invoke4.i:                                       ; preds = %.loopexit60
   invoke void @_ZN3tbb6detail2r117notify_by_addressEPvm(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
           to label %_ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEED2Ev.exit unwind label %71
 
-.invoke.i:                                        ; preds = %.loopexit50
+.invoke.i:                                        ; preds = %.loopexit60
   invoke void @_ZN3tbb6detail2r121notify_by_address_allEPv(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %_ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEED2Ev.exit unwind label %71
 

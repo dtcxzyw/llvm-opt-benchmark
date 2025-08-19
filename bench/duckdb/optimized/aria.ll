@@ -668,8 +668,8 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_dec(ptr noundef capture
   br label %12
 
 .preheader:                                       ; preds = %17
-  %.not58 = icmp eq i8 %6, 1
-  br i1 %.not58, label %.loopexit, label %.lr.ph
+  %.not60 = icmp eq i8 %6, 1
+  br i1 %.not60, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4

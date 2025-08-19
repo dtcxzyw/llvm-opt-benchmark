@@ -366,9 +366,9 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   br label %174
 
 174:                                              ; preds = %172, %168, %158
-  %.sink174 = phi ptr [ %9, %172 ], [ %10, %168 ], [ %10, %158 ]
+  %.sink187 = phi ptr [ %9, %172 ], [ %10, %168 ], [ %10, %158 ]
   %.sink = phi ptr [ %152, %172 ], [ %171, %168 ], [ %167, %158 ]
-  %175 = getelementptr inbounds nuw [4 x ptr], ptr %.sink174, i64 0, i64 %indvars.iv166
+  %175 = getelementptr inbounds nuw [4 x ptr], ptr %.sink187, i64 0, i64 %indvars.iv166
   store ptr %.sink, ptr %175, align 8, !tbaa !16
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next167, 4

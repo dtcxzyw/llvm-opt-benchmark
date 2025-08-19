@@ -1052,7 +1052,7 @@ _ZNK6icu_7718RelativeDateFormat15getStringForDayEiRiR10UErrorCode.exit: ; preds 
           cleanup
   br label %225
 
-66:                                               ; preds = %.invoke80, %.invoke, %138, %.noexc62, %_ZNK6icu_7718RelativeDateFormat15getStringForDayEiRiR10UErrorCode.exit, %140, %114, %101, %90, %88
+66:                                               ; preds = %.invoke84, %.invoke, %138, %.noexc62, %_ZNK6icu_7718RelativeDateFormat15getStringForDayEiRiR10UErrorCode.exit, %140, %114, %101, %90, %88
   %67 = landingpad { ptr, i32 }
           cleanup
   br label %225
@@ -1070,7 +1070,7 @@ _ZNK6icu_7718RelativeDateFormat15getStringForDayEiRiR10UErrorCode.exit.thread: ;
   %77 = load i16, ptr %76, align 8
   %78 = icmp ugt i16 %77, 31
   %or.cond = select i1 %75, i1 %78, i1 false
-  br i1 %or.cond, label %79, label %.invoke80
+  br i1 %or.cond, label %79, label %.invoke84
 
 79:                                               ; preds = %_ZNK6icu_7718RelativeDateFormat15getStringForDayEiRiR10UErrorCode.exit.thread
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1084,7 +1084,7 @@ _ZNK6icu_7718RelativeDateFormat15getStringForDayEiRiR10UErrorCode.exit.thread: ;
   %87 = load i8, ptr %86, align 8
   %.not33 = icmp eq i8 %87, 0
   %or.cond54 = select i1 %or.cond52.not76, i1 %.not33, i1 false
-  br i1 %or.cond54, label %.invoke80, label %88
+  br i1 %or.cond54, label %.invoke84, label %88
 
 88:                                               ; preds = %79
   %89 = invoke noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %8, i32 noundef 0)
@@ -1096,16 +1096,16 @@ _ZNK6icu_7718RelativeDateFormat15getStringForDayEiRiR10UErrorCode.exit.thread: ;
 
 92:                                               ; preds = %90
   %.not34 = icmp eq i8 %91, 0
-  br i1 %.not34, label %.invoke80, label %93
+  br i1 %.not34, label %.invoke84, label %93
 
 93:                                               ; preds = %92
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %95 = load ptr, ptr %94, align 8, !tbaa !36
   %.not35 = icmp eq ptr %95, null
-  br i1 %.not35, label %.invoke80, label %96
+  br i1 %.not35, label %.invoke84, label %96
 
 96:                                               ; preds = %93
-  switch i32 %19, label %.invoke80 [
+  switch i32 %19, label %.invoke84 [
     i32 258, label %101
     i32 259, label %97
     i32 260, label %100
@@ -1115,20 +1115,20 @@ _ZNK6icu_7718RelativeDateFormat15getStringForDayEiRiR10UErrorCode.exit.thread: ;
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 442
   %99 = load i8, ptr %98, align 2, !tbaa !34
   %.not36 = icmp eq i8 %99, 0
-  br i1 %.not36, label %.invoke80, label %101
+  br i1 %.not36, label %.invoke84, label %101
 
 100:                                              ; preds = %96
   %.old = getelementptr inbounds nuw i8, ptr %0, i64 443
   %.old55 = load i8, ptr %.old, align 1, !tbaa !35
   %.not37.old = icmp eq i8 %.old55, 0
-  br i1 %.not37.old, label %.invoke80, label %101
+  br i1 %.not37.old, label %.invoke84, label %101
 
 101:                                              ; preds = %96, %100, %97
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %103 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString7toTitleEPNS_13BreakIteratorERKNS_6LocaleEj(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull %95, ptr noundef nonnull align 8 dereferenceable(217) %102, i32 noundef 768)
-          to label %.invoke80 unwind label %66
+          to label %.invoke84 unwind label %66
 
-.invoke80:                                        ; preds = %_ZNK6icu_7718RelativeDateFormat15getStringForDayEiRiR10UErrorCode.exit.thread, %79, %92, %93, %100, %101, %96, %97
+.invoke84:                                        ; preds = %_ZNK6icu_7718RelativeDateFormat15getStringForDayEiRiR10UErrorCode.exit.thread, %79, %92, %93, %100, %101, %96, %97
   %104 = phi i32 [ 256, %97 ], [ 256, %96 ], [ 256, %101 ], [ 256, %100 ], [ 256, %93 ], [ 256, %92 ], [ %19, %79 ], [ %19, %_ZNK6icu_7718RelativeDateFormat15getStringForDayEiRiR10UErrorCode.exit.thread ]
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %106 = load ptr, ptr %105, align 8, !tbaa !6
@@ -1138,7 +1138,7 @@ _ZNK6icu_7718RelativeDateFormat15getStringForDayEiRiR10UErrorCode.exit.thread: ;
   invoke void %109(ptr noundef nonnull align 8 dereferenceable(528) %106, i32 noundef %104, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %110 unwind label %66
 
-110:                                              ; preds = %.invoke80
+110:                                              ; preds = %.invoke84
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %112 = load i16, ptr %76, align 8, !tbaa !37
   %113 = icmp ugt i16 %112, 31
@@ -1211,7 +1211,7 @@ _ZNK6icu_7718RelativeDateFormat15getStringForDayEiRiR10UErrorCode.exit.thread: ;
   %156 = load i32, ptr %72, align 4
   %157 = select i1 %153, i32 %156, i32 %155
   %158 = icmp sgt i32 %157, 0
-  br i1 %158, label %159, label %.invoke84
+  br i1 %158, label %159, label %.invoke88
 
 159:                                              ; preds = %150
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1274,9 +1274,9 @@ _ZN6icu_7713UnicodeString14findAndReplaceERKS0_S2_.exit: ; preds = %161
 
 190:                                              ; preds = %188
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.invoke84
+  br label %.invoke88
 
-191:                                              ; preds = %.invoke84, %188, %_ZN6icu_7713UnicodeString14findAndReplaceERKS0_S2_.exit
+191:                                              ; preds = %.invoke88, %188, %_ZN6icu_7713UnicodeString14findAndReplaceERKS0_S2_.exit
   %192 = landingpad { ptr, i32 }
           cleanup
   br label %224
@@ -1312,12 +1312,12 @@ _ZN6icu_7713UnicodeString14findAndReplaceERKS0_S2_.exit: ; preds = %161
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %224
 
-.invoke84:                                        ; preds = %150, %190
+.invoke88:                                        ; preds = %150, %190
   %203 = phi ptr [ %8, %190 ], [ %111, %150 ]
   %204 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %203, i8 noundef signext 0)
           to label %205 unwind label %191
 
-205:                                              ; preds = %.invoke84
+205:                                              ; preds = %.invoke88
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %14, align 8, !tbaa !3
   %206 = getelementptr inbounds nuw i8, ptr %14, i64 8

@@ -459,7 +459,7 @@ define noundef i32 @ZSTD_XXH32_hashFromCanonical(ptr noundef readonly captures(n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ZSTD_XXH64(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %.thread50.i, label %5
+  br i1 %4, label %.thread52.i, label %5
 
 5:                                                ; preds = %3
   %6 = icmp ugt i64 %1, 31
@@ -544,7 +544,7 @@ XXH64_endian_align.exit:                          ; preds = %5
   %66 = add i64 %2, 2870177450012600261
   br label %69
 
-.thread50.i:                                      ; preds = %3
+.thread52.i:                                      ; preds = %3
   %67 = add i64 %2, 2870177450012600261
   %68 = icmp eq i64 %1, 0
   tail call void @llvm.assume(i1 %68)
@@ -616,8 +616,8 @@ XXH_readLE32_align.exit.i:                        ; preds = %._crit_edge.i
   %.not.i = icmp eq i64 %100, 0
   br i1 %.not.i, label %XXH64_finalize.exit, label %.lr.ph.i, !llvm.loop !21
 
-XXH64_finalize.exit:                              ; preds = %.lr.ph.i, %.thread50.i, %92
-  %.2.lcssa.i = phi i64 [ %.1.i8, %92 ], [ %67, %.thread50.i ], [ %99, %.lr.ph.i ]
+XXH64_finalize.exit:                              ; preds = %.lr.ph.i, %.thread52.i, %92
+  %.2.lcssa.i = phi i64 [ %.1.i8, %92 ], [ %67, %.thread52.i ], [ %99, %.lr.ph.i ]
   %101 = lshr i64 %.2.lcssa.i, 33
   %102 = xor i64 %101, %.2.lcssa.i
   %103 = mul i64 %102, -4417276706812531889

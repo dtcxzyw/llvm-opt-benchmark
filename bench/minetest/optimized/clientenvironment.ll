@@ -4045,12 +4045,12 @@ invoke.cont45:                                    ; preds = %invoke.cont41
   %.pre5.i = load float, ptr %arrayidx50.i.phi.trans.insert.i, align 4, !tbaa !114
   %28 = call nsz float @llvm.fabs.f32(float %.pre5.i)
   %cmp.i68.i.i = fcmp nsz ugt float %28, 0x3EB0C6F7A0000000
-  %or.cond6.i = select i1 %or.cond67.i, i1 true, i1 %cmp.i68.i.i
+  %or.cond10.i = select i1 %or.cond67.i, i1 true, i1 %cmp.i68.i.i
   %arrayidx54.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call46, i64 32
   %.pre10 = load float, ptr %arrayidx54.i.i.phi.trans.insert, align 4, !tbaa !114
   %29 = call nsz float @llvm.fabs.f32(float %.pre10)
   %cmp.i69.i.i = fcmp nsz ugt float %29, 0x3EB0C6F7A0000000
-  %or.cond = select i1 %or.cond6.i, i1 true, i1 %cmp.i69.i.i
+  %or.cond = select i1 %or.cond10.i, i1 true, i1 %cmp.i69.i.i
   br i1 %or.cond, label %if.else19.thread.i, label %land.lhs.true17.i.i
 
 land.lhs.true17.i.i:                              ; preds = %invoke.cont45

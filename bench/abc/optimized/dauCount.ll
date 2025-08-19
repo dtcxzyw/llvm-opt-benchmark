@@ -185,11 +185,11 @@ define i32 @Abc_TtCountOnesInCofsQuick_rec(ptr noundef %0, i32 noundef %1, ptr n
 
 common.ret:                                       ; preds = %._crit_edge.thread, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %common.ret77
+  br label %common.ret78
 
-common.ret77:                                     ; preds = %54, %common.ret
-  %common.ret77.op = phi i32 [ %.pre-phi72, %common.ret ], [ %64, %54 ]
-  ret i32 %common.ret77.op
+common.ret78:                                     ; preds = %54, %common.ret
+  %common.ret78.op = phi i32 [ %.pre-phi72, %common.ret ], [ %64, %54 ]
+  ret i32 %common.ret78.op
 
 54:                                               ; preds = %3
   %55 = add nsw i32 %1, -1
@@ -203,7 +203,7 @@ common.ret77:                                     ; preds = %54, %common.ret
   %63 = getelementptr inbounds nuw i32, ptr %2, i64 %62
   store i32 %56, ptr %63, align 4, !tbaa !3
   %64 = add nsw i32 %61, %56
-  br label %common.ret77
+  br label %common.ret78
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable

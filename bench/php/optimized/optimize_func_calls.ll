@@ -615,8 +615,8 @@ zend_try_inline_call.exit:                        ; preds = %226, %.preheader.sp
   %305 = getelementptr inbounds nuw i8, ptr %300, i64 32
   %306 = load i32, ptr %305, align 8, !tbaa !51
   %.not6.i = icmp ugt i32 %297, %306
-  %or.cond343 = select i1 %304, i1 %.not6.i, i1 false
-  br i1 %or.cond343, label %has_known_send_mode.exit, label %has_known_send_mode.exit.thread
+  %or.cond375 = select i1 %304, i1 %.not6.i, i1 false
+  br i1 %or.cond375, label %has_known_send_mode.exit, label %has_known_send_mode.exit.thread
 
 has_known_send_mode.exit:                         ; preds = %301
   %307 = getelementptr inbounds nuw i8, ptr %300, i64 4
@@ -737,8 +737,8 @@ zend_check_arg_send_type.exit.thread:             ; preds = %311, %zend_check_ar
   %361 = getelementptr inbounds nuw i8, ptr %356, i64 32
   %362 = load i32, ptr %361, align 8, !tbaa !51
   %.not6.i263 = icmp ugt i32 %355, %362
-  %or.cond344 = select i1 %360, i1 %.not6.i263, i1 false
-  br i1 %or.cond344, label %has_known_send_mode.exit264, label %has_known_send_mode.exit264.thread
+  %or.cond376 = select i1 %360, i1 %.not6.i263, i1 false
+  br i1 %or.cond376, label %has_known_send_mode.exit264, label %has_known_send_mode.exit264.thread
 
 has_known_send_mode.exit264:                      ; preds = %357
   %363 = getelementptr inbounds nuw i8, ptr %356, i64 4
@@ -966,8 +966,8 @@ zend_check_arg_send_type.exit241.thread:          ; preds = %454, %zend_check_ar
   %483 = getelementptr inbounds nuw i8, ptr %478, i64 32
   %484 = load i32, ptr %483, align 8, !tbaa !51
   %.not6.i275 = icmp ugt i32 %477, %484
-  %or.cond345 = select i1 %482, i1 %.not6.i275, i1 false
-  br i1 %or.cond345, label %has_known_send_mode.exit276, label %has_known_send_mode.exit276.thread
+  %or.cond377 = select i1 %482, i1 %.not6.i275, i1 false
+  br i1 %or.cond377, label %has_known_send_mode.exit276, label %has_known_send_mode.exit276.thread
 
 has_known_send_mode.exit276:                      ; preds = %479
   %485 = getelementptr inbounds nuw i8, ptr %478, i64 4

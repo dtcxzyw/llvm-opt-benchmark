@@ -1917,10 +1917,10 @@ ec_point_is_compat.exit.thread:                   ; preds = %13, %17
   br i1 %24, label %.sink.split, label %25
 
 .sink.split:                                      ; preds = %22, %10, %17, %5
-  %.sink16 = phi i32 [ 869, %5 ], [ 873, %17 ], [ 873, %10 ], [ 880, %22 ]
+  %.sink18 = phi i32 [ 869, %5 ], [ 873, %17 ], [ 873, %10 ], [ 880, %22 ]
   %.sink = phi i32 [ 786689, %5 ], [ 101, %17 ], [ 101, %10 ], [ 107, %22 ]
   tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink16, ptr noundef nonnull @__func__.EC_POINT_set_affine_coordinates) #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink18, ptr noundef nonnull @__func__.EC_POINT_set_affine_coordinates) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #9
   br label %25
 
@@ -2015,10 +2015,10 @@ ec_point_is_compat.exit.thread.i:                 ; preds = %17, %13
   br i1 %24, label %.sink.split.i, label %EC_POINT_set_affine_coordinates.exit
 
 .sink.split.i:                                    ; preds = %22, %17, %10, %5
-  %.sink16.i = phi i32 [ 869, %5 ], [ 873, %17 ], [ 873, %10 ], [ 880, %22 ]
+  %.sink18.i = phi i32 [ 869, %5 ], [ 873, %17 ], [ 873, %10 ], [ 880, %22 ]
   %.sink.i = phi i32 [ 786689, %5 ], [ 101, %17 ], [ 101, %10 ], [ 107, %22 ]
   tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink16.i, ptr noundef nonnull @__func__.EC_POINT_set_affine_coordinates) #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink18.i, ptr noundef nonnull @__func__.EC_POINT_set_affine_coordinates) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink.i, ptr noundef null) #9
   br label %EC_POINT_set_affine_coordinates.exit
 
@@ -2065,10 +2065,10 @@ ec_point_is_compat.exit.thread.i:                 ; preds = %17, %13
   br i1 %24, label %.sink.split.i, label %EC_POINT_set_affine_coordinates.exit
 
 .sink.split.i:                                    ; preds = %22, %17, %10, %5
-  %.sink16.i = phi i32 [ 869, %5 ], [ 873, %17 ], [ 873, %10 ], [ 880, %22 ]
+  %.sink18.i = phi i32 [ 869, %5 ], [ 873, %17 ], [ 873, %10 ], [ 880, %22 ]
   %.sink.i = phi i32 [ 786689, %5 ], [ 101, %17 ], [ 101, %10 ], [ 107, %22 ]
   tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink16.i, ptr noundef nonnull @__func__.EC_POINT_set_affine_coordinates) #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink18.i, ptr noundef nonnull @__func__.EC_POINT_set_affine_coordinates) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink.i, ptr noundef null) #9
   br label %EC_POINT_set_affine_coordinates.exit
 
@@ -3598,7 +3598,7 @@ group_new_from_name.exit:                         ; preds = %22
 170:                                              ; preds = %168
   %171 = call ptr @OSSL_PARAM_locate_const(ptr noundef %0, ptr noundef nonnull @.str.2) #9
   %.not128 = icmp eq ptr %171, null
-  br i1 %.not128, label %.thread164, label %172
+  br i1 %.not128, label %.thread181, label %172
 
 172:                                              ; preds = %170
   %173 = call i32 @ossl_ec_encoding_param2id(ptr noundef nonnull %171, ptr noundef nonnull %10) #9
@@ -3608,9 +3608,9 @@ group_new_from_name.exit:                         ; preds = %22
 174:                                              ; preds = %172
   %.pre163 = load i32, ptr %10, align 4, !tbaa !71
   %175 = icmp eq i32 %.pre163, 1
-  br i1 %175, label %179, label %.thread164
+  br i1 %175, label %179, label %.thread181
 
-.thread164:                                       ; preds = %170, %174
+.thread181:                                       ; preds = %170, %174
   %176 = getelementptr inbounds nuw i8, ptr %.191141, i64 36
   store i32 0, ptr %176, align 4, !tbaa !23
   br label %.thread150
@@ -3619,8 +3619,8 @@ group_new_from_name.exit:                         ; preds = %22
   call void @EC_GROUP_free(ptr noundef nonnull %.191141)
   br label %.thread150
 
-.thread150:                                       ; preds = %177, %.thread164
-  %.2 = phi ptr [ %.191141, %.thread164 ], [ %166, %177 ]
+.thread150:                                       ; preds = %177, %.thread181
+  %.2 = phi ptr [ %.191141, %.thread181 ], [ %166, %177 ]
   %178 = getelementptr inbounds nuw i8, ptr %.2, i64 40
   store i32 1, ptr %178, align 8, !tbaa !39
   br label %180
@@ -3631,10 +3631,10 @@ group_new_from_name.exit:                         ; preds = %22
   br label %EC_POINT_free.exit
 
 179:                                              ; preds = %174, %172, %165, %161, %156, %159, %140, %143, %146, %149, %132
-  %.sink165 = phi i32 [ 1696, %132 ], [ 1705, %149 ], [ 1705, %146 ], [ 1705, %143 ], [ 1705, %140 ], [ 1714, %159 ], [ 1714, %156 ], [ 1721, %161 ], [ 1727, %165 ], [ 1738, %172 ], [ 1742, %174 ]
+  %.sink182 = phi i32 [ 1696, %132 ], [ 1705, %149 ], [ 1705, %146 ], [ 1705, %143 ], [ 1705, %140 ], [ 1714, %159 ], [ 1714, %156 ], [ 1721, %161 ], [ 1727, %165 ], [ 1738, %172 ], [ 1742, %174 ]
   %.sink = phi i32 [ 173, %132 ], [ 122, %149 ], [ 122, %146 ], [ 122, %143 ], [ 122, %140 ], [ 171, %159 ], [ 171, %156 ], [ 173, %161 ], [ 174, %165 ], [ 102, %172 ], [ 102, %174 ]
   call void @ERR_new() #9
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink165, ptr noundef nonnull @__func__.EC_GROUP_new_from_params) #9
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink182, ptr noundef nonnull @__func__.EC_GROUP_new_from_params) #9
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #9
   call void @EC_GROUP_free(ptr noundef nonnull %.191141)
   br label %180

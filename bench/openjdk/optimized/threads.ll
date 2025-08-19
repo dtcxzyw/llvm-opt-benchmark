@@ -2172,7 +2172,7 @@ _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread: ; preds 
   tail call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %7) #16
   %10 = load i32, ptr @_ZN7Threads29_number_of_non_daemon_threadsE, align 4
   %11 = icmp sgt i32 %10, %6
-  br i1 %11, label %_ZN13MonitorLocker4waitEl.exit.preheader, label %._crit_edge.thread14
+  br i1 %11, label %_ZN13MonitorLocker4waitEl.exit.preheader, label %._crit_edge.thread16
 
 _ZN13MonitorLocker4waitEl.exit.preheader:         ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
   br label %_ZN13MonitorLocker4waitEl.exit
@@ -2181,13 +2181,13 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN13MonitorLocker4
   %12 = tail call noundef zeroext i1 @_ZN7Monitor4waitEm(ptr noundef nonnull align 8 dereferenceable(104) %7, i64 noundef 0) #16
   %13 = load i32, ptr @_ZN7Threads29_number_of_non_daemon_threadsE, align 4
   %14 = icmp sgt i32 %13, %6
-  br i1 %14, label %_ZN13MonitorLocker4waitEl.exit, label %._crit_edge.thread14, !llvm.loop !17
+  br i1 %14, label %_ZN13MonitorLocker4waitEl.exit, label %._crit_edge.thread16, !llvm.loop !17
 
-._crit_edge.thread14:                             ; preds = %_ZN13MonitorLocker4waitEl.exit, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread
+._crit_edge.thread16:                             ; preds = %_ZN13MonitorLocker4waitEl.exit, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %7) #16
   br label %_ZN13MonitorLockerD2Ev.exit
 
-_ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, %._crit_edge.thread14
+_ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, %._crit_edge.thread16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %1, i8 0, i64 19, i1 false)
   %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2129), align 1
   %.not.i.not = icmp eq i8 %15, 0

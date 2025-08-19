@@ -1547,14 +1547,14 @@ predictor.exit.i:                                 ; preds = %.lr.ph.i98.i
   br label %.loopexit.i.i
 
 .critedge.thread.i.i:                             ; preds = %.critedge.i.i, %.preheader.i.i
-  %.lcssa109.i.i = phi i64 [ %.lcssa.i.i, %.critedge.i.i ], [ 0, %.preheader.i.i ]
-  %695 = add nsw i64 %.lcssa109.i.i, %.07097.i.i
+  %.lcssa117.i.i = phi i64 [ %.lcssa.i.i, %.critedge.i.i ], [ 0, %.preheader.i.i ]
+  %695 = add nsw i64 %.lcssa117.i.i, %.07097.i.i
   %696 = icmp slt i64 %695, %575
   br i1 %696, label %.lr.ph89.i.i, label %.critedge3.i.i
 
 .lr.ph89.i.i:                                     ; preds = %.critedge.thread.i.i, %702
   %697 = phi i64 [ %704, %702 ], [ %695, %.critedge.thread.i.i ]
-  %.388.i.i = phi i64 [ %703, %702 ], [ %.lcssa109.i.i, %.critedge.thread.i.i ]
+  %.388.i.i = phi i64 [ %703, %702 ], [ %.lcssa117.i.i, %.critedge.thread.i.i ]
   %698 = getelementptr inbounds i8, ptr %671, i64 %697
   %699 = load i8, ptr %698, align 1, !tbaa !48
   %700 = getelementptr i8, ptr %698, i64 -1
@@ -1571,7 +1571,7 @@ predictor.exit.i:                                 ; preds = %.lr.ph.i98.i
   br i1 %or.cond.i.i, label %.lr.ph89.i.i, label %.critedge3.i.i, !llvm.loop !77
 
 .critedge3.i.i:                                   ; preds = %702, %.lr.ph89.i.i, %.critedge.thread.i.i
-  %.3.lcssa.i.i = phi i64 [ %.lcssa109.i.i, %.critedge.thread.i.i ], [ %703, %702 ], [ %.388.i.i, %.lr.ph89.i.i ]
+  %.3.lcssa.i.i = phi i64 [ %.lcssa117.i.i, %.critedge.thread.i.i ], [ %703, %702 ], [ %.388.i.i, %.lr.ph89.i.i ]
   %.lcssa80.i.i = phi i64 [ %695, %.critedge.thread.i.i ], [ %704, %702 ], [ %697, %.lr.ph89.i.i ]
   %707 = add nsw i64 %.06898.i.i, 1
   %708 = add nsw i64 %.3.lcssa.i.i, %707

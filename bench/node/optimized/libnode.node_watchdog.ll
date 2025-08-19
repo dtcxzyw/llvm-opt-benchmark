@@ -1697,10 +1697,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i:   ; preds = %if.end.i.i
   br i1 %cmp.not.i4, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i: ; preds = %if.end.i.i
-  %incdec.ptr.i.i.i.i19.i = getelementptr inbounds i8, ptr %4, i64 -8
-  %10 = load ptr, ptr %incdec.ptr.i.i.i.i19.i, align 8
-  %cmp.not20.i = icmp eq ptr %10, null
-  br i1 %cmp.not20.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i
+  %incdec.ptr.i.i.i.i20.i = getelementptr inbounds i8, ptr %4, i64 -8
+  %10 = load ptr, ptr %incdec.ptr.i.i.i.i20.i, align 8
+  %cmp.not21.i = icmp eq ptr %10, null
+  br i1 %cmp.not21.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i
   %11 = phi ptr [ %10, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i ], [ %9, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i ]
@@ -1740,10 +1740,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   br i1 %tobool.not, label %do.body7, label %if.then.i.i.i.i16
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i23 = getelementptr inbounds i8, ptr %14, i64 -8
-  %20 = load ptr, ptr %incdec.ptr.i.i.i.i23, align 8
-  %tobool.not24 = icmp eq ptr %20, null
-  br i1 %tobool.not24, label %do.body7, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit20
+  %incdec.ptr.i.i.i.i27 = getelementptr inbounds i8, ptr %14, i64 -8
+  %20 = load ptr, ptr %incdec.ptr.i.i.i.i27, align 8
+  %tobool.not28 = icmp eq ptr %20, null
+  br i1 %tobool.not28, label %do.body7, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit20
 
 do.body7:                                         ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread, %do.body, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node13MemoryTracker24TrackInlineFieldWithSizeEPKcmS2_E4args) #16

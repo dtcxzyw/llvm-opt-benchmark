@@ -966,21 +966,21 @@ thread-pre-split:                                 ; preds = %186, %190
 
 306:                                              ; preds = %301
   %307 = icmp ult i8 %304, 8
-  br i1 %307, label %switch.lookup120, label %.sink.split.i.i
+  br i1 %307, label %switch.lookup226, label %.sink.split.i.i
 
-switch.lookup120:                                 ; preds = %306
+switch.lookup226:                                 ; preds = %306
   %308 = zext nneg i8 %304 to i64
   %switch.gep = getelementptr inbounds nuw [8 x i16], ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice, i64 0, i64 %308
   %switch.load = load i16, ptr %switch.gep, align 2
   %309 = zext nneg i8 %304 to i64
-  %switch.gep121 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.10, i64 0, i64 %309
-  %switch.load122 = load i16, ptr %switch.gep121, align 2
+  %switch.gep227 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.10, i64 0, i64 %309
+  %switch.load228 = load i16, ptr %switch.gep227, align 2
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %306, %switch.lookup120
-  %.sink87.i.i = phi i16 [ %switch.load, %switch.lookup120 ], [ 0, %306 ]
-  %.sink.i.i = phi i16 [ %switch.load122, %switch.lookup120 ], [ 0, %306 ]
-  call void @SDL_SendJoystickAxis(i64 noundef %268, ptr noundef nonnull %.0, i8 noundef zeroext 0, i16 noundef signext %.sink87.i.i) #9
+.sink.split.i.i:                                  ; preds = %306, %switch.lookup226
+  %.sink90.i.i = phi i16 [ %switch.load, %switch.lookup226 ], [ 0, %306 ]
+  %.sink.i.i = phi i16 [ %switch.load228, %switch.lookup226 ], [ 0, %306 ]
+  call void @SDL_SendJoystickAxis(i64 noundef %268, ptr noundef nonnull %.0, i8 noundef zeroext 0, i16 noundef signext %.sink90.i.i) #9
   call void @SDL_SendJoystickAxis(i64 noundef %268, ptr noundef nonnull %.0, i8 noundef zeroext 1, i16 noundef signext %.sink.i.i) #9
   br label %HandleSimpleControllerState.exit
 
@@ -1051,21 +1051,21 @@ RemapButton.exit.i.i:                             ; preds = %310
 
 343:                                              ; preds = %340
   %344 = icmp ult i8 %341, 8
-  br i1 %344, label %switch.lookup123, label %.sink.split.i119.i
+  br i1 %344, label %switch.lookup229, label %.sink.split.i119.i
 
-switch.lookup123:                                 ; preds = %343
+switch.lookup229:                                 ; preds = %343
   %345 = zext nneg i8 %341 to i64
-  %switch.gep124 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.10, i64 0, i64 %345
-  %switch.load125 = load i16, ptr %switch.gep124, align 2
+  %switch.gep230 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.10, i64 0, i64 %345
+  %switch.load231 = load i16, ptr %switch.gep230, align 2
   %346 = zext nneg i8 %341 to i64
-  %switch.gep126 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.11, i64 0, i64 %346
-  %switch.load127 = load i16, ptr %switch.gep126, align 2
+  %switch.gep232 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.11, i64 0, i64 %346
+  %switch.load233 = load i16, ptr %switch.gep232, align 2
   br label %.sink.split.i119.i
 
-.sink.split.i119.i:                               ; preds = %343, %switch.lookup123
-  %.sink94.i.i = phi i16 [ %switch.load125, %switch.lookup123 ], [ 0, %343 ]
-  %.sink.i120.i = phi i16 [ %switch.load127, %switch.lookup123 ], [ 0, %343 ]
-  call void @SDL_SendJoystickAxis(i64 noundef %268, ptr noundef nonnull %.0, i8 noundef zeroext 0, i16 noundef signext %.sink94.i.i) #9
+.sink.split.i119.i:                               ; preds = %343, %switch.lookup229
+  %.sink96.i.i = phi i16 [ %switch.load231, %switch.lookup229 ], [ 0, %343 ]
+  %.sink.i120.i = phi i16 [ %switch.load233, %switch.lookup229 ], [ 0, %343 ]
+  call void @SDL_SendJoystickAxis(i64 noundef %268, ptr noundef nonnull %.0, i8 noundef zeroext 0, i16 noundef signext %.sink96.i.i) #9
   call void @SDL_SendJoystickAxis(i64 noundef %268, ptr noundef nonnull %.0, i8 noundef zeroext 1, i16 noundef signext %.sink.i120.i) #9
   br label %HandleSimpleControllerState.exit
 
@@ -1151,21 +1151,21 @@ RemapButton.exit.i122.i:                          ; preds = %354
 
 388:                                              ; preds = %383
   %389 = icmp ult i8 %386, 8
-  br i1 %389, label %switch.lookup128, label %.sink.split.i131.i
+  br i1 %389, label %switch.lookup234, label %.sink.split.i131.i
 
-switch.lookup128:                                 ; preds = %388
+switch.lookup234:                                 ; preds = %388
   %390 = zext nneg i8 %386 to i64
-  %switch.gep129 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.11, i64 0, i64 %390
-  %switch.load130 = load i16, ptr %switch.gep129, align 2
+  %switch.gep235 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.11, i64 0, i64 %390
+  %switch.load236 = load i16, ptr %switch.gep235, align 2
   %391 = zext nneg i8 %386 to i64
-  %switch.gep131 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.9, i64 0, i64 %391
-  %switch.load132 = load i16, ptr %switch.gep131, align 2
+  %switch.gep237 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.9, i64 0, i64 %391
+  %switch.load238 = load i16, ptr %switch.gep237, align 2
   br label %.sink.split.i131.i
 
-.sink.split.i131.i:                               ; preds = %388, %switch.lookup128
-  %.sink96.i.i = phi i16 [ %switch.load130, %switch.lookup128 ], [ 0, %388 ]
-  %.sink.i132.i = phi i16 [ %switch.load132, %switch.lookup128 ], [ 0, %388 ]
-  call void @SDL_SendJoystickAxis(i64 noundef %268, ptr noundef nonnull %.0, i8 noundef zeroext 2, i16 noundef signext %.sink96.i.i) #9
+.sink.split.i131.i:                               ; preds = %388, %switch.lookup234
+  %.sink98.i.i = phi i16 [ %switch.load236, %switch.lookup234 ], [ 0, %388 ]
+  %.sink.i132.i = phi i16 [ %switch.load238, %switch.lookup234 ], [ 0, %388 ]
+  call void @SDL_SendJoystickAxis(i64 noundef %268, ptr noundef nonnull %.0, i8 noundef zeroext 2, i16 noundef signext %.sink98.i.i) #9
   call void @SDL_SendJoystickAxis(i64 noundef %268, ptr noundef nonnull %.0, i8 noundef zeroext 3, i16 noundef signext %.sink.i132.i) #9
   br label %HandleSimpleControllerState.exit
 
@@ -1239,21 +1239,21 @@ RemapButton.exit.i134.i:                          ; preds = %392
 
 427:                                              ; preds = %424
   %428 = icmp ult i8 %425, 8
-  br i1 %428, label %switch.lookup133, label %.sink.split.i140.i
+  br i1 %428, label %switch.lookup239, label %.sink.split.i140.i
 
-switch.lookup133:                                 ; preds = %427
+switch.lookup239:                                 ; preds = %427
   %429 = zext nneg i8 %425 to i64
-  %switch.gep134 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.10, i64 0, i64 %429
-  %switch.load135 = load i16, ptr %switch.gep134, align 2
+  %switch.gep240 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.10, i64 0, i64 %429
+  %switch.load241 = load i16, ptr %switch.gep240, align 2
   %430 = zext nneg i8 %425 to i64
-  %switch.gep136 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.11, i64 0, i64 %430
-  %switch.load137 = load i16, ptr %switch.gep136, align 2
+  %switch.gep242 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.HIDAPI_DriverSwitch_UpdateDevice.11, i64 0, i64 %430
+  %switch.load243 = load i16, ptr %switch.gep242, align 2
   br label %.sink.split.i140.i
 
-.sink.split.i140.i:                               ; preds = %427, %switch.lookup133
-  %.sink97.i.i = phi i16 [ %switch.load135, %switch.lookup133 ], [ 0, %427 ]
-  %.sink.i141.i = phi i16 [ %switch.load137, %switch.lookup133 ], [ 0, %427 ]
-  call void @SDL_SendJoystickAxis(i64 noundef %268, ptr noundef nonnull %.0, i8 noundef zeroext 0, i16 noundef signext %.sink97.i.i) #9
+.sink.split.i140.i:                               ; preds = %427, %switch.lookup239
+  %.sink99.i.i = phi i16 [ %switch.load241, %switch.lookup239 ], [ 0, %427 ]
+  %.sink.i141.i = phi i16 [ %switch.load243, %switch.lookup239 ], [ 0, %427 ]
+  call void @SDL_SendJoystickAxis(i64 noundef %268, ptr noundef nonnull %.0, i8 noundef zeroext 0, i16 noundef signext %.sink99.i.i) #9
   call void @SDL_SendJoystickAxis(i64 noundef %268, ptr noundef nonnull %.0, i8 noundef zeroext 1, i16 noundef signext %.sink.i141.i) #9
   br label %HandleSimpleControllerState.exit
 
@@ -1328,11 +1328,11 @@ RemapButton.exit.i70:                             ; preds = %431
 
 467:                                              ; preds = %464
   %468 = icmp ult i8 %465, 8
-  %switch.cast139 = zext i8 %465 to i64
-  %switch.shiftamt140 = shl nuw nsw i64 %switch.cast139, 3
-  %switch.downshift141 = lshr i64 650783357575234305, %switch.shiftamt140
-  %switch.masked142 = trunc i64 %switch.downshift141 to i8
-  %.0.i73 = select i1 %468, i8 %switch.masked142, i8 0
+  %switch.cast245 = zext i8 %465 to i64
+  %switch.shiftamt246 = shl nuw nsw i64 %switch.cast245, 3
+  %switch.downshift247 = lshr i64 650783357575234305, %switch.shiftamt246
+  %switch.masked248 = trunc i64 %switch.downshift247 to i8
+  %.0.i73 = select i1 %468, i8 %switch.masked248, i8 0
   call void @SDL_SendJoystickHat(i64 noundef %268, ptr noundef nonnull %.0, i8 noundef zeroext 0, i8 noundef zeroext %.0.i73) #9
   br label %469
 
@@ -2777,7 +2777,7 @@ thread-pre-split.i:                               ; preds = %1255
 .thread.i:                                        ; preds = %thread-pre-split.i, %1047
   %1257 = phi i32 [ %.pr.i, %thread-pre-split.i ], [ %.pre.i, %1047 ]
   %1258 = icmp eq i32 %1257, 1
-  br i1 %1258, label %SendSensorUpdate.exit351.i, label %.thread431.i
+  br i1 %1258, label %SendSensorUpdate.exit351.i, label %.thread494.i
 
 SendSensorUpdate.exit351.i:                       ; preds = %.thread.i
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -3154,18 +3154,18 @@ SendSensorUpdate.exit375.i:                       ; preds = %.thread31.sink.spli
   %.phi.trans.insert426.i = getelementptr inbounds nuw i8, ptr %.pre425.i, i64 160
   %.pre427.i = load ptr, ptr %.phi.trans.insert426.i, align 8
   %1443 = icmp eq ptr %.pre427.i, null
-  br i1 %1443, label %HandleFullControllerState.exit, label %..thread431.i_crit_edge
+  br i1 %1443, label %HandleFullControllerState.exit, label %..thread494.i_crit_edge
 
-..thread431.i_crit_edge:                          ; preds = %1442
+..thread494.i_crit_edge:                          ; preds = %1442
   %.pre = load i32, ptr %46, align 8
-  br label %.thread431.i
+  br label %.thread494.i
 
-.thread431.i:                                     ; preds = %..thread431.i_crit_edge, %.thread.i
-  %1444 = phi i32 [ %.pre, %..thread431.i_crit_edge ], [ %1257, %.thread.i ]
+.thread494.i:                                     ; preds = %..thread494.i_crit_edge, %.thread.i
+  %1444 = phi i32 [ %.pre, %..thread494.i_crit_edge ], [ %1257, %.thread.i ]
   %1445 = icmp eq i32 %1444, 2
   br i1 %1445, label %SendSensorUpdate.exit387.i, label %HandleFullControllerState.exit
 
-SendSensorUpdate.exit387.i:                       ; preds = %.thread431.i
+SendSensorUpdate.exit387.i:                       ; preds = %.thread494.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %1446 = load i16, ptr %84, align 2
   %1447 = sitofp i16 %1446 to float
@@ -3582,7 +3582,7 @@ SendSensorUpdate.exit417.i:                       ; preds = %.thread31.sink.spli
   store i64 %1633, ptr %140, align 8
   br label %HandleFullControllerState.exit
 
-HandleFullControllerState.exit:                   ; preds = %1015, %1255, %1442, %.thread431.i, %SendSensorUpdate.exit417.i, %1629, %1632, %1651
+HandleFullControllerState.exit:                   ; preds = %1015, %1255, %1442, %.thread494.i, %SendSensorUpdate.exit417.i, %1629, %1632, %1651
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %141, ptr noundef nonnull readonly align 1 dereferenceable(48) %45, i64 48, i1 false)
   br label %.backedge
 
@@ -3601,15 +3601,15 @@ ReadInput.exit:                                   ; preds = %.backedge, %.lr.ph.
   br i1 %.not, label %HIDAPI_DriverSwitch_SendPendingRumble.exit, label %1657
 
 ReadInput.exit.thread:                            ; preds = %34
-  %.not102 = icmp eq ptr %.0, null
-  br i1 %.not102, label %HIDAPI_DriverSwitch_SendPendingRumble.exit, label %.thread106
+  %.not208 = icmp eq ptr %.0, null
+  br i1 %.not208, label %HIDAPI_DriverSwitch_SendPendingRumble.exit, label %.thread212
 
 1657:                                             ; preds = %ReadInput.exit
   %1658 = icmp eq i32 %.058.lcssa, 0
-  br i1 %1658, label %.thread106, label %.thread113
+  br i1 %1658, label %.thread212, label %.thread219
 
-.thread106:                                       ; preds = %ReadInput.exit.thread, %1657
-  %.0.i105109 = phi i32 [ %.0.i, %1657 ], [ 0, %ReadInput.exit.thread ]
+.thread212:                                       ; preds = %ReadInput.exit.thread, %1657
+  %.0.i211215 = phi i32 [ %.0.i, %1657 ], [ 0, %ReadInput.exit.thread ]
   %1659 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %1660 = load i8, ptr %1659, align 8, !range !3, !noundef !4
   %1661 = trunc nuw i8 %1660 to i1
@@ -3618,22 +3618,22 @@ ReadInput.exit.thread:                            ; preds = %34
   %1662 = trunc nuw i8 %.pre99 to i1
   br i1 %1661, label %1676, label %1663
 
-1663:                                             ; preds = %.thread106
-  br i1 %1662, label %.thread112, label %1664
+1663:                                             ; preds = %.thread212
+  br i1 %1662, label %.thread218, label %1664
 
 1664:                                             ; preds = %1663
   %1665 = load ptr, ptr %23, align 8
   %1666 = getelementptr inbounds nuw i8, ptr %1665, i64 34
   %1667 = load i16, ptr %1666, align 2
   %.not60 = icmp eq i16 %1667, 8206
-  br i1 %.not60, label %.thread113, label %1668
+  br i1 %.not60, label %.thread219, label %1668
 
 1668:                                             ; preds = %1664
   %1669 = getelementptr inbounds nuw i8, ptr %23, i64 160
   %1670 = load i64, ptr %1669, align 8
   %1671 = add i64 %1670, 100
   %.not61 = icmp ult i64 %24, %1671
-  br i1 %.not61, label %.thread113, label %1672
+  br i1 %.not61, label %.thread219, label %1672
 
 1672:                                             ; preds = %1668
   %1673 = getelementptr inbounds nuw i8, ptr %23, i64 24
@@ -3641,40 +3641,40 @@ ReadInput.exit.thread:                            ; preds = %34
   store i8 1, ptr %1673, align 8
   %1675 = call fastcc zeroext i1 @WriteProprietary(ptr noundef nonnull %23, i32 noundef 4, i1 noundef zeroext false)
   store i8 %1674, ptr %1673, align 8
-  br label %.thread113
+  br label %.thread219
 
-1676:                                             ; preds = %.thread106
-  br i1 %1662, label %.thread112, label %.thread113
+1676:                                             ; preds = %.thread212
+  br i1 %1662, label %.thread218, label %.thread219
 
-.thread112:                                       ; preds = %1663, %1676
+.thread218:                                       ; preds = %1663, %1676
   %1677 = getelementptr inbounds nuw i8, ptr %23, i64 37
   %1678 = load i8, ptr %1677, align 1
   %.not62 = icmp eq i8 %1678, 63
-  br i1 %.not62, label %.thread113, label %1679
+  br i1 %.not62, label %.thread219, label %1679
 
-1679:                                             ; preds = %.thread112
+1679:                                             ; preds = %.thread218
   %1680 = getelementptr inbounds nuw i8, ptr %23, i64 160
   %1681 = load i64, ptr %1680, align 8
   %1682 = add i64 %1681, 3000
   %.not63 = icmp ult i64 %24, %1682
-  %spec.select = select i1 %.not63, i32 %.0.i105109, i32 -1
-  br label %.thread113
+  %spec.select = select i1 %.not63, i32 %.0.i211215, i32 -1
+  br label %.thread219
 
-.thread113:                                       ; preds = %1664, %1668, %1672, %1679, %.thread112, %1676, %1657
-  %.058.lcssa103110 = phi i32 [ 0, %1679 ], [ 0, %.thread112 ], [ 0, %1676 ], [ %.058.lcssa, %1657 ], [ 0, %1672 ], [ 0, %1668 ], [ 0, %1664 ]
-  %.1 = phi i32 [ %spec.select, %1679 ], [ %.0.i105109, %.thread112 ], [ %.0.i105109, %1676 ], [ %.0.i, %1657 ], [ %.0.i105109, %1672 ], [ %.0.i105109, %1668 ], [ %.0.i105109, %1664 ]
+.thread219:                                       ; preds = %1664, %1668, %1672, %1679, %.thread218, %1676, %1657
+  %.058.lcssa209216 = phi i32 [ 0, %1679 ], [ 0, %.thread218 ], [ 0, %1676 ], [ %.058.lcssa, %1657 ], [ 0, %1672 ], [ 0, %1668 ], [ 0, %1664 ]
+  %.1 = phi i32 [ %spec.select, %1679 ], [ %.0.i211215, %.thread218 ], [ %.0.i211215, %1676 ], [ %.0.i, %1657 ], [ %.0.i211215, %1672 ], [ %.0.i211215, %1668 ], [ %.0.i211215, %1664 ]
   %1683 = getelementptr inbounds nuw i8, ptr %23, i64 144
   %1684 = load i8, ptr %1683, align 8, !range !3, !noundef !4
   %1685 = trunc nuw i8 %1684 to i1
   br i1 %1685, label %1690, label %1686
 
-1686:                                             ; preds = %.thread113
+1686:                                             ; preds = %.thread219
   %1687 = getelementptr inbounds nuw i8, ptr %23, i64 145
   %1688 = load i8, ptr %1687, align 1, !range !3, !noundef !4
   %1689 = trunc nuw i8 %1688 to i1
   br i1 %1689, label %1690, label %1712
 
-1690:                                             ; preds = %1686, %.thread113
+1690:                                             ; preds = %1686, %.thread219
   %1691 = call i64 @SDL_GetTicks_REAL() #9
   %1692 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %1693 = load i64, ptr %1692, align 8
@@ -3770,7 +3770,7 @@ WriteRumble.exit:                                 ; preds = %1738, %1742, %1744
   br label %HIDAPI_DriverSwitch_SendPendingRumble.exit
 
 HIDAPI_DriverSwitch_SendPendingRumble.exit:       ; preds = %ReadInput.exit.thread, %1710, %1706, %1699, %1690, %WriteRumble.exit, %1716, %1712, %ReadInput.exit
-  %.058.lcssa104 = phi i32 [ %.058.lcssa103110, %WriteRumble.exit ], [ %.058.lcssa103110, %1716 ], [ %.058.lcssa103110, %1712 ], [ %.058.lcssa, %ReadInput.exit ], [ %.058.lcssa103110, %1690 ], [ %.058.lcssa103110, %1699 ], [ %.058.lcssa103110, %1706 ], [ %.058.lcssa103110, %1710 ], [ 0, %ReadInput.exit.thread ]
+  %.058.lcssa210 = phi i32 [ %.058.lcssa209216, %WriteRumble.exit ], [ %.058.lcssa209216, %1716 ], [ %.058.lcssa209216, %1712 ], [ %.058.lcssa, %ReadInput.exit ], [ %.058.lcssa209216, %1690 ], [ %.058.lcssa209216, %1699 ], [ %.058.lcssa209216, %1706 ], [ %.058.lcssa209216, %1710 ], [ 0, %ReadInput.exit.thread ]
   %.057 = phi i32 [ %.1, %WriteRumble.exit ], [ %.1, %1716 ], [ %.1, %1712 ], [ %.0.i, %ReadInput.exit ], [ %.1, %1690 ], [ %.1, %1699 ], [ %.1, %1706 ], [ %.1, %1710 ], [ 0, %ReadInput.exit.thread ]
   %1748 = load i32, ptr %25, align 4
   %1749 = icmp eq i32 %1748, 0
@@ -3780,7 +3780,7 @@ HIDAPI_DriverSwitch_SendPendingRumble.exit:       ; preds = %ReadInput.exit.thre
   %1751 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %1752 = load i8, ptr %1751, align 4, !range !3, !noundef !4
   %1753 = trunc nuw i8 %1752 to i1
-  %1754 = icmp sgt i32 %.058.lcssa104, 0
+  %1754 = icmp sgt i32 %.058.lcssa210, 0
   %or.cond = select i1 %1753, i1 %1754, i1 false
   br i1 %or.cond, label %1755, label %1764
 
@@ -5512,11 +5512,11 @@ define internal fastcc noundef zeroext i1 @WriteSubcommand(ptr noundef %0, i32 n
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 78
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 11
   %26 = load i32, ptr %8, align 4
-  %.not.not.not29 = icmp sgt i32 %26, 0
-  br i1 %.not.not.not29, label %.lr.ph, label %.critedge
+  %.not.not.not31 = icmp sgt i32 %26, 0
+  br i1 %.not.not.not31, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %5, %ReadSubcommandReply.exit
-  %.02130 = phi i32 [ %81, %ReadSubcommandReply.exit ], [ 1, %5 ]
+  %.02132 = phi i32 [ %81, %ReadSubcommandReply.exit ], [ 1, %5 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(38) %25, i8 0, i64 38, i1 false)
   store i8 1, ptr %7, align 1
@@ -5662,13 +5662,13 @@ ReadSubcommandReply.exit.thread:                  ; preds = %78
 
 ReadSubcommandReply.exit:                         ; preds = %.thread20.i, %ReadInput.exit.i, %WritePacket.exit.thread, %WritePacket.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %81 = add nuw nsw i32 %.02130, 1
+  %81 = add nuw nsw i32 %.02132, 1
   %82 = load i32, ptr %8, align 4
-  %.not.not.not = icmp slt i32 %.02130, %82
+  %.not.not.not = icmp slt i32 %.02132, %82
   br i1 %.not.not.not, label %.lr.ph, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %ReadSubcommandReply.exit, %5, %ReadSubcommandReply.exit.thread
-  %.not.not.not28 = phi i1 [ true, %ReadSubcommandReply.exit.thread ], [ false, %5 ], [ false, %ReadSubcommandReply.exit ]
+  %.not.not.not30 = phi i1 [ true, %ReadSubcommandReply.exit.thread ], [ false, %5 ], [ false, %ReadSubcommandReply.exit ]
   %.014.lcssa = phi ptr [ %19, %ReadSubcommandReply.exit.thread ], [ null, %5 ], [ null, %ReadSubcommandReply.exit ]
   %.not16 = icmp eq ptr %4, null
   br i1 %.not16, label %84, label %83
@@ -5678,7 +5678,7 @@ ReadSubcommandReply.exit:                         ; preds = %.thread20.i, %ReadI
   br label %84
 
 84:                                               ; preds = %83, %.critedge
-  ret i1 %.not.not.not28
+  ret i1 %.not.not.not30
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -5854,12 +5854,12 @@ WritePacket.exit:                                 ; preds = %47, %54
 
 77:                                               ; preds = %75
   switch i8 %.pre14.i, label %78 [
-    i8 48, label %.thread15.i
-    i8 49, label %.thread15.i
-    i8 63, label %.thread15.i
+    i8 48, label %.thread16.i
+    i8 49, label %.thread16.i
+    i8 63, label %.thread16.i
   ]
 
-.thread15.i:                                      ; preds = %77, %77, %77
+.thread16.i:                                      ; preds = %77, %77, %77
   store i8 %.pre14.i, ptr %15, align 4
   br label %85
 
@@ -5886,7 +5886,7 @@ ReadProprietaryReply.exit.thread11:               ; preds = %81
   call void @SDL_Delay_REAL(i32 noundef 1) #9
   br label %85
 
-85:                                               ; preds = %.thread.i, %81, %78, %.thread15.i
+85:                                               ; preds = %.thread.i, %81, %78, %.thread16.i
   %86 = call i64 @SDL_GetTicks_REAL() #9
   %.not7.i = icmp ult i64 %86, %60
   br i1 %.not7.i, label %61, label %ReadProprietaryReply.exit.thread9, !llvm.loop !15
@@ -6068,14 +6068,14 @@ define internal fastcc void @SetEnhancedModeAvailable(ptr noundef captures(none)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 53
   %3 = load i8, ptr %2, align 1, !range !3, !noundef !4
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %.thread22, label %5
+  br i1 %4, label %.thread23, label %5
 
 5:                                                ; preds = %1
   store i8 1, ptr %2, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %7 = load i8, ptr %6, align 8, !range !3, !noundef !4
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %9, label %.thread22
+  br i1 %8, label %9, label %.thread23
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %0, align 8
@@ -6100,13 +6100,13 @@ define internal fastcc void @SetEnhancedModeAvailable(ptr noundef captures(none)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 160
   %.pre17 = load ptr, ptr %.phi.trans.insert, align 8
   %21 = icmp eq ptr %.pre17, null
-  br i1 %21, label %.thread22, label %.thread
+  br i1 %21, label %.thread23, label %.thread
 
 .thread:                                          ; preds = %13, %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 1
-  br i1 %24, label %25, label %.thread24
+  br i1 %24, label %25, label %.thread25
 
 25:                                               ; preds = %.thread
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6118,23 +6118,23 @@ define internal fastcc void @SetEnhancedModeAvailable(ptr noundef captures(none)
   %.phi.trans.insert19 = getelementptr inbounds nuw i8, ptr %.pre18, i64 160
   %.pre20 = load ptr, ptr %.phi.trans.insert19, align 8
   %29 = icmp eq ptr %.pre20, null
-  br i1 %29, label %.thread22, label %.thread24
+  br i1 %29, label %.thread23, label %.thread25
 
-.thread24:                                        ; preds = %.thread, %25
+.thread25:                                        ; preds = %.thread, %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 2
-  br i1 %32, label %33, label %.thread22
+  br i1 %32, label %33, label %.thread23
 
-33:                                               ; preds = %.thread24
+33:                                               ; preds = %.thread25
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
   tail call void @SDL_PrivateJoystickAddSensor(ptr noundef %35, i32 noundef 6, float noundef 2.000000e+02) #9
   %36 = load ptr, ptr %34, align 8
   tail call void @SDL_PrivateJoystickAddSensor(ptr noundef %36, i32 noundef 5, float noundef 2.000000e+02) #9
-  br label %.thread22
+  br label %.thread23
 
-.thread22:                                        ; preds = %17, %25, %.thread24, %33, %1, %5
+.thread23:                                        ; preds = %17, %25, %.thread25, %33, %1, %5
   ret void
 }
 

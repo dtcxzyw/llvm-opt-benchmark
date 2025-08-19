@@ -719,8 +719,8 @@ define dso_local i32 @vfs_fallocate(ptr noundef %0, i32 noundef %1, i64 noundef 
   %or.cond = select i1 %43, i1 true, i1 %45
   %46 = and i32 %.pre, 8
   %47 = icmp eq i32 %46, 0
-  %or.cond6 = select i1 %or.cond, i1 %47, i1 false
-  br i1 %or.cond6, label %48, label %83
+  %or.cond8 = select i1 %or.cond, i1 %47, i1 false
+  br i1 %or.cond8, label %48, label %83
 
 48:                                               ; preds = %41
   %49 = and i32 %.pre, 256

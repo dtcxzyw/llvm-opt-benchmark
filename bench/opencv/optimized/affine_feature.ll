@@ -3339,7 +3339,7 @@ define linkonce_odr hidden void @_ZNK2cv22skewedDetectAndCompute10affineSkewEffR
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #27
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %43 = load ptr, ptr %42, align 8, !tbaa !160
-  %indvars.iv13.i.i.sroa.gep120 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %indvars.iv13.i.i.sroa.gep122 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %44 = invoke noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %43)
           to label %45 unwind label %51
 
@@ -3468,7 +3468,7 @@ define linkonce_odr hidden void @_ZNK2cv22skewedDetectAndCompute10affineSkewEffR
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %70
   %88 = phi i1 [ true, %70 ], [ false, %.preheader.i.i ]
-  %indvars.iv13.i.i.sroa.phi = phi ptr [ %15, %70 ], [ %indvars.iv13.i.i.sroa.gep120, %.preheader.i.i ]
+  %indvars.iv13.i.i.sroa.phi = phi ptr [ %15, %70 ], [ %indvars.iv13.i.i.sroa.gep122, %.preheader.i.i ]
   %indvars.iv13.i.i = phi i64 [ 0, %70 ], [ 1, %.preheader.i.i ]
   %89 = shl nuw nsw i64 %indvars.iv13.i.i, 1
   %90 = load float, ptr %indvars.iv13.i.i.sroa.phi, align 4, !tbaa !32

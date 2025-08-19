@@ -469,10 +469,10 @@ pmix_obj_new_tma.exit119:                         ; preds = %.lr.ph.i.i116, %164
   br i1 %184, label %.thread129, label %185
 
 185:                                              ; preds = %pmix_obj_new_tma.exit119, %182
-  %.sink165 = phi ptr [ %183, %182 ], [ %180, %pmix_obj_new_tma.exit119 ]
+  %.sink185 = phi ptr [ %183, %182 ], [ %180, %pmix_obj_new_tma.exit119 ]
   %186 = getelementptr inbounds nuw i8, ptr %.2139, i64 152
   %187 = load ptr, ptr %186, align 8, !tbaa !44
-  %188 = tail call i32 @PMIx_Value_xfer(ptr noundef nonnull %.sink165, ptr noundef %187) #14
+  %188 = tail call i32 @PMIx_Value_xfer(ptr noundef nonnull %.sink185, ptr noundef %187) #14
   %.not95 = icmp eq i32 %188, 0
   br i1 %.not95, label %212, label %.thread129
 
@@ -1485,12 +1485,12 @@ pmix_obj_new_tma.exit375:                         ; preds = %.lr.ph.i.i372, %278
   %303 = load ptr, ptr %302, align 8, !tbaa !69
   %304 = icmp eq ptr %303, null
   %305 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 344), align 8
-  %spec.select539 = select i1 %304, ptr %305, ptr %303
+  %spec.select583 = select i1 %304, ptr %305, ptr %303
   br label %306
 
 306:                                              ; preds = %301, %295, %297
-  %.sink538 = phi ptr [ @.str.6, %297 ], [ @.str.6, %295 ], [ %spec.select539, %301 ]
-  %307 = tail call noalias ptr @strdup(ptr noundef %.sink538) #14
+  %.sink582 = phi ptr [ @.str.6, %297 ], [ @.str.6, %295 ], [ %spec.select583, %301 ]
+  %307 = tail call noalias ptr @strdup(ptr noundef %.sink582) #14
   %308 = getelementptr inbounds nuw i8, ptr %274, i64 144
   store ptr %307, ptr %308, align 8, !tbaa !41
   %309 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #13
@@ -3344,7 +3344,7 @@ pmix_check_app_info.exit:                         ; preds = %.preheader473
 315:                                              ; preds = %312
   %316 = load i32, ptr %308, align 4, !tbaa !99
   %317 = icmp eq i32 %316, -2
-  br i1 %317, label %.thread552, label %pmix_obj_run_destructors.exit389
+  br i1 %317, label %.thread595, label %pmix_obj_run_destructors.exit389
 
 318:                                              ; preds = %311
   br i1 %.2306, label %319, label %325
@@ -3358,7 +3358,7 @@ pmix_check_app_info.exit:                         ; preds = %.preheader473
 322:                                              ; preds = %319
   %323 = load i32, ptr %308, align 4, !tbaa !99
   %324 = icmp eq i32 %323, -2
-  br i1 %324, label %.thread552, label %pmix_obj_run_destructors.exit389
+  br i1 %324, label %.thread595, label %pmix_obj_run_destructors.exit389
 
 325:                                              ; preds = %318, %307
   switch i8 %1, label %326 [
@@ -3385,8 +3385,8 @@ pmix_check_app_info.exit:                         ; preds = %.preheader473
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef %331, ptr noundef nonnull @.str.9, i32 noundef 666) #14
   br label %pmix_obj_run_destructors.exit389
 
-.thread552:                                       ; preds = %322, %315
-  %.0296.ptr554 = getelementptr inbounds nuw i8, ptr %23, i64 160
+.thread595:                                       ; preds = %322, %315
+  %.0296.ptr597 = getelementptr inbounds nuw i8, ptr %23, i64 160
   br label %430
 
 332:                                              ; preds = %439, %437, %440, %438, %328, %326, %325, %325, %325, %329
@@ -3521,10 +3521,10 @@ pmix_obj_new_tma.exit420:                         ; preds = %.lr.ph.i.i417, %369
   br i1 %390, label %.thread454, label %391
 
 391:                                              ; preds = %pmix_obj_new_tma.exit420, %388
-  %.sink575 = phi ptr [ %389, %388 ], [ %385, %pmix_obj_new_tma.exit420 ]
+  %.sink618 = phi ptr [ %389, %388 ], [ %385, %pmix_obj_new_tma.exit420 ]
   %392 = getelementptr inbounds nuw i8, ptr %.2293504, i64 152
   %393 = load ptr, ptr %392, align 8, !tbaa !44
-  %394 = tail call i32 @PMIx_Value_xfer(ptr noundef nonnull %.sink575, ptr noundef %393) #14
+  %394 = tail call i32 @PMIx_Value_xfer(ptr noundef nonnull %.sink618, ptr noundef %393) #14
   %.not341 = icmp eq i32 %394, 0
   br i1 %.not341, label %418, label %.thread454
 
@@ -3611,15 +3611,15 @@ pmix_obj_run_destructors.exit425:                 ; preds = %.lr.ph.i422, %404
   %429 = tail call i32 @pmix_hash_fetch(ptr noundef nonnull %428, i32 noundef -2, ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef %6, ptr noundef null) #14
   br label %433
 
-430:                                              ; preds = %.thread552, %332
-  %.0296.ptr558 = phi ptr [ %.0296.ptr554, %.thread552 ], [ %.0296.ptr, %332 ]
-  %.0296.idx556 = phi i64 [ 160, %.thread552 ], [ %.0296.idx.ph, %332 ]
-  %431 = phi i32 [ -2, %.thread552 ], [ %.pr, %332 ]
-  %432 = tail call i32 @pmix_hash_fetch(ptr noundef nonnull %.0296.ptr558, i32 noundef %431, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef null) #14
+430:                                              ; preds = %.thread595, %332
+  %.0296.ptr601 = phi ptr [ %.0296.ptr597, %.thread595 ], [ %.0296.ptr, %332 ]
+  %.0296.idx599 = phi i64 [ 160, %.thread595 ], [ %.0296.idx.ph, %332 ]
+  %431 = phi i32 [ -2, %.thread595 ], [ %.pr, %332 ]
+  %432 = tail call i32 @pmix_hash_fetch(ptr noundef nonnull %.0296.ptr601, i32 noundef %431, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef null) #14
   br label %433
 
 433:                                              ; preds = %427, %430
-  %.0296.idx555 = phi i64 [ %.0296.idx.ph, %427 ], [ %.0296.idx556, %430 ]
+  %.0296.idx598 = phi i64 [ %.0296.idx.ph, %427 ], [ %.0296.idx599, %430 ]
   %.2 = phi i32 [ %429, %427 ], [ %432, %430 ]
   %434 = icmp eq i32 %.2, 0
   br i1 %434, label %435, label %.thread459
@@ -3629,7 +3629,7 @@ pmix_obj_run_destructors.exit425:                 ; preds = %.lr.ph.i422, %404
   br i1 %436, label %437, label %441
 
 437:                                              ; preds = %435
-  switch i64 %.0296.idx555, label %441 [
+  switch i64 %.0296.idx598, label %441 [
     i64 528, label %332
     i64 160, label %438
   ]
@@ -3638,7 +3638,7 @@ pmix_obj_run_destructors.exit425:                 ; preds = %.lr.ph.i422, %404
   br label %332
 
 .thread459:                                       ; preds = %418, %._crit_edge507, %433
-  %.0296.idx557 = phi i64 [ %.0296.idx555, %433 ], [ %.0296.idx.ph, %._crit_edge507 ], [ %.0296.idx.ph, %418 ]
+  %.0296.idx600 = phi i64 [ %.0296.idx598, %433 ], [ %.0296.idx.ph, %._crit_edge507 ], [ %.0296.idx.ph, %418 ]
   %.2462 = phi i32 [ %.2, %433 ], [ -46, %._crit_edge507 ], [ -46, %418 ]
   switch i8 %1, label %441 [
     i8 3, label %439
@@ -3646,7 +3646,7 @@ pmix_obj_run_destructors.exit425:                 ; preds = %.lr.ph.i422, %404
   ]
 
 439:                                              ; preds = %.thread459, %.thread459
-  switch i64 %.0296.idx557, label %441 [
+  switch i64 %.0296.idx600, label %441 [
     i64 160, label %332
     i64 528, label %440
   ]

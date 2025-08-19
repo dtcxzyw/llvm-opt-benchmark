@@ -2710,7 +2710,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !63, !noundef !3
-  switch i8 %23, label %default.unreachable63 [
+  switch i8 %23, label %default.unreachable75 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -2752,7 +2752,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %246
   ]
 
-default.unreachable63:                            ; preds = %2
+default.unreachable75:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2

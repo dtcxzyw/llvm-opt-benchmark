@@ -392,9 +392,9 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.critedge511
 
 162:                                              ; preds = %154, %149
-  %.sink730 = phi i32 [ 256, %149 ], [ 1, %154 ]
+  %.sink738 = phi i32 [ 256, %149 ], [ 1, %154 ]
   %163 = load i32, ptr %28, align 8
-  %164 = or i32 %163, %.sink730
+  %164 = or i32 %163, %.sink738
   store i32 %164, ptr %28, align 8
   br label %.critedge512
 
@@ -426,9 +426,9 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.critedge511
 
 182:                                              ; preds = %174, %169
-  %.sink731 = phi i32 [ 1024, %169 ], [ 4, %174 ]
+  %.sink739 = phi i32 [ 1024, %169 ], [ 4, %174 ]
   %183 = load i32, ptr %28, align 8
-  %184 = or i32 %183, %.sink731
+  %184 = or i32 %183, %.sink739
   store i32 %184, ptr %28, align 8
   br label %.critedge512
 
@@ -458,9 +458,9 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.critedge511
 
 200:                                              ; preds = %192, %187
-  %.sink732 = phi i32 [ 16384, %187 ], [ 64, %192 ]
+  %.sink740 = phi i32 [ 16384, %187 ], [ 64, %192 ]
   %201 = load i32, ptr %28, align 8
-  %202 = or i32 %201, %.sink732
+  %202 = or i32 %201, %.sink740
   store i32 %202, ptr %28, align 8
   br label %.critedge512
 
@@ -490,9 +490,9 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.critedge511
 
 218:                                              ; preds = %210, %205
-  %.sink733 = phi i32 [ 131072, %205 ], [ 65536, %210 ]
+  %.sink741 = phi i32 [ 131072, %205 ], [ 65536, %210 ]
   %219 = load i32, ptr %28, align 8
-  %220 = or i32 %219, %.sink733
+  %220 = or i32 %219, %.sink741
   store i32 %220, ptr %28, align 8
   br label %.critedge512
 
@@ -522,9 +522,9 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.critedge511
 
 237:                                              ; preds = %229, %224
-  %.sink734 = phi i32 [ 512, %224 ], [ 2, %229 ]
+  %.sink742 = phi i32 [ 512, %224 ], [ 2, %229 ]
   %238 = load i32, ptr %28, align 8
-  %239 = or i32 %238, %.sink734
+  %239 = or i32 %238, %.sink742
   store i32 %239, ptr %28, align 8
   br label %.critedge512
 
@@ -554,9 +554,9 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.critedge511
 
 256:                                              ; preds = %248, %243
-  %.sink735 = phi i32 [ 8192, %243 ], [ 32, %248 ]
+  %.sink743 = phi i32 [ 8192, %243 ], [ 32, %248 ]
   %257 = load i32, ptr %28, align 8
-  %258 = or i32 %257, %.sink735
+  %258 = or i32 %257, %.sink743
   store i32 %258, ptr %28, align 8
   br label %.critedge512
 
@@ -588,9 +588,9 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.critedge511
 
 277:                                              ; preds = %269, %264
-  %.sink736 = phi i32 [ 2048, %264 ], [ 8, %269 ]
+  %.sink744 = phi i32 [ 2048, %264 ], [ 8, %269 ]
   %278 = load i32, ptr %28, align 8
-  %279 = or i32 %278, %.sink736
+  %279 = or i32 %278, %.sink744
   store i32 %279, ptr %28, align 8
   br label %.critedge512
 
@@ -620,9 +620,9 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.critedge511
 
 296:                                              ; preds = %288, %283
-  %.sink737 = phi i32 [ 4096, %283 ], [ 16, %288 ]
+  %.sink745 = phi i32 [ 4096, %283 ], [ 16, %288 ]
   %297 = load i32, ptr %28, align 8
-  %298 = or i32 %297, %.sink737
+  %298 = or i32 %297, %.sink745
   store i32 %298, ptr %28, align 8
   br label %.critedge512
 
@@ -758,9 +758,9 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.critedge511
 
 367:                                              ; preds = %360, %356
-  %.sink739 = phi i32 [ 32768, %356 ], [ 128, %360 ]
+  %.sink747 = phi i32 [ 32768, %356 ], [ 128, %360 ]
   %368 = load i32, ptr %28, align 8
-  %369 = or i32 %368, %.sink739
+  %369 = or i32 %368, %.sink747
   store i32 %369, ptr %28, align 8
   br label %.critedge512
 
@@ -875,8 +875,8 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.critedge511
 
 420:                                              ; preds = %413, %411, %409, %405
-  %.sink740 = phi i16 [ 0, %405 ], [ 1, %409 ], [ 3, %411 ], [ 2, %413 ]
-  store i16 %.sink740, ptr %24, align 2
+  %.sink748 = phi i16 [ 0, %405 ], [ 1, %409 ], [ 3, %411 ], [ 2, %413 ]
+  store i16 %.sink748, ptr %24, align 2
   br label %.critedge512
 
 421:                                              ; preds = %403

@@ -3377,8 +3377,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %21
   br label %_ZN9grpc_core13RefCountedPtrINS_12EndpointListEED2Ev.exit6.i.i.i
 
 _ZN9grpc_core13RefCountedPtrINS_12EndpointListEED2Ev.exit6.i.i.i: ; preds = %221, %217, %.body.i.i.i.i, %.body.i.thread.i.i.i
-  %eh.lpad-body.i12.i.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i.i.i.i.i.i, %.body.i.thread.i.i.i ], [ %216, %.body.i.i.i.i ], [ %216, %217 ], [ %216, %221 ]
-  resume { ptr, i32 } %eh.lpad-body.i12.i.i.i
+  %eh.lpad-body.i31.i.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i.i.i.i.i.i, %.body.i.thread.i.i.i ], [ %216, %.body.i.i.i.i ], [ %216, %217 ], [ %216, %221 ]
+  resume { ptr, i32 } %eh.lpad-body.i31.i.i.i
 
 _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_110RoundRobin22RoundRobinEndpointList18RoundRobinEndpointENS0_16OrphanableDeleteEED2Ev.exit: ; preds = %215, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %200, %193
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !178
@@ -3926,8 +3926,8 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi9EEERS2_RAT__Kc.exit45: ; p
   br i1 %148, label %.sink.split.i, label %_ZN9grpc_core12_GLOBAL__N_110RoundRobin22RoundRobinEndpointList25UpdateStateCountersLockedESt8optionalI23grpc_connectivity_stateES4_.exit
 
 .sink.split.i:                                    ; preds = %147, %146, %144
-  %.sink64.i = phi i64 [ 96, %144 ], [ 104, %146 ], [ 112, %147 ]
-  %149 = getelementptr inbounds nuw i8, ptr %.val38, i64 %.sink64.i
+  %.sink67.i = phi i64 [ 96, %144 ], [ 104, %146 ], [ 112, %147 ]
+  %149 = getelementptr inbounds nuw i8, ptr %.val38, i64 %.sink67.i
   %150 = load i64, ptr %149, align 8, !tbaa !201
   %151 = add i64 %150, 1
   store i64 %151, ptr %149, align 8, !tbaa !201

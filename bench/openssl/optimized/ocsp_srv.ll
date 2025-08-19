@@ -385,10 +385,10 @@ OCSP_RESPID_set_by_name.exit:                     ; preds = %29
   br i1 %.not33, label %OCSP_RESPID_set_by_name.exit.thread, label %45
 
 OCSP_RESPID_set_by_name.exit.thread.sink.split:   ; preds = %10, %14, %5, %7
-  %.sink36 = phi i32 [ 175, %7 ], [ 175, %5 ], [ 181, %14 ], [ 181, %10 ]
+  %.sink38 = phi i32 [ 175, %7 ], [ 175, %5 ], [ 181, %14 ], [ 181, %10 ]
   %.sink = phi i32 [ 130, %7 ], [ 130, %5 ], [ 110, %14 ], [ 110, %10 ]
   tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink36, ptr noundef nonnull @__func__.OCSP_basic_sign_ctx) #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink38, ptr noundef nonnull @__func__.OCSP_basic_sign_ctx) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef %.sink, ptr noundef null) #6
   br label %OCSP_RESPID_set_by_name.exit.thread
 

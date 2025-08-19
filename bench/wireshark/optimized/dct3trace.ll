@@ -178,9 +178,9 @@ define internal fastcc noundef zeroext i1 @dct3trace_get_packet(ptr noundef %0, 
 .outer.outer:                                     ; preds = %.outer.outer.outer, %112
   %.084.ph.ph = phi i32 [ %.185, %112 ], [ %.084.ph.ph.ph, %.outer.outer.outer ]
   %.077.ph.ph = phi i8 [ %.178, %112 ], [ %.077.ph.ph.ph, %.outer.outer.outer ]
-  br label %.outer.outer268
+  br label %.outer.outer277
 
-.outer:                                           ; preds = %41, %.outer.outer268
+.outer:                                           ; preds = %41, %.outer.outer277
   br i1 %24, label %.outer.split.us, label %.outer.split
 
 .outer.split.us:                                  ; preds = %.outer
@@ -201,11 +201,11 @@ define internal fastcc noundef zeroext i1 @dct3trace_get_packet(ptr noundef %0, 
 23:                                               ; preds = %21
   %rhsv.us = load i32, ptr %5, align 16
   %.not96.us = icmp eq i32 %rhsv.us, 540109884
-  br i1 %.not96.us, label %.split171.us, label %.outer.outer268, !llvm.loop !6
+  br i1 %.not96.us, label %.split171.us, label %.outer.outer277, !llvm.loop !6
 
-.outer.outer268:                                  ; preds = %.outer.outer, %23
-  %.077.ph.ph269 = phi i8 [ %.077.ph.ph, %.outer.outer ], [ 1, %23 ]
-  %24 = trunc nuw i8 %.077.ph.ph269 to i1
+.outer.outer277:                                  ; preds = %.outer.outer, %23
+  %.077.ph.ph278 = phi i8 [ %.077.ph.ph, %.outer.outer ], [ 1, %23 ]
+  %24 = trunc nuw i8 %.077.ph.ph278 to i1
   br label %.outer
 
 .outer.split:                                     ; preds = %.outer, %113
@@ -421,7 +421,7 @@ hex2bin.exit.thread:                              ; preds = %hex2bin.exit, %91
 
 112:                                              ; preds = %68, %hex2bin.exit
   %.185 = phi i32 [ %107, %hex2bin.exit ], [ %.084.ph.ph, %68 ]
-  %.178 = phi i8 [ 1, %hex2bin.exit ], [ %.077.ph.ph269, %68 ]
+  %.178 = phi i8 [ 1, %hex2bin.exit ], [ %.077.ph.ph278, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.outer.outer, !llvm.loop !6

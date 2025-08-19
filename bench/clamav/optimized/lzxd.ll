@@ -1549,9 +1549,9 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 631:                                              ; preds = %._crit_edge3320
   store i8 1, ptr %80, align 4, !tbaa !30
   %or.cond28 = icmp eq i32 %.181212.lcssa, 8
-  br i1 %or.cond28, label %634, label %.preheader3858
+  br i1 %or.cond28, label %634, label %.preheader3941
 
-.preheader3858:                                   ; preds = %632, %631
+.preheader3941:                                   ; preds = %632, %631
   %.4710093328.ph = phi ptr [ %.32994.lcssa, %631 ], [ %633, %632 ]
   %.4710723327.ph = phi ptr [ %.321057.lcssa, %631 ], [ %.461071, %632 ]
   br label %651
@@ -1560,7 +1560,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.461071 = phi ptr [ %650, %648 ], [ %.451070, %642 ]
   %.461008 = phi ptr [ %649, %648 ], [ %643, %642 ]
   %633 = getelementptr inbounds nuw i8, ptr %.461008, i64 1
-  br label %.preheader3858
+  br label %.preheader3941
 
 634:                                              ; preds = %631
   %.not1470 = icmp ult ptr %.32994.lcssa, %.321057.lcssa
@@ -1601,10 +1601,10 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %650 = load ptr, ptr %39, align 8, !tbaa !45
   br label %632
 
-651:                                              ; preds = %.preheader3858, %659
-  %.4710093328 = phi ptr [ %660, %659 ], [ %.4710093328.ph, %.preheader3858 ]
-  %.4710723327 = phi ptr [ %.481073, %659 ], [ %.4710723327.ph, %.preheader3858 ]
-  %.012683326.idx = phi i64 [ %.012683326.add, %659 ], [ 0, %.preheader3858 ]
+651:                                              ; preds = %.preheader3941, %659
+  %.4710093328 = phi ptr [ %660, %659 ], [ %.4710093328.ph, %.preheader3941 ]
+  %.4710723327 = phi ptr [ %.481073, %659 ], [ %.4710723327.ph, %.preheader3941 ]
+  %.012683326.idx = phi i64 [ %.012683326.add, %659 ], [ 0, %.preheader3941 ]
   %.012683326.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.012683326.idx
   %.not1474 = icmp ult ptr %.4710093328, %.4710723327
   br i1 %.not1474, label %659, label %652
@@ -2057,7 +2057,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 861:                                              ; preds = %856
   %862 = icmp ugt i32 %766, 287
   %863 = zext nneg i32 %858 to i64
-  br i1 %862, label %.thread3650, label %864
+  br i1 %862, label %.thread3733, label %864
 
 864:                                              ; preds = %861
   %865 = getelementptr inbounds nuw [36 x i8], ptr @extra_bits, i64 0, i64 %863
@@ -2075,7 +2075,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %875 = icmp eq i8 %874, 2
   br i1 %875, label %881, label %978
 
-.thread3650:                                      ; preds = %861
+.thread3733:                                      ; preds = %861
   %876 = getelementptr inbounds nuw [290 x i32], ptr @position_base, i64 0, i64 %863
   %877 = load i32, ptr %876, align 4, !tbaa !32
   %878 = add i32 %877, -2
@@ -2088,9 +2088,9 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.not1493 = icmp eq i32 %882, 64
   br i1 %.not1493, label %922, label %.preheader1877
 
-.preheader1877:                                   ; preds = %.thread3650, %881
-  %883 = phi i32 [ %870, %881 ], [ %878, %.thread3650 ]
-  %884 = phi i32 [ %867, %881 ], [ 17, %.thread3650 ]
+.preheader1877:                                   ; preds = %.thread3733, %881
+  %883 = phi i32 [ %870, %881 ], [ %878, %.thread3733 ]
+  %884 = phi i32 [ %867, %881 ], [ 17, %.thread3733 ]
   %885 = add nsw i32 %884, -3
   %886 = icmp slt i32 %.311225, %885
   br i1 %886, label %.lr.ph3388, label %._crit_edge3389
@@ -2288,9 +2288,9 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.not1488 = icmp ult i32 %766, 32
   br i1 %.not1488, label %1046, label %.preheader1878
 
-.preheader1878:                                   ; preds = %.thread3650, %978
-  %979 = phi i32 [ %867, %978 ], [ 17, %.thread3650 ]
-  %980 = phi i32 [ %870, %978 ], [ %878, %.thread3650 ]
+.preheader1878:                                   ; preds = %.thread3733, %978
+  %979 = phi i32 [ %867, %978 ], [ 17, %.thread3733 ]
+  %980 = phi i32 [ %870, %978 ], [ %878, %.thread3733 ]
   %981 = icmp slt i32 %.311225, %979
   br i1 %981, label %.lr.ph3378, label %._crit_edge3379
 

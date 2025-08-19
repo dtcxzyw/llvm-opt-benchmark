@@ -57,9 +57,9 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   br i1 %10, label %tailrecurse.backedge, label %14
 
 tailrecurse.backedge:                             ; preds = %.lr.ph, %14
-  %.sink31 = phi i64 [ 16, %14 ], [ 8, %.lr.ph ]
+  %.sink34 = phi i64 [ 16, %14 ], [ 8, %.lr.ph ]
   %11 = load ptr, ptr %.tr28, align 8, !tbaa !10
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.sink31
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.sink34
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %tailrecurse._crit_edge, label %.lr.ph

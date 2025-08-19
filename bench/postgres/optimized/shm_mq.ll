@@ -265,7 +265,7 @@ define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr noundef captures(none) %0
   br i1 %15, label %18, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge.thread, %._crit_edge
-  %.lcssa181197 = phi i64 [ 0, %._crit_edge.thread ], [ %14, %._crit_edge ]
+  %.lcssa181211 = phi i64 [ 0, %._crit_edge.thread ], [ %14, %._crit_edge ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %22
@@ -282,7 +282,7 @@ define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr noundef captures(none) %0
   %23 = load i8, ptr %16, align 8, !range !13, !noundef !14
   %24 = trunc nuw i8 %23 to i1
   %25 = load i64, ptr %17, align 8
-  br i1 %24, label %.preheader199, label %26
+  br i1 %24, label %.preheader213, label %26
 
 26:                                               ; preds = %22
   %27 = sub i64 8, %25
@@ -313,7 +313,7 @@ define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr noundef captures(none) %0
   %.not145 = icmp eq i32 %29, 0
   br i1 %.not145, label %22, label %.thread, !llvm.loop !15
 
-.preheader199:                                    ; preds = %22, %.thread157
+.preheader213:                                    ; preds = %22, %.thread157
   %39 = phi i64 [ %91, %.thread157 ], [ %25, %22 ]
   %.0109 = phi i32 [ %.1110163, %.thread157 ], [ 0, %22 ]
   %.0106 = phi i64 [ %.1107164, %.thread157 ], [ %25, %22 ]
@@ -324,13 +324,13 @@ define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr noundef captures(none) %0
   %.not = icmp ult i64 %.0106, %43
   br i1 %.not, label %47, label %44
 
-44:                                               ; preds = %.preheader199
+44:                                               ; preds = %.preheader213
   %45 = sub nuw i64 %.0106, %43
   %46 = add i32 %.0109, 1
   %.not141 = icmp slt i32 %46, %2
   br i1 %.not141, label %.thread157, label %.thread165
 
-47:                                               ; preds = %.preheader199
+47:                                               ; preds = %.preheader213
   %48 = add i32 %.0109, 1
   %49 = icmp slt i32 %48, %2
   %50 = add i64 %.0106, 8
@@ -373,7 +373,7 @@ define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr noundef captures(none) %0
   %67 = sub nuw i64 %.2108, %.pre191.ph
   %68 = add i32 %.2111.ph, 1
   %.not139 = icmp slt i32 %68, %2
-  br i1 %.not139, label %._crit_edge190, label %.loopexit204
+  br i1 %.not139, label %._crit_edge190, label %.loopexit218
 
 ._crit_edge190:                                   ; preds = %66
   %.phi.trans.insert.phi.trans.insert = sext i32 %68 to i64
@@ -381,14 +381,14 @@ define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr noundef captures(none) %0
   %.pre.pre = load i64, ptr %.phi.trans.insert189.phi.trans.insert, align 8
   br label %.outer
 
-.loopexit204:                                     ; preds = %66
+.loopexit218:                                     ; preds = %66
   %69 = sext i32 %.0 to i64
   br label %.loopexit
 
-.loopexit:                                        ; preds = %57, %.loopexit204
-  %.3112 = phi i32 [ %68, %.loopexit204 ], [ %.2111.ph, %57 ]
-  %.3 = phi i64 [ %67, %.loopexit204 ], [ %64, %57 ]
-  %.1 = phi i64 [ %69, %.loopexit204 ], [ 8, %57 ]
+.loopexit:                                        ; preds = %57, %.loopexit218
+  %.3112 = phi i32 [ %68, %.loopexit218 ], [ %.2111.ph, %57 ]
+  %.3 = phi i64 [ %67, %.loopexit218 ], [ %64, %57 ]
+  %.1 = phi i64 [ %69, %.loopexit218 ], [ 8, %57 ]
   %70 = call fastcc i32 @shm_mq_send_bytes(ptr noundef nonnull %0, i64 noundef %.1, ptr noundef nonnull %8, i1 noundef zeroext %3, ptr noundef %7)
   %71 = icmp eq i32 %70, 2
   br i1 %71, label %72, label %73
@@ -443,8 +443,8 @@ define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr noundef captures(none) %0
   %91 = phi i64 [ %76, %90 ], [ %39, %44 ], [ %88, %85 ]
   %.1107164 = phi i64 [ %.3, %90 ], [ %45, %44 ], [ %89, %85 ]
   %.1110163 = phi i32 [ %.3112, %90 ], [ %46, %44 ], [ %.0109, %85 ]
-  %92 = icmp ult i64 %91, %.lcssa181197
-  br i1 %92, label %.preheader199, label %.thread165, !llvm.loop !16
+  %92 = icmp ult i64 %91, %.lcssa181211
+  br i1 %92, label %.preheader213, label %.thread165, !llvm.loop !16
 
 .thread165:                                       ; preds = %44, %.thread157
   store i64 0, ptr %17, align 8
@@ -677,9 +677,9 @@ shm_mq_get_receiver.exit:                         ; preds = %39, %41
   br i1 %75, label %19, label %.thread, !llvm.loop !22
 
 .thread:                                          ; preds = %74, %49, %shm_mq_get_receiver.exit, %19, %5, %47, %38
-  %.06689.lcssa96.sink = phi i64 [ %.06689, %47 ], [ %.06689, %38 ], [ 0, %5 ], [ %.06689, %19 ], [ %.06689, %shm_mq_get_receiver.exit ], [ %.06689, %49 ], [ %.167, %74 ]
+  %.06689.lcssa97.sink = phi i64 [ %.06689, %47 ], [ %.06689, %38 ], [ 0, %5 ], [ %.06689, %19 ], [ %.06689, %shm_mq_get_receiver.exit ], [ %.06689, %49 ], [ %.167, %74 ]
   %.2 = phi i32 [ 2, %47 ], [ 2, %38 ], [ 0, %5 ], [ 2, %19 ], [ 1, %shm_mq_get_receiver.exit ], [ 1, %49 ], [ 0, %74 ]
-  store i64 %.06689.lcssa96.sink, ptr %4, align 8
+  store i64 %.06689.lcssa97.sink, ptr %4, align 8
   ret i32 %.2
 }
 

@@ -194,9 +194,9 @@ define i32 @hwloc_get_memory_parents_depth(ptr noundef readonly captures(none) %
   br label %hwloc_get_obj_by_depth.exit
 
 hwloc_get_obj_by_depth.exit:                      ; preds = %7, %14
-  %.sink22.in.i = phi ptr [ %8, %7 ], [ %17, %14 ]
-  %.sink22.i = load ptr, ptr %.sink22.in.i, align 8, !tbaa !33
-  %18 = load ptr, ptr %.sink22.i, align 8, !tbaa !35
+  %.sink26.in.i = phi ptr [ %8, %7 ], [ %17, %14 ]
+  %.sink26.i = load ptr, ptr %.sink26.in.i, align 8, !tbaa !33
+  %18 = load ptr, ptr %.sink26.i, align 8, !tbaa !35
   %.not23 = icmp eq ptr %18, null
   br i1 %.not23, label %.critedge, label %.preheader
 
@@ -276,10 +276,10 @@ define ptr @hwloc_get_obj_by_depth(ptr noundef readonly captures(none) %0, i32 n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %23, %15
-  %.sink22.in = phi ptr [ %16, %15 ], [ %26, %23 ]
-  %.sink22 = load ptr, ptr %.sink22.in, align 8, !tbaa !33
+  %.sink26.in = phi ptr [ %16, %15 ], [ %26, %23 ]
+  %.sink26 = load ptr, ptr %.sink26.in, align 8, !tbaa !33
   %27 = zext i32 %2 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %.sink22, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr %.sink26, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !35
   br label %30
 
@@ -474,9 +474,9 @@ hwloc_get_obj_by_depth_and_gp_index.exit.thread:  ; preds = %29, %16, %.thread, 
   br label %hwloc_get_obj_by_depth.exit.i28
 
 hwloc_get_obj_by_depth.exit.i28:                  ; preds = %51, %43
-  %.sink22.in.i.i29 = phi ptr [ %44, %43 ], [ %54, %51 ]
-  %.sink22.i.i30 = load ptr, ptr %.sink22.in.i.i29, align 8, !tbaa !33
-  %55 = load ptr, ptr %.sink22.i.i30, align 8, !tbaa !35
+  %.sink26.in.i.i29 = phi ptr [ %44, %43 ], [ %54, %51 ]
+  %.sink26.i.i30 = load ptr, ptr %.sink26.in.i.i29, align 8, !tbaa !33
+  %55 = load ptr, ptr %.sink26.i.i30, align 8, !tbaa !35
   %.not9.i31 = icmp eq ptr %55, null
   br i1 %.not9.i31, label %hwloc_get_obj_by_depth_and_gp_index.exit36, label %.lr.ph.i32
 
@@ -1468,19 +1468,19 @@ hwloc_get_type_depth.exit:                        ; preds = %4
   %29 = load ptr, ptr %28, align 8, !tbaa !62
   %30 = load i32, ptr %29, align 8, !tbaa !60
   %31 = icmp eq i32 %30, %16
-  br i1 %31, label %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit30, label %32
+  br i1 %31, label %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit33, label %32
 
 32:                                               ; preds = %21, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %hwloc_get_type_depth.exit.thread, label %21, !llvm.loop !63
 
-hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit30: ; preds = %27
+hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit33: ; preds = %27
   %33 = trunc nuw i64 %indvars.iv to i32
   br label %hwloc_get_type_depth.exit.thread
 
-hwloc_get_type_depth.exit.thread:                 ; preds = %32, %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit30, %.preheader, %4, %15, %hwloc_get_type_depth.exit
-  %.019 = phi i32 [ -2, %15 ], [ %10, %hwloc_get_type_depth.exit ], [ -1, %4 ], [ -1, %.preheader ], [ %33, %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit30 ], [ -1, %32 ]
+hwloc_get_type_depth.exit.thread:                 ; preds = %32, %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit33, %.preheader, %4, %15, %hwloc_get_type_depth.exit
+  %.019 = phi i32 [ -2, %15 ], [ %10, %hwloc_get_type_depth.exit ], [ -1, %4 ], [ -1, %.preheader ], [ %33, %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit33 ], [ -1, %32 ]
   ret i32 %.019
 }
 
@@ -1548,19 +1548,19 @@ hwloc_get_type_depth.exit.i:                      ; preds = %thread-pre-split
   %32 = load ptr, ptr %31, align 8, !tbaa !62
   %33 = load i32, ptr %32, align 8, !tbaa !60
   %34 = icmp eq i32 %33, %19
-  br i1 %34, label %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit30.i, label %35
+  br i1 %34, label %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit33.i, label %35
 
 35:                                               ; preds = %30, %24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %hwloc_get_type_depth_with_attr.exit, label %24, !llvm.loop !63
 
-hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit30.i: ; preds = %30
+hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit33.i: ; preds = %30
   %36 = trunc nuw i64 %indvars.iv.i to i32
   br label %hwloc_get_type_depth_with_attr.exit
 
-hwloc_get_type_depth_with_attr.exit:              ; preds = %35, %thread-pre-split, %hwloc_get_type_depth.exit.i, %18, %.preheader.i, %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit30.i
-  %.019.i = phi i32 [ -2, %18 ], [ %15, %hwloc_get_type_depth.exit.i ], [ -1, %thread-pre-split ], [ -1, %.preheader.i ], [ %36, %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit30.i ], [ -1, %35 ]
+hwloc_get_type_depth_with_attr.exit:              ; preds = %35, %thread-pre-split, %hwloc_get_type_depth.exit.i, %18, %.preheader.i, %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit33.i
+  %.019.i = phi i32 [ -2, %18 ], [ %15, %hwloc_get_type_depth.exit.i ], [ -1, %thread-pre-split ], [ -1, %.preheader.i ], [ %36, %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit33.i ], [ -1, %35 ]
   store i32 %.019.i, ptr %3, align 4, !tbaa !3
   br label %37
 
@@ -1614,16 +1614,16 @@ switch.lookup:                                    ; preds = %4, %4, %4, %4, %4, 
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %16 = load i32, ptr %15, align 4, !tbaa !60
   %17 = icmp ult i32 %16, 3
-  br i1 %17, label %switch.lookup53, label %hwloc_obj_cache_type_letter.exit
+  br i1 %17, label %switch.lookup57, label %hwloc_obj_cache_type_letter.exit
 
-switch.lookup53:                                  ; preds = %10
+switch.lookup57:                                  ; preds = %10
   %18 = zext nneg i32 %16 to i64
-  %switch.gep54 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.hwloc_obj_type_snprintf.1, i64 0, i64 %18
-  %switch.load55 = load ptr, ptr %switch.gep54, align 8
+  %switch.gep58 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.hwloc_obj_type_snprintf.1, i64 0, i64 %18
+  %switch.load59 = load ptr, ptr %switch.gep58, align 8
   br label %hwloc_obj_cache_type_letter.exit
 
-hwloc_obj_cache_type_letter.exit:                 ; preds = %10, %switch.lookup53
-  %.0.i41 = phi ptr [ %switch.load55, %switch.lookup53 ], [ @.str.84, %10 ]
+hwloc_obj_cache_type_letter.exit:                 ; preds = %10, %switch.lookup57
+  %.0.i41 = phi ptr [ %switch.load59, %switch.lookup57 ], [ @.str.84, %10 ]
   %.not39 = icmp eq i32 %6, 0
   %19 = select i1 %.not39, ptr @.str.55, ptr @.str.54
   %20 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.53, i32 noundef %14, ptr noundef nonnull %.0.i41, ptr noundef nonnull %19) #22
@@ -1802,7 +1802,7 @@ hwloc__osdev_type_snprintf_short.exit:            ; preds = %70, %90, %.critedge
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define i32 @hwloc_obj_attr_snprintf(ptr noalias noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #6 {
+define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #6 {
   %6 = alloca [25 x i8], align 16
   %7 = alloca [25 x i8], align 16
   %8 = alloca [25 x i8], align 16
@@ -2370,8 +2370,8 @@ define noundef i32 @hwloc_bitmap_singlify_per_core(ptr noundef readonly captures
   br label %.sink.split.i.i.i.i
 
 .sink.split.i.i.i.i:                              ; preds = %28, %21
-  %.sink22.in.i.i.i.i = phi ptr [ %22, %21 ], [ %30, %28 ]
-  %.sink22.i.i.i.i = load ptr, ptr %.sink22.in.i.i.i.i, align 8, !tbaa !33
+  %.sink26.in.i.i.i.i = phi ptr [ %22, %21 ], [ %30, %28 ]
+  %.sink26.i.i.i.i = load ptr, ptr %.sink26.in.i.i.i.i, align 8, !tbaa !33
   br label %hwloc_get_next_obj_by_depth.exit.i.i
 
 31:                                               ; preds = %10
@@ -2385,7 +2385,7 @@ define noundef i32 @hwloc_bitmap_singlify_per_core(ptr noundef readonly captures
   br label %hwloc_get_next_obj_by_depth.exit.i.i
 
 hwloc_get_next_obj_by_depth.exit.i.i:             ; preds = %34, %.sink.split.i.i.i.i
-  %.0.i.in.i.i = phi ptr [ %35, %34 ], [ %.sink22.i.i.i.i, %.sink.split.i.i.i.i ]
+  %.0.i.in.i.i = phi ptr [ %35, %34 ], [ %.sink26.i.i.i.i, %.sink.split.i.i.i.i ]
   %.0.i.i.i = load ptr, ptr %.0.i.in.i.i, align 8, !tbaa !35
   %.not.i.i = icmp eq ptr %.0.i.i.i, null
   br i1 %.not.i.i, label %.loopexit, label %.preheader.i.i
@@ -2531,8 +2531,8 @@ hwloc_get_type_depth.exit.i:                      ; preds = %hwloc_get_type_dept
   br label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %33, %39
-  %.sink22.in.i.i.i = phi ptr [ %41, %39 ], [ %24, %33 ]
-  %.sink22.i.i.i = load ptr, ptr %.sink22.in.i.i.i, align 8, !tbaa !33
+  %.sink26.in.i.i.i = phi ptr [ %41, %39 ], [ %24, %33 ]
+  %.sink26.i.i.i = load ptr, ptr %.sink26.in.i.i.i, align 8, !tbaa !33
   br label %hwloc_get_next_obj_by_type.exit
 
 42:                                               ; preds = %hwloc_get_type_depth.exit.i
@@ -2546,7 +2546,7 @@ hwloc_get_type_depth.exit.i:                      ; preds = %hwloc_get_type_dept
   br label %hwloc_get_next_obj_by_type.exit
 
 hwloc_get_next_obj_by_type.exit:                  ; preds = %.sink.split.i.i.i, %45
-  %.0.i.in = phi ptr [ %46, %45 ], [ %.sink22.i.i.i, %.sink.split.i.i.i ]
+  %.0.i.in = phi ptr [ %46, %45 ], [ %.sink26.i.i.i, %.sink.split.i.i.i ]
   %.0.i = load ptr, ptr %.0.i.in, align 8, !tbaa !35
   %.not99 = icmp eq ptr %.0.i, null
   br i1 %.not99, label %.loopexit.sink.split, label %47

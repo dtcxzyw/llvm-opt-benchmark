@@ -1531,10 +1531,10 @@ define internal fastcc void @calculateEdges(ptr noundef nonnull writeonly captur
   br i1 %65, label %.lr.ph76, label %.critedge2, !llvm.loop !21
 
 .critedge2:                                       ; preds = %47, %.lr.ph76, %61, %.critedge
-  %.065.lcssa89 = phi i32 [ %.065.lcssa, %.critedge ], [ %.065.lcssa, %61 ], [ %.065.lcssa, %.lr.ph76 ], [ %38, %47 ]
+  %.065.lcssa96 = phi i32 [ %.065.lcssa, %.critedge ], [ %.065.lcssa, %61 ], [ %.065.lcssa, %.lr.ph76 ], [ %38, %47 ]
   %.063.lcssa = phi i32 [ %38, %.critedge ], [ %.06373, %.lr.ph76 ], [ %.065.lcssa, %61 ], [ %38, %47 ]
   %66 = getelementptr inbounds nuw i8, ptr %.pn84, i64 12
-  store i32 %.065.lcssa89, ptr %.06285, align 4
+  store i32 %.065.lcssa96, ptr %.06285, align 4
   store i32 %.063.lcssa, ptr %66, align 4
   %67 = add nsw i64 %.06682, %18
   %68 = add nsw i64 %.06781, %22

@@ -208,18 +208,18 @@ define i32 @Lpk_FunComputeMinSuppSizeVar(ptr noundef readonly captures(none) %0,
   %.not = icmp ne i32 %113, 0
   %114 = and i32 %112, %4
   %115 = icmp ne i32 %114, 0
-  %or.cond.not120 = and i1 %115, %.not
+  %or.cond.not124 = and i1 %115, %.not
   %116 = icmp eq i32 %.07086, -1
-  %or.cond118 = select i1 %or.cond.not120, i1 %116, i1 false
-  %.171 = select i1 %or.cond118, i32 %.07285, i32 %.07086
+  %or.cond122 = select i1 %or.cond.not124, i1 %116, i1 false
+  %.171 = select i1 %or.cond122, i32 %.07285, i32 %.07086
   %117 = add nuw nsw i32 %.07285, 1
   %exitcond.not = icmp eq i32 %117, 16
   br i1 %exitcond.not, label %.preheader, label %111, !llvm.loop !10
 
 118:                                              ; preds = %.lr.ph, %118
   %indvars.iv109 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next110, %118 ]
-  %.idx114 = shl nuw nsw i64 %indvars.iv109, 4
-  %119 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx114
+  %.idx118 = shl nuw nsw i64 %indvars.iv109, 4
+  %119 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx118
   %120 = load ptr, ptr %119, align 8, !tbaa !13
   %121 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv109
   %122 = load ptr, ptr %121, align 8, !tbaa !13
@@ -853,14 +853,14 @@ define noalias noundef ptr @Lpk_MergeBoundSets(ptr noundef readonly captures(non
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %55, %57, %47, %49
-  %.sink48 = phi ptr [ %48, %47 ], [ %50, %49 ], [ %56, %55 ], [ %58, %57 ]
+  %.sink50 = phi ptr [ %48, %47 ], [ %50, %49 ], [ %56, %55 ], [ %58, %57 ]
   %.sink = phi i32 [ 16, %47 ], [ 16, %49 ], [ %52, %55 ], [ %52, %57 ]
-  store ptr %.sink48, ptr %7, align 8, !tbaa !30
+  store ptr %.sink50, ptr %7, align 8, !tbaa !30
   store i32 %.sink, ptr %4, align 8, !tbaa !29
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %40
-  %.pre.i41 = phi ptr [ %18, %40 ], [ %.sink48, %Vec_IntPush.exit.sink.split ]
+  %.pre.i41 = phi ptr [ %18, %40 ], [ %.sink50, %Vec_IntPush.exit.sink.split ]
   %59 = add nsw i32 %41, 1
   store i32 %59, ptr %5, align 4, !tbaa !27
   %60 = sext i32 %41 to i64
@@ -1343,14 +1343,14 @@ Lpk_DsdLateArriving.exit:                         ; preds = %40
   br label %Vec_IntPush.exit.sink.split.i
 
 Vec_IntPush.exit.sink.split.i:                    ; preds = %145, %143, %137, %135
-  %.sink48.i = phi ptr [ %136, %135 ], [ %138, %137 ], [ %144, %143 ], [ %146, %145 ]
+  %.sink50.i = phi ptr [ %136, %135 ], [ %138, %137 ], [ %144, %143 ], [ %146, %145 ]
   %.sink.i = phi i32 [ 16, %135 ], [ 16, %137 ], [ %140, %143 ], [ %140, %145 ]
-  store ptr %.sink48.i, ptr %95, align 8, !tbaa !30
+  store ptr %.sink50.i, ptr %95, align 8, !tbaa !30
   store i32 %.sink.i, ptr %92, align 8, !tbaa !29
   br label %Vec_IntPush.exit.i
 
 Vec_IntPush.exit.i:                               ; preds = %Vec_IntPush.exit.sink.split.i, %128
-  %.pre.i41.i = phi ptr [ %106, %128 ], [ %.sink48.i, %Vec_IntPush.exit.sink.split.i ]
+  %.pre.i41.i = phi ptr [ %106, %128 ], [ %.sink50.i, %Vec_IntPush.exit.sink.split.i ]
   %147 = add nsw i32 %129, 1
   store i32 %147, ptr %93, align 4, !tbaa !27
   %148 = sext i32 %129 to i64
@@ -1708,7 +1708,7 @@ Kit_TruthCopy.exit:                               ; preds = %65
   br i1 %.not62, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %53, %84, %106, %133
-  %.04467 = phi ptr [ %.044, %133 ], [ null, %106 ], [ null, %84 ], [ null, %53 ]
+  %.04475 = phi ptr [ %.044, %133 ], [ null, %106 ], [ null, %84 ], [ null, %53 ]
   %134 = shl nuw nsw i32 1, %2
   %wide.trip.count = zext nneg i32 %134 to i64
   br label %.lr.ph
@@ -1730,10 +1730,10 @@ Kit_TruthCopy.exit:                               ; preds = %65
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %138, %133
-  %.04468 = phi ptr [ %.044, %133 ], [ %.04467, %138 ]
+  %.04476 = phi ptr [ %.044, %133 ], [ %.04475, %138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %.04468
+  ret ptr %.04476
 }
 
 ; Function Attrs: nounwind uwtable

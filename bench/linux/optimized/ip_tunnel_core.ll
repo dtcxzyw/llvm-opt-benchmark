@@ -589,7 +589,7 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i16, ptr %32, align 4
   %34 = icmp eq i16 %33, 0
-  br i1 %34, label %.thread33, label %35
+  br i1 %34, label %.thread44, label %35
 
 35:                                               ; preds = %23
   %36 = tail call zeroext i1 @skb_gso_validate_network_len(ptr noundef %0, i32 noundef %25) #12
@@ -603,9 +603,9 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
   %.phi.trans.insert13 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert12, i64 4
   %.pre14 = load i16, ptr %.phi.trans.insert13, align 4
   %38 = icmp eq i16 %.pre14, 0
-  br i1 %38, label %.thread33, label %54
+  br i1 %38, label %.thread44, label %54
 
-.thread33:                                        ; preds = %23, %37
+.thread44:                                        ; preds = %23, %37
   %39 = phi ptr [ %.pre, %37 ], [ %27, %23 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %41 = load i32, ptr %40, align 8
@@ -623,7 +623,7 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
   %53 = icmp ugt i32 %52, %25
   br i1 %53, label %54, label %329
 
-54:                                               ; preds = %.thread33, %37
+54:                                               ; preds = %.thread44, %37
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %56 = load i64, ptr %55, align 8
   %57 = and i64 %56, -2
@@ -866,9 +866,9 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
 
 204:                                              ; preds = %187
   %205 = icmp ult i32 %200, 14
-  br i1 %205, label %.thread34, label %212, !prof !16
+  br i1 %205, label %.thread45, label %212, !prof !16
 
-.thread34:                                        ; preds = %204
+.thread45:                                        ; preds = %204
   %206 = load ptr, ptr %193, align 8
   %207 = load ptr, ptr %26, align 8
   %208 = ptrtoint ptr %206 to i64
@@ -929,9 +929,9 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
   %.pre26.pre = load ptr, ptr %26, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.thread34, %..thread_crit_edge, %232, %220
-  %.pre26 = phi ptr [ %.pre26.pre, %..thread_crit_edge ], [ %223, %232 ], [ %223, %220 ], [ %207, %.thread34 ]
-  %239 = phi i32 [ %.pre25, %..thread_crit_edge ], [ 1232, %232 ], [ %221, %220 ], [ %200, %.thread34 ]
+.thread:                                          ; preds = %.thread45, %..thread_crit_edge, %232, %220
+  %.pre26 = phi ptr [ %.pre26.pre, %..thread_crit_edge ], [ %223, %232 ], [ %223, %220 ], [ %207, %.thread45 ]
+  %239 = phi i32 [ %.pre25, %..thread_crit_edge ], [ 1232, %232 ], [ %221, %220 ], [ %200, %.thread45 ]
   %240 = add i32 %239, 8
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 126
   %242 = load i8, ptr %241, align 2
@@ -1060,8 +1060,8 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %329
 
-329:                                              ; preds = %327, %115, %113, %113, %113, %113, %113, %98, %91, %87, %76, %73, %68, %67, %.thread33, %35
-  %330 = phi i32 [ %328, %327 ], [ 0, %.thread33 ], [ 0, %35 ], [ 0, %68 ], [ 0, %67 ], [ 0, %73 ], [ %116, %115 ], [ 0, %87 ], [ 0, %76 ], [ 0, %98 ], [ 0, %91 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ]
+329:                                              ; preds = %327, %115, %113, %113, %113, %113, %113, %98, %91, %87, %76, %73, %68, %67, %.thread44, %35
+  %330 = phi i32 [ %328, %327 ], [ 0, %.thread44 ], [ 0, %35 ], [ 0, %68 ], [ 0, %67 ], [ 0, %73 ], [ %116, %115 ], [ 0, %87 ], [ 0, %76 ], [ 0, %98 ], [ 0, %91 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ], [ 0, %113 ]
   ret i32 %330
 }
 
@@ -1394,9 +1394,9 @@ define internal fastcc i32 @iptunnel_pmtud_build_icmp(ptr noundef %0, i32 nounde
 
 39:                                               ; preds = %22
   %40 = icmp ult i32 %35, 14
-  br i1 %40, label %.thread11, label %47, !prof !16
+  br i1 %40, label %.thread16, label %47, !prof !16
 
-.thread11:                                        ; preds = %39
+.thread16:                                        ; preds = %39
   %41 = load ptr, ptr %28, align 8
   %42 = load ptr, ptr %4, align 8
   %43 = ptrtoint ptr %41 to i64
@@ -1457,9 +1457,9 @@ define internal fastcc i32 @iptunnel_pmtud_build_icmp(ptr noundef %0, i32 nounde
   %.pre9.pre = load ptr, ptr %4, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.thread11, %..thread_crit_edge, %67, %55
-  %.pre9 = phi ptr [ %.pre9.pre, %..thread_crit_edge ], [ %58, %67 ], [ %58, %55 ], [ %42, %.thread11 ]
-  %74 = phi i32 [ %.pre8, %..thread_crit_edge ], [ 548, %67 ], [ %56, %55 ], [ %35, %.thread11 ]
+.thread:                                          ; preds = %.thread16, %..thread_crit_edge, %67, %55
+  %.pre9 = phi ptr [ %.pre9.pre, %..thread_crit_edge ], [ %58, %67 ], [ %58, %55 ], [ %42, %.thread16 ]
+  %74 = phi i32 [ %.pre8, %..thread_crit_edge ], [ 548, %67 ], [ %56, %55 ], [ %35, %.thread16 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 126
   %76 = load i8, ptr %75, align 2
   %77 = and i8 %76, 1

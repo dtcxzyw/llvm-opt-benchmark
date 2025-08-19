@@ -313,25 +313,25 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
   br i1 %105, label %.lr.ph100, label %.thread84.thread, !llvm.loop !47
 
 .thread84:                                        ; preds = %.lr.ph, %88
-  %indvars.iv114.lcssa125.sink134 = phi i64 [ %indvars.iv114, %88 ], [ %indvars.iv, %.lr.ph ]
+  %indvars.iv114.lcssa127.sink136 = phi i64 [ %indvars.iv114, %88 ], [ %indvars.iv, %.lr.ph ]
   %106 = load ptr, ptr %19, align 8, !tbaa !12
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 1448
   %108 = load ptr, ptr %107, align 8, !tbaa !21
-  %109 = getelementptr inbounds nuw ptr, ptr %108, i64 %indvars.iv114.lcssa125.sink134
+  %109 = getelementptr inbounds nuw ptr, ptr %108, i64 %indvars.iv114.lcssa127.sink136
   %110 = load ptr, ptr %109, align 8, !tbaa !41
   %111 = tail call i64 @H5HG_get_addr(ptr noundef %110) #5
   store i64 %111, ptr %2, align 8, !tbaa !10
-  %.not135 = icmp eq i64 %indvars.iv114.lcssa125.sink134, 0
-  br i1 %.not135, label %.thread84.thread, label %112
+  %.not137 = icmp eq i64 %indvars.iv114.lcssa127.sink136, 0
+  br i1 %.not137, label %.thread84.thread, label %112
 
 112:                                              ; preds = %.thread84
   %113 = load ptr, ptr %19, align 8, !tbaa !12
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 1448
   %115 = load ptr, ptr %114, align 8, !tbaa !21
-  %116 = and i64 %indvars.iv114.lcssa125.sink134, 4294967295
+  %116 = and i64 %indvars.iv114.lcssa127.sink136, 4294967295
   %117 = getelementptr inbounds nuw ptr, ptr %115, i64 %116
   %118 = load ptr, ptr %117, align 8, !tbaa !41
-  %119 = add nuw i64 %indvars.iv114.lcssa125.sink134, 4294967295
+  %119 = add nuw i64 %indvars.iv114.lcssa127.sink136, 4294967295
   %120 = and i64 %119, 4294967295
   %121 = getelementptr inbounds nuw ptr, ptr %115, i64 %120
   %122 = load ptr, ptr %121, align 8, !tbaa !41

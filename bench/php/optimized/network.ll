@@ -354,7 +354,7 @@ php_network_set_limit_time.exit.split.us.preheader: ; preds = %34
   %42 = add nsw i64 %40, -1000000
   %.ph = select i1 %41, i64 %42, i64 %40
   %43 = zext i1 %41 to i64
-  %.ph67 = add nsw i64 %37, %43
+  %.ph80 = add nsw i64 %37, %43
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %46 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -396,11 +396,11 @@ php_pollfd_for.exit.us:                           ; preds = %.cont.us, %php_netw
 59:                                               ; preds = %56
   %60 = call i32 @gettimeofday(ptr noundef nonnull %12, ptr noundef null) #19
   %61 = load i64, ptr %12, align 8, !tbaa !31
-  %62 = icmp eq i64 %61, %.ph67
+  %62 = icmp eq i64 %61, %.ph80
   br i1 %62, label %65, label %63
 
 63:                                               ; preds = %59
-  %64 = icmp slt i64 %61, %.ph67
+  %64 = icmp slt i64 %61, %.ph80
   br i1 %64, label %.sub_times.exit.us_crit_edge, label %.split61.us
 
 .sub_times.exit.us_crit_edge:                     ; preds = %63
@@ -419,7 +419,7 @@ sub_times.exit.us:                                ; preds = %.sub_times.exit.us_
   %71 = add nsw i64 %69, 1000000
   %storemerge.i.us = select i1 %70, i64 %71, i64 %69
   %.lobit.i.us = ashr i64 %69, 63
-  %.sroa.07.0.i.us = sub i64 %.ph67, %61
+  %.sroa.07.0.i.us = sub i64 %.ph80, %61
   %72 = add i64 %.lobit.i.us, %.sroa.07.0.i.us
   %73 = icmp slt i64 %72, 0
   %74 = add nsw i64 %storemerge.i.us, -1000000
@@ -879,7 +879,7 @@ define dso_local range(i32 -1, 1) i32 @php_network_parse_network_address_with_po
   br i1 %.not8.i, label %php_network_freeaddresses.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %55, %.preheader.i
-  %.158 = phi i32 [ 0, %.preheader.i ], [ -1, %55 ]
+  %.162 = phi i32 [ 0, %.preheader.i ], [ -1, %55 ]
   %62 = phi ptr [ %.pr, %.preheader.i ], [ %57, %55 ]
   br label %.lr.ph.i
 
@@ -893,12 +893,12 @@ define dso_local range(i32 -1, 1) i32 @php_network_parse_network_address_with_po
   br i1 %.not.i55, label %php_network_freeaddresses.exit, label %.lr.ph.i
 
 php_network_freeaddresses.exit:                   ; preds = %.lr.ph.i, %.preheader.i
-  %.159 = phi i32 [ 0, %.preheader.i ], [ %.158, %.lr.ph.i ]
+  %.163 = phi i32 [ 0, %.preheader.i ], [ %.162, %.lr.ph.i ]
   call void @_efree(ptr noundef nonnull %56) #19
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %54, %49, %44, %42, %php_network_freeaddresses.exit, %37, %31
-  %.045 = phi i32 [ 0, %31 ], [ 0, %37 ], [ -1, %42 ], [ %.159, %php_network_freeaddresses.exit ], [ -1, %44 ], [ -1, %49 ], [ -1, %54 ]
+  %.045 = phi i32 [ 0, %31 ], [ 0, %37 ], [ -1, %42 ], [ %.163, %php_network_freeaddresses.exit ], [ -1, %44 ], [ -1, %49 ], [ -1, %54 ]
   call void @_efree(ptr noundef %27) #19
   br label %66
 
@@ -991,8 +991,8 @@ define dso_local void @php_network_populate_name_from_sockaddr(ptr noundef %0, i
   br label %zend_string_alloc.exit73
 
 zend_string_alloc.exit73:                         ; preds = %37, %34
-  %.sink89 = phi i64 [ %39, %37 ], [ %36, %34 ]
-  %40 = and i64 %.sink89, -8
+  %.sink95 = phi i64 [ %39, %37 ], [ %36, %34 ]
+  %40 = and i64 %.sink95, -8
   %41 = add nsw i64 %40, 32
   %42 = tail call noalias ptr @_emalloc(i64 noundef %41) #21
   store i32 1, ptr %42, align 4, !tbaa !19
@@ -1001,16 +1001,16 @@ zend_string_alloc.exit73:                         ; preds = %37, %34
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i64 0, ptr %44, align 8, !tbaa !27
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store i64 %.sink89, ptr %45, align 8, !tbaa !30
+  store i64 %.sink95, ptr %45, align 8, !tbaa !30
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr nonnull align 1 %31, i64 %.sink89, i1 false)
-  %47 = getelementptr inbounds nuw [1 x i8], ptr %46, i64 0, i64 %.sink89
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr nonnull align 1 %31, i64 %.sink95, i1 false)
+  %47 = getelementptr inbounds nuw [1 x i8], ptr %46, i64 0, i64 %.sink95
   store i8 0, ptr %47, align 1, !tbaa !18
   br label %.sink.split
 
 .sink.split:                                      ; preds = %zend_string_alloc.exit73, %17, %25
-  %.sink86 = phi ptr [ %29, %25 ], [ %21, %17 ], [ %42, %zend_string_alloc.exit73 ]
-  store ptr %.sink86, ptr %2, align 8, !tbaa !16
+  %.sink92 = phi ptr [ %29, %25 ], [ %21, %17 ], [ %42, %zend_string_alloc.exit73 ]
+  store ptr %.sink92, ptr %2, align 8, !tbaa !16
   br label %48
 
 48:                                               ; preds = %.sink.split, %22, %14, %12
@@ -1258,13 +1258,13 @@ php_network_set_limit_time.exit:                  ; preds = %33, %22, %21
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %46 = load ptr, ptr %36, align 8, !tbaa !4
-  %.not7397 = icmp eq ptr %46, null
-  br i1 %.not7397, label %.critedge, label %.lr.ph
+  %.not73110 = icmp eq ptr %46, null
+  br i1 %.not73110, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %php_network_set_limit_time.exit, %.backedge
   %47 = phi ptr [ %132, %.backedge ], [ %46, %php_network_set_limit_time.exit ]
-  %.0609299 = phi ptr [ %131, %.backedge ], [ %36, %php_network_set_limit_time.exit ]
-  %.0599398 = phi ptr [ %.05993.be, %.backedge ], [ %7, %php_network_set_limit_time.exit ]
+  %.06092112 = phi ptr [ %131, %.backedge ], [ %36, %php_network_set_limit_time.exit ]
+  %.05993111 = phi ptr [ %.05993.be, %.backedge ], [ %7, %php_network_set_limit_time.exit ]
   %48 = load i16, ptr %47, align 2, !tbaa !39
   switch i16 %48, label %.backedge [
     i16 10, label %49
@@ -1272,11 +1272,11 @@ php_network_set_limit_time.exit:                  ; preds = %33, %22, %21
   ]
 
 49:                                               ; preds = %.lr.ph
-  %.not77 = icmp eq ptr %.0599398, null
+  %.not77 = icmp eq ptr %.05993111, null
   br i1 %.not77, label %52, label %50
 
 50:                                               ; preds = %49
-  %51 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0599398, i32 noundef 58) #22
+  %51 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.05993111, i32 noundef 58) #22
   %.not78 = icmp eq ptr %51, null
   br i1 %.not78, label %.backedge, label %52
 
@@ -1288,21 +1288,21 @@ php_network_set_limit_time.exit:                  ; preds = %33, %22, %21
 54:                                               ; preds = %.lr.ph
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 2
   store i16 %rev.i88, ptr %55, align 2, !tbaa !46
-  %.not74 = icmp eq ptr %.0599398, null
+  %.not74 = icmp eq ptr %.05993111, null
   br i1 %.not74, label %.tail.thread, label %56
 
 56:                                               ; preds = %54
-  %57 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0599398, i32 noundef 58) #22
+  %57 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.05993111, i32 noundef 58) #22
   %.not75 = icmp eq ptr %57, null
   br i1 %.not75, label %sub_0, label %62
 
 sub_0:                                            ; preds = %56
-  %58 = load i8, ptr %.0599398, align 1
+  %58 = load i8, ptr %.05993111, align 1
   %.not94 = icmp eq i8 %58, 48
   br i1 %.not94, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %59 = getelementptr inbounds nuw i8, ptr %.0599398, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.05993111, i64 1
   %60 = load i8, ptr %59, align 1
   %61 = icmp eq i8 %60, 0
   br i1 %61, label %62, label %.tail.thread
@@ -1311,7 +1311,7 @@ sub_0:                                            ; preds = %56
   br label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_0, %54, %.tail, %62, %52
-  %.2 = phi ptr [ %.0599398, %52 ], [ null, %62 ], [ %.0599398, %.tail ], [ null, %54 ], [ %.0599398, %sub_0 ]
+  %.2 = phi ptr [ %.05993111, %52 ], [ null, %62 ], [ %.05993111, %.tail ], [ null, %54 ], [ %.05993111, %sub_0 ]
   %.058 = phi i32 [ 28, %52 ], [ 16, %62 ], [ 16, %.tail ], [ 16, %54 ], [ 16, %sub_0 ]
   %63 = zext nneg i16 %48 to i32
   %64 = call i32 @socket(i32 noundef %63, i32 noundef %2, i32 noundef 0) #19
@@ -1484,8 +1484,8 @@ sub_times.exit:                                   ; preds = %126, %118, %106
   br label %.backedge
 
 .backedge:                                        ; preds = %50, %.lr.ph, %.tail.thread, %sub_times.exit
-  %.05993.be = phi ptr [ %.2, %sub_times.exit ], [ %.0599398, %.lr.ph ], [ %.2, %.tail.thread ], [ %.0599398, %50 ]
-  %131 = getelementptr inbounds nuw i8, ptr %.0609299, i64 8
+  %.05993.be = phi ptr [ %.2, %sub_times.exit ], [ %.05993111, %.lr.ph ], [ %.2, %.tail.thread ], [ %.05993111, %50 ]
+  %131 = getelementptr inbounds nuw i8, ptr %.06092112, i64 8
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %.not73 = icmp eq ptr %132, null
   br i1 %.not73, label %.critedge, label %.lr.ph

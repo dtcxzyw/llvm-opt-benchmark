@@ -148,16 +148,16 @@ Abc_Clock.exit:                                   ; preds = %33, %36
   %61 = zext nneg i32 %.val151 to i64
   br label %62
 
-62:                                               ; preds = %.lr.ph195, %239
-  %indvars.iv = phi i64 [ 0, %.lr.ph195 ], [ %indvars.iv.next, %239 ]
-  %63 = phi ptr [ %45, %.lr.ph195 ], [ %240, %239 ]
-  %.0119194 = phi i32 [ 0, %.lr.ph195 ], [ %.1, %239 ]
+62:                                               ; preds = %.lr.ph195, %240
+  %indvars.iv = phi i64 [ 0, %.lr.ph195 ], [ %indvars.iv.next, %240 ]
+  %63 = phi ptr [ %45, %.lr.ph195 ], [ %241, %240 ]
+  %.0119194 = phi i32 [ 0, %.lr.ph195 ], [ %.1, %240 ]
   %64 = getelementptr i8, ptr %63, i64 8
   %.val154 = load ptr, ptr %64, align 8, !tbaa !43
   %65 = getelementptr inbounds nuw ptr, ptr %.val154, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !44
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %239, label %68
+  br i1 %67, label %240, label %68
 
 68:                                               ; preds = %62
   %69 = load i64, ptr %48, align 8, !tbaa !45
@@ -195,7 +195,7 @@ Abc_Clock.exit162:                                ; preds = %71, %74
   %85 = and i32 %84, 7
   %86 = add nsw i32 %85, -7
   %narrow.i = icmp ult i32 %86, -2
-  br i1 %narrow.i, label %239, label %87
+  br i1 %narrow.i, label %240, label %87
 
 87:                                               ; preds = %82
   %88 = icmp samesign ugt i64 %indvars.iv, %61
@@ -361,9 +361,9 @@ Aig_ManObj.exit169:                               ; preds = %155, %158
   br label %169
 
 169:                                              ; preds = %Aig_ManObj.exit169, %149
-  %.sink209 = phi i1 [ %168, %Aig_ManObj.exit169 ], [ %153, %149 ]
+  %.sink221 = phi i1 [ %168, %Aig_ManObj.exit169 ], [ %153, %149 ]
   %.sink = phi i64 [ %166, %Aig_ManObj.exit169 ], [ %154, %149 ]
-  %170 = zext i1 %.sink209 to i64
+  %170 = zext i1 %.sink221 to i64
   %171 = xor i64 %.sink, %170
   %.0122 = inttoptr i64 %171 to ptr
   store ptr null, ptr %110, align 8, !tbaa !48
@@ -371,7 +371,7 @@ Aig_ManObj.exit169:                               ; preds = %155, %158
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
   %174 = load i32, ptr %173, align 4, !tbaa !11
   call void @Aig_ObjReplace(ptr noundef %0, ptr noundef nonnull %66, ptr noundef %.0122, i32 noundef %174) #12
-  br label %239
+  br label %240
 
 ._crit_edge:                                      ; preds = %Aig_ManObj.exit.thread, %Abc_Clock.exit166
   store i32 -1, ptr %57, align 8, !tbaa !55
@@ -441,7 +441,7 @@ Aig_ManObj.exit169:                               ; preds = %155, %158
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %206 = load i32, ptr %205, align 4, !tbaa !9
   %207 = icmp slt i32 %203, %206
-  br i1 %207, label %239, label %208
+  br i1 %207, label %240, label %208
 
 208:                                              ; preds = %._crit_edge191
   store ptr null, ptr %110, align 8, !tbaa !48
@@ -449,144 +449,145 @@ Aig_ManObj.exit169:                               ; preds = %155, %158
   %.val148 = load i32, ptr %41, align 8, !tbaa !38
   %209 = call ptr @Dar_LibBuildBest(ptr noundef nonnull %16) #12
   %.not.i170 = icmp eq ptr %209, null
-  %.pre203 = ptrtoint ptr %209 to i64
   br i1 %.not.i170, label %Aig_ObjPhaseReal.exit, label %210
 
 210:                                              ; preds = %208
-  %211 = and i64 %.pre203, -2
-  %212 = inttoptr i64 %211 to ptr
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 24
-  %214 = load i64, ptr %213, align 8
-  %215 = trunc i64 %214 to i32
-  %216 = lshr i32 %215, 3
-  %217 = trunc i64 %.pre203 to i32
-  %218 = xor i32 %216, %217
-  %219 = and i32 %218, 1
+  %211 = ptrtoint ptr %209 to i64
+  %212 = and i64 %211, -2
+  %213 = inttoptr i64 %212 to ptr
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 24
+  %215 = load i64, ptr %214, align 8
+  %216 = trunc i64 %215 to i32
+  %217 = lshr i32 %216, 3
+  %218 = trunc i64 %211 to i32
+  %219 = xor i32 %217, %218
+  %220 = and i32 %219, 1
   br label %Aig_ObjPhaseReal.exit
 
 Aig_ObjPhaseReal.exit:                            ; preds = %208, %210
-  %220 = phi i32 [ %219, %210 ], [ 1, %208 ]
-  %221 = load i64, ptr %83, align 8
-  %222 = trunc i64 %221 to i32
-  %223 = lshr i32 %222, 3
-  %224 = and i32 %223, 1
-  %225 = xor i32 %224, %220
-  %226 = zext nneg i32 %225 to i64
-  %227 = xor i64 %.pre203, %226
-  %228 = inttoptr i64 %227 to ptr
-  %229 = load ptr, ptr %16, align 8, !tbaa !32
-  %230 = getelementptr inbounds nuw i8, ptr %229, i64 16
-  %231 = load i32, ptr %230, align 4, !tbaa !11
-  call void @Aig_ObjReplace(ptr noundef nonnull %0, ptr noundef nonnull %66, ptr noundef %228, i32 noundef %231) #12
+  %.pre-phi = phi i64 [ %211, %210 ], [ 0, %208 ]
+  %221 = phi i32 [ %220, %210 ], [ 1, %208 ]
+  %222 = load i64, ptr %83, align 8
+  %223 = trunc i64 %222 to i32
+  %224 = lshr i32 %223, 3
+  %225 = and i32 %224, 1
+  %226 = xor i32 %225, %221
+  %227 = zext nneg i32 %226 to i64
+  %228 = xor i64 %.pre-phi, %227
+  %229 = inttoptr i64 %228 to ptr
+  %230 = load ptr, ptr %16, align 8, !tbaa !32
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 16
+  %232 = load i32, ptr %231, align 4, !tbaa !11
+  call void @Aig_ObjReplace(ptr noundef nonnull %0, ptr noundef nonnull %66, ptr noundef %229, i32 noundef %232) #12
   %.val149 = load i32, ptr %40, align 4, !tbaa !38
   %.val150 = load i32, ptr %41, align 8, !tbaa !38
-  %232 = load i32, ptr %60, align 8, !tbaa !58
-  %233 = sext i32 %232 to i64
-  %234 = getelementptr inbounds [222 x i32], ptr %59, i64 0, i64 %233
-  %235 = load i32, ptr %234, align 4, !tbaa !38
+  %233 = load i32, ptr %60, align 8, !tbaa !58
+  %234 = sext i32 %233 to i64
+  %235 = getelementptr inbounds [222 x i32], ptr %59, i64 0, i64 %234
+  %236 = load i32, ptr %235, align 4, !tbaa !38
   %.neg180 = add i32 %.val148, %.val147
-  %236 = add i32 %.val149, %.val150
-  %237 = sub i32 %.neg180, %236
-  %238 = add nsw i32 %237, %235
-  store i32 %238, ptr %234, align 4, !tbaa !38
-  br label %239
+  %237 = add i32 %.val149, %.val150
+  %238 = sub i32 %.neg180, %237
+  %239 = add nsw i32 %238, %236
+  store i32 %239, ptr %235, align 4, !tbaa !38
+  br label %240
 
-239:                                              ; preds = %Aig_ObjPhaseReal.exit, %62, %._crit_edge191, %82, %169
+240:                                              ; preds = %Aig_ObjPhaseReal.exit, %62, %._crit_edge191, %82, %169
   %.1 = phi i32 [ %.0119194, %62 ], [ %.2, %169 ], [ %.2, %._crit_edge191 ], [ %.2, %Aig_ObjPhaseReal.exit ], [ %.0119194, %82 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %240 = load ptr, ptr %44, align 8, !tbaa !40
-  %241 = getelementptr i8, ptr %240, i64 4
-  %.val152 = load i32, ptr %241, align 4, !tbaa !41
-  %242 = sext i32 %.val152 to i64
-  %243 = icmp slt i64 %indvars.iv.next, %242
-  br i1 %243, label %62, label %.critedge, !llvm.loop !59
+  %241 = load ptr, ptr %44, align 8, !tbaa !40
+  %242 = getelementptr i8, ptr %241, i64 4
+  %.val152 = load i32, ptr %242, align 4, !tbaa !41
+  %243 = sext i32 %.val152 to i64
+  %244 = icmp slt i64 %indvars.iv.next, %243
+  br i1 %244, label %62, label %.critedge, !llvm.loop !59
 
-.critedge:                                        ; preds = %Abc_Clock.exit162, %87, %239, %Abc_Clock.exit
+.critedge:                                        ; preds = %Abc_Clock.exit162, %87, %240, %Abc_Clock.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %244 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #12
-  %245 = icmp slt i32 %244, 0
-  br i1 %245, label %Abc_Clock.exit172, label %246
+  %245 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #12
+  %246 = icmp slt i32 %245, 0
+  br i1 %246, label %Abc_Clock.exit172, label %247
 
-246:                                              ; preds = %.critedge
-  %247 = load i64, ptr %3, align 8, !tbaa !35
-  %248 = mul nsw i64 %247, 1000000
-  %249 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %250 = load i64, ptr %249, align 8, !tbaa !37
-  %251 = sdiv i64 %250, 1000
-  %252 = add nsw i64 %251, %248
+247:                                              ; preds = %.critedge
+  %248 = load i64, ptr %3, align 8, !tbaa !35
+  %249 = mul nsw i64 %248, 1000000
+  %250 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %251 = load i64, ptr %250, align 8, !tbaa !37
+  %252 = sdiv i64 %251, 1000
+  %253 = add nsw i64 %252, %249
   br label %Abc_Clock.exit172
 
-Abc_Clock.exit172:                                ; preds = %.critedge, %246
-  %.0.i171 = phi i64 [ %252, %246 ], [ -1, %.critedge ]
+Abc_Clock.exit172:                                ; preds = %.critedge, %247
+  %.0.i171 = phi i64 [ %253, %247 ], [ -1, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %253 = add i64 %.0.i171, %.0.i.neg
-  %254 = getelementptr inbounds nuw i8, ptr %16, i64 2800
-  store i64 %253, ptr %254, align 8, !tbaa !60
-  %255 = getelementptr inbounds nuw i8, ptr %16, i64 2776
-  %256 = load i64, ptr %255, align 8, !tbaa !49
-  %257 = getelementptr inbounds nuw i8, ptr %16, i64 2784
-  %258 = load i64, ptr %257, align 8, !tbaa !61
-  %259 = add i64 %256, %258
-  %260 = sub i64 %253, %259
-  %261 = getelementptr inbounds nuw i8, ptr %16, i64 2792
-  store i64 %260, ptr %261, align 8, !tbaa !62
+  %254 = add i64 %.0.i171, %.0.i.neg
+  %255 = getelementptr inbounds nuw i8, ptr %16, i64 2800
+  store i64 %254, ptr %255, align 8, !tbaa !60
+  %256 = getelementptr inbounds nuw i8, ptr %16, i64 2776
+  %257 = load i64, ptr %256, align 8, !tbaa !49
+  %258 = getelementptr inbounds nuw i8, ptr %16, i64 2784
+  %259 = load i64, ptr %258, align 8, !tbaa !61
+  %260 = add i64 %257, %259
+  %261 = sub i64 %254, %260
+  %262 = getelementptr inbounds nuw i8, ptr %16, i64 2792
+  store i64 %261, ptr %262, align 8, !tbaa !62
   call void @Dar_ManCutsFree(ptr noundef nonnull %16) #12
-  %262 = load ptr, ptr %16, align 8, !tbaa !32
-  %263 = getelementptr inbounds nuw i8, ptr %262, i64 12
-  %264 = load i32, ptr %263, align 4, !tbaa !10
-  %.not142 = icmp eq i32 %264, 0
-  br i1 %.not142, label %266, label %265
+  %263 = load ptr, ptr %16, align 8, !tbaa !32
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 12
+  %265 = load i32, ptr %264, align 4, !tbaa !10
+  %.not142 = icmp eq i32 %265, 0
+  br i1 %.not142, label %267, label %266
 
-265:                                              ; preds = %Abc_Clock.exit172
+266:                                              ; preds = %Abc_Clock.exit172
   call void @Aig_ManFanoutStop(ptr noundef nonnull %0) #12
   %.pre202 = load ptr, ptr %16, align 8, !tbaa !32
-  br label %266
+  br label %267
 
-266:                                              ; preds = %265, %Abc_Clock.exit172
-  %267 = phi ptr [ %.pre202, %265 ], [ %262, %Abc_Clock.exit172 ]
-  %268 = getelementptr inbounds nuw i8, ptr %267, i64 16
-  %269 = load i32, ptr %268, align 4, !tbaa !11
-  %.not143 = icmp eq i32 %269, 0
-  br i1 %.not143, label %271, label %270
+267:                                              ; preds = %266, %Abc_Clock.exit172
+  %268 = phi ptr [ %.pre202, %266 ], [ %263, %Abc_Clock.exit172 ]
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 16
+  %270 = load i32, ptr %269, align 4, !tbaa !11
+  %.not143 = icmp eq i32 %270, 0
+  br i1 %.not143, label %272, label %271
 
-270:                                              ; preds = %266
+271:                                              ; preds = %267
   call void @Aig_ManStopReverseLevels(ptr noundef nonnull %0) #12
-  br label %271
+  br label %272
 
-271:                                              ; preds = %270, %266
-  %272 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %273 = load ptr, ptr %272, align 8, !tbaa !17
-  %.not144 = icmp eq ptr %273, null
-  br i1 %.not144, label %278, label %274
+272:                                              ; preds = %271, %267
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %274 = load ptr, ptr %273, align 8, !tbaa !17
+  %.not144 = icmp eq ptr %274, null
+  br i1 %.not144, label %279, label %275
 
-274:                                              ; preds = %271
-  %275 = getelementptr inbounds nuw i8, ptr %273, i64 8
-  %276 = load ptr, ptr %275, align 8, !tbaa !63
-  %.not.i173 = icmp eq ptr %276, null
-  br i1 %.not.i173, label %Vec_IntFree.exit, label %277
+275:                                              ; preds = %272
+  %276 = getelementptr inbounds nuw i8, ptr %274, i64 8
+  %277 = load ptr, ptr %276, align 8, !tbaa !63
+  %.not.i173 = icmp eq ptr %277, null
+  br i1 %.not.i173, label %Vec_IntFree.exit, label %278
 
-277:                                              ; preds = %274
-  call void @free(ptr noundef nonnull %276) #12
+278:                                              ; preds = %275
+  call void @free(ptr noundef nonnull %277) #12
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %274, %277
-  call void @free(ptr noundef nonnull %273) #12
-  store ptr null, ptr %272, align 8, !tbaa !17
-  br label %278
+Vec_IntFree.exit:                                 ; preds = %275, %278
+  call void @free(ptr noundef nonnull %274) #12
+  store ptr null, ptr %273, align 8, !tbaa !17
+  br label %279
 
-278:                                              ; preds = %Vec_IntFree.exit, %271
+279:                                              ; preds = %Vec_IntFree.exit, %272
   call void @Dar_ManStop(ptr noundef nonnull %16) #12
   call void @Aig_ManCheckPhase(ptr noundef nonnull %0) #12
-  %279 = call i32 @Aig_ManCheck(ptr noundef nonnull %0) #12
-  %.not145 = icmp eq i32 %279, 0
-  br i1 %.not145, label %280, label %281
+  %280 = call i32 @Aig_ManCheck(ptr noundef nonnull %0) #12
+  %.not145 = icmp eq i32 %280, 0
+  br i1 %.not145, label %281, label %282
 
-280:                                              ; preds = %278
+281:                                              ; preds = %279
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %281
+  br label %282
 
-281:                                              ; preds = %278, %280
-  %.0 = phi i32 [ 0, %280 ], [ 1, %278 ]
+282:                                              ; preds = %279, %281
+  %.0 = phi i32 [ 0, %281 ], [ 1, %279 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

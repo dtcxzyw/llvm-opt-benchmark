@@ -273,13 +273,13 @@ sub_1:                                            ; preds = %sub_0
   %115 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %116 = load i8, ptr %115, align 1
   %.not163 = icmp eq i8 %116, 118
-  br i1 %.not163, label %.tail, label %.thread172
+  br i1 %.not163, label %.tail, label %.thread184
 
 .tail:                                            ; preds = %sub_1
   %117 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %118 = load i8, ptr %117, align 1
   %119 = icmp eq i8 %118, 0
-  br i1 %119, label %120, label %.thread172
+  br i1 %119, label %120, label %.thread184
 
 120:                                              ; preds = %.tail
   %121 = add nsw i32 %.064161, 1
@@ -298,7 +298,7 @@ sub_1:                                            ; preds = %sub_0
   %129 = call i64 @fwrite(ptr nonnull @.str.17, i64 42, i64 1, ptr %128) #17
   br label %.thread142
 
-.thread172:                                       ; preds = %.tail, %sub_1
+.thread184:                                       ; preds = %.tail, %sub_1
   %130 = load ptr, ptr @stderr, align 8, !tbaa !13
   %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %130, ptr noundef nonnull @.str.18, ptr noundef nonnull %28) #18
   br label %.thread142
@@ -755,8 +755,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread142
 
-.thread142:                                       ; preds = %.thread172, %127, %111, %96, %83, %70, %55, %40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122, %23
-  %.060 = phi i32 [ 1, %23 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122 ], [ -1, %40 ], [ -1, %55 ], [ -1, %70 ], [ -1, %83 ], [ -1, %96 ], [ -1, %111 ], [ -1, %127 ], [ -1, %.thread172 ]
+.thread142:                                       ; preds = %.thread184, %127, %111, %96, %83, %70, %55, %40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122, %23
+  %.060 = phi i32 [ 1, %23 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122 ], [ -1, %40 ], [ -1, %55 ], [ -1, %70 ], [ -1, %83 ], [ -1, %96 ], [ -1, %111 ], [ -1, %127 ], [ -1, %.thread184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

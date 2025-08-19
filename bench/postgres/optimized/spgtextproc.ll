@@ -268,10 +268,10 @@ formTextDatum.exit124:                            ; preds = %131, %127
   br i1 %139, label %.thread138.sink.split, label %.thread138
 
 .thread138.sink.split:                            ; preds = %136, %83
-  %.sink150 = phi i32 [ %68, %83 ], [ %138, %136 ]
+  %.sink157 = phi i32 [ %68, %83 ], [ %138, %136 ]
   %.sink = phi ptr [ %72, %83 ], [ %16, %136 ]
   %.0106.ph = phi i32 [ %68, %83 ], [ 0, %136 ]
-  %140 = sext i32 %.sink150 to i64
+  %140 = sext i32 %.sink157 to i64
   %141 = getelementptr inbounds i8, ptr %.sink, i64 %140
   %142 = load i8, ptr %141, align 1
   %143 = zext i8 %142 to i16
@@ -795,7 +795,7 @@ formTextDatum.exit:                               ; preds = %126, %122
 229:                                              ; preds = %225
   %230 = and i32 %227, 1
   %.not151 = icmp eq i32 %230, 0
-  br i1 %.not151, label %231, label %.thread198
+  br i1 %.not151, label %231, label %.thread207
 
 231:                                              ; preds = %229
   %232 = load i32, ptr %212, align 4
@@ -805,7 +805,7 @@ formTextDatum.exit:                               ; preds = %126, %122
   %236 = icmp ugt i64 %235, %206
   br i1 %236, label %260, label %284
 
-.thread198:                                       ; preds = %229
+.thread207:                                       ; preds = %229
   %237 = lshr i32 %227, 1
   %238 = zext nneg i32 %237 to i64
   %239 = add nsw i64 %238, -1
@@ -826,13 +826,13 @@ formTextDatum.exit:                               ; preds = %126, %122
   br i1 %249, label %.thread174, label %284
 
 .thread174:                                       ; preds = %.thread
-  %250 = getelementptr inbounds i8, ptr %241, i64 %206
+  %250 = getelementptr inbounds nuw i8, ptr %241, i64 %206
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 1
   %252 = select i1 %246, i32 16, i32 0
   %253 = select i1 %or.cond167, i32 8, i32 %252
   br label %267
 
-254:                                              ; preds = %.thread198
+254:                                              ; preds = %.thread207
   %255 = getelementptr inbounds nuw i8, ptr %212, i64 1
   %256 = getelementptr inbounds i8, ptr %255, i64 %206
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 1
@@ -880,7 +880,7 @@ formTextDatum.exit:                               ; preds = %126, %122
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %283, ptr nonnull readonly align 1 %268, i64 %274, i1 false)
   br label %formTextDatum.exit173
 
-284:                                              ; preds = %.thread198, %.thread, %231
+284:                                              ; preds = %.thread207, %.thread, %231
   %285 = tail call ptr @palloc(i64 noundef 4) #9
   store i8 3, ptr %285, align 1
   br label %formTextDatum.exit173
@@ -1365,18 +1365,18 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr noundef reado
 70:                                               ; preds = %63
   %71 = and i32 %65, 1
   %.not135 = icmp eq i32 %71, 0
-  br i1 %.not135, label %72, label %.thread187
+  br i1 %.not135, label %72, label %.thread188
 
 72:                                               ; preds = %70
   %73 = load i32, ptr %14, align 4
-  %.mask192 = and i32 %73, -4
-  %.not136 = icmp eq i32 %.mask192, 16
+  %.mask193 = and i32 %73, -4
+  %.not136 = icmp eq i32 %.mask193, 16
   br i1 %.not136, label %94, label %84
 
-.thread187:                                       ; preds = %70
+.thread188:                                       ; preds = %70
   %.mask = and i32 %65, 254
-  %.not136188 = icmp eq i32 %.mask, 2
-  br i1 %.not136188, label %94, label %.thread189
+  %.not136189 = icmp eq i32 %.mask, 2
+  br i1 %.not136189, label %94, label %.thread190
 
 .thread157:                                       ; preds = %67, %67, %67, %67
   %74 = icmp eq i8 %69, 1
@@ -1388,7 +1388,7 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr noundef reado
   %79 = select i1 %or.cond150, i64 8, i64 %78
   br label %90
 
-.thread189:                                       ; preds = %.thread187
+.thread190:                                       ; preds = %.thread188
   %80 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %81 = lshr i32 %65, 1
   %82 = zext nneg i32 %81 to i64
@@ -1403,14 +1403,14 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr noundef reado
   %89 = zext i32 %88 to i64
   br label %90
 
-90:                                               ; preds = %.thread189, %84, %.thread157
-  %91 = phi ptr [ %68, %.thread157 ], [ %80, %.thread189 ], [ %85, %84 ]
-  %92 = phi i64 [ %79, %.thread157 ], [ %83, %.thread189 ], [ %89, %84 ]
+90:                                               ; preds = %.thread190, %84, %.thread157
+  %91 = phi ptr [ %68, %.thread157 ], [ %80, %.thread190 ], [ %85, %84 ]
+  %92 = phi i64 [ %79, %.thread157 ], [ %83, %.thread190 ], [ %89, %84 ]
   %93 = getelementptr inbounds i8, ptr %60, i64 %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %93, ptr nonnull align 1 %91, i64 %92, i1 false)
   br label %94
 
-94:                                               ; preds = %67, %.thread187, %90, %72
+94:                                               ; preds = %67, %.thread188, %90, %72
   %95 = ptrtoint ptr %58 to i64
   br label %96
 

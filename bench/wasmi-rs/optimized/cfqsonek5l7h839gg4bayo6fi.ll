@@ -1558,9 +1558,9 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.e
   %18 = add nuw i64 %11, 1
   store i64 %18, ptr %10, align 8, !alias.scope !48, !noalias !49
   %19 = icmp sgt i8 %17, -1
-  br i1 %19, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread28.i, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.i
+  br i1 %19, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread30.i, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.i
 
-_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread28.i: ; preds = %14
+_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread30.i: ; preds = %14
   %20 = zext nneg i8 %17 to i32
   br label %24
 
@@ -1585,8 +1585,8 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.e
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !43
   br label %"_ZN10wasmparser9validator4func22FuncValidator$LT$T$GT$11read_locals17hfada639f206bac17E.exit.thread"
 
-24:                                               ; preds = %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.i._crit_edge35, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread28.i
-  %25 = phi i32 [ %.pre37, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.i._crit_edge35 ], [ %20, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread28.i ]
+24:                                               ; preds = %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.i._crit_edge35, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread30.i
+  %25 = phi i32 [ %.pre37, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.i._crit_edge35 ], [ %20, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread30.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !43
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -13398,10 +13398,10 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
     i16 46, label %51
     i16 47, label %54
     i16 48, label %57
-    i16 86, label %.invoke196
+    i16 86, label %.invoke205
     i16 87, label %61
     i16 88, label %62
-    i16 104, label %.invoke197
+    i16 104, label %.invoke206
     i16 105, label %64
     i16 106, label %65
     i16 225, label %66
@@ -13464,27 +13464,27 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
   %59 = invoke { i64, i64 } @"_ZN5wasmi5value106_$LT$impl$u20$core..convert..From$LT$wasmi..value..Val$GT$$u20$for$u20$wasmi_core..untyped..UntypedVal$GT$4from17h12d4afd44d02a1f0E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
           to label %172 unwind label %.loopexit147
 
-.invoke196:                                       ; preds = %41, %62, %61
+.invoke205:                                       ; preds = %41, %62, %61
   %60 = phi ptr [ @_ZN10wasmi_core4wasm7i32_sub17h2c906521ee041bfeE, %61 ], [ @_ZN10wasmi_core4wasm7i32_mul17ha6276d16d3ccab3aE, %62 ], [ @_ZN10wasmi_core4wasm7i32_add17hc78736f45334fdbbE, %41 ]
   invoke void @_ZN5wasmi6module9init_expr9ConstExpr3new7expr_op17hb879280d7be3f980E(ptr noalias noundef nonnull align 8 dereferenceable(80) %21, ptr noundef nonnull %60)
           to label %122 unwind label %.loopexit147
 
 61:                                               ; preds = %41
-  br label %.invoke196
+  br label %.invoke205
 
 62:                                               ; preds = %41
-  br label %.invoke196
+  br label %.invoke205
 
-.invoke197:                                       ; preds = %41, %65, %64
+.invoke206:                                       ; preds = %41, %65, %64
   %63 = phi ptr [ @_ZN10wasmi_core4wasm7i64_sub17hcbdfa95f644976e5E, %64 ], [ @_ZN10wasmi_core4wasm7i64_mul17hf8fdbce72c068b19E, %65 ], [ @_ZN10wasmi_core4wasm7i64_add17h409a79c00471c34eE, %41 ]
   invoke void @_ZN5wasmi6module9init_expr9ConstExpr3new7expr_op17h112913781de18debE(ptr noalias noundef nonnull align 8 dereferenceable(80) %21, ptr noundef nonnull %63)
           to label %122 unwind label %.loopexit147
 
 64:                                               ; preds = %41
-  br label %.invoke197
+  br label %.invoke206
 
 65:                                               ; preds = %41
-  br label %.invoke197
+  br label %.invoke206
 
 66:                                               ; preds = %41
   %.sroa.0.0.copyload = load i32, ptr %26, align 4
@@ -13609,7 +13609,7 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #26
   unreachable
 
-.loopexit147:                                     ; preds = %.invoke197, %.invoke196, %48, %51, %54, %57, %69, %193, %195, %197, %228
+.loopexit147:                                     ; preds = %.invoke206, %.invoke205, %48, %51, %54, %57, %69, %193, %195, %197, %228
   %lpad.loopexit149 = landingpad { ptr, i32 }
           cleanup
   br label %.thread143
@@ -13656,13 +13656,13 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
   br label %.sink.split
 
 .sink.split:                                      ; preds = %117, %139, %154, %169, %184, %211, %225, %242
-  %.sroa.01.0.i115.sink199 = phi ptr [ %.sroa.01.0.i115, %242 ], [ %.sroa.01.0.i103, %225 ], [ %.sroa.01.0.i91, %211 ], [ %.sroa.01.0.i79, %184 ], [ %.sroa.01.0.i67, %169 ], [ %.sroa.01.0.i55, %154 ], [ %.sroa.01.0.i43, %139 ], [ %.sroa.01.0.i, %117 ]
-  %120 = load i64, ptr %.sroa.01.0.i115.sink199, align 8, !noalias !3, !noundef !3
+  %.sroa.01.0.i115.sink208 = phi ptr [ %.sroa.01.0.i115, %242 ], [ %.sroa.01.0.i103, %225 ], [ %.sroa.01.0.i91, %211 ], [ %.sroa.01.0.i79, %184 ], [ %.sroa.01.0.i67, %169 ], [ %.sroa.01.0.i55, %154 ], [ %.sroa.01.0.i43, %139 ], [ %.sroa.01.0.i, %117 ]
+  %120 = load i64, ptr %.sroa.01.0.i115.sink208, align 8, !noalias !3, !noundef !3
   %121 = add i64 %120, 1
-  store i64 %121, ptr %.sroa.01.0.i115.sink199, align 8, !noalias !3
+  store i64 %121, ptr %.sroa.01.0.i115.sink208, align 8, !noalias !3
   br label %122
 
-122:                                              ; preds = %.sink.split, %.invoke197, %.invoke196
+122:                                              ; preds = %.sink.split, %.invoke206, %.invoke205
   %123 = load i16, ptr %20, align 8, !range !430, !alias.scope !943, !noundef !3
   switch i16 %123, label %"_ZN4core3ptr67drop_in_place$LT$wasmparser..readers..core..operators..Operator$GT$17hce6bed3912c1dc7aE.exit38" [
     i16 559, label %124
@@ -13886,10 +13886,10 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
 197:                                              ; preds = %195, %193
   %.pn = phi { i32, i32 } [ %194, %193 ], [ %196, %195 ]
   %storemerge = phi i8 [ 5, %193 ], [ 6, %195 ]
-  %storemerge191 = extractvalue { i32, i32 } %.pn, 0
-  store i32 %storemerge191, ptr %27, align 4
-  %storemerge190 = extractvalue { i32, i32 } %.pn, 1
-  store i32 %storemerge190, ptr %28, align 8
+  %storemerge200 = extractvalue { i32, i32 } %.pn, 0
+  store i32 %storemerge200, ptr %27, align 4
+  %storemerge199 = extractvalue { i32, i32 } %.pn, 1
+  store i32 %storemerge199, ptr %28, align 8
   store i8 %storemerge, ptr %14, align 8
   %198 = invoke { i64, i64 } @"_ZN5wasmi5value106_$LT$impl$u20$core..convert..From$LT$wasmi..value..Val$GT$$u20$for$u20$wasmi_core..untyped..UntypedVal$GT$4from17h12d4afd44d02a1f0E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14)
           to label %199 unwind label %.loopexit147

@@ -948,8 +948,8 @@ align_get_bits.exit344:                           ; preds = %173
 
 326:                                              ; preds = %318
   %327 = icmp slt i32 %.0298, %323
-  %or.cond450 = select i1 %.not411, i1 %327, i1 false
-  br i1 %or.cond450, label %.preheader.us.preheader, label %.loopexit
+  %or.cond469 = select i1 %.not411, i1 %327, i1 false
+  br i1 %or.cond469, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %326
   %328 = load ptr, ptr %12, align 8, !tbaa !51
@@ -1139,8 +1139,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ls_decode_line(ptr noundef
   %62 = getelementptr inbounds i16, ptr %2, i64 %37
   %63 = load i16, ptr %62, align 2, !tbaa !81
   %64 = zext i16 %63 to i32
-  %.not253393 = icmp slt i32 %.0233346, %15
-  br i1 %.not253393, label %.thread300, label %.thread299
+  %.not253416 = icmp slt i32 %.0233346, %15
+  br i1 %.not253416, label %.thread300, label %.thread299
 
 .thread297:                                       ; preds = %39
   %65 = load i16, ptr %2, align 2, !tbaa !81
@@ -1358,7 +1358,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ls_decode_line(ptr noundef
   %indvars.iv.next381 = add nsw i64 %indvars.iv380, %32
   %176 = add nuw nsw i32 %.1232340.us, 1
   %exitcond383.not = icmp eq i32 %176, %.1219
-  br i1 %exitcond383.not, label %._crit_edge343.thread404, label %.lr.ph342.split.us, !llvm.loop !100
+  br i1 %exitcond383.not, label %._crit_edge343.thread427, label %.lr.ph342.split.us, !llvm.loop !100
 
 .lr.ph342.split:                                  ; preds = %.lr.ph342, %.lr.ph342.split
   %indvars.iv374 = phi i64 [ %indvars.iv.next375, %.lr.ph342.split ], [ %174, %.lr.ph342 ]
@@ -1374,20 +1374,20 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ls_decode_line(ptr noundef
   %.not260 = icmp slt i32 %.2235, %5
   br i1 %.not260, label %183, label %181
 
-._crit_edge343.thread404:                         ; preds = %.lr.ph342.split.us
+._crit_edge343.thread427:                         ; preds = %.lr.ph342.split.us
   %179 = trunc nsw i64 %indvars.iv.next381 to i32
-  %.not260406 = icmp sgt i32 %5, %179
-  br i1 %.not260406, label %.thread407, label %181
+  %.not260429 = icmp sgt i32 %5, %179
+  br i1 %.not260429, label %.thread430, label %181
 
 ._crit_edge343.thread:                            ; preds = %.lr.ph342.split
   %180 = trunc nsw i64 %indvars.iv.next375 to i32
-  %.not260397 = icmp sgt i32 %5, %180
-  br i1 %.not260397, label %.thread400, label %181
+  %.not260420 = icmp sgt i32 %5, %180
+  br i1 %.not260420, label %.thread423, label %181
 
-181:                                              ; preds = %._crit_edge343.thread404, %._crit_edge343.thread, %._crit_edge343
-  %.5238.lcssa399 = phi i32 [ %180, %._crit_edge343.thread ], [ %.2235, %._crit_edge343 ], [ %179, %._crit_edge343.thread404 ]
+181:                                              ; preds = %._crit_edge343.thread427, %._crit_edge343.thread, %._crit_edge343
+  %.5238.lcssa422 = phi i32 [ %180, %._crit_edge343.thread ], [ %.2235, %._crit_edge343 ], [ %179, %._crit_edge343.thread427 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.13) #8
-  %.not262 = icmp sgt i32 %.5238.lcssa399, %5
+  %.not262 = icmp sgt i32 %.5238.lcssa422, %5
   br i1 %.not262, label %182, label %.thread311
 
 182:                                              ; preds = %181
@@ -1396,27 +1396,27 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ls_decode_line(ptr noundef
   unreachable
 
 183:                                              ; preds = %._crit_edge343
-  br i1 %95, label %.thread407, label %.thread400
+  br i1 %95, label %.thread430, label %.thread423
 
-.thread407:                                       ; preds = %._crit_edge343.thread404, %183
-  %.5238.lcssa398409 = phi i32 [ %.2235, %183 ], [ %179, %._crit_edge343.thread404 ]
-  %184 = sext i32 %.5238.lcssa398409 to i64
+.thread430:                                       ; preds = %._crit_edge343.thread427, %183
+  %.5238.lcssa421432 = phi i32 [ %.2235, %183 ], [ %179, %._crit_edge343.thread427 ]
+  %184 = sext i32 %.5238.lcssa421432 to i64
   %185 = getelementptr inbounds i8, ptr %2, i64 %184
   %186 = load i8, ptr %185, align 1, !tbaa !13
   %187 = zext i8 %186 to i32
   br label %192
 
-.thread400:                                       ; preds = %._crit_edge343.thread, %183
-  %.5238.lcssa398403 = phi i32 [ %.2235, %183 ], [ %180, %._crit_edge343.thread ]
-  %188 = sext i32 %.5238.lcssa398403 to i64
+.thread423:                                       ; preds = %._crit_edge343.thread, %183
+  %.5238.lcssa421425 = phi i32 [ %.2235, %183 ], [ %180, %._crit_edge343.thread ]
+  %188 = sext i32 %.5238.lcssa421425 to i64
   %189 = getelementptr inbounds i16, ptr %2, i64 %188
   %190 = load i16, ptr %189, align 2, !tbaa !81
   %191 = zext i16 %190 to i32
   br label %192
 
-192:                                              ; preds = %.thread400, %.thread407
-  %.5238.lcssa398402 = phi i32 [ %.5238.lcssa398409, %.thread407 ], [ %.5238.lcssa398403, %.thread400 ]
-  %193 = phi i32 [ %187, %.thread407 ], [ %191, %.thread400 ]
+192:                                              ; preds = %.thread423, %.thread430
+  %.5238.lcssa421426 = phi i32 [ %.5238.lcssa421432, %.thread430 ], [ %.5238.lcssa421425, %.thread423 ]
+  %193 = phi i32 [ %187, %.thread430 ], [ %191, %.thread423 ]
   %194 = sub nsw i32 %96, %193
   %195 = tail call i32 @llvm.abs.i32(i32 %194, i1 true)
   %196 = load i32, ptr %16, align 4, !tbaa !64
@@ -1783,7 +1783,7 @@ mid_pred.exit:                                    ; preds = %357, %359, %360, %3
 
 .thread305:                                       ; preds = %272, %270, %382
   %.pr = phi i32 [ %265, %272 ], [ %265, %270 ], [ %.pr.pre, %382 ]
-  %.6239.ph = phi i32 [ %.5238.lcssa398402, %272 ], [ %.5238.lcssa398402, %270 ], [ %.0233346, %382 ]
+  %.6239.ph = phi i32 [ %.5238.lcssa421426, %272 ], [ %.5238.lcssa421426, %270 ], [ %.0233346, %382 ]
   %.4227.ph = phi i32 [ %273, %272 ], [ %271, %270 ], [ %383, %382 ]
   %.not264 = icmp eq i32 %.pr, 0
   br i1 %.not264, label %.thread305._crit_edge, label %384
@@ -1794,7 +1794,7 @@ mid_pred.exit:                                    ; preds = %357, %359, %360, %3
 
 384:                                              ; preds = %.thread305.thread, %.thread305
   %.4227324 = phi i32 [ %267, %.thread305.thread ], [ %.4227.ph, %.thread305 ]
-  %.6239322 = phi i32 [ %.5238.lcssa398402, %.thread305.thread ], [ %.6239.ph, %.thread305 ]
+  %.6239322 = phi i32 [ %.5238.lcssa421426, %.thread305.thread ], [ %.6239.ph, %.thread305 ]
   %385 = phi i32 [ %265, %.thread305.thread ], [ %.pr, %.thread305 ]
   %386 = sub nsw i32 0, %385
   %387 = icmp slt i32 %.4227324, %386

@@ -324,7 +324,7 @@ define internal i64 @rpm_filter_read(ptr noundef readonly captures(none) %0, ptr
   br i1 %124, label %.loopexit.thread, label %130
 
 .loopexit.thread:                                 ; preds = %118, %121, %.loopexit
-  %.290115 = phi i64 [ %.290, %.loopexit ], [ %122, %121 ], [ 0, %118 ]
+  %.290121 = phi i64 [ %.290, %.loopexit ], [ %122, %121 ], [ 0, %118 ]
   %125 = phi i64 [ %123, %.loopexit ], [ %122, %121 ], [ %34, %118 ]
   %126 = load i64, ptr %5, align 8, !tbaa !26
   %127 = add nsw i64 %126, %125
@@ -335,11 +335,11 @@ define internal i64 @rpm_filter_read(ptr noundef readonly captures(none) %0, ptr
   br label %130
 
 130:                                              ; preds = %.loopexit, %.loopexit.thread
-  %.290114 = phi i64 [ %.290115, %.loopexit.thread ], [ %.290, %.loopexit ]
+  %.290120 = phi i64 [ %.290121, %.loopexit.thread ], [ %.290, %.loopexit ]
   %131 = phi i64 [ %.pre110, %.loopexit.thread ], [ %123, %.loopexit ]
   %.487 = phi i64 [ 0, %.loopexit.thread ], [ %.285, %.loopexit ]
   %.5 = phi ptr [ null, %.loopexit.thread ], [ %.3, %.loopexit ]
-  %132 = icmp eq i64 %.290114, 0
+  %132 = icmp eq i64 %.290120, 0
   %133 = icmp sgt i64 %131, 0
   %134 = select i1 %132, i1 %133, i1 false
   br i1 %134, label %23, label %135, !llvm.loop !32
@@ -359,7 +359,7 @@ define internal i64 @rpm_filter_read(ptr noundef readonly captures(none) %0, ptr
   br label %.thread
 
 .thread:                                          ; preds = %29, %135, %138, %68
-  %.0 = phi i64 [ -30, %68 ], [ %.290114, %138 ], [ %.290114, %135 ], [ %spec.select, %29 ]
+  %.0 = phi i64 [ -30, %68 ], [ %.290120, %138 ], [ %.290120, %135 ], [ %spec.select, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }

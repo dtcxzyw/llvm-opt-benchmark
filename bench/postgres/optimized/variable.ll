@@ -319,10 +319,10 @@ define internal fastcc ptr @find_struct(ptr noundef %0, ptr noundef nonnull capt
   br label %42
 
 42:                                               ; preds = %39, %30, %18
-  %.sink58.in = phi ptr [ %41, %39 ], [ %24, %30 ], [ %21, %18 ]
+  %.sink62.in = phi ptr [ %41, %39 ], [ %24, %30 ], [ %21, %18 ]
   %.sink = phi ptr [ %2, %39 ], [ %2, %30 ], [ %19, %18 ]
-  %.sink58 = load ptr, ptr %.sink58.in, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %.sink58, i64 32
+  %.sink62 = load ptr, ptr %.sink62.in, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %.sink62, i64 32
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %46 = load i32, ptr %45, align 8
@@ -1293,12 +1293,12 @@ tailrecurse.backedge:                             ; preds = %104, %94, %101, %11
   br i1 %.not84, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit.sink.split:                             ; preds = %18, %31, %39, %65, %80, %88
-  %.sink112 = phi ptr [ %93, %88 ], [ %87, %80 ], [ %79, %65 ], [ %44, %39 ], [ %38, %31 ], [ %30, %18 ]
+  %.sink114 = phi ptr [ %93, %88 ], [ %87, %80 ], [ %79, %65 ], [ %44, %39 ], [ %38, %31 ], [ %30, %18 ]
   %117 = tail call ptr @mm_alloc(i64 noundef 32) #6
   %118 = tail call ptr @mm_strdup(ptr noundef %0) #6
   store ptr %118, ptr %117, align 8
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  store ptr %.sink112, ptr %119, align 8
+  store ptr %.sink114, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %117, i64 16
   store i32 %3, ptr %120, align 8
   %121 = load ptr, ptr @allvariables, align 8

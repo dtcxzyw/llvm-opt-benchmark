@@ -149,16 +149,16 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %82 = getelementptr i8, ptr %81, i64 8
   %83 = getelementptr i8, ptr %81, i64 16
   %invariant.gep = getelementptr double, ptr %31, i64 %77
-  %invariant.gep581 = getelementptr double, ptr %34, i64 %80
-  %invariant.gep583 = getelementptr double, ptr %34, i64 %80
-  %invariant.gep585 = getelementptr double, ptr %34, i64 %80
-  %invariant.gep587 = getelementptr double, ptr %31, i64 %77
-  %invariant.gep589 = getelementptr double, ptr %34, i64 %80
-  %invariant.gep591 = getelementptr double, ptr %34, i64 %80
-  %invariant.gep593 = getelementptr double, ptr %34, i64 %80
-  %.sink622 = getelementptr double, ptr %34, i64 %80
+  %invariant.gep595 = getelementptr double, ptr %34, i64 %80
+  %invariant.gep597 = getelementptr double, ptr %34, i64 %80
+  %invariant.gep599 = getelementptr double, ptr %34, i64 %80
+  %invariant.gep601 = getelementptr double, ptr %31, i64 %77
+  %invariant.gep603 = getelementptr double, ptr %34, i64 %80
+  %invariant.gep605 = getelementptr double, ptr %34, i64 %80
+  %invariant.gep607 = getelementptr double, ptr %34, i64 %80
   %.sink636 = getelementptr double, ptr %34, i64 %80
-  %.sink648 = getelementptr double, ptr %31, i64 %77
+  %.sink650 = getelementptr double, ptr %34, i64 %80
+  %.sink662 = getelementptr double, ptr %31, i64 %77
   br label %84
 
 84:                                               ; preds = %.preheader, %240
@@ -218,8 +218,8 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %119 = add nsw i64 %indvars.iv, -1
   %120 = getelementptr inbounds double, ptr %26, i64 %119
   %121 = load double, ptr %120, align 8, !tbaa !7
-  %gep582 = getelementptr double, ptr %invariant.gep581, i64 %119
-  %122 = load double, ptr %gep582, align 8, !tbaa !7
+  %gep596 = getelementptr double, ptr %invariant.gep595, i64 %119
+  %122 = load double, ptr %gep596, align 8, !tbaa !7
   %123 = fmul double %121, %122
   %124 = fcmp oge double %123, 0.000000e+00
   %125 = fneg double %123
@@ -227,8 +227,8 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %127 = fadd double %118, %126
   %128 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv
   %129 = load double, ptr %128, align 8, !tbaa !7
-  %gep584 = getelementptr double, ptr %invariant.gep583, i64 %indvars.iv
-  %130 = load double, ptr %gep584, align 8, !tbaa !7
+  %gep598 = getelementptr double, ptr %invariant.gep597, i64 %indvars.iv
+  %130 = load double, ptr %gep598, align 8, !tbaa !7
   %131 = fmul double %129, %130
   %132 = fcmp oge double %131, 0.000000e+00
   %133 = fneg double %131
@@ -237,8 +237,8 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %136 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv
   %137 = load double, ptr %136, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %gep586 = getelementptr double, ptr %invariant.gep585, i64 %indvars.iv.next
-  %138 = load double, ptr %gep586, align 8, !tbaa !7
+  %gep600 = getelementptr double, ptr %invariant.gep599, i64 %indvars.iv.next
+  %138 = load double, ptr %gep600, align 8, !tbaa !7
   %139 = fmul double %137, %138
   %140 = fcmp oge double %139, 0.000000e+00
   %141 = fneg double %139
@@ -270,16 +270,16 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 
 .lr.ph494:                                        ; preds = %.lr.ph494.preheader, %.lr.ph494
   %indvars.iv532 = phi i64 [ 2, %.lr.ph494.preheader ], [ %indvars.iv.next533, %.lr.ph494 ]
-  %gep588 = getelementptr double, ptr %invariant.gep587, i64 %indvars.iv532
-  %154 = load double, ptr %gep588, align 8, !tbaa !7
+  %gep602 = getelementptr double, ptr %invariant.gep601, i64 %indvars.iv532
+  %154 = load double, ptr %gep602, align 8, !tbaa !7
   %155 = fcmp oge double %154, 0.000000e+00
   %156 = fneg double %154
   %157 = select i1 %155, double %154, double %156
   %158 = add nsw i64 %indvars.iv532, -1
   %159 = getelementptr inbounds double, ptr %28, i64 %158
   %160 = load double, ptr %159, align 8, !tbaa !7
-  %gep590 = getelementptr double, ptr %invariant.gep589, i64 %158
-  %161 = load double, ptr %gep590, align 8, !tbaa !7
+  %gep604 = getelementptr double, ptr %invariant.gep603, i64 %158
+  %161 = load double, ptr %gep604, align 8, !tbaa !7
   %162 = fmul double %160, %161
   %163 = fcmp oge double %162, 0.000000e+00
   %164 = fneg double %162
@@ -287,8 +287,8 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %166 = fadd double %157, %165
   %167 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv532
   %168 = load double, ptr %167, align 8, !tbaa !7
-  %gep592 = getelementptr double, ptr %invariant.gep591, i64 %indvars.iv532
-  %169 = load double, ptr %gep592, align 8, !tbaa !7
+  %gep606 = getelementptr double, ptr %invariant.gep605, i64 %indvars.iv532
+  %169 = load double, ptr %gep606, align 8, !tbaa !7
   %170 = fmul double %168, %169
   %171 = fcmp oge double %170, 0.000000e+00
   %172 = fneg double %170
@@ -297,8 +297,8 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %175 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv532
   %176 = load double, ptr %175, align 8, !tbaa !7
   %indvars.iv.next533 = add nuw nsw i64 %indvars.iv532, 1
-  %gep594 = getelementptr double, ptr %invariant.gep593, i64 %indvars.iv.next533
-  %177 = load double, ptr %gep594, align 8, !tbaa !7
+  %gep608 = getelementptr double, ptr %invariant.gep607, i64 %indvars.iv.next533
+  %177 = load double, ptr %gep608, align 8, !tbaa !7
   %178 = fmul double %176, %177
   %179 = fcmp oge double %178, 0.000000e+00
   %180 = fneg double %178
@@ -310,18 +310,18 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %exitcond536.not, label %._crit_edge, label %.lr.ph494, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph494, %146, %107
-  %.sink639 = phi ptr [ %26, %107 ], [ %28, %146 ], [ %28, %.lr.ph494 ], [ %26, %.lr.ph ]
+  %.sink653 = phi ptr [ %26, %107 ], [ %28, %146 ], [ %28, %.lr.ph494 ], [ %26, %.lr.ph ]
   %184 = sext i32 %93 to i64
-  %185 = getelementptr double, ptr %.sink648, i64 %184
+  %185 = getelementptr double, ptr %.sink662, i64 %184
   %186 = load double, ptr %185, align 8, !tbaa !7
   %187 = fcmp oge double %186, 0.000000e+00
   %188 = fneg double %186
   %189 = select i1 %187, double %186, double %188
   %190 = add nsw i32 %93, -1
   %191 = sext i32 %190 to i64
-  %192 = getelementptr inbounds double, ptr %.sink639, i64 %191
+  %192 = getelementptr inbounds double, ptr %.sink653, i64 %191
   %193 = load double, ptr %192, align 8, !tbaa !7
-  %194 = getelementptr double, ptr %.sink636, i64 %191
+  %194 = getelementptr double, ptr %.sink650, i64 %191
   %195 = load double, ptr %194, align 8, !tbaa !7
   %196 = fmul double %193, %195
   %197 = fcmp oge double %196, 0.000000e+00
@@ -330,7 +330,7 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %200 = fadd double %189, %199
   %201 = getelementptr inbounds double, ptr %27, i64 %184
   %202 = load double, ptr %201, align 8, !tbaa !7
-  %203 = getelementptr double, ptr %.sink622, i64 %184
+  %203 = getelementptr double, ptr %.sink636, i64 %184
   %204 = load double, ptr %203, align 8, !tbaa !7
   %205 = fmul double %202, %204
   %206 = fcmp oge double %205, 0.000000e+00
@@ -351,8 +351,8 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %212 = zext nneg i32 %211 to i64
   %213 = add nuw i32 %211, 1
   %wide.trip.count540 = zext i32 %213 to i64
-  %invariant.gep595 = getelementptr inbounds nuw double, ptr %37, i64 %212
-  %invariant.gep597 = getelementptr inbounds nuw double, ptr %37, i64 %212
+  %invariant.gep609 = getelementptr inbounds nuw double, ptr %37, i64 %212
+  %invariant.gep611 = getelementptr inbounds nuw double, ptr %37, i64 %212
   br label %.lr.ph500
 
 .lr.ph500:                                        ; preds = %.lr.ph500.preheader, %231
@@ -364,8 +364,8 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %216, label %217, label %223
 
 217:                                              ; preds = %.lr.ph500
-  %gep598 = getelementptr inbounds nuw double, ptr %invariant.gep597, i64 %indvars.iv537
-  %218 = load double, ptr %gep598, align 8, !tbaa !7
+  %gep612 = getelementptr inbounds nuw double, ptr %invariant.gep611, i64 %indvars.iv537
+  %218 = load double, ptr %gep612, align 8, !tbaa !7
   %219 = fcmp oge double %218, 0.000000e+00
   %220 = fneg double %218
   %221 = select i1 %219, double %218, double %220
@@ -373,8 +373,8 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br label %231
 
 223:                                              ; preds = %.lr.ph500
-  %gep596 = getelementptr inbounds nuw double, ptr %invariant.gep595, i64 %indvars.iv537
-  %224 = load double, ptr %gep596, align 8, !tbaa !7
+  %gep610 = getelementptr inbounds nuw double, ptr %invariant.gep609, i64 %indvars.iv537
+  %224 = load double, ptr %gep610, align 8, !tbaa !7
   %225 = fcmp oge double %224, 0.000000e+00
   %226 = fneg double %224
   %227 = select i1 %225, double %224, double %226
@@ -384,15 +384,15 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br label %231
 
 231:                                              ; preds = %217, %223
-  %.sink653 = phi double [ %222, %217 ], [ %230, %223 ]
-  %232 = fcmp oge double %.0452498, %.sink653
-  %233 = select i1 %232, double %.0452498, double %.sink653
+  %.sink667 = phi double [ %222, %217 ], [ %230, %223 ]
+  %232 = fcmp oge double %.0452498, %.sink667
+  %233 = select i1 %232, double %.0452498, double %.sink667
   %indvars.iv.next538 = add nuw nsw i64 %indvars.iv537, 1
   %exitcond541.not = icmp eq i64 %indvars.iv.next538, %wide.trip.count540
   br i1 %exitcond541.not, label %._crit_edge501, label %.lr.ph500, !llvm.loop !14
 
 ._crit_edge501:                                   ; preds = %231, %._crit_edge
-  %.not474496577 = phi i1 [ true, %._crit_edge ], [ false, %231 ]
+  %.not474496591 = phi i1 [ true, %._crit_edge ], [ false, %231 ]
   %234 = phi i32 [ %93, %._crit_edge ], [ %211, %231 ]
   %.0452.lcssa = phi double [ 0.000000e+00, %._crit_edge ], [ %233, %231 ]
   store double %.0452.lcssa, ptr %76, align 8, !tbaa !7
@@ -421,14 +421,14 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br label %84
 
 250:                                              ; preds = %236, %._crit_edge501
-  br i1 %.not474496577, label %._crit_edge506, label %.lr.ph505.preheader
+  br i1 %.not474496591, label %._crit_edge506, label %.lr.ph505.preheader
 
 .lr.ph505.preheader:                              ; preds = %250
   %251 = zext nneg i32 %234 to i64
   %252 = add nuw i32 %234, 1
   %wide.trip.count546 = zext i32 %252 to i64
-  %invariant.gep599 = getelementptr inbounds nuw double, ptr %37, i64 %251
-  %invariant.gep601 = getelementptr inbounds nuw double, ptr %37, i64 %251
+  %invariant.gep613 = getelementptr inbounds nuw double, ptr %37, i64 %251
+  %invariant.gep615 = getelementptr inbounds nuw double, ptr %37, i64 %251
   br label %.lr.ph505
 
 .lr.ph505:                                        ; preds = %.lr.ph505.preheader, %269
@@ -439,8 +439,8 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %255, label %256, label %262
 
 256:                                              ; preds = %.lr.ph505
-  %gep602 = getelementptr inbounds nuw double, ptr %invariant.gep601, i64 %indvars.iv542
-  %257 = load double, ptr %gep602, align 8, !tbaa !7
+  %gep616 = getelementptr inbounds nuw double, ptr %invariant.gep615, i64 %indvars.iv542
+  %257 = load double, ptr %gep616, align 8, !tbaa !7
   %258 = fcmp oge double %257, 0.000000e+00
   %259 = fneg double %257
   %260 = select i1 %258, double %257, double %259
@@ -448,8 +448,8 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br label %269
 
 262:                                              ; preds = %.lr.ph505
-  %gep600 = getelementptr inbounds nuw double, ptr %invariant.gep599, i64 %indvars.iv542
-  %263 = load double, ptr %gep600, align 8, !tbaa !7
+  %gep614 = getelementptr inbounds nuw double, ptr %invariant.gep613, i64 %indvars.iv542
+  %263 = load double, ptr %gep614, align 8, !tbaa !7
   %264 = fcmp oge double %263, 0.000000e+00
   %265 = fneg double %263
   %266 = select i1 %264, double %263, double %265
@@ -503,17 +503,17 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %286 = zext nneg i32 %285 to i64
   %287 = add nuw i32 %285, 1
   %wide.trip.count551 = zext i32 %287 to i64
-  %invariant.gep603 = getelementptr inbounds nuw double, ptr %37, i64 %286
+  %invariant.gep617 = getelementptr inbounds nuw double, ptr %37, i64 %286
   br label %.lr.ph510
 
 .lr.ph510:                                        ; preds = %.lr.ph510.preheader, %.lr.ph510
   %indvars.iv548 = phi i64 [ 1, %.lr.ph510.preheader ], [ %indvars.iv.next549, %.lr.ph510 ]
   %288 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv548
   %289 = load double, ptr %288, align 8, !tbaa !7
-  %gep604 = getelementptr inbounds nuw double, ptr %invariant.gep603, i64 %indvars.iv548
-  %290 = load double, ptr %gep604, align 8, !tbaa !7
+  %gep618 = getelementptr inbounds nuw double, ptr %invariant.gep617, i64 %indvars.iv548
+  %290 = load double, ptr %gep618, align 8, !tbaa !7
   %291 = fmul double %289, %290
-  store double %291, ptr %gep604, align 8, !tbaa !7
+  store double %291, ptr %gep618, align 8, !tbaa !7
   %indvars.iv.next549 = add nuw nsw i64 %indvars.iv548, 1
   %exitcond552.not = icmp eq i64 %indvars.iv.next549, %wide.trip.count551
   br i1 %exitcond552.not, label %.loopexit485.backedge, label %.lr.ph510, !llvm.loop !16
@@ -526,17 +526,17 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %293 = zext nneg i32 %280 to i64
   %294 = add nuw i32 %280, 1
   %wide.trip.count556 = zext i32 %294 to i64
-  %invariant.gep605 = getelementptr inbounds nuw double, ptr %37, i64 %293
+  %invariant.gep619 = getelementptr inbounds nuw double, ptr %37, i64 %293
   br label %.lr.ph514
 
 .lr.ph514:                                        ; preds = %.lr.ph514.preheader, %.lr.ph514
   %indvars.iv553 = phi i64 [ 1, %.lr.ph514.preheader ], [ %indvars.iv.next554, %.lr.ph514 ]
   %295 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv553
   %296 = load double, ptr %295, align 8, !tbaa !7
-  %gep606 = getelementptr inbounds nuw double, ptr %invariant.gep605, i64 %indvars.iv553
-  %297 = load double, ptr %gep606, align 8, !tbaa !7
+  %gep620 = getelementptr inbounds nuw double, ptr %invariant.gep619, i64 %indvars.iv553
+  %297 = load double, ptr %gep620, align 8, !tbaa !7
   %298 = fmul double %296, %297
-  store double %298, ptr %gep606, align 8, !tbaa !7
+  store double %298, ptr %gep620, align 8, !tbaa !7
   %indvars.iv.next554 = add nuw nsw i64 %indvars.iv553, 1
   %exitcond557.not = icmp eq i64 %indvars.iv.next554, %wide.trip.count556
   br i1 %exitcond557.not, label %._crit_edge515, label %.lr.ph514, !llvm.loop !17
@@ -556,14 +556,14 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 .lr.ph520.preheader:                              ; preds = %302
   %303 = add nuw i32 %280, 1
   %wide.trip.count561 = zext i32 %303 to i64
-  %invariant.gep607 = getelementptr double, ptr %34, i64 %80
+  %invariant.gep621 = getelementptr double, ptr %34, i64 %80
   br label %.lr.ph520
 
 .lr.ph520:                                        ; preds = %.lr.ph520.preheader, %.lr.ph520
   %indvars.iv558 = phi i64 [ 1, %.lr.ph520.preheader ], [ %indvars.iv.next559, %.lr.ph520 ]
   %.1518 = phi double [ 0.000000e+00, %.lr.ph520.preheader ], [ %309, %.lr.ph520 ]
-  %gep608 = getelementptr double, ptr %invariant.gep607, i64 %indvars.iv558
-  %304 = load double, ptr %gep608, align 8, !tbaa !7
+  %gep622 = getelementptr double, ptr %invariant.gep621, i64 %indvars.iv558
+  %304 = load double, ptr %gep622, align 8, !tbaa !7
   %305 = fcmp oge double %304, 0.000000e+00
   %306 = fneg double %304
   %307 = select i1 %305, double %304, double %306

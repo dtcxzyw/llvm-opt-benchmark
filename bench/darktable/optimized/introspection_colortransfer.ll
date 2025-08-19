@@ -152,8 +152,8 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .lr.ph.i:                                         ; preds = %.preheader46.i, %42
   %indvars.iv226 = phi i64 [ 0, %.preheader46.i ], [ %indvars.iv.next227, %42 ]
   %30 = add nuw nsw i64 %indvars.iv226, %29
-  %.idx236 = mul nuw nsw i64 %30, 12
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx236
+  %.idx255 = mul nuw nsw i64 %30, 12
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx255
   %32 = load float, ptr %31, align 4, !tbaa !51
   %33 = fmul reassoc nsz arcp contract afn float %32, 2.048000e+03
   %34 = fpext reassoc nsz arcp contract afn float %33 to double
@@ -331,7 +331,7 @@ invert_histogram.exit:                            ; preds = %.loopexit.i
   br label %.lr.ph.i164
 
 .preheader45.i152:                                ; preds = %._crit_edge.i163, %.preheader46.lr.ph.i160, %105
-  %load_initial239 = load i32, ptr %8, align 16
+  %load_initial258 = load i32, ptr %8, align 16
   br label %132
 
 ._crit_edge.i163:                                 ; preds = %126
@@ -375,11 +375,11 @@ invert_histogram.exit:                            ; preds = %.loopexit.i
   br label %136
 
 132:                                              ; preds = %132, %.preheader45.i152
-  %store_forwarded240 = phi i32 [ %load_initial239, %.preheader45.i152 ], [ %135, %132 ]
+  %store_forwarded259 = phi i32 [ %load_initial258, %.preheader45.i152 ], [ %135, %132 ]
   %indvars.iv.i153 = phi i64 [ 1, %.preheader45.i152 ], [ %indvars.iv.next.i154, %132 ]
   %133 = getelementptr i32, ptr %8, i64 %indvars.iv.i153
   %134 = load i32, ptr %133, align 4, !tbaa !52
-  %135 = add nsw i32 %134, %store_forwarded240
+  %135 = add nsw i32 %134, %store_forwarded259
   store i32 %135, ptr %133, align 4, !tbaa !52
   %indvars.iv.next.i154 = add nuw nsw i64 %indvars.iv.i153, 1
   %exitcond.not.i155 = icmp eq i64 %indvars.iv.next.i154, 2048
@@ -801,7 +801,7 @@ define internal fastcc void @kmeans(ptr noundef readonly captures(none) %0, i32 
   br i1 %21, label %.preheader3.split.us, label %.split
 
 .preheader3.split.us:                             ; preds = %.preheader3.thread, %.preheader3
-  %wide.trip.count.i.pre-phi83 = phi i64 [ %.pre, %.preheader3.thread ], [ %18, %.preheader3 ]
+  %wide.trip.count.i.pre-phi91 = phi i64 [ %.pre, %.preheader3.thread ], [ %18, %.preheader3 ]
   %22 = sitofp i32 %.12.val to float
   %23 = sitofp i32 %.8.val to float
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 176), align 8
@@ -809,7 +809,7 @@ define internal fastcc void @kmeans(ptr noundef readonly captures(none) %0, i32 
   %25 = getelementptr inbounds nuw i8, ptr %.val.i134.us, i64 8
   %.val.i134.us.promoted = load i64, ptr %.val.i134.us, align 8, !tbaa !101
   %.promoted44 = load i64, ptr %25, align 8, !tbaa !103
-  %26 = shl nuw nsw i64 %wide.trip.count.i.pre-phi83, 2
+  %26 = shl nuw nsw i64 %wide.trip.count.i.pre-phi91, 2
   br label %.preheader2.us
 
 .preheader2.us:                                   ; preds = %._crit_edge.us, %.preheader3.split.us
@@ -872,7 +872,7 @@ define internal fastcc void @kmeans(ptr noundef readonly captures(none) %0, i32 
 
 54:                                               ; preds = %31, %.lr.ph26.us
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count.i.pre-phi83
+  %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count.i.pre-phi91
   br i1 %exitcond71.not, label %._crit_edge.us, label %.lr.ph26.us
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.preheader
@@ -906,8 +906,8 @@ define internal fastcc void @kmeans(ptr noundef readonly captures(none) %0, i32 
 
 ._crit_edge.split.us.us.thread:                   ; preds = %.backedge
   %72 = add nuw nsw i32 %.012720.us, 1
-  %exitcond66.not79 = icmp eq i32 %72, %8
-  br i1 %exitcond66.not79, label %._crit_edge.us, label %.backedge.backedge
+  %exitcond66.not87 = icmp eq i32 %72, %8
+  br i1 %exitcond66.not87, label %._crit_edge.us, label %.backedge.backedge
 
 .lr.ph9.us:                                       ; preds = %.backedge
   %73 = add i64 %70, %63
@@ -961,7 +961,7 @@ define internal fastcc void @kmeans(ptr noundef readonly captures(none) %0, i32 
   %.121.i.us.us = select i1 %109, i32 %110, i32 %.0201.i.us.us
   %.1.i.us.us = select nsz i1 %109, float %108, float %.03.i.us.us
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
-  %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, %wide.trip.count.i.pre-phi83
+  %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, %wide.trip.count.i.pre-phi91
   br i1 %exitcond.not.i.us.us, label %get_cluster.exit.loopexit.us.us, label %.lr.ph.i.us.us
 
 get_cluster.exit.loopexit.us.us:                  ; preds = %.lr.ph.i.us.us
@@ -1099,7 +1099,7 @@ get_cluster.exit.loopexit.us.us:                  ; preds = %.lr.ph.i.us.us
   br i1 %exitcond.not, label %.preheader3, label %158
 
 .split:                                           ; preds = %._crit_edge.us36, %.preheader3.thread, %.split.us
-  %wide.trip.count.i.pre-phi81 = phi i64 [ %wide.trip.count.i.pre-phi83, %.split.us ], [ %.pre, %.preheader3.thread ], [ %18, %._crit_edge.us36 ]
+  %wide.trip.count.i.pre-phi89 = phi i64 [ %wide.trip.count.i.pre-phi91, %.split.us ], [ %.pre, %.preheader3.thread ], [ %18, %._crit_edge.us36 ]
   tail call void @free(ptr noundef %14) #14
   tail call void @free(ptr noundef %12) #14
   tail call void @free(ptr noundef %11) #14
@@ -1119,7 +1119,7 @@ get_cluster.exit.loopexit.us.us:                  ; preds = %.lr.ph.i.us.us
   %198 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %197)
   store float %198, ptr %196, align 4, !tbaa !51
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count.i.pre-phi81
+  %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count.i.pre-phi89
   br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph47
 }
 

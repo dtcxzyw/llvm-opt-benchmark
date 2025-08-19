@@ -1647,33 +1647,33 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
   %124 = phi i32 [ 0, %118 ], [ -2, %107 ]
   %125 = and i8 %123, 4
   %126 = icmp eq i8 %125, 0
-  br i1 %126, label %127, label %.thread11
+  br i1 %126, label %127, label %.thread20
 
 127:                                              ; preds = %122
   %128 = and i8 %123, 56
   %129 = icmp eq i8 %128, 56
   br i1 %129, label %.thread, label %138
 
-.thread11:                                        ; preds = %122
+.thread20:                                        ; preds = %122
   %130 = getelementptr inbounds nuw i8, ptr %18, i64 27
   %131 = load i8, ptr %130, align 1
   %132 = or i8 %131, 2
   store i8 %132, ptr %130, align 1
   %133 = and i8 %123, 56
   %134 = icmp eq i8 %133, 56
-  br i1 %134, label %.thread, label %.thread12
+  br i1 %134, label %.thread, label %.thread21
 
-.thread:                                          ; preds = %.thread11, %127
+.thread:                                          ; preds = %.thread20, %127
   %135 = getelementptr inbounds nuw i8, ptr %18, i64 27
   %136 = load i8, ptr %135, align 1
   %137 = or i8 %136, 4
   store i8 %137, ptr %135, align 1
-  br label %.thread12
+  br label %.thread21
 
 138:                                              ; preds = %127
-  br i1 %.not, label %.thread9, label %.thread12
+  br i1 %.not, label %.thread9, label %.thread21
 
-.thread12:                                        ; preds = %.thread11, %.thread, %138
+.thread21:                                        ; preds = %.thread20, %.thread, %138
   %139 = getelementptr inbounds nuw i8, ptr %18, i64 48
   tail call void @__mutex_init(ptr noundef nonnull %139, ptr noundef nonnull @.str.24, ptr noundef nonnull @acpi_video_bus_add.__key) #18
   %140 = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -1685,7 +1685,7 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %144, label %178
 
-144:                                              ; preds = %.thread12
+144:                                              ; preds = %.thread21
   tail call void @acpi_device_fix_up_power_children(ptr noundef %0) #18
   %145 = getelementptr inbounds nuw i8, ptr %18, i64 27
   %146 = load i8, ptr %145, align 1
@@ -1748,8 +1748,8 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
   call fastcc void @acpi_video_bus_unregister_backlight(ptr noundef nonnull %18)
   br label %178
 
-178:                                              ; preds = %173, %.thread12
-  %179 = phi i32 [ %142, %.thread12 ], [ %174, %173 ]
+178:                                              ; preds = %173, %.thread21
+  %179 = phi i32 [ %142, %.thread21 ], [ %174, %173 ]
   call void @mutex_lock(ptr noundef nonnull %139) #18
   %180 = load ptr, ptr %140, align 8
   %181 = icmp eq ptr %180, %140

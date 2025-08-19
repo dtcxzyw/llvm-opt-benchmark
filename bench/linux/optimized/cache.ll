@@ -307,13 +307,13 @@ define dso_local range(i32 -2147483648, 268435456) i32 @fat_get_cluster(ptr noun
   %127 = getelementptr i8, ptr %0, i64 -96
   %128 = load i64, ptr %127, align 8
   call void (ptr, i32, ptr, ...) @__fat_fs_error(ptr noundef %8, i32 noundef %126, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.fat_get_cluster, i64 noundef %128) #9
-  br label %.loopexit113
+  br label %.loopexit124
 
 129:                                              ; preds = %116
   %130 = load i32, ptr %3, align 4
   %131 = call i32 @fat_ent_read(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %130) #8
   %132 = icmp slt i32 %131, 0
-  br i1 %132, label %.loopexit113, label %133
+  br i1 %132, label %.loopexit124, label %133
 
 133:                                              ; preds = %129
   switch i32 %131, label %141 [
@@ -328,7 +328,7 @@ define dso_local range(i32 -2147483648, 268435456) i32 @fat_get_cluster(ptr noun
   %138 = getelementptr i8, ptr %0, i64 -96
   %139 = load i64, ptr %138, align 8
   call void (ptr, i32, ptr, ...) @__fat_fs_error(ptr noundef %8, i32 noundef %137, ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.fat_get_cluster, i64 noundef %139) #9
-  br label %.loopexit113
+  br label %.loopexit124
 
 140:                                              ; preds = %133
   store i32 %119, ptr %113, align 4
@@ -336,7 +336,7 @@ define dso_local range(i32 -2147483648, 268435456) i32 @fat_get_cluster(ptr noun
   store i32 %117, ptr %115, align 4
   store i32 %121, ptr %6, align 4
   call fastcc void @fat_cache_add(ptr noundef %0, ptr noundef nonnull %6)
-  br label %.loopexit113
+  br label %.loopexit124
 
 141:                                              ; preds = %133
   %142 = load i32, ptr %2, align 4
@@ -370,18 +370,18 @@ define dso_local range(i32 -2147483648, 268435456) i32 @fat_get_cluster(ptr noun
   %156 = phi i32 [ %152, %154 ], [ %106, %102 ]
   store i32 %156, ptr %6, align 4
   call fastcc void @fat_cache_add(ptr noundef %0, ptr noundef nonnull %6)
-  br label %.loopexit113
+  br label %.loopexit124
 
-.loopexit113:                                     ; preds = %129, %155, %140, %134, %123
+.loopexit124:                                     ; preds = %129, %155, %140, %134, %123
   %157 = phi i32 [ -5, %123 ], [ -5, %134 ], [ 268435455, %140 ], [ 0, %155 ], [ %131, %129 ]
   store ptr null, ptr %108, align 8
   %158 = load i32, ptr %107, align 8
   %159 = icmp sgt i32 %158, 0
   br i1 %159, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %.loopexit113, %166
-  %160 = phi i32 [ %167, %166 ], [ %158, %.loopexit113 ]
-  %161 = phi i64 [ %168, %166 ], [ 0, %.loopexit113 ]
+.preheader:                                       ; preds = %.loopexit124, %166
+  %160 = phi i32 [ %167, %166 ], [ %158, %.loopexit124 ]
+  %161 = phi i64 [ %168, %166 ], [ 0, %.loopexit124 ]
   %162 = getelementptr [2 x ptr], ptr %109, i64 0, i64 %161
   %163 = load ptr, ptr %162, align 8
   %164 = icmp eq ptr %163, null
@@ -399,8 +399,8 @@ define dso_local range(i32 -2147483648, 268435456) i32 @fat_get_cluster(ptr noun
   %170 = icmp slt i64 %168, %169
   br i1 %170, label %.preheader, label %.loopexit, !llvm.loop !17
 
-.loopexit:                                        ; preds = %166, %.loopexit113, %38, %31
-  %171 = phi i32 [ -5, %31 ], [ 0, %38 ], [ %157, %.loopexit113 ], [ %157, %166 ]
+.loopexit:                                        ; preds = %166, %.loopexit124, %38, %31
+  %171 = phi i32 [ -5, %31 ], [ 0, %38 ], [ %157, %.loopexit124 ], [ %157, %166 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %171

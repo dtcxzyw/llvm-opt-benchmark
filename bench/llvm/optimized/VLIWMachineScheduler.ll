@@ -1110,8 +1110,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm17VLIWResourceModel19isResourceAvai
   %32 = tail call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %1, ptr noundef %28) #19
   %33 = getelementptr inbounds nuw i8, ptr %.02849, i64 8
   %.not35 = icmp eq ptr %33, %19
-  %or.cond62 = select i1 %32, i1 true, i1 %.not35
-  br i1 %or.cond62, label %.thread.loopexit59, label %.lr.ph
+  %or.cond66 = select i1 %32, i1 true, i1 %.not35
+  br i1 %or.cond66, label %.thread.loopexit59, label %.lr.ph
 
 .thread.loopexit:                                 ; preds = %.lr.ph54
   %.0.ph = xor i1 %25, true
@@ -2050,11 +2050,11 @@ _ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__
   br label %_ZN4llvm10ReadyQueue4pushEPNS_5SUnitE.exit
 
 _ZN4llvm10ReadyQueue4pushEPNS_5SUnitE.exit:       ; preds = %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i12, %68, %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %39
-  %.sink16.in = phi ptr [ %33, %39 ], [ %33, %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %62, %68 ], [ %62, %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i12 ]
-  %.sink16 = load i32, ptr %.sink16.in, align 8, !tbaa !266
+  %.sink23.in = phi ptr [ %33, %39 ], [ %33, %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %62, %68 ], [ %62, %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i12 ]
+  %.sink23 = load i32, ptr %.sink23.in, align 8, !tbaa !266
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 204
   %91 = load i32, ptr %90, align 4, !tbaa !461
-  %92 = or i32 %91, %.sink16
+  %92 = or i32 %91, %.sink23
   store i32 %92, ptr %90, align 4, !tbaa !461
   ret void
 }
@@ -2648,13 +2648,13 @@ define dso_local void @_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary11rem
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !151
   %29 = icmp eq ptr %28, %1
-  br i1 %29, label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit51, label %30
+  br i1 %29, label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit53, label %30
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !151
   %33 = icmp eq ptr %32, %1
-  br i1 %33, label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit53, label %34
+  br i1 %33, label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit55, label %34
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 32
@@ -2707,16 +2707,16 @@ _ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit: ; preds = %
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 8
   br label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit
 
-_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit51: ; preds = %26
+_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit53: ; preds = %26
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 16
   br label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit
 
-_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit53: ; preds = %30
+_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit55: ; preds = %30
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 24
   br label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit
 
-_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit:       ; preds = %19, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit51, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit53, %._crit_edge.i.i.i.i.i, %39, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %39 ], [ %.sroa.032.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %50, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit ], [ %51, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit51 ], [ %52, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit53 ], [ %.sroa.032.051.i.i.i.i.i, %19 ]
+_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit:       ; preds = %19, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit53, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit55, %._crit_edge.i.i.i.i.i, %39, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %39 ], [ %.sroa.032.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %50, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit ], [ %51, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit53 ], [ %52, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit.loopexit.split.loop.exit55 ], [ %.sroa.032.051.i.i.i.i.i, %19 ]
   %53 = xor i32 %6, -1
   %54 = load ptr, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, align 8, !tbaa !151
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 204
@@ -2764,13 +2764,13 @@ _ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit:       ; preds = %19, %_ZN4llvm10Read
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i19, i64 16
   %81 = load ptr, ptr %80, align 8, !tbaa !151
   %82 = icmp eq ptr %81, %1
-  br i1 %82, label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit59, label %83
+  br i1 %82, label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit61, label %83
 
 83:                                               ; preds = %79
   %84 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i19, i64 24
   %85 = load ptr, ptr %84, align 8, !tbaa !151
   %86 = icmp eq ptr %85, %1
-  br i1 %86, label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit61, label %87
+  br i1 %86, label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit63, label %87
 
 87:                                               ; preds = %83
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i19, i64 32
@@ -2823,16 +2823,16 @@ _ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit: ; preds =
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i19, i64 8
   br label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26
 
-_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit59: ; preds = %79
+_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit61: ; preds = %79
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i19, i64 16
   br label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26
 
-_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit61: ; preds = %83
+_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit63: ; preds = %83
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i19, i64 24
   br label %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26
 
-_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26:     ; preds = %72, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit59, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit61, %._crit_edge.i.i.i.i.i7, %92, %._crit_edge._crit_edge.i.i.i.i.i14, %._crit_edge._crit_edge57.i.i.i.i.i10
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i13 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i9, %92 ], [ %.sroa.032.1.i.i.i.i.i15, %._crit_edge._crit_edge.i.i.i.i.i14 ], [ %65, %._crit_edge.i.i.i.i.i7 ], [ %spec.select.i.i.i.i.i12, %._crit_edge._crit_edge57.i.i.i.i.i10 ], [ %103, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit ], [ %104, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit59 ], [ %105, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit61 ], [ %.sroa.032.051.i.i.i.i.i19, %72 ]
+_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26:     ; preds = %72, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit61, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit63, %._crit_edge.i.i.i.i.i7, %92, %._crit_edge._crit_edge.i.i.i.i.i14, %._crit_edge._crit_edge57.i.i.i.i.i10
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i13 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i9, %92 ], [ %.sroa.032.1.i.i.i.i.i15, %._crit_edge._crit_edge.i.i.i.i.i14 ], [ %65, %._crit_edge.i.i.i.i.i7 ], [ %spec.select.i.i.i.i.i12, %._crit_edge._crit_edge57.i.i.i.i.i10 ], [ %103, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit ], [ %104, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit61 ], [ %105, %_ZN4llvm10ReadyQueue4findEPNS_5SUnitE.exit26.loopexit.split.loop.exit63 ], [ %.sroa.032.051.i.i.i.i.i19, %72 ]
   %106 = load i32, ptr %61, align 8, !tbaa !266
   %107 = xor i32 %106, -1
   %108 = load ptr, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i13, align 8, !tbaa !151
@@ -3604,13 +3604,13 @@ _ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread: ; p
   %291 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   %292 = load ptr, ptr %291, align 8, !tbaa !151
   %293 = icmp eq ptr %292, %258
-  br i1 %293, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit378, label %294
+  br i1 %293, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit404, label %294
 
 294:                                              ; preds = %290
   %295 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
   %296 = load ptr, ptr %295, align 8, !tbaa !151
   %297 = icmp eq ptr %296, %258
-  br i1 %297, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit380, label %298
+  br i1 %297, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit406, label %298
 
 298:                                              ; preds = %294
   %299 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 32
@@ -3625,7 +3625,7 @@ _ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread: ; p
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %276
   %.pre-phi56.i.i.i.i.i = phi i32 [ %302, %._crit_edge.loopexit.i.i.i.i.i ], [ %278, %276 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %277, %276 ]
-  switch i32 %.pre-phi56.i.i.i.i.i, label %._crit_edge.i.i.i.unreachabledefault.i.i [
+  switch i32 %.pre-phi56.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.unreachabledefault [
     i32 3, label %303
     i32 2, label %._crit_edge._crit_edge.i.i.i.i.i
     i32 1, label %._crit_edge._crit_edge52.i.i.i.i.i
@@ -3657,7 +3657,10 @@ _ZN4llvm23ConvergingVLIWScheduler14pressureChangeEPKNS_5SUnitEb.exit.thread: ; p
   %313 = icmp eq ptr %312, %258
   br i1 %313, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit, label %314
 
-._crit_edge.i.i.i.unreachabledefault.i.i:         ; preds = %._crit_edge.i.i.i.i.i
+._crit_edge.i.i.i.i.i.unreachabledefault:         ; preds = %._crit_edge.i.i.i.i.i
+  unreachable
+
+default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i191, %._crit_edge.i.i.i.i.i233, %._crit_edge.i.i.i.i.i212
   unreachable
 
 314:                                              ; preds = %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge.i.i.i.i.i
@@ -3667,16 +3670,16 @@ _ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.ex
   %315 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit378: ; preds = %290
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit404: ; preds = %290
   %316 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit380: ; preds = %294
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit406: ; preds = %294
   %317 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
   br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit: ; preds = %283, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit378, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit380, %303, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i, %314
-  %.028.i.i.i.i.i = phi ptr [ %280, %314 ], [ %.029.lcssa.i.i.i.i.i, %303 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %315, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit ], [ %316, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit378 ], [ %317, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit380 ], [ %.02946.i.i.i.i.i, %283 ]
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit: ; preds = %283, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit404, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit406, %303, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i, %314
+  %.028.i.i.i.i.i = phi ptr [ %280, %314 ], [ %.029.lcssa.i.i.i.i.i, %303 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %315, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit ], [ %316, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit404 ], [ %317, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit.loopexit.split.loop.exit406 ], [ %.02946.i.i.i.i.i, %283 ]
   %.not263 = icmp eq ptr %.028.i.i.i.i.i, %280
   %318 = add i32 %.5309, 75
   %spec.select140 = select i1 %.not263, i32 %.5309, i32 %318
@@ -3782,13 +3785,13 @@ thread-pre-split:                                 ; preds = %242
   %373 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i189, i64 16
   %374 = load ptr, ptr %373, align 8, !tbaa !151
   %375 = icmp eq ptr %374, %340
-  br i1 %375, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit370, label %376
+  br i1 %375, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit396, label %376
 
 376:                                              ; preds = %372
   %377 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i189, i64 24
   %378 = load ptr, ptr %377, align 8, !tbaa !151
   %379 = icmp eq ptr %378, %340
-  br i1 %379, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit372, label %380
+  br i1 %379, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit398, label %380
 
 380:                                              ; preds = %376
   %381 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i189, i64 32
@@ -3803,7 +3806,7 @@ thread-pre-split:                                 ; preds = %242
 ._crit_edge.i.i.i.i.i191:                         ; preds = %._crit_edge.loopexit.i.i.i.i.i190, %358
   %.pre-phi56.i.i.i.i.i192 = phi i32 [ %384, %._crit_edge.loopexit.i.i.i.i.i190 ], [ %360, %358 ]
   %.029.lcssa.i.i.i.i.i193 = phi ptr [ %scevgep.i.i.i.i.i187, %._crit_edge.loopexit.i.i.i.i.i190 ], [ %359, %358 ]
-  switch i32 %.pre-phi56.i.i.i.i.i192, label %._crit_edge.i.i.i.unreachabledefault.i.i199 [
+  switch i32 %.pre-phi56.i.i.i.i.i192, label %default.unreachable [
     i32 3, label %385
     i32 2, label %._crit_edge._crit_edge.i.i.i.i.i197
     i32 1, label %._crit_edge._crit_edge52.i.i.i.i.i195
@@ -3835,9 +3838,6 @@ thread-pre-split:                                 ; preds = %242
   %395 = icmp eq ptr %394, %340
   br i1 %395, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203, label %396
 
-._crit_edge.i.i.i.unreachabledefault.i.i199:      ; preds = %._crit_edge.i.i.i.i.i191
-  unreachable
-
 396:                                              ; preds = %._crit_edge._crit_edge52.i.i.i.i.i195, %._crit_edge.i.i.i.i.i191
   br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203
 
@@ -3845,16 +3845,16 @@ _ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop
   %397 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i189, i64 8
   br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit370: ; preds = %372
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit396: ; preds = %372
   %398 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i189, i64 16
   br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit372: ; preds = %376
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit398: ; preds = %376
   %399 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i189, i64 24
   br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203: ; preds = %365, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit370, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit372, %385, %._crit_edge._crit_edge.i.i.i.i.i197, %._crit_edge._crit_edge52.i.i.i.i.i195, %396
-  %.028.i.i.i.i.i194 = phi ptr [ %362, %396 ], [ %.029.lcssa.i.i.i.i.i193, %385 ], [ %.1.i.i.i.i.i198, %._crit_edge._crit_edge.i.i.i.i.i197 ], [ %.2.i.i.i.i.i196, %._crit_edge._crit_edge52.i.i.i.i.i195 ], [ %397, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit ], [ %398, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit370 ], [ %399, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit372 ], [ %.02946.i.i.i.i.i189, %365 ]
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203: ; preds = %365, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit396, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit398, %385, %._crit_edge._crit_edge.i.i.i.i.i197, %._crit_edge._crit_edge52.i.i.i.i.i195, %396
+  %.028.i.i.i.i.i194 = phi ptr [ %362, %396 ], [ %.029.lcssa.i.i.i.i.i193, %385 ], [ %.1.i.i.i.i.i198, %._crit_edge._crit_edge.i.i.i.i.i197 ], [ %.2.i.i.i.i.i196, %._crit_edge._crit_edge52.i.i.i.i.i195 ], [ %397, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit ], [ %398, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit396 ], [ %399, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203.loopexit.split.loop.exit398 ], [ %.02946.i.i.i.i.i189, %365 ]
   %.not261 = icmp eq ptr %.028.i.i.i.i.i194, %362
   %400 = add i32 %.8296, 75
   %spec.select141 = select i1 %.not261, i32 %.8296, i32 %400
@@ -3938,13 +3938,13 @@ _ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203: ; preds = %365, %_
   %439 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i210, i64 16
   %440 = load ptr, ptr %439, align 8, !tbaa !151
   %441 = icmp eq ptr %440, %424
-  br i1 %441, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit394, label %442
+  br i1 %441, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit420, label %442
 
 442:                                              ; preds = %438
   %443 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i210, i64 24
   %444 = load ptr, ptr %443, align 8, !tbaa !151
   %445 = icmp eq ptr %444, %424
-  br i1 %445, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit396, label %446
+  br i1 %445, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit422, label %446
 
 446:                                              ; preds = %442
   %447 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i210, i64 32
@@ -3959,7 +3959,7 @@ _ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203: ; preds = %365, %_
 ._crit_edge.i.i.i.i.i212:                         ; preds = %._crit_edge.loopexit.i.i.i.i.i211, %422
   %.pre-phi56.i.i.i.i.i213 = phi i32 [ %450, %._crit_edge.loopexit.i.i.i.i.i211 ], [ %426, %422 ]
   %.029.lcssa.i.i.i.i.i214 = phi ptr [ %scevgep.i.i.i.i.i208, %._crit_edge.loopexit.i.i.i.i.i211 ], [ %425, %422 ]
-  switch i32 %.pre-phi56.i.i.i.i.i213, label %._crit_edge.i.i.i.unreachabledefault.i.i220 [
+  switch i32 %.pre-phi56.i.i.i.i.i213, label %default.unreachable [
     i32 3, label %451
     i32 2, label %._crit_edge._crit_edge.i.i.i.i.i218
     i32 1, label %._crit_edge._crit_edge52.i.i.i.i.i216
@@ -3991,9 +3991,6 @@ _ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit203: ; preds = %365, %_
   %461 = icmp eq ptr %460, %424
   br i1 %461, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224, label %462
 
-._crit_edge.i.i.i.unreachabledefault.i.i220:      ; preds = %._crit_edge.i.i.i.i.i212
-  unreachable
-
 462:                                              ; preds = %._crit_edge._crit_edge52.i.i.i.i.i216, %._crit_edge.i.i.i.i.i212
   br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224
 
@@ -4001,16 +3998,16 @@ _ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop
   %463 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i210, i64 8
   br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit394: ; preds = %438
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit420: ; preds = %438
   %464 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i210, i64 16
   br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit396: ; preds = %442
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit422: ; preds = %442
   %465 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i210, i64 24
   br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224: ; preds = %431, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit394, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit396, %451, %._crit_edge._crit_edge.i.i.i.i.i218, %._crit_edge._crit_edge52.i.i.i.i.i216, %462
-  %.028.i.i.i.i.i215 = phi ptr [ %428, %462 ], [ %.029.lcssa.i.i.i.i.i214, %451 ], [ %.1.i.i.i.i.i219, %._crit_edge._crit_edge.i.i.i.i.i218 ], [ %.2.i.i.i.i.i217, %._crit_edge._crit_edge52.i.i.i.i.i216 ], [ %463, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit ], [ %464, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit394 ], [ %465, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit396 ], [ %.02946.i.i.i.i.i210, %431 ]
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224: ; preds = %431, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit420, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit422, %451, %._crit_edge._crit_edge.i.i.i.i.i218, %._crit_edge._crit_edge52.i.i.i.i.i216, %462
+  %.028.i.i.i.i.i215 = phi ptr [ %428, %462 ], [ %.029.lcssa.i.i.i.i.i214, %451 ], [ %.1.i.i.i.i.i219, %._crit_edge._crit_edge.i.i.i.i.i218 ], [ %.2.i.i.i.i.i217, %._crit_edge._crit_edge52.i.i.i.i.i216 ], [ %463, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit ], [ %464, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit420 ], [ %465, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224.loopexit.split.loop.exit422 ], [ %.02946.i.i.i.i.i210, %431 ]
   %.not265 = icmp eq ptr %.028.i.i.i.i.i215, %428
   %466 = add i32 %.10335, -200
   %spec.select142 = select i1 %.not265, i32 %.10335, i32 %466
@@ -4083,13 +4080,13 @@ _ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224: ; preds = %431, %_
   %500 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i231, i64 16
   %501 = load ptr, ptr %500, align 8, !tbaa !151
   %502 = icmp eq ptr %501, %485
-  br i1 %502, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit386, label %503
+  br i1 %502, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit412, label %503
 
 503:                                              ; preds = %499
   %504 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i231, i64 24
   %505 = load ptr, ptr %504, align 8, !tbaa !151
   %506 = icmp eq ptr %505, %485
-  br i1 %506, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit388, label %507
+  br i1 %506, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit414, label %507
 
 507:                                              ; preds = %503
   %508 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i231, i64 32
@@ -4104,7 +4101,7 @@ _ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224: ; preds = %431, %_
 ._crit_edge.i.i.i.i.i233:                         ; preds = %._crit_edge.loopexit.i.i.i.i.i232, %483
   %.pre-phi56.i.i.i.i.i234 = phi i32 [ %511, %._crit_edge.loopexit.i.i.i.i.i232 ], [ %487, %483 ]
   %.029.lcssa.i.i.i.i.i235 = phi ptr [ %scevgep.i.i.i.i.i229, %._crit_edge.loopexit.i.i.i.i.i232 ], [ %486, %483 ]
-  switch i32 %.pre-phi56.i.i.i.i.i234, label %._crit_edge.i.i.i.unreachabledefault.i.i241 [
+  switch i32 %.pre-phi56.i.i.i.i.i234, label %default.unreachable [
     i32 3, label %512
     i32 2, label %._crit_edge._crit_edge.i.i.i.i.i239
     i32 1, label %._crit_edge._crit_edge52.i.i.i.i.i237
@@ -4136,9 +4133,6 @@ _ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit224: ; preds = %431, %_
   %522 = icmp eq ptr %521, %485
   br i1 %522, label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245, label %523
 
-._crit_edge.i.i.i.unreachabledefault.i.i241:      ; preds = %._crit_edge.i.i.i.i.i233
-  unreachable
-
 523:                                              ; preds = %._crit_edge._crit_edge52.i.i.i.i.i237, %._crit_edge.i.i.i.i.i233
   br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245
 
@@ -4146,16 +4140,16 @@ _ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop
   %524 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i231, i64 8
   br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit386: ; preds = %499
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit412: ; preds = %499
   %525 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i231, i64 16
   br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit388: ; preds = %503
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit414: ; preds = %503
   %526 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i231, i64 24
   br label %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245
 
-_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245: ; preds = %492, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit386, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit388, %512, %._crit_edge._crit_edge.i.i.i.i.i239, %._crit_edge._crit_edge52.i.i.i.i.i237, %523
-  %.028.i.i.i.i.i236 = phi ptr [ %489, %523 ], [ %.029.lcssa.i.i.i.i.i235, %512 ], [ %.1.i.i.i.i.i240, %._crit_edge._crit_edge.i.i.i.i.i239 ], [ %.2.i.i.i.i.i238, %._crit_edge._crit_edge52.i.i.i.i.i237 ], [ %524, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit ], [ %525, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit386 ], [ %526, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit388 ], [ %.02946.i.i.i.i.i231, %492 ]
+_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245: ; preds = %492, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit412, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit414, %512, %._crit_edge._crit_edge.i.i.i.i.i239, %._crit_edge._crit_edge52.i.i.i.i.i237, %523
+  %.028.i.i.i.i.i236 = phi ptr [ %489, %523 ], [ %.029.lcssa.i.i.i.i.i235, %512 ], [ %.1.i.i.i.i.i240, %._crit_edge._crit_edge.i.i.i.i.i239 ], [ %.2.i.i.i.i.i238, %._crit_edge._crit_edge52.i.i.i.i.i237 ], [ %524, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit ], [ %525, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit412 ], [ %526, %_ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit245.loopexit.split.loop.exit414 ], [ %.02946.i.i.i.i.i231, %492 ]
   %.not264 = icmp eq ptr %.028.i.i.i.i.i236, %489
   %527 = add i32 %.12322, -200
   %spec.select143 = select i1 %.not264, i32 %.12322, i32 %527
@@ -4416,9 +4410,9 @@ _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary14isLatencyBoundEPNS_5SUnitE
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %.thread.sink.split.sink.split, %125, %117, %66, %59, %52
-  %.sink113 = phi ptr [ %53, %52 ], [ %60, %59 ], [ %68, %66 ], [ %118, %117 ], [ %126, %125 ], [ %133, %.thread.sink.split.sink.split ]
+  %.sink120 = phi ptr [ %53, %52 ], [ %60, %59 ], [ %68, %66 ], [ %118, %117 ], [ %126, %125 ], [ %133, %.thread.sink.split.sink.split ]
   %.1.ph = phi i32 [ 1, %52 ], [ 1, %59 ], [ 6, %66 ], [ 1, %117 ], [ 1, %125 ], [ %.1.ph.ph, %.thread.sink.split.sink.split ]
-  store ptr %.sink113, ptr %3, align 8, !tbaa !488
+  store ptr %.sink120, ptr %3, align 8, !tbaa !488
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 2 dereferenceable(12) %6, i64 12, i1 false)
   store i32 %44, ptr %13, align 4, !tbaa !491
   br label %.thread
@@ -4498,12 +4492,12 @@ define dso_local noundef ptr @_ZN4llvm23ConvergingVLIWScheduler20pickNodeBidrect
   %33 = load i32, ptr %32, align 4, !tbaa !491
   %34 = icmp sgt i32 %31, %33
   %. = zext i1 %34 to i8
-  %.35 = select i1 %34, ptr %4, ptr %3
+  %.36 = select i1 %34, ptr %4, ptr %3
   br label %35
 
 35:                                               ; preds = %29, %27, %25, %20
   %.sink = phi i8 [ 1, %20 ], [ 0, %25 ], [ 1, %27 ], [ %., %29 ]
-  %.4.in = phi ptr [ %4, %20 ], [ %3, %25 ], [ %4, %27 ], [ %.35, %29 ]
+  %.4.in = phi ptr [ %4, %20 ], [ %3, %25 ], [ %4, %27 ], [ %.36, %29 ]
   store i8 %.sink, ptr %1, align 1, !tbaa !49
   %.4 = load ptr, ptr %.4.in, align 8, !tbaa !488
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

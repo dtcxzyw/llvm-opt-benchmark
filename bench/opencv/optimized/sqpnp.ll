@@ -1532,12 +1532,12 @@ _ZN2cv3Mat2atINS_6Point_IdEEEERT_i.exit:          ; preds = %281, %277, %272
   %304 = trunc nuw nsw i64 %indvars.iv to i32
   %305 = sdiv i32 %304, %40
   %306 = mul nsw i32 %305, %40
-  %.recomposed454 = srem i32 %304, %40
+  %.recomposed459 = srem i32 %304, %40
   %307 = load i64, ptr %64, align 8, !tbaa !73
   %308 = sext i32 %305 to i64
   %309 = mul i64 %307, %308
   %310 = getelementptr inbounds nuw i8, ptr %62, i64 %309
-  %311 = sext i32 %.recomposed454 to i64
+  %311 = sext i32 %.recomposed459 to i64
   %312 = getelementptr inbounds %"class.cv::Point3_", ptr %310, i64 %311
   br label %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit
 
@@ -3049,12 +3049,12 @@ define linkonce_odr hidden void @_ZNK2cv3MatcvNS_4MatxIT_XT0_EXT1_EEEIdLi9ELi9EE
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 9
-  %or.cond15 = select i1 %or.cond, i1 %14, i1 false
+  %or.cond16 = select i1 %or.cond, i1 %14, i1 false
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 9
-  %or.cond18 = select i1 %or.cond15, i1 %17, i1 false
-  br i1 %or.cond18, label %18, label %22
+  %or.cond19 = select i1 %or.cond16, i1 %17, i1 false
+  br i1 %or.cond19, label %18, label %22
 
 18:                                               ; preds = %2
   %19 = load i32, ptr %1, align 8, !tbaa !21
@@ -3423,8 +3423,8 @@ _ZN2cvL4normIdLi9ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEEi.exit: ; preds = %_ZN2cvmiIdL
   br label %.sink.split
 
 .sink.split:                                      ; preds = %71, %.critedge32
-  %.lcssa50.sink = phi ptr [ %78, %.critedge32 ], [ %59, %71 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.lcssa50.sink, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
+  %.lcssa52.sink = phi ptr [ %78, %.critedge32 ], [ %59, %71 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.lcssa52.sink, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
   br label %79
 
 79:                                               ; preds = %.sink.split, %71
@@ -5883,12 +5883,12 @@ define linkonce_odr hidden void @_ZNK2cv3MatcvNS_4MatxIT_XT0_EXT1_EEEIdLi3ELi3EE
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 3
-  %or.cond15 = select i1 %or.cond, i1 %14, i1 false
+  %or.cond16 = select i1 %or.cond, i1 %14, i1 false
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 3
-  %or.cond18 = select i1 %or.cond15, i1 %17, i1 false
-  br i1 %or.cond18, label %18, label %22
+  %or.cond19 = select i1 %or.cond16, i1 %17, i1 false
+  br i1 %or.cond19, label %18, label %22
 
 18:                                               ; preds = %2
   %19 = load i32, ptr %1, align 8, !tbaa !21

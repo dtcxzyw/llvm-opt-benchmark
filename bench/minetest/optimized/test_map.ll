@@ -841,10 +841,10 @@ for.body22.i.preheader:                           ; preds = %for.cond16.preheade
   %8 = shl nsw i32 %indvars.iv1337, 4
   %sub.i692 = sub nuw nsw i32 -10, %8
   %cond46.i = call i32 @llvm.smax.i32(i32 %sub.i692, i32 0)
-  %conv47.i = trunc i32 %cond46.i to i16
+  %conv47.i = trunc nuw nsw i32 %cond46.i to i16
   %sub104.i = sub nsw i32 20, %8
   %9 = call i32 @llvm.umin.i32(i32 %sub104.i, i32 15)
-  %10 = trunc i32 %8 to i16
+  %10 = trunc nsw i32 %8 to i16
   br label %for.body22.i
 
 for.body22.i:                                     ; preds = %for.cond178.cleanup215_crit_edge.i, %for.body22.i.preheader
@@ -867,12 +867,12 @@ for.cond184.preheader.i.preheader:                ; preds = %for.body22.i
   %14 = shl nsw i32 %indvars.iv, 4
   %sub52.i = sub nuw nsw i32 -10, %14
   %cond72.i = call i32 @llvm.smax.i32(i32 %sub52.i, i32 0)
-  %conv73.i = trunc i32 %cond72.i to i16
+  %conv73.i = trunc nuw nsw i32 %cond72.i to i16
   %sub130.i = sub nsw i32 20, %14
   %15 = call i32 @llvm.umin.i32(i32 %sub130.i, i32 15)
   %tobool.not.i = icmp eq ptr %call24.i696, null
   %data.i.i = getelementptr inbounds nuw i8, ptr %call24.i696, i64 24
-  %16 = trunc i32 %14 to i16
+  %16 = trunc nsw i32 %14 to i16
   br label %for.cond184.preheader.i
 
 for.cond184.preheader.i:                          ; preds = %for.cond184.for.inc213_crit_edge.split.i, %for.cond184.preheader.i.preheader

@@ -934,8 +934,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit55.i:               ; preds = %223
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit57.sink.split.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit57.sink.split.i: ; preds = %231, %223
-  %.sink124.i = phi ptr [ %12, %231 ], [ %11, %223 ]
-  store ptr null, ptr %.sink124.i, align 8, !tbaa !378
+  %.sink136.i = phi ptr [ %12, %231 ], [ %11, %223 ]
+  store ptr null, ptr %.sink136.i, align 8, !tbaa !378
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit57.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit57.i: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit57.sink.split.i, %_ZN4llvm8DebugLocC2ERKS0_.exit55.i
@@ -1009,8 +1009,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit63.i:               ; preds = %250
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit65.sink.split.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit65.sink.split.i: ; preds = %254, %250
-  %.sink125.i = phi ptr [ %14, %254 ], [ %13, %250 ]
-  store ptr null, ptr %.sink125.i, align 8, !tbaa !378
+  %.sink137.i = phi ptr [ %14, %254 ], [ %13, %250 ]
+  store ptr null, ptr %.sink137.i, align 8, !tbaa !378
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit65.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit65.i: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit65.sink.split.i, %_ZN4llvm8DebugLocC2ERKS0_.exit63.i
@@ -1138,14 +1138,14 @@ _ZN4llvm10MIMetadataD2Ev.exit73.i:                ; preds = %284, %_ZNK4llvm19Ma
   br label %_ZN12_GLOBAL__N_123RISCVInsertReadWriteCSR24emitWriteRoundingModeOptERN4llvm17MachineBasicBlockE.exit
 
 _ZN12_GLOBAL__N_123RISCVInsertReadWriteCSR24emitWriteRoundingModeOptERN4llvm17MachineBasicBlockE.exit: ; preds = %153, %._crit_edge.i, %_ZN4llvm10MIMetadataD2Ev.exit73.i
-  %.0.lcssa123.i = phi i1 [ %.1.i15, %_ZN4llvm10MIMetadataD2Ev.exit73.i ], [ %.1.i15, %._crit_edge.i ], [ false, %153 ]
+  %.0.lcssa135.i = phi i1 [ %.1.i15, %_ZN4llvm10MIMetadataD2Ev.exit73.i ], [ %.1.i15, %._crit_edge.i ], [ false, %153 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %299
 
 299:                                              ; preds = %_ZN12_GLOBAL__N_123RISCVInsertReadWriteCSR24emitWriteRoundingModeOptERN4llvm17MachineBasicBlockE.exit, %_ZN12_GLOBAL__N_123RISCVInsertReadWriteCSR21emitWriteRoundingModeERN4llvm17MachineBasicBlockE.exit
-  %.0.lcssa.i.pn = phi i1 [ %.0.lcssa.i, %_ZN12_GLOBAL__N_123RISCVInsertReadWriteCSR21emitWriteRoundingModeERN4llvm17MachineBasicBlockE.exit ], [ %.0.lcssa123.i, %_ZN12_GLOBAL__N_123RISCVInsertReadWriteCSR24emitWriteRoundingModeOptERN4llvm17MachineBasicBlockE.exit ]
+  %.0.lcssa.i.pn = phi i1 [ %.0.lcssa.i, %_ZN12_GLOBAL__N_123RISCVInsertReadWriteCSR21emitWriteRoundingModeERN4llvm17MachineBasicBlockE.exit ], [ %.0.lcssa135.i, %_ZN12_GLOBAL__N_123RISCVInsertReadWriteCSR24emitWriteRoundingModeOptERN4llvm17MachineBasicBlockE.exit ]
   %.1 = or i1 %.01254, %.0.lcssa.i.pn
   %300 = getelementptr inbounds nuw i8, ptr %.sroa.048.055, i64 8
   %.sroa.048.0 = load ptr, ptr %300, align 8, !tbaa !314

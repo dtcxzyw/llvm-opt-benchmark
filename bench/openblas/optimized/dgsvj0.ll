@@ -199,8 +199,8 @@ define void @dgsvj0_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %.012731531 = phi double [ 0.000000e+00, %.lr.ph1537 ], [ %.111284, %.loopexit1426 ]
   %indvars.iv1582 = add i32 %indvars.iv1582.in, -1
   %103 = sext i32 %indvars.iv to i64
-  %.inv1608 = icmp slt i32 %indvars.iv1582, 1
-  %104 = select i1 %.inv1608, i32 1, i32 2
+  %.inv1628 = icmp slt i32 %indvars.iv1582, 1
+  %104 = select i1 %.inv1628, i32 1, i32 2
   %105 = add nsw i32 %.012361535, -1
   %106 = mul nsw i32 %105, %spec.select
   %107 = sub nsw i32 %.0, %.012361535
@@ -325,10 +325,10 @@ define void @dgsvj0_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br label %170
 
 170:                                              ; preds = %162, %157
-  %.sink1629 = phi double [ %169, %162 ], [ %161, %157 ]
+  %.sink1649 = phi double [ %169, %162 ], [ %161, %157 ]
   %171 = getelementptr inbounds double, ptr %30, i64 %indvars.iv1576
   %172 = load double, ptr %171, align 8, !tbaa !7
-  %173 = fmul double %.sink1629, %172
+  %173 = fmul double %.sink1649, %172
   store double %173, ptr %123, align 8, !tbaa !7
   br label %thread-pre-split
 
@@ -439,11 +439,11 @@ thread-pre-split:                                 ; preds = %152, %170
   br label %240
 
 240:                                              ; preds = %226, %235, %200, %211
-  %.sink1634 = phi ptr [ %22, %226 ], [ %22, %235 ], [ %22, %200 ], [ %23, %211 ]
-  %.sink1632 = phi double [ %234, %226 ], [ %239, %235 ], [ %210, %200 ], [ %217, %211 ]
+  %.sink1654 = phi ptr [ %22, %226 ], [ %22, %235 ], [ %22, %200 ], [ %23, %211 ]
+  %.sink1652 = phi double [ %234, %226 ], [ %239, %235 ], [ %210, %200 ], [ %217, %211 ]
   %.01301.in = phi i1 [ %220, %226 ], [ %220, %235 ], [ %196, %200 ], [ %196, %211 ]
-  %241 = load double, ptr %.sink1634, align 8, !tbaa !7
-  %242 = fdiv double %.sink1632, %241
+  %241 = load double, ptr %.sink1654, align 8, !tbaa !7
+  %242 = fdiv double %.sink1652, %241
   store double %.31276, ptr %21, align 8, !tbaa !7
   %243 = fcmp oge double %242, 0.000000e+00
   %244 = fneg double %242
@@ -787,7 +787,7 @@ thread-pre-split:                                 ; preds = %152, %170
   %453 = getelementptr double, ptr %33, i64 %452
   %454 = getelementptr i8, ptr %453, i64 8
   %455 = call double @dnrm2_(ptr noundef nonnull %1, ptr noundef %454, ptr noundef nonnull @c__1) #6
-  br label %.sink.split1635
+  br label %.sink.split1655
 
 456:                                              ; preds = %448
   store double 0.000000e+00, ptr %26, align 8, !tbaa !7
@@ -800,17 +800,17 @@ thread-pre-split:                                 ; preds = %152, %170
   %461 = load double, ptr %23, align 8, !tbaa !7
   %462 = call double @sqrt(double noundef %461) #6, !tbaa !3
   %463 = fmul double %460, %462
-  br label %.sink.split1635
+  br label %.sink.split1655
 
-.sink.split1635:                                  ; preds = %456, %451
-  %.sink1637 = phi double [ %455, %451 ], [ %463, %456 ]
+.sink.split1655:                                  ; preds = %456, %451
+  %.sink1657 = phi double [ %455, %451 ], [ %463, %456 ]
   %464 = getelementptr double, ptr %5, i64 %indvars.iv1578
   %465 = load double, ptr %464, align 8, !tbaa !7
-  %466 = fmul double %.sink1637, %465
+  %466 = fmul double %.sink1657, %465
   store double %466, ptr %188, align 8, !tbaa !7
   br label %467
 
-467:                                              ; preds = %.sink.split1635, %442
+467:                                              ; preds = %.sink.split1655, %442
   %468 = load double, ptr %22, align 8, !tbaa !7
   %469 = fdiv double %468, %192
   %470 = fcmp ugt double %469, %77
@@ -837,9 +837,9 @@ thread-pre-split:                                 ; preds = %152, %170
   br label %481
 
 481:                                              ; preds = %476, %474
-  %.sink1640 = phi double [ %480, %476 ], [ %475, %474 ]
+  %.sink1660 = phi double [ %480, %476 ], [ %475, %474 ]
   %482 = load double, ptr %180, align 8, !tbaa !7
-  %483 = fmul double %.sink1640, %482
+  %483 = fmul double %.sink1660, %482
   store double %483, ptr %22, align 8, !tbaa !7
   store double %483, ptr %123, align 8, !tbaa !7
   br label %488
@@ -1076,11 +1076,11 @@ thread-pre-split:                                 ; preds = %152, %170
   br label %584
 
 584:                                              ; preds = %570, %579, %542, %553
-  %.sink1644 = phi ptr [ %22, %570 ], [ %22, %579 ], [ %22, %542 ], [ %23, %553 ]
-  %.sink1642 = phi double [ %578, %570 ], [ %583, %579 ], [ %552, %542 ], [ %559, %553 ]
+  %.sink1664 = phi ptr [ %22, %570 ], [ %22, %579 ], [ %22, %542 ], [ %23, %553 ]
+  %.sink1662 = phi double [ %578, %570 ], [ %583, %579 ], [ %552, %542 ], [ %559, %553 ]
   %.21303.in = phi i1 [ %.31304.in, %570 ], [ %.31304.in, %579 ], [ %.11302.in, %542 ], [ %.11302.in, %553 ]
-  %585 = load double, ptr %.sink1644, align 8, !tbaa !7
-  %586 = fdiv double %.sink1642, %585
+  %585 = load double, ptr %.sink1664, align 8, !tbaa !7
+  %586 = fdiv double %.sink1662, %585
   store double %.912821486, ptr %21, align 8, !tbaa !7
   %587 = fcmp oge double %586, 0.000000e+00
   %588 = fneg double %586
@@ -1463,7 +1463,7 @@ thread-pre-split:                                 ; preds = %152, %170
   %820 = getelementptr double, ptr %33, i64 %819
   %821 = getelementptr i8, ptr %820, i64 8
   %822 = call double @dnrm2_(ptr noundef nonnull %1, ptr noundef %821, ptr noundef nonnull @c__1) #6
-  br label %.sink.split1645
+  br label %.sink.split1665
 
 823:                                              ; preds = %815
   store double 0.000000e+00, ptr %26, align 8, !tbaa !7
@@ -1476,17 +1476,17 @@ thread-pre-split:                                 ; preds = %152, %170
   %828 = load double, ptr %23, align 8, !tbaa !7
   %829 = call double @sqrt(double noundef %828) #6, !tbaa !3
   %830 = fmul double %827, %829
-  br label %.sink.split1645
+  br label %.sink.split1665
 
-.sink.split1645:                                  ; preds = %823, %818
-  %.sink1647 = phi double [ %822, %818 ], [ %830, %823 ]
+.sink.split1665:                                  ; preds = %823, %818
+  %.sink1667 = phi double [ %822, %818 ], [ %830, %823 ]
   %831 = getelementptr double, ptr %5, i64 %indvars.iv1588
   %832 = load double, ptr %831, align 8, !tbaa !7
-  %833 = fmul double %.sink1647, %832
+  %833 = fmul double %.sink1667, %832
   store double %833, ptr %527, align 8, !tbaa !7
   br label %834
 
-834:                                              ; preds = %.sink.split1645, %809
+834:                                              ; preds = %.sink.split1665, %809
   %835 = load double, ptr %22, align 8, !tbaa !7
   %836 = fdiv double %835, %531
   store double %836, ptr %21, align 8, !tbaa !7
@@ -1515,9 +1515,9 @@ thread-pre-split:                                 ; preds = %152, %170
   br label %849
 
 849:                                              ; preds = %844, %842
-  %.sink1650 = phi double [ %848, %844 ], [ %843, %842 ]
+  %.sink1670 = phi double [ %848, %844 ], [ %843, %842 ]
   %850 = load double, ptr %519, align 8, !tbaa !7
-  %851 = fmul double %.sink1650, %850
+  %851 = fmul double %.sink1670, %850
   store double %851, ptr %22, align 8, !tbaa !7
   store double %851, ptr %511, align 8, !tbaa !7
   br label %860
@@ -1678,20 +1678,20 @@ thread-pre-split:                                 ; preds = %152, %170
   br label %908
 
 908:                                              ; preds = %899, %893
-  %.sink1655 = phi double [ %907, %899 ], [ %898, %893 ]
+  %.sink1675 = phi double [ %907, %899 ], [ %898, %893 ]
   %909 = load i32, ptr %2, align 4, !tbaa !3
   %910 = sext i32 %909 to i64
   %911 = getelementptr inbounds double, ptr %30, i64 %910
   %912 = load double, ptr %911, align 8, !tbaa !7
-  %913 = fmul double %.sink1655, %912
+  %913 = fmul double %.sink1675, %912
   %914 = getelementptr inbounds double, ptr %29, i64 %910
   store double %913, ptr %914, align 8, !tbaa !7
   %915 = icmp samesign ult i32 %.013051544, %.012891545
   %916 = fcmp ugt double %.01273.lcssa, %84
   %.not1357 = icmp sgt i32 %.01239.lcssa, %909
-  %or.cond1660 = select i1 %916, i1 %.not1357, i1 false
-  %spec.select1661 = select i1 %or.cond1660, i32 %.012891545, i32 %.013051544
-  %.11290 = select i1 %915, i32 %spec.select1661, i32 %.012891545
+  %or.cond1680 = select i1 %916, i1 %.not1357, i1 false
+  %spec.select1681 = select i1 %or.cond1680, i32 %.012891545, i32 %.013051544
+  %.11290 = select i1 %915, i32 %spec.select1681, i32 %.012891545
   %917 = add nuw nsw i32 %.11290, 1
   %918 = icmp samesign ugt i32 %.013051544, %917
   br i1 %918, label %919, label %928

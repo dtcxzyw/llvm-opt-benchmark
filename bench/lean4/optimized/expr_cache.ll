@@ -89,9 +89,9 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread:   ; preds = %3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load ptr, ptr %26, align 8, !tbaa !30
   %.not.i = icmp eq ptr %25, %27
-  br i1 %.not.i, label %30, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread13
+  br i1 %.not.i, label %30, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread19
 
-_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread13: ; preds = %22
+_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread19: ; preds = %22
   store i32 %14, ptr %25, align 4, !tbaa !31
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store ptr %28, ptr %24, align 8, !tbaa !29
@@ -133,9 +133,9 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i: ; preds = %30
 _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %46, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %.not.i17.i.i = icmp eq ptr %31, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread14, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread20, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
-_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread14: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
+_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread20: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %43, ptr %23, align 8, !tbaa !32
   store ptr %47, ptr %24, align 8, !tbaa !29
   %48 = getelementptr inbounds nuw i32, ptr %43, i64 %41
@@ -190,8 +190,8 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
   tail call void @__clang_call_terminate(ptr %68) #15
   unreachable
 
-_ZN4lean10object_refD2Ev.exit.i:                  ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread14, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread13, %65, %64, %62, %53, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
-  %69 = phi ptr [ %54, %65 ], [ %54, %64 ], [ %54, %62 ], [ %54, %53 ], [ %52, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %29, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread13 ], [ %49, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread14 ]
+_ZN4lean10object_refD2Ev.exit.i:                  ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread20, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread19, %65, %64, %62, %53, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
+  %69 = phi ptr [ %54, %65 ], [ %54, %64 ], [ %54, %62 ], [ %54, %53 ], [ %52, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %29, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread19 ], [ %49, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread20 ]
   store i8 1, ptr %69, align 8, !tbaa !24
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %1, align 8, !tbaa !3

@@ -930,8 +930,8 @@ do_write.exit:                                    ; preds = %339, %348
   br label %._crit_edge.i74
 
 ._crit_edge.i74:                                  ; preds = %.lr.ph.preheader.i88, %392
-  %switch196 = icmp eq i32 %19, 0
-  br i1 %switch196, label %.preheader.i81, label %.preheader80.i
+  %switch224 = icmp eq i32 %19, 0
+  br i1 %switch224, label %.preheader.i81, label %.preheader80.i
 
 .preheader80.i:                                   ; preds = %._crit_edge.i74
   br i1 %33, label %.lr.ph88.i, label %._crit_edge89.i

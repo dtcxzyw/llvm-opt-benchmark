@@ -187,10 +187,10 @@ define noundef i32 @dtrmm_olnucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br label %.sink.split
 
 .sink.split:                                      ; preds = %90, %81
-  %.sink172 = phi double [ %87, %81 ], [ 1.000000e+00, %90 ]
+  %.sink177 = phi double [ %87, %81 ], [ 1.000000e+00, %90 ]
   %.sink.in = phi ptr [ %86, %81 ], [ %gep, %90 ]
   %.sink = load double, ptr %.sink.in, align 8, !tbaa !3
-  store double %.sink172, ptr %.1124, align 8, !tbaa !3
+  store double %.sink177, ptr %.1124, align 8, !tbaa !3
   %91 = getelementptr inbounds nuw i8, ptr %.1124, i64 8
   store double %.sink, ptr %91, align 8, !tbaa !3
   br label %92

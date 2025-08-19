@@ -228,7 +228,7 @@ _ZL14check_modifierP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbo
 
 .thread.i:                                        ; preds = %..thread.i_crit_edge, %53
   %59 = phi i32 [ %.pre25, %53 ], [ %.pre24, %..thread.i_crit_edge ]
-  %.132.i = phi i1 [ %.1.i20, %53 ], [ %41, %..thread.i_crit_edge ]
+  %.133.i = phi i1 [ %.1.i20, %53 ], [ %41, %..thread.i_crit_edge ]
   %60 = and i32 %59, 24
   %or.cond.not.i = icmp eq i32 %60, 24
   br i1 %or.cond.not.i, label %.sink.split.i, label %62
@@ -242,7 +242,7 @@ _ZL14check_modifierP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbo
 
 62:                                               ; preds = %.sink.split.i, %.thread.i, %56
   %63 = phi i32 [ %57, %56 ], [ %59, %.thread.i ], [ %.pre26, %.sink.split.i ]
-  %.2.i = phi i1 [ %.1.i20, %56 ], [ %.132.i, %.thread.i ], [ false, %.sink.split.i ]
+  %.2.i = phi i1 [ %.1.i20, %56 ], [ %.133.i, %.thread.i ], [ false, %.sink.split.i ]
   %64 = and i32 %63, 64
   %.not29.i = icmp eq i32 %64, 0
   br i1 %.not29.i, label %_ZL12check_methodP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit, label %65
@@ -697,7 +697,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   br i1 %152, label %.loopexit.thread, label %186
 
 .loopexit.thread:                                 ; preds = %.preheader, %.loopexit
-  %.13295 = phi i1 [ false, %.loopexit ], [ %.12, %.preheader ]
+  %.13303 = phi i1 [ false, %.loopexit ], [ %.12, %.preheader ]
   %153 = phi ptr [ %.pre291, %.loopexit ], [ %139, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %18, ptr %7, align 8, !tbaa !38
@@ -800,7 +800,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252: ; preds = %_Z
   br label %220
 
 186:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %174, %.loopexit, %138, %145, %25
-  %.1 = phi i1 [ false, %25 ], [ %.12, %138 ], [ false, %.loopexit ], [ false, %174 ], [ %.13295, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %145 ]
+  %.1 = phi i1 [ false, %25 ], [ %.12, %138 ], [ false, %.loopexit ], [ false, %174 ], [ %.13303, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %145 ]
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %exitcond287.not = icmp eq i64 %indvars.iv.next285, %wide.trip.count286
   br i1 %exitcond287.not, label %._crit_edge, label %20, !llvm.loop !45

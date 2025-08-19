@@ -1642,8 +1642,8 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockE
   br i1 %46, label %69, label %.critedge.i.i.i.i.i.i.sink.split, !prof !155
 
 .critedge.i.i.i.i.i.i.sink.split:                 ; preds = %43, %52
-  %.sink51 = phi { i32, i1 } [ %59, %52 ], [ %45, %43 ]
-  %47 = extractvalue { i32, i1 } %.sink51, 0
+  %.sink60 = phi { i32, i1 } [ %59, %52 ], [ %45, %43 ]
+  %47 = extractvalue { i32, i1 } %.sink60, 0
   store i32 %47, ptr %2, align 4, !noalias !156
   br label %.critedge.i.i.i.i.i.i
 
@@ -4054,8 +4054,8 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
   unreachable
 
 _ZN5folly6detail14ScopeGuardImplIZNS_17atomic_grow_arrayINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_32atomic_grow_array_policy_defaultISA_EEE9new_arrayEmRPNSD_5arrayEEUlvE_Lb1EED2Ev.exit: ; preds = %.critedge, %.preheader49, %55
-  %.364 = phi ptr [ null, %55 ], [ %23, %.preheader49 ], [ %23, %.critedge ]
-  ret ptr %.364
+  %.367 = phi ptr [ null, %55 ], [ %23, %.preheader49 ], [ %23, %.critedge ]
+  ret ptr %.367
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -4782,8 +4782,8 @@ define linkonce_odr void @_ZNSt8seed_seqC2IPjEET_S2_(ptr noundef nonnull align 8
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not18 = icmp eq ptr %2, %1
-  br i1 %.not18, label %_ZNSt6vectorIjSaIjEE7reserveEm.exit, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
+  %.not26 = icmp eq ptr %2, %1
+  br i1 %.not26, label %_ZNSt6vectorIjSaIjEE7reserveEm.exit, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %9
   %11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #36

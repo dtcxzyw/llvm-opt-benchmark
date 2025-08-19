@@ -2746,12 +2746,12 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
 
 .sink.split.i52:                                  ; preds = %549, %546, %543, %540
   %hf_audio_sample_rate.sink.i = phi ptr [ @hf_audio_vocoder_annexb, %540 ], [ @hf_audio_sample_rate, %543 ], [ @hf_audio_rtp_type, %546 ], [ @hf_audio_bytes_per_frame, %549 ]
-  %.sink583.i = phi i32 [ 1, %540 ], [ 1, %543 ], [ 1, %546 ], [ 2, %549 ]
-  %.sink581.i = phi i32 [ 2, %540 ], [ 2, %543 ], [ 2, %546 ], [ 3, %549 ]
+  %.sink587.i = phi i32 [ 1, %540 ], [ 1, %543 ], [ 1, %546 ], [ 2, %549 ]
+  %.sink585.i = phi i32 [ 2, %540 ], [ 2, %543 ], [ 2, %546 ], [ 3, %549 ]
   %.sink.i = phi i32 [ -2, %540 ], [ -2, %543 ], [ -2, %546 ], [ -3, %549 ]
   %551 = load i32, ptr %hf_audio_sample_rate.sink.i, align 4
-  %552 = call ptr @proto_tree_add_item(ptr noundef %527, i32 noundef %551, ptr noundef %1, i32 noundef %536, i32 noundef %.sink583.i, i32 noundef 0)
-  %553 = add i32 %.sink581.i, %.5557.i
+  %552 = call ptr @proto_tree_add_item(ptr noundef %527, i32 noundef %551, ptr noundef %1, i32 noundef %536, i32 noundef %.sink587.i, i32 noundef 0)
+  %553 = add i32 %.sink585.i, %.5557.i
   %554 = add i32 %.sink.i, %.5543556.i
   br label %555
 
@@ -3211,7 +3211,7 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %861 = call ptr @proto_tree_add_item(ptr noundef %835, i32 noundef %860, ptr noundef %1, i32 noundef %855, i32 noundef 1, i32 noundef 0)
   %862 = and i32 %837, 4
   %.not585.not.i = icmp eq i32 %862, 0
-  br i1 %.not585.not.i, label %.thread.i, label %.thread614.i
+  br i1 %.not585.not.i, label %.thread.i, label %.thread618.i
 
 .thread.i:                                        ; preds = %857
   %863 = add i32 %.174, 5
@@ -3222,9 +3222,9 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %866 = add nsw i32 %119, -4
   %.pre.i = and i32 %837, 4
   %867 = icmp eq i32 %.pre.i, 0
-  br i1 %867, label %874, label %.thread614.i
+  br i1 %867, label %874, label %.thread618.i
 
-.thread614.i:                                     ; preds = %865, %857
+.thread618.i:                                     ; preds = %865, %857
   %868 = load i32, ptr @hf_display_write_address_char_pos, align 4
   %869 = call ptr @proto_tree_add_item(ptr noundef %835, i32 noundef %868, ptr noundef %1, i32 noundef %855, i32 noundef 1, i32 noundef 0)
   %870 = load i32, ptr @hf_display_write_address_line_number, align 4
@@ -3233,9 +3233,9 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %873 = add nsw i32 %119, -5
   br label %874
 
-874:                                              ; preds = %.thread614.i, %865, %.thread.i, %831
-  %.5567.i = phi i32 [ %873, %.thread614.i ], [ %866, %865 ], [ %613, %831 ], [ %864, %.thread.i ]
-  %.5.i = phi i32 [ %872, %.thread614.i ], [ %855, %865 ], [ %612, %831 ], [ %863, %.thread.i ]
+874:                                              ; preds = %.thread618.i, %865, %.thread.i, %831
+  %.5567.i = phi i32 [ %873, %.thread618.i ], [ %866, %865 ], [ %613, %831 ], [ %864, %.thread.i ]
+  %.5.i = phi i32 [ %872, %.thread618.i ], [ %855, %865 ], [ %612, %831 ], [ %863, %.thread.i ]
   %875 = and i32 %609, 2
   %.not587.i = icmp eq i32 %875, 0
   br i1 %.not587.i, label %893, label %876

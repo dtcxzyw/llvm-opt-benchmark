@@ -356,8 +356,8 @@ getOptarg.exit.i.i:                               ; preds = %34
   %.val.i.i64.i.i.i = phi i8 [ %.val.i.i.i.i.i.i, %73 ], [ %.val5069.i.i.i, %agxbuse.exit.i.i.i ]
   %.2.be.i.i.i = phi ptr [ %74, %73 ], [ %.3.i.i.i, %agxbuse.exit.i.i.i ]
   %75 = load i8, ptr %.2.be.i.i.i, align 1, !tbaa !26, !noalias !23
-  %.not94.i.i.i = icmp eq i8 %75, 0
-  br i1 %.not94.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !27
+  %.not103.i.i.i = icmp eq i8 %75, 0
+  br i1 %.not103.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !27
 
 76:                                               ; preds = %.lr.ph.i.i.i
   %77 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.259.i.i.i, i32 noundef 58) #25, !noalias !23
@@ -539,9 +539,9 @@ agxbuse.exit.i.i.i:                               ; preds = %139, %agxbclear.exi
 145:                                              ; preds = %agxbuse.exit.i.i.i
   %146 = call noalias ptr @strdup(ptr noundef readonly %142) #24, !noalias !23
   %147 = icmp eq ptr %146, null
-  br i1 %147, label %148, label %._crit_edge.thread86.i.i.i
+  br i1 %147, label %148, label %._crit_edge.thread95.i.i.i
 
-._crit_edge.thread86.i.i.i:                       ; preds = %145
+._crit_edge.thread95.i.i.i:                       ; preds = %145
   br i1 %141, label %154, label %agxbfree.exit.i.i.i
 
 148:                                              ; preds = %145
@@ -557,25 +557,25 @@ agxbuse.exit.i.i.i:                               ; preds = %139, %agxbclear.exi
   call void (i32, ptr, ...) @error(i32 noundef 2, ptr noundef nonnull @.str.14, ptr noundef nonnull %.015.i75.i.i) #24, !noalias !23
   br i1 %153, label %154, label %agxbfree.exit.i.i.i
 
-154:                                              ; preds = %._crit_edge.i.i.i, %._crit_edge.thread86.i.i.i
-  %.036.lcssa8491.i.i.i = phi ptr [ null, %._crit_edge.i.i.i ], [ %146, %._crit_edge.thread86.i.i.i ]
+154:                                              ; preds = %._crit_edge.i.i.i, %._crit_edge.thread95.i.i.i
+  %.036.lcssa93100.i.i.i = phi ptr [ null, %._crit_edge.i.i.i ], [ %146, %._crit_edge.thread95.i.i.i ]
   %.val.i.i.i = load ptr, ptr %7, align 8, !noalias !23
   call void @free(ptr noundef %.val.i.i.i) #24, !noalias !23
   br label %agxbfree.exit.i.i.i
 
-agxbfree.exit.i.i.i:                              ; preds = %154, %._crit_edge.i.i.i, %._crit_edge.thread86.i.i.i, %._crit_edge.thread.thread.i.i.i
-  %.036.lcssa8490.i.i.i = phi ptr [ null, %._crit_edge.i.i.i ], [ %.036.lcssa8491.i.i.i, %154 ], [ %146, %._crit_edge.thread86.i.i.i ], [ null, %._crit_edge.thread.thread.i.i.i ]
+agxbfree.exit.i.i.i:                              ; preds = %154, %._crit_edge.i.i.i, %._crit_edge.thread95.i.i.i, %._crit_edge.thread.thread.i.i.i
+  %.036.lcssa9399.i.i.i = phi ptr [ null, %._crit_edge.i.i.i ], [ %.036.lcssa93100.i.i.i, %154 ], [ %146, %._crit_edge.thread95.i.i.i ], [ null, %._crit_edge.thread.thread.i.i.i ]
   call void @free(ptr noundef %.0.i.i.i) #24, !noalias !23
   br i1 %.not47.i.i.i, label %resolve.exit.i.i, label %155
 
 155:                                              ; preds = %agxbfree.exit.i.i.i
   %156 = load ptr, ptr @stderr, align 8, !tbaa !3, !noalias !23
-  %157 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %156, ptr noundef nonnull @.str.15, ptr noundef nonnull %.015.i75.i.i, ptr noundef %.036.lcssa8490.i.i.i) #26, !noalias !23
+  %157 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %156, ptr noundef nonnull @.str.15, ptr noundef nonnull %.015.i75.i.i, ptr noundef %.036.lcssa9399.i.i.i) #26, !noalias !23
   br label %resolve.exit.i.i
 
 resolve.exit.i.i:                                 ; preds = %155, %agxbfree.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !23
-  %.not33.i.i = icmp eq ptr %.036.lcssa8490.i.i.i, null
+  %.not33.i.i = icmp eq ptr %.036.lcssa9399.i.i.i, null
   br i1 %.not33.i.i, label %.thread81.i.thread, label %resolve.exit.thread.i.i.backedge
 
 158:                                              ; preds = %resolve.exit.thread.i.i
@@ -642,12 +642,12 @@ getOptarg.exit41.i.i:                             ; preds = %163
   %174 = getelementptr inbounds nuw i8, ptr %.036.i.i.i.i, i64 1
   br label %171, !llvm.loop !28
 
-.lr.ph.i.i.i.i:                                   ; preds = %.thread77.i.i.i.i, %.lr.ph.outer.i.i.i.i
-  %.066.i.i.i.i = phi i8 [ 0, %.thread77.i.i.i.i ], [ %.066.ph.i.i.i.i, %.lr.ph.outer.i.i.i.i ]
-  %.13765.i.i.i.i = phi ptr [ %189, %.thread77.i.i.i.i ], [ %.13765.ph.i.i.i.i, %.lr.ph.outer.i.i.i.i ]
-  %175 = phi i8 [ %.pr81.i.i.i.i, %.thread77.i.i.i.i ], [ %.ph.i.i.i.i, %.lr.ph.outer.i.i.i.i ]
+.lr.ph.i.i.i.i:                                   ; preds = %.thread79.i.i.i.i, %.lr.ph.outer.i.i.i.i
+  %.066.i.i.i.i = phi i8 [ 0, %.thread79.i.i.i.i ], [ %.066.ph.i.i.i.i, %.lr.ph.outer.i.i.i.i ]
+  %.13765.i.i.i.i = phi ptr [ %189, %.thread79.i.i.i.i ], [ %.13765.ph.i.i.i.i, %.lr.ph.outer.i.i.i.i ]
+  %175 = phi i8 [ %.pr83.i.i.i.i, %.thread79.i.i.i.i ], [ %.ph.i.i.i.i, %.lr.ph.outer.i.i.i.i ]
   %176 = icmp eq i8 %.066.i.i.i.i, %175
-  br i1 %176, label %.thread77.i.i.i.i, label %177
+  br i1 %176, label %.thread79.i.i.i.i, label %177
 
 177:                                              ; preds = %.lr.ph.i.i.i.i
   %.not45.i.i.i.i = icmp eq i8 %.066.i.i.i.i, 0
@@ -706,11 +706,11 @@ gv_isspace.exit52.i.i.i.i:                        ; preds = %.thread.i.i.i.i, %1
   %.ph.i.i.i.i = phi i8 [ %.pr.i.i.i.i, %187 ], [ %172, %171 ]
   br label %.lr.ph.i.i.i.i
 
-.thread77.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i
+.thread79.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i
   %189 = getelementptr inbounds nuw i8, ptr %.13765.i.i.i.i, i64 1
-  %.pr81.i.i.i.i = load i8, ptr %189, align 1, !tbaa !26, !noalias !23
-  %.not82.i.i.i.i = icmp eq i8 %.pr81.i.i.i.i, 0
-  br i1 %.not82.i.i.i.i, label %gettok.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !29
+  %.pr83.i.i.i.i = load i8, ptr %189, align 1, !tbaa !26, !noalias !23
+  %.not84.i.i.i.i = icmp eq i8 %.pr83.i.i.i.i, 0
+  br i1 %.not84.i.i.i.i, label %gettok.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !29
 
 190:                                              ; preds = %178, %178, %178, %178, %178, %178
   %191 = getelementptr inbounds nuw i8, ptr %.13765.i.i.i.i, i64 1
@@ -724,9 +724,9 @@ gv_isspace.exit52.i.i.i.i:                        ; preds = %.thread.i.i.i.i, %1
   call void (i32, ptr, ...) @error(i32 noundef 1, ptr noundef nonnull @.str.21, ptr noundef %.023.i.i.i) #24, !noalias !23
   br label %gettok.exit.i.i.i
 
-gettok.exit.i.i.i:                                ; preds = %.thread77.i.i.i.i, %193, %._crit_edge.i.i.i.i, %190
-  %.03860.i.i.i.i = phi ptr [ %.03864.ph.i.i.i.i, %190 ], [ %.139.i.i.i.i, %193 ], [ %.139.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.03864.ph.i.i.i.i, %.thread77.i.i.i.i ]
-  %.3.i.i.i.i = phi ptr [ %191, %190 ], [ %188, %193 ], [ %188, %._crit_edge.i.i.i.i ], [ %189, %.thread77.i.i.i.i ]
+gettok.exit.i.i.i:                                ; preds = %.thread79.i.i.i.i, %193, %._crit_edge.i.i.i.i, %190
+  %.03860.i.i.i.i = phi ptr [ %.03864.ph.i.i.i.i, %190 ], [ %.139.i.i.i.i, %193 ], [ %.139.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.03864.ph.i.i.i.i, %.thread79.i.i.i.i ]
+  %.3.i.i.i.i = phi ptr [ %191, %190 ], [ %188, %193 ], [ %188, %._crit_edge.i.i.i.i ], [ %189, %.thread79.i.i.i.i ]
   store i8 0, ptr %.03860.i.i.i.i, align 1, !tbaa !26, !noalias !23
   %194 = icmp eq i64 %indvars.iv.i.i.i, 100
   br i1 %194, label %.thread.i43.i.i, label %195
@@ -760,8 +760,8 @@ gettok.exit.thread.i.i.i:                         ; preds = %171
   unreachable
 
 204:                                              ; preds = %198
-  %205 = sext i32 %.sroa.24.6 to i64
-  %206 = shl nsw i64 %205, 3
+  %205 = zext nneg i32 %.sroa.24.6 to i64
+  %206 = shl nuw nsw i64 %205, 3
   %207 = shl nuw nsw i64 %200, 3
   %208 = icmp eq i32 %199, 0
   br i1 %208, label %209, label %210
@@ -782,7 +782,7 @@ gettok.exit.thread.i.i.i:                         ; preds = %171
   unreachable
 
 216:                                              ; preds = %210
-  %217 = icmp ugt i64 %207, %206
+  %217 = icmp samesign ugt i64 %207, %206
   br i1 %217, label %218, label %gv_recalloc.exit.i.i.i
 
 218:                                              ; preds = %216
@@ -870,7 +870,7 @@ resolve.exit.thread.i.i.backedge:                 ; preds = %240, %resolve.exit.
   %.sroa.20180.6.be = phi i32 [ %.sroa.20180.6, %254 ], [ %.sroa.20180.6, %27 ], [ %.sroa.20180.6, %29 ], [ %.sroa.20180.6, %158 ], [ %.sroa.20180.6, %parseArgs.exit.i.i ], [ %.sroa.20180.6, %243 ], [ %.sroa.20180.6, %244 ], [ %.sroa.20180.6, %42 ], [ %.sroa.20180.6, %resolve.exit.i.i ], [ 0, %resolve.exit.thread.i.i ], [ %.sroa.20180.6, %240 ]
   %.sroa.12.6.be = phi i32 [ %.sroa.12.6, %254 ], [ %.sroa.12.6, %27 ], [ %.sroa.12.6, %29 ], [ %.sroa.12.6, %158 ], [ %.sroa.12.6, %parseArgs.exit.i.i ], [ %.sroa.12.6, %243 ], [ %.sroa.12.6, %244 ], [ 1, %42 ], [ 1, %resolve.exit.i.i ], [ %.sroa.12.6, %resolve.exit.thread.i.i ], [ %.sroa.12.6, %240 ]
   %.sroa.24.6.be = phi i32 [ %.sroa.24.6, %254 ], [ %.sroa.24.6, %27 ], [ %.sroa.24.6, %29 ], [ %.sroa.24.6, %158 ], [ %.0.i42.i.i, %parseArgs.exit.i.i ], [ %.sroa.24.6, %243 ], [ %.sroa.24.6, %244 ], [ %.sroa.24.6, %42 ], [ %.sroa.24.6, %resolve.exit.i.i ], [ %.sroa.24.6, %resolve.exit.thread.i.i ], [ %.sroa.24.6, %240 ]
-  %.sroa.9.7.be = phi ptr [ %.sroa.9.7, %254 ], [ %.sroa.9.7, %27 ], [ %.sroa.9.7, %29 ], [ %.sroa.9.7, %158 ], [ %.sroa.9.7, %parseArgs.exit.i.i ], [ %.sroa.9.7, %243 ], [ %.sroa.9.7, %244 ], [ %43, %42 ], [ %.036.lcssa8490.i.i.i, %resolve.exit.i.i ], [ %.sroa.9.7, %resolve.exit.thread.i.i ], [ %.sroa.9.7, %240 ]
+  %.sroa.9.7.be = phi ptr [ %.sroa.9.7, %254 ], [ %.sroa.9.7, %27 ], [ %.sroa.9.7, %29 ], [ %.sroa.9.7, %158 ], [ %.sroa.9.7, %parseArgs.exit.i.i ], [ %.sroa.9.7, %243 ], [ %.sroa.9.7, %244 ], [ %43, %42 ], [ %.036.lcssa9399.i.i.i, %resolve.exit.i.i ], [ %.sroa.9.7, %resolve.exit.thread.i.i ], [ %.sroa.9.7, %240 ]
   %.sroa.26182.6.be = phi ptr [ %.sroa.26182.6, %254 ], [ %.sroa.26182.6, %27 ], [ %.sroa.26182.6, %29 ], [ %.sroa.26182.6, %158 ], [ %.sroa.26182.8, %parseArgs.exit.i.i ], [ %.sroa.26182.6, %243 ], [ %.sroa.26182.6, %244 ], [ %.sroa.26182.6, %42 ], [ %.sroa.26182.6, %resolve.exit.i.i ], [ %.sroa.26182.6, %resolve.exit.thread.i.i ], [ %.sroa.26182.6, %240 ]
   %.sroa.32.6.be = phi i32 [ %.sroa.32.6, %254 ], [ %.sroa.32.6, %27 ], [ %.sroa.32.6, %29 ], [ %.sroa.32.6, %158 ], [ %.sroa.32.6, %parseArgs.exit.i.i ], [ %.sroa.32.6, %243 ], [ 1, %244 ], [ %.sroa.32.6, %42 ], [ %.sroa.32.6, %resolve.exit.i.i ], [ %.sroa.32.6, %resolve.exit.thread.i.i ], [ %.sroa.32.6, %240 ]
   %.sroa.4.7.be = phi ptr [ %.sroa.4.7, %254 ], [ %.sroa.4.7, %27 ], [ %.sroa.4.7, %29 ], [ %.sroa.4.7, %158 ], [ %.sroa.4.7, %parseArgs.exit.i.i ], [ %.sroa.4.7, %243 ], [ %.sroa.4.7, %244 ], [ %.sroa.4.7, %42 ], [ %.sroa.4.7, %resolve.exit.i.i ], [ %.sroa.4.7, %resolve.exit.thread.i.i ], [ %241, %240 ]
@@ -1005,7 +1005,7 @@ strs_append.exit.i:                               ; preds = %271, %265, %256
   %.sroa.26182.0 = phi ptr [ %.sroa.26182.5, %288 ], [ null, %4 ]
   %.sroa.32.0 = phi i32 [ %.sroa.32.5, %288 ], [ 0, %4 ]
   %.sroa.4.0 = phi ptr [ %.sroa.4.6, %288 ], [ null, %4 ]
-  %.sroa.0.0.lcssa278288.i = phi ptr [ %.sroa.0.1.i, %288 ], [ null, %4 ]
+  %.sroa.0.0.lcssa302312.i = phi ptr [ %.sroa.0.1.i, %288 ], [ null, %4 ]
   call void (i32, ptr, ...) @error(i32 noundef 2, ptr noundef nonnull @.str.3) #24, !noalias !23
   br label %strs_detach.exit.i
 
@@ -1097,9 +1097,9 @@ strs_append.exit28.i:                             ; preds = %312, %307, %299
   br i1 %.not12.i.i.i, label %._crit_edge.i.i31.i, label %328, !llvm.loop !36
 
 strs_detach.exit.i.thread:                        ; preds = %._crit_edge.i.i31.i, %strs_append.exit28.i
-  %.not.i632 = icmp eq ptr %.sroa.4.6, null
+  %.not.i710 = icmp eq ptr %.sroa.4.6, null
   %331 = load ptr, ptr @stdout, align 8
-  %spec.select633 = select i1 %.not.i632, ptr %331, ptr %.sroa.4.6
+  %spec.select711 = select i1 %.not.i710, ptr %331, ptr %.sroa.4.6
   br label %scanArgs.exit
 
 strs_detach.exit.i:                               ; preds = %.thread78.i, %297
@@ -1113,8 +1113,8 @@ strs_detach.exit.i:                               ; preds = %.thread78.i, %297
   %332 = phi i1 [ true, %.thread78.i ], [ false, %297 ]
   %.sroa.28.0 = phi i32 [ -1, %.thread78.i ], [ 1, %297 ]
   %.sroa.4.1 = phi ptr [ %.sroa.4.0, %.thread78.i ], [ %.sroa.4.6, %297 ]
-  %.sroa.0.0.lcssa279.i = phi ptr [ %.sroa.0.0.lcssa278288.i, %.thread78.i ], [ %.sroa.0.1.i, %297 ]
-  call void @free(ptr noundef %.sroa.0.0.lcssa279.i) #24, !noalias !23
+  %.sroa.0.0.lcssa303.i = phi ptr [ %.sroa.0.0.lcssa302312.i, %.thread78.i ], [ %.sroa.0.1.i, %297 ]
+  call void @free(ptr noundef %.sroa.0.0.lcssa303.i) #24, !noalias !23
   %.not.i = icmp eq ptr %.sroa.4.1, null
   %333 = load ptr, ptr @stdout, align 8
   %spec.select = select i1 %.not.i, ptr %333, ptr %.sroa.4.1
@@ -1172,7 +1172,7 @@ scanArgs.exit:                                    ; preds = %strs_detach.exit.i.
   %.sroa.26182.9 = phi ptr [ %.sroa.26182.3211, %.thread81.i.thread222 ], [ %.sroa.26182.1, %strs_detach.exit.i ], [ %.sroa.26182.5, %strs_detach.exit.i.thread ]
   %335 = phi i32 [ %.sroa.32.3213, %.thread81.i.thread222 ], [ %.sroa.32.1, %strs_detach.exit.i ], [ %.sroa.32.5, %strs_detach.exit.i.thread ]
   %.sroa.28.3 = phi i32 [ %.sroa.28.2215, %.thread81.i.thread222 ], [ 1, %strs_detach.exit.i ], [ 1, %strs_detach.exit.i.thread ]
-  %.sroa.4.10 = phi ptr [ %.sroa.4.4217, %.thread81.i.thread222 ], [ %spec.select, %strs_detach.exit.i ], [ %spec.select633, %strs_detach.exit.i.thread ]
+  %.sroa.4.10 = phi ptr [ %.sroa.4.4217, %.thread81.i.thread222 ], [ %spec.select, %strs_detach.exit.i ], [ %spec.select711, %strs_detach.exit.i.thread ]
   store ptr %10, ptr %9, align 8, !tbaa !20
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %.sroa.4.10, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !3
@@ -1253,9 +1253,9 @@ scanArgs.exit:                                    ; preds = %strs_detach.exit.i.
   %358 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %359 = and i32 %356, 1
   %.not141 = icmp eq i32 %359, 0
-  %spec.select812 = select i1 %.not141, ptr @gvexitf, ptr null
+  %spec.select890 = select i1 %.not141, ptr @gvexitf, ptr null
   %360 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr %spec.select812, ptr %360, align 8, !tbaa !53
+  store ptr %spec.select890, ptr %360, align 8, !tbaa !53
   %361 = call ptr @openGPRState(ptr noundef nonnull %8) #24
   %362 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %361, ptr %362, align 8, !tbaa !18
@@ -1996,8 +1996,8 @@ nextNode.exit.i.i:                                ; preds = %652, %650, %645, %6
 
 667:                                              ; preds = %664
   store i64 0, ptr %665, align 8
-  %.not132.i.i = icmp eq i64 %.sroa.12.0.ph.i.i, 0
-  br i1 %.not132.i.i, label %node_queue_push_back.exit.i.i, label %668
+  %.not142.i.i = icmp eq i64 %.sroa.12.0.ph.i.i, 0
+  br i1 %.not142.i.i, label %node_queue_push_back.exit.i.i, label %668
 
 668:                                              ; preds = %667
   %669 = add i64 %.sroa.12.0.ph.i.i, 1

@@ -1275,8 +1275,8 @@ avfilter_graph_create_filter.exit.i.i:            ; preds = %219
   br i1 %400, label %.lr.ph659.i.i, label %._crit_edge660.i.i, !llvm.loop !112
 
 ._crit_edge660.thread.i.i:                        ; preds = %467, %.preheader324.i.i, %2
-  %.0170.lcssa802.ph.i.i = phi i32 [ 0, %2 ], [ 0, %467 ], [ %.1171.ph.i.i, %.preheader324.i.i ]
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.48, i32 noundef %.0170.lcssa802.ph.i.i, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  %.0170.lcssa821.ph.i.i = phi i32 [ 0, %2 ], [ 0, %467 ], [ %.1171.ph.i.i, %.preheader324.i.i ]
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.48, i32 noundef %.0170.lcssa821.ph.i.i, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   br label %.loopexit110.i
 
 ._crit_edge660.i.i:                               ; preds = %._crit_edge649.i.i
@@ -2847,20 +2847,20 @@ swap_channel_layouts.exit.i:                      ; preds = %swap_channel_layout
 .loopexit106.thread.i.i:                          ; preds = %.lr.ph134.i.i
   %1181 = getelementptr inbounds nuw i8, ptr %1158, i64 64
   %1182 = load i32, ptr %1181, align 8, !tbaa !29
-  %.not83196.i.i = icmp eq i32 %1182, 0
-  br i1 %.not83196.i.i, label %.loopexit.i.i, label %.lr.ph126.i.i
+  %.not83206.i.i = icmp eq i32 %1182, 0
+  br i1 %.not83206.i.i, label %.loopexit.i.i, label %.lr.ph126.i.i
 
 .lr.ph126.i.i:                                    ; preds = %.loopexit106.thread.i.i, %.loopexit106.i.i
   %1183 = phi i32 [ %1182, %.loopexit106.thread.i.i ], [ %1180, %.loopexit106.i.i ]
   %1184 = phi ptr [ %1181, %.loopexit106.thread.i.i ], [ %1179, %.loopexit106.i.i ]
-  %.165197.i.i = phi i32 [ %.064132.i.i, %.loopexit106.thread.i.i ], [ %.468.i.i, %.loopexit106.i.i ]
+  %.165207.i.i = phi i32 [ %.064132.i.i, %.loopexit106.thread.i.i ], [ %.468.i.i, %.loopexit106.i.i ]
   %1185 = getelementptr inbounds nuw i8, ptr %1158, i64 56
   br label %1186
 
 1186:                                             ; preds = %1199, %.lr.ph126.i.i
   %1187 = phi i32 [ %1183, %.lr.ph126.i.i ], [ %1200, %1199 ]
   %indvars.iv164.i.i = phi i64 [ 0, %.lr.ph126.i.i ], [ %indvars.iv.next165.i.i, %1199 ]
-  %.6125.i.i = phi i32 [ %.165197.i.i, %.lr.ph126.i.i ], [ %.7.i.i, %1199 ]
+  %.6125.i.i = phi i32 [ %.165207.i.i, %.lr.ph126.i.i ], [ %.7.i.i, %1199 ]
   %1188 = load ptr, ptr %1185, align 8, !tbaa !30
   %1189 = getelementptr inbounds nuw ptr, ptr %1188, i64 %indvars.iv164.i.i
   %1190 = load ptr, ptr %1189, align 8, !tbaa !31
@@ -3480,21 +3480,21 @@ define range(i32 -12, 1) i32 @avfilter_graph_queue_command(ptr noundef readonly 
 .lr.ph.preheader:                                 ; preds = %27
   %30 = load double, ptr %29, align 8, !tbaa !191
   %31 = fcmp nsz ugt double %30, %5
-  br i1 %31, label %.critedge, label %.lr.ph69
+  br i1 %31, label %.critedge, label %.lr.ph74
 
-.lr.ph:                                           ; preds = %.lr.ph69
+.lr.ph:                                           ; preds = %.lr.ph74
   %32 = load double, ptr %36, align 8, !tbaa !191
   %33 = fcmp nsz ugt double %32, %5
-  br i1 %33, label %.critedge.loopexit, label %.lr.ph69, !llvm.loop !194
+  br i1 %33, label %.critedge.loopexit, label %.lr.ph74, !llvm.loop !194
 
-.lr.ph69:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph74:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %34 = phi ptr [ %36, %.lr.ph ], [ %29, %.lr.ph.preheader ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 8, !tbaa !190
   %.not46 = icmp eq ptr %36, null
   br i1 %.not46, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !194
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph69
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph74
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 32
   br label %.critedge, !llvm.loop !194
 
@@ -4483,9 +4483,9 @@ ff_fmt_is_regular_yuv.exit.thread:                ; preds = %90, %84, %ff_fmt_is
   %99 = load i64, ptr %98, align 8, !tbaa !57
   %100 = and i64 %99, 512
   %.not120 = icmp eq i64 %100, 0
-  %spec.select159 = select i1 %.not120, i32 2, i32 0
+  %spec.select165 = select i1 %.not120, i32 2, i32 0
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %spec.select159, ptr %101, align 4, !tbaa !230
+  store i32 %spec.select165, ptr %101, align 4, !tbaa !230
   %102 = and i64 %99, 1056
   %.not121 = icmp eq i64 %102, 0
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 56

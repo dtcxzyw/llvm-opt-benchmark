@@ -407,8 +407,8 @@ _ZN6LibRaw4freeEPv.exit:                          ; preds = %52, %57
 
 100:                                              ; preds = %96, %94, %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72
   %101 = add nuw nsw i32 %.078107, 1
-  %.not125 = icmp eq ptr %.077, null
-  br i1 %.not125, label %.preheader.i.i.i94, label %61, !llvm.loop !39
+  %.not132 = icmp eq ptr %.077, null
+  br i1 %.not132, label %.preheader.i.i.i94, label %61, !llvm.loop !39
 
 102:                                              ; preds = %12, %_ZN6LibRaw4freeEPv.exit
   %.181 = phi i32 [ %.080109, %12 ], [ %spec.select, %_ZN6LibRaw4freeEPv.exit ]
@@ -1324,41 +1324,41 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136576
   br label %.outer
 
-.outer:                                           ; preds = %.thread136, %8
-  %indvars.iv.ph = phi i64 [ %indvars.iv.next138, %.thread136 ], [ 0, %8 ]
-  %.16784.ph = phi i1 [ false, %.thread136 ], [ %5, %8 ]
+.outer:                                           ; preds = %.thread141, %8
+  %indvars.iv.ph = phi i64 [ %indvars.iv.next143, %.thread141 ], [ 0, %8 ]
+  %.16784.ph = phi i1 [ false, %.thread141 ], [ %5, %8 ]
   br label %12
 
 11:                                               ; preds = %16
-  br i1 %.16784.ph, label %20, label %.thread141
+  br i1 %.16784.ph, label %20, label %.thread146
 
 12:                                               ; preds = %.outer, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ %indvars.iv.ph, %.outer ]
   %13 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !122
   %15 = icmp sgt i32 %14, -1000000
-  br i1 %15, label %.thread136, label %16
+  br i1 %15, label %.thread141, label %16
 
 16:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %11, label %12, !llvm.loop !123
 
-.thread136:                                       ; preds = %12
+.thread141:                                       ; preds = %12
   %17 = getelementptr inbounds nuw [4104 x i32], ptr %10, i64 0, i64 %indvars.iv
   store i32 %14, ptr %17, align 4, !tbaa !122
-  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not139 = icmp eq i64 %indvars.iv.next138, 4
-  br i1 %exitcond.not139, label %.thread141, label %.outer, !llvm.loop !123
+  %indvars.iv.next143 = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not144 = icmp eq i64 %indvars.iv.next143, 4
+  br i1 %exitcond.not144, label %.thread146, label %.outer, !llvm.loop !123
 
-.thread141:                                       ; preds = %.thread136, %11
+.thread146:                                       ; preds = %.thread141, %11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 136596
   store i32 0, ptr %18, align 4, !tbaa !122
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 136592
   store i32 0, ptr %19, align 8, !tbaa !122
   br label %20
 
-20:                                               ; preds = %.thread141, %11
+20:                                               ; preds = %.thread146, %11
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %22 = load i32, ptr %21, align 8, !tbaa !124
   %23 = icmp ugt i32 %22, 1000
@@ -1388,9 +1388,9 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
   %36 = icmp samesign ugt i32 %spec.select78, 1
   %37 = icmp sgt i32 %spec.select, -1
   %or.cond = select i1 %36, i1 %37, i1 false
-  br i1 %or.cond, label %46, label %.preheader156
+  br i1 %or.cond, label %46, label %.preheader161
 
-.preheader156:                                    ; preds = %46, %35
+.preheader161:                                    ; preds = %46, %35
   br label %50
 
 38:                                               ; preds = %34, %38
@@ -1416,7 +1416,7 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
   %47 = zext nneg i32 %spec.select to i64
   %48 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %47
   store i32 3, ptr %48, align 4, !tbaa !122
-  br label %.preheader156
+  br label %.preheader161
 
 49:                                               ; preds = %50
   store i32 0, ptr %30, align 4, !tbaa !122
@@ -1424,8 +1424,8 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread
 
-50:                                               ; preds = %.preheader156, %50
-  %indvars.iv111 = phi i64 [ %indvars.iv.next112, %50 ], [ 0, %.preheader156 ]
+50:                                               ; preds = %.preheader161, %50
+  %indvars.iv111 = phi i64 [ %indvars.iv.next112, %50 ], [ 0, %.preheader161 ]
   %51 = trunc nuw nsw i64 %indvars.iv111 to i32
   %52 = lshr i32 %51, 1
   %53 = load i32, ptr %24, align 8, !tbaa !122
@@ -1513,13 +1513,13 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 136592
   %96 = load i32, ptr %95, align 8, !tbaa !122
   %.not74 = icmp eq i32 %96, 0
-  br i1 %.not74, label %.preheader155, label %97
+  br i1 %.not74, label %.preheader160, label %97
 
 97:                                               ; preds = %91
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 136596
   %99 = load i32, ptr %98, align 4, !tbaa !122
   %.not75 = icmp eq i32 %99, 0
-  br i1 %.not75, label %.preheader155, label %100
+  br i1 %.not75, label %.preheader160, label %100
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 136600
@@ -1542,7 +1542,7 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
   br label %117
 
 .lr.ph99.preheader:                               ; preds = %.lr.ph, %.preheader
-  %.256.lcssa145 = phi i32 [ %102, %.preheader ], [ %spec.select80, %.lr.ph ]
+  %.256.lcssa150 = phi i32 [ %102, %.preheader ], [ %spec.select80, %.lr.ph ]
   %wide.trip.count130 = zext nneg i32 %103 to i64
   br label %.lr.ph99
 
@@ -1563,9 +1563,9 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
   %110 = add nuw nsw i64 %indvars.iv127, 6
   %111 = getelementptr inbounds nuw [4104 x i32], ptr %10, i64 0, i64 %110
   %112 = load i32, ptr %111, align 4, !tbaa !122
-  %113 = sub i32 %112, %.256.lcssa145
+  %113 = sub i32 %112, %.256.lcssa150
   store i32 %113, ptr %111, align 4, !tbaa !122
-  %.not77 = icmp ne i32 %112, %.256.lcssa145
+  %.not77 = icmp ne i32 %112, %.256.lcssa150
   %114 = zext i1 %.not77 to i32
   %spec.select81 = add nuw nsw i32 %.098, %114
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
@@ -1575,20 +1575,20 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
 ._crit_edge:                                      ; preds = %.lr.ph99
   %.pre = load i32, ptr %92, align 8, !tbaa !121
   %115 = icmp eq i32 %spec.select81, 0
-  %116 = add i32 %.pre, %.256.lcssa145
+  %116 = add i32 %.pre, %.256.lcssa150
   store i32 %116, ptr %92, align 8, !tbaa !121
-  br i1 %115, label %117, label %.preheader155
+  br i1 %115, label %117, label %.preheader160
 
 117:                                              ; preds = %._crit_edge.thread, %._crit_edge
   store i32 0, ptr %98, align 4, !tbaa !122
   store i32 0, ptr %95, align 8, !tbaa !122
-  br label %.preheader155
+  br label %.preheader160
 
-.preheader155:                                    ; preds = %._crit_edge, %117, %97, %91
+.preheader160:                                    ; preds = %._crit_edge, %117, %97, %91
   br label %118
 
-118:                                              ; preds = %.preheader155, %118
-  %indvars.iv132 = phi i64 [ %indvars.iv.next133, %118 ], [ 0, %.preheader155 ]
+118:                                              ; preds = %.preheader160, %118
+  %indvars.iv132 = phi i64 [ %indvars.iv.next133, %118 ], [ 0, %.preheader160 ]
   %119 = load i32, ptr %92, align 8, !tbaa !121
   %120 = getelementptr inbounds nuw [4104 x i32], ptr %10, i64 0, i64 %indvars.iv132
   %121 = load i32, ptr %120, align 4, !tbaa !122
@@ -1881,8 +1881,8 @@ define noundef range(i32 0, 3) i32 @_ZN6LibRaw24adjust_to_raw_inset_cropEjf(ptr 
 
 43:                                               ; preds = %21, %38, %32, %30, %25
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not46 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not46, label %.loopexit, label %21, !llvm.loop !151
+  %.not48 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not48, label %.loopexit, label %21, !llvm.loop !151
 
 44:                                               ; preds = %38
   %45 = and i64 %indvars.iv, 4294967295

@@ -3157,12 +3157,12 @@ dissect_asam_cmp_data_msg.exit:                   ; preds = %1005, %1010
   br i1 %1014, label %100, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %1012, %100, %add_device_id_text.exit
-  %.0.lcssa.sink118 = phi i32 [ 8, %add_device_id_text.exit ], [ %.0103, %100 ], [ %.1, %1012 ]
-  call void @proto_item_set_end(ptr noundef %46, ptr noundef %0, i32 noundef %.0.lcssa.sink118)
-  call void @proto_item_set_end(ptr noundef %50, ptr noundef %0, i32 noundef %.0.lcssa.sink118)
+  %.0.lcssa.sink170 = phi i32 [ 8, %add_device_id_text.exit ], [ %.0103, %100 ], [ %.1, %1012 ]
+  call void @proto_item_set_end(ptr noundef %46, ptr noundef %0, i32 noundef %.0.lcssa.sink170)
+  call void @proto_item_set_end(ptr noundef %50, ptr noundef %0, i32 noundef %.0.lcssa.sink170)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  ret i32 %.0.lcssa.sink118
+  ret i32 %.0.lcssa.sink170
 }
 
 ; Function Attrs: null_pointer_is_valid

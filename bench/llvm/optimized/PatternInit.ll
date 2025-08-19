@@ -46,8 +46,8 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit:        ; preds = %2
   %25 = load ptr, ptr %24, align 8, !tbaa !685
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
-  %trunc80 = trunc i32 %.pre.i to i8
-  switch i8 %trunc80, label %.thread70 [
+  %trunc91 = trunc i32 %.pre.i to i8
+  switch i8 %trunc91, label %.thread70 [
     i8 12, label %_ZNK4llvm4Type13getScalarTypeEv.exit
     i8 14, label %_ZNK4llvm4Type13getScalarTypeEv.exit52
   ]

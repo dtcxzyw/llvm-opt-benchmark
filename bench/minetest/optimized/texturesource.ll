@@ -5347,9 +5347,9 @@ for.body.i.i.i.i.i.us.preheader:                  ; preds = %_ZNSt12_Vector_base
   %49 = sub i64 %cond.i31.i.i.us449, %sub.ptr.rhs.cast.i.i.i.i.us
   %diff.check = icmp ult i64 %49, 32
   %or.cond = or i1 %min.iters.check, %diff.check
-  br i1 %or.cond, label %for.body.i.i.i.i.i.us.preheader38, label %vector.ph
+  br i1 %or.cond, label %for.body.i.i.i.i.i.us.preheader51, label %vector.ph
 
-for.body.i.i.i.i.i.us.preheader38:                ; preds = %middle.block, %for.body.i.i.i.i.i.us.preheader
+for.body.i.i.i.i.i.us.preheader51:                ; preds = %middle.block, %for.body.i.i.i.i.i.us.preheader
   %__cur.08.i.i.i.i.i.us.ph = phi ptr [ %ind.end, %middle.block ], [ %call5.i.i.i.i.i256.us, %for.body.i.i.i.i.i.us.preheader ]
   %__first.addr.07.i.i.i.i.i.us.ph = phi ptr [ %ind.end450, %middle.block ], [ %42, %for.body.i.i.i.i.i.us.preheader ]
   br label %for.body.i.i.i.i.i.us
@@ -5380,15 +5380,15 @@ middle.block:                                     ; preds = %vector.body
   %ind.end = getelementptr i8, ptr %call5.i.i.i.i.i256.us, i64 %53
   %ind.end450 = getelementptr i8, ptr %42, i64 %53
   %cmp.n = icmp eq i64 %48, %n.vec
-  br i1 %cmp.n, label %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.us.thread, label %for.body.i.i.i.i.i.us.preheader38
+  br i1 %cmp.n, label %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.us.thread, label %for.body.i.i.i.i.i.us.preheader51
 
 _ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.us.thread: ; preds = %middle.block
   %incdec.ptr.i.i.us18 = getelementptr i8, ptr %ind.end, i64 4
   br label %if.then.i41.i.i.us
 
-for.body.i.i.i.i.i.us:                            ; preds = %for.body.i.i.i.i.i.us.preheader38, %for.body.i.i.i.i.i.us
-  %__cur.08.i.i.i.i.i.us = phi ptr [ %incdec.ptr1.i.i.i.i.i.us, %for.body.i.i.i.i.i.us ], [ %__cur.08.i.i.i.i.i.us.ph, %for.body.i.i.i.i.i.us.preheader38 ]
-  %__first.addr.07.i.i.i.i.i.us = phi ptr [ %incdec.ptr.i.i.i.i.i.us, %for.body.i.i.i.i.i.us ], [ %__first.addr.07.i.i.i.i.i.us.ph, %for.body.i.i.i.i.i.us.preheader38 ]
+for.body.i.i.i.i.i.us:                            ; preds = %for.body.i.i.i.i.i.us.preheader51, %for.body.i.i.i.i.i.us
+  %__cur.08.i.i.i.i.i.us = phi ptr [ %incdec.ptr1.i.i.i.i.i.us, %for.body.i.i.i.i.i.us ], [ %__cur.08.i.i.i.i.i.us.ph, %for.body.i.i.i.i.i.us.preheader51 ]
+  %__first.addr.07.i.i.i.i.i.us = phi ptr [ %incdec.ptr.i.i.i.i.i.us, %for.body.i.i.i.i.i.us ], [ %__first.addr.07.i.i.i.i.i.us.ph, %for.body.i.i.i.i.i.us.preheader51 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !200)
   call void @llvm.experimental.noalias.scope.decl(metadata !203)
   %54 = load i32, ptr %__first.addr.07.i.i.i.i.i.us, align 4, !tbaa !37, !alias.scope !203, !noalias !200
@@ -5530,9 +5530,9 @@ for.body.i.i.i.i.i279.preheader:                  ; preds = %invoke.cont.i.i
   %69 = sub i64 %call5.i.i.i.i.i291458, %65
   %diff.check459 = icmp ult i64 %69, 32
   %or.cond482 = or i1 %min.iters.check462, %diff.check459
-  br i1 %or.cond482, label %for.body.i.i.i.i.i279.preheader37, label %vector.ph463
+  br i1 %or.cond482, label %for.body.i.i.i.i.i279.preheader50, label %vector.ph463
 
-for.body.i.i.i.i.i279.preheader37:                ; preds = %middle.block460, %for.body.i.i.i.i.i279.preheader
+for.body.i.i.i.i.i279.preheader50:                ; preds = %middle.block460, %for.body.i.i.i.i.i279.preheader
   %__cur.08.i.i.i.i.i280.ph = phi ptr [ %ind.end466, %middle.block460 ], [ %call5.i.i.i.i.i291, %for.body.i.i.i.i.i279.preheader ]
   %__first.addr.07.i.i.i.i.i281.ph = phi ptr [ %ind.end468, %middle.block460 ], [ %61, %for.body.i.i.i.i.i279.preheader ]
   br label %for.body.i.i.i.i.i279
@@ -5563,15 +5563,15 @@ middle.block460:                                  ; preds = %vector.body471
   %ind.end466 = getelementptr i8, ptr %call5.i.i.i.i.i291, i64 %73
   %ind.end468 = getelementptr i8, ptr %61, i64 %73
   %cmp.n470 = icmp eq i64 %68, %n.vec465
-  br i1 %cmp.n470, label %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit56.i.i.thread, label %for.body.i.i.i.i.i279.preheader37
+  br i1 %cmp.n470, label %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit56.i.i.thread, label %for.body.i.i.i.i.i279.preheader50
 
 _ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit56.i.i.thread: ; preds = %middle.block460
   %incdec.ptr.i.i28623 = getelementptr i8, ptr %ind.end466, i64 4
   br label %if.then.i57.i.i
 
-for.body.i.i.i.i.i279:                            ; preds = %for.body.i.i.i.i.i279.preheader37, %for.body.i.i.i.i.i279
-  %__cur.08.i.i.i.i.i280 = phi ptr [ %incdec.ptr1.i.i.i.i.i283, %for.body.i.i.i.i.i279 ], [ %__cur.08.i.i.i.i.i280.ph, %for.body.i.i.i.i.i279.preheader37 ]
-  %__first.addr.07.i.i.i.i.i281 = phi ptr [ %incdec.ptr.i.i.i.i.i282, %for.body.i.i.i.i.i279 ], [ %__first.addr.07.i.i.i.i.i281.ph, %for.body.i.i.i.i.i279.preheader37 ]
+for.body.i.i.i.i.i279:                            ; preds = %for.body.i.i.i.i.i279.preheader50, %for.body.i.i.i.i.i279
+  %__cur.08.i.i.i.i.i280 = phi ptr [ %incdec.ptr1.i.i.i.i.i283, %for.body.i.i.i.i.i279 ], [ %__cur.08.i.i.i.i.i280.ph, %for.body.i.i.i.i.i279.preheader50 ]
+  %__first.addr.07.i.i.i.i.i281 = phi ptr [ %incdec.ptr.i.i.i.i.i282, %for.body.i.i.i.i.i279 ], [ %__first.addr.07.i.i.i.i.i281.ph, %for.body.i.i.i.i.i279.preheader50 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !214)
   call void @llvm.experimental.noalias.scope.decl(metadata !217)
   %74 = load i32, ptr %__first.addr.07.i.i.i.i.i281, align 4, !tbaa !37, !alias.scope !217, !noalias !214
@@ -5879,7 +5879,7 @@ for.body.i.i.i.i.preheader:                       ; preds = %_ZSt4copyIPN3irr5vi
   %21 = sub i64 %sub.ptr.rhs.cast.i114.pre-phi, %13
   %diff.check = icmp ult i64 %21, 32
   %or.cond = or i1 %min.iters.check, %diff.check
-  br i1 %or.cond, label %for.body.i.i.i.i.preheader4, label %vector.ph
+  br i1 %or.cond, label %for.body.i.i.i.i.preheader7, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.preheader
   %n.vec = and i64 %20, 9223372036854775800
@@ -5905,16 +5905,16 @@ middle.block:                                     ; preds = %vector.body
   %ind.end = getelementptr i8, ptr %11, i64 %25
   %ind.end123 = getelementptr i8, ptr %add.ptr62, i64 %25
   %cmp.n = icmp eq i64 %20, %n.vec
-  br i1 %cmp.n, label %if.end69, label %for.body.i.i.i.i.preheader4
+  br i1 %cmp.n, label %if.end69, label %for.body.i.i.i.i.preheader7
 
-for.body.i.i.i.i.preheader4:                      ; preds = %middle.block, %for.body.i.i.i.i.preheader
+for.body.i.i.i.i.preheader7:                      ; preds = %middle.block, %for.body.i.i.i.i.preheader
   %__cur.013.i.i.i.i.ph = phi ptr [ %ind.end, %middle.block ], [ %11, %for.body.i.i.i.i.preheader ]
   %__first.addr.012.i.i.i.i.ph = phi ptr [ %ind.end123, %middle.block ], [ %add.ptr62, %for.body.i.i.i.i.preheader ]
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader4, %for.body.i.i.i.i
-  %__cur.013.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %__cur.013.i.i.i.i.ph, %for.body.i.i.i.i.preheader4 ]
-  %__first.addr.012.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %__first.addr.012.i.i.i.i.ph, %for.body.i.i.i.i.preheader4 ]
+for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader7, %for.body.i.i.i.i
+  %__cur.013.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %__cur.013.i.i.i.i.ph, %for.body.i.i.i.i.preheader7 ]
+  %__first.addr.012.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %__first.addr.012.i.i.i.i.ph, %for.body.i.i.i.i.preheader7 ]
   %26 = load i32, ptr %__first.addr.012.i.i.i.i, align 4, !tbaa !37
   store i32 %26, ptr %__cur.013.i.i.i.i, align 4, !tbaa !37
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.012.i.i.i.i, i64 4
@@ -11607,9 +11607,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i437: ; preds = %_ZNSt11char_tr
   br i1 %cmp.i.i.i.i439, label %do.body714, label %if.else746
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i437.thread: ; preds = %if.else710
-  %bcmp.i.i438584 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %part_of_name.coerce1, ptr noundef nonnull dereferenceable(8) @.str.70, i64 8)
-  %cmp.i.i.i.i439585 = icmp eq i32 %bcmp.i.i438584, 0
-  br i1 %cmp.i.i.i.i439585, label %do.body714, label %if.else1059
+  %bcmp.i.i438929 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %part_of_name.coerce1, ptr noundef nonnull dereferenceable(8) @.str.70, i64 8)
+  %cmp.i.i.i.i439930 = icmp eq i32 %bcmp.i.i438929, 0
+  br i1 %cmp.i.i.i.i439930, label %do.body714, label %if.else1059
 
 do.body714:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i437.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i437
   %tobool715.not = icmp eq ptr %19, null
@@ -12113,9 +12113,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i518: ; preds = %_ZNSt11char_tr
   br i1 %cmp.i.i.i.i520, label %do.body885, label %if.else917
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i518.thread: ; preds = %if.else881
-  %bcmp.i.i519592 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %part_of_name.coerce1, ptr noundef nonnull dereferenceable(10) @.str.72, i64 10)
-  %cmp.i.i.i.i520593 = icmp eq i32 %bcmp.i.i519592, 0
-  br i1 %cmp.i.i.i.i520593, label %do.body885, label %if.else1059
+  %bcmp.i.i519937 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %part_of_name.coerce1, ptr noundef nonnull dereferenceable(10) @.str.72, i64 10)
+  %cmp.i.i.i.i520938 = icmp eq i32 %bcmp.i.i519937, 0
+  br i1 %cmp.i.i.i.i520938, label %do.body885, label %if.else1059
 
 do.body885:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i518.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i518
   %tobool886.not = icmp eq ptr %19, null

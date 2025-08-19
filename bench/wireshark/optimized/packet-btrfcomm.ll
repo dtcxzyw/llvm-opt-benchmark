@@ -430,9 +430,9 @@ define internal i32 @dissect_btrfcomm(ptr noundef %0, ptr noundef %1, ptr nounde
   %28 = load ptr, ptr %24, align 8
   %switch.selectcmp = icmp eq i32 %27, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.160, ptr @.str.161
-  %switch.selectcmp320 = icmp eq i32 %27, 0
-  %switch.select321 = select i1 %switch.selectcmp320, ptr @.str.159, ptr %switch.select
-  tail call void @col_set_str(ptr noundef %28, i32 noundef 25, ptr noundef nonnull %switch.select321)
+  %switch.selectcmp331 = icmp eq i32 %27, 0
+  %switch.select332 = select i1 %switch.selectcmp331, ptr @.str.159, ptr %switch.select
+  tail call void @col_set_str(ptr noundef %28, i32 noundef 25, ptr noundef nonnull %switch.select332)
   %29 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %30 = and i8 %29, 1
   %31 = lshr i8 %29, 1
@@ -680,10 +680,10 @@ switch.early.test:                                ; preds = %90
   br label %168
 
 168:                                              ; preds = %164, %166, %159
-  %.sink319 = phi i32 [ %165, %164 ], [ %not., %166 ], [ %160, %159 ]
-  store i32 %.sink319, ptr %9, align 4
+  %.sink330 = phi i32 [ %165, %164 ], [ %not., %166 ], [ %160, %159 ]
+  store i32 %.sink330, ptr %9, align 4
   store i32 1, ptr %8, align 4
-  %169 = icmp eq i32 %.sink319, 1
+  %169 = icmp eq i32 %.sink330, 1
   br i1 %169, label %170, label %175
 
 170:                                              ; preds = %168

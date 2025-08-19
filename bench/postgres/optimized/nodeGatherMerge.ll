@@ -423,9 +423,9 @@ define internal ptr @ExecGatherMerge(ptr noundef captures(none) %0) #0 {
   %150 = getelementptr inbounds nuw i8, ptr %147, i64 12
   %151 = load i32, ptr %150, align 4
   %152 = icmp eq i32 %149, %151
-  br i1 %152, label %.thread27.i.i.i, label %153
+  br i1 %152, label %.thread31.i.i.i, label %153
 
-.thread27.i.i.i:                                  ; preds = %143
+.thread31.i.i.i:                                  ; preds = %143
   store i32 0, ptr %150, align 4
   store i32 0, ptr %148, align 8
   br label %.lr.ph.i.i.i
@@ -434,8 +434,8 @@ define internal ptr @ExecGatherMerge(ptr noundef captures(none) %0) #0 {
   %154 = icmp slt i32 %149, 10
   br i1 %154, label %.lr.ph.i.i.i, label %load_tuple_array.exit.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %153, %.thread27.i.i.i
-  %155 = phi i32 [ 0, %.thread27.i.i.i ], [ %149, %153 ]
+.lr.ph.i.i.i:                                     ; preds = %153, %.thread31.i.i.i
+  %155 = phi i32 [ 0, %.thread31.i.i.i ], [ %149, %153 ]
   %156 = getelementptr inbounds nuw i8, ptr %147, i64 16
   %157 = sext i32 %155 to i64
   br label %158
@@ -1002,9 +1002,9 @@ gm_readnext_tuple.exit:                           ; preds = %60
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 12
   %73 = load i32, ptr %72, align 4
   %74 = icmp eq i32 %71, %73
-  br i1 %74, label %.thread27.i, label %75
+  br i1 %74, label %.thread31.i, label %75
 
-.thread27.i:                                      ; preds = %67
+.thread31.i:                                      ; preds = %67
   store i32 0, ptr %72, align 4
   store i32 0, ptr %70, align 8
   br label %.lr.ph.i
@@ -1013,8 +1013,8 @@ gm_readnext_tuple.exit:                           ; preds = %60
   %76 = icmp slt i32 %71, 10
   br i1 %76, label %.lr.ph.i, label %load_tuple_array.exit
 
-.lr.ph.i:                                         ; preds = %75, %.thread27.i
-  %77 = phi i32 [ 0, %.thread27.i ], [ %71, %75 ]
+.lr.ph.i:                                         ; preds = %75, %.thread31.i
+  %77 = phi i32 [ 0, %.thread31.i ], [ %71, %75 ]
   %78 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %79 = sext i32 %77 to i64
   br label %80

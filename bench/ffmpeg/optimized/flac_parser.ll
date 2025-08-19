@@ -406,7 +406,7 @@ select.unfold.outer:                              ; preds = %select.unfold.outer
   %179 = getelementptr inbounds nuw i8, ptr %.0180.ph, i64 16
   %180 = ptrtoint ptr %.0180.ph to i64
   %181 = ptrtoint ptr %.0180.ph to i64
-  %.neg366 = add i64 %181, 4294967281
+  %.neg412 = add i64 %181, 4294967281
   %182 = ptrtoint ptr %.0180.ph to i64
   %.neg = add i64 %182, 4294967281
   br label %select.unfold
@@ -559,8 +559,8 @@ flac_fifo_size.exit242.thread:                    ; preds = %239
   %248 = sub i64 %242, %247
   %249 = add i64 %248, %245
   %250 = ptrtoint ptr %.1181 to i64
-  %.neg216367 = sub i64 %.neg366, %250
-  %251 = add i64 %.neg216367, %249
+  %.neg216413 = sub i64 %.neg412, %250
+  %251 = add i64 %.neg216413, %249
   %252 = trunc i64 %251 to i32
   %253 = tail call i32 @llvm.smax.i32(i32 %252, i32 0)
   store i32 0, ptr %177, align 8, !tbaa !73
@@ -658,7 +658,7 @@ flac_fifo_read.exit.i:                            ; preds = %285, %._crit_edge.i
 
 .lr.ph44.preheader.i.i:                           ; preds = %.preheader36.i.i
   %299 = zext nneg i32 %.033.lcssa.i.i to i64
-  %300 = sext i32 %295 to i64
+  %300 = zext nneg i32 %295 to i64
   br label %.lr.ph44.i.i
 
 .lr.ph.i.i:                                       ; preds = %310, %.lr.ph.preheader.i.i
@@ -723,7 +723,7 @@ flac_fifo_read.exit.i:                            ; preds = %285, %._crit_edge.i
 .loopexit.i.i:                                    ; preds = %327, %.lr.ph44.i.i
   %.5.i.i = phi i32 [ %.243.i.i, %.lr.ph44.i.i ], [ %.4.i.i, %327 ]
   %indvars.iv.next52.i.i = add nuw nsw i64 %indvars.iv51.i.i, 4
-  %328 = icmp slt i64 %indvars.iv.next52.i.i, %300
+  %328 = icmp samesign ult i64 %indvars.iv.next52.i.i, %300
   br i1 %328, label %.lr.ph44.i.i, label %find_headers_search.exit.i, !llvm.loop !76
 
 find_headers_search.exit.i:                       ; preds = %.loopexit.i.i, %.preheader36.i.i
@@ -800,7 +800,7 @@ flac_fifo_read.exit56.i:                          ; preds = %341, %._crit_edge.i
 .lr.ph44.preheader.i62.i:                         ; preds = %.preheader36.i57.i
   %362 = zext nneg i32 %.033.lcssa.i58.i to i64
   %363 = zext i32 %334 to i64
-  %364 = sext i32 %358 to i64
+  %364 = zext nneg i32 %358 to i64
   br label %.lr.ph44.i63.i
 
 .lr.ph.i78.i:                                     ; preds = %374, %.lr.ph.preheader.i76.i
@@ -865,7 +865,7 @@ flac_fifo_read.exit56.i:                          ; preds = %341, %._crit_edge.i
 .loopexit.i73.i:                                  ; preds = %391, %.lr.ph44.i63.i
   %.5.i74.i = phi i32 [ %.243.i65.i, %.lr.ph44.i63.i ], [ %.4.i70.i, %391 ]
   %indvars.iv.next52.i75.i = add nuw nsw i64 %indvars.iv51.i64.i, 4
-  %392 = icmp slt i64 %indvars.iv.next52.i75.i, %364
+  %392 = icmp samesign ult i64 %indvars.iv.next52.i75.i, %364
   br i1 %392, label %.lr.ph44.i63.i, label %find_headers_search.exit84.i, !llvm.loop !76
 
 find_headers_search.exit84.i:                     ; preds = %.loopexit.i73.i, %.preheader36.i57.i
@@ -1059,8 +1059,8 @@ select.unfold.outer.backedge:                     ; preds = %446, %402
   br i1 %.not211, label %.thread275, label %._crit_edge339.thread
 
 ._crit_edge339.thread:                            ; preds = %455, %._crit_edge339
-  %.pr371 = phi ptr [ %.pre, %._crit_edge339 ], [ %456, %455 ]
-  %458 = getelementptr inbounds nuw i8, ptr %.pr371, i64 20
+  %.pr417 = phi ptr [ %.pre, %._crit_edge339 ], [ %456, %455 ]
+  %458 = getelementptr inbounds nuw i8, ptr %.pr417, i64 20
   %459 = load i32, ptr %458, align 4, !tbaa !65
   %460 = icmp slt i32 %459, 1
   br i1 %460, label %461, label %469
@@ -1086,7 +1086,7 @@ select.unfold.outer.backedge:                     ; preds = %446, %402
 
 469:                                              ; preds = %._crit_edge339.thread, %462
   store i32 1, ptr %75, align 8, !tbaa !59
-  %470 = load i32, ptr %.pr371, align 8, !tbaa !66
+  %470 = load i32, ptr %.pr417, align 8, !tbaa !66
   %471 = icmp sgt i32 %470, 0
   br i1 %471, label %472, label %545
 
@@ -1898,8 +1898,8 @@ define internal fastcc range(i32 0, 89) i32 @check_header_mismatch(ptr noundef r
   %79 = load i32, ptr %78, align 4, !tbaa !58
   %80 = icmp slt i32 %79, 50
   %81 = icmp eq i32 %79, 100000
-  %or.cond132172 = or i1 %80, %81
-  br i1 %or.cond132172, label %.critedge134, label %.critedge137
+  %or.cond132187 = or i1 %80, %81
+  br i1 %or.cond132187, label %.critedge134, label %.critedge137
 
 82:                                               ; preds = %71
   %83 = zext nneg i32 %.1103158 to i64

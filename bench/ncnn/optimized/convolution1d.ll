@@ -2022,8 +2022,8 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %5, %_ZN4ncnn3Mat7re
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 228
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !39
   %68 = icmp sgt i32 %.pre, 0
-  %or.cond36 = select i1 %67, i1 true, i1 %68
-  br i1 %or.cond36, label %_ZN4ncnn3MataSERKS0_.exit._crit_edge, label %74
+  %or.cond45 = select i1 %67, i1 true, i1 %68
+  br i1 %or.cond45, label %_ZN4ncnn3MataSERKS0_.exit._crit_edge, label %74
 
 _ZN4ncnn3MataSERKS0_.exit._crit_edge:             ; preds = %_ZN4ncnn3MataSERKS0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

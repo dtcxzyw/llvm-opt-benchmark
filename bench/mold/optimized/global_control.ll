@@ -1215,34 +1215,34 @@ _ZNK3tbb6detail2r126control_storage_comparatorclEPKNS0_2d114global_controlES6_.e
   %32 = icmp ult ptr %21, %23
   %33 = and i1 %32, %31
   %34 = select i1 %30, i1 true, i1 %33
-  %.sink36 = select i1 %34, i64 16, i64 24
-  %35 = getelementptr inbounds nuw i8, ptr %.02125, i64 %.sink36
+  %.sink41 = select i1 %34, i64 16, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %.02125, i64 %.sink41
   %.021 = load ptr, ptr %35, align 8, !tbaa !48
   %.not = icmp eq ptr %.021, null
-  br i1 %.not, label %._crit_edge.loopexit41, label %.lr.ph.split, !llvm.loop !50
+  br i1 %.not, label %._crit_edge.loopexit46, label %.lr.ph.split, !llvm.loop !50
 
-._crit_edge.loopexit41:                           ; preds = %_ZNK3tbb6detail2r126control_storage_comparatorclEPKNS0_2d114global_controlES6_.exit.thread
+._crit_edge.loopexit46:                           ; preds = %_ZNK3tbb6detail2r126control_storage_comparatorclEPKNS0_2d114global_controlES6_.exit.thread
   %36 = select i1 %30, i1 true, i1 %33
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %18, %._crit_edge.loopexit41
-  %.020.lcssa = phi ptr [ %.02125, %._crit_edge.loopexit41 ], [ %.02125.us, %18 ]
-  %.0.lcssa = phi i1 [ %36, %._crit_edge.loopexit41 ], [ %19, %18 ]
+._crit_edge:                                      ; preds = %18, %._crit_edge.loopexit46
+  %.020.lcssa = phi ptr [ %.02125, %._crit_edge.loopexit46 ], [ %.02125.us, %18 ]
+  %.0.lcssa = phi i1 [ %36, %._crit_edge.loopexit46 ], [ %19, %18 ]
   br i1 %.0.lcssa, label %._crit_edge.thread, label %42
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.020.lcssa33 = phi ptr [ %.020.lcssa, %._crit_edge ], [ %4, %2 ]
+  %.020.lcssa38 = phi ptr [ %.020.lcssa, %._crit_edge ], [ %4, %2 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !3
-  %39 = icmp eq ptr %.020.lcssa33, %38
+  %39 = icmp eq ptr %.020.lcssa38, %38
   br i1 %39, label %_ZNK3tbb6detail2r126control_storage_comparatorclEPKNS0_2d114global_controlES6_.exit5.thread, label %40
 
 40:                                               ; preds = %._crit_edge.thread
-  %41 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa33) #18
+  %41 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa38) #18
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge
-  %.020.lcssa32 = phi ptr [ %.020.lcssa33, %40 ], [ %.020.lcssa, %._crit_edge ]
+  %.020.lcssa37 = phi ptr [ %.020.lcssa38, %40 ], [ %.020.lcssa, %._crit_edge ]
   %.sroa.06.0 = phi ptr [ %41, %40 ], [ %.020.lcssa, %._crit_edge ]
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.06.0, i64 32
   %44 = load ptr, ptr %43, align 8, !tbaa !38
@@ -1267,12 +1267,12 @@ _ZNK3tbb6detail2r126control_storage_comparatorclEPKNS0_2d114global_controlES6_.e
   %55 = icmp ult ptr %44, %45
   %56 = and i1 %55, %54
   %spec.select = select i1 %56, ptr null, ptr %.sroa.06.0
-  %spec.select22 = select i1 %56, ptr %.020.lcssa32, ptr null
+  %spec.select22 = select i1 %56, ptr %.020.lcssa37, ptr null
   br label %_ZNK3tbb6detail2r126control_storage_comparatorclEPKNS0_2d114global_controlES6_.exit5.thread
 
 _ZNK3tbb6detail2r126control_storage_comparatorclEPKNS0_2d114global_controlES6_.exit5.thread: ; preds = %_ZNK3tbb6detail2r126control_storage_comparatorclEPKNS0_2d114global_controlES6_.exit5, %50, %._crit_edge.thread
   %.sroa.019.0 = phi ptr [ null, %._crit_edge.thread ], [ null, %50 ], [ %spec.select, %_ZNK3tbb6detail2r126control_storage_comparatorclEPKNS0_2d114global_controlES6_.exit5 ]
-  %.sroa.4.0 = phi ptr [ %.020.lcssa33, %._crit_edge.thread ], [ %.020.lcssa32, %50 ], [ %spec.select22, %_ZNK3tbb6detail2r126control_storage_comparatorclEPKNS0_2d114global_controlES6_.exit5 ]
+  %.sroa.4.0 = phi ptr [ %.020.lcssa38, %._crit_edge.thread ], [ %.020.lcssa37, %50 ], [ %spec.select22, %_ZNK3tbb6detail2r126control_storage_comparatorclEPKNS0_2d114global_controlES6_.exit5 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.019.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

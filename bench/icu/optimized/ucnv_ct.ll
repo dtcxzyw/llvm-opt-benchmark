@@ -617,8 +617,8 @@ define internal void @_ZL43UConverter_fromUnicode_CompoundText_OFFSETSP25UConver
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 -961, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond261 = select i1 %55, i1 %switch.lobit, i1 false
-  br i1 %or.cond261, label %_ZL8getStatei.exit, label %56
+  %or.cond269 = select i1 %55, i1 %switch.lobit, i1 false
+  br i1 %or.cond269, label %_ZL8getStatei.exit, label %56
 
 56:                                               ; preds = %54
   %57 = and i32 %.1129, -4
@@ -630,12 +630,12 @@ define internal void @_ZL43UConverter_fromUnicode_CompoundText_OFFSETSP25UConver
   br i1 %or.cond21.i, label %_ZL8getStatei.exit, label %61
 
 61:                                               ; preds = %56
-  %switch.tableidx242 = add i32 %.1129, -321
-  %62 = icmp ult i32 %switch.tableidx242, 21
-  %switch.shifted245 = lshr i32 1671247, %switch.tableidx242
-  %switch.lobit246 = trunc i32 %switch.shifted245 to i1
-  %or.cond262 = select i1 %62, i1 %switch.lobit246, i1 false
-  br i1 %or.cond262, label %_ZL8getStatei.exit, label %63
+  %switch.tableidx250 = add i32 %.1129, -321
+  %62 = icmp ult i32 %switch.tableidx250, 21
+  %switch.shifted253 = lshr i32 1671247, %switch.tableidx250
+  %switch.lobit254 = trunc i32 %switch.shifted253 to i1
+  %or.cond270 = select i1 %62, i1 %switch.lobit254, i1 false
+  br i1 %or.cond270, label %_ZL8getStatei.exit, label %63
 
 63:                                               ; preds = %61
   %or.cond37.i = icmp eq i32 %57, 344
@@ -674,15 +674,15 @@ define internal void @_ZL43UConverter_fromUnicode_CompoundText_OFFSETSP25UConver
   br i1 %or.cond65.i, label %_ZL8getStatei.exit, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %67
-  %switch.tableidx248 = add i32 %.1129, -284
-  %68 = icmp ult i32 %switch.tableidx248, 6
-  %switch.maskindex251 = trunc i32 %switch.tableidx248 to i8
-  %switch.shifted252 = lshr i8 51, %switch.maskindex251
-  %switch.lobit253 = trunc i8 %switch.shifted252 to i1
-  %or.cond263 = select i1 %68, i1 %switch.lobit253, i1 false
+  %switch.tableidx256 = add i32 %.1129, -284
+  %68 = icmp ult i32 %switch.tableidx256, 6
+  %switch.maskindex259 = trunc i32 %switch.tableidx256 to i8
+  %switch.shifted260 = lshr i8 51, %switch.maskindex259
+  %switch.lobit261 = trunc i8 %switch.shifted260 to i1
+  %or.cond271 = select i1 %68, i1 %switch.lobit261, i1 false
   %or.cond75.i = icmp eq i32 %57, 292
-  %or.cond265 = or i1 %or.cond263, %or.cond75.i
-  br i1 %or.cond265, label %_ZL8getStatei.exit, label %switch.early.test357.i
+  %or.cond273 = or i1 %or.cond271, %or.cond75.i
+  br i1 %or.cond273, label %_ZL8getStatei.exit, label %switch.early.test357.i
 
 switch.early.test357.i:                           ; preds = %switch.early.test.i
   switch i32 %.1129, label %69 [
@@ -814,16 +814,16 @@ switch.early.test358.i:                           ; preds = %69
   br i1 %or.cond189.i, label %_ZL8getStatei.exit, label %91
 
 91:                                               ; preds = %88
-  %switch.tableidx255 = add i32 %.1129, -65136
-  %92 = icmp ult i32 %switch.tableidx255, 5
-  %switch.maskindex258 = trunc i32 %switch.tableidx255 to i8
-  %switch.shifted259 = lshr i8 23, %switch.maskindex258
-  %switch.lobit260 = trunc i8 %switch.shifted259 to i1
-  %or.cond264 = select i1 %92, i1 %switch.lobit260, i1 false
+  %switch.tableidx263 = add i32 %.1129, -65136
+  %92 = icmp ult i32 %switch.tableidx263, 5
+  %switch.maskindex266 = trunc i32 %switch.tableidx263 to i8
+  %switch.shifted267 = lshr i8 23, %switch.maskindex266
+  %switch.lobit268 = trunc i8 %switch.shifted267 to i1
+  %or.cond272 = select i1 %92, i1 %switch.lobit268, i1 false
   %93 = add i32 %.1129, -65142
   %or.cond195.i = icmp ult i32 %93, 73
-  %or.cond266 = or i1 %or.cond264, %or.cond195.i
-  br i1 %or.cond266, label %_ZL8getStatei.exit, label %94
+  %or.cond274 = or i1 %or.cond272, %or.cond195.i
+  br i1 %or.cond274, label %_ZL8getStatei.exit, label %94
 
 94:                                               ; preds = %91
   %95 = add i32 %.1129, -1488

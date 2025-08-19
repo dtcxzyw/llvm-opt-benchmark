@@ -668,11 +668,11 @@ define linkonce_odr dso_local noundef i32 @_ZN10pcg_extras10unxorshiftIjEET_S1_h
 common.ret:                                       ; preds = %3
   %7 = lshr i32 %0, %4
   %8 = xor i32 %7, %0
-  br label %common.ret34
+  br label %common.ret35
 
-common.ret34:                                     ; preds = %9, %common.ret
-  %common.ret34.op = phi i32 [ %8, %common.ret ], [ %23, %9 ]
-  ret i32 %common.ret34.op
+common.ret35:                                     ; preds = %9, %common.ret
+  %common.ret35.op = phi i32 [ %8, %common.ret ], [ %23, %9 ]
+  ret i32 %common.ret35.op
 
 9:                                                ; preds = %3
   %10 = sub nuw nsw i32 %6, %5
@@ -691,7 +691,7 @@ common.ret34:                                     ; preds = %9, %common.ret
   %21 = tail call noundef i32 @_ZN10pcg_extras10unxorshiftIjEET_S1_hh(i32 noundef %19, i8 noundef zeroext %20, i8 noundef zeroext %2)
   %22 = and i32 %21, %11
   %23 = or disjoint i32 %22, %15
-  br label %common.ret34
+  br label %common.ret35
 }
 
 ; Function Attrs: uwtable

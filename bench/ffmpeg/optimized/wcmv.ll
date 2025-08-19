@@ -530,8 +530,8 @@ bytestream2_get_le16.exit230:                     ; preds = %bytestream2_get_le1
   %or.cond11 = select i1 %or.cond, i1 %253, i1 false
   %.pre = load i32, ptr %222, align 8, !tbaa !50
   %254 = icmp eq i32 %.0.i227, %.pre
-  %or.cond391 = select i1 %or.cond11, i1 %254, i1 false
-  br i1 %or.cond391, label %255, label %258
+  %or.cond404 = select i1 %or.cond11, i1 %254, i1 false
+  br i1 %or.cond404, label %255, label %258
 
 255:                                              ; preds = %bytestream2_get_le16.exit230
   %256 = load i32, ptr %223, align 4, !tbaa !51

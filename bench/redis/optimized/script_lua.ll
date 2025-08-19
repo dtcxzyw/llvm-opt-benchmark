@@ -2335,16 +2335,16 @@ define internal fastcc i32 @luaRedisGenericCommand(ptr noundef %0, i32 noundef r
   br label %.loopexit89
 
 .lr.ph.preheader:                                 ; preds = %28, %.lr.ph
-  %.06693113 = phi ptr [ %42, %.lr.ph ], [ %29, %28 ]
-  %indvars.iv112 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %28 ]
-  %36 = tail call ptr @sdscatlen(ptr noundef %.06693113, ptr noundef nonnull @.str.4, i64 noundef 1) #11
+  %.06693118 = phi ptr [ %42, %.lr.ph ], [ %29, %28 ]
+  %indvars.iv117 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %28 ]
+  %36 = tail call ptr @sdscatlen(ptr noundef %.06693118, ptr noundef nonnull @.str.4, i64 noundef 1) #11
   %37 = load ptr, ptr %13, align 8, !tbaa !85
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv112
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv117
   %39 = load ptr, ptr %38, align 8, !tbaa !10
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !16
   %42 = tail call ptr @sdscatsds(ptr noundef %36, ptr noundef %41) #11
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv112, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv117, 1
   %43 = load i32, ptr %10, align 8, !tbaa !86
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next, %44
@@ -2887,8 +2887,8 @@ define internal void @redisProtocolToLuaType_Array(ptr noundef %0, ptr noundef %
 
 .thread:                                          ; preds = %5
   tail call void @lua_createtable(ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0) #11
-  %.not1619 = icmp eq i64 %2, 0
-  br i1 %.not1619, label %._crit_edge, label %.lr.ph.split
+  %.not1620 = icmp eq i64 %2, 0
+  br i1 %.not1620, label %._crit_edge, label %.lr.ph.split
 
 .critedge.us:                                     ; preds = %8, %.critedge.us
   %.015.us = phi i64 [ %10, %.critedge.us ], [ 0, %8 ]
@@ -2934,8 +2934,8 @@ define internal void @redisProtocolToLuaType_Set(ptr noundef %0, ptr noundef %1,
   tail call void @lua_createtable(ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0) #11
   tail call void @lua_pushstring(ptr noundef nonnull %1, ptr noundef nonnull @.str.108) #11
   tail call void @lua_createtable(ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0) #11
-  %.not2023 = icmp eq i64 %2, 0
-  br i1 %.not2023, label %._crit_edge.thread, label %.lr.ph.split
+  %.not2025 = icmp eq i64 %2, 0
+  br i1 %.not2025, label %._crit_edge.thread, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %8, %.lr.ph.split.us
   %.019.us = phi i64 [ %10, %.lr.ph.split.us ], [ 0, %8 ]
@@ -2994,8 +2994,8 @@ define internal void @redisProtocolToLuaType_Map(ptr noundef %0, ptr noundef %1,
   tail call void @lua_createtable(ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0) #11
   tail call void @lua_pushstring(ptr noundef nonnull %1, ptr noundef nonnull @.str.109) #11
   tail call void @lua_createtable(ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0) #11
-  %.not1922 = icmp eq i64 %2, 0
-  br i1 %.not1922, label %._crit_edge.thread, label %.lr.ph.split
+  %.not1923 = icmp eq i64 %2, 0
+  br i1 %.not1923, label %._crit_edge.thread, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %8, %.lr.ph.split.us
   %.018.us = phi i64 [ %11, %.lr.ph.split.us ], [ 0, %8 ]

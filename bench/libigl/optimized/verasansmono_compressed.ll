@@ -846,7 +846,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121: ; preds = %_Z
   %305 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %306 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %wide.trip.count280 = and i64 %277, 4294967295
-  %invariant.gep316 = getelementptr i8, ptr %0, i64 %.039.lcssa
+  %invariant.gep369 = getelementptr i8, ptr %0, i64 %.039.lcssa
   br label %313
 
 307:                                              ; preds = %.noexc10.i.i109, %257
@@ -976,8 +976,8 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
 350:                                              ; preds = %349, %347
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %351 = trunc i64 %329 to i8
-  %gep317 = getelementptr i8, ptr %invariant.gep316, i64 %indvars.iv276
-  store i8 %351, ptr %gep317, align 1, !tbaa !14
+  %gep370 = getelementptr i8, ptr %invariant.gep369, i64 %indvars.iv276
+  store i8 %351, ptr %gep370, align 1, !tbaa !14
   %352 = load ptr, ptr %21, align 8, !tbaa !12
   %353 = icmp eq ptr %352, %305
   br i1 %353, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i137

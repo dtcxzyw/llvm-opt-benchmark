@@ -2247,13 +2247,13 @@ _RNvXsa_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
   br label %44
 
 44:                                               ; preds = %17, %_RNvXsa_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_10ParseErrorBP_E15from_error_kindB1G_.exit
-  %.sink16 = phi i64 [ 64, %17 ], [ 24, %_RNvXsa_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_10ParseErrorBP_E15from_error_kindB1G_.exit ]
-  %.sink15 = phi i64 [ %36, %17 ], [ 1, %_RNvXsa_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_10ParseErrorBP_E15from_error_kindB1G_.exit ]
-  %.sink14 = phi i64 [ 72, %17 ], [ 32, %_RNvXsa_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_10ParseErrorBP_E15from_error_kindB1G_.exit ]
+  %.sink17 = phi i64 [ 64, %17 ], [ 24, %_RNvXsa_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_10ParseErrorBP_E15from_error_kindB1G_.exit ]
+  %.sink16 = phi i64 [ %36, %17 ], [ 1, %_RNvXsa_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_10ParseErrorBP_E15from_error_kindB1G_.exit ]
+  %.sink15 = phi i64 [ 72, %17 ], [ 32, %_RNvXsa_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_10ParseErrorBP_E15from_error_kindB1G_.exit ]
   %.sink = phi i8 [ %38, %17 ], [ 2, %_RNvXsa_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_10ParseErrorBP_E15from_error_kindB1G_.exit ]
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink16
-  store i64 %.sink15, ptr %.sroa.11.0..sroa_idx, align 8
-  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink14
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  store i64 %.sink16, ptr %.sroa.11.0..sroa_idx, align 8
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink15
   store i8 %.sink, ptr %.sroa.12.0..sroa_idx, align 8
   ret void
 }
@@ -5302,23 +5302,23 @@ _RNvMs2_NtNtCseG2FYMysgNb_3wax5token5parseNtB5_10ParseError3new.exit: ; preds = 
   br label %71
 
 71:                                               ; preds = %13, %54, %_RNvMs2_NtNtCseG2FYMysgNb_3wax5token5parseNtB5_10ParseError3new.exit
-  %.sink138 = phi i64 [ 24, %13 ], [ 24, %54 ], [ 8, %_RNvMs2_NtNtCseG2FYMysgNb_3wax5token5parseNtB5_10ParseError3new.exit ]
-  %.sink137 = phi i64 [ 0, %13 ], [ %.sroa.20.sroa.5.0.copyload, %54 ], [ %.sroa.079.0.copyload, %_RNvMs2_NtNtCseG2FYMysgNb_3wax5token5parseNtB5_10ParseError3new.exit ]
-  %.sink136 = phi i64 [ 32, %13 ], [ 32, %54 ], [ 16, %_RNvMs2_NtNtCseG2FYMysgNb_3wax5token5parseNtB5_10ParseError3new.exit ]
-  %.sink135 = phi i64 [ -9223372036854775808, %13 ], [ -9223372036854775808, %54 ], [ %.sroa.480.0.copyload, %_RNvMs2_NtNtCseG2FYMysgNb_3wax5token5parseNtB5_10ParseError3new.exit ]
-  %.sink134 = phi i64 [ 40, %13 ], [ 40, %54 ], [ 24, %_RNvMs2_NtNtCseG2FYMysgNb_3wax5token5parseNtB5_10ParseError3new.exit ]
-  %.sink133 = phi ptr [ %1, %13 ], [ %1, %54 ], [ %.sroa.581.0.copyload, %_RNvMs2_NtNtCseG2FYMysgNb_3wax5token5parseNtB5_10ParseError3new.exit ]
-  %.sink132 = phi i64 [ 48, %13 ], [ 48, %54 ], [ 32, %_RNvMs2_NtNtCseG2FYMysgNb_3wax5token5parseNtB5_10ParseError3new.exit ]
-  %.sink131 = phi i64 [ 0, %13 ], [ %2, %54 ], [ -9223372036854775808, %_RNvMs2_NtNtCseG2FYMysgNb_3wax5token5parseNtB5_10ParseError3new.exit ]
+  %.sink141 = phi i64 [ 24, %13 ], [ 24, %54 ], [ 8, %_RNvMs2_NtNtCseG2FYMysgNb_3wax5token5parseNtB5_10ParseError3new.exit ]
+  %.sink140 = phi i64 [ 0, %13 ], [ %.sroa.20.sroa.5.0.copyload, %54 ], [ %.sroa.079.0.copyload, %_RNvMs2_NtNtCseG2FYMysgNb_3wax5token5parseNtB5_10ParseError3new.exit ]
+  %.sink139 = phi i64 [ 32, %13 ], [ 32, %54 ], [ 16, %_RNvMs2_NtNtCseG2FYMysgNb_3wax5token5parseNtB5_10ParseError3new.exit ]
+  %.sink138 = phi i64 [ -9223372036854775808, %13 ], [ -9223372036854775808, %54 ], [ %.sroa.480.0.copyload, %_RNvMs2_NtNtCseG2FYMysgNb_3wax5token5parseNtB5_10ParseError3new.exit ]
+  %.sink137 = phi i64 [ 40, %13 ], [ 40, %54 ], [ 24, %_RNvMs2_NtNtCseG2FYMysgNb_3wax5token5parseNtB5_10ParseError3new.exit ]
+  %.sink136 = phi ptr [ %1, %13 ], [ %1, %54 ], [ %.sroa.581.0.copyload, %_RNvMs2_NtNtCseG2FYMysgNb_3wax5token5parseNtB5_10ParseError3new.exit ]
+  %.sink135 = phi i64 [ 48, %13 ], [ 48, %54 ], [ 32, %_RNvMs2_NtNtCseG2FYMysgNb_3wax5token5parseNtB5_10ParseError3new.exit ]
+  %.sink134 = phi i64 [ 0, %13 ], [ %2, %54 ], [ -9223372036854775808, %_RNvMs2_NtNtCseG2FYMysgNb_3wax5token5parseNtB5_10ParseError3new.exit ]
   %.sink = phi i64 [ 0, %13 ], [ 0, %54 ], [ 1, %_RNvMs2_NtNtCseG2FYMysgNb_3wax5token5parseNtB5_10ParseError3new.exit ]
-  %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink138
-  store i64 %.sink137, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink136
-  store i64 %.sink135, ptr %.sroa.42.0..sroa_idx, align 8
-  %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink134
-  store ptr %.sink133, ptr %.sroa.53.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink132
-  store i64 %.sink131, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink141
+  store i64 %.sink140, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink139
+  store i64 %.sink138, ptr %.sroa.42.0..sroa_idx, align 8
+  %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink137
+  store ptr %.sink136, ptr %.sroa.53.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink135
+  store i64 %.sink134, ptr %.sroa.6.0..sroa_idx, align 8
   store i64 %.sink, ptr %0, align 8
   ret void
 }

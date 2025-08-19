@@ -574,13 +574,13 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
   %112 = icmp ult i32 %108, %111
   br i1 %112, label %.backedge, label %190
 
-.backedge:                                        ; preds = %107, %.thread32
-  %.be = phi ptr [ %109, %107 ], [ %122, %.thread32 ]
-  %.be40 = phi i32 [ %108, %107 ], [ %121, %.thread32 ]
-  %.be41 = phi i32 [ %.ph, %107 ], [ -1, %.thread32 ]
+.backedge:                                        ; preds = %107, %.thread42
+  %.be = phi ptr [ %109, %107 ], [ %122, %.thread42 ]
+  %.be50 = phi i32 [ %108, %107 ], [ %121, %.thread42 ]
+  %.be51 = phi i32 [ %.ph, %107 ], [ -1, %.thread42 ]
   %113 = getelementptr inbounds nuw i8, ptr %.be, i64 48
   %114 = load ptr, ptr %113, align 8
-  %115 = sext i32 %.be40 to i64
+  %115 = sext i32 %.be50 to i64
   %116 = getelementptr %struct.acpi_processor_px, ptr %114, i64 %115
   store i64 48, ptr %4, align 8
   store ptr %116, ptr %99, align 8
@@ -590,7 +590,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
-.thread32:                                        ; preds = %176
+.thread42:                                        ; preds = %176
   %121 = add nuw i32 %128, 1
   %122 = load ptr, ptr %8, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 40
@@ -600,8 +600,8 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
 
 .lr.ph:                                           ; preds = %98, %.backedge
   %126 = phi ptr [ %116, %.backedge ], [ %103, %98 ]
-  %127 = phi i32 [ %.be41, %.backedge ], [ -1, %98 ]
-  %128 = phi i32 [ %.be40, %.backedge ], [ 0, %98 ]
+  %127 = phi i32 [ %.be51, %.backedge ], [ -1, %98 ]
+  %128 = phi i32 [ %.be50, %.backedge ], [ 0, %98 ]
   %129 = getelementptr inbounds nuw i8, ptr %126, i64 32
   %130 = load i64, ptr %129, align 8
   %131 = trunc i64 %130 to i32
@@ -670,7 +670,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
 
 176:                                              ; preds = %165
   %177 = icmp eq i32 %127, -1
-  br i1 %177, label %.thread32, label %178
+  br i1 %177, label %.thread42, label %178
 
 178:                                              ; preds = %176
   %179 = load ptr, ptr %8, align 8
@@ -683,9 +683,9 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
   br label %107
 
 ._crit_edge:                                      ; preds = %.backedge, %98
-  %.lcssa46 = phi i32 [ %105, %98 ], [ %119, %.backedge ]
+  %.lcssa56 = phi i32 [ %105, %98 ], [ %119, %.backedge ]
   %185 = load ptr, ptr %0, align 8
-  %186 = call ptr @acpi_format_exception(i32 noundef %.lcssa46) #11
+  %186 = call ptr @acpi_format_exception(i32 noundef %.lcssa56) #11
   call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.20, ptr noundef %185, ptr noundef nonnull @.str.21, ptr noundef %186) #11
   %187 = load ptr, ptr %8, align 8
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 48
@@ -732,7 +732,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %211
 
-.thread28:                                        ; preds = %.thread32, %193, %195, %94
+.thread28:                                        ; preds = %.thread42, %193, %195, %94
   %206 = load ptr, ptr %66, align 8
   call void @kfree(ptr noundef %206) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

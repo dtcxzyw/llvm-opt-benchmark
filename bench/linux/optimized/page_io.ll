@@ -145,12 +145,12 @@ define dso_local i32 @generic_swapfile_activate(ptr noundef %0, ptr noundef read
   %60 = icmp ugt i64 %59, %15
   br i1 %60, label %._crit_edge, label %.lr.ph.split.us
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.loopexit79
-  %61 = phi i32 [ %114, %.loopexit79 ], [ 0, %.lr.ph ]
-  %62 = phi i64 [ %113, %.loopexit79 ], [ 0, %.lr.ph ]
-  %63 = phi i64 [ %112, %.loopexit79 ], [ -1, %.lr.ph ]
-  %64 = phi i64 [ %111, %.loopexit79 ], [ 0, %.lr.ph ]
-  %65 = phi i64 [ %110, %.loopexit79 ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %.loopexit91
+  %61 = phi i32 [ %114, %.loopexit91 ], [ 0, %.lr.ph ]
+  %62 = phi i64 [ %113, %.loopexit91 ], [ 0, %.lr.ph ]
+  %63 = phi i64 [ %112, %.loopexit91 ], [ -1, %.lr.ph ]
+  %64 = phi i64 [ %111, %.loopexit91 ], [ 0, %.lr.ph ]
+  %65 = phi i64 [ %110, %.loopexit91 ], [ 0, %.lr.ph ]
   %66 = load i32, ptr %16, align 4
   %67 = zext i32 %66 to i64
   %68 = icmp ult i64 %65, %67
@@ -175,7 +175,7 @@ define dso_local i32 @generic_swapfile_activate(ptr noundef %0, ptr noundef read
 
 79:                                               ; preds = %76
   %80 = add i64 %64, 1
-  br label %.loopexit79, !llvm.loop !6
+  br label %.loopexit91, !llvm.loop !6
 
 .preheader:                                       ; preds = %76, %95
   %81 = phi i64 [ %96, %95 ], [ 1, %76 ]
@@ -201,7 +201,7 @@ define dso_local i32 @generic_swapfile_activate(ptr noundef %0, ptr noundef read
   %93 = zext i1 %92 to i64
   %94 = add i64 %82, %93
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %92, label %.loopexit79, label %95, !llvm.loop !6
+  br i1 %92, label %.loopexit91, label %95, !llvm.loop !6
 
 95:                                               ; preds = %89
   %96 = add nuw nsw i64 %81, 1
@@ -229,9 +229,9 @@ define dso_local i32 @generic_swapfile_activate(ptr noundef %0, ptr noundef read
   %107 = add i32 %99, %61
   %108 = add nuw nsw i64 %65, 1
   %109 = add i64 %94, %12
-  br label %.loopexit79, !llvm.loop !6
+  br label %.loopexit91, !llvm.loop !6
 
-.loopexit79:                                      ; preds = %89, %101, %79
+.loopexit91:                                      ; preds = %89, %101, %79
   %110 = phi i64 [ %65, %79 ], [ %108, %101 ], [ %65, %89 ]
   %111 = phi i64 [ %80, %79 ], [ %109, %101 ], [ %94, %89 ]
   %112 = phi i64 [ %63, %79 ], [ %106, %101 ], [ %63, %89 ]
@@ -242,11 +242,11 @@ define dso_local i32 @generic_swapfile_activate(ptr noundef %0, ptr noundef read
   %116 = icmp ugt i64 %115, %15
   br i1 %116, label %._crit_edge, label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %.loopexit79, %.lr.ph.split, %53, %.lr.ph.split.us, %3
-  %.lcssa23 = phi i64 [ 0, %3 ], [ %27, %.lr.ph.split.us ], [ %54, %53 ], [ %65, %.lr.ph.split ], [ %110, %.loopexit79 ]
-  %.lcssa19 = phi i64 [ -1, %3 ], [ %25, %.lr.ph.split.us ], [ %55, %53 ], [ %63, %.lr.ph.split ], [ %112, %.loopexit79 ]
-  %.lcssa15 = phi i64 [ 0, %3 ], [ %24, %.lr.ph.split.us ], [ %56, %53 ], [ %62, %.lr.ph.split ], [ %113, %.loopexit79 ]
-  %.lcssa11 = phi i32 [ 0, %3 ], [ %23, %.lr.ph.split.us ], [ %57, %53 ], [ %61, %.lr.ph.split ], [ %114, %.loopexit79 ]
+._crit_edge:                                      ; preds = %.loopexit91, %.lr.ph.split, %53, %.lr.ph.split.us, %3
+  %.lcssa23 = phi i64 [ 0, %3 ], [ %27, %.lr.ph.split.us ], [ %54, %53 ], [ %65, %.lr.ph.split ], [ %110, %.loopexit91 ]
+  %.lcssa19 = phi i64 [ -1, %3 ], [ %25, %.lr.ph.split.us ], [ %55, %53 ], [ %63, %.lr.ph.split ], [ %112, %.loopexit91 ]
+  %.lcssa15 = phi i64 [ 0, %3 ], [ %24, %.lr.ph.split.us ], [ %56, %53 ], [ %62, %.lr.ph.split ], [ %113, %.loopexit91 ]
+  %.lcssa11 = phi i32 [ 0, %3 ], [ %23, %.lr.ph.split.us ], [ %57, %53 ], [ %61, %.lr.ph.split ], [ %114, %.loopexit91 ]
   %reass.sub = sub i64 %.lcssa15, %.lcssa19
   %117 = add i64 %reass.sub, 1
   store i64 %117, ptr %2, align 8

@@ -774,27 +774,27 @@ _ZSt11make_uniqueIA_dENSt8__detail9_MakeUniqIT_E7__arrayEm.exit105: ; preds = %1
 .thread:                                          ; preds = %1
   %34 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread478
+  br label %.thread566
 
 35:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
   %36 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread478
+  br label %.thread566
 
 37:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit97
   %38 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread478
+  br label %.thread566
 
 39:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit104
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread478
+  br label %.thread566
 
 41:                                               ; preds = %15
   %42 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread478
+  br label %.thread566
 
 43:                                               ; preds = %_ZSt11make_uniqueIA_dENSt8__detail9_MakeUniqIT_E7__arrayEm.exit105, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
   %44 = phi ptr [ null, %_ZSt11make_uniqueIA_dENSt8__detail9_MakeUniqIT_E7__arrayEm.exit105 ], [ %70, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit ]
@@ -2278,16 +2278,16 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit338: ; preds = %_ZNKSt14de
   tail call void @_ZdaPv(ptr noundef nonnull %16) #28
   %.pr.pre = load ptr, ptr %0, align 8, !tbaa !6
   %.not.i342 = icmp eq ptr %.pr.pre, null
-  br i1 %.not.i342, label %_ZNSt10unique_ptrIN5ceres8internal25LinearLeastSquaresProblemESt14default_deleteIS2_EED2Ev.exit, label %.thread478
+  br i1 %.not.i342, label %_ZNSt10unique_ptrIN5ceres8internal25LinearLeastSquaresProblemESt14default_deleteIS2_EED2Ev.exit, label %.thread566
 
-.thread478:                                       ; preds = %37, %35, %39, %41, %.thread, %573
+.thread566:                                       ; preds = %37, %35, %39, %41, %.thread, %573
   %.pn86.pn.pn.pn435 = phi { ptr, i32 } [ %34, %.thread ], [ %.pn86, %573 ], [ %38, %37 ], [ %36, %35 ], [ %40, %39 ], [ %42, %41 ]
   %574 = phi ptr [ %2, %.thread ], [ %.pr.pre, %573 ], [ %2, %37 ], [ %2, %35 ], [ %2, %39 ], [ %2, %41 ]
   tail call void @_ZNKSt14default_deleteIN5ceres8internal25LinearLeastSquaresProblemEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %574)
   br label %_ZNSt10unique_ptrIN5ceres8internal25LinearLeastSquaresProblemESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN5ceres8internal25LinearLeastSquaresProblemESt14default_deleteIS2_EED2Ev.exit: ; preds = %573, %.thread478
-  %.pn86.pn.pn.pn436 = phi { ptr, i32 } [ %.pn86, %573 ], [ %.pn86.pn.pn.pn435, %.thread478 ]
+_ZNSt10unique_ptrIN5ceres8internal25LinearLeastSquaresProblemESt14default_deleteIS2_EED2Ev.exit: ; preds = %573, %.thread566
+  %.pn86.pn.pn.pn436 = phi { ptr, i32 } [ %.pn86, %573 ], [ %.pn86.pn.pn.pn435, %.thread566 ]
   store ptr null, ptr %0, align 8, !tbaa !6
   resume { ptr, i32 } %.pn86.pn.pn.pn436
 }
@@ -3888,27 +3888,27 @@ _ZSt11make_uniqueIA_dENSt8__detail9_MakeUniqIT_E7__arrayEm.exit103: ; preds = %1
 .thread:                                          ; preds = %1
   %34 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread453
+  br label %.thread535
 
 35:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
   %36 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread453
+  br label %.thread535
 
 37:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit95
   %38 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread453
+  br label %.thread535
 
 39:                                               ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit102
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread453
+  br label %.thread535
 
 41:                                               ; preds = %15
   %42 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread453
+  br label %.thread535
 
 43:                                               ; preds = %_ZSt11make_uniqueIA_dENSt8__detail9_MakeUniqIT_E7__arrayEm.exit103, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
   %44 = phi ptr [ null, %_ZSt11make_uniqueIA_dENSt8__detail9_MakeUniqIT_E7__arrayEm.exit103 ], [ %70, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit ]
@@ -5306,16 +5306,16 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit320: ; preds = %_ZNKSt14de
   tail call void @_ZdaPv(ptr noundef nonnull %16) #28
   %.pr.pre = load ptr, ptr %0, align 8, !tbaa !6
   %.not.i324 = icmp eq ptr %.pr.pre, null
-  br i1 %.not.i324, label %_ZNSt10unique_ptrIN5ceres8internal25LinearLeastSquaresProblemESt14default_deleteIS2_EED2Ev.exit, label %.thread453
+  br i1 %.not.i324, label %_ZNSt10unique_ptrIN5ceres8internal25LinearLeastSquaresProblemESt14default_deleteIS2_EED2Ev.exit, label %.thread535
 
-.thread453:                                       ; preds = %37, %35, %39, %41, %.thread, %543
+.thread535:                                       ; preds = %37, %35, %39, %41, %.thread, %543
   %.pn84.pn.pn.pn412 = phi { ptr, i32 } [ %34, %.thread ], [ %.pn84, %543 ], [ %38, %37 ], [ %36, %35 ], [ %40, %39 ], [ %42, %41 ]
   %544 = phi ptr [ %2, %.thread ], [ %.pr.pre, %543 ], [ %2, %37 ], [ %2, %35 ], [ %2, %39 ], [ %2, %41 ]
   tail call void @_ZNKSt14default_deleteIN5ceres8internal25LinearLeastSquaresProblemEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %544)
   br label %_ZNSt10unique_ptrIN5ceres8internal25LinearLeastSquaresProblemESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN5ceres8internal25LinearLeastSquaresProblemESt14default_deleteIS2_EED2Ev.exit: ; preds = %543, %.thread453
-  %.pn84.pn.pn.pn413 = phi { ptr, i32 } [ %.pn84, %543 ], [ %.pn84.pn.pn.pn412, %.thread453 ]
+_ZNSt10unique_ptrIN5ceres8internal25LinearLeastSquaresProblemESt14default_deleteIS2_EED2Ev.exit: ; preds = %543, %.thread535
+  %.pn84.pn.pn.pn413 = phi { ptr, i32 } [ %.pn84, %543 ], [ %.pn84.pn.pn.pn412, %.thread535 ]
   store ptr null, ptr %0, align 8, !tbaa !6
   resume { ptr, i32 } %.pn84.pn.pn.pn413
 }
@@ -7727,9 +7727,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 24:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i
   %25 = icmp sgt i64 %23, 0
-  br i1 %25, label %28, label %.thread81
+  br i1 %25, label %28, label %.thread109
 
-.thread81:                                        ; preds = %24
+.thread109:                                       ; preds = %24
   store i64 %14, ptr %17, align 8, !tbaa !486
   store i64 %16, ptr %18, align 8, !tbaa !488
   %.nonneg = sub i64 0, %23
@@ -7764,15 +7764,15 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %28
   %.not = icmp eq i64 %23, 1
   br i1 %.not, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.thread81, %.thread, %34
-  %36 = phi i64 [ 0, %.thread ], [ %35, %34 ], [ %27, %.thread81 ], [ %35, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.pre.i.i80 = phi ptr [ null, %.thread ], [ %31, %34 ], [ null, %.thread81 ], [ %31, %.lr.ph.i.i.i.i.i.i.i.i ]
+._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.thread109, %.thread, %34
+  %36 = phi i64 [ 0, %.thread ], [ %35, %34 ], [ %27, %.thread109 ], [ %35, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.pre.i.i108 = phi ptr [ null, %.thread ], [ %31, %34 ], [ null, %.thread109 ], [ %31, %.lr.ph.i.i.i.i.i.i.i.i ]
   %37 = icmp slt i64 %36, %23
   br i1 %37, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEEE4evalEv.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %41, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %36, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %38 = getelementptr inbounds double, ptr %.pre.i.i80, i64 %.05.i.i.i.i.i.i.i.i.i
+  %38 = getelementptr inbounds double, ptr %.pre.i.i108, i64 %.05.i.i.i.i.i.i.i.i.i
   %39 = getelementptr inbounds double, ptr %12, i64 %.05.i.i.i.i.i.i.i.i.i
   %40 = load double, ptr %39, align 8, !tbaa !32
   store double %40, ptr %38, align 8, !tbaa !32

@@ -1173,9 +1173,9 @@ define hidden void @nghttp2_http_record_request_method(ptr noundef captures(none
   br label %6
 
 6:                                                ; preds = %2, %5
-  %.sink33 = phi i64 [ 24, %5 ], [ 40, %2 ]
+  %.sink34 = phi i64 [ 24, %5 ], [ 40, %2 ]
   %.sink = phi i64 [ 32, %5 ], [ 48, %2 ]
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink33
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink34
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %.0 = load ptr, ptr %7, align 8, !tbaa !15
   %.024 = load i64, ptr %8, align 8, !tbaa !15
@@ -1230,10 +1230,10 @@ define hidden void @nghttp2_http_record_request_method(ptr noundef captures(none
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !66
 
 .critedge.sink.split:                             ; preds = %27, %23
-  %.sink37 = phi i32 [ 128, %23 ], [ 256, %27 ]
+  %.sink38 = phi i32 [ 128, %23 ], [ 256, %27 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %34 = load i32, ptr %33, align 8, !tbaa !18
-  %35 = or i32 %34, %.sink37
+  %35 = or i32 %34, %.sink38
   store i32 %35, ptr %33, align 8, !tbaa !18
   br label %.critedge
 
@@ -1259,14 +1259,14 @@ define hidden range(i32 -501, 1) i32 @nghttp2_http_parse_priority(ptr noundef ca
 
 .outer.outer:                                     ; preds = %18, %3
   %.sroa.5.0.ph.ph = phi i32 [ %19, %18 ], [ %.sroa.5.0.copyload, %3 ]
-  %.sroa.0.0.ph.ph = phi i32 [ %.sroa.0.0.ph.ph40, %18 ], [ %.sroa.0.0.copyload, %3 ]
-  br label %.outer.outer39
+  %.sroa.0.0.ph.ph = phi i32 [ %.sroa.0.0.ph.ph41, %18 ], [ %.sroa.0.0.copyload, %3 ]
+  br label %.outer.outer40
 
-.outer.outer39:                                   ; preds = %.outer.outer, %25
-  %.sroa.0.0.ph.ph40 = phi i32 [ %.sroa.0.0.ph.ph, %.outer.outer ], [ %26, %25 ]
+.outer.outer40:                                   ; preds = %.outer.outer, %25
+  %.sroa.0.0.ph.ph41 = phi i32 [ %.sroa.0.0.ph.ph, %.outer.outer ], [ %26, %25 ]
   br label %.outer
 
-.outer:                                           ; preds = %.outer.outer39, %13
+.outer:                                           ; preds = %.outer.outer40, %13
   br label %9
 
 9:                                                ; preds = %.outer, %11
@@ -1308,10 +1308,10 @@ define hidden range(i32 -501, 1) i32 @nghttp2_http_parse_priority(ptr noundef ca
 
 25:                                               ; preds = %20
   %26 = trunc nuw nsw i64 %23 to i32
-  br label %.outer.outer39
+  br label %.outer.outer40
 
 27:                                               ; preds = %9
-  store i32 %.sroa.0.0.ph.ph40, ptr %0, align 4, !tbaa !67
+  store i32 %.sroa.0.0.ph.ph41, ptr %0, align 4, !tbaa !67
   store i32 %.sroa.5.0.ph.ph, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !67
   br label %.loopexit
 

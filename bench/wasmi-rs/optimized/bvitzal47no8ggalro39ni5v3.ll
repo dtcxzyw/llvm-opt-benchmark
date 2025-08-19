@@ -973,10 +973,10 @@ common.resume:                                    ; preds = %45, %38
   ret void
 
 ._crit_edge.thread:                               ; preds = %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h32c806887320ac50E.exit.i", %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf8d464c38eee650E.exit.us.preheader", %._crit_edge
-  %.sroa.0.0.lcssa47 = phi ptr [ %18, %._crit_edge ], [ %scevgep, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf8d464c38eee650E.exit.us.preheader" ], [ %33, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h32c806887320ac50E.exit.i" ]
-  %storemerge.lcssa46 = phi i64 [ %14, %._crit_edge ], [ %28, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf8d464c38eee650E.exit.us.preheader" ], [ %21, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h32c806887320ac50E.exit.i" ]
-  store ptr %2, ptr %.sroa.0.0.lcssa47, align 8
-  %40 = add i64 %storemerge.lcssa46, 1
+  %.sroa.0.0.lcssa50 = phi ptr [ %18, %._crit_edge ], [ %scevgep, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf8d464c38eee650E.exit.us.preheader" ], [ %33, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h32c806887320ac50E.exit.i" ]
+  %storemerge.lcssa49 = phi i64 [ %14, %._crit_edge ], [ %28, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf8d464c38eee650E.exit.us.preheader" ], [ %21, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h32c806887320ac50E.exit.i" ]
+  store ptr %2, ptr %.sroa.0.0.lcssa50, align 8
+  %40 = add i64 %storemerge.lcssa49, 1
   store i64 %40, ptr %6, align 8
   br label %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..global..wasm_globaltype_t$GT$$GT$$GT$17h49589f084eebf1e6E.exit"
 
@@ -1508,10 +1508,10 @@ common.resume:                                    ; preds = %158, %151
   ret void
 
 ._crit_edge.thread:                               ; preds = %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb08bcad69e62e200E.exit.i", %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf70f4830d3610116E.exit.us.preheader", %._crit_edge
-  %.sroa.0.0.lcssa112 = phi ptr [ %26, %._crit_edge ], [ %scevgep, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf70f4830d3610116E.exit.us.preheader" ], [ %146, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb08bcad69e62e200E.exit.i" ]
-  %storemerge.lcssa111 = phi i64 [ %22, %._crit_edge ], [ %47, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf70f4830d3610116E.exit.us.preheader" ], [ %40, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb08bcad69e62e200E.exit.i" ]
-  store ptr %2, ptr %.sroa.0.0.lcssa112, align 8
-  %153 = add i64 %storemerge.lcssa111, 1
+  %.sroa.0.0.lcssa115 = phi ptr [ %26, %._crit_edge ], [ %scevgep, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf70f4830d3610116E.exit.us.preheader" ], [ %146, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb08bcad69e62e200E.exit.i" ]
+  %storemerge.lcssa114 = phi i64 [ %22, %._crit_edge ], [ %47, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf70f4830d3610116E.exit.us.preheader" ], [ %40, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb08bcad69e62e200E.exit.i" ]
+  store ptr %2, ptr %.sroa.0.0.lcssa115, align 8
+  %153 = add i64 %storemerge.lcssa114, 1
   store i64 %153, ptr %14, align 8
   br label %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..import..wasm_importtype_t$GT$$GT$$GT$17ha0d148cee6903243E.exit"
 
@@ -1599,10 +1599,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h340bab33e2b0
   ret void
 
 ._crit_edge.thread:                               ; preds = %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h75e63a454dd0d094E.exit", %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h75e63a454dd0d094E.exit.us.preheader", %._crit_edge
-  %.sroa.0.0.lcssa41 = phi ptr [ %15, %._crit_edge ], [ %scevgep, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h75e63a454dd0d094E.exit.us.preheader" ], [ %32, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h75e63a454dd0d094E.exit" ]
-  %storemerge.lcssa40 = phi i64 [ %11, %._crit_edge ], [ %25, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h75e63a454dd0d094E.exit.us.preheader" ], [ %18, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h75e63a454dd0d094E.exit" ]
-  store ptr %2, ptr %.sroa.0.0.lcssa41, align 8
-  %28 = add i64 %storemerge.lcssa40, 1
+  %.sroa.0.0.lcssa42 = phi ptr [ %15, %._crit_edge ], [ %scevgep, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h75e63a454dd0d094E.exit.us.preheader" ], [ %32, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h75e63a454dd0d094E.exit" ]
+  %storemerge.lcssa41 = phi i64 [ %11, %._crit_edge ], [ %25, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h75e63a454dd0d094E.exit.us.preheader" ], [ %18, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h75e63a454dd0d094E.exit" ]
+  store ptr %2, ptr %.sroa.0.0.lcssa42, align 8
+  %28 = add i64 %storemerge.lcssa41, 1
   br label %27
 
 29:                                               ; preds = %.lr.ph.split
@@ -1733,10 +1733,10 @@ common.resume:                                    ; preds = %45, %38
   ret void
 
 ._crit_edge.thread:                               ; preds = %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h620cc8efca87796dE.exit.i", %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf733262d33ff7aa0E.exit.us.preheader", %._crit_edge
-  %.sroa.0.0.lcssa47 = phi ptr [ %18, %._crit_edge ], [ %scevgep, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf733262d33ff7aa0E.exit.us.preheader" ], [ %33, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h620cc8efca87796dE.exit.i" ]
-  %storemerge.lcssa46 = phi i64 [ %14, %._crit_edge ], [ %28, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf733262d33ff7aa0E.exit.us.preheader" ], [ %21, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h620cc8efca87796dE.exit.i" ]
-  store ptr %2, ptr %.sroa.0.0.lcssa47, align 8
-  %40 = add i64 %storemerge.lcssa46, 1
+  %.sroa.0.0.lcssa50 = phi ptr [ %18, %._crit_edge ], [ %scevgep, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf733262d33ff7aa0E.exit.us.preheader" ], [ %33, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h620cc8efca87796dE.exit.i" ]
+  %storemerge.lcssa49 = phi i64 [ %14, %._crit_edge ], [ %28, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf733262d33ff7aa0E.exit.us.preheader" ], [ %21, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h620cc8efca87796dE.exit.i" ]
+  store ptr %2, ptr %.sroa.0.0.lcssa50, align 8
+  %40 = add i64 %storemerge.lcssa49, 1
   store i64 %40, ptr %6, align 8
   br label %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..table..wasm_tabletype_t$GT$$GT$$GT$17h3f995343c4ca96a4E.exit"
 
@@ -1877,10 +1877,10 @@ common.resume:                                    ; preds = %47, %40
   ret void
 
 ._crit_edge.thread:                               ; preds = %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd33347bf93c7997eE.exit.i", %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcb5d601747da480cE.exit.us.preheader", %._crit_edge
-  %.sroa.0.0.lcssa43 = phi ptr [ %17, %._crit_edge ], [ %scevgep, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcb5d601747da480cE.exit.us.preheader" ], [ %35, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd33347bf93c7997eE.exit.i" ]
-  %storemerge.lcssa42 = phi i64 [ %13, %._crit_edge ], [ %28, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcb5d601747da480cE.exit.us.preheader" ], [ %21, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd33347bf93c7997eE.exit.i" ]
-  store ptr %2, ptr %.sroa.0.0.lcssa43, align 8
-  %42 = add i64 %storemerge.lcssa42, 1
+  %.sroa.0.0.lcssa46 = phi ptr [ %17, %._crit_edge ], [ %scevgep, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcb5d601747da480cE.exit.us.preheader" ], [ %35, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd33347bf93c7997eE.exit.i" ]
+  %storemerge.lcssa45 = phi i64 [ %13, %._crit_edge ], [ %28, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcb5d601747da480cE.exit.us.preheader" ], [ %21, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd33347bf93c7997eE.exit.i" ]
+  store ptr %2, ptr %.sroa.0.0.lcssa46, align 8
+  %42 = add i64 %storemerge.lcssa45, 1
   store i64 %42, ptr %5, align 8
   br label %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..extern..wasm_extern_t$GT$$GT$$GT$17hc990e9ce1f11bae8E.exit"
 
@@ -1984,10 +1984,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h575e3c822809
   ret void
 
 ._crit_edge.thread:                               ; preds = %.noexc18, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4716a39982a1ba93E.exit.us.preheader", %._crit_edge
-  %.sroa.0.0.lcssa44 = phi ptr [ %15, %._crit_edge ], [ %scevgep, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4716a39982a1ba93E.exit.us.preheader" ], [ %28, %.noexc18 ]
-  %storemerge.lcssa43 = phi i64 [ %11, %._crit_edge ], [ %25, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4716a39982a1ba93E.exit.us.preheader" ], [ %18, %.noexc18 ]
-  store ptr %2, ptr %.sroa.0.0.lcssa44, align 8
-  %33 = add i64 %storemerge.lcssa43, 1
+  %.sroa.0.0.lcssa47 = phi ptr [ %15, %._crit_edge ], [ %scevgep, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4716a39982a1ba93E.exit.us.preheader" ], [ %28, %.noexc18 ]
+  %storemerge.lcssa46 = phi i64 [ %11, %._crit_edge ], [ %25, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4716a39982a1ba93E.exit.us.preheader" ], [ %18, %.noexc18 ]
+  store ptr %2, ptr %.sroa.0.0.lcssa47, align 8
+  %33 = add i64 %storemerge.lcssa46, 1
   store i64 %33, ptr %5, align 8
   br label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..val..wasm_valtype_t$GT$$GT$$GT$17h0c937417c6a46f78E.exit"
 
@@ -2481,10 +2481,10 @@ common.resume:                                    ; preds = %148, %141
   ret void
 
 ._crit_edge.thread:                               ; preds = %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3b957745d8eea904E.exit.i", %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha8432fe8405c93a9E.exit.us.preheader", %._crit_edge
-  %.sroa.0.0.lcssa132 = phi ptr [ %23, %._crit_edge ], [ %scevgep, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha8432fe8405c93a9E.exit.us.preheader" ], [ %136, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3b957745d8eea904E.exit.i" ]
-  %storemerge.lcssa131 = phi i64 [ %19, %._crit_edge ], [ %41, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha8432fe8405c93a9E.exit.us.preheader" ], [ %34, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3b957745d8eea904E.exit.i" ]
-  store ptr %2, ptr %.sroa.0.0.lcssa132, align 8
-  %143 = add i64 %storemerge.lcssa131, 1
+  %.sroa.0.0.lcssa136 = phi ptr [ %23, %._crit_edge ], [ %scevgep, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha8432fe8405c93a9E.exit.us.preheader" ], [ %136, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3b957745d8eea904E.exit.i" ]
+  %storemerge.lcssa135 = phi i64 [ %19, %._crit_edge ], [ %41, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha8432fe8405c93a9E.exit.us.preheader" ], [ %34, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3b957745d8eea904E.exit.i" ]
+  store ptr %2, ptr %.sroa.0.0.lcssa136, align 8
+  %143 = add i64 %storemerge.lcssa135, 1
   store i64 %143, ptr %11, align 8
   br label %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..export..wasm_exporttype_t$GT$$GT$$GT$17h24ad4c10bf4f09b2E.exit"
 
@@ -2623,10 +2623,10 @@ common.resume:                                    ; preds = %45, %38
   ret void
 
 ._crit_edge.thread:                               ; preds = %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30027e23b533214aE.exit.i", %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6830021bb80056faE.exit.us.preheader", %._crit_edge
-  %.sroa.0.0.lcssa47 = phi ptr [ %18, %._crit_edge ], [ %scevgep, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6830021bb80056faE.exit.us.preheader" ], [ %33, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30027e23b533214aE.exit.i" ]
-  %storemerge.lcssa46 = phi i64 [ %14, %._crit_edge ], [ %28, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6830021bb80056faE.exit.us.preheader" ], [ %21, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30027e23b533214aE.exit.i" ]
-  store ptr %2, ptr %.sroa.0.0.lcssa47, align 8
-  %40 = add i64 %storemerge.lcssa46, 1
+  %.sroa.0.0.lcssa50 = phi ptr [ %18, %._crit_edge ], [ %scevgep, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6830021bb80056faE.exit.us.preheader" ], [ %33, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30027e23b533214aE.exit.i" ]
+  %storemerge.lcssa49 = phi i64 [ %14, %._crit_edge ], [ %28, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6830021bb80056faE.exit.us.preheader" ], [ %21, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30027e23b533214aE.exit.i" ]
+  store ptr %2, ptr %.sroa.0.0.lcssa50, align 8
+  %40 = add i64 %storemerge.lcssa49, 1
   store i64 %40, ptr %6, align 8
   br label %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..extern..wasm_externtype_t$GT$$GT$$GT$17ha98a8f96e2b7543eE.exit"
 
@@ -2765,10 +2765,10 @@ common.resume:                                    ; preds = %45, %38
   ret void
 
 ._crit_edge.thread:                               ; preds = %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h17346343404a8abcE.exit.i", %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hde82ca180ed4cdbbE.exit.us.preheader", %._crit_edge
-  %.sroa.0.0.lcssa47 = phi ptr [ %18, %._crit_edge ], [ %scevgep, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hde82ca180ed4cdbbE.exit.us.preheader" ], [ %33, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h17346343404a8abcE.exit.i" ]
-  %storemerge.lcssa46 = phi i64 [ %14, %._crit_edge ], [ %28, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hde82ca180ed4cdbbE.exit.us.preheader" ], [ %21, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h17346343404a8abcE.exit.i" ]
-  store ptr %2, ptr %.sroa.0.0.lcssa47, align 8
-  %40 = add i64 %storemerge.lcssa46, 1
+  %.sroa.0.0.lcssa50 = phi ptr [ %18, %._crit_edge ], [ %scevgep, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hde82ca180ed4cdbbE.exit.us.preheader" ], [ %33, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h17346343404a8abcE.exit.i" ]
+  %storemerge.lcssa49 = phi i64 [ %14, %._crit_edge ], [ %28, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hde82ca180ed4cdbbE.exit.us.preheader" ], [ %21, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h17346343404a8abcE.exit.i" ]
+  store ptr %2, ptr %.sroa.0.0.lcssa50, align 8
+  %40 = add i64 %storemerge.lcssa49, 1
   store i64 %40, ptr %6, align 8
   br label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..func..wasm_functype_t$GT$$GT$$GT$17he1d702965f0e438bE.exit"
 
@@ -2853,10 +2853,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17ha0711e475a10
   ret void
 
 ._crit_edge.thread:                               ; preds = %27, %._crit_edge
-  %.sroa.0.0.lcssa31 = phi ptr [ %18, %._crit_edge ], [ %29, %27 ]
-  %storemerge.lcssa30 = phi i64 [ %14, %._crit_edge ], [ %21, %27 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.0.lcssa31, ptr noundef nonnull align 16 dereferenceable(32) %2, i64 32, i1 false)
-  %24 = add i64 %storemerge.lcssa30, 1
+  %.sroa.0.0.lcssa32 = phi ptr [ %18, %._crit_edge ], [ %29, %27 ]
+  %storemerge.lcssa31 = phi i64 [ %14, %._crit_edge ], [ %21, %27 ]
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.0.lcssa32, ptr noundef nonnull align 16 dereferenceable(32) %2, i64 32, i1 false)
+  %24 = add i64 %storemerge.lcssa31, 1
   store i64 %24, ptr %6, align 8
   br label %23
 
@@ -3003,10 +3003,10 @@ common.resume:                                    ; preds = %45, %38
   ret void
 
 ._crit_edge.thread:                               ; preds = %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4ae62bb23bf37974E.exit.i", %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5f811dd251e5d23dE.exit.us.preheader", %._crit_edge
-  %.sroa.0.0.lcssa47 = phi ptr [ %18, %._crit_edge ], [ %scevgep, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5f811dd251e5d23dE.exit.us.preheader" ], [ %33, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4ae62bb23bf37974E.exit.i" ]
-  %storemerge.lcssa46 = phi i64 [ %14, %._crit_edge ], [ %28, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5f811dd251e5d23dE.exit.us.preheader" ], [ %21, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4ae62bb23bf37974E.exit.i" ]
-  store ptr %2, ptr %.sroa.0.0.lcssa47, align 8
-  %40 = add i64 %storemerge.lcssa46, 1
+  %.sroa.0.0.lcssa50 = phi ptr [ %18, %._crit_edge ], [ %scevgep, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5f811dd251e5d23dE.exit.us.preheader" ], [ %33, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4ae62bb23bf37974E.exit.i" ]
+  %storemerge.lcssa49 = phi i64 [ %14, %._crit_edge ], [ %28, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5f811dd251e5d23dE.exit.us.preheader" ], [ %21, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4ae62bb23bf37974E.exit.i" ]
+  store ptr %2, ptr %.sroa.0.0.lcssa50, align 8
+  %40 = add i64 %storemerge.lcssa49, 1
   store i64 %40, ptr %6, align 8
   br label %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..memory..wasm_memorytype_t$GT$$GT$$GT$17h7b2aaa3722ac2fa6E.exit"
 

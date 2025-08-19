@@ -538,8 +538,8 @@ define hidden void @"_ZN4core3ptr177drop_in_place$LT$ockam_node..relay..processo
   ]
 
 common.ret.sink.split:                            ; preds = %124, %10
-  %.sink32 = phi i64 [ 304, %10 ], [ 312, %124 ]
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink32
+  %.sink33 = phi i64 [ 304, %10 ], [ 312, %124 ]
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink33
   tail call void @"_ZN4core3ptr125drop_in_place$LT$tokio..sync..mpsc..chan..Rx$LT$ockam_node..relay..CtrlSignal$C$tokio..sync..mpsc..bounded..Semaphore$GT$$GT$17hff1ca3c5cbdff84aE.llvm.14529172514207159973"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
   br label %common.ret
 

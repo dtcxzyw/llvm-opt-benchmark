@@ -200,8 +200,8 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   %64 = load ptr, ptr %63, align 8, !tbaa !16
   store ptr %64, ptr %59, align 8, !tbaa !16
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.idx104 = shl nuw nsw i64 %11, 3
-  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %.idx104) #22
+  %.idx107 = shl nuw nsw i64 %11, 3
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %.idx107) #22
   ret void
 
 65:                                               ; preds = %._crit_edge

@@ -37,20 +37,20 @@ define noundef ptr @mktemp(ptr noundef captures(address, ret: address, provenanc
   %12 = icmp samesign ult i32 %.02635, 5
   %13 = icmp ult ptr %0, %7
   %or.cond = and i1 %12, %13
-  br i1 %or.cond, label %.lr.ph, label %.critedge.thread54, !llvm.loop !6
+  br i1 %or.cond, label %.lr.ph, label %.critedge.thread57, !llvm.loop !6
 
 .critedge:                                        ; preds = %.lr.ph
   %14 = icmp eq i32 %.02635, 0
-  br i1 %14, label %.critedge.thread, label %.critedge.thread54
+  br i1 %14, label %.critedge.thread, label %.critedge.thread57
 
-.critedge.thread54:                               ; preds = %10, %.critedge
-  %.026.lcssa58 = phi i32 [ %.02635, %.critedge ], [ %11, %10 ]
-  %.027.lcssa57 = phi ptr [ %.02734, %.critedge ], [ %7, %10 ]
-  %15 = icmp samesign ugt i32 %.026.lcssa58, 4
+.critedge.thread57:                               ; preds = %10, %.critedge
+  %.026.lcssa61 = phi i32 [ %.02635, %.critedge ], [ %11, %10 ]
+  %.027.lcssa60 = phi ptr [ %.02734, %.critedge ], [ %7, %10 ]
+  %15 = icmp samesign ugt i32 %.026.lcssa61, 4
   br i1 %15, label %.lr.ph46, label %.preheader
 
-.preheader:                                       ; preds = %.critedge.thread54
-  %.not47 = icmp eq i32 %.026.lcssa58, 1
+.preheader:                                       ; preds = %.critedge.thread57
+  %.not47 = icmp eq i32 %.026.lcssa61, 1
   br i1 %.not47, label %.lr.ph46, label %.lr.ph42
 
 .lr.ph42:                                         ; preds = %.preheader, %.lr.ph42
@@ -58,22 +58,22 @@ define noundef ptr @mktemp(ptr noundef captures(address, ret: address, provenanc
   %.13040 = phi i32 [ %17, %.lr.ph42 ], [ 62, %.preheader ]
   %16 = add nuw nsw i32 %.041, 1
   %17 = mul i32 %.13040, 62
-  %exitcond.not = icmp eq i32 %16, %.026.lcssa58
+  %exitcond.not = icmp eq i32 %16, %.026.lcssa61
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph42, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph42
   %.not44 = icmp eq i32 %17, 0
   br i1 %.not44, label %.critedge.thread.sink.split, label %.lr.ph46
 
-.lr.ph46:                                         ; preds = %.preheader, %.critedge.thread54, %.loopexit
-  %.02961 = phi i32 [ %17, %.loopexit ], [ 62, %.preheader ], [ -1, %.critedge.thread54 ]
-  %narrow.i = tail call i32 @llvm.usub.sat.i32(i32 6, i32 range(i32 1, 0) %.026.lcssa58)
+.lr.ph46:                                         ; preds = %.preheader, %.critedge.thread57, %.loopexit
+  %.02964 = phi i32 [ %17, %.loopexit ], [ 62, %.preheader ], [ -1, %.critedge.thread57 ]
+  %narrow.i = tail call i32 @llvm.usub.sat.i32(i32 6, i32 range(i32 1, 0) %.026.lcssa61)
   %.07.idx.i = zext nneg i32 %narrow.i to i64
   %.07.i = getelementptr inbounds nuw i8, ptr %2, i64 %.07.idx.i
   br label %18
 
 18:                                               ; preds = %.lr.ph46, %50
-  %.245 = phi i32 [ %.02961, %.lr.ph46 ], [ %51, %50 ]
+  %.245 = phi i32 [ %.02964, %.lr.ph46 ], [ %51, %50 ]
   %19 = tail call i32 @nxmutex_lock(ptr noundef nonnull @g_b62lock) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %2, ptr noundef nonnull align 1 dereferenceable(6) @g_base62, i64 6, i1 false)
   br label %20
@@ -102,8 +102,8 @@ define noundef ptr @mktemp(ptr noundef captures(address, ret: address, provenanc
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %base62_to_char.exit.i, %.lr.ph.preheader.i
-  %.011.i = phi i32 [ %42, %base62_to_char.exit.i ], [ %.026.lcssa58, %.lr.ph.preheader.i ]
-  %.0610.i = phi ptr [ %41, %base62_to_char.exit.i ], [ %.027.lcssa57, %.lr.ph.preheader.i ]
+  %.011.i = phi i32 [ %42, %base62_to_char.exit.i ], [ %.026.lcssa61, %.lr.ph.preheader.i ]
+  %.0610.i = phi ptr [ %41, %base62_to_char.exit.i ], [ %.027.lcssa60, %.lr.ph.preheader.i ]
   %.19.i = phi ptr [ %30, %base62_to_char.exit.i ], [ %.07.i, %.lr.ph.preheader.i ]
   %30 = getelementptr inbounds nuw i8, ptr %.19.i, i64 1
   %31 = load i8, ptr %.19.i, align 1

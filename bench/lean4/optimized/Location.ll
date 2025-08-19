@@ -4463,21 +4463,21 @@ lean_dec.exit:                                    ; preds = %329, %328, %326, %l
   br i1 %.not, label %._crit_edge, label %34
 
 .sink.split:                                      ; preds = %lean_dec.exit, %lean_dec.exit109
-  %.sink261 = phi ptr [ %248, %lean_dec.exit109 ], [ %330, %lean_dec.exit ]
+  %.sink307 = phi ptr [ %248, %lean_dec.exit109 ], [ %330, %lean_dec.exit ]
   %.sink = phi i32 [ 16908312, %lean_dec.exit109 ], [ 131096, %lean_dec.exit ]
   %.080.lcssa.sink = phi ptr [ %222, %lean_dec.exit109 ], [ %.080.lcssa, %lean_dec.exit ]
   %.083.lcssa.sink = phi ptr [ %224, %lean_dec.exit109 ], [ %.083.lcssa, %lean_dec.exit ]
-  %335 = getelementptr inbounds nuw i8, ptr %.sink261, i64 4
-  store i32 1, ptr %.sink261, align 4, !tbaa !8
+  %335 = getelementptr inbounds nuw i8, ptr %.sink307, i64 4
+  store i32 1, ptr %.sink307, align 4, !tbaa !8
   store i32 %.sink, ptr %335, align 4
-  %336 = getelementptr inbounds nuw i8, ptr %.sink261, i64 8
+  %336 = getelementptr inbounds nuw i8, ptr %.sink307, i64 8
   store ptr %.080.lcssa.sink, ptr %336, align 8, !tbaa !4
-  %337 = getelementptr inbounds nuw i8, ptr %.sink261, i64 16
+  %337 = getelementptr inbounds nuw i8, ptr %.sink307, i64 16
   store ptr %.083.lcssa.sink, ptr %337, align 8, !tbaa !4
   br label %338
 
 338:                                              ; preds = %.sink.split, %lean_dec.exit110
-  %.3.ph = phi ptr [ %117, %lean_dec.exit110 ], [ %.sink261, %.sink.split ]
+  %.3.ph = phi ptr [ %117, %lean_dec.exit110 ], [ %.sink307, %.sink.split ]
   ret ptr %.3.ph
 }
 
@@ -10049,18 +10049,18 @@ _init_l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Tactic_withLocation___spec__1_
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Tactic_withLocation___spec__1___lambda__1___closed__1.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %61, %_init_l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Tactic_withLocation___spec__1___lambda__1___closed__1.exit ]
-  %64 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !8
+  %.sink24 = phi ptr [ %4, %3 ], [ %61, %_init_l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Tactic_withLocation___spec__1___lambda__1___closed__1.exit ]
+  %64 = getelementptr inbounds nuw i8, ptr %.sink24, i64 4
+  store i32 1, ptr %.sink24, align 4, !tbaa !8
   store i32 131096, ptr %64, align 4
-  %65 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.sink24, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %65, align 8, !tbaa !4
-  %66 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.sink24, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %66, align 8, !tbaa !4
   br label %67
 
 67:                                               ; preds = %.sink.split, %lean_dec_ref.exit10, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink24, %.sink.split ]
   ret ptr %.0
 }
 

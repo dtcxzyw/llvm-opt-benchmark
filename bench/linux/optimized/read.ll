@@ -1210,7 +1210,7 @@ define dso_local i32 @nfs_read_folio(ptr noundef readonly captures(none) %0, ptr
   %104 = load volatile i64, ptr %1, align 8
   %105 = and i64 %104, 1
   %106 = icmp eq i64 %105, 0
-  br i1 %106, label %.thread5, label %107
+  br i1 %106, label %.thread10, label %107
 
 107:                                              ; preds = %103
   %108 = call i32 @folio_wait_bit_killable(ptr noundef %1, i32 noundef 0) #10
@@ -1219,27 +1219,27 @@ define dso_local i32 @nfs_read_folio(ptr noundef readonly captures(none) %0, ptr
   %.not = icmp eq i64 %110, 0
   br i1 %.not, label %114, label %.thread
 
-.thread5:                                         ; preds = %103
+.thread10:                                        ; preds = %103
   %111 = load volatile i64, ptr %1, align 8
   %112 = and i64 %111, 8
-  %.not6 = icmp eq i64 %112, 0
-  br i1 %.not6, label %.thread7, label %.thread
+  %.not11 = icmp eq i64 %112, 0
+  br i1 %.not11, label %.thread12, label %.thread
 
-.thread:                                          ; preds = %.thread5, %107
-  %113 = phi i32 [ 0, %.thread5 ], [ %108, %107 ]
+.thread:                                          ; preds = %.thread10, %107
+  %113 = phi i32 [ 0, %.thread10 ], [ %108, %107 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !39
   br label %116
 
 114:                                              ; preds = %107
   %.not4 = icmp eq i32 %108, 0
-  br i1 %.not4, label %.thread7, label %116
+  br i1 %.not4, label %.thread12, label %116
 
-.thread7:                                         ; preds = %.thread5, %114
+.thread12:                                        ; preds = %.thread10, %114
   %115 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %65, i32 0, ptr nonnull elementtype(i32) %65) #10, !srcloc !41
   br label %116
 
-116:                                              ; preds = %.thread, %.thread7, %114, %80, %61
-  %117 = phi i32 [ %73, %61 ], [ %101, %80 ], [ %108, %114 ], [ %115, %.thread7 ], [ %113, %.thread ]
+116:                                              ; preds = %.thread, %.thread12, %114, %80, %61
+  %117 = phi i32 [ %73, %61 ], [ %101, %80 ], [ %108, %114 ], [ %115, %.thread12 ], [ %113, %.thread ]
   call void @put_nfs_open_context(ptr noundef %64) #10
   br label %118
 

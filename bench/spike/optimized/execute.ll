@@ -782,9 +782,9 @@ _ZL17execute_insn_fastP11processor_tm12insn_fetch_t.exit: ; preds = %_ZN5mmu_t13
 272:                                              ; preds = %270
   %273 = load i8, ptr %49, align 4, !tbaa !183, !range !131, !noundef !132
   %274 = trunc nuw i8 %273 to i1
-  br i1 %274, label %.invoke280, label %328
+  br i1 %274, label %.invoke295, label %328
 
-.invoke280:                                       ; preds = %272
+.invoke295:                                       ; preds = %272
   %275 = load ptr, ptr %50, align 8, !tbaa !184
   %276 = load ptr, ptr %275, align 8, !tbaa !143
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 8
@@ -893,12 +893,12 @@ _ZL17execute_insn_fastP11processor_tm12insn_fetch_t.exit: ; preds = %_ZN5mmu_t13
   invoke void @__cxa_end_catch()
           to label %.loopexit unwind label %360
 
-326:                                              ; preds = %.invoke280, %270
+326:                                              ; preds = %.invoke295, %270
   %327 = landingpad { ptr, i32 }
           cleanup
   br label %348
 
-328:                                              ; preds = %.invoke280, %272
+328:                                              ; preds = %.invoke295, %272
   %329 = call { i64, i8 } @_ZN8triggers8module_t17detect_trap_matchERK6trap_t(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(16) %271) #22
   %.fca.1.extract = extractvalue { i64, i8 } %329, 1
   %330 = trunc nuw i8 %.fca.1.extract to i1

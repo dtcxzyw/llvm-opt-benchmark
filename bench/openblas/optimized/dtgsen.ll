@@ -196,9 +196,9 @@ define void @dtgsen_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   br i1 %.not574, label %120, label %.sink.split
 
 .sink.split:                                      ; preds = %116, %112, %113, %111
-  %.sink666 = phi i32 [ 1, %111 ], [ 2, %113 ], [ 2, %112 ], [ 1, %116 ]
+  %.sink677 = phi i32 [ 1, %111 ], [ 2, %113 ], [ 2, %112 ], [ 1, %116 ]
   %.1530.ph = phi i32 [ 0, %111 ], [ 1, %113 ], [ 1, %112 ], [ 0, %116 ]
-  %119 = add nsw i32 %97, %.sink666
+  %119 = add nsw i32 %97, %.sink677
   store i32 %119, ptr %16, align 4, !tbaa !3
   br label %120
 
@@ -279,12 +279,12 @@ define void @dtgsen_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   br i1 %.not556, label %163, label %.thread590
 
 .thread590.sink.split:                            ; preds = %156, %152
-  %.sink667 = phi i32 [ -22, %152 ], [ -24, %156 ]
-  store i32 %.sink667, ptr %24, align 4, !tbaa !3
+  %.sink678 = phi i32 [ -22, %152 ], [ -24, %156 ]
+  store i32 %.sink678, ptr %24, align 4, !tbaa !3
   br label %.thread590
 
 .thread590:                                       ; preds = %.thread590.sink.split, %159
-  %160 = phi i32 [ %.pr587, %159 ], [ %.sink667, %.thread590.sink.split ]
+  %160 = phi i32 [ %.pr587, %159 ], [ %.sink678, %.thread590.sink.split ]
   %161 = sub nsw i32 0, %160
   store i32 %161, ptr %26, align 4, !tbaa !3
   %162 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %26, i32 noundef 6) #6
@@ -559,7 +559,7 @@ define void @dtgsen_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %297 = fmul double %294, %296
   store double %297, ptr %18, align 8, !tbaa !7
   %298 = fcmp oeq double %297, 0.000000e+00
-  br i1 %298, label %.sink.split668, label %299
+  br i1 %298, label %.sink.split679, label %299
 
 299:                                              ; preds = %287
   %300 = load double, ptr %35, align 8, !tbaa !7
@@ -570,14 +570,14 @@ define void @dtgsen_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %305 = call double @sqrt(double noundef %297) #6, !tbaa !3
   %306 = fmul double %304, %305
   %307 = fdiv double %300, %306
-  br label %.sink.split668
+  br label %.sink.split679
 
-.sink.split668:                                   ; preds = %287, %299
-  %.sink669 = phi double [ %307, %299 ], [ 1.000000e+00, %287 ]
-  store double %.sink669, ptr %18, align 8, !tbaa !7
+.sink.split679:                                   ; preds = %287, %299
+  %.sink680 = phi double [ %307, %299 ], [ 1.000000e+00, %287 ]
+  store double %.sink680, ptr %18, align 8, !tbaa !7
   br label %308
 
-308:                                              ; preds = %.sink.split668, %._crit_edge612
+308:                                              ; preds = %.sink.split679, %._crit_edge612
   switch i32 %88, label %413 [
     i32 4, label %309
     i32 2, label %309
@@ -713,7 +713,7 @@ define void @dtgsen_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   br label %395
 
 395:                                              ; preds = %388, %394
-  %.str.5.sink686 = phi ptr [ @.str.5, %394 ], [ @.str.4, %388 ]
+  %.str.5.sink697 = phi ptr [ @.str.5, %394 ], [ @.str.4, %388 ]
   %396 = load i32, ptr %21, align 4, !tbaa !3
   %397 = load i32, ptr %32, align 4, !tbaa !3
   %398 = shl i32 %397, 1
@@ -728,7 +728,7 @@ define void @dtgsen_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %406 = sext i32 %400 to i64
   %407 = getelementptr double, ptr %53, i64 %406
   %408 = getelementptr i8, ptr %407, i64 8
-  call void @dtgsyl_(ptr noundef nonnull %.str.5.sink686, ptr noundef nonnull %39, ptr noundef nonnull %33, ptr noundef nonnull %32, ptr noundef %357, ptr noundef nonnull %6, ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %20, ptr noundef nonnull %33, ptr noundef %361, ptr noundef nonnull %8, ptr noundef %7, ptr noundef nonnull %8, ptr noundef %405, ptr noundef nonnull %33, ptr noundef nonnull %35, ptr noundef nonnull %387, ptr noundef %408, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef nonnull %29) #6
+  call void @dtgsyl_(ptr noundef nonnull %.str.5.sink697, ptr noundef nonnull %39, ptr noundef nonnull %33, ptr noundef nonnull %32, ptr noundef %357, ptr noundef nonnull %6, ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %20, ptr noundef nonnull %33, ptr noundef %361, ptr noundef nonnull %8, ptr noundef %7, ptr noundef nonnull %8, ptr noundef %405, ptr noundef nonnull %33, ptr noundef nonnull %35, ptr noundef nonnull %387, ptr noundef %408, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef nonnull %29) #6
   br label %388
 
 409:                                              ; preds = %388
@@ -855,27 +855,27 @@ define void @dtgsen_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %.not572 = icmp eq i32 %489, 0
   %490 = add nuw i32 %433, 1
   %wide.trip.count647 = zext i32 %490 to i64
-  %invariant.gep661 = getelementptr double, ptr %43, i64 %indvars.iv649
-  %invariant.gep663 = getelementptr double, ptr %46, i64 %indvars.iv649
+  %invariant.gep672 = getelementptr double, ptr %43, i64 %indvars.iv649
+  %invariant.gep674 = getelementptr double, ptr %46, i64 %indvars.iv649
   br i1 %.not572, label %.lr.ph620.split.us, label %.lr.ph620.split.preheader
 
 .lr.ph620.split.preheader:                        ; preds = %.lr.ph620
   %491 = mul nsw i64 %indvars.iv649, %427
-  %invariant.gep659 = getelementptr double, ptr %52, i64 %491
+  %invariant.gep670 = getelementptr double, ptr %52, i64 %491
   br label %.lr.ph620.split
 
 .lr.ph620.split.us:                               ; preds = %.lr.ph620, %.lr.ph620.split.us
   %indvars.iv644 = phi i64 [ %indvars.iv.next645, %.lr.ph620.split.us ], [ 1, %.lr.ph620 ]
   %492 = mul nsw i64 %indvars.iv644, %425
-  %gep662 = getelementptr double, ptr %invariant.gep661, i64 %492
-  %493 = load double, ptr %gep662, align 8, !tbaa !7
+  %gep673 = getelementptr double, ptr %invariant.gep672, i64 %492
+  %493 = load double, ptr %gep673, align 8, !tbaa !7
   %494 = fneg double %493
-  store double %494, ptr %gep662, align 8, !tbaa !7
+  store double %494, ptr %gep673, align 8, !tbaa !7
   %495 = mul nsw i64 %indvars.iv644, %426
-  %gep664 = getelementptr double, ptr %invariant.gep663, i64 %495
-  %496 = load double, ptr %gep664, align 8, !tbaa !7
+  %gep675 = getelementptr double, ptr %invariant.gep674, i64 %495
+  %496 = load double, ptr %gep675, align 8, !tbaa !7
   %497 = fneg double %496
-  store double %497, ptr %gep664, align 8, !tbaa !7
+  store double %497, ptr %gep675, align 8, !tbaa !7
   %indvars.iv.next645 = add nuw nsw i64 %indvars.iv644, 1
   %exitcond648.not = icmp eq i64 %indvars.iv.next645, %wide.trip.count647
   br i1 %exitcond648.not, label %.loopexit, label %.lr.ph620.split.us, !llvm.loop !13
@@ -883,19 +883,19 @@ define void @dtgsen_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
 .lr.ph620.split:                                  ; preds = %.lr.ph620.split.preheader, %.lr.ph620.split
   %indvars.iv639 = phi i64 [ 1, %.lr.ph620.split.preheader ], [ %indvars.iv.next640, %.lr.ph620.split ]
   %498 = mul nsw i64 %indvars.iv639, %425
-  %gep = getelementptr double, ptr %invariant.gep661, i64 %498
+  %gep = getelementptr double, ptr %invariant.gep672, i64 %498
   %499 = load double, ptr %gep, align 8, !tbaa !7
   %500 = fneg double %499
   store double %500, ptr %gep, align 8, !tbaa !7
   %501 = mul nsw i64 %indvars.iv639, %426
-  %gep658 = getelementptr double, ptr %invariant.gep663, i64 %501
-  %502 = load double, ptr %gep658, align 8, !tbaa !7
+  %gep669 = getelementptr double, ptr %invariant.gep674, i64 %501
+  %502 = load double, ptr %gep669, align 8, !tbaa !7
   %503 = fneg double %502
-  store double %503, ptr %gep658, align 8, !tbaa !7
-  %gep660 = getelementptr double, ptr %invariant.gep659, i64 %indvars.iv639
-  %504 = load double, ptr %gep660, align 8, !tbaa !7
+  store double %503, ptr %gep669, align 8, !tbaa !7
+  %gep671 = getelementptr double, ptr %invariant.gep670, i64 %indvars.iv639
+  %504 = load double, ptr %gep671, align 8, !tbaa !7
   %505 = fneg double %504
-  store double %505, ptr %gep660, align 8, !tbaa !7
+  store double %505, ptr %gep671, align 8, !tbaa !7
   %indvars.iv.next640 = add nuw nsw i64 %indvars.iv639, 1
   %exitcond643.not = icmp eq i64 %indvars.iv.next640, %wide.trip.count647
   br i1 %exitcond643.not, label %.loopexit, label %.lr.ph620.split, !llvm.loop !13

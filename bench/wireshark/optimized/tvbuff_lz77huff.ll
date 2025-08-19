@@ -230,7 +230,7 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   br i1 %or.cond.i.i.i, label %79, label %PrefixCodeTreeRebuild.exit.thread.i, !llvm.loop !10
 
 104:                                              ; preds = %79
-  %105 = trunc nuw i32 %.05364.i.i to i16
+  %105 = trunc nuw nsw i32 %.05364.i.i to i16
   %106 = getelementptr inbounds nuw i8, ptr %.027.i.i.i, i64 4
   %107 = and i32 %77, 1
   %108 = zext nneg i32 %107 to i64

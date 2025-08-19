@@ -2268,8 +2268,8 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit.i74:       ; preds = %if.then34
   %11 = load i32, ptr %BitWidth.i56, align 8
   store i32 %11, ptr %BitWidth.i54, align 8
   store i32 0, ptr %BitWidth.i56, align 8
-  %BitWidth.i71226 = getelementptr inbounds nuw i8, ptr %ref.tmp38, i64 8
-  store i32 %BitWidth.0, ptr %BitWidth.i71226, align 8
+  %BitWidth.i71238 = getelementptr inbounds nuw i8, ptr %ref.tmp38, i64 8
+  store i32 %BitWidth.0, ptr %BitWidth.i71238, align 8
   store i64 0, ptr %ref.tmp38, align 8
   br label %_ZN4llvh5APIntD2Ev.exit94
 
@@ -2286,12 +2286,12 @@ if.else.i73:                                      ; preds = %if.then34
   br label %_ZN4llvh5APIntD2Ev.exit94
 
 _ZN4llvh5APIntD2Ev.exit94:                        ; preds = %if.else.i73, %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i74
-  %BitWidth.i71227 = phi ptr [ %BitWidth.i71226, %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i74 ], [ %BitWidth.i71, %if.else.i73 ]
+  %BitWidth.i71239 = phi ptr [ %BitWidth.i71238, %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i74 ], [ %BitWidth.i71, %if.else.i73 ]
   %14 = load i64, ptr %ref.tmp38, align 8
   store i64 %14, ptr %CharAP, align 8
-  %15 = load i32, ptr %BitWidth.i71227, align 8
+  %15 = load i32, ptr %BitWidth.i71239, align 8
   store i32 %15, ptr %BitWidth.i55, align 8
-  store i32 0, ptr %BitWidth.i71227, align 8
+  store i32 0, ptr %BitWidth.i71239, align 8
   %.pre = load i32, ptr %BitWidth.i38, align 8
   br label %if.end40
 
@@ -2371,7 +2371,7 @@ _ZN4llvh5APIntlSEj.exit.us.thread:                ; preds = %if.end85.us
   %shr.i.i114.us = lshr i64 -1, %sh_prom.i.i113.us
   %and.i.i115.us = and i64 %storemerge.i.us, %shr.i.i114.us
   store i64 %and.i.i115.us, ptr %Result, align 8
-  %conv89.us229 = zext nneg i32 %sub.us to i64
+  %conv89.us241 = zext nneg i32 %sub.us to i64
   br label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i119.us
 
 _ZN4llvh5APIntlSEj.exit.us:                       ; preds = %if.end85.us
@@ -2389,10 +2389,10 @@ if.else.i118.us:                                  ; preds = %_ZN4llvh5APIntlSEj.
   br label %if.end96.us
 
 _ZN4llvh5APInt15clearUnusedBitsEv.exit.i119.us:   ; preds = %_ZN4llvh5APIntlSEj.exit.us.thread, %_ZN4llvh5APIntlSEj.exit.us
-  %conv89.us231 = phi i64 [ %conv89.us229, %_ZN4llvh5APIntlSEj.exit.us.thread ], [ %conv89.us, %_ZN4llvh5APIntlSEj.exit.us ]
+  %conv89.us243 = phi i64 [ %conv89.us241, %_ZN4llvh5APIntlSEj.exit.us.thread ], [ %conv89.us, %_ZN4llvh5APIntlSEj.exit.us ]
   %28 = phi i32 [ %24, %_ZN4llvh5APIntlSEj.exit.us.thread ], [ %.pre224, %_ZN4llvh5APIntlSEj.exit.us ]
   %29 = load i64, ptr %Result, align 8
-  %or.i.us = or i64 %29, %conv89.us231
+  %or.i.us = or i64 %29, %conv89.us243
   %sub.i.i120.us = add nuw nsw i32 %28, 63
   %rem.i.i121.us = and i32 %sub.i.i120.us, 63
   %sub2.i.i122.us = xor i32 %rem.i.i121.us, 63
@@ -2433,9 +2433,9 @@ if.else66:                                        ; preds = %if.else54
   br i1 %or.cond, label %if.end82, label %cleanup.loopexit216
 
 if.end82:                                         ; preds = %if.else66, %land.lhs.true58, %land.lhs.true
-  %.sink234 = phi i32 [ -48, %land.lhs.true ], [ -87, %land.lhs.true58 ], [ -55, %if.else66 ]
+  %.sink246 = phi i32 [ -48, %land.lhs.true ], [ -87, %land.lhs.true58 ], [ -55, %if.else66 ]
   %conv64 = zext nneg i8 %31 to i32
-  %add = add nsw i32 %.sink234, %conv64
+  %add = add nsw i32 %.sink246, %conv64
   %cmp83.not = icmp ult i32 %add, %Radix.addr.0
   br i1 %cmp83.not, label %if.end85, label %cleanup.loopexit216
 

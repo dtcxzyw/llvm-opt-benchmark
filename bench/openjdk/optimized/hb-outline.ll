@@ -317,8 +317,8 @@ _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %
   %129 = fcmp une float %128, %117
   %.pre211 = load float, ptr %18, align 4
   %130 = fcmp une float %.pre211, %116
-  %or.cond223 = select i1 %129, i1 true, i1 %130
-  br i1 %or.cond223, label %131, label %138
+  %or.cond233 = select i1 %129, i1 true, i1 %130
+  br i1 %or.cond233, label %131, label %138
 
 131:                                              ; preds = %127
   %132 = load ptr, ptr %21, align 8

@@ -790,12 +790,12 @@ pmix20_bfrop_pack_byte.exit.thread:               ; preds = %51
   br label %55
 
 55:                                               ; preds = %pmix20_bfrop_pack_byte.exit.thread, %.lr.ph.i.preheader
-  %.sink57 = phi i64 [ %52, %pmix20_bfrop_pack_byte.exit.thread ], [ 4, %.lr.ph.i.preheader ]
+  %.sink65 = phi i64 [ %52, %pmix20_bfrop_pack_byte.exit.thread ], [ 4, %.lr.ph.i.preheader ]
   %56 = load ptr, ptr %7, align 8, !tbaa !23
-  %57 = getelementptr inbounds i8, ptr %56, i64 %.sink57
+  %57 = getelementptr inbounds i8, ptr %56, i64 %.sink65
   store ptr %57, ptr %7, align 8, !tbaa !23
   %58 = load i64, ptr %8, align 8, !tbaa !24
-  %59 = add i64 %58, %.sink57
+  %59 = add i64 %58, %.sink65
   store i64 %59, ptr %8, align 8, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -1170,9 +1170,9 @@ proto_item_set_hidden.exit.i:                     ; preds = %205, %202, %199
 
 235:                                              ; preds = %230, %226, %224
   %hf_rlc_nr_um_sn12.sink.i = phi ptr [ @hf_rlc_nr_um_sn6, %224 ], [ @hf_rlc_nr_um_sn12, %230 ], [ @hf_rlc_nr_um_sn12, %226 ]
-  %.sink137.i = phi i32 [ 1, %224 ], [ 2, %230 ], [ 2, %226 ]
+  %.sink146.i = phi i32 [ 1, %224 ], [ 2, %230 ], [ 2, %226 ]
   %236 = load i32, ptr %hf_rlc_nr_um_sn12.sink.i, align 4
-  %237 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %212, i32 noundef %236, ptr noundef %0, i32 noundef 0, i32 noundef %.sink137.i, i32 noundef 0, ptr noundef nonnull %25)
+  %237 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %212, i32 noundef %236, ptr noundef %0, i32 noundef 0, i32 noundef %.sink146.i, i32 noundef 0, ptr noundef nonnull %25)
   %238 = getelementptr inbounds nuw i8, ptr %31, i64 33
   store i8 1, ptr %238, align 1
   %239 = load i32, ptr %25, align 4
@@ -1184,8 +1184,8 @@ proto_item_set_hidden.exit.i:                     ; preds = %205, %202, %199
 
 243:                                              ; preds = %235
   %244 = load i32, ptr @hf_rlc_nr_um_so, align 4
-  %245 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %212, i32 noundef %244, ptr noundef %0, i32 noundef %.sink137.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %27)
-  %246 = add nuw nsw i32 %.sink137.i, 2
+  %245 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %212, i32 noundef %244, ptr noundef %0, i32 noundef %.sink146.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %27)
+  %246 = add nuw nsw i32 %.sink146.i, 2
   %247 = load i32, ptr %25, align 4
   %248 = load i32, ptr %27, align 4
   call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef %210, ptr noundef %1, ptr noundef nonnull @.str.229, i32 noundef %247, i32 noundef %248)
@@ -1196,7 +1196,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %205, %202, %199
   br label %250
 
 250:                                              ; preds = %249, %243, %223
-  %.0.i = phi i32 [ 1, %223 ], [ %246, %243 ], [ %.sink137.i, %249 ]
+  %.0.i = phi i32 [ 1, %223 ], [ %246, %243 ], [ %.sink146.i, %249 ]
   call void @proto_item_set_len(ptr noundef %210, i32 noundef %.0.i)
   %251 = load i8, ptr @global_rlc_nr_headers_expected, align 1, !range !6, !noundef !7
   %252 = trunc nuw i8 %251 to i1
@@ -1743,8 +1743,8 @@ proto_item_set_generated.exit.i.i:                ; preds = %522, %519, %516
   br label %._crit_edge170.thread.i.i
 
 ._crit_edge170.thread.i.i:                        ; preds = %proto_item_set_generated.exit.i.i, %._crit_edge170.i.i, %409
-  %.0137.lcssa178.i.i = phi i32 [ %.3.i.i, %proto_item_set_generated.exit.i.i ], [ %.3.i.i, %._crit_edge170.i.i ], [ %405, %409 ]
-  %528 = add i32 %.0137.lcssa178.i.i, 7
+  %.0137.lcssa186.i.i = phi i32 [ %.3.i.i, %proto_item_set_generated.exit.i.i ], [ %.3.i.i, %._crit_edge170.i.i ], [ %405, %409 ]
+  %528 = add i32 %.0137.lcssa186.i.i, 7
   %529 = sdiv i32 %528, 8
   %530 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %529)
   %531 = icmp sgt i32 %530, 0
@@ -1821,9 +1821,9 @@ dissect_rlc_nr_am_status_pdu.exit.i:              ; preds = %538, %.thread.i.i, 
 
 561:                                              ; preds = %556, %552, %548
   %hf_rlc_nr_am_sn18.sink.i = phi ptr [ @hf_rlc_nr_am_sn12, %548 ], [ @hf_rlc_nr_am_sn18, %556 ], [ @hf_rlc_nr_am_sn18, %552 ]
-  %.sink148.i = phi i32 [ 2, %548 ], [ 3, %556 ], [ 3, %552 ]
+  %.sink167.i = phi i32 [ 2, %548 ], [ 3, %556 ], [ 3, %552 ]
   %562 = load i32, ptr %hf_rlc_nr_am_sn18.sink.i, align 4
-  %563 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %372, i32 noundef %562, ptr noundef %0, i32 noundef 0, i32 noundef %.sink148.i, i32 noundef 0, ptr noundef nonnull %18)
+  %563 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %372, i32 noundef %562, ptr noundef %0, i32 noundef 0, i32 noundef %.sink167.i, i32 noundef 0, ptr noundef nonnull %18)
   %564 = getelementptr inbounds nuw i8, ptr %31, i64 33
   store i8 1, ptr %564, align 1
   %565 = load i32, ptr %18, align 4
@@ -1835,8 +1835,8 @@ dissect_rlc_nr_am_status_pdu.exit.i:              ; preds = %538, %.thread.i.i, 
 
 569:                                              ; preds = %561
   %570 = load i32, ptr @hf_rlc_nr_am_so, align 4
-  %571 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %372, i32 noundef %570, ptr noundef %0, i32 noundef %.sink148.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %20)
-  %572 = add nuw nsw i32 %.sink148.i, 2
+  %571 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %372, i32 noundef %570, ptr noundef %0, i32 noundef %.sink167.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %20)
+  %572 = add nuw nsw i32 %.sink167.i, 2
   %573 = load i32, ptr %18, align 4
   %574 = load i32, ptr %20, align 4
   call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef %370, ptr noundef %1, ptr noundef nonnull @.str.245, i32 noundef %573, i32 noundef %574)
@@ -1847,7 +1847,7 @@ dissect_rlc_nr_am_status_pdu.exit.i:              ; preds = %538, %.thread.i.i, 
   br label %576
 
 576:                                              ; preds = %575, %569
-  %.1.i = phi i32 [ %572, %569 ], [ %.sink148.i, %575 ]
+  %.1.i = phi i32 [ %572, %569 ], [ %.sink167.i, %575 ]
   call void @proto_item_set_len(ptr noundef %370, i32 noundef %.1.i)
   %577 = load i8, ptr @global_rlc_nr_headers_expected, align 1, !range !6, !noundef !7
   %578 = trunc nuw i8 %577 to i1
@@ -2213,8 +2213,8 @@ proto_item_set_hidden.exit38:                     ; preds = %48, %49, %52
   %57 = call i32 @_setjmp(ptr noundef nonnull %56) #12
   %.not = icmp eq i32 %57, 0
   %58 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sink39 = select i1 %.not, ptr null, ptr %58
-  store volatile ptr %.sink39, ptr %7, align 8
+  %.sink42 = select i1 %.not, ptr null, ptr %58
+  store volatile ptr %.sink42, ptr %7, align 8
   %.0..0..0..0. = load volatile i32, ptr %8, align 4
   %59 = and i32 %.0..0..0..0., 1
   %.not32 = icmp eq i32 %59, 0
@@ -2640,10 +2640,10 @@ define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, pt
   br i1 %105, label %.sink.split, label %109
 
 .sink.split:                                      ; preds = %100, %94
-  %.sink93 = phi i8 [ 1, %94 ], [ 2, %100 ]
+  %.sink95 = phi i8 [ 1, %94 ], [ 2, %100 ]
   %106 = getelementptr inbounds nuw i8, ptr %.077, i64 19
   %107 = load i8, ptr %106, align 1
-  %108 = and i8 %107, %.sink93
+  %108 = and i8 %107, %.sink95
   store i8 %108, ptr %106, align 1
   br label %109
 

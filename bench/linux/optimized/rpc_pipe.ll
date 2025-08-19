@@ -2742,10 +2742,10 @@ define internal i32 @rpc_fill_super(ptr noundef initializes((20, 21), (24, 32), 
   br label %.split
 
 .split:                                           ; preds = %75, %.split2
-  %.sink12 = phi ptr [ %63, %.split2 ], [ null, %75 ]
+  %.sink21 = phi ptr [ %63, %.split2 ], [ null, %75 ]
   %82 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %83 = load ptr, ptr %82, align 8
-  %84 = call fastcc i32 @__rpc_rmpipe(ptr noundef %83, ptr noundef %.sink12)
+  %84 = call fastcc i32 @__rpc_rmpipe(ptr noundef %83, ptr noundef %.sink21)
   call fastcc void @__rpc_depopulate(ptr noundef %77, ptr noundef nonnull @gssd_dummy_info_file, i32 noundef 1)
   call fastcc void @__rpc_depopulate(ptr noundef %79, ptr noundef nonnull @gssd_dummy_clnt_dir, i32 noundef 1)
   call void @dput(ptr noundef %63) #14

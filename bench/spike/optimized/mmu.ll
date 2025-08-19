@@ -2136,8 +2136,8 @@ define void @_ZN5mmu_t24load_slow_path_intrapageEmPh17mem_access_info_t(ptr noun
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.748.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %.sroa.748.0.copyload = load i32, ptr %.sroa.748.0..sroa_idx, align 4
+  %.sroa.757.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %.sroa.757.0.copyload = load i32, ptr %.sroa.757.0..sroa_idx, align 4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %26 = load ptr, ptr %25, align 8, !tbaa !39
   %.not.i = icmp eq ptr %26, null
@@ -2153,7 +2153,7 @@ define void @_ZN5mmu_t24load_slow_path_intrapageEmPh17mem_access_info_t(ptr noun
   %30 = or i64 %28, %29
   %31 = and i8 %.sroa.6.0.copyload, 8
   %.not11.i = icmp eq i8 %31, 0
-  %32 = select i1 %.not11.i, i32 %.sroa.748.0.copyload, i32 1
+  %32 = select i1 %.not11.i, i32 %.sroa.757.0.copyload, i32 1
   %33 = and i8 %.sroa.6.0.copyload, 2
   %34 = icmp ne i8 %33, 0
   %35 = tail call noundef zeroext i1 @_ZN5mmu_t6pmp_okEmm11access_typemb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %30, i64 noundef %1, i32 noundef %32, i64 noundef %.sroa.4.0.copyload, i1 noundef zeroext %34)
@@ -2161,7 +2161,7 @@ define void @_ZN5mmu_t24load_slow_path_intrapageEmPh17mem_access_info_t(ptr noun
 
 36:                                               ; preds = %27
   %37 = trunc nuw i8 %.sroa.5.0.copyload to i1
-  tail call void @_Z22throw_access_exceptionbm11access_type(i1 noundef zeroext %37, i64 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.748.0.copyload)
+  tail call void @_Z22throw_access_exceptionbm11access_type(i1 noundef zeroext %37, i64 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.757.0.copyload)
   unreachable
 
 _ZN5mmu_t9translateE17mem_access_info_tm.exit:    ; preds = %24, %27
@@ -2572,8 +2572,8 @@ define void @_ZN5mmu_t25store_slow_path_intrapageEmPKh17mem_access_info_tb(ptr n
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.742.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %.sroa.742.0.copyload = load i32, ptr %.sroa.742.0..sroa_idx, align 4
+  %.sroa.751.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %.sroa.751.0.copyload = load i32, ptr %.sroa.751.0..sroa_idx, align 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %28 = load ptr, ptr %27, align 8, !tbaa !39
   %.not.i = icmp eq ptr %28, null
@@ -2589,7 +2589,7 @@ define void @_ZN5mmu_t25store_slow_path_intrapageEmPKh17mem_access_info_tb(ptr n
   %32 = or i64 %30, %31
   %33 = and i8 %.sroa.6.0.copyload, 8
   %.not11.i = icmp eq i8 %33, 0
-  %34 = select i1 %.not11.i, i32 %.sroa.742.0.copyload, i32 1
+  %34 = select i1 %.not11.i, i32 %.sroa.751.0.copyload, i32 1
   %35 = and i8 %.sroa.6.0.copyload, 2
   %36 = icmp ne i8 %35, 0
   %37 = tail call noundef zeroext i1 @_ZN5mmu_t6pmp_okEmm11access_typemb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %32, i64 noundef %1, i32 noundef %34, i64 noundef %.sroa.4.0.copyload, i1 noundef zeroext %36)
@@ -2597,7 +2597,7 @@ define void @_ZN5mmu_t25store_slow_path_intrapageEmPKh17mem_access_info_tb(ptr n
 
 38:                                               ; preds = %29
   %39 = trunc nuw i8 %.sroa.5.0.copyload to i1
-  tail call void @_Z22throw_access_exceptionbm11access_type(i1 noundef zeroext %39, i64 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.742.0.copyload)
+  tail call void @_Z22throw_access_exceptionbm11access_type(i1 noundef zeroext %39, i64 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.751.0.copyload)
   unreachable
 
 _ZN5mmu_t9translateE17mem_access_info_tm.exit:    ; preds = %26, %29
@@ -2999,13 +2999,13 @@ define noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull 
   unreachable
 
 28:                                               ; preds = %22, %20, %24, %25
-  %.sink202 = phi i64 [ 72057594037923840, %24 ], [ 72057594037923840, %25 ], [ 17179865088, %20 ], [ 72057594037923840, %22 ]
+  %.sink204 = phi i64 [ 72057594037923840, %24 ], [ 72057594037923840, %25 ], [ 17179865088, %20 ], [ 72057594037923840, %22 ]
   %.sroa.0.0.ph = phi i32 [ 4, %24 ], [ 5, %25 ], [ 2, %20 ], [ 3, %22 ]
   %.sroa.12.0.ph = phi i32 [ 9, %24 ], [ 9, %25 ], [ 10, %20 ], [ 9, %22 ]
   %29 = phi i1 [ false, %24 ], [ false, %25 ], [ true, %20 ], [ false, %22 ]
   %.sroa.24.0.ph = phi i64 [ 8, %24 ], [ 8, %25 ], [ 4, %20 ], [ %23, %22 ]
   %30 = shl i64 %19, 12
-  %31 = and i64 %30, %.sink202
+  %31 = and i64 %30, %.sink204
   %32 = mul nuw nsw i32 %.sroa.12.0.ph, %.sroa.0.0.ph
   %33 = add nuw nsw i32 %32, 14
   %34 = zext nneg i32 %33 to i64
@@ -3533,13 +3533,13 @@ define noundef range(i64 0, 17) i64 @_ZNK5mmu_t9get_pmlenEbm13xlate_flags_t(ptr 
 
 50:                                               ; preds = %35, %44, %48, %38, %23
   %.sink.in = phi ptr [ %36, %35 ], [ %45, %44 ], [ %49, %48 ], [ %39, %38 ], [ %25, %23 ]
-  %.sink36 = phi i64 [ 32, %35 ], [ 48, %44 ], [ 32, %48 ], [ 32, %38 ], [ 32, %23 ]
+  %.sink38 = phi i64 [ 32, %35 ], [ 48, %44 ], [ 32, %48 ], [ 32, %38 ], [ 32, %23 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !262
   %51 = load ptr, ptr %.sink, align 8, !tbaa !40
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef i64 %53(ptr noundef nonnull align 8 dereferenceable(37) %.sink) #27
-  %55 = lshr i64 %54, %.sink36
+  %55 = lshr i64 %54, %.sink38
   %.0 = and i64 %55, 3
   %switch.selectcmp = icmp eq i64 %.0, 2
   %switch.select = select i1 %switch.selectcmp, i64 7, i64 0

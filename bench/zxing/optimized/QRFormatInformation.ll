@@ -183,19 +183,18 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation9DecodeMQREj(i32 noundef
   br i1 %.not.us.i, label %15, label %4
 
 15:                                               ; preds = %14
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.preheader.us.i, !llvm.loop !7
 
 .preheader.us.i:                                  ; preds = %15, %.preheader.lr.ph.us.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.lr.ph.us.preheader.i ], [ %indvars.iv.next.i, %15 ]
+  %exitcond.not.i = phi i1 [ false, %.preheader.lr.ph.us.preheader.i ], [ true, %15 ]
+  %indvars.iv.i = phi i64 [ 0, %.preheader.lr.ph.us.preheader.i ], [ 1, %15 ]
   %.sroa.8.118.us.i = phi i8 [ -1, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.8.3.us.i, %15 ]
   %.sroa.08.117.us.i = phi i32 [ 0, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.08.3.us.i, %15 ]
   %.sroa.3.116.us.i = phi i8 [ -1, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.3.3.us.i, %15 ]
   %.sroa.5.115.us.i = phi i8 [ -1, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.5.3.us.i, %15 ]
   %16 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
   %17 = load i32, ptr %16, align 4, !tbaa !3
-  %18 = trunc i64 %indvars.iv.i to i8
+  %18 = trunc nuw nsw i64 %indvars.iv.i to i8
   %invariant.op = xor i32 %17, 17477
   br label %4
 

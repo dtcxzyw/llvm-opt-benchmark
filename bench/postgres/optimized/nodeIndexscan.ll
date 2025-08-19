@@ -876,20 +876,20 @@ list_length.exit:                                 ; preds = %10, %14
   %33 = icmp eq i64 %32, 0
   %34 = load i32, ptr %26, align 4
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %.lr.ph637, label %.critedge364
+  br i1 %35, label %.lr.ph655, label %.critedge364
 
-.lr.ph637:                                        ; preds = %.lr.ph, %423
-  %scevgep636 = phi ptr [ %scevgep, %423 ], [ %20, %.lr.ph ]
-  %.0296462635 = phi i32 [ %.1297, %423 ], [ 0, %.lr.ph ]
-  %.0287463634 = phi i32 [ %.3290, %423 ], [ %22, %.lr.ph ]
-  %.0281464633 = phi i32 [ %.2283, %423 ], [ %22, %.lr.ph ]
-  %.0278465632 = phi ptr [ %.3, %423 ], [ %21, %.lr.ph ]
-  %indvar631 = phi i64 [ %indvar.next, %423 ], [ 0, %.lr.ph ]
+.lr.ph655:                                        ; preds = %.lr.ph, %423
+  %scevgep654 = phi ptr [ %scevgep, %423 ], [ %20, %.lr.ph ]
+  %.0296462653 = phi i32 [ %.1297, %423 ], [ 0, %.lr.ph ]
+  %.0287463652 = phi i32 [ %.3290, %423 ], [ %22, %.lr.ph ]
+  %.0281464651 = phi i32 [ %.2283, %423 ], [ %22, %.lr.ph ]
+  %.0278465650 = phi ptr [ %.3, %423 ], [ %21, %.lr.ph ]
+  %indvar649 = phi i64 [ %indvar.next, %423 ], [ 0, %.lr.ph ]
   %36 = load ptr, ptr %27, align 8
-  %37 = getelementptr inbounds nuw %union.ListCell, ptr %36, i64 %indvar631
+  %37 = getelementptr inbounds nuw %union.ListCell, ptr %36, i64 %indvar649
   %38 = load ptr, ptr %37, align 8
-  %indvar.next = add nuw nsw i64 %indvar631, 1
-  %39 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %20, i64 %indvar631
+  %indvar.next = add nuw nsw i64 %indvar649, 1
+  %39 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %20, i64 %indvar649
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -911,7 +911,7 @@ list_length.exit:                                 ; preds = %10, %14
   %44 = icmp eq i32 %.0296462.lcssa, 0
   br i1 %44, label %.critedge364.thread, label %.thread
 
-get_leftop.exit:                                  ; preds = %.lr.ph637
+get_leftop.exit:                                  ; preds = %.lr.ph655
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -1007,11 +1007,11 @@ thread-pre-split383:                              ; preds = %list_length.exit.i
   br label %119
 
 98:                                               ; preds = %89
-  %.not362 = icmp slt i32 %.0281464633, %.0287463634
+  %.not362 = icmp slt i32 %.0281464651, %.0287463652
   br i1 %.not362, label %108, label %99
 
 99:                                               ; preds = %98
-  %100 = icmp eq i32 %.0287463634, 0
+  %100 = icmp eq i32 %.0287463652, 0
   br i1 %100, label %101, label %103
 
 101:                                              ; preds = %99
@@ -1019,16 +1019,16 @@ thread-pre-split383:                              ; preds = %list_length.exit.i
   br label %108
 
 103:                                              ; preds = %99
-  %104 = shl i32 %.0287463634, 1
+  %104 = shl i32 %.0287463652, 1
   %105 = sext i32 %104 to i64
   %106 = mul nsw i64 %105, 24
-  %107 = call ptr @repalloc(ptr noundef %.0278465632, i64 noundef %106) #7
+  %107 = call ptr @repalloc(ptr noundef %.0278465650, i64 noundef %106) #7
   br label %108
 
 108:                                              ; preds = %101, %103, %98
-  %.2289 = phi i32 [ 8, %101 ], [ %104, %103 ], [ %.0287463634, %98 ]
-  %.2 = phi ptr [ %102, %101 ], [ %107, %103 ], [ %.0278465632, %98 ]
-  %109 = sext i32 %.0281464633 to i64
+  %.2289 = phi i32 [ 8, %101 ], [ %104, %103 ], [ %.0287463652, %98 ]
+  %.2 = phi ptr [ %102, %101 ], [ %107, %103 ], [ %.0278465650, %98 ]
+  %109 = sext i32 %.0281464651 to i64
   %110 = getelementptr inbounds %struct.IndexRuntimeKeyInfo, ptr %.2, i64 %109
   store ptr %39, ptr %110, align 8
   %111 = call ptr @ExecInitExpr(ptr noundef nonnull %.0306, ptr noundef %0) #7
@@ -1040,15 +1040,15 @@ thread-pre-split383:                              ; preds = %list_length.exit.i
   %116 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %117 = zext i1 %115 to i8
   store i8 %117, ptr %116, align 8
-  %118 = add i32 %.0281464633, 1
+  %118 = add i32 %.0281464651, 1
   br label %119
 
 119:                                              ; preds = %92, %108
   %.0311 = phi i64 [ 0, %108 ], [ %94, %92 ]
   %.1310 = phi i32 [ %spec.select, %108 ], [ %spec.select366, %92 ]
-  %.1288 = phi i32 [ %.2289, %108 ], [ %.0287463634, %92 ]
-  %.1282 = phi i32 [ %118, %108 ], [ %.0281464633, %92 ]
-  %.1 = phi ptr [ %.2, %108 ], [ %.0278465632, %92 ]
+  %.1288 = phi i32 [ %.2289, %108 ], [ %.0287463652, %92 ]
+  %.1282 = phi i32 [ %118, %108 ], [ %.0281464651, %92 ]
+  %.1 = phi ptr [ %.2, %108 ], [ %.0278465650, %92 ]
   %120 = load i32, ptr %11, align 4
   %121 = trunc i32 %120 to i16
   %122 = load i32, ptr %13, align 4
@@ -1057,7 +1057,7 @@ thread-pre-split383:                              ; preds = %list_length.exit.i
   call void @ScanKeyEntryInitialize(ptr noundef %39, i32 noundef %.1310, i16 noundef signext %68, i16 noundef zeroext %121, i32 noundef %122, i32 noundef %124, i32 noundef %48, i64 noundef %.0311) #7
   br label %423
 
-125:                                              ; preds = %.lr.ph637
+125:                                              ; preds = %.lr.ph655
   %126 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %127 = load ptr, ptr %126, align 8
   %.not.i377 = icmp eq ptr %127, null
@@ -1097,9 +1097,9 @@ list_length.exit378:                              ; preds = %125, %128
 
 151:                                              ; preds = %285, %list_length.exit378
   %.0312 = phi i32 [ 0, %list_length.exit378 ], [ %289, %285 ]
-  %.4291 = phi i32 [ %.0287463634, %list_length.exit378 ], [ %.5292, %285 ]
-  %.3284 = phi i32 [ %.0281464633, %list_length.exit378 ], [ %.4285, %285 ]
-  %.4 = phi ptr [ %.0278465632, %list_length.exit378 ], [ %.5, %285 ]
+  %.4291 = phi i32 [ %.0287463652, %list_length.exit378 ], [ %.5292, %285 ]
+  %.3284 = phi i32 [ %.0281464651, %list_length.exit378 ], [ %.4285, %285 ]
+  %.4 = phi ptr [ %.0278465650, %list_length.exit378 ], [ %.5, %285 ]
   br i1 %.not349, label %159, label %152
 
 152:                                              ; preds = %151
@@ -1179,7 +1179,7 @@ list_length.exit378:                              ; preds = %125, %128
   br i1 %33, label %.preheader.preheader, label %290
 
 .preheader.preheader:                             ; preds = %.critedge
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %scevgep636, i8 0, i64 72, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %scevgep654, i8 0, i64 72, i1 false)
   br label %.loopexit
 
 197:                                              ; preds = %186
@@ -1371,7 +1371,7 @@ thread-pre-split387:                              ; preds = %250
   store i64 %298, ptr %299, align 8
   br label %423
 
-300:                                              ; preds = %.lr.ph637
+300:                                              ; preds = %.lr.ph655
   %301 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %302 = load i32, ptr %301, align 4
   %303 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -1473,11 +1473,11 @@ thread-pre-split389:                              ; preds = %300
   br label %384
 
 361:                                              ; preds = %352
-  %.not348 = icmp slt i32 %.0281464633, %.0287463634
+  %.not348 = icmp slt i32 %.0281464651, %.0287463652
   br i1 %.not348, label %371, label %362
 
 362:                                              ; preds = %361
-  %363 = icmp eq i32 %.0287463634, 0
+  %363 = icmp eq i32 %.0287463652, 0
   br i1 %363, label %364, label %366
 
 364:                                              ; preds = %362
@@ -1485,16 +1485,16 @@ thread-pre-split389:                              ; preds = %300
   br label %371
 
 366:                                              ; preds = %362
-  %367 = shl i32 %.0287463634, 1
+  %367 = shl i32 %.0287463652, 1
   %368 = sext i32 %367 to i64
   %369 = mul nsw i64 %368, 24
-  %370 = call ptr @repalloc(ptr noundef %.0278465632, i64 noundef %369) #7
+  %370 = call ptr @repalloc(ptr noundef %.0278465650, i64 noundef %369) #7
   br label %371
 
 371:                                              ; preds = %364, %366, %361
-  %.7294 = phi i32 [ 8, %364 ], [ %367, %366 ], [ %.0287463634, %361 ]
-  %.7 = phi ptr [ %365, %364 ], [ %370, %366 ], [ %.0278465632, %361 ]
-  %372 = sext i32 %.0281464633 to i64
+  %.7294 = phi i32 [ 8, %364 ], [ %367, %366 ], [ %.0287463652, %361 ]
+  %.7 = phi ptr [ %365, %364 ], [ %370, %366 ], [ %.0278465650, %361 ]
+  %372 = sext i32 %.0281464651 to i64
   %373 = getelementptr inbounds %struct.IndexRuntimeKeyInfo, ptr %.7, i64 %372
   store ptr %39, ptr %373, align 8
   %374 = call ptr @ExecInitExpr(ptr noundef nonnull %.2308, ptr noundef %0) #7
@@ -1502,24 +1502,24 @@ thread-pre-split389:                              ; preds = %300
   store ptr %374, ptr %375, align 8
   %376 = getelementptr inbounds nuw i8, ptr %373, i64 16
   store i8 1, ptr %376, align 8
-  %377 = add i32 %.0281464633, 1
+  %377 = add i32 %.0281464651, 1
   br label %384
 
 378:                                              ; preds = %347
-  %379 = sext i32 %.0296462635 to i64
+  %379 = sext i32 %.0296462653 to i64
   %380 = getelementptr inbounds %struct.IndexArrayKeyInfo, ptr %24, i64 %379
   store ptr %39, ptr %380, align 8
   %381 = call ptr @ExecInitExpr(ptr noundef %.2308, ptr noundef %0) #7
   %382 = getelementptr inbounds nuw i8, ptr %380, i64 8
   store ptr %381, ptr %382, align 8
-  %383 = add i32 %.0296462635, 1
+  %383 = add i32 %.0296462653, 1
   br label %384
 
 384:                                              ; preds = %355, %371, %378
-  %.2298 = phi i32 [ %.0296462635, %371 ], [ %383, %378 ], [ %.0296462635, %355 ]
-  %.8295 = phi i32 [ %.7294, %371 ], [ %.0287463634, %378 ], [ %.0287463634, %355 ]
-  %.5286 = phi i32 [ %377, %371 ], [ %.0281464633, %378 ], [ %.0281464633, %355 ]
-  %.8 = phi ptr [ %.7, %371 ], [ %.0278465632, %378 ], [ %.0278465632, %355 ]
+  %.2298 = phi i32 [ %.0296462653, %371 ], [ %383, %378 ], [ %.0296462653, %355 ]
+  %.8295 = phi i32 [ %.7294, %371 ], [ %.0287463652, %378 ], [ %.0287463652, %355 ]
+  %.5286 = phi i32 [ %377, %371 ], [ %.0281464651, %378 ], [ %.0281464651, %355 ]
+  %.8 = phi ptr [ %.7, %371 ], [ %.0278465650, %378 ], [ %.0278465650, %355 ]
   %.0277 = phi i32 [ 32, %371 ], [ 0, %378 ], [ %spec.select370, %355 ]
   %.0276 = phi i64 [ 0, %371 ], [ 0, %378 ], [ %357, %355 ]
   %385 = load i32, ptr %11, align 4
@@ -1530,7 +1530,7 @@ thread-pre-split389:                              ; preds = %300
   call void @ScanKeyEntryInitialize(ptr noundef %39, i32 noundef %.0277, i16 noundef signext %325, i16 noundef zeroext %386, i32 noundef %387, i32 noundef %389, i32 noundef %304, i64 noundef %.0276) #7
   br label %423
 
-390:                                              ; preds = %.lr.ph637
+390:                                              ; preds = %.lr.ph655
   %391 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %392 = load ptr, ptr %391, align 8, !nonnull !5, !noundef !5
   %393 = load i32, ptr %392, align 4
@@ -1589,7 +1589,7 @@ thread-pre-split391:                              ; preds = %390
   call void @ScanKeyEntryInitialize(ptr noundef %39, i32 noundef %.0, i16 noundef signext %409, i16 noundef zeroext 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i64 noundef 0) #7
   br label %423
 
-419:                                              ; preds = %.lr.ph637
+419:                                              ; preds = %.lr.ph655
   %420 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %420)
   %421 = load i32, ptr %38, align 4
@@ -1598,10 +1598,10 @@ thread-pre-split391:                              ; preds = %390
   unreachable
 
 423:                                              ; preds = %.loopexit, %418, %384, %119
-  %.1297 = phi i32 [ %.0296462635, %119 ], [ %.0296462635, %.loopexit ], [ %.2298, %384 ], [ %.0296462635, %418 ]
-  %.3290 = phi i32 [ %.1288, %119 ], [ %.4291, %.loopexit ], [ %.8295, %384 ], [ %.0287463634, %418 ]
-  %.2283 = phi i32 [ %.1282, %119 ], [ %.3284, %.loopexit ], [ %.5286, %384 ], [ %.0281464633, %418 ]
-  %.3 = phi ptr [ %.1, %119 ], [ %.4, %.loopexit ], [ %.8, %384 ], [ %.0278465632, %418 ]
+  %.1297 = phi i32 [ %.0296462653, %119 ], [ %.0296462653, %.loopexit ], [ %.2298, %384 ], [ %.0296462653, %418 ]
+  %.3290 = phi i32 [ %.1288, %119 ], [ %.4291, %.loopexit ], [ %.8295, %384 ], [ %.0287463652, %418 ]
+  %.2283 = phi i32 [ %.1282, %119 ], [ %.3284, %.loopexit ], [ %.5286, %384 ], [ %.0281464651, %418 ]
+  %.3 = phi ptr [ %.1, %119 ], [ %.4, %.loopexit ], [ %.8, %384 ], [ %.0278465650, %418 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1610,16 +1610,16 @@ thread-pre-split391:                              ; preds = %390
   %425 = load i32, ptr %26, align 4
   %426 = sext i32 %425 to i64
   %427 = icmp slt i64 %indvar.next, %426
-  br i1 %427, label %.lr.ph637, label %.critedge364
+  br i1 %427, label %.lr.ph655, label %.critedge364
 
 .critedge364.thread:                              ; preds = %list_length.exit, %.critedge364
-  %.0278.lcssa508 = phi ptr [ %.0278465.lcssa, %.critedge364 ], [ %21, %list_length.exit ]
-  %.0281.lcssa507 = phi i32 [ %.0281464.lcssa, %.critedge364 ], [ %22, %list_length.exit ]
+  %.0278.lcssa526 = phi ptr [ %.0278465.lcssa, %.critedge364 ], [ %21, %list_length.exit ]
+  %.0281.lcssa525 = phi i32 [ %.0281464.lcssa, %.critedge364 ], [ %22, %list_length.exit ]
   call void @pfree(ptr noundef %24) #7
   store ptr %20, ptr %4, align 8
   store i32 %17, ptr %5, align 4
-  store ptr %.0278.lcssa508, ptr %6, align 8
-  store i32 %.0281.lcssa507, ptr %7, align 4
+  store ptr %.0278.lcssa526, ptr %6, align 8
+  store i32 %.0281.lcssa525, ptr %7, align 4
   %.not343 = icmp eq ptr %8, null
   br i1 %.not343, label %431, label %428
 
@@ -1632,10 +1632,10 @@ thread-pre-split391:                              ; preds = %390
   br i1 %.not343394, label %.thread396, label %428
 
 428:                                              ; preds = %.thread, %.critedge364.thread
-  %.0296.lcssa505 = phi i32 [ %.0296462.lcssa, %.thread ], [ 0, %.critedge364.thread ]
+  %.0296.lcssa523 = phi i32 [ %.0296462.lcssa, %.thread ], [ 0, %.critedge364.thread ]
   %.0279395 = phi ptr [ %24, %.thread ], [ null, %.critedge364.thread ]
   store ptr %.0279395, ptr %8, align 8
-  store i32 %.0296.lcssa505, ptr %9, align 4
+  store i32 %.0296.lcssa523, ptr %9, align 4
   br label %431
 
 .thread396:                                       ; preds = %.thread

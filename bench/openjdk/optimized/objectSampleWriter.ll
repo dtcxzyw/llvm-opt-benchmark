@@ -484,20 +484,20 @@ _ZL10is_gc_rootPK10StoredEdge.exit:               ; preds = %_ZL26add_old_object
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %159, %193
-  %.sink27 = phi ptr [ %188, %193 ], [ %154, %159 ]
+  %.sink39 = phi ptr [ %188, %193 ], [ %154, %159 ]
   %.sink.ph = phi ptr [ %175, %193 ], [ %58, %159 ]
-  %.pre.i.i.i.i16 = load i32, ptr %.sink27, align 8
+  %.pre.i.i.i.i16 = load i32, ptr %.sink39, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %187, %153
-  %.sink26 = phi i32 [ %155, %153 ], [ %189, %187 ], [ %.pre.i.i.i.i16, %.sink.split.sink.split ]
-  %.sink25 = phi ptr [ %154, %153 ], [ %188, %187 ], [ %.sink27, %.sink.split.sink.split ]
+  %.sink38 = phi i32 [ %155, %153 ], [ %189, %187 ], [ %.pre.i.i.i.i16, %.sink.split.sink.split ]
+  %.sink37 = phi ptr [ %154, %153 ], [ %188, %187 ], [ %.sink39, %.sink.split.sink.split ]
   %.sink = phi ptr [ %58, %153 ], [ %175, %187 ], [ %.sink.ph, %.sink.split.sink.split ]
-  %201 = add nsw i32 %.sink26, 1
-  store i32 %201, ptr %.sink25, align 8
-  %202 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
+  %201 = add nsw i32 %.sink38, 1
+  store i32 %201, ptr %.sink37, align 8
+  %202 = getelementptr inbounds nuw i8, ptr %.sink37, i64 8
   %203 = load ptr, ptr %202, align 8
-  %204 = sext i32 %.sink26 to i64
+  %204 = sext i32 %.sink38 to i64
   %205 = getelementptr inbounds ptr, ptr %203, i64 %204
   store ptr %.sink, ptr %205, align 8
   br label %206
@@ -3080,13 +3080,13 @@ _ZN13GrowableArrayIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEEC2
   br i1 %.not.not9.i.i, label %.lr.ph.i4.i, label %.._crit_edge_crit_edge.i.i
 
 .._crit_edge_crit_edge.i.i:                       ; preds = %55
-  %.pre13.i.i = zext nneg i32 %.0.i.ph.i to i64
+  %.pre13.i.i = sext i32 %.0.i.ph.i to i64
   br label %_ZN26GrowableArrayWithAllocatorIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataE13GrowableArrayIS4_EE13insert_beforeEiRKS4_.exit.i
 
 .lr.ph.i4.i:                                      ; preds = %55
   %57 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %58 = sext i32 %56 to i64
-  %59 = zext nneg i32 %.0.i.ph.i to i64
+  %59 = sext i32 %.0.i.ph.i to i64
   br label %60
 
 60:                                               ; preds = %60, %.lr.ph.i4.i
@@ -3112,7 +3112,7 @@ _ZN26GrowableArrayWithAllocatorIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescri
   %67 = load ptr, ptr %19, align 8
   %68 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %.pre-phi.i.i
+  %70 = getelementptr inbounds ptr, ptr %69, i64 %.pre-phi.i.i
   store ptr %67, ptr %70, align 8
   br label %_ZN26GrowableArrayWithAllocatorIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataE13GrowableArrayIS4_EE13insert_sortedIXadL_ZL19_root_desc_compare_RKS4_SA_EEEES4_SA_.exit
 
@@ -3344,12 +3344,12 @@ _ZNK17RootResolutionSet16compare_to_rangeERK16RootCallbackInfo.exit: ; preds = %
 
 _ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit.thread.sink.split: ; preds = %118, %66, %112, %60
   %.lcssa.i.i.sink = phi i32 [ %62, %60 ], [ %114, %112 ], [ %71, %66 ], [ %123, %118 ]
-  %.sink56 = phi ptr [ %61, %60 ], [ %113, %112 ], [ %61, %66 ], [ %113, %118 ]
-  %.sink46.in = phi ptr [ %9, %60 ], [ %75, %112 ], [ %9, %66 ], [ %75, %118 ]
+  %.sink63 = phi ptr [ %61, %60 ], [ %113, %112 ], [ %61, %66 ], [ %113, %118 ]
+  %.sink53.in = phi ptr [ %9, %60 ], [ %75, %112 ], [ %9, %66 ], [ %75, %118 ]
   %126 = add nsw i32 %.lcssa.i.i.sink, -1
-  store i32 %126, ptr %.sink56, align 8
-  %.sink46 = load ptr, ptr %.sink46.in, align 8
-  %127 = load i32, ptr %.sink46, align 4
+  store i32 %126, ptr %.sink63, align 8
+  %.sink53 = load ptr, ptr %.sink53.in, align 8
+  %127 = load i32, ptr %.sink53, align 4
   %128 = icmp eq i32 %127, 0
   br label %_ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit.thread
 

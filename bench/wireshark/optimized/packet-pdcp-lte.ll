@@ -904,127 +904,121 @@ define hidden void @pdcp_lte_reset_ue_bearers(ptr noundef readonly captures(none
 
 9:                                                ; preds = %3
   %10 = zext i16 %1 to i32
-  %11 = or disjoint i32 %10, 65536
   br label %.preheader36
 
-.preheader36:                                     ; preds = %9, %31
-  %.02640 = phi i32 [ 1, %9 ], [ %32, %31 ]
-  %.sroa.0.039 = phi i32 [ %11, %9 ], [ %37, %31 ]
-  %12 = shl nuw nsw i32 %.02640, 18
-  br label %33
+.preheader36:                                     ; preds = %9, %29
+  %exitcond.not = phi i1 [ false, %9 ], [ true, %29 ]
+  %.02640 = phi i32 [ 262144, %9 ], [ 524288, %29 ]
+  %11 = or disjoint i32 %.02640, %10
+  br label %30
 
-13:                                               ; preds = %31
-  %14 = and i32 %37, -196609
-  %15 = or disjoint i32 %14, 131072
+12:                                               ; preds = %29
+  %13 = or disjoint i32 %32, 131072
   br i1 %2, label %.preheader.us, label %.preheader
 
-.preheader.us:                                    ; preds = %13, %.split.us.us
-  %.02444.us = phi i32 [ %30, %.split.us.us ], [ 1, %13 ]
-  %.sroa.0.243.us = phi i32 [ %21, %.split.us.us ], [ %15, %13 ]
-  %16 = shl nuw nsw i32 %.02444.us, 18
-  br label %17
+.preheader.us:                                    ; preds = %12, %.split.us.us
+  %.02444.us = phi i32 [ %28, %.split.us.us ], [ 1, %12 ]
+  %.sroa.0.243.us = phi i32 [ %19, %.split.us.us ], [ %13, %12 ]
+  %14 = shl nuw nsw i32 %.02444.us, 18
+  br label %15
 
-17:                                               ; preds = %29, %.preheader.us
-  %18 = phi i1 [ true, %.preheader.us ], [ false, %29 ]
-  %.042.us.us = phi i32 [ 0, %.preheader.us ], [ 16777216, %29 ]
-  %.sroa.0.341.us.us = phi i32 [ %.sroa.0.243.us, %.preheader.us ], [ %21, %29 ]
-  %19 = and i32 %.sroa.0.341.us.us, -33292289
-  %20 = add nuw nsw i32 %19, %16
-  %21 = add nuw nsw i32 %20, %.042.us.us
-  %22 = load ptr, ptr @pdcp_sequence_analysis_channel_hash, align 8
-  %23 = zext i32 %21 to i64
-  %24 = inttoptr i64 %23 to ptr
-  %25 = tail call ptr @wmem_map_lookup(ptr noundef %22, ptr noundef nonnull %24)
-  %.not29.us.us = icmp eq ptr %25, null
-  br i1 %.not29.us.us, label %29, label %26
+15:                                               ; preds = %27, %.preheader.us
+  %16 = phi i1 [ true, %.preheader.us ], [ false, %27 ]
+  %.042.us.us = phi i32 [ 0, %.preheader.us ], [ 16777216, %27 ]
+  %.sroa.0.341.us.us = phi i32 [ %.sroa.0.243.us, %.preheader.us ], [ %19, %27 ]
+  %17 = and i32 %.sroa.0.341.us.us, -33292289
+  %18 = add nuw nsw i32 %17, %14
+  %19 = add nuw nsw i32 %18, %.042.us.us
+  %20 = load ptr, ptr @pdcp_sequence_analysis_channel_hash, align 8
+  %21 = zext i32 %19 to i64
+  %22 = inttoptr i64 %21 to ptr
+  %23 = tail call ptr @wmem_map_lookup(ptr noundef %20, ptr noundef nonnull %22)
+  %.not29.us.us = icmp eq ptr %23, null
+  br i1 %.not29.us.us, label %27, label %24
 
-26:                                               ; preds = %17
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  store i32 0, ptr %28, align 4
-  store i32 -1, ptr %25, align 4
-  br label %29
+24:                                               ; preds = %15
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store i32 0, ptr %25, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  store i32 0, ptr %26, align 4
+  store i32 -1, ptr %23, align 4
+  br label %27
 
-29:                                               ; preds = %26, %17
-  br i1 %18, label %17, label %.split.us.us, !llvm.loop !11
+27:                                               ; preds = %24, %15
+  br i1 %16, label %15, label %.split.us.us, !llvm.loop !11
 
-.split.us.us:                                     ; preds = %29
-  %30 = add nuw nsw i32 %.02444.us, 1
-  %exitcond50.not = icmp eq i32 %30, 33
+.split.us.us:                                     ; preds = %27
+  %28 = add nuw nsw i32 %.02444.us, 1
+  %exitcond50.not = icmp eq i32 %28, 33
   br i1 %exitcond50.not, label %.loopexit, label %.preheader.us, !llvm.loop !12
 
-31:                                               ; preds = %45
-  %32 = add nuw nsw i32 %.02640, 1
-  %exitcond.not = icmp eq i32 %32, 3
-  br i1 %exitcond.not, label %13, label %.preheader36, !llvm.loop !13
+29:                                               ; preds = %41
+  br i1 %exitcond.not, label %12, label %.preheader36, !llvm.loop !13
 
-33:                                               ; preds = %.preheader36, %45
-  %34 = phi i1 [ true, %.preheader36 ], [ false, %45 ]
-  %.02538 = phi i32 [ 0, %.preheader36 ], [ 16777216, %45 ]
-  %.sroa.0.137 = phi i32 [ %.sroa.0.039, %.preheader36 ], [ %37, %45 ]
-  %35 = and i32 %.sroa.0.137, -33292289
-  %36 = add nuw nsw i32 %35, %12
-  %37 = add nuw nsw i32 %36, %.02538
-  %38 = load ptr, ptr @pdcp_sequence_analysis_channel_hash, align 8
-  %39 = zext i32 %37 to i64
-  %40 = inttoptr i64 %39 to ptr
-  %41 = tail call ptr @wmem_map_lookup(ptr noundef %38, ptr noundef nonnull %40)
-  %.not30 = icmp eq ptr %41, null
-  br i1 %.not30, label %45, label %42
+30:                                               ; preds = %.preheader36, %41
+  %31 = phi i1 [ true, %.preheader36 ], [ false, %41 ]
+  %.02538 = phi i32 [ 0, %.preheader36 ], [ 16777216, %41 ]
+  %32 = or disjoint i32 %11, %.02538
+  %33 = or disjoint i32 %32, 65536
+  %34 = load ptr, ptr @pdcp_sequence_analysis_channel_hash, align 8
+  %35 = zext nneg i32 %33 to i64
+  %36 = inttoptr i64 %35 to ptr
+  %37 = tail call ptr @wmem_map_lookup(ptr noundef %34, ptr noundef nonnull %36)
+  %.not30 = icmp eq ptr %37, null
+  br i1 %.not30, label %41, label %38
 
-42:                                               ; preds = %33
-  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i32 0, ptr %43, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  store i32 0, ptr %44, align 4
-  store i32 -1, ptr %41, align 4
+38:                                               ; preds = %30
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store i32 0, ptr %39, align 4
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  store i32 0, ptr %40, align 4
+  store i32 -1, ptr %37, align 4
+  br label %41
+
+41:                                               ; preds = %30, %38
+  br i1 %31, label %30, label %29, !llvm.loop !14
+
+.preheader:                                       ; preds = %12, %.split
+  %.02444 = phi i32 [ %44, %.split ], [ 1, %12 ]
+  %.sroa.0.243 = phi i32 [ %49, %.split ], [ %13, %12 ]
+  %42 = shl nuw nsw i32 %.02444, 18
+  %43 = trunc nuw nsw i32 %.02444 to i8
   br label %45
 
-45:                                               ; preds = %33, %42
-  br i1 %34, label %33, label %31, !llvm.loop !14
-
-.preheader:                                       ; preds = %13, %.split
-  %.02444 = phi i32 [ %48, %.split ], [ 1, %13 ]
-  %.sroa.0.243 = phi i32 [ %53, %.split ], [ %15, %13 ]
-  %46 = shl nuw nsw i32 %.02444, 18
-  %47 = trunc nuw nsw i32 %.02444 to i8
-  br label %49
-
-.split:                                           ; preds = %64
-  %48 = add nuw nsw i32 %.02444, 1
-  %exitcond49.not = icmp eq i32 %48, 33
+.split:                                           ; preds = %60
+  %44 = add nuw nsw i32 %.02444, 1
+  %exitcond49.not = icmp eq i32 %44, 33
   br i1 %exitcond49.not, label %.loopexit, label %.preheader, !llvm.loop !12
 
-49:                                               ; preds = %.preheader, %64
-  %50 = phi i1 [ true, %.preheader ], [ false, %64 ]
-  %.042 = phi i32 [ 0, %.preheader ], [ 16777216, %64 ]
-  %.sroa.0.341 = phi i32 [ %.sroa.0.243, %.preheader ], [ %53, %64 ]
-  %51 = and i32 %.sroa.0.341, -33292289
-  %52 = add nuw nsw i32 %51, %46
-  %53 = add nuw nsw i32 %52, %.042
-  %54 = load ptr, ptr @pdcp_sequence_analysis_channel_hash, align 8
-  %55 = zext i32 %53 to i64
-  %56 = inttoptr i64 %55 to ptr
-  %57 = tail call ptr @wmem_map_lookup(ptr noundef %54, ptr noundef nonnull %56)
-  %.not29 = icmp eq ptr %57, null
-  br i1 %.not29, label %64, label %58
+45:                                               ; preds = %.preheader, %60
+  %46 = phi i1 [ true, %.preheader ], [ false, %60 ]
+  %.042 = phi i32 [ 0, %.preheader ], [ 16777216, %60 ]
+  %.sroa.0.341 = phi i32 [ %.sroa.0.243, %.preheader ], [ %49, %60 ]
+  %47 = and i32 %.sroa.0.341, -33292289
+  %48 = add nuw nsw i32 %47, %42
+  %49 = add nuw nsw i32 %48, %.042
+  %50 = load ptr, ptr @pdcp_sequence_analysis_channel_hash, align 8
+  %51 = zext i32 %49 to i64
+  %52 = inttoptr i64 %51 to ptr
+  %53 = tail call ptr @wmem_map_lookup(ptr noundef %50, ptr noundef nonnull %52)
+  %.not29 = icmp eq ptr %53, null
+  br i1 %.not29, label %60, label %54
 
-58:                                               ; preds = %49
-  %59 = tail call zeroext i8 @get_mac_lte_channel_mode(i16 noundef zeroext %1, i8 noundef zeroext %47)
-  %60 = icmp eq i8 %59, 2
-  br i1 %60, label %61, label %64
+54:                                               ; preds = %45
+  %55 = tail call zeroext i8 @get_mac_lte_channel_mode(i16 noundef zeroext %1, i8 noundef zeroext %43)
+  %56 = icmp eq i8 %55, 2
+  br i1 %56, label %57, label %60
 
-61:                                               ; preds = %58
-  %62 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store i32 0, ptr %62, align 4
-  %63 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  store i32 0, ptr %63, align 4
-  store i32 -1, ptr %57, align 4
-  br label %64
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  store i32 0, ptr %58, align 4
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  store i32 0, ptr %59, align 4
+  store i32 -1, ptr %53, align 4
+  br label %60
 
-64:                                               ; preds = %49, %61, %58
-  br i1 %50, label %49, label %.split, !llvm.loop !11
+60:                                               ; preds = %45, %57, %54
+  br i1 %46, label %45, label %.split, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.split, %.split.us.us, %3
   ret void
@@ -1288,9 +1282,9 @@ define internal i32 @dissect_pdcp_lte(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %34
 
 34:                                               ; preds = %28, %32
-  %.sink630 = phi i1 [ true, %32 ], [ false, %28 ]
+  %.sink702 = phi i1 [ true, %32 ], [ false, %28 ]
   %35 = load ptr, ptr %19, align 8
-  tail call void @col_set_writable(ptr noundef %35, i32 noundef 25, i1 noundef zeroext %.sink630)
+  tail call void @col_set_writable(ptr noundef %35, i32 noundef 25, i1 noundef zeroext %.sink702)
   %.not399 = icmp eq ptr %2, null
   br i1 %.not399, label %.thread, label %40
 
@@ -1753,7 +1747,7 @@ show_pdcp_config.exit:                            ; preds = %243, %244, %247
   br label %.sink.split
 
 .sink.split:                                      ; preds = %284, %276
-  %.sink632 = phi ptr [ %278, %276 ], [ %286, %284 ]
+  %.sink704 = phi ptr [ %278, %276 ], [ %286, %284 ]
   %.0349.ph = phi ptr [ %275, %276 ], [ null, %284 ]
   %292 = load ptr, ptr @pdcp_security_result_hash, align 8
   %293 = load i16, ptr %271, align 2
@@ -1764,7 +1758,7 @@ show_pdcp_config.exit:                            ; preds = %243, %244, %247
   store i32 %295, ptr %297, align 4
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 4
   store i16 %293, ptr %298, align 4
-  %299 = tail call ptr @wmem_map_insert(ptr noundef %292, ptr noundef %297, ptr noundef %.sink632)
+  %299 = tail call ptr @wmem_map_insert(ptr noundef %292, ptr noundef %297, ptr noundef %.sink704)
   br label %300
 
 300:                                              ; preds = %.sink.split, %279, %263
@@ -1963,9 +1957,9 @@ proto_item_set_generated.exit444:                 ; preds = %proto_item_set_gene
 
 .thread553:                                       ; preds = %392, %398, %385, %389, %382, %391
   %hf_pdcp_lte_seq_num_7.sink = phi ptr [ @hf_pdcp_lte_seq_num_15, %391 ], [ @hf_pdcp_lte_seq_num_7, %382 ], [ @hf_pdcp_lte_seq_num_12, %389 ], [ @hf_pdcp_lte_seq_num_12, %385 ], [ @hf_pdcp_lte_seq_num_18, %398 ], [ @hf_pdcp_lte_seq_num_18, %392 ]
-  %.sink640 = phi i32 [ 2, %391 ], [ 1, %382 ], [ 2, %389 ], [ 2, %385 ], [ 3, %398 ], [ 3, %392 ]
+  %.sink712 = phi i32 [ 2, %391 ], [ 1, %382 ], [ 2, %389 ], [ 2, %385 ], [ 3, %398 ], [ 3, %392 ]
   %400 = load i32, ptr %hf_pdcp_lte_seq_num_7.sink, align 4
-  %401 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.0346538, i32 noundef %400, ptr noundef %0, i32 noundef 0, i32 noundef %.sink640, i32 noundef 0, ptr noundef nonnull %11)
+  %401 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.0346538, i32 noundef %400, ptr noundef %0, i32 noundef 0, i32 noundef %.sink712, i32 noundef 0, ptr noundef nonnull %11)
   %402 = load i32, ptr %11, align 4
   call void (ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %.0347537, ptr noundef %1, ptr noundef nonnull @.str.275, i32 noundef %402)
   br label %.thread549
@@ -2327,7 +2321,7 @@ proto_item_set_generated.exit444:                 ; preds = %proto_item_set_gene
   br label %.critedge432.thread
 
 .thread549:                                       ; preds = %374, %.thread553
-  %.1531552 = phi i32 [ %.sink640, %.thread553 ], [ 1, %374 ]
+  %.1531552 = phi i32 [ %.sink712, %.thread553 ], [ 1, %374 ]
   %580 = load i32, ptr @global_pdcp_check_sequence_numbers, align 4
   switch i32 %580, label %.critedge432.thread [
     i32 2, label %588
@@ -2552,8 +2546,8 @@ decipher_payload.exit.thread:                     ; preds = %604, %608, %614, %6
   %698 = trunc nuw i8 %697 to i1
   %or.cond.i445 = select i1 %696, i1 %698, i1 false
   %cond.i446 = icmp eq i32 %691, 2
-  %or.cond40.i = and i1 %cond.i446, %or.cond.i445
-  br i1 %or.cond40.i, label %699, label %calculate_digest.exit
+  %or.cond41.i = and i1 %cond.i446, %or.cond.i445
+  br i1 %or.cond41.i, label %699, label %calculate_digest.exit
 
 699:                                              ; preds = %693
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

@@ -2615,19 +2615,19 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit..preheader81_crit_edge: ; preds = %_ZNSt6v
   %117 = load i32, ptr %116, align 4, !tbaa !34
   %118 = zext i32 %117 to i64
   %119 = icmp eq i64 %indvars.iv89, %118
-  br i1 %119, label %.split.loop.exit102, label %120
+  br i1 %119, label %.split.loop.exit106, label %120
 
 120:                                              ; preds = %114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split.loop.exit, label %114, !llvm.loop !122
 
-.split.loop.exit102:                              ; preds = %114
+.split.loop.exit106:                              ; preds = %114
   %121 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %120, %.split.loop.exit102
-  %.049.lcssa = phi i32 [ %121, %.split.loop.exit102 ], [ 3, %120 ]
+.split.loop.exit:                                 ; preds = %120, %.split.loop.exit106
+  %.049.lcssa = phi i32 [ %121, %.split.loop.exit106 ], [ 3, %120 ]
   %122 = zext nneg i32 %.049.lcssa to i64
   %123 = mul nsw i64 %24, %122
   %124 = getelementptr i32, ptr %22, i64 %112
@@ -3657,19 +3657,19 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit..preheader81_crit_edge: ; preds = %_ZNSt6v
   %117 = load i32, ptr %116, align 4, !tbaa !34
   %118 = zext i32 %117 to i64
   %119 = icmp eq i64 %indvars.iv89, %118
-  br i1 %119, label %.split.loop.exit102, label %120
+  br i1 %119, label %.split.loop.exit106, label %120
 
 120:                                              ; preds = %114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split.loop.exit, label %114, !llvm.loop !135
 
-.split.loop.exit102:                              ; preds = %114
+.split.loop.exit106:                              ; preds = %114
   %121 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %120, %.split.loop.exit102
-  %.049.lcssa = phi i32 [ %121, %.split.loop.exit102 ], [ 3, %120 ]
+.split.loop.exit:                                 ; preds = %120, %.split.loop.exit106
+  %.049.lcssa = phi i32 [ %121, %.split.loop.exit106 ], [ 3, %120 ]
   %122 = zext nneg i32 %.049.lcssa to i64
   %123 = mul nsw i64 %24, %122
   %124 = getelementptr i32, ptr %22, i64 %112
@@ -4233,19 +4233,19 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit..preheader81_crit_edge: ; preds = %_ZNSt6v
   %117 = load i32, ptr %116, align 4, !tbaa !34
   %118 = zext i32 %117 to i64
   %119 = icmp eq i64 %indvars.iv89, %118
-  br i1 %119, label %.split.loop.exit102, label %120
+  br i1 %119, label %.split.loop.exit106, label %120
 
 120:                                              ; preds = %114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split.loop.exit, label %114, !llvm.loop !145
 
-.split.loop.exit102:                              ; preds = %114
+.split.loop.exit106:                              ; preds = %114
   %121 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %120, %.split.loop.exit102
-  %.049.lcssa = phi i32 [ %121, %.split.loop.exit102 ], [ 3, %120 ]
+.split.loop.exit:                                 ; preds = %120, %.split.loop.exit106
+  %.049.lcssa = phi i32 [ %121, %.split.loop.exit106 ], [ 3, %120 ]
   %122 = zext nneg i32 %.049.lcssa to i64
   %123 = mul nsw i64 %24, %122
   %124 = getelementptr i32, ptr %22, i64 %112
@@ -4877,19 +4877,19 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit..preheader81_crit_edge: ; preds = %_ZNSt6v
   %117 = load i32, ptr %116, align 4, !tbaa !34
   %118 = zext i32 %117 to i64
   %119 = icmp eq i64 %indvars.iv89, %118
-  br i1 %119, label %.split.loop.exit102, label %120
+  br i1 %119, label %.split.loop.exit106, label %120
 
 120:                                              ; preds = %114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split.loop.exit, label %114, !llvm.loop !155
 
-.split.loop.exit102:                              ; preds = %114
+.split.loop.exit106:                              ; preds = %114
   %121 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %120, %.split.loop.exit102
-  %.049.lcssa = phi i32 [ %121, %.split.loop.exit102 ], [ 3, %120 ]
+.split.loop.exit:                                 ; preds = %120, %.split.loop.exit106
+  %.049.lcssa = phi i32 [ %121, %.split.loop.exit106 ], [ 3, %120 ]
   %122 = zext nneg i32 %.049.lcssa to i64
   %123 = mul nsw i64 %24, %122
   %124 = getelementptr i32, ptr %22, i64 %112
@@ -5453,19 +5453,19 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit..preheader81_crit_edge: ; preds = %_ZNSt6v
   %117 = load i32, ptr %116, align 4, !tbaa !34
   %118 = zext i32 %117 to i64
   %119 = icmp eq i64 %indvars.iv89, %118
-  br i1 %119, label %.split.loop.exit102, label %120
+  br i1 %119, label %.split.loop.exit106, label %120
 
 120:                                              ; preds = %114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split.loop.exit, label %114, !llvm.loop !165
 
-.split.loop.exit102:                              ; preds = %114
+.split.loop.exit106:                              ; preds = %114
   %121 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %120, %.split.loop.exit102
-  %.049.lcssa = phi i32 [ %121, %.split.loop.exit102 ], [ 3, %120 ]
+.split.loop.exit:                                 ; preds = %120, %.split.loop.exit106
+  %.049.lcssa = phi i32 [ %121, %.split.loop.exit106 ], [ 3, %120 ]
   %122 = zext nneg i32 %.049.lcssa to i64
   %123 = mul nsw i64 %24, %122
   %124 = getelementptr i32, ptr %22, i64 %112
@@ -6029,19 +6029,19 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit..preheader81_crit_edge: ; preds = %_ZNSt6v
   %117 = load i32, ptr %116, align 4, !tbaa !34
   %118 = zext i32 %117 to i64
   %119 = icmp eq i64 %indvars.iv89, %118
-  br i1 %119, label %.split.loop.exit102, label %120
+  br i1 %119, label %.split.loop.exit106, label %120
 
 120:                                              ; preds = %114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split.loop.exit, label %114, !llvm.loop !175
 
-.split.loop.exit102:                              ; preds = %114
+.split.loop.exit106:                              ; preds = %114
   %121 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %120, %.split.loop.exit102
-  %.049.lcssa = phi i32 [ %121, %.split.loop.exit102 ], [ 3, %120 ]
+.split.loop.exit:                                 ; preds = %120, %.split.loop.exit106
+  %.049.lcssa = phi i32 [ %121, %.split.loop.exit106 ], [ 3, %120 ]
   %122 = zext nneg i32 %.049.lcssa to i64
   %123 = mul nsw i64 %24, %122
   %124 = getelementptr i32, ptr %22, i64 %112
@@ -6605,19 +6605,19 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit..preheader81_crit_edge: ; preds = %_ZNSt6v
   %117 = load i32, ptr %116, align 4, !tbaa !34
   %118 = zext i32 %117 to i64
   %119 = icmp eq i64 %indvars.iv89, %118
-  br i1 %119, label %.split.loop.exit102, label %120
+  br i1 %119, label %.split.loop.exit106, label %120
 
 120:                                              ; preds = %114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split.loop.exit, label %114, !llvm.loop !185
 
-.split.loop.exit102:                              ; preds = %114
+.split.loop.exit106:                              ; preds = %114
   %121 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %120, %.split.loop.exit102
-  %.049.lcssa = phi i32 [ %121, %.split.loop.exit102 ], [ 3, %120 ]
+.split.loop.exit:                                 ; preds = %120, %.split.loop.exit106
+  %.049.lcssa = phi i32 [ %121, %.split.loop.exit106 ], [ 3, %120 ]
   %122 = zext nneg i32 %.049.lcssa to i64
   %123 = mul nsw i64 %24, %122
   %124 = getelementptr i32, ptr %22, i64 %112

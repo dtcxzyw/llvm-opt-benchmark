@@ -784,13 +784,13 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.097.i.i.i, i64 2
   %17 = load i16, ptr %incdec.ptr.i.i.i.i, align 2, !tbaa !36
   %cmp.i55.i.i.i = icmp eq i16 %17, %call37
-  br i1 %cmp.i55.i.i.i, label %invoke.cont40.loopexit.split.loop.exit63, label %if.end10.i.i.i
+  br i1 %cmp.i55.i.i.i, label %invoke.cont40.loopexit.split.loop.exit66, label %if.end10.i.i.i
 
 if.end10.i.i.i:                                   ; preds = %if.end.i.i.i
   %incdec.ptr.i56.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.097.i.i.i, i64 4
   %18 = load i16, ptr %incdec.ptr.i56.i.i.i, align 2, !tbaa !36
   %cmp.i57.i.i.i = icmp eq i16 %18, %call37
-  br i1 %cmp.i57.i.i.i, label %invoke.cont40.loopexit.split.loop.exit61, label %if.end16.i.i.i
+  br i1 %cmp.i57.i.i.i, label %invoke.cont40.loopexit.split.loop.exit64, label %if.end16.i.i.i
 
 if.end16.i.i.i:                                   ; preds = %if.end10.i.i.i
   %incdec.ptr.i58.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.097.i.i.i, i64 6
@@ -849,16 +849,16 @@ invoke.cont40.loopexit.split.loop.exit:           ; preds = %if.end16.i.i.i
   %incdec.ptr.i58.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.097.i.i.i, i64 6
   br label %invoke.cont40
 
-invoke.cont40.loopexit.split.loop.exit61:         ; preds = %if.end10.i.i.i
+invoke.cont40.loopexit.split.loop.exit64:         ; preds = %if.end10.i.i.i
   %incdec.ptr.i56.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.097.i.i.i, i64 4
   br label %invoke.cont40
 
-invoke.cont40.loopexit.split.loop.exit63:         ; preds = %if.end.i.i.i
+invoke.cont40.loopexit.split.loop.exit66:         ; preds = %if.end.i.i.i
   %incdec.ptr.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.097.i.i.i, i64 2
   br label %invoke.cont40
 
-invoke.cont40:                                    ; preds = %for.body.i.i.i, %invoke.cont40.loopexit.split.loop.exit, %invoke.cont40.loopexit.split.loop.exit61, %invoke.cont40.loopexit.split.loop.exit63, %sw.bb38.i.i.i, %sw.bb31.i.i.i, %sw.bb.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %spec.select.i.i.i, %sw.bb38.i.i.i ], [ %incdec.ptr.i58.i.i.i.le, %invoke.cont40.loopexit.split.loop.exit ], [ %incdec.ptr.i56.i.i.i.le, %invoke.cont40.loopexit.split.loop.exit61 ], [ %incdec.ptr.i.i.i.i.le, %invoke.cont40.loopexit.split.loop.exit63 ], [ %__first.sroa.0.097.i.i.i, %for.body.i.i.i ]
+invoke.cont40:                                    ; preds = %for.body.i.i.i, %invoke.cont40.loopexit.split.loop.exit, %invoke.cont40.loopexit.split.loop.exit64, %invoke.cont40.loopexit.split.loop.exit66, %sw.bb38.i.i.i, %sw.bb31.i.i.i, %sw.bb.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %spec.select.i.i.i, %sw.bb38.i.i.i ], [ %incdec.ptr.i58.i.i.i.le, %invoke.cont40.loopexit.split.loop.exit ], [ %incdec.ptr.i56.i.i.i.le, %invoke.cont40.loopexit.split.loop.exit64 ], [ %incdec.ptr.i.i.i.i.le, %invoke.cont40.loopexit.split.loop.exit66 ], [ %__first.sroa.0.097.i.i.i, %for.body.i.i.i ]
   %cmp.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i, %aoids.sroa.11.2
   br i1 %cmp.i, label %_ZNSt10unique_ptrI22TestClientActiveObjectSt14default_deleteIS0_EED2Ev.exit, label %if.then49
 
@@ -2271,8 +2271,8 @@ invoke.cont87.thread:                             ; preds = %_ZNKSt3mapItSt10uni
   %__y.addr.1.i.i.i.i.i215.sroa.sel334.v.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i.i.i.i.i214, ptr %__y.addr.010.i.i.i.i.i212, ptr %__x.addr.011.i.i.i.i.i211
   %__y.addr.1.i.i.i.i.i215.sroa.sel334.v.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i.i215.sroa.sel334.v.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 40
   %58 = load ptr, ptr %__y.addr.1.i.i.i.i.i215.sroa.sel334.v.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !14
-  %cmp8952 = icmp eq ptr %58, %call.i181
-  br i1 %cmp8952, label %while.body.i.i.i.i.i263.preheader, label %if.then90
+  %cmp8966 = icmp eq ptr %58, %call.i181
+  br i1 %cmp8966, label %while.body.i.i.i.i.i263.preheader, label %if.then90
 
 if.then90:                                        ; preds = %invoke.cont87.thread, %invoke.cont87
   %exception91 = call ptr @__cxa_allocate_exception(i64 72) #32

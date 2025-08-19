@@ -129,17 +129,17 @@ define noundef i32 @_Z13read_g96_confP8_IO_FILERKNSt10filesystem7__cxx114pathEPP
 .critedge:                                        ; preds = %47, %.preheader
   %50 = tail call noundef ptr @_Z6fgets2PciP8_IO_FILE(ptr noundef %5, i32 noundef 4096, ptr noundef %0)
   %.not106 = icmp eq ptr %2, null
-  br i1 %.not106, label %.preheader256, label %51
+  br i1 %.not106, label %.preheader283, label %51
 
 51:                                               ; preds = %.critedge
   %52 = tail call noundef ptr @_Z10gmx_strdupPKc(ptr noundef %5)
   store ptr %52, ptr %2, align 8, !tbaa !6
-  br label %.preheader256
+  br label %.preheader283
 
-.preheader256:                                    ; preds = %51, %.critedge
+.preheader283:                                    ; preds = %51, %.critedge
   br label %53
 
-53:                                               ; preds = %.preheader256, %55
+53:                                               ; preds = %.preheader283, %55
   %54 = tail call noundef ptr @_Z6fgets2PciP8_IO_FILE(ptr noundef %5, i32 noundef 4096, ptr noundef %0)
   %.not107 = icmp eq ptr %54, null
   br i1 %.not107, label %.critedge2, label %55
@@ -291,7 +291,7 @@ sub_0.i:                                          ; preds = %.thread.i.thread, %
   %.081130.i157 = phi i32 [ %.182.i, %234 ], [ -666, %.thread.i.thread ]
   %.078131.i156 = phi i32 [ %.179.i, %234 ], [ -1, %.thread.i.thread ]
   %130 = load i8, ptr %5, align 1
-  switch i8 %130, label %.thread139.i [
+  switch i8 %130, label %.thread152.i [
     i8 69, label %sub_1.i
     i8 35, label %234
   ]
@@ -299,19 +299,19 @@ sub_0.i:                                          ; preds = %.thread.i.thread, %
 sub_1.i:                                          ; preds = %sub_0.i
   %131 = load i8, ptr %68, align 1
   %.not133.i = icmp eq i8 %131, 78
-  br i1 %.not133.i, label %.tail.i, label %.thread139.i
+  br i1 %.not133.i, label %.tail.i, label %.thread152.i
 
 .tail.i:                                          ; preds = %sub_1.i
   %132 = load i8, ptr %69, align 1
   %133 = icmp eq i8 %132, 68
-  br i1 %133, label %.critedge.i, label %.thread139.i
+  br i1 %133, label %.critedge.i, label %.thread152.i
 
-.thread139.i:                                     ; preds = %.tail.i, %sub_1.i, %sub_0.i
+.thread152.i:                                     ; preds = %.tail.i, %sub_1.i, %sub_0.i
   %134 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %125, ptr noundef nonnull @.str.11, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25) #17
   %.not100.i = icmp eq i32 %134, 3
   br i1 %.not100.i, label %152, label %135
 
-135:                                              ; preds = %.thread139.i
+135:                                              ; preds = %.thread152.i
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @_ZNSt10filesystem7__cxx114pathC2IA122_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 1 dereferenceable(122) @.str.9, i8 noundef zeroext 2)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
@@ -360,7 +360,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %261
 
-152:                                              ; preds = %.thread139.i
+152:                                              ; preds = %.thread152.i
   %.not102.i = icmp slt i32 %.185129.i158, %117
   %or.cond.i = select i1 %.not101.i, i1 true, i1 %.not102.i
   br i1 %or.cond.i, label %169, label %153
@@ -702,7 +702,7 @@ _ZL12read_g96_posPcP8t_symtabP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxfr
 sub_0.i114:                                       ; preds = %265, %325
   %.14168.i161 = phi i32 [ %.242.i, %325 ], [ 0, %265 ]
   %271 = load i8, ptr %5, align 1
-  switch i8 %271, label %.thread74.i [
+  switch i8 %271, label %.thread81.i [
     i8 69, label %sub_1.i115
     i8 35, label %325
   ]
@@ -710,19 +710,19 @@ sub_0.i114:                                       ; preds = %265, %325
 sub_1.i115:                                       ; preds = %sub_0.i114
   %272 = load i8, ptr %68, align 1
   %.not70.i = icmp eq i8 %272, 78
-  br i1 %.not70.i, label %.tail.i121, label %.thread74.i
+  br i1 %.not70.i, label %.tail.i121, label %.thread81.i
 
 .tail.i121:                                       ; preds = %sub_1.i115
   %273 = load i8, ptr %69, align 1
   %274 = icmp eq i8 %273, 68
-  br i1 %274, label %.critedge.i122, label %.thread74.i
+  br i1 %274, label %.critedge.i122, label %.thread81.i
 
-.thread74.i:                                      ; preds = %.tail.i121, %sub_1.i115, %sub_0.i114
+.thread81.i:                                      ; preds = %.tail.i121, %sub_1.i115, %sub_0.i114
   %275 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %269, ptr noundef nonnull @.str.11, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #17
   %.not49.i = icmp eq i32 %275, 3
   br i1 %.not49.i, label %293, label %276
 
-276:                                              ; preds = %.thread74.i
+276:                                              ; preds = %.thread81.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZNSt10filesystem7__cxx114pathC2IA122_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 1 dereferenceable(122) @.str.9, i8 noundef zeroext 2)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -771,7 +771,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i116: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %352
 
-293:                                              ; preds = %.thread74.i
+293:                                              ; preds = %.thread81.i
   %.not51.i = icmp slt i32 %.14168.i161, %266
   %or.cond.i119 = select i1 %.not50.i, i1 true, i1 %.not51.i
   br i1 %or.cond.i119, label %310, label %294
@@ -967,12 +967,12 @@ _ZL12read_g96_velPcP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit: 
   %363 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %364 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %365 = call noundef ptr @_Z6fgets2PciP8_IO_FILE(ptr noundef nonnull %5, i32 noundef 4096, ptr noundef %0)
-  %.not108234 = icmp eq ptr %365, null
-  br i1 %.not108234, label %.critedge9, label %sub_0
+  %.not108261 = icmp eq ptr %365, null
+  br i1 %.not108261, label %.critedge9, label %sub_0
 
 sub_0:                                            ; preds = %354, %409
   %366 = load i8, ptr %5, align 1
-  switch i8 %366, label %.thread190 [
+  switch i8 %366, label %.thread217 [
     i8 69, label %sub_1
     i8 35, label %409
   ]
@@ -980,19 +980,19 @@ sub_0:                                            ; preds = %354, %409
 sub_1:                                            ; preds = %sub_0
   %367 = load i8, ptr %68, align 1
   %.not167 = icmp eq i8 %367, 78
-  br i1 %.not167, label %.tail, label %.thread190
+  br i1 %.not167, label %.tail, label %.thread217
 
 .tail:                                            ; preds = %sub_1
   %368 = load i8, ptr %69, align 1
   %369 = icmp eq i8 %368, 68
-  br i1 %369, label %.critedge9, label %.thread190
+  br i1 %369, label %.critedge9, label %.thread217
 
-.thread190:                                       ; preds = %sub_0, %.tail, %sub_1
+.thread217:                                       ; preds = %sub_0, %.tail, %sub_1
   %370 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.8, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef nonnull %41) #17
   %371 = icmp slt i32 %370, 3
   br i1 %371, label %372, label %388
 
-372:                                              ; preds = %.thread190
+372:                                              ; preds = %.thread217
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call void @_ZNSt10filesystem7__cxx114pathC2IA122_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 1 dereferenceable(122) @.str.9, i8 noundef zeroext 2)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
@@ -1049,7 +1049,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %common.resume
 
-388:                                              ; preds = %.thread190
+388:                                              ; preds = %.thread217
   %389 = load double, ptr %33, align 8, !tbaa !28
   %390 = fptrunc double %389 to float
   store float %390, ptr %356, align 4, !tbaa !57

@@ -2340,8 +2340,8 @@ define internal i32 @packet_setsockopt(ptr noundef readonly captures(none) %0, i
   br i1 %79, label %._crit_edge15, label %82
 
 ._crit_edge15:                                    ; preds = %73, %76
-  %.in18 = phi ptr [ %9, %76 ], [ %3, %73 ]
-  %80 = load i32, ptr %.in18, align 1
+  %.in20 = phi ptr [ %9, %76 ], [ %3, %73 ]
+  %80 = load i32, ptr %.in20, align 1
   %81 = getelementptr inbounds nuw i8, ptr %22, i64 1168
   store i32 %80, ptr %81, align 16
   br label %82
@@ -2715,8 +2715,8 @@ thread-pre-split9:                                ; preds = %218
   br i1 %255, label %._crit_edge, label %258
 
 ._crit_edge:                                      ; preds = %249, %252
-  %.in17 = phi ptr [ %16, %252 ], [ %3, %249 ]
-  %256 = load i32, ptr %.in17, align 1
+  %.in19 = phi ptr [ %16, %252 ], [ %3, %249 ]
+  %256 = load i32, ptr %.in19, align 1
   %257 = getelementptr inbounds nuw i8, ptr %22, i64 1260
   store volatile i32 %256, ptr %257, align 4
   br label %258
@@ -4145,15 +4145,15 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   br label %653
 
 .loopexit100.sink.split:                          ; preds = %.thread, %314
-  %.lcssa173.sink = phi i32 [ %.ph.ph, %314 ], [ %604, %.thread ]
-  %.ph174 = phi i32 [ 1, %314 ], [ 4, %.thread ]
-  %.ph175 = phi ptr [ null, %314 ], [ %607, %.thread ]
-  store i32 %.lcssa173.sink, ptr %8, align 4
+  %.lcssa226.sink = phi i32 [ %.ph.ph, %314 ], [ %604, %.thread ]
+  %.ph227 = phi i32 [ 1, %314 ], [ 4, %.thread ]
+  %.ph228 = phi ptr [ null, %314 ], [ %607, %.thread ]
+  store i32 %.lcssa226.sink, ptr %8, align 4
   br label %.loopexit100
 
 .loopexit100:                                     ; preds = %.thread76, %.loopexit100.sink.split, %314
-  %651 = phi i32 [ 1, %314 ], [ %.ph174, %.loopexit100.sink.split ], [ 1, %.thread76 ]
-  %652 = phi ptr [ null, %314 ], [ %.ph175, %.loopexit100.sink.split ], [ null, %.thread76 ]
+  %651 = phi i32 [ 1, %314 ], [ %.ph227, %.loopexit100.sink.split ], [ 1, %.thread76 ]
+  %652 = phi ptr [ null, %314 ], [ %.ph228, %.loopexit100.sink.split ], [ null, %.thread76 ]
   %.val65 = load i32, ptr %126, align 32
   call fastcc void @__packet_set_status(i32 %.val65, ptr noundef nonnull %.us-phi, i32 noundef %651)
   call void @kfree_skb_reason(ptr noundef %652, i32 noundef 2) #19
@@ -4955,7 +4955,7 @@ define internal i32 @packet_recvmsg(ptr noundef readonly captures(none) %0, ptr 
 .thread:                                          ; preds = %35, %67, %101, %100
   %.ph7 = phi i32 [ -14, %100 ], [ -14, %101 ], [ -22, %67 ], [ -22, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.sink.split12
+  br label %.sink.split17
 
 105:                                              ; preds = %101
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -5067,9 +5067,9 @@ define internal i32 @packet_recvmsg(ptr noundef readonly captures(none) %0, ptr 
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %168, ptr %169, align 8
   %170 = icmp ult i8 %166, 8
-  br i1 %170, label %.thread10, label %172
+  br i1 %170, label %.thread15, label %172
 
-.thread10:                                        ; preds = %164
+.thread15:                                        ; preds = %164
   %171 = getelementptr i8, ptr %158, i64 12
   store i64 0, ptr %171, align 1
   store i32 20, ptr %169, align 8
@@ -5086,8 +5086,8 @@ define internal i32 @packet_recvmsg(ptr noundef readonly captures(none) %0, ptr 
   store i32 48, ptr %169, align 8
   br label %175
 
-175:                                              ; preds = %.thread10, %.thread8, %174, %172
-  %176 = phi i32 [ 48, %174 ], [ %168, %172 ], [ 18, %.thread8 ], [ %168, %.thread10 ]
+175:                                              ; preds = %.thread15, %.thread8, %174, %172
+  %176 = phi i32 [ 48, %174 ], [ %168, %172 ], [ 18, %.thread8 ], [ %168, %.thread15 ]
   %177 = load ptr, ptr %1, align 8
   %178 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %179 = zext nneg i32 %176 to i64
@@ -5120,12 +5120,12 @@ define internal i32 @packet_recvmsg(ptr noundef readonly captures(none) %0, ptr 
   br i1 %194, label %195, label %.sink.split
 
 .sink.split:                                      ; preds = %192, %184
-  %.sink11 = phi i32 [ 9, %184 ], [ 129, %192 ]
-  store i32 %.sink11, ptr %7, align 4
+  %.sink16 = phi i32 [ 9, %184 ], [ 129, %192 ]
+  store i32 %.sink16, ptr %7, align 4
   br label %195
 
 195:                                              ; preds = %.sink.split, %192, %189
-  %196 = phi i32 [ 1, %192 ], [ 1, %189 ], [ %.sink11, %.sink.split ]
+  %196 = phi i32 [ 1, %192 ], [ 1, %189 ], [ %.sink16, %.sink.split ]
   %197 = getelementptr inbounds nuw i8, ptr %22, i64 192
   %198 = load ptr, ptr %197, align 8
   %199 = getelementptr inbounds nuw i8, ptr %22, i64 188
@@ -5207,14 +5207,14 @@ define internal i32 @packet_recvmsg(ptr noundef readonly captures(none) %0, ptr 
 248:                                              ; preds = %246, %243
   %249 = phi i32 [ %247, %246 ], [ %118, %243 ]
   %250 = add i32 %249, %12
-  br label %.sink.split12
+  br label %.sink.split17
 
-.sink.split12:                                    ; preds = %248, %.thread
+.sink.split17:                                    ; preds = %248, %.thread
   %.ph7.sink = phi i32 [ %.ph7, %.thread ], [ %250, %248 ]
   store i32 %.ph7.sink, ptr %6, align 4
   br label %251
 
-251:                                              ; preds = %.sink.split12, %117
+251:                                              ; preds = %.sink.split17, %117
   call void @skb_free_datagram(ptr noundef %9, ptr noundef nonnull %22) #19
   br label %252
 
@@ -5563,8 +5563,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @packet_set_ring(ptr nounde
   %122 = select i1 %120, i64 -1, i64 %121
   br label %128
 
-.sink.split:                                      ; preds = %133, %.thread35
-  %.sink = phi ptr [ %132, %.thread35 ], [ %134, %133 ]
+.sink.split:                                      ; preds = %133, %.thread51
+  %.sink = phi ptr [ %132, %.thread51 ], [ %134, %133 ]
   %123 = sext i32 %129 to i64
   %124 = getelementptr %struct.pgv, ptr %113, i64 %123
   store ptr %.sink, ptr %124, align 8
@@ -5579,9 +5579,9 @@ define internal fastcc noundef range(i32 -22, 1) i32 @packet_set_ring(ptr nounde
   %129 = phi i32 [ 0, %117 ], [ %126, %125 ]
   %130 = tail call i64 @__get_free_pages(i32 noundef 339392, i32 noundef %110) #19
   %131 = icmp eq i64 %130, 0
-  br i1 %131, label %133, label %.thread35
+  br i1 %131, label %133, label %.thread51
 
-.thread35:                                        ; preds = %128
+.thread51:                                        ; preds = %128
   %132 = inttoptr i64 %130 to ptr
   br label %.sink.split
 
@@ -6646,9 +6646,9 @@ define internal noundef i32 @tpacket_rcv(ptr noundef %0, ptr noundef readonly ca
   unreachable
 
 select.unfold.sink.split:                         ; preds = %358, %374
-  %.sink20 = phi i32 [ %376, %374 ], [ 0, %358 ]
+  %.sink35 = phi i32 [ %376, %374 ], [ 0, %358 ]
   %430 = getelementptr inbounds nuw i8, ptr %321, i64 28
-  store i32 %.sink20, ptr %430, align 4
+  store i32 %.sink35, ptr %430, align 4
   br label %select.unfold
 
 select.unfold:                                    ; preds = %select.unfold.sink.split, %231
@@ -6657,9 +6657,9 @@ select.unfold:                                    ; preds = %select.unfold.sink.
   br i1 %432, label %.thread, label %.thread17
 
 .thread17.sink.split:                             ; preds = %410, %426
-  %.sink22 = phi i32 [ %428, %426 ], [ 0, %410 ]
+  %.sink37 = phi i32 [ %428, %426 ], [ 0, %410 ]
   %433 = getelementptr inbounds nuw i8, ptr %378, i64 28
-  store i32 %.sink22, ptr %433, align 4
+  store i32 %.sink37, ptr %433, align 4
   br label %.thread17
 
 .thread17:                                        ; preds = %.thread17.sink.split, %select.unfold

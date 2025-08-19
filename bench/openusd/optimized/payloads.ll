@@ -3327,25 +3327,25 @@ _ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePo
   br i1 %175, label %.sink.split.sink.split, label %.sink.split
 
 .sink.split.sink.split.sink.split:                ; preds = %29, %72, %113, %154
-  %.sink133 = phi ptr [ %148, %154 ], [ %107, %113 ], [ %66, %72 ], [ %23, %29 ]
+  %.sink152 = phi ptr [ %148, %154 ], [ %107, %113 ], [ %66, %72 ], [ %23, %29 ]
   %.sink.ph.ph = phi i32 [ 5, %154 ], [ 5, %113 ], [ 4, %72 ], [ 4, %29 ]
   %.0.ph.ph.ph = phi i1 [ true, %154 ], [ false, %113 ], [ true, %72 ], [ false, %29 ]
-  %176 = getelementptr inbounds nuw i8, ptr %.sink133, i64 12
+  %176 = getelementptr inbounds nuw i8, ptr %.sink152, i64 12
   store i32 0, ptr %176, align 4
-  %177 = load ptr, ptr %.sink133, align 8
+  %177 = load ptr, ptr %.sink152, align 8
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %179 = load ptr, ptr %178, align 8
-  tail call void %179(ptr noundef nonnull align 8 dereferenceable(16) %.sink133) #15
+  tail call void %179(ptr noundef nonnull align 8 dereferenceable(16) %.sink152) #15
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %.sink.split.sink.split.sink.split, %174, %133, %92, %49
-  %.sink126 = phi ptr [ %23, %49 ], [ %66, %92 ], [ %107, %133 ], [ %148, %174 ], [ %.sink133, %.sink.split.sink.split.sink.split ]
+  %.sink145 = phi ptr [ %23, %49 ], [ %66, %92 ], [ %107, %133 ], [ %148, %174 ], [ %.sink152, %.sink.split.sink.split.sink.split ]
   %.sink.ph = phi i32 [ 4, %49 ], [ 4, %92 ], [ 5, %133 ], [ 5, %174 ], [ %.sink.ph.ph, %.sink.split.sink.split.sink.split ]
   %.0.ph.ph = phi i1 [ false, %49 ], [ true, %92 ], [ false, %133 ], [ true, %174 ], [ %.0.ph.ph.ph, %.sink.split.sink.split.sink.split ]
-  %180 = load ptr, ptr %.sink126, align 8
+  %180 = load ptr, ptr %.sink145, align 8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 24
   %182 = load ptr, ptr %181, align 8
-  tail call void %182(ptr noundef nonnull align 8 dereferenceable(16) %.sink126) #15
+  tail call void %182(ptr noundef nonnull align 8 dereferenceable(16) %.sink145) #15
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %_ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEE16GetAppendedItemsEv.exit50, %161, %174, %_ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEE16GetAppendedItemsEv.exit, %120, %133, %_ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEE17GetPrependedItemsEv.exit17, %79, %92, %_ZNK32pxrInternal_v0_24__pxrReserved__18SdfListEditorProxyINS_20SdfPayloadTypePolicyEE17GetPrependedItemsEv.exit, %36, %49

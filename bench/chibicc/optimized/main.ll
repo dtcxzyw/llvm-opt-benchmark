@@ -434,8 +434,8 @@ sub_1239.i:                                       ; preds = %sub_0238.i
 
 .thread.i:                                        ; preds = %sub_0238.i
   %113 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(9) @.str.19) #19
-  %.not187375.i = icmp eq i32 %113, 0
-  br i1 %.not187375.i, label %114, label %.tail278.thread.i
+  %.not187382.i = icmp eq i32 %113, 0
+  br i1 %.not187382.i, label %114, label %.tail278.thread.i
 
 114:                                              ; preds = %.thread.i, %.tail265.i
   %115 = add nsw i32 %.0166320.i, 1
@@ -683,7 +683,7 @@ sub_1284.i:                                       ; preds = %sub_0283.i
   br label %define.exit.i
 
 sub_0293.i:                                       ; preds = %215
-  br i1 %.not326.i, label %sub_1294.i, label %.thread386.i
+  br i1 %.not326.i, label %sub_1294.i, label %.thread393.i
 
 sub_1294.i:                                       ; preds = %sub_0293.i
   %218 = getelementptr inbounds nuw i8, ptr %36, i64 1
@@ -717,12 +717,12 @@ sub_1294.i:                                       ; preds = %sub_0293.i
   %.not210.i = icmp eq i32 %231, 0
   br i1 %.not210.i, label %233, label %sub_0302.i
 
-.thread386.i:                                     ; preds = %sub_0293.i
+.thread393.i:                                     ; preds = %sub_0293.i
   %232 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(14) @.str.39) #19
-  %.not210387.i = icmp eq i32 %232, 0
-  br i1 %.not210387.i, label %233, label %.tail309.thread.i
+  %.not210394.i = icmp eq i32 %232, 0
+  br i1 %.not210394.i, label %233, label %.tail309.thread.i
 
-233:                                              ; preds = %.thread386.i, %.tail297.i
+233:                                              ; preds = %.thread393.i, %.tail297.i
   call void @hashmap_test() #18
   call void @exit(i32 noundef 0) #20
   unreachable
@@ -734,7 +734,7 @@ sub_0302.i:                                       ; preds = %.tail297.i
     i8 103, label %define.exit.i
   ]
 
-.tail309.thread.i:                                ; preds = %sub_0302.i, %.thread386.i
+.tail309.thread.i:                                ; preds = %sub_0302.i, %.thread393.i
   %234 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(6) @.str.43, i64 noundef 5) #19
   %.not214.i = icmp eq i32 %234, 0
   br i1 %.not214.i, label %define.exit.i, label %235
@@ -780,7 +780,7 @@ sub_0314.i:                                       ; preds = %247
 sub_1315.i:                                       ; preds = %sub_0314.i
   %249 = getelementptr inbounds nuw i8, ptr %36, i64 1
   %250 = load i8, ptr %249, align 1
-  switch i8 %250, label %.thread393.i.thread [
+  switch i8 %250, label %.thread400.i.thread [
     i8 119, label %.tail313.i
     i8 0, label %254
   ]
@@ -789,9 +789,9 @@ sub_1315.i:                                       ; preds = %sub_0314.i
   %251 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %252 = load i8, ptr %251, align 1
   %253 = icmp eq i8 %252, 0
-  br i1 %253, label %define.exit.i, label %.thread393.i.thread
+  br i1 %253, label %define.exit.i, label %.thread400.i.thread
 
-.thread393.i.thread:                              ; preds = %sub_1315.i, %.tail313.i
+.thread400.i.thread:                              ; preds = %sub_1315.i, %.tail313.i
   call void (ptr, ...) @error(ptr noundef nonnull @.str.52, ptr noundef nonnull %36) #20
   unreachable
 

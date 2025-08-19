@@ -430,9 +430,9 @@ entry:
 
 .noexc.i:                                         ; preds = %entry
   %call.i2.i.i.i = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St13unordered_mapIN8facebook5velox4exec17FunctionSignatureESt10unique_ptrIKNSB_13FunctionEntryESt14default_deleteISF_EESt4hashISC_ESt8equal_toISC_ESaIS6_IKSC_SI_EEEESaISR_ENSt8__detail10_Select1stESL_IS5_ESJ_IS5_ENST_18_Mod_range_hashingENST_20_Default_ranged_hashENST_20_Prime_rehash_policyENST_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %sanitizedName.i.i.i)
-          to label %_ZN8facebook5velox4exec12_GLOBAL__N_115getSignatureMapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapIS8_SB_INS1_17FunctionSignatureESt10unique_ptrIKNS1_13FunctionEntryESt14default_deleteISF_EESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SI_EEESJ_IS8_ESL_IS8_ESaISN_IS9_SR_EEE.exit.i.i unwind label %lpad.body.thread6
+          to label %_ZN8facebook5velox4exec12_GLOBAL__N_115getSignatureMapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapIS8_SB_INS1_17FunctionSignatureESt10unique_ptrIKNS1_13FunctionEntryESt14default_deleteISF_EESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SI_EEESJ_IS8_ESL_IS8_ESaISN_IS9_SR_EEE.exit.i.i unwind label %lpad.body.thread9
 
-lpad.body.thread6:                                ; preds = %.noexc.i
+lpad.body.thread9:                                ; preds = %.noexc.i
   %0 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %sanitizedName.i.i.i) #16
@@ -600,9 +600,9 @@ if.then.i.i.i:                                    ; preds = %lpad.body
   call void @_ZdlPv(ptr noundef nonnull %15) #20
   br label %_ZNSt6vectorIPKN8facebook5velox4exec17FunctionSignatureESaIS5_EED2Ev.exit
 
-_ZNSt6vectorIPKN8facebook5velox4exec17FunctionSignatureESaIS5_EED2Ev.exit: ; preds = %lpad.body.thread6, %lpad.body, %if.then.i.i.i
-  %eh.lpad-body5 = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad.body ], [ %eh.lpad-body.i, %if.then.i.i.i ], [ %0, %lpad.body.thread6 ]
-  resume { ptr, i32 } %eh.lpad-body5
+_ZNSt6vectorIPKN8facebook5velox4exec17FunctionSignatureESaIS5_EED2Ev.exit: ; preds = %lpad.body.thread9, %lpad.body, %if.then.i.i.i
+  %eh.lpad-body8 = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad.body ], [ %eh.lpad-body.i, %if.then.i.i.i ], [ %0, %lpad.body.thread9 ]
+  resume { ptr, i32 } %eh.lpad-body8
 
 nrvo.skipdtor:                                    ; preds = %if.then.i.i6.i, %invoke.cont2.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)

@@ -791,8 +791,8 @@ zbee_get_bit_field.exit270.i:                     ; preds = %.lr.ph.i266.i
 zbee_get_bit_field.exit275.i:                     ; preds = %.lr.ph.i271.i
   %68 = and i32 %.0711.i273.i, 2
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  %.lobit390.i = lshr exact i32 %68, 1
-  %70 = trunc nuw nsw i32 %.lobit390.i to i8
+  %.lobit416.i = lshr exact i32 %68, 1
+  %70 = trunc nuw nsw i32 %.lobit416.i to i8
   store i8 %70, ptr %69, align 2
   br label %.lr.ph.i276.i
 
@@ -808,8 +808,8 @@ zbee_get_bit_field.exit275.i:                     ; preds = %.lr.ph.i271.i
 zbee_get_bit_field.exit280.i:                     ; preds = %.lr.ph.i276.i
   %74 = and i32 %.0711.i278.i, 2
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  %.lobit391.i = lshr exact i32 %74, 1
-  %76 = trunc nuw nsw i32 %.lobit391.i to i8
+  %.lobit417.i = lshr exact i32 %74, 1
+  %76 = trunc nuw nsw i32 %.lobit417.i to i8
   store i8 %76, ptr %75, align 1
   br label %.lr.ph.i281.i
 
@@ -825,8 +825,8 @@ zbee_get_bit_field.exit280.i:                     ; preds = %.lr.ph.i276.i
 zbee_get_bit_field.exit285.i:                     ; preds = %.lr.ph.i281.i
   %80 = and i32 %.0711.i283.i, 2
   %81 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %.lobit392.i = lshr exact i32 %80, 1
-  %82 = trunc nuw nsw i32 %.lobit392.i to i8
+  %.lobit418.i = lshr exact i32 %80, 1
+  %82 = trunc nuw nsw i32 %.lobit418.i to i8
   store i8 %82, ptr %81, align 4
   br label %.lr.ph.i286.i
 
@@ -840,15 +840,15 @@ zbee_get_bit_field.exit285.i:                     ; preds = %.lr.ph.i281.i
   br i1 %.not.i289.i, label %.lr.ph.i286.i, label %zbee_get_bit_field.exit290.i, !llvm.loop !6
 
 zbee_get_bit_field.exit290.i:                     ; preds = %.lr.ph.i286.i
-  %.not389.i = icmp eq i32 %63, 0
-  %.not421.i = icmp eq i32 %68, 0
-  %.not422.i = icmp eq i32 %74, 0
+  %.not415.i = icmp eq i32 %63, 0
+  %.not447.i = icmp eq i32 %68, 0
+  %.not448.i = icmp eq i32 %74, 0
   %86 = icmp ne i32 %80, 0
   %87 = and i32 %.0711.i288.i, 2
-  %.not394.i = icmp eq i32 %87, 0
+  %.not420.i = icmp eq i32 %87, 0
   %88 = getelementptr inbounds nuw i8, ptr %8, i64 5
-  %.lobit393.i = lshr exact i32 %87, 1
-  %89 = trunc nuw nsw i32 %.lobit393.i to i8
+  %.lobit419.i = lshr exact i32 %87, 1
+  %89 = trunc nuw nsw i32 %.lobit419.i to i8
   store i8 %89, ptr %88, align 1
   %90 = icmp samesign ugt i32 %50, 1
   %91 = load i32, ptr @hf_zbee_nwk_fcf, align 4
@@ -1047,20 +1047,20 @@ proto_item_set_hidden.exit305.i:                  ; preds = %proto_item_set_hidd
   br i1 %90, label %proto_item_set_hidden.exit305.thread.i, label %.loopexit.i
 
 proto_item_set_hidden.exit305.thread.i:           ; preds = %proto_item_set_hidden.exit305.i, %190, %186, %183, %176
-  %.1401.i = phi i32 [ 8, %proto_item_set_hidden.exit305.i ], [ 16, %190 ], [ 16, %186 ], [ 16, %176 ], [ 16, %183 ]
+  %.1427.i = phi i32 [ 8, %proto_item_set_hidden.exit305.i ], [ 16, %190 ], [ 16, %186 ], [ 16, %176 ], [ 16, %183 ]
   %194 = getelementptr inbounds nuw i8, ptr %3, i64 30
   %195 = load i16, ptr %194, align 2
   store i16 %195, ptr %9, align 2
-  br i1 %.not394.i, label %230, label %196
+  br i1 %.not420.i, label %230, label %196
 
 196:                                              ; preds = %proto_item_set_hidden.exit305.thread.i
-  %197 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %.1401.i)
+  %197 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %.1427.i)
   %198 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %197, ptr %198, align 8
   %199 = load i32, ptr @hf_zbee_nwk_src64, align 4
-  %200 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %199, ptr noundef %0, i32 noundef %.1401.i, i32 noundef 8, i32 noundef -2147483648)
+  %200 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %199, ptr noundef %0, i32 noundef %.1427.i, i32 noundef 8, i32 noundef -2147483648)
   %201 = load i32, ptr @hf_zbee_nwk_addr64, align 4
-  %202 = tail call ptr @proto_tree_add_eui64(ptr noundef %42, i32 noundef %201, ptr noundef %0, i32 noundef %.1401.i, i32 noundef 8, i64 noundef %197)
+  %202 = tail call ptr @proto_tree_add_eui64(ptr noundef %42, i32 noundef %201, ptr noundef %0, i32 noundef %.1427.i, i32 noundef 8, i64 noundef %197)
   store ptr %202, ptr %7, align 8
   %.not.i306.i = icmp eq ptr %202, null
   br i1 %.not.i306.i, label %proto_item_set_hidden.exit311.i, label %203
@@ -1088,7 +1088,7 @@ proto_item_set_hidden.exit305.thread.i:           ; preds = %proto_item_set_hidd
   br label %proto_item_set_hidden.exit311.i
 
 proto_item_set_hidden.exit311.i:                  ; preds = %210, %206, %203, %196
-  %214 = add nuw nsw i32 %.1401.i, 8
+  %214 = add nuw nsw i32 %.1427.i, 8
   %215 = load ptr, ptr %19, align 8
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 57
   %217 = load i16, ptr %216, align 1
@@ -1166,7 +1166,7 @@ proto_item_set_hidden.exit311.i:                  ; preds = %210, %206, %203, %1
   %254 = load i32, ptr @hf_zbee_nwk_src64, align 4
   %255 = getelementptr inbounds nuw i8, ptr %252, i64 16
   %256 = load i64, ptr %255, align 8
-  %257 = tail call ptr @proto_tree_add_eui64(ptr noundef %42, i32 noundef %254, ptr noundef %0, i32 noundef %.1401.i, i32 noundef 0, i64 noundef %256)
+  %257 = tail call ptr @proto_tree_add_eui64(ptr noundef %42, i32 noundef %254, ptr noundef %0, i32 noundef %.1427.i, i32 noundef 0, i64 noundef %256)
   %.not.i312.i = icmp eq ptr %257, null
   br i1 %.not.i312.i, label %proto_item_set_generated.exit314.i, label %258
 
@@ -1188,7 +1188,7 @@ proto_item_set_generated.exit314.i:               ; preds = %261, %258, %253
   %266 = load ptr, ptr %251, align 8
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 16
   %268 = load i64, ptr %267, align 8
-  %269 = tail call ptr @proto_tree_add_eui64(ptr noundef %42, i32 noundef %265, ptr noundef %0, i32 noundef %.1401.i, i32 noundef 0, i64 noundef %268)
+  %269 = tail call ptr @proto_tree_add_eui64(ptr noundef %42, i32 noundef %265, ptr noundef %0, i32 noundef %.1427.i, i32 noundef 0, i64 noundef %268)
   %.not.i315.i = icmp eq ptr %269, null
   br i1 %.not.i315.i, label %proto_item_set_hidden.exit320.i, label %270
 
@@ -1250,7 +1250,7 @@ proto_item_set_hidden.exit320.i:                  ; preds = %277, %273, %270, %p
   br label %proto_item_set_generated.exit323.i
 
 proto_item_set_generated.exit323.i:               ; preds = %293, %290, %289, %250, %249, %247, %243, %241, %223, %220, %220, %220, %proto_item_set_hidden.exit311.i
-  %.3.i = phi i32 [ %214, %223 ], [ %214, %220 ], [ %214, %proto_item_set_hidden.exit311.i ], [ %.1401.i, %241 ], [ %.1401.i, %247 ], [ %.1401.i, %243 ], [ %.1401.i, %250 ], [ %.1401.i, %249 ], [ %214, %220 ], [ %214, %220 ], [ %.1401.i, %289 ], [ %.1401.i, %290 ], [ %.1401.i, %293 ]
+  %.3.i = phi i32 [ %214, %223 ], [ %214, %220 ], [ %214, %proto_item_set_hidden.exit311.i ], [ %.1427.i, %241 ], [ %.1427.i, %247 ], [ %.1427.i, %243 ], [ %.1427.i, %250 ], [ %.1427.i, %249 ], [ %214, %220 ], [ %214, %220 ], [ %.1427.i, %289 ], [ %.1427.i, %290 ], [ %.1427.i, %293 ]
   %297 = load ptr, ptr %19, align 8
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 57
   %299 = load i16, ptr %298, align 1
@@ -1286,10 +1286,10 @@ proto_item_set_generated.exit323.i:               ; preds = %293, %290, %289, %2
 
 316:                                              ; preds = %309
   store ptr %315, ptr %307, align 8
-  br i1 %.not421.i, label %336, label %318
+  br i1 %.not447.i, label %336, label %318
 
 317:                                              ; preds = %309, %306, %301, %proto_item_set_generated.exit323.i
-  br i1 %.not421.i, label %336, label %318
+  br i1 %.not447.i, label %336, label %318
 
 318:                                              ; preds = %317, %316
   %319 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.3.i)
@@ -1334,7 +1334,7 @@ zbee_get_bit_field.exit333.i:                     ; preds = %.lr.ph.i329.i
 
 336:                                              ; preds = %zbee_get_bit_field.exit333.i, %317, %316
   %.4.i = phi i32 [ %335, %zbee_get_bit_field.exit333.i ], [ %.3.i, %317 ], [ %.3.i, %316 ]
-  br i1 %.not422.i, label %.loopexit.i, label %337
+  br i1 %.not448.i, label %.loopexit.i, label %337
 
 337:                                              ; preds = %336
   %338 = load i32, ptr @ett_zbee_nwk_route, align 4
@@ -1381,7 +1381,7 @@ zbee_get_bit_field.exit333.i:                     ; preds = %.lr.ph.i329.i
   br label %.sink.split.i
 
 361:                                              ; preds = %.loopexit.i
-  br i1 %.not389.i, label %365, label %362
+  br i1 %.not415.i, label %365, label %362
 
 362:                                              ; preds = %361
   %363 = call ptr @dissect_zbee_secure(ptr noundef %0, ptr noundef %1, ptr noundef %42, i32 noundef %.0238.i)

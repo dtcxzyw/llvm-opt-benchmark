@@ -4824,8 +4824,8 @@ define internal noundef i32 @pmix41_bfrops_base_pack_general_int(ptr readnone ca
   %16 = icmp ult i16 %switch.tableidx, 12
   %switch.shifted = lshr i16 3829, %switch.tableidx
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond56 = select i1 %16, i1 %switch.lobit, i1 false
-  br i1 %or.cond56, label %switch.lookup, label %17
+  %or.cond58 = select i1 %16, i1 %switch.lobit, i1 false
+  br i1 %or.cond58, label %switch.lookup, label %17
 
 17:                                               ; preds = %15
   %18 = tail call ptr @PMIx_Error_string(i32 noundef -27) #14
@@ -4943,8 +4943,8 @@ define internal noundef i32 @pmix41_bfrops_base_unpack_general_int(ptr readnone 
   %23 = icmp ult i16 %switch.tableidx, 12
   %switch.shifted = lshr i16 3829, %switch.tableidx
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond67 = select i1 %23, i1 %switch.lobit, i1 false
-  br i1 %or.cond67, label %switch.lookup, label %24
+  %or.cond68 = select i1 %23, i1 %switch.lobit, i1 false
+  br i1 %or.cond68, label %switch.lookup, label %24
 
 24:                                               ; preds = %22
   %25 = tail call ptr @PMIx_Error_string(i32 noundef -27) #14

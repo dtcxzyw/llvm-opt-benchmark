@@ -186,8 +186,8 @@ define void @_Z20getCompatibleDevicesRKSt6vectorISt10unique_ptrI17DeviceInformat
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not37 = icmp eq ptr %4, %5
-  br i1 %.not37, label %_ZNSt6vectorISt17reference_wrapperI17DeviceInformationESaIS2_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt17reference_wrapperI17DeviceInformationESaIS2_EE11_M_allocateEm.exit.i
+  %.not46 = icmp eq ptr %4, %5
+  br i1 %.not46, label %_ZNSt6vectorISt17reference_wrapperI17DeviceInformationESaIS2_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt17reference_wrapperI17DeviceInformationESaIS2_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseISt17reference_wrapperI17DeviceInformationESaIS2_EE11_M_allocateEm.exit.i: ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -363,8 +363,8 @@ define void @_Z22getCompatibleDeviceIdsN3gmx8ArrayRefIKSt10unique_ptrI17DeviceIn
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not37 = icmp eq ptr %2, %1
-  br i1 %.not37, label %_ZNSt6vectorIiSaIiEE7reserveEm.exit, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
+  %.not46 = icmp eq ptr %2, %1
+  br i1 %.not46, label %_ZNSt6vectorIiSaIiEE7reserveEm.exit, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -549,7 +549,7 @@ define noundef zeroext i1 @_Z20deviceIdIsCompatibleN3gmx8ArrayRefIKSt10unique_pt
   %22 = getelementptr i8, ptr %.val1.i26.i.i.i, i64 4
   %.val1.val.i27.i.i.i = load i32, ptr %22, align 4, !tbaa !48
   %23 = icmp eq i32 %.val1.val.i27.i.i.i, %2
-  br i1 %23, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit50", label %24
+  br i1 %23, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit56", label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.052.069.i.i.i, i64 24
@@ -557,7 +557,7 @@ define noundef zeroext i1 @_Z20deviceIdIsCompatibleN3gmx8ArrayRefIKSt10unique_pt
   %26 = getelementptr i8, ptr %.val1.i28.i.i.i, i64 4
   %.val1.val.i29.i.i.i = load i32, ptr %26, align 4, !tbaa !48
   %27 = icmp eq i32 %.val1.val.i29.i.i.i, %2
-  br i1 %27, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit52", label %28
+  br i1 %27, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit58", label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.052.069.i.i.i, i64 32
@@ -616,16 +616,16 @@ define noundef zeroext i1 @_Z20deviceIdIsCompatibleN3gmx8ArrayRefIKSt10unique_pt
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.052.069.i.i.i, i64 8
   br label %"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit"
 
-"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit50": ; preds = %20
+"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit56": ; preds = %20
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.052.069.i.i.i, i64 16
   br label %"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit"
 
-"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit52": ; preds = %24
+"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit58": ; preds = %24
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.052.069.i.i.i, i64 24
   br label %"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit"
 
-"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit": ; preds = %.lr.ph.i.i.i, %"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit50", %"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit52", %33, %38, %43
-  %.sroa.010.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.052.0.lcssa.i.i.i, %33 ], [ %.sroa.052.1.i.i.i, %38 ], [ %spec.select.i.i.i, %43 ], [ %46, %"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit" ], [ %47, %"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit50" ], [ %48, %"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit52" ], [ %.sroa.052.069.i.i.i, %.lr.ph.i.i.i ]
+"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit": ; preds = %.lr.ph.i.i.i, %"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit56", %"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit58", %33, %38, %43
+  %.sroa.010.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.052.0.lcssa.i.i.i, %33 ], [ %.sroa.052.1.i.i.i, %38 ], [ %spec.select.i.i.i, %43 ], [ %46, %"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit" ], [ %47, %"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit56" ], [ %48, %"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit58" ], [ %.sroa.052.069.i.i.i, %.lr.ph.i.i.i ]
   %49 = icmp eq ptr %.sroa.010.0.in.sroa.speculated.i.i.i, %1
   br i1 %49, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIKSt10unique_ptrI17DeviceInformationSt14default_deleteIS3_EEEEZ20deviceIdIsCompatibleNS0_8ArrayRefIS7_EEiE3$_0ET_SC_SC_T0_.exit.thread", label %82
 

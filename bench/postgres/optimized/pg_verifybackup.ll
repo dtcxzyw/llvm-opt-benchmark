@@ -275,19 +275,19 @@ sub_0131:                                         ; preds = %49
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 1
   %61 = load i8, ptr %60, align 1
   %62 = icmp eq i8 %61, 0
-  br i1 %62, label %67, label %.thread189
+  br i1 %62, label %67, label %.thread228
 
 .tail130.thread:                                  ; preds = %sub_0131
   %63 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(6) @.str.22) #22
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %67, label %sub_0135
 
-.thread189:                                       ; preds = %.tail130
+.thread228:                                       ; preds = %.tail130
   %65 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(6) @.str.22) #22
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %.tail134.thread
 
-67:                                               ; preds = %.thread189, %.tail130.thread, %.tail130
+67:                                               ; preds = %.thread228, %.tail130.thread, %.tail130
   store i8 112, ptr %47, align 8
   br label %.backedge
 
@@ -301,7 +301,7 @@ sub_0135:                                         ; preds = %.tail130.thread
   %70 = icmp eq i8 %69, 0
   br i1 %70, label %73, label %.tail134.thread
 
-.tail134.thread:                                  ; preds = %.thread189, %sub_0135, %.tail134
+.tail134.thread:                                  ; preds = %.thread228, %sub_0135, %.tail134
   %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(4) @.str.24) #22
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %74
@@ -1291,7 +1291,7 @@ should_ignore_relpath.exit.i102.backedge:         ; preds = %._crit_edge.i.i119,
 502:                                              ; preds = %499
   %503 = getelementptr inbounds nuw i8, ptr %484, i64 8
   %504 = load ptr, ptr %503, align 8
-  br i1 %.not28.not.i.i105, label %.loopexit.i114.loopexit238, label %.lr.ph32.i.i106
+  br i1 %.not28.not.i.i105, label %.loopexit.i114.loopexit277, label %.lr.ph32.i.i106
 
 .lr.ph32.i.i106:                                  ; preds = %502, %.critedge22.i.i111
   %.01629.i.i107 = phi ptr [ %.016.i.i112, %.critedge22.i.i111 ], [ %.01627.i.i104, %502 ]
@@ -1333,14 +1333,14 @@ should_ignore_relpath.exit.i102.backedge:         ; preds = %._crit_edge.i.i119,
   %516 = getelementptr inbounds nuw i8, ptr %484, i64 8
   br label %.loopexit.i114
 
-.loopexit.i114.loopexit238:                       ; preds = %502
+.loopexit.i114.loopexit277:                       ; preds = %502
   %517 = getelementptr inbounds nuw i8, ptr %484, i64 24
   %518 = getelementptr inbounds nuw i8, ptr %484, i64 8
   br label %.loopexit.i114
 
-.loopexit.i114:                                   ; preds = %.loopexit.i114.loopexit238, %.loopexit.i114.loopexit
-  %519 = phi ptr [ %518, %.loopexit.i114.loopexit238 ], [ %516, %.loopexit.i114.loopexit ]
-  %520 = phi ptr [ %517, %.loopexit.i114.loopexit238 ], [ %515, %.loopexit.i114.loopexit ]
+.loopexit.i114:                                   ; preds = %.loopexit.i114.loopexit277, %.loopexit.i114.loopexit
+  %519 = phi ptr [ %518, %.loopexit.i114.loopexit277 ], [ %516, %.loopexit.i114.loopexit ]
+  %520 = phi ptr [ %517, %.loopexit.i114.loopexit277 ], [ %515, %.loopexit.i114.loopexit ]
   %521 = load ptr, ptr %93, align 8
   %522 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.40, ptr noundef %521, ptr noundef %504) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

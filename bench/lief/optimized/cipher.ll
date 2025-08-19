@@ -52,22 +52,22 @@ define hidden ptr @mbedtls_cipher_info_from_type(i32 noundef %0) local_unnamed_a
 .lr.ph.preheader:                                 ; preds = %1
   %3 = load i32, ptr @mbedtls_cipher_definitions, align 8, !tbaa !3
   %4 = icmp eq i32 %3, %0
-  br i1 %4, label %._crit_edge, label %.lr.ph12
+  br i1 %4, label %._crit_edge, label %.lr.ph13
 
-.lr.ph12:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0811 = phi ptr [ %7, %.lr.ph ], [ @mbedtls_cipher_definitions, %.lr.ph.preheader ]
-  %5 = getelementptr inbounds nuw i8, ptr %.0811, i64 24
+.lr.ph13:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0812 = phi ptr [ %7, %.lr.ph ], [ @mbedtls_cipher_definitions, %.lr.ph.preheader ]
+  %5 = getelementptr inbounds nuw i8, ptr %.0812, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !14
 
-.lr.ph:                                           ; preds = %.lr.ph12
-  %7 = getelementptr inbounds nuw i8, ptr %.0811, i64 16
+.lr.ph:                                           ; preds = %.lr.ph13
+  %7 = getelementptr inbounds nuw i8, ptr %.0812, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !3
   %9 = icmp eq i32 %8, %0
-  br i1 %9, label %._crit_edge, label %.lr.ph12, !llvm.loop !14
+  br i1 %9, label %._crit_edge, label %.lr.ph13, !llvm.loop !14
 
-.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph12
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph13
   br label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %1
@@ -284,13 +284,13 @@ mbedtls_cipher_info_get_key_bitlen.exit:          ; preds = %8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %15
-  %.sink31 = phi i64 [ 64, %15 ], [ %spec.select, %19 ]
+  %.sink33 = phi i64 [ 64, %15 ], [ %spec.select, %19 ]
   %22 = lshr i32 %.val27.pre, 26
   %23 = and i32 %22, 31
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds nuw [0 x ptr], ptr @mbedtls_cipher_base_lookup_table, i64 0, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !19
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %.sink31
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %.sink33
   %28 = load ptr, ptr %27, align 8, !tbaa !34
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %30 = load ptr, ptr %29, align 8, !tbaa !28
@@ -872,11 +872,11 @@ define hidden i32 @mbedtls_cipher_finish(ptr noundef %0, ptr noundef %1, ptr nou
   %switch.maskindex = trunc nsw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -33, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond67 = select i1 %18, i1 %switch.lobit, i1 false
+  %or.cond73 = select i1 %18, i1 %switch.lobit, i1 false
   %19 = and i32 %8, 16646144
   %switch = icmp eq i32 %19, 4980736
-  %or.cond68 = or i1 %or.cond67, %switch
-  br i1 %or.cond68, label %switch.lookup, label %20
+  %or.cond74 = or i1 %or.cond73, %switch
+  br i1 %or.cond74, label %switch.lookup, label %20
 
 20:                                               ; preds = %15
   switch i32 %17, label %switch.lookup [
@@ -1035,12 +1035,12 @@ switch.lookup:                                    ; preds = %9
   %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.mbedtls_cipher_set_padding_mode, i64 0, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = zext nneg i32 %1 to i64
-  %switch.gep14 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.mbedtls_cipher_set_padding_mode.3, i64 0, i64 %12
-  %switch.load15 = load ptr, ptr %switch.gep14, align 8
+  %switch.gep15 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.mbedtls_cipher_set_padding_mode.3, i64 0, i64 %12
+  %switch.load16 = load ptr, ptr %switch.gep15, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %switch.load, ptr %13, align 8, !tbaa !39
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %switch.load15, ptr %14, align 8, !tbaa !46
+  store ptr %switch.load16, ptr %14, align 8, !tbaa !46
   br label %15
 
 15:                                               ; preds = %9, %switch.lookup, %2, %5
@@ -1096,13 +1096,13 @@ define internal range(i32 -25088, 1) i32 @get_pkcs_padding(ptr noundef readonly 
   %14 = sub nuw i64 %1, %12
   store i64 %14, ptr %2, align 8, !tbaa !37
   %15 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 range(i64 0, 256) %12) #15, !srcloc !49
-  %16 = extractvalue { i64, i64, i64 } %15, 1
-  %17 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %12) #15, !srcloc !50
-  %18 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 256) 0) #15, !srcloc !50
-  %19 = xor i64 %18, %17
-  %20 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %19) #15, !srcloc !51
-  %21 = xor i64 %20, -1
-  %22 = or i64 %16, %21
+  %16 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %12) #15, !srcloc !50
+  %17 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 256) 0) #15, !srcloc !50
+  %18 = xor i64 %17, %16
+  %19 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %18) #15, !srcloc !51
+  %20 = extractvalue { i64, i64, i64 } %15, 1
+  %21 = xor i64 %19, -1
+  %22 = or i64 %20, %21
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

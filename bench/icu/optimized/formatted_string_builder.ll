@@ -132,7 +132,7 @@ define noundef nonnull align 8 dereferenceable(136) ptr @_ZN6icu_7722FormattedSt
   %25 = icmp ne ptr %23, null
   %26 = icmp ne ptr %24, null
   %or.cond.not = select i1 %25, i1 %26, i1 false
-  br i1 %or.cond.not, label %.thread33, label %27
+  br i1 %or.cond.not, label %.thread37, label %27
 
 27:                                               ; preds = %20
   tail call void @uprv_free_77(ptr noundef %23)
@@ -149,7 +149,7 @@ define noundef nonnull align 8 dereferenceable(136) ptr @_ZN6icu_7722FormattedSt
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %30
 
-.thread33:                                        ; preds = %20
+.thread37:                                        ; preds = %20
   store i8 1, ptr %0, align 8, !tbaa !3
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -170,7 +170,7 @@ define noundef nonnull align 8 dereferenceable(136) ptr @_ZN6icu_7722FormattedSt
   %cond = icmp eq i32 %18, 0
   br i1 %cond, label %_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit32, label %_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit
 
-_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit:      ; preds = %.thread33, %36
+_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit:      ; preds = %.thread37, %36
   %37 = sext i32 %18 to i64
   %38 = shl nsw i64 %37, 1
   %39 = load i8, ptr %1, align 8, !tbaa !3, !range !11, !noundef !12
@@ -574,7 +574,7 @@ define noundef range(i32 1, 3) i32 @_ZN6icu_7722FormattedStringBuilder15insertCo
   %7 = select i1 %6, i32 1, i32 2
   %8 = load i32, ptr %4, align 4, !tbaa !16
   %9 = icmp slt i32 %8, 1
-  br i1 %9, label %10, label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread27
+  br i1 %9, label %10, label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread32
 
 10:                                               ; preds = %5
   %11 = icmp eq i32 %1, 0
@@ -623,10 +623,10 @@ _ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit: ; pre
   %37 = tail call noundef i32 @_ZN6icu_7722FormattedStringBuilder22prepareForInsertHelperEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %.pre = load i32, ptr %4, align 4, !tbaa !16
   %38 = icmp slt i32 %.pre, 1
-  br i1 %38, label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread, label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread27
+  br i1 %38, label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread, label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread32
 
 _ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread: ; preds = %35, %17, %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit
-  %.0.i26 = phi i32 [ %37, %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit ], [ %33, %35 ], [ %15, %17 ]
+  %.0.i31 = phi i32 [ %37, %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit ], [ %33, %35 ], [ %15, %17 ]
   %39 = load i8, ptr %0, align 8, !tbaa !3, !range !11, !noundef !12
   %40 = trunc nuw i8 %39 to i1
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -639,36 +639,36 @@ _ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread
 
 47:                                               ; preds = %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread
   %48 = trunc nuw i32 %2 to i16
-  %49 = sext i32 %.0.i26 to i64
+  %49 = sext i32 %.0.i31 to i64
   %50 = getelementptr inbounds i16, ptr %43, i64 %49
   store i16 %48, ptr %50, align 2, !tbaa !14
-  br label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread27.sink.split
+  br label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread32.sink.split
 
 51:                                               ; preds = %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread
   %52 = lshr i32 %2, 10
   %53 = trunc i32 %52 to i16
   %54 = add i16 %53, -10304
-  %55 = sext i32 %.0.i26 to i64
+  %55 = sext i32 %.0.i31 to i64
   %56 = getelementptr inbounds i16, ptr %43, i64 %55
   store i16 %54, ptr %56, align 2, !tbaa !14
   %57 = trunc i32 %2 to i16
   %58 = and i16 %57, 1023
   %59 = or disjoint i16 %58, -9216
-  %60 = add nsw i32 %.0.i26, 1
+  %60 = add nsw i32 %.0.i31, 1
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds i16, ptr %43, i64 %61
   store i16 %59, ptr %62, align 2, !tbaa !14
   %63 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %46, i64 %61
   store i8 %3, ptr %63, align 1, !tbaa !13
-  br label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread27.sink.split
+  br label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread32.sink.split
 
-_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread27.sink.split: ; preds = %51, %47
-  %.sink29 = phi i64 [ %49, %47 ], [ %55, %51 ]
-  %64 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %46, i64 %.sink29
+_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread32.sink.split: ; preds = %51, %47
+  %.sink34 = phi i64 [ %49, %47 ], [ %55, %51 ]
+  %64 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %46, i64 %.sink34
   store i8 %3, ptr %64, align 1, !tbaa !13
-  br label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread27
+  br label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread32
 
-_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread27: ; preds = %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread27.sink.split, %5, %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit
+_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread32: ; preds = %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread32.sink.split, %5, %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit
   ret i32 %7
 }
 
@@ -810,7 +810,7 @@ _ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.i: ; p
   br i1 %50, label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread.i, label %_ZN6icu_7722FormattedStringBuilder15insertCodePointEiiNS0_5FieldER10UErrorCode.exit
 
 _ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread.i: ; preds = %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.i, %47, %28
-  %.0.i26.i = phi i32 [ %49, %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.i ], [ %45, %47 ], [ %29, %28 ]
+  %.0.i31.i = phi i32 [ %49, %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.i ], [ %45, %47 ], [ %29, %28 ]
   %51 = load i8, ptr %0, align 8, !tbaa !3, !range !11, !noundef !12
   %52 = trunc nuw i8 %51 to i1
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -819,7 +819,7 @@ _ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %57 = load ptr, ptr %56, align 8
   %58 = select i1 %52, ptr %57, ptr %56
-  %59 = sext i32 %.0.i26.i to i64
+  %59 = sext i32 %.0.i31.i to i64
   %60 = getelementptr inbounds i16, ptr %55, i64 %59
   store i16 %19, ptr %60, align 2, !tbaa !14
   %61 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %58, i64 %59
@@ -1318,7 +1318,7 @@ define void @_ZN6icu_7722FormattedStringBuilder15writeTerminatorER10UErrorCode(p
   %4 = load i32, ptr %3, align 4, !tbaa !10
   %5 = load i32, ptr %1, align 4, !tbaa !16
   %6 = icmp slt i32 %5, 1
-  br i1 %6, label %7, label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread7
+  br i1 %6, label %7, label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread9
 
 7:                                                ; preds = %2
   %8 = icmp eq i32 %4, 0
@@ -1352,22 +1352,22 @@ _ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit: ; pre
   %23 = tail call noundef i32 @_ZN6icu_7722FormattedStringBuilder22prepareForInsertHelperEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %4, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %1)
   %.pre4 = load i32, ptr %1, align 4, !tbaa !16
   %24 = icmp slt i32 %.pre4, 1
-  br i1 %24, label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread, label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread7
+  br i1 %24, label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread, label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread9
 
 _ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread.sink.split: ; preds = %12, %21
   %.sink = phi i32 [ %22, %21 ], [ 1, %12 ]
-  %.0.i6.ph = phi i32 [ %19, %21 ], [ %13, %12 ]
+  %.0.i8.ph = phi i32 [ %19, %21 ], [ %13, %12 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !10
   br label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread
 
 _ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread: ; preds = %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread.sink.split, %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit
-  %.0.i6 = phi i32 [ %23, %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit ], [ %.0.i6.ph, %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread.sink.split ]
+  %.0.i8 = phi i32 [ %23, %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit ], [ %.0.i8.ph, %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread.sink.split ]
   %25 = load i8, ptr %0, align 8, !tbaa !3, !range !11, !noundef !12
   %26 = trunc nuw i8 %25 to i1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = select i1 %26, ptr %28, ptr %27
-  %30 = sext i32 %.0.i6 to i64
+  %30 = sext i32 %.0.i8 to i64
   %31 = getelementptr inbounds i16, ptr %29, i64 %30
   store i16 0, ptr %31, align 2, !tbaa !14
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1378,9 +1378,9 @@ _ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread
   %36 = load i32, ptr %3, align 4, !tbaa !10
   %37 = add nsw i32 %36, -1
   store i32 %37, ptr %3, align 4, !tbaa !10
-  br label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread7
+  br label %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread9
 
-_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread7: ; preds = %2, %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit, %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread
+_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread9: ; preds = %2, %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit, %_ZN6icu_7722FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit.thread
   ret void
 }
 

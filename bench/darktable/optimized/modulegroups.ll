@@ -569,7 +569,7 @@ define void @init_presets(ptr noundef initializes((464, 468)) %0) local_unnamed_
   call void @g_free(ptr noundef %30) #16
   %31 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.5) #16
   store ptr %31, ptr %6, align 8, !tbaa !17
-  br i1 %.not, label %.critedge56, label %32
+  br i1 %.not, label %.critedge58, label %32
 
 32:                                               ; preds = %.critedge
   %.not37 = icmp eq i32 %9, 0
@@ -577,41 +577,41 @@ define void @init_presets(ptr noundef initializes((464, 468)) %0) local_unnamed_
 
 33:                                               ; preds = %32
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #16
-  br label %.sink.split47
+  br label %.sink.split49
 
 34:                                               ; preds = %32
   %.not38 = icmp eq i32 %10, 0
-  br i1 %.not38, label %35, label %.sink.split47
+  br i1 %.not38, label %35, label %.sink.split49
 
-.sink.split47:                                    ; preds = %34, %33
-  %.str.10.sink49 = phi ptr [ @.str.8, %33 ], [ @.str.10, %34 ]
-  %.str.11.sink48 = phi ptr [ @.str.9, %33 ], [ @.str.11, %34 ]
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.str.10.sink49) #16
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.str.11.sink48) #16
+.sink.split49:                                    ; preds = %34, %33
+  %.str.10.sink51 = phi ptr [ @.str.8, %33 ], [ @.str.10, %34 ]
+  %.str.11.sink50 = phi ptr [ @.str.9, %33 ], [ @.str.11, %34 ]
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.str.10.sink51) #16
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.str.11.sink50) #16
   br label %35
 
-35:                                               ; preds = %.sink.split47, %34
+35:                                               ; preds = %.sink.split49, %34
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.12) #16
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.13) #16
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.14) #16
-  br label %.critedge56
+  br label %.critedge58
 
-.critedge56:                                      ; preds = %.critedge, %35
-  %.str.15.sink64 = phi ptr [ @.str.15, %35 ], [ @.str.18, %.critedge ]
-  %.str.16.sink63 = phi ptr [ @.str.16, %35 ], [ @.str.19, %.critedge ]
-  %.str.17.sink62 = phi ptr [ @.str.17, %35 ], [ @.str.20, %.critedge ]
-  %.str.20.sink61 = phi ptr [ @.str.20, %35 ], [ @.str.21, %.critedge ]
-  %.str.21.sink60 = phi ptr [ @.str.21, %35 ], [ @.str.22, %.critedge ]
-  %.str.22.sink59 = phi ptr [ @.str.22, %35 ], [ @.str.23, %.critedge ]
-  %.str.23.sink58 = phi ptr [ @.str.23, %35 ], [ @.str.24, %.critedge ]
+.critedge58:                                      ; preds = %.critedge, %35
+  %.str.15.sink66 = phi ptr [ @.str.15, %35 ], [ @.str.18, %.critedge ]
+  %.str.16.sink65 = phi ptr [ @.str.16, %35 ], [ @.str.19, %.critedge ]
+  %.str.17.sink64 = phi ptr [ @.str.17, %35 ], [ @.str.20, %.critedge ]
+  %.str.20.sink63 = phi ptr [ @.str.20, %35 ], [ @.str.21, %.critedge ]
+  %.str.21.sink62 = phi ptr [ @.str.21, %35 ], [ @.str.22, %.critedge ]
+  %.str.22.sink61 = phi ptr [ @.str.22, %35 ], [ @.str.23, %.critedge ]
+  %.str.23.sink60 = phi ptr [ @.str.23, %35 ], [ @.str.24, %.critedge ]
   %.str.39..str.63 = phi ptr [ @.str.63, %35 ], [ @.str.39, %.critedge ]
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.str.15.sink64) #16
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.str.16.sink63) #16
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.str.17.sink62) #16
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.str.20.sink61) #16
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.str.21.sink60) #16
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.str.22.sink59) #16
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.str.23.sink58) #16
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.str.15.sink66) #16
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.str.16.sink65) #16
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.str.17.sink64) #16
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.str.20.sink63) #16
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.str.21.sink62) #16
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.str.22.sink61) #16
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.str.23.sink60) #16
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.25) #16
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.26) #16
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.27) #16
@@ -738,22 +738,22 @@ define void @init_presets(ptr noundef initializes((464, 468)) %0) local_unnamed_
   %59 = icmp ne i32 %9, 0
   br i1 %59, label %60, label %61
 
-60:                                               ; preds = %.critedge56
+60:                                               ; preds = %.critedge58
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #16
-  br label %.sink.split52
+  br label %.sink.split54
 
-61:                                               ; preds = %.critedge56
+61:                                               ; preds = %.critedge58
   %.not39 = icmp eq i32 %10, 0
-  br i1 %.not39, label %62, label %.sink.split52
+  br i1 %.not39, label %62, label %.sink.split54
 
-.sink.split52:                                    ; preds = %61, %60
-  %.str.10.sink54 = phi ptr [ @.str.8, %60 ], [ @.str.10, %61 ]
-  %.str.11.sink53 = phi ptr [ @.str.9, %60 ], [ @.str.11, %61 ]
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.str.10.sink54) #16
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.str.11.sink53) #16
+.sink.split54:                                    ; preds = %61, %60
+  %.str.10.sink56 = phi ptr [ @.str.8, %60 ], [ @.str.10, %61 ]
+  %.str.11.sink55 = phi ptr [ @.str.9, %60 ], [ @.str.11, %61 ]
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.str.10.sink56) #16
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.str.11.sink55) #16
   br label %62
 
-62:                                               ; preds = %.sink.split52, %61
+62:                                               ; preds = %.sink.split54, %61
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.12) #16
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.13) #16
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.14) #16
@@ -933,9 +933,9 @@ default.unreachable.i:                            ; preds = %113
 .thread.i:                                        ; preds = %113
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %5, ptr noundef nonnull @.str.160, ptr noundef nonnull @.str.161) #16
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %5, ptr noundef nonnull @.str.162) #16
-  %.0424754.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 16), align 8, !tbaa !19
-  %.not4855.i = icmp eq ptr %.0424754.i, null
-  br i1 %.not4855.i, label %._crit_edge.i, label %.lr.ph.split.i
+  %.0424755.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 16), align 8, !tbaa !19
+  %.not4856.i = icmp eq ptr %.0424755.i, null
+  br i1 %.not4856.i, label %._crit_edge.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %116, %144
   %.04249.us.i = phi ptr [ %.042.us.i, %144 ], [ %.04247.i, %116 ]
@@ -968,7 +968,6 @@ default.unreachable.i:                            ; preds = %113
     i32 1, label %140
     i32 2, label %137
     i32 3, label %134
-    i32 0, label %144
   ]
 
 134:                                              ; preds = %124
@@ -996,7 +995,7 @@ default.unreachable.i:                            ; preds = %113
 .unreachabledefault.i:                            ; preds = %124
   unreachable
 
-144:                                              ; preds = %143, %140, %137, %134, %124, %119, %.lr.ph.split.us.i
+144:                                              ; preds = %143, %140, %137, %134, %119, %.lr.ph.split.us.i
   %145 = getelementptr inbounds nuw i8, ptr %.04249.us.i, i64 8
   %.042.us.i = load ptr, ptr %145, align 8, !tbaa !19
   %.not.us.i = icmp eq ptr %.042.us.i, null
@@ -1008,7 +1007,7 @@ default.unreachable.i:                            ; preds = %113
   br i1 %exitcond.not.i, label %_preset_retrieve_old_layout_updated.exit, label %113
 
 .lr.ph.split.i:                                   ; preds = %.thread.i, %166
-  %.04249.i = phi ptr [ %.042.i, %166 ], [ %.0424754.i, %.thread.i ]
+  %.04249.i = phi ptr [ %.042.i, %166 ], [ %.0424755.i, %.thread.i ]
   %147 = load ptr, ptr %.04249.i, align 8, !tbaa !21
   %148 = call i32 @dt_iop_so_is_hidden(ptr noundef %147) #16
   %.not43.i = icmp eq i32 %148, 0
@@ -2036,13 +2035,13 @@ define internal fastcc void @_preset_from_string(ptr noundef readonly captures(n
   %71 = tail call ptr @g_list_reverse(ptr noundef %.079.lcssa) #16
   %.not91 = icmp eq i32 %2, 0
   %. = select i1 %.not91, i64 80, i64 96
-  %.123 = select i1 %.not91, i64 84, i64 100
-  %.124 = select i1 %.not91, i64 72, i64 88
+  %.129 = select i1 %.not91, i64 84, i64 100
+  %.130 = select i1 %.not91, i64 72, i64 88
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 %.
   store i32 %.073, ptr %72, align 8, !tbaa !69
-  %73 = getelementptr inbounds nuw i8, ptr %6, i64 %.123
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 %.129
   store i32 %.074, ptr %73, align 4, !tbaa !69
-  %74 = getelementptr inbounds nuw i8, ptr %6, i64 %.124
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 %.130
   store ptr %71, ptr %74, align 8, !tbaa !19
   br label %103
 
@@ -2949,9 +2948,9 @@ _buttons_get_from_pos.exit:                       ; preds = %59, %61, %68
   br label %_buttons_get_from_pos.exit.thread.sink.split
 
 _buttons_get_from_pos.exit.thread.sink.split:     ; preds = %73, %71
-  %.sink171 = phi i32 [ 0, %71 ], [ %spec.select, %73 ]
+  %.sink186 = phi i32 [ 0, %71 ], [ %spec.select, %73 ]
   %76 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %.0.i135, i64 noundef %46) #16
-  tail call void @gtk_toggle_button_set_active(ptr noundef %76, i32 noundef %.sink171) #16
+  tail call void @gtk_toggle_button_set_active(ptr noundef %76, i32 noundef %.sink186) #16
   br label %_buttons_get_from_pos.exit.thread
 
 _buttons_get_from_pos.exit.thread:                ; preds = %_buttons_get_from_pos.exit.thread.sink.split, %63, %_buttons_get_from_pos.exit, %56, %53
@@ -3642,12 +3641,12 @@ _lib_modulegroups_test.exit.thread:               ; preds = %9, %_lib_modulegrou
   br i1 %.not.i17, label %_lib_modulegroups_set.exit, label %_lib_modulegroups_set.exit.sink.split
 
 _lib_modulegroups_set.exit.sink.split:            ; preds = %.critedge, %20
-  %.sink30 = phi ptr [ %22, %20 ], [ %25, %.critedge ]
-  %.sink27 = phi i32 [ %.01524, %20 ], [ 10000, %.critedge ]
-  store ptr %0, ptr %.sink30, align 8, !tbaa !199
-  %26 = getelementptr inbounds nuw i8, ptr %.sink30, i64 8
-  store i32 %.sink27, ptr %26, align 8, !tbaa !201
-  tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_lib_modulegroups_set_gui_thread, ptr noundef nonnull %.sink30) #16
+  %.sink34 = phi ptr [ %22, %20 ], [ %25, %.critedge ]
+  %.sink31 = phi i32 [ %.01524, %20 ], [ 10000, %.critedge ]
+  store ptr %0, ptr %.sink34, align 8, !tbaa !199
+  %26 = getelementptr inbounds nuw i8, ptr %.sink34, i64 8
+  store i32 %.sink31, ptr %26, align 8, !tbaa !201
+  tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_lib_modulegroups_set_gui_thread, ptr noundef nonnull %.sink34) #16
   br label %_lib_modulegroups_set.exit
 
 _lib_modulegroups_set.exit:                       ; preds = %_lib_modulegroups_set.exit.sink.split, %.critedge, %20
@@ -5908,7 +5907,7 @@ DT_IS_BAUHAUS_WIDGET.exit.thread:                 ; preds = %134, %DT_IS_BAUHAUS
   %222 = load ptr, ptr %7, align 8, !tbaa !231
   %223 = load ptr, ptr %146, align 8, !tbaa !265
   %224 = icmp eq ptr %222, %223
-  br i1 %224, label %225, label %.thread298
+  br i1 %224, label %225, label %.thread312
 
 225:                                              ; preds = %.critedge283
   %226 = tail call i32 @gtk_widget_get_visible(ptr noundef %223) #16
@@ -5916,18 +5915,18 @@ DT_IS_BAUHAUS_WIDGET.exit.thread:                 ; preds = %134, %DT_IS_BAUHAUS
   %.pre11.pre.i = load ptr, ptr %146, align 8, !tbaa !265
   %.pre = load ptr, ptr %7, align 8, !tbaa !231
   %227 = icmp eq ptr %222, %.pre
-  br i1 %227, label %.thread298, label %_sync_visibility.exit
+  br i1 %227, label %.thread312, label %_sync_visibility.exit
 
-.thread298:                                       ; preds = %.critedge283, %225
-  %.pre11.i300 = phi ptr [ %.pre11.pre.i, %225 ], [ %223, %.critedge283 ]
+.thread312:                                       ; preds = %.critedge283, %225
+  %.pre11.i314 = phi ptr [ %.pre11.pre.i, %225 ], [ %223, %.critedge283 ]
   %228 = phi ptr [ %.pre, %225 ], [ %222, %.critedge283 ]
   %229 = tail call i32 @gtk_widget_get_visible(ptr noundef %228) #16
-  tail call void @gtk_widget_set_visible(ptr noundef %.pre11.i300, i32 noundef %229) #16
+  tail call void @gtk_widget_set_visible(ptr noundef %.pre11.i314, i32 noundef %229) #16
   %.pre.i = load ptr, ptr %146, align 8, !tbaa !265
   br label %_sync_visibility.exit
 
-_sync_visibility.exit:                            ; preds = %225, %.thread298
-  %230 = phi ptr [ %.pre.i, %.thread298 ], [ %.pre11.pre.i, %225 ]
+_sync_visibility.exit:                            ; preds = %225, %.thread312
+  %230 = phi ptr [ %.pre.i, %.thread312 ], [ %.pre11.pre.i, %225 ]
   %231 = load ptr, ptr %119, align 8, !tbaa !253
   %232 = tail call i32 @dt_action_widget_invisible(ptr noundef %230) #16
   %.not.i294 = icmp eq i32 %232, 0
@@ -6143,7 +6142,7 @@ thread-pre-split:                                 ; preds = %.critedge86, %13
 
 43:                                               ; preds = %thread-pre-split
   %44 = getelementptr inbounds nuw i8, ptr %.06396, i64 24
-  br label %thread-pre-split110
+  br label %thread-pre-split113
 
 thread-pre-split.thread:                          ; preds = %16, %thread-pre-split
   %45 = getelementptr inbounds nuw i8, ptr %.06396, i64 40
@@ -6158,15 +6157,15 @@ thread-pre-split.thread:                          ; preds = %16, %thread-pre-spl
   %51 = icmp eq i32 %50, 6
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %spec.select = select i1 %51, ptr %52, ptr %45
-  br label %thread-pre-split110
+  br label %thread-pre-split113
 
-thread-pre-split110:                              ; preds = %43, %47
+thread-pre-split113:                              ; preds = %43, %47
   %.164.in.ph = phi ptr [ %spec.select, %47 ], [ %44, %43 ]
   %.063.pr = load ptr, ptr %.164.in.ph, align 8, !tbaa !276
   br label %53
 
-53:                                               ; preds = %thread-pre-split110, %thread-pre-split.thread
-  %.063 = phi ptr [ %.063.pr, %thread-pre-split110 ], [ %46, %thread-pre-split.thread ]
+53:                                               ; preds = %thread-pre-split113, %thread-pre-split.thread
+  %.063 = phi ptr [ %.063.pr, %thread-pre-split113 ], [ %46, %thread-pre-split.thread ]
   %.not71 = icmp eq ptr %.063, null
   br i1 %.not71, label %._crit_edge, label %13
 
@@ -6379,9 +6378,9 @@ define internal void @_basics_remove_widget(ptr noundef %0) #1 {
 93:                                               ; preds = %90, %88
   %94 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %85, i64 noundef %86) #17
   %95 = icmp eq i32 %94, 0
-  br i1 %95, label %.critedge130.thread140, label %.critedge130
+  br i1 %95, label %.critedge130.thread150, label %.critedge130
 
-.critedge130.thread140:                           ; preds = %93
+.critedge130.thread150:                           ; preds = %93
   %96 = tail call i64 @dt_bh_get_type() #16
   br label %101
 
@@ -6396,10 +6395,10 @@ define internal void @_basics_remove_widget(ptr noundef %0) #1 {
   %.not.i = icmp eq ptr %.pr.pre, null
   br i1 %.not.i, label %DT_IS_BAUHAUS_WIDGET.exit.thread, label %101
 
-101:                                              ; preds = %.critedge130.thread140, %.critedge130
-  %102 = phi i64 [ %96, %.critedge130.thread140 ], [ %100, %.critedge130 ]
-  %.pr143 = phi ptr [ %85, %.critedge130.thread140 ], [ %.pr.pre, %.critedge130 ]
-  %103 = load ptr, ptr %.pr143, align 8, !tbaa !202
+101:                                              ; preds = %.critedge130.thread150, %.critedge130
+  %102 = phi i64 [ %96, %.critedge130.thread150 ], [ %100, %.critedge130 ]
+  %.pr153 = phi ptr [ %85, %.critedge130.thread150 ], [ %.pr.pre, %.critedge130 ]
+  %103 = load ptr, ptr %.pr153, align 8, !tbaa !202
   %.not10.i = icmp eq ptr %103, null
   br i1 %.not10.i, label %DT_IS_BAUHAUS_WIDGET.exit, label %104
 
@@ -6409,7 +6408,7 @@ define internal void @_basics_remove_widget(ptr noundef %0) #1 {
   br i1 %106, label %DT_IS_BAUHAUS_WIDGET.exit.thread136, label %DT_IS_BAUHAUS_WIDGET.exit
 
 DT_IS_BAUHAUS_WIDGET.exit:                        ; preds = %101, %104
-  %107 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull readonly %.pr143, i64 noundef %102) #17
+  %107 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull readonly %.pr153, i64 noundef %102) #17
   %.not115 = icmp eq i32 %107, 0
   br i1 %.not115, label %DT_IS_BAUHAUS_WIDGET.exit.thread, label %DT_IS_BAUHAUS_WIDGET.exit.thread136
 

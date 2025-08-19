@@ -9567,7 +9567,7 @@ _ZN23JvmtiExceptionEventMarkC2EP10JavaThreadRK12methodHandlePh6Handle.exit: ; pr
   br label %211
 
 211:                                              ; preds = %272, %_ZN23JvmtiExceptionEventMarkC2EP10JavaThreadRK12methodHandlePh6Handle.exit
-  %.sroa.092.1 = phi ptr [ %.sroa.092.0105, %_ZN23JvmtiExceptionEventMarkC2EP10JavaThreadRK12methodHandlePh6Handle.exit ], [ %.sroa.092.395115, %272 ]
+  %.sroa.092.1 = phi ptr [ %.sroa.092.0105, %_ZN23JvmtiExceptionEventMarkC2EP10JavaThreadRK12methodHandlePh6Handle.exit ], [ %.sroa.092.395133, %272 ]
   %212 = load ptr, ptr %118, align 8
   store ptr %212, ptr %11, align 8
   store ptr %0, ptr %119, align 8
@@ -9691,7 +9691,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %243, %253
   br i1 %271, label %272, label %.critedge56
 
 272:                                              ; preds = %.thread93.thread, %.thread93
-  %.sroa.092.395115 = phi ptr [ %.0.i.i.i.i71, %.thread93.thread ], [ %.sroa.092.2, %.thread93 ]
+  %.sroa.092.395133 = phi ptr [ %.0.i.i.i.i71, %.thread93.thread ], [ %.sroa.092.2, %.thread93 ]
   %273 = load i32, ptr %123, align 8
   %274 = icmp eq i32 %273, 2
   br i1 %274, label %.critedge, label %211, !llvm.loop !37
@@ -9703,7 +9703,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %243, %253
   br label %.critedge
 
 .critedge:                                        ; preds = %272, %.critedge56
-  %.sroa.092.395116 = phi ptr [ %.sroa.092.2, %.critedge56 ], [ %.sroa.092.395115, %272 ]
+  %.sroa.092.395134 = phi ptr [ %.sroa.092.2, %.critedge56 ], [ %.sroa.092.395133, %272 ]
   %.1 = phi i64 [ %277, %.critedge56 ], [ 0, %272 ]
   %.0 = phi ptr [ %276, %.critedge56 ], [ null, %272 ]
   %278 = load ptr, ptr %108, align 8
@@ -9752,7 +9752,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %243, %253
 
 _ZN23JvmtiExceptionEventMarkD2Ev.exit:            ; preds = %294, %292, %.lr.ph.split
   %296 = phi ptr [ %132, %.lr.ph.split ], [ %198, %292 ], [ %198, %294 ]
-  %.sroa.092.4 = phi ptr [ %.sroa.092.0105, %.lr.ph.split ], [ %.sroa.092.395116, %292 ], [ %.sroa.092.395116, %294 ]
+  %.sroa.092.4 = phi ptr [ %.sroa.092.0105, %.lr.ph.split ], [ %.sroa.092.395134, %292 ], [ %.sroa.092.395134, %294 ]
   %297 = getelementptr inbounds nuw i8, ptr %.046106, i64 16
   %.046 = load ptr, ptr %297, align 8
   %.not53 = icmp eq ptr %.046, null
@@ -20494,14 +20494,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #20, !srcloc !98
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #20, !srcloc !98
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -20635,14 +20635,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i18.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i19.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i18 = or i64 %.0.i.i18.in, 48
+  %.0.i.i19 = or i64 %.0.i.i19.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i17.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i18, i64 %.0.i17.i, ptr nonnull %0) #20, !srcloc !98
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i19, i64 %.0.i17.i, ptr nonnull %0) #20, !srcloc !98
   %71 = icmp eq i64 %70, %.0.i17.i
   br i1 %71, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %72
 
@@ -22069,7 +22069,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP17JvmtiCodeBlo
   br i1 %.not, label %_ZN13GrowableArrayIP17JvmtiCodeBlobDescE10deallocateEPS1_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -22081,8 +22081,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP17JvmtiCodeBlo
   br label %_ZN13GrowableArrayIP17JvmtiCodeBlobDescE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP17JvmtiCodeBlobDescE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIP17JvmtiCodeBlobDescE10deallocateEPS1_.exit
@@ -22247,7 +22247,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI9OopHandle13Gro
   br i1 %.not, label %_ZN13GrowableArrayI9OopHandleE10deallocateEPS0_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -22259,8 +22259,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI9OopHandle13Gro
   br label %_ZN13GrowableArrayI9OopHandleE10deallocateEPS0_.exit
 
 _ZN13GrowableArrayI9OopHandleE10deallocateEPS0_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayI9OopHandleE10deallocateEPS0_.exit

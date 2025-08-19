@@ -410,8 +410,8 @@ define internal noundef i32 @H5HL__cache_prefix_serialize(ptr readnone captures(
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %48, %53, %29
-  %.sink70 = phi i64 [ 10, %53 ], [ 12, %29 ], [ 16, %48 ]
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink70
+  %.sink72 = phi i64 [ 10, %53 ], [ 12, %29 ], [ 16, %48 ]
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink72
   store ptr %61, ptr %5, align 8, !tbaa !44
   %.pr = load i64, ptr %27, align 8, !tbaa !45
   br label %62
@@ -1082,12 +1082,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__hdr_deserialize(ptr noundef n
   br label %.thread91.sink.split
 
 .thread91.sink.split:                             ; preds = %125, %157, %159
-  %.sink103 = phi ptr [ %168, %159 ], [ %158, %157 ], [ %144, %125 ]
-  store ptr %.sink103, ptr %5, align 8, !tbaa !44
+  %.sink111 = phi ptr [ %168, %159 ], [ %158, %157 ], [ %144, %125 ]
+  store ptr %.sink111, ptr %5, align 8, !tbaa !44
   br label %.thread91
 
 .thread91:                                        ; preds = %.thread91.sink.split, %51, %124
-  %169 = phi ptr [ %52, %51 ], [ %113, %124 ], [ %.sink103, %.thread91.sink.split ]
+  %169 = phi ptr [ %52, %51 ], [ %113, %124 ], [ %.sink111, %.thread91.sink.split ]
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %171 = load i64, ptr %170, align 8, !tbaa !42
   %.not82 = icmp eq i64 %171, 1

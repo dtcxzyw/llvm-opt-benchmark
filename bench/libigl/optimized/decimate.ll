@@ -1806,7 +1806,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i.i.i.i: ; pre
 
 "_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl12parallel_forIlZNS4_12parallel_forIlZNS4_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS8_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviSB_SE_SE_RKNS8_IiLin1ELi1ELi0ELin1ELi1EEESE_SE_RdRNS8_IdLi1ELin1ELi1ELi1ELin1EEEEERKSF_IFbSB_SE_SE_SI_SE_SE_RKSt14priority_queueISt5tupleIJdiiEES_ISS_SaISS_EESt7greaterISS_EESI_SB_iiiiiEERKSF_IFbSB_SE_SE_SI_SE_SE_SZ_SI_SB_iEERKSF_IFvSB_SE_SE_SI_SE_SE_SZ_SI_SB_iiiiibEERS9_RSC_RSG_S1E_E3$_0EEbT_RKT0_mEUlmE_ZNS6_IlS1F_EEbS1G_S1J_mEUllmE_S1K_EEbS1G_S1J_RKT1_RKT2_mEUlllmE_RlS1V_RmEEERS0_DpOT_.exit.i.i": ; preds = %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJRKZN3igl12parallel_forIlZNS4_12parallel_forIlZNS4_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS8_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviSB_SE_SE_RKNS8_IiLin1ELi1ELi0ELin1ELi1EEESE_SE_RdRNS8_IdLi1ELin1ELi1ELi1ELin1EEEEERKSF_IFbSB_SE_SE_SI_SE_SE_RKSt14priority_queueISt5tupleIJdiiEES_ISS_SaISS_EESt7greaterISS_EESI_SB_iiiiiEERKSF_IFbSB_SE_SE_SI_SE_SE_SZ_SI_SB_iEERKSF_IFvSB_SE_SE_SI_SE_SE_SZ_SI_SB_iiiiibEERS9_RSC_RSG_S1E_E3$_0EEbT_RKT0_mEUlmE_ZNS6_IlS1F_EEbS1G_S1J_mEUllmE_S1K_EEbS1G_S1J_RKT1_RKT2_mEUlllmE_RlS1V_RmEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i", %"_ZNSt6threadC2IRKZN3igl12parallel_forIlZNS1_12parallel_forIlZNS1_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS5_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviS8_SB_SB_RKNS5_IiLin1ELi1ELi0ELin1ELi1EEESB_SB_RdRNS5_IdLi1ELin1ELi1ELi1ELin1EEEEERKSC_IFbS8_SB_SB_SF_SB_SB_RKSt14priority_queueISt5tupleIJdiiEESt6vectorISP_SaISP_EESt7greaterISP_EESF_S8_iiiiiEERKSC_IFbS8_SB_SB_SF_SB_SB_SX_SF_S8_iEERKSC_IFvS8_SB_SB_SF_SB_SB_SX_SF_S8_iiiiibEERS6_RS9_RSD_S1C_E3$_0EEbT_RKT0_mEUlmE_ZNS3_IlS1D_EEbS1E_S1H_mEUllmE_S1I_EEbS1E_S1H_RKT1_RKT2_mEUlllmE_JRlS1T_RmEvEEOS1E_DpOT0_.exit.i.i.i"
   %205 = phi ptr [ %191, %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJRKZN3igl12parallel_forIlZNS4_12parallel_forIlZNS4_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS8_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviSB_SE_SE_RKNS8_IiLin1ELi1ELi0ELin1ELi1EEESE_SE_RdRNS8_IdLi1ELin1ELi1ELi1ELin1EEEEERKSF_IFbSB_SE_SE_SI_SE_SE_RKSt14priority_queueISt5tupleIJdiiEES_ISS_SaISS_EESt7greaterISS_EESI_SB_iiiiiEERKSF_IFbSB_SE_SE_SI_SE_SE_SZ_SI_SB_iEERKSF_IFvSB_SE_SE_SI_SE_SE_SZ_SI_SB_iiiiibEERS9_RSC_RSG_S1E_E3$_0EEbT_RKT0_mEUlmE_ZNS6_IlS1F_EEbS1G_S1J_mEUllmE_S1K_EEbS1G_S1J_RKT1_RKT2_mEUlllmE_RlS1V_RmEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i" ], [ %156, %"_ZNSt6threadC2IRKZN3igl12parallel_forIlZNS1_12parallel_forIlZNS1_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS5_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviS8_SB_SB_RKNS5_IiLin1ELi1ELi0ELin1ELi1EEESB_SB_RdRNS5_IdLi1ELin1ELi1ELi1ELin1EEEEERKSC_IFbS8_SB_SB_SF_SB_SB_RKSt14priority_queueISt5tupleIJdiiEESt6vectorISP_SaISP_EESt7greaterISP_EESF_S8_iiiiiEERKSC_IFbS8_SB_SB_SF_SB_SB_SX_SF_S8_iEERKSC_IFvS8_SB_SB_SF_SB_SB_SX_SF_S8_iiiiibEERS6_RS9_RSD_S1C_E3$_0EEbT_RKT0_mEUlmE_ZNS3_IlS1D_EEbS1E_S1H_mEUllmE_S1I_EEbS1E_S1H_RKT1_RKT2_mEUlllmE_JRlS1T_RmEvEEOS1E_DpOT0_.exit.i.i.i" ]
-  %206 = add nsw i64 %.03864.i.i, %.sroa.speculated22.i.i
+  %206 = add nuw nsw i64 %.03864.i.i, %.sroa.speculated22.i.i
   %.sroa.speculated.i.i = call i64 @llvm.smin.i64(i64 %71, i64 %206)
   %207 = add nuw nsw i64 %136, 1
   %208 = icmp samesign ult i64 %207, %115
@@ -2258,7 +2258,7 @@ _ZNSt6vectorISt6threadSaIS0_EED2Ev.exit.i.i:      ; preds = %292, %_ZSt8_Destroy
   %337 = load i64, ptr %336, align 8, !tbaa !21
   store i64 0, ptr %42, align 8
   %338 = icmp sgt i64 %337, 3074457345618258602
-  br i1 %338, label %.invoke217, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i
+  br i1 %338, label %.invoke258, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i: ; preds = %335
   %339 = mul nsw i64 %337, 3
@@ -2273,21 +2273,21 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 344:                                              ; preds = %342
   %345 = icmp samesign ugt i64 %339, 4611686018427387903
-  br i1 %345, label %.invoke217, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i
+  br i1 %345, label %.invoke258, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i
 
 _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i: ; preds = %344
   %346 = mul i64 %337, 12
   %347 = call noalias ptr @malloc(i64 noundef %346) #27
   %348 = icmp eq ptr %347, null
-  br i1 %348, label %.invoke217, label %.sink.split.i118
+  br i1 %348, label %.invoke258, label %.sink.split.i118
 
-.invoke217:                                       ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i, %344, %335
+.invoke258:                                       ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i, %344, %335
   %349 = call ptr @__cxa_allocate_exception(i64 8) #25
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %349, align 8, !tbaa !41
   invoke void @__cxa_throw(ptr nonnull %349, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #28
-          to label %.cont218 unwind label %350
+          to label %.cont259 unwind label %350
 
-.cont218:                                         ; preds = %.invoke217
+.cont259:                                         ; preds = %.invoke258
   unreachable
 
 .sink.split.i118:                                 ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i, %342
@@ -2295,7 +2295,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i: ; preds = %344
   store ptr %.sink.i119, ptr %42, align 8, !tbaa !57
   br label %352
 
-350:                                              ; preds = %.invoke217
+350:                                              ; preds = %.invoke258
   %351 = landingpad { ptr, i32 }
           cleanup
   br label %.body105

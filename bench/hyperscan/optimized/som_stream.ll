@@ -241,7 +241,7 @@ mmbit_iterate.exit:                               ; preds = %119, %58
   br i1 %.not125, label %._crit_edge128, label %.lr.ph127
 
 .lr.ph127:                                        ; preds = %95, %51, %mmbit_iterate.exit
-  %.011.i148 = phi i32 [ %.011.i, %mmbit_iterate.exit ], [ %98, %95 ], [ %53, %51 ]
+  %.011.i157 = phi i32 [ %.011.i, %mmbit_iterate.exit ], [ %98, %95 ], [ %53, %51 ]
   %131 = zext i8 %20 to i32
   %132 = icmp ugt i32 %6, 256
   %133 = zext nneg i32 %6 to i64
@@ -269,7 +269,7 @@ mmbit_iterate.exit:                               ; preds = %119, %58
   ret void
 
 151:                                              ; preds = %.lr.ph127, %mmbit_iterate.exit24
-  %.0126 = phi i32 [ %.011.i148, %.lr.ph127 ], [ %.011.i23, %mmbit_iterate.exit24 ]
+  %.0126 = phi i32 [ %.011.i157, %.lr.ph127 ], [ %.011.i23, %mmbit_iterate.exit24 ]
   %152 = mul i32 %.0126, %131
   %153 = zext i32 %152 to i64
   %154 = getelementptr inbounds nuw i8, ptr %16, i64 %153
@@ -839,7 +839,7 @@ mmbit_iterate.exit25:                             ; preds = %119, %58
   br i1 %.not123, label %._crit_edge126, label %.lr.ph125
 
 .lr.ph125:                                        ; preds = %95, %51, %mmbit_iterate.exit25
-  %.011.i24164 = phi i32 [ %.011.i24, %mmbit_iterate.exit25 ], [ %98, %95 ], [ %53, %51 ]
+  %.011.i24171 = phi i32 [ %.011.i24, %mmbit_iterate.exit25 ], [ %98, %95 ], [ %53, %51 ]
   %131 = zext i8 %20 to i32
   %132 = zext nneg i32 %.fr143 to i64
   %133 = lshr i32 %.fr143, 6
@@ -862,7 +862,7 @@ mmbit_iterate.exit25:                             ; preds = %119, %58
   br i1 %148, label %.lr.ph125.split.split.us, label %.lr.ph125.split.split
 
 .lr.ph125.split.split.us:                         ; preds = %.lr.ph125, %mmbit_iterate.exit.us131
-  %.0124.us127 = phi i32 [ %190, %mmbit_iterate.exit.us131 ], [ %.011.i24164, %.lr.ph125 ]
+  %.0124.us127 = phi i32 [ %190, %mmbit_iterate.exit.us131 ], [ %.011.i24171, %.lr.ph125 ]
   %149 = mul i32 %.0124.us127, %131
   %150 = zext i32 %149 to i64
   %151 = getelementptr inbounds nuw i8, ptr %16, i64 %150
@@ -972,7 +972,7 @@ mmbit_iterate.exit.us131:                         ; preds = %186
   br label %.lr.ph125.split.split.split
 
 .lr.ph125.split.split.split.us:                   ; preds = %.lr.ph125.split.split, %mmbit_iterate.exit.us138
-  %.0124.us134 = phi i32 [ %236, %mmbit_iterate.exit.us138 ], [ %.011.i24164, %.lr.ph125.split.split ]
+  %.0124.us134 = phi i32 [ %236, %mmbit_iterate.exit.us138 ], [ %.011.i24171, %.lr.ph125.split.split ]
   %200 = mul i32 %.0124.us134, %131
   %201 = zext i32 %200 to i64
   %202 = getelementptr inbounds nuw i8, ptr %16, i64 %201
@@ -1060,7 +1060,7 @@ mmbit_iterate.exit.us138:                         ; preds = %mmbit_get_flat_bloc
   ret void
 
 .lr.ph125.split.split.split:                      ; preds = %.lr.ph125.split.split.split.preheader, %mmbit_iterate.exit
-  %.0124 = phi i32 [ %338, %mmbit_iterate.exit ], [ %.011.i24164, %.lr.ph125.split.split.split.preheader ]
+  %.0124 = phi i32 [ %338, %mmbit_iterate.exit ], [ %.011.i24171, %.lr.ph125.split.split.split.preheader ]
   %237 = mul i32 %.0124, %131
   %238 = zext i32 %237 to i64
   %239 = getelementptr inbounds nuw i8, ptr %16, i64 %238
@@ -1247,9 +1247,9 @@ mmbit_get_flat_block.exit61:                      ; preds = %315, %318, %321, %3
   br i1 %.not71.i31, label %._crit_edge126, label %mmbit_iterate.exit
 
 mmbit_iterate.exit:                               ; preds = %mmbit_get_flat_block.exit61, %mmbit_get_flat_block.exit65, %302
-  %.sink184 = phi i64 [ %301, %302 ], [ %294, %mmbit_get_flat_block.exit65 ], [ %.0.i59, %mmbit_get_flat_block.exit61 ]
+  %.sink191 = phi i64 [ %301, %302 ], [ %294, %mmbit_get_flat_block.exit65 ], [ %.0.i59, %mmbit_get_flat_block.exit61 ]
   %.sink = phi i32 [ %304, %302 ], [ %262, %mmbit_get_flat_block.exit65 ], [ %308, %mmbit_get_flat_block.exit61 ]
-  %336 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.sink184, i1 true)
+  %336 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.sink191, i1 true)
   %337 = trunc nuw nsw i64 %336 to i32
   %338 = or disjoint i32 %.sink, %337
   %.not = icmp eq i32 %338, -1

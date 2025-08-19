@@ -430,13 +430,13 @@ define hidden noundef align 8 ptr @"_ZN68_$LT$serde_json..number..Number$u20$as$
   %.val = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val1 = load ptr, ptr %8, align 8
-  switch i64 %6, label %default.unreachable20 [
+  switch i64 %6, label %default.unreachable24 [
     i64 0, label %9
     i64 1, label %62
     i64 2, label %120
   ]
 
-default.unreachable20:                            ; preds = %2
+default.unreachable24:                            ; preds = %2
   unreachable
 
 9:                                                ; preds = %2

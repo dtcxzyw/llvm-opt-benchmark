@@ -6620,10 +6620,10 @@ index2adr.exit:                                   ; preds = %4, %13, %20, %26, %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %index2adr.exit, %index2adr.exit, %74
-  %.sink20 = phi i64 [ 72, %74 ], [ 16, %index2adr.exit ], [ 16, %index2adr.exit ]
+  %.sink21 = phi i64 [ 72, %74 ], [ 16, %index2adr.exit ], [ 16, %index2adr.exit ]
   %75 = and i64 %70, 140737488355327
   %76 = inttoptr i64 %75 to ptr
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 %.sink20
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 %.sink21
   %78 = load i64, ptr %77, align 8, !tbaa !17
   %79 = or i64 %78, -1688849860263936
   br label %80
@@ -8568,10 +8568,10 @@ index2adr.exit:                                   ; preds = %4, %13, %20, %26, %
   br label %79
 
 79:                                               ; preds = %index2adr.exit, %index2adr.exit, %78
-  %.sink22 = phi i64 [ 72, %78 ], [ 16, %index2adr.exit ], [ 16, %index2adr.exit ]
+  %.sink24 = phi i64 [ 72, %78 ], [ 16, %index2adr.exit ], [ 16, %index2adr.exit ]
   %80 = and i64 %76, 140737488355327
   %81 = inttoptr i64 %80 to ptr
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 %.sink22
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 %.sink24
   store i64 %74, ptr %82, align 8, !tbaa !17
   %83 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %84 = load i8, ptr %83, align 8, !tbaa !17

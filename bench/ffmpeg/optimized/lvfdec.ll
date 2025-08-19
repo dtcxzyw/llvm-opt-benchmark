@@ -152,12 +152,12 @@ define internal range(i32 -1163346256, 1) i32 @lvf_read_header(ptr noundef %0) #
   br label %.loopexit
 
 75:                                               ; preds = %47, %25
-  %.sink65.in = phi ptr [ %48, %47 ], [ %26, %25 ]
-  %.sink63 = phi i32 [ %70, %47 ], [ %44, %25 ]
+  %.sink68.in = phi ptr [ %48, %47 ], [ %26, %25 ]
+  %.sink66 = phi i32 [ %70, %47 ], [ %44, %25 ]
   %.sink = phi ptr [ %46, %47 ], [ %24, %25 ]
-  %.sink65 = load ptr, ptr %.sink65.in, align 8, !tbaa !27
-  %76 = getelementptr inbounds nuw i8, ptr %.sink65, i64 4
-  store i32 %.sink63, ptr %76, align 4, !tbaa !43
+  %.sink68 = load ptr, ptr %.sink68.in, align 8, !tbaa !27
+  %76 = getelementptr inbounds nuw i8, ptr %.sink68, i64 4
+  store i32 %.sink66, ptr %76, align 4, !tbaa !43
   tail call void @avpriv_set_pts_info(ptr noundef nonnull %.sink, i32 noundef 32, i32 noundef 1, i32 noundef 1000) #3
   %77 = load ptr, ptr %2, align 8, !tbaa !12
   %78 = tail call i64 @avio_seek(ptr noundef %77, i64 noundef %22, i32 noundef 0) #3

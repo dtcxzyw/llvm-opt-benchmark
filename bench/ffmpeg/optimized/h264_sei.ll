@@ -788,7 +788,7 @@ get_ue_golomb_long.exit.thread.i:                 ; preds = %get_ue_golomb_long.
 
 191:                                              ; preds = %177
   %192 = lshr i32 %185, 16
-  %193 = add i32 %175, 16
+  %193 = add nuw i32 %175, 16
   %194 = call i32 @llvm.umin.i32(i32 %81, i32 %193)
   store i32 %194, ptr %27, align 8, !tbaa !66
   %195 = add nsw i32 %176, -16
@@ -802,7 +802,7 @@ get_ue_golomb_long.exit.thread.i:                 ; preds = %get_ue_golomb_long.
   %203 = shl i32 %201, %202
   %204 = sub nsw i32 48, %176
   %205 = lshr i32 %203, %204
-  %206 = add i32 %194, %195
+  %206 = add nuw i32 %194, %195
   %207 = call i32 @llvm.umin.i32(i32 %81, i32 %206)
   %208 = or i32 %205, %196
   br label %get_bits_long.exit.i
@@ -881,7 +881,7 @@ get_bits_long.exit.i:                             ; preds = %191, %186, %174
   %252 = shl i32 %250, %251
   %253 = sub nsw i32 48, %225
   %254 = lshr i32 %252, %253
-  %255 = add i32 %243, %244
+  %255 = add nuw i32 %243, %244
   %256 = call i32 @llvm.umin.i32(i32 %81, i32 %255)
   %257 = or i32 %254, %245
   br label %get_bits_long.exit37.i

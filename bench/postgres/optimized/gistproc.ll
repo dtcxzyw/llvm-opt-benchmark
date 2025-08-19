@@ -660,8 +660,8 @@ float8_lt.exit.thread:                            ; preds = %103, %110, %float8_
 
 112:                                              ; preds = %98
   %113 = trunc nsw i64 %indvars.iv to i32
-  %sext374 = shl i64 %indvars.iv, 32
-  %114 = ashr exact i64 %sext374, 28
+  %sext418 = shl i64 %indvars.iv, 32
+  %114 = ashr exact i64 %sext418, 28
   %115 = getelementptr inbounds i8, ptr %15, i64 %114
   %116 = load double, ptr %115, align 8
   %117 = icmp slt i32 %.0223327, %11
@@ -680,19 +680,19 @@ float8_lt.exit.thread:                            ; preds = %103, %110, %float8_
   %120 = getelementptr inbounds %struct.SplitInterval, ptr %16, i64 %indvars.iv365, i32 1
   %121 = load double, ptr %120, align 8
   %122 = fcmp ugt double %121, %.1233314.fr
-  br i1 %122, label %.critedge2.loopexit.split.loop.exit383, label %123
+  br i1 %122, label %.critedge2.loopexit.split.loop.exit428, label %123
 
 123:                                              ; preds = %.lr.ph321.split
   %indvars.iv.next366 = add nsw i64 %indvars.iv365, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next366, %67
   br i1 %exitcond.not, label %.critedge2, label %.lr.ph321.split, !llvm.loop !10
 
-.critedge2.loopexit.split.loop.exit383:           ; preds = %.lr.ph321.split
+.critedge2.loopexit.split.loop.exit428:           ; preds = %.lr.ph321.split
   %124 = trunc nsw i64 %indvars.iv365 to i32
   br label %.critedge2
 
-.critedge2:                                       ; preds = %123, %.critedge2.loopexit.split.loop.exit383, %.lr.ph321, %112
-  %.1.lcssa = phi i32 [ %.0223327, %112 ], [ %11, %.lr.ph321 ], [ %124, %.critedge2.loopexit.split.loop.exit383 ], [ %11, %123 ]
+.critedge2:                                       ; preds = %123, %.critedge2.loopexit.split.loop.exit428, %.lr.ph321, %112
+  %.1.lcssa = phi i32 [ %.0223327, %112 ], [ %11, %.lr.ph321 ], [ %124, %.critedge2.loopexit.split.loop.exit428 ], [ %11, %123 ]
   call fastcc void @g_box_consider_split(ptr noundef %2, i32 noundef %.0240343, double noundef %116, i32 noundef %113, double noundef %.1233314.fr, i32 noundef %.1.lcssa)
   %125 = icmp sgt i32 %11, %113
   br i1 %125, label %.lr.ph317, label %.lr.ph331.preheader
@@ -762,19 +762,19 @@ float8_gt.exit.thread:                            ; preds = %136, %142, %float8_
   %153 = fcmp uno double %152, 0.000000e+00
   %154 = fcmp oge double %152, %.2230328
   %155 = or i1 %153, %154
-  br i1 %155, label %156, label %.critedge6.loopexit.split.loop.exit385
+  br i1 %155, label %156, label %.critedge6.loopexit.split.loop.exit430
 
 156:                                              ; preds = %.lr.ph335
   %indvars.iv.next372 = add nsw i64 %indvars.iv371, -1
   %157 = icmp sgt i64 %indvars.iv371, 0
   br i1 %157, label %.lr.ph335, label %.critedge6, !llvm.loop !12
 
-.critedge6.loopexit.split.loop.exit385:           ; preds = %.lr.ph335
+.critedge6.loopexit.split.loop.exit430:           ; preds = %.lr.ph335
   %158 = trunc nuw nsw i64 %indvars.iv371 to i32
   br label %.critedge6
 
-.critedge6:                                       ; preds = %156, %.critedge6.loopexit.split.loop.exit385, %.critedge4
-  %.3227.lcssa = phi i32 [ %.2226341, %.critedge4 ], [ %158, %.critedge6.loopexit.split.loop.exit385 ], [ -1, %156 ]
+.critedge6:                                       ; preds = %156, %.critedge6.loopexit.split.loop.exit430, %.critedge4
+  %.3227.lcssa = phi i32 [ %.2226341, %.critedge4 ], [ %158, %.critedge6.loopexit.split.loop.exit430 ], [ -1, %156 ]
   %159 = add nsw i32 %.3227.lcssa, 1
   %160 = add nuw nsw i32 %145, 1
   call fastcc void @g_box_consider_split(ptr noundef %2, i32 noundef %.0240343, double noundef %.2230328, i32 noundef %159, double noundef %148, i32 noundef %160)
@@ -1694,12 +1694,12 @@ adjustBox.exit302:                                ; preds = %613, %float8_gt.exi
   br label %619
 
 619:                                              ; preds = %adjustBox.exit278, %adjustBox.exit294, %adjustBox.exit302, %adjustBox.exit286
-  %.sink390 = phi i32 [ %491, %adjustBox.exit278 ], [ %577, %adjustBox.exit294 ], [ %617, %adjustBox.exit302 ], [ %533, %adjustBox.exit286 ]
-  %.sink388 = phi ptr [ %490, %adjustBox.exit278 ], [ %576, %adjustBox.exit294 ], [ %616, %adjustBox.exit302 ], [ %532, %adjustBox.exit286 ]
+  %.sink435 = phi i32 [ %491, %adjustBox.exit278 ], [ %577, %adjustBox.exit294 ], [ %617, %adjustBox.exit302 ], [ %533, %adjustBox.exit286 ]
+  %.sink433 = phi ptr [ %490, %adjustBox.exit278 ], [ %576, %adjustBox.exit294 ], [ %616, %adjustBox.exit302 ], [ %532, %adjustBox.exit286 ]
   %.sink.in = phi i32 [ %489, %adjustBox.exit278 ], [ %575, %adjustBox.exit294 ], [ %615, %adjustBox.exit302 ], [ %531, %adjustBox.exit286 ]
   %.sink = trunc i32 %.sink.in to i16
-  %620 = sext i32 %.sink390 to i64
-  %621 = getelementptr inbounds i16, ptr %.sink388, i64 %620
+  %620 = sext i32 %.sink435 to i64
+  %621 = getelementptr inbounds i16, ptr %.sink433, i64 %620
   store i16 %.sink, ptr %621, align 2
   %622 = add i16 %.4352, 1
   %623 = zext i16 %622 to i32
@@ -1714,9 +1714,9 @@ adjustBox.exit302:                                ; preds = %613, %float8_gt.exi
   br label %628
 
 628:                                              ; preds = %.loopexit, %fallbackSplit.exit
-  %.sink391 = phi i64 [ %627, %.loopexit ], [ %.037.lcssa.i, %fallbackSplit.exit ]
+  %.sink436 = phi i64 [ %627, %.loopexit ], [ %.037.lcssa.i, %fallbackSplit.exit ]
   %629 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store i64 %.sink391, ptr %629, align 8
+  store i64 %.sink436, ptr %629, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %7
 }

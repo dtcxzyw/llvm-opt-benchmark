@@ -1530,8 +1530,8 @@ _ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i20:
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %28 = load i16, ptr %27, align 8
   switch i16 %28, label %29 [
-    i16 45, label %.critedge.thread.loopexit.i.loopexit17.i25.loopexit35
-    i16 48, label %.critedge.thread.loopexit.i.loopexit17.i25
+    i16 45, label %.critedge.thread.loopexit.i.loopexit18.i25.loopexit39
+    i16 48, label %.critedge.thread.loopexit.i.loopexit18.i25
   ]
 
 29:                                               ; preds = %.lr.ph.i.i23
@@ -1539,21 +1539,21 @@ _ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i20:
   %.not.i.i26 = icmp eq ptr %30, %25
   br i1 %.not.i.i26, label %_ZL13getLikelihoodPKN5clang4StmtE.exit27.thread, label %.lr.ph.i.i23
 
-.critedge.thread.loopexit.i.loopexit17.i25.loopexit35: ; preds = %.lr.ph.i.i23
-  br label %.critedge.thread.loopexit.i.loopexit17.i25
+.critedge.thread.loopexit.i.loopexit18.i25.loopexit39: ; preds = %.lr.ph.i.i23
+  br label %.critedge.thread.loopexit.i.loopexit18.i25
 
-.critedge.thread.loopexit.i.loopexit17.i25:       ; preds = %.lr.ph.i.i23, %.critedge.thread.loopexit.i.loopexit17.i25.loopexit35
-  %31 = phi i32 [ -1, %.critedge.thread.loopexit.i.loopexit17.i25.loopexit35 ], [ 1, %.lr.ph.i.i23 ]
-  %.sroa.07.1.i16 = phi i32 [ 1, %.critedge.thread.loopexit.i.loopexit17.i25.loopexit35 ], [ -1, %.lr.ph.i.i23 ]
+.critedge.thread.loopexit.i.loopexit18.i25:       ; preds = %.lr.ph.i.i23, %.critedge.thread.loopexit.i.loopexit18.i25.loopexit39
+  %31 = phi i32 [ -1, %.critedge.thread.loopexit.i.loopexit18.i25.loopexit39 ], [ 1, %.lr.ph.i.i23 ]
+  %.sroa.07.1.i16 = phi i32 [ 1, %.critedge.thread.loopexit.i.loopexit18.i25.loopexit39 ], [ -1, %.lr.ph.i.i23 ]
   %32 = icmp eq i32 %.sroa.07.1.i, %.sroa.07.1.i16
   br i1 %32, label %_ZL13getLikelihoodPKN5clang4StmtE.exit27.thread, label %33
 
-33:                                               ; preds = %.critedge.thread.loopexit.i.loopexit17.i25
+33:                                               ; preds = %.critedge.thread.loopexit.i.loopexit18.i25
   %spec.select = select i1 %.not, i32 %31, i32 %.sroa.07.1.i
   br label %_ZL13getLikelihoodPKN5clang4StmtE.exit27.thread
 
-_ZL13getLikelihoodPKN5clang4StmtE.exit27.thread:  ; preds = %29, %33, %_ZL13getLikelihoodPKN5clang4StmtE.exit, %17, %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i20, %.critedge.thread.loopexit.i.loopexit17.i25
-  %.0 = phi i32 [ 0, %.critedge.thread.loopexit.i.loopexit17.i25 ], [ %.sroa.07.1.i, %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i20 ], [ %.sroa.07.1.i, %17 ], [ %.sroa.07.1.i, %_ZL13getLikelihoodPKN5clang4StmtE.exit ], [ %spec.select, %33 ], [ %.sroa.07.1.i, %29 ]
+_ZL13getLikelihoodPKN5clang4StmtE.exit27.thread:  ; preds = %29, %33, %_ZL13getLikelihoodPKN5clang4StmtE.exit, %17, %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i20, %.critedge.thread.loopexit.i.loopexit18.i25
+  %.0 = phi i32 [ 0, %.critedge.thread.loopexit.i.loopexit18.i25 ], [ %.sroa.07.1.i, %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i20 ], [ %.sroa.07.1.i, %17 ], [ %.sroa.07.1.i, %_ZL13getLikelihoodPKN5clang4StmtE.exit ], [ %spec.select, %33 ], [ %.sroa.07.1.i, %29 ]
   ret i32 %.0
 }
 
@@ -10910,12 +10910,12 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 75:                                               ; preds = %tailrecurse
   %76 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !1063
-  %.not.i885 = icmp eq ptr %77, null
-  br i1 %.not.i885, label %78, label %tailrecurse.backedge
+  %.not.i886 = icmp eq ptr %77, null
+  br i1 %.not.i886, label %78, label %tailrecurse.backedge
 
 78:                                               ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.sroa.0.0.copyload.i.i886 = load i32, ptr %79, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i.i887 = load i32, ptr %79, align 4, !tbaa !1055
   br label %_ZNK5clang13UnaryOperator11getBeginLocEv.exit
 
 80:                                               ; preds = %tailrecurse
@@ -10957,7 +10957,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 98:                                               ; preds = %91
   %99 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
-  %.sroa.0.0.copyload.i.i887 = load i32, ptr %99, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i.i888 = load i32, ptr %99, align 4, !tbaa !1055
   br label %_ZNK5clang13UnaryOperator11getBeginLocEv.exit
 
 100:                                              ; preds = %tailrecurse
@@ -10969,12 +10969,12 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %103 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
   %104 = load i8, ptr %103, align 8
   %105 = and i8 %104, 2
-  %.not.i889 = icmp eq i8 %105, 0
-  br i1 %.not.i889, label %108, label %106
+  %.not.i890 = icmp eq i8 %105, 0
+  br i1 %.not.i890, label %108, label %106
 
 106:                                              ; preds = %102
   %107 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %.sroa.0.0.copyload.i890 = load i32, ptr %107, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i891 = load i32, ptr %107, align 8, !tbaa !1055
   br label %_ZNK5clang13UnaryOperator11getBeginLocEv.exit
 
 108:                                              ; preds = %102
@@ -11204,8 +11204,8 @@ tailrecurse.backedge:                             ; preds = %144, %138, %16, %49
 212:                                              ; preds = %tailrecurse
   %213 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
   %214 = load ptr, ptr %213, align 8, !tbaa !1154
-  %.not.i892 = icmp eq ptr %214, null
-  br i1 %.not.i892, label %_ZNK5clang13UnaryOperator11getBeginLocEv.exit, label %215
+  %.not.i893 = icmp eq ptr %214, null
+  br i1 %.not.i893, label %_ZNK5clang13UnaryOperator11getBeginLocEv.exit, label %215
 
 215:                                              ; preds = %212
   %216 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
@@ -12112,7 +12112,7 @@ tailrecurse.backedge:                             ; preds = %144, %138, %16, %49
   unreachable
 
 _ZNK5clang13UnaryOperator11getBeginLocEv.exit:    ; preds = %215, %212, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %106, %98, %78, %572, %570, %326, %210, %208, %71, %69, %19, %601, %599, %597, %595, %593, %591, %582, %580, %578, %565, %563, %561, %559, %557, %555, %553, %551, %546, %544, %542, %540, %538, %536, %534, %532, %530, %528, %526, %524, %522, %520, %518, %516, %514, %512, %510, %508, %506, %504, %502, %500, %498, %496, %494, %492, %490, %488, %486, %484, %482, %480, %478, %476, %474, %472, %470, %468, %466, %464, %462, %460, %458, %456, %454, %452, %450, %448, %446, %444, %442, %440, %438, %436, %434, %432, %430, %428, %426, %424, %422, %420, %418, %416, %414, %412, %410, %408, %406, %404, %402, %400, %398, %396, %394, %392, %390, %388, %386, %384, %382, %380, %378, %376, %374, %372, %370, %368, %366, %364, %362, %360, %358, %356, %354, %352, %350, %348, %344, %342, %340, %338, %336, %328, %313, %311, %309, %301, %296, %294, %292, %290, %288, %286, %284, %282, %280, %278, %276, %274, %269, %267, %262, %260, %258, %256, %254, %252, %250, %248, %246, %244, %242, %240, %238, %236, %234, %232, %230, %228, %226, %221, %219, %202, %200, %198, %196, %194, %191, %189, %187, %185, %183, %178, %176, %168, %166, %164, %156, %154, %152, %150, %133, %131, %129, %127, %125, %123, %121, %119, %117, %100, %89, %87, %85, %80, %73, %64, %56, %54, %52, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %10, %8, %6
-  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload.i200, %601 ], [ %.sroa.0.0.copyload.i.i, %6 ], [ %.sroa.0.0.copyload.i.i1, %8 ], [ %.sroa.0.0.copyload.i, %10 ], [ %.sroa.0.0.copyload.i3, %21 ], [ %.sroa.0.0.copyload.i4, %23 ], [ %.sroa.0.0.copyload.i5, %25 ], [ %.sroa.0.0.copyload.i6, %27 ], [ %.sroa.0.0.copyload.i.i7, %29 ], [ %.sroa.0.0.copyload.i8, %31 ], [ %.sroa.0.0.copyload.i9, %33 ], [ %.sroa.0.0.copyload.i10, %35 ], [ %.sroa.0.0.copyload.i11, %37 ], [ %.sroa.0.0.copyload.i12, %39 ], [ %.sroa.0.0.copyload.i.i13, %41 ], [ %.sroa.0.0.copyload.i14, %43 ], [ %.sroa.0.0.copyload.i15, %45 ], [ %.sroa.0.0.copyload.i16, %47 ], [ %.sroa.0.0.copyload.i.i17, %52 ], [ %.sroa.0.0.copyload.i.i18, %54 ], [ %.sroa.0.0.copyload.i19, %56 ], [ %65, %64 ], [ %.sroa.0.0.copyload.i21, %73 ], [ %.sroa.0.0.copyload.i22, %80 ], [ %.sroa.0.0.copyload.i23, %85 ], [ %.sroa.0.0.copyload.i24, %87 ], [ %.sroa.0.0.copyload.i25, %89 ], [ %.sroa.0.0.copyload.i26, %100 ], [ %.sroa.0.0.copyload.i27, %117 ], [ %.sroa.0.0.copyload.i.i28, %119 ], [ %.sroa.0.0.copyload.i.i29, %121 ], [ %.sroa.0.0.copyload.i30, %123 ], [ %.sroa.0.0.copyload.i31, %125 ], [ %.sroa.0.0.copyload.i.i32, %127 ], [ %.sroa.0.0.copyload.i33, %129 ], [ %.sroa.0.0.copyload.i34, %131 ], [ %134, %133 ], [ %151, %150 ], [ %.sroa.0.0.copyload.i.i35, %152 ], [ %.sroa.0.0.copyload.i36, %154 ], [ %157, %156 ], [ %.sroa.0.0.copyload.i.i37, %164 ], [ %.sroa.0.0.copyload.i38, %166 ], [ %.sroa.0.0.copyload.i39, %168 ], [ %.sroa.0.0.copyload.i40, %176 ], [ %.sroa.0.0.copyload.i41, %178 ], [ %.sroa.0.0.copyload.i42, %183 ], [ %.sroa.0.0.copyload.i43, %185 ], [ %188, %187 ], [ %190, %189 ], [ %.sroa.0.0.extract.trunc.i.i44, %191 ], [ %.sroa.0.0.copyload.i45, %194 ], [ %197, %196 ], [ %.sroa.0.0.copyload.i46, %198 ], [ %.sroa.0.0.copyload.i47, %200 ], [ %.sroa.0.0.copyload.i48, %202 ], [ %.sroa.0.0.copyload.i49, %219 ], [ %.sroa.0.0.copyload.i50, %221 ], [ %.sroa.0.0.copyload.i51, %226 ], [ %.sroa.0.0.copyload.i52, %228 ], [ %.sroa.0.0.copyload.i53, %230 ], [ %.sroa.0.0.copyload.i54, %232 ], [ %.sroa.0.0.copyload.i55, %234 ], [ %.sroa.0.0.copyload.i56, %236 ], [ %239, %238 ], [ %.sroa.0.0.copyload.i57, %240 ], [ %.sroa.0.0.copyload.i58, %242 ], [ %245, %244 ], [ %247, %246 ], [ %.sroa.0.0.copyload.i.i59, %248 ], [ %251, %250 ], [ %253, %252 ], [ %.sroa.0.0.copyload.i.i60, %254 ], [ %257, %256 ], [ %.sroa.0.0.copyload.i.i61, %258 ], [ %.sroa.0.0.copyload.i.i62, %260 ], [ %.sroa.0.0.copyload.i.i63, %262 ], [ %268, %267 ], [ %270, %269 ], [ %.sroa.0.0.copyload.i64, %274 ], [ %.sroa.0.0.copyload.i.i65, %276 ], [ %.sroa.0.0.copyload.i.i66, %278 ], [ %.sroa.0.0.copyload.i.i67, %280 ], [ %.sroa.0.0.copyload.i68, %282 ], [ %285, %284 ], [ %287, %286 ], [ %.sroa.0.0.copyload.i69, %288 ], [ %.sroa.0.0.copyload.i70, %290 ], [ %293, %292 ], [ %295, %294 ], [ %.sroa.0.0.copyload.i.i71, %296 ], [ %302, %301 ], [ %.sroa.0.0.copyload.i72, %309 ], [ %.sroa.0.0.copyload.i73, %311 ], [ %.sroa.0.0.copyload.i74, %313 ], [ %.sroa.0.0.copyload.i75, %328 ], [ %.sroa.0.0.copyload.i.i76, %336 ], [ %.sroa.0.0.copyload.i.i77, %338 ], [ %.sroa.0.0.copyload.i.i78, %340 ], [ %.sroa.0.0.copyload.i.i79, %342 ], [ %.sroa.0.0.copyload.i.i80, %344 ], [ %.sroa.0.0.copyload.i.i81, %348 ], [ %.sroa.0.0.copyload.i82, %350 ], [ %.sroa.0.0.copyload.i.i83, %352 ], [ %.sroa.0.0.copyload.i.i84, %354 ], [ %.sroa.0.0.copyload.i.i85, %356 ], [ %.sroa.0.0.copyload.i.i86, %358 ], [ %.sroa.0.0.copyload.i.i87, %360 ], [ %.sroa.0.0.copyload.i.i88, %362 ], [ %.sroa.0.0.copyload.i.i89, %364 ], [ %.sroa.0.0.copyload.i.i90, %366 ], [ %.sroa.0.0.copyload.i.i91, %368 ], [ %.sroa.0.0.copyload.i.i92, %370 ], [ %.sroa.0.0.copyload.i.i93, %372 ], [ %.sroa.0.0.copyload.i.i94, %374 ], [ %.sroa.0.0.copyload.i.i95, %376 ], [ %.sroa.0.0.copyload.i.i96, %378 ], [ %.sroa.0.0.copyload.i.i97, %380 ], [ %.sroa.0.0.copyload.i.i98, %382 ], [ %.sroa.0.0.copyload.i99, %384 ], [ %.sroa.0.0.copyload.i100, %386 ], [ %.sroa.0.0.copyload.i101, %388 ], [ %.sroa.0.0.copyload.i102, %390 ], [ %.sroa.0.0.copyload.i103, %392 ], [ %.sroa.0.0.copyload.i104, %394 ], [ %.sroa.0.0.copyload.i105, %396 ], [ %.sroa.0.0.copyload.i106, %398 ], [ %.sroa.0.0.copyload.i107, %400 ], [ %.sroa.0.0.copyload.i108, %402 ], [ %.sroa.0.0.copyload.i109, %404 ], [ %.sroa.0.0.copyload.i110, %406 ], [ %.sroa.0.0.copyload.i111, %408 ], [ %.sroa.0.0.copyload.i112, %410 ], [ %.sroa.0.0.copyload.i113, %412 ], [ %.sroa.0.0.copyload.i114, %414 ], [ %.sroa.0.0.copyload.i115, %416 ], [ %.sroa.0.0.copyload.i116, %418 ], [ %.sroa.0.0.copyload.i117, %420 ], [ %.sroa.0.0.copyload.i118, %422 ], [ %.sroa.0.0.copyload.i119, %424 ], [ %.sroa.0.0.copyload.i120, %426 ], [ %.sroa.0.0.copyload.i121, %428 ], [ %.sroa.0.0.copyload.i122, %430 ], [ %.sroa.0.0.copyload.i123, %432 ], [ %.sroa.0.0.copyload.i124, %434 ], [ %.sroa.0.0.copyload.i125, %436 ], [ %.sroa.0.0.copyload.i126, %438 ], [ %.sroa.0.0.copyload.i127, %440 ], [ %.sroa.0.0.copyload.i128, %442 ], [ %.sroa.0.0.copyload.i129, %444 ], [ %.sroa.0.0.copyload.i130, %446 ], [ %.sroa.0.0.copyload.i131, %448 ], [ %.sroa.0.0.copyload.i132, %450 ], [ %.sroa.0.0.copyload.i133, %452 ], [ %.sroa.0.0.copyload.i134, %454 ], [ %.sroa.0.0.copyload.i135, %456 ], [ %.sroa.0.0.copyload.i136, %458 ], [ %.sroa.0.0.copyload.i137, %460 ], [ %.sroa.0.0.copyload.i138, %462 ], [ %.sroa.0.0.copyload.i139, %464 ], [ %.sroa.0.0.copyload.i140, %466 ], [ %.sroa.0.0.copyload.i141, %468 ], [ %.sroa.0.0.copyload.i142, %470 ], [ %.sroa.0.0.copyload.i143, %472 ], [ %.sroa.0.0.copyload.i144, %474 ], [ %.sroa.0.0.copyload.i145, %476 ], [ %.sroa.0.0.copyload.i146, %478 ], [ %.sroa.0.0.copyload.i147, %480 ], [ %.sroa.0.0.copyload.i148, %482 ], [ %.sroa.0.0.copyload.i149, %484 ], [ %.sroa.0.0.copyload.i150, %486 ], [ %.sroa.0.0.copyload.i151, %488 ], [ %.sroa.0.0.copyload.i152, %490 ], [ %.sroa.0.0.copyload.i153, %492 ], [ %.sroa.0.0.copyload.i154, %494 ], [ %.sroa.0.0.copyload.i155, %496 ], [ %.sroa.0.0.copyload.i156, %498 ], [ %.sroa.0.0.copyload.i157, %500 ], [ %.sroa.0.0.copyload.i158, %502 ], [ %.sroa.0.0.copyload.i159, %504 ], [ %.sroa.0.0.copyload.i160, %506 ], [ %.sroa.0.0.copyload.i161, %508 ], [ %.sroa.0.0.copyload.i162, %510 ], [ %.sroa.0.0.copyload.i163, %512 ], [ %.sroa.0.0.copyload.i164, %514 ], [ %.sroa.0.0.copyload.i165, %516 ], [ %.sroa.0.0.copyload.i166, %518 ], [ %.sroa.0.0.copyload.i167, %520 ], [ %.sroa.0.0.copyload.i168, %522 ], [ %.sroa.0.0.copyload.i169, %524 ], [ %.sroa.0.0.copyload.i170, %526 ], [ %.sroa.0.0.copyload.i171, %528 ], [ %.sroa.0.0.copyload.i172, %530 ], [ %.sroa.0.0.copyload.i173, %532 ], [ %.sroa.0.0.copyload.i174, %534 ], [ %.sroa.0.0.copyload.i175, %536 ], [ %.sroa.0.0.copyload.i176, %538 ], [ %.sroa.0.0.copyload.i177, %540 ], [ %.sroa.0.0.copyload.i178, %542 ], [ %.sroa.0.0.copyload.i179, %544 ], [ %.sroa.0.0.copyload.i180, %546 ], [ %.sroa.0.0.copyload.i.i181, %551 ], [ %.sroa.0.0.copyload.i182, %553 ], [ %.sroa.0.0.copyload.i.i183, %555 ], [ %.sroa.0.0.copyload.i.i184, %557 ], [ %.sroa.0.0.copyload.i.i185, %559 ], [ %.sroa.0.0.copyload.i.i186, %561 ], [ %.sroa.0.0.copyload.i.i187, %563 ], [ %.sroa.0.0.copyload.i188, %565 ], [ %.sroa.0.0.copyload.i192, %578 ], [ %.sroa.0.0.copyload.i.i193, %580 ], [ %.sroa.0.0.copyload.i194, %582 ], [ %.sroa.0.0.copyload.i.i195, %591 ], [ %.sroa.0.0.copyload.i196, %593 ], [ %.sroa.0.0.copyload.i197, %595 ], [ %.sroa.0.0.copyload.i.i198, %597 ], [ %.sroa.0.0.copyload.i199, %599 ], [ %.sroa.0.0.copyload.i.i2, %19 ], [ %.sroa.0.0.copyload.i1.i, %71 ], [ %.sroa.0.0.extract.trunc.i.i, %69 ], [ %.sroa.0.0.copyload.i.i.i, %210 ], [ %.sroa.0.0.extract.trunc.i.i.i, %208 ], [ %.sroa.0.0.copyload.i.i203, %326 ], [ %.sroa.0.0.copyload.i.i190, %570 ], [ %577, %572 ], [ %.sroa.0.0.copyload.i.i886, %78 ], [ %.sroa.0.0.copyload.i.i887, %98 ], [ %.sroa.0.0.copyload.i890, %106 ], [ %217, %215 ], [ 0, %212 ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ]
+  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload.i200, %601 ], [ %.sroa.0.0.copyload.i.i, %6 ], [ %.sroa.0.0.copyload.i.i1, %8 ], [ %.sroa.0.0.copyload.i, %10 ], [ %.sroa.0.0.copyload.i3, %21 ], [ %.sroa.0.0.copyload.i4, %23 ], [ %.sroa.0.0.copyload.i5, %25 ], [ %.sroa.0.0.copyload.i6, %27 ], [ %.sroa.0.0.copyload.i.i7, %29 ], [ %.sroa.0.0.copyload.i8, %31 ], [ %.sroa.0.0.copyload.i9, %33 ], [ %.sroa.0.0.copyload.i10, %35 ], [ %.sroa.0.0.copyload.i11, %37 ], [ %.sroa.0.0.copyload.i12, %39 ], [ %.sroa.0.0.copyload.i.i13, %41 ], [ %.sroa.0.0.copyload.i14, %43 ], [ %.sroa.0.0.copyload.i15, %45 ], [ %.sroa.0.0.copyload.i16, %47 ], [ %.sroa.0.0.copyload.i.i17, %52 ], [ %.sroa.0.0.copyload.i.i18, %54 ], [ %.sroa.0.0.copyload.i19, %56 ], [ %65, %64 ], [ %.sroa.0.0.copyload.i21, %73 ], [ %.sroa.0.0.copyload.i22, %80 ], [ %.sroa.0.0.copyload.i23, %85 ], [ %.sroa.0.0.copyload.i24, %87 ], [ %.sroa.0.0.copyload.i25, %89 ], [ %.sroa.0.0.copyload.i26, %100 ], [ %.sroa.0.0.copyload.i27, %117 ], [ %.sroa.0.0.copyload.i.i28, %119 ], [ %.sroa.0.0.copyload.i.i29, %121 ], [ %.sroa.0.0.copyload.i30, %123 ], [ %.sroa.0.0.copyload.i31, %125 ], [ %.sroa.0.0.copyload.i.i32, %127 ], [ %.sroa.0.0.copyload.i33, %129 ], [ %.sroa.0.0.copyload.i34, %131 ], [ %134, %133 ], [ %151, %150 ], [ %.sroa.0.0.copyload.i.i35, %152 ], [ %.sroa.0.0.copyload.i36, %154 ], [ %157, %156 ], [ %.sroa.0.0.copyload.i.i37, %164 ], [ %.sroa.0.0.copyload.i38, %166 ], [ %.sroa.0.0.copyload.i39, %168 ], [ %.sroa.0.0.copyload.i40, %176 ], [ %.sroa.0.0.copyload.i41, %178 ], [ %.sroa.0.0.copyload.i42, %183 ], [ %.sroa.0.0.copyload.i43, %185 ], [ %188, %187 ], [ %190, %189 ], [ %.sroa.0.0.extract.trunc.i.i44, %191 ], [ %.sroa.0.0.copyload.i45, %194 ], [ %197, %196 ], [ %.sroa.0.0.copyload.i46, %198 ], [ %.sroa.0.0.copyload.i47, %200 ], [ %.sroa.0.0.copyload.i48, %202 ], [ %.sroa.0.0.copyload.i49, %219 ], [ %.sroa.0.0.copyload.i50, %221 ], [ %.sroa.0.0.copyload.i51, %226 ], [ %.sroa.0.0.copyload.i52, %228 ], [ %.sroa.0.0.copyload.i53, %230 ], [ %.sroa.0.0.copyload.i54, %232 ], [ %.sroa.0.0.copyload.i55, %234 ], [ %.sroa.0.0.copyload.i56, %236 ], [ %239, %238 ], [ %.sroa.0.0.copyload.i57, %240 ], [ %.sroa.0.0.copyload.i58, %242 ], [ %245, %244 ], [ %247, %246 ], [ %.sroa.0.0.copyload.i.i59, %248 ], [ %251, %250 ], [ %253, %252 ], [ %.sroa.0.0.copyload.i.i60, %254 ], [ %257, %256 ], [ %.sroa.0.0.copyload.i.i61, %258 ], [ %.sroa.0.0.copyload.i.i62, %260 ], [ %.sroa.0.0.copyload.i.i63, %262 ], [ %268, %267 ], [ %270, %269 ], [ %.sroa.0.0.copyload.i64, %274 ], [ %.sroa.0.0.copyload.i.i65, %276 ], [ %.sroa.0.0.copyload.i.i66, %278 ], [ %.sroa.0.0.copyload.i.i67, %280 ], [ %.sroa.0.0.copyload.i68, %282 ], [ %285, %284 ], [ %287, %286 ], [ %.sroa.0.0.copyload.i69, %288 ], [ %.sroa.0.0.copyload.i70, %290 ], [ %293, %292 ], [ %295, %294 ], [ %.sroa.0.0.copyload.i.i71, %296 ], [ %302, %301 ], [ %.sroa.0.0.copyload.i72, %309 ], [ %.sroa.0.0.copyload.i73, %311 ], [ %.sroa.0.0.copyload.i74, %313 ], [ %.sroa.0.0.copyload.i75, %328 ], [ %.sroa.0.0.copyload.i.i76, %336 ], [ %.sroa.0.0.copyload.i.i77, %338 ], [ %.sroa.0.0.copyload.i.i78, %340 ], [ %.sroa.0.0.copyload.i.i79, %342 ], [ %.sroa.0.0.copyload.i.i80, %344 ], [ %.sroa.0.0.copyload.i.i81, %348 ], [ %.sroa.0.0.copyload.i82, %350 ], [ %.sroa.0.0.copyload.i.i83, %352 ], [ %.sroa.0.0.copyload.i.i84, %354 ], [ %.sroa.0.0.copyload.i.i85, %356 ], [ %.sroa.0.0.copyload.i.i86, %358 ], [ %.sroa.0.0.copyload.i.i87, %360 ], [ %.sroa.0.0.copyload.i.i88, %362 ], [ %.sroa.0.0.copyload.i.i89, %364 ], [ %.sroa.0.0.copyload.i.i90, %366 ], [ %.sroa.0.0.copyload.i.i91, %368 ], [ %.sroa.0.0.copyload.i.i92, %370 ], [ %.sroa.0.0.copyload.i.i93, %372 ], [ %.sroa.0.0.copyload.i.i94, %374 ], [ %.sroa.0.0.copyload.i.i95, %376 ], [ %.sroa.0.0.copyload.i.i96, %378 ], [ %.sroa.0.0.copyload.i.i97, %380 ], [ %.sroa.0.0.copyload.i.i98, %382 ], [ %.sroa.0.0.copyload.i99, %384 ], [ %.sroa.0.0.copyload.i100, %386 ], [ %.sroa.0.0.copyload.i101, %388 ], [ %.sroa.0.0.copyload.i102, %390 ], [ %.sroa.0.0.copyload.i103, %392 ], [ %.sroa.0.0.copyload.i104, %394 ], [ %.sroa.0.0.copyload.i105, %396 ], [ %.sroa.0.0.copyload.i106, %398 ], [ %.sroa.0.0.copyload.i107, %400 ], [ %.sroa.0.0.copyload.i108, %402 ], [ %.sroa.0.0.copyload.i109, %404 ], [ %.sroa.0.0.copyload.i110, %406 ], [ %.sroa.0.0.copyload.i111, %408 ], [ %.sroa.0.0.copyload.i112, %410 ], [ %.sroa.0.0.copyload.i113, %412 ], [ %.sroa.0.0.copyload.i114, %414 ], [ %.sroa.0.0.copyload.i115, %416 ], [ %.sroa.0.0.copyload.i116, %418 ], [ %.sroa.0.0.copyload.i117, %420 ], [ %.sroa.0.0.copyload.i118, %422 ], [ %.sroa.0.0.copyload.i119, %424 ], [ %.sroa.0.0.copyload.i120, %426 ], [ %.sroa.0.0.copyload.i121, %428 ], [ %.sroa.0.0.copyload.i122, %430 ], [ %.sroa.0.0.copyload.i123, %432 ], [ %.sroa.0.0.copyload.i124, %434 ], [ %.sroa.0.0.copyload.i125, %436 ], [ %.sroa.0.0.copyload.i126, %438 ], [ %.sroa.0.0.copyload.i127, %440 ], [ %.sroa.0.0.copyload.i128, %442 ], [ %.sroa.0.0.copyload.i129, %444 ], [ %.sroa.0.0.copyload.i130, %446 ], [ %.sroa.0.0.copyload.i131, %448 ], [ %.sroa.0.0.copyload.i132, %450 ], [ %.sroa.0.0.copyload.i133, %452 ], [ %.sroa.0.0.copyload.i134, %454 ], [ %.sroa.0.0.copyload.i135, %456 ], [ %.sroa.0.0.copyload.i136, %458 ], [ %.sroa.0.0.copyload.i137, %460 ], [ %.sroa.0.0.copyload.i138, %462 ], [ %.sroa.0.0.copyload.i139, %464 ], [ %.sroa.0.0.copyload.i140, %466 ], [ %.sroa.0.0.copyload.i141, %468 ], [ %.sroa.0.0.copyload.i142, %470 ], [ %.sroa.0.0.copyload.i143, %472 ], [ %.sroa.0.0.copyload.i144, %474 ], [ %.sroa.0.0.copyload.i145, %476 ], [ %.sroa.0.0.copyload.i146, %478 ], [ %.sroa.0.0.copyload.i147, %480 ], [ %.sroa.0.0.copyload.i148, %482 ], [ %.sroa.0.0.copyload.i149, %484 ], [ %.sroa.0.0.copyload.i150, %486 ], [ %.sroa.0.0.copyload.i151, %488 ], [ %.sroa.0.0.copyload.i152, %490 ], [ %.sroa.0.0.copyload.i153, %492 ], [ %.sroa.0.0.copyload.i154, %494 ], [ %.sroa.0.0.copyload.i155, %496 ], [ %.sroa.0.0.copyload.i156, %498 ], [ %.sroa.0.0.copyload.i157, %500 ], [ %.sroa.0.0.copyload.i158, %502 ], [ %.sroa.0.0.copyload.i159, %504 ], [ %.sroa.0.0.copyload.i160, %506 ], [ %.sroa.0.0.copyload.i161, %508 ], [ %.sroa.0.0.copyload.i162, %510 ], [ %.sroa.0.0.copyload.i163, %512 ], [ %.sroa.0.0.copyload.i164, %514 ], [ %.sroa.0.0.copyload.i165, %516 ], [ %.sroa.0.0.copyload.i166, %518 ], [ %.sroa.0.0.copyload.i167, %520 ], [ %.sroa.0.0.copyload.i168, %522 ], [ %.sroa.0.0.copyload.i169, %524 ], [ %.sroa.0.0.copyload.i170, %526 ], [ %.sroa.0.0.copyload.i171, %528 ], [ %.sroa.0.0.copyload.i172, %530 ], [ %.sroa.0.0.copyload.i173, %532 ], [ %.sroa.0.0.copyload.i174, %534 ], [ %.sroa.0.0.copyload.i175, %536 ], [ %.sroa.0.0.copyload.i176, %538 ], [ %.sroa.0.0.copyload.i177, %540 ], [ %.sroa.0.0.copyload.i178, %542 ], [ %.sroa.0.0.copyload.i179, %544 ], [ %.sroa.0.0.copyload.i180, %546 ], [ %.sroa.0.0.copyload.i.i181, %551 ], [ %.sroa.0.0.copyload.i182, %553 ], [ %.sroa.0.0.copyload.i.i183, %555 ], [ %.sroa.0.0.copyload.i.i184, %557 ], [ %.sroa.0.0.copyload.i.i185, %559 ], [ %.sroa.0.0.copyload.i.i186, %561 ], [ %.sroa.0.0.copyload.i.i187, %563 ], [ %.sroa.0.0.copyload.i188, %565 ], [ %.sroa.0.0.copyload.i192, %578 ], [ %.sroa.0.0.copyload.i.i193, %580 ], [ %.sroa.0.0.copyload.i194, %582 ], [ %.sroa.0.0.copyload.i.i195, %591 ], [ %.sroa.0.0.copyload.i196, %593 ], [ %.sroa.0.0.copyload.i197, %595 ], [ %.sroa.0.0.copyload.i.i198, %597 ], [ %.sroa.0.0.copyload.i199, %599 ], [ %.sroa.0.0.copyload.i.i2, %19 ], [ %.sroa.0.0.copyload.i1.i, %71 ], [ %.sroa.0.0.extract.trunc.i.i, %69 ], [ %.sroa.0.0.copyload.i.i.i, %210 ], [ %.sroa.0.0.extract.trunc.i.i.i, %208 ], [ %.sroa.0.0.copyload.i.i203, %326 ], [ %.sroa.0.0.copyload.i.i190, %570 ], [ %577, %572 ], [ %.sroa.0.0.copyload.i.i887, %78 ], [ %.sroa.0.0.copyload.i.i888, %98 ], [ %.sroa.0.0.copyload.i891, %106 ], [ %217, %215 ], [ 0, %212 ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ]
   ret i32 %.sroa.0.0
 }
 
@@ -12639,7 +12639,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.sroa.0.0.copyload.i.i827 = load i32, ptr %21, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i.i829 = load i32, ptr %21, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 22:                                               ; preds = %16
@@ -12768,12 +12768,12 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 77:                                               ; preds = %tailrecurse
   %78 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
   %79 = load ptr, ptr %78, align 8, !tbaa !1063
-  %.not.i828 = icmp eq ptr %79, null
-  br i1 %.not.i828, label %80, label %tailrecurse.backedge
+  %.not.i830 = icmp eq ptr %79, null
+  br i1 %.not.i830, label %80, label %tailrecurse.backedge
 
 80:                                               ; preds = %77
   %81 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.sroa.0.0.copyload.i.i830 = load i32, ptr %81, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i.i832 = load i32, ptr %81, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 82:                                               ; preds = %tailrecurse
@@ -13041,8 +13041,8 @@ _ZNK5clang25DependentScopeDeclRefExpr9getEndLocEv.exit: ; preds = %_ZNK5clang25D
 201:                                              ; preds = %tailrecurse
   %202 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
   %203 = load ptr, ptr %202, align 8, !tbaa !1154
-  %.not.i832 = icmp eq ptr %203, null
-  br i1 %.not.i832, label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit, label %tailrecurse.backedge
+  %.not.i834 = icmp eq ptr %203, null
+  br i1 %.not.i834, label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit, label %tailrecurse.backedge
 
 204:                                              ; preds = %tailrecurse
   %205 = getelementptr inbounds nuw i8, ptr %.tr, i64 44
@@ -13139,8 +13139,8 @@ _ZNK5clang25DependentScopeDeclRefExpr9getEndLocEv.exit: ; preds = %_ZNK5clang25D
 246:                                              ; preds = %243
   %247 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
   %248 = load i32, ptr %247, align 4, !tbaa !57
-  %.not.i835 = icmp eq i32 %248, 0
-  br i1 %.not.i835, label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit, label %249
+  %.not.i837 = icmp eq i32 %248, 0
+  br i1 %.not.i837, label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit, label %249
 
 249:                                              ; preds = %246
   %250 = add i32 %248, -1
@@ -13158,12 +13158,12 @@ _ZNK5clang25DependentScopeDeclRefExpr9getEndLocEv.exit: ; preds = %_ZNK5clang25D
 257:                                              ; preds = %tailrecurse
   %258 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
   %259 = load ptr, ptr %258, align 8, !tbaa !299
-  %.not.i836 = icmp eq ptr %259, null
-  br i1 %.not.i836, label %260, label %tailrecurse.backedge
+  %.not.i838 = icmp eq ptr %259, null
+  br i1 %.not.i838, label %260, label %tailrecurse.backedge
 
 260:                                              ; preds = %257
   %261 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.sroa.0.0.copyload.i.i838 = load i32, ptr %261, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i.i840 = load i32, ptr %261, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 262:                                              ; preds = %tailrecurse
@@ -13367,12 +13367,12 @@ _ZNK5clang25DependentScopeDeclRefExpr9getEndLocEv.exit: ; preds = %_ZNK5clang25D
 360:                                              ; preds = %tailrecurse
   %361 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   %362 = load ptr, ptr %361, align 8, !tbaa !405
-  %.not.i839 = icmp eq ptr %362, null
-  br i1 %.not.i839, label %363, label %tailrecurse.backedge
+  %.not.i841 = icmp eq ptr %362, null
+  br i1 %.not.i841, label %363, label %tailrecurse.backedge
 
 363:                                              ; preds = %360
   %364 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.sroa.0.0.copyload.i.i841 = load i32, ptr %364, align 4, !tbaa !1055
+  %.sroa.0.0.copyload.i.i843 = load i32, ptr %364, align 4, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 365:                                              ; preds = %tailrecurse
@@ -13928,12 +13928,12 @@ _ZNK5clang25DependentScopeDeclRefExpr9getEndLocEv.exit: ; preds = %_ZNK5clang25D
 600:                                              ; preds = %tailrecurse
   %601 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
   %602 = load ptr, ptr %601, align 8, !tbaa !55
-  %.not.i842 = icmp eq ptr %602, null
-  br i1 %.not.i842, label %603, label %tailrecurse.backedge
+  %.not.i844 = icmp eq ptr %602, null
+  br i1 %.not.i844, label %603, label %tailrecurse.backedge
 
 603:                                              ; preds = %600
   %604 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.sroa.0.0.copyload.i.i844 = load i32, ptr %604, align 8, !tbaa !1055
+  %.sroa.0.0.copyload.i.i846 = load i32, ptr %604, align 8, !tbaa !1055
   br label %_ZNK5clang15OpaqueValueExpr9getEndLocEv.exit
 
 605:                                              ; preds = %tailrecurse
@@ -13993,7 +13993,7 @@ _ZNK5clang25DependentScopeDeclRefExpr9getEndLocEv.exit: ; preds = %_ZNK5clang25D
   unreachable
 
 _ZNK5clang15OpaqueValueExpr9getEndLocEv.exit:     ; preds = %246, %243, %201, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %603, %363, %260, %80, %20, %591, %589, %402, %324, %633, %631, %629, %607, %605, %584, %582, %577, %575, %567, %562, %560, %558, %556, %554, %552, %550, %548, %546, %544, %542, %540, %538, %536, %534, %532, %530, %528, %526, %524, %522, %520, %518, %516, %514, %512, %510, %508, %506, %504, %502, %500, %498, %496, %494, %492, %490, %488, %486, %484, %482, %480, %478, %476, %474, %472, %470, %468, %466, %464, %462, %460, %458, %456, %454, %452, %450, %448, %446, %444, %442, %440, %438, %436, %434, %432, %430, %428, %426, %424, %422, %420, %418, %416, %414, %404, %397, %389, %387, %385, %383, %381, %379, %377, %375, %373, %371, %369, %367, %365, %356, %351, %344, %342, %337, %326, %317, %315, %313, %311, %309, %296, %294, %292, %290, %285, %283, %281, %279, %277, %275, %273, %271, %269, %267, %262, %255, %241, %239, %237, %235, %233, %231, %229, %224, %222, %220, %218, %216, %214, %206, %204, %199, %197, %189, %_ZNK5clang25DependentScopeDeclRefExpr9getEndLocEv.exit, %178, %176, %174, %172, %170, %168, %166, %158, %156, %154, %146, %144, %142, %140, %138, %127, %125, %116, %114, %112, %110, %108, %106, %104, %99, %97, %95, %93, %91, %89, %84, %82, %75, %73, %71, %69, %67, %65, %63, %61, %56, %54, %52, %50, %48, %46, %44, %42, %35, %33, %31, %29, %27, %25, %14
-  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload.i182, %633 ], [ %.sroa.0.0.copyload.i, %14 ], [ %.sroa.0.0.copyload.i1, %25 ], [ %.sroa.0.0.copyload.i2, %27 ], [ %.sroa.0.0.copyload.i3, %29 ], [ %.sroa.0.0.copyload.i4, %31 ], [ %.sroa.0.0.copyload.i.i, %33 ], [ %.sroa.0.0.copyload.i5, %35 ], [ %.sroa.0.0.copyload.i6, %42 ], [ %.sroa.0.0.copyload.i7, %44 ], [ %.sroa.0.0.copyload.i8, %46 ], [ %.sroa.0.0.copyload.i9, %48 ], [ %.sroa.0.0.copyload.i10, %50 ], [ %.sroa.0.0.copyload.i11, %52 ], [ %.sroa.0.0.copyload.i12, %54 ], [ %.sroa.0.0.copyload.i13, %56 ], [ %.sroa.0.0.copyload.i.i14, %61 ], [ %.sroa.0.0.copyload.i.i15, %63 ], [ %.sroa.0.0.copyload.i16, %65 ], [ %.sroa.0.0.copyload.i17, %67 ], [ %.sroa.0.0.copyload.i18, %69 ], [ %72, %71 ], [ %74, %73 ], [ %.sroa.0.0.copyload.i19, %75 ], [ %.sroa.0.0.copyload.i20, %82 ], [ %.sroa.0.0.copyload.i21, %84 ], [ %.sroa.0.0.copyload.i22, %89 ], [ %.sroa.0.0.copyload.i23, %91 ], [ %.sroa.0.0.copyload.i24, %93 ], [ %.sroa.0.0.copyload.i25, %95 ], [ %.sroa.0.0.copyload.i26, %97 ], [ %.sroa.0.0.copyload.i27, %99 ], [ %.sroa.0.0.copyload.i28, %104 ], [ %.sroa.0.0.copyload.i.i29, %106 ], [ %.sroa.0.0.copyload.i.i30, %108 ], [ %.sroa.0.0.copyload.i31, %110 ], [ %.sroa.0.0.copyload.i32, %112 ], [ %.sroa.0.0.copyload.i.i33, %114 ], [ %.sroa.0.0.copyload.i34, %116 ], [ %126, %125 ], [ %.sroa.0.0.copyload.i.i35, %127 ], [ %.sroa.0.0.copyload.i36, %138 ], [ %.sroa.0.0.copyload.i.i37, %140 ], [ %.sroa.0.0.copyload.i38, %142 ], [ %.sroa.0.0.copyload.i39, %144 ], [ %147, %146 ], [ %.sroa.0.0.copyload.i.i40, %154 ], [ %.sroa.0.0.copyload.i41, %156 ], [ %.sroa.0.0.copyload.i42, %158 ], [ %.sroa.0.0.copyload.i43, %166 ], [ %.sroa.0.0.copyload.i44, %168 ], [ %.sroa.0.0.copyload.i45, %170 ], [ %.sroa.0.0.copyload.i46, %172 ], [ %.sroa.0.0.copyload.i47, %174 ], [ %177, %176 ], [ %179, %178 ], [ %.sroa.0.0.i, %_ZNK5clang25DependentScopeDeclRefExpr9getEndLocEv.exit ], [ %190, %189 ], [ %.sroa.0.0.copyload.i48, %197 ], [ %200, %199 ], [ %.sroa.0.0.copyload.i49, %204 ], [ %.sroa.0.0.copyload.i50, %206 ], [ %.sroa.0.0.copyload.i51, %214 ], [ %.sroa.0.0.copyload.i52, %216 ], [ %.sroa.0.0.copyload.i53, %218 ], [ %.sroa.0.0.copyload.i54, %220 ], [ %.sroa.0.0.copyload.i55, %222 ], [ %225, %224 ], [ %.sroa.0.0.copyload.i56, %229 ], [ %232, %231 ], [ %.sroa.0.0.copyload.i.i57, %233 ], [ %.sroa.0.0.copyload.i.i58, %235 ], [ %238, %237 ], [ %240, %239 ], [ %.sroa.0.0.copyload.i.i59, %241 ], [ %.sroa.0.0.copyload.i.i60, %255 ], [ %.sroa.0.0.copyload.i.i61, %262 ], [ %.sroa.0.0.copyload.i.i62, %267 ], [ %270, %269 ], [ %272, %271 ], [ %.sroa.0.0.copyload.i63, %273 ], [ %.sroa.0.0.copyload.i.i64, %275 ], [ %.sroa.0.0.copyload.i.i65, %277 ], [ %.sroa.0.0.copyload.i.i66, %279 ], [ %.sroa.0.0.copyload.i67, %281 ], [ %284, %283 ], [ %286, %285 ], [ %.sroa.0.0.copyload.i68, %290 ], [ %293, %292 ], [ %295, %294 ], [ %.sroa.0.0.copyload.i.i69, %296 ], [ %.sroa.0.0.copyload.i70, %309 ], [ %.sroa.0.0.copyload.i71, %311 ], [ %.sroa.0.0.copyload.i72, %313 ], [ %.sroa.0.0.copyload.i.i73, %315 ], [ %.sroa.0.0.copyload.i74, %317 ], [ %.sroa.0.0.copyload.i75, %326 ], [ %338, %337 ], [ %343, %342 ], [ %.sroa.0.0.copyload.i.i76, %344 ], [ %.sroa.0.0.copyload.i77, %351 ], [ %.sroa.0.0.copyload.i.i78, %356 ], [ %.sroa.0.0.copyload.i.i79, %365 ], [ %.sroa.0.0.copyload.i.i80, %367 ], [ %.sroa.0.0.copyload.i.i81, %369 ], [ %.sroa.0.0.copyload.i.i82, %371 ], [ %.sroa.0.0.copyload.i.i83, %373 ], [ %.sroa.0.0.copyload.i.i84, %375 ], [ %.sroa.0.0.copyload.i.i85, %377 ], [ %.sroa.0.0.copyload.i.i86, %379 ], [ %.sroa.0.0.copyload.i.i87, %381 ], [ %.sroa.0.0.copyload.i.i88, %383 ], [ %.sroa.0.0.copyload.i.i89, %385 ], [ %.sroa.0.0.copyload.i.i90, %387 ], [ %.sroa.0.0.copyload.i.i91, %389 ], [ %398, %397 ], [ %.sroa.0.0.copyload.i.i95, %404 ], [ %.sroa.0.0.copyload.i96, %414 ], [ %.sroa.0.0.copyload.i97, %416 ], [ %.sroa.0.0.copyload.i98, %418 ], [ %.sroa.0.0.copyload.i99, %420 ], [ %.sroa.0.0.copyload.i100, %422 ], [ %.sroa.0.0.copyload.i101, %424 ], [ %.sroa.0.0.copyload.i102, %426 ], [ %.sroa.0.0.copyload.i103, %428 ], [ %.sroa.0.0.copyload.i104, %430 ], [ %.sroa.0.0.copyload.i105, %432 ], [ %.sroa.0.0.copyload.i106, %434 ], [ %.sroa.0.0.copyload.i107, %436 ], [ %.sroa.0.0.copyload.i108, %438 ], [ %.sroa.0.0.copyload.i109, %440 ], [ %.sroa.0.0.copyload.i110, %442 ], [ %.sroa.0.0.copyload.i111, %444 ], [ %.sroa.0.0.copyload.i112, %446 ], [ %.sroa.0.0.copyload.i113, %448 ], [ %.sroa.0.0.copyload.i114, %450 ], [ %.sroa.0.0.copyload.i115, %452 ], [ %.sroa.0.0.copyload.i116, %454 ], [ %.sroa.0.0.copyload.i117, %456 ], [ %.sroa.0.0.copyload.i118, %458 ], [ %.sroa.0.0.copyload.i119, %460 ], [ %.sroa.0.0.copyload.i120, %462 ], [ %.sroa.0.0.copyload.i121, %464 ], [ %.sroa.0.0.copyload.i122, %466 ], [ %.sroa.0.0.copyload.i123, %468 ], [ %.sroa.0.0.copyload.i124, %470 ], [ %.sroa.0.0.copyload.i125, %472 ], [ %.sroa.0.0.copyload.i126, %474 ], [ %.sroa.0.0.copyload.i127, %476 ], [ %.sroa.0.0.copyload.i128, %478 ], [ %.sroa.0.0.copyload.i129, %480 ], [ %.sroa.0.0.copyload.i130, %482 ], [ %.sroa.0.0.copyload.i131, %484 ], [ %.sroa.0.0.copyload.i132, %486 ], [ %.sroa.0.0.copyload.i133, %488 ], [ %.sroa.0.0.copyload.i134, %490 ], [ %.sroa.0.0.copyload.i135, %492 ], [ %.sroa.0.0.copyload.i136, %494 ], [ %.sroa.0.0.copyload.i137, %496 ], [ %.sroa.0.0.copyload.i138, %498 ], [ %.sroa.0.0.copyload.i139, %500 ], [ %.sroa.0.0.copyload.i140, %502 ], [ %.sroa.0.0.copyload.i141, %504 ], [ %.sroa.0.0.copyload.i142, %506 ], [ %.sroa.0.0.copyload.i143, %508 ], [ %.sroa.0.0.copyload.i144, %510 ], [ %.sroa.0.0.copyload.i145, %512 ], [ %.sroa.0.0.copyload.i146, %514 ], [ %.sroa.0.0.copyload.i147, %516 ], [ %.sroa.0.0.copyload.i148, %518 ], [ %.sroa.0.0.copyload.i149, %520 ], [ %.sroa.0.0.copyload.i150, %522 ], [ %.sroa.0.0.copyload.i151, %524 ], [ %.sroa.0.0.copyload.i152, %526 ], [ %.sroa.0.0.copyload.i153, %528 ], [ %.sroa.0.0.copyload.i154, %530 ], [ %.sroa.0.0.copyload.i155, %532 ], [ %.sroa.0.0.copyload.i156, %534 ], [ %.sroa.0.0.copyload.i157, %536 ], [ %.sroa.0.0.copyload.i158, %538 ], [ %.sroa.0.0.copyload.i159, %540 ], [ %.sroa.0.0.copyload.i160, %542 ], [ %.sroa.0.0.copyload.i161, %544 ], [ %.sroa.0.0.copyload.i162, %546 ], [ %.sroa.0.0.copyload.i163, %548 ], [ %.sroa.0.0.copyload.i164, %550 ], [ %.sroa.0.0.copyload.i165, %552 ], [ %.sroa.0.0.copyload.i166, %554 ], [ %.sroa.0.0.copyload.i167, %556 ], [ %.sroa.0.0.copyload.i168, %558 ], [ %.sroa.0.0.copyload.i169, %560 ], [ %.sroa.0.0.copyload.i170, %562 ], [ %.sroa.0.0.copyload.i.i171, %567 ], [ %576, %575 ], [ %.sroa.0.0.copyload.i.i172, %577 ], [ %.sroa.0.0.copyload.i.i173, %582 ], [ %.sroa.0.0.copyload.i174, %584 ], [ %.sroa.0.0.copyload.i.i178, %605 ], [ %.sroa.0.0.copyload.i179, %607 ], [ %.sroa.0.0.copyload.i.i180, %629 ], [ %.sroa.0.0.copyload.i181, %631 ], [ %.sroa.0.0.copyload.i.i185, %324 ], [ %.sroa.0.0.copyload.i94, %402 ], [ %.sroa.0.0.copyload.i.i176, %589 ], [ %.sroa.3.0.extract.trunc.i.i, %591 ], [ %.sroa.0.0.copyload.i.i827, %20 ], [ %.sroa.0.0.copyload.i.i830, %80 ], [ %.sroa.0.0.copyload.i.i838, %260 ], [ %.sroa.0.0.copyload.i.i841, %363 ], [ %.sroa.0.0.copyload.i.i844, %603 ], [ %245, %243 ], [ 0, %246 ], [ 0, %201 ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ]
+  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload.i182, %633 ], [ %.sroa.0.0.copyload.i, %14 ], [ %.sroa.0.0.copyload.i1, %25 ], [ %.sroa.0.0.copyload.i2, %27 ], [ %.sroa.0.0.copyload.i3, %29 ], [ %.sroa.0.0.copyload.i4, %31 ], [ %.sroa.0.0.copyload.i.i, %33 ], [ %.sroa.0.0.copyload.i5, %35 ], [ %.sroa.0.0.copyload.i6, %42 ], [ %.sroa.0.0.copyload.i7, %44 ], [ %.sroa.0.0.copyload.i8, %46 ], [ %.sroa.0.0.copyload.i9, %48 ], [ %.sroa.0.0.copyload.i10, %50 ], [ %.sroa.0.0.copyload.i11, %52 ], [ %.sroa.0.0.copyload.i12, %54 ], [ %.sroa.0.0.copyload.i13, %56 ], [ %.sroa.0.0.copyload.i.i14, %61 ], [ %.sroa.0.0.copyload.i.i15, %63 ], [ %.sroa.0.0.copyload.i16, %65 ], [ %.sroa.0.0.copyload.i17, %67 ], [ %.sroa.0.0.copyload.i18, %69 ], [ %72, %71 ], [ %74, %73 ], [ %.sroa.0.0.copyload.i19, %75 ], [ %.sroa.0.0.copyload.i20, %82 ], [ %.sroa.0.0.copyload.i21, %84 ], [ %.sroa.0.0.copyload.i22, %89 ], [ %.sroa.0.0.copyload.i23, %91 ], [ %.sroa.0.0.copyload.i24, %93 ], [ %.sroa.0.0.copyload.i25, %95 ], [ %.sroa.0.0.copyload.i26, %97 ], [ %.sroa.0.0.copyload.i27, %99 ], [ %.sroa.0.0.copyload.i28, %104 ], [ %.sroa.0.0.copyload.i.i29, %106 ], [ %.sroa.0.0.copyload.i.i30, %108 ], [ %.sroa.0.0.copyload.i31, %110 ], [ %.sroa.0.0.copyload.i32, %112 ], [ %.sroa.0.0.copyload.i.i33, %114 ], [ %.sroa.0.0.copyload.i34, %116 ], [ %126, %125 ], [ %.sroa.0.0.copyload.i.i35, %127 ], [ %.sroa.0.0.copyload.i36, %138 ], [ %.sroa.0.0.copyload.i.i37, %140 ], [ %.sroa.0.0.copyload.i38, %142 ], [ %.sroa.0.0.copyload.i39, %144 ], [ %147, %146 ], [ %.sroa.0.0.copyload.i.i40, %154 ], [ %.sroa.0.0.copyload.i41, %156 ], [ %.sroa.0.0.copyload.i42, %158 ], [ %.sroa.0.0.copyload.i43, %166 ], [ %.sroa.0.0.copyload.i44, %168 ], [ %.sroa.0.0.copyload.i45, %170 ], [ %.sroa.0.0.copyload.i46, %172 ], [ %.sroa.0.0.copyload.i47, %174 ], [ %177, %176 ], [ %179, %178 ], [ %.sroa.0.0.i, %_ZNK5clang25DependentScopeDeclRefExpr9getEndLocEv.exit ], [ %190, %189 ], [ %.sroa.0.0.copyload.i48, %197 ], [ %200, %199 ], [ %.sroa.0.0.copyload.i49, %204 ], [ %.sroa.0.0.copyload.i50, %206 ], [ %.sroa.0.0.copyload.i51, %214 ], [ %.sroa.0.0.copyload.i52, %216 ], [ %.sroa.0.0.copyload.i53, %218 ], [ %.sroa.0.0.copyload.i54, %220 ], [ %.sroa.0.0.copyload.i55, %222 ], [ %225, %224 ], [ %.sroa.0.0.copyload.i56, %229 ], [ %232, %231 ], [ %.sroa.0.0.copyload.i.i57, %233 ], [ %.sroa.0.0.copyload.i.i58, %235 ], [ %238, %237 ], [ %240, %239 ], [ %.sroa.0.0.copyload.i.i59, %241 ], [ %.sroa.0.0.copyload.i.i60, %255 ], [ %.sroa.0.0.copyload.i.i61, %262 ], [ %.sroa.0.0.copyload.i.i62, %267 ], [ %270, %269 ], [ %272, %271 ], [ %.sroa.0.0.copyload.i63, %273 ], [ %.sroa.0.0.copyload.i.i64, %275 ], [ %.sroa.0.0.copyload.i.i65, %277 ], [ %.sroa.0.0.copyload.i.i66, %279 ], [ %.sroa.0.0.copyload.i67, %281 ], [ %284, %283 ], [ %286, %285 ], [ %.sroa.0.0.copyload.i68, %290 ], [ %293, %292 ], [ %295, %294 ], [ %.sroa.0.0.copyload.i.i69, %296 ], [ %.sroa.0.0.copyload.i70, %309 ], [ %.sroa.0.0.copyload.i71, %311 ], [ %.sroa.0.0.copyload.i72, %313 ], [ %.sroa.0.0.copyload.i.i73, %315 ], [ %.sroa.0.0.copyload.i74, %317 ], [ %.sroa.0.0.copyload.i75, %326 ], [ %338, %337 ], [ %343, %342 ], [ %.sroa.0.0.copyload.i.i76, %344 ], [ %.sroa.0.0.copyload.i77, %351 ], [ %.sroa.0.0.copyload.i.i78, %356 ], [ %.sroa.0.0.copyload.i.i79, %365 ], [ %.sroa.0.0.copyload.i.i80, %367 ], [ %.sroa.0.0.copyload.i.i81, %369 ], [ %.sroa.0.0.copyload.i.i82, %371 ], [ %.sroa.0.0.copyload.i.i83, %373 ], [ %.sroa.0.0.copyload.i.i84, %375 ], [ %.sroa.0.0.copyload.i.i85, %377 ], [ %.sroa.0.0.copyload.i.i86, %379 ], [ %.sroa.0.0.copyload.i.i87, %381 ], [ %.sroa.0.0.copyload.i.i88, %383 ], [ %.sroa.0.0.copyload.i.i89, %385 ], [ %.sroa.0.0.copyload.i.i90, %387 ], [ %.sroa.0.0.copyload.i.i91, %389 ], [ %398, %397 ], [ %.sroa.0.0.copyload.i.i95, %404 ], [ %.sroa.0.0.copyload.i96, %414 ], [ %.sroa.0.0.copyload.i97, %416 ], [ %.sroa.0.0.copyload.i98, %418 ], [ %.sroa.0.0.copyload.i99, %420 ], [ %.sroa.0.0.copyload.i100, %422 ], [ %.sroa.0.0.copyload.i101, %424 ], [ %.sroa.0.0.copyload.i102, %426 ], [ %.sroa.0.0.copyload.i103, %428 ], [ %.sroa.0.0.copyload.i104, %430 ], [ %.sroa.0.0.copyload.i105, %432 ], [ %.sroa.0.0.copyload.i106, %434 ], [ %.sroa.0.0.copyload.i107, %436 ], [ %.sroa.0.0.copyload.i108, %438 ], [ %.sroa.0.0.copyload.i109, %440 ], [ %.sroa.0.0.copyload.i110, %442 ], [ %.sroa.0.0.copyload.i111, %444 ], [ %.sroa.0.0.copyload.i112, %446 ], [ %.sroa.0.0.copyload.i113, %448 ], [ %.sroa.0.0.copyload.i114, %450 ], [ %.sroa.0.0.copyload.i115, %452 ], [ %.sroa.0.0.copyload.i116, %454 ], [ %.sroa.0.0.copyload.i117, %456 ], [ %.sroa.0.0.copyload.i118, %458 ], [ %.sroa.0.0.copyload.i119, %460 ], [ %.sroa.0.0.copyload.i120, %462 ], [ %.sroa.0.0.copyload.i121, %464 ], [ %.sroa.0.0.copyload.i122, %466 ], [ %.sroa.0.0.copyload.i123, %468 ], [ %.sroa.0.0.copyload.i124, %470 ], [ %.sroa.0.0.copyload.i125, %472 ], [ %.sroa.0.0.copyload.i126, %474 ], [ %.sroa.0.0.copyload.i127, %476 ], [ %.sroa.0.0.copyload.i128, %478 ], [ %.sroa.0.0.copyload.i129, %480 ], [ %.sroa.0.0.copyload.i130, %482 ], [ %.sroa.0.0.copyload.i131, %484 ], [ %.sroa.0.0.copyload.i132, %486 ], [ %.sroa.0.0.copyload.i133, %488 ], [ %.sroa.0.0.copyload.i134, %490 ], [ %.sroa.0.0.copyload.i135, %492 ], [ %.sroa.0.0.copyload.i136, %494 ], [ %.sroa.0.0.copyload.i137, %496 ], [ %.sroa.0.0.copyload.i138, %498 ], [ %.sroa.0.0.copyload.i139, %500 ], [ %.sroa.0.0.copyload.i140, %502 ], [ %.sroa.0.0.copyload.i141, %504 ], [ %.sroa.0.0.copyload.i142, %506 ], [ %.sroa.0.0.copyload.i143, %508 ], [ %.sroa.0.0.copyload.i144, %510 ], [ %.sroa.0.0.copyload.i145, %512 ], [ %.sroa.0.0.copyload.i146, %514 ], [ %.sroa.0.0.copyload.i147, %516 ], [ %.sroa.0.0.copyload.i148, %518 ], [ %.sroa.0.0.copyload.i149, %520 ], [ %.sroa.0.0.copyload.i150, %522 ], [ %.sroa.0.0.copyload.i151, %524 ], [ %.sroa.0.0.copyload.i152, %526 ], [ %.sroa.0.0.copyload.i153, %528 ], [ %.sroa.0.0.copyload.i154, %530 ], [ %.sroa.0.0.copyload.i155, %532 ], [ %.sroa.0.0.copyload.i156, %534 ], [ %.sroa.0.0.copyload.i157, %536 ], [ %.sroa.0.0.copyload.i158, %538 ], [ %.sroa.0.0.copyload.i159, %540 ], [ %.sroa.0.0.copyload.i160, %542 ], [ %.sroa.0.0.copyload.i161, %544 ], [ %.sroa.0.0.copyload.i162, %546 ], [ %.sroa.0.0.copyload.i163, %548 ], [ %.sroa.0.0.copyload.i164, %550 ], [ %.sroa.0.0.copyload.i165, %552 ], [ %.sroa.0.0.copyload.i166, %554 ], [ %.sroa.0.0.copyload.i167, %556 ], [ %.sroa.0.0.copyload.i168, %558 ], [ %.sroa.0.0.copyload.i169, %560 ], [ %.sroa.0.0.copyload.i170, %562 ], [ %.sroa.0.0.copyload.i.i171, %567 ], [ %576, %575 ], [ %.sroa.0.0.copyload.i.i172, %577 ], [ %.sroa.0.0.copyload.i.i173, %582 ], [ %.sroa.0.0.copyload.i174, %584 ], [ %.sroa.0.0.copyload.i.i178, %605 ], [ %.sroa.0.0.copyload.i179, %607 ], [ %.sroa.0.0.copyload.i.i180, %629 ], [ %.sroa.0.0.copyload.i181, %631 ], [ %.sroa.0.0.copyload.i.i185, %324 ], [ %.sroa.0.0.copyload.i94, %402 ], [ %.sroa.0.0.copyload.i.i176, %589 ], [ %.sroa.3.0.extract.trunc.i.i, %591 ], [ %.sroa.0.0.copyload.i.i829, %20 ], [ %.sroa.0.0.copyload.i.i832, %80 ], [ %.sroa.0.0.copyload.i.i840, %260 ], [ %.sroa.0.0.copyload.i.i843, %363 ], [ %.sroa.0.0.copyload.i.i846, %603 ], [ %245, %243 ], [ 0, %246 ], [ 0, %201 ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ]
   ret i32 %.sroa.0.0
 }
 
@@ -14337,8 +14337,8 @@ define dso_local noundef range(i64 0, 2305843009213693952) i64 @_ZNK5clang4Stmt5
   %.pre82.i.i.i = shl nuw nsw i64 4096, %.pre81.i.i.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.pre82.i.i.i
   %12 = icmp ult ptr %0, %11
-  %or.cond90.i.i.i = select i1 %.not.i.i.i, i1 %12, i1 false
-  br i1 %or.cond90.i.i.i, label %.critedge.i.i.i, label %._crit_edge.i.i.i
+  %or.cond94.i.i.i = select i1 %.not.i.i.i, i1 %12, i1 false
+  br i1 %or.cond94.i.i.i, label %.critedge.i.i.i, label %._crit_edge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %8
   %13 = ptrtoint ptr %0 to i64
@@ -14521,7 +14521,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang12CompoundStmt11CreateEmptyERKNS_10ASTContextEjb(ptr noundef nonnull align 8 dereferenceable(23216) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull ptr @_ZN5clang12CompoundStmt11CreateEmptyERKNS_10ASTContextEjb(ptr noundef nonnull align 8 dereferenceable(23216) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = zext i32 %1 to i64
   %5 = zext i1 %2 to i64
   %6 = add nuw nsw i64 %5, %4
@@ -15612,8 +15612,8 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S5_.exit
 
 ._crit_edge.i.i.i16:                              ; preds = %84, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S5_.exit
   %87 = phi ptr [ %85, %84 ], [ %33, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S5_.exit ]
-  %cond = icmp eq i64 %.sroa.12.0.copyload, 4
-  br i1 %cond, label %88, label %90
+  %cond205 = icmp eq i64 %.sroa.12.0.copyload, 4
+  br i1 %cond205, label %88, label %90
 
 88:                                               ; preds = %._crit_edge.i.i.i16
   %89 = load i8, ptr %81, align 1, !tbaa !57
@@ -15848,9 +15848,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %_ZN
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread138: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit
   %.not.i35 = icmp eq i64 %.sroa.12.0.copyload, 4
-  br i1 %.not.i35, label %_ZNK4llvm9StringRef11starts_withES0_.exit43.thread141.thread150, label %_ZNK4llvm9StringRef11starts_withES0_.exit37
+  br i1 %.not.i35, label %_ZNK4llvm9StringRef11starts_withES0_.exit43.thread141.thread203, label %_ZNK4llvm9StringRef11starts_withES0_.exit37
 
-_ZNK4llvm9StringRef11starts_withES0_.exit43.thread141.thread150: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread138
+_ZNK4llvm9StringRef11starts_withES0_.exit43.thread141.thread203: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread138
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   br label %.thread
 
@@ -15963,8 +15963,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i57
 
 ._crit_edge.i.i.i67:                              ; preds = %210, %204
   %213 = phi ptr [ %211, %210 ], [ %43, %204 ]
-  %cond152 = icmp eq i64 %208, 1
-  br i1 %cond152, label %214, label %216
+  %cond = icmp eq i64 %208, 1
+  br i1 %cond, label %214, label %216
 
 214:                                              ; preds = %._crit_edge.i.i.i67
   %215 = load i8, ptr %207, align 1, !tbaa !57
@@ -16209,7 +16209,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit100.thread:  ; preds = %_ZNK4llvm9StringRef
   store i8 0, ptr %47, align 8, !tbaa !57, !alias.scope !1250
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit102
 
-.thread:                                          ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit43.thread141.thread150, %_ZNK4llvm9StringRef11starts_withES0_.exit43.thread141
+.thread:                                          ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit43.thread141.thread203, %_ZNK4llvm9StringRef11starts_withES0_.exit43.thread141
   store ptr %47, ptr %18, align 8, !tbaa !1183, !alias.scope !1250
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1250
   store i64 %.sroa.12.0.copyload, ptr %4, align 8, !tbaa !1199, !noalias !1250
@@ -16990,7 +16990,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZNK5clang10GCCAsmS
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %bcmp.i = tail call i32 @bcmp(ptr nonnull %23, ptr %1, i64 %.fr)
   %24 = icmp eq i32 %bcmp.i, 0
-  br i1 %24, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.loopexit137, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread70
+  br i1 %24, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.loopexit145, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread70
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread70:       ; preds = %.lr.ph.split, %_ZNK5clang10GCCAsmStmt13getOutputNameEj.exit, %_ZN4llvmeqENS_9StringRefES0_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -17158,12 +17158,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit57.thread100:    ; preds = %_ZNK5clang10GCCAsmS
   %.not44 = icmp eq i64 %indvars.iv.next132, %48
   br i1 %.not44, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %49, !llvm.loop !1278
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread.loopexit137: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
+_ZN4llvmeqENS_9StringRefES0_.exit.thread.loopexit145: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
   %91 = trunc nuw i64 %indvars.iv to i32
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZNK5clang10GCCAsmStmt13getOutputNameEj.exit.us, %.lr.ph.split.us, %_ZNK5clang10GCCAsmStmt12getInputNameEj.exit.thread, %41, %_ZN4llvmeqENS_9StringRefES0_.exit53, %_ZN4llvmeqENS_9StringRefES0_.exit57.thread100, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.loopexit137, %._crit_edge, %_ZNK5clang7AsmStmt18getNumPlusOperandsEv.exit
-  %.1 = phi i32 [ %90, %_ZNK5clang7AsmStmt18getNumPlusOperandsEv.exit ], [ -1, %._crit_edge ], [ %91, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.loopexit137 ], [ -1, %_ZN4llvmeqENS_9StringRefES0_.exit57.thread100 ], [ %32, %_ZN4llvmeqENS_9StringRefES0_.exit53 ], [ %32, %41 ], [ %32, %_ZNK5clang10GCCAsmStmt12getInputNameEj.exit.thread ], [ %.037108.us, %.lr.ph.split.us ], [ %.037108.us, %_ZNK5clang10GCCAsmStmt13getOutputNameEj.exit.us ]
+_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZNK5clang10GCCAsmStmt13getOutputNameEj.exit.us, %.lr.ph.split.us, %_ZNK5clang10GCCAsmStmt12getInputNameEj.exit.thread, %41, %_ZN4llvmeqENS_9StringRefES0_.exit53, %_ZN4llvmeqENS_9StringRefES0_.exit57.thread100, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.loopexit145, %._crit_edge, %_ZNK5clang7AsmStmt18getNumPlusOperandsEv.exit
+  %.1 = phi i32 [ %90, %_ZNK5clang7AsmStmt18getNumPlusOperandsEv.exit ], [ -1, %._crit_edge ], [ %91, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.loopexit145 ], [ -1, %_ZN4llvmeqENS_9StringRefES0_.exit57.thread100 ], [ %32, %_ZN4llvmeqENS_9StringRefES0_.exit53 ], [ %32, %41 ], [ %32, %_ZNK5clang10GCCAsmStmt12getInputNameEj.exit.thread ], [ %.037108.us, %.lr.ph.split.us ], [ %.037108.us, %_ZNK5clang10GCCAsmStmt13getOutputNameEj.exit.us ]
   ret i32 %.1
 }
 
@@ -18850,12 +18850,12 @@ _ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i: ; preds = %11
   br label %26
 
 26:                                               ; preds = %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.thread.i.i
-  %.0.i.i.i.i9.i.i = phi ptr [ %16, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.thread.i.i ], [ %25, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i9.i.i, ptr readonly align 1 %2, i64 %3, i1 false)
+  %.0.i.i.i.i12.i.i = phi ptr [ %16, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.thread.i.i ], [ %25, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i ]
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i12.i.i, ptr readonly align 1 %2, i64 %3, i1 false)
   br label %_ZL15copyIntoContextRKN5clang10ASTContextEN4llvm9StringRefE.exit
 
 _ZL15copyIntoContextRKN5clang10ASTContextEN4llvm9StringRefE.exit: ; preds = %9, %26
-  %.sroa.0.0.i.i = phi ptr [ null, %9 ], [ %.0.i.i.i.i9.i.i, %26 ]
+  %.sroa.0.0.i.i = phi ptr [ null, %9 ], [ %.0.i.i.i.i12.i.i, %26 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sroa.0.0.i.i, ptr %27, align 8, !tbaa !1219
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -19039,12 +19039,12 @@ _ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i.i.i: ; preds = %108
   br label %120
 
 120:                                              ; preds = %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i.i.i, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.thread.i.i.i.i
-  %.0.i.i.i.i9.i.i.i.i = phi ptr [ %111, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.thread.i.i.i.i ], [ %119, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i.i.i ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i9.i.i.i.i, ptr readonly align 1 %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, i1 false)
+  %.0.i.i.i.i12.i.i.i.i = phi ptr [ %111, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.thread.i.i.i.i ], [ %119, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i.i.i ]
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i12.i.i.i.i, ptr readonly align 1 %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, i1 false)
   br label %"_ZZN5clang9MSAsmStmt10initializeERKNS_10ASTContextEN4llvm9StringRefENS4_8ArrayRefINS_5TokenEEENS6_IS5_EENS6_IPNS_4ExprEEES9_ENK3$_0clES5_.exit.i"
 
 "_ZZN5clang9MSAsmStmt10initializeERKNS_10ASTContextEN4llvm9StringRefENS4_8ArrayRefINS_5TokenEEENS6_IS5_EENS6_IPNS_4ExprEEES9_ENK3$_0clES5_.exit.i": ; preds = %120, %.lr.ph.i
-  %.sroa.0.0.i.i.i.i = phi ptr [ null, %.lr.ph.i ], [ %.0.i.i.i.i9.i.i.i.i, %120 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ null, %.lr.ph.i ], [ %.0.i.i.i.i12.i.i.i.i, %120 ]
   store ptr %.sroa.0.0.i.i.i.i, ptr %.0810.i, align 8, !tbaa !1219
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0810.i, i64 8
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !1199
@@ -19136,12 +19136,12 @@ _ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i.i.i31: ; preds = %150
   br label %162
 
 162:                                              ; preds = %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i.i.i31, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.thread.i.i.i.i37
-  %.0.i.i.i.i9.i.i.i.i32 = phi ptr [ %153, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.thread.i.i.i.i37 ], [ %161, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i.i.i31 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i9.i.i.i.i32, ptr readonly align 1 %.sroa.0.0.copyload.i27, i64 %.sroa.2.0.copyload.i29, i1 false)
+  %.0.i.i.i.i12.i.i.i.i32 = phi ptr [ %153, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.thread.i.i.i.i37 ], [ %161, %_ZNK5clang10ASTContext8AllocateIcEEPT_m.exit.i.i.i.i31 ]
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i12.i.i.i.i32, ptr readonly align 1 %.sroa.0.0.copyload.i27, i64 %.sroa.2.0.copyload.i29, i1 false)
   br label %"_ZZN5clang9MSAsmStmt10initializeERKNS_10ASTContextEN4llvm9StringRefENS4_8ArrayRefINS_5TokenEEENS6_IS5_EENS6_IPNS_4ExprEEES9_ENK3$_1clES5_.exit.i"
 
 "_ZZN5clang9MSAsmStmt10initializeERKNS_10ASTContextEN4llvm9StringRefENS4_8ArrayRefINS_5TokenEEENS6_IS5_EENS6_IPNS_4ExprEEES9_ENK3$_1clES5_.exit.i": ; preds = %162, %.lr.ph.i24
-  %.sroa.0.0.i.i.i.i33 = phi ptr [ null, %.lr.ph.i24 ], [ %.0.i.i.i.i9.i.i.i.i32, %162 ]
+  %.sroa.0.0.i.i.i.i33 = phi ptr [ null, %.lr.ph.i24 ], [ %.0.i.i.i.i12.i.i.i.i32, %162 ]
   store ptr %.sroa.0.0.i.i.i.i33, ptr %.0810.i26, align 8, !tbaa !1219
   %.sroa.4.0..sroa_idx.i34 = getelementptr inbounds nuw i8, ptr %.0810.i26, i64 8
   store i64 %.sroa.2.0.copyload.i29, ptr %.sroa.4.0..sroa_idx.i34, align 8, !tbaa !1199

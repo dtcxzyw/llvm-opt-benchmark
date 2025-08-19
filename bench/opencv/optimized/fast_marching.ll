@@ -187,7 +187,7 @@ define void @_ZN2cv9videostab18FastMarchingMethod6heapUpEi(ptr noundef nonnull r
   %9 = zext nneg i32 %.01013 to i64
   %10 = load ptr, ptr %4, align 8, !tbaa !35
   %11 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %10, i64 %9
-  %12 = sext i32 %.014 to i64
+  %12 = zext nneg i32 %.014 to i64
   %13 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %10, i64 %12
   %14 = load float, ptr %11, align 4, !tbaa !36
   %15 = load float, ptr %13, align 4, !tbaa !36
@@ -391,7 +391,7 @@ define void @_ZN2cv9videostab18FastMarchingMethod7heapAddERKNS1_3DXYE(ptr nounde
   %43 = zext nneg i32 %.01013.i to i64
   %44 = load ptr, ptr %4, align 8, !tbaa !35
   %45 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %44, i64 %43
-  %46 = sext i32 %.014.i to i64
+  %46 = zext nneg i32 %.014.i to i64
   %47 = getelementptr inbounds nuw %"struct.cv::videostab::FastMarchingMethod::DXY", ptr %44, i64 %46
   %48 = load float, ptr %45, align 4, !tbaa !36
   %49 = load float, ptr %47, align 4, !tbaa !36
@@ -464,7 +464,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv9videostab18FastMarchingMethod
   br i1 %.not28.i, label %22, label %_ZSt27__uninitialized_default_n_aIPN2cv9videostab18FastMarchingMethod3DXYEmS3_ET_S5_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPN2cv9videostab18FastMarchingMethod3DXYEmS3_ET_S5_T0_RSaIT1_E.exit.i: ; preds = %11
-  %21 = mul nuw i64 %12, 12
+  %21 = mul nuw nsw i64 %12, 12
   tail call void @llvm.memset.p0.i64(ptr align 4 %4, i8 0, i64 %21, i1 false), !tbaa !32
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !45

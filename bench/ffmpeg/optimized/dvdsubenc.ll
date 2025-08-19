@@ -279,13 +279,13 @@ define internal i32 @dvdsub_encode(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %23, label %.lr.ph270, label %._crit_edge271
 
 .lr.ph270:                                        ; preds = %.thread, %73
-  %.sroa.0.0342 = phi i32 [ %..0145, %.thread ], [ %.sroa.0.0.copyload, %73 ]
-  %.sroa.8.0340 = phi i32 [ %47, %.thread ], [ %.sroa.8.0.copyload, %73 ]
-  %.sroa.13.0338 = phi i32 [ %57, %.thread ], [ %.sroa.13.0.copyload, %73 ]
-  %.sroa.20.0336 = phi i32 [ %58, %.thread ], [ %.sroa.20.0.copyload, %73 ]
-  %.val169.pre334 = phi ptr [ %.val169.pre.pre, %.thread ], [ %16, %73 ]
+  %.sroa.0.0361 = phi i32 [ %..0145, %.thread ], [ %.sroa.0.0.copyload, %73 ]
+  %.sroa.8.0359 = phi i32 [ %47, %.thread ], [ %.sroa.8.0.copyload, %73 ]
+  %.sroa.13.0357 = phi i32 [ %57, %.thread ], [ %.sroa.13.0.copyload, %73 ]
+  %.sroa.20.0355 = phi i32 [ %58, %.thread ], [ %.sroa.20.0.copyload, %73 ]
+  %.val169.pre353 = phi ptr [ %.val169.pre.pre, %.thread ], [ %16, %73 ]
   %74 = load ptr, ptr %21, align 8, !tbaa !44
-  %75 = getelementptr inbounds nuw i8, ptr %.val169.pre334, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.val169.pre353, i64 8
   %wide.trip.count308 = zext nneg i32 %18 to i64
   br label %76
 
@@ -432,18 +432,18 @@ count_colors.exit:                                ; preds = %136
   br label %._crit_edge271
 
 ._crit_edge271:                                   ; preds = %._crit_edge271.loopexit, %73
-  %.sroa.0.0341 = phi i32 [ %.sroa.0.0342, %._crit_edge271.loopexit ], [ %.sroa.0.0.copyload, %73 ]
-  %.sroa.8.0339 = phi i32 [ %.sroa.8.0340, %._crit_edge271.loopexit ], [ %.sroa.8.0.copyload, %73 ]
-  %.sroa.13.0337 = phi i32 [ %.sroa.13.0338, %._crit_edge271.loopexit ], [ %.sroa.13.0.copyload, %73 ]
-  %.sroa.20.0335 = phi i32 [ %.sroa.20.0336, %._crit_edge271.loopexit ], [ %.sroa.20.0.copyload, %73 ]
-  %.val169.pre333 = phi ptr [ %.val169.pre334, %._crit_edge271.loopexit ], [ %16, %73 ]
+  %.sroa.0.0360 = phi i32 [ %.sroa.0.0361, %._crit_edge271.loopexit ], [ %.sroa.0.0.copyload, %73 ]
+  %.sroa.8.0358 = phi i32 [ %.sroa.8.0359, %._crit_edge271.loopexit ], [ %.sroa.8.0.copyload, %73 ]
+  %.sroa.13.0356 = phi i32 [ %.sroa.13.0357, %._crit_edge271.loopexit ], [ %.sroa.13.0.copyload, %73 ]
+  %.sroa.20.0354 = phi i32 [ %.sroa.20.0355, %._crit_edge271.loopexit ], [ %.sroa.20.0.copyload, %73 ]
+  %.val169.pre352 = phi ptr [ %.val169.pre353, %._crit_edge271.loopexit ], [ %16, %73 ]
   %138 = phi i32 [ %137, %._crit_edge271.loopexit ], [ 0, %73 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(132) %8, i8 0, i64 132, i1 false)
   store i32 %138, ptr %11, align 16, !tbaa !31
-  %139 = getelementptr inbounds nuw i8, ptr %.val169.pre333, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %.val169.pre352, i64 8
   br label %140
 
 140:                                              ; preds = %163, %._crit_edge271
@@ -644,8 +644,8 @@ select_palette.exit:                              ; preds = %.preheader.i181
   br i1 %37, label %235, label %325
 
 235:                                              ; preds = %select_palette.exit
-  %236 = sext i32 %.sroa.13.0337 to i64
-  %237 = sext i32 %.sroa.20.0335 to i64
+  %236 = sext i32 %.sroa.13.0356 to i64
+  %237 = sext i32 %.sroa.20.0354 to i64
   %238 = tail call noalias ptr @av_calloc(i64 noundef %236, i64 noundef %237) #8
   %.not162 = icmp eq ptr %238, null
   br i1 %.not162, label %.critedge, label %.lr.ph273.preheader
@@ -753,13 +753,13 @@ build_color_map.exit:                             ; preds = %279
 
 .preheader.preheader.i:                           ; preds = %.preheader.lr.ph.i
   %287 = load i32, ptr %241, align 8, !tbaa !52
-  %288 = sub nsw i32 %287, %.sroa.0.0341
+  %288 = sub nsw i32 %287, %.sroa.0.0360
   %289 = sext i32 %288 to i64
   %290 = getelementptr inbounds i8, ptr %238, i64 %289
   %291 = getelementptr inbounds nuw i8, ptr %241, i64 4
   %292 = load i32, ptr %291, align 4, !tbaa !53
-  %293 = sub nsw i32 %292, %.sroa.8.0339
-  %294 = mul nsw i32 %293, %.sroa.13.0337
+  %293 = sub nsw i32 %292, %.sroa.8.0358
+  %294 = mul nsw i32 %293, %.sroa.13.0356
   %295 = sext i32 %294 to i64
   %296 = getelementptr inbounds i8, ptr %290, i64 %295
   %297 = getelementptr inbounds nuw i8, ptr %241, i64 24
@@ -805,7 +805,7 @@ build_color_map.exit:                             ; preds = %279
   %315 = sub nsw i32 %314, %313
   %316 = sext i32 %315 to i64
   %317 = getelementptr inbounds i8, ptr %.122.lcssa.i, i64 %316
-  %318 = sub nsw i32 %.sroa.13.0337, %313
+  %318 = sub nsw i32 %.sroa.13.0356, %313
   %319 = sext i32 %318 to i64
   %320 = getelementptr inbounds i8, ptr %.1.lcssa.i, i64 %319
   %321 = add nuw nsw i32 %.02331.i, 1
@@ -936,7 +936,7 @@ build_color_map.exit213:                          ; preds = %364
   %376 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %376, ptr %10, align 8, !tbaa !37
   %377 = ptrtoint ptr %1 to i64
-  %378 = mul nsw i32 %.sroa.13.0337, %.sroa.20.0335
+  %378 = mul nsw i32 %.sroa.13.0356, %.sroa.20.0354
   %379 = sdiv i32 %378, 2
   %narrow = add nsw i32 %379, 42
   %380 = icmp sgt i32 %narrow, %2
@@ -947,21 +947,21 @@ build_color_map.exit213:                          ; preds = %364
   br label %514
 
 382:                                              ; preds = %375
-  %383 = shl nsw i32 %.sroa.13.0337, 1
-  %384 = add nsw i32 %.sroa.20.0335, 1
+  %383 = shl nsw i32 %.sroa.13.0356, 1
+  %384 = add nsw i32 %.sroa.20.0354, 1
   %385 = ashr i32 %384, 1
-  call fastcc void @dvd_encode_rle(ptr noundef %10, ptr noundef %.sroa.28230.0, i32 noundef %383, i32 noundef %.sroa.13.0337, i32 noundef %385, ptr noundef %12)
+  call fastcc void @dvd_encode_rle(ptr noundef %10, ptr noundef %.sroa.28230.0, i32 noundef %383, i32 noundef %.sroa.13.0356, i32 noundef %385, ptr noundef %12)
   %386 = load ptr, ptr %10, align 8, !tbaa !37
   %387 = ptrtoint ptr %386 to i64
   %388 = sub i64 %387, %377
-  %389 = sext i32 %.sroa.13.0337 to i64
+  %389 = sext i32 %.sroa.13.0356 to i64
   %390 = getelementptr inbounds i8, ptr %.sroa.28230.0, i64 %389
-  %391 = ashr i32 %.sroa.20.0335, 1
-  call fastcc void @dvd_encode_rle(ptr noundef %10, ptr noundef %390, i32 noundef %383, i32 noundef %.sroa.13.0337, i32 noundef %391, ptr noundef %12)
+  %391 = ashr i32 %.sroa.20.0354, 1
+  call fastcc void @dvd_encode_rle(ptr noundef %10, ptr noundef %390, i32 noundef %383, i32 noundef %.sroa.13.0356, i32 noundef %391, ptr noundef %12)
   %392 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %393 = load i32, ptr %392, align 8, !tbaa !82
   %.not163 = icmp eq i32 %393, 0
-  %394 = and i32 %.sroa.20.0335, 1
+  %394 = and i32 %.sroa.20.0354, 1
   %.not164 = icmp eq i32 %394, 0
   %or.cond237 = select i1 %.not163, i1 true, i1 %.not164
   %.pre323 = load ptr, ptr %10, align 8, !tbaa !37
@@ -976,7 +976,7 @@ build_color_map.exit213:                          ; preds = %364
 
 398:                                              ; preds = %395, %382
   %399 = phi ptr [ %.pre323, %382 ], [ %397, %395 ]
-  %.sroa.20.1 = phi i32 [ %.sroa.20.0335, %382 ], [ %384, %395 ]
+  %.sroa.20.1 = phi i32 [ %.sroa.20.0354, %382 ], [ %384, %395 ]
   %400 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %401 = ptrtoint ptr %399 to i64
   %402 = sub i64 %401, %377
@@ -1038,9 +1038,9 @@ build_color_map.exit213:                          ; preds = %364
   %450 = trunc i32 %449 to i8
   %451 = getelementptr inbounds nuw i8, ptr %399, i64 10
   store i8 %450, ptr %443, align 1, !tbaa !58
-  %452 = add i32 %.sroa.13.0337, -1
-  %453 = add i32 %452, %.sroa.0.0341
-  %454 = add i32 %.sroa.8.0339, -1
+  %452 = add i32 %.sroa.13.0356, -1
+  %453 = add i32 %452, %.sroa.0.0360
+  %454 = add i32 %.sroa.8.0358, -1
   %455 = add i32 %454, %.sroa.20.1
   %456 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %457 = load i32, ptr %456, align 8, !tbaa !29
@@ -1064,11 +1064,11 @@ build_color_map.exit213:                          ; preds = %364
 463:                                              ; preds = %460
   %464 = getelementptr inbounds nuw i8, ptr %399, i64 11
   store i8 5, ptr %451, align 1, !tbaa !58
-  %465 = lshr i32 %.sroa.0.0341, 4
+  %465 = lshr i32 %.sroa.0.0360, 4
   %466 = trunc i32 %465 to i8
   %467 = getelementptr inbounds nuw i8, ptr %399, i64 12
   store i8 %466, ptr %464, align 1, !tbaa !58
-  %468 = shl i32 %.sroa.0.0341, 4
+  %468 = shl i32 %.sroa.0.0360, 4
   %469 = lshr i32 %453, 8
   %470 = and i32 %469, 15
   %471 = or disjoint i32 %470, %468
@@ -1078,11 +1078,11 @@ build_color_map.exit213:                          ; preds = %364
   %474 = trunc i32 %453 to i8
   %475 = getelementptr inbounds nuw i8, ptr %399, i64 14
   store i8 %474, ptr %473, align 1, !tbaa !58
-  %476 = lshr i32 %.sroa.8.0339, 4
+  %476 = lshr i32 %.sroa.8.0358, 4
   %477 = trunc i32 %476 to i8
   %478 = getelementptr inbounds nuw i8, ptr %399, i64 15
   store i8 %477, ptr %475, align 1, !tbaa !58
-  %479 = shl i32 %.sroa.8.0339, 4
+  %479 = shl i32 %.sroa.8.0358, 4
   %480 = lshr i32 %455, 8
   %481 = and i32 %480, 15
   %482 = or disjoint i32 %481, %479
@@ -1226,16 +1226,16 @@ define internal fastcc void @dvd_encode_rle(ptr noundef nonnull captures(none) %
   %26 = getelementptr inbounds nuw i8, ptr %.0122197.us, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !58
   %.not126.us = icmp eq i8 %27, %20
-  br i1 %.not126.us, label %140, label %._crit_edge.us.split.loop.exit213
+  br i1 %.not126.us, label %140, label %._crit_edge.us.split.loop.exit218
 
-._crit_edge.us.split.loop.exit213:                ; preds = %.lr.ph.us
+._crit_edge.us.split.loop.exit218:                ; preds = %.lr.ph.us
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = icmp eq i32 %24, %3
   br label %._crit_edge.us
 
-._crit_edge.us:                                   ; preds = %140, %._crit_edge.us.split.loop.exit213
-  %.0.lcssa.us = phi i32 [ %28, %._crit_edge.us.split.loop.exit213 ], [ %23, %140 ]
-  %.lcssa.us = phi i1 [ %29, %._crit_edge.us.split.loop.exit213 ], [ true, %140 ]
+._crit_edge.us:                                   ; preds = %140, %._crit_edge.us.split.loop.exit218
+  %.0.lcssa.us = phi i32 [ %28, %._crit_edge.us.split.loop.exit218 ], [ %23, %140 ]
+  %.lcssa.us = phi i1 [ %29, %._crit_edge.us.split.loop.exit218 ], [ true, %140 ]
   %30 = zext i8 %20 to i64
   %31 = getelementptr inbounds nuw i32, ptr %5, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !31
@@ -1386,7 +1386,7 @@ define internal fastcc void @dvd_encode_rle(ptr noundef nonnull captures(none) %
   br label %137
 
 .thread:                                          ; preds = %._crit_edge.us.thread, %38
-  %.0.lcssa.us208212 = phi i32 [ %.0.lcssa.us, %38 ], [ 1, %._crit_edge.us.thread ]
+  %.0.lcssa.us213217 = phi i32 [ %.0.lcssa.us, %38 ], [ 1, %._crit_edge.us.thread ]
   %124 = phi i32 [ %32, %38 ], [ %36, %._crit_edge.us.thread ]
   %125 = add nsw i32 %.0105190.us, 1
   %126 = and i32 %.0105190.us, 1
@@ -1394,7 +1394,7 @@ define internal fastcc void @dvd_encode_rle(ptr noundef nonnull captures(none) %
   br i1 %.not140.us, label %133, label %127
 
 127:                                              ; preds = %.thread
-  %128 = shl nuw nsw i32 %.0.lcssa.us208212, 2
+  %128 = shl nuw nsw i32 %.0.lcssa.us213217, 2
   %.masked.us = and i32 %124, 15
   %129 = or i32 %128, %.masked.us
   %130 = or i32 %129, %.1108189.us
@@ -1404,7 +1404,7 @@ define internal fastcc void @dvd_encode_rle(ptr noundef nonnull captures(none) %
   br label %137
 
 133:                                              ; preds = %.thread
-  %134 = shl nuw nsw i32 %.0.lcssa.us208212, 6
+  %134 = shl nuw nsw i32 %.0.lcssa.us213217, 6
   %135 = shl i32 %124, 4
   %136 = or i32 %135, %134
   br label %137
@@ -1413,7 +1413,7 @@ define internal fastcc void @dvd_encode_rle(ptr noundef nonnull captures(none) %
   %.11120.us = phi ptr [ %132, %127 ], [ %.1110188.us, %133 ], [ %123, %115 ], [ %110, %106 ], [ %95, %85 ], [ %99, %96 ], [ %82, %77 ], [ %74, %71 ], [ %68, %57 ], [ %52, %47 ]
   %.11.us = phi i32 [ %.1108189.us, %127 ], [ %136, %133 ], [ %117, %115 ], [ %114, %106 ], [ %89, %85 ], [ %103, %96 ], [ 0, %77 ], [ %76, %71 ], [ %62, %57 ], [ %56, %47 ]
   %.1106.us = phi i32 [ %125, %127 ], [ %125, %133 ], [ %118, %115 ], [ %111, %106 ], [ %90, %85 ], [ %100, %96 ], [ %79, %77 ], [ %75, %71 ], [ %63, %57 ], [ %53, %47 ]
-  %.1.us = phi i32 [ %.0.lcssa.us208212, %127 ], [ %.0.lcssa.us208212, %133 ], [ %.0.lcssa.us, %115 ], [ %.0.lcssa.us, %106 ], [ %.0.lcssa.us, %85 ], [ %.0.lcssa.us, %96 ], [ %.0.lcssa.us, %77 ], [ %.0.lcssa.us, %71 ], [ %spec.store.select.us, %57 ], [ %spec.store.select.us, %47 ]
+  %.1.us = phi i32 [ %.0.lcssa.us213217, %127 ], [ %.0.lcssa.us213217, %133 ], [ %.0.lcssa.us, %115 ], [ %.0.lcssa.us, %106 ], [ %.0.lcssa.us, %85 ], [ %.0.lcssa.us, %96 ], [ %.0.lcssa.us, %77 ], [ %.0.lcssa.us, %71 ], [ %spec.store.select.us, %57 ], [ %spec.store.select.us, %47 ]
   %138 = add nuw nsw i32 %.1.us, %.0104191.us
   %139 = icmp slt i32 %138, %3
   br i1 %139, label %17, label %._crit_edge193.us, !llvm.loop !86

@@ -805,8 +805,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %11
   %.sroa.05.0.copyload54 = load i64, ptr %12, align 1, !tbaa !24
-  %.not72 = icmp eq i64 %.sroa.0.0.copyload.i, %.sroa.05.0.copyload54
-  br i1 %.not72, label %.thread, label %.lr.ph, !prof !75
+  %.not73 = icmp eq i64 %.sroa.0.0.copyload.i, %.sroa.05.0.copyload54
+  br i1 %.not73, label %.thread, label %.lr.ph, !prof !75
 
 .lr.ph:                                           ; preds = %8, %16
   %.sroa.05.0.copyload60 = phi i64 [ %.sroa.05.0.copyload, %16 ], [ %.sroa.05.0.copyload54, %8 ]
@@ -814,8 +814,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %.03359 = phi ptr [ %spec.select, %16 ], [ null, %8 ]
   %.03658 = phi i32 [ %20, %16 ], [ %10, %8 ]
   %.03857 = phi i32 [ %18, %16 ], [ 1, %8 ]
-  %.not73 = icmp eq i64 %.sroa.05.0.copyload60, %.sroa.0.0.copyload.i.i
-  br i1 %.not73, label %14, label %16, !prof !64
+  %.not74 = icmp eq i64 %.sroa.05.0.copyload60, %.sroa.0.0.copyload.i.i
+  br i1 %.not74, label %14, label %16, !prof !64
 
 14:                                               ; preds = %.lr.ph
   %.not = icmp eq ptr %.03359, null
@@ -823,9 +823,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   br label %.thread
 
 16:                                               ; preds = %.lr.ph
-  %.not74 = icmp eq i64 %.sroa.05.0.copyload60, %.sroa.0.0.copyload.i.i42
+  %.not75 = icmp eq i64 %.sroa.05.0.copyload60, %.sroa.0.0.copyload.i.i42
   %17 = icmp eq ptr %.03359, null
-  %or.cond.not = select i1 %.not74, i1 %17, i1 false
+  %or.cond.not = select i1 %.not75, i1 %17, i1 false
   %spec.select = select i1 %or.cond.not, ptr %13, ptr %.03359
   %18 = add i32 %.03857, 1
   %19 = add i32 %.03658, %.03857
@@ -833,8 +833,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %21 = zext i32 %20 to i64
   %22 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %21
   %.sroa.05.0.copyload = load i64, ptr %22, align 1, !tbaa !24
-  %.not75 = icmp eq i64 %.sroa.0.0.copyload.i, %.sroa.05.0.copyload
-  br i1 %.not75, label %.thread, label %.lr.ph, !prof !76, !llvm.loop !77
+  %.not76 = icmp eq i64 %.sroa.0.0.copyload.i, %.sroa.05.0.copyload
+  br i1 %.not76, label %.thread, label %.lr.ph, !prof !76, !llvm.loop !77
 
 .thread:                                          ; preds = %16, %8, %3, %14
   %.sink = phi ptr [ %15, %14 ], [ null, %3 ], [ %12, %8 ], [ %22, %16 ]
@@ -1008,9 +1008,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview18GloballyHashedTypeENS2_9TypeIn
 .lr.ph:                                           ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview18GloballyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E9initEmptyEv.exit, %23
   %.022 = phi ptr [ %24, %23 ], [ %1, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview18GloballyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E9initEmptyEv.exit ]
   %.sroa.03.0.copyload = load i64, ptr %.022, align 1, !tbaa !24
-  %.not24 = icmp eq i64 %.sroa.03.0.copyload, %.sroa.0.0.copyload.i.i
-  %.not25 = icmp eq i64 %.sroa.03.0.copyload, %.sroa.0.0.copyload.i.i18
-  %or.cond = select i1 %.not24, i1 true, i1 %.not25
+  %.not26 = icmp eq i64 %.sroa.03.0.copyload, %.sroa.0.0.copyload.i.i
+  %.not27 = icmp eq i64 %.sroa.03.0.copyload, %.sroa.0.0.copyload.i.i18
+  %or.cond = select i1 %.not26, i1 true, i1 %.not27
   br i1 %or.cond, label %23, label %13
 
 13:                                               ; preds = %.lr.ph

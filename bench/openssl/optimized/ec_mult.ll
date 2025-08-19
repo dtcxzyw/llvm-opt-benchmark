@@ -387,11 +387,11 @@ ec_point_ladder_post.exit:                        ; preds = %157
   br i1 %.not176, label %ec_point_ladder_post.exit.thread.sink.split, label %ec_point_ladder_post.exit.thread
 
 ec_point_ladder_post.exit.thread.sink.split:      ; preds = %139, %ec_point_ladder_post.exit, %133, %126, %131, %82, %91, %95, %99, %103, %107, %111, %115, %119, %80, %78, %76, %69, %60, %66, %56, %33, %31, %27, %20, %23
-  %.sink183 = phi i32 [ 168, %23 ], [ 168, %20 ], [ 174, %27 ], [ 179, %31 ], [ 192, %33 ], [ 197, %56 ], [ 211, %66 ], [ 211, %60 ], [ 216, %69 ], [ 228, %76 ], [ 234, %78 ], [ 239, %80 ], [ 259, %119 ], [ 259, %115 ], [ 259, %111 ], [ 259, %107 ], [ 259, %103 ], [ 259, %99 ], [ 259, %95 ], [ 259, %91 ], [ 259, %82 ], [ 266, %131 ], [ 266, %126 ], [ 272, %133 ], [ 367, %ec_point_ladder_post.exit ], [ 352, %139 ]
+  %.sink190 = phi i32 [ 168, %23 ], [ 168, %20 ], [ 174, %27 ], [ 179, %31 ], [ 192, %33 ], [ 197, %56 ], [ 211, %66 ], [ 211, %60 ], [ 216, %69 ], [ 228, %76 ], [ 234, %78 ], [ 239, %80 ], [ 259, %119 ], [ 259, %115 ], [ 259, %111 ], [ 259, %107 ], [ 259, %103 ], [ 259, %99 ], [ 259, %95 ], [ 259, %91 ], [ 259, %82 ], [ 266, %131 ], [ 266, %126 ], [ 272, %133 ], [ 367, %ec_point_ladder_post.exit ], [ 352, %139 ]
   %.sink = phi i32 [ 524304, %23 ], [ 524304, %20 ], [ 524304, %27 ], [ 524304, %31 ], [ 524291, %33 ], [ 524291, %56 ], [ 524291, %66 ], [ 524291, %60 ], [ 524291, %69 ], [ 524291, %76 ], [ 524291, %78 ], [ 524291, %80 ], [ 524291, %119 ], [ 524291, %115 ], [ 524291, %111 ], [ 524291, %107 ], [ 524291, %103 ], [ 524291, %99 ], [ 524291, %95 ], [ 524291, %91 ], [ 524291, %82 ], [ 524304, %131 ], [ 524304, %126 ], [ 153, %133 ], [ 136, %ec_point_ladder_post.exit ], [ 162, %139 ]
   %.1.ph = phi ptr [ null, %23 ], [ null, %20 ], [ %24, %27 ], [ %24, %31 ], [ %24, %33 ], [ %24, %56 ], [ %24, %66 ], [ %24, %60 ], [ %24, %69 ], [ %24, %76 ], [ %24, %78 ], [ %24, %80 ], [ %24, %119 ], [ %24, %115 ], [ %24, %111 ], [ %24, %107 ], [ %24, %103 ], [ %24, %99 ], [ %24, %95 ], [ %24, %91 ], [ %24, %82 ], [ %24, %131 ], [ %24, %126 ], [ %24, %133 ], [ %24, %ec_point_ladder_post.exit ], [ %24, %139 ]
   tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink183, ptr noundef nonnull @__func__.ossl_ec_scalar_mul_ladder) #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink190, ptr noundef nonnull @__func__.ossl_ec_scalar_mul_ladder) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #8
   br label %ec_point_ladder_post.exit.thread
 
@@ -1034,8 +1034,8 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %.0345527 = add i32 %242, -1
   %243 = icmp slt i32 %.0345527, 0
   %.not549 = icmp eq i64 %.0357.fr, 0
-  %or.cond572 = or i1 %243, %.not549
-  br i1 %or.cond572, label %._crit_edge533.thread, label %.lr.ph532.split.us.preheader
+  %or.cond601 = or i1 %243, %.not549
+  br i1 %or.cond601, label %._crit_edge533.thread, label %.lr.ph532.split.us.preheader
 
 .lr.ph532.split.us.preheader:                     ; preds = %241
   %244 = zext nneg i32 %.0345527 to i64

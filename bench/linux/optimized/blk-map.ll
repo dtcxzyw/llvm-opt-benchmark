@@ -211,9 +211,9 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, 0
-  br i1 %35, label %.thread.thread187, label %.thread
+  br i1 %35, label %.thread.thread225, label %.thread
 
-.thread.thread187:                                ; preds = %32
+.thread.thread225:                                ; preds = %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef align 8 dereferenceable(40) %3, i64 40, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -416,10 +416,10 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 56
   br i1 %.not, label %.thread.split.preheader, label %.thread.split.us.preheader
 
-.thread.split.preheader:                          ; preds = %.thread.thread187, %.thread
-  %164 = phi ptr [ %38, %.thread.thread187 ], [ %163, %.thread ]
-  %165 = phi ptr [ %37, %.thread.thread187 ], [ %157, %.thread ]
-  %166 = phi ptr [ %36, %.thread.thread187 ], [ %156, %.thread ]
+.thread.split.preheader:                          ; preds = %.thread.thread225, %.thread
+  %164 = phi ptr [ %38, %.thread.thread225 ], [ %163, %.thread ]
+  %165 = phi ptr [ %37, %.thread.thread225 ], [ %157, %.thread ]
+  %166 = phi ptr [ %36, %.thread.thread225 ], [ %156, %.thread ]
   br label %.thread.split
 
 .thread.split.us.preheader:                       ; preds = %.thread.thread, %.thread
@@ -514,20 +514,20 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %229 = load i32, ptr %174, align 8
   %230 = and i32 %229, 255
   call void @bio_init(ptr noundef nonnull %225, ptr noundef null, ptr noundef nonnull %228, i16 noundef zeroext %224, i32 noundef %230) #8
-  br i1 %20, label %231, label %.thread188
+  br i1 %20, label %231, label %.thread226
 
 231:                                              ; preds = %227
   %232 = icmp eq i32 %184, 0
   br i1 %232, label %.thread58.us, label %.lr.ph115.split.us.us
 
-.thread188:                                       ; preds = %227
+.thread226:                                       ; preds = %227
   %233 = load i16, ptr %178, align 8
   %234 = zext nneg i16 %233 to i32
   %235 = shl nuw i32 1, %234
   %236 = icmp eq i32 %184, 0
   br i1 %236, label %.thread61.us, label %.lr.ph115.split.us120.preheader
 
-.lr.ph115.split.us120.preheader:                  ; preds = %.thread188
+.lr.ph115.split.us120.preheader:                  ; preds = %.thread226
   %237 = load i64, ptr %176, align 8
   %238 = lshr i64 %237, 12
   %239 = trunc i64 %238 to i32
@@ -568,7 +568,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
 .thread58.us:                                     ; preds = %260, %402, %231, %.split.us.us
   br i1 %20, label %323, label %.thread61.us
 
-.thread61.us:                                     ; preds = %.thread54.us, %.thread188, %.thread58.us
+.thread61.us:                                     ; preds = %.thread54.us, %.thread226, %.thread58.us
   %264 = getelementptr inbounds nuw i8, ptr %225, i64 40
   %265 = load i32, ptr %264, align 8
   %266 = zext i32 %265 to i64
@@ -1473,7 +1473,7 @@ define dso_local i32 @blk_rq_map_kern(ptr noundef %0, ptr noundef %1, ptr nounde
 56:                                               ; preds = %44
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 120
   tail call void @bio_init(ptr noundef nonnull %54, ptr noundef null, ptr noundef nonnull %57, i16 noundef zeroext %53, i32 noundef 0) #8
-  br i1 %52, label %58, label %.thread36
+  br i1 %52, label %58, label %.thread55
 
 58:                                               ; preds = %56
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 64
@@ -1481,11 +1481,11 @@ define dso_local i32 @blk_rq_map_kern(ptr noundef %0, ptr noundef %1, ptr nounde
   %60 = icmp sgt i32 %51, 0
   br i1 %60, label %.split.us.preheader, label %.loopexit
 
-.thread36:                                        ; preds = %56
+.thread55:                                        ; preds = %56
   %61 = icmp sgt i32 %51, 0
   br i1 %61, label %.split.preheader, label %.loopexit
 
-.split.preheader:                                 ; preds = %.thread36
+.split.preheader:                                 ; preds = %.thread55
   %62 = trunc i64 %10 to i32
   %63 = and i32 %62, 4095
   br label %.split
@@ -1554,7 +1554,7 @@ define dso_local i32 @blk_rq_map_kern(ptr noundef %0, ptr noundef %1, ptr nounde
   %110 = icmp eq i32 %109, %51
   br i1 %110, label %.loopexit, label %.split, !llvm.loop !22
 
-.loopexit:                                        ; preds = %105, %.split, %77, %.split.us, %.thread36, %58
+.loopexit:                                        ; preds = %105, %.split, %77, %.split.us, %.thread55, %58
   %111 = getelementptr inbounds nuw i8, ptr %54, i64 56
   store ptr @bio_map_kern_endio, ptr %111, align 8
   br label %159
@@ -1646,10 +1646,10 @@ define dso_local i32 @blk_rq_map_kern(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %161, label %.thread20, label %165
 
 .thread20.sink.split:                             ; preds = %88, %71, %.split23.us
-  %.sink42 = phi ptr [ %122, %.split23.us ], [ %54, %71 ], [ %54, %88 ]
+  %.sink61 = phi ptr [ %122, %.split23.us ], [ %54, %71 ], [ %54, %88 ]
   %.ph = phi ptr [ inttoptr (i64 -12 to ptr), %.split23.us ], [ inttoptr (i64 -22 to ptr), %71 ], [ inttoptr (i64 -22 to ptr), %88 ]
-  tail call void @bio_uninit(ptr noundef nonnull %.sink42) #8
-  tail call void @kfree(ptr noundef nonnull %.sink42) #8
+  tail call void @bio_uninit(ptr noundef nonnull %.sink61) #8
+  tail call void @kfree(ptr noundef nonnull %.sink61) #8
   br label %.thread20
 
 .thread20:                                        ; preds = %.thread20.sink.split, %119, %112, %44, %159

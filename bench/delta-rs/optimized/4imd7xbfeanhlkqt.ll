@@ -406,14 +406,14 @@ define internal void @"_ZN12object_store11ObjectStore10get_ranges28_$u7b$$u7b$cl
   %.sroa.1121 = alloca [6 x i64], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %12 = load i8, ptr %11, align 8, !range !37, !noundef !38
-  switch i8 %12, label %default.unreachable36 [
+  switch i8 %12, label %default.unreachable39 [
     i8 0, label %.thread
     i8 1, label %23
     i8 2, label %24
     i8 3, label %25
   ]
 
-default.unreachable36:                            ; preds = %25, %3
+default.unreachable39:                            ; preds = %25, %3
   unreachable
 
 common.ret:                                       ; preds = %130, %133
@@ -467,7 +467,7 @@ common.ret:                                       ; preds = %130, %133
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.775.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.754.sroa.3.i)
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 249
-  switch i8 %.pre, label %default.unreachable36 [
+  switch i8 %.pre, label %default.unreachable39 [
     i8 0, label %28
     i8 1, label %.invoke
     i8 2, label %59
@@ -1030,7 +1030,7 @@ define internal void @"_ZN12object_store11ObjectStore6rename28_$u7b$$u7b$closure
   %7 = alloca { i64, [9 x i64] }, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load i8, ptr %8, align 8, !range !116, !noundef !38
-  switch i8 %9, label %default.unreachable42 [
+  switch i8 %9, label %default.unreachable45 [
     i8 0, label %11
     i8 1, label %32
     i8 2, label %33
@@ -1045,7 +1045,7 @@ define internal void @"_ZN12object_store11ObjectStore6rename28_$u7b$$u7b$closure
   %.pre41 = load ptr, ptr %.phi.trans.insert40, align 8, !alias.scope !117, !noalias !122
   br label %76
 
-default.unreachable42:                            ; preds = %3
+default.unreachable45:                            ; preds = %3
   unreachable
 
 10:                                               ; preds = %3
@@ -3093,7 +3093,7 @@ define void @"_ZN15deltalake_mount4file120_$LT$impl$u20$core..convert..From$LT$d
   %5 = alloca { { ptr, [1 x i64] }, i64 }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 }, i64 }, align 8
   %7 = load i32, ptr %1, align 8, !range !353, !noundef !38
-  switch i32 %7, label %default.unreachable11 [
+  switch i32 %7, label %default.unreachable17 [
     i32 0, label %8
     i32 1, label %15
     i32 2, label %22
@@ -3102,7 +3102,7 @@ define void @"_ZN15deltalake_mount4file120_$LT$impl$u20$core..convert..From$LT$d
     i32 5, label %50
   ]
 
-default.unreachable11:                            ; preds = %2
+default.unreachable17:                            ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
@@ -3210,14 +3210,14 @@ default.unreachable11:                            ; preds = %2
   unreachable
 
 60:                                               ; preds = %73, %70, %67, %39, %15, %8
-  %.sink16 = phi i64 [ 24, %73 ], [ 24, %70 ], [ 24, %67 ], [ 24, %39 ], [ 32, %15 ], [ 32, %8 ]
-  %.sink14 = phi ptr [ %53, %73 ], [ %32, %70 ], [ %26, %67 ], [ %45, %39 ], [ %18, %15 ], [ %11, %8 ]
-  %.sink13 = phi i64 [ 32, %73 ], [ 32, %70 ], [ 32, %67 ], [ 32, %39 ], [ 40, %15 ], [ 40, %8 ]
+  %.sink22 = phi i64 [ 24, %73 ], [ 24, %70 ], [ 24, %67 ], [ 24, %39 ], [ 32, %15 ], [ 32, %8 ]
+  %.sink20 = phi ptr [ %53, %73 ], [ %32, %70 ], [ %26, %67 ], [ %45, %39 ], [ %18, %15 ], [ %11, %8 ]
+  %.sink19 = phi i64 [ 32, %73 ], [ 32, %70 ], [ 32, %67 ], [ 32, %39 ], [ 40, %15 ], [ 40, %8 ]
   %anon.b197a4c86746c65d6887cae8be7ec8a4.59.sink = phi ptr [ @anon.b197a4c86746c65d6887cae8be7ec8a4.59, %73 ], [ @anon.b197a4c86746c65d6887cae8be7ec8a4.98, %70 ], [ @anon.b197a4c86746c65d6887cae8be7ec8a4.95, %67 ], [ %47, %39 ], [ %20, %15 ], [ %13, %8 ]
   %.sink = phi i64 [ 6, %73 ], [ 6, %70 ], [ 6, %67 ], [ 6, %39 ], [ 7, %15 ], [ 11, %8 ]
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink16
-  store ptr %.sink14, ptr %61, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink13
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink22
+  store ptr %.sink20, ptr %61, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink19
   store ptr %anon.b197a4c86746c65d6887cae8be7ec8a4.59.sink, ptr %62, align 8
   store i64 %.sink, ptr %0, align 8
   %63 = load i32, ptr %1, align 8, !range !353, !noundef !38
@@ -3335,8 +3335,8 @@ default.unreachable11:                            ; preds = %2
   br label %.invoke
 
 .invoke:                                          ; preds = %.body, %100
-  %.sink17 = phi i64 [ 32, %100 ], [ 8, %.body ]
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink17
+  %.sink23 = phi i64 [ 32, %100 ], [ 8, %.body ]
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink23
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3b9ee244134b8beeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %101) #30
           to label %99 unwind label %102
 

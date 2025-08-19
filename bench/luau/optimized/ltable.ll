@@ -189,9 +189,9 @@ _ZL9findindexP9lua_StateP8LuaTableP10lua_TValue.exit: ; preds = %._ZL9findindexP
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %64, %89
-  %.sink68 = phi ptr [ %99, %89 ], [ %69, %64 ]
+  %.sink72 = phi ptr [ %99, %89 ], [ %69, %64 ]
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef nonnull align 8 dereferenceable(16) %.sink68, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef nonnull align 8 dereferenceable(16) %.sink72, i64 16, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %81, %.loopexit.sink.split, %70

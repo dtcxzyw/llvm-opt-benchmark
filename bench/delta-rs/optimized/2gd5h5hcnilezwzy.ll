@@ -342,7 +342,7 @@ _ZN4core3str11validations15next_code_point17hb2831d44538d063eE.exit.thread.i.i.i
 90:                                               ; preds = %.sink.split.i, %.lr.ph.i29
   %91 = phi i64 [ %.sroa.3246.0170, %.lr.ph.i29 ], [ %.sink.i, %.sink.split.i ]
   %92 = phi i64 [ %86, %.lr.ph.i29 ], [ %104, %.sink.split.i ]
-  %93 = phi i64 [ %.sroa.20.0171, %.lr.ph.i29 ], [ %.ph83.i, %.sink.split.i ]
+  %93 = phi i64 [ %.sroa.20.0171, %.lr.ph.i29 ], [ %.ph90.i, %.sink.split.i ]
   %94 = getelementptr inbounds i8, ptr %.sroa.039.sroa.12.0.copyload, i64 %92
   %95 = load i8, ptr %94, align 1, !alias.scope !29, !noalias !34, !noundef !4
   %96 = and i8 %95, 63
@@ -362,8 +362,8 @@ _ZN4core3str11validations15next_code_point17hb2831d44538d063eE.exit.thread.i.i.i
 
 .sink.split.i:                                    ; preds = %136, %123, %101
   %.sink.i = phi i64 [ %89, %123 ], [ 0, %136 ], [ 0, %101 ]
-  %.ph83.i = phi i64 [ %124, %123 ], [ %138, %136 ], [ %102, %101 ]
-  %104 = add i64 %.ph83.i, %11
+  %.ph90.i = phi i64 [ %124, %123 ], [ %138, %136 ], [ %102, %101 ]
+  %104 = add i64 %.ph90.i, %11
   %.not37.i35 = icmp ult i64 %104, %.sroa.039.sroa.13.0.copyload
   br i1 %.not37.i35, label %90, label %.loopexit
 

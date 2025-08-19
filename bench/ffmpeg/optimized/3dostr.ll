@@ -257,8 +257,8 @@ define internal range(i32 -1163346256, 1) i32 @threedostr_read_header(ptr nounde
   br label %.loopexit
 
 ._crit_edge.thread:                               ; preds = %1, %._crit_edge
-  %.062.lcssa82 = phi i32 [ %.163, %._crit_edge ], [ 0, %1 ]
-  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.4, i32 noundef %.062.lcssa82) #4
+  %.062.lcssa84 = phi i32 [ %.163, %._crit_edge ], [ 0, %1 ]
+  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.4, i32 noundef %.062.lcssa84) #4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %36, %20, %15, %13, %.lr.ph, %84, %._crit_edge.thread

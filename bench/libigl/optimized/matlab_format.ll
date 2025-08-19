@@ -41614,9 +41614,9 @@ _ZN5Eigen15PlainObjectBaseINS_5ArrayIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
 
 23:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_5ArrayIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i
   %24 = icmp sgt i64 %22, 0
-  br i1 %24, label %27, label %.thread25
+  br i1 %24, label %27, label %.thread37
 
-.thread25:                                        ; preds = %23
+.thread37:                                        ; preds = %23
   store i64 %12, ptr %16, align 8, !tbaa !158
   store i64 %14, ptr %17, align 8, !tbaa !160
   %.nonneg = sub i64 0, %22
@@ -41651,15 +41651,15 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i: ; preds = %27
   %35 = icmp samesign ugt i64 %22, 3
   br i1 %35, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.thread25, %.thread, %33
-  %36 = phi i64 [ 0, %.thread ], [ %34, %33 ], [ %26, %.thread25 ], [ %34, %.lr.ph.i.i.i.i.i.i.i ]
-  %.pre.i24 = phi ptr [ null, %.thread ], [ %30, %33 ], [ null, %.thread25 ], [ %30, %.lr.ph.i.i.i.i.i.i.i ]
+._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.thread37, %.thread, %33
+  %36 = phi i64 [ 0, %.thread ], [ %34, %33 ], [ %26, %.thread37 ], [ %34, %.lr.ph.i.i.i.i.i.i.i ]
+  %.pre.i36 = phi ptr [ null, %.thread ], [ %30, %33 ], [ null, %.thread37 ], [ %30, %.lr.ph.i.i.i.i.i.i.i ]
   %37 = icmp slt i64 %36, %22
   br i1 %37, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIiiEEKNS_12ArrayWrapperIKNS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIiEEKNS_5ArrayIiLin1ELin1ELi0ELin1ELin1EEEEEEEE4evalEv.exit
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %._crit_edge.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi i64 [ %42, %.lr.ph.i.i.i.i.i.i.i.i ], [ %36, %._crit_edge.i.i.i.i.i.i.i ]
-  %38 = getelementptr inbounds i32, ptr %.pre.i24, i64 %.05.i.i.i.i.i.i.i.i
+  %38 = getelementptr inbounds i32, ptr %.pre.i36, i64 %.05.i.i.i.i.i.i.i.i
   %39 = getelementptr inbounds i32, ptr %15, i64 %.05.i.i.i.i.i.i.i.i
   %40 = load i32, ptr %39, align 4, !tbaa !155
   %41 = add nsw i32 %40, 1

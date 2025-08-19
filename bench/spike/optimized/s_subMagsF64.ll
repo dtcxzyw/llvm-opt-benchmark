@@ -144,12 +144,12 @@ define i64 @softfloat_subMagsF64(i64 noundef %0, i64 noundef %1, i1 noundef zero
   br label %softfloat_shiftRightJam64.exit
 
 softfloat_shiftRightJam64.exit:                   ; preds = %82, %74, %64, %57
-  %.sink87 = phi i64 [ %44, %57 ], [ %44, %64 ], [ %43, %74 ], [ %43, %82 ]
-  %.sink86 = phi i64 [ %63, %57 ], [ %66, %64 ], [ %81, %74 ], [ %84, %82 ]
+  %.sink93 = phi i64 [ %44, %57 ], [ %44, %64 ], [ %43, %74 ], [ %43, %82 ]
+  %.sink92 = phi i64 [ %63, %57 ], [ %66, %64 ], [ %81, %74 ], [ %84, %82 ]
   %.167.in = phi i1 [ %52, %57 ], [ %52, %64 ], [ %2, %74 ], [ %2, %82 ]
   %.1 = phi i64 [ %8, %57 ], [ %8, %64 ], [ %5, %74 ], [ %5, %82 ]
-  %85 = or disjoint i64 %.sink87, 4611686018427387904
-  %86 = sub nsw i64 %85, %.sink86
+  %85 = or disjoint i64 %.sink93, 4611686018427387904
+  %86 = sub nsw i64 %85, %.sink92
   %87 = add nsw i64 %.1, -1
   %88 = tail call i64 @softfloat_normRoundPackToF64(i1 noundef zeroext %.167.in, i64 noundef %87, i64 noundef %86) #4
   br label %91

@@ -355,7 +355,7 @@ _ZN16ruff_source_file10line_index9LineIndex10line_start17h723df2838e2bc03bE.exit
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %_ZN16ruff_source_file10line_index9LineIndex10line_start17h723df2838e2bc03bE.exit
-  switch i8 %4, label %default.unreachable31 [
+  switch i8 %4, label %default.unreachable46 [
     i8 0, label %58
     i8 1, label %62
     i8 2, label %63
@@ -370,7 +370,7 @@ _ZN16ruff_source_file10line_index9LineIndex10line_start17h723df2838e2bc03bE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %64
 
-default.unreachable31:                            ; preds = %53
+default.unreachable46:                            ; preds = %53
   unreachable
 
 58:                                               ; preds = %53
@@ -972,7 +972,7 @@ define noundef i32 @_ZN16ruff_source_file10line_index9LineIndex6offset17h9e2d606
 
 49:                                               ; preds = %43, %41, %32
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 %27
-  switch i8 %5, label %default.unreachable57 [
+  switch i8 %5, label %default.unreachable66 [
     i8 0, label %52
     i8 1, label %54
     i8 2, label %58
@@ -982,7 +982,7 @@ define noundef i32 @_ZN16ruff_source_file10line_index9LineIndex6offset17h9e2d606
   call void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %27, i64 noundef %28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.95641a04735e60a239fb9c9cfd8c4f76.40) #17
   unreachable
 
-default.unreachable57:                            ; preds = %49
+default.unreachable66:                            ; preds = %49
   unreachable
 
 52:                                               ; preds = %49

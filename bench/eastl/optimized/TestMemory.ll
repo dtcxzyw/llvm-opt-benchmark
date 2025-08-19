@@ -1808,7 +1808,7 @@ for.end13:                                        ; preds = %for.inc, %for.inc.u
   br i1 %bReturnValue.0.lcssa, label %if.then15, label %if.end49
 
 if.then15:                                        ; preds = %entry, %for.end13
-  %argIndex.0.lcssa46 = phi i32 [ %argIndex.0.lcssa, %for.end13 ], [ 0, %entry ]
+  %argIndex.0.lcssa47 = phi i32 [ %argIndex.0.lcssa, %for.end13 ], [ 0, %entry ]
   %gp_offset18 = load i32, ptr %args, align 16
   %fits_in_gp19 = icmp ult i32 %gp_offset18, 41
   br i1 %fits_in_gp19, label %vaarg.in_reg20, label %vaarg.in_mem22
@@ -1846,7 +1846,7 @@ do.body.preheader:                                ; preds = %vaarg.end26
 do.body:                                          ; preds = %do.body.preheader, %vaarg.end41
   %overflow_arg_area3939 = phi ptr [ %overflow_arg_area3938, %vaarg.end41 ], [ %overflow_arg_area_p38.promoted, %do.body.preheader ]
   %gp_offset3337 = phi i32 [ %gp_offset3336, %vaarg.end41 ], [ %args.promoted, %do.body.preheader ]
-  %argIndex.1 = phi i32 [ %inc30, %vaarg.end41 ], [ %argIndex.0.lcssa46, %do.body.preheader ]
+  %argIndex.1 = phi i32 [ %inc30, %vaarg.end41 ], [ %argIndex.0.lcssa47, %do.body.preheader ]
   %inc30 = add nuw nsw i32 %argIndex.1, 1
   %fits_in_gp34 = icmp ult i32 %gp_offset3337, 41
   br i1 %fits_in_gp34, label %vaarg.in_reg35, label %vaarg.in_mem37
@@ -1876,11 +1876,11 @@ do.end:                                           ; preds = %vaarg.end41
   br i1 %tobool44.not, label %if.else46, label %if.then45
 
 if.then45:                                        ; preds = %do.end
-  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.83, ptr noundef nonnull %pName, i32 noundef %inc30, i32 noundef %argIndex.0.lcssa46)
+  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.83, ptr noundef nonnull %pName, i32 noundef %inc30, i32 noundef %argIndex.0.lcssa47)
   br label %if.end49
 
 if.else46:                                        ; preds = %do.end
-  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.84, i32 noundef %inc30, i32 noundef %argIndex.0.lcssa46)
+  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.84, i32 noundef %inc30, i32 noundef %argIndex.0.lcssa47)
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then45, %if.else46, %vaarg.end26, %for.end13

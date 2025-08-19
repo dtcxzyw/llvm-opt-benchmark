@@ -451,7 +451,7 @@ Abc_NtkMiterFraig.exit:                           ; preds = %196, %221
   br i1 %249, label %._crit_edge.thread, label %.thread198
 
 ._crit_edge.thread:                               ; preds = %62, %._crit_edge
-  %.0128.lcssa229 = phi ptr [ %.5, %._crit_edge ], [ %12, %62 ]
+  %.0128.lcssa239 = phi ptr [ %.5, %._crit_edge ], [ %12, %62 ]
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %251 = load i32, ptr %250, align 8, !tbaa !63
   %.not159 = icmp eq i32 %251, 0
@@ -492,12 +492,12 @@ Abc_Clock.exit178:                                ; preds = %259, %262
   %270 = load i32, ptr %269, align 4, !tbaa !64
   %271 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %272 = load i32, ptr %271, align 8, !tbaa !65
-  %273 = call ptr @Abc_NtkCollapse(ptr noundef %.0128.lcssa229, i32 noundef %270, i32 noundef 0, i32 noundef %272, i32 noundef 0, i32 noundef 0, i32 noundef 0) #15
+  %273 = call ptr @Abc_NtkCollapse(ptr noundef %.0128.lcssa239, i32 noundef %270, i32 noundef 0, i32 noundef %272, i32 noundef 0, i32 noundef 0, i32 noundef 0) #15
   %.not161 = icmp eq ptr %273, null
   br i1 %.not161, label %294, label %274
 
 274:                                              ; preds = %Abc_Clock.exit178
-  call void @Abc_NtkDelete(ptr noundef %.0128.lcssa229) #15
+  call void @Abc_NtkDelete(ptr noundef %.0128.lcssa239) #15
   %275 = getelementptr i8, ptr %273, i64 124
   %.val = load i32, ptr %275, align 4, !tbaa !26
   %276 = icmp eq i32 %.val, 1
@@ -537,7 +537,7 @@ Abc_Clock.exit178:                                ; preds = %259, %262
 
 294:                                              ; preds = %Abc_Clock.exit178
   %295 = load i32, ptr %13, align 4, !tbaa !8
-  call fastcc void @Abc_NtkMiterPrint(ptr noundef %.0128.lcssa229, ptr noundef nonnull @.str.10, i64 noundef %.0.i177, i32 noundef %295)
+  call fastcc void @Abc_NtkMiterPrint(ptr noundef %.0128.lcssa239, ptr noundef nonnull @.str.10, i64 noundef %.0.i177, i32 noundef %295)
   %.pre = load i32, ptr %13, align 4, !tbaa !8
   br label %.thread202
 
@@ -588,13 +588,13 @@ Abc_Clock.exit180:                                ; preds = %303, %306
   %321 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %322 = load i32, ptr %321, align 4, !tbaa !22
   %323 = sext i32 %322 to i64
-  %324 = call i32 @Abc_NtkMiterSat(ptr noundef %.0128.lcssa229, i64 noundef %323, i64 noundef %320, i32 noundef 0, ptr noundef null, ptr noundef null) #15
+  %324 = call i32 @Abc_NtkMiterSat(ptr noundef %.0128.lcssa239, i64 noundef %323, i64 noundef %320, i32 noundef 0, ptr noundef null, ptr noundef null) #15
   %325 = load i32, ptr %13, align 4, !tbaa !8
-  call fastcc void @Abc_NtkMiterPrint(ptr noundef %.0128.lcssa229, ptr noundef nonnull @.str.4, i64 noundef %.0.i179, i32 noundef %325)
+  call fastcc void @Abc_NtkMiterPrint(ptr noundef %.0128.lcssa239, ptr noundef nonnull @.str.4, i64 noundef %.0.i179, i32 noundef %325)
   br label %.thread198
 
 .thread198:                                       ; preds = %Abc_NtkMiterFraig.exit, %121, %._crit_edge, %.thread207, %319
-  %.6201 = phi ptr [ %.0128.lcssa229, %319 ], [ %273, %.thread207 ], [ %.5, %._crit_edge ], [ %.0128220, %121 ], [ %214, %Abc_NtkMiterFraig.exit ]
+  %.6201 = phi ptr [ %.0128.lcssa239, %319 ], [ %273, %.thread207 ], [ %.5, %._crit_edge ], [ %.0128220, %121 ], [ %214, %Abc_NtkMiterFraig.exit ]
   %.7194 = phi i32 [ %324, %319 ], [ %.6193.ph, %.thread207 ], [ %.4191, %._crit_edge ], [ %131, %121 ], [ %213, %Abc_NtkMiterFraig.exit ]
   %326 = icmp eq i32 %.7194, 0
   br i1 %326, label %327, label %337

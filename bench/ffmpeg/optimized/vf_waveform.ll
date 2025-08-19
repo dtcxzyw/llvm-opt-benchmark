@@ -724,12 +724,12 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %.not221 = icmp eq i32 %168, 0
   %181 = select i1 %.not221, i32 0, i32 %180
   %. = select i1 %.not222, i32 0, i32 %181
-  %.291 = select i1 %.not222, i32 %181, i32 0
+  %.301 = select i1 %.not222, i32 %181, i32 0
   br label %182
 
 182:                                              ; preds = %178, %172, %175
   %.0208 = phi i32 [ 0, %172 ], [ %177, %175 ], [ %., %178 ]
-  %.0 = phi i32 [ %174, %172 ], [ 0, %175 ], [ %.291, %178 ]
+  %.0 = phi i32 [ %174, %172 ], [ 0, %175 ], [ %.301, %178 ]
   %.5 = add nsw i32 %.2262, 1
   %183 = load ptr, ptr %3, align 8, !tbaa !55
   store ptr %183, ptr %4, align 8, !tbaa !85

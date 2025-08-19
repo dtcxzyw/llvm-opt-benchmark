@@ -221,7 +221,7 @@ define i32 @EVP_PKEY_param_check_quick(ptr noundef readonly captures(none) %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_private_check(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define range(i32 0, -1) i32 @EVP_PKEY_private_check(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8, !tbaa !3

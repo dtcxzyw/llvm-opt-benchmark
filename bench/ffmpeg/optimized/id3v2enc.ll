@@ -85,9 +85,9 @@ define range(i32 -2147483648, 1) i32 @ff_id3v2_write_metadata(ptr noundef %0, pt
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load i32, ptr %19, align 8, !tbaa !28
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %write_ctoc.exit.thread34, label %22
+  br i1 %21, label %write_ctoc.exit.thread37, label %22
 
-write_ctoc.exit.thread34:                         ; preds = %18
+write_ctoc.exit.thread37:                         ; preds = %18
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -238,8 +238,8 @@ write_chapter.exit.thread25:                      ; preds = %58
   %95 = icmp samesign ult i64 %indvars.iv.next, %94
   br i1 %95, label %52, label %.loopexit, !llvm.loop !41
 
-.loopexit:                                        ; preds = %83, %write_ctoc.exit.thread34, %write_ctoc.exit, %write_chapter.exit.thread25, %write_chapter.exit.thread, %write_ctoc.exit.thread, %2
-  %.019 = phi i32 [ %16, %2 ], [ %23, %write_ctoc.exit.thread ], [ %56, %write_chapter.exit.thread ], [ %81, %write_chapter.exit.thread25 ], [ 0, %write_ctoc.exit ], [ 0, %write_ctoc.exit.thread34 ], [ 0, %83 ]
+.loopexit:                                        ; preds = %83, %write_ctoc.exit.thread37, %write_ctoc.exit, %write_chapter.exit.thread25, %write_chapter.exit.thread, %write_ctoc.exit.thread, %2
+  %.019 = phi i32 [ %16, %2 ], [ %23, %write_ctoc.exit.thread ], [ %56, %write_chapter.exit.thread ], [ %81, %write_chapter.exit.thread25 ], [ 0, %write_ctoc.exit ], [ 0, %write_ctoc.exit.thread37 ], [ 0, %83 ]
   ret i32 %.019
 }
 
@@ -445,9 +445,9 @@ id3v2_check_write_tag.exit.id3v2_check_write_tag.exit.thread_crit_edge: ; preds 
   br label %id3v2_check_write_tag.exit.thread
 
 .backedge:                                        ; preds = %id3v2_check_write_tag.exit, %195, %id3v2_put_priv.exit, %id3v2_check_write_tag.exit56
-  %.sink78 = phi i32 [ %121, %id3v2_check_write_tag.exit56 ], [ %191, %id3v2_put_priv.exit ], [ %198, %195 ], [ %94, %id3v2_check_write_tag.exit ]
+  %.sink88 = phi i32 [ %121, %id3v2_check_write_tag.exit56 ], [ %191, %id3v2_put_priv.exit ], [ %198, %195 ], [ %94, %id3v2_check_write_tag.exit ]
   %96 = load i32, ptr %69, align 8, !tbaa !32
-  %97 = add nsw i32 %96, %.sink78
+  %97 = add nsw i32 %96, %.sink88
   store i32 %97, ptr %69, align 8, !tbaa !32
   %98 = load ptr, ptr %1, align 8, !tbaa !42
   %99 = call ptr @av_dict_iterate(ptr noundef %98, ptr noundef nonnull %73) #9

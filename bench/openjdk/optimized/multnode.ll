@@ -603,8 +603,8 @@ define hidden noundef ptr @_ZNK8ProjNode21is_uncommon_trap_projEN14Deoptimizatio
   %.not = icmp ne i32 %24, 285
   %25 = add nuw nsw i32 %.01721, 1
   %exitcond.not = icmp eq i32 %25, 10
-  %or.cond25 = select i1 %.not, i1 true, i1 %exitcond.not
-  br i1 %or.cond25, label %.loopexit, label %3, !llvm.loop !9
+  %or.cond28 = select i1 %.not, i1 true, i1 %exitcond.not
+  br i1 %or.cond28, label %.loopexit, label %3, !llvm.loop !9
 
 .loopexit:                                        ; preds = %21, %3, %13, %20
   %.0 = phi ptr [ null, %20 ], [ %4, %13 ], [ null, %3 ], [ null, %21 ]
@@ -704,8 +704,8 @@ _ZNK8ProjNode13other_if_projEv.exit:              ; preds = %27, %51
   %.not.i = icmp ne i32 %54, 285
   %55 = add nuw nsw i32 %.01721.i, 1
   %exitcond.not.i = icmp eq i32 %55, 10
-  %or.cond25.i = select i1 %.not.i, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond25.i, label %_ZNK8ProjNode21is_uncommon_trap_projEN14Deoptimization11DeoptReasonE.exit, label %_ZNK8ProjNode13other_if_projEv.exit, !llvm.loop !9
+  %or.cond28.i = select i1 %.not.i, i1 true, i1 %exitcond.not.i
+  br i1 %or.cond28.i, label %_ZNK8ProjNode21is_uncommon_trap_projEN14Deoptimization11DeoptReasonE.exit, label %_ZNK8ProjNode13other_if_projEv.exit, !llvm.loop !9
 
 _ZNK8ProjNode21is_uncommon_trap_projEN14Deoptimization11DeoptReasonE.exit: ; preds = %51, %_ZNK8ProjNode13other_if_projEv.exit, %50, %43, %2, %10
   %.0 = phi ptr [ null, %10 ], [ null, %2 ], [ null, %50 ], [ %34, %43 ], [ null, %_ZNK8ProjNode13other_if_projEv.exit ], [ null, %51 ]

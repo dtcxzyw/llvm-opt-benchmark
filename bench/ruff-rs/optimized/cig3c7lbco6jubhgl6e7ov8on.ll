@@ -540,13 +540,13 @@ define internal fastcc void @_ZN15ruff_python_ast4name13QualifiedName16from_dott
 
 32:                                               ; preds = %31
   %33 = icmp eq i64 %28, %2
-  br i1 %33, label %39, label %.invoke88
+  br i1 %33, label %39, label %.invoke98
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 %28
   %36 = load i8, ptr %35, align 1, !alias.scope !73, !noundef !3
   %37 = icmp sgt i8 %36, -65
-  br i1 %37, label %39, label %.invoke88
+  br i1 %37, label %39, label %.invoke98
 
 38:                                               ; preds = %3
   call void @"_ZN4core5array75_$LT$impl$u20$core..default..Default$u20$for$u20$$u5b$T$u3b$$u20$8$u5d$$GT$7default17h099f581d09ef8038E"(ptr noalias noundef nonnull sret([128 x i8]) align 8 captures(none) dereferenceable(128) %13)
@@ -567,7 +567,7 @@ define internal fastcc void @_ZN15ruff_python_ast4name13QualifiedName16from_dott
           cleanup
   br label %.body.thread
 
-.body.thread78.loopexit.split-lp:                 ; preds = %.invoke88, %.invoke, %209, %168, %146, %.noexc32, %114, %112, %58, %48
+.body.thread78.loopexit.split-lp:                 ; preds = %.invoke98, %.invoke, %209, %168, %146, %.noexc32, %114, %112, %58, %48
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -714,14 +714,14 @@ _ZN15ruff_python_ast4name13SegmentsStack4push17h2d63f62767ae4f7bE.exit.i: ; pred
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx2.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.i, i64 16, i1 false), !noalias !79
   br label %97
 
-.invoke88:                                        ; preds = %101, %103, %32, %34
+.invoke98:                                        ; preds = %101, %103, %32, %34
   %94 = phi i64 [ 0, %34 ], [ 0, %32 ], [ %98, %103 ], [ %98, %101 ]
   %95 = phi i64 [ %28, %34 ], [ %28, %32 ], [ %2, %103 ], [ %2, %101 ]
   %96 = phi ptr [ @anon.197829fd7742c65e648072fd6cc75692.3, %34 ], [ @anon.197829fd7742c65e648072fd6cc75692.3, %32 ], [ @anon.197829fd7742c65e648072fd6cc75692.4, %103 ], [ @anon.197829fd7742c65e648072fd6cc75692.4, %101 ]
   invoke void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %94, i64 noundef %95, ptr noalias noundef readonly align 8 dereferenceable(24) %96) #13
-          to label %.cont89 unwind label %.body.thread78.loopexit.split-lp
+          to label %.cont99 unwind label %.body.thread78.loopexit.split-lp
 
-.cont89:                                          ; preds = %.invoke88
+.cont99:                                          ; preds = %.invoke98
   unreachable
 
 97:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$ruff_python_ast..name..SegmentsVec$GT$17ha88e0522c49b2f4bE.exit.i", %_ZN15ruff_python_ast4name13SegmentsStack4push17h2d63f62767ae4f7bE.exit.i, %_ZN15ruff_python_ast4name13SegmentsStack4push17h2d63f62767ae4f7bE.exit.thread.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h30645195c70acfcbE.exit.i"
@@ -736,13 +736,13 @@ _ZN15ruff_python_ast4name13SegmentsStack4push17h2d63f62767ae4f7bE.exit.i: ; pred
 
 101:                                              ; preds = %100
   %102 = icmp eq i64 %98, %2
-  br i1 %102, label %107, label %.invoke88
+  br i1 %102, label %107, label %.invoke98
 
 103:                                              ; preds = %100
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 %98
   %105 = load i8, ptr %104, align 1, !alias.scope !115, !noundef !3
   %106 = icmp sgt i8 %105, -65
-  br i1 %106, label %107, label %.invoke88
+  br i1 %106, label %107, label %.invoke98
 
 107:                                              ; preds = %97, %101, %103
   %108 = sub nuw i64 %2, %98
@@ -1346,9 +1346,9 @@ define noundef range(i8 0, 5) i8 @_ZN20ruff_python_semantic7analyze13function_ty
   %.sroa.10.0.i.i.i.i = phi i64 [ %44, %42 ], [ %46, %45 ]
   %.sroa.01.0.i.i.i.i = phi ptr [ %43, %42 ], [ %18, %45 ]
   %50 = icmp eq i64 %.sroa.10.0.i.i.i.i, 2
-  br i1 %50, label %51, label %.preheader57
+  br i1 %50, label %51, label %.preheader68
 
-.preheader57:                                     ; preds = %71, %65, %49
+.preheader68:                                     ; preds = %71, %65, %49
   br label %73
 
 51:                                               ; preds = %49
@@ -1374,26 +1374,26 @@ define noundef range(i8 0, 5) i8 @_ZN20ruff_python_semantic7analyze13function_ty
           to label %72 unwind label %.loopexit.split-lp.i.i.i.loopexit.i, !noalias !202
 
 65:                                               ; preds = %61
-  br i1 %62, label %.invoke.i.i.i.i, label %.preheader57
+  br i1 %62, label %.invoke.i.i.i.i, label %.preheader68
 
 .invoke.i.i.i.i:                                  ; preds = %72, %65
   %.in.i.i.i.i = phi ptr [ %52, %65 ], [ %.sroa.01.0.i.i.i.i, %72 ]
-  %.in10.i.i.i.i = phi ptr [ %54, %65 ], [ %59, %72 ]
+  %.in11.i.i.i.i = phi ptr [ %54, %65 ], [ %59, %72 ]
   %66 = phi ptr [ @anon.197829fd7742c65e648072fd6cc75692.49, %65 ], [ @anon.197829fd7742c65e648072fd6cc75692.50, %72 ]
   %67 = phi i64 [ 20, %65 ], [ 8, %72 ]
-  %68 = load i64, ptr %.in10.i.i.i.i, align 8, !noalias !203, !noundef !3
+  %68 = load i64, ptr %.in11.i.i.i.i, align 8, !noalias !203, !noundef !3
   %69 = load ptr, ptr %.in.i.i.i.i, align 8, !noalias !203, !nonnull !3, !align !19, !noundef !3
   %70 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17heb39b4acc8b9c7e3E"(ptr noalias noundef nonnull readonly align 1 %69, i64 noundef %68, ptr noalias noundef nonnull readonly align 1 %66, i64 noundef %67)
           to label %71 unwind label %.loopexit.split-lp.i.i.i.loopexit.i, !noalias !202
 
 71:                                               ; preds = %.invoke.i.i.i.i
-  br i1 %70, label %.loopexit.i.i.i, label %.preheader57
+  br i1 %70, label %.loopexit.i.i.i, label %.preheader68
 
 72:                                               ; preds = %63
   br i1 %64, label %.loopexit.i.i.i, label %.invoke.i.i.i.i
 
-73:                                               ; preds = %.preheader57, %.noexc9.i.i.i.i
-  %74 = phi ptr [ %76, %.noexc9.i.i.i.i ], [ %8, %.preheader57 ]
+73:                                               ; preds = %.preheader68, %.noexc9.i.i.i.i
+  %74 = phi ptr [ %76, %.noexc9.i.i.i.i ], [ %8, %.preheader68 ]
   %.not.not.not.i.not.not.i.i.i.i = icmp eq ptr %74, %30
   br i1 %.not.not.not.i.not.not.i.i.i.i, label %"_ZN20ruff_python_semantic7analyze13function_type16is_static_method28_$u7b$$u7b$closure$u7d$$u7d$17h2cf7c9d0bd2d0ea9E.exit.i.i.i", label %75
 
@@ -1646,10 +1646,10 @@ common.resume:                                    ; preds = %.body.i.i.i.i24, %1
 
 .invoke.i.i.i.i31:                                ; preds = %160, %153
   %.in.i.i.i.i32 = phi ptr [ %140, %153 ], [ %.sroa.01.0.i.i.i.i18, %160 ]
-  %.in10.i.i.i.i33 = phi ptr [ %142, %153 ], [ %147, %160 ]
+  %.in11.i.i.i.i33 = phi ptr [ %142, %153 ], [ %147, %160 ]
   %154 = phi ptr [ @anon.197829fd7742c65e648072fd6cc75692.52, %153 ], [ @anon.197829fd7742c65e648072fd6cc75692.50, %160 ]
   %155 = phi i64 [ 19, %153 ], [ 8, %160 ]
-  %156 = load i64, ptr %.in10.i.i.i.i33, align 8, !noalias !240, !noundef !3
+  %156 = load i64, ptr %.in11.i.i.i.i33, align 8, !noalias !240, !noundef !3
   %157 = load ptr, ptr %.in.i.i.i.i32, align 8, !noalias !240, !nonnull !3, !align !19, !noundef !3
   %158 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17heb39b4acc8b9c7e3E"(ptr noalias noundef nonnull readonly align 1 %157, i64 noundef %156, ptr noalias noundef nonnull readonly align 1 %154, i64 noundef %155)
           to label %159 unwind label %.loopexit.split-lp.i.i.i.loopexit.i29, !noalias !239

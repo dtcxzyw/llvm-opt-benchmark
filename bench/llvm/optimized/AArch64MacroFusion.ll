@@ -39,8 +39,8 @@ define internal noundef zeroext i1 @_ZL22shouldScheduleAdjacentRKN4llvm15TargetI
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %.val = load i16, ptr %9, align 4
   %.not.i = icmp eq i16 %.val, 1884
-  %or.cond100 = select i1 %brmerge, i1 %.not.i, i1 false
-  br i1 %or.cond100, label %10, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread
+  %or.cond103 = select i1 %brmerge, i1 %.not.i, i1 false
+  br i1 %or.cond103, label %10, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread
 
 10:                                               ; preds = %4
   %11 = icmp eq ptr %2, null
@@ -176,10 +176,10 @@ _ZL19isArithmeticCbzPairPKN4llvm12MachineInstrERS1_.exit.thread65: ; preds = %34
   br i1 %46, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61, label %_ZL9isAESPairPKN4llvm12MachineInstrERS1_.exit
 
 _ZL9isAESPairPKN4llvm12MachineInstrERS1_.exit:    ; preds = %43, %45
-  %.sink1.i = phi i16 [ 1584, %43 ], [ 1578, %45 ]
+  %.sink2.i = phi i16 [ 1584, %43 ], [ 1578, %45 ]
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %48 = load i16, ptr %47, align 4, !tbaa !185
-  %49 = icmp eq i16 %48, %.sink1.i
+  %49 = icmp eq i16 %48, %.sink2.i
   br i1 %49, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61, label %_ZL15isCryptoEORPairPKN4llvm12MachineInstrERS1_.exit
 
 _ZL9isAESPairPKN4llvm12MachineInstrERS1_.exit.thread68: ; preds = %_ZL19isArithmeticCbzPairPKN4llvm12MachineInstrERS1_.exit.thread65, %42
@@ -257,8 +257,8 @@ _ZL13isAdrpAddPairPKN4llvm12MachineInstrERS1_.exit.thread72: ; preds = %70
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %83 = load i16, ptr %82, align 4, !tbaa !185
   switch i16 %83, label %_ZL14isLiteralsPairPKN4llvm12MachineInstrERS1_.exit [
-    i16 5243, label %.thread12.i
-    i16 5244, label %.thread7.i
+    i16 5243, label %.thread15.i
+    i16 5244, label %.thread10.i
     i16 5228, label %101
   ]
 
@@ -269,9 +269,9 @@ _ZL13isAdrpAddPairPKN4llvm12MachineInstrERS1_.exit.thread72: ; preds = %70
     i16 5228, label %94
   ]
 
-.thread12.i:                                      ; preds = %81
+.thread15.i:                                      ; preds = %81
   %85 = icmp eq i16 %58, 5227
-  br i1 %85, label %.thread14.i, label %_ZL14isLiteralsPairPKN4llvm12MachineInstrERS1_.exit
+  br i1 %85, label %.thread17.i, label %_ZL14isLiteralsPairPKN4llvm12MachineInstrERS1_.exit
 
 86:                                               ; preds = %84
   %87 = getelementptr inbounds nuw i8, ptr %.val4076, i64 112
@@ -279,15 +279,15 @@ _ZL13isAdrpAddPairPKN4llvm12MachineInstrERS1_.exit.thread72: ; preds = %70
   %89 = icmp eq i64 %88, 16
   br i1 %89, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61, label %_ZL14isLiteralsPairPKN4llvm12MachineInstrERS1_.exit
 
-.thread14.i:                                      ; preds = %.thread12.i
+.thread17.i:                                      ; preds = %.thread15.i
   %90 = getelementptr inbounds nuw i8, ptr %.val40, i64 112
   %91 = load i64, ptr %90, align 8, !tbaa !184
   %92 = icmp eq i64 %91, 16
   br i1 %92, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61, label %_ZL14isLiteralsPairPKN4llvm12MachineInstrERS1_.exit
 
-.thread7.i:                                       ; preds = %81
+.thread10.i:                                      ; preds = %81
   %93 = icmp eq i16 %58, 5228
-  br i1 %93, label %.thread10.i, label %_ZL14isLiteralsPairPKN4llvm12MachineInstrERS1_.exit
+  br i1 %93, label %.thread13.i, label %_ZL14isLiteralsPairPKN4llvm12MachineInstrERS1_.exit
 
 94:                                               ; preds = %84
   %95 = getelementptr inbounds nuw i8, ptr %.val4076, i64 112
@@ -295,7 +295,7 @@ _ZL13isAdrpAddPairPKN4llvm12MachineInstrERS1_.exit.thread72: ; preds = %70
   %97 = icmp eq i64 %96, 16
   br i1 %97, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61, label %108
 
-.thread10.i:                                      ; preds = %.thread7.i
+.thread13.i:                                      ; preds = %.thread10.i
   %98 = getelementptr inbounds nuw i8, ptr %.val40, i64 112
   %99 = load i64, ptr %98, align 8, !tbaa !184
   %100 = icmp eq i64 %99, 16
@@ -321,8 +321,8 @@ _ZL13isAdrpAddPairPKN4llvm12MachineInstrERS1_.exit.thread72: ; preds = %70
   %110 = icmp eq i64 %109, 48
   br i1 %110, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61, label %_ZL14isLiteralsPairPKN4llvm12MachineInstrERS1_.exit
 
-_ZL14isLiteralsPairPKN4llvm12MachineInstrERS1_.exit: ; preds = %81, %.thread14.i, %.thread12.i, %.thread10.i, %.thread7.i, %108, %101, %86, %84, %_ZL13isAdrpAddPairPKN4llvm12MachineInstrERS1_.exit.thread72, %_ZL13isAdrpAddPairPKN4llvm12MachineInstrERS1_.exit
-  %111 = phi i16 [ %58, %81 ], [ 5227, %.thread14.i ], [ %58, %.thread12.i ], [ 5228, %.thread10.i ], [ %58, %.thread7.i ], [ 5228, %108 ], [ %58, %101 ], [ 5227, %86 ], [ %58, %84 ], [ %58, %_ZL13isAdrpAddPairPKN4llvm12MachineInstrERS1_.exit.thread72 ], [ %58, %_ZL13isAdrpAddPairPKN4llvm12MachineInstrERS1_.exit ]
+_ZL14isLiteralsPairPKN4llvm12MachineInstrERS1_.exit: ; preds = %81, %.thread17.i, %.thread15.i, %.thread13.i, %.thread10.i, %108, %101, %86, %84, %_ZL13isAdrpAddPairPKN4llvm12MachineInstrERS1_.exit.thread72, %_ZL13isAdrpAddPairPKN4llvm12MachineInstrERS1_.exit
+  %111 = phi i16 [ %58, %81 ], [ 5227, %.thread17.i ], [ %58, %.thread15.i ], [ 5228, %.thread13.i ], [ %58, %.thread10.i ], [ 5228, %108 ], [ %58, %101 ], [ 5227, %86 ], [ %58, %84 ], [ %58, %_ZL13isAdrpAddPairPKN4llvm12MachineInstrERS1_.exit.thread72 ], [ %58, %_ZL13isAdrpAddPairPKN4llvm12MachineInstrERS1_.exit ]
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %113 = load i8, ptr %112, align 8, !tbaa !191, !range !163, !noundef !164
   %114 = trunc nuw i8 %113 to i1
@@ -632,8 +632,8 @@ _ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit: ; preds = %193
 _ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit.thread: ; preds = %190, %193, %195, %196, %198, %180, %185, %177, %_ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit, %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit.thread87
   br label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61
 
-_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61: ; preds = %198, %195, %188, %170, %170, %170, %170, %168, %163, %163, %163, %163, %163, %163, %163, %163, %161, %146, %146, %142, %134, %134, %130, %119, %117, %.thread14.i, %.thread10.i, %108, %94, %86, %65, %70, %55, %55, %55, %55, %55, %55, %53, %45, %43, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %32, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %10, %166, %137, %151, %149, %_ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit, %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit, %_ZL14isCCSelectPairPKN4llvm12MachineInstrERS1_.exit, %_ZL17isAddressLdStPairPKN4llvm12MachineInstrERS1_.exit, %_ZL9isAESPairPKN4llvm12MachineInstrERS1_.exit, %_ZL19isArithmeticCbzPairPKN4llvm12MachineInstrERS1_.exit, %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit, %_ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit.thread
-  %.1 = phi i1 [ false, %_ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit.thread ], [ true, %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit ], [ true, %_ZL19isArithmeticCbzPairPKN4llvm12MachineInstrERS1_.exit ], [ true, %_ZL9isAESPairPKN4llvm12MachineInstrERS1_.exit ], [ true, %_ZL17isAddressLdStPairPKN4llvm12MachineInstrERS1_.exit ], [ true, %_ZL14isCCSelectPairPKN4llvm12MachineInstrERS1_.exit ], [ true, %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit ], [ true, %_ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit ], [ true, %149 ], [ true, %151 ], [ true, %137 ], [ true, %166 ], [ true, %10 ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %32 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %43 ], [ true, %45 ], [ true, %53 ], [ true, %55 ], [ true, %55 ], [ true, %55 ], [ true, %55 ], [ true, %55 ], [ true, %55 ], [ true, %70 ], [ true, %65 ], [ true, %86 ], [ true, %94 ], [ true, %108 ], [ true, %.thread10.i ], [ true, %.thread14.i ], [ true, %117 ], [ true, %119 ], [ true, %130 ], [ true, %134 ], [ true, %134 ], [ true, %142 ], [ true, %146 ], [ true, %146 ], [ true, %161 ], [ true, %163 ], [ true, %163 ], [ true, %163 ], [ true, %163 ], [ true, %163 ], [ true, %163 ], [ true, %163 ], [ true, %163 ], [ true, %168 ], [ true, %170 ], [ true, %170 ], [ true, %170 ], [ true, %170 ], [ true, %188 ], [ true, %195 ], [ true, %198 ]
+_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread61: ; preds = %198, %195, %188, %170, %170, %170, %170, %168, %163, %163, %163, %163, %163, %163, %163, %163, %161, %146, %146, %142, %134, %134, %130, %119, %117, %.thread17.i, %.thread13.i, %108, %94, %86, %65, %70, %55, %55, %55, %55, %55, %55, %53, %45, %43, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %32, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %10, %166, %137, %151, %149, %_ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit, %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit, %_ZL14isCCSelectPairPKN4llvm12MachineInstrERS1_.exit, %_ZL17isAddressLdStPairPKN4llvm12MachineInstrERS1_.exit, %_ZL9isAESPairPKN4llvm12MachineInstrERS1_.exit, %_ZL19isArithmeticCbzPairPKN4llvm12MachineInstrERS1_.exit, %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit, %_ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit.thread
+  %.1 = phi i1 [ false, %_ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit.thread ], [ true, %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit ], [ true, %_ZL19isArithmeticCbzPairPKN4llvm12MachineInstrERS1_.exit ], [ true, %_ZL9isAESPairPKN4llvm12MachineInstrERS1_.exit ], [ true, %_ZL17isAddressLdStPairPKN4llvm12MachineInstrERS1_.exit ], [ true, %_ZL14isCCSelectPairPKN4llvm12MachineInstrERS1_.exit ], [ true, %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit ], [ true, %_ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit ], [ true, %149 ], [ true, %151 ], [ true, %137 ], [ true, %166 ], [ true, %10 ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %.critedge.i ], [ true, %32 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %43 ], [ true, %45 ], [ true, %53 ], [ true, %55 ], [ true, %55 ], [ true, %55 ], [ true, %55 ], [ true, %55 ], [ true, %55 ], [ true, %70 ], [ true, %65 ], [ true, %86 ], [ true, %94 ], [ true, %108 ], [ true, %.thread13.i ], [ true, %.thread17.i ], [ true, %117 ], [ true, %119 ], [ true, %130 ], [ true, %134 ], [ true, %134 ], [ true, %142 ], [ true, %146 ], [ true, %146 ], [ true, %161 ], [ true, %163 ], [ true, %163 ], [ true, %163 ], [ true, %163 ], [ true, %163 ], [ true, %163 ], [ true, %163 ], [ true, %163 ], [ true, %168 ], [ true, %170 ], [ true, %170 ], [ true, %170 ], [ true, %170 ], [ true, %188 ], [ true, %195 ], [ true, %198 ]
   ret i1 %.1
 }
 

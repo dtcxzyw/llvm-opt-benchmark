@@ -4446,14 +4446,14 @@ common.resume:                                    ; preds = %.body, %.body25, %1
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr37drop_in_place$LT$usvg_tree..Paint$GT$17he0f252f26e33926aE"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !19, !noundef !4
-  switch i8 %2, label %default.unreachable8 [
+  switch i8 %2, label %default.unreachable10 [
     i8 0, label %"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haf0bb583f4082c72E.exit"
     i8 1, label %19
     i8 2, label %38
     i8 3, label %3
   ]
 
-default.unreachable8:                             ; preds = %1
+default.unreachable10:                            ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -6898,14 +6898,14 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$usvg_tree..text..Te
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2774)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2777)
   %7 = load i8, ptr %6, align 8, !range !19, !alias.scope !2780, !noundef !4
-  switch i8 %7, label %default.unreachable75 [
+  switch i8 %7, label %default.unreachable93 [
     i8 0, label %"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$usvg_tree..Fill$GT$$GT$17h8f3822c0757af25aE.exit"
     i8 1, label %24
     i8 2, label %43
     i8 3, label %8
   ]
 
-default.unreachable75:                            ; preds = %5
+default.unreachable93:                            ; preds = %5
   unreachable
 
 8:                                                ; preds = %5

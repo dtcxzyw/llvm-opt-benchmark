@@ -277,7 +277,7 @@ getParameterStatus.exit:                          ; preds = %73
 86:                                               ; preds = %84
   %87 = load i8, ptr %25, align 8, !range !3, !noundef !4
   %88 = trunc nuw i8 %87 to i1
-  br i1 %88, label %.thread312, label %89
+  br i1 %88, label %.thread328, label %89
 
 89:                                               ; preds = %86
   %90 = call ptr @PQmakeEmptyPGresult(ptr noundef nonnull %0, i32 noundef 1) #16
@@ -290,16 +290,16 @@ getParameterStatus.exit:                          ; preds = %73
   call void @pqSaveErrorResult(ptr noundef nonnull %0) #16
   %.pr.pre = load ptr, ptr %20, align 8
   %.not194 = icmp eq ptr %.pr.pre, null
-  br i1 %.not194, label %.thread312, label %.thread
+  br i1 %.not194, label %.thread328, label %.thread
 
 .thread:                                          ; preds = %84, %89, %91
   %92 = phi ptr [ %.pr.pre, %91 ], [ %85, %84 ], [ %90, %89 ]
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 44
   %94 = load ptr, ptr %17, align 8
   %95 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %93, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 64) #16
-  br label %.thread312
+  br label %.thread328
 
-.thread312:                                       ; preds = %86, %.thread, %91
+.thread328:                                       ; preds = %86, %.thread, %91
   store i32 2, ptr %16, align 4
   br label %getParamDescriptions.exit
 
@@ -867,7 +867,7 @@ getAnotherTuple.exit:                             ; preds = %._crit_edge.i213, %
   store i32 %302, ptr %12, align 8
   br label %getParamDescriptions.exit
 
-getParamDescriptions.exit:                        ; preds = %.thread67.i, %._crit_edge.i, %getParameterStatus.exit209.thread228, %getParameterStatus.exit.thread220, %getAnotherTuple.exit, %.thread231, %64, %81, %81, %.thread312, %98, %121, %290, %293, %296, %297, %299, %110, %111, %112, %135, %124, %122, %149, %138, %136, %158, %169, %190, %179, %177, %282, %284, %69, %77, %62
+getParamDescriptions.exit:                        ; preds = %.thread67.i, %._crit_edge.i, %getParameterStatus.exit209.thread228, %getParameterStatus.exit.thread220, %getAnotherTuple.exit, %.thread231, %64, %81, %81, %.thread328, %98, %121, %290, %293, %296, %297, %299, %110, %111, %112, %135, %124, %122, %149, %138, %136, %158, %169, %190, %179, %177, %282, %284, %69, %77, %62
   %303 = load i32, ptr %12, align 8
   %304 = load i32, ptr %11, align 4
   %305 = add i32 %304, 5
@@ -1833,7 +1833,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 82:                                               ; preds = %80, %80
   %83 = icmp slt i32 %.0214.i, %58
-  br i1 %83, label %84, label %.loopexit
+  br i1 %83, label %84, label %.loopexit247.i
 
 84:                                               ; preds = %82
   %85 = icmp eq i32 %.0214.i, 0
@@ -1894,9 +1894,9 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store i32 %.0137200.i, ptr %108, align 4
   %109 = getelementptr inbounds i32, ptr %68, i64 %107
   store i32 %.0154208.i, ptr %109, align 4
-  br label %.loopexit
+  br label %.loopexit247.i
 
-.loopexit:                                        ; preds = %82, %.thread181.i
+.loopexit247.i:                                   ; preds = %82, %.thread181.i
   %110 = phi i32 [ %.0154208.i, %.thread181.i ], [ %.0154210.i, %82 ]
   %.0148205.i = phi i32 [ %.0148206.i, %.thread181.i ], [ %.0148211.i, %82 ]
   %.0139202.i = phi i32 [ %.0139203.i, %.thread181.i ], [ %.0139212.i, %82 ]
@@ -1904,8 +1904,8 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %.not167.i = icmp sgt i32 %58, %.0197.i
   br i1 %.not167.i, label %180, label %111
 
-111:                                              ; preds = %.loopexit
-  %112 = sext i32 %.0197.i to i64
+111:                                              ; preds = %.loopexit247.i
+  %112 = zext nneg i32 %.0197.i to i64
   %113 = sext i32 %.0148205.i to i64
   %114 = getelementptr inbounds i32, ptr %68, i64 %113
   %115 = load i32, ptr %114, align 4
@@ -2035,7 +2035,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   tail call void @appendPQExpBufferChar(ptr noundef nonnull %0, i8 noundef signext 10) #16
   br label %180
 
-180:                                              ; preds = %._crit_edge226.i, %.loopexit
+180:                                              ; preds = %._crit_edge226.i, %.loopexit247.i
   tail call void @free(ptr noundef nonnull %68) #16
   br label %.sink.split.sink.split.i
 

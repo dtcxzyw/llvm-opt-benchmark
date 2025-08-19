@@ -1686,7 +1686,7 @@ _ZNK20b3AlignedObjectArrayI6b3Int2E4copyEiiPS0_.exit15.i.i: ; preds = %.noexc305
   br i1 %exitcond.not, label %._crit_edge602, label %.lr.ph601, !llvm.loop !107
 
 ._crit_edge602:                                   ; preds = %83, %._crit_edge
-  %.sroa.15554.2741 = phi ptr [ null, %._crit_edge ], [ %46, %83 ]
+  %.sroa.15554.2772 = phi ptr [ null, %._crit_edge ], [ %46, %83 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %84 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i8 1, ptr %84, align 8, !tbaa !103
@@ -1914,7 +1914,7 @@ _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441.thread: ; preds = %_ZN20b3Alig
   br i1 %exitcond678.not, label %._crit_edge605, label %133, !llvm.loop !113
 
 ._crit_edge605:                                   ; preds = %174, %105
-  %.sroa.15532.2747 = phi ptr [ null, %105 ], [ %116, %174 ]
+  %.sroa.15532.2778 = phi ptr [ null, %105 ], [ %116, %174 ]
   %179 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %180 = load i32, ptr %179, align 4, !tbaa !114
   %181 = load i32, ptr %14, align 4, !tbaa !100
@@ -2038,7 +2038,7 @@ _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit438.thread: ; preds = %_ZN20b3Alig
 
 .lr.ph609:                                        ; preds = %.preheader595, %_ZL12solveContactR16b3GpuConstraint4RK9b3Vector3S3_S3_fRK11b3Matrix3x3S3_S3_S3_fS6_PfS7_RS1_S8_S8_S8_.exit
   %indvars.iv680 = phi i64 [ %indvars.iv.next681, %_ZL12solveContactR16b3GpuConstraint4RK9b3Vector3S3_S3_fRK11b3Matrix3x3S3_S3_S3_fS6_PfS7_RS1_S8_S8_S8_.exit ], [ 0, %.preheader595 ]
-  %205 = getelementptr inbounds nuw %struct.b3GpuConstraint4, ptr %.sroa.15532.2747, i64 %indvars.iv680
+  %205 = getelementptr inbounds nuw %struct.b3GpuConstraint4, ptr %.sroa.15532.2778, i64 %indvars.iv680
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 160
   %207 = load i32, ptr %206, align 16, !tbaa !83
   %208 = getelementptr inbounds nuw i8, ptr %205, i64 164
@@ -2058,7 +2058,7 @@ _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit438.thread: ; preds = %_ZN20b3Alig
   %218 = load ptr, ptr %85, align 8, !tbaa !96
   %219 = getelementptr inbounds i32, ptr %218, i64 %210
   %220 = load i32, ptr %219, align 4, !tbaa !100
-  %221 = getelementptr inbounds nuw %struct.b3Int2, ptr %.sroa.15554.2741, i64 %indvars.iv680
+  %221 = getelementptr inbounds nuw %struct.b3Int2, ptr %.sroa.15554.2772, i64 %indvars.iv680
   %222 = load i32, ptr %221, align 4, !tbaa !76
   %223 = add nsw i32 %222, %220
   %224 = sext i32 %223 to i64
@@ -2078,7 +2078,7 @@ _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit438.thread: ; preds = %_ZN20b3Alig
   %232 = load ptr, ptr %85, align 8, !tbaa !96
   %233 = getelementptr inbounds i32, ptr %232, i64 %212
   %234 = load i32, ptr %233, align 4, !tbaa !100
-  %235 = getelementptr inbounds nuw %struct.b3Int2, ptr %.sroa.15554.2741, i64 %indvars.iv680, i32 0, i32 0, i32 1
+  %235 = getelementptr inbounds nuw %struct.b3Int2, ptr %.sroa.15554.2772, i64 %indvars.iv680, i32 0, i32 0, i32 1
   %236 = load i32, ptr %235, align 4, !tbaa !76
   %237 = add nsw i32 %236, %234
   %238 = sext i32 %237 to i64
@@ -2488,7 +2488,7 @@ _ZL12solveContactR16b3GpuConstraint4RK9b3Vector3S3_S3_fRK11b3Matrix3x3S3_S3_S3_f
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %17, ptr noundef nonnull align 16 dereferenceable(16) @__const._ZN24b3GpuJacobiContactSolver14solveGroupHostEP15b3RigidBodyDataP13b3InertiaDataiP10b3Contact4iRK18b3JacobiSolverInfo.maxRambdaDt.11, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %18, i8 0, i64 16, i1 false)
-  %520 = getelementptr inbounds nuw %struct.b3GpuConstraint4, ptr %.sroa.15532.2747, i64 %indvars.iv709, i32 0, i32 5
+  %520 = getelementptr inbounds nuw %struct.b3GpuConstraint4, ptr %.sroa.15532.2778, i64 %indvars.iv709, i32 0, i32 5
   br label %521
 
 521:                                              ; preds = %.lr.ph634, %521
@@ -2502,7 +2502,7 @@ _ZL12solveContactR16b3GpuConstraint4RK9b3Vector3S3_S3_fRK11b3Matrix3x3S3_S3_S3_f
   br i1 %exitcond704.not, label %525, label %521, !llvm.loop !123
 
 525:                                              ; preds = %521
-  %526 = getelementptr inbounds nuw %struct.b3GpuConstraint4, ptr %.sroa.15532.2747, i64 %indvars.iv709
+  %526 = getelementptr inbounds nuw %struct.b3GpuConstraint4, ptr %.sroa.15532.2778, i64 %indvars.iv709
   %527 = getelementptr inbounds nuw i8, ptr %526, i64 12
   %528 = load float, ptr %527, align 4, !tbaa !74
   %529 = getelementptr inbounds nuw i8, ptr %526, i64 160
@@ -2524,7 +2524,7 @@ _ZL12solveContactR16b3GpuConstraint4RK9b3Vector3S3_S3_fRK11b3Matrix3x3S3_S3_S3_f
   %541 = load ptr, ptr %85, align 8, !tbaa !96
   %542 = getelementptr inbounds i32, ptr %541, i64 %533
   %543 = load i32, ptr %542, align 4, !tbaa !100
-  %544 = getelementptr inbounds nuw %struct.b3Int2, ptr %.sroa.15554.2741, i64 %indvars.iv709
+  %544 = getelementptr inbounds nuw %struct.b3Int2, ptr %.sroa.15554.2772, i64 %indvars.iv709
   %545 = load i32, ptr %544, align 4, !tbaa !76
   %546 = add nsw i32 %545, %543
   %547 = sext i32 %546 to i64
@@ -2544,7 +2544,7 @@ _ZL12solveContactR16b3GpuConstraint4RK9b3Vector3S3_S3_fRK11b3Matrix3x3S3_S3_S3_f
   %555 = load ptr, ptr %85, align 8, !tbaa !96
   %556 = getelementptr inbounds i32, ptr %555, i64 %535
   %557 = load i32, ptr %556, align 4, !tbaa !100
-  %558 = getelementptr inbounds nuw %struct.b3Int2, ptr %.sroa.15554.2741, i64 %indvars.iv709, i32 0, i32 0, i32 1
+  %558 = getelementptr inbounds nuw %struct.b3Int2, ptr %.sroa.15554.2772, i64 %indvars.iv709, i32 0, i32 0, i32 1
   %559 = load i32, ptr %558, align 4, !tbaa !76
   %560 = add nsw i32 %559, %557
   %561 = sext i32 %560 to i64
@@ -3115,11 +3115,11 @@ _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit:   ; preds = %._crit_edge658, %93
   unreachable
 
 _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit426: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit, %943
-  %.not.i.i.i427.not = icmp eq ptr %.sroa.15532.2747, null
+  %.not.i.i.i427.not = icmp eq ptr %.sroa.15532.2778, null
   br i1 %.not.i.i.i427.not, label %_ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit, label %947
 
 947:                                              ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit426
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %.sroa.15532.2747)
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %.sroa.15532.2778)
           to label %_ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit unwind label %948
 
 948:                                              ; preds = %947
@@ -3151,11 +3151,11 @@ _ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit: ; preds = %_ZN20b3Aligne
 
 _ZN20b3AlignedObjectArrayIjED2Ev.exit:            ; preds = %_ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit, %954
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %.not.i.i.i431.not = icmp eq ptr %.sroa.15554.2741, null
+  %.not.i.i.i431.not = icmp eq ptr %.sroa.15554.2772, null
   br i1 %.not.i.i.i431.not, label %_ZN20b3AlignedObjectArrayI6b3Int2ED2Ev.exit, label %958
 
 958:                                              ; preds = %_ZN20b3AlignedObjectArrayIjED2Ev.exit
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %.sroa.15554.2741)
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %.sroa.15554.2772)
           to label %_ZN20b3AlignedObjectArrayI6b3Int2ED2Ev.exit unwind label %959
 
 959:                                              ; preds = %958
@@ -3274,12 +3274,12 @@ _ZN13b3ProfileZoneD2Ev.exit:                      ; preds = %_ZN20b3AlignedObjec
   unreachable
 
 _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit438.thread, %1015
-  %.pn270.pn.pn780 = phi { ptr, i32 } [ %196, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit438.thread ], [ %1016, %1015 ]
-  %.not.i.i.i442.not = icmp eq ptr %.sroa.15532.2747, null
+  %.pn270.pn.pn811 = phi { ptr, i32 } [ %196, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit438.thread ], [ %1016, %1015 ]
+  %.not.i.i.i442.not = icmp eq ptr %.sroa.15532.2778, null
   br i1 %.not.i.i.i442.not, label %_ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit444, label %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441.thread578
 
 _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441.thread578: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %.sroa.15532.2747)
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %.sroa.15532.2778)
           to label %_ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit444 unwind label %1020
 
 1020:                                             ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441.thread578
@@ -3290,7 +3290,7 @@ _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441.thread578: ; preds = %_ZN20b3A
   unreachable
 
 _ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit444: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441.thread, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441.thread578, %130
-  %.pn276.pn.pn = phi { ptr, i32 } [ %131, %130 ], [ %132, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441.thread ], [ %.pn270.pn.pn780, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441 ], [ %.pn270.pn.pn780, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441.thread578 ]
+  %.pn276.pn.pn = phi { ptr, i32 } [ %131, %130 ], [ %132, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441.thread ], [ %.pn270.pn.pn811, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441 ], [ %.pn270.pn.pn811, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit441.thread578 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %1023
 
@@ -3316,11 +3316,11 @@ _ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit444: ; preds = %_ZN20b3Ali
 
 _ZN20b3AlignedObjectArrayIjED2Ev.exit447:         ; preds = %1023, %1027
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %.not.i.i.i448.not = icmp eq ptr %.sroa.15554.2741, null
+  %.not.i.i.i448.not = icmp eq ptr %.sroa.15554.2772, null
   br i1 %.not.i.i.i448.not, label %_ZN20b3AlignedObjectArrayI6b3Int2ED2Ev.exit450, label %1031
 
 1031:                                             ; preds = %_ZN20b3AlignedObjectArrayIjED2Ev.exit447
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %.sroa.15554.2741)
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %.sroa.15554.2772)
           to label %_ZN20b3AlignedObjectArrayI6b3Int2ED2Ev.exit450 unwind label %1032
 
 1032:                                             ; preds = %1031

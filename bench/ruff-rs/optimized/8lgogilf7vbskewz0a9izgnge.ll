@@ -1628,10 +1628,10 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h25976a8ab0a42aacE.exit.i.i", %137, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h47f15af12c639f85E.exit", %139
-  %.sroa.0.035 = phi i64 [ %.sroa.0.0, %139 ], [ %.sroa.0.0, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h47f15af12c639f85E.exit" ], [ %.sroa.0.0, %137 ], [ 0, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h25976a8ab0a42aacE.exit.i.i" ]
+  %.sroa.0.045 = phi i64 [ %.sroa.0.0, %139 ], [ %.sroa.0.0, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h47f15af12c639f85E.exit" ], [ %.sroa.0.0, %137 ], [ 0, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h25976a8ab0a42aacE.exit.i.i" ]
   %.sroa.01.1 = phi i64 [ %143, %139 ], [ %.sroa.14.018, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h47f15af12c639f85E.exit" ], [ %.sroa.14.018, %137 ], [ 0, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h25976a8ab0a42aacE.exit.i.i" ]
-  %144 = sub nuw i64 %.sroa.01.1, %.sroa.0.035
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.035
+  %144 = sub nuw i64 %.sroa.01.1, %.sroa.0.045
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.045
   %146 = insertvalue { ptr, i64 } poison, ptr %145, 0
   %147 = insertvalue { ptr, i64 } %146, i64 %144, 1
   ret { ptr, i64 } %147
@@ -1687,9 +1687,9 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   br label %38
 
 38:                                               ; preds = %68, %.lr.ph149.i
-  %.sink100.i.i.us.i76.lcssa7990 = phi i64 [ %.promoted91.i, %.lr.ph149.i ], [ %spec.select, %68 ]
+  %.sink109.i.i.us.i76.lcssa7990 = phi i64 [ %.promoted91.i, %.lr.ph149.i ], [ %spec.select, %68 ]
   %.lcssa7083 = phi i64 [ %.promoted.i, %.lr.ph149.i ], [ %45, %68 ]
-  %.sink100.i.i95.us148.i = phi i64 [ %.promoted91.i, %.lr.ph149.i ], [ %spec.select98, %68 ]
+  %.sink109.i.i95.us148.i = phi i64 [ %.promoted91.i, %.lr.ph149.i ], [ %spec.select98, %68 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !253)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !256)
@@ -1703,10 +1703,10 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   br label %42
 
 42:                                               ; preds = %83, %.lr.ph.i.i.us.i
-  %.sink100.i.i.us.i76 = phi i64 [ %.sink100.i.i.us.i76.lcssa7990, %.lr.ph.i.i.us.i ], [ %.sink100.i.i.us.i75, %83 ]
+  %.sink109.i.i.us.i76 = phi i64 [ %.sink109.i.i.us.i76.lcssa7990, %.lr.ph.i.i.us.i ], [ %.sink109.i.i.us.i75, %83 ]
   %43 = phi i64 [ %.lcssa7083, %.lr.ph.i.i.us.i ], [ %85, %83 ]
-  %.sink100.i.i94.us.i = phi i64 [ %.sink100.i.i95.us148.i, %.lr.ph.i.i.us.i ], [ %.sink100.i.i93.us.i, %83 ]
-  %44 = phi i64 [ %.sink100.i.i95.us148.i, %.lr.ph.i.i.us.i ], [ %84, %83 ]
+  %.sink109.i.i94.us.i = phi i64 [ %.sink109.i.i95.us148.i, %.lr.ph.i.i.us.i ], [ %.sink109.i.i93.us.i, %83 ]
+  %44 = phi i64 [ %.sink109.i.i95.us148.i, %.lr.ph.i.i.us.i ], [ %84, %83 ]
   %45 = phi i64 [ %39, %.lr.ph.i.i.us.i ], [ %86, %83 ]
   %.not.i14.i.us.i = icmp eq i64 %.lcssa7083, %43
   br i1 %.not.i14.i.us.i, label %46, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit
@@ -1766,8 +1766,8 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   br i1 %67, label %70, label %68
 
 68:                                               ; preds = %66
-  %spec.select = select i1 %27, i64 %.sink100.i.i.us.i76, i64 %31
-  %spec.select98 = select i1 %27, i64 %.sink100.i.i94.us.i, i64 %31
+  %spec.select = select i1 %27, i64 %.sink109.i.i.us.i76, i64 %31
+  %spec.select98 = select i1 %27, i64 %.sink109.i.i94.us.i, i64 %31
   %69 = icmp eq i64 %45, 0
   br i1 %69, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit, label %38
 
@@ -1796,15 +1796,15 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   br i1 %27, label %83, label %.sink.split.i.i.us.i
 
 .sink.split.i.i.us.i:                             ; preds = %82, %81, %.split50.us.i.us.i
-  %.sink100.i.i.us.i = phi i64 [ %37, %81 ], [ %31, %.split50.us.i.us.i ], [ %31, %82 ]
-  %.ph99.i.i.us.i = phi i64 [ %41, %81 ], [ %65, %.split50.us.i.us.i ], [ %45, %82 ]
+  %.sink109.i.i.us.i = phi i64 [ %37, %81 ], [ %31, %.split50.us.i.us.i ], [ %31, %82 ]
+  %.ph108.i.i.us.i = phi i64 [ %41, %81 ], [ %65, %.split50.us.i.us.i ], [ %45, %82 ]
   br label %83
 
 83:                                               ; preds = %.sink.split.i.i.us.i, %82, %81, %.split50.us.i.us.i
-  %.sink100.i.i.us.i75 = phi i64 [ %.sink100.i.i.us.i76, %.split50.us.i.us.i ], [ %.sink100.i.i.us.i76, %81 ], [ %.sink100.i.i.us.i76, %82 ], [ %.sink100.i.i.us.i, %.sink.split.i.i.us.i ]
-  %.sink100.i.i93.us.i = phi i64 [ %.sink100.i.i94.us.i, %.split50.us.i.us.i ], [ %.sink100.i.i94.us.i, %81 ], [ %.sink100.i.i94.us.i, %82 ], [ %.sink100.i.i.us.i, %.sink.split.i.i.us.i ]
-  %84 = phi i64 [ %44, %.split50.us.i.us.i ], [ %44, %81 ], [ %44, %82 ], [ %.sink100.i.i.us.i, %.sink.split.i.i.us.i ]
-  %85 = phi i64 [ %65, %.split50.us.i.us.i ], [ %41, %81 ], [ %45, %82 ], [ %.ph99.i.i.us.i, %.sink.split.i.i.us.i ]
+  %.sink109.i.i.us.i75 = phi i64 [ %.sink109.i.i.us.i76, %.split50.us.i.us.i ], [ %.sink109.i.i.us.i76, %81 ], [ %.sink109.i.i.us.i76, %82 ], [ %.sink109.i.i.us.i, %.sink.split.i.i.us.i ]
+  %.sink109.i.i93.us.i = phi i64 [ %.sink109.i.i94.us.i, %.split50.us.i.us.i ], [ %.sink109.i.i94.us.i, %81 ], [ %.sink109.i.i94.us.i, %82 ], [ %.sink109.i.i.us.i, %.sink.split.i.i.us.i ]
+  %84 = phi i64 [ %44, %.split50.us.i.us.i ], [ %44, %81 ], [ %44, %82 ], [ %.sink109.i.i.us.i, %.sink.split.i.i.us.i ]
+  %85 = phi i64 [ %65, %.split50.us.i.us.i ], [ %41, %81 ], [ %45, %82 ], [ %.ph108.i.i.us.i, %.sink.split.i.i.us.i ]
   %86 = sub i64 %85, %31
   %87 = icmp ult i64 %86, %13
   br i1 %87, label %42, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit
@@ -2662,20 +2662,20 @@ _ZN10std_detect6detect5cache4test17h76b3b8f4d3c492e6E.exit.i: ; preds = %_ZN6mem
 93:                                               ; preds = %_ZN10std_detect6detect5cache4test17h76b3b8f4d3c492e6E.exit.i, %.noexc12
   %94 = zext i8 %45 to i64
   %95 = icmp ugt i64 %3, %94
-  br i1 %95, label %96, label %.invoke128
+  br i1 %95, label %96, label %.invoke140
 
 96:                                               ; preds = %93
   %97 = zext i8 %44 to i64
   %98 = icmp ugt i64 %3, %97
-  br i1 %98, label %_ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h71359082640a2e9cE.exit.i, label %.invoke128
+  br i1 %98, label %_ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h71359082640a2e9cE.exit.i, label %.invoke140
 
-.invoke128:                                       ; preds = %166, %96, %93
+.invoke140:                                       ; preds = %166, %96, %93
   %99 = phi i64 [ %94, %93 ], [ %97, %96 ], [ %167, %166 ]
   %100 = phi ptr [ @anon.8859263a9d62f989d4ee3ebd56492523.47, %93 ], [ @anon.8859263a9d62f989d4ee3ebd56492523.48, %96 ], [ @anon.8859263a9d62f989d4ee3ebd56492523.52, %166 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %99, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) %100) #23
-          to label %.cont129 unwind label %.loopexit.split-lp
+          to label %.cont141 unwind label %.loopexit.split-lp
 
-.cont129:                                         ; preds = %.invoke128
+.cont141:                                         ; preds = %.invoke140
   unreachable
 
 _ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h71359082640a2e9cE.exit.i: ; preds = %96
@@ -2885,7 +2885,7 @@ _ZN6memchr4arch3all6twoway6Finder3new17h6ed313fa298207a2E.exit92.i: ; preds = %.
 166:                                              ; preds = %148
   %167 = zext i8 %.sroa.3.sroa.4.31.copyload.i to i64
   %168 = icmp ugt i64 %3, %167
-  br i1 %168, label %169, label %.invoke128
+  br i1 %168, label %169, label %.invoke140
 
 169:                                              ; preds = %166
   %170 = getelementptr inbounds nuw i8, ptr %2, i64 %167
@@ -2949,7 +2949,7 @@ _ZN6memchr4arch3all6twoway6Finder3new17h6ed313fa298207a2E.exit102.i: ; preds = %
           cleanup
   br label %191
 
-.loopexit.split-lp:                               ; preds = %.invoke128, %.invoke, %33, %.noexc, %71, %89, %108, %_ZN6memchr4arch3all6twoway6Finder3new17h6ed313fa298207a2E.exit72.i, %.noexc16, %.noexc17, %_ZN6memchr4arch3all6twoway6Finder3new17h6ed313fa298207a2E.exit82.i, %.noexc19, %.noexc20, %_ZN6memchr4arch3all6twoway6Finder3new17h6ed313fa298207a2E.exit92.i, %.noexc22, %.noexc23, %_ZN6memchr4arch3all6twoway6Finder3new17h6ed313fa298207a2E.exit102.i, %.noexc25, %.noexc26
+.loopexit.split-lp:                               ; preds = %.invoke140, %.invoke, %33, %.noexc, %71, %89, %108, %_ZN6memchr4arch3all6twoway6Finder3new17h6ed313fa298207a2E.exit72.i, %.noexc16, %.noexc17, %_ZN6memchr4arch3all6twoway6Finder3new17h6ed313fa298207a2E.exit82.i, %.noexc19, %.noexc20, %_ZN6memchr4arch3all6twoway6Finder3new17h6ed313fa298207a2E.exit92.i, %.noexc22, %.noexc23, %_ZN6memchr4arch3all6twoway6Finder3new17h6ed313fa298207a2E.exit102.i, %.noexc25, %.noexc26
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %191

@@ -1106,14 +1106,14 @@ _ZNK7glslang14TAttributeArgs4sizeEv.exit.i36:     ; preds = %138
   br i1 %209, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_1clEPKcRi.exit", label %217
 
 "_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_1clEPKcRi.exit": ; preds = %138, %_ZNK7glslang14TAttributeArgs4sizeEv.exit.i36, %155, %160, %174, %188, %207
-  %.sink4.i = phi i64 [ 344, %207 ], [ 352, %188 ], [ 352, %174 ], [ 352, %160 ], [ 352, %155 ], [ 352, %138 ], [ 352, %_ZNK7glslang14TAttributeArgs4sizeEv.exit.i36 ]
+  %.sink6.i = phi i64 [ 344, %207 ], [ 352, %188 ], [ 352, %174 ], [ 352, %160 ], [ 352, %155 ], [ 352, %138 ], [ 352, %_ZNK7glslang14TAttributeArgs4sizeEv.exit.i36 ]
   %.str.25.sink.i = phi ptr [ @.str.24, %207 ], [ @.str.25, %188 ], [ @.str.25, %174 ], [ @.str.25, %160 ], [ @.str.25, %155 ], [ @.str.25, %138 ], [ @.str.25, %_ZNK7glslang14TAttributeArgs4sizeEv.exit.i36 ]
   %210 = load ptr, ptr %4, align 8
   %211 = load ptr, ptr %210, align 8
   %212 = load ptr, ptr %211, align 8
   %213 = call noundef nonnull align 8 dereferenceable(24) ptr %212(ptr noundef nonnull align 8 dereferenceable(32) %210) #11
   %214 = load ptr, ptr %0, align 8
-  %215 = getelementptr inbounds nuw i8, ptr %214, i64 %.sink4.i
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 %.sink6.i
   %216 = load ptr, ptr %215, align 8
   call void (ptr, ptr, ptr, ptr, ptr, ...) %216(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %213, ptr noundef nonnull %.str.25.sink.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.17) #11
   br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread"

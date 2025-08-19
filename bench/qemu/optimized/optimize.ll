@@ -4401,9 +4401,9 @@ fold_const2.exit.i447:                            ; preds = %2079
   br i1 %exitcond.not.i.i443, label %fold_add.exit, label %2105, !llvm.loop !17
 
 finish_folding.exit.sink.split.i444:              ; preds = %.lr.ph.i.i.i.i434, %._crit_edge.i433, %fold_const2.exit.i447
-  %.sink11.i = phi i64 [ %2088, %fold_const2.exit.i447 ], [ 0, %._crit_edge.i433 ], [ 0, %.lr.ph.i.i.i.i434 ]
+  %.sink13.i = phi i64 [ %2088, %fold_const2.exit.i447 ], [ 0, %._crit_edge.i433 ], [ 0, %.lr.ph.i.i.i.i434 ]
   %2109 = load i64, ptr %2070, align 8
-  %2110 = call fastcc i64 @arg_new_constant(ptr noundef nonnull %2, i64 noundef %.sink11.i)
+  %2110 = call fastcc i64 @arg_new_constant(ptr noundef nonnull %2, i64 noundef %.sink13.i)
   call fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %2, ptr noundef nonnull %.076705, i64 noundef %2109, i64 noundef %2110)
   br label %fold_add.exit
 
@@ -8300,8 +8300,8 @@ args_are_copies.exit:                             ; preds = %.lr.ph.i.i, %35, %5
   br label %.sink.split
 
 .sink.split:                                      ; preds = %args_are_copies.exit, %68
-  %.sink5 = phi i32 [ %70, %68 ], [ %61, %args_are_copies.exit ]
-  %71 = zext nneg i32 %.sink5 to i64
+  %.sink9 = phi i32 [ %70, %68 ], [ %61, %args_are_copies.exit ]
+  %71 = zext nneg i32 %.sink9 to i64
   store i64 %71, ptr %4, align 8
   br label %72
 
@@ -8545,9 +8545,9 @@ arg_is_const_val.exit:                            ; preds = %.loopexit
   br i1 %91, label %92, label %do_constant_folding_cond_eq.exit
 
 92:                                               ; preds = %arg_is_const_val.exit
-  %switch.tableidx28 = add i32 %3, -10
-  %93 = icmp ult i32 %switch.tableidx28, 4
-  br i1 %93, label %switch.lookup27, label %do_constant_folding_cond_eq.exit
+  %switch.tableidx29 = add i32 %3, -10
+  %93 = icmp ult i32 %switch.tableidx29, 4
+  br i1 %93, label %switch.lookup28, label %do_constant_folding_cond_eq.exit
 
 switch.lookup:                                    ; preds = %args_are_copies.exit
   %94 = zext nneg i32 %switch.tableidx to i64
@@ -8555,14 +8555,14 @@ switch.lookup:                                    ; preds = %args_are_copies.exi
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %do_constant_folding_cond_eq.exit
 
-switch.lookup27:                                  ; preds = %92
-  %95 = zext nneg i32 %switch.tableidx28 to i64
-  %switch.gep29 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.do_constant_folding_cond2, i64 0, i64 %95
-  %switch.load30 = load i32, ptr %switch.gep29, align 4
+switch.lookup28:                                  ; preds = %92
+  %95 = zext nneg i32 %switch.tableidx29 to i64
+  %switch.gep30 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.do_constant_folding_cond2, i64 0, i64 %95
+  %switch.load31 = load i32, ptr %switch.gep30, align 4
   br label %do_constant_folding_cond_eq.exit
 
-do_constant_folding_cond_eq.exit:                 ; preds = %92, %switch.lookup27, %switch.lookup, %.loopexit, %arg_is_const_val.exit, %do_constant_folding_cond_32.exit, %do_constant_folding_cond_64.exit, %12
-  %.1 = phi i32 [ %47, %do_constant_folding_cond_32.exit ], [ %76, %do_constant_folding_cond_64.exit ], [ -1, %12 ], [ -1, %arg_is_const_val.exit ], [ -1, %.loopexit ], [ %switch.load, %switch.lookup ], [ %switch.load30, %switch.lookup27 ], [ -1, %92 ]
+do_constant_folding_cond_eq.exit:                 ; preds = %92, %switch.lookup28, %switch.lookup, %.loopexit, %arg_is_const_val.exit, %do_constant_folding_cond_32.exit, %do_constant_folding_cond_64.exit, %12
+  %.1 = phi i32 [ %47, %do_constant_folding_cond_32.exit ], [ %76, %do_constant_folding_cond_64.exit ], [ -1, %12 ], [ -1, %arg_is_const_val.exit ], [ -1, %.loopexit ], [ %switch.load, %switch.lookup ], [ %switch.load31, %switch.lookup28 ], [ -1, %92 ]
   ret i32 %.1
 }
 

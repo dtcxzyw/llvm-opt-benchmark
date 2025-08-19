@@ -2024,19 +2024,19 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   store ptr %447, ptr %.sroa.029.sroa.2.0..sroa_idx, align 8, !alias.scope !369, !noalias !370
   %.sroa.0.0.copyload.i138 = load i64, ptr %446, align 8, !noalias !373
   %448 = icmp eq i64 %.sroa.0.0.copyload.i138, -9223372036854775807
-  br i1 %448, label %._crit_edge.loopexit.split.loop.exit629, label %458
+  br i1 %448, label %._crit_edge.loopexit.split.loop.exit675, label %458
 
 449:                                              ; preds = %.body148, %.body148.thread
   %.pn82 = phi { ptr, i32 } [ %eh.lpad-body149347, %.body148.thread ], [ %lpad.thr_comm.split-lp350, %.body148 ]
   invoke void @"_ZN4core3ptr128drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$alloc..vec..into_iter..IntoIter$LT$vfs..loader..Entry$GT$$GT$$GT$17h5a0b87d3595db030E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %59) #14
           to label %.thread313 unwind label %530
 
-._crit_edge.loopexit.split.loop.exit629:          ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7f0b26eda0c63afaE.exit.i"
+._crit_edge.loopexit.split.loop.exit675:          ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7f0b26eda0c63afaE.exit.i"
   %450 = getelementptr inbounds nuw i8, ptr %446, i64 72
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %526, %._crit_edge.loopexit.split.loop.exit629, %"_ZN4core3ptr39drop_in_place$LT$vfs..loader..Entry$GT$17h88da3e558dac5d79E.exit.i._crit_edge"
-  %451 = phi ptr [ %.sroa.4251.0.copyload, %"_ZN4core3ptr39drop_in_place$LT$vfs..loader..Entry$GT$17h88da3e558dac5d79E.exit.i._crit_edge" ], [ %450, %._crit_edge.loopexit.split.loop.exit629 ], [ %528, %526 ]
+._crit_edge:                                      ; preds = %526, %._crit_edge.loopexit.split.loop.exit675, %"_ZN4core3ptr39drop_in_place$LT$vfs..loader..Entry$GT$17h88da3e558dac5d79E.exit.i._crit_edge"
+  %451 = phi ptr [ %.sroa.4251.0.copyload, %"_ZN4core3ptr39drop_in_place$LT$vfs..loader..Entry$GT$17h88da3e558dac5d79E.exit.i._crit_edge" ], [ %450, %._crit_edge.loopexit.split.loop.exit675 ], [ %528, %526 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !374
   store ptr %59, ptr %27, align 8, !noalias !374
   %452 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17ha4bf5b46f446af3bE.llvm.55508808430789667(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %59)

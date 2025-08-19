@@ -1830,9 +1830,9 @@ define internal fastcc noundef range(i32 -1, 1) i32 @psmouse_switch_protocol(ptr
   %60 = load i8, ptr %59, align 2
   %61 = icmp eq i8 %60, 3
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  br i1 %61, label %.thread7, label %63
+  br i1 %61, label %.thread11, label %63
 
-.thread7:                                         ; preds = %56
+.thread11:                                        ; preds = %56
   store i32 0, ptr %62, align 8
   br label %72
 
@@ -1853,7 +1853,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @psmouse_switch_protocol(ptr
   store i32 0, ptr %65, align 8
   br label %72
 
-72:                                               ; preds = %.thread7, %71, %66, %63
+72:                                               ; preds = %.thread11, %71, %66, %63
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %74 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %75 = load ptr, ptr %74, align 8

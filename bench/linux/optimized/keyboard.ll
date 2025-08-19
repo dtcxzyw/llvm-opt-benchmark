@@ -568,8 +568,8 @@ define dso_local i32 @kbd_init() local_unnamed_addr #4 section ".init.text" alig
   %5 = icmp eq i32 %4, 0
   %6 = select i1 %5, i8 0, i8 48
   %.masked = and i8 %3, 4
-  %.masked3 = and i8 %2, 2
-  %invariant.op = or disjoint i8 %.masked3, %6
+  %.masked4 = and i8 %2, 2
+  %invariant.op = or disjoint i8 %.masked4, %6
   br label %7
 
 7:                                                ; preds = %7, %0
@@ -4591,9 +4591,9 @@ define internal void @k_shift(ptr noundef %0, i8 noundef zeroext %1, i8 noundef 
   %25 = phi ptr [ @shift_down, %.thread3 ], [ %21, %19 ]
   %26 = phi i64 [ 0, %.thread3 ], [ %20, %19 ]
   %27 = icmp eq i8 %24, 0
-  br i1 %27, label %.thread4, label %32
+  br i1 %27, label %.thread7, label %32
 
-.thread4:                                         ; preds = %23
+.thread7:                                         ; preds = %23
   %28 = shl nuw i64 1, %26
   %29 = trunc i64 %28 to i32
   %30 = xor i32 %29, -1
@@ -4606,8 +4606,8 @@ define internal void @k_shift(ptr noundef %0, i8 noundef zeroext %1, i8 noundef 
   %35 = phi i64 [ %26, %23 ], [ %20, %19 ], [ 0, %.thread ]
   %36 = phi i1 [ false, %23 ], [ true, %19 ], [ true, %.thread ]
   %37 = phi i8 [ -1, %23 ], [ 1, %19 ], [ 1, %.thread ]
-  %.fr6 = freeze i8 %33
-  %38 = add i8 %37, %.fr6
+  %.fr9 = freeze i8 %33
+  %38 = add i8 %37, %.fr9
   store i8 %38, ptr %34, align 1
   %39 = icmp eq i8 %38, 0
   %40 = shl nuw i64 1, %35
@@ -4618,9 +4618,9 @@ define internal void @k_shift(ptr noundef %0, i8 noundef zeroext %1, i8 noundef 
   %spec.select = select i1 %39, i32 %43, i32 %44
   br label %45
 
-45:                                               ; preds = %32, %.thread4
-  %46 = phi i1 [ false, %.thread4 ], [ %36, %32 ]
-  %47 = phi i32 [ %31, %.thread4 ], [ %spec.select, %32 ]
+45:                                               ; preds = %32, %.thread7
+  %46 = phi i1 [ false, %.thread7 ], [ %36, %32 ]
+  %47 = phi i32 [ %31, %.thread7 ], [ %spec.select, %32 ]
   store i32 %47, ptr @shift_state, align 4
   %48 = icmp eq i32 %47, %6
   %49 = select i1 %46, i1 true, i1 %48

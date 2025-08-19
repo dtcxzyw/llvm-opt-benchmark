@@ -1764,9 +1764,9 @@ define internal i32 @ipip6_tunnel_siocdevprivate(ptr noundef %0, ptr noundef %1,
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load i32, ptr %70, align 8
   %72 = icmp eq i32 %71, %.fr17
-  br i1 %72, label %.thread28, label %76
+  br i1 %72, label %.thread39, label %76
 
-.thread28:                                        ; preds = %.preheader.split.split
+.thread39:                                        ; preds = %.preheader.split.split
   store i32 %.fr17, ptr %49, align 8
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 12
   %74 = load i16, ptr %73, align 4
@@ -1793,9 +1793,9 @@ define internal i32 @ipip6_tunnel_siocdevprivate(ptr noundef %0, ptr noundef %1,
   call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #18, !srcloc !31
   br label %98
 
-83:                                               ; preds = %.thread28, %78
-  %.us-phi.ph30 = phi i32 [ 16, %.thread28 ], [ %80, %78 ]
-  %84 = zext nneg i32 %.us-phi.ph30 to i64
+83:                                               ; preds = %.thread39, %78
+  %.us-phi.ph41 = phi i32 [ 16, %.thread39 ], [ %80, %78 ]
+  %84 = zext nneg i32 %.us-phi.ph41 to i64
   %85 = getelementptr i8, ptr %2, i64 16
   %86 = call i64 @_copy_to_user(ptr noundef %85, ptr noundef nonnull %49, i64 noundef %84) #18
   %87 = icmp eq i64 %86, 0
@@ -1806,7 +1806,7 @@ define internal i32 @ipip6_tunnel_siocdevprivate(ptr noundef %0, ptr noundef %1,
   br label %88
 
 88:                                               ; preds = %.sink.split, %83
-  %89 = phi i32 [ %.us-phi.ph30, %83 ], [ 0, %.sink.split ]
+  %89 = phi i32 [ %.us-phi.ph41, %83 ], [ 0, %.sink.split ]
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %91 = call i64 @llvm.read_register.i64(metadata !0)
   %92 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %90, i32 %89, i64 4, i64 %91) #18, !srcloc !32
@@ -3498,7 +3498,7 @@ define internal noundef range(i32 0, 2) i32 @ipip6_rcv(ptr noundef %0) #4 align 
   br i1 %236, label %238, label %240
 
 238:                                              ; preds = %231
-  switch i8 %237, label %default.unreachable73 [
+  switch i8 %237, label %default.unreachable84 [
     i8 0, label %.thread36
     i8 2, label %459
     i8 1, label %459
@@ -3508,7 +3508,7 @@ define internal noundef range(i32 0, 2) i32 @ipip6_rcv(ptr noundef %0) #4 align 
 239:                                              ; preds = %238
   br label %459
 
-default.unreachable73:                            ; preds = %238
+default.unreachable84:                            ; preds = %238
   unreachable
 
 240:                                              ; preds = %231

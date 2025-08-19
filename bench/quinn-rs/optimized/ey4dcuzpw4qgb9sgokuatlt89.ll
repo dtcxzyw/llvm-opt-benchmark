@@ -5052,8 +5052,8 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$alloc..collections..btree..map..BTr
   store i64 %.sroa.12.0, ptr %.sroa.12.0..sroa_idx, align 8, !noalias !703
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 64
   %19 = icmp ne i64 %18, 0
-  %.not20 = select i1 %.not, i1 %19, i1 false
-  br i1 %.not20, label %.lr.ph.i, label %_ZN4core3fmt8builders8DebugMap7entries17he0a05797f8d27a5bE.exit
+  %.not23 = select i1 %.not, i1 %19, i1 false
+  br i1 %.not23, label %.lr.ph.i, label %_ZN4core3fmt8builders8DebugMap7entries17he0a05797f8d27a5bE.exit
 
 .lr.ph.i:                                         ; preds = %2
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8

@@ -2016,7 +2016,7 @@ _ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit.thread.sink.split
   br label %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit.thread
 
 _ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit.thread: ; preds = %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit.thread.sink.split, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit
-  %.sroa.0.0.i460 = phi i32 [ %12, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit ], [ %.0.copyload.i12.i, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit.thread.sink.split ]
+  %.sroa.0.0.i464 = phi i32 [ %12, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit ], [ %.0.copyload.i12.i, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit.thread.sink.split ]
   %13 = phi ptr [ %.pre, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit ], [ %4, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit.thread.sink.split ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.0.copyload.i.i.i.i.i6 = load i64, ptr %14, align 8
@@ -2087,11 +2087,11 @@ select.unfold.i31:                                ; preds = %23
   br label %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit36
 
 _ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit36: ; preds = %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i34, %select.unfold.i31, %32
-  %.sroa.0.0.i461 = phi i32 [ %.sroa.0.0.i460, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i34 ], [ %.sroa.0.0.i460, %select.unfold.i31 ], [ %.sroa.0.0.i460, %32 ], [ %12, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit ]
+  %.sroa.0.0.i465 = phi i32 [ %.sroa.0.0.i464, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i34 ], [ %.sroa.0.0.i464, %select.unfold.i31 ], [ %.sroa.0.0.i464, %32 ], [ %12, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit ]
   %.sroa.6.0.i25 = phi i32 [ %.0.copyload.i.i35, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i34 ], [ %.0.copyload.i13.i33, %select.unfold.i31 ], [ %.0.copyload.i17.i24, %32 ], [ 0, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit ]
   %41 = zext i32 %.sroa.6.0.i25 to i64
   %42 = shl nuw i64 %41, 32
-  %43 = zext i32 %.sroa.0.0.i461 to i64
+  %43 = zext i32 %.sroa.0.0.i465 to i64
   %44 = or disjoint i64 %42, %43
   br label %45
 

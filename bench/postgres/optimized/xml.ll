@@ -1994,9 +1994,9 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
   %16 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 16
   %17 = load i32, ptr %15, align 4
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.lr.ph76, label %.critedge49.thread96
+  br i1 %18, label %.lr.ph76, label %.critedge49.thread100
 
-.critedge49.thread96:                             ; preds = %.lr.ph68
+.critedge49.thread100:                            ; preds = %.lr.ph68
   call void @initStringInfo(ptr noundef nonnull %4) #12
   br label %.lr.ph79
 
@@ -2060,13 +2060,13 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
   %.not45 = icmp eq ptr %.4, null
   br i1 %.not45, label %.critedge51, label %.lr.ph79
 
-.lr.ph79:                                         ; preds = %.critedge49.thread96, %.critedge49
-  %.3.lcssa99 = phi ptr [ %.1.lcssa, %.critedge49.thread96 ], [ %.4, %.critedge49 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.3.lcssa99, i64 4
-  %44 = getelementptr inbounds nuw i8, ptr %.3.lcssa99, i64 16
+.lr.ph79:                                         ; preds = %.critedge49.thread100, %.critedge49
+  %.3.lcssa103 = phi ptr [ %.1.lcssa, %.critedge49.thread100 ], [ %.4, %.critedge49 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.3.lcssa103, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %.3.lcssa103, i64 16
   %45 = load i32, ptr %43, align 4
   %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %.lr.ph101, label %.critedge51
+  br i1 %46, label %.lr.ph105, label %.critedge51
 
 47:                                               ; preds = %.lr.ph76
   %48 = tail call ptr @list_append_unique_oid(ptr noundef %.36774, i32 noundef %42) #12
@@ -2080,10 +2080,10 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
   %52 = icmp slt i64 %indvars.iv.next86, %51
   br i1 %52, label %.lr.ph76, label %.critedge49
 
-.lr.ph101:                                        ; preds = %.lr.ph79, %map_sql_type_to_xmlschema_type.exit
-  %indvars.iv88100 = phi i64 [ %indvars.iv.next89, %map_sql_type_to_xmlschema_type.exit ], [ 0, %.lr.ph79 ]
+.lr.ph105:                                        ; preds = %.lr.ph79, %map_sql_type_to_xmlschema_type.exit
+  %indvars.iv88104 = phi i64 [ %indvars.iv.next89, %map_sql_type_to_xmlschema_type.exit ], [ 0, %.lr.ph79 ]
   %53 = load ptr, ptr %44, align 8
-  %54 = getelementptr inbounds nuw %union.ListCell, ptr %53, i64 %indvars.iv88100
+  %54 = getelementptr inbounds nuw %union.ListCell, ptr %53, i64 %indvars.iv88104
   %55 = load i32, ptr %54, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %56 = call fastcc ptr @map_sql_type_to_xml_name(i32 noundef %55, i32 noundef -1)
@@ -2091,7 +2091,7 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
   %57 = icmp eq i32 %55, 142
   br i1 %57, label %map_sql_type_to_xmlschema_type.exit, label %58
 
-58:                                               ; preds = %.lr.ph101
+58:                                               ; preds = %.lr.ph105
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.39, ptr noundef %56) #12
   switch i32 %55, label %77 [
     i32 1042, label %59
@@ -2179,17 +2179,17 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %map_sql_type_to_xmlschema_type.exit
 
-map_sql_type_to_xmlschema_type.exit:              ; preds = %.lr.ph101, %58, %59, %60, %64, %65, %66, %67, %68, %69, %70, %73, %76, %77, %80
-  %.str.63.sink.i = phi ptr [ @.str.38, %.lr.ph101 ], [ @.str.63, %58 ], [ @.str.63, %77 ], [ @.str.63, %80 ], [ @.str.63, %76 ], [ @.str.63, %73 ], [ @.str.63, %70 ], [ @.str.63, %69 ], [ @.str.63, %68 ], [ @.str.63, %67 ], [ @.str.63, %66 ], [ @.str.63, %65 ], [ @.str.63, %64 ], [ @.str.63, %60 ], [ @.str.63, %59 ]
+map_sql_type_to_xmlschema_type.exit:              ; preds = %.lr.ph105, %58, %59, %60, %64, %65, %66, %67, %68, %69, %70, %73, %76, %77, %80
+  %.str.63.sink.i = phi ptr [ @.str.38, %.lr.ph105 ], [ @.str.63, %58 ], [ @.str.63, %77 ], [ @.str.63, %80 ], [ @.str.63, %76 ], [ @.str.63, %73 ], [ @.str.63, %70 ], [ @.str.63, %69 ], [ @.str.63, %68 ], [ @.str.63, %67 ], [ @.str.63, %66 ], [ @.str.63, %65 ], [ @.str.63, %64 ], [ @.str.63, %60 ], [ @.str.63, %59 ]
   call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull %.str.63.sink.i) #12
   %84 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.37, ptr noundef %84) #12
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88100, 1
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88104, 1
   %85 = load i32, ptr %43, align 4
   %86 = sext i32 %85 to i64
   %87 = icmp slt i64 %indvars.iv.next89, %86
-  br i1 %87, label %.lr.ph101, label %.critedge51
+  br i1 %87, label %.lr.ph105, label %.critedge51
 
 .critedge51:                                      ; preds = %map_sql_type_to_xmlschema_type.exit, %.lr.ph79, %.critedge49.thread, %.critedge49
   %88 = load ptr, ptr %4, align 8

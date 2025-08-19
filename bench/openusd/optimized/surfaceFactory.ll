@@ -1107,9 +1107,9 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEaSEOS5_.exit: ; preds = %
   br label %.thread.sink.split.i
 
 .thread.sink.split.i:                             ; preds = %.noexc.i, %85
-  %.sink180.i = phi ptr [ %90, %.noexc.i ], [ %46, %85 ]
+  %.sink187.i = phi ptr [ %90, %.noexc.i ], [ %46, %85 ]
   %.sink.i = phi i32 [ %83, %.noexc.i ], [ 256, %85 ]
-  store ptr %.sink180.i, ptr %6, align 8
+  store ptr %.sink187.i, ptr %6, align 8
   store i32 %.sink.i, ptr %48, align 4
   %.pre = load ptr, ptr %2, align 8
   br label %.thread.i
@@ -1117,8 +1117,8 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEaSEOS5_.exit: ; preds = %
 .thread.i:                                        ; preds = %.thread.sink.split.i, %86, %37
   %91 = phi ptr [ %50, %86 ], [ %50, %37 ], [ %.pre, %.thread.sink.split.i ]
   %92 = phi i32 [ %83, %86 ], [ 8, %37 ], [ %83, %.thread.sink.split.i ]
-  %.087.lcssa177.i = phi i64 [ %78, %86 ], [ 8, %37 ], [ %78, %.thread.sink.split.i ]
-  %93 = phi ptr [ %46, %86 ], [ %46, %37 ], [ %.sink180.i, %.thread.sink.split.i ]
+  %.087.lcssa184.i = phi i64 [ %78, %86 ], [ 8, %37 ], [ %78, %.thread.sink.split.i ]
+  %93 = phi ptr [ %46, %86 ], [ %46, %37 ], [ %.sink187.i, %.thread.sink.split.i ]
   store i32 %92, ptr %47, align 8
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 138
   %.sroa.0.0.copyload.i.i = load i32, ptr %94, align 2
@@ -1246,10 +1246,10 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEaSEOS5_.exit: ; preds = %
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.noexc100.i, %144
-  %.sink182.i = phi ptr [ %153, %.noexc100.i ], [ %42, %144 ]
-  %.sink181.i = phi i32 [ %142, %.noexc100.i ], [ 16, %144 ]
-  store ptr %.sink182.i, ptr %5, align 8
-  store i32 %.sink181.i, ptr %44, align 4
+  %.sink189.i = phi ptr [ %153, %.noexc100.i ], [ %42, %144 ]
+  %.sink188.i = phi i32 [ %142, %.noexc100.i ], [ 16, %144 ]
+  store ptr %.sink189.i, ptr %5, align 8
+  store i32 %.sink188.i, ptr %44, align 4
   br label %154
 
 154:                                              ; preds = %.sink.split.i, %146
@@ -1426,7 +1426,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.i: ; preds = %238, %
 253:                                              ; preds = %246
   %254 = load ptr, ptr %41, align 8
   call void @_ZdlPv(ptr noundef %254) #16
-  br label %.sink.split183.i
+  br label %.sink.split190.i
 
 255:                                              ; preds = %246
   %256 = load i32, ptr %40, align 4
@@ -1445,16 +1445,16 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.i: ; preds = %238, %
 
 .noexc102.i:                                      ; preds = %258
   store ptr %262, ptr %41, align 8
-  br label %.sink.split183.i
+  br label %.sink.split190.i
 
-.sink.split183.i:                                 ; preds = %.noexc102.i, %253
-  %.sink185.i = phi ptr [ %262, %.noexc102.i ], [ %38, %253 ]
-  %.sink184.i = phi i32 [ %251, %.noexc102.i ], [ 16, %253 ]
-  store ptr %.sink185.i, ptr %4, align 8
-  store i32 %.sink184.i, ptr %40, align 4
+.sink.split190.i:                                 ; preds = %.noexc102.i, %253
+  %.sink192.i = phi ptr [ %262, %.noexc102.i ], [ %38, %253 ]
+  %.sink191.i = phi i32 [ %251, %.noexc102.i ], [ 16, %253 ]
+  store ptr %.sink192.i, ptr %4, align 8
+  store i32 %.sink191.i, ptr %40, align 4
   br label %263
 
-263:                                              ; preds = %.sink.split183.i, %255
+263:                                              ; preds = %.sink.split190.i, %255
   store i32 %251, ptr %39, align 8
   %264 = load i16, ptr %114, align 2
   %265 = sext i16 %264 to i32
@@ -1608,7 +1608,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit114.i: ; preds = %339
 
 ._crit_edge158.i:                                 ; preds = %._crit_edge158.loopexit.i, %.thread.i
   %347 = phi ptr [ %.pre.i, %._crit_edge158.loopexit.i ], [ %93, %.thread.i ]
-  %348 = invoke noundef i64 @_ZN10OpenSubdiv6v3_6_03Bfr8internal6Hash64EPKvm(ptr noundef %347, i64 noundef %.087.lcssa177.i)
+  %348 = invoke noundef i64 @_ZN10OpenSubdiv6v3_6_03Bfr8internal6Hash64EPKvm(ptr noundef %347, i64 noundef %.087.lcssa184.i)
           to label %349 unwind label %.loopexit.split-lp.i
 
 349:                                              ; preds = %._crit_edge158.i
@@ -2626,9 +2626,9 @@ _ZNK10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16getIrregPatchPtrEv.exit.threa
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i: ; preds = %73, %76
   %.pr.i.i.i.i = load ptr, ptr %66, align 8
   %.not8.i.i.i.i = icmp eq ptr %.pr.i.i.i.i, null
-  br i1 %.not8.i.i.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16setIrregPatchPtrERKSt10shared_ptrIKNS1_9PatchTreeEE.exit.thread31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.thread
+  br i1 %.not8.i.i.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16setIrregPatchPtrERKSt10shared_ptrIKNS1_9PatchTreeEE.exit.thread35, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.thread
 
-_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16setIrregPatchPtrERKSt10shared_ptrIKNS1_9PatchTreeEE.exit.thread31: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
+_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16setIrregPatchPtrERKSt10shared_ptrIKNS1_9PatchTreeEE.exit.thread35: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
   store ptr %56, ptr %66, align 8
   br label %_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16setIrregPatchPtrERKSt10shared_ptrIKNS1_9PatchTreeEE.exit.thread
 
@@ -2706,7 +2706,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16setIrregPatchPtrERKSt10shared_
   store ptr %56, ptr %79, align 8
   br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEED2Ev.exit, label %_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16setIrregPatchPtrERKSt10shared_ptrIKNS1_9PatchTreeEE.exit.thread
 
-_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16setIrregPatchPtrERKSt10shared_ptrIKNS1_9PatchTreeEE.exit.thread: ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16getIrregPatchPtrEv.exit, %_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16setIrregPatchPtrERKSt10shared_ptrIKNS1_9PatchTreeEE.exit.thread31, %_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16setIrregPatchPtrERKSt10shared_ptrIKNS1_9PatchTreeEE.exit
+_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16setIrregPatchPtrERKSt10shared_ptrIKNS1_9PatchTreeEE.exit.thread: ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16getIrregPatchPtrEv.exit, %_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16setIrregPatchPtrERKSt10shared_ptrIKNS1_9PatchTreeEE.exit.thread35, %_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16setIrregPatchPtrERKSt10shared_ptrIKNS1_9PatchTreeEE.exit
   %113 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %114 = load atomic i64, ptr %113 acquire, align 8
   %115 = icmp eq i64 %114, 4294967297
@@ -3210,7 +3210,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit: ; preds
 55:                                               ; preds = %52
   %56 = and i8 %.pre, 1
   %.not = icmp eq i8 %56, 0
-  br i1 %.not, label %.thread, label %.thread31
+  br i1 %.not, label %.thread, label %.thread35
 
 57:                                               ; preds = %52
   %.not18 = icmp ne i32 %53, 0
@@ -3221,31 +3221,31 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit: ; preds
   %.not28 = icmp eq ptr %60, null
   br i1 %.not28, label %64, label %71
 
-.thread31:                                        ; preds = %55
-  %.not1832 = icmp ne i32 %53, 0
+.thread35:                                        ; preds = %55
+  %.not1836 = icmp ne i32 %53, 0
   %61 = and i8 %.pre, 2
-  %.not1933 = icmp eq i8 %61, 0
-  %62 = select i1 %.not1832, i1 %.not1933, i1 false
+  %.not1937 = icmp eq i8 %61, 0
+  %62 = select i1 %.not1836, i1 %.not1937, i1 false
   br label %71
 
 .thread:                                          ; preds = %55
   %63 = load ptr, ptr %14, align 8
   %.not29 = icmp eq ptr %63, null
-  br i1 %.not29, label %.thread37, label %.thread26
+  br i1 %.not29, label %.thread41, label %.thread26
 
 64:                                               ; preds = %57
   %.not21 = icmp eq i32 %53, 0
   br i1 %.not21, label %71, label %68
 
-.thread37:                                        ; preds = %.thread
-  %.not2138 = icmp eq i32 %53, 0
-  br i1 %.not2138, label %.thread26.thread, label %.thread39
+.thread41:                                        ; preds = %.thread
+  %.not2142 = icmp eq i32 %53, 0
+  br i1 %.not2142, label %.thread26.thread, label %.thread43
 
-.thread26.thread:                                 ; preds = %.thread37
+.thread26.thread:                                 ; preds = %.thread41
   %65 = tail call noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory25populateNonLinearSurfacesEiPNS2_10SurfaceSetE(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, ptr noundef nonnull %2)
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit.thread
 
-.thread39:                                        ; preds = %.thread37
+.thread43:                                        ; preds = %.thread41
   %66 = and i8 %.pre, 2
   %67 = icmp ne i8 %66, 0
   br label %.thread26
@@ -3255,9 +3255,9 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit: ; preds
   %70 = icmp ne i8 %69, 0
   br i1 %59, label %.thread26, label %74
 
-71:                                               ; preds = %.thread31, %64, %57
-  %72 = phi i1 [ %59, %57 ], [ %59, %64 ], [ %62, %.thread31 ]
-  %73 = phi i1 [ true, %57 ], [ false, %64 ], [ true, %.thread31 ]
+71:                                               ; preds = %.thread35, %64, %57
+  %72 = phi i1 [ %59, %57 ], [ %59, %64 ], [ %62, %.thread35 ]
+  %73 = phi i1 [ true, %57 ], [ false, %64 ], [ true, %.thread35 ]
   br i1 %72, label %.thread26, label %74
 
 74:                                               ; preds = %68, %71
@@ -3266,8 +3266,8 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit: ; preds
   %.not22 = icmp eq i8 %76, 0
   br i1 %.not22, label %80, label %.thread26
 
-.thread26:                                        ; preds = %.thread39, %.thread, %68, %74, %71
-  %77 = phi i1 [ %75, %74 ], [ %73, %71 ], [ %70, %68 ], [ true, %.thread ], [ %67, %.thread39 ]
+.thread26:                                        ; preds = %.thread43, %.thread, %68, %74, %71
+  %77 = phi i1 [ %75, %74 ], [ %73, %71 ], [ %70, %68 ], [ true, %.thread ], [ %67, %.thread43 ]
   %78 = tail call noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory25populateNonLinearSurfacesEiPNS2_10SurfaceSetE(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, ptr noundef nonnull %2)
   %79 = select i1 %78, i1 %77, i1 false
   br i1 %79, label %81, label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit.thread
@@ -3472,9 +3472,9 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory25isFaceNeighborhoodRegularEiPKlPi.ex
   br label %.sink.split
 
 .sink.split:                                      ; preds = %73, %.noexc68
-  %.sink152 = phi ptr [ %82, %.noexc68 ], [ %24, %73 ]
+  %.sink163 = phi ptr [ %82, %.noexc68 ], [ %24, %73 ]
   %.sink = phi i32 [ %71, %.noexc68 ], [ 72, %73 ]
-  store ptr %.sink152, ptr %5, align 8
+  store ptr %.sink163, ptr %5, align 8
   store i32 %.sink, ptr %26, align 4
   br label %83
 

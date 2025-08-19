@@ -10158,18 +10158,18 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa11zalsa_local10ZalsaLocal8al
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp eq i64 %27, 0
-  %.sink112.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink112.sroa.gep137 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink112.sroa.gep138 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink112.sroa.gep140 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink112.sroa.gep141 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink112.sroa.gep142 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink112.sroa.gep144 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink112.sroa.gep145 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink112.sroa.gep146 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink112.sroa.gep148 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink112.sroa.gep149 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink112.sroa.gep150 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink118.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink118.sroa.gep143 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink118.sroa.gep144 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink118.sroa.gep146 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink118.sroa.gep147 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink118.sroa.gep148 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink118.sroa.gep150 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink118.sroa.gep151 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink118.sroa.gep152 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink118.sroa.gep154 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink118.sroa.gep155 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink118.sroa.gep156 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %28, label %29, label %.invoke, !prof !3
 
 29:                                               ; preds = %4
@@ -10281,7 +10281,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   %71 = phi ptr [ %155, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %69, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %72 = phi i64 [ %152, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %66, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %73 = phi i64 [ %151, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.069124 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.069130 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %74 = xor i64 %72, 63
   %.neg.i.i = shl nsw i64 -1, %74
   %75 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %71, i64 %.neg.i.i
@@ -10354,7 +10354,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   store ptr %76, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %21, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hd5e1b4749c0b4b97E"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069124, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hd5e1b4749c0b4b97E"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069130, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %94 = load i8, ptr %53, align 2, !range !592, !noundef !4
   %.not8 = icmp eq i8 %94, 2
@@ -10397,20 +10397,20 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   br label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke": ; preds = %._crit_edge, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i", %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i"
-  %.sink112.sroa.phi = phi ptr [ %.sink112.sroa.gep, %._crit_edge ], [ %.sink112.sroa.gep137, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep138, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi139 = phi ptr [ %.sink112.sroa.gep140, %._crit_edge ], [ %.sink112.sroa.gep141, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep142, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi143 = phi ptr [ %.sink112.sroa.gep144, %._crit_edge ], [ %.sink112.sroa.gep145, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep146, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi147 = phi ptr [ %.sink112.sroa.gep148, %._crit_edge ], [ %.sink112.sroa.gep149, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep150, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink110 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink105 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi = phi ptr [ %.sink118.sroa.gep, %._crit_edge ], [ %.sink118.sroa.gep143, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep144, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi145 = phi ptr [ %.sink118.sroa.gep146, %._crit_edge ], [ %.sink118.sroa.gep147, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep148, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi149 = phi ptr [ %.sink118.sroa.gep150, %._crit_edge ], [ %.sink118.sroa.gep151, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep152, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi153 = phi ptr [ %.sink118.sroa.gep154, %._crit_edge ], [ %.sink118.sroa.gep155, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep156, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink116 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink111 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %.sink = phi i64 [ 0, %._crit_edge ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %111 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.178, %._crit_edge ], [ @anon.c0d9ea8f172a0712a642726e761d19af.190, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ @anon.c0d9ea8f172a0712a642726e761d19af.135, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  store i64 %.sink110, ptr %.sink112.sroa.phi, align 8
-  store ptr null, ptr %.sink112.sroa.phi139, align 8
-  store ptr %.sink105, ptr %.sink112.sroa.phi143, align 8
-  store i64 %.sink, ptr %.sink112.sroa.phi147, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink112, ptr noalias noundef readonly align 8 dereferenceable(24) %111) #28
+  store i64 %.sink116, ptr %.sink118.sroa.phi, align 8
+  store ptr null, ptr %.sink118.sroa.phi145, align 8
+  store ptr %.sink111, ptr %.sink118.sroa.phi149, align 8
+  store i64 %.sink, ptr %.sink118.sroa.phi153, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink118, ptr noalias noundef readonly align 8 dereferenceable(24) %111) #28
           to label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont" unwind label %.thread46.loopexit.split-lp
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont": ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
@@ -10688,7 +10688,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %46
   %73 = phi ptr [ %160, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %67, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %74 = phi i64 [ %157, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %75 = phi i64 [ %156, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %63, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.04889 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.04895 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %76 = xor i64 %74, 63
   %.neg.i.i = shl nsw i64 -1, %76
   %77 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %73, i64 %.neg.i.i
@@ -10767,7 +10767,7 @@ _ZN5salsa5table4Page11assert_type17h5595b157e6307de2E.exit: ; preds = %89
   store ptr %78, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hb104077b558f36bbE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04889, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hb104077b558f36bbE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04895, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %98 = load ptr, ptr %22, align 8, !noundef !4
   %.not8 = icmp eq ptr %98, null
@@ -11082,7 +11082,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %46
   %74 = phi ptr [ %160, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %68, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %75 = phi i64 [ %157, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %76 = phi i64 [ %156, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.04889 = phi i64 [ %145, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.04895 = phi i64 [ %145, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %77 = xor i64 %75, 63
   %.neg.i.i = shl nsw i64 -1, %77
   %78 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %74, i64 %.neg.i.i
@@ -11161,7 +11161,7 @@ _ZN5salsa5table4Page11assert_type17ha0100e87b93a331eE.exit: ; preds = %90
   store ptr %79, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hc565efecb0036898E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04889, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hc565efecb0036898E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04895, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %99 = load i8, ptr %52, align 8, !range !592, !noundef !4
   %.not8 = icmp eq i8 %99, 2
@@ -11474,7 +11474,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %46
   %73 = phi ptr [ %160, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %67, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %74 = phi i64 [ %157, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %75 = phi i64 [ %156, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %63, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.04889 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.04895 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %76 = xor i64 %74, 63
   %.neg.i.i = shl nsw i64 -1, %76
   %77 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %73, i64 %.neg.i.i
@@ -11553,7 +11553,7 @@ _ZN5salsa5table4Page11assert_type17hfbb72c001cdb8573E.exit: ; preds = %89
   store ptr %78, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hcf697dd775baccdfE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04889, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hcf697dd775baccdfE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04895, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %98 = load i8, ptr %22, align 8, !range !1175, !noundef !4
   %.not8 = icmp eq i8 %98, 29
@@ -11867,7 +11867,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %46
   %73 = phi ptr [ %160, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %67, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %74 = phi i64 [ %157, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %75 = phi i64 [ %156, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %63, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.04889 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.04895 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %76 = xor i64 %74, 63
   %.neg.i.i = shl nsw i64 -1, %76
   %77 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %73, i64 %.neg.i.i
@@ -11946,7 +11946,7 @@ _ZN5salsa5table4Page11assert_type17h6c4d9cc63b2c8c47E.exit: ; preds = %89
   store ptr %78, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hfd1880615a61c1deE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04889, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hfd1880615a61c1deE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04895, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %98 = load ptr, ptr %22, align 8, !noundef !4
   %.not8 = icmp eq ptr %98, null
@@ -12158,18 +12158,18 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa11zalsa_local10ZalsaLocal8al
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp eq i64 %27, 0
-  %.sink112.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink112.sroa.gep137 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink112.sroa.gep138 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink112.sroa.gep140 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink112.sroa.gep141 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink112.sroa.gep142 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink112.sroa.gep144 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink112.sroa.gep145 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink112.sroa.gep146 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink112.sroa.gep148 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink112.sroa.gep149 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink112.sroa.gep150 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink118.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink118.sroa.gep143 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink118.sroa.gep144 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink118.sroa.gep146 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink118.sroa.gep147 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink118.sroa.gep148 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink118.sroa.gep150 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink118.sroa.gep151 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink118.sroa.gep152 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink118.sroa.gep154 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink118.sroa.gep155 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink118.sroa.gep156 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %28, label %29, label %.invoke, !prof !3
 
 29:                                               ; preds = %4
@@ -12280,7 +12280,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   %70 = phi ptr [ %155, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %68, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %71 = phi i64 [ %152, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %72 = phi i64 [ %151, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.069124 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.069130 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %73 = xor i64 %71, 63
   %.neg.i.i = shl nsw i64 -1, %73
   %74 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %70, i64 %.neg.i.i
@@ -12353,7 +12353,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   store ptr %75, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hedaa7bb6d32058a2E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069124, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hedaa7bb6d32058a2E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069130, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %93 = load ptr, ptr %22, align 8, !noundef !4
   %.not8 = icmp eq ptr %93, null
@@ -12396,20 +12396,20 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   br label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke": ; preds = %._crit_edge, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i", %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i"
-  %.sink112.sroa.phi = phi ptr [ %.sink112.sroa.gep, %._crit_edge ], [ %.sink112.sroa.gep137, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep138, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi139 = phi ptr [ %.sink112.sroa.gep140, %._crit_edge ], [ %.sink112.sroa.gep141, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep142, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi143 = phi ptr [ %.sink112.sroa.gep144, %._crit_edge ], [ %.sink112.sroa.gep145, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep146, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi147 = phi ptr [ %.sink112.sroa.gep148, %._crit_edge ], [ %.sink112.sroa.gep149, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep150, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink110 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink105 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi = phi ptr [ %.sink118.sroa.gep, %._crit_edge ], [ %.sink118.sroa.gep143, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep144, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi145 = phi ptr [ %.sink118.sroa.gep146, %._crit_edge ], [ %.sink118.sroa.gep147, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep148, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi149 = phi ptr [ %.sink118.sroa.gep150, %._crit_edge ], [ %.sink118.sroa.gep151, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep152, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi153 = phi ptr [ %.sink118.sroa.gep154, %._crit_edge ], [ %.sink118.sroa.gep155, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep156, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink116 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink111 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %.sink = phi i64 [ 0, %._crit_edge ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %110 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.178, %._crit_edge ], [ @anon.c0d9ea8f172a0712a642726e761d19af.190, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ @anon.c0d9ea8f172a0712a642726e761d19af.135, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  store i64 %.sink110, ptr %.sink112.sroa.phi, align 8
-  store ptr null, ptr %.sink112.sroa.phi139, align 8
-  store ptr %.sink105, ptr %.sink112.sroa.phi143, align 8
-  store i64 %.sink, ptr %.sink112.sroa.phi147, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink112, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
+  store i64 %.sink116, ptr %.sink118.sroa.phi, align 8
+  store ptr null, ptr %.sink118.sroa.phi145, align 8
+  store ptr %.sink111, ptr %.sink118.sroa.phi149, align 8
+  store i64 %.sink, ptr %.sink118.sroa.phi153, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink118, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
           to label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont" unwind label %.thread46.loopexit.split-lp
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont": ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
@@ -12586,18 +12586,18 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa11zalsa_local10ZalsaLocal8al
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp eq i64 %27, 0
-  %.sink112.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink112.sroa.gep137 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink112.sroa.gep138 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink112.sroa.gep140 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink112.sroa.gep141 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink112.sroa.gep142 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink112.sroa.gep144 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink112.sroa.gep145 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink112.sroa.gep146 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink112.sroa.gep148 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink112.sroa.gep149 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink112.sroa.gep150 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink118.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink118.sroa.gep143 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink118.sroa.gep144 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink118.sroa.gep146 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink118.sroa.gep147 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink118.sroa.gep148 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink118.sroa.gep150 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink118.sroa.gep151 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink118.sroa.gep152 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink118.sroa.gep154 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink118.sroa.gep155 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink118.sroa.gep156 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %28, label %29, label %.invoke, !prof !3
 
 29:                                               ; preds = %4
@@ -12708,7 +12708,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   %70 = phi ptr [ %155, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %68, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %71 = phi i64 [ %152, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %72 = phi i64 [ %151, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.069124 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.069130 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %73 = xor i64 %71, 63
   %.neg.i.i = shl nsw i64 -1, %73
   %74 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %70, i64 %.neg.i.i
@@ -12781,7 +12781,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   store ptr %75, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %21, ptr noundef nonnull align 8 dereferenceable(144) %3, i64 144, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hfd10bc1fc97f4b8aE"(ptr noalias noundef nonnull sret([144 x i8]) align 8 captures(none) dereferenceable(144) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069124, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hfd10bc1fc97f4b8aE"(ptr noalias noundef nonnull sret([144 x i8]) align 8 captures(none) dereferenceable(144) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069130, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %93 = load i64, ptr %22, align 8, !range !487, !noundef !4
   %.not8 = icmp eq i64 %93, -9223372036854775808
@@ -12824,20 +12824,20 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   br label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke": ; preds = %._crit_edge, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i", %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i"
-  %.sink112.sroa.phi = phi ptr [ %.sink112.sroa.gep, %._crit_edge ], [ %.sink112.sroa.gep137, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep138, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi139 = phi ptr [ %.sink112.sroa.gep140, %._crit_edge ], [ %.sink112.sroa.gep141, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep142, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi143 = phi ptr [ %.sink112.sroa.gep144, %._crit_edge ], [ %.sink112.sroa.gep145, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep146, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi147 = phi ptr [ %.sink112.sroa.gep148, %._crit_edge ], [ %.sink112.sroa.gep149, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep150, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink110 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink105 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi = phi ptr [ %.sink118.sroa.gep, %._crit_edge ], [ %.sink118.sroa.gep143, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep144, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi145 = phi ptr [ %.sink118.sroa.gep146, %._crit_edge ], [ %.sink118.sroa.gep147, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep148, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi149 = phi ptr [ %.sink118.sroa.gep150, %._crit_edge ], [ %.sink118.sroa.gep151, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep152, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi153 = phi ptr [ %.sink118.sroa.gep154, %._crit_edge ], [ %.sink118.sroa.gep155, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep156, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink116 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink111 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %.sink = phi i64 [ 0, %._crit_edge ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %110 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.178, %._crit_edge ], [ @anon.c0d9ea8f172a0712a642726e761d19af.190, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ @anon.c0d9ea8f172a0712a642726e761d19af.135, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  store i64 %.sink110, ptr %.sink112.sroa.phi, align 8
-  store ptr null, ptr %.sink112.sroa.phi139, align 8
-  store ptr %.sink105, ptr %.sink112.sroa.phi143, align 8
-  store i64 %.sink, ptr %.sink112.sroa.phi147, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink112, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
+  store i64 %.sink116, ptr %.sink118.sroa.phi, align 8
+  store ptr null, ptr %.sink118.sroa.phi145, align 8
+  store ptr %.sink111, ptr %.sink118.sroa.phi149, align 8
+  store i64 %.sink, ptr %.sink118.sroa.phi153, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink118, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
           to label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont" unwind label %.thread46.loopexit.split-lp
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont": ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
@@ -13013,18 +13013,18 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa11zalsa_local10ZalsaLocal8al
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp eq i64 %27, 0
-  %.sink112.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink112.sroa.gep137 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink112.sroa.gep138 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink112.sroa.gep140 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink112.sroa.gep141 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink112.sroa.gep142 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink112.sroa.gep144 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink112.sroa.gep145 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink112.sroa.gep146 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink112.sroa.gep148 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink112.sroa.gep149 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink112.sroa.gep150 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink118.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink118.sroa.gep143 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink118.sroa.gep144 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink118.sroa.gep146 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink118.sroa.gep147 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink118.sroa.gep148 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink118.sroa.gep150 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink118.sroa.gep151 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink118.sroa.gep152 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink118.sroa.gep154 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink118.sroa.gep155 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink118.sroa.gep156 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %28, label %29, label %.invoke, !prof !3
 
 29:                                               ; preds = %4
@@ -13135,7 +13135,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   %70 = phi ptr [ %155, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %68, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %71 = phi i64 [ %152, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %72 = phi i64 [ %151, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.069124 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.069130 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %73 = xor i64 %71, 63
   %.neg.i.i = shl nsw i64 -1, %73
   %74 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %70, i64 %.neg.i.i
@@ -13208,7 +13208,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   store ptr %75, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h1037ffdbdc1a127bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069124, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h1037ffdbdc1a127bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069130, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %93 = load ptr, ptr %22, align 8, !noundef !4
   %.not8 = icmp eq ptr %93, null
@@ -13251,20 +13251,20 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   br label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke": ; preds = %._crit_edge, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i", %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i"
-  %.sink112.sroa.phi = phi ptr [ %.sink112.sroa.gep, %._crit_edge ], [ %.sink112.sroa.gep137, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep138, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi139 = phi ptr [ %.sink112.sroa.gep140, %._crit_edge ], [ %.sink112.sroa.gep141, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep142, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi143 = phi ptr [ %.sink112.sroa.gep144, %._crit_edge ], [ %.sink112.sroa.gep145, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep146, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi147 = phi ptr [ %.sink112.sroa.gep148, %._crit_edge ], [ %.sink112.sroa.gep149, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep150, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink110 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink105 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi = phi ptr [ %.sink118.sroa.gep, %._crit_edge ], [ %.sink118.sroa.gep143, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep144, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi145 = phi ptr [ %.sink118.sroa.gep146, %._crit_edge ], [ %.sink118.sroa.gep147, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep148, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi149 = phi ptr [ %.sink118.sroa.gep150, %._crit_edge ], [ %.sink118.sroa.gep151, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep152, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi153 = phi ptr [ %.sink118.sroa.gep154, %._crit_edge ], [ %.sink118.sroa.gep155, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep156, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink116 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink111 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %.sink = phi i64 [ 0, %._crit_edge ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %110 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.178, %._crit_edge ], [ @anon.c0d9ea8f172a0712a642726e761d19af.190, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ @anon.c0d9ea8f172a0712a642726e761d19af.135, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  store i64 %.sink110, ptr %.sink112.sroa.phi, align 8
-  store ptr null, ptr %.sink112.sroa.phi139, align 8
-  store ptr %.sink105, ptr %.sink112.sroa.phi143, align 8
-  store i64 %.sink, ptr %.sink112.sroa.phi147, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink112, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
+  store i64 %.sink116, ptr %.sink118.sroa.phi, align 8
+  store ptr null, ptr %.sink118.sroa.phi145, align 8
+  store ptr %.sink111, ptr %.sink118.sroa.phi149, align 8
+  store i64 %.sink, ptr %.sink118.sroa.phi153, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink118, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
           to label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont" unwind label %.thread46.loopexit.split-lp
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont": ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
@@ -13547,7 +13547,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %46
   %73 = phi ptr [ %160, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %67, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %74 = phi i64 [ %157, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %75 = phi i64 [ %156, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %63, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.04889 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.04895 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %76 = xor i64 %74, 63
   %.neg.i.i = shl nsw i64 -1, %76
   %77 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %73, i64 %.neg.i.i
@@ -13626,7 +13626,7 @@ _ZN5salsa5table4Page11assert_type17h38ded843de66486eE.exit: ; preds = %89
   store ptr %78, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h886ada87ffdab184E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04889, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h886ada87ffdab184E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04895, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %98 = load ptr, ptr %22, align 8, !noundef !4
   %.not8 = icmp eq ptr %98, null
@@ -13940,7 +13940,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %46
   %73 = phi ptr [ %160, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %67, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %74 = phi i64 [ %157, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %75 = phi i64 [ %156, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %63, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.04889 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.04895 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %76 = xor i64 %74, 63
   %.neg.i.i = shl nsw i64 -1, %76
   %77 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %73, i64 %.neg.i.i
@@ -14019,7 +14019,7 @@ _ZN5salsa5table4Page11assert_type17h1fa3d04febb8e9ebE.exit: ; preds = %89
   store ptr %78, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h4387a4fc1894f1c5E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04889, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h4387a4fc1894f1c5E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04895, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %98 = load ptr, ptr %22, align 8, !noundef !4
   %.not8 = icmp eq ptr %98, null
@@ -14231,18 +14231,18 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa11zalsa_local10ZalsaLocal8al
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp eq i64 %27, 0
-  %.sink111.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink111.sroa.gep136 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink111.sroa.gep137 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink111.sroa.gep139 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink111.sroa.gep140 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink111.sroa.gep141 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink111.sroa.gep143 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink111.sroa.gep144 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink111.sroa.gep145 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink111.sroa.gep147 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink111.sroa.gep148 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink111.sroa.gep149 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink117.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink117.sroa.gep142 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink117.sroa.gep143 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink117.sroa.gep145 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink117.sroa.gep146 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink117.sroa.gep147 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink117.sroa.gep149 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink117.sroa.gep150 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink117.sroa.gep151 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink117.sroa.gep153 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink117.sroa.gep154 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink117.sroa.gep155 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %28, label %29, label %.invoke, !prof !3
 
 29:                                               ; preds = %4
@@ -14354,7 +14354,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   %71 = phi ptr [ %155, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %69, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %72 = phi i64 [ %152, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %66, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %73 = phi i64 [ %151, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.068123 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.068129 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %74 = xor i64 %72, 63
   %.neg.i.i = shl nsw i64 -1, %74
   %75 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %71, i64 %.neg.i.i
@@ -14427,7 +14427,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   store ptr %76, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h31b44588c2458a66E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.068123, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h31b44588c2458a66E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.068129, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %94 = load i8, ptr %53, align 8, !range !592, !noundef !4
   %.not8 = icmp eq i8 %94, 2
@@ -14470,20 +14470,20 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   br label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke": ; preds = %._crit_edge, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i", %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i"
-  %.sink111.sroa.phi = phi ptr [ %.sink111.sroa.gep, %._crit_edge ], [ %.sink111.sroa.gep136, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink111.sroa.gep137, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink111.sroa.phi138 = phi ptr [ %.sink111.sroa.gep139, %._crit_edge ], [ %.sink111.sroa.gep140, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink111.sroa.gep141, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink111.sroa.phi142 = phi ptr [ %.sink111.sroa.gep143, %._crit_edge ], [ %.sink111.sroa.gep144, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink111.sroa.gep145, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink111.sroa.phi146 = phi ptr [ %.sink111.sroa.gep147, %._crit_edge ], [ %.sink111.sroa.gep148, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink111.sroa.gep149, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink111 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink109 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink104 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117.sroa.phi = phi ptr [ %.sink117.sroa.gep, %._crit_edge ], [ %.sink117.sroa.gep142, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink117.sroa.gep143, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117.sroa.phi144 = phi ptr [ %.sink117.sroa.gep145, %._crit_edge ], [ %.sink117.sroa.gep146, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink117.sroa.gep147, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117.sroa.phi148 = phi ptr [ %.sink117.sroa.gep149, %._crit_edge ], [ %.sink117.sroa.gep150, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink117.sroa.gep151, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117.sroa.phi152 = phi ptr [ %.sink117.sroa.gep153, %._crit_edge ], [ %.sink117.sroa.gep154, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink117.sroa.gep155, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink115 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink110 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %.sink = phi i64 [ 0, %._crit_edge ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %111 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.178, %._crit_edge ], [ @anon.c0d9ea8f172a0712a642726e761d19af.190, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ @anon.c0d9ea8f172a0712a642726e761d19af.135, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  store i64 %.sink109, ptr %.sink111.sroa.phi, align 8
-  store ptr null, ptr %.sink111.sroa.phi138, align 8
-  store ptr %.sink104, ptr %.sink111.sroa.phi142, align 8
-  store i64 %.sink, ptr %.sink111.sroa.phi146, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink111, ptr noalias noundef readonly align 8 dereferenceable(24) %111) #28
+  store i64 %.sink115, ptr %.sink117.sroa.phi, align 8
+  store ptr null, ptr %.sink117.sroa.phi144, align 8
+  store ptr %.sink110, ptr %.sink117.sroa.phi148, align 8
+  store i64 %.sink, ptr %.sink117.sroa.phi152, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink117, ptr noalias noundef readonly align 8 dereferenceable(24) %111) #28
           to label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont" unwind label %.thread45.loopexit.split-lp
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont": ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
@@ -14760,7 +14760,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %46
   %73 = phi ptr [ %160, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %67, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %74 = phi i64 [ %157, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %75 = phi i64 [ %156, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %63, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.04889 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.04895 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %76 = xor i64 %74, 63
   %.neg.i.i = shl nsw i64 -1, %76
   %77 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %73, i64 %.neg.i.i
@@ -14839,7 +14839,7 @@ _ZN5salsa5table4Page11assert_type17hd1cb9db601338ee8E.exit: ; preds = %89
   store ptr %78, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h365accaf65d3db1bE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04889, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h365accaf65d3db1bE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04895, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %98 = load ptr, ptr %22, align 8, !noundef !4
   %.not8 = icmp eq ptr %98, null
@@ -15051,18 +15051,18 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa11zalsa_local10ZalsaLocal8al
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp eq i64 %27, 0
-  %.sink111.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink111.sroa.gep136 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink111.sroa.gep137 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink111.sroa.gep139 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink111.sroa.gep140 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink111.sroa.gep141 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink111.sroa.gep143 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink111.sroa.gep144 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink111.sroa.gep145 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink111.sroa.gep147 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink111.sroa.gep148 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink111.sroa.gep149 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink117.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink117.sroa.gep142 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink117.sroa.gep143 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink117.sroa.gep145 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink117.sroa.gep146 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink117.sroa.gep147 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink117.sroa.gep149 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink117.sroa.gep150 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink117.sroa.gep151 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink117.sroa.gep153 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink117.sroa.gep154 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink117.sroa.gep155 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %28, label %29, label %.invoke, !prof !3
 
 29:                                               ; preds = %4
@@ -15174,7 +15174,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   %71 = phi ptr [ %155, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %69, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %72 = phi i64 [ %152, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %66, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %73 = phi i64 [ %151, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.068123 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.068129 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %74 = xor i64 %72, 63
   %.neg.i.i = shl nsw i64 -1, %74
   %75 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %71, i64 %.neg.i.i
@@ -15247,7 +15247,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   store ptr %76, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hf8738197a8dabf34E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.068123, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hf8738197a8dabf34E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.068129, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %94 = load i8, ptr %53, align 4, !range !1401, !noundef !4
   %.not8 = icmp eq i8 %94, 3
@@ -15290,20 +15290,20 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   br label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke": ; preds = %._crit_edge, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i", %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i"
-  %.sink111.sroa.phi = phi ptr [ %.sink111.sroa.gep, %._crit_edge ], [ %.sink111.sroa.gep136, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink111.sroa.gep137, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink111.sroa.phi138 = phi ptr [ %.sink111.sroa.gep139, %._crit_edge ], [ %.sink111.sroa.gep140, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink111.sroa.gep141, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink111.sroa.phi142 = phi ptr [ %.sink111.sroa.gep143, %._crit_edge ], [ %.sink111.sroa.gep144, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink111.sroa.gep145, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink111.sroa.phi146 = phi ptr [ %.sink111.sroa.gep147, %._crit_edge ], [ %.sink111.sroa.gep148, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink111.sroa.gep149, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink111 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink109 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink104 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117.sroa.phi = phi ptr [ %.sink117.sroa.gep, %._crit_edge ], [ %.sink117.sroa.gep142, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink117.sroa.gep143, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117.sroa.phi144 = phi ptr [ %.sink117.sroa.gep145, %._crit_edge ], [ %.sink117.sroa.gep146, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink117.sroa.gep147, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117.sroa.phi148 = phi ptr [ %.sink117.sroa.gep149, %._crit_edge ], [ %.sink117.sroa.gep150, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink117.sroa.gep151, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117.sroa.phi152 = phi ptr [ %.sink117.sroa.gep153, %._crit_edge ], [ %.sink117.sroa.gep154, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink117.sroa.gep155, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink115 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink110 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %.sink = phi i64 [ 0, %._crit_edge ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %111 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.178, %._crit_edge ], [ @anon.c0d9ea8f172a0712a642726e761d19af.190, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ @anon.c0d9ea8f172a0712a642726e761d19af.135, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  store i64 %.sink109, ptr %.sink111.sroa.phi, align 8
-  store ptr null, ptr %.sink111.sroa.phi138, align 8
-  store ptr %.sink104, ptr %.sink111.sroa.phi142, align 8
-  store i64 %.sink, ptr %.sink111.sroa.phi146, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink111, ptr noalias noundef readonly align 8 dereferenceable(24) %111) #28
+  store i64 %.sink115, ptr %.sink117.sroa.phi, align 8
+  store ptr null, ptr %.sink117.sroa.phi144, align 8
+  store ptr %.sink110, ptr %.sink117.sroa.phi148, align 8
+  store i64 %.sink, ptr %.sink117.sroa.phi152, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink117, ptr noalias noundef readonly align 8 dereferenceable(24) %111) #28
           to label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont" unwind label %.thread45.loopexit.split-lp
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont": ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
@@ -15580,7 +15580,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %46
   %73 = phi ptr [ %160, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %67, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %74 = phi i64 [ %157, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %75 = phi i64 [ %156, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %63, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.04889 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.04895 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %76 = xor i64 %74, 63
   %.neg.i.i = shl nsw i64 -1, %76
   %77 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %73, i64 %.neg.i.i
@@ -15659,7 +15659,7 @@ _ZN5salsa5table4Page11assert_type17h03eccfa54e7629aaE.exit: ; preds = %89
   store ptr %78, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h14eb200109ca8af8E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04889, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h14eb200109ca8af8E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04895, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %98 = load ptr, ptr %22, align 8, !noundef !4
   %.not8 = icmp eq ptr %98, null
@@ -15871,18 +15871,18 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa11zalsa_local10ZalsaLocal8al
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp eq i64 %27, 0
-  %.sink112.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink112.sroa.gep137 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink112.sroa.gep138 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink112.sroa.gep140 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink112.sroa.gep141 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink112.sroa.gep142 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink112.sroa.gep144 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink112.sroa.gep145 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink112.sroa.gep146 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink112.sroa.gep148 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink112.sroa.gep149 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink112.sroa.gep150 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink118.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink118.sroa.gep143 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink118.sroa.gep144 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink118.sroa.gep146 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink118.sroa.gep147 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink118.sroa.gep148 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink118.sroa.gep150 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink118.sroa.gep151 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink118.sroa.gep152 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink118.sroa.gep154 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink118.sroa.gep155 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink118.sroa.gep156 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %28, label %29, label %.invoke, !prof !3
 
 29:                                               ; preds = %4
@@ -15994,7 +15994,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   %71 = phi ptr [ %155, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %69, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %72 = phi i64 [ %152, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %66, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %73 = phi i64 [ %151, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.069124 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.069130 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %74 = xor i64 %72, 63
   %.neg.i.i = shl nsw i64 -1, %74
   %75 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %71, i64 %.neg.i.i
@@ -16067,7 +16067,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   store ptr %76, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %21, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h94e3cb84cc22fd70E"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069124, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h94e3cb84cc22fd70E"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069130, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %94 = load i8, ptr %53, align 1, !range !1452, !noundef !4
   %.not8 = icmp eq i8 %94, -38
@@ -16110,20 +16110,20 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   br label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke": ; preds = %._crit_edge, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i", %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i"
-  %.sink112.sroa.phi = phi ptr [ %.sink112.sroa.gep, %._crit_edge ], [ %.sink112.sroa.gep137, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep138, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi139 = phi ptr [ %.sink112.sroa.gep140, %._crit_edge ], [ %.sink112.sroa.gep141, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep142, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi143 = phi ptr [ %.sink112.sroa.gep144, %._crit_edge ], [ %.sink112.sroa.gep145, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep146, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi147 = phi ptr [ %.sink112.sroa.gep148, %._crit_edge ], [ %.sink112.sroa.gep149, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep150, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink110 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink105 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi = phi ptr [ %.sink118.sroa.gep, %._crit_edge ], [ %.sink118.sroa.gep143, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep144, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi145 = phi ptr [ %.sink118.sroa.gep146, %._crit_edge ], [ %.sink118.sroa.gep147, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep148, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi149 = phi ptr [ %.sink118.sroa.gep150, %._crit_edge ], [ %.sink118.sroa.gep151, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep152, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi153 = phi ptr [ %.sink118.sroa.gep154, %._crit_edge ], [ %.sink118.sroa.gep155, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep156, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink116 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink111 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %.sink = phi i64 [ 0, %._crit_edge ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %111 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.178, %._crit_edge ], [ @anon.c0d9ea8f172a0712a642726e761d19af.190, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ @anon.c0d9ea8f172a0712a642726e761d19af.135, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  store i64 %.sink110, ptr %.sink112.sroa.phi, align 8
-  store ptr null, ptr %.sink112.sroa.phi139, align 8
-  store ptr %.sink105, ptr %.sink112.sroa.phi143, align 8
-  store i64 %.sink, ptr %.sink112.sroa.phi147, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink112, ptr noalias noundef readonly align 8 dereferenceable(24) %111) #28
+  store i64 %.sink116, ptr %.sink118.sroa.phi, align 8
+  store ptr null, ptr %.sink118.sroa.phi145, align 8
+  store ptr %.sink111, ptr %.sink118.sroa.phi149, align 8
+  store i64 %.sink, ptr %.sink118.sroa.phi153, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink118, ptr noalias noundef readonly align 8 dereferenceable(24) %111) #28
           to label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont" unwind label %.thread46.loopexit.split-lp
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont": ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
@@ -16299,18 +16299,18 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa11zalsa_local10ZalsaLocal8al
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp eq i64 %27, 0
-  %.sink112.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink112.sroa.gep137 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink112.sroa.gep138 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink112.sroa.gep140 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink112.sroa.gep141 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink112.sroa.gep142 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink112.sroa.gep144 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink112.sroa.gep145 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink112.sroa.gep146 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink112.sroa.gep148 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink112.sroa.gep149 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink112.sroa.gep150 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink118.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink118.sroa.gep143 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink118.sroa.gep144 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink118.sroa.gep146 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink118.sroa.gep147 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink118.sroa.gep148 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink118.sroa.gep150 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink118.sroa.gep151 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink118.sroa.gep152 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink118.sroa.gep154 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink118.sroa.gep155 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink118.sroa.gep156 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %28, label %29, label %.invoke, !prof !3
 
 29:                                               ; preds = %4
@@ -16421,7 +16421,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   %70 = phi ptr [ %155, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %68, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %71 = phi i64 [ %152, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %72 = phi i64 [ %151, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.069124 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.069130 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %73 = xor i64 %71, 63
   %.neg.i.i = shl nsw i64 -1, %73
   %74 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %70, i64 %.neg.i.i
@@ -16494,7 +16494,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   store ptr %75, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hce15bf14cc710508E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069124, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hce15bf14cc710508E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069130, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %93 = load ptr, ptr %22, align 8, !noundef !4
   %.not8 = icmp eq ptr %93, null
@@ -16537,20 +16537,20 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   br label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke": ; preds = %._crit_edge, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i", %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i"
-  %.sink112.sroa.phi = phi ptr [ %.sink112.sroa.gep, %._crit_edge ], [ %.sink112.sroa.gep137, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep138, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi139 = phi ptr [ %.sink112.sroa.gep140, %._crit_edge ], [ %.sink112.sroa.gep141, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep142, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi143 = phi ptr [ %.sink112.sroa.gep144, %._crit_edge ], [ %.sink112.sroa.gep145, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep146, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi147 = phi ptr [ %.sink112.sroa.gep148, %._crit_edge ], [ %.sink112.sroa.gep149, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep150, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink110 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink105 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi = phi ptr [ %.sink118.sroa.gep, %._crit_edge ], [ %.sink118.sroa.gep143, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep144, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi145 = phi ptr [ %.sink118.sroa.gep146, %._crit_edge ], [ %.sink118.sroa.gep147, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep148, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi149 = phi ptr [ %.sink118.sroa.gep150, %._crit_edge ], [ %.sink118.sroa.gep151, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep152, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi153 = phi ptr [ %.sink118.sroa.gep154, %._crit_edge ], [ %.sink118.sroa.gep155, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep156, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink116 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink111 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %.sink = phi i64 [ 0, %._crit_edge ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %110 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.178, %._crit_edge ], [ @anon.c0d9ea8f172a0712a642726e761d19af.190, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ @anon.c0d9ea8f172a0712a642726e761d19af.135, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  store i64 %.sink110, ptr %.sink112.sroa.phi, align 8
-  store ptr null, ptr %.sink112.sroa.phi139, align 8
-  store ptr %.sink105, ptr %.sink112.sroa.phi143, align 8
-  store i64 %.sink, ptr %.sink112.sroa.phi147, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink112, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
+  store i64 %.sink116, ptr %.sink118.sroa.phi, align 8
+  store ptr null, ptr %.sink118.sroa.phi145, align 8
+  store ptr %.sink111, ptr %.sink118.sroa.phi149, align 8
+  store i64 %.sink, ptr %.sink118.sroa.phi153, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink118, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
           to label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont" unwind label %.thread46.loopexit.split-lp
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont": ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
@@ -16727,18 +16727,18 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa11zalsa_local10ZalsaLocal8al
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp eq i64 %27, 0
-  %.sink112.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink112.sroa.gep137 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink112.sroa.gep138 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink112.sroa.gep140 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink112.sroa.gep141 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink112.sroa.gep142 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink112.sroa.gep144 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink112.sroa.gep145 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink112.sroa.gep146 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink112.sroa.gep148 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink112.sroa.gep149 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink112.sroa.gep150 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink118.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink118.sroa.gep143 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink118.sroa.gep144 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink118.sroa.gep146 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink118.sroa.gep147 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink118.sroa.gep148 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink118.sroa.gep150 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink118.sroa.gep151 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink118.sroa.gep152 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink118.sroa.gep154 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink118.sroa.gep155 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink118.sroa.gep156 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %28, label %29, label %.invoke, !prof !3
 
 29:                                               ; preds = %4
@@ -16849,7 +16849,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   %70 = phi ptr [ %155, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %68, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %71 = phi i64 [ %152, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %72 = phi i64 [ %151, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.069124 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.069130 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %73 = xor i64 %71, 63
   %.neg.i.i = shl nsw i64 -1, %73
   %74 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %70, i64 %.neg.i.i
@@ -16922,7 +16922,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   store ptr %75, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hd6c0ca4adcb6b794E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069124, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hd6c0ca4adcb6b794E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069130, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %93 = load ptr, ptr %22, align 8, !noundef !4
   %.not8 = icmp eq ptr %93, null
@@ -16965,20 +16965,20 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   br label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke": ; preds = %._crit_edge, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i", %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i"
-  %.sink112.sroa.phi = phi ptr [ %.sink112.sroa.gep, %._crit_edge ], [ %.sink112.sroa.gep137, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep138, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi139 = phi ptr [ %.sink112.sroa.gep140, %._crit_edge ], [ %.sink112.sroa.gep141, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep142, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi143 = phi ptr [ %.sink112.sroa.gep144, %._crit_edge ], [ %.sink112.sroa.gep145, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep146, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi147 = phi ptr [ %.sink112.sroa.gep148, %._crit_edge ], [ %.sink112.sroa.gep149, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep150, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink110 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink105 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi = phi ptr [ %.sink118.sroa.gep, %._crit_edge ], [ %.sink118.sroa.gep143, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep144, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi145 = phi ptr [ %.sink118.sroa.gep146, %._crit_edge ], [ %.sink118.sroa.gep147, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep148, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi149 = phi ptr [ %.sink118.sroa.gep150, %._crit_edge ], [ %.sink118.sroa.gep151, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep152, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi153 = phi ptr [ %.sink118.sroa.gep154, %._crit_edge ], [ %.sink118.sroa.gep155, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep156, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink116 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink111 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %.sink = phi i64 [ 0, %._crit_edge ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %110 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.178, %._crit_edge ], [ @anon.c0d9ea8f172a0712a642726e761d19af.190, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ @anon.c0d9ea8f172a0712a642726e761d19af.135, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  store i64 %.sink110, ptr %.sink112.sroa.phi, align 8
-  store ptr null, ptr %.sink112.sroa.phi139, align 8
-  store ptr %.sink105, ptr %.sink112.sroa.phi143, align 8
-  store i64 %.sink, ptr %.sink112.sroa.phi147, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink112, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
+  store i64 %.sink116, ptr %.sink118.sroa.phi, align 8
+  store ptr null, ptr %.sink118.sroa.phi145, align 8
+  store ptr %.sink111, ptr %.sink118.sroa.phi149, align 8
+  store i64 %.sink, ptr %.sink118.sroa.phi153, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink118, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
           to label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont" unwind label %.thread46.loopexit.split-lp
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont": ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
@@ -17257,7 +17257,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %46
   %73 = phi ptr [ %160, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %67, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %74 = phi i64 [ %157, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %75 = phi i64 [ %156, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %63, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.04889 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.04895 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %76 = xor i64 %74, 63
   %.neg.i.i = shl nsw i64 -1, %76
   %77 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %73, i64 %.neg.i.i
@@ -17336,7 +17336,7 @@ _ZN5salsa5table4Page11assert_type17h5c5366b3c0965104E.exit: ; preds = %89
   store ptr %78, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h65e34e161084881eE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04889, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h65e34e161084881eE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04895, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %98 = load i8, ptr %22, align 8, !range !1528, !noundef !4
   %.not8 = icmp eq i8 %98, 30
@@ -17548,18 +17548,18 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa11zalsa_local10ZalsaLocal8al
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp eq i64 %27, 0
-  %.sink112.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink112.sroa.gep137 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink112.sroa.gep138 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink112.sroa.gep140 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink112.sroa.gep141 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink112.sroa.gep142 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink112.sroa.gep144 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink112.sroa.gep145 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink112.sroa.gep146 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink112.sroa.gep148 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink112.sroa.gep149 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink112.sroa.gep150 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink118.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink118.sroa.gep143 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink118.sroa.gep144 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink118.sroa.gep146 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink118.sroa.gep147 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink118.sroa.gep148 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink118.sroa.gep150 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink118.sroa.gep151 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink118.sroa.gep152 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink118.sroa.gep154 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink118.sroa.gep155 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink118.sroa.gep156 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %28, label %29, label %.invoke, !prof !3
 
 29:                                               ; preds = %4
@@ -17671,7 +17671,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   %71 = phi ptr [ %155, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %69, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %72 = phi i64 [ %152, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %66, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %73 = phi i64 [ %151, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.069124 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.069130 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %74 = xor i64 %72, 63
   %.neg.i.i = shl nsw i64 -1, %74
   %75 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %71, i64 %.neg.i.i
@@ -17744,7 +17744,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   store ptr %76, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %21, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 96, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hcd7f2e19ebbd5f48E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069124, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hcd7f2e19ebbd5f48E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069130, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %94 = load i8, ptr %53, align 1, !range !592, !noundef !4
   %.not8 = icmp eq i8 %94, 2
@@ -17787,20 +17787,20 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   br label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke": ; preds = %._crit_edge, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i", %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i"
-  %.sink112.sroa.phi = phi ptr [ %.sink112.sroa.gep, %._crit_edge ], [ %.sink112.sroa.gep137, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep138, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi139 = phi ptr [ %.sink112.sroa.gep140, %._crit_edge ], [ %.sink112.sroa.gep141, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep142, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi143 = phi ptr [ %.sink112.sroa.gep144, %._crit_edge ], [ %.sink112.sroa.gep145, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep146, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi147 = phi ptr [ %.sink112.sroa.gep148, %._crit_edge ], [ %.sink112.sroa.gep149, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep150, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink110 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink105 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi = phi ptr [ %.sink118.sroa.gep, %._crit_edge ], [ %.sink118.sroa.gep143, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep144, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi145 = phi ptr [ %.sink118.sroa.gep146, %._crit_edge ], [ %.sink118.sroa.gep147, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep148, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi149 = phi ptr [ %.sink118.sroa.gep150, %._crit_edge ], [ %.sink118.sroa.gep151, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep152, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi153 = phi ptr [ %.sink118.sroa.gep154, %._crit_edge ], [ %.sink118.sroa.gep155, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep156, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink116 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink111 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %.sink = phi i64 [ 0, %._crit_edge ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %111 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.178, %._crit_edge ], [ @anon.c0d9ea8f172a0712a642726e761d19af.190, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ @anon.c0d9ea8f172a0712a642726e761d19af.135, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  store i64 %.sink110, ptr %.sink112.sroa.phi, align 8
-  store ptr null, ptr %.sink112.sroa.phi139, align 8
-  store ptr %.sink105, ptr %.sink112.sroa.phi143, align 8
-  store i64 %.sink, ptr %.sink112.sroa.phi147, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink112, ptr noalias noundef readonly align 8 dereferenceable(24) %111) #28
+  store i64 %.sink116, ptr %.sink118.sroa.phi, align 8
+  store ptr null, ptr %.sink118.sroa.phi145, align 8
+  store ptr %.sink111, ptr %.sink118.sroa.phi149, align 8
+  store i64 %.sink, ptr %.sink118.sroa.phi153, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink118, ptr noalias noundef readonly align 8 dereferenceable(24) %111) #28
           to label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont" unwind label %.thread46.loopexit.split-lp
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont": ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
@@ -17976,18 +17976,18 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa11zalsa_local10ZalsaLocal8al
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp eq i64 %27, 0
-  %.sink111.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink111.sroa.gep136 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink111.sroa.gep137 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink111.sroa.gep139 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink111.sroa.gep140 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink111.sroa.gep141 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink111.sroa.gep143 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink111.sroa.gep144 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink111.sroa.gep145 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink111.sroa.gep147 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink111.sroa.gep148 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink111.sroa.gep149 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink117.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink117.sroa.gep142 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink117.sroa.gep143 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink117.sroa.gep145 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink117.sroa.gep146 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink117.sroa.gep147 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink117.sroa.gep149 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink117.sroa.gep150 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink117.sroa.gep151 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink117.sroa.gep153 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink117.sroa.gep154 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink117.sroa.gep155 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %28, label %29, label %.invoke, !prof !3
 
 29:                                               ; preds = %4
@@ -18099,7 +18099,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   %71 = phi ptr [ %155, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %69, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %72 = phi i64 [ %152, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %66, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %73 = phi i64 [ %151, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.068123 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.068129 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %74 = xor i64 %72, 63
   %.neg.i.i = shl nsw i64 -1, %74
   %75 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %71, i64 %.neg.i.i
@@ -18172,7 +18172,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   store ptr %76, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %21, ptr noundef nonnull align 8 dereferenceable(160) %3, i64 160, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h64ddb408238ab6d5E"(ptr noalias noundef nonnull sret([160 x i8]) align 8 captures(none) dereferenceable(160) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.068123, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h64ddb408238ab6d5E"(ptr noalias noundef nonnull sret([160 x i8]) align 8 captures(none) dereferenceable(160) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.068129, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %94 = load i64, ptr %53, align 8, !range !487, !noundef !4
   %.not8 = icmp eq i64 %94, -9223372036854775808
@@ -18215,20 +18215,20 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   br label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke": ; preds = %._crit_edge, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i", %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i"
-  %.sink111.sroa.phi = phi ptr [ %.sink111.sroa.gep, %._crit_edge ], [ %.sink111.sroa.gep136, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink111.sroa.gep137, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink111.sroa.phi138 = phi ptr [ %.sink111.sroa.gep139, %._crit_edge ], [ %.sink111.sroa.gep140, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink111.sroa.gep141, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink111.sroa.phi142 = phi ptr [ %.sink111.sroa.gep143, %._crit_edge ], [ %.sink111.sroa.gep144, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink111.sroa.gep145, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink111.sroa.phi146 = phi ptr [ %.sink111.sroa.gep147, %._crit_edge ], [ %.sink111.sroa.gep148, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink111.sroa.gep149, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink111 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink109 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink104 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117.sroa.phi = phi ptr [ %.sink117.sroa.gep, %._crit_edge ], [ %.sink117.sroa.gep142, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink117.sroa.gep143, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117.sroa.phi144 = phi ptr [ %.sink117.sroa.gep145, %._crit_edge ], [ %.sink117.sroa.gep146, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink117.sroa.gep147, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117.sroa.phi148 = phi ptr [ %.sink117.sroa.gep149, %._crit_edge ], [ %.sink117.sroa.gep150, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink117.sroa.gep151, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117.sroa.phi152 = phi ptr [ %.sink117.sroa.gep153, %._crit_edge ], [ %.sink117.sroa.gep154, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink117.sroa.gep155, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink115 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink110 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %.sink = phi i64 [ 0, %._crit_edge ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %111 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.178, %._crit_edge ], [ @anon.c0d9ea8f172a0712a642726e761d19af.190, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ @anon.c0d9ea8f172a0712a642726e761d19af.135, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  store i64 %.sink109, ptr %.sink111.sroa.phi, align 8
-  store ptr null, ptr %.sink111.sroa.phi138, align 8
-  store ptr %.sink104, ptr %.sink111.sroa.phi142, align 8
-  store i64 %.sink, ptr %.sink111.sroa.phi146, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink111, ptr noalias noundef readonly align 8 dereferenceable(24) %111) #28
+  store i64 %.sink115, ptr %.sink117.sroa.phi, align 8
+  store ptr null, ptr %.sink117.sroa.phi144, align 8
+  store ptr %.sink110, ptr %.sink117.sroa.phi148, align 8
+  store i64 %.sink, ptr %.sink117.sroa.phi152, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink117, ptr noalias noundef readonly align 8 dereferenceable(24) %111) #28
           to label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont" unwind label %.thread45.loopexit.split-lp
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont": ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
@@ -18403,18 +18403,18 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa11zalsa_local10ZalsaLocal8al
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp eq i64 %27, 0
-  %.sink112.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink112.sroa.gep137 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink112.sroa.gep138 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink112.sroa.gep140 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink112.sroa.gep141 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink112.sroa.gep142 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink112.sroa.gep144 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink112.sroa.gep145 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink112.sroa.gep146 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink112.sroa.gep148 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink112.sroa.gep149 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink112.sroa.gep150 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink118.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink118.sroa.gep143 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink118.sroa.gep144 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink118.sroa.gep146 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink118.sroa.gep147 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink118.sroa.gep148 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink118.sroa.gep150 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink118.sroa.gep151 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink118.sroa.gep152 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink118.sroa.gep154 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink118.sroa.gep155 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink118.sroa.gep156 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %28, label %29, label %.invoke, !prof !3
 
 29:                                               ; preds = %4
@@ -18525,7 +18525,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   %70 = phi ptr [ %155, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %68, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %71 = phi i64 [ %152, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %72 = phi i64 [ %151, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.069124 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.069130 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %73 = xor i64 %71, 63
   %.neg.i.i = shl nsw i64 -1, %73
   %74 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %70, i64 %.neg.i.i
@@ -18598,7 +18598,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   store ptr %75, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h0af1aae682fd2a7fE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069124, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h0af1aae682fd2a7fE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069130, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %93 = load ptr, ptr %22, align 8, !noundef !4
   %.not8 = icmp eq ptr %93, null
@@ -18641,20 +18641,20 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   br label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke": ; preds = %._crit_edge, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i", %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i"
-  %.sink112.sroa.phi = phi ptr [ %.sink112.sroa.gep, %._crit_edge ], [ %.sink112.sroa.gep137, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep138, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi139 = phi ptr [ %.sink112.sroa.gep140, %._crit_edge ], [ %.sink112.sroa.gep141, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep142, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi143 = phi ptr [ %.sink112.sroa.gep144, %._crit_edge ], [ %.sink112.sroa.gep145, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep146, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi147 = phi ptr [ %.sink112.sroa.gep148, %._crit_edge ], [ %.sink112.sroa.gep149, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep150, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink110 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink105 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi = phi ptr [ %.sink118.sroa.gep, %._crit_edge ], [ %.sink118.sroa.gep143, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep144, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi145 = phi ptr [ %.sink118.sroa.gep146, %._crit_edge ], [ %.sink118.sroa.gep147, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep148, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi149 = phi ptr [ %.sink118.sroa.gep150, %._crit_edge ], [ %.sink118.sroa.gep151, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep152, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi153 = phi ptr [ %.sink118.sroa.gep154, %._crit_edge ], [ %.sink118.sroa.gep155, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep156, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink116 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink111 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %.sink = phi i64 [ 0, %._crit_edge ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %110 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.178, %._crit_edge ], [ @anon.c0d9ea8f172a0712a642726e761d19af.190, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ @anon.c0d9ea8f172a0712a642726e761d19af.135, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  store i64 %.sink110, ptr %.sink112.sroa.phi, align 8
-  store ptr null, ptr %.sink112.sroa.phi139, align 8
-  store ptr %.sink105, ptr %.sink112.sroa.phi143, align 8
-  store i64 %.sink, ptr %.sink112.sroa.phi147, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink112, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
+  store i64 %.sink116, ptr %.sink118.sroa.phi, align 8
+  store ptr null, ptr %.sink118.sroa.phi145, align 8
+  store ptr %.sink111, ptr %.sink118.sroa.phi149, align 8
+  store i64 %.sink, ptr %.sink118.sroa.phi153, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink118, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
           to label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont" unwind label %.thread46.loopexit.split-lp
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont": ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
@@ -18831,18 +18831,18 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa11zalsa_local10ZalsaLocal8al
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp eq i64 %27, 0
-  %.sink112.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink112.sroa.gep137 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink112.sroa.gep138 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink112.sroa.gep140 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink112.sroa.gep141 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink112.sroa.gep142 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink112.sroa.gep144 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink112.sroa.gep145 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink112.sroa.gep146 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink112.sroa.gep148 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink112.sroa.gep149 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink112.sroa.gep150 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink118.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink118.sroa.gep143 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink118.sroa.gep144 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink118.sroa.gep146 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink118.sroa.gep147 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink118.sroa.gep148 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink118.sroa.gep150 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink118.sroa.gep151 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink118.sroa.gep152 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink118.sroa.gep154 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink118.sroa.gep155 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink118.sroa.gep156 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %28, label %29, label %.invoke, !prof !3
 
 29:                                               ; preds = %4
@@ -18953,7 +18953,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   %70 = phi ptr [ %155, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %68, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %71 = phi i64 [ %152, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %72 = phi i64 [ %151, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.069124 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.069130 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %73 = xor i64 %71, 63
   %.neg.i.i = shl nsw i64 -1, %73
   %74 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %70, i64 %.neg.i.i
@@ -19026,7 +19026,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   store ptr %75, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h66e73d5870344bb2E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069124, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h66e73d5870344bb2E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069130, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %93 = load ptr, ptr %22, align 8, !noundef !4
   %.not8 = icmp eq ptr %93, null
@@ -19069,20 +19069,20 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   br label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke": ; preds = %._crit_edge, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i", %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i"
-  %.sink112.sroa.phi = phi ptr [ %.sink112.sroa.gep, %._crit_edge ], [ %.sink112.sroa.gep137, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep138, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi139 = phi ptr [ %.sink112.sroa.gep140, %._crit_edge ], [ %.sink112.sroa.gep141, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep142, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi143 = phi ptr [ %.sink112.sroa.gep144, %._crit_edge ], [ %.sink112.sroa.gep145, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep146, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi147 = phi ptr [ %.sink112.sroa.gep148, %._crit_edge ], [ %.sink112.sroa.gep149, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep150, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink110 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink105 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi = phi ptr [ %.sink118.sroa.gep, %._crit_edge ], [ %.sink118.sroa.gep143, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep144, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi145 = phi ptr [ %.sink118.sroa.gep146, %._crit_edge ], [ %.sink118.sroa.gep147, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep148, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi149 = phi ptr [ %.sink118.sroa.gep150, %._crit_edge ], [ %.sink118.sroa.gep151, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep152, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi153 = phi ptr [ %.sink118.sroa.gep154, %._crit_edge ], [ %.sink118.sroa.gep155, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep156, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink116 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink111 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %.sink = phi i64 [ 0, %._crit_edge ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %110 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.178, %._crit_edge ], [ @anon.c0d9ea8f172a0712a642726e761d19af.190, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ @anon.c0d9ea8f172a0712a642726e761d19af.135, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  store i64 %.sink110, ptr %.sink112.sroa.phi, align 8
-  store ptr null, ptr %.sink112.sroa.phi139, align 8
-  store ptr %.sink105, ptr %.sink112.sroa.phi143, align 8
-  store i64 %.sink, ptr %.sink112.sroa.phi147, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink112, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
+  store i64 %.sink116, ptr %.sink118.sroa.phi, align 8
+  store ptr null, ptr %.sink118.sroa.phi145, align 8
+  store ptr %.sink111, ptr %.sink118.sroa.phi149, align 8
+  store i64 %.sink, ptr %.sink118.sroa.phi153, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink118, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
           to label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont" unwind label %.thread46.loopexit.split-lp
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont": ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
@@ -19361,7 +19361,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %46
   %73 = phi ptr [ %160, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %67, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %74 = phi i64 [ %157, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %75 = phi i64 [ %156, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %63, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.04889 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.04895 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %76 = xor i64 %74, 63
   %.neg.i.i = shl nsw i64 -1, %76
   %77 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %73, i64 %.neg.i.i
@@ -19440,7 +19440,7 @@ _ZN5salsa5table4Page11assert_type17ha6d03d2aa74f0ecaE.exit: ; preds = %89
   store ptr %78, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h6ce9bdbc41167c4cE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04889, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h6ce9bdbc41167c4cE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04895, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %98 = load ptr, ptr %22, align 8, !noundef !4
   %.not8 = icmp eq ptr %98, null
@@ -19755,7 +19755,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %46
   %74 = phi ptr [ %160, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %68, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %75 = phi i64 [ %157, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %76 = phi i64 [ %156, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.04889 = phi i64 [ %145, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.04895 = phi i64 [ %145, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %77 = xor i64 %75, 63
   %.neg.i.i = shl nsw i64 -1, %77
   %78 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %74, i64 %.neg.i.i
@@ -19834,7 +19834,7 @@ _ZN5salsa5table4Page11assert_type17h746c9c34b7ebfabdE.exit: ; preds = %90
   store ptr %79, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hf3fd358952e9d2e8E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04889, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hf3fd358952e9d2e8E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04895, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %99 = load i32, ptr %52, align 8, !range !1679, !noundef !4
   %.not8 = icmp eq i32 %99, 6
@@ -20045,18 +20045,18 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa11zalsa_local10ZalsaLocal8al
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp eq i64 %27, 0
-  %.sink112.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink112.sroa.gep137 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink112.sroa.gep138 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink112.sroa.gep140 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink112.sroa.gep141 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink112.sroa.gep142 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink112.sroa.gep144 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink112.sroa.gep145 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink112.sroa.gep146 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink112.sroa.gep148 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink112.sroa.gep149 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink112.sroa.gep150 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink118.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink118.sroa.gep143 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink118.sroa.gep144 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink118.sroa.gep146 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink118.sroa.gep147 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink118.sroa.gep148 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink118.sroa.gep150 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink118.sroa.gep151 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink118.sroa.gep152 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink118.sroa.gep154 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink118.sroa.gep155 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink118.sroa.gep156 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %28, label %29, label %.invoke, !prof !3
 
 29:                                               ; preds = %4
@@ -20168,7 +20168,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   %71 = phi ptr [ %155, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %69, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %72 = phi i64 [ %152, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %66, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %73 = phi i64 [ %151, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.069124 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.069130 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %74 = xor i64 %72, 63
   %.neg.i.i = shl nsw i64 -1, %74
   %75 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %71, i64 %.neg.i.i
@@ -20241,7 +20241,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   store ptr %76, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %21, ptr noundef nonnull align 8 dereferenceable(88) %3, i64 88, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17he4c63c8fa404c503E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069124, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17he4c63c8fa404c503E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069130, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %94 = load i8, ptr %53, align 2, !range !592, !noundef !4
   %.not8 = icmp eq i8 %94, 2
@@ -20284,20 +20284,20 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   br label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke": ; preds = %._crit_edge, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i", %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i"
-  %.sink112.sroa.phi = phi ptr [ %.sink112.sroa.gep, %._crit_edge ], [ %.sink112.sroa.gep137, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep138, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi139 = phi ptr [ %.sink112.sroa.gep140, %._crit_edge ], [ %.sink112.sroa.gep141, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep142, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi143 = phi ptr [ %.sink112.sroa.gep144, %._crit_edge ], [ %.sink112.sroa.gep145, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep146, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi147 = phi ptr [ %.sink112.sroa.gep148, %._crit_edge ], [ %.sink112.sroa.gep149, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep150, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink110 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink105 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi = phi ptr [ %.sink118.sroa.gep, %._crit_edge ], [ %.sink118.sroa.gep143, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep144, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi145 = phi ptr [ %.sink118.sroa.gep146, %._crit_edge ], [ %.sink118.sroa.gep147, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep148, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi149 = phi ptr [ %.sink118.sroa.gep150, %._crit_edge ], [ %.sink118.sroa.gep151, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep152, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi153 = phi ptr [ %.sink118.sroa.gep154, %._crit_edge ], [ %.sink118.sroa.gep155, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep156, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink116 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink111 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %.sink = phi i64 [ 0, %._crit_edge ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %111 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.178, %._crit_edge ], [ @anon.c0d9ea8f172a0712a642726e761d19af.190, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ @anon.c0d9ea8f172a0712a642726e761d19af.135, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  store i64 %.sink110, ptr %.sink112.sroa.phi, align 8
-  store ptr null, ptr %.sink112.sroa.phi139, align 8
-  store ptr %.sink105, ptr %.sink112.sroa.phi143, align 8
-  store i64 %.sink, ptr %.sink112.sroa.phi147, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink112, ptr noalias noundef readonly align 8 dereferenceable(24) %111) #28
+  store i64 %.sink116, ptr %.sink118.sroa.phi, align 8
+  store ptr null, ptr %.sink118.sroa.phi145, align 8
+  store ptr %.sink111, ptr %.sink118.sroa.phi149, align 8
+  store i64 %.sink, ptr %.sink118.sroa.phi153, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink118, ptr noalias noundef readonly align 8 dereferenceable(24) %111) #28
           to label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont" unwind label %.thread46.loopexit.split-lp
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont": ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
@@ -20575,7 +20575,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %46
   %73 = phi ptr [ %160, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %67, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %74 = phi i64 [ %157, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %75 = phi i64 [ %156, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %63, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.04889 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.04895 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %76 = xor i64 %74, 63
   %.neg.i.i = shl nsw i64 -1, %76
   %77 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %73, i64 %.neg.i.i
@@ -20654,7 +20654,7 @@ _ZN5salsa5table4Page11assert_type17hd699aeaf18a42b97E.exit: ; preds = %89
   store ptr %78, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hc238d40562034878E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04889, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hc238d40562034878E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04895, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %98 = load ptr, ptr %22, align 8, !noundef !4
   %.not8 = icmp eq ptr %98, null
@@ -20968,7 +20968,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %46
   %73 = phi ptr [ %160, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %67, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %74 = phi i64 [ %157, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %75 = phi i64 [ %156, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %63, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.04889 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.04895 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %76 = xor i64 %74, 63
   %.neg.i.i = shl nsw i64 -1, %76
   %77 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %73, i64 %.neg.i.i
@@ -21047,7 +21047,7 @@ _ZN5salsa5table4Page11assert_type17h8ad837656fe5cb7aE.exit: ; preds = %89
   store ptr %78, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h81d56710db29bdf7E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04889, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h81d56710db29bdf7E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04895, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %98 = load ptr, ptr %22, align 8, !noundef !4
   %.not8 = icmp eq ptr %98, null
@@ -21361,7 +21361,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %46
   %73 = phi ptr [ %160, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %67, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %74 = phi i64 [ %157, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %75 = phi i64 [ %156, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %63, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.04889 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.04895 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %76 = xor i64 %74, 63
   %.neg.i.i = shl nsw i64 -1, %76
   %77 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %73, i64 %.neg.i.i
@@ -21440,7 +21440,7 @@ _ZN5salsa5table4Page11assert_type17hb72c03a543da74c4E.exit: ; preds = %89
   store ptr %78, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %21, ptr noundef nonnull align 8 dereferenceable(80) %3, i64 80, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h1c1de1badb7761c8E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04889, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h1c1de1badb7761c8E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04895, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %98 = load i8, ptr %22, align 8, !range !1175, !noundef !4
   %.not8 = icmp eq i8 %98, 29
@@ -21652,18 +21652,18 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa11zalsa_local10ZalsaLocal8al
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp eq i64 %27, 0
-  %.sink112.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink112.sroa.gep137 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink112.sroa.gep138 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink112.sroa.gep140 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink112.sroa.gep141 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink112.sroa.gep142 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink112.sroa.gep144 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink112.sroa.gep145 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink112.sroa.gep146 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink112.sroa.gep148 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink112.sroa.gep149 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink112.sroa.gep150 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink118.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink118.sroa.gep143 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink118.sroa.gep144 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink118.sroa.gep146 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink118.sroa.gep147 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink118.sroa.gep148 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink118.sroa.gep150 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink118.sroa.gep151 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink118.sroa.gep152 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink118.sroa.gep154 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink118.sroa.gep155 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink118.sroa.gep156 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %28, label %29, label %.invoke, !prof !3
 
 29:                                               ; preds = %4
@@ -21774,7 +21774,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   %70 = phi ptr [ %155, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %68, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %71 = phi i64 [ %152, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %72 = phi i64 [ %151, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.069124 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.069130 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %73 = xor i64 %71, 63
   %.neg.i.i = shl nsw i64 -1, %73
   %74 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %70, i64 %.neg.i.i
@@ -21847,7 +21847,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   store ptr %75, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17ha1d5ec2c489118efE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069124, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17ha1d5ec2c489118efE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069130, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %93 = load ptr, ptr %22, align 8, !noundef !4
   %.not8 = icmp eq ptr %93, null
@@ -21890,20 +21890,20 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   br label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke": ; preds = %._crit_edge, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i", %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i"
-  %.sink112.sroa.phi = phi ptr [ %.sink112.sroa.gep, %._crit_edge ], [ %.sink112.sroa.gep137, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep138, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi139 = phi ptr [ %.sink112.sroa.gep140, %._crit_edge ], [ %.sink112.sroa.gep141, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep142, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi143 = phi ptr [ %.sink112.sroa.gep144, %._crit_edge ], [ %.sink112.sroa.gep145, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep146, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi147 = phi ptr [ %.sink112.sroa.gep148, %._crit_edge ], [ %.sink112.sroa.gep149, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep150, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink110 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink105 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi = phi ptr [ %.sink118.sroa.gep, %._crit_edge ], [ %.sink118.sroa.gep143, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep144, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi145 = phi ptr [ %.sink118.sroa.gep146, %._crit_edge ], [ %.sink118.sroa.gep147, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep148, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi149 = phi ptr [ %.sink118.sroa.gep150, %._crit_edge ], [ %.sink118.sroa.gep151, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep152, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi153 = phi ptr [ %.sink118.sroa.gep154, %._crit_edge ], [ %.sink118.sroa.gep155, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep156, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink116 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink111 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %.sink = phi i64 [ 0, %._crit_edge ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %110 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.178, %._crit_edge ], [ @anon.c0d9ea8f172a0712a642726e761d19af.190, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ @anon.c0d9ea8f172a0712a642726e761d19af.135, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  store i64 %.sink110, ptr %.sink112.sroa.phi, align 8
-  store ptr null, ptr %.sink112.sroa.phi139, align 8
-  store ptr %.sink105, ptr %.sink112.sroa.phi143, align 8
-  store i64 %.sink, ptr %.sink112.sroa.phi147, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink112, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
+  store i64 %.sink116, ptr %.sink118.sroa.phi, align 8
+  store ptr null, ptr %.sink118.sroa.phi145, align 8
+  store ptr %.sink111, ptr %.sink118.sroa.phi149, align 8
+  store i64 %.sink, ptr %.sink118.sroa.phi153, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink118, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
           to label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont" unwind label %.thread46.loopexit.split-lp
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont": ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
@@ -22080,18 +22080,18 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa11zalsa_local10ZalsaLocal8al
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp eq i64 %27, 0
-  %.sink112.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink112.sroa.gep137 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink112.sroa.gep138 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink112.sroa.gep140 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink112.sroa.gep141 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink112.sroa.gep142 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink112.sroa.gep144 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink112.sroa.gep145 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink112.sroa.gep146 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink112.sroa.gep148 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink112.sroa.gep149 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink112.sroa.gep150 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink118.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink118.sroa.gep143 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink118.sroa.gep144 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink118.sroa.gep146 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink118.sroa.gep147 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink118.sroa.gep148 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink118.sroa.gep150 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink118.sroa.gep151 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink118.sroa.gep152 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink118.sroa.gep154 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink118.sroa.gep155 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink118.sroa.gep156 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %28, label %29, label %.invoke, !prof !3
 
 29:                                               ; preds = %4
@@ -22202,7 +22202,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   %70 = phi ptr [ %155, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %68, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %71 = phi i64 [ %152, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %72 = phi i64 [ %151, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.069124 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.069130 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %73 = xor i64 %71, 63
   %.neg.i.i = shl nsw i64 -1, %73
   %74 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %70, i64 %.neg.i.i
@@ -22275,7 +22275,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   store ptr %75, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h0dd9849c6007e2a1E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069124, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h0dd9849c6007e2a1E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069130, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %93 = load ptr, ptr %22, align 8, !noundef !4
   %.not8 = icmp eq ptr %93, null
@@ -22318,20 +22318,20 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   br label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke": ; preds = %._crit_edge, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i", %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i"
-  %.sink112.sroa.phi = phi ptr [ %.sink112.sroa.gep, %._crit_edge ], [ %.sink112.sroa.gep137, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep138, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi139 = phi ptr [ %.sink112.sroa.gep140, %._crit_edge ], [ %.sink112.sroa.gep141, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep142, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi143 = phi ptr [ %.sink112.sroa.gep144, %._crit_edge ], [ %.sink112.sroa.gep145, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep146, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi147 = phi ptr [ %.sink112.sroa.gep148, %._crit_edge ], [ %.sink112.sroa.gep149, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep150, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink110 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink105 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi = phi ptr [ %.sink118.sroa.gep, %._crit_edge ], [ %.sink118.sroa.gep143, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep144, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi145 = phi ptr [ %.sink118.sroa.gep146, %._crit_edge ], [ %.sink118.sroa.gep147, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep148, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi149 = phi ptr [ %.sink118.sroa.gep150, %._crit_edge ], [ %.sink118.sroa.gep151, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep152, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi153 = phi ptr [ %.sink118.sroa.gep154, %._crit_edge ], [ %.sink118.sroa.gep155, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep156, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink116 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink111 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %.sink = phi i64 [ 0, %._crit_edge ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %110 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.178, %._crit_edge ], [ @anon.c0d9ea8f172a0712a642726e761d19af.190, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ @anon.c0d9ea8f172a0712a642726e761d19af.135, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  store i64 %.sink110, ptr %.sink112.sroa.phi, align 8
-  store ptr null, ptr %.sink112.sroa.phi139, align 8
-  store ptr %.sink105, ptr %.sink112.sroa.phi143, align 8
-  store i64 %.sink, ptr %.sink112.sroa.phi147, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink112, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
+  store i64 %.sink116, ptr %.sink118.sroa.phi, align 8
+  store ptr null, ptr %.sink118.sroa.phi145, align 8
+  store ptr %.sink111, ptr %.sink118.sroa.phi149, align 8
+  store i64 %.sink, ptr %.sink118.sroa.phi153, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink118, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
           to label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont" unwind label %.thread46.loopexit.split-lp
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont": ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
@@ -22508,18 +22508,18 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa11zalsa_local10ZalsaLocal8al
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp eq i64 %27, 0
-  %.sink112.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink112.sroa.gep137 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink112.sroa.gep138 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink112.sroa.gep140 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink112.sroa.gep141 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink112.sroa.gep142 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink112.sroa.gep144 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink112.sroa.gep145 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink112.sroa.gep146 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink112.sroa.gep148 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink112.sroa.gep149 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink112.sroa.gep150 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink118.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink118.sroa.gep143 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink118.sroa.gep144 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink118.sroa.gep146 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink118.sroa.gep147 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink118.sroa.gep148 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink118.sroa.gep150 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink118.sroa.gep151 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink118.sroa.gep152 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink118.sroa.gep154 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink118.sroa.gep155 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink118.sroa.gep156 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %28, label %29, label %.invoke, !prof !3
 
 29:                                               ; preds = %4
@@ -22630,7 +22630,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   %70 = phi ptr [ %155, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %68, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %71 = phi i64 [ %152, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %72 = phi i64 [ %151, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.069124 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.069130 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %73 = xor i64 %71, 63
   %.neg.i.i = shl nsw i64 -1, %73
   %74 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %70, i64 %.neg.i.i
@@ -22703,7 +22703,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   store ptr %75, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %21, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 96, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hf79ee47731746ab3E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069124, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hf79ee47731746ab3E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069130, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %93 = load i64, ptr %22, align 8, !range !487, !noundef !4
   %.not8 = icmp eq i64 %93, -9223372036854775808
@@ -22746,20 +22746,20 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   br label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke": ; preds = %._crit_edge, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i", %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i"
-  %.sink112.sroa.phi = phi ptr [ %.sink112.sroa.gep, %._crit_edge ], [ %.sink112.sroa.gep137, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep138, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi139 = phi ptr [ %.sink112.sroa.gep140, %._crit_edge ], [ %.sink112.sroa.gep141, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep142, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi143 = phi ptr [ %.sink112.sroa.gep144, %._crit_edge ], [ %.sink112.sroa.gep145, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep146, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi147 = phi ptr [ %.sink112.sroa.gep148, %._crit_edge ], [ %.sink112.sroa.gep149, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep150, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink110 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink105 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi = phi ptr [ %.sink118.sroa.gep, %._crit_edge ], [ %.sink118.sroa.gep143, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep144, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi145 = phi ptr [ %.sink118.sroa.gep146, %._crit_edge ], [ %.sink118.sroa.gep147, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep148, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi149 = phi ptr [ %.sink118.sroa.gep150, %._crit_edge ], [ %.sink118.sroa.gep151, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep152, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi153 = phi ptr [ %.sink118.sroa.gep154, %._crit_edge ], [ %.sink118.sroa.gep155, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep156, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink116 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink111 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %.sink = phi i64 [ 0, %._crit_edge ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %110 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.178, %._crit_edge ], [ @anon.c0d9ea8f172a0712a642726e761d19af.190, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ @anon.c0d9ea8f172a0712a642726e761d19af.135, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  store i64 %.sink110, ptr %.sink112.sroa.phi, align 8
-  store ptr null, ptr %.sink112.sroa.phi139, align 8
-  store ptr %.sink105, ptr %.sink112.sroa.phi143, align 8
-  store i64 %.sink, ptr %.sink112.sroa.phi147, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink112, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
+  store i64 %.sink116, ptr %.sink118.sroa.phi, align 8
+  store ptr null, ptr %.sink118.sroa.phi145, align 8
+  store ptr %.sink111, ptr %.sink118.sroa.phi149, align 8
+  store i64 %.sink, ptr %.sink118.sroa.phi153, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink118, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
           to label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont" unwind label %.thread46.loopexit.split-lp
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont": ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
@@ -22935,18 +22935,18 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa11zalsa_local10ZalsaLocal8al
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp eq i64 %27, 0
-  %.sink112.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink112.sroa.gep137 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink112.sroa.gep138 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink112.sroa.gep140 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink112.sroa.gep141 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink112.sroa.gep142 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink112.sroa.gep144 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink112.sroa.gep145 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink112.sroa.gep146 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink112.sroa.gep148 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink112.sroa.gep149 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink112.sroa.gep150 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink118.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink118.sroa.gep143 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink118.sroa.gep144 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink118.sroa.gep146 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink118.sroa.gep147 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink118.sroa.gep148 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink118.sroa.gep150 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink118.sroa.gep151 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink118.sroa.gep152 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink118.sroa.gep154 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink118.sroa.gep155 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink118.sroa.gep156 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %28, label %29, label %.invoke, !prof !3
 
 29:                                               ; preds = %4
@@ -23057,7 +23057,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   %70 = phi ptr [ %155, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %68, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %71 = phi i64 [ %152, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %72 = phi i64 [ %151, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.069124 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.069130 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %73 = xor i64 %71, 63
   %.neg.i.i = shl nsw i64 -1, %73
   %74 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %70, i64 %.neg.i.i
@@ -23130,7 +23130,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   store ptr %75, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %21, ptr noundef nonnull align 8 dereferenceable(80) %3, i64 80, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hec83cbd3d511637dE"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069124, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hec83cbd3d511637dE"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069130, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %93 = load i8, ptr %22, align 8, !range !1175, !noundef !4
   %.not8 = icmp eq i8 %93, 29
@@ -23173,20 +23173,20 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   br label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke": ; preds = %._crit_edge, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i", %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i"
-  %.sink112.sroa.phi = phi ptr [ %.sink112.sroa.gep, %._crit_edge ], [ %.sink112.sroa.gep137, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep138, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi139 = phi ptr [ %.sink112.sroa.gep140, %._crit_edge ], [ %.sink112.sroa.gep141, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep142, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi143 = phi ptr [ %.sink112.sroa.gep144, %._crit_edge ], [ %.sink112.sroa.gep145, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep146, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi147 = phi ptr [ %.sink112.sroa.gep148, %._crit_edge ], [ %.sink112.sroa.gep149, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep150, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink110 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink105 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi = phi ptr [ %.sink118.sroa.gep, %._crit_edge ], [ %.sink118.sroa.gep143, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep144, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi145 = phi ptr [ %.sink118.sroa.gep146, %._crit_edge ], [ %.sink118.sroa.gep147, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep148, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi149 = phi ptr [ %.sink118.sroa.gep150, %._crit_edge ], [ %.sink118.sroa.gep151, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep152, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi153 = phi ptr [ %.sink118.sroa.gep154, %._crit_edge ], [ %.sink118.sroa.gep155, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep156, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink116 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink111 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %.sink = phi i64 [ 0, %._crit_edge ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %110 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.178, %._crit_edge ], [ @anon.c0d9ea8f172a0712a642726e761d19af.190, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ @anon.c0d9ea8f172a0712a642726e761d19af.135, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  store i64 %.sink110, ptr %.sink112.sroa.phi, align 8
-  store ptr null, ptr %.sink112.sroa.phi139, align 8
-  store ptr %.sink105, ptr %.sink112.sroa.phi143, align 8
-  store i64 %.sink, ptr %.sink112.sroa.phi147, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink112, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
+  store i64 %.sink116, ptr %.sink118.sroa.phi, align 8
+  store ptr null, ptr %.sink118.sroa.phi145, align 8
+  store ptr %.sink111, ptr %.sink118.sroa.phi149, align 8
+  store i64 %.sink, ptr %.sink118.sroa.phi153, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink118, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
           to label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont" unwind label %.thread46.loopexit.split-lp
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont": ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
@@ -23363,18 +23363,18 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa11zalsa_local10ZalsaLocal8al
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp eq i64 %27, 0
-  %.sink112.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink112.sroa.gep137 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink112.sroa.gep138 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink112.sroa.gep140 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink112.sroa.gep141 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink112.sroa.gep142 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink112.sroa.gep144 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink112.sroa.gep145 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink112.sroa.gep146 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink112.sroa.gep148 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink112.sroa.gep149 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink112.sroa.gep150 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink118.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink118.sroa.gep143 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink118.sroa.gep144 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink118.sroa.gep146 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink118.sroa.gep147 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink118.sroa.gep148 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink118.sroa.gep150 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink118.sroa.gep151 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink118.sroa.gep152 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink118.sroa.gep154 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink118.sroa.gep155 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink118.sroa.gep156 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %28, label %29, label %.invoke, !prof !3
 
 29:                                               ; preds = %4
@@ -23485,7 +23485,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   %70 = phi ptr [ %155, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %68, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %71 = phi i64 [ %152, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %72 = phi i64 [ %151, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.069124 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.069130 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %73 = xor i64 %71, 63
   %.neg.i.i = shl nsw i64 -1, %73
   %74 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %70, i64 %.neg.i.i
@@ -23558,7 +23558,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   store ptr %75, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %21, ptr noundef nonnull align 8 dereferenceable(80) %3, i64 80, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h0eb476d40363fdd5E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069124, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h0eb476d40363fdd5E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069130, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %93 = load i8, ptr %22, align 8, !range !1175, !noundef !4
   %.not8 = icmp eq i8 %93, 29
@@ -23601,20 +23601,20 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   br label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke": ; preds = %._crit_edge, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i", %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i"
-  %.sink112.sroa.phi = phi ptr [ %.sink112.sroa.gep, %._crit_edge ], [ %.sink112.sroa.gep137, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep138, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi139 = phi ptr [ %.sink112.sroa.gep140, %._crit_edge ], [ %.sink112.sroa.gep141, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep142, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi143 = phi ptr [ %.sink112.sroa.gep144, %._crit_edge ], [ %.sink112.sroa.gep145, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep146, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi147 = phi ptr [ %.sink112.sroa.gep148, %._crit_edge ], [ %.sink112.sroa.gep149, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep150, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink110 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink105 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi = phi ptr [ %.sink118.sroa.gep, %._crit_edge ], [ %.sink118.sroa.gep143, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep144, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi145 = phi ptr [ %.sink118.sroa.gep146, %._crit_edge ], [ %.sink118.sroa.gep147, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep148, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi149 = phi ptr [ %.sink118.sroa.gep150, %._crit_edge ], [ %.sink118.sroa.gep151, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep152, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi153 = phi ptr [ %.sink118.sroa.gep154, %._crit_edge ], [ %.sink118.sroa.gep155, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep156, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink116 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink111 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %.sink = phi i64 [ 0, %._crit_edge ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %110 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.178, %._crit_edge ], [ @anon.c0d9ea8f172a0712a642726e761d19af.190, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ @anon.c0d9ea8f172a0712a642726e761d19af.135, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  store i64 %.sink110, ptr %.sink112.sroa.phi, align 8
-  store ptr null, ptr %.sink112.sroa.phi139, align 8
-  store ptr %.sink105, ptr %.sink112.sroa.phi143, align 8
-  store i64 %.sink, ptr %.sink112.sroa.phi147, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink112, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
+  store i64 %.sink116, ptr %.sink118.sroa.phi, align 8
+  store ptr null, ptr %.sink118.sroa.phi145, align 8
+  store ptr %.sink111, ptr %.sink118.sroa.phi149, align 8
+  store i64 %.sink, ptr %.sink118.sroa.phi153, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink118, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
           to label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont" unwind label %.thread46.loopexit.split-lp
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont": ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
@@ -23791,18 +23791,18 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa11zalsa_local10ZalsaLocal8al
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp eq i64 %27, 0
-  %.sink111.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink111.sroa.gep136 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink111.sroa.gep137 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink111.sroa.gep139 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink111.sroa.gep140 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink111.sroa.gep141 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink111.sroa.gep143 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink111.sroa.gep144 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink111.sroa.gep145 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink111.sroa.gep147 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink111.sroa.gep148 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink111.sroa.gep149 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink117.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink117.sroa.gep142 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink117.sroa.gep143 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink117.sroa.gep145 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink117.sroa.gep146 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink117.sroa.gep147 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink117.sroa.gep149 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink117.sroa.gep150 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink117.sroa.gep151 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink117.sroa.gep153 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink117.sroa.gep154 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink117.sroa.gep155 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %28, label %29, label %.invoke, !prof !3
 
 29:                                               ; preds = %4
@@ -23913,7 +23913,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   %70 = phi ptr [ %155, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %68, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %71 = phi i64 [ %152, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %72 = phi i64 [ %151, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.068123 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.068129 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %73 = xor i64 %71, 63
   %.neg.i.i = shl nsw i64 -1, %73
   %74 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %70, i64 %.neg.i.i
@@ -23986,7 +23986,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   store ptr %75, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %21, ptr noundef nonnull align 8 dereferenceable(88) %3, i64 88, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h0920b7ec8acbb4d9E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.068123, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17h0920b7ec8acbb4d9E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.068129, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %93 = load i64, ptr %22, align 8, !range !1930, !noundef !4
   %.not8 = icmp eq i64 %93, 21
@@ -24029,20 +24029,20 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   br label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke": ; preds = %._crit_edge, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i", %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i"
-  %.sink111.sroa.phi = phi ptr [ %.sink111.sroa.gep, %._crit_edge ], [ %.sink111.sroa.gep136, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink111.sroa.gep137, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink111.sroa.phi138 = phi ptr [ %.sink111.sroa.gep139, %._crit_edge ], [ %.sink111.sroa.gep140, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink111.sroa.gep141, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink111.sroa.phi142 = phi ptr [ %.sink111.sroa.gep143, %._crit_edge ], [ %.sink111.sroa.gep144, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink111.sroa.gep145, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink111.sroa.phi146 = phi ptr [ %.sink111.sroa.gep147, %._crit_edge ], [ %.sink111.sroa.gep148, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink111.sroa.gep149, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink111 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink109 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink104 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117.sroa.phi = phi ptr [ %.sink117.sroa.gep, %._crit_edge ], [ %.sink117.sroa.gep142, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink117.sroa.gep143, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117.sroa.phi144 = phi ptr [ %.sink117.sroa.gep145, %._crit_edge ], [ %.sink117.sroa.gep146, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink117.sroa.gep147, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117.sroa.phi148 = phi ptr [ %.sink117.sroa.gep149, %._crit_edge ], [ %.sink117.sroa.gep150, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink117.sroa.gep151, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117.sroa.phi152 = phi ptr [ %.sink117.sroa.gep153, %._crit_edge ], [ %.sink117.sroa.gep154, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink117.sroa.gep155, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink115 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink110 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %.sink = phi i64 [ 0, %._crit_edge ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %110 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.178, %._crit_edge ], [ @anon.c0d9ea8f172a0712a642726e761d19af.190, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ @anon.c0d9ea8f172a0712a642726e761d19af.135, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  store i64 %.sink109, ptr %.sink111.sroa.phi, align 8
-  store ptr null, ptr %.sink111.sroa.phi138, align 8
-  store ptr %.sink104, ptr %.sink111.sroa.phi142, align 8
-  store i64 %.sink, ptr %.sink111.sroa.phi146, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink111, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
+  store i64 %.sink115, ptr %.sink117.sroa.phi, align 8
+  store ptr null, ptr %.sink117.sroa.phi144, align 8
+  store ptr %.sink110, ptr %.sink117.sroa.phi148, align 8
+  store i64 %.sink, ptr %.sink117.sroa.phi152, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink117, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
           to label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont" unwind label %.thread45.loopexit.split-lp
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont": ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
@@ -24218,18 +24218,18 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa11zalsa_local10ZalsaLocal8al
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp eq i64 %27, 0
-  %.sink112.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink112.sroa.gep137 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink112.sroa.gep138 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink112.sroa.gep140 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink112.sroa.gep141 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink112.sroa.gep142 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink112.sroa.gep144 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink112.sroa.gep145 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink112.sroa.gep146 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink112.sroa.gep148 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink112.sroa.gep149 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink112.sroa.gep150 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink118.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink118.sroa.gep143 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink118.sroa.gep144 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink118.sroa.gep146 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink118.sroa.gep147 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink118.sroa.gep148 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink118.sroa.gep150 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink118.sroa.gep151 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink118.sroa.gep152 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink118.sroa.gep154 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink118.sroa.gep155 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink118.sroa.gep156 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %28, label %29, label %.invoke, !prof !3
 
 29:                                               ; preds = %4
@@ -24341,7 +24341,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   %71 = phi ptr [ %155, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %69, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %72 = phi i64 [ %152, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %66, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %73 = phi i64 [ %151, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.069124 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.069130 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %74 = xor i64 %72, 63
   %.neg.i.i = shl nsw i64 -1, %74
   %75 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %71, i64 %.neg.i.i
@@ -24414,7 +24414,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   store ptr %76, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %21, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hd78a6a34248d26aeE"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069124, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hd78a6a34248d26aeE"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.069130, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %94 = load i16, ptr %53, align 2, !range !1956, !noundef !4
   %.not8 = icmp eq i16 %94, 2
@@ -24457,20 +24457,20 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   br label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke": ; preds = %._crit_edge, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i", %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i"
-  %.sink112.sroa.phi = phi ptr [ %.sink112.sroa.gep, %._crit_edge ], [ %.sink112.sroa.gep137, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep138, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi139 = phi ptr [ %.sink112.sroa.gep140, %._crit_edge ], [ %.sink112.sroa.gep141, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep142, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi143 = phi ptr [ %.sink112.sroa.gep144, %._crit_edge ], [ %.sink112.sroa.gep145, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep146, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112.sroa.phi147 = phi ptr [ %.sink112.sroa.gep148, %._crit_edge ], [ %.sink112.sroa.gep149, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink112.sroa.gep150, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink112 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink110 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink105 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi = phi ptr [ %.sink118.sroa.gep, %._crit_edge ], [ %.sink118.sroa.gep143, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep144, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi145 = phi ptr [ %.sink118.sroa.gep146, %._crit_edge ], [ %.sink118.sroa.gep147, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep148, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi149 = phi ptr [ %.sink118.sroa.gep150, %._crit_edge ], [ %.sink118.sroa.gep151, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep152, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118.sroa.phi153 = phi ptr [ %.sink118.sroa.gep154, %._crit_edge ], [ %.sink118.sroa.gep155, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink118.sroa.gep156, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink118 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink116 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink111 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %.sink = phi i64 [ 0, %._crit_edge ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %111 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.178, %._crit_edge ], [ @anon.c0d9ea8f172a0712a642726e761d19af.190, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ @anon.c0d9ea8f172a0712a642726e761d19af.135, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  store i64 %.sink110, ptr %.sink112.sroa.phi, align 8
-  store ptr null, ptr %.sink112.sroa.phi139, align 8
-  store ptr %.sink105, ptr %.sink112.sroa.phi143, align 8
-  store i64 %.sink, ptr %.sink112.sroa.phi147, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink112, ptr noalias noundef readonly align 8 dereferenceable(24) %111) #28
+  store i64 %.sink116, ptr %.sink118.sroa.phi, align 8
+  store ptr null, ptr %.sink118.sroa.phi145, align 8
+  store ptr %.sink111, ptr %.sink118.sroa.phi149, align 8
+  store i64 %.sink, ptr %.sink118.sroa.phi153, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink118, ptr noalias noundef readonly align 8 dereferenceable(24) %111) #28
           to label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont" unwind label %.thread46.loopexit.split-lp
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont": ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
@@ -24646,18 +24646,18 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5salsa11zalsa_local10ZalsaLocal8al
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp eq i64 %27, 0
-  %.sink111.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink111.sroa.gep136 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink111.sroa.gep137 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink111.sroa.gep139 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink111.sroa.gep140 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink111.sroa.gep141 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink111.sroa.gep143 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink111.sroa.gep144 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink111.sroa.gep145 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink111.sroa.gep147 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink111.sroa.gep148 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink111.sroa.gep149 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink117.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink117.sroa.gep142 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink117.sroa.gep143 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink117.sroa.gep145 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink117.sroa.gep146 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink117.sroa.gep147 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink117.sroa.gep149 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink117.sroa.gep150 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink117.sroa.gep151 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink117.sroa.gep153 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink117.sroa.gep154 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink117.sroa.gep155 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %28, label %29, label %.invoke, !prof !3
 
 29:                                               ; preds = %4
@@ -24768,7 +24768,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   %70 = phi ptr [ %155, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %68, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %71 = phi i64 [ %152, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %65, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %72 = phi i64 [ %151, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.068123 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.068129 = phi i64 [ %141, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %73 = xor i64 %71, 63
   %.neg.i.i = shl nsw i64 -1, %73
   %74 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %70, i64 %.neg.i.i
@@ -24841,7 +24841,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   store ptr %75, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hfd68f11b5ae8e26bE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.068123, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hfd68f11b5ae8e26bE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.068129, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %93 = load i64, ptr %22, align 8, !range !1982, !noundef !4
   %.not8 = icmp eq i64 %93, -9223372036854775803
@@ -24884,20 +24884,20 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %48
   br label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke": ; preds = %._crit_edge, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i", %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i"
-  %.sink111.sroa.phi = phi ptr [ %.sink111.sroa.gep, %._crit_edge ], [ %.sink111.sroa.gep136, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink111.sroa.gep137, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink111.sroa.phi138 = phi ptr [ %.sink111.sroa.gep139, %._crit_edge ], [ %.sink111.sroa.gep140, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink111.sroa.gep141, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink111.sroa.phi142 = phi ptr [ %.sink111.sroa.gep143, %._crit_edge ], [ %.sink111.sroa.gep144, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink111.sroa.gep145, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink111.sroa.phi146 = phi ptr [ %.sink111.sroa.gep147, %._crit_edge ], [ %.sink111.sroa.gep148, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink111.sroa.gep149, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink111 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink109 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  %.sink104 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117.sroa.phi = phi ptr [ %.sink117.sroa.gep, %._crit_edge ], [ %.sink117.sroa.gep142, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink117.sroa.gep143, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117.sroa.phi144 = phi ptr [ %.sink117.sroa.gep145, %._crit_edge ], [ %.sink117.sroa.gep146, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink117.sroa.gep147, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117.sroa.phi148 = phi ptr [ %.sink117.sroa.gep149, %._crit_edge ], [ %.sink117.sroa.gep150, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink117.sroa.gep151, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117.sroa.phi152 = phi ptr [ %.sink117.sroa.gep153, %._crit_edge ], [ %.sink117.sroa.gep154, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %.sink117.sroa.gep155, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink117 = phi ptr [ %14, %._crit_edge ], [ %16, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %7, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink115 = phi i64 [ 1, %._crit_edge ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
+  %.sink110 = phi ptr [ inttoptr (i64 8 to ptr), %._crit_edge ], [ %15, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ %6, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %.sink = phi i64 [ 0, %._crit_edge ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
   %110 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.178, %._crit_edge ], [ @anon.c0d9ea8f172a0712a642726e761d19af.190, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h334fe0dd3ecd6a7eE.exit.thread.i" ], [ @anon.c0d9ea8f172a0712a642726e761d19af.135, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i" ]
-  store i64 %.sink109, ptr %.sink111.sroa.phi, align 8
-  store ptr null, ptr %.sink111.sroa.phi138, align 8
-  store ptr %.sink104, ptr %.sink111.sroa.phi142, align 8
-  store i64 %.sink, ptr %.sink111.sroa.phi146, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink111, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
+  store i64 %.sink115, ptr %.sink117.sroa.phi, align 8
+  store ptr null, ptr %.sink117.sroa.phi144, align 8
+  store ptr %.sink110, ptr %.sink117.sroa.phi148, align 8
+  store i64 %.sink, ptr %.sink117.sroa.phi152, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink117, ptr noalias noundef readonly align 8 dereferenceable(24) %110) #28
           to label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont" unwind label %.thread45.loopexit.split-lp
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.cont": ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17he4f2345a0c66e7bdE.exit.thread.i.i.invoke"
@@ -25175,7 +25175,7 @@ _ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph: ; preds = %46
   %73 = phi ptr [ %160, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %67, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %74 = phi i64 [ %157, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %64, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %75 = phi i64 [ %156, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %63, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
-  %.sroa.0.04889 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
+  %.sroa.0.04895 = phi i64 [ %144, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i ], [ %47, %_ZN6boxcar3raw8Location2of17h8b8b007c297fa9bcE.exit.i.i.lr.ph ]
   %76 = xor i64 %74, 63
   %.neg.i.i = shl nsw i64 -1, %76
   %77 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %73, i64 %.neg.i.i
@@ -25254,7 +25254,7 @@ _ZN5salsa5table4Page11assert_type17h40c95fcb447cf4afE.exit: ; preds = %89
   store ptr %78, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
-  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hbd0d11d2e4601145E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04889, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %21)
+  call void @"_ZN5salsa5table17PageView$LT$T$GT$8allocate17hbd0d11d2e4601145E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, i64 noundef %.sroa.0.04895, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %98 = load i8, ptr %22, align 8, !range !1175, !noundef !4
   %.not8 = icmp eq i8 %98, 29
@@ -25541,9 +25541,9 @@ define internal fastcc void @_ZN5salsa5table4memo21MemoTableWithTypesMut4drop17h
   %.sroa.7.2 = phi i64 [ %.sroa.7.0, %10 ], [ %.sroa.7.1, %27 ], [ %.sroa.7.1, %31 ], [ %.sroa.7.1, %.loopexit.i.i.i.i ]
   %.sroa.4.2 = phi i64 [ %.sroa.4.0, %10 ], [ %.sroa.4.1, %27 ], [ %.sroa.4.1, %31 ], [ 59, %.loopexit.i.i.i.i ]
   %.sroa.17.1 = phi ptr [ %.sroa.17.0, %10 ], [ %.sroa.17.0, %27 ], [ %32, %31 ], [ %.sroa.17.0, %.loopexit.i.i.i.i ]
-  %.sink21.i.sroa.phi = phi ptr [ %.sroa.49, %10 ], [ %.sroa.49, %27 ], [ %.sroa.10, %31 ], [ %.sroa.49, %.loopexit.i.i.i.i ]
+  %.sink25.i.sroa.phi = phi ptr [ %.sroa.49, %10 ], [ %.sroa.49, %27 ], [ %.sroa.10, %31 ], [ %.sroa.49, %.loopexit.i.i.i.i ]
   %.sink.i = phi ptr [ null, %10 ], [ null, %27 ], [ %.sroa.17.0, %31 ], [ null, %.loopexit.i.i.i.i ]
-  store ptr %.sink.i, ptr %.sink21.i.sroa.phi, align 8, !alias.scope !2024, !noalias !2036
+  store ptr %.sink.i, ptr %.sink25.i.sroa.phi, align 8, !alias.scope !2024, !noalias !2036
   %.sroa.49.0..sroa.49.0..sroa.49.0..sroa.49.8. = load i64, ptr %.sroa.49, align 8, !noundef !4
   %34 = inttoptr i64 %.sroa.49.0..sroa.49.0..sroa.49.0..sroa.49.8. to ptr
   %.not = icmp eq i64 %.sroa.49.0..sroa.49.0..sroa.49.0..sroa.49.8., 0
@@ -27571,14 +27571,14 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %.not, label %.preheader.split.preheader, label %_ZN4core3cmp9PartialEq2ne17h636e900b9d39907bE.exit.thread
 
 .preheader.split.preheader:                       ; preds = %4
-  %exitcond.not8 = icmp eq i64 %1, 0
-  br i1 %exitcond.not8, label %_ZN4core3cmp9PartialEq2ne17h636e900b9d39907bE.exit.thread, label %.lr.ph
+  %exitcond.not17 = icmp eq i64 %1, 0
+  br i1 %exitcond.not17, label %_ZN4core3cmp9PartialEq2ne17h636e900b9d39907bE.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader.split.preheader, %.preheader.split.backedge
-  %.sroa.01.09 = phi i64 [ %5, %.preheader.split.backedge ], [ 0, %.preheader.split.preheader ]
-  %5 = add i64 %.sroa.01.09, 1
-  %6 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %0, i64 %.sroa.01.09
-  %7 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %2, i64 %.sroa.01.09
+  %.sroa.01.018 = phi i64 [ %5, %.preheader.split.backedge ], [ 0, %.preheader.split.preheader ]
+  %5 = add i64 %.sroa.01.018, 1
+  %6 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %0, i64 %.sroa.01.018
+  %7 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %2, i64 %.sroa.01.018
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2095)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2098)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2100)
@@ -37195,7 +37195,7 @@ default.unreachable88:                            ; preds = %3
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef i64 @_ZN18ty_python_semantic14semantic_index10definition17DefinitionNodeRef3key17h797c2e48cc32bc5eE(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1053, !noundef !4
-  switch i64 %2, label %default.unreachable11 [
+  switch i64 %2, label %default.unreachable16 [
     i64 0, label %3
     i64 1, label %11
     i64 2, label %19
@@ -37219,7 +37219,7 @@ define internal fastcc noundef i64 @_ZN18ty_python_semantic14semantic_index10def
     i64 20, label %105
   ]
 
-default.unreachable11:                            ; preds = %1
+default.unreachable16:                            ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -37421,7 +37421,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN18ty_python_se
 ; Function Attrs: nonlazybind uwtable
 define hidden { i32, i32 } @_ZN18ty_python_semantic14semantic_index10definition14DefinitionKind12target_range17hf14b1a45b2be1e0aE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1053, !noundef !4
-  switch i64 %2, label %default.unreachable4 [
+  switch i64 %2, label %default.unreachable9 [
     i64 0, label %3
     i64 1, label %16
     i64 2, label %29
@@ -37445,7 +37445,7 @@ define hidden { i32, i32 } @_ZN18ty_python_semantic14semantic_index10definition1
     i64 20, label %127
   ]
 
-default.unreachable4:                             ; preds = %1
+default.unreachable9:                             ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -39354,7 +39354,7 @@ _ZN7tracing4span4Span7entered17ha11137ff65c49145E.exit: ; preds = %.noexc104, %5
   invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h7bbdf2d7f855492bE"(ptr noalias noundef align 8 dereferenceable(40) %35) #29
           to label %common.resume unwind label %95
 
-98:                                               ; preds = %.invoke122, %100, %_ZN7tracing4span4Span7entered17ha11137ff65c49145E.exit
+98:                                               ; preds = %.invoke127, %100, %_ZN7tracing4span4Span7entered17ha11137ff65c49145E.exit
   %99 = landingpad { ptr, i32 }
           cleanup
   br label %97
@@ -39376,7 +39376,7 @@ _ZN7tracing4span4Span7entered17ha11137ff65c49145E.exit: ; preds = %.noexc104, %5
   invoke void @"_ZN4core3ptr48drop_in_place$LT$ruff_db..source..SourceText$GT$17h144fa3a2fb1e7f93E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %25) #29
           to label %97 unwind label %95
 
-108:                                              ; preds = %.noexc106, %130, %199, %198, %193, %172, %169, %168, %164, %163, %156, %.thread, %.thread119, %126, %123, %122, %118, %117, %115, %111, %105
+108:                                              ; preds = %.noexc106, %130, %199, %198, %193, %172, %169, %168, %164, %163, %156, %.thread, %.thread124, %126, %123, %122, %118, %117, %115, %111, %105
   %109 = landingpad { ptr, i32 }
           cleanup
   br label %107
@@ -39489,19 +39489,19 @@ _ZN7tracing4span4Span7entered17ha11137ff65c49145E.exit: ; preds = %.noexc104, %5
   %149 = icmp ne i64 %134, %128
   %.not93 = icmp eq ptr %127, null
   %or.cond = select i1 %149, i1 true, i1 %.not93
-  br i1 %or.cond, label %.thread, label %.thread119, !prof !5
+  br i1 %or.cond, label %.thread, label %.thread124, !prof !5
 
 150:                                              ; preds = %147
   %151 = getelementptr inbounds nuw i8, ptr %127, i64 %134
   %152 = load i8, ptr %151, align 1, !alias.scope !2846, !noundef !4
   %153 = icmp sgt i8 %152, -65
-  br i1 %153, label %.thread119, label %.thread
+  br i1 %153, label %.thread124, label %.thread
 
 154:                                              ; preds = %139
   %.not93.old = icmp eq ptr %127, null
-  br i1 %.not93.old, label %.thread, label %.thread119, !prof !474
+  br i1 %.not93.old, label %.thread, label %.thread124, !prof !474
 
-.thread119:                                       ; preds = %150, %148, %154
+.thread124:                                       ; preds = %150, %148, %154
   %155 = invoke { ptr, i64 } @_ZN15ruff_python_ast5nodes13StringLiteral6as_str17h9670fdefad0da71cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %106)
           to label %156 unwind label %108
 
@@ -39509,7 +39509,7 @@ _ZN7tracing4span4Span7entered17ha11137ff65c49145E.exit: ; preds = %.noexc104, %5
   invoke void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %127, i64 noundef %128, i64 noundef %132, i64 noundef %134, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c0d9ea8f172a0712a642726e761d19af.254) #28
           to label %84 unwind label %108
 
-156:                                              ; preds = %.thread119
+156:                                              ; preds = %.thread124
   %157 = sub nuw i64 %134, %132
   %158 = getelementptr inbounds nuw i8, ptr %127, i64 %132
   %159 = extractvalue { ptr, i64 } %155, 0
@@ -39576,9 +39576,9 @@ _ZN7tracing4span4Span7entered17ha11137ff65c49145E.exit: ; preds = %.noexc104, %5
 180:                                              ; preds = %175
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %21, i64 88, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %.invoke122
+  br label %.invoke127
 
-181:                                              ; preds = %.invoke122
+181:                                              ; preds = %.invoke127
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h7bbdf2d7f855492bE"(ptr noalias noundef align 8 dereferenceable(40) %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
@@ -39637,9 +39637,9 @@ _ZN7tracing4span4Span7entered17ha11137ff65c49145E.exit: ; preds = %.noexc104, %5
 
 195:                                              ; preds = %124, %125, %194, %171, %170, %201, %200
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %.invoke122
+  br label %.invoke127
 
-.invoke122:                                       ; preds = %180, %195
+.invoke127:                                       ; preds = %180, %195
   invoke void @"_ZN4core3ptr48drop_in_place$LT$ruff_db..source..SourceText$GT$17h144fa3a2fb1e7f93E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %25)
           to label %181 unwind label %98
 

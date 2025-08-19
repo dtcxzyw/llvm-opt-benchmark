@@ -686,12 +686,12 @@ define internal fastcc void @_ZN5alloc7raw_vec11finish_grow17h0cb482e220ad53d7E(
   %30 = icmp eq ptr %.sroa.012.0.i.i.pn, null
   %31 = inttoptr i64 %1 to ptr
   %spec.select = select i1 %30, ptr %31, ptr %.sroa.012.0.i.i.pn
-  %spec.select4 = zext i1 %30 to i64
+  %spec.select6 = zext i1 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %33, align 8
-  store i64 %spec.select4, ptr %0, align 8
+  store i64 %spec.select6, ptr %0, align 8
   ret void
 }
 
@@ -1067,8 +1067,8 @@ define hidden { i64, i64 } @_ZN6quiche2h36stream6Stream15try_fill_buffer17hb0477
   br i1 %.not27, label %38, label %50
 
 .sink.split:                                      ; preds = %85, %33, %79, %82
-  %.sink37 = phi i64 [ 13, %82 ], [ 13, %79 ], [ %31, %33 ], [ %31, %85 ]
-  %48 = tail call { i64, i64 } @"_ZN78_$LT$quiche..h3..Error$u20$as$u20$core..convert..From$LT$quiche..Error$GT$$GT$4from17h2909c663f6301edcE"(i64 noundef %.sink37, i64 %34)
+  %.sink43 = phi i64 [ 13, %82 ], [ 13, %79 ], [ %31, %33 ], [ %31, %85 ]
+  %48 = tail call { i64, i64 } @"_ZN78_$LT$quiche..h3..Error$u20$as$u20$core..convert..From$LT$quiche..Error$GT$$GT$4from17h2909c663f6301edcE"(i64 noundef %.sink43, i64 %34)
   %49 = extractvalue { i64, i64 } %48, 0
   br label %50
 
@@ -1077,7 +1077,7 @@ define hidden { i64, i64 } @_ZN6quiche2h36stream6Stream15try_fill_buffer17hb0477
   %.sroa.0.1 = phi i64 [ %47, %45 ], [ %84, %82 ], [ %49, %.sink.split ]
   %.sroa.8.1 = extractvalue { i64, i64 } %.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split38
+  br label %.sink.split44
 
 51:                                               ; preds = %56, %38
   %52 = phi i64 [ %.pre, %56 ], [ %31, %38 ]
@@ -1085,7 +1085,7 @@ define hidden { i64, i64 } @_ZN6quiche2h36stream6Stream15try_fill_buffer17hb0477
   %54 = add i64 %53, %52
   store i64 %54, ptr %11, align 8
   %55 = call noundef zeroext i1 @_ZN6quiche2h36stream6Stream21state_buffer_complete17he54939401e3679a0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %0)
-  br i1 %55, label %.sink.split38, label %75
+  br i1 %55, label %.sink.split44, label %75
 
 56:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1155,17 +1155,17 @@ define hidden { i64, i64 } @_ZN6quiche2h36stream6Stream15try_fill_buffer17hb0477
 
 75:                                               ; preds = %51
   call void @_ZN6quiche2h36stream6Stream16reset_data_event17h571ba4586c3002f1E(ptr noalias noundef nonnull align 8 dereferenceable(112) %0)
-  br label %.sink.split38
+  br label %.sink.split44
 
-.sink.split38:                                    ; preds = %50, %75, %51
+.sink.split44:                                    ; preds = %50, %75, %51
   %.sroa.8.0.ph = phi i64 [ undef, %51 ], [ %.sroa.8.1, %50 ], [ undef, %75 ]
   %.sroa.0.0.ph = phi i64 [ 40, %51 ], [ %.sroa.0.1, %50 ], [ 20, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %76
 
-76:                                               ; preds = %.sink.split38, %2
-  %.sroa.8.0 = phi i64 [ undef, %2 ], [ %.sroa.8.0.ph, %.sink.split38 ]
-  %.sroa.0.0 = phi i64 [ 40, %2 ], [ %.sroa.0.0.ph, %.sink.split38 ]
+76:                                               ; preds = %.sink.split44, %2
+  %.sroa.8.0 = phi i64 [ undef, %2 ], [ %.sroa.8.0.ph, %.sink.split44 ]
+  %.sroa.0.0 = phi i64 [ 40, %2 ], [ %.sroa.0.0.ph, %.sink.split44 ]
   %77 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %78 = insertvalue { i64, i64 } %77, i64 %.sroa.8.0, 1
   ret { i64, i64 } %78

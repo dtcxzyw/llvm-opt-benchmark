@@ -759,8 +759,8 @@ define i32 @evp_keymgmt_util_match(ptr noundef captures(address_is_null) %0, ptr
   br label %39
 
 29:                                               ; preds = %26, %.thread, %22
-  %.not158 = icmp eq ptr %9, null
-  br i1 %.not158, label %36, label %30
+  %.not163 = icmp eq ptr %9, null
+  br i1 %.not163, label %36, label %30
 
 30:                                               ; preds = %29
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 192
@@ -799,14 +799,14 @@ define i32 @evp_keymgmt_util_match(ptr noundef captures(address_is_null) %0, ptr
 39:                                               ; preds = %.thread128.thread, %.thread128
   %40 = phi i1 [ %28, %.thread128.thread ], [ %38, %.thread128 ]
   %41 = phi i1 [ false, %.thread128.thread ], [ %37, %.thread128 ]
-  %.071134157 = phi ptr [ %13, %.thread128.thread ], [ %.071134, %.thread128 ]
-  %.063135156 = phi ptr [ %.fr, %.thread128.thread ], [ %.063135, %.thread128 ]
-  %.060136155 = phi ptr [ %15, %.thread128.thread ], [ %.060136, %.thread128 ]
+  %.071134162 = phi ptr [ %13, %.thread128.thread ], [ %.071134, %.thread128 ]
+  %.063135161 = phi ptr [ %.fr, %.thread128.thread ], [ %.063135, %.thread128 ]
+  %.060136160 = phi ptr [ %15, %.thread128.thread ], [ %.060136, %.thread128 ]
   %or.cond11 = select i1 %41, i1 true, i1 %40
   br i1 %or.cond11, label %44, label %42
 
 42:                                               ; preds = %39
-  %43 = tail call i32 @evp_keymgmt_match(ptr noundef %.071134157, ptr noundef nonnull %.063135156, ptr noundef nonnull %.060136155, i32 noundef %2) #5
+  %43 = tail call i32 @evp_keymgmt_match(ptr noundef %.071134162, ptr noundef nonnull %.063135161, ptr noundef nonnull %.060136160, i32 noundef %2) #5
   br label %44
 
 44:                                               ; preds = %39, %.thread128, %36, %.critedge, %6, %42
@@ -844,8 +844,8 @@ define range(i32 0, 2) i32 @evp_keymgmt_util_copy(ptr noundef %0, ptr noundef re
   br i1 %20, label %.thread, label %28
 
 .thread:                                          ; preds = %14, %19
-  %.03649 = phi ptr [ %6, %19 ], [ %17, %14 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.03649, i64 248
+  %.03652 = phi ptr [ %6, %19 ], [ %17, %14 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 248
   %22 = load ptr, ptr %21, align 8, !tbaa !53
   %23 = icmp ne ptr %22, null
   %24 = icmp eq ptr %8, null
@@ -853,20 +853,20 @@ define range(i32 0, 2) i32 @evp_keymgmt_util_copy(ptr noundef %0, ptr noundef re
   br i1 %or.cond, label %25, label %28
 
 25:                                               ; preds = %.thread
-  %26 = tail call ptr @evp_keymgmt_dup(ptr noundef nonnull %.03649, ptr noundef nonnull %12, i32 noundef %2) #5
+  %26 = tail call ptr @evp_keymgmt_dup(ptr noundef nonnull %.03652, ptr noundef nonnull %12, i32 noundef %2) #5
   %27 = icmp eq ptr %26, null
   br i1 %27, label %46, label %39
 
 28:                                               ; preds = %.thread, %19
-  %.03648 = phi ptr [ %.03649, %.thread ], [ %6, %19 ]
+  %.03651 = phi ptr [ %.03652, %.thread ], [ %6, %19 ]
   %29 = tail call ptr @EVP_KEYMGMT_get0_name(ptr noundef %17) #5
-  %30 = tail call i32 @EVP_KEYMGMT_is_a(ptr noundef nonnull %.03648, ptr noundef %29) #5
+  %30 = tail call i32 @EVP_KEYMGMT_is_a(ptr noundef nonnull %.03651, ptr noundef %29) #5
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %38, label %evp_keymgmt_util_export.exit
 
 evp_keymgmt_util_export.exit:                     ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %.03648, ptr %4, align 8, !tbaa !10
+  store ptr %.03651, ptr %4, align 8, !tbaa !10
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %31, align 8, !tbaa !3
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -889,7 +889,7 @@ evp_keymgmt_util_export.exit:                     ; preds = %28
   br label %46
 
 39:                                               ; preds = %evp_keymgmt_util_export.exit, %25
-  %.03647 = phi ptr [ %.03649, %25 ], [ %.03648, %evp_keymgmt_util_export.exit ]
+  %.03650 = phi ptr [ %.03652, %25 ], [ %.03651, %evp_keymgmt_util_export.exit ]
   %.033 = phi ptr [ %26, %25 ], [ %spec.select, %evp_keymgmt_util_export.exit ]
   %.032 = phi ptr [ %26, %25 ], [ %spec.select45, %evp_keymgmt_util_export.exit ]
   %40 = load ptr, ptr %5, align 8, !tbaa !32
@@ -897,12 +897,12 @@ evp_keymgmt_util_export.exit:                     ; preds = %28
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %39
-  %43 = call i32 @EVP_PKEY_set_type_by_keymgmt(ptr noundef nonnull %0, ptr noundef nonnull %.03647) #5
+  %43 = call i32 @EVP_PKEY_set_type_by_keymgmt(ptr noundef nonnull %0, ptr noundef nonnull %.03650) #5
   %.not44 = icmp eq i32 %43, 0
   br i1 %.not44, label %44, label %45
 
 44:                                               ; preds = %42
-  call void @evp_keymgmt_freedata(ptr noundef nonnull %.03647, ptr noundef %.032) #5
+  call void @evp_keymgmt_freedata(ptr noundef nonnull %.03650, ptr noundef %.032) #5
   br label %46
 
 45:                                               ; preds = %42, %39

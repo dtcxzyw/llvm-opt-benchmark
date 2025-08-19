@@ -824,11 +824,11 @@ switch.lookup:                                    ; preds = %88
 
 .sink.split:                                      ; preds = %switch.lookup, %95, %100, %105, %110
   %.sink.sink = phi ptr [ %114, %110 ], [ %109, %105 ], [ %104, %100 ], [ %99, %95 ], [ %switch.load, %switch.lookup ]
-  %.sink156 = phi i32 [ 4, %110 ], [ 4, %105 ], [ 4, %100 ], [ 4, %95 ], [ 1, %switch.lookup ]
+  %.sink159 = phi i32 [ 4, %110 ], [ 4, %105 ], [ 4, %100 ], [ 4, %95 ], [ 1, %switch.lookup ]
   %116 = getelementptr inbounds nuw i8, ptr %9, i64 136
   store ptr %.sink.sink, ptr %116, align 8, !tbaa !82
   %117 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  store i32 %.sink156, ptr %117, align 8, !tbaa !63
+  store i32 %.sink159, ptr %117, align 8, !tbaa !63
   br label %118
 
 118:                                              ; preds = %.sink.split, %67
@@ -845,37 +845,37 @@ switch.lookup:                                    ; preds = %88
   %122 = getelementptr inbounds nuw i8, ptr %9, i64 100
   %123 = load i32, ptr %122, align 4, !tbaa !31
   %124 = icmp ult i32 %123, 4
-  br i1 %124, label %.sink.split159, label %216
+  br i1 %124, label %.sink.split162, label %216
 
 125:                                              ; preds = %118
   %126 = getelementptr inbounds nuw i8, ptr %9, i64 100
   %127 = load i32, ptr %126, align 4, !tbaa !31
   %128 = icmp ult i32 %127, 4
-  br i1 %128, label %.sink.split159, label %216
+  br i1 %128, label %.sink.split162, label %216
 
 129:                                              ; preds = %118
   %130 = getelementptr inbounds nuw i8, ptr %9, i64 100
   %131 = load i32, ptr %130, align 4, !tbaa !31
   %132 = icmp ult i32 %131, 4
-  br i1 %132, label %.sink.split159, label %216
+  br i1 %132, label %.sink.split162, label %216
 
 133:                                              ; preds = %118
   %134 = getelementptr inbounds nuw i8, ptr %9, i64 100
   %135 = load i32, ptr %134, align 4, !tbaa !31
   %136 = icmp ult i32 %135, 4
-  br i1 %136, label %.sink.split159, label %216
+  br i1 %136, label %.sink.split162, label %216
 
-.sink.split159:                                   ; preds = %133, %129, %125, %121
-  %.sink173 = phi i32 [ %123, %121 ], [ %127, %125 ], [ %131, %129 ], [ %135, %133 ]
+.sink.split162:                                   ; preds = %133, %129, %125, %121
+  %.sink176 = phi i32 [ %123, %121 ], [ %127, %125 ], [ %131, %129 ], [ %135, %133 ]
   %switch.table.config_output.7.sink = phi ptr [ @switch.table.config_output.4, %121 ], [ @switch.table.config_output.5, %125 ], [ @switch.table.config_output.6, %129 ], [ @switch.table.config_output.7, %133 ]
-  %137 = zext nneg i32 %.sink173 to i64
-  %switch.gep171 = getelementptr inbounds nuw [4 x ptr], ptr %switch.table.config_output.7.sink, i64 0, i64 %137
-  %switch.load172 = load ptr, ptr %switch.gep171, align 8
+  %137 = zext nneg i32 %.sink176 to i64
+  %switch.gep174 = getelementptr inbounds nuw [4 x ptr], ptr %switch.table.config_output.7.sink, i64 0, i64 %137
+  %switch.load175 = load ptr, ptr %switch.gep174, align 8
   %138 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  store ptr %switch.load172, ptr %138, align 8, !tbaa !81
+  store ptr %switch.load175, ptr %138, align 8, !tbaa !81
   br label %139
 
-139:                                              ; preds = %.sink.split159, %118
+139:                                              ; preds = %.sink.split162, %118
   %140 = tail call ptr @av_malloc_array(i64 noundef %43, i64 noundef 4) #17
   %141 = getelementptr inbounds nuw i8, ptr %9, i64 120
   store ptr %140, ptr %141, align 8, !tbaa !70
@@ -2089,13 +2089,13 @@ define internal i32 @request_frame(ptr noundef %0) #2 {
 
 .lr.ph126.i:                                      ; preds = %.preheader119.i
   %73 = mul nuw nsw i64 %indvars.iv156.i, %58
-  %invariant.gep163.i = getelementptr inbounds nuw i16, ptr %61, i64 %73
+  %invariant.gep168.i = getelementptr inbounds nuw i16, ptr %61, i64 %73
   br label %74
 
 74:                                               ; preds = %74, %.lr.ph126.i
   %indvars.iv146.i = phi i64 [ 0, %.lr.ph126.i ], [ %indvars.iv.next147.i, %74 ]
-  %gep164.i = getelementptr inbounds nuw i16, ptr %invariant.gep163.i, i64 %indvars.iv146.i
-  %75 = load i16, ptr %gep164.i, align 2, !tbaa !77
+  %gep169.i = getelementptr inbounds nuw i16, ptr %invariant.gep168.i, i64 %indvars.iv146.i
+  %75 = load i16, ptr %gep169.i, align 2, !tbaa !77
   %76 = tail call i16 @llvm.abs.i16(i16 %75, i1 false)
   %77 = zext i16 %76 to i64
   %78 = getelementptr inbounds nuw i64, ptr %44, i64 %indvars.iv146.i

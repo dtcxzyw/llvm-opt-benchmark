@@ -4264,8 +4264,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76: ; preds = %_ZN
   %or.cond = select i1 %.not, i1 %192, i1 false
   %193 = load i32, ptr %139, align 4
   %194 = icmp sgt i32 %193, 0
-  %or.cond140 = select i1 %or.cond, i1 %194, i1 false
-  br i1 %or.cond140, label %.preheader, label %.loopexit
+  %or.cond158 = select i1 %or.cond, i1 %194, i1 false
+  br i1 %or.cond158, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %183, %._crit_edge115
   %195 = phi i32 [ %200, %._crit_edge115 ], [ %191, %183 ]

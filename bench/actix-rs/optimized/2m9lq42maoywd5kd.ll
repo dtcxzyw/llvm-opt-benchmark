@@ -484,9 +484,9 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = icmp eq i64 %.promoted, 0
   %.0.sroa.speculated.i.i = tail call range(i64 1, 0) i64 @llvm.umin.i64(i64 %.promoted, i64 range(i64 1, 0) 32)
-  br i1 %11, label %.thread15, label %.lr.ph
+  br i1 %11, label %.thread17, label %.lr.ph
 
-.thread15:                                        ; preds = %3
+.thread17:                                        ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !42, !noalias !49, !noundef !5
   br label %49
@@ -578,19 +578,19 @@ default.unreachable:                              ; preds = %25
   %.pre.i.i = load i64, ptr %41, align 8, !alias.scope !54, !noalias !49
   br label %49
 
-49:                                               ; preds = %.thread15, %.noexc5, %40
-  %50 = phi ptr [ %41, %40 ], [ %41, %.noexc5 ], [ %12, %.thread15 ]
-  %.ph1417 = phi i64 [ %15, %40 ], [ %15, %.noexc5 ], [ 0, %.thread15 ]
-  %51 = phi i64 [ %42, %40 ], [ %.pre.i.i, %.noexc5 ], [ %13, %.thread15 ]
+49:                                               ; preds = %.thread17, %.noexc5, %40
+  %50 = phi ptr [ %41, %40 ], [ %41, %.noexc5 ], [ %12, %.thread17 ]
+  %.ph1619 = phi i64 [ %15, %40 ], [ %15, %.noexc5 ], [ 0, %.thread17 ]
+  %51 = phi i64 [ %42, %40 ], [ %.pre.i.i, %.noexc5 ], [ %13, %.thread17 ]
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %53 = load ptr, ptr %52, align 8, !alias.scope !54, !noalias !49, !nonnull !5, !noundef !5
   %54 = getelementptr inbounds i8, ptr %53, i64 %51
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull readonly align 1 %7, i64 %.ph1417, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull readonly align 1 %7, i64 %.ph1619, i1 false)
   %55 = load i64, ptr %50, align 8, !alias.scope !54, !noalias !49, !noundef !5
-  %56 = add i64 %55, %.ph1417
+  %56 = add i64 %55, %.ph1619
   store i64 %56, ptr %50, align 8, !alias.scope !54, !noalias !49
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.ph1417, ptr %57, align 8
+  store i64 %.ph1619, ptr %57, align 8
   br label %58
 
 58:                                               ; preds = %59, %49
@@ -794,7 +794,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h6b3b9c9a0de35a59E(ptr noal
   store i64 %.054, ptr %35, align 8
   %84 = load i64, ptr %36, align 8, !alias.scope !72, !noalias !75, !noundef !5
   %85 = icmp eq i64 %84, 0
-  br i1 %85, label %.thread185, label %.lr.ph
+  br i1 %85, label %.thread206, label %.lr.ph
 
 .lr.ph:                                           ; preds = %78
   %.val.i = load ptr, ptr %1, align 8, !nonnull !5, !align !41
@@ -904,7 +904,7 @@ thread-pre-split:                                 ; preds = %"_ZN106_$LT$core..o
   %128 = icmp ugt i64 %124, %127
   br i1 %128, label %.loopexit, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3339510d2e021967E.exit"
 
-.thread185:                                       ; preds = %78
+.thread206:                                       ; preds = %78
   %129 = load i64, ptr %35, align 8, !noundef !5
   %130 = load i64, ptr %33, align 8, !noundef !5
   %131 = icmp ugt i64 %129, %130
@@ -914,9 +914,9 @@ thread-pre-split:                                 ; preds = %"_ZN106_$LT$core..o
   call void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %123, i64 noundef %124, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e5e2964ed3ddf89b585822729d51599e.9) #14, !noalias !85
   unreachable
 
-.loopexit:                                        ; preds = %126, %.thread185
-  %133 = phi i64 [ %130, %.thread185 ], [ %127, %126 ]
-  %134 = phi i64 [ %129, %.thread185 ], [ %124, %126 ]
+.loopexit:                                        ; preds = %126, %.thread206
+  %133 = phi i64 [ %130, %.thread206 ], [ %127, %126 ]
+  %134 = phi i64 [ %129, %.thread206 ], [ %124, %126 ]
   call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %134, i64 noundef %133, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e5e2964ed3ddf89b585822729d51599e.9) #14, !noalias !85
   unreachable
 
@@ -960,7 +960,7 @@ default.unreachable:                              ; preds = %138
   %152 = icmp eq i8 %151, 35
   br i1 %152, label %.noexc, label %166
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3339510d2e021967E.exit.thread": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3339510d2e021967E.exit", %.thread185
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3339510d2e021967E.exit.thread": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3339510d2e021967E.exit", %.thread206
   %153 = load i64, ptr %11, align 8, !noundef !5
   %154 = sub i64 %153, %12
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 8

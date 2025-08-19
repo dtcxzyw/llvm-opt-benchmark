@@ -497,9 +497,9 @@ _process_posterize.exit:                          ; preds = %93, %switch.lookup
   %switch.shifted = lshr i8 103, %trunc43.i.i
   %switch.lobit = trunc i8 %switch.shifted to i1
   %or.cond = select i1 %154, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup133, label %.preheader27.i
+  br i1 %or.cond, label %switch.lookup143, label %.preheader27.i
 
-switch.lookup133:                                 ; preds = %151
+switch.lookup143:                                 ; preds = %151
   %155 = trunc i32 %153 to i16
   %trunc.i.i = and i16 %155, -256
   %switch.selectcmp45.i.i = icmp eq i16 %trunc.i.i, 256
@@ -507,14 +507,14 @@ switch.lookup133:                                 ; preds = %151
   %narrow = xor i1 %switch.selectcmp45.i.i, %switch.selectcmp.i.i
   %trunc43.i.i.mask = and i32 %153, 7
   %156 = zext nneg i32 %trunc43.i.i.mask to i64
-  %switch.gep134 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.process.9, i64 0, i64 %156
-  %switch.load135 = load i32, ptr %switch.gep134, align 4
+  %switch.gep144 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.process.9, i64 0, i64 %156
+  %switch.load145 = load i32, ptr %switch.gep144, align 4
   %157 = and i32 %107, 28
   %.not44.i.i = icmp ne i32 %157, 0
   %158 = or i1 %.not44.i.i, %narrow
   br i1 %158, label %.preheader27.i, label %_get_dither_parameters.exit.thread.i
 
-.preheader27.i:                                   ; preds = %151, %switch.lookup133
+.preheader27.i:                                   ; preds = %151, %switch.lookup143
   %159 = mul nsw i32 %112, %110
   %160 = icmp sgt i32 %159, 0
   br i1 %160, label %.lr.ph.preheader.i, label %_process_floyd_steinberg.exit
@@ -556,9 +556,9 @@ _clipnan_pixel.exit.i:                            ; preds = %165
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, %wide.trip.count.i41
   br i1 %exitcond.not.i45, label %_process_floyd_steinberg.exit, label %.lr.ph.i42
 
-_get_dither_parameters.exit.thread.i:             ; preds = %switch.lookup133, %150, %146, %144, %143, %139, %137, %136, %135, %130, %125, %103
-  %.0.i5.i = phi i1 [ %switch.selectcmp45.i.i, %switch.lookup133 ], [ false, %144 ], [ false, %146 ], [ false, %137 ], [ false, %139 ], [ true, %103 ], [ true, %150 ], [ true, %143 ], [ true, %136 ], [ false, %135 ], [ true, %130 ], [ false, %125 ]
-  %.14.i = phi i32 [ %switch.load135, %switch.lookup133 ], [ 64, %144 ], [ %149, %146 ], [ 16, %137 ], [ %142, %139 ], [ 65536, %103 ], [ 256, %150 ], [ 16, %143 ], [ 4, %136 ], [ 4, %135 ], [ %134, %130 ], [ %129, %125 ]
+_get_dither_parameters.exit.thread.i:             ; preds = %switch.lookup143, %150, %146, %144, %143, %139, %137, %136, %135, %130, %125, %103
+  %.0.i5.i = phi i1 [ %switch.selectcmp45.i.i, %switch.lookup143 ], [ false, %144 ], [ false, %146 ], [ false, %137 ], [ false, %139 ], [ true, %103 ], [ true, %150 ], [ true, %143 ], [ true, %136 ], [ false, %135 ], [ true, %130 ], [ false, %125 ]
+  %.14.i = phi i32 [ %switch.load145, %switch.lookup143 ], [ 64, %144 ], [ %149, %146 ], [ 16, %137 ], [ %142, %139 ], [ 65536, %103 ], [ 256, %150 ], [ 16, %143 ], [ 4, %136 ], [ 4, %135 ], [ %134, %130 ], [ %129, %125 ]
   %176 = add nsw i32 %.14.i, -1
   %177 = uitofp nneg i32 %176 to float
   %178 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %177
@@ -673,9 +673,9 @@ _nearest_color.exit.i:                            ; preds = %207, %.preheader.i.
   %230 = zext nneg i32 %229 to i64
   %.not.i39 = icmp eq i32 %108, 0
   %wide.trip.count170.i = zext nneg i32 %224 to i64
-  br i1 %.not.i39, label %.preheader13.i, label %.preheader26.i
+  br i1 %.not.i39, label %.lr.ph111.i, label %.lr.ph79.i
 
-.preheader26.i:                                   ; preds = %223
+.lr.ph79.i:                                       ; preds = %223
   %231 = add nsw i32 %112, -2
   %factor.op.fmul42.i = fmul reassoc nsz arcp contract afn float %177, 0x3FBC28F5C0000000
   %factor.op.fmul44.i = fmul reassoc nsz arcp contract afn float %177, 0x3FD3333340000000
@@ -683,7 +683,7 @@ _nearest_color.exit.i:                            ; preds = %207, %.preheader.i.
   %232 = zext nneg i32 %231 to i64
   br label %251
 
-.preheader13.i:                                   ; preds = %223
+.lr.ph111.i:                                      ; preds = %223
   %factor.op.fmul98.i = fmul reassoc nsz arcp contract afn float %177, 0x3FBC28F5C0000000
   %factor.op.fmul100.i = fmul reassoc nsz arcp contract afn float %177, 0x3FD3333340000000
   %factor.op.fmul102.i = fmul reassoc nsz arcp contract afn float %177, 0x3FE2E147A0000000
@@ -724,10 +724,10 @@ _clipnan_pixel.exit346.i:                         ; preds = %238
 ._crit_edge.i:                                    ; preds = %_diffuse_error.exit458.i
   %249 = and i32 %112, 1
   %250 = icmp eq i32 %249, 0
-  br i1 %250, label %803, label %_diffuse_error.exit537.i
+  br i1 %250, label %803, label %.lr.ph119.i
 
-251:                                              ; preds = %_diffuse_error.exit458.i, %.preheader26.i
-  %indvars.iv159.i = phi i64 [ 0, %.preheader26.i ], [ %indvars.iv.next160.i, %_diffuse_error.exit458.i ]
+251:                                              ; preds = %_diffuse_error.exit458.i, %.lr.ph79.i
+  %indvars.iv159.i = phi i64 [ 0, %.lr.ph79.i ], [ %indvars.iv.next160.i, %_diffuse_error.exit458.i ]
   %252 = shl nuw nsw i64 %indvars.iv159.i, 2
   %253 = mul nuw i64 %252, %wide.trip.count152.i
   %254 = getelementptr inbounds nuw float, ptr %2, i64 %253
@@ -1179,13 +1179,13 @@ _diffuse_error.exit407.i:                         ; preds = %469
   %exitcond.not.i409.i = icmp eq i64 %484, 4
   br i1 %exitcond.not.i409.i, label %.lr.ph41.i, label %477
 
-_diffuse_error.exit410._crit_edge.i.loopexit:     ; preds = %_diffuse_error.exit502.i
+_diffuse_error.exit410._crit_edge.i:              ; preds = %_diffuse_error.exit502.i
   %485 = getelementptr inbounds nuw float, ptr %255, i64 %226
   tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !227)
   br i1 %.0.i5.i, label %.preheader.i414.i, label %486
 
-486:                                              ; preds = %_diffuse_error.exit410._crit_edge.i.loopexit
+486:                                              ; preds = %_diffuse_error.exit410._crit_edge.i
   %487 = load float, ptr %485, align 4, !tbaa !76, !alias.scope !229, !noalias !227
   %.reass63.i = fmul reassoc nsz arcp contract afn float %487, %factor.op.fmul44.i
   %488 = getelementptr inbounds nuw i8, ptr %485, i64 4
@@ -1213,8 +1213,8 @@ _diffuse_error.exit410._crit_edge.i.loopexit:     ; preds = %_diffuse_error.exit
   %exitcond.not.i413.i = icmp eq i64 %502, 4
   br i1 %exitcond.not.i413.i, label %_nearest_color.exit417.i, label %497
 
-.preheader.i414.i:                                ; preds = %_diffuse_error.exit410._crit_edge.i.loopexit, %.preheader.i414.i
-  %.02831.i415.i = phi i64 [ %511, %.preheader.i414.i ], [ 0, %_diffuse_error.exit410._crit_edge.i.loopexit ]
+.preheader.i414.i:                                ; preds = %_diffuse_error.exit410._crit_edge.i, %.preheader.i414.i
+  %.02831.i415.i = phi i64 [ %511, %.preheader.i414.i ], [ 0, %_diffuse_error.exit410._crit_edge.i ]
   %503 = getelementptr inbounds nuw float, ptr %485, i64 %.02831.i415.i
   %504 = load float, ptr %503, align 4, !tbaa !76, !alias.scope !224, !noalias !227
   %505 = fmul reassoc nsz arcp contract afn float %504, %177
@@ -1810,7 +1810,7 @@ _diffuse_error.exit499.i:                         ; preds = %787
 _diffuse_error.exit502.i:                         ; preds = %795
   %indvars.iv.next155.i = add nuw nsw i64 %indvars.iv154.i, 1
   %exitcond158.not.i = icmp eq i64 %indvars.iv.next155.i, %wide.trip.count170.i
-  br i1 %exitcond158.not.i, label %_diffuse_error.exit410._crit_edge.i.loopexit, label %.lr.ph41.i
+  br i1 %exitcond158.not.i, label %_diffuse_error.exit410._crit_edge.i, label %.lr.ph41.i
 
 803:                                              ; preds = %._crit_edge.i
   %804 = shl nuw nsw i64 %232, 2
@@ -2054,7 +2054,7 @@ _diffuse_error.exit534.i:                         ; preds = %921
   store float %936, ptr %934, align 4, !tbaa !76, !alias.scope !405, !noalias !408
   %937 = add nuw nsw i64 %.06.i535.i, 1
   %exitcond.not.i536.i = icmp eq i64 %937, 4
-  br i1 %exitcond.not.i536.i, label %_diffuse_error.exit537.i, label %930
+  br i1 %exitcond.not.i536.i, label %.lr.ph119.i, label %930
 
 .lr.ph87.i:                                       ; preds = %881, %_diffuse_error.exit559.i
   %indvars.iv162.i = phi i64 [ %indvars.iv.next163.i, %_diffuse_error.exit559.i ], [ 1, %881 ]
@@ -2211,8 +2211,8 @@ _diffuse_error.exit559.i:                         ; preds = %1005
   %exitcond166.not.i = icmp eq i64 %indvars.iv.next163.i, %wide.trip.count170.i
   br i1 %exitcond166.not.i, label %_diffuse_error.exit524._crit_edge.i, label %.lr.ph87.i
 
-1013:                                             ; preds = %_diffuse_error.exit594.i, %.preheader13.i
-  %indvars.iv172.i = phi i64 [ 0, %.preheader13.i ], [ %indvars.iv.next173.i, %_diffuse_error.exit594.i ]
+1013:                                             ; preds = %_diffuse_error.exit594.i, %.lr.ph111.i
+  %indvars.iv172.i = phi i64 [ 0, %.lr.ph111.i ], [ %indvars.iv.next173.i, %_diffuse_error.exit594.i ]
   %1014 = shl nuw nsw i64 %indvars.iv172.i, 2
   %1015 = mul nuw i64 %1014, %wide.trip.count152.i
   %1016 = getelementptr inbounds nuw float, ptr %2, i64 %1015
@@ -2366,13 +2366,13 @@ _diffuse_error.exit578.i:                         ; preds = %1079
   %exitcond.not.i580.i = icmp eq i64 %1094, 4
   br i1 %exitcond.not.i580.i, label %.lr.ph97.i, label %1087
 
-_diffuse_error.exit581._crit_edge.i.loopexit:     ; preds = %_diffuse_error.exit616.i
+_diffuse_error.exit581._crit_edge.i:              ; preds = %_diffuse_error.exit616.i
   %1095 = getelementptr inbounds nuw float, ptr %1017, i64 %226
   tail call void @llvm.experimental.noalias.scope.decl(metadata !476)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !479)
   br i1 %.0.i5.i, label %.preheader.i585.i, label %1096
 
-1096:                                             ; preds = %_diffuse_error.exit581._crit_edge.i.loopexit
+1096:                                             ; preds = %_diffuse_error.exit581._crit_edge.i
   %1097 = load float, ptr %1095, align 4, !tbaa !76, !alias.scope !481, !noalias !479
   %.reass107.i = fmul reassoc nsz arcp contract afn float %1097, %factor.op.fmul100.i
   %1098 = getelementptr inbounds nuw i8, ptr %1095, i64 4
@@ -2400,8 +2400,8 @@ _diffuse_error.exit581._crit_edge.i.loopexit:     ; preds = %_diffuse_error.exit
   %exitcond.not.i584.i = icmp eq i64 %1112, 4
   br i1 %exitcond.not.i584.i, label %_nearest_color.exit588.i, label %1107
 
-.preheader.i585.i:                                ; preds = %_diffuse_error.exit581._crit_edge.i.loopexit, %.preheader.i585.i
-  %.02831.i586.i = phi i64 [ %1121, %.preheader.i585.i ], [ 0, %_diffuse_error.exit581._crit_edge.i.loopexit ]
+.preheader.i585.i:                                ; preds = %_diffuse_error.exit581._crit_edge.i, %.preheader.i585.i
+  %.02831.i586.i = phi i64 [ %1121, %.preheader.i585.i ], [ 0, %_diffuse_error.exit581._crit_edge.i ]
   %1113 = getelementptr inbounds nuw float, ptr %1095, i64 %.02831.i586.i
   %1114 = load float, ptr %1113, align 4, !tbaa !76, !alias.scope !476, !noalias !479
   %1115 = fmul reassoc nsz arcp contract afn float %1114, %177
@@ -2457,7 +2457,7 @@ _diffuse_error.exit591.i:                         ; preds = %1123
 _diffuse_error.exit594.i:                         ; preds = %1132
   %indvars.iv.next173.i = add nuw nsw i64 %indvars.iv172.i, 1
   %exitcond176.not.i = icmp eq i64 %indvars.iv.next173.i, %wide.trip.count175.i
-  br i1 %exitcond176.not.i, label %_diffuse_error.exit537.i, label %1013
+  br i1 %exitcond176.not.i, label %.lr.ph119.i, label %1013
 
 .lr.ph97.i:                                       ; preds = %1087, %_diffuse_error.exit616.i
   %indvars.iv167.i = phi i64 [ %indvars.iv.next168.i, %_diffuse_error.exit616.i ], [ 1, %1087 ]
@@ -2612,9 +2612,9 @@ _diffuse_error.exit613.i:                         ; preds = %1199
 _diffuse_error.exit616.i:                         ; preds = %1207
   %indvars.iv.next168.i = add nuw nsw i64 %indvars.iv167.i, 1
   %exitcond171.not.i = icmp eq i64 %indvars.iv.next168.i, %wide.trip.count170.i
-  br i1 %exitcond171.not.i, label %_diffuse_error.exit581._crit_edge.i.loopexit, label %.lr.ph97.i
+  br i1 %exitcond171.not.i, label %_diffuse_error.exit581._crit_edge.i, label %.lr.ph97.i
 
-_diffuse_error.exit537.i:                         ; preds = %930, %_diffuse_error.exit594.i, %._crit_edge.i
+.lr.ph119.i:                                      ; preds = %930, %_diffuse_error.exit594.i, %._crit_edge.i
   %factor.op.fmul116.pre-phi.i = phi float [ %factor.op.fmul46.i, %._crit_edge.i ], [ %factor.op.fmul102.i, %_diffuse_error.exit594.i ], [ %factor.op.fmul46.i, %930 ]
   %factor.op.fmul114.pre-phi.i = phi float [ %factor.op.fmul44.i, %._crit_edge.i ], [ %factor.op.fmul100.i, %_diffuse_error.exit594.i ], [ %factor.op.fmul44.i, %930 ]
   %factor.op.fmul112.pre-phi.i = phi float [ %factor.op.fmul42.i, %._crit_edge.i ], [ %factor.op.fmul98.i, %_diffuse_error.exit594.i ], [ %factor.op.fmul42.i, %930 ]
@@ -2676,8 +2676,8 @@ _diffuse_error.exit537.i:                         ; preds = %930, %_diffuse_erro
   %exitcond33.not.i622.i = icmp eq i64 %1250, 4
   br i1 %exitcond33.not.i622.i, label %_nearest_color.exit623.i, label %.preheader.i620.i
 
-1251:                                             ; preds = %_diffuse_error.exit633.i, %_diffuse_error.exit537.i
-  %indvars.iv177.i = phi i64 [ 0, %_diffuse_error.exit537.i ], [ %indvars.iv.next178.i, %_diffuse_error.exit633.i ]
+1251:                                             ; preds = %_diffuse_error.exit633.i, %.lr.ph119.i
+  %indvars.iv177.i = phi i64 [ 0, %.lr.ph119.i ], [ %indvars.iv.next178.i, %_diffuse_error.exit633.i ]
   %.idx.i = shl nsw i64 %indvars.iv177.i, 4
   %1252 = getelementptr inbounds nuw i8, ptr %1219, i64 %.idx.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !535)

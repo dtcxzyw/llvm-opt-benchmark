@@ -3074,9 +3074,9 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9FileRulesELN9__gnu_cxx12_Lock_policy
   %.not.i.i.i.i.i957 = icmp eq i8 %824, 0
   %825 = getelementptr inbounds nuw i8, ptr %116, i64 32
   %826 = getelementptr inbounds nuw i8, ptr %116, i64 40
-  br i1 %.not.i.i.i.i.i957, label %829, label %.thread11.i
+  br i1 %.not.i.i.i.i.i957, label %829, label %.thread13.i
 
-.thread11.i:                                      ; preds = %822
+.thread13.i:                                      ; preds = %822
   %827 = load i32, ptr %823, align 4, !tbaa !16, !noalias !91
   %828 = add nsw i32 %827, 1
   store i32 %828, ptr %823, align 4, !tbaa !16, !noalias !91
@@ -3094,7 +3094,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9FileRulesELN9__gnu_cxx12_Lock_policy
   store ptr %821, ptr %826, align 8, !tbaa !3, !alias.scope !91
   br i1 %831, label %835, label %832
 
-832:                                              ; preds = %829, %.thread11.i
+832:                                              ; preds = %829, %.thread13.i
   %833 = load i32, ptr %823, align 4, !tbaa !16, !noalias !91
   %834 = add nsw i32 %833, 1
   store i32 %834, ptr %823, align 4, !tbaa !16, !noalias !91
@@ -3846,9 +3846,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit2118: ; preds = %
   %1494 = getelementptr inbounds nuw i8, ptr %1492, i64 8
   %1495 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !106
   %.not.i.i.i.i.i964 = icmp eq i8 %1495, 0
-  br i1 %.not.i.i.i.i.i964, label %1498, label %.thread11.i965
+  br i1 %.not.i.i.i.i.i964, label %1498, label %.thread13.i965
 
-.thread11.i965:                                   ; preds = %1493
+.thread13.i965:                                   ; preds = %1493
   %1496 = load i32, ptr %1494, align 4, !tbaa !16, !noalias !106
   %1497 = add nsw i32 %1496, 1
   store i32 %1497, ptr %1494, align 4, !tbaa !16, !noalias !106
@@ -3870,11 +3870,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit2118: ; preds = %
   %.pre = load i32, ptr %1494, align 4, !tbaa !16, !noalias !106
   br label %1501
 
-1501:                                             ; preds = %._crit_edge4613, %.thread11.i965
-  %1502 = phi i32 [ %.pre, %._crit_edge4613 ], [ %1497, %.thread11.i965 ]
-  %.sroa.94591.2 = phi ptr [ %.sroa.94591.0.copyload4593, %._crit_edge4613 ], [ %.sroa.94591.0.copyload, %.thread11.i965 ]
-  %.sroa.124596.2 = phi ptr [ %.sroa.124596.0.copyload4598, %._crit_edge4613 ], [ %.sroa.124596.0.copyload, %.thread11.i965 ]
-  %.sroa.04583.1 = phi i32 [ %.sroa.04583.0.copyload4584, %._crit_edge4613 ], [ %.sroa.04583.0.copyload, %.thread11.i965 ]
+1501:                                             ; preds = %._crit_edge4613, %.thread13.i965
+  %1502 = phi i32 [ %.pre, %._crit_edge4613 ], [ %1497, %.thread13.i965 ]
+  %.sroa.94591.2 = phi ptr [ %.sroa.94591.0.copyload4593, %._crit_edge4613 ], [ %.sroa.94591.0.copyload, %.thread13.i965 ]
+  %.sroa.124596.2 = phi ptr [ %.sroa.124596.0.copyload4598, %._crit_edge4613 ], [ %.sroa.124596.0.copyload, %.thread13.i965 ]
+  %.sroa.04583.1 = phi i32 [ %.sroa.04583.0.copyload4584, %._crit_edge4613 ], [ %.sroa.04583.0.copyload, %.thread13.i965 ]
   %1503 = add nsw i32 %1502, 1
   store i32 %1503, ptr %1494, align 4, !tbaa !16, !noalias !106
   br label %1507
@@ -4765,9 +4765,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1049: ; preds = %_
   %1838 = getelementptr inbounds nuw i8, ptr %1836, i64 8
   %1839 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !122
   %.not.i.i.i.i.i1053 = icmp eq i8 %1839, 0
-  br i1 %.not.i.i.i.i.i1053, label %1842, label %.thread11.i1054
+  br i1 %.not.i.i.i.i.i1053, label %1842, label %.thread13.i1054
 
-.thread11.i1054:                                  ; preds = %1837
+.thread13.i1054:                                  ; preds = %1837
   %1840 = load i32, ptr %1838, align 4, !tbaa !16, !noalias !122
   %1841 = add nsw i32 %1840, 1
   store i32 %1841, ptr %1838, align 4, !tbaa !16, !noalias !122
@@ -4785,7 +4785,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1049: ; preds = %_
   store ptr %1836, ptr %1394, align 8, !tbaa !3, !alias.scope !122
   br i1 %1844, label %1848, label %1845
 
-1845:                                             ; preds = %1842, %.thread11.i1054
+1845:                                             ; preds = %1842, %.thread13.i1054
   %1846 = load i32, ptr %1838, align 4, !tbaa !16, !noalias !122
   %1847 = add nsw i32 %1846, 1
   store i32 %1847, ptr %1838, align 4, !tbaa !16, !noalias !122
@@ -5163,9 +5163,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %1997 = getelementptr inbounds nuw i8, ptr %1995, i64 8
   %1998 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !134
   %.not.i.i.i.i.i1083 = icmp eq i8 %1998, 0
-  br i1 %.not.i.i.i.i.i1083, label %2001, label %.thread11.i1084
+  br i1 %.not.i.i.i.i.i1083, label %2001, label %.thread13.i1084
 
-.thread11.i1084:                                  ; preds = %1996
+.thread13.i1084:                                  ; preds = %1996
   %1999 = load i32, ptr %1997, align 4, !tbaa !16, !noalias !134
   %2000 = add nsw i32 %1999, 1
   store i32 %2000, ptr %1997, align 4, !tbaa !16, !noalias !134
@@ -5187,11 +5187,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %.pre4620 = load i32, ptr %1997, align 4, !tbaa !16, !noalias !134
   br label %2004
 
-2004:                                             ; preds = %._crit_edge4619, %.thread11.i1084
-  %2005 = phi i32 [ %.pre4620, %._crit_edge4619 ], [ %2000, %.thread11.i1084 ]
-  %.sroa.94561.4 = phi ptr [ %.sroa.94561.0.copyload4563, %._crit_edge4619 ], [ %.sroa.94561.0.copyload, %.thread11.i1084 ]
-  %.sroa.124566.4 = phi ptr [ %.sroa.124566.0.copyload4568, %._crit_edge4619 ], [ %.sroa.124566.0.copyload, %.thread11.i1084 ]
-  %.sroa.04553.1 = phi i32 [ %.sroa.04553.0.copyload4554, %._crit_edge4619 ], [ %.sroa.04553.0.copyload, %.thread11.i1084 ]
+2004:                                             ; preds = %._crit_edge4619, %.thread13.i1084
+  %2005 = phi i32 [ %.pre4620, %._crit_edge4619 ], [ %2000, %.thread13.i1084 ]
+  %.sroa.94561.4 = phi ptr [ %.sroa.94561.0.copyload4563, %._crit_edge4619 ], [ %.sroa.94561.0.copyload, %.thread13.i1084 ]
+  %.sroa.124566.4 = phi ptr [ %.sroa.124566.0.copyload4568, %._crit_edge4619 ], [ %.sroa.124566.0.copyload, %.thread13.i1084 ]
+  %.sroa.04553.1 = phi i32 [ %.sroa.04553.0.copyload4554, %._crit_edge4619 ], [ %.sroa.04553.0.copyload, %.thread13.i1084 ]
   %2006 = add nsw i32 %2005, 1
   store i32 %2006, ptr %1997, align 4, !tbaa !16, !noalias !134
   br label %2010
@@ -8102,7 +8102,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1340: ; preds = %_
 3115:                                             ; preds = %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1327
   %3116 = load ptr, ptr %1, align 8, !tbaa !84
   invoke void @_ZN19OpenColorIO_v2_5dev6Config19setDefaultLumaCoefsEPKd(ptr noundef nonnull align 8 dereferenceable(8) %3116, ptr noundef nonnull %3073)
-          to label %_ZNSt6vectorIdSaIdEED2Ev.exit unwind label %.thread4625
+          to label %_ZNSt6vectorIdSaIdEED2Ev.exit unwind label %.thread5328
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %3115
   %3117 = load ptr, ptr %1335, align 8, !tbaa !174
@@ -8112,7 +8112,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %3115
   call void @llvm.lifetime.end.p0(ptr nonnull %144)
   br label %7675
 
-.thread4625:                                      ; preds = %3115
+.thread5328:                                      ; preds = %3115
   %3120 = landingpad { ptr, i32 }
           cleanup
   br label %3123
@@ -8123,9 +8123,9 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %3115
   %.not.i.i.i1342 = icmp eq ptr %3122, null
   br i1 %.not.i.i.i1342, label %_ZNSt6vectorIdSaIdEED2Ev.exit1343, label %3123
 
-3123:                                             ; preds = %.thread4625, %3121
-  %.pn7884628 = phi { ptr, i32 } [ %3120, %.thread4625 ], [ %.pn788, %3121 ]
-  %3124 = phi ptr [ %3073, %.thread4625 ], [ %3122, %3121 ]
+3123:                                             ; preds = %.thread5328, %3121
+  %.pn7885331 = phi { ptr, i32 } [ %3120, %.thread5328 ], [ %.pn788, %3121 ]
+  %3124 = phi ptr [ %3073, %.thread5328 ], [ %3122, %3121 ]
   %3125 = load ptr, ptr %1335, align 8, !tbaa !174
   %3126 = ptrtoint ptr %3125 to i64
   %3127 = ptrtoint ptr %3124 to i64
@@ -8134,7 +8134,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %3115
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit1343
 
 _ZNSt6vectorIdSaIdEED2Ev.exit1343:                ; preds = %3121, %3123
-  %.pn7884629 = phi { ptr, i32 } [ %.pn788, %3121 ], [ %.pn7884628, %3123 ]
+  %.pn7885332 = phi { ptr, i32 } [ %.pn788, %3121 ], [ %.pn7885331, %3123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %144)
   br label %.body1029
 
@@ -8286,9 +8286,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit1419: ; preds = %
   %3175 = getelementptr inbounds nuw i8, ptr %3173, i64 8
   %3176 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !175
   %.not.i.i.i.i.i1353 = icmp eq i8 %3176, 0
-  br i1 %.not.i.i.i.i.i1353, label %3179, label %.thread11.i1354
+  br i1 %.not.i.i.i.i.i1353, label %3179, label %.thread13.i1354
 
-.thread11.i1354:                                  ; preds = %3174
+.thread13.i1354:                                  ; preds = %3174
   %3177 = load i32, ptr %3175, align 4, !tbaa !16, !noalias !175
   %3178 = add nsw i32 %3177, 1
   store i32 %3178, ptr %3175, align 4, !tbaa !16, !noalias !175
@@ -8310,11 +8310,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit1419: ; preds = %
   %.pre4617 = load i32, ptr %3175, align 4, !tbaa !16, !noalias !175
   br label %3182
 
-3182:                                             ; preds = %._crit_edge4616, %.thread11.i1354
-  %3183 = phi i32 [ %.pre4617, %._crit_edge4616 ], [ %3178, %.thread11.i1354 ]
-  %.sroa.94531.4 = phi ptr [ %.sroa.94531.0.copyload4533, %._crit_edge4616 ], [ %.sroa.94531.0.copyload, %.thread11.i1354 ]
-  %.sroa.124536.4 = phi ptr [ %.sroa.124536.0.copyload4538, %._crit_edge4616 ], [ %.sroa.124536.0.copyload, %.thread11.i1354 ]
-  %.sroa.04523.1 = phi i32 [ %.sroa.04523.0.copyload4524, %._crit_edge4616 ], [ %.sroa.04523.0.copyload, %.thread11.i1354 ]
+3182:                                             ; preds = %._crit_edge4616, %.thread13.i1354
+  %3183 = phi i32 [ %.pre4617, %._crit_edge4616 ], [ %3178, %.thread13.i1354 ]
+  %.sroa.94531.4 = phi ptr [ %.sroa.94531.0.copyload4533, %._crit_edge4616 ], [ %.sroa.94531.0.copyload, %.thread13.i1354 ]
+  %.sroa.124536.4 = phi ptr [ %.sroa.124536.0.copyload4538, %._crit_edge4616 ], [ %.sroa.124536.0.copyload, %.thread13.i1354 ]
+  %.sroa.04523.1 = phi i32 [ %.sroa.04523.0.copyload4524, %._crit_edge4616 ], [ %.sroa.04523.0.copyload, %.thread13.i1354 ]
   %3184 = add nsw i32 %3183, 1
   store i32 %3184, ptr %3175, align 4, !tbaa !16, !noalias !175
   br label %3188
@@ -9611,9 +9611,9 @@ _ZNK4YAML4Node3TagB5cxx11Ev.exit.i:               ; preds = %3611, %3607
   %3627 = getelementptr inbounds nuw i8, ptr %3625, i64 8
   %3628 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !190
   %.not.i.i.i.i.i.i1503 = icmp eq i8 %3628, 0
-  br i1 %.not.i.i.i.i.i.i1503, label %3631, label %.thread11.i.i
+  br i1 %.not.i.i.i.i.i.i1503, label %3631, label %.thread13.i.i
 
-.thread11.i.i:                                    ; preds = %3626
+.thread13.i.i:                                    ; preds = %3626
   %3629 = load i32, ptr %3627, align 4, !tbaa !16, !noalias !190
   %3630 = add nsw i32 %3629, 1
   store i32 %3630, ptr %3627, align 4, !tbaa !16, !noalias !190
@@ -9631,7 +9631,7 @@ _ZNK4YAML4Node3TagB5cxx11Ev.exit.i:               ; preds = %3611, %3607
   store ptr %3625, ptr %1228, align 8, !tbaa !3, !alias.scope !190
   br i1 %3633, label %3637, label %3634
 
-3634:                                             ; preds = %3631, %.thread11.i.i
+3634:                                             ; preds = %3631, %.thread13.i.i
   %3635 = load i32, ptr %3627, align 4, !tbaa !16, !noalias !190
   %3636 = add nsw i32 %3635, 1
   store i32 %3636, ptr %3627, align 4, !tbaa !16, !noalias !190
@@ -9725,9 +9725,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i: ; preds = %_Z
   %3669 = getelementptr inbounds nuw i8, ptr %3667, i64 8
   %3670 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !199
   %.not.i.i.i.i.i153.i = icmp eq i8 %3670, 0
-  br i1 %.not.i.i.i.i.i153.i, label %3673, label %.thread11.i154.i
+  br i1 %.not.i.i.i.i.i153.i, label %3673, label %.thread13.i154.i
 
-.thread11.i154.i:                                 ; preds = %3668
+.thread13.i154.i:                                 ; preds = %3668
   %3671 = load i32, ptr %3669, align 4, !tbaa !16, !noalias !199
   %3672 = add nsw i32 %3671, 1
   store i32 %3672, ptr %3669, align 4, !tbaa !16, !noalias !199
@@ -9749,11 +9749,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i: ; preds = %_Z
   %.pre.i1500 = load i32, ptr %3669, align 4, !tbaa !16, !noalias !199
   br label %3676
 
-3676:                                             ; preds = %._crit_edge426.i, %.thread11.i154.i
-  %3677 = phi i32 [ %.pre.i1500, %._crit_edge426.i ], [ %3672, %.thread11.i154.i ]
-  %.sroa.9407.2.i = phi ptr [ %.sroa.9407.0.copyload409.i, %._crit_edge426.i ], [ %.sroa.9407.0.copyload.i, %.thread11.i154.i ]
-  %.sroa.12.2.i = phi ptr [ %.sroa.12.0.copyload413.i, %._crit_edge426.i ], [ %.sroa.12.0.copyload.i, %.thread11.i154.i ]
-  %.sroa.0.1.i = phi i32 [ %.sroa.0.0.copyload401.i, %._crit_edge426.i ], [ %.sroa.0.0.copyload.i, %.thread11.i154.i ]
+3676:                                             ; preds = %._crit_edge426.i, %.thread13.i154.i
+  %3677 = phi i32 [ %.pre.i1500, %._crit_edge426.i ], [ %3672, %.thread13.i154.i ]
+  %.sroa.9407.2.i = phi ptr [ %.sroa.9407.0.copyload409.i, %._crit_edge426.i ], [ %.sroa.9407.0.copyload.i, %.thread13.i154.i ]
+  %.sroa.12.2.i = phi ptr [ %.sroa.12.0.copyload413.i, %._crit_edge426.i ], [ %.sroa.12.0.copyload.i, %.thread13.i154.i ]
+  %.sroa.0.1.i = phi i32 [ %.sroa.0.0.copyload401.i, %._crit_edge426.i ], [ %.sroa.0.0.copyload.i, %.thread13.i154.i ]
   %3678 = add nsw i32 %3677, 1
   store i32 %3678, ptr %3669, align 4, !tbaa !16, !noalias !199
   br label %3682
@@ -12980,14 +12980,14 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1584: ; pre
 4852:                                             ; preds = %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1584
   %4853 = call ptr @__cxa_allocate_exception(i64 64) #29
   invoke void @_ZN4YAML11InvalidNodeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %4853, ptr noundef nonnull align 8 dereferenceable(32) %1178)
-          to label %.invoke5296 unwind label %4855
+          to label %.invoke5999 unwind label %4855
 
-.invoke5296:                                      ; preds = %4871, %4852
+.invoke5999:                                      ; preds = %4871, %4852
   %4854 = phi ptr [ %4853, %4852 ], [ %4872, %4871 ]
   invoke void @__cxa_throw(ptr nonnull %4854, ptr nonnull @_ZTIN4YAML11InvalidNodeE, ptr nonnull @_ZN4YAML11InvalidNodeD1Ev) #31
-          to label %.cont5297 unwind label %.loopexit.split-lp2494
+          to label %.cont6000 unwind label %.loopexit.split-lp2494
 
-.cont5297:                                        ; preds = %.invoke5296
+.cont6000:                                        ; preds = %.invoke5999
   unreachable
 
 4855:                                             ; preds = %4852
@@ -13025,7 +13025,7 @@ _ZNK4YAML4Node3TagB5cxx11Ev.exit1590:             ; preds = %4859, %4863
 4871:                                             ; preds = %4868
   %4872 = call ptr @__cxa_allocate_exception(i64 64) #29
   invoke void @_ZN4YAML11InvalidNodeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %4872, ptr noundef nonnull align 8 dereferenceable(32) %1178)
-          to label %.invoke5296 unwind label %4873
+          to label %.invoke5999 unwind label %4873
 
 4873:                                             ; preds = %4871
   %4874 = landingpad { ptr, i32 }
@@ -13102,9 +13102,9 @@ _ZNK4YAML4Node3TagB5cxx11Ev.exit.i1594:           ; preds = %4881, %4877
   %4897 = getelementptr inbounds nuw i8, ptr %4895, i64 8
   %4898 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !227
   %.not.i.i.i.i.i.i1673 = icmp eq i8 %4898, 0
-  br i1 %.not.i.i.i.i.i.i1673, label %4901, label %.thread11.i.i1674
+  br i1 %.not.i.i.i.i.i.i1673, label %4901, label %.thread13.i.i1674
 
-.thread11.i.i1674:                                ; preds = %4896
+.thread13.i.i1674:                                ; preds = %4896
   %4899 = load i32, ptr %4897, align 4, !tbaa !16, !noalias !227
   %4900 = add nsw i32 %4899, 1
   store i32 %4900, ptr %4897, align 4, !tbaa !16, !noalias !227
@@ -13122,7 +13122,7 @@ _ZNK4YAML4Node3TagB5cxx11Ev.exit.i1594:           ; preds = %4881, %4877
   store ptr %4895, ptr %1091, align 8, !tbaa !3, !alias.scope !227
   br i1 %4903, label %4907, label %4904
 
-4904:                                             ; preds = %4901, %.thread11.i.i1674
+4904:                                             ; preds = %4901, %.thread13.i.i1674
   %4905 = load i32, ptr %4897, align 4, !tbaa !16, !noalias !227
   %4906 = add nsw i32 %4905, 1
   store i32 %4906, ptr %4897, align 4, !tbaa !16, !noalias !227
@@ -13216,9 +13216,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i1624: ; preds =
   %4939 = getelementptr inbounds nuw i8, ptr %4937, i64 8
   %4940 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !236
   %.not.i.i.i.i.i110.i = icmp eq i8 %4940, 0
-  br i1 %.not.i.i.i.i.i110.i, label %4943, label %.thread11.i111.i
+  br i1 %.not.i.i.i.i.i110.i, label %4943, label %.thread13.i111.i
 
-.thread11.i111.i:                                 ; preds = %4938
+.thread13.i111.i:                                 ; preds = %4938
   %4941 = load i32, ptr %4939, align 4, !tbaa !16, !noalias !236
   %4942 = add nsw i32 %4941, 1
   store i32 %4942, ptr %4939, align 4, !tbaa !16, !noalias !236
@@ -13240,11 +13240,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i1624: ; preds =
   %.pre.i1669 = load i32, ptr %4939, align 4, !tbaa !16, !noalias !236
   br label %4946
 
-4946:                                             ; preds = %._crit_edge345.i, %.thread11.i111.i
-  %4947 = phi i32 [ %.pre.i1669, %._crit_edge345.i ], [ %4942, %.thread11.i111.i ]
-  %.sroa.9326.2.i = phi ptr [ %.sroa.9326.0.copyload328.i, %._crit_edge345.i ], [ %.sroa.9326.0.copyload.i, %.thread11.i111.i ]
-  %.sroa.12.2.i1665 = phi ptr [ %.sroa.12.0.copyload332.i, %._crit_edge345.i ], [ %.sroa.12.0.copyload.i1664, %.thread11.i111.i ]
-  %.sroa.0.1.i1666 = phi i32 [ %.sroa.0.0.copyload320.i, %._crit_edge345.i ], [ %.sroa.0.0.copyload.i1663, %.thread11.i111.i ]
+4946:                                             ; preds = %._crit_edge345.i, %.thread13.i111.i
+  %4947 = phi i32 [ %.pre.i1669, %._crit_edge345.i ], [ %4942, %.thread13.i111.i ]
+  %.sroa.9326.2.i = phi ptr [ %.sroa.9326.0.copyload328.i, %._crit_edge345.i ], [ %.sroa.9326.0.copyload.i, %.thread13.i111.i ]
+  %.sroa.12.2.i1665 = phi ptr [ %.sroa.12.0.copyload332.i, %._crit_edge345.i ], [ %.sroa.12.0.copyload.i1664, %.thread13.i111.i ]
+  %.sroa.0.1.i1666 = phi i32 [ %.sroa.0.0.copyload320.i, %._crit_edge345.i ], [ %.sroa.0.0.copyload.i1663, %.thread13.i111.i ]
   %4948 = add nsw i32 %4947, 1
   store i32 %4948, ptr %4939, align 4, !tbaa !16, !noalias !236
   br label %4952
@@ -15545,7 +15545,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit298.i: ; preds = %
           cleanup
   br label %.body1587
 
-.loopexit.split-lp2494:                           ; preds = %.invoke5296
+.loopexit.split-lp2494:                           ; preds = %.invoke5999
   %lpad.loopexit.split-lp2496 = landingpad { ptr, i32 }
           cleanup
   br label %.body1587
@@ -16576,9 +16576,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit1856: ; preds = %
   %6157 = getelementptr inbounds nuw i8, ptr %6155, i64 8
   %6158 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !258
   %.not.i.i.i.i.i1773 = icmp eq i8 %6158, 0
-  br i1 %.not.i.i.i.i.i1773, label %6161, label %.thread11.i1774
+  br i1 %.not.i.i.i.i.i1773, label %6161, label %.thread13.i1774
 
-.thread11.i1774:                                  ; preds = %6156
+.thread13.i1774:                                  ; preds = %6156
   %6159 = load i32, ptr %6157, align 4, !tbaa !16, !noalias !258
   %6160 = add nsw i32 %6159, 1
   store i32 %6160, ptr %6157, align 4, !tbaa !16, !noalias !258
@@ -16600,11 +16600,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit1856: ; preds = %
   %.pre4615 = load i32, ptr %6157, align 4, !tbaa !16, !noalias !258
   br label %6164
 
-6164:                                             ; preds = %._crit_edge4614, %.thread11.i1774
-  %6165 = phi i32 [ %.pre4615, %._crit_edge4614 ], [ %6160, %.thread11.i1774 ]
-  %.sroa.94504.4 = phi ptr [ %.sroa.94504.0.copyload4506, %._crit_edge4614 ], [ %.sroa.94504.0.copyload, %.thread11.i1774 ]
-  %.sroa.12.4 = phi ptr [ %.sroa.12.0.copyload4510, %._crit_edge4614 ], [ %.sroa.12.0.copyload, %.thread11.i1774 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload4498, %._crit_edge4614 ], [ %.sroa.0.0.copyload, %.thread11.i1774 ]
+6164:                                             ; preds = %._crit_edge4614, %.thread13.i1774
+  %6165 = phi i32 [ %.pre4615, %._crit_edge4614 ], [ %6160, %.thread13.i1774 ]
+  %.sroa.94504.4 = phi ptr [ %.sroa.94504.0.copyload4506, %._crit_edge4614 ], [ %.sroa.94504.0.copyload, %.thread13.i1774 ]
+  %.sroa.12.4 = phi ptr [ %.sroa.12.0.copyload4510, %._crit_edge4614 ], [ %.sroa.12.0.copyload, %.thread13.i1774 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload4498, %._crit_edge4614 ], [ %.sroa.0.0.copyload, %.thread13.i1774 ]
   %6166 = add nsw i32 %6165, 1
   store i32 %6166, ptr %6157, align 4, !tbaa !16, !noalias !258
   br label %6170
@@ -17486,14 +17486,14 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1864: ; pre
 6488:                                             ; preds = %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1864
   %6489 = call ptr @__cxa_allocate_exception(i64 64) #29
   invoke void @_ZN4YAML11InvalidNodeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %6489, ptr noundef nonnull align 8 dereferenceable(32) %1013)
-          to label %.invoke5298 unwind label %6491
+          to label %.invoke6001 unwind label %6491
 
-.invoke5298:                                      ; preds = %6488, %6561
+.invoke6001:                                      ; preds = %6488, %6561
   %6490 = phi ptr [ %6562, %6561 ], [ %6489, %6488 ]
   invoke void @__cxa_throw(ptr nonnull %6490, ptr nonnull @_ZTIN4YAML11InvalidNodeE, ptr nonnull @_ZN4YAML11InvalidNodeD1Ev) #31
-          to label %.cont5299 unwind label %.loopexit.split-lp2448
+          to label %.cont6002 unwind label %.loopexit.split-lp2448
 
-.cont5299:                                        ; preds = %.invoke5298
+.cont6002:                                        ; preds = %.invoke6001
   unreachable
 
 6491:                                             ; preds = %6488
@@ -17685,7 +17685,7 @@ _ZN19OpenColorIO_v2_5dev4ViewD2Ev.exit1888:       ; preds = %_ZNKSt7__cxx1112bas
           cleanup
   br label %.body1867
 
-.loopexit.split-lp2448:                           ; preds = %.invoke5298
+.loopexit.split-lp2448:                           ; preds = %.invoke6001
   %lpad.loopexit.split-lp2450 = landingpad { ptr, i32 }
           cleanup
   br label %.body1867
@@ -17705,7 +17705,7 @@ _ZN19OpenColorIO_v2_5dev4ViewD2Ev.exit1888:       ; preds = %_ZNKSt7__cxx1112bas
 6561:                                             ; preds = %6558
   %6562 = call ptr @__cxa_allocate_exception(i64 64) #29
   invoke void @_ZN4YAML11InvalidNodeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %6562, ptr noundef nonnull align 8 dereferenceable(32) %1013)
-          to label %.invoke5298 unwind label %6563
+          to label %.invoke6001 unwind label %6563
 
 6563:                                             ; preds = %6561
   %6564 = landingpad { ptr, i32 }
@@ -21191,7 +21191,7 @@ _ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit2118.backedge
 
 .body1029:                                        ; preds = %.loopexit2518, %.loopexit.split-lp2519, %1790, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2106, %7651, %7494, %7479, %7463, %7450, %7357, %7342, %7326, %7237, %7222, %7206, %7068, %7053, %7037, %6899, %6884, %6868, %6836, %6804, %6772, %6677, %6662, %6644, %6143, %6128, %6110, %5945, %5930, %5912, %4753, %4738, %4722, %4703, %3469, %3454, %3441, %3414, %3161, %3146, %_ZNSt6vectorIdSaIdEED2Ev.exit1343, %3037, %2977, %2961, %2873, %2845, %2789, %2747, %2688, %2683, %2595, %1824, %1811, %1727
-  %.pn833.pn.pn = phi { ptr, i32 } [ %.pn833.pn, %2595 ], [ %.pn818.pn, %1824 ], [ %.pn815, %1811 ], [ %.pn813, %2688 ], [ %.pn811, %2747 ], [ %.pn807, %2683 ], [ %.pn805, %2789 ], [ %.pn803, %2845 ], [ %.pn798.pn.pn.pn, %2977 ], [ %.pn795, %2961 ], [ %.pn792.pn, %2873 ], [ %.pn790, %3037 ], [ %.pn7884629, %_ZNSt6vectorIdSaIdEED2Ev.exit1343 ], [ %.pn777.pn, %3414 ], [ %.pn762.pn, %3161 ], [ %.pn759, %3146 ], [ %.pn755.pn.pn, %4703 ], [ %.pn743.pn, %4722 ], [ %.pn737.pn, %3469 ], [ %.pn734, %3454 ], [ %.pn731.pn, %3441 ], [ %.pn725.pn.pn.pn.pn, %5912 ], [ %.pn713.pn, %4753 ], [ %.pn710, %4738 ], [ %.pn707.pn, %6110 ], [ %.pn699.pn, %5945 ], [ %.pn696, %5930 ], [ %.pn688.pn.pn.pn.pn.pn.pn, %6644 ], [ %.pn665.pn, %6143 ], [ %.pn662, %6128 ], [ %.pn658.pn.pn, %6772 ], [ %.pn644.pn, %6677 ], [ %.pn641, %6662 ], [ %.pn638.pn, %6804 ], [ %.pn633.pn, %6836 ], [ %.pn628.pn, %6868 ], [ %.pn615.pn.pn.pn.pn.pn.pn.pn.pn.pn, %7037 ], [ %.pn603.pn, %6899 ], [ %.pn600, %6884 ], [ %.pn589.pn.pn.pn.pn.pn.pn.pn.pn.pn, %7206 ], [ %.pn577.pn, %7068 ], [ %.pn574, %7053 ], [ %.pn568.pn.pn.pn.pn, %7326 ], [ %.pn556.pn, %7237 ], [ %.pn553, %7222 ], [ %.pn546.pn.pn.pn.pn.pn, %7450 ], [ %.pn534.pn, %7357 ], [ %.pn531, %7342 ], [ %.pn529, %7463 ], [ %.pn520.pn.pn.pn.pn.pn.pn.pn, %7651 ], [ %.pn506.pn, %7494 ], [ %.pn503, %7479 ], [ %.pn500.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2106 ], [ %.pn496.pn.pn, %1727 ], [ %1791, %1790 ], [ %lpad.loopexit2520, %.loopexit2518 ], [ %lpad.loopexit.split-lp2521, %.loopexit.split-lp2519 ]
+  %.pn833.pn.pn = phi { ptr, i32 } [ %.pn833.pn, %2595 ], [ %.pn818.pn, %1824 ], [ %.pn815, %1811 ], [ %.pn813, %2688 ], [ %.pn811, %2747 ], [ %.pn807, %2683 ], [ %.pn805, %2789 ], [ %.pn803, %2845 ], [ %.pn798.pn.pn.pn, %2977 ], [ %.pn795, %2961 ], [ %.pn792.pn, %2873 ], [ %.pn790, %3037 ], [ %.pn7885332, %_ZNSt6vectorIdSaIdEED2Ev.exit1343 ], [ %.pn777.pn, %3414 ], [ %.pn762.pn, %3161 ], [ %.pn759, %3146 ], [ %.pn755.pn.pn, %4703 ], [ %.pn743.pn, %4722 ], [ %.pn737.pn, %3469 ], [ %.pn734, %3454 ], [ %.pn731.pn, %3441 ], [ %.pn725.pn.pn.pn.pn, %5912 ], [ %.pn713.pn, %4753 ], [ %.pn710, %4738 ], [ %.pn707.pn, %6110 ], [ %.pn699.pn, %5945 ], [ %.pn696, %5930 ], [ %.pn688.pn.pn.pn.pn.pn.pn, %6644 ], [ %.pn665.pn, %6143 ], [ %.pn662, %6128 ], [ %.pn658.pn.pn, %6772 ], [ %.pn644.pn, %6677 ], [ %.pn641, %6662 ], [ %.pn638.pn, %6804 ], [ %.pn633.pn, %6836 ], [ %.pn628.pn, %6868 ], [ %.pn615.pn.pn.pn.pn.pn.pn.pn.pn.pn, %7037 ], [ %.pn603.pn, %6899 ], [ %.pn600, %6884 ], [ %.pn589.pn.pn.pn.pn.pn.pn.pn.pn.pn, %7206 ], [ %.pn577.pn, %7068 ], [ %.pn574, %7053 ], [ %.pn568.pn.pn.pn.pn, %7326 ], [ %.pn556.pn, %7237 ], [ %.pn553, %7222 ], [ %.pn546.pn.pn.pn.pn.pn, %7450 ], [ %.pn534.pn, %7357 ], [ %.pn531, %7342 ], [ %.pn529, %7463 ], [ %.pn520.pn.pn.pn.pn.pn.pn.pn, %7651 ], [ %.pn506.pn, %7494 ], [ %.pn503, %7479 ], [ %.pn500.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2106 ], [ %.pn496.pn.pn, %1727 ], [ %1791, %1790 ], [ %lpad.loopexit2520, %.loopexit2518 ], [ %lpad.loopexit.split-lp2521, %.loopexit.split-lp2519 ]
   %7702 = load ptr, ptr %117, align 8, !tbaa !18
   %7703 = icmp eq ptr %7702, %1482
   br i1 %7703, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2120, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2119
@@ -32187,7 +32187,7 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_14loadERKN4YAM
   %17 = load ptr, ptr %1, align 8, !tbaa !18
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = icmp eq ptr %17, %18
-  br i1 %19, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %19, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -32199,14 +32199,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %25 = icmp eq ptr %23, %24
   br i1 %25, label %29, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %16
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %16
   %26 = load ptr, ptr %4, align 8, !tbaa !18
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %28 = icmp eq ptr %26, %27
   br i1 %28, label %29, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-29:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %30 = phi ptr [ %26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+29:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %30 = phi ptr [ %26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !23
   %33 = icmp ult i64 %32, 16
@@ -32248,7 +32248,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %44, ptr %18, align 8, !tbaa !15
   br label %51
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %45 = load i64, ptr %18, align 8, !tbaa !15
   store ptr %26, ptr %1, align 8, !tbaa !18
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -33313,9 +33313,9 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_115CheckDuplic
   %.not.i.i.i.i.i = icmp eq i8 %34, 0
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  br i1 %.not.i.i.i.i.i, label %39, label %.thread11.i
+  br i1 %.not.i.i.i.i.i, label %39, label %.thread13.i
 
-.thread11.i:                                      ; preds = %32
+.thread13.i:                                      ; preds = %32
   %37 = load i32, ptr %33, align 4, !tbaa !16, !noalias !422
   %38 = add nsw i32 %37, 1
   store i32 %38, ptr %33, align 4, !tbaa !16, !noalias !422
@@ -33333,7 +33333,7 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_115CheckDuplic
   store ptr %31, ptr %36, align 8, !tbaa !3, !alias.scope !422
   br i1 %41, label %45, label %42
 
-42:                                               ; preds = %39, %.thread11.i
+42:                                               ; preds = %39, %.thread13.i
   %43 = load i32, ptr %33, align 4, !tbaa !16, !noalias !422
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %33, align 4, !tbaa !16, !noalias !422
@@ -33448,9 +33448,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %93 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !431
   %.not.i.i.i.i.i33 = icmp eq i8 %93, 0
-  br i1 %.not.i.i.i.i.i33, label %96, label %.thread11.i34
+  br i1 %.not.i.i.i.i.i33, label %96, label %.thread13.i34
 
-.thread11.i34:                                    ; preds = %91
+.thread13.i34:                                    ; preds = %91
   %94 = load i32, ptr %92, align 4, !tbaa !16, !noalias !431
   %95 = add nsw i32 %94, 1
   store i32 %95, ptr %92, align 4, !tbaa !16, !noalias !431
@@ -33472,11 +33472,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %92, align 4, !tbaa !16, !noalias !431
   br label %99
 
-99:                                               ; preds = %._crit_edge, %.thread11.i34
-  %100 = phi i32 [ %.pre, %._crit_edge ], [ %95, %.thread11.i34 ]
-  %.sroa.993.2 = phi ptr [ %.sroa.993.0.copyload95, %._crit_edge ], [ %.sroa.993.0.copyload, %.thread11.i34 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload99, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i34 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload87, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i34 ]
+99:                                               ; preds = %._crit_edge, %.thread13.i34
+  %100 = phi i32 [ %.pre, %._crit_edge ], [ %95, %.thread13.i34 ]
+  %.sroa.993.2 = phi ptr [ %.sroa.993.0.copyload95, %._crit_edge ], [ %.sroa.993.0.copyload, %.thread13.i34 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload99, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i34 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload87, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i34 ]
   %101 = add nsw i32 %100, 1
   store i32 %101, ptr %92, align 4, !tbaa !16, !noalias !431
   br label %105
@@ -34203,9 +34203,9 @@ define linkonce_odr hidden void @_ZNK4YAML4Node5beginEv(ptr dead_on_unwind noali
   %.not.i.i.i.i = icmp eq i8 %20, 0
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br i1 %.not.i.i.i.i, label %25, label %.thread11
+  br i1 %.not.i.i.i.i, label %25, label %.thread13
 
-.thread11:                                        ; preds = %18
+.thread13:                                        ; preds = %18
   %23 = load i32, ptr %19, align 4, !tbaa !16
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %19, align 4, !tbaa !16
@@ -34223,7 +34223,7 @@ define linkonce_odr hidden void @_ZNK4YAML4Node5beginEv(ptr dead_on_unwind noali
   store ptr %17, ptr %22, align 8, !tbaa !3
   br i1 %27, label %31, label %28
 
-28:                                               ; preds = %.thread11, %25
+28:                                               ; preds = %.thread13, %25
   %29 = load i32, ptr %19, align 4, !tbaa !16
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %19, align 4, !tbaa !16
@@ -36179,9 +36179,9 @@ _ZNK4YAML4Node3TagB5cxx11Ev.exit:                 ; preds = %40, %44
   %.not.i.i.i.i.i = icmp eq i8 %64, 0
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  br i1 %.not.i.i.i.i.i, label %69, label %.thread11.i
+  br i1 %.not.i.i.i.i.i, label %69, label %.thread13.i
 
-.thread11.i:                                      ; preds = %62
+.thread13.i:                                      ; preds = %62
   %67 = load i32, ptr %63, align 4, !tbaa !16, !noalias !467
   %68 = add nsw i32 %67, 1
   store i32 %68, ptr %63, align 4, !tbaa !16, !noalias !467
@@ -36199,7 +36199,7 @@ _ZNK4YAML4Node3TagB5cxx11Ev.exit:                 ; preds = %40, %44
   store ptr %61, ptr %66, align 8, !tbaa !3, !alias.scope !467
   br i1 %71, label %75, label %72
 
-72:                                               ; preds = %69, %.thread11.i
+72:                                               ; preds = %69, %.thread13.i
   %73 = load i32, ptr %63, align 4, !tbaa !16, !noalias !467
   %74 = add nsw i32 %73, 1
   store i32 %74, ptr %63, align 4, !tbaa !16, !noalias !467
@@ -36381,9 +36381,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %187 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %188 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !476
   %.not.i.i.i.i.i106 = icmp eq i8 %188, 0
-  br i1 %.not.i.i.i.i.i106, label %191, label %.thread11.i107
+  br i1 %.not.i.i.i.i.i106, label %191, label %.thread13.i107
 
-.thread11.i107:                                   ; preds = %186
+.thread13.i107:                                   ; preds = %186
   %189 = load i32, ptr %187, align 4, !tbaa !16, !noalias !476
   %190 = add nsw i32 %189, 1
   store i32 %190, ptr %187, align 4, !tbaa !16, !noalias !476
@@ -36405,11 +36405,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %187, align 4, !tbaa !16, !noalias !476
   br label %194
 
-194:                                              ; preds = %._crit_edge, %.thread11.i107
-  %195 = phi i32 [ %.pre, %._crit_edge ], [ %190, %.thread11.i107 ]
-  %.sroa.9384.2 = phi ptr [ %.sroa.9384.0.copyload386, %._crit_edge ], [ %.sroa.9384.0.copyload, %.thread11.i107 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload390, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i107 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload378, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i107 ]
+194:                                              ; preds = %._crit_edge, %.thread13.i107
+  %195 = phi i32 [ %.pre, %._crit_edge ], [ %190, %.thread13.i107 ]
+  %.sroa.9384.2 = phi ptr [ %.sroa.9384.0.copyload386, %._crit_edge ], [ %.sroa.9384.0.copyload, %.thread13.i107 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload390, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i107 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload378, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i107 ]
   %196 = add nsw i32 %195, 1
   store i32 %196, ptr %187, align 4, !tbaa !16, !noalias !476
   br label %200
@@ -38762,9 +38762,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   %.not.i.i.i.i.i = icmp eq i8 %146, 0
   %147 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %148 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  br i1 %.not.i.i.i.i.i, label %151, label %.thread11.i
+  br i1 %.not.i.i.i.i.i, label %151, label %.thread13.i
 
-.thread11.i:                                      ; preds = %144
+.thread13.i:                                      ; preds = %144
   %149 = load i32, ptr %145, align 4, !tbaa !16, !noalias !509
   %150 = add nsw i32 %149, 1
   store i32 %150, ptr %145, align 4, !tbaa !16, !noalias !509
@@ -38782,7 +38782,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   store ptr %143, ptr %148, align 8, !tbaa !3, !alias.scope !509
   br i1 %153, label %157, label %154
 
-154:                                              ; preds = %151, %.thread11.i
+154:                                              ; preds = %151, %.thread13.i
   %155 = load i32, ptr %145, align 4, !tbaa !16, !noalias !509
   %156 = add nsw i32 %155, 1
   store i32 %156, ptr %145, align 4, !tbaa !16, !noalias !509
@@ -38985,9 +38985,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %292 = getelementptr inbounds nuw i8, ptr %290, i64 8
   %293 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !518
   %.not.i.i.i.i.i178 = icmp eq i8 %293, 0
-  br i1 %.not.i.i.i.i.i178, label %296, label %.thread11.i179
+  br i1 %.not.i.i.i.i.i178, label %296, label %.thread13.i179
 
-.thread11.i179:                                   ; preds = %291
+.thread13.i179:                                   ; preds = %291
   %294 = load i32, ptr %292, align 4, !tbaa !16, !noalias !518
   %295 = add nsw i32 %294, 1
   store i32 %295, ptr %292, align 4, !tbaa !16, !noalias !518
@@ -39009,11 +39009,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %292, align 4, !tbaa !16, !noalias !518
   br label %299
 
-299:                                              ; preds = %._crit_edge417, %.thread11.i179
-  %300 = phi i32 [ %.pre, %._crit_edge417 ], [ %295, %.thread11.i179 ]
-  %.sroa.9398.2 = phi ptr [ %.sroa.9398.0.copyload400, %._crit_edge417 ], [ %.sroa.9398.0.copyload, %.thread11.i179 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload404, %._crit_edge417 ], [ %.sroa.12.0.copyload, %.thread11.i179 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload392, %._crit_edge417 ], [ %.sroa.0.0.copyload, %.thread11.i179 ]
+299:                                              ; preds = %._crit_edge417, %.thread13.i179
+  %300 = phi i32 [ %.pre, %._crit_edge417 ], [ %295, %.thread13.i179 ]
+  %.sroa.9398.2 = phi ptr [ %.sroa.9398.0.copyload400, %._crit_edge417 ], [ %.sroa.9398.0.copyload, %.thread13.i179 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload404, %._crit_edge417 ], [ %.sroa.12.0.copyload, %.thread13.i179 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload392, %._crit_edge417 ], [ %.sroa.0.0.copyload, %.thread13.i179 ]
   %301 = add nsw i32 %300, 1
   store i32 %301, ptr %292, align 4, !tbaa !16, !noalias !518
   br label %305
@@ -40823,7 +40823,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit315: ; preds = %_Z
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   invoke void @_ZNK4YAML6detail13iterator_baseIKNS0_14iterator_valueEEptEv(ptr dead_on_unwind nonnull writable sret(%"struct.YAML::detail::iterator_base<const YAML::detail::iterator_value>::proxy") align 8 %33, ptr noundef nonnull align 8 dereferenceable(48) %13)
-          to label %987 unwind label %.thread425
+          to label %987 unwind label %.thread524
 
 987:                                              ; preds = %986
   invoke fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt6vectorIfSaIfEE(ptr noundef nonnull align 8 dereferenceable(64) %219, ptr noundef nonnull align 8 dereferenceable(24) %32)
@@ -40847,7 +40847,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit315: ; preds = %_Z
   invoke void @_ZN19OpenColorIO_v2_5dev10ColorSpace17setAllocationVarsEiPKf(ptr noundef nonnull align 8 dereferenceable(8) %993, i32 noundef %998, ptr noundef nonnull %989)
           to label %.thread372 unwind label %.thread
 
-.thread425:                                       ; preds = %986
+.thread524:                                       ; preds = %986
   %999 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
@@ -40888,7 +40888,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1001, %.thread372
   br i1 %.not.i.i.i317, label %_ZNSt6vectorIfSaIfEED2Ev.exit318, label %1007
 
 1007:                                             ; preds = %.thread, %1005
-  %.pn139423 = phi { ptr, i32 } [ %1000, %.thread ], [ %1006, %1005 ]
+  %.pn139522 = phi { ptr, i32 } [ %1000, %.thread ], [ %1006, %1005 ]
   %1008 = phi ptr [ %989, %.thread ], [ %.pre418.pre, %1005 ]
   %1009 = load ptr, ptr %221, align 8, !tbaa !534
   %1010 = ptrtoint ptr %1009 to i64
@@ -40897,8 +40897,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1001, %.thread372
   call void @_ZdlPvm(ptr noundef nonnull %1008, i64 noundef %1012) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit318
 
-_ZNSt6vectorIfSaIfEED2Ev.exit318:                 ; preds = %.thread425, %1005, %1007
-  %.pn139424 = phi { ptr, i32 } [ %1006, %1005 ], [ %.pn139423, %1007 ], [ %999, %.thread425 ]
+_ZNSt6vectorIfSaIfEED2Ev.exit318:                 ; preds = %.thread524, %1005, %1007
+  %.pn139523 = phi { ptr, i32 } [ %1006, %1005 ], [ %.pn139522, %1007 ], [ %999, %.thread524 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %1232
 
@@ -41558,7 +41558,7 @@ _ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.backedge
 
 1232:                                             ; preds = %822, %823, %1204, %1196, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit350, %1152, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341, %1104, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit332, %1060, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit324, %_ZNSt6vectorIfSaIfEED2Ev.exit318, %982, %969, %956, %866, %766, %725, %683, %682, %623, %568, %527
-  %.pn164.pn = phi { ptr, i32 } [ %.pn164, %568 ], [ %.pn162, %623 ], [ %684, %683 ], [ %.pn160, %682 ], [ %.pn158, %725 ], [ %.pn156, %766 ], [ %.pn150, %866 ], [ %.pn147.pn, %956 ], [ %.pn143, %969 ], [ %.pn141, %982 ], [ %.pn139424, %_ZNSt6vectorIfSaIfEED2Ev.exit318 ], [ %.pn135, %1060 ], [ %.pn131, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit324 ], [ %.pn129, %1104 ], [ %.pn125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit332 ], [ %.pn123, %1152 ], [ %.pn119, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341 ], [ %.pn117, %1196 ], [ %.pn113, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit350 ], [ %.pn111, %1204 ], [ %.pn107.pn.pn, %527 ], [ %824, %823 ], [ %.pn152, %822 ]
+  %.pn164.pn = phi { ptr, i32 } [ %.pn164, %568 ], [ %.pn162, %623 ], [ %684, %683 ], [ %.pn160, %682 ], [ %.pn158, %725 ], [ %.pn156, %766 ], [ %.pn150, %866 ], [ %.pn147.pn, %956 ], [ %.pn143, %969 ], [ %.pn141, %982 ], [ %.pn139523, %_ZNSt6vectorIfSaIfEED2Ev.exit318 ], [ %.pn135, %1060 ], [ %.pn131, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit324 ], [ %.pn129, %1104 ], [ %.pn125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit332 ], [ %.pn123, %1152 ], [ %.pn119, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341 ], [ %.pn117, %1196 ], [ %.pn113, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit350 ], [ %.pn111, %1204 ], [ %.pn107.pn.pn, %527 ], [ %824, %823 ], [ %.pn152, %822 ]
   %1233 = load ptr, ptr %14, align 8, !tbaa !18
   %1234 = icmp eq ptr %1233, %280
   br i1 %1234, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i359, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i358
@@ -41842,9 +41842,9 @@ _ZNK4YAML4Node3TagB5cxx11Ev.exit:                 ; preds = %35, %39
   %.not.i.i.i.i.i = icmp eq i8 %59, 0
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  br i1 %.not.i.i.i.i.i, label %64, label %.thread11.i
+  br i1 %.not.i.i.i.i.i, label %64, label %.thread13.i
 
-.thread11.i:                                      ; preds = %57
+.thread13.i:                                      ; preds = %57
   %62 = load i32, ptr %58, align 4, !tbaa !16, !noalias !539
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %58, align 4, !tbaa !16, !noalias !539
@@ -41862,7 +41862,7 @@ _ZNK4YAML4Node3TagB5cxx11Ev.exit:                 ; preds = %35, %39
   store ptr %56, ptr %61, align 8, !tbaa !3, !alias.scope !539
   br i1 %66, label %70, label %67
 
-67:                                               ; preds = %64, %.thread11.i
+67:                                               ; preds = %64, %.thread13.i
   %68 = load i32, ptr %58, align 4, !tbaa !16, !noalias !539
   %69 = add nsw i32 %68, 1
   store i32 %69, ptr %58, align 4, !tbaa !16, !noalias !539
@@ -42035,9 +42035,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %175 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %176 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !548
   %.not.i.i.i.i.i76 = icmp eq i8 %176, 0
-  br i1 %.not.i.i.i.i.i76, label %179, label %.thread11.i77
+  br i1 %.not.i.i.i.i.i76, label %179, label %.thread13.i77
 
-.thread11.i77:                                    ; preds = %174
+.thread13.i77:                                    ; preds = %174
   %177 = load i32, ptr %175, align 4, !tbaa !16, !noalias !548
   %178 = add nsw i32 %177, 1
   store i32 %178, ptr %175, align 4, !tbaa !16, !noalias !548
@@ -42059,11 +42059,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %175, align 4, !tbaa !16, !noalias !548
   br label %182
 
-182:                                              ; preds = %._crit_edge, %.thread11.i77
-  %183 = phi i32 [ %.pre, %._crit_edge ], [ %178, %.thread11.i77 ]
-  %.sroa.9234.2 = phi ptr [ %.sroa.9234.0.copyload236, %._crit_edge ], [ %.sroa.9234.0.copyload, %.thread11.i77 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload240, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i77 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload228, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i77 ]
+182:                                              ; preds = %._crit_edge, %.thread13.i77
+  %183 = phi i32 [ %.pre, %._crit_edge ], [ %178, %.thread13.i77 ]
+  %.sroa.9234.2 = phi ptr [ %.sroa.9234.0.copyload236, %._crit_edge ], [ %.sroa.9234.0.copyload, %.thread13.i77 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload240, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i77 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload228, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i77 ]
   %184 = add nsw i32 %183, 1
   store i32 %184, ptr %175, align 4, !tbaa !16, !noalias !548
   br label %188
@@ -44066,9 +44066,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZN
   %.not.i.i.i.i.i = icmp eq i8 %56, 0
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  br i1 %.not.i.i.i.i.i, label %61, label %.thread11.i
+  br i1 %.not.i.i.i.i.i, label %61, label %.thread13.i
 
-.thread11.i:                                      ; preds = %54
+.thread13.i:                                      ; preds = %54
   %59 = load i32, ptr %55, align 4, !tbaa !16, !noalias !560
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %55, align 4, !tbaa !16, !noalias !560
@@ -44086,7 +44086,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZN
   store ptr %53, ptr %58, align 8, !tbaa !3, !alias.scope !560
   br i1 %63, label %67, label %64
 
-64:                                               ; preds = %61, %.thread11.i
+64:                                               ; preds = %61, %.thread13.i
   %65 = load i32, ptr %55, align 4, !tbaa !16, !noalias !560
   %66 = add nsw i32 %65, 1
   store i32 %66, ptr %55, align 4, !tbaa !16, !noalias !560
@@ -44210,9 +44210,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %127 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !563
   %.not.i.i.i.i.i66 = icmp eq i8 %127, 0
-  br i1 %.not.i.i.i.i.i66, label %130, label %.thread11.i67
+  br i1 %.not.i.i.i.i.i66, label %130, label %.thread13.i67
 
-.thread11.i67:                                    ; preds = %125
+.thread13.i67:                                    ; preds = %125
   %128 = load i32, ptr %126, align 4, !tbaa !16, !noalias !563
   %129 = add nsw i32 %128, 1
   store i32 %129, ptr %126, align 4, !tbaa !16, !noalias !563
@@ -44234,11 +44234,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %126, align 4, !tbaa !16, !noalias !563
   br label %133
 
-133:                                              ; preds = %._crit_edge, %.thread11.i67
-  %134 = phi i32 [ %.pre, %._crit_edge ], [ %129, %.thread11.i67 ]
-  %.sroa.9173.2 = phi ptr [ %.sroa.9173.0.copyload175, %._crit_edge ], [ %.sroa.9173.0.copyload, %.thread11.i67 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload179, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i67 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload167, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i67 ]
+133:                                              ; preds = %._crit_edge, %.thread13.i67
+  %134 = phi i32 [ %.pre, %._crit_edge ], [ %129, %.thread13.i67 ]
+  %.sroa.9173.2 = phi ptr [ %.sroa.9173.0.copyload175, %._crit_edge ], [ %.sroa.9173.0.copyload, %.thread13.i67 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload179, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i67 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload167, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i67 ]
   %135 = add nsw i32 %134, 1
   store i32 %135, ptr %126, align 4, !tbaa !16, !noalias !563
   br label %139
@@ -45297,9 +45297,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   %.not.i.i.i.i.i = icmp eq i8 %125, 0
   %126 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %127 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  br i1 %.not.i.i.i.i.i, label %130, label %.thread11.i
+  br i1 %.not.i.i.i.i.i, label %130, label %.thread13.i
 
-.thread11.i:                                      ; preds = %123
+.thread13.i:                                      ; preds = %123
   %128 = load i32, ptr %124, align 4, !tbaa !16, !noalias !582
   %129 = add nsw i32 %128, 1
   store i32 %129, ptr %124, align 4, !tbaa !16, !noalias !582
@@ -45317,7 +45317,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   store ptr %122, ptr %127, align 8, !tbaa !3, !alias.scope !582
   br i1 %132, label %136, label %133
 
-133:                                              ; preds = %130, %.thread11.i
+133:                                              ; preds = %130, %.thread13.i
   %134 = load i32, ptr %124, align 4, !tbaa !16, !noalias !582
   %135 = add nsw i32 %134, 1
   store i32 %135, ptr %124, align 4, !tbaa !16, !noalias !582
@@ -45516,9 +45516,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %267 = getelementptr inbounds nuw i8, ptr %265, i64 8
   %268 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !591
   %.not.i.i.i.i.i114 = icmp eq i8 %268, 0
-  br i1 %.not.i.i.i.i.i114, label %271, label %.thread11.i115
+  br i1 %.not.i.i.i.i.i114, label %271, label %.thread13.i115
 
-.thread11.i115:                                   ; preds = %266
+.thread13.i115:                                   ; preds = %266
   %269 = load i32, ptr %267, align 4, !tbaa !16, !noalias !591
   %270 = add nsw i32 %269, 1
   store i32 %270, ptr %267, align 4, !tbaa !16, !noalias !591
@@ -45540,11 +45540,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %267, align 4, !tbaa !16, !noalias !591
   br label %274
 
-274:                                              ; preds = %._crit_edge366, %.thread11.i115
-  %275 = phi i32 [ %.pre, %._crit_edge366 ], [ %270, %.thread11.i115 ]
-  %.sroa.9347.2 = phi ptr [ %.sroa.9347.0.copyload349, %._crit_edge366 ], [ %.sroa.9347.0.copyload, %.thread11.i115 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload353, %._crit_edge366 ], [ %.sroa.12.0.copyload, %.thread11.i115 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload341, %._crit_edge366 ], [ %.sroa.0.0.copyload, %.thread11.i115 ]
+274:                                              ; preds = %._crit_edge366, %.thread13.i115
+  %275 = phi i32 [ %.pre, %._crit_edge366 ], [ %270, %.thread13.i115 ]
+  %.sroa.9347.2 = phi ptr [ %.sroa.9347.0.copyload349, %._crit_edge366 ], [ %.sroa.9347.0.copyload, %.thread13.i115 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload353, %._crit_edge366 ], [ %.sroa.12.0.copyload, %.thread13.i115 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload341, %._crit_edge366 ], [ %.sroa.0.0.copyload, %.thread13.i115 ]
   %276 = add nsw i32 %275, 1
   store i32 %276, ptr %267, align 4, !tbaa !16, !noalias !591
   br label %280
@@ -48418,9 +48418,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   %.not.i.i.i.i.i = icmp eq i8 %122, 0
   %123 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %124 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  br i1 %.not.i.i.i.i.i, label %127, label %.thread11.i
+  br i1 %.not.i.i.i.i.i, label %127, label %.thread13.i
 
-.thread11.i:                                      ; preds = %120
+.thread13.i:                                      ; preds = %120
   %125 = load i32, ptr %121, align 4, !tbaa !16, !noalias !610
   %126 = add nsw i32 %125, 1
   store i32 %126, ptr %121, align 4, !tbaa !16, !noalias !610
@@ -48438,7 +48438,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   store ptr %119, ptr %124, align 8, !tbaa !3, !alias.scope !610
   br i1 %129, label %133, label %130
 
-130:                                              ; preds = %127, %.thread11.i
+130:                                              ; preds = %127, %.thread13.i
   %131 = load i32, ptr %121, align 4, !tbaa !16, !noalias !610
   %132 = add nsw i32 %131, 1
   store i32 %132, ptr %121, align 4, !tbaa !16, !noalias !610
@@ -48629,9 +48629,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %256 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %257 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !619
   %.not.i.i.i.i.i105 = icmp eq i8 %257, 0
-  br i1 %.not.i.i.i.i.i105, label %260, label %.thread11.i106
+  br i1 %.not.i.i.i.i.i105, label %260, label %.thread13.i106
 
-.thread11.i106:                                   ; preds = %255
+.thread13.i106:                                   ; preds = %255
   %258 = load i32, ptr %256, align 4, !tbaa !16, !noalias !619
   %259 = add nsw i32 %258, 1
   store i32 %259, ptr %256, align 4, !tbaa !16, !noalias !619
@@ -48653,11 +48653,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %256, align 4, !tbaa !16, !noalias !619
   br label %263
 
-263:                                              ; preds = %._crit_edge316, %.thread11.i106
-  %264 = phi i32 [ %.pre, %._crit_edge316 ], [ %259, %.thread11.i106 ]
-  %.sroa.9297.2 = phi ptr [ %.sroa.9297.0.copyload299, %._crit_edge316 ], [ %.sroa.9297.0.copyload, %.thread11.i106 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload303, %._crit_edge316 ], [ %.sroa.12.0.copyload, %.thread11.i106 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload291, %._crit_edge316 ], [ %.sroa.0.0.copyload, %.thread11.i106 ]
+263:                                              ; preds = %._crit_edge316, %.thread13.i106
+  %264 = phi i32 [ %.pre, %._crit_edge316 ], [ %259, %.thread13.i106 ]
+  %.sroa.9297.2 = phi ptr [ %.sroa.9297.0.copyload299, %._crit_edge316 ], [ %.sroa.9297.0.copyload, %.thread13.i106 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload303, %._crit_edge316 ], [ %.sroa.12.0.copyload, %.thread13.i106 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload291, %._crit_edge316 ], [ %.sroa.0.0.copyload, %.thread13.i106 ]
   %265 = add nsw i32 %264, 1
   store i32 %265, ptr %256, align 4, !tbaa !16, !noalias !619
   br label %269
@@ -56903,9 +56903,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   %.not.i.i.i.i.i20 = icmp eq i8 %56, 0
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  br i1 %.not.i.i.i.i.i20, label %61, label %.thread11.i
+  br i1 %.not.i.i.i.i.i20, label %61, label %.thread13.i
 
-.thread11.i:                                      ; preds = %54
+.thread13.i:                                      ; preds = %54
   %59 = load i32, ptr %55, align 4, !tbaa !16, !noalias !734
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %55, align 4, !tbaa !16, !noalias !734
@@ -56923,7 +56923,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   store ptr %53, ptr %58, align 8, !tbaa !3, !alias.scope !734
   br i1 %63, label %67, label %64
 
-64:                                               ; preds = %61, %.thread11.i
+64:                                               ; preds = %61, %.thread13.i
   %65 = load i32, ptr %55, align 4, !tbaa !16, !noalias !734
   %66 = add nsw i32 %65, 1
   store i32 %66, ptr %55, align 4, !tbaa !16, !noalias !734
@@ -57030,9 +57030,9 @@ _ZNK4YAML4Node5beginEv.exit:                      ; preds = %43, %.thread.i, %70
   %.not.i.i.i.i.i23 = icmp eq i8 %108, 0
   %109 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  br i1 %.not.i.i.i.i.i23, label %113, label %.thread11.i24
+  br i1 %.not.i.i.i.i.i23, label %113, label %.thread13.i24
 
-.thread11.i24:                                    ; preds = %106
+.thread13.i24:                                    ; preds = %106
   %111 = load i32, ptr %107, align 4, !tbaa !16, !noalias !743
   %112 = add nsw i32 %111, 1
   store i32 %112, ptr %107, align 4, !tbaa !16, !noalias !743
@@ -57054,8 +57054,8 @@ _ZNK4YAML4Node5beginEv.exit:                      ; preds = %43, %.thread.i, %70
   %.pre52 = load i32, ptr %107, align 4, !tbaa !16, !noalias !743
   br label %116
 
-116:                                              ; preds = %._crit_edge, %.thread11.i24
-  %117 = phi i32 [ %.pre52, %._crit_edge ], [ %112, %.thread11.i24 ]
+116:                                              ; preds = %._crit_edge, %.thread13.i24
+  %117 = phi i32 [ %.pre52, %._crit_edge ], [ %112, %.thread13.i24 ]
   %118 = add nsw i32 %117, 1
   store i32 %118, ptr %107, align 4, !tbaa !16, !noalias !743
   br label %125
@@ -57969,9 +57969,9 @@ _ZNK4YAML4Node10IsSequenceEv.exit:                ; preds = %17
   %.not.i.i.i.i.i = icmp eq i8 %40, 0
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  br i1 %.not.i.i.i.i.i, label %45, label %.thread11.i
+  br i1 %.not.i.i.i.i.i, label %45, label %.thread13.i
 
-.thread11.i:                                      ; preds = %38
+.thread13.i:                                      ; preds = %38
   %43 = load i32, ptr %39, align 4, !tbaa !16, !noalias !759
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %39, align 4, !tbaa !16, !noalias !759
@@ -57989,7 +57989,7 @@ _ZNK4YAML4Node10IsSequenceEv.exit:                ; preds = %17
   store ptr %37, ptr %42, align 8, !tbaa !3, !alias.scope !759
   br i1 %47, label %51, label %48
 
-48:                                               ; preds = %45, %.thread11.i
+48:                                               ; preds = %45, %.thread13.i
   %49 = load i32, ptr %39, align 4, !tbaa !16, !noalias !759
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %39, align 4, !tbaa !16, !noalias !759
@@ -58088,9 +58088,9 @@ _ZNK4YAML4Node5beginEv.exit:                      ; preds = %53, %60, %_ZN9__gnu
   %.not.i.i.i.i.i20 = icmp eq i8 %89, 0
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %91 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  br i1 %.not.i.i.i.i.i20, label %94, label %.thread11.i21
+  br i1 %.not.i.i.i.i.i20, label %94, label %.thread13.i21
 
-.thread11.i21:                                    ; preds = %87
+.thread13.i21:                                    ; preds = %87
   %92 = load i32, ptr %88, align 4, !tbaa !16, !noalias !762
   %93 = add nsw i32 %92, 1
   store i32 %93, ptr %88, align 4, !tbaa !16, !noalias !762
@@ -58112,8 +58112,8 @@ _ZNK4YAML4Node5beginEv.exit:                      ; preds = %53, %60, %_ZN9__gnu
   %.pre50 = load i32, ptr %88, align 4, !tbaa !16, !noalias !762
   br label %97
 
-97:                                               ; preds = %._crit_edge, %.thread11.i21
-  %98 = phi i32 [ %.pre50, %._crit_edge ], [ %93, %.thread11.i21 ]
+97:                                               ; preds = %._crit_edge, %.thread13.i21
+  %98 = phi i32 [ %.pre50, %._crit_edge ], [ %93, %.thread13.i21 ]
   %99 = add nsw i32 %98, 1
   store i32 %99, ptr %88, align 4, !tbaa !16, !noalias !762
   br label %106
@@ -60258,9 +60258,9 @@ common.resume:                                    ; preds = %368, %_ZNSt7__cxx11
   %.not.i.i.i.i.i = icmp eq i8 %42, 0
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  br i1 %.not.i.i.i.i.i, label %47, label %.thread11.i
+  br i1 %.not.i.i.i.i.i, label %47, label %.thread13.i
 
-.thread11.i:                                      ; preds = %40
+.thread13.i:                                      ; preds = %40
   %45 = load i32, ptr %41, align 4, !tbaa !16, !noalias !795
   %46 = add nsw i32 %45, 1
   store i32 %46, ptr %41, align 4, !tbaa !16, !noalias !795
@@ -60278,7 +60278,7 @@ common.resume:                                    ; preds = %368, %_ZNSt7__cxx11
   store ptr %39, ptr %44, align 8, !tbaa !3, !alias.scope !795
   br i1 %49, label %53, label %50
 
-50:                                               ; preds = %47, %.thread11.i
+50:                                               ; preds = %47, %.thread13.i
   %51 = load i32, ptr %41, align 4, !tbaa !16, !noalias !795
   %52 = add nsw i32 %51, 1
   store i32 %52, ptr %41, align 4, !tbaa !16, !noalias !795
@@ -60395,9 +60395,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %108 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !798
   %.not.i.i.i.i.i32 = icmp eq i8 %108, 0
-  br i1 %.not.i.i.i.i.i32, label %111, label %.thread11.i33
+  br i1 %.not.i.i.i.i.i32, label %111, label %.thread13.i33
 
-.thread11.i33:                                    ; preds = %106
+.thread13.i33:                                    ; preds = %106
   %109 = load i32, ptr %107, align 4, !tbaa !16, !noalias !798
   %110 = add nsw i32 %109, 1
   store i32 %110, ptr %107, align 4, !tbaa !16, !noalias !798
@@ -60419,11 +60419,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %107, align 4, !tbaa !16, !noalias !798
   br label %114
 
-114:                                              ; preds = %._crit_edge, %.thread11.i33
-  %115 = phi i32 [ %.pre, %._crit_edge ], [ %110, %.thread11.i33 ]
-  %.sroa.9102.2 = phi ptr [ %.sroa.9102.0.copyload104, %._crit_edge ], [ %.sroa.9102.0.copyload, %.thread11.i33 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload108, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i33 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload96, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i33 ]
+114:                                              ; preds = %._crit_edge, %.thread13.i33
+  %115 = phi i32 [ %.pre, %._crit_edge ], [ %110, %.thread13.i33 ]
+  %.sroa.9102.2 = phi ptr [ %.sroa.9102.0.copyload104, %._crit_edge ], [ %.sroa.9102.0.copyload, %.thread13.i33 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload108, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i33 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload96, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i33 ]
   %116 = add nsw i32 %115, 1
   store i32 %116, ptr %107, align 4, !tbaa !16, !noalias !798
   br label %120
@@ -63260,9 +63260,9 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19AllocationTransformELN9__gnu_cxx12_L
   %.not.i.i.i.i.i56.i = icmp eq i8 %244, 0
   %245 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %246 = getelementptr inbounds nuw i8, ptr %97, i64 40
-  br i1 %.not.i.i.i.i.i56.i, label %249, label %.thread11.i.i
+  br i1 %.not.i.i.i.i.i56.i, label %249, label %.thread13.i.i
 
-.thread11.i.i:                                    ; preds = %242
+.thread13.i.i:                                    ; preds = %242
   %247 = load i32, ptr %243, align 4, !tbaa !16, !noalias !864
   %248 = add nsw i32 %247, 1
   store i32 %248, ptr %243, align 4, !tbaa !16, !noalias !864
@@ -63280,7 +63280,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19AllocationTransformELN9__gnu_cxx12_L
   store ptr %241, ptr %246, align 8, !tbaa !3, !alias.scope !864
   br i1 %251, label %255, label %252
 
-252:                                              ; preds = %249, %.thread11.i.i
+252:                                              ; preds = %249, %.thread13.i.i
   %253 = load i32, ptr %243, align 4, !tbaa !16, !noalias !864
   %254 = add nsw i32 %253, 1
   store i32 %254, ptr %243, align 4, !tbaa !16, !noalias !864
@@ -63433,9 +63433,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i: ; preds = %_Z
   %344 = getelementptr inbounds nuw i8, ptr %342, i64 8
   %345 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !873
   %.not.i.i.i.i.i59.i = icmp eq i8 %345, 0
-  br i1 %.not.i.i.i.i.i59.i, label %348, label %.thread11.i60.i
+  br i1 %.not.i.i.i.i.i59.i, label %348, label %.thread13.i60.i
 
-.thread11.i60.i:                                  ; preds = %343
+.thread13.i60.i:                                  ; preds = %343
   %346 = load i32, ptr %344, align 4, !tbaa !16, !noalias !873
   %347 = add nsw i32 %346, 1
   store i32 %347, ptr %344, align 4, !tbaa !16, !noalias !873
@@ -63457,11 +63457,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i: ; preds = %_Z
   %.pre.i = load i32, ptr %344, align 4, !tbaa !16, !noalias !873
   br label %351
 
-351:                                              ; preds = %._crit_edge.i, %.thread11.i60.i
-  %352 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %347, %.thread11.i60.i ]
-  %.sroa.9161.2.i = phi ptr [ %.sroa.9161.0.copyload163.i, %._crit_edge.i ], [ %.sroa.9161.0.copyload.i, %.thread11.i60.i ]
-  %.sroa.12.2.i = phi ptr [ %.sroa.12.0.copyload167.i, %._crit_edge.i ], [ %.sroa.12.0.copyload.i, %.thread11.i60.i ]
-  %.sroa.0.1.i = phi i32 [ %.sroa.0.0.copyload155.i, %._crit_edge.i ], [ %.sroa.0.0.copyload.i, %.thread11.i60.i ]
+351:                                              ; preds = %._crit_edge.i, %.thread13.i60.i
+  %352 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %347, %.thread13.i60.i ]
+  %.sroa.9161.2.i = phi ptr [ %.sroa.9161.0.copyload163.i, %._crit_edge.i ], [ %.sroa.9161.0.copyload.i, %.thread13.i60.i ]
+  %.sroa.12.2.i = phi ptr [ %.sroa.12.0.copyload167.i, %._crit_edge.i ], [ %.sroa.12.0.copyload.i, %.thread13.i60.i ]
+  %.sroa.0.1.i = phi i32 [ %.sroa.0.0.copyload155.i, %._crit_edge.i ], [ %.sroa.0.0.copyload.i, %.thread13.i60.i ]
   %353 = add nsw i32 %352, 1
   store i32 %353, ptr %344, align 4, !tbaa !16, !noalias !873
   br label %357
@@ -64186,7 +64186,7 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit108.i: ; pr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %103, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %104)
   invoke void @_ZNK4YAML6detail13iterator_baseIKNS0_14iterator_valueEEptEv(ptr dead_on_unwind nonnull writable sret(%"struct.YAML::detail::iterator_base<const YAML::detail::iterator_value>::proxy") align 8 %104, ptr noundef nonnull align 8 dereferenceable(48) %97)
-          to label %634 unwind label %.thread187.i
+          to label %634 unwind label %.thread235.i
 
 634:                                              ; preds = %633
   invoke fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt6vectorIfSaIfEE(ptr noundef nonnull align 8 dereferenceable(64) %316, ptr noundef nonnull align 8 dereferenceable(24) %103)
@@ -64276,7 +64276,7 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit116.i: ; pr
   invoke void @_ZN19OpenColorIO_v2_5dev19AllocationTransform7setVarsEiPKf(ptr noundef nonnull align 8 dereferenceable(16) %668, i32 noundef %673, ptr noundef nonnull %664)
           to label %.thread148.i unwind label %.thread.i
 
-.thread187.i:                                     ; preds = %633
+.thread235.i:                                     ; preds = %633
   %674 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %104)
@@ -64322,7 +64322,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %.thread148.i, %676
 
 682:                                              ; preds = %._crit_edge492, %.thread.i
   %.pre-phi = phi i64 [ %.pre493, %._crit_edge492 ], [ %670, %.thread.i ]
-  %.pn45185.i = phi { ptr, i32 } [ %681, %._crit_edge492 ], [ %675, %.thread.i ]
+  %.pn45233.i = phi { ptr, i32 } [ %681, %._crit_edge492 ], [ %675, %.thread.i ]
   %683 = phi ptr [ %.pre180.pre.i, %._crit_edge492 ], [ %664, %.thread.i ]
   %684 = load ptr, ptr %323, align 8, !tbaa !534
   %685 = ptrtoint ptr %684 to i64
@@ -64330,8 +64330,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %.thread148.i, %676
   call void @_ZdlPvm(ptr noundef nonnull %683, i64 noundef %686) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit119.i
 
-_ZNSt6vectorIfSaIfEED2Ev.exit119.i:               ; preds = %682, %680, %.thread187.i
-  %.pn45186.i = phi { ptr, i32 } [ %681, %680 ], [ %.pn45185.i, %682 ], [ %674, %.thread187.i ]
+_ZNSt6vectorIfSaIfEED2Ev.exit119.i:               ; preds = %682, %680, %.thread235.i
+  %.pn45234.i = phi { ptr, i32 } [ %681, %680 ], [ %.pn45233.i, %682 ], [ %674, %.thread235.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %103)
   br label %809
 
@@ -64652,7 +64652,7 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i.backedge: ; pr
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i
 
 809:                                              ; preds = %781, %745, %_ZNSt6vectorIfSaIfEED2Ev.exit119.i, %628, %627, %571
-  %.pn49.pn.i = phi { ptr, i32 } [ %.pn45186.i, %_ZNSt6vectorIfSaIfEED2Ev.exit119.i ], [ %.pn41.i, %745 ], [ %.pn39.i, %781 ], [ %.pn35.pn.pn.i, %571 ], [ %629, %628 ], [ %.pn47.i, %627 ]
+  %.pn49.pn.i = phi { ptr, i32 } [ %.pn45234.i, %_ZNSt6vectorIfSaIfEED2Ev.exit119.i ], [ %.pn41.i, %745 ], [ %.pn39.i, %781 ], [ %.pn35.pn.pn.i, %571 ], [ %629, %628 ], [ %.pn47.i, %627 ]
   %810 = load ptr, ptr %98, align 8, !tbaa !18
   %811 = icmp eq ptr %810, %332
   br i1 %811, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i145.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i144.i
@@ -64892,9 +64892,9 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev16BuiltinTransformELN9__gnu_cxx12_Lock
   %.not.i.i.i.i.i49.i = icmp eq i8 %901, 0
   %902 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %903 = getelementptr inbounds nuw i8, ptr %82, i64 40
-  br i1 %.not.i.i.i.i.i49.i, label %906, label %.thread11.i.i158
+  br i1 %.not.i.i.i.i.i49.i, label %906, label %.thread13.i.i158
 
-.thread11.i.i158:                                 ; preds = %899
+.thread13.i.i158:                                 ; preds = %899
   %904 = load i32, ptr %900, align 4, !tbaa !16, !noalias !889
   %905 = add nsw i32 %904, 1
   store i32 %905, ptr %900, align 4, !tbaa !16, !noalias !889
@@ -64912,7 +64912,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev16BuiltinTransformELN9__gnu_cxx12_Lock
   store ptr %898, ptr %903, align 8, !tbaa !3, !alias.scope !889
   br i1 %908, label %912, label %909
 
-909:                                              ; preds = %906, %.thread11.i.i158
+909:                                              ; preds = %906, %.thread13.i.i158
   %910 = load i32, ptr %900, align 4, !tbaa !16, !noalias !889
   %911 = add nsw i32 %910, 1
   store i32 %911, ptr %900, align 4, !tbaa !16, !noalias !889
@@ -65057,9 +65057,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i120: ; preds = 
   %993 = getelementptr inbounds nuw i8, ptr %991, i64 8
   %994 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !898
   %.not.i.i.i.i.i52.i = icmp eq i8 %994, 0
-  br i1 %.not.i.i.i.i.i52.i, label %997, label %.thread11.i53.i
+  br i1 %.not.i.i.i.i.i52.i, label %997, label %.thread13.i53.i
 
-.thread11.i53.i:                                  ; preds = %992
+.thread13.i53.i:                                  ; preds = %992
   %995 = load i32, ptr %993, align 4, !tbaa !16, !noalias !898
   %996 = add nsw i32 %995, 1
   store i32 %996, ptr %993, align 4, !tbaa !16, !noalias !898
@@ -65081,11 +65081,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i120: ; preds = 
   %.pre.i155 = load i32, ptr %993, align 4, !tbaa !16, !noalias !898
   br label %1000
 
-1000:                                             ; preds = %._crit_edge.i154, %.thread11.i53.i
-  %1001 = phi i32 [ %.pre.i155, %._crit_edge.i154 ], [ %996, %.thread11.i53.i ]
-  %.sroa.9148.2.i = phi ptr [ %.sroa.9148.0.copyload150.i, %._crit_edge.i154 ], [ %.sroa.9148.0.copyload.i, %.thread11.i53.i ]
-  %.sroa.12.2.i150 = phi ptr [ %.sroa.12.0.copyload154.i, %._crit_edge.i154 ], [ %.sroa.12.0.copyload.i149, %.thread11.i53.i ]
-  %.sroa.0.1.i151 = phi i32 [ %.sroa.0.0.copyload142.i, %._crit_edge.i154 ], [ %.sroa.0.0.copyload.i148, %.thread11.i53.i ]
+1000:                                             ; preds = %._crit_edge.i154, %.thread13.i53.i
+  %1001 = phi i32 [ %.pre.i155, %._crit_edge.i154 ], [ %996, %.thread13.i53.i ]
+  %.sroa.9148.2.i = phi ptr [ %.sroa.9148.0.copyload150.i, %._crit_edge.i154 ], [ %.sroa.9148.0.copyload.i, %.thread13.i53.i ]
+  %.sroa.12.2.i150 = phi ptr [ %.sroa.12.0.copyload154.i, %._crit_edge.i154 ], [ %.sroa.12.0.copyload.i149, %.thread13.i53.i ]
+  %.sroa.0.1.i151 = phi i32 [ %.sroa.0.0.copyload142.i, %._crit_edge.i154 ], [ %.sroa.0.0.copyload.i148, %.thread13.i53.i ]
   %1002 = add nsw i32 %1001, 1
   store i32 %1002, ptr %993, align 4, !tbaa !16, !noalias !898
   br label %1006
@@ -66406,9 +66406,9 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12CDLTransformELN9__gnu_cxx12_Lock_pol
   %.not.i.i.i.i.i118.i = icmp eq i8 %1509, 0
   %1510 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %1511 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  br i1 %.not.i.i.i.i.i118.i, label %1514, label %.thread11.i.i241
+  br i1 %.not.i.i.i.i.i118.i, label %1514, label %.thread13.i.i241
 
-.thread11.i.i241:                                 ; preds = %1507
+.thread13.i.i241:                                 ; preds = %1507
   %1512 = load i32, ptr %1508, align 4, !tbaa !16, !noalias !914
   %1513 = add nsw i32 %1512, 1
   store i32 %1513, ptr %1508, align 4, !tbaa !16, !noalias !914
@@ -66426,7 +66426,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12CDLTransformELN9__gnu_cxx12_Lock_pol
   store ptr %1506, ptr %1511, align 8, !tbaa !3, !alias.scope !914
   br i1 %1516, label %1520, label %1517
 
-1517:                                             ; preds = %1514, %.thread11.i.i241
+1517:                                             ; preds = %1514, %.thread13.i.i241
   %1518 = load i32, ptr %1508, align 4, !tbaa !16, !noalias !914
   %1519 = add nsw i32 %1518, 1
   store i32 %1519, ptr %1508, align 4, !tbaa !16, !noalias !914
@@ -66609,9 +66609,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i212: ; preds = 
   %1639 = getelementptr inbounds nuw i8, ptr %1637, i64 8
   %1640 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !923
   %.not.i.i.i.i.i121.i = icmp eq i8 %1640, 0
-  br i1 %.not.i.i.i.i.i121.i, label %1643, label %.thread11.i122.i
+  br i1 %.not.i.i.i.i.i121.i, label %1643, label %.thread13.i122.i
 
-.thread11.i122.i:                                 ; preds = %1638
+.thread13.i122.i:                                 ; preds = %1638
   %1641 = load i32, ptr %1639, align 4, !tbaa !16, !noalias !923
   %1642 = add nsw i32 %1641, 1
   store i32 %1642, ptr %1639, align 4, !tbaa !16, !noalias !923
@@ -66633,11 +66633,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i212: ; preds = 
   %.pre.i239 = load i32, ptr %1639, align 4, !tbaa !16, !noalias !923
   br label %1646
 
-1646:                                             ; preds = %._crit_edge.i238, %.thread11.i122.i
-  %1647 = phi i32 [ %.pre.i239, %._crit_edge.i238 ], [ %1642, %.thread11.i122.i ]
-  %.sroa.9399.2.i = phi ptr [ %.sroa.9399.0.copyload401.i, %._crit_edge.i238 ], [ %.sroa.9399.0.copyload.i, %.thread11.i122.i ]
-  %.sroa.12.2.i234 = phi ptr [ %.sroa.12.0.copyload405.i, %._crit_edge.i238 ], [ %.sroa.12.0.copyload.i233, %.thread11.i122.i ]
-  %.sroa.0.1.i235 = phi i32 [ %.sroa.0.0.copyload393.i, %._crit_edge.i238 ], [ %.sroa.0.0.copyload.i232, %.thread11.i122.i ]
+1646:                                             ; preds = %._crit_edge.i238, %.thread13.i122.i
+  %1647 = phi i32 [ %.pre.i239, %._crit_edge.i238 ], [ %1642, %.thread13.i122.i ]
+  %.sroa.9399.2.i = phi ptr [ %.sroa.9399.0.copyload401.i, %._crit_edge.i238 ], [ %.sroa.9399.0.copyload.i, %.thread13.i122.i ]
+  %.sroa.12.2.i234 = phi ptr [ %.sroa.12.0.copyload405.i, %._crit_edge.i238 ], [ %.sroa.12.0.copyload.i233, %.thread13.i122.i ]
+  %.sroa.0.1.i235 = phi i32 [ %.sroa.0.0.copyload393.i, %._crit_edge.i238 ], [ %.sroa.0.0.copyload.i232, %.thread13.i122.i ]
   %1648 = add nsw i32 %1647, 1
   store i32 %1648, ptr %1639, align 4, !tbaa !16, !noalias !923
   br label %1652
@@ -67526,7 +67526,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %1977
 
 1988:                                             ; preds = %._crit_edge491, %.thread.i228
   %.pre-phi495 = phi i64 [ %.pre494, %._crit_edge491 ], [ %1904, %.thread.i228 ]
-  %.pn111426.i = phi { ptr, i32 } [ %.pn111.i, %._crit_edge491 ], [ %1985, %.thread.i228 ]
+  %.pn111508.i = phi { ptr, i32 } [ %.pn111.i, %._crit_edge491 ], [ %1985, %.thread.i228 ]
   %1989 = phi ptr [ %1987, %._crit_edge491 ], [ %1902, %.thread.i228 ]
   %1990 = load ptr, ptr %1626, align 8, !tbaa !174
   %1991 = ptrtoint ptr %1990 to i64
@@ -67535,7 +67535,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %1977
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit198.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit198.i:               ; preds = %1988, %1986
-  %.pn111427.i = phi { ptr, i32 } [ %.pn111.i, %1986 ], [ %.pn111426.i, %1988 ]
+  %.pn111509.i = phi { ptr, i32 } [ %.pn111.i, %1986 ], [ %.pn111508.i, %1988 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %2540
 
@@ -67839,7 +67839,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
   %2106 = getelementptr inbounds nuw i8, ptr %2105, i64 120
   %2107 = load ptr, ptr %2106, align 8
   invoke void %2107(ptr noundef nonnull align 8 dereferenceable(8) %2104, ptr noundef nonnull %2028)
-          to label %_ZNSt6vectorIdSaIdEED2Ev.exit249.i unwind label %.thread428.i
+          to label %_ZNSt6vectorIdSaIdEED2Ev.exit249.i unwind label %.thread510.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit249.i:               ; preds = %2103
   %2108 = load ptr, ptr %1618, align 8, !tbaa !174
@@ -67849,7 +67849,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit249.i:               ; preds = %2103
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %2513
 
-.thread428.i:                                     ; preds = %2103
+.thread510.i:                                     ; preds = %2103
   %2111 = landingpad { ptr, i32 }
           cleanup
   br label %2114
@@ -67864,10 +67864,10 @@ _ZNSt6vectorIdSaIdEED2Ev.exit249.i:               ; preds = %2103
   %.pre496 = ptrtoint ptr %2113 to i64
   br label %2114
 
-2114:                                             ; preds = %._crit_edge490, %.thread428.i
-  %.pre-phi497 = phi i64 [ %.pre496, %._crit_edge490 ], [ %2030, %.thread428.i ]
-  %.pn101431.i = phi { ptr, i32 } [ %.pn101.i, %._crit_edge490 ], [ %2111, %.thread428.i ]
-  %2115 = phi ptr [ %2113, %._crit_edge490 ], [ %2028, %.thread428.i ]
+2114:                                             ; preds = %._crit_edge490, %.thread510.i
+  %.pre-phi497 = phi i64 [ %.pre496, %._crit_edge490 ], [ %2030, %.thread510.i ]
+  %.pn101513.i = phi { ptr, i32 } [ %.pn101.i, %._crit_edge490 ], [ %2111, %.thread510.i ]
+  %2115 = phi ptr [ %2113, %._crit_edge490 ], [ %2028, %.thread510.i ]
   %2116 = load ptr, ptr %1618, align 8, !tbaa !174
   %2117 = ptrtoint ptr %2116 to i64
   %2118 = sub i64 %2117, %.pre-phi497
@@ -67875,7 +67875,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit249.i:               ; preds = %2103
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit251.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit251.i:               ; preds = %2114, %2112
-  %.pn101432.i = phi { ptr, i32 } [ %.pn101.i, %2112 ], [ %.pn101431.i, %2114 ]
+  %.pn101514.i = phi { ptr, i32 } [ %.pn101.i, %2112 ], [ %.pn101513.i, %2114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %2540
 
@@ -68179,7 +68179,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
   %2232 = getelementptr inbounds nuw i8, ptr %2231, i64 136
   %2233 = load ptr, ptr %2232, align 8
   invoke void %2233(ptr noundef nonnull align 8 dereferenceable(8) %2230, ptr noundef nonnull %2154)
-          to label %_ZNSt6vectorIdSaIdEED2Ev.exit302.i unwind label %.thread433.i
+          to label %_ZNSt6vectorIdSaIdEED2Ev.exit302.i unwind label %.thread515.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit302.i:               ; preds = %2229
   %2234 = load ptr, ptr %1610, align 8, !tbaa !174
@@ -68189,7 +68189,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit302.i:               ; preds = %2229
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %2513
 
-.thread433.i:                                     ; preds = %2229
+.thread515.i:                                     ; preds = %2229
   %2237 = landingpad { ptr, i32 }
           cleanup
   br label %2240
@@ -68204,10 +68204,10 @@ _ZNSt6vectorIdSaIdEED2Ev.exit302.i:               ; preds = %2229
   %.pre498 = ptrtoint ptr %2239 to i64
   br label %2240
 
-2240:                                             ; preds = %._crit_edge, %.thread433.i
-  %.pre-phi499 = phi i64 [ %.pre498, %._crit_edge ], [ %2156, %.thread433.i ]
-  %.pn91436.i = phi { ptr, i32 } [ %.pn91.i, %._crit_edge ], [ %2237, %.thread433.i ]
-  %2241 = phi ptr [ %2239, %._crit_edge ], [ %2154, %.thread433.i ]
+2240:                                             ; preds = %._crit_edge, %.thread515.i
+  %.pre-phi499 = phi i64 [ %.pre498, %._crit_edge ], [ %2156, %.thread515.i ]
+  %.pn91518.i = phi { ptr, i32 } [ %.pn91.i, %._crit_edge ], [ %2237, %.thread515.i ]
+  %2241 = phi ptr [ %2239, %._crit_edge ], [ %2154, %.thread515.i ]
   %2242 = load ptr, ptr %1610, align 8, !tbaa !174
   %2243 = ptrtoint ptr %2242 to i64
   %2244 = sub i64 %2243, %.pre-phi499
@@ -68215,7 +68215,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit302.i:               ; preds = %2229
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit304.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit304.i:               ; preds = %2240, %2238
-  %.pn91437.i = phi { ptr, i32 } [ %.pn91.i, %2238 ], [ %.pn91436.i, %2240 ]
+  %.pn91519.i = phi { ptr, i32 } [ %.pn91.i, %2238 ], [ %.pn91518.i, %2240 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %2540
 
@@ -68978,7 +68978,7 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i212.backedge: ;
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i212
 
 2540:                                             ; preds = %2512, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit350.i, %2416, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit326.i, %2295, %_ZNSt6vectorIdSaIdEED2Ev.exit304.i, %_ZNSt6vectorIdSaIdEED2Ev.exit251.i, %_ZNSt6vectorIdSaIdEED2Ev.exit198.i, %1866
-  %.pn111.pn.i = phi { ptr, i32 } [ %.pn111427.i, %_ZNSt6vectorIdSaIdEED2Ev.exit198.i ], [ %.pn101432.i, %_ZNSt6vectorIdSaIdEED2Ev.exit251.i ], [ %.pn91437.i, %_ZNSt6vectorIdSaIdEED2Ev.exit304.i ], [ %.pn82.i, %2295 ], [ %.pn78.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit326.i ], [ %.pn74.i, %2416 ], [ %.pn72.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit350.i ], [ %.pn70.i, %2512 ], [ %.pn66.pn.pn.i, %1866 ]
+  %.pn111.pn.i = phi { ptr, i32 } [ %.pn111509.i, %_ZNSt6vectorIdSaIdEED2Ev.exit198.i ], [ %.pn101514.i, %_ZNSt6vectorIdSaIdEED2Ev.exit251.i ], [ %.pn91519.i, %_ZNSt6vectorIdSaIdEED2Ev.exit304.i ], [ %.pn82.i, %2295 ], [ %.pn78.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit326.i ], [ %.pn74.i, %2416 ], [ %.pn72.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit350.i ], [ %.pn70.i, %2512 ], [ %.pn66.pn.pn.i, %1866 ]
   %2541 = load ptr, ptr %49, align 8, !tbaa !18
   %2542 = icmp eq ptr %2541, %1627
   br i1 %2542, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i364.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i363.i
@@ -69216,9 +69216,9 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19ColorSpaceTransformELN9__gnu_cxx12_L
   %.not.i.i.i.i.i61.i = icmp eq i8 %2631, 0
   %2632 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %2633 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  br i1 %.not.i.i.i.i.i61.i, label %2636, label %.thread11.i.i328
+  br i1 %.not.i.i.i.i.i61.i, label %2636, label %.thread13.i.i328
 
-.thread11.i.i328:                                 ; preds = %2629
+.thread13.i.i328:                                 ; preds = %2629
   %2634 = load i32, ptr %2630, align 4, !tbaa !16, !noalias !960
   %2635 = add nsw i32 %2634, 1
   store i32 %2635, ptr %2630, align 4, !tbaa !16, !noalias !960
@@ -69236,7 +69236,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19ColorSpaceTransformELN9__gnu_cxx12_L
   store ptr %2628, ptr %2633, align 8, !tbaa !3, !alias.scope !960
   br i1 %2638, label %2642, label %2639
 
-2639:                                             ; preds = %2636, %.thread11.i.i328
+2639:                                             ; preds = %2636, %.thread13.i.i328
   %2640 = load i32, ptr %2630, align 4, !tbaa !16, !noalias !960
   %2641 = add nsw i32 %2640, 1
   store i32 %2641, ptr %2630, align 4, !tbaa !16, !noalias !960
@@ -69395,9 +69395,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i298: ; preds = 
   %2737 = getelementptr inbounds nuw i8, ptr %2735, i64 8
   %2738 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !969
   %.not.i.i.i.i.i64.i = icmp eq i8 %2738, 0
-  br i1 %.not.i.i.i.i.i64.i, label %2741, label %.thread11.i65.i
+  br i1 %.not.i.i.i.i.i64.i, label %2741, label %.thread13.i65.i
 
-.thread11.i65.i:                                  ; preds = %2736
+.thread13.i65.i:                                  ; preds = %2736
   %2739 = load i32, ptr %2737, align 4, !tbaa !16, !noalias !969
   %2740 = add nsw i32 %2739, 1
   store i32 %2740, ptr %2737, align 4, !tbaa !16, !noalias !969
@@ -69419,11 +69419,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i298: ; preds = 
   %.pre.i326 = load i32, ptr %2737, align 4, !tbaa !16, !noalias !969
   br label %2744
 
-2744:                                             ; preds = %._crit_edge.i325, %.thread11.i65.i
-  %2745 = phi i32 [ %.pre.i326, %._crit_edge.i325 ], [ %2740, %.thread11.i65.i ]
-  %.sroa.9181.2.i = phi ptr [ %.sroa.9181.0.copyload183.i, %._crit_edge.i325 ], [ %.sroa.9181.0.copyload.i, %.thread11.i65.i ]
-  %.sroa.12.2.i319 = phi ptr [ %.sroa.12.0.copyload187.i, %._crit_edge.i325 ], [ %.sroa.12.0.copyload.i318, %.thread11.i65.i ]
-  %.sroa.0.1.i320 = phi i32 [ %.sroa.0.0.copyload175.i, %._crit_edge.i325 ], [ %.sroa.0.0.copyload.i317, %.thread11.i65.i ]
+2744:                                             ; preds = %._crit_edge.i325, %.thread13.i65.i
+  %2745 = phi i32 [ %.pre.i326, %._crit_edge.i325 ], [ %2740, %.thread13.i65.i ]
+  %.sroa.9181.2.i = phi ptr [ %.sroa.9181.0.copyload183.i, %._crit_edge.i325 ], [ %.sroa.9181.0.copyload.i, %.thread13.i65.i ]
+  %.sroa.12.2.i319 = phi ptr [ %.sroa.12.0.copyload187.i, %._crit_edge.i325 ], [ %.sroa.12.0.copyload.i318, %.thread13.i65.i ]
+  %.sroa.0.1.i320 = phi i32 [ %.sroa.0.0.copyload175.i, %._crit_edge.i325 ], [ %.sroa.0.0.copyload.i317, %.thread13.i65.i ]
   %2746 = add nsw i32 %2745, 1
   store i32 %2746, ptr %2737, align 4, !tbaa !16, !noalias !969
   br label %2750
@@ -70956,9 +70956,9 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev20DisplayViewTransformELN9__gnu_cxx12_
   %.not.i.i.i.i.i76.i = icmp eq i8 %3333, 0
   %3334 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %3335 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  br i1 %.not.i.i.i.i.i76.i, label %3338, label %.thread11.i.i416
+  br i1 %.not.i.i.i.i.i76.i, label %3338, label %.thread13.i.i416
 
-.thread11.i.i416:                                 ; preds = %3331
+.thread13.i.i416:                                 ; preds = %3331
   %3336 = load i32, ptr %3332, align 4, !tbaa !16, !noalias !985
   %3337 = add nsw i32 %3336, 1
   store i32 %3337, ptr %3332, align 4, !tbaa !16, !noalias !985
@@ -70976,7 +70976,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev20DisplayViewTransformELN9__gnu_cxx12_
   store ptr %3330, ptr %3335, align 8, !tbaa !3, !alias.scope !985
   br i1 %3340, label %3344, label %3341
 
-3341:                                             ; preds = %3338, %.thread11.i.i416
+3341:                                             ; preds = %3338, %.thread13.i.i416
   %3342 = load i32, ptr %3332, align 4, !tbaa !16, !noalias !985
   %3343 = add nsw i32 %3342, 1
   store i32 %3343, ptr %3332, align 4, !tbaa !16, !noalias !985
@@ -71149,9 +71149,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i384: ; preds = 
   %3453 = getelementptr inbounds nuw i8, ptr %3451, i64 8
   %3454 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !994
   %.not.i.i.i.i.i79.i = icmp eq i8 %3454, 0
-  br i1 %.not.i.i.i.i.i79.i, label %3457, label %.thread11.i80.i
+  br i1 %.not.i.i.i.i.i79.i, label %3457, label %.thread13.i80.i
 
-.thread11.i80.i:                                  ; preds = %3452
+.thread13.i80.i:                                  ; preds = %3452
   %3455 = load i32, ptr %3453, align 4, !tbaa !16, !noalias !994
   %3456 = add nsw i32 %3455, 1
   store i32 %3456, ptr %3453, align 4, !tbaa !16, !noalias !994
@@ -71173,11 +71173,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.i384: ; preds = 
   %.pre.i414 = load i32, ptr %3453, align 4, !tbaa !16, !noalias !994
   br label %3460
 
-3460:                                             ; preds = %._crit_edge.i413, %.thread11.i80.i
-  %3461 = phi i32 [ %.pre.i414, %._crit_edge.i413 ], [ %3456, %.thread11.i80.i ]
-  %.sroa.9224.2.i = phi ptr [ %.sroa.9224.0.copyload226.i, %._crit_edge.i413 ], [ %.sroa.9224.0.copyload.i, %.thread11.i80.i ]
-  %.sroa.12.2.i409 = phi ptr [ %.sroa.12.0.copyload230.i, %._crit_edge.i413 ], [ %.sroa.12.0.copyload.i408, %.thread11.i80.i ]
-  %.sroa.0.1.i410 = phi i32 [ %.sroa.0.0.copyload218.i, %._crit_edge.i413 ], [ %.sroa.0.0.copyload.i407, %.thread11.i80.i ]
+3460:                                             ; preds = %._crit_edge.i413, %.thread13.i80.i
+  %3461 = phi i32 [ %.pre.i414, %._crit_edge.i413 ], [ %3456, %.thread13.i80.i ]
+  %.sroa.9224.2.i = phi ptr [ %.sroa.9224.0.copyload226.i, %._crit_edge.i413 ], [ %.sroa.9224.0.copyload.i, %.thread13.i80.i ]
+  %.sroa.12.2.i409 = phi ptr [ %.sroa.12.0.copyload230.i, %._crit_edge.i413 ], [ %.sroa.12.0.copyload.i408, %.thread13.i80.i ]
+  %.sroa.0.1.i410 = phi i32 [ %.sroa.0.0.copyload218.i, %._crit_edge.i413 ], [ %.sroa.0.0.copyload.i407, %.thread13.i80.i ]
   %3462 = add nsw i32 %3461, 1
   store i32 %3462, ptr %3453, align 4, !tbaa !16, !noalias !994
   br label %3466
@@ -73725,9 +73725,9 @@ _ZNK4YAML4Node10IsSequenceEv.exit:                ; preds = %17
   %.not.i.i.i.i.i = icmp eq i8 %40, 0
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  br i1 %.not.i.i.i.i.i, label %45, label %.thread11.i
+  br i1 %.not.i.i.i.i.i, label %45, label %.thread13.i
 
-.thread11.i:                                      ; preds = %38
+.thread13.i:                                      ; preds = %38
   %43 = load i32, ptr %39, align 4, !tbaa !16, !noalias !1008
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %39, align 4, !tbaa !16, !noalias !1008
@@ -73745,7 +73745,7 @@ _ZNK4YAML4Node10IsSequenceEv.exit:                ; preds = %17
   store ptr %37, ptr %42, align 8, !tbaa !3, !alias.scope !1008
   br i1 %47, label %51, label %48
 
-48:                                               ; preds = %45, %.thread11.i
+48:                                               ; preds = %45, %.thread13.i
   %49 = load i32, ptr %39, align 4, !tbaa !16, !noalias !1008
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %39, align 4, !tbaa !16, !noalias !1008
@@ -73844,9 +73844,9 @@ _ZNK4YAML4Node5beginEv.exit:                      ; preds = %53, %60, %_ZN9__gnu
   %.not.i.i.i.i.i20 = icmp eq i8 %89, 0
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %91 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  br i1 %.not.i.i.i.i.i20, label %94, label %.thread11.i21
+  br i1 %.not.i.i.i.i.i20, label %94, label %.thread13.i21
 
-.thread11.i21:                                    ; preds = %87
+.thread13.i21:                                    ; preds = %87
   %92 = load i32, ptr %88, align 4, !tbaa !16, !noalias !1011
   %93 = add nsw i32 %92, 1
   store i32 %93, ptr %88, align 4, !tbaa !16, !noalias !1011
@@ -73868,8 +73868,8 @@ _ZNK4YAML4Node5beginEv.exit:                      ; preds = %53, %60, %_ZN9__gnu
   %.pre50 = load i32, ptr %88, align 4, !tbaa !16, !noalias !1011
   br label %97
 
-97:                                               ; preds = %._crit_edge, %.thread11.i21
-  %98 = phi i32 [ %.pre50, %._crit_edge ], [ %93, %.thread11.i21 ]
+97:                                               ; preds = %._crit_edge, %.thread13.i21
+  %98 = phi i32 [ %.pre50, %._crit_edge ], [ %93, %.thread13.i21 ]
   %99 = add nsw i32 %98, 1
   store i32 %99, ptr %88, align 4, !tbaa !16, !noalias !1011
   br label %106
@@ -75189,9 +75189,9 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev17ExponentTransformELN9__gnu_cxx12_Loc
   %.not.i.i.i.i.i79 = icmp eq i8 %92, 0
   %93 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  br i1 %.not.i.i.i.i.i79, label %97, label %.thread11.i
+  br i1 %.not.i.i.i.i.i79, label %97, label %.thread13.i
 
-.thread11.i:                                      ; preds = %90
+.thread13.i:                                      ; preds = %90
   %95 = load i32, ptr %91, align 4, !tbaa !16, !noalias !1027
   %96 = add nsw i32 %95, 1
   store i32 %96, ptr %91, align 4, !tbaa !16, !noalias !1027
@@ -75209,7 +75209,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev17ExponentTransformELN9__gnu_cxx12_Loc
   store ptr %89, ptr %94, align 8, !tbaa !3, !alias.scope !1027
   br i1 %99, label %103, label %100
 
-100:                                              ; preds = %97, %.thread11.i
+100:                                              ; preds = %97, %.thread13.i
   %101 = load i32, ptr %91, align 4, !tbaa !16, !noalias !1027
   %102 = add nsw i32 %101, 1
   store i32 %102, ptr %91, align 4, !tbaa !16, !noalias !1027
@@ -75391,9 +75391,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %217 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %218 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !1036
   %.not.i.i.i.i.i82 = icmp eq i8 %218, 0
-  br i1 %.not.i.i.i.i.i82, label %221, label %.thread11.i83
+  br i1 %.not.i.i.i.i.i82, label %221, label %.thread13.i83
 
-.thread11.i83:                                    ; preds = %216
+.thread13.i83:                                    ; preds = %216
   %219 = load i32, ptr %217, align 4, !tbaa !16, !noalias !1036
   %220 = add nsw i32 %219, 1
   store i32 %220, ptr %217, align 4, !tbaa !16, !noalias !1036
@@ -75415,11 +75415,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %217, align 4, !tbaa !16, !noalias !1036
   br label %224
 
-224:                                              ; preds = %._crit_edge, %.thread11.i83
-  %225 = phi i32 [ %.pre, %._crit_edge ], [ %220, %.thread11.i83 ]
-  %.sroa.9254.2 = phi ptr [ %.sroa.9254.0.copyload256, %._crit_edge ], [ %.sroa.9254.0.copyload, %.thread11.i83 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload260, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i83 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload248, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i83 ]
+224:                                              ; preds = %._crit_edge, %.thread13.i83
+  %225 = phi i32 [ %.pre, %._crit_edge ], [ %220, %.thread13.i83 ]
+  %.sroa.9254.2 = phi ptr [ %.sroa.9254.0.copyload256, %._crit_edge ], [ %.sroa.9254.0.copyload, %.thread13.i83 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload260, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i83 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload248, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i83 ]
   %226 = add nsw i32 %225, 1
   store i32 %226, ptr %217, align 4, !tbaa !16, !noalias !1036
   br label %230
@@ -77624,9 +77624,9 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev27ExponentWithLinearTransformELN9__gnu
   %.not.i.i.i.i.i122 = icmp eq i8 %109, 0
   %110 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %111 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  br i1 %.not.i.i.i.i.i122, label %114, label %.thread11.i
+  br i1 %.not.i.i.i.i.i122, label %114, label %.thread13.i
 
-.thread11.i:                                      ; preds = %107
+.thread13.i:                                      ; preds = %107
   %112 = load i32, ptr %108, align 4, !tbaa !16, !noalias !1060
   %113 = add nsw i32 %112, 1
   store i32 %113, ptr %108, align 4, !tbaa !16, !noalias !1060
@@ -77644,7 +77644,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev27ExponentWithLinearTransformELN9__gnu
   store ptr %106, ptr %111, align 8, !tbaa !3, !alias.scope !1060
   br i1 %116, label %120, label %117
 
-117:                                              ; preds = %114, %.thread11.i
+117:                                              ; preds = %114, %.thread13.i
   %118 = load i32, ptr %108, align 4, !tbaa !16, !noalias !1060
   %119 = add nsw i32 %118, 1
   store i32 %119, ptr %108, align 4, !tbaa !16, !noalias !1060
@@ -77851,9 +77851,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %258 = getelementptr inbounds nuw i8, ptr %256, i64 8
   %259 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !1069
   %.not.i.i.i.i.i125 = icmp eq i8 %259, 0
-  br i1 %.not.i.i.i.i.i125, label %262, label %.thread11.i126
+  br i1 %.not.i.i.i.i.i125, label %262, label %.thread13.i126
 
-.thread11.i126:                                   ; preds = %257
+.thread13.i126:                                   ; preds = %257
   %260 = load i32, ptr %258, align 4, !tbaa !16, !noalias !1069
   %261 = add nsw i32 %260, 1
   store i32 %261, ptr %258, align 4, !tbaa !16, !noalias !1069
@@ -77875,11 +77875,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %258, align 4, !tbaa !16, !noalias !1069
   br label %265
 
-265:                                              ; preds = %._crit_edge, %.thread11.i126
-  %266 = phi i32 [ %.pre, %._crit_edge ], [ %261, %.thread11.i126 ]
-  %.sroa.9411.2 = phi ptr [ %.sroa.9411.0.copyload413, %._crit_edge ], [ %.sroa.9411.0.copyload, %.thread11.i126 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload417, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i126 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload405, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i126 ]
+265:                                              ; preds = %._crit_edge, %.thread13.i126
+  %266 = phi i32 [ %.pre, %._crit_edge ], [ %261, %.thread13.i126 ]
+  %.sroa.9411.2 = phi ptr [ %.sroa.9411.0.copyload413, %._crit_edge ], [ %.sroa.9411.0.copyload, %.thread13.i126 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload417, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i126 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload405, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i126 ]
   %267 = add nsw i32 %266, 1
   store i32 %267, ptr %258, align 4, !tbaa !16, !noalias !1069
   br label %271
@@ -80640,9 +80640,9 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25ExposureContrastTransformELN9__gnu_c
   %.not.i.i.i.i.i116 = icmp eq i8 %95, 0
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %97 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  br i1 %.not.i.i.i.i.i116, label %100, label %.thread11.i
+  br i1 %.not.i.i.i.i.i116, label %100, label %.thread13.i
 
-.thread11.i:                                      ; preds = %93
+.thread13.i:                                      ; preds = %93
   %98 = load i32, ptr %94, align 4, !tbaa !16, !noalias !1085
   %99 = add nsw i32 %98, 1
   store i32 %99, ptr %94, align 4, !tbaa !16, !noalias !1085
@@ -80660,7 +80660,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25ExposureContrastTransformELN9__gnu_c
   store ptr %92, ptr %97, align 8, !tbaa !3, !alias.scope !1085
   br i1 %102, label %106, label %103
 
-103:                                              ; preds = %100, %.thread11.i
+103:                                              ; preds = %100, %.thread13.i
   %104 = load i32, ptr %94, align 4, !tbaa !16, !noalias !1085
   %105 = add nsw i32 %104, 1
   store i32 %105, ptr %94, align 4, !tbaa !16, !noalias !1085
@@ -80857,9 +80857,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %232 = getelementptr inbounds nuw i8, ptr %230, i64 8
   %233 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !1094
   %.not.i.i.i.i.i119 = icmp eq i8 %233, 0
-  br i1 %.not.i.i.i.i.i119, label %236, label %.thread11.i120
+  br i1 %.not.i.i.i.i.i119, label %236, label %.thread13.i120
 
-.thread11.i120:                                   ; preds = %231
+.thread13.i120:                                   ; preds = %231
   %234 = load i32, ptr %232, align 4, !tbaa !16, !noalias !1094
   %235 = add nsw i32 %234, 1
   store i32 %235, ptr %232, align 4, !tbaa !16, !noalias !1094
@@ -80881,11 +80881,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %232, align 4, !tbaa !16, !noalias !1094
   br label %239
 
-239:                                              ; preds = %._crit_edge, %.thread11.i120
-  %240 = phi i32 [ %.pre, %._crit_edge ], [ %235, %.thread11.i120 ]
-  %.sroa.9478.2 = phi ptr [ %.sroa.9478.0.copyload480, %._crit_edge ], [ %.sroa.9478.0.copyload, %.thread11.i120 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload484, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i120 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload472, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i120 ]
+239:                                              ; preds = %._crit_edge, %.thread13.i120
+  %240 = phi i32 [ %.pre, %._crit_edge ], [ %235, %.thread13.i120 ]
+  %.sroa.9478.2 = phi ptr [ %.sroa.9478.0.copyload480, %._crit_edge ], [ %.sroa.9478.0.copyload, %.thread13.i120 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload484, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i120 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload472, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i120 ]
   %241 = add nsw i32 %240, 1
   store i32 %241, ptr %232, align 4, !tbaa !16, !noalias !1094
   br label %245
@@ -83196,9 +83196,9 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev13FileTransformELN9__gnu_cxx12_Lock_po
   %.not.i.i.i.i.i66 = icmp eq i8 %87, 0
   %88 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %89 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  br i1 %.not.i.i.i.i.i66, label %92, label %.thread11.i
+  br i1 %.not.i.i.i.i.i66, label %92, label %.thread13.i
 
-.thread11.i:                                      ; preds = %85
+.thread13.i:                                      ; preds = %85
   %90 = load i32, ptr %86, align 4, !tbaa !16, !noalias !1110
   %91 = add nsw i32 %90, 1
   store i32 %91, ptr %86, align 4, !tbaa !16, !noalias !1110
@@ -83216,7 +83216,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev13FileTransformELN9__gnu_cxx12_Lock_po
   store ptr %84, ptr %89, align 8, !tbaa !3, !alias.scope !1110
   br i1 %94, label %98, label %95
 
-95:                                               ; preds = %92, %.thread11.i
+95:                                               ; preds = %92, %.thread13.i
   %96 = load i32, ptr %86, align 4, !tbaa !16, !noalias !1110
   %97 = add nsw i32 %96, 1
   store i32 %97, ptr %86, align 4, !tbaa !16, !noalias !1110
@@ -83384,9 +83384,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %198 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %199 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !1119
   %.not.i.i.i.i.i69 = icmp eq i8 %199, 0
-  br i1 %.not.i.i.i.i.i69, label %202, label %.thread11.i70
+  br i1 %.not.i.i.i.i.i69, label %202, label %.thread13.i70
 
-.thread11.i70:                                    ; preds = %197
+.thread13.i70:                                    ; preds = %197
   %200 = load i32, ptr %198, align 4, !tbaa !16, !noalias !1119
   %201 = add nsw i32 %200, 1
   store i32 %201, ptr %198, align 4, !tbaa !16, !noalias !1119
@@ -83408,11 +83408,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %198, align 4, !tbaa !16, !noalias !1119
   br label %205
 
-205:                                              ; preds = %._crit_edge, %.thread11.i70
-  %206 = phi i32 [ %.pre, %._crit_edge ], [ %201, %.thread11.i70 ]
-  %.sroa.9189.2 = phi ptr [ %.sroa.9189.0.copyload191, %._crit_edge ], [ %.sroa.9189.0.copyload, %.thread11.i70 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload195, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i70 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload183, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i70 ]
+205:                                              ; preds = %._crit_edge, %.thread13.i70
+  %206 = phi i32 [ %.pre, %._crit_edge ], [ %201, %.thread13.i70 ]
+  %.sroa.9189.2 = phi ptr [ %.sroa.9189.0.copyload191, %._crit_edge ], [ %.sroa.9189.0.copyload, %.thread13.i70 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload195, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i70 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload183, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i70 ]
   %207 = add nsw i32 %206, 1
   store i32 %207, ptr %198, align 4, !tbaa !16, !noalias !1119
   br label %211
@@ -85155,9 +85155,9 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev22FixedFunctionTransformELN9__gnu_cxx1
   %.not.i.i.i.i.i89 = icmp eq i8 %89, 0
   %90 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %91 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  br i1 %.not.i.i.i.i.i89, label %94, label %.thread11.i
+  br i1 %.not.i.i.i.i.i89, label %94, label %.thread13.i
 
-.thread11.i:                                      ; preds = %87
+.thread13.i:                                      ; preds = %87
   %92 = load i32, ptr %88, align 4, !tbaa !16, !noalias !1135
   %93 = add nsw i32 %92, 1
   store i32 %93, ptr %88, align 4, !tbaa !16, !noalias !1135
@@ -85175,7 +85175,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev22FixedFunctionTransformELN9__gnu_cxx1
   store ptr %86, ptr %91, align 8, !tbaa !3, !alias.scope !1135
   br i1 %96, label %100, label %97
 
-97:                                               ; preds = %94, %.thread11.i
+97:                                               ; preds = %94, %.thread13.i
   %98 = load i32, ptr %88, align 4, !tbaa !16, !noalias !1135
   %99 = add nsw i32 %98, 1
   store i32 %99, ptr %88, align 4, !tbaa !16, !noalias !1135
@@ -85356,9 +85356,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %212 = getelementptr inbounds nuw i8, ptr %210, i64 8
   %213 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !1144
   %.not.i.i.i.i.i92 = icmp eq i8 %213, 0
-  br i1 %.not.i.i.i.i.i92, label %216, label %.thread11.i93
+  br i1 %.not.i.i.i.i.i92, label %216, label %.thread13.i93
 
-.thread11.i93:                                    ; preds = %211
+.thread13.i93:                                    ; preds = %211
   %214 = load i32, ptr %212, align 4, !tbaa !16, !noalias !1144
   %215 = add nsw i32 %214, 1
   store i32 %215, ptr %212, align 4, !tbaa !16, !noalias !1144
@@ -85380,11 +85380,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %212, align 4, !tbaa !16, !noalias !1144
   br label %219
 
-219:                                              ; preds = %._crit_edge, %.thread11.i93
-  %220 = phi i32 [ %.pre, %._crit_edge ], [ %215, %.thread11.i93 ]
-  %.sroa.9310.2 = phi ptr [ %.sroa.9310.0.copyload312, %._crit_edge ], [ %.sroa.9310.0.copyload, %.thread11.i93 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload316, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i93 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload304, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i93 ]
+219:                                              ; preds = %._crit_edge, %.thread13.i93
+  %220 = phi i32 [ %.pre, %._crit_edge ], [ %215, %.thread13.i93 ]
+  %.sroa.9310.2 = phi ptr [ %.sroa.9310.0.copyload312, %._crit_edge ], [ %.sroa.9310.0.copyload, %.thread13.i93 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload316, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i93 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload304, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i93 ]
   %221 = add nsw i32 %220, 1
   store i32 %221, ptr %212, align 4, !tbaa !16, !noalias !1144
   br label %225
@@ -85960,7 +85960,7 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit131: ; pred
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   invoke void @_ZNK4YAML6detail13iterator_baseIKNS0_14iterator_valueEEptEv(ptr dead_on_unwind nonnull writable sret(%"struct.YAML::detail::iterator_base<const YAML::detail::iterator_value>::proxy") align 8 %15, ptr noundef nonnull align 8 dereferenceable(48) %9)
-          to label %444 unwind label %.thread336
+          to label %444 unwind label %.thread404
 
 444:                                              ; preds = %443
   invoke fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(64) %192, ptr noundef nonnull align 8 dereferenceable(24) %14)
@@ -86052,7 +86052,7 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit139: ; pred
   invoke void %485(ptr noundef nonnull align 8 dereferenceable(8) %478, ptr noundef nonnull %474, i64 noundef %482)
           to label %.thread220 unwind label %.thread
 
-.thread336:                                       ; preds = %443
+.thread404:                                       ; preds = %443
   %486 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -86093,7 +86093,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %488, %.thread220
   br i1 %.not.i.i.i141, label %_ZNSt6vectorIdSaIdEED2Ev.exit142, label %494
 
 494:                                              ; preds = %.thread, %492
-  %.pn81334 = phi { ptr, i32 } [ %487, %.thread ], [ %493, %492 ]
+  %.pn81402 = phi { ptr, i32 } [ %487, %.thread ], [ %493, %492 ]
   %495 = phi ptr [ %474, %.thread ], [ %.pre329.pre, %492 ]
   %496 = load ptr, ptr %199, align 8, !tbaa !174
   %497 = ptrtoint ptr %496 to i64
@@ -86102,8 +86102,8 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %488, %.thread220
   call void @_ZdlPvm(ptr noundef nonnull %495, i64 noundef %499) #30
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit142
 
-_ZNSt6vectorIdSaIdEED2Ev.exit142:                 ; preds = %.thread336, %492, %494
-  %.pn81335 = phi { ptr, i32 } [ %493, %492 ], [ %.pn81334, %494 ], [ %486, %.thread336 ]
+_ZNSt6vectorIdSaIdEED2Ev.exit142:                 ; preds = %.thread404, %492, %494
+  %.pn81403 = phi { ptr, i32 } [ %493, %492 ], [ %.pn81402, %494 ], [ %486, %.thread404 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.body195
 
@@ -86968,7 +86968,7 @@ _ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.backedge
 
 .body195:                                         ; preds = %.loopexit222, %.loopexit.split-lp223, %752, %797, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192, %684, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit168, %_ZNSt6vectorIdSaIdEED2Ev.exit142, %439
-  %.pn81.pn = phi { ptr, i32 } [ %.pn81335, %_ZNSt6vectorIdSaIdEED2Ev.exit142 ], [ %.pn73.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit168 ], [ %.pn69, %684 ], [ %.pn67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192 ], [ %.pn65, %797 ], [ %.pn61.pn.pn, %439 ], [ %753, %752 ], [ %lpad.loopexit224, %.loopexit222 ], [ %lpad.loopexit.split-lp225, %.loopexit.split-lp223 ]
+  %.pn81.pn = phi { ptr, i32 } [ %.pn81403, %_ZNSt6vectorIdSaIdEED2Ev.exit142 ], [ %.pn73.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit168 ], [ %.pn69, %684 ], [ %.pn67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192 ], [ %.pn65, %797 ], [ %.pn61.pn.pn, %439 ], [ %753, %752 ], [ %lpad.loopexit224, %.loopexit222 ], [ %lpad.loopexit.split-lp225, %.loopexit.split-lp223 ]
   %825 = load ptr, ptr %10, align 8, !tbaa !18
   %826 = icmp eq ptr %825, %200
   br i1 %826, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i211, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i210
@@ -87443,9 +87443,9 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev23GradingPrimaryTransformELN9__gnu_cxx
   %.not.i.i.i.i.i145 = icmp eq i8 %130, 0
   %131 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %132 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  br i1 %.not.i.i.i.i.i145, label %135, label %.thread11.i
+  br i1 %.not.i.i.i.i.i145, label %135, label %.thread13.i
 
-.thread11.i:                                      ; preds = %128
+.thread13.i:                                      ; preds = %128
   %133 = load i32, ptr %129, align 4, !tbaa !16, !noalias !1180
   %134 = add nsw i32 %133, 1
   store i32 %134, ptr %129, align 4, !tbaa !16, !noalias !1180
@@ -87463,7 +87463,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev23GradingPrimaryTransformELN9__gnu_cxx
   store ptr %127, ptr %132, align 8, !tbaa !3, !alias.scope !1180
   br i1 %137, label %141, label %138
 
-138:                                              ; preds = %135, %.thread11.i
+138:                                              ; preds = %135, %.thread13.i
   %139 = load i32, ptr %129, align 4, !tbaa !16, !noalias !1180
   %140 = add nsw i32 %139, 1
   store i32 %140, ptr %129, align 4, !tbaa !16, !noalias !1180
@@ -87704,9 +87704,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %306 = getelementptr inbounds nuw i8, ptr %304, i64 8
   %307 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !1189
   %.not.i.i.i.i.i148 = icmp eq i8 %307, 0
-  br i1 %.not.i.i.i.i.i148, label %310, label %.thread11.i149
+  br i1 %.not.i.i.i.i.i148, label %310, label %.thread13.i149
 
-.thread11.i149:                                   ; preds = %305
+.thread13.i149:                                   ; preds = %305
   %308 = load i32, ptr %306, align 4, !tbaa !16, !noalias !1189
   %309 = add nsw i32 %308, 1
   store i32 %309, ptr %306, align 4, !tbaa !16, !noalias !1189
@@ -87728,11 +87728,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %306, align 4, !tbaa !16, !noalias !1189
   br label %313
 
-313:                                              ; preds = %._crit_edge, %.thread11.i149
-  %314 = phi i32 [ %.pre, %._crit_edge ], [ %309, %.thread11.i149 ]
-  %.sroa.91087.2 = phi ptr [ %.sroa.91087.0.copyload1089, %._crit_edge ], [ %.sroa.91087.0.copyload, %.thread11.i149 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload1093, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i149 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload1081, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i149 ]
+313:                                              ; preds = %._crit_edge, %.thread13.i149
+  %314 = phi i32 [ %.pre, %._crit_edge ], [ %309, %.thread13.i149 ]
+  %.sroa.91087.2 = phi ptr [ %.sroa.91087.0.copyload1089, %._crit_edge ], [ %.sroa.91087.0.copyload, %.thread13.i149 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload1093, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i149 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload1081, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i149 ]
   %315 = add nsw i32 %314, 1
   store i32 %315, ptr %306, align 4, !tbaa !16, !noalias !1189
   br label %319
@@ -90797,9 +90797,9 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev24GradingRGBCurveTransformELN9__gnu_cx
   %.not.i.i.i.i.i100 = icmp eq i8 %111, 0
   %112 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %113 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  br i1 %.not.i.i.i.i.i100, label %116, label %.thread11.i
+  br i1 %.not.i.i.i.i.i100, label %116, label %.thread13.i
 
-.thread11.i:                                      ; preds = %109
+.thread13.i:                                      ; preds = %109
   %114 = load i32, ptr %110, align 4, !tbaa !16, !noalias !1206
   %115 = add nsw i32 %114, 1
   store i32 %115, ptr %110, align 4, !tbaa !16, !noalias !1206
@@ -90817,7 +90817,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev24GradingRGBCurveTransformELN9__gnu_cx
   store ptr %108, ptr %113, align 8, !tbaa !3, !alias.scope !1206
   br i1 %118, label %122, label %119
 
-119:                                              ; preds = %116, %.thread11.i
+119:                                              ; preds = %116, %.thread13.i
   %120 = load i32, ptr %110, align 4, !tbaa !16, !noalias !1206
   %121 = add nsw i32 %120, 1
   store i32 %121, ptr %110, align 4, !tbaa !16, !noalias !1206
@@ -91033,9 +91033,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %270 = getelementptr inbounds nuw i8, ptr %268, i64 8
   %271 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !1215
   %.not.i.i.i.i.i103 = icmp eq i8 %271, 0
-  br i1 %.not.i.i.i.i.i103, label %274, label %.thread11.i104
+  br i1 %.not.i.i.i.i.i103, label %274, label %.thread13.i104
 
-.thread11.i104:                                   ; preds = %269
+.thread13.i104:                                   ; preds = %269
   %272 = load i32, ptr %270, align 4, !tbaa !16, !noalias !1215
   %273 = add nsw i32 %272, 1
   store i32 %273, ptr %270, align 4, !tbaa !16, !noalias !1215
@@ -91057,11 +91057,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %270, align 4, !tbaa !16, !noalias !1215
   br label %277
 
-277:                                              ; preds = %._crit_edge, %.thread11.i104
-  %278 = phi i32 [ %.pre, %._crit_edge ], [ %273, %.thread11.i104 ]
-  %.sroa.9434.2 = phi ptr [ %.sroa.9434.0.copyload436, %._crit_edge ], [ %.sroa.9434.0.copyload, %.thread11.i104 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload440, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i104 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload428, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i104 ]
+277:                                              ; preds = %._crit_edge, %.thread13.i104
+  %278 = phi i32 [ %.pre, %._crit_edge ], [ %273, %.thread13.i104 ]
+  %.sroa.9434.2 = phi ptr [ %.sroa.9434.0.copyload436, %._crit_edge ], [ %.sroa.9434.0.copyload, %.thread13.i104 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload440, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i104 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload428, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i104 ]
   %279 = add nsw i32 %278, 1
   store i32 %279, ptr %270, align 4, !tbaa !16, !noalias !1215
   br label %283
@@ -92445,11 +92445,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i199: ; preds = %822
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201thread-pre-split
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201thread-pre-split: ; preds = %825, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i199, %810
-  %.pr453 = load ptr, ptr %210, align 8, !tbaa !3
+  %.pr561 = load ptr, ptr %210, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201thread-pre-split, %801
-  %826 = phi ptr [ %.pr453, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201thread-pre-split ], [ null, %801 ]
+  %826 = phi ptr [ %.pr561, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201thread-pre-split ], [ null, %801 ]
   %.not.i.i202 = icmp eq ptr %826, null
   br i1 %.not.i.i202, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit206, label %827
 
@@ -92749,11 +92749,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i225: ; preds = %942
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227thread-pre-split
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227thread-pre-split: ; preds = %945, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i225, %930
-  %.pr454 = load ptr, ptr %197, align 8, !tbaa !3
+  %.pr562 = load ptr, ptr %197, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227thread-pre-split, %921
-  %946 = phi ptr [ %.pr454, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227thread-pre-split ], [ null, %921 ]
+  %946 = phi ptr [ %.pr562, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227thread-pre-split ], [ null, %921 ]
   %.not.i.i228 = icmp eq ptr %946, null
   br i1 %.not.i.i228, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit232, label %947
 
@@ -93053,11 +93053,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i251: ; preds = %106
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253thread-pre-split
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253thread-pre-split: ; preds = %1065, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i251, %1050
-  %.pr455 = load ptr, ptr %184, align 8, !tbaa !3
+  %.pr563 = load ptr, ptr %184, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253thread-pre-split, %1041
-  %1066 = phi ptr [ %.pr455, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253thread-pre-split ], [ null, %1041 ]
+  %1066 = phi ptr [ %.pr563, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253thread-pre-split ], [ null, %1041 ]
   %.not.i.i254 = icmp eq ptr %1066, null
   br i1 %.not.i.i254, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit258, label %1067
 
@@ -93753,11 +93753,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i311: ; preds = %133
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313thread-pre-split
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313thread-pre-split: ; preds = %1333, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i311, %1318
-  %.pr456 = load ptr, ptr %1310, align 8, !tbaa !3
+  %.pr564 = load ptr, ptr %1310, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313thread-pre-split, %1308
-  %1334 = phi ptr [ %.pr456, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313thread-pre-split ], [ null, %1308 ]
+  %1334 = phi ptr [ %.pr564, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313thread-pre-split ], [ null, %1308 ]
   %.not.i.i314 = icmp eq ptr %1334, null
   br i1 %.not.i.i314, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit318, label %1335
 
@@ -93883,11 +93883,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i321: ; preds = %138
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323thread-pre-split
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323thread-pre-split: ; preds = %1388, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i321, %1373
-  %.pr457 = load ptr, ptr %1365, align 8, !tbaa !3
+  %.pr565 = load ptr, ptr %1365, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323thread-pre-split, %1363
-  %1389 = phi ptr [ %.pr457, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323thread-pre-split ], [ null, %1363 ]
+  %1389 = phi ptr [ %.pr565, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323thread-pre-split ], [ null, %1363 ]
   %.not.i.i324 = icmp eq ptr %1389, null
   br i1 %.not.i.i324, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit328, label %1390
 
@@ -94013,11 +94013,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i331: ; preds = %144
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333thread-pre-split
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333thread-pre-split: ; preds = %1443, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i331, %1428
-  %.pr458 = load ptr, ptr %1420, align 8, !tbaa !3
+  %.pr566 = load ptr, ptr %1420, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333thread-pre-split, %1418
-  %1444 = phi ptr [ %.pr458, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333thread-pre-split ], [ null, %1418 ]
+  %1444 = phi ptr [ %.pr566, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333thread-pre-split ], [ null, %1418 ]
   %.not.i.i334 = icmp eq ptr %1444, null
   br i1 %.not.i.i334, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit338, label %1445
 
@@ -94143,11 +94143,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i341: ; preds = %149
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343thread-pre-split
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343thread-pre-split: ; preds = %1498, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i341, %1483
-  %.pr459 = load ptr, ptr %1475, align 8, !tbaa !3
+  %.pr567 = load ptr, ptr %1475, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343thread-pre-split, %1473
-  %1499 = phi ptr [ %.pr459, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343thread-pre-split ], [ null, %1473 ]
+  %1499 = phi ptr [ %.pr567, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343thread-pre-split ], [ null, %1473 ]
   %.not.i.i344 = icmp eq ptr %1499, null
   br i1 %.not.i.i344, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit348, label %1500
 
@@ -95278,9 +95278,9 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev20GradingToneTransformELN9__gnu_cxx12_
   %.not.i.i.i.i.i109 = icmp eq i8 %126, 0
   %127 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %128 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  br i1 %.not.i.i.i.i.i109, label %131, label %.thread11.i
+  br i1 %.not.i.i.i.i.i109, label %131, label %.thread13.i
 
-.thread11.i:                                      ; preds = %124
+.thread13.i:                                      ; preds = %124
   %129 = load i32, ptr %125, align 4, !tbaa !16, !noalias !1249
   %130 = add nsw i32 %129, 1
   store i32 %130, ptr %125, align 4, !tbaa !16, !noalias !1249
@@ -95298,7 +95298,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev20GradingToneTransformELN9__gnu_cxx12_
   store ptr %123, ptr %128, align 8, !tbaa !3, !alias.scope !1249
   br i1 %133, label %137, label %134
 
-134:                                              ; preds = %131, %.thread11.i
+134:                                              ; preds = %131, %.thread13.i
   %135 = load i32, ptr %125, align 4, !tbaa !16, !noalias !1249
   %136 = add nsw i32 %135, 1
   store i32 %136, ptr %125, align 4, !tbaa !16, !noalias !1249
@@ -95522,9 +95522,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %288 = getelementptr inbounds nuw i8, ptr %286, i64 8
   %289 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !1258
   %.not.i.i.i.i.i112 = icmp eq i8 %289, 0
-  br i1 %.not.i.i.i.i.i112, label %292, label %.thread11.i113
+  br i1 %.not.i.i.i.i.i112, label %292, label %.thread13.i113
 
-.thread11.i113:                                   ; preds = %287
+.thread13.i113:                                   ; preds = %287
   %290 = load i32, ptr %288, align 4, !tbaa !16, !noalias !1258
   %291 = add nsw i32 %290, 1
   store i32 %291, ptr %288, align 4, !tbaa !16, !noalias !1258
@@ -95546,11 +95546,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %288, align 4, !tbaa !16, !noalias !1258
   br label %295
 
-295:                                              ; preds = %._crit_edge, %.thread11.i113
-  %296 = phi i32 [ %.pre, %._crit_edge ], [ %291, %.thread11.i113 ]
-  %.sroa.9667.2 = phi ptr [ %.sroa.9667.0.copyload669, %._crit_edge ], [ %.sroa.9667.0.copyload, %.thread11.i113 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload673, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i113 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload661, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i113 ]
+295:                                              ; preds = %._crit_edge, %.thread13.i113
+  %296 = phi i32 [ %.pre, %._crit_edge ], [ %291, %.thread13.i113 ]
+  %.sroa.9667.2 = phi ptr [ %.sroa.9667.0.copyload669, %._crit_edge ], [ %.sroa.9667.0.copyload, %.thread13.i113 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload673, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i113 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload661, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i113 ]
   %297 = add nsw i32 %296, 1
   store i32 %297, ptr %288, align 4, !tbaa !16, !noalias !1258
   br label %301
@@ -98388,9 +98388,9 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev14GroupTransformELN9__gnu_cxx12_Lock_p
   %.not.i.i.i.i.i66 = icmp eq i8 %102, 0
   %103 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %104 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  br i1 %.not.i.i.i.i.i66, label %107, label %.thread11.i
+  br i1 %.not.i.i.i.i.i66, label %107, label %.thread13.i
 
-.thread11.i:                                      ; preds = %100
+.thread13.i:                                      ; preds = %100
   %105 = load i32, ptr %101, align 4, !tbaa !16, !noalias !1277
   %106 = add nsw i32 %105, 1
   store i32 %106, ptr %101, align 4, !tbaa !16, !noalias !1277
@@ -98408,7 +98408,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev14GroupTransformELN9__gnu_cxx12_Lock_p
   store ptr %99, ptr %104, align 8, !tbaa !3, !alias.scope !1277
   br i1 %109, label %113, label %110
 
-110:                                              ; preds = %107, %.thread11.i
+110:                                              ; preds = %107, %.thread13.i
   %111 = load i32, ptr %101, align 4, !tbaa !16, !noalias !1277
   %112 = add nsw i32 %111, 1
   store i32 %112, ptr %101, align 4, !tbaa !16, !noalias !1277
@@ -98644,9 +98644,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %281 = getelementptr inbounds nuw i8, ptr %279, i64 8
   %282 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !1286
   %.not.i.i.i.i.i69 = icmp eq i8 %282, 0
-  br i1 %.not.i.i.i.i.i69, label %285, label %.thread11.i70
+  br i1 %.not.i.i.i.i.i69, label %285, label %.thread13.i70
 
-.thread11.i70:                                    ; preds = %280
+.thread13.i70:                                    ; preds = %280
   %283 = load i32, ptr %281, align 4, !tbaa !16, !noalias !1286
   %284 = add nsw i32 %283, 1
   store i32 %284, ptr %281, align 4, !tbaa !16, !noalias !1286
@@ -98668,11 +98668,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %281, align 4, !tbaa !16, !noalias !1286
   br label %288
 
-288:                                              ; preds = %._crit_edge, %.thread11.i70
-  %289 = phi i32 [ %.pre, %._crit_edge ], [ %284, %.thread11.i70 ]
-  %.sroa.9428.2 = phi ptr [ %.sroa.9428.0.copyload430, %._crit_edge ], [ %.sroa.9428.0.copyload, %.thread11.i70 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload434, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i70 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload422, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i70 ]
+288:                                              ; preds = %._crit_edge, %.thread13.i70
+  %289 = phi i32 [ %.pre, %._crit_edge ], [ %284, %.thread13.i70 ]
+  %.sroa.9428.2 = phi ptr [ %.sroa.9428.0.copyload430, %._crit_edge ], [ %.sroa.9428.0.copyload, %.thread13.i70 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload434, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i70 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload422, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i70 ]
   %290 = add nsw i32 %289, 1
   store i32 %290, ptr %281, align 4, !tbaa !16, !noalias !1286
   br label %294
@@ -99488,8 +99488,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i5.i: ; preds
   br i1 %.not.i.i.i.i235, label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i, label %591
 
 591:                                              ; preds = %.thread, %588
-  %.pr452 = phi ptr [ %576, %.thread ], [ %.pr.pre, %588 ]
-  %592 = getelementptr inbounds nuw i8, ptr %.pr452, i64 8
+  %.pr556 = phi ptr [ %576, %.thread ], [ %.pr.pre, %588 ]
+  %592 = getelementptr inbounds nuw i8, ptr %.pr556, i64 8
   %593 = load atomic i64, ptr %592 acquire, align 8
   %594 = icmp eq i64 %593, 4294967297
   %595 = trunc i64 %593 to i32
@@ -99497,16 +99497,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i5.i: ; preds
 
 596:                                              ; preds = %591
   store i32 0, ptr %592, align 8, !tbaa !9
-  %597 = getelementptr inbounds nuw i8, ptr %.pr452, i64 12
+  %597 = getelementptr inbounds nuw i8, ptr %.pr556, i64 12
   store i32 0, ptr %597, align 4, !tbaa !12
-  %598 = load ptr, ptr %.pr452, align 8, !tbaa !13
+  %598 = load ptr, ptr %.pr556, align 8, !tbaa !13
   %599 = getelementptr inbounds nuw i8, ptr %598, i64 16
   %600 = load ptr, ptr %599, align 8
-  call void %600(ptr noundef nonnull align 8 dereferenceable(16) %.pr452) #29
-  %601 = load ptr, ptr %.pr452, align 8, !tbaa !13
+  call void %600(ptr noundef nonnull align 8 dereferenceable(16) %.pr556) #29
+  %601 = load ptr, ptr %.pr556, align 8, !tbaa !13
   %602 = getelementptr inbounds nuw i8, ptr %601, i64 24
   %603 = load ptr, ptr %602, align 8
-  call void %603(ptr noundef nonnull align 8 dereferenceable(16) %.pr452) #29
+  call void %603(ptr noundef nonnull align 8 dereferenceable(16) %.pr556) #29
   br label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i
 
 604:                                              ; preds = %591
@@ -99529,7 +99529,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i237: ; preds = %608
   br i1 %610, label %611, label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i, !prof !17
 
 611:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i237
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr452) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr556) #29
   br label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i
 
 _ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i: ; preds = %.thread381, %611, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i237, %596, %588
@@ -100165,9 +100165,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i5.i355: ; pr
   %845 = getelementptr inbounds nuw i8, ptr %842, i64 8
   %846 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15
   %.not.i.i.i.i.i7.i357 = icmp eq i8 %846, 0
-  br i1 %.not.i.i.i.i.i7.i357, label %854, label %.thread453
+  br i1 %.not.i.i.i.i.i7.i357, label %854, label %.thread557
 
-.thread453:                                       ; preds = %844
+.thread557:                                       ; preds = %844
   %847 = load i32, ptr %845, align 4, !tbaa !16
   %848 = add nsw i32 %847, 1
   store i32 %848, ptr %845, align 4, !tbaa !16
@@ -100199,9 +100199,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i5.i355: ; pr
   %.not.i.i.i.i259 = icmp eq ptr %.pr384.pre, null
   br i1 %.not.i.i.i.i259, label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i263, label %857
 
-857:                                              ; preds = %.thread453, %854
-  %.pr384456 = phi ptr [ %842, %.thread453 ], [ %.pr384.pre, %854 ]
-  %858 = getelementptr inbounds nuw i8, ptr %.pr384456, i64 8
+857:                                              ; preds = %.thread557, %854
+  %.pr384560 = phi ptr [ %842, %.thread557 ], [ %.pr384.pre, %854 ]
+  %858 = getelementptr inbounds nuw i8, ptr %.pr384560, i64 8
   %859 = load atomic i64, ptr %858 acquire, align 8
   %860 = icmp eq i64 %859, 4294967297
   %861 = trunc i64 %859 to i32
@@ -100209,16 +100209,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i5.i355: ; pr
 
 862:                                              ; preds = %857
   store i32 0, ptr %858, align 8, !tbaa !9
-  %863 = getelementptr inbounds nuw i8, ptr %.pr384456, i64 12
+  %863 = getelementptr inbounds nuw i8, ptr %.pr384560, i64 12
   store i32 0, ptr %863, align 4, !tbaa !12
-  %864 = load ptr, ptr %.pr384456, align 8, !tbaa !13
+  %864 = load ptr, ptr %.pr384560, align 8, !tbaa !13
   %865 = getelementptr inbounds nuw i8, ptr %864, i64 16
   %866 = load ptr, ptr %865, align 8
-  call void %866(ptr noundef nonnull align 8 dereferenceable(16) %.pr384456) #29
-  %867 = load ptr, ptr %.pr384456, align 8, !tbaa !13
+  call void %866(ptr noundef nonnull align 8 dereferenceable(16) %.pr384560) #29
+  %867 = load ptr, ptr %.pr384560, align 8, !tbaa !13
   %868 = getelementptr inbounds nuw i8, ptr %867, i64 24
   %869 = load ptr, ptr %868, align 8
-  call void %869(ptr noundef nonnull align 8 dereferenceable(16) %.pr384456) #29
+  call void %869(ptr noundef nonnull align 8 dereferenceable(16) %.pr384560) #29
   br label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i263
 
 870:                                              ; preds = %857
@@ -100241,7 +100241,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i261: ; preds = %874
   br i1 %876, label %877, label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i263, !prof !17
 
 877:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i261
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr384456) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr384560) #29
   br label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i263
 
 _ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i263: ; preds = %.thread385, %877, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i261, %862, %854
@@ -100900,9 +100900,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i5.i371: ; pr
   %1150 = getelementptr inbounds nuw i8, ptr %1145, i64 8
   %1151 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15
   %.not.i.i.i.i.i7.i373 = icmp eq i8 %1151, 0
-  br i1 %.not.i.i.i.i.i7.i373, label %1161, label %.thread457
+  br i1 %.not.i.i.i.i.i7.i373, label %1161, label %.thread561
 
-.thread457:                                       ; preds = %1149
+.thread561:                                       ; preds = %1149
   %1152 = load i32, ptr %1150, align 4, !tbaa !16
   %1153 = add nsw i32 %1152, 1
   store i32 %1153, ptr %1150, align 4, !tbaa !16
@@ -100938,9 +100938,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i5.i371: ; pr
   %.not.i.i.i.i301 = icmp eq ptr %.pr388.pre, null
   br i1 %.not.i.i.i.i301, label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i305, label %1166
 
-1166:                                             ; preds = %.thread457, %1161
-  %.pr388460 = phi ptr [ %1145, %.thread457 ], [ %.pr388.pre, %1161 ]
-  %1167 = getelementptr inbounds nuw i8, ptr %.pr388460, i64 8
+1166:                                             ; preds = %.thread561, %1161
+  %.pr388564 = phi ptr [ %1145, %.thread561 ], [ %.pr388.pre, %1161 ]
+  %1167 = getelementptr inbounds nuw i8, ptr %.pr388564, i64 8
   %1168 = load atomic i64, ptr %1167 acquire, align 8
   %1169 = icmp eq i64 %1168, 4294967297
   %1170 = trunc i64 %1168 to i32
@@ -100948,16 +100948,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i5.i371: ; pr
 
 1171:                                             ; preds = %1166
   store i32 0, ptr %1167, align 8, !tbaa !9
-  %1172 = getelementptr inbounds nuw i8, ptr %.pr388460, i64 12
+  %1172 = getelementptr inbounds nuw i8, ptr %.pr388564, i64 12
   store i32 0, ptr %1172, align 4, !tbaa !12
-  %1173 = load ptr, ptr %.pr388460, align 8, !tbaa !13
+  %1173 = load ptr, ptr %.pr388564, align 8, !tbaa !13
   %1174 = getelementptr inbounds nuw i8, ptr %1173, i64 16
   %1175 = load ptr, ptr %1174, align 8
-  call void %1175(ptr noundef nonnull align 8 dereferenceable(16) %.pr388460) #29
-  %1176 = load ptr, ptr %.pr388460, align 8, !tbaa !13
+  call void %1175(ptr noundef nonnull align 8 dereferenceable(16) %.pr388564) #29
+  %1176 = load ptr, ptr %.pr388564, align 8, !tbaa !13
   %1177 = getelementptr inbounds nuw i8, ptr %1176, i64 24
   %1178 = load ptr, ptr %1177, align 8
-  call void %1178(ptr noundef nonnull align 8 dereferenceable(16) %.pr388460) #29
+  call void %1178(ptr noundef nonnull align 8 dereferenceable(16) %.pr388564) #29
   br label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i305
 
 1179:                                             ; preds = %1166
@@ -100980,7 +100980,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i303: ; preds = %118
   br i1 %1185, label %1186, label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i305, !prof !17
 
 1186:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i303
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr388460) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr388564) #29
   br label %_ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i305
 
 _ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i305: ; preds = %.thread389, %1186, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i303, %1171, %1161
@@ -102274,9 +102274,9 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev18LogAffineTransformELN9__gnu_cxx12_Lo
   %.not.i.i.i.i.i92 = icmp eq i8 %94, 0
   %95 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %96 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  br i1 %.not.i.i.i.i.i92, label %99, label %.thread11.i
+  br i1 %.not.i.i.i.i.i92, label %99, label %.thread13.i
 
-.thread11.i:                                      ; preds = %92
+.thread13.i:                                      ; preds = %92
   %97 = load i32, ptr %93, align 4, !tbaa !16, !noalias !1312
   %98 = add nsw i32 %97, 1
   store i32 %98, ptr %93, align 4, !tbaa !16, !noalias !1312
@@ -102294,7 +102294,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev18LogAffineTransformELN9__gnu_cxx12_Lo
   store ptr %91, ptr %96, align 8, !tbaa !3, !alias.scope !1312
   br i1 %101, label %105, label %102
 
-102:                                              ; preds = %99, %.thread11.i
+102:                                              ; preds = %99, %.thread13.i
   %103 = load i32, ptr %93, align 4, !tbaa !16, !noalias !1312
   %104 = add nsw i32 %103, 1
   store i32 %104, ptr %93, align 4, !tbaa !16, !noalias !1312
@@ -102481,9 +102481,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %224 = getelementptr inbounds nuw i8, ptr %222, i64 8
   %225 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !1321
   %.not.i.i.i.i.i95 = icmp eq i8 %225, 0
-  br i1 %.not.i.i.i.i.i95, label %228, label %.thread11.i96
+  br i1 %.not.i.i.i.i.i95, label %228, label %.thread13.i96
 
-.thread11.i96:                                    ; preds = %223
+.thread13.i96:                                    ; preds = %223
   %226 = load i32, ptr %224, align 4, !tbaa !16, !noalias !1321
   %227 = add nsw i32 %226, 1
   store i32 %227, ptr %224, align 4, !tbaa !16, !noalias !1321
@@ -102505,11 +102505,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %224, align 4, !tbaa !16, !noalias !1321
   br label %231
 
-231:                                              ; preds = %._crit_edge, %.thread11.i96
-  %232 = phi i32 [ %.pre, %._crit_edge ], [ %227, %.thread11.i96 ]
-  %.sroa.9257.2 = phi ptr [ %.sroa.9257.0.copyload259, %._crit_edge ], [ %.sroa.9257.0.copyload, %.thread11.i96 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload263, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i96 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload251, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i96 ]
+231:                                              ; preds = %._crit_edge, %.thread13.i96
+  %232 = phi i32 [ %.pre, %._crit_edge ], [ %227, %.thread13.i96 ]
+  %.sroa.9257.2 = phi ptr [ %.sroa.9257.0.copyload259, %._crit_edge ], [ %.sroa.9257.0.copyload, %.thread13.i96 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload263, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i96 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload251, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i96 ]
   %233 = add nsw i32 %232, 1
   store i32 %233, ptr %224, align 4, !tbaa !16, !noalias !1321
   br label %237
@@ -104680,9 +104680,9 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev18LogCameraTransformELN9__gnu_cxx12_Lo
   %.not.i.i.i.i.i114 = icmp eq i8 %98, 0
   %99 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %100 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  br i1 %.not.i.i.i.i.i114, label %103, label %.thread11.i
+  br i1 %.not.i.i.i.i.i114, label %103, label %.thread13.i
 
-.thread11.i:                                      ; preds = %96
+.thread13.i:                                      ; preds = %96
   %101 = load i32, ptr %97, align 4, !tbaa !16, !noalias !1337
   %102 = add nsw i32 %101, 1
   store i32 %102, ptr %97, align 4, !tbaa !16, !noalias !1337
@@ -104700,7 +104700,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev18LogCameraTransformELN9__gnu_cxx12_Lo
   store ptr %95, ptr %100, align 8, !tbaa !3, !alias.scope !1337
   br i1 %105, label %109, label %106
 
-106:                                              ; preds = %103, %.thread11.i
+106:                                              ; preds = %103, %.thread13.i
   %107 = load i32, ptr %97, align 4, !tbaa !16, !noalias !1337
   %108 = add nsw i32 %107, 1
   store i32 %108, ptr %97, align 4, !tbaa !16, !noalias !1337
@@ -104901,9 +104901,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %240 = getelementptr inbounds nuw i8, ptr %238, i64 8
   %241 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !1346
   %.not.i.i.i.i.i117 = icmp eq i8 %241, 0
-  br i1 %.not.i.i.i.i.i117, label %244, label %.thread11.i118
+  br i1 %.not.i.i.i.i.i117, label %244, label %.thread13.i118
 
-.thread11.i118:                                   ; preds = %239
+.thread13.i118:                                   ; preds = %239
   %242 = load i32, ptr %240, align 4, !tbaa !16, !noalias !1346
   %243 = add nsw i32 %242, 1
   store i32 %243, ptr %240, align 4, !tbaa !16, !noalias !1346
@@ -104925,11 +104925,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %240, align 4, !tbaa !16, !noalias !1346
   br label %247
 
-247:                                              ; preds = %._crit_edge, %.thread11.i118
-  %248 = phi i32 [ %.pre, %._crit_edge ], [ %243, %.thread11.i118 ]
-  %.sroa.9419.2 = phi ptr [ %.sroa.9419.0.copyload421, %._crit_edge ], [ %.sroa.9419.0.copyload, %.thread11.i118 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload425, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i118 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload413, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i118 ]
+247:                                              ; preds = %._crit_edge, %.thread13.i118
+  %248 = phi i32 [ %.pre, %._crit_edge ], [ %243, %.thread13.i118 ]
+  %.sroa.9419.2 = phi ptr [ %.sroa.9419.0.copyload421, %._crit_edge ], [ %.sroa.9419.0.copyload, %.thread13.i118 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload425, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i118 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload413, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i118 ]
   %249 = add nsw i32 %248, 1
   store i32 %249, ptr %240, align 4, !tbaa !16, !noalias !1346
   br label %253
@@ -107320,9 +107320,9 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12LogTransformELN9__gnu_cxx12_Lock_pol
   %.not.i.i.i.i.i68 = icmp eq i8 %86, 0
   %87 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %88 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  br i1 %.not.i.i.i.i.i68, label %91, label %.thread11.i
+  br i1 %.not.i.i.i.i.i68, label %91, label %.thread13.i
 
-.thread11.i:                                      ; preds = %84
+.thread13.i:                                      ; preds = %84
   %89 = load i32, ptr %85, align 4, !tbaa !16, !noalias !1362
   %90 = add nsw i32 %89, 1
   store i32 %90, ptr %85, align 4, !tbaa !16, !noalias !1362
@@ -107340,7 +107340,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12LogTransformELN9__gnu_cxx12_Lock_pol
   store ptr %83, ptr %88, align 8, !tbaa !3, !alias.scope !1362
   br i1 %93, label %97, label %94
 
-94:                                               ; preds = %91, %.thread11.i
+94:                                               ; preds = %91, %.thread13.i
   %95 = load i32, ptr %85, align 4, !tbaa !16, !noalias !1362
   %96 = add nsw i32 %95, 1
   store i32 %96, ptr %85, align 4, !tbaa !16, !noalias !1362
@@ -107503,9 +107503,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %193 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !1371
   %.not.i.i.i.i.i71 = icmp eq i8 %193, 0
-  br i1 %.not.i.i.i.i.i71, label %196, label %.thread11.i72
+  br i1 %.not.i.i.i.i.i71, label %196, label %.thread13.i72
 
-.thread11.i72:                                    ; preds = %191
+.thread13.i72:                                    ; preds = %191
   %194 = load i32, ptr %192, align 4, !tbaa !16, !noalias !1371
   %195 = add nsw i32 %194, 1
   store i32 %195, ptr %192, align 4, !tbaa !16, !noalias !1371
@@ -107527,11 +107527,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %192, align 4, !tbaa !16, !noalias !1371
   br label %199
 
-199:                                              ; preds = %._crit_edge, %.thread11.i72
-  %200 = phi i32 [ %.pre, %._crit_edge ], [ %195, %.thread11.i72 ]
-  %.sroa.9211.2 = phi ptr [ %.sroa.9211.0.copyload213, %._crit_edge ], [ %.sroa.9211.0.copyload, %.thread11.i72 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload217, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i72 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload205, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i72 ]
+199:                                              ; preds = %._crit_edge, %.thread13.i72
+  %200 = phi i32 [ %.pre, %._crit_edge ], [ %195, %.thread13.i72 ]
+  %.sroa.9211.2 = phi ptr [ %.sroa.9211.0.copyload213, %._crit_edge ], [ %.sroa.9211.0.copyload, %.thread13.i72 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload217, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i72 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload205, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i72 ]
   %201 = add nsw i32 %200, 1
   store i32 %201, ptr %192, align 4, !tbaa !16, !noalias !1371
   br label %205
@@ -109299,9 +109299,9 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev13LookTransformELN9__gnu_cxx12_Lock_po
   %.not.i.i.i.i.i64 = icmp eq i8 %85, 0
   %86 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %87 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  br i1 %.not.i.i.i.i.i64, label %90, label %.thread11.i
+  br i1 %.not.i.i.i.i.i64, label %90, label %.thread13.i
 
-.thread11.i:                                      ; preds = %83
+.thread13.i:                                      ; preds = %83
   %88 = load i32, ptr %84, align 4, !tbaa !16, !noalias !1387
   %89 = add nsw i32 %88, 1
   store i32 %89, ptr %84, align 4, !tbaa !16, !noalias !1387
@@ -109319,7 +109319,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev13LookTransformELN9__gnu_cxx12_Lock_po
   store ptr %82, ptr %87, align 8, !tbaa !3, !alias.scope !1387
   br i1 %92, label %96, label %93
 
-93:                                               ; preds = %90, %.thread11.i
+93:                                               ; preds = %90, %.thread13.i
   %94 = load i32, ptr %84, align 4, !tbaa !16, !noalias !1387
   %95 = add nsw i32 %94, 1
   store i32 %95, ptr %84, align 4, !tbaa !16, !noalias !1387
@@ -109485,9 +109485,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %194 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !1396
   %.not.i.i.i.i.i67 = icmp eq i8 %195, 0
-  br i1 %.not.i.i.i.i.i67, label %198, label %.thread11.i68
+  br i1 %.not.i.i.i.i.i67, label %198, label %.thread13.i68
 
-.thread11.i68:                                    ; preds = %193
+.thread13.i68:                                    ; preds = %193
   %196 = load i32, ptr %194, align 4, !tbaa !16, !noalias !1396
   %197 = add nsw i32 %196, 1
   store i32 %197, ptr %194, align 4, !tbaa !16, !noalias !1396
@@ -109509,11 +109509,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %194, align 4, !tbaa !16, !noalias !1396
   br label %201
 
-201:                                              ; preds = %._crit_edge, %.thread11.i68
-  %202 = phi i32 [ %.pre, %._crit_edge ], [ %197, %.thread11.i68 ]
-  %.sroa.9196.2 = phi ptr [ %.sroa.9196.0.copyload198, %._crit_edge ], [ %.sroa.9196.0.copyload, %.thread11.i68 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload202, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i68 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload190, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i68 ]
+201:                                              ; preds = %._crit_edge, %.thread13.i68
+  %202 = phi i32 [ %.pre, %._crit_edge ], [ %197, %.thread13.i68 ]
+  %.sroa.9196.2 = phi ptr [ %.sroa.9196.0.copyload198, %._crit_edge ], [ %.sroa.9196.0.copyload, %.thread13.i68 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload202, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i68 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload190, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i68 ]
   %203 = add nsw i32 %202, 1
   store i32 %203, ptr %194, align 4, !tbaa !16, !noalias !1396
   br label %207
@@ -111207,9 +111207,9 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15MatrixTransformELN9__gnu_cxx12_Lock_
   %.not.i.i.i.i.i82 = icmp eq i8 %91, 0
   %92 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %93 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  br i1 %.not.i.i.i.i.i82, label %96, label %.thread11.i
+  br i1 %.not.i.i.i.i.i82, label %96, label %.thread13.i
 
-.thread11.i:                                      ; preds = %89
+.thread13.i:                                      ; preds = %89
   %94 = load i32, ptr %90, align 4, !tbaa !16, !noalias !1412
   %95 = add nsw i32 %94, 1
   store i32 %95, ptr %90, align 4, !tbaa !16, !noalias !1412
@@ -111227,7 +111227,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15MatrixTransformELN9__gnu_cxx12_Lock_
   store ptr %88, ptr %93, align 8, !tbaa !3, !alias.scope !1412
   br i1 %98, label %102, label %99
 
-99:                                               ; preds = %96, %.thread11.i
+99:                                               ; preds = %96, %.thread13.i
   %100 = load i32, ptr %90, align 4, !tbaa !16, !noalias !1412
   %101 = add nsw i32 %100, 1
   store i32 %101, ptr %90, align 4, !tbaa !16, !noalias !1412
@@ -111393,9 +111393,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %201 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !1421
   %.not.i.i.i.i.i85 = icmp eq i8 %201, 0
-  br i1 %.not.i.i.i.i.i85, label %204, label %.thread11.i86
+  br i1 %.not.i.i.i.i.i85, label %204, label %.thread13.i86
 
-.thread11.i86:                                    ; preds = %199
+.thread13.i86:                                    ; preds = %199
   %202 = load i32, ptr %200, align 4, !tbaa !16, !noalias !1421
   %203 = add nsw i32 %202, 1
   store i32 %203, ptr %200, align 4, !tbaa !16, !noalias !1421
@@ -111417,11 +111417,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %200, align 4, !tbaa !16, !noalias !1421
   br label %207
 
-207:                                              ; preds = %._crit_edge, %.thread11.i86
-  %208 = phi i32 [ %.pre, %._crit_edge ], [ %203, %.thread11.i86 ]
-  %.sroa.9276.2 = phi ptr [ %.sroa.9276.0.copyload278, %._crit_edge ], [ %.sroa.9276.0.copyload, %.thread11.i86 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload282, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i86 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload270, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i86 ]
+207:                                              ; preds = %._crit_edge, %.thread13.i86
+  %208 = phi i32 [ %.pre, %._crit_edge ], [ %203, %.thread13.i86 ]
+  %.sroa.9276.2 = phi ptr [ %.sroa.9276.0.copyload278, %._crit_edge ], [ %.sroa.9276.0.copyload, %.thread13.i86 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload282, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i86 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload270, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i86 ]
   %209 = add nsw i32 %208, 1
   store i32 %209, ptr %200, align 4, !tbaa !16, !noalias !1421
   br label %213
@@ -112309,7 +112309,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %538
   br i1 %.not.i.i.i161, label %_ZNSt6vectorIdSaIdEED2Ev.exit162, label %549
 
 549:                                              ; preds = %.thread, %547
-  %.pn75301 = phi { ptr, i32 } [ %546, %.thread ], [ %.pn75, %547 ]
+  %.pn75363 = phi { ptr, i32 } [ %546, %.thread ], [ %.pn75, %547 ]
   %550 = phi ptr [ %463, %.thread ], [ %548, %547 ]
   %551 = load ptr, ptr %187, align 8, !tbaa !174
   %552 = ptrtoint ptr %551 to i64
@@ -112319,7 +112319,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %538
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit162
 
 _ZNSt6vectorIdSaIdEED2Ev.exit162:                 ; preds = %547, %549
-  %.pn75302 = phi { ptr, i32 } [ %.pn75, %547 ], [ %.pn75301, %549 ]
+  %.pn75364 = phi { ptr, i32 } [ %.pn75, %547 ], [ %.pn75363, %549 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %864
 
@@ -112623,7 +112623,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20
   %668 = getelementptr inbounds nuw i8, ptr %667, i64 104
   %669 = load ptr, ptr %668, align 8
   invoke void %669(ptr noundef nonnull align 8 dereferenceable(8) %666, ptr noundef nonnull %590)
-          to label %_ZNSt6vectorIdSaIdEED2Ev.exit213 unwind label %.thread303
+          to label %_ZNSt6vectorIdSaIdEED2Ev.exit213 unwind label %.thread365
 
 _ZNSt6vectorIdSaIdEED2Ev.exit213:                 ; preds = %665
   %670 = load ptr, ptr %179, align 8, !tbaa !174
@@ -112633,7 +112633,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit213:                 ; preds = %665
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %837
 
-.thread303:                                       ; preds = %665
+.thread365:                                       ; preds = %665
   %673 = landingpad { ptr, i32 }
           cleanup
   br label %676
@@ -112644,9 +112644,9 @@ _ZNSt6vectorIdSaIdEED2Ev.exit213:                 ; preds = %665
   %.not.i.i.i214 = icmp eq ptr %675, null
   br i1 %.not.i.i.i214, label %_ZNSt6vectorIdSaIdEED2Ev.exit215, label %676
 
-676:                                              ; preds = %.thread303, %674
-  %.pn65306 = phi { ptr, i32 } [ %673, %.thread303 ], [ %.pn65, %674 ]
-  %677 = phi ptr [ %590, %.thread303 ], [ %675, %674 ]
+676:                                              ; preds = %.thread365, %674
+  %.pn65368 = phi { ptr, i32 } [ %673, %.thread365 ], [ %.pn65, %674 ]
+  %677 = phi ptr [ %590, %.thread365 ], [ %675, %674 ]
   %678 = load ptr, ptr %179, align 8, !tbaa !174
   %679 = ptrtoint ptr %678 to i64
   %680 = ptrtoint ptr %677 to i64
@@ -112655,7 +112655,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit213:                 ; preds = %665
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit215
 
 _ZNSt6vectorIdSaIdEED2Ev.exit215:                 ; preds = %674, %676
-  %.pn65307 = phi { ptr, i32 } [ %.pn65, %674 ], [ %.pn65306, %676 ]
+  %.pn65369 = phi { ptr, i32 } [ %.pn65, %674 ], [ %.pn65368, %676 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %864
 
@@ -113127,7 +113127,7 @@ _ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.backedge
 
 864:                                              ; preds = %836, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit239, %740, %_ZNSt6vectorIdSaIdEED2Ev.exit215, %_ZNSt6vectorIdSaIdEED2Ev.exit162, %427
-  %.pn75.pn = phi { ptr, i32 } [ %.pn75302, %_ZNSt6vectorIdSaIdEED2Ev.exit162 ], [ %.pn65307, %_ZNSt6vectorIdSaIdEED2Ev.exit215 ], [ %.pn56, %740 ], [ %.pn54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit239 ], [ %.pn52, %836 ], [ %.pn48.pn.pn, %427 ]
+  %.pn75.pn = phi { ptr, i32 } [ %.pn75364, %_ZNSt6vectorIdSaIdEED2Ev.exit162 ], [ %.pn65369, %_ZNSt6vectorIdSaIdEED2Ev.exit215 ], [ %.pn56, %740 ], [ %.pn54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit239 ], [ %.pn52, %836 ], [ %.pn48.pn.pn, %427 ]
   %865 = load ptr, ptr %9, align 8, !tbaa !18
   %866 = icmp eq ptr %865, %188
   br i1 %866, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i253, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i252
@@ -113467,9 +113467,9 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev14RangeTransformELN9__gnu_cxx12_Lock_p
   %.not.i.i.i.i.i75 = icmp eq i8 %88, 0
   %89 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %90 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  br i1 %.not.i.i.i.i.i75, label %93, label %.thread11.i
+  br i1 %.not.i.i.i.i.i75, label %93, label %.thread13.i
 
-.thread11.i:                                      ; preds = %86
+.thread13.i:                                      ; preds = %86
   %91 = load i32, ptr %87, align 4, !tbaa !16, !noalias !1451
   %92 = add nsw i32 %91, 1
   store i32 %92, ptr %87, align 4, !tbaa !16, !noalias !1451
@@ -113487,7 +113487,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev14RangeTransformELN9__gnu_cxx12_Lock_p
   store ptr %85, ptr %90, align 8, !tbaa !3, !alias.scope !1451
   br i1 %95, label %99, label %96
 
-96:                                               ; preds = %93, %.thread11.i
+96:                                               ; preds = %93, %.thread13.i
   %97 = load i32, ptr %87, align 4, !tbaa !16, !noalias !1451
   %98 = add nsw i32 %97, 1
   store i32 %98, ptr %87, align 4, !tbaa !16, !noalias !1451
@@ -113669,9 +113669,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %213 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %214 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !1460
   %.not.i.i.i.i.i78 = icmp eq i8 %214, 0
-  br i1 %.not.i.i.i.i.i78, label %217, label %.thread11.i79
+  br i1 %.not.i.i.i.i.i78, label %217, label %.thread13.i79
 
-.thread11.i79:                                    ; preds = %212
+.thread13.i79:                                    ; preds = %212
   %215 = load i32, ptr %213, align 4, !tbaa !16, !noalias !1460
   %216 = add nsw i32 %215, 1
   store i32 %216, ptr %213, align 4, !tbaa !16, !noalias !1460
@@ -113693,11 +113693,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %213, align 4, !tbaa !16, !noalias !1460
   br label %220
 
-220:                                              ; preds = %._crit_edge, %.thread11.i79
-  %221 = phi i32 [ %.pre, %._crit_edge ], [ %216, %.thread11.i79 ]
-  %.sroa.9217.2 = phi ptr [ %.sroa.9217.0.copyload219, %._crit_edge ], [ %.sroa.9217.0.copyload, %.thread11.i79 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload223, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i79 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload211, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i79 ]
+220:                                              ; preds = %._crit_edge, %.thread13.i79
+  %221 = phi i32 [ %.pre, %._crit_edge ], [ %216, %.thread13.i79 ]
+  %.sroa.9217.2 = phi ptr [ %.sroa.9217.0.copyload219, %._crit_edge ], [ %.sroa.9217.0.copyload, %.thread13.i79 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload223, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i79 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload211, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i79 ]
   %222 = add nsw i32 %221, 1
   store i32 %222, ptr %213, align 4, !tbaa !16, !noalias !1460
   br label %226
@@ -116047,9 +116047,9 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   %.not.i.i.i.i.i = icmp eq i8 %49, 0
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  br i1 %.not.i.i.i.i.i, label %54, label %.thread11.i
+  br i1 %.not.i.i.i.i.i, label %54, label %.thread13.i
 
-.thread11.i:                                      ; preds = %47
+.thread13.i:                                      ; preds = %47
   %52 = load i32, ptr %48, align 4, !tbaa !16, !noalias !1473
   %53 = add nsw i32 %52, 1
   store i32 %53, ptr %48, align 4, !tbaa !16, !noalias !1473
@@ -116067,7 +116067,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   store ptr %46, ptr %51, align 8, !tbaa !3, !alias.scope !1473
   br i1 %56, label %60, label %57
 
-57:                                               ; preds = %54, %.thread11.i
+57:                                               ; preds = %54, %.thread13.i
   %58 = load i32, ptr %48, align 4, !tbaa !16, !noalias !1473
   %59 = add nsw i32 %58, 1
   store i32 %59, ptr %48, align 4, !tbaa !16, !noalias !1473
@@ -116212,9 +116212,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %140 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %141 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !1476
   %.not.i.i.i.i.i75 = icmp eq i8 %141, 0
-  br i1 %.not.i.i.i.i.i75, label %144, label %.thread11.i76
+  br i1 %.not.i.i.i.i.i75, label %144, label %.thread13.i76
 
-.thread11.i76:                                    ; preds = %139
+.thread13.i76:                                    ; preds = %139
   %142 = load i32, ptr %140, align 4, !tbaa !16, !noalias !1476
   %143 = add nsw i32 %142, 1
   store i32 %143, ptr %140, align 4, !tbaa !16, !noalias !1476
@@ -116236,11 +116236,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %140, align 4, !tbaa !16, !noalias !1476
   br label %147
 
-147:                                              ; preds = %._crit_edge, %.thread11.i76
-  %148 = phi i32 [ %.pre, %._crit_edge ], [ %143, %.thread11.i76 ]
-  %.sroa.9247.2 = phi ptr [ %.sroa.9247.0.copyload249, %._crit_edge ], [ %.sroa.9247.0.copyload, %.thread11.i76 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload253, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i76 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload241, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i76 ]
+147:                                              ; preds = %._crit_edge, %.thread13.i76
+  %148 = phi i32 [ %.pre, %._crit_edge ], [ %143, %.thread13.i76 ]
+  %.sroa.9247.2 = phi ptr [ %.sroa.9247.0.copyload249, %._crit_edge ], [ %.sroa.9247.0.copyload, %.thread13.i76 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload253, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i76 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload241, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i76 ]
   %149 = add nsw i32 %148, 1
   store i32 %149, ptr %140, align 4, !tbaa !16, !noalias !1476
   br label %153
@@ -117509,9 +117509,9 @@ common.resume:                                    ; preds = %564, %_ZNSt7__cxx11
   %.not.i.i.i.i.i = icmp eq i8 %51, 0
   %52 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  br i1 %.not.i.i.i.i.i, label %56, label %.thread11.i
+  br i1 %.not.i.i.i.i.i, label %56, label %.thread13.i
 
-.thread11.i:                                      ; preds = %49
+.thread13.i:                                      ; preds = %49
   %54 = load i32, ptr %50, align 4, !tbaa !16, !noalias !1488
   %55 = add nsw i32 %54, 1
   store i32 %55, ptr %50, align 4, !tbaa !16, !noalias !1488
@@ -117529,7 +117529,7 @@ common.resume:                                    ; preds = %564, %_ZNSt7__cxx11
   store ptr %48, ptr %53, align 8, !tbaa !3, !alias.scope !1488
   br i1 %58, label %62, label %59
 
-59:                                               ; preds = %56, %.thread11.i
+59:                                               ; preds = %56, %.thread13.i
   %60 = load i32, ptr %50, align 4, !tbaa !16, !noalias !1488
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %50, align 4, !tbaa !16, !noalias !1488
@@ -117673,9 +117673,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %143 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %144 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !1491
   %.not.i.i.i.i.i69 = icmp eq i8 %144, 0
-  br i1 %.not.i.i.i.i.i69, label %147, label %.thread11.i70
+  br i1 %.not.i.i.i.i.i69, label %147, label %.thread13.i70
 
-.thread11.i70:                                    ; preds = %142
+.thread13.i70:                                    ; preds = %142
   %145 = load i32, ptr %143, align 4, !tbaa !16, !noalias !1491
   %146 = add nsw i32 %145, 1
   store i32 %146, ptr %143, align 4, !tbaa !16, !noalias !1491
@@ -117697,11 +117697,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %143, align 4, !tbaa !16, !noalias !1491
   br label %150
 
-150:                                              ; preds = %._crit_edge, %.thread11.i70
-  %151 = phi i32 [ %.pre, %._crit_edge ], [ %146, %.thread11.i70 ]
-  %.sroa.9170.2 = phi ptr [ %.sroa.9170.0.copyload172, %._crit_edge ], [ %.sroa.9170.0.copyload, %.thread11.i70 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload176, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i70 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload164, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i70 ]
+150:                                              ; preds = %._crit_edge, %.thread13.i70
+  %151 = phi i32 [ %.pre, %._crit_edge ], [ %146, %.thread13.i70 ]
+  %.sroa.9170.2 = phi ptr [ %.sroa.9170.0.copyload172, %._crit_edge ], [ %.sroa.9170.0.copyload, %.thread13.i70 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload176, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i70 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload164, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i70 ]
   %152 = add nsw i32 %151, 1
   store i32 %152, ptr %143, align 4, !tbaa !16, !noalias !1491
   br label %156
@@ -118963,9 +118963,9 @@ common.resume:                                    ; preds = %514, %_ZNSt7__cxx11
   %.not.i.i.i.i.i = icmp eq i8 %48, 0
   %49 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  br i1 %.not.i.i.i.i.i, label %53, label %.thread11.i
+  br i1 %.not.i.i.i.i.i, label %53, label %.thread13.i
 
-.thread11.i:                                      ; preds = %46
+.thread13.i:                                      ; preds = %46
   %51 = load i32, ptr %47, align 4, !tbaa !16, !noalias !1503
   %52 = add nsw i32 %51, 1
   store i32 %52, ptr %47, align 4, !tbaa !16, !noalias !1503
@@ -118983,7 +118983,7 @@ common.resume:                                    ; preds = %514, %_ZNSt7__cxx11
   store ptr %45, ptr %50, align 8, !tbaa !3, !alias.scope !1503
   br i1 %55, label %59, label %56
 
-56:                                               ; preds = %53, %.thread11.i
+56:                                               ; preds = %53, %.thread13.i
   %57 = load i32, ptr %47, align 4, !tbaa !16, !noalias !1503
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr %47, align 4, !tbaa !16, !noalias !1503
@@ -119121,9 +119121,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %135 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !1506
   %.not.i.i.i.i.i60 = icmp eq i8 %135, 0
-  br i1 %.not.i.i.i.i.i60, label %138, label %.thread11.i61
+  br i1 %.not.i.i.i.i.i60, label %138, label %.thread13.i61
 
-.thread11.i61:                                    ; preds = %133
+.thread13.i61:                                    ; preds = %133
   %136 = load i32, ptr %134, align 4, !tbaa !16, !noalias !1506
   %137 = add nsw i32 %136, 1
   store i32 %137, ptr %134, align 4, !tbaa !16, !noalias !1506
@@ -119145,11 +119145,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %134, align 4, !tbaa !16, !noalias !1506
   br label %141
 
-141:                                              ; preds = %._crit_edge, %.thread11.i61
-  %142 = phi i32 [ %.pre, %._crit_edge ], [ %137, %.thread11.i61 ]
-  %.sroa.9153.2 = phi ptr [ %.sroa.9153.0.copyload155, %._crit_edge ], [ %.sroa.9153.0.copyload, %.thread11.i61 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload159, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i61 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload147, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i61 ]
+141:                                              ; preds = %._crit_edge, %.thread13.i61
+  %142 = phi i32 [ %.pre, %._crit_edge ], [ %137, %.thread13.i61 ]
+  %.sroa.9153.2 = phi ptr [ %.sroa.9153.0.copyload155, %._crit_edge ], [ %.sroa.9153.0.copyload, %.thread13.i61 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload159, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i61 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload147, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i61 ]
   %143 = add nsw i32 %142, 1
   store i32 %143, ptr %134, align 4, !tbaa !16, !noalias !1506
   br label %147
@@ -120605,9 +120605,9 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   %.not.i.i.i.i.i = icmp eq i8 %53, 0
   %54 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  br i1 %.not.i.i.i.i.i, label %58, label %.thread11.i
+  br i1 %.not.i.i.i.i.i, label %58, label %.thread13.i
 
-.thread11.i:                                      ; preds = %51
+.thread13.i:                                      ; preds = %51
   %56 = load i32, ptr %52, align 4, !tbaa !16, !noalias !1518
   %57 = add nsw i32 %56, 1
   store i32 %57, ptr %52, align 4, !tbaa !16, !noalias !1518
@@ -120625,7 +120625,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   store ptr %50, ptr %55, align 8, !tbaa !3, !alias.scope !1518
   br i1 %60, label %64, label %61
 
-61:                                               ; preds = %58, %.thread11.i
+61:                                               ; preds = %58, %.thread13.i
   %62 = load i32, ptr %52, align 4, !tbaa !16, !noalias !1518
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %52, align 4, !tbaa !16, !noalias !1518
@@ -120768,9 +120768,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %143 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %144 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !1521
   %.not.i.i.i.i.i108 = icmp eq i8 %144, 0
-  br i1 %.not.i.i.i.i.i108, label %147, label %.thread11.i109
+  br i1 %.not.i.i.i.i.i108, label %147, label %.thread13.i109
 
-.thread11.i109:                                   ; preds = %142
+.thread13.i109:                                   ; preds = %142
   %145 = load i32, ptr %143, align 4, !tbaa !16, !noalias !1521
   %146 = add nsw i32 %145, 1
   store i32 %146, ptr %143, align 4, !tbaa !16, !noalias !1521
@@ -120792,11 +120792,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %143, align 4, !tbaa !16, !noalias !1521
   br label %150
 
-150:                                              ; preds = %._crit_edge322, %.thread11.i109
-  %151 = phi i32 [ %.pre, %._crit_edge322 ], [ %146, %.thread11.i109 ]
-  %.sroa.9303.2 = phi ptr [ %.sroa.9303.0.copyload305, %._crit_edge322 ], [ %.sroa.9303.0.copyload, %.thread11.i109 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload309, %._crit_edge322 ], [ %.sroa.12.0.copyload, %.thread11.i109 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload297, %._crit_edge322 ], [ %.sroa.0.0.copyload, %.thread11.i109 ]
+150:                                              ; preds = %._crit_edge322, %.thread13.i109
+  %151 = phi i32 [ %.pre, %._crit_edge322 ], [ %146, %.thread13.i109 ]
+  %.sroa.9303.2 = phi ptr [ %.sroa.9303.0.copyload305, %._crit_edge322 ], [ %.sroa.9303.0.copyload, %.thread13.i109 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload309, %._crit_edge322 ], [ %.sroa.12.0.copyload, %.thread13.i109 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload297, %._crit_edge322 ], [ %.sroa.0.0.copyload, %.thread13.i109 ]
   %152 = add nsw i32 %151, 1
   store i32 %152, ptr %143, align 4, !tbaa !16, !noalias !1521
   br label %156
@@ -121949,7 +121949,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit208:                 ; preds = %._crit_edge, %._cri
   br i1 %.not.i.i.i209, label %_ZNSt6vectorIfSaIfEED2Ev.exit210, label %589
 
 589:                                              ; preds = %.body185.thread, %.body185
-  %.pn87.pn331 = phi { ptr, i32 } [ %587, %.body185.thread ], [ %.pn87.pn, %.body185 ]
+  %.pn87.pn383 = phi { ptr, i32 } [ %587, %.body185.thread ], [ %.pn87.pn, %.body185 ]
   %590 = phi ptr [ %522, %.body185.thread ], [ %588, %.body185 ]
   %591 = load ptr, ptr %122, align 8, !tbaa !534
   %592 = ptrtoint ptr %591 to i64
@@ -121959,7 +121959,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit208:                 ; preds = %._crit_edge, %._cri
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit210
 
 _ZNSt6vectorIfSaIfEED2Ev.exit210:                 ; preds = %.body185, %589
-  %.pn87.pn332 = phi { ptr, i32 } [ %.pn87.pn, %.body185 ], [ %.pn87.pn331, %589 ]
+  %.pn87.pn384 = phi { ptr, i32 } [ %.pn87.pn, %.body185 ], [ %.pn87.pn383, %589 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %658
 
@@ -122130,7 +122130,7 @@ _ZN4YAML6detail18node_iterator_baseINS0_4nodeEE23increment_until_definedEN9__gnu
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit.backedge
 
 658:                                              ; preds = %630, %_ZNSt6vectorIfSaIfEED2Ev.exit210, %_ZNSt6vectorIfSaIfEED2Ev.exit174, %370
-  %.pn96.pn.pn.pn = phi { ptr, i32 } [ %.pn96.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit174 ], [ %.pn87.pn332, %_ZNSt6vectorIfSaIfEED2Ev.exit210 ], [ %.pn80, %630 ], [ %.pn76.pn.pn, %370 ]
+  %.pn96.pn.pn.pn = phi { ptr, i32 } [ %.pn96.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit174 ], [ %.pn87.pn384, %_ZNSt6vectorIfSaIfEED2Ev.exit210 ], [ %.pn80, %630 ], [ %.pn76.pn.pn, %370 ]
   %659 = load ptr, ptr %12, align 8, !tbaa !18
   %660 = icmp eq ptr %659, %131
   br i1 %660, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i224, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i223
@@ -122522,9 +122522,9 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   %.not.i.i.i.i.i = icmp eq i8 %53, 0
   %54 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  br i1 %.not.i.i.i.i.i, label %58, label %.thread11.i
+  br i1 %.not.i.i.i.i.i, label %58, label %.thread13.i
 
-.thread11.i:                                      ; preds = %51
+.thread13.i:                                      ; preds = %51
   %56 = load i32, ptr %52, align 4, !tbaa !16, !noalias !1538
   %57 = add nsw i32 %56, 1
   store i32 %57, ptr %52, align 4, !tbaa !16, !noalias !1538
@@ -122542,7 +122542,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   store ptr %50, ptr %55, align 8, !tbaa !3, !alias.scope !1538
   br i1 %60, label %64, label %61
 
-61:                                               ; preds = %58, %.thread11.i
+61:                                               ; preds = %58, %.thread13.i
   %62 = load i32, ptr %52, align 4, !tbaa !16, !noalias !1538
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %52, align 4, !tbaa !16, !noalias !1538
@@ -122705,9 +122705,9 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %160 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !1541
   %.not.i.i.i.i.i104 = icmp eq i8 %160, 0
-  br i1 %.not.i.i.i.i.i104, label %163, label %.thread11.i105
+  br i1 %.not.i.i.i.i.i104, label %163, label %.thread13.i105
 
-.thread11.i105:                                   ; preds = %158
+.thread13.i105:                                   ; preds = %158
   %161 = load i32, ptr %159, align 4, !tbaa !16, !noalias !1541
   %162 = add nsw i32 %161, 1
   store i32 %162, ptr %159, align 4, !tbaa !16, !noalias !1541
@@ -122729,11 +122729,11 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEEppEv.exit: ; preds = %_ZN4
   %.pre = load i32, ptr %159, align 4, !tbaa !16, !noalias !1541
   br label %166
 
-166:                                              ; preds = %._crit_edge, %.thread11.i105
-  %167 = phi i32 [ %.pre, %._crit_edge ], [ %162, %.thread11.i105 ]
-  %.sroa.9391.2 = phi ptr [ %.sroa.9391.0.copyload393, %._crit_edge ], [ %.sroa.9391.0.copyload, %.thread11.i105 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload397, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread11.i105 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload385, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread11.i105 ]
+166:                                              ; preds = %._crit_edge, %.thread13.i105
+  %167 = phi i32 [ %.pre, %._crit_edge ], [ %162, %.thread13.i105 ]
+  %.sroa.9391.2 = phi ptr [ %.sroa.9391.0.copyload393, %._crit_edge ], [ %.sroa.9391.0.copyload, %.thread13.i105 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.0.copyload397, %._crit_edge ], [ %.sroa.12.0.copyload, %.thread13.i105 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload385, %._crit_edge ], [ %.sroa.0.0.copyload, %.thread13.i105 ]
   %168 = add nsw i32 %167, 1
   store i32 %168, ptr %159, align 4, !tbaa !16, !noalias !1541
   br label %172
@@ -127784,12 +127784,12 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_14saveERN4YAML
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1595)
   %67 = load ptr, ptr %1, align 8, !tbaa !366, !noalias !1598
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_19AllocationTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread404, label %69
+  br i1 %68, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_19AllocationTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread543, label %69
 
 69:                                               ; preds = %3
   %70 = tail call ptr @__dynamic_cast(ptr nonnull %67, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev19AllocationTransformE, i64 0) #29, !noalias !1598
   %.not.not.i.i = icmp eq ptr %70, null
-  br i1 %.not.not.i.i, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_19AllocationTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread404, label %71
+  br i1 %.not.not.i.i, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_19AllocationTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread543, label %71
 
 71:                                               ; preds = %69
   store ptr %70, ptr %28, align 8, !tbaa !1599, !alias.scope !1598
@@ -127812,7 +127812,7 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_14saveERN4YAML
   store i32 %80, ptr %76, align 4, !tbaa !16, !noalias !1598
   br label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_19AllocationTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread
 
-_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_19AllocationTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread404: ; preds = %3, %69
+_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_19AllocationTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread543: ; preds = %3, %69
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false), !alias.scope !1598
   br label %263
 
@@ -128349,7 +128349,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %257, %255
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev19AllocationTransformELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #29
   br label %1481
 
-263:                                              ; preds = %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_19AllocationTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread404, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_19AllocationTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit
+263:                                              ; preds = %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_19AllocationTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread543, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_19AllocationTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1604)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1607)
@@ -128733,12 +128733,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28.i: ; preds = %_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1621)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1622)
   %405 = icmp eq ptr %404, null
-  br i1 %405, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12CDLTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread407, label %406
+  br i1 %405, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12CDLTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread546, label %406
 
 406:                                              ; preds = %403
   %407 = tail call ptr @__dynamic_cast(ptr nonnull %404, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev12CDLTransformE, i64 0) #29, !noalias !1613
   %.not.not.i.i142 = icmp eq ptr %407, null
-  br i1 %.not.not.i.i142, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12CDLTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread407, label %408
+  br i1 %.not.not.i.i142, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12CDLTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread546, label %408
 
 408:                                              ; preds = %406
   store ptr %407, ptr %31, align 8, !tbaa !1623, !alias.scope !1613
@@ -128761,7 +128761,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28.i: ; preds = %_
   store i32 %417, ptr %413, align 4, !tbaa !16, !noalias !1613
   br label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12CDLTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread
 
-_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12CDLTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread407: ; preds = %403, %406
+_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12CDLTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread546: ; preds = %403, %406
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false), !alias.scope !1613
   br label %664
 
@@ -129451,18 +129451,18 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i185: ; preds = %658, %6
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev12CDLTransformELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
   br label %1434
 
-664:                                              ; preds = %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12CDLTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread407, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12CDLTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit
+664:                                              ; preds = %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12CDLTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread546, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_12CDLTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1628)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1631)
   %665 = load ptr, ptr %1, align 8, !tbaa !366, !noalias !1634
   %666 = icmp eq ptr %665, null
-  br i1 %666, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_19ColorSpaceTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread410, label %667
+  br i1 %666, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_19ColorSpaceTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread549, label %667
 
 667:                                              ; preds = %664
   %668 = tail call ptr @__dynamic_cast(ptr nonnull %665, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev19ColorSpaceTransformE, i64 0) #29, !noalias !1634
   %.not.not.i.i187 = icmp eq ptr %668, null
-  br i1 %.not.not.i.i187, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_19ColorSpaceTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread410, label %669
+  br i1 %.not.not.i.i187, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_19ColorSpaceTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread549, label %669
 
 669:                                              ; preds = %667
   store ptr %668, ptr %33, align 8, !tbaa !1635, !alias.scope !1634
@@ -129485,7 +129485,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i185: ; preds = %658, %6
   store i32 %678, ptr %674, align 4, !tbaa !16, !noalias !1634
   br label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_19ColorSpaceTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread
 
-_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_19ColorSpaceTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread410: ; preds = %664, %667
+_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_19ColorSpaceTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread549: ; preds = %664, %667
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false), !alias.scope !1634
   br label %844
 
@@ -129941,18 +129941,18 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i240: ; preds = %838, %8
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev19ColorSpaceTransformELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %34) #29
   br label %1410
 
-844:                                              ; preds = %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_19ColorSpaceTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread410, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_19ColorSpaceTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit
+844:                                              ; preds = %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_19ColorSpaceTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread549, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_19ColorSpaceTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1640)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1643)
   %845 = load ptr, ptr %1, align 8, !tbaa !366, !noalias !1646
   %846 = icmp eq ptr %845, null
-  br i1 %846, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_20DisplayViewTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread413, label %847
+  br i1 %846, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_20DisplayViewTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread552, label %847
 
 847:                                              ; preds = %844
   %848 = tail call ptr @__dynamic_cast(ptr nonnull %845, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev20DisplayViewTransformE, i64 0) #29, !noalias !1646
   %.not.not.i.i242 = icmp eq ptr %848, null
-  br i1 %.not.not.i.i242, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_20DisplayViewTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread413, label %849
+  br i1 %.not.not.i.i242, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_20DisplayViewTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread552, label %849
 
 849:                                              ; preds = %847
   store ptr %848, ptr %35, align 8, !tbaa !1647, !alias.scope !1646
@@ -129975,7 +129975,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i240: ; preds = %838, %8
   store i32 %858, ptr %854, align 4, !tbaa !16, !noalias !1646
   br label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_20DisplayViewTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread
 
-_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_20DisplayViewTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread413: ; preds = %844, %847
+_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_20DisplayViewTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread552: ; preds = %844, %847
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false), !alias.scope !1646
   br label %1035
 
@@ -130474,18 +130474,18 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i309: ; preds = %1029, %
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev20DisplayViewTransformELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %36) #29
   br label %1386
 
-1035:                                             ; preds = %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_20DisplayViewTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread413, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_20DisplayViewTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit
+1035:                                             ; preds = %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_20DisplayViewTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread552, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_20DisplayViewTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1652)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1655)
   %1036 = load ptr, ptr %1, align 8, !tbaa !366, !noalias !1658
   %1037 = icmp eq ptr %1036, null
-  br i1 %1037, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_17ExponentTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread416, label %1038
+  br i1 %1037, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_17ExponentTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread555, label %1038
 
 1038:                                             ; preds = %1035
   %1039 = tail call ptr @__dynamic_cast(ptr nonnull %1036, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev17ExponentTransformE, i64 0) #29, !noalias !1658
   %.not.not.i.i311 = icmp eq ptr %1039, null
-  br i1 %.not.not.i.i311, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_17ExponentTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread416, label %1040
+  br i1 %.not.not.i.i311, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_17ExponentTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread555, label %1040
 
 1040:                                             ; preds = %1038
   store ptr %1039, ptr %37, align 8, !tbaa !1659, !alias.scope !1658
@@ -130508,7 +130508,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i309: ; preds = %1029, %
   store i32 %1049, ptr %1045, align 4, !tbaa !16, !noalias !1658
   br label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_17ExponentTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread
 
-_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_17ExponentTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread416: ; preds = %1035, %1038
+_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_17ExponentTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread555: ; preds = %1035, %1038
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false), !alias.scope !1658
   br label %1066
 
@@ -130558,7 +130558,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev17ExponentTransformEEC2ERKS3_.exit: ; p
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev17ExponentTransformELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %38) #29
   br label %1362
 
-1066:                                             ; preds = %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_17ExponentTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread416, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_17ExponentTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit
+1066:                                             ; preds = %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_17ExponentTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread555, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_17ExponentTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_27ExponentWithLinearTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.243") align 8 %39, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %1067 = load ptr, ptr %39, align 8, !tbaa !1661
@@ -133113,17 +133113,17 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZN4YAMLlsERNS_7Emi
   br i1 %.not.i.i.i97, label %_ZNSt6vectorIdSaIdEED2Ev.exit98, label %228
 
 228:                                              ; preds = %.thread, %227
-  %.pn32.pn.pn142 = phi { ptr, i32 } [ %lpad.loopexit133, %.thread ], [ %.pn32.pn.pn, %227 ]
-  %.sroa.26.2141 = phi ptr [ %99, %.thread ], [ %.sroa.26.2, %227 ]
-  %.sroa.0.2140 = phi ptr [ %97, %.thread ], [ %.sroa.0.2, %227 ]
-  %229 = ptrtoint ptr %.sroa.26.2141 to i64
-  %230 = ptrtoint ptr %.sroa.0.2140 to i64
+  %.pn32.pn.pn161 = phi { ptr, i32 } [ %lpad.loopexit133, %.thread ], [ %.pn32.pn.pn, %227 ]
+  %.sroa.26.2160 = phi ptr [ %99, %.thread ], [ %.sroa.26.2, %227 ]
+  %.sroa.0.2159 = phi ptr [ %97, %.thread ], [ %.sroa.0.2, %227 ]
+  %229 = ptrtoint ptr %.sroa.26.2160 to i64
+  %230 = ptrtoint ptr %.sroa.0.2159 to i64
   %231 = sub i64 %229, %230
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.2140, i64 noundef %231) #30
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.2159, i64 noundef %231) #30
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit98
 
 _ZNSt6vectorIdSaIdEED2Ev.exit98:                  ; preds = %228, %227, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46
-  %.pn32.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46 ], [ %.pn32.pn.pn, %227 ], [ %.pn32.pn.pn142, %228 ]
+  %.pn32.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46 ], [ %.pn32.pn.pn, %227 ], [ %.pn32.pn.pn161, %228 ]
   resume { ptr, i32 } %.pn32.pn.pn.pn
 }
 

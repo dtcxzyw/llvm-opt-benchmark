@@ -806,8 +806,8 @@ define internal fastcc void @_ZN6Assimp3FBX12_GLOBAL__N_116ProcessDataTokenERSt6
   br i1 %.not3959, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit
-  %.not66 = icmp eq i8 %.03460, %20
-  br i1 %.not66, label %._crit_edge.thread, label %38
+  %.not82 = icmp eq i8 %.03460, %20
+  br i1 %.not82, label %._crit_edge.thread, label %38
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit
   %.03361 = phi ptr [ %37, %_ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit ], [ %15, %.preheader ]

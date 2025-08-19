@@ -192,8 +192,8 @@ define internal range(i32 32, 0) i32 @cdxl_decode_frame(ptr noundef %0, ptr noun
   %102 = icmp eq i32 %85, 24
   %.not105 = icmp eq i32 %92, 0
   %103 = and i1 %102, %.not105
-  %or.cond118 = and i1 %103, %65
-  br i1 %or.cond118, label %104, label %.thread112
+  %or.cond123 = and i1 %103, %65
+  br i1 %or.cond123, label %104, label %.thread112
 
 .thread112:                                       ; preds = %90, %101, %96, %95, %94
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, i32 noundef %19, i32 noundef %85, i32 noundef %64) #9
@@ -405,7 +405,7 @@ import_palette.exit:                              ; preds = %41, %23, %.preheade
   %75 = load i8, ptr %.14655, align 1, !tbaa !34
   %76 = lshr i8 %75, 6
   %77 = and i8 %75, 63
-  switch i8 %76, label %default.unreachable68 [
+  switch i8 %76, label %default.unreachable74 [
     i8 0, label %78
     i8 1, label %85
     i8 2, label %90
@@ -442,7 +442,7 @@ import_palette.exit:                              ; preds = %41, %23, %.preheade
   %99 = or disjoint i32 %97, %98
   br label %100
 
-default.unreachable68:                            ; preds = %.lr.ph
+default.unreachable74:                            ; preds = %.lr.ph
   unreachable
 
 100:                                              ; preds = %78, %85, %90, %95

@@ -206,9 +206,9 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
 
 30:                                               ; preds = %20
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  br i1 %29, label %.thread69, label %36
+  br i1 %29, label %.thread81, label %36
 
-.thread69:                                        ; preds = %30
+.thread81:                                        ; preds = %30
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %34 = load i32, ptr %33, align 4
@@ -220,8 +220,8 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
 36:                                               ; preds = %30
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %38 = load i32, ptr %37, align 4
-  %.not92 = icmp eq i32 %38, 5
-  br i1 %.not92, label %.loopexit23, label %41
+  %.not104 = icmp eq i32 %38, 5
+  br i1 %.not104, label %.loopexit23, label %41
 
 .thread14:                                        ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %23, i64 20
@@ -229,16 +229,16 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
   %.not18 = icmp eq i32 %40, 5
   br i1 %.not18, label %.loopexit23, label %.thread15
 
-41:                                               ; preds = %.thread69, %36
-  %42 = phi i32 [ %34, %.thread69 ], [ %38, %36 ]
-  %43 = phi ptr [ %33, %.thread69 ], [ %37, %36 ]
-  %.ph71 = phi ptr [ %32, %.thread69 ], [ %31, %36 ]
+41:                                               ; preds = %.thread81, %36
+  %42 = phi i32 [ %34, %.thread81 ], [ %38, %36 ]
+  %43 = phi ptr [ %33, %.thread81 ], [ %37, %36 ]
+  %.ph83 = phi ptr [ %32, %.thread81 ], [ %31, %36 ]
   %44 = icmp ult i64 %25, 9
   br i1 %44, label %.thread15, label %50
 
 .thread15:                                        ; preds = %.thread14, %41
   %45 = phi i32 [ %42, %41 ], [ %40, %.thread14 ]
-  %46 = phi ptr [ %.ph71, %41 ], [ null, %.thread14 ]
+  %46 = phi ptr [ %.ph83, %41 ], [ null, %.thread14 ]
   %47 = phi ptr [ %43, %41 ], [ %39, %.thread14 ]
   %48 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -260,7 +260,7 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
 55:                                               ; preds = %53, %.thread15
   %56 = phi i64 [ %25, %.thread15 ], [ %.pre66, %53 ]
   %57 = phi i32 [ %45, %.thread15 ], [ %.pre, %53 ]
-  %58 = phi ptr [ %46, %.thread15 ], [ %.ph71, %53 ]
+  %58 = phi ptr [ %46, %.thread15 ], [ %.ph83, %53 ]
   %59 = phi ptr [ %47, %.thread15 ], [ %43, %53 ]
   %60 = phi ptr [ %48, %.thread15 ], [ %51, %53 ]
   %61 = icmp eq i32 %57, 4
@@ -1093,8 +1093,8 @@ define dso_local ptr @fwnode_create_software_node(ptr noundef readonly captures(
   %.fr = freeze ptr %7
   %8 = icmp ne ptr %.fr, @software_node_ops
   %9 = getelementptr i8, ptr %1, i64 -64
-  %.not15 = icmp eq ptr %9, null
-  %.not = or i1 %8, %.not15
+  %.not20 = icmp eq ptr %9, null
+  %.not = or i1 %8, %.not20
   br i1 %.not, label %32, label %.thread10
 
 .thread10:                                        ; preds = %4, %5
@@ -1133,10 +1133,10 @@ define dso_local ptr @fwnode_create_software_node(ptr noundef readonly captures(
   br label %.split
 
 .split:                                           ; preds = %23, %.split2
-  %.sink13 = phi ptr [ %25, %.split2 ], [ null, %23 ]
+  %.sink18 = phi ptr [ %25, %.split2 ], [ null, %23 ]
   %.sink = phi ptr [ %11, %.split2 ], [ null, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr %.sink13, ptr %26, align 8
+  store ptr %.sink18, ptr %26, align 8
   %27 = tail call fastcc ptr @swnode_register(ptr noundef nonnull %21, ptr noundef %.sink, i32 noundef 1)
   %28 = icmp ugt ptr %27, inttoptr (i64 -4096 to ptr)
   br i1 %28, label %29, label %32

@@ -72,8 +72,8 @@ define internal fastcc void @ll_diff_tree_paths(ptr noundef nonnull captures(non
   br i1 %25, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.thread, %19
-  %.0121261 = phi ptr [ %18, %.thread ], [ %24, %19 ]
-  %.0122168259 = phi ptr [ %16, %.thread ], [ %22, %19 ]
+  %.0121264 = phi ptr [ %18, %.thread ], [ %24, %19 ]
+  %.0122168262 = phi ptr [ %16, %.thread ], [ %22, %19 ]
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 568
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %27
@@ -81,11 +81,11 @@ define internal fastcc void @ll_diff_tree_paths(ptr noundef nonnull captures(non
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %28 = load ptr, ptr %26, align 8, !tbaa !13
-  %29 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168259, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168262, i64 %indvars.iv
   %30 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !27
   %32 = call ptr @fill_tree_descriptor(ptr noundef %28, ptr noundef %29, ptr noundef %31) #11
-  %33 = getelementptr inbounds nuw ptr, ptr %.0121261, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw ptr, ptr %.0121264, i64 %indvars.iv
   store ptr %32, ptr %33, align 8, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -93,8 +93,8 @@ define internal fastcc void @ll_diff_tree_paths(ptr noundef nonnull captures(non
 
 ._crit_edge:                                      ; preds = %27, %19
   %34 = phi i1 [ false, %19 ], [ true, %27 ]
-  %.0121262 = phi ptr [ %24, %19 ], [ %.0121261, %27 ]
-  %.0122168260 = phi ptr [ %22, %19 ], [ %.0122168259, %27 ]
+  %.0121265 = phi ptr [ %24, %19 ], [ %.0121264, %27 ]
+  %.0122168263 = phi ptr [ %22, %19 ], [ %.0122168262, %27 ]
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 568
   %36 = load ptr, ptr %35, align 8, !tbaa !13
   %37 = call ptr @fill_tree_descriptor(ptr noundef %36, ptr noundef nonnull %8, ptr noundef %1) #11
@@ -117,7 +117,7 @@ define internal fastcc void @ll_diff_tree_paths(ptr noundef nonnull captures(non
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 312
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %52 = getelementptr inbounds nuw i8, ptr %.0122168260, i64 68
+  %52 = getelementptr inbounds nuw i8, ptr %.0122168263, i64 68
   %53 = icmp sgt i32 %3, 1
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 64
@@ -170,7 +170,7 @@ skip_uninteresting.exit:                          ; preds = %.lr.ph.i, %72, %65,
 
 .lr.ph196:                                        ; preds = %skip_uninteresting.exit, %skip_uninteresting.exit147
   %indvars.iv224 = phi i64 [ %indvars.iv.next225, %skip_uninteresting.exit147 ], [ 0, %skip_uninteresting.exit ]
-  %74 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168260, i64 %indvars.iv224
+  %74 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168263, i64 %indvars.iv224
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 72
   %76 = load i32, ptr %75, align 8, !tbaa !35
   %.not10.i144 = icmp eq i32 %76, 0
@@ -212,8 +212,8 @@ skip_uninteresting.exit147:                       ; preds = %78, %84, %.lr.ph196
 
 .loopexit192.thread:                              ; preds = %skip_uninteresting.exit
   %87 = load i32, ptr %50, align 8, !tbaa !35
-  %.not134263 = icmp eq i32 %87, 0
-  br i1 %.not134263, label %.loopexit191.thread, label %.thread170
+  %.not134266 = icmp eq i32 %87, 0
+  br i1 %.not134266, label %.loopexit191.thread, label %.thread170
 
 .preheader190:                                    ; preds = %.loopexit192
   br i1 %34, label %.lr.ph198, label %.loopexit191.thread
@@ -225,7 +225,7 @@ skip_uninteresting.exit147:                       ; preds = %78, %84, %.lr.ph196
 
 .lr.ph198:                                        ; preds = %.preheader190, %88
   %indvars.iv229 = phi i64 [ %indvars.iv.next230, %88 ], [ 0, %.preheader190 ]
-  %89 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168260, i64 %indvars.iv229, i32 3
+  %89 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168263, i64 %indvars.iv229, i32 3
   %90 = load i32, ptr %89, align 8, !tbaa !35
   %.not135 = icmp eq i32 %90, 0
   br i1 %.not135, label %88, label %.thread170
@@ -247,9 +247,9 @@ skip_uninteresting.exit147:                       ; preds = %78, %84, %.lr.ph196
 .lr.ph202:                                        ; preds = %.thread170, %129
   %indvars.iv234 = phi i64 [ %indvars.iv.next235, %129 ], [ 1, %.thread170 ]
   %.0117201 = phi i32 [ %.1118, %129 ], [ 0, %.thread170 ]
-  %94 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168260, i64 %indvars.iv234
+  %94 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168263, i64 %indvars.iv234
   %95 = sext i32 %.0117201 to i64
-  %96 = getelementptr inbounds %struct.tree_desc, ptr %.0122168260, i64 %95
+  %96 = getelementptr inbounds %struct.tree_desc, ptr %.0122168263, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 72
   %98 = load i32, ptr %97, align 8, !tbaa !35
   %.not.i148 = icmp eq i32 %98, 0
@@ -318,7 +318,7 @@ tree_entry_pathcmp.exit.thread:                   ; preds = %102, %tree_entry_pa
 
 .lr.ph204:                                        ; preds = %.lr.ph204.preheader, %.lr.ph204
   %indvars.iv239 = phi i64 [ 0, %.lr.ph204.preheader ], [ %indvars.iv.next240, %.lr.ph204 ]
-  %130 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168260, i64 %indvars.iv239, i32 2, i32 3
+  %130 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168263, i64 %indvars.iv239, i32 2, i32 3
   %131 = load i32, ptr %130, align 4, !tbaa !60
   %132 = or i32 %131, -2147483648
   store i32 %132, ptr %130, align 4, !tbaa !60
@@ -327,9 +327,9 @@ tree_entry_pathcmp.exit.thread:                   ; preds = %102, %tree_entry_pa
   br i1 %exitcond243.not, label %._crit_edge205, label %.lr.ph204, !llvm.loop !65
 
 ._crit_edge205:                                   ; preds = %.lr.ph204, %.thread170, %.preheader189
-  %.0117.lcssa265 = phi i32 [ %.1118, %.preheader189 ], [ 0, %.thread170 ], [ %.1118, %.lr.ph204 ]
-  %133 = sext i32 %.0117.lcssa265 to i64
-  %134 = getelementptr inbounds %struct.tree_desc, ptr %.0122168260, i64 %133
+  %.0117.lcssa268 = phi i32 [ %.1118, %.preheader189 ], [ 0, %.thread170 ], [ %.1118, %.lr.ph204 ]
+  %133 = sext i32 %.0117.lcssa268 to i64
+  %134 = getelementptr inbounds %struct.tree_desc, ptr %.0122168263, i64 %133
   %135 = load i32, ptr %50, align 8, !tbaa !35
   %.not.i149 = icmp eq i32 %135, 0
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 72
@@ -377,7 +377,7 @@ tree_entry_pathcmp.exit155:                       ; preds = %138, %141
 
 156:                                              ; preds = %.lr.ph209, %161
   %indvars.iv249 = phi i64 [ 0, %.lr.ph209 ], [ %indvars.iv.next250, %161 ]
-  %157 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168260, i64 %indvars.iv249, i32 2
+  %157 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168263, i64 %indvars.iv249, i32 2
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 52
   %159 = load i32, ptr %158, align 4, !tbaa !60
   %.not140 = icmp sgt i32 %159, -1
@@ -396,7 +396,7 @@ tree_entry_pathcmp.exit155:                       ; preds = %138, %141
   br i1 %exitcond253.not, label %.loopexit, label %156, !llvm.loop !67
 
 .loopexit:                                        ; preds = %161, %153
-  call fastcc void @emit_path(ptr noundef %0, ptr noundef %4, ptr noundef %5, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %.0122168260, i32 noundef %.0117.lcssa265, i32 noundef %6)
+  call fastcc void @emit_path(ptr noundef %0, ptr noundef %4, ptr noundef %5, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %.0122168263, i32 noundef %.0117.lcssa268, i32 noundef %6)
   br label %.loopexit184
 
 .loopexit184:                                     ; preds = %160, %.loopexit
@@ -405,7 +405,7 @@ tree_entry_pathcmp.exit155:                       ; preds = %138, %141
 
 .lr.ph.i157:                                      ; preds = %.loopexit184, %166
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %166 ], [ 0, %.loopexit184 ]
-  %162 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168260, i64 %indvars.iv.i
+  %162 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168263, i64 %indvars.iv.i
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 68
   %164 = load i32, ptr %163, align 4, !tbaa !60
   %.not.i158 = icmp sgt i32 %164, -1
@@ -442,13 +442,13 @@ tree_entry_pathcmp.exit155:                       ; preds = %138, %141
 
 .lr.ph207:                                        ; preds = %169, %171
   %indvars.iv244 = phi i64 [ %indvars.iv.next245, %171 ], [ 0, %169 ]
-  %172 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168260, i64 %indvars.iv244, i32 2, i32 3
+  %172 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168263, i64 %indvars.iv244, i32 2, i32 3
   %173 = load i32, ptr %172, align 4, !tbaa !60
   %.not138 = icmp sgt i32 %173, -1
   br i1 %.not138, label %171, label %.loopexit188
 
 .loopexit187:                                     ; preds = %171, %169
-  call fastcc void @emit_path(ptr noundef %0, ptr noundef %4, ptr noundef %5, i32 noundef %3, ptr noundef null, ptr noundef nonnull %.0122168260, i32 noundef %.0117.lcssa265, i32 noundef %6)
+  call fastcc void @emit_path(ptr noundef %0, ptr noundef %4, ptr noundef %5, i32 noundef %3, ptr noundef null, ptr noundef nonnull %.0122168263, i32 noundef %.0117.lcssa268, i32 noundef %6)
   br label %.loopexit188
 
 .loopexit188:                                     ; preds = %.lr.ph207, %.loopexit187
@@ -456,7 +456,7 @@ tree_entry_pathcmp.exit155:                       ; preds = %138, %141
 
 .lr.ph.i161:                                      ; preds = %.loopexit188, %178
   %indvars.iv.i162 = phi i64 [ %indvars.iv.next.i164, %178 ], [ 0, %.loopexit188 ]
-  %174 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168260, i64 %indvars.iv.i162
+  %174 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168263, i64 %indvars.iv.i162
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 68
   %176 = load i32, ptr %175, align 4, !tbaa !60
   %.not.i163 = icmp sgt i32 %176, -1
@@ -491,7 +491,7 @@ update_tp_entries.exit:                           ; preds = %178, %166, %.loopex
 .lr.ph216:                                        ; preds = %.lr.ph216.preheader, %.lr.ph216
   %indvars.iv254 = phi i64 [ %180, %.lr.ph216.preheader ], [ %indvars.iv.next255, %.lr.ph216 ]
   %indvars.iv.next255 = add nsw i64 %indvars.iv254, -1
-  %181 = getelementptr inbounds nuw ptr, ptr %.0121262, i64 %indvars.iv.next255
+  %181 = getelementptr inbounds nuw ptr, ptr %.0121265, i64 %indvars.iv.next255
   %182 = load ptr, ptr %181, align 8, !tbaa !29
   call void @free(ptr noundef %182) #11
   %183 = icmp samesign ugt i64 %indvars.iv254, 1
@@ -501,8 +501,8 @@ update_tp_entries.exit:                           ; preds = %178, %166, %.loopex
   br i1 %13, label %.critedge, label %184
 
 184:                                              ; preds = %._crit_edge217
-  call void @free(ptr noundef %.0121262) #11
-  call void @free(ptr noundef %.0122168260) #11
+  call void @free(ptr noundef %.0121265) #11
+  call void @free(ptr noundef %.0122168263) #11
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge217, %184
@@ -697,7 +697,7 @@ ll_diff_tree_oid.exit.i:                          ; preds = %.lr.ph.i.i, %36
   br i1 %80, label %.lr.ph53.preheader.i, label %try_to_follow_renames.exit
 
 .lr.ph53.preheader.i:                             ; preds = %74, %.loopexit.i
-  %.163.i = phi ptr [ %63, %.loopexit.i ], [ %26, %74 ]
+  %.166.i = phi ptr [ %63, %.loopexit.i ], [ %26, %74 ]
   br label %.lr.ph53.i
 
 .lr.ph53.i:                                       ; preds = %.lr.ph53.i, %.lr.ph53.preheader.i
@@ -713,9 +713,9 @@ ll_diff_tree_oid.exit.i:                          ; preds = %.lr.ph.i.i, %36
   br i1 %86, label %.lr.ph53.i, label %try_to_follow_renames.exit, !llvm.loop !104
 
 try_to_follow_renames.exit:                       ; preds = %.lr.ph53.i, %ll_diff_tree_oid.exit.i, %.loopexit.i
-  %.162.i = phi ptr [ %63, %.loopexit.i ], [ %26, %ll_diff_tree_oid.exit.i ], [ %.163.i, %.lr.ph53.i ]
+  %.165.i = phi ptr [ %63, %.loopexit.i ], [ %26, %ll_diff_tree_oid.exit.i ], [ %.166.i, %.lr.ph53.i ]
   %87 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !75
-  store ptr %.162.i, ptr %87, align 8, !tbaa !78
+  store ptr %.165.i, ptr %87, align 8, !tbaa !78
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !88
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %diff_might_be_rename.exit.thread
@@ -882,14 +882,14 @@ strbuf_setlen.exit:                               ; preds = %43, %45
   %65 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   store i32 %.082, ptr %66, align 4, !tbaa !113
-  %.idx145 = mul nuw nsw i64 %indvars.iv, 56
-  %67 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx145
+  %.idx156 = mul nuw nsw i64 %indvars.iv, 56
+  %67 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx156
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %68, ptr noundef nonnull readonly align 4 dereferenceable(32) %.083, i64 32, i1 false)
   %69 = getelementptr inbounds nuw i8, ptr %.083, i64 32
   %70 = load i32, ptr %69, align 4, !tbaa !114
-  %.idx146 = mul nuw nsw i64 %indvars.iv, 56
-  %71 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx146
+  %.idx157 = mul nuw nsw i64 %indvars.iv, 56
+  %71 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx157
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 40
   store i32 %70, ptr %72, align 4, !tbaa !114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -922,9 +922,9 @@ strbuf_setlen.exit:                               ; preds = %43, %45
 
 .thread119:                                       ; preds = %25, %80
   %81 = icmp slt i32 %3, 3
-  br i1 %81, label %85, label %.thread148
+  br i1 %81, label %85, label %.thread159
 
-.thread148:                                       ; preds = %.thread119
+.thread159:                                       ; preds = %.thread119
   %82 = zext nneg i32 %3 to i64
   %83 = shl nuw nsw i64 %82, 3
   %84 = tail call ptr @xmalloc(i64 noundef %83) #11
@@ -937,15 +937,15 @@ strbuf_setlen.exit:                               ; preds = %43, %45
   %89 = icmp sgt i32 %3, 0
   br i1 %89, label %.lr.ph126, label %._crit_edge127
 
-.lr.ph126:                                        ; preds = %.thread148, %85
-  %.081150 = phi ptr [ %84, %.thread148 ], [ %88, %85 ]
+.lr.ph126:                                        ; preds = %.thread159, %85
+  %.081161 = phi ptr [ %84, %.thread159 ], [ %88, %85 ]
   %.not103 = icmp eq ptr %5, null
   %90 = zext nneg i32 %3 to i64
   br i1 %.not103, label %.thread120.us.preheader, label %.lr.ph126.split
 
 .thread120.us.preheader:                          ; preds = %.lr.ph126
   %91 = shl nuw nsw i64 %90, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %.081150, i8 0, i64 %91, i1 false), !tbaa !27
+  call void @llvm.memset.p0.i64(ptr align 8 %.081161, i8 0, i64 %91, i1 false), !tbaa !27
   br label %._crit_edge127
 
 .lr.ph126.split:                                  ; preds = %.lr.ph126, %.lr.ph126.split
@@ -956,14 +956,14 @@ strbuf_setlen.exit:                               ; preds = %43, %45
   %.not104 = icmp sgt i32 %.fr, -1
   %94 = getelementptr inbounds nuw %struct.tree_desc, ptr %5, i64 %indvars.iv137, i32 2
   %spec.select = select i1 %.not104, ptr %94, ptr null
-  %95 = getelementptr inbounds nuw ptr, ptr %.081150, i64 %indvars.iv137
+  %95 = getelementptr inbounds nuw ptr, ptr %.081161, i64 %indvars.iv137
   store ptr %spec.select, ptr %95, align 8, !tbaa !27
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %90
   br i1 %exitcond141.not, label %._crit_edge127, label %.lr.ph126.split, !llvm.loop !116
 
 ._crit_edge127:                                   ; preds = %.lr.ph126.split, %.thread120.us.preheader, %85
-  %.081151 = phi ptr [ %.081150, %.thread120.us.preheader ], [ %88, %85 ], [ %.081150, %.lr.ph126.split ]
+  %.081162 = phi ptr [ %.081161, %.thread120.us.preheader ], [ %88, %85 ], [ %.081161, %.lr.ph126.split ]
   %96 = sext i32 %.084 to i64
   tail call void @strbuf_add(ptr noundef %1, ptr noundef %.0116, i64 noundef %96) #11
   %97 = load i64, ptr %1, align 8, !tbaa !110
@@ -995,11 +995,11 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 %104
   store i8 0, ptr %105, align 1, !tbaa !73
   %106 = add nsw i32 %7, 1
-  call fastcc void @ll_diff_tree_paths(ptr noundef %0, ptr noundef %.0, ptr noundef %.081151, i32 noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %106)
+  call fastcc void @ll_diff_tree_paths(ptr noundef %0, ptr noundef %.0, ptr noundef %.081162, i32 noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %106)
   br i1 %81, label %108, label %107
 
 107:                                              ; preds = %strbuf_addch.exit
-  call void @free(ptr noundef %.081151) #11
+  call void @free(ptr noundef %.081162) #11
   br label %108
 
 108:                                              ; preds = %107, %strbuf_addch.exit, %80

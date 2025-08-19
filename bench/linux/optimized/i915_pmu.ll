@@ -439,7 +439,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %78 = load i32, ptr %77, align 8
   %79 = and i32 %78, 255
   %80 = icmp eq i32 %79, 16
-  br i1 %80, label %.thread61, label %81
+  br i1 %80, label %.thread84, label %81
 
 81:                                               ; preds = %76, %72, %63
   %82 = getelementptr inbounds nuw i8, ptr %65, i64 80
@@ -459,7 +459,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %91 = icmp eq ptr %89, null
   br i1 %91, label %.thread, label %93
 
-.thread61:                                        ; preds = %76
+.thread84:                                        ; preds = %76
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 9720
   store ptr @.str.4, ptr %92, align 8
   br label %96
@@ -470,7 +470,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %95 = icmp eq ptr %.pre, null
   br i1 %95, label %.thread, label %96
 
-96:                                               ; preds = %.thread61, %93
+96:                                               ; preds = %.thread84, %93
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 9720
   store ptr @.str.5, ptr %5, align 8
   %98 = getelementptr i8, ptr %0, i64 7168

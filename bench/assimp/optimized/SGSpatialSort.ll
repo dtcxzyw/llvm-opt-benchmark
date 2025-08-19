@@ -243,7 +243,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %6, %25
   %57 = getelementptr inbounds nuw %"struct.Assimp::SGSpatialSort::Entry", ptr %28, i64 %indvars.iv, i32 3
   %58 = load float, ptr %57, align 4
   %59 = fcmp ogt float %58, %20
-  br i1 %59, label %60, label %.critedge.loopexit.split.loop.exit137
+  br i1 %59, label %60, label %.critedge.loopexit.split.loop.exit163
 
 60:                                               ; preds = %.lr.ph123
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -251,12 +251,12 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %6, %25
   %.not = icmp eq i64 %61, 0
   br i1 %.not, label %.critedge, label %.lr.ph123, !llvm.loop !10
 
-.critedge.loopexit.split.loop.exit137:            ; preds = %.lr.ph123
+.critedge.loopexit.split.loop.exit163:            ; preds = %.lr.ph123
   %62 = trunc nuw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %60, %.critedge.loopexit.split.loop.exit137, %.preheader118
-  %.2.lcssa = phi i32 [ 0, %.preheader118 ], [ %62, %.critedge.loopexit.split.loop.exit137 ], [ 0, %60 ]
+.critedge:                                        ; preds = %60, %.critedge.loopexit.split.loop.exit163, %.preheader118
+  %.2.lcssa = phi i32 [ 0, %.preheader118 ], [ %62, %.critedge.loopexit.split.loop.exit163 ], [ 0, %60 ]
   %63 = add nsw i64 %44, -1
   %64 = zext i32 %.2.lcssa to i64
   %65 = icmp ugt i64 %63, %64
@@ -649,7 +649,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %27 = and i64 %22, 1
   %28 = icmp eq i64 %27, 0
   %29 = or disjoint i64 %23, 1
-  %30 = getelementptr inbounds %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %29
   %31 = getelementptr inbounds nuw %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %24
   br label %32
 
@@ -699,21 +699,21 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.018.i.i.i.i = phi i64 [ %.0919.i.i.i.i, %54 ], [ %.1.i.i.i, %48 ]
   %.0919.in.i.i.i.i = add nsw i64 %.018.i.i.i.i, -1
   %.0919.i.i.i.i = sdiv i64 %.0919.in.i.i.i.i, 2
-  %50 = getelementptr inbounds %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %.0919.i.i.i.i
+  %50 = getelementptr inbounds nuw %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %.0919.i.i.i.i
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %52 = load float, ptr %51, align 4
   %53 = fcmp olt float %52, %.sroa.416.0.copyload.i.i
   br i1 %53, label %54, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp13SGSpatialSort5EntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i
 
 54:                                               ; preds = %.lr.ph.i.i.i.i11
-  %55 = getelementptr inbounds %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %.018.i.i.i.i
+  %55 = getelementptr inbounds nuw %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %.018.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %55, ptr noundef nonnull align 4 dereferenceable(24) %50, i64 24, i1 false)
   %56 = icmp sgt i64 %.0919.i.i.i.i, %.07.i.i
   br i1 %56, label %.lr.ph.i.i.i.i11, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp13SGSpatialSort5EntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i, !llvm.loop !16
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp13SGSpatialSort5EntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i: ; preds = %54, %.lr.ph.i.i.i.i11, %48
   %.0.lcssa.i.i.i.i10 = phi i64 [ %.1.i.i.i, %48 ], [ %.0919.i.i.i.i, %54 ], [ %.018.i.i.i.i, %.lr.ph.i.i.i.i11 ]
-  %57 = getelementptr inbounds %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %.0.lcssa.i.i.i.i10
+  %57 = getelementptr inbounds nuw %"struct.Assimp::SGSpatialSort::Entry", ptr %0, i64 %.0.lcssa.i.i.i.i10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %57, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.013.i.i, i64 20, i1 false)
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %57, i64 20
   store float %.sroa.416.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 4

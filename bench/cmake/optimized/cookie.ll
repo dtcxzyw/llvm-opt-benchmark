@@ -505,9 +505,9 @@ define dso_local ptr @Curl_cookie_add(ptr noundef %0, ptr noundef %1, i1 noundef
   br i1 %.not277.i, label %97, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %93, %91
-  %.sink456.i = phi i8 [ 16, %91 ], [ 32, %93 ]
+  %.sink478.i = phi i8 [ 16, %91 ], [ 32, %93 ]
   %95 = load i8, ptr %22, align 4
-  %96 = or i8 %95, %.sink456.i
+  %96 = or i8 %95, %.sink478.i
   store i8 %96, ptr %22, align 4
   br label %97
 
@@ -1629,14 +1629,14 @@ sub_0:                                            ; preds = %469
   %581 = load ptr, ptr %580, align 8, !tbaa !107
   %.not118.i = icmp eq ptr %581, null
   %.pre156.i = load ptr, ptr %504, align 8, !tbaa !107
-  %.not164.i = icmp eq ptr %.pre156.i, null
-  br i1 %.not118.i, label %._crit_edge158.i, label %582
+  %.not175.i = icmp eq ptr %.pre156.i, null
+  br i1 %.not118.i, label %._crit_edge169.i, label %582
 
-._crit_edge158.i:                                 ; preds = %579
-  br i1 %.not164.i, label %588, label %.critedge.i96
+._crit_edge169.i:                                 ; preds = %579
+  br i1 %.not175.i, label %588, label %.critedge.i96
 
 582:                                              ; preds = %579
-  br i1 %.not164.i, label %.critedge.i96, label %583
+  br i1 %.not175.i, label %.critedge.i96, label %583
 
 583:                                              ; preds = %582
   %584 = call i32 @curl_strequal(ptr noundef nonnull %581, ptr noundef nonnull %.pre156.i) #12
@@ -1651,7 +1651,7 @@ sub_0:                                            ; preds = %469
   %.not123.i = xor i1 %586, %587
   br i1 %.not123.i, label %588, label %.critedge.i96
 
-588:                                              ; preds = %585, %._crit_edge158.i
+588:                                              ; preds = %585, %._crit_edge169.i
   %589 = load i8, ptr %462, align 4
   %590 = and i8 %589, 4
   %.not124.i = icmp eq i8 %590, 0
@@ -1664,9 +1664,9 @@ sub_0:                                            ; preds = %469
   %.not125.i = icmp eq i8 %594, 0
   br i1 %.not125.i, label %.critedge.i96, label %parse_cookie_header.exit.thread
 
-.critedge.i96:                                    ; preds = %591, %588, %585, %583, %582, %._crit_edge158.i, %577, %558, %.critedge.thread.i
-  %.183.i = phi ptr [ %.082151.i, %.critedge.thread.i ], [ null, %558 ], [ %.085150.i, %591 ], [ %.085150.i, %588 ], [ null, %585 ], [ null, %577 ], [ null, %583 ], [ null, %._crit_edge158.i ], [ null, %582 ]
-  %.176.i = phi i8 [ %.075152.i, %.critedge.thread.i ], [ %.075152.i, %558 ], [ 1, %591 ], [ 1, %588 ], [ 0, %585 ], [ 0, %577 ], [ 0, %583 ], [ 0, %._crit_edge158.i ], [ 0, %582 ]
+.critedge.i96:                                    ; preds = %591, %588, %585, %583, %582, %._crit_edge169.i, %577, %558, %.critedge.thread.i
+  %.183.i = phi ptr [ %.082151.i, %.critedge.thread.i ], [ null, %558 ], [ %.085150.i, %591 ], [ %.085150.i, %588 ], [ null, %585 ], [ null, %577 ], [ null, %583 ], [ null, %._crit_edge169.i ], [ null, %582 ]
+  %.176.i = phi i8 [ %.075152.i, %.critedge.thread.i ], [ %.075152.i, %558 ], [ 1, %591 ], [ 1, %588 ], [ 0, %585 ], [ 0, %577 ], [ 0, %583 ], [ 0, %._crit_edge169.i ], [ 0, %582 ]
   %595 = call ptr @Curl_node_next(ptr noundef nonnull %.085150.i) #12
   %.not.i97 = icmp eq ptr %595, null
   br i1 %.not.i97, label %._crit_edge.i98, label %505, !llvm.loop !116

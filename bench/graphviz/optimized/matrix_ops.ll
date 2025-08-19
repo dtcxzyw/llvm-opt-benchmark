@@ -320,7 +320,7 @@ vectors_inner_product.exit241:                    ; preds = %.lr.ph.i236
   br label %132
 
 .preheader:                                       ; preds = %101, %vectors_scalar_mult.exit273, %.loopexit
-  %.2155421 = phi i32 [ %.2155, %.loopexit ], [ %.2155, %vectors_scalar_mult.exit273 ], [ %61, %101 ]
+  %.2155425 = phi i32 [ %.2155, %.loopexit ], [ %.2155, %vectors_scalar_mult.exit273 ], [ %61, %101 ]
   %108 = add i32 %spec.select, -1
   %109 = icmp sgt i32 %spec.select, 1
   br i1 %109, label %.lr.ph343, label %._crit_edge344
@@ -533,7 +533,7 @@ copy_vector.exit287:                              ; preds = %._crit_edge339
 ._crit_edge344:                                   ; preds = %127, %._crit_edge339, %copy_vector.exit287, %.preheader
   tail call void @free(ptr noundef %26) #22
   tail call void @free(ptr noundef %27) #22
-  %169 = icmp sle i32 %.2155421, %28
+  %169 = icmp sle i32 %.2155425, %28
   ret i1 %169
 }
 

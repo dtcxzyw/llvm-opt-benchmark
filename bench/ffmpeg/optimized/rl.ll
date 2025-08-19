@@ -250,9 +250,9 @@ define void @ff_rl_init_vlc(ptr noundef readonly captures(none) %0, i32 noundef 
 
 .loopexit:                                        ; preds = %46, %18, %15
   %indvars.iv.next60 = add nsw i64 %indvars.iv59, -1
-  %.not62 = icmp eq i64 %indvars.iv59, 0
+  %.not65 = icmp eq i64 %indvars.iv59, 0
   %55 = trunc i64 %indvars.iv59 to i16
-  br i1 %.not62, label %14, label %15
+  br i1 %.not65, label %14, label %15
 }
 
 declare void @ff_vlc_init_table_sparse(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4

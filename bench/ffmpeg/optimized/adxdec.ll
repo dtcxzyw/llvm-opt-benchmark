@@ -84,9 +84,9 @@ define internal i32 @adx_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %23 = call fastcc i32 @adx_decode_header(ptr noundef nonnull %0, ptr noundef nonnull %16, i32 noundef %21, ptr noundef %6, ptr noundef nonnull %22)
   %24 = icmp sgt i32 %23, -1
-  br i1 %24, label %.thread133, label %26
+  br i1 %24, label %.thread139, label %26
 
-.thread133:                                       ; preds = %20
+.thread139:                                       ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store i32 0, ptr %25, align 4, !tbaa !37
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -107,7 +107,7 @@ define internal i32 @adx_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   store i32 0, ptr %2, align 4, !tbaa !38
   br label %thread-pre-split.thread
 
-30:                                               ; preds = %.thread133, %27
+30:                                               ; preds = %.thread139, %27
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 52
   %33 = load i32, ptr %32, align 4, !tbaa !32
@@ -139,9 +139,9 @@ define internal i32 @adx_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   store i32 1, ptr %32, align 4, !tbaa !32
   %47 = load i32, ptr %7, align 4, !tbaa !38
   %48 = icmp slt i32 %9, %47
-  br i1 %48, label %.critedge, label %thread-pre-split.thread138
+  br i1 %48, label %.critedge, label %thread-pre-split.thread144
 
-thread-pre-split.thread138:                       ; preds = %44
+thread-pre-split.thread144:                       ; preds = %44
   %49 = sext i32 %47 to i64
   %50 = getelementptr inbounds i8, ptr %13, i64 %49
   %51 = sub nsw i32 %9, %47
@@ -152,24 +152,24 @@ thread-pre-split:                                 ; preds = %30
   %.not95 = icmp eq i32 %33, 0
   br i1 %.not95, label %thread-pre-split.thread, label %52
 
-52:                                               ; preds = %thread-pre-split.thread138, %thread-pre-split
-  %.080143 = phi i32 [ %51, %thread-pre-split.thread138 ], [ %9, %thread-pre-split ]
-  %.084142 = phi ptr [ %50, %thread-pre-split.thread138 ], [ %13, %thread-pre-split ]
+52:                                               ; preds = %thread-pre-split.thread144, %thread-pre-split
+  %.080149 = phi i32 [ %51, %thread-pre-split.thread144 ], [ %9, %thread-pre-split ]
+  %.084148 = phi ptr [ %50, %thread-pre-split.thread144 ], [ %13, %thread-pre-split ]
   %53 = load i32, ptr %11, align 4, !tbaa !30
   %54 = mul nsw i32 %53, 18
-  %55 = sdiv i32 %.080143, %54
-  %56 = srem i32 %.080143, %54
+  %55 = sdiv i32 %.080149, %54
+  %56 = srem i32 %.080149, %54
   %.not96 = icmp ne i32 %55, 0
   %.not97 = icmp eq i32 %56, 0
-  %or.cond157 = and i1 %.not96, %.not97
-  br i1 %or.cond157, label %63, label %57
+  %or.cond163 = and i1 %.not96, %.not97
+  br i1 %or.cond163, label %63, label %57
 
 57:                                               ; preds = %52
-  %58 = icmp sgt i32 %.080143, 3
+  %58 = icmp sgt i32 %.080149, 3
   br i1 %58, label %59, label %thread-pre-split.thread
 
 59:                                               ; preds = %57
-  %60 = load i16, ptr %.084142, align 1, !tbaa !39
+  %60 = load i16, ptr %.084148, align 1, !tbaa !39
   %.mask = and i16 %60, 128
   %.not101 = icmp eq i16 %.mask, 0
   br i1 %.not101, label %thread-pre-split.thread, label %61
@@ -207,7 +207,7 @@ thread-pre-split:                                 ; preds = %30
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %127
   %.in = phi i32 [ %78, %127 ], [ %55, %.preheader.us.preheader ]
-  %.286113.us = phi ptr [ %.4.us147, %127 ], [ %.084142, %.preheader.us.preheader ]
+  %.286113.us = phi ptr [ %.4.us153, %127 ], [ %.084148, %.preheader.us.preheader ]
   %.088111.us = phi i32 [ %129, %127 ], [ 0, %.preheader.us.preheader ]
   %77 = phi i32 [ %128, %127 ], [ %.promoted.fr, %.preheader.us.preheader ]
   %78 = add nsw i32 %.in, -1
@@ -296,7 +296,7 @@ thread-pre-split:                                 ; preds = %30
   br label %127
 
 127:                                              ; preds = %..loopexit_crit_edge.us, %..loopexit_crit_edge.us.thread
-  %.4.us147 = phi ptr [ %125, %..loopexit_crit_edge.us.thread ], [ %121, %..loopexit_crit_edge.us ]
+  %.4.us153 = phi ptr [ %125, %..loopexit_crit_edge.us.thread ], [ %121, %..loopexit_crit_edge.us ]
   %128 = phi i32 [ 1, %..loopexit_crit_edge.us.thread ], [ %77, %..loopexit_crit_edge.us ]
   %129 = phi i32 [ %.088111.us, %..loopexit_crit_edge.us.thread ], [ %spec.select, %..loopexit_crit_edge.us ]
   %.not98.us = icmp eq i32 %78, 0
@@ -304,12 +304,12 @@ thread-pre-split:                                 ; preds = %30
 
 .split:                                           ; preds = %68
   %.not100 = icmp eq i32 %.promoted.fr, 0
-  %spec.select150 = select i1 %.not100, i32 %64, i32 0
+  %spec.select156 = select i1 %.not100, i32 %64, i32 0
   br label %.split116.us
 
 .split116.us:                                     ; preds = %127, %.split
-  %.us-phi = phi i32 [ %spec.select150, %.split ], [ %129, %127 ]
-  %.us-phi117 = phi ptr [ %.084142, %.split ], [ %.4.us147, %127 ]
+  %.us-phi = phi i32 [ %spec.select156, %.split ], [ %129, %127 ]
+  %.us-phi117 = phi ptr [ %.084148, %.split ], [ %.4.us153, %127 ]
   store i32 %.us-phi, ptr %65, align 8, !tbaa !40
   store i32 1, ptr %2, align 4, !tbaa !38
   %130 = load ptr, ptr %12, align 8, !tbaa !36

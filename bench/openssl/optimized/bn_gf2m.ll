@@ -260,12 +260,12 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
   %80 = trunc nsw i64 %indvars.iv180 to i32
   %81 = load i64, ptr %76, align 8, !tbaa !11
   %82 = icmp eq i64 %81, 0
-  br i1 %82, label %.split, label %.lr.ph201.preheader
+  br i1 %82, label %.split, label %.lr.ph225.preheader
 
-.lr.ph201.preheader:                              ; preds = %.lr.ph127
+.lr.ph225.preheader:                              ; preds = %.lr.ph127
   %83 = load i32, ptr %29, align 4, !tbaa !16
   %.not117122 = icmp eq i32 %83, 0
-  br label %.lr.ph201
+  br label %.lr.ph225
 
 .preheader.loopexit:                              ; preds = %.split.us.us
   %84 = trunc nsw i64 %indvars.iv.next187 to i32
@@ -383,14 +383,14 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
   %139 = icmp sgt i64 %indvars.iv.next181, %36
   br i1 %139, label %.lr.ph127, label %.preheader.loopexit174, !llvm.loop !18
 
-.lr.ph201:                                        ; preds = %.lr.ph201.preheader, %._crit_edge126
-  %140 = phi i64 [ %167, %._crit_edge126 ], [ %81, %.lr.ph201.preheader ]
+.lr.ph225:                                        ; preds = %.lr.ph225.preheader, %._crit_edge126
+  %140 = phi i64 [ %167, %._crit_edge126 ], [ %81, %.lr.ph225.preheader ]
   store i64 0, ptr %76, align 8, !tbaa !11
   br i1 %.not117122, label %._crit_edge126, label %.lr.ph125
 
-.lr.ph125:                                        ; preds = %.lr.ph201, %158
-  %indvars.iv177 = phi i64 [ %indvars.iv.next178, %158 ], [ 1, %.lr.ph201 ]
-  %141 = phi i32 [ %160, %158 ], [ %83, %.lr.ph201 ]
+.lr.ph125:                                        ; preds = %.lr.ph225, %158
+  %indvars.iv177 = phi i64 [ %indvars.iv.next178, %158 ], [ 1, %.lr.ph225 ]
+  %141 = phi i32 [ %160, %158 ], [ %83, %.lr.ph225 ]
   %142 = sub nsw i32 %.fr169, %141
   %143 = srem i32 %142, 64
   %.neg = sdiv i32 %142, -64
@@ -422,7 +422,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
   %.not117 = icmp eq i32 %160, 0
   br i1 %.not117, label %._crit_edge126, label %.lr.ph125, !llvm.loop !19
 
-._crit_edge126:                                   ; preds = %158, %.lr.ph201
+._crit_edge126:                                   ; preds = %158, %.lr.ph225
   %161 = lshr i64 %140, %31
   %162 = load i64, ptr %78, align 8, !tbaa !11
   %163 = xor i64 %162, %161
@@ -433,7 +433,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef readonly
   store i64 %166, ptr %79, align 8, !tbaa !11
   %167 = load i64, ptr %76, align 8, !tbaa !11
   %168 = icmp eq i64 %167, 0
-  br i1 %168, label %.split, label %.lr.ph201
+  br i1 %168, label %.split, label %.lr.ph225
 
 ._crit_edge166:                                   ; preds = %..loopexit_crit_edge.us, %.loopexit.us.us, %.loopexit.us.us.us, %.lr.ph165, %.preheader
   tail call void @bn_correct_top(ptr noundef nonnull %0) #5
@@ -506,8 +506,8 @@ define range(i32 0, 2) i32 @BN_GF2m_mod(ptr noundef %0, ptr noundef readonly cap
   %.3.i = phi i32 [ %25, %24 ], [ %.234.i, %16 ]
   %27 = lshr i64 %.035.i, 1
   %28 = add nsw i32 %.02732.i, -1
-  %.not40.i = icmp eq i32 %.02732.i, 0
-  br i1 %.not40.i, label %.loopexit.i, label %16, !llvm.loop !21
+  %.not41.i = icmp eq i32 %.02732.i, 0
+  br i1 %.not41.i, label %.loopexit.i, label %16, !llvm.loop !21
 
 .loopexit.i:                                      ; preds = %26, %12
   %.1.i = phi i32 [ %.02637.i, %12 ], [ %.3.i, %26 ]
@@ -522,15 +522,15 @@ define range(i32 0, 2) i32 @BN_GF2m_mod(ptr noundef %0, ptr noundef readonly cap
   %32 = load i32, ptr %4, align 16, !tbaa !16
   %33 = icmp slt i32 %32, 662
   %34 = icmp samesign ult i32 %.1.i, 6
-  %or.cond15 = select i1 %33, i1 %34, i1 false
-  br i1 %or.cond15, label %BN_GF2m_poly2arr.exit, label %BN_GF2m_poly2arr.exit.thread
+  %or.cond17 = select i1 %33, i1 %34, i1 false
+  br i1 %or.cond17, label %BN_GF2m_poly2arr.exit, label %BN_GF2m_poly2arr.exit.thread
 
 BN_GF2m_poly2arr.exit:                            ; preds = %31, %._crit_edge.i, %6
-  %.026.lcssa42.i9 = phi i32 [ 0, %6 ], [ %.1.i, %._crit_edge.i ], [ %.1.i, %31 ]
-  %35 = sext i32 %.026.lcssa42.i9 to i64
+  %.026.lcssa43.i9 = phi i32 [ 0, %6 ], [ %.1.i, %._crit_edge.i ], [ %.1.i, %31 ]
+  %35 = sext i32 %.026.lcssa43.i9 to i64
   %36 = getelementptr inbounds i32, ptr %4, i64 %35
   store i32 -1, ptr %36, align 4, !tbaa !16
-  %37 = icmp eq i32 %.026.lcssa42.i9, -1
+  %37 = icmp eq i32 %.026.lcssa43.i9, -1
   br i1 %37, label %BN_GF2m_poly2arr.exit.thread, label %38
 
 BN_GF2m_poly2arr.exit.thread:                     ; preds = %31, %3, %BN_GF2m_poly2arr.exit
@@ -607,8 +607,8 @@ define range(i32 -2147483647, -2147483648) i32 @BN_GF2m_poly2arr(ptr noundef %0,
   %.3 = phi i32 [ %24, %23 ], [ %.234, %15 ]
   %26 = lshr i64 %.035, 1
   %27 = add nsw i32 %.02732, -1
-  %.not40 = icmp eq i32 %.02732, 0
-  br i1 %.not40, label %.loopexit, label %15, !llvm.loop !21
+  %.not41 = icmp eq i32 %.02732, 0
+  br i1 %.not41, label %.loopexit, label %15, !llvm.loop !21
 
 .loopexit:                                        ; preds = %25, %11
   %.1 = phi i32 [ %.02637, %11 ], [ %.3, %25 ]
@@ -625,18 +625,18 @@ define range(i32 -2147483647, -2147483648) i32 @BN_GF2m_poly2arr(ptr noundef %0,
   br i1 %32, label %39, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %5, %30, %._crit_edge
-  %.026.lcssa42 = phi i32 [ %.1, %30 ], [ %.1, %._crit_edge ], [ 0, %5 ]
-  %33 = icmp slt i32 %.026.lcssa42, %2
+  %.026.lcssa43 = phi i32 [ %.1, %30 ], [ %.1, %._crit_edge ], [ 0, %5 ]
+  %33 = icmp slt i32 %.026.lcssa43, %2
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %._crit_edge.thread
-  %35 = sext i32 %.026.lcssa42 to i64
+  %35 = sext i32 %.026.lcssa43 to i64
   %36 = getelementptr inbounds i32, ptr %1, i64 %35
   store i32 -1, ptr %36, align 4, !tbaa !16
   br label %37
 
 37:                                               ; preds = %34, %._crit_edge.thread
-  %38 = add nsw i32 %.026.lcssa42, 1
+  %38 = add nsw i32 %.026.lcssa43, 1
   br label %39
 
 39:                                               ; preds = %30, %3, %37
@@ -1120,8 +1120,8 @@ define range(i32 -2147483646, -2147483648) i32 @BN_GF2m_mod_mul(ptr noundef %0, 
   %.3.i = phi i32 [ %32, %31 ], [ %.234.i, %24 ]
   %34 = lshr i64 %.035.i, 1
   %35 = add nsw i32 %.02732.i, -1
-  %.not40.i = icmp eq i32 %.02732.i, 0
-  br i1 %.not40.i, label %.loopexit.i, label %24, !llvm.loop !21
+  %.not41.i = icmp eq i32 %.02732.i, 0
+  br i1 %.not41.i, label %.loopexit.i, label %24, !llvm.loop !21
 
 .loopexit.i:                                      ; preds = %33, %20
   %.1.i = phi i32 [ %.02637.i, %20 ], [ %.3.i, %33 ]
@@ -1138,24 +1138,24 @@ define range(i32 -2147483646, -2147483648) i32 @BN_GF2m_mod_mul(ptr noundef %0, 
   br i1 %40, label %BN_GF2m_poly2arr.exit.thread, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %38, %._crit_edge.i, %14
-  %.026.lcssa42.i = phi i32 [ %.1.i, %38 ], [ %.1.i, %._crit_edge.i ], [ 0, %14 ]
-  %.not24 = icmp sgt i32 %.026.lcssa42.i, %6
-  br i1 %.not24, label %BN_GF2m_poly2arr.exit.thread25, label %BN_GF2m_poly2arr.exit
+  %.026.lcssa43.i = phi i32 [ %.1.i, %38 ], [ %.1.i, %._crit_edge.i ], [ 0, %14 ]
+  %.not24 = icmp sgt i32 %.026.lcssa43.i, %6
+  br i1 %.not24, label %BN_GF2m_poly2arr.exit.thread28, label %BN_GF2m_poly2arr.exit
 
-BN_GF2m_poly2arr.exit.thread25:                   ; preds = %._crit_edge.thread.i
-  %41 = add nsw i32 %.026.lcssa42.i, 1
+BN_GF2m_poly2arr.exit.thread28:                   ; preds = %._crit_edge.thread.i
+  %41 = add nsw i32 %.026.lcssa43.i, 1
   br label %BN_GF2m_poly2arr.exit.thread
 
 BN_GF2m_poly2arr.exit:                            ; preds = %._crit_edge.thread.i
-  %42 = sext i32 %.026.lcssa42.i to i64
+  %42 = sext i32 %.026.lcssa43.i to i64
   %43 = getelementptr inbounds i32, ptr %10, i64 %42
   store i32 -1, ptr %43, align 4, !tbaa !16
-  %44 = add nsw i32 %.026.lcssa42.i, 1
+  %44 = add nsw i32 %.026.lcssa43.i, 1
   %.not = icmp eq i32 %44, 0
   br i1 %.not, label %BN_GF2m_poly2arr.exit.thread, label %45
 
-BN_GF2m_poly2arr.exit.thread:                     ; preds = %BN_GF2m_poly2arr.exit.thread25, %38, %12, %BN_GF2m_poly2arr.exit
-  %.029.i22 = phi i32 [ %44, %BN_GF2m_poly2arr.exit ], [ 0, %12 ], [ 0, %38 ], [ %41, %BN_GF2m_poly2arr.exit.thread25 ]
+BN_GF2m_poly2arr.exit.thread:                     ; preds = %BN_GF2m_poly2arr.exit.thread28, %38, %12, %BN_GF2m_poly2arr.exit
+  %.029.i22 = phi i32 [ %44, %BN_GF2m_poly2arr.exit ], [ 0, %12 ], [ 0, %38 ], [ %41, %BN_GF2m_poly2arr.exit.thread28 ]
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 482, ptr noundef nonnull @__func__.BN_GF2m_mod_mul) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 3, i32 noundef 106, ptr noundef null) #5
@@ -1248,8 +1248,8 @@ define range(i32 -2147483646, -2147483648) i32 @BN_GF2m_mod_sqr(ptr noundef %0, 
   %.3.i = phi i32 [ %31, %30 ], [ %.234.i, %23 ]
   %33 = lshr i64 %.035.i, 1
   %34 = add nsw i32 %.02732.i, -1
-  %.not40.i = icmp eq i32 %.02732.i, 0
-  br i1 %.not40.i, label %.loopexit.i, label %23, !llvm.loop !21
+  %.not41.i = icmp eq i32 %.02732.i, 0
+  br i1 %.not41.i, label %.loopexit.i, label %23, !llvm.loop !21
 
 .loopexit.i:                                      ; preds = %32, %19
   %.1.i = phi i32 [ %.02637.i, %19 ], [ %.3.i, %32 ]
@@ -1266,24 +1266,24 @@ define range(i32 -2147483646, -2147483648) i32 @BN_GF2m_mod_sqr(ptr noundef %0, 
   br i1 %39, label %BN_GF2m_poly2arr.exit.thread, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %37, %._crit_edge.i, %13
-  %.026.lcssa42.i = phi i32 [ %.1.i, %37 ], [ %.1.i, %._crit_edge.i ], [ 0, %13 ]
-  %.not23 = icmp sgt i32 %.026.lcssa42.i, %5
-  br i1 %.not23, label %BN_GF2m_poly2arr.exit.thread24, label %BN_GF2m_poly2arr.exit
+  %.026.lcssa43.i = phi i32 [ %.1.i, %37 ], [ %.1.i, %._crit_edge.i ], [ 0, %13 ]
+  %.not23 = icmp sgt i32 %.026.lcssa43.i, %5
+  br i1 %.not23, label %BN_GF2m_poly2arr.exit.thread27, label %BN_GF2m_poly2arr.exit
 
-BN_GF2m_poly2arr.exit.thread24:                   ; preds = %._crit_edge.thread.i
-  %40 = add nsw i32 %.026.lcssa42.i, 1
+BN_GF2m_poly2arr.exit.thread27:                   ; preds = %._crit_edge.thread.i
+  %40 = add nsw i32 %.026.lcssa43.i, 1
   br label %BN_GF2m_poly2arr.exit.thread
 
 BN_GF2m_poly2arr.exit:                            ; preds = %._crit_edge.thread.i
-  %41 = sext i32 %.026.lcssa42.i to i64
+  %41 = sext i32 %.026.lcssa43.i to i64
   %42 = getelementptr inbounds i32, ptr %9, i64 %41
   store i32 -1, ptr %42, align 4, !tbaa !16
-  %43 = add nsw i32 %.026.lcssa42.i, 1
+  %43 = add nsw i32 %.026.lcssa43.i, 1
   %.not = icmp eq i32 %43, 0
   br i1 %.not, label %BN_GF2m_poly2arr.exit.thread, label %44
 
-BN_GF2m_poly2arr.exit.thread:                     ; preds = %BN_GF2m_poly2arr.exit.thread24, %37, %11, %BN_GF2m_poly2arr.exit
-  %.029.i21 = phi i32 [ %43, %BN_GF2m_poly2arr.exit ], [ 0, %11 ], [ 0, %37 ], [ %40, %BN_GF2m_poly2arr.exit.thread24 ]
+BN_GF2m_poly2arr.exit.thread:                     ; preds = %BN_GF2m_poly2arr.exit.thread27, %37, %11, %BN_GF2m_poly2arr.exit
+  %.029.i21 = phi i32 [ %43, %BN_GF2m_poly2arr.exit ], [ 0, %11 ], [ 0, %37 ], [ %40, %BN_GF2m_poly2arr.exit.thread27 ]
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 542, ptr noundef nonnull @__func__.BN_GF2m_mod_sqr) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 3, i32 noundef 106, ptr noundef null) #5
@@ -1909,8 +1909,8 @@ define i32 @BN_GF2m_mod_exp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %.3.i = phi i32 [ %32, %31 ], [ %.234.i, %24 ]
   %34 = lshr i64 %.035.i, 1
   %35 = add nsw i32 %.02732.i, -1
-  %.not40.i = icmp eq i32 %.02732.i, 0
-  br i1 %.not40.i, label %.loopexit.i, label %24, !llvm.loop !21
+  %.not41.i = icmp eq i32 %.02732.i, 0
+  br i1 %.not41.i, label %.loopexit.i, label %24, !llvm.loop !21
 
 .loopexit.i:                                      ; preds = %33, %20
   %.1.i = phi i32 [ %.02637.i, %20 ], [ %.3.i, %33 ]
@@ -1927,24 +1927,24 @@ define i32 @BN_GF2m_mod_exp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   br i1 %40, label %BN_GF2m_poly2arr.exit.thread, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %38, %._crit_edge.i, %14
-  %.026.lcssa42.i = phi i32 [ %.1.i, %38 ], [ %.1.i, %._crit_edge.i ], [ 0, %14 ]
-  %.not24 = icmp sgt i32 %.026.lcssa42.i, %6
-  br i1 %.not24, label %BN_GF2m_poly2arr.exit.thread25, label %BN_GF2m_poly2arr.exit
+  %.026.lcssa43.i = phi i32 [ %.1.i, %38 ], [ %.1.i, %._crit_edge.i ], [ 0, %14 ]
+  %.not24 = icmp sgt i32 %.026.lcssa43.i, %6
+  br i1 %.not24, label %BN_GF2m_poly2arr.exit.thread28, label %BN_GF2m_poly2arr.exit
 
-BN_GF2m_poly2arr.exit.thread25:                   ; preds = %._crit_edge.thread.i
-  %41 = add nsw i32 %.026.lcssa42.i, 1
+BN_GF2m_poly2arr.exit.thread28:                   ; preds = %._crit_edge.thread.i
+  %41 = add nsw i32 %.026.lcssa43.i, 1
   br label %BN_GF2m_poly2arr.exit.thread
 
 BN_GF2m_poly2arr.exit:                            ; preds = %._crit_edge.thread.i
-  %42 = sext i32 %.026.lcssa42.i to i64
+  %42 = sext i32 %.026.lcssa43.i to i64
   %43 = getelementptr inbounds i32, ptr %10, i64 %42
   store i32 -1, ptr %43, align 4, !tbaa !16
-  %44 = add nsw i32 %.026.lcssa42.i, 1
+  %44 = add nsw i32 %.026.lcssa43.i, 1
   %.not = icmp eq i32 %44, 0
   br i1 %.not, label %BN_GF2m_poly2arr.exit.thread, label %45
 
-BN_GF2m_poly2arr.exit.thread:                     ; preds = %BN_GF2m_poly2arr.exit.thread25, %38, %12, %BN_GF2m_poly2arr.exit
-  %.029.i22 = phi i32 [ %44, %BN_GF2m_poly2arr.exit ], [ 0, %12 ], [ 0, %38 ], [ %41, %BN_GF2m_poly2arr.exit.thread25 ]
+BN_GF2m_poly2arr.exit.thread:                     ; preds = %BN_GF2m_poly2arr.exit.thread28, %38, %12, %BN_GF2m_poly2arr.exit
+  %.029.i22 = phi i32 [ %44, %BN_GF2m_poly2arr.exit ], [ 0, %12 ], [ 0, %38 ], [ %41, %BN_GF2m_poly2arr.exit.thread28 ]
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 925, ptr noundef nonnull @__func__.BN_GF2m_mod_exp) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 3, i32 noundef 106, ptr noundef null) #5
@@ -2070,8 +2070,8 @@ define i32 @BN_GF2m_mod_sqrt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %.3.i = phi i32 [ %31, %30 ], [ %.234.i, %23 ]
   %33 = lshr i64 %.035.i, 1
   %34 = add nsw i32 %.02732.i, -1
-  %.not40.i = icmp eq i32 %.02732.i, 0
-  br i1 %.not40.i, label %.loopexit.i, label %23, !llvm.loop !21
+  %.not41.i = icmp eq i32 %.02732.i, 0
+  br i1 %.not41.i, label %.loopexit.i, label %23, !llvm.loop !21
 
 .loopexit.i:                                      ; preds = %32, %19
   %.1.i = phi i32 [ %.02637.i, %19 ], [ %.3.i, %32 ]
@@ -2088,24 +2088,24 @@ define i32 @BN_GF2m_mod_sqrt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br i1 %39, label %BN_GF2m_poly2arr.exit.thread, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %37, %._crit_edge.i, %13
-  %.026.lcssa42.i = phi i32 [ %.1.i, %37 ], [ %.1.i, %._crit_edge.i ], [ 0, %13 ]
-  %.not24 = icmp sgt i32 %.026.lcssa42.i, %5
-  br i1 %.not24, label %BN_GF2m_poly2arr.exit.thread25, label %BN_GF2m_poly2arr.exit
+  %.026.lcssa43.i = phi i32 [ %.1.i, %37 ], [ %.1.i, %._crit_edge.i ], [ 0, %13 ]
+  %.not24 = icmp sgt i32 %.026.lcssa43.i, %5
+  br i1 %.not24, label %BN_GF2m_poly2arr.exit.thread30, label %BN_GF2m_poly2arr.exit
 
-BN_GF2m_poly2arr.exit.thread25:                   ; preds = %._crit_edge.thread.i
-  %40 = add nsw i32 %.026.lcssa42.i, 1
+BN_GF2m_poly2arr.exit.thread30:                   ; preds = %._crit_edge.thread.i
+  %40 = add nsw i32 %.026.lcssa43.i, 1
   br label %BN_GF2m_poly2arr.exit.thread
 
 BN_GF2m_poly2arr.exit:                            ; preds = %._crit_edge.thread.i
-  %41 = sext i32 %.026.lcssa42.i to i64
+  %41 = sext i32 %.026.lcssa43.i to i64
   %42 = getelementptr inbounds i32, ptr %9, i64 %41
   store i32 -1, ptr %42, align 4, !tbaa !16
-  %43 = add nsw i32 %.026.lcssa42.i, 1
+  %43 = add nsw i32 %.026.lcssa43.i, 1
   %.not = icmp eq i32 %43, 0
   br i1 %.not, label %BN_GF2m_poly2arr.exit.thread, label %44
 
-BN_GF2m_poly2arr.exit.thread:                     ; preds = %BN_GF2m_poly2arr.exit.thread25, %37, %11, %BN_GF2m_poly2arr.exit
-  %.029.i22 = phi i32 [ %43, %BN_GF2m_poly2arr.exit ], [ 0, %11 ], [ 0, %37 ], [ %40, %BN_GF2m_poly2arr.exit.thread25 ]
+BN_GF2m_poly2arr.exit.thread:                     ; preds = %BN_GF2m_poly2arr.exit.thread30, %37, %11, %BN_GF2m_poly2arr.exit
+  %.029.i22 = phi i32 [ %43, %BN_GF2m_poly2arr.exit ], [ 0, %11 ], [ 0, %37 ], [ %40, %BN_GF2m_poly2arr.exit.thread30 ]
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 987, ptr noundef nonnull @__func__.BN_GF2m_mod_sqrt) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 3, i32 noundef 106, ptr noundef null) #5
@@ -2597,8 +2597,8 @@ define range(i32 -2147483646, -2147483648) i32 @BN_GF2m_mod_solve_quad(ptr nound
   %.3.i = phi i32 [ %31, %30 ], [ %.234.i, %23 ]
   %33 = lshr i64 %.035.i, 1
   %34 = add nsw i32 %.02732.i, -1
-  %.not40.i = icmp eq i32 %.02732.i, 0
-  br i1 %.not40.i, label %.loopexit.i, label %23, !llvm.loop !21
+  %.not41.i = icmp eq i32 %.02732.i, 0
+  br i1 %.not41.i, label %.loopexit.i, label %23, !llvm.loop !21
 
 .loopexit.i:                                      ; preds = %32, %19
   %.1.i = phi i32 [ %.02637.i, %19 ], [ %.3.i, %32 ]
@@ -2615,24 +2615,24 @@ define range(i32 -2147483646, -2147483648) i32 @BN_GF2m_mod_solve_quad(ptr nound
   br i1 %39, label %BN_GF2m_poly2arr.exit.thread, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %37, %._crit_edge.i, %13
-  %.026.lcssa42.i = phi i32 [ %.1.i, %37 ], [ %.1.i, %._crit_edge.i ], [ 0, %13 ]
-  %.not21 = icmp sgt i32 %.026.lcssa42.i, %5
-  br i1 %.not21, label %BN_GF2m_poly2arr.exit.thread22, label %BN_GF2m_poly2arr.exit
+  %.026.lcssa43.i = phi i32 [ %.1.i, %37 ], [ %.1.i, %._crit_edge.i ], [ 0, %13 ]
+  %.not21 = icmp sgt i32 %.026.lcssa43.i, %5
+  br i1 %.not21, label %BN_GF2m_poly2arr.exit.thread25, label %BN_GF2m_poly2arr.exit
 
-BN_GF2m_poly2arr.exit.thread22:                   ; preds = %._crit_edge.thread.i
-  %40 = add nsw i32 %.026.lcssa42.i, 1
+BN_GF2m_poly2arr.exit.thread25:                   ; preds = %._crit_edge.thread.i
+  %40 = add nsw i32 %.026.lcssa43.i, 1
   br label %BN_GF2m_poly2arr.exit.thread
 
 BN_GF2m_poly2arr.exit:                            ; preds = %._crit_edge.thread.i
-  %41 = sext i32 %.026.lcssa42.i to i64
+  %41 = sext i32 %.026.lcssa43.i to i64
   %42 = getelementptr inbounds i32, ptr %9, i64 %41
   store i32 -1, ptr %42, align 4, !tbaa !16
-  %43 = add nsw i32 %.026.lcssa42.i, 1
+  %43 = add nsw i32 %.026.lcssa43.i, 1
   %.not = icmp eq i32 %43, 0
   br i1 %.not, label %BN_GF2m_poly2arr.exit.thread, label %44
 
-BN_GF2m_poly2arr.exit.thread:                     ; preds = %BN_GF2m_poly2arr.exit.thread22, %37, %11, %BN_GF2m_poly2arr.exit
-  %.029.i19 = phi i32 [ %43, %BN_GF2m_poly2arr.exit ], [ 0, %11 ], [ 0, %37 ], [ %40, %BN_GF2m_poly2arr.exit.thread22 ]
+BN_GF2m_poly2arr.exit.thread:                     ; preds = %BN_GF2m_poly2arr.exit.thread25, %37, %11, %BN_GF2m_poly2arr.exit
+  %.029.i19 = phi i32 [ %43, %BN_GF2m_poly2arr.exit ], [ 0, %11 ], [ 0, %37 ], [ %40, %BN_GF2m_poly2arr.exit.thread25 ]
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1121, ptr noundef nonnull @__func__.BN_GF2m_mod_solve_quad) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 3, i32 noundef 106, ptr noundef null) #5

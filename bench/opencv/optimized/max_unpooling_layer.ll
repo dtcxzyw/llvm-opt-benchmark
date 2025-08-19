@@ -3041,8 +3041,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
   %78 = ptrtoint ptr %.val to i64
   %79 = sub i64 %77, %78
   %80 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.not74 = icmp ne ptr %.val19, %.val
-  call void @llvm.assume(i1 %.not74)
+  %.not102 = icmp ne ptr %.val19, %.val
+  call void @llvm.assume(i1 %.not102)
   %81 = icmp ugt i64 %79, 9223372036854775804
   br i1 %81, label %.noexc.i.i.i.i.i.invoke, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i, !prof !141
 

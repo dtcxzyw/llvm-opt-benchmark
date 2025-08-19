@@ -411,17 +411,17 @@ define hidden void @SDL_EVDEV_kbd_update(ptr noundef readonly captures(address_i
 
 .sink.split.i:                                    ; preds = %7, %4
   %.sink.i = phi i64 [ 200, %4 ], [ 216, %7 ]
-  %.sink15.i = phi ptr [ %6, %4 ], [ %9, %7 ]
-  %.sink14.ph.i = phi i32 [ 1, %4 ], [ 2, %7 ]
+  %.sink16.i = phi ptr [ %6, %4 ], [ %9, %7 ]
+  %.sink15.ph.i = phi i32 [ 1, %4 ], [ 2, %7 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
   %11 = load ptr, ptr %10, align 8
-  tail call void %.sink15.i(ptr noundef %11) #13
+  tail call void %.sink16.i(ptr noundef %11) #13
   br label %12
 
 12:                                               ; preds = %.sink.split.i, %7, %4
-  %.sink14.i = phi i32 [ 1, %4 ], [ 2, %7 ], [ %.sink14.ph.i, %.sink.split.i ]
+  %.sink15.i = phi i32 [ 1, %4 ], [ 2, %7 ], [ %.sink15.ph.i, %.sink.split.i ]
   %13 = load i32, ptr %0, align 8
-  %14 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %13, i64 noundef 22021, i32 noundef %.sink14.i) #13
+  %14 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %13, i64 noundef 22021, i32 noundef %.sink15.i) #13
   %15 = tail call zeroext i1 @SDL_CompareAndSwapAtomicInt_REAL(ptr noundef nonnull @vt_signal_pending, i32 noundef %3, i32 noundef 0) #13
   br label %kbd_vt_update.exit
 

@@ -133,19 +133,19 @@ _ZN4llvm7ErrorOrINS_3vfs6StatusEED2Ev.exit:       ; preds = %38, %_ZNKSt7__cxx11
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %. = select i1 %7, ptr %12, ptr %13
-  %.99 = select i1 %7, i64 48, i64 56
+  %.108 = select i1 %7, i64 48, i64 56
   %..sroa.sel.v = select i1 %7, ptr %12, ptr %13
   %..sroa.sel = getelementptr inbounds nuw i8, ptr %..sroa.sel.v, i64 32
   store i8 5, ptr %..sroa.sel, align 8, !tbaa !6
-  %..sroa.sel104.v = select i1 %7, ptr %12, ptr %13
-  %..sroa.sel104 = getelementptr inbounds nuw i8, ptr %..sroa.sel104.v, i64 33
-  store i8 1, ptr %..sroa.sel104, align 1, !tbaa !10
+  %..sroa.sel113.v = select i1 %7, ptr %12, ptr %13
+  %..sroa.sel113 = getelementptr inbounds nuw i8, ptr %..sroa.sel113.v, i64 33
+  store i8 1, ptr %..sroa.sel113, align 1, !tbaa !10
   store ptr %0, ptr %., align 8, !tbaa !11
-  %..sroa.sel107.v = select i1 %7, ptr %12, ptr %13
-  %..sroa.sel107 = getelementptr inbounds nuw i8, ptr %..sroa.sel107.v, i64 8
-  store i64 %1, ptr %..sroa.sel107, align 8, !tbaa !11
+  %..sroa.sel116.v = select i1 %7, ptr %12, ptr %13
+  %..sroa.sel116 = getelementptr inbounds nuw i8, ptr %..sroa.sel116.v, i64 8
+  store i64 %1, ptr %..sroa.sel116, align 8, !tbaa !11
   %51 = load ptr, ptr %6, align 8, !tbaa !3
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %.99
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %.108
   %53 = load ptr, ptr %52, align 8
   call void %53(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ErrorOr.2") align 8 %11, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(34) %.) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -199,9 +199,9 @@ _ZNKSt14default_deleteIN4llvm3vfs4FileEEclEPS2_.exit.i.i.i.i: ; preds = %65
   br i1 %.not.i.i.i, label %.thread, label %_ZNSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS2_EEaSEDn.exit
 
 .thread:                                          ; preds = %73
-  %.sroa.0.0.copyload.i4773 = load i32, ptr %14, align 8
-  %.sroa.31.0..sroa_idx.i4874 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sroa.31.0.copyload.i4975 = load ptr, ptr %.sroa.31.0..sroa_idx.i4874, align 8
+  %.sroa.0.0.copyload.i4782 = load i32, ptr %14, align 8
+  %.sroa.31.0..sroa_idx.i4883 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sroa.31.0.copyload.i4984 = load ptr, ptr %.sroa.31.0..sroa_idx.i4883, align 8
   br label %_ZNSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS2_EEaSEOS5_.exit
 
 _ZNSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS2_EEaSEDn.exit: ; preds = %73
@@ -216,12 +216,12 @@ _ZNSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS2_EEaSEDn.exit: ; preds = 
   %.sroa.31.0..sroa_idx.i48 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.31.0.copyload.i49 = load ptr, ptr %.sroa.31.0..sroa_idx.i48, align 8
   %spec.select = select i1 %.pre71, ptr %.sroa.31.0.copyload.i49, ptr %15
-  %spec.select100 = select i1 %.pre71, i32 %.sroa.0.0.copyload.i47, i32 0
+  %spec.select109 = select i1 %.pre71, i32 %.sroa.0.0.copyload.i47, i32 0
   br label %_ZNSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS2_EEaSEOS5_.exit
 
 _ZNSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %_ZNSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS2_EEaSEDn.exit, %.thread, %_ZNKSt14default_deleteIN4llvm3vfs4FileEEclEPS2_.exit.i.i.i.i, %65
-  %.sroa.959.3 = phi ptr [ %15, %65 ], [ %15, %_ZNKSt14default_deleteIN4llvm3vfs4FileEEclEPS2_.exit.i.i.i.i ], [ %.sroa.31.0.copyload.i4975, %.thread ], [ %spec.select, %_ZNSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS2_EEaSEDn.exit ]
-  %.sroa.0.3 = phi i32 [ 0, %65 ], [ 0, %_ZNKSt14default_deleteIN4llvm3vfs4FileEEclEPS2_.exit.i.i.i.i ], [ %.sroa.0.0.copyload.i4773, %.thread ], [ %spec.select100, %_ZNSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS2_EEaSEDn.exit ]
+  %.sroa.959.3 = phi ptr [ %15, %65 ], [ %15, %_ZNKSt14default_deleteIN4llvm3vfs4FileEEclEPS2_.exit.i.i.i.i ], [ %.sroa.31.0.copyload.i4984, %.thread ], [ %spec.select, %_ZNSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS2_EEaSEDn.exit ]
+  %.sroa.0.3 = phi i32 [ 0, %65 ], [ 0, %_ZNKSt14default_deleteIN4llvm3vfs4FileEEclEPS2_.exit.i.i.i.i ], [ %.sroa.0.0.copyload.i4782, %.thread ], [ %spec.select109, %_ZNSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS2_EEaSEDn.exit ]
   %78 = load i8, ptr %62, align 8
   %79 = trunc i8 %78 to i1
   br i1 %79, label %_ZN4llvm7ErrorOrINS_3vfs6StatusEED2Ev.exit53, label %80

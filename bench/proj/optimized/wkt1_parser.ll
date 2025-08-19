@@ -279,21 +279,21 @@ define hidden i32 @pj_wkt1_lex(ptr noundef readnone captures(none) %0, ptr nound
   br i1 %or.cond109, label %42, label %62
 
 42:                                               ; preds = %40, %36
-  switch i8 %31, label %.preheader153 [
+  switch i8 %31, label %.preheader156 [
     i8 45, label %43
     i8 43, label %43
   ]
 
 43:                                               ; preds = %42, %42
   %44 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %.preheader153
+  br label %.preheader156
 
-.preheader153:                                    ; preds = %42, %43
+.preheader156:                                    ; preds = %42, %43
   %.3.ph = phi ptr [ %.0, %42 ], [ %44, %43 ]
   br label %45
 
-45:                                               ; preds = %.preheader153, %45
-  %.3 = phi ptr [ %48, %45 ], [ %.3.ph, %.preheader153 ]
+45:                                               ; preds = %.preheader156, %45
+  %.3 = phi ptr [ %48, %45 ], [ %.3.ph, %.preheader156 ]
   %46 = load i8, ptr %.3, align 1, !tbaa !12
   %47 = add i8 %46, -48
   %or.cond110 = icmp ult i8 %47, 10
@@ -323,21 +323,21 @@ define hidden i32 @pj_wkt1_lex(ptr noundef readnone captures(none) %0, ptr nound
 53:                                               ; preds = %.critedge6, %.critedge6
   %54 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   %55 = load i8, ptr %54, align 1, !tbaa !12
-  switch i8 %55, label %.preheader152 [
+  switch i8 %55, label %.preheader155 [
     i8 45, label %56
     i8 43, label %56
   ]
 
 56:                                               ; preds = %53, %53
   %57 = getelementptr inbounds nuw i8, ptr %.4, i64 2
-  br label %.preheader152
+  br label %.preheader155
 
-.preheader152:                                    ; preds = %53, %56
+.preheader155:                                    ; preds = %53, %56
   %.8.ph = phi ptr [ %54, %53 ], [ %57, %56 ]
   br label %58
 
-58:                                               ; preds = %.preheader152, %58
-  %.8 = phi ptr [ %61, %58 ], [ %.8.ph, %.preheader152 ]
+58:                                               ; preds = %.preheader155, %58
+  %.8 = phi ptr [ %61, %58 ], [ %.8.ph, %.preheader155 ]
   %59 = load i8, ptr %.8, align 1, !tbaa !12
   %60 = add i8 %59, -48
   %or.cond112 = icmp ult i8 %60, 10

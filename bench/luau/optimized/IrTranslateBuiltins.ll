@@ -1265,10 +1265,10 @@ _ZN4Luau7CodeGenL17builtinLoadDoubleERNS0_9IrBuilderENS0_4IrOpE.exit166: ; preds
   br i1 %.not157, label %93, label %.sink.split
 
 .sink.split:                                      ; preds = %85, %69
-  %.sink182 = phi i8 [ %76, %69 ], [ %87, %85 ]
-  %.sink181 = phi i8 [ 1, %69 ], [ 3, %85 ]
-  %90 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %.sink182)
-  %91 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constTagEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %.sink181)
+  %.sink184 = phi i8 [ %76, %69 ], [ %87, %85 ]
+  %.sink183 = phi i8 [ 1, %69 ], [ 3, %85 ]
+  %90 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %.sink184)
+  %91 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constTagEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %.sink183)
   %92 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 12, i32 %90, i32 %91)
   br label %93
 

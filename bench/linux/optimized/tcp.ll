@@ -1386,12 +1386,12 @@ define dso_local i64 @tcp_splice_read(ptr noundef readonly captures(none) %0, pt
   br i1 %151, label %152, label %155
 
 .sink.split:                                      ; preds = %66, %74, %84, %94, %97, %88, %91, %53, %.critedge, %81, %56
-  %.ph50 = phi i32 [ %64, %56 ], [ 0, %53 ], [ %112, %.critedge ], [ %83, %81 ], [ -11, %91 ], [ -107, %88 ], [ %98, %97 ], [ 0, %94 ], [ 0, %84 ], [ 0, %74 ], [ %98, %66 ]
+  %.ph63 = phi i32 [ %64, %56 ], [ 0, %53 ], [ %112, %.critedge ], [ %83, %81 ], [ -11, %91 ], [ -107, %88 ], [ %98, %97 ], [ 0, %94 ], [ 0, %84 ], [ 0, %74 ], [ %98, %66 ]
   call void @release_sock(ptr noundef %10) #22
   br label %152
 
 152:                                              ; preds = %.sink.split, %.thread
-  %153 = phi i32 [ %.lcssa, %.thread ], [ %.ph50, %.sink.split ]
+  %153 = phi i32 [ %.lcssa, %.thread ], [ %.ph63, %.sink.split ]
   %154 = sext i32 %153 to i64
   br label %155
 
@@ -5383,12 +5383,12 @@ define internal fastcc i32 @tcp_recvmsg_locked(ptr noundef %0, ptr noundef %1, i
 39:                                               ; preds = %38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 1883
   %41 = load i8, ptr %40, align 1
-  switch i8 %41, label %.thread140 [
+  switch i8 %41, label %.thread165 [
     i8 2, label %445
     i8 0, label %447
   ]
 
-.thread140:                                       ; preds = %39
+.thread165:                                       ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   br label %45
 
@@ -5396,15 +5396,15 @@ define internal fastcc i32 @tcp_recvmsg_locked(ptr noundef %0, ptr noundef %1, i
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   br i1 %37, label %48, label %45
 
-45:                                               ; preds = %.thread140, %43
-  %46 = phi ptr [ %42, %.thread140 ], [ %44, %43 ]
+45:                                               ; preds = %.thread165, %43
+  %46 = phi ptr [ %42, %.thread165 ], [ %44, %43 ]
   %47 = load i32, ptr %46, align 32
   store i32 %47, ptr %8, align 4
   br label %48
 
 48:                                               ; preds = %45, %43
   %49 = phi ptr [ %46, %45 ], [ %44, %43 ]
-  %.pre-phi143 = phi i1 [ false, %45 ], [ true, %43 ]
+  %.pre-phi168 = phi i1 [ false, %45 ], [ true, %43 ]
   %50 = phi ptr [ %8, %45 ], [ %44, %43 ]
   %51 = and i32 %3, 256
   %52 = trunc i64 %2 to i32
@@ -5489,7 +5489,7 @@ define internal fastcc i32 @tcp_recvmsg_locked(ptr noundef %0, ptr noundef %1, i
   br i1 %109, label %.loopexit39, label %.preheader
 
 .preheader:                                       ; preds = %104
-  br i1 %.pre-phi143, label %.preheader.split.us, label %.preheader.split, !prof !24
+  br i1 %.pre-phi168, label %.preheader.split.us, label %.preheader.split, !prof !24
 
 .preheader.split.us:                              ; preds = %.preheader, %136
   %110 = phi ptr [ %140, %136 ], [ %108, %.preheader ]
@@ -5554,15 +5554,15 @@ define internal fastcc i32 @tcp_recvmsg_locked(ptr noundef %0, ptr noundef %1, i
   %145 = load i32, ptr %144, align 8
   %146 = sub i32 %143, %145
   %147 = icmp slt i32 %146, 0
-  br i1 %147, label %.split.us.loopexit145, label %152, !prof !24
+  br i1 %147, label %.split.us.loopexit170, label %152, !prof !24
 
-.split.us.loopexit145:                            ; preds = %.preheader.split
+.split.us.loopexit170:                            ; preds = %.preheader.split
   %148 = getelementptr inbounds nuw i8, ptr %142, i64 40
   br label %.split.us
 
-.split.us:                                        ; preds = %.preheader.split.us, %.split.us.loopexit145
-  %.us-phi = phi ptr [ %142, %.split.us.loopexit145 ], [ %110, %.preheader.split.us ]
-  %.us-phi76 = phi ptr [ %148, %.split.us.loopexit145 ], [ %112, %.preheader.split.us ]
+.split.us:                                        ; preds = %.preheader.split.us, %.split.us.loopexit170
+  %.us-phi = phi ptr [ %142, %.split.us.loopexit170 ], [ %110, %.preheader.split.us ]
+  %.us-phi76 = phi ptr [ %148, %.split.us.loopexit170 ], [ %112, %.preheader.split.us ]
   call void asm sideeffect "1028: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1028b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1028) #22, !srcloc !64
   %149 = load i32, ptr %50, align 4
   %150 = load i32, ptr %.us-phi76, align 8
@@ -5726,7 +5726,7 @@ define internal fastcc i32 @tcp_recvmsg_locked(ptr noundef %0, ptr noundef %1, i
   br i1 %241, label %.critedge22, label %242
 
 242:                                              ; preds = %239, %238
-  br i1 %.pre-phi143, label %377, label %243
+  br i1 %.pre-phi168, label %377, label %243
 
 243:                                              ; preds = %242
   %.0..0..0..0. = load i32, ptr %8, align 4
@@ -5778,7 +5778,7 @@ define internal fastcc i32 @tcp_recvmsg_locked(ptr noundef %0, ptr noundef %1, i
   %270 = add nuw i32 %.us-phi80, 1
   %271 = add nsw i64 %252, -1
   %272 = icmp eq i64 %271, 0
-  br i1 %272, label %.thread144, label %.thread, !prof !69
+  br i1 %272, label %.thread169, label %.thread, !prof !69
 
 .thread:                                          ; preds = %267, %261, %255, %263, %.split78.us
   %273 = phi i32 [ %78, %.split78.us ], [ %269, %267 ], [ %78, %261 ], [ %78, %255 ], [ %78, %263 ]
@@ -5806,9 +5806,9 @@ define internal fastcc i32 @tcp_recvmsg_locked(ptr noundef %0, ptr noundef %1, i
   call void @tcp_rcv_space_adjust(ptr noundef %0) #22
   %.pre = load i16, ptr %61, align 2
   %287 = icmp eq i16 %.pre, 0
-  br i1 %287, label %298, label %.thread144, !prof !70
+  br i1 %287, label %298, label %.thread169, !prof !70
 
-.thread144:                                       ; preds = %267, %.thread._crit_edge
+.thread169:                                       ; preds = %267, %.thread._crit_edge
   %288 = phi i64 [ %286, %.thread._crit_edge ], [ %80, %267 ]
   %289 = phi i32 [ %285, %.thread._crit_edge ], [ %79, %267 ]
   %290 = phi i64 [ %275, %.thread._crit_edge ], [ 0, %267 ]
@@ -5820,17 +5820,17 @@ define internal fastcc i32 @tcp_recvmsg_locked(ptr noundef %0, ptr noundef %1, i
   %296 = icmp slt i32 %295, 0
   br i1 %296, label %297, label %298
 
-297:                                              ; preds = %.thread144
+297:                                              ; preds = %.thread169
   store volatile i16 0, ptr %61, align 2
   call fastcc void @tcp_fast_path_check(ptr noundef %0)
   br label %298
 
-298:                                              ; preds = %297, %.thread144, %.thread._crit_edge
-  %299 = phi i64 [ %288, %297 ], [ %288, %.thread144 ], [ %286, %.thread._crit_edge ]
-  %300 = phi i32 [ %289, %297 ], [ %289, %.thread144 ], [ %285, %.thread._crit_edge ]
-  %301 = phi i64 [ %290, %297 ], [ %290, %.thread144 ], [ %275, %.thread._crit_edge ]
-  %302 = phi i32 [ %291, %297 ], [ %291, %.thread144 ], [ %274, %.thread._crit_edge ]
-  %303 = phi i32 [ %292, %297 ], [ %292, %.thread144 ], [ %273, %.thread._crit_edge ]
+298:                                              ; preds = %297, %.thread169, %.thread._crit_edge
+  %299 = phi i64 [ %288, %297 ], [ %288, %.thread169 ], [ %286, %.thread._crit_edge ]
+  %300 = phi i32 [ %289, %297 ], [ %289, %.thread169 ], [ %285, %.thread._crit_edge ]
+  %301 = phi i64 [ %290, %297 ], [ %290, %.thread169 ], [ %275, %.thread._crit_edge ]
+  %302 = phi i32 [ %291, %297 ], [ %291, %.thread169 ], [ %274, %.thread._crit_edge ]
+  %303 = phi i32 [ %292, %297 ], [ %292, %.thread169 ], [ %273, %.thread._crit_edge ]
   %304 = getelementptr inbounds nuw i8, ptr %.us-phi79, i64 55
   %305 = load i8, ptr %304, align 1
   %306 = and i8 %305, 4
@@ -5900,7 +5900,7 @@ define internal fastcc i32 @tcp_recvmsg_locked(ptr noundef %0, ptr noundef %1, i
   br i1 %344, label %345, label %.loopexit
 
 345:                                              ; preds = %341
-  br i1 %.pre-phi143, label %346, label %377
+  br i1 %.pre-phi168, label %346, label %377
 
 346:                                              ; preds = %345
   %347 = load i32, ptr %73, align 8
@@ -5936,7 +5936,7 @@ define internal fastcc i32 @tcp_recvmsg_locked(ptr noundef %0, ptr noundef %1, i
   %361 = load i32, ptr %50, align 4
   %362 = add i32 %361, 1
   store volatile i32 %362, ptr %50, align 4
-  br i1 %.pre-phi143, label %363, label %.critedge22.thread
+  br i1 %.pre-phi168, label %363, label %.critedge22.thread
 
 363:                                              ; preds = %.loopexit
   %364 = load i32, ptr %73, align 8
@@ -6729,7 +6729,7 @@ define dso_local void @__tcp_close(ptr noundef %0, i64 noundef %1) local_unnamed
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %264 = load i32, ptr %263, align 8
   %265 = icmp ugt i32 %264, 4608
-  br i1 %265, label %266, label %.thread11
+  br i1 %265, label %266, label %.thread16
 
 266:                                              ; preds = %259
   %267 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -6743,16 +6743,16 @@ define dso_local void @__tcp_close(ptr noundef %0, i64 noundef %1) local_unnamed
   %275 = getelementptr i8, ptr %274, i64 16
   %276 = load volatile i64, ptr %275, align 8
   %277 = icmp sgt i64 %272, %276
-  br i1 %277, label %278, label %.thread11
+  br i1 %277, label %278, label %.thread16
 
 278:                                              ; preds = %266
-  br i1 %262, label %279, label %.thread9
+  br i1 %262, label %279, label %.thread14
 
-.thread11:                                        ; preds = %259, %266
-  br i1 %262, label %279, label %.thread10
+.thread16:                                        ; preds = %259, %266
+  br i1 %262, label %279, label %.thread15
 
-279:                                              ; preds = %.thread11, %278
-  %280 = phi i1 [ false, %.thread11 ], [ true, %278 ]
+279:                                              ; preds = %.thread16, %278
+  %280 = phi i1 [ false, %.thread16 ], [ true, %278 ]
   %281 = tail call i32 @net_ratelimit() #22
   %282 = icmp eq i32 %281, 0
   br i1 %282, label %285, label %283
@@ -6762,21 +6762,21 @@ define dso_local void @__tcp_close(ptr noundef %0, i64 noundef %1) local_unnamed
   br label %285
 
 285:                                              ; preds = %283, %279
-  br i1 %280, label %.thread9, label %290
+  br i1 %280, label %.thread14, label %290
 
-.thread9:                                         ; preds = %278, %285
+.thread14:                                        ; preds = %278, %285
   %286 = tail call i32 @net_ratelimit() #22
   %287 = icmp eq i32 %286, 0
   br i1 %287, label %.thread8, label %288
 
-288:                                              ; preds = %.thread9
+288:                                              ; preds = %.thread14
   %289 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #26
   br label %.thread8
 
 290:                                              ; preds = %285
-  br i1 %262, label %.thread8, label %.thread10
+  br i1 %262, label %.thread8, label %.thread15
 
-.thread8:                                         ; preds = %.thread9, %288, %290
+.thread8:                                         ; preds = %.thread14, %288, %290
   %291 = load volatile i8, ptr %4, align 2
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 2200
   %293 = load i8, ptr %292, align 8
@@ -6848,7 +6848,7 @@ define dso_local void @__tcp_close(ptr noundef %0, i64 noundef %1) local_unnamed
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %331, ptr elementtype(i64) %331) #22, !srcloc !84
   br label %371
 
-.thread10:                                        ; preds = %.thread11, %290
+.thread15:                                        ; preds = %.thread16, %290
   %332 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %333 = load ptr, ptr %332, align 8
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 140
@@ -6856,7 +6856,7 @@ define dso_local void @__tcp_close(ptr noundef %0, i64 noundef %1) local_unnamed
   %336 = icmp eq i32 %335, 0
   br i1 %336, label %337, label %371
 
-337:                                              ; preds = %.thread10
+337:                                              ; preds = %.thread15
   %338 = load volatile i8, ptr %4, align 2
   %339 = getelementptr inbounds nuw i8, ptr %0, i64 2200
   %340 = load i8, ptr %339, align 8
@@ -6918,7 +6918,7 @@ define dso_local void @__tcp_close(ptr noundef %0, i64 noundef %1) local_unnamed
   tail call void @inet_sk_state_store(ptr noundef %0, i32 noundef 7) #22
   br label %371
 
-371:                                              ; preds = %370, %.thread10, %326, %.thread6
+371:                                              ; preds = %370, %.thread15, %326, %.thread6
   %372 = load volatile i8, ptr %4, align 2
   %373 = icmp eq i8 %372, 7
   br i1 %373, label %374, label %380
@@ -11493,16 +11493,16 @@ define internal fastcc i32 @tcp_zerocopy_receive(ptr noundef %0, ptr noundef cap
   br i1 %140, label %145, label %141
 
 141:                                              ; preds = %.preheader70
-  %142 = sub nuw i32 %137, %139
+  %142 = sub nuw nsw i32 %137, %139
   %143 = getelementptr i8, ptr %136, i64 16
   %144 = icmp eq i32 %142, 0
-  br i1 %144, label %.thread95, label %.preheader70, !llvm.loop !104
+  br i1 %144, label %.thread141, label %.preheader70, !llvm.loop !104
 
 145:                                              ; preds = %.preheader70
   %146 = icmp eq ptr %136, null
   br i1 %146, label %.thread, label %148
 
-.thread95:                                        ; preds = %141
+.thread141:                                       ; preds = %141
   %147 = icmp eq ptr %143, null
   br i1 %147, label %.thread, label %thread-pre-split
 
@@ -11524,10 +11524,10 @@ define internal fastcc i32 @tcp_zerocopy_receive(ptr noundef %0, ptr noundef cap
   %160 = getelementptr i8, ptr %136, i64 16
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %.thread95, %133, %155
-  %161 = phi i32 [ %159, %155 ], [ %114, %133 ], [ %114, %.thread95 ]
-  %162 = phi ptr [ %160, %155 ], [ %134, %133 ], [ %143, %.thread95 ]
-  %163 = phi i32 [ %158, %155 ], [ 0, %133 ], [ 0, %.thread95 ]
+thread-pre-split:                                 ; preds = %.thread141, %133, %155
+  %161 = phi i32 [ %159, %155 ], [ %114, %133 ], [ %114, %.thread141 ]
+  %162 = phi ptr [ %160, %155 ], [ %134, %133 ], [ %143, %.thread141 ]
+  %163 = phi i32 [ %158, %155 ], [ 0, %133 ], [ 0, %.thread141 ]
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %165 = load i32, ptr %164, align 8
   %166 = icmp eq i32 %165, 4096
@@ -11609,7 +11609,7 @@ thread-pre-split:                                 ; preds = %.thread95, %133, %1
   store i32 %215, ptr %95, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.thread95, %148, %110, %123, %117, %.loopexit68, %145, %106
+.thread:                                          ; preds = %.thread141, %148, %110, %123, %117, %.loopexit68, %145, %106
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %216
 
@@ -11879,7 +11879,7 @@ tcp_update_recv_tstamps.exit:                     ; preds = %335, %339
   br i1 %.not, label %.thread59, label %372
 
 372:                                              ; preds = %.preheader63
-  %373 = sub nuw i32 %369, %371
+  %373 = sub nuw nsw i32 %369, %371
   %374 = getelementptr i8, ptr %368, i64 16
   %375 = icmp eq i32 %373, 0
   br i1 %375, label %.loopexit, label %.preheader63, !llvm.loop !104

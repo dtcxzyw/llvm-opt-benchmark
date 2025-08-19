@@ -408,12 +408,12 @@ sub_0:                                            ; preds = %7
   br i1 %.not107, label %.lr.ph.i.preheader, label %.sink.split
 
 .sink.split:                                      ; preds = %31, %29
-  %.sink195 = phi ptr [ %30, %29 ], [ %32, %31 ]
-  %33 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %.sink195) #12
+  %.sink214 = phi ptr [ %30, %29 ], [ %32, %31 ]
+  %33 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %.sink214) #12
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.sink.split, %31
-  %.sink = phi ptr [ %26, %31 ], [ %.sink195, %.sink.split ]
+  %.sink = phi ptr [ %26, %31 ], [ %.sink214, %.sink.split ]
   store i8 0, ptr %.sink, align 1
   br label %.lr.ph.i
 
@@ -473,9 +473,9 @@ sub_0:                                            ; preds = %7
   br i1 %.not110, label %mapLookup.exit.thread, label %mapLookup.exit.thread.sink.split
 
 mapLookup.exit.thread.sink.split:                 ; preds = %57, %55
-  %.sink194 = phi ptr [ %56, %55 ], [ %58, %57 ]
-  %59 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %.sink194) #12
-  store i8 0, ptr %.sink194, align 1
+  %.sink213 = phi ptr [ %56, %55 ], [ %58, %57 ]
+  %59 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %.sink213) #12
+  store i8 0, ptr %.sink213, align 1
   br label %mapLookup.exit.thread
 
 mapLookup.exit.thread:                            ; preds = %34, %mapLookup.exit.thread.sink.split, %57

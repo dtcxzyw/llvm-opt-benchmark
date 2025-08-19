@@ -3306,8 +3306,8 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i8: ; preds = %59, %58
   br i1 %.not.i.i.not.i.i2.i.i.i.i9, label %.sink.split, label %.sink.split.sink.split, !prof !221
 
 .sink.split.sink.split:                           ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i8, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i
-  %.sink21 = phi i32 [ %56, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i ], [ %68, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i8 ]
-  %70 = zext i32 %.sink21 to i64
+  %.sink33 = phi i32 [ %56, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i ], [ %68, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i8 ]
+  %70 = zext i32 %.sink33 to i64
   %71 = add nuw nsw i64 %70, 1
   %72 = getelementptr inbounds nuw i8, ptr %39, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %39, ptr noundef nonnull %72, i64 noundef %71, i64 noundef 4) #18
@@ -3315,11 +3315,11 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i8: ; preds = %59, %58
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i8, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i
-  %.sink18 = phi i32 [ %56, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i ], [ %68, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i8 ], [ %.pre.i.i3.i.i.i.i10, %.sink.split.sink.split ]
+  %.sink30 = phi i32 [ %56, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i ], [ %68, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i8 ], [ %.pre.i.i3.i.i.i.i10, %.sink.split.sink.split ]
   %73 = lshr i64 %1, 32
   %74 = trunc nuw i64 %73 to i32
   %75 = load ptr, ptr %39, align 8, !tbaa !22
-  %76 = zext i32 %.sink18 to i64
+  %76 = zext i32 %.sink30 to i64
   %77 = getelementptr inbounds nuw i32, ptr %75, i64 %76
   store i32 %74, ptr %77, align 1
   %78 = load i32, ptr %42, align 8, !tbaa !24
@@ -4654,13 +4654,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %65, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %64, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %65, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %64, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %66 = zext i32 %.sink28 to i64
-  %67 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.248", ptr %.sink26, i64 %66
-  store ptr %.sink25, ptr %0, align 8
+  %66 = zext i32 %.sink32 to i64
+  %67 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.248", ptr %.sink30, i64 %66
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %67, ptr %.sroa.4.0..sroa_idx, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16

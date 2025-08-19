@@ -6527,14 +6527,14 @@ define internal fastcc void @"_ZN5sqlez22thread_safe_connection36ThreadSafeConne
   %.sroa.4 = alloca [7 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %5 = load i8, ptr %4, align 8, !range !58, !noundef !4
-  switch i8 %5, label %default.unreachable22 [
+  switch i8 %5, label %default.unreachable25 [
     i8 0, label %6
     i8 1, label %26
     i8 2, label %27
     i8 3, label %28
   ]
 
-default.unreachable22:                            ; preds = %3
+default.unreachable25:                            ; preds = %3
   unreachable
 
 6:                                                ; preds = %3
@@ -7843,9 +7843,9 @@ default.unreachable:                              ; preds = %331, %267, %263, %.
   %327 = getelementptr i8, ptr %325, i64 16
   %.val17.i.i = load i64, ptr %327, align 8, !alias.scope !1731, !noalias !1701, !noundef !4
   invoke void @_ZN3std4path4Path5_join17hc64a8ee8d1be349fE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %118, ptr noalias noundef nonnull readonly align 1 %.val.i.i, i64 noundef %.val17.i.i, ptr noalias noundef nonnull readonly align 1 @anon.f80536a5c2ae8de169e955dc6588ac46.27, i64 noundef 9)
-          to label %.thread75.i.i unwind label %322, !noalias !1701
+          to label %.thread82.i.i unwind label %322, !noalias !1701
 
-.thread75.i.i:                                    ; preds = %324
+.thread82.i.i:                                    ; preds = %324
   %.val18.i.i = load ptr, ptr %130, align 8, !alias.scope !1731, !noalias !1678, !nonnull !4, !noundef !4
   %.val19.i.i = load i64, ptr %131, align 8, !alias.scope !1731, !noalias !1678, !noundef !4
   store ptr %.val18.i.i, ptr %117, align 8, !noalias !1678
@@ -7897,9 +7897,9 @@ default.unreachable:                              ; preds = %331, %267, %263, %.
   invoke void @_ZN3std3sys6os_str5bytes5Slice15to_string_lossy17h72c747465b0e7570E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %143, ptr noalias noundef nonnull readonly align 1 %334, i64 noundef %335)
           to label %348 unwind label %346, !noalias !1738
 
-333:                                              ; preds = %._crit_edge78.i, %.thread75.i.i
-  %334 = phi ptr [ %.val18.i.i, %.thread75.i.i ], [ %.pre505, %._crit_edge78.i ]
-  %335 = phi i64 [ %.val19.i.i, %.thread75.i.i ], [ %.pre80.i, %._crit_edge78.i ]
+333:                                              ; preds = %._crit_edge78.i, %.thread82.i.i
+  %334 = phi ptr [ %.val18.i.i, %.thread82.i.i ], [ %.pre505, %._crit_edge78.i ]
+  %335 = phi i64 [ %.val19.i.i, %.thread82.i.i ], [ %.pre80.i, %._crit_edge78.i ]
   %336 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !1734
   %337 = icmp ult i64 %336, 6
   call void @llvm.assume(i1 %337)
@@ -8428,7 +8428,7 @@ _ZN3log13__private_api3log17h87c8e06c9368ea7bE.exit.i.i.i: ; preds = %342
           to label %"_ZN4core3ptr164drop_in_place$LT$db..open_fallback_db$LT$$LP$workspace..persistence..WorkspaceDb$C$image_viewer..persistence..ImageViewerDb$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfbc05a2dd9b71999E.exit47.i" unwind label %261, !noalias !1638
 
 .body95:                                          ; preds = %.loopexit236, %.loopexit.split-lp237, %.loopexit.split-lp, %654, %"_ZN4core3ptr164drop_in_place$LT$db..open_fallback_db$LT$$LP$workspace..persistence..WorkspaceDb$C$image_viewer..persistence..ImageViewerDb$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfbc05a2dd9b71999E.exit32.i", %681, %663, %649, %484
-  %.pn56 = phi { ptr, i32 } [ %.pn54, %681 ], [ %650, %663 ], [ %650, %649 ], [ %485, %484 ], [ %.pn22.pn.i, %"_ZN4core3ptr164drop_in_place$LT$db..open_fallback_db$LT$$LP$workspace..persistence..WorkspaceDb$C$image_viewer..persistence..ImageViewerDb$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfbc05a2dd9b71999E.exit32.i" ], [ %.pn513, %654 ], [ %.pn, %.loopexit.split-lp ], [ %lpad.loopexit238, %.loopexit236 ], [ %lpad.loopexit.split-lp239, %.loopexit.split-lp237 ]
+  %.pn56 = phi { ptr, i32 } [ %.pn54, %681 ], [ %650, %663 ], [ %650, %649 ], [ %485, %484 ], [ %.pn22.pn.i, %"_ZN4core3ptr164drop_in_place$LT$db..open_fallback_db$LT$$LP$workspace..persistence..WorkspaceDb$C$image_viewer..persistence..ImageViewerDb$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfbc05a2dd9b71999E.exit32.i" ], [ %.pn539, %654 ], [ %.pn, %.loopexit.split-lp ], [ %lpad.loopexit238, %.loopexit236 ], [ %lpad.loopexit.split-lp239, %.loopexit.split-lp237 ]
   invoke fastcc void @"_ZN4core3ptr155drop_in_place$LT$db..open_db$LT$$LP$workspace..persistence..WorkspaceDb$C$image_viewer..persistence..ImageViewerDb$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9c63ebb6474ab843E"(ptr noundef nonnull align 8 %54) #40
           to label %501 unwind label %532
 
@@ -9043,7 +9043,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.10620417434063023195.exit
   br label %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h05d4791246b1e435E.exit127"
 
 654:                                              ; preds = %.loopexit.split-lp.thread, %.loopexit.split-lp
-  %.pn513 = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit.split-lp.thread ], [ %.pn, %.loopexit.split-lp ]
+  %.pn539 = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit.split-lp.thread ], [ %.pn, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h05d4791246b1e435E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %45) #40
           to label %.body95 unwind label %532
 
@@ -9153,7 +9153,7 @@ _ZN4core3ops8function6FnOnce9call_once17h095083296ca669e2E.exit.i129: ; preds = 
 
 .noexc132:                                        ; preds = %_ZN4core3ops8function6FnOnce9call_once17h095083296ca669e2E.exit.i129
   %680 = icmp eq ptr %679, null
-  br i1 %680, label %.invoke527, label %685
+  br i1 %680, label %.invoke553, label %685
 
 681:                                              ; preds = %.loopexit245, %.loopexit.split-lp246, %687
   %.pn54 = phi { ptr, i32 } [ %688, %687 ], [ %lpad.loopexit247, %.loopexit245 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp246 ]
@@ -9165,19 +9165,19 @@ _ZN4core3ops8function6FnOnce9call_once17h095083296ca669e2E.exit.i129: ; preds = 
           cleanup
   br label %681
 
-.loopexit.split-lp246:                            ; preds = %.invoke527
+.loopexit.split-lp246:                            ; preds = %.invoke553
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %681
 
-.invoke527:                                       ; preds = %.noexc135, %.noexc132
+.invoke553:                                       ; preds = %.noexc135, %.noexc132
   %682 = phi ptr [ @anon.f80536a5c2ae8de169e955dc6588ac46.109, %.noexc132 ], [ @anon.55ec9be4293c4f8a0fa4f5140018a002.55.llvm.10620417434063023195, %.noexc135 ]
   %683 = phi ptr [ @anon.f80536a5c2ae8de169e955dc6588ac46.51, %.noexc132 ], [ @anon.55ec9be4293c4f8a0fa4f5140018a002.42.llvm.10620417434063023195, %.noexc135 ]
   %684 = phi ptr [ @anon.f80536a5c2ae8de169e955dc6588ac46.111, %.noexc132 ], [ @anon.55ec9be4293c4f8a0fa4f5140018a002.57.llvm.10620417434063023195, %.noexc135 ]
   invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 %682, i64 noundef 70, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) %683, ptr noalias noundef readonly align 8 dereferenceable(24) %684) #38
-          to label %.cont528 unwind label %.loopexit.split-lp246
+          to label %.cont554 unwind label %.loopexit.split-lp246
 
-.cont528:                                         ; preds = %.invoke527
+.cont554:                                         ; preds = %.invoke553
   unreachable
 
 685:                                              ; preds = %677, %.noexc132
@@ -9201,7 +9201,7 @@ _ZN4core3ops8function6FnOnce9call_once17h095083296ca669e2E.exit.i129: ; preds = 
           to label %.noexc135 unwind label %.loopexit245
 
 .noexc135:                                        ; preds = %691
-  br i1 %692, label %.invoke527, label %"_ZN4core3ptr402drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$$LP$workspace..persistence..WorkspaceDb$C$image_viewer..persistence..ImageViewerDb$RP$$GT$$C$db..open_db$LT$$LP$workspace..persistence..WorkspaceDb$C$image_viewer..persistence..ImageViewerDb$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8b83d9a6b2b98462E.exit"
+  br i1 %692, label %.invoke553, label %"_ZN4core3ptr402drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$$LP$workspace..persistence..WorkspaceDb$C$image_viewer..persistence..ImageViewerDb$RP$$GT$$C$db..open_db$LT$$LP$workspace..persistence..WorkspaceDb$C$image_viewer..persistence..ImageViewerDb$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8b83d9a6b2b98462E.exit"
 
 693:                                              ; preds = %689
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1951
@@ -9282,11 +9282,11 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.10620417434063023195.exit
           to label %710 unwind label %532
 
 713:                                              ; preds = %714, %"_ZN4core3ptr402drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$$LP$workspace..persistence..WorkspaceDb$C$image_viewer..persistence..ImageViewerDb$RP$$GT$$C$db..open_db$LT$$LP$workspace..persistence..WorkspaceDb$C$image_viewer..persistence..ImageViewerDb$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9071951dafbc0da9E.exit"
-  %.pn56.pn.pn.pn.pn.pn507 = phi { ptr, i32 } [ %.pn56.pn.pn.pn.pn.pn508, %714 ], [ %.pn56.pn.pn.pn.pn, %"_ZN4core3ptr402drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$$LP$workspace..persistence..WorkspaceDb$C$image_viewer..persistence..ImageViewerDb$RP$$GT$$C$db..open_db$LT$$LP$workspace..persistence..WorkspaceDb$C$image_viewer..persistence..ImageViewerDb$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9071951dafbc0da9E.exit" ]
-  resume { ptr, i32 } %.pn56.pn.pn.pn.pn.pn507
+  %.pn56.pn.pn.pn.pn.pn533 = phi { ptr, i32 } [ %.pn56.pn.pn.pn.pn.pn534, %714 ], [ %.pn56.pn.pn.pn.pn, %"_ZN4core3ptr402drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$$LP$workspace..persistence..WorkspaceDb$C$image_viewer..persistence..ImageViewerDb$RP$$GT$$C$db..open_db$LT$$LP$workspace..persistence..WorkspaceDb$C$image_viewer..persistence..ImageViewerDb$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9071951dafbc0da9E.exit" ]
+  resume { ptr, i32 } %.pn56.pn.pn.pn.pn.pn533
 
 714:                                              ; preds = %.thread, %"_ZN4core3ptr402drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$$LP$workspace..persistence..WorkspaceDb$C$image_viewer..persistence..ImageViewerDb$RP$$GT$$C$db..open_db$LT$$LP$workspace..persistence..WorkspaceDb$C$image_viewer..persistence..ImageViewerDb$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9071951dafbc0da9E.exit"
-  %.pn56.pn.pn.pn.pn.pn508 = phi { ptr, i32 } [ %.pn56.pn.pn.pn.pn, %"_ZN4core3ptr402drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$$LP$workspace..persistence..WorkspaceDb$C$image_viewer..persistence..ImageViewerDb$RP$$GT$$C$db..open_db$LT$$LP$workspace..persistence..WorkspaceDb$C$image_viewer..persistence..ImageViewerDb$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9071951dafbc0da9E.exit" ], [ %lpad.thr_comm, %.thread ]
+  %.pn56.pn.pn.pn.pn.pn534 = phi { ptr, i32 } [ %.pn56.pn.pn.pn.pn, %"_ZN4core3ptr402drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$sqlez..thread_safe_connection..ThreadSafeConnection$LT$$LP$workspace..persistence..WorkspaceDb$C$image_viewer..persistence..ImageViewerDb$RP$$GT$$C$db..open_db$LT$$LP$workspace..persistence..WorkspaceDb$C$image_viewer..persistence..ImageViewerDb$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9071951dafbc0da9E.exit" ], [ %lpad.thr_comm, %.thread ]
   invoke fastcc void @"_ZN4core3ptr155drop_in_place$LT$db..open_db$LT$$LP$workspace..persistence..WorkspaceDb$C$image_viewer..persistence..ImageViewerDb$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9c63ebb6474ab843E"(ptr noundef nonnull align 8 %1) #40
           to label %713 unwind label %532
 }

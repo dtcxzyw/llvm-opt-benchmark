@@ -279,11 +279,11 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br label %130
 
 130:                                              ; preds = %125, %129, %121
-  %.sink1083 = phi i32 [ %128, %125 ], [ 0, %129 ], [ %56, %121 ]
+  %.sink1120 = phi i32 [ %128, %125 ], [ 0, %129 ], [ %56, %121 ]
   %131 = getelementptr inbounds [12 x i32], ptr %10, i64 0, i64 %96
-  store i32 %.sink1083, ptr %131, align 4, !tbaa !100
+  store i32 %.sink1120, ptr %131, align 4, !tbaa !100
   %132 = add i32 %.sink, %.0672778
-  %133 = add i32 %132, %.sink1083
+  %133 = add i32 %132, %.sink1120
   %134 = add nsw i32 %103, %.0674777
   %135 = add nsw i32 %.0676776, 1
   br label %136
@@ -387,7 +387,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 .lr.ph786.preheader:                              ; preds = %179
   %184 = sext i32 %.0683789 to i64
   %wide.trip.count932 = zext nneg i32 %182 to i64
-  %invariant.gep1080 = getelementptr ptr, ptr %77, i64 %184
+  %invariant.gep1117 = getelementptr ptr, ptr %77, i64 %184
   br label %.lr.ph786
 
 ._crit_edge787:                                   ; preds = %.lr.ph786, %179
@@ -400,8 +400,8 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %indvars.iv929 = phi i64 [ 0, %.lr.ph786.preheader ], [ %indvars.iv.next930, %.lr.ph786 ]
   %186 = load ptr, ptr %180, align 8, !tbaa !106
   %187 = getelementptr inbounds nuw %struct.b2JointSim, ptr %186, i64 %indvars.iv929
-  %gep1081 = getelementptr ptr, ptr %invariant.gep1080, i64 %indvars.iv929
-  store ptr %187, ptr %gep1081, align 8, !tbaa !107
+  %gep1118 = getelementptr ptr, ptr %invariant.gep1117, i64 %indvars.iv929
+  store ptr %187, ptr %gep1118, align 8, !tbaa !107
   %indvars.iv.next930 = add nuw nsw i64 %indvars.iv929, 1
   %exitcond933.not = icmp eq i64 %indvars.iv.next930, %wide.trip.count932
   br i1 %exitcond933.not, label %._crit_edge787, label %.lr.ph786, !llvm.loop !108
@@ -748,7 +748,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   store i32 -1, ptr %352, align 4, !tbaa !124
   %353 = getelementptr inbounds nuw i8, ptr %.1708824, i64 56
   store atomic i32 0, ptr %353 seq_cst, align 8
-  %.27098281049 = getelementptr inbounds nuw i8, ptr %.1708824, i64 64
+  %.27098281086 = getelementptr inbounds nuw i8, ptr %.1708824, i64 64
   %wide.trip.count987 = zext nneg i32 %.1677 to i64
   br label %.lr.ph833
 
@@ -797,7 +797,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 .lr.ph833:                                        ; preds = %.lr.ph833.preheader, %.lr.ph833
   %indvars.iv983 = phi i64 [ 0, %.lr.ph833.preheader ], [ %indvars.iv.next984, %.lr.ph833 ]
-  %.2709831 = phi ptr [ %.27098281049, %.lr.ph833.preheader ], [ %.2709, %.lr.ph833 ]
+  %.2709831 = phi ptr [ %.27098281086, %.lr.ph833.preheader ], [ %.2709, %.lr.ph833 ]
   %.1708.pn830 = phi ptr [ %367, %.lr.ph833.preheader ], [ %.2709831, %.lr.ph833 ]
   store i32 6, ptr %.2709831, align 8, !tbaa !119
   %372 = getelementptr inbounds nuw [12 x ptr], ptr %11, i64 0, i64 %indvars.iv983
@@ -1110,7 +1110,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br label %.outer
 
 .outer:                                           ; preds = %.thread, %.lr.ph857
-  %indvars.iv1008.ph = phi i64 [ %indvars.iv.next10091057, %.thread ], [ 0, %.lr.ph857 ]
+  %indvars.iv1008.ph = phi i64 [ %indvars.iv.next10091094, %.thread ], [ 0, %.lr.ph857 ]
   %.0720855.ph = phi i1 [ true, %.thread ], [ false, %.lr.ph857 ]
   %.sroa.12.3853.ph = phi float [ %526, %.thread ], [ %491, %.lr.ph857 ]
   %.sroa.10.3852.ph = phi i64 [ %533, %.thread ], [ 0, %.lr.ph857 ]
@@ -1141,13 +1141,13 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 .thread:                                          ; preds = %528
   %533 = load i64, ptr %523, align 4
-  %indvars.iv.next10091057 = add nuw nsw i64 %indvars.iv1008, 1
-  %exitcond1011.not1058 = icmp eq i64 %indvars.iv.next10091057, %wide.trip.count1010
-  br i1 %exitcond1011.not1058, label %._crit_edge858.thread, label %.outer, !llvm.loop !168
+  %indvars.iv.next10091094 = add nuw nsw i64 %indvars.iv1008, 1
+  %exitcond1011.not1095 = icmp eq i64 %indvars.iv.next10091094, %wide.trip.count1010
+  br i1 %exitcond1011.not1095, label %._crit_edge858.thread, label %.outer, !llvm.loop !168
 
 ._crit_edge858.thread:                            ; preds = %.thread, %._crit_edge858
-  %.sroa.10.410591066 = phi i64 [ %.sroa.10.3852.ph, %._crit_edge858 ], [ %533, %.thread ]
-  %.sroa.12.410601065 = phi float [ %.sroa.12.3853.ph, %._crit_edge858 ], [ %526, %.thread ]
+  %.sroa.10.410961103 = phi i64 [ %.sroa.10.3852.ph, %._crit_edge858 ], [ %533, %.thread ]
+  %.sroa.12.410971102 = phi float [ %.sroa.12.3853.ph, %._crit_edge858 ], [ %526, %.thread ]
   %534 = load i64, ptr %517, align 4
   %535 = getelementptr inbounds nuw i8, ptr %511, i64 12
   %536 = load i32, ptr %535, align 4, !tbaa !169
@@ -1198,11 +1198,11 @@ b2ContactHitEventArray_Push.exit:                 ; preds = %._crit_edge858.thre
   %.sroa.8763.0..sroa_idx = getelementptr inbounds nuw i8, ptr %563, i64 14
   store i16 %551, ptr %.sroa.8763.0..sroa_idx, align 2, !tbaa !181
   %.sroa.9764.0..sroa_idx = getelementptr inbounds nuw i8, ptr %563, i64 16
-  store i64 %.sroa.10.410591066, ptr %.sroa.9764.0..sroa_idx, align 4
+  store i64 %.sroa.10.410961103, ptr %.sroa.9764.0..sroa_idx, align 4
   %.sroa.10765.0..sroa_idx = getelementptr inbounds nuw i8, ptr %563, i64 24
   store i64 %534, ptr %.sroa.10765.0..sroa_idx, align 4
   %.sroa.11766.0..sroa_idx = getelementptr inbounds nuw i8, ptr %563, i64 32
-  store float %.sroa.12.410601065, ptr %.sroa.11766.0..sroa_idx, align 4, !tbaa !182
+  store float %.sroa.12.410971102, ptr %.sroa.11766.0..sroa_idx, align 4, !tbaa !182
   %564 = load i32, ptr %495, align 8, !tbaa !178
   %565 = add nsw i32 %564, 1
   store i32 %565, ptr %495, align 8, !tbaa !178
@@ -1508,8 +1508,8 @@ b2BufferMove.exit:                                ; preds = %.lr.ph877, %b2IntAr
 
 ._crit_edge900:                                   ; preds = %731
   %716 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  %.not1085 = icmp eq i32 %713, 1
-  br i1 %.not1085, label %._crit_edge904, label %.lr.ph903
+  %.not1122 = icmp eq i32 %713, 1
+  br i1 %.not1122, label %._crit_edge904, label %.lr.ph903
 
 717:                                              ; preds = %.lr.ph899, %731
   %indvars.iv1035 = phi i64 [ 0, %.lr.ph899 ], [ %indvars.iv.next1036, %731 ]
@@ -2366,8 +2366,8 @@ define internal void @b2FinalizeBodiesTask(i32 noundef %0, i32 noundef %1, i32 n
   %.sroa.0.4.vec.extract.i168 = extractelement <2 x float> %57, i64 1
   %59 = fmul float %.sroa.05.0.vec.extract.i, %.sroa.0.4.vec.extract.i168
   %60 = fadd float %58, %59
-  %foldExtExtBinop203 = fmul <2 x float> %56, %57
-  %61 = extractelement <2 x float> %foldExtExtBinop203, i64 0
+  %foldExtExtBinop205 = fmul <2 x float> %56, %57
+  %61 = extractelement <2 x float> %foldExtExtBinop205, i64 0
   %62 = fmul float %.sroa.05.4.vec.extract.i, %.sroa.0.4.vec.extract.i168
   %63 = fsub float %61, %62
   %64 = fmul float %60, %60
@@ -2382,11 +2382,11 @@ define internal void @b2FinalizeBodiesTask(i32 noundef %0, i32 noundef %1, i32 n
   %71 = fmul float %60, %69
   %.sroa.012.4.vec.insert.i = insertelement <2 x float> %.sroa.012.0.vec.insert.i, float %71, i64 1
   store <2 x float> %.sroa.012.4.vec.insert.i, ptr %54, align 4
-  %foldExtExtBinop205 = fmul <2 x float> %.sroa.057.0.copyload, %.sroa.057.0.copyload
   %foldExtExtBinop207 = fmul <2 x float> %.sroa.057.0.copyload, %.sroa.057.0.copyload
-  %shift = shufflevector <2 x float> %foldExtExtBinop207, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop209 = fadd <2 x float> %foldExtExtBinop205, %shift
-  %72 = extractelement <2 x float> %foldExtExtBinop209, i64 0
+  %foldExtExtBinop209 = fmul <2 x float> %.sroa.057.0.copyload, %.sroa.057.0.copyload
+  %shift = shufflevector <2 x float> %foldExtExtBinop209, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop211 = fadd <2 x float> %foldExtExtBinop207, %shift
+  %72 = extractelement <2 x float> %foldExtExtBinop211, i64 0
   %sqrt.i173 = tail call float @llvm.sqrt.f32(float %72)
   %73 = fcmp olt float %49, 0.000000e+00
   %74 = fneg float %49
@@ -2396,11 +2396,11 @@ define internal void @b2FinalizeBodiesTask(i32 noundef %0, i32 noundef %1, i32 n
   %78 = fmul float %75, %77
   %79 = fadd float %sqrt.i173, %78
   %80 = load <2 x float>, ptr %51, align 4
-  %foldExtExtBinop211 = fmul <2 x float> %80, %80
   %foldExtExtBinop213 = fmul <2 x float> %80, %80
-  %shift215 = shufflevector <2 x float> %foldExtExtBinop213, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop216 = fadd <2 x float> %foldExtExtBinop211, %shift215
-  %81 = extractelement <2 x float> %foldExtExtBinop216, i64 0
+  %foldExtExtBinop215 = fmul <2 x float> %80, %80
+  %shift217 = shufflevector <2 x float> %foldExtExtBinop215, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop218 = fadd <2 x float> %foldExtExtBinop213, %shift217
+  %81 = extractelement <2 x float> %foldExtExtBinop218, i64 0
   %sqrt.i176 = tail call float @llvm.sqrt.f32(float %81)
   %82 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %83 = load float, ptr %82, align 4, !tbaa !248
@@ -2419,8 +2419,8 @@ define internal void @b2FinalizeBodiesTask(i32 noundef %0, i32 noundef %1, i32 n
   %94 = load <2 x float>, ptr %92, align 4
   %.sroa.05.0.vec.extract.i177 = extractelement <2 x float> %93, i64 0
   %.sroa.0.0.vec.extract.i178 = extractelement <2 x float> %94, i64 0
-  %foldExtExtBinop218 = fmul <2 x float> %93, %94
-  %95 = extractelement <2 x float> %foldExtExtBinop218, i64 0
+  %foldExtExtBinop220 = fmul <2 x float> %93, %94
+  %95 = extractelement <2 x float> %foldExtExtBinop220, i64 0
   %.sroa.05.4.vec.extract.i179 = extractelement <2 x float> %93, i64 1
   %.sroa.0.4.vec.extract.i180 = extractelement <2 x float> %94, i64 1
   %96 = fmul float %.sroa.05.4.vec.extract.i179, %.sroa.0.4.vec.extract.i180
@@ -3297,8 +3297,8 @@ define internal fastcc void @b2SolveContinuous(ptr noundef %0, i32 noundef %1) u
   %.sroa.01.4.vec.extract.i = extractelement <2 x float> %9, i64 1
   %25 = fsub float %.sroa.01.4.vec.extract.i, %23
   %.sroa.05.0.vec.extract.i136 = extractelement <2 x float> %15, i64 0
-  %foldExtExtBinop224 = fmul <2 x float> %15, %17
-  %26 = extractelement <2 x float> %foldExtExtBinop224, i64 0
+  %foldExtExtBinop226 = fmul <2 x float> %15, %17
+  %26 = extractelement <2 x float> %foldExtExtBinop226, i64 0
   %.sroa.05.4.vec.extract.i138 = extractelement <2 x float> %15, i64 1
   %27 = fmul float %.sroa.05.4.vec.extract.i138, %.sroa.0.4.vec.extract.i
   %28 = fsub float %26, %27
@@ -3366,8 +3366,8 @@ define internal fastcc void @b2SolveContinuous(ptr noundef %0, i32 noundef %1) u
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 80
   %61 = load <2 x float>, ptr %60, align 8
   %.sroa.0.0.vec.extract.i148 = extractelement <2 x float> %61, i64 0
-  %foldExtExtBinop226 = fmul <2 x float> %13, %61
-  %62 = extractelement <2 x float> %foldExtExtBinop226, i64 0
+  %foldExtExtBinop228 = fmul <2 x float> %13, %61
+  %62 = extractelement <2 x float> %foldExtExtBinop228, i64 0
   %.sroa.0.4.vec.extract.i149 = extractelement <2 x float> %61, i64 1
   %63 = fmul float %.sroa.05.4.vec.extract.i, %.sroa.0.4.vec.extract.i149
   %64 = fsub float %62, %63
@@ -3381,8 +3381,8 @@ define internal fastcc void @b2SolveContinuous(ptr noundef %0, i32 noundef %1) u
   store <2 x float> %.sroa.011.4.vec.insert.i, ptr %53, align 8
   %70 = load <2 x float>, ptr %60, align 8
   %.sroa.0.0.vec.extract.i151 = extractelement <2 x float> %70, i64 0
-  %foldExtExtBinop228 = fmul <2 x float> %15, %70
-  %71 = extractelement <2 x float> %foldExtExtBinop228, i64 0
+  %foldExtExtBinop230 = fmul <2 x float> %15, %70
+  %71 = extractelement <2 x float> %foldExtExtBinop230, i64 0
   %.sroa.0.4.vec.extract.i153 = extractelement <2 x float> %70, i64 1
   %72 = fmul float %.sroa.05.4.vec.extract.i138, %.sroa.0.4.vec.extract.i153
   %73 = fsub float %71, %72
@@ -3767,8 +3767,8 @@ define internal noundef zeroext i1 @b2ContinuousQueryCallback(i32 %0, i32 nounde
   %81 = getelementptr inbounds nuw i8, ptr %19, i64 148
   %82 = load <2 x float>, ptr %81, align 4
   %.sroa.0.0.vec.extract.i136 = extractelement <2 x float> %82, i64 0
-  %foldExtExtBinop183 = fmul <2 x float> %.sroa.541.0.copyload, %82
-  %83 = extractelement <2 x float> %foldExtExtBinop183, i64 0
+  %foldExtExtBinop187 = fmul <2 x float> %.sroa.541.0.copyload, %82
+  %83 = extractelement <2 x float> %foldExtExtBinop187, i64 0
   %.sroa.0.4.vec.extract.i138 = extractelement <2 x float> %82, i64 1
   %84 = fmul float %.sroa.3.12.vec.extract.i, %.sroa.0.4.vec.extract.i138
   %85 = fsub float %83, %84

@@ -7682,8 +7682,8 @@ if.then24:                                        ; preds = %if.end22
   %options_ = getelementptr inbounds nuw i8, ptr %this, i64 224
   %70 = load ptr, ptr %options_, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %call2.i132 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull @_ZN6google8protobuf33_MessageOptions_default_instance_E)
-  br i1 %call2.i132, label %if.end.i, label %_ZNK6google8protobuf14MessageOptions13IsInitializedEv.exit.thread
+  %call2.i135 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull @_ZN6google8protobuf33_MessageOptions_default_instance_E)
+  br i1 %call2.i135, label %if.end.i, label %_ZNK6google8protobuf14MessageOptions13IsInitializedEv.exit.thread
 
 if.end.i:                                         ; preds = %if.then24
   %uninterpreted_option_.i.i = getelementptr inbounds nuw i8, ptr %70, i64 48

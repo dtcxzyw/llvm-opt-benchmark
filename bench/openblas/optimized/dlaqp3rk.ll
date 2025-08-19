@@ -479,8 +479,8 @@ split:                                            ; preds = %156, %._crit_edge50
   %327 = zext nneg i32 %322 to i64
   %328 = shl nuw nsw i64 %327, 3
   call void @llvm.memset.p0.i64(ptr align 8 %scevgep490, i8 0, i64 %328, i1 false), !tbaa !7
-  %.not534 = icmp eq i32 %322, 1
-  br i1 %.not534, label %._crit_edge.thread, label %329
+  %.not557 = icmp eq i32 %322, 1
+  br i1 %.not557, label %._crit_edge.thread, label %329
 
 329:                                              ; preds = %._crit_edge
   %330 = load i32, ptr %0, align 4, !tbaa !3

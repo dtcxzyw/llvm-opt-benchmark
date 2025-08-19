@@ -40,8 +40,8 @@ define range(i32 -1, -2147483648) i32 @u_scanf_parse_77(ptr noundef %0, ptr noun
   %.0.ph = phi ptr [ %144, %138 ], [ %1, %3 ]
   br label %19
 
-19:                                               ; preds = %.backedge68, %.outer
-  %.0 = phi ptr [ %.0.ph, %.outer ], [ %104, %.backedge68 ]
+19:                                               ; preds = %.backedge73, %.outer
+  %.0 = phi ptr [ %.0.ph, %.outer ], [ %104, %.backedge73 ]
   br label %20
 
 20:                                               ; preds = %26, %19
@@ -270,7 +270,7 @@ _ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit:  ; preds = %.loopexit125.i, %86
   %104 = getelementptr inbounds i16, ptr %.1, i64 %103
   %105 = add i16 %97, -32
   %106 = icmp ult i16 %105, 108
-  br i1 %106, label %107, label %.backedge68
+  br i1 %106, label %107, label %.backedge73
 
 107:                                              ; preds = %_ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit
   %108 = zext nneg i16 %105 to i64
@@ -336,9 +336,9 @@ _ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit:  ; preds = %.loopexit125.i, %86
   %132 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %133 = load ptr, ptr %132, align 8, !tbaa !34
   %.not39 = icmp eq ptr %133, null
-  br i1 %.not39, label %.backedge68, label %134
+  br i1 %.not39, label %.backedge73, label %134
 
-.backedge68:                                      ; preds = %131, %_ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit
+.backedge73:                                      ; preds = %131, %_ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit
   br label %19, !llvm.loop !35
 
 134:                                              ; preds = %131
@@ -1201,7 +1201,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_sc
   %.14381 = phi ptr [ %9, %.lr.ph ], [ %.3, %42 ]
   %.24779 = phi i32 [ %spec.select, %.lr.ph ], [ %45, %42 ]
   %21 = call signext i8 @ufile_getch32_77(ptr noundef %0, ptr noundef nonnull %8)
-  switch i8 %21, label %.critedge.thread89 [
+  switch i8 %21, label %.critedge.thread90 [
     i8 1, label %22
     i8 0, label %.critedge.thread65
   ]
@@ -1210,7 +1210,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_sc
   %23 = load i32, ptr %8, align 4, !tbaa !3
   %24 = call signext i8 @uset_contains_77(ptr noundef %10, i32 noundef %23)
   %.not53 = icmp eq i8 %24, 0
-  br i1 %.not53, label %.critedge.thread89, label %25
+  br i1 %.not53, label %.critedge.thread90, label %25
 
 25:                                               ; preds = %22
   %26 = load i8, ptr %19, align 4, !tbaa !19
@@ -1231,7 +1231,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_sc
   %32 = icmp ugt i32 %.pre, 1114111
   %.not55 = icmp eq i32 %.24779, 1
   %or.cond60 = or i1 %.not55, %32
-  br i1 %or.cond60, label %.critedge.thread89, label %33
+  br i1 %or.cond60, label %.critedge.thread90, label %33
 
 33:                                               ; preds = %31
   %34 = lshr i32 %.pre, 10
@@ -1257,34 +1257,34 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_sc
   %.neg = select i1 %44, i32 -2, i32 -1
   %45 = add nsw i32 %.neg, %.24779
   %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %20, label %.critedge.thread65.thread98, !llvm.loop !60
+  br i1 %46, label %20, label %.critedge.thread65.thread99, !llvm.loop !60
 
-.critedge.thread65.thread98:                      ; preds = %42
+.critedge.thread65.thread99:                      ; preds = %42
   call void @uset_close_77(ptr noundef %10)
   br label %49
 
-.critedge.thread89:                               ; preds = %22, %31, %20
-  %.293 = phi i8 [ %.182, %20 ], [ %.182, %22 ], [ 1, %31 ]
+.critedge.thread90:                               ; preds = %22, %31, %20
+  %.294 = phi i8 [ %.182, %20 ], [ %.182, %22 ], [ 1, %31 ]
   %47 = load i32, ptr %8, align 4, !tbaa !3
   %48 = call i32 @u_fungetc_77(i32 noundef %47, ptr noundef %0)
   br label %.critedge.thread65
 
-.critedge.thread65:                               ; preds = %20, %.critedge.thread89
-  %.039 = phi i8 [ %.293, %.critedge.thread89 ], [ %.182, %20 ]
+.critedge.thread65:                               ; preds = %20, %.critedge.thread90
+  %.039 = phi i8 [ %.294, %.critedge.thread90 ], [ %.182, %20 ]
   call void @uset_close_77(ptr noundef %10)
   %.not57 = icmp eq i8 %.039, 0
   br i1 %.not57, label %58, label %49
 
-49:                                               ; preds = %.critedge.thread65.thread98, %.critedge.thread65
-  %.14376104 = phi ptr [ %.3, %.critedge.thread65.thread98 ], [ %.14381, %.critedge.thread65 ]
-  %.24778103 = phi i32 [ %45, %.critedge.thread65.thread98 ], [ %.24779, %.critedge.thread65 ]
+49:                                               ; preds = %.critedge.thread65.thread99, %.critedge.thread65
+  %.14376105 = phi ptr [ %.3, %.critedge.thread65.thread99 ], [ %.14381, %.critedge.thread65 ]
+  %.24778104 = phi i32 [ %45, %.critedge.thread65.thread99 ], [ %.24779, %.critedge.thread65 ]
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %51 = load i8, ptr %50, align 4, !tbaa !19
   %.not58 = icmp eq i8 %51, 0
   br i1 %.not58, label %52, label %53
 
 52:                                               ; preds = %49
-  store i16 0, ptr %.14376104, align 2, !tbaa !7
+  store i16 0, ptr %.14376105, align 2, !tbaa !7
   br label %53
 
 53:                                               ; preds = %49, %52
@@ -1293,7 +1293,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_sc
   %55 = load i32, ptr %1, align 4, !tbaa !14
   %56 = icmp sgt i32 %55, -1
   %spec.select61 = select i1 %56, i32 %55, i32 2147483647
-  %57 = sub nsw i32 %spec.select61, %.24778103
+  %57 = sub nsw i32 %spec.select61, %.24778104
   br label %58
 
 58:                                               ; preds = %.critedge.thread65.thread, %.thread, %.critedge.thread65, %53
@@ -1911,7 +1911,7 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %18, %.critedge.i
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
   %40 = call signext i8 @ufile_getch_77(ptr noundef %0, ptr noundef nonnull %11)
   %41 = icmp eq i8 %40, 1
-  br i1 %41, label %42, label %.critedge.loopexit.split.loop.exit77
+  br i1 %41, label %42, label %.critedge.loopexit.split.loop.exit81
 
 42:                                               ; preds = %39
   %43 = load i8, ptr %13, align 1, !tbaa !17
@@ -1922,13 +1922,13 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %18, %.critedge.i
   %45 = load i16, ptr %11, align 2, !tbaa !7
   %46 = load i16, ptr %37, align 2, !tbaa !16
   %.not46 = icmp eq i16 %45, %46
-  br i1 %.not46, label %.critedge.loopexit.split.loop.exit80, label %47
+  br i1 %.not46, label %.critedge.loopexit.split.loop.exit84, label %47
 
 47:                                               ; preds = %44
   %48 = zext i16 %45 to i32
   %49 = call signext i8 @u_isWhitespace_77(i32 noundef %48)
   %.not47 = icmp eq i8 %49, 0
-  br i1 %.not47, label %.critedge2, label %.critedge.loopexit.split.loop.exit83
+  br i1 %.not47, label %.critedge2, label %.critedge.loopexit.split.loop.exit87
 
 .critedge2:                                       ; preds = %42, %47
   %50 = load i8, ptr %38, align 4, !tbaa !19
@@ -1978,21 +1978,21 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %18, %.critedge.i
   %or.cond53 = select i1 %72, i1 true, i1 %73
   br i1 %or.cond53, label %39, label %.critedge, !llvm.loop !63
 
-.critedge.loopexit.split.loop.exit77:             ; preds = %39
+.critedge.loopexit.split.loop.exit81:             ; preds = %39
   %74 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge.loopexit.split.loop.exit80:             ; preds = %44
+.critedge.loopexit.split.loop.exit84:             ; preds = %44
   %75 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge.loopexit.split.loop.exit83:             ; preds = %47
+.critedge.loopexit.split.loop.exit87:             ; preds = %47
   %76 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %70, %.critedge.loopexit.split.loop.exit77, %.critedge.loopexit.split.loop.exit80, %.critedge.loopexit.split.loop.exit83, %.preheader
-  %.037.lcssa = phi i32 [ 0, %.preheader ], [ %74, %.critedge.loopexit.split.loop.exit77 ], [ %75, %.critedge.loopexit.split.loop.exit80 ], [ %76, %.critedge.loopexit.split.loop.exit83 ], [ %indvars, %70 ]
-  %.1 = phi i8 [ 0, %.preheader ], [ %40, %.critedge.loopexit.split.loop.exit77 ], [ 1, %.critedge.loopexit.split.loop.exit80 ], [ 1, %.critedge.loopexit.split.loop.exit83 ], [ 1, %70 ]
+.critedge:                                        ; preds = %70, %.critedge.loopexit.split.loop.exit81, %.critedge.loopexit.split.loop.exit84, %.critedge.loopexit.split.loop.exit87, %.preheader
+  %.037.lcssa = phi i32 [ 0, %.preheader ], [ %74, %.critedge.loopexit.split.loop.exit81 ], [ %75, %.critedge.loopexit.split.loop.exit84 ], [ %76, %.critedge.loopexit.split.loop.exit87 ], [ %indvars, %70 ]
+  %.1 = phi i8 [ 0, %.preheader ], [ %40, %.critedge.loopexit.split.loop.exit81 ], [ 1, %.critedge.loopexit.split.loop.exit84 ], [ 1, %.critedge.loopexit.split.loop.exit87 ], [ 1, %70 ]
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %78 = load i8, ptr %77, align 4, !tbaa !19
   %.not48 = icmp eq i8 %78, 0

@@ -813,7 +813,7 @@ lor.lhs.false127:                                 ; preds = %land.lhs.true124
   br i1 %cmp131, label %if.end217, label %lor.lhs.false138.loopexit
 
 if.else135:                                       ; preds = %lor.lhs.false
-  %mpNodeLeft118.le313 = getelementptr inbounds nuw i8, ptr %pNodeTemp.0, i64 8
+  %mpNodeLeft118.le336 = getelementptr inbounds nuw i8, ptr %pNodeTemp.0, i64 8
   %.pre266 = load ptr, ptr %pNodeTemp.0, align 8
   %cmp137 = icmp eq ptr %.pre266, null
   br i1 %cmp137, label %if.then143, label %lor.lhs.false138
@@ -823,7 +823,7 @@ lor.lhs.false138.loopexit:                        ; preds = %lor.lhs.false127
   br label %lor.lhs.false138
 
 lor.lhs.false138:                                 ; preds = %lor.lhs.false138.loopexit, %if.else135
-  %mpNodeLeft118285 = phi ptr [ %mpNodeLeft118.le313, %if.else135 ], [ %mpNodeLeft118.le, %lor.lhs.false138.loopexit ]
+  %mpNodeLeft118308 = phi ptr [ %mpNodeLeft118.le336, %if.else135 ], [ %mpNodeLeft118.le, %lor.lhs.false138.loopexit ]
   %45 = phi ptr [ %.pre266, %if.else135 ], [ %43, %lor.lhs.false138.loopexit ]
   %mColor140 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %46 = load i8, ptr %mColor140, align 8
@@ -831,15 +831,15 @@ lor.lhs.false138:                                 ; preds = %lor.lhs.false138.lo
   br i1 %cmp142, label %if.then143, label %if.end149
 
 if.then143:                                       ; preds = %lor.lhs.false138, %if.else135
-  %mpNodeLeft118286 = phi ptr [ %mpNodeLeft118285, %lor.lhs.false138 ], [ %mpNodeLeft118.le313, %if.else135 ]
+  %mpNodeLeft118309 = phi ptr [ %mpNodeLeft118308, %lor.lhs.false138 ], [ %mpNodeLeft118.le336, %if.else135 ]
   %mColor145 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store i8 1, ptr %mColor145, align 8
   %mColor146 = getelementptr inbounds nuw i8, ptr %pNodeTemp.0, i64 24
   store i8 0, ptr %mColor146, align 8
   %47 = load ptr, ptr %mpNodeParent, align 8
-  %48 = load ptr, ptr %mpNodeLeft118286, align 8
+  %48 = load ptr, ptr %mpNodeLeft118309, align 8
   %49 = load ptr, ptr %48, align 8
-  store ptr %49, ptr %mpNodeLeft118286, align 8
+  store ptr %49, ptr %mpNodeLeft118309, align 8
   %tobool.not.i155 = icmp eq ptr %49, null
   br i1 %tobool.not.i155, label %if.end.i158, label %if.then.i156
 

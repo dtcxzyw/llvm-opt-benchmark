@@ -3668,7 +3668,7 @@ define dso_local noundef range(i32 -105, 1) i32 @ip_mc_source(i32 noundef %0, i3
 
 172:                                              ; preds = %179
   %.not = icmp eq i32 %168, -2147483648
-  br i1 %.not, label %.preheader53, label %.loopexit33
+  br i1 %.not, label %.preheader72, label %.loopexit33
 
 173:                                              ; preds = %179, %169
   %174 = phi i32 [ 0, %169 ], [ %180, %179 ]
@@ -3683,9 +3683,9 @@ define dso_local noundef range(i32 -105, 1) i32 @ip_mc_source(i32 noundef %0, i3
   %181 = icmp eq i32 %180, %168
   br i1 %181, label %172, label %173, !llvm.loop !110
 
-.preheader53:                                     ; preds = %172, %.preheader53
-  %182 = phi i32 [ %189, %.preheader53 ], [ 2147483647, %172 ]
-  %183 = phi i32 [ %182, %.preheader53 ], [ -2147483648, %172 ]
+.preheader72:                                     ; preds = %172, %.preheader72
+  %182 = phi i32 [ %189, %.preheader72 ], [ 2147483647, %172 ]
+  %183 = phi i32 [ %182, %.preheader72 ], [ -2147483648, %172 ]
   %184 = sext i32 %182 to i64
   %185 = getelementptr [0 x i32], ptr %170, i64 0, i64 %184
   %186 = load i32, ptr %185, align 4
@@ -3693,7 +3693,7 @@ define dso_local noundef range(i32 -105, 1) i32 @ip_mc_source(i32 noundef %0, i3
   %188 = getelementptr [0 x i32], ptr %170, i64 0, i64 %187
   store i32 %186, ptr %188, align 4
   %189 = add i32 %182, -1
-  br label %.preheader53
+  br label %.preheader72
 
 .loopexit33:                                      ; preds = %.thread29, %172
   %190 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -6123,7 +6123,7 @@ define internal fastcc ptr @add_grec(ptr noundef %0, ptr noundef nonnull capture
   br i1 %233, label %.thread38, label %.thread42.thread
 
 .thread42.thread:                                 ; preds = %79, %.thread42
-  %.04459 = phi ptr [ %.044, %.thread42 ], [ null, %79 ]
+  %.04473 = phi ptr [ %.044, %.thread42 ], [ null, %79 ]
   %234 = phi i16 [ %231, %.thread42 ], [ 0, %79 ]
   %235 = phi ptr [ %230, %.thread42 ], [ %80, %79 ]
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 121
@@ -6193,7 +6193,7 @@ define internal fastcc ptr @add_grec(ptr noundef %0, ptr noundef nonnull capture
 
 add_grhead.exit:                                  ; preds = %262, %257, %.thread42.thread, %223
   %281 = phi i16 [ %234, %.thread42.thread ], [ %229, %223 ], [ %234, %257 ], [ %234, %262 ]
-  %.5 = phi ptr [ %.04459, %.thread42.thread ], [ %.236, %223 ], [ %.04459, %257 ], [ %264, %262 ]
+  %.5 = phi ptr [ %.04473, %.thread42.thread ], [ %.236, %223 ], [ %.04473, %257 ], [ %264, %262 ]
   %282 = phi ptr [ %235, %.thread42.thread ], [ %224, %223 ], [ null, %257 ], [ %263, %262 ]
   %283 = icmp eq ptr %.5, null
   br i1 %283, label %286, label %284

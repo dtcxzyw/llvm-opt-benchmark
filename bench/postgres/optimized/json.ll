@@ -2501,8 +2501,8 @@ define dso_local i64 @json_object_two_arg(ptr noundef readonly captures(none) %0
   unreachable
 
 48:                                               ; preds = %.lr.ph
-  %.not29 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not29, label %50, label %49
+  %.not32 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not32, label %50, label %49
 
 49:                                               ; preds = %48
   call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.10) #10

@@ -62,7 +62,7 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE1EEEvPN
 
 ._crit_edge111.loopexit:                          ; preds = %._crit_edge.thread
   %39 = sext i32 %.1 to i64
-  %40 = sext i32 %.186.lcssa135 to i64
+  %40 = sext i32 %.186.lcssa137 to i64
   br label %._crit_edge111
 
 ._crit_edge111:                                   ; preds = %._crit_edge111.loopexit, %5
@@ -75,7 +75,7 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE1EEEvPN
 .lr.ph110:                                        ; preds = %.lr.ph110.preheader, %._crit_edge.thread
   %indvars.iv128 = phi i64 [ 0, %.lr.ph110.preheader ], [ %indvars.iv.next129, %._crit_edge.thread ]
   %.0108 = phi i32 [ 0, %.lr.ph110.preheader ], [ %.1, %._crit_edge.thread ]
-  %.085107 = phi i32 [ 0, %.lr.ph110.preheader ], [ %.186.lcssa135, %._crit_edge.thread ]
+  %.085107 = phi i32 [ 0, %.lr.ph110.preheader ], [ %.186.lcssa137, %._crit_edge.thread ]
   %41 = getelementptr inbounds nuw %"struct.gmx::nbnxn_ci_t", ptr %25, i64 %indvars.iv128
   %42 = load i32, ptr %41, align 4, !tbaa !18
   %43 = sext i32 %.0108 to i64
@@ -175,8 +175,8 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE1EEEvPN
   %indvars.iv119 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next120, %89 ]
   %.192101 = phi i1 [ false, %.preheader ], [ %.293, %89 ]
   %90 = add nuw nsw i64 %indvars.iv119, %76
-  %.idx133 = mul nsw i64 %90, 12
-  %91 = getelementptr inbounds i8, ptr %30, i64 %.idx133
+  %.idx135 = mul nsw i64 %90, 12
+  %91 = getelementptr inbounds i8, ptr %30, i64 %.idx135
   %92 = load float, ptr %91, align 4, !tbaa !26
   %93 = fsub float %79, %92
   %94 = getelementptr i8, ptr %91, i64 4
@@ -218,7 +218,7 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE1EEEvPN
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %56, %113, %._crit_edge
-  %.186.lcssa135 = phi i32 [ %.2, %113 ], [ %.2, %._crit_edge ], [ %.085107, %56 ]
+  %.186.lcssa137 = phi i32 [ %.2, %113 ], [ %.2, %._crit_edge ], [ %.085107, %56 ]
   %.1 = phi i32 [ %115, %113 ], [ %.0108, %._crit_edge ], [ %.0108, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
@@ -254,7 +254,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx10nbnxn_ci_tENS0_30DefaultInitializa
   br i1 %.not37.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = shl i64 %12, 4
+  %22 = shl nuw nsw i64 %12, 4
   %scevgep.i.i = getelementptr i8, ptr %4, i64 %22
   store ptr %scevgep.i.i, ptr %3, align 8, !tbaa !4
   br label %_ZNSt6vectorIN3gmx10nbnxn_ci_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE17_M_default_appendEm.exit
@@ -365,7 +365,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializa
   br i1 %.not37.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = shl i64 %12, 3
+  %22 = shl nuw nsw i64 %12, 3
   %scevgep.i.i = getelementptr i8, ptr %4, i64 %22
   store ptr %scevgep.i.i, ptr %3, align 8, !tbaa !11
   br label %_ZNSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE17_M_default_appendEm.exit
@@ -479,7 +479,7 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE6EEEvPN
 
 ._crit_edge109.loopexit:                          ; preds = %._crit_edge.thread
   %41 = sext i32 %.1 to i64
-  %42 = sext i32 %.186.lcssa122 to i64
+  %42 = sext i32 %.186.lcssa124 to i64
   br label %._crit_edge109
 
 ._crit_edge109:                                   ; preds = %._crit_edge109.loopexit, %5
@@ -492,7 +492,7 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE6EEEvPN
 .preheader98:                                     ; preds = %.lr.ph108, %._crit_edge.thread
   %indvars.iv116 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next117, %._crit_edge.thread ]
   %.0106 = phi i32 [ 0, %.lr.ph108 ], [ %.1, %._crit_edge.thread ]
-  %.085105 = phi i32 [ 0, %.lr.ph108 ], [ %.186.lcssa122, %._crit_edge.thread ]
+  %.085105 = phi i32 [ 0, %.lr.ph108 ], [ %.186.lcssa124, %._crit_edge.thread ]
   %43 = getelementptr inbounds nuw %"struct.gmx::nbnxn_ci_t", ptr %25, i64 %indvars.iv116
   %44 = load i32, ptr %43, align 4, !tbaa !18
   %45 = sext i32 %.0106 to i64
@@ -593,7 +593,7 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE6EEEvPN
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.loopexit99, %99, %._crit_edge
-  %.186.lcssa122 = phi i32 [ %.2, %99 ], [ %.2, %._crit_edge ], [ %.085105, %.loopexit99 ]
+  %.186.lcssa124 = phi i32 [ %.2, %99 ], [ %.2, %._crit_edge ], [ %.085105, %.loopexit99 ]
   %.1 = phi i32 [ %101, %99 ], [ %.0106, %._crit_edge ], [ %.0106, %.loopexit99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1

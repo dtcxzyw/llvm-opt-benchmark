@@ -58,37 +58,37 @@ define hidden { i64, ptr } @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2442f9beda514734E.exit": ; preds = %20, %17
   %.sroa.625.0 = phi ptr [ %19, %17 ], [ %22, %20 ]
   %.not30 = icmp eq i64 %.sroa.01.0, 2
-  br i1 %.not30, label %.thread50, label %27
+  br i1 %.not30, label %.thread53, label %27
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2442f9beda514734E.exit.thread": ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 104
   store ptr %26, ptr %21, align 8, !alias.scope !16
-  %.not3040 = icmp eq i64 %.sroa.01.0, 2
-  br i1 %.not3040, label %.thread50, label %.thread
+  %.not3043 = icmp eq i64 %.sroa.01.0, 2
+  br i1 %.not3043, label %.thread53, label %.thread
 
 27:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2442f9beda514734E.exit"
   %.not32 = icmp eq i64 %16, 2
-  br i1 %.not32, label %.thread50, label %.thread
+  br i1 %.not32, label %.thread53, label %.thread
 
-.thread50.sink.split:                             ; preds = %36, %37
-  %.sink55 = phi i64 [ 8, %37 ], [ 40, %36 ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink55
+.thread53.sink.split:                             ; preds = %36, %37
+  %.sink58 = phi i64 [ 8, %37 ], [ 40, %36 ]
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink58
   store ptr %.sroa.7.0.copyload, ptr %28, align 8
-  br label %.thread50
+  br label %.thread53
 
-.thread50:                                        ; preds = %.thread50.sink.split, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2442f9beda514734E.exit", %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2442f9beda514734E.exit.thread", %27, %.thread
-  %.sroa.5.0 = phi ptr [ %35, %.thread ], [ %.sroa.52.0, %27 ], [ %22, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2442f9beda514734E.exit.thread" ], [ %.sroa.625.0, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2442f9beda514734E.exit" ], [ %35, %.thread50.sink.split ]
-  %.sroa.0.0 = phi i64 [ %33, %.thread ], [ %.sroa.01.0, %27 ], [ 1, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2442f9beda514734E.exit.thread" ], [ %16, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2442f9beda514734E.exit" ], [ %33, %.thread50.sink.split ]
+.thread53:                                        ; preds = %.thread53.sink.split, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2442f9beda514734E.exit", %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2442f9beda514734E.exit.thread", %27, %.thread
+  %.sroa.5.0 = phi ptr [ %35, %.thread ], [ %.sroa.52.0, %27 ], [ %22, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2442f9beda514734E.exit.thread" ], [ %.sroa.625.0, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2442f9beda514734E.exit" ], [ %35, %.thread53.sink.split ]
+  %.sroa.0.0 = phi i64 [ %33, %.thread ], [ %.sroa.01.0, %27 ], [ 1, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2442f9beda514734E.exit.thread" ], [ %16, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2442f9beda514734E.exit" ], [ %33, %.thread53.sink.split ]
   %29 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %30 = insertvalue { i64, ptr } %29, ptr %.sroa.5.0, 1
   ret { i64, ptr } %30
 
 .thread:                                          ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2442f9beda514734E.exit.thread", %27
-  %.sroa.021.04149 = phi i64 [ %16, %27 ], [ 1, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2442f9beda514734E.exit.thread" ]
-  %.sroa.625.04348 = phi ptr [ %.sroa.625.0, %27 ], [ %22, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2442f9beda514734E.exit.thread" ]
+  %.sroa.021.04452 = phi i64 [ %16, %27 ], [ 1, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2442f9beda514734E.exit.thread" ]
+  %.sroa.625.04651 = phi ptr [ %.sroa.625.0, %27 ], [ %22, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2442f9beda514734E.exit.thread" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @"_ZN72_$LT$F$u20$as$u20$itertools..merge_join..OrderingOrBool$LT$T$C$T$GT$$GT$5merge17h429a812902691dedE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %2, ptr noalias noundef nonnull align 1 %31, i64 noundef %.sroa.01.0, ptr noundef %.sroa.52.0, i64 noundef %.sroa.021.04149, ptr noundef %.sroa.625.04348)
+  call void @"_ZN72_$LT$F$u20$as$u20$itertools..merge_join..OrderingOrBool$LT$T$C$T$GT$$GT$5merge17h429a812902691dedE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %2, ptr noalias noundef nonnull align 1 %31, i64 noundef %.sroa.01.0, ptr noundef %.sroa.52.0, i64 noundef %.sroa.021.04452, ptr noundef %.sroa.625.04651)
   %.sroa.03.0.copyload = load i64, ptr %2, align 8
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.55.0.copyload = load i64, ptr %.sroa.55.0..sroa_idx, align 8
@@ -100,17 +100,17 @@ define hidden { i64, ptr } @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$
   %35 = load ptr, ptr %34, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   switch i64 %.sroa.03.0.copyload, label %36 [
-    i64 2, label %.thread50
+    i64 2, label %.thread53
     i64 0, label %37
   ]
 
 36:                                               ; preds = %.thread
   store i64 %.sroa.55.0.copyload, ptr %15, align 8
-  br label %.thread50.sink.split
+  br label %.thread53.sink.split
 
 37:                                               ; preds = %.thread
   store i64 %.sroa.55.0.copyload, ptr %0, align 8
-  br label %.thread50.sink.split
+  br label %.thread53.sink.split
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable

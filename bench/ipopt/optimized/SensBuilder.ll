@@ -799,9 +799,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185: ; preds = %_Z
 
 _ZNSt6vectorIN5Ipopt8SmartPtrINS0_11SchurDriverEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185
   %.not.i.i.i.i186 = icmp eq i32 %295, 0
-  br i1 %.not.i.i.i.i186, label %.thread334, label %.lr.ph.preheader.i.i.i.i.i
+  br i1 %.not.i.i.i.i186, label %.thread387, label %.lr.ph.preheader.i.i.i.i.i
 
-.thread334:                                       ; preds = %_ZNSt6vectorIN5Ipopt8SmartPtrINS0_11SchurDriverEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
+.thread387:                                       ; preds = %_ZNSt6vectorIN5Ipopt8SmartPtrINS0_11SchurDriverEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
   %299 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %300 = getelementptr inbounds nuw i8, ptr %21, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
@@ -837,11 +837,11 @@ _ZNSt6vectorIN5Ipopt8SmartPtrINS0_11SchurDriverEEESaIS3_EE17_S_check_init_lenEmR
   %310 = getelementptr inbounds nuw i8, ptr %.sroa.0280.0, i64 8
   br label %326
 
-._crit_edge:                                      ; preds = %404, %.thread334
-  %311 = phi ptr [ %302, %.thread334 ], [ %309, %404 ]
-  %312 = phi ptr [ %301, %.thread334 ], [ %308, %404 ]
-  %313 = phi ptr [ %300, %.thread334 ], [ %307, %404 ]
-  %314 = phi ptr [ %299, %.thread334 ], [ %306, %404 ]
+._crit_edge:                                      ; preds = %404, %.thread387
+  %311 = phi ptr [ %302, %.thread387 ], [ %309, %404 ]
+  %312 = phi ptr [ %301, %.thread387 ], [ %308, %404 ]
+  %313 = phi ptr [ %300, %.thread387 ], [ %307, %404 ]
+  %314 = phi ptr [ %299, %.thread387 ], [ %306, %404 ]
   %315 = invoke noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #20
           to label %442 unwind label %505
 
@@ -1686,12 +1686,12 @@ _ZN5Ipopt8SmartPtrINS_14SensBacksolverEED2Ev.exit267: ; preds = %_ZN5Ipopt8Smart
   br i1 %702, label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit140.sink.split, label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit140
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit140.sink.split: ; preds = %698, %109
-  %.pr327.sink340 = phi ptr [ %31, %109 ], [ %.pr327, %698 ]
+  %.pr327.sink393 = phi ptr [ %31, %109 ], [ %.pr327, %698 ]
   %.pn120.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %110, %109 ], [ %.pn120.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %698 ]
-  %703 = load ptr, ptr %.pr327.sink340, align 8, !tbaa !8
+  %703 = load ptr, ptr %.pr327.sink393, align 8, !tbaa !8
   %704 = getelementptr inbounds nuw i8, ptr %703, i64 8
   %705 = load ptr, ptr %704, align 8
-  call void %705(ptr noundef nonnull align 8 dereferenceable(280) %.pr327.sink340) #18
+  call void %705(ptr noundef nonnull align 8 dereferenceable(280) %.pr327.sink393) #18
   br label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit140
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit140: ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit140.sink.split, %698, %_ZN5Ipopt8SmartPtrINS_14SensBacksolverEED2Ev.exit267, %109

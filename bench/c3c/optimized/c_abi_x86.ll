@@ -494,8 +494,8 @@ tailrecurse:                                      ; preds = %8
   %31 = tail call fastcc zeroext i1 @x86_should_return_type_in_reg(ptr noundef %30)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond109.not = select i1 %31, i1 %exitcond.not, i1 false
-  br i1 %or.cond109.not, label %.lr.ph76, label %is_power_of_two.exit.thread, !llvm.loop !7
+  %or.cond112.not = select i1 %31, i1 %exitcond.not, i1 false
+  br i1 %or.cond112.not, label %.lr.ph76, label %is_power_of_two.exit.thread, !llvm.loop !7
 
 is_power_of_two.exit.thread:                      ; preds = %tailrecurse, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %.lr.ph, %.lr.ph76, %17, %1, %22, %10
   %.019 = phi i1 [ %11, %10 ], [ true, %22 ], [ false, %1 ], [ true, %17 ], [ %31, %.lr.ph76 ], [ false, %tailrecurse ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ false, %.lr.ph ]

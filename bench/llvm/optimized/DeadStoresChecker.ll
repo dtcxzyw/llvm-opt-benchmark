@@ -1761,7 +1761,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread: ; preds = %141, %_
   %161 = load i32, ptr %157, align 8
   %162 = lshr i32 %161, 19
   %163 = and i32 %162, 63
-  switch i32 %163, label %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.split.loop.exit221 [
+  switch i32 %163, label %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.split.loop.exit230 [
     i32 32, label %164
     i32 21, label %164
   ]
@@ -1772,19 +1772,19 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread: ; preds = %141, %_
   %.not.i155 = icmp eq ptr %166, null
   br i1 %.not.i155, label %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.thread, label %.lr.ph.i151
 
-_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.split.loop.exit221: ; preds = %160
+_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.split.loop.exit230: ; preds = %160
   %167 = trunc i32 %161 to i16
   br label %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156
 
-_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156: ; preds = %.lr.ph.i151, %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.split.loop.exit221
-  %168 = phi i16 [ %167, %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.split.loop.exit221 ], [ %158, %.lr.ph.i151 ]
+_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156: ; preds = %.lr.ph.i151, %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.split.loop.exit230
+  %168 = phi i16 [ %167, %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.split.loop.exit230 ], [ %158, %.lr.ph.i151 ]
   %169 = and i16 %168, 511
   %170 = add nsw i16 %169, -115
   %171 = icmp ult i16 %170, 2
   br i1 %171, label %.critedge131, label %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.thread
 
 _ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.thread: ; preds = %164, %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156
-  %.1.i154218 = phi ptr [ %157, %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156 ], [ null, %164 ]
+  %.1.i154227 = phi ptr [ %157, %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156 ], [ null, %164 ]
   %172 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112DeadStoreObs6isLiveERKN5clang13LiveVariables14LivenessValuesEPKNS1_7VarDeclE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %125)
   br i1 %172, label %.critedge129, label %173
 
@@ -1797,17 +1797,17 @@ _ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.th
   br i1 %176, label %.critedge129, label %177
 
 177:                                              ; preds = %175
-  %178 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang4ExprE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %.1.i154218)
+  %178 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang4ExprE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %.1.i154227)
   br i1 %178, label %.critedge131, label %179
 
 179:                                              ; preds = %177
-  %180 = load i16, ptr %.1.i154218, align 8
+  %180 = load i16, ptr %.1.i154227, align 8
   %181 = and i16 %180, 511
   %.not204 = icmp eq i16 %181, 73
   br i1 %.not204, label %182, label %.critedge125
 
 182:                                              ; preds = %179
-  %183 = getelementptr inbounds nuw i8, ptr %.1.i154218, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %.1.i154227, i64 16
   %184 = load ptr, ptr %183, align 8, !tbaa !272
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 28
   %186 = load i32, ptr %185, align 4
@@ -2358,8 +2358,8 @@ _ZNSt10unique_ptrIN4llvm8DenseSetIPKN5clang7VarDeclENS0_12DenseMapInfoIS5_vEEEES
   %37 = phi ptr [ %43, %38 ], [ %35, %26 ]
   %.01830.i.i.i.i.i = phi i32 [ %.018.i.i.i.i.i, %38 ], [ %.01828.i.i.i.i.i, %26 ]
   %.01629.i.i.i.i.i = phi i32 [ %39, %38 ], [ 1, %26 ]
-  %.not5.not = icmp ne ptr %37, inttoptr (i64 -4096 to ptr)
-  br i1 %.not5.not, label %38, label %_ZNK4llvm6detail12DenseSetImplIPKN5clang7VarDeclENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E5countES5_.exit, !prof !367
+  %.not10.not = icmp ne ptr %37, inttoptr (i64 -4096 to ptr)
+  br i1 %.not10.not, label %38, label %_ZNK4llvm6detail12DenseSetImplIPKN5clang7VarDeclENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E5countES5_.exit, !prof !367
 
 38:                                               ; preds = %.lr.ph.i.i.i.i.i
   %39 = add i32 %.01629.i.i.i.i.i, 1
@@ -2372,7 +2372,7 @@ _ZNSt10unique_ptrIN4llvm8DenseSetIPKN5clang7VarDeclENS0_12DenseMapInfoIS5_vEEEES
   br i1 %44, label %_ZNK4llvm6detail12DenseSetImplIPKN5clang7VarDeclENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E5countES5_.exit, label %.lr.ph.i.i.i.i.i, !prof !197, !llvm.loop !368
 
 _ZNK4llvm6detail12DenseSetImplIPKN5clang7VarDeclENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E5countES5_.exit: ; preds = %38, %.lr.ph.i.i.i.i.i, %26, %20, %3
-  %.0 = phi i1 [ true, %3 ], [ false, %20 ], [ true, %26 ], [ %.not5.not, %.lr.ph.i.i.i.i.i ], [ %.not5.not, %38 ]
+  %.0 = phi i1 [ true, %3 ], [ false, %20 ], [ true, %26 ], [ %.not10.not, %.lr.ph.i.i.i.i.i ], [ %.not10.not, %38 ]
   ret i1 %.0
 }
 
@@ -2905,7 +2905,7 @@ _ZN12_GLOBAL__N_112DeadStoreObs12isSuppressedEN5clang11SourceRangeE.exit.thread:
   store i32 0, ptr %151, align 8, !tbaa !348
   %152 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 1, ptr %152, align 4, !tbaa !399
-  switch i32 %2, label %default.unreachable68 [
+  switch i32 %2, label %default.unreachable87 [
     i32 3, label %153
     i32 2, label %233
     i32 0, label %234
@@ -3134,7 +3134,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit42:               ; preds = %243, %245
   %270 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %269, ptr noundef nonnull @.str.12)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit45
 
-default.unreachable68:                            ; preds = %_ZN12_GLOBAL__N_112DeadStoreObs12isSuppressedEN5clang11SourceRangeE.exit.thread
+default.unreachable87:                            ; preds = %_ZN12_GLOBAL__N_112DeadStoreObs12isSuppressedEN5clang11SourceRangeE.exit.thread
   unreachable
 
 _ZN4llvm11raw_ostreamlsEPKc.exit45:               ; preds = %258, %256, %186, %_ZN5clang9FixItHintD2Ev.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit37, %267
@@ -5967,13 +5967,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclENS_6detail13DenseSetEmptyE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %62, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %61, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %62, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %61, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %63 = zext i32 %.sink28 to i64
-  %64 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink26, i64 %63
-  store ptr %.sink25, ptr %0, align 8
+  %63 = zext i32 %.sink32 to i64
+  %64 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink30, i64 %63
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %64, ptr %.sroa.4.0..sroa_idx, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16

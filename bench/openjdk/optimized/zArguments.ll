@@ -229,18 +229,18 @@ thread-pre-split:                                 ; preds = %0
   %61 = load i32, ptr @ZOldGCThreads, align 4
   %62 = load i32, ptr @ConcGCThreads, align 4
   %63 = icmp ugt i32 %61, %62
-  br i1 %63, label %.sink.split12, label %64
+  br i1 %63, label %.sink.split15, label %64
 
 64:                                               ; preds = %60
   %65 = icmp eq i32 %61, 0
-  br i1 %65, label %.sink.split12, label %66
+  br i1 %65, label %.sink.split15, label %66
 
-.sink.split12:                                    ; preds = %64, %60
+.sink.split15:                                    ; preds = %64, %60
   %.str.8.sink = phi ptr [ @.str.7, %60 ], [ @.str.8, %64 ]
   call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %.str.8.sink, ptr noundef null) #8
   br label %66
 
-66:                                               ; preds = %.sink.split12, %64
+66:                                               ; preds = %.sink.split15, %64
   ret void
 }
 
@@ -372,9 +372,9 @@ define hidden void @_ZN10ZArguments10initializeEv() local_unnamed_addr #1 align 
   %55 = add nuw i32 %.024, 1
   %56 = load i32, ptr @MaxTenuringThreshold, align 4
   %57 = icmp ult i32 %55, %56
-  br i1 %57, label %.lr.ph, label %._crit_edge.thread29, !llvm.loop !6
+  br i1 %57, label %.lr.ph, label %._crit_edge.thread30, !llvm.loop !6
 
-._crit_edge.thread29:                             ; preds = %54
+._crit_edge.thread30:                             ; preds = %54
   store i32 %55, ptr @MaxTenuringThreshold, align 4
   br label %61
 
@@ -391,7 +391,7 @@ define hidden void @_ZN10ZArguments10initializeEv() local_unnamed_addr #1 align 
   store i8 1, ptr @AlwaysTenure, align 1
   br label %61
 
-61:                                               ; preds = %._crit_edge.thread29, %._crit_edge, %._crit_edge.thread, %60, %43
+61:                                               ; preds = %._crit_edge.thread30, %._crit_edge, %._crit_edge.thread, %60, %43
   %62 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1083) #8
   %.not2 = xor i1 %62, true
   %63 = load i8, ptr @NeverTenure, align 1

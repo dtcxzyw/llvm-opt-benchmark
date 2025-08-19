@@ -391,8 +391,8 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   br i1 %46, label %77, label %._crit_edge.thread, !prof !49
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.i.i, %._crit_edge
-  %.077.lcssa120 = phi double [ %.1, %._crit_edge ], [ 0xFFEFFFFFFFFFFFFF, %._crit_edge.i.i ]
-  %47 = invoke noundef nonnull ptr @_ZN4absl12lts_2024011612log_internal17MakeCheckOpStringIddEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(double noundef %.077.lcssa120, double noundef 0xFFEFFFFFFFFFFFFF, ptr noundef nonnull @.str.4)
+  %.077.lcssa133 = phi double [ %.1, %._crit_edge ], [ 0xFFEFFFFFFFFFFFFF, %._crit_edge.i.i ]
+  %47 = invoke noundef nonnull ptr @_ZN4absl12lts_2024011612log_internal17MakeCheckOpStringIddEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(double noundef %.077.lcssa133, double noundef 0xFFEFFFFFFFFFFFFF, ptr noundef nonnull @.str.4)
           to label %_ZN4absl12lts_2024011612log_internal12Check_GTImplIddEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit unwind label %79
 
 48:                                               ; preds = %.thread, %_ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE5clearEv.exit

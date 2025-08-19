@@ -2207,11 +2207,11 @@ _ZN7QStringD2Ev.exit102:                          ; preds = %149, %_ZN17QArrayDa
   br label %185
 
 185:                                              ; preds = %159, %.critedge, %176
-  %.sink103 = phi i32 [ %spec.store.select, %176 ], [ -1, %.critedge ], [ -1, %159 ]
+  %.sink116 = phi i32 [ %spec.store.select, %176 ], [ -1, %.critedge ], [ -1, %159 ]
   %186 = load ptr, ptr %17, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 104
   %188 = load ptr, ptr %187, align 8
-  call void @_ZN9QComboBox15setCurrentIndexEi(ptr noundef align 8 dereferenceable_or_null(40) %188, i32 noundef %.sink103)
+  call void @_ZN9QComboBox15setCurrentIndexEi(ptr noundef align 8 dereferenceable_or_null(40) %188, i32 noundef %.sink116)
   ret void
 
 189:                                              ; preds = %_ZN7QStringD2Ev.exit69, %_ZN7QStringD2Ev.exit98, %_ZN7QStringD2Ev.exit102, %143, %_ZN7QStringD2Ev.exit73, %74, %178
@@ -2763,9 +2763,9 @@ _ZN17ColumnEditorFrame13syntaxIsValidEv.exit:     ; preds = %56, %_ZN7QStringD2E
   ret void
 
 _ZN7QStringD2Ev.exit17.sink.split:                ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i19, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15
-  %.sink22 = phi ptr [ %3, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15 ], [ %4, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i19 ]
+  %.sink27 = phi ptr [ %3, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15 ], [ %4, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i19 ]
   %.pn.ph = phi { ptr, i32 } [ %63, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15 ], [ %67, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i19 ]
-  %84 = load ptr, ptr %.sink22, align 8
+  %84 = load ptr, ptr %.sink27, align 8
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %84, i64 noundef 2, i64 noundef 8) #13
   br label %_ZN7QStringD2Ev.exit17
 

@@ -342,11 +342,11 @@ define internal void @_ZL37UConverter_toUnicode_HZ_OFFSETS_LOGICP23UConverterToU
   %96 = or disjoint i32 %95, 65536
   store i32 0, ptr %24, align 8, !tbaa !21
   store i32 12, ptr %1, align 4, !tbaa !11
-  br i1 %56, label %.thread143.thread311, label %.thread143.thread306
+  br i1 %56, label %.thread143.thread321, label %.thread143.thread316
 
 .thread143.thread:                                ; preds = %.split209.us
   store i32 12, ptr %1, align 4, !tbaa !11
-  br label %.thread143.thread311
+  br label %.thread143.thread321
 
 97:                                               ; preds = %.split.us
   %98 = trunc i32 %34 to i8
@@ -406,16 +406,16 @@ define internal void @_ZL37UConverter_toUnicode_HZ_OFFSETS_LOGICP23UConverterToU
   %spec.select = select i1 %133, i32 10, i32 12
   store i32 %spec.select, ptr %1, align 4, !tbaa !11
   %.not = icmp eq i32 %131, 0
-  br i1 %.not, label %.thread143.thread311, label %.thread143.thread306
+  br i1 %.not, label %.thread143.thread321, label %.thread143.thread316
 
-.thread143.thread306:                             ; preds = %.thread138, %.thread143
-  %.1115135149309 = phi i32 [ %132, %.thread143 ], [ %96, %.thread138 ]
+.thread143.thread316:                             ; preds = %.thread138, %.thread143
+  %.1115135149319 = phi i32 [ %132, %.thread143 ], [ %96, %.thread138 ]
   %134 = phi ptr [ %107, %.thread143 ], [ %20, %.thread138 ]
-  %135 = lshr i32 %.1115135149309, 8
+  %135 = lshr i32 %.1115135149319, 8
   %136 = trunc i32 %135 to i8
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 65
   store i8 %136, ptr %137, align 1, !tbaa !35
-  %138 = trunc i32 %.1115135149309 to i8
+  %138 = trunc i32 %.1115135149319 to i8
   %139 = load ptr, ptr %10, align 8, !tbaa !34
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 66
   store i8 %138, ptr %140, align 1, !tbaa !35
@@ -424,7 +424,7 @@ define internal void @_ZL37UConverter_toUnicode_HZ_OFFSETS_LOGICP23UConverterToU
   store i8 2, ptr %142, align 8, !tbaa !44
   br label %.loopexit
 
-.thread143.thread311:                             ; preds = %.thread138, %.thread143.thread, %.thread143
+.thread143.thread321:                             ; preds = %.thread138, %.thread143.thread, %.thread143
   %143 = phi ptr [ %20, %.thread143.thread ], [ %107, %.thread143 ], [ %20, %.thread138 ]
   %.4137148153 = phi ptr [ %27, %.thread143.thread ], [ %27, %.thread143 ], [ %.0199.us, %.thread138 ]
   %.1115135149152 = phi i32 [ %29, %.thread143.thread ], [ %132, %.thread143 ], [ %93, %.thread138 ]
@@ -440,9 +440,9 @@ define internal void @_ZL37UConverter_toUnicode_HZ_OFFSETS_LOGICP23UConverterToU
   store i32 15, ptr %1, align 4, !tbaa !11
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.outer.backedge, %.backedge.us, %.lr.ph.split, %.thread143.thread311, %.thread143.thread306, %2, %90, %.split224.us
-  %.0111.ph196.sink = phi ptr [ %.0111.ph248, %90 ], [ %.0111.ph248, %.split224.us ], [ %.0111.ph248, %.thread143.thread306 ], [ %.0111.ph248, %.thread143.thread311 ], [ %.0111.ph248, %.lr.ph.split ], [ %7, %2 ], [ %.0111.ph248, %.backedge.us ], [ %.0111.ph.be, %.outer.backedge ]
-  %.1.sink = phi ptr [ %.2, %90 ], [ %27, %.split224.us ], [ %27, %.thread143.thread306 ], [ %.4137148153, %.thread143.thread311 ], [ %.0.ph249, %.lr.ph.split ], [ %5, %2 ], [ %27, %.backedge.us ], [ %27, %.outer.backedge ]
+.loopexit:                                        ; preds = %.outer.backedge, %.backedge.us, %.lr.ph.split, %.thread143.thread321, %.thread143.thread316, %2, %90, %.split224.us
+  %.0111.ph196.sink = phi ptr [ %.0111.ph248, %90 ], [ %.0111.ph248, %.split224.us ], [ %.0111.ph248, %.thread143.thread316 ], [ %.0111.ph248, %.thread143.thread321 ], [ %.0111.ph248, %.lr.ph.split ], [ %7, %2 ], [ %.0111.ph248, %.backedge.us ], [ %.0111.ph.be, %.outer.backedge ]
+  %.1.sink = phi ptr [ %.2, %90 ], [ %27, %.split224.us ], [ %27, %.thread143.thread316 ], [ %.4137148153, %.thread143.thread321 ], [ %.0.ph249, %.lr.ph.split ], [ %5, %2 ], [ %27, %.backedge.us ], [ %27, %.outer.backedge ]
   store ptr %.0111.ph196.sink, ptr %6, align 8, !tbaa !32
   store ptr %.1.sink, ptr %4, align 8, !tbaa !28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -569,8 +569,8 @@ define internal void @_ZL39UConverter_fromUnicode_HZ_OFFSETS_LOGICP25UConverterF
   %.3 = phi ptr [ %.2, %54 ], [ %.1217, %56 ]
   %65 = getelementptr inbounds nuw i8, ptr %.0142216, i64 1
   %66 = add nsw i32 %44, -1
-  %.not267 = icmp eq i32 %44, 0
-  br i1 %.not267, label %.loopexit, label %.preheader, !llvm.loop !55
+  %.not273 = icmp eq i32 %44, 0
+  br i1 %.not273, label %.loopexit, label %.preheader, !llvm.loop !55
 
 67:                                               ; preds = %39
   %68 = trunc nsw i64 %indvars.iv.next to i32
@@ -672,8 +672,8 @@ select.unfold:                                    ; preds = %85, %67
   %.7 = phi ptr [ %.6, %108 ], [ %.5229, %110 ]
   %119 = getelementptr inbounds nuw i8, ptr %.1143228, i64 1
   %120 = add nsw i32 %98, -1
-  %.not265 = icmp eq i32 %98, 0
-  br i1 %.not265, label %.sink.split, label %.preheader193, !llvm.loop !57
+  %.not271 = icmp eq i32 %98, 0
+  br i1 %.not271, label %.sink.split, label %.preheader193, !llvm.loop !57
 
 .preheader192:                                    ; preds = %97, %141
   %121 = phi i32 [ %143, %141 ], [ 1, %97 ]
@@ -721,8 +721,8 @@ select.unfold:                                    ; preds = %85, %67
   %.10 = phi ptr [ %.9, %131 ], [ %.8232, %133 ]
   %142 = getelementptr inbounds nuw i8, ptr %.2144231, i64 1
   %143 = add nsw i32 %121, -1
-  %.not266 = icmp eq i32 %121, 0
-  br i1 %.not266, label %.sink.split, label %.preheader192, !llvm.loop !58
+  %.not272 = icmp eq i32 %121, 0
+  br i1 %.not272, label %.sink.split, label %.preheader192, !llvm.loop !58
 
 .sink.split:                                      ; preds = %118, %141
   %.5153.ph = phi i32 [ %.9157, %141 ], [ %.7155, %118 ]

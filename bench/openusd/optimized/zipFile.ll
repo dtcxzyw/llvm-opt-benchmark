@@ -1393,14 +1393,14 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrI
 
 12:                                               ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE4findERSE_.exit
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  br label %.invoke75
+  br label %.invoke83
 
 14:                                               ; preds = %.invoke, %93
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %97
 
-_ZNSt11shared_lockISt18shared_timed_mutexED2Ev.exit: ; preds = %.invoke75, %_ZNSt11shared_lockISt18shared_timed_mutexEC2ERS0_.exit
+_ZNSt11shared_lockISt18shared_timed_mutexED2Ev.exit: ; preds = %.invoke83, %_ZNSt11shared_lockISt18shared_timed_mutexEC2ERS0_.exit
   %16 = landingpad { ptr, i32 }
           cleanup
   %17 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %7) #22
@@ -1432,16 +1432,16 @@ _ZNSt11shared_lockISt18shared_timed_mutexED2Ev.exit: ; preds = %.invoke75, %_ZNS
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = icmp eq i64 %30, %32
-  br i1 %33, label %.invoke75, label %_ZNSt11shared_lockISt18shared_timed_mutexED2Ev.exit28
+  br i1 %33, label %.invoke83, label %_ZNSt11shared_lockISt18shared_timed_mutexED2Ev.exit28
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratoreqERKS1_.exit: ; preds = %21
   %.not6.mux.i = select i1 %.not.i, i1 %.not6.i, i1 false
-  br i1 %.not6.mux.i, label %.invoke75, label %_ZNSt11shared_lockISt18shared_timed_mutexED2Ev.exit28
+  br i1 %.not6.mux.i, label %.invoke83, label %_ZNSt11shared_lockISt18shared_timed_mutexED2Ev.exit28
 
-.invoke75:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratoreqERKS1_.exit, %28, %12
+.invoke83:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratoreqERKS1_.exit, %28, %12
   %34 = phi ptr [ %13, %12 ], [ %5, %28 ], [ %5, %_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratoreqERKS1_.exit ]
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %34)
-          to label %.sink.split76 unwind label %_ZNSt11shared_lockISt18shared_timed_mutexED2Ev.exit
+          to label %.sink.split84 unwind label %_ZNSt11shared_lockISt18shared_timed_mutexED2Ev.exit
 
 _ZNSt11shared_lockISt18shared_timed_mutexED2Ev.exit28: ; preds = %24, %28, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratoreqERKS1_.exit
   %35 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %7) #22
@@ -1570,7 +1570,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread: ; preds = %73, %78
   %80 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 40
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %80)
-          to label %.sink.split76 unwind label %.loopexit.split-lp
+          to label %.sink.split84 unwind label %.loopexit.split-lp
 
 81:                                               ; preds = %65
   %82 = landingpad { ptr, i32 }
@@ -1607,7 +1607,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrI
 88:                                               ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE4findERSE_.exit38
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 40
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %89)
-          to label %.sink.split76 unwind label %_ZNSt11shared_lockISt18shared_timed_mutexED2Ev.exit41
+          to label %.sink.split84 unwind label %_ZNSt11shared_lockISt18shared_timed_mutexED2Ev.exit41
 
 _ZNSt11unique_lockISt18shared_timed_mutexED2Ev.exit40: ; preds = %.loopexit, %.loopexit.split-lp, %81, %62
   %.pn = phi { ptr, i32 } [ %82, %81 ], [ %63, %62 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -1625,11 +1625,11 @@ _ZNSt11shared_lockISt18shared_timed_mutexED2Ev.exit41: ; preds = %_ZNSt11shared_
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %96 unwind label %14
 
-.sink.split76:                                    ; preds = %.invoke75, %88, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
+.sink.split84:                                    ; preds = %.invoke83, %88, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
   %95 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %7) #22
   br label %96
 
-96:                                               ; preds = %.sink.split76, %93
+96:                                               ; preds = %.sink.split84, %93
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
   ret void
 

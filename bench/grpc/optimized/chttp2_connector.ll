@@ -2905,9 +2905,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %164 = load i64, ptr %21, align 8, !tbaa !54
   %165 = icmp eq i64 %164, 1
-  br i1 %165, label %.thread95, label %186
+  br i1 %165, label %.thread107, label %186
 
-.thread95:                                        ; preds = %163
+.thread107:                                       ; preds = %163
   %166 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %167 = load ptr, ptr %166, align 8, !tbaa !170
   store ptr null, ptr %166, align 8, !tbaa !170
@@ -3071,8 +3071,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %194, %_ZN4absl12lts
   %218 = icmp eq i64 %.pre91, 1
   br i1 %218, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i73, label %238
 
-_ZN4absl12lts_202407226StatusD2Ev.exit.i73:       ; preds = %.thread95, %217
-  %.198 = phi ptr [ %167, %.thread95 ], [ null, %217 ]
+_ZN4absl12lts_202407226StatusD2Ev.exit.i73:       ; preds = %.thread107, %217
+  %.1110 = phi ptr [ %167, %.thread107 ], [ null, %217 ]
   %219 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %220 = load ptr, ptr %219, align 8, !tbaa !172
   %.not.i.i74 = icmp eq ptr %220, null
@@ -3114,12 +3114,12 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i73:       ; preds = %.thread95, %217
 238:                                              ; preds = %217
   %239 = and i64 %.pre91, 1
   %.not.i.i1.i = icmp eq i64 %239, 0
-  br i1 %.not.i.i1.i, label %240, label %.thread99
+  br i1 %.not.i.i1.i, label %240, label %.thread111
 
 240:                                              ; preds = %238
   %241 = inttoptr i64 %.pre91 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %241)
-          to label %.thread99 unwind label %242
+          to label %.thread111 unwind label %242
 
 242:                                              ; preds = %240
   %243 = landingpad { ptr, i32 }
@@ -3139,23 +3139,23 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i73:       ; preds = %.thread95, %217
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %304
 
-.thread99:                                        ; preds = %240, %238
+.thread111:                                       ; preds = %240, %238
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %.pre93101 = load i64, ptr %16, align 8, !tbaa !54
+  %.pre93113 = load i64, ptr %16, align 8, !tbaa !54
   br label %.thread
 
 246:                                              ; preds = %231, %.noexc.i.i75, %_ZN4absl12lts_202407226StatusD2Ev.exit.i73
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %247 = icmp eq ptr %.198, null
+  %247 = icmp eq ptr %.1110, null
   %.pre93 = load i64, ptr %16, align 8, !tbaa !54
   br i1 %247, label %.thread, label %273
 
-.thread:                                          ; preds = %246, %.thread99
-  %248 = phi i64 [ %.pre93101, %.thread99 ], [ %.pre93, %246 ]
+.thread:                                          ; preds = %246, %.thread111
+  %248 = phi i64 [ %.pre93113, %.thread111 ], [ %.pre93, %246 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 %248, ptr %25, align 8, !tbaa !54
   %249 = and i64 %248, 1
@@ -3220,7 +3220,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit79:         ; preds = %255, %258
 
 273:                                              ; preds = %271, %246
   %274 = phi i64 [ %253, %271 ], [ %.pre93, %246 ]
-  %.2 = phi ptr [ %266, %271 ], [ %.198, %246 ]
+  %.2 = phi ptr [ %266, %271 ], [ %.1110, %246 ]
   %275 = and i64 %274, 1
   %.not.i.i80 = icmp eq i64 %275, 0
   br i1 %.not.i.i80, label %276, label %_ZN4absl12lts_202407226StatusD2Ev.exit81
@@ -4159,7 +4159,7 @@ _ZNK4absl12lts_202407226Status4codeEv.exit:       ; preds = %_ZNK4absl12lts_2024
   br i1 %242, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i, label %262
 
 _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %.thread, %241
-  %.1114 = phi ptr [ %209, %.thread ], [ %240, %241 ]
+  %.1125 = phi ptr [ %209, %.thread ], [ %240, %241 ]
   %243 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %244 = load ptr, ptr %243, align 8, !tbaa !172
   %.not.i.i89 = icmp eq ptr %244, null
@@ -4216,7 +4216,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %.thread, %241
   unreachable
 
 _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13RefCountedPtrINS3_7ChannelEEEED2Ev.exit: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i, %.noexc.i.i, %255, %262, %264
-  %.1113 = phi ptr [ %.1114, %_ZN4absl12lts_202407226StatusD2Ev.exit.i ], [ %.1114, %.noexc.i.i ], [ %.1114, %255 ], [ %240, %262 ], [ %240, %264 ]
+  %.1124 = phi ptr [ %.1125, %_ZN4absl12lts_202407226StatusD2Ev.exit.i ], [ %.1125, %.noexc.i.i ], [ %.1125, %255 ], [ %240, %262 ], [ %240, %264 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %269 = load ptr, ptr %17, align 8, !tbaa !87
   %.not.i90 = icmp eq ptr %269, null
@@ -4265,7 +4265,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86: ; preds = %210
   br label %302
 
 278:                                              ; preds = %.critedge, %_ZNSt10unique_ptrI13grpc_endpointN9grpc_core16OrphanableDeleteEED2Ev.exit91
-  %.021 = phi ptr [ %.1113, %_ZNSt10unique_ptrI13grpc_endpointN9grpc_core16OrphanableDeleteEED2Ev.exit91 ], [ %71, %.critedge ]
+  %.021 = phi ptr [ %.1124, %_ZNSt10unique_ptrI13grpc_endpointN9grpc_core16OrphanableDeleteEED2Ev.exit91 ], [ %71, %.critedge ]
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %11, align 8, !tbaa !71
   %279 = load i64, ptr %25, align 8, !tbaa !126
   %280 = or i64 %279, 1

@@ -607,7 +607,7 @@ define range(i32 -1, 1) i32 @H5B_insert(ptr noundef %0, ptr noundef %1, i64 noun
   %88 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !29
   %89 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !29
   %90 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5B_insert, i32 noundef 576, i64 noundef %88, i64 noundef %89, ptr noundef nonnull @.str.16) #6
-  br label %H5B__node_dest.exit.thread86
+  br label %H5B__node_dest.exit.thread94
 
 91:                                               ; preds = %82
   %92 = load i8, ptr @H5B_init_g, align 1, !tbaa !3, !range !7, !noundef !8
@@ -670,7 +670,7 @@ define range(i32 -1, 1) i32 @H5B_insert(ptr noundef %0, ptr noundef %1, i64 noun
   %131 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !29
   %132 = load i64, ptr @H5E_CANTCOPY_g, align 8, !tbaa !29
   %133 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5B_insert, i32 noundef 584, i64 noundef %131, i64 noundef %132, ptr noundef nonnull @.str.17) #6
-  br label %H5B__node_dest.exit.thread86
+  br label %H5B__node_dest.exit.thread94
 
 134:                                              ; preds = %114
   %135 = getelementptr inbounds nuw i8, ptr %.pre82, i64 280
@@ -798,10 +798,10 @@ H5B__node_dest.exit:                              ; preds = %45, %49, %215, %207
   %223 = phi ptr [ %208, %207 ], [ %208, %215 ], [ %.pre82, %49 ], [ %.pre, %45 ]
   %.2 = phi i32 [ -1, %207 ], [ -1, %215 ], [ 0, %49 ], [ -1, %45 ]
   %.not = icmp eq ptr %223, null
-  br i1 %.not, label %H5B__node_dest.exit.thread, label %H5B__node_dest.exit.thread86
+  br i1 %.not, label %H5B__node_dest.exit.thread, label %H5B__node_dest.exit.thread94
 
-H5B__node_dest.exit.thread86:                     ; preds = %87, %130, %H5B__node_dest.exit
-  %.289 = phi i32 [ %.2, %H5B__node_dest.exit ], [ -1, %130 ], [ -1, %87 ]
+H5B__node_dest.exit.thread94:                     ; preds = %87, %130, %H5B__node_dest.exit
+  %.297 = phi i32 [ %.2, %H5B__node_dest.exit ], [ -1, %130 ], [ -1, %87 ]
   %224 = phi ptr [ %223, %H5B__node_dest.exit ], [ %.pre82, %130 ], [ %.pre82, %87 ]
   %225 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %226 = load i64, ptr %225, align 8, !tbaa !51
@@ -811,14 +811,14 @@ H5B__node_dest.exit.thread86:                     ; preds = %87, %130, %H5B__nod
   %230 = icmp slt i32 %229, 0
   br i1 %230, label %231, label %H5B__node_dest.exit.thread
 
-231:                                              ; preds = %H5B__node_dest.exit.thread86
+231:                                              ; preds = %H5B__node_dest.exit.thread94
   %232 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !29
   %233 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !29
   %234 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5B_insert, i32 noundef 627, i64 noundef %232, i64 noundef %233, ptr noundef nonnull @.str.22) #6
   br label %H5B__node_dest.exit.thread
 
-H5B__node_dest.exit.thread:                       ; preds = %26, %38, %162, %H5B__node_dest.exit.thread86, %231, %H5B__node_dest.exit
-  %.3 = phi i32 [ -1, %231 ], [ %.289, %H5B__node_dest.exit.thread86 ], [ %.2, %H5B__node_dest.exit ], [ -1, %26 ], [ -1, %38 ], [ 0, %162 ]
+H5B__node_dest.exit.thread:                       ; preds = %26, %38, %162, %H5B__node_dest.exit.thread94, %231, %H5B__node_dest.exit
+  %.3 = phi i32 [ -1, %231 ], [ %.297, %H5B__node_dest.exit.thread94 ], [ %.2, %H5B__node_dest.exit ], [ -1, %26 ], [ -1, %38 ], [ 0, %162 ]
   %235 = load ptr, ptr %11, align 8, !tbaa !54
   %.not76 = icmp eq ptr %235, null
   br i1 %.not76, label %247, label %236
@@ -1963,9 +1963,9 @@ define internal fastcc i32 @H5B__iterate_helper(ptr noundef %0, ptr noundef %1, 
 62:                                               ; preds = %48, %42
   %.3 = phi i32 [ %47, %42 ], [ %61, %48 ]
   %63 = icmp slt i32 %.3, 0
-  br i1 %63, label %.thread54, label %67
+  br i1 %63, label %.thread57, label %67
 
-.thread54:                                        ; preds = %62
+.thread57:                                        ; preds = %62
   %64 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !29
   %65 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !29
   %66 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5B__iterate_helper, i32 noundef 1097, i64 noundef %64, i64 noundef %65, ptr noundef nonnull @.str.24) #6
@@ -1980,8 +1980,8 @@ define internal fastcc i32 @H5B__iterate_helper(ptr noundef %0, ptr noundef %1, 
   %72 = and i1 %71, %70
   br i1 %72, label %40, label %._crit_edge, !llvm.loop !68
 
-._crit_edge:                                      ; preds = %67, %.thread54, %.preheader
-  %.2.lcssa = phi i32 [ 0, %.preheader ], [ %.3, %.thread54 ], [ %.3, %67 ]
+._crit_edge:                                      ; preds = %67, %.thread57, %.preheader
+  %.2.lcssa = phi i32 [ 0, %.preheader ], [ %.3, %.thread57 ], [ %.3, %67 ]
   %73 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_BT, i64 noundef %2, ptr noundef nonnull %28, i32 noundef 0) #6
   %74 = icmp slt i32 %73, 0
   br i1 %74, label %75, label %.thread
@@ -2901,9 +2901,9 @@ define ptr @H5B_shared_new(ptr noundef %0, ptr noundef %1, i64 noundef %2) local
   %49 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store ptr %48, ptr %49, align 8, !tbaa !78
   %50 = icmp eq ptr %48, null
-  br i1 %50, label %.thread59, label %54
+  br i1 %50, label %.thread63, label %54
 
-.thread59:                                        ; preds = %19
+.thread63:                                        ; preds = %19
   %51 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !29
   %52 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !29
   %53 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5B_shared_new, i32 noundef 1630, i64 noundef %51, i64 noundef %52, ptr noundef nonnull @.str.30) #6
@@ -2938,7 +2938,7 @@ define ptr @H5B_shared_new(ptr noundef %0, ptr noundef %1, i64 noundef %2) local
   store ptr %67, ptr %49, align 8, !tbaa !78
   br label %68
 
-68:                                               ; preds = %.thread59, %63
+68:                                               ; preds = %.thread63, %63
   %69 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %70 = load ptr, ptr %69, align 8, !tbaa !47
   %.not53 = icmp eq ptr %70, null

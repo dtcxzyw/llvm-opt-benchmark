@@ -2453,19 +2453,19 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit787: ; preds = %_ZN4cvc58internal1
           to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit789 unwind label %954
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit789.sink.split: ; preds = %.noexc791, %903
-  %.sink1906 = phi i32 [ %907, %903 ], [ %929, %.noexc791 ]
+  %.sink2036 = phi i32 [ %907, %903 ], [ %929, %.noexc791 ]
   %.sink = phi i64 [ %904, %903 ], [ %926, %.noexc791 ]
-  %.sink1901 = phi ptr [ %902, %903 ], [ %925, %.noexc791 ]
-  %935 = add nuw nsw i32 %.sink1906, 1
+  %.sink2031 = phi ptr [ %902, %903 ], [ %925, %.noexc791 ]
+  %935 = add nuw nsw i32 %.sink2036, 1
   %936 = zext nneg i32 %935 to i64
   %937 = shl nuw nsw i64 %936, 40
   %938 = and i64 %.sink, -1152920405095219201
   %939 = or i64 %937, %938
-  store i64 %939, ptr %.sink1901, align 8
+  store i64 %939, ptr %.sink2031, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit789
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit789: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit789.sink.split, %931, %933, %909, %911
-  %.sroa.01530.0 = phi ptr [ %902, %911 ], [ %902, %909 ], [ %925, %933 ], [ %925, %931 ], [ %.sink1901, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit789.sink.split ]
+  %.sroa.01530.0 = phi ptr [ %902, %911 ], [ %902, %909 ], [ %925, %933 ], [ %925, %931 ], [ %.sink2031, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit789.sink.split ]
   %940 = load i64, ptr %.sroa.01530.0, align 8
   %941 = and i64 %940, 1152920405095219200
   %.not.i.i796 = icmp eq i64 %941, 1152920405095219200
@@ -2918,15 +2918,15 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit849: ; preds = %1120
           to label %_ZNSt6vectorIN4cvc58internal9TrustNodeESaIS2_EE6resizeEm.exit unwind label %254
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit849.thread: ; preds = %.loopexit1735, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit849
-  %.01698.lcssa1889 = phi i64 [ %.1, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit849 ], [ 0, %.loopexit1735 ]
+  %.01698.lcssa2019 = phi i64 [ %.1, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit849 ], [ 0, %.loopexit1735 ]
   %1128 = phi ptr [ %.pre1873, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit849 ], [ %299, %.loopexit1735 ]
   %1129 = phi ptr [ %.pre1874, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit849 ], [ %300, %.loopexit1735 ]
-  %.pre-phi18851888 = phi i64 [ %.pre1884, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit849 ], [ 0, %.loopexit1735 ]
-  %1130 = icmp ult i64 %.01698.lcssa1889, %.pre-phi18851888
+  %.pre-phi18852018 = phi i64 [ %.pre1884, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit849 ], [ 0, %.loopexit1735 ]
+  %1130 = icmp ult i64 %.01698.lcssa2019, %.pre-phi18852018
   br i1 %1130, label %1131, label %_ZNSt6vectorIN4cvc58internal9TrustNodeESaIS2_EE6resizeEm.exit
 
 1131:                                             ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit849.thread
-  %1132 = getelementptr inbounds nuw %"class.cvc5::internal::TrustNode", ptr %1129, i64 %.01698.lcssa1889
+  %1132 = getelementptr inbounds nuw %"class.cvc5::internal::TrustNode", ptr %1129, i64 %.01698.lcssa2019
   %.not.i.i850 = icmp eq ptr %1128, %1132
   br i1 %.not.i.i850, label %_ZNSt6vectorIN4cvc58internal9TrustNodeESaIS2_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -4102,8 +4102,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1057: ; preds = %.thread1704, %166
   %1674 = getelementptr inbounds nuw i8, ptr %1673, i64 96
   %1675 = load ptr, ptr %1674, align 8, !tbaa !381
   %1676 = icmp eq ptr %1671, %1675
-  %.not17181907 = icmp eq ptr %1671, null
-  %.not1718 = or i1 %1676, %.not17181907
+  %.not17182037 = icmp eq ptr %1671, null
+  %.not1718 = or i1 %1676, %.not17182037
   br i1 %.not1718, label %.loopexit1731, label %1522
 
 1677:                                             ; preds = %1656, %1645
@@ -4923,8 +4923,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1178: ; preds = %_ZN4cvc58internal
   %2041 = getelementptr inbounds nuw i8, ptr %2040, i64 96
   %2042 = load ptr, ptr %2041, align 8, !tbaa !381
   %2043 = icmp eq ptr %2038, %2042
-  %.not17191908 = icmp eq ptr %2038, null
-  %.not1719 = or i1 %2043, %.not17191908
+  %.not17192038 = icmp eq ptr %2038, null
+  %.not1719 = or i1 %2043, %.not17192038
   br i1 %.not1719, label %select.unfold1707._crit_edge, label %1879
 
 2044:                                             ; preds = %.loopexit1721

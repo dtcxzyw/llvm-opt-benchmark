@@ -84,14 +84,14 @@ define internal fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef %0, 
   %.054 = phi ptr [ %10, %8 ], [ %0, %3 ]
   %12 = call fastcc i32 @predicate_classify(ptr noundef %1, ptr noundef %5)
   %13 = call fastcc i32 @predicate_classify(ptr noundef %.054, ptr noundef %4)
-  switch i32 %13, label %default.unreachable85 [
+  switch i32 %13, label %default.unreachable98 [
     i32 1, label %14
     i32 2, label %64
     i32 0, label %96
   ]
 
 14:                                               ; preds = %11
-  switch i32 %12, label %default.unreachable85 [
+  switch i32 %12, label %default.unreachable98 [
     i32 1, label %15
     i32 2, label %27
     i32 0, label %52
@@ -265,7 +265,7 @@ define internal fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef %0, 
   br label %predicate_implied_by_simple_clause.exit
 
 96:                                               ; preds = %11
-  switch i32 %12, label %default.unreachable85 [
+  switch i32 %12, label %default.unreachable98 [
     i32 1, label %97
     i32 2, label %109
     i32 0, label %121
@@ -429,7 +429,7 @@ is_notclause.exit.i:                              ; preds = %152
   %174 = tail call fastcc zeroext i1 @operator_predicate_proof(ptr noundef nonnull %1, ptr noundef nonnull %.054, i1 noundef zeroext false, i1 noundef zeroext %2)
   br label %predicate_implied_by_simple_clause.exit
 
-default.unreachable85:                            ; preds = %96, %14, %11
+default.unreachable98:                            ; preds = %96, %14, %11
   unreachable
 
 predicate_implied_by_simple_clause.exit:          ; preds = %.thread.i, %170, %158, %149, %124, %.thread, %118, %106, %93, %.loopexit, %61, %49, %24
@@ -500,14 +500,14 @@ define internal fastcc zeroext i1 @predicate_refuted_by_recurse(ptr noundef %0, 
   %.076 = phi ptr [ %10, %8 ], [ %0, %3 ]
   %12 = call fastcc i32 @predicate_classify(ptr noundef %1, ptr noundef %5)
   %13 = call fastcc i32 @predicate_classify(ptr noundef %.076, ptr noundef %4)
-  switch i32 %13, label %default.unreachable135 [
+  switch i32 %13, label %default.unreachable147 [
     i32 1, label %14
     i32 2, label %82
     i32 0, label %149
   ]
 
 14:                                               ; preds = %11
-  switch i32 %12, label %default.unreachable135 [
+  switch i32 %12, label %default.unreachable147 [
     i32 1, label %15
     i32 2, label %40
     i32 0, label %52
@@ -656,7 +656,7 @@ extract_not_arg.exit.thread:                      ; preds = %64, %56, %54, %52, 
   br label %predicate_refuted_by_simple_clause.exit
 
 82:                                               ; preds = %11
-  switch i32 %12, label %default.unreachable135 [
+  switch i32 %12, label %default.unreachable147 [
     i32 2, label %83
     i32 1, label %95
     i32 0, label %119
@@ -853,7 +853,7 @@ extract_strong_not_arg.exit:                      ; preds = %157, %165
   br i1 %169, label %predicate_refuted_by_simple_clause.exit, label %extract_strong_not_arg.exit.thread
 
 extract_strong_not_arg.exit.thread:               ; preds = %161, %153, %151, %149, %167, %extract_strong_not_arg.exit
-  switch i32 %12, label %default.unreachable135 [
+  switch i32 %12, label %default.unreachable147 [
     i32 1, label %170
     i32 2, label %182
     i32 0, label %194
@@ -1076,7 +1076,7 @@ extract_not_arg.exit114.thread:                   ; preds = %206, %198, %196, %1
   %277 = tail call fastcc zeroext i1 @operator_predicate_proof(ptr noundef nonnull %1, ptr noundef nonnull %.076, i1 noundef zeroext true, i1 noundef zeroext %2)
   br label %predicate_refuted_by_simple_clause.exit
 
-default.unreachable135:                           ; preds = %extract_strong_not_arg.exit.thread, %82, %14, %11
+default.unreachable147:                           ; preds = %extract_strong_not_arg.exit.thread, %82, %14, %11
   unreachable
 
 predicate_refuted_by_simple_clause.exit:          ; preds = %276, %275, %271, %265, %257, %249, %246, %242, %235, %227, %219, %215, %.thread, %211, %167, %136, %69, %191, %179, %146, %.loopexit, %92, %79, %49, %37
@@ -2193,10 +2193,10 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   br i1 %40, label %.lr.ph.us, label %.critedge
 
 .lr.ph.us:                                        ; preds = %.lr.ph148.split.split.us.preheader, %.loopexit
-  %.077147.us160240 = phi i8 [ %.3.us166.ph, %.loopexit ], [ 0, %.lr.ph148.split.split.us.preheader ]
-  %indvars.iv198239 = phi i64 [ %indvars.iv.next199206, %.loopexit ], [ 0, %.lr.ph148.split.split.us.preheader ]
+  %.077147.us160245 = phi i8 [ %.3.us166.ph, %.loopexit ], [ 0, %.lr.ph148.split.split.us.preheader ]
+  %indvars.iv198244 = phi i64 [ %indvars.iv.next199211, %.loopexit ], [ 0, %.lr.ph148.split.split.us.preheader ]
   %41 = load ptr, ptr %36, align 8
-  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv198239
+  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv198244
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr %43, align 4
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 4
@@ -2206,16 +2206,16 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   br i1 %48, label %.lr.ph182, label %.loopexit
 
 .loopexit:                                        ; preds = %.thread113.us.us, %.lr.ph.us
-  %.3.us166.ph = phi i8 [ %.077147.us160240, %.lr.ph.us ], [ %.4.ph.us.us, %.thread113.us.us ]
-  %indvars.iv.next199206 = add nuw nsw i64 %indvars.iv198239, 1
+  %.3.us166.ph = phi i8 [ %.077147.us160245, %.lr.ph.us ], [ %.4.ph.us.us, %.thread113.us.us ]
+  %indvars.iv.next199211 = add nuw nsw i64 %indvars.iv198244, 1
   %49 = load i32, ptr %35, align 4
   %50 = sext i32 %49 to i64
-  %51 = icmp slt i64 %indvars.iv.next199206, %50
+  %51 = icmp slt i64 %indvars.iv.next199211, %50
   br i1 %51, label %.lr.ph.us, label %.critedge
 
 .lr.ph182:                                        ; preds = %.lr.ph.us, %.thread113.us.us
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %.thread113.us.us ], [ 0, %.lr.ph.us ]
-  %.2126.us.us179 = phi i8 [ %.4.ph.us.us, %.thread113.us.us ], [ %.077147.us160240, %.lr.ph.us ]
+  %.2126.us.us179 = phi i8 [ %.4.ph.us.us, %.thread113.us.us ], [ %.077147.us160245, %.lr.ph.us ]
   %52 = load ptr, ptr %38, align 8
   %53 = getelementptr inbounds nuw %union.ListCell, ptr %52, i64 %indvars.iv196
   %54 = load ptr, ptr %53, align 8
@@ -2283,29 +2283,29 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   br i1 %90, label %.lr.ph182, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph148.split.split.preheader, %.critedge108
-  %.077147237 = phi i8 [ %.2126.lcssa, %.critedge108 ], [ 0, %.lr.ph148.split.split.preheader ]
-  %indvars.iv194236 = phi i64 [ %indvars.iv.next195, %.critedge108 ], [ 0, %.lr.ph148.split.split.preheader ]
+  %.077147242 = phi i8 [ %.2126.lcssa, %.critedge108 ], [ 0, %.lr.ph148.split.split.preheader ]
+  %indvars.iv194241 = phi i64 [ %indvars.iv.next195, %.critedge108 ], [ 0, %.lr.ph148.split.split.preheader ]
   %91 = load ptr, ptr %36, align 8
-  %92 = getelementptr inbounds nuw %union.ListCell, ptr %91, i64 %indvars.iv194236
+  %92 = getelementptr inbounds nuw %union.ListCell, ptr %91, i64 %indvars.iv194241
   %93 = load ptr, ptr %92, align 8
   %94 = load i32, ptr %93, align 4
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 12
   %97 = load i32, ptr %37, align 4
   %98 = icmp sgt i32 %97, 0
-  br i1 %98, label %.lr.ph235, label %.critedge108
+  br i1 %98, label %.lr.ph240, label %.critedge108
 
-.lr.ph235:                                        ; preds = %.lr.ph, %.thread113
-  %.2126234 = phi i8 [ %.4.ph, %.thread113 ], [ %.077147237, %.lr.ph ]
-  %indvars.iv233 = phi i64 [ %indvars.iv.next, %.thread113 ], [ 0, %.lr.ph ]
+.lr.ph240:                                        ; preds = %.lr.ph, %.thread113
+  %.2126239 = phi i8 [ %.4.ph, %.thread113 ], [ %.077147242, %.lr.ph ]
+  %indvars.iv238 = phi i64 [ %indvars.iv.next, %.thread113 ], [ 0, %.lr.ph ]
   %99 = load ptr, ptr %38, align 8
-  %100 = getelementptr inbounds nuw %union.ListCell, ptr %99, i64 %indvars.iv233
+  %100 = getelementptr inbounds nuw %union.ListCell, ptr %99, i64 %indvars.iv238
   %101 = load ptr, ptr %100, align 8
   %102 = load i32, ptr %101, align 4
   %.not103 = icmp eq i32 %94, %102
   br i1 %.not103, label %103, label %.thread113
 
-103:                                              ; preds = %.lr.ph235
+103:                                              ; preds = %.lr.ph240
   %104 = load i32, ptr %95, align 4
   %105 = getelementptr inbounds nuw i8, ptr %101, i64 4
   %106 = load i32, ptr %105, align 4
@@ -2318,7 +2318,7 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   %113 = sext i32 %112 to i64
   %114 = getelementptr inbounds [6 x i8], ptr %110, i64 0, i64 %113
   %115 = load i8, ptr %114, align 1, !range !14, !noundef !15
-  %116 = or i8 %115, %.2126234
+  %116 = or i8 %115, %.2126239
   %117 = getelementptr inbounds [6 x [6 x i16]], ptr @BT_implic_table, i64 0, i64 %109
   %118 = getelementptr inbounds [6 x i16], ptr %117, i64 0, i64 %113
   %.0 = load i16, ptr %118, align 2
@@ -2356,27 +2356,27 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   %134 = icmp eq i8 %133, 105
   br i1 %134, label %.critedge, label %.thread113
 
-.thread113:                                       ; preds = %119, %.lr.ph235, %103, %131, %132
-  %.4.ph = phi i8 [ %116, %132 ], [ %116, %131 ], [ %116, %103 ], [ %.2126234, %.lr.ph235 ], [ %116, %119 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv233, 1
+.thread113:                                       ; preds = %119, %.lr.ph240, %103, %131, %132
+  %.4.ph = phi i8 [ %116, %132 ], [ %116, %131 ], [ %116, %103 ], [ %.2126239, %.lr.ph240 ], [ %116, %119 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv238, 1
   %135 = load i32, ptr %37, align 4
   %136 = sext i32 %135 to i64
   %137 = icmp slt i64 %indvars.iv.next, %136
-  br i1 %137, label %.lr.ph235, label %.critedge108, !llvm.loop !25
+  br i1 %137, label %.lr.ph240, label %.critedge108, !llvm.loop !25
 
 .critedge108:                                     ; preds = %.thread113, %.lr.ph
-  %.2126.lcssa = phi i8 [ %.077147237, %.lr.ph ], [ %.4.ph, %.thread113 ]
-  %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194236, 1
+  %.2126.lcssa = phi i8 [ %.077147242, %.lr.ph ], [ %.4.ph, %.thread113 ]
+  %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194241, 1
   %138 = load i32, ptr %35, align 4
   %139 = sext i32 %138 to i64
   %140 = icmp slt i64 %indvars.iv.next195, %139
   br i1 %140, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.critedge108, %132, %.loopexit, %85, %.lr.ph148.split.split.preheader, %.lr.ph148.split.split.us.preheader, %31, %33
-  %.090202 = phi ptr [ null, %33 ], [ null, %31 ], [ %34, %.lr.ph148.split.split.us.preheader ], [ %34, %.lr.ph148.split.split.preheader ], [ %34, %85 ], [ %34, %.loopexit ], [ %34, %132 ], [ %34, %.critedge108 ]
+  %.090207 = phi ptr [ null, %33 ], [ null, %31 ], [ %34, %.lr.ph148.split.split.us.preheader ], [ %34, %.lr.ph148.split.split.preheader ], [ %34, %85 ], [ %34, %.loopexit ], [ %34, %132 ], [ %34, %.critedge108 ]
   %.186 = phi i32 [ 0, %33 ], [ 0, %31 ], [ 0, %.lr.ph148.split.split.us.preheader ], [ 0, %.lr.ph148.split.split.preheader ], [ %.583.us.us, %85 ], [ 0, %.loopexit ], [ %.583, %132 ], [ 0, %.critedge108 ]
   %.1 = phi i8 [ 0, %33 ], [ 0, %31 ], [ 0, %.lr.ph148.split.split.us.preheader ], [ 0, %.lr.ph148.split.split.preheader ], [ %69, %85 ], [ %.3.us166.ph, %.loopexit ], [ %116, %132 ], [ %.2126.lcssa, %.critedge108 ]
-  call void @list_free_deep(ptr noundef %.090202) #7
+  call void @list_free_deep(ptr noundef %.090207) #7
   call void @list_free_deep(ptr noundef %32) #7
   %141 = trunc nuw i8 %.1 to i1
   br i1 %141, label %142, label %144

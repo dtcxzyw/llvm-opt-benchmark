@@ -246,7 +246,7 @@ define internal i32 @dissect_roofnet(ptr noundef %0, ptr noundef %1, ptr noundef
   tail call void @ptvcursor_free(ptr noundef %67)
   %77 = load i32, ptr @hf_roofnet_link_dst, align 4
   %78 = tail call ptr @proto_tree_add_ipv4(ptr noundef %62, i32 noundef %77, ptr noundef %0, i32 noundef %76, i32 noundef 4, i32 noundef %58)
-  %79 = add i8 %.02944, -1
+  %79 = add nsw i8 %.02944, -1
   %.not = icmp eq i8 %79, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
@@ -274,9 +274,9 @@ define internal i32 @dissect_roofnet(ptr noundef %0, ptr noundef %1, ptr noundef
   %91 = load ptr, ptr @eth_withoutfcs_handle, align 8
   %92 = add i32 %.040.lcssa, 6
   %93 = load ptr, ptr @ip_handle, align 8
-  %.sink23.i = select i1 %.not.i, i32 %80, i32 %92
+  %.sink24.i = select i1 %.not.i, i32 %80, i32 %92
   %.sink.i = select i1 %.not.i, ptr %93, ptr %91
-  %94 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.sink23.i)
+  %94 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.sink24.i)
   %95 = tail call i32 @call_dissector(ptr noundef %.sink.i, ptr noundef %94, ptr noundef %1, ptr noundef %2)
   br label %.loopexit.sink.split
 

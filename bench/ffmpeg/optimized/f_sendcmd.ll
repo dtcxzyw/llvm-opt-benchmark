@@ -254,7 +254,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
 76:                                               ; preds = %72
   %77 = load ptr, ptr %5, align 8, !tbaa !26
   %.not50.i.i = icmp eq ptr %77, null
-  br i1 %.not50.i.i, label %.thread143.i.i, label %78
+  br i1 %.not50.i.i, label %.thread153.i.i, label %78
 
 78:                                               ; preds = %76
   %79 = call i32 @av_parse_time(ptr noundef nonnull %41, ptr noundef nonnull %77, i32 noundef 1) #11
@@ -266,7 +266,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.43, ptr noundef %82, i32 noundef %.024.i163) #11
   br label %.thread.i.i
 
-.thread143.i.i:                                   ; preds = %76
+.thread153.i.i:                                   ; preds = %76
   store i64 9223372036854775807, ptr %41, align 8, !tbaa !35
   br label %89
 
@@ -290,7 +290,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.45, i32 noundef %.024.i163) #11
   br label %parse_interval.exit.thread34.i
 
-89:                                               ; preds = %83, %.thread143.i.i
+89:                                               ; preds = %83, %.thread153.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %42, align 8, !tbaa !37
@@ -319,7 +319,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   store ptr %98, ptr %6, align 8, !tbaa !26
   %99 = load i8, ptr %98, align 1, !tbaa !27
   %.not83.i.i.i.i = icmp eq i8 %99, 0
-  br i1 %.not83.i.i.i.i, label %.thread89.i.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not83.i.i.i.i, label %.thread91.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %97, %121
   %100 = phi i32 [ %111, %121 ], [ 0, %97 ]
@@ -347,8 +347,8 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   br label %parse_interval.exit.thread40.i
 
 110:                                              ; preds = %106, %104, %.lr.ph.i.i.i.i
-  %.sink101.i.i.i.i = phi i32 [ 1, %.lr.ph.i.i.i.i ], [ 2, %104 ], [ 4, %106 ]
-  %111 = or i32 %.sink101.i.i.i.i, %100
+  %.sink103.i.i.i.i = phi i32 [ 1, %.lr.ph.i.i.i.i ], [ 2, %104 ], [ 4, %106 ]
+  %111 = or i32 %.sink103.i.i.i.i, %100
   store i32 %111, ptr %4, align 8, !tbaa !40
   %sext.i.i.i.i = shl i64 %102, 32
   %112 = ashr exact i64 %sext.i.i.i.i, 32
@@ -370,16 +370,16 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
 
 120:                                              ; preds = %116
   %.not71.i.i.i.i = icmp eq i8 %114, 0
-  br i1 %.not71.i.i.i.i, label %.thread89.i.i.i.i, label %121
+  br i1 %.not71.i.i.i.i, label %.thread91.i.i.i.i, label %121
 
 121:                                              ; preds = %120
   %122 = getelementptr inbounds nuw i8, ptr %113, i64 1
   store ptr %122, ptr %6, align 8, !tbaa !26
   %.pre.i.i.i.i = load i8, ptr %122, align 1, !tbaa !27
   %123 = icmp eq i8 %.pre.i.i.i.i, 0
-  br i1 %123, label %.thread89.i.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %123, label %.thread91.i.i.i.i, label %.lr.ph.i.i.i.i
 
-.thread89.i.i.i.i:                                ; preds = %97, %121, %120
+.thread91.i.i.i.i:                                ; preds = %97, %121, %120
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.53, i32 noundef %.024.i163, i32 noundef %.03783.i.i.i) #11
   br label %parse_interval.exit.thread40.i
 
@@ -533,8 +533,8 @@ parse_interval.exit.thread34.i:                   ; preds = %88, %.thread.i.i
   call void @av_free(ptr noundef %66) #11
   br label %parse_intervals.exit.thread59
 
-parse_interval.exit.thread40.i:                   ; preds = %make_command_flags_str.exit.i.i.i, %155, %141, %.thread89.i.i.i.i, %118, %108
-  %.236.ph.i.i.ph.i = phi i32 [ -22, %118 ], [ -22, %108 ], [ -22, %141 ], [ -22, %.thread89.i.i.i.i ], [ -22, %make_command_flags_str.exit.i.i.i ], [ -12, %155 ]
+parse_interval.exit.thread40.i:                   ; preds = %make_command_flags_str.exit.i.i.i, %155, %141, %.thread91.i.i.i.i, %118, %108
+  %.236.ph.i.i.ph.i = phi i32 [ -22, %118 ], [ -22, %108 ], [ -22, %141 ], [ -22, %.thread91.i.i.i.i ], [ -22, %make_command_flags_str.exit.i.i.i ], [ -12, %155 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @av_free(ptr noundef nonnull %66) #11
@@ -1015,14 +1015,14 @@ make_command_flags_str.exit:                      ; preds = %66
   %127 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %128 = load ptr, ptr %127, align 8, !tbaa !43
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %11, i32 noundef 16, ptr noundef nonnull @.str.5, ptr noundef %128) #11
-  br label %.loopexit152
+  br label %.loopexit158
 
 129:                                              ; preds = %._crit_edge
   %130 = load double, ptr %8, align 8, !tbaa !76
   %131 = call ptr (ptr, ...) @av_asprintf(ptr noundef nonnull @.str.6, double noundef %130) #11
   store ptr %131, ptr %5, align 8, !tbaa !26
   %.not105 = icmp eq ptr %131, null
-  br i1 %.not105, label %.loopexit152, label %132
+  br i1 %.not105, label %.loopexit158, label %132
 
 132:                                              ; preds = %129
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1065,7 +1065,7 @@ make_command_flags_str.exit:                      ; preds = %66
   %.not107 = icmp slt i64 %indvars.iv.next, %153
   br i1 %.not107, label %80, label %.thread128, !llvm.loop !81
 
-.loopexit152:                                     ; preds = %129, %126
+.loopexit158:                                     ; preds = %129, %126
   %.5.ph = phi i32 [ -22, %126 ], [ -12, %129 ]
   call void @av_frame_free(ptr noundef nonnull %3) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1097,8 +1097,8 @@ make_command_flags_str.exit:                      ; preds = %66
   %165 = call i32 @ff_filter_frame(ptr noundef %163, ptr noundef %164) #11
   br label %166
 
-166:                                              ; preds = %.loopexit152, %.loopexit, %159
-  %.9 = phi i32 [ %165, %159 ], [ %.5.ph, %.loopexit152 ], [ -38, %.loopexit ]
+166:                                              ; preds = %.loopexit158, %.loopexit, %159
+  %.9 = phi i32 [ %165, %159 ], [ %.5.ph, %.loopexit158 ], [ -38, %.loopexit ]
   ret i32 %.9
 }
 

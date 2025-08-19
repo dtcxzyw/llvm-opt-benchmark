@@ -1401,8 +1401,8 @@ _ZN6quiche2h35qpack7encoder10encode_str17h27f85c22f493c6e2E.exit: ; preds = %133
   br i1 %144, label %._crit_edge, label %31
 
 .loopexit:                                        ; preds = %68, %74
-  %.sroa.014.0.lcssa44.sink.i.ph = phi ptr [ %75, %74 ], [ %.sroa.014.0.i, %68 ]
-  %.sroa.0.3.in.i80 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.lcssa44.sink.i.ph, i64 16
+  %.sroa.014.0.lcssa47.sink.i.ph = phi ptr [ %75, %74 ], [ %.sroa.014.0.i, %68 ]
+  %.sroa.0.3.in.i80 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.lcssa47.sink.i.ph, i64 16
   %.sroa.0.3.i81 = load i64, ptr %.sroa.0.3.in.i80, align 8, !noundef !3
   %145 = call noundef i8 @_ZN6quiche2h35qpack7encoder10encode_int17h81c05efc11fe5058E(i64 noundef %.sroa.0.3.i81, i8 noundef 80, i64 noundef 4, ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
   %.not56 = icmp eq i8 %145, 6

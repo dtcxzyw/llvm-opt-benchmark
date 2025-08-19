@@ -1881,9 +1881,9 @@ _ZNKSt6vectorIN4cvc58internal6theory11quantifiers14TermPropertiesESaIS4_EE12_M_c
           to label %_ZNSt16allocator_traitsISaIN4cvc58internal6theory11quantifiers14TermPropertiesEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit unwind label %.thread
 
 .thread:                                          ; preds = %41
-  %lpad.thr_comm47 = landingpad { ptr, i32 }
+  %lpad.thr_comm52 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %lpad.thr_comm47, 0
+  %43 = extractvalue { ptr, i32 } %lpad.thr_comm52, 0
   %44 = tail call ptr @__cxa_begin_catch(ptr %43) #20
   br label %.loopexit
 

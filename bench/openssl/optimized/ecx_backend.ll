@@ -445,10 +445,10 @@ define ptr @ossl_ecx_key_op(ptr noundef %0, ptr noundef readonly captures(addres
   br i1 %.not72, label %.sink.split, label %79
 
 .sink.split:                                      ; preds = %76, %46
-  %.sink73 = phi i32 [ 198, %46 ], [ 218, %76 ]
+  %.sink76 = phi i32 [ 198, %46 ], [ 218, %76 ]
   %.sink = phi i32 [ 524304, %46 ], [ 166, %76 ]
   call void @ERR_new() #4
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink73, ptr noundef nonnull @__func__.ossl_ecx_key_op) #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink76, ptr noundef nonnull @__func__.ossl_ecx_key_op) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #4
   br label %78
 
@@ -457,9 +457,9 @@ define ptr @ossl_ecx_key_op(ptr noundef %0, ptr noundef readonly captures(addres
   br label %79
 
 .critedge:                                        ; preds = %16, %10
-  %.sink74 = phi i32 [ 169, %10 ], [ 175, %16 ]
+  %.sink77 = phi i32 [ 169, %10 ], [ 175, %16 ]
   call void @ERR_new() #4
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink74, ptr noundef nonnull @__func__.ossl_ecx_key_op) #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink77, ptr noundef nonnull @__func__.ossl_ecx_key_op) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 102, ptr noundef null) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %79

@@ -77,7 +77,7 @@ starts_with_chunk_size.exit:                      ; preds = %32
   %.fr = freeze i32 %34
   %35 = icmp ult i32 %.fr, -2147483647
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %35, label %.thread412, label %.thread
+  br i1 %35, label %.thread432, label %.thread
 
 .thread:                                          ; preds = %17, %starts_with_chunk_size.exit, %starts_with_chunk_size.exit.thread, %21
   br i1 %3, label %36, label %.thread286
@@ -94,30 +94,30 @@ starts_with_chunk_size.exit:                      ; preds = %32
 
 .outer.us.outer:                                  ; preds = %.preheader, %66
   %.1220.ph.us.ph = phi i1 [ %spec.select247.us, %66 ], [ false, %.preheader ]
-  %.1215.ph.us.ph = phi i1 [ %.1215.ph.us.ph500, %66 ], [ false, %.preheader ]
-  %.1209.ph.us.ph = phi i8 [ %.1209.ph.us.ph505, %66 ], [ 0, %.preheader ]
-  %.1203.ph.us.ph = phi ptr [ %.1203.ph.us.ph502, %66 ], [ null, %.preheader ]
-  %.1198.ph.us.ph = phi ptr [ %.1198.ph.us.ph503.ph, %66 ], [ null, %.preheader ]
-  br label %.outer.us.outer499.outer
+  %.1215.ph.us.ph = phi i1 [ %.1215.ph.us.ph520, %66 ], [ false, %.preheader ]
+  %.1209.ph.us.ph = phi i8 [ %.1209.ph.us.ph525, %66 ], [ 0, %.preheader ]
+  %.1203.ph.us.ph = phi ptr [ %.1203.ph.us.ph522, %66 ], [ null, %.preheader ]
+  %.1198.ph.us.ph = phi ptr [ %.1198.ph.us.ph523.ph, %66 ], [ null, %.preheader ]
+  br label %.outer.us.outer519.outer
 
-.outer.us.outer499.outer:                         ; preds = %64, %.outer.us.outer
-  %.1215.ph.us.ph500.ph = phi i1 [ true, %64 ], [ %.1215.ph.us.ph, %.outer.us.outer ]
-  %.1209.ph.us.ph501.ph = phi i8 [ %.1209.ph.us.ph505, %64 ], [ %.1209.ph.us.ph, %.outer.us.outer ]
-  %.1203.ph.us.ph502.ph = phi ptr [ %.5207.us, %64 ], [ %.1203.ph.us.ph, %.outer.us.outer ]
-  %.1198.ph.us.ph503.ph = phi ptr [ %65, %64 ], [ %.1198.ph.us.ph, %.outer.us.outer ]
-  br label %.outer.us.outer499
+.outer.us.outer519.outer:                         ; preds = %64, %.outer.us.outer
+  %.1215.ph.us.ph520.ph = phi i1 [ true, %64 ], [ %.1215.ph.us.ph, %.outer.us.outer ]
+  %.1209.ph.us.ph521.ph = phi i8 [ %.1209.ph.us.ph525, %64 ], [ %.1209.ph.us.ph, %.outer.us.outer ]
+  %.1203.ph.us.ph522.ph = phi ptr [ %.5207.us, %64 ], [ %.1203.ph.us.ph, %.outer.us.outer ]
+  %.1198.ph.us.ph523.ph = phi ptr [ %65, %64 ], [ %.1198.ph.us.ph, %.outer.us.outer ]
+  br label %.outer.us.outer519
 
-.outer.us.outer499:                               ; preds = %.outer.us.outer499.outer, %62
-  %.1215.ph.us.ph500 = phi i1 [ true, %62 ], [ %.1215.ph.us.ph500.ph, %.outer.us.outer499.outer ]
-  %.1209.ph.us.ph501 = phi i8 [ %.1209.ph.us.ph505, %62 ], [ %.1209.ph.us.ph501.ph, %.outer.us.outer499.outer ]
-  %.1203.ph.us.ph502 = phi ptr [ %.5207.us, %62 ], [ %.1203.ph.us.ph502.ph, %.outer.us.outer499.outer ]
-  br label %.outer.us.outer504
+.outer.us.outer519:                               ; preds = %.outer.us.outer519.outer, %62
+  %.1215.ph.us.ph520 = phi i1 [ true, %62 ], [ %.1215.ph.us.ph520.ph, %.outer.us.outer519.outer ]
+  %.1209.ph.us.ph521 = phi i8 [ %.1209.ph.us.ph525, %62 ], [ %.1209.ph.us.ph521.ph, %.outer.us.outer519.outer ]
+  %.1203.ph.us.ph522 = phi ptr [ %.5207.us, %62 ], [ %.1203.ph.us.ph522.ph, %.outer.us.outer519.outer ]
+  br label %.outer.us.outer524
 
-.outer.us.outer504:                               ; preds = %.outer.us.outer499, %.critedge.us.thread
-  %.1209.ph.us.ph505 = phi i8 [ %.1209.ph.us.ph501, %.outer.us.outer499 ], [ %spec.select248.us, %.critedge.us.thread ]
+.outer.us.outer524:                               ; preds = %.outer.us.outer519, %.critedge.us.thread
+  %.1209.ph.us.ph525 = phi i8 [ %.1209.ph.us.ph521, %.outer.us.outer519 ], [ %spec.select248.us, %.critedge.us.thread ]
   br label %.outer.us
 
-.outer.us:                                        ; preds = %.outer.us.backedge, %.outer.us.outer504
+.outer.us:                                        ; preds = %.outer.us.backedge, %.outer.us.outer524
   br label %73
 
 40:                                               ; preds = %.split346.us.us
@@ -160,11 +160,11 @@ starts_with_chunk_size.exit:                      ; preds = %32
   br label %.outer.us
 
 .critedge.us.thread:                              ; preds = %.critedge.us, %.critedge22.us
-  %.0189.lcssa.us393 = phi ptr [ %50, %.critedge22.us ], [ %.0189.lcssa.us, %.critedge.us ]
-  %54 = call i32 @g_ascii_strncasecmp(ptr noundef %.0189.lcssa.us393, ptr noundef nonnull @.str.7, i64 noundef 7)
+  %.0189.lcssa.us413 = phi ptr [ %50, %.critedge22.us ], [ %.0189.lcssa.us, %.critedge.us ]
+  %54 = call i32 @g_ascii_strncasecmp(ptr noundef %.0189.lcssa.us413, ptr noundef nonnull @.str.7, i64 noundef 7)
   %55 = icmp eq i32 %54, 0
-  %spec.select248.us = select i1 %55, i8 1, i8 %.1209.ph.us.ph505
-  br label %.outer.us.outer504
+  %spec.select248.us = select i1 %55, i8 1, i8 %.1209.ph.us.ph525
+  br label %.outer.us.outer524
 
 56:                                               ; preds = %40
   %57 = getelementptr i8, ptr %88, i64 13
@@ -179,11 +179,11 @@ starts_with_chunk_size.exit:                      ; preds = %32
 
 62:                                               ; preds = %58
   %63 = call ptr @g_strchomp(ptr noundef %.5207.us)
-  br i1 %15, label %64, label %.outer.us.outer499
+  br i1 %15, label %64, label %.outer.us.outer519
 
 64:                                               ; preds = %62
   %65 = call ptr @dissector_get_string_handle(ptr noundef nonnull %7, ptr noundef %.5207.us)
-  br label %.outer.us.outer499.outer
+  br label %.outer.us.outer519.outer
 
 66:                                               ; preds = %.split346.us.us
   %67 = getelementptr i8, ptr %88, i64 15
@@ -274,34 +274,34 @@ starts_with_chunk_size.exit:                      ; preds = %32
   br i1 %107, label %.thread286, label %.outer
 
 .split340.us:                                     ; preds = %83
-  %108 = trunc nuw i8 %.1209.ph.us.ph505 to i1
-  %109 = icmp ne ptr %.1198.ph.us.ph503.ph, null
+  %108 = trunc nuw i8 %.1209.ph.us.ph525 to i1
+  %109 = icmp ne ptr %.1198.ph.us.ph523.ph, null
   %or.cond26 = select i1 %108, i1 %109, i1 false
   %or.cond28 = and i1 %16, %or.cond26
   br i1 %or.cond28, label %110, label %.thread286
 
 110:                                              ; preds = %.split340.us
-  store ptr %.1198.ph.us.ph503.ph, ptr %8, align 8
+  store ptr %.1198.ph.us.ph523.ph, ptr %8, align 8
   br label %.thread286
 
 .thread286:                                       ; preds = %.thread261.loopexit, %36, %.thread, %.split340.us, %110
-  %.0202284 = phi ptr [ %.1203.ph.us.ph502, %110 ], [ %.1203.ph.us.ph502, %.split340.us ], [ null, %.thread ], [ null, %36 ], [ null, %.thread261.loopexit ]
-  %.0214281 = phi i1 [ %.1215.ph.us.ph500, %110 ], [ %.1215.ph.us.ph500, %.split340.us ], [ false, %.thread ], [ false, %36 ], [ false, %.thread261.loopexit ]
+  %.0202284 = phi ptr [ %.1203.ph.us.ph522, %110 ], [ %.1203.ph.us.ph522, %.split340.us ], [ null, %.thread ], [ null, %36 ], [ null, %.thread261.loopexit ]
+  %.0214281 = phi i1 [ %.1215.ph.us.ph520, %110 ], [ %.1215.ph.us.ph520, %.split340.us ], [ false, %.thread ], [ false, %36 ], [ false, %.thread261.loopexit ]
   %.0219279 = phi i1 [ %.1220.ph.us.ph, %110 ], [ %.1220.ph.us.ph, %.split340.us ], [ false, %.thread ], [ false, %36 ], [ false, %.thread261.loopexit ]
-  %.6 = phi i8 [ 1, %110 ], [ %.1209.ph.us.ph505, %.split340.us ], [ 0, %.thread ], [ 0, %36 ], [ 0, %.thread261.loopexit ]
+  %.6 = phi i8 [ 1, %110 ], [ %.1209.ph.us.ph525, %.split340.us ], [ 0, %.thread ], [ 0, %36 ], [ 0, %.thread261.loopexit ]
   %.1196 = phi i1 [ true, %110 ], [ false, %.split340.us ], [ false, %.thread ], [ false, %36 ], [ false, %.thread261.loopexit ]
   br i1 %4, label %111, label %.thread308
 
 111:                                              ; preds = %.thread286
   %112 = trunc nuw i8 %.6 to i1
-  br i1 %112, label %.thread412, label %167
+  br i1 %112, label %.thread432, label %167
 
-.thread412:                                       ; preds = %starts_with_chunk_size.exit, %111
-  %.1196411418 = phi i1 [ %.1196, %111 ], [ true, %starts_with_chunk_size.exit ]
+.thread432:                                       ; preds = %starts_with_chunk_size.exit, %111
+  %.1196431438 = phi i1 [ %.1196, %111 ], [ true, %starts_with_chunk_size.exit ]
   %.not241 = icmp eq ptr %6, null
   br i1 %.not241, label %117, label %113
 
-113:                                              ; preds = %.thread412
+113:                                              ; preds = %.thread432
   %114 = load i32, ptr %6, align 4
   %.not242 = icmp eq i32 %114, 0
   br i1 %.not242, label %117, label %115
@@ -311,7 +311,7 @@ starts_with_chunk_size.exit:                      ; preds = %32
   store i32 %116, ptr %11, align 4
   br label %117
 
-117:                                              ; preds = %115, %113, %.thread412
+117:                                              ; preds = %115, %113, %.thread432
   %118 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 332
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 336
@@ -322,15 +322,15 @@ starts_with_chunk_size.exit:                      ; preds = %32
   %121 = load i32, ptr %11, align 4
   %122 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %121)
   %123 = icmp eq i32 %122, 0
-  %or.cond30482 = and i1 %123, %.1196411418
-  br i1 %or.cond30482, label %.loopexit, label %.lr.ph483
+  %or.cond30502 = and i1 %123, %.1196431438
+  br i1 %or.cond30502, label %.loopexit, label %.lr.ph503
 
-.lr.ph483:                                        ; preds = %117, %160
+.lr.ph503:                                        ; preds = %117, %160
   %124 = phi i32 [ %165, %160 ], [ %122, %117 ]
   %125 = icmp slt i32 %124, 1
   br i1 %125, label %.loopexit.sink.split, label %126
 
-126:                                              ; preds = %.lr.ph483
+126:                                              ; preds = %.lr.ph503
   %127 = load i32, ptr %11, align 4
   %128 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %127)
   %129 = load i32, ptr %11, align 4
@@ -385,7 +385,7 @@ starts_with_chunk_size.exit:                      ; preds = %32
   br i1 %152, label %160, label %153
 
 153:                                              ; preds = %151
-  br i1 %.1196411418, label %154, label %.loopexit.sink.split
+  br i1 %.1196431438, label %154, label %.loopexit.sink.split
 
 154:                                              ; preds = %153
   %155 = add i32 %130, 4
@@ -411,11 +411,11 @@ starts_with_chunk_size.exit:                      ; preds = %32
   %164 = load i32, ptr %11, align 4
   %165 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %164)
   %166 = icmp eq i32 %165, 0
-  %or.cond30 = and i1 %166, %.1196411418
-  br i1 %or.cond30, label %.loopexit, label %.lr.ph483, !llvm.loop !9
+  %or.cond30 = and i1 %166, %.1196431438
+  br i1 %or.cond30, label %.loopexit, label %.lr.ph503, !llvm.loop !9
 
-.loopexit.sink.split:                             ; preds = %126, %.lr.ph483, %153, %147, %158
-  %.sink = phi i32 [ %159, %158 ], [ 268435455, %147 ], [ 268435455, %153 ], [ 268435455, %.lr.ph483 ], [ 268435455, %126 ]
+.loopexit.sink.split:                             ; preds = %126, %.lr.ph503, %153, %147, %158
+  %.sink = phi i32 [ %159, %158 ], [ 268435455, %147 ], [ 268435455, %153 ], [ 268435455, %.lr.ph503 ], [ 268435455, %126 ]
   store i32 %1, ptr %119, align 4
   store i32 %.sink, ptr %120, align 8
   br label %.loopexit

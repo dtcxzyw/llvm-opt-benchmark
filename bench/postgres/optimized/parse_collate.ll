@@ -578,11 +578,11 @@ select_common_collation.exit:                     ; preds = %71
   %229 = load i32, ptr %13, align 8
   %230 = load i32, ptr %15, align 8
   %231 = icmp eq i32 %225, 2
-  %spec.select197 = select i1 %231, i32 0, i32 %229
+  %spec.select207 = select i1 %231, i32 0, i32 %229
   br label %.thread162
 
 .thread162:                                       ; preds = %228, %226, %221
-  %.4170.sink = phi i32 [ 0, %221 ], [ %223, %226 ], [ %spec.select197, %228 ]
+  %.4170.sink = phi i32 [ 0, %221 ], [ %223, %226 ], [ %spec.select207, %228 ]
   %.4171 = phi i32 [ 0, %221 ], [ %223, %226 ], [ %229, %228 ]
   %.5168 = phi i32 [ 0, %221 ], [ 1, %226 ], [ %225, %228 ]
   %.4124166 = phi i32 [ -1, %221 ], [ %227, %226 ], [ %230, %228 ]
@@ -1103,9 +1103,9 @@ define internal fastcc void @merge_collation_state(i32 noundef %0, i32 noundef %
   unreachable
 
 .sink.split:                                      ; preds = %14, %24, %26
-  %.sink43 = phi i64 [ 24, %26 ], [ 16, %24 ], [ 24, %14 ]
+  %.sink47 = phi i64 [ 24, %26 ], [ 16, %24 ], [ 24, %14 ]
   %.sink = phi i32 [ %2, %26 ], [ %2, %24 ], [ %4, %14 ]
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink43
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink47
   store i32 %.sink, ptr %40, align 8
   br label %41
 

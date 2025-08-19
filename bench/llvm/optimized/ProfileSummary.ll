@@ -620,8 +620,8 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread:   ; preds = %_ZN4llvm16dyn_cast_
   %21 = getelementptr inbounds i8, ptr %0, i64 -24
   %22 = load i32, ptr %21, align 8, !tbaa !18
   %23 = add i32 %22, -11
-  %or.cond70 = icmp ult i32 %23, -3
-  br i1 %or.cond70, label %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.thread, label %24
+  %or.cond76 = icmp ult i32 %23, -3
+  br i1 %or.cond76, label %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.thread, label %24
 
 24:                                               ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %2)

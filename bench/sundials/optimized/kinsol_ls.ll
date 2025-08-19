@@ -520,9 +520,9 @@ define i32 @kinLsInitialize(ptr noundef %0) #0 {
   br label %127
 
 127:                                              ; preds = %100, %102, %120
-  %.sink70 = phi double [ %126, %120 ], [ 1.000000e+00, %102 ], [ 1.000000e+00, %100 ]
+  %.sink71 = phi double [ %126, %120 ], [ 1.000000e+00, %102 ], [ 1.000000e+00, %100 ]
   %128 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store double %.sink70, ptr %128, align 8, !tbaa !53
+  store double %.sink71, ptr %128, align 8, !tbaa !53
   %129 = load ptr, ptr %89, align 8, !tbaa !37
   %130 = tail call i32 @SUNLinSolInitialize(ptr noundef %129) #13
   %131 = getelementptr inbounds nuw i8, ptr %3, i64 116

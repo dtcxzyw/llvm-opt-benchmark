@@ -47,7 +47,7 @@ define dso_local range(i32 -1, 1) i32 @FuzzerTestOneInput(ptr noundef readonly %
 10:                                               ; preds = %.lr.ph
   %11 = load i8, ptr %.sroa.0.0140, align 1, !tbaa !4
   %12 = and i8 %11, 3
-  switch i8 %12, label %default.unreachable142 [
+  switch i8 %12, label %default.unreachable147 [
     i8 0, label %13
     i8 1, label %102
     i8 2, label %187
@@ -357,7 +357,7 @@ PACKET_buf_init.exit.backedge:                    ; preds = %PACKET_buf_init.exi
   %277 = call i32 @ossl_quic_srtm_lookup(ptr noundef nonnull %4, ptr noundef nonnull %3, i64 noundef %274, ptr noundef null, ptr noundef null) #4
   br label %PACKET_buf_init.exit.backedge.sink.split
 
-default.unreachable142:                           ; preds = %10
+default.unreachable147:                           ; preds = %10
   unreachable
 
 PACKET_buf_init.exit.thread:                      ; preds = %.lr.ph, %PACKET_buf_init.exit.backedge, %6, %2

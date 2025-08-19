@@ -268,18 +268,18 @@ get_recovery_conflict_desc.exit:                  ; preds = %switch.lookup, %33
 
 44:                                               ; preds = %43
   %45 = load i32, ptr %7, align 4
-  %switch.tableidx31 = add i32 %0, -7
-  %46 = icmp ult i32 %switch.tableidx31, 7
-  br i1 %46, label %switch.lookup30, label %get_recovery_conflict_desc.exit25
+  %switch.tableidx33 = add i32 %0, -7
+  %46 = icmp ult i32 %switch.tableidx33, 7
+  br i1 %46, label %switch.lookup32, label %get_recovery_conflict_desc.exit25
 
-switch.lookup30:                                  ; preds = %44
-  %47 = zext nneg i32 %switch.tableidx31 to i64
-  %switch.gep32 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.LogRecoveryConflict.1, i64 0, i64 %47
-  %switch.load33 = load ptr, ptr %switch.gep32, align 8
+switch.lookup32:                                  ; preds = %44
+  %47 = zext nneg i32 %switch.tableidx33 to i64
+  %switch.gep34 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.LogRecoveryConflict.1, i64 0, i64 %47
+  %switch.load35 = load ptr, ptr %switch.gep34, align 8
   br label %get_recovery_conflict_desc.exit25
 
-get_recovery_conflict_desc.exit25:                ; preds = %switch.lookup30, %44
-  %.0.i24 = phi ptr [ @.str.19, %44 ], [ %switch.load33, %switch.lookup30 ]
+get_recovery_conflict_desc.exit25:                ; preds = %switch.lookup32, %44
+  %.0.i24 = phi ptr [ @.str.19, %44 ], [ %switch.load35, %switch.lookup32 ]
   %48 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i64 noundef %14, i32 noundef %45, ptr noundef nonnull %.0.i24) #7
   br label %.sink.split
 
@@ -357,7 +357,7 @@ define internal fastcc void @ResolveRecoveryConflictWithVirtualXIDs(ptr noundef 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %.thread65, label %9
+  br i1 %.not, label %.thread68, label %9
 
 9:                                                ; preds = %4
   br i1 %3, label %10, label %.lr.ph53
@@ -374,11 +374,11 @@ define internal fastcc void @ResolveRecoveryConflictWithVirtualXIDs(ptr noundef 
   %16 = tail call i64 @GetCurrentTimestamp() #7
   %.pre = load i32, ptr %7, align 4
   %17 = icmp eq i32 %.pre, 0
-  br i1 %17, label %.thread65, label %.lr.ph53
+  br i1 %17, label %.thread68, label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %9, %10, %15
-  %.03459 = phi i64 [ %16, %15 ], [ 0, %10 ], [ 0, %9 ]
-  %.not43 = icmp eq i64 %.03459, 0
+  %.03462 = phi i64 [ %16, %15 ], [ 0, %10 ], [ 0, %9 ]
+  %.not43 = icmp eq i64 %.03462, 0
   br label %18
 
 18:                                               ; preds = %.lr.ph53, %._crit_edge
@@ -425,9 +425,9 @@ GetStandbyLimitTime.exit.thread.i:                ; preds = %29, %26
   br label %WaitExceedsMaxStandbyDelay.exit
 
 GetStandbyLimitTime.exit.i:                       ; preds = %29, %26
-  %.sink10.i = phi i32 [ %27, %26 ], [ %30, %29 ]
+  %.sink12.i = phi i32 [ %27, %26 ], [ %30, %29 ]
   %32 = load i64, ptr %5, align 8
-  %33 = zext nneg i32 %.sink10.i to i64
+  %33 = zext nneg i32 %.sink12.i to i64
   %34 = mul nuw nsw i64 %33, 1000
   %35 = add i64 %34, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -494,7 +494,7 @@ WaitExceedsMaxStandbyDelay.exit:                  ; preds = %GetStandbyLimitTime
   br i1 %60, label %64, label %67
 
 64:                                               ; preds = %63
-  %65 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %.03459, i64 noundef %.035, i32 noundef 500) #7
+  %65 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %.03462, i64 noundef %.035, i32 noundef 500) #7
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %64
@@ -507,11 +507,11 @@ WaitExceedsMaxStandbyDelay.exit:                  ; preds = %GetStandbyLimitTime
 
 68:                                               ; preds = %67
   %69 = load i32, ptr @DeadlockTimeout, align 4
-  %70 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %.03459, i64 noundef %.035, i32 noundef %69) #7
+  %70 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %.03462, i64 noundef %.035, i32 noundef %69) #7
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %68
-  call void @LogRecoveryConflict(i32 noundef %1, i64 noundef %.03459, i64 noundef %.035, ptr noundef nonnull %.051, i1 noundef zeroext true)
+  call void @LogRecoveryConflict(i32 noundef %1, i64 noundef %.03462, i64 noundef %.035, ptr noundef nonnull %.051, i1 noundef zeroext true)
   br label %72
 
 72:                                               ; preds = %67, %68, %71, %49, %48
@@ -537,17 +537,17 @@ WaitExceedsMaxStandbyDelay.exit:                  ; preds = %GetStandbyLimitTime
 
 80:                                               ; preds = %._crit_edge54
   %81 = call i64 @GetCurrentTimestamp() #7
-  call void @LogRecoveryConflict(i32 noundef %1, i64 noundef %.03459, i64 noundef %81, ptr noundef null, i1 noundef zeroext false)
-  br i1 %79, label %83, label %.thread65
+  call void @LogRecoveryConflict(i32 noundef %1, i64 noundef %.03462, i64 noundef %81, ptr noundef null, i1 noundef zeroext false)
+  br i1 %79, label %83, label %.thread68
 
 82:                                               ; preds = %._crit_edge54
-  br i1 %79, label %83, label %.thread65
+  br i1 %79, label %83, label %.thread68
 
 83:                                               ; preds = %80, %82
   call void @set_ps_display_remove_suffix() #7
-  br label %.thread65
+  br label %.thread68
 
-.thread65:                                        ; preds = %15, %80, %82, %83, %4
+.thread68:                                        ; preds = %15, %80, %82, %83, %4
   ret void
 }
 

@@ -349,8 +349,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %138 = fsub reassoc nsz arcp contract afn double %137, %90
   %139 = call reassoc nsz arcp contract afn double @llvm.round.f64(double %138)
   %140 = fptosi double %139 to i32
-  %.idx405 = shl nuw nsw i64 %indvars.iv370, 3
-  %141 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx405
+  %.idx418 = shl nuw nsw i64 %indvars.iv370, 3
+  %141 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx418
   store i32 %136, ptr %141, align 4, !tbaa !41
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 4
   store i32 %140, ptr %142, align 4, !tbaa !41
@@ -463,8 +463,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 12
   %205 = load float, ptr %204, align 4, !tbaa !40
   %206 = fcmp reassoc nsz arcp contract afn ogt float %205, %.0277
-  %or.cond412 = select i1 %184, i1 %206, i1 false
-  br i1 %or.cond412, label %.preheader313.us, label %._crit_edge402
+  %or.cond425 = select i1 %184, i1 %206, i1 false
+  br i1 %or.cond425, label %.preheader313.us, label %._crit_edge402
 
 ._crit_edge336.us:                                ; preds = %.lr.ph335.us, %.preheader313.us
   %.0281.lcssa.us = phi float [ 0.000000e+00, %.preheader313.us ], [ %330, %.lr.ph335.us ]
@@ -599,8 +599,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %.0273341.us = phi float [ 0.000000e+00, %.lr.ph344.us.preheader ], [ %312, %.lr.ph344.us ]
   %.0274340.us = phi float [ 0.000000e+00, %.lr.ph344.us.preheader ], [ %311, %.lr.ph344.us ]
   %.0275339.us = phi float [ 0.000000e+00, %.lr.ph344.us.preheader ], [ %307, %.lr.ph344.us ]
-  %.idx407 = shl nuw nsw i64 %indvars.iv387, 3
-  %283 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx407
+  %.idx420 = shl nuw nsw i64 %indvars.iv387, 3
+  %283 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx420
   %284 = load i32, ptr %283, align 4, !tbaa !41
   %285 = getelementptr inbounds nuw i8, ptr %283, i64 4
   %286 = load i32, ptr %285, align 4, !tbaa !41
@@ -612,8 +612,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %.not304.us = icmp slt i32 %290, %43
   %291 = call i32 @llvm.smax.i32(i32 %290, i32 0)
   %292 = select i1 %.not304.us, i32 %291, i32 %182
-  %293 = sext i32 %292 to i64
-  %294 = mul nsw i64 %293, %119
+  %293 = zext nneg i32 %292 to i64
+  %294 = mul nuw nsw i64 %293, %119
   %295 = sext i32 %289 to i64
   %296 = add nsw i64 %294, %295
   %297 = shl i64 %296, 2
@@ -639,8 +639,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 .lr.ph335.us:                                     ; preds = %.lr.ph335.us.preheader, %.lr.ph335.us
   %indvars.iv375 = phi i64 [ 0, %.lr.ph335.us.preheader ], [ %indvars.iv.next376, %.lr.ph335.us ]
   %.0281333.us = phi float [ 0.000000e+00, %.lr.ph335.us.preheader ], [ %330, %.lr.ph335.us ]
-  %.idx406 = shl nuw nsw i64 %indvars.iv375, 3
-  %313 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx406
+  %.idx419 = shl nuw nsw i64 %indvars.iv375, 3
+  %313 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx419
   %314 = load i32, ptr %313, align 4, !tbaa !41
   %315 = getelementptr inbounds nuw i8, ptr %313, i64 4
   %316 = load i32, ptr %315, align 4, !tbaa !41
@@ -652,8 +652,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %.not306.us = icmp slt i32 %320, %43
   %321 = call i32 @llvm.smax.i32(i32 %320, i32 0)
   %322 = select i1 %.not306.us, i32 %321, i32 %182
-  %323 = sext i32 %322 to i64
-  %324 = mul nsw i64 %323, %119
+  %323 = zext nneg i32 %322 to i64
+  %324 = mul nuw nsw i64 %323, %119
   %325 = sext i32 %319 to i64
   %326 = add nsw i64 %324, %325
   %.idx.us = shl i64 %326, 4

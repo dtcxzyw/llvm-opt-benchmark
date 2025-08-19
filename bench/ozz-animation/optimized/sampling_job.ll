@@ -175,45 +175,45 @@ _ZN3ozz9animation11SamplingJob7Context4StepERKNS0_9AnimationEf.exit: ; preds = %
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 144
   %76 = add nsw i64 %24, 7
   %77 = lshr i64 %76, 3
-  %.not31.i98 = icmp ult i64 %76, 8
-  br i1 %.not31.i98, label %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit, label %.lr.ph29.i99
+  %.not31.i103 = icmp ult i64 %76, 8
+  br i1 %.not31.i103, label %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit, label %.lr.ph29.i104
 
-.lr.ph29.i99:                                     ; preds = %_ZN3ozz9animation11SamplingJob7Context4StepERKNS0_9AnimationEf.exit
+.lr.ph29.i104:                                    ; preds = %_ZN3ozz9animation11SamplingJob7Context4StepERKNS0_9AnimationEf.exit
   %78 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %79 = load i64, ptr %78, align 8, !tbaa !66
   %80 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  %.not.i.i100 = icmp ugt i64 %79, 255
+  %.not.i.i105 = icmp ugt i64 %79, 255
   br label %81
 
-81:                                               ; preds = %._crit_edge.i132, %.lr.ph29.i99
-  %.027.i101 = phi i64 [ 0, %.lr.ph29.i99 ], [ %86, %._crit_edge.i132 ]
+81:                                               ; preds = %._crit_edge.i137, %.lr.ph29.i104
+  %.027.i106 = phi i64 [ 0, %.lr.ph29.i104 ], [ %86, %._crit_edge.i137 ]
   %82 = load ptr, ptr %80, align 8, !tbaa !52
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 %.027.i101
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 %.027.i106
   %84 = load i8, ptr %83, align 1, !tbaa !68
   store i8 0, ptr %83, align 1, !tbaa !68
-  %.not24.i102 = icmp eq i8 %84, 0
-  br i1 %.not24.i102, label %._crit_edge.i132, label %.lr.ph.preheader.i103
+  %.not24.i107 = icmp eq i8 %84, 0
+  br i1 %.not24.i107, label %._crit_edge.i137, label %.lr.ph.preheader.i108
 
-.lr.ph.preheader.i103:                            ; preds = %81
-  %85 = shl nuw i64 %.027.i101, 3
-  br label %.lr.ph.i104
+.lr.ph.preheader.i108:                            ; preds = %81
+  %85 = shl nuw i64 %.027.i106, 3
+  br label %.lr.ph.i109
 
-._crit_edge.i132:                                 ; preds = %368, %81
-  %86 = add nuw nsw i64 %.027.i101, 1
-  %exitcond.not.i133 = icmp eq i64 %86, %77
-  br i1 %exitcond.not.i133, label %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit.loopexit, label %81, !llvm.loop !69
+._crit_edge.i137:                                 ; preds = %368, %81
+  %86 = add nuw nsw i64 %.027.i106, 1
+  %exitcond.not.i138 = icmp eq i64 %86, %77
+  br i1 %exitcond.not.i138, label %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit.loopexit, label %81, !llvm.loop !69
 
-.lr.ph.i104:                                      ; preds = %368, %.lr.ph.preheader.i103
-  %.06126.i105 = phi i8 [ %370, %368 ], [ %84, %.lr.ph.preheader.i103 ]
-  %.06225.i106 = phi i64 [ %369, %368 ], [ %85, %.lr.ph.preheader.i103 ]
-  %87 = and i8 %.06126.i105, 1
-  %.not64.i107 = icmp eq i8 %87, 0
-  br i1 %.not64.i107, label %368, label %88
+.lr.ph.i109:                                      ; preds = %368, %.lr.ph.preheader.i108
+  %.06126.i110 = phi i8 [ %370, %368 ], [ %84, %.lr.ph.preheader.i108 ]
+  %.06225.i111 = phi i64 [ %369, %368 ], [ %85, %.lr.ph.preheader.i108 ]
+  %87 = and i8 %.06126.i110, 1
+  %.not64.i112 = icmp eq i8 %87, 0
+  br i1 %.not64.i112, label %368, label %88
 
-88:                                               ; preds = %.lr.ph.i104
+88:                                               ; preds = %.lr.ph.i109
   %89 = load ptr, ptr %74, align 8, !tbaa !57
-  %.idx.i108 = shl i64 %.06225.i106, 4
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx.i108
+  %.idx.i113 = shl i64 %.06225.i111, 4
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx.i113
   %91 = load i32, ptr %90, align 4, !tbaa !71
   %92 = zext i32 %91 to i64
   %93 = getelementptr inbounds nuw i16, ptr %44, i64 %92
@@ -249,7 +249,7 @@ _ZN3ozz9animation11SamplingJob7Context4StepERKNS0_9AnimationEf.exit: ; preds = %
   %123 = getelementptr inbounds nuw %"struct.ozz::animation::internal::Float3Key", ptr %72, i64 %122
   %124 = zext i32 %117 to i64
   %125 = getelementptr inbounds nuw %"struct.ozz::animation::internal::Float3Key", ptr %72, i64 %124
-  br i1 %.not.i.i100, label %139, label %126
+  br i1 %.not.i.i105, label %139, label %126
 
 126:                                              ; preds = %88
   %127 = getelementptr inbounds nuw i8, ptr %38, i64 %118
@@ -264,7 +264,7 @@ _ZN3ozz9animation11SamplingJob7Context4StepERKNS0_9AnimationEf.exit: ; preds = %
   %136 = getelementptr inbounds nuw i8, ptr %38, i64 %124
   %137 = load i8, ptr %136, align 1, !tbaa !68
   %138 = zext i8 %137 to i64
-  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i109
+  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i114
 
 139:                                              ; preds = %88
   %140 = getelementptr inbounds nuw i16, ptr %38, i64 %118
@@ -279,30 +279,30 @@ _ZN3ozz9animation11SamplingJob7Context4StepERKNS0_9AnimationEf.exit: ; preds = %
   %149 = getelementptr inbounds nuw i16, ptr %38, i64 %124
   %150 = load i16, ptr %149, align 2, !tbaa !72
   %151 = zext i16 %150 to i64
-  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i109
+  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i114
 
-_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i109: ; preds = %139, %126
-  %.sink20.i.i110 = phi i64 [ %151, %139 ], [ %138, %126 ]
-  %.pn.i.i111 = phi i64 [ %142, %139 ], [ %129, %126 ]
-  %.pn21.i.i112 = phi i64 [ %145, %139 ], [ %132, %126 ]
-  %.pn22.i.i113 = phi i64 [ %148, %139 ], [ %135, %126 ]
-  %.sink17.in.i.i114 = getelementptr inbounds nuw float, ptr %70, i64 %.pn22.i.i113
-  %.sink17.i.i115 = load float, ptr %.sink17.in.i.i114, align 4, !tbaa !74
-  %.sink18.in.i.i116 = getelementptr inbounds nuw float, ptr %70, i64 %.pn21.i.i112
-  %.sink18.i.i117 = load float, ptr %.sink18.in.i.i116, align 4, !tbaa !74
-  %.sink19.in.i.i118 = getelementptr inbounds nuw float, ptr %70, i64 %.pn.i.i111
-  %.sink19.i.i119 = load float, ptr %.sink19.in.i.i118, align 4, !tbaa !74
-  %152 = getelementptr inbounds nuw float, ptr %70, i64 %.sink20.i.i110
+_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i114: ; preds = %139, %126
+  %.sink20.i.i115 = phi i64 [ %151, %139 ], [ %138, %126 ]
+  %.pn.i.i116 = phi i64 [ %142, %139 ], [ %129, %126 ]
+  %.pn21.i.i117 = phi i64 [ %145, %139 ], [ %132, %126 ]
+  %.pn22.i.i118 = phi i64 [ %148, %139 ], [ %135, %126 ]
+  %.sink17.in.i.i119 = getelementptr inbounds nuw float, ptr %70, i64 %.pn22.i.i118
+  %.sink17.i.i120 = load float, ptr %.sink17.in.i.i119, align 4, !tbaa !74
+  %.sink18.in.i.i121 = getelementptr inbounds nuw float, ptr %70, i64 %.pn21.i.i117
+  %.sink18.i.i122 = load float, ptr %.sink18.in.i.i121, align 4, !tbaa !74
+  %.sink19.in.i.i123 = getelementptr inbounds nuw float, ptr %70, i64 %.pn.i.i116
+  %.sink19.i.i124 = load float, ptr %.sink19.in.i.i123, align 4, !tbaa !74
+  %152 = getelementptr inbounds nuw float, ptr %70, i64 %.sink20.i.i115
   %153 = load float, ptr %152, align 4, !tbaa !74
-  %154 = insertelement <4 x float> poison, float %.sink19.i.i119, i64 0
-  %155 = insertelement <4 x float> %154, float %.sink18.i.i117, i64 1
-  %156 = insertelement <4 x float> %155, float %.sink17.i.i115, i64 2
+  %154 = insertelement <4 x float> poison, float %.sink19.i.i124, i64 0
+  %155 = insertelement <4 x float> %154, float %.sink18.i.i122, i64 1
+  %156 = insertelement <4 x float> %155, float %.sink17.i.i120, i64 2
   %157 = insertelement <4 x float> %156, float %153, i64 3
   %158 = load ptr, ptr %75, align 8, !tbaa !75
-  %159 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %158, i64 %.06225.i106
+  %159 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %158, i64 %.06225.i111
   store <4 x float> %157, ptr %159, align 16, !tbaa !68
   %160 = load ptr, ptr %75, align 8, !tbaa !75
-  %161 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %160, i64 %.06225.i106, i32 1
+  %161 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %160, i64 %.06225.i111, i32 1
   %162 = load i16, ptr %119, align 2, !tbaa !72
   %163 = zext i16 %162 to i32
   %164 = load i16, ptr %121, align 2, !tbaa !72
@@ -397,9 +397,9 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %250 = load i32, ptr %111, align 4, !tbaa !71
   %251 = zext i32 %250 to i64
   %252 = getelementptr inbounds nuw %"struct.ozz::animation::internal::Float3Key", ptr %72, i64 %251
-  br i1 %.not.i.i100, label %266, label %253
+  br i1 %.not.i.i105, label %266, label %253
 
-253:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i109
+253:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i114
   %254 = getelementptr inbounds nuw i8, ptr %38, i64 %242
   %255 = load i8, ptr %254, align 1, !tbaa !68
   %256 = zext i8 %255 to i64
@@ -412,9 +412,9 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %263 = getelementptr inbounds nuw i8, ptr %38, i64 %251
   %264 = load i8, ptr %263, align 1, !tbaa !68
   %265 = zext i8 %264 to i64
-  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i120
+  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i125
 
-266:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i109
+266:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i114
   %267 = getelementptr inbounds nuw i16, ptr %38, i64 %242
   %268 = load i16, ptr %267, align 2, !tbaa !72
   %269 = zext i16 %268 to i64
@@ -427,30 +427,30 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %276 = getelementptr inbounds nuw i16, ptr %38, i64 %251
   %277 = load i16, ptr %276, align 2, !tbaa !72
   %278 = zext i16 %277 to i64
-  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i120
+  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i125
 
-_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i120: ; preds = %266, %253
-  %.sink20.i77.i121 = phi i64 [ %278, %266 ], [ %265, %253 ]
-  %.pn.i78.i122 = phi i64 [ %269, %266 ], [ %256, %253 ]
-  %.pn21.i79.i123 = phi i64 [ %272, %266 ], [ %259, %253 ]
-  %.pn22.i80.i124 = phi i64 [ %275, %266 ], [ %262, %253 ]
-  %.sink17.in.i81.i125 = getelementptr inbounds nuw float, ptr %70, i64 %.pn22.i80.i124
-  %.sink17.i82.i126 = load float, ptr %.sink17.in.i81.i125, align 4, !tbaa !74
-  %.sink18.in.i83.i127 = getelementptr inbounds nuw float, ptr %70, i64 %.pn21.i79.i123
-  %.sink18.i84.i128 = load float, ptr %.sink18.in.i83.i127, align 4, !tbaa !74
-  %.sink19.in.i85.i129 = getelementptr inbounds nuw float, ptr %70, i64 %.pn.i78.i122
-  %.sink19.i86.i130 = load float, ptr %.sink19.in.i85.i129, align 4, !tbaa !74
-  %279 = getelementptr inbounds nuw float, ptr %70, i64 %.sink20.i77.i121
+_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i125: ; preds = %266, %253
+  %.sink20.i77.i126 = phi i64 [ %278, %266 ], [ %265, %253 ]
+  %.pn.i78.i127 = phi i64 [ %269, %266 ], [ %256, %253 ]
+  %.pn21.i79.i128 = phi i64 [ %272, %266 ], [ %259, %253 ]
+  %.pn22.i80.i129 = phi i64 [ %275, %266 ], [ %262, %253 ]
+  %.sink17.in.i81.i130 = getelementptr inbounds nuw float, ptr %70, i64 %.pn22.i80.i129
+  %.sink17.i82.i131 = load float, ptr %.sink17.in.i81.i130, align 4, !tbaa !74
+  %.sink18.in.i83.i132 = getelementptr inbounds nuw float, ptr %70, i64 %.pn21.i79.i128
+  %.sink18.i84.i133 = load float, ptr %.sink18.in.i83.i132, align 4, !tbaa !74
+  %.sink19.in.i85.i134 = getelementptr inbounds nuw float, ptr %70, i64 %.pn.i78.i127
+  %.sink19.i86.i135 = load float, ptr %.sink19.in.i85.i134, align 4, !tbaa !74
+  %279 = getelementptr inbounds nuw float, ptr %70, i64 %.sink20.i77.i126
   %280 = load float, ptr %279, align 4, !tbaa !74
-  %281 = insertelement <4 x float> poison, float %.sink19.i86.i130, i64 0
-  %282 = insertelement <4 x float> %281, float %.sink18.i84.i128, i64 1
-  %283 = insertelement <4 x float> %282, float %.sink17.i82.i126, i64 2
+  %281 = insertelement <4 x float> poison, float %.sink19.i86.i135, i64 0
+  %282 = insertelement <4 x float> %281, float %.sink18.i84.i133, i64 1
+  %283 = insertelement <4 x float> %282, float %.sink17.i82.i131, i64 2
   %284 = insertelement <4 x float> %283, float %280, i64 3
   %285 = load ptr, ptr %75, align 8, !tbaa !75
-  %286 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %285, i64 %.06225.i106, i32 0, i64 1
+  %286 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %285, i64 %.06225.i111, i32 0, i64 1
   store <4 x float> %284, ptr %286, align 16, !tbaa !68
   %287 = load ptr, ptr %75, align 8, !tbaa !75
-  %288 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %287, i64 %.06225.i106, i32 1, i64 1
+  %288 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %287, i64 %.06225.i111, i32 1, i64 1
   %289 = load i16, ptr %243, align 2, !tbaa !72
   %290 = zext i16 %289 to i32
   %291 = load i16, ptr %246, align 2, !tbaa !72
@@ -535,23 +535,23 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   store <4 x i32> %366, ptr %367, align 16, !tbaa !68
   br label %368
 
-368:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i120, %.lr.ph.i104
-  %369 = add nuw i64 %.06225.i106, 1
-  %370 = lshr i8 %.06126.i105, 1
-  %.not.i131 = icmp ult i8 %.06126.i105, 2
-  br i1 %.not.i131, label %._crit_edge.i132, label %.lr.ph.i104, !llvm.loop !76
+368:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i125, %.lr.ph.i109
+  %369 = add nuw i64 %.06225.i111, 1
+  %370 = lshr i8 %.06126.i110, 1
+  %.not.i136 = icmp ult i8 %.06126.i110, 2
+  br i1 %.not.i136, label %._crit_edge.i137, label %.lr.ph.i109, !llvm.loop !76
 
-_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit.loopexit: ; preds = %._crit_edge.i132
-  %.pre173 = load ptr, ptr %5, align 8, !tbaa !4
-  %.phi.trans.insert174 = getelementptr inbounds nuw i8, ptr %.pre173, i64 24
-  %.pre175 = load ptr, ptr %.phi.trans.insert174, align 8, !tbaa !65
-  %.pre176 = load ptr, ptr %8, align 8, !tbaa !15
+_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit.loopexit: ; preds = %._crit_edge.i137
+  %.pre178 = load ptr, ptr %5, align 8, !tbaa !4
+  %.phi.trans.insert179 = getelementptr inbounds nuw i8, ptr %.pre178, i64 24
+  %.pre180 = load ptr, ptr %.phi.trans.insert179, align 8, !tbaa !65
+  %.pre181 = load ptr, ptr %8, align 8, !tbaa !15
   br label %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit
 
 _ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit: ; preds = %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit.loopexit, %_ZN3ozz9animation11SamplingJob7Context4StepERKNS0_9AnimationEf.exit
-  %371 = phi ptr [ %.pre176, %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit.loopexit ], [ %73, %_ZN3ozz9animation11SamplingJob7Context4StepERKNS0_9AnimationEf.exit ]
-  %372 = phi ptr [ %.pre175, %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit.loopexit ], [ %70, %_ZN3ozz9animation11SamplingJob7Context4StepERKNS0_9AnimationEf.exit ]
-  %373 = phi ptr [ %.pre173, %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit.loopexit ], [ %68, %_ZN3ozz9animation11SamplingJob7Context4StepERKNS0_9AnimationEf.exit ]
+  %371 = phi ptr [ %.pre181, %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit.loopexit ], [ %73, %_ZN3ozz9animation11SamplingJob7Context4StepERKNS0_9AnimationEf.exit ]
+  %372 = phi ptr [ %.pre180, %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit.loopexit ], [ %70, %_ZN3ozz9animation11SamplingJob7Context4StepERKNS0_9AnimationEf.exit ]
+  %373 = phi ptr [ %.pre178, %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit.loopexit ], [ %68, %_ZN3ozz9animation11SamplingJob7Context4StepERKNS0_9AnimationEf.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 112
@@ -602,7 +602,7 @@ _ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15Interp
   %408 = load ptr, ptr %8, align 8, !tbaa !15
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 64
   %410 = getelementptr inbounds nuw i8, ptr %408, i64 160
-  br i1 %.not31.i98, label %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal13QuaternionKeyENS3_19InterpSoaQuaternionEPFvRKS4_S7_S7_S7_PNS_4math13SoaQuaternionEEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit, label %.lr.ph29.i
+  br i1 %.not31.i103, label %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal13QuaternionKeyENS3_19InterpSoaQuaternionEPFvRKS4_S7_S7_S7_PNS_4math13SoaQuaternionEEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit, label %.lr.ph29.i
 
 .lr.ph29.i:                                       ; preds = %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit
   %411 = getelementptr inbounds nuw i8, ptr %403, i64 32
@@ -866,44 +866,44 @@ _ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal13QuaternionKeyENS3_19I
   %583 = load ptr, ptr %8, align 8, !tbaa !15
   %584 = getelementptr inbounds nuw i8, ptr %583, i64 104
   %585 = getelementptr inbounds nuw i8, ptr %583, i64 176
-  br i1 %.not31.i98, label %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit172, label %.lr.ph29.i135
+  br i1 %.not31.i103, label %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit177, label %.lr.ph29.i140
 
-.lr.ph29.i135:                                    ; preds = %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal13QuaternionKeyENS3_19InterpSoaQuaternionEPFvRKS4_S7_S7_S7_PNS_4math13SoaQuaternionEEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit
+.lr.ph29.i140:                                    ; preds = %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal13QuaternionKeyENS3_19InterpSoaQuaternionEPFvRKS4_S7_S7_S7_PNS_4math13SoaQuaternionEEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit
   %586 = getelementptr inbounds nuw i8, ptr %578, i64 32
   %587 = load i64, ptr %586, align 8, !tbaa !66
   %588 = getelementptr inbounds nuw i8, ptr %583, i64 120
-  %.not.i.i136 = icmp ugt i64 %587, 255
+  %.not.i.i141 = icmp ugt i64 %587, 255
   br label %589
 
-589:                                              ; preds = %._crit_edge.i170, %.lr.ph29.i135
-  %.027.i137 = phi i64 [ 0, %.lr.ph29.i135 ], [ %594, %._crit_edge.i170 ]
+589:                                              ; preds = %._crit_edge.i175, %.lr.ph29.i140
+  %.027.i142 = phi i64 [ 0, %.lr.ph29.i140 ], [ %594, %._crit_edge.i175 ]
   %590 = load ptr, ptr %588, align 8, !tbaa !52
-  %591 = getelementptr inbounds nuw i8, ptr %590, i64 %.027.i137
+  %591 = getelementptr inbounds nuw i8, ptr %590, i64 %.027.i142
   %592 = load i8, ptr %591, align 1, !tbaa !68
   store i8 0, ptr %591, align 1, !tbaa !68
-  %.not24.i138 = icmp eq i8 %592, 0
-  br i1 %.not24.i138, label %._crit_edge.i170, label %.lr.ph.preheader.i139
+  %.not24.i143 = icmp eq i8 %592, 0
+  br i1 %.not24.i143, label %._crit_edge.i175, label %.lr.ph.preheader.i144
 
-.lr.ph.preheader.i139:                            ; preds = %589
-  %593 = shl nuw i64 %.027.i137, 3
-  br label %.lr.ph.i140
+.lr.ph.preheader.i144:                            ; preds = %589
+  %593 = shl nuw i64 %.027.i142, 3
+  br label %.lr.ph.i145
 
-._crit_edge.i170:                                 ; preds = %876, %589
-  %594 = add nuw nsw i64 %.027.i137, 1
-  %exitcond.not.i171 = icmp eq i64 %594, %77
-  br i1 %exitcond.not.i171, label %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit172.loopexit, label %589, !llvm.loop !69
+._crit_edge.i175:                                 ; preds = %876, %589
+  %594 = add nuw nsw i64 %.027.i142, 1
+  %exitcond.not.i176 = icmp eq i64 %594, %77
+  br i1 %exitcond.not.i176, label %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit177.loopexit, label %589, !llvm.loop !69
 
-.lr.ph.i140:                                      ; preds = %876, %.lr.ph.preheader.i139
-  %.06126.i141 = phi i8 [ %878, %876 ], [ %592, %.lr.ph.preheader.i139 ]
-  %.06225.i142 = phi i64 [ %877, %876 ], [ %593, %.lr.ph.preheader.i139 ]
-  %595 = and i8 %.06126.i141, 1
-  %.not64.i143 = icmp eq i8 %595, 0
-  br i1 %.not64.i143, label %876, label %596
+.lr.ph.i145:                                      ; preds = %876, %.lr.ph.preheader.i144
+  %.06126.i146 = phi i8 [ %878, %876 ], [ %592, %.lr.ph.preheader.i144 ]
+  %.06225.i147 = phi i64 [ %877, %876 ], [ %593, %.lr.ph.preheader.i144 ]
+  %595 = and i8 %.06126.i146, 1
+  %.not64.i148 = icmp eq i8 %595, 0
+  br i1 %.not64.i148, label %876, label %596
 
-596:                                              ; preds = %.lr.ph.i140
+596:                                              ; preds = %.lr.ph.i145
   %597 = load ptr, ptr %584, align 8, !tbaa !57
-  %.idx.i144 = shl i64 %.06225.i142, 4
-  %598 = getelementptr inbounds nuw i8, ptr %597, i64 %.idx.i144
+  %.idx.i149 = shl i64 %.06225.i147, 4
+  %598 = getelementptr inbounds nuw i8, ptr %597, i64 %.idx.i149
   %599 = load i32, ptr %598, align 4, !tbaa !71
   %600 = zext i32 %599 to i64
   %601 = getelementptr inbounds nuw i16, ptr %556, i64 %600
@@ -939,7 +939,7 @@ _ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal13QuaternionKeyENS3_19I
   %631 = getelementptr inbounds nuw %"struct.ozz::animation::internal::Float3Key", ptr %582, i64 %630
   %632 = zext i32 %625 to i64
   %633 = getelementptr inbounds nuw %"struct.ozz::animation::internal::Float3Key", ptr %582, i64 %632
-  br i1 %.not.i.i136, label %647, label %634
+  br i1 %.not.i.i141, label %647, label %634
 
 634:                                              ; preds = %596
   %635 = getelementptr inbounds nuw i8, ptr %550, i64 %626
@@ -954,7 +954,7 @@ _ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal13QuaternionKeyENS3_19I
   %644 = getelementptr inbounds nuw i8, ptr %550, i64 %632
   %645 = load i8, ptr %644, align 1, !tbaa !68
   %646 = zext i8 %645 to i64
-  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i146
+  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i151
 
 647:                                              ; preds = %596
   %648 = getelementptr inbounds nuw i16, ptr %550, i64 %626
@@ -969,30 +969,30 @@ _ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal13QuaternionKeyENS3_19I
   %657 = getelementptr inbounds nuw i16, ptr %550, i64 %632
   %658 = load i16, ptr %657, align 2, !tbaa !72
   %659 = zext i16 %658 to i64
-  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i146
+  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i151
 
-_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i146: ; preds = %647, %634
-  %.sink20.i.i147 = phi i64 [ %659, %647 ], [ %646, %634 ]
-  %.pn.i.i148 = phi i64 [ %650, %647 ], [ %637, %634 ]
-  %.pn21.i.i149 = phi i64 [ %653, %647 ], [ %640, %634 ]
-  %.pn22.i.i150 = phi i64 [ %656, %647 ], [ %643, %634 ]
-  %.sink17.in.i.i151 = getelementptr inbounds nuw float, ptr %580, i64 %.pn22.i.i150
-  %.sink17.i.i152 = load float, ptr %.sink17.in.i.i151, align 4, !tbaa !74
-  %.sink18.in.i.i153 = getelementptr inbounds nuw float, ptr %580, i64 %.pn21.i.i149
-  %.sink18.i.i154 = load float, ptr %.sink18.in.i.i153, align 4, !tbaa !74
-  %.sink19.in.i.i155 = getelementptr inbounds nuw float, ptr %580, i64 %.pn.i.i148
-  %.sink19.i.i156 = load float, ptr %.sink19.in.i.i155, align 4, !tbaa !74
-  %660 = getelementptr inbounds nuw float, ptr %580, i64 %.sink20.i.i147
+_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i151: ; preds = %647, %634
+  %.sink20.i.i152 = phi i64 [ %659, %647 ], [ %646, %634 ]
+  %.pn.i.i153 = phi i64 [ %650, %647 ], [ %637, %634 ]
+  %.pn21.i.i154 = phi i64 [ %653, %647 ], [ %640, %634 ]
+  %.pn22.i.i155 = phi i64 [ %656, %647 ], [ %643, %634 ]
+  %.sink17.in.i.i156 = getelementptr inbounds nuw float, ptr %580, i64 %.pn22.i.i155
+  %.sink17.i.i157 = load float, ptr %.sink17.in.i.i156, align 4, !tbaa !74
+  %.sink18.in.i.i158 = getelementptr inbounds nuw float, ptr %580, i64 %.pn21.i.i154
+  %.sink18.i.i159 = load float, ptr %.sink18.in.i.i158, align 4, !tbaa !74
+  %.sink19.in.i.i160 = getelementptr inbounds nuw float, ptr %580, i64 %.pn.i.i153
+  %.sink19.i.i161 = load float, ptr %.sink19.in.i.i160, align 4, !tbaa !74
+  %660 = getelementptr inbounds nuw float, ptr %580, i64 %.sink20.i.i152
   %661 = load float, ptr %660, align 4, !tbaa !74
-  %662 = insertelement <4 x float> poison, float %.sink19.i.i156, i64 0
-  %663 = insertelement <4 x float> %662, float %.sink18.i.i154, i64 1
-  %664 = insertelement <4 x float> %663, float %.sink17.i.i152, i64 2
+  %662 = insertelement <4 x float> poison, float %.sink19.i.i161, i64 0
+  %663 = insertelement <4 x float> %662, float %.sink18.i.i159, i64 1
+  %664 = insertelement <4 x float> %663, float %.sink17.i.i157, i64 2
   %665 = insertelement <4 x float> %664, float %661, i64 3
   %666 = load ptr, ptr %585, align 8, !tbaa !75
-  %667 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %666, i64 %.06225.i142
+  %667 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %666, i64 %.06225.i147
   store <4 x float> %665, ptr %667, align 16, !tbaa !68
   %668 = load ptr, ptr %585, align 8, !tbaa !75
-  %669 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %668, i64 %.06225.i142, i32 1
+  %669 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %668, i64 %.06225.i147, i32 1
   %670 = load i16, ptr %627, align 2, !tbaa !72
   %671 = zext i16 %670 to i32
   %672 = load i16, ptr %629, align 2, !tbaa !72
@@ -1087,9 +1087,9 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %758 = load i32, ptr %619, align 4, !tbaa !71
   %759 = zext i32 %758 to i64
   %760 = getelementptr inbounds nuw %"struct.ozz::animation::internal::Float3Key", ptr %582, i64 %759
-  br i1 %.not.i.i136, label %774, label %761
+  br i1 %.not.i.i141, label %774, label %761
 
-761:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i146
+761:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i151
   %762 = getelementptr inbounds nuw i8, ptr %550, i64 %750
   %763 = load i8, ptr %762, align 1, !tbaa !68
   %764 = zext i8 %763 to i64
@@ -1102,9 +1102,9 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %771 = getelementptr inbounds nuw i8, ptr %550, i64 %759
   %772 = load i8, ptr %771, align 1, !tbaa !68
   %773 = zext i8 %772 to i64
-  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i158
+  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i163
 
-774:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i146
+774:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i151
   %775 = getelementptr inbounds nuw i16, ptr %550, i64 %750
   %776 = load i16, ptr %775, align 2, !tbaa !72
   %777 = zext i16 %776 to i64
@@ -1117,30 +1117,30 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %784 = getelementptr inbounds nuw i16, ptr %550, i64 %759
   %785 = load i16, ptr %784, align 2, !tbaa !72
   %786 = zext i16 %785 to i64
-  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i158
+  br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i163
 
-_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i158: ; preds = %774, %761
-  %.sink20.i77.i159 = phi i64 [ %786, %774 ], [ %773, %761 ]
-  %.pn.i78.i160 = phi i64 [ %777, %774 ], [ %764, %761 ]
-  %.pn21.i79.i161 = phi i64 [ %780, %774 ], [ %767, %761 ]
-  %.pn22.i80.i162 = phi i64 [ %783, %774 ], [ %770, %761 ]
-  %.sink17.in.i81.i163 = getelementptr inbounds nuw float, ptr %580, i64 %.pn22.i80.i162
-  %.sink17.i82.i164 = load float, ptr %.sink17.in.i81.i163, align 4, !tbaa !74
-  %.sink18.in.i83.i165 = getelementptr inbounds nuw float, ptr %580, i64 %.pn21.i79.i161
-  %.sink18.i84.i166 = load float, ptr %.sink18.in.i83.i165, align 4, !tbaa !74
-  %.sink19.in.i85.i167 = getelementptr inbounds nuw float, ptr %580, i64 %.pn.i78.i160
-  %.sink19.i86.i168 = load float, ptr %.sink19.in.i85.i167, align 4, !tbaa !74
-  %787 = getelementptr inbounds nuw float, ptr %580, i64 %.sink20.i77.i159
+_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i163: ; preds = %774, %761
+  %.sink20.i77.i164 = phi i64 [ %786, %774 ], [ %773, %761 ]
+  %.pn.i78.i165 = phi i64 [ %777, %774 ], [ %764, %761 ]
+  %.pn21.i79.i166 = phi i64 [ %780, %774 ], [ %767, %761 ]
+  %.pn22.i80.i167 = phi i64 [ %783, %774 ], [ %770, %761 ]
+  %.sink17.in.i81.i168 = getelementptr inbounds nuw float, ptr %580, i64 %.pn22.i80.i167
+  %.sink17.i82.i169 = load float, ptr %.sink17.in.i81.i168, align 4, !tbaa !74
+  %.sink18.in.i83.i170 = getelementptr inbounds nuw float, ptr %580, i64 %.pn21.i79.i166
+  %.sink18.i84.i171 = load float, ptr %.sink18.in.i83.i170, align 4, !tbaa !74
+  %.sink19.in.i85.i172 = getelementptr inbounds nuw float, ptr %580, i64 %.pn.i78.i165
+  %.sink19.i86.i173 = load float, ptr %.sink19.in.i85.i172, align 4, !tbaa !74
+  %787 = getelementptr inbounds nuw float, ptr %580, i64 %.sink20.i77.i164
   %788 = load float, ptr %787, align 4, !tbaa !74
-  %789 = insertelement <4 x float> poison, float %.sink19.i86.i168, i64 0
-  %790 = insertelement <4 x float> %789, float %.sink18.i84.i166, i64 1
-  %791 = insertelement <4 x float> %790, float %.sink17.i82.i164, i64 2
+  %789 = insertelement <4 x float> poison, float %.sink19.i86.i173, i64 0
+  %790 = insertelement <4 x float> %789, float %.sink18.i84.i171, i64 1
+  %791 = insertelement <4 x float> %790, float %.sink17.i82.i169, i64 2
   %792 = insertelement <4 x float> %791, float %788, i64 3
   %793 = load ptr, ptr %585, align 8, !tbaa !75
-  %794 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %793, i64 %.06225.i142, i32 0, i64 1
+  %794 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %793, i64 %.06225.i147, i32 0, i64 1
   store <4 x float> %792, ptr %794, align 16, !tbaa !68
   %795 = load ptr, ptr %585, align 8, !tbaa !75
-  %796 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %795, i64 %.06225.i142, i32 1, i64 1
+  %796 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %795, i64 %.06225.i147, i32 1, i64 1
   %797 = load i16, ptr %751, align 2, !tbaa !72
   %798 = zext i16 %797 to i32
   %799 = load i16, ptr %754, align 2, !tbaa !72
@@ -1225,18 +1225,18 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   store <4 x i32> %874, ptr %875, align 16, !tbaa !68
   br label %876
 
-876:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i158, %.lr.ph.i140
-  %877 = add nuw i64 %.06225.i142, 1
-  %878 = lshr i8 %.06126.i141, 1
-  %.not.i169 = icmp ult i8 %.06126.i141, 2
-  br i1 %.not.i169, label %._crit_edge.i170, label %.lr.ph.i140, !llvm.loop !76
+876:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i163, %.lr.ph.i145
+  %877 = add nuw i64 %.06225.i147, 1
+  %878 = lshr i8 %.06126.i146, 1
+  %.not.i174 = icmp ult i8 %.06126.i146, 2
+  br i1 %.not.i174, label %._crit_edge.i175, label %.lr.ph.i145, !llvm.loop !76
 
-_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit172.loopexit: ; preds = %._crit_edge.i170
-  %.pre177 = load ptr, ptr %8, align 8, !tbaa !15
-  br label %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit172
+_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit177.loopexit: ; preds = %._crit_edge.i175
+  %.pre182 = load ptr, ptr %8, align 8, !tbaa !15
+  br label %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit177
 
-_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit172: ; preds = %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit172.loopexit, %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal13QuaternionKeyENS3_19InterpSoaQuaternionEPFvRKS4_S7_S7_S7_PNS_4math13SoaQuaternionEEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit
-  %879 = phi ptr [ %.pre177, %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit172.loopexit ], [ %583, %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal13QuaternionKeyENS3_19InterpSoaQuaternionEPFvRKS4_S7_S7_S7_PNS_4math13SoaQuaternionEEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit ]
+_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit177: ; preds = %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit177.loopexit, %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal13QuaternionKeyENS3_19InterpSoaQuaternionEPFvRKS4_S7_S7_S7_PNS_4math13SoaQuaternionEEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit
+  %879 = phi ptr [ %.pre182, %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit177.loopexit ], [ %583, %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal13QuaternionKeyENS3_19InterpSoaQuaternionEPFvRKS4_S7_S7_S7_PNS_4math13SoaQuaternionEEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit ]
   %880 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %881 = load i64, ptr %10, align 8, !tbaa !16
   %882 = tail call noundef i64 @llvm.umin.i64(i64 %881, i64 %24)
@@ -1251,8 +1251,8 @@ _ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15Interp
   %.not.i68 = icmp eq i64 %882, 0
   br i1 %.not.i68, label %_ZN3ozz9animation12_GLOBAL__N_112InterpolatesEfmRKNS_4spanIKNS0_8internal15InterpSoaFloat3EEERKNS2_IKNS3_19InterpSoaQuaternionEEES8_RKNS2_INS_4math12SoaTransformEEE.exit, label %.lr.ph.i69
 
-.lr.ph.i69:                                       ; preds = %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit172, %.lr.ph.i69
-  %.011.i = phi i64 [ %995, %.lr.ph.i69 ], [ 0, %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit172 ]
+.lr.ph.i69:                                       ; preds = %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit177, %.lr.ph.i69
+  %.011.i = phi i64 [ %995, %.lr.ph.i69 ], [ 0, %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit177 ]
   %891 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %884, i64 %.011.i
   %892 = load <4 x float>, ptr %891, align 16, !tbaa !68
   %893 = fsub <4 x float> %890, %892
@@ -1378,7 +1378,7 @@ _ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15Interp
   %exitcond.not.i70 = icmp eq i64 %995, %882
   br i1 %exitcond.not.i70, label %_ZN3ozz9animation12_GLOBAL__N_112InterpolatesEfmRKNS_4spanIKNS0_8internal15InterpSoaFloat3EEERKNS2_IKNS3_19InterpSoaQuaternionEEES8_RKNS2_INS_4math12SoaTransformEEE.exit, label %.lr.ph.i69, !llvm.loop !105
 
-_ZN3ozz9animation12_GLOBAL__N_112InterpolatesEfmRKNS_4spanIKNS0_8internal15InterpSoaFloat3EEERKNS2_IKNS3_19InterpSoaQuaternionEEES8_RKNS2_INS_4math12SoaTransformEEE.exit: ; preds = %.lr.ph.i69, %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit172
+_ZN3ozz9animation12_GLOBAL__N_112InterpolatesEfmRKNS_4spanIKNS0_8internal15InterpSoaFloat3EEERKNS2_IKNS3_19InterpSoaQuaternionEEES8_RKNS2_INS_4math12SoaTransformEEE.exit: ; preds = %.lr.ph.i69, %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit177
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1730,7 +1730,7 @@ _ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit92: ; p
   br i1 %164, label %_ZN3ozz9animation12_GLOBAL__N_113TrackBackwardENS_4spanIKjEEjjj.exit, label %.preheader.i, !llvm.loop !119
 
 .thread.loopexit23.i:                             ; preds = %156
-  %165 = trunc i64 %157 to i32
+  %165 = trunc nuw i64 %157 to i32
   %.pre18 = and i64 %157, 4294967295
   br label %_ZN3ozz9animation12_GLOBAL__N_113TrackBackwardENS_4spanIKjEEjjj.exit
 

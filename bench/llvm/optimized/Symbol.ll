@@ -255,8 +255,8 @@ _ZNSt8functionIFbRKN4llvm5MachO6TargetEEEC2ERKS6_.exit.i.i11: ; preds = %_ZNSt8f
   br i1 %.not1.i.i.i12, label %_ZN4llvm20filter_iterator_baseIPKNS_5MachO6TargetESt8functionIFbRS3_EESt26bidirectional_iterator_tagEC2ES4_S4_S8_.exit.i19, label %.lr.ph.i.i.i13.preheader
 
 .lr.ph.i.i.i13.preheader:                         ; preds = %_ZNSt8functionIFbRKN4llvm5MachO6TargetEEEC2ERKS6_.exit.i.i11
-  %.not.i.i.i.i.i1439 = icmp eq ptr %91, null
-  br i1 %.not.i.i.i.i.i1439, label %.lr.ph.i.i.i13._crit_edge, label %_ZNKSt8functionIFbRKN4llvm5MachO6TargetEEEclES4_.exit.i.i.i15
+  %.not.i.i.i.i.i1454 = icmp eq ptr %91, null
+  br i1 %.not.i.i.i.i.i1454, label %.lr.ph.i.i.i13._crit_edge, label %_ZNKSt8functionIFbRKN4llvm5MachO6TargetEEEclES4_.exit.i.i.i15
 
 thread-pre-split:                                 ; preds = %95
   %.pr = load ptr, ptr %88, align 8, !tbaa !11

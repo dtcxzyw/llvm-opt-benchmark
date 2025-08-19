@@ -14294,9 +14294,9 @@ define hidden i64 @_ZN4cvc58internal4prop14ProofCnfStream9handleAndENS0_12NodeTe
   %53 = trunc nsw i64 %51 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.not.i.i.i.i = icmp eq i64 %52, 4294967295
-  br i1 %.not.i.i.i.i, label %.thread541, label %55
+  br i1 %.not.i.i.i.i, label %.thread590, label %55
 
-.thread541:                                       ; preds = %2
+.thread590:                                       ; preds = %2
   %54 = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   br label %.lr.ph.preheader
@@ -14316,13 +14316,13 @@ define hidden i64 @_ZN4cvc58internal4prop14ProofCnfStream9handleAndENS0_12NodeTe
   %.not = icmp eq i64 %51, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.thread541, %55
-  %62 = phi ptr [ %54, %.thread541 ], [ %61, %55 ]
+.lr.ph.preheader:                                 ; preds = %.thread590, %55
+  %62 = phi ptr [ %54, %.thread590 ], [ %61, %55 ]
   %wide.trip.count = and i64 %51, 4294967295
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %84, %55
-  %.not546 = phi i1 [ true, %55 ], [ false, %84 ]
+  %.not595 = phi i1 [ true, %55 ], [ false, %84 ]
   %63 = phi ptr [ %61, %55 ], [ %62, %84 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %65 = load ptr, ptr %64, align 8, !tbaa !21
@@ -14381,7 +14381,7 @@ define hidden i64 @_ZN4cvc58internal4prop14ProofCnfStream9handleAndENS0_12NodeTe
           to label %.preheader unwind label %106
 
 .preheader:                                       ; preds = %92
-  br i1 %.not546, label %._crit_edge523, label %.lr.ph522
+  br i1 %.not595, label %._crit_edge523, label %.lr.ph522
 
 .lr.ph522:                                        ; preds = %.preheader
   %94 = xor i64 %67, 1
@@ -14512,8 +14512,8 @@ define hidden i64 @_ZN4cvc58internal4prop14ProofCnfStream9handleAndENS0_12NodeTe
   %155 = trunc nuw i64 %indvars.iv532 to i32
   %spec.select.i.i152 = add nuw i64 %indvars.iv532, %154
   %156 = getelementptr inbounds nuw i8, ptr %144, i64 24
-  %sext540 = shl i64 %spec.select.i.i152, 32
-  %157 = ashr exact i64 %sext540, 32
+  %sext589 = shl i64 %spec.select.i.i152, 32
+  %157 = ashr exact i64 %sext589, 32
   %158 = getelementptr inbounds [0 x ptr], ptr %156, i64 0, i64 %157
   %159 = load ptr, ptr %158, align 8, !tbaa !76, !noalias !546
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -15247,7 +15247,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit259: ; preds = %444, %449, %455
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  br i1 %.not546, label %._crit_edge527, label %.lr.ph526
+  br i1 %.not595, label %._crit_edge527, label %.lr.ph526
 
 ._crit_edge527:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit279, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit259
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
@@ -16020,9 +16020,9 @@ define hidden i64 @_ZN4cvc58internal4prop14ProofCnfStream8handleOrENS0_12NodeTem
   %53 = trunc nsw i64 %51 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.not.i.i.i.i = icmp eq i64 %52, 4294967295
-  br i1 %.not.i.i.i.i, label %.thread423, label %55
+  br i1 %.not.i.i.i.i, label %.thread472, label %55
 
-.thread423:                                       ; preds = %2
+.thread472:                                       ; preds = %2
   %54 = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   br label %.lr.ph.preheader
@@ -16042,13 +16042,13 @@ define hidden i64 @_ZN4cvc58internal4prop14ProofCnfStream8handleOrENS0_12NodeTem
   %.not = icmp eq i64 %51, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.thread423, %55
-  %62 = phi ptr [ %54, %.thread423 ], [ %61, %55 ]
+.lr.ph.preheader:                                 ; preds = %.thread472, %55
+  %62 = phi ptr [ %54, %.thread472 ], [ %61, %55 ]
   %wide.trip.count = and i64 %51, 4294967295
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %84, %55
-  %.not428 = phi i1 [ true, %55 ], [ false, %84 ]
+  %.not477 = phi i1 [ true, %55 ], [ false, %84 ]
   %63 = phi ptr [ %61, %55 ], [ %62, %84 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %65 = load ptr, ptr %64, align 8, !tbaa !21
@@ -16106,7 +16106,7 @@ define hidden i64 @_ZN4cvc58internal4prop14ProofCnfStream8handleOrENS0_12NodeTem
           to label %.preheader unwind label %104
 
 .preheader:                                       ; preds = %91
-  br i1 %.not428, label %._crit_edge405, label %.lr.ph404
+  br i1 %.not477, label %._crit_edge405, label %.lr.ph404
 
 .lr.ph404:                                        ; preds = %.preheader
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -16165,8 +16165,8 @@ define hidden i64 @_ZN4cvc58internal4prop14ProofCnfStream8handleOrENS0_12NodeTem
   %127 = trunc nuw i64 %indvars.iv414 to i32
   %spec.select.i.i113 = add nuw i64 %indvars.iv414, %126
   %128 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  %sext422 = shl i64 %spec.select.i.i113, 32
-  %129 = ashr exact i64 %sext422, 32
+  %sext471 = shl i64 %spec.select.i.i113, 32
+  %129 = ashr exact i64 %sext471, 32
   %130 = getelementptr inbounds [0 x ptr], ptr %128, i64 0, i64 %129
   %131 = load ptr, ptr %130, align 8, !tbaa !76, !noalias !570
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
@@ -16968,7 +16968,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit221: ; preds = %432, %437, %443
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  br i1 %.not428, label %._crit_edge409, label %.lr.ph408
+  br i1 %.not477, label %._crit_edge409, label %.lr.ph408
 
 ._crit_edge409:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit236, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit221
   call void @llvm.lifetime.start.p0(ptr nonnull %31)

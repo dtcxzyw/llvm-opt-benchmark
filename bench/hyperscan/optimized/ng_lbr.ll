@@ -417,7 +417,7 @@ _ZN3ue210verify_u32INS_5depthEEEjT_.exit.i.i.i:   ; preds = %141
 
 164:                                              ; preds = %155
   %165 = call ptr @__cxa_allocate_exception(i64 1) #15, !noalias !14
-  br label %.invoke66.i.i.i
+  br label %.invoke76.i.i.i
 
 _ZNK3ue25depthcvjEv.exit56.i.i.i:                 ; preds = %155
   %166 = load i32, ptr %161, align 4, !noalias !14
@@ -432,7 +432,7 @@ _ZNK3ue25depthcvjEv.exit56.i.i.i:                 ; preds = %155
 172:                                              ; preds = %_ZNK3ue25depthcvjEv.exit56.i.i.i
   %173 = call ptr @__cxa_allocate_exception(i64 48) #15, !noalias !14
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %173)
-          to label %.invoke66.i.i.i unwind label %174, !noalias !14
+          to label %.invoke76.i.i.i unwind label %174, !noalias !14
 
 174:                                              ; preds = %172
   %175 = landingpad { ptr, i32 }
@@ -450,16 +450,16 @@ _ZNK3ue25depthcvjEv.exit56.i.i.i:                 ; preds = %155
 179:                                              ; preds = %176
   %180 = call ptr @__cxa_allocate_exception(i64 48) #15, !noalias !14
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %180)
-          to label %.invoke66.i.i.i unwind label %184, !noalias !14
+          to label %.invoke76.i.i.i unwind label %184, !noalias !14
 
-.invoke66.i.i.i:                                  ; preds = %179, %172, %164
+.invoke76.i.i.i:                                  ; preds = %179, %172, %164
   %181 = phi ptr [ %165, %164 ], [ %173, %172 ], [ %180, %179 ]
   %182 = phi ptr [ @_ZTIN3ue218DepthOverflowErrorE, %164 ], [ @_ZTIN3ue218ResourceLimitErrorE, %172 ], [ @_ZTIN3ue218ResourceLimitErrorE, %179 ]
   %183 = phi ptr [ null, %164 ], [ @_ZN3ue218ResourceLimitErrorD1Ev, %172 ], [ @_ZN3ue218ResourceLimitErrorD1Ev, %179 ]
   invoke void @__cxa_throw(ptr %181, ptr nonnull %182, ptr %183) #16
-          to label %.cont67.i.i.i unwind label %201, !noalias !14
+          to label %.cont77.i.i.i unwind label %201, !noalias !14
 
-.cont67.i.i.i:                                    ; preds = %.invoke66.i.i.i
+.cont77.i.i.i:                                    ; preds = %.invoke76.i.i.i
   unreachable
 
 184:                                              ; preds = %179
@@ -492,7 +492,7 @@ _ZNK3ue25depthcvjEv.exit56.i.i.i:                 ; preds = %155
           cleanup
   br label %.body.i16.i.i
 
-201:                                              ; preds = %.invoke66.i.i.i
+201:                                              ; preds = %.invoke76.i.i.i
   %202 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i16.i.i
@@ -707,9 +707,9 @@ _ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit.i:        ; preds = %249
   %275 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %274)
   %276 = add nuw nsw i64 %272, %275
   %.not.i37.i = icmp eq i64 %276, 1
-  br i1 %.not.i37.i, label %277, label %.thread191.i
+  br i1 %.not.i37.i, label %277, label %.thread235.i
 
-.thread191.i:                                     ; preds = %262
+.thread235.i:                                     ; preds = %262
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false), !alias.scope !39, !noalias !14
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !42
   store ptr null, ptr %14, align 8, !noalias !14
@@ -771,7 +771,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i41.i:      ; preds = %288, %283
   %.not.i.i.i.i.i48.i = icmp eq ptr %.pre186.i, null
   br i1 %.not.i.i.i.i.i48.i, label %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit49.thread.i, label %297
 
-_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit49.thread.i: ; preds = %294, %.thread191.i
+_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit49.thread.i: ; preds = %294, %.thread235.i
   %295 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %296 = getelementptr inbounds nuw i8, ptr %16, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %295, ptr noundef nonnull align 8 dereferenceable(16) %296, i64 16, i1 false), !noalias !14
@@ -1056,7 +1056,7 @@ _ZN3ue210verify_u32INS_5depthEEEjT_.exit.i.i74.i: ; preds = %385
 
 408:                                              ; preds = %399
   %409 = call ptr @__cxa_allocate_exception(i64 1) #15, !noalias !46
-  br label %.invoke66.i.i85.i
+  br label %.invoke76.i.i85.i
 
 _ZNK3ue25depthcvjEv.exit56.i.i87.i:               ; preds = %399
   %410 = load i32, ptr %405, align 4, !noalias !46
@@ -1071,7 +1071,7 @@ _ZNK3ue25depthcvjEv.exit56.i.i87.i:               ; preds = %399
 416:                                              ; preds = %_ZNK3ue25depthcvjEv.exit56.i.i87.i
   %417 = call ptr @__cxa_allocate_exception(i64 48) #15, !noalias !46
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %417)
-          to label %.invoke66.i.i85.i unwind label %418, !noalias !46
+          to label %.invoke76.i.i85.i unwind label %418, !noalias !46
 
 418:                                              ; preds = %416
   %419 = landingpad { ptr, i32 }
@@ -1089,16 +1089,16 @@ _ZNK3ue25depthcvjEv.exit56.i.i87.i:               ; preds = %399
 423:                                              ; preds = %420
   %424 = call ptr @__cxa_allocate_exception(i64 48) #15, !noalias !46
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %424)
-          to label %.invoke66.i.i85.i unwind label %428, !noalias !46
+          to label %.invoke76.i.i85.i unwind label %428, !noalias !46
 
-.invoke66.i.i85.i:                                ; preds = %423, %416, %408
+.invoke76.i.i85.i:                                ; preds = %423, %416, %408
   %425 = phi ptr [ %409, %408 ], [ %417, %416 ], [ %424, %423 ]
   %426 = phi ptr [ @_ZTIN3ue218DepthOverflowErrorE, %408 ], [ @_ZTIN3ue218ResourceLimitErrorE, %416 ], [ @_ZTIN3ue218ResourceLimitErrorE, %423 ]
   %427 = phi ptr [ null, %408 ], [ @_ZN3ue218ResourceLimitErrorD1Ev, %416 ], [ @_ZN3ue218ResourceLimitErrorD1Ev, %423 ]
   invoke void @__cxa_throw(ptr %425, ptr nonnull %426, ptr %427) #16
-          to label %.cont67.i.i86.i unwind label %445, !noalias !46
+          to label %.cont77.i.i86.i unwind label %445, !noalias !46
 
-.cont67.i.i86.i:                                  ; preds = %.invoke66.i.i85.i
+.cont77.i.i86.i:                                  ; preds = %.invoke76.i.i85.i
   unreachable
 
 428:                                              ; preds = %423
@@ -1131,7 +1131,7 @@ _ZNK3ue25depthcvjEv.exit56.i.i87.i:               ; preds = %399
           cleanup
   br label %.body.i19.i.i
 
-445:                                              ; preds = %.invoke66.i.i85.i
+445:                                              ; preds = %.invoke76.i.i85.i
   %446 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i19.i.i
@@ -1502,7 +1502,7 @@ _ZN3ue210verify_u32INS_5depthEEEjT_.exit.i.i127.i: ; preds = %558
 
 581:                                              ; preds = %572
   %582 = call ptr @__cxa_allocate_exception(i64 1) #15, !noalias !14
-  br label %.invoke66.i.i137.i
+  br label %.invoke76.i.i137.i
 
 _ZNK3ue25depthcvjEv.exit56.i.i139.i:              ; preds = %572
   %583 = load i32, ptr %578, align 4, !noalias !14
@@ -1517,7 +1517,7 @@ _ZNK3ue25depthcvjEv.exit56.i.i139.i:              ; preds = %572
 589:                                              ; preds = %_ZNK3ue25depthcvjEv.exit56.i.i139.i
   %590 = call ptr @__cxa_allocate_exception(i64 48) #15, !noalias !14
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %590)
-          to label %.invoke66.i.i137.i unwind label %591, !noalias !14
+          to label %.invoke76.i.i137.i unwind label %591, !noalias !14
 
 591:                                              ; preds = %589
   %592 = landingpad { ptr, i32 }
@@ -1535,16 +1535,16 @@ _ZNK3ue25depthcvjEv.exit56.i.i139.i:              ; preds = %572
 596:                                              ; preds = %593
   %597 = call ptr @__cxa_allocate_exception(i64 48) #15, !noalias !14
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %597)
-          to label %.invoke66.i.i137.i unwind label %601, !noalias !14
+          to label %.invoke76.i.i137.i unwind label %601, !noalias !14
 
-.invoke66.i.i137.i:                               ; preds = %596, %589, %581
+.invoke76.i.i137.i:                               ; preds = %596, %589, %581
   %598 = phi ptr [ %582, %581 ], [ %590, %589 ], [ %597, %596 ]
   %599 = phi ptr [ @_ZTIN3ue218DepthOverflowErrorE, %581 ], [ @_ZTIN3ue218ResourceLimitErrorE, %589 ], [ @_ZTIN3ue218ResourceLimitErrorE, %596 ]
   %600 = phi ptr [ null, %581 ], [ @_ZN3ue218ResourceLimitErrorD1Ev, %589 ], [ @_ZN3ue218ResourceLimitErrorD1Ev, %596 ]
   invoke void @__cxa_throw(ptr %598, ptr nonnull %599, ptr %600) #16
-          to label %.cont67.i.i138.i unwind label %618, !noalias !14
+          to label %.cont77.i.i138.i unwind label %618, !noalias !14
 
-.cont67.i.i138.i:                                 ; preds = %.invoke66.i.i137.i
+.cont77.i.i138.i:                                 ; preds = %.invoke76.i.i137.i
   unreachable
 
 601:                                              ; preds = %596
@@ -1577,7 +1577,7 @@ _ZNK3ue25depthcvjEv.exit56.i.i139.i:              ; preds = %572
           cleanup
   br label %.body.i20.i.i
 
-618:                                              ; preds = %.invoke66.i.i137.i
+618:                                              ; preds = %.invoke76.i.i137.i
   %619 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i20.i.i
@@ -2391,7 +2391,7 @@ _ZN3ue210verify_u32INS_5depthEEEjT_.exit:         ; preds = %58
 
 82:                                               ; preds = %73
   %83 = call ptr @__cxa_allocate_exception(i64 1) #15
-  br label %.invoke66
+  br label %.invoke76
 
 _ZNK3ue25depthcvjEv.exit56:                       ; preds = %73
   %84 = load i32, ptr %79, align 4
@@ -2406,7 +2406,7 @@ _ZNK3ue25depthcvjEv.exit56:                       ; preds = %73
 90:                                               ; preds = %_ZNK3ue25depthcvjEv.exit56
   %91 = call ptr @__cxa_allocate_exception(i64 48) #15
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %91)
-          to label %.invoke66 unwind label %92
+          to label %.invoke76 unwind label %92
 
 92:                                               ; preds = %90
   %93 = landingpad { ptr, i32 }
@@ -2424,16 +2424,16 @@ _ZNK3ue25depthcvjEv.exit56:                       ; preds = %73
 97:                                               ; preds = %94
   %98 = call ptr @__cxa_allocate_exception(i64 48) #15
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %98)
-          to label %.invoke66 unwind label %102
+          to label %.invoke76 unwind label %102
 
-.invoke66:                                        ; preds = %97, %90, %82
+.invoke76:                                        ; preds = %97, %90, %82
   %99 = phi ptr [ %83, %82 ], [ %91, %90 ], [ %98, %97 ]
   %100 = phi ptr [ @_ZTIN3ue218DepthOverflowErrorE, %82 ], [ @_ZTIN3ue218ResourceLimitErrorE, %90 ], [ @_ZTIN3ue218ResourceLimitErrorE, %97 ]
   %101 = phi ptr [ null, %82 ], [ @_ZN3ue218ResourceLimitErrorD1Ev, %90 ], [ @_ZN3ue218ResourceLimitErrorD1Ev, %97 ]
   invoke void @__cxa_throw(ptr %99, ptr nonnull %100, ptr %101) #16
-          to label %.cont67 unwind label %119
+          to label %.cont77 unwind label %119
 
-.cont67:                                          ; preds = %.invoke66
+.cont77:                                          ; preds = %.invoke76
   unreachable
 
 102:                                              ; preds = %97
@@ -2466,7 +2466,7 @@ _ZNK3ue25depthcvjEv.exit56:                       ; preds = %73
           cleanup
   br label %.body
 
-119:                                              ; preds = %.invoke66
+119:                                              ; preds = %.invoke76
   %120 = landingpad { ptr, i32 }
           cleanup
   br label %.body

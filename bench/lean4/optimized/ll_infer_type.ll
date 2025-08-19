@@ -5148,7 +5148,7 @@ _ZN4lean15mk_cstage2_nameERKNS_4nameE.exit:       ; preds = %73
 
 108:                                              ; preds = %106
   %.not.i.i.i.i50 = icmp eq i32 %.val.i.i.i.i49, 0
-  br i1 %.not.i.i.i.i50, label %_ZN4lean4exprC2ERKS0_.exit52, label %.invoke87
+  br i1 %.not.i.i.i.i50, label %_ZN4lean4exprC2ERKS0_.exit52, label %.invoke96
 
 109:                                              ; preds = %73
   %110 = landingpad { ptr, i32 }
@@ -5160,7 +5160,7 @@ _ZN4lean15mk_cstage2_nameERKNS_4nameE.exit:       ; preds = %73
           cleanup
   br label %.body
 
-113:                                              ; preds = %.invoke87
+113:                                              ; preds = %.invoke96
   %114 = landingpad { ptr, i32 }
           cleanup
   br label %193
@@ -5238,9 +5238,9 @@ _ZN4lean15mk_cstage2_nameERKNS_4nameE.exit:       ; preds = %73
 
 148:                                              ; preds = %146
   %.not.i.i.i.i56 = icmp eq i32 %.val.i.i.i.i55, 0
-  br i1 %.not.i.i.i.i56, label %_ZN4lean4exprC2ERKS0_.exit52, label %.invoke87
+  br i1 %.not.i.i.i.i56, label %_ZN4lean4exprC2ERKS0_.exit52, label %.invoke96
 
-.invoke87:                                        ; preds = %108, %148
+.invoke96:                                        ; preds = %108, %148
   %149 = phi ptr [ %143, %148 ], [ %103, %108 ]
   invoke void @lean_inc_ref_cold(ptr noundef nonnull %149)
           to label %_ZN4lean4exprC2ERKS0_.exit52 unwind label %113
@@ -5301,12 +5301,12 @@ _ZN4lean7sstreamlsIA40_cEERS0_RKT_.exit:          ; preds = %_ZN4lean7sstreamlsI
 
 _ZN4lean4exprC2ERKS0_.exit52.sink.split:          ; preds = %146, %106
   %.val.i.i.i.i55.sink = phi i32 [ %.val.i.i.i.i49, %106 ], [ %.val.i.i.i.i55, %146 ]
-  %.sink88 = phi ptr [ %103, %106 ], [ %143, %146 ]
+  %.sink97 = phi ptr [ %103, %106 ], [ %143, %146 ]
   %162 = add nuw nsw i32 %.val.i.i.i.i55.sink, 1
-  store i32 %162, ptr %.sink88, align 4, !tbaa !18
+  store i32 %162, ptr %.sink97, align 4, !tbaa !18
   br label %_ZN4lean4exprC2ERKS0_.exit52
 
-_ZN4lean4exprC2ERKS0_.exit52:                     ; preds = %_ZN4lean4exprC2ERKS0_.exit52.sink.split, %.invoke87, %148, %.critedge, %138, %108, %95
+_ZN4lean4exprC2ERKS0_.exit52:                     ; preds = %_ZN4lean4exprC2ERKS0_.exit52.sink.split, %.invoke96, %148, %.critedge, %138, %108, %95
   %163 = load i8, ptr %8, align 8, !tbaa !116, !range !92, !noundef !93
   %164 = trunc nuw i8 %163 to i1
   br i1 %164, label %165, label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit

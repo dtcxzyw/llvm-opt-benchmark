@@ -1506,8 +1506,8 @@ find_next_marker.exit:                            ; preds = %62, %67, %.find_nex
   %.not748 = icmp ne i32 %165, 0
   %166 = and i32 %48, 192
   %167 = icmp eq i32 %166, 192
-  %or.cond1037 = and i1 %.not748, %167
-  br i1 %or.cond1037, label %168, label %221
+  %or.cond1094 = and i1 %.not748, %167
+  br i1 %or.cond1094, label %168, label %221
 
 168:                                              ; preds = %163
   %169 = sext i32 %12 to i64
@@ -1796,9 +1796,9 @@ find_next_marker.exit829.thread:                  ; preds = %174, %168, %181
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %316 = load i32, ptr %315, align 4, !tbaa !132
   %317 = icmp slt i32 %316, 2
-  br i1 %317, label %.thread910, label %.thread1023
+  br i1 %317, label %.thread910, label %.thread1080
 
-.thread1023:                                      ; preds = %314
+.thread1080:                                      ; preds = %314
   %318 = getelementptr inbounds nuw i8, ptr %14, i64 556
   store i32 %312, ptr %318, align 4, !tbaa !167
   %319 = getelementptr inbounds nuw i8, ptr %14, i64 560
@@ -1824,9 +1824,9 @@ find_next_marker.exit829.thread:                  ; preds = %174, %168, %181
   %330 = icmp slt i32 %329, 0
   br i1 %330, label %.thread910, label %337
 
-331:                                              ; preds = %.thread1023, %322
-  %332 = phi ptr [ %321, %.thread1023 ], [ %325, %322 ]
-  %333 = phi ptr [ %320, %.thread1023 ], [ %324, %322 ]
+331:                                              ; preds = %.thread1080, %322
+  %332 = phi ptr [ %321, %.thread1080 ], [ %325, %322 ]
+  %333 = phi ptr [ %320, %.thread1080 ], [ %324, %322 ]
   %334 = getelementptr inbounds nuw i8, ptr %14, i64 4160
   %335 = call i32 @ff_vc1_parse_frame_header_adv(ptr noundef nonnull %14, ptr noundef nonnull %334) #13
   %336 = icmp slt i32 %335, 0
@@ -2609,7 +2609,7 @@ find_next_marker.exit829.thread:                  ; preds = %174, %168, %181
 
 786:                                              ; preds = %784, %781
   %787 = icmp eq i64 %indvars.iv999, %720
-  br i1 %787, label %796, label %.sink.split1038
+  br i1 %787, label %796, label %.sink.split1095
 
 788:                                              ; preds = %784
   %.not797 = icmp samesign ult i64 %indvars.iv999, %719
@@ -2622,16 +2622,16 @@ find_next_marker.exit829.thread:                  ; preds = %174, %168, %181
 
 791:                                              ; preds = %788
   %792 = icmp eq i64 %indvars.iv999, %718
-  br i1 %792, label %796, label %.sink.split1038
+  br i1 %792, label %796, label %.sink.split1095
 
-.sink.split1038:                                  ; preds = %791, %786
+.sink.split1095:                                  ; preds = %791, %786
   %793 = getelementptr inbounds nuw %struct.anon.6, ptr %.9667, i64 %indvars.iv999, i32 2
   %794 = load i32, ptr %793, align 8, !tbaa !157
   %795 = srem i32 %794, %699
   br label %796
 
-796:                                              ; preds = %.sink.split1038, %791, %786
-  %797 = phi i32 [ %699, %786 ], [ %699, %791 ], [ %795, %.sink.split1038 ]
+796:                                              ; preds = %.sink.split1095, %791, %786
+  %797 = phi i32 [ %699, %786 ], [ %699, %791 ], [ %795, %.sink.split1095 ]
   store i32 %797, ptr %712, align 4, !tbaa !214
   %.not798 = icmp sgt i32 %797, %782
   br i1 %.not798, label %800, label %798
@@ -2903,13 +2903,13 @@ find_next_marker.exit829.thread:                  ; preds = %174, %168, %181
   br i1 %exitcond1013.not, label %._crit_edge982, label %.lr.ph981, !llvm.loop !223
 
 ._crit_edge982:                                   ; preds = %.lr.ph981, %.thread910.thread, %.thread910
-  %.86331029 = phi i32 [ %622, %.thread910.thread ], [ %.8633, %.thread910 ], [ %.8633, %.lr.ph981 ]
-  %.86661028 = phi ptr [ %.9667, %.thread910.thread ], [ %.8666, %.thread910 ], [ %.8666, %.lr.ph981 ]
-  call void @av_free(ptr noundef %.86661028) #13
+  %.86331086 = phi i32 [ %622, %.thread910.thread ], [ %.8633, %.thread910 ], [ %.8633, %.lr.ph981 ]
+  %.86661085 = phi ptr [ %.9667, %.thread910.thread ], [ %.8666, %.thread910 ], [ %.8666, %.lr.ph981 ]
+  call void @av_free(ptr noundef %.86661085) #13
   br label %911
 
 911:                                              ; preds = %.thread895, %235, %27, %31, %39, %35, %._crit_edge982, %._crit_edge979
-  %.0 = phi i32 [ %.86331029, %._crit_edge982 ], [ %12, %._crit_edge979 ], [ %37, %35 ], [ %12, %39 ], [ %12, %31 ], [ %12, %27 ], [ -1094995529, %235 ], [ -12, %.thread895 ]
+  %.0 = phi i32 [ %.86331086, %._crit_edge982 ], [ %12, %._crit_edge979 ], [ %37, %35 ], [ %12, %39 ], [ %12, %31 ], [ %12, %27 ], [ -1094995529, %235 ], [ -12, %.thread895 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -3548,8 +3548,8 @@ vc1_parse_sprites.exit:                           ; preds = %202, %199
   %244 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 0, i64 %indvars.iv.i25
   %.not184.i = icmp eq i32 %243, 65536
   %.not185.i = icmp eq i32 %236, %.0.i.i
-  %or.cond228.i = select i1 %.not184.i, i1 %.not185.i, i1 false
-  br i1 %or.cond228.i, label %250, label %245
+  %or.cond239.i = select i1 %.not184.i, i1 %.not185.i, i1 false
+  br i1 %or.cond239.i, label %250, label %245
 
 245:                                              ; preds = %237
   %246 = xor i32 %.0.i.i, -1

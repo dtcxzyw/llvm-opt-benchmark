@@ -9547,7 +9547,7 @@ proto_item_set_hidden.exit:                       ; preds = %15, %25, %28
   %64 = select i1 %.not, i32 4, i32 8
   %65 = add nsw i32 %64, -1
   %. = select i1 %.not, i32 2, i32 4
-  %.500 = select i1 %.not, i32 4, i32 8
+  %.513 = select i1 %.not, i32 4, i32 8
   br label %69
 
 66:                                               ; preds = %61
@@ -9946,7 +9946,7 @@ sub_1356:                                         ; preds = %.critedge312.tail, 
   %hf_mbim_bulk_ndp_datagram_length_32.val = load i32, ptr @hf_mbim_bulk_ndp_datagram_length_32, align 4
   %304 = select i1 %.not, i32 %hf_mbim_bulk_ndp_datagram_length.val, i32 %hf_mbim_bulk_ndp_datagram_length_32.val
   %305 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %72, i32 noundef %304, ptr noundef %0, i32 noundef %303, i32 noundef %., i32 noundef -2147483648, ptr noundef nonnull %8)
-  %306 = add i32 %.1275, %.500
+  %306 = add i32 %.1275, %.513
   %307 = load i32, ptr %6, align 4
   %308 = icmp ugt i32 %307, %52
   br i1 %308, label %309, label %311
@@ -13416,13 +13416,13 @@ define internal fastcc void @mbim_dissect_ms_apdu(ptr noundef %0, ptr noundef %1
 
 .sink.split:                                      ; preds = %51, %46
   %gsm_sim_cmd_handle.sink = phi ptr [ @gsm_sim_cmd_handle, %46 ], [ @iso7816_handle, %51 ]
-  %.sink46 = phi ptr [ %48, %46 ], [ %53, %51 ]
+  %.sink48 = phi ptr [ %48, %46 ], [ %53, %51 ]
   %55 = load ptr, ptr %gsm_sim_cmd_handle.sink, align 8
   %56 = load i32, ptr %6, align 4
   %57 = add i32 %56, %3
   %58 = load i32, ptr %7, align 4
   %59 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %57, i32 noundef %58)
-  %60 = call i32 @call_dissector(ptr noundef %55, ptr noundef %59, ptr noundef %1, ptr noundef %.sink46)
+  %60 = call i32 @call_dissector(ptr noundef %55, ptr noundef %59, ptr noundef %1, ptr noundef %.sink48)
   br label %61
 
 61:                                               ; preds = %.sink.split, %44, %49, %33
@@ -13885,8 +13885,8 @@ define internal fastcc void @mbim_dissect_device_caps_info(ptr noundef %0, ptr n
   %93 = icmp ugt i32 %92, 30
   %or.cond5 = select i1 %91, i1 %93, i1 false
   %94 = icmp ugt i32 %92, 36
-  %or.cond105 = select i1 %or.cond5, i1 true, i1 %94
-  br i1 %or.cond105, label %.sink.split, label %96
+  %or.cond112 = select i1 %or.cond5, i1 true, i1 %94
+  br i1 %or.cond112, label %.sink.split, label %96
 
 .sink.split:                                      ; preds = %85
   %95 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %88, ptr noundef nonnull @ei_mbim_oversized_string)
@@ -14074,8 +14074,8 @@ define internal fastcc void @mbim_dissect_subscriber_ready_status(ptr noundef %0
   %90 = icmp ugt i32 %89, 20
   %or.cond7 = select i1 %88, i1 %90, i1 false
   %91 = icmp ugt i32 %89, 30
-  %or.cond110 = select i1 %or.cond7, i1 true, i1 %91
-  br i1 %or.cond110, label %.sink.split, label %93
+  %or.cond119 = select i1 %or.cond7, i1 true, i1 %91
+  br i1 %or.cond119, label %.sink.split, label %93
 
 .sink.split:                                      ; preds = %82
   %92 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %85, ptr noundef nonnull @ei_mbim_oversized_string)
@@ -14423,7 +14423,7 @@ define internal fastcc void @mbim_dissect_packet_service_info(ptr noundef %0, pt
   br i1 %48, label %53, label %.thread
 
 .thread:                                          ; preds = %40, %44
-  %.073 = phi i32 [ %47, %44 ], [ %37, %40 ]
+  %.078 = phi i32 [ %47, %44 ], [ %37, %40 ]
   %49 = phi i32 [ %.pre, %44 ], [ %38, %40 ]
   %50 = icmp eq i32 %49, 0
   %51 = load i32, ptr @preferred_mbim_extended_version, align 4
@@ -14432,16 +14432,16 @@ define internal fastcc void @mbim_dissect_packet_service_info(ptr noundef %0, pt
   br i1 %or.cond5, label %53, label %83
 
 53:                                               ; preds = %44, %.thread
-  %.074 = phi i32 [ %47, %44 ], [ %.073, %.thread ]
+  %.079 = phi i32 [ %47, %44 ], [ %.078, %.thread ]
   %54 = load i32, ptr @hf_mbim_packet_service_info_data_subclass, align 4
   %55 = load i32, ptr @ett_mbim_bitmap, align 4
-  %56 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %.074, i32 noundef %54, i32 noundef %55, ptr noundef nonnull @mbim_data_subclass_fields, i32 noundef -2147483648)
-  %57 = add i32 %.074, 4
+  %56 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %.079, i32 noundef %54, i32 noundef %55, ptr noundef nonnull @mbim_data_subclass_fields, i32 noundef -2147483648)
+  %57 = add i32 %.079, 4
   %58 = load i32, ptr @ett_mbim_pair_list, align 4
   %59 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %57, i32 noundef 0, i32 noundef %58, ptr noundef null, ptr noundef nonnull @.str.2709)
   %60 = load i32, ptr @hf_mbim_ms_plmn_mcc, align 4
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %60, ptr noundef %0, i32 noundef %57, i32 noundef 2, i32 noundef -2147483648)
-  %62 = add i32 %.074, 6
+  %62 = add i32 %.079, 6
   %63 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %62, i32 noundef -2147483648)
   %64 = sext i16 %63 to i32
   %.not.i = icmp sgt i16 %63, -1
@@ -14458,10 +14458,10 @@ define internal fastcc void @mbim_dissect_packet_service_info(ptr noundef %0, pt
   br label %mbim_dissect_ms_plmn.exit
 
 mbim_dissect_ms_plmn.exit:                        ; preds = %66, %69
-  %71 = add i32 %.074, 8
+  %71 = add i32 %.079, 8
   %72 = load i32, ptr @hf_mbim_ms_tai_tac, align 4
   %73 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %72, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef -2147483648)
-  %74 = add i32 %.074, 12
+  %74 = add i32 %.079, 12
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %74, ptr %7, align 4
   %75 = sub i32 %74, %3
@@ -16799,8 +16799,8 @@ define internal fastcc void @mbim_dissect_device_caps_v2_info(ptr noundef %0, pt
   %96 = icmp ugt i32 %95, 30
   %or.cond5 = select i1 %94, i1 %96, i1 false
   %97 = icmp ugt i32 %95, 36
-  %or.cond109 = select i1 %or.cond5, i1 true, i1 %97
-  br i1 %or.cond109, label %.sink.split, label %99
+  %or.cond116 = select i1 %or.cond5, i1 true, i1 %97
+  br i1 %or.cond116, label %.sink.split, label %99
 
 .sink.split:                                      ; preds = %88
   %98 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %91, ptr noundef nonnull @ei_mbim_oversized_string)
@@ -18081,13 +18081,13 @@ define internal fastcc void @mbim_dissect_ms_apdu_info(ptr noundef %0, ptr nound
 
 .sink.split:                                      ; preds = %32, %27
   %gsm_sim_rsp_handle.sink = phi ptr [ @gsm_sim_rsp_handle, %27 ], [ @iso7816_handle, %32 ]
-  %.sink29 = phi ptr [ %29, %27 ], [ %34, %32 ]
+  %.sink30 = phi ptr [ %29, %27 ], [ %34, %32 ]
   %36 = load ptr, ptr %gsm_sim_rsp_handle.sink, align 8
   %37 = load i32, ptr %5, align 4
   %38 = add i32 %37, %3
   %39 = load i32, ptr %6, align 4
   %40 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %38, i32 noundef %39)
-  %41 = call i32 @call_dissector(ptr noundef %36, ptr noundef %40, ptr noundef %1, ptr noundef %.sink29)
+  %41 = call i32 @call_dissector(ptr noundef %36, ptr noundef %40, ptr noundef %1, ptr noundef %.sink30)
   br label %42
 
 42:                                               ; preds = %.sink.split, %25, %30, %4

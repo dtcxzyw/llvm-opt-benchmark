@@ -231,18 +231,18 @@ define hidden noundef i32 @Radius_lex(ptr noundef %0) local_unnamed_addr #0 {
   %104 = sext i16 %103 to i32
   %105 = getelementptr i8, ptr %.1372, i64 1
   %.not401 = icmp eq i16 %103, 343
-  br i1 %.not401, label %.backedge.sink.split1125, label %67, !llvm.loop !8
+  br i1 %.not401, label %.backedge.sink.split1165, label %67, !llvm.loop !8
 
-.backedge.sink.split1125:                         ; preds = %._crit_edge, %.backedge.sink.split1125.backedge
-  %.1378.ph = phi ptr [ %.1378.ph.be, %.backedge.sink.split1125.backedge ], [ %.0377, %._crit_edge ]
+.backedge.sink.split1165:                         ; preds = %._crit_edge, %.backedge.sink.split1165.backedge
+  %.1378.ph = phi ptr [ %.1378.ph.be, %.backedge.sink.split1165.backedge ], [ %.0377, %._crit_edge ]
   %106 = load ptr, ptr %54, align 8
   %107 = load i32, ptr %53, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split1125
-  %.1378 = phi ptr [ %.1378.ph, %.backedge.sink.split1125 ], [ %1167, %.backedge.backedge ]
-  %.2373 = phi ptr [ %106, %.backedge.sink.split1125 ], [ %1169, %.backedge.backedge ]
-  %.3 = phi i32 [ %107, %.backedge.sink.split1125 ], [ %.3.be, %.backedge.backedge ]
+.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split1165
+  %.1378 = phi ptr [ %.1378.ph, %.backedge.sink.split1165 ], [ %1167, %.backedge.backedge ]
+  %.2373 = phi ptr [ %106, %.backedge.sink.split1165 ], [ %1169, %.backedge.backedge ]
+  %.3 = phi i32 [ %107, %.backedge.sink.split1165 ], [ %.3.be, %.backedge.backedge ]
   %108 = sext i32 %.3 to i64
   %109 = getelementptr [344 x i16], ptr @yy_accept, i64 0, i64 %108
   %110 = load i16, ptr %109, align 2
@@ -355,7 +355,7 @@ define hidden noundef i32 @Radius_lex(ptr noundef %0) local_unnamed_addr #0 {
 118:                                              ; preds = %117
   %119 = load i8, ptr %51, align 8
   store i8 %119, ptr %.2373, align 1
-  br label %.backedge.sink.split1125.backedge
+  br label %.backedge.sink.split1165.backedge
 
 120:                                              ; preds = %117
   store i32 5, ptr %52, align 4
@@ -1173,14 +1173,14 @@ add_value.exit416:                                ; preds = %550, %562
   br label %605
 
 605:                                              ; preds = %599, %596
-  %.sink979 = phi ptr [ %604, %599 ], [ %598, %596 ]
+  %.sink1019 = phi ptr [ %604, %599 ], [ %598, %596 ]
   %606 = load ptr, ptr %0, align 8
   %607 = getelementptr inbounds nuw i8, ptr %606, i64 280
   %608 = getelementptr inbounds nuw i8, ptr %606, i64 80
   %609 = load i32, ptr %608, align 8
   %610 = sext i32 %609 to i64
   %611 = getelementptr [10 x ptr], ptr %607, i64 0, i64 %610
-  store ptr %.sink979, ptr %611, align 8
+  store ptr %.sink1019, ptr %611, align 8
   %612 = load ptr, ptr %60, align 8
   %613 = load ptr, ptr %0, align 8
   %614 = getelementptr inbounds nuw i8, ptr %613, i64 280
@@ -1679,13 +1679,13 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i427, %897
   %915 = getelementptr [1782 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i429
   %916 = load i16, ptr %915, align 2
   switch i16 %916, label %917 [
-    i16 343, label %.backedge.sink.split1125.backedge
-    i16 0, label %.backedge.sink.split1125.backedge
+    i16 343, label %.backedge.sink.split1165.backedge
+    i16 0, label %.backedge.sink.split1165.backedge
   ]
 
-.backedge.sink.split1125.backedge:                ; preds = %yy_try_NUL_trans.exit, %yy_try_NUL_trans.exit, %118
+.backedge.sink.split1165.backedge:                ; preds = %yy_try_NUL_trans.exit, %yy_try_NUL_trans.exit, %118
   %.1378.ph.be = phi ptr [ %.1378, %118 ], [ %847, %yy_try_NUL_trans.exit ], [ %847, %yy_try_NUL_trans.exit ]
-  br label %.backedge.sink.split1125
+  br label %.backedge.sink.split1165
 
 917:                                              ; preds = %yy_try_NUL_trans.exit
   %918 = sext i16 %916 to i32
@@ -1965,10 +1965,10 @@ fread.inline.exit.i:                              ; preds = %1019, %1040
   br label %1046
 
 1046:                                             ; preds = %.critedge2.i, %951
-  %.sink191.in.i = phi ptr [ %1045, %.critedge2.i ], [ %952, %951 ]
+  %.sink197.in.i = phi ptr [ %1045, %.critedge2.i ], [ %952, %951 ]
   %.sink.i = phi i32 [ %1042, %.critedge2.i ], [ 0, %951 ]
-  %.sink191.i = load ptr, ptr %.sink191.in.i, align 8
-  %1047 = getelementptr inbounds nuw i8, ptr %.sink191.i, i64 28
+  %.sink197.i = load ptr, ptr %.sink197.in.i, align 8
+  %1047 = getelementptr inbounds nuw i8, ptr %.sink197.i, i64 28
   store i32 %.sink.i, ptr %1047, align 4
   %1048 = load i32, ptr %59, align 4
   %1049 = icmp eq i32 %1048, 0
@@ -2071,7 +2071,7 @@ yy_get_next_buffer.exit:                          ; preds = %1060, %1089
   %1114 = getelementptr inbounds nuw i8, ptr %1113, i64 8
   %1115 = load ptr, ptr %1114, align 8
   store ptr %1115, ptr %55, align 8
-  switch i32 %.0133.i, label %default.unreachable877 [
+  switch i32 %.0133.i, label %default.unreachable917 [
     i32 1, label %yy_get_previous_state.exit452
     i32 0, label %1117
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread470_crit_edge
@@ -2091,8 +2091,8 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread470_crit_edge: ; preds = %
   %1119 = ptrtoint ptr %813 to i64
   %1120 = xor i64 %1119, -1
   %1121 = add i64 %1120, %1118
-  %sext987 = shl i64 %1121, 32
-  %1122 = ashr exact i64 %sext987, 32
+  %sext1027 = shl i64 %1121, 32
+  %1122 = ashr exact i64 %sext1027, 32
   %1123 = getelementptr i8, ptr %1115, i64 %1122
   store ptr %1123, ptr %50, align 8
   %1124 = load i32, ptr %52, align 4
@@ -2261,7 +2261,7 @@ yy_get_next_buffer.exit.thread470:                ; preds = %933, %yy_get_next_b
   %exitcond.not.i466 = icmp eq ptr %1212, %1169
   br i1 %exitcond.not.i466, label %.backedge.backedge, label %.lr.ph31.i454, !llvm.loop !12
 
-default.unreachable877:                           ; preds = %yy_get_next_buffer.exit
+default.unreachable917:                           ; preds = %yy_get_next_buffer.exit
   unreachable
 
 yy_get_previous_state.exit452:                    ; preds = %yy_get_next_buffer.exit, %933
@@ -2661,7 +2661,7 @@ define internal fastcc noundef zeroext i1 @add_attribute(ptr noundef readonly ca
 98:                                               ; preds = %79
   %.not103 = icmp eq i32 %81, 0
   %99 = trunc i32 %81 to i8
-  %spec.select137 = select i1 %.not103, i8 %78, i8 %99
+  %spec.select145 = select i1 %.not103, i8 %78, i8 %99
   %spec.select = select i1 %.not103, i8 0, i8 %78
   %100 = getelementptr inbounds nuw i8, ptr %86, i64 16
   br label %104
@@ -2673,7 +2673,7 @@ define internal fastcc noundef zeroext i1 @add_attribute(ptr noundef readonly ca
 
 104:                                              ; preds = %98, %101
   %.sroa.9.1 = phi i8 [ %.094, %101 ], [ %spec.select, %98 ]
-  %.sroa.0.1 = phi i8 [ %78, %101 ], [ %spec.select137, %98 ]
+  %.sroa.0.1 = phi i8 [ %78, %101 ], [ %spec.select145, %98 ]
   %.192.in = phi ptr [ %103, %101 ], [ %100, %98 ]
   %.192 = load ptr, ptr %.192.in, align 8
   %.sroa.9.0.insert.ext = zext i8 %.sroa.9.1 to i32
@@ -2925,7 +2925,7 @@ define hidden void @Radius_restart(ptr noundef %0, ptr noundef captures(none) %1
   %8 = getelementptr ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not16 = icmp eq ptr %9, null
-  br i1 %.not16, label %10, label %.thread19
+  br i1 %.not16, label %10, label %.thread25
 
 10:                                               ; preds = %5, %2
   tail call fastcc void @Radius_ensure_buffer_stack(ptr noundef %1)
@@ -2939,14 +2939,14 @@ define hidden void @Radius_restart(ptr noundef %0, ptr noundef captures(none) %1
   store ptr %13, ptr %17, align 8
   %.pre = load ptr, ptr %3, align 8
   %.not17 = icmp eq ptr %.pre, null
-  br i1 %.not17, label %.thread, label %.thread19
+  br i1 %.not17, label %.thread, label %.thread25
 
 .thread:                                          ; preds = %10
   %18 = tail call ptr @__errno_location() #31
   %19 = load i32, ptr %18, align 4
   br label %Radius__flush_buffer.exit.i
 
-.thread19:                                        ; preds = %5, %10
+.thread25:                                        ; preds = %5, %10
   %20 = phi ptr [ %.pre, %10 ], [ %4, %5 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i64, ptr %21, align 8
@@ -2957,7 +2957,7 @@ define hidden void @Radius_restart(ptr noundef %0, ptr noundef captures(none) %1
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %Radius__flush_buffer.exit.i, label %27
 
-27:                                               ; preds = %.thread19
+27:                                               ; preds = %.thread25
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 28
   store i32 0, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -3005,10 +3005,10 @@ define hidden void @Radius_restart(ptr noundef %0, ptr noundef captures(none) %1
   store i8 %55, ptr %56, align 8
   br label %Radius__flush_buffer.exit.i
 
-Radius__flush_buffer.exit.i:                      ; preds = %.thread, %43, %38, %27, %.thread19
-  %57 = phi i32 [ %19, %.thread ], [ %26, %43 ], [ %26, %38 ], [ %26, %27 ], [ %26, %.thread19 ]
-  %58 = phi ptr [ %18, %.thread ], [ %25, %43 ], [ %25, %38 ], [ %25, %27 ], [ %25, %.thread19 ]
-  %59 = phi ptr [ null, %.thread ], [ %24, %43 ], [ %24, %38 ], [ %24, %27 ], [ null, %.thread19 ]
+Radius__flush_buffer.exit.i:                      ; preds = %.thread, %43, %38, %27, %.thread25
+  %57 = phi i32 [ %19, %.thread ], [ %26, %43 ], [ %26, %38 ], [ %26, %27 ], [ %26, %.thread25 ]
+  %58 = phi ptr [ %18, %.thread ], [ %25, %43 ], [ %25, %38 ], [ %25, %27 ], [ %25, %.thread25 ]
+  %59 = phi ptr [ null, %.thread ], [ %24, %43 ], [ %24, %38 ], [ %24, %27 ], [ null, %.thread25 ]
   store ptr %0, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 52
   store i32 1, ptr %60, align 4
@@ -3148,7 +3148,7 @@ define hidden void @Radius_push_buffer_state(ptr noundef %0, ptr noundef capture
   %10 = getelementptr ptr, ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not25 = icmp eq ptr %11, null
-  br i1 %.not25, label %.thread30, label %12
+  br i1 %.not25, label %.thread31, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -3173,23 +3173,23 @@ define hidden void @Radius_push_buffer_state(ptr noundef %0, ptr noundef capture
   store i32 %24, ptr %29, align 4
   %.pr.pre = load ptr, ptr %5, align 8
   %.not26 = icmp eq ptr %.pr.pre, null
-  br i1 %.not26, label %.thread, label %.thread30
+  br i1 %.not26, label %.thread, label %.thread31
 
-.thread30:                                        ; preds = %7, %12
-  %.pr33 = phi ptr [ %.pr.pre, %12 ], [ %6, %7 ]
+.thread31:                                        ; preds = %7, %12
+  %.pr34 = phi ptr [ %.pr.pre, %12 ], [ %6, %7 ]
   %30 = load i64, ptr %8, align 8
-  %31 = getelementptr ptr, ptr %.pr33, i64 %30
+  %31 = getelementptr ptr, ptr %.pr34, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not27 = icmp eq ptr %32, null
   br i1 %.not27, label %.thread, label %33
 
-33:                                               ; preds = %.thread30
+33:                                               ; preds = %.thread31
   %34 = add i64 %30, 1
   store i64 %34, ptr %8, align 8
   br label %.thread
 
-.thread:                                          ; preds = %4, %12, %33, %.thread30
-  %35 = phi ptr [ null, %12 ], [ %.pr33, %33 ], [ %.pr33, %.thread30 ], [ null, %4 ]
+.thread:                                          ; preds = %4, %12, %33, %.thread31
+  %35 = phi ptr [ null, %12 ], [ %.pr34, %33 ], [ %.pr34, %.thread31 ], [ null, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr ptr, ptr %35, i64 %37

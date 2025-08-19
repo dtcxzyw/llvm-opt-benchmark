@@ -416,7 +416,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %13 = and i32 %10, 1088
   %14 = icmp eq i32 %13, 64
   %15 = or i1 %12, %14
-  br i1 %15, label %.thread89, label %16
+  br i1 %15, label %.thread110, label %16
 
 16:                                               ; preds = %4
   %17 = and i32 %10, 1024
@@ -1215,7 +1215,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %561 = load volatile i64, ptr @jiffies, align 64
   %562 = sub i64 %560, %561
   %563 = icmp slt i64 %562, 0
-  br i1 %563, label %.thread, label %.thread89
+  br i1 %563, label %.thread, label %.thread110
 
 .thread:                                          ; preds = %.loopexit.thread, %.loopexit
   tail call fastcc void @minstrel_ht_update_stats(ptr noundef %0, ptr noundef %2)
@@ -1223,13 +1223,13 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
 
 564:                                              ; preds = %.loopexit
   %565 = icmp eq i8 %549, 0
-  br i1 %565, label %.thread89, label %566
+  br i1 %565, label %.thread110, label %566
 
 566:                                              ; preds = %.thread, %564
   tail call fastcc void @minstrel_ht_update_rates(ptr noundef %0, ptr noundef %2)
-  br label %.thread89
+  br label %.thread110
 
-.thread89:                                        ; preds = %.loopexit.thread, %566, %564, %4
+.thread110:                                       ; preds = %.loopexit.thread, %566, %564, %4
   ret void
 }
 
@@ -1685,21 +1685,21 @@ define internal fastcc void @minstrel_ht_update_caps(ptr noundef readonly captur
   br i1 %114, label %117, label %116
 
 116:                                              ; preds = %115
-  br i1 %96, label %193, label %.thread22
+  br i1 %96, label %193, label %.thread32
 
 117:                                              ; preds = %115
   br i1 %98, label %193, label %.thread
 
 118:                                              ; preds = %111
-  br i1 %114, label %.thread, label %.thread22
+  br i1 %114, label %.thread, label %.thread32
 
-.thread22:                                        ; preds = %116, %118
+.thread32:                                        ; preds = %116, %118
   %119 = load i32, ptr %99, align 8
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %193, label %.thread
 
-.thread:                                          ; preds = %117, %.thread22, %118
-  %.pre-phi21 = phi i1 [ false, %.thread22 ], [ true, %118 ], [ true, %117 ]
+.thread:                                          ; preds = %117, %.thread32, %118
+  %.pre-phi31 = phi i1 [ false, %.thread32 ], [ true, %118 ], [ true, %117 ]
   %121 = getelementptr inbounds nuw i8, ptr %105, i64 2
   %122 = load i8, ptr %121, align 2
   %123 = zext i8 %122 to i32
@@ -1777,7 +1777,7 @@ define internal fastcc void @minstrel_ht_update_caps(ptr noundef readonly captur
 
 163:                                              ; preds = %159, %158, %152
   %164 = lshr exact i32 %153, 8
-  %165 = select i1 %.pre-phi21, i32 %164, i32 1
+  %165 = select i1 %.pre-phi31, i32 %164, i32 1
   %166 = load i16, ptr %102, align 4
   switch i32 %165, label %178 [
     i32 0, label %167
@@ -1808,7 +1808,7 @@ define internal fastcc void @minstrel_ht_update_caps(ptr noundef readonly captur
   %182 = add nsw i32 %181, -2
   %183 = lshr i32 %180, %182
   %184 = and i32 %183, 3
-  switch i32 %184, label %default.unreachable19 [
+  switch i32 %184, label %default.unreachable29 [
     i32 0, label %185
     i32 1, label %187
     i32 2, label %190
@@ -1823,7 +1823,7 @@ define internal fastcc void @minstrel_ht_update_caps(ptr noundef readonly captur
   %188 = or i16 %179, 512
   br label %190
 
-default.unreachable19:                            ; preds = %178
+default.unreachable29:                            ; preds = %178
   unreachable
 
 189:                                              ; preds = %178
@@ -1835,7 +1835,7 @@ default.unreachable19:                            ; preds = %178
   store i16 %192, ptr %108, align 2
   br label %193
 
-193:                                              ; preds = %190, %159, %155, %151, %147, %141, %135, %131, %.thread, %.thread22, %117, %116, %103
+193:                                              ; preds = %190, %159, %155, %151, %147, %141, %135, %131, %.thread, %.thread32, %117, %116, %103
   %194 = add nuw nsw i64 %104, 1
   %195 = icmp eq i64 %194, 42
   br i1 %195, label %196, label %103, !llvm.loop !43
@@ -3372,8 +3372,8 @@ minstrel_ht_sort_best_tp_rates.exit92:            ; preds = %818, %820
   %951 = zext nneg i8 %950 to i32
   %952 = shl i32 %949, %951
   %953 = icmp sgt i32 %946, %952
-  %.idx219 = mul i64 %871, 24
-  %954 = getelementptr i8, ptr %868, i64 %.idx219
+  %.idx306 = mul i64 %871, 24
+  %954 = getelementptr i8, ptr %868, i64 %.idx306
   %955 = load i16, ptr %954, align 4
   %956 = icmp ult i16 %955, %941
   %or.cond = select i1 %953, i1 %956, i1 false
@@ -4674,9 +4674,9 @@ define internal fastcc void @minstrel_ht_set_rate(ptr noundef readonly captures(
 
 197:                                              ; preds = %193, %185
   %198 = sext i32 %3 to i64
-  %.idx7 = mul nsw i64 %198, 6
+  %.idx12 = mul nsw i64 %198, 6
   %199 = getelementptr i8, ptr %2, i64 17
-  %200 = getelementptr i8, ptr %199, i64 %.idx7
+  %200 = getelementptr i8, ptr %199, i64 %.idx12
   store i8 %152, ptr %200, align 1
   %201 = or i16 %9, 1
   br label %202

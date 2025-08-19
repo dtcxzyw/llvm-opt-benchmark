@@ -89,8 +89,8 @@ gv_calloc.exit96.i:                               ; preds = %27
   store ptr @cmp, ptr %40, align 8, !tbaa !8
   %41 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gv_sort_arg)
   store ptr %0, ptr %41, align 8, !tbaa !8
-  %.not173.i = icmp eq i32 %1, 1
-  br i1 %.not173.i, label %.lr.ph140.preheader.i, label %42
+  %.not203.i = icmp eq i32 %1, 1
+  br i1 %.not203.i, label %.lr.ph140.preheader.i, label %42
 
 42:                                               ; preds = %._crit_edge.i
   tail call void @qsort(ptr noundef nonnull %28, i64 noundef range(i64 -2147483648, 2147483648) %9, i64 noundef 8, ptr noundef nonnull @gv_sort_compar_wrapper) #18
@@ -131,7 +131,7 @@ gv_calloc.exit96.i:                               ; preds = %27
   store i64 %53, ptr %54, align 8, !tbaa !15
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %53, ptr %55, align 8, !tbaa !16
-  br i1 %.not173.i, label %._crit_edge.i.i, label %56
+  br i1 %.not203.i, label %._crit_edge.i.i, label %56
 
 56:                                               ; preds = %._crit_edge141.i
   %57 = tail call noalias ptr @calloc(i64 noundef %53, i64 noundef 24) #17
@@ -261,7 +261,7 @@ heapify.exit.i.i:                                 ; preds = %106
   br i1 %.not.i102.i, label %initHeap.exit.i, label %.preheader.i.i, !llvm.loop !23
 
 initHeap.exit.i:                                  ; preds = %heapify.exit.i.i
-  br i1 %.not173.i, label %.preheader.i, label %.lr.ph143.i
+  br i1 %.not203.i, label %.preheader.i, label %.lr.ph143.i
 
 .lr.ph140.i:                                      ; preds = %.lr.ph140.i, %.lr.ph140.preheader.i
   %.080139.i = phi i64 [ %115, %.lr.ph140.i ], [ 0, %.lr.ph140.preheader.i ]
@@ -296,7 +296,7 @@ initHeap.exit.i:                                  ; preds = %heapify.exit.i.i
   %125 = phi ptr [ %15, %initHeap.exit.i ], [ %43, %._crit_edge.i.thread.i ], [ %15, %.lr.ph145.split.i ]
   %126 = phi ptr [ %21, %initHeap.exit.i ], [ %44, %._crit_edge.i.thread.i ], [ %21, %.lr.ph145.split.i ]
   %127 = phi ptr [ %34, %initHeap.exit.i ], [ %46, %._crit_edge.i.thread.i ], [ %34, %.lr.ph145.split.i ]
-  %.val156160169.i = phi ptr [ %65, %initHeap.exit.i ], [ %50, %._crit_edge.i.thread.i ], [ %65, %.lr.ph145.split.i ]
+  %.val156190199.i = phi ptr [ %65, %initHeap.exit.i ], [ %50, %._crit_edge.i.thread.i ], [ %65, %.lr.ph145.split.i ]
   %128 = icmp sgt i32 %2, 0
   br i1 %128, label %.lr.ph147.i, label %find_closest_pairs.exit
 
@@ -553,7 +553,7 @@ find_closest_pairs.exit:                          ; preds = %136, %.preheader.i,
   %.sroa.10.3 = phi i64 [ %.sroa.10.1, %.extractMax.exit.thread.loopexit_crit_edge.i ], [ 0, %.preheader.i ], [ %.sroa.10.0, %136 ]
   %.sroa.16.1 = phi i64 [ %wide.trip.count, %.extractMax.exit.thread.loopexit_crit_edge.i ], [ 0, %.preheader.i ], [ %.sroa.16.0, %136 ]
   %.sroa.22.2 = phi i64 [ %.sroa.22.1, %.extractMax.exit.thread.loopexit_crit_edge.i ], [ 0, %.preheader.i ], [ %.sroa.22.0, %136 ]
-  %.val.i = phi ptr [ %.val.pre.pre.i, %.extractMax.exit.thread.loopexit_crit_edge.i ], [ %.val156160169.i, %.preheader.i ], [ %.val.pre.pre157.i, %136 ]
+  %.val.i = phi ptr [ %.val.pre.pre.i, %.extractMax.exit.thread.loopexit_crit_edge.i ], [ %.val156190199.i, %.preheader.i ], [ %.val.pre.pre157.i, %136 ]
   tail call void @free(ptr noundef %125) #18
   tail call void @free(ptr noundef %126) #18
   tail call void @free(ptr noundef %124) #18

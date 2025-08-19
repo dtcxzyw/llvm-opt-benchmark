@@ -1869,11 +1869,11 @@ cond.end:                                         ; preds = %if.end52
   br i1 %cmp.i79.not95, label %for.end104, label %for.body71.lr.ph
 
 cond.end.thread:                                  ; preds = %if.end52
-  %_specifiers100 = getelementptr inbounds nuw i8, ptr %exportDecl, i64 56
-  %Next.i.i.i.i78101 = getelementptr inbounds nuw i8, ptr %exportDecl, i64 64
-  %__begin2.sroa.0.094102 = load ptr, ptr %Next.i.i.i.i78101, align 8
-  %cmp.i79.not95103 = icmp eq ptr %__begin2.sroa.0.094102, %_specifiers100
-  br i1 %cmp.i79.not95103, label %for.end104, label %for.body71.us.preheader
+  %_specifiers105 = getelementptr inbounds nuw i8, ptr %exportDecl, i64 56
+  %Next.i.i.i.i78106 = getelementptr inbounds nuw i8, ptr %exportDecl, i64 64
+  %__begin2.sroa.0.094107 = load ptr, ptr %Next.i.i.i.i78106, align 8
+  %cmp.i79.not95108 = icmp eq ptr %__begin2.sroa.0.094107, %_specifiers105
+  br i1 %cmp.i79.not95108, label %for.end104, label %for.body71.us.preheader
 
 for.body71.lr.ph:                                 ; preds = %cond.end
   %tobool76.not = icmp eq ptr %call64, null
@@ -1881,12 +1881,12 @@ for.body71.lr.ph:                                 ; preds = %cond.end
   br i1 %tobool76.not, label %for.body71.us.preheader, label %for.body71
 
 for.body71.us.preheader:                          ; preds = %cond.end.thread, %for.body71.lr.ph
-  %_specifiers105113 = phi ptr [ %_specifiers, %for.body71.lr.ph ], [ %_specifiers100, %cond.end.thread ]
-  %__begin2.sroa.0.094106112 = phi ptr [ %__begin2.sroa.0.094, %for.body71.lr.ph ], [ %__begin2.sroa.0.094102, %cond.end.thread ]
+  %_specifiers110118 = phi ptr [ %_specifiers, %for.body71.lr.ph ], [ %_specifiers105, %cond.end.thread ]
+  %__begin2.sroa.0.094111117 = phi ptr [ %__begin2.sroa.0.094, %for.body71.lr.ph ], [ %__begin2.sroa.0.094107, %cond.end.thread ]
   br label %for.body71.us
 
 for.body71.us:                                    ; preds = %for.body71.us.preheader, %for.body71.us
-  %__begin2.sroa.0.096.us = phi ptr [ %__begin2.sroa.0.0.us, %for.body71.us ], [ %__begin2.sroa.0.094106112, %for.body71.us.preheader ]
+  %__begin2.sroa.0.096.us = phi ptr [ %__begin2.sroa.0.0.us, %for.body71.us ], [ %__begin2.sroa.0.094111117, %for.body71.us.preheader ]
   %_local.us = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.096.us, i64 56
   %38 = load ptr, ptr %_local.us, align 8
   %_exported.us = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.096.us, i64 48
@@ -1897,7 +1897,7 @@ for.body71.us:                                    ; preds = %for.body71.us.prehe
   %call101.us = call noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_NS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call93.us, ptr noundef %3, ptr %40) #8
   %Next.i.i.i82.us = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.096.us, i64 8
   %__begin2.sroa.0.0.us = load ptr, ptr %Next.i.i.i82.us, align 8
-  %cmp.i79.not.us = icmp eq ptr %__begin2.sroa.0.0.us, %_specifiers105113
+  %cmp.i79.not.us = icmp eq ptr %__begin2.sroa.0.0.us, %_specifiers110118
   br i1 %cmp.i79.not.us, label %for.end104, label %for.body71.us
 
 for.body71:                                       ; preds = %for.body71.lr.ph, %for.body71
@@ -2486,9 +2486,9 @@ if.then38:                                        ; preds = %_ZN6hermes5irgen11E
   br label %if.end41
 
 if.end41:                                         ; preds = %if.end, %if.then38
-  %defaultBlock.0.lcssa54 = phi ptr [ %defaultBlock.1, %if.then38 ], [ %call4, %if.end ]
+  %defaultBlock.0.lcssa62 = phi ptr [ %defaultBlock.1, %if.then38 ], [ %call4, %if.end ]
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call12) #8
-  %call44 = call noundef ptr @_ZN6hermes9IRBuilder16createSwitchInstEPNS_5ValueEPNS_10BasicBlockERKN4llvh11SmallVectorIPNS_7LiteralELj8EEERKNS6_IS4_Lj8EEE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call6, ptr noundef %defaultBlock.0.lcssa54, ptr noundef nonnull align 8 dereferenceable(80) %values, ptr noundef nonnull align 8 dereferenceable(80) %blocks) #8
+  %call44 = call noundef ptr @_ZN6hermes9IRBuilder16createSwitchInstEPNS_5ValueEPNS_10BasicBlockERKN4llvh11SmallVectorIPNS_7LiteralELj8EEERKNS6_IS4_Lj8EEE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call6, ptr noundef %defaultBlock.0.lcssa62, ptr noundef nonnull align 8 dereferenceable(80) %values, ptr noundef nonnull align 8 dereferenceable(80) %blocks) #8
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call4) #8
   %33 = load ptr, ptr %blocks, align 8
   %cmp.i.i.i29 = icmp eq ptr %33, %add.ptr.i.i.i.i.i13

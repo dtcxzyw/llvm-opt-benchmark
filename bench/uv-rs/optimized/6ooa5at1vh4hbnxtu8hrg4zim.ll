@@ -1659,7 +1659,7 @@ common.resume.i:                                  ; preds = %260, %.body.i.i
 .lr.ph.i58.us.i.i.i:                              ; preds = %322, %.sink.split.i.us.i.i.i
   %323 = phi i64 [ %.sink.i.us.i.i.i, %.sink.split.i.us.i.i.i ], [ %.sroa.3017.0.us.i.i.i, %322 ]
   %324 = phi i64 [ %364, %.sink.split.i.us.i.i.i ], [ %320, %322 ]
-  %325 = phi i64 [ %.ph69.i.us.i.i.i, %.sink.split.i.us.i.i.i ], [ %.sroa.18.0.us.i.i.i, %322 ]
+  %325 = phi i64 [ %.ph76.i.us.i.i.i, %.sink.split.i.us.i.i.i ], [ %.sroa.18.0.us.i.i.i, %322 ]
   %326 = getelementptr inbounds i8, ptr %.sroa.1253.0.copyload.i.i.i, i64 %324
   %327 = load i8, ptr %326, align 1, !alias.scope !366, !noalias !371, !noundef !7
   %328 = and i8 %327, 63
@@ -1731,8 +1731,8 @@ common.resume.i:                                  ; preds = %260, %.body.i.i
 
 .sink.split.i.us.i.i.i:                           ; preds = %362, %359, %348
   %.sink.i.us.i.i.i = phi i64 [ %316, %348 ], [ 0, %359 ], [ 0, %362 ]
-  %.ph69.i.us.i.i.i = phi i64 [ %349, %348 ], [ %361, %359 ], [ %363, %362 ]
-  %364 = add i64 %.ph69.i.us.i.i.i, %315
+  %.ph76.i.us.i.i.i = phi i64 [ %349, %348 ], [ %361, %359 ], [ %363, %362 ]
+  %364 = add i64 %.ph76.i.us.i.i.i, %315
   %365 = icmp ult i64 %364, %.sroa.1354.0.copyload.i.i.i
   br i1 %365, label %.lr.ph.i58.us.i.i.i, label %.critedge.i.i.i
 

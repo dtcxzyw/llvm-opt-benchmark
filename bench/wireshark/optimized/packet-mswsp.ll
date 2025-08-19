@@ -6393,8 +6393,8 @@ get_fixed_vtype_dataize.exit:                     ; preds = %55, %vType_get_type
   %91 = load i32, ptr %64, align 8
   %92 = load i32, ptr @ett_CRowVariant_Vector, align 4
   %93 = call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %0, i32 noundef %90, i32 noundef 0, i32 noundef %92, ptr noundef null, ptr noundef nonnull @.str.1385)
-  %.not7685.i = icmp eq i32 %91, 0
-  br i1 %.not7685.i, label %parse_VariantColVector.exit, label %.lr.ph.split.preheader.i
+  %.not7691.i = icmp eq i32 %91, 0
+  br i1 %.not7691.i, label %parse_VariantColVector.exit, label %.lr.ph.split.preheader.i
 
 .lr.ph.split.preheader.i:                         ; preds = %.thread.i
   %94 = getelementptr inbounds nuw i8, ptr %.06.i, i64 16

@@ -772,9 +772,9 @@ read_colormap.exit:                               ; preds = %434, %.thread80.i, 
 444:                                              ; preds = %read_colormap.exit, %280
   %.0229 = phi i32 [ %443, %read_colormap.exit ], [ %281, %280 ]
   %445 = icmp slt i32 %.0229, 0
-  br i1 %445, label %.thread270, label %449
+  br i1 %445, label %.thread278, label %449
 
-.thread270:                                       ; preds = %444
+.thread278:                                       ; preds = %444
   %446 = load ptr, ptr %0, align 8, !tbaa !25
   %447 = getelementptr inbounds nuw i8, ptr %446, i64 40
   store i32 1003, ptr %447, align 8, !tbaa !26
@@ -783,8 +783,8 @@ read_colormap.exit:                               ; preds = %434, %.thread80.i, 
   br label %._crit_edge
 
 449:                                              ; preds = %444
-  %.not274 = icmp eq i32 %.0229, 0
-  br i1 %.not274, label %._crit_edge, label %.lr.ph
+  %.not282 = icmp eq i32 %.0229, 0
+  br i1 %.not282, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %449
   %450 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -811,7 +811,7 @@ read_byte.exit:                                   ; preds = %451, %456
   %461 = icmp samesign ugt i32 %.1230268, 1
   br i1 %461, label %451, label %._crit_edge, !llvm.loop !63
 
-._crit_edge:                                      ; preds = %read_byte.exit, %.thread270, %449
+._crit_edge:                                      ; preds = %read_byte.exit, %.thread278, %449
   %462 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %463 = load i32, ptr %462, align 8, !tbaa !48
   switch i32 %463, label %539 [
@@ -824,11 +824,11 @@ read_byte.exit:                                   ; preds = %451, %456
   %465 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %466 = load i32, ptr %465, align 4, !tbaa !62
   switch i32 %466, label %467 [
-    i32 0, label %.thread271
+    i32 0, label %.thread279
     i32 2, label %469
   ]
 
-.thread271:                                       ; preds = %464
+.thread279:                                       ; preds = %464
   store i32 6, ptr %465, align 4, !tbaa !62
   br label %469
 
@@ -837,8 +837,8 @@ read_byte.exit:                                   ; preds = %451, %456
   %or.cond255 = icmp ult i32 %468, 10
   br i1 %or.cond255, label %469, label %475
 
-469:                                              ; preds = %.thread271, %464, %467
-  %470 = phi i32 [ %466, %467 ], [ %466, %464 ], [ 6, %.thread271 ]
+469:                                              ; preds = %.thread279, %464, %467
+  %470 = phi i32 [ %466, %467 ], [ %466, %464 ], [ 6, %.thread279 ]
   %471 = zext nneg i32 %470 to i64
   %472 = getelementptr inbounds nuw [17 x i32], ptr @rgb_pixelsize, i64 0, i64 %471
   %473 = load i32, ptr %472, align 4, !tbaa !50
@@ -1194,20 +1194,20 @@ define internal i32 @preload_image(ptr noundef %0, ptr noundef %1) #0 {
   %46 = load i32, ptr %13, align 4, !tbaa !65
   %47 = zext i32 %46 to i64
   %.not44 = icmp eq i64 %45, %47
-  br i1 %.not44, label %52, label %.sink.split53
+  br i1 %.not44, label %52, label %.sink.split56
 
-.sink.split53:                                    ; preds = %.lr.ph.split
+.sink.split56:                                    ; preds = %.lr.ph.split
   %48 = tail call i32 @feof(ptr noundef %4) #6
   %.not45 = icmp eq i32 %48, 0
   %49 = load ptr, ptr %0, align 8, !tbaa !25
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
-  %.56 = select i1 %.not45, i32 36, i32 43
-  store i32 %.56, ptr %50, align 8, !tbaa !26
+  %.59 = select i1 %.not45, i32 36, i32 43
+  store i32 %.59, ptr %50, align 8, !tbaa !26
   %51 = load ptr, ptr %49, align 8, !tbaa !31
   tail call void %51(ptr noundef nonnull %0) #6
   br label %52
 
-52:                                               ; preds = %.sink.split53, %.lr.ph.split
+52:                                               ; preds = %.sink.split56, %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = load i32, ptr %7, align 4, !tbaa !77
   %54 = zext i32 %53 to i64

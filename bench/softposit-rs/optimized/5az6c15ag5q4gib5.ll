@@ -433,8 +433,8 @@ _ZN9softposit5p16e14math6kernel5isqrt17h21470701fe9e9964E.exit60: ; preds = %.lr
   br i1 %140, label %.preheader, label %143
 
 .preheader:                                       ; preds = %.thread, %139
-  %.04780 = phi i64 [ %138, %.thread ], [ %.047, %139 ]
-  %141 = and i64 %.04780, 1073741824
+  %.04784 = phi i64 [ %138, %.thread ], [ %.047, %139 ]
+  %141 = and i64 %.04784, 1073741824
   %142 = icmp eq i64 %141, 0
   br i1 %142, label %.lr.ph, label %._crit_edge
 
@@ -445,7 +445,7 @@ _ZN9softposit5p16e14math6kernel5isqrt17h21470701fe9e9964E.exit60: ; preds = %.lr
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.04672 = phi i64 [ %146, %.lr.ph ], [ 35, %.preheader ]
-  %.271 = phi i64 [ %145, %.lr.ph ], [ %.04780, %.preheader ]
+  %.271 = phi i64 [ %145, %.lr.ph ], [ %.04784, %.preheader ]
   %145 = shl i64 %.271, 1
   %146 = add i64 %.04672, 1
   %147 = and i64 %.271, 536870912
@@ -453,7 +453,7 @@ _ZN9softposit5p16e14math6kernel5isqrt17h21470701fe9e9964E.exit60: ; preds = %.lr
   br i1 %148, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.2.lcssa = phi i64 [ %.04780, %.preheader ], [ %145, %.lr.ph ]
+  %.2.lcssa = phi i64 [ %.04784, %.preheader ], [ %145, %.lr.ph ]
   %.046.lcssa = phi i64 [ 35, %.preheader ], [ %146, %.lr.ph ]
   %149 = xor i64 %.2.lcssa, 3221225472
   %150 = shl i64 %.046.lcssa, 30
@@ -609,8 +609,8 @@ _ZN9softposit5p16e14math6kernel5isqrt17h21470701fe9e9964E.exit: ; preds = %.lr.p
 
 60:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %61 = phi i64 [ %14, %._crit_edge.thread ], [ %58, %._crit_edge ]
-  %spec.select4765 = phi i32 [ 14, %._crit_edge.thread ], [ %spec.select47, %._crit_edge ]
-  %62 = and i32 %spec.select4765, 63
+  %spec.select4766 = phi i32 [ 14, %._crit_edge.thread ], [ %spec.select47, %._crit_edge ]
+  %62 = and i32 %spec.select4766, 63
   %63 = zext nneg i32 %62 to i64
   %64 = shl i64 %61, %63
   br label %70
@@ -714,8 +714,8 @@ define noundef i16 @"_ZN9softposit5p16e14math7atan_pi41_$LT$impl$u20$softposit..
   %7 = icmp samesign ult i64 %spec.select, 16384
   br i1 %7, label %15, label %9
 
-8:                                                ; preds = %1, %149
-  %.0 = phi i16 [ %151, %149 ], [ %0, %1 ]
+8:                                                ; preds = %1, %143
+  %.0 = phi i16 [ %145, %143 ], [ %0, %1 ]
   ret i16 %.0
 
 9:                                                ; preds = %5
@@ -742,270 +742,254 @@ define noundef i16 @"_ZN9softposit5p16e14math7atan_pi41_$LT$impl$u20$softposit..
 
 .preheader84:                                     ; preds = %15
   %18 = icmp samesign ult i64 %spec.select, 8192
-  br i1 %18, label %.lr.ph105, label %._crit_edge106
+  %19 = zext i1 %18 to i64
+  %spec.select136 = shl nuw nsw i64 %spec.select, %19
+  %spec.select137 = select i1 %18, i64 12, i64 14
+  %20 = lshr i64 %spec.select136, 12
+  %21 = and i64 %20, 1
+  %22 = and i64 %spec.select136, 4095
+  %23 = or disjoint i64 %22, 4096
+  %24 = or disjoint i64 %21, %spec.select137
+  %25 = shl nuw nsw i64 %23, %24
+  %26 = mul nuw nsw i64 %25, %25
+  %27 = lshr i64 %26, 28
+  %28 = mul nuw nsw i64 %27, 6969
+  %29 = lshr i64 %28, 24
+  %30 = sub nuw nsw i64 530432, %29
+  %31 = mul nuw nsw i64 %30, %27
+  %32 = lshr i64 %31, 28
+  %33 = sub nuw nsw i64 1273944, %32
+  %34 = mul nuw nsw i64 %33, %27
+  %35 = lshr i64 %34, 28
+  %36 = sub nuw nsw i64 2358656, %35
+  %37 = mul nuw nsw i64 %36, %27
+  %38 = lshr i64 %37, 27
+  %39 = sub nuw nsw i64 9340208, %38
+  %40 = mul nuw nsw i64 %39, %27
+  %41 = lshr i64 %40, 29
+  %42 = sub nuw nsw i64 17568064, %41
+  %43 = mul nuw nsw i64 %42, %27
+  %44 = lshr i64 %43, 24
+  %45 = add nuw nsw i64 %44, 843315168
+  %46 = shl nuw nsw i64 %25, 30
+  %47 = or disjoint i64 %46, 1073741824
+  %48 = udiv i64 %47, %45
+  br label %.preheader
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader87
-  %.168.lcssa = phi i64 [ %spec.select, %.preheader87 ], [ %28, %.lr.ph ]
-  %.066.lcssa = phi i32 [ -1, %.preheader87 ], [ %29, %.lr.ph ]
-  %19 = trunc i64 %.168.lcssa to i32
-  %20 = lshr i32 %19, 11
-  %21 = and i32 %20, 1
-  %spec.select79 = add i32 %21, %.066.lcssa
-  %22 = and i64 %.168.lcssa, 2047
-  %23 = or disjoint i64 %22, 2048
-  %24 = and i32 %spec.select79, 63
-  %25 = zext nneg i32 %24 to i64
-  %26 = shl i64 %23, %25
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %37, label %32, !prof !4
+  %.168.lcssa = phi i64 [ %spec.select, %.preheader87 ], [ %58, %.lr.ph ]
+  %.066.lcssa = phi i32 [ -1, %.preheader87 ], [ %59, %.lr.ph ]
+  %49 = trunc i64 %.168.lcssa to i32
+  %50 = lshr i32 %49, 11
+  %51 = and i32 %50, 1
+  %spec.select79 = add i32 %51, %.066.lcssa
+  %52 = and i64 %.168.lcssa, 2047
+  %53 = or disjoint i64 %52, 2048
+  %54 = and i32 %spec.select79, 63
+  %55 = zext nneg i32 %54 to i64
+  %56 = shl i64 %53, %55
+  %57 = icmp eq i64 %56, 0
+  br i1 %57, label %67, label %62, !prof !4
 
 .lr.ph:                                           ; preds = %.preheader87, %.lr.ph
-  %.06689 = phi i32 [ %29, %.lr.ph ], [ -1, %.preheader87 ]
-  %.16888 = phi i64 [ %28, %.lr.ph ], [ %spec.select, %.preheader87 ]
-  %28 = shl i64 %.16888, 1
-  %29 = add i32 %.06689, 2
-  %30 = and i64 %.16888, 2048
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %._crit_edge, label %.lr.ph
+  %.06689 = phi i32 [ %59, %.lr.ph ], [ -1, %.preheader87 ]
+  %.16888 = phi i64 [ %58, %.lr.ph ], [ %spec.select, %.preheader87 ]
+  %58 = shl i64 %.16888, 1
+  %59 = add i32 %.06689, 2
+  %60 = and i64 %.16888, 2048
+  %61 = icmp eq i64 %60, 0
+  br i1 %61, label %._crit_edge, label %.lr.ph
 
-32:                                               ; preds = %._crit_edge
-  %33 = shl i64 %26, 13
-  %34 = udiv i64 178606080, %26
-  %35 = add i64 %34, %33
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %41, label %38, !prof !4
+62:                                               ; preds = %._crit_edge
+  %63 = shl i64 %56, 13
+  %64 = udiv i64 178606080, %56
+  %65 = add i64 %64, %63
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %71, label %68, !prof !4
 
-37:                                               ; preds = %._crit_edge
+67:                                               ; preds = %._crit_edge
   tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.06d1d8cc65b6b1d93b1e1c71e54a7dce.3) #8
   unreachable
 
-38:                                               ; preds = %32
-  %39 = udiv i64 716769903771648, %35
-  %40 = sub nsw i64 536870912, %39
-  br label %83
+68:                                               ; preds = %62
+  %69 = udiv i64 716769903771648, %65
+  %70 = sub nsw i64 536870912, %69
+  br label %113
 
-41:                                               ; preds = %32
+71:                                               ; preds = %62
   tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.06d1d8cc65b6b1d93b1e1c71e54a7dce.4) #8
   unreachable
 
 ._crit_edge94.loopexit:                           ; preds = %.lr.ph93
-  %42 = and i32 %53, 62
+  %72 = and i32 %83, 62
   br label %._crit_edge94
 
 ._crit_edge94:                                    ; preds = %._crit_edge94.loopexit, %.preheader86
-  %.269.lcssa = phi i64 [ %spec.select, %.preheader86 ], [ %52, %._crit_edge94.loopexit ]
-  %.1.lcssa = phi i32 [ 0, %.preheader86 ], [ %42, %._crit_edge94.loopexit ]
-  %43 = trunc i64 %.269.lcssa to i32
-  %44 = lshr i32 %43, 12
-  %45 = and i32 %44, 1
-  %46 = and i64 %.269.lcssa, 4095
-  %47 = or disjoint i64 %46, 4096
-  %48 = or disjoint i32 %45, %.1.lcssa
-  %49 = zext nneg i32 %48 to i64
-  %50 = shl i64 %47, %49
-  %51 = icmp eq i64 %50, 0
-  br i1 %51, label %82, label %56, !prof !4
+  %.269.lcssa = phi i64 [ %spec.select, %.preheader86 ], [ %82, %._crit_edge94.loopexit ]
+  %.1.lcssa = phi i32 [ 0, %.preheader86 ], [ %72, %._crit_edge94.loopexit ]
+  %73 = trunc i64 %.269.lcssa to i32
+  %74 = lshr i32 %73, 12
+  %75 = and i32 %74, 1
+  %76 = and i64 %.269.lcssa, 4095
+  %77 = or disjoint i64 %76, 4096
+  %78 = or disjoint i32 %75, %.1.lcssa
+  %79 = zext nneg i32 %78 to i64
+  %80 = shl i64 %77, %79
+  %81 = icmp eq i64 %80, 0
+  br i1 %81, label %112, label %86, !prof !4
 
 .lr.ph93:                                         ; preds = %.preheader86, %.lr.ph93
-  %.192 = phi i32 [ %53, %.lr.ph93 ], [ 0, %.preheader86 ]
-  %.26991 = phi i64 [ %52, %.lr.ph93 ], [ %spec.select, %.preheader86 ]
-  %52 = shl i64 %.26991, 1
-  %53 = add i32 %.192, 2
-  %54 = and i64 %.26991, 4096
-  %55 = icmp eq i64 %54, 0
-  br i1 %55, label %._crit_edge94.loopexit, label %.lr.ph93
+  %.192 = phi i32 [ %83, %.lr.ph93 ], [ 0, %.preheader86 ]
+  %.26991 = phi i64 [ %82, %.lr.ph93 ], [ %spec.select, %.preheader86 ]
+  %82 = shl i64 %.26991, 1
+  %83 = add i32 %.192, 2
+  %84 = and i64 %.26991, 4096
+  %85 = icmp eq i64 %84, 0
+  br i1 %85, label %._crit_edge94.loopexit, label %.lr.ph93
 
-56:                                               ; preds = %._crit_edge94
-  %57 = udiv i64 1099511627776, %50
-  %58 = mul i64 %57, %57
-  %59 = lshr i64 %58, 28
-  %60 = mul nuw nsw i64 %59, 6969
-  %61 = lshr i64 %60, 24
-  %62 = sub nsw i64 530432, %61
-  %63 = mul nsw i64 %62, %59
-  %64 = lshr i64 %63, 28
-  %65 = sub nsw i64 1273944, %64
-  %66 = mul i64 %65, %59
-  %67 = lshr i64 %66, 28
-  %68 = sub nsw i64 2358656, %67
-  %69 = mul i64 %68, %59
-  %70 = lshr i64 %69, 27
-  %71 = sub nsw i64 9340208, %70
-  %72 = mul i64 %71, %59
-  %73 = lshr i64 %72, 29
-  %74 = sub nsw i64 17568064, %73
-  %75 = mul i64 %74, %59
-  %76 = lshr i64 %75, 24
-  %77 = add nuw nsw i64 %76, 843315168
-  %78 = shl i64 %57, 30
-  %79 = add i64 %78, 1073741824
-  %80 = udiv i64 %79, %77
-  %81 = sub nsw i64 536870912, %80
-  br label %83
+86:                                               ; preds = %._crit_edge94
+  %87 = udiv i64 1099511627776, %80
+  %88 = mul i64 %87, %87
+  %89 = lshr i64 %88, 28
+  %90 = mul nuw nsw i64 %89, 6969
+  %91 = lshr i64 %90, 24
+  %92 = sub nsw i64 530432, %91
+  %93 = mul nsw i64 %92, %89
+  %94 = lshr i64 %93, 28
+  %95 = sub nsw i64 1273944, %94
+  %96 = mul i64 %95, %89
+  %97 = lshr i64 %96, 28
+  %98 = sub nsw i64 2358656, %97
+  %99 = mul i64 %98, %89
+  %100 = lshr i64 %99, 27
+  %101 = sub nsw i64 9340208, %100
+  %102 = mul i64 %101, %89
+  %103 = lshr i64 %102, 29
+  %104 = sub nsw i64 17568064, %103
+  %105 = mul i64 %104, %89
+  %106 = lshr i64 %105, 24
+  %107 = add nuw nsw i64 %106, 843315168
+  %108 = shl i64 %87, 30
+  %109 = add i64 %108, 1073741824
+  %110 = udiv i64 %109, %107
+  %111 = sub nsw i64 536870912, %110
+  br label %113
 
-82:                                               ; preds = %._crit_edge94
+112:                                              ; preds = %._crit_edge94
   tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.06d1d8cc65b6b1d93b1e1c71e54a7dce.5) #8
   unreachable
 
-83:                                               ; preds = %106, %._crit_edge106, %38, %56
-  %.370 = phi i64 [ %148, %._crit_edge106 ], [ %112, %106 ], [ %81, %56 ], [ %40, %38 ]
-  %84 = icmp ugt i64 %.370, 1
-  br i1 %84, label %.preheader, label %149
+113:                                              ; preds = %136, %68, %86
+  %.370 = phi i64 [ %142, %136 ], [ %111, %86 ], [ %70, %68 ]
+  %114 = icmp ugt i64 %.370, 1
+  br i1 %114, label %.preheader, label %143
 
-.preheader:                                       ; preds = %83
-  %85 = and i64 %.370, 536870912
-  %86 = icmp eq i64 %85, 0
-  br i1 %86, label %.lr.ph111, label %._crit_edge112
+.preheader:                                       ; preds = %.preheader84, %113
+  %.370128 = phi i64 [ %48, %.preheader84 ], [ %.370, %113 ]
+  %115 = and i64 %.370128, 536870912
+  %116 = icmp eq i64 %115, 0
+  br i1 %116, label %.lr.ph111, label %._crit_edge112
 
 .lr.ph99:                                         ; preds = %.preheader85, %.lr.ph99
-  %.498 = phi i32 [ %88, %.lr.ph99 ], [ 13, %.preheader85 ]
-  %.47197 = phi i64 [ %87, %.lr.ph99 ], [ %spec.select, %.preheader85 ]
-  %87 = shl i64 %.47197, 1
-  %88 = add i32 %.498, -2
-  %89 = and i64 %.47197, 2048
-  %90 = icmp eq i64 %89, 0
-  br i1 %90, label %.lr.ph99, label %._crit_edge100
+  %.498 = phi i32 [ %118, %.lr.ph99 ], [ 13, %.preheader85 ]
+  %.47197 = phi i64 [ %117, %.lr.ph99 ], [ %spec.select, %.preheader85 ]
+  %117 = shl i64 %.47197, 1
+  %118 = add i32 %.498, -2
+  %119 = and i64 %.47197, 2048
+  %120 = icmp eq i64 %119, 0
+  br i1 %120, label %.lr.ph99, label %._crit_edge100
 
 ._crit_edge100:                                   ; preds = %.lr.ph99, %.preheader85
-  %.471.lcssa = phi i64 [ %spec.select, %.preheader85 ], [ %87, %.lr.ph99 ]
-  %.4.lcssa = phi i32 [ 13, %.preheader85 ], [ %88, %.lr.ph99 ]
-  %91 = trunc i64 %.471.lcssa to i32
-  %92 = lshr i32 %91, 11
-  %93 = and i32 %92, 1
-  %spec.select81 = add i32 %93, %.4.lcssa
-  %94 = and i64 %.471.lcssa, 2047
-  %95 = or disjoint i64 %94, 2048
-  %96 = icmp slt i32 %spec.select81, 0
-  br i1 %96, label %101, label %97
+  %.471.lcssa = phi i64 [ %spec.select, %.preheader85 ], [ %117, %.lr.ph99 ]
+  %.4.lcssa = phi i32 [ 13, %.preheader85 ], [ %118, %.lr.ph99 ]
+  %121 = trunc i64 %.471.lcssa to i32
+  %122 = lshr i32 %121, 11
+  %123 = and i32 %122, 1
+  %spec.select81 = add i32 %123, %.4.lcssa
+  %124 = and i64 %.471.lcssa, 2047
+  %125 = or disjoint i64 %124, 2048
+  %126 = icmp slt i32 %spec.select81, 0
+  br i1 %126, label %131, label %127
 
-97:                                               ; preds = %._crit_edge100
-  %98 = and i32 %spec.select81, 63
-  %99 = zext nneg i32 %98 to i64
-  %100 = shl i64 %95, %99
-  br label %106
+127:                                              ; preds = %._crit_edge100
+  %128 = and i32 %spec.select81, 63
+  %129 = zext nneg i32 %128 to i64
+  %130 = shl i64 %125, %129
+  br label %136
 
-101:                                              ; preds = %._crit_edge100
-  %102 = sub i32 0, %spec.select81
-  %103 = and i32 %102, 63
-  %104 = zext nneg i32 %103 to i64
-  %105 = lshr i64 %95, %104
-  br label %106
+131:                                              ; preds = %._crit_edge100
+  %132 = sub i32 0, %spec.select81
+  %133 = and i32 %132, 63
+  %134 = zext nneg i32 %133 to i64
+  %135 = lshr i64 %125, %134
+  br label %136
 
-106:                                              ; preds = %97, %101
-  %.673 = phi i64 [ %105, %101 ], [ %100, %97 ]
-  %107 = mul i64 %.673, %.673
-  %108 = lshr i64 %107, 34
-  %109 = mul nuw nsw i64 %108, 67
-  %110 = add nuw nsw i64 %109, 843314118
-  %111 = shl i64 %.673, 30
-  %112 = udiv i64 %111, %110
-  br label %83
+136:                                              ; preds = %127, %131
+  %.673 = phi i64 [ %135, %131 ], [ %130, %127 ]
+  %137 = mul i64 %.673, %.673
+  %138 = lshr i64 %137, 34
+  %139 = mul nuw nsw i64 %138, 67
+  %140 = add nuw nsw i64 %139, 843314118
+  %141 = shl i64 %.673, 30
+  %142 = udiv i64 %141, %140
+  br label %113
 
-.lr.ph105:                                        ; preds = %.preheader84, %.lr.ph105
-  %.5104 = phi i32 [ %114, %.lr.ph105 ], [ 14, %.preheader84 ]
-  %.572103 = phi i64 [ %113, %.lr.ph105 ], [ %spec.select, %.preheader84 ]
-  %113 = shl i64 %.572103, 1
-  %114 = add i32 %.5104, -2
-  %115 = and i64 %.572103, 4096
-  %116 = icmp eq i64 %115, 0
-  br i1 %116, label %.lr.ph105, label %._crit_edge106.loopexit
-
-._crit_edge106.loopexit:                          ; preds = %.lr.ph105
-  %117 = and i32 %114, 62
-  br label %._crit_edge106
-
-._crit_edge106:                                   ; preds = %._crit_edge106.loopexit, %.preheader84
-  %.572.lcssa = phi i64 [ %spec.select, %.preheader84 ], [ %113, %._crit_edge106.loopexit ]
-  %.5.lcssa = phi i32 [ 14, %.preheader84 ], [ %117, %._crit_edge106.loopexit ]
-  %118 = trunc i64 %.572.lcssa to i32
-  %119 = lshr i32 %118, 12
-  %120 = and i32 %119, 1
-  %121 = and i64 %.572.lcssa, 4095
-  %122 = or disjoint i64 %121, 4096
-  %123 = or disjoint i32 %120, %.5.lcssa
-  %124 = zext nneg i32 %123 to i64
-  %125 = shl i64 %122, %124
-  %126 = mul i64 %125, %125
-  %127 = lshr i64 %126, 28
-  %128 = mul nuw nsw i64 %127, 6969
-  %129 = lshr i64 %128, 24
-  %130 = sub nsw i64 530432, %129
-  %131 = mul nsw i64 %130, %127
-  %132 = lshr i64 %131, 28
-  %133 = sub nsw i64 1273944, %132
-  %134 = mul i64 %133, %127
-  %135 = lshr i64 %134, 28
-  %136 = sub nsw i64 2358656, %135
-  %137 = mul i64 %136, %127
-  %138 = lshr i64 %137, 27
-  %139 = sub nsw i64 9340208, %138
-  %140 = mul i64 %139, %127
-  %141 = lshr i64 %140, 29
-  %142 = sub nsw i64 17568064, %141
-  %143 = mul i64 %142, %127
-  %144 = lshr i64 %143, 24
-  %145 = add nuw nsw i64 %144, 843315168
-  %146 = shl i64 %125, 30
-  %147 = add i64 %146, 1073741824
-  %148 = udiv i64 %147, %145
-  br label %83
-
-149:                                              ; preds = %83, %173
-  %.774 = phi i64 [ %176, %173 ], [ %.370, %83 ]
-  %150 = sub i64 0, %.774
-  %spec.select83 = select i1 %.not, i64 %.774, i64 %150
-  %151 = trunc i64 %spec.select83 to i16
+143:                                              ; preds = %113, %167
+  %.774 = phi i64 [ %170, %167 ], [ %.370, %113 ]
+  %144 = sub i64 0, %.774
+  %spec.select83 = select i1 %.not, i64 %.774, i64 %144
+  %145 = trunc i64 %spec.select83 to i16
   br label %8
 
 .lr.ph111:                                        ; preds = %.preheader, %.lr.ph111
-  %.8110 = phi i32 [ %153, %.lr.ph111 ], [ 34, %.preheader ]
-  %.875109 = phi i64 [ %152, %.lr.ph111 ], [ %.370, %.preheader ]
-  %152 = shl i64 %.875109, 1
-  %153 = add i32 %.8110, 1
-  %154 = and i64 %.875109, 268435456
-  %155 = icmp eq i64 %154, 0
-  br i1 %155, label %.lr.ph111, label %._crit_edge112
+  %.8110 = phi i32 [ %147, %.lr.ph111 ], [ 34, %.preheader ]
+  %.875109 = phi i64 [ %146, %.lr.ph111 ], [ %.370128, %.preheader ]
+  %146 = shl i64 %.875109, 1
+  %147 = add i32 %.8110, 1
+  %148 = and i64 %.875109, 268435456
+  %149 = icmp eq i64 %148, 0
+  br i1 %149, label %.lr.ph111, label %._crit_edge112
 
 ._crit_edge112:                                   ; preds = %.lr.ph111, %.preheader
-  %.875.lcssa = phi i64 [ %.370, %.preheader ], [ %152, %.lr.ph111 ]
-  %.8.lcssa = phi i32 [ 34, %.preheader ], [ %153, %.lr.ph111 ]
-  %156 = xor i64 %.875.lcssa, 1610612736
-  %157 = shl i32 %.8.lcssa, 29
-  %158 = and i32 %157, 536870912
-  %159 = xor i32 %158, 536870912
-  %160 = zext nneg i32 %159 to i64
-  %161 = or disjoint i64 %156, %160
-  %162 = ashr i32 %.8.lcssa, 1
-  %163 = add nsw i32 %162, 63
-  %164 = and i32 %163, 63
-  %165 = zext nneg i32 %164 to i64
-  %166 = shl nuw i64 1, %165
-  %167 = and i64 %161, %166
-  %168 = icmp eq i64 %167, 0
-  br i1 %168, label %173, label %169
+  %.875.lcssa = phi i64 [ %.370128, %.preheader ], [ %146, %.lr.ph111 ]
+  %.8.lcssa = phi i32 [ 34, %.preheader ], [ %147, %.lr.ph111 ]
+  %150 = xor i64 %.875.lcssa, 1610612736
+  %151 = shl i32 %.8.lcssa, 29
+  %152 = and i32 %151, 536870912
+  %153 = xor i32 %152, 536870912
+  %154 = zext nneg i32 %153 to i64
+  %155 = or disjoint i64 %150, %154
+  %156 = ashr i32 %.8.lcssa, 1
+  %157 = add nsw i32 %156, 63
+  %158 = and i32 %157, 63
+  %159 = zext nneg i32 %158 to i64
+  %160 = shl nuw i64 1, %159
+  %161 = and i64 %155, %160
+  %162 = icmp eq i64 %161, 0
+  br i1 %162, label %167, label %163
 
-169:                                              ; preds = %._crit_edge112
-  %170 = add i64 %166, -1
-  %171 = and i64 %170, %161
-  %172 = icmp eq i64 %171, 0
-  br i1 %172, label %177, label %181
+163:                                              ; preds = %._crit_edge112
+  %164 = add i64 %160, -1
+  %165 = and i64 %164, %155
+  %166 = icmp eq i64 %165, 0
+  br i1 %166, label %171, label %175
 
-173:                                              ; preds = %181, %177, %._crit_edge112
-  %.10 = phi i64 [ %161, %._crit_edge112 ], [ %161, %177 ], [ %182, %181 ]
-  %174 = and i32 %162, 63
-  %175 = zext nneg i32 %174 to i64
-  %176 = lshr i64 %.10, %175
-  br label %149
+167:                                              ; preds = %175, %171, %._crit_edge112
+  %.10 = phi i64 [ %155, %._crit_edge112 ], [ %155, %171 ], [ %176, %175 ]
+  %168 = and i32 %156, 63
+  %169 = zext nneg i32 %168 to i64
+  %170 = lshr i64 %.10, %169
+  br label %143
 
-177:                                              ; preds = %169
-  %178 = shl i64 2, %165
-  %179 = and i64 %161, %178
-  %180 = icmp eq i64 %179, 0
-  br i1 %180, label %173, label %181
+171:                                              ; preds = %163
+  %172 = shl i64 2, %159
+  %173 = and i64 %155, %172
+  %174 = icmp eq i64 %173, 0
+  br i1 %174, label %167, label %175
 
-181:                                              ; preds = %177, %169
-  %182 = add i64 %161, %166
-  br label %173
+175:                                              ; preds = %171, %163
+  %176 = add i64 %155, %160
+  br label %167
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(none) uwtable
@@ -1116,7 +1100,7 @@ define noundef i16 @"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(none) uwtable
 define noundef i16 @"_ZN9softposit5p16e14math6cos_pi41_$LT$impl$u20$softposit..p16e1..P16E1$GT$6cos_pi17h0819cf0ffbb43b2cE"(i16 noundef %0) unnamed_addr #1 {
   %2 = icmp eq i16 %0, -32768
-  br i1 %2, label %.thread92, label %3
+  br i1 %2, label %.thread94, label %3
 
 3:                                                ; preds = %1
   %4 = zext i16 %0 to i64
@@ -1124,9 +1108,9 @@ define noundef i16 @"_ZN9softposit5p16e14math6cos_pi41_$LT$impl$u20$softposit..p
   %6 = icmp slt i16 %0, 0
   %spec.select = select i1 %6, i64 %5, i64 %4
   %7 = icmp eq i64 %spec.select, 0
-  br i1 %7, label %.thread92, label %8
+  br i1 %7, label %.thread94, label %8
 
-.thread92:                                        ; preds = %3, %49, %1, %93
+.thread94:                                        ; preds = %3, %49, %1, %93
   %.0 = phi i16 [ %97, %93 ], [ -32768, %1 ], [ 16384, %3 ], [ %52, %49 ]
   ret i16 %.0
 
@@ -1168,7 +1152,7 @@ define noundef i16 @"_ZN9softposit5p16e14math6cos_pi41_$LT$impl$u20$softposit..p
   %24 = trunc nuw nsw i64 %spec.select to i32
   %25 = lshr i32 %24, 12
   %26 = and i32 %25, 1
-  %spec.select6290 = or disjoint i32 %26, %.2.ph
+  %spec.select6292 = or disjoint i32 %26, %.2.ph
   %27 = and i64 %spec.select, 4095
   %28 = or disjoint i64 %27, 4096
   br label %39
@@ -1196,8 +1180,8 @@ define noundef i16 @"_ZN9softposit5p16e14math6cos_pi41_$LT$impl$u20$softposit..p
 
 39:                                               ; preds = %.loopexit.thread, %.loopexit
   %40 = phi i64 [ %28, %.loopexit.thread ], [ %33, %.loopexit ]
-  %spec.select6291 = phi i32 [ %spec.select6290, %.loopexit.thread ], [ %spec.select62, %.loopexit ]
-  %41 = and i32 %spec.select6291, 63
+  %spec.select6293 = phi i32 [ %spec.select6292, %.loopexit.thread ], [ %spec.select62, %.loopexit ]
+  %41 = and i32 %spec.select6293, 63
   %42 = zext nneg i32 %41 to i64
   %43 = shl i64 %40, %42
   br label %13
@@ -1210,11 +1194,11 @@ define noundef i16 @"_ZN9softposit5p16e14math6cos_pi41_$LT$impl$u20$softposit..p
   br label %13
 
 49:                                               ; preds = %13
-  %spec.select108 = select i1 %18, i16 16384, i16 -16384
+  %spec.select110 = select i1 %18, i16 16384, i16 -16384
   %50 = and i64 %.156.fr, 134217728
   %51 = icmp eq i64 %50, 0
-  %52 = select i1 %51, i16 %spec.select108, i16 0
-  br label %.thread92
+  %52 = select i1 %51, i16 %spec.select110, i16 0
+  br label %.thread94
 
 53:                                               ; preds = %13
   %54 = and i64 %.156.fr, 134217728
@@ -1257,16 +1241,16 @@ _ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit: ; preds = %53
   %79 = and i64 %.05376, 1
   %.not = icmp eq i64 %79, 0
   %80 = and i64 %75, 16777214
-  %spec.select110 = sub nuw nsw i64 12, %79
-  %spec.select111 = select i1 %.not, i64 %75, i64 %80
+  %spec.select112 = sub nuw nsw i64 12, %79
+  %spec.select113 = select i1 %.not, i64 %75, i64 %80
   %81 = lshr i64 %76, 1
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %_ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit, %53
-  %.053.lcssa101.sink = phi i64 [ 0, %_ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit ], [ 0, %53 ], [ %81, %._crit_edge ]
-  %.sink109 = phi i64 [ 12, %_ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit ], [ 12, %53 ], [ %spec.select110, %._crit_edge ]
-  %.7 = phi i64 [ %72, %_ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit ], [ 33554431, %53 ], [ %spec.select111, %._crit_edge ]
-  %82 = add nuw i64 %.053.lcssa101.sink, %.sink109
+  %.053.lcssa103.sink = phi i64 [ 0, %_ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit ], [ 0, %53 ], [ %81, %._crit_edge ]
+  %.sink111 = phi i64 [ 12, %_ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit ], [ 12, %53 ], [ %spec.select112, %._crit_edge ]
+  %.7 = phi i64 [ %72, %_ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit ], [ 33554431, %53 ], [ %spec.select113, %._crit_edge ]
+  %82 = add nuw i64 %.053.lcssa103.sink, %.sink111
   %83 = or i64 %.7, 33554432
   %84 = add nuw i64 %82, 63
   %85 = and i64 %84, 63
@@ -1288,7 +1272,7 @@ _ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit: ; preds = %53
   %96 = sub i64 0, %95
   %spec.select64 = select i1 %18, i64 %95, i64 %96
   %97 = trunc i64 %spec.select64 to i16
-  br label %.thread92
+  br label %.thread94
 
 98:                                               ; preds = %89
   %99 = shl i64 2, %85
@@ -1485,7 +1469,7 @@ define noundef i16 @"_ZN9softposit5p16e14math3exp41_$LT$impl$u20$softposit..p16e
   %106 = lshr i16 %0, 12
   %107 = and i16 %106, 1
   %108 = zext nneg i16 %107 to i32
-  %spec.select92128 = or disjoint i32 %.2.ph, %108
+  %spec.select92129 = or disjoint i32 %.2.ph, %108
   %109 = and i64 %2, 4095
   %110 = or disjoint i64 %109, 4096
   br label %121
@@ -1513,8 +1497,8 @@ define noundef i16 @"_ZN9softposit5p16e14math3exp41_$LT$impl$u20$softposit..p16e
 
 121:                                              ; preds = %.loopexit.thread, %.loopexit
   %122 = phi i64 [ %110, %.loopexit.thread ], [ %115, %.loopexit ]
-  %spec.select92129 = phi i32 [ %spec.select92128, %.loopexit.thread ], [ %spec.select92, %.loopexit ]
-  %123 = and i32 %spec.select92129, 63
+  %spec.select92130 = phi i32 [ %spec.select92129, %.loopexit.thread ], [ %spec.select92, %.loopexit ]
+  %123 = and i32 %spec.select92130, 63
   %124 = zext nneg i32 %123 to i64
   %125 = shl i64 %122, %124
   br label %131
@@ -1767,7 +1751,7 @@ define noundef i16 @"_ZN9softposit5p16e14math4exp241_$LT$impl$u20$softposit..p16
   %101 = lshr i16 %0, 12
   %102 = and i16 %101, 1
   %103 = zext nneg i16 %102 to i32
-  %spec.select86122 = or disjoint i32 %.2.ph, %103
+  %spec.select86123 = or disjoint i32 %.2.ph, %103
   %104 = and i64 %2, 4095
   %105 = or disjoint i64 %104, 4096
   br label %116
@@ -1795,8 +1779,8 @@ define noundef i16 @"_ZN9softposit5p16e14math4exp241_$LT$impl$u20$softposit..p16
 
 116:                                              ; preds = %.loopexit.thread, %.loopexit
   %117 = phi i64 [ %105, %.loopexit.thread ], [ %110, %.loopexit ]
-  %spec.select86123 = phi i32 [ %spec.select86122, %.loopexit.thread ], [ %spec.select86, %.loopexit ]
-  %118 = and i32 %spec.select86123, 63
+  %spec.select86124 = phi i32 [ %spec.select86123, %.loopexit.thread ], [ %spec.select86, %.loopexit ]
+  %118 = and i32 %spec.select86124, 63
   %119 = zext nneg i32 %118 to i64
   %120 = shl i64 %117, %119
   br label %126
@@ -2533,7 +2517,7 @@ define noundef i16 @"_ZN9softposit5p16e14math6sin_pi41_$LT$impl$u20$softposit..p
   %20 = trunc nuw nsw i64 %spec.select to i32
   %21 = lshr i32 %20, 12
   %22 = and i32 %21, 1
-  %spec.select6088 = or disjoint i32 %22, %.2.ph
+  %spec.select6089 = or disjoint i32 %22, %.2.ph
   %23 = and i64 %spec.select, 4095
   %24 = or disjoint i64 %23, 4096
   br label %35
@@ -2561,8 +2545,8 @@ define noundef i16 @"_ZN9softposit5p16e14math6sin_pi41_$LT$impl$u20$softposit..p
 
 35:                                               ; preds = %.loopexit.thread, %.loopexit
   %36 = phi i64 [ %24, %.loopexit.thread ], [ %29, %.loopexit ]
-  %spec.select6089 = phi i32 [ %spec.select6088, %.loopexit.thread ], [ %spec.select60, %.loopexit ]
-  %37 = and i32 %spec.select6089, 63
+  %spec.select6090 = phi i32 [ %spec.select6089, %.loopexit.thread ], [ %spec.select60, %.loopexit ]
+  %37 = and i32 %spec.select6090, 63
   %38 = zext nneg i32 %37 to i64
   %39 = shl i64 %36, %38
   br label %45
@@ -2901,7 +2885,7 @@ define noundef i16 @"_ZN9softposit5p16e14math6tan_pi41_$LT$impl$u20$softposit..p
   %22 = trunc nuw nsw i64 %spec.select to i32
   %23 = lshr i32 %22, 12
   %24 = and i32 %23, 1
-  %spec.select73113 = or disjoint i32 %24, %.2.ph
+  %spec.select73115 = or disjoint i32 %24, %.2.ph
   %25 = and i64 %spec.select, 4095
   %26 = or disjoint i64 %25, 4096
   br label %37
@@ -2929,8 +2913,8 @@ define noundef i16 @"_ZN9softposit5p16e14math6tan_pi41_$LT$impl$u20$softposit..p
 
 37:                                               ; preds = %.loopexit.thread, %.loopexit
   %38 = phi i64 [ %26, %.loopexit.thread ], [ %31, %.loopexit ]
-  %spec.select73114 = phi i32 [ %spec.select73113, %.loopexit.thread ], [ %spec.select73, %.loopexit ]
-  %39 = and i32 %spec.select73114, 63
+  %spec.select73116 = phi i32 [ %spec.select73115, %.loopexit.thread ], [ %spec.select73, %.loopexit ]
+  %39 = and i32 %spec.select73116, 63
   %40 = zext nneg i32 %39 to i64
   %41 = shl i64 %38, %40
   br label %15
@@ -4028,7 +4012,7 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   %87 = shl nuw nsw i16 %84, %86
   %.050 = select i1 %77, i16 0, i16 %87
   %88 = add nuw i16 %.050, %.sroa.0.0.i
-  %89 = add i16 %88, %.048
+  %89 = add nuw i16 %88, %.048
   br i1 %.049, label %93, label %91
 
 90:                                               ; preds = %_ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit
@@ -4057,7 +4041,7 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   %.054 = phi i16 [ %99, %95 ], [ 1, %93 ]
   %101 = and i16 %89, 1
   %102 = or i16 %.054, %101
-  %103 = add i16 %102, %89
+  %103 = add nuw i16 %102, %89
   br label %91
 }
 
@@ -4293,8 +4277,8 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit: ; preds = %
   %49 = lshr i16 %.1, %48
   %50 = add i16 %49, %.023
   %51 = sub i16 0, %50
-  %.not43 = icmp slt i8 %0, 0
-  %.0.i = select i1 %.not43, i16 %51, i16 %50
+  %.not49 = icmp slt i8 %0, 0
+  %.0.i = select i1 %.not49, i16 %51, i16 %50
   br label %25
 }
 
@@ -4455,8 +4439,8 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit: ; preds =
 79:                                               ; preds = %53, %9, %6, %55, %69
   %.059 = phi i16 [ %61, %55 ], [ %78, %69 ], [ 32767, %6 ], [ 1, %9 ], [ %.055, %53 ]
   %80 = sub i16 0, %.059
-  %.not81 = icmp slt i32 %0, 0
-  %.0.i = select i1 %.not81, i16 %80, i16 %.059
+  %.not87 = icmp slt i32 %0, 0
+  %.0.i = select i1 %.not87, i16 %80, i16 %.059
   br label %8
 }
 
@@ -4776,8 +4760,8 @@ define { i64, i64 } @"_ZN73_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..c
   %spec.select.i = tail call i16 @llvm.abs.i16(i16 %2, i1 true)
   %5 = tail call noundef i64 @_ZN9softposit5p16e17convert22convert_p16bits_to_u6417he8525e2ec992df3fE(i16 noundef %spec.select.i)
   %6 = sub i64 0, %5
-  %.not7.i = icmp slt i16 %2, 0
-  %.0.i.i = select i1 %.not7.i, i64 %6, i64 %5
+  %.not8.i = icmp slt i16 %2, 0
+  %.0.i.i = select i1 %.not8.i, i64 %6, i64 %5
   br label %"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$6to_i6417h2a6cd4bfab52b2cbE.exit"
 
 "_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$6to_i6417h2a6cd4bfab52b2cbE.exit": ; preds = %1, %4

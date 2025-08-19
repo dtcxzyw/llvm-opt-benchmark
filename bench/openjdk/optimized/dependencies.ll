@@ -3063,9 +3063,9 @@ _ZN12Dependencies8dep_argsENS_7DepTypeE.exit:     ; preds = %30
 _ZN12Dependencies20ctxk_encoded_as_nullENS_7DepTypeEP8Metadata.exit: ; preds = %52, %75
   %.0.i93 = phi ptr [ %81, %75 ], [ null, %52 ]
   %82 = icmp ne ptr %63, %.0.i93
-  %narrow205 = select i1 %82, i1 true, i1 %38
+  %narrow220 = select i1 %82, i1 true, i1 %38
   %spec.select138 = select i1 %82, i8 %42, i8 %47
-  %83 = select i1 %narrow205, i64 4294967295, i64 0
+  %83 = select i1 %narrow220, i64 4294967295, i64 0
   br label %84
 
 84:                                               ; preds = %_ZN12Dependencies20ctxk_encoded_as_nullENS_7DepTypeEP8Metadata.exit, %51
@@ -4000,11 +4000,11 @@ _ZN12Dependencies9DepStream12argument_oopEi.exit: ; preds = %46, %48, %56, %60, 
   br i1 %75, label %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit.sink.split, label %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit.sink.split: ; preds = %70, %_ZN12Dependencies9DepStream12argument_oopEi.exit
-  %.sink55 = phi i32 [ %67, %_ZN12Dependencies9DepStream12argument_oopEi.exit ], [ %73, %70 ]
-  %.sink38.ph = phi i8 [ 1, %_ZN12Dependencies9DepStream12argument_oopEi.exit ], [ 0, %70 ]
+  %.sink61 = phi i32 [ %67, %_ZN12Dependencies9DepStream12argument_oopEi.exit ], [ %73, %70 ]
+  %.sink44.ph = phi i8 [ 1, %_ZN12Dependencies9DepStream12argument_oopEi.exit ], [ 0, %70 ]
   %.sink.ph = phi ptr [ %66, %_ZN12Dependencies9DepStream12argument_oopEi.exit ], [ %72, %70 ]
-  %76 = add nsw i32 %.sink55, 1
-  %77 = icmp sgt i32 %.sink55, -1
+  %76 = add nsw i32 %.sink61, 1
+  %77 = icmp sgt i32 %.sink61, -1
   %78 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %76)
   %79 = icmp samesign ult i32 %78, 2
   %or.cond.i.i.i.i.i20 = select i1 %77, i1 %79, i1 false
@@ -4017,15 +4017,15 @@ _ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_
   br label %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit.sink.split, %70, %_ZN12Dependencies9DepStream12argument_oopEi.exit
-  %.sink44 = phi i32 [ %67, %_ZN12Dependencies9DepStream12argument_oopEi.exit ], [ %73, %70 ], [ %.pre.i.i22, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit.sink.split ]
-  %.sink38 = phi i8 [ 1, %_ZN12Dependencies9DepStream12argument_oopEi.exit ], [ 0, %70 ], [ %.sink38.ph, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit.sink.split ]
+  %.sink50 = phi i32 [ %67, %_ZN12Dependencies9DepStream12argument_oopEi.exit ], [ %73, %70 ], [ %.pre.i.i22, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit.sink.split ]
+  %.sink44 = phi i8 [ 1, %_ZN12Dependencies9DepStream12argument_oopEi.exit ], [ 0, %70 ], [ %.sink44.ph, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit.sink.split ]
   %.sink = phi ptr [ %66, %_ZN12Dependencies9DepStream12argument_oopEi.exit ], [ %72, %70 ], [ %.sink.ph, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit.sink.split ]
-  %83 = add nsw i32 %.sink44, 1
+  %83 = add nsw i32 %.sink50, 1
   store i32 %83, ptr %27, align 8
   %84 = load ptr, ptr %30, align 8
-  %85 = sext i32 %.sink44 to i64
+  %85 = sext i32 %.sink50 to i64
   %86 = getelementptr inbounds %"class.Dependencies::DepArgument", ptr %84, i64 %85
-  store i8 %.sink38, ptr %86, align 8
+  store i8 %.sink44, ptr %86, align 8
   %.sroa.226.0..sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 1
   store i8 1, ptr %.sroa.226.0..sroa_idx, align 1
   %.sroa.328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 8
@@ -4431,11 +4431,11 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit.sink.split: ;
   br label %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit
 
 _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit: ; preds = %30, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit.sink.split
-  %.sink73 = phi i32 [ %.pre.i.i47, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit.sink.split ], [ %39, %30 ]
-  %49 = add nsw i32 %.sink73, 1
+  %.sink81 = phi i32 [ %.pre.i.i47, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit.sink.split ], [ %39, %30 ]
+  %49 = add nsw i32 %.sink81, 1
   store i32 %49, ptr %19, align 8
   %50 = load ptr, ptr %23, align 8
-  %51 = sext i32 %.sink73 to i64
+  %51 = sext i32 %.sink81 to i64
   %52 = getelementptr inbounds i32, ptr %50, i64 %51
   store i32 %38, ptr %52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4653,10 +4653,10 @@ _ZN5ciEnv12get_metadataEP8Metadata.exit:          ; preds = %47, %48
   br i1 %53, label %_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE4pushERKS1_.exit.sink.split, label %_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE4pushERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE4pushERKS1_.exit.sink.split: ; preds = %_ZN5ciEnv12get_metadataEP8Metadata.exit, %_ZN5ciEnv10get_objectEP7oopDesc.exit
-  %.sink51 = phi i32 [ %44, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ %51, %_ZN5ciEnv12get_metadataEP8Metadata.exit ]
+  %.sink56 = phi i32 [ %44, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ %51, %_ZN5ciEnv12get_metadataEP8Metadata.exit ]
   %.0.i.sink.ph = phi ptr [ %.0.i, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ %.0.i18, %_ZN5ciEnv12get_metadataEP8Metadata.exit ]
-  %54 = add nsw i32 %.sink51, 1
-  %55 = icmp sgt i32 %.sink51, -1
+  %54 = add nsw i32 %.sink56, 1
+  %55 = icmp sgt i32 %.sink56, -1
   %56 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %54)
   %57 = icmp samesign ult i32 %56, 2
   %or.cond.i.i.i.i.i19 = select i1 %55, i1 %57, i1 false
@@ -4669,12 +4669,12 @@ _ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE4pushERKS1_.
   br label %_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE4pushERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE4pushERKS1_.exit.sink.split, %_ZN5ciEnv12get_metadataEP8Metadata.exit, %_ZN5ciEnv10get_objectEP7oopDesc.exit
-  %.sink41 = phi i32 [ %44, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ %51, %_ZN5ciEnv12get_metadataEP8Metadata.exit ], [ %.pre.i.i21, %_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE4pushERKS1_.exit.sink.split ]
+  %.sink46 = phi i32 [ %44, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ %51, %_ZN5ciEnv12get_metadataEP8Metadata.exit ], [ %.pre.i.i21, %_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE4pushERKS1_.exit.sink.split ]
   %.0.i.sink = phi ptr [ %.0.i, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ %.0.i18, %_ZN5ciEnv12get_metadataEP8Metadata.exit ], [ %.0.i.sink.ph, %_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE4pushERKS1_.exit.sink.split ]
-  %61 = add nsw i32 %.sink41, 1
+  %61 = add nsw i32 %.sink46, 1
   store i32 %61, ptr %21, align 8
   %62 = load ptr, ptr %25, align 8
-  %63 = sext i32 %.sink41 to i64
+  %63 = sext i32 %.sink46 to i64
   %64 = getelementptr inbounds ptr, ptr %62, i64 %63
   store ptr %.0.i.sink, ptr %64, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4986,9 +4986,9 @@ _ZN12Dependencies8dep_nameENS_7DepTypeE.exit:     ; preds = %4, %24
 
 41:                                               ; preds = %39
   %42 = trunc i8 %.sroa.0.0.copyload to i1
-  br i1 %42, label %.thread57.thread70, label %_ZNK12Dependencies11DepArgument9is_methodEv.exit
+  br i1 %42, label %.thread57.thread74, label %_ZNK12Dependencies11DepArgument9is_methodEv.exit
 
-.thread57.thread70:                               ; preds = %41
+.thread57.thread74:                               ; preds = %41
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.41) #19
   br label %71
 
@@ -5058,7 +5058,7 @@ _ZNK12Dependencies11DepArgument9is_methodEv.exit28: ; preds = %_ZNK12Dependencie
   tail call void %70(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.634.0.copyload, ptr noundef nonnull %3) #19
   br label %74
 
-71:                                               ; preds = %.thread57.thread70, %.thread57
+71:                                               ; preds = %.thread57.thread74, %.thread57
   tail call void @_ZNK7oopDesc14print_value_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.634.0.copyload, ptr noundef nonnull %3) #19
   br label %74
 
@@ -5314,11 +5314,11 @@ _ZN12Dependencies9DepStream12argument_oopEi.exit: ; preds = %49, %51, %59, %63, 
   br i1 %78, label %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit.sink.split, label %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit.sink.split: ; preds = %73, %_ZN12Dependencies9DepStream12argument_oopEi.exit
-  %.sink57 = phi i32 [ %70, %_ZN12Dependencies9DepStream12argument_oopEi.exit ], [ %76, %73 ]
-  %.sink40.ph = phi i8 [ 1, %_ZN12Dependencies9DepStream12argument_oopEi.exit ], [ 0, %73 ]
+  %.sink65 = phi i32 [ %70, %_ZN12Dependencies9DepStream12argument_oopEi.exit ], [ %76, %73 ]
+  %.sink48.ph = phi i8 [ 1, %_ZN12Dependencies9DepStream12argument_oopEi.exit ], [ 0, %73 ]
   %.sink.ph = phi ptr [ %69, %_ZN12Dependencies9DepStream12argument_oopEi.exit ], [ %75, %73 ]
-  %79 = add nsw i32 %.sink57, 1
-  %80 = icmp sgt i32 %.sink57, -1
+  %79 = add nsw i32 %.sink65, 1
+  %80 = icmp sgt i32 %.sink65, -1
   %81 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %79)
   %82 = icmp samesign ult i32 %81, 2
   %or.cond.i.i.i.i.i22 = select i1 %80, i1 %82, i1 false
@@ -5331,15 +5331,15 @@ _ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_
   br label %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit.sink.split, %73, %_ZN12Dependencies9DepStream12argument_oopEi.exit
-  %.sink46 = phi i32 [ %70, %_ZN12Dependencies9DepStream12argument_oopEi.exit ], [ %76, %73 ], [ %.pre.i.i24, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit.sink.split ]
-  %.sink40 = phi i8 [ 1, %_ZN12Dependencies9DepStream12argument_oopEi.exit ], [ 0, %73 ], [ %.sink40.ph, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit.sink.split ]
+  %.sink54 = phi i32 [ %70, %_ZN12Dependencies9DepStream12argument_oopEi.exit ], [ %76, %73 ], [ %.pre.i.i24, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit.sink.split ]
+  %.sink48 = phi i8 [ 1, %_ZN12Dependencies9DepStream12argument_oopEi.exit ], [ 0, %73 ], [ %.sink48.ph, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit.sink.split ]
   %.sink = phi ptr [ %69, %_ZN12Dependencies9DepStream12argument_oopEi.exit ], [ %75, %73 ], [ %.sink.ph, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit.sink.split ]
-  %86 = add nsw i32 %.sink46, 1
+  %86 = add nsw i32 %.sink54, 1
   store i32 %86, ptr %31, align 8
   %87 = load ptr, ptr %34, align 8
-  %88 = sext i32 %.sink46 to i64
+  %88 = sext i32 %.sink54 to i64
   %89 = getelementptr inbounds %"class.Dependencies::DepArgument", ptr %87, i64 %88
-  store i8 %.sink40, ptr %89, align 8
+  store i8 %.sink48, ptr %89, align 8
   %.sroa.228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 1
   store i8 1, ptr %.sroa.228.0..sroa_idx, align 1
   %.sroa.330.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 8
@@ -6143,7 +6143,7 @@ _ZN28AbstractClassHierarchyWalker11participantEj.exit: ; preds = %_ZN28AbstractC
 ._crit_edge:                                      ; preds = %_ZN28AbstractClassHierarchyWalker11participantEj.exit, %45
   %56 = load i8, ptr @UsePerfData, align 1
   %57 = trunc i8 %56 to i1
-  br i1 %57, label %58, label %.lr.ph.i79
+  br i1 %57, label %58, label %.lr.ph.i89
 
 58:                                               ; preds = %._crit_edge
   %59 = load ptr, ptr @_ZN28AbstractClassHierarchyWalker39_perf_find_witness_anywhere_calls_countE, align 8
@@ -6152,9 +6152,9 @@ _ZN28AbstractClassHierarchyWalker11participantEj.exit: ; preds = %_ZN28AbstractC
   %62 = load i64, ptr %61, align 8
   %63 = add nsw i64 %62, 1
   store i64 %63, ptr %61, align 8
-  br label %.lr.ph.i79
+  br label %.lr.ph.i89
 
-.lr.ph.i79:                                       ; preds = %58, %._crit_edge
+.lr.ph.i89:                                       ; preds = %58, %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -6165,13 +6165,13 @@ _ZN28AbstractClassHierarchyWalker11participantEj.exit: ; preds = %_ZN28AbstractC
   store i64 0, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %68 = load i32, ptr %67, align 8
-  %.not.i.i80 = icmp eq i32 %68, 0
+  %.not.i.i90 = icmp eq i32 %68, 0
   %wide.trip.count.i.i = zext i32 %68 to i64
   br label %69
 
-69:                                               ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i, %.lr.ph.i79
-  %70 = phi ptr [ %1, %.lr.ph.i79 ], [ %.pr.i, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i ]
-  br i1 %.not.i.i80, label %.loopexit.i, label %.lr.ph.i.i
+69:                                               ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i, %.lr.ph.i89
+  %70 = phi ptr [ %1, %.lr.ph.i89 ], [ %.pr.i, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i ]
+  br i1 %.not.i.i90, label %.loopexit.i, label %.lr.ph.i.i
 
 71:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -6310,11 +6310,11 @@ _ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChang
   br label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.sink.split
 
 _ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.sink.split: ; preds = %40, %112, %131
-  %.sink78 = phi i32 [ %126, %131 ], [ %107, %112 ], [ %35, %40 ]
-  %.sink77 = phi i64 [ %127, %131 ], [ %108, %112 ], [ %36, %40 ]
-  %133 = add i32 %.sink78, 1
+  %.sink88 = phi i32 [ %126, %131 ], [ %107, %112 ], [ %35, %40 ]
+  %.sink87 = phi i64 [ %127, %131 ], [ %108, %112 ], [ %36, %40 ]
+  %133 = add i32 %.sink88, 1
   store i32 %133, ptr %6, align 8
-  %134 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 0, i64 %.sink77
+  %134 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 0, i64 %.sink87
   store ptr %1, ptr %134, align 8
   br label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit
 
@@ -7028,11 +7028,11 @@ _ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChang
   br label %29
 
 29:                                               ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i, %.lr.ph.i
-  %30 = phi i32 [ 1, %.lr.ph.i ], [ %46, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i ]
+  %30 = phi i32 [ 1, %.lr.ph.i ], [ %45, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i ]
   %31 = phi ptr [ %.010.i, %.lr.ph.i ], [ %.pr.i, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i ]
   %32 = load i32, ptr %28, align 8
-  %.not.i.i16 = icmp eq i32 %32, 0
-  br i1 %.not.i.i16, label %.loopexit.i, label %.lr.ph.preheader.i.i
+  %.not.i.i17 = icmp eq i32 %32, 0
+  br i1 %.not.i.i17, label %.loopexit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %29
   %wide.trip.count.i.i = zext i32 %32 to i64
@@ -7066,41 +7066,40 @@ _ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.i: ; preds = %.lr
   br i1 %.not.i4.i.i, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, label %41
 
 41:                                               ; preds = %40
-  %42 = add i32 %30, -1
-  %43 = add i32 %32, 1
-  store i32 %43, ptr %28, align 8
-  %44 = zext i32 %32 to i64
-  %45 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %44
-  store ptr %31, ptr %45, align 8
+  %42 = add i32 %32, 1
+  store i32 %42, ptr %28, align 8
+  %43 = zext i32 %32 to i64
+  %44 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %43
+  store ptr %31, ptr %44, align 8
   br label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i
 
 _ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i: ; preds = %41, %.loopexit.i, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.i
-  %46 = phi i32 [ %42, %41 ], [ %30, %.loopexit.i ], [ %30, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.i ]
-  %47 = load i64, ptr %26, align 8
-  %48 = add nsw i64 %47, 1
-  store i64 %48, ptr %26, align 8
+  %45 = phi i32 [ 0, %41 ], [ %30, %.loopexit.i ], [ %30, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.i ]
+  %46 = load i64, ptr %26, align 8
+  %47 = add nsw i64 %46, 1
+  store i64 %47, ptr %26, align 8
   call void @_ZN22ClassHierarchyIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   %.pr.i = load ptr, ptr %24, align 8
-  %49 = icmp eq ptr %.pr.i, null
-  br i1 %49, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, label %29, !llvm.loop !49
+  %48 = icmp eq ptr %.pr.i, null
+  br i1 %48, label %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, label %29, !llvm.loop !49
 
 _ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i: ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i, %40, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit
   %.lcssa.i = phi i1 [ true, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit ], [ true, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i ], [ false, %40 ]
-  %50 = load i8, ptr @UsePerfData, align 1
-  %51 = trunc i8 %50 to i1
-  br i1 %51, label %52, label %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit
+  %49 = load i8, ptr @UsePerfData, align 1
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit
 
-52:                                               ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i
-  %53 = load ptr, ptr @_ZN28AbstractClassHierarchyWalker39_perf_find_witness_anywhere_steps_countE, align 8
-  %54 = load i64, ptr %26, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  %56 = load ptr, ptr %55, align 8
-  %57 = load i64, ptr %56, align 8
-  %58 = add nsw i64 %57, %54
-  store i64 %58, ptr %56, align 8
+51:                                               ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i
+  %52 = load ptr, ptr @_ZN28AbstractClassHierarchyWalker39_perf_find_witness_anywhere_steps_countE, align 8
+  %53 = load i64, ptr %26, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 40
+  %55 = load ptr, ptr %54, align 8
+  %56 = load i64, ptr %55, align 8
+  %57 = add nsw i64 %56, %53
+  store i64 %57, ptr %55, align 8
   br label %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit
 
-_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit: ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, %52
+_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit: ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.i, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.lcssa.i, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit._ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread_crit_edge, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread11
 
@@ -7111,12 +7110,12 @@ _ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChang
   br label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread
 
 _ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread: ; preds = %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit._ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread_crit_edge, %11
-  %59 = phi ptr [ %.pre15, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit._ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread_crit_edge ], [ %0, %11 ]
-  %60 = phi i32 [ %.pre, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit._ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread_crit_edge ], [ %7, %11 ]
-  %.not14 = icmp eq i32 %60, 0
-  %spec.select = select i1 %.not14, ptr null, ptr %59
-  %61 = icmp eq ptr %spec.select, null
-  %. = select i1 %61, ptr %0, ptr %spec.select
+  %58 = phi ptr [ %.pre15, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit._ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread_crit_edge ], [ %0, %11 ]
+  %59 = phi i32 [ %.pre, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit._ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread_crit_edge ], [ %7, %11 ]
+  %.not14 = icmp eq i32 %59, 0
+  %spec.select = select i1 %.not14, ptr null, ptr %58
+  %60 = icmp eq ptr %spec.select, null
+  %. = select i1 %60, ptr %0, ptr %spec.select
   br label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread11
 
 _ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread11: ; preds = %11, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread, %_ZN21ConcreteSubtypeFinder21find_witness_anywhereEP13InstanceKlass.exit
@@ -7415,13 +7414,13 @@ _ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChang
 .lr.ph.i:                                         ; preds = %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %64 = load i32, ptr %63, align 8
-  %.not.i.i32 = icmp eq i32 %64, 0
+  %.not.i.i37 = icmp eq i32 %64, 0
   %wide.trip.count.i.i = zext i32 %64 to i64
   br label %65
 
 65:                                               ; preds = %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i, %.lr.ph.i
   %66 = phi ptr [ %.010.i, %.lr.ph.i ], [ %.pr.i, %_ZN21ConcreteSubtypeFinder10is_witnessEP5Klass.exit.thread.i ]
-  br i1 %.not.i.i32, label %.loopexit.i, label %.lr.ph.i.i
+  br i1 %.not.i.i37, label %.loopexit.i, label %.lr.ph.i.i
 
 67:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -7681,11 +7680,11 @@ _ZN28AbstractClassHierarchyWalker11participantEj.exit.i: ; preds = %_ZN28Abstrac
   %75 = load ptr, ptr %13, align 8
   %spec.select = select i1 %.not46, ptr null, ptr %75
   %.not7.i = icmp eq ptr %72, %spec.select
-  %spec.select50 = select i1 %.not7.i, ptr %.pre, ptr null
+  %spec.select52 = select i1 %.not7.i, ptr %.pre, ptr null
   br label %_ZN20ConcreteMethodFinder12found_methodEj.exit
 
 _ZN20ConcreteMethodFinder12found_methodEj.exit:   ; preds = %_ZN28AbstractClassHierarchyWalker11participantEj.exit.i, %35, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread
-  %.0.i25 = phi ptr [ null, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread ], [ null, %35 ], [ %spec.select50, %_ZN28AbstractClassHierarchyWalker11participantEj.exit.i ]
+  %.0.i25 = phi ptr [ null, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread ], [ null, %35 ], [ %spec.select52, %_ZN28AbstractClassHierarchyWalker11participantEj.exit.i ]
   %.not22 = icmp eq ptr %2, null
   br i1 %.not22, label %79, label %_ZN28AbstractClassHierarchyWalker11participantEj.exit
 
@@ -7748,8 +7747,8 @@ _ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit33.thread41: ; preds =
   br i1 %or.cond, label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread36, label %98
 
 98:                                               ; preds = %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit33.thread41
-  %.sroa.0.0.copyload.i.i.i51 = load i32, ptr %85, align 8
-  %99 = and i32 %.sroa.0.0.copyload.i.i.i51, 5
+  %.sroa.0.0.copyload.i.i.i53 = load i32, ptr %85, align 8
+  %99 = and i32 %.sroa.0.0.copyload.i.i.i53, 5
   %or.cond.not.i = icmp eq i32 %99, 0
   br i1 %or.cond.not.i, label %_ZL9overridesP6MethodS0_.exit, label %_ZL9overridesP6MethodS0_.exit.thread
 
@@ -9139,8 +9138,8 @@ select.unfold:                                    ; preds = %2, %_ZN9DepChange13
 .preheader.outer.outer:                           ; preds = %25, %.preheader.preheader
   %.sroa.19.0.ph.ph = phi i32 [ %26, %25 ], [ 0, %.preheader.preheader ]
   %.sroa.22.0.ph.ph = phi i32 [ %.sroa.22.1, %25 ], [ 0, %.preheader.preheader ]
-  %.sroa.9.0.ph61.ph = phi ptr [ %30, %25 ], [ %.sroa.9.0.ph, %.preheader.preheader ]
-  %.sroa.2.0.ph62.ph = phi i32 [ 3, %25 ], [ %.sroa.2.0.ph, %.preheader.preheader ]
+  %.sroa.9.0.ph63.ph = phi ptr [ %30, %25 ], [ %.sroa.9.0.ph, %.preheader.preheader ]
+  %.sroa.2.0.ph64.ph = phi i32 [ 3, %25 ], [ %.sroa.2.0.ph, %.preheader.preheader ]
   %.sroa.15.0.ph.ph = phi ptr [ %.sroa.15.0.ph, %25 ], [ null, %.preheader.preheader ]
   %.09.ph.ph = phi i32 [ %31, %25 ], [ 0, %.preheader.preheader ]
   %.0.ph.ph = phi i32 [ %.0, %25 ], [ 0, %.preheader.preheader ]
@@ -9148,17 +9147,17 @@ select.unfold:                                    ; preds = %2, %_ZN9DepChange13
 
 .preheader.outer:                                 ; preds = %.preheader.outer.outer, %19
   %.sroa.19.0.ph = phi i32 [ 0, %19 ], [ %.sroa.19.0.ph.ph, %.preheader.outer.outer ]
-  %.sroa.9.0.ph61 = phi ptr [ %.sroa.9.0, %19 ], [ %.sroa.9.0.ph61.ph, %.preheader.outer.outer ]
-  %.sroa.2.0.ph62 = phi i32 [ 1, %19 ], [ %.sroa.2.0.ph62.ph, %.preheader.outer.outer ]
+  %.sroa.9.0.ph63 = phi ptr [ %.sroa.9.0, %19 ], [ %.sroa.9.0.ph63.ph, %.preheader.outer.outer ]
+  %.sroa.2.0.ph64 = phi i32 [ 1, %19 ], [ %.sroa.2.0.ph64.ph, %.preheader.outer.outer ]
   %.sroa.15.0.ph = phi ptr [ %21, %19 ], [ %.sroa.15.0.ph.ph, %.preheader.outer.outer ]
   %.0.ph = phi i32 [ %.0, %19 ], [ %.0.ph.ph, %.preheader.outer.outer ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.outer, %23
-  %.sroa.9.0 = phi ptr [ %13, %23 ], [ %.sroa.9.0.ph61, %.preheader.outer ]
-  %.sroa.2.0 = phi i32 [ 2, %23 ], [ %.sroa.2.0.ph62, %.preheader.outer ]
+  %.sroa.9.0 = phi ptr [ %13, %23 ], [ %.sroa.9.0.ph63, %.preheader.outer ]
+  %.sroa.2.0 = phi i32 [ 2, %23 ], [ %.sroa.2.0.ph64, %.preheader.outer ]
   %.0 = phi i32 [ %24, %23 ], [ %.0.ph, %.preheader.outer ]
-  switch i32 %.sroa.2.0, label %default.unreachable56 [
+  switch i32 %.sroa.2.0, label %default.unreachable58 [
     i32 4, label %19
     i32 1, label %9
     i32 2, label %9
@@ -9187,7 +9186,7 @@ select.unfold:                                    ; preds = %2, %_ZN9DepChange13
   %18 = icmp slt i32 %.sroa.19.0.ph, %.sroa.22.1
   br i1 %18, label %25, label %_ZN9DepChange13ContextStream4nextEv.exit
 
-default.unreachable56:                            ; preds = %.preheader
+default.unreachable58:                            ; preds = %.preheader
   unreachable
 
 19:                                               ; preds = %.preheader
@@ -10454,14 +10453,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #19, !srcloc !64
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #19, !srcloc !64
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -10595,14 +10594,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i18.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i19.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i18 = or i64 %.0.i.i18.in, 48
+  %.0.i.i19 = or i64 %.0.i.i19.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i17.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i18, i64 %.0.i17.i, ptr nonnull %0) #19, !srcloc !64
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i19, i64 %.0.i17.i, ptr nonnull %0) #19, !srcloc !64
   %71 = icmp eq i64 %70, %.0.i17.i
   br i1 %71, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %72
 

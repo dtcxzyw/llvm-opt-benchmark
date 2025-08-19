@@ -184,27 +184,27 @@ get_libs_order.exit:                              ; preds = %._crit_edge.i, %.pr
   %67 = icmp eq i32 %1, 0
   %.not35 = icmp eq i32 %2, 0
   %68 = load ptr, ptr %55, align 8
-  %.not3457 = icmp eq ptr %68, null
-  br i1 %.not3457, label %.critedge, label %.lr.ph59
+  %.not3463 = icmp eq ptr %68, null
+  br i1 %.not3463, label %.critedge, label %.lr.ph65
 
 69:                                               ; preds = %97
   %70 = load ptr, ptr %73, align 8
   %.not34 = icmp eq ptr %70, null
-  br i1 %.not34, label %.critedge, label %.lr.ph59, !llvm.loop !9
+  br i1 %.not34, label %.critedge, label %.lr.ph65, !llvm.loop !9
 
-.lr.ph59:                                         ; preds = %.lr.ph, %69
+.lr.ph65:                                         ; preds = %.lr.ph, %69
   %71 = phi ptr [ %70, %69 ], [ %68, %.lr.ph ]
-  %.04758 = phi ptr [ %73, %69 ], [ %55, %.lr.ph ]
+  %.04764 = phi ptr [ %73, %69 ], [ %55, %.lr.ph ]
   %72 = phi ptr [ %98, %69 ], [ null, %.lr.ph ]
-  %73 = getelementptr inbounds nuw i8, ptr %.04758, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.04764, i64 8
   br i1 %67, label %77, label %74
 
-74:                                               ; preds = %.lr.ph59
+74:                                               ; preds = %.lr.ph65
   %75 = load i32, ptr %71, align 8
   %76 = icmp eq i32 %75, %1
   br i1 %76, label %77, label %97
 
-77:                                               ; preds = %74, %.lr.ph59
+77:                                               ; preds = %74, %.lr.ph65
   br i1 %.not35, label %82, label %78
 
 78:                                               ; preds = %77
@@ -243,14 +243,14 @@ get_libs_order.exit:                              ; preds = %._crit_edge.i, %.pr
   %98 = phi ptr [ %92, %88 ], [ %.pre50, %94 ], [ %72, %74 ]
   %99 = phi ptr [ %92, %88 ], [ %.pre50, %94 ], [ null, %74 ]
   %100 = icmp eq ptr %99, null
-  br i1 %100, label %69, label %..critedge.loopexit_crit_edge61, !llvm.loop !9
+  br i1 %100, label %69, label %..critedge.loopexit_crit_edge67, !llvm.loop !9
 
-..critedge.loopexit_crit_edge61:                  ; preds = %97
+..critedge.loopexit_crit_edge67:                  ; preds = %97
   br label %.critedge, !llvm.loop !9
 
-.critedge:                                        ; preds = %69, %82, %.lr.ph, %..critedge.loopexit_crit_edge61, %get_libs_order.exit.thread, %get_libs_order.exit, %40, %45
-  %101 = phi ptr [ %44, %40 ], [ %49, %45 ], [ %65, %get_libs_order.exit ], [ %54, %get_libs_order.exit.thread ], [ %98, %..critedge.loopexit_crit_edge61 ], [ null, %.lr.ph ], [ %87, %82 ], [ %98, %69 ]
-  %.029 = phi ptr [ %22, %40 ], [ %22, %45 ], [ null, %get_libs_order.exit ], [ null, %get_libs_order.exit.thread ], [ %71, %..critedge.loopexit_crit_edge61 ], [ null, %.lr.ph ], [ %71, %82 ], [ %71, %69 ]
+.critedge:                                        ; preds = %69, %82, %.lr.ph, %..critedge.loopexit_crit_edge67, %get_libs_order.exit.thread, %get_libs_order.exit, %40, %45
+  %101 = phi ptr [ %44, %40 ], [ %49, %45 ], [ %65, %get_libs_order.exit ], [ %54, %get_libs_order.exit.thread ], [ %98, %..critedge.loopexit_crit_edge67 ], [ null, %.lr.ph ], [ %87, %82 ], [ %98, %69 ]
+  %.029 = phi ptr [ %22, %40 ], [ %22, %45 ], [ null, %get_libs_order.exit ], [ null, %get_libs_order.exit.thread ], [ %71, %..critedge.loopexit_crit_edge67 ], [ null, %.lr.ph ], [ %71, %82 ], [ %71, %69 ]
   %.not39 = icmp eq i32 %2, 0
   br i1 %.not39, label %109, label %102
 

@@ -1438,9 +1438,9 @@ _ZNSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11cha
   br label %_ZNSt5dequeIN3net10HpackEntryESaIS1_EE8pop_backEv.exit
 
 _ZNSt5dequeIN3net10HpackEntryESaIS1_EE8pop_backEv.exit: ; preds = %153, %155
-  %.sink1.i = phi ptr [ %160, %155 ], [ %154, %153 ]
-  store ptr %.sink1.i, ptr %6, align 8, !tbaa !119
-  call void @_ZN3net10HpackEntryD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %.sink1.i) #16
+  %.sink2.i = phi ptr [ %160, %155 ], [ %154, %153 ]
+  store ptr %.sink2.i, ptr %6, align 8, !tbaa !119
+  call void @_ZN3net10HpackEntryD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %.sink2.i) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %161 = add nuw i64 %.023, 1
   %.not = icmp eq i64 %161, %1

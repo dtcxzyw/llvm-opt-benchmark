@@ -1285,18 +1285,18 @@ xas_init_marks.exit:                              ; preds = %.loopexit.i, %.loop
 
 185:                                              ; preds = %176, %167
   %186 = icmp eq ptr %173, null
-  br i1 %186, label %.preheader78, label %187
+  br i1 %186, label %.preheader94, label %187
 
 187:                                              ; preds = %185
   store volatile ptr inttoptr (i64 1026 to ptr), ptr %172, align 8
-  br label %.preheader78
+  br label %.preheader94
 
-.preheader78:                                     ; preds = %187, %185
+.preheader94:                                     ; preds = %187, %185
   br label %188
 
-188:                                              ; preds = %.preheader78, %203
-  %.in = phi i32 [ %197, %203 ], [ %168, %.preheader78 ]
-  %189 = phi ptr [ %194, %203 ], [ %169, %.preheader78 ]
+188:                                              ; preds = %.preheader94, %203
+  %.in = phi i32 [ %197, %203 ], [ %168, %.preheader94 ]
+  %189 = phi ptr [ %194, %203 ], [ %169, %.preheader94 ]
   %190 = add i32 %.in, 1
   %191 = icmp eq i32 %190, 64
   br i1 %191, label %192, label %.loopexit
@@ -2329,20 +2329,20 @@ define dso_local ptr @__xas_prev(ptr noundef captures(none) %0) #0 align 16 {
   %28 = trunc i64 %27 to i32
   %29 = and i32 %28, 63
   %30 = icmp eq i32 %29, %22
-  br i1 %30, label %.preheader14, label %31
+  br i1 %30, label %.preheader16, label %31
 
 31:                                               ; preds = %19
   %32 = add i8 %21, -1
   store i8 %32, ptr %20, align 2
-  br label %.preheader14
+  br label %.preheader16
 
-.preheader14:                                     ; preds = %31, %19
+.preheader16:                                     ; preds = %31, %19
   %.ph = phi i8 [ %21, %19 ], [ %32, %31 ]
   br label %33
 
-33:                                               ; preds = %.preheader14, %47
-  %34 = phi ptr [ %52, %47 ], [ %3, %.preheader14 ]
-  %35 = phi i8 [ %50, %47 ], [ %.ph, %.preheader14 ]
+33:                                               ; preds = %.preheader16, %47
+  %34 = phi ptr [ %52, %47 ], [ %3, %.preheader16 ]
+  %35 = phi i8 [ %50, %47 ], [ %.ph, %.preheader16 ]
   %36 = icmp eq i8 %35, -1
   br i1 %36, label %47, label %37
 
@@ -2445,20 +2445,20 @@ define dso_local ptr @__xas_next(ptr noundef captures(none) %0) #0 align 16 {
   %28 = trunc i64 %27 to i32
   %29 = and i32 %28, 63
   %30 = icmp eq i32 %29, %22
-  br i1 %30, label %.preheader14, label %31
+  br i1 %30, label %.preheader16, label %31
 
 31:                                               ; preds = %19
   %32 = add i8 %21, 1
   store i8 %32, ptr %20, align 2
-  br label %.preheader14
+  br label %.preheader16
 
-.preheader14:                                     ; preds = %31, %19
+.preheader16:                                     ; preds = %31, %19
   %.ph = phi i8 [ %21, %19 ], [ %32, %31 ]
   br label %33
 
-33:                                               ; preds = %.preheader14, %47
-  %34 = phi ptr [ %52, %47 ], [ %3, %.preheader14 ]
-  %35 = phi i8 [ %50, %47 ], [ %.ph, %.preheader14 ]
+33:                                               ; preds = %.preheader16, %47
+  %34 = phi ptr [ %52, %47 ], [ %3, %.preheader16 ]
+  %35 = phi i8 [ %50, %47 ], [ %.ph, %.preheader16 ]
   %36 = icmp eq i8 %35, 64
   br i1 %36, label %47, label %37
 
@@ -4023,7 +4023,7 @@ define dso_local ptr @xa_store_range(ptr noundef %0, i64 noundef %1, i64 noundef
   %25 = phi ptr [ %118, %138 ], [ %0, %20 ]
   %26 = phi i64 [ %117, %138 ], [ %1, %20 ]
   tail call void @_raw_spin_lock(ptr noundef %25) #8
-  br i1 %21, label %.preheader42, label %27
+  br i1 %21, label %.preheader50, label %27
 
 27:                                               ; preds = %24
   br i1 %23, label %.thread, label %28
@@ -4062,13 +4062,13 @@ define dso_local ptr @xa_store_range(ptr noundef %0, i64 noundef %1, i64 noundef
   %50 = and i64 %45, 17179869180
   %51 = icmp eq i64 %50, 0
   %52 = or i1 %51, %49
-  br i1 %52, label %.preheader42, label %.loopexit15
+  br i1 %52, label %.preheader50, label %.loopexit15
 
-.preheader42:                                     ; preds = %.thread, %24
+.preheader50:                                     ; preds = %.thread, %24
   br label %53
 
-53:                                               ; preds = %.preheader42, %107
-  %54 = phi i64 [ %114, %107 ], [ %26, %.preheader42 ]
+53:                                               ; preds = %.preheader50, %107
+  %54 = phi i64 [ %114, %107 ], [ %26, %.preheader50 ]
   %55 = sub i64 %2, %54
   store i64 %54, ptr %8, align 8
   store ptr inttoptr (i64 3 to ptr), ptr %11, align 8

@@ -283,11 +283,11 @@ parse_pk12.exit.thread:                           ; preds = %36, %parse_pk12.exi
   br label %105
 
 .loopexit.sink.split:                             ; preds = %87, %33, %24, %22
-  %.sink138 = phi i32 [ 67, %22 ], [ 71, %24 ], [ 81, %33 ], [ 90, %87 ]
+  %.sink157 = phi i32 [ 67, %22 ], [ 71, %24 ], [ 81, %33 ], [ 90, %87 ]
   %.sink = phi i32 [ 113, %22 ], [ 113, %24 ], [ 524303, %33 ], [ 114, %87 ]
   %.053.ph = phi ptr [ null, %22 ], [ null, %24 ], [ null, %33 ], [ %.1, %87 ]
   tail call void @ERR_new() #3
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink138, ptr noundef nonnull @__func__.PKCS12_parse) #3
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink157, ptr noundef nonnull @__func__.PKCS12_parse) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 35, i32 noundef %.sink, ptr noundef null) #3
   br label %.loopexit
 
@@ -297,16 +297,16 @@ parse_pk12.exit.thread:                           ; preds = %36, %parse_pk12.exi
   br i1 %.not, label %101, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.thread.us97, %.loopexit
-  %.052124 = phi ptr [ %.052, %.loopexit ], [ %71, %.thread.us97 ]
-  %.053122 = phi ptr [ %.053, %.loopexit ], [ %.1, %.thread.us97 ]
+  %.052143 = phi ptr [ %.052, %.loopexit ], [ %71, %.thread.us97 ]
+  %.053141 = phi ptr [ %.053, %.loopexit ], [ %.1, %.thread.us97 ]
   %100 = load ptr, ptr %2, align 8, !tbaa !3
   tail call void @EVP_PKEY_free(ptr noundef %100) #3
   store ptr null, ptr %2, align 8, !tbaa !3
   br label %101
 
 101:                                              ; preds = %.loopexit.thread, %.loopexit
-  %.052125 = phi ptr [ %.052124, %.loopexit.thread ], [ %.052, %.loopexit ]
-  %.053123 = phi ptr [ %.053122, %.loopexit.thread ], [ %.053, %.loopexit ]
+  %.052144 = phi ptr [ %.052143, %.loopexit.thread ], [ %.052, %.loopexit ]
+  %.053142 = phi ptr [ %.053141, %.loopexit.thread ], [ %.053, %.loopexit ]
   br i1 %8, label %102, label %104
 
 102:                                              ; preds = %101
@@ -316,8 +316,8 @@ parse_pk12.exit.thread:                           ; preds = %36, %parse_pk12.exi
   br label %104
 
 104:                                              ; preds = %102, %101
-  tail call void @X509_free(ptr noundef %.052125) #3
-  tail call void @OSSL_STACK_OF_X509_free(ptr noundef %.053123) #3
+  tail call void @X509_free(ptr noundef %.052144) #3
+  tail call void @OSSL_STACK_OF_X509_free(ptr noundef %.053142) #3
   br label %105
 
 105:                                              ; preds = %104, %._crit_edge, %12

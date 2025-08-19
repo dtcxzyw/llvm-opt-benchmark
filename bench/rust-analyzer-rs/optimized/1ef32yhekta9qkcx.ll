@@ -59,7 +59,7 @@ define hidden void @"_ZN2tt6buffer18Cursor$LT$Span$GT$10token_tree17hf13c356601b
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %5, i64 noundef %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.40296d617f07408a3cca33255057d47a.3.llvm.4854586973698006518) #21, !noalias !12
   unreachable
 
-default.unreachable10:                            ; preds = %19
+default.unreachable12:                            ; preds = %19
   unreachable
 
 "_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17hff9437bc47c2e1aaE.llvm.4854586973698006518.exit.thread": ; preds = %9, %19
@@ -70,7 +70,7 @@ default.unreachable10:                            ; preds = %19
   %20 = load ptr, ptr %12, align 8, !noalias !12, !nonnull !4, !align !5, !noundef !4
   %21 = getelementptr inbounds { i64, [3 x i64] }, ptr %20, i64 %16
   %22 = load i64, ptr %21, align 8, !range !13, !noundef !4
-  switch i64 %22, label %default.unreachable10 [
+  switch i64 %22, label %default.unreachable12 [
     i64 0, label %23
     i64 1, label %28
     i64 2, label %"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17hff9437bc47c2e1aaE.llvm.4854586973698006518.exit.thread"

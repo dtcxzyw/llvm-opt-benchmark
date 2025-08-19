@@ -793,22 +793,22 @@ _ZN5zxing12ErrorHandlerD2Ev.exit86:               ; preds = %_ZNKSt7__cxx1112bas
 
 96:                                               ; preds = %.sink.split, %95
   %97 = icmp slt i32 %56, 0
-  br i1 %97, label %.sink.split94, label %98
+  br i1 %97, label %.sink.split105, label %98
 
 98:                                               ; preds = %96
   %.not73 = icmp sgt i32 %1, %56
-  br i1 %.not73, label %100, label %.sink.split94
+  br i1 %.not73, label %100, label %.sink.split105
 
 99:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i81, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i82
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
-.sink.split94:                                    ; preds = %98, %96
-  %.sink95 = phi float [ 0.000000e+00, %96 ], [ %28, %98 ]
-  store float %.sink95, ptr %54, align 4, !tbaa !18
+.sink.split105:                                   ; preds = %98, %96
+  %.sink106 = phi float [ 0.000000e+00, %96 ], [ %28, %98 ]
+  store float %.sink106, ptr %54, align 4, !tbaa !18
   br label %100
 
-100:                                              ; preds = %.sink.split94, %98
+100:                                              ; preds = %.sink.split105, %98
   %101 = add i64 %.05493, 2
   %.not75 = icmp ult i64 %101, %13
   br i1 %.not75, label %49, label %.loopexit, !llvm.loop !77

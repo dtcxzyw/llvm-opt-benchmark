@@ -224,7 +224,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RdfaGrap
   br i1 %65, label %_ZN3ue211flat_detail9flat_baseItSt4lessItESaItEED2Ev.exit, label %._crit_edge123.thread
 
 ._crit_edge123.thread:                            ; preds = %._crit_edge.thread, %._crit_edge, %._crit_edge123
-  %.sroa.073.0.lcssa144147 = phi ptr [ %.sroa.073.3, %._crit_edge123 ], [ null, %._crit_edge.thread ], [ %.sroa.073.3, %._crit_edge ]
+  %.sroa.073.0.lcssa163166 = phi ptr [ %.sroa.073.3, %._crit_edge123 ], [ null, %._crit_edge.thread ], [ %.sroa.073.3, %._crit_edge ]
   %66 = phi ptr [ %58, %._crit_edge123 ], [ %18, %._crit_edge.thread ], [ %58, %._crit_edge ]
   %67 = load ptr, ptr %3, align 8
   %68 = icmp eq ptr %66, %67
@@ -235,13 +235,13 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RdfaGrap
   br label %_ZN3ue211flat_detail9flat_baseItSt4lessItESaItEED2Ev.exit
 
 _ZN3ue211flat_detail9flat_baseItSt4lessItESaItEED2Ev.exit: ; preds = %._crit_edge123, %._crit_edge123.thread, %69
-  %.sroa.073.0.lcssa144148 = phi ptr [ %.sroa.073.3, %._crit_edge123 ], [ %.sroa.073.0.lcssa144147, %._crit_edge123.thread ], [ %.sroa.073.0.lcssa144147, %69 ]
+  %.sroa.073.0.lcssa163167 = phi ptr [ %.sroa.073.3, %._crit_edge123 ], [ %.sroa.073.0.lcssa163166, %._crit_edge123.thread ], [ %.sroa.073.0.lcssa163166, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not.i.i.i = icmp eq ptr %.sroa.073.0.lcssa144148, null
+  %.not.i.i.i = icmp eq ptr %.sroa.073.0.lcssa163167, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RdfaGraphENS0_15RdfaVertexPropsENS0_13RdfaEdgePropsEEEEESaIS8_EED2Ev.exit, label %70
 
 70:                                               ; preds = %_ZN3ue211flat_detail9flat_baseItSt4lessItESaItEED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.073.0.lcssa144148) #16
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.073.0.lcssa163167) #16
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RdfaGraphENS0_15RdfaVertexPropsENS0_13RdfaEdgePropsEEEEESaIS8_EED2Ev.exit
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RdfaGraphENS0_15RdfaVertexPropsENS0_13RdfaEdgePropsEEEEESaIS8_EED2Ev.exit: ; preds = %_ZN3ue211flat_detail9flat_baseItSt4lessItESaItEED2Ev.exit, %70

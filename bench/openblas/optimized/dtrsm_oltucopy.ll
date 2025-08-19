@@ -144,10 +144,10 @@ define noundef i32 @dtrsm_oltucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph96.split.split, %67
-  %.sink134 = phi double [ %68, %67 ], [ 1.000000e+00, %.lr.ph96.split.split ]
+  %.sink137 = phi double [ %68, %67 ], [ 1.000000e+00, %.lr.ph96.split.split ]
   %69 = getelementptr inbounds nuw i8, ptr %.07494, i64 8
   %70 = load double, ptr %69, align 8, !tbaa !3
-  store double %.sink134, ptr %.07593, align 8, !tbaa !3
+  store double %.sink137, ptr %.07593, align 8, !tbaa !3
   %71 = getelementptr inbounds nuw i8, ptr %.07593, i64 8
   store double %70, ptr %71, align 8, !tbaa !3
   br label %72

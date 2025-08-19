@@ -5810,8 +5810,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h999ee881458e
   %30 = add i64 %11, %1
   %31 = add i64 %30, -1
   %.sroa.820.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.820, i64 4
-  %.sroa.820.4..sroa_idx48 = getelementptr inbounds nuw i8, ptr %.sroa.820, i64 4
   %.sroa.820.4..sroa_idx49 = getelementptr inbounds nuw i8, ptr %.sroa.820, i64 4
+  %.sroa.820.4..sroa_idx50 = getelementptr inbounds nuw i8, ptr %.sroa.820, i64 4
   br label %32
 
 ._crit_edge:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h142171c5318c80e9E.exit"
@@ -5845,7 +5845,7 @@ default.unreachable:                              ; preds = %32
 
 33:                                               ; preds = %32
   store i32 %27, ptr %.sroa.820, align 8, !alias.scope !730, !noalias !727
-  store i32 %29, ptr %.sroa.820.4..sroa_idx49, align 4, !alias.scope !730, !noalias !727
+  store i32 %29, ptr %.sroa.820.4..sroa_idx50, align 4, !alias.scope !730, !noalias !727
   br label %"_ZN87_$LT$brotli..enc..interface..Command$LT$SliceType$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1b151873b7083f96E.exit"
 
 34:                                               ; preds = %32
@@ -5853,7 +5853,7 @@ default.unreachable:                              ; preds = %32
   br label %"_ZN87_$LT$brotli..enc..interface..Command$LT$SliceType$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1b151873b7083f96E.exit"
 
 35:                                               ; preds = %32
-  store i64 %.val5.i, ptr %.sroa.820.4..sroa_idx48, align 4, !alias.scope !730, !noalias !727
+  store i64 %.val5.i, ptr %.sroa.820.4..sroa_idx49, align 4, !alias.scope !730, !noalias !727
   br label %"_ZN87_$LT$brotli..enc..interface..Command$LT$SliceType$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1b151873b7083f96E.exit"
 
 36:                                               ; preds = %32
@@ -5864,10 +5864,10 @@ default.unreachable:                              ; preds = %32
   br label %"_ZN87_$LT$brotli..enc..interface..Command$LT$SliceType$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1b151873b7083f96E.exit"
 
 ._crit_edge.thread:                               ; preds = %"_ZN87_$LT$brotli..enc..interface..Command$LT$SliceType$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1b151873b7083f96E.exit", %._crit_edge
-  %.sroa.0.0.lcssa47 = phi ptr [ %15, %._crit_edge ], [ %41, %"_ZN87_$LT$brotli..enc..interface..Command$LT$SliceType$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1b151873b7083f96E.exit" ]
-  %storemerge.lcssa46 = phi i64 [ %11, %._crit_edge ], [ %31, %"_ZN87_$LT$brotli..enc..interface..Command$LT$SliceType$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1b151873b7083f96E.exit" ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.lcssa47, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %38 = add i64 %storemerge.lcssa46, 1
+  %.sroa.0.0.lcssa48 = phi ptr [ %15, %._crit_edge ], [ %41, %"_ZN87_$LT$brotli..enc..interface..Command$LT$SliceType$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1b151873b7083f96E.exit" ]
+  %storemerge.lcssa47 = phi i64 [ %11, %._crit_edge ], [ %31, %"_ZN87_$LT$brotli..enc..interface..Command$LT$SliceType$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1b151873b7083f96E.exit" ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.lcssa48, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  %38 = add i64 %storemerge.lcssa47, 1
   br label %39
 
 39:                                               ; preds = %._crit_edge, %._crit_edge.thread
@@ -8819,7 +8819,7 @@ default.unreachable21:                            ; preds = %2
 define hidden void @_ZN6brotli3enc12ir_interpret9push_base17hd4712164f2c6a40dE(ptr noalias noundef align 8 dereferenceable(296) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = load i8, ptr %1, align 8, !range !726, !noundef !12
-  switch i8 %4, label %default.unreachable23 [
+  switch i8 %4, label %default.unreachable24 [
     i8 0, label %5
     i8 1, label %12
     i8 2, label %19
@@ -8829,7 +8829,7 @@ define hidden void @_ZN6brotli3enc12ir_interpret9push_base17hd4712164f2c6a40dE(p
     i8 6, label %21
   ]
 
-default.unreachable23:                            ; preds = %2
+default.unreachable24:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -9235,7 +9235,7 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting46_$LT$impl$u20$
   %.sroa.028.0 = select i1 %8, i32 45, i32 43
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %10 = load i8, ptr %9, align 1, !range !1024, !noundef !12
-  switch i8 %10, label %default.unreachable62 [
+  switch i8 %10, label %default.unreachable77 [
     i8 0, label %39
     i8 1, label %25
     i8 2, label %32
@@ -9274,7 +9274,7 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting46_$LT$impl$u20$
   %.sroa.0.0 = phi i1 [ false, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit" ], [ %122, %121 ], [ true, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit41" ], [ false, %119 ], [ %138, %137 ]
   ret i1 %.sroa.0.0
 
-default.unreachable62:                            ; preds = %7
+default.unreachable77:                            ; preds = %7
   unreachable
 
 25:                                               ; preds = %7, %7

@@ -254,13 +254,13 @@ AdjustAndCheckRectangle.exit:                     ; preds = %15
   br label %AdjustAndCheckRectangle.exit.thread.sink.split
 
 AdjustAndCheckRectangle.exit.thread.sink.split:   ; preds = %61, %68
-  %.sink68 = phi i64 [ 72, %68 ], [ 48, %61 ]
-  %.sink66 = phi ptr [ %76, %68 ], [ %67, %61 ]
-  %.sink65 = phi i64 [ 80, %68 ], [ 56, %61 ]
+  %.sink73 = phi i64 [ 72, %68 ], [ 48, %61 ]
+  %.sink71 = phi ptr [ %76, %68 ], [ %67, %61 ]
+  %.sink70 = phi i64 [ 80, %68 ], [ 56, %61 ]
   %.sink = phi i32 [ %72, %68 ], [ %63, %61 ]
-  %77 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink68
-  store ptr %.sink66, ptr %77, align 8, !tbaa !14
-  %78 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink65
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink73
+  store ptr %.sink71, ptr %77, align 8, !tbaa !14
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink70
   store i32 %.sink, ptr %78, align 8, !tbaa !4
   br label %AdjustAndCheckRectangle.exit.thread
 

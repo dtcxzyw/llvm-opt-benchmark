@@ -1830,8 +1830,8 @@ _ZeqRK8rationalS1_.exit86.thread:                 ; preds = %350, %.noexc84, %_Z
 .invoke:                                          ; preds = %_ZeqRK8rationalS1_.exit86.thread, %262
   %407 = phi i32 [ %261, %262 ], [ %406, %_ZeqRK8rationalS1_.exit86.thread ]
   %408 = phi ptr [ %263, %262 ], [ null, %_ZeqRK8rationalS1_.exit86.thread ]
-  %.pn161 = load ptr, ptr %52, align 8, !tbaa !58
-  %.in = getelementptr inbounds nuw i8, ptr %.pn161, i64 856
+  %.pn176 = load ptr, ptr %52, align 8, !tbaa !58
+  %.in = getelementptr inbounds nuw i8, ptr %.pn176, i64 856
   %409 = load ptr, ptr %.in, align 8, !tbaa !74
   %410 = load ptr, ptr %8, align 8, !tbaa !27
   invoke void @_ZN4goal6updateEjP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %410, i32 noundef %407, ptr noundef %409, ptr noundef %408, ptr noundef null)
@@ -1881,10 +1881,10 @@ _ZN8rationalaSERKS_.exit94:                       ; preds = %423, %427
   br label %_ZN8rationalaSERKS_.exit94.invoke
 
 _ZN8rationalaSERKS_.exit94.invoke:                ; preds = %_ZN8rationalaSERKS_.exit, %_ZN8rationalaSERKS_.exit74, %_ZN8rationalaSERKS_.exit90, %_ZN8rationalaSERKS_.exit94
-  %.sink160 = phi i32 [ %231, %_ZN8rationalaSERKS_.exit ], [ %282, %_ZN8rationalaSERKS_.exit74 ], [ %378, %_ZN8rationalaSERKS_.exit90 ], [ %429, %_ZN8rationalaSERKS_.exit94 ]
+  %.sink175 = phi i32 [ %231, %_ZN8rationalaSERKS_.exit ], [ %282, %_ZN8rationalaSERKS_.exit74 ], [ %378, %_ZN8rationalaSERKS_.exit90 ], [ %429, %_ZN8rationalaSERKS_.exit94 ]
   %.sink = phi ptr [ %11, %_ZN8rationalaSERKS_.exit ], [ %11, %_ZN8rationalaSERKS_.exit74 ], [ %12, %_ZN8rationalaSERKS_.exit90 ], [ %12, %_ZN8rationalaSERKS_.exit94 ]
   %430 = phi ptr [ %10, %_ZN8rationalaSERKS_.exit ], [ %10, %_ZN8rationalaSERKS_.exit74 ], [ %9, %_ZN8rationalaSERKS_.exit90 ], [ %9, %_ZN8rationalaSERKS_.exit94 ]
-  store i32 %.sink160, ptr %55, align 8, !tbaa !42
+  store i32 %.sink175, ptr %55, align 8, !tbaa !42
   %431 = load ptr, ptr %.sink, align 8, !tbaa !66
   invoke void @_ZN7obj_mapI4exprN19arith_bounds_tactic4infoEE6insertEPS0_RKS2_(ptr noundef nonnull align 8 dereferenceable(24) %430, ptr noundef %431, ptr noundef nonnull align 8 dereferenceable(37) %6)
           to label %432 unwind label %258
@@ -2423,17 +2423,17 @@ _ZNK17arith_recognizers5is_geEPK4expr.exit.i49:   ; preds = %136
   br i1 %150, label %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit50.thread.sink.split, label %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit50.thread
 
 _ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit50.thread.sink.split: ; preds = %102, %117, %132, %147, %36, %51, %72, %87
-  %.sink97.sink = phi ptr [ %1, %36 ], [ %1, %51 ], [ %56, %72 ], [ %56, %87 ], [ %1, %102 ], [ %1, %117 ], [ %56, %132 ], [ %56, %147 ]
-  %.sink95.sink = phi ptr [ %2, %36 ], [ %3, %51 ], [ %3, %72 ], [ %2, %87 ], [ %2, %102 ], [ %3, %117 ], [ %3, %132 ], [ %2, %147 ]
-  %.sink91.sink = phi ptr [ %3, %36 ], [ %2, %51 ], [ %2, %72 ], [ %3, %87 ], [ %3, %102 ], [ %2, %117 ], [ %2, %132 ], [ %3, %147 ]
-  %.sink98 = phi i8 [ 0, %36 ], [ 0, %51 ], [ 0, %72 ], [ 0, %87 ], [ 1, %102 ], [ 1, %117 ], [ 1, %132 ], [ 1, %147 ]
-  %151 = getelementptr inbounds nuw i8, ptr %.sink97.sink, i64 32
+  %.sink106.sink = phi ptr [ %1, %36 ], [ %1, %51 ], [ %56, %72 ], [ %56, %87 ], [ %1, %102 ], [ %1, %117 ], [ %56, %132 ], [ %56, %147 ]
+  %.sink104.sink = phi ptr [ %2, %36 ], [ %3, %51 ], [ %3, %72 ], [ %2, %87 ], [ %2, %102 ], [ %3, %117 ], [ %3, %132 ], [ %2, %147 ]
+  %.sink100.sink = phi ptr [ %3, %36 ], [ %2, %51 ], [ %2, %72 ], [ %3, %87 ], [ %3, %102 ], [ %2, %117 ], [ %2, %132 ], [ %3, %147 ]
+  %.sink107 = phi i8 [ 0, %36 ], [ 0, %51 ], [ 0, %72 ], [ 0, %87 ], [ 1, %102 ], [ 1, %117 ], [ 1, %132 ], [ 1, %147 ]
+  %151 = getelementptr inbounds nuw i8, ptr %.sink106.sink, i64 32
   %152 = load ptr, ptr %151, align 8, !tbaa !66
-  store ptr %152, ptr %.sink95.sink, align 8, !tbaa !66
-  %153 = getelementptr inbounds nuw i8, ptr %.sink97.sink, i64 40
+  store ptr %152, ptr %.sink104.sink, align 8, !tbaa !66
+  %153 = getelementptr inbounds nuw i8, ptr %.sink106.sink, i64 40
   %154 = load ptr, ptr %153, align 8, !tbaa !66
-  store ptr %154, ptr %.sink91.sink, align 8, !tbaa !66
-  store i8 %.sink98, ptr %4, align 1, !tbaa !65
+  store ptr %154, ptr %.sink100.sink, align 8, !tbaa !66
+  store i8 %.sink107, ptr %4, align 1, !tbaa !65
   br label %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit50.thread
 
 _ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit50.thread: ; preds = %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit50.thread.sink.split, %.critedge, %5, %136, %_ZNK17arith_recognizers5is_geEPK4expr.exit.i49, %147, %106, %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i41, %117
@@ -3068,7 +3068,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager17expr_array_
 .preheader.i.unreachabledefault:                  ; preds = %.preheader.i
   unreachable
 
-default.unreachable82:                            ; preds = %65
+default.unreachable91:                            ; preds = %65
   unreachable
 
 _ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit: ; preds = %16, %20, %24
@@ -3163,7 +3163,7 @@ _ZNK6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE4s
   %73 = load ptr, ptr %72, align 8, !tbaa !14
   %74 = load i32, ptr %69, align 8
   %75 = lshr i32 %74, 30
-  switch i32 %75, label %default.unreachable82 [
+  switch i32 %75, label %default.unreachable91 [
     i32 0, label %76
     i32 1, label %90
     i32 2, label %124
@@ -3656,7 +3656,7 @@ _ZNK6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE4s
   %57 = load ptr, ptr %56, align 8, !tbaa !167
   %58 = load i32, ptr %57, align 8
   %59 = lshr i32 %58, 30
-  switch i32 %59, label %default.unreachable40 [
+  switch i32 %59, label %default.unreachable54 [
     i32 0, label %60
     i32 2, label %81
     i32 1, label %94
@@ -3811,7 +3811,7 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE10rpush_backERPP4exprRjRK
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
   br label %_ZN14parray_managerIN11ast_manager17expr_array_configEE9rpop_backEPP4exprRj.exit
 
-default.unreachable40:                            ; preds = %.lr.ph36
+default.unreachable54:                            ; preds = %.lr.ph36
   unreachable
 
 _ZN14parray_managerIN11ast_manager17expr_array_configEE9rpop_backEPP4exprRj.exit: ; preds = %93, %88, %81, %135, %_ZN14parray_managerIN11ast_manager17expr_array_configEE10rpush_backERPP4exprRjRKS4_.exit, %_ZN14parray_managerIN11ast_manager17expr_array_configEE4rsetEPP4exprjRKS4_.exit
@@ -3836,7 +3836,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager17expr_array_
   %5 = phi i32 [ %.pre, %2 ], [ %46, %41 ]
   %.014 = phi ptr [ %1, %2 ], [ %.013, %41 ]
   %6 = lshr i32 %5, 30
-  switch i32 %6, label %default.unreachable24 [
+  switch i32 %6, label %default.unreachable27 [
     i32 0, label %7
     i32 1, label %7
     i32 2, label %_ZN14parray_managerIN11ast_manager17expr_array_configEE17deallocate_valuesEPP4expr.exit
@@ -3917,7 +3917,7 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i:
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %35, i64 noundef %37, ptr noundef nonnull %33)
   br label %_ZN14parray_managerIN11ast_manager17expr_array_configEE17deallocate_valuesEPP4expr.exit.thread
 
-default.unreachable24:                            ; preds = %4
+default.unreachable27:                            ; preds = %4
   unreachable
 
 _ZN14parray_managerIN11ast_manager17expr_array_configEE17deallocate_valuesEPP4expr.exit.thread: ; preds = %_ZN14parray_managerIN11ast_manager17expr_array_configEE7dec_refEjPP4expr.exit, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i

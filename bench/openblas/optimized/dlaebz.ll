@@ -45,8 +45,8 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %43 = sext i32 %41 to i64
   %44 = add nuw i32 %37, 1
   %wide.trip.count727 = zext i32 %44 to i64
-  %invariant.gep742 = getelementptr i32, ptr %23, i64 %43
-  %invariant.gep744 = getelementptr i32, ptr %23, i64 %42
+  %invariant.gep767 = getelementptr i32, ptr %23, i64 %43
+  %invariant.gep769 = getelementptr i32, ptr %23, i64 %42
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %73
@@ -54,7 +54,8 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %45
 
 45:                                               ; preds = %.preheader, %._crit_edge665
-  %indvars.iv720 = phi i64 [ 1, %.preheader ], [ %indvars.iv.next721, %._crit_edge665 ]
+  %exitcond723.not = phi i1 [ false, %.preheader ], [ true, %._crit_edge665 ]
+  %indvars.iv720 = phi i64 [ 1, %.preheader ], [ 2, %._crit_edge665 ]
   %46 = mul nsw i64 %indvars.iv720, %42
   %47 = add nsw i64 %46, %indvars.iv724
   %48 = getelementptr inbounds double, ptr %24, i64 %47
@@ -106,17 +107,15 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %exitcond719.not, label %._crit_edge665, label %.lr.ph664, !llvm.loop !9
 
 ._crit_edge665:                                   ; preds = %71, %45
-  %indvars.iv.next721 = add nuw nsw i64 %indvars.iv720, 1
-  %exitcond723.not = icmp eq i64 %indvars.iv.next721, 3
   br i1 %exitcond723.not, label %73, label %45, !llvm.loop !11
 
 73:                                               ; preds = %._crit_edge665
   %74 = load i32, ptr %15, align 4, !tbaa !3
-  %gep743 = getelementptr i32, ptr %invariant.gep742, i64 %indvars.iv724
-  %75 = load i32, ptr %gep743, align 4, !tbaa !3
+  %gep768 = getelementptr i32, ptr %invariant.gep767, i64 %indvars.iv724
+  %75 = load i32, ptr %gep768, align 4, !tbaa !3
   %76 = add nsw i32 %75, %74
-  %gep745 = getelementptr i32, ptr %invariant.gep744, i64 %indvars.iv724
-  %77 = load i32, ptr %gep745, align 4, !tbaa !3
+  %gep770 = getelementptr i32, ptr %invariant.gep769, i64 %indvars.iv724
+  %77 = load i32, ptr %gep770, align 4, !tbaa !3
   %78 = sub i32 %76, %77
   store i32 %78, ptr %15, align 4, !tbaa !3
   %indvars.iv.next725 = add nuw nsw i64 %indvars.iv724, 1
@@ -137,15 +136,15 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %85 = add nuw i32 %80, 1
   %wide.trip.count = zext i32 %85 to i64
   %invariant.gep = getelementptr double, ptr %24, i64 %83
-  %invariant.gep736 = getelementptr double, ptr %24, i64 %84
+  %invariant.gep761 = getelementptr double, ptr %24, i64 %84
   br label %86
 
 86:                                               ; preds = %.lr.ph, %86
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %86 ]
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
   %87 = load double, ptr %gep, align 8, !tbaa !7
-  %gep737 = getelementptr double, ptr %invariant.gep736, i64 %indvars.iv
-  %88 = load double, ptr %gep737, align 8, !tbaa !7
+  %gep762 = getelementptr double, ptr %invariant.gep761, i64 %indvars.iv
+  %88 = load double, ptr %gep762, align 8, !tbaa !7
   %89 = fadd double %87, %88
   %90 = fmul double %89, 5.000000e-01
   %91 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv
@@ -163,8 +162,8 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %93 = shl i32 %21, 1
   %94 = sext i32 %21 to i64
   %95 = sext i32 %93 to i64
-  %invariant.gep738 = getelementptr double, ptr %24, i64 %94
-  %invariant.gep740 = getelementptr double, ptr %24, i64 %95
+  %invariant.gep763 = getelementptr double, ptr %24, i64 %94
+  %invariant.gep765 = getelementptr double, ptr %24, i64 %95
   br label %97
 
 ._crit_edge647:                                   ; preds = %.lr.ph646
@@ -520,7 +519,7 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %269 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv679
   %270 = load i32, ptr %269, align 4, !tbaa !3
   %.not576 = icmp sgt i32 %.1552.lcssa, %270
-  br i1 %.not576, label %.thread732, label %271
+  br i1 %.not576, label %.thread757, label %271
 
 271:                                              ; preds = %268
   %272 = add nsw i64 %indvars.iv679, %94
@@ -530,9 +529,9 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store i32 %.1552.lcssa, ptr %274, align 4, !tbaa !3
   %.pre = load i32, ptr %269, align 4, !tbaa !3
   %275 = icmp slt i32 %.1552.lcssa, %.pre
-  br i1 %275, label %279, label %.thread732
+  br i1 %275, label %279, label %.thread757
 
-.thread732:                                       ; preds = %268, %271
+.thread757:                                       ; preds = %268, %271
   %276 = add nsw i64 %indvars.iv679, %95
   %277 = getelementptr inbounds double, ptr %24, i64 %276
   store double %212, ptr %277, align 8, !tbaa !7
@@ -540,8 +539,8 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store i32 %.1552.lcssa, ptr %278, align 4, !tbaa !3
   br label %279
 
-279:                                              ; preds = %249, %254, %245, %.thread732, %271
-  %.3545 = phi i32 [ %.2544615, %245 ], [ %.2544615, %249 ], [ %255, %254 ], [ %.2544615, %.thread732 ], [ %.2544615, %271 ]
+279:                                              ; preds = %249, %254, %245, %.thread757, %271
+  %.3545 = phi i32 [ %.2544615, %245 ], [ %.2544615, %249 ], [ %255, %254 ], [ %.2544615, %.thread757 ], [ %.2544615, %271 ]
   %indvars.iv.next680 = add nsw i64 %indvars.iv679, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next680 to i32
   %exitcond682.not = icmp eq i32 %102, %lftr.wideiv
@@ -661,10 +660,10 @@ define void @dlaebz_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 .lr.ph646:                                        ; preds = %.lr.ph646.preheader, %.lr.ph646
   %indvars.iv709 = phi i64 [ %282, %.lr.ph646.preheader ], [ %indvars.iv.next710, %.lr.ph646 ]
-  %gep739 = getelementptr double, ptr %invariant.gep738, i64 %indvars.iv709
-  %342 = load double, ptr %gep739, align 8, !tbaa !7
-  %gep741 = getelementptr double, ptr %invariant.gep740, i64 %indvars.iv709
-  %343 = load double, ptr %gep741, align 8, !tbaa !7
+  %gep764 = getelementptr double, ptr %invariant.gep763, i64 %indvars.iv709
+  %342 = load double, ptr %gep764, align 8, !tbaa !7
+  %gep766 = getelementptr double, ptr %invariant.gep765, i64 %indvars.iv709
+  %343 = load double, ptr %gep766, align 8, !tbaa !7
   %344 = fadd double %342, %343
   %345 = fmul double %344, 5.000000e-01
   %346 = getelementptr inbounds double, ptr %28, i64 %indvars.iv709

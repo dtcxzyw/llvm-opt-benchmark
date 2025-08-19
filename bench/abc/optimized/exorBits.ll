@@ -83,7 +83,7 @@ define void @ExorVar(ptr noundef readonly captures(none) %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define i32 @GetDistance(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
+define range(i32 0, 6) i32 @GetDistance(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 8), align 8, !tbaa !17
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %.preheader
@@ -165,7 +165,7 @@ define i32 @GetDistance(ptr noundef readonly captures(none) %0, ptr noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @GetDistancePlus(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define range(i32 0, 6) i32 @GetDistancePlus(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 8), align 8, !tbaa !17
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %.preheader
@@ -368,17 +368,17 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr noundef writeonly capture
   %22 = load ptr, ptr %21, align 8, !tbaa !11
   br label %26
 
-.thread81:                                        ; preds = %.thread, %75
-  %.lcssa374183 = phi i32 [ %76, %75 ], [ %.lcssa374280, %.thread ]
+.thread83:                                        ; preds = %.thread, %75
+  %.lcssa374185 = phi i32 [ %76, %75 ], [ %.lcssa374282, %.thread ]
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 8), align 8, !tbaa !17
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next75, %24
   br i1 %25, label %26, label %.sink.split, !llvm.loop !28
 
-26:                                               ; preds = %.lr.ph45, %.thread81
-  %indvars.iv74 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next75, %.thread81 ]
-  %.lcssa374043 = phi i32 [ %DiffVarCounter.promoted39, %.lr.ph45 ], [ %.lcssa374183, %.thread81 ]
+26:                                               ; preds = %.lr.ph45, %.thread83
+  %indvars.iv74 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next75, %.thread83 ]
+  %.lcssa374043 = phi i32 [ %DiffVarCounter.promoted39, %.lr.ph45 ], [ %.lcssa374185, %.thread83 ]
   %27 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv74
   %28 = load i32, ptr %27, align 4, !tbaa !8
   %29 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv74
@@ -428,14 +428,14 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr noundef writeonly capture
   br i1 %54, label %.sink.split, label %.thread
 
 .thread:                                          ; preds = %26, %52
-  %.lcssa374280 = phi i32 [ %53, %52 ], [ %.lcssa374043, %26 ]
+  %.lcssa374282 = phi i32 [ %53, %52 ], [ %.lcssa374043, %26 ]
   %55 = lshr i32 %33, 16
   %56 = and i32 %55, 21845
   %57 = zext nneg i32 %56 to i64
   %58 = getelementptr inbounds nuw [65536 x i8], ptr @BitCount, i64 0, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !3
   %.not29 = icmp eq i8 %59, 0
-  br i1 %.not29, label %.thread81, label %60
+  br i1 %.not29, label %.thread83, label %60
 
 60:                                               ; preds = %.thread
   %61 = icmp ult i8 %59, 5
@@ -446,10 +446,10 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr noundef writeonly capture
   %63 = load i8, ptr %62, align 1, !tbaa !3
   %64 = zext i8 %63 to i64
   %65 = getelementptr inbounds nuw [163 x [4 x i8]], ptr @GroupLiterals, i64 0, i64 %64
-  %66 = sext i32 %.lcssa374280 to i64
+  %66 = sext i32 %.lcssa374282 to i64
   %wide.trip.count72 = zext nneg i8 %59 to i64
-  %indvars.iv74.tr78 = trunc i64 %indvars.iv74 to i32
-  %67 = shl i32 %indvars.iv74.tr78, 4
+  %indvars.iv74.tr80 = trunc i64 %indvars.iv74 to i32
+  %67 = shl i32 %indvars.iv74.tr80, 4
   %68 = or disjoint i32 %67, 8
   br label %69
 
@@ -470,10 +470,10 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr noundef writeonly capture
 75:                                               ; preds = %69
   %76 = trunc nsw i64 %indvars.iv.next68 to i32
   %77 = icmp sgt i64 %indvars.iv67, 3
-  br i1 %77, label %.sink.split, label %.thread81
+  br i1 %77, label %.sink.split, label %.thread83
 
-.sink.split:                                      ; preds = %.thread81, %75, %60, %52, %38, %.loopexit33
-  %.025 = phi i32 [ %DiffVarCounter.promoted39, %.loopexit33 ], [ 5, %75 ], [ 5, %60 ], [ 5, %52 ], [ 5, %38 ], [ %.lcssa374183, %.thread81 ]
+.sink.split:                                      ; preds = %.thread83, %75, %60, %52, %38, %.loopexit33
+  %.025 = phi i32 [ %DiffVarCounter.promoted39, %.loopexit33 ], [ 5, %75 ], [ 5, %60 ], [ 5, %52 ], [ 5, %38 ], [ %.lcssa374185, %.thread83 ]
   ret i32 %.025
 }
 

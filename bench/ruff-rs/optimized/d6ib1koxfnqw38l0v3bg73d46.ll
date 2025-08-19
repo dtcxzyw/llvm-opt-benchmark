@@ -19992,7 +19992,7 @@ define { i8, i8 } @"_ZN113_$LT$ruff_linter..codes..RuleCodePrefix$u20$as$u20$cor
 define void @_ZN11ruff_linter5codes7Airflow5rules17he2feed7eff8db55bE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !122, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable112 [
+  switch i8 %3, label %default.unreachable122 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -20006,7 +20006,7 @@ define void @_ZN11ruff_linter5codes7Airflow5rules17he2feed7eff8db55bE(ptr dead_o
     i8 10, label %35
   ]
 
-default.unreachable112:                           ; preds = %2
+default.unreachable122:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -20076,14 +20076,14 @@ default.unreachable112:                           ; preds = %2
   br label %42
 
 42:                                               ; preds = %80, %77, %73, %70, %67, %63, %57, %54, %51, %47, %39
-  %.sink118 = phi ptr [ %36, %80 ], [ %33, %77 ], [ %30, %73 ], [ %27, %70 ], [ %24, %67 ], [ %21, %63 ], [ %18, %57 ], [ %15, %54 ], [ %12, %51 ], [ %9, %47 ], [ %6, %39 ]
-  %.sink116 = phi i64 [ 1, %80 ], [ 1, %77 ], [ 2, %73 ], [ 1, %70 ], [ 1, %67 ], [ 2, %63 ], [ 4, %57 ], [ 1, %54 ], [ 1, %51 ], [ 2, %47 ], [ 2, %39 ]
+  %.sink128 = phi ptr [ %36, %80 ], [ %33, %77 ], [ %30, %73 ], [ %27, %70 ], [ %24, %67 ], [ %21, %63 ], [ %18, %57 ], [ %15, %54 ], [ %12, %51 ], [ %9, %47 ], [ %6, %39 ]
+  %.sink126 = phi i64 [ 1, %80 ], [ 1, %77 ], [ 2, %73 ], [ 1, %70 ], [ 1, %67 ], [ 2, %63 ], [ 4, %57 ], [ 1, %54 ], [ 1, %51 ], [ 2, %47 ], [ 2, %39 ]
   %.sink = phi ptr [ %81, %80 ], [ %78, %77 ], [ %75, %73 ], [ %71, %70 ], [ %68, %67 ], [ %65, %63 ], [ %61, %57 ], [ %55, %54 ], [ %52, %51 ], [ %49, %47 ], [ %41, %39 ]
-  store ptr %.sink118, ptr %0, align 8, !noalias !3
+  store ptr %.sink128, ptr %0, align 8, !noalias !3
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink116, ptr %43, align 8, !noalias !3
+  store i64 %.sink126, ptr %43, align 8, !noalias !3
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink118, ptr %44, align 8, !noalias !3
+  store ptr %.sink128, ptr %44, align 8, !noalias !3
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %45, align 8, !noalias !3
   ret void
@@ -20197,13 +20197,13 @@ define void @_ZN11ruff_linter5codes9Eradicate5rules17h52af751caac1c455E(ptr dead
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %5 = tail call noalias noundef align 2 dereferenceable_or_null(2) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 2, 121) 2, i64 noundef 2) #18
   %6 = icmp eq ptr %5, null
-  switch i8 %3, label %default.unreachable24 [
+  switch i8 %3, label %default.unreachable26 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
   ]
 
-default.unreachable24:                            ; preds = %2
+default.unreachable26:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -20244,7 +20244,7 @@ default.unreachable24:                            ; preds = %2
 define void @_ZN11ruff_linter5codes7FastApi5rules17h65f38b022774ef51E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !37, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable46 [
+  switch i8 %3, label %default.unreachable50 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -20252,7 +20252,7 @@ define void @_ZN11ruff_linter5codes7FastApi5rules17h65f38b022774ef51E(ptr dead_o
     i8 4, label %17
   ]
 
-default.unreachable46:                            ; preds = %2
+default.unreachable50:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -20294,14 +20294,14 @@ default.unreachable46:                            ; preds = %2
   br label %25
 
 25:                                               ; preds = %41, %38, %35, %30, %21
-  %.sink52 = phi ptr [ %18, %41 ], [ %15, %38 ], [ %12, %35 ], [ %9, %30 ], [ %6, %21 ]
-  %.sink50 = phi i64 [ 1, %41 ], [ 1, %38 ], [ 1, %35 ], [ 3, %30 ], [ 3, %21 ]
+  %.sink56 = phi ptr [ %18, %41 ], [ %15, %38 ], [ %12, %35 ], [ %9, %30 ], [ %6, %21 ]
+  %.sink54 = phi i64 [ 1, %41 ], [ 1, %38 ], [ 1, %35 ], [ 3, %30 ], [ 3, %21 ]
   %.sink = phi ptr [ %42, %41 ], [ %39, %38 ], [ %36, %35 ], [ %33, %30 ], [ %24, %21 ]
-  store ptr %.sink52, ptr %0, align 8, !noalias !3
+  store ptr %.sink56, ptr %0, align 8, !noalias !3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink50, ptr %26, align 8, !noalias !3
+  store i64 %.sink54, ptr %26, align 8, !noalias !3
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink52, ptr %27, align 8, !noalias !3
+  store ptr %.sink56, ptr %27, align 8, !noalias !3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %28, align 8, !noalias !3
   ret void
@@ -20351,7 +20351,7 @@ default.unreachable46:                            ; preds = %2
 define void @_ZN11ruff_linter5codes10Flake820205rules17h300271ae0a4de55fE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !123, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable167 [
+  switch i8 %3, label %default.unreachable182 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -20370,7 +20370,7 @@ define void @_ZN11ruff_linter5codes10Flake820205rules17h300271ae0a4de55fE(ptr de
     i8 15, label %50
   ]
 
-default.unreachable167:                           ; preds = %2
+default.unreachable182:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -20467,14 +20467,14 @@ default.unreachable167:                           ; preds = %2
   br label %58
 
 58:                                               ; preds = %117, %114, %111, %106, %101, %98, %95, %92, %89, %83, %77, %74, %71, %68, %63, %54
-  %.sink173 = phi ptr [ %51, %117 ], [ %48, %114 ], [ %45, %111 ], [ %42, %106 ], [ %39, %101 ], [ %36, %98 ], [ %33, %95 ], [ %30, %92 ], [ %27, %89 ], [ %24, %83 ], [ %21, %77 ], [ %18, %74 ], [ %15, %71 ], [ %12, %68 ], [ %9, %63 ], [ %6, %54 ]
-  %.sink171 = phi i64 [ 1, %117 ], [ 1, %114 ], [ 1, %111 ], [ 3, %106 ], [ 3, %101 ], [ 1, %98 ], [ 1, %95 ], [ 1, %92 ], [ 1, %89 ], [ 4, %83 ], [ 4, %77 ], [ 1, %74 ], [ 1, %71 ], [ 1, %68 ], [ 3, %63 ], [ 3, %54 ]
+  %.sink188 = phi ptr [ %51, %117 ], [ %48, %114 ], [ %45, %111 ], [ %42, %106 ], [ %39, %101 ], [ %36, %98 ], [ %33, %95 ], [ %30, %92 ], [ %27, %89 ], [ %24, %83 ], [ %21, %77 ], [ %18, %74 ], [ %15, %71 ], [ %12, %68 ], [ %9, %63 ], [ %6, %54 ]
+  %.sink186 = phi i64 [ 1, %117 ], [ 1, %114 ], [ 1, %111 ], [ 3, %106 ], [ 3, %101 ], [ 1, %98 ], [ 1, %95 ], [ 1, %92 ], [ 1, %89 ], [ 4, %83 ], [ 4, %77 ], [ 1, %74 ], [ 1, %71 ], [ 1, %68 ], [ 3, %63 ], [ 3, %54 ]
   %.sink = phi ptr [ %118, %117 ], [ %115, %114 ], [ %112, %111 ], [ %109, %106 ], [ %104, %101 ], [ %99, %98 ], [ %96, %95 ], [ %93, %92 ], [ %90, %89 ], [ %87, %83 ], [ %81, %77 ], [ %75, %74 ], [ %72, %71 ], [ %69, %68 ], [ %66, %63 ], [ %57, %54 ]
-  store ptr %.sink173, ptr %0, align 8, !noalias !3
+  store ptr %.sink188, ptr %0, align 8, !noalias !3
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink171, ptr %59, align 8, !noalias !3
+  store i64 %.sink186, ptr %59, align 8, !noalias !3
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink173, ptr %60, align 8, !noalias !3
+  store ptr %.sink188, ptr %60, align 8, !noalias !3
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %61, align 8, !noalias !3
   ret void
@@ -20643,7 +20643,7 @@ default.unreachable167:                           ; preds = %2
 define void @_ZN11ruff_linter5codes17Flake8Annotations5rules17hc0d47e59bbcc19e4E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !124, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable200 [
+  switch i8 %3, label %default.unreachable218 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -20665,7 +20665,7 @@ define void @_ZN11ruff_linter5codes17Flake8Annotations5rules17hc0d47e59bbcc19e4E
     i8 18, label %59
   ]
 
-default.unreachable200:                           ; preds = %2
+default.unreachable218:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -20777,14 +20777,14 @@ default.unreachable200:                           ; preds = %2
   br label %67
 
 67:                                               ; preds = %135, %132, %129, %126, %123, %120, %117, %114, %107, %100, %97, %94, %90, %86, %83, %80, %77, %72, %63
-  %.sink206 = phi ptr [ %60, %135 ], [ %57, %132 ], [ %54, %129 ], [ %51, %126 ], [ %48, %123 ], [ %45, %120 ], [ %42, %117 ], [ %39, %114 ], [ %36, %107 ], [ %33, %100 ], [ %30, %97 ], [ %27, %94 ], [ %24, %90 ], [ %21, %86 ], [ %18, %83 ], [ %15, %80 ], [ %12, %77 ], [ %9, %72 ], [ %6, %63 ]
-  %.sink204 = phi i64 [ 1, %135 ], [ 1, %132 ], [ 1, %129 ], [ 1, %126 ], [ 1, %123 ], [ 1, %120 ], [ 1, %117 ], [ 1, %114 ], [ 5, %107 ], [ 5, %100 ], [ 1, %97 ], [ 1, %94 ], [ 2, %90 ], [ 2, %86 ], [ 1, %83 ], [ 1, %80 ], [ 1, %77 ], [ 3, %72 ], [ 3, %63 ]
+  %.sink224 = phi ptr [ %60, %135 ], [ %57, %132 ], [ %54, %129 ], [ %51, %126 ], [ %48, %123 ], [ %45, %120 ], [ %42, %117 ], [ %39, %114 ], [ %36, %107 ], [ %33, %100 ], [ %30, %97 ], [ %27, %94 ], [ %24, %90 ], [ %21, %86 ], [ %18, %83 ], [ %15, %80 ], [ %12, %77 ], [ %9, %72 ], [ %6, %63 ]
+  %.sink222 = phi i64 [ 1, %135 ], [ 1, %132 ], [ 1, %129 ], [ 1, %126 ], [ 1, %123 ], [ 1, %120 ], [ 1, %117 ], [ 1, %114 ], [ 5, %107 ], [ 5, %100 ], [ 1, %97 ], [ 1, %94 ], [ 2, %90 ], [ 2, %86 ], [ 1, %83 ], [ 1, %80 ], [ 1, %77 ], [ 3, %72 ], [ 3, %63 ]
   %.sink = phi ptr [ %136, %135 ], [ %133, %132 ], [ %130, %129 ], [ %127, %126 ], [ %124, %123 ], [ %121, %120 ], [ %118, %117 ], [ %115, %114 ], [ %112, %107 ], [ %105, %100 ], [ %98, %97 ], [ %95, %94 ], [ %92, %90 ], [ %88, %86 ], [ %84, %83 ], [ %81, %80 ], [ %78, %77 ], [ %75, %72 ], [ %66, %63 ]
-  store ptr %.sink206, ptr %0, align 8, !noalias !3
+  store ptr %.sink224, ptr %0, align 8, !noalias !3
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink204, ptr %68, align 8, !noalias !3
+  store i64 %.sink222, ptr %68, align 8, !noalias !3
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink206, ptr %69, align 8, !noalias !3
+  store ptr %.sink224, ptr %69, align 8, !noalias !3
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %70, align 8, !noalias !3
   ret void
@@ -20980,7 +20980,7 @@ default.unreachable200:                           ; preds = %2
 define void @_ZN11ruff_linter5codes11Flake8Async5rules17h22d3863b44211184E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !125, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable211 [
+  switch i8 %3, label %default.unreachable230 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -21003,7 +21003,7 @@ define void @_ZN11ruff_linter5codes11Flake8Async5rules17h22d3863b44211184E(ptr d
     i8 19, label %62
   ]
 
-default.unreachable211:                           ; preds = %2
+default.unreachable230:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -21126,14 +21126,14 @@ default.unreachable211:                           ; preds = %2
   br label %73
 
 73:                                               ; preds = %143, %140, %137, %134, %131, %128, %125, %120, %117, %114, %106, %103, %100, %97, %92, %89, %86, %83, %78, %66
-  %.sink217 = phi ptr [ %63, %143 ], [ %60, %140 ], [ %57, %137 ], [ %54, %134 ], [ %51, %131 ], [ %48, %128 ], [ %45, %125 ], [ %42, %120 ], [ %39, %117 ], [ %36, %114 ], [ %33, %106 ], [ %30, %103 ], [ %27, %100 ], [ %24, %97 ], [ %21, %92 ], [ %18, %89 ], [ %15, %86 ], [ %12, %83 ], [ %9, %78 ], [ %6, %66 ]
-  %.sink215 = phi i64 [ 1, %143 ], [ 1, %140 ], [ 1, %137 ], [ 1, %134 ], [ 1, %131 ], [ 1, %128 ], [ 1, %125 ], [ 3, %120 ], [ 1, %117 ], [ 1, %114 ], [ 6, %106 ], [ 1, %103 ], [ 1, %100 ], [ 1, %97 ], [ 3, %92 ], [ 1, %89 ], [ 1, %86 ], [ 1, %83 ], [ 3, %78 ], [ 6, %66 ]
+  %.sink236 = phi ptr [ %63, %143 ], [ %60, %140 ], [ %57, %137 ], [ %54, %134 ], [ %51, %131 ], [ %48, %128 ], [ %45, %125 ], [ %42, %120 ], [ %39, %117 ], [ %36, %114 ], [ %33, %106 ], [ %30, %103 ], [ %27, %100 ], [ %24, %97 ], [ %21, %92 ], [ %18, %89 ], [ %15, %86 ], [ %12, %83 ], [ %9, %78 ], [ %6, %66 ]
+  %.sink234 = phi i64 [ 1, %143 ], [ 1, %140 ], [ 1, %137 ], [ 1, %134 ], [ 1, %131 ], [ 1, %128 ], [ 1, %125 ], [ 3, %120 ], [ 1, %117 ], [ 1, %114 ], [ 6, %106 ], [ 1, %103 ], [ 1, %100 ], [ 1, %97 ], [ 3, %92 ], [ 1, %89 ], [ 1, %86 ], [ 1, %83 ], [ 3, %78 ], [ 6, %66 ]
   %.sink = phi ptr [ %144, %143 ], [ %141, %140 ], [ %138, %137 ], [ %135, %134 ], [ %132, %131 ], [ %129, %128 ], [ %126, %125 ], [ %123, %120 ], [ %118, %117 ], [ %115, %114 ], [ %112, %106 ], [ %104, %103 ], [ %101, %100 ], [ %98, %97 ], [ %95, %92 ], [ %90, %89 ], [ %87, %86 ], [ %84, %83 ], [ %81, %78 ], [ %72, %66 ]
-  store ptr %.sink217, ptr %0, align 8, !noalias !3
+  store ptr %.sink236, ptr %0, align 8, !noalias !3
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink215, ptr %74, align 8, !noalias !3
+  store i64 %.sink234, ptr %74, align 8, !noalias !3
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink217, ptr %75, align 8, !noalias !3
+  store ptr %.sink236, ptr %75, align 8, !noalias !3
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %76, align 8, !noalias !3
   ret void
@@ -21336,7 +21336,7 @@ default.unreachable211:                           ; preds = %2
 define void @_ZN11ruff_linter5codes12Flake8Bandit5rules17hcadf95c1f704fb7fE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !126, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable1003 [
+  switch i8 %3, label %default.unreachable1094 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -21431,7 +21431,7 @@ define void @_ZN11ruff_linter5codes12Flake8Bandit5rules17hcadf95c1f704fb7fE(ptr 
     i8 91, label %278
   ]
 
-default.unreachable1003:                          ; preds = %2
+default.unreachable1094:                          ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -21924,14 +21924,14 @@ default.unreachable1003:                          ; preds = %2
   br label %294
 
 294:                                              ; preds = %686, %683, %680, %675, %670, %667, %664, %661, %656, %653, %650, %647, %644, %641, %638, %635, %632, %629, %618, %604, %601, %598, %595, %592, %589, %586, %583, %580, %577, %566, %555, %552, %549, %546, %543, %540, %533, %530, %527, %524, %521, %518, %515, %512, %509, %506, %495, %479, %476, %473, %470, %467, %461, %458, %455, %452, %449, %446, %443, %440, %437, %434, %431, %419, %416, %413, %410, %407, %404, %401, %398, %395, %385, %361, %358, %355, %351, %347, %344, %341, %338, %333, %330, %327, %324, %321, %318, %315, %312, %309, %299, %282
-  %.sink1009 = phi ptr [ %279, %686 ], [ %276, %683 ], [ %273, %680 ], [ %270, %675 ], [ %267, %670 ], [ %264, %667 ], [ %261, %664 ], [ %258, %661 ], [ %255, %656 ], [ %252, %653 ], [ %249, %650 ], [ %246, %647 ], [ %243, %644 ], [ %240, %641 ], [ %237, %638 ], [ %234, %635 ], [ %231, %632 ], [ %228, %629 ], [ %225, %618 ], [ %222, %604 ], [ %219, %601 ], [ %216, %598 ], [ %213, %595 ], [ %210, %592 ], [ %207, %589 ], [ %204, %586 ], [ %201, %583 ], [ %198, %580 ], [ %195, %577 ], [ %192, %566 ], [ %189, %555 ], [ %186, %552 ], [ %183, %549 ], [ %180, %546 ], [ %177, %543 ], [ %174, %540 ], [ %171, %533 ], [ %168, %530 ], [ %165, %527 ], [ %162, %524 ], [ %159, %521 ], [ %156, %518 ], [ %153, %515 ], [ %150, %512 ], [ %147, %509 ], [ %144, %506 ], [ %141, %495 ], [ %138, %479 ], [ %135, %476 ], [ %132, %473 ], [ %129, %470 ], [ %126, %467 ], [ %123, %461 ], [ %120, %458 ], [ %117, %455 ], [ %114, %452 ], [ %111, %449 ], [ %108, %446 ], [ %105, %443 ], [ %102, %440 ], [ %99, %437 ], [ %96, %434 ], [ %93, %431 ], [ %90, %419 ], [ %87, %416 ], [ %84, %413 ], [ %81, %410 ], [ %78, %407 ], [ %75, %404 ], [ %72, %401 ], [ %69, %398 ], [ %66, %395 ], [ %63, %385 ], [ %60, %361 ], [ %57, %358 ], [ %54, %355 ], [ %51, %351 ], [ %48, %347 ], [ %45, %344 ], [ %42, %341 ], [ %39, %338 ], [ %36, %333 ], [ %33, %330 ], [ %30, %327 ], [ %27, %324 ], [ %24, %321 ], [ %21, %318 ], [ %18, %315 ], [ %15, %312 ], [ %12, %309 ], [ %9, %299 ], [ %6, %282 ]
-  %.sink1007 = phi i64 [ 1, %686 ], [ 1, %683 ], [ 1, %680 ], [ 3, %675 ], [ 3, %670 ], [ 1, %667 ], [ 1, %664 ], [ 1, %661 ], [ 3, %656 ], [ 1, %653 ], [ 1, %650 ], [ 1, %647 ], [ 1, %644 ], [ 1, %641 ], [ 1, %638 ], [ 1, %635 ], [ 1, %632 ], [ 1, %629 ], [ 9, %618 ], [ 12, %604 ], [ 1, %601 ], [ 1, %598 ], [ 1, %595 ], [ 1, %592 ], [ 1, %589 ], [ 1, %586 ], [ 1, %583 ], [ 1, %580 ], [ 1, %577 ], [ 9, %566 ], [ 9, %555 ], [ 1, %552 ], [ 1, %549 ], [ 1, %546 ], [ 1, %543 ], [ 1, %540 ], [ 5, %533 ], [ 1, %530 ], [ 1, %527 ], [ 1, %524 ], [ 1, %521 ], [ 1, %518 ], [ 1, %515 ], [ 1, %512 ], [ 1, %509 ], [ 1, %506 ], [ 9, %495 ], [ 14, %479 ], [ 1, %476 ], [ 1, %473 ], [ 1, %470 ], [ 1, %467 ], [ 4, %461 ], [ 1, %458 ], [ 1, %455 ], [ 1, %452 ], [ 1, %449 ], [ 1, %446 ], [ 1, %443 ], [ 1, %440 ], [ 1, %437 ], [ 1, %434 ], [ 1, %431 ], [ 10, %419 ], [ 1, %416 ], [ 1, %413 ], [ 1, %410 ], [ 1, %407 ], [ 1, %404 ], [ 1, %401 ], [ 1, %398 ], [ 1, %395 ], [ 8, %385 ], [ 22, %361 ], [ 1, %358 ], [ 1, %355 ], [ 2, %351 ], [ 2, %347 ], [ 1, %344 ], [ 1, %341 ], [ 1, %338 ], [ 3, %333 ], [ 1, %330 ], [ 1, %327 ], [ 1, %324 ], [ 1, %321 ], [ 1, %318 ], [ 1, %315 ], [ 1, %312 ], [ 1, %309 ], [ 8, %299 ], [ 11, %282 ]
+  %.sink1100 = phi ptr [ %279, %686 ], [ %276, %683 ], [ %273, %680 ], [ %270, %675 ], [ %267, %670 ], [ %264, %667 ], [ %261, %664 ], [ %258, %661 ], [ %255, %656 ], [ %252, %653 ], [ %249, %650 ], [ %246, %647 ], [ %243, %644 ], [ %240, %641 ], [ %237, %638 ], [ %234, %635 ], [ %231, %632 ], [ %228, %629 ], [ %225, %618 ], [ %222, %604 ], [ %219, %601 ], [ %216, %598 ], [ %213, %595 ], [ %210, %592 ], [ %207, %589 ], [ %204, %586 ], [ %201, %583 ], [ %198, %580 ], [ %195, %577 ], [ %192, %566 ], [ %189, %555 ], [ %186, %552 ], [ %183, %549 ], [ %180, %546 ], [ %177, %543 ], [ %174, %540 ], [ %171, %533 ], [ %168, %530 ], [ %165, %527 ], [ %162, %524 ], [ %159, %521 ], [ %156, %518 ], [ %153, %515 ], [ %150, %512 ], [ %147, %509 ], [ %144, %506 ], [ %141, %495 ], [ %138, %479 ], [ %135, %476 ], [ %132, %473 ], [ %129, %470 ], [ %126, %467 ], [ %123, %461 ], [ %120, %458 ], [ %117, %455 ], [ %114, %452 ], [ %111, %449 ], [ %108, %446 ], [ %105, %443 ], [ %102, %440 ], [ %99, %437 ], [ %96, %434 ], [ %93, %431 ], [ %90, %419 ], [ %87, %416 ], [ %84, %413 ], [ %81, %410 ], [ %78, %407 ], [ %75, %404 ], [ %72, %401 ], [ %69, %398 ], [ %66, %395 ], [ %63, %385 ], [ %60, %361 ], [ %57, %358 ], [ %54, %355 ], [ %51, %351 ], [ %48, %347 ], [ %45, %344 ], [ %42, %341 ], [ %39, %338 ], [ %36, %333 ], [ %33, %330 ], [ %30, %327 ], [ %27, %324 ], [ %24, %321 ], [ %21, %318 ], [ %18, %315 ], [ %15, %312 ], [ %12, %309 ], [ %9, %299 ], [ %6, %282 ]
+  %.sink1098 = phi i64 [ 1, %686 ], [ 1, %683 ], [ 1, %680 ], [ 3, %675 ], [ 3, %670 ], [ 1, %667 ], [ 1, %664 ], [ 1, %661 ], [ 3, %656 ], [ 1, %653 ], [ 1, %650 ], [ 1, %647 ], [ 1, %644 ], [ 1, %641 ], [ 1, %638 ], [ 1, %635 ], [ 1, %632 ], [ 1, %629 ], [ 9, %618 ], [ 12, %604 ], [ 1, %601 ], [ 1, %598 ], [ 1, %595 ], [ 1, %592 ], [ 1, %589 ], [ 1, %586 ], [ 1, %583 ], [ 1, %580 ], [ 1, %577 ], [ 9, %566 ], [ 9, %555 ], [ 1, %552 ], [ 1, %549 ], [ 1, %546 ], [ 1, %543 ], [ 1, %540 ], [ 5, %533 ], [ 1, %530 ], [ 1, %527 ], [ 1, %524 ], [ 1, %521 ], [ 1, %518 ], [ 1, %515 ], [ 1, %512 ], [ 1, %509 ], [ 1, %506 ], [ 9, %495 ], [ 14, %479 ], [ 1, %476 ], [ 1, %473 ], [ 1, %470 ], [ 1, %467 ], [ 4, %461 ], [ 1, %458 ], [ 1, %455 ], [ 1, %452 ], [ 1, %449 ], [ 1, %446 ], [ 1, %443 ], [ 1, %440 ], [ 1, %437 ], [ 1, %434 ], [ 1, %431 ], [ 10, %419 ], [ 1, %416 ], [ 1, %413 ], [ 1, %410 ], [ 1, %407 ], [ 1, %404 ], [ 1, %401 ], [ 1, %398 ], [ 1, %395 ], [ 8, %385 ], [ 22, %361 ], [ 1, %358 ], [ 1, %355 ], [ 2, %351 ], [ 2, %347 ], [ 1, %344 ], [ 1, %341 ], [ 1, %338 ], [ 3, %333 ], [ 1, %330 ], [ 1, %327 ], [ 1, %324 ], [ 1, %321 ], [ 1, %318 ], [ 1, %315 ], [ 1, %312 ], [ 1, %309 ], [ 8, %299 ], [ 11, %282 ]
   %.sink = phi ptr [ %687, %686 ], [ %684, %683 ], [ %681, %680 ], [ %678, %675 ], [ %673, %670 ], [ %668, %667 ], [ %665, %664 ], [ %662, %661 ], [ %659, %656 ], [ %654, %653 ], [ %651, %650 ], [ %648, %647 ], [ %645, %644 ], [ %642, %641 ], [ %639, %638 ], [ %636, %635 ], [ %633, %632 ], [ %630, %629 ], [ %627, %618 ], [ %616, %604 ], [ %602, %601 ], [ %599, %598 ], [ %596, %595 ], [ %593, %592 ], [ %590, %589 ], [ %587, %586 ], [ %584, %583 ], [ %581, %580 ], [ %578, %577 ], [ %575, %566 ], [ %564, %555 ], [ %553, %552 ], [ %550, %549 ], [ %547, %546 ], [ %544, %543 ], [ %541, %540 ], [ %538, %533 ], [ %531, %530 ], [ %528, %527 ], [ %525, %524 ], [ %522, %521 ], [ %519, %518 ], [ %516, %515 ], [ %513, %512 ], [ %510, %509 ], [ %507, %506 ], [ %504, %495 ], [ %493, %479 ], [ %477, %476 ], [ %474, %473 ], [ %471, %470 ], [ %468, %467 ], [ %465, %461 ], [ %459, %458 ], [ %456, %455 ], [ %453, %452 ], [ %450, %449 ], [ %447, %446 ], [ %444, %443 ], [ %441, %440 ], [ %438, %437 ], [ %435, %434 ], [ %432, %431 ], [ %429, %419 ], [ %417, %416 ], [ %414, %413 ], [ %411, %410 ], [ %408, %407 ], [ %405, %404 ], [ %402, %401 ], [ %399, %398 ], [ %396, %395 ], [ %393, %385 ], [ %383, %361 ], [ %359, %358 ], [ %356, %355 ], [ %353, %351 ], [ %349, %347 ], [ %345, %344 ], [ %342, %341 ], [ %339, %338 ], [ %336, %333 ], [ %331, %330 ], [ %328, %327 ], [ %325, %324 ], [ %322, %321 ], [ %319, %318 ], [ %316, %315 ], [ %313, %312 ], [ %310, %309 ], [ %307, %299 ], [ %293, %282 ]
-  store ptr %.sink1009, ptr %0, align 8, !noalias !3
+  store ptr %.sink1100, ptr %0, align 8, !noalias !3
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink1007, ptr %295, align 8, !noalias !3
+  store i64 %.sink1098, ptr %295, align 8, !noalias !3
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink1009, ptr %296, align 8, !noalias !3
+  store ptr %.sink1100, ptr %296, align 8, !noalias !3
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %297, align 8, !noalias !3
   ret void
@@ -22996,13 +22996,13 @@ define void @_ZN11ruff_linter5codes17Flake8BlindExcept5rules17h1314f25edfd43df1E
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %5 = tail call noalias noundef align 2 dereferenceable_or_null(2) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 2, 121) 2, i64 noundef 2) #18
   %6 = icmp eq ptr %5, null
-  switch i8 %3, label %default.unreachable24 [
+  switch i8 %3, label %default.unreachable26 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
   ]
 
-default.unreachable24:                            ; preds = %2
+default.unreachable26:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -23043,7 +23043,7 @@ default.unreachable24:                            ; preds = %2
 define void @_ZN11ruff_linter5codes17Flake8BooleanTrap5rules17hedd0f0697f3a763eE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !37, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable46 [
+  switch i8 %3, label %default.unreachable50 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -23051,7 +23051,7 @@ define void @_ZN11ruff_linter5codes17Flake8BooleanTrap5rules17hedd0f0697f3a763eE
     i8 4, label %17
   ]
 
-default.unreachable46:                            ; preds = %2
+default.unreachable50:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -23093,14 +23093,14 @@ default.unreachable46:                            ; preds = %2
   br label %25
 
 25:                                               ; preds = %41, %38, %35, %30, %21
-  %.sink52 = phi ptr [ %18, %41 ], [ %15, %38 ], [ %12, %35 ], [ %9, %30 ], [ %6, %21 ]
-  %.sink50 = phi i64 [ 1, %41 ], [ 1, %38 ], [ 1, %35 ], [ 3, %30 ], [ 3, %21 ]
+  %.sink56 = phi ptr [ %18, %41 ], [ %15, %38 ], [ %12, %35 ], [ %9, %30 ], [ %6, %21 ]
+  %.sink54 = phi i64 [ 1, %41 ], [ 1, %38 ], [ 1, %35 ], [ 3, %30 ], [ 3, %21 ]
   %.sink = phi ptr [ %42, %41 ], [ %39, %38 ], [ %36, %35 ], [ %33, %30 ], [ %24, %21 ]
-  store ptr %.sink52, ptr %0, align 8, !noalias !3
+  store ptr %.sink56, ptr %0, align 8, !noalias !3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink50, ptr %26, align 8, !noalias !3
+  store i64 %.sink54, ptr %26, align 8, !noalias !3
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink52, ptr %27, align 8, !noalias !3
+  store ptr %.sink56, ptr %27, align 8, !noalias !3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %28, align 8, !noalias !3
   ret void
@@ -23150,7 +23150,7 @@ default.unreachable46:                            ; preds = %2
 define void @_ZN11ruff_linter5codes13Flake8Bugbear5rules17h39f020a5b68274c9E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !127, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable530 [
+  switch i8 %3, label %default.unreachable578 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -23202,7 +23202,7 @@ define void @_ZN11ruff_linter5codes13Flake8Bugbear5rules17h39f020a5b68274c9E(ptr
     i8 48, label %149
   ]
 
-default.unreachable530:                           ; preds = %2
+default.unreachable578:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -23528,14 +23528,14 @@ default.unreachable530:                           ; preds = %2
   br label %189
 
 189:                                              ; preds = %375, %372, %369, %366, %363, %360, %357, %350, %342, %339, %336, %333, %330, %327, %324, %321, %312, %309, %306, %303, %300, %297, %294, %291, %288, %285, %282, %270, %267, %264, %261, %258, %255, %252, %249, %246, %243, %240, %228, %225, %222, %219, %216, %213, %210, %207, %204, %194, %153
-  %.sink536 = phi ptr [ %150, %375 ], [ %147, %372 ], [ %144, %369 ], [ %141, %366 ], [ %138, %363 ], [ %135, %360 ], [ %132, %357 ], [ %129, %350 ], [ %126, %342 ], [ %123, %339 ], [ %120, %336 ], [ %117, %333 ], [ %114, %330 ], [ %111, %327 ], [ %108, %324 ], [ %105, %321 ], [ %102, %312 ], [ %99, %309 ], [ %96, %306 ], [ %93, %303 ], [ %90, %300 ], [ %87, %297 ], [ %84, %294 ], [ %81, %291 ], [ %78, %288 ], [ %75, %285 ], [ %72, %282 ], [ %69, %270 ], [ %66, %267 ], [ %63, %264 ], [ %60, %261 ], [ %57, %258 ], [ %54, %255 ], [ %51, %252 ], [ %48, %249 ], [ %45, %246 ], [ %42, %243 ], [ %39, %240 ], [ %36, %228 ], [ %33, %225 ], [ %30, %222 ], [ %27, %219 ], [ %24, %216 ], [ %21, %213 ], [ %18, %210 ], [ %15, %207 ], [ %12, %204 ], [ %9, %194 ], [ %6, %153 ]
-  %.sink534 = phi i64 [ 1, %375 ], [ 1, %372 ], [ 1, %369 ], [ 1, %366 ], [ 1, %363 ], [ 1, %360 ], [ 1, %357 ], [ 5, %350 ], [ 6, %342 ], [ 1, %339 ], [ 1, %336 ], [ 1, %333 ], [ 1, %330 ], [ 1, %327 ], [ 1, %324 ], [ 1, %321 ], [ 7, %312 ], [ 1, %309 ], [ 1, %306 ], [ 1, %303 ], [ 1, %300 ], [ 1, %297 ], [ 1, %294 ], [ 1, %291 ], [ 1, %288 ], [ 1, %285 ], [ 1, %282 ], [ 10, %270 ], [ 1, %267 ], [ 1, %264 ], [ 1, %261 ], [ 1, %258 ], [ 1, %255 ], [ 1, %252 ], [ 1, %249 ], [ 1, %246 ], [ 1, %243 ], [ 1, %240 ], [ 10, %228 ], [ 1, %225 ], [ 1, %222 ], [ 1, %219 ], [ 1, %216 ], [ 1, %213 ], [ 1, %210 ], [ 1, %207 ], [ 1, %204 ], [ 8, %194 ], [ 35, %153 ]
+  %.sink584 = phi ptr [ %150, %375 ], [ %147, %372 ], [ %144, %369 ], [ %141, %366 ], [ %138, %363 ], [ %135, %360 ], [ %132, %357 ], [ %129, %350 ], [ %126, %342 ], [ %123, %339 ], [ %120, %336 ], [ %117, %333 ], [ %114, %330 ], [ %111, %327 ], [ %108, %324 ], [ %105, %321 ], [ %102, %312 ], [ %99, %309 ], [ %96, %306 ], [ %93, %303 ], [ %90, %300 ], [ %87, %297 ], [ %84, %294 ], [ %81, %291 ], [ %78, %288 ], [ %75, %285 ], [ %72, %282 ], [ %69, %270 ], [ %66, %267 ], [ %63, %264 ], [ %60, %261 ], [ %57, %258 ], [ %54, %255 ], [ %51, %252 ], [ %48, %249 ], [ %45, %246 ], [ %42, %243 ], [ %39, %240 ], [ %36, %228 ], [ %33, %225 ], [ %30, %222 ], [ %27, %219 ], [ %24, %216 ], [ %21, %213 ], [ %18, %210 ], [ %15, %207 ], [ %12, %204 ], [ %9, %194 ], [ %6, %153 ]
+  %.sink582 = phi i64 [ 1, %375 ], [ 1, %372 ], [ 1, %369 ], [ 1, %366 ], [ 1, %363 ], [ 1, %360 ], [ 1, %357 ], [ 5, %350 ], [ 6, %342 ], [ 1, %339 ], [ 1, %336 ], [ 1, %333 ], [ 1, %330 ], [ 1, %327 ], [ 1, %324 ], [ 1, %321 ], [ 7, %312 ], [ 1, %309 ], [ 1, %306 ], [ 1, %303 ], [ 1, %300 ], [ 1, %297 ], [ 1, %294 ], [ 1, %291 ], [ 1, %288 ], [ 1, %285 ], [ 1, %282 ], [ 10, %270 ], [ 1, %267 ], [ 1, %264 ], [ 1, %261 ], [ 1, %258 ], [ 1, %255 ], [ 1, %252 ], [ 1, %249 ], [ 1, %246 ], [ 1, %243 ], [ 1, %240 ], [ 10, %228 ], [ 1, %225 ], [ 1, %222 ], [ 1, %219 ], [ 1, %216 ], [ 1, %213 ], [ 1, %210 ], [ 1, %207 ], [ 1, %204 ], [ 8, %194 ], [ 35, %153 ]
   %.sink = phi ptr [ %376, %375 ], [ %373, %372 ], [ %370, %369 ], [ %367, %366 ], [ %364, %363 ], [ %361, %360 ], [ %358, %357 ], [ %355, %350 ], [ %348, %342 ], [ %340, %339 ], [ %337, %336 ], [ %334, %333 ], [ %331, %330 ], [ %328, %327 ], [ %325, %324 ], [ %322, %321 ], [ %319, %312 ], [ %310, %309 ], [ %307, %306 ], [ %304, %303 ], [ %301, %300 ], [ %298, %297 ], [ %295, %294 ], [ %292, %291 ], [ %289, %288 ], [ %286, %285 ], [ %283, %282 ], [ %280, %270 ], [ %268, %267 ], [ %265, %264 ], [ %262, %261 ], [ %259, %258 ], [ %256, %255 ], [ %253, %252 ], [ %250, %249 ], [ %247, %246 ], [ %244, %243 ], [ %241, %240 ], [ %238, %228 ], [ %226, %225 ], [ %223, %222 ], [ %220, %219 ], [ %217, %216 ], [ %214, %213 ], [ %211, %210 ], [ %208, %207 ], [ %205, %204 ], [ %202, %194 ], [ %188, %153 ]
-  store ptr %.sink536, ptr %0, align 8, !noalias !3
+  store ptr %.sink584, ptr %0, align 8, !noalias !3
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink534, ptr %190, align 8, !noalias !3
+  store i64 %.sink582, ptr %190, align 8, !noalias !3
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink536, ptr %191, align 8, !noalias !3
+  store ptr %.sink584, ptr %191, align 8, !noalias !3
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %192, align 8, !noalias !3
   ret void
@@ -24057,7 +24057,7 @@ default.unreachable530:                           ; preds = %2
 define void @_ZN11ruff_linter5codes14Flake8Builtins5rules17h603d51406079b942E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !47, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable79 [
+  switch i8 %3, label %default.unreachable86 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -24068,7 +24068,7 @@ define void @_ZN11ruff_linter5codes14Flake8Builtins5rules17h603d51406079b942E(pt
     i8 7, label %26
   ]
 
-default.unreachable79:                            ; preds = %2
+default.unreachable86:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -24131,14 +24131,14 @@ default.unreachable79:                            ; preds = %2
   br label %37
 
 37:                                               ; preds = %65, %62, %59, %56, %53, %50, %42, %30
-  %.sink85 = phi ptr [ %27, %65 ], [ %24, %62 ], [ %21, %59 ], [ %18, %56 ], [ %15, %53 ], [ %12, %50 ], [ %9, %42 ], [ %6, %30 ]
-  %.sink83 = phi i64 [ 1, %65 ], [ 1, %62 ], [ 1, %59 ], [ 1, %56 ], [ 1, %53 ], [ 1, %50 ], [ 6, %42 ], [ 6, %30 ]
+  %.sink92 = phi ptr [ %27, %65 ], [ %24, %62 ], [ %21, %59 ], [ %18, %56 ], [ %15, %53 ], [ %12, %50 ], [ %9, %42 ], [ %6, %30 ]
+  %.sink90 = phi i64 [ 1, %65 ], [ 1, %62 ], [ 1, %59 ], [ 1, %56 ], [ 1, %53 ], [ 1, %50 ], [ 6, %42 ], [ 6, %30 ]
   %.sink = phi ptr [ %66, %65 ], [ %63, %62 ], [ %60, %59 ], [ %57, %56 ], [ %54, %53 ], [ %51, %50 ], [ %48, %42 ], [ %36, %30 ]
-  store ptr %.sink85, ptr %0, align 8, !noalias !3
+  store ptr %.sink92, ptr %0, align 8, !noalias !3
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink83, ptr %38, align 8, !noalias !3
+  store i64 %.sink90, ptr %38, align 8, !noalias !3
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink85, ptr %39, align 8, !noalias !3
+  store ptr %.sink92, ptr %39, align 8, !noalias !3
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %40, align 8, !noalias !3
   ret void
@@ -24221,7 +24221,7 @@ default.unreachable79:                            ; preds = %2
 define void @_ZN11ruff_linter5codes12Flake8Commas5rules17hdeea38404a3323a6E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !37, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable46 [
+  switch i8 %3, label %default.unreachable50 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -24229,7 +24229,7 @@ define void @_ZN11ruff_linter5codes12Flake8Commas5rules17hdeea38404a3323a6E(ptr 
     i8 4, label %17
   ]
 
-default.unreachable46:                            ; preds = %2
+default.unreachable50:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -24271,14 +24271,14 @@ default.unreachable46:                            ; preds = %2
   br label %25
 
 25:                                               ; preds = %41, %38, %35, %30, %21
-  %.sink52 = phi ptr [ %18, %41 ], [ %15, %38 ], [ %12, %35 ], [ %9, %30 ], [ %6, %21 ]
-  %.sink50 = phi i64 [ 1, %41 ], [ 1, %38 ], [ 1, %35 ], [ 3, %30 ], [ 3, %21 ]
+  %.sink56 = phi ptr [ %18, %41 ], [ %15, %38 ], [ %12, %35 ], [ %9, %30 ], [ %6, %21 ]
+  %.sink54 = phi i64 [ 1, %41 ], [ 1, %38 ], [ 1, %35 ], [ 3, %30 ], [ 3, %21 ]
   %.sink = phi ptr [ %42, %41 ], [ %39, %38 ], [ %36, %35 ], [ %33, %30 ], [ %24, %21 ]
-  store ptr %.sink52, ptr %0, align 8, !noalias !3
+  store ptr %.sink56, ptr %0, align 8, !noalias !3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink50, ptr %26, align 8, !noalias !3
+  store i64 %.sink54, ptr %26, align 8, !noalias !3
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink52, ptr %27, align 8, !noalias !3
+  store ptr %.sink56, ptr %27, align 8, !noalias !3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %28, align 8, !noalias !3
   ret void
@@ -24328,7 +24328,7 @@ default.unreachable46:                            ; preds = %2
 define void @_ZN11ruff_linter5codes20Flake8Comprehensions5rules17hfa42c32ef7965483E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !128, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable233 [
+  switch i8 %3, label %default.unreachable254 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -24353,7 +24353,7 @@ define void @_ZN11ruff_linter5codes20Flake8Comprehensions5rules17hfa42c32ef79654
     i8 21, label %68
   ]
 
-default.unreachable233:                           ; preds = %2
+default.unreachable254:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -24492,14 +24492,14 @@ default.unreachable233:                           ; preds = %2
   br label %82
 
 82:                                               ; preds = %155, %152, %149, %146, %143, %140, %137, %134, %131, %128, %125, %114, %111, %108, %105, %102, %99, %96, %93, %90, %87, %72
-  %.sink239 = phi ptr [ %69, %155 ], [ %66, %152 ], [ %63, %149 ], [ %60, %146 ], [ %57, %143 ], [ %54, %140 ], [ %51, %137 ], [ %48, %134 ], [ %45, %131 ], [ %42, %128 ], [ %39, %125 ], [ %36, %114 ], [ %33, %111 ], [ %30, %108 ], [ %27, %105 ], [ %24, %102 ], [ %21, %99 ], [ %18, %96 ], [ %15, %93 ], [ %12, %90 ], [ %9, %87 ], [ %6, %72 ]
-  %.sink237 = phi i64 [ 1, %155 ], [ 1, %152 ], [ 1, %149 ], [ 1, %146 ], [ 1, %143 ], [ 1, %140 ], [ 1, %137 ], [ 1, %134 ], [ 1, %131 ], [ 1, %128 ], [ 1, %125 ], [ 9, %114 ], [ 1, %111 ], [ 1, %108 ], [ 1, %105 ], [ 1, %102 ], [ 1, %99 ], [ 1, %96 ], [ 1, %93 ], [ 1, %90 ], [ 1, %87 ], [ 9, %72 ]
+  %.sink260 = phi ptr [ %69, %155 ], [ %66, %152 ], [ %63, %149 ], [ %60, %146 ], [ %57, %143 ], [ %54, %140 ], [ %51, %137 ], [ %48, %134 ], [ %45, %131 ], [ %42, %128 ], [ %39, %125 ], [ %36, %114 ], [ %33, %111 ], [ %30, %108 ], [ %27, %105 ], [ %24, %102 ], [ %21, %99 ], [ %18, %96 ], [ %15, %93 ], [ %12, %90 ], [ %9, %87 ], [ %6, %72 ]
+  %.sink258 = phi i64 [ 1, %155 ], [ 1, %152 ], [ 1, %149 ], [ 1, %146 ], [ 1, %143 ], [ 1, %140 ], [ 1, %137 ], [ 1, %134 ], [ 1, %131 ], [ 1, %128 ], [ 1, %125 ], [ 9, %114 ], [ 1, %111 ], [ 1, %108 ], [ 1, %105 ], [ 1, %102 ], [ 1, %99 ], [ 1, %96 ], [ 1, %93 ], [ 1, %90 ], [ 1, %87 ], [ 9, %72 ]
   %.sink = phi ptr [ %156, %155 ], [ %153, %152 ], [ %150, %149 ], [ %147, %146 ], [ %144, %143 ], [ %141, %140 ], [ %138, %137 ], [ %135, %134 ], [ %132, %131 ], [ %129, %128 ], [ %126, %125 ], [ %123, %114 ], [ %112, %111 ], [ %109, %108 ], [ %106, %105 ], [ %103, %102 ], [ %100, %99 ], [ %97, %96 ], [ %94, %93 ], [ %91, %90 ], [ %88, %87 ], [ %81, %72 ]
-  store ptr %.sink239, ptr %0, align 8, !noalias !3
+  store ptr %.sink260, ptr %0, align 8, !noalias !3
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink237, ptr %83, align 8, !noalias !3
+  store i64 %.sink258, ptr %83, align 8, !noalias !3
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink239, ptr %84, align 8, !noalias !3
+  store ptr %.sink260, ptr %84, align 8, !noalias !3
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %85, align 8, !noalias !3
   ret void
@@ -24716,13 +24716,13 @@ define void @_ZN11ruff_linter5codes15Flake8Copyright5rules17h4fa96ccaadb25f59E(p
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %5 = tail call noalias noundef align 2 dereferenceable_or_null(2) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 2, 121) 2, i64 noundef 2) #18
   %6 = icmp eq ptr %5, null
-  switch i8 %3, label %default.unreachable24 [
+  switch i8 %3, label %default.unreachable26 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
   ]
 
-default.unreachable24:                            ; preds = %2
+default.unreachable26:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -24763,7 +24763,7 @@ default.unreachable24:                            ; preds = %2
 define void @_ZN11ruff_linter5codes15Flake8Datetimez5rules17h8f288fd6b30a2c21E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !129, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable156 [
+  switch i8 %3, label %default.unreachable170 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -24781,7 +24781,7 @@ define void @_ZN11ruff_linter5codes15Flake8Datetimez5rules17h8f288fd6b30a2c21E(p
     i8 14, label %47
   ]
 
-default.unreachable156:                           ; preds = %2
+default.unreachable170:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -24885,14 +24885,14 @@ default.unreachable156:                           ; preds = %2
   br label %61
 
 61:                                               ; preds = %112, %109, %106, %103, %100, %96, %93, %90, %87, %84, %81, %78, %75, %66, %51
-  %.sink162 = phi ptr [ %48, %112 ], [ %45, %109 ], [ %42, %106 ], [ %39, %103 ], [ %36, %100 ], [ %33, %96 ], [ %30, %93 ], [ %27, %90 ], [ %24, %87 ], [ %21, %84 ], [ %18, %81 ], [ %15, %78 ], [ %12, %75 ], [ %9, %66 ], [ %6, %51 ]
-  %.sink160 = phi i64 [ 1, %112 ], [ 1, %109 ], [ 1, %106 ], [ 1, %103 ], [ 1, %100 ], [ 2, %96 ], [ 1, %93 ], [ 1, %90 ], [ 1, %87 ], [ 1, %84 ], [ 1, %81 ], [ 1, %78 ], [ 1, %75 ], [ 7, %66 ], [ 9, %51 ]
+  %.sink176 = phi ptr [ %48, %112 ], [ %45, %109 ], [ %42, %106 ], [ %39, %103 ], [ %36, %100 ], [ %33, %96 ], [ %30, %93 ], [ %27, %90 ], [ %24, %87 ], [ %21, %84 ], [ %18, %81 ], [ %15, %78 ], [ %12, %75 ], [ %9, %66 ], [ %6, %51 ]
+  %.sink174 = phi i64 [ 1, %112 ], [ 1, %109 ], [ 1, %106 ], [ 1, %103 ], [ 1, %100 ], [ 2, %96 ], [ 1, %93 ], [ 1, %90 ], [ 1, %87 ], [ 1, %84 ], [ 1, %81 ], [ 1, %78 ], [ 1, %75 ], [ 7, %66 ], [ 9, %51 ]
   %.sink = phi ptr [ %113, %112 ], [ %110, %109 ], [ %107, %106 ], [ %104, %103 ], [ %101, %100 ], [ %98, %96 ], [ %94, %93 ], [ %91, %90 ], [ %88, %87 ], [ %85, %84 ], [ %82, %81 ], [ %79, %78 ], [ %76, %75 ], [ %73, %66 ], [ %60, %51 ]
-  store ptr %.sink162, ptr %0, align 8, !noalias !3
+  store ptr %.sink176, ptr %0, align 8, !noalias !3
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink160, ptr %62, align 8, !noalias !3
+  store i64 %.sink174, ptr %62, align 8, !noalias !3
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink162, ptr %63, align 8, !noalias !3
+  store ptr %.sink176, ptr %63, align 8, !noalias !3
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %64, align 8, !noalias !3
   ret void
@@ -25066,7 +25066,7 @@ define void @_ZN11ruff_linter5codes14Flake8Debugger5rules17h72dfc7920425b03bE(pt
 define void @_ZN11ruff_linter5codes12Flake8Django5rules17h7cb5eec2bca58c45E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !130, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable101 [
+  switch i8 %3, label %default.unreachable110 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -25079,7 +25079,7 @@ define void @_ZN11ruff_linter5codes12Flake8Django5rules17h7cb5eec2bca58c45E(ptr 
     i8 9, label %32
   ]
 
-default.unreachable101:                           ; preds = %2
+default.unreachable110:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -25154,14 +25154,14 @@ default.unreachable101:                           ; preds = %2
   br label %44
 
 44:                                               ; preds = %78, %75, %71, %68, %65, %62, %59, %56, %49, %36
-  %.sink107 = phi ptr [ %33, %78 ], [ %30, %75 ], [ %27, %71 ], [ %24, %68 ], [ %21, %65 ], [ %18, %62 ], [ %15, %59 ], [ %12, %56 ], [ %9, %49 ], [ %6, %36 ]
-  %.sink105 = phi i64 [ 1, %78 ], [ 1, %75 ], [ 2, %71 ], [ 1, %68 ], [ 1, %65 ], [ 1, %62 ], [ 1, %59 ], [ 1, %56 ], [ 5, %49 ], [ 7, %36 ]
+  %.sink116 = phi ptr [ %33, %78 ], [ %30, %75 ], [ %27, %71 ], [ %24, %68 ], [ %21, %65 ], [ %18, %62 ], [ %15, %59 ], [ %12, %56 ], [ %9, %49 ], [ %6, %36 ]
+  %.sink114 = phi i64 [ 1, %78 ], [ 1, %75 ], [ 2, %71 ], [ 1, %68 ], [ 1, %65 ], [ 1, %62 ], [ 1, %59 ], [ 1, %56 ], [ 5, %49 ], [ 7, %36 ]
   %.sink = phi ptr [ %79, %78 ], [ %76, %75 ], [ %73, %71 ], [ %69, %68 ], [ %66, %65 ], [ %63, %62 ], [ %60, %59 ], [ %57, %56 ], [ %54, %49 ], [ %43, %36 ]
-  store ptr %.sink107, ptr %0, align 8, !noalias !3
+  store ptr %.sink116, ptr %0, align 8, !noalias !3
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink105, ptr %45, align 8, !noalias !3
+  store i64 %.sink114, ptr %45, align 8, !noalias !3
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink107, ptr %46, align 8, !noalias !3
+  store ptr %.sink116, ptr %46, align 8, !noalias !3
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %47, align 8, !noalias !3
   ret void
@@ -25262,7 +25262,7 @@ default.unreachable101:                           ; preds = %2
 define void @_ZN11ruff_linter5codes12Flake8ErrMsg5rules17h6ae481f0d600be1eE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !37, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable46 [
+  switch i8 %3, label %default.unreachable50 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -25270,7 +25270,7 @@ define void @_ZN11ruff_linter5codes12Flake8ErrMsg5rules17h6ae481f0d600be1eE(ptr 
     i8 4, label %17
   ]
 
-default.unreachable46:                            ; preds = %2
+default.unreachable50:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -25312,14 +25312,14 @@ default.unreachable46:                            ; preds = %2
   br label %25
 
 25:                                               ; preds = %41, %38, %35, %30, %21
-  %.sink52 = phi ptr [ %18, %41 ], [ %15, %38 ], [ %12, %35 ], [ %9, %30 ], [ %6, %21 ]
-  %.sink50 = phi i64 [ 1, %41 ], [ 1, %38 ], [ 1, %35 ], [ 3, %30 ], [ 3, %21 ]
+  %.sink56 = phi ptr [ %18, %41 ], [ %15, %38 ], [ %12, %35 ], [ %9, %30 ], [ %6, %21 ]
+  %.sink54 = phi i64 [ 1, %41 ], [ 1, %38 ], [ 1, %35 ], [ 3, %30 ], [ 3, %21 ]
   %.sink = phi ptr [ %42, %41 ], [ %39, %38 ], [ %36, %35 ], [ %33, %30 ], [ %24, %21 ]
-  store ptr %.sink52, ptr %0, align 8, !noalias !3
+  store ptr %.sink56, ptr %0, align 8, !noalias !3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink50, ptr %26, align 8, !noalias !3
+  store i64 %.sink54, ptr %26, align 8, !noalias !3
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink52, ptr %27, align 8, !noalias !3
+  store ptr %.sink56, ptr %27, align 8, !noalias !3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %28, align 8, !noalias !3
   ret void
@@ -25369,7 +25369,7 @@ default.unreachable46:                            ; preds = %2
 define void @_ZN11ruff_linter5codes16Flake8Executable5rules17hc868dd4015fdea67E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !60, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable68 [
+  switch i8 %3, label %default.unreachable74 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -25379,7 +25379,7 @@ define void @_ZN11ruff_linter5codes16Flake8Executable5rules17hc868dd4015fdea67E(
     i8 6, label %23
   ]
 
-default.unreachable68:                            ; preds = %2
+default.unreachable74:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -25435,14 +25435,14 @@ default.unreachable68:                            ; preds = %2
   br label %33
 
 33:                                               ; preds = %57, %54, %51, %48, %45, %38, %27
-  %.sink74 = phi ptr [ %24, %57 ], [ %21, %54 ], [ %18, %51 ], [ %15, %48 ], [ %12, %45 ], [ %9, %38 ], [ %6, %27 ]
-  %.sink72 = phi i64 [ 1, %57 ], [ 1, %54 ], [ 1, %51 ], [ 1, %48 ], [ 1, %45 ], [ 5, %38 ], [ 5, %27 ]
+  %.sink80 = phi ptr [ %24, %57 ], [ %21, %54 ], [ %18, %51 ], [ %15, %48 ], [ %12, %45 ], [ %9, %38 ], [ %6, %27 ]
+  %.sink78 = phi i64 [ 1, %57 ], [ 1, %54 ], [ 1, %51 ], [ 1, %48 ], [ 1, %45 ], [ 5, %38 ], [ 5, %27 ]
   %.sink = phi ptr [ %58, %57 ], [ %55, %54 ], [ %52, %51 ], [ %49, %48 ], [ %46, %45 ], [ %43, %38 ], [ %32, %27 ]
-  store ptr %.sink74, ptr %0, align 8, !noalias !3
+  store ptr %.sink80, ptr %0, align 8, !noalias !3
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink72, ptr %34, align 8, !noalias !3
+  store i64 %.sink78, ptr %34, align 8, !noalias !3
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink74, ptr %35, align 8, !noalias !3
+  store ptr %.sink80, ptr %35, align 8, !noalias !3
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %36, align 8, !noalias !3
   ret void
@@ -25514,7 +25514,7 @@ default.unreachable68:                            ; preds = %2
 define void @_ZN11ruff_linter5codes11Flake8Fixme5rules17hb3b931c115d8ea8eE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !64, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable57 [
+  switch i8 %3, label %default.unreachable62 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -25523,7 +25523,7 @@ define void @_ZN11ruff_linter5codes11Flake8Fixme5rules17hb3b931c115d8ea8eE(ptr d
     i8 5, label %20
   ]
 
-default.unreachable57:                            ; preds = %2
+default.unreachable62:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -25572,14 +25572,14 @@ default.unreachable57:                            ; preds = %2
   br label %29
 
 29:                                               ; preds = %49, %46, %43, %40, %34, %24
-  %.sink63 = phi ptr [ %21, %49 ], [ %18, %46 ], [ %15, %43 ], [ %12, %40 ], [ %9, %34 ], [ %6, %24 ]
-  %.sink61 = phi i64 [ 1, %49 ], [ 1, %46 ], [ 1, %43 ], [ 1, %40 ], [ 4, %34 ], [ 4, %24 ]
+  %.sink68 = phi ptr [ %21, %49 ], [ %18, %46 ], [ %15, %43 ], [ %12, %40 ], [ %9, %34 ], [ %6, %24 ]
+  %.sink66 = phi i64 [ 1, %49 ], [ 1, %46 ], [ 1, %43 ], [ 1, %40 ], [ 4, %34 ], [ 4, %24 ]
   %.sink = phi ptr [ %50, %49 ], [ %47, %46 ], [ %44, %43 ], [ %41, %40 ], [ %38, %34 ], [ %28, %24 ]
-  store ptr %.sink63, ptr %0, align 8, !noalias !3
+  store ptr %.sink68, ptr %0, align 8, !noalias !3
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink61, ptr %30, align 8, !noalias !3
+  store i64 %.sink66, ptr %30, align 8, !noalias !3
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink63, ptr %31, align 8, !noalias !3
+  store ptr %.sink68, ptr %31, align 8, !noalias !3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %32, align 8, !noalias !3
   ret void
@@ -25640,14 +25640,14 @@ default.unreachable57:                            ; preds = %2
 define void @_ZN11ruff_linter5codes23Flake8FutureAnnotations5rules17h23c4a6652075dec0E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !68, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable35 [
+  switch i8 %3, label %default.unreachable38 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
     i8 3, label %14
   ]
 
-default.unreachable35:                            ; preds = %2
+default.unreachable38:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -25682,14 +25682,14 @@ default.unreachable35:                            ; preds = %2
   br label %21
 
 21:                                               ; preds = %33, %30, %26, %18
-  %.sink41 = phi ptr [ %15, %33 ], [ %12, %30 ], [ %9, %26 ], [ %6, %18 ]
-  %.sink39 = phi i64 [ 1, %33 ], [ 1, %30 ], [ 2, %26 ], [ 2, %18 ]
+  %.sink44 = phi ptr [ %15, %33 ], [ %12, %30 ], [ %9, %26 ], [ %6, %18 ]
+  %.sink42 = phi i64 [ 1, %33 ], [ 1, %30 ], [ 2, %26 ], [ 2, %18 ]
   %.sink = phi ptr [ %34, %33 ], [ %31, %30 ], [ %28, %26 ], [ %20, %18 ]
-  store ptr %.sink41, ptr %0, align 8, !noalias !3
+  store ptr %.sink44, ptr %0, align 8, !noalias !3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink39, ptr %22, align 8, !noalias !3
+  store i64 %.sink42, ptr %22, align 8, !noalias !3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink41, ptr %23, align 8, !noalias !3
+  store ptr %.sink44, ptr %23, align 8, !noalias !3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %24, align 8, !noalias !3
   ret void
@@ -25728,7 +25728,7 @@ default.unreachable35:                            ; preds = %2
 define void @_ZN11ruff_linter5codes13Flake8GetText5rules17hbb09da20c48b7a65E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !37, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable46 [
+  switch i8 %3, label %default.unreachable50 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -25736,7 +25736,7 @@ define void @_ZN11ruff_linter5codes13Flake8GetText5rules17hbb09da20c48b7a65E(ptr
     i8 4, label %17
   ]
 
-default.unreachable46:                            ; preds = %2
+default.unreachable50:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -25778,14 +25778,14 @@ default.unreachable46:                            ; preds = %2
   br label %25
 
 25:                                               ; preds = %41, %38, %35, %30, %21
-  %.sink52 = phi ptr [ %18, %41 ], [ %15, %38 ], [ %12, %35 ], [ %9, %30 ], [ %6, %21 ]
-  %.sink50 = phi i64 [ 1, %41 ], [ 1, %38 ], [ 1, %35 ], [ 3, %30 ], [ 3, %21 ]
+  %.sink56 = phi ptr [ %18, %41 ], [ %15, %38 ], [ %12, %35 ], [ %9, %30 ], [ %6, %21 ]
+  %.sink54 = phi i64 [ 1, %41 ], [ 1, %38 ], [ 1, %35 ], [ 3, %30 ], [ 3, %21 ]
   %.sink = phi ptr [ %42, %41 ], [ %39, %38 ], [ %36, %35 ], [ %33, %30 ], [ %24, %21 ]
-  store ptr %.sink52, ptr %0, align 8, !noalias !3
+  store ptr %.sink56, ptr %0, align 8, !noalias !3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink50, ptr %26, align 8, !noalias !3
+  store i64 %.sink54, ptr %26, align 8, !noalias !3
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink52, ptr %27, align 8, !noalias !3
+  store ptr %.sink56, ptr %27, align 8, !noalias !3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %28, align 8, !noalias !3
   ret void
@@ -25835,7 +25835,7 @@ default.unreachable46:                            ; preds = %2
 define void @_ZN11ruff_linter5codes23Flake8ImplicitStrConcat5rules17h71eb5cd90a4340f3E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !37, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable46 [
+  switch i8 %3, label %default.unreachable50 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -25843,7 +25843,7 @@ define void @_ZN11ruff_linter5codes23Flake8ImplicitStrConcat5rules17h71eb5cd90a4
     i8 4, label %17
   ]
 
-default.unreachable46:                            ; preds = %2
+default.unreachable50:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -25885,14 +25885,14 @@ default.unreachable46:                            ; preds = %2
   br label %25
 
 25:                                               ; preds = %41, %38, %35, %30, %21
-  %.sink52 = phi ptr [ %18, %41 ], [ %15, %38 ], [ %12, %35 ], [ %9, %30 ], [ %6, %21 ]
-  %.sink50 = phi i64 [ 1, %41 ], [ 1, %38 ], [ 1, %35 ], [ 3, %30 ], [ 3, %21 ]
+  %.sink56 = phi ptr [ %18, %41 ], [ %15, %38 ], [ %12, %35 ], [ %9, %30 ], [ %6, %21 ]
+  %.sink54 = phi i64 [ 1, %41 ], [ 1, %38 ], [ 1, %35 ], [ 3, %30 ], [ 3, %21 ]
   %.sink = phi ptr [ %42, %41 ], [ %39, %38 ], [ %36, %35 ], [ %33, %30 ], [ %24, %21 ]
-  store ptr %.sink52, ptr %0, align 8, !noalias !3
+  store ptr %.sink56, ptr %0, align 8, !noalias !3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink50, ptr %26, align 8, !noalias !3
+  store i64 %.sink54, ptr %26, align 8, !noalias !3
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink52, ptr %27, align 8, !noalias !3
+  store ptr %.sink56, ptr %27, align 8, !noalias !3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %28, align 8, !noalias !3
   ret void
@@ -25942,7 +25942,7 @@ default.unreachable46:                            ; preds = %2
 define void @_ZN11ruff_linter5codes23Flake8ImportConventions5rules17h70b33bc474942b81E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !37, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable46 [
+  switch i8 %3, label %default.unreachable50 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -25950,7 +25950,7 @@ define void @_ZN11ruff_linter5codes23Flake8ImportConventions5rules17h70b33bc4749
     i8 4, label %17
   ]
 
-default.unreachable46:                            ; preds = %2
+default.unreachable50:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -25992,14 +25992,14 @@ default.unreachable46:                            ; preds = %2
   br label %25
 
 25:                                               ; preds = %41, %38, %35, %30, %21
-  %.sink52 = phi ptr [ %18, %41 ], [ %15, %38 ], [ %12, %35 ], [ %9, %30 ], [ %6, %21 ]
-  %.sink50 = phi i64 [ 1, %41 ], [ 1, %38 ], [ 1, %35 ], [ 3, %30 ], [ 3, %21 ]
+  %.sink56 = phi ptr [ %18, %41 ], [ %15, %38 ], [ %12, %35 ], [ %9, %30 ], [ %6, %21 ]
+  %.sink54 = phi i64 [ 1, %41 ], [ 1, %38 ], [ 1, %35 ], [ 3, %30 ], [ 3, %21 ]
   %.sink = phi ptr [ %42, %41 ], [ %39, %38 ], [ %36, %35 ], [ %33, %30 ], [ %24, %21 ]
-  store ptr %.sink52, ptr %0, align 8, !noalias !3
+  store ptr %.sink56, ptr %0, align 8, !noalias !3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink50, ptr %26, align 8, !noalias !3
+  store i64 %.sink54, ptr %26, align 8, !noalias !3
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink52, ptr %27, align 8, !noalias !3
+  store ptr %.sink56, ptr %27, align 8, !noalias !3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %28, align 8, !noalias !3
   ret void
@@ -26049,7 +26049,7 @@ default.unreachable46:                            ; preds = %2
 define void @_ZN11ruff_linter5codes13Flake8Logging5rules17h0cb6e6cdc5e08dafE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !130, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable101 [
+  switch i8 %3, label %default.unreachable110 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -26062,7 +26062,7 @@ define void @_ZN11ruff_linter5codes13Flake8Logging5rules17h0cb6e6cdc5e08dafE(ptr
     i8 9, label %32
   ]
 
-default.unreachable101:                           ; preds = %2
+default.unreachable110:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -26137,14 +26137,14 @@ default.unreachable101:                           ; preds = %2
   br label %44
 
 44:                                               ; preds = %78, %75, %71, %68, %65, %62, %59, %56, %49, %36
-  %.sink107 = phi ptr [ %33, %78 ], [ %30, %75 ], [ %27, %71 ], [ %24, %68 ], [ %21, %65 ], [ %18, %62 ], [ %15, %59 ], [ %12, %56 ], [ %9, %49 ], [ %6, %36 ]
-  %.sink105 = phi i64 [ 1, %78 ], [ 1, %75 ], [ 2, %71 ], [ 1, %68 ], [ 1, %65 ], [ 1, %62 ], [ 1, %59 ], [ 1, %56 ], [ 5, %49 ], [ 7, %36 ]
+  %.sink116 = phi ptr [ %33, %78 ], [ %30, %75 ], [ %27, %71 ], [ %24, %68 ], [ %21, %65 ], [ %18, %62 ], [ %15, %59 ], [ %12, %56 ], [ %9, %49 ], [ %6, %36 ]
+  %.sink114 = phi i64 [ 1, %78 ], [ 1, %75 ], [ 2, %71 ], [ 1, %68 ], [ 1, %65 ], [ 1, %62 ], [ 1, %59 ], [ 1, %56 ], [ 5, %49 ], [ 7, %36 ]
   %.sink = phi ptr [ %79, %78 ], [ %76, %75 ], [ %73, %71 ], [ %69, %68 ], [ %66, %65 ], [ %63, %62 ], [ %60, %59 ], [ %57, %56 ], [ %54, %49 ], [ %43, %36 ]
-  store ptr %.sink107, ptr %0, align 8, !noalias !3
+  store ptr %.sink116, ptr %0, align 8, !noalias !3
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink105, ptr %45, align 8, !noalias !3
+  store i64 %.sink114, ptr %45, align 8, !noalias !3
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink107, ptr %46, align 8, !noalias !3
+  store ptr %.sink116, ptr %46, align 8, !noalias !3
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %47, align 8, !noalias !3
   ret void
@@ -26245,7 +26245,7 @@ default.unreachable101:                           ; preds = %2
 define void @_ZN11ruff_linter5codes19Flake8LoggingFormat5rules17h9c36bca703d2f626E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !129, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable156 [
+  switch i8 %3, label %default.unreachable170 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -26263,7 +26263,7 @@ define void @_ZN11ruff_linter5codes19Flake8LoggingFormat5rules17h9c36bca703d2f62
     i8 14, label %47
   ]
 
-default.unreachable156:                           ; preds = %2
+default.unreachable170:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -26359,14 +26359,14 @@ default.unreachable156:                           ; preds = %2
   br label %57
 
 57:                                               ; preds = %106, %103, %99, %95, %92, %89, %86, %83, %80, %77, %74, %71, %68, %62, %51
-  %.sink162 = phi ptr [ %48, %106 ], [ %45, %103 ], [ %42, %99 ], [ %39, %95 ], [ %36, %92 ], [ %33, %89 ], [ %30, %86 ], [ %27, %83 ], [ %24, %80 ], [ %21, %77 ], [ %18, %74 ], [ %15, %71 ], [ %12, %68 ], [ %9, %62 ], [ %6, %51 ]
-  %.sink160 = phi i64 [ 1, %106 ], [ 1, %103 ], [ 2, %99 ], [ 2, %95 ], [ 1, %92 ], [ 1, %89 ], [ 1, %86 ], [ 1, %83 ], [ 1, %80 ], [ 1, %77 ], [ 1, %74 ], [ 1, %71 ], [ 1, %68 ], [ 4, %62 ], [ 5, %51 ]
+  %.sink176 = phi ptr [ %48, %106 ], [ %45, %103 ], [ %42, %99 ], [ %39, %95 ], [ %36, %92 ], [ %33, %89 ], [ %30, %86 ], [ %27, %83 ], [ %24, %80 ], [ %21, %77 ], [ %18, %74 ], [ %15, %71 ], [ %12, %68 ], [ %9, %62 ], [ %6, %51 ]
+  %.sink174 = phi i64 [ 1, %106 ], [ 1, %103 ], [ 2, %99 ], [ 2, %95 ], [ 1, %92 ], [ 1, %89 ], [ 1, %86 ], [ 1, %83 ], [ 1, %80 ], [ 1, %77 ], [ 1, %74 ], [ 1, %71 ], [ 1, %68 ], [ 4, %62 ], [ 5, %51 ]
   %.sink = phi ptr [ %107, %106 ], [ %104, %103 ], [ %101, %99 ], [ %97, %95 ], [ %93, %92 ], [ %90, %89 ], [ %87, %86 ], [ %84, %83 ], [ %81, %80 ], [ %78, %77 ], [ %75, %74 ], [ %72, %71 ], [ %69, %68 ], [ %66, %62 ], [ %56, %51 ]
-  store ptr %.sink162, ptr %0, align 8, !noalias !3
+  store ptr %.sink176, ptr %0, align 8, !noalias !3
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink160, ptr %58, align 8, !noalias !3
+  store i64 %.sink174, ptr %58, align 8, !noalias !3
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink162, ptr %59, align 8, !noalias !3
+  store ptr %.sink176, ptr %59, align 8, !noalias !3
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %60, align 8, !noalias !3
   ret void
@@ -26514,13 +26514,13 @@ define void @_ZN11ruff_linter5codes14Flake8NoPep4205rules17hf4787af304361a59E(pt
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %5 = tail call noalias noundef align 2 dereferenceable_or_null(2) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 2, 121) 2, i64 noundef 2) #18
   %6 = icmp eq ptr %5, null
-  switch i8 %3, label %default.unreachable24 [
+  switch i8 %3, label %default.unreachable26 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
   ]
 
-default.unreachable24:                            ; preds = %2
+default.unreachable26:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -26561,7 +26561,7 @@ default.unreachable24:                            ; preds = %2
 define void @_ZN11ruff_linter5codes9Flake8Pie5rules17h12c393f2158e762dE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !131, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable134 [
+  switch i8 %3, label %default.unreachable146 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -26577,7 +26577,7 @@ define void @_ZN11ruff_linter5codes9Flake8Pie5rules17h12c393f2158e762dE(ptr dead
     i8 12, label %41
   ]
 
-default.unreachable134:                           ; preds = %2
+default.unreachable146:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -26659,14 +26659,14 @@ default.unreachable134:                           ; preds = %2
   br label %49
 
 49:                                               ; preds = %96, %93, %90, %87, %84, %81, %75, %68, %65, %62, %59, %54, %45
-  %.sink140 = phi ptr [ %42, %96 ], [ %39, %93 ], [ %36, %90 ], [ %33, %87 ], [ %30, %84 ], [ %27, %81 ], [ %24, %75 ], [ %21, %68 ], [ %18, %65 ], [ %15, %62 ], [ %12, %59 ], [ %9, %54 ], [ %6, %45 ]
-  %.sink138 = phi i64 [ 1, %96 ], [ 1, %93 ], [ 1, %90 ], [ 1, %87 ], [ 1, %84 ], [ 1, %81 ], [ 4, %75 ], [ 5, %68 ], [ 1, %65 ], [ 1, %62 ], [ 1, %59 ], [ 3, %54 ], [ 3, %45 ]
+  %.sink152 = phi ptr [ %42, %96 ], [ %39, %93 ], [ %36, %90 ], [ %33, %87 ], [ %30, %84 ], [ %27, %81 ], [ %24, %75 ], [ %21, %68 ], [ %18, %65 ], [ %15, %62 ], [ %12, %59 ], [ %9, %54 ], [ %6, %45 ]
+  %.sink150 = phi i64 [ 1, %96 ], [ 1, %93 ], [ 1, %90 ], [ 1, %87 ], [ 1, %84 ], [ 1, %81 ], [ 4, %75 ], [ 5, %68 ], [ 1, %65 ], [ 1, %62 ], [ 1, %59 ], [ 3, %54 ], [ 3, %45 ]
   %.sink = phi ptr [ %97, %96 ], [ %94, %93 ], [ %91, %90 ], [ %88, %87 ], [ %85, %84 ], [ %82, %81 ], [ %79, %75 ], [ %73, %68 ], [ %66, %65 ], [ %63, %62 ], [ %60, %59 ], [ %57, %54 ], [ %48, %45 ]
-  store ptr %.sink140, ptr %0, align 8, !noalias !3
+  store ptr %.sink152, ptr %0, align 8, !noalias !3
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink138, ptr %50, align 8, !noalias !3
+  store i64 %.sink150, ptr %50, align 8, !noalias !3
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink140, ptr %51, align 8, !noalias !3
+  store ptr %.sink152, ptr %51, align 8, !noalias !3
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %52, align 8, !noalias !3
   ret void
@@ -26839,7 +26839,7 @@ define void @_ZN11ruff_linter5codes11Flake8Print5rules17h4f89488f79f0a30bE(ptr d
 define void @_ZN11ruff_linter5codes9Flake8Pyi5rules17h38331999e8b137ebE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !132, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable684 [
+  switch i8 %3, label %default.unreachable746 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -26905,7 +26905,7 @@ define void @_ZN11ruff_linter5codes9Flake8Pyi5rules17h38331999e8b137ebE(ptr dead
     i8 62, label %191
   ]
 
-default.unreachable684:                           ; preds = %2
+default.unreachable746:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -27341,14 +27341,14 @@ default.unreachable684:                           ; preds = %2
   br label %251
 
 251:                                              ; preds = %487, %484, %481, %478, %475, %468, %465, %462, %459, %456, %453, %450, %447, %444, %441, %438, %426, %423, %420, %417, %414, %411, %408, %405, %402, %399, %388, %385, %382, %379, %376, %373, %370, %362, %359, %356, %353, %350, %347, %344, %336, %333, %330, %327, %324, %321, %318, %315, %312, %309, %306, %294, %291, %288, %285, %282, %279, %276, %273, %270, %267, %256, %195
-  %.sink690 = phi ptr [ %192, %487 ], [ %189, %484 ], [ %186, %481 ], [ %183, %478 ], [ %180, %475 ], [ %177, %468 ], [ %174, %465 ], [ %171, %462 ], [ %168, %459 ], [ %165, %456 ], [ %162, %453 ], [ %159, %450 ], [ %156, %447 ], [ %153, %444 ], [ %150, %441 ], [ %147, %438 ], [ %144, %426 ], [ %141, %423 ], [ %138, %420 ], [ %135, %417 ], [ %132, %414 ], [ %129, %411 ], [ %126, %408 ], [ %123, %405 ], [ %120, %402 ], [ %117, %399 ], [ %114, %388 ], [ %111, %385 ], [ %108, %382 ], [ %105, %379 ], [ %102, %376 ], [ %99, %373 ], [ %96, %370 ], [ %93, %362 ], [ %90, %359 ], [ %87, %356 ], [ %84, %353 ], [ %81, %350 ], [ %78, %347 ], [ %75, %344 ], [ %72, %336 ], [ %69, %333 ], [ %66, %330 ], [ %63, %327 ], [ %60, %324 ], [ %57, %321 ], [ %54, %318 ], [ %51, %315 ], [ %48, %312 ], [ %45, %309 ], [ %42, %306 ], [ %39, %294 ], [ %36, %291 ], [ %33, %288 ], [ %30, %285 ], [ %27, %282 ], [ %24, %279 ], [ %21, %276 ], [ %18, %273 ], [ %15, %270 ], [ %12, %267 ], [ %9, %256 ], [ %6, %195 ]
-  %.sink688 = phi i64 [ 1, %487 ], [ 1, %484 ], [ 1, %481 ], [ 1, %478 ], [ 1, %475 ], [ 5, %468 ], [ 1, %465 ], [ 1, %462 ], [ 1, %459 ], [ 1, %456 ], [ 1, %453 ], [ 1, %450 ], [ 1, %447 ], [ 1, %444 ], [ 1, %441 ], [ 1, %438 ], [ 10, %426 ], [ 1, %423 ], [ 1, %420 ], [ 1, %417 ], [ 1, %414 ], [ 1, %411 ], [ 1, %408 ], [ 1, %405 ], [ 1, %402 ], [ 1, %399 ], [ 9, %388 ], [ 1, %385 ], [ 1, %382 ], [ 1, %379 ], [ 1, %376 ], [ 1, %373 ], [ 1, %370 ], [ 6, %362 ], [ 1, %359 ], [ 1, %356 ], [ 1, %353 ], [ 1, %350 ], [ 1, %347 ], [ 1, %344 ], [ 6, %336 ], [ 1, %333 ], [ 1, %330 ], [ 1, %327 ], [ 1, %324 ], [ 1, %321 ], [ 1, %318 ], [ 1, %315 ], [ 1, %312 ], [ 1, %309 ], [ 1, %306 ], [ 10, %294 ], [ 1, %291 ], [ 1, %288 ], [ 1, %285 ], [ 1, %282 ], [ 1, %279 ], [ 1, %276 ], [ 1, %273 ], [ 1, %270 ], [ 1, %267 ], [ 9, %256 ], [ 55, %195 ]
+  %.sink752 = phi ptr [ %192, %487 ], [ %189, %484 ], [ %186, %481 ], [ %183, %478 ], [ %180, %475 ], [ %177, %468 ], [ %174, %465 ], [ %171, %462 ], [ %168, %459 ], [ %165, %456 ], [ %162, %453 ], [ %159, %450 ], [ %156, %447 ], [ %153, %444 ], [ %150, %441 ], [ %147, %438 ], [ %144, %426 ], [ %141, %423 ], [ %138, %420 ], [ %135, %417 ], [ %132, %414 ], [ %129, %411 ], [ %126, %408 ], [ %123, %405 ], [ %120, %402 ], [ %117, %399 ], [ %114, %388 ], [ %111, %385 ], [ %108, %382 ], [ %105, %379 ], [ %102, %376 ], [ %99, %373 ], [ %96, %370 ], [ %93, %362 ], [ %90, %359 ], [ %87, %356 ], [ %84, %353 ], [ %81, %350 ], [ %78, %347 ], [ %75, %344 ], [ %72, %336 ], [ %69, %333 ], [ %66, %330 ], [ %63, %327 ], [ %60, %324 ], [ %57, %321 ], [ %54, %318 ], [ %51, %315 ], [ %48, %312 ], [ %45, %309 ], [ %42, %306 ], [ %39, %294 ], [ %36, %291 ], [ %33, %288 ], [ %30, %285 ], [ %27, %282 ], [ %24, %279 ], [ %21, %276 ], [ %18, %273 ], [ %15, %270 ], [ %12, %267 ], [ %9, %256 ], [ %6, %195 ]
+  %.sink750 = phi i64 [ 1, %487 ], [ 1, %484 ], [ 1, %481 ], [ 1, %478 ], [ 1, %475 ], [ 5, %468 ], [ 1, %465 ], [ 1, %462 ], [ 1, %459 ], [ 1, %456 ], [ 1, %453 ], [ 1, %450 ], [ 1, %447 ], [ 1, %444 ], [ 1, %441 ], [ 1, %438 ], [ 10, %426 ], [ 1, %423 ], [ 1, %420 ], [ 1, %417 ], [ 1, %414 ], [ 1, %411 ], [ 1, %408 ], [ 1, %405 ], [ 1, %402 ], [ 1, %399 ], [ 9, %388 ], [ 1, %385 ], [ 1, %382 ], [ 1, %379 ], [ 1, %376 ], [ 1, %373 ], [ 1, %370 ], [ 6, %362 ], [ 1, %359 ], [ 1, %356 ], [ 1, %353 ], [ 1, %350 ], [ 1, %347 ], [ 1, %344 ], [ 6, %336 ], [ 1, %333 ], [ 1, %330 ], [ 1, %327 ], [ 1, %324 ], [ 1, %321 ], [ 1, %318 ], [ 1, %315 ], [ 1, %312 ], [ 1, %309 ], [ 1, %306 ], [ 10, %294 ], [ 1, %291 ], [ 1, %288 ], [ 1, %285 ], [ 1, %282 ], [ 1, %279 ], [ 1, %276 ], [ 1, %273 ], [ 1, %270 ], [ 1, %267 ], [ 9, %256 ], [ 55, %195 ]
   %.sink = phi ptr [ %488, %487 ], [ %485, %484 ], [ %482, %481 ], [ %479, %478 ], [ %476, %475 ], [ %473, %468 ], [ %466, %465 ], [ %463, %462 ], [ %460, %459 ], [ %457, %456 ], [ %454, %453 ], [ %451, %450 ], [ %448, %447 ], [ %445, %444 ], [ %442, %441 ], [ %439, %438 ], [ %436, %426 ], [ %424, %423 ], [ %421, %420 ], [ %418, %417 ], [ %415, %414 ], [ %412, %411 ], [ %409, %408 ], [ %406, %405 ], [ %403, %402 ], [ %400, %399 ], [ %397, %388 ], [ %386, %385 ], [ %383, %382 ], [ %380, %379 ], [ %377, %376 ], [ %374, %373 ], [ %371, %370 ], [ %368, %362 ], [ %360, %359 ], [ %357, %356 ], [ %354, %353 ], [ %351, %350 ], [ %348, %347 ], [ %345, %344 ], [ %342, %336 ], [ %334, %333 ], [ %331, %330 ], [ %328, %327 ], [ %325, %324 ], [ %322, %321 ], [ %319, %318 ], [ %316, %315 ], [ %313, %312 ], [ %310, %309 ], [ %307, %306 ], [ %304, %294 ], [ %292, %291 ], [ %289, %288 ], [ %286, %285 ], [ %283, %282 ], [ %280, %279 ], [ %277, %276 ], [ %274, %273 ], [ %271, %270 ], [ %268, %267 ], [ %265, %256 ], [ %250, %195 ]
-  store ptr %.sink690, ptr %0, align 8, !noalias !3
+  store ptr %.sink752, ptr %0, align 8, !noalias !3
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink688, ptr %252, align 8, !noalias !3
+  store i64 %.sink750, ptr %252, align 8, !noalias !3
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink690, ptr %253, align 8, !noalias !3
+  store ptr %.sink752, ptr %253, align 8, !noalias !3
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %254, align 8, !noalias !3
   ret void
@@ -28012,7 +28012,7 @@ default.unreachable684:                           ; preds = %2
 define void @_ZN11ruff_linter5codes17Flake8PytestStyle5rules17h9ac1dabc4187e789E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !133, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable387 [
+  switch i8 %3, label %default.unreachable422 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -28051,7 +28051,7 @@ define void @_ZN11ruff_linter5codes17Flake8PytestStyle5rules17h9ac1dabc4187e789E
     i8 35, label %110
   ]
 
-default.unreachable387:                           ; preds = %2
+default.unreachable422:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -28304,14 +28304,14 @@ default.unreachable387:                           ; preds = %2
   br label %146
 
 146:                                              ; preds = %280, %277, %273, %270, %267, %264, %261, %258, %255, %252, %249, %246, %243, %231, %228, %225, %222, %219, %216, %213, %210, %207, %204, %201, %189, %186, %183, %180, %177, %174, %171, %168, %165, %162, %151, %114
-  %.sink393 = phi ptr [ %111, %280 ], [ %108, %277 ], [ %105, %273 ], [ %102, %270 ], [ %99, %267 ], [ %96, %264 ], [ %93, %261 ], [ %90, %258 ], [ %87, %255 ], [ %84, %252 ], [ %81, %249 ], [ %78, %246 ], [ %75, %243 ], [ %72, %231 ], [ %69, %228 ], [ %66, %225 ], [ %63, %222 ], [ %60, %219 ], [ %57, %216 ], [ %54, %213 ], [ %51, %210 ], [ %48, %207 ], [ %45, %204 ], [ %42, %201 ], [ %39, %189 ], [ %36, %186 ], [ %33, %183 ], [ %30, %180 ], [ %27, %177 ], [ %24, %174 ], [ %21, %171 ], [ %18, %168 ], [ %15, %165 ], [ %12, %162 ], [ %9, %151 ], [ %6, %114 ]
-  %.sink391 = phi i64 [ 1, %280 ], [ 1, %277 ], [ 2, %273 ], [ 1, %270 ], [ 1, %267 ], [ 1, %264 ], [ 1, %261 ], [ 1, %258 ], [ 1, %255 ], [ 1, %252 ], [ 1, %249 ], [ 1, %246 ], [ 1, %243 ], [ 10, %231 ], [ 1, %228 ], [ 1, %225 ], [ 1, %222 ], [ 1, %219 ], [ 1, %216 ], [ 1, %213 ], [ 1, %210 ], [ 1, %207 ], [ 1, %204 ], [ 1, %201 ], [ 10, %189 ], [ 1, %186 ], [ 1, %183 ], [ 1, %180 ], [ 1, %177 ], [ 1, %174 ], [ 1, %171 ], [ 1, %168 ], [ 1, %165 ], [ 1, %162 ], [ 9, %151 ], [ 31, %114 ]
+  %.sink428 = phi ptr [ %111, %280 ], [ %108, %277 ], [ %105, %273 ], [ %102, %270 ], [ %99, %267 ], [ %96, %264 ], [ %93, %261 ], [ %90, %258 ], [ %87, %255 ], [ %84, %252 ], [ %81, %249 ], [ %78, %246 ], [ %75, %243 ], [ %72, %231 ], [ %69, %228 ], [ %66, %225 ], [ %63, %222 ], [ %60, %219 ], [ %57, %216 ], [ %54, %213 ], [ %51, %210 ], [ %48, %207 ], [ %45, %204 ], [ %42, %201 ], [ %39, %189 ], [ %36, %186 ], [ %33, %183 ], [ %30, %180 ], [ %27, %177 ], [ %24, %174 ], [ %21, %171 ], [ %18, %168 ], [ %15, %165 ], [ %12, %162 ], [ %9, %151 ], [ %6, %114 ]
+  %.sink426 = phi i64 [ 1, %280 ], [ 1, %277 ], [ 2, %273 ], [ 1, %270 ], [ 1, %267 ], [ 1, %264 ], [ 1, %261 ], [ 1, %258 ], [ 1, %255 ], [ 1, %252 ], [ 1, %249 ], [ 1, %246 ], [ 1, %243 ], [ 10, %231 ], [ 1, %228 ], [ 1, %225 ], [ 1, %222 ], [ 1, %219 ], [ 1, %216 ], [ 1, %213 ], [ 1, %210 ], [ 1, %207 ], [ 1, %204 ], [ 1, %201 ], [ 10, %189 ], [ 1, %186 ], [ 1, %183 ], [ 1, %180 ], [ 1, %177 ], [ 1, %174 ], [ 1, %171 ], [ 1, %168 ], [ 1, %165 ], [ 1, %162 ], [ 9, %151 ], [ 31, %114 ]
   %.sink = phi ptr [ %281, %280 ], [ %278, %277 ], [ %275, %273 ], [ %271, %270 ], [ %268, %267 ], [ %265, %264 ], [ %262, %261 ], [ %259, %258 ], [ %256, %255 ], [ %253, %252 ], [ %250, %249 ], [ %247, %246 ], [ %244, %243 ], [ %241, %231 ], [ %229, %228 ], [ %226, %225 ], [ %223, %222 ], [ %220, %219 ], [ %217, %216 ], [ %214, %213 ], [ %211, %210 ], [ %208, %207 ], [ %205, %204 ], [ %202, %201 ], [ %199, %189 ], [ %187, %186 ], [ %184, %183 ], [ %181, %180 ], [ %178, %177 ], [ %175, %174 ], [ %172, %171 ], [ %169, %168 ], [ %166, %165 ], [ %163, %162 ], [ %160, %151 ], [ %145, %114 ]
-  store ptr %.sink393, ptr %0, align 8, !noalias !3
+  store ptr %.sink428, ptr %0, align 8, !noalias !3
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink391, ptr %147, align 8, !noalias !3
+  store i64 %.sink426, ptr %147, align 8, !noalias !3
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink393, ptr %148, align 8, !noalias !3
+  store ptr %.sink428, ptr %148, align 8, !noalias !3
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %149, align 8, !noalias !3
   ret void
@@ -28690,7 +28690,7 @@ default.unreachable387:                           ; preds = %2
 define void @_ZN11ruff_linter5codes12Flake8Quotes5rules17h17ccbb7373d552ecE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !60, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable68 [
+  switch i8 %3, label %default.unreachable74 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -28700,7 +28700,7 @@ define void @_ZN11ruff_linter5codes12Flake8Quotes5rules17h17ccbb7373d552ecE(ptr 
     i8 6, label %23
   ]
 
-default.unreachable68:                            ; preds = %2
+default.unreachable74:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -28756,14 +28756,14 @@ default.unreachable68:                            ; preds = %2
   br label %33
 
 33:                                               ; preds = %57, %54, %51, %48, %45, %38, %27
-  %.sink74 = phi ptr [ %24, %57 ], [ %21, %54 ], [ %18, %51 ], [ %15, %48 ], [ %12, %45 ], [ %9, %38 ], [ %6, %27 ]
-  %.sink72 = phi i64 [ 1, %57 ], [ 1, %54 ], [ 1, %51 ], [ 1, %48 ], [ 1, %45 ], [ 5, %38 ], [ 5, %27 ]
+  %.sink80 = phi ptr [ %24, %57 ], [ %21, %54 ], [ %18, %51 ], [ %15, %48 ], [ %12, %45 ], [ %9, %38 ], [ %6, %27 ]
+  %.sink78 = phi i64 [ 1, %57 ], [ 1, %54 ], [ 1, %51 ], [ 1, %48 ], [ 1, %45 ], [ 5, %38 ], [ 5, %27 ]
   %.sink = phi ptr [ %58, %57 ], [ %55, %54 ], [ %52, %51 ], [ %49, %48 ], [ %46, %45 ], [ %43, %38 ], [ %32, %27 ]
-  store ptr %.sink74, ptr %0, align 8, !noalias !3
+  store ptr %.sink80, ptr %0, align 8, !noalias !3
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink72, ptr %34, align 8, !noalias !3
+  store i64 %.sink78, ptr %34, align 8, !noalias !3
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink74, ptr %35, align 8, !noalias !3
+  store ptr %.sink80, ptr %35, align 8, !noalias !3
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %36, align 8, !noalias !3
   ret void
@@ -28837,13 +28837,13 @@ define void @_ZN11ruff_linter5codes11Flake8Raise5rules17hec560dd52420846bE(ptr d
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %5 = tail call noalias noundef align 2 dereferenceable_or_null(2) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 2, 121) 2, i64 noundef 2) #18
   %6 = icmp eq ptr %5, null
-  switch i8 %3, label %default.unreachable24 [
+  switch i8 %3, label %default.unreachable26 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
   ]
 
-default.unreachable24:                            ; preds = %2
+default.unreachable26:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -28884,7 +28884,7 @@ default.unreachable24:                            ; preds = %2
 define void @_ZN11ruff_linter5codes12Flake8Return5rules17h3def204f8b9018aaE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !130, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable101 [
+  switch i8 %3, label %default.unreachable110 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -28897,7 +28897,7 @@ define void @_ZN11ruff_linter5codes12Flake8Return5rules17h3def204f8b9018aaE(ptr 
     i8 9, label %32
   ]
 
-default.unreachable101:                           ; preds = %2
+default.unreachable110:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -28974,14 +28974,14 @@ default.unreachable101:                           ; preds = %2
   br label %45
 
 45:                                               ; preds = %81, %78, %75, %72, %69, %66, %63, %60, %50, %36
-  %.sink107 = phi ptr [ %33, %81 ], [ %30, %78 ], [ %27, %75 ], [ %24, %72 ], [ %21, %69 ], [ %18, %66 ], [ %15, %63 ], [ %12, %60 ], [ %9, %50 ], [ %6, %36 ]
-  %.sink105 = phi i64 [ 1, %81 ], [ 1, %78 ], [ 1, %75 ], [ 1, %72 ], [ 1, %69 ], [ 1, %66 ], [ 1, %63 ], [ 1, %60 ], [ 8, %50 ], [ 8, %36 ]
+  %.sink116 = phi ptr [ %33, %81 ], [ %30, %78 ], [ %27, %75 ], [ %24, %72 ], [ %21, %69 ], [ %18, %66 ], [ %15, %63 ], [ %12, %60 ], [ %9, %50 ], [ %6, %36 ]
+  %.sink114 = phi i64 [ 1, %81 ], [ 1, %78 ], [ 1, %75 ], [ 1, %72 ], [ 1, %69 ], [ 1, %66 ], [ 1, %63 ], [ 1, %60 ], [ 8, %50 ], [ 8, %36 ]
   %.sink = phi ptr [ %82, %81 ], [ %79, %78 ], [ %76, %75 ], [ %73, %72 ], [ %70, %69 ], [ %67, %66 ], [ %64, %63 ], [ %61, %60 ], [ %58, %50 ], [ %44, %36 ]
-  store ptr %.sink107, ptr %0, align 8, !noalias !3
+  store ptr %.sink116, ptr %0, align 8, !noalias !3
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink105, ptr %46, align 8, !noalias !3
+  store i64 %.sink114, ptr %46, align 8, !noalias !3
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink107, ptr %47, align 8, !noalias !3
+  store ptr %.sink116, ptr %47, align 8, !noalias !3
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %48, align 8, !noalias !3
   ret void
@@ -29088,13 +29088,13 @@ define void @_ZN11ruff_linter5codes10Flake8Self5rules17h48d057d11cd3fdfeE(ptr de
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %5 = tail call noalias noundef align 2 dereferenceable_or_null(2) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 2, 121) 2, i64 noundef 2) #18
   %6 = icmp eq ptr %5, null
-  switch i8 %3, label %default.unreachable24 [
+  switch i8 %3, label %default.unreachable26 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
   ]
 
-default.unreachable24:                            ; preds = %2
+default.unreachable26:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -29135,7 +29135,7 @@ default.unreachable24:                            ; preds = %2
 define void @_ZN11ruff_linter5codes14Flake8Simplify5rules17he8a8a43124e58f4aE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !134, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable475 [
+  switch i8 %3, label %default.unreachable518 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -29182,7 +29182,7 @@ define void @_ZN11ruff_linter5codes14Flake8Simplify5rules17he8a8a43124e58f4aE(pt
     i8 43, label %134
   ]
 
-default.unreachable475:                           ; preds = %2
+default.unreachable518:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -29443,14 +29443,14 @@ default.unreachable475:                           ; preds = %2
   br label %154
 
 154:                                              ; preds = %317, %314, %310, %307, %304, %299, %296, %293, %290, %287, %284, %281, %278, %275, %272, %269, %263, %260, %257, %254, %249, %246, %243, %240, %235, %223, %220, %217, %214, %211, %208, %205, %202, %199, %189, %186, %183, %180, %177, %174, %171, %168, %159, %138
-  %.sink481 = phi ptr [ %135, %317 ], [ %132, %314 ], [ %129, %310 ], [ %126, %307 ], [ %123, %304 ], [ %120, %299 ], [ %117, %296 ], [ %114, %293 ], [ %111, %290 ], [ %108, %287 ], [ %105, %284 ], [ %102, %281 ], [ %99, %278 ], [ %96, %275 ], [ %93, %272 ], [ %90, %269 ], [ %87, %263 ], [ %84, %260 ], [ %81, %257 ], [ %78, %254 ], [ %75, %249 ], [ %72, %246 ], [ %69, %243 ], [ %66, %240 ], [ %63, %235 ], [ %60, %223 ], [ %57, %220 ], [ %54, %217 ], [ %51, %214 ], [ %48, %211 ], [ %45, %208 ], [ %42, %205 ], [ %39, %202 ], [ %36, %199 ], [ %33, %189 ], [ %30, %186 ], [ %27, %183 ], [ %24, %180 ], [ %21, %177 ], [ %18, %174 ], [ %15, %171 ], [ %12, %168 ], [ %9, %159 ], [ %6, %138 ]
-  %.sink479 = phi i64 [ 1, %317 ], [ 1, %314 ], [ 2, %310 ], [ 1, %307 ], [ 1, %304 ], [ 3, %299 ], [ 1, %296 ], [ 1, %293 ], [ 1, %290 ], [ 1, %287 ], [ 1, %284 ], [ 1, %281 ], [ 1, %278 ], [ 1, %275 ], [ 1, %272 ], [ 1, %269 ], [ 4, %263 ], [ 1, %260 ], [ 1, %257 ], [ 1, %254 ], [ 3, %249 ], [ 1, %246 ], [ 1, %243 ], [ 1, %240 ], [ 3, %235 ], [ 10, %223 ], [ 1, %220 ], [ 1, %217 ], [ 1, %214 ], [ 1, %211 ], [ 1, %208 ], [ 1, %205 ], [ 1, %202 ], [ 1, %199 ], [ 8, %189 ], [ 1, %186 ], [ 1, %183 ], [ 1, %180 ], [ 1, %177 ], [ 1, %174 ], [ 1, %171 ], [ 1, %168 ], [ 7, %159 ], [ 15, %138 ]
+  %.sink524 = phi ptr [ %135, %317 ], [ %132, %314 ], [ %129, %310 ], [ %126, %307 ], [ %123, %304 ], [ %120, %299 ], [ %117, %296 ], [ %114, %293 ], [ %111, %290 ], [ %108, %287 ], [ %105, %284 ], [ %102, %281 ], [ %99, %278 ], [ %96, %275 ], [ %93, %272 ], [ %90, %269 ], [ %87, %263 ], [ %84, %260 ], [ %81, %257 ], [ %78, %254 ], [ %75, %249 ], [ %72, %246 ], [ %69, %243 ], [ %66, %240 ], [ %63, %235 ], [ %60, %223 ], [ %57, %220 ], [ %54, %217 ], [ %51, %214 ], [ %48, %211 ], [ %45, %208 ], [ %42, %205 ], [ %39, %202 ], [ %36, %199 ], [ %33, %189 ], [ %30, %186 ], [ %27, %183 ], [ %24, %180 ], [ %21, %177 ], [ %18, %174 ], [ %15, %171 ], [ %12, %168 ], [ %9, %159 ], [ %6, %138 ]
+  %.sink522 = phi i64 [ 1, %317 ], [ 1, %314 ], [ 2, %310 ], [ 1, %307 ], [ 1, %304 ], [ 3, %299 ], [ 1, %296 ], [ 1, %293 ], [ 1, %290 ], [ 1, %287 ], [ 1, %284 ], [ 1, %281 ], [ 1, %278 ], [ 1, %275 ], [ 1, %272 ], [ 1, %269 ], [ 4, %263 ], [ 1, %260 ], [ 1, %257 ], [ 1, %254 ], [ 3, %249 ], [ 1, %246 ], [ 1, %243 ], [ 1, %240 ], [ 3, %235 ], [ 10, %223 ], [ 1, %220 ], [ 1, %217 ], [ 1, %214 ], [ 1, %211 ], [ 1, %208 ], [ 1, %205 ], [ 1, %202 ], [ 1, %199 ], [ 8, %189 ], [ 1, %186 ], [ 1, %183 ], [ 1, %180 ], [ 1, %177 ], [ 1, %174 ], [ 1, %171 ], [ 1, %168 ], [ 7, %159 ], [ 15, %138 ]
   %.sink = phi ptr [ %318, %317 ], [ %315, %314 ], [ %312, %310 ], [ %308, %307 ], [ %305, %304 ], [ %302, %299 ], [ %297, %296 ], [ %294, %293 ], [ %291, %290 ], [ %288, %287 ], [ %285, %284 ], [ %282, %281 ], [ %279, %278 ], [ %276, %275 ], [ %273, %272 ], [ %270, %269 ], [ %267, %263 ], [ %261, %260 ], [ %258, %257 ], [ %255, %254 ], [ %252, %249 ], [ %247, %246 ], [ %244, %243 ], [ %241, %240 ], [ %238, %235 ], [ %233, %223 ], [ %221, %220 ], [ %218, %217 ], [ %215, %214 ], [ %212, %211 ], [ %209, %208 ], [ %206, %205 ], [ %203, %202 ], [ %200, %199 ], [ %197, %189 ], [ %187, %186 ], [ %184, %183 ], [ %181, %180 ], [ %178, %177 ], [ %175, %174 ], [ %172, %171 ], [ %169, %168 ], [ %166, %159 ], [ %153, %138 ]
-  store ptr %.sink481, ptr %0, align 8, !noalias !3
+  store ptr %.sink524, ptr %0, align 8, !noalias !3
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink479, ptr %155, align 8, !noalias !3
+  store i64 %.sink522, ptr %155, align 8, !noalias !3
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink481, ptr %156, align 8, !noalias !3
+  store ptr %.sink524, ptr %156, align 8, !noalias !3
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %157, align 8, !noalias !3
   ret void
@@ -29911,7 +29911,7 @@ default.unreachable475:                           ; preds = %2
 define void @_ZN11ruff_linter5codes11Flake8Slots5rules17h3aa1105d6c45c57fE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !37, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable46 [
+  switch i8 %3, label %default.unreachable50 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -29919,7 +29919,7 @@ define void @_ZN11ruff_linter5codes11Flake8Slots5rules17h3aa1105d6c45c57fE(ptr d
     i8 4, label %17
   ]
 
-default.unreachable46:                            ; preds = %2
+default.unreachable50:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -29961,14 +29961,14 @@ default.unreachable46:                            ; preds = %2
   br label %25
 
 25:                                               ; preds = %41, %38, %35, %30, %21
-  %.sink52 = phi ptr [ %18, %41 ], [ %15, %38 ], [ %12, %35 ], [ %9, %30 ], [ %6, %21 ]
-  %.sink50 = phi i64 [ 1, %41 ], [ 1, %38 ], [ 1, %35 ], [ 3, %30 ], [ 3, %21 ]
+  %.sink56 = phi ptr [ %18, %41 ], [ %15, %38 ], [ %12, %35 ], [ %9, %30 ], [ %6, %21 ]
+  %.sink54 = phi i64 [ 1, %41 ], [ 1, %38 ], [ 1, %35 ], [ 3, %30 ], [ 3, %21 ]
   %.sink = phi ptr [ %42, %41 ], [ %39, %38 ], [ %36, %35 ], [ %33, %30 ], [ %24, %21 ]
-  store ptr %.sink52, ptr %0, align 8, !noalias !3
+  store ptr %.sink56, ptr %0, align 8, !noalias !3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink50, ptr %26, align 8, !noalias !3
+  store i64 %.sink54, ptr %26, align 8, !noalias !3
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink52, ptr %27, align 8, !noalias !3
+  store ptr %.sink56, ptr %27, align 8, !noalias !3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %28, align 8, !noalias !3
   ret void
@@ -30018,7 +30018,7 @@ default.unreachable46:                            ; preds = %2
 define void @_ZN11ruff_linter5codes17Flake8TidyImports5rules17h7b1aa471dff04a32E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !37, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable46 [
+  switch i8 %3, label %default.unreachable50 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -30026,7 +30026,7 @@ define void @_ZN11ruff_linter5codes17Flake8TidyImports5rules17h7b1aa471dff04a32E
     i8 4, label %17
   ]
 
-default.unreachable46:                            ; preds = %2
+default.unreachable50:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -30068,14 +30068,14 @@ default.unreachable46:                            ; preds = %2
   br label %25
 
 25:                                               ; preds = %41, %38, %35, %30, %21
-  %.sink52 = phi ptr [ %18, %41 ], [ %15, %38 ], [ %12, %35 ], [ %9, %30 ], [ %6, %21 ]
-  %.sink50 = phi i64 [ 1, %41 ], [ 1, %38 ], [ 1, %35 ], [ 3, %30 ], [ 3, %21 ]
+  %.sink56 = phi ptr [ %18, %41 ], [ %15, %38 ], [ %12, %35 ], [ %9, %30 ], [ %6, %21 ]
+  %.sink54 = phi i64 [ 1, %41 ], [ 1, %38 ], [ 1, %35 ], [ 3, %30 ], [ 3, %21 ]
   %.sink = phi ptr [ %42, %41 ], [ %39, %38 ], [ %36, %35 ], [ %33, %30 ], [ %24, %21 ]
-  store ptr %.sink52, ptr %0, align 8, !noalias !3
+  store ptr %.sink56, ptr %0, align 8, !noalias !3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink50, ptr %26, align 8, !noalias !3
+  store i64 %.sink54, ptr %26, align 8, !noalias !3
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink52, ptr %27, align 8, !noalias !3
+  store ptr %.sink56, ptr %27, align 8, !noalias !3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %28, align 8, !noalias !3
   ret void
@@ -30125,7 +30125,7 @@ default.unreachable46:                            ; preds = %2
 define void @_ZN11ruff_linter5codes11Flake8Todos5rules17h25d139d2e390aba2E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !103, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable90 [
+  switch i8 %3, label %default.unreachable98 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -30137,7 +30137,7 @@ define void @_ZN11ruff_linter5codes11Flake8Todos5rules17h25d139d2e390aba2E(ptr d
     i8 8, label %29
   ]
 
-default.unreachable90:                            ; preds = %2
+default.unreachable98:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -30207,14 +30207,14 @@ default.unreachable90:                            ; preds = %2
   br label %41
 
 41:                                               ; preds = %73, %70, %67, %64, %61, %58, %55, %46, %33
-  %.sink96 = phi ptr [ %30, %73 ], [ %27, %70 ], [ %24, %67 ], [ %21, %64 ], [ %18, %61 ], [ %15, %58 ], [ %12, %55 ], [ %9, %46 ], [ %6, %33 ]
-  %.sink94 = phi i64 [ 1, %73 ], [ 1, %70 ], [ 1, %67 ], [ 1, %64 ], [ 1, %61 ], [ 1, %58 ], [ 1, %55 ], [ 7, %46 ], [ 7, %33 ]
+  %.sink104 = phi ptr [ %30, %73 ], [ %27, %70 ], [ %24, %67 ], [ %21, %64 ], [ %18, %61 ], [ %15, %58 ], [ %12, %55 ], [ %9, %46 ], [ %6, %33 ]
+  %.sink102 = phi i64 [ 1, %73 ], [ 1, %70 ], [ 1, %67 ], [ 1, %64 ], [ 1, %61 ], [ 1, %58 ], [ 1, %55 ], [ 7, %46 ], [ 7, %33 ]
   %.sink = phi ptr [ %74, %73 ], [ %71, %70 ], [ %68, %67 ], [ %65, %64 ], [ %62, %61 ], [ %59, %58 ], [ %56, %55 ], [ %53, %46 ], [ %40, %33 ]
-  store ptr %.sink96, ptr %0, align 8, !noalias !3
+  store ptr %.sink104, ptr %0, align 8, !noalias !3
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink94, ptr %42, align 8, !noalias !3
+  store i64 %.sink102, ptr %42, align 8, !noalias !3
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink96, ptr %43, align 8, !noalias !3
+  store ptr %.sink104, ptr %43, align 8, !noalias !3
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %44, align 8, !noalias !3
   ret void
@@ -30308,7 +30308,7 @@ default.unreachable90:                            ; preds = %2
 define void @_ZN11ruff_linter5codes18Flake8TypeChecking5rules17h0a7cfa2e6f46bcc6E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !135, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable123 [
+  switch i8 %3, label %default.unreachable134 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -30323,7 +30323,7 @@ define void @_ZN11ruff_linter5codes18Flake8TypeChecking5rules17h0a7cfa2e6f46bcc6
     i8 11, label %38
   ]
 
-default.unreachable123:                           ; preds = %2
+default.unreachable134:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -30412,14 +30412,14 @@ default.unreachable123:                           ; preds = %2
   br label %52
 
 52:                                               ; preds = %94, %91, %88, %85, %82, %79, %76, %73, %70, %67, %57, %42
-  %.sink129 = phi ptr [ %39, %94 ], [ %36, %91 ], [ %33, %88 ], [ %30, %85 ], [ %27, %82 ], [ %24, %79 ], [ %21, %76 ], [ %18, %73 ], [ %15, %70 ], [ %12, %67 ], [ %9, %57 ], [ %6, %42 ]
-  %.sink127 = phi i64 [ 1, %94 ], [ 1, %91 ], [ 1, %88 ], [ 1, %85 ], [ 1, %82 ], [ 1, %79 ], [ 1, %76 ], [ 1, %73 ], [ 1, %70 ], [ 1, %67 ], [ 8, %57 ], [ 9, %42 ]
+  %.sink140 = phi ptr [ %39, %94 ], [ %36, %91 ], [ %33, %88 ], [ %30, %85 ], [ %27, %82 ], [ %24, %79 ], [ %21, %76 ], [ %18, %73 ], [ %15, %70 ], [ %12, %67 ], [ %9, %57 ], [ %6, %42 ]
+  %.sink138 = phi i64 [ 1, %94 ], [ 1, %91 ], [ 1, %88 ], [ 1, %85 ], [ 1, %82 ], [ 1, %79 ], [ 1, %76 ], [ 1, %73 ], [ 1, %70 ], [ 1, %67 ], [ 8, %57 ], [ 9, %42 ]
   %.sink = phi ptr [ %95, %94 ], [ %92, %91 ], [ %89, %88 ], [ %86, %85 ], [ %83, %82 ], [ %80, %79 ], [ %77, %76 ], [ %74, %73 ], [ %71, %70 ], [ %68, %67 ], [ %65, %57 ], [ %51, %42 ]
-  store ptr %.sink129, ptr %0, align 8, !noalias !3
+  store ptr %.sink140, ptr %0, align 8, !noalias !3
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink127, ptr %53, align 8, !noalias !3
+  store i64 %.sink138, ptr %53, align 8, !noalias !3
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink129, ptr %54, align 8, !noalias !3
+  store ptr %.sink140, ptr %54, align 8, !noalias !3
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %55, align 8, !noalias !3
   ret void
@@ -30542,7 +30542,7 @@ default.unreachable123:                           ; preds = %2
 define void @_ZN11ruff_linter5codes21Flake8UnusedArguments5rules17h4befcb5abb8527f0E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !60, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable68 [
+  switch i8 %3, label %default.unreachable74 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -30552,7 +30552,7 @@ define void @_ZN11ruff_linter5codes21Flake8UnusedArguments5rules17h4befcb5abb852
     i8 6, label %23
   ]
 
-default.unreachable68:                            ; preds = %2
+default.unreachable74:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -30608,14 +30608,14 @@ default.unreachable68:                            ; preds = %2
   br label %33
 
 33:                                               ; preds = %57, %54, %51, %48, %45, %38, %27
-  %.sink74 = phi ptr [ %24, %57 ], [ %21, %54 ], [ %18, %51 ], [ %15, %48 ], [ %12, %45 ], [ %9, %38 ], [ %6, %27 ]
-  %.sink72 = phi i64 [ 1, %57 ], [ 1, %54 ], [ 1, %51 ], [ 1, %48 ], [ 1, %45 ], [ 5, %38 ], [ 5, %27 ]
+  %.sink80 = phi ptr [ %24, %57 ], [ %21, %54 ], [ %18, %51 ], [ %15, %48 ], [ %12, %45 ], [ %9, %38 ], [ %6, %27 ]
+  %.sink78 = phi i64 [ 1, %57 ], [ 1, %54 ], [ 1, %51 ], [ 1, %48 ], [ 1, %45 ], [ 5, %38 ], [ 5, %27 ]
   %.sink = phi ptr [ %58, %57 ], [ %55, %54 ], [ %52, %51 ], [ %49, %48 ], [ %46, %45 ], [ %43, %38 ], [ %32, %27 ]
-  store ptr %.sink74, ptr %0, align 8, !noalias !3
+  store ptr %.sink80, ptr %0, align 8, !noalias !3
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink72, ptr %34, align 8, !noalias !3
+  store i64 %.sink78, ptr %34, align 8, !noalias !3
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink74, ptr %35, align 8, !noalias !3
+  store ptr %.sink80, ptr %35, align 8, !noalias !3
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %36, align 8, !noalias !3
   ret void
@@ -30687,7 +30687,7 @@ default.unreachable68:                            ; preds = %2
 define void @_ZN11ruff_linter5codes16Flake8UsePathlib5rules17h3ecd78080971d305E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !136, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable442 [
+  switch i8 %3, label %default.unreachable482 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -30731,7 +30731,7 @@ define void @_ZN11ruff_linter5codes16Flake8UsePathlib5rules17h3ecd78080971d305E(
     i8 40, label %125
   ]
 
-default.unreachable442:                           ; preds = %2
+default.unreachable482:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -30997,14 +30997,14 @@ default.unreachable442:                           ; preds = %2
   br label %155
 
 155:                                              ; preds = %314, %311, %308, %305, %302, %299, %296, %293, %290, %287, %277, %266, %263, %260, %257, %254, %251, %244, %241, %238, %235, %232, %229, %226, %223, %220, %217, %214, %202, %199, %196, %193, %190, %187, %184, %181, %178, %175, %172, %160, %129
-  %.sink448 = phi ptr [ %126, %314 ], [ %123, %311 ], [ %120, %308 ], [ %117, %305 ], [ %114, %302 ], [ %111, %299 ], [ %108, %296 ], [ %105, %293 ], [ %102, %290 ], [ %99, %287 ], [ %96, %277 ], [ %93, %266 ], [ %90, %263 ], [ %87, %260 ], [ %84, %257 ], [ %81, %254 ], [ %78, %251 ], [ %75, %244 ], [ %72, %241 ], [ %69, %238 ], [ %66, %235 ], [ %63, %232 ], [ %60, %229 ], [ %57, %226 ], [ %54, %223 ], [ %51, %220 ], [ %48, %217 ], [ %45, %214 ], [ %42, %202 ], [ %39, %199 ], [ %36, %196 ], [ %33, %193 ], [ %30, %190 ], [ %27, %187 ], [ %24, %184 ], [ %21, %181 ], [ %18, %178 ], [ %15, %175 ], [ %12, %172 ], [ %9, %160 ], [ %6, %129 ]
-  %.sink446 = phi i64 [ 1, %314 ], [ 1, %311 ], [ 1, %308 ], [ 1, %305 ], [ 1, %302 ], [ 1, %299 ], [ 1, %296 ], [ 1, %293 ], [ 1, %290 ], [ 1, %287 ], [ 8, %277 ], [ 9, %266 ], [ 1, %263 ], [ 1, %260 ], [ 1, %257 ], [ 1, %254 ], [ 1, %251 ], [ 5, %244 ], [ 1, %241 ], [ 1, %238 ], [ 1, %235 ], [ 1, %232 ], [ 1, %229 ], [ 1, %226 ], [ 1, %223 ], [ 1, %220 ], [ 1, %217 ], [ 1, %214 ], [ 10, %202 ], [ 1, %199 ], [ 1, %196 ], [ 1, %193 ], [ 1, %190 ], [ 1, %187 ], [ 1, %184 ], [ 1, %181 ], [ 1, %178 ], [ 1, %175 ], [ 1, %172 ], [ 10, %160 ], [ 25, %129 ]
+  %.sink488 = phi ptr [ %126, %314 ], [ %123, %311 ], [ %120, %308 ], [ %117, %305 ], [ %114, %302 ], [ %111, %299 ], [ %108, %296 ], [ %105, %293 ], [ %102, %290 ], [ %99, %287 ], [ %96, %277 ], [ %93, %266 ], [ %90, %263 ], [ %87, %260 ], [ %84, %257 ], [ %81, %254 ], [ %78, %251 ], [ %75, %244 ], [ %72, %241 ], [ %69, %238 ], [ %66, %235 ], [ %63, %232 ], [ %60, %229 ], [ %57, %226 ], [ %54, %223 ], [ %51, %220 ], [ %48, %217 ], [ %45, %214 ], [ %42, %202 ], [ %39, %199 ], [ %36, %196 ], [ %33, %193 ], [ %30, %190 ], [ %27, %187 ], [ %24, %184 ], [ %21, %181 ], [ %18, %178 ], [ %15, %175 ], [ %12, %172 ], [ %9, %160 ], [ %6, %129 ]
+  %.sink486 = phi i64 [ 1, %314 ], [ 1, %311 ], [ 1, %308 ], [ 1, %305 ], [ 1, %302 ], [ 1, %299 ], [ 1, %296 ], [ 1, %293 ], [ 1, %290 ], [ 1, %287 ], [ 8, %277 ], [ 9, %266 ], [ 1, %263 ], [ 1, %260 ], [ 1, %257 ], [ 1, %254 ], [ 1, %251 ], [ 5, %244 ], [ 1, %241 ], [ 1, %238 ], [ 1, %235 ], [ 1, %232 ], [ 1, %229 ], [ 1, %226 ], [ 1, %223 ], [ 1, %220 ], [ 1, %217 ], [ 1, %214 ], [ 10, %202 ], [ 1, %199 ], [ 1, %196 ], [ 1, %193 ], [ 1, %190 ], [ 1, %187 ], [ 1, %184 ], [ 1, %181 ], [ 1, %178 ], [ 1, %175 ], [ 1, %172 ], [ 10, %160 ], [ 25, %129 ]
   %.sink = phi ptr [ %315, %314 ], [ %312, %311 ], [ %309, %308 ], [ %306, %305 ], [ %303, %302 ], [ %300, %299 ], [ %297, %296 ], [ %294, %293 ], [ %291, %290 ], [ %288, %287 ], [ %285, %277 ], [ %275, %266 ], [ %264, %263 ], [ %261, %260 ], [ %258, %257 ], [ %255, %254 ], [ %252, %251 ], [ %249, %244 ], [ %242, %241 ], [ %239, %238 ], [ %236, %235 ], [ %233, %232 ], [ %230, %229 ], [ %227, %226 ], [ %224, %223 ], [ %221, %220 ], [ %218, %217 ], [ %215, %214 ], [ %212, %202 ], [ %200, %199 ], [ %197, %196 ], [ %194, %193 ], [ %191, %190 ], [ %188, %187 ], [ %185, %184 ], [ %182, %181 ], [ %179, %178 ], [ %176, %175 ], [ %173, %172 ], [ %170, %160 ], [ %154, %129 ]
-  store ptr %.sink448, ptr %0, align 8, !noalias !3
+  store ptr %.sink488, ptr %0, align 8, !noalias !3
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink446, ptr %156, align 8, !noalias !3
+  store i64 %.sink486, ptr %156, align 8, !noalias !3
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink448, ptr %157, align 8, !noalias !3
+  store ptr %.sink488, ptr %157, align 8, !noalias !3
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %158, align 8, !noalias !3
   ret void
@@ -31450,13 +31450,13 @@ define void @_ZN11ruff_linter5codes5Flynt5rules17h5d5a12b0d37340d5E(ptr dead_on_
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %5 = tail call noalias noundef align 2 dereferenceable_or_null(2) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 2, 121) 2, i64 noundef 2) #18
   %6 = icmp eq ptr %5, null
-  switch i8 %3, label %default.unreachable24 [
+  switch i8 %3, label %default.unreachable26 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
   ]
 
-default.unreachable24:                            ; preds = %2
+default.unreachable26:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -31497,14 +31497,14 @@ default.unreachable24:                            ; preds = %2
 define void @_ZN11ruff_linter5codes5Isort5rules17h1a84ae22606bad63E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !68, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable35 [
+  switch i8 %3, label %default.unreachable38 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
     i8 3, label %14
   ]
 
-default.unreachable35:                            ; preds = %2
+default.unreachable38:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -31539,14 +31539,14 @@ default.unreachable35:                            ; preds = %2
   br label %21
 
 21:                                               ; preds = %33, %30, %26, %18
-  %.sink41 = phi ptr [ %15, %33 ], [ %12, %30 ], [ %9, %26 ], [ %6, %18 ]
-  %.sink39 = phi i64 [ 1, %33 ], [ 1, %30 ], [ 2, %26 ], [ 2, %18 ]
+  %.sink44 = phi ptr [ %15, %33 ], [ %12, %30 ], [ %9, %26 ], [ %6, %18 ]
+  %.sink42 = phi i64 [ 1, %33 ], [ 1, %30 ], [ 2, %26 ], [ 2, %18 ]
   %.sink = phi ptr [ %34, %33 ], [ %31, %30 ], [ %28, %26 ], [ %20, %18 ]
-  store ptr %.sink41, ptr %0, align 8, !noalias !3
+  store ptr %.sink44, ptr %0, align 8, !noalias !3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink39, ptr %22, align 8, !noalias !3
+  store i64 %.sink42, ptr %22, align 8, !noalias !3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink41, ptr %23, align 8, !noalias !3
+  store ptr %.sink44, ptr %23, align 8, !noalias !3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %24, align 8, !noalias !3
   ret void
@@ -31609,7 +31609,7 @@ define void @_ZN11ruff_linter5codes6McCabe5rules17h6489eb1474f68741E(ptr dead_on
 define void @_ZN11ruff_linter5codes5Numpy5rules17hf707ec7288513b94E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !47, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable79 [
+  switch i8 %3, label %default.unreachable86 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -31620,7 +31620,7 @@ define void @_ZN11ruff_linter5codes5Numpy5rules17hf707ec7288513b94E(ptr dead_on_
     i8 7, label %26
   ]
 
-default.unreachable79:                            ; preds = %2
+default.unreachable86:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -31677,14 +31677,14 @@ default.unreachable79:                            ; preds = %2
   br label %34
 
 34:                                               ; preds = %59, %56, %53, %50, %47, %44, %39, %30
-  %.sink85 = phi ptr [ %27, %59 ], [ %24, %56 ], [ %21, %53 ], [ %18, %50 ], [ %15, %47 ], [ %12, %44 ], [ %9, %39 ], [ %6, %30 ]
-  %.sink83 = phi i64 [ 1, %59 ], [ 1, %56 ], [ 1, %53 ], [ 1, %50 ], [ 1, %47 ], [ 1, %44 ], [ 3, %39 ], [ 3, %30 ]
+  %.sink92 = phi ptr [ %27, %59 ], [ %24, %56 ], [ %21, %53 ], [ %18, %50 ], [ %15, %47 ], [ %12, %44 ], [ %9, %39 ], [ %6, %30 ]
+  %.sink90 = phi i64 [ 1, %59 ], [ 1, %56 ], [ 1, %53 ], [ 1, %50 ], [ 1, %47 ], [ 1, %44 ], [ 3, %39 ], [ 3, %30 ]
   %.sink = phi ptr [ %60, %59 ], [ %57, %56 ], [ %54, %53 ], [ %51, %50 ], [ %48, %47 ], [ %45, %44 ], [ %42, %39 ], [ %33, %30 ]
-  store ptr %.sink85, ptr %0, align 8, !noalias !3
+  store ptr %.sink92, ptr %0, align 8, !noalias !3
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink83, ptr %35, align 8, !noalias !3
+  store i64 %.sink90, ptr %35, align 8, !noalias !3
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink85, ptr %36, align 8, !noalias !3
+  store ptr %.sink92, ptr %36, align 8, !noalias !3
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %37, align 8, !noalias !3
   ret void
@@ -31761,7 +31761,7 @@ default.unreachable79:                            ; preds = %2
 define void @_ZN11ruff_linter5codes10PEP8Naming5rules17hb44ec0bb176bbc9dE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !137, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable222 [
+  switch i8 %3, label %default.unreachable242 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -31785,7 +31785,7 @@ define void @_ZN11ruff_linter5codes10PEP8Naming5rules17hb44ec0bb176bbc9dE(ptr de
     i8 20, label %65
   ]
 
-default.unreachable222:                           ; preds = %2
+default.unreachable242:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -31931,14 +31931,14 @@ default.unreachable222:                           ; preds = %2
   br label %85
 
 85:                                               ; preds = %160, %157, %154, %151, %148, %145, %142, %139, %136, %133, %130, %120, %117, %114, %111, %108, %105, %102, %99, %90, %69
-  %.sink228 = phi ptr [ %66, %160 ], [ %63, %157 ], [ %60, %154 ], [ %57, %151 ], [ %54, %148 ], [ %51, %145 ], [ %48, %142 ], [ %45, %139 ], [ %42, %136 ], [ %39, %133 ], [ %36, %130 ], [ %33, %120 ], [ %30, %117 ], [ %27, %114 ], [ %24, %111 ], [ %21, %108 ], [ %18, %105 ], [ %15, %102 ], [ %12, %99 ], [ %9, %90 ], [ %6, %69 ]
-  %.sink226 = phi i64 [ 1, %160 ], [ 1, %157 ], [ 1, %154 ], [ 1, %151 ], [ 1, %148 ], [ 1, %145 ], [ 1, %142 ], [ 1, %139 ], [ 1, %136 ], [ 1, %133 ], [ 1, %130 ], [ 8, %120 ], [ 1, %117 ], [ 1, %114 ], [ 1, %111 ], [ 1, %108 ], [ 1, %105 ], [ 1, %102 ], [ 1, %99 ], [ 7, %90 ], [ 15, %69 ]
+  %.sink248 = phi ptr [ %66, %160 ], [ %63, %157 ], [ %60, %154 ], [ %57, %151 ], [ %54, %148 ], [ %51, %145 ], [ %48, %142 ], [ %45, %139 ], [ %42, %136 ], [ %39, %133 ], [ %36, %130 ], [ %33, %120 ], [ %30, %117 ], [ %27, %114 ], [ %24, %111 ], [ %21, %108 ], [ %18, %105 ], [ %15, %102 ], [ %12, %99 ], [ %9, %90 ], [ %6, %69 ]
+  %.sink246 = phi i64 [ 1, %160 ], [ 1, %157 ], [ 1, %154 ], [ 1, %151 ], [ 1, %148 ], [ 1, %145 ], [ 1, %142 ], [ 1, %139 ], [ 1, %136 ], [ 1, %133 ], [ 1, %130 ], [ 8, %120 ], [ 1, %117 ], [ 1, %114 ], [ 1, %111 ], [ 1, %108 ], [ 1, %105 ], [ 1, %102 ], [ 1, %99 ], [ 7, %90 ], [ 15, %69 ]
   %.sink = phi ptr [ %161, %160 ], [ %158, %157 ], [ %155, %154 ], [ %152, %151 ], [ %149, %148 ], [ %146, %145 ], [ %143, %142 ], [ %140, %139 ], [ %137, %136 ], [ %134, %133 ], [ %131, %130 ], [ %128, %120 ], [ %118, %117 ], [ %115, %114 ], [ %112, %111 ], [ %109, %108 ], [ %106, %105 ], [ %103, %102 ], [ %100, %99 ], [ %97, %90 ], [ %84, %69 ]
-  store ptr %.sink228, ptr %0, align 8, !noalias !3
+  store ptr %.sink248, ptr %0, align 8, !noalias !3
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink226, ptr %86, align 8, !noalias !3
+  store i64 %.sink246, ptr %86, align 8, !noalias !3
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink228, ptr %87, align 8, !noalias !3
+  store ptr %.sink248, ptr %87, align 8, !noalias !3
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %88, align 8, !noalias !3
   ret void
@@ -32154,7 +32154,7 @@ default.unreachable222:                           ; preds = %2
 define void @_ZN11ruff_linter5codes9PandasVet5rules17h55347a43f8670481E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !125, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable211 [
+  switch i8 %3, label %default.unreachable230 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -32177,7 +32177,7 @@ define void @_ZN11ruff_linter5codes9PandasVet5rules17h55347a43f8670481E(ptr dead
     i8 19, label %62
   ]
 
-default.unreachable211:                           ; preds = %2
+default.unreachable230:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -32310,14 +32310,14 @@ default.unreachable211:                           ; preds = %2
   br label %78
 
 78:                                               ; preds = %146, %143, %140, %137, %134, %131, %128, %125, %122, %119, %116, %109, %106, %103, %100, %97, %94, %91, %83, %66
-  %.sink217 = phi ptr [ %63, %146 ], [ %60, %143 ], [ %57, %140 ], [ %54, %137 ], [ %51, %134 ], [ %48, %131 ], [ %45, %128 ], [ %42, %125 ], [ %39, %122 ], [ %36, %119 ], [ %33, %116 ], [ %30, %109 ], [ %27, %106 ], [ %24, %103 ], [ %21, %100 ], [ %18, %97 ], [ %15, %94 ], [ %12, %91 ], [ %9, %83 ], [ %6, %66 ]
-  %.sink215 = phi i64 [ 1, %146 ], [ 1, %143 ], [ 1, %140 ], [ 1, %137 ], [ 1, %134 ], [ 1, %131 ], [ 1, %128 ], [ 1, %125 ], [ 1, %122 ], [ 1, %119 ], [ 1, %116 ], [ 5, %109 ], [ 1, %106 ], [ 1, %103 ], [ 1, %100 ], [ 1, %97 ], [ 1, %94 ], [ 1, %91 ], [ 6, %83 ], [ 11, %66 ]
+  %.sink236 = phi ptr [ %63, %146 ], [ %60, %143 ], [ %57, %140 ], [ %54, %137 ], [ %51, %134 ], [ %48, %131 ], [ %45, %128 ], [ %42, %125 ], [ %39, %122 ], [ %36, %119 ], [ %33, %116 ], [ %30, %109 ], [ %27, %106 ], [ %24, %103 ], [ %21, %100 ], [ %18, %97 ], [ %15, %94 ], [ %12, %91 ], [ %9, %83 ], [ %6, %66 ]
+  %.sink234 = phi i64 [ 1, %146 ], [ 1, %143 ], [ 1, %140 ], [ 1, %137 ], [ 1, %134 ], [ 1, %131 ], [ 1, %128 ], [ 1, %125 ], [ 1, %122 ], [ 1, %119 ], [ 1, %116 ], [ 5, %109 ], [ 1, %106 ], [ 1, %103 ], [ 1, %100 ], [ 1, %97 ], [ 1, %94 ], [ 1, %91 ], [ 6, %83 ], [ 11, %66 ]
   %.sink = phi ptr [ %147, %146 ], [ %144, %143 ], [ %141, %140 ], [ %138, %137 ], [ %135, %134 ], [ %132, %131 ], [ %129, %128 ], [ %126, %125 ], [ %123, %122 ], [ %120, %119 ], [ %117, %116 ], [ %114, %109 ], [ %107, %106 ], [ %104, %103 ], [ %101, %100 ], [ %98, %97 ], [ %95, %94 ], [ %92, %91 ], [ %89, %83 ], [ %77, %66 ]
-  store ptr %.sink217, ptr %0, align 8, !noalias !3
+  store ptr %.sink236, ptr %0, align 8, !noalias !3
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink215, ptr %79, align 8, !noalias !3
+  store i64 %.sink234, ptr %79, align 8, !noalias !3
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink217, ptr %80, align 8, !noalias !3
+  store ptr %.sink236, ptr %80, align 8, !noalias !3
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %81, align 8, !noalias !3
   ret void
@@ -32516,7 +32516,7 @@ default.unreachable211:                           ; preds = %2
 define void @_ZN11ruff_linter5codes8Perflint5rules17h5dee666d19087cabE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !135, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable123 [
+  switch i8 %3, label %default.unreachable134 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -32531,7 +32531,7 @@ define void @_ZN11ruff_linter5codes8Perflint5rules17h5dee666d19087cabE(ptr dead_
     i8 11, label %38
   ]
 
-default.unreachable123:                           ; preds = %2
+default.unreachable134:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -32606,14 +32606,14 @@ default.unreachable123:                           ; preds = %2
   br label %45
 
 45:                                               ; preds = %85, %82, %79, %74, %69, %66, %63, %60, %57, %54, %50, %42
-  %.sink129 = phi ptr [ %39, %85 ], [ %36, %82 ], [ %33, %79 ], [ %30, %74 ], [ %27, %69 ], [ %24, %66 ], [ %21, %63 ], [ %18, %60 ], [ %15, %57 ], [ %12, %54 ], [ %9, %50 ], [ %6, %42 ]
-  %.sink127 = phi i64 [ 1, %85 ], [ 1, %82 ], [ 1, %79 ], [ 3, %74 ], [ 3, %69 ], [ 1, %66 ], [ 1, %63 ], [ 1, %60 ], [ 1, %57 ], [ 1, %54 ], [ 2, %50 ], [ 2, %42 ]
+  %.sink140 = phi ptr [ %39, %85 ], [ %36, %82 ], [ %33, %79 ], [ %30, %74 ], [ %27, %69 ], [ %24, %66 ], [ %21, %63 ], [ %18, %60 ], [ %15, %57 ], [ %12, %54 ], [ %9, %50 ], [ %6, %42 ]
+  %.sink138 = phi i64 [ 1, %85 ], [ 1, %82 ], [ 1, %79 ], [ 3, %74 ], [ 3, %69 ], [ 1, %66 ], [ 1, %63 ], [ 1, %60 ], [ 1, %57 ], [ 1, %54 ], [ 2, %50 ], [ 2, %42 ]
   %.sink = phi ptr [ %86, %85 ], [ %83, %82 ], [ %80, %79 ], [ %77, %74 ], [ %72, %69 ], [ %67, %66 ], [ %64, %63 ], [ %61, %60 ], [ %58, %57 ], [ %55, %54 ], [ %52, %50 ], [ %44, %42 ]
-  store ptr %.sink129, ptr %0, align 8, !noalias !3
+  store ptr %.sink140, ptr %0, align 8, !noalias !3
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink127, ptr %46, align 8, !noalias !3
+  store i64 %.sink138, ptr %46, align 8, !noalias !3
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink129, ptr %47, align 8, !noalias !3
+  store ptr %.sink140, ptr %47, align 8, !noalias !3
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %48, align 8, !noalias !3
   ret void
@@ -32732,7 +32732,7 @@ default.unreachable123:                           ; preds = %2
 define void @_ZN11ruff_linter5codes11Pycodestyle5rules17ha107f1ca397f4e29E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !138, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable1157 [
+  switch i8 %3, label %default.unreachable1262 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -32841,7 +32841,7 @@ define void @_ZN11ruff_linter5codes11Pycodestyle5rules17ha107f1ca397f4e29E(ptr d
     i8 105, label %320
   ]
 
-default.unreachable1157:                          ; preds = %2
+default.unreachable1262:                          ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -33502,14 +33502,14 @@ default.unreachable1157:                          ; preds = %2
   br label %385
 
 385:                                              ; preds = %805, %802, %799, %796, %793, %790, %787, %784, %781, %778, %775, %772, %767, %762, %759, %756, %753, %744, %741, %738, %735, %732, %728, %725, %722, %719, %714, %711, %708, %705, %702, %698, %695, %692, %689, %686, %680, %677, %674, %671, %666, %651, %648, %645, %641, %637, %634, %631, %627, %623, %620, %617, %614, %611, %608, %605, %597, %589, %586, %583, %580, %577, %574, %567, %564, %561, %558, %555, %549, %546, %543, %539, %536, %533, %529, %526, %523, %520, %517, %514, %511, %508, %505, %502, %499, %489, %486, %483, %480, %477, %474, %471, %465, %436, %433, %430, %427, %424, %421, %418, %415, %406, %403, %400, %390, %324
-  %.sink1163 = phi ptr [ %321, %805 ], [ %318, %802 ], [ %315, %799 ], [ %312, %796 ], [ %309, %793 ], [ %306, %790 ], [ %303, %787 ], [ %300, %784 ], [ %297, %781 ], [ %294, %778 ], [ %291, %775 ], [ %288, %772 ], [ %285, %767 ], [ %282, %762 ], [ %279, %759 ], [ %276, %756 ], [ %273, %753 ], [ %270, %744 ], [ %267, %741 ], [ %264, %738 ], [ %261, %735 ], [ %258, %732 ], [ %255, %728 ], [ %252, %725 ], [ %249, %722 ], [ %246, %719 ], [ %243, %714 ], [ %240, %711 ], [ %237, %708 ], [ %234, %705 ], [ %231, %702 ], [ %228, %698 ], [ %225, %695 ], [ %222, %692 ], [ %219, %689 ], [ %216, %686 ], [ %213, %680 ], [ %210, %677 ], [ %207, %674 ], [ %204, %671 ], [ %201, %666 ], [ %198, %651 ], [ %195, %648 ], [ %192, %645 ], [ %189, %641 ], [ %186, %637 ], [ %183, %634 ], [ %180, %631 ], [ %177, %627 ], [ %174, %623 ], [ %171, %620 ], [ %168, %617 ], [ %165, %614 ], [ %162, %611 ], [ %159, %608 ], [ %156, %605 ], [ %153, %597 ], [ %150, %589 ], [ %147, %586 ], [ %144, %583 ], [ %141, %580 ], [ %138, %577 ], [ %135, %574 ], [ %132, %567 ], [ %129, %564 ], [ %126, %561 ], [ %123, %558 ], [ %120, %555 ], [ %117, %549 ], [ %114, %546 ], [ %111, %543 ], [ %108, %539 ], [ %105, %536 ], [ %102, %533 ], [ %99, %529 ], [ %96, %526 ], [ %93, %523 ], [ %90, %520 ], [ %87, %517 ], [ %84, %514 ], [ %81, %511 ], [ %78, %508 ], [ %75, %505 ], [ %72, %502 ], [ %69, %499 ], [ %66, %489 ], [ %63, %486 ], [ %60, %483 ], [ %57, %480 ], [ %54, %477 ], [ %51, %474 ], [ %48, %471 ], [ %45, %465 ], [ %42, %436 ], [ %39, %433 ], [ %36, %430 ], [ %33, %427 ], [ %30, %424 ], [ %27, %421 ], [ %24, %418 ], [ %21, %415 ], [ %18, %406 ], [ %15, %403 ], [ %12, %400 ], [ %9, %390 ], [ %6, %324 ]
-  %.sink1161 = phi i64 [ 1, %805 ], [ 1, %802 ], [ 1, %799 ], [ 1, %796 ], [ 1, %793 ], [ 1, %790 ], [ 1, %787 ], [ 1, %784 ], [ 1, %781 ], [ 1, %778 ], [ 1, %775 ], [ 1, %772 ], [ 3, %767 ], [ 3, %762 ], [ 1, %759 ], [ 1, %756 ], [ 1, %753 ], [ 7, %744 ], [ 1, %741 ], [ 1, %738 ], [ 1, %735 ], [ 1, %732 ], [ 2, %728 ], [ 1, %725 ], [ 1, %722 ], [ 1, %719 ], [ 3, %714 ], [ 1, %711 ], [ 1, %708 ], [ 1, %705 ], [ 1, %702 ], [ 2, %698 ], [ 1, %695 ], [ 1, %692 ], [ 1, %689 ], [ 1, %686 ], [ 4, %680 ], [ 1, %677 ], [ 1, %674 ], [ 1, %671 ], [ 3, %666 ], [ 13, %651 ], [ 1, %648 ], [ 1, %645 ], [ 2, %641 ], [ 2, %637 ], [ 1, %634 ], [ 1, %631 ], [ 2, %627 ], [ 2, %623 ], [ 1, %620 ], [ 1, %617 ], [ 1, %614 ], [ 1, %611 ], [ 1, %608 ], [ 1, %605 ], [ 6, %597 ], [ 6, %589 ], [ 1, %586 ], [ 1, %583 ], [ 1, %580 ], [ 1, %577 ], [ 1, %574 ], [ 5, %567 ], [ 1, %564 ], [ 1, %561 ], [ 1, %558 ], [ 1, %555 ], [ 4, %549 ], [ 1, %546 ], [ 1, %543 ], [ 2, %539 ], [ 1, %536 ], [ 1, %533 ], [ 2, %529 ], [ 1, %526 ], [ 1, %523 ], [ 1, %520 ], [ 1, %517 ], [ 1, %514 ], [ 1, %511 ], [ 1, %508 ], [ 1, %505 ], [ 1, %502 ], [ 1, %499 ], [ 8, %489 ], [ 1, %486 ], [ 1, %483 ], [ 1, %480 ], [ 1, %477 ], [ 1, %474 ], [ 1, %471 ], [ 4, %465 ], [ 27, %436 ], [ 1, %433 ], [ 1, %430 ], [ 1, %427 ], [ 1, %424 ], [ 1, %421 ], [ 1, %418 ], [ 1, %415 ], [ 7, %406 ], [ 1, %403 ], [ 1, %400 ], [ 8, %390 ], [ 60, %324 ]
+  %.sink1268 = phi ptr [ %321, %805 ], [ %318, %802 ], [ %315, %799 ], [ %312, %796 ], [ %309, %793 ], [ %306, %790 ], [ %303, %787 ], [ %300, %784 ], [ %297, %781 ], [ %294, %778 ], [ %291, %775 ], [ %288, %772 ], [ %285, %767 ], [ %282, %762 ], [ %279, %759 ], [ %276, %756 ], [ %273, %753 ], [ %270, %744 ], [ %267, %741 ], [ %264, %738 ], [ %261, %735 ], [ %258, %732 ], [ %255, %728 ], [ %252, %725 ], [ %249, %722 ], [ %246, %719 ], [ %243, %714 ], [ %240, %711 ], [ %237, %708 ], [ %234, %705 ], [ %231, %702 ], [ %228, %698 ], [ %225, %695 ], [ %222, %692 ], [ %219, %689 ], [ %216, %686 ], [ %213, %680 ], [ %210, %677 ], [ %207, %674 ], [ %204, %671 ], [ %201, %666 ], [ %198, %651 ], [ %195, %648 ], [ %192, %645 ], [ %189, %641 ], [ %186, %637 ], [ %183, %634 ], [ %180, %631 ], [ %177, %627 ], [ %174, %623 ], [ %171, %620 ], [ %168, %617 ], [ %165, %614 ], [ %162, %611 ], [ %159, %608 ], [ %156, %605 ], [ %153, %597 ], [ %150, %589 ], [ %147, %586 ], [ %144, %583 ], [ %141, %580 ], [ %138, %577 ], [ %135, %574 ], [ %132, %567 ], [ %129, %564 ], [ %126, %561 ], [ %123, %558 ], [ %120, %555 ], [ %117, %549 ], [ %114, %546 ], [ %111, %543 ], [ %108, %539 ], [ %105, %536 ], [ %102, %533 ], [ %99, %529 ], [ %96, %526 ], [ %93, %523 ], [ %90, %520 ], [ %87, %517 ], [ %84, %514 ], [ %81, %511 ], [ %78, %508 ], [ %75, %505 ], [ %72, %502 ], [ %69, %499 ], [ %66, %489 ], [ %63, %486 ], [ %60, %483 ], [ %57, %480 ], [ %54, %477 ], [ %51, %474 ], [ %48, %471 ], [ %45, %465 ], [ %42, %436 ], [ %39, %433 ], [ %36, %430 ], [ %33, %427 ], [ %30, %424 ], [ %27, %421 ], [ %24, %418 ], [ %21, %415 ], [ %18, %406 ], [ %15, %403 ], [ %12, %400 ], [ %9, %390 ], [ %6, %324 ]
+  %.sink1266 = phi i64 [ 1, %805 ], [ 1, %802 ], [ 1, %799 ], [ 1, %796 ], [ 1, %793 ], [ 1, %790 ], [ 1, %787 ], [ 1, %784 ], [ 1, %781 ], [ 1, %778 ], [ 1, %775 ], [ 1, %772 ], [ 3, %767 ], [ 3, %762 ], [ 1, %759 ], [ 1, %756 ], [ 1, %753 ], [ 7, %744 ], [ 1, %741 ], [ 1, %738 ], [ 1, %735 ], [ 1, %732 ], [ 2, %728 ], [ 1, %725 ], [ 1, %722 ], [ 1, %719 ], [ 3, %714 ], [ 1, %711 ], [ 1, %708 ], [ 1, %705 ], [ 1, %702 ], [ 2, %698 ], [ 1, %695 ], [ 1, %692 ], [ 1, %689 ], [ 1, %686 ], [ 4, %680 ], [ 1, %677 ], [ 1, %674 ], [ 1, %671 ], [ 3, %666 ], [ 13, %651 ], [ 1, %648 ], [ 1, %645 ], [ 2, %641 ], [ 2, %637 ], [ 1, %634 ], [ 1, %631 ], [ 2, %627 ], [ 2, %623 ], [ 1, %620 ], [ 1, %617 ], [ 1, %614 ], [ 1, %611 ], [ 1, %608 ], [ 1, %605 ], [ 6, %597 ], [ 6, %589 ], [ 1, %586 ], [ 1, %583 ], [ 1, %580 ], [ 1, %577 ], [ 1, %574 ], [ 5, %567 ], [ 1, %564 ], [ 1, %561 ], [ 1, %558 ], [ 1, %555 ], [ 4, %549 ], [ 1, %546 ], [ 1, %543 ], [ 2, %539 ], [ 1, %536 ], [ 1, %533 ], [ 2, %529 ], [ 1, %526 ], [ 1, %523 ], [ 1, %520 ], [ 1, %517 ], [ 1, %514 ], [ 1, %511 ], [ 1, %508 ], [ 1, %505 ], [ 1, %502 ], [ 1, %499 ], [ 8, %489 ], [ 1, %486 ], [ 1, %483 ], [ 1, %480 ], [ 1, %477 ], [ 1, %474 ], [ 1, %471 ], [ 4, %465 ], [ 27, %436 ], [ 1, %433 ], [ 1, %430 ], [ 1, %427 ], [ 1, %424 ], [ 1, %421 ], [ 1, %418 ], [ 1, %415 ], [ 7, %406 ], [ 1, %403 ], [ 1, %400 ], [ 8, %390 ], [ 60, %324 ]
   %.sink = phi ptr [ %806, %805 ], [ %803, %802 ], [ %800, %799 ], [ %797, %796 ], [ %794, %793 ], [ %791, %790 ], [ %788, %787 ], [ %785, %784 ], [ %782, %781 ], [ %779, %778 ], [ %776, %775 ], [ %773, %772 ], [ %770, %767 ], [ %765, %762 ], [ %760, %759 ], [ %757, %756 ], [ %754, %753 ], [ %751, %744 ], [ %742, %741 ], [ %739, %738 ], [ %736, %735 ], [ %733, %732 ], [ %730, %728 ], [ %726, %725 ], [ %723, %722 ], [ %720, %719 ], [ %717, %714 ], [ %712, %711 ], [ %709, %708 ], [ %706, %705 ], [ %703, %702 ], [ %700, %698 ], [ %696, %695 ], [ %693, %692 ], [ %690, %689 ], [ %687, %686 ], [ %684, %680 ], [ %678, %677 ], [ %675, %674 ], [ %672, %671 ], [ %669, %666 ], [ %664, %651 ], [ %649, %648 ], [ %646, %645 ], [ %643, %641 ], [ %639, %637 ], [ %635, %634 ], [ %632, %631 ], [ %629, %627 ], [ %625, %623 ], [ %621, %620 ], [ %618, %617 ], [ %615, %614 ], [ %612, %611 ], [ %609, %608 ], [ %606, %605 ], [ %603, %597 ], [ %595, %589 ], [ %587, %586 ], [ %584, %583 ], [ %581, %580 ], [ %578, %577 ], [ %575, %574 ], [ %572, %567 ], [ %565, %564 ], [ %562, %561 ], [ %559, %558 ], [ %556, %555 ], [ %553, %549 ], [ %547, %546 ], [ %544, %543 ], [ %541, %539 ], [ %537, %536 ], [ %534, %533 ], [ %531, %529 ], [ %527, %526 ], [ %524, %523 ], [ %521, %520 ], [ %518, %517 ], [ %515, %514 ], [ %512, %511 ], [ %509, %508 ], [ %506, %505 ], [ %503, %502 ], [ %500, %499 ], [ %497, %489 ], [ %487, %486 ], [ %484, %483 ], [ %481, %480 ], [ %478, %477 ], [ %475, %474 ], [ %472, %471 ], [ %469, %465 ], [ %463, %436 ], [ %434, %433 ], [ %431, %430 ], [ %428, %427 ], [ %425, %424 ], [ %422, %421 ], [ %419, %418 ], [ %416, %415 ], [ %413, %406 ], [ %404, %403 ], [ %401, %400 ], [ %398, %390 ], [ %384, %324 ]
-  store ptr %.sink1163, ptr %0, align 8, !noalias !3
+  store ptr %.sink1268, ptr %0, align 8, !noalias !3
   %386 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink1161, ptr %386, align 8, !noalias !3
+  store i64 %.sink1266, ptr %386, align 8, !noalias !3
   %387 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink1163, ptr %387, align 8, !noalias !3
+  store ptr %.sink1268, ptr %387, align 8, !noalias !3
   %388 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %388, align 8, !noalias !3
   ret void
@@ -34670,7 +34670,7 @@ default.unreachable1157:                          ; preds = %2
 define void @_ZN11ruff_linter5codes9Pydoclint5rules17h6ad6630b382d21f8E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !135, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable123 [
+  switch i8 %3, label %default.unreachable134 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -34685,7 +34685,7 @@ define void @_ZN11ruff_linter5codes9Pydoclint5rules17h6ad6630b382d21f8E(ptr dead
     i8 11, label %38
   ]
 
-default.unreachable123:                           ; preds = %2
+default.unreachable134:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -34760,14 +34760,14 @@ default.unreachable123:                           ; preds = %2
   br label %45
 
 45:                                               ; preds = %85, %82, %78, %74, %71, %68, %64, %60, %57, %54, %50, %42
-  %.sink129 = phi ptr [ %39, %85 ], [ %36, %82 ], [ %33, %78 ], [ %30, %74 ], [ %27, %71 ], [ %24, %68 ], [ %21, %64 ], [ %18, %60 ], [ %15, %57 ], [ %12, %54 ], [ %9, %50 ], [ %6, %42 ]
-  %.sink127 = phi i64 [ 1, %85 ], [ 1, %82 ], [ 2, %78 ], [ 2, %74 ], [ 1, %71 ], [ 1, %68 ], [ 2, %64 ], [ 2, %60 ], [ 1, %57 ], [ 1, %54 ], [ 2, %50 ], [ 2, %42 ]
+  %.sink140 = phi ptr [ %39, %85 ], [ %36, %82 ], [ %33, %78 ], [ %30, %74 ], [ %27, %71 ], [ %24, %68 ], [ %21, %64 ], [ %18, %60 ], [ %15, %57 ], [ %12, %54 ], [ %9, %50 ], [ %6, %42 ]
+  %.sink138 = phi i64 [ 1, %85 ], [ 1, %82 ], [ 2, %78 ], [ 2, %74 ], [ 1, %71 ], [ 1, %68 ], [ 2, %64 ], [ 2, %60 ], [ 1, %57 ], [ 1, %54 ], [ 2, %50 ], [ 2, %42 ]
   %.sink = phi ptr [ %86, %85 ], [ %83, %82 ], [ %80, %78 ], [ %76, %74 ], [ %72, %71 ], [ %69, %68 ], [ %66, %64 ], [ %62, %60 ], [ %58, %57 ], [ %55, %54 ], [ %52, %50 ], [ %44, %42 ]
-  store ptr %.sink129, ptr %0, align 8, !noalias !3
+  store ptr %.sink140, ptr %0, align 8, !noalias !3
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink127, ptr %46, align 8, !noalias !3
+  store i64 %.sink138, ptr %46, align 8, !noalias !3
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink129, ptr %47, align 8, !noalias !3
+  store ptr %.sink140, ptr %47, align 8, !noalias !3
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %48, align 8, !noalias !3
   ret void
@@ -34886,7 +34886,7 @@ default.unreachable123:                           ; preds = %2
 define void @_ZN11ruff_linter5codes10Pydocstyle5rules17h2dfc7d006b581de4E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !139, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable607 [
+  switch i8 %3, label %default.unreachable662 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -34945,7 +34945,7 @@ define void @_ZN11ruff_linter5codes10Pydocstyle5rules17h2dfc7d006b581de4E(ptr de
     i8 55, label %170
   ]
 
-default.unreachable607:                           ; preds = %2
+default.unreachable662:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -35252,14 +35252,14 @@ default.unreachable607:                           ; preds = %2
   br label %183
 
 183:                                              ; preds = %425, %422, %419, %416, %413, %410, %407, %404, %401, %398, %386, %383, %380, %377, %374, %371, %368, %365, %362, %359, %356, %344, %322, %319, %316, %312, %308, %305, %302, %299, %296, %293, %290, %282, %279, %276, %273, %270, %267, %264, %261, %258, %255, %252, %240, %222, %219, %216, %213, %210, %207, %204, %201, %198, %188, %174
-  %.sink613 = phi ptr [ %171, %425 ], [ %168, %422 ], [ %165, %419 ], [ %162, %416 ], [ %159, %413 ], [ %156, %410 ], [ %153, %407 ], [ %150, %404 ], [ %147, %401 ], [ %144, %398 ], [ %141, %386 ], [ %138, %383 ], [ %135, %380 ], [ %132, %377 ], [ %129, %374 ], [ %126, %371 ], [ %123, %368 ], [ %120, %365 ], [ %117, %362 ], [ %114, %359 ], [ %111, %356 ], [ %108, %344 ], [ %105, %322 ], [ %102, %319 ], [ %99, %316 ], [ %96, %312 ], [ %93, %308 ], [ %90, %305 ], [ %87, %302 ], [ %84, %299 ], [ %81, %296 ], [ %78, %293 ], [ %75, %290 ], [ %72, %282 ], [ %69, %279 ], [ %66, %276 ], [ %63, %273 ], [ %60, %270 ], [ %57, %267 ], [ %54, %264 ], [ %51, %261 ], [ %48, %258 ], [ %45, %255 ], [ %42, %252 ], [ %39, %240 ], [ %36, %222 ], [ %33, %219 ], [ %30, %216 ], [ %27, %213 ], [ %24, %210 ], [ %21, %207 ], [ %18, %204 ], [ %15, %201 ], [ %12, %198 ], [ %9, %188 ], [ %6, %174 ]
-  %.sink611 = phi i64 [ 1, %425 ], [ 1, %422 ], [ 1, %419 ], [ 1, %416 ], [ 1, %413 ], [ 1, %410 ], [ 1, %407 ], [ 1, %404 ], [ 1, %401 ], [ 1, %398 ], [ 10, %386 ], [ 1, %383 ], [ 1, %380 ], [ 1, %377 ], [ 1, %374 ], [ 1, %371 ], [ 1, %368 ], [ 1, %365 ], [ 1, %362 ], [ 1, %359 ], [ 1, %356 ], [ 10, %344 ], [ 20, %322 ], [ 1, %319 ], [ 1, %316 ], [ 2, %312 ], [ 2, %308 ], [ 1, %305 ], [ 1, %302 ], [ 1, %299 ], [ 1, %296 ], [ 1, %293 ], [ 1, %290 ], [ 6, %282 ], [ 1, %279 ], [ 1, %276 ], [ 1, %273 ], [ 1, %270 ], [ 1, %267 ], [ 1, %264 ], [ 1, %261 ], [ 1, %258 ], [ 1, %255 ], [ 1, %252 ], [ 10, %240 ], [ 16, %222 ], [ 1, %219 ], [ 1, %216 ], [ 1, %213 ], [ 1, %210 ], [ 1, %207 ], [ 1, %204 ], [ 1, %201 ], [ 1, %198 ], [ 8, %188 ], [ 8, %174 ]
+  %.sink668 = phi ptr [ %171, %425 ], [ %168, %422 ], [ %165, %419 ], [ %162, %416 ], [ %159, %413 ], [ %156, %410 ], [ %153, %407 ], [ %150, %404 ], [ %147, %401 ], [ %144, %398 ], [ %141, %386 ], [ %138, %383 ], [ %135, %380 ], [ %132, %377 ], [ %129, %374 ], [ %126, %371 ], [ %123, %368 ], [ %120, %365 ], [ %117, %362 ], [ %114, %359 ], [ %111, %356 ], [ %108, %344 ], [ %105, %322 ], [ %102, %319 ], [ %99, %316 ], [ %96, %312 ], [ %93, %308 ], [ %90, %305 ], [ %87, %302 ], [ %84, %299 ], [ %81, %296 ], [ %78, %293 ], [ %75, %290 ], [ %72, %282 ], [ %69, %279 ], [ %66, %276 ], [ %63, %273 ], [ %60, %270 ], [ %57, %267 ], [ %54, %264 ], [ %51, %261 ], [ %48, %258 ], [ %45, %255 ], [ %42, %252 ], [ %39, %240 ], [ %36, %222 ], [ %33, %219 ], [ %30, %216 ], [ %27, %213 ], [ %24, %210 ], [ %21, %207 ], [ %18, %204 ], [ %15, %201 ], [ %12, %198 ], [ %9, %188 ], [ %6, %174 ]
+  %.sink666 = phi i64 [ 1, %425 ], [ 1, %422 ], [ 1, %419 ], [ 1, %416 ], [ 1, %413 ], [ 1, %410 ], [ 1, %407 ], [ 1, %404 ], [ 1, %401 ], [ 1, %398 ], [ 10, %386 ], [ 1, %383 ], [ 1, %380 ], [ 1, %377 ], [ 1, %374 ], [ 1, %371 ], [ 1, %368 ], [ 1, %365 ], [ 1, %362 ], [ 1, %359 ], [ 1, %356 ], [ 10, %344 ], [ 20, %322 ], [ 1, %319 ], [ 1, %316 ], [ 2, %312 ], [ 2, %308 ], [ 1, %305 ], [ 1, %302 ], [ 1, %299 ], [ 1, %296 ], [ 1, %293 ], [ 1, %290 ], [ 6, %282 ], [ 1, %279 ], [ 1, %276 ], [ 1, %273 ], [ 1, %270 ], [ 1, %267 ], [ 1, %264 ], [ 1, %261 ], [ 1, %258 ], [ 1, %255 ], [ 1, %252 ], [ 10, %240 ], [ 16, %222 ], [ 1, %219 ], [ 1, %216 ], [ 1, %213 ], [ 1, %210 ], [ 1, %207 ], [ 1, %204 ], [ 1, %201 ], [ 1, %198 ], [ 8, %188 ], [ 8, %174 ]
   %.sink = phi ptr [ %426, %425 ], [ %423, %422 ], [ %420, %419 ], [ %417, %416 ], [ %414, %413 ], [ %411, %410 ], [ %408, %407 ], [ %405, %404 ], [ %402, %401 ], [ %399, %398 ], [ %396, %386 ], [ %384, %383 ], [ %381, %380 ], [ %378, %377 ], [ %375, %374 ], [ %372, %371 ], [ %369, %368 ], [ %366, %365 ], [ %363, %362 ], [ %360, %359 ], [ %357, %356 ], [ %354, %344 ], [ %342, %322 ], [ %320, %319 ], [ %317, %316 ], [ %314, %312 ], [ %310, %308 ], [ %306, %305 ], [ %303, %302 ], [ %300, %299 ], [ %297, %296 ], [ %294, %293 ], [ %291, %290 ], [ %288, %282 ], [ %280, %279 ], [ %277, %276 ], [ %274, %273 ], [ %271, %270 ], [ %268, %267 ], [ %265, %264 ], [ %262, %261 ], [ %259, %258 ], [ %256, %255 ], [ %253, %252 ], [ %250, %240 ], [ %238, %222 ], [ %220, %219 ], [ %217, %216 ], [ %214, %213 ], [ %211, %210 ], [ %208, %207 ], [ %205, %204 ], [ %202, %201 ], [ %199, %198 ], [ %196, %188 ], [ %182, %174 ]
-  store ptr %.sink613, ptr %0, align 8, !noalias !3
+  store ptr %.sink668, ptr %0, align 8, !noalias !3
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink611, ptr %184, align 8, !noalias !3
+  store i64 %.sink666, ptr %184, align 8, !noalias !3
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink613, ptr %185, align 8, !noalias !3
+  store ptr %.sink668, ptr %185, align 8, !noalias !3
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %186, align 8, !noalias !3
   ret void
@@ -35914,7 +35914,7 @@ default.unreachable607:                           ; preds = %2
 define void @_ZN11ruff_linter5codes8Pyflakes5rules17h92846b9d22dd2d2fE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !140, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable673 [
+  switch i8 %3, label %default.unreachable734 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -35979,7 +35979,7 @@ define void @_ZN11ruff_linter5codes8Pyflakes5rules17h92846b9d22dd2d2fE(ptr dead_
     i8 61, label %188
   ]
 
-default.unreachable673:                           ; preds = %2
+default.unreachable734:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -36314,14 +36314,14 @@ default.unreachable673:                           ; preds = %2
   br label %200
 
 200:                                              ; preds = %446, %443, %440, %437, %434, %430, %427, %424, %421, %416, %413, %410, %402, %399, %396, %393, %390, %387, %384, %381, %374, %366, %363, %360, %357, %354, %348, %345, %342, %338, %335, %332, %328, %318, %315, %312, %309, %306, %303, %300, %297, %290, %287, %284, %281, %278, %275, %272, %269, %266, %263, %252, %235, %232, %229, %226, %223, %220, %217, %214, %205, %192
-  %.sink679 = phi ptr [ %189, %446 ], [ %186, %443 ], [ %183, %440 ], [ %180, %437 ], [ %177, %434 ], [ %174, %430 ], [ %171, %427 ], [ %168, %424 ], [ %165, %421 ], [ %162, %416 ], [ %159, %413 ], [ %156, %410 ], [ %153, %402 ], [ %150, %399 ], [ %147, %396 ], [ %144, %393 ], [ %141, %390 ], [ %138, %387 ], [ %135, %384 ], [ %132, %381 ], [ %129, %374 ], [ %126, %366 ], [ %123, %363 ], [ %120, %360 ], [ %117, %357 ], [ %114, %354 ], [ %111, %348 ], [ %108, %345 ], [ %105, %342 ], [ %102, %338 ], [ %99, %335 ], [ %96, %332 ], [ %93, %328 ], [ %90, %318 ], [ %87, %315 ], [ %84, %312 ], [ %81, %309 ], [ %78, %306 ], [ %75, %303 ], [ %72, %300 ], [ %69, %297 ], [ %66, %290 ], [ %63, %287 ], [ %60, %284 ], [ %57, %281 ], [ %54, %278 ], [ %51, %275 ], [ %48, %272 ], [ %45, %269 ], [ %42, %266 ], [ %39, %263 ], [ %36, %252 ], [ %33, %235 ], [ %30, %232 ], [ %27, %229 ], [ %24, %226 ], [ %21, %223 ], [ %18, %220 ], [ %15, %217 ], [ %12, %214 ], [ %9, %205 ], [ %6, %192 ]
-  %.sink677 = phi i64 [ 1, %446 ], [ 1, %443 ], [ 1, %440 ], [ 1, %437 ], [ 1, %434 ], [ 2, %430 ], [ 1, %427 ], [ 1, %424 ], [ 1, %421 ], [ 3, %416 ], [ 1, %413 ], [ 1, %410 ], [ 6, %402 ], [ 1, %399 ], [ 1, %396 ], [ 1, %393 ], [ 1, %390 ], [ 1, %387 ], [ 1, %384 ], [ 1, %381 ], [ 5, %374 ], [ 6, %366 ], [ 1, %363 ], [ 1, %360 ], [ 1, %357 ], [ 1, %354 ], [ 4, %348 ], [ 1, %345 ], [ 1, %342 ], [ 2, %338 ], [ 1, %335 ], [ 1, %332 ], [ 2, %328 ], [ 8, %318 ], [ 1, %315 ], [ 1, %312 ], [ 1, %309 ], [ 1, %306 ], [ 1, %303 ], [ 1, %300 ], [ 1, %297 ], [ 5, %290 ], [ 1, %287 ], [ 1, %284 ], [ 1, %281 ], [ 1, %278 ], [ 1, %275 ], [ 1, %272 ], [ 1, %269 ], [ 1, %266 ], [ 1, %263 ], [ 9, %252 ], [ 15, %235 ], [ 1, %232 ], [ 1, %229 ], [ 1, %226 ], [ 1, %223 ], [ 1, %220 ], [ 1, %217 ], [ 1, %214 ], [ 7, %205 ], [ 7, %192 ]
+  %.sink740 = phi ptr [ %189, %446 ], [ %186, %443 ], [ %183, %440 ], [ %180, %437 ], [ %177, %434 ], [ %174, %430 ], [ %171, %427 ], [ %168, %424 ], [ %165, %421 ], [ %162, %416 ], [ %159, %413 ], [ %156, %410 ], [ %153, %402 ], [ %150, %399 ], [ %147, %396 ], [ %144, %393 ], [ %141, %390 ], [ %138, %387 ], [ %135, %384 ], [ %132, %381 ], [ %129, %374 ], [ %126, %366 ], [ %123, %363 ], [ %120, %360 ], [ %117, %357 ], [ %114, %354 ], [ %111, %348 ], [ %108, %345 ], [ %105, %342 ], [ %102, %338 ], [ %99, %335 ], [ %96, %332 ], [ %93, %328 ], [ %90, %318 ], [ %87, %315 ], [ %84, %312 ], [ %81, %309 ], [ %78, %306 ], [ %75, %303 ], [ %72, %300 ], [ %69, %297 ], [ %66, %290 ], [ %63, %287 ], [ %60, %284 ], [ %57, %281 ], [ %54, %278 ], [ %51, %275 ], [ %48, %272 ], [ %45, %269 ], [ %42, %266 ], [ %39, %263 ], [ %36, %252 ], [ %33, %235 ], [ %30, %232 ], [ %27, %229 ], [ %24, %226 ], [ %21, %223 ], [ %18, %220 ], [ %15, %217 ], [ %12, %214 ], [ %9, %205 ], [ %6, %192 ]
+  %.sink738 = phi i64 [ 1, %446 ], [ 1, %443 ], [ 1, %440 ], [ 1, %437 ], [ 1, %434 ], [ 2, %430 ], [ 1, %427 ], [ 1, %424 ], [ 1, %421 ], [ 3, %416 ], [ 1, %413 ], [ 1, %410 ], [ 6, %402 ], [ 1, %399 ], [ 1, %396 ], [ 1, %393 ], [ 1, %390 ], [ 1, %387 ], [ 1, %384 ], [ 1, %381 ], [ 5, %374 ], [ 6, %366 ], [ 1, %363 ], [ 1, %360 ], [ 1, %357 ], [ 1, %354 ], [ 4, %348 ], [ 1, %345 ], [ 1, %342 ], [ 2, %338 ], [ 1, %335 ], [ 1, %332 ], [ 2, %328 ], [ 8, %318 ], [ 1, %315 ], [ 1, %312 ], [ 1, %309 ], [ 1, %306 ], [ 1, %303 ], [ 1, %300 ], [ 1, %297 ], [ 5, %290 ], [ 1, %287 ], [ 1, %284 ], [ 1, %281 ], [ 1, %278 ], [ 1, %275 ], [ 1, %272 ], [ 1, %269 ], [ 1, %266 ], [ 1, %263 ], [ 9, %252 ], [ 15, %235 ], [ 1, %232 ], [ 1, %229 ], [ 1, %226 ], [ 1, %223 ], [ 1, %220 ], [ 1, %217 ], [ 1, %214 ], [ 7, %205 ], [ 7, %192 ]
   %.sink = phi ptr [ %447, %446 ], [ %444, %443 ], [ %441, %440 ], [ %438, %437 ], [ %435, %434 ], [ %432, %430 ], [ %428, %427 ], [ %425, %424 ], [ %422, %421 ], [ %419, %416 ], [ %414, %413 ], [ %411, %410 ], [ %408, %402 ], [ %400, %399 ], [ %397, %396 ], [ %394, %393 ], [ %391, %390 ], [ %388, %387 ], [ %385, %384 ], [ %382, %381 ], [ %379, %374 ], [ %372, %366 ], [ %364, %363 ], [ %361, %360 ], [ %358, %357 ], [ %355, %354 ], [ %352, %348 ], [ %346, %345 ], [ %343, %342 ], [ %340, %338 ], [ %336, %335 ], [ %333, %332 ], [ %330, %328 ], [ %326, %318 ], [ %316, %315 ], [ %313, %312 ], [ %310, %309 ], [ %307, %306 ], [ %304, %303 ], [ %301, %300 ], [ %298, %297 ], [ %295, %290 ], [ %288, %287 ], [ %285, %284 ], [ %282, %281 ], [ %279, %278 ], [ %276, %275 ], [ %273, %272 ], [ %270, %269 ], [ %267, %266 ], [ %264, %263 ], [ %261, %252 ], [ %250, %235 ], [ %233, %232 ], [ %230, %229 ], [ %227, %226 ], [ %224, %223 ], [ %221, %220 ], [ %218, %217 ], [ %215, %214 ], [ %212, %205 ], [ %199, %192 ]
-  store ptr %.sink679, ptr %0, align 8, !noalias !3
+  store ptr %.sink740, ptr %0, align 8, !noalias !3
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink677, ptr %201, align 8, !noalias !3
+  store i64 %.sink738, ptr %201, align 8, !noalias !3
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink679, ptr %202, align 8, !noalias !3
+  store ptr %.sink740, ptr %202, align 8, !noalias !3
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %203, align 8, !noalias !3
   ret void
@@ -37002,7 +37002,7 @@ default.unreachable673:                           ; preds = %2
 define void @_ZN11ruff_linter5codes11PygrepHooks5rules17h06080df883a51b99E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !60, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable68 [
+  switch i8 %3, label %default.unreachable74 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -37012,7 +37012,7 @@ define void @_ZN11ruff_linter5codes11PygrepHooks5rules17h06080df883a51b99E(ptr d
     i8 6, label %23
   ]
 
-default.unreachable68:                            ; preds = %2
+default.unreachable74:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -37068,14 +37068,14 @@ default.unreachable68:                            ; preds = %2
   br label %33
 
 33:                                               ; preds = %57, %54, %51, %48, %45, %38, %27
-  %.sink74 = phi ptr [ %24, %57 ], [ %21, %54 ], [ %18, %51 ], [ %15, %48 ], [ %12, %45 ], [ %9, %38 ], [ %6, %27 ]
-  %.sink72 = phi i64 [ 1, %57 ], [ 1, %54 ], [ 1, %51 ], [ 1, %48 ], [ 1, %45 ], [ 5, %38 ], [ 5, %27 ]
+  %.sink80 = phi ptr [ %24, %57 ], [ %21, %54 ], [ %18, %51 ], [ %15, %48 ], [ %12, %45 ], [ %9, %38 ], [ %6, %27 ]
+  %.sink78 = phi i64 [ 1, %57 ], [ 1, %54 ], [ 1, %51 ], [ 1, %48 ], [ 1, %45 ], [ 5, %38 ], [ 5, %27 ]
   %.sink = phi ptr [ %58, %57 ], [ %55, %54 ], [ %52, %51 ], [ %49, %48 ], [ %46, %45 ], [ %43, %38 ], [ %32, %27 ]
-  store ptr %.sink74, ptr %0, align 8, !noalias !3
+  store ptr %.sink80, ptr %0, align 8, !noalias !3
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink72, ptr %34, align 8, !noalias !3
+  store i64 %.sink78, ptr %34, align 8, !noalias !3
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink74, ptr %35, align 8, !noalias !3
+  store ptr %.sink80, ptr %35, align 8, !noalias !3
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %36, align 8, !noalias !3
   ret void
@@ -37147,7 +37147,7 @@ default.unreachable68:                            ; preds = %2
 define void @_ZN11ruff_linter5codes6Pylint5rules17heab695bdf2c685d2E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !141, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable2609 [
+  switch i8 %3, label %default.unreachable2846 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -37388,7 +37388,7 @@ define void @_ZN11ruff_linter5codes6Pylint5rules17heab695bdf2c685d2E(ptr dead_on
     i8 -19, label %716
   ]
 
-default.unreachable2609:                          ; preds = %2
+default.unreachable2846:                          ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -38619,14 +38619,14 @@ default.unreachable2609:                          ; preds = %2
   br label %736
 
 736:                                              ; preds = %1757, %1754, %1751, %1748, %1745, %1742, %1738, %1735, %1732, %1729, %1726, %1723, %1720, %1716, %1713, %1710, %1707, %1704, %1701, %1697, %1694, %1691, %1688, %1685, %1679, %1671, %1662, %1659, %1656, %1653, %1650, %1647, %1644, %1641, %1638, %1633, %1627, %1624, %1621, %1618, %1615, %1612, %1608, %1605, %1602, %1597, %1594, %1591, %1588, %1585, %1581, %1578, %1575, %1572, %1569, %1563, %1560, %1557, %1547, %1528, %1498, %1495, %1492, %1489, %1486, %1483, %1480, %1477, %1474, %1471, %1466, %1463, %1460, %1457, %1454, %1451, %1448, %1445, %1442, %1438, %1434, %1431, %1428, %1425, %1420, %1417, %1414, %1411, %1408, %1405, %1400, %1397, %1394, %1391, %1388, %1382, %1369, %1356, %1353, %1350, %1347, %1344, %1341, %1338, %1335, %1326, %1323, %1320, %1310, %1307, %1304, %1301, %1298, %1295, %1292, %1287, %1282, %1279, %1276, %1273, %1270, %1266, %1250, %1217, %1214, %1211, %1208, %1205, %1202, %1199, %1196, %1193, %1190, %1183, %1180, %1177, %1169, %1161, %1158, %1155, %1152, %1149, %1146, %1143, %1140, %1137, %1134, %1129, %1126, %1123, %1120, %1117, %1113, %1108, %1105, %1102, %1098, %1094, %1091, %1088, %1084, %1081, %1078, %1073, %1059, %1056, %1053, %1050, %1047, %1044, %1041, %1038, %1034, %1029, %1026, %1023, %1020, %1017, %1014, %1011, %1008, %999, %990, %987, %984, %981, %978, %974, %971, %968, %965, %962, %956, %953, %950, %946, %938, %917, %877, %874, %871, %868, %865, %862, %859, %856, %853, %850, %847, %844, %841, %837, %833, %827, %824, %821, %818, %815, %812, %809, %805, %802, %799, %795, %791, %788, %785, %782, %777, %772, %769, %766, %762, %759, %756, %751, %741, %720
-  %.sink2615 = phi ptr [ %717, %1757 ], [ %714, %1754 ], [ %711, %1751 ], [ %708, %1748 ], [ %705, %1745 ], [ %702, %1742 ], [ %699, %1738 ], [ %696, %1735 ], [ %693, %1732 ], [ %690, %1729 ], [ %687, %1726 ], [ %684, %1723 ], [ %681, %1720 ], [ %678, %1716 ], [ %675, %1713 ], [ %672, %1710 ], [ %669, %1707 ], [ %666, %1704 ], [ %663, %1701 ], [ %660, %1697 ], [ %657, %1694 ], [ %654, %1691 ], [ %651, %1688 ], [ %648, %1685 ], [ %645, %1679 ], [ %642, %1671 ], [ %639, %1662 ], [ %636, %1659 ], [ %633, %1656 ], [ %630, %1653 ], [ %627, %1650 ], [ %624, %1647 ], [ %621, %1644 ], [ %618, %1641 ], [ %615, %1638 ], [ %612, %1633 ], [ %609, %1627 ], [ %606, %1624 ], [ %603, %1621 ], [ %600, %1618 ], [ %597, %1615 ], [ %594, %1612 ], [ %591, %1608 ], [ %588, %1605 ], [ %585, %1602 ], [ %582, %1597 ], [ %579, %1594 ], [ %576, %1591 ], [ %573, %1588 ], [ %570, %1585 ], [ %567, %1581 ], [ %564, %1578 ], [ %561, %1575 ], [ %558, %1572 ], [ %555, %1569 ], [ %552, %1563 ], [ %549, %1560 ], [ %546, %1557 ], [ %543, %1547 ], [ %540, %1528 ], [ %537, %1498 ], [ %534, %1495 ], [ %531, %1492 ], [ %528, %1489 ], [ %525, %1486 ], [ %522, %1483 ], [ %519, %1480 ], [ %516, %1477 ], [ %513, %1474 ], [ %510, %1471 ], [ %507, %1466 ], [ %504, %1463 ], [ %501, %1460 ], [ %498, %1457 ], [ %495, %1454 ], [ %492, %1451 ], [ %489, %1448 ], [ %486, %1445 ], [ %483, %1442 ], [ %480, %1438 ], [ %477, %1434 ], [ %474, %1431 ], [ %471, %1428 ], [ %468, %1425 ], [ %465, %1420 ], [ %462, %1417 ], [ %459, %1414 ], [ %456, %1411 ], [ %453, %1408 ], [ %450, %1405 ], [ %447, %1400 ], [ %444, %1397 ], [ %441, %1394 ], [ %438, %1391 ], [ %435, %1388 ], [ %432, %1382 ], [ %429, %1369 ], [ %426, %1356 ], [ %423, %1353 ], [ %420, %1350 ], [ %417, %1347 ], [ %414, %1344 ], [ %411, %1341 ], [ %408, %1338 ], [ %405, %1335 ], [ %402, %1326 ], [ %399, %1323 ], [ %396, %1320 ], [ %393, %1310 ], [ %390, %1307 ], [ %387, %1304 ], [ %384, %1301 ], [ %381, %1298 ], [ %378, %1295 ], [ %375, %1292 ], [ %372, %1287 ], [ %369, %1282 ], [ %366, %1279 ], [ %363, %1276 ], [ %360, %1273 ], [ %357, %1270 ], [ %354, %1266 ], [ %351, %1250 ], [ %348, %1217 ], [ %345, %1214 ], [ %342, %1211 ], [ %339, %1208 ], [ %336, %1205 ], [ %333, %1202 ], [ %330, %1199 ], [ %327, %1196 ], [ %324, %1193 ], [ %321, %1190 ], [ %318, %1183 ], [ %315, %1180 ], [ %312, %1177 ], [ %309, %1169 ], [ %306, %1161 ], [ %303, %1158 ], [ %300, %1155 ], [ %297, %1152 ], [ %294, %1149 ], [ %291, %1146 ], [ %288, %1143 ], [ %285, %1140 ], [ %282, %1137 ], [ %279, %1134 ], [ %276, %1129 ], [ %273, %1126 ], [ %270, %1123 ], [ %267, %1120 ], [ %264, %1117 ], [ %261, %1113 ], [ %258, %1108 ], [ %255, %1105 ], [ %252, %1102 ], [ %249, %1098 ], [ %246, %1094 ], [ %243, %1091 ], [ %240, %1088 ], [ %237, %1084 ], [ %234, %1081 ], [ %231, %1078 ], [ %228, %1073 ], [ %225, %1059 ], [ %222, %1056 ], [ %219, %1053 ], [ %216, %1050 ], [ %213, %1047 ], [ %210, %1044 ], [ %207, %1041 ], [ %204, %1038 ], [ %201, %1034 ], [ %198, %1029 ], [ %195, %1026 ], [ %192, %1023 ], [ %189, %1020 ], [ %186, %1017 ], [ %183, %1014 ], [ %180, %1011 ], [ %177, %1008 ], [ %174, %999 ], [ %171, %990 ], [ %168, %987 ], [ %165, %984 ], [ %162, %981 ], [ %159, %978 ], [ %156, %974 ], [ %153, %971 ], [ %150, %968 ], [ %147, %965 ], [ %144, %962 ], [ %141, %956 ], [ %138, %953 ], [ %135, %950 ], [ %132, %946 ], [ %129, %938 ], [ %126, %917 ], [ %123, %877 ], [ %120, %874 ], [ %117, %871 ], [ %114, %868 ], [ %111, %865 ], [ %108, %862 ], [ %105, %859 ], [ %102, %856 ], [ %99, %853 ], [ %96, %850 ], [ %93, %847 ], [ %90, %844 ], [ %87, %841 ], [ %84, %837 ], [ %81, %833 ], [ %78, %827 ], [ %75, %824 ], [ %72, %821 ], [ %69, %818 ], [ %66, %815 ], [ %63, %812 ], [ %60, %809 ], [ %57, %805 ], [ %54, %802 ], [ %51, %799 ], [ %48, %795 ], [ %45, %791 ], [ %42, %788 ], [ %39, %785 ], [ %36, %782 ], [ %33, %777 ], [ %30, %772 ], [ %27, %769 ], [ %24, %766 ], [ %21, %762 ], [ %18, %759 ], [ %15, %756 ], [ %12, %751 ], [ %9, %741 ], [ %6, %720 ]
-  %.sink2613 = phi i64 [ 1, %1757 ], [ 1, %1754 ], [ 1, %1751 ], [ 1, %1748 ], [ 1, %1745 ], [ 1, %1742 ], [ 2, %1738 ], [ 1, %1735 ], [ 1, %1732 ], [ 1, %1729 ], [ 1, %1726 ], [ 1, %1723 ], [ 1, %1720 ], [ 2, %1716 ], [ 1, %1713 ], [ 1, %1710 ], [ 1, %1707 ], [ 1, %1704 ], [ 1, %1701 ], [ 2, %1697 ], [ 1, %1694 ], [ 1, %1691 ], [ 1, %1688 ], [ 1, %1685 ], [ 4, %1679 ], [ 6, %1671 ], [ 7, %1662 ], [ 1, %1659 ], [ 1, %1656 ], [ 1, %1653 ], [ 1, %1650 ], [ 1, %1647 ], [ 1, %1644 ], [ 1, %1641 ], [ 1, %1638 ], [ 3, %1633 ], [ 4, %1627 ], [ 1, %1624 ], [ 1, %1621 ], [ 1, %1618 ], [ 1, %1615 ], [ 1, %1612 ], [ 2, %1608 ], [ 1, %1605 ], [ 1, %1602 ], [ 3, %1597 ], [ 1, %1594 ], [ 1, %1591 ], [ 1, %1588 ], [ 1, %1585 ], [ 2, %1581 ], [ 1, %1578 ], [ 1, %1575 ], [ 1, %1572 ], [ 1, %1569 ], [ 4, %1563 ], [ 1, %1560 ], [ 1, %1557 ], [ 8, %1547 ], [ 17, %1528 ], [ 28, %1498 ], [ 1, %1495 ], [ 1, %1492 ], [ 1, %1489 ], [ 1, %1486 ], [ 1, %1483 ], [ 1, %1480 ], [ 1, %1477 ], [ 1, %1474 ], [ 1, %1471 ], [ 3, %1466 ], [ 1, %1463 ], [ 1, %1460 ], [ 1, %1457 ], [ 1, %1454 ], [ 1, %1451 ], [ 1, %1448 ], [ 1, %1445 ], [ 1, %1442 ], [ 2, %1438 ], [ 2, %1434 ], [ 1, %1431 ], [ 1, %1428 ], [ 1, %1425 ], [ 3, %1420 ], [ 1, %1417 ], [ 1, %1414 ], [ 1, %1411 ], [ 1, %1408 ], [ 1, %1405 ], [ 3, %1400 ], [ 1, %1397 ], [ 1, %1394 ], [ 1, %1391 ], [ 1, %1388 ], [ 4, %1382 ], [ 11, %1369 ], [ 11, %1356 ], [ 1, %1353 ], [ 1, %1350 ], [ 1, %1347 ], [ 1, %1344 ], [ 1, %1341 ], [ 1, %1338 ], [ 1, %1335 ], [ 7, %1326 ], [ 1, %1323 ], [ 1, %1320 ], [ 8, %1310 ], [ 1, %1307 ], [ 1, %1304 ], [ 1, %1301 ], [ 1, %1298 ], [ 1, %1295 ], [ 1, %1292 ], [ 3, %1287 ], [ 3, %1282 ], [ 1, %1279 ], [ 1, %1276 ], [ 1, %1273 ], [ 1, %1270 ], [ 2, %1266 ], [ 14, %1250 ], [ 31, %1217 ], [ 1, %1214 ], [ 1, %1211 ], [ 1, %1208 ], [ 1, %1205 ], [ 1, %1202 ], [ 1, %1199 ], [ 1, %1196 ], [ 1, %1193 ], [ 1, %1190 ], [ 5, %1183 ], [ 1, %1180 ], [ 1, %1177 ], [ 6, %1169 ], [ 6, %1161 ], [ 1, %1158 ], [ 1, %1155 ], [ 1, %1152 ], [ 1, %1149 ], [ 1, %1146 ], [ 1, %1143 ], [ 1, %1140 ], [ 1, %1137 ], [ 1, %1134 ], [ 3, %1129 ], [ 1, %1126 ], [ 1, %1123 ], [ 1, %1120 ], [ 1, %1117 ], [ 2, %1113 ], [ 3, %1108 ], [ 1, %1105 ], [ 1, %1102 ], [ 2, %1098 ], [ 2, %1094 ], [ 1, %1091 ], [ 1, %1088 ], [ 2, %1084 ], [ 1, %1081 ], [ 1, %1078 ], [ 3, %1073 ], [ 12, %1059 ], [ 1, %1056 ], [ 1, %1053 ], [ 1, %1050 ], [ 1, %1047 ], [ 1, %1044 ], [ 1, %1041 ], [ 1, %1038 ], [ 2, %1034 ], [ 3, %1029 ], [ 1, %1026 ], [ 1, %1023 ], [ 1, %1020 ], [ 1, %1017 ], [ 1, %1014 ], [ 1, %1011 ], [ 1, %1008 ], [ 7, %999 ], [ 7, %990 ], [ 1, %987 ], [ 1, %984 ], [ 1, %981 ], [ 1, %978 ], [ 2, %974 ], [ 1, %971 ], [ 1, %968 ], [ 1, %965 ], [ 1, %962 ], [ 4, %956 ], [ 1, %953 ], [ 1, %950 ], [ 2, %946 ], [ 6, %938 ], [ 19, %917 ], [ 38, %877 ], [ 1, %874 ], [ 1, %871 ], [ 1, %868 ], [ 1, %865 ], [ 1, %862 ], [ 1, %859 ], [ 1, %856 ], [ 1, %853 ], [ 1, %850 ], [ 1, %847 ], [ 1, %844 ], [ 1, %841 ], [ 2, %837 ], [ 2, %833 ], [ 4, %827 ], [ 1, %824 ], [ 1, %821 ], [ 1, %818 ], [ 1, %815 ], [ 1, %812 ], [ 1, %809 ], [ 2, %805 ], [ 1, %802 ], [ 1, %799 ], [ 2, %795 ], [ 2, %791 ], [ 1, %788 ], [ 1, %785 ], [ 1, %782 ], [ 3, %777 ], [ 3, %772 ], [ 1, %769 ], [ 1, %766 ], [ 2, %762 ], [ 1, %759 ], [ 1, %756 ], [ 3, %751 ], [ 8, %741 ], [ 15, %720 ]
+  %.sink2852 = phi ptr [ %717, %1757 ], [ %714, %1754 ], [ %711, %1751 ], [ %708, %1748 ], [ %705, %1745 ], [ %702, %1742 ], [ %699, %1738 ], [ %696, %1735 ], [ %693, %1732 ], [ %690, %1729 ], [ %687, %1726 ], [ %684, %1723 ], [ %681, %1720 ], [ %678, %1716 ], [ %675, %1713 ], [ %672, %1710 ], [ %669, %1707 ], [ %666, %1704 ], [ %663, %1701 ], [ %660, %1697 ], [ %657, %1694 ], [ %654, %1691 ], [ %651, %1688 ], [ %648, %1685 ], [ %645, %1679 ], [ %642, %1671 ], [ %639, %1662 ], [ %636, %1659 ], [ %633, %1656 ], [ %630, %1653 ], [ %627, %1650 ], [ %624, %1647 ], [ %621, %1644 ], [ %618, %1641 ], [ %615, %1638 ], [ %612, %1633 ], [ %609, %1627 ], [ %606, %1624 ], [ %603, %1621 ], [ %600, %1618 ], [ %597, %1615 ], [ %594, %1612 ], [ %591, %1608 ], [ %588, %1605 ], [ %585, %1602 ], [ %582, %1597 ], [ %579, %1594 ], [ %576, %1591 ], [ %573, %1588 ], [ %570, %1585 ], [ %567, %1581 ], [ %564, %1578 ], [ %561, %1575 ], [ %558, %1572 ], [ %555, %1569 ], [ %552, %1563 ], [ %549, %1560 ], [ %546, %1557 ], [ %543, %1547 ], [ %540, %1528 ], [ %537, %1498 ], [ %534, %1495 ], [ %531, %1492 ], [ %528, %1489 ], [ %525, %1486 ], [ %522, %1483 ], [ %519, %1480 ], [ %516, %1477 ], [ %513, %1474 ], [ %510, %1471 ], [ %507, %1466 ], [ %504, %1463 ], [ %501, %1460 ], [ %498, %1457 ], [ %495, %1454 ], [ %492, %1451 ], [ %489, %1448 ], [ %486, %1445 ], [ %483, %1442 ], [ %480, %1438 ], [ %477, %1434 ], [ %474, %1431 ], [ %471, %1428 ], [ %468, %1425 ], [ %465, %1420 ], [ %462, %1417 ], [ %459, %1414 ], [ %456, %1411 ], [ %453, %1408 ], [ %450, %1405 ], [ %447, %1400 ], [ %444, %1397 ], [ %441, %1394 ], [ %438, %1391 ], [ %435, %1388 ], [ %432, %1382 ], [ %429, %1369 ], [ %426, %1356 ], [ %423, %1353 ], [ %420, %1350 ], [ %417, %1347 ], [ %414, %1344 ], [ %411, %1341 ], [ %408, %1338 ], [ %405, %1335 ], [ %402, %1326 ], [ %399, %1323 ], [ %396, %1320 ], [ %393, %1310 ], [ %390, %1307 ], [ %387, %1304 ], [ %384, %1301 ], [ %381, %1298 ], [ %378, %1295 ], [ %375, %1292 ], [ %372, %1287 ], [ %369, %1282 ], [ %366, %1279 ], [ %363, %1276 ], [ %360, %1273 ], [ %357, %1270 ], [ %354, %1266 ], [ %351, %1250 ], [ %348, %1217 ], [ %345, %1214 ], [ %342, %1211 ], [ %339, %1208 ], [ %336, %1205 ], [ %333, %1202 ], [ %330, %1199 ], [ %327, %1196 ], [ %324, %1193 ], [ %321, %1190 ], [ %318, %1183 ], [ %315, %1180 ], [ %312, %1177 ], [ %309, %1169 ], [ %306, %1161 ], [ %303, %1158 ], [ %300, %1155 ], [ %297, %1152 ], [ %294, %1149 ], [ %291, %1146 ], [ %288, %1143 ], [ %285, %1140 ], [ %282, %1137 ], [ %279, %1134 ], [ %276, %1129 ], [ %273, %1126 ], [ %270, %1123 ], [ %267, %1120 ], [ %264, %1117 ], [ %261, %1113 ], [ %258, %1108 ], [ %255, %1105 ], [ %252, %1102 ], [ %249, %1098 ], [ %246, %1094 ], [ %243, %1091 ], [ %240, %1088 ], [ %237, %1084 ], [ %234, %1081 ], [ %231, %1078 ], [ %228, %1073 ], [ %225, %1059 ], [ %222, %1056 ], [ %219, %1053 ], [ %216, %1050 ], [ %213, %1047 ], [ %210, %1044 ], [ %207, %1041 ], [ %204, %1038 ], [ %201, %1034 ], [ %198, %1029 ], [ %195, %1026 ], [ %192, %1023 ], [ %189, %1020 ], [ %186, %1017 ], [ %183, %1014 ], [ %180, %1011 ], [ %177, %1008 ], [ %174, %999 ], [ %171, %990 ], [ %168, %987 ], [ %165, %984 ], [ %162, %981 ], [ %159, %978 ], [ %156, %974 ], [ %153, %971 ], [ %150, %968 ], [ %147, %965 ], [ %144, %962 ], [ %141, %956 ], [ %138, %953 ], [ %135, %950 ], [ %132, %946 ], [ %129, %938 ], [ %126, %917 ], [ %123, %877 ], [ %120, %874 ], [ %117, %871 ], [ %114, %868 ], [ %111, %865 ], [ %108, %862 ], [ %105, %859 ], [ %102, %856 ], [ %99, %853 ], [ %96, %850 ], [ %93, %847 ], [ %90, %844 ], [ %87, %841 ], [ %84, %837 ], [ %81, %833 ], [ %78, %827 ], [ %75, %824 ], [ %72, %821 ], [ %69, %818 ], [ %66, %815 ], [ %63, %812 ], [ %60, %809 ], [ %57, %805 ], [ %54, %802 ], [ %51, %799 ], [ %48, %795 ], [ %45, %791 ], [ %42, %788 ], [ %39, %785 ], [ %36, %782 ], [ %33, %777 ], [ %30, %772 ], [ %27, %769 ], [ %24, %766 ], [ %21, %762 ], [ %18, %759 ], [ %15, %756 ], [ %12, %751 ], [ %9, %741 ], [ %6, %720 ]
+  %.sink2850 = phi i64 [ 1, %1757 ], [ 1, %1754 ], [ 1, %1751 ], [ 1, %1748 ], [ 1, %1745 ], [ 1, %1742 ], [ 2, %1738 ], [ 1, %1735 ], [ 1, %1732 ], [ 1, %1729 ], [ 1, %1726 ], [ 1, %1723 ], [ 1, %1720 ], [ 2, %1716 ], [ 1, %1713 ], [ 1, %1710 ], [ 1, %1707 ], [ 1, %1704 ], [ 1, %1701 ], [ 2, %1697 ], [ 1, %1694 ], [ 1, %1691 ], [ 1, %1688 ], [ 1, %1685 ], [ 4, %1679 ], [ 6, %1671 ], [ 7, %1662 ], [ 1, %1659 ], [ 1, %1656 ], [ 1, %1653 ], [ 1, %1650 ], [ 1, %1647 ], [ 1, %1644 ], [ 1, %1641 ], [ 1, %1638 ], [ 3, %1633 ], [ 4, %1627 ], [ 1, %1624 ], [ 1, %1621 ], [ 1, %1618 ], [ 1, %1615 ], [ 1, %1612 ], [ 2, %1608 ], [ 1, %1605 ], [ 1, %1602 ], [ 3, %1597 ], [ 1, %1594 ], [ 1, %1591 ], [ 1, %1588 ], [ 1, %1585 ], [ 2, %1581 ], [ 1, %1578 ], [ 1, %1575 ], [ 1, %1572 ], [ 1, %1569 ], [ 4, %1563 ], [ 1, %1560 ], [ 1, %1557 ], [ 8, %1547 ], [ 17, %1528 ], [ 28, %1498 ], [ 1, %1495 ], [ 1, %1492 ], [ 1, %1489 ], [ 1, %1486 ], [ 1, %1483 ], [ 1, %1480 ], [ 1, %1477 ], [ 1, %1474 ], [ 1, %1471 ], [ 3, %1466 ], [ 1, %1463 ], [ 1, %1460 ], [ 1, %1457 ], [ 1, %1454 ], [ 1, %1451 ], [ 1, %1448 ], [ 1, %1445 ], [ 1, %1442 ], [ 2, %1438 ], [ 2, %1434 ], [ 1, %1431 ], [ 1, %1428 ], [ 1, %1425 ], [ 3, %1420 ], [ 1, %1417 ], [ 1, %1414 ], [ 1, %1411 ], [ 1, %1408 ], [ 1, %1405 ], [ 3, %1400 ], [ 1, %1397 ], [ 1, %1394 ], [ 1, %1391 ], [ 1, %1388 ], [ 4, %1382 ], [ 11, %1369 ], [ 11, %1356 ], [ 1, %1353 ], [ 1, %1350 ], [ 1, %1347 ], [ 1, %1344 ], [ 1, %1341 ], [ 1, %1338 ], [ 1, %1335 ], [ 7, %1326 ], [ 1, %1323 ], [ 1, %1320 ], [ 8, %1310 ], [ 1, %1307 ], [ 1, %1304 ], [ 1, %1301 ], [ 1, %1298 ], [ 1, %1295 ], [ 1, %1292 ], [ 3, %1287 ], [ 3, %1282 ], [ 1, %1279 ], [ 1, %1276 ], [ 1, %1273 ], [ 1, %1270 ], [ 2, %1266 ], [ 14, %1250 ], [ 31, %1217 ], [ 1, %1214 ], [ 1, %1211 ], [ 1, %1208 ], [ 1, %1205 ], [ 1, %1202 ], [ 1, %1199 ], [ 1, %1196 ], [ 1, %1193 ], [ 1, %1190 ], [ 5, %1183 ], [ 1, %1180 ], [ 1, %1177 ], [ 6, %1169 ], [ 6, %1161 ], [ 1, %1158 ], [ 1, %1155 ], [ 1, %1152 ], [ 1, %1149 ], [ 1, %1146 ], [ 1, %1143 ], [ 1, %1140 ], [ 1, %1137 ], [ 1, %1134 ], [ 3, %1129 ], [ 1, %1126 ], [ 1, %1123 ], [ 1, %1120 ], [ 1, %1117 ], [ 2, %1113 ], [ 3, %1108 ], [ 1, %1105 ], [ 1, %1102 ], [ 2, %1098 ], [ 2, %1094 ], [ 1, %1091 ], [ 1, %1088 ], [ 2, %1084 ], [ 1, %1081 ], [ 1, %1078 ], [ 3, %1073 ], [ 12, %1059 ], [ 1, %1056 ], [ 1, %1053 ], [ 1, %1050 ], [ 1, %1047 ], [ 1, %1044 ], [ 1, %1041 ], [ 1, %1038 ], [ 2, %1034 ], [ 3, %1029 ], [ 1, %1026 ], [ 1, %1023 ], [ 1, %1020 ], [ 1, %1017 ], [ 1, %1014 ], [ 1, %1011 ], [ 1, %1008 ], [ 7, %999 ], [ 7, %990 ], [ 1, %987 ], [ 1, %984 ], [ 1, %981 ], [ 1, %978 ], [ 2, %974 ], [ 1, %971 ], [ 1, %968 ], [ 1, %965 ], [ 1, %962 ], [ 4, %956 ], [ 1, %953 ], [ 1, %950 ], [ 2, %946 ], [ 6, %938 ], [ 19, %917 ], [ 38, %877 ], [ 1, %874 ], [ 1, %871 ], [ 1, %868 ], [ 1, %865 ], [ 1, %862 ], [ 1, %859 ], [ 1, %856 ], [ 1, %853 ], [ 1, %850 ], [ 1, %847 ], [ 1, %844 ], [ 1, %841 ], [ 2, %837 ], [ 2, %833 ], [ 4, %827 ], [ 1, %824 ], [ 1, %821 ], [ 1, %818 ], [ 1, %815 ], [ 1, %812 ], [ 1, %809 ], [ 2, %805 ], [ 1, %802 ], [ 1, %799 ], [ 2, %795 ], [ 2, %791 ], [ 1, %788 ], [ 1, %785 ], [ 1, %782 ], [ 3, %777 ], [ 3, %772 ], [ 1, %769 ], [ 1, %766 ], [ 2, %762 ], [ 1, %759 ], [ 1, %756 ], [ 3, %751 ], [ 8, %741 ], [ 15, %720 ]
   %.sink = phi ptr [ %1758, %1757 ], [ %1755, %1754 ], [ %1752, %1751 ], [ %1749, %1748 ], [ %1746, %1745 ], [ %1743, %1742 ], [ %1740, %1738 ], [ %1736, %1735 ], [ %1733, %1732 ], [ %1730, %1729 ], [ %1727, %1726 ], [ %1724, %1723 ], [ %1721, %1720 ], [ %1718, %1716 ], [ %1714, %1713 ], [ %1711, %1710 ], [ %1708, %1707 ], [ %1705, %1704 ], [ %1702, %1701 ], [ %1699, %1697 ], [ %1695, %1694 ], [ %1692, %1691 ], [ %1689, %1688 ], [ %1686, %1685 ], [ %1683, %1679 ], [ %1677, %1671 ], [ %1669, %1662 ], [ %1660, %1659 ], [ %1657, %1656 ], [ %1654, %1653 ], [ %1651, %1650 ], [ %1648, %1647 ], [ %1645, %1644 ], [ %1642, %1641 ], [ %1639, %1638 ], [ %1636, %1633 ], [ %1631, %1627 ], [ %1625, %1624 ], [ %1622, %1621 ], [ %1619, %1618 ], [ %1616, %1615 ], [ %1613, %1612 ], [ %1610, %1608 ], [ %1606, %1605 ], [ %1603, %1602 ], [ %1600, %1597 ], [ %1595, %1594 ], [ %1592, %1591 ], [ %1589, %1588 ], [ %1586, %1585 ], [ %1583, %1581 ], [ %1579, %1578 ], [ %1576, %1575 ], [ %1573, %1572 ], [ %1570, %1569 ], [ %1567, %1563 ], [ %1561, %1560 ], [ %1558, %1557 ], [ %1555, %1547 ], [ %1545, %1528 ], [ %1526, %1498 ], [ %1496, %1495 ], [ %1493, %1492 ], [ %1490, %1489 ], [ %1487, %1486 ], [ %1484, %1483 ], [ %1481, %1480 ], [ %1478, %1477 ], [ %1475, %1474 ], [ %1472, %1471 ], [ %1469, %1466 ], [ %1464, %1463 ], [ %1461, %1460 ], [ %1458, %1457 ], [ %1455, %1454 ], [ %1452, %1451 ], [ %1449, %1448 ], [ %1446, %1445 ], [ %1443, %1442 ], [ %1440, %1438 ], [ %1436, %1434 ], [ %1432, %1431 ], [ %1429, %1428 ], [ %1426, %1425 ], [ %1423, %1420 ], [ %1418, %1417 ], [ %1415, %1414 ], [ %1412, %1411 ], [ %1409, %1408 ], [ %1406, %1405 ], [ %1403, %1400 ], [ %1398, %1397 ], [ %1395, %1394 ], [ %1392, %1391 ], [ %1389, %1388 ], [ %1386, %1382 ], [ %1380, %1369 ], [ %1367, %1356 ], [ %1354, %1353 ], [ %1351, %1350 ], [ %1348, %1347 ], [ %1345, %1344 ], [ %1342, %1341 ], [ %1339, %1338 ], [ %1336, %1335 ], [ %1333, %1326 ], [ %1324, %1323 ], [ %1321, %1320 ], [ %1318, %1310 ], [ %1308, %1307 ], [ %1305, %1304 ], [ %1302, %1301 ], [ %1299, %1298 ], [ %1296, %1295 ], [ %1293, %1292 ], [ %1290, %1287 ], [ %1285, %1282 ], [ %1280, %1279 ], [ %1277, %1276 ], [ %1274, %1273 ], [ %1271, %1270 ], [ %1268, %1266 ], [ %1264, %1250 ], [ %1248, %1217 ], [ %1215, %1214 ], [ %1212, %1211 ], [ %1209, %1208 ], [ %1206, %1205 ], [ %1203, %1202 ], [ %1200, %1199 ], [ %1197, %1196 ], [ %1194, %1193 ], [ %1191, %1190 ], [ %1188, %1183 ], [ %1181, %1180 ], [ %1178, %1177 ], [ %1175, %1169 ], [ %1167, %1161 ], [ %1159, %1158 ], [ %1156, %1155 ], [ %1153, %1152 ], [ %1150, %1149 ], [ %1147, %1146 ], [ %1144, %1143 ], [ %1141, %1140 ], [ %1138, %1137 ], [ %1135, %1134 ], [ %1132, %1129 ], [ %1127, %1126 ], [ %1124, %1123 ], [ %1121, %1120 ], [ %1118, %1117 ], [ %1115, %1113 ], [ %1111, %1108 ], [ %1106, %1105 ], [ %1103, %1102 ], [ %1100, %1098 ], [ %1096, %1094 ], [ %1092, %1091 ], [ %1089, %1088 ], [ %1086, %1084 ], [ %1082, %1081 ], [ %1079, %1078 ], [ %1076, %1073 ], [ %1071, %1059 ], [ %1057, %1056 ], [ %1054, %1053 ], [ %1051, %1050 ], [ %1048, %1047 ], [ %1045, %1044 ], [ %1042, %1041 ], [ %1039, %1038 ], [ %1036, %1034 ], [ %1032, %1029 ], [ %1027, %1026 ], [ %1024, %1023 ], [ %1021, %1020 ], [ %1018, %1017 ], [ %1015, %1014 ], [ %1012, %1011 ], [ %1009, %1008 ], [ %1006, %999 ], [ %997, %990 ], [ %988, %987 ], [ %985, %984 ], [ %982, %981 ], [ %979, %978 ], [ %976, %974 ], [ %972, %971 ], [ %969, %968 ], [ %966, %965 ], [ %963, %962 ], [ %960, %956 ], [ %954, %953 ], [ %951, %950 ], [ %948, %946 ], [ %944, %938 ], [ %936, %917 ], [ %915, %877 ], [ %875, %874 ], [ %872, %871 ], [ %869, %868 ], [ %866, %865 ], [ %863, %862 ], [ %860, %859 ], [ %857, %856 ], [ %854, %853 ], [ %851, %850 ], [ %848, %847 ], [ %845, %844 ], [ %842, %841 ], [ %839, %837 ], [ %835, %833 ], [ %831, %827 ], [ %825, %824 ], [ %822, %821 ], [ %819, %818 ], [ %816, %815 ], [ %813, %812 ], [ %810, %809 ], [ %807, %805 ], [ %803, %802 ], [ %800, %799 ], [ %797, %795 ], [ %793, %791 ], [ %789, %788 ], [ %786, %785 ], [ %783, %782 ], [ %780, %777 ], [ %775, %772 ], [ %770, %769 ], [ %767, %766 ], [ %764, %762 ], [ %760, %759 ], [ %757, %756 ], [ %754, %751 ], [ %749, %741 ], [ %735, %720 ]
-  store ptr %.sink2615, ptr %0, align 8, !noalias !3
+  store ptr %.sink2852, ptr %0, align 8, !noalias !3
   %737 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink2613, ptr %737, align 8, !noalias !3
+  store i64 %.sink2850, ptr %737, align 8, !noalias !3
   %738 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink2615, ptr %738, align 8, !noalias !3
+  store ptr %.sink2852, ptr %738, align 8, !noalias !3
   %739 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %739, align 8, !noalias !3
   ret void
@@ -41385,7 +41385,7 @@ default.unreachable2609:                          ; preds = %2
 define void @_ZN11ruff_linter5codes9Pyupgrade5rules17hf16e7481b6b58b3aE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !142, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable563 [
+  switch i8 %3, label %default.unreachable614 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -41440,7 +41440,7 @@ define void @_ZN11ruff_linter5codes9Pyupgrade5rules17hf16e7481b6b58b3aE(ptr dead
     i8 51, label %158
   ]
 
-default.unreachable563:                           ; preds = %2
+default.unreachable614:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -41803,14 +41803,14 @@ default.unreachable563:                           ; preds = %2
   br label %209
 
 209:                                              ; preds = %405, %402, %399, %396, %393, %390, %387, %384, %381, %370, %367, %364, %361, %358, %355, %352, %349, %346, %343, %340, %328, %325, %322, %319, %316, %313, %310, %307, %304, %301, %298, %286, %283, %280, %277, %274, %271, %268, %265, %262, %259, %248, %245, %242, %239, %236, %233, %230, %227, %224, %214, %162
-  %.sink569 = phi ptr [ %159, %405 ], [ %156, %402 ], [ %153, %399 ], [ %150, %396 ], [ %147, %393 ], [ %144, %390 ], [ %141, %387 ], [ %138, %384 ], [ %135, %381 ], [ %132, %370 ], [ %129, %367 ], [ %126, %364 ], [ %123, %361 ], [ %120, %358 ], [ %117, %355 ], [ %114, %352 ], [ %111, %349 ], [ %108, %346 ], [ %105, %343 ], [ %102, %340 ], [ %99, %328 ], [ %96, %325 ], [ %93, %322 ], [ %90, %319 ], [ %87, %316 ], [ %84, %313 ], [ %81, %310 ], [ %78, %307 ], [ %75, %304 ], [ %72, %301 ], [ %69, %298 ], [ %66, %286 ], [ %63, %283 ], [ %60, %280 ], [ %57, %277 ], [ %54, %274 ], [ %51, %271 ], [ %48, %268 ], [ %45, %265 ], [ %42, %262 ], [ %39, %259 ], [ %36, %248 ], [ %33, %245 ], [ %30, %242 ], [ %27, %239 ], [ %24, %236 ], [ %21, %233 ], [ %18, %230 ], [ %15, %227 ], [ %12, %224 ], [ %9, %214 ], [ %6, %162 ]
-  %.sink567 = phi i64 [ 1, %405 ], [ 1, %402 ], [ 1, %399 ], [ 1, %396 ], [ 1, %393 ], [ 1, %390 ], [ 1, %387 ], [ 1, %384 ], [ 1, %381 ], [ 9, %370 ], [ 1, %367 ], [ 1, %364 ], [ 1, %361 ], [ 1, %358 ], [ 1, %355 ], [ 1, %352 ], [ 1, %349 ], [ 1, %346 ], [ 1, %343 ], [ 1, %340 ], [ 10, %328 ], [ 1, %325 ], [ 1, %322 ], [ 1, %319 ], [ 1, %316 ], [ 1, %313 ], [ 1, %310 ], [ 1, %307 ], [ 1, %304 ], [ 1, %301 ], [ 1, %298 ], [ 10, %286 ], [ 1, %283 ], [ 1, %280 ], [ 1, %277 ], [ 1, %274 ], [ 1, %271 ], [ 1, %268 ], [ 1, %265 ], [ 1, %262 ], [ 1, %259 ], [ 9, %248 ], [ 1, %245 ], [ 1, %242 ], [ 1, %239 ], [ 1, %236 ], [ 1, %233 ], [ 1, %230 ], [ 1, %227 ], [ 1, %224 ], [ 8, %214 ], [ 46, %162 ]
+  %.sink620 = phi ptr [ %159, %405 ], [ %156, %402 ], [ %153, %399 ], [ %150, %396 ], [ %147, %393 ], [ %144, %390 ], [ %141, %387 ], [ %138, %384 ], [ %135, %381 ], [ %132, %370 ], [ %129, %367 ], [ %126, %364 ], [ %123, %361 ], [ %120, %358 ], [ %117, %355 ], [ %114, %352 ], [ %111, %349 ], [ %108, %346 ], [ %105, %343 ], [ %102, %340 ], [ %99, %328 ], [ %96, %325 ], [ %93, %322 ], [ %90, %319 ], [ %87, %316 ], [ %84, %313 ], [ %81, %310 ], [ %78, %307 ], [ %75, %304 ], [ %72, %301 ], [ %69, %298 ], [ %66, %286 ], [ %63, %283 ], [ %60, %280 ], [ %57, %277 ], [ %54, %274 ], [ %51, %271 ], [ %48, %268 ], [ %45, %265 ], [ %42, %262 ], [ %39, %259 ], [ %36, %248 ], [ %33, %245 ], [ %30, %242 ], [ %27, %239 ], [ %24, %236 ], [ %21, %233 ], [ %18, %230 ], [ %15, %227 ], [ %12, %224 ], [ %9, %214 ], [ %6, %162 ]
+  %.sink618 = phi i64 [ 1, %405 ], [ 1, %402 ], [ 1, %399 ], [ 1, %396 ], [ 1, %393 ], [ 1, %390 ], [ 1, %387 ], [ 1, %384 ], [ 1, %381 ], [ 9, %370 ], [ 1, %367 ], [ 1, %364 ], [ 1, %361 ], [ 1, %358 ], [ 1, %355 ], [ 1, %352 ], [ 1, %349 ], [ 1, %346 ], [ 1, %343 ], [ 1, %340 ], [ 10, %328 ], [ 1, %325 ], [ 1, %322 ], [ 1, %319 ], [ 1, %316 ], [ 1, %313 ], [ 1, %310 ], [ 1, %307 ], [ 1, %304 ], [ 1, %301 ], [ 1, %298 ], [ 10, %286 ], [ 1, %283 ], [ 1, %280 ], [ 1, %277 ], [ 1, %274 ], [ 1, %271 ], [ 1, %268 ], [ 1, %265 ], [ 1, %262 ], [ 1, %259 ], [ 9, %248 ], [ 1, %245 ], [ 1, %242 ], [ 1, %239 ], [ 1, %236 ], [ 1, %233 ], [ 1, %230 ], [ 1, %227 ], [ 1, %224 ], [ 8, %214 ], [ 46, %162 ]
   %.sink = phi ptr [ %406, %405 ], [ %403, %402 ], [ %400, %399 ], [ %397, %396 ], [ %394, %393 ], [ %391, %390 ], [ %388, %387 ], [ %385, %384 ], [ %382, %381 ], [ %379, %370 ], [ %368, %367 ], [ %365, %364 ], [ %362, %361 ], [ %359, %358 ], [ %356, %355 ], [ %353, %352 ], [ %350, %349 ], [ %347, %346 ], [ %344, %343 ], [ %341, %340 ], [ %338, %328 ], [ %326, %325 ], [ %323, %322 ], [ %320, %319 ], [ %317, %316 ], [ %314, %313 ], [ %311, %310 ], [ %308, %307 ], [ %305, %304 ], [ %302, %301 ], [ %299, %298 ], [ %296, %286 ], [ %284, %283 ], [ %281, %280 ], [ %278, %277 ], [ %275, %274 ], [ %272, %271 ], [ %269, %268 ], [ %266, %265 ], [ %263, %262 ], [ %260, %259 ], [ %257, %248 ], [ %246, %245 ], [ %243, %242 ], [ %240, %239 ], [ %237, %236 ], [ %234, %233 ], [ %231, %230 ], [ %228, %227 ], [ %225, %224 ], [ %222, %214 ], [ %208, %162 ]
-  store ptr %.sink569, ptr %0, align 8, !noalias !3
+  store ptr %.sink620, ptr %0, align 8, !noalias !3
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink567, ptr %210, align 8, !noalias !3
+  store i64 %.sink618, ptr %210, align 8, !noalias !3
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink569, ptr %211, align 8, !noalias !3
+  store ptr %.sink620, ptr %211, align 8, !noalias !3
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %212, align 8, !noalias !3
   ret void
@@ -42361,7 +42361,7 @@ default.unreachable563:                           ; preds = %2
 define void @_ZN11ruff_linter5codes6Refurb5rules17h06c74cb5712d59aeE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !143, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable508 [
+  switch i8 %3, label %default.unreachable554 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -42411,7 +42411,7 @@ define void @_ZN11ruff_linter5codes6Refurb5rules17h06c74cb5712d59aeE(ptr dead_on
     i8 46, label %143
   ]
 
-default.unreachable508:                           ; preds = %2
+default.unreachable554:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -42729,14 +42729,14 @@ default.unreachable508:                           ; preds = %2
   br label %184
 
 184:                                              ; preds = %350, %347, %344, %341, %338, %335, %332, %325, %322, %319, %315, %312, %309, %306, %303, %300, %297, %294, %291, %281, %278, %275, %272, %269, %263, %260, %257, %254, %251, %245, %242, %239, %236, %231, %228, %225, %221, %218, %215, %212, %209, %203, %200, %197, %194, %189, %147
-  %.sink514 = phi ptr [ %144, %350 ], [ %141, %347 ], [ %138, %344 ], [ %135, %341 ], [ %132, %338 ], [ %129, %335 ], [ %126, %332 ], [ %123, %325 ], [ %120, %322 ], [ %117, %319 ], [ %114, %315 ], [ %111, %312 ], [ %108, %309 ], [ %105, %306 ], [ %102, %303 ], [ %99, %300 ], [ %96, %297 ], [ %93, %294 ], [ %90, %291 ], [ %87, %281 ], [ %84, %278 ], [ %81, %275 ], [ %78, %272 ], [ %75, %269 ], [ %72, %263 ], [ %69, %260 ], [ %66, %257 ], [ %63, %254 ], [ %60, %251 ], [ %57, %245 ], [ %54, %242 ], [ %51, %239 ], [ %48, %236 ], [ %45, %231 ], [ %42, %228 ], [ %39, %225 ], [ %36, %221 ], [ %33, %218 ], [ %30, %215 ], [ %27, %212 ], [ %24, %209 ], [ %21, %203 ], [ %18, %200 ], [ %15, %197 ], [ %12, %194 ], [ %9, %189 ], [ %6, %147 ]
-  %.sink512 = phi i64 [ 1, %350 ], [ 1, %347 ], [ 1, %344 ], [ 1, %341 ], [ 1, %338 ], [ 1, %335 ], [ 1, %332 ], [ 5, %325 ], [ 1, %322 ], [ 1, %319 ], [ 2, %315 ], [ 1, %312 ], [ 1, %309 ], [ 1, %306 ], [ 1, %303 ], [ 1, %300 ], [ 1, %297 ], [ 1, %294 ], [ 1, %291 ], [ 8, %281 ], [ 1, %278 ], [ 1, %275 ], [ 1, %272 ], [ 1, %269 ], [ 4, %263 ], [ 1, %260 ], [ 1, %257 ], [ 1, %254 ], [ 1, %251 ], [ 4, %245 ], [ 1, %242 ], [ 1, %239 ], [ 1, %236 ], [ 3, %231 ], [ 1, %228 ], [ 1, %225 ], [ 2, %221 ], [ 1, %218 ], [ 1, %215 ], [ 1, %212 ], [ 1, %209 ], [ 4, %203 ], [ 1, %200 ], [ 1, %197 ], [ 1, %194 ], [ 3, %189 ], [ 36, %147 ]
+  %.sink560 = phi ptr [ %144, %350 ], [ %141, %347 ], [ %138, %344 ], [ %135, %341 ], [ %132, %338 ], [ %129, %335 ], [ %126, %332 ], [ %123, %325 ], [ %120, %322 ], [ %117, %319 ], [ %114, %315 ], [ %111, %312 ], [ %108, %309 ], [ %105, %306 ], [ %102, %303 ], [ %99, %300 ], [ %96, %297 ], [ %93, %294 ], [ %90, %291 ], [ %87, %281 ], [ %84, %278 ], [ %81, %275 ], [ %78, %272 ], [ %75, %269 ], [ %72, %263 ], [ %69, %260 ], [ %66, %257 ], [ %63, %254 ], [ %60, %251 ], [ %57, %245 ], [ %54, %242 ], [ %51, %239 ], [ %48, %236 ], [ %45, %231 ], [ %42, %228 ], [ %39, %225 ], [ %36, %221 ], [ %33, %218 ], [ %30, %215 ], [ %27, %212 ], [ %24, %209 ], [ %21, %203 ], [ %18, %200 ], [ %15, %197 ], [ %12, %194 ], [ %9, %189 ], [ %6, %147 ]
+  %.sink558 = phi i64 [ 1, %350 ], [ 1, %347 ], [ 1, %344 ], [ 1, %341 ], [ 1, %338 ], [ 1, %335 ], [ 1, %332 ], [ 5, %325 ], [ 1, %322 ], [ 1, %319 ], [ 2, %315 ], [ 1, %312 ], [ 1, %309 ], [ 1, %306 ], [ 1, %303 ], [ 1, %300 ], [ 1, %297 ], [ 1, %294 ], [ 1, %291 ], [ 8, %281 ], [ 1, %278 ], [ 1, %275 ], [ 1, %272 ], [ 1, %269 ], [ 4, %263 ], [ 1, %260 ], [ 1, %257 ], [ 1, %254 ], [ 1, %251 ], [ 4, %245 ], [ 1, %242 ], [ 1, %239 ], [ 1, %236 ], [ 3, %231 ], [ 1, %228 ], [ 1, %225 ], [ 2, %221 ], [ 1, %218 ], [ 1, %215 ], [ 1, %212 ], [ 1, %209 ], [ 4, %203 ], [ 1, %200 ], [ 1, %197 ], [ 1, %194 ], [ 3, %189 ], [ 36, %147 ]
   %.sink = phi ptr [ %351, %350 ], [ %348, %347 ], [ %345, %344 ], [ %342, %341 ], [ %339, %338 ], [ %336, %335 ], [ %333, %332 ], [ %330, %325 ], [ %323, %322 ], [ %320, %319 ], [ %317, %315 ], [ %313, %312 ], [ %310, %309 ], [ %307, %306 ], [ %304, %303 ], [ %301, %300 ], [ %298, %297 ], [ %295, %294 ], [ %292, %291 ], [ %289, %281 ], [ %279, %278 ], [ %276, %275 ], [ %273, %272 ], [ %270, %269 ], [ %267, %263 ], [ %261, %260 ], [ %258, %257 ], [ %255, %254 ], [ %252, %251 ], [ %249, %245 ], [ %243, %242 ], [ %240, %239 ], [ %237, %236 ], [ %234, %231 ], [ %229, %228 ], [ %226, %225 ], [ %223, %221 ], [ %219, %218 ], [ %216, %215 ], [ %213, %212 ], [ %210, %209 ], [ %207, %203 ], [ %201, %200 ], [ %198, %197 ], [ %195, %194 ], [ %192, %189 ], [ %183, %147 ]
-  store ptr %.sink514, ptr %0, align 8, !noalias !3
+  store ptr %.sink560, ptr %0, align 8, !noalias !3
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink512, ptr %185, align 8, !noalias !3
+  store i64 %.sink558, ptr %185, align 8, !noalias !3
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink514, ptr %186, align 8, !noalias !3
+  store ptr %.sink560, ptr %186, align 8, !noalias !3
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %187, align 8, !noalias !3
   ret void
@@ -43212,7 +43212,7 @@ default.unreachable508:                           ; preds = %2
 define void @_ZN11ruff_linter5codes4Ruff5rules17hb3edd6824a4846ffE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !144, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable761 [
+  switch i8 %3, label %default.unreachable830 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -43285,7 +43285,7 @@ define void @_ZN11ruff_linter5codes4Ruff5rules17hb3edd6824a4846ffE(ptr dead_on_u
     i8 69, label %212
   ]
 
-default.unreachable761:                           ; preds = %2
+default.unreachable830:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -43754,14 +43754,14 @@ default.unreachable761:                           ; preds = %2
   br label %271
 
 271:                                              ; preds = %531, %528, %525, %522, %519, %516, %511, %506, %503, %500, %497, %494, %491, %488, %485, %482, %479, %476, %473, %462, %459, %456, %453, %450, %447, %444, %441, %438, %428, %425, %422, %419, %416, %413, %410, %407, %404, %401, %398, %386, %383, %380, %377, %374, %371, %368, %365, %362, %359, %348, %345, %342, %339, %336, %333, %330, %327, %324, %321, %310, %307, %304, %301, %298, %295, %292, %289, %286, %276, %216
-  %.sink767 = phi ptr [ %213, %531 ], [ %210, %528 ], [ %207, %525 ], [ %204, %522 ], [ %201, %519 ], [ %198, %516 ], [ %195, %511 ], [ %192, %506 ], [ %189, %503 ], [ %186, %500 ], [ %183, %497 ], [ %180, %494 ], [ %177, %491 ], [ %174, %488 ], [ %171, %485 ], [ %168, %482 ], [ %165, %479 ], [ %162, %476 ], [ %159, %473 ], [ %156, %462 ], [ %153, %459 ], [ %150, %456 ], [ %147, %453 ], [ %144, %450 ], [ %141, %447 ], [ %138, %444 ], [ %135, %441 ], [ %132, %438 ], [ %129, %428 ], [ %126, %425 ], [ %123, %422 ], [ %120, %419 ], [ %117, %416 ], [ %114, %413 ], [ %111, %410 ], [ %108, %407 ], [ %105, %404 ], [ %102, %401 ], [ %99, %398 ], [ %96, %386 ], [ %93, %383 ], [ %90, %380 ], [ %87, %377 ], [ %84, %374 ], [ %81, %371 ], [ %78, %368 ], [ %75, %365 ], [ %72, %362 ], [ %69, %359 ], [ %66, %348 ], [ %63, %345 ], [ %60, %342 ], [ %57, %339 ], [ %54, %336 ], [ %51, %333 ], [ %48, %330 ], [ %45, %327 ], [ %42, %324 ], [ %39, %321 ], [ %36, %310 ], [ %33, %307 ], [ %30, %304 ], [ %27, %301 ], [ %24, %298 ], [ %21, %295 ], [ %18, %292 ], [ %15, %289 ], [ %12, %286 ], [ %9, %276 ], [ %6, %216 ]
-  %.sink765 = phi i64 [ 1, %531 ], [ 1, %528 ], [ 1, %525 ], [ 1, %522 ], [ 1, %519 ], [ 1, %516 ], [ 3, %511 ], [ 3, %506 ], [ 1, %503 ], [ 1, %500 ], [ 1, %497 ], [ 1, %494 ], [ 1, %491 ], [ 1, %488 ], [ 1, %485 ], [ 1, %482 ], [ 1, %479 ], [ 1, %476 ], [ 1, %473 ], [ 9, %462 ], [ 1, %459 ], [ 1, %456 ], [ 1, %453 ], [ 1, %450 ], [ 1, %447 ], [ 1, %444 ], [ 1, %441 ], [ 1, %438 ], [ 8, %428 ], [ 1, %425 ], [ 1, %422 ], [ 1, %419 ], [ 1, %416 ], [ 1, %413 ], [ 1, %410 ], [ 1, %407 ], [ 1, %404 ], [ 1, %401 ], [ 1, %398 ], [ 10, %386 ], [ 1, %383 ], [ 1, %380 ], [ 1, %377 ], [ 1, %374 ], [ 1, %371 ], [ 1, %368 ], [ 1, %365 ], [ 1, %362 ], [ 1, %359 ], [ 9, %348 ], [ 1, %345 ], [ 1, %342 ], [ 1, %339 ], [ 1, %336 ], [ 1, %333 ], [ 1, %330 ], [ 1, %327 ], [ 1, %324 ], [ 1, %321 ], [ 9, %310 ], [ 1, %307 ], [ 1, %304 ], [ 1, %301 ], [ 1, %298 ], [ 1, %295 ], [ 1, %292 ], [ 1, %289 ], [ 1, %286 ], [ 8, %276 ], [ 54, %216 ]
+  %.sink836 = phi ptr [ %213, %531 ], [ %210, %528 ], [ %207, %525 ], [ %204, %522 ], [ %201, %519 ], [ %198, %516 ], [ %195, %511 ], [ %192, %506 ], [ %189, %503 ], [ %186, %500 ], [ %183, %497 ], [ %180, %494 ], [ %177, %491 ], [ %174, %488 ], [ %171, %485 ], [ %168, %482 ], [ %165, %479 ], [ %162, %476 ], [ %159, %473 ], [ %156, %462 ], [ %153, %459 ], [ %150, %456 ], [ %147, %453 ], [ %144, %450 ], [ %141, %447 ], [ %138, %444 ], [ %135, %441 ], [ %132, %438 ], [ %129, %428 ], [ %126, %425 ], [ %123, %422 ], [ %120, %419 ], [ %117, %416 ], [ %114, %413 ], [ %111, %410 ], [ %108, %407 ], [ %105, %404 ], [ %102, %401 ], [ %99, %398 ], [ %96, %386 ], [ %93, %383 ], [ %90, %380 ], [ %87, %377 ], [ %84, %374 ], [ %81, %371 ], [ %78, %368 ], [ %75, %365 ], [ %72, %362 ], [ %69, %359 ], [ %66, %348 ], [ %63, %345 ], [ %60, %342 ], [ %57, %339 ], [ %54, %336 ], [ %51, %333 ], [ %48, %330 ], [ %45, %327 ], [ %42, %324 ], [ %39, %321 ], [ %36, %310 ], [ %33, %307 ], [ %30, %304 ], [ %27, %301 ], [ %24, %298 ], [ %21, %295 ], [ %18, %292 ], [ %15, %289 ], [ %12, %286 ], [ %9, %276 ], [ %6, %216 ]
+  %.sink834 = phi i64 [ 1, %531 ], [ 1, %528 ], [ 1, %525 ], [ 1, %522 ], [ 1, %519 ], [ 1, %516 ], [ 3, %511 ], [ 3, %506 ], [ 1, %503 ], [ 1, %500 ], [ 1, %497 ], [ 1, %494 ], [ 1, %491 ], [ 1, %488 ], [ 1, %485 ], [ 1, %482 ], [ 1, %479 ], [ 1, %476 ], [ 1, %473 ], [ 9, %462 ], [ 1, %459 ], [ 1, %456 ], [ 1, %453 ], [ 1, %450 ], [ 1, %447 ], [ 1, %444 ], [ 1, %441 ], [ 1, %438 ], [ 8, %428 ], [ 1, %425 ], [ 1, %422 ], [ 1, %419 ], [ 1, %416 ], [ 1, %413 ], [ 1, %410 ], [ 1, %407 ], [ 1, %404 ], [ 1, %401 ], [ 1, %398 ], [ 10, %386 ], [ 1, %383 ], [ 1, %380 ], [ 1, %377 ], [ 1, %374 ], [ 1, %371 ], [ 1, %368 ], [ 1, %365 ], [ 1, %362 ], [ 1, %359 ], [ 9, %348 ], [ 1, %345 ], [ 1, %342 ], [ 1, %339 ], [ 1, %336 ], [ 1, %333 ], [ 1, %330 ], [ 1, %327 ], [ 1, %324 ], [ 1, %321 ], [ 9, %310 ], [ 1, %307 ], [ 1, %304 ], [ 1, %301 ], [ 1, %298 ], [ 1, %295 ], [ 1, %292 ], [ 1, %289 ], [ 1, %286 ], [ 8, %276 ], [ 54, %216 ]
   %.sink = phi ptr [ %532, %531 ], [ %529, %528 ], [ %526, %525 ], [ %523, %522 ], [ %520, %519 ], [ %517, %516 ], [ %514, %511 ], [ %509, %506 ], [ %504, %503 ], [ %501, %500 ], [ %498, %497 ], [ %495, %494 ], [ %492, %491 ], [ %489, %488 ], [ %486, %485 ], [ %483, %482 ], [ %480, %479 ], [ %477, %476 ], [ %474, %473 ], [ %471, %462 ], [ %460, %459 ], [ %457, %456 ], [ %454, %453 ], [ %451, %450 ], [ %448, %447 ], [ %445, %444 ], [ %442, %441 ], [ %439, %438 ], [ %436, %428 ], [ %426, %425 ], [ %423, %422 ], [ %420, %419 ], [ %417, %416 ], [ %414, %413 ], [ %411, %410 ], [ %408, %407 ], [ %405, %404 ], [ %402, %401 ], [ %399, %398 ], [ %396, %386 ], [ %384, %383 ], [ %381, %380 ], [ %378, %377 ], [ %375, %374 ], [ %372, %371 ], [ %369, %368 ], [ %366, %365 ], [ %363, %362 ], [ %360, %359 ], [ %357, %348 ], [ %346, %345 ], [ %343, %342 ], [ %340, %339 ], [ %337, %336 ], [ %334, %333 ], [ %331, %330 ], [ %328, %327 ], [ %325, %324 ], [ %322, %321 ], [ %319, %310 ], [ %308, %307 ], [ %305, %304 ], [ %302, %301 ], [ %299, %298 ], [ %296, %295 ], [ %293, %292 ], [ %290, %289 ], [ %287, %286 ], [ %284, %276 ], [ %270, %216 ]
-  store ptr %.sink767, ptr %0, align 8, !noalias !3
+  store ptr %.sink836, ptr %0, align 8, !noalias !3
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink765, ptr %272, align 8, !noalias !3
+  store i64 %.sink834, ptr %272, align 8, !noalias !3
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink767, ptr %273, align 8, !noalias !3
+  store ptr %.sink836, ptr %273, align 8, !noalias !3
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %274, align 8, !noalias !3
   ret void
@@ -44494,7 +44494,7 @@ default.unreachable761:                           ; preds = %2
 define void @_ZN11ruff_linter5codes11Tryceratops5rules17h1e1e2aa3748bbb9bE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !145, !noundef !3
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  switch i8 %3, label %default.unreachable189 [
+  switch i8 %3, label %default.unreachable206 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -44515,7 +44515,7 @@ define void @_ZN11ruff_linter5codes11Tryceratops5rules17h1e1e2aa3748bbb9bE(ptr d
     i8 17, label %56
   ]
 
-default.unreachable189:                           ; preds = %2
+default.unreachable206:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -44622,14 +44622,14 @@ default.unreachable189:                           ; preds = %2
   br label %64
 
 64:                                               ; preds = %127, %124, %120, %116, %113, %110, %106, %102, %99, %96, %93, %88, %83, %80, %77, %74, %69, %60
-  %.sink195 = phi ptr [ %57, %127 ], [ %54, %124 ], [ %51, %120 ], [ %48, %116 ], [ %45, %113 ], [ %42, %110 ], [ %39, %106 ], [ %36, %102 ], [ %33, %99 ], [ %30, %96 ], [ %27, %93 ], [ %24, %88 ], [ %21, %83 ], [ %18, %80 ], [ %15, %77 ], [ %12, %74 ], [ %9, %69 ], [ %6, %60 ]
-  %.sink193 = phi i64 [ 1, %127 ], [ 1, %124 ], [ 2, %120 ], [ 2, %116 ], [ 1, %113 ], [ 1, %110 ], [ 2, %106 ], [ 2, %102 ], [ 1, %99 ], [ 1, %96 ], [ 1, %93 ], [ 3, %88 ], [ 3, %83 ], [ 1, %80 ], [ 1, %77 ], [ 1, %74 ], [ 3, %69 ], [ 3, %60 ]
+  %.sink212 = phi ptr [ %57, %127 ], [ %54, %124 ], [ %51, %120 ], [ %48, %116 ], [ %45, %113 ], [ %42, %110 ], [ %39, %106 ], [ %36, %102 ], [ %33, %99 ], [ %30, %96 ], [ %27, %93 ], [ %24, %88 ], [ %21, %83 ], [ %18, %80 ], [ %15, %77 ], [ %12, %74 ], [ %9, %69 ], [ %6, %60 ]
+  %.sink210 = phi i64 [ 1, %127 ], [ 1, %124 ], [ 2, %120 ], [ 2, %116 ], [ 1, %113 ], [ 1, %110 ], [ 2, %106 ], [ 2, %102 ], [ 1, %99 ], [ 1, %96 ], [ 1, %93 ], [ 3, %88 ], [ 3, %83 ], [ 1, %80 ], [ 1, %77 ], [ 1, %74 ], [ 3, %69 ], [ 3, %60 ]
   %.sink = phi ptr [ %128, %127 ], [ %125, %124 ], [ %122, %120 ], [ %118, %116 ], [ %114, %113 ], [ %111, %110 ], [ %108, %106 ], [ %104, %102 ], [ %100, %99 ], [ %97, %96 ], [ %94, %93 ], [ %91, %88 ], [ %86, %83 ], [ %81, %80 ], [ %78, %77 ], [ %75, %74 ], [ %72, %69 ], [ %63, %60 ]
-  store ptr %.sink195, ptr %0, align 8, !noalias !3
+  store ptr %.sink212, ptr %0, align 8, !noalias !3
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink193, ptr %65, align 8, !noalias !3
+  store i64 %.sink210, ptr %65, align 8, !noalias !3
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink195, ptr %66, align 8, !noalias !3
+  store ptr %.sink212, ptr %66, align 8, !noalias !3
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %67, align 8, !noalias !3
   ret void
@@ -44811,7 +44811,7 @@ default.unreachable189:                           ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define { i8, i8 } @_ZN11ruff_linter5codes14RuleCodePrefix5parse17hebe1f94c5898a921E(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 {
   %4 = load i8, ptr %0, align 1, !range !32, !noundef !3
-  switch i8 %4, label %default.unreachable404 [
+  switch i8 %4, label %default.unreachable459 [
     i8 0, label %5
     i8 1, label %8
     i8 2, label %11
@@ -44873,7 +44873,7 @@ define { i8, i8 } @_ZN11ruff_linter5codes14RuleCodePrefix5parse17hebe1f94c5898a9
     i8 58, label %177
   ]
 
-default.unreachable404:                           ; preds = %3
+default.unreachable459:                           ; preds = %3
   unreachable
 
 5:                                                ; preds = %3

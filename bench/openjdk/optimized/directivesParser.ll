@@ -200,14 +200,14 @@ _ZN16DirectivesParser7pop_tmpEv.exit:             ; preds = %1
   store ptr %4, ptr %2, align 8
   store ptr null, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %storemerge.in8 = load i32, ptr %5, align 8
-  %storemerge9 = add nsw i32 %storemerge.in8, -1
-  store i32 %storemerge9, ptr %5, align 8
+  %storemerge.in9 = load i32, ptr %5, align 8
+  %storemerge10 = add nsw i32 %storemerge.in9, -1
+  store i32 %storemerge10, ptr %5, align 8
   tail call void @_ZN18CompilerDirectivesD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #17
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %3) #17
   %6 = load ptr, ptr %2, align 8
-  %cond710 = icmp eq ptr %6, null
-  br i1 %cond710, label %._crit_edge, label %_ZN16DirectivesParser7pop_tmpEv.exit3
+  %cond711 = icmp eq ptr %6, null
+  br i1 %cond711, label %._crit_edge, label %_ZN16DirectivesParser7pop_tmpEv.exit3
 
 _ZN16DirectivesParser7pop_tmpEv.exit3:            ; preds = %_ZN16DirectivesParser7pop_tmpEv.exit, %_ZN16DirectivesParser7pop_tmpEv.exit3
   %7 = phi ptr [ %9, %_ZN16DirectivesParser7pop_tmpEv.exit3 ], [ %6, %_ZN16DirectivesParser7pop_tmpEv.exit ]
@@ -341,16 +341,16 @@ _ZN16DirectivesParser7pop_tmpEv.exit3.i:          ; preds = %_ZN16DirectivesPars
   br i1 %cond, label %19, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
-  %.sink20 = phi ptr [ %18, %.lr.ph ], [ %8, %15 ]
+  %.sink23 = phi ptr [ %18, %.lr.ph ], [ %8, %15 ]
   %.015 = phi i32 [ %17, %.lr.ph ], [ 0, %15 ]
-  %16 = tail call noundef ptr @_ZN18CompilerDirectives4nextEv(ptr noundef nonnull align 8 dereferenceable(40) %.sink20) #17
+  %16 = tail call noundef ptr @_ZN18CompilerDirectives4nextEv(ptr noundef nonnull align 8 dereferenceable(40) %.sink23) #17
   store ptr %16, ptr %7, align 8
-  store ptr null, ptr %.sink20, align 8
+  store ptr null, ptr %.sink23, align 8
   %storemerge.in = load i32, ptr %2, align 8
   %storemerge = add nsw i32 %storemerge.in, -1
   store i32 %storemerge, ptr %2, align 8
   %17 = add nuw nsw i32 %.015, 1
-  tail call void @_ZN15DirectivesStack4pushEP18CompilerDirectives(ptr noundef nonnull %.sink20) #17
+  tail call void @_ZN15DirectivesStack4pushEP18CompilerDirectives(ptr noundef nonnull %.sink23) #17
   %18 = load ptr, ptr %7, align 8
   %cond17 = icmp eq ptr %18, null
   br i1 %cond17, label %._crit_edge, label %.lr.ph
@@ -1376,8 +1376,8 @@ _ZN25ControlIntrinsicValidatorD2Ev.exit.thread:   ; preds = %_ZN25ControlIntrins
   br label %171
 
 .critedge.sink.split:                             ; preds = %158, %148
-  %.sink113 = phi ptr [ %147, %148 ], [ %157, %158 ]
-  call void @_Z8FreeHeapPv(ptr noundef nonnull %.sink113) #17
+  %.sink119 = phi ptr [ %147, %148 ], [ %157, %158 ]
+  call void @_Z8FreeHeapPv(ptr noundef nonnull %.sink119) #17
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %148, %158, %150
@@ -1669,7 +1669,7 @@ _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit60: ; preds = %.thread.i58, %65, %
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %108 = load ptr, ptr %107, align 8
   %109 = call noundef zeroext i1 @_ZN18CompilerDirectives9add_matchEPcRPKc(ptr noundef nonnull align 8 dereferenceable(40) %108, ptr noundef %101, ptr noundef nonnull align 8 dereferenceable(8) %4) #17
-  br i1 %109, label %.sink.split71, label %.sink.split71.sink.split
+  br i1 %109, label %.sink.split77, label %.sink.split77.sink.split
 
 110:                                              ; preds = %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit60
   %.not = icmp eq i32 %1, 6
@@ -1703,18 +1703,18 @@ _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit60: ; preds = %.thread.i58, %65, %
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 24
   %130 = load ptr, ptr %129, align 8
   %131 = call noundef zeroext i1 @_ZN12DirectiveSet20parse_and_add_inlineEPcRPKc(ptr noundef nonnull align 8 dereferenceable(280) %130, ptr noundef nonnull %117, ptr noundef nonnull align 8 dereferenceable(8) %5) #17
-  br i1 %131, label %132, label %.sink.split71.sink.split
+  br i1 %131, label %132, label %.sink.split77.sink.split
 
 132:                                              ; preds = %126
   %133 = load ptr, ptr %127, align 8
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 32
   %135 = load ptr, ptr %134, align 8
   %136 = call noundef zeroext i1 @_ZN12DirectiveSet20parse_and_add_inlineEPcRPKc(ptr noundef nonnull align 8 dereferenceable(280) %135, ptr noundef nonnull %117, ptr noundef nonnull align 8 dereferenceable(8) %5) #17
-  br i1 %136, label %.sink.split71, label %.sink.split71.sink.split
+  br i1 %136, label %.sink.split77, label %.sink.split77.sink.split
 
 137:                                              ; preds = %113
   %138 = call noundef zeroext i1 @_ZN12DirectiveSet20parse_and_add_inlineEPcRPKc(ptr noundef nonnull align 8 dereferenceable(280) %124, ptr noundef nonnull %117, ptr noundef nonnull align 8 dereferenceable(8) %5) #17
-  br i1 %138, label %.sink.split71, label %.sink.split71.sink.split
+  br i1 %138, label %.sink.split77, label %.sink.split77.sink.split
 
 139:                                              ; preds = %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit60
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1748,19 +1748,19 @@ _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit60: ; preds = %.thread.i58, %65, %
   tail call void (ptr, i32, ptr, ...) @_ZN4JSON5errorENS_10JSON_ERROREPKcz(ptr noundef nonnull align 8 dereferenceable(54) %0, i32 noundef 3, ptr noundef nonnull @.str.57, ptr noundef %156) #17
   br label %159
 
-.sink.split71.sink.split:                         ; preds = %132, %126, %137, %97
-  %.sink73 = phi ptr [ %4, %97 ], [ %5, %137 ], [ %5, %126 ], [ %5, %132 ]
+.sink.split77.sink.split:                         ; preds = %132, %126, %137, %97
+  %.sink79 = phi ptr [ %4, %97 ], [ %5, %137 ], [ %5, %126 ], [ %5, %132 ]
   %.sink.ph = phi ptr [ %101, %97 ], [ %117, %137 ], [ %117, %126 ], [ %117, %132 ]
-  %157 = load ptr, ptr %.sink73, align 8
+  %157 = load ptr, ptr %.sink79, align 8
   call void (ptr, i32, ptr, ...) @_ZN4JSON5errorENS_10JSON_ERROREPKcz(ptr noundef nonnull align 8 dereferenceable(54) %0, i32 noundef 3, ptr noundef nonnull @.str.56, ptr noundef %157) #17
-  br label %.sink.split71
+  br label %.sink.split77
 
-.sink.split71:                                    ; preds = %.sink.split71.sink.split, %132, %137, %97
-  %.sink = phi ptr [ %101, %97 ], [ %117, %137 ], [ %117, %132 ], [ %.sink.ph, %.sink.split71.sink.split ]
+.sink.split77:                                    ; preds = %.sink.split77.sink.split, %132, %137, %97
+  %.sink = phi ptr [ %101, %97 ], [ %117, %137 ], [ %117, %132 ], [ %.sink.ph, %.sink.split77.sink.split ]
   call void @_Z8FreeHeapPv(ptr noundef nonnull %.sink) #17
   br label %158
 
-158:                                              ; preds = %.sink.split71, %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit60, %148, %139, %83, %88
+158:                                              ; preds = %.sink.split77, %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit60, %148, %139, %83, %88
   br label %159
 
 159:                                              ; preds = %88, %83, %77, %158, %155, %146, %111, %96, %91
@@ -1784,7 +1784,7 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser8callbackEN4JSON9JSON_TYP
 7:                                                ; preds = %4
   switch i32 %1, label %10 [
     i32 3, label %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit
-    i32 1, label %.thread39
+    i32 1, label %.thread42
   ]
 
 _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit:   ; preds = %7
@@ -1793,7 +1793,7 @@ _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit:   ; preds = %7
   store i32 1, ptr %5, align 8
   br label %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit28
 
-.thread39:                                        ; preds = %7
+.thread42:                                        ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr @_ZN16DirectivesParser13dir_array_keyE, ptr %9, align 8
   store i32 1, ptr %5, align 8
@@ -1809,7 +1809,7 @@ _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit:   ; preds = %7
     i32 4, label %_ZN16DirectivesParser7pop_keyEv.exit
   ]
 
-12:                                               ; preds = %.thread39, %11
+12:                                               ; preds = %.thread42, %11
   %13 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 7, i32 noundef 0) #17
   tail call void @_ZN18CompilerDirectivesC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #17
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104

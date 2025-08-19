@@ -1134,8 +1134,8 @@ define internal void @_ZL20evaluate_pdbatomnameRKN3gmx20SelMethodEvalContextEP15
   %30 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %21, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !34
-  %.fr8.i = freeze i32 %32
-  %33 = icmp slt i32 %27, %.fr8.i
+  %.fr9.i = freeze i32 %32
+  %33 = icmp slt i32 %27, %.fr9.i
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %28
@@ -1153,7 +1153,7 @@ define internal void @_ZL20evaluate_pdbatomnameRKN3gmx20SelMethodEvalContextEP15
   br label %28, !llvm.loop !37
 
 _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %34
-  %41 = sub i32 %27, %.fr8.i
+  %41 = sub i32 %27, %.fr9.i
   %42 = load i32, ptr %30, align 4, !tbaa !38
   %43 = srem i32 %41, %42
   %44 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %29
@@ -1401,8 +1401,8 @@ define internal void @_ZL16evaluate_resnameRKN3gmx20SelMethodEvalContextEP15gmx_
   %30 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %21, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !34
-  %.fr10.i = freeze i32 %32
-  %33 = icmp slt i32 %27, %.fr10.i
+  %.fr11.i = freeze i32 %32
+  %33 = icmp slt i32 %27, %.fr11.i
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %28
@@ -1420,7 +1420,7 @@ define internal void @_ZL16evaluate_resnameRKN3gmx20SelMethodEvalContextEP15gmx_
   br label %28, !llvm.loop !37
 
 _ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit:    ; preds = %34
-  %41 = sub i32 %27, %.fr10.i
+  %41 = sub i32 %27, %.fr11.i
   %42 = load i32, ptr %30, align 4, !tbaa !38
   %43 = srem i32 %41, %42
   %44 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %29
@@ -1490,8 +1490,8 @@ define internal void @_ZL19evaluate_insertcodeRKN3gmx20SelMethodEvalContextEP15g
   %28 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %25, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !34
-  %.fr10.i = freeze i32 %30
-  %31 = icmp slt i32 %14, %.fr10.i
+  %.fr11.i = freeze i32 %30
+  %31 = icmp slt i32 %14, %.fr11.i
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %26
@@ -1509,7 +1509,7 @@ define internal void @_ZL19evaluate_insertcodeRKN3gmx20SelMethodEvalContextEP15g
   br label %26, !llvm.loop !37
 
 _ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
-  %39 = sub i32 %14, %.fr10.i
+  %39 = sub i32 %14, %.fr11.i
   %40 = load i32, ptr %28, align 4, !tbaa !38
   %41 = srem i32 %39, %40
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 112
@@ -1583,8 +1583,8 @@ define internal void @_ZL14evaluate_chainRKN3gmx20SelMethodEvalContextEP15gmx_an
   %28 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %25, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !34
-  %.fr10.i = freeze i32 %30
-  %31 = icmp slt i32 %14, %.fr10.i
+  %.fr11.i = freeze i32 %30
+  %31 = icmp slt i32 %14, %.fr11.i
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %26
@@ -1602,7 +1602,7 @@ define internal void @_ZL14evaluate_chainRKN3gmx20SelMethodEvalContextEP15gmx_an
   br label %26, !llvm.loop !37
 
 _ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
-  %39 = sub i32 %14, %.fr10.i
+  %39 = sub i32 %14, %.fr11.i
   %40 = load i32, ptr %28, align 4, !tbaa !38
   %41 = srem i32 %39, %40
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 112
@@ -1688,8 +1688,8 @@ define internal void @_ZL13evaluate_massRKN3gmx20SelMethodEvalContextEP15gmx_ana
   %34 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %25, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4, !tbaa !34
-  %.fr8.i.i = freeze i32 %36
-  %37 = icmp slt i32 %31, %.fr8.i.i
+  %.fr9.i.i = freeze i32 %36
+  %37 = icmp slt i32 %31, %.fr9.i.i
   br i1 %37, label %41, label %38
 
 38:                                               ; preds = %32
@@ -1707,7 +1707,7 @@ define internal void @_ZL13evaluate_massRKN3gmx20SelMethodEvalContextEP15gmx_ana
   br label %32, !llvm.loop !37
 
 _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit:       ; preds = %38
-  %45 = sub i32 %31, %.fr8.i.i
+  %45 = sub i32 %31, %.fr9.i.i
   %46 = load i32, ptr %34, align 4, !tbaa !38
   %47 = srem i32 %45, %46
   %48 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %18, i64 %33
@@ -1856,8 +1856,8 @@ define internal void @_ZL15evaluate_chargeRKN3gmx20SelMethodEvalContextEP15gmx_a
   %30 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %21, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !34
-  %.fr8.i = freeze i32 %32
-  %33 = icmp slt i32 %27, %.fr8.i
+  %.fr9.i = freeze i32 %32
+  %33 = icmp slt i32 %27, %.fr9.i
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %28
@@ -1875,7 +1875,7 @@ define internal void @_ZL15evaluate_chargeRKN3gmx20SelMethodEvalContextEP15gmx_a
   br label %28, !llvm.loop !37
 
 _ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit: ; preds = %34
-  %41 = sub i32 %27, %.fr8.i
+  %41 = sub i32 %27, %.fr9.i
   %42 = load i32, ptr %30, align 4, !tbaa !38
   %43 = srem i32 %41, %42
   %44 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %29
@@ -1940,8 +1940,8 @@ define internal void @_ZL15evaluate_altlocRKN3gmx20SelMethodEvalContextEP15gmx_a
   %28 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %25, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !34
-  %.fr8.i = freeze i32 %30
-  %31 = icmp slt i32 %14, %.fr8.i
+  %.fr9.i = freeze i32 %30
+  %31 = icmp slt i32 %14, %.fr9.i
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %26
@@ -1959,7 +1959,7 @@ define internal void @_ZL15evaluate_altlocRKN3gmx20SelMethodEvalContextEP15gmx_a
   br label %26, !llvm.loop !37
 
 _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
-  %39 = sub i32 %14, %.fr8.i
+  %39 = sub i32 %14, %.fr9.i
   %40 = load i32, ptr %28, align 4, !tbaa !38
   %41 = srem i32 %39, %40
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 112
@@ -2030,8 +2030,8 @@ define internal void @_ZL18evaluate_occupancyRKN3gmx20SelMethodEvalContextEP15gm
   %30 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %21, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !34
-  %.fr8.i = freeze i32 %32
-  %33 = icmp slt i32 %27, %.fr8.i
+  %.fr9.i = freeze i32 %32
+  %33 = icmp slt i32 %27, %.fr9.i
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %28
@@ -2049,7 +2049,7 @@ define internal void @_ZL18evaluate_occupancyRKN3gmx20SelMethodEvalContextEP15gm
   br label %28, !llvm.loop !37
 
 _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %34
-  %41 = sub i32 %27, %.fr8.i
+  %41 = sub i32 %27, %.fr9.i
   %42 = load i32, ptr %30, align 4, !tbaa !38
   %43 = srem i32 %41, %42
   %44 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %29
@@ -2115,8 +2115,8 @@ define internal void @_ZL19evaluate_betafactorRKN3gmx20SelMethodEvalContextEP15g
   %30 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %21, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !34
-  %.fr8.i = freeze i32 %32
-  %33 = icmp slt i32 %27, %.fr8.i
+  %.fr9.i = freeze i32 %32
+  %33 = icmp slt i32 %27, %.fr9.i
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %28
@@ -2134,7 +2134,7 @@ define internal void @_ZL19evaluate_betafactorRKN3gmx20SelMethodEvalContextEP15g
   br label %28, !llvm.loop !37
 
 _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %34
-  %41 = sub i32 %27, %.fr8.i
+  %41 = sub i32 %27, %.fr9.i
   %42 = load i32, ptr %30, align 4, !tbaa !38
   %43 = srem i32 %41, %42
   %44 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %29

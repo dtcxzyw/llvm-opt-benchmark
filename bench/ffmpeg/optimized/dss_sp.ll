@@ -350,8 +350,8 @@ define internal range(i32 -2147483648, 43) i32 @dss_sp_decode_frame(ptr noundef 
 
 .loopexit.i.i:                                    ; preds = %.lr.ph168.i.i, %173
   %180 = add nsw i32 %.6169.i.i, -1
-  %.not238.i.i = icmp eq i32 %.6169.i.i, 0
-  br i1 %.not238.i.i, label %.loopexit150.i.i, label %160, !llvm.loop !61
+  %.not240.i.i = icmp eq i32 %.6169.i.i, 0
+  br i1 %.not240.i.i, label %.loopexit150.i.i, label %160, !llvm.loop !61
 
 .loopexit150.i.i:                                 ; preds = %.loopexit.i.i, %165, %153, %144
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -418,10 +418,10 @@ define internal range(i32 -2147483648, 43) i32 @dss_sp_decode_frame(ptr noundef 
   br label %211
 
 211:                                              ; preds = %209, %207
-  %.sink244.i.i = phi i16 [ %210, %209 ], [ 139, %207 ]
+  %.sink246.i.i = phi i16 [ %210, %209 ], [ 139, %207 ]
   %212 = getelementptr inbounds nuw [4 x i16], ptr %193, i64 0, i64 %indvars.iv231.i.i
   %213 = load i16, ptr %212, align 2, !tbaa !48
-  %214 = add i16 %213, %.sink244.i.i
+  %214 = add i16 %213, %.sink246.i.i
   store i16 %214, ptr %212, align 2, !tbaa !48
   %indvars.iv.next232.i.i = add nuw nsw i64 %indvars.iv231.i.i, 1
   %exitcond234.not.i.i = icmp eq i64 %indvars.iv.next232.i.i, 4

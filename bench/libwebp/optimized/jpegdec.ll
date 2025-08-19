@@ -395,34 +395,37 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   %63 = call noalias ptr @malloc(i64 noundef %.281.i) #20
   store ptr %63, ptr %4, align 8, !tbaa !76
   %64 = icmp eq ptr %63, null
-  br i1 %64, label %.loopexit.sink.split, label %65
+  br i1 %64, label %.loopexit.sink.split, label %.lr.ph124.preheader.i
 
-65:                                               ; preds = %61
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %.281.i, ptr %66, align 8, !tbaa !78
-  %67 = icmp sgt i32 %.377.i, 0
-  br i1 %67, label %.lr.ph124.i, label %.loopexit47
+.lr.ph124.preheader.i:                            ; preds = %61
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %.281.i, ptr %65, align 8, !tbaa !78
+  br label %.lr.ph124.i
 
-.lr.ph124.i:                                      ; preds = %65, %.lr.ph124.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph124.i ], [ 0, %65 ]
-  %.0122.i = phi i64 [ %75, %.lr.ph124.i ], [ 0, %65 ]
-  %68 = load ptr, ptr %4, align 8, !tbaa !76
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %.0122.i
-  %70 = getelementptr inbounds nuw [255 x %struct.ICCPSegment], ptr %3, i64 0, i64 %indvars.iv.i
-  %71 = load ptr, ptr %70, align 8, !tbaa !73
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %73 = load i64, ptr %72, align 8, !tbaa !71
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr align 1 %71, i64 %73, i1 false)
-  %74 = load i64, ptr %72, align 8, !tbaa !71
-  %75 = add i64 %74, %.0122.i
+.lr.ph124.i:                                      ; preds = %.lr.ph124.i, %.lr.ph124.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph124.preheader.i ], [ %indvars.iv.next.i, %.lr.ph124.i ]
+  %.0122.i = phi i64 [ 0, %.lr.ph124.preheader.i ], [ %73, %.lr.ph124.i ]
+  %66 = load ptr, ptr %4, align 8, !tbaa !76
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %.0122.i
+  %68 = getelementptr inbounds nuw [255 x %struct.ICCPSegment], ptr %3, i64 0, i64 %indvars.iv.i
+  %69 = load ptr, ptr %68, align 8, !tbaa !73
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %71 = load i64, ptr %70, align 8, !tbaa !71
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %67, ptr align 1 %69, i64 %71, i1 false)
+  %72 = load i64, ptr %70, align 8, !tbaa !71
+  %73 = add i64 %72, %.0122.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %62
-  br i1 %exitcond.not.i, label %.loopexit47, label %.lr.ph124.i, !llvm.loop !79
+  br i1 %exitcond.not.i, label %.loopexit47.loopexit, label %.lr.ph124.i, !llvm.loop !79
 
-.loopexit47:                                      ; preds = %.lr.ph124.i, %65, %._crit_edge.i
-  %.03060.pr = load ptr, ptr %5, align 8, !tbaa !65
+.loopexit47.loopexit:                             ; preds = %.lr.ph124.i
+  %.03060.pre = load ptr, ptr %5, align 8, !tbaa !65
+  br label %.loopexit47
+
+.loopexit47:                                      ; preds = %.loopexit47.loopexit, %._crit_edge.i
+  %.03060 = phi ptr [ %.03060.pre, %.loopexit47.loopexit ], [ %.078111.i, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not3861 = icmp eq ptr %.03060.pr, null
+  %.not3861 = icmp eq ptr %.03060, null
   br i1 %.not3861, label %.loopexit, label %.preheader
 
 .critedge43.loopexit:                             ; preds = %.critedge
@@ -431,71 +434,70 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   br i1 %.not38, label %.loopexit, label %.preheader, !llvm.loop !80
 
 .preheader:                                       ; preds = %.loopexit47, %.critedge43.loopexit
-  %.03062 = phi ptr [ %.030, %.critedge43.loopexit ], [ %.03060.pr, %.loopexit47 ]
-  %76 = getelementptr inbounds nuw i8, ptr %.03062, i64 8
-  %77 = getelementptr inbounds nuw i8, ptr %.03062, i64 16
-  %78 = getelementptr inbounds nuw i8, ptr %.03062, i64 24
-  br label %79
+  %.03062 = phi ptr [ %.030, %.critedge43.loopexit ], [ %.03060, %.loopexit47 ]
+  %74 = getelementptr inbounds nuw i8, ptr %.03062, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.03062, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %.03062, i64 24
+  br label %77
 
-79:                                               ; preds = %.preheader, %.critedge
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.critedge ]
-  %80 = phi i32 [ 225, %.preheader ], [ %109, %.critedge ]
-  %81 = phi ptr [ @ExtractMetadataFromJPEG.kJPEGMetadataMap, %.preheader ], [ %108, %.critedge ]
-  %82 = load i8, ptr %76, align 8, !tbaa !66
-  %83 = zext i8 %82 to i32
-  %84 = icmp eq i32 %80, %83
-  br i1 %84, label %85, label %.critedge
+77:                                               ; preds = %.preheader, %.critedge
+  %exitcond = phi i1 [ false, %.preheader ], [ true, %.critedge ]
+  %indvars.iv = phi i64 [ 1, %.preheader ], [ 2, %.critedge ]
+  %78 = phi i32 [ 225, %.preheader ], [ %107, %.critedge ]
+  %79 = phi ptr [ @ExtractMetadataFromJPEG.kJPEGMetadataMap, %.preheader ], [ %106, %.critedge ]
+  %80 = load i8, ptr %74, align 8, !tbaa !66
+  %81 = zext i8 %80 to i32
+  %82 = icmp eq i32 %78, %81
+  br i1 %82, label %83, label %.critedge
 
-85:                                               ; preds = %79
-  %86 = load i32, ptr %77, align 8, !tbaa !68
-  %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  %89 = load i64, ptr %88, align 16, !tbaa !81
-  %90 = icmp ult i64 %89, %87
-  br i1 %90, label %91, label %.critedge
+83:                                               ; preds = %77
+  %84 = load i32, ptr %75, align 8, !tbaa !68
+  %85 = zext i32 %84 to i64
+  %86 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %87 = load i64, ptr %86, align 16, !tbaa !81
+  %88 = icmp ult i64 %87, %85
+  br i1 %88, label %89, label %.critedge
 
-91:                                               ; preds = %85
-  %92 = load ptr, ptr %78, align 8, !tbaa !69
-  %93 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %94 = load ptr, ptr %93, align 8, !tbaa !83
-  %bcmp = call i32 @bcmp(ptr %92, ptr %94, i64 %89)
+89:                                               ; preds = %83
+  %90 = load ptr, ptr %76, align 8, !tbaa !69
+  %91 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %92 = load ptr, ptr %91, align 8, !tbaa !83
+  %bcmp = call i32 @bcmp(ptr %90, ptr %92, i64 %87)
   %.not40 = icmp eq i32 %bcmp, 0
-  br i1 %.not40, label %95, label %.critedge
+  br i1 %.not40, label %93, label %.critedge
 
-95:                                               ; preds = %91
-  %96 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  %97 = load i64, ptr %96, align 8, !tbaa !84
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 %97
-  %99 = load ptr, ptr %98, align 8, !tbaa !76
-  %100 = icmp eq ptr %99, null
-  br i1 %100, label %101, label %105
+93:                                               ; preds = %89
+  %94 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  %95 = load i64, ptr %94, align 8, !tbaa !84
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 %95
+  %97 = load ptr, ptr %96, align 8, !tbaa !76
+  %98 = icmp eq ptr %97, null
+  br i1 %98, label %99, label %103
 
-101:                                              ; preds = %95
-  %102 = getelementptr inbounds nuw i8, ptr %92, i64 %89
-  %103 = sub nsw i64 %87, %89
-  %104 = call i32 @MetadataCopy(ptr noundef %102, i64 noundef %103, ptr noundef nonnull %98) #18
-  %.not41.not = icmp eq i32 %104, 0
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds nuw i8, ptr %90, i64 %87
+  %101 = sub nsw i64 %85, %87
+  %102 = call i32 @MetadataCopy(ptr noundef %100, i64 noundef %101, ptr noundef nonnull %96) #18
+  %.not41.not = icmp eq i32 %102, 0
   br i1 %.not41.not, label %.loopexit, label %.critedge
 
-105:                                              ; preds = %95
-  %106 = load ptr, ptr @stderr, align 8, !tbaa !55
-  %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.5, ptr noundef %94) #23
+103:                                              ; preds = %93
+  %104 = load ptr, ptr @stderr, align 8, !tbaa !55
+  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.5, ptr noundef %92) #23
   br label %.critedge
 
-.critedge:                                        ; preds = %105, %101, %79, %85, %91
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %108 = getelementptr inbounds nuw [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %indvars.iv.next
-  %109 = load i32, ptr %108, align 16, !tbaa !85
-  %exitcond = icmp eq i64 %indvars.iv.next, 2
-  br i1 %exitcond, label %.critedge43.loopexit, label %79, !llvm.loop !86
+.critedge:                                        ; preds = %103, %99, %77, %83, %89
+  %106 = getelementptr inbounds nuw [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %indvars.iv
+  %107 = load i32, ptr %106, align 16, !tbaa !85
+  br i1 %exitcond, label %.critedge43.loopexit, label %77, !llvm.loop !86
 
 .loopexit.sink.split:                             ; preds = %27, %42, %34, %61, %58, %54, %2
   %.0.ph = phi i32 [ 1, %2 ], [ 0, %54 ], [ 0, %58 ], [ 0, %61 ], [ 0, %34 ], [ 0, %42 ], [ 0, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.critedge43.loopexit, %101, %.loopexit.sink.split, %.loopexit47
-  %.0 = phi i32 [ 1, %.loopexit47 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %101 ], [ 1, %.critedge43.loopexit ]
+.loopexit:                                        ; preds = %.critedge43.loopexit, %99, %.loopexit.sink.split, %.loopexit47
+  %.0 = phi i32 [ 1, %.loopexit47 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %99 ], [ 1, %.critedge43.loopexit ]
   ret i32 %.0
 }
 

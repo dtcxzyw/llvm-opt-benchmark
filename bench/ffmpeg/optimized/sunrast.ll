@@ -240,7 +240,7 @@ define internal i32 @sunrast_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %umax = tail call i32 @llvm.umax.i32(i32 %.zext, i32 1)
   %wide.trip.count = zext nneg i32 %umax to i64
   %invariant.gep = getelementptr inbounds nuw i8, ptr %35, i64 %107
-  %invariant.gep331 = getelementptr inbounds nuw i8, ptr %35, i64 %108
+  %invariant.gep350 = getelementptr inbounds nuw i8, ptr %35, i64 %108
   br label %109
 
 109:                                              ; preds = %.lr.ph, %109
@@ -254,8 +254,8 @@ define internal i32 @sunrast_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %114 = load i8, ptr %gep, align 1, !tbaa !16
   %115 = zext i8 %114 to i32
   %116 = shl nuw nsw i32 %115, 8
-  %gep332 = getelementptr inbounds nuw i8, ptr %invariant.gep331, i64 %indvars.iv
-  %117 = load i8, ptr %gep332, align 1, !tbaa !16
+  %gep351 = getelementptr inbounds nuw i8, ptr %invariant.gep350, i64 %indvars.iv
+  %117 = load i8, ptr %gep351, align 1, !tbaa !16
   %118 = zext i8 %117 to i32
   %119 = or disjoint i32 %113, %116
   %120 = or disjoint i32 %119, %118
@@ -426,10 +426,10 @@ define internal i32 @sunrast_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %198 = load i32, ptr %197, align 8, !tbaa !17
   %199 = icmp eq i32 %198, 11
-  %or.cond8322 = select i1 %199, i1 %144, i1 false
-  br i1 %or.cond8322, label %.thread325, label %280
+  %or.cond8341 = select i1 %199, i1 %144, i1 false
+  br i1 %or.cond8341, label %.thread344, label %280
 
-.thread325:                                       ; preds = %.critedge.thread
+.thread344:                                       ; preds = %.critedge.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %.0216, ptr %5, align 8, !tbaa !36
   br label %._crit_edge291
@@ -451,7 +451,7 @@ define internal i32 @sunrast_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not298, label %._crit_edge291, label %.preheader.lr.ph.split.us
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
-  %207 = add i32 %19, 7
+  %207 = add nuw nsw i32 %19, 7
   %208 = lshr i32 %207, 3
   %209 = mul i32 %208, %25
   %210 = icmp eq i32 %24, 16777216
@@ -568,16 +568,16 @@ define internal i32 @sunrast_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %exitcond312.not = icmp eq i32 %279, %22
   br i1 %exitcond312.not, label %._crit_edge291, label %.preheader.us, !llvm.loop !44
 
-._crit_edge291:                                   ; preds = %._crit_edge285.split.us293, %._crit_edge285.split.us.us.us, %.preheader.lr.ph, %.thread325, %200
-  %.2208324328 = phi ptr [ %145, %.thread325 ], [ %.2208, %200 ], [ %.2208, %.preheader.lr.ph ], [ %.2208, %._crit_edge285.split.us.us.us ], [ %.2208, %._crit_edge285.split.us293 ]
+._crit_edge291:                                   ; preds = %._crit_edge285.split.us293, %._crit_edge285.split.us.us.us, %.preheader.lr.ph, %.thread344, %200
+  %.2208343347 = phi ptr [ %145, %.thread344 ], [ %.2208, %200 ], [ %.2208, %.preheader.lr.ph ], [ %.2208, %._crit_edge285.split.us.us.us ], [ %.2208, %._crit_edge285.split.us293 ]
   call void @av_freep(ptr noundef nonnull %5) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %280
 
 280:                                              ; preds = %.critedge.thread, %._crit_edge291, %.critedge
-  %.2208323 = phi ptr [ %145, %.critedge.thread ], [ %.2208324328, %._crit_edge291 ], [ %.2208, %.critedge ]
+  %.2208342 = phi ptr [ %145, %.critedge.thread ], [ %.2208343347, %._crit_edge291 ], [ %.2208, %.critedge ]
   store i32 1, ptr %2, align 4, !tbaa !37
-  %281 = ptrtoint ptr %.2208323 to i64
+  %281 = ptrtoint ptr %.2208342 to i64
   %282 = ptrtoint ptr %7 to i64
   %283 = sub i64 %281, %282
   %284 = trunc i64 %283 to i32

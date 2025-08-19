@@ -202,11 +202,11 @@ _ZNK2cv11_InputArray6getMatEi.exit56:             ; preds = %39, %42
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.preheader.split.us, %52
-  %.sink80 = phi i32 [ 3, %52 ], [ -1, %.preheader.split.us ]
-  %.sink79 = phi i32 [ 10, %52 ], [ 0, %.preheader.split.us ]
+  %.sink81 = phi i32 [ 3, %52 ], [ -1, %.preheader.split.us ]
+  %.sink80 = phi i32 [ 10, %52 ], [ 0, %.preheader.split.us ]
   %.sink = phi i32 [ 3, %52 ], [ %51, %.preheader.split.us ]
-  store i32 %.sink80, ptr %13, align 4, !tbaa !22
-  store i32 %.sink79, ptr %46, align 4, !tbaa !22
+  store i32 %.sink81, ptr %13, align 4, !tbaa !22
+  store i32 %.sink80, ptr %46, align 4, !tbaa !22
   store i32 %.sink, ptr %47, align 4, !tbaa !22
   br label %53
 
@@ -307,23 +307,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %_ZN
   %76 = select i1 %75, i32 %2, i32 %3
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   switch i32 %76, label %78 [
-    i32 0, label %.sink.split81
+    i32 0, label %.sink.split82
     i32 1, label %77
   ]
 
 77:                                               ; preds = %.preheader.split
-  br label %.sink.split81
+  br label %.sink.split82
 
-.sink.split81:                                    ; preds = %.preheader.split, %77
-  %.sink84 = phi i32 [ -1, %77 ], [ 3, %.preheader.split ]
-  %.sink83 = phi i32 [ 0, %77 ], [ 10, %.preheader.split ]
-  %.sink82 = phi i32 [ 1, %77 ], [ 3, %.preheader.split ]
-  store i32 %.sink84, ptr %13, align 4, !tbaa !22
-  store i32 %.sink83, ptr %46, align 4, !tbaa !22
-  store i32 %.sink82, ptr %47, align 4, !tbaa !22
+.sink.split82:                                    ; preds = %.preheader.split, %77
+  %.sink85 = phi i32 [ -1, %77 ], [ 3, %.preheader.split ]
+  %.sink84 = phi i32 [ 0, %77 ], [ 10, %.preheader.split ]
+  %.sink83 = phi i32 [ 1, %77 ], [ 3, %.preheader.split ]
+  store i32 %.sink85, ptr %13, align 4, !tbaa !22
+  store i32 %.sink84, ptr %46, align 4, !tbaa !22
+  store i32 %.sink83, ptr %47, align 4, !tbaa !22
   br label %78
 
-78:                                               ; preds = %.sink.split81, %.preheader.split
+78:                                               ; preds = %.sink.split82, %.preheader.split
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %..sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %75, ptr %9, ptr %10
   %..sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %..sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 8
@@ -753,8 +753,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132: ; preds = %_Z
   %129 = add i32 %103, %128
   %130 = icmp slt i32 %129, 1
   %.not105185 = icmp slt i32 %103, 1
-  %or.cond214 = or i1 %130, %.not105185
-  br i1 %or.cond214, label %.preheader, label %.lr.ph188.preheader
+  %or.cond222 = or i1 %130, %.not105185
+  br i1 %or.cond222, label %.preheader, label %.lr.ph188.preheader
 
 .lr.ph188.preheader:                              ; preds = %.preheader182
   %131 = add nuw i32 %103, 1
@@ -764,8 +764,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132: ; preds = %_Z
 .preheader:                                       ; preds = %._crit_edge, %.preheader182
   %132 = icmp slt i32 %102, 1
   %.not191 = icmp slt i32 %103, 1
-  %or.cond215 = or i1 %132, %.not191
-  br i1 %or.cond215, label %.loopexit, label %.lr.ph195.preheader
+  %or.cond223 = or i1 %132, %.not191
+  br i1 %or.cond223, label %.loopexit, label %.lr.ph195.preheader
 
 .lr.ph195.preheader:                              ; preds = %.preheader
   %133 = add nuw i32 %103, 1

@@ -6240,7 +6240,7 @@ define void @_ZN13MainStatusBar23highlightedFieldChangedEP16FieldInformation(ptr
 .thread:                                          ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %15, i8 0, i64 24, i1 false)
-  %spec.select.i131 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %spec.select.i151 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %switch.early.test.i
 
 16:                                               ; preds = %2
@@ -6710,8 +6710,8 @@ _ZN17QArrayDataPointerIDsED2Ev.exit95:            ; preds = %150, %138
   br i1 %152, label %switch.early.test.i, label %153
 
 switch.early.test.i:                              ; preds = %.thread, %151
-  %spec.select.i132 = phi ptr [ %spec.select.i131, %.thread ], [ %spec.select.i, %151 ]
-  invoke void @_ZN10LabelStack7popTextEi(ptr noundef nonnull align 8 dereferenceable_or_null(112) %spec.select.i132, i32 noundef 3)
+  %spec.select.i152 = phi ptr [ %spec.select.i151, %.thread ], [ %spec.select.i, %151 ]
+  invoke void @_ZN10LabelStack7popTextEi(ptr noundef nonnull align 8 dereferenceable_or_null(112) %spec.select.i152, i32 noundef 3)
           to label %_ZN7QStringD2Ev.exit100 unwind label %161
 
 153:                                              ; preds = %151

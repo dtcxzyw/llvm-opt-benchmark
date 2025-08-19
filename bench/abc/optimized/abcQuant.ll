@@ -99,11 +99,11 @@ define noundef i32 @Abc_NtkQuantify(ptr noundef %0, i32 noundef %1, i32 noundef 
   br i1 %.not45, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25, %145
-  %.sink164 = phi ptr [ %29, %145 ], [ %27, %25 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sink164, i64 64
+  %.sink183 = phi ptr [ %29, %145 ], [ %27, %25 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.sink183, i64 64
   %29 = load ptr, ptr %28, align 8, !tbaa !30
-  %.val52 = load ptr, ptr %.sink164, align 8, !tbaa !32
-  %30 = getelementptr i8, ptr %.sink164, i64 32
+  %.val52 = load ptr, ptr %.sink183, align 8, !tbaa !32
+  %30 = getelementptr i8, ptr %.sink183, i64 32
   %.val53 = load ptr, ptr %30, align 8, !tbaa !34
   %31 = getelementptr i8, ptr %.val52, i64 32
   %.val52.val = load ptr, ptr %31, align 8, !tbaa !35

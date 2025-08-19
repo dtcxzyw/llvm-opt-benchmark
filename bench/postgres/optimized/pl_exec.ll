@@ -865,9 +865,9 @@ define internal fastcc void @plpgsql_estate_setup(ptr noundef nonnull %0, ptr no
   br label %82
 
 82:                                               ; preds = %73, %78, %66
-  %.sink79 = phi ptr [ %72, %66 ], [ %81, %78 ], [ %76, %73 ]
+  %.sink84 = phi ptr [ %72, %66 ], [ %81, %78 ], [ %76, %73 ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr %.sink79, ptr %83, align 8
+  store ptr %.sink84, ptr %83, align 8
   %.not74 = icmp eq ptr %4, null
   %84 = load ptr, ptr @shared_simple_eval_resowner, align 8
   %.sink78 = select i1 %.not74, ptr %84, ptr %4
@@ -5285,9 +5285,9 @@ assign_simple_var.exit:                           ; preds = %658, %681, %682
   br label %exec_stmt_case.exit
 
 exec_stmt_case.exit:                              ; preds = %656, %698
-  %.sink914.in = phi ptr [ %657, %656 ], [ %699, %698 ]
-  %.sink914 = load ptr, ptr %.sink914.in, align 8
-  %700 = call fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef %.sink914)
+  %.sink1041.in = phi ptr [ %657, %656 ], [ %699, %698 ]
+  %.sink1041 = load ptr, ptr %.sink1041.in, align 8
+  %700 = call fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef %.sink1041)
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
   br label %exec_stmt_perform.exit
 
@@ -5613,11 +5613,11 @@ exec_eval_cleanup.exit226:                        ; preds = %844, %846
   %.pre756 = load i32, ptr %855, align 8
   br label %860
 
-860:                                              ; preds = %.backedge1070, %854
-  %861 = phi i32 [ %.pre756, %854 ], [ %.be, %.backedge1070 ]
-  %.065.i = phi i32 [ %788, %854 ], [ %.065.i.be, %.backedge1070 ]
-  %.062.i = phi i8 [ 0, %854 ], [ 1, %.backedge1070 ]
-  %.0.i121 = phi i32 [ 0, %854 ], [ %.2.i123, %.backedge1070 ]
+860:                                              ; preds = %.backedge1197, %854
+  %861 = phi i32 [ %.pre756, %854 ], [ %.be, %.backedge1197 ]
+  %.065.i = phi i32 [ %788, %854 ], [ %.065.i.be, %.backedge1197 ]
+  %.062.i = phi i8 [ 0, %854 ], [ 1, %.backedge1197 ]
+  %.0.i121 = phi i32 [ 0, %854 ], [ %.2.i123, %.backedge1197 ]
   %.not75.i = icmp eq i32 %861, 0
   br i1 %.not75.i, label %864, label %862
 
@@ -5690,7 +5690,7 @@ exec_eval_cleanup.exit226:                        ; preds = %844, %846
 
 892:                                              ; preds = %890
   %893 = sub i32 %.065.i, %.064.i
-  br label %.backedge1070
+  br label %.backedge1197
 
 894:                                              ; preds = %888
   %895 = icmp sgt i32 %.065.i, %859
@@ -5698,9 +5698,9 @@ exec_eval_cleanup.exit226:                        ; preds = %844, %846
 
 896:                                              ; preds = %894
   %897 = add i32 %.065.i, %.064.i
-  br label %.backedge1070
+  br label %.backedge1197
 
-.backedge1070:                                    ; preds = %896, %892
+.backedge1197:                                    ; preds = %896, %892
   %.be = phi i32 [ %889, %896 ], [ 1, %892 ]
   %.065.i.be = phi i32 [ %897, %896 ], [ %893, %892 ]
   br label %860

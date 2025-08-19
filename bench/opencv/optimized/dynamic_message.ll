@@ -821,8 +821,8 @@ _ZNK6google8protobuf11MessageLite14GetOwningArenaEv.exit.thread: ; preds = %305
   %307 = and i64 %303, -4
   %308 = inttoptr i64 %307 to ptr
   %309 = load ptr, ptr %308, align 8, !tbaa !66
-  %.not73179 = icmp eq ptr %309, null
-  br i1 %.not73179, label %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit.thread, label %.thread
+  %.not73186 = icmp eq ptr %309, null
+  br i1 %.not73186, label %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit.thread, label %.thread
 
 .thread:                                          ; preds = %_ZNK6google8protobuf11MessageLite14GetOwningArenaEv.exit.thread
   %310 = and i64 %303, -4
@@ -893,10 +893,10 @@ _ZNK6google8protobuf11MessageLite14GetOwningArenaEv.exit131.thread: ; preds = %3
   %336 = and i64 %332, -4
   %337 = inttoptr i64 %336 to ptr
   %338 = load ptr, ptr %337, align 8, !tbaa !66
-  %.not71180 = icmp eq ptr %338, null
-  br i1 %.not71180, label %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit.thread, label %.thread181
+  %.not71187 = icmp eq ptr %338, null
+  br i1 %.not71187, label %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit.thread, label %.thread188
 
-.thread181:                                       ; preds = %_ZNK6google8protobuf11MessageLite14GetOwningArenaEv.exit131.thread
+.thread188:                                       ; preds = %_ZNK6google8protobuf11MessageLite14GetOwningArenaEv.exit131.thread
   %339 = and i64 %332, -4
   %340 = inttoptr i64 %339 to ptr
   %341 = load ptr, ptr %340, align 8, !tbaa !66
@@ -906,8 +906,8 @@ _ZNK6google8protobuf11MessageLite14GetOwningArenaEv.exit131.thread: ; preds = %3
   %343 = inttoptr i64 %332 to ptr
   br label %_ZN6google8protobuf5Arena13OwnDestructorINS0_8internal15DynamicMapFieldEEEvPT_.exit75
 
-_ZN6google8protobuf5Arena13OwnDestructorINS0_8internal15DynamicMapFieldEEEvPT_.exit75: ; preds = %.thread181, %342
-  %344 = phi ptr [ %341, %.thread181 ], [ %343, %342 ]
+_ZN6google8protobuf5Arena13OwnDestructorINS0_8internal15DynamicMapFieldEEEvPT_.exit75: ; preds = %.thread188, %342
+  %344 = phi ptr [ %341, %.thread188 ], [ %343, %342 ]
   call void @_ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(32) %344, ptr noundef nonnull %91, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_15DynamicMapFieldEEEvPv)
   br label %_ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit.thread
 
@@ -1351,8 +1351,8 @@ _ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit: ; preds = %95
   br label %_ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit.thread
 
 _ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit.thread: ; preds = %95, %_ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit
-  %.sink275 = phi i32 [ %105, %_ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit ], [ 1, %95 ]
-  %spec.select = add nuw nsw i32 %.098204, %.sink275
+  %.sink296 = phi i32 [ %105, %_ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit ], [ 1, %95 ]
+  %spec.select = add nuw nsw i32 %.098204, %.sink296
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EE5resetIPjvEEvT_.exit, label %95, !llvm.loop !176
@@ -1886,8 +1886,8 @@ _ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit121.thread: ; preds = 
 
 ._crit_edge231:                                   ; preds = %.loopexit, %._crit_edge223.thread
   %283 = phi ptr [ %187, %._crit_edge223.thread ], [ %265, %.loopexit ]
-  %.5.lcssa266 = phi i32 [ %.3.lcssa, %._crit_edge223.thread ], [ %.6, %.loopexit ]
-  %284 = sext i32 %.5.lcssa266 to i64
+  %.5.lcssa287 = phi i32 [ %.3.lcssa, %._crit_edge223.thread ], [ %.6, %.loopexit ]
+  %284 = sext i32 %.5.lcssa287 to i64
   %285 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %284) #23
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %285, i8 0, i64 %284, i1 false)
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 8
@@ -2005,10 +2005,10 @@ _ZNK6google8protobuf15FieldDescriptor15extension_scopeEv.exit4.i: ; preds = %_ZN
   br label %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor5indexEv.exit: ; preds = %334, %_ZNK6google8protobuf15FieldDescriptor15extension_scopeEv.exit4.i, %340
-  %.sink6.in.i = phi ptr [ %343, %340 ], [ %.phi.trans.insert.i, %_ZNK6google8protobuf15FieldDescriptor15extension_scopeEv.exit4.i ], [ %337, %334 ]
-  %.sink6.i = load ptr, ptr %.sink6.in.i, align 8, !tbaa !77
+  %.sink7.in.i = phi ptr [ %343, %340 ], [ %.phi.trans.insert.i, %_ZNK6google8protobuf15FieldDescriptor15extension_scopeEv.exit4.i ], [ %337, %334 ]
+  %.sink7.i = load ptr, ptr %.sink7.in.i, align 8, !tbaa !77
   %344 = ptrtoint ptr %330 to i64
-  %345 = ptrtoint ptr %.sink6.i to i64
+  %345 = ptrtoint ptr %.sink7.i to i64
   %346 = sub i64 %344, %345
   %.0.in.i = sdiv exact i64 %346, 72
   %sext = shl i64 %.0.in.i, 32
@@ -2248,7 +2248,7 @@ _ZN6google8protobuf12_GLOBAL__N_111InRealOneofEPKNS0_15FieldDescriptorE.exit.thr
   %114 = load i8, ptr %113, align 2, !tbaa !81
   %115 = icmp eq i8 %114, 11
   %116 = and i32 %110, -2
-  %.0.i.i198 = select i1 %115, i32 %116, i32 %110
+  %.0.i.i218 = select i1 %115, i32 %116, i32 %110
   br label %132
 
 117:                                              ; preds = %100
@@ -2358,7 +2358,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
   br label %132
 
 132:                                              ; preds = %.thread, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i54, %122
-  %.pn.in = phi i32 [ %.0.i.i, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i54 ], [ %.0.i.i, %122 ], [ %.0.i.i198, %.thread ]
+  %.pn.in = phi i32 [ %.0.i.i, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i54 ], [ %.0.i.i, %122 ], [ %.0.i.i218, %.thread ]
   %133 = phi ptr [ %123, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i54 ], [ %123, %122 ], [ %113, %.thread ]
   %134 = phi i8 [ %.pre187, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i54 ], [ %124, %122 ], [ %114, %.thread ]
   %.pn = sext i32 %.pn.in to i64

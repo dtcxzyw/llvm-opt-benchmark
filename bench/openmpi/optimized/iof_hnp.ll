@@ -1985,8 +1985,8 @@ pmix_obj_run_destructors.exit113:                 ; preds = %.lr.ph.i110, %169
   br i1 %190, label %pmix_list_remove_first.exit.thread, label %.lr.ph, !llvm.loop !87
 
 .loopexit.sink.split:                             ; preds = %151, %99
-  %.sink249 = phi ptr [ %103, %99 ], [ %158, %151 ]
-  %191 = getelementptr inbounds nuw i8, ptr %.sink249, i64 128
+  %.sink266 = phi ptr [ %103, %99 ], [ %158, %151 ]
+  %191 = getelementptr inbounds nuw i8, ptr %.sink266, i64 128
   store volatile ptr %30, ptr %191, align 8, !tbaa !37
   store ptr %30, ptr %24, align 8, !tbaa !34
   %192 = load volatile i64, ptr %21, align 8, !tbaa !38

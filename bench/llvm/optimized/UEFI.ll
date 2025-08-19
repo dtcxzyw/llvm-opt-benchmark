@@ -663,10 +663,10 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit39: ; preds = %127,
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %139
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %141, ptr noundef nonnull dereferenceable(3) @.str.9, i64 3)
   %143 = icmp eq i32 %bcmp.i, 0
-  br i1 %143, label %.thread, label %.thread78
+  br i1 %143, label %.thread, label %.thread106
 
 .thread:                                          ; preds = %139, %_ZN4llvmeqENS_9StringRefES0_.exit
-  br label %.thread78
+  br label %.thread106
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %139
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -683,7 +683,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %139
   store i8 0, ptr %144, align 8, !tbaa !92, !alias.scope !115
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
 
-.thread78:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %.thread
+.thread106:                                       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %.thread
   %.sroa.6.072.ph = phi i64 [ 8, %.thread ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit ]
   %.sroa.060.071.ph = phi ptr [ @.str.10, %.thread ], [ %141, %_ZN4llvmeqENS_9StringRefES0_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -707,22 +707,22 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %139
   store i64 %152, ptr %144, align 8, !tbaa !92, !alias.scope !115
   br label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %.thread78, %150, %148
-  %.sroa.060.07182 = phi ptr [ %141, %150 ], [ %141, %148 ], [ %.sroa.060.071.ph, %.thread78 ]
-  %.sroa.6.07281 = phi i64 [ %142, %150 ], [ %142, %148 ], [ %.sroa.6.072.ph, %.thread78 ]
-  %153 = phi ptr [ %151, %150 ], [ %144, %148 ], [ %147, %.thread78 ]
-  switch i64 %.sroa.6.07281, label %156 [
+._crit_edge.i.i.i:                                ; preds = %.thread106, %150, %148
+  %.sroa.060.071110 = phi ptr [ %141, %150 ], [ %141, %148 ], [ %.sroa.060.071.ph, %.thread106 ]
+  %.sroa.6.072109 = phi i64 [ %142, %150 ], [ %142, %148 ], [ %.sroa.6.072.ph, %.thread106 ]
+  %153 = phi ptr [ %151, %150 ], [ %144, %148 ], [ %147, %.thread106 ]
+  switch i64 %.sroa.6.072109, label %156 [
     i64 1, label %154
     i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i
   ]
 
 154:                                              ; preds = %._crit_edge.i.i.i
-  %155 = load i8, ptr %.sroa.060.07182, align 1, !tbaa !92
+  %155 = load i8, ptr %.sroa.060.071110, align 1, !tbaa !92
   store i8 %155, ptr %153, align 1, !tbaa !92
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i
 
 156:                                              ; preds = %._crit_edge.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %153, ptr nonnull align 1 %.sroa.060.07182, i64 %.sroa.6.07281, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %153, ptr nonnull align 1 %.sroa.060.071110, i64 %.sroa.6.072109, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i: ; preds = %156, %154, %._crit_edge.i.i.i
@@ -1722,12 +1722,12 @@ _ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDES6_EEENS_14iterator_ra
   br i1 %.not.i.i7, label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj2EEppEv.exit.sink.split, label %.lr.ph.i.i, !llvm.loop !157
 
 _ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj2EEppEv.exit.sink.split: ; preds = %.thread25.i.i, %33
-  %.lcssa36.sink = phi ptr [ %29, %33 ], [ %35, %.thread25.i.i ]
-  store ptr %.lcssa36.sink, ptr %5, align 8
+  %.lcssa46.sink = phi ptr [ %29, %33 ], [ %35, %.thread25.i.i ]
+  store ptr %.lcssa46.sink, ptr %5, align 8
   br label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj2EEppEv.exit
 
 _ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj2EEppEv.exit: ; preds = %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj2EEppEv.exit.sink.split, %.lr.ph
-  %.lcssa2225 = phi ptr [ %28, %.lr.ph ], [ %.lcssa36.sink, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj2EEppEv.exit.sink.split ]
+  %.lcssa2225 = phi ptr [ %28, %.lr.ph ], [ %.lcssa46.sink, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj2EEppEv.exit.sink.split ]
   %.not = icmp eq ptr %.lcssa2225, %12
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }

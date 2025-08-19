@@ -283,8 +283,8 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr %61, align 8
-  %.not629 = icmp eq ptr %62, null
-  br i1 %.not629, label %.loopexit433, label %.lr.ph462.split
+  %.not660 = icmp eq ptr %62, null
+  br i1 %.not660, label %.loopexit433, label %.lr.ph462.split
 
 .lr.ph462.split:                                  ; preds = %59, %72
   %63 = phi ptr [ %73, %72 ], [ %61, %59 ]
@@ -324,8 +324,8 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
   %76 = load ptr, ptr %0, align 8
   %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv.next563
   %78 = load ptr, ptr %77, align 8
-  %.not630 = icmp eq ptr %78, null
-  br i1 %.not630, label %._crit_edge468, label %.lr.ph467, !llvm.loop !9
+  %.not661 = icmp eq ptr %78, null
+  br i1 %.not661, label %._crit_edge468, label %.lr.ph467, !llvm.loop !9
 
 ._crit_edge468:                                   ; preds = %.loopexit433, %.preheader434
   %79 = load ptr, ptr %46, align 8

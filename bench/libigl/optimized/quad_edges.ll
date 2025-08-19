@@ -659,9 +659,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 313:                                              ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i
   %314 = icmp sgt i64 %312, 0
-  br i1 %314, label %317, label %.thread262
+  br i1 %314, label %317, label %.thread281
 
-.thread262:                                       ; preds = %313
+.thread281:                                       ; preds = %313
   store i64 %303, ptr %305, align 8, !tbaa !4
   store i64 %304, ptr %306, align 8, !tbaa !49
   %.nonneg = sub i64 0, %312
@@ -699,15 +699,15 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i: ; preds = %317
   %326 = icmp samesign ugt i64 %312, 3
   br i1 %326, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.thread262, %.thread, %324
-  %327 = phi i64 [ 0, %.thread ], [ %325, %324 ], [ %316, %.thread262 ], [ %325, %.lr.ph.i.i.i.i.i.i.i ]
-  %.pre.i143261 = phi ptr [ null, %.thread ], [ %321, %324 ], [ null, %.thread262 ], [ %321, %.lr.ph.i.i.i.i.i.i.i ]
+._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.thread281, %.thread, %324
+  %327 = phi i64 [ 0, %.thread ], [ %325, %324 ], [ %316, %.thread281 ], [ %325, %.lr.ph.i.i.i.i.i.i.i ]
+  %.pre.i143280 = phi ptr [ null, %.thread ], [ %321, %324 ], [ null, %.thread281 ], [ %321, %.lr.ph.i.i.i.i.i.i.i ]
   %328 = icmp slt i64 %327, %312
   br i1 %328, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseIS1_EEEERKT_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %._crit_edge.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi i64 [ %332, %.lr.ph.i.i.i.i.i.i.i.i ], [ %327, %._crit_edge.i.i.i.i.i.i.i ]
-  %329 = getelementptr inbounds i32, ptr %.pre.i143261, i64 %.05.i.i.i.i.i.i.i.i
+  %329 = getelementptr inbounds i32, ptr %.pre.i143280, i64 %.05.i.i.i.i.i.i.i.i
   %330 = getelementptr inbounds i32, ptr %302, i64 %.05.i.i.i.i.i.i.i.i
   %331 = load i32, ptr %330, align 4, !tbaa !53
   store i32 %331, ptr %329, align 4, !tbaa !53

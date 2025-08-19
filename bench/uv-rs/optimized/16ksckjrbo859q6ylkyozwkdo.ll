@@ -913,7 +913,7 @@ _ZN3std4path4Path12strip_prefix17heff6e00afa4a65a3E.exit: ; preds = %8
   invoke void @_ZN3std4path4Path5_join17h8965b519821eba8eE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %98, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %109, i64 noundef %112)
           to label %116 unwind label %107
 
-default.unreachable930:                           ; preds = %159
+default.unreachable966:                           ; preds = %159
   unreachable
 
 .body642:                                         ; preds = %114, %385, %182
@@ -1059,7 +1059,7 @@ default.unreachable930:                           ; preds = %159
 
 159:                                              ; preds = %158
   %160 = load i8, ptr %7, align 1, !range !86, !noundef !4
-  switch i8 %160, label %default.unreachable930 [
+  switch i8 %160, label %default.unreachable966 [
     i8 0, label %.noexc561
     i8 1, label %.noexc557
     i8 2, label %177
@@ -2181,11 +2181,11 @@ _ZN12reflink_copy7reflink17h7c7819c864495175E.exit: ; preds = %.noexc550
   br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h59b2fae70d5c10f1E.exit"
 
 476:                                              ; preds = %470, %_ZN12reflink_copy7reflink17h7c7819c864495175E.exit
-  %.sink950 = phi ptr [ %464, %_ZN12reflink_copy7reflink17h7c7819c864495175E.exit ], [ %469, %470 ]
+  %.sink986 = phi ptr [ %464, %_ZN12reflink_copy7reflink17h7c7819c864495175E.exit ], [ %469, %470 ]
   %.sroa.0285.21 = phi i8 [ 1, %_ZN12reflink_copy7reflink17h7c7819c864495175E.exit ], [ 0, %470 ]
   store i64 0, ptr %0, align 8
   %.sroa.4738.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink950, ptr %.sroa.4738.0..sroa_idx, align 8
+  store ptr %.sink986, ptr %.sroa.4738.0..sroa_idx, align 8
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hd8ef124757832bc6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52)
           to label %477 unwind label %454
 

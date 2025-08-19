@@ -318,9 +318,9 @@ rb_num2int_inline.exit53.us:                      ; preds = %58, %56
   %wide.trip.count105 = zext nneg i32 %0 to i64
   br label %.lr.ph.split.split.outer
 
-.lr.ph.split.split.outer:                         ; preds = %.thread118, %.lr.ph.split.split.preheader
-  %indvars.iv101.ph = phi i64 [ %indvars.iv.next102120, %.thread118 ], [ 1, %.lr.ph.split.split.preheader ]
-  %64 = phi i1 [ false, %.thread118 ], [ true, %.lr.ph.split.split.preheader ]
+.lr.ph.split.split.outer:                         ; preds = %.thread124, %.lr.ph.split.split.preheader
+  %indvars.iv101.ph = phi i64 [ %indvars.iv.next102126, %.thread124 ], [ 1, %.lr.ph.split.split.preheader ]
+  %64 = phi i1 [ false, %.thread124 ], [ true, %.lr.ph.split.split.preheader ]
   br label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split
@@ -406,7 +406,7 @@ rb_num2int_inline.exit53:                         ; preds = %84, %86
 
 signal_ignored.exit.thread:                       ; preds = %90
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread118
+  br label %.thread124
 
 94:                                               ; preds = %90
   %95 = load ptr, ptr %3, align 8, !tbaa !58
@@ -420,7 +420,7 @@ signal_ignored.exit.thread:                       ; preds = %90
 signal_ignored.exit:                              ; preds = %94
   %.not63 = icmp eq ptr %95, @sighandler
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not63, label %.thread118, label %97
+  br i1 %.not63, label %.thread124, label %97
 
 97:                                               ; preds = %signal_ignored.exit
   %98 = call i32 @kill(i32 noundef %42, i32 noundef %.039.fr) #16
@@ -449,24 +449,24 @@ signal_ignored.exit:                              ; preds = %94
   %exitcond106.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count105
   br i1 %exitcond106.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !56
 
-.thread118:                                       ; preds = %signal_ignored.exit, %signal_ignored.exit.thread
+.thread124:                                       ; preds = %signal_ignored.exit, %signal_ignored.exit.thread
   %108 = atomicrmw volatile add ptr %52, i32 1 seq_cst, align 4
   %109 = atomicrmw volatile add ptr getelementptr inbounds nuw (i8, ptr @signal_buff, i64 260), i32 1 seq_cst, align 4
-  %indvars.iv.next102120 = add nuw nsw i64 %indvars.iv101, 1
-  %exitcond106.not121 = icmp eq i64 %indvars.iv.next102120, %wide.trip.count105
-  br i1 %exitcond106.not121, label %._crit_edge.thread123, label %.lr.ph.split.split.outer, !llvm.loop !56
+  %indvars.iv.next102126 = add nuw nsw i64 %indvars.iv101, 1
+  %exitcond106.not127 = icmp eq i64 %indvars.iv.next102126, %wide.trip.count105
+  br i1 %exitcond106.not127, label %._crit_edge.thread129, label %.lr.ph.split.split.outer, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %107
-  br i1 %64, label %.loopexit, label %._crit_edge.thread123
+  br i1 %64, label %.loopexit, label %._crit_edge.thread129
 
-._crit_edge.thread123:                            ; preds = %.thread118, %._crit_edge
+._crit_edge.thread129:                            ; preds = %.thread124, %._crit_edge
   %110 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !14
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 40
   %112 = load ptr, ptr %111, align 8, !tbaa !35
   call void @rb_threadptr_check_signal(ptr noundef %112) #16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %63, %80, %32, %._crit_edge.thread123, %._crit_edge
+.loopexit:                                        ; preds = %63, %80, %32, %._crit_edge.thread129, %._crit_edge
   %113 = call i64 @rb_thread_current() #16
   call void @rb_thread_execute_interrupts(i64 noundef %113) #16
   %114 = add nsw i32 %0, -1
@@ -639,21 +639,21 @@ rbimpl_rstring_getmem.exit:                       ; preds = %27, %32
 
 .loopexit:                                        ; preds = %74, %59, %55, %51
   %77 = icmp eq i32 %.1, 3
-  br i1 %77, label %81, label %.sink.split80
+  br i1 %77, label %81, label %.sink.split88
 
-.sink.split80:                                    ; preds = %.loopexit
+.sink.split88:                                    ; preds = %.loopexit
   %78 = icmp sgt i32 %.1, 3
   %79 = sub nsw i64 0, %52
-  %.sink82.p = select i1 %78, i64 -1, i64 %79
-  %.sink82 = add i64 %.sroa.3.0, %.sink82.p
-  %.sink81 = select i1 %78, i64 1, i64 %52
+  %.sink90.p = select i1 %78, i64 -1, i64 %79
+  %.sink90 = add i64 %.sroa.3.0, %.sink90.p
+  %.sink89 = select i1 %78, i64 1, i64 %52
   %.2.ph = select i1 %78, i32 0, i32 3
-  %80 = tail call i64 @rb_str_subseq(i64 noundef %.060, i64 noundef %.sink81, i64 noundef %.sink82) #16
+  %80 = tail call i64 @rb_str_subseq(i64 noundef %.060, i64 noundef %.sink89, i64 noundef %.sink90) #16
   br label %81
 
-81:                                               ; preds = %.sink.split80, %.loopexit
-  %.161 = phi i64 [ %.060, %.loopexit ], [ %80, %.sink.split80 ]
-  %.2 = phi i32 [ 0, %.loopexit ], [ %.2.ph, %.sink.split80 ]
+81:                                               ; preds = %.sink.split88, %.loopexit
+  %.161 = phi i64 [ %.060, %.loopexit ], [ %80, %.sink.split88 ]
+  %.2 = phi i32 [ 0, %.loopexit ], [ %.2.ph, %.sink.split88 ]
   %82 = load i64, ptr @rb_eArgError, align 8, !tbaa !20
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %82, ptr noundef nonnull @.str.23, i32 noundef %.2, ptr noundef nonnull @.str.38, i64 noundef %.161) #18
   unreachable

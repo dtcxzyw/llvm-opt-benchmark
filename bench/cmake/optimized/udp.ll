@@ -389,7 +389,7 @@ define dso_local i32 @uv__udp_connect(ptr noundef captures(none) %0, ptr noundef
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %7 = load i32, ptr %6, align 8, !tbaa !23
   %.not.i = icmp eq i32 %7, -1
-  br i1 %.not.i, label %8, label %uv__udp_maybe_deferred_bind.exit.thread16
+  br i1 %.not.i, label %8, label %uv__udp_maybe_deferred_bind.exit.thread18
 
 8:                                                ; preds = %3
   switch i16 %5, label %10 [
@@ -441,14 +441,14 @@ define dso_local i32 @uv__udp_connect(ptr noundef captures(none) %0, ptr noundef
   %25 = select i1 %21, i32 %24, i32 %23
   %26 = or i32 %25, 8192
   store i32 %26, ptr %22, align 8, !tbaa !14
-  br label %uv__udp_maybe_deferred_bind.exit.thread16
+  br label %uv__udp_maybe_deferred_bind.exit.thread18
 
 uv__udp_maybe_deferred_bind.exit.thread:          ; preds = %.sink.split.i, %16
   %.0.i.ph = phi i32 [ %12, %.sink.split.i ], [ -22, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %41
 
-uv__udp_maybe_deferred_bind.exit.thread16:        ; preds = %3, %._crit_edge.i
+uv__udp_maybe_deferred_bind.exit.thread18:        ; preds = %3, %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.preheader
 
@@ -458,7 +458,7 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %16
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %.preheader, label %41
 
-.preheader:                                       ; preds = %uv__udp_maybe_deferred_bind.exit.thread16, %uv__udp_maybe_deferred_bind.exit
+.preheader:                                       ; preds = %uv__udp_maybe_deferred_bind.exit.thread18, %uv__udp_maybe_deferred_bind.exit
   %28 = tail call ptr @__errno_location() #10
   br label %29
 
@@ -874,7 +874,7 @@ define internal fastcc void @uv__udp_sendmsg(ptr noundef %0) unnamed_addr #0 {
 .preheader86.i:                                   ; preds = %.critedge.i
   %.2104.i = load ptr, ptr %15, align 8, !tbaa !24
   %.not114.i = icmp eq ptr %.2104.i, %15
-  br i1 %.not114.i, label %.sink.split132.i, label %.lr.ph107.i
+  br i1 %.not114.i, label %.sink.split135.i, label %.lr.ph107.i
 
 .critedge.thread.loopexit89.i:                    ; preds = %.critedge.i
   %.pre.i = tail call ptr @__errno_location() #10
@@ -893,7 +893,7 @@ define internal fastcc void @uv__udp_sendmsg(ptr noundef %0) unnamed_addr #0 {
   %55 = icmp ne i64 %.078.lcssa.i, 0
   %56 = icmp ne ptr %.180109.i, %15
   %57 = select i1 %55, i1 %56, i1 false
-  br i1 %57, label %.lr.ph112.i, label %.sink.split132.i
+  br i1 %57, label %.lr.ph112.i, label %.sink.split135.i
 
 .lr.ph112.i:                                      ; preds = %.preheader.i
   %58 = sub nsw i32 0, %54
@@ -922,7 +922,7 @@ define internal fastcc void @uv__udp_sendmsg(ptr noundef %0) unnamed_addr #0 {
   %69 = icmp ult i64 %68, %.078.lcssa.i
   %70 = icmp ne ptr %.180.i, %15
   %71 = select i1 %69, i1 %70, i1 false
-  br i1 %71, label %60, label %.sink.split132.i, !llvm.loop !64
+  br i1 %71, label %60, label %.sink.split135.i, !llvm.loop !64
 
 .lr.ph107.i:                                      ; preds = %.preheader86.i, %.lr.ph107.i
   %.2106.i = phi ptr [ %.2.i, %.lr.ph107.i ], [ %.2104.i, %.preheader86.i ]
@@ -954,16 +954,16 @@ define internal fastcc void @uv__udp_sendmsg(ptr noundef %0) unnamed_addr #0 {
 
 ._crit_edge.i:                                    ; preds = %.lr.ph107.i
   %87 = icmp eq ptr %15, %.2.i
-  br i1 %87, label %.sink.split132.i, label %21
+  br i1 %87, label %.sink.split135.i, label %21
 
-.sink.split132.i:                                 ; preds = %.preheader86.i, %._crit_edge.i, %60, %.preheader.i
-  %.sink134.i = getelementptr inbounds nuw i8, ptr %0, i64 128
+.sink.split135.i:                                 ; preds = %.preheader86.i, %._crit_edge.i, %60, %.preheader.i
+  %.sink137.i = getelementptr inbounds nuw i8, ptr %0, i64 128
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !4
-  call void @uv__io_feed(ptr noundef %89, ptr noundef nonnull %.sink134.i) #9
+  call void @uv__io_feed(ptr noundef %89, ptr noundef nonnull %.sink137.i) #9
   br label %uv__udp_sendmmsg.exit
 
-uv__udp_sendmmsg.exit:                            ; preds = %14, %.critedge.thread.i, %.critedge.thread.i, %.sink.split132.i
+uv__udp_sendmmsg.exit:                            ; preds = %14, %.critedge.thread.i, %.critedge.thread.i, %.sink.split135.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
@@ -1423,12 +1423,12 @@ uv_udp_using_recvmmsg.exit.i:                     ; preds = %33
   br i1 %exitcond67.not.i.i, label %.critedge2.i.i, label %.lr.ph63.i.i, !llvm.loop !91
 
 .critedge2.i.i:                                   ; preds = %74
-  %.pr68.i.i = load ptr, ptr %17, align 8, !tbaa !83
-  %.not54.i.i = icmp eq ptr %.pr68.i.i, null
+  %.pr71.i.i = load ptr, ptr %17, align 8, !tbaa !83
+  %.not54.i.i = icmp eq ptr %.pr71.i.i, null
   br i1 %.not54.i.i, label %uv__udp_recvmmsg.exit.i, label %93
 
 93:                                               ; preds = %.critedge2.i.i
-  call void %.pr68.i.i(ptr noundef nonnull %11, i64 noundef 0, ptr noundef nonnull %10, ptr noundef null, i32 noundef 16) #9
+  call void %.pr71.i.i(ptr noundef nonnull %11, i64 noundef 0, ptr noundef nonnull %10, ptr noundef null, i32 noundef 16) #9
   br label %uv__udp_recvmmsg.exit.i
 
 uv__udp_recvmmsg.exit.i:                          ; preds = %.lr.ph63.i.i, %93, %.critedge2.i.i, %69, %67
@@ -1438,7 +1438,7 @@ uv__udp_recvmmsg.exit.i:                          ; preds = %.lr.ph63.i.i, %93, 
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %94 = sext i32 %55 to i64
   %95 = call i32 @llvm.smax.i32(i32 %55, i32 0)
-  %spec.select.i = sub i32 %.032.i, %95
+  %spec.select.i = sub nsw i32 %.032.i, %95
   br label %114
 
 uv_udp_using_recvmmsg.exit.thread.i:              ; preds = %uv_udp_using_recvmmsg.exit.i, %33

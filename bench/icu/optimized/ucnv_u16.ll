@@ -570,13 +570,13 @@ define internal void @_ZL28_UTF16BEToUnicodeWithOffsetsP23UConverterToUnicodeArg
   br label %.thread283.sink.split
 
 .thread283.sink.split:                            ; preds = %221, %231, %247
-  %.sink413 = phi i32 [ 15, %247 ], [ 12, %231 ], [ 12, %221 ]
+  %.sink423 = phi i32 [ 15, %247 ], [ 12, %231 ], [ 12, %221 ]
   %.ph = phi i8 [ 0, %247 ], [ 2, %231 ], [ 2, %221 ]
   %.10230.ph = phi ptr [ %244, %247 ], [ %.4224, %231 ], [ %.4224, %221 ]
   %.10218.ph = phi ptr [ %.11219, %247 ], [ %.6214, %231 ], [ %.6214, %221 ]
   %.3202.ph = phi i32 [ %243, %247 ], [ 1, %231 ], [ %.2201, %221 ]
   %.10.ph = phi ptr [ %242, %247 ], [ %.4, %231 ], [ %.4, %221 ]
-  store i32 %.sink413, ptr %1, align 4, !tbaa !14
+  store i32 %.sink423, ptr %1, align 4, !tbaa !14
   br label %.thread283
 
 .thread283:                                       ; preds = %212, %175, %.thread283.sink.split, %.loopexit, %229, %220
@@ -1369,10 +1369,10 @@ define internal void @_ZL26_UTF16ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
   br i1 %70, label %.lr.ph137, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.lr.ph137, %2, %64, %.critedge
-  %.0.lcssa153 = phi ptr [ %.0.lcssa, %64 ], [ %.0.lcssa, %.critedge ], [ %6, %2 ], [ %.0.lcssa, %.lr.ph137 ]
-  %.080.lcssa152 = phi i32 [ %.080.lcssa, %64 ], [ %.080.lcssa, %.critedge ], [ %12, %2 ], [ %.080.lcssa, %.lr.ph137 ]
-  store ptr %.0.lcssa153, ptr %5, align 8, !tbaa !22
-  %71 = icmp eq ptr %.0.lcssa153, %8
+  %.0.lcssa158 = phi ptr [ %.0.lcssa, %64 ], [ %.0.lcssa, %.critedge ], [ %6, %2 ], [ %.0.lcssa, %.lr.ph137 ]
+  %.080.lcssa157 = phi i32 [ %.080.lcssa, %64 ], [ %.080.lcssa, %.critedge ], [ %12, %2 ], [ %.080.lcssa, %.lr.ph137 ]
+  store ptr %.0.lcssa158, ptr %5, align 8, !tbaa !22
+  %71 = icmp eq ptr %.0.lcssa158, %8
   br i1 %71, label %72, label %78
 
 72:                                               ; preds = %.loopexit
@@ -1382,7 +1382,7 @@ define internal void @_ZL26_UTF16ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
   br i1 %.not86, label %78, label %75
 
 75:                                               ; preds = %72
-  switch i32 %.080.lcssa152, label %78 [
+  switch i32 %.080.lcssa157, label %78 [
     i32 9, label %77
     i32 8, label %76
   ]
@@ -1396,7 +1396,7 @@ define internal void @_ZL26_UTF16ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
   br label %78
 
 78:                                               ; preds = %76, %77, %75, %72, %.loopexit
-  store i32 %.080.lcssa152, ptr %11, align 4, !tbaa !12
+  store i32 %.080.lcssa157, ptr %11, align 4, !tbaa !12
   br label %79
 
 79:                                               ; preds = %78, %.thread100
@@ -1871,13 +1871,13 @@ define internal void @_ZL28_UTF16LEToUnicodeWithOffsetsP23UConverterToUnicodeArg
   br label %.thread283.sink.split
 
 .thread283.sink.split:                            ; preds = %216, %222, %238
-  %.sink413 = phi i32 [ 15, %238 ], [ 12, %222 ], [ 12, %216 ]
+  %.sink423 = phi i32 [ 15, %238 ], [ 12, %222 ], [ 12, %216 ]
   %.ph = phi i8 [ 0, %238 ], [ 2, %222 ], [ 2, %216 ]
   %.10230.ph = phi ptr [ %235, %238 ], [ %.4224, %222 ], [ %.4224, %216 ]
   %.10218.ph = phi ptr [ %.11219, %238 ], [ %.6214, %222 ], [ %.6214, %216 ]
   %.3202.ph = phi i32 [ %234, %238 ], [ 1, %222 ], [ %.2201, %216 ]
   %.10.ph = phi ptr [ %233, %238 ], [ %.4, %222 ], [ %.4, %216 ]
-  store i32 %.sink413, ptr %1, align 4, !tbaa !14
+  store i32 %.sink423, ptr %1, align 4, !tbaa !14
   br label %.thread283
 
 .thread283:                                       ; preds = %207, %170, %.thread283.sink.split, %.loopexit, %220, %215

@@ -863,7 +863,7 @@ define hidden range(i64 0, -4294965248) i64 @"_ZN206_$LT$ruff_linter..rules..iso
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %8 = load i32, ptr %7, align 4, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %23
+  br label %22
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -872,61 +872,61 @@ define hidden range(i64 0, -4294965248) i64 @"_ZN206_$LT$ruff_linter..rules..iso
   %12 = tail call { i32, i32 } @"_ZN107_$LT$serde..__private..de..content..VariantRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..VariantAccess$GT$12unit_variant17hbf3949c687facf36E"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %11)
   %13 = extractvalue { i32, i32 } %12, 0
   %14 = trunc i32 %13 to i1
-  switch i8 %4, label %15 [
-    i8 0, label %16
-    i8 1, label %17
-    i8 2, label %18
-    i8 3, label %19
-    i8 4, label %20
+  switch i8 %4, label %default.unreachable [
+    i8 0, label %15
+    i8 1, label %16
+    i8 2, label %17
+    i8 3, label %18
+    i8 4, label %19
   ]
 
-15:                                               ; preds = %9
+default.unreachable:                              ; preds = %9
   unreachable
 
+15:                                               ; preds = %9
+  br i1 %14, label %20, label %33
+
 16:                                               ; preds = %9
-  br i1 %14, label %21, label %34
+  br i1 %14, label %25, label %33
 
 17:                                               ; preds = %9
-  br i1 %14, label %26, label %34
+  br i1 %14, label %27, label %33
 
 18:                                               ; preds = %9
-  br i1 %14, label %28, label %34
+  br i1 %14, label %29, label %33
 
 19:                                               ; preds = %9
-  br i1 %14, label %30, label %34
+  br i1 %14, label %31, label %33
 
-20:                                               ; preds = %9
-  br i1 %14, label %32, label %34
+20:                                               ; preds = %15
+  %21 = extractvalue { i32, i32 } %12, 1
+  br label %22
 
-21:                                               ; preds = %16
-  %22 = extractvalue { i32, i32 } %12, 1
-  br label %23
+22:                                               ; preds = %31, %29, %27, %25, %20, %6
+  %.sroa.171.0 = phi i32 [ %8, %6 ], [ %21, %20 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ]
+  %23 = zext i32 %.sroa.171.0 to i64
+  %24 = shl nuw i64 %23, 32
+  br label %33
 
-23:                                               ; preds = %32, %30, %28, %26, %21, %6
-  %.sroa.171.0 = phi i32 [ %8, %6 ], [ %22, %21 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ]
-  %24 = zext i32 %.sroa.171.0 to i64
-  %25 = shl nuw i64 %24, 32
-  br label %34
+25:                                               ; preds = %16
+  %26 = extractvalue { i32, i32 } %12, 1
+  br label %22
 
-26:                                               ; preds = %17
-  %27 = extractvalue { i32, i32 } %12, 1
-  br label %23
+27:                                               ; preds = %17
+  %28 = extractvalue { i32, i32 } %12, 1
+  br label %22
 
-28:                                               ; preds = %18
-  %29 = extractvalue { i32, i32 } %12, 1
-  br label %23
+29:                                               ; preds = %18
+  %30 = extractvalue { i32, i32 } %12, 1
+  br label %22
 
-30:                                               ; preds = %19
-  %31 = extractvalue { i32, i32 } %12, 1
-  br label %23
+31:                                               ; preds = %19
+  %32 = extractvalue { i32, i32 } %12, 1
+  br label %22
 
-32:                                               ; preds = %20
-  %33 = extractvalue { i32, i32 } %12, 1
-  br label %23
-
-34:                                               ; preds = %20, %19, %18, %17, %16, %23
-  %.sroa.171.1 = phi i64 [ %25, %23 ], [ 0, %16 ], [ 0, %17 ], [ 0, %18 ], [ 0, %19 ], [ 0, %20 ]
-  %.sroa.0.2 = phi i64 [ 1, %23 ], [ 0, %16 ], [ 0, %17 ], [ 0, %18 ], [ 0, %19 ], [ 0, %20 ]
+33:                                               ; preds = %19, %18, %17, %16, %15, %22
+  %.sroa.171.1 = phi i64 [ %24, %22 ], [ 0, %15 ], [ 0, %16 ], [ 0, %17 ], [ 0, %18 ], [ 0, %19 ]
+  %.sroa.0.2 = phi i64 [ 1, %22 ], [ 0, %15 ], [ 0, %16 ], [ 0, %17 ], [ 0, %18 ], [ 0, %19 ]
   %.sroa.12.0.insert.ext = zext nneg i8 %4 to i64
   %.sroa.12.0.insert.shift = shl nuw nsw i64 %.sroa.12.0.insert.ext, 8
   %.sroa.12.0.insert.insert = or disjoint i64 %.sroa.171.1, %.sroa.12.0.insert.shift
@@ -1462,7 +1462,7 @@ define hidden range(i64 0, -4294966272) i64 @"_ZN212_$LT$ruff_linter..rules..pyd
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %8 = load i32, ptr %7, align 4, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %19
+  br label %18
 
 9:                                                ; preds = %1
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1471,45 +1471,45 @@ define hidden range(i64 0, -4294966272) i64 @"_ZN212_$LT$ruff_linter..rules..pyd
   %10 = call { i32, i32 } @"_ZN104_$LT$serde..__private..de..content..VariantDeserializer$LT$E$GT$$u20$as$u20$serde..de..VariantAccess$GT$12unit_variant17h4c77755884116a80E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   %11 = extractvalue { i32, i32 } %10, 0
   %12 = trunc i32 %11 to i1
-  switch i8 %4, label %13 [
-    i8 0, label %14
-    i8 1, label %15
-    i8 2, label %16
+  switch i8 %4, label %default.unreachable [
+    i8 0, label %13
+    i8 1, label %14
+    i8 2, label %15
   ]
 
-13:                                               ; preds = %9
+default.unreachable:                              ; preds = %9
   unreachable
 
+13:                                               ; preds = %9
+  br i1 %12, label %16, label %25
+
 14:                                               ; preds = %9
-  br i1 %12, label %17, label %26
+  br i1 %12, label %21, label %25
 
 15:                                               ; preds = %9
-  br i1 %12, label %22, label %26
+  br i1 %12, label %23, label %25
 
-16:                                               ; preds = %9
-  br i1 %12, label %24, label %26
+16:                                               ; preds = %13
+  %17 = extractvalue { i32, i32 } %10, 1
+  br label %18
 
-17:                                               ; preds = %14
-  %18 = extractvalue { i32, i32 } %10, 1
-  br label %19
+18:                                               ; preds = %23, %21, %16, %6
+  %.sroa.111.0 = phi i32 [ %8, %6 ], [ %17, %16 ], [ %22, %21 ], [ %24, %23 ]
+  %19 = zext i32 %.sroa.111.0 to i64
+  %20 = shl nuw i64 %19, 32
+  br label %25
 
-19:                                               ; preds = %24, %22, %17, %6
-  %.sroa.111.0 = phi i32 [ %8, %6 ], [ %18, %17 ], [ %23, %22 ], [ %25, %24 ]
-  %20 = zext i32 %.sroa.111.0 to i64
-  %21 = shl nuw i64 %20, 32
-  br label %26
+21:                                               ; preds = %14
+  %22 = extractvalue { i32, i32 } %10, 1
+  br label %18
 
-22:                                               ; preds = %15
-  %23 = extractvalue { i32, i32 } %10, 1
-  br label %19
+23:                                               ; preds = %15
+  %24 = extractvalue { i32, i32 } %10, 1
+  br label %18
 
-24:                                               ; preds = %16
-  %25 = extractvalue { i32, i32 } %10, 1
-  br label %19
-
-26:                                               ; preds = %14, %15, %16, %19
-  %.sroa.111.1 = phi i64 [ %21, %19 ], [ 0, %16 ], [ 0, %15 ], [ 0, %14 ]
-  %.sroa.0.2 = phi i64 [ 1, %19 ], [ 0, %16 ], [ 0, %15 ], [ 0, %14 ]
+25:                                               ; preds = %13, %14, %15, %18
+  %.sroa.111.1 = phi i64 [ %20, %18 ], [ 0, %15 ], [ 0, %14 ], [ 0, %13 ]
+  %.sroa.0.2 = phi i64 [ 1, %18 ], [ 0, %15 ], [ 0, %14 ], [ 0, %13 ]
   %.sroa.8.0.insert.ext = zext nneg i8 %4 to i64
   %.sroa.8.0.insert.shift = shl nuw nsw i64 %.sroa.8.0.insert.ext, 8
   %.sroa.8.0.insert.insert = or disjoint i64 %.sroa.111.1, %.sroa.8.0.insert.shift
@@ -1739,7 +1739,7 @@ define hidden range(i64 0, -4294966272) i64 @"_ZN233_$LT$ruff_linter..rules..fla
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %8 = load i32, ptr %7, align 4, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %19
+  br label %18
 
 9:                                                ; preds = %1
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1748,45 +1748,45 @@ define hidden range(i64 0, -4294966272) i64 @"_ZN233_$LT$ruff_linter..rules..fla
   %10 = call { i32, i32 } @"_ZN104_$LT$serde..__private..de..content..VariantDeserializer$LT$E$GT$$u20$as$u20$serde..de..VariantAccess$GT$12unit_variant17h4c77755884116a80E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   %11 = extractvalue { i32, i32 } %10, 0
   %12 = trunc i32 %11 to i1
-  switch i8 %4, label %13 [
-    i8 0, label %14
-    i8 1, label %15
-    i8 2, label %16
+  switch i8 %4, label %default.unreachable [
+    i8 0, label %13
+    i8 1, label %14
+    i8 2, label %15
   ]
 
-13:                                               ; preds = %9
+default.unreachable:                              ; preds = %9
   unreachable
 
+13:                                               ; preds = %9
+  br i1 %12, label %16, label %25
+
 14:                                               ; preds = %9
-  br i1 %12, label %17, label %26
+  br i1 %12, label %21, label %25
 
 15:                                               ; preds = %9
-  br i1 %12, label %22, label %26
+  br i1 %12, label %23, label %25
 
-16:                                               ; preds = %9
-  br i1 %12, label %24, label %26
+16:                                               ; preds = %13
+  %17 = extractvalue { i32, i32 } %10, 1
+  br label %18
 
-17:                                               ; preds = %14
-  %18 = extractvalue { i32, i32 } %10, 1
-  br label %19
+18:                                               ; preds = %23, %21, %16, %6
+  %.sroa.111.0 = phi i32 [ %8, %6 ], [ %17, %16 ], [ %22, %21 ], [ %24, %23 ]
+  %19 = zext i32 %.sroa.111.0 to i64
+  %20 = shl nuw i64 %19, 32
+  br label %25
 
-19:                                               ; preds = %24, %22, %17, %6
-  %.sroa.111.0 = phi i32 [ %8, %6 ], [ %18, %17 ], [ %23, %22 ], [ %25, %24 ]
-  %20 = zext i32 %.sroa.111.0 to i64
-  %21 = shl nuw i64 %20, 32
-  br label %26
+21:                                               ; preds = %14
+  %22 = extractvalue { i32, i32 } %10, 1
+  br label %18
 
-22:                                               ; preds = %15
-  %23 = extractvalue { i32, i32 } %10, 1
-  br label %19
+23:                                               ; preds = %15
+  %24 = extractvalue { i32, i32 } %10, 1
+  br label %18
 
-24:                                               ; preds = %16
-  %25 = extractvalue { i32, i32 } %10, 1
-  br label %19
-
-26:                                               ; preds = %14, %15, %16, %19
-  %.sroa.111.1 = phi i64 [ %21, %19 ], [ 0, %16 ], [ 0, %15 ], [ 0, %14 ]
-  %.sroa.0.2 = phi i64 [ 1, %19 ], [ 0, %16 ], [ 0, %15 ], [ 0, %14 ]
+25:                                               ; preds = %13, %14, %15, %18
+  %.sroa.111.1 = phi i64 [ %20, %18 ], [ 0, %15 ], [ 0, %14 ], [ 0, %13 ]
+  %.sroa.0.2 = phi i64 [ 1, %18 ], [ 0, %15 ], [ 0, %14 ], [ 0, %13 ]
   %.sroa.8.0.insert.ext = zext nneg i8 %4 to i64
   %.sroa.8.0.insert.shift = shl nuw nsw i64 %.sroa.8.0.insert.ext, 8
   %.sroa.8.0.insert.insert = or disjoint i64 %.sroa.111.1, %.sroa.8.0.insert.shift

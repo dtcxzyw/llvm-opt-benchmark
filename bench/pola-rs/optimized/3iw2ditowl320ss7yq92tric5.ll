@@ -2758,18 +2758,18 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf21e1176ce252288E.exit.i.i.i.i: 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i.outer": ; preds = %122, %93
   %.ph = phi i64 [ %113, %122 ], [ %.sroa.8.0.copyload.i.i.i.i.i, %93 ]
   %.pre.i.i13.i.i.i.i.i.i.i.ph = phi i64 [ %.pre.i.i12.i.i.i.i.i.i.i, %122 ], [ %.sroa.68.0.copyload.i.i.i.i.i, %93 ]
-  %.ph1 = phi ptr [ %114, %122 ], [ %.sroa.5.0.copyload.i.i.i.i.i, %93 ]
-  %.ph2 = phi i64 [ %115, %122 ], [ %.sroa.7.0.copyload.i.i.i.i.i, %93 ]
-  %.ph3 = phi ptr [ %spec.select.i.i.i.i.i.i, %122 ], [ %.sroa.0.0.copyload.i.i.i.i.i, %93 ]
+  %.ph11 = phi ptr [ %114, %122 ], [ %.sroa.5.0.copyload.i.i.i.i.i, %93 ]
+  %.ph12 = phi i64 [ %115, %122 ], [ %.sroa.7.0.copyload.i.i.i.i.i, %93 ]
+  %.ph13 = phi ptr [ %spec.select.i.i.i.i.i.i, %122 ], [ %.sroa.0.0.copyload.i.i.i.i.i, %93 ]
   %.sroa.0.0.i.i7.i.i.i.i.i.ph = phi double [ %..i.i.i.i.i.i.i.i.i.i, %122 ], [ %94, %93 ]
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i.outer", %118
   %95 = phi i64 [ %113, %118 ], [ %.ph, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i.outer" ]
   %.pre.i.i13.i.i.i.i.i.i.i = phi i64 [ %.pre.i.i12.i.i.i.i.i.i.i, %118 ], [ %.pre.i.i13.i.i.i.i.i.i.i.ph, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i.outer" ]
-  %96 = phi ptr [ %114, %118 ], [ %.ph1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i.outer" ]
-  %97 = phi i64 [ %115, %118 ], [ %.ph2, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i.outer" ]
-  %98 = phi ptr [ %spec.select.i.i.i.i.i.i, %118 ], [ %.ph3, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i.outer" ]
+  %96 = phi ptr [ %114, %118 ], [ %.ph11, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i.outer" ]
+  %97 = phi i64 [ %115, %118 ], [ %.ph12, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i.outer" ]
+  %98 = phi ptr [ %spec.select.i.i.i.i.i.i, %118 ], [ %.ph13, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i.outer" ]
   %99 = icmp eq ptr %98, %.sroa.4.0.copyload.i.i.i.i.i
   %spec.select.idx.i.i.i.i.i.i = select i1 %99, i64 0, i64 8
   %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %98, i64 %spec.select.idx.i.i.i.i.i.i
@@ -2830,11 +2830,11 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf21e1176ce252288E.exit.i.i.i.i: 
   br label %127
 
 127:                                              ; preds = %"_ZN10polars_ops13chunked_array25nan_propagating_aggregate10ca_nan_agg28_$u7b$$u7b$closure$u7d$$u7d$17h6386891262086230E.exit.i.i.i", %_ZN4core4iter6traits8iterator8Iterator6reduce17hf21e1176ce252288E.exit.i.thread.i.i.i
-  %.sroa.3.0.i.pn.i5.i.i.i = phi double [ %.sroa.0.0.i.i7.i.i.i.i.i.ph, %"_ZN10polars_ops13chunked_array25nan_propagating_aggregate10ca_nan_agg28_$u7b$$u7b$closure$u7d$$u7d$17h6386891262086230E.exit.i.i.i" ], [ %45, %_ZN4core4iter6traits8iterator8Iterator6reduce17hf21e1176ce252288E.exit.i.thread.i.i.i ]
-  %128 = fcmp ogt double %.sroa.07.0.i, %.sroa.3.0.i.pn.i5.i.i.i
+  %.sroa.3.0.i.pn.i12.i.i.i = phi double [ %.sroa.0.0.i.i7.i.i.i.i.i.ph, %"_ZN10polars_ops13chunked_array25nan_propagating_aggregate10ca_nan_agg28_$u7b$$u7b$closure$u7d$$u7d$17h6386891262086230E.exit.i.i.i" ], [ %45, %_ZN4core4iter6traits8iterator8Iterator6reduce17hf21e1176ce252288E.exit.i.thread.i.i.i ]
+  %128 = fcmp ogt double %.sroa.07.0.i, %.sroa.3.0.i.pn.i12.i.i.i
   %129 = fcmp uno double %.sroa.07.0.i, 0.000000e+00
   %130 = or i1 %129, %128
-  %..i.i.i.i.i = select i1 %130, double %.sroa.07.0.i, double %.sroa.3.0.i.pn.i5.i.i.i
+  %..i.i.i.i.i = select i1 %130, double %.sroa.07.0.i, double %.sroa.3.0.i.pn.i12.i.i.i
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h061738f23d85282aE.exit.i"
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h061738f23d85282aE.exit.i": ; preds = %127, %"_ZN10polars_ops13chunked_array25nan_propagating_aggregate10ca_nan_agg28_$u7b$$u7b$closure$u7d$$u7d$17h6386891262086230E.exit.thread.i.i.i", %_ZN4core4iter6traits8iterator8Iterator6reduce17hf21e1176ce252288E.exit.i.i.i.i
@@ -11181,18 +11181,18 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h098e477e88599cf6E.exit.i.i.i.i: 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i.outer": ; preds = %122, %93
   %.ph = phi i64 [ %113, %122 ], [ %.sroa.8.0.copyload.i.i.i.i.i, %93 ]
   %.pre.i.i13.i.i.i.i.i.i.i.ph = phi i64 [ %.pre.i.i12.i.i.i.i.i.i.i, %122 ], [ %.sroa.68.0.copyload.i.i.i.i.i, %93 ]
-  %.ph1 = phi ptr [ %114, %122 ], [ %.sroa.5.0.copyload.i.i.i.i.i, %93 ]
-  %.ph2 = phi i64 [ %115, %122 ], [ %.sroa.7.0.copyload.i.i.i.i.i, %93 ]
-  %.ph3 = phi ptr [ %spec.select.i.i.i.i.i.i, %122 ], [ %.sroa.0.0.copyload.i.i.i.i.i, %93 ]
+  %.ph11 = phi ptr [ %114, %122 ], [ %.sroa.5.0.copyload.i.i.i.i.i, %93 ]
+  %.ph12 = phi i64 [ %115, %122 ], [ %.sroa.7.0.copyload.i.i.i.i.i, %93 ]
+  %.ph13 = phi ptr [ %spec.select.i.i.i.i.i.i, %122 ], [ %.sroa.0.0.copyload.i.i.i.i.i, %93 ]
   %.sroa.0.0.i.i7.i.i.i.i.i.ph = phi float [ %..i.i.i.i.i.i.i.i.i.i, %122 ], [ %94, %93 ]
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i.outer", %118
   %95 = phi i64 [ %113, %118 ], [ %.ph, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i.outer" ]
   %.pre.i.i13.i.i.i.i.i.i.i = phi i64 [ %.pre.i.i12.i.i.i.i.i.i.i, %118 ], [ %.pre.i.i13.i.i.i.i.i.i.i.ph, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i.outer" ]
-  %96 = phi ptr [ %114, %118 ], [ %.ph1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i.outer" ]
-  %97 = phi i64 [ %115, %118 ], [ %.ph2, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i.outer" ]
-  %98 = phi ptr [ %spec.select.i.i.i.i.i.i, %118 ], [ %.ph3, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i.outer" ]
+  %96 = phi ptr [ %114, %118 ], [ %.ph11, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i.outer" ]
+  %97 = phi i64 [ %115, %118 ], [ %.ph12, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i.outer" ]
+  %98 = phi ptr [ %spec.select.i.i.i.i.i.i, %118 ], [ %.ph13, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i.outer" ]
   %99 = icmp eq ptr %98, %.sroa.4.0.copyload.i.i.i.i.i
   %spec.select.idx.i.i.i.i.i.i = select i1 %99, i64 0, i64 4
   %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %98, i64 %spec.select.idx.i.i.i.i.i.i
@@ -11253,11 +11253,11 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h098e477e88599cf6E.exit.i.i.i.i: 
   br label %127
 
 127:                                              ; preds = %"_ZN10polars_ops13chunked_array25nan_propagating_aggregate10ca_nan_agg28_$u7b$$u7b$closure$u7d$$u7d$17h9598aa7c116a0db1E.exit.i.i.i", %_ZN4core4iter6traits8iterator8Iterator6reduce17h098e477e88599cf6E.exit.i.thread.i.i.i
-  %.sroa.3.0.i.pn.i5.i.i.i = phi float [ %.sroa.0.0.i.i7.i.i.i.i.i.ph, %"_ZN10polars_ops13chunked_array25nan_propagating_aggregate10ca_nan_agg28_$u7b$$u7b$closure$u7d$$u7d$17h9598aa7c116a0db1E.exit.i.i.i" ], [ %45, %_ZN4core4iter6traits8iterator8Iterator6reduce17h098e477e88599cf6E.exit.i.thread.i.i.i ]
-  %128 = fcmp olt float %.sroa.07.0.i, %.sroa.3.0.i.pn.i5.i.i.i
+  %.sroa.3.0.i.pn.i12.i.i.i = phi float [ %.sroa.0.0.i.i7.i.i.i.i.i.ph, %"_ZN10polars_ops13chunked_array25nan_propagating_aggregate10ca_nan_agg28_$u7b$$u7b$closure$u7d$$u7d$17h9598aa7c116a0db1E.exit.i.i.i" ], [ %45, %_ZN4core4iter6traits8iterator8Iterator6reduce17h098e477e88599cf6E.exit.i.thread.i.i.i ]
+  %128 = fcmp olt float %.sroa.07.0.i, %.sroa.3.0.i.pn.i12.i.i.i
   %129 = fcmp uno float %.sroa.07.0.i, 0.000000e+00
   %130 = or i1 %129, %128
-  %..i.i.i.i.i = select i1 %130, float %.sroa.07.0.i, float %.sroa.3.0.i.pn.i5.i.i.i
+  %..i.i.i.i.i = select i1 %130, float %.sroa.07.0.i, float %.sroa.3.0.i.pn.i12.i.i.i
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h36a1856bb7807eecE.exit.i"
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h36a1856bb7807eecE.exit.i": ; preds = %127, %"_ZN10polars_ops13chunked_array25nan_propagating_aggregate10ca_nan_agg28_$u7b$$u7b$closure$u7d$$u7d$17h9598aa7c116a0db1E.exit.thread.i.i.i", %_ZN4core4iter6traits8iterator8Iterator6reduce17h098e477e88599cf6E.exit.i.i.i.i
@@ -14318,18 +14318,18 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h997e7bbdf3e1090fE.exit.i.i.i.i: 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i.outer": ; preds = %122, %93
   %.ph = phi i64 [ %113, %122 ], [ %.sroa.8.0.copyload.i.i.i.i.i, %93 ]
   %.pre.i.i13.i.i.i.i.i.i.i.ph = phi i64 [ %.pre.i.i12.i.i.i.i.i.i.i, %122 ], [ %.sroa.68.0.copyload.i.i.i.i.i, %93 ]
-  %.ph1 = phi ptr [ %114, %122 ], [ %.sroa.5.0.copyload.i.i.i.i.i, %93 ]
-  %.ph2 = phi i64 [ %115, %122 ], [ %.sroa.7.0.copyload.i.i.i.i.i, %93 ]
-  %.ph3 = phi ptr [ %spec.select.i.i.i.i.i.i, %122 ], [ %.sroa.0.0.copyload.i.i.i.i.i, %93 ]
+  %.ph11 = phi ptr [ %114, %122 ], [ %.sroa.5.0.copyload.i.i.i.i.i, %93 ]
+  %.ph12 = phi i64 [ %115, %122 ], [ %.sroa.7.0.copyload.i.i.i.i.i, %93 ]
+  %.ph13 = phi ptr [ %spec.select.i.i.i.i.i.i, %122 ], [ %.sroa.0.0.copyload.i.i.i.i.i, %93 ]
   %.sroa.0.0.i.i7.i.i.i.i.i.ph = phi float [ %..i.i.i.i.i.i.i.i.i.i, %122 ], [ %94, %93 ]
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i.outer", %118
   %95 = phi i64 [ %113, %118 ], [ %.ph, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i.outer" ]
   %.pre.i.i13.i.i.i.i.i.i.i = phi i64 [ %.pre.i.i12.i.i.i.i.i.i.i, %118 ], [ %.pre.i.i13.i.i.i.i.i.i.i.ph, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i.outer" ]
-  %96 = phi ptr [ %114, %118 ], [ %.ph1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i.outer" ]
-  %97 = phi i64 [ %115, %118 ], [ %.ph2, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i.outer" ]
-  %98 = phi ptr [ %spec.select.i.i.i.i.i.i, %118 ], [ %.ph3, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i.outer" ]
+  %96 = phi ptr [ %114, %118 ], [ %.ph11, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i.outer" ]
+  %97 = phi i64 [ %115, %118 ], [ %.ph12, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i.outer" ]
+  %98 = phi ptr [ %spec.select.i.i.i.i.i.i, %118 ], [ %.ph13, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i.i.i.i.i.outer" ]
   %99 = icmp eq ptr %98, %.sroa.4.0.copyload.i.i.i.i.i
   %spec.select.idx.i.i.i.i.i.i = select i1 %99, i64 0, i64 4
   %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %98, i64 %spec.select.idx.i.i.i.i.i.i
@@ -14390,11 +14390,11 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h997e7bbdf3e1090fE.exit.i.i.i.i: 
   br label %127
 
 127:                                              ; preds = %"_ZN10polars_ops13chunked_array25nan_propagating_aggregate10ca_nan_agg28_$u7b$$u7b$closure$u7d$$u7d$17h66428ce3e8f83aceE.exit.i.i.i", %_ZN4core4iter6traits8iterator8Iterator6reduce17h997e7bbdf3e1090fE.exit.i.thread.i.i.i
-  %.sroa.3.0.i.pn.i5.i.i.i = phi float [ %.sroa.0.0.i.i7.i.i.i.i.i.ph, %"_ZN10polars_ops13chunked_array25nan_propagating_aggregate10ca_nan_agg28_$u7b$$u7b$closure$u7d$$u7d$17h66428ce3e8f83aceE.exit.i.i.i" ], [ %45, %_ZN4core4iter6traits8iterator8Iterator6reduce17h997e7bbdf3e1090fE.exit.i.thread.i.i.i ]
-  %128 = fcmp ogt float %.sroa.07.0.i, %.sroa.3.0.i.pn.i5.i.i.i
+  %.sroa.3.0.i.pn.i12.i.i.i = phi float [ %.sroa.0.0.i.i7.i.i.i.i.i.ph, %"_ZN10polars_ops13chunked_array25nan_propagating_aggregate10ca_nan_agg28_$u7b$$u7b$closure$u7d$$u7d$17h66428ce3e8f83aceE.exit.i.i.i" ], [ %45, %_ZN4core4iter6traits8iterator8Iterator6reduce17h997e7bbdf3e1090fE.exit.i.thread.i.i.i ]
+  %128 = fcmp ogt float %.sroa.07.0.i, %.sroa.3.0.i.pn.i12.i.i.i
   %129 = fcmp uno float %.sroa.07.0.i, 0.000000e+00
   %130 = or i1 %129, %128
-  %..i.i.i.i.i = select i1 %130, float %.sroa.07.0.i, float %.sroa.3.0.i.pn.i5.i.i.i
+  %..i.i.i.i.i = select i1 %130, float %.sroa.07.0.i, float %.sroa.3.0.i.pn.i12.i.i.i
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc1ff1b25f1733ff3E.exit.i"
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc1ff1b25f1733ff3E.exit.i": ; preds = %127, %"_ZN10polars_ops13chunked_array25nan_propagating_aggregate10ca_nan_agg28_$u7b$$u7b$closure$u7d$$u7d$17h66428ce3e8f83aceE.exit.thread.i.i.i", %_ZN4core4iter6traits8iterator8Iterator6reduce17h997e7bbdf3e1090fE.exit.i.i.i.i
@@ -24087,18 +24087,18 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h68d2d307dbb24387E.exit.i.i.i.i: 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i.outer": ; preds = %122, %93
   %.ph = phi i64 [ %113, %122 ], [ %.sroa.8.0.copyload.i.i.i.i.i, %93 ]
   %.pre.i.i13.i.i.i.i.i.i.i.ph = phi i64 [ %.pre.i.i12.i.i.i.i.i.i.i, %122 ], [ %.sroa.68.0.copyload.i.i.i.i.i, %93 ]
-  %.ph1 = phi ptr [ %114, %122 ], [ %.sroa.5.0.copyload.i.i.i.i.i, %93 ]
-  %.ph2 = phi i64 [ %115, %122 ], [ %.sroa.7.0.copyload.i.i.i.i.i, %93 ]
-  %.ph3 = phi ptr [ %spec.select.i.i.i.i.i.i, %122 ], [ %.sroa.0.0.copyload.i.i.i.i.i, %93 ]
+  %.ph11 = phi ptr [ %114, %122 ], [ %.sroa.5.0.copyload.i.i.i.i.i, %93 ]
+  %.ph12 = phi i64 [ %115, %122 ], [ %.sroa.7.0.copyload.i.i.i.i.i, %93 ]
+  %.ph13 = phi ptr [ %spec.select.i.i.i.i.i.i, %122 ], [ %.sroa.0.0.copyload.i.i.i.i.i, %93 ]
   %.sroa.0.0.i.i7.i.i.i.i.i.ph = phi double [ %..i.i.i.i.i.i.i.i.i.i, %122 ], [ %94, %93 ]
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i.outer", %118
   %95 = phi i64 [ %113, %118 ], [ %.ph, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i.outer" ]
   %.pre.i.i13.i.i.i.i.i.i.i = phi i64 [ %.pre.i.i12.i.i.i.i.i.i.i, %118 ], [ %.pre.i.i13.i.i.i.i.i.i.i.ph, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i.outer" ]
-  %96 = phi ptr [ %114, %118 ], [ %.ph1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i.outer" ]
-  %97 = phi i64 [ %115, %118 ], [ %.ph2, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i.outer" ]
-  %98 = phi ptr [ %spec.select.i.i.i.i.i.i, %118 ], [ %.ph3, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i.outer" ]
+  %96 = phi ptr [ %114, %118 ], [ %.ph11, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i.outer" ]
+  %97 = phi i64 [ %115, %118 ], [ %.ph12, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i.outer" ]
+  %98 = phi ptr [ %spec.select.i.i.i.i.i.i, %118 ], [ %.ph13, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i.i.i.i.i.outer" ]
   %99 = icmp eq ptr %98, %.sroa.4.0.copyload.i.i.i.i.i
   %spec.select.idx.i.i.i.i.i.i = select i1 %99, i64 0, i64 8
   %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %98, i64 %spec.select.idx.i.i.i.i.i.i
@@ -24159,11 +24159,11 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h68d2d307dbb24387E.exit.i.i.i.i: 
   br label %127
 
 127:                                              ; preds = %"_ZN10polars_ops13chunked_array25nan_propagating_aggregate10ca_nan_agg28_$u7b$$u7b$closure$u7d$$u7d$17h0ea0a0f01999ae8eE.exit.i.i.i", %_ZN4core4iter6traits8iterator8Iterator6reduce17h68d2d307dbb24387E.exit.i.thread.i.i.i
-  %.sroa.3.0.i.pn.i5.i.i.i = phi double [ %.sroa.0.0.i.i7.i.i.i.i.i.ph, %"_ZN10polars_ops13chunked_array25nan_propagating_aggregate10ca_nan_agg28_$u7b$$u7b$closure$u7d$$u7d$17h0ea0a0f01999ae8eE.exit.i.i.i" ], [ %45, %_ZN4core4iter6traits8iterator8Iterator6reduce17h68d2d307dbb24387E.exit.i.thread.i.i.i ]
-  %128 = fcmp olt double %.sroa.07.0.i, %.sroa.3.0.i.pn.i5.i.i.i
+  %.sroa.3.0.i.pn.i12.i.i.i = phi double [ %.sroa.0.0.i.i7.i.i.i.i.i.ph, %"_ZN10polars_ops13chunked_array25nan_propagating_aggregate10ca_nan_agg28_$u7b$$u7b$closure$u7d$$u7d$17h0ea0a0f01999ae8eE.exit.i.i.i" ], [ %45, %_ZN4core4iter6traits8iterator8Iterator6reduce17h68d2d307dbb24387E.exit.i.thread.i.i.i ]
+  %128 = fcmp olt double %.sroa.07.0.i, %.sroa.3.0.i.pn.i12.i.i.i
   %129 = fcmp uno double %.sroa.07.0.i, 0.000000e+00
   %130 = or i1 %129, %128
-  %..i.i.i.i.i = select i1 %130, double %.sroa.07.0.i, double %.sroa.3.0.i.pn.i5.i.i.i
+  %..i.i.i.i.i = select i1 %130, double %.sroa.07.0.i, double %.sroa.3.0.i.pn.i12.i.i.i
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hed2ceef10bc72b38E.exit.i"
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hed2ceef10bc72b38E.exit.i": ; preds = %127, %"_ZN10polars_ops13chunked_array25nan_propagating_aggregate10ca_nan_agg28_$u7b$$u7b$closure$u7d$$u7d$17h0ea0a0f01999ae8eE.exit.thread.i.i.i", %_ZN4core4iter6traits8iterator8Iterator6reduce17h68d2d307dbb24387E.exit.i.i.i.i
@@ -39536,7 +39536,7 @@ define internal fastcc void @_ZN11polars_core9datatypes5dtype8DataType12try_to_a
   %18 = alloca [2 x i8], align 2
   store i16 %2, ptr %18, align 2
   %19 = load i8, ptr %1, align 16, !range !3687, !noundef !10
-  switch i8 %19, label %default.unreachable125 [
+  switch i8 %19, label %default.unreachable127 [
     i8 0, label %20
     i8 1, label %22
     i8 2, label %24
@@ -39567,7 +39567,7 @@ define internal fastcc void @_ZN11polars_core9datatypes5dtype8DataType12try_to_a
     i8 27, label %110
   ], !prof !6593
 
-default.unreachable125:                           ; preds = %110, %3
+default.unreachable127:                           ; preds = %110, %3
   unreachable
 
 20:                                               ; preds = %3
@@ -39859,7 +39859,7 @@ common.resume:                                    ; preds = %147, %98, %84
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %112 = load i128, ptr %111, align 16, !range !6615, !noundef !10
   %113 = trunc nuw nsw i128 %112 to i64
-  switch i64 %113, label %default.unreachable125 [
+  switch i64 %113, label %default.unreachable127 [
     i64 0, label %142
     i64 1, label %157
     i64 2, label %145
@@ -40052,7 +40052,7 @@ define internal fastcc void @_ZN11polars_core9datatypes9any_value8AnyValue11into
   %19 = alloca [24 x i8], align 8
   %20 = alloca [48 x i8], align 8
   %21 = load i8, ptr %1, align 16, !range !6616, !noundef !10
-  switch i8 %21, label %default.unreachable47 [
+  switch i8 %21, label %default.unreachable53 [
     i8 0, label %22
     i8 1, label %23
     i8 2, label %24
@@ -40088,7 +40088,7 @@ define internal fastcc void @_ZN11polars_core9datatypes9any_value8AnyValue11into
     i8 32, label %227
   ]
 
-default.unreachable47:                            ; preds = %2
+default.unreachable53:                            ; preds = %2
   unreachable
 
 22:                                               ; preds = %2
@@ -47436,7 +47436,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !73, !noundef !10
-  switch i8 %23, label %default.unreachable61 [
+  switch i8 %23, label %default.unreachable66 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -47478,7 +47478,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %228
   ]
 
-default.unreachable61:                            ; preds = %2
+default.unreachable66:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2
@@ -48256,7 +48256,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
   %5 = alloca [24 x i8], align 8
   %.sroa.03 = alloca [23 x i8], align 8
   %6 = load i8, ptr %1, align 16, !range !3687, !noundef !10
-  switch i8 %6, label %default.unreachable23 [
+  switch i8 %6, label %default.unreachable25 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
@@ -48287,7 +48287,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
     i8 27, label %74
   ]
 
-default.unreachable23:                            ; preds = %2
+default.unreachable25:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2

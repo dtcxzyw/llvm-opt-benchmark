@@ -1908,12 +1908,12 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint19calculateLinearInfoE
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %101, %88
-  %.sink25.i = phi i64 [ 244, %101 ], [ 228, %88 ]
-  %.sink22.i = phi float [ %102, %101 ], [ 0.000000e+00, %88 ]
+  %.sink26.i = phi i64 [ 244, %101 ], [ 228, %88 ]
+  %.sink23.i = phi float [ %102, %101 ], [ 0.000000e+00, %88 ]
   %.sink.ph.i = phi i32 [ 4, %101 ], [ 0, %88 ]
-  %103 = getelementptr inbounds nuw i8, ptr %82, i64 %.sink25.i
+  %103 = getelementptr inbounds nuw i8, ptr %82, i64 %.sink26.i
   %104 = getelementptr inbounds nuw float, ptr %103, i64 %indvars.iv
-  store float %.sink22.i, ptr %104, align 4, !tbaa !10
+  store float %.sink23.i, ptr %104, align 4, !tbaa !10
   br label %_ZN26btTranslationalLimitMotor214testLimitValueEif.exit
 
 _ZN26btTranslationalLimitMotor214testLimitValueEif.exit: ; preds = %97, %.sink.split.i
@@ -2158,8 +2158,8 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint8getInfo1EPN17btTypedC
   br label %.sink.split
 
 .sink.split:                                      ; preds = %15, %19
-  %.sink34 = phi i32 [ 1, %19 ], [ 2, %15 ]
-  %20 = add nsw i32 %16, %.sink34
+  %.sink35 = phi i32 [ 1, %19 ], [ 2, %15 ]
+  %20 = add nsw i32 %16, %.sink35
   store i32 %20, ptr %1, align 4, !tbaa !97
   br label %21
 
@@ -2746,8 +2746,8 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN30btGeneric6DofSpring2Constrain
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %24 = load float, ptr %23, align 4, !tbaa !10
   %. = select i1 %.not378, ptr %4, ptr %6
-  %.506 = select i1 %.not378, ptr %5, ptr %7
-  %.508 = select i1 %.not378, float 1.000000e+00, float -1.000000e+00
+  %.515 = select i1 %.not378, ptr %5, ptr %7
+  %.517 = select i1 %.not378, float 1.000000e+00, float -1.000000e+00
   %25 = load float, ptr %., align 4, !tbaa !10
   %26 = getelementptr inbounds nuw i8, ptr %., i64 4
   %27 = load float, ptr %26, align 4, !tbaa !10
@@ -2756,12 +2756,12 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN30btGeneric6DofSpring2Constrain
   %30 = getelementptr inbounds nuw i8, ptr %., i64 8
   %31 = load float, ptr %30, align 4, !tbaa !10
   %32 = tail call noundef float @llvm.fmuladd.f32(float %31, float %24, float %29)
-  %33 = load float, ptr %.506, align 4, !tbaa !10
-  %34 = getelementptr inbounds nuw i8, ptr %.506, i64 4
+  %33 = load float, ptr %.515, align 4, !tbaa !10
+  %34 = getelementptr inbounds nuw i8, ptr %.515, i64 4
   %35 = load float, ptr %34, align 4, !tbaa !10
   %36 = fmul float %22, %35
   %37 = tail call float @llvm.fmuladd.f32(float %33, float %20, float %36)
-  %38 = getelementptr inbounds nuw i8, ptr %.506, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.515, i64 8
   %39 = load float, ptr %38, align 4, !tbaa !10
   %40 = tail call noundef float @llvm.fmuladd.f32(float %39, float %24, float %37)
   %41 = fsub float %32, %40
@@ -2773,7 +2773,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN30btGeneric6DofSpring2Constrain
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %47 = load float, ptr %46, align 4, !tbaa !95
   %48 = fmul float %45, %47
-  %49 = fmul float %.508, %48
+  %49 = fmul float %.517, %48
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %51 = load ptr, ptr %50, align 8, !tbaa !113
   %52 = sext i32 %16 to i64
@@ -2809,15 +2809,15 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN30btGeneric6DofSpring2Constrain
   br i1 %72, label %.sink.split, label %73
 
 .sink.split:                                      ; preds = %67, %59
-  %.sink485 = phi float [ %63, %59 ], [ %71, %67 ]
+  %.sink494 = phi float [ %63, %59 ], [ %71, %67 ]
   %.ph = phi float [ 0x47EFFFFFE0000000, %59 ], [ 0.000000e+00, %67 ]
-  %.ph484 = phi float [ 0.000000e+00, %59 ], [ 0xC7EFFFFFE0000000, %67 ]
-  store float %.sink485, ptr %53, align 4, !tbaa !10
+  %.ph493 = phi float [ 0.000000e+00, %59 ], [ 0xC7EFFFFFE0000000, %67 ]
+  store float %.sink494, ptr %53, align 4, !tbaa !10
   br label %73
 
 73:                                               ; preds = %.sink.split, %67, %59, %65, %57
   %74 = phi float [ 0.000000e+00, %65 ], [ 0x47EFFFFFE0000000, %57 ], [ 0x47EFFFFFE0000000, %59 ], [ 0.000000e+00, %67 ], [ %.ph, %.sink.split ]
-  %75 = phi float [ 0xC7EFFFFFE0000000, %65 ], [ 0.000000e+00, %57 ], [ 0.000000e+00, %59 ], [ 0xC7EFFFFFE0000000, %67 ], [ %.ph484, %.sink.split ]
+  %75 = phi float [ 0xC7EFFFFFE0000000, %65 ], [ 0.000000e+00, %57 ], [ 0.000000e+00, %59 ], [ 0xC7EFFFFFE0000000, %67 ], [ %.ph493, %.sink.split ]
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %77 = load ptr, ptr %76, align 8, !tbaa !114
   %78 = getelementptr inbounds float, ptr %77, i64 %52
@@ -2841,7 +2841,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN30btGeneric6DofSpring2Constrain
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %93 = load float, ptr %92, align 4, !tbaa !96
   %94 = fmul float %91, %93
-  %95 = fmul float %.508, %94
+  %95 = fmul float %.517, %94
   %96 = load ptr, ptr %50, align 8, !tbaa !113
   %97 = sext i32 %88 to i64
   %98 = getelementptr inbounds float, ptr %96, i64 %97
@@ -2861,7 +2861,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN30btGeneric6DofSpring2Constrain
   %107 = fneg float %106
   %108 = fmul float %41, %107
   %109 = fcmp olt float %108, %95
-  br i1 %109, label %.sink.split486, label %118
+  br i1 %109, label %.sink.split495, label %118
 
 110:                                              ; preds = %73
   %111 = fcmp ogt float %101, 0.000000e+00
@@ -2873,18 +2873,18 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN30btGeneric6DofSpring2Constrain
   %115 = fneg float %114
   %116 = fmul float %41, %115
   %117 = fcmp ogt float %116, %95
-  br i1 %117, label %.sink.split486, label %118
+  br i1 %117, label %.sink.split495, label %118
 
-.sink.split486:                                   ; preds = %112, %104
-  %.sink489 = phi float [ %108, %104 ], [ %116, %112 ]
-  %.ph487 = phi float [ 0.000000e+00, %104 ], [ 0x47EFFFFFE0000000, %112 ]
-  %.ph488 = phi float [ 0xC7EFFFFFE0000000, %104 ], [ 0.000000e+00, %112 ]
-  store float %.sink489, ptr %98, align 4, !tbaa !10
+.sink.split495:                                   ; preds = %112, %104
+  %.sink498 = phi float [ %108, %104 ], [ %116, %112 ]
+  %.ph496 = phi float [ 0.000000e+00, %104 ], [ 0x47EFFFFFE0000000, %112 ]
+  %.ph497 = phi float [ 0xC7EFFFFFE0000000, %104 ], [ 0.000000e+00, %112 ]
+  store float %.sink498, ptr %98, align 4, !tbaa !10
   br label %118
 
-118:                                              ; preds = %.sink.split486, %112, %104, %110, %102
-  %119 = phi float [ 0x47EFFFFFE0000000, %110 ], [ 0.000000e+00, %102 ], [ 0.000000e+00, %104 ], [ 0x47EFFFFFE0000000, %112 ], [ %.ph487, %.sink.split486 ]
-  %120 = phi float [ 0.000000e+00, %110 ], [ 0xC7EFFFFFE0000000, %102 ], [ 0xC7EFFFFFE0000000, %104 ], [ 0.000000e+00, %112 ], [ %.ph488, %.sink.split486 ]
+118:                                              ; preds = %.sink.split495, %112, %104, %110, %102
+  %119 = phi float [ 0x47EFFFFFE0000000, %110 ], [ 0.000000e+00, %102 ], [ 0.000000e+00, %104 ], [ 0x47EFFFFFE0000000, %112 ], [ %.ph496, %.sink.split495 ]
+  %120 = phi float [ 0.000000e+00, %110 ], [ 0xC7EFFFFFE0000000, %102 ], [ 0xC7EFFFFFE0000000, %104 ], [ 0.000000e+00, %112 ], [ %.ph497, %.sink.split495 ]
   %121 = load ptr, ptr %76, align 8, !tbaa !114
   %122 = getelementptr inbounds float, ptr %121, i64 %97
   store float %120, ptr %122, align 4, !tbaa !10
@@ -2895,7 +2895,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN30btGeneric6DofSpring2Constrain
   %126 = load ptr, ptr %84, align 8, !tbaa !104
   %127 = getelementptr inbounds float, ptr %126, i64 %97
   store float %125, ptr %127, align 4, !tbaa !10
-  br label %.sink.split490
+  br label %.sink.split499
 
 128:                                              ; preds = %13
   tail call void @_ZN30btGeneric6DofSpring2Constraint15calculateJacobiEP23btRotationalLimitMotor2RK11btTransformS4_PN17btTypedConstraint17btConstraintInfo2EiR9btVector3ii(ptr noundef nonnull align 8 dereferenceable(1484) %0, ptr nonnull poison, ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull %8, i32 noundef %16, ptr noundef nonnull align 4 dereferenceable(16) %10, i32 noundef %11, i32 noundef %12)
@@ -2929,28 +2929,28 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN30btGeneric6DofSpring2Constrain
   %152 = load ptr, ptr %151, align 8, !tbaa !104
   %153 = getelementptr inbounds float, ptr %152, i64 %141
   store float %150, ptr %153, align 4, !tbaa !10
-  br label %.sink.split490
+  br label %.sink.split499
 
-.sink.split490:                                   ; preds = %118, %128
-  %.sink492 = phi i32 [ %16, %128 ], [ %88, %118 ]
+.sink.split499:                                   ; preds = %118, %128
+  %.sink501 = phi i32 [ %16, %128 ], [ %88, %118 ]
   %.0.ph = phi i32 [ 1, %128 ], [ 2, %118 ]
   %154 = load i32, ptr %14, align 8, !tbaa !111
-  %155 = add nsw i32 %154, %.sink492
+  %155 = add nsw i32 %154, %.sink501
   br label %156
 
-156:                                              ; preds = %.sink.split490, %13
-  %.0349 = phi i32 [ %16, %13 ], [ %155, %.sink.split490 ]
-  %.0 = phi i32 [ 0, %13 ], [ %.0.ph, %.sink.split490 ]
+156:                                              ; preds = %.sink.split499, %13
+  %.0349 = phi i32 [ %16, %13 ], [ %155, %.sink.split499 ]
+  %.0 = phi i32 [ 0, %13 ], [ %.0.ph, %.sink.split499 ]
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %158 = load i8, ptr %157, align 4, !tbaa !23, !range !100, !noundef !101
   %159 = trunc nuw i8 %158 to i1
-  br i1 %159, label %160, label %.thread459
+  br i1 %159, label %160, label %.thread468
 
 160:                                              ; preds = %156
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %162 = load i8, ptr %161, align 4, !tbaa !26, !range !100, !noundef !101
   %163 = trunc nuw i8 %162 to i1
-  br i1 %163, label %.thread454, label %164
+  br i1 %163, label %.thread463, label %164
 
 164:                                              ; preds = %160
   tail call void @_ZN30btGeneric6DofSpring2Constraint15calculateJacobiEP23btRotationalLimitMotor2RK11btTransformS4_PN17btTypedConstraint17btConstraintInfo2EiR9btVector3ii(ptr noundef nonnull align 8 dereferenceable(1484) %0, ptr nonnull poison, ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull %8, i32 noundef %.0349, ptr noundef nonnull align 4 dereferenceable(16) %10, i32 noundef %11, i32 noundef %12)
@@ -3004,17 +3004,17 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN30btGeneric6DofSpring2Constrain
   %207 = add nuw nsw i32 %.0, 1
   %.pre = load i8, ptr %157, align 4, !tbaa !23, !range !100
   %208 = trunc nuw i8 %.pre to i1
-  br i1 %208, label %.thread454, label %.thread459
+  br i1 %208, label %.thread463, label %.thread468
 
-.thread454:                                       ; preds = %160, %164
-  %.1458 = phi i32 [ %207, %164 ], [ %.0, %160 ]
-  %.1350457 = phi i32 [ %206, %164 ], [ %.0349, %160 ]
+.thread463:                                       ; preds = %160, %164
+  %.1467 = phi i32 [ %207, %164 ], [ %.0, %160 ]
+  %.1350466 = phi i32 [ %206, %164 ], [ %.0349, %160 ]
   %209 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %210 = load i8, ptr %209, align 4, !tbaa !26, !range !100, !noundef !101
   %211 = trunc nuw i8 %210 to i1
-  br i1 %211, label %212, label %.thread459
+  br i1 %211, label %212, label %.thread468
 
-212:                                              ; preds = %.thread454
+212:                                              ; preds = %.thread463
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %214 = load float, ptr %213, align 4, !tbaa !93
   %215 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -3040,7 +3040,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN30btGeneric6DofSpring2Constrain
 226:                                              ; preds = %218, %223, %212
   %.0354 = phi float [ %225, %223 ], [ %.1355, %218 ], [ %216, %212 ]
   %.0352 = phi float [ %224, %223 ], [ %.1353, %218 ], [ %217, %212 ]
-  tail call void @_ZN30btGeneric6DofSpring2Constraint15calculateJacobiEP23btRotationalLimitMotor2RK11btTransformS4_PN17btTypedConstraint17btConstraintInfo2EiR9btVector3ii(ptr noundef nonnull align 8 dereferenceable(1484) %0, ptr nonnull poison, ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull %8, i32 noundef %.1350457, ptr noundef nonnull align 4 dereferenceable(16) %10, i32 noundef %11, i32 noundef %12)
+  tail call void @_ZN30btGeneric6DofSpring2Constraint15calculateJacobiEP23btRotationalLimitMotor2RK11btTransformS4_PN17btTypedConstraint17btConstraintInfo2EiR9btVector3ii(ptr noundef nonnull align 8 dereferenceable(1484) %0, ptr nonnull poison, ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull %8, i32 noundef %.1350466, ptr noundef nonnull align 4 dereferenceable(16) %10, i32 noundef %11, i32 noundef %12)
   %227 = fcmp olt float %.0352, 0.000000e+00
   %228 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %229 = load float, ptr %228, align 4, !tbaa !24
@@ -3093,7 +3093,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN30btGeneric6DofSpring2Constrain
   %259 = fmul float %256, %258
   %260 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %261 = load ptr, ptr %260, align 8, !tbaa !113
-  %262 = sext i32 %.1350457 to i64
+  %262 = sext i32 %.1350466 to i64
   %263 = getelementptr inbounds float, ptr %261, i64 %262
   store float %259, ptr %263, align 4, !tbaa !10
   %264 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -3119,19 +3119,19 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN30btGeneric6DofSpring2Constrain
   %282 = getelementptr inbounds float, ptr %281, i64 %262
   store float %279, ptr %282, align 4, !tbaa !10
   %283 = load i32, ptr %14, align 8, !tbaa !111
-  %284 = add nsw i32 %283, %.1350457
-  %285 = add nuw nsw i32 %.1458, 1
-  br label %.thread459
+  %284 = add nsw i32 %283, %.1350466
+  %285 = add nuw nsw i32 %.1467, 1
+  br label %.thread468
 
-.thread459:                                       ; preds = %156, %255, %.thread454, %164
-  %.2351 = phi i32 [ %284, %255 ], [ %.1350457, %.thread454 ], [ %206, %164 ], [ %.0349, %156 ]
-  %.2 = phi i32 [ %285, %255 ], [ %.1458, %.thread454 ], [ %207, %164 ], [ %.0, %156 ]
+.thread468:                                       ; preds = %156, %255, %.thread463, %164
+  %.2351 = phi i32 [ %284, %255 ], [ %.1350466, %.thread463 ], [ %206, %164 ], [ %.0349, %156 ]
+  %.2 = phi i32 [ %285, %255 ], [ %.1467, %.thread463 ], [ %207, %164 ], [ %.0, %156 ]
   %286 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %287 = load i8, ptr %286, align 4, !tbaa !28, !range !100, !noundef !101
   %288 = trunc nuw i8 %287 to i1
   br i1 %288, label %289, label %616
 
-289:                                              ; preds = %.thread459
+289:                                              ; preds = %.thread468
   %290 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %291 = load float, ptr %290, align 4, !tbaa !93
   %292 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -3464,12 +3464,12 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN30btGeneric6DofSpring2Constrain
   br label %582
 
 582:                                              ; preds = %579, %575
-  %.sink493 = phi float [ %581, %579 ], [ %578, %575 ]
+  %.sink502 = phi float [ %581, %579 ], [ %578, %575 ]
   %583 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %584 = load ptr, ptr %583, align 8, !tbaa !113
   %585 = sext i32 %.2351 to i64
   %586 = getelementptr inbounds float, ptr %584, i64 %585
-  store float %.sink493, ptr %586, align 4, !tbaa !10
+  store float %.sink502, ptr %586, align 4, !tbaa !10
   %587 = fcmp olt float %571, %570
   %588 = select i1 %587, float %571, float %570
   %589 = select i1 %587, float %570, float %571
@@ -3498,23 +3498,23 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN30btGeneric6DofSpring2Constrain
   br label %606
 
 606:                                              ; preds = %597, %590
-  %.sink505 = phi float [ %605, %597 ], [ %589, %590 ]
-  %.sink501 = phi i64 [ %603, %597 ], [ %595, %590 ]
-  %607 = fcmp olt float %.sink505, 0.000000e+00
-  %608 = select i1 %607, float 0.000000e+00, float %.sink505
+  %.sink514 = phi float [ %605, %597 ], [ %589, %590 ]
+  %.sink510 = phi i64 [ %603, %597 ], [ %595, %590 ]
+  %607 = fcmp olt float %.sink514, 0.000000e+00
+  %608 = select i1 %607, float 0.000000e+00, float %.sink514
   %609 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %610 = load ptr, ptr %609, align 8, !tbaa !115
-  %611 = getelementptr inbounds float, ptr %610, i64 %.sink501
+  %611 = getelementptr inbounds float, ptr %610, i64 %.sink510
   store float %608, ptr %611, align 4, !tbaa !10
   %612 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %613 = load ptr, ptr %612, align 8, !tbaa !104
-  %614 = getelementptr inbounds float, ptr %613, i64 %.sink501
+  %614 = getelementptr inbounds float, ptr %613, i64 %.sink510
   store float 0.000000e+00, ptr %614, align 4, !tbaa !10
   %615 = add nuw nsw i32 %.2, 1
   br label %616
 
-616:                                              ; preds = %606, %.thread459
-  %.3 = phi i32 [ %615, %606 ], [ %.2, %.thread459 ]
+616:                                              ; preds = %606, %.thread468
+  %.3 = phi i32 [ %615, %606 ], [ %.2, %.thread468 ]
   ret i32 %.3
 }
 
@@ -3580,12 +3580,12 @@ define dso_local void @_ZN26btTranslationalLimitMotor214testLimitValueEif(ptr no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %3, %16
-  %.sink25 = phi i64 [ 244, %16 ], [ 228, %3 ]
-  %.sink22 = phi float [ %17, %16 ], [ 0.000000e+00, %3 ]
+  %.sink26 = phi i64 [ 244, %16 ], [ 228, %3 ]
+  %.sink23 = phi float [ %17, %16 ], [ 0.000000e+00, %3 ]
   %.sink.ph = phi i32 [ 4, %16 ], [ 0, %3 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink25
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink26
   %19 = getelementptr inbounds float, ptr %18, i64 %4
-  store float %.sink22, ptr %19, align 4, !tbaa !10
+  store float %.sink23, ptr %19, align 4, !tbaa !10
   br label %20
 
 20:                                               ; preds = %.sink.split, %11

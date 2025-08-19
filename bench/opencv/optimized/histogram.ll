@@ -1344,8 +1344,8 @@ _ZN2cv4Mat_IiEC2ENS_5Size_IiEE.exit.i:            ; preds = %287
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i153.._crit_edge.thread.i_crit_edge, %293
   %322 = phi ptr [ %.pre204, %._crit_edge.i153.._crit_edge.thread.i_crit_edge ], [ %.pre205, %293 ]
-  %.lcssa116178.i = phi i32 [ %.ph, %._crit_edge.i153.._crit_edge.thread.i_crit_edge ], [ %294, %293 ]
-  %323 = sdiv i32 %.lcssa116178.i, 2
+  %.lcssa116183.i = phi i32 [ %.ph, %._crit_edge.i153.._crit_edge.thread.i_crit_edge ], [ %294, %293 ]
+  %323 = sdiv i32 %.lcssa116183.i, 2
   %324 = sext i32 %323 to i64
   %325 = getelementptr inbounds i32, ptr %322, i64 %324
   store i32 %323, ptr %325, align 4, !tbaa !70
@@ -2414,13 +2414,13 @@ _ZNK2cv4Mat_IiEclEi.exit:                         ; preds = %77, %84, %90
   %128 = trunc nuw nsw i64 %indvars.iv to i32
   %129 = sdiv i32 %128, %127
   %130 = mul nsw i32 %129, %127
-  %.recomposed62 = srem i32 %128, %127
+  %.recomposed67 = srem i32 %128, %127
   %131 = load ptr, ptr %24, align 8, !tbaa !82
   %132 = load i64, ptr %131, align 8, !tbaa !83
   %133 = sext i32 %129 to i64
   %134 = mul i64 %132, %133
   %135 = getelementptr inbounds nuw i8, ptr %103, i64 %134
-  %136 = sext i32 %.recomposed62 to i64
+  %136 = sext i32 %.recomposed67 to i64
   %137 = getelementptr inbounds i32, ptr %135, i64 %136
   br label %_ZNK2cv4Mat_IiEclEi.exit34
 

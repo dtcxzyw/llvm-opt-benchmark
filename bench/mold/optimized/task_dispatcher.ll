@@ -1420,8 +1420,8 @@ define noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114executi
   br i1 %.not9, label %11, label %.sink.split
 
 .sink.split:                                      ; preds = %6, %2
-  %.sink10 = phi ptr [ %5, %2 ], [ %8, %6 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.sink10, i64 16
+  %.sink12 = phi ptr [ %5, %2 ], [ %8, %6 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
   %10 = load i16, ptr %9, align 8, !tbaa !151
   br label %11
 
@@ -4400,12 +4400,12 @@ _ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specif
   br label %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread
 
 _ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread: ; preds = %83, %82, %85, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit
-  %.2.i45 = phi ptr [ %46, %85 ], [ %46, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit ], [ %46, %82 ], [ null, %83 ]
-  %.not = icmp eq ptr %.2.i45, null
+  %.2.i52 = phi ptr [ %46, %85 ], [ %46, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit ], [ %46, %82 ], [ null, %83 ]
+  %.not = icmp eq ptr %.2.i52, null
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread: ; preds = %25, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread
-  %.3 = phi ptr [ %.019, %25 ], [ %.2.i45, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread ]
+  %.3 = phi ptr [ %.019, %25 ], [ %.2.i52, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread ]
   %.0 = phi i1 [ true, %25 ], [ %.not, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread ]
   %88 = atomicrmw xchg ptr %20, i8 0 seq_cst, align 1
   invoke void @_ZN3tbb6detail2r121notify_by_address_oneEPv(ptr noundef nonnull align 1 dereferenceable(1) %20)
@@ -4422,7 +4422,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit: ; preds = %_ZN3tbb6
   br i1 %.0, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge, label %.critedge
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge: ; preds = %17, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit
-  %.35054 = phi ptr [ %.3, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit ], [ %.019, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i ], [ %.019, %17 ]
+  %.35761 = phi ptr [ %.3, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit ], [ %.019, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i ], [ %.019, %17 ]
   %.pre41 = load i32, ptr %5, align 8, !tbaa !169
   %.pre42 = load i32, ptr %1, align 4
   br label %92
@@ -4430,7 +4430,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge: ; preds 
 92:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge, %10
   %93 = phi i32 [ %.pre42, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge ], [ %11, %10 ]
   %94 = phi i32 [ %.pre41, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge ], [ %12, %10 ]
-  %.1 = phi ptr [ %.35054, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge ], [ %.019, %10 ]
+  %.1 = phi ptr [ %.35761, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge ], [ %.019, %10 ]
   %95 = add i32 %.020, -1
   %96 = add i32 %94, -1
   %97 = and i32 %96, %95

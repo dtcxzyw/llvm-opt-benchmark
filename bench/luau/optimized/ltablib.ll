@@ -917,8 +917,8 @@ define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i
   %36 = zext nneg i32 %17 to i64
   %37 = sext i32 %2 to i64
   %38 = sext i32 %4 to i64
-  %invariant.gep136 = getelementptr %struct.lua_TValue, ptr %30, i64 %37
-  %invariant.gep138 = getelementptr %struct.lua_TValue, ptr %32, i64 %38
+  %invariant.gep141 = getelementptr %struct.lua_TValue, ptr %30, i64 %37
+  %invariant.gep143 = getelementptr %struct.lua_TValue, ptr %32, i64 %38
   br label %.lr.ph117
 
 39:                                               ; preds = %34, %28
@@ -932,15 +932,15 @@ define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i
   %43 = sub i32 %42, %2
   %wide.trip.count = zext i32 %43 to i64
   %invariant.gep = getelementptr %struct.lua_TValue, ptr %30, i64 %40
-  %invariant.gep134 = getelementptr %struct.lua_TValue, ptr %32, i64 %41
+  %invariant.gep139 = getelementptr %struct.lua_TValue, ptr %32, i64 %41
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %gep = getelementptr %struct.lua_TValue, ptr %invariant.gep, i64 %indvars.iv
   %44 = getelementptr i8, ptr %gep, i64 -16
-  %gep135 = getelementptr %struct.lua_TValue, ptr %invariant.gep134, i64 %indvars.iv
-  %45 = getelementptr i8, ptr %gep135, i64 -16
+  %gep140 = getelementptr %struct.lua_TValue, ptr %invariant.gep139, i64 %indvars.iv
+  %45 = getelementptr i8, ptr %gep140, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -948,14 +948,14 @@ define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i
 
 .lr.ph117:                                        ; preds = %.lr.ph117.preheader, %.lr.ph117
   %indvars.iv128 = phi i64 [ %36, %.lr.ph117.preheader ], [ %indvars.iv.next129, %.lr.ph117 ]
-  %gep137 = getelementptr %struct.lua_TValue, ptr %invariant.gep136, i64 %indvars.iv128
-  %46 = getelementptr i8, ptr %gep137, i64 -16
-  %gep139 = getelementptr %struct.lua_TValue, ptr %invariant.gep138, i64 %indvars.iv128
-  %47 = getelementptr i8, ptr %gep139, i64 -16
+  %gep142 = getelementptr %struct.lua_TValue, ptr %invariant.gep141, i64 %indvars.iv128
+  %46 = getelementptr i8, ptr %gep142, i64 -16
+  %gep144 = getelementptr %struct.lua_TValue, ptr %invariant.gep143, i64 %indvars.iv128
+  %47 = getelementptr i8, ptr %gep144, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false), !tbaa.struct !25
   %indvars.iv.next129 = add nsw i64 %indvars.iv128, -1
-  %.not140 = icmp eq i64 %indvars.iv128, 0
-  br i1 %.not140, label %.loopexit112, label %.lr.ph117, !llvm.loop !51
+  %.not145 = icmp eq i64 %indvars.iv128, 0
+  br i1 %.not145, label %.loopexit112, label %.lr.ph117, !llvm.loop !51
 
 .loopexit112:                                     ; preds = %.lr.ph, %.lr.ph117, %39, %.preheader111
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 1
@@ -1007,8 +1007,8 @@ define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i
   %64 = add nsw i32 %.0121, %4
   tail call void @_Z11lua_rawsetiP9lua_Stateii(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %64)
   %65 = add nsw i32 %.0121, -1
-  %.not141 = icmp eq i32 %.0121, 0
-  br i1 %.not141, label %.loopexit, label %.lr.ph122, !llvm.loop !53
+  %.not146 = icmp eq i32 %.0121, 0
+  br i1 %.not146, label %.loopexit, label %.lr.ph122, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.lr.ph120, %.lr.ph122, %.preheader109, %.preheader, %.loopexit112, %51
   ret void

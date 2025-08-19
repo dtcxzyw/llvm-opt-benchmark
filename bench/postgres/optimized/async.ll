@@ -840,18 +840,18 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %20 = load i32, ptr %18, align 4
   %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.lr.ph61, label %.critedge
+  br i1 %21, label %.lr.ph74, label %.critedge
 
-.lr.ph61:                                         ; preds = %.lr.ph, %Exec_ListenPreCommit.exit
-  %indvars.iv60 = phi i64 [ %indvars.iv.next, %Exec_ListenPreCommit.exit ], [ 0, %.lr.ph ]
+.lr.ph74:                                         ; preds = %.lr.ph, %Exec_ListenPreCommit.exit
+  %indvars.iv73 = phi i64 [ %indvars.iv.next, %Exec_ListenPreCommit.exit ], [ 0, %.lr.ph ]
   %22 = load ptr, ptr %19, align 8
-  %23 = getelementptr inbounds nuw %union.ListCell, ptr %22, i64 %indvars.iv60
+  %23 = getelementptr inbounds nuw %union.ListCell, ptr %22, i64 %indvars.iv73
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %24, align 4
   %cond = icmp eq i32 %25, 0
   br i1 %cond, label %26, label %Exec_ListenPreCommit.exit
 
-26:                                               ; preds = %.lr.ph61
+26:                                               ; preds = %.lr.ph74
   %.b3536.i = load i1, ptr @amRegisteredListener, align 1
   br i1 %.b3536.i, label %Exec_ListenPreCommit.exit, label %27
 
@@ -1039,12 +1039,12 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
   tail call fastcc void @asyncQueueReadAllNotifications()
   br label %Exec_ListenPreCommit.exit
 
-Exec_ListenPreCommit.exit:                        ; preds = %106, %101, %26, %.lr.ph61
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv60, 1
+Exec_ListenPreCommit.exit:                        ; preds = %106, %101, %26, %.lr.ph74
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv73, 1
   %107 = load i32, ptr %18, align 4
   %108 = sext i32 %107 to i64
   %109 = icmp slt i64 %indvars.iv.next, %108
-  br i1 %109, label %.lr.ph61, label %.critedge
+  br i1 %109, label %.lr.ph74, label %.critedge
 
 .critedge:                                        ; preds = %Exec_ListenPreCommit.exit, %.lr.ph, %15, %13
   %110 = load ptr, ptr @pendingNotifies, align 8
@@ -1071,8 +1071,8 @@ list_head.exit:                                   ; preds = %111
   %.8..8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.12..12..12..12..12..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.16..16..16..16..16..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.4..4..4..4..4..sroa_idx65 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.16..16..16..16..16..sroa_idx66 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.4..4..4..4..4..sroa_idx78 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.16..16..16..16..16..sroa_idx79 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.17..17..17..17..17..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 17
   br label %118
 
@@ -1129,8 +1129,8 @@ asyncQueueUsage.exit.i:                           ; preds = %118
 145:                                              ; preds = %161, %.lr.ph.i17
   %.044.i = phi i32 [ %.039.i, %.lr.ph.i17 ], [ %.0.i20, %161 ]
   %.02943.i = phi i32 [ -1, %.lr.ph.i17 ], [ %.1.i, %161 ]
-  %.sroa.0.042.i = phi i64 [ %.sroa.0.0.copyload.i18, %.lr.ph.i17 ], [ %.sroa.0.149.i, %161 ]
-  %.sroa.8.041.i = phi i32 [ %.sroa.8.0.copyload.i, %.lr.ph.i17 ], [ %.sroa.8.148.i, %161 ]
+  %.sroa.0.042.i = phi i64 [ %.sroa.0.0.copyload.i18, %.lr.ph.i17 ], [ %.sroa.0.153.i, %161 ]
+  %.sroa.8.041.i = phi i32 [ %.sroa.8.0.copyload.i, %.lr.ph.i17 ], [ %.sroa.8.152.i, %161 ]
   %146 = sext i32 %.044.i to i64
   %.idx.i19 = shl nsw i64 %146, 5
   %147 = getelementptr i8, ptr %141, i64 %.idx.i19
@@ -1162,15 +1162,15 @@ asyncQueueUsage.exit.i:                           ; preds = %118
   br i1 %157, label %.thread.i.thread, label %161
 
 .thread.i.thread:                                 ; preds = %150, %.thread.i
-  %.sroa.0.150.i53 = phi i64 [ %.sroa.0.042.i, %.thread.i ], [ %148, %150 ]
+  %.sroa.0.154.i66 = phi i64 [ %.sroa.0.042.i, %.thread.i ], [ %148, %150 ]
   %158 = phi i32 [ %.pre, %.thread.i ], [ %152, %150 ]
   %159 = getelementptr inbounds [0 x %struct.QueueBackendStatus], ptr %142, i64 0, i64 %146
   %160 = load i32, ptr %159, align 8
   br label %161
 
 161:                                              ; preds = %.thread.i.thread, %.thread.i, %154
-  %.sroa.0.149.i = phi i64 [ %.sroa.0.150.i53, %.thread.i.thread ], [ %.sroa.0.042.i, %.thread.i ], [ %.sroa.0.042.i, %154 ]
-  %.sroa.8.148.i = phi i32 [ %158, %.thread.i.thread ], [ %.sroa.8.1.i, %.thread.i ], [ %.sroa.8.1.i, %154 ]
+  %.sroa.0.153.i = phi i64 [ %.sroa.0.154.i66, %.thread.i.thread ], [ %.sroa.0.042.i, %.thread.i ], [ %.sroa.0.042.i, %154 ]
+  %.sroa.8.152.i = phi i32 [ %158, %.thread.i.thread ], [ %.sroa.8.1.i, %.thread.i ], [ %.sroa.8.1.i, %154 ]
   %.1.i = phi i32 [ %160, %.thread.i.thread ], [ %.02943.i, %.thread.i ], [ %.02943.i, %154 ]
   %162 = getelementptr i8, ptr %143, i64 %.idx.i19
   %.0.i20 = load i32, ptr %162, align 8
@@ -1308,8 +1308,8 @@ asyncQueueFillWarning.exit:                       ; preds = %118, %asyncQueueUsa
 234:                                              ; preds = %206
   %235 = sub i32 8192, %.sroa.11.0..sroa.11.0..sroa.11.8.41.i36
   store i32 %235, ptr %1, align 4
-  store i32 0, ptr %.4..4..4..4..4..sroa_idx65, align 4
-  store i8 0, ptr %.16..16..16..16..16..sroa_idx66, align 4
+  store i32 0, ptr %.4..4..4..4..4..sroa_idx78, align 4
+  store i8 0, ptr %.16..16..16..16..16..sroa_idx79, align 4
   store i8 0, ptr %.17..17..17..17..17..sroa_idx, align 1
   br label %236
 
@@ -1437,12 +1437,12 @@ define dso_local void @AtCommit_Notify() local_unnamed_addr #0 {
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %19 = load i32, ptr %17, align 4
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph52, label %.critedge
+  br i1 %20, label %.lr.ph63, label %.critedge
 
-.lr.ph52:                                         ; preds = %.lr.ph, %Exec_ListenCommit.exit
-  %indvars.iv51 = phi i64 [ %indvars.iv.next, %Exec_ListenCommit.exit ], [ 0, %.lr.ph ]
+.lr.ph63:                                         ; preds = %.lr.ph, %Exec_ListenCommit.exit
+  %indvars.iv62 = phi i64 [ %indvars.iv.next, %Exec_ListenCommit.exit ], [ 0, %.lr.ph ]
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds nuw %union.ListCell, ptr %21, i64 %indvars.iv51
+  %22 = getelementptr inbounds nuw %union.ListCell, ptr %21, i64 %indvars.iv62
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %23, align 4
   switch i32 %24, label %Exec_ListenCommit.exit [
@@ -1451,7 +1451,7 @@ define dso_local void @AtCommit_Notify() local_unnamed_addr #0 {
     i32 2, label %65
   ]
 
-25:                                               ; preds = %.lr.ph52
+25:                                               ; preds = %.lr.ph63
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %27 = load ptr, ptr @listenChannels, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -1492,7 +1492,7 @@ define dso_local void @AtCommit_Notify() local_unnamed_addr #0 {
   store ptr %39, ptr @CurrentMemoryContext, align 8
   br label %Exec_ListenCommit.exit
 
-42:                                               ; preds = %.lr.ph52
+42:                                               ; preds = %.lr.ph63
   %43 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %44 = load i8, ptr @Trace_notify, align 1, !range !4, !noundef !5
   %45 = trunc nuw i8 %44 to i1
@@ -1545,7 +1545,7 @@ define dso_local void @AtCommit_Notify() local_unnamed_addr #0 {
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Exec_ListenCommit.exit, label %58
 
-65:                                               ; preds = %.lr.ph52
+65:                                               ; preds = %.lr.ph63
   %66 = load i8, ptr @Trace_notify, align 1, !range !4, !noundef !5
   %67 = trunc nuw i8 %66 to i1
   br i1 %67, label %68, label %Exec_UnlistenAllCommit.exit
@@ -1566,12 +1566,12 @@ Exec_UnlistenAllCommit.exit:                      ; preds = %65, %68, %70
   store ptr null, ptr @listenChannels, align 8
   br label %Exec_ListenCommit.exit
 
-Exec_ListenCommit.exit:                           ; preds = %64, %34, %.thread.i, %.lr.ph.i, %51, %.loopexit.i, %Exec_UnlistenAllCommit.exit, %.lr.ph52
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv51, 1
+Exec_ListenCommit.exit:                           ; preds = %64, %34, %.thread.i, %.lr.ph.i, %51, %.loopexit.i, %Exec_UnlistenAllCommit.exit, %.lr.ph63
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv62, 1
   %74 = load i32, ptr %17, align 4
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next, %75
-  br i1 %76, label %.lr.ph52, label %.critedge
+  br i1 %76, label %.lr.ph63, label %.critedge
 
 .critedge:                                        ; preds = %Exec_ListenCommit.exit, %.lr.ph, %14, %12
   %.b16 = load i1, ptr @amRegisteredListener, align 1
@@ -2098,12 +2098,12 @@ define dso_local void @AtSubCommit_Notify() local_unnamed_addr #0 {
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %43 = load i32, ptr %41, align 4
   %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %.lr.ph30, label %.critedge
+  br i1 %44, label %.lr.ph42, label %.critedge
 
-.lr.ph30:                                         ; preds = %.lr.ph, %83
-  %indvars.iv29 = phi i64 [ %indvars.iv.next, %83 ], [ 0, %.lr.ph ]
+.lr.ph42:                                         ; preds = %.lr.ph, %83
+  %indvars.iv41 = phi i64 [ %indvars.iv.next, %83 ], [ 0, %.lr.ph ]
   %45 = load ptr, ptr %42, align 8
-  %46 = getelementptr inbounds nuw %union.ListCell, ptr %45, i64 %indvars.iv29
+  %46 = getelementptr inbounds nuw %union.ListCell, ptr %45, i64 %indvars.iv41
   %47 = load ptr, ptr %46, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %47, ptr %1, align 8
@@ -2111,7 +2111,7 @@ define dso_local void @AtSubCommit_Notify() local_unnamed_addr #0 {
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.thread26.i, label %50
 
-50:                                               ; preds = %.lr.ph30
+50:                                               ; preds = %.lr.ph42
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %52 = load ptr, ptr %51, align 8
   %.not.i = icmp eq ptr %52, null
@@ -2181,17 +2181,17 @@ AsyncExistsPendingNotify.exit.thread:             ; preds = %78, %53
   call void @pfree(ptr noundef nonnull %25) #16
   br label %87
 
-.thread26.i:                                      ; preds = %.critedge.i, %53, %55, %.lr.ph.i, %.lr.ph30
+.thread26.i:                                      ; preds = %.critedge.i, %53, %55, %.lr.ph.i, %.lr.ph42
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call fastcc void @AddEventToPendingNotifies(ptr noundef %47)
   br label %83
 
 83:                                               ; preds = %AsyncExistsPendingNotify.exit.thread, %.thread26.i
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv29, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv41, 1
   %84 = load i32, ptr %41, align 4
   %85 = sext i32 %84 to i64
   %86 = icmp slt i64 %indvars.iv.next, %85
-  br i1 %86, label %.lr.ph30, label %.critedge
+  br i1 %86, label %.lr.ph42, label %.critedge
 
 87:                                               ; preds = %36, %.critedge, %26, %24
   ret void
@@ -2707,18 +2707,18 @@ IsListeningOn.exit.thread.i:                      ; preds = %79, %IsListeningOn.
   br i1 %89, label %91, label %asyncQueueProcessPageEntries.exit
 
 .loopexit.i.thread:                               ; preds = %IsListeningOn.exit.thread.i
-  %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.2442 = load volatile i64, ptr %.sroa.0, align 8
-  %90 = icmp eq i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.2442, %.sroa.0.0.copyload
+  %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.2444 = load volatile i64, ptr %.sroa.0, align 8
+  %90 = icmp eq i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.2444, %.sroa.0.0.copyload
   br i1 %90, label %91, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.loopexit.i.thread, %asyncQueueProcessPageEntries.exit, %91
   br label %.backedge, !llvm.loop !24
 
 91:                                               ; preds = %.loopexit.i.thread, %.loopexit.i
-  %.139.i43 = phi i1 [ false, %.loopexit.i.thread ], [ %or.cond.not.i, %.loopexit.i ]
+  %.139.i45 = phi i1 [ false, %.loopexit.i.thread ], [ %or.cond.not.i, %.loopexit.i ]
   %.sroa.11.0..sroa.11.0..sroa.11.0..sroa.11.8.31 = load volatile i32, ptr %.sroa.11, align 8
   %92 = icmp eq i32 %.sroa.11.0..sroa.11.0..sroa.11.0..sroa.11.8.31, %.sroa.6.0.copyload
-  %spec.select.i = or i1 %.139.i43, %92
+  %spec.select.i = or i1 %.139.i45, %92
   br i1 %spec.select.i, label %.loopexit, label %.backedge.backedge
 
 asyncQueueProcessPageEntries.exit:                ; preds = %.loopexit.i

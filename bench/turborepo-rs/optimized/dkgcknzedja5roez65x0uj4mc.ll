@@ -925,9 +925,9 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
   unreachable
 
 77:                                               ; preds = %.thread.thread, %72, %68, %.thread
-  %.sroa.07.0.lcssa128 = phi i64 [ 0, %.thread.thread ], [ %.sroa.07.0.lcssa, %72 ], [ %.sroa.07.0.lcssa, %68 ], [ 0, %.thread ]
-  %78 = sub nuw i64 %2, %.sroa.07.0.lcssa128
-  %79 = getelementptr inbounds i8, ptr %1, i64 %.sroa.07.0.lcssa128
+  %.sroa.07.0.lcssa132 = phi i64 [ 0, %.thread.thread ], [ %.sroa.07.0.lcssa, %72 ], [ %.sroa.07.0.lcssa, %68 ], [ 0, %.thread ]
+  %78 = sub nuw i64 %2, %.sroa.07.0.lcssa132
+  %79 = getelementptr inbounds i8, ptr %1, i64 %.sroa.07.0.lcssa132
   invoke void @_RNvCsaz5AFKTGGYY_5regex6escape(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %79, i64 noundef %78)
           to label %80 unwind label %.loopexit.split-lp
 

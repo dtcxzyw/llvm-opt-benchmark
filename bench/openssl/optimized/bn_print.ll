@@ -98,8 +98,8 @@ define range(i32 0, 2) i32 @BN_print(ptr noundef %0, ptr noundef %1) local_unnam
 28:                                               ; preds = %25, %17
   %.2 = phi i32 [ 0, %17 ], [ 1, %25 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -4
-  %.not37 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not37, label %.loopexit, label %17, !llvm.loop !16
+  %.not38 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not38, label %.loopexit, label %17, !llvm.loop !16
 
 .loopexit24:                                      ; preds = %.loopexit, %25, %11, %9, %5
   %.0 = phi i32 [ 0, %5 ], [ 0, %9 ], [ 1, %11 ], [ 0, %25 ], [ 1, %.loopexit ]

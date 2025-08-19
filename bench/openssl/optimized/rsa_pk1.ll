@@ -852,19 +852,19 @@ define range(i32 -1, 49) i32 @ossl_rsa_padding_check_PKCS1_type_2_TLS(ptr nounde
   br label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %12
-  %16 = load i8, ptr %3, align 1, !tbaa !3
-  %17 = icmp eq i8 %16, 0
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %19 = load i8, ptr %18, align 1, !tbaa !3
-  %20 = icmp eq i8 %19, 2
-  %21 = and i1 %17, %20
-  %22 = sext i1 %21 to i32
-  %23 = add i64 %4, -49
+  %16 = add i64 %4, -49
+  %17 = load i8, ptr %3, align 1, !tbaa !3
+  %18 = icmp eq i8 %17, 0
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %20 = load i8, ptr %19, align 1, !tbaa !3
+  %21 = icmp eq i8 %20, 2
+  %22 = and i1 %18, %21
+  %23 = sext i1 %22 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %24 = phi i64 [ %31, %.lr.ph ], [ 2, %.lr.ph.preheader ]
-  %.04556 = phi i32 [ %29, %.lr.ph ], [ %22, %.lr.ph.preheader ]
+  %.04556 = phi i32 [ %29, %.lr.ph ], [ %23, %.lr.ph.preheader ]
   %.04655 = phi i32 [ %30, %.lr.ph ], [ 2, %.lr.ph.preheader ]
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !3
@@ -873,11 +873,11 @@ define range(i32 -1, 49) i32 @ossl_rsa_padding_check_PKCS1_type_2_TLS(ptr nounde
   %29 = and i32 %28, %.04556
   %30 = add i32 %.04655, 1
   %31 = zext i32 %30 to i64
-  %32 = icmp ugt i64 %23, %31
+  %32 = icmp ugt i64 %16, %31
   br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 %23
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 %16
   %34 = load i8, ptr %33, align 1, !tbaa !3
   %35 = icmp eq i8 %34, 0
   %36 = getelementptr i8, ptr %3, i64 %4

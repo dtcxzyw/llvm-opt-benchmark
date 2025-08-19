@@ -421,14 +421,14 @@ define hidden range(i32 0, 2) i32 @cmsDetectDestinationBlackPoint(ptr noundef %0
 
 76:                                               ; preds = %71
   %77 = fsub double %73, %72
-  br i1 %36, label %.preheader, label %.thread164.preheader
+  br i1 %36, label %.preheader, label %.thread169.preheader
 
 .preheader:                                       ; preds = %76
   %78 = call double @llvm.fmuladd.f64(double %77, double 2.000000e-01, double %72)
   br label %.outer
 
 .outer:                                           ; preds = %.thread, %.preheader
-  %indvars.iv147.ph = phi i64 [ %indvars.iv.next148161, %.thread ], [ 0, %.preheader ]
+  %indvars.iv147.ph = phi i64 [ %indvars.iv.next148166, %.thread ], [ 0, %.preheader ]
   %.not129 = phi i1 [ true, %.thread ], [ false, %.preheader ]
   br label %79
 
@@ -453,23 +453,23 @@ define hidden range(i32 0, 2) i32 @cmsDetectDestinationBlackPoint(ptr noundef %0
   br i1 %exitcond150.not, label %90, label %79, !llvm.loop !9
 
 .thread:                                          ; preds = %83
-  %indvars.iv.next148161 = add nuw nsw i64 %indvars.iv147, 1
-  %exitcond150.not162 = icmp eq i64 %indvars.iv.next148161, 256
-  br i1 %exitcond150.not162, label %.thread164.preheader, label %.outer, !llvm.loop !9
+  %indvars.iv.next148166 = add nuw nsw i64 %indvars.iv147, 1
+  %exitcond150.not167 = icmp eq i64 %indvars.iv.next148166, 256
+  br i1 %exitcond150.not167, label %.thread169.preheader, label %.outer, !llvm.loop !9
 
 90:                                               ; preds = %89
-  br i1 %.not129, label %.thread164.preheader, label %91
+  br i1 %.not129, label %.thread169.preheader, label %91
 
-.thread164.preheader:                             ; preds = %.thread, %76, %90
-  br label %.thread164
+.thread169.preheader:                             ; preds = %.thread, %76, %90
+  br label %.thread169
 
 91:                                               ; preds = %90
   call void @cmsLab2XYZ(ptr noundef null, ptr noundef %0, ptr noundef nonnull %5) #7
   call void @cmsDeleteTransform(ptr noundef nonnull %phi.call) #7
   br label %119
 
-.thread164:                                       ; preds = %.thread164.preheader, %.thread164
-  %indvars.iv151 = phi i64 [ %indvars.iv.next152, %.thread164 ], [ 0, %.thread164.preheader ]
+.thread169:                                       ; preds = %.thread169.preheader, %.thread169
+  %indvars.iv151 = phi i64 [ %indvars.iv.next152, %.thread169 ], [ 0, %.thread169.preheader ]
   %92 = getelementptr inbounds nuw [256 x double], ptr %9, i64 0, i64 %indvars.iv151
   %93 = load double, ptr %92, align 8
   %94 = fsub double %93, %72
@@ -478,9 +478,9 @@ define hidden range(i32 0, 2) i32 @cmsDetectDestinationBlackPoint(ptr noundef %0
   store double %95, ptr %96, align 8
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next152, 256
-  br i1 %exitcond154.not, label %97, label %.thread164, !llvm.loop !10
+  br i1 %exitcond154.not, label %97, label %.thread169, !llvm.loop !10
 
-97:                                               ; preds = %.thread164
+97:                                               ; preds = %.thread169
   %.131 = select i1 %36, double 1.000000e-01, double 3.000000e-02
   %.132 = select i1 %36, double 5.000000e-01, double 2.500000e-01
   br label %98

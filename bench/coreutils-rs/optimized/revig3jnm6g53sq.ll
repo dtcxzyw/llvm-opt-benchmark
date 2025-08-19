@@ -194,13 +194,13 @@ define hidden void @"_ZN6chrono6offset20LocalResult$LT$T$GT$8and_then17ha2f1672f
   %8 = alloca { i32, { i32, i32 } }, align 4
   %9 = alloca { i32, [2 x i32] }, align 4
   %10 = load i32, ptr %1, align 4, !range !11, !noundef !4
-  switch i32 %10, label %default.unreachable44 [
+  switch i32 %10, label %default.unreachable46 [
     i32 0, label %11
     i32 1, label %"_ZN6chrono6offset8TimeZone19from_local_datetime28_$u7b$$u7b$closure$u7d$$u7d$17h8a4df52e68df7acbE.exit22"
     i32 2, label %26
   ]
 
-default.unreachable44:                            ; preds = %3
+default.unreachable46:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3

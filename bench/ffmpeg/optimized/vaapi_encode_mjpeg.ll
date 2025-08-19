@@ -420,8 +420,8 @@ switch.lookup:                                    ; preds = %129, %._crit_edge25
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.vaapi_encode_mjpeg_init_picture_params, i64 0, i64 %134
   %switch.load = load ptr, ptr %switch.gep, align 8
   %135 = and i64 %indvars.iv288, 4294967295
-  %switch.gep309 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.vaapi_encode_mjpeg_init_picture_params.1, i64 0, i64 %135
-  %switch.load310 = load ptr, ptr %switch.gep309, align 8
+  %switch.gep314 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.vaapi_encode_mjpeg_init_picture_params.1, i64 0, i64 %135
+  %switch.load315 = load ptr, ptr %switch.gep314, align 8
   %136 = trunc nuw nsw i64 %indvars.iv288 to i8
   %137 = and i8 %136, 1
   store i8 %137, ptr %133, align 1, !tbaa !103
@@ -444,7 +444,7 @@ switch.lookup:                                    ; preds = %129, %._crit_edge25
 143:                                              ; preds = %switch.lookup, %143
   %indvars.iv280 = phi i64 [ 0, %switch.lookup ], [ %indvars.iv.next281, %143 ]
   %.0151248 = phi i32 [ 0, %switch.lookup ], [ %148, %143 ]
-  %144 = getelementptr inbounds nuw i8, ptr %switch.load310, i64 %indvars.iv280
+  %144 = getelementptr inbounds nuw i8, ptr %switch.load315, i64 %indvars.iv280
   %145 = load i8, ptr %144, align 1, !tbaa !86
   %146 = getelementptr inbounds nuw [16 x i8], ptr %141, i64 0, i64 %indvars.iv280
   store i8 %145, ptr %146, align 1, !tbaa !86

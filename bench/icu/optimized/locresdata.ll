@@ -527,9 +527,9 @@ define ptr @uloc_getTableStringWithFallback_77(ptr noundef %0, ptr noundef %1, p
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br label %29
 
-29:                                               ; preds = %.thread76.thread84, %26
-  %30 = phi ptr [ %18, %26 ], [ %113, %.thread76.thread84 ]
-  %.046 = phi ptr [ null, %26 ], [ %.450, %.thread76.thread84 ]
+29:                                               ; preds = %.thread76.thread97, %26
+  %30 = phi ptr [ %18, %26 ], [ %113, %.thread76.thread97 ]
+  %.046 = phi ptr [ null, %26 ], [ %.450, %.thread76.thread97 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN6icu_7720StackUResourceBundleC1Ev(ptr noundef nonnull align 8 dereferenceable(136) %10)
           to label %31 unwind label %37
@@ -577,7 +577,7 @@ define ptr @uloc_getTableStringWithFallback_77(ptr noundef %0, ptr noundef %1, p
 48:                                               ; preds = %46
   %49 = load i32, ptr %8, align 4, !tbaa !13
   %50 = icmp slt i32 %49, 1
-  br i1 %50, label %.thread76.thread84, label %51
+  br i1 %50, label %.thread76.thread97, label %51
 
 51:                                               ; preds = %48
   store i32 %49, ptr %6, align 4, !tbaa !13
@@ -598,7 +598,7 @@ define ptr @uloc_getTableStringWithFallback_77(ptr noundef %0, ptr noundef %1, p
 58:                                               ; preds = %51
   %59 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(10) @.str.1) #17
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %.thread76.thread84
+  br i1 %60, label %61, label %.thread76.thread97
 
 61:                                               ; preds = %58
   %62 = invoke ptr @uloc_getCurrentLanguageID_77(ptr noundef %4)
@@ -622,15 +622,15 @@ define ptr @uloc_getTableStringWithFallback_77(ptr noundef %0, ptr noundef %1, p
 
 69:                                               ; preds = %66
   store i32 %67, ptr %6, align 4, !tbaa !13
-  br label %.thread76.thread84
+  br label %.thread76.thread97
 
 .thread76:                                        ; preds = %63
   %.pre = load i32, ptr %8, align 4, !tbaa !13
   %70 = icmp slt i32 %.pre, 1
-  br i1 %70, label %.thread76.thread84, label %.thread76.thread
+  br i1 %70, label %.thread76.thread97, label %.thread76.thread
 
 .thread76.thread:                                 ; preds = %66, %43, %.thread76
-  %.14783 = phi ptr [ %47, %.thread76 ], [ %65, %66 ], [ %.046, %43 ]
+  %.14796 = phi ptr [ %47, %.thread76 ], [ %65, %66 ], [ %.046, %43 ]
   %71 = phi i32 [ %.pre, %.thread76 ], [ %67, %66 ], [ %44, %43 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !12
@@ -739,7 +739,7 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread80: ; preds = %._ZNK6icu_
   %110 = phi ptr [ %30, %76 ], [ %107, %106 ]
   %.2 = phi i1 [ false, %76 ], [ %108, %106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.thread76.thread84
+  br label %.thread76.thread97
 
 111:                                              ; preds = %97, %95
   %.pn = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ]
@@ -751,9 +751,9 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread80: ; preds = %._ZNK6icu_
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %114
 
-.thread76.thread84:                               ; preds = %58, %69, %.thread76, %48, %109
+.thread76.thread97:                               ; preds = %58, %69, %.thread76, %48, %109
   %113 = phi ptr [ %110, %109 ], [ %30, %69 ], [ %30, %48 ], [ %30, %.thread76 ], [ %30, %58 ]
-  %.450 = phi ptr [ %.14783, %109 ], [ %65, %69 ], [ %47, %48 ], [ %47, %.thread76 ], [ %47, %58 ]
+  %.450 = phi ptr [ %.14796, %109 ], [ %65, %69 ], [ %47, %48 ], [ %47, %.thread76 ], [ %47, %58 ]
   %.1 = phi i1 [ %.2, %109 ], [ false, %69 ], [ false, %48 ], [ false, %.thread76 ], [ false, %58 ]
   call void @_ZN6icu_7720StackUResourceBundleD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %11) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -780,9 +780,9 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread80: ; preds = %._ZNK6icu_
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 
-.loopexit:                                        ; preds = %.thread76.thread84, %21
-  %117 = phi ptr [ %18, %21 ], [ %113, %.thread76.thread84 ]
-  %.152 = phi ptr [ null, %21 ], [ %.450, %.thread76.thread84 ]
+.loopexit:                                        ; preds = %.thread76.thread97, %21
+  %117 = phi ptr [ %18, %21 ], [ %113, %.thread76.thread97 ]
+  %.152 = phi ptr [ null, %21 ], [ %.450, %.thread76.thread97 ]
   %.not.i71 = icmp eq ptr %117, null
   br i1 %.not.i71, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, label %118
 
@@ -913,8 +913,8 @@ define internal fastcc noundef range(i32 0, 5) i32 @_ZN12_GLOBAL__N_126_uloc_get
   %switch.maskindex = trunc i32 %29 to i16
   %switch.shifted = lshr i16 801, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond22 = select i1 %30, i1 %switch.lobit, i1 false
-  br i1 %or.cond22, label %switch.lookup, label %31
+  %or.cond23 = select i1 %30, i1 %switch.lobit, i1 false
+  br i1 %or.cond23, label %switch.lookup, label %31
 
 31:                                               ; preds = %25
   store i32 5, ptr %2, align 4, !tbaa !13

@@ -1054,19 +1054,19 @@ _ZN5ZXing5AztecL18FindFinderPatternsERKNS_9BitMatrixEb.exit: ; preds = %.thread.
 385:                                              ; preds = %384
   %386 = load double, ptr %350, align 8, !tbaa !92
   %387 = fcmp ord double %386, 0.000000e+00
-  br i1 %387, label %.preheader446, label %.sink.split.sink.split
+  br i1 %387, label %.preheader482, label %.sink.split.sink.split
 
 388:                                              ; preds = %384
   %389 = landingpad { ptr, i32 }
           cleanup
   br label %.body78
 
-.preheader446:                                    ; preds = %385, %.loopexit.i69
+.preheader482:                                    ; preds = %385, %.loopexit.i69
   %.0162 = phi i32 [ %556, %.loopexit.i69 ], [ 5, %385 ]
   %390 = invoke fastcc noundef i32 @_ZN5ZXing5AztecL21SampleOrientationBitsERKNS_9BitMatrixERKNS_20PerspectiveTransformEi(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(72) %22, i32 noundef %.0162)
           to label %.noexc72 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc72:                                         ; preds = %.preheader446
+.noexc72:                                         ; preds = %.preheader482
   %391 = icmp eq i32 %390, 0
   br i1 %391, label %.loopexit.i69, label %.lr.ph.preheader.i
 
@@ -1458,7 +1458,7 @@ _ZN5ZXing5AztecL12FindRotationEjb.exit.thread.i:  ; preds = %402, %_ZN5ZXing5Azt
 .loopexit.i69:                                    ; preds = %_ZN5ZXing5AztecL12FindRotationEjb.exit.thread.i, %.noexc72
   %556 = add nuw nsw i32 %.0162, 2
   %557 = icmp samesign ult i32 %.0162, 6
-  br i1 %557, label %.preheader446, label %.sink.split.sink.split, !llvm.loop !109
+  br i1 %557, label %.preheader482, label %.sink.split.sink.split, !llvm.loop !109
 
 .loopexit:                                        ; preds = %467
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1475,7 +1475,7 @@ _ZN5ZXing5AztecL12FindRotationEjb.exit.thread.i:  ; preds = %402, %_ZN5ZXing5Azt
           cleanup
   br label %.body78
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.preheader446
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.preheader482
   %lpad.loopexit206 = landingpad { ptr, i32 }
           cleanup
   br label %.body78

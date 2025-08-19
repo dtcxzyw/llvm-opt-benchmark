@@ -1619,18 +1619,18 @@ _init_l_Lake_KFacetConfig_kind__eq___autoParam___closed__21.exit: ; preds = %_in
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_KFacetConfig_kind__eq___autoParam___closed__21.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %180, %_init_l_Lake_KFacetConfig_kind__eq___autoParam___closed__21.exit ]
-  %183 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !8
+  %.sink32 = phi ptr [ %4, %3 ], [ %180, %_init_l_Lake_KFacetConfig_kind__eq___autoParam___closed__21.exit ]
+  %183 = getelementptr inbounds nuw i8, ptr %.sink32, i64 4
+  store i32 1, ptr %.sink32, align 4, !tbaa !8
   store i32 131096, ptr %183, align 4
-  %184 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %.sink32, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %184, align 8, !tbaa !4
-  %185 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %185 = getelementptr inbounds nuw i8, ptr %.sink32, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %185, align 8, !tbaa !4
   br label %186
 
 186:                                              ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink32, %.sink.split ]
   ret ptr %.0
 }
 

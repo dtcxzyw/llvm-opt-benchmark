@@ -498,8 +498,8 @@ common.resume:                                    ; preds = %789, %467, %145
   %320 = load ptr, ptr %17, align 8, !tbaa !32
   %.not.i.i162.i = icmp eq ptr %320, %63
   %321 = icmp eq ptr %320, null
-  %or.cond220.i = or i1 %.not.i.i162.i, %321
-  br i1 %or.cond220.i, label %_ZN12_GLOBAL__N_117FASTForPointSet_tILi8EEEvRKN2cv11_InputArrayERSt6vectorINS1_8KeyPointESaIS6_EEib.exit, label %322
+  %or.cond236.i = or i1 %.not.i.i162.i, %321
+  br i1 %or.cond236.i, label %_ZN12_GLOBAL__N_117FASTForPointSet_tILi8EEEvRKN2cv11_InputArrayERSt6vectorINS1_8KeyPointESaIS6_EEib.exit, label %322
 
 322:                                              ; preds = %._crit_edge.i
   call void @_ZdaPv(ptr noundef nonnull %320) #13
@@ -538,17 +538,17 @@ common.resume:                                    ; preds = %789, %467, %145
   br i1 %.not.i.i164.i, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %338, %330
-  %.sink224.i = phi ptr [ %331, %330 ], [ %339, %338 ]
+  %.sink240.i = phi ptr [ %331, %330 ], [ %339, %338 ]
   %340 = ptrtoint ptr %323 to i64
-  %341 = ptrtoint ptr %.sink224.i to i64
+  %341 = ptrtoint ptr %.sink240.i to i64
   %342 = sub i64 %340, %341
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %326, ptr nonnull align 4 %.sink224.i, i64 %342, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %326, ptr nonnull align 4 %.sink240.i, i64 %342, i1 false)
   %.pre.i.i166.i = load ptr, ptr %19, align 8, !tbaa !35
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %338, %330
-  %.sink219.i = phi ptr [ %323, %330 ], [ %323, %338 ], [ %.pre.i.i166.i, %.sink.split.sink.split.i ]
-  %343 = getelementptr inbounds i8, ptr %.sink219.i, i64 -28
+  %.sink235.i = phi ptr [ %323, %330 ], [ %323, %338 ], [ %.pre.i.i166.i, %.sink.split.sink.split.i ]
+  %343 = getelementptr inbounds i8, ptr %.sink235.i, i64 -28
   store ptr %343, ptr %19, align 8, !tbaa !35
   br label %344
 
@@ -1014,8 +1014,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES
   %642 = load ptr, ptr %13, align 8, !tbaa !32
   %.not.i.i162.i61 = icmp eq ptr %642, %385
   %643 = icmp eq ptr %642, null
-  %or.cond220.i62 = or i1 %.not.i.i162.i61, %643
-  br i1 %or.cond220.i62, label %_ZN12_GLOBAL__N_117FASTForPointSet_tILi12EEEvRKN2cv11_InputArrayERSt6vectorINS1_8KeyPointESaIS6_EEib.exit, label %644
+  %or.cond236.i62 = or i1 %.not.i.i162.i61, %643
+  br i1 %or.cond236.i62, label %_ZN12_GLOBAL__N_117FASTForPointSet_tILi12EEEvRKN2cv11_InputArrayERSt6vectorINS1_8KeyPointESaIS6_EEib.exit, label %644
 
 644:                                              ; preds = %._crit_edge.i60
   call void @_ZdaPv(ptr noundef nonnull %642) #13
@@ -1054,17 +1054,17 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES
   br i1 %.not.i.i164.i73, label %.sink.split.i69, label %.sink.split.sink.split.i66
 
 .sink.split.sink.split.i66:                       ; preds = %660, %652
-  %.sink224.i67 = phi ptr [ %653, %652 ], [ %661, %660 ]
+  %.sink240.i67 = phi ptr [ %653, %652 ], [ %661, %660 ]
   %662 = ptrtoint ptr %645 to i64
-  %663 = ptrtoint ptr %.sink224.i67 to i64
+  %663 = ptrtoint ptr %.sink240.i67 to i64
   %664 = sub i64 %662, %663
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %648, ptr nonnull align 4 %.sink224.i67, i64 %664, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %648, ptr nonnull align 4 %.sink240.i67, i64 %664, i1 false)
   %.pre.i.i166.i68 = load ptr, ptr %19, align 8, !tbaa !35
   br label %.sink.split.i69
 
 .sink.split.i69:                                  ; preds = %.sink.split.sink.split.i66, %660, %652
-  %.sink219.i70 = phi ptr [ %645, %652 ], [ %645, %660 ], [ %.pre.i.i166.i68, %.sink.split.sink.split.i66 ]
-  %665 = getelementptr inbounds i8, ptr %.sink219.i70, i64 -28
+  %.sink235.i70 = phi ptr [ %645, %652 ], [ %645, %660 ], [ %.pre.i.i166.i68, %.sink.split.sink.split.i66 ]
+  %665 = getelementptr inbounds i8, ptr %.sink235.i70, i64 -28
   store ptr %665, ptr %19, align 8, !tbaa !35
   br label %666
 
@@ -1530,8 +1530,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES
   %964 = load ptr, ptr %9, align 8, !tbaa !32
   %.not.i.i162.i120 = icmp eq ptr %964, %707
   %965 = icmp eq ptr %964, null
-  %or.cond220.i121 = or i1 %.not.i.i162.i120, %965
-  br i1 %or.cond220.i121, label %_ZN12_GLOBAL__N_117FASTForPointSet_tILi16EEEvRKN2cv11_InputArrayERSt6vectorINS1_8KeyPointESaIS6_EEib.exit, label %966
+  %or.cond236.i121 = or i1 %.not.i.i162.i120, %965
+  br i1 %or.cond236.i121, label %_ZN12_GLOBAL__N_117FASTForPointSet_tILi16EEEvRKN2cv11_InputArrayERSt6vectorINS1_8KeyPointESaIS6_EEib.exit, label %966
 
 966:                                              ; preds = %._crit_edge.i119
   call void @_ZdaPv(ptr noundef nonnull %964) #13
@@ -1570,17 +1570,17 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES
   br i1 %.not.i.i164.i132, label %.sink.split.i128, label %.sink.split.sink.split.i125
 
 .sink.split.sink.split.i125:                      ; preds = %982, %974
-  %.sink224.i126 = phi ptr [ %975, %974 ], [ %983, %982 ]
+  %.sink240.i126 = phi ptr [ %975, %974 ], [ %983, %982 ]
   %984 = ptrtoint ptr %967 to i64
-  %985 = ptrtoint ptr %.sink224.i126 to i64
+  %985 = ptrtoint ptr %.sink240.i126 to i64
   %986 = sub i64 %984, %985
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %970, ptr nonnull align 4 %.sink224.i126, i64 %986, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %970, ptr nonnull align 4 %.sink240.i126, i64 %986, i1 false)
   %.pre.i.i166.i127 = load ptr, ptr %19, align 8, !tbaa !35
   br label %.sink.split.i128
 
 .sink.split.i128:                                 ; preds = %.sink.split.sink.split.i125, %982, %974
-  %.sink219.i129 = phi ptr [ %967, %974 ], [ %967, %982 ], [ %.pre.i.i166.i127, %.sink.split.sink.split.i125 ]
-  %987 = getelementptr inbounds i8, ptr %.sink219.i129, i64 -28
+  %.sink235.i129 = phi ptr [ %967, %974 ], [ %967, %982 ], [ %.pre.i.i166.i127, %.sink.split.sink.split.i125 ]
+  %987 = getelementptr inbounds i8, ptr %.sink235.i129, i64 -28
   store ptr %987, ptr %19, align 8, !tbaa !35
   br label %988
 

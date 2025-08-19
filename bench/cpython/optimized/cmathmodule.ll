@@ -894,7 +894,7 @@ define internal ptr @cmath_isclose(ptr readnone captures(none) %0, ptr noundef %
 51:                                               ; preds = %48
   %52 = call ptr @PyErr_Occurred() #10
   %.not61 = icmp eq ptr %52, null
-  br i1 %.not61, label %.thread75, label %86
+  br i1 %.not61, label %.thread83, label %86
 
 53:                                               ; preds = %46, %48, %41, %28
   %.042 = phi double [ %.val65, %46 ], [ %49, %48 ], [ 0.000000e+00, %41 ], [ 0.000000e+00, %28 ]
@@ -902,7 +902,7 @@ define internal ptr @cmath_isclose(ptr readnone captures(none) %0, ptr noundef %
   %54 = fcmp olt double %.041, 0.000000e+00
   %55 = fcmp olt double %.042, 0.000000e+00
   %or.cond.i = or i1 %55, %54
-  br i1 %or.cond.i, label %.thread75, label %56
+  br i1 %or.cond.i, label %.thread83, label %56
 
 56:                                               ; preds = %53
   %57 = fcmp oeq double %18, %25
@@ -945,20 +945,20 @@ define internal ptr @cmath_isclose(ptr readnone captures(none) %0, ptr noundef %
   %82 = zext i1 %81 to i64
   br label %cmath_isclose_impl.exit.thread
 
-.thread75:                                        ; preds = %51, %53
+.thread83:                                        ; preds = %51, %53
   %83 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
   call void @PyErr_SetString(ptr noundef %83, ptr noundef nonnull @.str.31) #10
   %84 = call ptr @PyErr_Occurred() #10
   %.not62 = icmp eq ptr %84, null
   br i1 %.not62, label %cmath_isclose_impl.exit.thread, label %86
 
-cmath_isclose_impl.exit.thread:                   ; preds = %80, %68, %76, %59, %56, %.thread75
-  %.0.i72 = phi i64 [ -1, %.thread75 ], [ %82, %80 ], [ 1, %68 ], [ 1, %76 ], [ 0, %59 ], [ 1, %56 ]
+cmath_isclose_impl.exit.thread:                   ; preds = %80, %68, %76, %59, %56, %.thread83
+  %.0.i72 = phi i64 [ -1, %.thread83 ], [ %82, %80 ], [ 1, %68 ], [ 1, %76 ], [ 0, %59 ], [ 1, %56 ]
   %85 = call ptr @PyBool_FromLong(i64 noundef %.0.i72) #10
   br label %86
 
-86:                                               ; preds = %.thread75, %51, %39, %21, %.thread69, %11, %cmath_isclose_impl.exit.thread
-  %.0 = phi ptr [ null, %.thread69 ], [ null, %21 ], [ null, %.thread75 ], [ %85, %cmath_isclose_impl.exit.thread ], [ null, %51 ], [ null, %39 ], [ null, %11 ]
+86:                                               ; preds = %.thread83, %51, %39, %21, %.thread69, %11, %cmath_isclose_impl.exit.thread
+  %.0 = phi ptr [ null, %.thread69 ], [ null, %21 ], [ null, %.thread83 ], [ %85, %cmath_isclose_impl.exit.thread ], [ null, %51 ], [ null, %39 ], [ null, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -2023,15 +2023,15 @@ special_type.exit46:                              ; preds = %25, %26, %27, %29
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !7
   %33 = insertvalue { double, double } poison, double %.sroa.037.0.copyload, 0
   %34 = insertvalue { double, double } %33, double %.sroa.4.0.copyload, 1
-  br label %common.ret2
+  br label %common.ret8
 
 35:                                               ; preds = %2
   %36 = fcmp olt double %0, 0.000000e+00
   br i1 %36, label %37, label %45
 
-common.ret2:                                      ; preds = %87, %special_type.exit46, %37
-  %common.ret2.op = phi { double, double } [ %44, %37 ], [ %90, %87 ], [ %34, %special_type.exit46 ]
-  ret { double, double } %common.ret2.op
+common.ret8:                                      ; preds = %87, %special_type.exit46, %37
+  %common.ret8.op = phi { double, double } [ %44, %37 ], [ %90, %87 ], [ %34, %special_type.exit46 ]
+  ret { double, double } %common.ret8.op
 
 37:                                               ; preds = %35
   %38 = tail call { double, double } @_Py_c_neg(double %0, double %1) #10
@@ -2041,7 +2041,7 @@ common.ret2:                                      ; preds = %87, %special_type.e
   %42 = extractvalue { double, double } %41, 0
   %43 = extractvalue { double, double } %41, 1
   %44 = tail call { double, double } @_Py_c_neg(double %42, double %43) #10
-  br label %common.ret2
+  br label %common.ret8
 
 45:                                               ; preds = %35
   %46 = fcmp ogt double %0, 0x5FDFFFFFFFFFFFFF
@@ -2114,7 +2114,7 @@ _Py_log1p.exit:                                   ; preds = %71, %78
   store i32 %.sink, ptr %88, align 4, !tbaa !3
   %89 = insertvalue { double, double } poison, double %.sroa.014.0, 0
   %90 = insertvalue { double, double } %89, double %.sroa.7.0, 1
-  br label %common.ret2
+  br label %common.ret8
 }
 
 declare { double, double } @_Py_c_neg(double, double) local_unnamed_addr #1

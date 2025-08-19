@@ -466,9 +466,9 @@ select.unfold159.i.backedge:                      ; preds = %65, %51
   br i1 %109, label %.thread106.i, label %112
 
 .sink.split.i:                                    ; preds = %99, %91, %86
-  %.sink125.i = phi i32 [ %87, %86 ], [ %92, %91 ], [ %100, %99 ]
+  %.sink132.i = phi i32 [ %87, %86 ], [ %92, %91 ], [ %100, %99 ]
   %110 = load i32, ptr %2, align 8
-  %111 = add i32 %110, %.sink125.i
+  %111 = add i32 %110, %.sink132.i
   br label %112
 
 112:                                              ; preds = %.sink.split.i, %104

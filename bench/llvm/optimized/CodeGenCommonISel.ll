@@ -135,9 +135,9 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit: ; preds =
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1216
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(70) %3) #7
-  br i1 %24, label %25, label %.preheader71
+  br i1 %24, label %25, label %.preheader72
 
-.preheader71:                                     ; preds = %25, %.critedge
+.preheader72:                                     ; preds = %25, %.critedge
   br label %62
 
 25:                                               ; preds = %.critedge
@@ -147,7 +147,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit: ; preds =
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %30 = load i32, ptr %29, align 4, !tbaa !82
   %31 = icmp eq i32 %30, %28
-  br i1 %31, label %.preheader, label %.preheader71
+  br i1 %31, label %.preheader, label %.preheader72
 
 .preheader:                                       ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -210,9 +210,9 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %_ZN4llvm26Machin
   %.not = icmp eq i32 %61, %60
   br i1 %.not, label %_ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.exit, label %33, !llvm.loop !99
 
-62:                                               ; preds = %.preheader71, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit33
-  %.sroa.045.0 = phi ptr [ %.sroa.0.2, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit33 ], [ %3, %.preheader71 ]
-  %.sroa.0.2 = phi ptr [ %.sroa.0.0.i.i.i26, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit33 ], [ %.sroa.0.0.i.i.i, %.preheader71 ]
+62:                                               ; preds = %.preheader72, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit33
+  %.sroa.045.0 = phi ptr [ %.sroa.0.2, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit33 ], [ %3, %.preheader72 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0.i.i.i26, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit33 ], [ %.sroa.0.0.i.i.i, %.preheader72 ]
   %63 = getelementptr i8, ptr %.sroa.0.2, i64 32
   %.val = load ptr, ptr %63, align 8
   %64 = getelementptr i8, ptr %.sroa.0.2, i64 68

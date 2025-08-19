@@ -747,14 +747,14 @@ copy_address.exit:                                ; preds = %._crit_edge, %48
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %16, %._crit_edge153
-  %.sink165 = phi ptr [ %80, %._crit_edge153 ], [ %18, %16 ]
+  %.sink169 = phi ptr [ %80, %._crit_edge153 ], [ %18, %16 ]
   %89 = load ptr, ptr @dcom_interfaces, align 8
-  %90 = tail call ptr @g_list_append(ptr noundef %89, ptr noundef %.sink165)
+  %90 = tail call ptr @g_list_append(ptr noundef %89, ptr noundef %.sink169)
   store ptr %90, ptr @dcom_interfaces, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph152, %.loopexit.sink.split, %6, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %6 ], [ %.sink165, %.loopexit.sink.split ], [ %77, %.lr.ph152 ]
+  %.0 = phi ptr [ null, %8 ], [ null, %6 ], [ %.sink169, %.loopexit.sink.split ], [ %77, %.lr.ph152 ]
   ret ptr %.0
 }
 

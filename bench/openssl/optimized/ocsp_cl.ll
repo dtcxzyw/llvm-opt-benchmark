@@ -670,10 +670,10 @@ define range(i32 0, 2) i32 @OCSP_check_validity(ptr noundef %0, ptr noundef %1, 
   br i1 %21, label %.sink.split, label %22
 
 .sink.split:                                      ; preds = %17, %4
-  %.sink18 = phi i32 [ 319, %4 ], [ 335, %17 ]
+  %.sink20 = phi i32 [ 319, %4 ], [ 335, %17 ]
   %.sink = phi i32 [ 123, %4 ], [ 127, %17 ]
   call void @ERR_new() #8
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink18, ptr noundef nonnull @__func__.OCSP_check_validity) #8
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink20, ptr noundef nonnull @__func__.OCSP_check_validity) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef %.sink, ptr noundef null) #8
   br label %22
 
@@ -685,7 +685,7 @@ define range(i32 0, 2) i32 @OCSP_check_validity(ptr noundef %0, ptr noundef %1, 
 24:                                               ; preds = %22
   %25 = call i32 @ASN1_GENERALIZEDTIME_check(ptr noundef nonnull %1) #8
   %.not17 = icmp eq i32 %25, 0
-  br i1 %.not17, label %.sink.split19, label %26
+  br i1 %.not17, label %.sink.split21, label %26
 
 26:                                               ; preds = %24
   %27 = load i64, ptr %5, align 8, !tbaa !87
@@ -693,18 +693,18 @@ define range(i32 0, 2) i32 @OCSP_check_validity(ptr noundef %0, ptr noundef %1, 
   store i64 %28, ptr %6, align 8, !tbaa !87
   %29 = call i32 @X509_cmp_time(ptr noundef nonnull %1, ptr noundef nonnull %6) #8
   %30 = icmp slt i32 %29, 0
-  br i1 %30, label %.sink.split19, label %31
+  br i1 %30, label %.sink.split21, label %31
 
-.sink.split19:                                    ; preds = %26, %24
-  %.sink21 = phi i32 [ 346, %24 ], [ 351, %26 ]
-  %.sink20 = phi i32 [ 122, %24 ], [ 125, %26 ]
+.sink.split21:                                    ; preds = %26, %24
+  %.sink23 = phi i32 [ 346, %24 ], [ 351, %26 ]
+  %.sink22 = phi i32 [ 122, %24 ], [ 125, %26 ]
   call void @ERR_new() #8
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink21, ptr noundef nonnull @__func__.OCSP_check_validity) #8
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef %.sink20, ptr noundef null) #8
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink23, ptr noundef nonnull @__func__.OCSP_check_validity) #8
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef %.sink22, ptr noundef null) #8
   br label %31
 
-31:                                               ; preds = %.sink.split19, %26
-  %.2 = phi i32 [ %.0, %26 ], [ 0, %.sink.split19 ]
+31:                                               ; preds = %.sink.split21, %26
+  %.2 = phi i32 [ %.0, %26 ], [ 0, %.sink.split21 ]
   %32 = call i32 @ASN1_STRING_cmp(ptr noundef nonnull %1, ptr noundef %0) #8
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %34, label %35

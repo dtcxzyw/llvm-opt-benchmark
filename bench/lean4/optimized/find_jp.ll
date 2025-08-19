@@ -1786,8 +1786,8 @@ _ZNK4lean10local_decl9get_valueEv.exit.thread:    ; preds = %_ZN4lean4exprC2ERKS
   %.pre205 = ptrtoint ptr %.pre202 to i64
   store ptr %.pre202, ptr %17, align 8, !tbaa !11
   %289 = and i64 %.pre205, 1
-  %.not.i.i.i113207 = icmp eq i64 %289, 0
-  br i1 %.not.i.i.i113207, label %290, label %.thread
+  %.not.i.i.i113252 = icmp eq i64 %289, 0
+  br i1 %.not.i.i.i113252, label %290, label %.thread
 
 290:                                              ; preds = %_ZNK4lean10local_decl9get_valueEv.exit.thread, %_ZNK4lean10local_decl9get_valueEv.exit
   %291 = phi ptr [ %.pre202, %_ZNK4lean10local_decl9get_valueEv.exit.thread ], [ %279, %_ZNK4lean10local_decl9get_valueEv.exit ]
@@ -4275,13 +4275,13 @@ _ZN4lean7rb_treeISt4pairINS_4nameEjENS_6rb_mapIS2_jNS_14name_quick_cmpEE9entry_c
 define linkonce_odr hidden void @_ZN4lean7rb_treeISt4pairINS_4nameEjENS_6rb_mapIS2_jNS_14name_quick_cmpEE9entry_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %common.ret1, label %3
+  br i1 %.not, label %common.ret2, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %5 = atomicrmw sub ptr %4, i32 1 acq_rel, align 4
   %6 = icmp eq i32 %5, 1
-  br i1 %6, label %7, label %common.ret1
+  br i1 %6, label %7, label %common.ret2
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -4316,7 +4316,7 @@ define linkonce_odr hidden void @_ZN4lean7rb_treeISt4pairINS_4nameEjENS_6rb_mapI
   tail call void @__clang_call_terminate(ptr %21) #13
   unreachable
 
-common.ret1:                                      ; preds = %3, %1, %_ZNSt4pairIN4lean4nameEjED2Ev.exit
+common.ret2:                                      ; preds = %3, %1, %_ZNSt4pairIN4lean4nameEjED2Ev.exit
   ret void
 
 _ZNSt4pairIN4lean4nameEjED2Ev.exit:               ; preds = %7, %15, %17, %18
@@ -4324,7 +4324,7 @@ _ZNSt4pairIN4lean4nameEjED2Ev.exit:               ; preds = %7, %15, %17, %18
   tail call void @_ZN4lean7rb_treeISt4pairINS_4nameEjENS_6rb_mapIS2_jNS_14name_quick_cmpEE9entry_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #12
   tail call void @_ZN4lean7rb_treeISt4pairINS_4nameEjENS_6rb_mapIS2_jNS_14name_quick_cmpEE9entry_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #12
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(40) %2, i64 noundef 40) #14
-  br label %common.ret1
+  br label %common.ret2
 }
 
 ; Function Attrs: mustprogress uwtable

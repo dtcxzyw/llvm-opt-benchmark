@@ -466,8 +466,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit154:                 ; preds = %89, %.body, %84
   %96 = load ptr, ptr %95, align 8, !tbaa !26
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %98 = load i32, ptr %97, align 4, !tbaa !34
-  %.idx354 = mul nuw nsw i64 %indvars.iv338, 72
-  %99 = getelementptr inbounds nuw i8, ptr %83, i64 %.idx354
+  %.idx410 = mul nuw nsw i64 %indvars.iv338, 72
+  %99 = getelementptr inbounds nuw i8, ptr %83, i64 %.idx410
   %100 = load ptr, ptr %99, align 8, !tbaa !26
   store i32 %98, ptr %100, align 4, !tbaa !34
   %101 = getelementptr inbounds nuw i8, ptr %96, i64 8
@@ -663,8 +663,8 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %186, %179
   %202 = and i64 %indvars.iv347, 63
   %203 = shl nuw i64 1, %202
   %204 = xor i64 %203, -1
-  %.idx355 = mul nuw nsw i64 %indvars.iv347, 12
-  %invariant.gep358 = getelementptr inbounds nuw i8, ptr %.pre352, i64 %.idx355
+  %.idx411 = mul nuw nsw i64 %indvars.iv347, 12
+  %invariant.gep414 = getelementptr inbounds nuw i8, ptr %.pre352, i64 %.idx411
   br label %240
 
 ._crit_edge327:                                   ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
@@ -763,8 +763,8 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt6v
 
 240:                                              ; preds = %.preheader, %_ZNSt14_Bit_referenceaSEb.exit192
   %indvars.iv343 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next344, %_ZNSt14_Bit_referenceaSEb.exit192 ]
-  %gep359 = getelementptr inbounds nuw i32, ptr %invariant.gep358, i64 %indvars.iv343
-  %241 = load i32, ptr %gep359, align 4, !tbaa !34
+  %gep415 = getelementptr inbounds nuw i32, ptr %invariant.gep414, i64 %indvars.iv343
+  %241 = load i32, ptr %gep415, align 4, !tbaa !34
   %242 = shl nuw nsw i64 1, %indvars.iv343
   %243 = icmp eq i32 %241, 1
   br i1 %243, label %244, label %247
@@ -1175,8 +1175,8 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit235:           ; preds = %428, %421
   %444 = and i64 %indvars.iv333, 63
   %445 = shl nuw i64 1, %444
   %446 = xor i64 %445, -1
-  %.idx353 = shl nsw i64 %indvars.iv333, 4
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx353
+  %.idx409 = shl nsw i64 %indvars.iv333, 4
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx409
   br label %482
 
 ._crit_edge321:                                   ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit235
@@ -1300,10 +1300,10 @@ _ZNSt14_Bit_referenceaSEb.exit272:                ; preds = %489, %486
   %.not = icmp eq i64 %495, 0
   %496 = and i64 %493, %484
   %.not311 = icmp eq i64 %496, 0
-  %or.cond360 = select i1 %.not, i1 %.not311, i1 false
+  %or.cond416 = select i1 %.not, i1 %.not311, i1 false
   %497 = and i64 %494, %446
   %498 = or i64 %494, %445
-  %storemerge312 = select i1 %or.cond360, i64 %497, i64 %498
+  %storemerge312 = select i1 %or.cond416, i64 %497, i64 %498
   store i64 %storemerge312, ptr %443, align 8, !tbaa !37
   %indvars.iv.next330 = add nuw nsw i64 %indvars.iv329, 1
   %exitcond332.not = icmp eq i64 %indvars.iv.next330, 4
@@ -2422,7 +2422,7 @@ _ZNSt12_Vector_baseISt6vectorIbSaIbEESaIS2_EE11_M_allocateEm.exit: ; preds = %_Z
           to label %_ZSt10_ConstructISt6vectorIbSaIbEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i97 unwind label %114
 
 _ZSt10_ConstructISt6vectorIbSaIbEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i97: ; preds = %.lr.ph.i.i.i.i94
-  %112 = add i64 %.01114.i.i.i.i96, -1
+  %112 = add nsw i64 %.01114.i.i.i.i96, -1
   %113 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i95, i64 40
   %.not.i.i.i.i98 = icmp eq i64 %112, 0
   br i1 %.not.i.i.i.i98, label %_ZSt24__uninitialized_fill_n_aIPSt6vectorIbSaIbEEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit102, label %.lr.ph.i.i.i.i94, !llvm.loop !55
@@ -2561,8 +2561,8 @@ _ZNSt12_Vector_baseISt6vectorIbSaIbEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds
   %.not66 = icmp eq ptr %110, null
   %148 = getelementptr inbounds nuw %"class.std::vector.3", ptr %111, i64 %2
   %spec.select = select i1 %.not66, ptr %111, ptr %110
-  %spec.select152 = select i1 %.not66, ptr %148, ptr %110
-  invoke void @_ZSt8_DestroyIPSt6vectorIbSaIbEEEvT_S4_(ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.select152)
+  %spec.select173 = select i1 %.not66, ptr %148, ptr %110
+  invoke void @_ZSt8_DestroyIPSt6vectorIbSaIbEEEvT_S4_(ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.select173)
           to label %_ZSt8_DestroyIPSt6vectorIbSaIbEES2_EvT_S4_RSaIT0_E.exit68.thread unwind label %149
 
 149:                                              ; preds = %.body100, %_ZSt8_DestroyIPSt6vectorIbSaIbEES2_EvT_S4_RSaIT0_E.exit68.thread
@@ -2781,8 +2781,8 @@ _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %24
   br i1 %.not.i25, label %_ZNSt6vectorIbSaIbEE13_M_initializeEm.exit, label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit.thread
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit.thread: ; preds = %24, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
-  %.pre-phi4756 = phi i64 [ %.pre46, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit ], [ %15, %24 ]
-  %28 = add i64 %.pre-phi4756, 63
+  %.pre-phi4760 = phi i64 [ %.pre46, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit ], [ %15, %24 ]
+  %28 = add i64 %.pre-phi4760, 63
   %29 = lshr i64 %28, 3
   %30 = and i64 %29, 2305843009213693944
   %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #15
@@ -2792,13 +2792,13 @@ _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit.thread: ; preds = %24, %_ZNSt1
   store ptr %31, ptr %0, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %34 = sdiv i64 %.pre-phi4756, 64
+  %34 = sdiv i64 %.pre-phi4760, 64
   %35 = getelementptr inbounds i64, ptr %31, i64 %34
-  %36 = and i64 %.pre-phi4756, -9223372036854775745
+  %36 = and i64 %.pre-phi4760, -9223372036854775745
   %37 = icmp ugt i64 %36, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %37, i64 -8, i64 0
   %storemerge.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 %storemerge.idx.i.i.i.i
-  %38 = trunc i64 %.pre-phi4756 to i32
+  %38 = trunc i64 %.pre-phi4760 to i32
   %39 = and i32 %38, 63
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %storemerge.i.i.i.i, ptr %40, align 8

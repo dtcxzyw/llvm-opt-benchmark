@@ -385,8 +385,8 @@ define internal range(i32 -2147483648, 1) i32 @pad_vaapi_config_output(ptr nound
   %.pre114 = load i32, ptr %11, align 8, !tbaa !48
   %111 = add nsw i32 %.pre114, %109
   %112 = icmp sgt i32 %111, %.pre
-  %or.cond118 = select i1 %110, i1 true, i1 %112
-  br i1 %or.cond118, label %113, label %117
+  %or.cond130 = select i1 %110, i1 true, i1 %112
+  br i1 %or.cond130, label %113, label %117
 
 113:                                              ; preds = %107
   %114 = sub nsw i32 %.pre, %.pre114
@@ -404,8 +404,8 @@ define internal range(i32 -2147483648, 1) i32 @pad_vaapi_config_output(ptr nound
   %.pre116 = load i32, ptr %15, align 4, !tbaa !49
   %121 = add nsw i32 %.pre116, %119
   %122 = icmp sgt i32 %121, %.pre115
-  %or.cond120 = select i1 %120, i1 true, i1 %122
-  br i1 %or.cond120, label %123, label %127
+  %or.cond132 = select i1 %120, i1 true, i1 %122
+  br i1 %or.cond132, label %123, label %127
 
 123:                                              ; preds = %117
   %124 = sub nsw i32 %.pre115, %.pre116
@@ -419,8 +419,8 @@ define internal range(i32 -2147483648, 1) i32 @pad_vaapi_config_output(ptr nound
   %128 = phi i32 [ %125, %123 ], [ %119, %117 ]
   %129 = icmp slt i32 %.pre, %.pre114
   %130 = icmp slt i32 %.pre115, %.pre116
-  %or.cond121 = select i1 %129, i1 true, i1 %130
-  br i1 %or.cond121, label %131, label %132
+  %or.cond133 = select i1 %129, i1 true, i1 %130
+  br i1 %or.cond133, label %131, label %132
 
 131:                                              ; preds = %127
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %9, i32 noundef 16, ptr noundef nonnull @.str.3) #6
@@ -443,8 +443,8 @@ define internal range(i32 -2147483648, 1) i32 @pad_vaapi_config_output(ptr nound
   %143 = icmp sgt i32 %142, %spec.select
   %144 = add nsw i32 %128, %139
   %145 = icmp sgt i32 %144, %140
-  %or.cond123 = select i1 %143, i1 true, i1 %145
-  br i1 %or.cond123, label %148, label %146
+  %or.cond135 = select i1 %143, i1 true, i1 %145
+  br i1 %or.cond135, label %148, label %146
 
 146:                                              ; preds = %132
   %147 = call i32 @ff_vaapi_vpp_config_output(ptr noundef nonnull %0) #6

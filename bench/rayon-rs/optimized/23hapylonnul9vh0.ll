@@ -1006,7 +1006,7 @@ define hidden { ptr, ptr } @"_ZN10rayon_core8registry12WorkerThread5steal28_$u7b
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h201b268e9298e0a7E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
   %10 = load i64, ptr %3, align 8, !range !125, !noundef !5
-  switch i64 %10, label %default.unreachable2 [
+  switch i64 %10, label %default.unreachable3 [
     i64 0, label %20
     i64 1, label %12
     i64 2, label %17
@@ -1016,7 +1016,7 @@ define hidden { ptr, ptr } @"_ZN10rayon_core8registry12WorkerThread5steal28_$u7b
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %1, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1e5193481e0f4def8d52ada7935c5b41.10) #17
   unreachable
 
-default.unreachable2:                             ; preds = %7
+default.unreachable3:                             ; preds = %7
   unreachable
 
 12:                                               ; preds = %7

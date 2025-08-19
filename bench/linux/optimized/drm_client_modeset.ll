@@ -344,18 +344,18 @@ define dso_local range(i32 -22, 1) i32 @drm_client_modeset_probe(ptr noundef %0,
 
 76:                                               ; preds = %62
   %77 = icmp eq i32 %73, 0
-  br i1 %77, label %78, label %.preheader253
+  br i1 %77, label %78, label %.preheader312
 
 78:                                               ; preds = %76
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.3) #11
-  br label %.preheader253
+  br label %.preheader312
 
-.preheader253:                                    ; preds = %78, %76
+.preheader312:                                    ; preds = %78, %76
   br label %79
 
-79:                                               ; preds = %.preheader253, %95
-  %80 = phi i32 [ %103, %95 ], [ 0, %.preheader253 ]
-  %81 = phi i1 [ %102, %95 ], [ false, %.preheader253 ]
+79:                                               ; preds = %.preheader312, %95
+  %80 = phi i32 [ %103, %95 ], [ 0, %.preheader312 ]
+  %81 = phi i1 [ %102, %95 ], [ false, %.preheader312 ]
   %82 = sext i32 %80 to i64
   %83 = getelementptr ptr, ptr %38, i64 %82
   %84 = load ptr, ptr %83, align 8
@@ -844,7 +844,7 @@ thread-pre-split.thread:                          ; preds = %280, %thread-pre-sp
   %371 = getelementptr inbounds nuw i8, ptr %6, i64 728
   %372 = load i32, ptr %371, align 8
   %373 = icmp sgt i32 %372, 1
-  br i1 %373, label %.preheader241, label %.preheader91
+  br i1 %373, label %.preheader300, label %.preheader91
 
 .preheader91:                                     ; preds = %370, %.preheader91
   %374 = phi i32 [ %380, %.preheader91 ], [ 0, %370 ]
@@ -860,7 +860,7 @@ thread-pre-split.thread:                          ; preds = %280, %thread-pre-sp
 
 383:                                              ; preds = %.preheader91
   %384 = icmp slt i32 %380, 2
-  br i1 %384, label %.preheader241, label %.preheader90
+  br i1 %384, label %.preheader300, label %.preheader90
 
 .preheader90:                                     ; preds = %383, %.loopexit89
   %385 = phi i32 [ %418, %.loopexit89 ], [ 0, %383 ]
@@ -983,14 +983,14 @@ thread-pre-split.thread:                          ; preds = %280, %thread-pre-sp
 
 458:                                              ; preds = %456, %.thread67
   %459 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.30) #13
-  br label %.preheader241
+  br label %.preheader300
 
-.preheader241:                                    ; preds = %458, %383, %370
+.preheader300:                                    ; preds = %458, %383, %370
   br label %460
 
-460:                                              ; preds = %.preheader241, %475
-  %461 = phi i32 [ %477, %475 ], [ 0, %.preheader241 ]
-  %462 = phi i32 [ %476, %475 ], [ 0, %.preheader241 ]
+460:                                              ; preds = %.preheader300, %475
+  %461 = phi i32 [ %477, %475 ], [ 0, %.preheader300 ]
+  %462 = phi i32 [ %476, %475 ], [ 0, %.preheader300 ]
   %463 = sext i32 %461 to i64
   %464 = getelementptr ptr, ptr %38, i64 %463
   %465 = load ptr, ptr %464, align 8

@@ -581,8 +581,8 @@ define internal ptr @process_cert_request(ptr noundef %0, ptr noundef %1, i32 %2
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 100
   %29 = load i32, ptr %28, align 4, !tbaa !31
   %30 = icmp eq i32 %29, 0
-  %or.cond132 = select i1 %27, i1 %30, i1 false
-  br i1 %or.cond132, label %31, label %._crit_edge
+  %or.cond154 = select i1 %27, i1 %30, i1 false
+  br i1 %or.cond154, label %31, label %._crit_edge
 
 31:                                               ; preds = %24
   %32 = tail call ptr @OSSL_CMP_MSG_dup(ptr noundef nonnull %1) #4
@@ -664,10 +664,10 @@ define internal ptr @process_cert_request(ptr noundef %0, ptr noundef %1, i32 %2
   br i1 %70, label %.lr.ph, label %.thread120, !llvm.loop !34
 
 .sink.split:                                      ; preds = %64, %57, %61, %53
-  %.sink133 = phi i32 [ 338, %53 ], [ 345, %61 ], [ 345, %57 ], [ 349, %64 ]
+  %.sink155 = phi i32 [ 338, %53 ], [ 345, %61 ], [ 345, %57 ], [ 349, %64 ]
   %.sink = phi i32 [ 196, %53 ], [ 524550, %61 ], [ 524550, %57 ], [ 196, %64 ]
   call void @ERR_new() #4
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink133, ptr noundef nonnull @__func__.process_cert_request) #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink155, ptr noundef nonnull @__func__.process_cert_request) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef %.sink, ptr noundef null) #4
   br label %71
 
@@ -1119,10 +1119,10 @@ define internal range(i32 0, 2) i32 @process_certConf(ptr noundef %0, ptr nounde
   br i1 %.not, label %26, label %.sink.split
 
 .sink.split:                                      ; preds = %24, %10, %14, %17, %5
-  %.sink22 = phi i32 [ 664, %5 ], [ 670, %17 ], [ 670, %14 ], [ 670, %10 ], [ 678, %24 ]
+  %.sink28 = phi i32 [ 664, %5 ], [ 670, %17 ], [ 670, %14 ], [ 670, %10 ], [ 678, %24 ]
   %.sink = phi i32 [ 103, %5 ], [ 158, %17 ], [ 158, %14 ], [ 158, %10 ], [ 156, %24 ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink22, ptr noundef nonnull @__func__.process_certConf) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink28, ptr noundef nonnull @__func__.process_certConf) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef %.sink, ptr noundef null) #4
   br label %26
 
@@ -1524,10 +1524,10 @@ define internal fastcc ptr @process_genm_itav(ptr noundef nonnull readonly captu
   br label %65
 
 check_client_crl.exit.thread.sink.split:          ; preds = %49, %51, %54, %37
-  %.sink53 = phi i32 [ 454, %37 ], [ 471, %54 ], [ 475, %51 ], [ 475, %49 ]
+  %.sink59 = phi i32 [ 454, %37 ], [ 471, %54 ], [ 475, %51 ], [ 475, %49 ]
   %.sink = phi i32 [ 201, %37 ], [ 200, %54 ], [ 150, %51 ], [ 150, %49 ]
   call void @ERR_new() #4
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink53, ptr noundef nonnull @__func__.check_client_crl) #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink59, ptr noundef nonnull @__func__.check_client_crl) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef %.sink, ptr noundef null) #4
   br label %check_client_crl.exit.thread
 

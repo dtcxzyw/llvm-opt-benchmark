@@ -538,19 +538,19 @@ switch.lookup:                                    ; preds = %46
   %63 = zext i8 %62 to i32
   %64 = and i32 %63, 3
   %65 = zext nneg i32 %64 to i64
-  %switch.gep11 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %65
-  %switch.load12 = load ptr, ptr %switch.gep11, align 8
+  %switch.gep12 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %65
+  %switch.load13 = load ptr, ptr %switch.gep12, align 8
   %66 = load i8, ptr %4, align 4
   %67 = zext i8 %66 to i32
   %68 = and i32 %67, 3
   %69 = zext nneg i32 %68 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %69
-  %switch.load3 = load ptr, ptr %switch.gep2, align 8
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.4, ptr noundef nonnull %53, i32 noundef %54, i32 noundef %55, i32 noundef %57, i32 noundef %59, ptr noundef nonnull %switch.load, i32 noundef %63, ptr noundef nonnull %switch.load12, i32 noundef %67, ptr noundef nonnull %switch.load3) #6
+  %switch.gep3 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %69
+  %switch.load4 = load ptr, ptr %switch.gep3, align 8
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.4, ptr noundef nonnull %53, i32 noundef %54, i32 noundef %55, i32 noundef %57, i32 noundef %59, ptr noundef nonnull %switch.load, i32 noundef %63, ptr noundef nonnull %switch.load13, i32 noundef %67, ptr noundef nonnull %switch.load4) #6
   br label %136
 
 70:                                               ; preds = %34
-  switch i32 %32, label %switch.lookup4 [
+  switch i32 %32, label %switch.lookup5 [
     i32 3, label %71
     i32 1, label %88
     i32 2, label %105
@@ -560,7 +560,7 @@ switch.lookup:                                    ; preds = %46
   %72 = tail call ptr @__errno_location() #7
   %73 = load i32, ptr %72, align 4
   %74 = icmp eq i32 %73, 2
-  br i1 %74, label %75, label %switch.lookup4
+  br i1 %74, label %75, label %switch.lookup5
 
 75:                                               ; preds = %71
   %76 = load i32, ptr %42, align 4
@@ -590,7 +590,7 @@ switch.lookup:                                    ; preds = %46
   %89 = tail call ptr @__errno_location() #7
   %90 = load i32, ptr %89, align 4
   %91 = icmp eq i32 %90, 17
-  br i1 %91, label %92, label %switch.lookup4
+  br i1 %91, label %92, label %switch.lookup5
 
 92:                                               ; preds = %88
   %93 = load i32, ptr %42, align 4
@@ -619,7 +619,7 @@ switch.lookup:                                    ; preds = %46
 105:                                              ; preds = %70
   %106 = tail call ptr @__errno_location() #7
   %107 = load i32, ptr %106, align 4
-  switch i32 %107, label %switch.lookup4 [
+  switch i32 %107, label %switch.lookup5 [
     i32 2, label %108
     i32 9, label %108
     i32 1, label %108
@@ -637,7 +637,7 @@ switch.lookup:                                    ; preds = %46
   call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.9, i32 noundef %111, i32 noundef %112, ptr noundef %113) #6
   br label %136
 
-switch.lookup4:                                   ; preds = %105, %70, %88, %71
+switch.lookup5:                                   ; preds = %105, %70, %88, %71
   %114 = icmp eq i32 %32, 1
   %115 = icmp eq i32 %32, 2
   %116 = icmp eq i32 %32, 3
@@ -652,25 +652,25 @@ switch.lookup4:                                   ; preds = %105, %70, %88, %71
   %125 = zext i8 %124 to i32
   %126 = and i32 %125, 3
   %127 = zext nneg i32 %126 to i64
-  %switch.gep5 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %127
-  %switch.load6 = load ptr, ptr %switch.gep5, align 8
+  %switch.gep6 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %127
+  %switch.load7 = load ptr, ptr %switch.gep6, align 8
   %128 = load i8, ptr %14, align 1
   %129 = zext i8 %128 to i32
   %130 = and i32 %129, 3
   %131 = zext nneg i32 %130 to i64
-  %switch.gep14 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %131
-  %switch.load15 = load ptr, ptr %switch.gep14, align 8
+  %switch.gep15 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %131
+  %switch.load16 = load ptr, ptr %switch.gep15, align 8
   %132 = load i8, ptr %4, align 4
   %133 = zext i8 %132 to i32
   %134 = and i32 %133, 3
   %135 = zext nneg i32 %134 to i64
-  %switch.gep8 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %135
-  %switch.load9 = load ptr, ptr %switch.gep8, align 8
-  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.10, ptr noundef nonnull %119, i32 noundef %120, i32 noundef %121, i32 noundef %123, i32 noundef %125, ptr noundef nonnull %switch.load6, i32 noundef %129, ptr noundef nonnull %switch.load15, i32 noundef %133, ptr noundef nonnull %switch.load9) #6
+  %switch.gep9 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %135
+  %switch.load10 = load ptr, ptr %switch.gep9, align 8
+  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.10, ptr noundef nonnull %119, i32 noundef %120, i32 noundef %121, i32 noundef %123, i32 noundef %125, ptr noundef nonnull %switch.load7, i32 noundef %129, ptr noundef nonnull %switch.load16, i32 noundef %133, ptr noundef nonnull %switch.load10) #6
   br label %136
 
-136:                                              ; preds = %108, %110, %100, %102, %83, %85, %46, %switch.lookup, %2, %switch.lookup4, %97, %80
-  %.0 = phi i32 [ -1, %switch.lookup4 ], [ -1, %80 ], [ -1, %97 ], [ 0, %2 ], [ 0, %switch.lookup ], [ 0, %46 ], [ 0, %85 ], [ 0, %83 ], [ 0, %102 ], [ 0, %100 ], [ 0, %110 ], [ 0, %108 ]
+136:                                              ; preds = %108, %110, %100, %102, %83, %85, %46, %switch.lookup, %2, %switch.lookup5, %97, %80
+  %.0 = phi i32 [ -1, %switch.lookup5 ], [ -1, %80 ], [ -1, %97 ], [ 0, %2 ], [ 0, %switch.lookup ], [ 0, %46 ], [ 0, %85 ], [ 0, %83 ], [ 0, %102 ], [ 0, %100 ], [ 0, %110 ], [ 0, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

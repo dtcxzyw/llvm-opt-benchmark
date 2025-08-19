@@ -575,10 +575,10 @@ _ZN4absl13cord_internal9CordzInfo15FillParentStackEPKS1_PPv.exit: ; preds = %11
   br label %_ZN4absl13cord_internal9CordzInfo15GetParentMethodEPKS1_.exit
 
 27:                                               ; preds = %20, %22
-  %.sink15 = phi i64 [ %19, %20 ], [ %25, %22 ]
+  %.sink18 = phi i64 [ %19, %20 ], [ %25, %22 ]
   %.sink = phi ptr [ %21, %20 ], [ %23, %22 ]
   %.0.i.ph.in = phi ptr [ %18, %20 ], [ %24, %22 ]
-  %28 = shl i64 %.sink15, 3
+  %28 = shl i64 %.sink18, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %15, ptr nonnull readonly align 8 %.sink, i64 %28, i1 false)
   %.0.i.ph = load i64, ptr %.0.i.ph.in, align 8, !tbaa !36
   store i64 %.0.i.ph, ptr %14, align 8, !tbaa !32
@@ -965,8 +965,8 @@ _ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit.lr.ph:
   br i1 %8, label %.lr.ph, label %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit13
 
 .lr.ph:                                           ; preds = %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit.lr.ph, %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef5ChildEPKNS0_7CordRepE.exit
-  %.sroa.0.02645 = phi ptr [ %23, %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef5ChildEPKNS0_7CordRepE.exit ], [ %1, %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit.lr.ph ]
-  %storemerge2744 = phi i64 [ %29, %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef5ChildEPKNS0_7CordRepE.exit ], [ %2, %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit.lr.ph ]
+  %.sroa.0.02648 = phi ptr [ %23, %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef5ChildEPKNS0_7CordRepE.exit ], [ %1, %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit.lr.ph ]
+  %storemerge2747 = phi i64 [ %29, %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef5ChildEPKNS0_7CordRepE.exit ], [ %2, %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit.lr.ph ]
   %9 = load ptr, ptr %0, align 8, !tbaa !56
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i64, ptr %10, align 8, !tbaa !60
@@ -979,12 +979,12 @@ _ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit.lr.ph:
   %16 = load i64, ptr %3, align 8, !tbaa !62
   %17 = add i64 %16, 32
   store i64 %17, ptr %3, align 8, !tbaa !62
-  %18 = uitofp i64 %storemerge2744 to double
+  %18 = uitofp i64 %storemerge2747 to double
   %19 = fdiv double 3.200000e+01, %18
   %20 = load double, ptr %5, align 8, !tbaa !63
   %21 = fadd double %19, %20
   store double %21, ptr %5, align 8, !tbaa !63
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.02645, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.02648, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !73
   %24 = icmp eq ptr %23, null
   br i1 %24, label %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit15.thread, label %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef5ChildEPKNS0_7CordRepE.exit
@@ -994,7 +994,7 @@ _ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef5ChildEPKNS0_7Cord
   %26 = load atomic i32, ptr %25 acquire, align 4
   %27 = ashr i32 %26, 1
   %28 = sext i32 %27 to i64
-  %29 = mul i64 %storemerge2744, %28
+  %29 = mul i64 %storemerge2747, %28
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %31 = load i8, ptr %30, align 4, !tbaa !55
   %32 = icmp eq i8 %31, 1
@@ -1073,11 +1073,11 @@ _ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit15: ; p
   br label %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit15.thread.sink.split
 
 _ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit15.thread.sink.split: ; preds = %.sink.split.i, %54, %60
-  %.sink40 = phi i64 [ %69, %60 ], [ %40, %54 ], [ %40, %.sink.split.i ]
+  %.sink43 = phi i64 [ %69, %60 ], [ %40, %54 ], [ %40, %.sink.split.i ]
   %70 = load i64, ptr %3, align 8, !tbaa !62
-  %71 = add i64 %70, %.sink40
+  %71 = add i64 %70, %.sink43
   store i64 %71, ptr %3, align 8, !tbaa !62
-  %72 = uitofp i64 %.sink40 to double
+  %72 = uitofp i64 %.sink43 to double
   %73 = uitofp i64 %storemerge27.lcssa to double
   %74 = fdiv double %72, %73
   %75 = load double, ptr %5, align 8, !tbaa !63

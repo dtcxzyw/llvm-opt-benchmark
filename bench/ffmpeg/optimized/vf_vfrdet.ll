@@ -115,11 +115,11 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %._crit_edge.sink.split
 
 ._crit_edge.sink.split:                           ; preds = %16, %.thread, %17
-  %.sink41 = phi i64 [ 40, %17 ], [ 56, %.thread ], [ 56, %16 ]
-  %.sink40 = phi i64 [ %10, %17 ], [ 1, %.thread ], [ 1, %16 ]
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink41
+  %.sink43 = phi i64 [ 40, %17 ], [ 56, %.thread ], [ 56, %16 ]
+  %.sink42 = phi i64 [ %10, %17 ], [ 1, %.thread ], [ 1, %16 ]
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink43
   %27 = load i64, ptr %26, align 8, !tbaa !43
-  %28 = add i64 %27, %.sink40
+  %28 = add i64 %27, %.sink42
   store i64 %28, ptr %26, align 8, !tbaa !43
   br label %._crit_edge
 

@@ -1965,8 +1965,8 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE8in_availEv.exit3: ; preds = %_ZNSt15
   br label %.sink.split
 
 .sink.split:                                      ; preds = %4, %43
-  %.sink11 = phi ptr [ %44, %43 ], [ %6, %4 ]
-  %45 = load i8, ptr %.sink11, align 1, !tbaa !13
+  %.sink20 = phi ptr [ %44, %43 ], [ %6, %4 ]
+  %45 = load i8, ptr %.sink20, align 1, !tbaa !13
   %46 = zext i8 %45 to i32
   br label %47
 

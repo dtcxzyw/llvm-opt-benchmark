@@ -113,7 +113,7 @@ define hidden range(i32 0, 2) i32 @asn1_generalizedtime_to_tm(ptr noundef %0, pt
   br label %.loopexit
 
 .split.us.thread:                                 ; preds = %45, %45, %45
-  %.us-phi212 = trunc i64 %indvars.iv to i32
+  %.us-phi220 = trunc i64 %indvars.iv to i32
   store i32 0, ptr %0, align 8, !tbaa !20
   br label %.loopexit
 
@@ -209,7 +209,7 @@ default.unreachable:                              ; preds = %67
   br i1 %exitcond.not, label %.loopexit, label %.preheader159.split, !llvm.loop !18
 
 .loopexit:                                        ; preds = %81, %41, %.split.us, %.split.us.thread
-  %.0118166 = phi i32 [ %.us-phi, %.split.us ], [ %.us-phi212, %.split.us.thread ], [ 14, %41 ], [ 14, %81 ]
+  %.0118166 = phi i32 [ %.us-phi, %.split.us ], [ %.us-phi220, %.split.us.thread ], [ 14, %41 ], [ 14, %81 ]
   %82 = zext nneg i32 %.0118166 to i64
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 %82
   %84 = load i8, ptr %83, align 1, !tbaa !16
@@ -270,60 +270,59 @@ default.unreachable:                              ; preds = %67
   br label %107
 
 107:                                              ; preds = %.preheader, %136
-  %indvars.iv203 = phi i64 [ 7, %.preheader ], [ %indvars.iv.next204, %136 ]
+  %108 = phi i1 [ true, %.preheader ], [ false, %136 ]
+  %exitcond208.not = phi i1 [ false, %.preheader ], [ true, %136 ]
+  %indvars.iv203 = phi i64 [ 7, %.preheader ], [ 8, %136 ]
   %indvars.iv201 = phi i64 [ %105, %.preheader ], [ %indvars.iv.next202, %136 ]
   %.0172 = phi i32 [ 0, %.preheader ], [ %.1, %136 ]
-  %108 = getelementptr i8, ptr %8, i64 %indvars.iv201
-  %109 = load i8, ptr %108, align 1, !tbaa !16
-  %110 = add i8 %109, -58
-  %or.cond150 = icmp ult i8 %110, -10
-  br i1 %or.cond150, label %.thread, label %111
+  %109 = getelementptr i8, ptr %8, i64 %indvars.iv201
+  %110 = load i8, ptr %109, align 1, !tbaa !16
+  %111 = add i8 %110, -58
+  %or.cond150 = icmp ult i8 %111, -10
+  br i1 %or.cond150, label %.thread, label %112
 
-111:                                              ; preds = %107
-  %112 = getelementptr i8, ptr %108, i64 1
-  %113 = load i8, ptr %112, align 1, !tbaa !16
-  %114 = add i8 %113, -58
-  %or.cond151 = icmp ult i8 %114, -10
-  br i1 %or.cond151, label %.thread, label %115
+112:                                              ; preds = %107
+  %113 = getelementptr i8, ptr %109, i64 1
+  %114 = load i8, ptr %113, align 1, !tbaa !16
+  %115 = add i8 %114, -58
+  %or.cond151 = icmp ult i8 %115, -10
+  br i1 %or.cond151, label %.thread, label %116
 
-115:                                              ; preds = %111
-  %116 = zext nneg i8 %113 to i32
-  %117 = mul i8 %109, 10
-  %118 = sext i8 %117 to i32
-  %119 = add nsw i32 %118, -16
-  %120 = add nsw i32 %119, %116
-  %121 = getelementptr inbounds nuw [9 x i32], ptr @asn1_generalizedtime_to_tm.min, i64 0, i64 %indvars.iv203
-  %122 = load i32, ptr %121, align 4, !tbaa !17
-  %123 = icmp slt i32 %120, %122
-  br i1 %123, label %.thread, label %124
+116:                                              ; preds = %112
+  %117 = zext nneg i8 %114 to i32
+  %118 = mul i8 %110, 10
+  %119 = sext i8 %118 to i32
+  %120 = add nsw i32 %119, -16
+  %121 = add nsw i32 %120, %117
+  %122 = getelementptr inbounds nuw [9 x i32], ptr @asn1_generalizedtime_to_tm.min, i64 0, i64 %indvars.iv203
+  %123 = load i32, ptr %122, align 4, !tbaa !17
+  %124 = icmp slt i32 %121, %123
+  br i1 %124, label %.thread, label %125
 
-124:                                              ; preds = %115
-  %125 = getelementptr inbounds nuw [9 x i32], ptr @asn1_generalizedtime_to_tm.max, i64 0, i64 %indvars.iv203
-  %126 = load i32, ptr %125, align 4, !tbaa !17
-  %127 = icmp sgt i32 %120, %126
-  br i1 %127, label %.thread, label %128
+125:                                              ; preds = %116
+  %126 = getelementptr inbounds nuw [9 x i32], ptr @asn1_generalizedtime_to_tm.max, i64 0, i64 %indvars.iv203
+  %127 = load i32, ptr %126, align 4, !tbaa !17
+  %128 = icmp sgt i32 %121, %127
+  br i1 %128, label %.thread, label %129
 
-128:                                              ; preds = %124
-  br i1 %.not138, label %136, label %129
+129:                                              ; preds = %125
+  br i1 %.not138, label %136, label %130
 
-129:                                              ; preds = %128
-  %130 = icmp eq i64 %indvars.iv203, 7
-  br i1 %130, label %131, label %133
+130:                                              ; preds = %129
+  br i1 %108, label %131, label %133
 
-131:                                              ; preds = %129
-  %132 = mul nuw nsw i32 %120, 3600
+131:                                              ; preds = %130
+  %132 = mul nuw nsw i32 %121, 3600
   br label %136
 
-133:                                              ; preds = %129
-  %134 = mul nuw nsw i32 %120, 60
+133:                                              ; preds = %130
+  %134 = mul nuw nsw i32 %121, 60
   %135 = add nsw i32 %134, %.0172
   br label %136
 
-136:                                              ; preds = %131, %133, %128
-  %.1 = phi i32 [ %132, %131 ], [ %135, %133 ], [ %.0172, %128 ]
+136:                                              ; preds = %131, %133, %129
+  %.1 = phi i32 [ %132, %131 ], [ %135, %133 ], [ %.0172, %129 ]
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 2
-  %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
-  %exitcond208.not = icmp eq i64 %indvars.iv.next204, 9
   br i1 %exitcond208.not, label %137, label %107, !llvm.loop !28
 
 137:                                              ; preds = %136
@@ -344,8 +343,8 @@ default.unreachable:                              ; preds = %67
   %145 = zext i1 %144 to i32
   br label %.thread
 
-.thread:                                          ; preds = %59, %63, %52, %47, %.preheader159.split._crit_edge, %37, %33, %26, %21, %.preheader159.split.us._crit_edge, %115, %124, %111, %107, %138, %100, %5, %86, %.critedge, %94, %2, %143
-  %.0115 = phi i32 [ %145, %143 ], [ 0, %2 ], [ 0, %94 ], [ 0, %.critedge ], [ 0, %86 ], [ 0, %5 ], [ 0, %100 ], [ 0, %138 ], [ 0, %107 ], [ 0, %111 ], [ 0, %124 ], [ 0, %115 ], [ 0, %.preheader159.split.us._crit_edge ], [ 0, %21 ], [ 0, %26 ], [ 0, %33 ], [ 0, %37 ], [ 0, %.preheader159.split._crit_edge ], [ 0, %47 ], [ 0, %52 ], [ 0, %63 ], [ 0, %59 ]
+.thread:                                          ; preds = %59, %63, %52, %47, %.preheader159.split._crit_edge, %37, %33, %26, %21, %.preheader159.split.us._crit_edge, %116, %125, %112, %107, %138, %100, %5, %86, %.critedge, %94, %2, %143
+  %.0115 = phi i32 [ %145, %143 ], [ 0, %2 ], [ 0, %94 ], [ 0, %.critedge ], [ 0, %86 ], [ 0, %5 ], [ 0, %100 ], [ 0, %138 ], [ 0, %107 ], [ 0, %112 ], [ 0, %125 ], [ 0, %116 ], [ 0, %.preheader159.split.us._crit_edge ], [ 0, %21 ], [ 0, %26 ], [ 0, %33 ], [ 0, %37 ], [ 0, %.preheader159.split._crit_edge ], [ 0, %47 ], [ 0, %52 ], [ 0, %63 ], [ 0, %59 ]
   ret i32 %.0115
 }
 

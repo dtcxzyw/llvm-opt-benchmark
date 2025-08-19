@@ -152,7 +152,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32i_cm_popP11p
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %36 = load i64, ptr %35, align 8, !tbaa !3
-  switch i64 %15, label %default.unreachable [
+  switch i64 %15, label %default.unreachable64 [
     i64 15, label %37
     i64 14, label %38
     i64 13, label %38
@@ -178,7 +178,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32i_cm_popP11p
   %.4.i = phi i64 [ 32, %33 ], [ 32, %33 ], [ %.2.i, %38 ], [ 32, %33 ], [ 32, %33 ]
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
-default.unreachable:                              ; preds = %33
+default.unreachable64:                            ; preds = %33
   unreachable
 
 _ZN6insn_t21zcmp_stack_adjustmentEi.exit:         ; preds = %33, %33, %39, %33, %33
@@ -299,8 +299,8 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %89, %_ZN6insn_t12zc
   %.138 = phi i64 [ %.03760, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %64, %89 ]
   %.sroa.01.1 = phi i8 [ %.sroa.01.062, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %66, %89 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not63 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not63, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %51, !llvm.loop !176
+  %.not65 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not65, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %51, !llvm.loop !176
 }
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -385,7 +385,7 @@ define noundef i64 @_Z17fast_rv64i_cm_popP11processor_t6insn_tm(ptr noundef capt
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %36 = load i64, ptr %35, align 8, !tbaa !3
-  switch i64 %15, label %default.unreachable [
+  switch i64 %15, label %default.unreachable64 [
     i64 15, label %37
     i64 14, label %38
     i64 13, label %39
@@ -423,7 +423,7 @@ define noundef i64 @_Z17fast_rv64i_cm_popP11processor_t6insn_tm(ptr noundef capt
   %.5.i = phi i64 [ %.4.i, %41 ], [ 32, %33 ], [ 32, %33 ]
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
-default.unreachable:                              ; preds = %33
+default.unreachable64:                            ; preds = %33
   unreachable
 
 _ZN6insn_t21zcmp_stack_adjustmentEi.exit:         ; preds = %33, %33, %42
@@ -541,8 +541,8 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %90, %_ZN6insn_t12zc
   %.138 = phi i64 [ %.03760, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %65, %90 ]
   %.sroa.01.1 = phi i8 [ %.sroa.01.062, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %67, %90 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not63 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not63, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %52, !llvm.loop !179
+  %.not65 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not65, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %52, !llvm.loop !179
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -614,7 +614,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32i_cm_popP1
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %38 = load i64, ptr %37, align 8, !tbaa !3
-  switch i64 %17, label %default.unreachable [
+  switch i64 %17, label %default.unreachable72 [
     i64 15, label %39
     i64 14, label %40
     i64 13, label %40
@@ -640,7 +640,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32i_cm_popP1
   %.4.i = phi i64 [ 32, %35 ], [ 32, %35 ], [ %.2.i, %40 ], [ 32, %35 ], [ 32, %35 ]
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
-default.unreachable:                              ; preds = %35
+default.unreachable72:                            ; preds = %35
   unreachable
 
 _ZN6insn_t21zcmp_stack_adjustmentEi.exit:         ; preds = %35, %35, %41, %35, %35
@@ -777,8 +777,8 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %96, %_ZN6insn_t12zc
   %.sroa.05.1 = phi i8 [ %.sroa.05.069, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %70, %96 ]
   %.145 = phi i64 [ %.04470, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %68, %96 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not71 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not71, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %55, !llvm.loop !181
+  %.not73 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not73, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %55, !llvm.loop !181
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -936,7 +936,7 @@ define noundef i64 @_Z19logged_rv64i_cm_popP11processor_t6insn_tm(ptr noundef %0
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %38 = load i64, ptr %37, align 8, !tbaa !3
-  switch i64 %17, label %default.unreachable [
+  switch i64 %17, label %default.unreachable72 [
     i64 15, label %39
     i64 14, label %40
     i64 13, label %41
@@ -974,7 +974,7 @@ define noundef i64 @_Z19logged_rv64i_cm_popP11processor_t6insn_tm(ptr noundef %0
   %.5.i = phi i64 [ %.4.i, %43 ], [ 32, %35 ], [ 32, %35 ]
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
-default.unreachable:                              ; preds = %35
+default.unreachable72:                            ; preds = %35
   unreachable
 
 _ZN6insn_t21zcmp_stack_adjustmentEi.exit:         ; preds = %35, %35, %44
@@ -1108,8 +1108,8 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %96, %_ZN6insn_t12zc
   %.sroa.05.1 = phi i8 [ %.sroa.05.069, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %71, %96 ]
   %.145 = phi i64 [ %.04470, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %69, %96 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not71 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not71, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %56, !llvm.loop !189
+  %.not73 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not73, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %56, !llvm.loop !189
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1179,7 +1179,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_cm_popP11p
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %36 = load i64, ptr %35, align 8, !tbaa !3
-  switch i64 %15, label %default.unreachable [
+  switch i64 %15, label %default.unreachable68 [
     i64 15, label %37
     i64 14, label %38
     i64 13, label %38
@@ -1205,7 +1205,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_cm_popP11p
   %.4.i = phi i64 [ 32, %33 ], [ 32, %33 ], [ %.2.i, %38 ], [ 32, %33 ], [ 32, %33 ]
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
-default.unreachable:                              ; preds = %33
+default.unreachable68:                            ; preds = %33
   unreachable
 
 _ZN6insn_t21zcmp_stack_adjustmentEi.exit:         ; preds = %33, %33, %39, %33, %33
@@ -1342,8 +1342,8 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %96, %_ZN6insn_t12zc
   %.141 = phi i64 [ %.04064, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %71, %96 ]
   %.sroa.01.1 = phi i8 [ %.sroa.01.066, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %73, %96 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not67 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not67, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %51, !llvm.loop !190
+  %.not69 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not69, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %51, !llvm.loop !190
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1413,7 +1413,7 @@ define noundef i64 @_Z17fast_rv64e_cm_popP11processor_t6insn_tm(ptr noundef capt
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %36 = load i64, ptr %35, align 8, !tbaa !3
-  switch i64 %15, label %default.unreachable [
+  switch i64 %15, label %default.unreachable68 [
     i64 15, label %37
     i64 14, label %38
     i64 13, label %39
@@ -1451,7 +1451,7 @@ define noundef i64 @_Z17fast_rv64e_cm_popP11processor_t6insn_tm(ptr noundef capt
   %.5.i = phi i64 [ %.4.i, %41 ], [ 32, %33 ], [ 32, %33 ]
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
-default.unreachable:                              ; preds = %33
+default.unreachable68:                            ; preds = %33
   unreachable
 
 _ZN6insn_t21zcmp_stack_adjustmentEi.exit:         ; preds = %33, %33, %42
@@ -1585,8 +1585,8 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %97, %_ZN6insn_t12zc
   %.141 = phi i64 [ %.04064, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %72, %97 ]
   %.sroa.01.1 = phi i8 [ %.sroa.01.066, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %74, %97 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not67 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not67, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %52, !llvm.loop !191
+  %.not69 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not69, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %52, !llvm.loop !191
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1658,7 +1658,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_cm_popP1
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %38 = load i64, ptr %37, align 8, !tbaa !3
-  switch i64 %17, label %default.unreachable [
+  switch i64 %17, label %default.unreachable76 [
     i64 15, label %39
     i64 14, label %40
     i64 13, label %40
@@ -1684,7 +1684,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_cm_popP1
   %.4.i = phi i64 [ 32, %35 ], [ 32, %35 ], [ %.2.i, %40 ], [ 32, %35 ], [ 32, %35 ]
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
-default.unreachable:                              ; preds = %35
+default.unreachable76:                            ; preds = %35
   unreachable
 
 _ZN6insn_t21zcmp_stack_adjustmentEi.exit:         ; preds = %35, %35, %41, %35, %35
@@ -1837,8 +1837,8 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %103, %_ZN6insn_t12z
   %.sroa.05.1 = phi i8 [ %.sroa.05.073, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %77, %103 ]
   %.148 = phi i64 [ %.04774, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %75, %103 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not75 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not75, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %55, !llvm.loop !192
+  %.not77 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not77, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %55, !llvm.loop !192
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1910,7 +1910,7 @@ define noundef i64 @_Z19logged_rv64e_cm_popP11processor_t6insn_tm(ptr noundef %0
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %38 = load i64, ptr %37, align 8, !tbaa !3
-  switch i64 %17, label %default.unreachable [
+  switch i64 %17, label %default.unreachable76 [
     i64 15, label %39
     i64 14, label %40
     i64 13, label %41
@@ -1948,7 +1948,7 @@ define noundef i64 @_Z19logged_rv64e_cm_popP11processor_t6insn_tm(ptr noundef %0
   %.5.i = phi i64 [ %.4.i, %43 ], [ 32, %35 ], [ 32, %35 ]
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
-default.unreachable:                              ; preds = %35
+default.unreachable76:                            ; preds = %35
   unreachable
 
 _ZN6insn_t21zcmp_stack_adjustmentEi.exit:         ; preds = %35, %35, %44
@@ -2098,8 +2098,8 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %103, %_ZN6insn_t12z
   %.sroa.05.1 = phi i8 [ %.sroa.05.073, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %78, %103 ]
   %.148 = phi i64 [ %.04774, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %76, %103 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not75 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not75, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %56, !llvm.loop !193
+  %.not77 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not77, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %56, !llvm.loop !193
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2365,14 +2365,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br i1 %22, label %._crit_edge.thread.i, label %28
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
+  %.019.lcssa29.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !211
-  %25 = icmp eq ptr %.019.lcssa28.i, %24
+  %25 = icmp eq ptr %.019.lcssa29.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #22
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i) #22
   %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81 = load i64, ptr %.phi.trans.insert80, align 8, !tbaa !3
   %.pre82 = load i64, ptr %2, align 8, !tbaa !3
@@ -2381,11 +2381,11 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 28:                                               ; preds = %26, %._crit_edge.i
   %29 = phi i64 [ %.pre82, %26 ], [ %18, %._crit_edge.i ]
   %30 = phi i64 [ %.pre81, %26 ], [ %21, %._crit_edge.i ]
-  %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %26 ], [ %.02024.i, %._crit_edge.i ]
+  %.019.lcssa28.i = phi ptr [ %.019.lcssa29.i, %26 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %27, %26 ], [ %.02024.i, %._crit_edge.i ]
   %31 = icmp ult i64 %30, %29
   %spec.select.i = select i1 %31, ptr null, ptr %.sroa.05.0.i
-  %spec.select21.i = select i1 %31, ptr %.019.lcssa29.i, ptr null
+  %spec.select21.i = select i1 %31, ptr %.019.lcssa28.i, ptr null
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 32:                                               ; preds = %3
@@ -2437,23 +2437,23 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br i1 %54, label %._crit_edge.thread.i27, label %58
 
 ._crit_edge.thread.i27:                           ; preds = %._crit_edge.i18, %50
-  %.019.lcssa28.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
-  %55 = icmp eq ptr %.019.lcssa28.i28, %39
+  %.019.lcssa29.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
+  %55 = icmp eq ptr %.019.lcssa29.i28, %39
   br i1 %55, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %56
 
 56:                                               ; preds = %._crit_edge.thread.i27
-  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #22
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i28) #22
   %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %.pre79 = load i64, ptr %.phi.trans.insert78, align 8, !tbaa !3
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i18
   %59 = phi i64 [ %.pre79, %56 ], [ %53, %._crit_edge.i18 ]
-  %.019.lcssa29.i19 = phi ptr [ %.019.lcssa28.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
+  %.019.lcssa28.i19 = phi ptr [ %.019.lcssa29.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %.sroa.05.0.i20 = phi ptr [ %57, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %60 = icmp ult i64 %59, %34
   %spec.select.i21 = select i1 %60, ptr null, ptr %.sroa.05.0.i20
-  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa29.i19, ptr null
+  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa28.i19, ptr null
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 61:                                               ; preds = %32
@@ -2502,30 +2502,30 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br i1 %80, label %._crit_edge.thread.i47, label %86
 
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
-  %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
+  %.019.lcssa29.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !211
-  %83 = icmp eq ptr %.019.lcssa28.i48, %82
+  %83 = icmp eq ptr %.019.lcssa29.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %84
 
 84:                                               ; preds = %._crit_edge.thread.i47
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #22
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i48) #22
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %85, i64 32
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !3
   br label %86
 
 86:                                               ; preds = %84, %._crit_edge.i38
   %87 = phi i64 [ %.pre, %84 ], [ %79, %._crit_edge.i38 ]
-  %.019.lcssa29.i39 = phi ptr [ %.019.lcssa28.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
+  %.019.lcssa28.i39 = phi ptr [ %.019.lcssa29.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %.sroa.05.0.i40 = phi ptr [ %85, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %88 = icmp ult i64 %87, %34
   %spec.select.i41 = select i1 %88, ptr null, ptr %.sroa.05.0.i40
-  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa29.i39, ptr null
+  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa28.i39, ptr null
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
   %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa28.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

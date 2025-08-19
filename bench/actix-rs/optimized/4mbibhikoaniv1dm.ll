@@ -2732,7 +2732,7 @@ default.unreachable1:                             ; preds = %1
 define hidden void @"_ZN122_$LT$brotli..enc..backward_references..UnionHasher$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$21StitchToPreviousBlock17h492b9300d4c72592E"(ptr noalias noundef align 8 dereferenceable(120) %0, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, i64 noundef %5) unnamed_addr #1 personality ptr @rust_eh_personality {
   %7 = alloca i64, align 8
   %8 = load i64, ptr %0, align 8, !range !393, !noundef !4
-  switch i64 %8, label %default.unreachable6 [
+  switch i64 %8, label %default.unreachable8 [
     i64 0, label %9
     i64 1, label %10
     i64 2, label %12
@@ -2746,7 +2746,7 @@ define hidden void @"_ZN122_$LT$brotli..enc..backward_references..UnionHasher$LT
     i64 10, label %58
   ]
 
-default.unreachable6:                             ; preds = %6
+default.unreachable8:                             ; preds = %6
   unreachable
 
 9:                                                ; preds = %6
@@ -4298,10 +4298,10 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %79 = icmp eq i16 %52, 0
   br i1 %79, label %.loopexit, label %83
 
-.loopexit:                                        ; preds = %.split105.us, %121, %136, %96, %78, %..loopexit.loopexit148_crit_edge, %83
-  %.pre-phi210 = phi i32 [ %84, %83 ], [ %84, %..loopexit.loopexit148_crit_edge ], [ 0, %78 ], [ %84, %96 ], [ %84, %136 ], [ %84, %121 ], [ %84, %.split105.us ]
-  %.val101 = phi i32 [ %.val102, %83 ], [ %.val101.pre.pre, %..loopexit.loopexit148_crit_edge ], [ %.val102, %78 ], [ %.val, %96 ], [ %.val, %136 ], [ %.val, %121 ], [ %.val, %.split105.us ]
-  %.1 = phi i8 [ %.0.lcssa, %83 ], [ %.3, %..loopexit.loopexit148_crit_edge ], [ %.0.lcssa, %78 ], [ %.2140, %96 ], [ %.2140, %136 ], [ %.2140, %121 ], [ %.2140, %.split105.us ]
+.loopexit:                                        ; preds = %.split105.us, %121, %136, %96, %..loopexit.loopexit148_crit_edge, %78, %83
+  %.pre-phi210 = phi i32 [ %84, %83 ], [ 0, %78 ], [ %84, %..loopexit.loopexit148_crit_edge ], [ %84, %96 ], [ %84, %136 ], [ %84, %121 ], [ %84, %.split105.us ]
+  %.val101 = phi i32 [ %.val102, %83 ], [ %.val102, %78 ], [ %.val101.pre.pre, %..loopexit.loopexit148_crit_edge ], [ %.val, %96 ], [ %.val, %136 ], [ %.val, %121 ], [ %.val, %.split105.us ]
+  %.1 = phi i8 [ %.0.lcssa, %83 ], [ %.0.lcssa, %78 ], [ %.3, %..loopexit.loopexit148_crit_edge ], [ %.2140, %96 ], [ %.2140, %136 ], [ %.2140, %121 ], [ %.2140, %.split105.us ]
   %80 = and i32 %.val101, %.pre-phi210
   %81 = zext nneg i32 %80 to i64
   %82 = icmp ugt i32 %67, %80
@@ -7617,7 +7617,7 @@ define hidden void @_ZN6brotli3enc19backward_references30BrotliCreateBackwardRef
   %109 = alloca { i64, i64, i64, i64 }, align 8
   %110 = alloca { i64, i64, i64, i64 }, align 8
   %111 = load i64, ptr %8, align 8, !range !393, !noundef !4
-  switch i64 %111, label %default.unreachable5068 [
+  switch i64 %111, label %default.unreachable5656 [
     i64 0, label %112
     i64 1, label %113
     i64 2, label %394
@@ -7631,7 +7631,7 @@ define hidden void @_ZN6brotli3enc19backward_references30BrotliCreateBackwardRef
     i64 10, label %3990
   ]
 
-default.unreachable5068:                          ; preds = %16
+default.unreachable5656:                          ; preds = %16
   unreachable
 
 112:                                              ; preds = %16
@@ -11567,7 +11567,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i318
   unreachable
 
 1963:                                             ; preds = %1941
-  %1964 = getelementptr inbounds [0 x i32], ptr %1817, i64 0, i64 %1951
+  %1964 = getelementptr inbounds nuw [0 x i32], ptr %1817, i64 0, i64 %1951
   %1965 = trunc i64 %1842 to i32
   store i32 %1965, ptr %1964, align 4, !noalias !2082
   %1966 = icmp ult i64 %1954, %1818
@@ -11578,7 +11578,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i318
   unreachable
 
 1968:                                             ; preds = %1963
-  %1969 = getelementptr inbounds [0 x i32], ptr %1817, i64 0, i64 %1954
+  %1969 = getelementptr inbounds nuw [0 x i32], ptr %1817, i64 0, i64 %1954
   %1970 = trunc i64 %1845 to i32
   store i32 %1970, ptr %1969, align 4, !noalias !2082
   %1971 = icmp ult i64 %1957, %1818
@@ -11589,7 +11589,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i318
   unreachable
 
 1973:                                             ; preds = %1968
-  %1974 = getelementptr inbounds [0 x i32], ptr %1817, i64 0, i64 %1957
+  %1974 = getelementptr inbounds nuw [0 x i32], ptr %1817, i64 0, i64 %1957
   %1975 = trunc i64 %1849 to i32
   store i32 %1975, ptr %1974, align 4, !noalias !2082
   %1976 = icmp ult i64 %1960, %1818
@@ -11600,7 +11600,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i318
   unreachable
 
 1978:                                             ; preds = %1973
-  %1979 = getelementptr inbounds [0 x i32], ptr %1817, i64 0, i64 %1960
+  %1979 = getelementptr inbounds nuw [0 x i32], ptr %1817, i64 0, i64 %1960
   %1980 = trunc i64 %1853 to i32
   store i32 %1980, ptr %1979, align 4, !noalias !2082
   %exitcond.not.i.i.i323 = icmp eq i64 %1839, %1830

@@ -851,7 +851,7 @@ fetch_ushort.exit117.thread.i:                    ; preds = %149
   %171 = load ptr, ptr %170, align 8
   %172 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %83, ptr noundef nonnull dereferenceable(1) %171) #16
   %173 = icmp slt i32 %172, 0
-  br i1 %173, label %.thread34.thread53.i, label %.lr.ph
+  br i1 %173, label %.thread34.thread55.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i29, %169
   %174 = phi i32 [ %172, %169 ], [ %167, %.lr.ph.i29 ]
@@ -863,18 +863,18 @@ fetch_ushort.exit117.thread.i:                    ; preds = %149
   %177 = getelementptr inbounds nuw i8, ptr %.02443.i53, i64 8
   %.024.i = load ptr, ptr %177, align 8
   %.not29.i = icmp eq ptr %.024.i, null
-  br i1 %.not29.i, label %.thread34.thread53.i, label %169
+  br i1 %.not29.i, label %.thread34.thread55.i, label %169
 
-.thread34.thread53.i:                             ; preds = %176, %169
+.thread34.thread55.i:                             ; preds = %176, %169
   %178 = getelementptr inbounds nuw i8, ptr %.02443.i53, i64 8
   store ptr %163, ptr %178, align 8
   br label %fetch_card8.exit97.i
 
-fetch_card8.exit97.i:                             ; preds = %.lr.ph.i29, %.thread34.thread53.i, %164
-  %.6 = phi ptr [ %.0, %.thread34.thread53.i ], [ %163, %164 ], [ %163, %.lr.ph.i29 ]
-  %.024.lcssa51.i = phi ptr [ %.024.i, %.thread34.thread53.i ], [ null, %164 ], [ %.0, %.lr.ph.i29 ]
+fetch_card8.exit97.i:                             ; preds = %.lr.ph.i29, %.thread34.thread55.i, %164
+  %.6 = phi ptr [ %.0, %.thread34.thread55.i ], [ %163, %164 ], [ %163, %.lr.ph.i29 ]
+  %.024.lcssa53.i = phi ptr [ %.024.i, %.thread34.thread55.i ], [ null, %164 ], [ %.0, %.lr.ph.i29 ]
   %179 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  store ptr %.024.lcssa51.i, ptr %179, align 8
+  store ptr %.024.lcssa53.i, ptr %179, align 8
   %180 = add nuw i32 %.047293.i, 1
   %exitcond.not.i = icmp eq i32 %180, %storemerge.i93.i
   br i1 %exitcond.not.i, label %parse_settings.exit, label %58, !llvm.loop !6
@@ -905,20 +905,20 @@ fetch_card32.exit.thread264.i:                    ; preds = %149, %141, %133, %1
 
 .loopexit.thread.i:                               ; preds = %.loopexit.i, %185
   %.3 = phi ptr [ %.2, %.loopexit.i ], [ %.0, %185 ]
-  %.046268299.i = phi ptr [ %.046268.i, %.loopexit.i ], [ %79, %185 ]
-  %188 = getelementptr inbounds nuw i8, ptr %.046268299.i, i64 8
+  %.046268310.i = phi ptr [ %.046268.i, %.loopexit.i ], [ %79, %185 ]
+  %188 = getelementptr inbounds nuw i8, ptr %.046268310.i, i64 8
   %189 = load i32, ptr %188, align 8
   %190 = icmp eq i32 %189, 1
   br i1 %190, label %191, label %194
 
 191:                                              ; preds = %.loopexit.thread.i
-  %192 = getelementptr inbounds nuw i8, ptr %.046268299.i, i64 16
+  %192 = getelementptr inbounds nuw i8, ptr %.046268310.i, i64 16
   %193 = load ptr, ptr %192, align 8
   call void @free(ptr noundef %193) #15
   br label %194
 
 194:                                              ; preds = %191, %.loopexit.thread.i
-  %195 = load ptr, ptr %.046268299.i, align 8
+  %195 = load ptr, ptr %.046268310.i, align 8
   %.not.i.i = icmp eq ptr %195, null
   br i1 %.not.i.i, label %xsettings_setting_free.exit.i, label %196
 
@@ -927,7 +927,7 @@ fetch_card32.exit.thread264.i:                    ; preds = %149, %141, %133, %1
   br label %xsettings_setting_free.exit.i
 
 xsettings_setting_free.exit.i:                    ; preds = %196, %194
-  call void @free(ptr noundef nonnull %.046268299.i) #15
+  call void @free(ptr noundef nonnull %.046268310.i) #15
   br label %197
 
 197:                                              ; preds = %xsettings_setting_free.exit.i, %.loopexit.i
@@ -1393,53 +1393,53 @@ define hidden range(i32 0, 6) i32 @xsettings_list_insert(ptr noundef captures(no
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %7) #16
   %9 = icmp slt i32 %8, 0
-  br i1 %9, label %.thread34, label %.lr.ph68
+  br i1 %9, label %.thread34, label %.lr.ph70
 
 10:                                               ; preds = %17
   %11 = load ptr, ptr %.024, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %12) #16
   %14 = icmp slt i32 %13, 0
-  br i1 %14, label %.thread34, label %.lr.ph68
+  br i1 %14, label %.thread34, label %.lr.ph70
 
-.lr.ph68:                                         ; preds = %.lr.ph, %10
+.lr.ph70:                                         ; preds = %.lr.ph, %10
   %15 = phi i32 [ %13, %10 ], [ %8, %.lr.ph ]
-  %.0244367 = phi ptr [ %.024, %10 ], [ %.02440, %.lr.ph ]
+  %.0244369 = phi ptr [ %.024, %10 ], [ %.02440, %.lr.ph ]
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.thread, label %17
 
-.thread:                                          ; preds = %.lr.ph68
+.thread:                                          ; preds = %.lr.ph70
   tail call void @free(ptr noundef %3) #15
   br label %22
 
-17:                                               ; preds = %.lr.ph68
-  %18 = getelementptr inbounds nuw i8, ptr %.0244367, i64 8
+17:                                               ; preds = %.lr.ph70
+  %18 = getelementptr inbounds nuw i8, ptr %.0244369, i64 8
   %.024 = load ptr, ptr %18, align 8
   %.not29 = icmp eq ptr %.024, null
-  br i1 %.not29, label %.thread34.thread53, label %10
+  br i1 %.not29, label %.thread34.thread55, label %10
 
 .thread34:                                        ; preds = %10, %.lr.ph
   %.02443.lcssa = phi ptr [ %.02440, %.lr.ph ], [ %.024, %10 ]
-  %.02142.lcssa = phi ptr [ null, %.lr.ph ], [ %.0244367, %10 ]
+  %.02142.lcssa = phi ptr [ null, %.lr.ph ], [ %.0244369, %10 ]
   %.not30 = icmp eq ptr %.02142.lcssa, null
-  br i1 %.not30, label %.thread34.thread, label %.thread34.thread53
+  br i1 %.not30, label %.thread34.thread, label %.thread34.thread55
 
-.thread34.thread53:                               ; preds = %17, %.thread34
-  %.024.lcssa58 = phi ptr [ %.02443.lcssa, %.thread34 ], [ null, %17 ]
-  %.021.lcssa57 = phi ptr [ %.02142.lcssa, %.thread34 ], [ %.0244367, %17 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.021.lcssa57, i64 8
+.thread34.thread55:                               ; preds = %17, %.thread34
+  %.024.lcssa60 = phi ptr [ %.02443.lcssa, %.thread34 ], [ null, %17 ]
+  %.021.lcssa59 = phi ptr [ %.02142.lcssa, %.thread34 ], [ %.0244369, %17 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.021.lcssa59, i64 8
   store ptr %3, ptr %19, align 8
   br label %20
 
 .thread34.thread:                                 ; preds = %4, %.thread34
-  %.024.lcssa52 = phi ptr [ %.02443.lcssa, %.thread34 ], [ null, %4 ]
+  %.024.lcssa54 = phi ptr [ %.02443.lcssa, %.thread34 ], [ null, %4 ]
   store ptr %3, ptr %0, align 8
   br label %20
 
-20:                                               ; preds = %.thread34.thread, %.thread34.thread53
-  %.024.lcssa51 = phi ptr [ %.024.lcssa52, %.thread34.thread ], [ %.024.lcssa58, %.thread34.thread53 ]
+20:                                               ; preds = %.thread34.thread, %.thread34.thread55
+  %.024.lcssa53 = phi ptr [ %.024.lcssa54, %.thread34.thread ], [ %.024.lcssa60, %.thread34.thread55 ]
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %.024.lcssa51, ptr %21, align 8
+  store ptr %.024.lcssa53, ptr %21, align 8
   br label %22
 
 22:                                               ; preds = %.thread, %2, %20

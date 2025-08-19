@@ -154,9 +154,9 @@ define hidden i32 @uv__kernel_version() local_unnamed_addr #0 {
 
 .sink.split:                                      ; preds = %33, %30
   %.sink = phi i32 [ 4, %30 ], [ 3, %33 ]
-  %.sink14 = phi i32 [ -60, %30 ], [ -40, %33 ]
+  %.sink17 = phi i32 [ -60, %30 ], [ -40, %33 ]
   store i32 %.sink, ptr %2, align 4
-  %35 = add i32 %31, %.sink14
+  %35 = add i32 %31, %.sink17
   store i32 %35, ptr %3, align 4
   store i32 0, ptr %4, align 4
   br label %36
@@ -3057,7 +3057,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_cpu_info(ptr nounde
 75:                                               ; preds = %72
   %76 = lshr exact i64 %.068.add, 6
   %77 = trunc nuw nsw i64 %76 to i32
-  %78 = zext i32 %73 to i64
+  %78 = zext nneg i32 %73 to i64
   %79 = getelementptr inbounds nuw [8192 x %struct.cpu], ptr %9, i64 0, i64 %78, i32 6
   store i32 %77, ptr %79, align 8
   br label %.loopexit86.preheader
@@ -3168,7 +3168,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_cpu_info(ptr nounde
   br i1 %.not83, label %159, label %129
 
 129:                                              ; preds = %.lr.ph101
-  %130 = zext i32 %storemerge8298 to i64
+  %130 = zext nneg i32 %storemerge8298 to i64
   %131 = getelementptr inbounds nuw %struct.cpu, ptr %9, i64 %130
   %132 = load ptr, ptr %0, align 8
   %133 = add i32 %.06499, 1
@@ -4764,9 +4764,9 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
   %137 = load ptr, ptr %136, align 8
   store ptr %137, ptr %66, align 8
   %.not122.i.i = icmp eq ptr %137, null
-  br i1 %.not122.i.i, label %.thread136.i.i, label %139
+  br i1 %.not122.i.i, label %.thread149.i.i, label %139
 
-.thread136.i.i:                                   ; preds = %135
+.thread149.i.i:                                   ; preds = %135
   %138 = getelementptr inbounds nuw i8, ptr %133, i64 16
   store ptr %72, ptr %138, align 8
   %.pre.i = load ptr, ptr %71, align 8
@@ -4781,8 +4781,8 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
   %.not123.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not123.i.i, label %149, label %142
 
-142:                                              ; preds = %139, %.thread136.i.i
-  %143 = phi ptr [ %.pre.i.i, %139 ], [ %.pre.i, %.thread136.i.i ]
+142:                                              ; preds = %139, %.thread149.i.i
+  %143 = phi ptr [ %.pre.i.i, %139 ], [ %.pre.i, %.thread149.i.i ]
   %144 = load ptr, ptr %143, align 8
   %145 = icmp eq ptr %66, %144
   br i1 %145, label %146, label %147

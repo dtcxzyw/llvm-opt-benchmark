@@ -1679,7 +1679,7 @@ define internal fastcc void @cpool_discard_conn(ptr noundef %0, ptr noundef %1, 
   %18 = and i64 %16, -536870913
   %19 = or disjoint i64 %17, %18
   store i64 %19, ptr %15, align 8
-  br i1 %spec.select, label %.thread41, label %20
+  br i1 %spec.select, label %.thread43, label %20
 
 20:                                               ; preds = %12
   tail call void @Curl_attach_connection(ptr noundef %1, ptr noundef nonnull %2) #7
@@ -1687,9 +1687,9 @@ define internal fastcc void @cpool_discard_conn(ptr noundef %0, ptr noundef %1, 
   tail call void @Curl_detach_connection(ptr noundef %1) #7
   %.pre = load i8, ptr %8, align 1, !tbaa !143, !range !109
   %21 = trunc nuw i8 %.pre to i1
-  br i1 %21, label %.thread41, label %22
+  br i1 %21, label %.thread43, label %22
 
-.thread41:                                        ; preds = %12, %20
+.thread43:                                        ; preds = %12, %20
   tail call fastcc void @cpool_close_and_destroy(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %1, i1 noundef zeroext false)
   br label %60
 
@@ -1796,7 +1796,7 @@ cpool_shutdown_destroy_oldest.exit.thread:        ; preds = %22, %cpool_update_s
   call void @Curl_llist_append(ptr noundef nonnull %59, ptr noundef nonnull %2, ptr noundef nonnull %2) #7
   br label %60
 
-60:                                               ; preds = %4, %cpool_shutdown_destroy_oldest.exit.thread, %58, %.thread41
+60:                                               ; preds = %4, %cpool_shutdown_destroy_oldest.exit.thread, %58, %.thread43
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }

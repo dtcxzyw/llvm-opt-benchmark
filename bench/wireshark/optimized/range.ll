@@ -168,12 +168,12 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   br label %118
 
 .preheader118.preheader:                          ; preds = %57, %.loopexit119.thread
-  %.2165 = phi ptr [ %.1100, %.loopexit119.thread ], [ %.3, %57 ]
+  %.2173 = phi ptr [ %.1100, %.loopexit119.thread ], [ %.3, %57 ]
   %62 = phi i32 [ %31, %.loopexit119.thread ], [ %54, %57 ]
   br label %.preheader118
 
 .preheader118:                                    ; preds = %.preheader118.backedge, %.preheader118.preheader
-  %.2.pn = phi ptr [ %.2165, %.preheader118.preheader ], [ %.4, %.preheader118.backedge ]
+  %.2.pn = phi ptr [ %.2173, %.preheader118.preheader ], [ %.4, %.preheader118.backedge ]
   %.4 = getelementptr i8, ptr %.2.pn, i64 1
   %63 = load i8, ptr %.4, align 1
   switch i8 %63, label %68 [

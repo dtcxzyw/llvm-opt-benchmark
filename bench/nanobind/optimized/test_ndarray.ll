@@ -3852,7 +3852,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   br i1 %.not.i.i.i.i.i.i, label %_ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.exit.thread.i, label %_ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.exit.i
 
 _ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.exit.thread.i: ; preds = %.noexc
-  %.pre79.i = load ptr, ptr %6, align 8, !tbaa !121
+  %.pre710.i = load ptr, ptr %6, align 8, !tbaa !121
   br label %.critedge.i
 
 _ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.exit.i: ; preds = %.noexc
@@ -3886,19 +3886,19 @@ _ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.ex
   br i1 %.not.i, label %23, label %.thread.sink.split
 
 .critedge.i:                                      ; preds = %_ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.exit.i, %_ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.exit.thread.i
-  %.pre710.i = phi ptr [ %.pre7.i, %_ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.exit.i ], [ %.pre79.i, %_ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.exit.thread.i ]
-  %.not.i.i.i20.i = icmp eq ptr %.pre710.i, null
+  %.pre711.i = phi ptr [ %.pre7.i, %_ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.exit.i ], [ %.pre710.i, %_ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.exit.thread.i ]
+  %.not.i.i.i20.i = icmp eq ptr %.pre711.i, null
   br i1 %.not.i.i.i20.i, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %25, %23, %.critedge.i
-  %.pre71014.i.ph.sink11 = phi ptr [ %.pre710.i, %.critedge.i ], [ %.pre7.i, %23 ], [ %.pre7.i, %25 ]
+  %.pre71115.i.ph.sink12 = phi ptr [ %.pre711.i, %.critedge.i ], [ %.pre7.i, %23 ], [ %.pre7.i, %25 ]
   %.ph = phi ptr [ @_Py_TrueStruct, %.critedge.i ], [ @_Py_FalseStruct, %25 ], [ @_Py_TrueStruct, %23 ]
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !124
   %32 = ptrtoint ptr %31 to i64
-  %33 = ptrtoint ptr %.pre71014.i.ph.sink11 to i64
+  %33 = ptrtoint ptr %.pre71115.i.ph.sink12 to i64
   %34 = sub i64 %32, %33
-  call void @_ZdlPvm(ptr noundef nonnull %.pre71014.i.ph.sink11, i64 noundef %34) #26
+  call void @_ZdlPvm(ptr noundef nonnull %.pre71115.i.ph.sink12, i64 noundef %34) #26
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %.critedge.i
@@ -4040,7 +4040,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   br i1 %.not.i.i.i.i.i.i, label %_ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.exit.thread.i, label %_ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.exit.i
 
 _ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.exit.thread.i: ; preds = %.noexc
-  %.pre79.i = load ptr, ptr %6, align 8, !tbaa !121
+  %.pre710.i = load ptr, ptr %6, align 8, !tbaa !121
   br label %.critedge.i
 
 _ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.exit.i: ; preds = %.noexc
@@ -4074,19 +4074,19 @@ _ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.ex
   br i1 %.not.i, label %23, label %.thread.sink.split
 
 .critedge.i:                                      ; preds = %_ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.exit.i, %_ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.exit.thread.i
-  %.pre710.i = phi ptr [ %.pre7.i, %_ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.exit.i ], [ %.pre79.i, %_ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.exit.thread.i ]
-  %.not.i.i.i20.i = icmp eq ptr %.pre710.i, null
+  %.pre711.i = phi ptr [ %.pre7.i, %_ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.exit.i ], [ %.pre710.i, %_ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.exit.thread.i ]
+  %.not.i.i.i20.i = icmp eq ptr %.pre711.i, null
   br i1 %.not.i.i.i20.i, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %25, %23, %.critedge.i
-  %.pre71014.i.ph.sink11 = phi ptr [ %.pre710.i, %.critedge.i ], [ %.pre7.i, %23 ], [ %.pre7.i, %25 ]
+  %.pre71115.i.ph.sink12 = phi ptr [ %.pre711.i, %.critedge.i ], [ %.pre7.i, %23 ], [ %.pre7.i, %25 ]
   %.ph = phi ptr [ @_Py_TrueStruct, %.critedge.i ], [ @_Py_FalseStruct, %25 ], [ @_Py_TrueStruct, %23 ]
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !124
   %32 = ptrtoint ptr %31 to i64
-  %33 = ptrtoint ptr %.pre71014.i.ph.sink11 to i64
+  %33 = ptrtoint ptr %.pre71115.i.ph.sink12 to i64
   %34 = sub i64 %32, %33
-  call void @_ZdlPvm(ptr noundef nonnull %.pre71014.i.ph.sink11, i64 noundef %34) #26
+  call void @_ZdlPvm(ptr noundef nonnull %.pre71115.i.ph.sink12, i64 noundef %34) #26
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %.critedge.i
@@ -9597,7 +9597,7 @@ define linkonce_odr hidden void @_ZN8nanobind4castIRNS_7ndarrayIJfNS_5numpyENS_6
 declare void @_ZN8nanobind6detail12cleanup_list7releaseEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress optsize uwtable
-define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_ndarray_extRNS_7module_EE4$_75NS_6objectEJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPS9_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESN_SO_SP_SQ_SS_"(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 %3, ptr readnone captures(none) %4) #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_ndarray_extRNS_7module_EE4$_75NS_6objectEJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPS9_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESN_SO_SP_SQ_SS_"(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 %3, ptr readnone captures(none) %4) #9 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca [3 x float], align 4
   %7 = alloca %"class.nanobind::ndarray.678", align 8
   %8 = alloca %"class.std::initializer_list.441", align 8

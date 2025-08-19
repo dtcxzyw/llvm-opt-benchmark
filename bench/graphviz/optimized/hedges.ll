@@ -538,15 +538,15 @@ ELgethash.exit55:                                 ; preds = %57, %39, %19
 
 72:                                               ; preds = %ELgethash.exit55
   %.not44 = icmp eq ptr %.0, %.pre71
-  br i1 %.not44, label %.preheader79, label %73
+  br i1 %.not44, label %.preheader91, label %73
 
-.preheader79:                                     ; preds = %73, %72
+.preheader91:                                     ; preds = %73, %72
   br label %81
 
 73:                                               ; preds = %72
   %74 = tail call i32 @right_of(ptr noundef nonnull %.0, ptr noundef nonnull %0)
   %.not45 = icmp eq i32 %74, 0
-  br i1 %.not45, label %.preheader79, label %.preheader
+  br i1 %.not45, label %.preheader91, label %.preheader
 
 .preheader:                                       ; preds = %73, %ELgethash.exit55
   br label %75
@@ -567,8 +567,8 @@ ELgethash.exit55:                                 ; preds = %57, %39, %19
   %80 = load ptr, ptr %77, align 8, !tbaa !23
   br label %.critedge2
 
-81:                                               ; preds = %.preheader79, %83
-  %.3 = phi ptr [ %82, %83 ], [ %.0, %.preheader79 ]
+81:                                               ; preds = %.preheader91, %83
+  %.3 = phi ptr [ %82, %83 ], [ %.0, %.preheader91 ]
   %82 = load ptr, ptr %.3, align 8, !tbaa !23
   %.not46 = icmp eq ptr %82, %70
   br i1 %.not46, label %.critedge2, label %83

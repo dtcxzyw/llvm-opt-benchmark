@@ -2269,9 +2269,9 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit: ; preds = %1
   %151 = load ptr, ptr %30, align 8, !tbaa !136
   %152 = load ptr, ptr %28, align 8, !tbaa !86
   %.not240 = icmp eq ptr %151, %152
-  br i1 %.not240, label %.loopexit267, label %.lr.ph223
+  br i1 %.not240, label %.loopexit321, label %.lr.ph223
 
-.loopexit267:                                     ; preds = %168, %.preheader197
+.loopexit321:                                     ; preds = %168, %.preheader197
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %126, ptr %10, align 8, !tbaa !78
   %153 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2280,13 +2280,13 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit: ; preds = %1
   %.not.i.i.i.i87 = icmp eq i8 %154, 0
   br i1 %.not.i.i.i.i87, label %158, label %155
 
-155:                                              ; preds = %.loopexit267
+155:                                              ; preds = %.loopexit321
   %156 = load i32, ptr %145, align 4, !tbaa !81
   %157 = add nsw i32 %156, 1
   store i32 %157, ptr %145, align 4, !tbaa !81
   br label %_ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEEC2INS0_22AnalysisDataPlotModuleEvEERKS_IT_E.exit
 
-158:                                              ; preds = %.loopexit267
+158:                                              ; preds = %.loopexit321
   %159 = atomicrmw volatile add ptr %145, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEEC2INS0_22AnalysisDataPlotModuleEvEERKS_IT_E.exit
 
@@ -2323,7 +2323,7 @@ _ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEEC2INS0_22AnalysisDataPlotModuleEvE
   %174 = sub i64 %172, %173
   %175 = ashr exact i64 %174, 3
   %176 = icmp ult i64 %169, %175
-  br i1 %176, label %.lr.ph223, label %.loopexit267, !llvm.loop !154
+  br i1 %176, label %.lr.ph223, label %.loopexit321, !llvm.loop !154
 
 177:                                              ; preds = %.lr.ph223
   %178 = landingpad { ptr, i32 }
@@ -2544,9 +2544,9 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit94: ; preds = 
   %268 = load ptr, ptr %30, align 8, !tbaa !136
   %269 = load ptr, ptr %28, align 8, !tbaa !86
   %.not241 = icmp eq ptr %268, %269
-  br i1 %.not241, label %.loopexit266, label %.lr.ph226
+  br i1 %.not241, label %.loopexit320, label %.lr.ph226
 
-.loopexit266:                                     ; preds = %285, %.preheader196
+.loopexit320:                                     ; preds = %285, %.preheader196
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %242, ptr %12, align 8, !tbaa !78
   %270 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -2555,13 +2555,13 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit94: ; preds = 
   %.not.i.i.i.i96 = icmp eq i8 %271, 0
   br i1 %.not.i.i.i.i96, label %275, label %272
 
-272:                                              ; preds = %.loopexit266
+272:                                              ; preds = %.loopexit320
   %273 = load i32, ptr %261, align 4, !tbaa !81
   %274 = add nsw i32 %273, 1
   store i32 %274, ptr %261, align 4, !tbaa !81
   br label %_ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEEC2INS0_22AnalysisDataPlotModuleEvEERKS_IT_E.exit97
 
-275:                                              ; preds = %.loopexit266
+275:                                              ; preds = %.loopexit320
   %276 = atomicrmw volatile add ptr %261, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEEC2INS0_22AnalysisDataPlotModuleEvEERKS_IT_E.exit97
 
@@ -2598,7 +2598,7 @@ _ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEEC2INS0_22AnalysisDataPlotModuleEvE
   %291 = sub i64 %289, %290
   %292 = ashr exact i64 %291, 3
   %293 = icmp ult i64 %286, %292
-  br i1 %293, label %.lr.ph226, label %.loopexit266, !llvm.loop !155
+  br i1 %293, label %.lr.ph226, label %.loopexit320, !llvm.loop !155
 
 294:                                              ; preds = %.lr.ph226
   %295 = landingpad { ptr, i32 }
@@ -3990,9 +3990,9 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit156: ; preds =
   %847 = load ptr, ptr %30, align 8, !tbaa !136
   %848 = load ptr, ptr %28, align 8, !tbaa !86
   %.not244 = icmp eq ptr %847, %848
-  br i1 %.not244, label %.loopexit265, label %.lr.ph234
+  br i1 %.not244, label %.loopexit319, label %.lr.ph234
 
-.loopexit265:                                     ; preds = %866, %.preheader190
+.loopexit319:                                     ; preds = %866, %.preheader190
   %849 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %850 = load ptr, ptr %849, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -4003,13 +4003,13 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit156: ; preds =
   %.not.i.i.i.i158 = icmp eq i8 %852, 0
   br i1 %.not.i.i.i.i158, label %856, label %853
 
-853:                                              ; preds = %.loopexit265
+853:                                              ; preds = %.loopexit319
   %854 = load i32, ptr %841, align 4, !tbaa !81
   %855 = add nsw i32 %854, 1
   store i32 %855, ptr %841, align 4, !tbaa !81
   br label %_ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEEC2INS0_22AnalysisDataPlotModuleEvEERKS_IT_E.exit159
 
-856:                                              ; preds = %.loopexit265
+856:                                              ; preds = %.loopexit319
   %857 = atomicrmw volatile add ptr %841, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEEC2INS0_22AnalysisDataPlotModuleEvEERKS_IT_E.exit159
 
@@ -4046,7 +4046,7 @@ _ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEEC2INS0_22AnalysisDataPlotModuleEvE
   %872 = sub i64 %870, %871
   %873 = ashr exact i64 %872, 3
   %874 = icmp ult i64 %867, %873
-  br i1 %874, label %.lr.ph234, label %.loopexit265, !llvm.loop !198
+  br i1 %874, label %.lr.ph234, label %.loopexit319, !llvm.loop !198
 
 875:                                              ; preds = %.lr.ph234
   %876 = landingpad { ptr, i32 }
@@ -4252,9 +4252,9 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit170: ; preds =
   %957 = load ptr, ptr %30, align 8, !tbaa !136
   %958 = load ptr, ptr %28, align 8, !tbaa !86
   %.not245 = icmp eq ptr %957, %958
-  br i1 %.not245, label %.loopexit264, label %.lr.ph237
+  br i1 %.not245, label %.loopexit318, label %.lr.ph237
 
-.loopexit264:                                     ; preds = %975, %.preheader
+.loopexit318:                                     ; preds = %975, %.preheader
   %959 = load ptr, ptr %705, align 8, !tbaa !75
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr %932, ptr %22, align 8, !tbaa !78
@@ -4264,13 +4264,13 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit170: ; preds =
   %.not.i.i.i.i172 = icmp eq i8 %961, 0
   br i1 %.not.i.i.i.i172, label %965, label %962
 
-962:                                              ; preds = %.loopexit264
+962:                                              ; preds = %.loopexit318
   %963 = load i32, ptr %951, align 4, !tbaa !81
   %964 = add nsw i32 %963, 1
   store i32 %964, ptr %951, align 4, !tbaa !81
   br label %_ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEEC2INS0_22AnalysisDataPlotModuleEvEERKS_IT_E.exit173
 
-965:                                              ; preds = %.loopexit264
+965:                                              ; preds = %.loopexit318
   %966 = atomicrmw volatile add ptr %951, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEEC2INS0_22AnalysisDataPlotModuleEvEERKS_IT_E.exit173
 
@@ -4307,7 +4307,7 @@ _ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEEC2INS0_22AnalysisDataPlotModuleEvE
   %981 = sub i64 %979, %980
   %982 = ashr exact i64 %981, 3
   %983 = icmp ult i64 %976, %982
-  br i1 %983, label %.lr.ph237, label %.loopexit264, !llvm.loop !199
+  br i1 %983, label %.lr.ph237, label %.loopexit318, !llvm.loop !199
 
 984:                                              ; preds = %.lr.ph237
   %985 = landingpad { ptr, i32 }
@@ -8033,25 +8033,25 @@ define linkonce_odr void @_ZNSt3setIiSt4lessIiESaIiEE6insertIN3gmx12ArrayRefIter
   br i1 %19, label %._crit_edge.thread.i.i, label %24
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %16
-  %.019.lcssa28.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %4, %16 ]
+  %.019.lcssa29.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %4, %16 ]
   %20 = load ptr, ptr %8, align 8, !tbaa !283
-  %21 = icmp eq ptr %.019.lcssa28.i.i, %20
+  %21 = icmp eq ptr %.019.lcssa29.i.i, %20
   br i1 %21, label %select.unfold, label %22
 
 22:                                               ; preds = %._crit_edge.thread.i.i
-  %23 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #30
+  %23 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i) #30
   %.phi.trans.insert80.i = getelementptr inbounds nuw i8, ptr %23, i64 32
   %.pre81.i = load i32, ptr %.phi.trans.insert80.i, align 4, !tbaa !81
   br label %24
 
 24:                                               ; preds = %22, %._crit_edge.i.i
   %25 = phi i32 [ %.pre81.i, %22 ], [ %18, %._crit_edge.i.i ]
-  %.019.lcssa29.i.i = phi ptr [ %.019.lcssa28.i.i, %22 ], [ %.02024.i.i, %._crit_edge.i.i ]
+  %.019.lcssa28.i.i = phi ptr [ %.019.lcssa29.i.i, %22 ], [ %.02024.i.i, %._crit_edge.i.i ]
   %26 = icmp slt i32 %25, %.pre.i.i.i.pre.pre.pre
   br i1 %26, label %select.unfold, label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE17_M_insert_unique_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiESt23_Rb_tree_const_iteratorIiEOT_RT0_.exit.i
 
 select.unfold:                                    ; preds = %24, %11, %._crit_edge.thread.i.i
-  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %12, %11 ], [ %.019.lcssa29.i.i, %24 ]
+  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %12, %11 ], [ %.019.lcssa28.i.i, %24 ]
   %27 = icmp eq ptr %.sroa.12.0.i.ph, %4
   br i1 %27, label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %28
 

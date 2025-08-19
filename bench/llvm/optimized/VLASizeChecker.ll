@@ -980,13 +980,13 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
   br label %47
 
 47:                                               ; preds = %42, %37
-  %.sroa.0.0.i.sink137.in.i = phi ptr [ %.sroa.0.0.in.i.i, %42 ], [ %38, %37 ]
-  %.sroa.0.0.i.sink137.i = load i64, ptr %.sroa.0.0.i.sink137.in.i, align 8, !tbaa !46
-  %48 = and i64 %.sroa.0.0.i.sink137.i, -16
+  %.sroa.0.0.i.sink146.in.i = phi ptr [ %.sroa.0.0.in.i.i, %42 ], [ %38, %37 ]
+  %.sroa.0.0.i.sink146.i = load i64, ptr %.sroa.0.0.i.sink146.in.i, align 8, !tbaa !46
+  %48 = and i64 %.sroa.0.0.i.sink146.i, -16
   %49 = inttoptr i64 %48 to ptr
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i64, ptr %50, align 8, !tbaa !46
-  %52 = and i64 %.sroa.0.0.i.sink137.i, 7
+  %52 = and i64 %.sroa.0.0.i.sink146.i, 7
   %53 = or i64 %52, %51
   %54 = tail call noundef ptr @_ZNK5clang10ASTContext14getAsArrayTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %25, i64 %53) #18
   %.not.i.i.i.i = icmp eq ptr %54, null
@@ -1538,8 +1538,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit98.i: ; preds
 118:                                              ; preds = %114
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !244
   %119 = load ptr, ptr %31, align 8, !tbaa !200, !noalias !244
-  %.0.copyload.i.i.i.i6.i.i.i = load i64, ptr %34, align 8, !noalias !244
-  %120 = and i64 %.0.copyload.i.i.i.i6.i.i.i, -8
+  %.0.copyload.i.i.i.i7.i.i.i = load i64, ptr %34, align 8, !noalias !244
+  %120 = and i64 %.0.copyload.i.i.i.i7.i.i.i, -8
   %121 = inttoptr i64 %120 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !244
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 56
@@ -2185,8 +2185,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_114VLASizeChecker9reportBugENS0_12
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !200
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %.0.copyload.i.i.i.i6.i = load i64, ptr %18, align 8
-  %19 = and i64 %.0.copyload.i.i.i.i6.i, -8
+  %.0.copyload.i.i.i.i7.i = load i64, ptr %18, align 8
+  %19 = and i64 %.0.copyload.i.i.i.i7.i, -8
   %20 = inttoptr i64 %19 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 56
@@ -2275,7 +2275,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %49, %51
   %56 = ptrtoint ptr %54 to i64
   %57 = ptrtoint ptr %55 to i64
   %58 = sub i64 %56, %57
-  switch i32 %1, label %default.unreachable9 [
+  switch i32 %1, label %default.unreachable13 [
     i32 0, label %59
     i32 1, label %66
     i32 2, label %73
@@ -2342,7 +2342,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %49, %51
   store ptr %86, ptr %43, align 8, !tbaa !649
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit9
 
-default.unreachable9:                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
+default.unreachable13:                            ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   unreachable
 
 _ZN4llvm11raw_ostreamlsEPKc.exit9:                ; preds = %84, %82, %77, %75, %70, %68, %63, %61
@@ -2799,7 +2799,7 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %42, %42, %42,
   %50 = tail call noundef i32 @_ZNK5clang10ASTContext11getIntWidthENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %49, i64 %.sroa.0.0) #18
   %51 = load ptr, ptr %.pre-phi28, align 8, !tbaa !673
   %52 = tail call noundef zeroext i1 @_ZNK5clang4Type32isSignedIntegerOrEnumerationTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %51) #18
-  br i1 %52, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread38
+  br i1 %52, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40
 
 _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24: ; preds = %42, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit
   %53 = load ptr, ptr %0, align 8, !tbaa !697
@@ -2819,8 +2819,8 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24: ; preds = %42, %_ZN5cl
 
 _ZNK5clang4Type16isFixedPointTypeEv.exit.i:       ; preds = %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24
   %63 = load i32, ptr %60, align 16
-  %.fr44 = freeze i32 %63
-  %64 = lshr i32 %.fr44, 19
+  %.fr46 = freeze i32 %63
+  %64 = lshr i32 %.fr46, 19
   %65 = and i32 %64, 511
   %66 = add nsw i32 %65, -479
   %or.cond.i = icmp ult i32 %66, -21
@@ -2828,7 +2828,7 @@ _ZNK5clang4Type16isFixedPointTypeEv.exit.i:       ; preds = %_ZN5clang4ento3Loc9
 
 67:                                               ; preds = %_ZNK5clang4Type16isFixedPointTypeEv.exit.i
   %68 = icmp samesign ugt i32 %65, 460
-  br i1 %68, label %69, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread38
+  br i1 %68, label %69, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40
 
 69:                                               ; preds = %67
   %70 = icmp samesign ult i32 %65, 464
@@ -2836,23 +2836,23 @@ _ZNK5clang4Type16isFixedPointTypeEv.exit.i:       ; preds = %_ZN5clang4ento3Loc9
 
 71:                                               ; preds = %69
   %72 = icmp samesign ugt i32 %65, 466
-  br i1 %72, label %73, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread38
+  br i1 %72, label %73, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40
 
 73:                                               ; preds = %71
   %74 = icmp samesign ugt i32 %65, 469
   %75 = add nsw i32 %65, -476
   %spec.select16.i.i = icmp ult i32 %75, -3
   %or.cond = select i1 %74, i1 %spec.select16.i.i, i1 false
-  br i1 %or.cond, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread38, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread
+  br i1 %or.cond, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread
 
-_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread38: ; preds = %73, %67, %71, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
-  %.sroa.017.042 = phi i32 [ %50, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ %54, %71 ], [ %54, %67 ], [ %54, %73 ]
+_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40: ; preds = %73, %67, %71, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
+  %.sroa.017.044 = phi i32 [ %50, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ %54, %71 ], [ %54, %67 ], [ %54, %73 ]
   br label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread
 
-_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread: ; preds = %69, %73, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24, %_ZNK5clang4Type16isFixedPointTypeEv.exit.i, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread38
-  %.sroa.017.036 = phi i32 [ %.sroa.017.042, %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread38 ], [ %50, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ %54, %_ZNK5clang4Type16isFixedPointTypeEv.exit.i ], [ %54, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24 ], [ %54, %73 ], [ %54, %69 ]
-  %76 = phi i64 [ 4294967296, %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread38 ], [ 0, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ 0, %_ZNK5clang4Type16isFixedPointTypeEv.exit.i ], [ 0, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24 ], [ 0, %73 ], [ 0, %69 ]
-  %.sroa.017.0.insert.ext = zext i32 %.sroa.017.036 to i64
+_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread: ; preds = %69, %73, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24, %_ZNK5clang4Type16isFixedPointTypeEv.exit.i, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40
+  %.sroa.017.038 = phi i32 [ %.sroa.017.044, %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40 ], [ %50, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ %54, %_ZNK5clang4Type16isFixedPointTypeEv.exit.i ], [ %54, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24 ], [ %54, %73 ], [ %54, %69 ]
+  %76 = phi i64 [ 4294967296, %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread40 ], [ 0, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ 0, %_ZNK5clang4Type16isFixedPointTypeEv.exit.i ], [ 0, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24 ], [ 0, %73 ], [ 0, %69 ]
+  %.sroa.017.0.insert.ext = zext i32 %.sroa.017.038 to i64
   %.sroa.017.0.insert.insert = or disjoint i64 %76, %.sroa.017.0.insert.ext
   ret i64 %.sroa.017.0.insert.insert
 }

@@ -502,12 +502,12 @@ deflateStateCheck.exit:                           ; preds = %19, %19, %19, %19, 
   store i32 0, ptr %24, align 8, !tbaa !27
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %38 = load i32, ptr %37, align 8, !tbaa !30
-  %.not8593 = icmp ult i32 %2, %38
-  br i1 %.not8593, label %58, label %.thread94
+  %.not85102 = icmp ult i32 %2, %38
+  br i1 %.not85102, label %58, label %.thread103
 
 39:                                               ; preds = %.thread90
   %40 = icmp eq i32 %25, 0
-  br i1 %40, label %41, label %.thread94
+  br i1 %40, label %41, label %.thread103
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %15, i64 120
@@ -527,9 +527,9 @@ deflateStateCheck.exit:                           ; preds = %19, %19, %19, %19, 
   %52 = getelementptr inbounds nuw i8, ptr %15, i64 5932
   store i32 0, ptr %52, align 4, !tbaa !63
   %.pre = load i32, ptr %32, align 8, !tbaa !30
-  br label %.thread94
+  br label %.thread103
 
-.thread94:                                        ; preds = %.thread90.thread, %41, %39
+.thread103:                                       ; preds = %.thread90.thread, %41, %39
   %53 = phi ptr [ %30, %41 ], [ %30, %39 ], [ %28, %.thread90.thread ]
   %54 = phi i32 [ %.pre, %41 ], [ %33, %39 ], [ %38, %.thread90.thread ]
   %55 = sub i32 %2, %54
@@ -537,10 +537,10 @@ deflateStateCheck.exit:                           ; preds = %19, %19, %19, %19, 
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 %56
   br label %58
 
-58:                                               ; preds = %.thread90.thread, %.thread94, %.thread90
-  %59 = phi ptr [ %53, %.thread94 ], [ %30, %.thread90 ], [ %28, %.thread90.thread ]
-  %.076 = phi i32 [ %54, %.thread94 ], [ %2, %.thread90 ], [ %2, %.thread90.thread ]
-  %.075 = phi ptr [ %57, %.thread94 ], [ %1, %.thread90 ], [ %1, %.thread90.thread ]
+58:                                               ; preds = %.thread90.thread, %.thread103, %.thread90
+  %59 = phi ptr [ %53, %.thread103 ], [ %30, %.thread90 ], [ %28, %.thread90.thread ]
+  %.076 = phi i32 [ %54, %.thread103 ], [ %2, %.thread90 ], [ %2, %.thread90.thread ]
+  %.075 = phi ptr [ %57, %.thread103 ], [ %1, %.thread90 ], [ %1, %.thread90.thread ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %61 = load i32, ptr %60, align 8, !tbaa !69
   %62 = load ptr, ptr %0, align 8, !tbaa !70
@@ -1745,7 +1745,7 @@ flush_pending.exit._crit_edge:                    ; preds = %flush_pending.exit
 93:                                               ; preds = %91
   %94 = load i32, ptr %27, align 8, !tbaa !69
   %.not396 = icmp eq i32 %94, 0
-  br i1 %.not396, label %.thread494.thread, label %95
+  br i1 %.not396, label %.thread516.thread, label %95
 
 95:                                               ; preds = %93
   %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @z_errmsg, i64 56), align 8, !tbaa !43
@@ -1761,7 +1761,7 @@ flush_pending.exit._crit_edge:                    ; preds = %flush_pending.exit
 
 .thread:                                          ; preds = %98
   store i32 113, ptr %19, align 8, !tbaa !26
-  br label %.thread494
+  br label %.thread516
 
 thread-pre-split:                                 ; preds = %98
   %102 = getelementptr inbounds nuw i8, ptr %14, i64 84
@@ -2138,7 +2138,7 @@ thread-pre-split449:                              ; preds = %220
 
 348:                                              ; preds = %thread-pre-split449, %.critedge
   %.pr458 = phi i32 [ %.pr450, %thread-pre-split449 ], [ %.pr448, %.critedge ]
-  switch i32 %.pr458, label %.thread494 [
+  switch i32 %.pr458, label %.thread516 [
     i32 69, label %349
     i32 73, label %449
     i32 91, label %530
@@ -2660,24 +2660,24 @@ flush_pending.exit443._crit_edge:                 ; preds = %flush_pending.exit4
   tail call fastcc void @flush_pending(ptr noundef nonnull %0)
   %642 = load i64, ptr %48, align 8, !tbaa !82
   %.not422 = icmp eq i64 %642, 0
-  br i1 %.not422, label %.thread494, label %643
+  br i1 %.not422, label %.thread516, label %643
 
 643:                                              ; preds = %641
   store i32 -1, ptr %46, align 4, !tbaa !84
   br label %.critedge437
 
-.thread494:                                       ; preds = %348, %.thread, %641
+.thread516:                                       ; preds = %348, %.thread, %641
   %.pr = load i32, ptr %27, align 8, !tbaa !69
   %.not423 = icmp eq i32 %.pr, 0
-  br i1 %.not423, label %.thread494.thread, label %649
+  br i1 %.not423, label %.thread516.thread, label %649
 
-.thread494.thread:                                ; preds = %93, %.thread494
+.thread516.thread:                                ; preds = %93, %.thread516
   %644 = getelementptr inbounds nuw i8, ptr %14, i64 180
   %645 = load i32, ptr %644, align 4, !tbaa !62
   %.not424 = icmp eq i32 %645, 0
   br i1 %.not424, label %646, label %649
 
-646:                                              ; preds = %.thread494.thread
+646:                                              ; preds = %.thread516.thread
   %.not425 = icmp eq i32 %1, 0
   br i1 %.not425, label %.critedge437, label %647
 
@@ -2686,7 +2686,7 @@ flush_pending.exit443._crit_edge:                 ; preds = %flush_pending.exit4
   %.not426 = icmp eq i32 %648, 666
   br i1 %.not426, label %703, label %649
 
-649:                                              ; preds = %647, %.thread494.thread, %.thread494
+649:                                              ; preds = %647, %.thread516.thread, %.thread516
   %650 = getelementptr inbounds nuw i8, ptr %14, i64 196
   %651 = load i32, ptr %650, align 4, !tbaa !46
   %652 = icmp eq i32 %651, 0
@@ -2909,14 +2909,14 @@ flush_pending.exit443._crit_edge:                 ; preds = %flush_pending.exit4
   br label %784
 
 784:                                              ; preds = %763, %712
-  %.sink497.in = phi ptr [ %767, %763 ], [ %714, %712 ]
+  %.sink519.in = phi ptr [ %767, %763 ], [ %714, %712 ]
   %.sink.in = phi i64 [ %777, %763 ], [ %762, %712 ]
   %.sink = trunc i64 %.sink.in to i8
-  %.sink497 = load ptr, ptr %.sink497.in, align 8, !tbaa !41
+  %.sink519 = load ptr, ptr %.sink519.in, align 8, !tbaa !41
   %785 = load i64, ptr %48, align 8, !tbaa !82
   %786 = add i64 %785, 1
   store i64 %786, ptr %48, align 8, !tbaa !82
-  %787 = getelementptr inbounds nuw i8, ptr %.sink497, i64 %785
+  %787 = getelementptr inbounds nuw i8, ptr %.sink519, i64 %785
   store i8 %.sink, ptr %787, align 1, !tbaa !3
   tail call fastcc void @flush_pending(ptr noundef nonnull %0)
   %788 = load i32, ptr %705, align 8, !tbaa !27
@@ -4288,43 +4288,43 @@ define internal fastcc range(i32 0, 4) i32 @deflate_rle(ptr noundef %0, i32 noun
   %45 = getelementptr inbounds nuw i8, ptr %.0120.ptr, i64 1
   %46 = load i8, ptr %45, align 1, !tbaa !3
   %47 = icmp eq i8 %32, %46
-  br i1 %47, label %48, label %thread-pre-split138.split.loop.exit185
+  br i1 %47, label %48, label %thread-pre-split138.split.loop.exit193
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %.0120.ptr, i64 2
   %50 = load i8, ptr %49, align 1, !tbaa !3
   %51 = icmp eq i8 %32, %50
-  br i1 %51, label %52, label %thread-pre-split138.split.loop.exit183
+  br i1 %51, label %52, label %thread-pre-split138.split.loop.exit191
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %.0120.ptr, i64 3
   %54 = load i8, ptr %53, align 1, !tbaa !3
   %55 = icmp eq i8 %32, %54
-  br i1 %55, label %56, label %thread-pre-split138.split.loop.exit181
+  br i1 %55, label %56, label %thread-pre-split138.split.loop.exit189
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %.0120.ptr, i64 4
   %58 = load i8, ptr %57, align 1, !tbaa !3
   %59 = icmp eq i8 %32, %58
-  br i1 %59, label %60, label %thread-pre-split138.split.loop.exit179
+  br i1 %59, label %60, label %thread-pre-split138.split.loop.exit187
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %.0120.ptr, i64 5
   %62 = load i8, ptr %61, align 1, !tbaa !3
   %63 = icmp eq i8 %32, %62
-  br i1 %63, label %64, label %thread-pre-split138.split.loop.exit177
+  br i1 %63, label %64, label %thread-pre-split138.split.loop.exit185
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %.0120.ptr, i64 6
   %66 = load i8, ptr %65, align 1, !tbaa !3
   %67 = icmp eq i8 %32, %66
-  br i1 %67, label %68, label %thread-pre-split138.split.loop.exit175
+  br i1 %67, label %68, label %thread-pre-split138.split.loop.exit183
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %.0120.ptr, i64 7
   %70 = load i8, ptr %69, align 1, !tbaa !3
   %71 = icmp eq i8 %32, %70
-  br i1 %71, label %72, label %thread-pre-split138.split.loop.exit173
+  br i1 %71, label %72, label %thread-pre-split138.split.loop.exit181
 
 72:                                               ; preds = %68
   %.0120.add = add nuw nsw i64 %.0120.idx, 8
@@ -4339,36 +4339,36 @@ thread-pre-split138.split.loop.exit:              ; preds = %72
   %.ptr.le = getelementptr inbounds nuw i8, ptr %30, i64 %.0120.add
   br label %thread-pre-split138
 
-thread-pre-split138.split.loop.exit173:           ; preds = %68
+thread-pre-split138.split.loop.exit181:           ; preds = %68
   %76 = getelementptr inbounds nuw i8, ptr %.0120.ptr, i64 7
   br label %thread-pre-split138
 
-thread-pre-split138.split.loop.exit175:           ; preds = %64
+thread-pre-split138.split.loop.exit183:           ; preds = %64
   %77 = getelementptr inbounds nuw i8, ptr %.0120.ptr, i64 6
   br label %thread-pre-split138
 
-thread-pre-split138.split.loop.exit177:           ; preds = %60
+thread-pre-split138.split.loop.exit185:           ; preds = %60
   %78 = getelementptr inbounds nuw i8, ptr %.0120.ptr, i64 5
   br label %thread-pre-split138
 
-thread-pre-split138.split.loop.exit179:           ; preds = %56
+thread-pre-split138.split.loop.exit187:           ; preds = %56
   %79 = getelementptr inbounds nuw i8, ptr %.0120.ptr, i64 4
   br label %thread-pre-split138
 
-thread-pre-split138.split.loop.exit181:           ; preds = %52
+thread-pre-split138.split.loop.exit189:           ; preds = %52
   %80 = getelementptr inbounds nuw i8, ptr %.0120.ptr, i64 3
   br label %thread-pre-split138
 
-thread-pre-split138.split.loop.exit183:           ; preds = %48
+thread-pre-split138.split.loop.exit191:           ; preds = %48
   %81 = getelementptr inbounds nuw i8, ptr %.0120.ptr, i64 2
   br label %thread-pre-split138
 
-thread-pre-split138.split.loop.exit185:           ; preds = %44
+thread-pre-split138.split.loop.exit193:           ; preds = %44
   %82 = getelementptr inbounds nuw i8, ptr %.0120.ptr, i64 1
   br label %thread-pre-split138
 
-thread-pre-split138:                              ; preds = %thread-pre-split138.split.loop.exit185, %thread-pre-split138.split.loop.exit183, %thread-pre-split138.split.loop.exit181, %thread-pre-split138.split.loop.exit179, %thread-pre-split138.split.loop.exit177, %thread-pre-split138.split.loop.exit175, %thread-pre-split138.split.loop.exit173, %thread-pre-split138.split.loop.exit
-  %.1 = phi ptr [ %.ptr.le, %thread-pre-split138.split.loop.exit ], [ %76, %thread-pre-split138.split.loop.exit173 ], [ %77, %thread-pre-split138.split.loop.exit175 ], [ %78, %thread-pre-split138.split.loop.exit177 ], [ %79, %thread-pre-split138.split.loop.exit179 ], [ %80, %thread-pre-split138.split.loop.exit181 ], [ %81, %thread-pre-split138.split.loop.exit183 ], [ %82, %thread-pre-split138.split.loop.exit185 ]
+thread-pre-split138:                              ; preds = %thread-pre-split138.split.loop.exit193, %thread-pre-split138.split.loop.exit191, %thread-pre-split138.split.loop.exit189, %thread-pre-split138.split.loop.exit187, %thread-pre-split138.split.loop.exit185, %thread-pre-split138.split.loop.exit183, %thread-pre-split138.split.loop.exit181, %thread-pre-split138.split.loop.exit
+  %.1 = phi ptr [ %.ptr.le, %thread-pre-split138.split.loop.exit ], [ %76, %thread-pre-split138.split.loop.exit181 ], [ %77, %thread-pre-split138.split.loop.exit183 ], [ %78, %thread-pre-split138.split.loop.exit185 ], [ %79, %thread-pre-split138.split.loop.exit187 ], [ %80, %thread-pre-split138.split.loop.exit189 ], [ %81, %thread-pre-split138.split.loop.exit191 ], [ %82, %thread-pre-split138.split.loop.exit193 ]
   %83 = ptrtoint ptr %43 to i64
   %84 = ptrtoint ptr %.1 to i64
   %.neg = sub i64 %84, %83
@@ -4435,13 +4435,13 @@ thread-pre-split138:                              ; preds = %thread-pre-split138
   br label %14
 
 .thread140.sink.split:                            ; preds = %27, %35, %39, %24, %22
-  %.ph193 = phi i32 [ %.pre171, %22 ], [ %25, %24 ], [ %25, %39 ], [ %25, %35 ], [ %25, %27 ]
-  %.pre169172 = load i32, ptr %9, align 4, !tbaa !108
+  %.ph201 = phi i32 [ %.pre171, %22 ], [ %25, %24 ], [ %25, %39 ], [ %25, %35 ], [ %25, %27 ]
+  %.pre169180 = load i32, ptr %9, align 4, !tbaa !108
   br label %.thread140
 
 .thread140:                                       ; preds = %.thread140.sink.split, %thread-pre-split138
-  %125 = phi i32 [ %.pre169, %thread-pre-split138 ], [ %.pre169172, %.thread140.sink.split ]
-  %126 = phi i32 [ %25, %thread-pre-split138 ], [ %.ph193, %.thread140.sink.split ]
+  %125 = phi i32 [ %.pre169, %thread-pre-split138 ], [ %.pre169180, %.thread140.sink.split ]
+  %126 = phi i32 [ %25, %thread-pre-split138 ], [ %.ph201, %.thread140.sink.split ]
   %127 = load ptr, ptr %7, align 8, !tbaa !36
   %128 = zext i32 %126 to i64
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 %128
@@ -5549,8 +5549,8 @@ thread-pre-split:                                 ; preds = %62, %65, %82, %77, 
   %85 = phi i32 [ %.ph, %thread-pre-split ], [ 2, %.thread196 ], [ 2, %.thread ]
   %86 = icmp ult i32 %84, 3
   %.not184 = icmp ugt i32 %85, %84
-  %or.cond204 = or i1 %86, %.not184
-  br i1 %or.cond204, label %216, label %87
+  %or.cond213 = or i1 %86, %.not184
+  br i1 %or.cond213, label %216, label %87
 
 87:                                               ; preds = %83
   %88 = load i32, ptr %12, align 4, !tbaa !60
@@ -6176,7 +6176,7 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
   %63 = getelementptr inbounds nuw i8, ptr %.092, i64 2
   %64 = load i8, ptr %63, align 1, !tbaa !3
   %65 = icmp eq i8 %62, %64
-  br i1 %65, label %66, label %.critedge.split.loop.exit140
+  br i1 %65, label %66, label %.critedge.split.loop.exit143
 
 66:                                               ; preds = %60
   %67 = getelementptr inbounds nuw i8, ptr %.2.ptr, i64 3
@@ -6184,7 +6184,7 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
   %69 = getelementptr inbounds nuw i8, ptr %.092, i64 3
   %70 = load i8, ptr %69, align 1, !tbaa !3
   %71 = icmp eq i8 %68, %70
-  br i1 %71, label %72, label %.critedge.split.loop.exit142
+  br i1 %71, label %72, label %.critedge.split.loop.exit145
 
 72:                                               ; preds = %66
   %73 = getelementptr inbounds nuw i8, ptr %.2.ptr, i64 4
@@ -6192,7 +6192,7 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
   %75 = getelementptr inbounds nuw i8, ptr %.092, i64 4
   %76 = load i8, ptr %75, align 1, !tbaa !3
   %77 = icmp eq i8 %74, %76
-  br i1 %77, label %78, label %.critedge.split.loop.exit144
+  br i1 %77, label %78, label %.critedge.split.loop.exit147
 
 78:                                               ; preds = %72
   %79 = getelementptr inbounds nuw i8, ptr %.2.ptr, i64 5
@@ -6200,7 +6200,7 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
   %81 = getelementptr inbounds nuw i8, ptr %.092, i64 5
   %82 = load i8, ptr %81, align 1, !tbaa !3
   %83 = icmp eq i8 %80, %82
-  br i1 %83, label %84, label %.critedge.split.loop.exit146
+  br i1 %83, label %84, label %.critedge.split.loop.exit149
 
 84:                                               ; preds = %78
   %85 = getelementptr inbounds nuw i8, ptr %.2.ptr, i64 6
@@ -6208,7 +6208,7 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
   %87 = getelementptr inbounds nuw i8, ptr %.092, i64 6
   %88 = load i8, ptr %87, align 1, !tbaa !3
   %89 = icmp eq i8 %86, %88
-  br i1 %89, label %90, label %.critedge.split.loop.exit148
+  br i1 %89, label %90, label %.critedge.split.loop.exit151
 
 90:                                               ; preds = %84
   %91 = getelementptr inbounds nuw i8, ptr %.2.ptr, i64 7
@@ -6216,7 +6216,7 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
   %93 = getelementptr inbounds nuw i8, ptr %.092, i64 7
   %94 = load i8, ptr %93, align 1, !tbaa !3
   %95 = icmp eq i8 %92, %94
-  br i1 %95, label %96, label %.critedge.split.loop.exit150
+  br i1 %95, label %96, label %.critedge.split.loop.exit153
 
 96:                                               ; preds = %90
   %.2.add = add nuw nsw i64 %.2.idx, 8
@@ -6227,42 +6227,42 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
   %100 = icmp eq i8 %97, %99
   %101 = icmp samesign ult i64 %.2.idx, 250
   %or.cond = select i1 %100, i1 %101, i1 false
-  br i1 %or.cond, label %54, label %.critedge.split.loop.exit152, !llvm.loop !116
+  br i1 %or.cond, label %54, label %.critedge.split.loop.exit155, !llvm.loop !116
 
 .critedge.split.loop.exit:                        ; preds = %54
   %102 = getelementptr inbounds nuw i8, ptr %.2.ptr, i64 1
   br label %.critedge
 
-.critedge.split.loop.exit140:                     ; preds = %60
+.critedge.split.loop.exit143:                     ; preds = %60
   %103 = getelementptr inbounds nuw i8, ptr %.2.ptr, i64 2
   br label %.critedge
 
-.critedge.split.loop.exit142:                     ; preds = %66
+.critedge.split.loop.exit145:                     ; preds = %66
   %104 = getelementptr inbounds nuw i8, ptr %.2.ptr, i64 3
   br label %.critedge
 
-.critedge.split.loop.exit144:                     ; preds = %72
+.critedge.split.loop.exit147:                     ; preds = %72
   %105 = getelementptr inbounds nuw i8, ptr %.2.ptr, i64 4
   br label %.critedge
 
-.critedge.split.loop.exit146:                     ; preds = %78
+.critedge.split.loop.exit149:                     ; preds = %78
   %106 = getelementptr inbounds nuw i8, ptr %.2.ptr, i64 5
   br label %.critedge
 
-.critedge.split.loop.exit148:                     ; preds = %84
+.critedge.split.loop.exit151:                     ; preds = %84
   %107 = getelementptr inbounds nuw i8, ptr %.2.ptr, i64 6
   br label %.critedge
 
-.critedge.split.loop.exit150:                     ; preds = %90
+.critedge.split.loop.exit153:                     ; preds = %90
   %108 = getelementptr inbounds nuw i8, ptr %.2.ptr, i64 7
   br label %.critedge
 
-.critedge.split.loop.exit152:                     ; preds = %96
+.critedge.split.loop.exit155:                     ; preds = %96
   %.ptr.le = getelementptr inbounds nuw i8, ptr %10, i64 %.2.add
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.split.loop.exit152, %.critedge.split.loop.exit150, %.critedge.split.loop.exit148, %.critedge.split.loop.exit146, %.critedge.split.loop.exit144, %.critedge.split.loop.exit142, %.critedge.split.loop.exit140, %.critedge.split.loop.exit
-  %.3 = phi ptr [ %102, %.critedge.split.loop.exit ], [ %103, %.critedge.split.loop.exit140 ], [ %104, %.critedge.split.loop.exit142 ], [ %105, %.critedge.split.loop.exit144 ], [ %106, %.critedge.split.loop.exit146 ], [ %107, %.critedge.split.loop.exit148 ], [ %108, %.critedge.split.loop.exit150 ], [ %.ptr.le, %.critedge.split.loop.exit152 ]
+.critedge:                                        ; preds = %.critedge.split.loop.exit155, %.critedge.split.loop.exit153, %.critedge.split.loop.exit151, %.critedge.split.loop.exit149, %.critedge.split.loop.exit147, %.critedge.split.loop.exit145, %.critedge.split.loop.exit143, %.critedge.split.loop.exit
+  %.3 = phi ptr [ %102, %.critedge.split.loop.exit ], [ %103, %.critedge.split.loop.exit143 ], [ %104, %.critedge.split.loop.exit145 ], [ %105, %.critedge.split.loop.exit147 ], [ %106, %.critedge.split.loop.exit149 ], [ %107, %.critedge.split.loop.exit151 ], [ %108, %.critedge.split.loop.exit153 ], [ %.ptr.le, %.critedge.split.loop.exit155 ]
   %109 = ptrtoint ptr %.3 to i64
   %.neg = sub i64 %109, %35
   %.neg107 = trunc i64 %.neg to i32

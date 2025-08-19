@@ -1220,10 +1220,10 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1202, %proto_it
   br i1 %.not192, label %204, label %.sink.split
 
 .sink.split:                                      ; preds = %200, %198
-  %.sink219 = phi ptr [ %199, %198 ], [ %201, %200 ]
+  %.sink230 = phi ptr [ %199, %198 ], [ %201, %200 ]
   %.str.470.sink = phi ptr [ @.str.469, %198 ], [ @.str.470, %200 ]
   %202 = load ptr, ptr %38, align 8
-  %203 = load ptr, ptr %.sink219, align 8
+  %203 = load ptr, ptr %.sink230, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %202, i32 noundef 25, ptr noundef nonnull %.str.470.sink, ptr noundef %203)
   br label %204
 

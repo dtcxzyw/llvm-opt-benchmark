@@ -89,13 +89,13 @@ define dso_local range(i32 -30, 1) i32 @archive_write_add_filter_program(ptr nou
   br i1 %.not.i, label %archive_compressor_program_free.exit, label %.thread
 
 .thread:                                          ; preds = %13, %9, %37
-  %.pr34 = phi ptr [ %.pr.pre, %37 ], [ %6, %9 ], [ %6, %13 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.pr34, i64 32
+  %.pr36 = phi ptr [ %.pr.pre, %37 ], [ %6, %9 ], [ %6, %13 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.pr36, i64 32
   %39 = load ptr, ptr %38, align 8, !tbaa !14
   tail call void @free(ptr noundef %39) #12
-  %40 = getelementptr inbounds nuw i8, ptr %.pr34, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.pr36, i64 8
   tail call void @archive_string_free(ptr noundef nonnull %40) #12
-  %41 = load ptr, ptr %.pr34, align 8, !tbaa !22
+  %41 = load ptr, ptr %.pr36, align 8, !tbaa !22
   %.not.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i, label %__archive_write_program_free.exit.i, label %42
 
@@ -110,7 +110,7 @@ define dso_local range(i32 -30, 1) i32 @archive_write_add_filter_program(ptr nou
   br label %__archive_write_program_free.exit.i
 
 __archive_write_program_free.exit.i:              ; preds = %42, %.thread
-  tail call void @free(ptr noundef nonnull %.pr34) #12
+  tail call void @free(ptr noundef nonnull %.pr36) #12
   store ptr null, ptr %7, align 8, !tbaa !4
   br label %archive_compressor_program_free.exit
 

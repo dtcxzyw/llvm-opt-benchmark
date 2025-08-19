@@ -3479,7 +3479,7 @@ _ZN3tbb6detail2r110arena_slot10try_occupyEv.exit.thread.i: ; preds = %_ZN3tbb6de
 _ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.i: ; preds = %.lr.ph45.i
   %29 = atomicrmw xchg ptr %26, i8 1 seq_cst, align 1
   %30 = trunc i8 %29 to i1
-  br i1 %30, label %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i, label %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread51
+  br i1 %30, label %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i, label %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread62
 
 _ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i: ; preds = %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.i, %.lr.ph45.i
   %31 = add nuw nsw i64 %.044.i, 1
@@ -3488,7 +3488,7 @@ _ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i: ; preds = %_ZN3tbb6
 
 _ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit: ; preds = %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit.i
   %32 = icmp eq i64 %.02842.i, -1
-  br i1 %32, label %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread, label %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread51
+  br i1 %32, label %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread, label %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread62
 
 _ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread: ; preds = %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i, %.critedge.preheader.i, %2, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit
   %33 = load i32, ptr %3, align 8, !tbaa !113
@@ -3577,9 +3577,9 @@ _ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i20: ; preds = %_ZN3tb
 _ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit27: ; preds = %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit.i24, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.i19
   %.030.i11 = phi i64 [ %.044.i18, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.i19 ], [ %.02842.i23, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit.i24 ]
   %72 = icmp eq i64 %.030.i11, -1
-  br i1 %72, label %_ZN3tbb6detail2r113atomic_updateIjSt4lessIjEEET_RSt6atomicIS5_ES5_T0_.exit, label %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread51
+  br i1 %72, label %_ZN3tbb6detail2r113atomic_updateIjSt4lessIjEEET_RSt6atomicIS5_ES5_T0_.exit, label %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread62
 
-_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread51: ; preds = %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.i, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit27, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit
+_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread62: ; preds = %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.i, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit27, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit
   %.0 = phi i64 [ %.030.i11, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit27 ], [ %.02842.i, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit ], [ %.044.i, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.i ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %74 = trunc i64 %.0 to i32
@@ -3588,8 +3588,8 @@ _ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.th
   %77 = icmp ult i32 %76, %75
   br i1 %77, label %.lr.ph.i28, label %_ZN3tbb6detail2r113atomic_updateIjSt4lessIjEEET_RSt6atomicIS5_ES5_T0_.exit
 
-.lr.ph.i28:                                       ; preds = %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread51, %.lr.ph.i28
-  %.010.i = phi i32 [ %80, %.lr.ph.i28 ], [ %76, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread51 ]
+.lr.ph.i28:                                       ; preds = %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread62, %.lr.ph.i28
+  %.010.i = phi i32 [ %80, %.lr.ph.i28 ], [ %76, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread62 ]
   %78 = cmpxchg ptr %73, i32 %.010.i, i32 %75 seq_cst seq_cst, align 4
   %79 = extractvalue { i32, i1 } %78, 1
   %80 = extractvalue { i32, i1 } %78, 0
@@ -3597,8 +3597,8 @@ _ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.th
   %or.cond.not = select i1 %79, i1 true, i1 %81
   br i1 %or.cond.not, label %_ZN3tbb6detail2r113atomic_updateIjSt4lessIjEEET_RSt6atomicIS5_ES5_T0_.exit, label %.lr.ph.i28, !llvm.loop !114
 
-_ZN3tbb6detail2r113atomic_updateIjSt4lessIjEEET_RSt6atomicIS5_ES5_T0_.exit: ; preds = %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i20, %.lr.ph.i28, %.critedge.preheader.i15, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread51, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit27
-  %.07 = phi i64 [ -1, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit27 ], [ %.0, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread51 ], [ -1, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread ], [ -1, %.critedge.preheader.i15 ], [ %.0, %.lr.ph.i28 ], [ -1, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i20 ]
+_ZN3tbb6detail2r113atomic_updateIjSt4lessIjEEET_RSt6atomicIS5_ES5_T0_.exit: ; preds = %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i20, %.lr.ph.i28, %.critedge.preheader.i15, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread62, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit27
+  %.07 = phi i64 [ -1, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit27 ], [ %.0, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread62 ], [ -1, %_ZN3tbb6detail2r15arena25occupy_free_slot_in_rangeERNS1_11thread_dataEmm.exit.thread ], [ -1, %.critedge.preheader.i15 ], [ %.0, %.lr.ph.i28 ], [ -1, %_ZN3tbb6detail2r110arena_slot10try_occupyEv.exit38.thread.i20 ]
   ret i64 %.07
 }
 
@@ -5492,11 +5492,11 @@ _ZN3tbb6detail2r110mail_inbox11set_is_idleEb.exit: ; preds = %55, %62, %_ZNK3tbb
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %thread-pre-split.backedge, %_ZN3tbb6detail2r110mail_inbox11set_is_idleEb.exit
-  %.pr79 = load ptr, ptr %8, align 8, !tbaa !169
+  %.pr87 = load ptr, ptr %8, align 8, !tbaa !169
   br label %65
 
 65:                                               ; preds = %thread-pre-split, %143
-  %66 = phi ptr [ %.pr79, %thread-pre-split ], [ %146, %143 ]
+  %66 = phi ptr [ %.pr87, %thread-pre-split ], [ %146, %143 ]
   %.not.i60 = icmp eq ptr %66, null
   br i1 %.not.i60, label %_ZN3tbb6detail2r120context_guard_helperILb1EE7set_ctxEPKNS0_2d118task_group_contextE.exit, label %67
 
@@ -5630,23 +5630,23 @@ _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit: ; pr
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 48
   %120 = load ptr, ptr %119, align 8, !tbaa !116
   %121 = invoke noundef zeroext i1 @_ZNK3tbb6detail2r123outermost_worker_waiter18continue_executionERNS1_10arena_slotERPNS0_2d14taskE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 128 dereferenceable(176) %120, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %122 unwind label %.loopexit80
+          to label %122 unwind label %.loopexit88
 
 122:                                              ; preds = %._crit_edge
   br i1 %121, label %128, label %.thread69
 
-.loopexit80:                                      ; preds = %._crit_edge, %133
-  %lpad.loopexit82 = landingpad { ptr, i32 }
+.loopexit88:                                      ; preds = %._crit_edge, %133
+  %lpad.loopexit90 = landingpad { ptr, i32 }
           catch ptr null
   br label %123
 
-.loopexit.split-lp81:                             ; preds = %136
-  %lpad.loopexit.split-lp83 = landingpad { ptr, i32 }
+.loopexit.split-lp89:                             ; preds = %136
+  %lpad.loopexit.split-lp91 = landingpad { ptr, i32 }
           catch ptr null
   br label %123
 
-123:                                              ; preds = %.loopexit80, %.loopexit.split-lp81, %106, %82
-  %.pn = phi { ptr, i32 } [ %107, %106 ], [ %83, %82 ], [ %lpad.loopexit82, %.loopexit80 ], [ %lpad.loopexit.split-lp83, %.loopexit.split-lp81 ]
+123:                                              ; preds = %.loopexit88, %.loopexit.split-lp89, %106, %82
+  %.pn = phi { ptr, i32 } [ %107, %106 ], [ %83, %82 ], [ %lpad.loopexit90, %.loopexit88 ], [ %lpad.loopexit.split-lp91, %.loopexit.split-lp89 ]
   %.2 = extractvalue { ptr, i32 } %.pn, 0
   %124 = call ptr @__cxa_begin_catch(ptr %.2) #12
   %125 = invoke noundef i64 @_ZN3tbb6detail2r127global_control_active_valueEi(i32 noundef 2)
@@ -5673,7 +5673,7 @@ _ZN3tbb6detail2d114global_control12active_valueENS2_9parameterE.exit: ; preds = 
 
 133:                                              ; preds = %130
   %134 = invoke noundef ptr @_ZN3tbb6detail2r110arena_slot8get_taskERNS1_18execution_data_extEl(ptr noundef nonnull align 128 dereferenceable(176) %120, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 noundef %22)
-          to label %135 unwind label %.loopexit80
+          to label %135 unwind label %.loopexit88
 
 135:                                              ; preds = %133
   store ptr %134, ptr %4, align 8, !tbaa !196
@@ -5685,7 +5685,7 @@ _ZN3tbb6detail2d114global_control12active_valueENS2_9parameterE.exit: ; preds = 
   %138 = load i8, ptr %64, align 1, !tbaa !309, !range !136, !noundef !137
   %139 = trunc nuw i8 %138 to i1
   %140 = invoke noundef ptr @_ZN3tbb6detail2r115task_dispatcher21receive_or_steal_taskILb1ENS1_23outermost_worker_waiterEEEPNS0_2d14taskERNS1_11thread_dataERNS1_18execution_data_extERT0_lbb(ptr noundef nonnull align 128 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(240) %137, ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %22, i1 noundef zeroext %139, i1 noundef zeroext %25)
-          to label %141 unwind label %.loopexit.split-lp81
+          to label %141 unwind label %.loopexit.split-lp89
 
 141:                                              ; preds = %136
   store ptr %140, ptr %4, align 8, !tbaa !196
@@ -5960,11 +5960,11 @@ _ZN3tbb6detail2r110mail_inbox11set_is_idleEb.exit: ; preds = %55, %62, %_ZNK3tbb
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %thread-pre-split.backedge, %_ZN3tbb6detail2r110mail_inbox11set_is_idleEb.exit
-  %.pr65 = load ptr, ptr %8, align 8, !tbaa !169
+  %.pr69 = load ptr, ptr %8, align 8, !tbaa !169
   br label %65
 
 65:                                               ; preds = %thread-pre-split, %121
-  %66 = phi ptr [ %.pr65, %thread-pre-split ], [ %124, %121 ]
+  %66 = phi ptr [ %.pr69, %thread-pre-split ], [ %124, %121 ]
   %.not.i52 = icmp eq ptr %66, null
   br i1 %.not.i52, label %_ZN3tbb6detail2r120context_guard_helperILb0EE7set_ctxEPKNS0_2d118task_group_contextE.exit, label %67
 
@@ -6034,23 +6034,23 @@ _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit: ; pr
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 48
   %98 = load ptr, ptr %97, align 8, !tbaa !116
   %99 = invoke noundef zeroext i1 @_ZNK3tbb6detail2r123outermost_worker_waiter18continue_executionERNS1_10arena_slotERPNS0_2d14taskE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 128 dereferenceable(176) %98, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %100 unwind label %.loopexit66
+          to label %100 unwind label %.loopexit70
 
 100:                                              ; preds = %._crit_edge
   br i1 %99, label %106, label %.thread57
 
-.loopexit66:                                      ; preds = %._crit_edge, %111
-  %lpad.loopexit68 = landingpad { ptr, i32 }
+.loopexit70:                                      ; preds = %._crit_edge, %111
+  %lpad.loopexit72 = landingpad { ptr, i32 }
           catch ptr null
   br label %101
 
-.loopexit.split-lp67:                             ; preds = %114
-  %lpad.loopexit.split-lp69 = landingpad { ptr, i32 }
+.loopexit.split-lp71:                             ; preds = %114
+  %lpad.loopexit.split-lp73 = landingpad { ptr, i32 }
           catch ptr null
   br label %101
 
-101:                                              ; preds = %.loopexit66, %.loopexit.split-lp67, %88
-  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %lpad.loopexit68, %.loopexit66 ], [ %lpad.loopexit.split-lp69, %.loopexit.split-lp67 ]
+101:                                              ; preds = %.loopexit70, %.loopexit.split-lp71, %88
+  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %lpad.loopexit72, %.loopexit70 ], [ %lpad.loopexit.split-lp73, %.loopexit.split-lp71 ]
   %.1 = extractvalue { ptr, i32 } %.pn, 0
   %102 = call ptr @__cxa_begin_catch(ptr %.1) #12
   %103 = invoke noundef i64 @_ZN3tbb6detail2r127global_control_active_valueEi(i32 noundef 2)
@@ -6077,7 +6077,7 @@ _ZN3tbb6detail2d114global_control12active_valueENS2_9parameterE.exit: ; preds = 
 
 111:                                              ; preds = %108
   %112 = invoke noundef ptr @_ZN3tbb6detail2r110arena_slot8get_taskERNS1_18execution_data_extEl(ptr noundef nonnull align 128 dereferenceable(176) %98, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 noundef %22)
-          to label %113 unwind label %.loopexit66
+          to label %113 unwind label %.loopexit70
 
 113:                                              ; preds = %111
   store ptr %112, ptr %4, align 8, !tbaa !196
@@ -6089,7 +6089,7 @@ _ZN3tbb6detail2d114global_control12active_valueENS2_9parameterE.exit: ; preds = 
   %116 = load i8, ptr %64, align 1, !tbaa !319, !range !136, !noundef !137
   %117 = trunc nuw i8 %116 to i1
   %118 = invoke noundef ptr @_ZN3tbb6detail2r115task_dispatcher21receive_or_steal_taskILb0ENS1_23outermost_worker_waiterEEEPNS0_2d14taskERNS1_11thread_dataERNS1_18execution_data_extERT0_lbb(ptr noundef nonnull align 128 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(240) %115, ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %22, i1 noundef zeroext %117, i1 noundef zeroext %25)
-          to label %119 unwind label %.loopexit.split-lp67
+          to label %119 unwind label %.loopexit.split-lp71
 
 119:                                              ; preds = %114
   store ptr %118, ptr %4, align 8, !tbaa !196
@@ -6919,12 +6919,12 @@ _ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_
   br i1 %.not55, label %214, label %.thread
 
 .thread.sink.split:                               ; preds = %65, %51, %130, %118
-  %.lcssa129.sink = phi ptr [ %108, %118 ], [ %108, %130 ], [ %52, %51 ], [ %66, %65 ]
-  store ptr %.lcssa129.sink, ptr %9, align 8, !tbaa !196
+  %.lcssa144.sink = phi ptr [ %108, %118 ], [ %108, %130 ], [ %52, %51 ], [ %66, %65 ]
+  store ptr %.lcssa144.sink, ptr %9, align 8, !tbaa !196
   br label %.thread
 
 .thread:                                          ; preds = %45, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit, %_ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_extERNS1_5arenaEjRNS1_10FastRandomElb.exit, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74, %_ZN3tbb6detail2r115task_dispatcher26get_inbox_or_critical_taskERNS1_18execution_data_extERNS1_10mail_inboxElb.exit, %197, %.thread.sink.split
-  %199 = phi ptr [ %.lcssa129.sink, %.thread.sink.split ], [ %54, %_ZN3tbb6detail2r115task_dispatcher26get_inbox_or_critical_taskERNS1_18execution_data_extERNS1_10mail_inboxElb.exit ], [ %142, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74 ], [ %196, %_ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_extERNS1_5arenaEjRNS1_10FastRandomElb.exit ], [ %76, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit ], [ %46, %45 ], [ %198, %197 ]
+  %199 = phi ptr [ %.lcssa144.sink, %.thread.sink.split ], [ %54, %_ZN3tbb6detail2r115task_dispatcher26get_inbox_or_critical_taskERNS1_18execution_data_extERNS1_10mail_inboxElb.exit ], [ %142, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74 ], [ %196, %_ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_extERNS1_5arenaEjRNS1_10FastRandomElb.exit ], [ %76, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit ], [ %46, %45 ], [ %198, %197 ]
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 16
   %201 = load ptr, ptr %200, align 8, !tbaa !191
   store ptr %201, ptr %2, align 8, !tbaa !169
@@ -7346,12 +7346,12 @@ _ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specif
   br label %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread
 
 _ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread: ; preds = %83, %82, %85, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit
-  %.2.i45 = phi ptr [ %46, %85 ], [ %46, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit ], [ %46, %82 ], [ null, %83 ]
-  %.not = icmp eq ptr %.2.i45, null
+  %.2.i52 = phi ptr [ %46, %85 ], [ %46, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit ], [ %46, %82 ], [ null, %83 ]
+  %.not = icmp eq ptr %.2.i52, null
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread: ; preds = %25, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread
-  %.3 = phi ptr [ %.019, %25 ], [ %.2.i45, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread ]
+  %.3 = phi ptr [ %.019, %25 ], [ %.2.i52, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread ]
   %.0 = phi i1 [ true, %25 ], [ %.not, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread ]
   %88 = atomicrmw xchg ptr %20, i8 0 seq_cst, align 1
   invoke void @_ZN3tbb6detail2r121notify_by_address_oneEPv(ptr noundef nonnull align 1 dereferenceable(1) %20)
@@ -7368,7 +7368,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit: ; preds = %_ZN3tbb6
   br i1 %.0, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge, label %.critedge
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge: ; preds = %17, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit
-  %.35054 = phi ptr [ %.3, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit ], [ %.019, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i ], [ %.019, %17 ]
+  %.35761 = phi ptr [ %.3, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit ], [ %.019, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i ], [ %.019, %17 ]
   %.pre41 = load i32, ptr %5, align 8, !tbaa !172
   %.pre42 = load i32, ptr %1, align 4
   br label %92
@@ -7376,7 +7376,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge: ; preds 
 92:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge, %10
   %93 = phi i32 [ %.pre42, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge ], [ %11, %10 ]
   %94 = phi i32 [ %.pre41, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge ], [ %12, %10 ]
-  %.1 = phi ptr [ %.35054, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge ], [ %.019, %10 ]
+  %.1 = phi ptr [ %.35761, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge ], [ %.019, %10 ]
   %95 = add i32 %.020, -1
   %96 = add i32 %94, -1
   %97 = and i32 %96, %95
@@ -8242,12 +8242,12 @@ _ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_
   br i1 %.not55, label %214, label %.thread
 
 .thread.sink.split:                               ; preds = %65, %51, %130, %118
-  %.lcssa129.sink = phi ptr [ %108, %118 ], [ %108, %130 ], [ %52, %51 ], [ %66, %65 ]
-  store ptr %.lcssa129.sink, ptr %9, align 8, !tbaa !196
+  %.lcssa144.sink = phi ptr [ %108, %118 ], [ %108, %130 ], [ %52, %51 ], [ %66, %65 ]
+  store ptr %.lcssa144.sink, ptr %9, align 8, !tbaa !196
   br label %.thread
 
 .thread:                                          ; preds = %45, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit, %_ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_extERNS1_5arenaEjRNS1_10FastRandomElb.exit, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74, %_ZN3tbb6detail2r115task_dispatcher26get_inbox_or_critical_taskERNS1_18execution_data_extERNS1_10mail_inboxElb.exit, %197, %.thread.sink.split
-  %199 = phi ptr [ %.lcssa129.sink, %.thread.sink.split ], [ %54, %_ZN3tbb6detail2r115task_dispatcher26get_inbox_or_critical_taskERNS1_18execution_data_extERNS1_10mail_inboxElb.exit ], [ %142, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74 ], [ %196, %_ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_extERNS1_5arenaEjRNS1_10FastRandomElb.exit ], [ %76, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit ], [ %46, %45 ], [ %198, %197 ]
+  %199 = phi ptr [ %.lcssa144.sink, %.thread.sink.split ], [ %54, %_ZN3tbb6detail2r115task_dispatcher26get_inbox_or_critical_taskERNS1_18execution_data_extERNS1_10mail_inboxElb.exit ], [ %142, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74 ], [ %196, %_ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_extERNS1_5arenaEjRNS1_10FastRandomElb.exit ], [ %76, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit ], [ %46, %45 ], [ %198, %197 ]
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 16
   %201 = load ptr, ptr %200, align 8, !tbaa !191
   store ptr %201, ptr %2, align 8, !tbaa !169

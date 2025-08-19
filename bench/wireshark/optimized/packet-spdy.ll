@@ -1418,7 +1418,7 @@ spdy_decompress_header_block.exit.i:              ; preds = %404
   br label %507
 
 507:                                              ; preds = %506, %505, %.thread241.i
-  %.0204283370.i = phi ptr [ null, %505 ], [ %.0204283.i, %506 ], [ %.0204283.i, %.thread241.i ]
+  %.0204283381.i = phi ptr [ null, %505 ], [ %.0204283.i, %506 ], [ %.0204283.i, %.thread241.i ]
   %.not226.i = icmp eq ptr %.0214293.i, null
   br i1 %.not226.i, label %dissect_spdy_header_payload.exit, label %508
 
@@ -1494,7 +1494,7 @@ spdy_decompress_header_block.exit.i:              ; preds = %404
 
 spdy_parse_content_type.exit.i:                   ; preds = %536, %535
   %.018.i.i = phi ptr [ null, %536 ], [ %.1.i.i, %535 ]
-  %537 = icmp ne ptr %.0204283370.i, null
+  %537 = icmp ne ptr %.0204283381.i, null
   %538 = zext i1 %537 to i32
   %539 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %540 = load ptr, ptr %539, align 8

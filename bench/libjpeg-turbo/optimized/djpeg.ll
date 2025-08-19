@@ -253,8 +253,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
   br i1 %30, label %31, label %42
 
 31:                                               ; preds = %29
-  %32 = sext i32 %19 to i64
-  %33 = getelementptr inbounds ptr, ptr %1, i64 %32
+  %32 = zext nneg i32 %19 to i64
+  %33 = getelementptr inbounds nuw ptr, ptr %1, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !4
   %35 = call noalias ptr @fopen(ptr noundef %34, ptr noundef nonnull @.str.2)
   %36 = icmp eq ptr %35, null
@@ -350,8 +350,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
   br i1 %30, label %81, label %86
 
 81:                                               ; preds = %78
-  %82 = sext i32 %19 to i64
-  %83 = getelementptr inbounds ptr, ptr %1, i64 %82
+  %82 = zext nneg i32 %19 to i64
+  %83 = getelementptr inbounds nuw ptr, ptr %1, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !4
   %85 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str.6, ptr noundef %80, ptr noundef %84) #13
   br label %.thread
@@ -1314,7 +1314,7 @@ jpeg_getc.exit31:                                 ; preds = %.lr.ph.split, %108,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(ptr noundef nonnull %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #2 {
+define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef nonnull %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   %7 = alloca i8, align 1

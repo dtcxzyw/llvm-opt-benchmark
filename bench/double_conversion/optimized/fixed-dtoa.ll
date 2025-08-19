@@ -340,9 +340,9 @@ _ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi.exit117: ; preds = %._cr
   br i1 %155, label %.lr.ph30.preheader.i, label %_ZN17double_conversionL9TrimZerosENS_6VectorIcEEPiS2_.exit
 
 .lr.ph30.preheader.i:                             ; preds = %.lr.ph.preheader.i, %.critedge.i
-  %indvars.iv.i119.lcssa154 = phi i64 [ %indvars.iv.next.i120141, %.critedge.i ], [ %146, %.lr.ph.preheader.i ]
-  %.lcssa135153 = phi i32 [ %153, %.critedge.i ], [ %.pr.i, %.lr.ph.preheader.i ]
-  %wide.trip.count.i = and i64 %indvars.iv.i119.lcssa154, 4294967295
+  %indvars.iv.i119.lcssa157 = phi i64 [ %indvars.iv.next.i120141, %.critedge.i ], [ %146, %.lr.ph.preheader.i ]
+  %.lcssa135156 = phi i32 [ %153, %.critedge.i ], [ %.pr.i, %.lr.ph.preheader.i ]
+  %wide.trip.count.i = and i64 %indvars.iv.i119.lcssa157, 4294967295
   br label %.lr.ph30.i
 
 .lr.ph30.i:                                       ; preds = %159, %.lr.ph30.preheader.i
@@ -358,13 +358,13 @@ _ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi.exit117: ; preds = %._cr
   br i1 %exitcond.not.i, label %.critedge2.i, label %.lr.ph30.i, !llvm.loop !13
 
 .critedge2.i:                                     ; preds = %.lr.ph30.i, %159
-  %.020.lcssa.in.i = phi i64 [ %indvars.iv.i119.lcssa154, %159 ], [ %indvars.iv39.i, %.lr.ph30.i ]
+  %.020.lcssa.in.i = phi i64 [ %indvars.iv.i119.lcssa157, %159 ], [ %indvars.iv39.i, %.lr.ph30.i ]
   %.020.lcssa.i = trunc i64 %.020.lcssa.in.i to i32
   %.not.i121 = icmp eq i32 %.020.lcssa.i, 0
   br i1 %.not.i121, label %_ZN17double_conversionL9TrimZerosENS_6VectorIcEEPiS2_.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.critedge2.i
-  %160 = icmp sgt i32 %.lcssa135153, %.020.lcssa.i
+  %160 = icmp sgt i32 %.lcssa135156, %.020.lcssa.i
   br i1 %160, label %.lr.ph35.preheader.i, label %._crit_edge.i122
 
 .lr.ph35.preheader.i:                             ; preds = %.preheader.i
@@ -373,7 +373,7 @@ _ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi.exit117: ; preds = %._cr
   br label %.lr.ph35.i
 
 ._crit_edge.i122:                                 ; preds = %.lr.ph35.i, %.preheader.i
-  %.lcssa.i = phi i32 [ %.lcssa135153, %.preheader.i ], [ %169, %.lr.ph35.i ]
+  %.lcssa.i = phi i32 [ %.lcssa135156, %.preheader.i ], [ %169, %.lr.ph35.i ]
   %162 = sub nsw i32 %.lcssa.i, %.020.lcssa.i
   store i32 %162, ptr %4, align 4, !tbaa !3
   %163 = load i32, ptr %5, align 4, !tbaa !3
@@ -396,7 +396,7 @@ _ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi.exit117: ; preds = %._cr
   br i1 %171, label %.lr.ph35.i, label %._crit_edge.i122, !llvm.loop !14
 
 _ZN17double_conversionL9TrimZerosENS_6VectorIcEEPiS2_.exit: ; preds = %.lr.ph, %144, %.critedge.i, %.critedge2.i, %._crit_edge.i122
-  %172 = phi i32 [ %.pr.i, %144 ], [ %153, %.critedge.i ], [ %.lcssa135153, %.critedge2.i ], [ %.pre150, %._crit_edge.i122 ], [ %153, %.lr.ph ]
+  %172 = phi i32 [ %.pr.i, %144 ], [ %153, %.critedge.i ], [ %.lcssa135156, %.critedge2.i ], [ %.pre150, %._crit_edge.i122 ], [ %153, %.lr.ph ]
   %173 = sext i32 %172 to i64
   %174 = getelementptr inbounds i8, ptr %2, i64 %173
   store i8 0, ptr %174, align 1, !tbaa !7
@@ -836,10 +836,10 @@ _ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit: ; preds = %.lr.ph
   %.sroa.0.0.lcssa = phi i64 [ %.sroa.0.1, %_ZN17double_conversion7UInt1285ShiftEi.exit ], [ 0, %._crit_edge.loopexit.split.loop.exit ], [ %86, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
   %.039.lcssa = phi i32 [ 128, %_ZN17double_conversion7UInt1285ShiftEi.exit ], [ %95, %._crit_edge.loopexit.split.loop.exit ], [ %67, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
   %96 = icmp sgt i32 %.039.lcssa, 64
-  %.sink6.i.v = select i1 %96, i32 -65, i32 -1
-  %.sink6.i = add nsw i32 %.sink6.i.v, %.039.lcssa
+  %.sink7.i.v = select i1 %96, i32 -65, i32 -1
+  %.sink7.i = add nsw i32 %.sink7.i.v, %.039.lcssa
   %.sink.i42 = select i1 %96, i64 %.sroa.0.0.lcssa, i64 %.sroa.17.0.lcssa
-  %97 = zext nneg i32 %.sink6.i to i64
+  %97 = zext nneg i32 %.sink7.i to i64
   %98 = shl nuw i64 1, %97
   %99 = and i64 %98, %.sink.i42
   %.not68 = icmp eq i64 %99, 0

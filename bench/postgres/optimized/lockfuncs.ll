@@ -152,7 +152,7 @@ define dso_local i64 @pg_lock_status(ptr noundef %0) local_unnamed_addr #0 {
   %52 = xor i32 %46, -1
   %53 = and i32 %45, %52
   store i32 %53, ptr %51, align 8
-  br label %.loopexit212
+  br label %.loopexit220
 
 .loopexit:                                        ; preds = %48, %39
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 20
@@ -160,9 +160,9 @@ define dso_local i64 @pg_lock_status(ptr noundef %0) local_unnamed_addr #0 {
   %.not146 = icmp eq i32 %55, 0
   %56 = add i32 %41, 1
   store i32 %56, ptr %34, align 8
-  br i1 %.not146, label %226, label %.loopexit212
+  br i1 %.not146, label %226, label %.loopexit220
 
-.loopexit212:                                     ; preds = %.loopexit, %50
+.loopexit220:                                     ; preds = %.loopexit, %50
   %.0130153 = phi i1 [ true, %50 ], [ false, %.loopexit ]
   %.2133 = phi i32 [ %.1132170, %50 ], [ %55, %.loopexit ]
   %57 = getelementptr inbounds nuw i8, ptr %43, i64 14
@@ -170,13 +170,13 @@ define dso_local i64 @pg_lock_status(ptr noundef %0) local_unnamed_addr #0 {
   %59 = icmp ult i8 %58, 12
   br i1 %59, label %60, label %64
 
-60:                                               ; preds = %.loopexit212
+60:                                               ; preds = %.loopexit220
   %61 = zext nneg i8 %58 to i64
   %62 = getelementptr inbounds nuw [12 x ptr], ptr @LockTagTypeNames, i64 0, i64 %61
   %63 = load ptr, ptr %62, align 8
   br label %67
 
-64:                                               ; preds = %.loopexit212
+64:                                               ; preds = %.loopexit220
   %65 = zext i8 %58 to i32
   %66 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.23, i32 noundef %65) #4
   br label %67

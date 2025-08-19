@@ -1568,8 +1568,8 @@ thread-pre-split:                                 ; preds = %._crit_edge
   br label %.thread
 
 .thread:                                          ; preds = %561, %40, %565, %572, %571, %573, %562, %.thread358, %thread-pre-split
-  %.0323.lcssa407 = phi i32 [ %64, %572 ], [ %64, %571 ], [ %64, %573 ], [ %64, %562 ], [ %64, %.thread358 ], [ %64, %thread-pre-split ], [ %64, %565 ], [ %41, %40 ], [ %64, %561 ]
-  %.0325.lcssa403 = phi i32 [ %.1326, %572 ], [ %.1326, %571 ], [ %.1326, %573 ], [ %.1326, %562 ], [ %.1326, %.thread358 ], [ %.1326, %thread-pre-split ], [ %.1326, %565 ], [ 8, %40 ], [ %.1326, %561 ]
+  %.0323.lcssa421 = phi i32 [ %64, %572 ], [ %64, %571 ], [ %64, %573 ], [ %64, %562 ], [ %64, %.thread358 ], [ %64, %thread-pre-split ], [ %64, %565 ], [ %41, %40 ], [ %64, %561 ]
+  %.0325.lcssa417 = phi i32 [ %.1326, %572 ], [ %.1326, %571 ], [ %.1326, %573 ], [ %.1326, %562 ], [ %.1326, %.thread358 ], [ %.1326, %thread-pre-split ], [ %.1326, %565 ], [ 8, %40 ], [ %.1326, %561 ]
   %580 = load i8, ptr @ppi_ampdu_reassemble, align 1, !range !8, !noundef !9
   %581 = trunc nuw i8 %580 to i1
   br i1 %581, label %582, label %677
@@ -1581,7 +1581,7 @@ thread-pre-split:                                 ; preds = %._crit_edge
   br i1 %.not335, label %677, label %585
 
 585:                                              ; preds = %582
-  %586 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0325.lcssa403)
+  %586 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0325.lcssa417)
   %587 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store i8 1, ptr %587, align 8
   %588 = load i32, ptr %8, align 4
@@ -1612,12 +1612,12 @@ thread-pre-split:                                 ; preds = %._crit_edge
   br i1 %596, label %597, label %.thread359
 
 597:                                              ; preds = %._crit_edge370
-  %598 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0317, ptr noundef %1, ptr noundef nonnull @ei_ppi_invalid_length, ptr noundef %0, i32 noundef %.0325.lcssa403, i32 noundef -1, ptr noundef nonnull @.str.302, i32 noundef 65535)
+  %598 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0317, ptr noundef %1, ptr noundef nonnull @ei_ppi_invalid_length, ptr noundef %0, i32 noundef %.0325.lcssa417, i32 noundef -1, ptr noundef nonnull @.str.302, i32 noundef 65535)
   br label %684
 
 .thread359:                                       ; preds = %.preheader, %585, %._crit_edge370
   %.0361 = phi i32 [ %595, %._crit_edge370 ], [ 0, %585 ], [ 0, %.preheader ]
-  %599 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @ampdu_reassembly_table, ptr noundef %0, i32 noundef %.0325.lcssa403, ptr noundef %1, i32 noundef %588, ptr noundef null, i32 noundef %586, i1 noundef zeroext true)
+  %599 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @ampdu_reassembly_table, ptr noundef %0, i32 noundef %.0325.lcssa417, ptr noundef %1, i32 noundef %588, ptr noundef null, i32 noundef %586, i1 noundef zeroext true)
   store i8 1, ptr %587, align 8
   %600 = tail call ptr @fragment_get(ptr noundef nonnull @ampdu_reassembly_table, ptr noundef %1, i32 noundef %588, ptr noundef null)
   %601 = icmp ne ptr %600, null
@@ -1627,7 +1627,7 @@ thread-pre-split:                                 ; preds = %._crit_edge
 602:                                              ; preds = %.thread359
   %603 = load ptr, ptr %600, align 8
   %604 = load i32, ptr @ett_ampdu_segments, align 4
-  %605 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0317, ptr noundef %0, i32 noundef %.0325.lcssa403, i32 noundef -1, i32 noundef %604, ptr noundef nonnull %5, ptr noundef nonnull @.str.303, i32 noundef %.0361)
+  %605 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0317, ptr noundef %0, i32 noundef %.0325.lcssa417, i32 noundef -1, i32 noundef %604, ptr noundef nonnull %5, ptr noundef nonnull @.str.303, i32 noundef %.0361)
   %606 = load ptr, ptr %5, align 8
   %.not.i356 = icmp eq ptr %606, null
   br i1 %.not.i356, label %proto_item_set_generated.exit, label %607
@@ -1647,7 +1647,7 @@ thread-pre-split:                                 ; preds = %._crit_edge
 
 proto_item_set_generated.exit:                    ; preds = %602, %607, %610
   %.not338372 = icmp eq ptr %603, null
-  br i1 %.not338372, label %.thread416, label %.lr.ph376
+  br i1 %.not338372, label %.thread430, label %.lr.ph376
 
 .lr.ph376:                                        ; preds = %proto_item_set_generated.exit, %632
   %.0313375 = phi i32 [ %.1314, %632 ], [ 0, %proto_item_set_generated.exit ]
@@ -1713,21 +1713,21 @@ proto_item_set_generated.exit:                    ; preds = %602, %607, %610
 
 640:                                              ; preds = %._crit_edge377, %634, %637, %.thread359
   %.0322 = phi ptr [ %605, %637 ], [ %605, %634 ], [ %605, %._crit_edge377 ], [ null, %.thread359 ]
-  br i1 %601, label %.thread416, label %670
+  br i1 %601, label %.thread430, label %670
 
-.thread416:                                       ; preds = %proto_item_set_generated.exit, %640
-  %.0322418 = phi ptr [ %.0322, %640 ], [ %605, %proto_item_set_generated.exit ]
+.thread430:                                       ; preds = %proto_item_set_generated.exit, %640
+  %.0322432 = phi ptr [ %.0322, %640 ], [ %605, %proto_item_set_generated.exit ]
   %641 = load i32, ptr %7, align 4
   %642 = and i32 %641, 96
   %or.cond = icmp eq i32 %642, 32
   br i1 %or.cond, label %670, label %643
 
-643:                                              ; preds = %.thread416
+643:                                              ; preds = %.thread430
   br i1 %20, label %644, label %649
 
 644:                                              ; preds = %643
   %645 = call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str.309)
-  %646 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %645, ptr noundef %0, i32 noundef 0, i32 noundef %.0323.lcssa407, ptr noundef nonnull @.str.310)
+  %646 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %645, ptr noundef %0, i32 noundef 0, i32 noundef %.0323.lcssa421, ptr noundef nonnull @.str.310)
   store ptr %646, ptr %5, align 8
   %647 = load i32, ptr @ett_ampdu, align 4
   %648 = call ptr @proto_item_add_subtree(ptr noundef %646, i32 noundef %647)
@@ -1779,12 +1779,12 @@ proto_item_set_generated.exit:                    ; preds = %602, %607, %610
 ._crit_edge385:                                   ; preds = %667, %649
   %.0318.lcssa = phi i32 [ 0, %649 ], [ %.1319, %667 ]
   %668 = load i32, ptr @hf_ampdu_count, align 4
-  %669 = call ptr @proto_tree_add_uint(ptr noundef %.0322418, i32 noundef %668, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.0318.lcssa)
+  %669 = call ptr @proto_tree_add_uint(ptr noundef %.0322432, i32 noundef %668, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.0318.lcssa)
   store i8 0, ptr %587, align 8
   br label %675
 
-670:                                              ; preds = %.thread416, %640
-  %671 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0325.lcssa403)
+670:                                              ; preds = %.thread430, %640
+  %671 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0325.lcssa417)
   %672 = load ptr, ptr %10, align 8
   call void @col_set_str(ptr noundef %672, i32 noundef 35, ptr noundef nonnull @.str.312)
   %673 = load ptr, ptr %10, align 8
@@ -1797,7 +1797,7 @@ proto_item_set_generated.exit:                    ; preds = %602, %607, %610
   br label %684
 
 677:                                              ; preds = %582, %.thread
-  %678 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0325.lcssa403)
+  %678 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0325.lcssa417)
   %679 = load i32, ptr %6, align 4
   %680 = icmp eq i32 %679, 105
   %. = select i1 %680, ptr %9, ptr %6
@@ -1809,7 +1809,7 @@ proto_item_set_generated.exit:                    ; preds = %602, %607, %610
   br label %684
 
 684:                                              ; preds = %677, %675, %597
-  %.0312 = phi i32 [ %.0325.lcssa403, %597 ], [ %676, %675 ], [ %683, %677 ]
+  %.0312 = phi i32 [ %.0325.lcssa417, %597 ], [ %676, %675 ], [ %683, %677 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -738,8 +738,8 @@ switch.lookup:                                    ; preds = %238
   br label %248
 
 248:                                              ; preds = %238, %switch.lookup
-  %.sink409 = phi i32 [ %switch.load, %switch.lookup ], [ 8, %238 ]
-  %249 = or i32 %241, %.sink409
+  %.sink462 = phi i32 [ %switch.load, %switch.lookup ], [ 8, %238 ]
+  %249 = or i32 %241, %.sink462
   store i32 %249, ptr %76, align 8
   br i1 %.not358, label %._crit_edge348, label %.lr.ph347
 
@@ -1556,8 +1556,8 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br i1 %.not91, label %._crit_edge79, label %.lr.ph78
 
 .lr.ph78:                                         ; preds = %3, %_ZNSt6vectorIjSaIjEE7reserveEm.exit
-  %.sroa.19.5115 = phi ptr [ %10, %_ZNSt6vectorIjSaIjEE7reserveEm.exit ], [ null, %3 ]
-  %.sroa.0.5114 = phi ptr [ %9, %_ZNSt6vectorIjSaIjEE7reserveEm.exit ], [ null, %3 ]
+  %.sroa.19.5119 = phi ptr [ %10, %_ZNSt6vectorIjSaIjEE7reserveEm.exit ], [ null, %3 ]
+  %.sroa.0.5118 = phi ptr [ %9, %_ZNSt6vectorIjSaIjEE7reserveEm.exit ], [ null, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 1128
   br label %18
@@ -1581,9 +1581,9 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
 18:                                               ; preds = %.lr.ph78, %._crit_edge
   %19 = phi i32 [ %5, %.lr.ph78 ], [ %27, %._crit_edge ]
   %indvars.iv100 = phi i64 [ 0, %.lr.ph78 ], [ %indvars.iv.next101, %._crit_edge ]
-  %.sroa.19.176 = phi ptr [ %.sroa.19.5115, %.lr.ph78 ], [ %.sroa.19.3.lcssa, %._crit_edge ]
-  %.sroa.12.075 = phi ptr [ %.sroa.0.5114, %.lr.ph78 ], [ %.sroa.12.1.lcssa, %._crit_edge ]
-  %.sroa.0.174 = phi ptr [ %.sroa.0.5114, %.lr.ph78 ], [ %.sroa.0.3.lcssa, %._crit_edge ]
+  %.sroa.19.176 = phi ptr [ %.sroa.19.5119, %.lr.ph78 ], [ %.sroa.19.3.lcssa, %._crit_edge ]
+  %.sroa.12.075 = phi ptr [ %.sroa.0.5118, %.lr.ph78 ], [ %.sroa.12.1.lcssa, %._crit_edge ]
+  %.sroa.0.174 = phi ptr [ %.sroa.0.5118, %.lr.ph78 ], [ %.sroa.0.3.lcssa, %._crit_edge ]
   %20 = load ptr, ptr %11, align 8
   %21 = load ptr, ptr %2, align 8
   %22 = ptrtoint ptr %20 to i64
@@ -1809,8 +1809,8 @@ define hidden noalias noundef ptr @_Z28ComputeVertexBoneWeightTablePK6aiMesh(ptr
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.fr33 = freeze i32 %4
-  %.not19 = icmp eq i32 %.fr33, 0
+  %.fr39 = freeze i32 %4
+  %.not19 = icmp eq i32 %.fr39, 0
   br i1 %.not19, label %.loopexit, label %5
 
 5:                                                ; preds = %2
@@ -1820,7 +1820,7 @@ define hidden noalias noundef ptr @_Z28ComputeVertexBoneWeightTablePK6aiMesh(ptr
   br i1 %.not20, label %.loopexit, label %.lr.ph25
 
 .lr.ph25:                                         ; preds = %5
-  %8 = zext i32 %.fr33 to i64
+  %8 = zext i32 %.fr39 to i64
   %9 = mul nuw nsw i64 %8, 24
   %10 = add nuw nsw i64 %9, 8
   %11 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #15

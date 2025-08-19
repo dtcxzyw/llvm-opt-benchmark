@@ -551,9 +551,9 @@ _ZN5clangL27isValidPreserveFieldInfoArgEPNS_4ExprE.exit: ; preds = %165
   %259 = load i32, ptr %258, align 4
   %260 = and i32 %259, 127
   %261 = icmp eq i32 %260, 31
-  br i1 %261, label %_ZNK5clang8EnumDecl11enumeratorsEv.exit.thread43.i, label %263
+  br i1 %261, label %_ZNK5clang8EnumDecl11enumeratorsEv.exit.thread46.i, label %263
 
-_ZNK5clang8EnumDecl11enumeratorsEv.exit.thread43.i: ; preds = %.lr.ph.i.i.i.i.i
+_ZNK5clang8EnumDecl11enumeratorsEv.exit.thread46.i: ; preds = %.lr.ph.i.i.i.i.i
   %262 = call noundef ptr @_ZNK5clang7TagDecl13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(156) %254) #11
   br label %.lr.ph.i.i.i.i29.i
 
@@ -565,8 +565,8 @@ _ZNK5clang8EnumDecl11enumeratorsEv.exit.thread43.i: ; preds = %.lr.ph.i.i.i.i.i
   %.not.i.i.i.i.i = icmp eq i64 %265, 0
   br i1 %.not.i.i.i.i.i, label %_ZN5clangL26isValidPreserveTypeInfoArgEPNS_4ExprE.exit.thread114.sink.split, label %.lr.ph.i.i.i.i.i, !llvm.loop !93
 
-.lr.ph.i.i.i.i29.i:                               ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_16EnumConstantDeclEEppEv.exit.i.i.i.i.i, %_ZNK5clang8EnumDecl11enumeratorsEv.exit.thread43.i
-  %.sroa.03.05.i.i.i.i.i = phi ptr [ %.sroa.03.2.i.i.i.i.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_16EnumConstantDeclEEppEv.exit.i.i.i.i.i ], [ %.sroa.0.0.i.i.i, %_ZNK5clang8EnumDecl11enumeratorsEv.exit.thread43.i ]
+.lr.ph.i.i.i.i29.i:                               ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_16EnumConstantDeclEEppEv.exit.i.i.i.i.i, %_ZNK5clang8EnumDecl11enumeratorsEv.exit.thread46.i
+  %.sroa.03.05.i.i.i.i.i = phi ptr [ %.sroa.03.2.i.i.i.i.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_16EnumConstantDeclEEppEv.exit.i.i.i.i.i ], [ %.sroa.0.0.i.i.i, %_ZNK5clang8EnumDecl11enumeratorsEv.exit.thread46.i ]
   %267 = icmp eq ptr %.sroa.03.05.i.i.i.i.i, %239
   br i1 %267, label %.thread, label %268
 

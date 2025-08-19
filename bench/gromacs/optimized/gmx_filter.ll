@@ -868,9 +868,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit285:       ; preds = %_ZNKSt7__cxx1112bas
 
 .loopexit341:                                     ; preds = %..loopexit_crit_edge, %.preheader340, %280
   %indvars.iv.next477 = add nsw i64 %indvars.iv476, -1
-  %.not552 = icmp eq i64 %indvars.iv476, 0
+  %.not588 = icmp eq i64 %indvars.iv476, 0
   %indvars.iv.next475 = add nsw i64 %indvars.iv474, -1
-  br i1 %.not552, label %312, label %280, !llvm.loop !76
+  br i1 %.not588, label %312, label %280, !llvm.loop !76
 
 312:                                              ; preds = %.loopexit341
   %indvars.iv.next482 = add nuw nsw i64 %indvars.iv481, 1

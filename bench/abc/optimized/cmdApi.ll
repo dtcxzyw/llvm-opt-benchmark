@@ -90,13 +90,13 @@ declare i32 @st__insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 define range(i32 0, 2) i32 @Cmd_CommandHandleSpecial(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %.thread165, label %4
+  br i1 %.not, label %.thread167, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %3, i64 4
   %.val = load i32, ptr %5, align 4, !tbaa !30
   %.not139 = icmp eq i32 %.val, 4
-  br i1 %.not139, label %6, label %.thread165
+  br i1 %.not139, label %6, label %.thread167
 
 6:                                                ; preds = %4
   %7 = getelementptr i8, ptr %3, i64 56
@@ -112,13 +112,13 @@ define range(i32 0, 2) i32 @Cmd_CommandHandleSpecial(ptr noundef %0, ptr noundef
   %12 = tail call double @Abc_NtkGetMappedArea(ptr noundef nonnull %3) #8
   %.val122.pre = load i32, ptr %5, align 4, !tbaa !30
   %13 = icmp eq i32 %.val122.pre, 4
-  br i1 %13, label %14, label %.thread165
+  br i1 %13, label %14, label %.thread167
 
 14:                                               ; preds = %6
   %15 = tail call i32 @Abc_NtkLevel(ptr noundef nonnull %3) #8
-  br label %.thread165
+  br label %.thread167
 
-.thread165:                                       ; preds = %4, %2, %6, %14
+.thread167:                                       ; preds = %4, %2, %6, %14
   %16 = phi double [ %12, %14 ], [ %12, %6 ], [ 0.000000e+00, %2 ], [ 0.000000e+00, %4 ]
   %17 = phi i32 [ %.val124.val, %14 ], [ %.val124.val, %6 ], [ 0, %2 ], [ 0, %4 ]
   %18 = phi i32 [ %.val123.val, %14 ], [ %.val123.val, %6 ], [ 0, %2 ], [ 0, %4 ]
@@ -128,7 +128,7 @@ define range(i32 0, 2) i32 @Cmd_CommandHandleSpecial(ptr noundef %0, ptr noundef
   %.not95 = icmp eq ptr %21, null
   br i1 %.not95, label %28, label %22
 
-22:                                               ; preds = %.thread165
+22:                                               ; preds = %.thread167
   %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %18)
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %17)
   %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %19)
@@ -137,7 +137,7 @@ define range(i32 0, 2) i32 @Cmd_CommandHandleSpecial(ptr noundef %0, ptr noundef
   %putchar = tail call i32 @putchar(i32 10)
   br label %119
 
-28:                                               ; preds = %.thread165
+28:                                               ; preds = %.thread167
   %29 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.8) #10
   %.not96 = icmp eq ptr %29, null
   br i1 %.not96, label %32, label %30

@@ -3186,16 +3186,16 @@ define dso_local void @blk_mq_end_request_batch(ptr noundef captures(address_is_
 .lr.ph.preheader:                                 ; preds = %8
   %11 = load ptr, ptr %0, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %._crit_edge, label %.lr.ph41
+  br i1 %12, label %._crit_edge, label %.lr.ph52
 
-.lr.ph41:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph52:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %13 = phi ptr [ %262, %.lr.ph ], [ %11, %.lr.ph.preheader ]
   %14 = phi ptr [ %255, %.lr.ph ], [ null, %.lr.ph.preheader ]
   %15 = phi i32 [ %259, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   br label %16
 
-16:                                               ; preds = %.lr.ph41, %182
-  %17 = phi ptr [ %13, %.lr.ph41 ], [ %183, %182 ]
+16:                                               ; preds = %.lr.ph52, %182
+  %17 = phi ptr [ %13, %.lr.ph52 ], [ %183, %182 ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %0, align 8
@@ -3606,12 +3606,12 @@ define dso_local void @blk_mq_end_request_batch(ptr noundef captures(address_is_
   store i32 %258, ptr %261, align 4
   %262 = load ptr, ptr %0, align 8
   %263 = icmp eq ptr %262, null
-  br i1 %263, label %._crit_edge, label %.lr.ph41
+  br i1 %263, label %._crit_edge, label %.lr.ph52
 
 ._crit_edge:                                      ; preds = %.lr.ph, %182, %.lr.ph.preheader
-  %.lcssa40 = phi i32 [ 0, %.lr.ph.preheader ], [ %15, %182 ], [ %259, %.lr.ph ]
+  %.lcssa51 = phi i32 [ 0, %.lr.ph.preheader ], [ %15, %182 ], [ %259, %.lr.ph ]
   %.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %14, %182 ], [ %255, %.lr.ph ]
-  %264 = icmp eq i32 %.lcssa40, 0
+  %264 = icmp eq i32 %.lcssa51, 0
   br i1 %264, label %._crit_edge.thread, label %265
 
 265:                                              ; preds = %._crit_edge
@@ -3630,20 +3630,20 @@ define dso_local void @blk_mq_end_request_batch(ptr noundef captures(address_is_
 
 275:                                              ; preds = %272
   %276 = getelementptr inbounds nuw i8, ptr %267, i64 392
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %276, i32 %.lcssa40, ptr nonnull elementtype(i32) %276) #22, !srcloc !42
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %276, i32 %.lcssa51, ptr nonnull elementtype(i32) %276) #22, !srcloc !42
   br label %279
 
 277:                                              ; preds = %272
   %278 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 344
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %278, i32 %.lcssa40, ptr nonnull elementtype(i32) %278) #22, !srcloc !42
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %278, i32 %.lcssa51, ptr nonnull elementtype(i32) %278) #22, !srcloc !42
   br label %279
 
 279:                                              ; preds = %277, %275, %265
   %280 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 320
   %281 = load ptr, ptr %280, align 64
-  call void @blk_mq_put_tags(ptr noundef %281, ptr noundef nonnull %2, i32 noundef %.lcssa40) #22
+  call void @blk_mq_put_tags(ptr noundef %281, ptr noundef nonnull %2, i32 noundef %.lcssa51) #22
   %282 = getelementptr inbounds nuw i8, ptr %267, i64 72
-  %283 = sext i32 %.lcssa40 to i64
+  %283 = sext i32 %.lcssa51 to i64
   call void @__rcu_read_lock() #22
   %284 = load volatile i64, ptr %282, align 8
   %285 = and i64 %284, 3
@@ -5411,7 +5411,7 @@ define dso_local ptr @blk_mq_dequeue_from_ctx(ptr noundef readonly captures(none
   %60 = icmp ugt i32 %55, %59
   br i1 %60, label %.lr.ph, label %.loopexit
 
-61:                                               ; preds = %.thread10, %99
+61:                                               ; preds = %.thread19, %99
   %62 = add nuw i32 %67, 1
   %63 = zext i32 %62 to i64
   %64 = call i64 @_find_next_bit(ptr noundef nonnull %3, i64 noundef %56, i64 noundef %63) #22
@@ -5435,9 +5435,9 @@ define dso_local ptr @blk_mq_dequeue_from_ctx(ptr noundef readonly captures(none
   %78 = getelementptr [3 x %struct.list_head], ptr %76, i64 0, i64 %77
   %79 = load volatile ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, %78
-  br i1 %80, label %.thread10, label %81
+  br i1 %80, label %.thread19, label %81
 
-.thread10:                                        ; preds = %.lr.ph
+.thread19:                                        ; preds = %.lr.ph
   call void @_raw_spin_unlock(ptr noundef %74) #22
   br label %61
 
@@ -7231,9 +7231,9 @@ define internal fastcc void @blk_mq_plug_issue_direct(ptr noundef captures(addre
 .lr.ph.preheader:                                 ; preds = %1
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %._crit_edge.thread, label %.lr.ph80
+  br i1 %4, label %._crit_edge.thread, label %.lr.ph87
 
-.lr.ph80:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph87:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %5 = phi ptr [ %72, %.lr.ph ], [ %3, %.lr.ph.preheader ]
   %6 = phi i32 [ %71, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %7 = phi ptr [ %55, %.lr.ph ], [ null, %.lr.ph.preheader ]
@@ -7246,7 +7246,7 @@ define internal fastcc void @blk_mq_plug_issue_direct(ptr noundef captures(addre
   %13 = icmp eq ptr %7, %12
   br i1 %13, label %53, label %14
 
-14:                                               ; preds = %.lr.ph80
+14:                                               ; preds = %.lr.ph87
   %15 = icmp eq ptr %7, null
   br i1 %15, label %53, label %16
 
@@ -7312,9 +7312,9 @@ define internal fastcc void @blk_mq_plug_issue_direct(ptr noundef captures(addre
   %.pre = load ptr, ptr %11, align 8
   br label %53
 
-53:                                               ; preds = %14, %16, %47, %.lr.ph80
-  %54 = phi i32 [ %6, %.lr.ph80 ], [ %6, %14 ], [ 0, %16 ], [ 0, %47 ]
-  %55 = phi ptr [ %7, %.lr.ph80 ], [ %12, %14 ], [ %12, %16 ], [ %.pre, %47 ]
+53:                                               ; preds = %14, %16, %47, %.lr.ph87
+  %54 = phi i32 [ %6, %.lr.ph87 ], [ %6, %14 ], [ 0, %16 ], [ 0, %47 ]
+  %55 = phi ptr [ %7, %.lr.ph87 ], [ %12, %14 ], [ %12, %16 ], [ %.pre, %47 ]
   %56 = tail call fastcc zeroext i8 @blk_mq_request_issue_directly(ptr noundef nonnull %5, i1 noundef zeroext %10)
   switch i8 %56, label %65 [
     i8 0, label %57
@@ -7361,7 +7361,7 @@ define internal fastcc void @blk_mq_plug_issue_direct(ptr noundef captures(addre
   %71 = phi i32 [ %54, %70 ], [ %58, %57 ]
   %72 = load ptr, ptr %0, align 8
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %.lr.ph.._crit_edge_crit_edge, label %.lr.ph80
+  br i1 %73, label %.lr.ph.._crit_edge_crit_edge, label %.lr.ph87
 
 .lr.ph.._crit_edge_crit_edge:                     ; preds = %.lr.ph
   %74 = icmp eq i8 %56, 0
@@ -10197,7 +10197,7 @@ define internal void @blk_mq_timeout_work(ptr noundef %0) #0 align 16 {
 12:                                               ; preds = %1
   %13 = inttoptr i64 %9 to ptr
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %13, ptr elementtype(i64) %13) #22, !srcloc !224
-  br label %.loopexit5
+  br label %.loopexit9
 
 14:                                               ; preds = %1
   %15 = getelementptr i8, ptr %0, i64 -280
@@ -10218,21 +10218,21 @@ define internal void @blk_mq_timeout_work(ptr noundef %0) #0 align 16 {
   %23 = icmp ult i8 %22, 2
   tail call void @llvm.assume(i1 %23)
   %24 = icmp eq i8 %22, 0
-  br i1 %24, label %25, label %.loopexit5, !prof !12
+  br i1 %24, label %25, label %.loopexit9, !prof !12
 
 25:                                               ; preds = %.lr.ph
   %26 = extractvalue { i8, i64 } %21, 1
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %.thread4, label %.lr.ph, !prof !165, !llvm.loop !166
 
-.loopexit5:                                       ; preds = %.lr.ph, %12
+.loopexit9:                                       ; preds = %.lr.ph, %12
   tail call void @__rcu_read_unlock() #22
   call void @blk_mq_queue_tag_busy_iter(ptr noundef %4, ptr noundef nonnull @blk_mq_check_expired, ptr noundef nonnull %2) #22
   %28 = load i8, ptr %2, align 8, !range !63, !noundef !64
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %42, label %30
 
-30:                                               ; preds = %.loopexit5
+30:                                               ; preds = %.loopexit9
   %31 = getelementptr i8, ptr %0, i64 432
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 84
@@ -10256,7 +10256,7 @@ define internal void @blk_mq_timeout_work(ptr noundef %0) #0 align 16 {
   call void @blk_mq_queue_tag_busy_iter(ptr noundef %4, ptr noundef nonnull @blk_mq_handle_expired, ptr noundef nonnull %2) #22
   br label %42
 
-42:                                               ; preds = %41, %.loopexit5
+42:                                               ; preds = %41, %.loopexit9
   %43 = load i64, ptr %5, align 8
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %48, label %45
@@ -10855,7 +10855,7 @@ define dso_local i32 @blk_mq_alloc_tag_set(ptr noundef %0) #0 align 16 {
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %.thread10, label %35
+  br i1 %34, label %.thread16, label %35
 
 35:                                               ; preds = %30
   %36 = icmp ugt i32 %33, 3
@@ -10866,13 +10866,13 @@ define dso_local i32 @blk_mq_alloc_tag_set(ptr noundef %0) #0 align 16 {
   %39 = icmp eq i64 %38, -1
   br i1 %39, label %43, label %.thread
 
-.thread10:                                        ; preds = %30
+.thread16:                                        ; preds = %30
   store i32 1, ptr %32, align 8
   %40 = load i64, ptr @elfcorehdr_addr, align 8
   %41 = icmp eq i64 %40, -1
   br i1 %41, label %._crit_edge, label %.thread
 
-.thread:                                          ; preds = %.thread10, %37
+.thread:                                          ; preds = %.thread16, %37
   store i32 1, ptr %2, align 4
   store i32 1, ptr %32, align 8
   %42 = tail call i32 @llvm.umin.i32(i32 %31, i32 64)
@@ -10883,7 +10883,7 @@ define dso_local i32 @blk_mq_alloc_tag_set(ptr noundef %0) #0 align 16 {
   %44 = icmp eq i32 %33, 1
   br i1 %44, label %._crit_edge, label %50
 
-._crit_edge:                                      ; preds = %.thread10, %43
+._crit_edge:                                      ; preds = %.thread16, %43
   %.pre = load i32, ptr %2, align 4
   br label %45
 
@@ -12395,7 +12395,7 @@ define dso_local range(i32 0, -2147483648) i32 @blk_rq_poll(ptr noundef readonly
 17:                                               ; preds = %12
   %18 = inttoptr i64 %14 to ptr
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %18, ptr elementtype(i64) %18) #22, !srcloc !224
-  br label %.loopexit31
+  br label %.loopexit38
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -12416,14 +12416,14 @@ define dso_local range(i32 0, -2147483648) i32 @blk_rq_poll(ptr noundef readonly
   %28 = icmp ult i8 %27, 2
   tail call void @llvm.assume(i1 %28)
   %29 = icmp eq i8 %27, 0
-  br i1 %29, label %30, label %.loopexit31, !prof !12
+  br i1 %29, label %30, label %.loopexit38, !prof !12
 
 30:                                               ; preds = %.lr.ph
   %31 = extractvalue { i8, i64 } %26, 1
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %.thread6, label %.lr.ph, !prof !165, !llvm.loop !166
 
-.loopexit31:                                      ; preds = %.lr.ph, %17
+.loopexit38:                                      ; preds = %.lr.ph, %17
   tail call void @__rcu_read_unlock() #22
   %33 = load ptr, ptr %5, align 8
   %34 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #23, !srcloc !22
@@ -12438,7 +12438,7 @@ define dso_local range(i32 0, -2147483648) i32 @blk_rq_poll(ptr noundef readonly
   %42 = and i32 %2, 1
   br i1 %40, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %.loopexit31, %53
+.split.us:                                        ; preds = %.loopexit38, %53
   %43 = load ptr, ptr %38, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 64
   %45 = load ptr, ptr %44, align 8
@@ -12463,7 +12463,7 @@ define dso_local range(i32 0, -2147483648) i32 @blk_rq_poll(ptr noundef readonly
   %56 = icmp eq i64 %55, 0
   br i1 %56, label %.split.us, label %.split8.us, !llvm.loop !122
 
-.split:                                           ; preds = %.loopexit31
+.split:                                           ; preds = %.loopexit38
   %57 = and i32 %.fr, 1
   %.not = icmp eq i32 %57, 0
   br i1 %.not, label %.split.split, label %.split.split.us

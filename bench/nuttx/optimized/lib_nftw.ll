@@ -65,7 +65,7 @@ define internal fastcc i32 @do_nftw(ptr noundef nonnull %0, ptr noundef readonly
 
 .critedge2:                                       ; preds = %15, %.lr.ph122, %23, %.critedge
   %25 = phi i64 [ 0, %.critedge ], [ %19, %23 ], [ %19, %.lr.ph122 ], [ 0, %15 ]
-  %.077.lcssa130 = phi i64 [ 1, %.critedge ], [ %.077.lcssa, %23 ], [ %.077.lcssa, %.lr.ph122 ], [ 1, %15 ]
+  %.077.lcssa140 = phi i64 [ 1, %.critedge ], [ %.077.lcssa, %23 ], [ %.077.lcssa, %.lr.ph122 ], [ 1, %15 ]
   %.079.lcssa = phi i64 [ 0, %.critedge ], [ %.079121, %.lr.ph122 ], [ 0, %23 ], [ 0, %15 ]
   %26 = and i32 %3, 1
   %.not90 = icmp eq i32 %26, 0
@@ -203,13 +203,13 @@ call_nftw.exit:                                   ; preds = %.thread.i, %74
   br i1 %.not97, label %84, label %81
 
 81:                                               ; preds = %78
-  %82 = add i64 %.077.lcssa130, 1
-  %83 = getelementptr inbounds i8, ptr %0, i64 %.077.lcssa130
+  %82 = add i64 %.077.lcssa140, 1
+  %83 = getelementptr inbounds i8, ptr %0, i64 %.077.lcssa140
   store i8 47, ptr %83, align 1
   br label %84
 
 84:                                               ; preds = %81, %78
-  %.178 = phi i64 [ %82, %81 ], [ %.077.lcssa130, %78 ]
+  %.178 = phi i64 [ %82, %81 ], [ %.077.lcssa140, %78 ]
   %85 = call ptr @readdir(ptr noundef nonnull %.075) #6
   %.not98126 = icmp eq ptr %85, null
   br i1 %.not98126, label %._crit_edge, label %.lr.ph127
@@ -269,7 +269,7 @@ call_nftw.exit:                                   ; preds = %.thread.i, %74
   br label %136
 
 ._crit_edge:                                      ; preds = %.backedge, %84
-  %113 = getelementptr inbounds i8, ptr %0, i64 %.077.lcssa130
+  %113 = getelementptr inbounds i8, ptr %0, i64 %.077.lcssa140
   store i8 0, ptr %113, align 1
   %114 = call i32 @closedir(ptr noundef nonnull %.075)
   br label %115

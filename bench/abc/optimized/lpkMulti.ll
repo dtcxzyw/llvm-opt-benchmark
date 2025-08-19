@@ -279,8 +279,8 @@ define void @Lpk_CreateCommonOrder(ptr noundef readonly captures(none) %0, ptr n
   br i1 %.not, label %43, label %.lr.ph92.preheader
 
 ._crit_edge.thread:                               ; preds = %.preheader77
-  %.not156 = icmp eq i32 %5, 0
-  br i1 %.not156, label %.preheader, label %.thread
+  %.not159 = icmp eq i32 %5, 0
+  br i1 %.not159, label %.preheader, label %.thread
 
 .thread:                                          ; preds = %._crit_edge.thread
   %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str)
@@ -308,7 +308,7 @@ define void @Lpk_CreateCommonOrder(ptr noundef readonly captures(none) %0, ptr n
   br label %43
 
 43:                                               ; preds = %._crit_edge93, %._crit_edge
-  %.not158 = phi i1 [ false, %._crit_edge93 ], [ true, %._crit_edge ]
+  %.not161 = phi i1 [ false, %._crit_edge93 ], [ true, %._crit_edge ]
   br i1 %9, label %.lr.ph96.preheader, label %.preheader
 
 .lr.ph96.preheader:                               ; preds = %43
@@ -316,7 +316,7 @@ define void @Lpk_CreateCommonOrder(ptr noundef readonly captures(none) %0, ptr n
   br label %.lr.ph96
 
 .preheader:                                       ; preds = %.lr.ph96, %._crit_edge.thread, %43
-  %.not158163 = phi i1 [ %.not158, %43 ], [ true, %._crit_edge.thread ], [ %.not158, %.lr.ph96 ]
+  %.not161166 = phi i1 [ %.not161, %43 ], [ true, %._crit_edge.thread ], [ %.not161, %.lr.ph96 ]
   %wide.trip.count144 = zext nneg i32 %4 to i64
   %wide.trip.count149 = zext nneg i32 %4 to i64
   %wide.trip.count154 = zext nneg i32 %4 to i64
@@ -331,7 +331,7 @@ define void @Lpk_CreateCommonOrder(ptr noundef readonly captures(none) %0, ptr n
   br i1 %exitcond140.not, label %.preheader, label %.lr.ph96, !llvm.loop !32
 
 .lr.ph101.preheader:                              ; preds = %.preheader, %79
-  %.0171 = phi i32 [ %80, %79 ], [ 1, %.preheader ]
+  %.0174 = phi i32 [ %80, %79 ], [ 1, %.preheader ]
   br label %.lr.ph101
 
 .lr.ph101:                                        ; preds = %.lr.ph101.preheader, %53
@@ -364,10 +364,10 @@ define void @Lpk_CreateCommonOrder(ptr noundef readonly captures(none) %0, ptr n
   br i1 %54, label %._crit_edge102.thread, label %55
 
 55:                                               ; preds = %._crit_edge102
-  br i1 %.not158163, label %.lr.ph106.split.us, label %.thread166
+  br i1 %.not161166, label %.lr.ph106.split.us, label %.thread169
 
-.thread166:                                       ; preds = %55
-  %56 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %.0171)
+.thread169:                                       ; preds = %55
+  %56 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %.0174)
   br label %.lr.ph106.split
 
 .lr.ph106.split.us:                               ; preds = %55, %66
@@ -385,7 +385,7 @@ define void @Lpk_CreateCommonOrder(ptr noundef readonly captures(none) %0, ptr n
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv151
-  store i32 %.0171, ptr %65, align 4, !tbaa !16
+  store i32 %.0174, ptr %65, align 4, !tbaa !16
   store i32 0, ptr %57, align 4, !tbaa !16
   br label %66
 
@@ -394,8 +394,8 @@ define void @Lpk_CreateCommonOrder(ptr noundef readonly captures(none) %0, ptr n
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count154
   br i1 %exitcond155.not, label %._crit_edge107, label %.lr.ph106.split.us, !llvm.loop !34
 
-.lr.ph106.split:                                  ; preds = %.thread166, %78
-  %indvars.iv146 = phi i64 [ %indvars.iv.next147, %78 ], [ 0, %.thread166 ]
+.lr.ph106.split:                                  ; preds = %.thread169, %78
+  %indvars.iv146 = phi i64 [ %indvars.iv.next147, %78 ], [ 0, %.thread169 ]
   %67 = getelementptr inbounds nuw [16 x i32], ptr %8, i64 0, i64 %indvars.iv146
   %68 = load i32, ptr %67, align 4, !tbaa !16
   %69 = icmp eq i32 %68, 0
@@ -409,7 +409,7 @@ define void @Lpk_CreateCommonOrder(ptr noundef readonly captures(none) %0, ptr n
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv146
-  store i32 %.0171, ptr %75, align 4, !tbaa !16
+  store i32 %.0174, ptr %75, align 4, !tbaa !16
   store i32 0, ptr %67, align 4, !tbaa !16
   %76 = trunc i64 %indvars.iv146 to i32
   %77 = add i32 %76, 97
@@ -422,18 +422,18 @@ define void @Lpk_CreateCommonOrder(ptr noundef readonly captures(none) %0, ptr n
   br i1 %exitcond150.not, label %._crit_edge107, label %.lr.ph106.split, !llvm.loop !34
 
 ._crit_edge107:                                   ; preds = %78, %66
-  br i1 %.not158163, label %79, label %._crit_edge107.thread
+  br i1 %.not161166, label %79, label %._crit_edge107.thread
 
 ._crit_edge107.thread:                            ; preds = %._crit_edge107
   %putchar = tail call i32 @putchar(i32 32)
   br label %79
 
 79:                                               ; preds = %._crit_edge107, %._crit_edge107.thread
-  %80 = add nuw nsw i32 %.0171, 1
+  %80 = add nuw nsw i32 %.0174, 1
   br label %.lr.ph101.preheader
 
 ._crit_edge102.thread:                            ; preds = %._crit_edge102, %.preheader
-  br i1 %.not158163, label %82, label %81
+  br i1 %.not161166, label %82, label %81
 
 81:                                               ; preds = %._crit_edge102.thread
   %putchar73 = tail call i32 @putchar(i32 10)
@@ -488,7 +488,7 @@ Kit_DsdLitSupport.exit:                           ; preds = %13
   %19 = load ptr, ptr %18, align 8, !tbaa !18
   %.not.i = icmp eq ptr %19, null
   %20 = shl nuw i32 1, %16
-  %spec.select164 = select i1 %.not.i, i32 0, i32 %20
+  %spec.select174 = select i1 %.not.i, i32 0, i32 %20
   br label %73
 
 Kit_DsdNtkObj.exit:                               ; preds = %13
@@ -574,16 +574,16 @@ Kit_DsdNtkObj.exit:                               ; preds = %13
   br label %Kit_DsdLitSupport.exit116
 
 Kit_DsdLitSupport.exit116:                        ; preds = %30, %51, %67
-  %.096158 = phi i32 [ %70, %67 ], [ -1, %30 ], [ -1, %51 ]
+  %.096168 = phi i32 [ %70, %67 ], [ -1, %30 ], [ -1, %51 ]
   %71 = phi i32 [ %69, %67 ], [ 0, %30 ], [ 0, %51 ]
-  %72 = and i32 %71, %.096158
+  %72 = and i32 %71, %.096168
   br label %73
 
 73:                                               ; preds = %.lr.ph, %Kit_DsdLitSupport.exit, %Kit_DsdLitSupport.exit116
-  %spec.select164.sink = phi i32 [ %spec.select164, %Kit_DsdLitSupport.exit ], [ %72, %Kit_DsdLitSupport.exit116 ], [ 0, %.lr.ph ]
+  %spec.select174.sink = phi i32 [ %spec.select174, %Kit_DsdLitSupport.exit ], [ %72, %Kit_DsdLitSupport.exit116 ], [ 0, %.lr.ph ]
   %74 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %indvars.iv
-  store i32 %spec.select164.sink, ptr %74, align 4, !tbaa !16
-  %75 = or i32 %spec.select164.sink, %.095121
+  store i32 %spec.select174.sink, ptr %74, align 4, !tbaa !16
+  %75 = or i32 %spec.select174.sink, %.095121
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
@@ -1214,7 +1214,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %3
   br label %._crit_edge185
 
 ._crit_edge185:                                   ; preds = %._crit_edge185.loopexit, %._crit_edge173
-  %.not208299301303 = phi i1 [ true, %._crit_edge173 ], [ false, %._crit_edge185.loopexit ]
+  %.not208305307309 = phi i1 [ true, %._crit_edge173 ], [ false, %._crit_edge185.loopexit ]
   %smax281 = phi i64 [ 1, %._crit_edge173 ], [ %100, %._crit_edge185.loopexit ]
   call void @Lpk_CreateCommonOrder(ptr noundef nonnull %11, ptr noundef nonnull %6, i32 noundef %38, ptr noundef nonnull %7, i32 noundef %2, i32 noundef %14)
   %101 = icmp sgt i32 %2, 0
@@ -1250,7 +1250,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %3
   br label %113
 
 113:                                              ; preds = %112, %._crit_edge189
-  br i1 %.not208299301303, label %._crit_edge194, label %.lr.ph192
+  br i1 %.not208305307309, label %._crit_edge194, label %.lr.ph192
 
 .lr.ph192:                                        ; preds = %113, %122
   %indvars.iv266 = phi i64 [ %indvars.iv.next267, %122 ], [ 0, %113 ]
@@ -1337,7 +1337,7 @@ Kit_DsdNtkRoot.exit:                              ; preds = %122, %149
   br label %154
 
 154:                                              ; preds = %153, %._crit_edge194
-  br i1 %.not208299301303, label %.preheader, label %.lr.ph197
+  br i1 %.not208305307309, label %.preheader, label %.lr.ph197
 
 .lr.ph197:                                        ; preds = %154
   %155 = sext i32 %38 to i64

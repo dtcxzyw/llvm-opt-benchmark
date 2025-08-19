@@ -2006,9 +2006,9 @@ define dso_local i64 @dma_fence_wait_any_timeout(ptr noundef readonly captures(a
   br i1 %51, label %.loopexit27, label %107
 
 ._crit_edge.thread:                               ; preds = %92
-  br i1 %51, label %.thread23, label %.thread71
+  br i1 %51, label %.thread23, label %.thread88
 
-.thread71:                                        ; preds = %._crit_edge.thread
+.thread88:                                        ; preds = %._crit_edge.thread
   store i32 0, ptr %4, align 4
   br label %.thread23
 
@@ -2054,8 +2054,8 @@ select.unfold:                                    ; preds = %.critedge
   %.mux.le = select i1 %121, i64 %111, i64 -512
   br label %.thread23
 
-.thread23:                                        ; preds = %.thread23.loopexit.split.loop.exit, %.loopexit27, %select.unfold, %107, %114, %._crit_edge.thread, %.thread71
-  %122 = phi i64 [ %87, %.thread71 ], [ %87, %._crit_edge.thread ], [ %.mux.le, %.thread23.loopexit.split.loop.exit ], [ %87, %.loopexit27 ], [ %111, %select.unfold ], [ %87, %107 ], [ -512, %114 ]
+.thread23:                                        ; preds = %.thread23.loopexit.split.loop.exit, %.loopexit27, %select.unfold, %107, %114, %._crit_edge.thread, %.thread88
+  %122 = phi i64 [ %87, %.thread88 ], [ %87, %._crit_edge.thread ], [ %.mux.le, %.thread23.loopexit.split.loop.exit ], [ %87, %.loopexit27 ], [ %111, %select.unfold ], [ %87, %107 ], [ -512, %114 ]
   store volatile i32 0, ptr %53, align 8
   br label %.thread21
 

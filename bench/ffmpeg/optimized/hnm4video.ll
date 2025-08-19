@@ -146,8 +146,8 @@ bytestream2_init.exit.i:                          ; preds = %16
 
 bytestream2_init.exit.thread.i:                   ; preds = %16
   %24 = add nsw i32 %8, -8
-  %.not2733.i = icmp eq i32 %24, 0
-  br i1 %.not2733.i, label %hnm_update_palette.exit, label %.lr.ph26.thread.i
+  %.not2737.i = icmp eq i32 %24, 0
+  br i1 %.not2737.i, label %hnm_update_palette.exit, label %.lr.ph26.thread.i
 
 .lr.ph26.thread.i:                                ; preds = %bytestream2_init.exit.thread.i
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -213,7 +213,7 @@ bytestream2_get_byte.exit24.us.i:                 ; preds = %bytestream2_get_byt
 
 .lr.ph.us.preheader.i:                            ; preds = %52, %bytestream2_get_byte.exit.us.i
   %56 = phi i16 [ 256, %bytestream2_get_byte.exit.us.i ], [ %spec.select, %52 ]
-  %.sroa.0.21217.us38.i = phi ptr [ %22, %bytestream2_get_byte.exit.us.i ], [ %53, %52 ]
+  %.sroa.0.21217.us42.i = phi ptr [ %22, %bytestream2_get_byte.exit.us.i ], [ %53, %52 ]
   %57 = trunc nuw i32 %.0.i.us.i to i8
   br label %.lr.ph.us.i
 
@@ -227,7 +227,7 @@ bytestream2_get_byte.exit24.us.i:                 ; preds = %bytestream2_get_byt
 .lr.ph.us.i:                                      ; preds = %bytestream2_get_be24.exit.us.us.i, %.lr.ph.us.preheader.i
   %.023.us.us.i = phi i8 [ %83, %bytestream2_get_be24.exit.us.us.i ], [ %57, %.lr.ph.us.preheader.i ]
   %.02122.us.us.i = phi i16 [ %82, %bytestream2_get_be24.exit.us.us.i ], [ %56, %.lr.ph.us.preheader.i ]
-  %.sroa.0.321.us.us.i = phi ptr [ %.sroa.0.4.us.us.i, %bytestream2_get_be24.exit.us.us.i ], [ %.sroa.0.21217.us38.i, %.lr.ph.us.preheader.i ]
+  %.sroa.0.321.us.us.i = phi ptr [ %.sroa.0.4.us.us.i, %bytestream2_get_be24.exit.us.us.i ], [ %.sroa.0.21217.us42.i, %.lr.ph.us.preheader.i ]
   %62 = ptrtoint ptr %.sroa.0.321.us.us.i to i64
   %63 = sub i64 %32, %62
   %64 = icmp slt i64 %63, 3
@@ -307,14 +307,14 @@ bytestream2_get_byte.exit24.i:                    ; preds = %bytestream2_get_byt
 
 .lr.ph.preheader.i:                               ; preds = %100, %bytestream2_get_byte.exit.i
   %104 = phi i16 [ 256, %bytestream2_get_byte.exit.i ], [ %spec.select136, %100 ]
-  %.sroa.0.2121742.i = phi ptr [ %37, %bytestream2_get_byte.exit.i ], [ %101, %100 ]
+  %.sroa.0.2121746.i = phi ptr [ %37, %bytestream2_get_byte.exit.i ], [ %101, %100 ]
   %105 = trunc nuw i32 %.0.i.i to i8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %bytestream2_get_be24.exit.i, %.lr.ph.preheader.i
   %.023.i = phi i8 [ %128, %bytestream2_get_be24.exit.i ], [ %105, %.lr.ph.preheader.i ]
   %.02122.i = phi i16 [ %127, %bytestream2_get_be24.exit.i ], [ %104, %.lr.ph.preheader.i ]
-  %.sroa.0.321.i = phi ptr [ %.sroa.0.4.i, %bytestream2_get_be24.exit.i ], [ %.sroa.0.2121742.i, %.lr.ph.preheader.i ]
+  %.sroa.0.321.i = phi ptr [ %.sroa.0.4.i, %bytestream2_get_be24.exit.i ], [ %.sroa.0.2121746.i, %.lr.ph.preheader.i ]
   %106 = ptrtoint ptr %.sroa.0.321.i to i64
   %107 = sub i64 %34, %106
   %108 = icmp slt i64 %107, 3
@@ -1152,7 +1152,7 @@ bytestream2_get_byte.exit156.thread.i:            ; preds = %515
 
 .preheader.._crit_edge_crit_edge.i:               ; preds = %.preheader.i112, %bytestream2_get_byte.exit156.thread.i
   %.pre266.i.pre-phi = phi i64 [ %454, %bytestream2_get_byte.exit156.thread.i ], [ %.pre, %.preheader.i112 ]
-  %.sroa.0.7272278.i = phi ptr [ %452, %bytestream2_get_byte.exit156.thread.i ], [ %519, %.preheader.i112 ]
+  %.sroa.0.7281287.i = phi ptr [ %452, %bytestream2_get_byte.exit156.thread.i ], [ %519, %.preheader.i112 ]
   %.pre268.i = sub i64 %454, %.pre266.i.pre-phi
   br label %._crit_edge.i
 
@@ -1190,11 +1190,11 @@ bytestream2_peek_byte.exit162.i:                  ; preds = %bytestream2_peek_by
   br i1 %545, label %bytestream2_peek_byte.exit162.i, label %._crit_edge.i, !llvm.loop !62
 
 ._crit_edge.i:                                    ; preds = %bytestream2_peek_byte.exit162.i, %bytestream2_peek_byte.exit162.us.i, %.preheader.._crit_edge_crit_edge.i
-  %.sroa.0.7272277.i = phi ptr [ %.sroa.0.7272278.i, %.preheader.._crit_edge_crit_edge.i ], [ %519, %bytestream2_peek_byte.exit162.us.i ], [ %519, %bytestream2_peek_byte.exit162.i ]
+  %.sroa.0.7281286.i = phi ptr [ %.sroa.0.7281287.i, %.preheader.._crit_edge_crit_edge.i ], [ %519, %bytestream2_peek_byte.exit162.us.i ], [ %519, %bytestream2_peek_byte.exit162.i ]
   %.pre-phi269.i = phi i64 [ %.pre268.i, %.preheader.._crit_edge_crit_edge.i ], [ %532, %bytestream2_peek_byte.exit162.us.i ], [ %532, %bytestream2_peek_byte.exit162.i ]
   %.2.lcssa.i = phi i32 [ %.0128244.i, %.preheader.._crit_edge_crit_edge.i ], [ %535, %bytestream2_peek_byte.exit162.us.i ], [ %541, %bytestream2_peek_byte.exit162.i ]
   %..i.i = tail call i64 @llvm.smin.i64(i64 %.pre-phi269.i, i64 1)
-  %546 = getelementptr inbounds i8, ptr %.sroa.0.7272277.i, i64 %..i.i
+  %546 = getelementptr inbounds i8, ptr %.sroa.0.7281286.i, i64 %..i.i
   br label %547
 
 547:                                              ; preds = %._crit_edge.i, %bytestream2_get_le16.exit.i117, %bytestream2_get_byte.exit154.i, %bytestream2_get_byte.exit152.i

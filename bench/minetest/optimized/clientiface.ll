@@ -2438,7 +2438,7 @@ if.then240:                                       ; preds = %if.end235
 if.end241:                                        ; preds = %if.then240, %if.end235
   %conv242 = zext i16 %spec.select470 to i32
   %cmp243.not = icmp ult i32 %num_blocks_selected.11060, %conv242
-  br i1 %cmp243.not, label %if.end245, label %queue_full_break.thread128
+  br i1 %cmp243.not, label %if.end245, label %queue_full_break.thread150
 
 if.end245:                                        ; preds = %if.end241
   %139 = load i64, ptr %_M_element_count.i.i, align 8, !tbaa !82
@@ -2948,11 +2948,11 @@ queue_full_break:                                 ; preds = %if.then316
   %cmp352.not = icmp eq i32 %nearest_emerged_d.11059, -1
   br i1 %cmp352.not, label %if.else354, label %if.end383
 
-queue_full_break.thread128:                       ; preds = %if.end241
+queue_full_break.thread150:                       ; preds = %if.end241
   call void @llvm.lifetime.end.p0(ptr nonnull %dist)
   call void @llvm.lifetime.end.p0(ptr nonnull %p208)
-  %cmp352.not130 = icmp eq i32 %nearest_emerged_d.11059, -1
-  br i1 %cmp352.not130, label %if.else357, label %if.end383
+  %cmp352.not152 = icmp eq i32 %nearest_emerged_d.11059, -1
+  br i1 %cmp352.not152, label %if.else357, label %if.end383
 
 queue_full_break.thread:                          ; preds = %for.inc350
   %cmp352.not52 = icmp eq i32 %nearest_emerged_d.1.lcssa, -1
@@ -2962,10 +2962,10 @@ if.else354:                                       ; preds = %queue_full_break
   %cmp355.not = icmp eq i32 %conv1941072, -1
   br i1 %cmp355.not, label %if.else357, label %if.end383
 
-if.else357:                                       ; preds = %queue_full_break.thread128, %queue_full_break.thread, %if.else354, %cond.end185
-  %d.0105211131124 = phi i16 [ %d.01068, %if.else354 ], [ %112, %cond.end185 ], [ %inc, %queue_full_break.thread ], [ %d.01068, %queue_full_break.thread128 ]
-  %conv194104511141123 = phi i32 [ %conv1941072, %if.else354 ], [ %conv164, %cond.end185 ], [ %conv194, %queue_full_break.thread ], [ %conv1941072, %queue_full_break.thread128 ]
-  %nearest_sent_d.711151122 = phi i32 [ %nearest_sent_d.11058, %if.else354 ], [ -1, %cond.end185 ], [ %nearest_sent_d.1.lcssa, %queue_full_break.thread ], [ %nearest_sent_d.11058, %queue_full_break.thread128 ]
+if.else357:                                       ; preds = %queue_full_break.thread150, %queue_full_break.thread, %if.else354, %cond.end185
+  %d.0105211131124 = phi i16 [ %d.01068, %if.else354 ], [ %112, %cond.end185 ], [ %inc, %queue_full_break.thread ], [ %d.01068, %queue_full_break.thread150 ]
+  %conv194104511141123 = phi i32 [ %conv1941072, %if.else354 ], [ %conv164, %cond.end185 ], [ %conv194, %queue_full_break.thread ], [ %conv1941072, %queue_full_break.thread150 ]
+  %nearest_sent_d.711151122 = phi i32 [ %nearest_sent_d.11058, %if.else354 ], [ -1, %cond.end185 ], [ %nearest_sent_d.1.lcssa, %queue_full_break.thread ], [ %nearest_sent_d.11058, %queue_full_break.thread150 ]
   %cmp360 = icmp sgt i16 %d.0105211131124, %.sroa.speculated843
   br i1 %cmp360, label %if.then361, label %if.else375
 
@@ -3053,8 +3053,8 @@ if.else375:                                       ; preds = %if.else357
   %conv194.nearest_sent_d.7 = select i1 %cmp376.not, i32 %conv194104511141123, i32 %nearest_sent_d.711151122
   br label %if.end383
 
-if.end383:                                        ; preds = %queue_full_break.thread128, %queue_full_break.thread, %if.else375, %_ZN11StreamProxylsEPFRSoS0_E.exit812, %if.else354, %queue_full_break
-  %new_nearest_unsent_d.0 = phi i32 [ 0, %_ZN11StreamProxylsEPFRSoS0_E.exit812 ], [ %nearest_emerged_d.11059, %queue_full_break ], [ %conv1941072, %if.else354 ], [ %conv194.nearest_sent_d.7, %if.else375 ], [ %nearest_emerged_d.1.lcssa, %queue_full_break.thread ], [ %nearest_emerged_d.11059, %queue_full_break.thread128 ]
+if.end383:                                        ; preds = %queue_full_break.thread150, %queue_full_break.thread, %if.else375, %_ZN11StreamProxylsEPFRSoS0_E.exit812, %if.else354, %queue_full_break
+  %new_nearest_unsent_d.0 = phi i32 [ 0, %_ZN11StreamProxylsEPFRSoS0_E.exit812 ], [ %nearest_emerged_d.11059, %queue_full_break ], [ %conv1941072, %if.else354 ], [ %conv194.nearest_sent_d.7, %if.else375 ], [ %nearest_emerged_d.1.lcssa, %queue_full_break.thread ], [ %nearest_emerged_d.11059, %queue_full_break.thread150 ]
   %cmp384.not = icmp eq i32 %new_nearest_unsent_d.0, -1
   %227 = load i16, ptr %m_nearest_unsent_d114, align 8
   %conv387 = sext i16 %227 to i32

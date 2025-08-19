@@ -621,18 +621,18 @@ define internal noundef zeroext i1 @_lv_svg_doc_walk_cb(ptr noundef %0, ptr noun
   br label %.sink.split.ithread-pre-split
 
 .sink.split.ithread-pre-split:                    ; preds = %7, %14, %21, %28, %35, %42, %50, %58, %66, %74, %82, %87, %93, %100, %115
-  %.sink213.i.ph = phi ptr [ %6, %7 ], [ %13, %14 ], [ %20, %21 ], [ %27, %28 ], [ %34, %35 ], [ %41, %42 ], [ %49, %50 ], [ %57, %58 ], [ %65, %66 ], [ %73, %74 ], [ %81, %82 ], [ %86, %87 ], [ %92, %93 ], [ %99, %100 ], [ %114, %115 ]
+  %.sink229.i.ph = phi ptr [ %6, %7 ], [ %13, %14 ], [ %20, %21 ], [ %27, %28 ], [ %34, %35 ], [ %41, %42 ], [ %49, %50 ], [ %57, %58 ], [ %65, %66 ], [ %73, %74 ], [ %81, %82 ], [ %86, %87 ], [ %92, %93 ], [ %99, %100 ], [ %114, %115 ]
   %_get_group_size.sink.i.ph = phi ptr [ @_get_viewport_size, %7 ], [ @_get_rect_size, %14 ], [ @_get_circle_size, %21 ], [ @_get_ellipse_size, %28 ], [ @_get_line_size, %35 ], [ @_get_poly_size, %42 ], [ @_get_poly_size, %50 ], [ @_get_poly_size, %58 ], [ @_get_txt_size, %66 ], [ @_get_span_size, %74 ], [ @_get_content_size, %82 ], [ @_get_image_size, %87 ], [ @_get_use_size, %93 ], [ @_get_solid_size, %100 ], [ @_get_group_size, %115 ]
   %.pr = load i8, ptr %3, align 8, !tbaa !63
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.ithread-pre-split, %106
   %120 = phi i8 [ %.pr, %.sink.split.ithread-pre-split ], [ %110, %106 ]
-  %.sink213.i = phi ptr [ %.sink213.i.ph, %.sink.split.ithread-pre-split ], [ %105, %106 ]
+  %.sink229.i = phi ptr [ %.sink229.i.ph, %.sink.split.ithread-pre-split ], [ %105, %106 ]
   %_get_group_size.sink.i = phi ptr [ %_get_group_size.sink.i.ph, %.sink.split.ithread-pre-split ], [ @_get_grad_size, %106 ]
-  %121 = getelementptr inbounds nuw i8, ptr %.sink213.i, i64 568
+  %121 = getelementptr inbounds nuw i8, ptr %.sink229.i, i64 568
   store ptr %_get_group_size.sink.i, ptr %121, align 8, !tbaa !4
-  %122 = getelementptr inbounds nuw i8, ptr %.sink213.i, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %.sink229.i, i64 8
   store i8 %120, ptr %122, align 8, !tbaa !134
   %.not.i20 = icmp eq i8 %120, 0
   br i1 %.not.i20, label %129, label %123
@@ -645,18 +645,18 @@ define internal noundef zeroext i1 @_lv_svg_doc_walk_cb(ptr noundef %0, ptr noun
 
 126:                                              ; preds = %123
   %127 = tail call ptr @lv_strdup(ptr noundef nonnull %125) #10
-  %128 = getelementptr inbounds nuw i8, ptr %.sink213.i, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %.sink229.i, i64 16
   store ptr %127, ptr %128, align 8, !tbaa !136
   br label %129
 
 129:                                              ; preds = %126, %123, %.sink.split.i
-  %130 = getelementptr inbounds nuw i8, ptr %.sink213.i, i64 536
+  %130 = getelementptr inbounds nuw i8, ptr %.sink229.i, i64 536
   %131 = load ptr, ptr %130, align 8, !tbaa !137
   %.not37.i = icmp eq ptr %131, null
   br i1 %.not37.i, label %133, label %132
 
 132:                                              ; preds = %129
-  tail call void %131(ptr noundef nonnull %.sink213.i, ptr noundef nonnull %0) #10
+  tail call void %131(ptr noundef nonnull %.sink229.i, ptr noundef nonnull %0) #10
   br label %133
 
 133:                                              ; preds = %132, %129
@@ -669,7 +669,7 @@ define internal noundef zeroext i1 @_lv_svg_doc_walk_cb(ptr noundef %0, ptr noun
 
 138:                                              ; preds = %133
   %139 = tail call ptr @lv_strdup(ptr noundef nonnull %137) #10
-  %140 = getelementptr inbounds nuw i8, ptr %.sink213.i, i64 512
+  %140 = getelementptr inbounds nuw i8, ptr %.sink229.i, i64 512
   store ptr %139, ptr %140, align 8, !tbaa !139
   %.pre.i = load ptr, ptr %134, align 8, !tbaa !57
   br label %141
@@ -683,7 +683,7 @@ define internal noundef zeroext i1 @_lv_svg_doc_walk_cb(ptr noundef %0, ptr noun
 
 145:                                              ; preds = %141
   %146 = tail call ptr @lv_strdup(ptr noundef nonnull %144) #10
-  %147 = getelementptr inbounds nuw i8, ptr %.sink213.i, i64 520
+  %147 = getelementptr inbounds nuw i8, ptr %.sink229.i, i64 520
   store ptr %146, ptr %147, align 8, !tbaa !141
   br label %148
 
@@ -694,7 +694,7 @@ define internal noundef zeroext i1 @_lv_svg_doc_walk_cb(ptr noundef %0, ptr noun
   br i1 %.not41.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %148
-  %151 = getelementptr inbounds nuw i8, ptr %.sink213.i, i64 552
+  %151 = getelementptr inbounds nuw i8, ptr %.sink229.i, i64 552
   br label %154
 
 ._crit_edge.i:                                    ; preds = %154, %148
@@ -708,18 +708,18 @@ define internal noundef zeroext i1 @_lv_svg_doc_walk_cb(ptr noundef %0, ptr noun
   %156 = load ptr, ptr %151, align 8, !tbaa !142
   %157 = load ptr, ptr %134, align 8, !tbaa !57
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  tail call void %156(ptr noundef nonnull %.sink213.i, ptr noundef nonnull %158, ptr noundef %155) #10
+  tail call void %156(ptr noundef nonnull %.sink229.i, ptr noundef nonnull %158, ptr noundef %155) #10
   %159 = add nuw i32 %.040.i, 1
   %exitcond.not.i = icmp eq i32 %159, %150
   br i1 %exitcond.not.i, label %._crit_edge.i, label %154, !llvm.loop !143
 
 160:                                              ; preds = %._crit_edge.i
-  %161 = getelementptr inbounds nuw i8, ptr %.sink213.i, i64 512
+  %161 = getelementptr inbounds nuw i8, ptr %.sink229.i, i64 512
   %162 = load ptr, ptr %161, align 8, !tbaa !139
   %163 = load ptr, ptr %134, align 8, !tbaa !57
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 448
   store ptr %162, ptr %164, align 8, !tbaa !138
-  %165 = getelementptr inbounds nuw i8, ptr %.sink213.i, i64 520
+  %165 = getelementptr inbounds nuw i8, ptr %.sink229.i, i64 520
   %166 = load ptr, ptr %165, align 8, !tbaa !141
   %167 = getelementptr inbounds nuw i8, ptr %163, i64 456
   store ptr %166, ptr %167, align 8, !tbaa !140
@@ -728,7 +728,7 @@ define internal noundef zeroext i1 @_lv_svg_doc_walk_cb(ptr noundef %0, ptr noun
 168:                                              ; preds = %._crit_edge.i, %160
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %170 = load ptr, ptr %169, align 8, !tbaa !62
-  %171 = getelementptr inbounds nuw i8, ptr %.sink213.i, i64 504
+  %171 = getelementptr inbounds nuw i8, ptr %.sink229.i, i64 504
   store ptr %170, ptr %171, align 8, !tbaa !144
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %173 = load i8, ptr %172, align 4, !tbaa !145, !range !146, !noundef !147
@@ -736,7 +736,7 @@ define internal noundef zeroext i1 @_lv_svg_doc_walk_cb(ptr noundef %0, ptr noun
   br i1 %174, label %175, label %179
 
 175:                                              ; preds = %168
-  %176 = getelementptr inbounds nuw i8, ptr %.sink213.i, i64 12
+  %176 = getelementptr inbounds nuw i8, ptr %.sink229.i, i64 12
   %177 = load i32, ptr %176, align 4, !tbaa !148
   %178 = or i32 %177, 1
   store i32 %178, ptr %176, align 4, !tbaa !148
@@ -749,7 +749,7 @@ define internal noundef zeroext i1 @_lv_svg_doc_walk_cb(ptr noundef %0, ptr noun
   br i1 %182, label %183, label %187
 
 183:                                              ; preds = %179
-  %184 = getelementptr inbounds nuw i8, ptr %.sink213.i, i64 12
+  %184 = getelementptr inbounds nuw i8, ptr %.sink229.i, i64 12
   %185 = load i32, ptr %184, align 4, !tbaa !148
   %186 = or i32 %185, 2
   store i32 %186, ptr %184, align 4, !tbaa !148
@@ -760,21 +760,21 @@ define internal noundef zeroext i1 @_lv_svg_doc_walk_cb(ptr noundef %0, ptr noun
   br i1 %188, label %189, label %191
 
 189:                                              ; preds = %187
-  store ptr %.sink213.i, ptr %169, align 8, !tbaa !62
+  store ptr %.sink229.i, ptr %169, align 8, !tbaa !62
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr %.sink213.i, ptr %190, align 8, !tbaa !150
+  store ptr %.sink229.i, ptr %190, align 8, !tbaa !150
   br label %194
 
 191:                                              ; preds = %187
   %192 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %193 = load ptr, ptr %192, align 8, !tbaa !150
-  store ptr %.sink213.i, ptr %193, align 8, !tbaa !151
-  store ptr %.sink213.i, ptr %192, align 8, !tbaa !150
+  store ptr %.sink229.i, ptr %193, align 8, !tbaa !151
+  store ptr %.sink229.i, ptr %192, align 8, !tbaa !150
   br label %194
 
 194:                                              ; preds = %191, %189
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %.sink213.i, ptr %195, align 8, !tbaa !152
+  store ptr %.sink229.i, ptr %195, align 8, !tbaa !152
   br label %_lv_svg_render_create.exit.thread
 
 _lv_svg_render_create.exit.thread:                ; preds = %2, %194
@@ -1636,8 +1636,8 @@ define internal void @_render_rect(ptr noundef %0, ptr noundef %1, ptr noundef %
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 604
   %15 = load float, ptr %14, align 4, !tbaa !190
   %16 = fcmp oeq float %15, 0.000000e+00
-  %or.cond37 = select i1 %13, i1 %16, i1 false
-  br i1 %or.cond37, label %17, label %._crit_edge
+  %or.cond44 = select i1 %13, i1 %16, i1 false
+  br i1 %or.cond44, label %17, label %._crit_edge
 
 17:                                               ; preds = %10
   store float %12, ptr %14, align 4, !tbaa !190
@@ -5690,32 +5690,31 @@ define internal void @_init_gradient(ptr noundef %0, ptr noundef readonly captur
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !274
 
 42:                                               ; preds = %._crit_edge
-  %43 = zext i32 %.063 to i64
+  %43 = zext nneg i32 %.063 to i64
   %44 = getelementptr inbounds nuw [2 x %struct.lv_grad_stop_t], ptr %15, i64 0, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 3
   store i8 %.147, ptr %45, align 1, !tbaa !275
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i8 %.145, ptr %46, align 1, !tbaa !277
   store i24 %.sroa.08.1, ptr %44, align 1
-  %47 = add i32 %.063, 1
-  %.not = icmp eq i32 %47, 2
+  %.not = icmp eq i32 %.063, 1
   br i1 %.not, label %._crit_edge66.loopexit, label %.thread
 
 .thread:                                          ; preds = %17, %._crit_edge, %42
-  %.253 = phi i32 [ %47, %42 ], [ %.063, %._crit_edge ], [ %.063, %17 ]
+  %.253 = phi i32 [ 1, %42 ], [ %.063, %._crit_edge ], [ %.063, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond73.not, label %._crit_edge66.loopexit, label %17, !llvm.loop !278
 
 ._crit_edge66.loopexit:                           ; preds = %.thread, %42
   %.1.ph = phi i32 [ 2, %42 ], [ %.253, %.thread ]
-  %48 = trunc i32 %.1.ph to i16
+  %47 = trunc i32 %.1.ph to i16
   br label %._crit_edge66
 
 ._crit_edge66:                                    ; preds = %._crit_edge66.loopexit, %2
-  %.1 = phi i16 [ 0, %2 ], [ %48, %._crit_edge66.loopexit ]
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 598
-  store i16 %.1, ptr %49, align 2, !tbaa !279
+  %.1 = phi i16 [ 0, %2 ], [ %47, %._crit_edge66.loopexit ]
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 598
+  store i16 %.1, ptr %48, align 2, !tbaa !279
   ret void
 }
 
@@ -5815,9 +5814,9 @@ define internal void @_set_gradient_ref(ptr noundef %0, ptr noundef %1, ptr noun
   br label %12
 
 12:                                               ; preds = %10, %9
-  %.sink69 = phi i64 [ 300, %10 ], [ 160, %9 ]
+  %.sink70 = phi i64 [ 300, %10 ], [ 160, %9 ]
   %.sink = phi i64 [ 348, %10 ], [ 208, %9 ]
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink69
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink70
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %16 = tail call ptr @lv_memcpy(ptr noundef nonnull %13, ptr noundef nonnull %15, i64 noundef 48) #10

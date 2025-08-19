@@ -245,7 +245,7 @@ generate_half_size_image.exit:                    ; preds = %._crit_edge.us.i, %
 
 .lr.ph:                                           ; preds = %92
   %97 = mul nsw i64 %indvars.iv110, %indvars.iv110
-  %invariant.gep118.invariant.gep = getelementptr i32, ptr %93, i64 %indvars.iv115
+  %invariant.gep124.invariant.gep = getelementptr i32, ptr %93, i64 %indvars.iv115
   br label %99
 
 98:                                               ; preds = %92
@@ -258,7 +258,7 @@ generate_half_size_image.exit:                    ; preds = %._crit_edge.us.i, %
   %101 = add nuw nsw i64 %100, %97
   %.not91 = icmp samesign ule i64 %101, %91
   %. = zext i1 %.not91 to i32
-  %gep = getelementptr i32, ptr %invariant.gep118.invariant.gep, i64 %indvars.iv105
+  %gep = getelementptr i32, ptr %invariant.gep124.invariant.gep, i64 %indvars.iv105
   store i32 %., ptr %gep, align 4, !tbaa !25
   %indvars.iv.next106 = add nsw i64 %indvars.iv105, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next106 to i32
@@ -860,8 +860,8 @@ define internal fastcc void @convert_mask_to_strength_mask(ptr noundef captures(
 .preheader80:                                     ; preds = %._crit_edge93.split.us.us.us
   %49 = add nuw nsw i32 %.066.us.us, 2
   %50 = icmp sgt i32 %2, 2
-  %or.cond144 = and i1 %19, %50
-  br i1 %or.cond144, label %.preheader.us.preheader, label %._crit_edge109
+  %or.cond147 = and i1 %19, %50
+  br i1 %or.cond147, label %.preheader.us.preheader, label %._crit_edge109
 
 .preheader.us.preheader:                          ; preds = %.preheader80
   %wide.trip.count130 = zext nneg i32 %18 to i64
@@ -871,16 +871,16 @@ define internal fastcc void @convert_mask_to_strength_mask(ptr noundef captures(
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us110
   %indvars.iv127 = phi i64 [ 1, %.preheader.us.preheader ], [ %indvars.iv.next128, %._crit_edge.us110 ]
   %51 = mul nsw i64 %indvars.iv127, %17
-  %invariant.gep142 = getelementptr i8, ptr %0, i64 %51
+  %invariant.gep145 = getelementptr i8, ptr %0, i64 %51
   br label %52
 
 52:                                               ; preds = %.preheader.us, %52
   %indvars.iv122 = phi i64 [ 1, %.preheader.us ], [ %indvars.iv.next123, %52 ]
-  %gep143 = getelementptr i8, ptr %invariant.gep142, i64 %indvars.iv122
-  %53 = load i8, ptr %gep143, align 1, !tbaa !31
+  %gep146 = getelementptr i8, ptr %invariant.gep145, i64 %indvars.iv122
+  %53 = load i8, ptr %gep146, align 1, !tbaa !31
   %54 = lshr i8 %53, 2
   %55 = add i8 %54, %53
-  store i8 %55, ptr %gep143, align 1, !tbaa !31
+  store i8 %55, ptr %gep146, align 1, !tbaa !31
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
   br i1 %exitcond126.not, label %._crit_edge.us110, label %52, !llvm.loop !83
@@ -891,9 +891,9 @@ define internal fastcc void @convert_mask_to_strength_mask(ptr noundef captures(
   br i1 %exitcond131.not, label %._crit_edge109, label %.preheader.us, !llvm.loop !84
 
 ._crit_edge109:                                   ; preds = %._crit_edge.us110, %6, %.preheader82, %.preheader80
-  %.us-phi104136 = phi i32 [ %49, %.preheader80 ], [ 2, %.preheader82 ], [ 2, %6 ], [ %49, %._crit_edge.us110 ]
-  %56 = lshr i32 %.us-phi104136, 2
-  %57 = add nuw nsw i32 %56, %.us-phi104136
+  %.us-phi104139 = phi i32 [ %49, %.preheader80 ], [ 2, %.preheader82 ], [ 2, %6 ], [ %49, %._crit_edge.us110 ]
+  %56 = lshr i32 %.us-phi104139, 2
+  %57 = add nuw nsw i32 %56, %.us-phi104139
   store i32 %57, ptr %5, align 4, !tbaa !25
   ret void
 }

@@ -2223,13 +2223,13 @@ _ZN8settings11keymap_file9no_action17haee1fd2d1dd0df00E.exit.i.i: ; preds = %72
 thread-pre-split.i.i:                             ; preds = %151, %110
   %.sroa.09.2.ph.i.i = phi i1 [ true, %151 ], [ false, %110 ]
   %.sroa.010.2.ph.i.i = phi i1 [ false, %151 ], [ true, %110 ]
-  %.pr23.i.i = load ptr, ptr %27, align 8, !alias.scope !382, !noalias !385
+  %.pr35.i.i = load ptr, ptr %27, align 8, !alias.scope !382, !noalias !385
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !382, !noalias !385
   br label %88
 
 88:                                               ; preds = %thread-pre-split.i.i, %_ZN8settings11keymap_file9no_action17haee1fd2d1dd0df00E.exit.i.i
   %89 = phi ptr [ %.pre.i, %thread-pre-split.i.i ], [ %87, %_ZN8settings11keymap_file9no_action17haee1fd2d1dd0df00E.exit.i.i ]
-  %90 = phi ptr [ %.pr23.i.i, %thread-pre-split.i.i ], [ %86, %_ZN8settings11keymap_file9no_action17haee1fd2d1dd0df00E.exit.i.i ]
+  %90 = phi ptr [ %.pr35.i.i, %thread-pre-split.i.i ], [ %86, %_ZN8settings11keymap_file9no_action17haee1fd2d1dd0df00E.exit.i.i ]
   %.sroa.09.2.i.i = phi i1 [ %.sroa.09.2.ph.i.i, %thread-pre-split.i.i ], [ true, %_ZN8settings11keymap_file9no_action17haee1fd2d1dd0df00E.exit.i.i ]
   %.sroa.010.2.i.i = phi i1 [ %.sroa.010.2.ph.i.i, %thread-pre-split.i.i ], [ true, %_ZN8settings11keymap_file9no_action17haee1fd2d1dd0df00E.exit.i.i ]
   %91 = icmp ne ptr %.val2.i, null
@@ -3398,8 +3398,8 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !634)
   %5 = load ptr, ptr %1, align 8, !alias.scope !634, !noalias !637, !noundef !4
   %6 = icmp eq ptr %5, null
-  %.sink21.i.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sink21.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink22.i.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink22.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
@@ -3417,7 +3417,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %.sroa.018.0.lcssa.i = phi ptr [ %5, %9 ], [ %15, %.lr.ph.i ]
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %13, ptr %4, align 8
-  store ptr %1, ptr %.sink21.i.sroa.gep1, align 8
+  store ptr %1, ptr %.sink22.i.sroa.gep1, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.sroa.018.0.lcssa.i, ptr %.sroa.5.0..sroa_idx.i, align 8
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$16extract_if_inner17h645f0b6a130d0b73E.llvm.3407247122986226896.exit"
@@ -3432,8 +3432,8 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   br i1 %17, label %._crit_edge.i, label %.lr.ph.i
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$16extract_if_inner17h645f0b6a130d0b73E.llvm.3407247122986226896.exit": ; preds = %7, %._crit_edge.i
-  %.sink21.i.sroa.phi = phi ptr [ %.sink21.i.sroa.gep, %._crit_edge.i ], [ %.sink21.i.sroa.gep1, %7 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink21.i.sroa.phi, i8 0, i64 16, i1 false)
+  %.sink22.i.sroa.phi = phi ptr [ %.sink22.i.sroa.gep, %._crit_edge.i ], [ %.sink22.i.sroa.gep1, %7 ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink22.i.sroa.phi, i8 0, i64 16, i1 false)
   store ptr %2, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
@@ -3458,8 +3458,8 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   br i1 %10, label %._crit_edge, label %.lr.ph
 
 11:                                               ; preds = %._crit_edge, %5
-  %.sink21 = phi i64 [ 24, %._crit_edge ], [ 8, %5 ]
-  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink21
+  %.sink22 = phi i64 [ 24, %._crit_edge ], [ 8, %5 ]
+  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
   ret void
 
@@ -4942,7 +4942,7 @@ define hidden void @"_ZN5alloc11collections5btree3map27ExtractIfInner$LT$K$C$V$G
   %.sroa.8.0.ph = phi i64 [ %.sroa.6.sroa.0.0.copyload37, %17 ], [ %26, %24 ]
   %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload36, %17 ], [ %22, %24 ]
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph, i64 360
-  %32 = getelementptr inbounds { [3 x i64] }, ptr %31, i64 %.sroa.10.0.ph
+  %32 = getelementptr inbounds nuw { [3 x i64] }, ptr %31, i64 %.sroa.10.0.ph
   %.val9 = load i64, ptr %32, align 8, !noundef !4
   %.val.i = load ptr, ptr %.val, align 8, !nonnull !4, !align !11, !noundef !4
   %33 = load i64, ptr %.val.i, align 8, !noundef !4
@@ -9384,8 +9384,8 @@ default.unreachable:                              ; preds = %102, %49
   br label %144
 
 .sink.split:                                      ; preds = %113, %111, %102, %106, %109
-  %.sink156 = phi i64 [ -9223372036854775806, %109 ], [ -9223372036854775807, %106 ], [ -9223372036854775808, %102 ], [ -9223372036854775805, %111 ], [ -9223372036854775804, %113 ]
-  store i64 %.sink156, ptr %11, align 8, !alias.scope !1284, !noalias !1287
+  %.sink162 = phi i64 [ -9223372036854775806, %109 ], [ -9223372036854775807, %106 ], [ -9223372036854775808, %102 ], [ -9223372036854775805, %111 ], [ -9223372036854775804, %113 ]
+  store i64 %.sink162, ptr %11, align 8, !alias.scope !1284, !noalias !1287
   br label %121
 
 121:                                              ; preds = %.sink.split, %118
@@ -9783,7 +9783,7 @@ define internal noundef zeroext i1 @"_ZN8settings13settings_file17watch_config_f
   %21 = alloca [16 x i8], align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = load i8, ptr %22, align 8, !range !194, !noundef !4
-  switch i8 %23, label %default.unreachable150 [
+  switch i8 %23, label %default.unreachable172 [
     i8 0, label %30
     i8 1, label %50
     i8 2, label %51
@@ -9793,7 +9793,7 @@ define internal noundef zeroext i1 @"_ZN8settings13settings_file17watch_config_f
     i8 6, label %27
   ]
 
-default.unreachable150:                           ; preds = %2
+default.unreachable172:                           ; preds = %2
   unreachable
 
 24:                                               ; preds = %2

@@ -1625,7 +1625,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit75.thread: ; preds = %_Z
 65:                                               ; preds = %61
   %66 = load i32, ptr %6, align 4, !tbaa !13
   %67 = icmp slt i32 %66, 1
-  br i1 %67, label %68, label %.thread105
+  br i1 %67, label %68, label %.thread110
 
 68:                                               ; preds = %65
   %69 = load i32, ptr %47, align 8, !tbaa !57
@@ -1714,7 +1714,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i82: ; preds = %
 _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit88: ; preds = %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i82, %.noexc87
   %99 = load i32, ptr %6, align 4, !tbaa !13
   %100 = icmp slt i32 %99, 1
-  br i1 %100, label %.backedge, label %.thread105
+  br i1 %100, label %.backedge, label %.thread110
 
 .backedge:                                        ; preds = %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit88, %59
   br label %52, !llvm.loop !68
@@ -1724,7 +1724,7 @@ _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit88: ; preds = %_ZN6icu_779UV
   %103 = icmp slt i32 %102, 1
   %.not67 = icmp slt i32 %.0, %3
   %or.cond71 = and i1 %.not67, %103
-  br i1 %or.cond71, label %104, label %.thread105
+  br i1 %or.cond71, label %104, label %.thread110
 
 104:                                              ; preds = %101
   %105 = sext i32 %.0 to i64
@@ -1735,7 +1735,7 @@ _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit88: ; preds = %_ZN6icu_779UV
 108:                                              ; preds = %104
   %109 = load i32, ptr %6, align 4, !tbaa !13
   %110 = icmp sgt i32 %109, 0
-  br i1 %110, label %.thread105, label %111
+  br i1 %110, label %.thread110, label %111
 
 111:                                              ; preds = %108
   invoke void @_ZN6icu_779UVector3210addElementEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %.0, ptr noundef nonnull align 4 dereferenceable(4) %6)
@@ -1747,9 +1747,9 @@ _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit88: ; preds = %_ZN6icu_779UV
 
 114:                                              ; preds = %112
   invoke void @_ZN6icu_779UVector3210addElementEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %113, ptr noundef nonnull align 4 dereferenceable(4) %6)
-          to label %.thread105 unwind label %.loopexit.split-lp
+          to label %.thread110 unwind label %.loopexit.split-lp
 
-.thread105:                                       ; preds = %65, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit88, %101, %114, %108
+.thread110:                                       ; preds = %65, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit88, %101, %114, %108
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread
 
@@ -1757,7 +1757,7 @@ _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit88: ; preds = %_ZN6icu_779UV
   %116 = icmp eq ptr %25, null
   br i1 %116, label %_ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit, label %.thread
 
-.thread:                                          ; preds = %.thread105, %37, %115
+.thread:                                          ; preds = %.thread110, %37, %115
   %117 = load ptr, ptr %25, align 8, !tbaa !15
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load ptr, ptr %118, align 8
@@ -3582,7 +3582,7 @@ CreateLSTMData_77.exit:                           ; preds = %21
   unreachable
 
 _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit: ; preds = %33, %30, %CreateLSTMData_77.exit, %35
-  %.22330 = phi ptr [ null, %CreateLSTMData_77.exit ], [ null, %35 ], [ null, %30 ], [ %31, %33 ]
+  %.22331 = phi ptr [ null, %CreateLSTMData_77.exit ], [ null, %35 ], [ null, %30 ], [ %31, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3606,7 +3606,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   resume { ptr, i32 } %.pn.pn.pn
 
 42:                                               ; preds = %6, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit
-  %.122 = phi ptr [ %.22330, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit ], [ null, %6 ]
+  %.122 = phi ptr [ %.22331, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit ], [ null, %6 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %43

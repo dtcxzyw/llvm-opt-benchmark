@@ -152,7 +152,7 @@ init_dir_mutex.exit.i:                            ; preds = %.lr.ph.i
   store ptr %32, ptr %53, align 8, !tbaa !36
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store i32 %.060.i, ptr %54, align 8, !tbaa !37
-  %55 = add nsw i32 %.060.i, %44
+  %55 = add nuw nsw i32 %.060.i, %44
   %56 = load i32, ptr %11, align 4, !tbaa !26
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %55, i32 %56)
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 28

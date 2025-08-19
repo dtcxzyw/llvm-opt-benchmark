@@ -1428,9 +1428,9 @@ define void @jpeg_simple_progression(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %57, ptr %56, align 4, !tbaa !32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %fill_dc_scans.exit.thread178, label %55, !llvm.loop !77
+  br i1 %exitcond.not.i, label %fill_dc_scans.exit.thread181, label %55, !llvm.loop !77
 
-fill_dc_scans.exit.thread178:                     ; preds = %55
+fill_dc_scans.exit.thread181:                     ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 24
   store i32 0, ptr %58, align 4, !tbaa !78
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 20
@@ -1461,8 +1461,8 @@ fill_dc_scans.exit.thread178:                     ; preds = %55
   %exitcond.not.i.i = icmp eq i32 %69, %3
   br i1 %exitcond.not.i.i, label %.lr.ph.i61.preheader, label %.lr.ph.i.i, !llvm.loop !82
 
-.lr.ph.i61.preheader:                             ; preds = %.lr.ph.i.i, %fill_dc_scans.exit.thread178
-  %.01516.i.ph = phi ptr [ %62, %fill_dc_scans.exit.thread178 ], [ %68, %.lr.ph.i.i ]
+.lr.ph.i61.preheader:                             ; preds = %.lr.ph.i.i, %fill_dc_scans.exit.thread181
+  %.01516.i.ph = phi ptr [ %62, %fill_dc_scans.exit.thread181 ], [ %68, %.lr.ph.i.i ]
   br label %.lr.ph.i61
 
 .lr.ph.i61:                                       ; preds = %.lr.ph.i61.preheader, %.lr.ph.i61
@@ -1847,35 +1847,35 @@ fill_dc_scans.exit151:                            ; preds = %201
   br label %fill_scans.exit95.sink.split
 
 fill_scans.exit95.sink.split:                     ; preds = %52, %fill_dc_scans.exit151
-  %.sink216 = phi i64 [ 312, %fill_dc_scans.exit151 ], [ 24, %52 ]
-  %.sink214 = phi i32 [ 63, %fill_dc_scans.exit151 ], [ 0, %52 ]
-  %.sink213 = phi i64 [ 316, %fill_dc_scans.exit151 ], [ 20, %52 ]
-  %.sink211 = phi i32 [ 1, %fill_dc_scans.exit151 ], [ 0, %52 ]
-  %.sink210 = phi i64 [ 320, %fill_dc_scans.exit151 ], [ 28, %52 ]
-  %.sink208 = phi i64 [ 324, %fill_dc_scans.exit151 ], [ 32, %52 ]
-  %.sink206 = phi i64 [ 328, %fill_dc_scans.exit151 ], [ 36, %52 ]
-  %.sink204 = phi i32 [ 0, %fill_dc_scans.exit151 ], [ %3, %52 ]
-  %.sink203 = phi i64 [ 344, %fill_dc_scans.exit151 ], [ 60, %52 ]
-  %.sink200 = phi i64 [ 348, %fill_dc_scans.exit151 ], [ 56, %52 ]
-  %.sink198 = phi i64 [ 352, %fill_dc_scans.exit151 ], [ 64, %52 ]
-  %.sink197 = phi i64 [ 356, %fill_dc_scans.exit151 ], [ 68, %52 ]
-  %217 = getelementptr inbounds nuw i8, ptr %48, i64 %.sink216
-  store i32 %.sink214, ptr %217, align 4, !tbaa !78
-  %218 = getelementptr inbounds nuw i8, ptr %48, i64 %.sink213
-  store i32 %.sink211, ptr %218, align 4, !tbaa !32
-  %219 = getelementptr inbounds nuw i8, ptr %48, i64 %.sink210
+  %.sink219 = phi i64 [ 312, %fill_dc_scans.exit151 ], [ 24, %52 ]
+  %.sink217 = phi i32 [ 63, %fill_dc_scans.exit151 ], [ 0, %52 ]
+  %.sink216 = phi i64 [ 316, %fill_dc_scans.exit151 ], [ 20, %52 ]
+  %.sink214 = phi i32 [ 1, %fill_dc_scans.exit151 ], [ 0, %52 ]
+  %.sink213 = phi i64 [ 320, %fill_dc_scans.exit151 ], [ 28, %52 ]
+  %.sink211 = phi i64 [ 324, %fill_dc_scans.exit151 ], [ 32, %52 ]
+  %.sink209 = phi i64 [ 328, %fill_dc_scans.exit151 ], [ 36, %52 ]
+  %.sink207 = phi i32 [ 0, %fill_dc_scans.exit151 ], [ %3, %52 ]
+  %.sink206 = phi i64 [ 344, %fill_dc_scans.exit151 ], [ 60, %52 ]
+  %.sink203 = phi i64 [ 348, %fill_dc_scans.exit151 ], [ 56, %52 ]
+  %.sink201 = phi i64 [ 352, %fill_dc_scans.exit151 ], [ 64, %52 ]
+  %.sink200 = phi i64 [ 356, %fill_dc_scans.exit151 ], [ 68, %52 ]
+  %217 = getelementptr inbounds nuw i8, ptr %48, i64 %.sink219
+  store i32 %.sink217, ptr %217, align 4, !tbaa !78
+  %218 = getelementptr inbounds nuw i8, ptr %48, i64 %.sink216
+  store i32 %.sink214, ptr %218, align 4, !tbaa !32
+  %219 = getelementptr inbounds nuw i8, ptr %48, i64 %.sink213
   store i32 0, ptr %219, align 4, !tbaa !32
-  %220 = getelementptr inbounds nuw i8, ptr %48, i64 %.sink208
+  %220 = getelementptr inbounds nuw i8, ptr %48, i64 %.sink211
   store i32 1, ptr %220, align 4, !tbaa !32
-  %221 = getelementptr inbounds nuw i8, ptr %48, i64 %.sink206
-  store i32 %.sink204, ptr %221, align 4, !tbaa !32
-  %222 = getelementptr inbounds nuw i8, ptr %48, i64 %.sink203
-  store i32 %.sink211, ptr %222, align 4, !tbaa !32
-  %223 = getelementptr inbounds nuw i8, ptr %48, i64 %.sink200
-  store i32 %.sink214, ptr %223, align 4, !tbaa !32
-  %224 = getelementptr inbounds nuw i8, ptr %48, i64 %.sink198
+  %221 = getelementptr inbounds nuw i8, ptr %48, i64 %.sink209
+  store i32 %.sink207, ptr %221, align 4, !tbaa !32
+  %222 = getelementptr inbounds nuw i8, ptr %48, i64 %.sink206
+  store i32 %.sink214, ptr %222, align 4, !tbaa !32
+  %223 = getelementptr inbounds nuw i8, ptr %48, i64 %.sink203
+  store i32 %.sink217, ptr %223, align 4, !tbaa !32
+  %224 = getelementptr inbounds nuw i8, ptr %48, i64 %.sink201
   store i32 1, ptr %224, align 4, !tbaa !80
-  %225 = getelementptr inbounds nuw i8, ptr %48, i64 %.sink197
+  %225 = getelementptr inbounds nuw i8, ptr %48, i64 %.sink200
   store i32 0, ptr %225, align 4, !tbaa !81
   br label %fill_scans.exit95
 

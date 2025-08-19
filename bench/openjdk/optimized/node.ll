@@ -4886,8 +4886,8 @@ define hidden void @_ZN4Node7ins_reqEjPS_(ptr noundef nonnull align 8 dereferenc
   %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %13
   %15 = zext i32 %7 to i64
   %16 = add nsw i64 %15, -1
-  %17 = getelementptr inbounds ptr, ptr %14, i64 %16
-  %18 = getelementptr inbounds ptr, ptr %11, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %16
+  %18 = getelementptr inbounds nuw ptr, ptr %11, i64 %16
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -6773,8 +6773,8 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %._crit_edge, %150
   %or.cond85 = select i1 %or.cond84, i1 true, i1 %172
   %173 = add nsw i32 %.2, -1
   %.not = icmp eq ptr %.072, null
-  %or.cond135 = or i1 %or.cond85, %.not
-  br i1 %or.cond135, label %.loopexit88, label %.lr.ph105, !llvm.loop !36
+  %or.cond147 = or i1 %or.cond85, %.not
+  br i1 %or.cond147, label %.loopexit88, label %.lr.ph105, !llvm.loop !36
 
 .loopexit88:                                      ; preds = %18, %108, %.critedge81, %21, %.lr.ph105, %3, %33
   %.0 = phi i1 [ %34, %33 ], [ false, %3 ], [ true, %18 ], [ false, %108 ], [ false, %.critedge81 ], [ false, %21 ], [ false, %.lr.ph105 ]
@@ -7403,12 +7403,12 @@ _ZN9Node_List4pushEP4Node.exit.i.i:               ; preds = %335, %329
 
 _ZN16Unique_Node_List4pushEP4Node.exit.sink.split.i: ; preds = %_ZN9Node_List4pushEP4Node.exit.i.i, %298, %296, %199, %197, %173, %_ZN4Node7set_reqEjPS_.exit.i
   %.sink.i = phi i32 [ %331, %_ZN9Node_List4pushEP4Node.exit.i.i ], [ %.sroa.47.1186.i, %_ZN4Node7set_reqEjPS_.exit.i ], [ %.sroa.47.1186.i, %173 ], [ %.sroa.47.1186.i, %197 ], [ %.sroa.47.1186.i, %199 ], [ %.sroa.47.1186.i, %296 ], [ %.sroa.47.1186.i, %298 ]
-  %.sink213.i = phi ptr [ %354, %_ZN9Node_List4pushEP4Node.exit.i.i ], [ %.sroa.27.1184.i, %_ZN4Node7set_reqEjPS_.exit.i ], [ %182, %173 ], [ %.sroa.27.1184.i, %197 ], [ %208, %199 ], [ %.sroa.27.1184.i, %296 ], [ %307, %298 ]
+  %.sink229.i = phi ptr [ %354, %_ZN9Node_List4pushEP4Node.exit.i.i ], [ %.sroa.27.1184.i, %_ZN4Node7set_reqEjPS_.exit.i ], [ %182, %173 ], [ %.sroa.27.1184.i, %197 ], [ %208, %199 ], [ %.sroa.27.1184.i, %296 ], [ %307, %298 ]
   %.sroa.27.2.ph.i = phi ptr [ %.sroa.27.1184.i, %_ZN9Node_List4pushEP4Node.exit.i.i ], [ %.sroa.27.1184.i, %_ZN4Node7set_reqEjPS_.exit.i ], [ %182, %173 ], [ %.sroa.27.1184.i, %197 ], [ %208, %199 ], [ %.sroa.27.1184.i, %296 ], [ %307, %298 ]
   %.sroa.7.2.ph.i = phi i32 [ %.sroa.7.1185.i, %_ZN9Node_List4pushEP4Node.exit.i.i ], [ %.sroa.7.1185.i, %_ZN4Node7set_reqEjPS_.exit.i ], [ %.0.i.i.i.i.i104.i, %173 ], [ %.sroa.7.1185.i, %197 ], [ %.0.i.i.i.i.i108.i, %199 ], [ %.sroa.7.1185.i, %296 ], [ %.0.i.i.i.i.i124.i, %298 ]
   %.sroa.47.2.ph.i = phi i32 [ %.sroa.47.1186.i, %_ZN9Node_List4pushEP4Node.exit.i.i ], [ %172, %_ZN4Node7set_reqEjPS_.exit.i ], [ %172, %173 ], [ %198, %197 ], [ %198, %199 ], [ %297, %296 ], [ %297, %298 ]
   %355 = zext i32 %.sink.i to i64
-  %356 = getelementptr inbounds nuw ptr, ptr %.sink213.i, i64 %355
+  %356 = getelementptr inbounds nuw ptr, ptr %.sink229.i, i64 %355
   store ptr %104, ptr %356, align 8
   br label %_ZN16Unique_Node_List4pushEP4Node.exit.i
 
@@ -8054,8 +8054,8 @@ define hidden void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 c
   %38 = getelementptr inbounds nuw ptr, ptr %.pre6, i64 %37
   %39 = getelementptr inbounds nuw ptr, ptr %.pre6, i64 %31
   %40 = add nsw i64 %35, -1
-  %41 = getelementptr inbounds ptr, ptr %38, i64 %40
-  %42 = getelementptr inbounds ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %40
+  %42 = getelementptr inbounds nuw ptr, ptr %39, i64 %40
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i

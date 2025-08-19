@@ -942,7 +942,7 @@ define noundef range(i64 -2147168419, 2147864412) i64 @_ZNK6icu_7714HebrewCalend
 10:                                               ; preds = %5
   %11 = add i32 %2, -235
   %or.cond = icmp ult i32 %11, -469
-  br i1 %or.cond, label %12, label %.preheader34
+  br i1 %or.cond, label %12, label %.preheader35
 
 12:                                               ; preds = %10
   %13 = sdiv i32 %2, 235
@@ -958,12 +958,12 @@ define noundef range(i64 -2147168419, 2147864412) i64 @_ZNK6icu_7714HebrewCalend
 
 18:                                               ; preds = %12
   store i32 %14, ptr %7, align 4, !tbaa !9
-  br label %.preheader34
+  br label %.preheader35
 
-.preheader34:                                     ; preds = %10, %18
+.preheader35:                                     ; preds = %10, %18
   br label %19
 
-19:                                               ; preds = %.preheader34, %26
+19:                                               ; preds = %.preheader35, %26
   %20 = load i32, ptr %7, align 4, !tbaa !9
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %23, label %.preheader

@@ -308,7 +308,7 @@ define internal i32 @dissect_http3(ptr noundef %0, ptr noundef %1, ptr noundef %
   %14 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %187
 
-default.unreachable59:                            ; preds = %44
+default.unreachable66:                            ; preds = %44
   unreachable
 
 15:                                               ; preds = %8, %11
@@ -371,7 +371,7 @@ default.unreachable59:                            ; preds = %44
 44:                                               ; preds = %._crit_edge, %36
   %45 = phi i64 [ %.pre, %._crit_edge ], [ %.pre58, %36 ]
   %46 = and i64 %45, 3
-  switch i64 %46, label %default.unreachable59 [
+  switch i64 %46, label %default.unreachable66 [
     i64 0, label %47
     i64 1, label %59
     i64 2, label %61
@@ -884,8 +884,8 @@ define internal fastcc i32 @dissect_http3_frame(ptr noundef %0, ptr noundef %1, 
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %65 = load i32, ptr %64, align 8
   %66 = icmp ult i32 %63, %65
-  %.2.i.i = select i1 %66, i64 208, i64 232
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 %.2.i.i
+  %.3.i.i = select i1 %66, i64 208, i64 232
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 %.3.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %67, i64 24, i1 false)
   call void @wmem_array_append(ptr noundef %59, ptr noundef nonnull %10, i32 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)

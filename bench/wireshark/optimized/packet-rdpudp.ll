@@ -575,7 +575,7 @@ copy_address_wmem.exit.i:                         ; preds = %64, %54
   %93 = and i16 %92, 1
   %.not151.i = icmp eq i16 %93, 0
   %.pre.i = add nuw nsw i32 %.1.i, 2
-  br i1 %.not151.i, label %.critedge165.i, label %._crit_edge164.i
+  br i1 %.not151.i, label %.critedge167.i, label %._crit_edge164.i
 
 ._crit_edge164.i:                                 ; preds = %90
   %94 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %.pre.i, i32 noundef 0)
@@ -606,7 +606,7 @@ copy_address_wmem.exit.i:                         ; preds = %64, %54
   store i32 %112, ptr %.0, align 8
   br label %119
 
-.critedge165.i:                                   ; preds = %90
+.critedge167.i:                                   ; preds = %90
   %113 = load i32, ptr @ett_rdpudp_synex, align 4
   %114 = tail call ptr @proto_tree_add_subtree(ptr noundef %29, ptr noundef %0, i32 noundef %.1.i, i32 noundef 2, i32 noundef %113, ptr noundef null, ptr noundef nonnull @.str.28)
   %115 = load i32, ptr @hf_rdpudp_synex_flags, align 4
@@ -615,8 +615,8 @@ copy_address_wmem.exit.i:                         ; preds = %64, %54
   %118 = tail call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %117, ptr noundef %0, i32 noundef %.1.i, i32 noundef 2, i32 noundef 0)
   br label %119
 
-119:                                              ; preds = %.critedge165.i, %110, %105, %._crit_edge164.i, %88
-  %.2.i = phi i32 [ %.1.i, %88 ], [ %108, %110 ], [ %108, %105 ], [ %104, %._crit_edge164.i ], [ %.pre.i, %.critedge165.i ]
+119:                                              ; preds = %.critedge167.i, %110, %105, %._crit_edge164.i, %88
+  %.2.i = phi i32 [ %.1.i, %88 ], [ %108, %110 ], [ %108, %105 ], [ %104, %._crit_edge164.i ], [ %.pre.i, %.critedge167.i ]
   %120 = and i32 %46, 5
   %brmerge.not.i = icmp eq i32 %120, 4
   br i1 %brmerge.not.i, label %121, label %135

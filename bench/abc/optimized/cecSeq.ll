@@ -1005,25 +1005,25 @@ define range(i32 0, 2) i32 @Cec_ManCheckNonTrivialCands(ptr noundef readonly cap
   br i1 %9, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %.val4379 = load ptr, ptr %5, align 8, !tbaa !84
-  %.not80 = icmp eq ptr %.val4379, null
-  br i1 %.not80, label %.critedge, label %.lr.ph84
+  %.val4380 = load ptr, ptr %5, align 8, !tbaa !84
+  %.not81 = icmp eq ptr %.val4380, null
+  br i1 %.not81, label %.critedge, label %.lr.ph85
 
-.lr.ph:                                           ; preds = %.lr.ph84
+.lr.ph:                                           ; preds = %.lr.ph85
   %.val43 = load ptr, ptr %5, align 8, !tbaa !84
   %.not = icmp eq ptr %.val43, null
-  br i1 %.not, label %.critedge, label %.lr.ph84, !llvm.loop !87
+  br i1 %.not, label %.critedge, label %.lr.ph85, !llvm.loop !87
 
-.lr.ph84:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.val4383 = phi ptr [ %.val43, %.lr.ph ], [ %.val4379, %.lr.ph.preheader ]
-  %.val395282 = phi ptr [ %.val39, %.lr.ph ], [ %.val3949, %.lr.ph.preheader ]
-  %indvars.iv81 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %10 = getelementptr i8, ptr %.val395282, i64 8
+.lr.ph85:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.val4384 = phi ptr [ %.val43, %.lr.ph ], [ %.val4380, %.lr.ph.preheader ]
+  %.val395283 = phi ptr [ %.val39, %.lr.ph ], [ %.val3949, %.lr.ph.preheader ]
+  %indvars.iv82 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %10 = getelementptr i8, ptr %.val395283, i64 8
   %.val44.val = load ptr, ptr %10, align 8, !tbaa !85
-  %11 = getelementptr inbounds nuw i32, ptr %.val44.val, i64 %indvars.iv81
+  %11 = getelementptr inbounds nuw i32, ptr %.val44.val, i64 %indvars.iv82
   %12 = load i32, ptr %11, align 4, !tbaa !14
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val4383, i64 %13
+  %14 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val4384, i64 %13
   %15 = load i64, ptr %14, align 4
   %16 = and i64 %15, 536870911
   %17 = sub nsw i64 0, %16
@@ -1031,7 +1031,7 @@ define range(i32 0, 2) i32 @Cec_ManCheckNonTrivialCands(ptr noundef readonly cap
   %19 = load i64, ptr %18, align 4
   %20 = or i64 %19, 1073741824
   store i64 %20, ptr %18, align 4
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv81, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv82, 1
   %.val38 = load i32, ptr %6, align 8, !tbaa !15
   %.val39 = load ptr, ptr %7, align 8, !tbaa !56
   %21 = getelementptr i8, ptr %.val39, i64 4
@@ -1041,7 +1041,7 @@ define range(i32 0, 2) i32 @Cec_ManCheckNonTrivialCands(ptr noundef readonly cap
   %24 = icmp slt i64 %indvars.iv.next, %23
   br i1 %24, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !87
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph84
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph85
   br label %.critedge, !llvm.loop !87
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %.preheader

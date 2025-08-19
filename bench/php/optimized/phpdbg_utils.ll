@@ -1015,8 +1015,8 @@ define dso_local range(i32 -1, 1) i32 @phpdbg_parse_variable_with_arg(ptr nounde
   %.0269414 = phi ptr [ %2, %.lr.ph415 ], [ %.3272, %246 ]
   %.0273413 = phi i64 [ %3, %.lr.ph415 ], [ %16, %246 ]
   %.0274412 = phi i32 [ -1, %.lr.ph415 ], [ %.14, %246 ]
-  %.0278411 = phi i8 [ 1, %.lr.ph415 ], [ %.1279502507, %246 ]
-  %.0281410 = phi ptr [ null, %.lr.ph415 ], [ %.1282501, %246 ]
+  %.0278411 = phi i8 [ 1, %.lr.ph415 ], [ %.1279517522, %246 ]
+  %.0281410 = phi ptr [ null, %.lr.ph415 ], [ %.1282516, %246 ]
   %.0284409 = phi i64 [ 0, %.lr.ph415 ], [ %.3287, %246 ]
   %16 = add nuw i64 %.0273413, 1
   %17 = icmp eq i64 %16, %1
@@ -1052,9 +1052,9 @@ define dso_local range(i32 -1, 1) i32 @phpdbg_parse_variable_with_arg(ptr nounde
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 %.0273413
   %31 = load i8, ptr %30, align 1, !tbaa !4
   %32 = icmp eq i8 %31, 93
-  br i1 %32, label %.loopexit366, label %.thread503
+  br i1 %32, label %.loopexit366, label %.thread518
 
-.thread503:                                       ; preds = %29
+.thread518:                                       ; preds = %29
   %33 = trunc nuw i8 %.0278411 to i1
   %spec.select356 = select i1 %33, ptr %19, ptr %.0281410
   %34 = add i64 %.0284409, 1
@@ -1506,12 +1506,12 @@ zend_symtable_str_find.exit:                      ; preds = %169, %_zend_handle_
   %245 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %239, ptr noundef nonnull @.str.16, i32 noundef %244, ptr noundef nonnull %0) #26
   br label %.critedge
 
-246:                                              ; preds = %.thread503, %210, %224, %195, %155
-  %.1279502507 = phi i8 [ 0, %155 ], [ 1, %195 ], [ %.1279, %224 ], [ %.1279, %210 ], [ 0, %.thread503 ]
-  %.1282501 = phi ptr [ %.0281410, %155 ], [ %.0281410, %195 ], [ %.0281410, %224 ], [ %.0281410, %210 ], [ %spec.select356, %.thread503 ]
-  %.3287 = phi i64 [ %.1285, %155 ], [ 0, %195 ], [ 0, %224 ], [ 0, %210 ], [ %34, %.thread503 ]
-  %.14 = phi i32 [ %.0274412, %155 ], [ %201, %195 ], [ %.12, %224 ], [ %.11, %210 ], [ %.0274412, %.thread503 ]
-  %.3272 = phi ptr [ %.0269414, %155 ], [ %.0269414, %195 ], [ %225, %224 ], [ %216, %210 ], [ %.0269414, %.thread503 ]
+246:                                              ; preds = %.thread518, %210, %224, %195, %155
+  %.1279517522 = phi i8 [ 0, %155 ], [ 1, %195 ], [ %.1279, %224 ], [ %.1279, %210 ], [ 0, %.thread518 ]
+  %.1282516 = phi ptr [ %.0281410, %155 ], [ %.0281410, %195 ], [ %.0281410, %224 ], [ %.0281410, %210 ], [ %spec.select356, %.thread518 ]
+  %.3287 = phi i64 [ %.1285, %155 ], [ 0, %195 ], [ 0, %224 ], [ 0, %210 ], [ %34, %.thread518 ]
+  %.14 = phi i32 [ %.0274412, %155 ], [ %201, %195 ], [ %.12, %224 ], [ %.11, %210 ], [ %.0274412, %.thread518 ]
+  %.3272 = phi ptr [ %.0269414, %155 ], [ %.0269414, %195 ], [ %225, %224 ], [ %216, %210 ], [ %.0269414, %.thread518 ]
   %exitcond.not = icmp eq i64 %16, %1
   br i1 %exitcond.not, label %.critedge, label %15
 

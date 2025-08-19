@@ -22589,11 +22589,11 @@ _ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8I
   unreachable
 
 _ZN7testing8internal33MakePredicateFormatterFromMatcherIN12absl_testing15status_internal15StatusIsMatcherEEENS0_29PredicateFormatterFromMatcherIT_EES6_.exit347.sink.split.sink.split: ; preds = %_ZN7testing7MatcherIN12absl_testing15status_internal10StatusCodeEEC2ERKS4_.exit.i.i.i332, %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i.i334
-  %.sink629 = phi ptr [ %836, %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i.i334 ], [ null, %_ZN7testing7MatcherIN12absl_testing15status_internal10StatusCodeEEC2ERKS4_.exit.i.i.i332 ]
+  %.sink754 = phi ptr [ %836, %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i.i.i334 ], [ null, %_ZN7testing7MatcherIN12absl_testing15status_internal10StatusCodeEEC2ERKS4_.exit.i.i.i332 ]
   store ptr @_ZZN7testing8internal11MatcherBaseIN12absl_testing15status_internal10StatusCodeEE9GetVTableINS5_11ValuePolicyINS0_9EqMatcherIS4_EELb1EEEEEPKNS5_6VTableEvE7kVTable, ptr %814, align 8, !tbaa !359, !alias.scope !633
   store i64 3, ptr %815, align 8, !tbaa !45, !alias.scope !633
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing7MatcherIN12absl_testing15status_internal10StatusCodeEEE, i64 16), ptr %50, align 8, !tbaa !4, !alias.scope !633
-  store ptr %.sink629, ptr %817, align 8, !tbaa !367, !alias.scope !633
+  store ptr %.sink754, ptr %817, align 8, !tbaa !367, !alias.scope !633
   store i64 %837, ptr %818, align 8, !tbaa !45, !alias.scope !633
   br label %_ZN7testing8internal33MakePredicateFormatterFromMatcherIN12absl_testing15status_internal15StatusIsMatcherEEENS0_29PredicateFormatterFromMatcherIT_EES6_.exit347.sink.split
 

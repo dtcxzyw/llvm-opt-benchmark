@@ -728,32 +728,32 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit54: ; preds = %_
   %56 = load i8, ptr %storemerge102, align 1, !tbaa !10
   %57 = add i8 %56, -48
   %58 = icmp ult i8 %57, 10
-  br i1 %58, label %.lr.ph116, label %.critedge
+  br i1 %58, label %.lr.ph122, label %.critedge
 
-.lr.ph:                                           ; preds = %.lr.ph116
+.lr.ph:                                           ; preds = %.lr.ph122
   %59 = load i8, ptr %storemerge, align 1, !tbaa !10
   %60 = add i8 %59, -48
   %61 = icmp ult i8 %60, 10
-  br i1 %61, label %.lr.ph116, label %.critedge, !llvm.loop !90
+  br i1 %61, label %.lr.ph122, label %.critedge, !llvm.loop !90
 
-.lr.ph116:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph122:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %62 = phi i8 [ %60, %.lr.ph ], [ %57, %.lr.ph.preheader ]
-  %.0104115 = phi i64 [ %65, %.lr.ph ], [ %55, %.lr.ph.preheader ]
-  %storemerge106114 = phi ptr [ %storemerge, %.lr.ph ], [ %storemerge102, %.lr.ph.preheader ]
-  %63 = mul i64 %.0104115, 10
+  %.0104121 = phi i64 [ %65, %.lr.ph ], [ %55, %.lr.ph.preheader ]
+  %storemerge106120 = phi ptr [ %storemerge, %.lr.ph ], [ %storemerge102, %.lr.ph.preheader ]
+  %63 = mul i64 %.0104121, 10
   %64 = zext nneg i8 %62 to i64
   %65 = add i64 %63, %64
-  %storemerge = getelementptr inbounds nuw i8, ptr %storemerge106114, i64 1
+  %storemerge = getelementptr inbounds nuw i8, ptr %storemerge106120, i64 1
   store ptr %storemerge, ptr %2, align 8, !tbaa !22
   %.not = icmp eq ptr %storemerge, %.032
   br i1 %.not, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !90
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph116
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph122
   br label %.critedge, !llvm.loop !90
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %48
   %.0.lcssa = phi i64 [ %55, %48 ], [ %65, %..critedge.loopexit_crit_edge ], [ %55, %.lr.ph.preheader ], [ %65, %.lr.ph ]
-  %.pn.lcssa = phi ptr [ %5, %48 ], [ %storemerge106114, %..critedge.loopexit_crit_edge ], [ %5, %.lr.ph.preheader ], [ %storemerge106114, %.lr.ph ]
+  %.pn.lcssa = phi ptr [ %5, %48 ], [ %storemerge106120, %..critedge.loopexit_crit_edge ], [ %5, %.lr.ph.preheader ], [ %storemerge106120, %.lr.ph ]
   %storemerge.lcssa = phi ptr [ %storemerge102, %48 ], [ %storemerge, %..critedge.loopexit_crit_edge ], [ %storemerge102, %.lr.ph.preheader ], [ %storemerge, %.lr.ph ]
   %.not40 = icmp eq ptr %storemerge.lcssa, %3
   br i1 %.not40, label %103, label %66

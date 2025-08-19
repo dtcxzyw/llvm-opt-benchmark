@@ -164,11 +164,11 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %87, label %.sink.split, label %88
 
 .sink.split:                                      ; preds = %85, %82
-  %.sink575 = phi ptr [ %9, %82 ], [ %8, %85 ]
+  %.sink585 = phi ptr [ %9, %82 ], [ %8, %85 ]
   store i32 %77, ptr %5, align 4, !tbaa !3
-  call void @dlascl_(ptr noundef nonnull @.str.5, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %7, ptr noundef nonnull %.sink575, ptr noundef nonnull %5, ptr noundef nonnull @c__1, ptr noundef nonnull %78, ptr noundef nonnull %0, ptr noundef nonnull %3) #6
+  call void @dlascl_(ptr noundef nonnull @.str.5, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %7, ptr noundef nonnull %.sink585, ptr noundef nonnull %5, ptr noundef nonnull @c__1, ptr noundef nonnull %78, ptr noundef nonnull %0, ptr noundef nonnull %3) #6
   store i32 %76, ptr %5, align 4, !tbaa !3
-  call void @dlascl_(ptr noundef nonnull @.str.5, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %7, ptr noundef nonnull %.sink575, ptr noundef nonnull %5, ptr noundef nonnull @c__1, ptr noundef nonnull %79, ptr noundef nonnull %0, ptr noundef nonnull %3) #6
+  call void @dlascl_(ptr noundef nonnull @.str.5, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %7, ptr noundef nonnull %.sink585, ptr noundef nonnull %5, ptr noundef nonnull @c__1, ptr noundef nonnull %79, ptr noundef nonnull %0, ptr noundef nonnull %3) #6
   br label %88
 
 88:                                               ; preds = %.sink.split, %85
@@ -242,8 +242,8 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 120:                                              ; preds = %106
   %121 = trunc nsw i64 %indvars.iv521 to i32
-  %sext543 = shl i64 %indvars.iv521, 32
-  %122 = ashr exact i64 %sext543, 29
+  %sext553 = shl i64 %indvars.iv521, 32
+  %122 = ashr exact i64 %sext553, 29
   %123 = getelementptr inbounds i8, ptr %13, i64 %122
   store double 0.000000e+00, ptr %123, align 8, !tbaa !7
   br label %.thread
@@ -413,8 +413,8 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 208:                                              ; preds = %194
   %209 = trunc nsw i64 %indvars.iv529 to i32
-  %sext544 = shl i64 %indvars.iv529, 32
-  %210 = ashr exact i64 %sext544, 29
+  %sext554 = shl i64 %indvars.iv529, 32
+  %210 = ashr exact i64 %sext554, 29
   %211 = getelementptr i8, ptr %13, i64 %210
   %212 = getelementptr i8, ptr %211, i64 -8
   store double 0.000000e+00, ptr %212, align 8, !tbaa !7

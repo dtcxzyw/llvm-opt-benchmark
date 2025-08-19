@@ -192,13 +192,13 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store double 0.000000e+00, ptr %5, align 8, !tbaa !31
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !31
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -1071,11 +1071,7 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit:
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.not = icmp eq i32 %2, 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %10, i8 0, i64 160, i1 false)
-  br i1 %.not, label %.thread, label %17
-
-.thread:                                          ; preds = %_ZN12colvarmodule8vector1dIdEC2Em.exit
-  store i32 7, ptr %0, align 8, !tbaa !4
-  br label %246
+  br i1 %.not, label %246, label %17
 
 17:                                               ; preds = %_ZN12colvarmodule8vector1dIdEC2Em.exit
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1644,7 +1640,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75: ; preds = %_ZN
     i32 4, label %232
     i32 5, label %238
     i32 6, label %238
-    i32 7, label %246
   ]
 
 230:                                              ; preds = %229
@@ -1682,7 +1677,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75: ; preds = %_ZN
   store double %245, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !31
   br label %_ZN12colvarmodule8vector1dIdEaSERKS1_.exit
 
-246:                                              ; preds = %.thread, %229
+246:                                              ; preds = %_ZN12colvarmodule8vector1dIdEC2Em.exit
+  store i32 7, ptr %0, align 8, !tbaa !4
   %247 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIdSaIdEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %_ZN12colvarmodule8vector1dIdEaSERKS1_.exit unwind label %172
 
@@ -6026,14 +6022,14 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit:           ; preds = %_ZNSt6vectorIdSaIdE
 
 39:                                               ; preds = %37
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #23
-          to label %.noexc99 unwind label %.thread126
+          to label %.noexc99 unwind label %.thread160
 
 .noexc99:                                         ; preds = %39
   unreachable
 
 _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i92: ; preds = %37
   %40 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %34) #24
-          to label %.noexc100 unwind label %.thread126
+          to label %.noexc100 unwind label %.thread160
 
 .noexc100:                                        ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i92
   store double 0.000000e+00, ptr %40, align 8, !tbaa !31
@@ -6061,8 +6057,8 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i22:           ; preds = %.noexc100, %_ZSt6fi
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %40, i8 0, i64 %51, i1 false), !tbaa !31
   br label %_ZN12colvarmodule8vector1dIdEC2Em.exit23
 
-.thread126:                                       ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i92, %39
-  %lpad.thr_comm124 = landingpad { ptr, i32 }
+.thread160:                                       ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i92, %39
+  %lpad.thr_comm158 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -6217,8 +6213,8 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit.i40:            ; preds = %111, %107
   call void @_ZdlPvm(ptr noundef nonnull %109, i64 noundef %116) #25
   br label %.body
 
-.body:                                            ; preds = %.thread126, %112, %_ZNSt6vectorIdSaIdEE5clearEv.exit.i40
-  %.pn = phi { ptr, i32 } [ %108, %_ZNSt6vectorIdSaIdEE5clearEv.exit.i40 ], [ %108, %112 ], [ %lpad.thr_comm124, %.thread126 ]
+.body:                                            ; preds = %.thread160, %112, %_ZNSt6vectorIdSaIdEE5clearEv.exit.i40
+  %.pn = phi { ptr, i32 } [ %108, %_ZNSt6vectorIdSaIdEE5clearEv.exit.i40 ], [ %108, %112 ], [ %lpad.thr_comm158, %.thread160 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %117 = load ptr, ptr %5, align 8, !tbaa !29
   %118 = load ptr, ptr %13, align 8, !tbaa !28
@@ -7107,14 +7103,14 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit:           ; preds = %_ZNSt6vectorIdSaIdE
 
 39:                                               ; preds = %37
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #23
-          to label %.noexc99 unwind label %.thread126
+          to label %.noexc99 unwind label %.thread160
 
 .noexc99:                                         ; preds = %39
   unreachable
 
 _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i92: ; preds = %37
   %40 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %34) #24
-          to label %.noexc100 unwind label %.thread126
+          to label %.noexc100 unwind label %.thread160
 
 .noexc100:                                        ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i92
   store double 0.000000e+00, ptr %40, align 8, !tbaa !31
@@ -7142,8 +7138,8 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i22:           ; preds = %.noexc100, %_ZSt6fi
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %40, i8 0, i64 %51, i1 false), !tbaa !31
   br label %_ZN12colvarmodule8vector1dIdEC2Em.exit23
 
-.thread126:                                       ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i92, %39
-  %lpad.thr_comm124 = landingpad { ptr, i32 }
+.thread160:                                       ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i92, %39
+  %lpad.thr_comm158 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -7298,8 +7294,8 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit.i40:            ; preds = %111, %107
   call void @_ZdlPvm(ptr noundef nonnull %109, i64 noundef %116) #25
   br label %.body
 
-.body:                                            ; preds = %.thread126, %112, %_ZNSt6vectorIdSaIdEE5clearEv.exit.i40
-  %.pn = phi { ptr, i32 } [ %108, %_ZNSt6vectorIdSaIdEE5clearEv.exit.i40 ], [ %108, %112 ], [ %lpad.thr_comm124, %.thread126 ]
+.body:                                            ; preds = %.thread160, %112, %_ZNSt6vectorIdSaIdEE5clearEv.exit.i40
+  %.pn = phi { ptr, i32 } [ %108, %_ZNSt6vectorIdSaIdEE5clearEv.exit.i40 ], [ %108, %112 ], [ %lpad.thr_comm158, %.thread160 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %117 = load ptr, ptr %5, align 8, !tbaa !29
   %118 = load ptr, ptr %13, align 8, !tbaa !28
@@ -7988,14 +7984,14 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit:           ; preds = %_ZNSt6vectorIdSaIdE
 
 37:                                               ; preds = %35
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #23
-          to label %.noexc91 unwind label %.thread119
+          to label %.noexc91 unwind label %.thread150
 
 .noexc91:                                         ; preds = %37
   unreachable
 
 _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i84: ; preds = %35
   %38 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #24
-          to label %.noexc92 unwind label %.thread119
+          to label %.noexc92 unwind label %.thread150
 
 .noexc92:                                         ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i84
   store double 0.000000e+00, ptr %38, align 8, !tbaa !31
@@ -8023,8 +8019,8 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i22:           ; preds = %.noexc92, %_ZSt6fil
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %38, i8 0, i64 %49, i1 false), !tbaa !31
   br label %_ZN12colvarmodule8vector1dIdEC2Em.exit23
 
-.thread119:                                       ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i84, %37
-  %lpad.thr_comm117 = landingpad { ptr, i32 }
+.thread150:                                       ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i84, %37
+  %lpad.thr_comm148 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -8128,8 +8124,8 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit.i32:            ; preds = %85, %81
   call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %90) #25
   br label %.body
 
-.body:                                            ; preds = %.thread119, %86, %_ZNSt6vectorIdSaIdEE5clearEv.exit.i32
-  %.pn = phi { ptr, i32 } [ %82, %_ZNSt6vectorIdSaIdEE5clearEv.exit.i32 ], [ %82, %86 ], [ %lpad.thr_comm117, %.thread119 ]
+.body:                                            ; preds = %.thread150, %86, %_ZNSt6vectorIdSaIdEE5clearEv.exit.i32
+  %.pn = phi { ptr, i32 } [ %82, %_ZNSt6vectorIdSaIdEE5clearEv.exit.i32 ], [ %82, %86 ], [ %lpad.thr_comm148, %.thread150 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %91 = load ptr, ptr %3, align 8, !tbaa !29
   %92 = load ptr, ptr %11, align 8, !tbaa !28

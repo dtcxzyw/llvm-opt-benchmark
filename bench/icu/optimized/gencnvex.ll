@@ -357,20 +357,20 @@ prepareFromUMappings.exit.i:                      ; preds = %93, %42
 .preheader.i.i:                                   ; preds = %191, %.preheader.lr.ph.i.i
   %.076.i.i = phi i32 [ %129, %.preheader.lr.ph.i.i ], [ %.1.lcssa.i.i, %191 ]
   %.06375.i.i = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %.lcssa.i.i, %191 ]
-  %132 = sext i32 %.06375.i.i to i64
-  %133 = add nsw i32 %.06375.i.i, 1
+  %132 = zext nneg i32 %.06375.i.i to i64
+  %133 = add nuw nsw i32 %.06375.i.i, 1
   %smax.i.i = tail call i32 @llvm.smax.i32(i32 %.053.lcssa.i.i, i32 %133)
   %134 = add nsw i32 %smax.i.i, -1
   br label %135
 
 135:                                              ; preds = %150, %.preheader.i.i
   %indvars.iv.i25.i = phi i64 [ %132, %.preheader.i.i ], [ %indvars.iv.next.i26.i, %150 ]
-  %indvars.iv.next.i26.i = add nsw i64 %indvars.iv.i25.i, 1
-  %136 = icmp slt i64 %indvars.iv.next.i26.i, %131
+  %indvars.iv.next.i26.i = add nuw nsw i64 %indvars.iv.i25.i, 1
+  %136 = icmp samesign ult i64 %indvars.iv.next.i26.i, %131
   br i1 %136, label %137, label %.critedge.i.i
 
 137:                                              ; preds = %135
-  %138 = getelementptr inbounds i32, ptr %113, i64 %indvars.iv.next.i26.i
+  %138 = getelementptr inbounds nuw i32, ptr %113, i64 %indvars.iv.next.i26.i
   %139 = load i32, ptr %138, align 4, !tbaa !35
   %140 = sext i32 %139 to i64
   %141 = getelementptr inbounds %struct.UCMapping, ptr %112, i64 %140
@@ -393,15 +393,15 @@ prepareFromUMappings.exit.i:                      ; preds = %93, %42
   br i1 %153, label %135, label %.critedge.split.loop.exit.i.i, !llvm.loop !51
 
 .critedge.split.loop.exit.i.i:                    ; preds = %150
-  %154 = trunc nsw i64 %indvars.iv.next.i26.i to i32
-  %155 = trunc nsw i64 %indvars.iv.i25.i to i32
+  %154 = trunc nuw nsw i64 %indvars.iv.next.i26.i to i32
+  %155 = trunc nuw nsw i64 %indvars.iv.i25.i to i32
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %135, %.critedge.split.loop.exit.i.i
   %.16472.lcssa.i.i = phi i32 [ %155, %.critedge.split.loop.exit.i.i ], [ %134, %135 ]
   %.lcssa.i.i = phi i32 [ %154, %.critedge.split.loop.exit.i.i ], [ %smax.i.i, %135 ]
   %.1.lcssa.i.i = phi i32 [ %152, %.critedge.split.loop.exit.i.i ], [ %.076.i.i, %135 ]
-  %156 = getelementptr inbounds i32, ptr %113, i64 %132
+  %156 = getelementptr inbounds nuw i32, ptr %113, i64 %132
   %157 = load i32, ptr %156, align 4, !tbaa !35
   %158 = sext i32 %157 to i64
   %159 = getelementptr inbounds %struct.UCMapping, ptr %112, i64 %158
@@ -415,8 +415,8 @@ prepareFromUMappings.exit.i:                      ; preds = %93, %42
   br i1 %164, label %165, label %182
 
 165:                                              ; preds = %163
-  %166 = sext i32 %133 to i64
-  %167 = getelementptr inbounds i32, ptr %113, i64 %166
+  %166 = zext nneg i32 %133 to i64
+  %167 = getelementptr inbounds nuw i32, ptr %113, i64 %166
   %168 = load i32, ptr %167, align 4, !tbaa !35
   %169 = sext i32 %168 to i64
   %170 = getelementptr inbounds %struct.UCMapping, ptr %112, i64 %169, i32 2
@@ -425,7 +425,7 @@ prepareFromUMappings.exit.i:                      ; preds = %93, %42
   br i1 %172, label %173, label %182
 
 173:                                              ; preds = %165
-  %174 = getelementptr inbounds i32, ptr %113, i64 %166
+  %174 = getelementptr inbounds nuw i32, ptr %113, i64 %166
   %175 = load ptr, ptr @stderr, align 8, !tbaa !28
   %176 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 55, i64 1, ptr %175) #16
   %177 = load ptr, ptr @stderr, align 8, !tbaa !28
@@ -881,18 +881,18 @@ define internal fastcc signext range(i8 0, 2) i8 @generateToUTable(ptr noundef c
 
 ._crit_edge.thread:                               ; preds = %29, %._crit_edge
   %63 = phi i32 [ %61, %._crit_edge ], [ 1, %29 ]
-  %.0126.lcssa220 = phi i32 [ %spec.select, %._crit_edge ], [ 1, %29 ]
+  %.0126.lcssa234 = phi i32 [ %spec.select, %._crit_edge ], [ 1, %29 ]
   %64 = icmp eq i32 %4, 0
   br i1 %64, label %.thread, label %65
 
 65:                                               ; preds = %._crit_edge.thread
   %66 = mul nsw i32 %63, 3
   %67 = sdiv i32 %66, 4
-  %.not = icmp slt i32 %.0126.lcssa220, %67
+  %.not = icmp slt i32 %.0126.lcssa234, %67
   br i1 %.not, label %.thread152, label %.thread
 
 .thread:                                          ; preds = %._crit_edge.thread, %65
-  %68 = icmp sgt i32 %63, %.0126.lcssa220
+  %68 = icmp sgt i32 %63, %.0126.lcssa234
   %69 = freeze i1 %68
   br label %.thread152
 
@@ -907,8 +907,8 @@ define internal fastcc signext range(i8 0, 2) i8 @generateToUTable(ptr noundef c
   br label %.loopexit
 
 .thread152:                                       ; preds = %65, %.thread, %70
-  %.0126.lcssa222 = phi i1 [ %69, %.thread ], [ false, %70 ], [ false, %65 ]
-  %.0125151 = phi i32 [ %63, %.thread ], [ %spec.select, %70 ], [ %.0126.lcssa220, %65 ]
+  %.0126.lcssa235 = phi i1 [ %69, %.thread ], [ false, %70 ], [ false, %65 ]
+  %.0125151 = phi i32 [ %63, %.thread ], [ %spec.select, %70 ], [ %.0126.lcssa234, %65 ]
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %77 = load ptr, ptr %76, align 8, !tbaa !18
   %78 = add nsw i32 %.0125151, 1
@@ -924,7 +924,7 @@ define internal fastcc signext range(i8 0, 2) i8 @generateToUTable(ptr noundef c
   %84 = add nsw i32 %34, -1
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %wide.trip.count207 = sext i32 %3 to i64
-  br i1 %.0126.lcssa222, label %.lr.ph175.split.us, label %.lr.ph175.split
+  br i1 %.0126.lcssa235, label %.lr.ph175.split.us, label %.lr.ph175.split
 
 .lr.ph175.split.us:                               ; preds = %.lr.ph175, %115
   %indvars.iv204 = phi i64 [ %indvars.iv.next205, %115 ], [ %12, %.lr.ph175 ]
@@ -1492,14 +1492,14 @@ define internal fastcc void @addFromUTrieEntry(ptr noundef captures(none) %0, i3
   %29 = getelementptr inbounds [64448 x i16], ptr %23, i64 0, i64 %indvars.iv.next
   %30 = load i16, ptr %29, align 2, !tbaa !45
   %31 = icmp eq i16 %30, 0
-  br i1 %31, label %26, label %.critedge.split.loop.exit99, !llvm.loop !74
+  br i1 %31, label %26, label %.critedge.split.loop.exit104, !llvm.loop !74
 
-.critedge.split.loop.exit99:                      ; preds = %28
+.critedge.split.loop.exit104:                     ; preds = %28
   %32 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %26, %.critedge.split.loop.exit99
-  %.0.lcssa = phi i32 [ %32, %.critedge.split.loop.exit99 ], [ %smin, %26 ]
+.critedge:                                        ; preds = %26, %.critedge.split.loop.exit104
+  %.0.lcssa = phi i32 [ %32, %.critedge.split.loop.exit104 ], [ %smin, %26 ]
   %33 = trunc i32 %.0.lcssa to i16
   store i16 %33, ptr %16, align 2, !tbaa !45
   %34 = add nsw i32 %.0.lcssa, 64
@@ -1545,14 +1545,14 @@ define internal fastcc void @addFromUTrieEntry(ptr noundef captures(none) %0, i3
   %59 = getelementptr inbounds [262144 x i16], ptr %53, i64 0, i64 %indvars.iv.next91
   %60 = load i16, ptr %59, align 2, !tbaa !45
   %61 = icmp eq i16 %60, 0
-  br i1 %61, label %56, label %.critedge2.split.loop.exit101, !llvm.loop !75
+  br i1 %61, label %56, label %.critedge2.split.loop.exit106, !llvm.loop !75
 
-.critedge2.split.loop.exit101:                    ; preds = %58
+.critedge2.split.loop.exit106:                    ; preds = %58
   %62 = trunc nsw i64 %indvars.iv90 to i32
   br label %.critedge2
 
-.critedge2:                                       ; preds = %56, %.critedge2.split.loop.exit101
-  %.1.lcssa = phi i32 [ %62, %.critedge2.split.loop.exit101 ], [ %smin92, %56 ]
+.critedge2:                                       ; preds = %56, %.critedge2.split.loop.exit106
+  %.1.lcssa = phi i32 [ %62, %.critedge2.split.loop.exit106 ], [ %smin92, %56 ]
   %63 = add nsw i32 %.1.lcssa, 3
   %64 = and i32 %63, -4
   %65 = lshr i32 %63, 2

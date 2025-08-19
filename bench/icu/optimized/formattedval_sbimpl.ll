@@ -861,7 +861,7 @@ define noundef zeroext i1 @_ZNK6icu_7731FormattedValueStringBuilderImpl16nextPos
   %indvars.iv = add nsw i64 %indvars.iv.in, -1
   %154 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %146, i64 %indvars.iv
   %.sroa.0.0.copyload = load i8, ptr %154, align 1, !tbaa !17
-  switch i8 %.sroa.0.0.copyload, label %.critedge.split.loop.exit483 [
+  switch i8 %.sroa.0.0.copyload, label %.critedge.split.loop.exit498 [
     i8 38, label %155
     i8 32, label %155
   ]
@@ -870,12 +870,12 @@ define noundef zeroext i1 @_ZNK6icu_7731FormattedValueStringBuilderImpl16nextPos
   %.not182.not = icmp sgt i64 %indvars.iv, %152
   br i1 %.not182.not, label %.lr.ph370, label %.critedge, !llvm.loop !46
 
-.critedge.split.loop.exit483:                     ; preds = %.lr.ph370
+.critedge.split.loop.exit498:                     ; preds = %.lr.ph370
   %156 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %155, %.critedge.split.loop.exit483
-  %.0166.lcssa.ph = phi i32 [ %156, %.critedge.split.loop.exit483 ], [ %153, %155 ]
+.critedge:                                        ; preds = %155, %.critedge.split.loop.exit498
+  %.0166.lcssa.ph = phi i32 [ %156, %.critedge.split.loop.exit498 ], [ %153, %155 ]
   %reass.sub = sub i32 %.0166.lcssa.ph, %139
   %157 = add i32 %reass.sub, 1
   %158 = sub nsw i32 %.3159, %139

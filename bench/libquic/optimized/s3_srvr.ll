@@ -204,11 +204,11 @@ define hidden range(i32 -2147483648, 2) i32 @ssl3_accept(ptr noundef %0) local_u
 65:                                               ; preds = %62
   %66 = load i32, ptr %17, align 8, !tbaa !62
   %.not221 = icmp eq i32 %66, 0
-  %.246 = select i1 %.not221, i32 8656, i32 8688
+  %.269 = select i1 %.not221, i32 8656, i32 8688
   br label %67
 
 67:                                               ; preds = %62, %65
-  %.sink = phi i32 [ %.246, %65 ], [ 8512, %62 ]
+  %.sink = phi i32 [ %.269, %65 ], [ 8512, %62 ]
   store i32 %.sink, ptr %13, align 4, !tbaa !43
   store i32 0, ptr %16, align 8, !tbaa !45
   br label %244
@@ -249,13 +249,13 @@ ssl3_send_server_certificate.exit:                ; preds = %73, %78
   %87 = load i8, ptr %86, align 8
   %88 = and i8 %87, 1
   %.not219 = icmp eq i8 %88, 0
-  %.247 = select i1 %.not219, i32 8528, i32 8704
+  %.270 = select i1 %.not219, i32 8528, i32 8704
   br label %89
 
 89:                                               ; preds = %68, %84
-  %.sink244 = phi i32 [ %.247, %84 ], [ 8528, %68 ]
+  %.sink267 = phi i32 [ %.270, %84 ], [ 8528, %68 ]
   %.2 = phi i32 [ 0, %84 ], [ 1, %68 ]
-  store i32 %.sink244, ptr %13, align 4, !tbaa !43
+  store i32 %.sink267, ptr %13, align 4, !tbaa !43
   store i32 0, ptr %16, align 8, !tbaa !45
   br label %244
 
@@ -543,8 +543,8 @@ ssl3_send_server_done.exit:                       ; preds = %117, %124
   %.not203 = icmp eq i8 %220, 0
   %221 = load ptr, ptr %15, align 8, !tbaa !46
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 448
-  %.248 = select i1 %.not203, i32 3, i32 8624
-  store i32 %.248, ptr %222, align 8, !tbaa !72
+  %.271 = select i1 %.not203, i32 3, i32 8624
+  store i32 %.271, ptr %222, align 8, !tbaa !72
   store i32 0, ptr %16, align 8, !tbaa !45
   br label %244
 
@@ -3138,29 +3138,29 @@ define hidden i32 @ssl3_get_client_key_exchange(ptr noundef %0) local_unnamed_ad
   br label %.thread165
 
 .lr.ph.preheader:                                 ; preds = %119
-  %123 = load i8, ptr %83, align 1, !tbaa !86
-  %124 = icmp eq i8 %123, 0
-  %125 = getelementptr inbounds nuw i8, ptr %83, i64 1
-  %126 = load i8, ptr %125, align 1, !tbaa !86
-  %127 = icmp eq i8 %126, 2
-  %128 = and i1 %124, %127
-  %129 = sext i1 %128 to i8
-  %130 = add i64 %120, -49
+  %123 = add i64 %120, -49
+  %124 = load i8, ptr %83, align 1, !tbaa !86
+  %125 = icmp eq i8 %124, 0
+  %126 = getelementptr inbounds nuw i8, ptr %83, i64 1
+  %127 = load i8, ptr %126, align 1, !tbaa !86
+  %128 = icmp eq i8 %127, 2
+  %129 = and i1 %125, %128
+  %130 = sext i1 %129 to i8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.090184 = phi i64 [ %134, %.lr.ph ], [ 2, %.lr.ph.preheader ]
-  %.091183 = phi i8 [ %133, %.lr.ph ], [ %129, %.lr.ph.preheader ]
+  %.091183 = phi i8 [ %133, %.lr.ph ], [ %130, %.lr.ph.preheader ]
   %131 = getelementptr inbounds nuw i8, ptr %83, i64 %.090184
   %132 = load i8, ptr %131, align 1, !tbaa !86
   %.not182 = icmp eq i8 %132, 0
   %133 = select i1 %.not182, i8 0, i8 %.091183
   %134 = add nuw i64 %.090184, 1
-  %exitcond.not = icmp eq i64 %134, %130
+  %exitcond.not = icmp eq i64 %134, %123
   br i1 %exitcond.not, label %.lr.ph188, label %.lr.ph, !llvm.loop !149
 
 .lr.ph188:                                        ; preds = %.lr.ph
-  %135 = getelementptr inbounds nuw i8, ptr %83, i64 %130
+  %135 = getelementptr inbounds nuw i8, ptr %83, i64 %123
   %136 = load i8, ptr %135, align 1, !tbaa !86
   %137 = icmp eq i8 %136, 0
   %138 = getelementptr i8, ptr %83, i64 %120

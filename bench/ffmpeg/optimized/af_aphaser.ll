@@ -351,7 +351,7 @@ define internal void @phaser_dbl(ptr noundef captures(none) %0, ptr noundef read
   %36 = sext i32 %31 to i64
   %37 = sext i32 %35 to i64
   %invariant.gep = getelementptr double, ptr %7, i64 %36
-  %invariant.gep100 = getelementptr double, ptr %7, i64 %37
+  %invariant.gep102 = getelementptr double, ptr %7, i64 %37
   br label %38
 
 38:                                               ; preds = %.lr.ph.us, %38
@@ -365,8 +365,8 @@ define internal void @phaser_dbl(ptr noundef captures(none) %0, ptr noundef read
   %42 = load double, ptr %19, align 8, !tbaa !24
   %43 = fmul nsz double %41, %42
   %44 = tail call nsz double @llvm.fmuladd.f64(double %39, double %40, double %43)
-  %gep101 = getelementptr double, ptr %invariant.gep100, i64 %indvars.iv
-  store double %44, ptr %gep101, align 8, !tbaa !65
+  %gep103 = getelementptr double, ptr %invariant.gep102, i64 %indvars.iv
+  store double %44, ptr %gep103, align 8, !tbaa !65
   %45 = load double, ptr %20, align 8, !tbaa !25
   %46 = fmul nsz double %44, %45
   store double %46, ptr %.171.us, align 8, !tbaa !65
@@ -559,7 +559,7 @@ define internal void @phaser_flt(ptr noundef captures(none) %0, ptr noundef read
   %36 = sext i32 %31 to i64
   %37 = sext i32 %35 to i64
   %invariant.gep = getelementptr double, ptr %7, i64 %36
-  %invariant.gep100 = getelementptr double, ptr %7, i64 %37
+  %invariant.gep102 = getelementptr double, ptr %7, i64 %37
   br label %38
 
 38:                                               ; preds = %.lr.ph.us, %38
@@ -574,8 +574,8 @@ define internal void @phaser_flt(ptr noundef captures(none) %0, ptr noundef read
   %43 = load double, ptr %19, align 8, !tbaa !24
   %44 = fmul nsz double %42, %43
   %45 = tail call nsz double @llvm.fmuladd.f64(double %40, double %41, double %44)
-  %gep101 = getelementptr double, ptr %invariant.gep100, i64 %indvars.iv
-  store double %45, ptr %gep101, align 8, !tbaa !65
+  %gep103 = getelementptr double, ptr %invariant.gep102, i64 %indvars.iv
+  store double %45, ptr %gep103, align 8, !tbaa !65
   %46 = load double, ptr %20, align 8, !tbaa !25
   %47 = fmul nsz double %45, %46
   %48 = fptrunc nsz double %47 to float
@@ -771,7 +771,7 @@ define internal void @phaser_s16(ptr noundef captures(none) %0, ptr noundef read
   %36 = sext i32 %31 to i64
   %37 = sext i32 %35 to i64
   %invariant.gep = getelementptr double, ptr %7, i64 %36
-  %invariant.gep100 = getelementptr double, ptr %7, i64 %37
+  %invariant.gep102 = getelementptr double, ptr %7, i64 %37
   br label %38
 
 38:                                               ; preds = %.lr.ph.us, %38
@@ -786,8 +786,8 @@ define internal void @phaser_s16(ptr noundef captures(none) %0, ptr noundef read
   %43 = load double, ptr %19, align 8, !tbaa !24
   %44 = fmul nsz double %42, %43
   %45 = tail call nsz double @llvm.fmuladd.f64(double %40, double %41, double %44)
-  %gep101 = getelementptr double, ptr %invariant.gep100, i64 %indvars.iv
-  store double %45, ptr %gep101, align 8, !tbaa !65
+  %gep103 = getelementptr double, ptr %invariant.gep102, i64 %indvars.iv
+  store double %45, ptr %gep103, align 8, !tbaa !65
   %46 = load double, ptr %20, align 8, !tbaa !25
   %47 = fmul nsz double %45, %46
   %48 = fptosi double %47 to i16
@@ -982,7 +982,7 @@ define internal void @phaser_s32(ptr noundef captures(none) %0, ptr noundef read
   %35 = sext i32 %30 to i64
   %36 = sext i32 %34 to i64
   %invariant.gep = getelementptr double, ptr %7, i64 %35
-  %invariant.gep100 = getelementptr double, ptr %7, i64 %36
+  %invariant.gep102 = getelementptr double, ptr %7, i64 %36
   br label %37
 
 37:                                               ; preds = %.lr.ph.us, %37
@@ -997,8 +997,8 @@ define internal void @phaser_s32(ptr noundef captures(none) %0, ptr noundef read
   %42 = load double, ptr %18, align 8, !tbaa !24
   %43 = fmul nsz double %41, %42
   %44 = tail call nsz double @llvm.fmuladd.f64(double %39, double %40, double %43)
-  %gep101 = getelementptr double, ptr %invariant.gep100, i64 %indvars.iv
-  store double %44, ptr %gep101, align 8, !tbaa !65
+  %gep103 = getelementptr double, ptr %invariant.gep102, i64 %indvars.iv
+  store double %44, ptr %gep103, align 8, !tbaa !65
   %45 = load double, ptr %19, align 8, !tbaa !25
   %46 = fmul nsz double %44, %45
   %47 = fptosi double %46 to i32

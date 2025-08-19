@@ -1966,10 +1966,10 @@ define ptr @dt_lib_gui_get_expander(ptr noundef %0) local_unnamed_addr #0 {
   br label %122
 
 122:                                              ; preds = %5, %8, %121
-  %.sink103 = phi ptr [ %17, %121 ], [ null, %8 ], [ null, %5 ]
+  %.sink106 = phi ptr [ %17, %121 ], [ null, %8 ], [ null, %5 ]
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  store ptr %.sink103, ptr %123, align 8, !tbaa !86
-  ret ptr %.sink103
+  store ptr %.sink106, ptr %123, align 8, !tbaa !86
+  ret ptr %.sink106
 }
 
 declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -2234,11 +2234,11 @@ define internal noundef i32 @_presets_popup_callback(ptr noundef %0, ptr readnon
   %147 = load ptr, ptr %12, align 8, !tbaa !104
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 248
   %149 = load ptr, ptr %148, align 8, !tbaa !111
-  %.not117146.i = icmp eq ptr %149, null
-  br i1 %.not117146.i, label %.thread152.i, label %150
+  %.not117150.i = icmp eq ptr %149, null
+  br i1 %.not117150.i, label %.thread156.i, label %150
 
 150:                                              ; preds = %.thread.i, %141
-  %.2100150.i = phi i32 [ 0, %.thread.i ], [ %.2100.i, %141 ]
+  %.2100154.i = phi i32 [ 0, %.thread.i ], [ %.2100.i, %141 ]
   %151 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.62, i32 noundef 5) #19
   %152 = call ptr @gtk_menu_item_new_with_label(ptr noundef %151) #19
   %153 = call ptr @g_type_check_instance_cast(ptr noundef %152, i64 noundef 80) #19
@@ -2246,11 +2246,11 @@ define internal noundef i32 @_presets_popup_callback(ptr noundef %0, ptr readnon
   %155 = tail call i64 @gtk_menu_shell_get_type() #23
   %156 = call ptr @g_type_check_instance_cast(ptr noundef %29, i64 noundef %155) #19
   call void @gtk_menu_shell_append(ptr noundef %156, ptr noundef %152) #19
-  %157 = add nsw i32 %.2100150.i, 1
+  %157 = add nsw i32 %.2100154.i, 1
   br label %215
 
 158:                                              ; preds = %141
-  br i1 %131, label %159, label %.thread152.i
+  br i1 %131, label %159, label %.thread156.i
 
 159:                                              ; preds = %158
   br i1 %133, label %160, label %215
@@ -2272,9 +2272,9 @@ define internal noundef i32 @_presets_popup_callback(ptr noundef %0, ptr readnon
   %172 = add nsw i32 %.2100.i, 1
   br label %215
 
-.thread152.i:                                     ; preds = %158, %.thread.i
-  %.0104.lcssa139149158.i = phi i1 [ %132, %158 ], [ false, %.thread.i ]
-  %.2100151157.i = phi i32 [ %.2100.i, %158 ], [ 0, %.thread.i ]
+.thread156.i:                                     ; preds = %158, %.thread.i
+  %.0104.lcssa143153162.i = phi i1 [ %132, %158 ], [ false, %.thread.i ]
+  %.2100155161.i = phi i32 [ %.2100.i, %158 ], [ 0, %.thread.i ]
   %173 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.65, i32 noundef 5) #19
   %174 = call ptr @gtk_menu_item_new_with_label(ptr noundef %173) #19
   %175 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -2282,13 +2282,13 @@ define internal noundef i32 @_presets_popup_callback(ptr noundef %0, ptr readnon
   %177 = icmp eq i32 %176, 0
   br i1 %177, label %178, label %180
 
-178:                                              ; preds = %.thread152.i
+178:                                              ; preds = %.thread156.i
   call void @gtk_widget_set_sensitive(ptr noundef %174, i32 noundef 0) #19
   %179 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.66, i32 noundef 5) #19
   call void @gtk_widget_set_tooltip_text(ptr noundef %174, ptr noundef %179) #19
   br label %183
 
-180:                                              ; preds = %.thread152.i
+180:                                              ; preds = %.thread156.i
   %181 = call ptr @g_type_check_instance_cast(ptr noundef %174, i64 noundef 80) #19
   %182 = call i64 @g_signal_connect_data(ptr noundef %181, ptr noundef nonnull @.str.61, ptr noundef nonnull @menuitem_new_preset, ptr noundef nonnull %5, ptr noundef null, i32 noundef 0) #19
   br label %183
@@ -2301,7 +2301,7 @@ define internal noundef i32 @_presets_popup_callback(ptr noundef %0, ptr readnon
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 88
   %188 = load ptr, ptr %187, align 8, !tbaa !106
   %189 = icmp ne ptr %188, null
-  %or.cond3.i = select i1 %189, i1 %.0104.lcssa139149158.i, i1 false
+  %or.cond3.i = select i1 %189, i1 %.0104.lcssa143153162.i, i1 false
   br i1 %or.cond3.i, label %190, label %213
 
 190:                                              ; preds = %183
@@ -2335,7 +2335,7 @@ define internal noundef i32 @_presets_popup_callback(ptr noundef %0, ptr readnon
   br label %213
 
 213:                                              ; preds = %190, %183
-  %214 = add nsw i32 %.2100151157.i, 1
+  %214 = add nsw i32 %.2100155161.i, 1
   br label %215
 
 215:                                              ; preds = %213, %160, %159, %150

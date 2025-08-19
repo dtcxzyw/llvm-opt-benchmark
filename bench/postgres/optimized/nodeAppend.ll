@@ -438,20 +438,20 @@ ExecAppendAsyncBegin.exit:                        ; preds = %59, %.preheader.i, 
   br i1 %97, label %100, label %99
 
 99:                                               ; preds = %95
-  br i1 %98, label %ExecAppendAsyncGetNext.exit, label %.thread39
+  br i1 %98, label %ExecAppendAsyncGetNext.exit, label %.thread49
 
 100:                                              ; preds = %95
-  br i1 %98, label %ExecAppendAsyncRequest.exit.i.preheader, label %.thread39
+  br i1 %98, label %ExecAppendAsyncRequest.exit.i.preheader, label %.thread49
 
 ExecAppendAsyncRequest.exit.i.preheader:          ; preds = %._crit_edge.i.i, %100
   br label %ExecAppendAsyncRequest.exit.i
 
-.thread39:                                        ; preds = %99, %100
+.thread49:                                        ; preds = %99, %100
   %101 = load i32, ptr %86, align 8
   %102 = icmp sgt i32 %101, 0
   br i1 %102, label %ExecAppendAsyncRequest.exit.thread.i, label %103
 
-103:                                              ; preds = %.thread39
+103:                                              ; preds = %.thread49
   store ptr null, ptr %85, align 8
   %104 = tail call i32 @bms_next_member(ptr noundef nonnull %.pre, i32 noundef -1) #6
   %105 = icmp sgt i32 %104, -1
@@ -474,9 +474,9 @@ ExecAppendAsyncRequest.exit.i.preheader:          ; preds = %._crit_edge.i.i, %1
   %114 = icmp sgt i32 %113, 0
   br i1 %114, label %ExecAppendAsyncRequest.exit.thread.i, label %ExecAppendAsyncRequest.exit.i.preheader
 
-ExecAppendAsyncRequest.exit.thread.i:             ; preds = %._crit_edge.i.i, %.thread39
-  %.sink28.i.i = phi i32 [ %101, %.thread39 ], [ %113, %._crit_edge.i.i ]
-  %115 = add nsw i32 %.sink28.i.i, -1
+ExecAppendAsyncRequest.exit.thread.i:             ; preds = %._crit_edge.i.i, %.thread49
+  %.sink32.i.i = phi i32 [ %101, %.thread49 ], [ %113, %._crit_edge.i.i ]
+  %115 = add nsw i32 %.sink32.i.i, -1
   store i32 %115, ptr %86, align 8
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %117 = load ptr, ptr %116, align 8
@@ -534,8 +534,8 @@ ExecAppendAsyncRequest.exit.i:                    ; preds = %ExecAppendAsyncRequ
   br i1 %143, label %ExecAppendAsyncRequest.exit17.i, label %150
 
 ExecAppendAsyncRequest.exit17.i:                  ; preds = %._crit_edge.i12.i, %129
-  %.sink28.i15.i = phi i32 [ %130, %129 ], [ %142, %._crit_edge.i12.i ]
-  %144 = add nsw i32 %.sink28.i15.i, -1
+  %.sink32.i15.i = phi i32 [ %130, %129 ], [ %142, %._crit_edge.i12.i ]
+  %144 = add nsw i32 %.sink32.i15.i, -1
   store i32 %144, ptr %86, align 8
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %146 = load ptr, ptr %145, align 8

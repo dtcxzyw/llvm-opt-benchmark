@@ -230,8 +230,8 @@ define dso_local void @InitProcGlobal() local_unnamed_addr #0 {
   br label %.loopexit163.sink.split
 
 .loopexit163.sink.split:                          ; preds = %.loopexit164, %47, %.lr.ph167.preheader
-  %.sink189 = phi i64 [ %57, %.lr.ph167.preheader ], [ %40, %47 ], [ %40, %.loopexit164 ]
-  call void @llvm.memset.p0.i64(ptr align 1 %41, i8 0, i64 %.sink189, i1 false)
+  %.sink193 = phi i64 [ %57, %.lr.ph167.preheader ], [ %40, %47 ], [ %40, %.loopexit164 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %41, i8 0, i64 %.sink193, i1 false)
   br label %.loopexit163
 
 .loopexit163:                                     ; preds = %.loopexit163.sink.split, %51
@@ -267,8 +267,8 @@ define dso_local void @InitProcGlobal() local_unnamed_addr #0 {
   br label %.loopexit162.sink.split
 
 .loopexit162.sink.split:                          ; preds = %.loopexit163, %65, %.lr.ph169.preheader
-  %.sink190 = phi i64 [ %75, %.lr.ph169.preheader ], [ %58, %65 ], [ %58, %.loopexit163 ]
-  call void @llvm.memset.p0.i64(ptr align 1 %59, i8 0, i64 %.sink190, i1 false)
+  %.sink194 = phi i64 [ %75, %.lr.ph169.preheader ], [ %58, %65 ], [ %58, %.loopexit163 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %59, i8 0, i64 %.sink194, i1 false)
   br label %.loopexit162
 
 .loopexit162:                                     ; preds = %.loopexit162.sink.split, %69
@@ -303,8 +303,8 @@ define dso_local void @InitProcGlobal() local_unnamed_addr #0 {
   br label %.loopexit161.sink.split
 
 .loopexit161.sink.split:                          ; preds = %.loopexit162, %82, %.lr.ph171.preheader
-  %.sink191 = phi i64 [ %92, %.lr.ph171.preheader ], [ %21, %82 ], [ %21, %.loopexit162 ]
-  call void @llvm.memset.p0.i64(ptr align 1 %76, i8 0, i64 %.sink191, i1 false)
+  %.sink195 = phi i64 [ %92, %.lr.ph171.preheader ], [ %21, %82 ], [ %21, %.loopexit162 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %76, i8 0, i64 %.sink195, i1 false)
   br label %.loopexit161
 
 .loopexit161:                                     ; preds = %.loopexit161.sink.split, %86
@@ -337,8 +337,8 @@ define dso_local void @InitProcGlobal() local_unnamed_addr #0 {
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit161, %.lr.ph173.preheader
-  %.sink192 = phi i64 [ %110, %.lr.ph173.preheader ], [ %98, %.loopexit161 ]
-  call void @llvm.memset.p0.i64(ptr align 1 %99, i8 0, i64 %.sink192, i1 false)
+  %.sink196 = phi i64 [ %110, %.lr.ph173.preheader ], [ %98, %.loopexit161 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %99, i8 0, i64 %.sink196, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.sink.split, %104
@@ -487,9 +487,9 @@ dlist_push_tail.exit160:                          ; preds = %170, %176
   br label %.sink.split
 
 .sink.split:                                      ; preds = %dlist_push_tail.exit, %dlist_push_tail.exit159, %dlist_push_tail.exit160, %dlist_push_tail.exit158
-  %.sink196 = phi i64 [ 56, %dlist_push_tail.exit158 ], [ 88, %dlist_push_tail.exit160 ], [ 72, %dlist_push_tail.exit159 ], [ 40, %dlist_push_tail.exit ]
+  %.sink200 = phi i64 [ 56, %dlist_push_tail.exit158 ], [ 88, %dlist_push_tail.exit160 ], [ 72, %dlist_push_tail.exit159 ], [ 40, %dlist_push_tail.exit ]
   %180 = load ptr, ptr @ProcGlobal, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 %.sink196
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 %.sink200
   %182 = getelementptr inbounds nuw i8, ptr %112, i64 16
   store ptr %181, ptr %182, align 8
   br label %183
@@ -601,9 +601,9 @@ switch.lookup:                                    ; preds = %15
   br label %19
 
 19:                                               ; preds = %15, %switch.lookup
-  %.sink7 = phi i64 [ %switch.load, %switch.lookup ], [ 40, %15 ]
+  %.sink8 = phi i64 [ %switch.load, %switch.lookup ], [ 40, %15 ]
   %20 = load ptr, ptr @ProcGlobal, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink7
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink8
   %22 = load ptr, ptr @ProcStructLock, align 8
   %23 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %22, i8 1, ptr elementtype(i8) %22) #14, !srcloc !10
   %.not6 = icmp eq i8 %23, 0
@@ -1382,8 +1382,8 @@ define dso_local range(i32 0, 3) i32 @JoinWaitQueue(ptr noundef readonly capture
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %20 = load ptr, ptr %19, align 8
   %.not90 = icmp eq ptr %20, null
-  %.not91125141 = icmp eq ptr %20, %18
-  %.not91125 = select i1 %.not90, i1 true, i1 %.not91125141
+  %.not91125147 = icmp eq ptr %20, %18
+  %.not91125 = select i1 %.not90, i1 true, i1 %.not91125147
   br i1 %.not91125, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17, %28
@@ -1747,19 +1747,19 @@ define dso_local range(i32 2, 1) i32 @ProcSleep(ptr noundef %0) local_unnamed_ad
   %91 = load ptr, ptr @MyProc, align 8
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, null
-  br i1 %93, label %.preheader110, label %94
+  br i1 %93, label %.preheader114, label %94
 
 94:                                               ; preds = %90
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, null
-  br i1 %97, label %.preheader110, label %98
+  br i1 %97, label %.preheader114, label %98
 
 98:                                               ; preds = %94
   %99 = call i32 @DeadLockCheck(ptr noundef nonnull %91) #14
   store i32 %99, ptr @deadlock_state, align 4
   %100 = icmp eq i32 %99, 3
-  br i1 %100, label %101, label %.preheader110
+  br i1 %100, label %101, label %.preheader114
 
 101:                                              ; preds = %98
   %102 = load ptr, ptr @MyProc, align 8
@@ -1767,13 +1767,13 @@ define dso_local range(i32 2, 1) i32 @ProcSleep(ptr noundef %0) local_unnamed_ad
   %104 = load ptr, ptr %103, align 8
   %105 = call i32 @LockTagHashCode(ptr noundef %104) #14
   call void @RemoveFromWaitQueue(ptr noundef %102, i32 noundef %105) #14
-  br label %.preheader110
+  br label %.preheader114
 
-.preheader110:                                    ; preds = %101, %98, %94, %90
+.preheader114:                                    ; preds = %101, %98, %94, %90
   br label %106
 
-106:                                              ; preds = %.preheader110, %106
-  %indvars.iv9.i = phi i64 [ %indvars.iv.next10.i, %106 ], [ 16, %.preheader110 ]
+106:                                              ; preds = %.preheader114, %106
+  %indvars.iv9.i = phi i64 [ %indvars.iv.next10.i, %106 ], [ 16, %.preheader114 ]
   %indvars.iv.next10.i = add nsw i64 %indvars.iv9.i, -1
   %107 = load ptr, ptr @MainLWLockArray, align 8
   %108 = getelementptr %union.LWLockPadded, ptr %107, i64 %indvars.iv9.i
@@ -1925,8 +1925,8 @@ CheckDeadLock.exit:                               ; preds = %106
   %183 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %23, i32 noundef 1) #14
   %184 = load ptr, ptr %59, align 8
   %.not93 = icmp eq ptr %184, null
-  %.not9497102 = icmp eq ptr %184, %58
-  %.not9497 = select i1 %.not93, i1 true, i1 %.not9497102
+  %.not9497106 = icmp eq ptr %184, %58
+  %.not9497 = select i1 %.not93, i1 true, i1 %.not9497106
   br i1 %.not9497, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %170, %198
@@ -2022,7 +2022,7 @@ CheckDeadLock.exit:                               ; preds = %106
   %222 = load ptr, ptr %9, align 8
   %223 = load ptr, ptr %8, align 8
   %224 = call i32 (ptr, ptr, i64, ...) @errdetail_log_plural(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i64 noundef %.077.lcssa, ptr noundef %222, ptr noundef %223) #14
-  br label %.sink.split108
+  br label %.sink.split112
 
 225:                                              ; preds = %214
   %226 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
@@ -2033,7 +2033,7 @@ CheckDeadLock.exit:                               ; preds = %106
   %229 = load ptr, ptr %7, align 8
   %230 = load i32, ptr %11, align 4
   %231 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, i32 noundef %228, ptr noundef %173, ptr noundef %229, i64 noundef %181, i32 noundef %230) #14
-  br label %.sink.split108
+  br label %.sink.split112
 
 232:                                              ; preds = %214
   %233 = load i32, ptr @deadlock_state, align 4
@@ -2052,14 +2052,14 @@ CheckDeadLock.exit:                               ; preds = %106
   %241 = load ptr, ptr %9, align 8
   %242 = load ptr, ptr %8, align 8
   %243 = call i32 (ptr, ptr, i64, ...) @errdetail_log_plural(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i64 noundef %.077.lcssa, ptr noundef %241, ptr noundef %242) #14
-  br label %.sink.split108
+  br label %.sink.split112
 
-.sink.split108:                                   ; preds = %217, %236, %227
-  %.sink109 = phi i32 [ 1620, %227 ], [ 1640, %236 ], [ 1616, %217 ]
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink109, ptr noundef nonnull @__func__.ProcSleep) #14
+.sink.split112:                                   ; preds = %217, %236, %227
+  %.sink113 = phi i32 [ 1620, %227 ], [ 1640, %236 ], [ 1616, %217 ]
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink113, ptr noundef nonnull @__func__.ProcSleep) #14
   br label %244
 
-244:                                              ; preds = %.sink.split108, %225, %234, %232, %215
+244:                                              ; preds = %.sink.split112, %225, %234, %232, %215
   store i32 1, ptr @deadlock_state, align 4
   %245 = load ptr, ptr %7, align 8
   call void @pfree(ptr noundef %245) #14

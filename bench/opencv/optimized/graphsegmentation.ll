@@ -328,7 +328,7 @@ define hidden void @_ZN2cv8ximgproc12segmentation21GraphSegmentationImpl10buildG
   %66 = getelementptr inbounds nuw i8, ptr %24, i64 %65
   %67 = mul nuw nsw i32 %55, %20
   %68 = zext nneg i32 %67 to i64
-  %invariant.gep95 = getelementptr inbounds nuw float, ptr %66, i64 %68
+  %invariant.gep99 = getelementptr inbounds nuw float, ptr %66, i64 %68
   br label %82
 
 69:                                               ; preds = %82
@@ -355,8 +355,8 @@ define hidden void @_ZN2cv8ximgproc12segmentation21GraphSegmentationImpl10buildG
   %.06274 = phi float [ 0.000000e+00, %63 ], [ %86, %82 ]
   %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
   %83 = load float, ptr %gep, align 4, !tbaa !48
-  %gep96 = getelementptr inbounds nuw float, ptr %invariant.gep95, i64 %indvars.iv
-  %84 = load float, ptr %gep96, align 4, !tbaa !48
+  %gep100 = getelementptr inbounds nuw float, ptr %invariant.gep99, i64 %indvars.iv
+  %84 = load float, ptr %gep100, align 4, !tbaa !48
   %85 = fsub float %83, %84
   %86 = tail call float @llvm.fmuladd.f32(float %85, float %85, float %.06274)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2120,7 +2120,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPN2cv8ximgproc12segmenta
   %27 = and i64 %22, 1
   %28 = icmp eq i64 %27, 0
   %29 = or disjoint i64 %23, 1
-  %30 = getelementptr inbounds %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %29
   %31 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %24
   br label %32
 
@@ -2170,21 +2170,21 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPN2cv8ximgproc12segmenta
   %.01317.i.i.i.i = phi i64 [ %.018.i.i.i.i, %55 ], [ %.1.i.i.i, %49 ]
   %.018.in.i.i.i.i = add nsw i64 %.01317.i.i.i.i, -1
   %.018.i.i.i.i = sdiv i64 %.018.in.i.i.i.i, 2
-  %51 = getelementptr inbounds %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %.018.i.i.i.i
+  %51 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %.018.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load float, ptr %52, align 4, !tbaa !44
   %54 = fcmp olt float %53, %.sroa.4.0.copyload.i.i
   br i1 %54, label %55, label %_ZSt13__adjust_heapIPN2cv8ximgproc12segmentation4EdgeElS3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S9_T1_T2_.exit.i.i
 
 55:                                               ; preds = %.lr.ph.i.i.i.i13
-  %56 = getelementptr inbounds %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %.01317.i.i.i.i
+  %56 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %.01317.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %56, ptr noundef nonnull align 4 dereferenceable(12) %51, i64 12, i1 false), !tbaa.struct !108
   %57 = icmp sgt i64 %.018.i.i.i.i, %.015.i.i
   br i1 %57, label %.lr.ph.i.i.i.i13, label %_ZSt13__adjust_heapIPN2cv8ximgproc12segmentation4EdgeElS3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S9_T1_T2_.exit.i.i, !llvm.loop !110
 
 _ZSt13__adjust_heapIPN2cv8ximgproc12segmentation4EdgeElS3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S9_T1_T2_.exit.i.i: ; preds = %55, %.lr.ph.i.i.i.i13, %49
   %.013.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i, %49 ], [ %.018.i.i.i.i, %55 ], [ %.01317.i.i.i.i, %.lr.ph.i.i.i.i13 ]
-  %58 = getelementptr inbounds %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %.013.lcssa.i.i.i.i
+  %58 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %.013.lcssa.i.i.i.i
   store i64 %.sroa.03.0.copyload.i.i, ptr %58, align 4
   %.sroa.2.0..sroa_idx14.i.i.i.i = getelementptr inbounds nuw i8, ptr %58, i64 8
   store float %.sroa.4.0.copyload.i.i, ptr %.sroa.2.0..sroa_idx14.i.i.i.i, align 4, !tbaa !48

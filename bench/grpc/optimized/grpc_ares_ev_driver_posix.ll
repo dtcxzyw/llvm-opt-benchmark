@@ -1169,9 +1169,9 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %20, %13, %8
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit21:         ; preds = %20, %17, %_ZN4absl12lts_202407226StatusD2Ev.exit, %26
-  %.0725 = phi i32 [ -1, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ -1, %26 ], [ 0, %17 ], [ 0, %20 ]
+  %.0730 = phi i32 [ -1, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ -1, %26 ], [ 0, %17 ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.0725
+  ret i32 %.0730
 
 31:                                               ; preds = %22, %15, %10
   %.pn = phi { ptr, i32 } [ %23, %22 ], [ %16, %15 ], [ %11, %10 ]

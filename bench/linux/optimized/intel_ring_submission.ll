@@ -1104,10 +1104,10 @@ define internal noundef range(i32 -5, 1) i32 @xcs_resume(ptr noundef %0) #0 alig
   br label %80
 
 68:                                               ; preds = %50, %65
-  %.sink32 = phi i32 [ 128, %65 ], [ 8320, %50 ]
+  %.sink62 = phi i32 [ 128, %65 ], [ 8320, %50 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %70 = load i32, ptr %69, align 8
-  %71 = add i32 %70, %.sink32
+  %71 = add i32 %70, %.sink62
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %73 = load ptr, ptr %72, align 8
   %74 = icmp ult i32 %71, 262144

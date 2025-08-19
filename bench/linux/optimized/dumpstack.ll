@@ -469,7 +469,7 @@ define internal fastcc void @show_trace_log_lvl(ptr noundef %0, ptr noundef %1, 
   br label %show_regs_if_on_stack.exit
 
 show_regs_if_on_stack.exit:                       ; preds = %148, %143, %133, %132, %127, %118, %107, %102, %.preheader
-  %163 = phi i8 [ %92, %.preheader ], [ %114, %107 ], [ %92, %102 ], [ 0, %118 ], [ 0, %127 ], [ 0, %132 ], [ %114, %133 ], [ %114, %143 ], [ %114, %148 ]
+  %163 = phi i8 [ %92, %.preheader ], [ %114, %107 ], [ %92, %102 ], [ 0, %118 ], [ 0, %127 ], [ 0, %132 ], [ 1, %133 ], [ 1, %143 ], [ 1, %148 ]
   %164 = phi ptr [ %90, %.preheader ], [ null, %107 ], [ %90, %102 ], [ %113, %118 ], [ %113, %127 ], [ %113, %132 ], [ %113, %133 ], [ %113, %143 ], [ %113, %148 ]
   %165 = getelementptr i8, ptr %91, i64 8
   %166 = load ptr, ptr %57, align 8

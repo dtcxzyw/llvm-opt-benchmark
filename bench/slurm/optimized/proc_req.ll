@@ -1401,7 +1401,7 @@ _validate_operator.exit:                          ; preds = %10
   %35 = call ptr @list_iterator_create(ptr noundef %34) #10
   %36 = call ptr @list_next(ptr noundef %33) #10
   %.not498 = icmp eq ptr %36, null
-  br i1 %.not498, label %.critedge12, label %.lr.ph
+  br i1 %.not498, label %.critedge16, label %.lr.ph
 
 .loopexit:                                        ; preds = %50
   %37 = call ptr @list_next(ptr noundef %33) #10
@@ -1435,7 +1435,7 @@ _validate_operator.exit:                          ; preds = %10
 48:                                               ; preds = %50, %47
   %49 = call ptr @list_next(ptr noundef %35) #10
   %.not52 = icmp eq ptr %49, null
-  br i1 %.not52, label %.critedge12, label %50
+  br i1 %.not52, label %.critedge16, label %50
 
 50:                                               ; preds = %48
   %51 = load ptr, ptr %49, align 8
@@ -1450,14 +1450,14 @@ _validate_operator.exit:                          ; preds = %10
   %.pre = load ptr, ptr %0, align 8
   br label %_validate_operator.exit.thread
 
-.critedge12:                                      ; preds = %48, %31
+.critedge16:                                      ; preds = %48, %31
   call void @list_iterator_destroy(ptr noundef %35) #10
   call void @list_iterator_destroy(ptr noundef %33) #10
   br label %.thread
 
-.thread:                                          ; preds = %26, %29, %19, %.critedge12
-  %.str.29.sink = phi ptr [ @.str.21, %.critedge12 ], [ @.str.29, %19 ], [ @.str.21, %29 ], [ @.str.21, %26 ]
-  %.041.ph = phi i32 [ 2002, %.critedge12 ], [ -1, %19 ], [ 2002, %29 ], [ 2002, %26 ]
+.thread:                                          ; preds = %26, %29, %19, %.critedge16
+  %.str.29.sink = phi ptr [ @.str.21, %.critedge16 ], [ @.str.29, %19 ], [ @.str.21, %29 ], [ @.str.21, %26 ]
+  %.041.ph = phi i32 [ 2002, %.critedge16 ], [ -1, %19 ], [ 2002, %29 ], [ 2002, %26 ]
   %53 = load ptr, ptr %0, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 60
   %55 = load i32, ptr %54, align 4
@@ -5603,9 +5603,9 @@ define internal fastcc i32 @_register_ctld(ptr noundef %0, ptr readonly captures
   %.not74 = icmp eq ptr %76, null
   %.pre32 = tail call ptr @__errno_location() #12
   %77 = load i32, ptr %.pre32, align 4
-  br i1 %.not74, label %.thread33, label %80
+  br i1 %.not74, label %.thread37, label %80
 
-.thread33:                                        ; preds = %70
+.thread37:                                        ; preds = %70
   %78 = call ptr @slurm_strerror(i32 noundef %77) #10
   %79 = load i32, ptr %.pre32, align 4
   br label %119
@@ -5691,9 +5691,9 @@ define internal fastcc i32 @_register_ctld(ptr noundef %0, ptr readonly captures
   call void @list_destroy(ptr noundef nonnull %76) #10
   br label %119
 
-119:                                              ; preds = %.thread33, %.thread
-  %.16 = phi i32 [ %.15, %.thread ], [ %79, %.thread33 ]
-  %.2584 = phi ptr [ %.2583, %.thread ], [ %78, %.thread33 ]
+119:                                              ; preds = %.thread37, %.thread
+  %.16 = phi i32 [ %.15, %.thread ], [ %79, %.thread37 ]
+  %.2584 = phi ptr [ %.2583, %.thread ], [ %78, %.thread37 ]
   %.not81 = icmp eq i32 %.16, 0
   br i1 %.not81, label %120, label %.thread25
 

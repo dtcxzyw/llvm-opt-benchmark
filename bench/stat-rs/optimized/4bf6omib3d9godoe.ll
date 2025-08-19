@@ -1799,8 +1799,8 @@ define noundef double @"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u2
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !244, !noalias !249, !nonnull !7, !noundef !7
-  %.idx33 = shl nsw i64 %.val3, 3
-  %8 = getelementptr inbounds i8, ptr %7, i64 %.idx33
+  %.idx36 = shl nsw i64 %.val3, 3
+  %8 = getelementptr inbounds i8, ptr %7, i64 %.idx36
   br label %9
 
 9:                                                ; preds = %"_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.i", %5

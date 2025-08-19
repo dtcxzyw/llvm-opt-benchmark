@@ -1462,12 +1462,12 @@ lean_dec.exit:                                    ; preds = %32, %31, %29, %lean
   %34 = tail call ptr @l_Lean_mkNatLit(ptr noundef %13) #7
   %35 = load ptr, ptr @l_Lean_Meta_instToExprCoeFnInfo___lambda__1___closed__4, align 8, !tbaa !10
   %switch.selectcmp = icmp eq i8 %23, 1
-  %switch.selectcmp31 = icmp eq i8 %23, 0
+  %switch.selectcmp32 = icmp eq i8 %23, 0
   %l_Lean_Meta_instToExprCoeFnInfo___lambda__1___closed__5.val = load ptr, ptr @l_Lean_Meta_instToExprCoeFnInfo___lambda__1___closed__5, align 8
   %l_Lean_Meta_instToExprCoeFnInfo___lambda__1___closed__6.val = load ptr, ptr @l_Lean_Meta_instToExprCoeFnInfo___lambda__1___closed__6, align 8
   %l_Lean_Meta_instToExprCoeFnInfo___lambda__1___closed__7.val = load ptr, ptr @l_Lean_Meta_instToExprCoeFnInfo___lambda__1___closed__7, align 8
   %switch.select.val = select i1 %switch.selectcmp, ptr %l_Lean_Meta_instToExprCoeFnInfo___lambda__1___closed__6.val, ptr %l_Lean_Meta_instToExprCoeFnInfo___lambda__1___closed__7.val
-  %36 = select i1 %switch.selectcmp31, ptr %l_Lean_Meta_instToExprCoeFnInfo___lambda__1___closed__5.val, ptr %switch.select.val
+  %36 = select i1 %switch.selectcmp32, ptr %l_Lean_Meta_instToExprCoeFnInfo___lambda__1___closed__5.val, ptr %switch.select.val
   %37 = tail call ptr @l_Lean_mkApp3(ptr noundef %35, ptr noundef %33, ptr noundef %34, ptr noundef %36) #7
   ret ptr %37
 }
@@ -5983,7 +5983,7 @@ lean_dec.exit164:                                 ; preds = %259, %258, %256, %l
   br label %lean_nat_add.exit
 
 268:                                              ; preds = %260
-  %269 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %262) #7
+  %269 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #7
   br label %lean_nat_add.exit
 
 .critedge.i:                                      ; preds = %lean_dec.exit164
@@ -9503,18 +9503,18 @@ lean_dec_ref.exit:                                ; preds = %607, %606, %604, %_
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
-  %.sink42 = phi ptr [ %4, %3 ], [ %608, %lean_dec_ref.exit ]
-  %611 = getelementptr inbounds nuw i8, ptr %.sink42, i64 4
-  store i32 1, ptr %.sink42, align 4, !tbaa !4
+  %.sink104 = phi ptr [ %4, %3 ], [ %608, %lean_dec_ref.exit ]
+  %611 = getelementptr inbounds nuw i8, ptr %.sink104, i64 4
+  store i32 1, ptr %.sink104, align 4, !tbaa !4
   store i32 131096, ptr %611, align 4
-  %612 = getelementptr inbounds nuw i8, ptr %.sink42, i64 8
+  %612 = getelementptr inbounds nuw i8, ptr %.sink104, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %612, align 8, !tbaa !10
-  %613 = getelementptr inbounds nuw i8, ptr %.sink42, i64 16
+  %613 = getelementptr inbounds nuw i8, ptr %.sink104, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %613, align 8, !tbaa !10
   br label %614
 
 614:                                              ; preds = %.sink.split, %596, %_init_l_Lean_Meta_initFn____x40_Lean_Meta_CoeAttr___hyg_443____closed__5.exit, %lean_dec_ref.exit26, %lean_dec_ref.exit28, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit28 ], [ %28, %lean_dec_ref.exit26 ], [ %367, %_init_l_Lean_Meta_initFn____x40_Lean_Meta_CoeAttr___hyg_443____closed__5.exit ], [ %598, %596 ], [ %.sink42, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit28 ], [ %28, %lean_dec_ref.exit26 ], [ %367, %_init_l_Lean_Meta_initFn____x40_Lean_Meta_CoeAttr___hyg_443____closed__5.exit ], [ %598, %596 ], [ %.sink104, %.sink.split ]
   ret ptr %.0
 }
 

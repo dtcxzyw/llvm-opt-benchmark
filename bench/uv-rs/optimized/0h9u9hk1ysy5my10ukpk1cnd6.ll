@@ -794,7 +794,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i.i.i.i.i.i.i.i: ; preds
 
 _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.noexc37.i.i.i.i.i.i.i.i
   %.sroa.4.0.i26.i.i.i.i.i.i.i.i.i = phi i64 [ %116, %.noexc37.i.i.i.i.i.i.i.i ], [ %.sroa.01.05.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %117 = add i64 %105, 1
+  %117 = add nuw i64 %105, 1
   %118 = add i64 %117, %.sroa.4.0.i26.i.i.i.i.i.i.i.i.i
   %.not13.i.i.i.i.i.i.i.i.i = icmp ugt i64 %118, %94
   %119 = add i64 %.sroa.4.0.i26.i.i.i.i.i.i.i.i.i, %105
@@ -805,7 +805,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i.i.i.i.i.i.i.i
   br i1 %.not13.i.i.i.i.i.i.i.i.i, label %.critedge.i.i.i.i.i.i.i.i, label %.lr.ph.split.split.i.i.i.i.i.i.i.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he37128f11c76c63bE.exit.i.i.i.i.i.i.i.i.i": ; preds = %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i.i.i.i.i.i.i.i
-  %121 = getelementptr inbounds i8, ptr %93, i64 %119
+  %121 = getelementptr inbounds nuw i8, ptr %93, i64 %119
   %lhsc.i.i.i.i.i.i.i.i = load i8, ptr %121, align 1, !alias.scope !164, !noalias !169
   %122 = icmp eq i8 %lhsc.i.i.i.i.i.i.i.i, 92
   br i1 %122, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.thread43.i.i.i.i.i.i.i.i", label %120

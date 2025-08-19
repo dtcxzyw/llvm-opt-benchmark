@@ -1469,16 +1469,16 @@ copy_address.exit51:                              ; preds = %41, %50
   br i1 %66, label %copy_address.exit50, label %copy_address.exit50.sink.split
 
 copy_address.exit50.sink.split:                   ; preds = %copy_address.exit51, %copy_address.exit
-  %.sink60 = phi i32 [ %37, %copy_address.exit ], [ %63, %copy_address.exit51 ]
-  %.sink58 = phi ptr [ %39, %copy_address.exit ], [ %65, %copy_address.exit51 ]
-  %67 = sext i32 %.sink60 to i64
-  %68 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %.sink58, i64 noundef %67) #12
+  %.sink64 = phi i32 [ %37, %copy_address.exit ], [ %63, %copy_address.exit51 ]
+  %.sink62 = phi ptr [ %39, %copy_address.exit ], [ %65, %copy_address.exit51 ]
+  %67 = sext i32 %.sink64 to i64
+  %68 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %.sink62, i64 noundef %67) #12
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %68, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %68, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 %.sink60, ptr %71, align 4
+  store i32 %.sink64, ptr %71, align 4
   br label %copy_address.exit50
 
 copy_address.exit50:                              ; preds = %copy_address.exit50.sink.split, %copy_address.exit51, %copy_address.exit, %5

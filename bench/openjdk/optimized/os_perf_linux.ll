@@ -418,8 +418,8 @@ _ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit: ; preds = %25
   br label %33
 
 29:                                               ; preds = %8, %12
-  %.sink63 = phi i32 [ %13, %12 ], [ %0, %8 ]
-  %30 = sext i32 %.sink63 to i64
+  %.sink67 = phi i32 [ %13, %12 ], [ %0, %8 ]
+  %30 = sext i32 %.sink67 to i64
   %31 = getelementptr inbounds %"struct.os::Linux::CPUPerfTicks", ptr %11, i64 %30
   %.sroa.0.0.copyload44 = load i64, ptr %31, align 8
   %.sroa.2.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %31, i64 8

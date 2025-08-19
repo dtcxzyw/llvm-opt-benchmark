@@ -38067,11 +38067,11 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i2.i58: ; preds = %_ZNSt12__shared_pt
   br label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i2.i58.invoke
 
 _ZSt26__throw_bad_variant_accessb.exit.i.i.i2.i58.invoke: ; preds = %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i2.i58
-  %.str.8.sink107 = phi ptr [ @.str.7, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i2.i58 ], [ @.str.8, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  %.str.8.sink134 = phi ptr [ @.str.7, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i2.i58 ], [ @.str.8, %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   %165 = call ptr @__cxa_allocate_exception(i64 16) #25
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %165, align 8, !tbaa !40
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  store ptr %.str.8.sink107, ptr %166, align 8, !tbaa !150
+  store ptr %.str.8.sink134, ptr %166, align 8, !tbaa !150
   invoke void @__cxa_throw(ptr nonnull %165, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #26
           to label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i2.i58.cont unwind label %294
 
@@ -38963,8 +38963,8 @@ _ZNK5arrow9ArraySpan6IsNullEl.exit.us.i:          ; preds = %103, %.lr.ph60.spli
   %117 = and i32 %116, 7
   %118 = shl nuw nsw i32 1, %117
   %119 = and i32 %118, %115
-  %.not68.i = icmp eq i32 %119, 0
-  br i1 %.not68.i, label %131, label %134
+  %.not84.i = icmp eq i32 %119, 0
+  br i1 %.not84.i, label %131, label %134
 
 120:                                              ; preds = %.lr.ph60.split.i
   %121 = load ptr, ptr %68, align 8, !tbaa !345, !noalias !879
@@ -38999,8 +38999,8 @@ _ZNK5arrow9ArraySpan6IsNullEl.exit.us.i:          ; preds = %103, %.lr.ph60.spli
 
 _ZNK5arrow9ArraySpan6IsNullEl.exit.i:             ; preds = %120
   %130 = load i64, ptr %87, align 8, !tbaa !883, !noalias !879
-  %.not69.i = icmp eq i64 %130, %107
-  br i1 %.not69.i, label %131, label %134
+  %.not85.i = icmp eq i64 %130, %107
+  br i1 %.not85.i, label %131, label %134
 
 131:                                              ; preds = %_ZNK5arrow9ArraySpan6IsNullEl.exit.i, %.noexc105, %.noexc104, %.noexc103, %109
   %132 = getelementptr inbounds nuw i32, ptr %80, i64 %.03159.i
@@ -39241,11 +39241,11 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i:     ; preds = %202
   br label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke
 
 _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %202, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i
-  %.str.8.sink266 = phi ptr [ @.str.7, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i ], [ @.str.8, %202 ]
+  %.str.8.sink320 = phi ptr [ @.str.7, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i ], [ @.str.8, %202 ]
   %206 = call ptr @__cxa_allocate_exception(i64 16) #25
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %206, align 8, !tbaa !40
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 8
-  store ptr %.str.8.sink266, ptr %207, align 8, !tbaa !150
+  store ptr %.str.8.sink320, ptr %207, align 8, !tbaa !150
   invoke void @__cxa_throw(ptr nonnull %206, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #26
           to label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont unwind label %216
 
@@ -39913,8 +39913,8 @@ _ZN5arrow6StatusD2Ev.exit34.i:                    ; preds = %_ZN5arrow6StatusD2E
 
 484:                                              ; preds = %474
   %485 = load i64, ptr %456, align 8, !tbaa !883, !noalias !911
-  %.not11.i = icmp eq i64 %485, %461
-  br i1 %.not11.i, label %.preheader.i147, label %507
+  %.not20.i = icmp eq i64 %485, %461
+  br i1 %.not20.i, label %.preheader.i147, label %507
 
 .preheader.i147:                                  ; preds = %484, %.noexc37.i, %.noexc36.i, %.noexc35.i, %463
   br i1 %457, label %.lr.ph.i148, label %.loopexit.i
@@ -45183,8 +45183,8 @@ _ZNK5arrow9ArraySpan6IsNullEl.exit.us.i:          ; preds = %103, %.lr.ph60.spli
   %117 = and i32 %116, 7
   %118 = shl nuw nsw i32 1, %117
   %119 = and i32 %118, %115
-  %.not68.i = icmp eq i32 %119, 0
-  br i1 %.not68.i, label %131, label %134
+  %.not84.i = icmp eq i32 %119, 0
+  br i1 %.not84.i, label %131, label %134
 
 120:                                              ; preds = %.lr.ph60.split.i
   %121 = load ptr, ptr %68, align 8, !tbaa !345, !noalias !1111
@@ -45219,8 +45219,8 @@ _ZNK5arrow9ArraySpan6IsNullEl.exit.us.i:          ; preds = %103, %.lr.ph60.spli
 
 _ZNK5arrow9ArraySpan6IsNullEl.exit.i:             ; preds = %120
   %130 = load i64, ptr %87, align 8, !tbaa !883, !noalias !1111
-  %.not69.i = icmp eq i64 %130, %107
-  br i1 %.not69.i, label %131, label %134
+  %.not85.i = icmp eq i64 %130, %107
+  br i1 %.not85.i, label %131, label %134
 
 131:                                              ; preds = %_ZNK5arrow9ArraySpan6IsNullEl.exit.i, %.noexc105, %.noexc104, %.noexc103, %109
   %132 = getelementptr inbounds nuw i32, ptr %80, i64 %.03159.i
@@ -45461,11 +45461,11 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i:     ; preds = %202
   br label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke
 
 _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %202, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i
-  %.str.8.sink266 = phi ptr [ @.str.7, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i ], [ @.str.8, %202 ]
+  %.str.8.sink320 = phi ptr [ @.str.7, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i ], [ @.str.8, %202 ]
   %206 = call ptr @__cxa_allocate_exception(i64 16) #25
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %206, align 8, !tbaa !40
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 8
-  store ptr %.str.8.sink266, ptr %207, align 8, !tbaa !150
+  store ptr %.str.8.sink320, ptr %207, align 8, !tbaa !150
   invoke void @__cxa_throw(ptr nonnull %206, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #26
           to label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont unwind label %216
 
@@ -46133,8 +46133,8 @@ _ZN5arrow6StatusD2Ev.exit34.i:                    ; preds = %_ZN5arrow6StatusD2E
 
 484:                                              ; preds = %474
   %485 = load i64, ptr %456, align 8, !tbaa !883, !noalias !1139
-  %.not11.i = icmp eq i64 %485, %461
-  br i1 %.not11.i, label %.preheader.i147, label %507
+  %.not20.i = icmp eq i64 %485, %461
+  br i1 %.not20.i, label %.preheader.i147, label %507
 
 .preheader.i147:                                  ; preds = %484, %.noexc37.i, %.noexc36.i, %.noexc35.i, %463
   br i1 %457, label %.lr.ph.i148, label %.loopexit.i
@@ -47580,8 +47580,8 @@ _ZNK5arrow9ArraySpan6IsNullEl.exit.us.i:          ; preds = %104, %.lr.ph60.spli
   %118 = and i32 %117, 7
   %119 = shl nuw nsw i32 1, %118
   %120 = and i32 %119, %116
-  %.not68.i = icmp eq i32 %120, 0
-  br i1 %.not68.i, label %132, label %135
+  %.not84.i = icmp eq i32 %120, 0
+  br i1 %.not84.i, label %132, label %135
 
 121:                                              ; preds = %.lr.ph60.split.i
   %122 = load ptr, ptr %68, align 8, !tbaa !345, !noalias !1173
@@ -47616,8 +47616,8 @@ _ZNK5arrow9ArraySpan6IsNullEl.exit.us.i:          ; preds = %104, %.lr.ph60.spli
 
 _ZNK5arrow9ArraySpan6IsNullEl.exit.i:             ; preds = %121
   %131 = load i64, ptr %88, align 8, !tbaa !883, !noalias !1173
-  %.not69.i = icmp eq i64 %131, %108
-  br i1 %.not69.i, label %132, label %135
+  %.not85.i = icmp eq i64 %131, %108
+  br i1 %.not85.i, label %132, label %135
 
 132:                                              ; preds = %_ZNK5arrow9ArraySpan6IsNullEl.exit.i, %.noexc105, %.noexc104, %.noexc103, %110
   %133 = getelementptr inbounds nuw i64, ptr %80, i64 %.03159.i
@@ -47858,11 +47858,11 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i:     ; preds = %203
   br label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke
 
 _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %203, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i
-  %.str.8.sink266 = phi ptr [ @.str.7, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i ], [ @.str.8, %203 ]
+  %.str.8.sink320 = phi ptr [ @.str.7, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i ], [ @.str.8, %203 ]
   %207 = call ptr @__cxa_allocate_exception(i64 16) #25
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %207, align 8, !tbaa !40
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
-  store ptr %.str.8.sink266, ptr %208, align 8, !tbaa !150
+  store ptr %.str.8.sink320, ptr %208, align 8, !tbaa !150
   invoke void @__cxa_throw(ptr nonnull %207, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #26
           to label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont unwind label %217
 
@@ -48529,8 +48529,8 @@ _ZN5arrow6StatusD2Ev.exit34.i:                    ; preds = %_ZN5arrow6StatusD2E
 
 484:                                              ; preds = %474
   %485 = load i64, ptr %456, align 8, !tbaa !883, !noalias !1201
-  %.not11.i = icmp eq i64 %485, %461
-  br i1 %.not11.i, label %.preheader.i147, label %507
+  %.not20.i = icmp eq i64 %485, %461
+  br i1 %.not20.i, label %.preheader.i147, label %507
 
 .preheader.i147:                                  ; preds = %484, %.noexc37.i, %.noexc36.i, %.noexc35.i, %463
   br i1 %457, label %.lr.ph.i148, label %.loopexit.i
@@ -49973,8 +49973,8 @@ _ZNK5arrow9ArraySpan6IsNullEl.exit.us.i:          ; preds = %104, %.lr.ph60.spli
   %118 = and i32 %117, 7
   %119 = shl nuw nsw i32 1, %118
   %120 = and i32 %119, %116
-  %.not68.i = icmp eq i32 %120, 0
-  br i1 %.not68.i, label %132, label %135
+  %.not84.i = icmp eq i32 %120, 0
+  br i1 %.not84.i, label %132, label %135
 
 121:                                              ; preds = %.lr.ph60.split.i
   %122 = load ptr, ptr %68, align 8, !tbaa !345, !noalias !1235
@@ -50009,8 +50009,8 @@ _ZNK5arrow9ArraySpan6IsNullEl.exit.us.i:          ; preds = %104, %.lr.ph60.spli
 
 _ZNK5arrow9ArraySpan6IsNullEl.exit.i:             ; preds = %121
   %131 = load i64, ptr %88, align 8, !tbaa !883, !noalias !1235
-  %.not69.i = icmp eq i64 %131, %108
-  br i1 %.not69.i, label %132, label %135
+  %.not85.i = icmp eq i64 %131, %108
+  br i1 %.not85.i, label %132, label %135
 
 132:                                              ; preds = %_ZNK5arrow9ArraySpan6IsNullEl.exit.i, %.noexc105, %.noexc104, %.noexc103, %110
   %133 = getelementptr inbounds nuw i64, ptr %80, i64 %.03159.i
@@ -50251,11 +50251,11 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i:     ; preds = %203
   br label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke
 
 _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %203, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i
-  %.str.8.sink266 = phi ptr [ @.str.7, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i ], [ @.str.8, %203 ]
+  %.str.8.sink320 = phi ptr [ @.str.7, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i ], [ @.str.8, %203 ]
   %207 = call ptr @__cxa_allocate_exception(i64 16) #25
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %207, align 8, !tbaa !40
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
-  store ptr %.str.8.sink266, ptr %208, align 8, !tbaa !150
+  store ptr %.str.8.sink320, ptr %208, align 8, !tbaa !150
   invoke void @__cxa_throw(ptr nonnull %207, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #26
           to label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont unwind label %217
 
@@ -50922,8 +50922,8 @@ _ZN5arrow6StatusD2Ev.exit34.i:                    ; preds = %_ZN5arrow6StatusD2E
 
 484:                                              ; preds = %474
   %485 = load i64, ptr %456, align 8, !tbaa !883, !noalias !1263
-  %.not11.i = icmp eq i64 %485, %461
-  br i1 %.not11.i, label %.preheader.i147, label %507
+  %.not20.i = icmp eq i64 %485, %461
+  br i1 %.not20.i, label %.preheader.i147, label %507
 
 .preheader.i147:                                  ; preds = %484, %.noexc37.i, %.noexc36.i, %.noexc35.i, %463
   br i1 %457, label %.lr.ph.i148, label %.loopexit.i
@@ -54208,18 +54208,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !1303
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #27
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #27
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !142
@@ -54253,7 +54253,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

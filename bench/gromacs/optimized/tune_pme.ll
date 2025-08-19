@@ -1983,7 +1983,7 @@ _ZL20couple_files_optionsiP8t_filenm.exit:        ; preds = %_ZL6setoptPKciP8t_f
   %541 = call noundef zeroext i1 @_Z9is_outputPK8t_filenm(ptr noundef nonnull %534)
   %542 = load i8, ptr %536, align 1
   %.not.i.i = icmp eq i8 %542, 45
-  br i1 %.not.i.i, label %.tail.i.i, label %_ZL13is_bench_filePcbbb.exit.thread10.i
+  br i1 %.not.i.i, label %.tail.i.i, label %_ZL13is_bench_filePcbbb.exit.thread12.i
 
 .tail.i.i:                                        ; preds = %.lr.ph.i
   %543 = getelementptr inbounds nuw i8, ptr %536, i64 1
@@ -2003,17 +2003,17 @@ _ZL13is_bench_filePcbbb.exit.i:                   ; preds = %.tail.i.i
   %..i.i = and i1 %539, %not.7.i.i
   br i1 %..i.i, label %.tail.thread.i, label %_ZL13is_bench_filePcbbb.exit.thread.i
 
-_ZL13is_bench_filePcbbb.exit.thread10.i:          ; preds = %.lr.ph.i
-  %not.7.i11.i = xor i1 %541, true
-  %..i12.i = and i1 %539, %not.7.i11.i
-  br i1 %..i12.i, label %.tail.thread.i, label %_ZL13is_bench_filePcbbb.exit.thread.i
+_ZL13is_bench_filePcbbb.exit.thread12.i:          ; preds = %.lr.ph.i
+  %not.7.i13.i = xor i1 %541, true
+  %..i14.i = and i1 %539, %not.7.i13.i
+  br i1 %..i14.i, label %.tail.thread.i, label %_ZL13is_bench_filePcbbb.exit.thread.i
 
 547:                                              ; preds = %545
   %548 = getelementptr inbounds nuw i8, ptr %536, i64 2
   %549 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(1) @.str.268, ptr noundef nonnull %548, ptr noundef %537) #27
   br label %.tail.thread.i
 
-.tail.thread.i:                                   ; preds = %_ZL13is_bench_filePcbbb.exit.i, %547, %_ZL13is_bench_filePcbbb.exit.thread10.i
+.tail.thread.i:                                   ; preds = %_ZL13is_bench_filePcbbb.exit.i, %547, %_ZL13is_bench_filePcbbb.exit.thread12.i
   %550 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1471) #29
   %551 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %102) #29
   %552 = add i64 %551, %550
@@ -2024,8 +2024,8 @@ _ZL13is_bench_filePcbbb.exit.thread10.i:          ; preds = %.lr.ph.i
   %556 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %555, ptr noundef nonnull readonly dereferenceable(1) %102) #27
   br label %_ZL13is_bench_filePcbbb.exit.thread.i
 
-_ZL13is_bench_filePcbbb.exit.thread.i:            ; preds = %.tail.thread.i, %_ZL13is_bench_filePcbbb.exit.thread10.i, %_ZL13is_bench_filePcbbb.exit.i, %545, %.tail.i.i
-  %.2472 = phi ptr [ %555, %.tail.thread.i ], [ %.1471, %_ZL13is_bench_filePcbbb.exit.i ], [ %.1471, %.tail.i.i ], [ %.1471, %545 ], [ %.1471, %_ZL13is_bench_filePcbbb.exit.thread10.i ]
+_ZL13is_bench_filePcbbb.exit.thread.i:            ; preds = %.tail.thread.i, %_ZL13is_bench_filePcbbb.exit.thread12.i, %_ZL13is_bench_filePcbbb.exit.i, %545, %.tail.i.i
+  %.2472 = phi ptr [ %555, %.tail.thread.i ], [ %.1471, %_ZL13is_bench_filePcbbb.exit.i ], [ %.1471, %.tail.i.i ], [ %.1471, %545 ], [ %.1471, %_ZL13is_bench_filePcbbb.exit.thread12.i ]
   %557 = call noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef nonnull %536, i32 noundef 51, ptr noundef nonnull @_ZZ12gmx_tune_pmeiPPcE3fnm)
   %558 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %536, ptr noundef nonnull dereferenceable(6) @.str.110, i64 noundef 5) #29
   %559 = icmp eq i32 %558, 0
@@ -2490,9 +2490,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i129:     ; preds = %_ZNKSt7__cxx1112bas
   %744 = call noundef zeroext i1 @_Z14gmx_within_tolddd(double noundef %743, double noundef %732, double noundef 0x3E80000000000000)
   %.pre7.i = load i32, ptr %117, align 4, !tbaa !4
   %745 = icmp ne i32 %.pre7.i, 1
-  %or.cond13.not.i = select i1 %744, i1 true, i1 %745
+  %or.cond27.not.i = select i1 %744, i1 true, i1 %745
   %.pre1060 = load float, ptr %119, align 4, !tbaa !8
-  br i1 %or.cond13.not.i, label %750, label %746
+  br i1 %or.cond27.not.i, label %750, label %746
 
 746:                                              ; preds = %741
   store i32 2, ptr %117, align 4, !tbaa !4
@@ -3552,14 +3552,14 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.i:    ; preds = %_ZNSt10filesystem7_
   %1220 = load i32, ptr %1219, align 4, !tbaa !157
   %.not.i156 = icmp eq i32 %1220, 0
   %1221 = icmp ne i32 %.val.i, 3
-  %or.cond.not381.i = or i1 %1221, %.not.i156
+  %or.cond.not410.i = or i1 %1221, %.not.i156
   %1222 = getelementptr inbounds nuw i8, ptr %66, i64 376
   %1223 = load float, ptr %1222, align 8, !tbaa !146
   %1224 = getelementptr inbounds nuw i8, ptr %66, i64 356
   %1225 = load float, ptr %1224, align 4, !tbaa !158
   %1226 = fcmp oeq float %1223, %1225
-  %or.cond376.i = select i1 %or.cond.not381.i, i1 true, i1 %1226
-  br i1 %or.cond376.i, label %._crit_edge335.i, label %1227
+  %or.cond405.i = select i1 %or.cond.not410.i, i1 true, i1 %1226
+  br i1 %or.cond405.i, label %._crit_edge335.i, label %1227
 
 1227:                                             ; preds = %1218
   call void @llvm.lifetime.start.p0(ptr nonnull %70)
@@ -3882,7 +3882,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.i:    ; preds = %_ZNSt10filesystem7_
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.thread.i, %.lr.ph.i161
-  %indvars.iv333.ph.i = phi i64 [ %indvars.iv.next334344.i, %.thread.i ], [ 0, %.lr.ph.i161 ]
+  %indvars.iv333.ph.i = phi i64 [ %indvars.iv.next334373.i, %.thread.i ], [ 0, %.lr.ph.i161 ]
   %.ph.i = phi i32 [ %1659, %.thread.i ], [ %1397, %.lr.ph.i161 ]
   %.0212327.ph.i = phi float [ %.1.i163, %.thread.i ], [ 1.000000e+00, %.lr.ph.i161 ]
   %.0213326.ph.i = phi i1 [ true, %.thread.i ], [ false, %.lr.ph.i161 ]
@@ -3948,11 +3948,11 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.i:    ; preds = %_ZNSt10filesystem7_
   br label %1459
 
 1459:                                             ; preds = %1450, %1445, %1435
-  %.sink379.i = phi float [ %1449, %1445 ], [ %1458, %1450 ], [ %1438, %1435 ]
-  store float %.sink379.i, ptr %1222, align 8, !tbaa !146
+  %.sink408.i = phi float [ %1449, %1445 ], [ %1458, %1450 ], [ %1438, %1435 ]
+  store float %.sink408.i, ptr %1222, align 8, !tbaa !146
   %1460 = load ptr, ptr %1401, align 8, !tbaa !227
   %1461 = load float, ptr %1460, align 4, !tbaa !8
-  %1462 = fdiv float %.sink379.i, %1461
+  %1462 = fdiv float %.sink408.i, %1461
   store i32 0, ptr %1357, align 4, !tbaa !171
   store i32 0, ptr %1350, align 8, !tbaa !170
   store i32 0, ptr %1343, align 4, !tbaa !169
@@ -4431,10 +4431,10 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit296.i:     ; preds = %_ZNKSt7__cxx1112bas
   br i1 %1658, label %1424, label %._crit_edge.i166, !llvm.loop !243
 
 .thread.i:                                        ; preds = %1654, %1646
-  %indvars.iv.next334344.i = add nuw nsw i64 %indvars.iv333.i, 1
+  %indvars.iv.next334373.i = add nuw nsw i64 %indvars.iv333.i, 1
   %1659 = load i32, ptr %117, align 4, !tbaa !4
   %1660 = sext i32 %1659 to i64
-  %1661 = icmp slt i64 %indvars.iv.next334344.i, %1660
+  %1661 = icmp slt i64 %indvars.iv.next334373.i, %1660
   br i1 %1661, label %.outer.i, label %._crit_edge.thread.i165, !llvm.loop !243
 
 ._crit_edge.i166:                                 ; preds = %1655

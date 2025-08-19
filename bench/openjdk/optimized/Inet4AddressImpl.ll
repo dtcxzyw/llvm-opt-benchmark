@@ -246,7 +246,7 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   br i1 %.not94, label %._crit_edge125, label %.lr.ph124, !llvm.loop !10
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.loopexit.thread, %.loopexit
-  %.067130 = phi ptr [ %.067.ph, %.loopexit.thread ], [ %.067, %.loopexit ], [ %.067, %.lr.ph124 ]
+  %.067139 = phi ptr [ %.067.ph, %.loopexit.thread ], [ %.067, %.loopexit ], [ %.067, %.lr.ph124 ]
   %80 = load ptr, ptr %5, align 8
   %.not95 = icmp eq ptr %80, null
   br i1 %.not95, label %82, label %81
@@ -256,7 +256,7 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   br label %82
 
 82:                                               ; preds = %._crit_edge125, %81, %13, %3, %12
-  %.0 = phi ptr [ null, %12 ], [ null, %3 ], [ null, %13 ], [ %.067130, %81 ], [ %.067130, %._crit_edge125 ]
+  %.0 = phi ptr [ null, %12 ], [ null, %3 ], [ null, %13 ], [ %.067139, %81 ], [ %.067139, %._crit_edge125 ]
   ret ptr %.0
 }
 

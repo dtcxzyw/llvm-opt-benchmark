@@ -1440,7 +1440,7 @@ define void @_ZN6icu_7717CollationIterator17appendCEsFromCE32EPKNS_13CollationDa
   %.0122372 = phi i32 [ %2, %.lr.ph ], [ %.1123, %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread ]
   %.0125371 = phi i32 [ %3, %.lr.ph ], [ %.1126, %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread ]
   %13 = and i32 %.0125371, 15
-  switch i32 %13, label %default.unreachable435 [
+  switch i32 %13, label %default.unreachable499 [
     i32 0, label %14
     i32 3, label %14
     i32 1, label %18
@@ -2931,7 +2931,7 @@ _ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit
   store i64 %798, ptr %829, align 8, !tbaa !38
   br label %_ZN6icu_7717CollationIterator8CEBuffer6appendElR10UErrorCode.exit
 
-default.unreachable435:                           ; preds = %12
+default.unreachable499:                           ; preds = %12
   unreachable
 
 _ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit.thread: ; preds = %399, %467, %461, %_ZN6icu_7717CollationIterator20nextSkippedCodePointER10UErrorCode.exit, %352, %_ZN6icu_7712CollationFCD11mayHaveLcccEi.exit.thread, %334, %659, %.thread, %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit, %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit256, %672, %664, %_ZN6icu_7717CollationIterator18backwardNumSkippedEiR10UErrorCode.exit, %326, %259, %_ZNK6icu_7713CollationData7getCE32Ei.exit, %520, %474
@@ -4054,7 +4054,7 @@ define void @_ZN6icu_7717CollationIterator16appendNumericCEsEjaR10UErrorCode(ptr
 
 34:                                               ; preds = %28
   %35 = icmp samesign ult i32 %25, 65536
-  br i1 %35, label %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread119, label %36
+  br i1 %35, label %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread129, label %36
 
 36:                                               ; preds = %34
   %37 = icmp samesign ugt i32 %25, 1114111
@@ -4099,7 +4099,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %36, %41, %44
   %66 = icmp eq i32 %65, 192
   br i1 %66, label %107, label %160
 
-_ZNK6icu_7713CollationData7getCE32Ei.exit.thread119: ; preds = %34
+_ZNK6icu_7713CollationData7getCE32Ei.exit.thread129: ; preds = %34
   %67 = load ptr, ptr %30, align 8, !tbaa !63
   %68 = icmp samesign ult i32 %25, 56320
   %69 = select i1 %68, i32 320, i32 0
@@ -4116,7 +4116,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread119: ; preds = %34
   %80 = getelementptr inbounds nuw i32, ptr %32, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !12
   %82 = icmp eq i32 %81, 192
-  br i1 %82, label %.thread120, label %160
+  br i1 %82, label %.thread130, label %160
 
 _ZNK6icu_7713CollationData7getCE32Ei.exit.thread: ; preds = %28
   %83 = load ptr, ptr %30, align 8, !tbaa !63
@@ -4157,7 +4157,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread: ; preds = %28
   %113 = icmp samesign ugt i32 %25, 1114111
   br i1 %113, label %_ZNK6icu_7713CollationData7getCE32Ei.exit80, label %131
 
-.thread120:                                       ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread119
+.thread130:                                       ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread129
   %114 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %115 = load ptr, ptr %114, align 8, !tbaa !52
   %116 = load ptr, ptr %115, align 8, !tbaa !58
@@ -4208,16 +4208,16 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread: ; preds = %28
   %154 = add nuw nsw i32 %152, %153
   br label %_ZNK6icu_7713CollationData7getCE32Ei.exit80
 
-_ZNK6icu_7713CollationData7getCE32Ei.exit80:      ; preds = %.thread, %.thread120, %107, %134, %137
-  %155 = phi ptr [ %100, %.thread ], [ %118, %.thread120 ], [ %112, %107 ], [ %112, %134 ], [ %112, %137 ]
-  %156 = phi i32 [ %106, %.thread ], [ %130, %.thread120 ], [ 128, %107 ], [ %136, %134 ], [ %154, %137 ]
+_ZNK6icu_7713CollationData7getCE32Ei.exit80:      ; preds = %.thread, %.thread130, %107, %134, %137
+  %155 = phi ptr [ %100, %.thread ], [ %118, %.thread130 ], [ %112, %107 ], [ %112, %134 ], [ %112, %137 ]
+  %156 = phi i32 [ %106, %.thread ], [ %130, %.thread130 ], [ 128, %107 ], [ %136, %134 ], [ %154, %137 ]
   %157 = sext i32 %156 to i64
   %158 = getelementptr inbounds i32, ptr %155, i64 %157
   %159 = load i32, ptr %158, align 4, !tbaa !12
   br label %160
 
-160:                                              ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread119, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread, %_ZNK6icu_7713CollationData7getCE32Ei.exit80, %_ZNK6icu_7713CollationData7getCE32Ei.exit
-  %.3 = phi i32 [ %159, %_ZNK6icu_7713CollationData7getCE32Ei.exit80 ], [ %65, %_ZNK6icu_7713CollationData7getCE32Ei.exit ], [ %94, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread ], [ %81, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread119 ]
+160:                                              ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread129, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread, %_ZNK6icu_7713CollationData7getCE32Ei.exit80, %_ZNK6icu_7713CollationData7getCE32Ei.exit
+  %.3 = phi i32 [ %159, %_ZNK6icu_7713CollationData7getCE32Ei.exit80 ], [ %65, %_ZNK6icu_7713CollationData7getCE32Ei.exit ], [ %94, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread ], [ %81, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread129 ]
   %161 = and i32 %.3, 207
   %narrow.i.not = icmp eq i32 %161, 202
   br i1 %narrow.i.not, label %166, label %162
@@ -4286,7 +4286,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit80:      ; preds = %.thread, %.thread12
 
 191:                                              ; preds = %185
   %192 = icmp samesign ult i32 %180, 65536
-  br i1 %192, label %_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread121, label %193
+  br i1 %192, label %_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread131, label %193
 
 193:                                              ; preds = %191
   %194 = icmp samesign ugt i32 %180, 1114111
@@ -4331,7 +4331,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit83:      ; preds = %193, %198, %201
   %223 = icmp eq i32 %222, 192
   br i1 %223, label %264, label %317
 
-_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread121: ; preds = %191
+_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread131: ; preds = %191
   %224 = load ptr, ptr %187, align 8, !tbaa !63
   %225 = icmp samesign ult i32 %180, 56320
   %226 = select i1 %225, i32 320, i32 0
@@ -4348,7 +4348,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit83.thread121: ; preds = %191
   %237 = getelementptr inbounds nuw i32, ptr %189, i64 %236
   %238 = load i32, ptr %237, align 4, !tbaa !12
   %239 = icmp eq i32 %238, 192
-  br i1 %239, label %.thread122, label %317
+  br i1 %239, label %.thread132, label %317
 
 _ZNK6icu_7713CollationData7getCE32Ei.exit83.thread: ; preds = %185
   %240 = load ptr, ptr %187, align 8, !tbaa !63
@@ -4389,7 +4389,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit83.thread: ; preds = %185
   %270 = icmp samesign ugt i32 %180, 1114111
   br i1 %270, label %_ZNK6icu_7713CollationData7getCE32Ei.exit85, label %288
 
-.thread122:                                       ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread121
+.thread132:                                       ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread131
   %271 = getelementptr inbounds nuw i8, ptr %186, i64 32
   %272 = load ptr, ptr %271, align 8, !tbaa !52
   %273 = load ptr, ptr %272, align 8, !tbaa !58
@@ -4440,16 +4440,16 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit83.thread: ; preds = %185
   %311 = add nuw nsw i32 %309, %310
   br label %_ZNK6icu_7713CollationData7getCE32Ei.exit85
 
-_ZNK6icu_7713CollationData7getCE32Ei.exit85:      ; preds = %.thread92, %.thread122, %264, %291, %294
-  %312 = phi ptr [ %257, %.thread92 ], [ %275, %.thread122 ], [ %269, %264 ], [ %269, %291 ], [ %269, %294 ]
-  %313 = phi i32 [ %263, %.thread92 ], [ %287, %.thread122 ], [ 128, %264 ], [ %293, %291 ], [ %311, %294 ]
+_ZNK6icu_7713CollationData7getCE32Ei.exit85:      ; preds = %.thread92, %.thread132, %264, %291, %294
+  %312 = phi ptr [ %257, %.thread92 ], [ %275, %.thread132 ], [ %269, %264 ], [ %269, %291 ], [ %269, %294 ]
+  %313 = phi i32 [ %263, %.thread92 ], [ %287, %.thread132 ], [ 128, %264 ], [ %293, %291 ], [ %311, %294 ]
   %314 = sext i32 %313 to i64
   %315 = getelementptr inbounds i32, ptr %312, i64 %314
   %316 = load i32, ptr %315, align 4, !tbaa !12
   br label %317
 
-317:                                              ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread121, %_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread, %_ZNK6icu_7713CollationData7getCE32Ei.exit85, %_ZNK6icu_7713CollationData7getCE32Ei.exit83
-  %.6 = phi i32 [ %316, %_ZNK6icu_7713CollationData7getCE32Ei.exit85 ], [ %222, %_ZNK6icu_7713CollationData7getCE32Ei.exit83 ], [ %251, %_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread ], [ %238, %_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread121 ]
+317:                                              ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread131, %_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread, %_ZNK6icu_7713CollationData7getCE32Ei.exit85, %_ZNK6icu_7713CollationData7getCE32Ei.exit83
+  %.6 = phi i32 [ %316, %_ZNK6icu_7713CollationData7getCE32Ei.exit85 ], [ %222, %_ZNK6icu_7713CollationData7getCE32Ei.exit83 ], [ %251, %_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread ], [ %238, %_ZNK6icu_7713CollationData7getCE32Ei.exit83.thread131 ]
   %318 = and i32 %.6, 207
   %narrow.i87.not = icmp eq i32 %318, 202
   br i1 %narrow.i87.not, label %171, label %319
@@ -4512,19 +4512,19 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit85:      ; preds = %.thread92, %.thread
   %340 = getelementptr inbounds i8, ptr %.pre118, i64 %indvars.iv
   %341 = load i8, ptr %340, align 1, !tbaa !43
   %342 = icmp eq i8 %341, 0
-  br i1 %342, label %343, label %.critedge.loopexit.split.loop.exit124
+  br i1 %342, label %343, label %.critedge.loopexit.split.loop.exit134
 
 343:                                              ; preds = %339
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %344 = icmp slt i64 %indvars.iv.next, %338
   br i1 %344, label %339, label %.critedge, !llvm.loop !97
 
-.critedge.loopexit.split.loop.exit124:            ; preds = %339
+.critedge.loopexit.split.loop.exit134:            ; preds = %339
   %345 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %343, %.critedge.loopexit.split.loop.exit124, %.preheader
-  %.1.lcssa = phi i32 [ %.0, %.preheader ], [ %345, %.critedge.loopexit.split.loop.exit124 ], [ %335, %343 ]
+.critedge:                                        ; preds = %343, %.critedge.loopexit.split.loop.exit134, %.preheader
+  %.1.lcssa = phi i32 [ %.0, %.preheader ], [ %345, %.critedge.loopexit.split.loop.exit134 ], [ %335, %343 ]
   %346 = sub nsw i32 %334, %.1.lcssa
   %spec.store.select = call i32 @llvm.smin.i32(i32 %346, i32 254)
   %347 = sext i32 %.1.lcssa to i64
@@ -6074,7 +6074,7 @@ define noundef i64 @_ZN6icu_7717CollationIterator10previousCEERNS_9UVector32ER10
 
 38:                                               ; preds = %32
   %39 = icmp samesign ult i32 %22, 65536
-  br i1 %39, label %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread40, label %40
+  br i1 %39, label %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread51, label %40
 
 40:                                               ; preds = %38
   %41 = icmp samesign ugt i32 %22, 1114111
@@ -6119,7 +6119,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %40, %45, %48
   %70 = icmp eq i32 %69, 192
   br i1 %70, label %111, label %165
 
-_ZNK6icu_7713CollationData7getCE32Ei.exit.thread40: ; preds = %38
+_ZNK6icu_7713CollationData7getCE32Ei.exit.thread51: ; preds = %38
   %71 = load ptr, ptr %34, align 8, !tbaa !63
   %72 = icmp samesign ult i32 %22, 56320
   %73 = select i1 %72, i32 320, i32 0
@@ -6136,7 +6136,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread40: ; preds = %38
   %84 = getelementptr inbounds nuw i32, ptr %36, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !12
   %86 = icmp eq i32 %85, 192
-  br i1 %86, label %.thread41, label %165
+  br i1 %86, label %.thread52, label %165
 
 _ZNK6icu_7713CollationData7getCE32Ei.exit.thread: ; preds = %32
   %87 = load ptr, ptr %34, align 8, !tbaa !63
@@ -6177,7 +6177,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread: ; preds = %32
   %117 = icmp samesign ugt i32 %22, 1114111
   br i1 %117, label %_ZNK6icu_7713CollationData7getCE32Ei.exit34, label %135
 
-.thread41:                                        ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread40
+.thread52:                                        ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread51
   %118 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %119 = load ptr, ptr %118, align 8, !tbaa !52
   %120 = load ptr, ptr %119, align 8, !tbaa !58
@@ -6228,18 +6228,18 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread: ; preds = %32
   %158 = add nuw nsw i32 %156, %157
   br label %_ZNK6icu_7713CollationData7getCE32Ei.exit34
 
-_ZNK6icu_7713CollationData7getCE32Ei.exit34:      ; preds = %.thread, %.thread41, %111, %138, %141
-  %159 = phi ptr [ %104, %.thread ], [ %122, %.thread41 ], [ %116, %111 ], [ %116, %138 ], [ %116, %141 ]
-  %160 = phi ptr [ %101, %.thread ], [ %119, %.thread41 ], [ %113, %111 ], [ %113, %138 ], [ %113, %141 ]
-  %161 = phi i32 [ %110, %.thread ], [ %134, %.thread41 ], [ 128, %111 ], [ %140, %138 ], [ %158, %141 ]
+_ZNK6icu_7713CollationData7getCE32Ei.exit34:      ; preds = %.thread, %.thread52, %111, %138, %141
+  %159 = phi ptr [ %104, %.thread ], [ %122, %.thread52 ], [ %116, %111 ], [ %116, %138 ], [ %116, %141 ]
+  %160 = phi ptr [ %101, %.thread ], [ %119, %.thread52 ], [ %113, %111 ], [ %113, %138 ], [ %113, %141 ]
+  %161 = phi i32 [ %110, %.thread ], [ %134, %.thread52 ], [ 128, %111 ], [ %140, %138 ], [ %158, %141 ]
   %162 = sext i32 %161 to i64
   %163 = getelementptr inbounds i32, ptr %159, i64 %162
   %164 = load i32, ptr %163, align 4, !tbaa !12
   br label %165
 
-165:                                              ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread40, %_ZNK6icu_7713CollationData7getCE32Ei.exit, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread, %_ZNK6icu_7713CollationData7getCE32Ei.exit34
-  %.025 = phi i32 [ %164, %_ZNK6icu_7713CollationData7getCE32Ei.exit34 ], [ %98, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread ], [ %69, %_ZNK6icu_7713CollationData7getCE32Ei.exit ], [ %85, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread40 ]
-  %.0 = phi ptr [ %160, %_ZNK6icu_7713CollationData7getCE32Ei.exit34 ], [ %33, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread ], [ %33, %_ZNK6icu_7713CollationData7getCE32Ei.exit ], [ %33, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread40 ]
+165:                                              ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread51, %_ZNK6icu_7713CollationData7getCE32Ei.exit, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread, %_ZNK6icu_7713CollationData7getCE32Ei.exit34
+  %.025 = phi i32 [ %164, %_ZNK6icu_7713CollationData7getCE32Ei.exit34 ], [ %98, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread ], [ %69, %_ZNK6icu_7713CollationData7getCE32Ei.exit ], [ %85, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread51 ]
+  %.0 = phi ptr [ %160, %_ZNK6icu_7713CollationData7getCE32Ei.exit34 ], [ %33, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread ], [ %33, %_ZNK6icu_7713CollationData7getCE32Ei.exit ], [ %33, %_ZNK6icu_7713CollationData7getCE32Ei.exit.thread51 ]
   %166 = and i32 %.025, 192
   %.not.i35 = icmp eq i32 %166, 192
   br i1 %.not.i35, label %167, label %_ZN6icu_779Collation18isSimpleOrLongCE32Ej.exit.thread

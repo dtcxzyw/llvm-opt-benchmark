@@ -123,7 +123,7 @@ define void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10try_insert17h1aea62b35c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define ptr @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10try_insert28_$u7b$$u7b$closure$u7d$$u7d$17h010399dcd6c657b6E"(ptr align 8 captures(none) %0) unnamed_addr #1 {
+define nonnull ptr @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10try_insert28_$u7b$$u7b$closure$u7d$$u7d$17h010399dcd6c657b6E"(ptr align 8 captures(none) %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   store ptr null, ptr %0, align 8
   %.not = icmp eq ptr %2, null
@@ -144,7 +144,7 @@ define ptr @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$11get_or_init28_$u7b$$u7b$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define ptr @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17hf3326c2c30e9c6faE"(ptr align 8 captures(none) %0) unnamed_addr #1 {
+define nonnull ptr @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17hf3326c2c30e9c6faE"(ptr align 8 captures(none) %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   store ptr null, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null

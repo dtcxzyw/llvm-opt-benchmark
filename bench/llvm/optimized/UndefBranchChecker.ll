@@ -809,8 +809,8 @@ define internal void @_ZN5clang4ento5check15BranchCondition21_checkBranchConditi
 26:                                               ; preds = %12
   %27 = load ptr, ptr %13, align 8, !tbaa !54
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.0.copyload.i.i.i.i6.i.i = load i64, ptr %28, align 8
-  %29 = and i64 %.0.copyload.i.i.i.i6.i.i, -8
+  %.0.copyload.i.i.i.i7.i.i = load i64, ptr %28, align 8
+  %29 = and i64 %.0.copyload.i.i.i.i7.i.i, -8
   %30 = inttoptr i64 %29 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 56

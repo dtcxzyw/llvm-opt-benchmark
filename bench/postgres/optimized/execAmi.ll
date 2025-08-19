@@ -727,14 +727,14 @@ define dso_local zeroext i1 @ExecSupportsBackwardScan(ptr noundef readonly captu
     i32 341, label %34
     i32 346, label %38
     i32 354, label %42
-    i32 338, label %.thread.loopexit88
-    i32 344, label %.thread.loopexit88
-    i32 345, label %.thread.loopexit88
-    i32 347, label %.thread.loopexit88
-    i32 348, label %.thread.loopexit88
-    i32 350, label %.thread.loopexit88
-    i32 359, label %.thread.loopexit88
-    i32 361, label %.thread.loopexit88
+    i32 338, label %.thread.loopexit91
+    i32 344, label %.thread.loopexit91
+    i32 345, label %.thread.loopexit91
+    i32 347, label %.thread.loopexit91
+    i32 348, label %.thread.loopexit91
+    i32 350, label %.thread.loopexit91
+    i32 359, label %.thread.loopexit91
+    i32 361, label %.thread.loopexit91
   ]
 
 8:                                                ; preds = %6
@@ -793,8 +793,8 @@ define dso_local zeroext i1 @ExecSupportsBackwardScan(ptr noundef readonly captu
   br label %tailrecurse.backedge.sink.split
 
 tailrecurse.backedge.sink.split:                  ; preds = %6, %6, %38
-  %.sink81 = phi i64 [ 112, %38 ], [ 64, %6 ], [ 64, %6 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.tr36, i64 %.sink81
+  %.sink84 = phi i64 [ 112, %38 ], [ 64, %6 ], [ 64, %6 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.tr36, i64 %.sink84
   %40 = load ptr, ptr %39, align 8
   br label %tailrecurse.backedge
 
@@ -810,11 +810,11 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
   %.not = icmp ne i32 %45, 0
   br label %.thread
 
-.thread.loopexit88:                               ; preds = %6, %6, %6, %6, %6, %6, %6, %6
+.thread.loopexit91:                               ; preds = %6, %6, %6, %6, %6, %6, %6, %6
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph66, %22, %tailrecurse.backedge, %.lr.ph, %8, %6, %.thread.loopexit88, %1, %15, %.lr.ph57, %42, %11, %34, %30
-  %.0 = phi i1 [ %33, %30 ], [ %37, %34 ], [ false, %11 ], [ %.not, %42 ], [ true, %15 ], [ true, %.lr.ph57 ], [ false, %1 ], [ true, %.thread.loopexit88 ], [ false, %6 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %tailrecurse.backedge ], [ %29, %22 ], [ %29, %.lr.ph66 ]
+.thread:                                          ; preds = %.lr.ph66, %22, %tailrecurse.backedge, %.lr.ph, %8, %6, %.thread.loopexit91, %1, %15, %.lr.ph57, %42, %11, %34, %30
+  %.0 = phi i1 [ %33, %30 ], [ %37, %34 ], [ false, %11 ], [ %.not, %42 ], [ true, %15 ], [ true, %.lr.ph57 ], [ false, %1 ], [ true, %.thread.loopexit91 ], [ false, %6 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %tailrecurse.backedge ], [ %29, %22 ], [ %29, %.lr.ph66 ]
   ret i1 %.0
 }
 

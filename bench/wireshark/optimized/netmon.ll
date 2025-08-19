@@ -521,8 +521,8 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   br label %244
 
 .thread392.sink.split:                            ; preds = %232, %221, %202, %198
-  %.sink552 = phi ptr [ %199, %198 ], [ %203, %202 ], [ %222, %221 ], [ %233, %232 ]
-  store ptr %.sink552, ptr %2, align 8
+  %.sink568 = phi ptr [ %199, %198 ], [ %203, %202 ], [ %222, %221 ], [ %233, %232 ]
+  store ptr %.sink568, ptr %2, align 8
   br label %.thread392
 
 .thread392:                                       ; preds = %234, %223, %204, %191, %.thread392.sink.split
@@ -1579,9 +1579,9 @@ netmon_set_pseudo_header_info.exit:               ; preds = %.critedge, %154, %1
   ]
 
 .thread149:                                       ; preds = %171
-  %.sroa.0.0.copyload157 = load i32, ptr %173, align 1
-  %.sroa.8.0..sroa_idx160 = getelementptr inbounds nuw i8, ptr %2, i64 84
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.8, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.8.0..sroa_idx160, i64 24, i1 false)
+  %.sroa.0.0.copyload165 = load i32, ptr %173, align 1
+  %.sroa.8.0..sroa_idx168 = getelementptr inbounds nuw i8, ptr %2, i64 84
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.8, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.8.0..sroa_idx168, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(104) %173, i8 noundef 0, i64 noundef 104, i1 noundef false) #13
   %174 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 13, ptr %174, align 8
@@ -1597,9 +1597,9 @@ netmon_set_pseudo_header_info.exit:               ; preds = %.critedge, %154, %1
   %182 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr %181, ptr %182, align 8
   %183 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store i32 %.sroa.0.0.copyload157, ptr %183, align 8
-  %.sroa.8.0..sroa_idx161 = getelementptr inbounds nuw i8, ptr %2, i64 116
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.8.0..sroa_idx161, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.8, i64 24, i1 false)
+  store i32 %.sroa.0.0.copyload165, ptr %183, align 8
+  %.sroa.8.0..sroa_idx169 = getelementptr inbounds nuw i8, ptr %2, i64 116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.8.0..sroa_idx169, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.8, i64 24, i1 false)
   br label %215
 
 .thread150:                                       ; preds = %171
@@ -1642,8 +1642,8 @@ netmon_set_pseudo_header_info.exit:               ; preds = %.critedge, %154, %1
   store ptr %202, ptr %203, align 8
   %204 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 %.sroa.0.0.copyload, ptr %204, align 8
-  %.sroa.8.0..sroa_idx159 = getelementptr inbounds nuw i8, ptr %2, i64 116
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(68) %.sroa.8.0..sroa_idx159, ptr noundef nonnull align 4 dereferenceable(68) %.sroa.8, i64 68, i1 false)
+  %.sroa.8.0..sroa_idx167 = getelementptr inbounds nuw i8, ptr %2, i64 116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(68) %.sroa.8.0..sroa_idx167, ptr noundef nonnull align 4 dereferenceable(68) %.sroa.8, i64 68, i1 false)
   br label %215
 
 205:                                              ; preds = %171

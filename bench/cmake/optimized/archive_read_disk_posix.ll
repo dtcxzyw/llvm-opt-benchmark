@@ -1238,7 +1238,7 @@ tree_free.exit:                                   ; preds = %10, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_archive_read_next_header(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
+define internal range(i32 -9, -10) i32 @_archive_read_next_header(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
   store ptr null, ptr %1, align 8, !tbaa !110
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8, !tbaa !27
@@ -1249,7 +1249,7 @@ define internal i32 @_archive_read_next_header(ptr noundef %0, ptr noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_archive_read_next_header2(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -9, -10) i32 @_archive_read_next_header2(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.statfs, align 8
@@ -2372,12 +2372,12 @@ get_xfer_size.exit53.thread.i.i.i:                ; preds = %get_xfer_size.exit5
   br label %update_current_filesystem.exit.thread247.i
 
 update_current_filesystem.exit.thread247.i:       ; preds = %559, %558, %556, %556, %556, %556, %556, %556
-  %.sink67.i.i.i = phi i32 [ 0, %559 ], [ 0, %558 ], [ 1, %556 ], [ 1, %556 ], [ 1, %556 ], [ 1, %556 ], [ 1, %556 ], [ 1, %556 ]
+  %.sink71.i.i.i = phi i32 [ 0, %559 ], [ 0, %558 ], [ 1, %556 ], [ 1, %556 ], [ 1, %556 ], [ 1, %556 ], [ 1, %556 ], [ 1, %556 ]
   %.sink.i.i.i = phi i32 [ 0, %559 ], [ 1, %558 ], [ 0, %556 ], [ 0, %556 ], [ 0, %556 ], [ 0, %556 ], [ 0, %556 ], [ 0, %556 ]
   %560 = getelementptr inbounds nuw i8, ptr %438, i64 488
   %561 = load ptr, ptr %560, align 8, !tbaa !92
   %562 = getelementptr inbounds nuw i8, ptr %561, i64 12
-  store i32 %.sink67.i.i.i, ptr %562, align 4, !tbaa !95
+  store i32 %.sink71.i.i.i, ptr %562, align 4, !tbaa !95
   %563 = getelementptr inbounds nuw i8, ptr %561, i64 8
   store i32 %.sink.i.i.i, ptr %563, align 8, !tbaa !93
   %564 = load i64, ptr %49, align 8, !tbaa !138
@@ -2391,9 +2391,9 @@ update_current_filesystem.exit.thread247.i:       ; preds = %559, %558, %556, %5
   br label %update_current_filesystem.exit.thread.i
 
 update_current_filesystem.exit.i:                 ; preds = %get_xfer_size.exit53.thread.i.i.i, %509
-  %.sink319.i = phi ptr [ %510, %509 ], [ %.pre-phi.i.i, %get_xfer_size.exit53.thread.i.i.i ]
+  %.sink361.i = phi ptr [ %510, %509 ], [ %.pre-phi.i.i, %get_xfer_size.exit53.thread.i.i.i ]
   %.str.31.sink.i = phi ptr [ @.str.31, %509 ], [ @.str.32, %get_xfer_size.exit53.thread.i.i.i ]
-  %568 = load i32, ptr %.sink319.i, align 4, !tbaa !90
+  %568 = load i32, ptr %.sink361.i, align 4, !tbaa !90
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef %568, ptr noundef nonnull %.str.31.sink.i) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2627,9 +2627,9 @@ archive_read_disk_gname.exit.thread.i:            ; preds = %648, %archive_read_
   %669 = load i32, ptr %13, align 8, !tbaa !96
   %670 = call i32 @archive_read_disk_entry_from_file(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %669, ptr noundef nonnull %.0146.i) #17
   %671 = icmp eq i32 %670, 0
-  %.not171 = xor i1 %671, true
-  %brmerge = or i1 %.not171, %.not187.i
-  %.mux = select i1 %.not171, i32 %670, i32 0
+  %.not216 = xor i1 %671, true
+  %brmerge = or i1 %.not216, %.not187.i
+  %.mux = select i1 %.not216, i32 %670, i32 0
   br i1 %brmerge, label %674, label %672
 
 672:                                              ; preds = %668

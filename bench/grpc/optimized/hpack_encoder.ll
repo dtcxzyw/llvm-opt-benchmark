@@ -2207,16 +2207,16 @@ _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %31, %34, %37
 
 .lr.ph.preheader:                                 ; preds = %56
   %59 = tail call i32 @grpc_slice_eq(ptr noundef nonnull byval(%struct.grpc_slice) align 8 %3, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %58)
-  %.not6481 = icmp eq i32 %59, 0
-  br i1 %.not6481, label %.lr.ph83, label %.lr.ph._crit_edge
+  %.not64103 = icmp eq i32 %59, 0
+  br i1 %.not64103, label %.lr.ph105, label %.lr.ph._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph83
+.lr.ph:                                           ; preds = %.lr.ph105
   %60 = tail call i32 @grpc_slice_eq(ptr noundef nonnull byval(%struct.grpc_slice) align 8 %3, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %150)
   %.not64 = icmp eq i32 %60, 0
-  br i1 %.not64, label %.lr.ph83, label %.lr.ph._crit_edge, !llvm.loop !239
+  br i1 %.not64, label %.lr.ph105, label %.lr.ph._crit_edge, !llvm.loop !239
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
-  %.sroa.058.070.lcssa = phi ptr [ %57, %.lr.ph.preheader ], [ %.sroa.051.06982, %.lr.ph ]
+  %.sroa.058.070.lcssa = phi ptr [ %57, %.lr.ph.preheader ], [ %.sroa.051.069104, %.lr.ph ]
   %.sroa.051.069.lcssa = phi ptr [ %58, %.lr.ph.preheader ], [ %150, %.lr.ph ]
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.051.069.lcssa, i64 32
   %62 = load i32, ptr %61, align 8, !tbaa !240
@@ -2406,14 +2406,14 @@ _ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE8
   %149 = icmp eq ptr %147, %148
   br i1 %149, label %_ZN9grpc_core5SliceD2Ev.exit37, label %.lr.ph71, !llvm.loop !256
 
-.lr.ph83:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.051.06982 = phi ptr [ %150, %.lr.ph ], [ %58, %.lr.ph.preheader ]
-  %150 = getelementptr inbounds nuw i8, ptr %.sroa.051.06982, i64 40
+.lr.ph105:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.sroa.051.069104 = phi ptr [ %150, %.lr.ph ], [ %58, %.lr.ph.preheader ]
+  %150 = getelementptr inbounds nuw i8, ptr %.sroa.051.069104, i64 40
   %151 = load ptr, ptr %17, align 8, !tbaa !238
   %.not = icmp eq ptr %150, %151
   br i1 %.not, label %.critedge36.loopexit, label %.lr.ph, !llvm.loop !239
 
-.critedge36.loopexit:                             ; preds = %.lr.ph83
+.critedge36.loopexit:                             ; preds = %.lr.ph105
   %.pre75 = load ptr, ptr %3, align 8, !tbaa !107, !noalias !257
   br label %.critedge36
 
@@ -2758,10 +2758,10 @@ _ZN9grpc_core5SliceD2Ev.exit15:                   ; preds = %78, %75, %_ZN9grpc_
   ret void
 
 86:                                               ; preds = %84, %51
-  %.sink21 = phi ptr [ %7, %84 ], [ %5, %51 ]
+  %.sink28 = phi ptr [ %7, %84 ], [ %5, %51 ]
   %.sink = phi ptr [ %6, %84 ], [ %4, %51 ]
   %.pn11.pn = phi { ptr, i32 } [ %85, %84 ], [ %52, %51 ]
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink21) #30
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink28) #30
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #30
   resume { ptr, i32 } %.pn11.pn
 }

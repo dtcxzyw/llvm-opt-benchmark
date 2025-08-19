@@ -1476,16 +1476,16 @@ define hidden void @_ZN6google8protobuf15UnknownFieldSet14DeleteByNumberEi(ptr n
   br label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE6resizeEm.exit
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.lcssa32 = phi i64 [ %53, %._crit_edge ], [ 0, %2 ]
-  %.lcssa1331 = phi ptr [ %49, %._crit_edge ], [ %5, %2 ]
-  %.lcssa1430 = phi ptr [ %48, %._crit_edge ], [ %4, %2 ]
-  %.0.lcssa29 = phi i64 [ %.1, %._crit_edge ], [ 0, %2 ]
-  %9 = icmp ult i64 %.0.lcssa29, %.lcssa32
+  %.lcssa42 = phi i64 [ %53, %._crit_edge ], [ 0, %2 ]
+  %.lcssa1341 = phi ptr [ %49, %._crit_edge ], [ %5, %2 ]
+  %.lcssa1440 = phi ptr [ %48, %._crit_edge ], [ %4, %2 ]
+  %.0.lcssa39 = phi i64 [ %.1, %._crit_edge ], [ 0, %2 ]
+  %9 = icmp ult i64 %.0.lcssa39, %.lcssa42
   br i1 %9, label %10, label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE6resizeEm.exit
 
 10:                                               ; preds = %._crit_edge.thread
-  %11 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %.lcssa1331, i64 %.0.lcssa29
-  %.not.i.i = icmp eq ptr %.lcssa1430, %11
+  %11 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %.lcssa1341, i64 %.0.lcssa39
+  %.not.i.i = icmp eq ptr %.lcssa1440, %11
   br i1 %.not.i.i, label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE6resizeEm.exit, label %12
 
 12:                                               ; preds = %10
@@ -2758,7 +2758,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN6google8protobuf12UnknownFieldESa
 19:                                               ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN6google8protobuf12UnknownFieldEmS2_ET_S4_T0_RSaIT1_E.exit, label %23
 

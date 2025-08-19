@@ -260,10 +260,10 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 .lr.ph32.i:                                       ; preds = %.lr.ph32.i.preheader, %.lr.ph32.i
   %indvars.iv34.i = phi i64 [ %indvars.iv.next35.i, %.lr.ph32.i ], [ %58, %.lr.ph32.i.preheader ]
-  %gep41.i = getelementptr float, ptr %invariant.gep.i, i64 %indvars.iv34.i
-  %72 = load float, ptr %gep41.i, align 4, !tbaa !47
+  %gep42.i = getelementptr float, ptr %invariant.gep.i, i64 %indvars.iv34.i
+  %72 = load float, ptr %gep42.i, align 4, !tbaa !47
   %73 = fmul reassoc nsz arcp contract afn float %72, %71
-  store float %73, ptr %gep41.i, align 4, !tbaa !47
+  store float %73, ptr %gep42.i, align 4, !tbaa !47
   %indvars.iv.next35.i = add nsw i64 %indvars.iv34.i, 1
   %lftr.wideiv37.i = trunc i64 %indvars.iv.next35.i to i32
   %exitcond38.not.i = icmp eq i32 %60, %lftr.wideiv37.i
@@ -455,8 +455,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 155:                                              ; preds = %.lr.ph245, %155
   %indvars.iv = phi i64 [ 0, %.lr.ph245 ], [ %indvars.iv.next, %155 ]
-  %.idx296 = shl nsw i64 %indvars.iv, 4
-  %156 = getelementptr inbounds nuw i8, ptr %132, i64 %.idx296
+  %.idx308 = shl nsw i64 %indvars.iv, 4
+  %156 = getelementptr inbounds nuw i8, ptr %132, i64 %.idx308
   %157 = add nsw i64 %133, %indvars.iv
   %.idx218 = shl i64 %157, 4
   %158 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx218
@@ -521,8 +521,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %184 = phi reassoc nsz arcp contract afn float [ %182, %178 ], [ 0.000000e+00, %._crit_edge252 ]
   %185 = fmul reassoc nsz arcp contract afn float %184, %149
   %186 = fadd reassoc nsz arcp contract afn float %185, %168
-  %.idx297 = shl nsw i64 %indvars.iv284, 4
-  %187 = getelementptr inbounds i8, ptr %132, i64 %.idx297
+  %.idx309 = shl nsw i64 %indvars.iv284, 4
+  %187 = getelementptr inbounds i8, ptr %132, i64 %.idx309
   store float %186, ptr %187, align 4, !tbaa !47
   %188 = getelementptr inbounds nuw i8, ptr %167, i64 4
   %189 = load float, ptr %188, align 4, !tbaa !47
@@ -539,8 +539,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 194:                                              ; preds = %.lr.ph260, %194
   %indvars.iv288 = phi i64 [ %160, %.lr.ph260 ], [ %indvars.iv.next289, %194 ]
-  %.idx298 = shl nsw i64 %indvars.iv288, 4
-  %195 = getelementptr inbounds i8, ptr %132, i64 %.idx298
+  %.idx310 = shl nsw i64 %indvars.iv288, 4
+  %195 = getelementptr inbounds i8, ptr %132, i64 %.idx310
   %196 = add nsw i64 %159, %indvars.iv288
   %.idx = shl i64 %196, 4
   %197 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx

@@ -188,8 +188,8 @@ define noundef zeroext i1 @_ZN3g2o14writeCCSMatrixERKNSt7__cxx1112basic_stringIc
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.not147 = icmp eq i32 %11, 0
-  br i1 %.not147, label %_ZNSt6vectorIN3g2o12TripletEntryESaIS1_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN3g2o12TripletEntryESaIS1_EE11_M_allocateEm.exit.i
+  %.not166 = icmp eq i32 %11, 0
+  br i1 %.not166, label %_ZNSt6vectorIN3g2o12TripletEntryESaIS1_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN3g2o12TripletEntryESaIS1_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIN3g2o12TripletEntryESaIS1_EE11_M_allocateEm.exit.i: ; preds = %15
   %17 = shl nuw nsw i64 %12, 4
@@ -1114,8 +1114,8 @@ define noundef zeroext i1 @_ZN3g2o18writeTripletMatrixERKNSt7__cxx1112basic_stri
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.not125 = icmp eq i32 %1, 0
-  br i1 %.not125, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3g2o12TripletEntryESt6vectorIS3_SaIS3_EEEENS2_14TripletColSortEEvT_SA_T0_.exit, label %_ZNSt12_Vector_baseIN3g2o12TripletEntryESaIS1_EE11_M_allocateEm.exit.i
+  %.not142 = icmp eq i32 %1, 0
+  br i1 %.not142, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3g2o12TripletEntryESt6vectorIS3_SaIS3_EEEENS2_14TripletColSortEEvT_SA_T0_.exit, label %_ZNSt12_Vector_baseIN3g2o12TripletEntryESaIS1_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIN3g2o12TripletEntryESaIS1_EE11_M_allocateEm.exit.i: ; preds = %13
   %15 = shl nuw nsw i64 %10, 4
@@ -1358,20 +1358,20 @@ _ZNSt6vectorIN3g2o12TripletEntryESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit51:
   br i1 %exitcond.not, label %19, label %30, !llvm.loop !86
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3g2o12TripletEntryESt6vectorIS3_SaIS3_EEEENS2_14TripletColSortEEvT_SA_T0_.exit: ; preds = %13, %19, %.noexc32
-  %.lcssa80132 = phi ptr [ %89, %19 ], [ %89, %.noexc32 ], [ null, %13 ]
+  %.lcssa80149 = phi ptr [ %89, %19 ], [ %89, %.noexc32 ], [ null, %13 ]
   %91 = invoke fastcc noundef zeroext i1 @_ZN3g2oL19writeTripletEntriesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKSt6vectorINS_12TripletEntryESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %92 unwind label %28
 
 92:                                               ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3g2o12TripletEntryESt6vectorIS3_SaIS3_EEEENS2_14TripletColSortEEvT_SA_T0_.exit
-  %.not.i.i.i52 = icmp eq ptr %.lcssa80132, null
+  %.not.i.i.i52 = icmp eq ptr %.lcssa80149, null
   br i1 %.not.i.i.i52, label %_ZNSt6vectorIN3g2o12TripletEntryESaIS1_EED2Ev.exit, label %93
 
 93:                                               ; preds = %92
   %94 = load ptr, ptr %14, align 8, !tbaa !49
   %95 = ptrtoint ptr %94 to i64
-  %96 = ptrtoint ptr %.lcssa80132 to i64
+  %96 = ptrtoint ptr %.lcssa80149 to i64
   %97 = sub i64 %95, %96
-  tail call void @_ZdlPvm(ptr noundef nonnull %.lcssa80132, i64 noundef %97) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %.lcssa80149, i64 noundef %97) #17
   br label %_ZNSt6vectorIN3g2o12TripletEntryESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3g2o12TripletEntryESaIS1_EED2Ev.exit: ; preds = %92, %93
@@ -1908,7 +1908,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3g2
   %15 = icmp eq i64 %14, 0
   %16 = lshr exact i64 %10, 1
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds %"struct.g2o::TripletEntry", ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw %"struct.g2o::TripletEntry", ptr %0, i64 %17
   %19 = getelementptr inbounds nuw %"struct.g2o::TripletEntry", ptr %0, i64 %16
   br label %20
 

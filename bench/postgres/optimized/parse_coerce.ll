@@ -110,11 +110,11 @@ define dso_local ptr @coerce_to_target_type(ptr noundef %0, ptr noundef %1, i32 
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %14, %.preheader, %18, %.critedge
-  %phi.call45 = phi ptr [ %17, %.critedge ], [ %17, %18 ], [ null, %.preheader ], [ null, %14 ]
-  %.0303744 = phi ptr [ %.03039, %.critedge ], [ %.03039, %18 ], [ null, %.preheader ], [ null, %14 ]
+  %phi.call47 = phi ptr [ %17, %.critedge ], [ %17, %18 ], [ null, %.preheader ], [ null, %14 ]
+  %.0303746 = phi ptr [ %.03039, %.critedge ], [ %.03039, %18 ], [ null, %.preheader ], [ null, %14 ]
   %21 = phi i1 [ false, %.critedge ], [ %20, %18 ], [ false, %.preheader ], [ false, %14 ]
-  %22 = tail call fastcc ptr @coerce_type_typmod(ptr noundef %phi.call45, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %21)
-  %.not35 = icmp eq ptr %.0303744, %1
+  %22 = tail call fastcc ptr @coerce_type_typmod(ptr noundef %phi.call47, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %21)
+  %.not35 = icmp eq ptr %.0303746, %1
   br i1 %.not35, label %34, label %23
 
 23:                                               ; preds = %.critedge.thread
@@ -333,8 +333,8 @@ define dso_local ptr @coerce_type(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %31 = icmp eq i32 %2, 705
   %.pre = load i32, ptr %1, align 4
   %32 = icmp eq i32 %.pre, 7
-  %or.cond229 = select i1 %31, i1 %32, i1 false
-  br i1 %or.cond229, label %33, label %78
+  %or.cond241 = select i1 %31, i1 %32, i1 false
+  br i1 %or.cond241, label %33, label %78
 
 33:                                               ; preds = %30
   %34 = tail call noundef ptr @palloc0(i64 noundef 40) #5
@@ -1902,7 +1902,7 @@ define dso_local i32 @parser_coercion_errposition(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @select_common_type(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local range(i32 706, 705) i32 @select_common_type(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
 list_second_cell.exit:
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
@@ -1992,8 +1992,8 @@ for_each_cell_setup.exit78:                       ; preds = %.loopexit
   br i1 %41, label %.lr.ph109.preheader, label %._crit_edge110
 
 .lr.ph109.preheader:                              ; preds = %for_each_cell_setup.exit78
-  %sext139 = shl i64 %38, 29
-  %42 = ashr i64 %sext139, 32
+  %sext146 = shl i64 %38, 29
+  %42 = ashr i64 %sext146, 32
   br label %.lr.ph109
 
 .lr.ph109:                                        ; preds = %.lr.ph109.preheader, %.thread88
@@ -2089,7 +2089,7 @@ for_each_cell_setup.exit78:                       ; preds = %.loopexit
   %.lcssa = phi i32 [ %35, %for_each_cell_setup.exit78 ], [ %35, %.loopexit ], [ %73, %.thread88 ]
   %.043.lcssa = phi ptr [ %11, %for_each_cell_setup.exit78 ], [ %11, %.loopexit ], [ %.54891, %.thread88 ]
   %78 = icmp eq i32 %.lcssa, 705
-  %spec.select138 = select i1 %78, i32 25, i32 %.lcssa
+  %spec.select145 = select i1 %78, i32 25, i32 %.lcssa
   %.not70 = icmp eq ptr %3, null
   br i1 %.not70, label %80, label %79
 
@@ -2098,7 +2098,7 @@ for_each_cell_setup.exit78:                       ; preds = %.loopexit
   br label %80
 
 80:                                               ; preds = %._crit_edge110, %79, %77, %._crit_edge, %33
-  %.0 = phi i32 [ 0, %77 ], [ %16, %33 ], [ %16, %._crit_edge ], [ %spec.select138, %79 ], [ %spec.select138, %._crit_edge110 ]
+  %.0 = phi i32 [ 0, %77 ], [ %16, %33 ], [ %16, %._crit_edge ], [ %spec.select145, %79 ], [ %spec.select145, %._crit_edge110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2240,7 +2240,7 @@ declare i32 @get_base_element_type(i32 noundef) local_unnamed_addr #1
 declare zeroext i1 @type_is_enum(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @select_common_type_from_oids(i32 noundef range(i32 1, -2147483648) %0, ptr noundef nonnull readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 706, 705) i32 @select_common_type_from_oids(i32 noundef range(i32 1, -2147483648) %0, ptr noundef nonnull readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -3192,27 +3192,27 @@ verify_common_type_from_oids.exit:                ; preds = %252
   %316 = load i32, ptr %315, align 4
   %317 = and i32 %316, -3
   %or.cond27 = icmp eq i32 %317, 5077
-  br i1 %or.cond27, label %.sink.split963, label %318
+  br i1 %or.cond27, label %.sink.split988, label %318
 
 318:                                              ; preds = %.lr.ph792
   switch i32 %316, label %321 [
-    i32 5078, label %.sink.split963
+    i32 5078, label %.sink.split988
     i32 5080, label %319
     i32 4538, label %320
   ]
 
 319:                                              ; preds = %318
-  br label %.sink.split963
+  br label %.sink.split988
 
 320:                                              ; preds = %318
-  br label %.sink.split963
+  br label %.sink.split988
 
-.sink.split963:                                   ; preds = %318, %.lr.ph792, %319, %320
+.sink.split988:                                   ; preds = %318, %.lr.ph792, %319, %320
   %.2429.sink = phi i32 [ %.5416, %320 ], [ %.5426, %319 ], [ %.1431, %.lr.ph792 ], [ %.2429, %318 ]
   store i32 %.2429.sink, ptr %315, align 4
   br label %321
 
-321:                                              ; preds = %.sink.split963, %318
+321:                                              ; preds = %.sink.split988, %318
   %indvars.iv.next871 = add nuw nsw i64 %indvars.iv870, 1
   %exitcond874.not = icmp eq i64 %indvars.iv.next871, %wide.trip.count873
   br i1 %exitcond874.not, label %.loopexit560, label %.lr.ph792, !llvm.loop !17
@@ -3243,9 +3243,9 @@ verify_common_type_from_oids.exit:                ; preds = %252
 326:                                              ; preds = %322
   %327 = load i32, ptr %323, align 4
   switch i32 %327, label %346 [
-    i32 3500, label %.sink.split964
-    i32 2776, label %.sink.split964
-    i32 2283, label %.sink.split964
+    i32 3500, label %.sink.split989
+    i32 2776, label %.sink.split989
+    i32 2283, label %.sink.split989
     i32 2277, label %328
     i32 3831, label %336
     i32 4537, label %341
@@ -3253,12 +3253,12 @@ verify_common_type_from_oids.exit:                ; preds = %252
 
 328:                                              ; preds = %326
   %.not499 = icmp eq i32 %.6356793, 0
-  br i1 %.not499, label %329, label %.sink.split964
+  br i1 %.not499, label %329, label %.sink.split989
 
 329:                                              ; preds = %328
   %330 = tail call i32 @get_array_type(i32 noundef %.3) #5
   %.not500 = icmp eq i32 %330, 0
-  br i1 %.not500, label %331, label %.sink.split964
+  br i1 %.not500, label %331, label %.sink.split989
 
 331:                                              ; preds = %329
   %332 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
@@ -3270,7 +3270,7 @@ verify_common_type_from_oids.exit:                ; preds = %252
   unreachable
 
 336:                                              ; preds = %326
-  br i1 %.not498, label %337, label %.sink.split964
+  br i1 %.not498, label %337, label %.sink.split989
 
 337:                                              ; preds = %336
   %338 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
@@ -3281,7 +3281,7 @@ verify_common_type_from_oids.exit:                ; preds = %252
   unreachable
 
 341:                                              ; preds = %326
-  br i1 %.not497, label %342, label %.sink.split964
+  br i1 %.not497, label %342, label %.sink.split989
 
 342:                                              ; preds = %341
   %343 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
@@ -3291,23 +3291,23 @@ verify_common_type_from_oids.exit:                ; preds = %252
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2765, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
   unreachable
 
-.sink.split964:                                   ; preds = %341, %336, %328, %329, %326, %326, %326
+.sink.split989:                                   ; preds = %341, %336, %328, %329, %326, %326, %326
   %.3.sink = phi i32 [ %.3, %326 ], [ %.3, %326 ], [ %.3, %326 ], [ %.6356793, %328 ], [ %330, %329 ], [ %.3363, %336 ], [ %.3370, %341 ]
   %.7357.ph = phi i32 [ %.6356793, %326 ], [ %.6356793, %326 ], [ %.6356793, %326 ], [ %.6356793, %328 ], [ %330, %329 ], [ %.6356793, %336 ], [ %.6356793, %341 ]
   store i32 %.3.sink, ptr %323, align 4
   br label %346
 
-346:                                              ; preds = %.sink.split964, %326, %322
-  %.7357 = phi i32 [ %.6356793, %322 ], [ %.6356793, %326 ], [ %.7357.ph, %.sink.split964 ]
+346:                                              ; preds = %.sink.split989, %326, %322
+  %.7357 = phi i32 [ %.6356793, %322 ], [ %.6356793, %326 ], [ %.7357.ph, %.sink.split989 ]
   %indvars.iv.next876 = add nuw nsw i64 %indvars.iv875, 1
   %exitcond879.not = icmp eq i64 %indvars.iv.next876, %wide.trip.count878
   br i1 %exitcond879.not, label %.loopexit, label %322, !llvm.loop !18
 
 .loopexit:                                        ; preds = %346, %314, %.loopexit560
-  %.3414888 = phi i32 [ %.3414, %.loopexit560 ], [ %.5416, %314 ], [ %.3414, %346 ]
-  %.3424887 = phi i32 [ %.3424, %.loopexit560 ], [ %.5426, %314 ], [ %.3424, %346 ]
-  %.0427886 = phi i32 [ %.0427, %.loopexit560 ], [ %.2429, %314 ], [ %.0427, %346 ]
-  %.0430885 = phi i32 [ %.0430, %.loopexit560 ], [ %.1431, %314 ], [ %.0430, %346 ]
+  %.3414913 = phi i32 [ %.3414, %.loopexit560 ], [ %.5416, %314 ], [ %.3414, %346 ]
+  %.3424912 = phi i32 [ %.3424, %.loopexit560 ], [ %.5426, %314 ], [ %.3424, %346 ]
+  %.0427911 = phi i32 [ %.0427, %.loopexit560 ], [ %.2429, %314 ], [ %.0427, %346 ]
+  %.0430910 = phi i32 [ %.0430, %.loopexit560 ], [ %.1431, %314 ], [ %.0430, %346 ]
   %.5355 = phi i32 [ %.3353, %.loopexit560 ], [ %.3353, %314 ], [ %.7357, %346 ]
   switch i32 %3, label %360 [
     i32 3500, label %390
@@ -3369,7 +3369,7 @@ verify_common_type_from_oids.exit:                ; preds = %252
   ]
 
 367:                                              ; preds = %366, %366
-  %.not491 = icmp eq i32 %.0430885, 0
+  %.not491 = icmp eq i32 %.0430910, 0
   br i1 %.not491, label %368, label %390
 
 368:                                              ; preds = %367
@@ -3384,7 +3384,7 @@ verify_common_type_from_oids.exit:                ; preds = %252
   br i1 %12, label %373, label %378
 
 373:                                              ; preds = %372
-  %.not490 = icmp eq i32 %.0427886, 0
+  %.not490 = icmp eq i32 %.0427911, 0
   br i1 %.not490, label %374, label %390
 
 374:                                              ; preds = %373
@@ -3399,7 +3399,7 @@ verify_common_type_from_oids.exit:                ; preds = %252
   br i1 %13, label %379, label %384
 
 379:                                              ; preds = %378
-  %.not489 = icmp eq i32 %.3424887, 0
+  %.not489 = icmp eq i32 %.3424912, 0
   br i1 %.not489, label %380, label %390
 
 380:                                              ; preds = %379
@@ -3414,7 +3414,7 @@ verify_common_type_from_oids.exit:                ; preds = %252
   br i1 %15, label %385, label %390
 
 385:                                              ; preds = %384
-  %.not488 = icmp eq i32 %.3414888, 0
+  %.not488 = icmp eq i32 %.3414913, 0
   br i1 %.not488, label %386, label %390
 
 386:                                              ; preds = %385
@@ -3426,7 +3426,7 @@ verify_common_type_from_oids.exit:                ; preds = %252
   unreachable
 
 390:                                              ; preds = %384, %385, %379, %373, %367, %361, %355, %.loopexit, %.loopexit, %.loopexit, %347, %348, %._crit_edge
-  %.0 = phi i32 [ %3, %._crit_edge ], [ %.3, %.loopexit ], [ %.3, %.loopexit ], [ %.3, %.loopexit ], [ %.5355, %347 ], [ %349, %348 ], [ %.3363, %355 ], [ %.3370, %361 ], [ %.0430885, %367 ], [ %.0427886, %373 ], [ %.3424887, %379 ], [ %.3414888, %385 ], [ %3, %384 ]
+  %.0 = phi i32 [ %3, %._crit_edge ], [ %.3, %.loopexit ], [ %.3, %.loopexit ], [ %.3, %.loopexit ], [ %.5355, %347 ], [ %349, %348 ], [ %.3363, %355 ], [ %.3370, %361 ], [ %.0430910, %367 ], [ %.0427911, %373 ], [ %.3424912, %379 ], [ %.3414913, %385 ], [ %3, %384 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

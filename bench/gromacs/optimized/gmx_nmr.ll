@@ -873,8 +873,8 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit.i:        ; preds = %253
   %260 = sext i32 %259 to i64
   %261 = getelementptr inbounds %union.t_iparams, ptr %228, i64 %260, i32 0, i32 0, i64 2
   %262 = load i32, ptr %261, align 4, !tbaa !15
-  %.lhs.trunc1671 = trunc i64 %indvars.iv.i to i32
-  %263 = udiv i32 %.lhs.trunc1671, 3
+  %.lhs.trunc1932 = trunc i64 %indvars.iv.i to i32
+  %263 = udiv i32 %.lhs.trunc1932, 3
   %.zext = zext nneg i32 %263 to i64
   %264 = getelementptr inbounds nuw i32, ptr %252, i64 %.zext
   store i32 %262, ptr %264, align 4, !tbaa !4
@@ -1102,7 +1102,7 @@ _ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit523:     ; preds = %_ZL15gmx_srenew_imp
 
 .preheader1102:                                   ; preds = %.preheader1102.lr.ph, %349
   %indvars.iv1568 = phi i64 [ 0, %.preheader1102.lr.ph ], [ %indvars.iv.next1569, %349 ]
-  %.24061307 = phi i32 [ 0, %.preheader1102.lr.ph ], [ %.34071660, %349 ]
+  %.24061307 = phi i32 [ 0, %.preheader1102.lr.ph ], [ %.34071921, %349 ]
   br i1 %323, label %.lr.ph, label %.loopexit1103
 
 .lr.ph:                                           ; preds = %.preheader1102
@@ -1137,7 +1137,7 @@ _ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit523:     ; preds = %_ZL15gmx_srenew_imp
   br i1 %344, label %.loopexit1103.thread, label %349
 
 .loopexit1103.thread:                             ; preds = %343, %.loopexit1103
-  %.34071661 = phi i32 [ %.3407, %.loopexit1103 ], [ %.24061307, %343 ]
+  %.34071922 = phi i32 [ %.3407, %.loopexit1103 ], [ %.24061307, %343 ]
   %345 = load ptr, ptr @stderr, align 8, !tbaa !68
   %346 = getelementptr inbounds nuw i32, ptr %306, i64 %indvars.iv1568
   %347 = load i32, ptr %346, align 4, !tbaa !4
@@ -1145,29 +1145,29 @@ _ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit523:     ; preds = %_ZL15gmx_srenew_imp
   br label %349
 
 349:                                              ; preds = %.loopexit1103, %.loopexit1103.thread
-  %.34071660 = phi i32 [ %.3407, %.loopexit1103 ], [ %.34071661, %.loopexit1103.thread ]
+  %.34071921 = phi i32 [ %.3407, %.loopexit1103 ], [ %.34071922, %.loopexit1103.thread ]
   %indvars.iv.next1569 = add nuw nsw i64 %indvars.iv1568, 1
   %exitcond1576.not = icmp eq i64 %indvars.iv.next1569, %wide.trip.count1575
   br i1 %exitcond1576.not, label %.loopexit1101, label %.preheader1102, !llvm.loop !75
 
 .loopexit1101:                                    ; preds = %349
-  %350 = icmp sgt i32 %.34071660, 0
+  %350 = icmp sgt i32 %.34071921, 0
   br i1 %350, label %.lr.ph1313, label %._crit_edge
 
 .lr.ph1313:                                       ; preds = %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit523, %.loopexit1101
-  %.14051670 = phi i32 [ %.34071660, %.loopexit1101 ], [ %.0, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit523 ]
-  %.210421669 = phi ptr [ %306, %.loopexit1101 ], [ %328, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit523 ]
+  %.14051931 = phi i32 [ %.34071921, %.loopexit1101 ], [ %.0, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit523 ]
+  %.210421930 = phi ptr [ %306, %.loopexit1101 ], [ %328, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit523 ]
   %351 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %352 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %353 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %354 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %wide.trip.count1585 = zext nneg i32 %.14051670 to i64
+  %wide.trip.count1585 = zext nneg i32 %.14051931 to i64
   br label %355
 
 355:                                              ; preds = %.lr.ph1313, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit530
   %indvars.iv1582 = phi i64 [ 0, %.lr.ph1313 ], [ %indvars.iv.next1583, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit530 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
-  %356 = getelementptr inbounds nuw i32, ptr %.210421669, i64 %indvars.iv1582
+  %356 = getelementptr inbounds nuw i32, ptr %.210421930, i64 %indvars.iv1582
   %357 = load i32, ptr %356, align 4, !tbaa !4
   %358 = sext i32 %357 to i64
   %359 = getelementptr inbounds i32, ptr %.01044, i64 %358
@@ -1270,8 +1270,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit533: ; preds = %_Z
   br label %.body
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit530, %.preheader1104, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit523.preheader, %.loopexit1101
-  %.14051665 = phi i32 [ %.34071660, %.loopexit1101 ], [ 0, %.preheader1104 ], [ %.0, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit523.preheader ], [ %.14051670, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit530 ]
-  %.210421664 = phi ptr [ %306, %.loopexit1101 ], [ %306, %.preheader1104 ], [ %328, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit523.preheader ], [ %.210421669, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit530 ]
+  %.14051926 = phi i32 [ %.34071921, %.loopexit1101 ], [ 0, %.preheader1104 ], [ %.0, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit523.preheader ], [ %.14051931, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit530 ]
+  %.210421925 = phi ptr [ %306, %.loopexit1101 ], [ %306, %.preheader1104 ], [ %328, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit523.preheader ], [ %.210421930, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit530 ]
   br i1 %164, label %392, label %459
 
 392:                                              ; preds = %._crit_edge
@@ -1625,10 +1625,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit557: ; preds = %_Z
           to label %527 unwind label %.loopexit.split-lp1091.loopexit.split-lp.loopexit.split-lp
 
 527:                                              ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit520, %518, %459, %290
-  %.01040 = phi ptr [ %.210421664, %518 ], [ %.210421664, %459 ], [ null, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit520 ], [ null, %290 ]
+  %.01040 = phi ptr [ %.210421925, %518 ], [ %.210421925, %459 ], [ null, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit520 ], [ null, %290 ]
   %.01035 = phi ptr [ %.11036, %518 ], [ %.11036, %459 ], [ %.11036, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit520 ], [ null, %290 ]
   %.01032 = phi ptr [ %.11033, %518 ], [ %.11033, %459 ], [ %.11033, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit520 ], [ null, %290 ]
-  %.0404 = phi i32 [ %.14051665, %518 ], [ %.14051665, %459 ], [ 0, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit520 ], [ 0, %290 ]
+  %.0404 = phi i32 [ %.14051926, %518 ], [ %.14051926, %459 ], [ 0, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit520 ], [ 0, %290 ]
   %.0401.shrunk = phi i8 [ %292, %518 ], [ %292, %459 ], [ %292, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit520 ], [ 0, %290 ]
   %.0360 = phi ptr [ %467, %518 ], [ null, %459 ], [ null, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit520 ], [ null, %290 ]
   %.0357 = phi ptr [ %.1358, %518 ], [ %.1358, %459 ], [ null, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit520 ], [ null, %290 ]
@@ -3090,14 +3090,14 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i699: ; preds = %1101
   %1111 = load i32, ptr %1103, align 4, !tbaa !239
   %1112 = sdiv i32 %1110, %1111
   %1113 = mul nsw i32 %1112, %1111
-  %.recomposed2454 = srem i32 %1110, %1111
+  %.recomposed2715 = srem i32 %1110, %1111
   %1114 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %1035, i64 %1102
   %1115 = load i32, ptr %1114, align 8, !tbaa !240
   %1116 = sext i32 %1115 to i64
   %1117 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %1064, i64 %1116
   %1118 = getelementptr inbounds nuw i8, ptr %1117, i64 24
   %1119 = load ptr, ptr %1118, align 8, !tbaa !245
-  %1120 = sext i32 %.recomposed2454 to i64
+  %1120 = sext i32 %.recomposed2715 to i64
   %1121 = getelementptr inbounds ptr, ptr %1119, i64 %1120
   %1122 = load ptr, ptr %1121, align 8, !tbaa !35
   %1123 = load ptr, ptr %1122, align 8, !tbaa !27
@@ -3552,7 +3552,7 @@ _ZL5mypowdd.exit42.us.thread.i:                   ; preds = %.lr.ph62.split.us.i
   %1303 = fpext float %1302 to double
   %1304 = fsub double 0.000000e+00, %1303
   %1305 = fcmp ogt double %1304, 0.000000e+00
-  %.sroa.speculated47.us93.i = select i1 %1305, double %1304, double 0.000000e+00
+  %.sroa.speculated47.us100.i = select i1 %1305, double %1304, double 0.000000e+00
   br label %_ZL5mypowdd.exit44.us.i
 
 .lr.ph.us.preheader.i:                            ; preds = %.lr.ph62.split.us.i
@@ -3583,13 +3583,13 @@ _ZL5mypowdd.exit42.us.i:                          ; preds = %1308, %._crit_edge.
   br label %_ZL5mypowdd.exit44.us.i
 
 _ZL5mypowdd.exit44.us.i:                          ; preds = %1316, %_ZL5mypowdd.exit42.us.i, %_ZL5mypowdd.exit42.us.thread.i
-  %.sroa.speculated47.us94.i = phi double [ %.sroa.speculated47.us.i, %1316 ], [ %.sroa.speculated47.us.i, %_ZL5mypowdd.exit42.us.i ], [ %.sroa.speculated47.us93.i, %_ZL5mypowdd.exit42.us.thread.i ]
+  %.sroa.speculated47.us101.i = phi double [ %.sroa.speculated47.us.i, %1316 ], [ %.sroa.speculated47.us.i, %_ZL5mypowdd.exit42.us.i ], [ %.sroa.speculated47.us100.i, %_ZL5mypowdd.exit42.us.thread.i ]
   %1318 = phi double [ %1312, %1316 ], [ %1312, %_ZL5mypowdd.exit42.us.i ], [ %1303, %_ZL5mypowdd.exit42.us.thread.i ]
   %.0.i43.us.i = phi double [ %1317, %1316 ], [ 0.000000e+00, %_ZL5mypowdd.exit42.us.i ], [ 0.000000e+00, %_ZL5mypowdd.exit42.us.thread.i ]
   %1319 = fsub double %.0.i43.us.i, %1318
   %1320 = fcmp ogt double %1319, 0.000000e+00
   %.sroa.speculated.us.i = select i1 %1320, double %1319, double 0.000000e+00
-  %1321 = fadd double %.060.us.i, %.sroa.speculated47.us94.i
+  %1321 = fadd double %.060.us.i, %.sroa.speculated47.us101.i
   %1322 = fadd double %.03359.us.i, %.sroa.speculated.us.i
   %exitcond87.not.i = icmp eq i64 %indvars.iv.next84.i, %wide.trip.count86.i
   br i1 %exitcond87.not.i, label %_ZL15calc_violationsPfS_iPKiS_S_PdS2_.exit, label %.lr.ph62.split.us.i, !llvm.loop !285
@@ -3642,7 +3642,7 @@ _ZL5mypowdd.exit42.thread.i:                      ; preds = %.lr.ph62.split.i
   %1346 = fpext float %1345 to double
   %1347 = fsub double 0.000000e+00, %1346
   %1348 = fcmp ogt double %1347, 0.000000e+00
-  %.sroa.speculated47100.i = select i1 %1348, double %1347, double 0.000000e+00
+  %.sroa.speculated47107.i = select i1 %1348, double %1347, double 0.000000e+00
   br label %_ZL5mypowdd.exit44.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph62.split.i
@@ -3718,13 +3718,13 @@ _ZL5mypowdd.exit42.i:                             ; preds = %1376, %._crit_edge.
   br label %_ZL5mypowdd.exit44.i
 
 _ZL5mypowdd.exit44.i:                             ; preds = %1384, %_ZL5mypowdd.exit42.i, %_ZL5mypowdd.exit42.thread.i
-  %.sroa.speculated47101.i = phi double [ %.sroa.speculated47.i, %1384 ], [ %.sroa.speculated47.i, %_ZL5mypowdd.exit42.i ], [ %.sroa.speculated47100.i, %_ZL5mypowdd.exit42.thread.i ]
+  %.sroa.speculated47108.i = phi double [ %.sroa.speculated47.i, %1384 ], [ %.sroa.speculated47.i, %_ZL5mypowdd.exit42.i ], [ %.sroa.speculated47107.i, %_ZL5mypowdd.exit42.thread.i ]
   %1386 = phi double [ %1380, %1384 ], [ %1380, %_ZL5mypowdd.exit42.i ], [ %1346, %_ZL5mypowdd.exit42.thread.i ]
   %.0.i43.i = phi double [ %1385, %1384 ], [ 0.000000e+00, %_ZL5mypowdd.exit42.i ], [ 0.000000e+00, %_ZL5mypowdd.exit42.thread.i ]
   %1387 = fsub double %.0.i43.i, %1386
   %1388 = fcmp ogt double %1387, 0.000000e+00
   %.sroa.speculated.i = select i1 %1388, double %1387, double 0.000000e+00
-  %1389 = fadd double %.060.i, %.sroa.speculated47101.i
+  %1389 = fadd double %.060.i, %.sroa.speculated47108.i
   %1390 = fadd double %.03359.i, %.sroa.speculated.i
   %exitcond.not.i744 = icmp eq i64 %indvars.iv.next78.i, %wide.trip.count86.i
   br i1 %exitcond.not.i744, label %_ZL15calc_violationsPfS_iPKiS_S_PdS2_.exit, label %.lr.ph62.split.i, !llvm.loop !285

@@ -968,8 +968,8 @@ define void @_ZN5folly6fibers9Semaphore4waitEv(ptr noundef nonnull align 8 deref
   br i1 %21, label %.noexc, label %.critedge.i.i.i.i.i.i.i.sink.split, !prof !21
 
 .critedge.i.i.i.i.i.i.i.sink.split:               ; preds = %18, %26
-  %.sink16 = phi { i32, i1 } [ %33, %26 ], [ %20, %18 ]
-  %22 = extractvalue { i32, i1 } %.sink16, 0
+  %.sink17 = phi { i32, i1 } [ %33, %26 ], [ %20, %18 ]
+  %22 = extractvalue { i32, i1 } %.sink17, 0
   store i32 %22, ptr %3, align 4
   br label %.critedge.i.i.i.i.i.i.i
 
@@ -1118,8 +1118,8 @@ define noundef zeroext i1 @_ZN5folly6fibers9Semaphore8try_waitERNS1_6WaiterE(ptr
   br i1 %20, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockExclusiveImplINS3_11WaitForeverEEEbRjjRT_.exit, label %.critedge.i.i.i.i.i.i.i.sink.split, !prof !21
 
 .critedge.i.i.i.i.i.i.i.sink.split:               ; preds = %17, %26
-  %.sink21 = phi { i32, i1 } [ %33, %26 ], [ %19, %17 ]
-  %21 = extractvalue { i32, i1 } %.sink21, 0
+  %.sink22 = phi { i32, i1 } [ %33, %26 ], [ %19, %17 ]
+  %21 = extractvalue { i32, i1 } %.sink22, 0
   store i32 %21, ptr %4, align 4, !noalias !48
   br label %.critedge.i.i.i.i.i.i.i
 
@@ -1365,8 +1365,8 @@ _ZSt11make_uniqueIN5folly6fibers12_GLOBAL__N_112FutureWaiterEJEENSt8__detail9_Ma
   br i1 %45, label %.noexc11, label %.critedge.i.i.i.i.i.i.i.sink.split, !prof !21
 
 .critedge.i.i.i.i.i.i.i.sink.split:               ; preds = %42, %51
-  %.sink88 = phi { i32, i1 } [ %58, %51 ], [ %44, %42 ]
-  %46 = extractvalue { i32, i1 } %.sink88, 0
+  %.sink93 = phi { i32, i1 } [ %58, %51 ], [ %44, %42 ]
+  %46 = extractvalue { i32, i1 } %.sink93, 0
   store i32 %46, ptr %4, align 4
   br label %.critedge.i.i.i.i.i.i.i
 

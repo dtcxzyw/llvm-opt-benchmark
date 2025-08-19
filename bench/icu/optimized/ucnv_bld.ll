@@ -217,7 +217,7 @@ _ZL27ucnv_getSharedConverterDataPKc.exit.thread:  ; preds = %14, %_ZL27ucnv_getS
 define internal fastcc noundef ptr @_ZL23createConverterFromFileP18UConverterLoadArgsP10UErrorCode(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 4, !tbaa !13
   %4 = icmp slt i32 %3, 1
-  br i1 %4, label %5, label %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread15
+  br i1 %4, label %5, label %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread17
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -227,7 +227,7 @@ define internal fastcc noundef ptr @_ZL23createConverterFromFileP18UConverterLoa
   %10 = tail call ptr @udata_openChoice_77(ptr noundef %7, ptr noundef nonnull @_ZL9DATA_TYPE, ptr noundef %9, ptr noundef nonnull @_ZL15isCnvAcceptablePvPKcS1_PK9UDataInfo, ptr noundef null, ptr noundef nonnull %1)
   %11 = load i32, ptr %1, align 4, !tbaa !13
   %12 = icmp slt i32 %11, 1
-  br i1 %12, label %13, label %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread15
+  br i1 %12, label %13, label %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread17
 
 13:                                               ; preds = %5
   %14 = tail call ptr @udata_getMemory_77(ptr noundef %10)
@@ -296,7 +296,7 @@ define internal fastcc noundef ptr @_ZL23createConverterFromFileP18UConverterLoa
   tail call void %47(ptr noundef nonnull %38, ptr noundef nonnull %0, ptr noundef nonnull %51, ptr noundef nonnull %1)
   %52 = load i32, ptr %1, align 4, !tbaa !13
   %53 = icmp slt i32 %52, 1
-  br i1 %53, label %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread15, label %54
+  br i1 %53, label %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread17, label %54
 
 54:                                               ; preds = %48
   tail call void @uprv_free_77(ptr noundef nonnull %38)
@@ -306,7 +306,7 @@ _ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.ex
   %.0.i.ph = phi ptr [ %38, %40 ], [ null, %54 ]
   %.pr = load i32, ptr %1, align 4, !tbaa !13
   %55 = icmp slt i32 %.pr, 1
-  br i1 %55, label %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread15, label %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread
+  br i1 %55, label %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread17, label %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread
 
 _ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread.sink.split: ; preds = %37, %19, %23, %29, %32, %35
   %.sink = phi i32 [ 13, %35 ], [ 13, %32 ], [ 13, %29 ], [ 13, %23 ], [ 13, %19 ], [ 7, %37 ]
@@ -315,9 +315,9 @@ _ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.ex
 
 _ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread: ; preds = %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread.sink.split, %13, %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit
   tail call void @udata_close_77(ptr noundef %10)
-  br label %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread15
+  br label %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread17
 
-_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread15: ; preds = %48, %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit, %5, %2, %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread
+_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread17: ; preds = %48, %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit, %5, %2, %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread
   %.0 = phi ptr [ null, %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit.thread ], [ null, %2 ], [ null, %5 ], [ %.0.i.ph, %_ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.exit ], [ %38, %48 ]
   ret ptr %.0
 }
@@ -555,23 +555,23 @@ define ptr @ucnv_loadSharedData_77(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.057.sroa.phi152160 = phi ptr [ %.057.sroa.phi152161, %.thread ], [ %.057.sroa.gep153, %16 ]
   %.057.sroa.phi158 = phi ptr [ %.057.sroa.phi159, %.thread ], [ %.057.sroa.gep, %16 ]
   %.058 = phi ptr [ %7, %.thread ], [ %2, %16 ]
-  %.058.sroa.phi200 = getelementptr inbounds nuw i8, ptr %.058, i64 8
-  %.058.sroa.phi197 = getelementptr inbounds nuw i8, ptr %.058, i64 24
-  %.058.sroa.phi194 = getelementptr inbounds nuw i8, ptr %.058, i64 16
+  %.058.sroa.phi212 = getelementptr inbounds nuw i8, ptr %.058, i64 8
+  %.058.sroa.phi209 = getelementptr inbounds nuw i8, ptr %.058, i64 24
+  %.058.sroa.phi206 = getelementptr inbounds nuw i8, ptr %.058, i64 16
   %.058.sroa.phi = getelementptr inbounds nuw i8, ptr %.058, i64 4
-  %.058.sroa.phi189 = getelementptr inbounds nuw i8, ptr %.058, i64 12
-  %.058.sroa.phi187 = getelementptr inbounds nuw i8, ptr %.058, i64 32
+  %.058.sroa.phi201 = getelementptr inbounds nuw i8, ptr %.058, i64 12
+  %.058.sroa.phi199 = getelementptr inbounds nuw i8, ptr %.058, i64 32
   store i8 0, ptr %.057162, align 4, !tbaa !19
   store i8 0, ptr %.057.sroa.phi158, align 4, !tbaa !19
   store i32 0, ptr %.057.sroa.phi152160, align 4, !tbaa !45
-  store ptr %0, ptr %.058.sroa.phi197, align 8, !tbaa !20
-  store ptr %.057.sroa.phi158, ptr %.058.sroa.phi187, align 8, !tbaa !47
-  store i32 0, ptr %.058.sroa.phi189, align 4, !tbaa !48
+  store ptr %0, ptr %.058.sroa.phi209, align 8, !tbaa !20
+  store ptr %.057.sroa.phi158, ptr %.058.sroa.phi199, align 8, !tbaa !47
+  store i32 0, ptr %.058.sroa.phi201, align 4, !tbaa !48
   %18 = icmp eq ptr %0, null
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %17
-  store ptr @.str, ptr %.058.sroa.phi197, align 8, !tbaa !20
+  store ptr @.str, ptr %.058.sroa.phi209, align 8, !tbaa !20
   br label %121
 
 20:                                               ; preds = %17
@@ -632,7 +632,7 @@ define ptr @ucnv_loadSharedData_77(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %49, %45
-  store ptr @.str, ptr %.058.sroa.phi197, align 8, !tbaa !20
+  store ptr @.str, ptr %.058.sroa.phi209, align 8, !tbaa !20
   br label %121
 
 54:                                               ; preds = %38, %20, %49, %45, %41, %34, %30, %26, %22
@@ -642,9 +642,9 @@ define ptr @ucnv_loadSharedData_77(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %56, label %57, label %121
 
 57:                                               ; preds = %54
-  %58 = load ptr, ptr %.058.sroa.phi197, align 8, !tbaa !20
+  %58 = load ptr, ptr %.058.sroa.phi209, align 8, !tbaa !20
   %59 = call ptr @ucnv_io_getConverterName_77(ptr noundef %58, ptr noundef nonnull %9, ptr noundef nonnull %8)
-  store ptr %59, ptr %.058.sroa.phi197, align 8, !tbaa !20
+  store ptr %59, ptr %.058.sroa.phi209, align 8, !tbaa !20
   %60 = load i32, ptr %8, align 4, !tbaa !13
   %61 = icmp sgt i32 %60, 0
   %62 = icmp eq ptr %59, null
@@ -652,7 +652,7 @@ define ptr @ucnv_loadSharedData_77(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %or.cond165, label %63, label %64
 
 63:                                               ; preds = %57
-  store ptr %.057162, ptr %.058.sroa.phi197, align 8, !tbaa !20
+  store ptr %.057162, ptr %.058.sroa.phi209, align 8, !tbaa !20
   br label %67
 
 64:                                               ; preds = %57
@@ -673,7 +673,7 @@ define ptr @ucnv_loadSharedData_77(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 70:                                               ; preds = %67
   call fastcc void @_ZL21parseConverterOptionsPKcP20UConverterNamePiecesP18UConverterLoadArgsP10UErrorCode(ptr noundef nonnull %68, ptr noundef %.057162, ptr noundef %.058, ptr noundef nonnull %3)
-  %.pre = load ptr, ptr %.058.sroa.phi197, align 8, !tbaa !20
+  %.pre = load ptr, ptr %.058.sroa.phi209, align 8, !tbaa !20
   br label %71
 
 71:                                               ; preds = %67, %70
@@ -723,14 +723,14 @@ _ZL26getAlgorithmicTypeFromNamePKc.exit:          ; preds = %81
 
 93:                                               ; preds = %_ZL26getAlgorithmicTypeFromNamePKc.exit, %_ZL26getAlgorithmicTypeFromNamePKc.exit.thread
   store i32 1, ptr %.058.sroa.phi, align 4, !tbaa !54
-  store ptr null, ptr %.058.sroa.phi194, align 8, !tbaa !15
+  store ptr null, ptr %.058.sroa.phi206, align 8, !tbaa !15
   call void @umtx_lock_77(ptr noundef nonnull @_ZL13cnvCacheMutex)
   %94 = load i32, ptr %3, align 4, !tbaa !13
   %95 = icmp slt i32 %94, 1
   br i1 %95, label %96, label %ucnv_load_77.exit
 
 96:                                               ; preds = %93
-  %97 = load ptr, ptr %.058.sroa.phi194, align 8, !tbaa !15
+  %97 = load ptr, ptr %.058.sroa.phi206, align 8, !tbaa !15
   %.not23.i = icmp eq ptr %97, null
   br i1 %.not23.i, label %102, label %98
 
@@ -749,7 +749,7 @@ _ZL26getAlgorithmicTypeFromNamePKc.exit:          ; preds = %81
   br i1 %104, label %_ZL27ucnv_getSharedConverterDataPKc.exit.thread.i, label %_ZL27ucnv_getSharedConverterDataPKc.exit.i
 
 _ZL27ucnv_getSharedConverterDataPKc.exit.i:       ; preds = %102
-  %105 = load ptr, ptr %.058.sroa.phi197, align 8, !tbaa !20
+  %105 = load ptr, ptr %.058.sroa.phi209, align 8, !tbaa !20
   %106 = call ptr @uhash_get_77(ptr noundef nonnull %103, ptr noundef %105)
   %107 = icmp eq ptr %106, null
   br i1 %107, label %_ZL27ucnv_getSharedConverterDataPKc.exit.thread.i, label %115
@@ -763,7 +763,7 @@ _ZL27ucnv_getSharedConverterDataPKc.exit.thread.i: ; preds = %_ZL27ucnv_getShare
   br i1 %or.cond.i, label %ucnv_load_77.exit, label %112
 
 112:                                              ; preds = %_ZL27ucnv_getSharedConverterDataPKc.exit.thread.i
-  %113 = load i8, ptr %.058.sroa.phi200, align 8, !tbaa !21
+  %113 = load i8, ptr %.058.sroa.phi212, align 8, !tbaa !21
   %.not25.i = icmp eq i8 %113, 0
   br i1 %.not25.i, label %114, label %ucnv_load_77.exit
 
@@ -1494,12 +1494,12 @@ _ZL30ucnv_deleteSharedConverterDataP20UConverterSharedData.exit: ; preds = %31, 
   br i1 %37, label %5, label %._crit_edge.thread, !llvm.loop !79
 
 ._crit_edge.thread:                               ; preds = %5, %._crit_edge
-  %.113.lcssa22 = phi i32 [ %.2, %._crit_edge ], [ %.012, %5 ]
+  %.113.lcssa25 = phi i32 [ %.2, %._crit_edge ], [ %.012, %5 ]
   call void @umtx_unlock_77(ptr noundef nonnull @_ZL13cnvCacheMutex)
   br label %38
 
 38:                                               ; preds = %0, %._crit_edge.thread
-  %.011 = phi i32 [ %.113.lcssa22, %._crit_edge.thread ], [ 0, %0 ]
+  %.011 = phi i32 [ %.113.lcssa25, %._crit_edge.thread ], [ 0, %0 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.011
 }
@@ -1694,8 +1694,8 @@ define i32 @ucnv_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %16 = load i8, ptr %15, align 1, !tbaa !19
   %17 = icmp eq i8 %16, 110
-  %or.cond432 = select i1 %14, i1 %17, i1 false
-  br i1 %or.cond432, label %18, label %._crit_edge
+  %or.cond444 = select i1 %14, i1 %17, i1 false
+  br i1 %or.cond444, label %18, label %._crit_edge
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -2099,12 +2099,12 @@ define i32 @ucnv_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   br label %.sink.split
 
 .sink.split:                                      ; preds = %242, %242, %242, %259
-  %.sink434.in = phi ptr [ %199, %259 ], [ %228, %242 ], [ %228, %242 ], [ %228, %242 ]
-  %.sink434 = load ptr, ptr %.sink434.in, align 8, !tbaa !101
+  %.sink446.in = phi ptr [ %199, %259 ], [ %228, %242 ], [ %228, %242 ], [ %228, %242 ]
+  %.sink446 = load ptr, ptr %.sink446.in, align 8, !tbaa !101
   %260 = zext i32 %154 to i64
   %261 = getelementptr inbounds nuw i8, ptr %99, i64 %260
   %262 = getelementptr inbounds nuw i8, ptr %spec.select423, i64 %260
-  %263 = tail call noundef i32 %.sink434(ptr noundef nonnull %0, ptr noundef nonnull %261, i32 noundef %258, ptr noundef %262, ptr noundef nonnull %4)
+  %263 = tail call noundef i32 %.sink446(ptr noundef nonnull %0, ptr noundef nonnull %261, i32 noundef %258, ptr noundef %262, ptr noundef nonnull %4)
   br label %264
 
 264:                                              ; preds = %.sink.split, %242

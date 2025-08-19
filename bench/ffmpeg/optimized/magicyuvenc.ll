@@ -1194,7 +1194,7 @@ bytestream2_init_writer.exit:                     ; preds = %334
   br i1 %405, label %.lr.ph196, label %._crit_edge197
 
 .lr.ph196:                                        ; preds = %.preheader150.lr.ph, %.preheader
-  %.sroa.0.2.lcssa229 = phi ptr [ %.sroa.0.3.lcssa, %.preheader ], [ %377, %.preheader150.lr.ph ]
+  %.sroa.0.2.lcssa261 = phi ptr [ %.sroa.0.3.lcssa, %.preheader ], [ %377, %.preheader150.lr.ph ]
   %406 = getelementptr inbounds nuw i8, ptr %20, i64 88
   br label %422
 
@@ -1233,7 +1233,7 @@ bytestream2_init_writer.exit:                     ; preds = %334
 
 422:                                              ; preds = %.lr.ph196, %output_codes.exit
   %indvars.iv224 = phi i64 [ 0, %.lr.ph196 ], [ %indvars.iv.next225, %output_codes.exit ]
-  %.sroa.0.4194 = phi ptr [ %.sroa.0.2.lcssa229, %.lr.ph196 ], [ %427, %output_codes.exit ]
+  %.sroa.0.4194 = phi ptr [ %.sroa.0.2.lcssa261, %.lr.ph196 ], [ %427, %output_codes.exit ]
   %423 = getelementptr inbounds nuw [4 x [256 x %struct.HuffEntry]], ptr %406, i64 0, i64 %indvars.iv224
   br label %424
 
@@ -1989,15 +1989,15 @@ put_bits.exit27.us.i:                             ; preds = %80, %79
   br i1 %85, label %.lr.ph.i.i, label %encode_plane_slice.exit
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge57.i, %.preheader.lr.ph.i, %43
-  %.sroa.0.0.lcssa71.i = phi i32 [ %.026.i.i25.us.i, %._crit_edge57.i ], [ %49, %43 ], [ %49, %.preheader.lr.ph.i ]
-  %.sroa.15.0.lcssa70.i = phi i32 [ %.0.i.i26.us.i, %._crit_edge57.i ], [ 16, %43 ], [ 16, %.preheader.lr.ph.i ]
-  %.sroa.27.0.lcssa69.i = phi ptr [ %.sroa.27.8.us.i, %._crit_edge57.i ], [ %spec.select.i.i, %43 ], [ %spec.select.i.i, %.preheader.lr.ph.i ]
-  %86 = shl i32 %.sroa.0.0.lcssa71.i, %.sroa.15.0.lcssa70.i
+  %.sroa.0.0.lcssa74.i = phi i32 [ %.026.i.i25.us.i, %._crit_edge57.i ], [ %49, %43 ], [ %49, %.preheader.lr.ph.i ]
+  %.sroa.15.0.lcssa73.i = phi i32 [ %.0.i.i26.us.i, %._crit_edge57.i ], [ 16, %43 ], [ 16, %.preheader.lr.ph.i ]
+  %.sroa.27.0.lcssa72.i = phi ptr [ %.sroa.27.8.us.i, %._crit_edge57.i ], [ %spec.select.i.i, %43 ], [ %spec.select.i.i, %.preheader.lr.ph.i ]
+  %86 = shl i32 %.sroa.0.0.lcssa74.i, %.sroa.15.0.lcssa73.i
   br label %87
 
 87:                                               ; preds = %90, %.lr.ph.i.i
-  %.sroa.27.6.i = phi ptr [ %.sroa.27.0.lcssa69.i, %.lr.ph.i.i ], [ %93, %90 ]
-  %.sroa.15.2.i = phi i32 [ %.sroa.15.0.lcssa70.i, %.lr.ph.i.i ], [ %95, %90 ]
+  %.sroa.27.6.i = phi ptr [ %.sroa.27.0.lcssa72.i, %.lr.ph.i.i ], [ %93, %90 ]
+  %.sroa.15.2.i = phi i32 [ %.sroa.15.0.lcssa73.i, %.lr.ph.i.i ], [ %95, %90 ]
   %.sroa.0.2.i = phi i32 [ %86, %.lr.ph.i.i ], [ %94, %90 ]
   %88 = icmp ult ptr %.sroa.27.6.i, %52
   br i1 %88, label %90, label %89

@@ -269,8 +269,8 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %9, %13
   %64 = and i32 %63, 8191
   %65 = tail call i32 @llvm.smin.i32(i32 %44, i32 %64)
   %66 = sub nsw i32 %65, %37
-  %.not103.us159 = icmp slt i32 %66, %1
-  br i1 %.not103.us159, label %.lr.ph.us, label %.loopexit.us
+  %.not103.us169 = icmp slt i32 %66, %1
+  br i1 %.not103.us169, label %.lr.ph.us, label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %.thread, %._crit_edge.us, %62, %47
   %.087120.us = phi i32 [ %.087132.us, %47 ], [ %.087132.us, %62 ], [ %.188.lcssa.us, %._crit_edge.us ], [ %.087132.us, %.thread ]

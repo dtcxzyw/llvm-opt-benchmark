@@ -471,8 +471,8 @@ form_rhs_red.exit:                                ; preds = %119
 260:                                              ; preds = %218
   %261 = fcmp olt double %257, %259
   %262 = fcmp olt double %259, 1.000000e-10
-  %or.cond149 = or i1 %261, %262
-  br i1 %or.cond149, label %.critedge, label %._crit_edge
+  %or.cond173 = or i1 %261, %262
+  br i1 %or.cond173, label %.critedge, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %260, %218
   %263 = fcmp olt double %257, %259

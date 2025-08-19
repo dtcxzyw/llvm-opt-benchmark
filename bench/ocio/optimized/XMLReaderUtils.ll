@@ -85,7 +85,7 @@ _ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit11.i:  ; preds = %.lr.ph.i.i.i.i, %.l
 _ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit10.i:  ; preds = %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit11.i, %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit11.i, %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit11.i, %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit11.i, %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit11.i, %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit11.i
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 2
   %15 = load i8, ptr %14, align 1, !tbaa !15
-  switch i8 %15, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i.loopexit.split.loop.exit59 [
+  switch i8 %15, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i.loopexit.split.loop.exit60 [
     i8 32, label %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit9.i
     i8 13, label %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit9.i
     i8 11, label %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit9.i
@@ -97,7 +97,7 @@ _ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit10.i:  ; preds = %_ZN19OpenColorIO_v2
 _ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit9.i:   ; preds = %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit10.i, %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit10.i, %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit10.i, %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit10.i, %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit10.i, %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit10.i
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 3
   %17 = load i8, ptr %16, align 1, !tbaa !15
-  switch i8 %17, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i.loopexit.split.loop.exit61 [
+  switch i8 %17, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i.loopexit.split.loop.exit62 [
     i8 32, label %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit8.i
     i8 13, label %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit8.i
     i8 11, label %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit8.i
@@ -173,16 +173,16 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11cha
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 1
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i.loopexit.split.loop.exit59: ; preds = %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit10.i
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i.loopexit.split.loop.exit60: ; preds = %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit10.i
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 2
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i.loopexit.split.loop.exit61: ; preds = %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit9.i
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i.loopexit.split.loop.exit62: ; preds = %_ZN19OpenColorIO_v2_5dev10IsNotSpaceEc.exit9.i
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 3
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i.loopexit.split.loop.exit, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i.loopexit.split.loop.exit59, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i.loopexit.split.loop.exit61, %28, %25, %22
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %22 ], [ %.sroa.032.1.i.i.i.i, %25 ], [ %.sroa.032.2.i.i.i.i, %28 ], [ %30, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i.loopexit.split.loop.exit ], [ %31, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i.loopexit.split.loop.exit59 ], [ %32, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i.loopexit.split.loop.exit61 ], [ %.sroa.032.051.i.i.i.i, %.lr.ph.i.i.i.i ]
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i.loopexit.split.loop.exit, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i.loopexit.split.loop.exit60, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i.loopexit.split.loop.exit62, %28, %25, %22
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %22 ], [ %.sroa.032.1.i.i.i.i, %25 ], [ %.sroa.032.2.i.i.i.i, %28 ], [ %30, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i.loopexit.split.loop.exit ], [ %31, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i.loopexit.split.loop.exit60 ], [ %32, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.i.loopexit.split.loop.exit62 ], [ %.sroa.032.051.i.i.i.i, %.lr.ph.i.i.i.i ]
   %33 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %5
   br i1 %33, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEET_SC_SC_T0_.exit.thread.i, label %34
 

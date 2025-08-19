@@ -191,12 +191,12 @@ handle_luainit.exit:                              ; preds = %14
   %.not37.i = icmp eq ptr %35, null
   br i1 %.not37.i, label %.thread95, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %32, %.thread146
-  %.056 = phi i32 [ %.157, %.thread146 ], [ 0, %32 ]
-  %.053 = phi i32 [ %.154, %.thread146 ], [ 0, %32 ]
-  %.0 = phi i32 [ %.2, %.thread146 ], [ 0, %32 ]
-  %36 = phi ptr [ %68, %.thread146 ], [ %35, %32 ]
-  %.038.i = phi i32 [ %65, %.thread146 ], [ 1, %32 ]
+.lr.ph.i:                                         ; preds = %32, %.thread156
+  %.056 = phi i32 [ %.157, %.thread156 ], [ 0, %32 ]
+  %.053 = phi i32 [ %.154, %.thread156 ], [ 0, %32 ]
+  %.0 = phi i32 [ %.2, %.thread156 ], [ 0, %32 ]
+  %36 = phi ptr [ %68, %.thread156 ], [ %35, %32 ]
+  %.038.i = phi i32 [ %65, %.thread156 ], [ 1, %32 ]
   %37 = load i8, ptr %36, align 1, !tbaa !18
   %.not28.i = icmp eq i8 %37, 45
   br i1 %.not28.i, label %38, label %collectargs.exit
@@ -231,13 +231,13 @@ handle_luainit.exit:                              ; preds = %14
   %50 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %51 = load i8, ptr %50, align 1, !tbaa !18
   %.not29.i = icmp eq i8 %51, 0
-  br i1 %.not29.i, label %.thread146, label %collectargs.exit.thread
+  br i1 %.not29.i, label %.thread156, label %collectargs.exit.thread
 
 52:                                               ; preds = %38
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %36, i64 2
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !18
   %53 = icmp eq i8 %.pre, 0
-  br i1 %53, label %.thread146, label %collectargs.exit.thread
+  br i1 %53, label %.thread156, label %collectargs.exit.thread
 
 54:                                               ; preds = %38
   br label %55
@@ -247,7 +247,7 @@ handle_luainit.exit:                              ; preds = %14
   %56 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %57 = load i8, ptr %56, align 1, !tbaa !18
   %58 = icmp eq i8 %57, 0
-  br i1 %58, label %59, label %.thread146
+  br i1 %58, label %59, label %.thread156
 
 59:                                               ; preds = %55
   %60 = add nsw i32 %.038.i, 1
@@ -255,9 +255,9 @@ handle_luainit.exit:                              ; preds = %14
   %62 = getelementptr inbounds ptr, ptr %4, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !4
   %64 = icmp eq ptr %63, null
-  br i1 %64, label %collectargs.exit.thread, label %.thread146
+  br i1 %64, label %collectargs.exit.thread, label %.thread156
 
-.thread146:                                       ; preds = %49, %52, %59, %55
+.thread156:                                       ; preds = %49, %52, %59, %55
   %.157 = phi i32 [ %.056, %59 ], [ %.056, %55 ], [ %.056, %52 ], [ 1, %49 ]
   %.154 = phi i32 [ %.053, %59 ], [ %.053, %55 ], [ 1, %52 ], [ 1, %49 ]
   %.2 = phi i32 [ %.1, %59 ], [ %.1, %55 ], [ %.0, %52 ], [ %.0, %49 ]
@@ -279,11 +279,11 @@ collectargs.exit.thread:                          ; preds = %59, %52, %49, %38, 
   store i32 1, ptr %33, align 8, !tbaa !19
   br label %163
 
-collectargs.exit.thread71:                        ; preds = %.thread146, %44, %collectargs.exit
-  %.026.i79 = phi i32 [ %.026.i, %collectargs.exit ], [ 0, %44 ], [ 0, %.thread146 ]
-  %.378 = phi i32 [ %.0, %collectargs.exit ], [ %.0, %44 ], [ %.2, %.thread146 ]
-  %.25577 = phi i32 [ %.053, %collectargs.exit ], [ %.053, %44 ], [ %.154, %.thread146 ]
-  %.35976 = phi i32 [ %.056, %collectargs.exit ], [ %.056, %44 ], [ %.157, %.thread146 ]
+collectargs.exit.thread71:                        ; preds = %.thread156, %44, %collectargs.exit
+  %.026.i79 = phi i32 [ %.026.i, %collectargs.exit ], [ 0, %44 ], [ 0, %.thread156 ]
+  %.378 = phi i32 [ %.0, %collectargs.exit ], [ %.0, %44 ], [ %.2, %.thread156 ]
+  %.25577 = phi i32 [ %.053, %collectargs.exit ], [ %.053, %44 ], [ %.154, %.thread156 ]
+  %.35976 = phi i32 [ %.056, %collectargs.exit ], [ %.056, %44 ], [ %.157, %.thread156 ]
   %.not37 = icmp eq i32 %.25577, 0
   br i1 %.not37, label %71, label %70
 
@@ -292,12 +292,13 @@ collectargs.exit.thread71:                        ; preds = %.thread146, %44, %c
   br label %71
 
 71:                                               ; preds = %70, %collectargs.exit.thread71
+  %.2557793 = phi i32 [ 1, %70 ], [ 0, %collectargs.exit.thread71 ]
   %.not38 = icmp eq i32 %.026.i79, 0
   br i1 %.not38, label %.thread95, label %73
 
 .thread95:                                        ; preds = %32, %71
   %.37892106 = phi i32 [ %.378, %71 ], [ 0, %32 ]
-  %.2557793104 = phi i32 [ %.25577, %71 ], [ 0, %32 ]
+  %.2557793104 = phi i32 [ %.2557793, %71 ], [ 0, %32 ]
   %.3597694102 = phi i32 [ %.35976, %71 ], [ 0, %32 ]
   %72 = load i32, ptr %2, align 8, !tbaa !9
   br label %73
@@ -305,7 +306,7 @@ collectargs.exit.thread71:                        ; preds = %.thread146, %44, %c
 73:                                               ; preds = %71, %.thread95
   %.026.i7991107 = phi i32 [ 0, %.thread95 ], [ %.026.i79, %71 ]
   %.37892105 = phi i32 [ %.37892106, %.thread95 ], [ %.378, %71 ]
-  %.2557793103 = phi i32 [ %.2557793104, %.thread95 ], [ %.25577, %71 ]
+  %.2557793103 = phi i32 [ %.2557793104, %.thread95 ], [ %.2557793, %71 ]
   %.3597694101 = phi i32 [ %.3597694102, %.thread95 ], [ %.35976, %71 ]
   %74 = phi i32 [ %72, %.thread95 ], [ %.026.i79, %71 ]
   %75 = icmp sgt i32 %74, 1

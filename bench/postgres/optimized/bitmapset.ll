@@ -221,16 +221,16 @@ define dso_local ptr @bms_union(ptr noundef readonly captures(address_is_null) %
   %14 = load i32, ptr %13, align 4
   %.not = icmp sgt i32 %11, %14
   %. = tail call i32 @llvm.smax.i32(i32 %11, i32 %14)
-  %.41 = select i1 %.not, ptr %0, ptr %1
-  %.42 = select i1 %.not, ptr %1, ptr %0
+  %.44 = select i1 %.not, ptr %0, ptr %1
+  %.45 = select i1 %.not, ptr %1, ptr %0
   %15 = sext i32 %. to i64
   %16 = shl nsw i64 %15, 3
   %17 = add nsw i64 %16, 8
   %18 = tail call ptr @palloc(i64 noundef %17) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr nonnull readonly align 8 %.41, i64 %17, i1 false)
-  %19 = getelementptr inbounds nuw i8, ptr %.42, i64 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr nonnull readonly align 8 %.44, i64 %17, i1 false)
+  %19 = getelementptr inbounds nuw i8, ptr %.45, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds nuw i8, ptr %.42, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.45, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %smax = tail call i32 @llvm.smax.i32(i32 %20, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
@@ -249,13 +249,13 @@ define dso_local ptr @bms_union(ptr noundef readonly captures(address_is_null) %
   br i1 %exitcond.not, label %bms_copy.exit, label %23, !llvm.loop !7
 
 bms_copy.exit.sink.split:                         ; preds = %9, %6
-  %.sink40 = phi i32 [ %8, %6 ], [ %11, %9 ]
-  %.sink35 = phi ptr [ %1, %6 ], [ %0, %9 ]
-  %29 = sext i32 %.sink40 to i64
+  %.sink43 = phi i32 [ %8, %6 ], [ %11, %9 ]
+  %.sink38 = phi ptr [ %1, %6 ], [ %0, %9 ]
+  %29 = sext i32 %.sink43 to i64
   %30 = shl nsw i64 %29, 3
   %31 = add nsw i64 %30, 8
   %32 = tail call ptr @palloc(i64 noundef %31) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %32, ptr nonnull readonly align 8 %.sink35, i64 %31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %32, ptr nonnull readonly align 8 %.sink38, i64 %31, i1 false)
   br label %bms_copy.exit
 
 bms_copy.exit:                                    ; preds = %23, %bms_copy.exit.sink.split, %5
@@ -277,16 +277,16 @@ define dso_local ptr @bms_intersect(ptr noundef readonly captures(address_is_nul
   %9 = load i32, ptr %8, align 4
   %.not = icmp sgt i32 %7, %9
   %. = tail call i32 @llvm.smin.i32(i32 %7, i32 %9)
-  %.39 = select i1 %.not, ptr %1, ptr %0
-  %.40 = select i1 %.not, ptr %0, ptr %1
+  %.42 = select i1 %.not, ptr %1, ptr %0
+  %.43 = select i1 %.not, ptr %0, ptr %1
   %10 = sext i32 %. to i64
   %11 = shl nsw i64 %10, 3
   %12 = add nsw i64 %11, 8
   %13 = tail call ptr @palloc(i64 noundef %12) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr nonnull readonly align 8 %.39, i64 %12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr nonnull readonly align 8 %.42, i64 %12, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds nuw i8, ptr %.40, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.43, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %smax = tail call i32 @llvm.smax.i32(i32 %15, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
@@ -561,7 +561,7 @@ define dso_local range(i32 0, 4) i32 @bms_subset_compare(ptr noundef readonly ca
 
 23:                                               ; preds = %16
   %24 = icmp eq i32 %.027, 1
-  br i1 %24, label %.thread47, label %.thread52
+  br i1 %24, label %.thread47, label %.thread54
 
 25:                                               ; preds = %16
   %26 = xor i64 %18, -1
@@ -569,18 +569,18 @@ define dso_local range(i32 0, 4) i32 @bms_subset_compare(ptr noundef readonly ca
   %.not39 = icmp eq i64 %27, 0
   br i1 %.not39, label %.thread, label %30
 
-.thread52:                                        ; preds = %23
+.thread54:                                        ; preds = %23
   %28 = xor i64 %18, -1
   %29 = and i64 %20, %28
-  %.not3954 = icmp eq i64 %29, 0
-  br i1 %.not3954, label %.thread, label %.thread47
+  %.not3956 = icmp eq i64 %29, 0
+  br i1 %.not3956, label %.thread, label %.thread47
 
 30:                                               ; preds = %25
   %.not50 = icmp eq i32 %.027, 2
   br i1 %.not50, label %.thread47, label %.thread
 
-.thread:                                          ; preds = %.thread52, %25, %30
-  %.22946 = phi i32 [ 1, %30 ], [ %.027, %25 ], [ 2, %.thread52 ]
+.thread:                                          ; preds = %.thread54, %25, %30
+  %.22946 = phi i32 [ 1, %30 ], [ %.027, %25 ], [ 2, %.thread54 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %31, label %16, !llvm.loop !13
@@ -602,8 +602,8 @@ define dso_local range(i32 0, 4) i32 @bms_subset_compare(ptr noundef readonly ca
   %.42 = select i1 %37, i32 3, i32 1
   br label %.thread47
 
-.thread47:                                        ; preds = %.thread52, %23, %30, %35, %36, %33, %6, %4
-  %.0 = phi i32 [ %., %4 ], [ 2, %6 ], [ %.41, %33 ], [ %.42, %36 ], [ %.22946, %35 ], [ 3, %30 ], [ 3, %23 ], [ 3, %.thread52 ]
+.thread47:                                        ; preds = %.thread54, %23, %30, %35, %36, %33, %6, %4
+  %.0 = phi i32 [ %., %4 ], [ 2, %6 ], [ %.41, %33 ], [ %.42, %36 ], [ %.22946, %35 ], [ 3, %30 ], [ 3, %23 ], [ 3, %.thread54 ]
   ret i32 %.0
 }
 
@@ -755,8 +755,8 @@ define dso_local noundef zeroext i1 @bms_overlap(ptr noundef readonly captures(a
   %.not.not = icmp ne i64 %17, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond20 = select i1 %.not.not, i1 true, i1 %exitcond.not
-  br i1 %or.cond20, label %.loopexit, label %12, !llvm.loop !15
+  %or.cond21 = select i1 %.not.not, i1 true, i1 %exitcond.not
+  br i1 %or.cond21, label %.loopexit, label %12, !llvm.loop !15
 
 .loopexit:                                        ; preds = %12, %2
   %.013 = phi i1 [ false, %2 ], [ %.not.not, %12 ]

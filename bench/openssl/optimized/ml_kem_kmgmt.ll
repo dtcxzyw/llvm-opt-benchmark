@@ -386,7 +386,7 @@ define internal range(i32 0, 2) i32 @ml_kem_validate(ptr noundef %0, i32 noundef
   %8 = and i32 %1, 3
   switch i32 %8, label %ml_kem_has.exit [
     i32 0, label %ml_kem_has.exit.thread
-    i32 2, label %ml_kem_has.exit.thread11
+    i32 2, label %ml_kem_has.exit.thread12
   ]
 
 ml_kem_has.exit:                                  ; preds = %7
@@ -395,11 +395,11 @@ ml_kem_has.exit:                                  ; preds = %7
   %.not10 = icmp eq ptr %10, null
   br i1 %.not10, label %ml_kem_has.exit.thread, label %ml_kem_has.exit.thread7
 
-ml_kem_has.exit.thread11:                         ; preds = %7
+ml_kem_has.exit.thread12:                         ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8, !tbaa !36
-  %.not1013 = icmp ne ptr %12, null
-  %spec.select = zext i1 %.not1013 to i32
+  %.not1014 = icmp ne ptr %12, null
+  %spec.select = zext i1 %.not1014 to i32
   br label %ml_kem_has.exit.thread
 
 ml_kem_has.exit.thread7:                          ; preds = %ml_kem_has.exit
@@ -410,8 +410,8 @@ ml_kem_has.exit.thread7:                          ; preds = %ml_kem_has.exit
   %15 = tail call fastcc i32 @ml_kem_pairwise_test(ptr noundef nonnull %0)
   br label %ml_kem_has.exit.thread
 
-ml_kem_has.exit.thread:                           ; preds = %ml_kem_has.exit.thread11, %7, %3, %ml_kem_has.exit.thread7, %ml_kem_has.exit, %14
-  %.0 = phi i32 [ %15, %14 ], [ 0, %ml_kem_has.exit ], [ 1, %ml_kem_has.exit.thread7 ], [ 0, %3 ], [ 1, %7 ], [ %spec.select, %ml_kem_has.exit.thread11 ]
+ml_kem_has.exit.thread:                           ; preds = %ml_kem_has.exit.thread12, %7, %3, %ml_kem_has.exit.thread7, %ml_kem_has.exit, %14
+  %.0 = phi i32 [ %15, %14 ], [ 0, %ml_kem_has.exit ], [ 1, %ml_kem_has.exit.thread7 ], [ 0, %3 ], [ 1, %7 ], [ %spec.select, %ml_kem_has.exit.thread12 ]
   ret i32 %.0
 }
 
@@ -743,7 +743,7 @@ define internal i32 @ml_kem_import(ptr noundef %0, i32 noundef %1, ptr noundef %
 20:                                               ; preds = %15
   %21 = load ptr, ptr %0, align 8, !tbaa !14
   %.not38.i = icmp eq i32 %16, 0
-  br i1 %.not38.i, label %.thread65.i, label %22
+  br i1 %.not38.i, label %.thread73.i, label %22
 
 22:                                               ; preds = %20
   %23 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.8) #7
@@ -770,7 +770,7 @@ define internal i32 @ml_kem_import(ptr noundef %0, i32 noundef %1, ptr noundef %
 .thread.i:                                        ; preds = %26, %22
   %30 = call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.7) #7
   %.not41.i = icmp eq ptr %30, null
-  br i1 %.not41.i, label %.thread65.i, label %31
+  br i1 %.not41.i, label %.thread73.i, label %31
 
 31:                                               ; preds = %.thread.i
   %32 = call i32 @OSSL_PARAM_get_octet_string_ptr(ptr noundef nonnull %30, ptr noundef nonnull %5, ptr noundef nonnull %8) #7
@@ -780,13 +780,13 @@ define internal i32 @ml_kem_import(ptr noundef %0, i32 noundef %1, ptr noundef %
 33:                                               ; preds = %31
   %.pre61.i = load i64, ptr %8, align 8, !tbaa !34
   %.not43.i = icmp eq i64 %.pre61.i, 0
-  br i1 %.not43.i, label %.thread65.i, label %34
+  br i1 %.not43.i, label %.thread73.i, label %34
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !31
   %.not44.i = icmp eq i64 %.pre61.i, %36
-  br i1 %.not44.i, label %.thread65.i, label %37
+  br i1 %.not44.i, label %.thread73.i, label %37
 
 37:                                               ; preds = %34
   call void @ERR_new() #7
@@ -794,12 +794,12 @@ define internal i32 @ml_kem_import(ptr noundef %0, i32 noundef %1, ptr noundef %
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 105, ptr noundef null) #7
   br label %ml_kem_key_fromdata.exit.thread
 
-.thread65.i:                                      ; preds = %34, %33, %.thread.i, %20
+.thread73.i:                                      ; preds = %34, %33, %.thread.i, %20
   %38 = call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.2) #7
   %.not45.i = icmp eq ptr %38, null
-  br i1 %.not45.i, label %.thread67.i, label %39
+  br i1 %.not45.i, label %.thread75.i, label %39
 
-39:                                               ; preds = %.thread65.i
+39:                                               ; preds = %.thread73.i
   %40 = call i32 @OSSL_PARAM_get_octet_string_ptr(ptr noundef nonnull %38, ptr noundef nonnull %4, ptr noundef nonnull %7) #7
   %.not46.i = icmp eq i32 %40, 1
   br i1 %.not46.i, label %41, label %ml_kem_key_fromdata.exit.thread
@@ -807,7 +807,7 @@ define internal i32 @ml_kem_import(ptr noundef %0, i32 noundef %1, ptr noundef %
 41:                                               ; preds = %39
   %.pre63.i = load i64, ptr %7, align 8, !tbaa !34
   %.not47.i = icmp eq i64 %.pre63.i, 0
-  br i1 %.not47.i, label %.thread67.i, label %42
+  br i1 %.not47.i, label %.thread75.i, label %42
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %21, i64 24
@@ -821,7 +821,7 @@ define internal i32 @ml_kem_import(ptr noundef %0, i32 noundef %1, ptr noundef %
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 105, ptr noundef null) #7
   br label %ml_kem_key_fromdata.exit.thread
 
-.thread67.i:                                      ; preds = %41, %.thread65.i
+.thread75.i:                                      ; preds = %41, %.thread73.i
   %46 = load i64, ptr %9, align 8, !tbaa !34
   %47 = icmp eq i64 %46, 0
   %48 = load i64, ptr %8, align 8
@@ -829,10 +829,10 @@ define internal i32 @ml_kem_import(ptr noundef %0, i32 noundef %1, ptr noundef %
   %or.cond5.i = select i1 %47, i1 %49, i1 false
   br i1 %or.cond5.i, label %50, label %.thread56.i
 
-.thread56.i:                                      ; preds = %.thread67.i
+.thread56.i:                                      ; preds = %.thread75.i
   br i1 %47, label %78, label %64
 
-50:                                               ; preds = %.thread67.i
+50:                                               ; preds = %.thread75.i
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str.9, i32 noundef 369, ptr noundef nonnull @__func__.ml_kem_key_fromdata) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 128, ptr noundef null) #7

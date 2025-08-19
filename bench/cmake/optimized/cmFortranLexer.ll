@@ -2109,7 +2109,7 @@ _ZL18yy_get_next_bufferPv.exit:                   ; preds = %._crit_edge141.i, %
   %1321 = getelementptr inbounds nuw i8, ptr %1320, i64 8
   %1322 = load ptr, ptr %1321, align 8, !tbaa !27
   store ptr %1322, ptr %79, align 8, !tbaa !33
-  switch i32 %.0103.i, label %default.unreachable1237 [
+  switch i32 %.0103.i, label %default.unreachable1326 [
     i32 1, label %_ZL21yy_get_previous_statePv.exit524
     i32 0, label %1323
     i32 2, label %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread541_crit_edge
@@ -2126,8 +2126,8 @@ _ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread541_crit_edg
   %1326 = sub i64 %1324, %1325
   %1327 = trunc i64 %1326 to i32
   %1328 = shl i64 %1326, 32
-  %sext1410 = add i64 %1328, -4294967296
-  %1329 = ashr exact i64 %sext1410, 32
+  %sext1499 = add i64 %1328, -4294967296
+  %1329 = ashr exact i64 %sext1499, 32
   %1330 = getelementptr inbounds i8, ptr %1322, i64 %1329
   store ptr %1330, ptr %72, align 8, !tbaa !32
   %1331 = load i32, ptr %74, align 4, !tbaa !16
@@ -2305,7 +2305,7 @@ _ZL18yy_get_next_bufferPv.exit.thread541:         ; preds = %1213, %_ZL18yy_get_
   %exitcond.not.i538 = icmp eq ptr %1426, %1380
   br i1 %exitcond.not.i538, label %.preheader.outer.backedge, label %.lr.ph35.i526, !llvm.loop !53
 
-default.unreachable1237:                          ; preds = %_ZL18yy_get_next_bufferPv.exit
+default.unreachable1326:                          ; preds = %_ZL18yy_get_next_bufferPv.exit
   unreachable
 
 _ZL21yy_get_previous_statePv.exit524:             ; preds = %_ZL18yy_get_next_bufferPv.exit, %1213
@@ -2630,9 +2630,9 @@ define internal fastcc void @_ZL24cmFortran_yy_init_bufferP15yy_buffer_stateP8_I
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !20
   %.not15.i = icmp eq ptr %17, null
-  br i1 %.not15.i, label %_Z25cmFortran_yy_flush_bufferP15yy_buffer_statePv.exit.thread20, label %19
+  br i1 %.not15.i, label %_Z25cmFortran_yy_flush_bufferP15yy_buffer_statePv.exit.thread24, label %19
 
-_Z25cmFortran_yy_flush_bufferP15yy_buffer_statePv.exit.thread20: ; preds = %6
+_Z25cmFortran_yy_flush_bufferP15yy_buffer_statePv.exit.thread24: ; preds = %6
   store ptr %1, ptr %0, align 8, !tbaa !34
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %18, align 4, !tbaa !55
@@ -2689,7 +2689,7 @@ _Z25cmFortran_yy_flush_bufferP15yy_buffer_statePv.exit: ; preds = %3
   %45 = icmp eq ptr %0, %44
   br i1 %45, label %48, label %.critedge
 
-.critedge:                                        ; preds = %_Z25cmFortran_yy_flush_bufferP15yy_buffer_statePv.exit.thread20, %_Z25cmFortran_yy_flush_bufferP15yy_buffer_statePv.exit, %39
+.critedge:                                        ; preds = %_Z25cmFortran_yy_flush_bufferP15yy_buffer_statePv.exit.thread24, %_Z25cmFortran_yy_flush_bufferP15yy_buffer_statePv.exit, %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 1, ptr %46, align 4, !tbaa !60
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3030,9 +3030,9 @@ _ZL31cmFortran_yyensure_buffer_stackPv.exit:      ; preds = %10, %13, %24
   br label %.critedge29
 
 .critedge29:                                      ; preds = %_ZL31cmFortran_yyensure_buffer_stackPv.exit, %32
-  %.pr33 = phi ptr [ %39, %32 ], [ %28, %_ZL31cmFortran_yyensure_buffer_stackPv.exit ]
+  %.pr37 = phi ptr [ %39, %32 ], [ %28, %_ZL31cmFortran_yyensure_buffer_stackPv.exit ]
   %48 = phi i64 [ %47, %32 ], [ %27, %_ZL31cmFortran_yyensure_buffer_stackPv.exit ]
-  %49 = getelementptr inbounds nuw ptr, ptr %.pr33, i64 %48
+  %49 = getelementptr inbounds nuw ptr, ptr %.pr37, i64 %48
   store ptr %0, ptr %49, align 8, !tbaa !22
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %51 = load i32, ptr %50, align 4, !tbaa !29

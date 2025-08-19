@@ -615,14 +615,14 @@ _ZN10serde_json3ser9Formatter10end_object17hb51f838ae16e05deE.exit.i.i: ; preds 
 define hidden noundef align 8 ptr @"_ZN13uv_pypi_types10direct_url1_86_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$uv_pypi_types..direct_url..VcsKind$GT$9serialize17h8705c23c92bda6bcE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #4 {
   %3 = load i8, ptr %0, align 1, !range !331, !noundef !6
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  switch i8 %3, label %default.unreachable19 [
+  switch i8 %3, label %default.unreachable37 [
     i8 0, label %5
     i8 1, label %37
     i8 2, label %69
     i8 3, label %101
   ]
 
-default.unreachable19:                            ; preds = %2
+default.unreachable37:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -897,13 +897,13 @@ define hidden noundef align 8 ptr @"_ZN13uv_pypi_types10direct_url1_88_$LT$impl$
   %5 = alloca [16 x i8], align 8
   %6 = load i8, ptr %0, align 8, !range !82, !noundef !6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  switch i8 %6, label %default.unreachable135 [
+  switch i8 %6, label %default.unreachable160 [
     i8 0, label %8
     i8 1, label %17
     i8 2, label %26
   ]
 
-default.unreachable135:                           ; preds = %2
+default.unreachable160:                           ; preds = %2
   unreachable
 
 8:                                                ; preds = %2

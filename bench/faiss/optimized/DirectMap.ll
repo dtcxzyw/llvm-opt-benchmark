@@ -256,8 +256,8 @@ _ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEE5clearEv.exit: ;
   tail call void @_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE6rehashEm(ptr noundef nonnull align 8 dereferenceable(56) %39, i64 noundef %71)
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !40
-  %.not124 = icmp eq i64 %73, 0
-  br i1 %.not124, label %.loopexit70, label %.preheader68.us
+  %.not145 = icmp eq i64 %73, 0
+  br i1 %.not145, label %.loopexit70, label %.preheader68.us
 
 .preheader.us:                                    ; preds = %62, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.us
   %.04785.us = phi i64 [ %82, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.us ], [ 0, %62 ]
@@ -2802,8 +2802,8 @@ define internal void @_ZN5faiss9DirectMap10remove_idsERKNS_10IDSelectorEPNS_13In
   %16 = call i64 @llvm.umin.i64(i64 %15, i64 %13)
   store i64 %16, ptr %8, align 8, !tbaa !39
   %17 = load i64, ptr %7, align 8, !tbaa !39
-  %.not45 = icmp ugt i64 %17, %16
-  br i1 %.not45, label %._crit_edge, label %.lr.ph44
+  %.not49 = icmp ugt i64 %17, %16
+  br i1 %.not49, label %._crit_edge, label %.lr.ph44
 
 .lr.ph44:                                         ; preds = %12, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit
   %.03343 = phi i64 [ %71, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit ], [ %17, %12 ]

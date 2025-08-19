@@ -950,9 +950,9 @@ define hidden ptr @b2GetContactSim(ptr noundef readonly captures(none) %0, ptr n
 16:                                               ; preds = %12, %8
   %.val13.sink.in = phi ptr [ %15, %12 ], [ %11, %8 ]
   %.val13.sink = load ptr, ptr %.val13.sink.in, align 8, !tbaa !14
-  %.sink14.in = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sink14 = load i32, ptr %.sink14.in, align 4, !tbaa !95
-  %17 = sext i32 %.sink14 to i64
+  %.sink15.in = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sink15 = load i32, ptr %.sink15.in, align 4, !tbaa !95
+  %17 = sext i32 %.sink15 to i64
   %18 = getelementptr inbounds %struct.b2ContactSim, ptr %.val13.sink, i64 %17
   ret ptr %18
 }
@@ -1295,8 +1295,8 @@ b2GetShapeRadius.exit123:                         ; preds = %b2GetShapeRadius.ex
   %167 = load i32, ptr %166, align 4, !tbaa !127
   %168 = and i32 %167, -65537
   %masksel = select i1 %.0111.in133138, i32 65536, i32 0
-  %.sink163 = or disjoint i32 %168, %masksel
-  store i32 %.sink163, ptr %166, align 4, !tbaa !127
+  %.sink165 = or disjoint i32 %168, %masksel
+  store i32 %.sink165, ptr %166, align 4, !tbaa !127
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %.0111.in133138
 

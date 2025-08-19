@@ -284,8 +284,8 @@ _ZNSt6vectorIiSaIiEEaSESt16initializer_listIiE.exit: ; preds = %9
   store float 0x3FB99999A0000000, ptr %18, align 4, !tbaa !38
   %19 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #29
   store i32 10, ptr %19, align 4
-  %.sroa.4.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store i32 5, ptr %.sroa.4.0..sroa_idx38, align 4
+  %.sroa.4.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  store i32 5, ptr %.sroa.4.0..sroa_idx43, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 4, ptr %.sroa.5.0..sroa_idx, align 4
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 100
@@ -481,10 +481,10 @@ _ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i:             ; preds = %_ZSt7advanceIPKimEv
   br label %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i.thread
 
 _ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i.thread:      ; preds = %_ZSt7advanceIPKimEvRT_T0_.exit.i, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i
-  %.sink.i.i25.i.idx8 = phi i64 [ %23, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i ], [ 0, %_ZSt7advanceIPKimEvRT_T0_.exit.i ]
+  %.sink.i.i25.i.idx11 = phi i64 [ %23, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i ], [ 0, %_ZSt7advanceIPKimEvRT_T0_.exit.i ]
   %27 = phi ptr [ %.pre26.i, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i ], [ %21, %_ZSt7advanceIPKimEvRT_T0_.exit.i ]
   %28 = sub nsw i64 12, %23
-  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %.sink.i.i25.i.idx8
+  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %.sink.i.i25.i.idx11
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %27, ptr nonnull align 4 %.sink.i.i25.i.ptr, i64 %28, i1 false)
   %29 = getelementptr inbounds i8, ptr %27, i64 %28
   store ptr %29, ptr %20, align 8, !tbaa !65

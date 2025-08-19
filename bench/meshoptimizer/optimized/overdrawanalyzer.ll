@@ -121,14 +121,14 @@ _ZN17meshopt_Allocator8allocateIN7meshopt14OverdrawBufferEEEPT_m.exit: ; preds =
   %.sroa.0101.sroa.6.0164.us = phi i32 [ %59, %48 ], [ 0, %_ZN17meshopt_Allocator8allocateIN7meshopt14OverdrawBufferEEEPT_m.exit ]
   %.0117163.us = phi i32 [ %49, %48 ], [ 0, %_ZN17meshopt_Allocator8allocateIN7meshopt14OverdrawBufferEEEPT_m.exit ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1048576) %45, i8 0, i64 1048576, i1 false)
-  switch i32 %.0117163.us, label %.preheader138.us.preheader [
+  switch i32 %.0117163.us, label %default.unreachable [
     i32 0, label %.lr.ph147.split.us.us
     i32 1, label %.lr.ph147.split.us148.us
     i32 2, label %.lr.ph147.split.us151.us
   ]
 
-.preheader138.us.preheader:                       ; preds = %.lr.ph147.split.us151.us, %.lr.ph147.split.us148.us, %.lr.ph147.split.us.us, %.lr.ph147.us
-  br label %.preheader138.us
+default.unreachable:                              ; preds = %.lr.ph147.us
+  unreachable
 
 48:                                               ; preds = %50
   %49 = add nuw nsw i32 %.0117163.us, 1
@@ -197,6 +197,9 @@ _ZN17meshopt_Allocator8allocateIN7meshopt14OverdrawBufferEEEPT_m.exit: ; preds =
   %80 = add i64 %.0116145.us.us, 3
   %81 = icmp ult i64 %80, %1
   br i1 %81, label %.lr.ph147.split.us.us, label %.preheader138.us.preheader, !llvm.loop !22
+
+.preheader138.us.preheader:                       ; preds = %.lr.ph147.split.us151.us, %.lr.ph147.split.us148.us, %.lr.ph147.split.us.us
+  br label %.preheader138.us
 
 .lr.ph147.split.us148.us:                         ; preds = %.lr.ph147.us, %.lr.ph147.split.us148.us
   %.0116145.us149.us = phi i64 [ %100, %.lr.ph147.split.us148.us ], [ 0, %.lr.ph147.us ]
@@ -298,7 +301,7 @@ _ZN17meshopt_Allocator8allocateIN7meshopt14OverdrawBufferEEEPT_m.exit: ; preds =
 
 145:                                              ; preds = %144
   %146 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !8
-  %147 = add i64 %.0.i, -1
+  %147 = add nsw i64 %.0.i, -1
   %148 = getelementptr inbounds nuw [24 x ptr], ptr %6, i64 0, i64 %147
   %149 = load ptr, ptr %148, align 8, !tbaa !8
   invoke void %146(ptr noundef %149)

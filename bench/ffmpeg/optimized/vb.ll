@@ -252,8 +252,8 @@ bytestream2_get_byte.exit.i:                      ; preds = %105, %94
   ]
 
 .preheader204.preheader.i:                        ; preds = %bytestream2_get_byte.exit.i, %103
-  %.1136291.i = phi i32 [ %.1136.i, %bytestream2_get_byte.exit.i ], [ 0, %103 ]
-  %.sroa.0.1289.i = phi ptr [ %.sroa.0.1.i, %bytestream2_get_byte.exit.i ], [ %21, %103 ]
+  %.1136296.i = phi i32 [ %.1136.i, %bytestream2_get_byte.exit.i ], [ 0, %103 ]
+  %.sroa.0.1294.i = phi ptr [ %.sroa.0.1.i, %bytestream2_get_byte.exit.i ], [ %21, %103 ]
   br label %.preheader204.i
 
 .preheader204.i:                                  ; preds = %118, %.preheader204.preheader.i
@@ -444,7 +444,7 @@ bytestream2_get_byte.exit157.i:                   ; preds = %188, %bytestream2_g
   %indvars.iv260.i = phi i64 [ 0, %bytestream2_get_byte.exit157.i ], [ %indvars.iv.next261.i, %196 ]
   %.1126225.i = phi i32 [ %180, %bytestream2_get_byte.exit157.i ], [ %195, %196 ]
   %191 = mul nsw i64 %indvars.iv260.i, %93
-  %invariant.gep305.i = getelementptr i8, ptr %.0123236.i, i64 %191
+  %invariant.gep310.i = getelementptr i8, ptr %.0123236.i, i64 %191
   br label %192
 
 192:                                              ; preds = %192, %.preheader.i
@@ -453,8 +453,8 @@ bytestream2_get_byte.exit157.i:                   ; preds = %188, %bytestream2_g
   %193 = and i32 %.2223.i, 1
   %.not143.i = icmp eq i32 %193, 0
   %194 = select i1 %.not143.i, i8 %.0.i154.i, i8 %.0.i156.i
-  %gep306.i = getelementptr i8, ptr %invariant.gep305.i, i64 %indvars.iv256.i
-  store i8 %194, ptr %gep306.i, align 1, !tbaa !43
+  %gep311.i = getelementptr i8, ptr %invariant.gep310.i, i64 %indvars.iv256.i
+  store i8 %194, ptr %gep311.i, align 1, !tbaa !43
   %indvars.iv.next257.i = add nuw nsw i64 %indvars.iv256.i, 1
   %195 = lshr i32 %.2223.i, 1
   %exitcond259.not.i = icmp eq i64 %indvars.iv.next257.i, 4
@@ -491,7 +491,7 @@ bytestream2_get_byte.exit159.i:                   ; preds = %203, %199
   %.3221.i = phi i32 [ %.0125.i, %bytestream2_get_byte.exit159.i ], [ %219, %220 ]
   %206 = mul nsw i64 %indvars.iv252.i, %93
   %invariant.gep.i = getelementptr i8, ptr %.0122237.i, i64 %206
-  %invariant.gep303.i = getelementptr i8, ptr %.0123236.i, i64 %206
+  %invariant.gep308.i = getelementptr i8, ptr %.0123236.i, i64 %206
   br label %207
 
 207:                                              ; preds = %218, %.preheader203.i
@@ -517,8 +517,8 @@ bytestream2_get_byte.exit159.i:                   ; preds = %203, %199
   br label %218
 
 217:                                              ; preds = %209, %207
-  %gep304.i = getelementptr i8, ptr %invariant.gep303.i, i64 %indvars.iv.i
-  store i8 %.0.i158.i, ptr %gep304.i, align 1, !tbaa !43
+  %gep309.i = getelementptr i8, ptr %invariant.gep308.i, i64 %indvars.iv.i
+  store i8 %.0.i158.i, ptr %gep309.i, align 1, !tbaa !43
   br label %218
 
 218:                                              ; preds = %217, %212
@@ -541,9 +541,9 @@ default.unreachable:                              ; preds = %bytestream2_get_byt
   unreachable
 
 .loopexit.i:                                      ; preds = %220, %196, %164, %155, %.preheader205.i, %118
-  %.1136290.i = phi i32 [ %.1136291.i, %118 ], [ %.1136.i, %.preheader205.i ], [ %.1136.i, %155 ], [ %.1136.i, %164 ], [ %.1136.i, %196 ], [ %.1136.i, %220 ]
-  %.sroa.0.2.i = phi ptr [ %.sroa.0.1289.i, %118 ], [ %137, %.preheader205.i ], [ %124, %155 ], [ %.sroa.0.6.i, %164 ], [ %.sroa.0.9.i, %196 ], [ %.sroa.0.10.i, %220 ]
-  %223 = shl i32 %.1136290.i, 2
+  %.1136295.i = phi i32 [ %.1136296.i, %118 ], [ %.1136.i, %.preheader205.i ], [ %.1136.i, %155 ], [ %.1136.i, %164 ], [ %.1136.i, %196 ], [ %.1136.i, %220 ]
+  %.sroa.0.2.i = phi ptr [ %.sroa.0.1294.i, %118 ], [ %137, %.preheader205.i ], [ %124, %155 ], [ %.sroa.0.6.i, %164 ], [ %.sroa.0.9.i, %196 ], [ %.sroa.0.10.i, %220 ]
+  %223 = shl i32 %.1136295.i, 2
   %224 = getelementptr inbounds nuw i8, ptr %.0123236.i, i64 4
   %225 = getelementptr inbounds nuw i8, ptr %.0122237.i, i64 4
   %226 = add nsw i32 %.0137232.i, 1

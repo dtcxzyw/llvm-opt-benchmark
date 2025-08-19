@@ -334,8 +334,8 @@ define internal fastcc i64 @process_vm_rw(i32 noundef %0, ptr noundef %1, i64 no
   %132 = phi ptr [ %136, %135 ], [ %67, %124 ]
   %133 = icmp ne i64 %131, 0
   %134 = icmp ne i64 %129, 0
-  %.not32 = select i1 %133, i1 %134, i1 false
-  br i1 %.not32, label %135, label %.split22.us
+  %.not49 = select i1 %133, i1 %134, i1 false
+  br i1 %.not49, label %135, label %.split22.us
 
 135:                                              ; preds = %.split.us
   %136 = getelementptr i8, ptr %132, i64 8
@@ -357,8 +357,8 @@ define internal fastcc i64 @process_vm_rw(i32 noundef %0, ptr noundef %1, i64 no
   %149 = phi ptr [ %153, %152 ], [ %67, %124 ]
   %150 = icmp ne i64 %148, 0
   %151 = icmp ne i64 %146, 0
-  %.not30 = select i1 %150, i1 %151, i1 false
-  br i1 %.not30, label %152, label %.split22.us
+  %.not47 = select i1 %150, i1 %151, i1 false
+  br i1 %.not47, label %152, label %.split22.us
 
 152:                                              ; preds = %.split
   %153 = getelementptr i8, ptr %149, i64 8
@@ -374,7 +374,7 @@ define internal fastcc i64 @process_vm_rw(i32 noundef %0, ptr noundef %1, i64 no
   br i1 %162, label %.split, label %.split22.us
 
 .split22.us:                                      ; preds = %152, %.split, %.split.us, %135
-  %163 = phi i1 [ %.not32, %135 ], [ %.not32, %.split.us ], [ %.not30, %.split ], [ %.not30, %152 ]
+  %163 = phi i1 [ %.not49, %135 ], [ %.not49, %.split.us ], [ %.not47, %.split ], [ %.not47, %152 ]
   %.us-phi = phi i64 [ 0, %.split.us ], [ -14, %135 ], [ -14, %152 ], [ 0, %.split ]
   %164 = sub i64 %106, %128
   %165 = sub i64 %108, %125

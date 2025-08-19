@@ -443,9 +443,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.1 = phi i32 [ 0, %106 ], [ %.3, %175 ]
   %109 = call ptr @readline(ptr noundef nonnull @.str.28) #15
   %110 = icmp eq ptr %109, null
-  br i1 %110, label %_get_command.exit.thread86, label %111
+  br i1 %110, label %_get_command.exit.thread98, label %111
 
-_get_command.exit.thread86:                       ; preds = %108
+_get_command.exit.thread98:                       ; preds = %108
   store i32 2, ptr @exit_flag, align 4
   br label %.loopexit
 
@@ -618,8 +618,8 @@ _get_command.exit:                                ; preds = %.lr.ph74.i, %.loope
   %177 = icmp eq i32 %176, 0
   br i1 %177, label %108, label %.loopexit, !llvm.loop !13
 
-.loopexit:                                        ; preds = %175, %_get_command.exit, %_get_command.exit.thread86, %_get_command.exit.thread
-  %.2 = phi i32 [ %.1, %_get_command.exit.thread ], [ %.1, %_get_command.exit.thread86 ], [ %.3, %175 ], [ %.1, %_get_command.exit ]
+.loopexit:                                        ; preds = %175, %_get_command.exit, %_get_command.exit.thread98, %_get_command.exit.thread
+  %.2 = phi i32 [ %.1, %_get_command.exit.thread ], [ %.1, %_get_command.exit.thread98 ], [ %.3, %175 ], [ %.1, %_get_command.exit ]
   call void @slurm_xfree(ptr noundef nonnull %8) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %178

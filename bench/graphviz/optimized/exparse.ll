@@ -2683,7 +2683,7 @@ exisAssign.exit909.thread:                        ; preds = %569, %577, %exisAss
   store i8 1, ptr %586, align 8, !tbaa !26
   %588 = getelementptr inbounds nuw i8, ptr %585, i64 32
   store ptr %578, ptr %588, align 8, !tbaa !27
-  br label %.sink.split1103
+  br label %.sink.split1184
 
 589:                                              ; preds = %exisAssign.exit909.thread
   %590 = add i64 %579, -259
@@ -2693,15 +2693,15 @@ exisAssign.exit909.thread:                        ; preds = %569, %577, %exisAss
 591:                                              ; preds = %589
   %592 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8, !tbaa !68
   %593 = call ptr @excast(ptr noundef %592, ptr noundef nonnull %578, i64 noundef 259, ptr noundef null, i32 noundef 0)
-  br label %.sink.split1103
+  br label %.sink.split1184
 
-.sink.split1103:                                  ; preds = %581, %591
-  %.sink1105 = phi ptr [ %593, %591 ], [ %585, %581 ]
-  store ptr %.sink1105, ptr %570, align 8, !tbaa !27
+.sink.split1184:                                  ; preds = %581, %591
+  %.sink1186 = phi ptr [ %593, %591 ], [ %585, %581 ]
+  store ptr %.sink1186, ptr %570, align 8, !tbaa !27
   br label %594
 
-594:                                              ; preds = %.sink.split1103, %589
-  %595 = phi ptr [ %578, %589 ], [ %.sink1105, %.sink.split1103 ]
+594:                                              ; preds = %.sink.split1184, %589
+  %595 = phi ptr [ %578, %589 ], [ %.sink1186, %.sink.split1184 ]
   %596 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8, !tbaa !68
   %597 = getelementptr inbounds i8, ptr %.2695, i64 -32
   %598 = load ptr, ptr %597, align 8, !tbaa !27
@@ -3205,7 +3205,7 @@ exisAssign.exit909.thread:                        ; preds = %569, %577, %exisAss
   %866 = getelementptr inbounds nuw i8, ptr %865, i64 56
   %867 = load ptr, ptr %866, align 8, !tbaa !28
   %868 = icmp eq ptr %867, null
-  br i1 %868, label %869, label %.thread1089
+  br i1 %868, label %869, label %.thread1170
 
 869:                                              ; preds = %864
   %870 = icmp eq i64 %863, 259
@@ -3238,13 +3238,13 @@ exisAssign.exit909.thread:                        ; preds = %569, %577, %exisAss
   %.not843 = icmp eq ptr %885, null
   br i1 %.not843, label %921, label %887
 
-.thread1089:                                      ; preds = %864
+.thread1170:                                      ; preds = %864
   %886 = load ptr, ptr %.2695, align 8, !tbaa !27
-  %.not8431091 = icmp eq ptr %886, null
-  br i1 %.not8431091, label %.loopexit1006, label %887
+  %.not8431172 = icmp eq ptr %886, null
+  br i1 %.not8431172, label %.loopexit1006, label %887
 
-887:                                              ; preds = %.thread1089, %884
-  %888 = phi ptr [ %886, %.thread1089 ], [ %885, %884 ]
+887:                                              ; preds = %.thread1170, %884
+  %888 = phi ptr [ %886, %.thread1170 ], [ %885, %884 ]
   %889 = load i64, ptr %888, align 8, !tbaa !25
   %890 = load ptr, ptr %823, align 8, !tbaa !27
   %891 = getelementptr inbounds nuw i8, ptr %890, i64 32
@@ -3333,12 +3333,12 @@ exisAssign.exit909.thread:                        ; preds = %569, %577, %exisAss
   %945 = call ptr @excast(ptr noundef %944, ptr noundef nonnull %936, i64 noundef %941, ptr noundef null, i32 noundef 0)
   br label %.loopexit1006
 
-.sink.split1106:                                  ; preds = %1066, %1056
-  %.sink1107 = phi ptr [ %1060, %1056 ], [ %1068, %1066 ]
-  store ptr %.sink1107, ptr %.2695, align 8, !tbaa !27
+.sink.split1187:                                  ; preds = %1066, %1056
+  %.sink1188 = phi ptr [ %1060, %1056 ], [ %1068, %1066 ]
+  store ptr %.sink1188, ptr %.2695, align 8, !tbaa !27
   br label %946
 
-946:                                              ; preds = %.sink.split1106, %1064, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143
+946:                                              ; preds = %.sink.split1187, %1064, %143, %143, %143, %143, %143, %143, %143, %143, %143, %143
   br label %947
 
 947:                                              ; preds = %143, %143, %143, %143, %143, %143, %946
@@ -3543,7 +3543,7 @@ exisAssign.exit909.thread:                        ; preds = %569, %577, %exisAss
   store i8 1, ptr %1044, align 8, !tbaa !26
   %1046 = getelementptr inbounds nuw i8, ptr %1043, i64 32
   store ptr %1036, ptr %1046, align 8, !tbaa !27
-  br label %.sink.split1108
+  br label %.sink.split1189
 
 1047:                                             ; preds = %1034
   %1048 = icmp sgt i64 %1037, 258
@@ -3552,14 +3552,14 @@ exisAssign.exit909.thread:                        ; preds = %569, %577, %exisAss
 1049:                                             ; preds = %1047
   %1050 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8, !tbaa !68
   %1051 = call ptr @excast(ptr noundef %1050, ptr noundef nonnull %1036, i64 noundef 259, ptr noundef null, i32 noundef 0)
-  br label %.sink.split1108
+  br label %.sink.split1189
 
-.sink.split1108:                                  ; preds = %1039, %1049
-  %.sink1109 = phi ptr [ %1051, %1049 ], [ %1043, %1039 ]
-  store ptr %.sink1109, ptr %1035, align 8, !tbaa !27
+.sink.split1189:                                  ; preds = %1039, %1049
+  %.sink1190 = phi ptr [ %1051, %1049 ], [ %1043, %1039 ]
+  store ptr %.sink1190, ptr %1035, align 8, !tbaa !27
   br label %1052
 
-1052:                                             ; preds = %.sink.split1108, %1047
+1052:                                             ; preds = %.sink.split1189, %1047
   %1053 = load ptr, ptr %.2695, align 8, !tbaa !27
   %1054 = load i64, ptr %1053, align 8, !tbaa !25
   %1055 = icmp eq i64 %1054, 263
@@ -3578,7 +3578,7 @@ exisAssign.exit909.thread:                        ; preds = %569, %577, %exisAss
   store i8 1, ptr %1061, align 8, !tbaa !26
   %1063 = getelementptr inbounds nuw i8, ptr %1060, i64 32
   store ptr %1053, ptr %1063, align 8, !tbaa !27
-  br label %.sink.split1106
+  br label %.sink.split1187
 
 1064:                                             ; preds = %1052
   %1065 = icmp sgt i64 %1054, 258
@@ -3587,7 +3587,7 @@ exisAssign.exit909.thread:                        ; preds = %569, %577, %exisAss
 1066:                                             ; preds = %1064
   %1067 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8, !tbaa !68
   %1068 = call ptr @excast(ptr noundef %1067, ptr noundef nonnull %1053, i64 noundef 259, ptr noundef null, i32 noundef 0)
-  br label %.sink.split1106
+  br label %.sink.split1187
 
 1069:                                             ; preds = %143
   %1070 = getelementptr inbounds i8, ptr %.2695, i64 -16
@@ -3679,7 +3679,7 @@ exisAssign.exit909.thread:                        ; preds = %569, %577, %exisAss
   store i8 1, ptr %1112, align 8, !tbaa !26
   %1114 = getelementptr inbounds nuw i8, ptr %1111, i64 32
   store ptr %1104, ptr %1114, align 8, !tbaa !27
-  br label %.sink.split1110
+  br label %.sink.split1191
 
 1115:                                             ; preds = %1102
   %1116 = add i64 %1105, -259
@@ -3689,14 +3689,14 @@ exisAssign.exit909.thread:                        ; preds = %569, %577, %exisAss
 1117:                                             ; preds = %1115
   %1118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8, !tbaa !68
   %1119 = call ptr @excast(ptr noundef %1118, ptr noundef nonnull %1104, i64 noundef 259, ptr noundef null, i32 noundef 0)
-  br label %.sink.split1110
+  br label %.sink.split1191
 
-.sink.split1110:                                  ; preds = %1107, %1117
-  %.sink1111 = phi ptr [ %1119, %1117 ], [ %1111, %1107 ]
-  store ptr %.sink1111, ptr %1103, align 8, !tbaa !27
+.sink.split1191:                                  ; preds = %1107, %1117
+  %.sink1192 = phi ptr [ %1119, %1117 ], [ %1111, %1107 ]
+  store ptr %.sink1192, ptr %1103, align 8, !tbaa !27
   br label %1120
 
-1120:                                             ; preds = %.sink.split1110, %1115
+1120:                                             ; preds = %.sink.split1191, %1115
   %1121 = load ptr, ptr %1091, align 8, !tbaa !27
   %1122 = load i64, ptr %1121, align 8, !tbaa !25
   %1123 = load ptr, ptr %.2695, align 8, !tbaa !27
@@ -3749,8 +3749,8 @@ exisAssign.exit909.thread:                        ; preds = %569, %577, %exisAss
   %..2695 = select i1 %.not832, ptr %1091, ptr %.2695
   %.2695. = select i1 %.not832, ptr %.2695, ptr %1091
   %.sroa.0.0 = load ptr, ptr %.2695., align 8, !tbaa !27
-  %.sink1112 = load ptr, ptr %..2695, align 8, !tbaa !27
-  call void @exfreenode(ptr noundef %1147, ptr noundef %.sink1112)
+  %.sink1193 = load ptr, ptr %..2695, align 8, !tbaa !27
+  call void @exfreenode(ptr noundef %1147, ptr noundef %.sink1193)
   %1148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8, !tbaa !68
   %1149 = load ptr, ptr %1103, align 8, !tbaa !27
   call void @exfreenode(ptr noundef %1148, ptr noundef %1149)
@@ -5306,8 +5306,8 @@ extypename.exit924:                               ; preds = %1784, %1790
   store i32 59, ptr %2073, align 8, !tbaa !120
   br label %.loopexit1006
 
-.loopexit1006:                                    ; preds = %1527, %256, %.thread1089, %1514, %1828, %1799, %1797, %943, %935, %809, %806, %286, %283, %280, %260, %755, %762, %761, %711, %720, %243, %255, %277, %294, %298, %337, %382, %482, %499, %557, %594, %614, %617, %665, %699, %801, %819, %930, %932, %1088, %1089, %1220, %1229, %1231, %1249, %1274, %1299, %1304, %1309, %1314, %1325, %1346, %1355, %1363, %1379, %1388, %1404, %1459, %1576, %1596, %1656, %1689, %1698, %1707, %1716, %1725, %1827, %1836, %1839, %1848, %1864, %1887, %1903, %1914, %1927, %1953, %1954, %1962, %1978, %1980, %1982, %2035, %2036, %2054, %161, %144, %214, %194, %177, %268, %266, %444, %419, %786, %782, %804, %904, %922, %921, %837, %1030, %1033, %1022, %1078, %1076, %1150, %1144, %1208, %1211, %1203, %1547, %1566, %1533, %1687, %1685, %1826, %1810, %1834, %1886, %1882, %143
-  %.sroa.0.1 = phi ptr [ %140, %143 ], [ %140, %144 ], [ %140, %161 ], [ %140, %177 ], [ %140, %194 ], [ %140, %214 ], [ %140, %243 ], [ null, %255 ], [ %267, %266 ], [ %272, %268 ], [ %279, %277 ], [ %140, %294 ], [ %300, %298 ], [ %348, %337 ], [ %357, %382 ], [ %437, %419 ], [ %448, %444 ], [ %457, %482 ], [ %503, %499 ], [ %561, %557 ], [ %609, %594 ], [ %140, %614 ], [ %638, %617 ], [ %674, %665 ], [ %705, %699 ], [ %140, %711 ], [ %140, %720 ], [ %728, %755 ], [ %728, %762 ], [ %728, %761 ], [ %140, %782 ], [ %140, %786 ], [ %140, %801 ], [ %140, %804 ], [ %140, %819 ], [ null, %922 ], [ null, %921 ], [ %920, %904 ], [ null, %837 ], [ %931, %930 ], [ %934, %932 ], [ %997, %1022 ], [ %997, %1030 ], [ %997, %1033 ], [ %1077, %1076 ], [ %1083, %1078 ], [ %140, %1088 ], [ %140, %1089 ], [ %.sroa.0.0, %1144 ], [ %1163, %1150 ], [ %1224, %1220 ], [ %1195, %1203 ], [ %1195, %1208 ], [ %1195, %1211 ], [ %1230, %1229 ], [ %1245, %1231 ], [ %1269, %1249 ], [ %1294, %1274 ], [ %1303, %1299 ], [ %1308, %1304 ], [ %1313, %1309 ], [ %1324, %1314 ], [ %1337, %1325 ], [ %1351, %1346 ], [ %1359, %1355 ], [ %1367, %1363 ], [ %1384, %1379 ], [ %1398, %1388 ], [ %1410, %1404 ], [ %1421, %1459 ], [ %140, %1533 ], [ %140, %1547 ], [ %1570, %1566 ], [ %1660, %1656 ], [ %1585, %1576 ], [ %1604, %1596 ], [ %1675, %1685 ], [ %1675, %1687 ], [ %1693, %1689 ], [ %1702, %1698 ], [ %1711, %1707 ], [ %1720, %1716 ], [ %1730, %1725 ], [ %1814, %1826 ], [ %1814, %1810 ], [ inttoptr (i64 -1 to ptr), %1827 ], [ %1835, %1834 ], [ %1838, %1836 ], [ %1842, %1839 ], [ %1859, %1848 ], [ %140, %1864 ], [ null, %1882 ], [ null, %1886 ], [ %1893, %1887 ], [ %1899, %1903 ], [ %140, %1914 ], [ %1932, %1927 ], [ null, %1953 ], [ %1958, %1954 ], [ %1973, %1962 ], [ %1979, %1978 ], [ %1981, %1980 ], [ %1988, %1982 ], [ %140, %2035 ], [ %140, %2036 ], [ %2043, %2054 ], [ %258, %260 ], [ %290, %286 ], [ %282, %283 ], [ null, %280 ], [ %814, %809 ], [ %805, %806 ], [ %945, %943 ], [ %936, %935 ], [ %1809, %1799 ], [ %1739, %1797 ], [ inttoptr (i64 259 to ptr), %1828 ], [ %1472, %1514 ], [ null, %.thread1089 ], [ %259, %256 ], [ %1472, %1527 ]
+.loopexit1006:                                    ; preds = %1527, %256, %.thread1170, %1514, %1828, %1799, %1797, %943, %935, %809, %806, %286, %283, %280, %260, %755, %762, %761, %711, %720, %243, %255, %277, %294, %298, %337, %382, %482, %499, %557, %594, %614, %617, %665, %699, %801, %819, %930, %932, %1088, %1089, %1220, %1229, %1231, %1249, %1274, %1299, %1304, %1309, %1314, %1325, %1346, %1355, %1363, %1379, %1388, %1404, %1459, %1576, %1596, %1656, %1689, %1698, %1707, %1716, %1725, %1827, %1836, %1839, %1848, %1864, %1887, %1903, %1914, %1927, %1953, %1954, %1962, %1978, %1980, %1982, %2035, %2036, %2054, %161, %144, %214, %194, %177, %268, %266, %444, %419, %786, %782, %804, %904, %922, %921, %837, %1030, %1033, %1022, %1078, %1076, %1150, %1144, %1208, %1211, %1203, %1547, %1566, %1533, %1687, %1685, %1826, %1810, %1834, %1886, %1882, %143
+  %.sroa.0.1 = phi ptr [ %140, %143 ], [ %140, %144 ], [ %140, %161 ], [ %140, %177 ], [ %140, %194 ], [ %140, %214 ], [ %140, %243 ], [ null, %255 ], [ %267, %266 ], [ %272, %268 ], [ %279, %277 ], [ %140, %294 ], [ %300, %298 ], [ %348, %337 ], [ %357, %382 ], [ %437, %419 ], [ %448, %444 ], [ %457, %482 ], [ %503, %499 ], [ %561, %557 ], [ %609, %594 ], [ %140, %614 ], [ %638, %617 ], [ %674, %665 ], [ %705, %699 ], [ %140, %711 ], [ %140, %720 ], [ %728, %755 ], [ %728, %762 ], [ %728, %761 ], [ %140, %782 ], [ %140, %786 ], [ %140, %801 ], [ %140, %804 ], [ %140, %819 ], [ null, %922 ], [ null, %921 ], [ %920, %904 ], [ null, %837 ], [ %931, %930 ], [ %934, %932 ], [ %997, %1022 ], [ %997, %1030 ], [ %997, %1033 ], [ %1077, %1076 ], [ %1083, %1078 ], [ %140, %1088 ], [ %140, %1089 ], [ %.sroa.0.0, %1144 ], [ %1163, %1150 ], [ %1224, %1220 ], [ %1195, %1203 ], [ %1195, %1208 ], [ %1195, %1211 ], [ %1230, %1229 ], [ %1245, %1231 ], [ %1269, %1249 ], [ %1294, %1274 ], [ %1303, %1299 ], [ %1308, %1304 ], [ %1313, %1309 ], [ %1324, %1314 ], [ %1337, %1325 ], [ %1351, %1346 ], [ %1359, %1355 ], [ %1367, %1363 ], [ %1384, %1379 ], [ %1398, %1388 ], [ %1410, %1404 ], [ %1421, %1459 ], [ %140, %1533 ], [ %140, %1547 ], [ %1570, %1566 ], [ %1660, %1656 ], [ %1585, %1576 ], [ %1604, %1596 ], [ %1675, %1685 ], [ %1675, %1687 ], [ %1693, %1689 ], [ %1702, %1698 ], [ %1711, %1707 ], [ %1720, %1716 ], [ %1730, %1725 ], [ %1814, %1826 ], [ %1814, %1810 ], [ inttoptr (i64 -1 to ptr), %1827 ], [ %1835, %1834 ], [ %1838, %1836 ], [ %1842, %1839 ], [ %1859, %1848 ], [ %140, %1864 ], [ null, %1882 ], [ null, %1886 ], [ %1893, %1887 ], [ %1899, %1903 ], [ %140, %1914 ], [ %1932, %1927 ], [ null, %1953 ], [ %1958, %1954 ], [ %1973, %1962 ], [ %1979, %1978 ], [ %1981, %1980 ], [ %1988, %1982 ], [ %140, %2035 ], [ %140, %2036 ], [ %2043, %2054 ], [ %258, %260 ], [ %290, %286 ], [ %282, %283 ], [ null, %280 ], [ %814, %809 ], [ %805, %806 ], [ %945, %943 ], [ %936, %935 ], [ %1809, %1799 ], [ %1739, %1797 ], [ inttoptr (i64 259 to ptr), %1828 ], [ %1472, %1514 ], [ null, %.thread1170 ], [ %259, %256 ], [ %1472, %1527 ]
   %2074 = load i32, ptr @ex_debug, align 4, !tbaa !49
   %.not886 = icmp eq i32 %2074, 0
   br i1 %.not886, label %.loopexit1006._crit_edge, label %2075
@@ -5590,8 +5590,8 @@ yydestruct.exit934.thread:                        ; preds = %2204, %2218, %yydes
   %.not8941017 = icmp eq ptr %.6, %.5
   %2219 = load i32, ptr @ex_debug, align 4
   %2220 = icmp eq i32 %2219, 0
-  %or.cond1114 = select i1 %.not8941017, i1 true, i1 %2220
-  br i1 %or.cond1114, label %._crit_edge, label %.lr.ph1019.split
+  %or.cond1195 = select i1 %.not8941017, i1 true, i1 %2220
+  br i1 %or.cond1195, label %._crit_edge, label %.lr.ph1019.split
 
 .lr.ph1019.split:                                 ; preds = %yydestruct.exit934.thread, %yydestruct.exit938
   %2221 = phi i32 [ %2237, %yydestruct.exit938 ], [ 1, %yydestruct.exit934.thread ]
@@ -6814,12 +6814,12 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
     i8 103, label %.loopexit164
     i8 104, label %130
     i8 108, label %.loopexit
-    i8 111, label %.loopexit291
-    i8 117, label %.loopexit291
-    i8 120, label %.loopexit291
-    i8 84, label %.loopexit291
-    i8 115, label %.loopexit353
-    i8 83, label %.loopexit353
+    i8 111, label %.loopexit304
+    i8 117, label %.loopexit304
+    i8 120, label %.loopexit304
+    i8 84, label %.loopexit304
+    i8 115, label %.loopexit366
+    i8 83, label %.loopexit366
   ]
 
 65:                                               ; preds = %62
@@ -7016,17 +7016,17 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   %.pr161 = load i8, ptr %.6, align 1, !tbaa !27
   br label %62
 
-.loopexit291:                                     ; preds = %62, %62, %62, %62
+.loopexit304:                                     ; preds = %62, %62, %62, %62
   br label %.loopexit164
 
-.loopexit353:                                     ; preds = %62, %62
+.loopexit366:                                     ; preds = %62, %62
   br label %.loopexit164
 
 .loopexit164.loopexit:                            ; preds = %62, %62, %131
   br label %.loopexit164
 
-.loopexit164:                                     ; preds = %62, %62, %62, %.loopexit164.loopexit, %.loopexit353, %.loopexit291
-  %.2113 = phi i32 [ 260, %.loopexit291 ], [ 263, %.loopexit353 ], [ 259, %.loopexit164.loopexit ], [ 262, %62 ], [ 262, %62 ], [ 262, %62 ]
+.loopexit164:                                     ; preds = %62, %62, %62, %.loopexit164.loopexit, %.loopexit366, %.loopexit304
+  %.2113 = phi i32 [ 260, %.loopexit304 ], [ 263, %.loopexit366 ], [ 259, %.loopexit164.loopexit ], [ 262, %62 ], [ 262, %62 ], [ 262, %62 ]
   %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8, !tbaa !68
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 144
   tail call fastcc void @agxbputc(ptr noundef nonnull %139, i8 noundef signext %63)

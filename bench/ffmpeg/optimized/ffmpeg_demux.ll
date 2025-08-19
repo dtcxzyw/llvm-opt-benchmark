@@ -598,15 +598,15 @@ define range(i32 -2147483648, 1) i32 @ist_use(ptr noundef %0, i32 noundef %1, pt
   br label %.sink.split
 
 .sink.split:                                      ; preds = %145, %.critedge116
-  %.sink121 = phi i32 [ 1, %.critedge116 ], [ 3, %145 ]
-  %.sink120.in = phi ptr [ %155, %.critedge116 ], [ %55, %145 ]
-  %.sink119 = phi i32 [ %35, %.critedge116 ], [ 0, %145 ]
-  %.sink120 = load i32, ptr %.sink120.in, align 4, !tbaa !110
-  store i32 %.sink121, ptr %3, align 4, !tbaa !110
+  %.sink128 = phi i32 [ 1, %.critedge116 ], [ 3, %145 ]
+  %.sink127.in = phi ptr [ %155, %.critedge116 ], [ %55, %145 ]
+  %.sink126 = phi i32 [ %35, %.critedge116 ], [ 0, %145 ]
+  %.sink127 = load i32, ptr %.sink127.in, align 4, !tbaa !110
+  store i32 %.sink128, ptr %3, align 4, !tbaa !110
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %.sink120, ptr %.sroa.22.0..sroa_idx, align 4, !tbaa !110
+  store i32 %.sink127, ptr %.sroa.22.0..sroa_idx, align 4, !tbaa !110
   %.sroa.33.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %.sink119, ptr %.sroa.33.0..sroa_idx, align 4, !tbaa !110
+  store i32 %.sink126, ptr %.sroa.33.0..sroa_idx, align 4, !tbaa !110
   br label %156
 
 156:                                              ; preds = %.sink.split, %150
@@ -1770,7 +1770,7 @@ err_merge.exit385.thread:                         ; preds = %224, %err_merge.exi
 429:                                              ; preds = %._crit_edge469.thread
   %430 = sitofp i64 %.0268 to double
   %431 = fdiv nsz double %430, 1.000000e+06
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %44, i32 noundef 24, ptr noundef nonnull @.str.30, double noundef %431) #14
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %44, i32 noundef 24, ptr noundef nonnull @.str.30, double noundef %431) #14
   br label %432
 
 432:                                              ; preds = %._crit_edge469.thread, %429, %405
@@ -3188,19 +3188,19 @@ err_merge.exit:                                   ; preds = %demux_bsf_flush.exi
 
 147:                                              ; preds = %146
   %148 = icmp eq i64 %.pre117, -9223372036854775808
-  br i1 %148, label %.thread118, label %149
+  br i1 %148, label %.thread174, label %149
 
 149:                                              ; preds = %147
   %150 = load i64, ptr %73, align 8
   %151 = call i32 @av_compare_ts(i64 noundef %.pre117, i64 %150, i64 noundef %139, i64 %.sroa.2.8.copyload) #14
   %152 = icmp slt i32 %151, 0
-  br i1 %152, label %.thread118, label %._crit_edge115
+  br i1 %152, label %.thread174, label %._crit_edge115
 
 ._crit_edge115:                                   ; preds = %149
   %.pre116 = load i64, ptr %72, align 8, !tbaa !302
   br label %153
 
-.thread118:                                       ; preds = %147, %149
+.thread174:                                       ; preds = %147, %149
   store i64 %139, ptr %72, align 8, !tbaa !227
   store i64 %.sroa.2.8.copyload, ptr %73, align 8
   br label %155
@@ -3214,8 +3214,8 @@ err_merge.exit:                                   ; preds = %demux_bsf_flush.exi
   %.pre.i74 = load i64, ptr %73, align 8
   br label %163
 
-155:                                              ; preds = %.thread118, %153
-  %156 = phi i64 [ %139, %.thread118 ], [ %154, %153 ]
+155:                                              ; preds = %.thread174, %153
+  %156 = phi i64 [ %139, %.thread174 ], [ %154, %153 ]
   %157 = load i64, ptr %74, align 8, !tbaa !303
   %158 = icmp eq i64 %157, -9223372036854775808
   %spec.select.i72 = select i1 %158, i64 0, i64 %157

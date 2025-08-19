@@ -1863,7 +1863,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @check_cgroupfs_options(ptr
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 54
   %41 = load i8, ptr %40, align 2, !range !57, !noundef !58
   %42 = icmp eq i8 %41, 0
-  br i1 %42, label %thread-pre-split.thread, label %.thread2
+  br i1 %42, label %thread-pre-split.thread, label %.thread3
 
 43:                                               ; preds = %36
   store i16 %18, ptr %22, align 8
@@ -1878,7 +1878,7 @@ thread-pre-split:                                 ; preds = %36, %43
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.thread2, label %.thread1
+  br i1 %49, label %.thread3, label %.thread1
 
 thread-pre-split.thread:                          ; preds = %.thread, %thread-pre-split
   %50 = phi i16 [ %44, %thread-pre-split ], [ %24, %.thread ]
@@ -1888,15 +1888,15 @@ thread-pre-split.thread:                          ; preds = %.thread, %thread-pr
   %54 = icmp eq i32 %53, 0
   %55 = icmp eq i16 %50, 1
   %56 = or i1 %55, %54
-  br i1 %56, label %57, label %.thread2
+  br i1 %56, label %57, label %.thread3
 
 57:                                               ; preds = %thread-pre-split.thread
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 53
   %59 = load i8, ptr %58, align 1, !range !57, !noundef !58
   %60 = icmp eq i8 %59, 0
-  br i1 %60, label %.thread1, label %.thread2
+  br i1 %60, label %.thread1, label %.thread3
 
-.thread2:                                         ; preds = %.thread, %57, %thread-pre-split.thread, %46
+.thread3:                                         ; preds = %.thread, %57, %thread-pre-split.thread, %46
   %61 = phi ptr [ @.str.31, %46 ], [ @.str.32, %thread-pre-split.thread ], [ @.str.33, %57 ], [ @.str.30, %.thread ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1905,8 +1905,8 @@ thread-pre-split.thread:                          ; preds = %.thread, %thread-pr
   tail call void (ptr, ptr, i8, ptr, ...) @logfc(ptr noundef %64, ptr noundef %65, i8 noundef zeroext 101, ptr noundef nonnull %61) #18
   br label %.thread1
 
-.thread1:                                         ; preds = %46, %.thread2, %57
-  %66 = phi i32 [ 0, %57 ], [ -22, %.thread2 ], [ 0, %46 ]
+.thread1:                                         ; preds = %46, %.thread3, %57
+  %66 = phi i32 [ 0, %57 ], [ -22, %.thread3 ], [ 0, %46 ]
   ret i32 %66
 }
 
@@ -2375,7 +2375,7 @@ define dso_local range(i32 -2147483648, 1) i32 @cgroup1_get_tree(ptr noundef %0)
   %157 = load ptr, ptr %156, align 8
   %158 = load volatile i64, ptr %157, align 8
   %159 = icmp eq i64 %158, 0
-  br i1 %159, label %.thread27.thread.critedge57, label %.lr.ph40, !prof !39
+  br i1 %159, label %.thread27.thread.critedge71, label %.lr.ph40, !prof !39
 
 .lr.ph40:                                         ; preds = %155, %166
   %160 = phi i64 [ %167, %166 ], [ %158, %155 ]
@@ -2390,7 +2390,7 @@ define dso_local range(i32 -2147483648, 1) i32 @cgroup1_get_tree(ptr noundef %0)
 166:                                              ; preds = %.lr.ph40
   %167 = extractvalue { i8, i64 } %162, 1
   %168 = icmp eq i64 %167, 0
-  br i1 %168, label %.thread27.thread.critedge57, label %.lr.ph40, !prof !41, !llvm.loop !42
+  br i1 %168, label %.thread27.thread.critedge71, label %.lr.ph40, !prof !41, !llvm.loop !42
 
 .thread24:                                        ; preds = %107, %122, %9, %127, %131, %143, %144, %.thread16
   %.ph23 = phi i32 [ 1, %.thread16 ], [ 1, %144 ], [ %137, %143 ], [ -12, %131 ], [ -1, %127 ], [ %11, %9 ], [ -22, %122 ], [ -16, %107 ]
@@ -2426,12 +2426,12 @@ define dso_local range(i32 -2147483648, 1) i32 @cgroup1_get_tree(ptr noundef %0)
   tail call void @mutex_unlock(ptr noundef nonnull @cgroup_mutex) #18
   br label %.thread27.thread
 
-.thread27.thread.critedge57:                      ; preds = %166, %155
+.thread27.thread.critedge71:                      ; preds = %166, %155
   tail call void @__rcu_read_unlock() #18
   tail call void @mutex_unlock(ptr noundef nonnull @cgroup_mutex) #18
   br label %.thread27.thread
 
-.thread27.thread:                                 ; preds = %.thread27.thread.critedge57, %.thread27.thread.critedge, %.thread28, %.thread27
+.thread27.thread:                                 ; preds = %.thread27.thread.critedge71, %.thread27.thread.critedge, %.thread28, %.thread27
   tail call void @msleep(i32 noundef 10) #18
   %179 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #19, !srcloc !28
   %180 = inttoptr i64 %179 to ptr

@@ -358,7 +358,7 @@ define range(i32 -1094995529, 1) i32 @ff_parse_itu_t_t35_to_dynamic_hdr_vivid(pt
   br label %254
 
 254:                                              ; preds = %.lr.ph, %280
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %280 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ 1, %280 ]
   %.sroa.34.10338 = phi i32 [ %251, %.lr.ph ], [ %324, %280 ]
   %255 = getelementptr inbounds nuw [2 x %struct.AVHDRVivid3SplineParams], ptr %252, i64 0, i64 %indvars.iv
   %256 = lshr i32 %.sroa.34.10338, 3

@@ -452,9 +452,9 @@ lv_bidi_calculate_align.exit:                     ; preds = %4
   %65 = shl nsw i32 %42, 1
   %66 = sub nsw i32 1024, %65
   %67 = icmp sgt i32 %64, %66
-  br i1 %67, label %.thread371, label %68
+  br i1 %67, label %.thread386, label %68
 
-.thread371:                                       ; preds = %60
+.thread386:                                       ; preds = %60
   store i32 -1, ptr %54, align 4, !tbaa !67
   br label %.thread
 
@@ -470,8 +470,8 @@ lv_bidi_calculate_align.exit:                     ; preds = %4
   store i32 %73, ptr %50, align 4, !tbaa !41
   br label %.thread
 
-.thread:                                          ; preds = %.thread371, %38, %57, %70, %68
-  %.0239 = phi i32 [ %.pre, %70 ], [ 0, %68 ], [ 0, %57 ], [ 0, %38 ], [ 0, %.thread371 ]
+.thread:                                          ; preds = %.thread386, %38, %57, %70, %68
+  %.0239 = phi i32 [ %.pre, %70 ], [ 0, %68 ], [ 0, %57 ], [ 0, %38 ], [ 0, %.thread386 ]
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %75 = load i32, ptr %74, align 8, !tbaa !25
   %76 = load ptr, ptr %23, align 8, !tbaa !37
@@ -573,9 +573,9 @@ lv_bidi_calculate_align.exit:                     ; preds = %4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %118, %129
-  %.sink374 = phi i32 [ %138, %129 ], [ %128, %118 ]
+  %.sink389 = phi i32 [ %138, %129 ], [ %128, %118 ]
   %139 = load i32, ptr %7, align 4, !tbaa !39
-  %140 = add nsw i32 %.sink374, %139
+  %140 = add nsw i32 %.sink389, %139
   store i32 %140, ptr %7, align 4, !tbaa !39
   br label %141
 
@@ -1062,7 +1062,7 @@ hex_char_to_num.exit319..thread326_crit_edge:     ; preds = %hex_char_to_num.exi
   %363 = call i32 @lv_area_get_width(ptr noundef nonnull %2) #6
   %364 = sub nsw i32 %363, %362
   %365 = sdiv i32 %364, 2
-  br label %.sink.split376
+  br label %.sink.split391
 
 366:                                              ; preds = %353
   %367 = load ptr, ptr %23, align 8, !tbaa !37
@@ -1074,16 +1074,16 @@ hex_char_to_num.exit319..thread326_crit_edge:     ; preds = %hex_char_to_num.exi
   %373 = call i32 @lv_text_get_width_with_flags(ptr noundef %369, i32 noundef %370, ptr noundef %18, i32 noundef %371, i32 noundef %372) #6
   %374 = call i32 @lv_area_get_width(ptr noundef nonnull %2) #6
   %375 = sub i32 %374, %373
-  br label %.sink.split376
+  br label %.sink.split391
 
-.sink.split376:                                   ; preds = %355, %366
-  %.sink377 = phi i32 [ %375, %366 ], [ %365, %355 ]
+.sink.split391:                                   ; preds = %355, %366
+  %.sink392 = phi i32 [ %375, %366 ], [ %365, %355 ]
   %376 = load i32, ptr %7, align 4, !tbaa !39
-  %377 = add nsw i32 %.sink377, %376
+  %377 = add nsw i32 %.sink392, %376
   store i32 %377, ptr %7, align 4, !tbaa !39
   br label %378
 
-378:                                              ; preds = %.sink.split376, %353
+378:                                              ; preds = %.sink.split391, %353
   %379 = load i32, ptr %50, align 4, !tbaa !41
   %380 = add nsw i32 %379, %42
   store i32 %380, ptr %50, align 4, !tbaa !41

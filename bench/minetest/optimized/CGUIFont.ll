@@ -1231,7 +1231,7 @@ for.body.i.i.i.i.i.i.i.i.i.i.i.us.preheader:      ; preds = %_ZNSt12_Vector_base
   %36 = sub i64 %cond.i.i.i.i.i.i.i.i.i.i.us250, %31
   %diff.check = icmp ult i64 %36, 32
   %or.cond = or i1 %diff.check, %min.iters.check
-  br i1 %or.cond, label %for.body.i.i.i.i.i.i.i.i.i.i.i.us.preheader12, label %vector.ph
+  br i1 %or.cond, label %for.body.i.i.i.i.i.i.i.i.i.i.i.us.preheader22, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.us.preheader
   %n.vec = and i64 %35, 4611686018427387900
@@ -1257,16 +1257,16 @@ middle.block:                                     ; preds = %vector.body
   %ind.end = getelementptr i8, ptr %cond.i.i.i.i.i.i.i.i.i.i.us, i64 %40
   %ind.end251 = getelementptr i8, ptr %29, i64 %40
   %cmp.n = icmp eq i64 %35, %n.vec
-  br i1 %cmp.n, label %_ZNSt16allocator_traitsISaIN3irr3gui10SGUISpriteEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i.us, label %for.body.i.i.i.i.i.i.i.i.i.i.i.us.preheader12
+  br i1 %cmp.n, label %_ZNSt16allocator_traitsISaIN3irr3gui10SGUISpriteEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i.us, label %for.body.i.i.i.i.i.i.i.i.i.i.i.us.preheader22
 
-for.body.i.i.i.i.i.i.i.i.i.i.i.us.preheader12:    ; preds = %middle.block, %for.body.i.i.i.i.i.i.i.i.i.i.i.us.preheader
+for.body.i.i.i.i.i.i.i.i.i.i.i.us.preheader22:    ; preds = %middle.block, %for.body.i.i.i.i.i.i.i.i.i.i.i.us.preheader
   %__cur.010.i.i.i.i.i.i.i.i.i.i.i.us.ph = phi ptr [ %ind.end, %middle.block ], [ %cond.i.i.i.i.i.i.i.i.i.i.us, %for.body.i.i.i.i.i.i.i.i.i.i.i.us.preheader ]
   %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i.i.us.ph = phi ptr [ %ind.end251, %middle.block ], [ %29, %for.body.i.i.i.i.i.i.i.i.i.i.i.us.preheader ]
   br label %for.body.i.i.i.i.i.i.i.i.i.i.i.us
 
-for.body.i.i.i.i.i.i.i.i.i.i.i.us:                ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.us.preheader12, %for.body.i.i.i.i.i.i.i.i.i.i.i.us
-  %__cur.010.i.i.i.i.i.i.i.i.i.i.i.us = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.us, %for.body.i.i.i.i.i.i.i.i.i.i.i.us ], [ %__cur.010.i.i.i.i.i.i.i.i.i.i.i.us.ph, %for.body.i.i.i.i.i.i.i.i.i.i.i.us.preheader12 ]
-  %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i.i.us = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.us, %for.body.i.i.i.i.i.i.i.i.i.i.i.us ], [ %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i.i.us.ph, %for.body.i.i.i.i.i.i.i.i.i.i.i.us.preheader12 ]
+for.body.i.i.i.i.i.i.i.i.i.i.i.us:                ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.us.preheader22, %for.body.i.i.i.i.i.i.i.i.i.i.i.us
+  %__cur.010.i.i.i.i.i.i.i.i.i.i.i.us = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.us, %for.body.i.i.i.i.i.i.i.i.i.i.i.us ], [ %__cur.010.i.i.i.i.i.i.i.i.i.i.i.us.ph, %for.body.i.i.i.i.i.i.i.i.i.i.i.us.preheader22 ]
+  %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i.i.us = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.us, %for.body.i.i.i.i.i.i.i.i.i.i.i.us ], [ %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i.i.us.ph, %for.body.i.i.i.i.i.i.i.i.i.i.i.us.preheader22 ]
   %41 = load i64, ptr %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i.i.us, align 4, !tbaa.struct !75
   store i64 %41, ptr %__cur.010.i.i.i.i.i.i.i.i.i.i.i.us, align 4, !tbaa.struct !75
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i.i.us, i64 8
@@ -2490,9 +2490,9 @@ for.body.i.i.i.i.i.i.preheader:                   ; preds = %_ZNKSt6vectorIN3irr
   %56 = sub i64 %cond.i31.i.i.i173247, %50
   %diff.check = icmp ult i64 %56, 32
   %or.cond255 = or i1 %min.iters.check, %diff.check
-  br i1 %or.cond255, label %for.body.i.i.i.i.i.i.preheader21, label %vector.ph
+  br i1 %or.cond255, label %for.body.i.i.i.i.i.i.preheader29, label %vector.ph
 
-for.body.i.i.i.i.i.i.preheader21:                 ; preds = %middle.block, %for.body.i.i.i.i.i.i.preheader
+for.body.i.i.i.i.i.i.preheader29:                 ; preds = %middle.block, %for.body.i.i.i.i.i.i.preheader
   %__cur.08.i.i.i.i.i.i.ph = phi ptr [ %ind.end, %middle.block ], [ %call5.i.i.i.i.i.i172, %for.body.i.i.i.i.i.i.preheader ]
   %__first.addr.07.i.i.i.i.i.i.ph = phi ptr [ %ind.end248, %middle.block ], [ %49, %for.body.i.i.i.i.i.i.preheader ]
   br label %for.body.i.i.i.i.i.i
@@ -2523,15 +2523,15 @@ middle.block:                                     ; preds = %vector.body
   %ind.end = getelementptr i8, ptr %call5.i.i.i.i.i.i172, i64 %60
   %ind.end248 = getelementptr i8, ptr %49, i64 %60
   %cmp.n = icmp eq i64 %55, %n.vec
-  br i1 %cmp.n, label %_ZNSt6vectorIN3irr4core8vector2dIiEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i.thread, label %for.body.i.i.i.i.i.i.preheader21
+  br i1 %cmp.n, label %_ZNSt6vectorIN3irr4core8vector2dIiEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i.thread, label %for.body.i.i.i.i.i.i.preheader29
 
 _ZNSt6vectorIN3irr4core8vector2dIiEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i.thread: ; preds = %middle.block
   %incdec.ptr.i.i.i17511 = getelementptr i8, ptr %ind.end, i64 8
   br label %if.then.i41.i.i.i
 
-for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i.preheader21, %for.body.i.i.i.i.i.i
-  %__cur.08.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %__cur.08.i.i.i.i.i.i.ph, %for.body.i.i.i.i.i.i.preheader21 ]
-  %__first.addr.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %__first.addr.07.i.i.i.i.i.i.ph, %for.body.i.i.i.i.i.i.preheader21 ]
+for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i.preheader29, %for.body.i.i.i.i.i.i
+  %__cur.08.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %__cur.08.i.i.i.i.i.i.ph, %for.body.i.i.i.i.i.i.preheader29 ]
+  %__first.addr.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %__first.addr.07.i.i.i.i.i.i.ph, %for.body.i.i.i.i.i.i.preheader29 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !156)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !159)
   %61 = load i64, ptr %__first.addr.07.i.i.i.i.i.i, align 4, !tbaa.struct !75, !alias.scope !159, !noalias !156
@@ -3005,7 +3005,7 @@ for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader:     ; preds = %_ZNSt12_Vector_base
   %25 = sub i64 %cond.i.i.i.i.i.i.i.i.i.i.i.i90, %19
   %diff.check91 = icmp ult i64 %25, 32
   %or.cond139 = or i1 %min.iters.check94, %diff.check91
-  br i1 %or.cond139, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader12, label %vector.ph95
+  br i1 %or.cond139, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader22, label %vector.ph95
 
 vector.ph95:                                      ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader
   %n.vec97 = and i64 %24, 4611686018427387900
@@ -3031,16 +3031,16 @@ middle.block92:                                   ; preds = %vector.body103
   %ind.end98 = getelementptr i8, ptr %cond.i.i.i.i.i.i.i.i.i.i.i.i, i64 %29
   %ind.end100 = getelementptr i8, ptr %18, i64 %29
   %cmp.n102 = icmp eq i64 %24, %n.vec97
-  br i1 %cmp.n102, label %_ZSt10_ConstructIN3irr3gui10SGUISpriteEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader12
+  br i1 %cmp.n102, label %_ZSt10_ConstructIN3irr3gui10SGUISpriteEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader22
 
-for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader12:   ; preds = %middle.block92, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader
+for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader22:   ; preds = %middle.block92, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader
   %__cur.010.i.i.i.i.i.i.i.i.i.i.i.i.i.ph = phi ptr [ %ind.end98, %middle.block92 ], [ %cond.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader ]
   %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i.i.i.i.ph = phi ptr [ %ind.end100, %middle.block92 ], [ %18, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader ]
   br label %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader12, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %__cur.010.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__cur.010.i.i.i.i.i.i.i.i.i.i.i.i.i.ph, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader12 ]
-  %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i.i.i.i.ph, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader12 ]
+for.body.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader22, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %__cur.010.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__cur.010.i.i.i.i.i.i.i.i.i.i.i.i.i.ph, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader22 ]
+  %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i.i.i.i.ph, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader22 ]
   %30 = load i64, ptr %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !tbaa.struct !75
   store i64 %30, ptr %__cur.010.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !tbaa.struct !75
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
@@ -3120,7 +3120,7 @@ for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55.preheader:   ; preds = %_ZNSt12_Vector_base
   %42 = sub i64 %cond.i.i.i.i.i.i.i.i.i.i.i.i50115, %37
   %diff.check116 = icmp ult i64 %42, 32
   %or.cond140 = or i1 %diff.check116, %min.iters.check119
-  br i1 %or.cond140, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55.preheader11, label %vector.ph120
+  br i1 %or.cond140, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55.preheader21, label %vector.ph120
 
 vector.ph120:                                     ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55.preheader
   %n.vec122 = and i64 %41, 4611686018427387900
@@ -3146,16 +3146,16 @@ middle.block117:                                  ; preds = %vector.body128
   %ind.end123 = getelementptr i8, ptr %cond.i.i.i.i.i.i.i.i.i.i.i.i50, i64 %46
   %ind.end125 = getelementptr i8, ptr %35, i64 %46
   %cmp.n127 = icmp eq i64 %41, %n.vec122
-  br i1 %cmp.n127, label %_ZSt10_ConstructIN3irr3gui10SGUISpriteEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i61, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55.preheader11
+  br i1 %cmp.n127, label %_ZSt10_ConstructIN3irr3gui10SGUISpriteEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i61, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55.preheader21
 
-for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55.preheader11: ; preds = %middle.block117, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55.preheader
+for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55.preheader21: ; preds = %middle.block117, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55.preheader
   %__cur.010.i.i.i.i.i.i.i.i.i.i.i.i.i56.ph = phi ptr [ %ind.end123, %middle.block117 ], [ %cond.i.i.i.i.i.i.i.i.i.i.i.i50, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55.preheader ]
   %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i.i.i.i57.ph = phi ptr [ %ind.end125, %middle.block117 ], [ %35, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55.preheader ]
   br label %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55
 
-for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55:             ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55.preheader11, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55
-  %__cur.010.i.i.i.i.i.i.i.i.i.i.i.i.i56 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i59, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55 ], [ %__cur.010.i.i.i.i.i.i.i.i.i.i.i.i.i56.ph, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55.preheader11 ]
-  %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i.i.i.i57 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i58, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55 ], [ %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i.i.i.i57.ph, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55.preheader11 ]
+for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55:             ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55.preheader21, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55
+  %__cur.010.i.i.i.i.i.i.i.i.i.i.i.i.i56 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i59, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55 ], [ %__cur.010.i.i.i.i.i.i.i.i.i.i.i.i.i56.ph, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55.preheader21 ]
+  %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i.i.i.i57 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i58, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55 ], [ %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i.i.i.i57.ph, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i55.preheader21 ]
   %47 = load i64, ptr %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i.i.i.i57, align 4, !tbaa.struct !75
   store i64 %47, ptr %__cur.010.i.i.i.i.i.i.i.i.i.i.i.i.i56, align 4, !tbaa.struct !75
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i58 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.09.i.i.i.i.i.i.i.i.i.i.i.i.i57, i64 8

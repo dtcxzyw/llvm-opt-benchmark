@@ -134,7 +134,7 @@ stopping_criterion.exit:                          ; preds = %37
   br label %64
 
 64:                                               ; preds = %128, %58
-  %.0167.i = phi ptr [ null, %58 ], [ %.sink210.i, %128 ]
+  %.0167.i = phi ptr [ null, %58 ], [ %.sink229.i, %128 ]
   %.0165.i = phi i32 [ %spec.select, %58 ], [ %.1166.i, %128 ]
   %.0164.i = phi i32 [ %59, %58 ], [ %120, %128 ]
   %.0163.i = phi i32 [ %60, %58 ], [ %121, %128 ]
@@ -241,17 +241,17 @@ stopping_criterion.exit:                          ; preds = %37
   br label %116
 
 116:                                              ; preds = %115, %99, %90
-  %.sink210.i = phi ptr [ %97, %99 ], [ %113, %115 ], [ %88, %90 ]
+  %.sink229.i = phi ptr [ %97, %99 ], [ %113, %115 ], [ %88, %90 ]
   %.0164.sink.i = phi i32 [ %.0164.i, %99 ], [ %.0165.i, %115 ], [ %.0164.i, %90 ]
   %.sink.i = phi i32 [ %94, %99 ], [ %110, %115 ], [ %85, %90 ]
   %.0167.sink.i = phi ptr [ %.0167.i, %99 ], [ %104, %115 ], [ %79, %90 ]
   %.1166.i = phi i32 [ %.0163.i, %99 ], [ %.0163.i, %115 ], [ %.0160.i, %90 ]
   %.1161.i = phi i32 [ %.0165.i, %99 ], [ %.0164.i, %115 ], [ %.0165.i, %90 ]
-  %117 = getelementptr inbounds nuw i8, ptr %.sink210.i, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %.sink229.i, i64 4
   store i32 %.0164.sink.i, ptr %117, align 4, !tbaa !33
-  %118 = getelementptr inbounds nuw i8, ptr %.sink210.i, i64 12
+  %118 = getelementptr inbounds nuw i8, ptr %.sink229.i, i64 12
   store i32 %.sink.i, ptr %118, align 4, !tbaa !34
-  %119 = getelementptr inbounds nuw i8, ptr %.sink210.i, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %.sink229.i, i64 16
   store ptr %.0167.sink.i, ptr %119, align 8, !tbaa !35
   %120 = tail call i32 @cuddNextHigh(ptr noundef %0, i32 noundef %.1161.i) #8
   %121 = tail call i32 @cuddNextLow(ptr noundef %0, i32 noundef %.1166.i) #8
@@ -290,11 +290,11 @@ stopping_criterion.exit:                          ; preds = %37
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 12
   store i32 %131, ptr %138, align 4, !tbaa !34
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 16
-  store ptr %.sink210.i, ptr %139, align 8, !tbaa !35
+  store ptr %.sink229.i, ptr %139, align 8, !tbaa !35
   br label %140
 
 140:                                              ; preds = %136, %129
-  %.3.i = phi ptr [ %134, %136 ], [ %.sink210.i, %129 ]
+  %.3.i = phi ptr [ %134, %136 ], [ %.sink229.i, %129 ]
   br label %141
 
 141:                                              ; preds = %141, %140
@@ -365,20 +365,20 @@ siftBackwardProb.exit.i:                          ; preds = %170, %161, %148
   %179 = getelementptr inbounds nuw i8, ptr %.4195.i, i64 8
   store ptr %175, ptr %179, align 8, !tbaa !40
   %.not186.i = icmp eq ptr %177, null
-  br i1 %.not186.i, label %ddExchange.exit.thread183, label %174, !llvm.loop !41
+  br i1 %.not186.i, label %ddExchange.exit.thread211, label %174, !llvm.loop !41
 
 siftBackwardProb.exit.thread.i:                   ; preds = %103, %100, %96, %93, %69, %66
   %.not187196.i = icmp eq ptr %.0167.i, null
   br i1 %.not187196.i, label %ddExchange.exit.thread, label %.lr.ph.i130
 
 .lr.ph.i130:                                      ; preds = %133, %130, %112, %106, %87, %81, %78, %72, %.lr.ph.i.i, %siftBackwardProb.exit.thread.i
-  %.1168202.i = phi ptr [ %.0167.i, %siftBackwardProb.exit.thread.i ], [ %.3.i, %.lr.ph.i.i ], [ %104, %112 ], [ %104, %106 ], [ %79, %87 ], [ %79, %81 ], [ %70, %78 ], [ %70, %72 ], [ %.sink210.i, %130 ], [ %.sink210.i, %133 ]
+  %.1168221.i = phi ptr [ %.0167.i, %siftBackwardProb.exit.thread.i ], [ %.3.i, %.lr.ph.i.i ], [ %104, %112 ], [ %104, %106 ], [ %79, %87 ], [ %79, %81 ], [ %70, %78 ], [ %70, %72 ], [ %.sink229.i, %130 ], [ %.sink229.i, %133 ]
   %.promoted198.i = load ptr, ptr %31, align 8, !tbaa !38
   br label %180
 
 180:                                              ; preds = %180, %.lr.ph.i130
   %181 = phi ptr [ %.promoted198.i, %.lr.ph.i130 ], [ %.5197.i, %180 ]
-  %.5197.i = phi ptr [ %.1168202.i, %.lr.ph.i130 ], [ %183, %180 ]
+  %.5197.i = phi ptr [ %.1168221.i, %.lr.ph.i130 ], [ %183, %180 ]
   %182 = getelementptr inbounds nuw i8, ptr %.5197.i, i64 16
   %183 = load ptr, ptr %182, align 8, !tbaa !35
   %184 = getelementptr inbounds nuw i8, ptr %.5197.i, i64 4
@@ -392,7 +392,7 @@ siftBackwardProb.exit.thread.i:                   ; preds = %103, %100, %96, %93
   store ptr %.5197.i, ptr %31, align 8, !tbaa !38
   br label %ddExchange.exit.thread
 
-ddExchange.exit.thread183:                        ; preds = %174
+ddExchange.exit.thread211:                        ; preds = %174
   store ptr %.4195.i, ptr %31, align 8, !tbaa !38
   br label %188
 
@@ -407,7 +407,7 @@ ddExchange.exit.thread:                           ; preds = %ddExchange.exit, %s
   tail call void @free(ptr noundef %15) #8
   br label %222
 
-188:                                              ; preds = %ddExchange.exit.thread183, %ddExchange.exit
+188:                                              ; preds = %ddExchange.exit.thread211, %ddExchange.exit
   %189 = load i32, ptr %9, align 4, !tbaa !3
   %190 = load i32, ptr %11, align 8, !tbaa !24
   %191 = sub i32 %189, %190

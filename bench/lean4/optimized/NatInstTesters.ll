@@ -11112,18 +11112,18 @@ _init_l_Lean_Meta_isInstHPowNat___closed__1.exit: ; preds = %_init_l_Lean_Meta_i
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Meta_isInstHPowNat___closed__1.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %136, %_init_l_Lean_Meta_isInstHPowNat___closed__1.exit ]
-  %139 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !4
+  %.sink21 = phi ptr [ %4, %3 ], [ %136, %_init_l_Lean_Meta_isInstHPowNat___closed__1.exit ]
+  %139 = getelementptr inbounds nuw i8, ptr %.sink21, i64 4
+  store i32 1, ptr %.sink21, align 4, !tbaa !4
   store i32 131096, ptr %139, align 4
-  %140 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %.sink21, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %140, align 8, !tbaa !9
-  %141 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %.sink21, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %141, align 8, !tbaa !9
   br label %142
 
 142:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink21, %.sink.split ]
   ret ptr %.0
 }
 

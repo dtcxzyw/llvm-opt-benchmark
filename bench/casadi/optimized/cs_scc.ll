@@ -123,16 +123,16 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not119132, label %._crit_edge136, label %.lr.ph135.preheader
 
 .lr.ph135.preheader:                              ; preds = %._crit_edge.thread, %._crit_edge
-  %.0108.lcssa188 = phi i32 [ %8, %._crit_edge.thread ], [ %.1109, %._crit_edge ]
-  %.pre-phi187 = phi i64 [ %20, %._crit_edge.thread ], [ %.pre183, %._crit_edge ]
+  %.0108.lcssa197 = phi i32 [ %8, %._crit_edge.thread ], [ %.1109, %._crit_edge ]
+  %.pre-phi196 = phi i64 [ %20, %._crit_edge.thread ], [ %.pre183, %._crit_edge ]
   %52 = add i32 %8, 1
   br label %.lr.ph135
 
 .lr.ph135:                                        ; preds = %.lr.ph135.preheader, %.lr.ph135
-  %indvars.iv161 = phi i64 [ %.pre-phi187, %.lr.ph135.preheader ], [ %indvars.iv.next162, %.lr.ph135 ]
+  %indvars.iv161 = phi i64 [ %.pre-phi196, %.lr.ph135.preheader ], [ %indvars.iv.next162, %.lr.ph135 ]
   %53 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv161
   %54 = load i32, ptr %53, align 4, !tbaa !16
-  %55 = sub nsw i64 %indvars.iv161, %.pre-phi187
+  %55 = sub nsw i64 %indvars.iv161, %.pre-phi196
   %56 = getelementptr inbounds i32, ptr %24, i64 %55
   store i32 %54, ptr %56, align 4, !tbaa !16
   %indvars.iv.next162 = add nsw i64 %indvars.iv161, 1
@@ -141,8 +141,8 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond164.not, label %._crit_edge136, label %.lr.ph135, !llvm.loop !21
 
 ._crit_edge136:                                   ; preds = %.lr.ph135, %._crit_edge
-  %.0108.lcssa189 = phi i32 [ %.1109, %._crit_edge ], [ %.0108.lcssa188, %.lr.ph135 ]
-  %57 = sub nsw i32 %8, %.0108.lcssa189
+  %.0108.lcssa198 = phi i32 [ %.1109, %._crit_edge ], [ %.0108.lcssa197, %.lr.ph135 ]
+  %57 = sub nsw i32 %8, %.0108.lcssa198
   %58 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 %57, ptr %58, align 8, !tbaa !22
   %59 = icmp sgt i32 %57, 0
@@ -164,7 +164,7 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph146.preheader:                              ; preds = %.preheader121
   %61 = add i32 %8, 1
-  %62 = sub i32 %61, %.0108.lcssa189
+  %62 = sub i32 %61, %.0108.lcssa198
   %wide.trip.count176 = zext i32 %62 to i64
   br label %.lr.ph146
 

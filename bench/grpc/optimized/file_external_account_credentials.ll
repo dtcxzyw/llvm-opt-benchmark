@@ -1078,8 +1078,8 @@ _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit74: ; preds = %_ZSt8_D
   br label %264
 
 _ZNK9grpc_core12experimental4Json4typeEv.exit77:  ; preds = %223
-  %.19.i.i.i.lcssa.sroa.gep125 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
-  %241 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(56) %.19.i.i.i.lcssa.sroa.gep125)
+  %.19.i.i.i.lcssa.sroa.gep159 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
+  %241 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(56) %.19.i.i.i.lcssa.sroa.gep159)
           to label %242 unwind label %216
 
 242:                                              ; preds = %_ZNK9grpc_core12experimental4Json4typeEv.exit77
@@ -2818,11 +2818,11 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i87:   ; preds = %_ZNSt7__cxx1112basi
   br label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i87.invoke
 
 _ZSt26__throw_bad_variant_accessb.exit.i.i.i87.invoke: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i87
-  %.str.23.sink290 = phi ptr [ @.str.22, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i87 ], [ @.str.23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit ]
+  %.str.23.sink351 = phi ptr [ @.str.22, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i87 ], [ @.str.23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit ]
   %209 = call ptr @__cxa_allocate_exception(i64 16) #30
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %209, align 8, !tbaa !12
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
-  store ptr %.str.23.sink290, ptr %210, align 8, !tbaa !52
+  store ptr %.str.23.sink351, ptr %210, align 8, !tbaa !52
   invoke void @__cxa_throw(ptr nonnull %209, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #33
           to label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i87.cont unwind label %276
 

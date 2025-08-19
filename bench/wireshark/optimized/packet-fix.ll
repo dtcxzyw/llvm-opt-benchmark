@@ -7019,7 +7019,7 @@ fix_param.exit.thread:                            ; preds = %42, %38, %47
 
 96:                                               ; preds = %.lr.ph.i
   %.not.i = icmp eq i32 %80, %94
-  br i1 %.not.i, label %bsearch.exit.split.loop.exit223, label %97
+  br i1 %.not.i, label %bsearch.exit.split.loop.exit240, label %97
 
 97:                                               ; preds = %96
   %98 = add nuw i64 %91, 1
@@ -7031,12 +7031,12 @@ fix_param.exit.thread:                            ; preds = %42, %38, %47
   %100 = icmp ult i64 %.1.i, %.118.i
   br i1 %100, label %.lr.ph.i, label %bsearch.exit, !llvm.loop !10
 
-bsearch.exit.split.loop.exit223:                  ; preds = %96
+bsearch.exit.split.loop.exit240:                  ; preds = %96
   %101 = getelementptr i8, ptr @fix_fields, i64 %92
   br label %bsearch.exit
 
-bsearch.exit:                                     ; preds = %99, %bsearch.exit.split.loop.exit223
-  %.0.i196 = phi ptr [ %101, %bsearch.exit.split.loop.exit223 ], [ null, %99 ]
+bsearch.exit:                                     ; preds = %99, %bsearch.exit.split.loop.exit240
+  %.0.i196 = phi ptr [ %101, %bsearch.exit.split.loop.exit240 ], [ null, %99 ]
   %102 = load ptr, ptr %54, align 8
   %103 = load i32, ptr @fix_param.ret.2, align 4
   %104 = call ptr @tvb_get_string_enc(ptr noundef %102, ptr noundef %0, i32 noundef %103, i32 noundef %78, i32 noundef 0)

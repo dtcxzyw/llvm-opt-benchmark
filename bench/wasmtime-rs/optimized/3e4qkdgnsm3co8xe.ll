@@ -303,17 +303,17 @@ define hidden void @"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   %65 = load i64, ptr %3, align 8, !range !10, !noalias !7, !noundef !3
   %66 = icmp eq i64 %65, 1
   %67 = load i64, ptr %14, align 8
-  br i1 %66, label %.preheader54, label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hf0b449c59a63568fE.exit"
+  br i1 %66, label %.preheader55, label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hf0b449c59a63568fE.exit"
 
-.preheader54:                                     ; preds = %58, %.preheader54
-  %.012.i = phi i64 [ %71, %.preheader54 ], [ %67, %58 ]
+.preheader55:                                     ; preds = %58, %.preheader55
+  %.012.i = phi i64 [ %71, %.preheader55 ], [ %67, %58 ]
   %68 = load ptr, ptr %10, align 8, !noalias !7, !nonnull !3, !align !4, !noundef !3
   %69 = load i64, ptr %11, align 8, !noalias !7, !noundef !3
   %70 = call zeroext i1 @"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hed41348d7b0217d2E"(ptr nonnull align 1 %68, i64 %69, i64 %.012.i), !noalias !7
   %71 = add i64 %.012.i, -1
-  br i1 %70, label %72, label %.preheader54
+  br i1 %70, label %72, label %.preheader55
 
-72:                                               ; preds = %.preheader54
+72:                                               ; preds = %.preheader55
   %73 = load i64, ptr %7, align 8, !noalias !7, !noundef !3
   %74 = call i64 @_ZN4core3cmp6min_by17h83f2fa75b02956cbE(i64 %.012.i, i64 %73), !noalias !7
   store i64 %74, ptr %7, align 8, !noalias !7

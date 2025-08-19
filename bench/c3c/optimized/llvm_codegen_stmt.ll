@@ -714,7 +714,7 @@ define dso_local void @llvm_emit_for_stmt(ptr noundef %0, ptr noundef captures(n
   %.012.i = phi ptr [ %55, %54 ], [ %42, %50 ], [ %42, %39 ], [ %42, %47 ]
   %57 = and i16 %56, 255
   %58 = icmp eq i16 %57, 14
-  br i1 %58, label %59, label %.thread154
+  br i1 %58, label %59, label %.thread158
 
 59:                                               ; preds = %.critedge.i
   %60 = getelementptr inbounds nuw i8, ptr %.012.i, i64 32
@@ -732,18 +732,18 @@ define dso_local void @llvm_emit_for_stmt(ptr noundef %0, ptr noundef captures(n
   %or.cond = select i1 %65, i1 true, i1 %63
   br i1 %or.cond, label %76, label %71
 
-.thread154:                                       ; preds = %.critedge.i
+.thread158:                                       ; preds = %.critedge.i
   %66 = icmp ne ptr %35, null
   %67 = select i1 %66, ptr %35, ptr %25
   %68 = call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #9
   %69 = icmp ne ptr %25, null
-  %or.cond158 = select i1 %69, i1 true, i1 %66
+  %or.cond162 = select i1 %69, i1 true, i1 %66
   %70 = icmp ne ptr %68, null
-  %or.cond3159 = select i1 %or.cond158, i1 true, i1 %70
-  br i1 %or.cond3159, label %76, label %.thread164
+  %or.cond3163 = select i1 %or.cond162, i1 true, i1 %70
+  br i1 %or.cond3163, label %76, label %.thread168
 
 71:                                               ; preds = %.thread
-  br i1 %.not152.sink, label %72, label %.thread164
+  br i1 %.not152.sink, label %72, label %.thread168
 
 72:                                               ; preds = %71
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
@@ -752,25 +752,25 @@ define dso_local void @llvm_emit_for_stmt(ptr noundef %0, ptr noundef captures(n
   call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %73) #9
   %74 = load ptr, ptr %6, align 8
   %.not138 = icmp eq ptr %74, null
-  br i1 %.not138, label %122, label %.sink.split166
+  br i1 %.not138, label %122, label %.sink.split170
 
-.thread164:                                       ; preds = %.thread154, %71
+.thread168:                                       ; preds = %.thread158, %71
   %75 = load ptr, ptr %6, align 8
   %.not137 = icmp eq ptr %75, null
-  br i1 %.not137, label %122, label %.sink.split166
+  br i1 %.not137, label %122, label %.sink.split170
 
-76:                                               ; preds = %.thread154, %.thread
-  %77 = phi i1 [ %69, %.thread154 ], [ %65, %.thread ]
-  %.0126163 = phi ptr [ %68, %.thread154 ], [ null, %.thread ]
-  %.0127162 = phi ptr [ %68, %.thread154 ], [ %64, %.thread ]
-  %78 = phi ptr [ %42, %.thread154 ], [ %.ph, %.thread ]
-  %.013.i151161 = phi i32 [ 0, %.thread154 ], [ %..i, %.thread ]
-  %79 = phi i1 [ %66, %.thread154 ], [ %63, %.thread ]
-  %80 = phi ptr [ %67, %.thread154 ], [ %64, %.thread ]
-  %81 = phi i1 [ true, %.thread154 ], [ false, %.thread ]
+76:                                               ; preds = %.thread158, %.thread
+  %77 = phi i1 [ %69, %.thread158 ], [ %65, %.thread ]
+  %.0126167 = phi ptr [ %68, %.thread158 ], [ null, %.thread ]
+  %.0127166 = phi ptr [ %68, %.thread158 ], [ %64, %.thread ]
+  %78 = phi ptr [ %42, %.thread158 ], [ %.ph, %.thread ]
+  %.013.i151165 = phi i32 [ 0, %.thread158 ], [ %..i, %.thread ]
+  %79 = phi i1 [ %66, %.thread158 ], [ %63, %.thread ]
+  %80 = phi ptr [ %67, %.thread158 ], [ %64, %.thread ]
+  %81 = phi i1 [ true, %.thread158 ], [ false, %.thread ]
   %82 = call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #9
-  %83 = icmp eq i32 %.013.i151161, 2
-  %84 = select i1 %83, ptr %82, ptr %.0127162
+  %83 = icmp eq i32 %.013.i151165, 2
+  %84 = select i1 %83, ptr %82, ptr %.0127166
   %.0125 = select i1 %77, ptr %25, ptr %84
   store ptr %.0125, ptr %11, align 8
   store ptr %82, ptr %12, align 8
@@ -779,9 +779,9 @@ define dso_local void @llvm_emit_for_stmt(ptr noundef %0, ptr noundef captures(n
 85:                                               ; preds = %76
   %.not139 = icmp eq ptr %80, null
   %86 = select i1 %.not152, i1 true, i1 %.not139
-  %.0126163.sink = select i1 %86, ptr %.0126163, ptr %80
-  call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef %.0126163.sink) #9
-  call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %.0126163) #9
+  %.0126167.sink = select i1 %86, ptr %.0126167, ptr %80
+  call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef %.0126167.sink) #9
+  call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %.0126167) #9
   %87 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %88 = load i16, ptr %87, align 8
   %89 = and i16 %88, 255
@@ -799,7 +799,7 @@ define dso_local void @llvm_emit_for_stmt(ptr noundef %0, ptr noundef captures(n
 93:                                               ; preds = %92, %91
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %4) #9
   %.not140 = icmp eq ptr %80, null
-  %spec.select = select i1 %.not140, ptr %.0126163, ptr %80
+  %spec.select = select i1 %.not140, ptr %.0126167, ptr %80
   call void @llvm_emit_cond_br(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %spec.select, ptr noundef %82) #9
   br label %94
 
@@ -807,7 +807,7 @@ define dso_local void @llvm_emit_for_stmt(ptr noundef %0, ptr noundef captures(n
   br i1 %79, label %95, label %103
 
 95:                                               ; preds = %94
-  switch i32 %.013.i151161, label %default.unreachable153 [
+  switch i32 %.013.i151165, label %default.unreachable157 [
     i32 0, label %.sink.split
     i32 1, label %96
     i32 2, label %97
@@ -817,7 +817,7 @@ define dso_local void @llvm_emit_for_stmt(ptr noundef %0, ptr noundef captures(n
   call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef nonnull %35) #9
   br label %.sink.split
 
-default.unreachable153:                           ; preds = %95
+default.unreachable157:                           ; preds = %95
   unreachable
 
 .sink.split:                                      ; preds = %95, %96
@@ -848,7 +848,7 @@ default.unreachable153:                           ; preds = %95
   br i1 %.not135, label %113, label %104
 
 104:                                              ; preds = %103
-  %105 = icmp eq ptr %.0127162, %.0124
+  %105 = icmp eq ptr %.0127166, %.0124
   br i1 %105, label %106, label %107
 
 106:                                              ; preds = %104
@@ -887,21 +887,21 @@ default.unreachable153:                           ; preds = %95
 119:                                              ; preds = %116
   %120 = load ptr, ptr %6, align 8
   %.not147 = icmp eq ptr %120, null
-  br i1 %.not147, label %122, label %.sink.split166
+  br i1 %.not147, label %122, label %.sink.split170
 
 .critedge5:                                       ; preds = %116, %114, %113
-  %.sink = phi ptr [ %.0127162, %113 ], [ %82, %114 ], [ %82, %116 ]
+  %.sink = phi ptr [ %.0127166, %113 ], [ %82, %114 ], [ %82, %116 ]
   call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef %.sink) #9
   call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %82) #9
   %121 = load ptr, ptr %6, align 8
   %.not148 = icmp eq ptr %121, null
-  br i1 %.not148, label %122, label %.sink.split166
+  br i1 %.not148, label %122, label %.sink.split170
 
-.sink.split166:                                   ; preds = %.critedge5, %119, %.thread164, %72
+.sink.split170:                                   ; preds = %.critedge5, %119, %.thread168, %72
   call void @llvm_debug_scope_pop(ptr noundef nonnull %0) #9
   br label %122
 
-122:                                              ; preds = %.sink.split166, %.critedge5, %119, %.thread164, %72
+122:                                              ; preds = %.sink.split170, %.critedge5, %119, %.thread168, %72
   ret void
 }
 
@@ -1185,7 +1185,7 @@ define internal fastcc void @llvm_emit_decl_expr_list(ptr noundef %0, ptr nounde
   br i1 %.not48, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4, %8
-  %.051 = phi i64 [ %12, %8 ], [ -1, %4 ]
+  %.053 = phi i64 [ %12, %8 ], [ -1, %4 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1195,7 +1195,7 @@ define internal fastcc void @llvm_emit_decl_expr_list(ptr noundef %0, ptr nounde
   %15 = load ptr, ptr %14, align 8
   call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %15) #9
   %16 = add nuw i64 %.03947, 1
-  %exitcond.not = icmp eq i64 %16, %.051
+  %exitcond.not = icmp eq i64 %16, %.053
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -1203,9 +1203,9 @@ define internal fastcc void @llvm_emit_decl_expr_list(ptr noundef %0, ptr nounde
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
-  %.052 = phi i64 [ %.051, %._crit_edge.loopexit ], [ 0, %8 ]
+  %.054 = phi i64 [ %.053, %._crit_edge.loopexit ], [ 0, %8 ]
   %17 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %7, %8 ]
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %.052
+  %18 = getelementptr inbounds ptr, ptr %17, i64 %.054
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
   call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %19) #9
@@ -3300,11 +3300,11 @@ codegen_new_constraint.exit:                      ; preds = %35, %codegen_append
 
 54:                                               ; preds = %.lr.ph.i
   %.0812.i.add = add nuw nsw i64 %.0812.i.idx, 1
-  %.ptr382 = getelementptr inbounds nuw i8, ptr @.str.33, i64 %.0812.i.add
+  %.ptr406 = getelementptr inbounds nuw i8, ptr @.str.33, i64 %.0812.i.add
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   store i8 %52, ptr %55, align 1
-  %56 = load i8, ptr %.ptr382, align 1
+  %56 = load i8, ptr %.ptr406, align 1
   %exitcond352 = icmp eq i64 %.0812.i.add, 4
   br i1 %exitcond352, label %codegen_append_constraints.exit, label %.lr.ph.i, !llvm.loop !29
 
@@ -3321,11 +3321,11 @@ codegen_new_constraint.exit:                      ; preds = %35, %codegen_append
 
 59:                                               ; preds = %.lr.ph.i155
   %.0812.i157.add = add nuw nsw i64 %.0812.i157.idx, 1
-  %.ptr383 = getelementptr inbounds nuw i8, ptr @.str.34, i64 %.0812.i157.add
+  %.ptr407 = getelementptr inbounds nuw i8, ptr @.str.34, i64 %.0812.i157.add
   %indvars.iv.next.i159 = add nuw nsw i64 %indvars.iv.i156, 1
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i156
   store i8 %57, ptr %60, align 1
-  %61 = load i8, ptr %.ptr383, align 1
+  %61 = load i8, ptr %.ptr407, align 1
   %exitcond353 = icmp eq i64 %.0812.i157.add, 3
   br i1 %exitcond353, label %codegen_append_constraints.exit, label %.lr.ph.i155, !llvm.loop !29
 
@@ -3395,11 +3395,11 @@ codegen_append_constraints.exit:                  ; preds = %54, %59
 
 85:                                               ; preds = %.lr.ph.i173
   %.0812.i175.add = add nuw nsw i64 %.0812.i175.idx, 1
-  %.ptr381 = getelementptr inbounds nuw i8, ptr @.str.36, i64 %.0812.i175.add
+  %.ptr405 = getelementptr inbounds nuw i8, ptr @.str.36, i64 %.0812.i175.add
   %indvars.iv.next.i177 = add nuw nsw i64 %indvars.iv.i174, 1
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i174
   store i8 %83, ptr %86, align 1
-  %87 = load i8, ptr %.ptr381, align 1
+  %87 = load i8, ptr %.ptr405, align 1
   %exitcond351 = icmp eq i64 %.0812.i175.add, 2
   br i1 %exitcond351, label %codegen_append_constraints.exit170, label %.lr.ph.i173, !llvm.loop !29
 
@@ -3523,11 +3523,11 @@ codegen_new_constraint.exit185:                   ; preds = %110, %codegen_appen
 
 134:                                              ; preds = %.lr.ph.i188
   %.0812.i190.add = add nuw nsw i64 %.0812.i190.idx, 1
-  %.ptr384 = getelementptr inbounds nuw i8, ptr @.str.37, i64 %.0812.i190.add
+  %.ptr408 = getelementptr inbounds nuw i8, ptr @.str.37, i64 %.0812.i190.add
   %indvars.iv.next.i192 = add nuw nsw i64 %indvars.iv.i189, 1
   %135 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i189
   store i8 %132, ptr %135, align 1
-  %136 = load i8, ptr %.ptr384, align 1
+  %136 = load i8, ptr %.ptr408, align 1
   %exitcond356 = icmp eq i64 %.0812.i190.add, 2
   br i1 %exitcond356, label %codegen_append_constraints.exit194, label %.lr.ph.i188, !llvm.loop !29
 
@@ -3582,7 +3582,7 @@ codegen_append_constraints.exit194:               ; preds = %134
   br label %codegen_append_constraints.exit203
 
 .lr.ph.i207:                                      ; preds = %138
-  %exitcond.i210 = icmp samesign ugt i32 %117, 1022
+  %exitcond.i210 = icmp eq i32 %117, 1023
   br i1 %exitcond.i210, label %158, label %codegen_append_constraints.exit215
 
 158:                                              ; preds = %.lr.ph.i207
@@ -3603,7 +3603,7 @@ codegen_append_constraints.exit215:               ; preds = %.lr.ph.i207
   %164 = zext i32 %162 to i64
   %165 = getelementptr inbounds nuw %struct.Expr_, ptr %163, i64 %164
   call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %10, ptr noundef %165) #9
-  %exitcond.i222 = icmp samesign ugt i32 %117, 1022
+  %exitcond.i222 = icmp eq i32 %117, 1023
   br i1 %exitcond.i222, label %166, label %codegen_append_constraints.exit227
 
 166:                                              ; preds = %.lr.ph.i219
@@ -3695,11 +3695,11 @@ codegen_append_constraints.exit.i231:             ; preds = %.lr.ph.i.i229
 
 190:                                              ; preds = %.lr.ph.i237
   %.0812.i239.add = add nuw nsw i64 %.0812.i239.idx, 1
-  %.ptr385 = getelementptr inbounds nuw i8, ptr @.str.41, i64 %.0812.i239.add
+  %.ptr409 = getelementptr inbounds nuw i8, ptr @.str.41, i64 %.0812.i239.add
   %indvars.iv.next.i241 = add nuw nsw i64 %indvars.iv.i238, 1
   %191 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i238
   store i8 %188, ptr %191, align 1
-  %192 = load i8, ptr %.ptr385, align 1
+  %192 = load i8, ptr %.ptr409, align 1
   %exitcond362 = icmp eq i64 %.0812.i239.add, 2
   br i1 %exitcond362, label %codegen_append_constraints.exit245, label %.lr.ph.i237, !llvm.loop !29
 
@@ -3826,7 +3826,7 @@ codegen_new_constraint.exit276:                   ; preds = %213, %codegen_appen
   br i1 %.not.i286, label %._crit_edge.loopexit.i287, label %.lr.ph.i281, !llvm.loop !29
 
 ._crit_edge.loopexit.i287:                        ; preds = %222
-  %226 = trunc nuw i64 %indvars.iv.next.i285 to i32
+  %226 = trunc nuw nsw i64 %indvars.iv.next.i285 to i32
   br label %codegen_append_constraints.exit289
 
 codegen_append_constraints.exit289:               ; preds = %codegen_new_constraint.exit276, %._crit_edge.loopexit.i287

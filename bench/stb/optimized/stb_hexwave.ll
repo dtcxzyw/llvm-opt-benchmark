@@ -502,7 +502,7 @@ hex_blamp.exit:                                   ; preds = %.lr.ph.i.i, %29, %2
 .preheader205:                                    ; preds = %76, %79
   %indvars.iv209 = phi i64 [ %indvars.iv.next210, %79 ], [ 0, %76 ]
   %exitcond212.not = icmp eq i64 %indvars.iv209, 8
-  br i1 %exitcond212.not, label %.split.loop.exit264, label %79
+  br i1 %exitcond212.not, label %.split.loop.exit278, label %79
 
 79:                                               ; preds = %.preheader205
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
@@ -513,9 +513,9 @@ hex_blamp.exit:                                   ; preds = %.lr.ph.i.i, %29, %2
 
 .split.loop.exit:                                 ; preds = %79
   %83 = trunc nuw nsw i64 %indvars.iv209 to i32
-  br label %.split.loop.exit264
+  br label %.split.loop.exit278
 
-.split.loop.exit264:                              ; preds = %.preheader205, %.split.loop.exit
+.split.loop.exit278:                              ; preds = %.preheader205, %.split.loop.exit
   %.1125.lcssa = phi i32 [ %83, %.split.loop.exit ], [ 8, %.preheader205 ]
   %84 = load i32, ptr @hexblep, align 8
   %85 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hexblep, i64 4), align 4
@@ -527,10 +527,10 @@ hex_blamp.exit:                                   ; preds = %.lr.ph.i.i, %29, %2
   %invariant.gep = getelementptr float, ptr %.mux, i64 %75
   br label %hex_blamp.exit178
 
-hex_blamp.exit178:                                ; preds = %hex_blamp.exit178.backedge, %.split.loop.exit264
-  %.2130 = phi float [ %.0128195, %.split.loop.exit264 ], [ %.2130.be, %hex_blamp.exit178.backedge ]
-  %.2126 = phi i32 [ %.1125.lcssa, %.split.loop.exit264 ], [ %.2126.be, %hex_blamp.exit178.backedge ]
-  %.0120 = phi i32 [ 0, %.split.loop.exit264 ], [ %.1.lcssa, %hex_blamp.exit178.backedge ]
+hex_blamp.exit178:                                ; preds = %hex_blamp.exit178.backedge, %.split.loop.exit278
+  %.2130 = phi float [ %.0128195, %.split.loop.exit278 ], [ %.2130.be, %hex_blamp.exit178.backedge ]
+  %.2126 = phi i32 [ %.1125.lcssa, %.split.loop.exit278 ], [ %.2126.be, %hex_blamp.exit178.backedge ]
+  %.0120 = phi i32 [ 0, %.split.loop.exit278 ], [ %.1.lcssa, %hex_blamp.exit178.backedge ]
   %89 = add nsw i32 %.2126, 1
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds [9 x %struct.hexvert], ptr %5, i64 0, i64 %90
@@ -607,9 +607,9 @@ hex_blamp.exit178:                                ; preds = %hex_blamp.exit178.b
   %135 = sitofp i32 %spec.select.i.i148 to float
   %136 = fneg float %135
   %137 = tail call float @llvm.fmuladd.f32(float %119, float %86, float %136)
-  br i1 %88, label %.lr.ph.i.i151, label %hex_blep.exit.thread257
+  br i1 %88, label %.lr.ph.i.i151, label %hex_blep.exit.thread271
 
-hex_blep.exit.thread257:                          ; preds = %116
+hex_blep.exit.thread271:                          ; preds = %116
   %138 = getelementptr inbounds float, ptr %.mux, i64 %115
   br label %hex_blamp.exit162
 
@@ -671,7 +671,7 @@ hex_blep.exit:                                    ; preds = %._crit_edge
   %167 = phi ptr [ %155, %hex_blep.exit.thread ], [ %164, %hex_blep.exit ]
   %.pn = phi float [ %153, %hex_blep.exit.thread ], [ %162, %hex_blep.exit ]
   %168 = phi ptr [ %148, %hex_blep.exit.thread ], [ %157, %hex_blep.exit ]
-  %.pre-phi251256 = phi float [ %137, %hex_blep.exit.thread ], [ %.pre250, %hex_blep.exit ]
+  %.pre-phi251270 = phi float [ %137, %hex_blep.exit.thread ], [ %.pre250, %hex_blep.exit ]
   %169 = fmul float %10, %.pn
   %170 = getelementptr inbounds float, ptr %.mux, i64 %115
   br label %.lr.ph.i.i158
@@ -683,7 +683,7 @@ hex_blep.exit:                                    ; preds = %._crit_edge
   %173 = getelementptr inbounds nuw float, ptr %166, i64 %indvars.iv.i.i159
   %174 = load float, ptr %173, align 4, !tbaa !16
   %175 = fsub float %174, %172
-  %176 = tail call float @llvm.fmuladd.f32(float %175, float %.pre-phi251256, float %172)
+  %176 = tail call float @llvm.fmuladd.f32(float %175, float %.pre-phi251270, float %172)
   %177 = getelementptr inbounds nuw float, ptr %170, i64 %indvars.iv.i.i159
   %178 = load float, ptr %177, align 4, !tbaa !16
   %179 = tail call float @llvm.fmuladd.f32(float %169, float %176, float %178)
@@ -692,8 +692,8 @@ hex_blep.exit:                                    ; preds = %._crit_edge
   %exitcond.not.i.i161 = icmp eq i64 %indvars.iv.next.i.i160, %wide.trip.count.i.i150
   br i1 %exitcond.not.i.i161, label %hex_blamp.exit162, label %.lr.ph.i.i158, !llvm.loop !23
 
-hex_blamp.exit162:                                ; preds = %.lr.ph.i.i158, %hex_blep.exit.thread257, %hex_blep.exit
-  %180 = phi ptr [ %157, %hex_blep.exit ], [ %138, %hex_blep.exit.thread257 ], [ %168, %.lr.ph.i.i158 ]
+hex_blamp.exit162:                                ; preds = %.lr.ph.i.i158, %hex_blep.exit.thread271, %hex_blep.exit
+  %180 = phi ptr [ %157, %hex_blep.exit ], [ %138, %hex_blep.exit.thread271 ], [ %168, %.lr.ph.i.i158 ]
   %181 = icmp eq i32 %89, 8
   br i1 %181, label %182, label %hex_blamp.exit178.backedge
 
@@ -811,17 +811,17 @@ hex_blamp.exit178.backedge:                       ; preds = %.lr.ph.i.i174, %217
   %246 = sub nsw i32 %1, %244
   %247 = sext i32 %246 to i64
   %wide.trip.count = zext nneg i32 %244 to i64
-  %invariant.gep266 = getelementptr float, ptr %0, i64 %247
+  %invariant.gep280 = getelementptr float, ptr %0, i64 %247
   br label %248
 
 248:                                              ; preds = %.lr.ph198, %248
   %indvars.iv216 = phi i64 [ 0, %.lr.ph198 ], [ %indvars.iv.next217, %248 ]
   %249 = getelementptr inbounds nuw [128 x float], ptr %6, i64 0, i64 %indvars.iv216
   %250 = load float, ptr %249, align 4, !tbaa !16
-  %gep267 = getelementptr float, ptr %invariant.gep266, i64 %indvars.iv216
-  %251 = load float, ptr %gep267, align 4, !tbaa !16
+  %gep281 = getelementptr float, ptr %invariant.gep280, i64 %indvars.iv216
+  %251 = load float, ptr %gep281, align 4, !tbaa !16
   %252 = fadd float %250, %251
-  store float %252, ptr %gep267, align 4, !tbaa !16
+  store float %252, ptr %gep281, align 4, !tbaa !16
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next217, %wide.trip.count
   br i1 %exitcond219.not, label %._crit_edge199, label %248, !llvm.loop !45
@@ -838,9 +838,9 @@ hex_blamp.exit178.backedge:                       ; preds = %.lr.ph.i.i174, %217
   br label %256
 
 256:                                              ; preds = %._crit_edge202, %._crit_edge199
-  %.sink270 = phi i64 [ %56, %._crit_edge202 ], [ %253, %._crit_edge199 ]
+  %.sink284 = phi i64 [ %56, %._crit_edge202 ], [ %253, %._crit_edge199 ]
   %.sink = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %257 = getelementptr inbounds float, ptr %6, i64 %.sink270
+  %257 = getelementptr inbounds float, ptr %6, i64 %.sink284
   %258 = sext i32 %9 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sink, ptr nonnull align 4 %257, i64 %258, i1 false)
   store float %.1129, ptr %2, align 4, !tbaa !40
@@ -1086,11 +1086,11 @@ define void @hexwave_init(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_
   %118 = mul i32 %1, %117
   %119 = add i32 %128, %118
   %120 = sitofp i32 %119 to float
-  %gep218 = getelementptr float, ptr %invariant.gep217, i64 %indvars.iv202
-  %121 = load float, ptr %gep218, align 4, !tbaa !16
+  %gep222 = getelementptr float, ptr %invariant.gep221, i64 %indvars.iv202
+  %121 = load float, ptr %gep222, align 4, !tbaa !16
   %122 = fneg float %120
   %123 = tail call float @llvm.fmuladd.f32(float %122, float %113, float %121)
-  store float %123, ptr %gep218, align 4, !tbaa !16
+  store float %123, ptr %gep222, align 4, !tbaa !16
   %indvars.iv.next203 = add nsw i64 %indvars.iv202, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next203, %115
   br i1 %exitcond206.not, label %._crit_edge.us164, label %116, !llvm.loop !51
@@ -1108,7 +1108,7 @@ define void @hexwave_init(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_
 .preheader.us:                                    ; preds = %124
   %127 = trunc nuw nsw i64 %indvars.iv207 to i32
   %128 = sub i32 %127, %5
-  %invariant.gep217 = getelementptr float, ptr %.0117, i64 %129
+  %invariant.gep221 = getelementptr float, ptr %.0117, i64 %129
   br label %116
 
 .lr.ph158.us:                                     ; preds = %._crit_edge.us164, %.preheader137.us.preheader

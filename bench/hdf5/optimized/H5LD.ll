@@ -74,8 +74,8 @@ define i32 @H5LD_construct_vector(ptr noundef %0, ptr noundef captures(none) %1,
 7:                                                ; preds = %H5LD_construct_info.exit, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %H5LD_construct_info.exit ], [ 0, %3 ]
   %.075 = phi i32 [ %46, %H5LD_construct_info.exit ], [ 0, %3 ]
-  %.071 = phi i1 [ %.374121129.ph, %H5LD_construct_info.exit ], [ false, %3 ]
-  %.067 = phi ptr [ %.370122128.ph, %H5LD_construct_info.exit ], [ %0, %3 ]
+  %.071 = phi i1 [ %.374131139.ph, %H5LD_construct_info.exit ], [ false, %3 ]
+  %.067 = phi ptr [ %.370132138.ph, %H5LD_construct_info.exit ], [ %0, %3 ]
   br i1 %.071, label %97, label %8
 
 8:                                                ; preds = %7
@@ -91,7 +91,7 @@ define i32 @H5LD_construct_vector(ptr noundef %0, ptr noundef captures(none) %1,
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %15, ptr %16, align 8, !tbaa !8
   %17 = icmp eq ptr %15, null
-  br i1 %17, label %.thread91.loopexit.split.loop.exit160, label %18
+  br i1 %17, label %.thread91.loopexit.split.loop.exit170, label %18
 
 18:                                               ; preds = %12
   store ptr %.067, ptr %15, align 8, !tbaa !15
@@ -122,7 +122,7 @@ define i32 @H5LD_construct_vector(ptr noundef %0, ptr noundef captures(none) %1,
 
 23:                                               ; preds = %22
   store i8 0, ptr %.063103, align 1, !tbaa !17
-  br label %.thread124.sink.split
+  br label %.thread134.sink.split
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %.269102, i64 1
@@ -160,15 +160,15 @@ define i32 @H5LD_construct_vector(ptr noundef %0, ptr noundef captures(none) %1,
   store i8 0, ptr %.063103, align 1, !tbaa !17
   %39 = getelementptr inbounds nuw i8, ptr %.269102, i64 1
   store i8 0, ptr %.269102, align 1, !tbaa !17
-  br i1 %.057104, label %.thread124.sink.split, label %.loopexit
+  br i1 %.057104, label %.thread134.sink.split, label %.loopexit
 
 40:                                               ; preds = %20
   %41 = getelementptr inbounds nuw i8, ptr %.269102, i64 1
   br label %.backedge
 
-.thread124.sink.split:                            ; preds = %38, %23
-  %.374121129.ph = phi i1 [ true, %23 ], [ false, %38 ]
-  %.370122128.ph = phi ptr [ %.269102, %23 ], [ %39, %38 ]
+.thread134.sink.split:                            ; preds = %38, %23
+  %.374131139.ph = phi i1 [ true, %23 ], [ false, %38 ]
+  %.370132138.ph = phi ptr [ %.269102, %23 ], [ %39, %38 ]
   %42 = load ptr, ptr %16, align 8, !tbaa !8
   %43 = zext nneg i32 %.052105.ph to i64
   %44 = getelementptr ptr, ptr %42, i64 %43
@@ -193,10 +193,10 @@ define i32 @H5LD_construct_vector(ptr noundef %0, ptr noundef captures(none) %1,
   %.not.i = icmp eq ptr %56, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
 
-.lr.ph.i:                                         ; preds = %.thread124.sink.split, %51
-  %57 = phi ptr [ %56, %51 ], [ %50, %.thread124.sink.split ]
-  %.02236.i = phi i64 [ %61, %51 ], [ %48, %.thread124.sink.split ]
-  %.02435.i = phi i32 [ %52, %51 ], [ 0, %.thread124.sink.split ]
+.lr.ph.i:                                         ; preds = %.thread134.sink.split, %51
+  %57 = phi ptr [ %56, %51 ], [ %50, %.thread134.sink.split ]
+  %.02236.i = phi i64 [ %61, %51 ], [ %48, %.thread134.sink.split ]
+  %.02435.i = phi i32 [ %52, %51 ], [ 0, %.thread134.sink.split ]
   %58 = call i32 @H5Tget_member_index(i64 noundef %.02236.i, ptr noundef nonnull %57) #9
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %.thread.i, label %60
@@ -215,8 +215,8 @@ define i32 @H5LD_construct_vector(ptr noundef %0, ptr noundef captures(none) %1,
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %.thread.i, label %51
 
-._crit_edge.i:                                    ; preds = %51, %.thread124.sink.split
-  %.022.lcssa.i = phi i64 [ %48, %.thread124.sink.split ], [ %61, %51 ]
+._crit_edge.i:                                    ; preds = %51, %.thread134.sink.split
+  %.022.lcssa.i = phi i64 [ %48, %.thread134.sink.split ], [ %61, %51 ]
   %69 = call i64 @H5Tget_size(i64 noundef %.022.lcssa.i) #9
   %70 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %69, ptr %70, align 8, !tbaa !21
@@ -278,12 +278,12 @@ H5LD_construct_info.exit:                         ; preds = %86, %88
   %92 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.thread91
 
-.thread91.loopexit.split.loop.exit160:            ; preds = %12
+.thread91.loopexit.split.loop.exit170:            ; preds = %12
   %93 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.thread91
 
-.thread91:                                        ; preds = %H5LD_construct_info.exit, %.thread91.loopexit.split.loop.exit, %.thread91.loopexit.split.loop.exit160, %.loopexit
-  %.176.ph = phi i32 [ %90, %.loopexit ], [ %92, %.thread91.loopexit.split.loop.exit ], [ %93, %.thread91.loopexit.split.loop.exit160 ], [ %46, %H5LD_construct_info.exit ]
+.thread91:                                        ; preds = %H5LD_construct_info.exit, %.thread91.loopexit.split.loop.exit, %.thread91.loopexit.split.loop.exit170, %.loopexit
+  %.176.ph = phi i32 [ %90, %.loopexit ], [ %92, %.thread91.loopexit.split.loop.exit ], [ %93, %.thread91.loopexit.split.loop.exit170 ], [ %46, %H5LD_construct_info.exit ]
   %94 = sext i32 %.176.ph to i64
   %95 = getelementptr inbounds ptr, ptr %1, i64 %94
   store ptr null, ptr %95, align 8, !tbaa !3

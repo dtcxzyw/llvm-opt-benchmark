@@ -2412,8 +2412,8 @@ proto_item_set_generated.exit666:                 ; preds = %proto_item_set_gene
   %847 = call i32 @_setjmp(ptr noundef nonnull %846) #9
   %.not616 = icmp eq i32 %847, 0
   %848 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %.sink705 = select i1 %.not616, ptr null, ptr %848
-  store volatile ptr %.sink705, ptr %18, align 8
+  %.sink748 = select i1 %.not616, ptr null, ptr %848
+  store volatile ptr %.sink748, ptr %18, align 8
   %.0..0..0..0.56 = load volatile i32, ptr %19, align 4
   %849 = and i32 %.0..0..0..0.56, 1
   %.not617 = icmp eq i32 %849, 0
@@ -2788,8 +2788,8 @@ proto_item_set_generated.exit672:                 ; preds = %1031, %1028, %ensur
   %1038 = call i32 @_setjmp(ptr noundef nonnull %1037) #9
   %.not628 = icmp eq i32 %1038, 0
   %1039 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %.sink706 = select i1 %.not628, ptr null, ptr %1039
-  store volatile ptr %.sink706, ptr %22, align 8
+  %.sink749 = select i1 %.not628, ptr null, ptr %1039
+  store volatile ptr %.sink749, ptr %22, align 8
   %.0..0..0..0.23 = load volatile i32, ptr %23, align 4
   %1040 = and i32 %.0..0..0..0.23, 1
   %.not629 = icmp eq i32 %1040, 0
@@ -3309,7 +3309,7 @@ define internal noundef zeroext i1 @frame_add_comment(ptr readnone captures(none
   %26 = tail call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %25)
   %27 = load i32, ptr @max_comment_lines, align 4
   %.not62 = icmp eq i32 %27, 0
-  br i1 %.not62, label %.thread69, label %.lr.ph
+  br i1 %.not62, label %.thread77, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18, %39
   %.057 = phi i32 [ %40, %39 ], [ 0, %18 ]
@@ -3361,16 +3361,16 @@ define internal noundef zeroext i1 @frame_add_comment(ptr readnone captures(none
 
 46:                                               ; preds = %._crit_edge
   %.not47 = icmp eq ptr %.043.lcssa.ph, null
-  br i1 %.not47, label %.thread51, label %.thread69
+  br i1 %.not47, label %.thread51, label %.thread77
 
-.thread69:                                        ; preds = %18, %46
-  %.043.lcssa6872 = phi ptr [ %.043.lcssa.ph, %46 ], [ %9, %18 ]
-  store i8 10, ptr %.043.lcssa6872, align 1
+.thread77:                                        ; preds = %18, %46
+  %.043.lcssa7680 = phi ptr [ %.043.lcssa.ph, %46 ], [ %9, %18 ]
+  store i8 10, ptr %.043.lcssa7680, align 1
   %.pre64 = load i32, ptr @max_comment_lines, align 4
   br label %.thread51
 
-.thread51:                                        ; preds = %.thread, %.thread69, %46
-  %47 = phi i32 [ %.057, %.thread ], [ %.pre64, %.thread69 ], [ %.pre, %46 ]
+.thread51:                                        ; preds = %.thread, %.thread77, %46
+  %47 = phi i32 [ %.057, %.thread ], [ %.pre64, %.thread77 ], [ %.pre, %46 ]
   %48 = load i32, ptr @hf_comments_text, align 4
   %49 = load ptr, ptr %22, align 8
   %50 = icmp eq i32 %47, 1

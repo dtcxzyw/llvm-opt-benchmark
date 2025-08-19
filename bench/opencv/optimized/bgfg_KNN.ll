@@ -2580,7 +2580,7 @@ define linkonce_odr hidden void @_ZNK2cv10KNNInvokerclERKNS_5RangeE(ptr noundef 
   br i1 %.not134170.i.us, label %.lr.ph174.i.us, label %.thread148.i.us.thread
 
 .thread148.i.us.thread:                           ; preds = %76
-  %.not135.i.us83 = icmp slt i32 %79, 1
+  %.not135.i.us91 = icmp slt i32 %79, 1
   br label %_ZN2cvL25_cvCheckPixelBackgroundNPEPKhiiPhfifbRh.exit.us
 
 .lr.ph174.i.us:                                   ; preds = %76
@@ -2777,7 +2777,7 @@ define linkonce_odr hidden void @_ZNK2cv10KNNInvokerclERKNS_5RangeE(ptr noundef 
   br i1 %exitcond268.not.i.us, label %_ZN2cvL25_cvCheckPixelBackgroundNPEPKhiiPhfifbRh.exit.us, label %136, !llvm.loop !137
 
 _ZN2cvL25_cvCheckPixelBackgroundNPEPKhiiPhfifbRh.exit.us: ; preds = %100, %133, %._crit_edge.i.us, %167, %.thread152.i.us, %.thread148.i.us.thread, %.thread148.i.us
-  %.1.shrunk.us = phi i1 [ %.not135.i.us, %.thread148.i.us ], [ %.not135.i.us83, %.thread148.i.us.thread ], [ %.not135.i.us, %.thread152.i.us ], [ %.not135.i.us, %167 ], [ %.not135.i.us, %._crit_edge.i.us ], [ true, %133 ], [ true, %100 ]
+  %.1.shrunk.us = phi i1 [ %.not135.i.us, %.thread148.i.us ], [ %.not135.i.us91, %.thread148.i.us.thread ], [ %.not135.i.us, %.thread152.i.us ], [ %.not135.i.us, %167 ], [ %.not135.i.us, %._crit_edge.i.us ], [ true, %133 ], [ true, %100 ]
   %.3.i.us = phi i32 [ 0, %.thread148.i.us ], [ 0, %.thread148.i.us.thread ], [ 0, %._crit_edge.i.us ], [ 2, %167 ], [ 0, %.thread152.i.us ], [ 1, %133 ], [ 1, %100 ]
   %.1.us = zext i1 %.1.shrunk.us to i8
   %169 = load i32, ptr %33, align 8, !tbaa !70
@@ -2862,7 +2862,7 @@ _ZN2cvL25_cvCheckPixelBackgroundNPEPKhiiPhfifbRh.exit.us: ; preds = %100, %133, 
   br label %_ZN2cvL26_cvUpdatePixelBackgroundNPEiPKhiiPhS2_S2_S2_S2_S2_S2_iiih.exit.us
 
 _ZN2cvL26_cvUpdatePixelBackgroundNPEiPKhiiPhS2_S2_S2_S2_S2_S2_iiih.exit.us: ; preds = %218, %213
-  switch i32 %.3.i.us, label %default.unreachable81 [
+  switch i32 %.3.i.us, label %default.unreachable89 [
     i32 0, label %227
     i32 1, label %228
     i32 2, label %225
@@ -2896,7 +2896,7 @@ _ZN2cvL26_cvUpdatePixelBackgroundNPEiPKhiiPhS2_S2_S2_S2_S2_S2_iiih.exit.us: ; pr
 ._crit_edge67:                                    ; preds = %._crit_edge.us, %.lr.ph66, %2
   ret void
 
-default.unreachable81:                            ; preds = %_ZN2cvL26_cvUpdatePixelBackgroundNPEiPKhiiPhS2_S2_S2_S2_S2_S2_iiih.exit.us
+default.unreachable89:                            ; preds = %_ZN2cvL26_cvUpdatePixelBackgroundNPEiPKhiiPhS2_S2_S2_S2_S2_S2_iiih.exit.us
   unreachable
 }
 

@@ -842,8 +842,8 @@ define internal fastcc range(i32 0, 2) i32 @Dau_DecCheckSetAny(ptr noundef reado
 
 .thread.i:                                        ; preds = %12
   store i64 0, ptr %7, align 8, !tbaa !9
-  %.not97102.i = icmp eq i32 %10, 31
-  br i1 %.not97102.i, label %._crit_edge.i, label %.lr.ph.split.preheader.i
+  %.not97112.i = icmp eq i32 %10, 31
+  br i1 %.not97112.i, label %._crit_edge.i, label %.lr.ph.split.preheader.i
 
 .lr.ph.split.preheader.i:                         ; preds = %.thread.i
   %18 = icmp sgt i32 %10, 0
@@ -936,12 +936,12 @@ define internal fastcc range(i32 0, 2) i32 @Dau_DecCheckSetAny(ptr noundef reado
   br i1 %exitcond.not.i.i.us, label %.sink.split.i.us, label %.lr.ph.i.i.us, !llvm.loop !24
 
 .sink.split.i.us:                                 ; preds = %43, %52
-  %.013.lcssa.i.sink110.i.us = phi i32 [ %.2.i.i.us, %52 ], [ %.2.i73.i.us, %43 ]
+  %.013.lcssa.i.sink120.i.us = phi i32 [ %.2.i.i.us, %52 ], [ %.2.i73.i.us, %43 ]
   %.1.ph.i.us = phi i64 [ %30, %52 ], [ %.05092.i.us, %43 ]
-  %54 = and i32 %.013.lcssa.i.sink110.i.us, 63
+  %54 = and i32 %.013.lcssa.i.sink120.i.us, 63
   %55 = zext nneg i32 %54 to i64
   %56 = shl nuw i64 1, %55
-  %57 = ashr i32 %.013.lcssa.i.sink110.i.us, 6
+  %57 = ashr i32 %.013.lcssa.i.sink120.i.us, 6
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i64, ptr %7, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !9
@@ -1226,12 +1226,12 @@ define internal fastcc range(i32 0, 2) i32 @Dau_DecCheckSetAny(ptr noundef reado
   br i1 %exitcond.not.i77.i, label %.sink.split.i28, label %.lr.ph.i70.i, !llvm.loop !24
 
 .sink.split.i28:                                  ; preds = %174, %162, %166, %154
-  %.013.lcssa.i.sink98.i = phi i32 [ 0, %154 ], [ 0, %166 ], [ %.2.i.i35, %162 ], [ %.2.i75.i, %174 ]
+  %.013.lcssa.i.sink104.i = phi i32 [ 0, %154 ], [ 0, %166 ], [ %.2.i.i35, %162 ], [ %.2.i75.i, %174 ]
   %.1.ph.i29 = phi ptr [ %150, %154 ], [ %.089.i, %166 ], [ %150, %162 ], [ %.089.i, %174 ]
-  %176 = and i32 %.013.lcssa.i.sink98.i, 63
+  %176 = and i32 %.013.lcssa.i.sink104.i, 63
   %177 = zext nneg i32 %176 to i64
   %178 = shl nuw i64 1, %177
-  %179 = ashr i32 %.013.lcssa.i.sink98.i, 6
+  %179 = ashr i32 %.013.lcssa.i.sink104.i, 6
   %180 = sext i32 %179 to i64
   %181 = getelementptr inbounds i64, ptr %7, i64 %180
   %182 = load i64, ptr %181, align 8, !tbaa !9
@@ -1396,8 +1396,8 @@ Dau_DecSortSet.exit:                              ; preds = %14
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph, %27
-  %.sink54 = phi i32 [ 65, %27 ], [ 97, %.lr.ph ]
-  %28 = add nuw nsw i32 %.040, %.sink54
+  %.sink57 = phi i32 [ 65, %27 ], [ 97, %.lr.ph ]
+  %28 = add nuw nsw i32 %.040, %.sink57
   %putchar35 = tail call i32 @putchar(i32 %28)
   %29 = add nsw i32 %.02739, 1
   br label %30
@@ -1427,22 +1427,22 @@ Dau_DecSortSet.exit:                              ; preds = %14
   %35 = lshr i32 %0, %34
   %36 = and i32 %35, 3
   switch i32 %36, label %40 [
-    i32 0, label %.sink.split55
+    i32 0, label %.sink.split58
     i32 3, label %37
   ]
 
 37:                                               ; preds = %.lr.ph44
-  br label %.sink.split55
+  br label %.sink.split58
 
-.sink.split55:                                    ; preds = %.lr.ph44, %37
-  %.sink56 = phi i32 [ 65, %37 ], [ 97, %.lr.ph44 ]
-  %38 = add nuw nsw i32 %.142, %.sink56
+.sink.split58:                                    ; preds = %.lr.ph44, %37
+  %.sink59 = phi i32 [ 65, %37 ], [ 97, %.lr.ph44 ]
+  %38 = add nuw nsw i32 %.142, %.sink59
   %putchar33 = tail call i32 @putchar(i32 %38)
   %39 = add nsw i32 %.241, 1
   br label %40
 
-40:                                               ; preds = %.sink.split55, %.lr.ph44
-  %.3 = phi i32 [ %.241, %.lr.ph44 ], [ %39, %.sink.split55 ]
+40:                                               ; preds = %.sink.split58, %.lr.ph44
+  %.3 = phi i32 [ %.241, %.lr.ph44 ], [ %39, %.sink.split58 ]
   %41 = add nuw nsw i32 %.142, 1
   %exitcond49.not = icmp eq i32 %41, %1
   br i1 %exitcond49.not, label %.preheader, label %.lr.ph44, !llvm.loop !29
@@ -1684,7 +1684,7 @@ define internal fastcc void @Abc_TtMoveVar(ptr noundef captures(address) %0, i32
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.lr.ph.split.us.i
   %.0132.us.i = phi ptr [ %0, %.preheader.lr.ph.split.us.i ], [ %91, %._crit_edge.us.i ]
-  %invariant.gep169.i = getelementptr i64, ptr %.0132.us.i, i64 %78
+  %invariant.gep173.i = getelementptr i64, ptr %.0132.us.i, i64 %78
   br label %79
 
 79:                                               ; preds = %79, %.preheader.us.i
@@ -1693,8 +1693,8 @@ define internal fastcc void @Abc_TtMoveVar(ptr noundef captures(address) %0, i32
   %81 = load i64, ptr %80, align 8, !tbaa !9
   %82 = and i64 %81, %76
   %83 = lshr i64 %82, %71
-  %gep170.i = getelementptr i64, ptr %invariant.gep169.i, i64 %indvars.iv153.i
-  %84 = load i64, ptr %gep170.i, align 8, !tbaa !9
+  %gep174.i = getelementptr i64, ptr %invariant.gep173.i, i64 %indvars.iv153.i
+  %84 = load i64, ptr %gep174.i, align 8, !tbaa !9
   %85 = shl i64 %84, %71
   %86 = and i64 %85, %76
   %87 = and i64 %81, %77
@@ -1702,7 +1702,7 @@ define internal fastcc void @Abc_TtMoveVar(ptr noundef captures(address) %0, i32
   store i64 %88, ptr %80, align 8, !tbaa !9
   %89 = and i64 %84, %76
   %90 = or i64 %89, %83
-  store i64 %90, ptr %gep170.i, align 8, !tbaa !9
+  store i64 %90, ptr %gep174.i, align 8, !tbaa !9
   %indvars.iv.next154.i = add nuw nsw i64 %indvars.iv153.i, 1
   %exitcond158.not.i = icmp eq i64 %indvars.iv.next154.i, %wide.trip.count157.i
   br i1 %exitcond158.not.i, label %._crit_edge.us.i, label %79, !llvm.loop !40
@@ -1740,20 +1740,20 @@ define internal fastcc void @Abc_TtMoveVar(ptr noundef captures(address) %0, i32
 .preheader120.us.us.i:                            ; preds = %._crit_edge124.split.us.us.us.i, %.preheader120.us.us.preheader.i
   %.1125.us.us.i = phi ptr [ %110, %._crit_edge124.split.us.us.us.i ], [ %0, %.preheader120.us.us.preheader.i ]
   %invariant.gep.i = getelementptr i64, ptr %.1125.us.us.i, i64 %102
-  %invariant.gep167.i = getelementptr i64, ptr %.1125.us.us.i, i64 %103
+  %invariant.gep171.i = getelementptr i64, ptr %.1125.us.us.i, i64 %103
   br label %.preheader119.us.us.us.i
 
 .preheader119.us.us.us.i:                         ; preds = %._crit_edge.us.us.us.i, %.preheader120.us.us.i
   %indvars.iv150.i = phi i64 [ %indvars.iv.next151.i, %._crit_edge.us.us.us.i ], [ 0, %.preheader120.us.us.i ]
   %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %indvars.iv150.i
-  %gep168.i = getelementptr i64, ptr %invariant.gep167.i, i64 %indvars.iv150.i
+  %gep172.i = getelementptr i64, ptr %invariant.gep171.i, i64 %indvars.iv150.i
   br label %104
 
 104:                                              ; preds = %104, %.preheader119.us.us.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %104 ], [ 0, %.preheader119.us.us.us.i ]
   %105 = getelementptr i64, ptr %gep.i, i64 %indvars.iv.i
   %106 = load i64, ptr %105, align 8, !tbaa !9
-  %107 = getelementptr i64, ptr %gep168.i, i64 %indvars.iv.i
+  %107 = getelementptr i64, ptr %gep172.i, i64 %indvars.iv.i
   %108 = load i64, ptr %107, align 8, !tbaa !9
   store i64 %108, ptr %105, align 8, !tbaa !9
   store i64 %106, ptr %107, align 8, !tbaa !9
@@ -2062,16 +2062,16 @@ Dau_DecCreateSet.exit.us:                         ; preds = %.lr.ph.i71.us
   br label %Vec_IntPush.exit.us.sink.split
 
 Vec_IntPush.exit.us.sink.split:                   ; preds = %116, %118, %111, %113
-  %.sink268 = phi ptr [ %112, %111 ], [ %114, %113 ], [ %117, %116 ], [ %119, %118 ]
+  %.sink284 = phi ptr [ %112, %111 ], [ %114, %113 ], [ %117, %116 ], [ %119, %118 ]
   %.sink = phi i32 [ %108, %111 ], [ %108, %113 ], [ 16, %116 ], [ 16, %118 ]
-  store ptr %.sink268, ptr %14, align 8, !tbaa !36
+  store ptr %.sink284, ptr %14, align 8, !tbaa !36
   store i32 %.sink, ptr %11, align 8, !tbaa !45
   br label %Vec_IntPush.exit.us
 
 Vec_IntPush.exit.us:                              ; preds = %Vec_IntPush.exit.us.sink.split, %Dau_DecCreateSet.exit.us
-  %.pre.i96.us252 = phi ptr [ %.pre.i96.us253, %Dau_DecCreateSet.exit.us ], [ %.sink268, %Vec_IntPush.exit.us.sink.split ]
-  %.val11.i.us244 = phi ptr [ %.val11.i.us245, %Dau_DecCreateSet.exit.us ], [ %.sink268, %Vec_IntPush.exit.us.sink.split ]
-  %.pre.i.us242 = phi ptr [ %52, %Dau_DecCreateSet.exit.us ], [ %.sink268, %Vec_IntPush.exit.us.sink.split ]
+  %.pre.i96.us252 = phi ptr [ %.pre.i96.us253, %Dau_DecCreateSet.exit.us ], [ %.sink284, %Vec_IntPush.exit.us.sink.split ]
+  %.val11.i.us244 = phi ptr [ %.val11.i.us245, %Dau_DecCreateSet.exit.us ], [ %.sink284, %Vec_IntPush.exit.us.sink.split ]
+  %.pre.i.us242 = phi ptr [ %52, %Dau_DecCreateSet.exit.us ], [ %.sink284, %Vec_IntPush.exit.us.sink.split ]
   %120 = add nsw i32 %102, 1
   store i32 %120, ptr %12, align 4, !tbaa !33
   %121 = sext i32 %102 to i64
@@ -2406,14 +2406,14 @@ Dau_DecCheckSetTop.exit93.us:                     ; preds = %Dau_DecCheckSetTop5
   br label %Vec_IntPush.exit100.us.sink.split
 
 Vec_IntPush.exit100.us.sink.split:                ; preds = %238, %240, %233, %235
-  %.sink270 = phi ptr [ %234, %233 ], [ %236, %235 ], [ %239, %238 ], [ %241, %240 ]
-  %.sink269 = phi i32 [ %230, %233 ], [ %230, %235 ], [ 16, %238 ], [ 16, %240 ]
-  store ptr %.sink270, ptr %14, align 8, !tbaa !36
-  store i32 %.sink269, ptr %11, align 8, !tbaa !45
+  %.sink286 = phi ptr [ %234, %233 ], [ %236, %235 ], [ %239, %238 ], [ %241, %240 ]
+  %.sink285 = phi i32 [ %230, %233 ], [ %230, %235 ], [ 16, %238 ], [ 16, %240 ]
+  store ptr %.sink286, ptr %14, align 8, !tbaa !36
+  store i32 %.sink285, ptr %11, align 8, !tbaa !45
   br label %Vec_IntPush.exit100.us
 
 Vec_IntPush.exit100.us:                           ; preds = %Vec_IntPush.exit100.us.sink.split, %224
-  %.pre.i96.us259 = phi ptr [ %126, %224 ], [ %.sink270, %Vec_IntPush.exit100.us.sink.split ]
+  %.pre.i96.us259 = phi ptr [ %126, %224 ], [ %.sink286, %Vec_IntPush.exit100.us.sink.split ]
   %242 = add nsw i32 %.val.i.us, 1
   store i32 %242, ptr %12, align 4, !tbaa !33
   %243 = sext i32 %.val.i.us to i64
@@ -2740,12 +2740,12 @@ default.unreachable:                              ; preds = %.lr.ph188
 
 .sink.split:                                      ; preds = %38, %42, %40
   %.0151185.sink = phi i32 [ %.0151185, %40 ], [ %.0155183, %42 ], [ %.0153184, %38 ]
-  %.sink302 = phi ptr [ %21, %40 ], [ %22, %42 ], [ %23, %38 ]
+  %.sink309 = phi ptr [ %21, %40 ], [ %22, %42 ], [ %23, %38 ]
   %.1156.ph = phi i32 [ %.0155183, %40 ], [ %43, %42 ], [ %.0155183, %38 ]
   %.1154.ph = phi i32 [ %.0153184, %40 ], [ %.0153184, %42 ], [ %39, %38 ]
   %.1152.ph = phi i32 [ %41, %40 ], [ %.0151185, %42 ], [ %.0151185, %38 ]
   %44 = sext i32 %.0151185.sink to i64
-  %45 = getelementptr inbounds [16 x i32], ptr %.sink302, i64 0, i64 %44
+  %45 = getelementptr inbounds [16 x i32], ptr %.sink309, i64 0, i64 %44
   store i32 %.1149186, ptr %45, align 4, !tbaa !3
   br label %46
 
@@ -2764,9 +2764,9 @@ default.unreachable:                              ; preds = %.lr.ph188
 
 .lr.ph194.preheader:                              ; preds = %._crit_edge189.thread, %._crit_edge189
   %49 = phi i32 [ 1, %._crit_edge189.thread ], [ %48, %._crit_edge189 ]
-  %.0151.lcssa296 = phi i32 [ 0, %._crit_edge189.thread ], [ %.1152, %._crit_edge189 ]
-  %.0153.lcssa294 = phi i32 [ 0, %._crit_edge189.thread ], [ %.1154, %._crit_edge189 ]
-  %.0155.lcssa292 = phi i32 [ 0, %._crit_edge189.thread ], [ %.1156, %._crit_edge189 ]
+  %.0151.lcssa303 = phi i32 [ 0, %._crit_edge189.thread ], [ %.1152, %._crit_edge189 ]
+  %.0153.lcssa301 = phi i32 [ 0, %._crit_edge189.thread ], [ %.1154, %._crit_edge189 ]
+  %.0155.lcssa299 = phi i32 [ 0, %._crit_edge189.thread ], [ %.1156, %._crit_edge189 ]
   %smax = tail call i32 @llvm.smax.i32(i32 %49, i32 1)
   %wide.trip.count239 = zext nneg i32 %smax to i64
   br label %.lr.ph194
@@ -2777,16 +2777,16 @@ default.unreachable:                              ; preds = %.lr.ph188
   br label %.preheader178
 
 .preheader178:                                    ; preds = %.preheader178.loopexit, %._crit_edge189
-  %.not228299 = phi i1 [ true, %._crit_edge189 ], [ false, %.preheader178.loopexit ]
+  %.not228306 = phi i1 [ true, %._crit_edge189 ], [ false, %.preheader178.loopexit ]
   %smax272 = phi i64 [ 1, %._crit_edge189 ], [ %51, %.preheader178.loopexit ]
-  %.0151.lcssa297 = phi i32 [ %.1152, %._crit_edge189 ], [ %.0151.lcssa296, %.preheader178.loopexit ]
-  %.0153.lcssa295 = phi i32 [ %.1154, %._crit_edge189 ], [ %.0153.lcssa294, %.preheader178.loopexit ]
-  %.0155.lcssa293 = phi i32 [ 31, %._crit_edge189 ], [ %.0155.lcssa292, %.preheader178.loopexit ]
-  %52 = icmp sgt i32 %.0153.lcssa295, 0
+  %.0151.lcssa304 = phi i32 [ %.1152, %._crit_edge189 ], [ %.0151.lcssa303, %.preheader178.loopexit ]
+  %.0153.lcssa302 = phi i32 [ %.1154, %._crit_edge189 ], [ %.0153.lcssa301, %.preheader178.loopexit ]
+  %.0155.lcssa300 = phi i32 [ 31, %._crit_edge189 ], [ %.0155.lcssa299, %.preheader178.loopexit ]
+  %52 = icmp sgt i32 %.0153.lcssa302, 0
   br i1 %52, label %.lr.ph197.preheader, label %.preheader177
 
 .lr.ph197.preheader:                              ; preds = %.preheader178
-  %wide.trip.count246 = zext nneg i32 %.0153.lcssa295 to i64
+  %wide.trip.count246 = zext nneg i32 %.0153.lcssa302 to i64
   br label %.lr.ph197
 
 .lr.ph194:                                        ; preds = %.lr.ph194.preheader, %.lr.ph194
@@ -2805,12 +2805,12 @@ default.unreachable:                              ; preds = %.lr.ph188
   br i1 %exitcond240.not, label %.preheader178.loopexit, label %.lr.ph194, !llvm.loop !59
 
 .preheader177:                                    ; preds = %.lr.ph197, %.preheader178
-  %.0144.lcssa = phi i32 [ 0, %.preheader178 ], [ %.0153.lcssa295, %.lr.ph197 ]
-  %59 = icmp sgt i32 %.0155.lcssa293, 0
+  %.0144.lcssa = phi i32 [ 0, %.preheader178 ], [ %.0153.lcssa302, %.lr.ph197 ]
+  %59 = icmp sgt i32 %.0155.lcssa300, 0
   br i1 %59, label %.lr.ph201.preheader, label %.preheader176
 
 .lr.ph201.preheader:                              ; preds = %.preheader177
-  %wide.trip.count251 = zext nneg i32 %.0155.lcssa293 to i64
+  %wide.trip.count251 = zext nneg i32 %.0155.lcssa300 to i64
   br label %.lr.ph201
 
 .lr.ph197:                                        ; preds = %.lr.ph197.preheader, %.lr.ph197
@@ -2825,11 +2825,11 @@ default.unreachable:                              ; preds = %.lr.ph188
 
 .preheader176:                                    ; preds = %.lr.ph201, %.preheader177
   %.1.lcssa = phi i32 [ %.0144.lcssa, %.preheader177 ], [ %65, %.lr.ph201 ]
-  %62 = icmp sgt i32 %.0151.lcssa297, 0
+  %62 = icmp sgt i32 %.0151.lcssa304, 0
   br i1 %62, label %.lr.ph205.preheader, label %._crit_edge206
 
 .lr.ph205.preheader:                              ; preds = %.preheader176
-  %wide.trip.count256 = zext nneg i32 %.0151.lcssa297 to i64
+  %wide.trip.count256 = zext nneg i32 %.0151.lcssa304 to i64
   br label %.lr.ph205
 
 .lr.ph201:                                        ; preds = %.lr.ph201.preheader, %.lr.ph201
@@ -2855,15 +2855,15 @@ default.unreachable:                              ; preds = %.lr.ph188
   br i1 %exitcond257.not, label %._crit_edge206, label %.lr.ph205, !llvm.loop !62
 
 ._crit_edge206:                                   ; preds = %.lr.ph205, %.preheader176
-  %69 = add nsw i32 %.0151.lcssa297, %.0155.lcssa293
-  %70 = sub nsw i32 32, %.0155.lcssa293
+  %69 = add nsw i32 %.0151.lcssa304, %.0155.lcssa300
+  %70 = sub nsw i32 32, %.0155.lcssa300
   %71 = lshr i32 -1, %70
-  %72 = call i32 @Dau_DecCheckSetTopOld(ptr noundef nonnull %11, i32 noundef %1, i32 noundef %.0153.lcssa295, i32 noundef %69, i32 noundef %.0155.lcssa293, i32 noundef %71, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18)
+  %72 = call i32 @Dau_DecCheckSetTopOld(ptr noundef nonnull %11, i32 noundef %1, i32 noundef %.0153.lcssa302, i32 noundef %69, i32 noundef %.0155.lcssa300, i32 noundef %71, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18)
   %.not = icmp eq i32 %72, 0
   br i1 %.not, label %168, label %.preheader175
 
 .preheader175:                                    ; preds = %._crit_edge206
-  br i1 %.not228299, label %._crit_edge209.thread, label %.lr.ph208
+  br i1 %.not228306, label %._crit_edge209.thread, label %.lr.ph208
 
 ._crit_edge209.thread:                            ; preds = %.preheader175
   store i64 0, ptr %3, align 8, !tbaa !9
@@ -2871,17 +2871,17 @@ default.unreachable:                              ; preds = %.lr.ph188
   br label %._crit_edge218
 
 .lr.ph208:                                        ; preds = %.preheader175
-  %73 = add nsw i32 %.0153.lcssa295, %.0155.lcssa293
+  %73 = add nsw i32 %.0153.lcssa302, %.0155.lcssa300
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %74
   %76 = load i64, ptr %75, align 8, !tbaa !9
   %77 = xor i64 %76, -1
-  %78 = icmp eq i32 %.0151.lcssa297, 0
-  %79 = icmp ult i32 %.0151.lcssa297, 2
-  %80 = icmp ult i32 %.0151.lcssa297, 3
-  %81 = icmp ult i32 %.0151.lcssa297, 4
-  %82 = icmp ult i32 %.0151.lcssa297, 5
-  %83 = icmp ult i32 %.0151.lcssa297, 6
+  %78 = icmp eq i32 %.0151.lcssa304, 0
+  %79 = icmp ult i32 %.0151.lcssa304, 2
+  %80 = icmp ult i32 %.0151.lcssa304, 3
+  %81 = icmp ult i32 %.0151.lcssa304, 4
+  %82 = icmp ult i32 %.0151.lcssa304, 5
+  %83 = icmp ult i32 %.0151.lcssa304, 6
   br label %84
 
 84:                                               ; preds = %.lr.ph208, %84
@@ -2926,9 +2926,9 @@ default.unreachable:                              ; preds = %.lr.ph188
 .preheader174.lr.ph:                              ; preds = %84
   store i64 0, ptr %3, align 8, !tbaa !9
   store i64 0, ptr %4, align 8, !tbaa !9
-  %111 = sext i32 %.0153.lcssa295 to i64
-  %112 = sext i32 %.0151.lcssa297 to i64
-  %wide.trip.count267 = zext nneg i32 %.0155.lcssa293 to i64
+  %111 = sext i32 %.0153.lcssa302 to i64
+  %112 = sext i32 %.0151.lcssa304 to i64
+  %wide.trip.count267 = zext nneg i32 %.0155.lcssa300 to i64
   br label %.preheader174
 
 .preheader174:                                    ; preds = %.preheader174.lr.ph, %._crit_edge214
@@ -3003,7 +3003,7 @@ default.unreachable:                              ; preds = %.lr.ph188
   br i1 %52, label %.lr.ph220.preheader, label %.preheader172
 
 .lr.ph220.preheader:                              ; preds = %.preheader173
-  %145 = zext nneg i32 %.0153.lcssa295 to i64
+  %145 = zext nneg i32 %.0153.lcssa302 to i64
   %146 = shl nuw nsw i64 %145, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %5, ptr nonnull align 16 %23, i64 %146, i1 false), !tbaa !3
   br label %.preheader172
@@ -3012,16 +3012,16 @@ default.unreachable:                              ; preds = %.lr.ph188
   br i1 %59, label %.lr.ph222.preheader, label %._crit_edge223
 
 .lr.ph222.preheader:                              ; preds = %.preheader172
-  %147 = sext i32 %.0153.lcssa295 to i64
+  %147 = sext i32 %.0153.lcssa302 to i64
   %148 = shl nsw i64 %147, 2
   %scevgep = getelementptr i8, ptr %5, i64 %148
-  %149 = zext nneg i32 %.0155.lcssa293 to i64
+  %149 = zext nneg i32 %.0155.lcssa300 to i64
   %150 = shl nuw nsw i64 %149, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep, ptr nonnull align 16 %22, i64 %150, i1 false), !tbaa !3
   br label %._crit_edge223
 
 ._crit_edge223:                                   ; preds = %.lr.ph222.preheader, %.preheader172
-  %151 = add nsw i32 %.0153.lcssa295, %.0155.lcssa293
+  %151 = add nsw i32 %.0153.lcssa302, %.0155.lcssa300
   %152 = sext i32 %151 to i64
   %153 = getelementptr inbounds i32, ptr %5, i64 %152
   store i32 %1, ptr %153, align 4, !tbaa !3
@@ -3035,7 +3035,7 @@ default.unreachable:                              ; preds = %.lr.ph188
   br i1 %62, label %.lr.ph225.preheader, label %.preheader
 
 .lr.ph225.preheader:                              ; preds = %.preheader171
-  %155 = zext nneg i32 %.0151.lcssa297 to i64
+  %155 = zext nneg i32 %.0151.lcssa304 to i64
   %156 = shl nuw nsw i64 %155, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %6, ptr nonnull align 16 %21, i64 %156, i1 false), !tbaa !3
   br label %.preheader
@@ -3044,10 +3044,10 @@ default.unreachable:                              ; preds = %.lr.ph188
   br i1 %59, label %.lr.ph227.preheader, label %.loopexit
 
 .lr.ph227.preheader:                              ; preds = %.preheader
-  %157 = sext i32 %.0151.lcssa297 to i64
+  %157 = sext i32 %.0151.lcssa304 to i64
   %158 = shl nsw i64 %157, 2
   %scevgep284 = getelementptr i8, ptr %6, i64 %158
-  %159 = zext nneg i32 %.0155.lcssa293 to i64
+  %159 = zext nneg i32 %.0155.lcssa300 to i64
   %160 = shl nuw nsw i64 %159, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep284, ptr nonnull align 16 %22, i64 %160, i1 false), !tbaa !3
   br label %.loopexit
@@ -3057,7 +3057,7 @@ default.unreachable:                              ; preds = %.lr.ph188
   br i1 %.not167, label %164, label %161
 
 161:                                              ; preds = %.loopexit
-  %162 = add nsw i32 %.0153.lcssa295, %.0155.lcssa293
+  %162 = add nsw i32 %.0153.lcssa302, %.0155.lcssa300
   %163 = add nsw i32 %162, 1
   store i32 %163, ptr %7, align 4, !tbaa !3
   br label %164
@@ -3075,7 +3075,7 @@ default.unreachable:                              ; preds = %.lr.ph188
   br i1 %.not169, label %168, label %167
 
 167:                                              ; preds = %166
-  store i32 %.0155.lcssa293, ptr %9, align 4, !tbaa !3
+  store i32 %.0155.lcssa300, ptr %9, align 4, !tbaa !3
   br label %168
 
 168:                                              ; preds = %166, %167, %._crit_edge206
@@ -3644,25 +3644,25 @@ default.unreachable:                              ; preds = %.lr.ph.i
 
 .preheader:                                       ; preds = %77, %._crit_edge.thread
   %59 = phi i32 [ 1, %._crit_edge.thread ], [ %56, %77 ]
-  %.2.lcssa162 = phi i32 [ 0, %._crit_edge.thread ], [ %.3, %77 ]
-  %.019.lcssa.i137145151161 = phi i32 [ 0, %._crit_edge.thread ], [ %.120.i, %77 ]
-  %.017.lcssa.i138144152160 = phi i32 [ 0, %._crit_edge.thread ], [ %.118.i, %77 ]
-  %.016.lcssa.i139143153159 = phi i32 [ 0, %._crit_edge.thread ], [ %.1.i, %77 ]
+  %.2.lcssa174 = phi i32 [ 0, %._crit_edge.thread ], [ %.3, %77 ]
+  %.019.lcssa.i149157163173 = phi i32 [ 0, %._crit_edge.thread ], [ %.120.i, %77 ]
+  %.017.lcssa.i150156164172 = phi i32 [ 0, %._crit_edge.thread ], [ %.118.i, %77 ]
+  %.016.lcssa.i151155165171 = phi i32 [ 0, %._crit_edge.thread ], [ %.1.i, %77 ]
   %.061.lcssa = phi i32 [ 0, %._crit_edge.thread ], [ %.162, %77 ]
-  %60 = icmp sgt i32 %.017.lcssa.i138144152160, 0
+  %60 = icmp sgt i32 %.017.lcssa.i150156164172, 0
   br i1 %60, label %.lr.ph117.preheader, label %._crit_edge118
 
 .lr.ph117.preheader:                              ; preds = %.preheader
   %61 = sext i32 %.061.lcssa to i64
   %62 = shl nsw i64 %61, 2
   %scevgep = getelementptr i8, ptr %12, i64 %62
-  %63 = sext i32 %.016.lcssa.i139143153159 to i64
+  %63 = sext i32 %.016.lcssa.i151155165171 to i64
   %64 = shl nsw i64 %63, 2
   %scevgep124 = getelementptr i8, ptr %11, i64 %64
-  %65 = zext nneg i32 %.017.lcssa.i138144152160 to i64
+  %65 = zext nneg i32 %.017.lcssa.i150156164172 to i64
   %66 = shl nuw nsw i64 %65, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep, ptr align 4 %scevgep124, i64 %66, i1 false), !tbaa !3
-  %67 = add i32 %.061.lcssa, %.017.lcssa.i138144152160
+  %67 = add i32 %.061.lcssa, %.017.lcssa.i150156164172
   br label %._crit_edge118
 
 .lr.ph113:                                        ; preds = %._crit_edge, %77
@@ -3693,7 +3693,7 @@ default.unreachable:                              ; preds = %.lr.ph.i
 
 ._crit_edge118:                                   ; preds = %.lr.ph117.preheader, %.preheader
   %.263.lcssa = phi i32 [ %.061.lcssa, %.preheader ], [ %67, %.lr.ph117.preheader ]
-  %79 = add nsw i32 %.017.lcssa.i138144152160, %.019.lcssa.i137145151161
+  %79 = add nsw i32 %.017.lcssa.i150156164172, %.019.lcssa.i149157163173
   %80 = call ptr @Extra_GreyCodeSchedule(i32 noundef %79) #22
   %81 = icmp slt i32 %.263.lcssa, 7
   %82 = add nsw i32 %.263.lcssa, -6
@@ -3702,40 +3702,40 @@ default.unreachable:                              ; preds = %.lr.ph.i
   %85 = sext i32 %84 to i64
   %86 = shl nsw i64 %85, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %5, i8 0, i64 %86, i1 false)
-  %87 = icmp slt i32 %.2.lcssa162, 6
-  %88 = add nsw i32 %.2.lcssa162, -5
+  %87 = icmp slt i32 %.2.lcssa174, 6
+  %88 = add nsw i32 %.2.lcssa174, -5
   %89 = shl nuw i32 1, %88
   %90 = select i1 %87, i32 1, i32 %89
   %91 = sext i32 %90 to i64
   %92 = shl nsw i64 %91, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %6, i8 0, i64 %92, i1 false)
-  %.not = icmp eq i32 %.017.lcssa.i138144152160, 0
+  %.not = icmp eq i32 %.017.lcssa.i150156164172, 0
   br i1 %.not, label %.split73, label %.split
 
 .split73:                                         ; preds = %._crit_edge118
-  %93 = icmp slt i32 %.016.lcssa.i139143153159, 6
+  %93 = icmp slt i32 %.016.lcssa.i151155165171, 6
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %.split73
-  %95 = call i32 @Dau_DecCheckSetTop5(ptr noundef nonnull %4, i32 poison, i32 noundef %.016.lcssa.i139143153159, i32 noundef %79, i32 noundef 0, i32 noundef 0, ptr noundef readonly %80, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %95 = call i32 @Dau_DecCheckSetTop5(ptr noundef nonnull %4, i32 poison, i32 noundef %.016.lcssa.i151155165171, i32 noundef %79, i32 noundef 0, i32 noundef 0, ptr noundef readonly %80, ptr noundef nonnull %5, ptr noundef nonnull %6)
   br label %Dau_DecCheckSetTop.exit
 
 96:                                               ; preds = %.split73
-  %97 = call i32 @Dau_DecCheckSetTop6(ptr noundef nonnull %4, i32 poison, i32 noundef %.016.lcssa.i139143153159, i32 noundef %79, i32 noundef 0, i32 noundef 0, ptr noundef readonly %80, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %97 = call i32 @Dau_DecCheckSetTop6(ptr noundef nonnull %4, i32 poison, i32 noundef %.016.lcssa.i151155165171, i32 noundef %79, i32 noundef 0, i32 noundef 0, ptr noundef readonly %80, ptr noundef nonnull %5, ptr noundef nonnull %6)
   br label %Dau_DecCheckSetTop.exit
 
 .split:                                           ; preds = %._crit_edge118
-  %98 = sub nsw i32 32, %.017.lcssa.i138144152160
+  %98 = sub nsw i32 32, %.017.lcssa.i150156164172
   %99 = lshr i32 -1, %98
-  %100 = icmp slt i32 %.016.lcssa.i139143153159, 6
+  %100 = icmp slt i32 %.016.lcssa.i151155165171, 6
   br i1 %100, label %101, label %103
 
 101:                                              ; preds = %.split
-  %102 = call i32 @Dau_DecCheckSetTop5(ptr noundef nonnull %4, i32 poison, i32 noundef %.016.lcssa.i139143153159, i32 noundef %79, i32 noundef %.017.lcssa.i138144152160, i32 noundef %99, ptr noundef readonly %80, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %102 = call i32 @Dau_DecCheckSetTop5(ptr noundef nonnull %4, i32 poison, i32 noundef %.016.lcssa.i151155165171, i32 noundef %79, i32 noundef %.017.lcssa.i150156164172, i32 noundef %99, ptr noundef readonly %80, ptr noundef nonnull %5, ptr noundef nonnull %6)
   br label %Dau_DecCheckSetTop.exit
 
 103:                                              ; preds = %.split
-  %104 = call i32 @Dau_DecCheckSetTop6(ptr noundef nonnull %4, i32 poison, i32 noundef %.016.lcssa.i139143153159, i32 noundef %79, i32 noundef %.017.lcssa.i138144152160, i32 noundef %99, ptr noundef readonly %80, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %104 = call i32 @Dau_DecCheckSetTop6(ptr noundef nonnull %4, i32 poison, i32 noundef %.016.lcssa.i151155165171, i32 noundef %79, i32 noundef %.017.lcssa.i150156164172, i32 noundef %99, ptr noundef readonly %80, ptr noundef nonnull %5, ptr noundef nonnull %6)
   br label %Dau_DecCheckSetTop.exit
 
 Dau_DecCheckSetTop.exit:                          ; preds = %103, %101, %96, %94

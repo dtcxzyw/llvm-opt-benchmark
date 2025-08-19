@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17ha27991774ee6fe36E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #0 {
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %4, label %default.unreachable11 [
+  switch i64 %4, label %default.unreachable15 [
     i64 0, label %5
     i64 1, label %9
     i64 2, label %13
@@ -32,7 +32,7 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiv
     i64 5, label %"_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17hbbfb5e85bf6b2ea9E.exit"
   ]
 
-default.unreachable11:                            ; preds = %2
+default.unreachable15:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -170,7 +170,7 @@ _ZN17crossbeam_channel7flavors4tick7Channel8try_recv17h8b861ba828a2b374E.exit.i:
 define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17hb25180f1123730dfE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #0 {
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %4, label %default.unreachable11 [
+  switch i64 %4, label %default.unreachable15 [
     i64 0, label %5
     i64 1, label %9
     i64 2, label %13
@@ -179,7 +179,7 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiv
     i64 5, label %"_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17hbbfb5e85bf6b2ea9E.exit"
   ]
 
-default.unreachable11:                            ; preds = %2
+default.unreachable15:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -317,7 +317,7 @@ _ZN17crossbeam_channel7flavors4tick7Channel8try_recv17h8b861ba828a2b374E.exit.i:
 define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17hc861910a8a4a2082E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #0 {
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %4, label %default.unreachable11 [
+  switch i64 %4, label %default.unreachable15 [
     i64 0, label %5
     i64 1, label %9
     i64 2, label %13
@@ -326,7 +326,7 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiv
     i64 5, label %"_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17hbbfb5e85bf6b2ea9E.exit"
   ]
 
-default.unreachable11:                            ; preds = %2
+default.unreachable15:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -466,7 +466,7 @@ define hidden void @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u2
   %4 = alloca { ptr, [2 x i64] }, align 8
   %5 = alloca ptr, align 8
   %6 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %6, label %default.unreachable2 [
+  switch i64 %6, label %default.unreachable3 [
     i64 0, label %7
     i64 1, label %17
     i64 2, label %27
@@ -475,7 +475,7 @@ define hidden void @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u2
     i64 5, label %30
   ]
 
-default.unreachable2:                             ; preds = %2
+default.unreachable3:                             ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -547,7 +547,7 @@ define hidden void @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u2
   %4 = alloca { ptr, [2 x i64] }, align 8
   %5 = alloca ptr, align 8
   %6 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %6, label %default.unreachable2 [
+  switch i64 %6, label %default.unreachable3 [
     i64 0, label %7
     i64 1, label %17
     i64 2, label %27
@@ -556,7 +556,7 @@ define hidden void @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u2
     i64 5, label %30
   ]
 
-default.unreachable2:                             ; preds = %2
+default.unreachable3:                             ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -628,7 +628,7 @@ define hidden void @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u2
   %4 = alloca { ptr, [2 x i64] }, align 8
   %5 = alloca ptr, align 8
   %6 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %6, label %default.unreachable2 [
+  switch i64 %6, label %default.unreachable3 [
     i64 0, label %7
     i64 1, label %17
     i64 2, label %27
@@ -637,7 +637,7 @@ define hidden void @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u2
     i64 5, label %30
   ]
 
-default.unreachable2:                             ; preds = %2
+default.unreachable3:                             ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -707,7 +707,7 @@ default.unreachable2:                             ; preds = %2
 define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$5watch17h3095cd3bc9fe4d88E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %5, label %default.unreachable5 [
+  switch i64 %5, label %default.unreachable7 [
     i64 0, label %6
     i64 1, label %23
     i64 2, label %35
@@ -716,7 +716,7 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiv
     i64 5, label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$5watch17h6f333d302119a3b9E.exit"
   ]
 
-default.unreachable5:                             ; preds = %3
+default.unreachable7:                             ; preds = %3
   unreachable
 
 6:                                                ; preds = %3
@@ -826,7 +826,7 @@ default.unreachable5:                             ; preds = %3
 define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$5watch17h4591faee29621dc8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %5, label %default.unreachable5 [
+  switch i64 %5, label %default.unreachable7 [
     i64 0, label %6
     i64 1, label %23
     i64 2, label %35
@@ -835,7 +835,7 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiv
     i64 5, label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$5watch17h3c11106d83e0f193E.exit"
   ]
 
-default.unreachable5:                             ; preds = %3
+default.unreachable7:                             ; preds = %3
   unreachable
 
 6:                                                ; preds = %3
@@ -945,7 +945,7 @@ default.unreachable5:                             ; preds = %3
 define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$5watch17h72af2bee9402459eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %5, label %default.unreachable5 [
+  switch i64 %5, label %default.unreachable7 [
     i64 0, label %6
     i64 1, label %23
     i64 2, label %35
@@ -954,7 +954,7 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiv
     i64 5, label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$5watch17h3d8667a3dfc02f8fE.exit"
   ]
 
-default.unreachable5:                             ; preds = %3
+default.unreachable7:                             ; preds = %3
   unreachable
 
 6:                                                ; preds = %3
@@ -1064,7 +1064,7 @@ default.unreachable5:                             ; preds = %3
 define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$6accept17h3deb8029a43adeeaE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %5, label %default.unreachable12 [
+  switch i64 %5, label %default.unreachable18 [
     i64 0, label %6
     i64 1, label %10
     i64 2, label %14
@@ -1073,7 +1073,7 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiv
     i64 5, label %"_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17hbbfb5e85bf6b2ea9E.exit"
   ]
 
-default.unreachable12:                            ; preds = %3
+default.unreachable18:                            ; preds = %3
   unreachable
 
 6:                                                ; preds = %3
@@ -1247,7 +1247,7 @@ _ZN17crossbeam_channel7flavors4tick7Channel8try_recv17h8b861ba828a2b374E.exit.i:
 define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$6accept17h927a48516121e139E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %5, label %default.unreachable12 [
+  switch i64 %5, label %default.unreachable18 [
     i64 0, label %6
     i64 1, label %10
     i64 2, label %14
@@ -1256,7 +1256,7 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiv
     i64 5, label %"_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17hbbfb5e85bf6b2ea9E.exit"
   ]
 
-default.unreachable12:                            ; preds = %3
+default.unreachable18:                            ; preds = %3
   unreachable
 
 6:                                                ; preds = %3
@@ -1430,7 +1430,7 @@ _ZN17crossbeam_channel7flavors4tick7Channel8try_recv17h8b861ba828a2b374E.exit.i:
 define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$6accept17he9812c78033f6af7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %5, label %default.unreachable12 [
+  switch i64 %5, label %default.unreachable18 [
     i64 0, label %6
     i64 1, label %10
     i64 2, label %14
@@ -1439,7 +1439,7 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiv
     i64 5, label %"_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17hbbfb5e85bf6b2ea9E.exit"
   ]
 
-default.unreachable12:                            ; preds = %3
+default.unreachable18:                            ; preds = %3
   unreachable
 
 6:                                                ; preds = %3
@@ -1883,7 +1883,7 @@ default.unreachable1:                             ; preds = %1
 define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17h66f8296979851e49E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %3, label %default.unreachable5 [
+  switch i64 %3, label %default.unreachable7 [
     i64 0, label %4
     i64 1, label %20
     i64 2, label %31
@@ -1892,7 +1892,7 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiv
     i64 5, label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17hbef44fbf97233228E.exit"
   ]
 
-default.unreachable5:                             ; preds = %1
+default.unreachable7:                             ; preds = %1
   unreachable
 
 4:                                                ; preds = %1
@@ -1998,7 +1998,7 @@ default.unreachable5:                             ; preds = %1
 define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17hab28dae5e6fd3a2aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %3, label %default.unreachable5 [
+  switch i64 %3, label %default.unreachable7 [
     i64 0, label %4
     i64 1, label %20
     i64 2, label %31
@@ -2007,7 +2007,7 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiv
     i64 5, label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17hdbcc8ab03df985a3E.exit"
   ]
 
-default.unreachable5:                             ; preds = %1
+default.unreachable7:                             ; preds = %1
   unreachable
 
 4:                                                ; preds = %1
@@ -2113,7 +2113,7 @@ default.unreachable5:                             ; preds = %1
 define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17he706e82bdc32480fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %3, label %default.unreachable5 [
+  switch i64 %3, label %default.unreachable7 [
     i64 0, label %4
     i64 1, label %20
     i64 2, label %31
@@ -2122,7 +2122,7 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiv
     i64 5, label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17h41c8a61dfd86579eE.exit"
   ]
 
-default.unreachable5:                             ; preds = %1
+default.unreachable7:                             ; preds = %1
   unreachable
 
 4:                                                ; preds = %1
@@ -2228,7 +2228,7 @@ default.unreachable5:                             ; preds = %1
 define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8register17h64f7f6fa5285ef0aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %5, label %default.unreachable5 [
+  switch i64 %5, label %default.unreachable7 [
     i64 0, label %6
     i64 1, label %23
     i64 2, label %35
@@ -2237,7 +2237,7 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiv
     i64 5, label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8register17h65a3ba2f3effe935E.exit"
   ]
 
-default.unreachable5:                             ; preds = %3
+default.unreachable7:                             ; preds = %3
   unreachable
 
 6:                                                ; preds = %3
@@ -2347,7 +2347,7 @@ default.unreachable5:                             ; preds = %3
 define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8register17ha4f907d16d9f31cdE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %5, label %default.unreachable5 [
+  switch i64 %5, label %default.unreachable7 [
     i64 0, label %6
     i64 1, label %23
     i64 2, label %35
@@ -2356,7 +2356,7 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiv
     i64 5, label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8register17he3805d594e4deae9E.exit"
   ]
 
-default.unreachable5:                             ; preds = %3
+default.unreachable7:                             ; preds = %3
   unreachable
 
 6:                                                ; preds = %3
@@ -2466,7 +2466,7 @@ default.unreachable5:                             ; preds = %3
 define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8register17hf5e7e63a29e0d456E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %5, label %default.unreachable5 [
+  switch i64 %5, label %default.unreachable7 [
     i64 0, label %6
     i64 1, label %23
     i64 2, label %35
@@ -2475,7 +2475,7 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiv
     i64 5, label %"_ZN112_$LT$crossbeam_channel..flavors..array..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8register17he929c1a40b47c8b8E.exit"
   ]
 
-default.unreachable5:                             ; preds = %3
+default.unreachable7:                             ; preds = %3
   unreachable
 
 6:                                                ; preds = %3

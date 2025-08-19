@@ -110,11 +110,11 @@ sub_1121:                                         ; preds = %sub_1, %sub_0120.th
 38:                                               ; preds = %.tail119
   %puts93 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef 2)
-  %.not191 = icmp eq i32 %0, 2
+  %.not198 = icmp eq i32 %0, 2
   %40 = add nsw i32 %0, -2
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %wide.trip.count.i = zext nneg i32 %40 to i64
-  br i1 %.not191, label %isTestSkipped.exit.thread, label %.split.us
+  br i1 %.not198, label %isTestSkipped.exit.thread, label %.split.us
 
 .split.us:                                        ; preds = %38, %53
   %indvars.iv153 = phi i64 [ %indvars.iv.next154.pre-phi, %53 ], [ 0, %38 ]
@@ -170,7 +170,7 @@ isTestSkipped.exit.thread:                        ; preds = %38, %isTestSkipped.
   %71 = tail call i64 @clock() #12
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !18
-  %74 = tail call i32 %73(i32 noundef %0, ptr noundef nonnull %1) #12
+  %74 = tail call i32 %73(i32 noundef 2, ptr noundef nonnull %1) #12
   %75 = tail call i64 @clock() #12
   %76 = sub nsw i64 %75, %71
   %77 = icmp eq i32 %74, -1
@@ -187,13 +187,13 @@ isTestSkipped.exit.thread:                        ; preds = %38, %isTestSkipped.
   br label %159
 
 .thread114:                                       ; preds = %sub_0, %sub_1121, %.thread, %.tail119
-  %.071167 = phi i32 [ %0, %.tail119 ], [ %17, %.thread ], [ %0, %sub_1121 ], [ %0, %sub_0 ]
-  %.073163 = phi ptr [ %1, %.tail119 ], [ %18, %.thread ], [ %1, %sub_1121 ], [ %1, %sub_0 ]
+  %.071174 = phi i32 [ %0, %.tail119 ], [ %17, %.thread ], [ %0, %sub_1121 ], [ %0, %sub_0 ]
+  %.073170 = phi ptr [ %1, %.tail119 ], [ %18, %.thread ], [ %1, %sub_1121 ], [ %1, %sub_0 ]
   %84 = phi i32 [ 0, %.tail119 ], [ -1, %.thread ], [ 0, %sub_1121 ], [ 0, %sub_0 ]
   %85 = phi i1 [ %32, %.tail119 ], [ false, %.thread ], [ %32, %sub_1121 ], [ false, %sub_0 ]
   %.079107111117 = phi i32 [ %31, %.tail119 ], [ 0, %.thread ], [ %31, %sub_1121 ], [ 0, %sub_0 ]
   %86 = zext nneg i32 %.079107111117 to i64
-  %87 = getelementptr inbounds nuw ptr, ptr %.073163, i64 %86
+  %87 = getelementptr inbounds nuw ptr, ptr %.073170, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !11
   %90 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %89) #11
@@ -233,8 +233,8 @@ isTestSkipped.exit.thread:                        ; preds = %38, %isTestSkipped.
 108:                                              ; preds = %.lr.ph, %142
   %109 = phi i1 [ true, %.lr.ph ], [ false, %142 ]
   %indvars.iv144 = phi i64 [ 0, %.lr.ph ], [ 1, %142 ]
-  %.172128 = phi i32 [ %.071167, %.lr.ph ], [ %.2, %142 ]
-  %.174127 = phi ptr [ %.073163, %.lr.ph ], [ %.275, %142 ]
+  %.172128 = phi i32 [ %.071174, %.lr.ph ], [ %.2, %142 ]
+  %.174127 = phi ptr [ %.073170, %.lr.ph ], [ %.275, %142 ]
   %110 = getelementptr inbounds nuw [3 x %struct.functionMapEntry], ptr @cmakeGeneratedFunctionMapEntries, i64 0, i64 %indvars.iv144
   %111 = load ptr, ptr %110, align 16, !tbaa !13
   %112 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %111) #11
@@ -305,14 +305,14 @@ lowercase.exit102:                                ; preds = %120, %108, %116
 
 ._crit_edge:                                      ; preds = %142
   call void @free(ptr noundef %92) #12
-  br i1 %143, label %.critedge194, label %._crit_edge.thread
+  br i1 %143, label %.critedge201, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.thread, %._crit_edge
-  %.172.lcssa189 = phi i32 [ %.2, %._crit_edge ], [ %17, %.thread ]
-  %.174.lcssa188 = phi ptr [ %.275, %._crit_edge ], [ %18, %.thread ]
-  %.181.lcssa187 = phi i32 [ %.282, %._crit_edge ], [ %13, %.thread ]
+  %.172.lcssa196 = phi i32 [ %.2, %._crit_edge ], [ %17, %.thread ]
+  %.174.lcssa195 = phi ptr [ %.275, %._crit_edge ], [ %18, %.thread ]
+  %.181.lcssa194 = phi i32 [ %.282, %._crit_edge ], [ %13, %.thread ]
   %145 = phi i32 [ %84, %._crit_edge ], [ %13, %.thread ]
-  %146 = icmp slt i32 %.181.lcssa187, 0
+  %146 = icmp slt i32 %.181.lcssa194, 0
   br i1 %146, label %147, label %149
 
 147:                                              ; preds = %._crit_edge.thread
@@ -320,13 +320,13 @@ lowercase.exit102:                                ; preds = %120, %108, %116
   br label %159
 
 149:                                              ; preds = %._crit_edge.thread
-  %150 = zext nneg i32 %.181.lcssa187 to i64
+  %150 = zext nneg i32 %.181.lcssa194 to i64
   %151 = getelementptr inbounds nuw [3 x %struct.functionMapEntry], ptr @cmakeGeneratedFunctionMapEntries, i64 0, i64 %150, i32 1
   %152 = load ptr, ptr %151, align 8, !tbaa !18
-  %153 = call i32 %152(i32 noundef %.172.lcssa189, ptr noundef %.174.lcssa188) #12
+  %153 = call i32 %152(i32 noundef %.172.lcssa196, ptr noundef %.174.lcssa195) #12
   br label %159
 
-.critedge194:                                     ; preds = %._crit_edge
+.critedge201:                                     ; preds = %._crit_edge
   %puts91 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %154 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef 0, ptr noundef nonnull @.str.18)
   %155 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef 1, ptr noundef nonnull @.str.19)
@@ -335,8 +335,8 @@ lowercase.exit102:                                ; preds = %120, %108, %116
   %158 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef %157)
   br label %159
 
-159:                                              ; preds = %147, %149, %.critedge194, %.split136.us, %30, %15, %11
-  %.0 = phi i32 [ -1, %11 ], [ -1, %15 ], [ -1, %30 ], [ 0, %.split136.us ], [ -1, %.critedge194 ], [ -1, %147 ], [ %153, %149 ]
+159:                                              ; preds = %147, %149, %.critedge201, %.split136.us, %30, %15, %11
+  %.0 = phi i32 [ -1, %11 ], [ -1, %15 ], [ -1, %30 ], [ 0, %.split136.us ], [ -1, %.critedge201 ], [ -1, %147 ], [ %153, %149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

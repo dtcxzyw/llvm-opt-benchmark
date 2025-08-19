@@ -1238,7 +1238,7 @@ define dso_local range(i32 0, 2) i32 @string2ll(ptr noundef readonly captures(no
   br i1 %6, label %8, label %.thread
 
 8:                                                ; preds = %5
-  switch i8 %7, label %.thread71 [
+  switch i8 %7, label %.thread74 [
     i8 48, label %9
     i8 45, label %.critedge
   ]
@@ -1264,14 +1264,14 @@ define dso_local range(i32 0, 2) i32 @string2ll(ptr noundef readonly captures(no
   %or.cond57 = icmp ult i8 %13, 9
   br i1 %or.cond57, label %16, label %.critedge
 
-.thread71:                                        ; preds = %8
+.thread74:                                        ; preds = %8
   %14 = add i8 %7, -49
-  %or.cond5775 = icmp ult i8 %14, 9
-  br i1 %or.cond5775, label %.thread88, label %.critedge
+  %or.cond5778 = icmp ult i8 %14, 9
+  br i1 %or.cond5778, label %.thread91, label %.critedge
 
-.thread88:                                        ; preds = %.thread71
-  %narrow83 = add nsw i8 %7, -48
-  %15 = zext nneg i8 %narrow83 to i64
+.thread91:                                        ; preds = %.thread74
+  %narrow86 = add nsw i8 %7, -48
+  %15 = zext nneg i8 %narrow86 to i64
   br label %37
 
 16:                                               ; preds = %11
@@ -1326,18 +1326,18 @@ define dso_local range(i32 0, 2) i32 @string2ll(ptr noundef readonly captures(no
   %36 = icmp slt i64 %.0.lcssa, 0
   br i1 %36, label %.critedge, label %37
 
-37:                                               ; preds = %.thread88, %35
-  %.0.lcssa8790 = phi i64 [ %15, %.thread88 ], [ %.0.lcssa, %35 ]
+37:                                               ; preds = %.thread91, %35
+  %.0.lcssa9093 = phi i64 [ %15, %.thread91 ], [ %.0.lcssa, %35 ]
   %.not53 = icmp eq ptr %2, null
   br i1 %.not53, label %.critedge, label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %37, %9, %33
-  %.sink = phi i64 [ %34, %33 ], [ 0, %9 ], [ %.0.lcssa8790, %37 ]
+  %.sink = phi i64 [ %34, %33 ], [ 0, %9 ], [ %.0.lcssa9093, %37 ]
   store i64 %.sink, ptr %2, align 8, !tbaa !35
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %22, %.critedge.sink.split, %.thread71, %8, %32, %37, %35, %30, %11, %9, %3
-  %.046 = phi i32 [ 0, %3 ], [ 1, %9 ], [ 0, %11 ], [ 0, %30 ], [ 0, %35 ], [ 1, %37 ], [ 1, %32 ], [ 0, %8 ], [ 0, %.thread71 ], [ 1, %.critedge.sink.split ], [ 0, %22 ], [ 0, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %22, %.critedge.sink.split, %.thread74, %8, %32, %37, %35, %30, %11, %9, %3
+  %.046 = phi i32 [ 0, %3 ], [ 1, %9 ], [ 0, %11 ], [ 0, %30 ], [ 0, %35 ], [ 1, %37 ], [ 1, %32 ], [ 0, %8 ], [ 0, %.thread74 ], [ 1, %.critedge.sink.split ], [ 0, %22 ], [ 0, %.lr.ph ]
   ret i32 %.046
 }
 
@@ -1355,7 +1355,7 @@ define dso_local range(i32 0, 2) i32 @string2ull(ptr noundef %0, ptr noundef wri
   br i1 %7, label %9, label %.thread.i
 
 9:                                                ; preds = %6
-  switch i8 %8, label %.thread71.i [
+  switch i8 %8, label %.thread74.i [
     i8 48, label %string2ll.exit.thread14
     i8 45, label %.loopexit
   ]
@@ -1377,14 +1377,14 @@ define dso_local range(i32 0, 2) i32 @string2ull(ptr noundef %0, ptr noundef wri
   %or.cond57.i = icmp ult i8 %13, 9
   br i1 %or.cond57.i, label %16, label %.loopexit
 
-.thread71.i:                                      ; preds = %9
+.thread74.i:                                      ; preds = %9
   %14 = add i8 %8, -49
-  %or.cond5775.i = icmp ult i8 %14, 9
-  br i1 %or.cond5775.i, label %.thread88.i, label %.loopexit
+  %or.cond5778.i = icmp ult i8 %14, 9
+  br i1 %or.cond5778.i, label %.thread91.i, label %.loopexit
 
-.thread88.i:                                      ; preds = %.thread71.i
-  %narrow83.i = add nsw i8 %8, -48
-  %15 = zext nneg i8 %narrow83.i to i64
+.thread91.i:                                      ; preds = %.thread74.i
+  %narrow86.i = add nsw i8 %8, -48
+  %15 = zext nneg i8 %narrow86.i to i64
   br label %string2ll.exit.thread14
 
 16:                                               ; preds = %11
@@ -1436,12 +1436,12 @@ string2ll.exit:                                   ; preds = %30
   %34 = icmp sgt i64 %notsub, -1
   br i1 %34, label %45, label %string2ll.exit.thread14
 
-string2ll.exit.thread14:                          ; preds = %32, %.thread88.i, %9, %string2ll.exit
-  %.sink.i16 = phi i64 [ 0, %string2ll.exit ], [ %.0.lcssa.i, %32 ], [ %15, %.thread88.i ], [ 0, %9 ]
+string2ll.exit.thread14:                          ; preds = %32, %.thread91.i, %9, %string2ll.exit
+  %.sink.i16 = phi i64 [ 0, %string2ll.exit ], [ %.0.lcssa.i, %32 ], [ %15, %.thread91.i ], [ 0, %9 ]
   store i64 %.sink.i16, ptr %1, align 8, !tbaa !35
   br label %45
 
-.loopexit:                                        ; preds = %22, %.lr.ph.i, %2, %11, %30, %32, %9, %.thread71.i
+.loopexit:                                        ; preds = %22, %.lr.ph.i, %2, %11, %30, %32, %9, %.thread74.i
   %35 = tail call ptr @__errno_location() #29
   store i32 0, ptr %35, align 4, !tbaa !5
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1488,7 +1488,7 @@ define dso_local range(i32 0, 2) i32 @string2l(ptr noundef readonly captures(non
   br i1 %6, label %8, label %.thread.i
 
 8:                                                ; preds = %5
-  switch i8 %7, label %.thread71.i [
+  switch i8 %7, label %.thread74.i [
     i8 48, label %string2ll.exit
     i8 45, label %string2ll.exit.thread
   ]
@@ -1510,14 +1510,14 @@ define dso_local range(i32 0, 2) i32 @string2l(ptr noundef readonly captures(non
   %or.cond57.i = icmp ult i8 %12, 9
   br i1 %or.cond57.i, label %15, label %string2ll.exit.thread
 
-.thread71.i:                                      ; preds = %8
+.thread74.i:                                      ; preds = %8
   %13 = add i8 %7, -49
-  %or.cond5775.i = icmp ult i8 %13, 9
-  br i1 %or.cond5775.i, label %.thread88.i, label %string2ll.exit.thread
+  %or.cond5778.i = icmp ult i8 %13, 9
+  br i1 %or.cond5778.i, label %.thread91.i, label %string2ll.exit.thread
 
-.thread88.i:                                      ; preds = %.thread71.i
-  %narrow83.i = add nsw i8 %7, -48
-  %14 = zext nneg i8 %narrow83.i to i64
+.thread91.i:                                      ; preds = %.thread74.i
+  %narrow86.i = add nsw i8 %7, -48
+  %14 = zext nneg i8 %narrow86.i to i64
   br label %string2ll.exit
 
 15:                                               ; preds = %10
@@ -1568,13 +1568,13 @@ define dso_local range(i32 0, 2) i32 @string2l(ptr noundef readonly captures(non
   %34 = icmp slt i64 %.0.lcssa.i, 0
   br i1 %34, label %string2ll.exit.thread, label %string2ll.exit
 
-string2ll.exit:                                   ; preds = %.thread88.i, %33, %8, %31
-  %.sink.i = phi i64 [ %32, %31 ], [ 0, %8 ], [ %14, %.thread88.i ], [ %.0.lcssa.i, %33 ]
+string2ll.exit:                                   ; preds = %.thread91.i, %33, %8, %31
+  %.sink.i = phi i64 [ %32, %31 ], [ 0, %8 ], [ %14, %.thread91.i ], [ %.0.lcssa.i, %33 ]
   store i64 %.sink.i, ptr %2, align 8, !tbaa !37
   br label %string2ll.exit.thread
 
-string2ll.exit.thread:                            ; preds = %.lr.ph.i, %21, %.thread71.i, %8, %33, %29, %10, %3, %string2ll.exit
-  %.0 = phi i32 [ 1, %string2ll.exit ], [ 0, %3 ], [ 0, %10 ], [ 0, %29 ], [ 0, %33 ], [ 0, %8 ], [ 0, %.thread71.i ], [ 0, %21 ], [ 0, %.lr.ph.i ]
+string2ll.exit.thread:                            ; preds = %.lr.ph.i, %21, %.thread74.i, %8, %33, %29, %10, %3, %string2ll.exit
+  %.0 = phi i32 [ 1, %string2ll.exit ], [ 0, %3 ], [ 0, %10 ], [ 0, %29 ], [ 0, %33 ], [ 0, %8 ], [ 0, %.thread74.i ], [ 0, %21 ], [ 0, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -3360,13 +3360,13 @@ check_longlong_async_signal_safe.exit..thread79_crit_edge: ; preds = %check_long
 99:                                               ; preds = %99, %.loopexit55.i
   %.050.i = phi ptr [ %11, %.loopexit55.i ], [ %103, %99 ]
   %.2.i = phi i64 [ %.1.i, %.loopexit55.i ], [ %104, %99 ]
-  %100 = srem i64 %.2.i, %98
-  %101 = getelementptr inbounds [17 x i8], ptr @HEX, i64 0, i64 %100
+  %100 = urem i64 %.2.i, %98
+  %101 = getelementptr inbounds nuw [17 x i8], ptr @HEX, i64 0, i64 %100
   %102 = load i8, ptr %101, align 1, !tbaa !9
   %103 = getelementptr inbounds i8, ptr %.050.i, i64 -1
   store i8 %102, ptr %.050.i, align 1, !tbaa !9
-  %104 = sdiv i64 %.2.i, %98
-  %.not.i70 = icmp eq i64 %104, 0
+  %104 = udiv i64 %.2.i, %98
+  %.not.i70 = icmp ult i64 %.2.i, %98
   br i1 %.not.i70, label %105, label %99, !llvm.loop !63
 
 105:                                              ; preds = %99

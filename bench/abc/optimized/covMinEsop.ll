@@ -963,11 +963,11 @@ Min_CubesTransform.exit120:                       ; preds = %110, %101
   br label %129
 
 129:                                              ; preds = %.loopexit, %Min_CubesTransform.exit120, %Min_CubesTransform.exit113, %Min_CubesTransform.exit, %.loopexit124
-  %.sink170 = phi i32 [ 1, %.loopexit ], [ -1, %Min_CubesTransform.exit120 ], [ -1, %Min_CubesTransform.exit113 ], [ -1, %Min_CubesTransform.exit ], [ -1, %.loopexit124 ]
+  %.sink175 = phi i32 [ 1, %.loopexit ], [ -1, %Min_CubesTransform.exit120 ], [ -1, %Min_CubesTransform.exit113 ], [ -1, %Min_CubesTransform.exit ], [ -1, %.loopexit124 ]
   %.086 = phi i32 [ 0, %.loopexit ], [ 1, %Min_CubesTransform.exit120 ], [ 1, %Min_CubesTransform.exit113 ], [ 1, %Min_CubesTransform.exit ], [ 0, %.loopexit124 ]
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %131 = load i32, ptr %130, align 8, !tbaa !3
-  %132 = add nsw i32 %131, %.sink170
+  %132 = add nsw i32 %131, %.sink175
   store i32 %132, ptr %130, align 8, !tbaa !3
   ret i32 %.086
 }

@@ -289,8 +289,8 @@ define dso_local void @_Z26btGenerateInternalEdgeInfoP22btBvhTriangleMeshShapeP1
   %.sroa.676.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %97, i64 12
   store float 0.000000e+00, ptr %.sroa.676.0..sroa_idx.us, align 4, !tbaa !29
   %indvars.iv.next92 = add nsw i64 %indvars.iv91, -1
-  %.not95 = icmp eq i64 %indvars.iv91, 0
-  br i1 %.not95, label %.split81.us, label %.split.us, !llvm.loop !33
+  %.not127 = icmp eq i64 %indvars.iv91, 0
+  br i1 %.not127, label %.split81.us, label %.split.us, !llvm.loop !33
 
 .split81.us:                                      ; preds = %188, %82
   %.us-phi = phi i32 [ %.3.us, %82 ], [ %.3, %188 ]
@@ -591,8 +591,8 @@ _ZN9btVector36setMaxERKS_.exit61:                 ; preds = %_Z8btSetMaxIfEvRT_R
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %209, i64 12
   store float 0.000000e+00, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !29
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not94 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not94, label %.split81.us, label %.split, !llvm.loop !33
+  %.not126 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not126, label %.split81.us, label %.split, !llvm.loop !33
 
 210:                                              ; preds = %_ZN9btVector36setMaxERKS_.exit61
   call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #19
@@ -2355,30 +2355,30 @@ _Z27btNearestPointInLineSegmentRK9btVector3S1_S1_RS_.exit369: ; preds = %677, %6
   br label %905
 
 905:                                              ; preds = %895, %873
-  %.sink749 = phi ptr [ %896, %895 ], [ %877, %873 ]
-  %.sink744 = phi float [ %889, %895 ], [ %875, %873 ]
-  %.sink742 = phi float [ %887, %895 ], [ %876, %873 ]
-  %.sink737 = phi float [ %890, %895 ], [ %874, %873 ]
-  %.sink724 = phi float [ %904, %895 ], [ %885, %873 ]
-  %906 = getelementptr inbounds nuw i8, ptr %.sink749, i64 16
+  %.sink765 = phi ptr [ %896, %895 ], [ %877, %873 ]
+  %.sink760 = phi float [ %889, %895 ], [ %875, %873 ]
+  %.sink758 = phi float [ %887, %895 ], [ %876, %873 ]
+  %.sink753 = phi float [ %890, %895 ], [ %874, %873 ]
+  %.sink740 = phi float [ %904, %895 ], [ %885, %873 ]
+  %906 = getelementptr inbounds nuw i8, ptr %.sink765, i64 16
   %907 = load float, ptr %906, align 4, !tbaa !32
-  %908 = getelementptr inbounds nuw i8, ptr %.sink749, i64 20
+  %908 = getelementptr inbounds nuw i8, ptr %.sink765, i64 20
   %909 = load float, ptr %908, align 4, !tbaa !32
-  %910 = fmul float %.sink744, %909
-  %911 = call float @llvm.fmuladd.f32(float %907, float %.sink742, float %910)
-  %912 = getelementptr inbounds nuw i8, ptr %.sink749, i64 24
+  %910 = fmul float %.sink760, %909
+  %911 = call float @llvm.fmuladd.f32(float %907, float %.sink758, float %910)
+  %912 = getelementptr inbounds nuw i8, ptr %.sink765, i64 24
   %913 = load float, ptr %912, align 4, !tbaa !32
-  %914 = call noundef float @llvm.fmuladd.f32(float %913, float %.sink737, float %911)
-  %915 = getelementptr inbounds nuw i8, ptr %.sink749, i64 32
+  %914 = call noundef float @llvm.fmuladd.f32(float %913, float %.sink753, float %911)
+  %915 = getelementptr inbounds nuw i8, ptr %.sink765, i64 32
   %916 = load float, ptr %915, align 4, !tbaa !32
-  %917 = getelementptr inbounds nuw i8, ptr %.sink749, i64 36
+  %917 = getelementptr inbounds nuw i8, ptr %.sink765, i64 36
   %918 = load float, ptr %917, align 4, !tbaa !32
-  %919 = fmul float %.sink744, %918
-  %920 = call float @llvm.fmuladd.f32(float %916, float %.sink742, float %919)
-  %921 = getelementptr inbounds nuw i8, ptr %.sink749, i64 40
+  %919 = fmul float %.sink760, %918
+  %920 = call float @llvm.fmuladd.f32(float %916, float %.sink758, float %919)
+  %921 = getelementptr inbounds nuw i8, ptr %.sink765, i64 40
   %922 = load float, ptr %921, align 4, !tbaa !32
-  %923 = call noundef float @llvm.fmuladd.f32(float %922, float %.sink737, float %920)
-  %.sroa.0.0.vec.insert.i427 = insertelement <2 x float> poison, float %.sink724, i64 0
+  %923 = call noundef float @llvm.fmuladd.f32(float %922, float %.sink753, float %920)
+  %.sroa.0.0.vec.insert.i427 = insertelement <2 x float> poison, float %.sink740, i64 0
   %.sroa.0.4.vec.insert.i428 = insertelement <2 x float> %.sroa.0.0.vec.insert.i427, float %914, i64 1
   %.sroa.3.12.vec.insert.i429 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %923, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i428, ptr %197, align 8
@@ -2386,7 +2386,7 @@ _Z27btNearestPointInLineSegmentRK9btVector3S1_S1_RS_.exit369: ; preds = %677, %6
   %924 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %925 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %926 = load float, ptr %925, align 8, !tbaa !32
-  %927 = fmul float %.sink724, %926
+  %927 = fmul float %.sink740, %926
   %928 = fmul float %926, %914
   %929 = fmul float %926, %923
   %930 = load float, ptr %924, align 8, !tbaa !32
@@ -3813,14 +3813,14 @@ _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i: ; preds = %_ZN20btAlignedObjec
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load i8, ptr %25, align 8, !range !124
   %27 = trunc nuw i8 %26 to i1
-  %or.cond27.i = select i1 %.not.i5.i.i, i1 %27, i1 false
-  br i1 %or.cond27.i, label %28, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
+  %or.cond29.i = select i1 %.not.i5.i.i, i1 %27, i1 false
+  br i1 %or.cond29.i, label %28, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i: ; preds = %21
   %.old.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.old25.i = load i8, ptr %.old.i, align 8, !tbaa !133, !range !124, !noundef !130
-  %.old26.i = trunc nuw i8 %.old25.i to i1
-  br i1 %.old26.i, label %28, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
+  %.old27.i = load i8, ptr %.old.i, align 8, !tbaa !133, !range !124, !noundef !130
+  %.old28.i = trunc nuw i8 %.old27.i to i1
+  br i1 %.old28.i, label %28, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
 
 28:                                               ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %20)
@@ -3896,14 +3896,14 @@ _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i30: ; preds = %_ZN20btAlignedObj
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %55 = load i8, ptr %54, align 8, !range !124
   %56 = trunc nuw i8 %55 to i1
-  %or.cond27.i32 = select i1 %.not.i5.i.i31, i1 %56, i1 false
-  br i1 %or.cond27.i32, label %57, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i33
+  %or.cond29.i32 = select i1 %.not.i5.i.i31, i1 %56, i1 false
+  br i1 %or.cond29.i32, label %57, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i33
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i39: ; preds = %50
   %.old.i40 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.old25.i41 = load i8, ptr %.old.i40, align 8, !tbaa !133, !range !124, !noundef !130
-  %.old26.i42 = trunc nuw i8 %.old25.i41 to i1
-  br i1 %.old26.i42, label %57, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i33
+  %.old27.i41 = load i8, ptr %.old.i40, align 8, !tbaa !133, !range !124, !noundef !130
+  %.old28.i42 = trunc nuw i8 %.old27.i41 to i1
+  br i1 %.old28.i42, label %57, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i33
 
 57:                                               ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i39, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i30
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %49)
@@ -4471,8 +4471,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK15btTriangleShape8isInside
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %105 = add nuw nsw i32 %.01852, 1
   %exitcond = icmp ne i32 %105, 3
-  %or.cond53.not = select i1 %104, i1 %exitcond, i1 false
-  br i1 %or.cond53.not, label %68, label %.loopexit, !llvm.loop !145
+  %or.cond54.not = select i1 %104, i1 %exitcond, i1 false
+  br i1 %or.cond54.not, label %68, label %.loopexit, !llvm.loop !145
 
 .loopexit:                                        ; preds = %68, %3
   %.3 = phi i1 [ false, %3 ], [ %104, %68 ]

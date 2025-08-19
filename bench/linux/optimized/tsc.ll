@@ -673,7 +673,7 @@ define dso_local i64 @native_calibrate_cpu_early() #5 align 16 {
   %73 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
   %74 = xor i8 %73, %60
   %75 = icmp eq i8 %74, -1
-  br i1 %75, label %.lr.ph, label %.loopexit7.loopexit.critedge73, !llvm.loop !35
+  br i1 %75, label %.lr.ph, label %.loopexit7.loopexit.critedge77, !llvm.loop !35
 
 .lr.ph:                                           ; preds = %.preheader
   %76 = extractvalue { i64, i64 } %71, 1
@@ -699,17 +699,17 @@ define dso_local i64 @native_calibrate_cpu_early() #5 align 16 {
   %92 = or i64 %91, %89
   %93 = add nuw nsw i32 %87, 1
   %94 = icmp eq i32 %93, 50000
-  br i1 %94, label %..loopexit.loopexit_crit_edge69, label %80, !llvm.loop !35
+  br i1 %94, label %..loopexit.loopexit_crit_edge73, label %80, !llvm.loop !35
 
 ..loopexit.loopexit_crit_edge:                    ; preds = %80
   %95 = icmp samesign ult i32 %87, 5
   br label %.loopexit.loopexit, !llvm.loop !35
 
-..loopexit.loopexit_crit_edge69:                  ; preds = %85
+..loopexit.loopexit_crit_edge73:                  ; preds = %85
   br label %.loopexit.loopexit, !llvm.loop !35
 
-.loopexit.loopexit:                               ; preds = %..loopexit.loopexit_crit_edge69, %..loopexit.loopexit_crit_edge
-  %.ph = phi i1 [ false, %..loopexit.loopexit_crit_edge69 ], [ %95, %..loopexit.loopexit_crit_edge ]
+.loopexit.loopexit:                               ; preds = %..loopexit.loopexit_crit_edge73, %..loopexit.loopexit_crit_edge
+  %.ph = phi i1 [ false, %..loopexit.loopexit_crit_edge73 ], [ %95, %..loopexit.loopexit_crit_edge ]
   %96 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
   br i1 %.ph, label %.loopexit7, label %97
 
@@ -762,13 +762,13 @@ define dso_local i64 @native_calibrate_cpu_early() #5 align 16 {
   %126 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
   br label %.loopexit7
 
-.loopexit7.loopexit.critedge73:                   ; preds = %.preheader
+.loopexit7.loopexit.critedge77:                   ; preds = %.preheader
   %127 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
   br label %.loopexit7
 
-.loopexit7:                                       ; preds = %117, %.loopexit.loopexit, %.loopexit7.loopexit.critedge73, %.loopexit7.loopexit.critedge, %.critedge, %120, %112, %.loopexit10
-  %128 = phi ptr [ @.str.15, %120 ], [ @.str.14, %112 ], [ @.str.14, %.loopexit10 ], [ @.str.14, %.critedge ], [ @.str.14, %.loopexit7.loopexit.critedge ], [ @.str.14, %.loopexit7.loopexit.critedge73 ], [ @.str.14, %.loopexit.loopexit ], [ @.str.14, %117 ]
-  %129 = phi i64 [ %124, %120 ], [ 0, %112 ], [ 0, %.loopexit10 ], [ 0, %.critedge ], [ 0, %.loopexit7.loopexit.critedge ], [ 0, %.loopexit7.loopexit.critedge73 ], [ 0, %.loopexit.loopexit ], [ 0, %117 ]
+.loopexit7:                                       ; preds = %117, %.loopexit.loopexit, %.loopexit7.loopexit.critedge77, %.loopexit7.loopexit.critedge, %.critedge, %120, %112, %.loopexit10
+  %128 = phi ptr [ @.str.15, %120 ], [ @.str.14, %112 ], [ @.str.14, %.loopexit10 ], [ @.str.14, %.critedge ], [ @.str.14, %.loopexit7.loopexit.critedge ], [ @.str.14, %.loopexit7.loopexit.critedge77 ], [ @.str.14, %.loopexit.loopexit ], [ @.str.14, %117 ]
+  %129 = phi i64 [ %124, %120 ], [ 0, %112 ], [ 0, %.loopexit10 ], [ 0, %.critedge ], [ 0, %.loopexit7.loopexit.critedge ], [ 0, %.loopexit7.loopexit.critedge77 ], [ 0, %.loopexit.loopexit ], [ 0, %117 ]
   %130 = call i32 (ptr, ...) @_printk(ptr noundef nonnull %128) #21
   br label %.loopexit8
 

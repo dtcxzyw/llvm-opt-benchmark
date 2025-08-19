@@ -871,7 +871,7 @@ gettime.exit:                                     ; preds = %29, %35, %38, %58
   store i64 -1, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %.0.i118, i64 1012
   store i32 1, ptr %71, align 4
-  br label %.thread153
+  br label %.thread167
 
 72:                                               ; preds = %gettime.exit
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -883,9 +883,9 @@ gettime.exit:                                     ; preds = %29, %35, %38, %58
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %78 = load i32, ptr %77, align 8
   %79 = icmp sgt i32 %78, -1
-  br i1 %79, label %81, label %.thread153
+  br i1 %79, label %81, label %.thread167
 
-.thread153:                                       ; preds = %72, %.thread
+.thread167:                                       ; preds = %72, %.thread
   %80 = getelementptr inbounds nuw i8, ptr %.0.i118, i64 1008
   store i32 2147483647, ptr %80, align 8
   br label %85
@@ -894,13 +894,13 @@ gettime.exit:                                     ; preds = %29, %35, %38, %58
   %82 = getelementptr inbounds nuw i8, ptr %.0.i118, i64 1008
   store i32 %78, ptr %82, align 8
   %83 = icmp eq i32 %78, 2147483647
-  br i1 %83, label %85, label %.thread154
+  br i1 %83, label %85, label %.thread168
 
-.thread154:                                       ; preds = %81
+.thread168:                                       ; preds = %81
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %.split
 
-85:                                               ; preds = %.thread153, %81
+85:                                               ; preds = %.thread167, %81
   %86 = getelementptr inbounds nuw i8, ptr %.0.i118, i64 992
   %87 = load i64, ptr %86, align 8
   %88 = icmp eq i64 %87, -1
@@ -985,8 +985,8 @@ event_config_is_avoided_method.exit.us:           ; preds = %112, %event_is_meth
   %.not92.us = icmp eq i64 %indvars.iv.next145, 3
   br i1 %.not92.us, label %.critedgethread-pre-split, label %.split.us.split, !llvm.loop !11
 
-.split:                                           ; preds = %.thread154, %91
-  %118 = phi ptr [ %84, %.thread154 ], [ %92, %91 ]
+.split:                                           ; preds = %.thread168, %91
+  %118 = phi ptr [ %84, %.thread168 ], [ %92, %91 ]
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br i1 %.fr, label %.split.split.us, label %.split.split
 
@@ -1956,18 +1956,18 @@ event_del.exit:                                   ; preds = %20, %23
   %34 = getelementptr inbounds nuw i8, ptr %spec.select, i64 840
   %35 = getelementptr inbounds nuw i8, ptr %spec.select, i64 848
   %36 = load i64, ptr %35, align 8
-  %.not.i206 = icmp eq i64 %36, 0
-  br i1 %.not.i206, label %.preheader159, label %min_heap_top_.exit
+  %.not.i261 = icmp eq i64 %36, 0
+  br i1 %.not.i261, label %.preheader159, label %min_heap_top_.exit
 
 min_heap_top_.exit:                               ; preds = %33, %event_del.exit121
-  %.087207 = phi i64 [ %57, %event_del.exit121 ], [ 0, %33 ]
+  %.087262 = phi i64 [ %57, %event_del.exit121 ], [ 0, %33 ]
   %37 = load ptr, ptr %34, align 8
   %38 = load ptr, ptr %37, align 8
   %.not106 = icmp eq ptr %38, null
   br i1 %.not106, label %.preheader159, label %43
 
 .preheader159:                                    ; preds = %min_heap_top_.exit, %event_del.exit121, %33
-  %.087.lcssa = phi i64 [ 0, %33 ], [ %.087207, %min_heap_top_.exit ], [ %57, %event_del.exit121 ]
+  %.087.lcssa = phi i64 [ 0, %33 ], [ %.087262, %min_heap_top_.exit ], [ %57, %event_del.exit121 ]
   %39 = getelementptr inbounds nuw i8, ptr %spec.select, i64 800
   %40 = load i32, ptr %39, align 8
   %41 = icmp sgt i32 %40, 0
@@ -2002,7 +2002,7 @@ min_heap_top_.exit:                               ; preds = %33, %event_del.exit
   br label %event_del.exit121
 
 event_del.exit121:                                ; preds = %51, %54
-  %57 = add i64 %.087207, 1
+  %57 = add i64 %.087262, 1
   %58 = load i64, ptr %35, align 8
   %.not.i = icmp eq i64 %58, 0
   br i1 %.not.i, label %.preheader159, label %min_heap_top_.exit, !llvm.loop !19
@@ -3310,9 +3310,9 @@ min_heap_top_.exit:                               ; preds = %33, %36
   br label %.sink.split
 
 .sink.split:                                      ; preds = %86, %84, %61, %59
-  %.sink102 = phi ptr [ %58, %59 ], [ %58, %61 ], [ %83, %84 ], [ %83, %86 ]
+  %.sink115 = phi ptr [ %58, %59 ], [ %58, %61 ], [ %83, %84 ], [ %83, %86 ]
   %88 = load ptr, ptr %0, align 8
-  store ptr %88, ptr %.sink102, align 8
+  store ptr %88, ptr %.sink115, align 8
   br label %89
 
 89:                                               ; preds = %.sink.split, %68
@@ -4782,9 +4782,9 @@ define ptr @event_get_supported_methods() local_unnamed_addr #0 {
 2:                                                ; preds = %0
   %3 = tail call ptr %1(i64 noundef 32) #26
   %.not20.i = icmp eq ptr %3, null
-  br i1 %.not20.i, label %event_mm_calloc_.exit.thread, label %event_mm_calloc_.exit.thread31
+  br i1 %.not20.i, label %event_mm_calloc_.exit.thread, label %event_mm_calloc_.exit.thread34
 
-event_mm_calloc_.exit.thread31:                   ; preds = %2
+event_mm_calloc_.exit.thread34:                   ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   br label %.preheader.preheader
 
@@ -4798,8 +4798,8 @@ event_mm_calloc_.exit:                            ; preds = %0
   %6 = icmp eq ptr %5, null
   br i1 %6, label %18, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %event_mm_calloc_.exit.thread31, %event_mm_calloc_.exit
-  %.0.i33 = phi ptr [ %3, %event_mm_calloc_.exit.thread31 ], [ %5, %event_mm_calloc_.exit ]
+.preheader.preheader:                             ; preds = %event_mm_calloc_.exit.thread34, %event_mm_calloc_.exit
+  %.0.i36 = phi ptr [ %3, %event_mm_calloc_.exit.thread34 ], [ %5, %event_mm_calloc_.exit ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -4808,13 +4808,13 @@ event_mm_calloc_.exit:                            ; preds = %0
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %.0.i33, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %.0.i36, i64 %indvars.iv
   store ptr %9, ptr %10, align 8
   %.not19 = icmp eq i64 %indvars.iv.next, 3
   br i1 %.not19, label %11, label %.preheader, !llvm.loop !31
 
 11:                                               ; preds = %.preheader
-  %12 = getelementptr inbounds nuw i8, ptr %.0.i33, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i36, i64 24
   store ptr null, ptr %12, align 8
   %13 = load ptr, ptr @event_get_supported_methods.methods, align 8
   %.not20 = icmp eq ptr %13, null
@@ -4834,11 +4834,11 @@ event_mm_calloc_.exit:                            ; preds = %0
   br label %event_mm_free_.exit
 
 event_mm_free_.exit:                              ; preds = %17, %16, %11
-  store ptr %.0.i33, ptr @event_get_supported_methods.methods, align 8
+  store ptr %.0.i36, ptr @event_get_supported_methods.methods, align 8
   br label %18
 
 18:                                               ; preds = %event_mm_calloc_.exit.thread, %event_mm_calloc_.exit, %event_mm_free_.exit
-  %.014 = phi ptr [ %.0.i33, %event_mm_free_.exit ], [ null, %event_mm_calloc_.exit ], [ null, %event_mm_calloc_.exit.thread ]
+  %.014 = phi ptr [ %.0.i36, %event_mm_free_.exit ], [ null, %event_mm_calloc_.exit ], [ null, %event_mm_calloc_.exit.thread ]
   ret ptr %.014
 }
 
@@ -5271,11 +5271,11 @@ is_common_timeout.exit:                           ; preds = %11
   %17 = load i32, ptr %16, align 8
   %.not99 = icmp slt i32 %15, %17
   %18 = and i64 %9, 1048575
-  %spec.select111 = select i1 %.not99, i64 %18, i64 %9
+  %spec.select123 = select i1 %.not99, i64 %18, i64 %9
   br label %is_common_timeout.exit.thread
 
 is_common_timeout.exit.thread:                    ; preds = %is_common_timeout.exit, %11
-  %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.8.69 = phi i64 [ %9, %11 ], [ %spec.select111, %is_common_timeout.exit ]
+  %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.8.69 = phi i64 [ %9, %11 ], [ %spec.select123, %is_common_timeout.exit ]
   %19 = udiv i64 %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.8.69, 1000000
   %20 = add nsw i64 %19, %.sroa.0.0.copyload
   store i64 %20, ptr %.sroa.0, align 8
@@ -6210,15 +6210,15 @@ define range(i32 -1, 2) i32 @event_base_loop(ptr noundef %0, i32 noundef %1) loc
   store i32 0, ptr %45, align 8
   store i32 0, ptr %46, align 4
   %84 = load i32, ptr %44, align 8
-  %.not86147 = icmp eq i32 %84, 0
-  br i1 %.not86147, label %.lr.ph149, label %.thread133
+  %.not86176 = icmp eq i32 %84, 0
+  br i1 %.not86176, label %.lr.ph178, label %.thread133
 
-.lr.ph149:                                        ; preds = %40, %.backedge
+.lr.ph178:                                        ; preds = %40, %.backedge
   %85 = load i32, ptr %43, align 4
   %.not87 = icmp eq i32 %85, 0
   br i1 %.not87, label %86, label %.thread133
 
-86:                                               ; preds = %.lr.ph149
+86:                                               ; preds = %.lr.ph178
   %87 = load i32, ptr %47, align 8
   %88 = or i32 %87, %48
   %or.cond106 = icmp eq i32 %88, 0
@@ -6867,7 +6867,7 @@ event_process_active.exit:                        ; preds = %367, %368, %351
   store i32 0, ptr %46, align 4
   %375 = load i32, ptr %44, align 8
   %.not86 = icmp eq i32 %375, 0
-  br i1 %.not86, label %.lr.ph149, label %.thread133
+  br i1 %.not86, label %.lr.ph178, label %.thread133
 
 376:                                              ; preds = %timeout_process.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -6884,7 +6884,7 @@ event_process_active.exit:                        ; preds = %367, %368, %351
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %380
 
-.thread133:                                       ; preds = %.lr.ph149, %.backedge, %40
+.thread133:                                       ; preds = %.lr.ph178, %.backedge, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit
 

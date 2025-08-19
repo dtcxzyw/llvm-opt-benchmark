@@ -1533,8 +1533,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit276.i:     ; preds = %_ZNKSt7__cxx1112bas
   %615 = getelementptr inbounds nuw ptr, ptr %555, i64 %indvars.iv471.i
   %616 = load ptr, ptr %615, align 8, !tbaa !67
   %.promoted.us.i = load float, ptr %616, align 4, !tbaa !50
-  %invariant.gep509.i.idx = shl nsw i64 %indvars.iv471.i, 5
-  %invariant.gep509.i = getelementptr inbounds nuw i8, ptr %220, i64 %invariant.gep509.i.idx
+  %invariant.gep564.i.idx = shl nsw i64 %indvars.iv471.i, 5
+  %invariant.gep564.i = getelementptr inbounds nuw i8, ptr %220, i64 %invariant.gep564.i.idx
   br label %631
 
 617:                                              ; preds = %631
@@ -1545,8 +1545,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit276.i:     ; preds = %_ZNKSt7__cxx1112bas
 619:                                              ; preds = %.preheader.us.i, %619
   %indvars.iv467.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next468.i, %619 ]
   %620 = phi float [ %.promoted401.us.i, %.preheader.us.i ], [ %623, %619 ]
-  %gep512.i = getelementptr inbounds nuw ptr, ptr %invariant.gep509.i, i64 %indvars.iv467.i
-  %621 = load ptr, ptr %gep512.i, align 8, !tbaa !67
+  %gep567.i = getelementptr inbounds nuw ptr, ptr %invariant.gep564.i, i64 %indvars.iv467.i
+  %621 = load ptr, ptr %gep567.i, align 8, !tbaa !67
   %622 = load float, ptr %621, align 4, !tbaa !50
   %623 = fadd float %620, %622
   store float %623, ptr %638, align 4, !tbaa !50
@@ -1570,8 +1570,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit276.i:     ; preds = %_ZNKSt7__cxx1112bas
 631:                                              ; preds = %631, %.preheader386.us.i
   %indvars.iv463.i = phi i64 [ %indvars.iv.next464.i, %631 ], [ 0, %.preheader386.us.i ]
   %632 = phi float [ %635, %631 ], [ %.promoted.us.i, %.preheader386.us.i ]
-  %gep510.i = getelementptr inbounds nuw ptr, ptr %invariant.gep509.i, i64 %indvars.iv463.i
-  %633 = load ptr, ptr %gep510.i, align 8, !tbaa !67
+  %gep565.i = getelementptr inbounds nuw ptr, ptr %invariant.gep564.i, i64 %indvars.iv463.i
+  %633 = load ptr, ptr %gep565.i, align 8, !tbaa !67
   %634 = load float, ptr %633, align 4, !tbaa !50
   %635 = fadd float %632, %634
   store float %635, ptr %616, align 4, !tbaa !50
@@ -1669,8 +1669,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit282.i: ; preds = %
 668:                                              ; preds = %668, %.preheader.i
   %indvars.iv453.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next454.i, %668 ]
   %669 = phi float [ %.promoted401.i, %.preheader.i ], [ %673, %668 ]
-  %gep508.i = getelementptr inbounds nuw ptr, ptr %invariant.gep.i, i64 %indvars.iv453.i
-  %670 = load ptr, ptr %gep508.i, align 8, !tbaa !67
+  %gep563.i = getelementptr inbounds nuw ptr, ptr %invariant.gep.i, i64 %indvars.iv453.i
+  %670 = load ptr, ptr %gep563.i, align 8, !tbaa !67
   %671 = getelementptr inbounds nuw float, ptr %670, i64 %indvars.iv477.i
   %672 = load float, ptr %671, align 4, !tbaa !50
   %673 = fadd float %669, %672

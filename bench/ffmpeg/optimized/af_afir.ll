@@ -2593,8 +2593,8 @@ define internal noundef i32 @fir_channels(ptr noundef readonly captures(none) %0
   %.not.i33.i = icmp eq i32 %180, 0
   %.pre.i = load i32, ptr %30, align 4, !tbaa !149
   %.not123.i53.i = icmp eq i32 %.pre.i, 0
-  %or.cond86.i = select i1 %.not.i33.i, i1 %.not123.i53.i, i1 false
-  br i1 %or.cond86.i, label %247, label %181
+  %or.cond90.i = select i1 %.not.i33.i, i1 %.not123.i53.i, i1 false
+  br i1 %or.cond90.i, label %247, label %181
 
 181:                                              ; preds = %179
   %182 = load ptr, ptr %31, align 8, !tbaa !147

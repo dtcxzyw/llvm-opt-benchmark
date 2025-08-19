@@ -503,25 +503,25 @@ define dso_local i32 @find_col(ptr noundef readonly captures(address_is_null) %0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, -1
-  br i1 %5, label %._crit_edge, label %.lr.ph17
+  br i1 %5, label %._crit_edge, label %.lr.ph18
 
-.lr.ph17:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph18:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %6 = phi i32 [ %11, %.lr.ph ], [ %4, %.lr.ph.preheader ]
   %.pn = phi ptr [ %8, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.01116 = phi i32 [ %9, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.01117 = phi i32 [ %9, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %7 = icmp eq i32 %6, %1
   br i1 %7, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph17
+.lr.ph:                                           ; preds = %.lr.ph18
   %8 = getelementptr inbounds nuw i8, ptr %.pn, i64 96
-  %9 = add nuw nsw i32 %.01116, 1
+  %9 = add nuw nsw i32 %.01117, 1
   %10 = getelementptr inbounds nuw i8, ptr %.pn, i64 200
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, -1
-  br i1 %12, label %._crit_edge, label %.lr.ph17
+  br i1 %12, label %._crit_edge, label %.lr.ph18
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph17, %.lr.ph.preheader, %2
-  %.06 = phi i32 [ -1, %2 ], [ -1, %.lr.ph.preheader ], [ %.01116, %.lr.ph17 ], [ -1, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph18, %.lr.ph.preheader, %2
+  %.06 = phi i32 [ -1, %2 ], [ -1, %.lr.ph.preheader ], [ %.01117, %.lr.ph18 ], [ -1, %.lr.ph ]
   ret i32 %.06
 }
 
@@ -834,7 +834,7 @@ replus.exit.preheader:                            ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %.029, i64 104
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, -1
-  br i1 %23, label %.loopexit, label %.lr.ph34
+  br i1 %23, label %.loopexit, label %.lr.ph37
 
 24:                                               ; preds = %18
   store i8 32, ptr %19, align 1
@@ -844,28 +844,28 @@ replus.exit.preheader:                            ; preds = %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %18, !llvm.loop !11
 
-.lr.ph34:                                         ; preds = %.lr.ph.preheader, %replus.exit.backedge
-  %.12733 = phi ptr [ %26, %replus.exit.backedge ], [ %.029, %.lr.ph.preheader ]
-  %26 = getelementptr inbounds nuw i8, ptr %.12733, i64 96
-  %27 = getelementptr inbounds nuw i8, ptr %.12733, i64 112
+.lr.ph37:                                         ; preds = %.lr.ph.preheader, %replus.exit.backedge
+  %.12736 = phi ptr [ %26, %replus.exit.backedge ], [ %.029, %.lr.ph.preheader ]
+  %26 = getelementptr inbounds nuw i8, ptr %.12736, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %.12736, i64 112
   %28 = load ptr, ptr %27, align 8
   %.not23 = icmp eq ptr %28, null
   br i1 %.not23, label %replus.exit.backedge, label %32
 
-replus.exit.backedge:                             ; preds = %.lr.ph34, %32
-  %29 = getelementptr inbounds nuw i8, ptr %.12733, i64 200
+replus.exit.backedge:                             ; preds = %.lr.ph37, %32
+  %29 = getelementptr inbounds nuw i8, ptr %.12736, i64 200
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, -1
-  br i1 %31, label %.loopexit, label %.lr.ph34, !llvm.loop !24
+  br i1 %31, label %.loopexit, label %.lr.ph37, !llvm.loop !24
 
-32:                                               ; preds = %.lr.ph34
+32:                                               ; preds = %.lr.ph37
   %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #18
   %34 = tail call i32 @xstrncasecmp(ptr noundef nonnull %17, ptr noundef nonnull %28, i64 noundef %33) #16
   %.not24 = icmp eq i32 %34, 0
   br i1 %.not24, label %35, label %replus.exit.backedge
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw i8, ptr %.12733, i64 120
+  %36 = getelementptr inbounds nuw i8, ptr %.12736, i64 120
   store i8 1, ptr %36, align 8
   br label %.loopexit
 
@@ -1737,26 +1737,26 @@ define dso_local void @create_treestore(ptr noundef %0, ptr noundef readonly cap
   br label %49
 
 40:                                               ; preds = %31
-  switch i32 %.pre.i, label %.thread51.i [
+  switch i32 %.pre.i, label %.thread52.i [
     i32 3, label %42
     i32 4, label %44
   ]
 
-.thread51.i:                                      ; preds = %40
+.thread52.i:                                      ; preds = %40
   %41 = call ptr @gtk_cell_renderer_text_new() #16
-  br label %.thread49.i
+  br label %.thread50.i
 
 42:                                               ; preds = %40
   %43 = call ptr @gtk_cell_renderer_text_new() #16
   call void (ptr, ptr, ...) @g_object_set(ptr noundef %43, ptr noundef nonnull @.str.68, i32 noundef 1, ptr noundef null) #16
-  br label %.thread49.i
+  br label %.thread50.i
 
 44:                                               ; preds = %40
   %45 = call ptr @gdk_pixbuf_new(i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 10, i32 noundef 20) #16
   %46 = call ptr @gtk_cell_renderer_pixbuf_new() #16
   call void (ptr, ptr, ...) @g_object_set(ptr noundef %46, ptr noundef nonnull @.str.69, ptr noundef %45, ptr noundef null) #16
   call void @g_object_unref(ptr noundef %45) #16
-  br label %.thread49.i
+  br label %.thread50.i
 
 47:                                               ; preds = %38
   %48 = call ptr @gtk_cell_renderer_text_new() #16
@@ -1765,10 +1765,10 @@ define dso_local void @create_treestore(ptr noundef %0, ptr noundef readonly cap
 49:                                               ; preds = %47, %.thread.i
   %.046.i = phi ptr [ %39, %.thread.i ], [ %48, %47 ]
   call void @g_object_unref(ptr noundef nonnull %37) #16
-  br label %.thread49.i
+  br label %.thread50.i
 
-.thread49.i:                                      ; preds = %49, %44, %42, %.thread51.i
-  %.047.i = phi ptr [ %.046.i, %49 ], [ %41, %.thread51.i ], [ %46, %44 ], [ %43, %42 ]
+.thread50.i:                                      ; preds = %49, %44, %42, %.thread52.i
+  %.047.i = phi ptr [ %.046.i, %49 ], [ %41, %.thread52.i ], [ %46, %44 ], [ %43, %42 ]
   call void @gtk_tree_view_column_pack_start(ptr noundef %32, ptr noundef %.047.i, i32 noundef 1) #16
   %50 = call ptr @g_type_check_instance_cast(ptr noundef %.047.i, i64 noundef 80) #16
   %51 = load i32, ptr %35, align 8
@@ -1779,11 +1779,11 @@ define dso_local void @create_treestore(ptr noundef %0, ptr noundef readonly cap
   %55 = icmp eq i32 %54, 4
   br i1 %55, label %56, label %57
 
-56:                                               ; preds = %.thread49.i
+56:                                               ; preds = %.thread50.i
   call void @gtk_tree_view_column_set_cell_data_func(ptr noundef %32, ptr noundef %.047.i, ptr noundef nonnull @_cell_data_func, ptr noundef null, ptr noundef null) #16
   br label %_add_col_to_treeview.exit
 
-57:                                               ; preds = %.thread49.i
+57:                                               ; preds = %.thread50.i
   %58 = call i64 @g_signal_connect_data(ptr noundef %.047.i, ptr noundef nonnull @.str.71, ptr noundef nonnull @_editing_started, ptr noundef null, ptr noundef null, i32 noundef 0) #16
   %59 = call i64 @g_signal_connect_data(ptr noundef %.047.i, ptr noundef nonnull @.str.72, ptr noundef nonnull @_editing_canceled, ptr noundef null, ptr noundef null, i32 noundef 0) #16
   %60 = getelementptr inbounds nuw i8, ptr %21, i64 48
@@ -1970,8 +1970,8 @@ define internal range(i32 -1, 2) i32 @_sort_iter_compare_func_nodes(ptr noundef 
   %20 = phi ptr [ %9, %.preheader82.lr.ph ], [ %33, %.critedge5.thread ]
   %.0108 = phi i64 [ 0, %.preheader82.lr.ph ], [ %.296.in, %.critedge5.thread ]
   %.059107 = phi i64 [ 0, %.preheader82.lr.ph ], [ %51, %.critedge5.thread ]
-  %sext166 = shl i64 %.0108, 32
-  %21 = ashr exact i64 %sext166, 32
+  %sext176 = shl i64 %.0108, 32
+  %21 = ashr exact i64 %sext176, 32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27
@@ -1997,8 +1997,8 @@ define internal range(i32 -1, 2) i32 @_sort_iter_compare_func_nodes(ptr noundef 
   %sext = shl i64 %31, 32
   %32 = ashr exact i64 %sext, 32
   %33 = load ptr, ptr %5, align 8
-  %sext149 = shl i64 %indvars.iv, 32
-  %34 = ashr exact i64 %sext149, 32
+  %sext159 = shl i64 %indvars.iv, 32
+  %34 = ashr exact i64 %sext159, 32
   %35 = getelementptr inbounds i8, ptr %33, i64 %34
   %36 = load i8, ptr %35, align 1
   %.not77102 = icmp eq i8 %36, 0
@@ -2044,8 +2044,8 @@ define internal range(i32 -1, 2) i32 @_sort_iter_compare_func_nodes(ptr noundef 
   %.296.in = phi i64 [ %indvars.iv142, %45 ], [ %indvars.iv142, %47 ], [ %indvars.iv142, %49 ], [ %indvars.iv142, %.critedge5 ], [ %indvars.iv, %.critedge ], [ %indvars.iv.next143, %42 ]
   %.056 = phi i64 [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %32, %.critedge5 ], [ %32, %.critedge ], [ %32, %42 ]
   %51 = add i64 %.056, %.059107
-  %sext150 = shl i64 %.296.in, 32
-  %52 = ashr exact i64 %sext150, 32
+  %sext160 = shl i64 %.296.in, 32
+  %52 = ashr exact i64 %sext160, 32
   %53 = getelementptr inbounds i8, ptr %33, i64 %52
   %54 = load i8, ptr %53, align 1
   %.not = icmp eq i8 %54, 0
@@ -2067,8 +2067,8 @@ define internal range(i32 -1, 2) i32 @_sort_iter_compare_func_nodes(ptr noundef 
   %59 = phi ptr [ %55, %.preheader.lr.ph ], [ %72, %.critedge9.thread ]
   %.3122 = phi i64 [ 0, %.preheader.lr.ph ], [ %.589.in, %.critedge9.thread ]
   %.058121 = phi i64 [ 0, %.preheader.lr.ph ], [ %90, %.critedge9.thread ]
-  %sext167 = shl i64 %.3122, 32
-  %60 = ashr exact i64 %sext167, 32
+  %sext177 = shl i64 %.3122, 32
+  %60 = ashr exact i64 %sext177, 32
   br label %.lr.ph113
 
 .lr.ph113:                                        ; preds = %.lr.ph113.preheader, %66
@@ -2094,8 +2094,8 @@ define internal range(i32 -1, 2) i32 @_sort_iter_compare_func_nodes(ptr noundef 
   %sext80 = shl i64 %70, 32
   %71 = ashr exact i64 %sext80, 32
   %72 = load ptr, ptr %6, align 8
-  %sext151 = shl i64 %indvars.iv144, 32
-  %73 = ashr exact i64 %sext151, 32
+  %sext161 = shl i64 %indvars.iv144, 32
+  %73 = ashr exact i64 %sext161, 32
   %74 = getelementptr inbounds i8, ptr %72, i64 %73
   %75 = load i8, ptr %74, align 1
   %.not74116 = icmp eq i8 %75, 0
@@ -2141,8 +2141,8 @@ define internal range(i32 -1, 2) i32 @_sort_iter_compare_func_nodes(ptr noundef 
   %.589.in = phi i64 [ %indvars.iv147, %84 ], [ %indvars.iv147, %86 ], [ %indvars.iv147, %88 ], [ %indvars.iv147, %.critedge9 ], [ %indvars.iv144, %.critedge7 ], [ %indvars.iv.next148, %81 ]
   %.157 = phi i64 [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %71, %.critedge9 ], [ %71, %.critedge7 ], [ %71, %81 ]
   %90 = add i64 %.157, %.058121
-  %sext152 = shl i64 %.589.in, 32
-  %91 = ashr exact i64 %sext152, 32
+  %sext162 = shl i64 %.589.in, 32
+  %91 = ashr exact i64 %sext162, 32
   %92 = getelementptr inbounds i8, ptr %72, i64 %91
   %93 = load i8, ptr %92, align 1
   %.not69 = icmp eq i8 %93, 0

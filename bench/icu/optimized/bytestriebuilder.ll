@@ -739,9 +739,9 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7716BytesTrieBui
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i32, ptr %16, align 8, !tbaa !34
   %18 = icmp eq i32 %15, %17
-  br i1 %18, label %22, label %.thread23
+  br i1 %18, label %22, label %.thread28
 
-.thread23:                                        ; preds = %13
+.thread28:                                        ; preds = %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !30
   %19 = add nsw i32 %15, 1
@@ -801,8 +801,8 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7716BytesTrieBui
   %49 = icmp slt i32 %.pre22, 1
   br i1 %49, label %50, label %_ZN6icu_7716BytesTrieElement5setToENS_11StringPieceEiRNS_10CharStringER10UErrorCode.exit
 
-50:                                               ; preds = %.thread23, %45
-  %51 = phi ptr [ %21, %.thread23 ], [ %48, %45 ]
+50:                                               ; preds = %.thread28, %45
+  %51 = phi ptr [ %21, %.thread28 ], [ %48, %45 ]
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %.in, align 8, !tbaa !23
   %53 = icmp sgt i32 %2, 65535
@@ -1609,9 +1609,9 @@ define void @_ZN6icu_7716BytesTrieBuilder17BTLinearMatchNode5writeERNS_17StringT
   %24 = sext i32 %22 to i64
   %25 = tail call noalias ptr @uprv_malloc_77(i64 noundef %24) #20
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread10.i, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.i
+  br i1 %26, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread15.i, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.i
 
-_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread10.i: ; preds = %23
+_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread15.i: ; preds = %23
   %27 = load ptr, ptr %15, align 8, !tbaa !31
   tail call void @uprv_free_77(ptr noundef %27)
   store ptr null, ptr %15, align 8, !tbaa !31
@@ -1646,7 +1646,7 @@ _ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread7.i: ; preds = %_ZN6ic
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr readonly align 1 %9, i64 %43, i1 false)
   br label %_ZN6icu_7716BytesTrieBuilder5writeEPKci.exit
 
-_ZN6icu_7716BytesTrieBuilder5writeEPKci.exit:     ; preds = %2, %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread10.i, %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread7.i
+_ZN6icu_7716BytesTrieBuilder5writeEPKci.exit:     ; preds = %2, %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread15.i, %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread7.i
   %44 = load ptr, ptr %1, align 8, !tbaa !21
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 96
   %46 = load ptr, ptr %45, align 8
@@ -1689,9 +1689,9 @@ define noundef i32 @_ZN6icu_7716BytesTrieBuilder5writeEPKci(ptr noundef nonnull 
   %16 = sext i32 %14 to i64
   %17 = tail call noalias ptr @uprv_malloc_77(i64 noundef %16) #20
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread10, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit
+  br i1 %18, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread15, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit
 
-_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread10: ; preds = %15
+_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread15: ; preds = %15
   %19 = load ptr, ptr %7, align 8, !tbaa !31
   tail call void @uprv_free_77(ptr noundef %19)
   store ptr %17, ptr %7, align 8, !tbaa !31
@@ -1726,7 +1726,7 @@ _ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread7: ; preds = %_ZN6icu_
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %1, i64 %35, i1 false)
   br label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread
 
-_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread: ; preds = %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread10, %3, %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread7
+_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread: ; preds = %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread15, %3, %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread7
   %36 = load i32, ptr %4, align 4, !tbaa !32
   ret i32 %36
 }
@@ -1810,11 +1810,11 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716BytesTrieBuilder14ensureCa
   br label %.sink.split
 
 .sink.split:                                      ; preds = %26, %.thread
-  %.sink22 = phi ptr [ %20, %.thread ], [ %27, %26 ]
+  %.sink25 = phi ptr [ %20, %.thread ], [ %27, %26 ]
   %.sink = phi ptr [ %13, %.thread ], [ null, %26 ]
   %.lcssa.sink = phi i32 [ %10, %.thread ], [ 0, %26 ]
   %.012.ph = phi i8 [ 1, %.thread ], [ 0, %26 ]
-  tail call void @uprv_free_77(ptr noundef %.sink22)
+  tail call void @uprv_free_77(ptr noundef %.sink25)
   store ptr %.sink, ptr %3, align 8, !tbaa !31
   store i32 %.lcssa.sink, ptr %7, align 8, !tbaa !35
   br label %28
@@ -1850,9 +1850,9 @@ define noundef i32 @_ZN6icu_7716BytesTrieBuilder5writeEi(ptr noundef nonnull ali
   %14 = sext i32 %12 to i64
   %15 = tail call noalias ptr @uprv_malloc_77(i64 noundef %14) #20
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread9, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit
+  br i1 %16, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread13, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit
 
-_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread9: ; preds = %13
+_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread13: ; preds = %13
   %17 = load ptr, ptr %6, align 8, !tbaa !31
   tail call void @uprv_free_77(ptr noundef %17)
   store ptr %15, ptr %6, align 8, !tbaa !31
@@ -1887,7 +1887,7 @@ _ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread5: ; preds = %_ZN6icu_
   store i8 %30, ptr %33, align 1, !tbaa !20
   br label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread
 
-_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread: ; preds = %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread9, %2, %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread5
+_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread: ; preds = %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread13, %2, %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread5
   %34 = load i32, ptr %3, align 4, !tbaa !32
   ret i32 %34
 }
@@ -1933,9 +1933,9 @@ _ZNK6icu_7716BytesTrieElement9getStringERKNS_10CharStringE.exit:
   %28 = sext i32 %26 to i64
   %29 = tail call noalias ptr @uprv_malloc_77(i64 noundef %28) #20
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread10.i, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.i
+  br i1 %30, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread15.i, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.i
 
-_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread10.i: ; preds = %27
+_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread15.i: ; preds = %27
   %31 = load ptr, ptr %19, align 8, !tbaa !31
   tail call void @uprv_free_77(ptr noundef %31)
   store ptr null, ptr %19, align 8, !tbaa !31
@@ -1970,7 +1970,7 @@ _ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread7.i: ; preds = %_ZN6ic
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull readonly align 1 %15, i64 %47, i1 false)
   br label %_ZN6icu_7716BytesTrieBuilder5writeEPKci.exit
 
-_ZN6icu_7716BytesTrieBuilder5writeEPKci.exit:     ; preds = %_ZNK6icu_7716BytesTrieElement9getStringERKNS_10CharStringE.exit, %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread10.i, %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread7.i
+_ZN6icu_7716BytesTrieBuilder5writeEPKci.exit:     ; preds = %_ZNK6icu_7716BytesTrieElement9getStringERKNS_10CharStringE.exit, %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread15.i, %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread7.i
   %48 = load i32, ptr %16, align 4, !tbaa !32
   ret i32 %48
 }
@@ -2091,9 +2091,9 @@ define noundef i32 @_ZN6icu_7716BytesTrieBuilder18writeValueAndFinalEia(ptr noun
   %69 = sext i32 %67 to i64
   %70 = tail call noalias ptr @uprv_malloc_77(i64 noundef %69) #20
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread10.i, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.i
+  br i1 %71, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread15.i, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.i
 
-_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread10.i: ; preds = %68
+_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread15.i: ; preds = %68
   %72 = load ptr, ptr %60, align 8, !tbaa !31
   tail call void @uprv_free_77(ptr noundef %72)
   store ptr null, ptr %60, align 8, !tbaa !31
@@ -2128,7 +2128,7 @@ _ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread7.i: ; preds = %_ZN6ic
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %87, ptr noundef nonnull readonly align 1 dereferenceable(1) %4, i64 %88, i1 false)
   br label %_ZN6icu_7716BytesTrieBuilder5writeEPKci.exit
 
-_ZN6icu_7716BytesTrieBuilder5writeEPKci.exit:     ; preds = %54, %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread10.i, %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread7.i
+_ZN6icu_7716BytesTrieBuilder5writeEPKci.exit:     ; preds = %54, %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread15.i, %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread7.i
   %89 = load i32, ptr %57, align 4, !tbaa !32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %90
@@ -2260,9 +2260,9 @@ _ZN6icu_7716BytesTrieBuilder19internalEncodeDeltaEiPc.exit: ; preds = %15, %37
   %57 = sext i32 %55 to i64
   %58 = tail call noalias ptr @uprv_malloc_77(i64 noundef %57) #20
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread10.i, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.i
+  br i1 %59, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread15.i, label %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.i
 
-_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread10.i: ; preds = %56
+_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread15.i: ; preds = %56
   %60 = load ptr, ptr %48, align 8, !tbaa !31
   tail call void @uprv_free_77(ptr noundef %60)
   store ptr null, ptr %48, align 8, !tbaa !31
@@ -2297,7 +2297,7 @@ _ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread7.i: ; preds = %_ZN6ic
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %75, ptr noundef nonnull readonly align 1 dereferenceable(1) %3, i64 %76, i1 false)
   br label %_ZN6icu_7716BytesTrieBuilder5writeEPKci.exit
 
-_ZN6icu_7716BytesTrieBuilder5writeEPKci.exit:     ; preds = %_ZN6icu_7716BytesTrieBuilder19internalEncodeDeltaEiPc.exit, %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread10.i, %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread7.i
+_ZN6icu_7716BytesTrieBuilder5writeEPKci.exit:     ; preds = %_ZN6icu_7716BytesTrieBuilder19internalEncodeDeltaEiPc.exit, %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread15.i, %_ZN6icu_7716BytesTrieBuilder14ensureCapacityEi.exit.thread7.i
   %77 = load i32, ptr %4, align 4, !tbaa !32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %78

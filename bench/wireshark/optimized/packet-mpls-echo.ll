@@ -2047,23 +2047,23 @@ switch.lookup:                                    ; preds = %384
   %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.dissect_mpls_echo_tlv_fec, i64 0, i64 %397
   %switch.load = load ptr, ptr %switch.gep, align 8
   %398 = zext nneg i32 %395 to i64
-  %switch.gep602 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_mpls_echo_tlv_fec.1, i64 0, i64 %398
-  %switch.load603 = load i32, ptr %switch.gep602, align 4
+  %switch.gep609 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_mpls_echo_tlv_fec.1, i64 0, i64 %398
+  %switch.load610 = load i32, ptr %switch.gep609, align 4
   %399 = zext nneg i32 %395 to i64
-  %switch.gep604 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_mpls_echo_tlv_fec.2, i64 0, i64 %399
-  %switch.load605 = load i32, ptr %switch.gep604, align 4
+  %switch.gep611 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_mpls_echo_tlv_fec.2, i64 0, i64 %399
+  %switch.load612 = load i32, ptr %switch.gep611, align 4
   %400 = zext nneg i32 %395 to i64
-  %switch.gep606 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.dissect_mpls_echo_tlv_fec.3, i64 0, i64 %400
-  %switch.load607 = load ptr, ptr %switch.gep606, align 8
+  %switch.gep613 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.dissect_mpls_echo_tlv_fec.3, i64 0, i64 %400
+  %switch.load614 = load ptr, ptr %switch.gep613, align 8
   %401 = zext nneg i32 %395 to i64
-  %switch.gep608 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_mpls_echo_tlv_fec.4, i64 0, i64 %401
-  %switch.load609 = load i32, ptr %switch.gep608, align 4
+  %switch.gep615 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_mpls_echo_tlv_fec.4, i64 0, i64 %401
+  %switch.load616 = load i32, ptr %switch.gep615, align 4
   %402 = load i32, ptr %switch.load, align 4
-  %403 = call ptr @proto_tree_add_item(ptr noundef %.0453, i32 noundef %402, ptr noundef %0, i32 noundef %394, i32 noundef %switch.load603, i32 noundef 0)
-  %404 = add i32 %.0445513, %switch.load605
-  %405 = load i32, ptr %switch.load607, align 4
-  %406 = call ptr @proto_tree_add_item(ptr noundef %.0453, i32 noundef %405, ptr noundef %0, i32 noundef %404, i32 noundef %switch.load603, i32 noundef 0)
-  %407 = add i32 %.0445513, %switch.load609
+  %403 = call ptr @proto_tree_add_item(ptr noundef %.0453, i32 noundef %402, ptr noundef %0, i32 noundef %394, i32 noundef %switch.load610, i32 noundef 0)
+  %404 = add i32 %.0445513, %switch.load612
+  %405 = load i32, ptr %switch.load614, align 4
+  %406 = call ptr @proto_tree_add_item(ptr noundef %.0453, i32 noundef %405, ptr noundef %0, i32 noundef %404, i32 noundef %switch.load610, i32 noundef 0)
+  %407 = add i32 %.0445513, %switch.load616
   br label %408
 
 408:                                              ; preds = %384, %switch.lookup
@@ -2235,7 +2235,7 @@ define internal fastcc void @dissect_mpls_echo_tlv_ilso(ptr noundef %0, ptr noun
   br label %.loopexit
 
 48:                                               ; preds = %43, %40, %24
-  %.sink87 = phi i32 [ 24, %43 ], [ 36, %40 ], [ 12, %24 ]
+  %.sink90 = phi i32 [ 24, %43 ], [ 36, %40 ], [ 12, %24 ]
   %.sink = phi i32 [ -24, %43 ], [ -36, %40 ], [ -12, %24 ]
   %49 = add nsw i32 %4, %.sink
   %50 = icmp ne ptr %3, null
@@ -2244,7 +2244,7 @@ define internal fastcc void @dissect_mpls_echo_tlv_ilso(ptr noundef %0, ptr noun
   br i1 %or.cond7, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %48
-  %52 = add i32 %2, %.sink87
+  %52 = add i32 %2, %.sink90
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %69

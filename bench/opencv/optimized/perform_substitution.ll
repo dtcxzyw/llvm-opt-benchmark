@@ -420,8 +420,8 @@ _ZN2cv5gimpl12_GLOBAL__N_15getNhISt20_List_const_iteratorIN3ade6HandleINS4_4Node
   br i1 %.not.i.i.i.i.i.i4.i, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit.i, label %167
 
 167:                                              ; preds = %_ZN2cv5gimpl12_GLOBAL__N_15getNhISt20_List_const_iteratorIN3ade6HandleINS4_4NodeEEEEEES7_T_.exit.i, %_ZN2cv5gimpl12_GLOBAL__N_15getNhISt20_List_const_iteratorIN3ade6HandleINS4_4NodeEEEEEES7_T_.exit.thread.i
-  %.pr22.i = phi ptr [ %160, %_ZN2cv5gimpl12_GLOBAL__N_15getNhISt20_List_const_iteratorIN3ade6HandleINS4_4NodeEEEEEES7_T_.exit.thread.i ], [ %.pr.pre.i, %_ZN2cv5gimpl12_GLOBAL__N_15getNhISt20_List_const_iteratorIN3ade6HandleINS4_4NodeEEEEEES7_T_.exit.i ]
-  %168 = getelementptr inbounds nuw i8, ptr %.pr22.i, i64 8
+  %.pr24.i = phi ptr [ %160, %_ZN2cv5gimpl12_GLOBAL__N_15getNhISt20_List_const_iteratorIN3ade6HandleINS4_4NodeEEEEEES7_T_.exit.thread.i ], [ %.pr.pre.i, %_ZN2cv5gimpl12_GLOBAL__N_15getNhISt20_List_const_iteratorIN3ade6HandleINS4_4NodeEEEEEES7_T_.exit.i ]
+  %168 = getelementptr inbounds nuw i8, ptr %.pr24.i, i64 8
   %169 = load atomic i32, ptr %168 monotonic, align 8, !noalias !44
   br label %170
 
@@ -449,16 +449,16 @@ _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i
 
 181:                                              ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i.i
   store i32 0, ptr %168, align 8, !tbaa !48
-  %182 = getelementptr inbounds nuw i8, ptr %.pr22.i, i64 12
+  %182 = getelementptr inbounds nuw i8, ptr %.pr24.i, i64 12
   store i32 0, ptr %182, align 4, !tbaa !50
-  %183 = load ptr, ptr %.pr22.i, align 8, !tbaa !21
+  %183 = load ptr, ptr %.pr24.i, align 8, !tbaa !21
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %185 = load ptr, ptr %184, align 8
-  call void %185(ptr noundef nonnull align 8 dereferenceable(16) %.pr22.i) #19
-  %186 = load ptr, ptr %.pr22.i, align 8, !tbaa !21
+  call void %185(ptr noundef nonnull align 8 dereferenceable(16) %.pr24.i) #19
+  %186 = load ptr, ptr %.pr24.i, align 8, !tbaa !21
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 24
   %188 = load ptr, ptr %187, align 8
-  call void %188(ptr noundef nonnull align 8 dereferenceable(16) %.pr22.i) #19
+  call void %188(ptr noundef nonnull align 8 dereferenceable(16) %.pr24.i) #19
   br label %_ZN3adeeqERKNS_6HandleINS_4NodeEEEDn.exit.i
 
 189:                                              ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i.i
@@ -481,7 +481,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %193,
   br i1 %195, label %196, label %_ZN3adeeqERKNS_6HandleINS_4NodeEEEDn.exit.i, !prof !51
 
 196:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr22.i) #19
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr24.i) #19
   br label %_ZN3adeeqERKNS_6HandleINS_4NodeEEEDn.exit.i
 
 _ZN3adeeqERKNS_6HandleINS_4NodeEEEDn.exit.i:      ; preds = %196, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %181
@@ -1134,8 +1134,8 @@ _ZN2cv5gimpl12_GLOBAL__N_15getNhIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleIN
   br i1 %.not.i.i.i.i.i.i4, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit10, label %18
 
 18:                                               ; preds = %_ZN2cv5gimpl12_GLOBAL__N_15getNhIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS5_4NodeEEESt6vectorIS8_SaIS8_EEEEEES8_T_.exit.thread, %_ZN2cv5gimpl12_GLOBAL__N_15getNhIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS5_4NodeEEESt6vectorIS8_SaIS8_EEEEEES8_T_.exit
-  %.pr21 = phi ptr [ %11, %_ZN2cv5gimpl12_GLOBAL__N_15getNhIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS5_4NodeEEESt6vectorIS8_SaIS8_EEEEEES8_T_.exit.thread ], [ %.pr.pre, %_ZN2cv5gimpl12_GLOBAL__N_15getNhIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS5_4NodeEEESt6vectorIS8_SaIS8_EEEEEES8_T_.exit ]
-  %19 = getelementptr inbounds nuw i8, ptr %.pr21, i64 8
+  %.pr24 = phi ptr [ %11, %_ZN2cv5gimpl12_GLOBAL__N_15getNhIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS5_4NodeEEESt6vectorIS8_SaIS8_EEEEEES8_T_.exit.thread ], [ %.pr.pre, %_ZN2cv5gimpl12_GLOBAL__N_15getNhIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS5_4NodeEEESt6vectorIS8_SaIS8_EEEEEES8_T_.exit ]
+  %19 = getelementptr inbounds nuw i8, ptr %.pr24, i64 8
   %20 = load atomic i32, ptr %19 monotonic, align 8, !noalias !64
   br label %21
 
@@ -1163,16 +1163,16 @@ _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i
 
 32:                                               ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i
   store i32 0, ptr %19, align 8, !tbaa !48
-  %33 = getelementptr inbounds nuw i8, ptr %.pr21, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %.pr24, i64 12
   store i32 0, ptr %33, align 4, !tbaa !50
-  %34 = load ptr, ptr %.pr21, align 8, !tbaa !21
+  %34 = load ptr, ptr %.pr24, align 8, !tbaa !21
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(16) %.pr21) #19
-  %37 = load ptr, ptr %.pr21, align 8, !tbaa !21
+  call void %36(ptr noundef nonnull align 8 dereferenceable(16) %.pr24) #19
+  %37 = load ptr, ptr %.pr24, align 8, !tbaa !21
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(16) %.pr21) #19
+  call void %39(ptr noundef nonnull align 8 dereferenceable(16) %.pr24) #19
   br label %_ZN3adeeqERKNS_6HandleINS_4NodeEEEDn.exit
 
 40:                                               ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i
@@ -1195,7 +1195,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %44, %4
   br i1 %46, label %47, label %_ZN3adeeqERKNS_6HandleINS_4NodeEEEDn.exit, !prof !51
 
 47:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr21) #19
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr24) #19
   br label %_ZN3adeeqERKNS_6HandleINS_4NodeEEEDn.exit
 
 _ZN3adeeqERKNS_6HandleINS_4NodeEEEDn.exit:        ; preds = %32, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %47
@@ -1334,8 +1334,8 @@ _ZN2cv5gimpl12_GLOBAL__N_15getNhINSt8__detail20_Node_const_iteratorISt4pairIKN3a
   br i1 %.not.i.i.i.i.i.i4, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit, label %15
 
 15:                                               ; preds = %_ZN2cv5gimpl12_GLOBAL__N_15getNhINSt8__detail20_Node_const_iteratorISt4pairIKN3ade6HandleINS6_4NodeEEES9_ELb0ELb1EEEEES9_T_.exit.thread, %_ZN2cv5gimpl12_GLOBAL__N_15getNhINSt8__detail20_Node_const_iteratorISt4pairIKN3ade6HandleINS6_4NodeEEES9_ELb0ELb1EEEEES9_T_.exit
-  %.pr11 = phi ptr [ %8, %_ZN2cv5gimpl12_GLOBAL__N_15getNhINSt8__detail20_Node_const_iteratorISt4pairIKN3ade6HandleINS6_4NodeEEES9_ELb0ELb1EEEEES9_T_.exit.thread ], [ %.pr.pre, %_ZN2cv5gimpl12_GLOBAL__N_15getNhINSt8__detail20_Node_const_iteratorISt4pairIKN3ade6HandleINS6_4NodeEEES9_ELb0ELb1EEEEES9_T_.exit ]
-  %16 = getelementptr inbounds nuw i8, ptr %.pr11, i64 8
+  %.pr13 = phi ptr [ %8, %_ZN2cv5gimpl12_GLOBAL__N_15getNhINSt8__detail20_Node_const_iteratorISt4pairIKN3ade6HandleINS6_4NodeEEES9_ELb0ELb1EEEEES9_T_.exit.thread ], [ %.pr.pre, %_ZN2cv5gimpl12_GLOBAL__N_15getNhINSt8__detail20_Node_const_iteratorISt4pairIKN3ade6HandleINS6_4NodeEEES9_ELb0ELb1EEEEES9_T_.exit ]
+  %16 = getelementptr inbounds nuw i8, ptr %.pr13, i64 8
   %17 = load atomic i32, ptr %16 monotonic, align 8, !noalias !71
   br label %18
 
@@ -1363,16 +1363,16 @@ _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i
 
 29:                                               ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i
   store i32 0, ptr %16, align 8, !tbaa !48
-  %30 = getelementptr inbounds nuw i8, ptr %.pr11, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %.pr13, i64 12
   store i32 0, ptr %30, align 4, !tbaa !50
-  %31 = load ptr, ptr %.pr11, align 8, !tbaa !21
+  %31 = load ptr, ptr %.pr13, align 8, !tbaa !21
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(16) %.pr11) #19
-  %34 = load ptr, ptr %.pr11, align 8, !tbaa !21
+  call void %33(ptr noundef nonnull align 8 dereferenceable(16) %.pr13) #19
+  %34 = load ptr, ptr %.pr13, align 8, !tbaa !21
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(16) %.pr11) #19
+  call void %36(ptr noundef nonnull align 8 dereferenceable(16) %.pr13) #19
   br label %_ZN3adeeqERKNS_6HandleINS_4NodeEEEDn.exit
 
 37:                                               ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i
@@ -1395,7 +1395,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %41, %3
   br i1 %43, label %44, label %_ZN3adeeqERKNS_6HandleINS_4NodeEEEDn.exit, !prof !51
 
 44:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr11) #19
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr13) #19
   br label %_ZN3adeeqERKNS_6HandleINS_4NodeEEEDn.exit
 
 _ZN3adeeqERKNS_6HandleINS_4NodeEEEDn.exit:        ; preds = %29, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %44

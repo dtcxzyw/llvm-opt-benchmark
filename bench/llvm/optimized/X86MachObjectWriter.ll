@@ -497,7 +497,7 @@ _ZNK4llvm8MCSymbol11isInSectionEv.exit.i:         ; preds = %_ZNK4llvm8MCSymbol9
   br i1 %or.cond45.i, label %.thread17.thread.i, label %206
 
 .thread17.thread.i:                               ; preds = %198
-  %.pre61.pre66.i = load i64, ptr %57, align 8
+  %.pre61.pre76.i = load i64, ptr %57, align 8
   br label %_ZNK4llvm8MCSymbol11isInSectionEv.exit232.i
 
 _ZNK4llvm8MCSymbol11isInSectionEv.exit.thread.i:  ; preds = %_ZNK4llvm8MCSymbol11isInSectionEv.exit.i, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i.i, %190
@@ -538,14 +538,14 @@ _ZNK4llvm8MCSymbol9isDefinedEv.exit.i230.i:       ; preds = %212
   br i1 %.not.i231.i, label %_ZNK4llvm8MCSymbol11isInSectionEv.exit232.thread.i, label %_ZNK4llvm8MCSymbol11isInSectionEv.exit232.i
 
 _ZNK4llvm8MCSymbol11isInSectionEv.exit232.i:      ; preds = %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i230.i, %.thread17.i, %.thread17.thread.i
-  %.pre61.i = phi i64 [ %.pre61.pre62.i, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i230.i ], [ %.pre61.pre.i, %.thread17.i ], [ %.pre61.pre66.i, %.thread17.thread.i ]
+  %.pre61.i = phi i64 [ %.pre61.pre62.i, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i230.i ], [ %.pre61.pre.i, %.thread17.i ], [ %.pre61.pre76.i, %.thread17.thread.i ]
   %.0.i.i.i228.i = phi ptr [ %217, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i230.i ], [ %205, %.thread17.i ], [ %.0.i.i.i.i, %.thread17.thread.i ]
   %218 = load ptr, ptr @_ZN4llvm8MCSymbol22AbsolutePseudoFragmentE, align 8, !tbaa !112
   %.not48.i = icmp eq ptr %.0.i.i.i228.i, %218
   %219 = and i64 %.pre61.i, 28672
   %220 = icmp eq i64 %219, 8192
-  %or.cond70.i = select i1 %.not48.i, i1 true, i1 %220
-  br i1 %or.cond70.i, label %_ZNK4llvm8MCSymbol11isInSectionEv.exit232.thread.i, label %221
+  %or.cond80.i = select i1 %.not48.i, i1 true, i1 %220
+  br i1 %or.cond80.i, label %_ZNK4llvm8MCSymbol11isInSectionEv.exit232.thread.i, label %221
 
 221:                                              ; preds = %_ZNK4llvm8MCSymbol11isInSectionEv.exit232.i
   %222 = tail call noundef ptr @_ZNK4llvm8MCSymbol11getFragmentEb(ptr noundef nonnull align 8 dereferenceable(32) %56, i1 noundef zeroext true)

@@ -200,20 +200,20 @@ define noundef float @_Z6radiusP8_IO_FILEiPKiPA3_f(ptr noundef captures(address_
   %29 = fadd float %.022, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count29
-  br i1 %exitcond.not, label %._crit_edge.thread34, label %.lr.ph.split, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge.thread35, label %.lr.ph.split, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %4
-  br i1 %.not20, label %._crit_edge.thread, label %._crit_edge.thread34
+  br i1 %.not20, label %._crit_edge.thread, label %._crit_edge.thread35
 
-._crit_edge.thread34:                             ; preds = %.lr.ph.split, %._crit_edge
-  %.0.lcssa37 = phi float [ 0.000000e+00, %._crit_edge ], [ %29, %.lr.ph.split ]
+._crit_edge.thread35:                             ; preds = %.lr.ph.split, %._crit_edge
+  %.0.lcssa38 = phi float [ 0.000000e+00, %._crit_edge ], [ %29, %.lr.ph.split ]
   %fputc = tail call i32 @fputc(i32 10, ptr nonnull %0)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %._crit_edge.thread34, %._crit_edge
-  %.0.lcssa33 = phi float [ %.0.lcssa37, %._crit_edge.thread34 ], [ 0.000000e+00, %._crit_edge ], [ %16, %.lr.ph.split.us ]
+._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %._crit_edge.thread35, %._crit_edge
+  %.0.lcssa34 = phi float [ %.0.lcssa38, %._crit_edge.thread35 ], [ 0.000000e+00, %._crit_edge ], [ %16, %.lr.ph.split.us ]
   %30 = sitofp i32 %1 to float
-  %31 = fdiv float %.0.lcssa33, %30
+  %31 = fdiv float %.0.lcssa34, %30
   %32 = tail call noundef float @sqrtf(float noundef %31) #21, !tbaa !20
   ret float %32
 }
@@ -859,19 +859,19 @@ sub_1:                                            ; preds = %sub_0
   %111 = getelementptr inbounds nuw i8, ptr %98, i64 68
   %112 = load i32, ptr %111, align 4, !tbaa !61
   %.not127 = icmp eq i32 %112, -1
-  br i1 %.not127, label %113, label %._crit_edge187.split.loop.exit254
+  br i1 %.not127, label %113, label %._crit_edge187.split.loop.exit256
 
 113:                                              ; preds = %.lr.ph186, %101, %104, %107, %110
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %exitcond228.not = icmp eq i64 %indvars.iv.next225, %wide.trip.count227
   br i1 %exitcond228.not, label %._crit_edge187, label %.lr.ph186, !llvm.loop !63
 
-._crit_edge187.split.loop.exit254:                ; preds = %110
+._crit_edge187.split.loop.exit256:                ; preds = %110
   %114 = trunc nuw nsw i64 %indvars.iv224 to i32
   br label %._crit_edge187
 
-._crit_edge187:                                   ; preds = %113, %._crit_edge187.split.loop.exit254
-  %.0116.lcssa.ph = phi i32 [ %114, %._crit_edge187.split.loop.exit254 ], [ %47, %113 ]
+._crit_edge187:                                   ; preds = %113, %._crit_edge187.split.loop.exit256
+  %.0116.lcssa.ph = phi i32 [ %114, %._crit_edge187.split.loop.exit256 ], [ %47, %113 ]
   %115 = call i32 @llvm.umax.i32(i32 %.0116.lcssa.ph, i32 1)
   %116 = zext nneg i32 %26 to i64
   br label %.lr.ph193
@@ -918,24 +918,24 @@ sub_1:                                            ; preds = %sub_0
   br label %._crit_edge194
 
 ._crit_edge194:                                   ; preds = %132, %._crit_edge194.loopexit.split.loop.exit, %.preheader171
-  %.0116.lcssa252 = phi i32 [ 1, %.preheader171 ], [ %115, %._crit_edge194.loopexit.split.loop.exit ], [ %115, %132 ]
+  %.0116.lcssa254 = phi i32 [ 1, %.preheader171 ], [ %115, %._crit_edge194.loopexit.split.loop.exit ], [ %115, %132 ]
   %.0115.lcssa = phi i32 [ %26, %.preheader171 ], [ %134, %._crit_edge194.loopexit.split.loop.exit ], [ -1, %132 ]
   %135 = icmp eq i32 %.0115.lcssa, %26
   %136 = sext i1 %135 to i32
   %.1 = add nsw i32 %.0115.lcssa, %136
-  %137 = icmp slt i32 %.0116.lcssa252, %.1
+  %137 = icmp slt i32 %.0116.lcssa254, %.1
   br i1 %137, label %.lr.ph200.preheader, label %._crit_edge201
 
 .lr.ph200.preheader:                              ; preds = %._crit_edge194
-  %umax = zext i32 %.0116.lcssa252 to i64
+  %umax = zext i32 %.0116.lcssa254 to i64
   br label %.lr.ph200
 
 ._crit_edge201:                                   ; preds = %.lr.ph200, %._crit_edge194
-  %138 = sub nsw i32 %.1, %.0116.lcssa252
+  %138 = sub nsw i32 %.1, %.0116.lcssa254
   %139 = call i32 @llvm.smax.i32(i32 %138, i32 -1)
   %.sroa.speculated = add nsw i32 %139, 1
   %140 = load ptr, ptr @stderr, align 8, !tbaa !40
-  %141 = zext nneg i32 %.0116.lcssa252 to i64
+  %141 = zext nneg i32 %.0116.lcssa254 to i64
   %142 = getelementptr inbounds nuw %struct.t_bb, ptr %31, i64 %141, i32 11
   %143 = load i32, ptr %142, align 4, !tbaa !49
   %144 = sext i32 %.1 to i64
@@ -950,7 +950,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not168202, label %._crit_edge209, label %.lr.ph205.preheader
 
 .lr.ph205.preheader:                              ; preds = %.preheader170
-  %umax237 = zext i32 %.0116.lcssa252 to i64
+  %umax237 = zext i32 %.0116.lcssa254 to i64
   %wide.trip.count241 = zext nneg i32 %.sroa.speculated to i64
   br label %.lr.ph205
 

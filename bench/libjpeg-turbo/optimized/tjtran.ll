@@ -554,25 +554,25 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 
 184:                                              ; preds = %._crit_edge
   %.not577 = icmp eq ptr %.0484.lcssa, null
-  br i1 %.not577, label %.thread772, label %185
+  br i1 %.not577, label %.thread785, label %185
 
 185:                                              ; preds = %184
   %186 = icmp eq i32 %.0478.lcssa, 2
-  br i1 %186, label %.thread772, label %187
+  br i1 %186, label %.thread785, label %187
 
 187:                                              ; preds = %185
   %188 = icmp eq i32 %.0478.lcssa, 4
   %spec.store.select = select i1 %188, i32 0, i32 %.0478.lcssa
-  br label %.thread772
+  br label %.thread785
 
-.thread772:                                       ; preds = %185, %187, %184
-  %.0484.lcssa761794 = phi ptr [ %.0484.lcssa, %187 ], [ null, %184 ], [ %.0484.lcssa, %185 ]
+.thread785:                                       ; preds = %185, %187, %184
+  %.0484.lcssa774807 = phi ptr [ %.0484.lcssa, %187 ], [ null, %184 ], [ %.0484.lcssa, %185 ]
   %.2480 = phi i32 [ %spec.store.select, %187 ], [ %.0478.lcssa, %184 ], [ 3, %185 ]
   %189 = call ptr @tj3Init(i32 noundef 2) #17
   %190 = icmp eq ptr %189, null
   br i1 %190, label %191, label %199
 
-191:                                              ; preds = %.thread772
+191:                                              ; preds = %.thread785
   %192 = call i32 @tj3GetErrorCode(ptr noundef null) #17
   %193 = icmp eq i32 %192, 0
   %194 = select i1 %193, ptr @.str.31, ptr @.str.32
@@ -583,7 +583,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %or.cond33 = select i1 %197, i1 true, i1 %198
   br i1 %or.cond33, label %493, label %199
 
-199:                                              ; preds = %191, %.thread772
+199:                                              ; preds = %191, %.thread785
   %200 = icmp sgt i32 %.0481.lcssa, -1
   br i1 %200, label %201, label %212
 
@@ -919,7 +919,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   br i1 %.not577, label %462, label %407
 
 407:                                              ; preds = %406
-  %408 = call noalias ptr @fopen(ptr noundef nonnull %.0484.lcssa761794, ptr noundef nonnull @.str.41)
+  %408 = call noalias ptr @fopen(ptr noundef nonnull %.0484.lcssa774807, ptr noundef nonnull @.str.41)
   %409 = icmp eq ptr %408, null
   br i1 %409, label %410, label %415
 

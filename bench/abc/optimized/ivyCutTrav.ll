@@ -819,10 +819,10 @@ Extra_TruthIsImplyWords.exit71.i:                 ; preds = %.preheader.i, %381
   br i1 %.not59.i, label %.critedge4.thread.i120, label %413
 
 .critedge4.thread.i120:                           ; preds = %Extra_TruthIsImplyWords.exit71.i, %.critedge4.i119
-  %.15283126.i = phi i32 [ %.15283.i, %.critedge4.i119 ], [ %.2.i, %Extra_TruthIsImplyWords.exit71.i ]
-  store i32 %.15283126.i, ptr %265, align 4, !tbaa !3
+  %.15283130.i = phi i32 [ %.15283.i, %.critedge4.i119 ], [ %.2.i, %Extra_TruthIsImplyWords.exit71.i ]
+  store i32 %.15283130.i, ptr %265, align 4, !tbaa !3
   %386 = load i32, ptr %264, align 8, !tbaa !14
-  %387 = icmp eq i32 %.15283126.i, %386
+  %387 = icmp eq i32 %.15283130.i, %386
   br i1 %387, label %388, label %.Vec_PtrGrow.exit11_crit_edge.i.i121
 
 .Vec_PtrGrow.exit11_crit_edge.i.i121:             ; preds = %.critedge4.thread.i120
@@ -830,7 +830,7 @@ Extra_TruthIsImplyWords.exit71.i:                 ; preds = %.preheader.i, %381
   br label %Vec_PtrPush.exit.i123
 
 388:                                              ; preds = %.critedge4.thread.i120
-  %389 = icmp slt i32 %.15283126.i, 16
+  %389 = icmp slt i32 %.15283130.i, 16
   br i1 %389, label %390, label %397
 
 390:                                              ; preds = %388
@@ -853,7 +853,7 @@ Vec_PtrGrow.exit.i.i126:                          ; preds = %394, %392
   br label %Vec_PtrPush.exit.i123
 
 397:                                              ; preds = %388
-  %398 = shl nuw nsw i32 %.15283126.i, 1
+  %398 = shl nuw nsw i32 %.15283130.i, 1
   %399 = load ptr, ptr %304, align 8, !tbaa !9
   %.not9.i10.i.i124 = icmp eq ptr %399, null
   %400 = zext nneg i32 %398 to i64

@@ -558,8 +558,8 @@ define internal fastcc range(i32 -22, 1) i32 @rtsp_send_reply(ptr noundef %0, i3
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %9
-  %indvars.iv25 = phi i64 [ %indvars.iv.next, %9 ], [ 0, %4 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv25, 1
+  %indvars.iv26 = phi i64 [ %indvars.iv.next, %9 ], [ 0, %4 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv26, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 11
   br i1 %exitcond, label %.thread, label %9, !llvm.loop !42
 
@@ -665,7 +665,7 @@ declare void @av_freep(ptr noundef) local_unnamed_addr #2
 declare i32 @ff_sdp_parse(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ff_rtsp_tcp_read_packet(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -2147483648, 65536) i32 @ff_rtsp_tcp_read_packet(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.RTSPMessageHeader, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1187,8 +1187,8 @@ check_sessionid.exit.i.i:                         ; preds = %149
   br label %rtsp_read_setup.exit.i
 
 ._crit_edge.i.i:                                  ; preds = %166
-  %.not117.i.i = icmp eq i32 %163, 1
-  br i1 %.not117.i.i, label %._crit_edge.thread.i.i, label %175
+  %.not122.i.i = icmp eq i32 %163, 1
+  br i1 %.not122.i.i, label %._crit_edge.thread.i.i, label %175
 
 175:                                              ; preds = %._crit_edge.i.i
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.72) #11

@@ -483,9 +483,9 @@ define dso_local ptr @stepd_step_rec_create(ptr noundef %0, i16 noundef zeroext 
   %292 = load ptr, ptr %291, align 8
   %.not266 = icmp eq ptr %292, null
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  br i1 %.not266, label %.thread285, label %294
+  br i1 %.not266, label %.thread302, label %294
 
-.thread285:                                       ; preds = %._crit_edge277
+.thread302:                                       ; preds = %._crit_edge277
   store i16 0, ptr %293, align 8
   br label %312
 
@@ -516,7 +516,7 @@ define dso_local ptr @stepd_step_rec_create(ptr noundef %0, i16 noundef zeroext 
   call void @slurm_set_port(ptr noundef nonnull %3, i16 noundef zeroext %311) #9
   br label %313
 
-312:                                              ; preds = %.thread285, %294
+312:                                              ; preds = %.thread302, %294
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false)
   br label %313
 
@@ -667,7 +667,7 @@ srun_info_create.exit:                            ; preds = %326, %335
   %407 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %408 = load i16, ptr %407, align 8
   %.not269 = icmp eq i16 %408, 0
-  br i1 %.not269, label %.thread287, label %409
+  br i1 %.not269, label %.thread304, label %409
 
 409:                                              ; preds = %406
   %410 = getelementptr inbounds nuw i8, ptr %15, i64 828
@@ -697,17 +697,17 @@ srun_info_create.exit:                            ; preds = %326, %335
   store i16 %427, ptr %428, align 8
   %.pr.pre = load i32, ptr %403, align 8
   %429 = icmp eq i32 %.pr.pre, -4
-  br i1 %429, label %.thread287, label %.thread
+  br i1 %429, label %.thread304, label %.thread
 
 .thread:                                          ; preds = %402, %409
   %430 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %431 = load i8, ptr %430, align 8, !range !12, !noundef !13
-  br label %.thread287
+  br label %.thread304
 
-.thread287:                                       ; preds = %409, %406, %.thread
-  %.sink289 = phi i8 [ %431, %.thread ], [ 0, %406 ], [ 0, %409 ]
+.thread304:                                       ; preds = %409, %406, %.thread
+  %.sink306 = phi i8 [ %431, %.thread ], [ 0, %406 ], [ 0, %409 ]
   %432 = getelementptr inbounds nuw i8, ptr %15, i64 904
-  store i8 %.sink289, ptr %432, align 8
+  store i8 %.sink306, ptr %432, align 8
   %433 = load ptr, ptr %65, align 8
   %434 = load ptr, ptr @conf, align 8
   %435 = getelementptr inbounds nuw i8, ptr %434, i64 4272
@@ -730,13 +730,13 @@ srun_info_create.exit:                            ; preds = %326, %335
   %450 = icmp eq i32 %449, 0
   br i1 %450, label %451, label %454
 
-451:                                              ; preds = %.thread287
+451:                                              ; preds = %.thread304
   %452 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.10) #9
   %453 = getelementptr inbounds nuw i8, ptr %15, i64 480
   store ptr null, ptr %453, align 8
   br label %_job_init_task_info.exit
 
-454:                                              ; preds = %.thread287
+454:                                              ; preds = %.thread304
   %455 = load i32, ptr %216, align 8
   %.not.i272 = icmp eq i32 %455, -2
   %spec.select.i = select i1 %.not.i272, i32 0, i32 %455
@@ -1817,8 +1817,8 @@ define dso_local ptr @batch_stepd_step_rec_create(ptr noundef captures(none) %0)
   br i1 %or.cond5, label %.sink.split, label %182
 
 .sink.split:                                      ; preds = %178, %163
-  %.sink159 = phi i64 [ %174, %163 ], [ %179, %178 ]
-  %181 = tail call i32 @jobacct_gather_set_mem_limit(ptr noundef nonnull %36, i64 noundef %.sink159) #9
+  %.sink169 = phi i64 [ %174, %163 ], [ %179, %178 ]
+  %181 = tail call i32 @jobacct_gather_set_mem_limit(ptr noundef nonnull %36, i64 noundef %.sink169) #9
   br label %182
 
 182:                                              ; preds = %.sink.split, %178

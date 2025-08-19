@@ -294,8 +294,8 @@ define internal range(i32 -2147483648, 1) i32 @dsf_read_packet(ptr noundef reado
   %24 = sext i32 %23 to i64
   %25 = sub i64 %15, %24
   %.not88 = icmp eq i64 %10, %25
-  %or.cond95 = select i1 %21, i1 %.not88, i1 false
-  br i1 %or.cond95, label %26, label %.thread90
+  %or.cond106 = select i1 %21, i1 %.not88, i1 false
+  br i1 %or.cond106, label %26, label %.thread90
 
 26:                                               ; preds = %16
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 496

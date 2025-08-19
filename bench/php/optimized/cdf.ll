@@ -559,7 +559,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_sat(ptr noundef readonly captures(n
   br i1 %.not.i.i, label %63, label %59
 
 59:                                               ; preds = %52
-  %60 = add i64 %56, %8
+  %60 = add nsw i64 %56, %8
   %61 = load i64, ptr %41, align 8, !tbaa !14
   %.not24.i.i = icmp ult i64 %61, %60
   br i1 %.not24.i.i, label %63, label %cdf_read_sector.exit.thread107
@@ -639,7 +639,7 @@ cdf_read_sector.exit:                             ; preds = %66
   br i1 %.not.i.i90, label %100, label %96
 
 96:                                               ; preds = %92
-  %97 = add i64 %94, %8
+  %97 = add nsw i64 %94, %8
   %98 = load i64, ptr %41, align 8, !tbaa !14
   %.not24.i.i91 = icmp ult i64 %98, %97
   br i1 %.not24.i.i91, label %100, label %.critedge
@@ -702,7 +702,7 @@ cdf_read_sector.exit95:                           ; preds = %103
   br i1 %.not.i.i98, label %130, label %126
 
 126:                                              ; preds = %119
-  %127 = add i64 %123, %8
+  %127 = add nsw i64 %123, %8
   %128 = load i64, ptr %41, align 8, !tbaa !14
   %.not24.i.i99 = icmp ult i64 %128, %127
   br i1 %.not24.i.i99, label %130, label %cdf_read_sector.exit103.thread114
@@ -923,7 +923,7 @@ cdf_count_chain.exit:                             ; preds = %20, %6, %.loopexit.
   br i1 %.not.i.i, label %63, label %59
 
 59:                                               ; preds = %52
-  %60 = add i64 %56, %11
+  %60 = add nsw i64 %56, %11
   %61 = load i64, ptr %42, align 8, !tbaa !14
   %.not24.i.i = icmp ult i64 %61, %60
   br i1 %.not24.i.i, label %63, label %cdf_read_sector.exit.thread60
@@ -1481,7 +1481,7 @@ cdf_count_chain.exit:                             ; preds = %.lr.ph.split.i, %.p
   br i1 %.not.i.i, label %55, label %51
 
 51:                                               ; preds = %44
-  %52 = add i64 %48, %9
+  %52 = add nsw i64 %48, %9
   %53 = load i64, ptr %34, align 8, !tbaa !14
   %.not24.i.i = icmp ult i64 %53, %52
   br i1 %.not24.i.i, label %55, label %cdf_read_sector.exit.thread41
@@ -1927,7 +1927,7 @@ cdf_check_stream_offset.exit167.thread:           ; preds = %50
 59:                                               ; preds = %.lr.ph214, %cdf_check_stream_offset.exit167
   %.0124213 = phi ptr [ %45, %.lr.ph214 ], [ %.3, %cdf_check_stream_offset.exit167 ]
   %.0126212 = phi i64 [ 0, %.lr.ph214 ], [ %155, %cdf_check_stream_offset.exit167 ]
-  %60 = shl i64 %.0126212, 3
+  %60 = shl nuw nsw i64 %.0126212, 3
   %61 = load ptr, ptr %0, align 8, !tbaa !4
   %62 = getelementptr inbounds nuw i8, ptr %49, i64 %60
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -2138,7 +2138,7 @@ cdf_copy_info.exit.thread:                        ; preds = %111, %104, %97, %95
 cdf_check_stream_offset.exit167:                  ; preds = %cdf_copy_info.exit187, %cdf_copy_info.exit183, %cdf_copy_info.exit, %._crit_edge, %cdf_copy_info.exit.thread, %95, %95, %153
   %.2128 = phi i64 [ %.0126212, %cdf_copy_info.exit.thread ], [ %.0126212, %95 ], [ %.0126212, %95 ], [ %.0126212, %cdf_copy_info.exit ], [ %.0126212, %cdf_copy_info.exit183 ], [ %.0126212, %cdf_copy_info.exit187 ], [ %152, %._crit_edge ], [ %.0126212, %153 ]
   %.3 = phi ptr [ %.0124213, %cdf_copy_info.exit.thread ], [ %.0124213, %95 ], [ %.0124213, %95 ], [ %.0124213, %cdf_copy_info.exit ], [ %.0124213, %cdf_copy_info.exit183 ], [ %.0124213, %cdf_copy_info.exit187 ], [ %.1125, %._crit_edge ], [ %.0124213, %153 ]
-  %155 = add i64 %.2128, 1
+  %155 = add nsw i64 %.2128, 1
   %156 = icmp ult i64 %155, %31
   br i1 %156, label %59, label %.loopexit
 
@@ -2278,12 +2278,12 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr noundef readnone capt
   br i1 %16, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %14, %.lr.ph.split
-  %.0122.lcssa.ph266 = phi i64 [ %15, %14 ], [ %.0122165, %.lr.ph.split ]
-  %17 = icmp eq i64 %.0122.lcssa.ph266, 0
+  %.0122.lcssa.ph278 = phi i64 [ %15, %14 ], [ %.0122165, %.lr.ph.split ]
+  %17 = icmp eq i64 %.0122.lcssa.ph278, 0
   br i1 %17, label %._crit_edge.thread, label %18
 
 18:                                               ; preds = %._crit_edge
-  %19 = add i64 %.0122.lcssa.ph266, -1
+  %19 = add i64 %.0122.lcssa.ph278, -1
   %20 = mul i64 %19, 528
   %21 = add i64 %20, 536
   %22 = tail call noalias ptr @_emalloc(i64 noundef %21) #24

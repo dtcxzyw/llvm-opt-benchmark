@@ -1433,7 +1433,7 @@ ilfnst_transform.exit.i.i:                        ; preds = %714, %708, %669
   %.not50.i.i.i = icmp eq i8 %766, 0
   %767 = select i1 %.not50.i.i.i, i32 2, i32 1
   %..i.i = select i1 %.not49.i.i.i, i32 %767, i32 1
-  %.176.i.i = select i1 %.not49.i.i.i, i32 1, i32 %767
+  %.207.i.i = select i1 %.not49.i.i.i, i32 1, i32 %767
   br label %derive_transform_type.exit.i.i
 
 768:                                              ; preds = %.critedge.i.i.i
@@ -1461,7 +1461,7 @@ ilfnst_transform.exit.i.i:                        ; preds = %714, %708, %669
 
 derive_transform_type.exit.i.i:                   ; preds = %779, %768, %.critedge.thread.i.i.i, %730, %724
   %.1.i.i = phi i32 [ %784, %779 ], [ 0, %730 ], [ 0, %724 ], [ %775, %768 ], [ %..i.i, %.critedge.thread.i.i.i ]
-  %.0113.i.i = phi i32 [ %786, %779 ], [ 0, %730 ], [ 0, %724 ], [ %778, %768 ], [ %.176.i.i, %.critedge.thread.i.i.i ]
+  %.0113.i.i = phi i32 [ %786, %779 ], [ 0, %730 ], [ 0, %724 ], [ %778, %768 ], [ %.207.i.i, %.critedge.thread.i.i.i ]
   %787 = getelementptr inbounds nuw i8, ptr %279, i64 12
   %788 = load i32, ptr %787, align 4, !tbaa !117
   %789 = icmp sgt i32 %788, 1
@@ -1703,7 +1703,7 @@ derive_transform_type.exit.i.i:                   ; preds = %779, %768, %.crited
   br i1 %exitcond.not.i97.i.i, label %itx_2d.exit.i.i, label %.lr.ph.i94.i.i, !llvm.loop !190
 
 .thread118.i.i:                                   ; preds = %.thread116.i.i, %882
-  %.sink58.in.i.i.i = phi ptr [ %335, %.thread116.i.i ], [ %337, %882 ]
+  %.sink60.in.i.i.i = phi ptr [ %335, %.thread116.i.i ], [ %337, %882 ]
   %.pn.in.i.i.i = phi i32 [ %.0113.i.i, %.thread116.i.i ], [ %.1.i.i, %882 ]
   %.sink.in.in.i.i.i = phi i32 [ %725, %.thread116.i.i ], [ %795, %882 ]
   %907 = getelementptr inbounds nuw i8, ptr %279, i64 64
@@ -1711,11 +1711,11 @@ derive_transform_type.exit.i.i:                   ; preds = %779, %768, %.crited
   %.sink.in.i.i26.i = add nsw i32 %.sink.in.in.i.i.i, 1
   %.sink.i.i27.i = sext i32 %.sink.in.i.i26.i to i64
   %.pn.i.i.i = zext i32 %.pn.in.i.i.i to i64
-  %.sink55.i.i.i = getelementptr inbounds nuw [3 x [6 x ptr]], ptr %276, i64 0, i64 %.pn.i.i.i
-  %.sink58.i.i.i = load i32, ptr %.sink58.in.i.i.i, align 4, !tbaa !90
-  %909 = add nsw i32 %.sink58.i.i.i, -1
+  %.sink57.i.i.i = getelementptr inbounds nuw [3 x [6 x ptr]], ptr %276, i64 0, i64 %.pn.i.i.i
+  %.sink60.i.i.i = load i32, ptr %.sink60.in.i.i.i, align 4, !tbaa !90
+  %909 = add nsw i32 %.sink60.i.i.i, -1
   %910 = sext i32 %909 to i64
-  %911 = getelementptr inbounds [6 x ptr], ptr %.sink55.i.i.i, i64 0, i64 %910
+  %911 = getelementptr inbounds [6 x ptr], ptr %.sink57.i.i.i, i64 0, i64 %910
   %912 = load ptr, ptr %911, align 8, !tbaa !185
   call void %912(ptr noundef %908, i64 noundef 1, i64 noundef %.sink.i.i27.i) #8
   %913 = load ptr, ptr %907, align 8, !tbaa !123
@@ -1798,16 +1798,16 @@ itx_2d.exit.i.i:                                  ; preds = %._crit_edge.us.i.i9
 955:                                              ; preds = %952, %947, %941
   %.fr56.i.i.i = phi i1 [ false, %947 ], [ false, %941 ], [ %954, %952 ]
   %956 = load i8, ptr %271, align 2, !tbaa !81
-  %.fr71.i.i.i = freeze i8 %956
-  %.not72.i.i.i = icmp eq i8 %.fr71.i.i.i, 0
-  %957 = select i1 %.not72.i.i.i, i32 1, i32 2
+  %.fr72.i.i.i = freeze i8 %956
+  %.not73.i.i.i = icmp eq i8 %.fr72.i.i.i, 0
+  %957 = select i1 %.not73.i.i.i, i32 1, i32 2
   %958 = getelementptr inbounds nuw i8, ptr %934, i64 1944
   %959 = getelementptr inbounds nuw i8, ptr %934, i64 20848
   %960 = getelementptr inbounds nuw i8, ptr %279, i64 64
   %961 = getelementptr inbounds nuw i8, ptr %934, i64 20768
   %962 = getelementptr inbounds nuw i8, ptr %935, i64 4
   %963 = getelementptr inbounds nuw i8, ptr %935, i64 8
-  br i1 %.not72.i.i.i, label %.split.us.i.i.i, label %.split.i.i.i
+  br i1 %.not73.i.i.i, label %.split.us.i.i.i, label %.split.i.i.i
 
 .split.us.i.i.i:                                  ; preds = %955
   br i1 %.fr56.i.i.i, label %.split.us.split.us.i.preheader.i.i, label %lmcs_scale_chroma.exit.i.i

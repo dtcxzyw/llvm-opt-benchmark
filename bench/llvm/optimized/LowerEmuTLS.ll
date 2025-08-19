@@ -836,7 +836,7 @@ _ZN4llvm15SmallVectorImplIPKNS_14GlobalVariableEE6appendESt16initializer_listIS3
   br label %_ZN4llvm11SmallVectorIPKNS_14GlobalVariableELj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPKNS_14GlobalVariableELj8EED2Ev.exit: ; preds = %17, %._crit_edge43, %44
-  %.021.lcssa48 = phi i1 [ %.021.lcssa, %._crit_edge43 ], [ %.021.lcssa, %44 ], [ false, %17 ]
+  %.021.lcssa53 = phi i1 [ %.021.lcssa, %._crit_edge43 ], [ %.021.lcssa, %44 ], [ false, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_16TargetPassConfigEEEPT_v.exit.thread
 
@@ -851,7 +851,7 @@ _ZN4llvm11SmallVectorIPKNS_14GlobalVariableELj8EED2Ev.exit: ; preds = %17, %._cr
   br i1 %.not23, label %._crit_edge43.loopexit, label %.lr.ph42
 
 _ZNK4llvm4Pass22getAnalysisIfAvailableINS_16TargetPassConfigEEEPT_v.exit.thread: ; preds = %5, %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_16TargetPassConfigEEEPT_v.exit, %13, %_ZN4llvm11SmallVectorIPKNS_14GlobalVariableELj8EED2Ev.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_16TargetPassConfigEEEPT_v.exit ], [ %.021.lcssa48, %_ZN4llvm11SmallVectorIPKNS_14GlobalVariableELj8EED2Ev.exit ], [ false, %13 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_16TargetPassConfigEEEPT_v.exit ], [ %.021.lcssa53, %_ZN4llvm11SmallVectorIPKNS_14GlobalVariableELj8EED2Ev.exit ], [ false, %13 ], [ false, %5 ]
   ret i1 %.0
 }
 

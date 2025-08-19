@@ -294,9 +294,9 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinIflEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %or.cond.i, label %89, label %.thread.i
 
 89:                                               ; preds = %.lr.ph.i80
-  %90 = add nsw i32 %.02028.i, 1
-  %91 = sext i32 %.02028.i to i64
-  %92 = getelementptr inbounds [3 x float], ptr %7, i64 0, i64 %91
+  %90 = add nuw nsw i32 %.02028.i, 1
+  %91 = zext nneg i32 %.02028.i to i64
+  %92 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %91
   store float %86, ptr %92, align 4, !tbaa !16
   %.not.i83 = icmp eq i32 %90, 3
   br i1 %.not.i83, label %._crit_edge.thread.i, label %.thread.i
@@ -308,12 +308,10 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinIflEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %exitcond.not.i81, label %._crit_edge.i, label %.lr.ph.i80, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %.thread.i
-  switch i32 %.327.i, label %100 [
-    i32 3, label %._crit_edge.thread.i
-    i32 0, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit
-  ]
+  %cond = icmp eq i32 %.327.i, 0
+  br i1 %cond, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit, label %100
 
-._crit_edge.thread.i:                             ; preds = %89, %._crit_edge.i
+._crit_edge.thread.i:                             ; preds = %89
   %94 = load float, ptr %7, align 4, !tbaa !16
   %95 = load float, ptr %52, align 4, !tbaa !16
   %96 = load float, ptr %53, align 4, !tbaa !16
@@ -715,9 +713,9 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxIflEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %or.cond.i, label %89, label %.thread.i
 
 89:                                               ; preds = %.lr.ph.i80
-  %90 = add nsw i32 %.02028.i, 1
-  %91 = sext i32 %.02028.i to i64
-  %92 = getelementptr inbounds [3 x float], ptr %7, i64 0, i64 %91
+  %90 = add nuw nsw i32 %.02028.i, 1
+  %91 = zext nneg i32 %.02028.i to i64
+  %92 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %91
   store float %86, ptr %92, align 4, !tbaa !16
   %.not.i83 = icmp eq i32 %90, 3
   br i1 %.not.i83, label %._crit_edge.thread.i, label %.thread.i
@@ -729,12 +727,10 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxIflEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %exitcond.not.i81, label %._crit_edge.i, label %.lr.ph.i80, !llvm.loop !29
 
 ._crit_edge.i:                                    ; preds = %.thread.i
-  switch i32 %.327.i, label %100 [
-    i32 3, label %._crit_edge.thread.i
-    i32 0, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit
-  ]
+  %cond = icmp eq i32 %.327.i, 0
+  br i1 %cond, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit, label %100
 
-._crit_edge.thread.i:                             ; preds = %89, %._crit_edge.i
+._crit_edge.thread.i:                             ; preds = %89
   %94 = load float, ptr %7, align 4, !tbaa !16
   %95 = load float, ptr %52, align 4, !tbaa !16
   %96 = load float, ptr %53, align 4, !tbaa !16
@@ -1081,9 +1077,9 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItlEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %or.cond.i, label %86, label %.thread.i
 
 86:                                               ; preds = %.lr.ph.i80
-  %87 = add nsw i32 %.02028.i, 1
-  %88 = sext i32 %.02028.i to i64
-  %89 = getelementptr inbounds [3 x i16], ptr %7, i64 0, i64 %88
+  %87 = add nuw nsw i32 %.02028.i, 1
+  %88 = zext nneg i32 %.02028.i to i64
+  %89 = getelementptr inbounds nuw [3 x i16], ptr %7, i64 0, i64 %88
   store i16 %83, ptr %89, align 2, !tbaa !31
   %.not.i83 = icmp eq i32 %87, 3
   br i1 %.not.i83, label %._crit_edge.thread.i, label %.thread.i
@@ -1095,12 +1091,10 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItlEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %exitcond.not.i81, label %._crit_edge.i, label %.lr.ph.i80, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %.thread.i
-  switch i32 %.327.i, label %95 [
-    i32 3, label %._crit_edge.thread.i
-    i32 0, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit.thread
-  ]
+  %cond = icmp eq i32 %.327.i, 0
+  br i1 %cond, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit.thread, label %95
 
-._crit_edge.thread.i:                             ; preds = %86, %._crit_edge.i
+._crit_edge.thread.i:                             ; preds = %86
   %91 = load i16, ptr %7, align 2, !tbaa !31
   %92 = load i16, ptr %52, align 2, !tbaa !31
   %93 = load i16, ptr %53, align 2, !tbaa !31
@@ -1446,9 +1440,9 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItlEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %or.cond.i, label %86, label %.thread.i
 
 86:                                               ; preds = %.lr.ph.i80
-  %87 = add nsw i32 %.02028.i, 1
-  %88 = sext i32 %.02028.i to i64
-  %89 = getelementptr inbounds [3 x i16], ptr %7, i64 0, i64 %88
+  %87 = add nuw nsw i32 %.02028.i, 1
+  %88 = zext nneg i32 %.02028.i to i64
+  %89 = getelementptr inbounds nuw [3 x i16], ptr %7, i64 0, i64 %88
   store i16 %83, ptr %89, align 2, !tbaa !31
   %.not.i83 = icmp eq i32 %87, 3
   br i1 %.not.i83, label %._crit_edge.thread.i, label %.thread.i
@@ -1460,12 +1454,10 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItlEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %exitcond.not.i81, label %._crit_edge.i, label %.lr.ph.i80, !llvm.loop !39
 
 ._crit_edge.i:                                    ; preds = %.thread.i
-  switch i32 %.327.i, label %95 [
-    i32 3, label %._crit_edge.thread.i
-    i32 0, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit.thread
-  ]
+  %cond = icmp eq i32 %.327.i, 0
+  br i1 %cond, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit.thread, label %95
 
-._crit_edge.thread.i:                             ; preds = %86, %._crit_edge.i
+._crit_edge.thread.i:                             ; preds = %86
   %91 = load i16, ptr %7, align 2, !tbaa !31
   %92 = load i16, ptr %52, align 2, !tbaa !31
   %93 = load i16, ptr %53, align 2, !tbaa !31
@@ -1811,9 +1803,9 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItiEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %or.cond.i, label %86, label %.thread.i
 
 86:                                               ; preds = %.lr.ph.i80
-  %87 = add nsw i32 %.02028.i, 1
-  %88 = sext i32 %.02028.i to i64
-  %89 = getelementptr inbounds [3 x i16], ptr %7, i64 0, i64 %88
+  %87 = add nuw nsw i32 %.02028.i, 1
+  %88 = zext nneg i32 %.02028.i to i64
+  %89 = getelementptr inbounds nuw [3 x i16], ptr %7, i64 0, i64 %88
   store i16 %83, ptr %89, align 2, !tbaa !31
   %.not.i83 = icmp eq i32 %87, 3
   br i1 %.not.i83, label %._crit_edge.thread.i, label %.thread.i
@@ -1825,12 +1817,10 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItiEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %exitcond.not.i81, label %._crit_edge.i, label %.lr.ph.i80, !llvm.loop !43
 
 ._crit_edge.i:                                    ; preds = %.thread.i
-  switch i32 %.327.i, label %95 [
-    i32 3, label %._crit_edge.thread.i
-    i32 0, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit.thread
-  ]
+  %cond = icmp eq i32 %.327.i, 0
+  br i1 %cond, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit.thread, label %95
 
-._crit_edge.thread.i:                             ; preds = %86, %._crit_edge.i
+._crit_edge.thread.i:                             ; preds = %86
   %91 = load i16, ptr %7, align 2, !tbaa !31
   %92 = load i16, ptr %52, align 2, !tbaa !31
   %93 = load i16, ptr %53, align 2, !tbaa !31
@@ -2176,9 +2166,9 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItiEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %or.cond.i, label %86, label %.thread.i
 
 86:                                               ; preds = %.lr.ph.i80
-  %87 = add nsw i32 %.02028.i, 1
-  %88 = sext i32 %.02028.i to i64
-  %89 = getelementptr inbounds [3 x i16], ptr %7, i64 0, i64 %88
+  %87 = add nuw nsw i32 %.02028.i, 1
+  %88 = zext nneg i32 %.02028.i to i64
+  %89 = getelementptr inbounds nuw [3 x i16], ptr %7, i64 0, i64 %88
   store i16 %83, ptr %89, align 2, !tbaa !31
   %.not.i83 = icmp eq i32 %87, 3
   br i1 %.not.i83, label %._crit_edge.thread.i, label %.thread.i
@@ -2190,12 +2180,10 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItiEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %exitcond.not.i81, label %._crit_edge.i, label %.lr.ph.i80, !llvm.loop !47
 
 ._crit_edge.i:                                    ; preds = %.thread.i
-  switch i32 %.327.i, label %95 [
-    i32 3, label %._crit_edge.thread.i
-    i32 0, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit.thread
-  ]
+  %cond = icmp eq i32 %.327.i, 0
+  br i1 %cond, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit.thread, label %95
 
-._crit_edge.thread.i:                             ; preds = %86, %._crit_edge.i
+._crit_edge.thread.i:                             ; preds = %86
   %91 = load i16, ptr %7, align 2, !tbaa !31
   %92 = load i16, ptr %52, align 2, !tbaa !31
   %93 = load i16, ptr %53, align 2, !tbaa !31

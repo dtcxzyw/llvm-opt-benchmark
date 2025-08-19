@@ -352,10 +352,10 @@ define dso_local noundef ptr @dma_pool_alloc(ptr noundef %0, i32 noundef %1, ptr
   br label %52
 
 52:                                               ; preds = %._crit_edge, %49
-  %53 = phi i32 [ %47, %49 ], [ %.lcssa38, %._crit_edge ]
-  %54 = phi i32 [ %46, %49 ], [ %.lcssa36, %._crit_edge ]
+  %53 = phi i32 [ %47, %49 ], [ %.lcssa48, %._crit_edge ]
+  %54 = phi i32 [ %46, %49 ], [ %.lcssa46, %._crit_edge ]
   %55 = phi i32 [ %46, %49 ], [ %65, %._crit_edge ]
-  %56 = phi ptr [ null, %49 ], [ %.lcssa34, %._crit_edge ]
+  %56 = phi ptr [ null, %49 ], [ %.lcssa44, %._crit_edge ]
   %57 = phi ptr [ null, %49 ], [ %.lcssa, %._crit_edge ]
   %58 = phi i32 [ 0, %49 ], [ %59, %._crit_edge ]
   %59 = phi i32 [ %50, %49 ], [ %64, %._crit_edge ]
@@ -367,14 +367,14 @@ define dso_local noundef ptr @dma_pool_alloc(ptr noundef %0, i32 noundef %1, ptr
   br i1 %62, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %61, %52
-  %.lcssa38 = phi i32 [ %53, %52 ], [ %85, %61 ]
-  %.lcssa36 = phi i32 [ %54, %52 ], [ %80, %61 ]
-  %.lcssa34 = phi ptr [ %56, %52 ], [ %72, %61 ]
+  %.lcssa48 = phi i32 [ %53, %52 ], [ %85, %61 ]
+  %.lcssa46 = phi i32 [ %54, %52 ], [ %80, %61 ]
+  %.lcssa44 = phi ptr [ %56, %52 ], [ %72, %61 ]
   %.lcssa = phi ptr [ %57, %52 ], [ %79, %61 ]
   %63 = load i32, ptr %44, align 8
   %64 = add i32 %63, %59
-  %65 = add i32 %.lcssa36, %59
-  %66 = icmp ugt i32 %65, %.lcssa38
+  %65 = add i32 %.lcssa46, %59
+  %66 = icmp ugt i32 %65, %.lcssa48
   br i1 %66, label %.loopexit, label %52, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %52, %61
@@ -410,7 +410,7 @@ define dso_local noundef ptr @dma_pool_alloc(ptr noundef %0, i32 noundef %1, ptr
 
 .loopexit:                                        ; preds = %._crit_edge, %78, %42
   %87 = phi ptr [ null, %42 ], [ %79, %78 ], [ %.lcssa, %._crit_edge ]
-  %88 = phi ptr [ null, %42 ], [ %72, %78 ], [ %.lcssa34, %._crit_edge ]
+  %88 = phi ptr [ null, %42 ], [ %72, %78 ], [ %.lcssa44, %._crit_edge ]
   %89 = load ptr, ptr %11, align 8
   store ptr %89, ptr %88, align 8
   store ptr %87, ptr %11, align 8

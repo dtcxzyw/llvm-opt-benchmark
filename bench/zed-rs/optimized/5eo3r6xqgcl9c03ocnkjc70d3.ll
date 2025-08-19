@@ -9277,7 +9277,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
 
 42:                                               ; preds = %35, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %35 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %35 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %35 ], [ 1, %._crit_edge.i.i ]
   %43 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %44 = bitcast <16 x i1> %43 to i16
   %.not.i.i = icmp eq i16 %44, 0
@@ -9430,7 +9430,7 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
 
 47:                                               ; preds = %40, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %40 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %40 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %40 ], [ 1, %._crit_edge.i.i ]
   %48 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %49 = bitcast <16 x i1> %48 to i16
   %.not.i.i = icmp eq i16 %49, 0
@@ -9618,7 +9618,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
 
 43:                                               ; preds = %36, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %36 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %36 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %36 ], [ 1, %._crit_edge.i.i ]
   %44 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %45 = bitcast <16 x i1> %44 to i16
   %.not.i.i = icmp eq i16 %45, 0
@@ -9761,7 +9761,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h20
 
 43:                                               ; preds = %36, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %36 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %36 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %36 ], [ 1, %._crit_edge.i.i ]
   %44 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %45 = bitcast <16 x i1> %44 to i16
   %.not.i.i = icmp eq i16 %45, 0
@@ -9955,7 +9955,7 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
 
 47:                                               ; preds = %40, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %40 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %40 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %40 ], [ 1, %._crit_edge.i.i ]
   %48 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %49 = bitcast <16 x i1> %48 to i16
   %.not.i.i = icmp eq i16 %49, 0
@@ -10154,7 +10154,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h6a
 
 58:                                               ; preds = %51, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %51 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %51 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %51 ], [ 1, %._crit_edge.i.i ]
   %59 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %60 = bitcast <16 x i1> %59 to i16
   %.not.i.i = icmp eq i16 %60, 0
@@ -10331,7 +10331,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hbb
 
 45:                                               ; preds = %38, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %38 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %38 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %38 ], [ 1, %._crit_edge.i.i ]
   %46 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %47 = bitcast <16 x i1> %46 to i16
   %.not.i.i = icmp eq i16 %47, 0
@@ -10499,7 +10499,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hcc
 
 43:                                               ; preds = %36, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %36 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %36 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %36 ], [ 1, %._crit_edge.i.i ]
   %44 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %45 = bitcast <16 x i1> %44 to i16
   %.not.i.i = icmp eq i16 %45, 0
@@ -10662,7 +10662,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
 
 41:                                               ; preds = %34, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %34 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %34 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %34 ], [ 1, %._crit_edge.i.i ]
   %42 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %43 = bitcast <16 x i1> %42 to i16
   %.not.i.i = icmp eq i16 %43, 0
@@ -10811,7 +10811,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
 
 46:                                               ; preds = %39, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %39 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %39 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %39 ], [ 1, %._crit_edge.i.i ]
   %47 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %48 = bitcast <16 x i1> %47 to i16
   %.not.i.i = icmp eq i16 %48, 0
@@ -10956,7 +10956,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hdc
 
 43:                                               ; preds = %36, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %36 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %36 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %36 ], [ 1, %._crit_edge.i.i ]
   %44 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %45 = bitcast <16 x i1> %44 to i16
   %.not.i.i = icmp eq i16 %45, 0
@@ -11121,7 +11121,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
 
 41:                                               ; preds = %34, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %34 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %34 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %34 ], [ 1, %._crit_edge.i.i ]
   %42 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %43 = bitcast <16 x i1> %42 to i16
   %.not.i.i = icmp eq i16 %43, 0
@@ -11264,7 +11264,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hf2
 
 43:                                               ; preds = %36, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %36 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %36 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %36 ], [ 1, %._crit_edge.i.i ]
   %44 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %45 = bitcast <16 x i1> %44 to i16
   %.not.i.i = icmp eq i16 %45, 0
@@ -11437,7 +11437,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
 
 48:                                               ; preds = %41, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %41 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %41 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %41 ], [ 1, %._crit_edge.i.i ]
   %49 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i, splat (i8 -1)
   %50 = bitcast <16 x i1> %49 to i16
   %.not.i.i = icmp eq i16 %50, 0
@@ -12396,7 +12396,7 @@ _ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hc6d54d5516b1859cE.exit: ; pr
 
 35:                                               ; preds = %._crit_edge, %28
   %.sroa.6.1 = phi i64 [ %.sroa.3.0.i, %28 ], [ %.sroa.6.0, %._crit_edge ]
-  %.sroa.01.1 = phi i64 [ %.sroa.0.0.i, %28 ], [ %.sroa.01.0, %._crit_edge ]
+  %.sroa.01.1 = phi i64 [ %.sroa.0.0.i, %28 ], [ 1, %._crit_edge ]
   %36 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40, splat (i8 -1)
   %37 = bitcast <16 x i1> %36 to i16
   %.not = icmp eq i16 %37, 0
@@ -12707,7 +12707,7 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
 
 45:                                               ; preds = %38, %._crit_edge.i
   %.sroa.6.1.i = phi i64 [ %.sroa.3.0.i.i, %38 ], [ %.sroa.6.0.i, %._crit_edge.i ]
-  %.sroa.01.1.i = phi i64 [ %.sroa.0.0.i.i, %38 ], [ %.sroa.01.0.i, %._crit_edge.i ]
+  %.sroa.01.1.i = phi i64 [ %.sroa.0.0.i.i, %38 ], [ 1, %._crit_edge.i ]
   %46 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i, splat (i8 -1)
   %47 = bitcast <16 x i1> %46 to i16
   %.not.i = icmp eq i16 %47, 0
@@ -12826,7 +12826,7 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
 
 42:                                               ; preds = %35, %._crit_edge.i
   %.sroa.6.1.i = phi i64 [ %.sroa.3.0.i.i, %35 ], [ %.sroa.6.0.i, %._crit_edge.i ]
-  %.sroa.01.1.i = phi i64 [ %.sroa.0.0.i.i, %35 ], [ %.sroa.01.0.i, %._crit_edge.i ]
+  %.sroa.01.1.i = phi i64 [ %.sroa.0.0.i.i, %35 ], [ 1, %._crit_edge.i ]
   %43 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i, splat (i8 -1)
   %44 = bitcast <16 x i1> %43 to i16
   %.not.i = icmp eq i16 %44, 0
@@ -12951,7 +12951,7 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
 
 46:                                               ; preds = %39, %._crit_edge.i
   %.sroa.6.1.i = phi i64 [ %.sroa.3.0.i.i, %39 ], [ %.sroa.6.0.i, %._crit_edge.i ]
-  %.sroa.01.1.i = phi i64 [ %.sroa.0.0.i.i, %39 ], [ %.sroa.01.0.i, %._crit_edge.i ]
+  %.sroa.01.1.i = phi i64 [ %.sroa.0.0.i.i, %39 ], [ 1, %._crit_edge.i ]
   %47 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i, splat (i8 -1)
   %48 = bitcast <16 x i1> %47 to i16
   %.not.i = icmp eq i16 %48, 0
@@ -13070,7 +13070,7 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
 
 42:                                               ; preds = %35, %._crit_edge.i
   %.sroa.6.1.i = phi i64 [ %.sroa.3.0.i.i, %35 ], [ %.sroa.6.0.i, %._crit_edge.i ]
-  %.sroa.01.1.i = phi i64 [ %.sroa.0.0.i.i, %35 ], [ %.sroa.01.0.i, %._crit_edge.i ]
+  %.sroa.01.1.i = phi i64 [ %.sroa.0.0.i.i, %35 ], [ 1, %._crit_edge.i ]
   %43 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i, splat (i8 -1)
   %44 = bitcast <16 x i1> %43 to i16
   %.not.i = icmp eq i16 %44, 0
@@ -13189,7 +13189,7 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
 
 42:                                               ; preds = %35, %._crit_edge.i
   %.sroa.6.1.i = phi i64 [ %.sroa.3.0.i.i, %35 ], [ %.sroa.6.0.i, %._crit_edge.i ]
-  %.sroa.01.1.i = phi i64 [ %.sroa.0.0.i.i, %35 ], [ %.sroa.01.0.i, %._crit_edge.i ]
+  %.sroa.01.1.i = phi i64 [ %.sroa.0.0.i.i, %35 ], [ 1, %._crit_edge.i ]
   %43 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i, splat (i8 -1)
   %44 = bitcast <16 x i1> %43 to i16
   %.not.i = icmp eq i16 %44, 0
@@ -13308,7 +13308,7 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
 
 42:                                               ; preds = %35, %._crit_edge.i
   %.sroa.6.1.i = phi i64 [ %.sroa.3.0.i.i, %35 ], [ %.sroa.6.0.i, %._crit_edge.i ]
-  %.sroa.01.1.i = phi i64 [ %.sroa.0.0.i.i, %35 ], [ %.sroa.01.0.i, %._crit_edge.i ]
+  %.sroa.01.1.i = phi i64 [ %.sroa.0.0.i.i, %35 ], [ 1, %._crit_edge.i ]
   %43 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i, splat (i8 -1)
   %44 = bitcast <16 x i1> %43 to i16
   %.not.i = icmp eq i16 %44, 0
@@ -14132,7 +14132,7 @@ _ZN4gpui3app10AppContext6update17h4051e9184c07dc23E.exit: ; preds = %.noexc17, %
   %154 = icmp eq i32 %.sroa.039.0.copyload, %.val3.i.i.i21
   %155 = icmp eq i32 %.sroa.442.0.copyload, %.val4.i.i.i22
   %.sroa.0.0.i.i.i.i.i.i23 = select i1 %154, i1 %155, i1 false
-  br i1 %.sroa.0.0.i.i.i.i.i.i23, label %.loopexit86, label %156
+  br i1 %.sroa.0.0.i.i.i.i.i.i23, label %.loopexit93, label %156
 
 ._crit_edge.i.i.i:                                ; preds = %156, %141
   %switch.not.i.i.i = icmp eq i64 %.sroa.01.0.i.i.i20, 0
@@ -14159,7 +14159,7 @@ _ZN4gpui3app10AppContext6update17h4051e9184c07dc23E.exit: ; preds = %.noexc17, %
 
 167:                                              ; preds = %160, %._crit_edge.i.i.i
   %.sroa.6.1.i.i.i = phi i64 [ %.sroa.3.0.i.i.i.i, %160 ], [ %.sroa.6.0.i.i.i, %._crit_edge.i.i.i ]
-  %.sroa.01.1.i.i.i = phi i64 [ %.sroa.0.0.i.i.i.i, %160 ], [ %.sroa.01.0.i.i.i20, %._crit_edge.i.i.i ]
+  %.sroa.01.1.i.i.i = phi i64 [ %.sroa.0.0.i.i.i.i, %160 ], [ 1, %._crit_edge.i.i.i ]
   %168 = icmp eq <16 x i8> %.sroa.0.0.copyload.i40.i.i.i, splat (i8 -1)
   %169 = bitcast <16 x i1> %168 to i16
   %.not.i.i.i24 = icmp eq i16 %169, 0
@@ -14215,21 +14215,21 @@ _ZN4gpui3app10AppContext6update17h4051e9184c07dc23E.exit: ; preds = %.noexc17, %
   store i32 %.sroa.039.0.copyload, ptr %199, align 8, !noalias !3393
   %.sroa.411.0..sroa_idx.i = getelementptr inbounds i8, ptr %198, i64 -28
   store i32 %.sroa.442.0.copyload, ptr %.sroa.411.0..sroa_idx.i, align 4, !noalias !3393
-  br label %.loopexit86
+  br label %.loopexit93
 
-.loopexit86:                                      ; preds = %.lr.ph.i.i.i, %184
-  %.lcssa.sink85 = phi ptr [ %198, %184 ], [ %151, %.lr.ph.i.i.i ]
-  %200 = getelementptr inbounds i8, ptr %.lcssa.sink85, i64 -24
+.loopexit93:                                      ; preds = %.lr.ph.i.i.i, %184
+  %.lcssa.sink92 = phi ptr [ %198, %184 ], [ %151, %.lr.ph.i.i.i ]
+  %200 = getelementptr inbounds i8, ptr %.lcssa.sink92, i64 -24
   store i32 %.sroa.039.0.copyload, ptr %200, align 8, !noalias !3394
-  %.sroa.442.0..sroa_idx44 = getelementptr inbounds i8, ptr %.lcssa.sink85, i64 -20
+  %.sroa.442.0..sroa_idx44 = getelementptr inbounds i8, ptr %.lcssa.sink92, i64 -20
   store i32 %.sroa.442.0.copyload, ptr %.sroa.442.0..sroa_idx44, align 4, !noalias !3394
-  %.sroa.546.0..sroa_idx47 = getelementptr inbounds i8, ptr %.lcssa.sink85, i64 -16
+  %.sroa.546.0..sroa_idx47 = getelementptr inbounds i8, ptr %.lcssa.sink92, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.546.0..sroa_idx47, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.546, i64 16, i1 false), !noalias !3394
   %.pr77 = load i64, ptr %8, align 8, !alias.scope !3395
   %201 = icmp eq i64 %.pr77, 0
   br i1 %201, label %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$client..user..Collaborator$C$anyhow..Error$GT$$GT$17hd1a07b34009e3deeE.exit", label %.thread78
 
-.thread78:                                        ; preds = %122, %.loopexit86
+.thread78:                                        ; preds = %122, %.loopexit93
   invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
           to label %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$client..user..Collaborator$C$anyhow..Error$GT$$GT$17hd1a07b34009e3deeE.exit" unwind label %19
 
@@ -14250,7 +14250,7 @@ _ZN4gpui3app10AppContext6update17h4051e9184c07dc23E.exit: ; preds = %.noexc17, %
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #47
   unreachable
 
-"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$client..user..Collaborator$C$anyhow..Error$GT$$GT$17hd1a07b34009e3deeE.exit": ; preds = %.loopexit86, %.thread78
+"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$client..user..Collaborator$C$anyhow..Error$GT$$GT$17hd1a07b34009e3deeE.exit": ; preds = %.loopexit93, %.thread78
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %209 = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !3401, !noalias !3297, !nonnull !5, !noundef !5
   %210 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !3401, !noalias !3297, !nonnull !5, !noundef !5
@@ -15555,7 +15555,7 @@ define hidden void @_ZN7channel13channel_store12ChannelStore21open_channel_resou
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.439.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false)
   store i64 1, ptr %22, align 8
   %93 = invoke fastcc ptr @"_ZN12futures_util6future6future6shared17Shared$LT$Fut$GT$3new17h5fd7d73d3ac7bd55E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %22)
-          to label %._crit_edge191 unwind label %.thread76
+          to label %._crit_edge198 unwind label %.thread76
 
 .thread76:                                        ; preds = %92
   %94 = landingpad { ptr, i32 }
@@ -15583,7 +15583,7 @@ define hidden void @_ZN7channel13channel_store12ChannelStore21open_channel_resou
   %.not = icmp eq i32 %98, 0
   br i1 %.not, label %.thread, label %159
 
-._crit_edge191:                                   ; preds = %92
+._crit_edge198:                                   ; preds = %92
   store ptr %93, ptr %24, align 8
   %99 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 -1, ptr %99, align 8
@@ -15751,9 +15751,9 @@ define hidden void @_ZN7channel13channel_store12ChannelStore21open_channel_resou
   store i64 -1, ptr %163, align 8
   br label %164
 
-164:                                              ; preds = %._crit_edge191, %162, %"_ZN4gpui8executor13Task$LT$T$GT$6detach17he9cc7c1cf14097f1E.exit"
-  %165 = phi ptr [ %169, %"_ZN4gpui8executor13Task$LT$T$GT$6detach17he9cc7c1cf14097f1E.exit" ], [ %.val43, %162 ], [ %93, %._crit_edge191 ]
-  %.sroa.021.2 = phi i8 [ 0, %"_ZN4gpui8executor13Task$LT$T$GT$6detach17he9cc7c1cf14097f1E.exit" ], [ 1, %162 ], [ 1, %._crit_edge191 ]
+164:                                              ; preds = %._crit_edge198, %162, %"_ZN4gpui8executor13Task$LT$T$GT$6detach17he9cc7c1cf14097f1E.exit"
+  %165 = phi ptr [ %169, %"_ZN4gpui8executor13Task$LT$T$GT$6detach17he9cc7c1cf14097f1E.exit" ], [ %.val43, %162 ], [ %93, %._crit_edge198 ]
+  %.sroa.021.2 = phi i8 [ 0, %"_ZN4gpui8executor13Task$LT$T$GT$6detach17he9cc7c1cf14097f1E.exit" ], [ 1, %162 ], [ 1, %._crit_edge198 ]
   %166 = load ptr, ptr %5, align 8, !nonnull !5, !align !4, !noundef !5
   %167 = invoke noundef align 8 dereferenceable(16) ptr @_ZN4gpui3app10AppContext19background_executor17h3fe740b22560de6dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %166)
           to label %234 unwind label %267
@@ -16222,7 +16222,7 @@ define hidden void @_ZN7channel13channel_store12ChannelStore21open_channel_resou
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.439.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false)
   store i64 1, ptr %22, align 8
   %93 = invoke fastcc ptr @"_ZN12futures_util6future6future6shared17Shared$LT$Fut$GT$3new17h9e1cdff39ee7c020E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %22)
-          to label %._crit_edge191 unwind label %.thread76
+          to label %._crit_edge198 unwind label %.thread76
 
 .thread76:                                        ; preds = %92
   %94 = landingpad { ptr, i32 }
@@ -16250,7 +16250,7 @@ define hidden void @_ZN7channel13channel_store12ChannelStore21open_channel_resou
   %.not = icmp eq i32 %98, 0
   br i1 %.not, label %.thread, label %159
 
-._crit_edge191:                                   ; preds = %92
+._crit_edge198:                                   ; preds = %92
   store ptr %93, ptr %24, align 8
   %99 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 -1, ptr %99, align 8
@@ -16418,9 +16418,9 @@ define hidden void @_ZN7channel13channel_store12ChannelStore21open_channel_resou
   store i64 -1, ptr %163, align 8
   br label %164
 
-164:                                              ; preds = %._crit_edge191, %162, %"_ZN4gpui8executor13Task$LT$T$GT$6detach17he9cc7c1cf14097f1E.exit"
-  %165 = phi ptr [ %169, %"_ZN4gpui8executor13Task$LT$T$GT$6detach17he9cc7c1cf14097f1E.exit" ], [ %.val43, %162 ], [ %93, %._crit_edge191 ]
-  %.sroa.021.2 = phi i8 [ 0, %"_ZN4gpui8executor13Task$LT$T$GT$6detach17he9cc7c1cf14097f1E.exit" ], [ 1, %162 ], [ 1, %._crit_edge191 ]
+164:                                              ; preds = %._crit_edge198, %162, %"_ZN4gpui8executor13Task$LT$T$GT$6detach17he9cc7c1cf14097f1E.exit"
+  %165 = phi ptr [ %169, %"_ZN4gpui8executor13Task$LT$T$GT$6detach17he9cc7c1cf14097f1E.exit" ], [ %.val43, %162 ], [ %93, %._crit_edge198 ]
+  %.sroa.021.2 = phi i8 [ 0, %"_ZN4gpui8executor13Task$LT$T$GT$6detach17he9cc7c1cf14097f1E.exit" ], [ 1, %162 ], [ 1, %._crit_edge198 ]
   %166 = load ptr, ptr %5, align 8, !nonnull !5, !align !4, !noundef !5
   %167 = invoke noundef align 8 dereferenceable(16) ptr @_ZN4gpui3app10AppContext19background_executor17h3fe740b22560de6dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %166)
           to label %234 unwind label %267
@@ -16715,14 +16715,14 @@ define internal void @"_ZN7channel13channel_store12ChannelStore21open_channel_re
   %8 = alloca [40 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i8, ptr %9, align 8, !range !1218, !noundef !5
-  switch i8 %10, label %default.unreachable18 [
+  switch i8 %10, label %default.unreachable19 [
     i8 0, label %11
     i8 1, label %17
     i8 2, label %18
     i8 3, label %19
   ]
 
-default.unreachable18:                            ; preds = %3
+default.unreachable19:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -16944,14 +16944,14 @@ define internal void @"_ZN7channel13channel_store12ChannelStore21open_channel_re
   %8 = alloca [40 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i8, ptr %9, align 8, !range !1218, !noundef !5
-  switch i8 %10, label %default.unreachable18 [
+  switch i8 %10, label %default.unreachable19 [
     i8 0, label %11
     i8 1, label %17
     i8 2, label %18
     i8 3, label %19
   ]
 
-default.unreachable18:                            ; preds = %3
+default.unreachable19:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -17169,13 +17169,13 @@ define hidden { i64, ptr } @"_ZN7channel13channel_store12ChannelStore22handle_up
   %5 = alloca [32 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %7 = load i8, ptr %6, align 8, !range !1064, !noundef !5
-  switch i8 %7, label %default.unreachable14 [
+  switch i8 %7, label %default.unreachable17 [
     i8 0, label %8
     i8 1, label %68
     i8 2, label %69
   ]
 
-default.unreachable14:                            ; preds = %2
+default.unreachable17:                            ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
@@ -17275,8 +17275,8 @@ default.unreachable14:                            ; preds = %2
   resume { ptr, i32 } %.pn8
 
 "_ZN4core3ptr93drop_in_place$LT$gpui..app..entity_map..Model$LT$channel..channel_store..ChannelStore$GT$$GT$17hfad87d89cc1efc39E.exit12.sink.split": ; preds = %64, %40
-  %.sink15 = phi ptr [ %41, %40 ], [ %65, %64 ]
-  call void @__rust_dealloc(ptr noundef nonnull %.sink15, i64 noundef 80, i64 noundef 8) #48, !noalias !5
+  %.sink18 = phi ptr [ %41, %40 ], [ %65, %64 ]
+  call void @__rust_dealloc(ptr noundef nonnull %.sink18, i64 noundef 80, i64 noundef 8) #48, !noalias !5
   br label %"_ZN4core3ptr93drop_in_place$LT$gpui..app..entity_map..Model$LT$channel..channel_store..ChannelStore$GT$$GT$17hfad87d89cc1efc39E.exit12"
 
 "_ZN4core3ptr93drop_in_place$LT$gpui..app..entity_map..Model$LT$channel..channel_store..ChannelStore$GT$$GT$17hfad87d89cc1efc39E.exit12": ; preds = %"_ZN4core3ptr93drop_in_place$LT$gpui..app..entity_map..Model$LT$channel..channel_store..ChannelStore$GT$$GT$17hfad87d89cc1efc39E.exit12.sink.split", %32, %36, %56, %60
@@ -17356,13 +17356,13 @@ define hidden { i64, ptr } @"_ZN7channel13channel_store12ChannelStore27handle_up
   %5 = alloca [32 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %7 = load i8, ptr %6, align 8, !range !1064, !noundef !5
-  switch i8 %7, label %default.unreachable5 [
+  switch i8 %7, label %default.unreachable6 [
     i8 0, label %8
     i8 1, label %46
     i8 2, label %47
   ]
 
-default.unreachable5:                             ; preds = %2
+default.unreachable6:                             ; preds = %2
   unreachable
 
 8:                                                ; preds = %2

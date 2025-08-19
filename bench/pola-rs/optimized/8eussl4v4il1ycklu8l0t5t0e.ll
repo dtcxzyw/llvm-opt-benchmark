@@ -3333,14 +3333,14 @@ common.resume:                                    ; preds = %17, %12
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$polars_plan..plans..lit..DynListLiteralValue$GT$17h40dfb738344a2189E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !269, !noundef !4
-  switch i64 %2, label %default.unreachable17 [
+  switch i64 %2, label %default.unreachable23 [
     i64 0, label %28
     i64 1, label %52
     i64 2, label %57
     i64 3, label %3
   ]
 
-default.unreachable17:                            ; preds = %1
+default.unreachable23:                            ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -3397,10 +3397,10 @@ default.unreachable17:                            ; preds = %1
   unreachable
 
 common.resume:                                    ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17hd2ffd2daaae1f871E.exit8.i", %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h69e48f291e60403aE.exit8.i.i", %15, %39
-  %.sink22 = phi i64 [ %.val1, %39 ], [ %7, %15 ], [ %.val1, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h69e48f291e60403aE.exit8.i.i" ], [ %7, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17hd2ffd2daaae1f871E.exit8.i" ]
+  %.sink28 = phi i64 [ %.val1, %39 ], [ %7, %15 ], [ %.val1, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h69e48f291e60403aE.exit8.i.i" ], [ %7, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17hd2ffd2daaae1f871E.exit8.i" ]
   %.sink = phi ptr [ %.val, %39 ], [ %5, %15 ], [ %.val, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h69e48f291e60403aE.exit8.i.i" ], [ %5, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17hd2ffd2daaae1f871E.exit8.i" ]
   %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %16, %15 ], [ %40, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h69e48f291e60403aE.exit8.i.i" ], [ %16, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17hd2ffd2daaae1f871E.exit8.i" ]
-  %26 = mul nuw nsw i64 %.sink22, 24
+  %26 = mul nuw nsw i64 %.sink28, 24
   tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.sink, i64 noundef %26, i64 noundef 8) #26
   resume { ptr, i32 } %common.resume.op
 
@@ -4160,8 +4160,8 @@ define internal fastcc void @_ZN4core4hash6Hasher9write_str17ha4c6f096d689443eE(
   br label %55
 
 "_ZN68_$LT$foldhash..quality..FoldHasher$u20$as$u20$core..hash..Hasher$GT$5write17h3c423ba33757040aE.exit": ; preds = %17, %27, %55
-  %.sink3 = phi i64 [ %26, %17 ], [ %30, %27 ], [ %61, %55 ]
-  store i64 %.sink3, ptr %4, align 16, !alias.scope !817, !noalias !818
+  %.sink4 = phi i64 [ %26, %17 ], [ %30, %27 ], [ %61, %55 ]
+  store i64 %.sink4, ptr %4, align 16, !alias.scope !817, !noalias !818
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %67 = load i8, ptr %66, align 8, !alias.scope !820, !noundef !4
   %68 = icmp ugt i8 %67, 120
@@ -4180,7 +4180,7 @@ define internal fastcc void @_ZN4core4hash6Hasher9write_str17ha4c6f096d689443eE(
   %77 = trunc i128 %76 to i64
   %78 = lshr i128 %76, 64
   %79 = trunc nuw i128 %78 to i64
-  %80 = xor i64 %.sink3, %77
+  %80 = xor i64 %.sink4, %77
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load i64, ptr %81, align 8, !alias.scope !820, !noundef !4
   %83 = xor i64 %82, %79
@@ -9956,14 +9956,14 @@ common.resume:                                    ; preds = %19, %44, %46
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc7858a7ed4d38ac0E.exit.preheader.i": ; preds = %14, %3
-  %.sink22 = phi i64 [ %7, %3 ], [ %1, %14 ]
-  %28 = icmp ult i64 %.sink22, 115292150460684698
+  %.sink27 = phi i64 [ %7, %3 ], [ %1, %14 ]
+  %28 = icmp ult i64 %.sink27, 115292150460684698
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %30 = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1166)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1169)
-  %.not.i = icmp eq i64 %.sink22, 0
+  %.not.i = icmp eq i64 %.sink27, 0
   br i1 %.not.i, label %"_ZN67_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..CloneFromSpec$LT$T$GT$$GT$15spec_clone_from17he790874db0848cafE.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc7858a7ed4d38ac0E.exit.preheader.i", %"_ZN68_$LT$indexmap..Bucket$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17h70b13007b0bd7267E.exit.i"
@@ -10021,11 +10021,11 @@ _ZN4core5clone5Clone10clone_from17h5e4c2415845d75f4E.exit.i.i: ; preds = %"_ZN71
 "_ZN68_$LT$indexmap..Bucket$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17h70b13007b0bd7267E.exit.i": ; preds = %_ZN4core5clone5Clone10clone_from17h5e4c2415845d75f4E.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %32, ptr noundef nonnull align 16 dereferenceable(48) %4, i64 48, i1 false), !noalias !1199
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1194
-  %exitcond.not.i = icmp eq i64 %31, %.sink22
+  %exitcond.not.i = icmp eq i64 %31, %.sink27
   br i1 %exitcond.not.i, label %"_ZN67_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..CloneFromSpec$LT$T$GT$$GT$15spec_clone_from17he790874db0848cafE.exit", label %.lr.ph.i
 
 "_ZN67_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..CloneFromSpec$LT$T$GT$$GT$15spec_clone_from17he790874db0848cafE.exit": ; preds = %"_ZN68_$LT$indexmap..Bucket$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17h70b13007b0bd7267E.exit.i", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc7858a7ed4d38ac0E.exit.preheader.i"
-  %48 = getelementptr inbounds nuw { { i8, [47 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, i64 }, ptr %0, i64 %.sink22
+  %48 = getelementptr inbounds nuw { { i8, [47 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, i64 }, ptr %0, i64 %.sink27
   %49 = getelementptr inbounds nuw { { i8, [47 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, i64 }, ptr %0, i64 %1
   tail call void @"_ZN101_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$I$GT$$GT$11spec_extend17h040c460fc1cc5380E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %48, ptr noundef nonnull %49, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c62d61a8358869fcf2e657aebdd5f564.213)
   ret void
@@ -10469,7 +10469,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
   %5 = alloca [24 x i8], align 8
   %.sroa.03 = alloca [23 x i8], align 8
   %6 = load i8, ptr %1, align 16, !range !656, !noundef !4
-  switch i8 %6, label %default.unreachable23 [
+  switch i8 %6, label %default.unreachable25 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
@@ -10500,7 +10500,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
     i8 27, label %74
   ]
 
-default.unreachable23:                            ; preds = %2
+default.unreachable25:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -11790,8 +11790,8 @@ define internal fastcc { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT
   br label %65
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17h11b6567c7ef2578cE.exit": ; preds = %35, %39, %65
-  %.sink3.i.i = phi i64 [ %38, %35 ], [ %40, %39 ], [ %71, %65 ]
-  %76 = xor i64 %.sink3.i.i, 255
+  %.sink4.i.i = phi i64 [ %38, %35 ], [ %40, %39 ], [ %71, %65 ]
+  %76 = xor i64 %.sink4.i.i, 255
   %77 = zext i64 %76 to i128
   %78 = zext i64 %24 to i128
   %79 = mul nuw i128 %77, %78
@@ -12139,7 +12139,7 @@ define internal fastcc void @"_ZN92_$LT$polars_plan..dsl..function_expr..range..
   %.sroa.06 = alloca [23 x i8], align 8
   %.sroa.02 = alloca [23 x i8], align 8
   %5 = load i8, ptr %1, align 16, !range !6, !noundef !4
-  switch i8 %5, label %default.unreachable26 [
+  switch i8 %5, label %default.unreachable27 [
     i8 0, label %6
     i8 1, label %12
     i8 2, label %13
@@ -12152,7 +12152,7 @@ define internal fastcc void @"_ZN92_$LT$polars_plan..dsl..function_expr..range..
     i8 9, label %46
   ]
 
-default.unreachable26:                            ; preds = %2
+default.unreachable27:                            ; preds = %2
   unreachable
 
 6:                                                ; preds = %2
@@ -13665,7 +13665,7 @@ define internal fastcc void @"_ZN98_$LT$polars_plan..dsl..function_expr..datetim
   %.sroa.03 = alloca [23 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %6 = load i8, ptr %1, align 8, !range !752, !noundef !4
-  switch i8 %6, label %default.unreachable20 [
+  switch i8 %6, label %default.unreachable21 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
@@ -13712,7 +13712,7 @@ define internal fastcc void @"_ZN98_$LT$polars_plan..dsl..function_expr..datetim
     i8 43, label %59
   ]
 
-default.unreachable20:                            ; preds = %2
+default.unreachable21:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -15672,8 +15672,8 @@ _ZN4core3ptr25swap_nonoverlapping_bytes17h4a5d355a75866bf8E.exit: ; preds = %_ZN
           to label %common.resume unwind label %267, !noalias !1617
 
 194:                                              ; preds = %181, %151, %155
-  %.sink3.i.i.i.i = phi i64 [ %187, %181 ], [ %154, %151 ], [ %156, %155 ]
-  %195 = xor i64 %.sink3.i.i.i.i, 255
+  %.sink4.i.i.i.i = phi i64 [ %187, %181 ], [ %154, %151 ], [ %156, %155 ]
+  %195 = xor i64 %.sink4.i.i.i.i, 255
   %196 = zext i64 %195 to i128
   %197 = zext i64 %140 to i128
   %198 = mul nuw i128 %196, %197
@@ -16279,8 +16279,8 @@ _ZN4core3ptr25swap_nonoverlapping_bytes17h4a5d355a75866bf8E.exit: ; preds = %_ZN
           to label %common.resume unwind label %267, !noalias !1698
 
 194:                                              ; preds = %181, %151, %155
-  %.sink3.i.i.i.i = phi i64 [ %187, %181 ], [ %154, %151 ], [ %156, %155 ]
-  %195 = xor i64 %.sink3.i.i.i.i, 255
+  %.sink4.i.i.i.i = phi i64 [ %187, %181 ], [ %154, %151 ], [ %156, %155 ]
+  %195 = xor i64 %.sink4.i.i.i.i, 255
   %196 = zext i64 %195 to i128
   %197 = zext i64 %140 to i128
   %198 = mul nuw i128 %196, %197
@@ -16886,8 +16886,8 @@ _ZN4core3ptr25swap_nonoverlapping_bytes17h4a5d355a75866bf8E.exit: ; preds = %_ZN
           to label %common.resume unwind label %267, !noalias !1779
 
 194:                                              ; preds = %181, %151, %155
-  %.sink3.i.i.i.i = phi i64 [ %187, %181 ], [ %154, %151 ], [ %156, %155 ]
-  %195 = xor i64 %.sink3.i.i.i.i, 255
+  %.sink4.i.i.i.i = phi i64 [ %187, %181 ], [ %154, %151 ], [ %156, %155 ]
+  %195 = xor i64 %.sink4.i.i.i.i, 255
   %196 = zext i64 %195 to i128
   %197 = zext i64 %140 to i128
   %198 = mul nuw i128 %196, %197
@@ -17493,8 +17493,8 @@ _ZN4core3ptr25swap_nonoverlapping_bytes17h4a5d355a75866bf8E.exit: ; preds = %_ZN
           to label %common.resume unwind label %267, !noalias !1860
 
 194:                                              ; preds = %181, %151, %155
-  %.sink3.i.i.i.i = phi i64 [ %187, %181 ], [ %154, %151 ], [ %156, %155 ]
-  %195 = xor i64 %.sink3.i.i.i.i, 255
+  %.sink4.i.i.i.i = phi i64 [ %187, %181 ], [ %154, %151 ], [ %156, %155 ]
+  %195 = xor i64 %.sink4.i.i.i.i, 255
   %196 = zext i64 %195 to i128
   %197 = zext i64 %140 to i128
   %198 = mul nuw i128 %196, %197
@@ -18100,8 +18100,8 @@ _ZN4core3ptr25swap_nonoverlapping_bytes17h4a5d355a75866bf8E.exit: ; preds = %_ZN
           to label %common.resume unwind label %267, !noalias !1941
 
 194:                                              ; preds = %181, %151, %155
-  %.sink3.i.i.i.i = phi i64 [ %187, %181 ], [ %154, %151 ], [ %156, %155 ]
-  %195 = xor i64 %.sink3.i.i.i.i, 255
+  %.sink4.i.i.i.i = phi i64 [ %187, %181 ], [ %154, %151 ], [ %156, %155 ]
+  %195 = xor i64 %.sink4.i.i.i.i, 255
   %196 = zext i64 %195 to i128
   %197 = zext i64 %140 to i128
   %198 = mul nuw i128 %196, %197
@@ -18375,8 +18375,8 @@ define internal fastcc noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14r
   br label %51
 
 "_ZN9hashbrown3map11make_hasher28_$u7b$$u7b$closure$u7d$$u7d$17h722794c9b5078d36E.exit": ; preds = %21, %25, %51
-  %.sink3.i.i.i = phi i64 [ %24, %21 ], [ %26, %25 ], [ %57, %51 ]
-  %62 = xor i64 %.sink3.i.i.i, 255
+  %.sink4.i.i.i = phi i64 [ %24, %21 ], [ %26, %25 ], [ %57, %51 ]
+  %62 = xor i64 %.sink4.i.i.i, 255
   %63 = zext i64 %62 to i128
   %64 = zext i64 %10 to i128
   %65 = mul nuw i128 %63, %64
@@ -18486,8 +18486,8 @@ define internal fastcc noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14r
   br label %51
 
 "_ZN9hashbrown3map11make_hasher28_$u7b$$u7b$closure$u7d$$u7d$17h165f28298fea7180E.exit": ; preds = %21, %25, %51
-  %.sink3.i.i.i = phi i64 [ %24, %21 ], [ %26, %25 ], [ %57, %51 ]
-  %62 = xor i64 %.sink3.i.i.i, 255
+  %.sink4.i.i.i = phi i64 [ %24, %21 ], [ %26, %25 ], [ %57, %51 ]
+  %62 = xor i64 %.sink4.i.i.i, 255
   %63 = zext i64 %62 to i128
   %64 = zext i64 %10 to i128
   %65 = mul nuw i128 %63, %64
@@ -18597,8 +18597,8 @@ define internal fastcc noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14r
   br label %51
 
 "_ZN9hashbrown3map11make_hasher28_$u7b$$u7b$closure$u7d$$u7d$17hd441d5f1f82e7ec8E.exit": ; preds = %21, %25, %51
-  %.sink3.i.i.i = phi i64 [ %24, %21 ], [ %26, %25 ], [ %57, %51 ]
-  %62 = xor i64 %.sink3.i.i.i, 255
+  %.sink4.i.i.i = phi i64 [ %24, %21 ], [ %26, %25 ], [ %57, %51 ]
+  %62 = xor i64 %.sink4.i.i.i, 255
   %63 = zext i64 %62 to i128
   %64 = zext i64 %10 to i128
   %65 = mul nuw i128 %63, %64
@@ -18708,8 +18708,8 @@ define internal fastcc noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14r
   br label %51
 
 "_ZN9hashbrown3map11make_hasher28_$u7b$$u7b$closure$u7d$$u7d$17h0a978ea598f7ac49E.exit": ; preds = %21, %25, %51
-  %.sink3.i.i.i = phi i64 [ %24, %21 ], [ %26, %25 ], [ %57, %51 ]
-  %62 = xor i64 %.sink3.i.i.i, 255
+  %.sink4.i.i.i = phi i64 [ %24, %21 ], [ %26, %25 ], [ %57, %51 ]
+  %62 = xor i64 %.sink4.i.i.i, 255
   %63 = zext i64 %62 to i128
   %64 = zext i64 %10 to i128
   %65 = mul nuw i128 %63, %64
@@ -18819,8 +18819,8 @@ define internal fastcc noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14r
   br label %51
 
 "_ZN9hashbrown3map11make_hasher28_$u7b$$u7b$closure$u7d$$u7d$17h1485a5f131f856f9E.exit": ; preds = %21, %25, %51
-  %.sink3.i.i.i = phi i64 [ %24, %21 ], [ %26, %25 ], [ %57, %51 ]
-  %62 = xor i64 %.sink3.i.i.i, 255
+  %.sink4.i.i.i = phi i64 [ %24, %21 ], [ %26, %25 ], [ %57, %51 ]
+  %62 = xor i64 %.sink4.i.i.i, 255
   %63 = zext i64 %62 to i128
   %64 = zext i64 %10 to i128
   %65 = mul nuw i128 %63, %64

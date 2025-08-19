@@ -21,7 +21,7 @@ define dso_local noundef i64 @_ZN4absl13cord_internal25cordz_should_profile_slow
   store i64 65536, ptr %0, align 8, !tbaa !4
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 65536, ptr %.sroa.48.0..sroa_idx, align 8, !tbaa !4
-  br label %common.ret20
+  br label %common.ret22
 
 5:                                                ; preds = %1
   %6 = icmp eq i32 %2, 1
@@ -31,7 +31,7 @@ define dso_local noundef i64 @_ZN4absl13cord_internal25cordz_should_profile_slow
   store i64 1, ptr %0, align 8, !tbaa !4
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.46.0..sroa_idx, align 8, !tbaa !4
-  br label %common.ret20
+  br label %common.ret22
 
 8:                                                ; preds = %5
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4absl13cord_internal17cordz_next_sampleE)
@@ -48,7 +48,7 @@ define dso_local noundef i64 @_ZN4absl13cord_internal25cordz_should_profile_slow
   %17 = tail call noundef i64 @_ZN4absl18profiling_internal17ExponentialBiased9GetStrideEl(ptr noundef nonnull align 8 dereferenceable(17) %15, i64 noundef %16)
   store i64 %17, ptr %0, align 8, !tbaa !4
   store i64 %17, ptr %13, align 8, !tbaa !4
-  br i1 %.not, label %18, label %common.ret20
+  br i1 %.not, label %18, label %common.ret22
 
 18:                                               ; preds = %12
   %19 = load i64, ptr %9, align 8, !tbaa !8
@@ -58,23 +58,23 @@ define dso_local noundef i64 @_ZN4absl13cord_internal25cordz_should_profile_slow
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.thread: ; preds = %18
   %21 = add nsw i64 %19, -1
   store i64 %21, ptr %9, align 8, !tbaa !8
-  br label %common.ret20
+  br label %common.ret22
 
-common.ret20:                                     ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread, %12, %24, %7, %4, %_ZN4absl13cord_internal20cordz_should_profileEv.exit
-  %common.ret20.op = phi i64 [ %spec.select, %_ZN4absl13cord_internal20cordz_should_profileEv.exit ], [ 0, %4 ], [ 1, %7 ], [ 0, %24 ], [ %14, %12 ], [ 0, %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread ]
-  ret i64 %common.ret20.op
+common.ret22:                                     ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread, %12, %24, %7, %4, %_ZN4absl13cord_internal20cordz_should_profileEv.exit
+  %common.ret22.op = phi i64 [ %spec.select, %_ZN4absl13cord_internal20cordz_should_profileEv.exit ], [ 0, %4 ], [ 1, %7 ], [ 0, %24 ], [ %14, %12 ], [ 0, %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread ]
+  ret i64 %common.ret22.op
 
 _ZN4absl13cord_internal20cordz_should_profileEv.exit: ; preds = %18
   %22 = tail call noundef i64 @_ZN4absl13cord_internal25cordz_should_profile_slowERNS0_13SamplingStateE(ptr noundef nonnull align 8 dereferenceable(16) %9)
   %23 = icmp sgt i64 %22, 0
   %spec.select = select i1 %23, i64 %14, i64 0
-  br label %common.ret20
+  br label %common.ret22
 
 24:                                               ; preds = %8
   %25 = load i64, ptr %0, align 8, !tbaa !8
   %26 = add nsw i64 %25, -1
   store i64 %26, ptr %0, align 8, !tbaa !8
-  br label %common.ret20
+  br label %common.ret22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable

@@ -773,7 +773,7 @@ default.unreachable:                              ; preds = %310, %1
   %.1.i.i.ph.i.i.i.i.i = phi ptr [ %54, %53 ], [ %76, %75 ]
   %81 = load i64, ptr %80, align 8, !range !158, !noalias !155, !noundef !7
   %82 = icmp eq i64 %81, 2
-  br i1 %82, label %.thread116.i.i.i.i.i, label %83
+  br i1 %82, label %.thread124.i.i.i.i.i, label %83
 
 83:                                               ; preds = %79
   %84 = invoke noundef align 8 ptr @"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hcf7a8666f2c17ecfE"(ptr noundef nonnull align 8 %80)
@@ -793,14 +793,14 @@ default.unreachable:                              ; preds = %310, %1
 
 "_ZN4core3ptr114drop_in_place$LT$async_lock..mutex..AcquireSlow$LT$$RF$async_lock..mutex..Mutex$LT$$LP$$RP$$GT$$C$$LP$$RP$$GT$$GT$17hcb3320e5ec62c0a7E.exit.i.i.i.i.i.i.i.i.i": ; preds = %83
   invoke void @"_ZN4core3ptr125drop_in_place$LT$event_listener..Listener$LT$$LP$$RP$$C$alloc..sync..Arc$LT$event_listener..Inner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h1791e95088b67237E.llvm.14408593437386099104"(ptr noundef nonnull align 8 %80)
-          to label %.thread116.i.i.i.i.i unwind label %89, !noalias !153
+          to label %.thread124.i.i.i.i.i unwind label %89, !noalias !153
 
 89:                                               ; preds = %"_ZN4core3ptr114drop_in_place$LT$async_lock..mutex..AcquireSlow$LT$$RF$async_lock..mutex..Mutex$LT$$LP$$RP$$GT$$C$$LP$$RP$$GT$$GT$17hcb3320e5ec62c0a7E.exit.i.i.i.i.i.i.i.i.i"
   %90 = landingpad { ptr, i32 }
           cleanup
   br label %.body32.i.i.i.i.i
 
-.thread116.i.i.i.i.i:                             ; preds = %"_ZN4core3ptr114drop_in_place$LT$async_lock..mutex..AcquireSlow$LT$$RF$async_lock..mutex..Mutex$LT$$LP$$RP$$GT$$C$$LP$$RP$$GT$$GT$17hcb3320e5ec62c0a7E.exit.i.i.i.i.i.i.i.i.i", %79
+.thread124.i.i.i.i.i:                             ; preds = %"_ZN4core3ptr114drop_in_place$LT$async_lock..mutex..AcquireSlow$LT$$RF$async_lock..mutex..Mutex$LT$$LP$$RP$$GT$$C$$LP$$RP$$GT$$GT$17hcb3320e5ec62c0a7E.exit.i.i.i.i.i.i.i.i.i", %79
   %91 = load ptr, ptr %34, align 8, !noalias !155, !nonnull !7, !align !30, !noundef !7
   store ptr %91, ptr %80, align 8, !noalias !155
   %.sroa.649.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.val, i64 184
@@ -841,10 +841,10 @@ default.unreachable:                              ; preds = %310, %1
 98:                                               ; preds = %96
   unreachable
 
-99:                                               ; preds = %._crit_edge71.i.i.i.i, %.thread116.i.i.i.i.i
-  %100 = phi ptr [ %.1.i.i.ph.i.i.i.i.i, %.thread116.i.i.i.i.i ], [ %.pre72.i.i.i.i, %._crit_edge71.i.i.i.i ]
-  %101 = phi ptr [ %.sroa.8.0..sroa_idx.i.i.i.i.i, %.thread116.i.i.i.i.i ], [ %.phi.trans.insert110.i.i.i.i.i, %._crit_edge71.i.i.i.i ]
-  %102 = phi ptr [ %92, %.thread116.i.i.i.i.i ], [ %97, %._crit_edge71.i.i.i.i ]
+99:                                               ; preds = %._crit_edge71.i.i.i.i, %.thread124.i.i.i.i.i
+  %100 = phi ptr [ %.1.i.i.ph.i.i.i.i.i, %.thread124.i.i.i.i.i ], [ %.pre72.i.i.i.i, %._crit_edge71.i.i.i.i ]
+  %101 = phi ptr [ %.sroa.8.0..sroa_idx.i.i.i.i.i, %.thread124.i.i.i.i.i ], [ %.phi.trans.insert110.i.i.i.i.i, %._crit_edge71.i.i.i.i ]
+  %102 = phi ptr [ %92, %.thread124.i.i.i.i.i ], [ %97, %._crit_edge71.i.i.i.i ]
   %103 = getelementptr inbounds nuw i8, ptr %.val, i64 192
   %104 = load ptr, ptr %102, align 8, !noalias !170, !nonnull !7, !align !30, !noundef !7
   store ptr %104, ptr %103, align 8, !noalias !170

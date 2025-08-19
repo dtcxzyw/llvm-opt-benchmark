@@ -510,14 +510,14 @@ _ZN17QArrayDataPointerIDsED2Ev.exit75:            ; preds = %158, %_ZN17QArrayDa
   br label %208
 
 167:                                              ; preds = %164, %147
-  %.sink103 = phi ptr [ %146, %147 ], [ %163, %164 ]
+  %.sink119 = phi ptr [ %146, %147 ], [ %163, %164 ]
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink103, ptr %168, align 8
+  store ptr %.sink119, ptr %168, align 8
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %170 = load ptr, ptr %.sink103, align 8
+  %170 = load ptr, ptr %.sink119, align 8
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 104
   %172 = load ptr, ptr %171, align 8
-  %173 = invoke noundef zeroext i1 %172(ptr noundef align 8 dereferenceable_or_null(16) %.sink103, i32 3)
+  %173 = invoke noundef zeroext i1 %172(ptr noundef align 8 dereferenceable_or_null(16) %.sink119, i32 3)
           to label %174 unwind label %60
 
 174:                                              ; preds = %167
@@ -1298,14 +1298,14 @@ define noundef i64 @_ZN12RtpAudioFile13readFrameDataEPcx(ptr noundef align 8 cap
   br label %21
 
 21:                                               ; preds = %20, %16
-  %.sink14 = phi i64 [ %2, %20 ], [ %19, %16 ]
+  %.sink15 = phi i64 [ %2, %20 ], [ %19, %16 ]
   %22 = load i64, ptr %7, align 8
-  %23 = add i64 %22, %.sink14
+  %23 = add i64 %22, %.sink15
   store i64 %23, ptr %7, align 8
   br label %24
 
 24:                                               ; preds = %3, %21
-  %.011 = phi i64 [ %.sink14, %21 ], [ -1, %3 ]
+  %.011 = phi i64 [ %.sink15, %21 ], [ -1, %3 ]
   ret i64 %.011
 }
 

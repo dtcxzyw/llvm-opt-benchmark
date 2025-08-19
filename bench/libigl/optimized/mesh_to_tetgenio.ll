@@ -51,8 +51,8 @@ define weak_odr dso_local void @_ZN3igl8copyleft6tetgen16mesh_to_tetgenioIN5Eige
   %indvars.iv158 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next159, %.lr.ph.split.us ]
   %27 = getelementptr double, ptr %26, i64 %indvars.iv158
   %28 = load double, ptr %27, align 8, !tbaa !23
-  %.idx179 = mul nuw nsw i64 %indvars.iv158, 24
-  %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx179
+  %.idx185 = mul nuw nsw i64 %indvars.iv158, 24
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx185
   store double %28, ptr %29, align 8, !tbaa !23
   %30 = getelementptr double, ptr %27, i64 %9
   %31 = load double, ptr %30, align 8, !tbaa !23
@@ -68,7 +68,7 @@ define weak_odr dso_local void @_ZN3igl8copyleft6tetgen16mesh_to_tetgenioIN5Eige
 
 .lr.ph.split:                                     ; preds = %.thread
   %36 = load ptr, ptr %0, align 8, !tbaa !22
-  %.idx139182 = shl i64 %9, 4
+  %.idx139188 = shl i64 %9, 4
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %3, align 8, !tbaa !27
@@ -106,14 +106,14 @@ define weak_odr dso_local void @_ZN3igl8copyleft6tetgen16mesh_to_tetgenioIN5Eige
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %57 ]
   %58 = getelementptr double, ptr %36, i64 %indvars.iv
   %59 = load double, ptr %58, align 8, !tbaa !23
-  %.idx178 = mul nuw nsw i64 %indvars.iv, 24
-  %60 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx178
+  %.idx184 = mul nuw nsw i64 %indvars.iv, 24
+  %60 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx184
   store double %59, ptr %60, align 8, !tbaa !23
   %61 = getelementptr double, ptr %58, i64 %9
   %62 = load double, ptr %61, align 8, !tbaa !23
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store double %62, ptr %63, align 8, !tbaa !23
-  %64 = getelementptr i8, ptr %58, i64 %.idx139182
+  %64 = getelementptr i8, ptr %58, i64 %.idx139188
   %65 = load double, ptr %64, align 8, !tbaa !23
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store double %65, ptr %66, align 8, !tbaa !23
@@ -254,8 +254,8 @@ _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIiiLNS2_14Com
   %indvars.iv170 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next171, %130 ]
   %131 = getelementptr double, ptr %79, i64 %indvars.iv170
   %132 = load double, ptr %131, align 8, !tbaa !23
-  %.idx180 = mul nuw nsw i64 %indvars.iv170, 24
-  %133 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx180
+  %.idx186 = mul nuw nsw i64 %indvars.iv170, 24
+  %133 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx186
   store double %132, ptr %133, align 8, !tbaa !23
   %134 = getelementptr double, ptr %131, i64 %71
   %135 = load double, ptr %134, align 8, !tbaa !23
@@ -276,8 +276,8 @@ _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIiiLNS2_14Com
   %indvars.iv174 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next175, %140 ]
   %141 = getelementptr double, ptr %129, i64 %indvars.iv174
   %142 = load double, ptr %141, align 8, !tbaa !23
-  %.idx181 = mul nuw nsw i64 %indvars.iv174, 40
-  %143 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx181
+  %.idx187 = mul nuw nsw i64 %indvars.iv174, 40
+  %143 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx187
   store double %142, ptr %143, align 8, !tbaa !23
   %144 = getelementptr double, ptr %141, i64 %121
   %145 = load double, ptr %144, align 8, !tbaa !23

@@ -215,7 +215,7 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr noundef writeonly captures(none) %
   %.7151.i.i = add nuw nsw i32 %.pn.i.i, %.1145.i.i
   %84 = add nsw i32 %.0.i.i, -1
   %85 = icmp sgt i32 %.0.i.i, 0
-  %86 = sub i32 1, %.0.i.i
+  %86 = sub nsw i32 1, %.0.i.i
   %.2163.i.i.p = select i1 %85, i32 %86, i32 %84
   %.2163.i.i = add i32 %.2163.i.i.p, %.0161.i.i
   %87 = trunc i32 %84 to i16
@@ -316,7 +316,7 @@ define dso_local i64 @FSE_readNCount(ptr noundef writeonly captures(none) %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 1, 0) i64 @HUF_readStats(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #1 {
+define dso_local range(i64 -119, -9223372036854775808) i64 @HUF_readStats(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #1 {
   %8 = alloca [219 x i32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef nonnull %8, i64 noundef 876, i32 poison)
@@ -325,7 +325,7 @@ define dso_local range(i64 1, 0) i64 @HUF_readStats(ptr noundef %0, i64 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 1, 0) i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, i32 %9) local_unnamed_addr #1 {
+define dso_local range(i64 -119, -9223372036854775808) i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, i32 %9) local_unnamed_addr #1 {
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %HUF_readStats_body_default.exit, label %11
 

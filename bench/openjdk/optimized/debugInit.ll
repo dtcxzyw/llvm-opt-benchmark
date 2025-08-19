@@ -933,14 +933,14 @@ sub_0336.i:                                       ; preds = %get_tok.exit257.i
   %345 = getelementptr inbounds nuw i8, ptr %.0106410.i, i64 1
   %346 = load i8, ptr %345, align 1
   %347 = icmp eq i8 %346, 0
-  br i1 %347, label %355, label %.thread452.i
+  br i1 %347, label %355, label %.thread456.i
 
 .tail335.thread.i:                                ; preds = %sub_0336.i
   %348 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0106410.i, ptr noundef nonnull dereferenceable(6) @.str.73) #19
   %349 = icmp eq i32 %348, 0
   br i1 %349, label %355, label %sub_0340.i
 
-.thread452.i:                                     ; preds = %.tail335.i
+.thread456.i:                                     ; preds = %.tail335.i
   %350 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0106410.i, ptr noundef nonnull dereferenceable(6) @.str.73) #19
   %351 = icmp eq i32 %350, 0
   br i1 %351, label %355, label %get_tok.exit.thread.i
@@ -955,14 +955,14 @@ sub_0340.i:                                       ; preds = %.tail335.thread.i
   %354 = icmp eq i8 %353, 0
   br i1 %354, label %355, label %get_tok.exit.thread.i
 
-355:                                              ; preds = %.tail339.i, %.thread452.i, %.tail335.thread.i, %.tail335.i
-  %.sink525.i = phi i8 [ 1, %.tail335.i ], [ 1, %.thread452.i ], [ 1, %.tail335.thread.i ], [ 0, %.tail339.i ]
-  %.sink522.i = phi i8 [ 0, %.tail335.i ], [ 1, %.thread452.i ], [ 1, %.tail335.thread.i ], [ 0, %.tail339.i ]
+355:                                              ; preds = %.tail339.i, %.thread456.i, %.tail335.thread.i, %.tail335.i
+  %.sink529.i = phi i8 [ 1, %.tail335.i ], [ 1, %.thread456.i ], [ 1, %.tail335.thread.i ], [ 0, %.tail339.i ]
+  %.sink526.i = phi i8 [ 0, %.tail335.i ], [ 1, %.thread456.i ], [ 1, %.tail335.thread.i ], [ 0, %.tail339.i ]
   %356 = load ptr, ptr @gdata, align 8
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 17
-  store i8 %.sink525.i, ptr %357, align 1
+  store i8 %.sink529.i, ptr %357, align 1
   %358 = getelementptr inbounds nuw i8, ptr %356, i64 18
-  store i8 %.sink522.i, ptr %358, align 2
+  store i8 %.sink526.i, ptr %358, align 2
   %359 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0106410.i) #19
   %360 = getelementptr i8, ptr %.0106410.i, i64 %359
   %361 = getelementptr i8, ptr %360, i64 1
@@ -1431,7 +1431,7 @@ get_tok.exit300.i:                                ; preds = %.lr.ph.i294.i, %.lr
   store i1 true, ptr @allowStartViaJcmd, align 1
   br label %parseOptions.exit
 
-get_tok.exit.thread.i:                            ; preds = %506, %504, %502, %496, %492, %486, %482, %478, %474, %get_tok.exit300.i, %450, %get_tok.exit290.i, %427, %get_tok.exit280.i, %403, %394, %.tail339.i, %sub_0340.i, %.thread452.i, %get_tok.exit257.i, %326, %get_tok.exit247.i, %294, %get_tok.exit237.i, %271, %.tail331.i, %.tail.i, %sub_0.i, %get_tok.exit227.i, %237, %get_tok.exit217.i, %211, %get_tok.exit207.i, %185, %get_tok.exit197.i, %158, %get_tok.exit187.i, %130, %get_tok.exit.i, %120, %457, %434, %410, %333, %304, %278, %244, %218, %192, %165, %139, %get_boolean.exit270.thread.i, %get_boolean.exit.thread.i
+get_tok.exit.thread.i:                            ; preds = %506, %504, %502, %496, %492, %486, %482, %478, %474, %get_tok.exit300.i, %450, %get_tok.exit290.i, %427, %get_tok.exit280.i, %403, %394, %.tail339.i, %sub_0340.i, %.thread456.i, %get_tok.exit257.i, %326, %get_tok.exit247.i, %294, %get_tok.exit237.i, %271, %.tail331.i, %.tail.i, %sub_0.i, %get_tok.exit227.i, %237, %get_tok.exit217.i, %211, %get_tok.exit207.i, %185, %get_tok.exit197.i, %158, %get_tok.exit187.i, %130, %get_tok.exit.i, %120, %457, %434, %410, %333, %304, %278, %244, %218, %192, %165, %139, %get_boolean.exit270.thread.i, %get_boolean.exit.thread.i
   %543 = load ptr, ptr @gdata, align 8
   %544 = getelementptr inbounds nuw i8, ptr %543, i64 528
   %545 = load i32, ptr %544, align 8
@@ -2890,28 +2890,28 @@ signalInitComplete.exit:                          ; preds = %70, %76
   %96 = icmp eq i8 %95, 0
   %97 = icmp eq i32 %2, 4
   %or.cond7 = or i1 %97, %96
-  br i1 %or.cond7, label %.thread66, label %98
+  br i1 %or.cond7, label %.thread71, label %98
 
 98:                                               ; preds = %.thread
   call void @jdiAssertionFailed(ptr noundef nonnull @.str.1, i32 noundef 724, ptr noundef nonnull @.str.119) #17
   %.pr61.pre = load ptr, ptr @gdata, align 8
   %.not56 = icmp eq ptr %.pr61.pre, null
-  br i1 %.not56, label %.thread62, label %.thread66
+  br i1 %.not56, label %.thread62, label %.thread71
 
-.thread66:                                        ; preds = %.thread, %98
-  %.pr6169 = phi ptr [ %.pr61.pre, %98 ], [ %93, %.thread ]
-  %99 = getelementptr inbounds nuw i8, ptr %.pr6169, i64 17
+.thread71:                                        ; preds = %.thread, %98
+  %.pr6174 = phi ptr [ %.pr61.pre, %98 ], [ %93, %.thread ]
+  %99 = getelementptr inbounds nuw i8, ptr %.pr6174, i64 17
   %100 = load i8, ptr %99, align 1
   %101 = icmp eq i8 %100, 0
   %102 = icmp ne ptr %3, null
   %or.cond9 = or i1 %102, %101
   br i1 %or.cond9, label %.thread62, label %103
 
-103:                                              ; preds = %.thread66
+103:                                              ; preds = %.thread71
   call void @jdiAssertionFailed(ptr noundef nonnull @.str.1, i32 noundef 725, ptr noundef nonnull @.str.120) #17
   br label %.thread62
 
-.thread62:                                        ; preds = %92, %98, %.thread66, %103
+.thread62:                                        ; preds = %92, %98, %.thread71, %103
   %104 = call ptr @eventHelper_createEventBag() #17
   %105 = load i8, ptr @currentSessionID, align 1
   %106 = call ptr @threadControl_onEventHandlerEntry(i8 noundef signext %105, ptr noundef %3, ptr noundef null) #17

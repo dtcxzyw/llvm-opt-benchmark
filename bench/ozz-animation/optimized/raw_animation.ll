@@ -156,12 +156,12 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation8Va
   br i1 %13, label %.critedge, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %5
-  %exitcond.not19 = icmp eq ptr %7, %8
-  br i1 %exitcond.not19, label %.critedge, label %.lr.ph
+  %exitcond.not26 = icmp eq ptr %7, %8
+  br i1 %exitcond.not26, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader.preheader, %_ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit
-  %.01020 = phi i64 [ %53, %_ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit ], [ 0, %.preheader.preheader ]
-  %14 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %8, i64 %.01020
+  %.01027 = phi i64 [ %53, %_ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit ], [ 0, %.preheader.preheader ]
+  %14 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %8, i64 %.01027
   %.val.i = load ptr, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.val4.i = load ptr, ptr %15, align 8
@@ -257,7 +257,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation8Va
   br i1 %or.cond1.i24.i, label %46, label %.critedge
 
 _ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit: ; preds = %46, %.loopexit.i
-  %53 = add i64 %.01020, 1
+  %53 = add i64 %.01027, 1
   %exitcond.not = icmp eq i64 %53, %12
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !36
 

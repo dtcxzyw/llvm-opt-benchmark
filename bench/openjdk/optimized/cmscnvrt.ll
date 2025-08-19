@@ -497,9 +497,9 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not3448, label %._crit_edge, label %.lr.ph
 
 .preheader.thread:                                ; preds = %.split.us.split.us
-  %.1294773 = load ptr, ptr %5, align 8
-  %.not344874 = icmp eq ptr %.1294773, null
-  br i1 %.not344874, label %._crit_edge, label %.lr.ph.split.us.split.us.preheader
+  %.1294778 = load ptr, ptr %5, align 8
+  %.not344879 = icmp eq ptr %.1294778, null
+  br i1 %.not344879, label %._crit_edge, label %.lr.ph.split.us.split.us.preheader
 
 .lr.ph:                                           ; preds = %.preheader
   br i1 %.not37, label %.lr.ph.split.us, label %.lr.ph.split
@@ -508,7 +508,7 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not38, label %.lr.ph.split.us.split.us.preheader, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us.preheader:               ; preds = %.preheader.thread, %.lr.ph.split.us
-  %.12950.us.us.ph = phi ptr [ %.1294773, %.preheader.thread ], [ %.12947, %.lr.ph.split.us ]
+  %.12950.us.us.ph = phi ptr [ %.1294778, %.preheader.thread ], [ %.12947, %.lr.ph.split.us ]
   %.149.us.us.ph = phi i32 [ %6, %.preheader.thread ], [ %.us-phi, %.lr.ph.split.us ]
   br label %.lr.ph.split.us.split.us
 
@@ -1666,8 +1666,8 @@ is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader, %18, %i
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next101 to i32
   %exitcond103.not = icmp eq i32 %1, %lftr.wideiv
-  %or.cond104 = select i1 %.not83, i1 true, i1 %exitcond103.not
-  br i1 %or.cond104, label %.loopexitthread-pre-split, label %.lr.ph94, !llvm.loop !22
+  %or.cond112 = select i1 %.not83, i1 true, i1 %exitcond103.not
+  br i1 %or.cond112, label %.loopexitthread-pre-split, label %.lr.ph94, !llvm.loop !22
 
 .loopexitthread-pre-split:                        ; preds = %80, %.lr.ph94, %41, %49, %53, %58, %62, %68, %70
   %.pr.pr = load ptr, ptr %8, align 8

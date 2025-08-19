@@ -1080,8 +1080,8 @@ do_confWithBit_teddy.exit260:                     ; preds = %593
   %604 = load i64, ptr %603, align 8
   %605 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %604, i64 0
   %606 = insertelement <4 x i64> %605, i64 %602, i64 2
-  %bc1305 = bitcast <4 x i64> %597 to <32 x i8>
-  %607 = extractelement <32 x i8> %bc1305, i64 31
+  %bc1522 = bitcast <4 x i64> %597 to <32 x i8>
+  %607 = extractelement <32 x i8> %bc1522, i64 31
   %608 = zext i8 %607 to i32
   %609 = bitcast <4 x i64> %42 to <32 x i8>
   %610 = bitcast <4 x i64> %597 to <32 x i8>
@@ -2174,9 +2174,9 @@ split:                                            ; preds = %1160, %.thread1117
   %1211 = zext i32 %1175 to i64
   br label %1373
 
-1212:                                             ; preds = %.lr.ph1189, %.thread1318
-  %indvars.iv1254 = phi i64 [ 0, %.lr.ph1189 ], [ %indvars.iv.next1255, %.thread1318 ]
-  %.981187 = phi i64 [ %.121215, %.lr.ph1189 ], [ %.102, %.thread1318 ]
+1212:                                             ; preds = %.lr.ph1189, %.thread1535
+  %indvars.iv1254 = phi i64 [ 0, %.lr.ph1189 ], [ %indvars.iv.next1255, %.thread1535 ]
+  %.981187 = phi i64 [ %.121215, %.lr.ph1189 ], [ %.102, %.thread1535 ]
   %1213 = load i64, ptr %1110, align 8
   %1214 = and i64 %1213, %.981187
   %.not406.i = icmp eq i64 %1214, 0
@@ -2186,7 +2186,7 @@ split:                                            ; preds = %1160, %.thread1117
   %1216 = load i64, ptr %1196, align 8
   %1217 = and i64 %1216, %.981187
   %.not407.i = icmp eq i64 %1217, 0
-  br i1 %.not407.i, label %.thread1318, label %1218
+  br i1 %.not407.i, label %.thread1535, label %1218
 
 1218:                                             ; preds = %1215
   %1219 = add i64 %indvars.iv1254, %1097
@@ -2196,7 +2196,7 @@ split:                                            ; preds = %1160, %.thread1117
   %.pre = load i64, ptr %1196, align 8
   %.pre1281 = and i64 %.pre, %1222
   %1223 = icmp eq i64 %.pre1281, 0
-  br i1 %1223, label %.thread1318, label %1224
+  br i1 %1223, label %.thread1535, label %1224
 
 1224:                                             ; preds = %1218
   %1225 = add i64 %1198, %indvars.iv1254
@@ -2206,7 +2206,7 @@ split:                                            ; preds = %1160, %.thread1117
   %.pre1270 = load i64, ptr %1196, align 8
   %.pre1283 = and i64 %.pre1270, %1228
   %1229 = icmp eq i64 %.pre1283, 0
-  br i1 %1229, label %.thread1318, label %1230
+  br i1 %1229, label %.thread1535, label %1230
 
 1230:                                             ; preds = %1224
   %1231 = add i64 %1199, %indvars.iv1254
@@ -2216,16 +2216,16 @@ split:                                            ; preds = %1160, %.thread1117
   %.pre1271 = load i64, ptr %1196, align 8
   %.pre1285 = and i64 %.pre1271, %1234
   %1235 = icmp eq i64 %.pre1285, 0
-  br i1 %1235, label %.thread1318, label %1236
+  br i1 %1235, label %.thread1535, label %1236
 
 1236:                                             ; preds = %1230
   %1237 = add i64 %1200, %indvars.iv1254
   %1238 = and i64 %1237, 4294967295
   %1239 = load i32, ptr %1197, align 8
   %1240 = call i64 %1092(i64 noundef %1238, i32 noundef %1239, ptr noundef %1093) #7
-  br label %.thread1318
+  br label %.thread1535
 
-.thread1318:                                      ; preds = %1215, %1218, %1224, %1236, %1230
+.thread1535:                                      ; preds = %1215, %1218, %1224, %1236, %1230
   %.102 = phi i64 [ %1234, %1230 ], [ %1240, %1236 ], [ %1228, %1224 ], [ %1222, %1218 ], [ %.981187, %1215 ]
   %indvars.iv.next1255 = add nuw nsw i64 %indvars.iv1254, 4
   %1241 = icmp samesign ult i64 %indvars.iv.next1255, %1201
@@ -2664,8 +2664,8 @@ split:                                            ; preds = %1160, %.thread1117
   %1480 = icmp samesign ult i64 %indvars.iv.next1261, %1479
   br i1 %1480, label %1468, label %._crit_edge1203
 
-.critedge.i:                                      ; preds = %1371, %1317, %1315, %1242, %.thread1318, %1212, %._crit_edge1203, %1373, %.preheader1146, %.preheader1144, %.preheader1142, %.preheader, %1176, %1172
-  %.82 = phi i64 [ %.121215, %1172 ], [ %.121215, %1176 ], [ %.121215, %.preheader ], [ %.121215, %.preheader1142 ], [ %.121215, %.preheader1144 ], [ %.121215, %.preheader1146 ], [ %.113.lcssa, %._crit_edge1203 ], [ %.1031205, %1373 ], [ %.102, %.thread1318 ], [ %.981187, %1212 ], [ %.97, %1315 ], [ %.891181, %1242 ], [ %.88, %1371 ], [ %.811175, %1317 ]
+.critedge.i:                                      ; preds = %1371, %1317, %1315, %1242, %.thread1535, %1212, %._crit_edge1203, %1373, %.preheader1146, %.preheader1144, %.preheader1142, %.preheader, %1176, %1172
+  %.82 = phi i64 [ %.121215, %1172 ], [ %.121215, %1176 ], [ %.121215, %.preheader ], [ %.121215, %.preheader1142 ], [ %.121215, %.preheader1144 ], [ %.121215, %.preheader1146 ], [ %.113.lcssa, %._crit_edge1203 ], [ %.1031205, %1373 ], [ %.102, %.thread1535 ], [ %.981187, %1212 ], [ %.97, %1315 ], [ %.891181, %1242 ], [ %.88, %1371 ], [ %.811175, %1317 ]
   %1481 = zext i32 %1175 to i64
   %1482 = getelementptr inbounds nuw i8, ptr %.29571214, i64 %1481
   br label %floodDetect.exit
@@ -2700,8 +2700,8 @@ floodDetect.exit:                                 ; preds = %1126, %1133, %.crit
   %.1149 = phi ptr [ %.0371.i, %floodDetect.exit ], [ %.01481217, %1086 ]
   %1497 = load <4 x i64>, ptr %.3958, align 32
   %1498 = lshr <4 x i64> %1497, splat (i64 4)
-  %bc1306 = bitcast <4 x i64> %1497 to <32 x i8>
-  %1499 = extractelement <32 x i8> %bc1306, i64 15
+  %bc1523 = bitcast <4 x i64> %1497 to <32 x i8>
+  %1499 = extractelement <32 x i8> %bc1523, i64 15
   %1500 = zext i8 %1499 to i64
   %1501 = getelementptr inbounds nuw i64, ptr %50, i64 %1500
   %1502 = load i64, ptr %1501, align 8
@@ -2710,8 +2710,8 @@ floodDetect.exit:                                 ; preds = %1126, %1133, %.crit
   %1505 = load i64, ptr %1504, align 8
   %1506 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %1505, i64 0
   %1507 = insertelement <4 x i64> %1506, i64 %1502, i64 2
-  %bc1307 = bitcast <4 x i64> %1497 to <32 x i8>
-  %1508 = extractelement <32 x i8> %bc1307, i64 31
+  %bc1524 = bitcast <4 x i64> %1497 to <32 x i8>
+  %1508 = extractelement <32 x i8> %bc1524, i64 31
   %1509 = bitcast <4 x i64> %1497 to <32 x i8>
   %1510 = and <32 x i8> %1509, splat (i8 15)
   %1511 = call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %1083, <32 x i8> %1510)
@@ -3355,8 +3355,8 @@ do_confWithBit_teddy.exit292:                     ; preds = %1875
   %1877 = getelementptr inbounds nuw i8, ptr %.3958, i64 32
   %1878 = load <4 x i64>, ptr %1877, align 32
   %1879 = lshr <4 x i64> %1878, splat (i64 4)
-  %bc1308 = bitcast <4 x i64> %1878 to <32 x i8>
-  %1880 = extractelement <32 x i8> %bc1308, i64 15
+  %bc1525 = bitcast <4 x i64> %1878 to <32 x i8>
+  %1880 = extractelement <32 x i8> %bc1525, i64 15
   %1881 = zext i8 %1880 to i64
   %1882 = getelementptr inbounds nuw i64, ptr %50, i64 %1881
   %1883 = load i64, ptr %1882, align 8
@@ -3365,8 +3365,8 @@ do_confWithBit_teddy.exit292:                     ; preds = %1875
   %1886 = load i64, ptr %1885, align 8
   %1887 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %1886, i64 0
   %1888 = insertelement <4 x i64> %1887, i64 %1883, i64 2
-  %bc1309 = bitcast <4 x i64> %1878 to <32 x i8>
-  %1889 = extractelement <32 x i8> %bc1309, i64 31
+  %bc1526 = bitcast <4 x i64> %1878 to <32 x i8>
+  %1889 = extractelement <32 x i8> %bc1526, i64 31
   %1890 = zext i8 %1889 to i32
   %1891 = bitcast <4 x i64> %1878 to <32 x i8>
   %1892 = and <32 x i8> %1891, splat (i8 15)
@@ -4027,8 +4027,8 @@ do_confWithBit_teddy.exit308:                     ; preds = %2259
 2264:                                             ; preds = %._crit_edge1219
   %2265 = load <4 x i64>, ptr %.2957.lcssa, align 32
   %2266 = lshr <4 x i64> %2265, splat (i64 4)
-  %bc1310 = bitcast <4 x i64> %2265 to <32 x i8>
-  %2267 = extractelement <32 x i8> %bc1310, i64 15
+  %bc1527 = bitcast <4 x i64> %2265 to <32 x i8>
+  %2267 = extractelement <32 x i8> %bc1527, i64 15
   %2268 = zext i8 %2267 to i64
   %2269 = getelementptr inbounds nuw i64, ptr %50, i64 %2268
   %2270 = load i64, ptr %2269, align 8
@@ -6730,8 +6730,8 @@ do_confWithBit_teddy.exit322:                     ; preds = %593
   %604 = load i64, ptr %603, align 8
   %605 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %604, i64 0
   %606 = insertelement <4 x i64> %605, i64 %602, i64 2
-  %bc1299 = bitcast <4 x i64> %597 to <32 x i8>
-  %607 = extractelement <32 x i8> %bc1299, i64 31
+  %bc1516 = bitcast <4 x i64> %597 to <32 x i8>
+  %607 = extractelement <32 x i8> %bc1516, i64 31
   %608 = zext i8 %607 to i32
   %609 = bitcast <4 x i64> %42 to <32 x i8>
   %610 = bitcast <4 x i64> %597 to <32 x i8>
@@ -7824,9 +7824,9 @@ split:                                            ; preds = %1160, %.thread1111
   %1211 = zext i32 %1175 to i64
   br label %1373
 
-1212:                                             ; preds = %.lr.ph1183, %.thread1312
-  %indvars.iv1248 = phi i64 [ 0, %.lr.ph1183 ], [ %indvars.iv.next1249, %.thread1312 ]
-  %.981181 = phi i64 [ %.121209, %.lr.ph1183 ], [ %.102, %.thread1312 ]
+1212:                                             ; preds = %.lr.ph1183, %.thread1529
+  %indvars.iv1248 = phi i64 [ 0, %.lr.ph1183 ], [ %indvars.iv.next1249, %.thread1529 ]
+  %.981181 = phi i64 [ %.121209, %.lr.ph1183 ], [ %.102, %.thread1529 ]
   %1213 = load i64, ptr %1110, align 8
   %1214 = and i64 %1213, %.981181
   %.not406.i = icmp eq i64 %1214, 0
@@ -7836,7 +7836,7 @@ split:                                            ; preds = %1160, %.thread1111
   %1216 = load i64, ptr %1196, align 8
   %1217 = and i64 %1216, %.981181
   %.not407.i = icmp eq i64 %1217, 0
-  br i1 %.not407.i, label %.thread1312, label %1218
+  br i1 %.not407.i, label %.thread1529, label %1218
 
 1218:                                             ; preds = %1215
   %1219 = add i64 %indvars.iv1248, %1097
@@ -7846,7 +7846,7 @@ split:                                            ; preds = %1160, %.thread1111
   %.pre = load i64, ptr %1196, align 8
   %.pre1275 = and i64 %.pre, %1222
   %1223 = icmp eq i64 %.pre1275, 0
-  br i1 %1223, label %.thread1312, label %1224
+  br i1 %1223, label %.thread1529, label %1224
 
 1224:                                             ; preds = %1218
   %1225 = add i64 %1198, %indvars.iv1248
@@ -7856,7 +7856,7 @@ split:                                            ; preds = %1160, %.thread1111
   %.pre1264 = load i64, ptr %1196, align 8
   %.pre1277 = and i64 %.pre1264, %1228
   %1229 = icmp eq i64 %.pre1277, 0
-  br i1 %1229, label %.thread1312, label %1230
+  br i1 %1229, label %.thread1529, label %1230
 
 1230:                                             ; preds = %1224
   %1231 = add i64 %1199, %indvars.iv1248
@@ -7866,16 +7866,16 @@ split:                                            ; preds = %1160, %.thread1111
   %.pre1265 = load i64, ptr %1196, align 8
   %.pre1279 = and i64 %.pre1265, %1234
   %1235 = icmp eq i64 %.pre1279, 0
-  br i1 %1235, label %.thread1312, label %1236
+  br i1 %1235, label %.thread1529, label %1236
 
 1236:                                             ; preds = %1230
   %1237 = add i64 %1200, %indvars.iv1248
   %1238 = and i64 %1237, 4294967295
   %1239 = load i32, ptr %1197, align 8
   %1240 = call i64 %1092(i64 noundef %1238, i32 noundef %1239, ptr noundef %1093) #7
-  br label %.thread1312
+  br label %.thread1529
 
-.thread1312:                                      ; preds = %1215, %1218, %1224, %1236, %1230
+.thread1529:                                      ; preds = %1215, %1218, %1224, %1236, %1230
   %.102 = phi i64 [ %1234, %1230 ], [ %1240, %1236 ], [ %1228, %1224 ], [ %1222, %1218 ], [ %.981181, %1215 ]
   %indvars.iv.next1249 = add nuw nsw i64 %indvars.iv1248, 4
   %1241 = icmp samesign ult i64 %indvars.iv.next1249, %1201
@@ -8314,8 +8314,8 @@ split:                                            ; preds = %1160, %.thread1111
   %1480 = icmp samesign ult i64 %indvars.iv.next1255, %1479
   br i1 %1480, label %1468, label %._crit_edge1197
 
-.critedge.i:                                      ; preds = %1371, %1317, %1315, %1242, %.thread1312, %1212, %._crit_edge1197, %1373, %.preheader1140, %.preheader1138, %.preheader1136, %.preheader, %1176, %1172
-  %.82 = phi i64 [ %.121209, %1172 ], [ %.121209, %1176 ], [ %.121209, %.preheader ], [ %.121209, %.preheader1136 ], [ %.121209, %.preheader1138 ], [ %.121209, %.preheader1140 ], [ %.113.lcssa, %._crit_edge1197 ], [ %.1031199, %1373 ], [ %.102, %.thread1312 ], [ %.981181, %1212 ], [ %.97, %1315 ], [ %.891175, %1242 ], [ %.88, %1371 ], [ %.811169, %1317 ]
+.critedge.i:                                      ; preds = %1371, %1317, %1315, %1242, %.thread1529, %1212, %._crit_edge1197, %1373, %.preheader1140, %.preheader1138, %.preheader1136, %.preheader, %1176, %1172
+  %.82 = phi i64 [ %.121209, %1172 ], [ %.121209, %1176 ], [ %.121209, %.preheader ], [ %.121209, %.preheader1136 ], [ %.121209, %.preheader1138 ], [ %.121209, %.preheader1140 ], [ %.113.lcssa, %._crit_edge1197 ], [ %.1031199, %1373 ], [ %.102, %.thread1529 ], [ %.981181, %1212 ], [ %.97, %1315 ], [ %.891175, %1242 ], [ %.88, %1371 ], [ %.811169, %1317 ]
   %1481 = zext i32 %1175 to i64
   %1482 = getelementptr inbounds nuw i8, ptr %.29511208, i64 %1481
   br label %floodDetect.exit
@@ -8350,8 +8350,8 @@ floodDetect.exit:                                 ; preds = %1126, %1133, %.crit
   %.1149 = phi ptr [ %.0371.i, %floodDetect.exit ], [ %.01481211, %1086 ]
   %1497 = load <4 x i64>, ptr %.3952, align 32
   %1498 = lshr <4 x i64> %1497, splat (i64 4)
-  %bc1300 = bitcast <4 x i64> %1497 to <32 x i8>
-  %1499 = extractelement <32 x i8> %bc1300, i64 15
+  %bc1517 = bitcast <4 x i64> %1497 to <32 x i8>
+  %1499 = extractelement <32 x i8> %bc1517, i64 15
   %1500 = zext i8 %1499 to i64
   %1501 = getelementptr inbounds nuw i64, ptr %50, i64 %1500
   %1502 = load i64, ptr %1501, align 8
@@ -8360,8 +8360,8 @@ floodDetect.exit:                                 ; preds = %1126, %1133, %.crit
   %1505 = load i64, ptr %1504, align 8
   %1506 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %1505, i64 0
   %1507 = insertelement <4 x i64> %1506, i64 %1502, i64 2
-  %bc1301 = bitcast <4 x i64> %1497 to <32 x i8>
-  %1508 = extractelement <32 x i8> %bc1301, i64 31
+  %bc1518 = bitcast <4 x i64> %1497 to <32 x i8>
+  %1508 = extractelement <32 x i8> %bc1518, i64 31
   %1509 = bitcast <4 x i64> %1497 to <32 x i8>
   %1510 = and <32 x i8> %1509, splat (i8 15)
   %1511 = call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %1083, <32 x i8> %1510)
@@ -9005,8 +9005,8 @@ do_confWithBit_teddy.exit290:                     ; preds = %1875
   %1877 = getelementptr inbounds nuw i8, ptr %.3952, i64 32
   %1878 = load <4 x i64>, ptr %1877, align 32
   %1879 = lshr <4 x i64> %1878, splat (i64 4)
-  %bc1302 = bitcast <4 x i64> %1878 to <32 x i8>
-  %1880 = extractelement <32 x i8> %bc1302, i64 15
+  %bc1519 = bitcast <4 x i64> %1878 to <32 x i8>
+  %1880 = extractelement <32 x i8> %bc1519, i64 15
   %1881 = zext i8 %1880 to i64
   %1882 = getelementptr inbounds nuw i64, ptr %50, i64 %1881
   %1883 = load i64, ptr %1882, align 8
@@ -9015,8 +9015,8 @@ do_confWithBit_teddy.exit290:                     ; preds = %1875
   %1886 = load i64, ptr %1885, align 8
   %1887 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %1886, i64 0
   %1888 = insertelement <4 x i64> %1887, i64 %1883, i64 2
-  %bc1303 = bitcast <4 x i64> %1878 to <32 x i8>
-  %1889 = extractelement <32 x i8> %bc1303, i64 31
+  %bc1520 = bitcast <4 x i64> %1878 to <32 x i8>
+  %1889 = extractelement <32 x i8> %bc1520, i64 31
   %1890 = zext i8 %1889 to i32
   %1891 = bitcast <4 x i64> %1878 to <32 x i8>
   %1892 = and <32 x i8> %1891, splat (i8 15)
@@ -9677,8 +9677,8 @@ do_confWithBit_teddy.exit274:                     ; preds = %2259
 2264:                                             ; preds = %._crit_edge1213
   %2265 = load <4 x i64>, ptr %.2951.lcssa, align 32
   %2266 = lshr <4 x i64> %2265, splat (i64 4)
-  %bc1304 = bitcast <4 x i64> %2265 to <32 x i8>
-  %2267 = extractelement <32 x i8> %bc1304, i64 15
+  %bc1521 = bitcast <4 x i64> %2265 to <32 x i8>
+  %2267 = extractelement <32 x i8> %bc1521, i64 15
   %2268 = zext i8 %2267 to i64
   %2269 = getelementptr inbounds nuw i64, ptr %50, i64 %2268
   %2270 = load i64, ptr %2269, align 8
@@ -12408,8 +12408,8 @@ do_confWithBit_teddy.exit324:                     ; preds = %615
   %626 = load i64, ptr %625, align 8
   %627 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %626, i64 0
   %628 = insertelement <4 x i64> %627, i64 %624, i64 2
-  %bc1313 = bitcast <4 x i64> %619 to <32 x i8>
-  %629 = extractelement <32 x i8> %bc1313, i64 31
+  %bc1532 = bitcast <4 x i64> %619 to <32 x i8>
+  %629 = extractelement <32 x i8> %bc1532, i64 31
   %630 = zext i8 %629 to i32
   %631 = bitcast <4 x i64> %48 to <32 x i8>
   %632 = bitcast <4 x i64> %619 to <32 x i8>
@@ -13511,9 +13511,9 @@ split:                                            ; preds = %1191, %.thread1123
   %1242 = zext i32 %1206 to i64
   br label %1404
 
-1243:                                             ; preds = %.lr.ph1195, %.thread1326
-  %indvars.iv1261 = phi i64 [ 0, %.lr.ph1195 ], [ %indvars.iv.next1262, %.thread1326 ]
-  %.981193 = phi i64 [ %.121221, %.lr.ph1195 ], [ %.102, %.thread1326 ]
+1243:                                             ; preds = %.lr.ph1195, %.thread1545
+  %indvars.iv1261 = phi i64 [ 0, %.lr.ph1195 ], [ %indvars.iv.next1262, %.thread1545 ]
+  %.981193 = phi i64 [ %.121221, %.lr.ph1195 ], [ %.102, %.thread1545 ]
   %1244 = load i64, ptr %1141, align 8
   %1245 = and i64 %1244, %.981193
   %.not406.i = icmp eq i64 %1245, 0
@@ -13523,7 +13523,7 @@ split:                                            ; preds = %1191, %.thread1123
   %1247 = load i64, ptr %1227, align 8
   %1248 = and i64 %1247, %.981193
   %.not407.i = icmp eq i64 %1248, 0
-  br i1 %.not407.i, label %.thread1326, label %1249
+  br i1 %.not407.i, label %.thread1545, label %1249
 
 1249:                                             ; preds = %1246
   %1250 = add i64 %indvars.iv1261, %1128
@@ -13533,7 +13533,7 @@ split:                                            ; preds = %1191, %.thread1123
   %.pre = load i64, ptr %1227, align 8
   %.pre1288 = and i64 %.pre, %1253
   %1254 = icmp eq i64 %.pre1288, 0
-  br i1 %1254, label %.thread1326, label %1255
+  br i1 %1254, label %.thread1545, label %1255
 
 1255:                                             ; preds = %1249
   %1256 = add i64 %1229, %indvars.iv1261
@@ -13543,7 +13543,7 @@ split:                                            ; preds = %1191, %.thread1123
   %.pre1277 = load i64, ptr %1227, align 8
   %.pre1290 = and i64 %.pre1277, %1259
   %1260 = icmp eq i64 %.pre1290, 0
-  br i1 %1260, label %.thread1326, label %1261
+  br i1 %1260, label %.thread1545, label %1261
 
 1261:                                             ; preds = %1255
   %1262 = add i64 %1230, %indvars.iv1261
@@ -13553,16 +13553,16 @@ split:                                            ; preds = %1191, %.thread1123
   %.pre1278 = load i64, ptr %1227, align 8
   %.pre1292 = and i64 %.pre1278, %1265
   %1266 = icmp eq i64 %.pre1292, 0
-  br i1 %1266, label %.thread1326, label %1267
+  br i1 %1266, label %.thread1545, label %1267
 
 1267:                                             ; preds = %1261
   %1268 = add i64 %1231, %indvars.iv1261
   %1269 = and i64 %1268, 4294967295
   %1270 = load i32, ptr %1228, align 8
   %1271 = call i64 %1123(i64 noundef %1269, i32 noundef %1270, ptr noundef %1124) #7
-  br label %.thread1326
+  br label %.thread1545
 
-.thread1326:                                      ; preds = %1246, %1249, %1255, %1267, %1261
+.thread1545:                                      ; preds = %1246, %1249, %1255, %1267, %1261
   %.102 = phi i64 [ %1265, %1261 ], [ %1271, %1267 ], [ %1259, %1255 ], [ %1253, %1249 ], [ %.981193, %1246 ]
   %indvars.iv.next1262 = add nuw nsw i64 %indvars.iv1261, 4
   %1272 = icmp samesign ult i64 %indvars.iv.next1262, %1232
@@ -14001,8 +14001,8 @@ split:                                            ; preds = %1191, %.thread1123
   %1511 = icmp samesign ult i64 %indvars.iv.next1268, %1510
   br i1 %1511, label %1499, label %._crit_edge1209
 
-.critedge.i:                                      ; preds = %1402, %1348, %1346, %1273, %.thread1326, %1243, %._crit_edge1209, %1404, %.preheader1152, %.preheader1150, %.preheader1148, %.preheader, %1207, %1203
-  %.82 = phi i64 [ %.121221, %1203 ], [ %.121221, %1207 ], [ %.121221, %.preheader ], [ %.121221, %.preheader1148 ], [ %.121221, %.preheader1150 ], [ %.121221, %.preheader1152 ], [ %.113.lcssa, %._crit_edge1209 ], [ %.1031211, %1404 ], [ %.102, %.thread1326 ], [ %.981193, %1243 ], [ %.97, %1346 ], [ %.891187, %1273 ], [ %.88, %1402 ], [ %.811181, %1348 ]
+.critedge.i:                                      ; preds = %1402, %1348, %1346, %1273, %.thread1545, %1243, %._crit_edge1209, %1404, %.preheader1152, %.preheader1150, %.preheader1148, %.preheader, %1207, %1203
+  %.82 = phi i64 [ %.121221, %1203 ], [ %.121221, %1207 ], [ %.121221, %.preheader ], [ %.121221, %.preheader1148 ], [ %.121221, %.preheader1150 ], [ %.121221, %.preheader1152 ], [ %.113.lcssa, %._crit_edge1209 ], [ %.1031211, %1404 ], [ %.102, %.thread1545 ], [ %.981193, %1243 ], [ %.97, %1346 ], [ %.891187, %1273 ], [ %.88, %1402 ], [ %.811181, %1348 ]
   %1512 = zext i32 %1206 to i64
   %1513 = getelementptr inbounds nuw i8, ptr %.29631220, i64 %1512
   br label %floodDetect.exit
@@ -14037,8 +14037,8 @@ floodDetect.exit:                                 ; preds = %1157, %1164, %.crit
   %.1151 = phi ptr [ %.0371.i, %floodDetect.exit ], [ %.01501223, %1117 ]
   %1528 = load <4 x i64>, ptr %.3964, align 32
   %1529 = lshr <4 x i64> %1528, splat (i64 4)
-  %bc1314 = bitcast <4 x i64> %1528 to <32 x i8>
-  %1530 = extractelement <32 x i8> %bc1314, i64 15
+  %bc1533 = bitcast <4 x i64> %1528 to <32 x i8>
+  %1530 = extractelement <32 x i8> %bc1533, i64 15
   %1531 = zext i8 %1530 to i64
   %1532 = getelementptr inbounds nuw i64, ptr %56, i64 %1531
   %1533 = load i64, ptr %1532, align 8
@@ -14047,8 +14047,8 @@ floodDetect.exit:                                 ; preds = %1157, %1164, %.crit
   %1536 = load i64, ptr %1535, align 8
   %1537 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %1536, i64 0
   %1538 = insertelement <4 x i64> %1537, i64 %1533, i64 2
-  %bc1315 = bitcast <4 x i64> %1528 to <32 x i8>
-  %1539 = extractelement <32 x i8> %bc1315, i64 31
+  %bc1534 = bitcast <4 x i64> %1528 to <32 x i8>
+  %1539 = extractelement <32 x i8> %bc1534, i64 31
   %1540 = bitcast <4 x i64> %1528 to <32 x i8>
   %1541 = and <32 x i8> %1540, splat (i8 15)
   %1542 = call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %1112, <32 x i8> %1541)
@@ -14697,8 +14697,8 @@ do_confWithBit_teddy.exit292:                     ; preds = %1911
   %1913 = getelementptr inbounds nuw i8, ptr %.3964, i64 32
   %1914 = load <4 x i64>, ptr %1913, align 32
   %1915 = lshr <4 x i64> %1914, splat (i64 4)
-  %bc1316 = bitcast <4 x i64> %1914 to <32 x i8>
-  %1916 = extractelement <32 x i8> %bc1316, i64 15
+  %bc1535 = bitcast <4 x i64> %1914 to <32 x i8>
+  %1916 = extractelement <32 x i8> %bc1535, i64 15
   %1917 = zext i8 %1916 to i64
   %1918 = getelementptr inbounds nuw i64, ptr %56, i64 %1917
   %1919 = load i64, ptr %1918, align 8
@@ -14707,8 +14707,8 @@ do_confWithBit_teddy.exit292:                     ; preds = %1911
   %1922 = load i64, ptr %1921, align 8
   %1923 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %1922, i64 0
   %1924 = insertelement <4 x i64> %1923, i64 %1919, i64 2
-  %bc1317 = bitcast <4 x i64> %1914 to <32 x i8>
-  %1925 = extractelement <32 x i8> %bc1317, i64 31
+  %bc1536 = bitcast <4 x i64> %1914 to <32 x i8>
+  %1925 = extractelement <32 x i8> %bc1536, i64 31
   %1926 = zext i8 %1925 to i32
   %1927 = bitcast <4 x i64> %1914 to <32 x i8>
   %1928 = and <32 x i8> %1927, splat (i8 15)
@@ -15374,8 +15374,8 @@ do_confWithBit_teddy.exit276:                     ; preds = %2300
 2305:                                             ; preds = %._crit_edge1225
   %2306 = load <4 x i64>, ptr %.2963.lcssa, align 32
   %2307 = lshr <4 x i64> %2306, splat (i64 4)
-  %bc1318 = bitcast <4 x i64> %2306 to <32 x i8>
-  %2308 = extractelement <32 x i8> %bc1318, i64 15
+  %bc1537 = bitcast <4 x i64> %2306 to <32 x i8>
+  %2308 = extractelement <32 x i8> %bc1537, i64 15
   %2309 = zext i8 %2308 to i64
   %2310 = getelementptr inbounds nuw i64, ptr %56, i64 %2309
   %2311 = load i64, ptr %2310, align 8
@@ -18119,8 +18119,8 @@ do_confWithBit_teddy.exit324:                     ; preds = %615
   %626 = load i64, ptr %625, align 8
   %627 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %626, i64 0
   %628 = insertelement <4 x i64> %627, i64 %624, i64 2
-  %bc1313 = bitcast <4 x i64> %619 to <32 x i8>
-  %629 = extractelement <32 x i8> %bc1313, i64 31
+  %bc1532 = bitcast <4 x i64> %619 to <32 x i8>
+  %629 = extractelement <32 x i8> %bc1532, i64 31
   %630 = zext i8 %629 to i32
   %631 = bitcast <4 x i64> %48 to <32 x i8>
   %632 = bitcast <4 x i64> %619 to <32 x i8>
@@ -19222,9 +19222,9 @@ split:                                            ; preds = %1191, %.thread1123
   %1242 = zext i32 %1206 to i64
   br label %1404
 
-1243:                                             ; preds = %.lr.ph1195, %.thread1326
-  %indvars.iv1261 = phi i64 [ 0, %.lr.ph1195 ], [ %indvars.iv.next1262, %.thread1326 ]
-  %.981193 = phi i64 [ %.121221, %.lr.ph1195 ], [ %.102, %.thread1326 ]
+1243:                                             ; preds = %.lr.ph1195, %.thread1545
+  %indvars.iv1261 = phi i64 [ 0, %.lr.ph1195 ], [ %indvars.iv.next1262, %.thread1545 ]
+  %.981193 = phi i64 [ %.121221, %.lr.ph1195 ], [ %.102, %.thread1545 ]
   %1244 = load i64, ptr %1141, align 8
   %1245 = and i64 %1244, %.981193
   %.not406.i = icmp eq i64 %1245, 0
@@ -19234,7 +19234,7 @@ split:                                            ; preds = %1191, %.thread1123
   %1247 = load i64, ptr %1227, align 8
   %1248 = and i64 %1247, %.981193
   %.not407.i = icmp eq i64 %1248, 0
-  br i1 %.not407.i, label %.thread1326, label %1249
+  br i1 %.not407.i, label %.thread1545, label %1249
 
 1249:                                             ; preds = %1246
   %1250 = add i64 %indvars.iv1261, %1128
@@ -19244,7 +19244,7 @@ split:                                            ; preds = %1191, %.thread1123
   %.pre = load i64, ptr %1227, align 8
   %.pre1288 = and i64 %.pre, %1253
   %1254 = icmp eq i64 %.pre1288, 0
-  br i1 %1254, label %.thread1326, label %1255
+  br i1 %1254, label %.thread1545, label %1255
 
 1255:                                             ; preds = %1249
   %1256 = add i64 %1229, %indvars.iv1261
@@ -19254,7 +19254,7 @@ split:                                            ; preds = %1191, %.thread1123
   %.pre1277 = load i64, ptr %1227, align 8
   %.pre1290 = and i64 %.pre1277, %1259
   %1260 = icmp eq i64 %.pre1290, 0
-  br i1 %1260, label %.thread1326, label %1261
+  br i1 %1260, label %.thread1545, label %1261
 
 1261:                                             ; preds = %1255
   %1262 = add i64 %1230, %indvars.iv1261
@@ -19264,16 +19264,16 @@ split:                                            ; preds = %1191, %.thread1123
   %.pre1278 = load i64, ptr %1227, align 8
   %.pre1292 = and i64 %.pre1278, %1265
   %1266 = icmp eq i64 %.pre1292, 0
-  br i1 %1266, label %.thread1326, label %1267
+  br i1 %1266, label %.thread1545, label %1267
 
 1267:                                             ; preds = %1261
   %1268 = add i64 %1231, %indvars.iv1261
   %1269 = and i64 %1268, 4294967295
   %1270 = load i32, ptr %1228, align 8
   %1271 = call i64 %1123(i64 noundef %1269, i32 noundef %1270, ptr noundef %1124) #7
-  br label %.thread1326
+  br label %.thread1545
 
-.thread1326:                                      ; preds = %1246, %1249, %1255, %1267, %1261
+.thread1545:                                      ; preds = %1246, %1249, %1255, %1267, %1261
   %.102 = phi i64 [ %1265, %1261 ], [ %1271, %1267 ], [ %1259, %1255 ], [ %1253, %1249 ], [ %.981193, %1246 ]
   %indvars.iv.next1262 = add nuw nsw i64 %indvars.iv1261, 4
   %1272 = icmp samesign ult i64 %indvars.iv.next1262, %1232
@@ -19712,8 +19712,8 @@ split:                                            ; preds = %1191, %.thread1123
   %1511 = icmp samesign ult i64 %indvars.iv.next1268, %1510
   br i1 %1511, label %1499, label %._crit_edge1209
 
-.critedge.i:                                      ; preds = %1402, %1348, %1346, %1273, %.thread1326, %1243, %._crit_edge1209, %1404, %.preheader1152, %.preheader1150, %.preheader1148, %.preheader, %1207, %1203
-  %.82 = phi i64 [ %.121221, %1203 ], [ %.121221, %1207 ], [ %.121221, %.preheader ], [ %.121221, %.preheader1148 ], [ %.121221, %.preheader1150 ], [ %.121221, %.preheader1152 ], [ %.113.lcssa, %._crit_edge1209 ], [ %.1031211, %1404 ], [ %.102, %.thread1326 ], [ %.981193, %1243 ], [ %.97, %1346 ], [ %.891187, %1273 ], [ %.88, %1402 ], [ %.811181, %1348 ]
+.critedge.i:                                      ; preds = %1402, %1348, %1346, %1273, %.thread1545, %1243, %._crit_edge1209, %1404, %.preheader1152, %.preheader1150, %.preheader1148, %.preheader, %1207, %1203
+  %.82 = phi i64 [ %.121221, %1203 ], [ %.121221, %1207 ], [ %.121221, %.preheader ], [ %.121221, %.preheader1148 ], [ %.121221, %.preheader1150 ], [ %.121221, %.preheader1152 ], [ %.113.lcssa, %._crit_edge1209 ], [ %.1031211, %1404 ], [ %.102, %.thread1545 ], [ %.981193, %1243 ], [ %.97, %1346 ], [ %.891187, %1273 ], [ %.88, %1402 ], [ %.811181, %1348 ]
   %1512 = zext i32 %1206 to i64
   %1513 = getelementptr inbounds nuw i8, ptr %.29631220, i64 %1512
   br label %floodDetect.exit
@@ -19748,8 +19748,8 @@ floodDetect.exit:                                 ; preds = %1157, %1164, %.crit
   %.1151 = phi ptr [ %.0371.i, %floodDetect.exit ], [ %.01501223, %1117 ]
   %1528 = load <4 x i64>, ptr %.3964, align 32
   %1529 = lshr <4 x i64> %1528, splat (i64 4)
-  %bc1314 = bitcast <4 x i64> %1528 to <32 x i8>
-  %1530 = extractelement <32 x i8> %bc1314, i64 15
+  %bc1533 = bitcast <4 x i64> %1528 to <32 x i8>
+  %1530 = extractelement <32 x i8> %bc1533, i64 15
   %1531 = zext i8 %1530 to i64
   %1532 = getelementptr inbounds nuw i64, ptr %56, i64 %1531
   %1533 = load i64, ptr %1532, align 8
@@ -19758,8 +19758,8 @@ floodDetect.exit:                                 ; preds = %1157, %1164, %.crit
   %1536 = load i64, ptr %1535, align 8
   %1537 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %1536, i64 0
   %1538 = insertelement <4 x i64> %1537, i64 %1533, i64 2
-  %bc1315 = bitcast <4 x i64> %1528 to <32 x i8>
-  %1539 = extractelement <32 x i8> %bc1315, i64 31
+  %bc1534 = bitcast <4 x i64> %1528 to <32 x i8>
+  %1539 = extractelement <32 x i8> %bc1534, i64 31
   %1540 = bitcast <4 x i64> %1528 to <32 x i8>
   %1541 = and <32 x i8> %1540, splat (i8 15)
   %1542 = call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %1112, <32 x i8> %1541)
@@ -20408,8 +20408,8 @@ do_confWithBit_teddy.exit292:                     ; preds = %1911
   %1913 = getelementptr inbounds nuw i8, ptr %.3964, i64 32
   %1914 = load <4 x i64>, ptr %1913, align 32
   %1915 = lshr <4 x i64> %1914, splat (i64 4)
-  %bc1316 = bitcast <4 x i64> %1914 to <32 x i8>
-  %1916 = extractelement <32 x i8> %bc1316, i64 15
+  %bc1535 = bitcast <4 x i64> %1914 to <32 x i8>
+  %1916 = extractelement <32 x i8> %bc1535, i64 15
   %1917 = zext i8 %1916 to i64
   %1918 = getelementptr inbounds nuw i64, ptr %56, i64 %1917
   %1919 = load i64, ptr %1918, align 8
@@ -20418,8 +20418,8 @@ do_confWithBit_teddy.exit292:                     ; preds = %1911
   %1922 = load i64, ptr %1921, align 8
   %1923 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %1922, i64 0
   %1924 = insertelement <4 x i64> %1923, i64 %1919, i64 2
-  %bc1317 = bitcast <4 x i64> %1914 to <32 x i8>
-  %1925 = extractelement <32 x i8> %bc1317, i64 31
+  %bc1536 = bitcast <4 x i64> %1914 to <32 x i8>
+  %1925 = extractelement <32 x i8> %bc1536, i64 31
   %1926 = zext i8 %1925 to i32
   %1927 = bitcast <4 x i64> %1914 to <32 x i8>
   %1928 = and <32 x i8> %1927, splat (i8 15)
@@ -21085,8 +21085,8 @@ do_confWithBit_teddy.exit276:                     ; preds = %2300
 2305:                                             ; preds = %._crit_edge1225
   %2306 = load <4 x i64>, ptr %.2963.lcssa, align 32
   %2307 = lshr <4 x i64> %2306, splat (i64 4)
-  %bc1318 = bitcast <4 x i64> %2306 to <32 x i8>
-  %2308 = extractelement <32 x i8> %bc1318, i64 15
+  %bc1537 = bitcast <4 x i64> %2306 to <32 x i8>
+  %2308 = extractelement <32 x i8> %bc1537, i64 15
   %2309 = zext i8 %2308 to i64
   %2310 = getelementptr inbounds nuw i64, ptr %56, i64 %2309
   %2311 = load i64, ptr %2310, align 8
@@ -23843,8 +23843,8 @@ do_confWithBit_teddy.exit326:                     ; preds = %627
   %638 = load i64, ptr %637, align 8
   %639 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %638, i64 0
   %640 = insertelement <4 x i64> %639, i64 %636, i64 2
-  %bc1325 = bitcast <4 x i64> %631 to <32 x i8>
-  %641 = extractelement <32 x i8> %bc1325, i64 31
+  %bc1543 = bitcast <4 x i64> %631 to <32 x i8>
+  %641 = extractelement <32 x i8> %bc1543, i64 31
   %642 = zext i8 %641 to i32
   %643 = bitcast <4 x i64> %54 to <32 x i8>
   %644 = bitcast <4 x i64> %631 to <32 x i8>
@@ -24955,9 +24955,9 @@ split:                                            ; preds = %1212, %.thread1135
   %1263 = zext i32 %1227 to i64
   br label %1425
 
-1264:                                             ; preds = %.lr.ph1207, %.thread1338
-  %indvars.iv1273 = phi i64 [ 0, %.lr.ph1207 ], [ %indvars.iv.next1274, %.thread1338 ]
-  %.981205 = phi i64 [ %.121233, %.lr.ph1207 ], [ %.102, %.thread1338 ]
+1264:                                             ; preds = %.lr.ph1207, %.thread1556
+  %indvars.iv1273 = phi i64 [ 0, %.lr.ph1207 ], [ %indvars.iv.next1274, %.thread1556 ]
+  %.981205 = phi i64 [ %.121233, %.lr.ph1207 ], [ %.102, %.thread1556 ]
   %1265 = load i64, ptr %1162, align 8
   %1266 = and i64 %1265, %.981205
   %.not406.i = icmp eq i64 %1266, 0
@@ -24967,7 +24967,7 @@ split:                                            ; preds = %1212, %.thread1135
   %1268 = load i64, ptr %1248, align 8
   %1269 = and i64 %1268, %.981205
   %.not407.i = icmp eq i64 %1269, 0
-  br i1 %.not407.i, label %.thread1338, label %1270
+  br i1 %.not407.i, label %.thread1556, label %1270
 
 1270:                                             ; preds = %1267
   %1271 = add i64 %indvars.iv1273, %1149
@@ -24977,7 +24977,7 @@ split:                                            ; preds = %1212, %.thread1135
   %.pre = load i64, ptr %1248, align 8
   %.pre1300 = and i64 %.pre, %1274
   %1275 = icmp eq i64 %.pre1300, 0
-  br i1 %1275, label %.thread1338, label %1276
+  br i1 %1275, label %.thread1556, label %1276
 
 1276:                                             ; preds = %1270
   %1277 = add i64 %1250, %indvars.iv1273
@@ -24987,7 +24987,7 @@ split:                                            ; preds = %1212, %.thread1135
   %.pre1289 = load i64, ptr %1248, align 8
   %.pre1302 = and i64 %.pre1289, %1280
   %1281 = icmp eq i64 %.pre1302, 0
-  br i1 %1281, label %.thread1338, label %1282
+  br i1 %1281, label %.thread1556, label %1282
 
 1282:                                             ; preds = %1276
   %1283 = add i64 %1251, %indvars.iv1273
@@ -24997,16 +24997,16 @@ split:                                            ; preds = %1212, %.thread1135
   %.pre1290 = load i64, ptr %1248, align 8
   %.pre1304 = and i64 %.pre1290, %1286
   %1287 = icmp eq i64 %.pre1304, 0
-  br i1 %1287, label %.thread1338, label %1288
+  br i1 %1287, label %.thread1556, label %1288
 
 1288:                                             ; preds = %1282
   %1289 = add i64 %1252, %indvars.iv1273
   %1290 = and i64 %1289, 4294967295
   %1291 = load i32, ptr %1249, align 8
   %1292 = call i64 %1144(i64 noundef %1290, i32 noundef %1291, ptr noundef %1145) #7
-  br label %.thread1338
+  br label %.thread1556
 
-.thread1338:                                      ; preds = %1267, %1270, %1276, %1288, %1282
+.thread1556:                                      ; preds = %1267, %1270, %1276, %1288, %1282
   %.102 = phi i64 [ %1286, %1282 ], [ %1292, %1288 ], [ %1280, %1276 ], [ %1274, %1270 ], [ %.981205, %1267 ]
   %indvars.iv.next1274 = add nuw nsw i64 %indvars.iv1273, 4
   %1293 = icmp samesign ult i64 %indvars.iv.next1274, %1253
@@ -25445,8 +25445,8 @@ split:                                            ; preds = %1212, %.thread1135
   %1532 = icmp samesign ult i64 %indvars.iv.next1280, %1531
   br i1 %1532, label %1520, label %._crit_edge1221
 
-.critedge.i:                                      ; preds = %1423, %1369, %1367, %1294, %.thread1338, %1264, %._crit_edge1221, %1425, %.preheader1164, %.preheader1162, %.preheader1160, %.preheader, %1228, %1224
-  %.82 = phi i64 [ %.121233, %1224 ], [ %.121233, %1228 ], [ %.121233, %.preheader ], [ %.121233, %.preheader1160 ], [ %.121233, %.preheader1162 ], [ %.121233, %.preheader1164 ], [ %.113.lcssa, %._crit_edge1221 ], [ %.1031223, %1425 ], [ %.102, %.thread1338 ], [ %.981205, %1264 ], [ %.97, %1367 ], [ %.891199, %1294 ], [ %.88, %1423 ], [ %.811193, %1369 ]
+.critedge.i:                                      ; preds = %1423, %1369, %1367, %1294, %.thread1556, %1264, %._crit_edge1221, %1425, %.preheader1164, %.preheader1162, %.preheader1160, %.preheader, %1228, %1224
+  %.82 = phi i64 [ %.121233, %1224 ], [ %.121233, %1228 ], [ %.121233, %.preheader ], [ %.121233, %.preheader1160 ], [ %.121233, %.preheader1162 ], [ %.121233, %.preheader1164 ], [ %.113.lcssa, %._crit_edge1221 ], [ %.1031223, %1425 ], [ %.102, %.thread1556 ], [ %.981205, %1264 ], [ %.97, %1367 ], [ %.891199, %1294 ], [ %.88, %1423 ], [ %.811193, %1369 ]
   %1533 = zext i32 %1227 to i64
   %1534 = getelementptr inbounds nuw i8, ptr %.29751232, i64 %1533
   br label %floodDetect.exit
@@ -25481,8 +25481,8 @@ floodDetect.exit:                                 ; preds = %1178, %1185, %.crit
   %.1153 = phi ptr [ %.0371.i, %floodDetect.exit ], [ %.01521235, %1138 ]
   %1549 = load <4 x i64>, ptr %.3976, align 32
   %1550 = lshr <4 x i64> %1549, splat (i64 4)
-  %bc1326 = bitcast <4 x i64> %1549 to <32 x i8>
-  %1551 = extractelement <32 x i8> %bc1326, i64 15
+  %bc1544 = bitcast <4 x i64> %1549 to <32 x i8>
+  %1551 = extractelement <32 x i8> %bc1544, i64 15
   %1552 = zext i8 %1551 to i64
   %1553 = getelementptr inbounds nuw i64, ptr %62, i64 %1552
   %1554 = load i64, ptr %1553, align 8
@@ -25491,8 +25491,8 @@ floodDetect.exit:                                 ; preds = %1178, %1185, %.crit
   %1557 = load i64, ptr %1556, align 8
   %1558 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %1557, i64 0
   %1559 = insertelement <4 x i64> %1558, i64 %1554, i64 2
-  %bc1327 = bitcast <4 x i64> %1549 to <32 x i8>
-  %1560 = extractelement <32 x i8> %bc1327, i64 31
+  %bc1545 = bitcast <4 x i64> %1549 to <32 x i8>
+  %1560 = extractelement <32 x i8> %bc1545, i64 31
   %1561 = bitcast <4 x i64> %1549 to <32 x i8>
   %1562 = and <32 x i8> %1561, splat (i8 15)
   %1563 = call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %1131, <32 x i8> %1562)
@@ -26146,8 +26146,8 @@ do_confWithBit_teddy.exit294:                     ; preds = %1937
   %1939 = getelementptr inbounds nuw i8, ptr %.3976, i64 32
   %1940 = load <4 x i64>, ptr %1939, align 32
   %1941 = lshr <4 x i64> %1940, splat (i64 4)
-  %bc1328 = bitcast <4 x i64> %1940 to <32 x i8>
-  %1942 = extractelement <32 x i8> %bc1328, i64 15
+  %bc1546 = bitcast <4 x i64> %1940 to <32 x i8>
+  %1942 = extractelement <32 x i8> %bc1546, i64 15
   %1943 = zext i8 %1942 to i64
   %1944 = getelementptr inbounds nuw i64, ptr %62, i64 %1943
   %1945 = load i64, ptr %1944, align 8
@@ -26156,8 +26156,8 @@ do_confWithBit_teddy.exit294:                     ; preds = %1937
   %1948 = load i64, ptr %1947, align 8
   %1949 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %1948, i64 0
   %1950 = insertelement <4 x i64> %1949, i64 %1945, i64 2
-  %bc1329 = bitcast <4 x i64> %1940 to <32 x i8>
-  %1951 = extractelement <32 x i8> %bc1329, i64 31
+  %bc1547 = bitcast <4 x i64> %1940 to <32 x i8>
+  %1951 = extractelement <32 x i8> %bc1547, i64 31
   %1952 = zext i8 %1951 to i32
   %1953 = bitcast <4 x i64> %1940 to <32 x i8>
   %1954 = and <32 x i8> %1953, splat (i8 15)
@@ -26828,8 +26828,8 @@ do_confWithBit_teddy.exit278:                     ; preds = %2331
 2336:                                             ; preds = %._crit_edge1237
   %2337 = load <4 x i64>, ptr %.2975.lcssa, align 32
   %2338 = lshr <4 x i64> %2337, splat (i64 4)
-  %bc1330 = bitcast <4 x i64> %2337 to <32 x i8>
-  %2339 = extractelement <32 x i8> %bc1330, i64 15
+  %bc1548 = bitcast <4 x i64> %2337 to <32 x i8>
+  %2339 = extractelement <32 x i8> %bc1548, i64 15
   %2340 = zext i8 %2339 to i64
   %2341 = getelementptr inbounds nuw i64, ptr %62, i64 %2340
   %2342 = load i64, ptr %2341, align 8
@@ -29600,8 +29600,8 @@ do_confWithBit_teddy.exit326:                     ; preds = %627
   %638 = load i64, ptr %637, align 8
   %639 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %638, i64 0
   %640 = insertelement <4 x i64> %639, i64 %636, i64 2
-  %bc1325 = bitcast <4 x i64> %631 to <32 x i8>
-  %641 = extractelement <32 x i8> %bc1325, i64 31
+  %bc1543 = bitcast <4 x i64> %631 to <32 x i8>
+  %641 = extractelement <32 x i8> %bc1543, i64 31
   %642 = zext i8 %641 to i32
   %643 = bitcast <4 x i64> %54 to <32 x i8>
   %644 = bitcast <4 x i64> %631 to <32 x i8>
@@ -30712,9 +30712,9 @@ split:                                            ; preds = %1212, %.thread1135
   %1263 = zext i32 %1227 to i64
   br label %1425
 
-1264:                                             ; preds = %.lr.ph1207, %.thread1338
-  %indvars.iv1273 = phi i64 [ 0, %.lr.ph1207 ], [ %indvars.iv.next1274, %.thread1338 ]
-  %.981205 = phi i64 [ %.121233, %.lr.ph1207 ], [ %.102, %.thread1338 ]
+1264:                                             ; preds = %.lr.ph1207, %.thread1556
+  %indvars.iv1273 = phi i64 [ 0, %.lr.ph1207 ], [ %indvars.iv.next1274, %.thread1556 ]
+  %.981205 = phi i64 [ %.121233, %.lr.ph1207 ], [ %.102, %.thread1556 ]
   %1265 = load i64, ptr %1162, align 8
   %1266 = and i64 %1265, %.981205
   %.not406.i = icmp eq i64 %1266, 0
@@ -30724,7 +30724,7 @@ split:                                            ; preds = %1212, %.thread1135
   %1268 = load i64, ptr %1248, align 8
   %1269 = and i64 %1268, %.981205
   %.not407.i = icmp eq i64 %1269, 0
-  br i1 %.not407.i, label %.thread1338, label %1270
+  br i1 %.not407.i, label %.thread1556, label %1270
 
 1270:                                             ; preds = %1267
   %1271 = add i64 %indvars.iv1273, %1149
@@ -30734,7 +30734,7 @@ split:                                            ; preds = %1212, %.thread1135
   %.pre = load i64, ptr %1248, align 8
   %.pre1300 = and i64 %.pre, %1274
   %1275 = icmp eq i64 %.pre1300, 0
-  br i1 %1275, label %.thread1338, label %1276
+  br i1 %1275, label %.thread1556, label %1276
 
 1276:                                             ; preds = %1270
   %1277 = add i64 %1250, %indvars.iv1273
@@ -30744,7 +30744,7 @@ split:                                            ; preds = %1212, %.thread1135
   %.pre1289 = load i64, ptr %1248, align 8
   %.pre1302 = and i64 %.pre1289, %1280
   %1281 = icmp eq i64 %.pre1302, 0
-  br i1 %1281, label %.thread1338, label %1282
+  br i1 %1281, label %.thread1556, label %1282
 
 1282:                                             ; preds = %1276
   %1283 = add i64 %1251, %indvars.iv1273
@@ -30754,16 +30754,16 @@ split:                                            ; preds = %1212, %.thread1135
   %.pre1290 = load i64, ptr %1248, align 8
   %.pre1304 = and i64 %.pre1290, %1286
   %1287 = icmp eq i64 %.pre1304, 0
-  br i1 %1287, label %.thread1338, label %1288
+  br i1 %1287, label %.thread1556, label %1288
 
 1288:                                             ; preds = %1282
   %1289 = add i64 %1252, %indvars.iv1273
   %1290 = and i64 %1289, 4294967295
   %1291 = load i32, ptr %1249, align 8
   %1292 = call i64 %1144(i64 noundef %1290, i32 noundef %1291, ptr noundef %1145) #7
-  br label %.thread1338
+  br label %.thread1556
 
-.thread1338:                                      ; preds = %1267, %1270, %1276, %1288, %1282
+.thread1556:                                      ; preds = %1267, %1270, %1276, %1288, %1282
   %.102 = phi i64 [ %1286, %1282 ], [ %1292, %1288 ], [ %1280, %1276 ], [ %1274, %1270 ], [ %.981205, %1267 ]
   %indvars.iv.next1274 = add nuw nsw i64 %indvars.iv1273, 4
   %1293 = icmp samesign ult i64 %indvars.iv.next1274, %1253
@@ -31202,8 +31202,8 @@ split:                                            ; preds = %1212, %.thread1135
   %1532 = icmp samesign ult i64 %indvars.iv.next1280, %1531
   br i1 %1532, label %1520, label %._crit_edge1221
 
-.critedge.i:                                      ; preds = %1423, %1369, %1367, %1294, %.thread1338, %1264, %._crit_edge1221, %1425, %.preheader1164, %.preheader1162, %.preheader1160, %.preheader, %1228, %1224
-  %.82 = phi i64 [ %.121233, %1224 ], [ %.121233, %1228 ], [ %.121233, %.preheader ], [ %.121233, %.preheader1160 ], [ %.121233, %.preheader1162 ], [ %.121233, %.preheader1164 ], [ %.113.lcssa, %._crit_edge1221 ], [ %.1031223, %1425 ], [ %.102, %.thread1338 ], [ %.981205, %1264 ], [ %.97, %1367 ], [ %.891199, %1294 ], [ %.88, %1423 ], [ %.811193, %1369 ]
+.critedge.i:                                      ; preds = %1423, %1369, %1367, %1294, %.thread1556, %1264, %._crit_edge1221, %1425, %.preheader1164, %.preheader1162, %.preheader1160, %.preheader, %1228, %1224
+  %.82 = phi i64 [ %.121233, %1224 ], [ %.121233, %1228 ], [ %.121233, %.preheader ], [ %.121233, %.preheader1160 ], [ %.121233, %.preheader1162 ], [ %.121233, %.preheader1164 ], [ %.113.lcssa, %._crit_edge1221 ], [ %.1031223, %1425 ], [ %.102, %.thread1556 ], [ %.981205, %1264 ], [ %.97, %1367 ], [ %.891199, %1294 ], [ %.88, %1423 ], [ %.811193, %1369 ]
   %1533 = zext i32 %1227 to i64
   %1534 = getelementptr inbounds nuw i8, ptr %.29751232, i64 %1533
   br label %floodDetect.exit
@@ -31238,8 +31238,8 @@ floodDetect.exit:                                 ; preds = %1178, %1185, %.crit
   %.1153 = phi ptr [ %.0371.i, %floodDetect.exit ], [ %.01521235, %1138 ]
   %1549 = load <4 x i64>, ptr %.3976, align 32
   %1550 = lshr <4 x i64> %1549, splat (i64 4)
-  %bc1326 = bitcast <4 x i64> %1549 to <32 x i8>
-  %1551 = extractelement <32 x i8> %bc1326, i64 15
+  %bc1544 = bitcast <4 x i64> %1549 to <32 x i8>
+  %1551 = extractelement <32 x i8> %bc1544, i64 15
   %1552 = zext i8 %1551 to i64
   %1553 = getelementptr inbounds nuw i64, ptr %62, i64 %1552
   %1554 = load i64, ptr %1553, align 8
@@ -31248,8 +31248,8 @@ floodDetect.exit:                                 ; preds = %1178, %1185, %.crit
   %1557 = load i64, ptr %1556, align 8
   %1558 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %1557, i64 0
   %1559 = insertelement <4 x i64> %1558, i64 %1554, i64 2
-  %bc1327 = bitcast <4 x i64> %1549 to <32 x i8>
-  %1560 = extractelement <32 x i8> %bc1327, i64 31
+  %bc1545 = bitcast <4 x i64> %1549 to <32 x i8>
+  %1560 = extractelement <32 x i8> %bc1545, i64 31
   %1561 = bitcast <4 x i64> %1549 to <32 x i8>
   %1562 = and <32 x i8> %1561, splat (i8 15)
   %1563 = call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %1131, <32 x i8> %1562)
@@ -31903,8 +31903,8 @@ do_confWithBit_teddy.exit294:                     ; preds = %1937
   %1939 = getelementptr inbounds nuw i8, ptr %.3976, i64 32
   %1940 = load <4 x i64>, ptr %1939, align 32
   %1941 = lshr <4 x i64> %1940, splat (i64 4)
-  %bc1328 = bitcast <4 x i64> %1940 to <32 x i8>
-  %1942 = extractelement <32 x i8> %bc1328, i64 15
+  %bc1546 = bitcast <4 x i64> %1940 to <32 x i8>
+  %1942 = extractelement <32 x i8> %bc1546, i64 15
   %1943 = zext i8 %1942 to i64
   %1944 = getelementptr inbounds nuw i64, ptr %62, i64 %1943
   %1945 = load i64, ptr %1944, align 8
@@ -31913,8 +31913,8 @@ do_confWithBit_teddy.exit294:                     ; preds = %1937
   %1948 = load i64, ptr %1947, align 8
   %1949 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %1948, i64 0
   %1950 = insertelement <4 x i64> %1949, i64 %1945, i64 2
-  %bc1329 = bitcast <4 x i64> %1940 to <32 x i8>
-  %1951 = extractelement <32 x i8> %bc1329, i64 31
+  %bc1547 = bitcast <4 x i64> %1940 to <32 x i8>
+  %1951 = extractelement <32 x i8> %bc1547, i64 31
   %1952 = zext i8 %1951 to i32
   %1953 = bitcast <4 x i64> %1940 to <32 x i8>
   %1954 = and <32 x i8> %1953, splat (i8 15)
@@ -32585,8 +32585,8 @@ do_confWithBit_teddy.exit278:                     ; preds = %2331
 2336:                                             ; preds = %._crit_edge1237
   %2337 = load <4 x i64>, ptr %.2975.lcssa, align 32
   %2338 = lshr <4 x i64> %2337, splat (i64 4)
-  %bc1330 = bitcast <4 x i64> %2337 to <32 x i8>
-  %2339 = extractelement <32 x i8> %bc1330, i64 15
+  %bc1548 = bitcast <4 x i64> %2337 to <32 x i8>
+  %2339 = extractelement <32 x i8> %bc1548, i64 15
   %2340 = zext i8 %2339 to i64
   %2341 = getelementptr inbounds nuw i64, ptr %62, i64 %2340
   %2342 = load i64, ptr %2341, align 8
@@ -35370,8 +35370,8 @@ do_confWithBit_teddy.exit328:                     ; preds = %640
   %651 = load i64, ptr %650, align 8
   %652 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %651, i64 0
   %653 = insertelement <4 x i64> %652, i64 %649, i64 2
-  %bc1337 = bitcast <4 x i64> %644 to <32 x i8>
-  %654 = extractelement <32 x i8> %bc1337, i64 31
+  %bc1555 = bitcast <4 x i64> %644 to <32 x i8>
+  %654 = extractelement <32 x i8> %bc1555, i64 31
   %655 = zext i8 %654 to i32
   %656 = bitcast <4 x i64> %60 to <32 x i8>
   %657 = bitcast <4 x i64> %644 to <32 x i8>
@@ -36491,9 +36491,9 @@ split:                                            ; preds = %1234, %.thread1147
   %1285 = zext i32 %1249 to i64
   br label %1447
 
-1286:                                             ; preds = %.lr.ph1219, %.thread1350
-  %indvars.iv1285 = phi i64 [ 0, %.lr.ph1219 ], [ %indvars.iv.next1286, %.thread1350 ]
-  %.981217 = phi i64 [ %.121245, %.lr.ph1219 ], [ %.102, %.thread1350 ]
+1286:                                             ; preds = %.lr.ph1219, %.thread1568
+  %indvars.iv1285 = phi i64 [ 0, %.lr.ph1219 ], [ %indvars.iv.next1286, %.thread1568 ]
+  %.981217 = phi i64 [ %.121245, %.lr.ph1219 ], [ %.102, %.thread1568 ]
   %1287 = load i64, ptr %1184, align 8
   %1288 = and i64 %1287, %.981217
   %.not406.i = icmp eq i64 %1288, 0
@@ -36503,7 +36503,7 @@ split:                                            ; preds = %1234, %.thread1147
   %1290 = load i64, ptr %1270, align 8
   %1291 = and i64 %1290, %.981217
   %.not407.i = icmp eq i64 %1291, 0
-  br i1 %.not407.i, label %.thread1350, label %1292
+  br i1 %.not407.i, label %.thread1568, label %1292
 
 1292:                                             ; preds = %1289
   %1293 = add i64 %indvars.iv1285, %1171
@@ -36513,7 +36513,7 @@ split:                                            ; preds = %1234, %.thread1147
   %.pre = load i64, ptr %1270, align 8
   %.pre1312 = and i64 %.pre, %1296
   %1297 = icmp eq i64 %.pre1312, 0
-  br i1 %1297, label %.thread1350, label %1298
+  br i1 %1297, label %.thread1568, label %1298
 
 1298:                                             ; preds = %1292
   %1299 = add i64 %1272, %indvars.iv1285
@@ -36523,7 +36523,7 @@ split:                                            ; preds = %1234, %.thread1147
   %.pre1301 = load i64, ptr %1270, align 8
   %.pre1314 = and i64 %.pre1301, %1302
   %1303 = icmp eq i64 %.pre1314, 0
-  br i1 %1303, label %.thread1350, label %1304
+  br i1 %1303, label %.thread1568, label %1304
 
 1304:                                             ; preds = %1298
   %1305 = add i64 %1273, %indvars.iv1285
@@ -36533,16 +36533,16 @@ split:                                            ; preds = %1234, %.thread1147
   %.pre1302 = load i64, ptr %1270, align 8
   %.pre1316 = and i64 %.pre1302, %1308
   %1309 = icmp eq i64 %.pre1316, 0
-  br i1 %1309, label %.thread1350, label %1310
+  br i1 %1309, label %.thread1568, label %1310
 
 1310:                                             ; preds = %1304
   %1311 = add i64 %1274, %indvars.iv1285
   %1312 = and i64 %1311, 4294967295
   %1313 = load i32, ptr %1271, align 8
   %1314 = call i64 %1166(i64 noundef %1312, i32 noundef %1313, ptr noundef %1167) #7
-  br label %.thread1350
+  br label %.thread1568
 
-.thread1350:                                      ; preds = %1289, %1292, %1298, %1310, %1304
+.thread1568:                                      ; preds = %1289, %1292, %1298, %1310, %1304
   %.102 = phi i64 [ %1308, %1304 ], [ %1314, %1310 ], [ %1302, %1298 ], [ %1296, %1292 ], [ %.981217, %1289 ]
   %indvars.iv.next1286 = add nuw nsw i64 %indvars.iv1285, 4
   %1315 = icmp samesign ult i64 %indvars.iv.next1286, %1275
@@ -36981,8 +36981,8 @@ split:                                            ; preds = %1234, %.thread1147
   %1554 = icmp samesign ult i64 %indvars.iv.next1292, %1553
   br i1 %1554, label %1542, label %._crit_edge1233
 
-.critedge.i:                                      ; preds = %1445, %1391, %1389, %1316, %.thread1350, %1286, %._crit_edge1233, %1447, %.preheader1176, %.preheader1174, %.preheader1172, %.preheader, %1250, %1246
-  %.82 = phi i64 [ %.121245, %1246 ], [ %.121245, %1250 ], [ %.121245, %.preheader ], [ %.121245, %.preheader1172 ], [ %.121245, %.preheader1174 ], [ %.121245, %.preheader1176 ], [ %.113.lcssa, %._crit_edge1233 ], [ %.1031235, %1447 ], [ %.102, %.thread1350 ], [ %.981217, %1286 ], [ %.97, %1389 ], [ %.891211, %1316 ], [ %.88, %1445 ], [ %.811205, %1391 ]
+.critedge.i:                                      ; preds = %1445, %1391, %1389, %1316, %.thread1568, %1286, %._crit_edge1233, %1447, %.preheader1176, %.preheader1174, %.preheader1172, %.preheader, %1250, %1246
+  %.82 = phi i64 [ %.121245, %1246 ], [ %.121245, %1250 ], [ %.121245, %.preheader ], [ %.121245, %.preheader1172 ], [ %.121245, %.preheader1174 ], [ %.121245, %.preheader1176 ], [ %.113.lcssa, %._crit_edge1233 ], [ %.1031235, %1447 ], [ %.102, %.thread1568 ], [ %.981217, %1286 ], [ %.97, %1389 ], [ %.891211, %1316 ], [ %.88, %1445 ], [ %.811205, %1391 ]
   %1555 = zext i32 %1249 to i64
   %1556 = getelementptr inbounds nuw i8, ptr %.29871244, i64 %1555
   br label %floodDetect.exit
@@ -37017,8 +37017,8 @@ floodDetect.exit:                                 ; preds = %1200, %1207, %.crit
   %.1155 = phi ptr [ %.0371.i, %floodDetect.exit ], [ %.01541247, %1160 ]
   %1571 = load <4 x i64>, ptr %.3988, align 32
   %1572 = lshr <4 x i64> %1571, splat (i64 4)
-  %bc1338 = bitcast <4 x i64> %1571 to <32 x i8>
-  %1573 = extractelement <32 x i8> %bc1338, i64 15
+  %bc1556 = bitcast <4 x i64> %1571 to <32 x i8>
+  %1573 = extractelement <32 x i8> %bc1556, i64 15
   %1574 = zext i8 %1573 to i64
   %1575 = getelementptr inbounds nuw i64, ptr %68, i64 %1574
   %1576 = load i64, ptr %1575, align 8
@@ -37027,8 +37027,8 @@ floodDetect.exit:                                 ; preds = %1200, %1207, %.crit
   %1579 = load i64, ptr %1578, align 8
   %1580 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %1579, i64 0
   %1581 = insertelement <4 x i64> %1580, i64 %1576, i64 2
-  %bc1339 = bitcast <4 x i64> %1571 to <32 x i8>
-  %1582 = extractelement <32 x i8> %bc1339, i64 31
+  %bc1557 = bitcast <4 x i64> %1571 to <32 x i8>
+  %1582 = extractelement <32 x i8> %bc1557, i64 31
   %1583 = bitcast <4 x i64> %1571 to <32 x i8>
   %1584 = and <32 x i8> %1583, splat (i8 15)
   %1585 = call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %1151, <32 x i8> %1584)
@@ -37687,8 +37687,8 @@ do_confWithBit_teddy.exit296:                     ; preds = %1964
   %1966 = getelementptr inbounds nuw i8, ptr %.3988, i64 32
   %1967 = load <4 x i64>, ptr %1966, align 32
   %1968 = lshr <4 x i64> %1967, splat (i64 4)
-  %bc1340 = bitcast <4 x i64> %1967 to <32 x i8>
-  %1969 = extractelement <32 x i8> %bc1340, i64 15
+  %bc1558 = bitcast <4 x i64> %1967 to <32 x i8>
+  %1969 = extractelement <32 x i8> %bc1558, i64 15
   %1970 = zext i8 %1969 to i64
   %1971 = getelementptr inbounds nuw i64, ptr %68, i64 %1970
   %1972 = load i64, ptr %1971, align 8
@@ -37697,8 +37697,8 @@ do_confWithBit_teddy.exit296:                     ; preds = %1964
   %1975 = load i64, ptr %1974, align 8
   %1976 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %1975, i64 0
   %1977 = insertelement <4 x i64> %1976, i64 %1972, i64 2
-  %bc1341 = bitcast <4 x i64> %1967 to <32 x i8>
-  %1978 = extractelement <32 x i8> %bc1341, i64 31
+  %bc1559 = bitcast <4 x i64> %1967 to <32 x i8>
+  %1978 = extractelement <32 x i8> %bc1559, i64 31
   %1979 = zext i8 %1978 to i32
   %1980 = bitcast <4 x i64> %1967 to <32 x i8>
   %1981 = and <32 x i8> %1980, splat (i8 15)
@@ -38374,8 +38374,8 @@ do_confWithBit_teddy.exit280:                     ; preds = %2363
 2368:                                             ; preds = %._crit_edge1249
   %2369 = load <4 x i64>, ptr %.2987.lcssa, align 32
   %2370 = lshr <4 x i64> %2369, splat (i64 4)
-  %bc1342 = bitcast <4 x i64> %2369 to <32 x i8>
-  %2371 = extractelement <32 x i8> %bc1342, i64 15
+  %bc1560 = bitcast <4 x i64> %2369 to <32 x i8>
+  %2371 = extractelement <32 x i8> %bc1560, i64 15
   %2372 = zext i8 %2371 to i64
   %2373 = getelementptr inbounds nuw i64, ptr %68, i64 %2372
   %2374 = load i64, ptr %2373, align 8
@@ -41173,8 +41173,8 @@ do_confWithBit_teddy.exit328:                     ; preds = %640
   %651 = load i64, ptr %650, align 8
   %652 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %651, i64 0
   %653 = insertelement <4 x i64> %652, i64 %649, i64 2
-  %bc1337 = bitcast <4 x i64> %644 to <32 x i8>
-  %654 = extractelement <32 x i8> %bc1337, i64 31
+  %bc1555 = bitcast <4 x i64> %644 to <32 x i8>
+  %654 = extractelement <32 x i8> %bc1555, i64 31
   %655 = zext i8 %654 to i32
   %656 = bitcast <4 x i64> %60 to <32 x i8>
   %657 = bitcast <4 x i64> %644 to <32 x i8>
@@ -42294,9 +42294,9 @@ split:                                            ; preds = %1234, %.thread1147
   %1285 = zext i32 %1249 to i64
   br label %1447
 
-1286:                                             ; preds = %.lr.ph1219, %.thread1350
-  %indvars.iv1285 = phi i64 [ 0, %.lr.ph1219 ], [ %indvars.iv.next1286, %.thread1350 ]
-  %.981217 = phi i64 [ %.121245, %.lr.ph1219 ], [ %.102, %.thread1350 ]
+1286:                                             ; preds = %.lr.ph1219, %.thread1568
+  %indvars.iv1285 = phi i64 [ 0, %.lr.ph1219 ], [ %indvars.iv.next1286, %.thread1568 ]
+  %.981217 = phi i64 [ %.121245, %.lr.ph1219 ], [ %.102, %.thread1568 ]
   %1287 = load i64, ptr %1184, align 8
   %1288 = and i64 %1287, %.981217
   %.not406.i = icmp eq i64 %1288, 0
@@ -42306,7 +42306,7 @@ split:                                            ; preds = %1234, %.thread1147
   %1290 = load i64, ptr %1270, align 8
   %1291 = and i64 %1290, %.981217
   %.not407.i = icmp eq i64 %1291, 0
-  br i1 %.not407.i, label %.thread1350, label %1292
+  br i1 %.not407.i, label %.thread1568, label %1292
 
 1292:                                             ; preds = %1289
   %1293 = add i64 %indvars.iv1285, %1171
@@ -42316,7 +42316,7 @@ split:                                            ; preds = %1234, %.thread1147
   %.pre = load i64, ptr %1270, align 8
   %.pre1312 = and i64 %.pre, %1296
   %1297 = icmp eq i64 %.pre1312, 0
-  br i1 %1297, label %.thread1350, label %1298
+  br i1 %1297, label %.thread1568, label %1298
 
 1298:                                             ; preds = %1292
   %1299 = add i64 %1272, %indvars.iv1285
@@ -42326,7 +42326,7 @@ split:                                            ; preds = %1234, %.thread1147
   %.pre1301 = load i64, ptr %1270, align 8
   %.pre1314 = and i64 %.pre1301, %1302
   %1303 = icmp eq i64 %.pre1314, 0
-  br i1 %1303, label %.thread1350, label %1304
+  br i1 %1303, label %.thread1568, label %1304
 
 1304:                                             ; preds = %1298
   %1305 = add i64 %1273, %indvars.iv1285
@@ -42336,16 +42336,16 @@ split:                                            ; preds = %1234, %.thread1147
   %.pre1302 = load i64, ptr %1270, align 8
   %.pre1316 = and i64 %.pre1302, %1308
   %1309 = icmp eq i64 %.pre1316, 0
-  br i1 %1309, label %.thread1350, label %1310
+  br i1 %1309, label %.thread1568, label %1310
 
 1310:                                             ; preds = %1304
   %1311 = add i64 %1274, %indvars.iv1285
   %1312 = and i64 %1311, 4294967295
   %1313 = load i32, ptr %1271, align 8
   %1314 = call i64 %1166(i64 noundef %1312, i32 noundef %1313, ptr noundef %1167) #7
-  br label %.thread1350
+  br label %.thread1568
 
-.thread1350:                                      ; preds = %1289, %1292, %1298, %1310, %1304
+.thread1568:                                      ; preds = %1289, %1292, %1298, %1310, %1304
   %.102 = phi i64 [ %1308, %1304 ], [ %1314, %1310 ], [ %1302, %1298 ], [ %1296, %1292 ], [ %.981217, %1289 ]
   %indvars.iv.next1286 = add nuw nsw i64 %indvars.iv1285, 4
   %1315 = icmp samesign ult i64 %indvars.iv.next1286, %1275
@@ -42784,8 +42784,8 @@ split:                                            ; preds = %1234, %.thread1147
   %1554 = icmp samesign ult i64 %indvars.iv.next1292, %1553
   br i1 %1554, label %1542, label %._crit_edge1233
 
-.critedge.i:                                      ; preds = %1445, %1391, %1389, %1316, %.thread1350, %1286, %._crit_edge1233, %1447, %.preheader1176, %.preheader1174, %.preheader1172, %.preheader, %1250, %1246
-  %.82 = phi i64 [ %.121245, %1246 ], [ %.121245, %1250 ], [ %.121245, %.preheader ], [ %.121245, %.preheader1172 ], [ %.121245, %.preheader1174 ], [ %.121245, %.preheader1176 ], [ %.113.lcssa, %._crit_edge1233 ], [ %.1031235, %1447 ], [ %.102, %.thread1350 ], [ %.981217, %1286 ], [ %.97, %1389 ], [ %.891211, %1316 ], [ %.88, %1445 ], [ %.811205, %1391 ]
+.critedge.i:                                      ; preds = %1445, %1391, %1389, %1316, %.thread1568, %1286, %._crit_edge1233, %1447, %.preheader1176, %.preheader1174, %.preheader1172, %.preheader, %1250, %1246
+  %.82 = phi i64 [ %.121245, %1246 ], [ %.121245, %1250 ], [ %.121245, %.preheader ], [ %.121245, %.preheader1172 ], [ %.121245, %.preheader1174 ], [ %.121245, %.preheader1176 ], [ %.113.lcssa, %._crit_edge1233 ], [ %.1031235, %1447 ], [ %.102, %.thread1568 ], [ %.981217, %1286 ], [ %.97, %1389 ], [ %.891211, %1316 ], [ %.88, %1445 ], [ %.811205, %1391 ]
   %1555 = zext i32 %1249 to i64
   %1556 = getelementptr inbounds nuw i8, ptr %.29871244, i64 %1555
   br label %floodDetect.exit
@@ -42820,8 +42820,8 @@ floodDetect.exit:                                 ; preds = %1200, %1207, %.crit
   %.1155 = phi ptr [ %.0371.i, %floodDetect.exit ], [ %.01541247, %1160 ]
   %1571 = load <4 x i64>, ptr %.3988, align 32
   %1572 = lshr <4 x i64> %1571, splat (i64 4)
-  %bc1338 = bitcast <4 x i64> %1571 to <32 x i8>
-  %1573 = extractelement <32 x i8> %bc1338, i64 15
+  %bc1556 = bitcast <4 x i64> %1571 to <32 x i8>
+  %1573 = extractelement <32 x i8> %bc1556, i64 15
   %1574 = zext i8 %1573 to i64
   %1575 = getelementptr inbounds nuw i64, ptr %68, i64 %1574
   %1576 = load i64, ptr %1575, align 8
@@ -42830,8 +42830,8 @@ floodDetect.exit:                                 ; preds = %1200, %1207, %.crit
   %1579 = load i64, ptr %1578, align 8
   %1580 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %1579, i64 0
   %1581 = insertelement <4 x i64> %1580, i64 %1576, i64 2
-  %bc1339 = bitcast <4 x i64> %1571 to <32 x i8>
-  %1582 = extractelement <32 x i8> %bc1339, i64 31
+  %bc1557 = bitcast <4 x i64> %1571 to <32 x i8>
+  %1582 = extractelement <32 x i8> %bc1557, i64 31
   %1583 = bitcast <4 x i64> %1571 to <32 x i8>
   %1584 = and <32 x i8> %1583, splat (i8 15)
   %1585 = call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %1151, <32 x i8> %1584)
@@ -43490,8 +43490,8 @@ do_confWithBit_teddy.exit296:                     ; preds = %1964
   %1966 = getelementptr inbounds nuw i8, ptr %.3988, i64 32
   %1967 = load <4 x i64>, ptr %1966, align 32
   %1968 = lshr <4 x i64> %1967, splat (i64 4)
-  %bc1340 = bitcast <4 x i64> %1967 to <32 x i8>
-  %1969 = extractelement <32 x i8> %bc1340, i64 15
+  %bc1558 = bitcast <4 x i64> %1967 to <32 x i8>
+  %1969 = extractelement <32 x i8> %bc1558, i64 15
   %1970 = zext i8 %1969 to i64
   %1971 = getelementptr inbounds nuw i64, ptr %68, i64 %1970
   %1972 = load i64, ptr %1971, align 8
@@ -43500,8 +43500,8 @@ do_confWithBit_teddy.exit296:                     ; preds = %1964
   %1975 = load i64, ptr %1974, align 8
   %1976 = insertelement <4 x i64> <i64 poison, i64 0, i64 poison, i64 0>, i64 %1975, i64 0
   %1977 = insertelement <4 x i64> %1976, i64 %1972, i64 2
-  %bc1341 = bitcast <4 x i64> %1967 to <32 x i8>
-  %1978 = extractelement <32 x i8> %bc1341, i64 31
+  %bc1559 = bitcast <4 x i64> %1967 to <32 x i8>
+  %1978 = extractelement <32 x i8> %bc1559, i64 31
   %1979 = zext i8 %1978 to i32
   %1980 = bitcast <4 x i64> %1967 to <32 x i8>
   %1981 = and <32 x i8> %1980, splat (i8 15)
@@ -44177,8 +44177,8 @@ do_confWithBit_teddy.exit280:                     ; preds = %2363
 2368:                                             ; preds = %._crit_edge1249
   %2369 = load <4 x i64>, ptr %.2987.lcssa, align 32
   %2370 = lshr <4 x i64> %2369, splat (i64 4)
-  %bc1342 = bitcast <4 x i64> %2369 to <32 x i8>
-  %2371 = extractelement <32 x i8> %bc1342, i64 15
+  %bc1560 = bitcast <4 x i64> %2369 to <32 x i8>
+  %2371 = extractelement <32 x i8> %bc1560, i64 15
   %2372 = zext i8 %2371 to i64
   %2373 = getelementptr inbounds nuw i64, ptr %68, i64 %2372
   %2374 = load i64, ptr %2373, align 8

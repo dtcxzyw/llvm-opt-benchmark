@@ -212,14 +212,14 @@ _ZNSt6vectorIN2cv5Size_IiEESaIS2_EED2Ev.exit:     ; preds = %13, %16
   br i1 %.not.i.i.i6, label %_ZNSt6vectorIN2cv5Size_IiEESaIS2_EED2Ev.exit7, label %19
 
 19:                                               ; preds = %.body.thread, %.body
-  %eh.lpad-body11 = phi { ptr, i32 } [ %17, %.body.thread ], [ %18, %.body ]
+  %eh.lpad-body12 = phi { ptr, i32 } [ %17, %.body.thread ], [ %18, %.body ]
   %20 = phi ptr [ %5, %.body.thread ], [ %.pre, %.body ]
   call void @_ZdlPv(ptr noundef nonnull %20) #19
   br label %_ZNSt6vectorIN2cv5Size_IiEESaIS2_EED2Ev.exit7
 
 _ZNSt6vectorIN2cv5Size_IiEESaIS2_EED2Ev.exit7:    ; preds = %19, %.body
-  %eh.lpad-body12 = phi { ptr, i32 } [ %eh.lpad-body11, %19 ], [ %18, %.body ]
-  resume { ptr, i32 } %eh.lpad-body12
+  %eh.lpad-body13 = phi { ptr, i32 } [ %eh.lpad-body12, %19 ], [ %18, %.body ]
+  resume { ptr, i32 } %eh.lpad-body13
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -1051,7 +1051,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE6resizeEm(pt
   br i1 %.not28.i, label %22, label %_ZSt27__uninitialized_default_n_aIPN2cv5Rect_IiEEmS2_ET_S4_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPN2cv5Rect_IiEEmS2_ET_S4_T0_RSaIT1_E.exit.i: ; preds = %11
-  %21 = shl nuw i64 %12, 4
+  %21 = shl nuw nsw i64 %12, 4
   tail call void @llvm.memset.p0.i64(ptr align 4 %4, i8 0, i64 %21, i1 false)
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !89

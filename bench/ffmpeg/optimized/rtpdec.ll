@@ -268,12 +268,12 @@ define range(i32 -1, 1) i32 @ff_rtp_check_and_send_back_rr(ptr noundef %0, ptr n
   br label %79
 
 79:                                               ; preds = %59, %70
-  %.sink86 = phi i32 [ %72, %70 ], [ 0, %59 ]
-  %.sink85 = phi i32 [ %78, %70 ], [ 0, %59 ]
+  %.sink91 = phi i32 [ %72, %70 ], [ 0, %59 ]
+  %.sink90 = phi i32 [ %78, %70 ], [ 0, %59 ]
   %80 = load ptr, ptr %5, align 8, !tbaa !31
-  call void @avio_wb32(ptr noundef %80, i32 noundef %.sink86) #12
+  call void @avio_wb32(ptr noundef %80, i32 noundef %.sink91) #12
   %81 = load ptr, ptr %5, align 8, !tbaa !31
-  call void @avio_wb32(ptr noundef %81, i32 noundef %.sink85) #12
+  call void @avio_wb32(ptr noundef %81, i32 noundef %.sink90) #12
   %82 = load ptr, ptr %5, align 8, !tbaa !31
   call void @avio_w8(ptr noundef %82, i32 noundef 129) #12
   %83 = load ptr, ptr %5, align 8, !tbaa !31
@@ -1035,12 +1035,12 @@ rtp_parse_one_packet.exit:                        ; preds = %26, %34, %130, %142
   br i1 %156, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %rtp_parse_one_packet.exit.thread, %rtp_parse_one_packet.exit
-  %.0.i30 = phi i32 [ %.0.i.ph, %rtp_parse_one_packet.exit.thread ], [ %.0.i, %rtp_parse_one_packet.exit ]
+  %.0.i42 = phi i32 [ %.0.i.ph, %rtp_parse_one_packet.exit.thread ], [ %.0.i, %rtp_parse_one_packet.exit ]
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %159 = load ptr, ptr %157, align 8, !tbaa !51
-  %.not.i2033 = icmp eq ptr %159, null
-  br i1 %.not.i2033, label %has_next_packet.exit22, label %has_next_packet.exit
+  %.not.i2045 = icmp eq ptr %159, null
+  br i1 %.not.i2045, label %has_next_packet.exit22, label %has_next_packet.exit
 
 160:                                              ; preds = %166
   %161 = load ptr, ptr %157, align 8, !tbaa !51
@@ -1049,7 +1049,7 @@ rtp_parse_one_packet.exit:                        ; preds = %26, %34, %130, %142
 
 has_next_packet.exit:                             ; preds = %.lr.ph, %160
   %162 = phi ptr [ %161, %160 ], [ %159, %.lr.ph ]
-  %.02734 = phi i32 [ %167, %160 ], [ %.0.i30, %.lr.ph ]
+  %.02746 = phi i32 [ %167, %160 ], [ %.0.i42, %.lr.ph ]
   %163 = load i16, ptr %162, align 8, !tbaa !52
   %164 = load i16, ptr %158, align 8, !tbaa !50
   %165 = add i16 %164, 1
@@ -1082,7 +1082,7 @@ has_next_packet.exit:                             ; preds = %.lr.ph, %160
   br label %has_next_packet.exit22
 
 has_next_packet.exit22:                           ; preds = %has_next_packet.exit, %160, %.lr.ph, %172, %169, %.critedge, %11
-  %.017 = phi i32 [ -1, %11 ], [ %.0.lcssa, %.critedge ], [ 0, %169 ], [ %178, %172 ], [ %.0.i30, %.lr.ph ], [ %167, %160 ], [ %.02734, %has_next_packet.exit ]
+  %.017 = phi i32 [ -1, %11 ], [ %.0.lcssa, %.critedge ], [ 0, %169 ], [ %178, %172 ], [ %.0.i42, %.lr.ph ], [ %167, %160 ], [ %.02746, %has_next_packet.exit ]
   ret i32 %.017
 }
 
@@ -1419,10 +1419,10 @@ rtp_set_prft.exit:                                ; preds = %14
   %71 = sub i32 %2, %70
   %72 = sext i32 %71 to i64
   %73 = zext i32 %2 to i64
-  %.sink46 = select i1 %.not41, i64 %73, i64 %72
+  %.sink49 = select i1 %.not41, i64 %73, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %75 = load i64, ptr %74, align 8, !tbaa !119
-  %76 = add nsw i64 %75, %.sink46
+  %76 = add nsw i64 %75, %.sink49
   store i64 %76, ptr %74, align 8, !tbaa !119
   store i32 %2, ptr %69, align 4, !tbaa !118
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 48

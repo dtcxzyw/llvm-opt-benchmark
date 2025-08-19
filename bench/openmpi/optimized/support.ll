@@ -861,9 +861,9 @@ define dso_local void @pmix_info_out(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %73, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %63, %66, %50
-  %.06594.lcssa98.sink = phi ptr [ %9, %50 ], [ %.1, %66 ], [ %.06594, %63 ]
+  %.06594.lcssa108.sink = phi ptr [ %9, %50 ], [ %.1, %66 ], [ %.06594, %63 ]
   %74 = load ptr, ptr %5, align 8, !tbaa !29
-  %75 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.66, ptr noundef %74, ptr noundef nonnull %.06594.lcssa98.sink)
+  %75 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.66, ptr noundef %74, ptr noundef nonnull %.06594.lcssa108.sink)
   %76 = load ptr, ptr %5, align 8, !tbaa !29
   %.not87 = icmp eq ptr %76, null
   br i1 %.not87, label %78, label %77
@@ -963,8 +963,8 @@ escape_quotes.exit:                               ; preds = %.preheader.i, %.cri
   br label %107
 
 107:                                              ; preds = %escape_quotes.exit, %105, %106, %78, %80, %47, %44, %32, %56
-  %.sink101 = phi ptr [ %57, %56 ], [ %9, %32 ], [ %9, %44 ], [ %9, %47 ], [ %9, %80 ], [ %9, %78 ], [ %9, %106 ], [ %9, %105 ], [ %9, %escape_quotes.exit ]
-  call void @free(ptr noundef %.sink101) #17
+  %.sink111 = phi ptr [ %57, %56 ], [ %9, %32 ], [ %9, %44 ], [ %9, %47 ], [ %9, %80 ], [ %9, %78 ], [ %9, %106 ], [ %9, %105 ], [ %9, %escape_quotes.exit ]
+  call void @free(ptr noundef %.sink111) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

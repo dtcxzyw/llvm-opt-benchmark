@@ -2006,10 +2006,10 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 333:                                              ; preds = %327, %321
   %.sink = phi i32 [ 2, %321 ], [ 10, %327 ]
-  %.sink625 = phi i32 [ 6, %321 ], [ 18, %327 ]
+  %.sink668 = phi i32 [ 6, %321 ], [ 18, %327 ]
   %334 = add i32 %.8533, %.sink
   %335 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %334)
-  %336 = add i32 %335, %.sink625
+  %336 = add i32 %335, %.sink668
   %337 = icmp ult i32 %315, %336
   br i1 %337, label %338, label %342
 

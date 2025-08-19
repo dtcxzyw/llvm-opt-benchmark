@@ -225,9 +225,9 @@ _ZN2cv4Mat_IfEC2Eii.exit:                         ; preds = %.lr.ph, %_ZN2cv4Mat
   %65 = getelementptr inbounds nuw i8, ptr %42, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %. = select i1 %63, float 1.000000e+00, float 0.000000e+00
-  %.91 = select i1 %63, float 0.000000e+00, float 1.000000e+00
+  %.96 = select i1 %63, float 0.000000e+00, float 1.000000e+00
   store float %., ptr %65, align 4, !tbaa !23
-  store float %.91, ptr %66, align 4, !tbaa !23
+  store float %.96, ptr %66, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZN2cv4Mat_IfEC2Eii.exit._crit_edge, label %_ZN2cv4Mat_IfEC2Eii.exit, !llvm.loop !25

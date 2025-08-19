@@ -9636,15 +9636,15 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i1
   br i1 %60, label %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9b1a03853b7f944dE.exit19", label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %10, %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i14, %._crit_edge
-  %.sroa.0.029.lcssa51 = phi i64 [ %.sroa.0.029.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i14 ], [ %.sroa.0.029.lcssa, %._crit_edge ], [ %spec.select34, %10 ]
-  %.sroa.023.0.lcssa49 = phi i64 [ %.sroa.023.0.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i14 ], [ %.sroa.023.0.lcssa, %._crit_edge ], [ %spec.select, %10 ]
+  %.sroa.0.029.lcssa55 = phi i64 [ %.sroa.0.029.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i14 ], [ %.sroa.0.029.lcssa, %._crit_edge ], [ %spec.select34, %10 ]
+  %.sroa.023.0.lcssa53 = phi i64 [ %.sroa.023.0.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i14 ], [ %.sroa.023.0.lcssa, %._crit_edge ], [ %spec.select, %10 ]
   %61 = getelementptr i8, ptr %.pre36, i64 40
   %.val.i.i.i15 = load ptr, ptr %61, align 8, !noalias !699, !noundef !6
   %62 = getelementptr i8, ptr %.pre36, i64 48
   %.val1.i.i.i16 = load i64, ptr %62, align 8, !noalias !699, !noundef !6
-  %63 = icmp ult i64 %.sroa.0.029.lcssa51, %.val1.i.i.i16
+  %63 = icmp ult i64 %.sroa.0.029.lcssa55, %.val1.i.i.i16
   tail call void @llvm.assume(i1 %63)
-  %64 = getelementptr inbounds nuw double, ptr %.val.i.i.i15, i64 %.sroa.0.029.lcssa51
+  %64 = getelementptr inbounds nuw double, ptr %.val.i.i.i15, i64 %.sroa.0.029.lcssa55
   %65 = load double, ptr %64, align 8, !noalias !699, !noundef !6
   %66 = fcmp ord double %65, 0.000000e+00
   %67 = fcmp ult double %65, %.val1.i12.pre
@@ -9670,11 +9670,11 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i1
   br i1 %75, label %._crit_edge, label %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i
 
 76:                                               ; preds = %._crit_edge.thread, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9b1a03853b7f944dE.exit19"
-  %.sroa.0.029.lcssa50 = phi i64 [ %.sroa.0.029.lcssa51, %._crit_edge.thread ], [ %.sroa.0.029.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9b1a03853b7f944dE.exit19" ]
+  %.sroa.0.029.lcssa54 = phi i64 [ %.sroa.0.029.lcssa55, %._crit_edge.thread ], [ %.sroa.0.029.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9b1a03853b7f944dE.exit19" ]
   br label %77
 
 77:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9b1a03853b7f944dE.exit19", %._crit_edge.thread, %76
-  %.sroa.0.0 = phi i64 [ %.sroa.0.029.lcssa50, %76 ], [ %.sroa.023.0.lcssa49, %._crit_edge.thread ], [ %.sroa.023.0.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9b1a03853b7f944dE.exit19" ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.029.lcssa54, %76 ], [ %.sroa.023.0.lcssa53, %._crit_edge.thread ], [ %.sroa.023.0.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9b1a03853b7f944dE.exit19" ]
   ret i64 %.sroa.0.0
 }
 
@@ -10392,15 +10392,15 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i1
   br i1 %83, label %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6e15623ab73607ddE.exit18", label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i14, %._crit_edge
-  %.sroa.0.028.lcssa64 = phi i64 [ %.sroa.0.028.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i14 ], [ %.sroa.0.028.lcssa, %._crit_edge ], [ %0, %.lr.ph.split.us.split.us ], [ %.sroa.0.1.us, %.lr.ph.split.us.split ]
-  %.sroa.022.0.lcssa62 = phi i64 [ %.sroa.022.0.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i14 ], [ %.sroa.022.0.lcssa, %._crit_edge ], [ %11, %.lr.ph.split.us.split.us ], [ %.sroa.022.1.us, %.lr.ph.split.us.split ]
+  %.sroa.0.028.lcssa69 = phi i64 [ %.sroa.0.028.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i14 ], [ %.sroa.0.028.lcssa, %._crit_edge ], [ %0, %.lr.ph.split.us.split.us ], [ %.sroa.0.1.us, %.lr.ph.split.us.split ]
+  %.sroa.022.0.lcssa67 = phi i64 [ %.sroa.022.0.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i14 ], [ %.sroa.022.0.lcssa, %._crit_edge ], [ %11, %.lr.ph.split.us.split.us ], [ %.sroa.022.1.us, %.lr.ph.split.us.split ]
   %84 = getelementptr i8, ptr %.pre49, i64 40
   %.val.i.i.i15 = load ptr, ptr %84, align 8, !noalias !718, !noundef !6
   %85 = getelementptr i8, ptr %.pre49, i64 48
   %.val1.i.i.i16 = load i64, ptr %85, align 8, !noalias !718, !noundef !6
-  %86 = icmp ult i64 %.sroa.0.028.lcssa64, %.val1.i.i.i16
+  %86 = icmp ult i64 %.sroa.0.028.lcssa69, %.val1.i.i.i16
   tail call void @llvm.assume(i1 %86)
-  %87 = getelementptr inbounds nuw float, ptr %.val.i.i.i15, i64 %.sroa.0.028.lcssa64
+  %87 = getelementptr inbounds nuw float, ptr %.val.i.i.i15, i64 %.sroa.0.028.lcssa69
   %88 = load float, ptr %87, align 4, !noalias !718, !noundef !6
   %89 = fcmp uno float %.val1.i.fr, 0.000000e+00
   %90 = fcmp oge float %.val1.i.fr, %88
@@ -10426,11 +10426,11 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i1
   br i1 %99, label %._crit_edge, label %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i
 
 100:                                              ; preds = %._crit_edge.thread, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6e15623ab73607ddE.exit18"
-  %.sroa.0.028.lcssa63 = phi i64 [ %.sroa.0.028.lcssa64, %._crit_edge.thread ], [ %.sroa.0.028.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6e15623ab73607ddE.exit18" ]
+  %.sroa.0.028.lcssa68 = phi i64 [ %.sroa.0.028.lcssa69, %._crit_edge.thread ], [ %.sroa.0.028.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6e15623ab73607ddE.exit18" ]
   br label %101
 
 101:                                              ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6e15623ab73607ddE.exit18", %._crit_edge.thread, %100
-  %.sroa.0.0 = phi i64 [ %.sroa.0.028.lcssa63, %100 ], [ %.sroa.022.0.lcssa62, %._crit_edge.thread ], [ %.sroa.022.0.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6e15623ab73607ddE.exit18" ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.028.lcssa68, %100 ], [ %.sroa.022.0.lcssa67, %._crit_edge.thread ], [ %.sroa.022.0.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6e15623ab73607ddE.exit18" ]
   ret i64 %.sroa.0.0
 }
 
@@ -11306,15 +11306,15 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i1
   br i1 %83, label %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h430753d418ee122aE.exit18", label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i14, %._crit_edge
-  %.sroa.0.028.lcssa64 = phi i64 [ %.sroa.0.028.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i14 ], [ %.sroa.0.028.lcssa, %._crit_edge ], [ %0, %.lr.ph.split.us.split.us ], [ %.sroa.0.1.us, %.lr.ph.split.us.split ]
-  %.sroa.022.0.lcssa62 = phi i64 [ %.sroa.022.0.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i14 ], [ %.sroa.022.0.lcssa, %._crit_edge ], [ %11, %.lr.ph.split.us.split.us ], [ %.sroa.022.1.us, %.lr.ph.split.us.split ]
+  %.sroa.0.028.lcssa69 = phi i64 [ %.sroa.0.028.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i14 ], [ %.sroa.0.028.lcssa, %._crit_edge ], [ %0, %.lr.ph.split.us.split.us ], [ %.sroa.0.1.us, %.lr.ph.split.us.split ]
+  %.sroa.022.0.lcssa67 = phi i64 [ %.sroa.022.0.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i14 ], [ %.sroa.022.0.lcssa, %._crit_edge ], [ %11, %.lr.ph.split.us.split.us ], [ %.sroa.022.1.us, %.lr.ph.split.us.split ]
   %84 = getelementptr i8, ptr %.pre49, i64 40
   %.val.i.i.i15 = load ptr, ptr %84, align 8, !noalias !758, !noundef !6
   %85 = getelementptr i8, ptr %.pre49, i64 48
   %.val1.i.i.i16 = load i64, ptr %85, align 8, !noalias !758, !noundef !6
-  %86 = icmp ult i64 %.sroa.0.028.lcssa64, %.val1.i.i.i16
+  %86 = icmp ult i64 %.sroa.0.028.lcssa69, %.val1.i.i.i16
   tail call void @llvm.assume(i1 %86)
-  %87 = getelementptr inbounds nuw double, ptr %.val.i.i.i15, i64 %.sroa.0.028.lcssa64
+  %87 = getelementptr inbounds nuw double, ptr %.val.i.i.i15, i64 %.sroa.0.028.lcssa69
   %88 = load double, ptr %87, align 8, !noalias !758, !noundef !6
   %89 = fcmp uno double %.val1.i.fr, 0.000000e+00
   %90 = fcmp oge double %.val1.i.fr, %88
@@ -11340,11 +11340,11 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i1
   br i1 %99, label %._crit_edge, label %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i
 
 100:                                              ; preds = %._crit_edge.thread, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h430753d418ee122aE.exit18"
-  %.sroa.0.028.lcssa63 = phi i64 [ %.sroa.0.028.lcssa64, %._crit_edge.thread ], [ %.sroa.0.028.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h430753d418ee122aE.exit18" ]
+  %.sroa.0.028.lcssa68 = phi i64 [ %.sroa.0.028.lcssa69, %._crit_edge.thread ], [ %.sroa.0.028.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h430753d418ee122aE.exit18" ]
   br label %101
 
 101:                                              ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h430753d418ee122aE.exit18", %._crit_edge.thread, %100
-  %.sroa.0.0 = phi i64 [ %.sroa.0.028.lcssa63, %100 ], [ %.sroa.022.0.lcssa62, %._crit_edge.thread ], [ %.sroa.022.0.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h430753d418ee122aE.exit18" ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.028.lcssa68, %100 ], [ %.sroa.022.0.lcssa67, %._crit_edge.thread ], [ %.sroa.022.0.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h430753d418ee122aE.exit18" ]
   ret i64 %.sroa.0.0
 }
 
@@ -11466,15 +11466,15 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i1
   br i1 %62, label %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8fe9620fb03aed8eE.exit18", label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %10, %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i14, %._crit_edge
-  %.sroa.0.028.lcssa50 = phi i64 [ %.sroa.0.028.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i14 ], [ %.sroa.0.028.lcssa, %._crit_edge ], [ %spec.select33, %10 ]
-  %.sroa.022.0.lcssa48 = phi i64 [ %.sroa.022.0.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i14 ], [ %.sroa.022.0.lcssa, %._crit_edge ], [ %spec.select, %10 ]
+  %.sroa.0.028.lcssa54 = phi i64 [ %.sroa.0.028.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i14 ], [ %.sroa.0.028.lcssa, %._crit_edge ], [ %spec.select33, %10 ]
+  %.sroa.022.0.lcssa52 = phi i64 [ %.sroa.022.0.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i14 ], [ %.sroa.022.0.lcssa, %._crit_edge ], [ %spec.select, %10 ]
   %63 = getelementptr i8, ptr %.pre35, i64 40
   %.val.i.i.i15 = load ptr, ptr %63, align 8, !noalias !764, !noundef !6
   %64 = getelementptr i8, ptr %.pre35, i64 48
   %.val1.i.i.i16 = load i64, ptr %64, align 8, !noalias !764, !noundef !6
-  %65 = icmp ult i64 %.sroa.0.028.lcssa50, %.val1.i.i.i16
+  %65 = icmp ult i64 %.sroa.0.028.lcssa54, %.val1.i.i.i16
   tail call void @llvm.assume(i1 %65)
-  %66 = getelementptr inbounds nuw double, ptr %.val.i.i.i15, i64 %.sroa.0.028.lcssa50
+  %66 = getelementptr inbounds nuw double, ptr %.val.i.i.i15, i64 %.sroa.0.028.lcssa54
   %67 = load double, ptr %66, align 8, !noalias !764, !noundef !6
   %68 = fcmp uno double %67, 0.000000e+00
   %69 = fcmp oge double %67, %.val1.i12.pre
@@ -11500,11 +11500,11 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i1
   br i1 %78, label %._crit_edge, label %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i
 
 79:                                               ; preds = %._crit_edge.thread, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8fe9620fb03aed8eE.exit18"
-  %.sroa.0.028.lcssa49 = phi i64 [ %.sroa.0.028.lcssa50, %._crit_edge.thread ], [ %.sroa.0.028.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8fe9620fb03aed8eE.exit18" ]
+  %.sroa.0.028.lcssa53 = phi i64 [ %.sroa.0.028.lcssa54, %._crit_edge.thread ], [ %.sroa.0.028.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8fe9620fb03aed8eE.exit18" ]
   br label %80
 
 80:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8fe9620fb03aed8eE.exit18", %._crit_edge.thread, %79
-  %.sroa.0.0 = phi i64 [ %.sroa.0.028.lcssa49, %79 ], [ %.sroa.022.0.lcssa48, %._crit_edge.thread ], [ %.sroa.022.0.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8fe9620fb03aed8eE.exit18" ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.028.lcssa53, %79 ], [ %.sroa.022.0.lcssa52, %._crit_edge.thread ], [ %.sroa.022.0.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8fe9620fb03aed8eE.exit18" ]
   ret i64 %.sroa.0.0
 }
 
@@ -12438,15 +12438,15 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i1
   br i1 %82, label %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4e6fc0966304f59bE.exit19", label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split, %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i14, %._crit_edge
-  %.sroa.0.029.lcssa67 = phi i64 [ %.sroa.0.029.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i14 ], [ %.sroa.0.029.lcssa, %._crit_edge ], [ %.sroa.0.1.us, %.lr.ph.split.us.split ], [ %11, %.lr.ph.split.us.split.us ]
-  %.sroa.023.0.lcssa65 = phi i64 [ %.sroa.023.0.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i14 ], [ %.sroa.023.0.lcssa, %._crit_edge ], [ %.sroa.023.1.us, %.lr.ph.split.us.split ], [ %1, %.lr.ph.split.us.split.us ]
+  %.sroa.0.029.lcssa73 = phi i64 [ %.sroa.0.029.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i14 ], [ %.sroa.0.029.lcssa, %._crit_edge ], [ %.sroa.0.1.us, %.lr.ph.split.us.split ], [ %11, %.lr.ph.split.us.split.us ]
+  %.sroa.023.0.lcssa71 = phi i64 [ %.sroa.023.0.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i14 ], [ %.sroa.023.0.lcssa, %._crit_edge ], [ %.sroa.023.1.us, %.lr.ph.split.us.split ], [ %1, %.lr.ph.split.us.split.us ]
   %83 = getelementptr i8, ptr %.pre52, i64 40
   %.val.i.i.i15 = load ptr, ptr %83, align 8, !noalias !804, !noundef !6
   %84 = getelementptr i8, ptr %.pre52, i64 48
   %.val1.i.i.i16 = load i64, ptr %84, align 8, !noalias !804, !noundef !6
-  %85 = icmp ult i64 %.sroa.0.029.lcssa67, %.val1.i.i.i16
+  %85 = icmp ult i64 %.sroa.0.029.lcssa73, %.val1.i.i.i16
   tail call void @llvm.assume(i1 %85)
-  %86 = getelementptr inbounds nuw float, ptr %.val.i.i.i15, i64 %.sroa.0.029.lcssa67
+  %86 = getelementptr inbounds nuw float, ptr %.val.i.i.i15, i64 %.sroa.0.029.lcssa73
   %87 = load float, ptr %86, align 4, !noalias !804, !noundef !6
   %88 = fcmp ord float %.val1.i.fr, 0.000000e+00
   %89 = fcmp ult float %.val1.i.fr, %87
@@ -12472,11 +12472,11 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i1
   br i1 %97, label %._crit_edge, label %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i
 
 98:                                               ; preds = %._crit_edge.thread, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4e6fc0966304f59bE.exit19"
-  %.sroa.0.029.lcssa66 = phi i64 [ %.sroa.0.029.lcssa67, %._crit_edge.thread ], [ %.sroa.0.029.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4e6fc0966304f59bE.exit19" ]
+  %.sroa.0.029.lcssa72 = phi i64 [ %.sroa.0.029.lcssa73, %._crit_edge.thread ], [ %.sroa.0.029.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4e6fc0966304f59bE.exit19" ]
   br label %99
 
 99:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4e6fc0966304f59bE.exit19", %._crit_edge.thread, %98
-  %.sroa.0.0 = phi i64 [ %.sroa.0.029.lcssa66, %98 ], [ %.sroa.023.0.lcssa65, %._crit_edge.thread ], [ %.sroa.023.0.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4e6fc0966304f59bE.exit19" ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.029.lcssa72, %98 ], [ %.sroa.023.0.lcssa71, %._crit_edge.thread ], [ %.sroa.023.0.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4e6fc0966304f59bE.exit19" ]
   ret i64 %.sroa.0.0
 }
 
@@ -12598,15 +12598,15 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i1
   br i1 %62, label %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7c509ea9da04b2beE.exit18", label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %10, %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i14, %._crit_edge
-  %.sroa.0.028.lcssa50 = phi i64 [ %.sroa.0.028.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i14 ], [ %.sroa.0.028.lcssa, %._crit_edge ], [ %spec.select33, %10 ]
-  %.sroa.022.0.lcssa48 = phi i64 [ %.sroa.022.0.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i14 ], [ %.sroa.022.0.lcssa, %._crit_edge ], [ %spec.select, %10 ]
+  %.sroa.0.028.lcssa54 = phi i64 [ %.sroa.0.028.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i14 ], [ %.sroa.0.028.lcssa, %._crit_edge ], [ %spec.select33, %10 ]
+  %.sroa.022.0.lcssa52 = phi i64 [ %.sroa.022.0.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i14 ], [ %.sroa.022.0.lcssa, %._crit_edge ], [ %spec.select, %10 ]
   %63 = getelementptr i8, ptr %.pre35, i64 40
   %.val.i.i.i15 = load ptr, ptr %63, align 8, !noalias !810, !noundef !6
   %64 = getelementptr i8, ptr %.pre35, i64 48
   %.val1.i.i.i16 = load i64, ptr %64, align 8, !noalias !810, !noundef !6
-  %65 = icmp ult i64 %.sroa.0.028.lcssa50, %.val1.i.i.i16
+  %65 = icmp ult i64 %.sroa.0.028.lcssa54, %.val1.i.i.i16
   tail call void @llvm.assume(i1 %65)
-  %66 = getelementptr inbounds nuw float, ptr %.val.i.i.i15, i64 %.sroa.0.028.lcssa50
+  %66 = getelementptr inbounds nuw float, ptr %.val.i.i.i15, i64 %.sroa.0.028.lcssa54
   %67 = load float, ptr %66, align 4, !noalias !810, !noundef !6
   %68 = fcmp uno float %67, 0.000000e+00
   %69 = fcmp oge float %67, %.val1.i12.pre
@@ -12632,11 +12632,11 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i1
   br i1 %78, label %._crit_edge, label %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i
 
 79:                                               ; preds = %._crit_edge.thread, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7c509ea9da04b2beE.exit18"
-  %.sroa.0.028.lcssa49 = phi i64 [ %.sroa.0.028.lcssa50, %._crit_edge.thread ], [ %.sroa.0.028.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7c509ea9da04b2beE.exit18" ]
+  %.sroa.0.028.lcssa53 = phi i64 [ %.sroa.0.028.lcssa54, %._crit_edge.thread ], [ %.sroa.0.028.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7c509ea9da04b2beE.exit18" ]
   br label %80
 
 80:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7c509ea9da04b2beE.exit18", %._crit_edge.thread, %79
-  %.sroa.0.0 = phi i64 [ %.sroa.0.028.lcssa49, %79 ], [ %.sroa.022.0.lcssa48, %._crit_edge.thread ], [ %.sroa.022.0.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7c509ea9da04b2beE.exit18" ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.028.lcssa53, %79 ], [ %.sroa.022.0.lcssa52, %._crit_edge.thread ], [ %.sroa.022.0.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7c509ea9da04b2beE.exit18" ]
   ret i64 %.sroa.0.0
 }
 
@@ -13049,15 +13049,15 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i1
   br i1 %60, label %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdf2a148ffcbf9f1aE.exit19", label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %10, %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i14, %._crit_edge
-  %.sroa.0.029.lcssa51 = phi i64 [ %.sroa.0.029.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i14 ], [ %.sroa.0.029.lcssa, %._crit_edge ], [ %spec.select34, %10 ]
-  %.sroa.023.0.lcssa49 = phi i64 [ %.sroa.023.0.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i14 ], [ %.sroa.023.0.lcssa, %._crit_edge ], [ %spec.select, %10 ]
+  %.sroa.0.029.lcssa55 = phi i64 [ %.sroa.0.029.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i14 ], [ %.sroa.0.029.lcssa, %._crit_edge ], [ %spec.select34, %10 ]
+  %.sroa.023.0.lcssa53 = phi i64 [ %.sroa.023.0.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i14 ], [ %.sroa.023.0.lcssa, %._crit_edge ], [ %spec.select, %10 ]
   %61 = getelementptr i8, ptr %.pre36, i64 40
   %.val.i.i.i15 = load ptr, ptr %61, align 8, !noalias !848, !noundef !6
   %62 = getelementptr i8, ptr %.pre36, i64 48
   %.val1.i.i.i16 = load i64, ptr %62, align 8, !noalias !848, !noundef !6
-  %63 = icmp ult i64 %.sroa.0.029.lcssa51, %.val1.i.i.i16
+  %63 = icmp ult i64 %.sroa.0.029.lcssa55, %.val1.i.i.i16
   tail call void @llvm.assume(i1 %63)
-  %64 = getelementptr inbounds nuw float, ptr %.val.i.i.i15, i64 %.sroa.0.029.lcssa51
+  %64 = getelementptr inbounds nuw float, ptr %.val.i.i.i15, i64 %.sroa.0.029.lcssa55
   %65 = load float, ptr %64, align 4, !noalias !848, !noundef !6
   %66 = fcmp ord float %65, 0.000000e+00
   %67 = fcmp ult float %65, %.val1.i12.pre
@@ -13083,11 +13083,11 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i1
   br i1 %75, label %._crit_edge, label %_ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i
 
 76:                                               ; preds = %._crit_edge.thread, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdf2a148ffcbf9f1aE.exit19"
-  %.sroa.0.029.lcssa50 = phi i64 [ %.sroa.0.029.lcssa51, %._crit_edge.thread ], [ %.sroa.0.029.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdf2a148ffcbf9f1aE.exit19" ]
+  %.sroa.0.029.lcssa54 = phi i64 [ %.sroa.0.029.lcssa55, %._crit_edge.thread ], [ %.sroa.0.029.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdf2a148ffcbf9f1aE.exit19" ]
   br label %77
 
 77:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdf2a148ffcbf9f1aE.exit19", %._crit_edge.thread, %76
-  %.sroa.0.0 = phi i64 [ %.sroa.0.029.lcssa50, %76 ], [ %.sroa.023.0.lcssa49, %._crit_edge.thread ], [ %.sroa.023.0.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdf2a148ffcbf9f1aE.exit19" ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.029.lcssa54, %76 ], [ %.sroa.023.0.lcssa53, %._crit_edge.thread ], [ %.sroa.023.0.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdf2a148ffcbf9f1aE.exit19" ]
   ret i64 %.sroa.0.0
 }
 
@@ -13255,15 +13255,15 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i1
   br i1 %82, label %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h06fcdac12f27ff56E.exit19", label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split, %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i14, %._crit_edge
-  %.sroa.0.029.lcssa67 = phi i64 [ %.sroa.0.029.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i14 ], [ %.sroa.0.029.lcssa, %._crit_edge ], [ %.sroa.0.1.us, %.lr.ph.split.us.split ], [ %11, %.lr.ph.split.us.split.us ]
-  %.sroa.023.0.lcssa65 = phi i64 [ %.sroa.023.0.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i14 ], [ %.sroa.023.0.lcssa, %._crit_edge ], [ %.sroa.023.1.us, %.lr.ph.split.us.split ], [ %1, %.lr.ph.split.us.split.us ]
+  %.sroa.0.029.lcssa73 = phi i64 [ %.sroa.0.029.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i14 ], [ %.sroa.0.029.lcssa, %._crit_edge ], [ %.sroa.0.1.us, %.lr.ph.split.us.split ], [ %11, %.lr.ph.split.us.split.us ]
+  %.sroa.023.0.lcssa71 = phi i64 [ %.sroa.023.0.lcssa, %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i14 ], [ %.sroa.023.0.lcssa, %._crit_edge ], [ %.sroa.023.1.us, %.lr.ph.split.us.split ], [ %1, %.lr.ph.split.us.split.us ]
   %83 = getelementptr i8, ptr %.pre52, i64 40
   %.val.i.i.i15 = load ptr, ptr %83, align 8, !noalias !854, !noundef !6
   %84 = getelementptr i8, ptr %.pre52, i64 48
   %.val1.i.i.i16 = load i64, ptr %84, align 8, !noalias !854, !noundef !6
-  %85 = icmp ult i64 %.sroa.0.029.lcssa67, %.val1.i.i.i16
+  %85 = icmp ult i64 %.sroa.0.029.lcssa73, %.val1.i.i.i16
   tail call void @llvm.assume(i1 %85)
-  %86 = getelementptr inbounds nuw double, ptr %.val.i.i.i15, i64 %.sroa.0.029.lcssa67
+  %86 = getelementptr inbounds nuw double, ptr %.val.i.i.i15, i64 %.sroa.0.029.lcssa73
   %87 = load double, ptr %86, align 8, !noalias !854, !noundef !6
   %88 = fcmp ord double %.val1.i.fr, 0.000000e+00
   %89 = fcmp ult double %.val1.i.fr, %87
@@ -13289,11 +13289,11 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i1
   br i1 %97, label %._crit_edge, label %_ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i
 
 98:                                               ; preds = %._crit_edge.thread, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h06fcdac12f27ff56E.exit19"
-  %.sroa.0.029.lcssa66 = phi i64 [ %.sroa.0.029.lcssa67, %._crit_edge.thread ], [ %.sroa.0.029.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h06fcdac12f27ff56E.exit19" ]
+  %.sroa.0.029.lcssa72 = phi i64 [ %.sroa.0.029.lcssa73, %._crit_edge.thread ], [ %.sroa.0.029.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h06fcdac12f27ff56E.exit19" ]
   br label %99
 
 99:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h06fcdac12f27ff56E.exit19", %._crit_edge.thread, %98
-  %.sroa.0.0 = phi i64 [ %.sroa.0.029.lcssa66, %98 ], [ %.sroa.023.0.lcssa65, %._crit_edge.thread ], [ %.sroa.023.0.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h06fcdac12f27ff56E.exit19" ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.029.lcssa72, %98 ], [ %.sroa.023.0.lcssa71, %._crit_edge.thread ], [ %.sroa.023.0.lcssa, %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h06fcdac12f27ff56E.exit19" ]
   ret i64 %.sroa.0.0
 }
 
@@ -13756,11 +13756,11 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i: ;
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %97 = load i64, ptr %96, align 8, !noundef !6
   %98 = select i1 %95, i64 0, i64 %60
-  %spec.select288 = sub i64 %97, %98
+  %spec.select297 = sub i64 %97, %98
   br label %99
 
 99:                                               ; preds = %94, %.thread
-  %.sroa.0.0 = phi i64 [ %spec.select, %.thread ], [ %spec.select288, %94 ]
+  %.sroa.0.0 = phi i64 [ %spec.select, %.thread ], [ %spec.select297, %94 ]
   %100 = trunc i64 %.sroa.0.0 to i32
   %101 = icmp eq i8 %4, 2
   %102 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -15211,11 +15211,11 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i: ;
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %97 = load i64, ptr %96, align 8, !noundef !6
   %98 = select i1 %95, i64 0, i64 %60
-  %spec.select288 = sub i64 %97, %98
+  %spec.select297 = sub i64 %97, %98
   br label %99
 
 99:                                               ; preds = %94, %.thread
-  %.sroa.0.0 = phi i64 [ %spec.select, %.thread ], [ %spec.select288, %94 ]
+  %.sroa.0.0 = phi i64 [ %spec.select, %.thread ], [ %spec.select297, %94 ]
   %100 = trunc i64 %.sroa.0.0 to i32
   %101 = icmp eq i8 %4, 2
   %102 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -24807,8 +24807,8 @@ define hidden void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$LT$T$GT$8
   br label %144
 
 157:                                              ; preds = %174, %186
-  %storemerge160 = phi i64 [ 1, %186 ], [ 0, %174 ]
-  store i64 %storemerge160, ptr %0, align 8
+  %storemerge161 = phi i64 [ 1, %186 ], [ 0, %174 ]
+  store i64 %storemerge161, ptr %0, align 8
   %158 = load ptr, ptr %36, align 8, !noundef !6
   %.not159 = icmp eq ptr %158, null
   br i1 %.not159, label %188, label %189
@@ -44091,7 +44091,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !1607, !noundef !6
-  switch i8 %23, label %default.unreachable61 [
+  switch i8 %23, label %default.unreachable66 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -44133,7 +44133,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %228
   ]
 
-default.unreachable61:                            ; preds = %2
+default.unreachable66:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2

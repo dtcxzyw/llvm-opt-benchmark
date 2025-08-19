@@ -632,11 +632,11 @@ define range(i32 -1, -2147483648) i32 @H5FD_read(ptr noundef %0, i32 noundef %1,
   br i1 %73, label %.thread55, label %77
 
 .thread55:                                        ; preds = %63, %60
-  %H5E_CANTSET_g.sink68 = phi ptr [ @H5E_CANTSET_g, %60 ], [ @H5E_CANTRESTORE_g, %63 ]
-  %.sink65 = phi i32 [ 264, %60 ], [ 269, %63 ]
+  %H5E_CANTSET_g.sink70 = phi ptr [ @H5E_CANTSET_g, %60 ], [ @H5E_CANTRESTORE_g, %63 ]
+  %.sink67 = phi i32 [ 264, %60 ], [ 269, %63 ]
   %74 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !10
-  %75 = load i64, ptr %H5E_CANTSET_g.sink68, align 8, !tbaa !10
-  %76 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_read, i32 noundef %.sink65, i64 noundef %74, i64 noundef %75, ptr noundef nonnull @.str.7) #12
+  %75 = load i64, ptr %H5E_CANTSET_g.sink70, align 8, !tbaa !10
+  %76 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_read, i32 noundef %.sink67, i64 noundef %74, i64 noundef %75, ptr noundef nonnull @.str.7) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread50
 
@@ -794,11 +794,11 @@ define range(i32 -1, -2147483648) i32 @H5FD_write(ptr noundef %0, i32 noundef %1
   br i1 %67, label %.thread45, label %71
 
 .thread45:                                        ; preds = %59, %56
-  %H5E_CANTSET_g.sink58 = phi ptr [ @H5E_CANTSET_g, %56 ], [ @H5E_CANTRESTORE_g, %59 ]
-  %.sink55 = phi i32 [ 335, %56 ], [ 340, %59 ]
+  %H5E_CANTSET_g.sink60 = phi ptr [ @H5E_CANTSET_g, %56 ], [ @H5E_CANTRESTORE_g, %59 ]
+  %.sink57 = phi i32 [ 335, %56 ], [ 340, %59 ]
   %68 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !10
-  %69 = load i64, ptr %H5E_CANTSET_g.sink58, align 8, !tbaa !10
-  %70 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_write, i32 noundef %.sink55, i64 noundef %68, i64 noundef %69, ptr noundef nonnull @.str.7) #12
+  %69 = load i64, ptr %H5E_CANTSET_g.sink60, align 8, !tbaa !10
+  %70 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_write, i32 noundef %.sink57, i64 noundef %68, i64 noundef %69, ptr noundef nonnull @.str.7) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %83
 
@@ -1022,26 +1022,26 @@ define range(i32 -1, -2147483648) i32 @H5FD_read_vector(ptr noundef %0, i32 noun
   %92 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv254
   %93 = load i32, ptr %92, align 4, !tbaa !29
   switch i32 %93, label %94 [
-    i32 -1, label %.critedge.loopexit348
+    i32 -1, label %.critedge.loopexit354
     i32 3, label %.critedge
   ]
 
 94:                                               ; preds = %.preheader187
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
   %exitcond258.not = icmp eq i64 %indvars.iv.next255, %wide.trip.count257
-  br i1 %exitcond258.not, label %.critedge.loopexit348, label %.preheader187, !llvm.loop !33
+  br i1 %exitcond258.not, label %.critedge.loopexit354, label %.preheader187, !llvm.loop !33
 
 .critedge.loopexit:                               ; preds = %91
   %95 = trunc nuw i8 %.1122 to i1
   br label %.critedge
 
-.critedge.loopexit348:                            ; preds = %94, %.preheader187
+.critedge.loopexit354:                            ; preds = %94, %.preheader187
   br label %.critedge
 
-.critedge:                                        ; preds = %.preheader187, %.critedge.loopexit348, %.critedge.loopexit
-  %.3134 = phi i64 [ %.1132, %.critedge.loopexit ], [ 0, %.critedge.loopexit348 ], [ 0, %.preheader187 ]
-  %.3128 = phi i32 [ %.1126, %.critedge.loopexit ], [ 0, %.critedge.loopexit348 ], [ 0, %.preheader187 ]
-  %.3124 = phi i1 [ %95, %.critedge.loopexit ], [ false, %.critedge.loopexit348 ], [ true, %.preheader187 ]
+.critedge:                                        ; preds = %.preheader187, %.critedge.loopexit354, %.critedge.loopexit
+  %.3134 = phi i64 [ %.1132, %.critedge.loopexit ], [ 0, %.critedge.loopexit354 ], [ 0, %.preheader187 ]
+  %.3128 = phi i32 [ %.1126, %.critedge.loopexit ], [ 0, %.critedge.loopexit354 ], [ 0, %.preheader187 ]
+  %.3124 = phi i1 [ %95, %.critedge.loopexit ], [ false, %.critedge.loopexit354 ], [ true, %.preheader187 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %97 = load ptr, ptr %96, align 8, !tbaa !15
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 224
@@ -1065,11 +1065,11 @@ define range(i32 -1, -2147483648) i32 @H5FD_read_vector(ptr noundef %0, i32 noun
   br i1 %109, label %.thread174, label %113
 
 .thread174:                                       ; preds = %103, %100
-  %H5E_CANTSET_g.sink308 = phi ptr [ @H5E_CANTSET_g, %100 ], [ @H5E_CANTRESTORE_g, %103 ]
-  %.sink305 = phi i32 [ 507, %100 ], [ 511, %103 ]
+  %H5E_CANTSET_g.sink314 = phi ptr [ @H5E_CANTSET_g, %100 ], [ @H5E_CANTRESTORE_g, %103 ]
+  %.sink311 = phi i32 [ 507, %100 ], [ 511, %103 ]
   %110 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !10
-  %111 = load i64, ptr %H5E_CANTSET_g.sink308, align 8, !tbaa !10
-  %112 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_read_vector, i32 noundef %.sink305, i64 noundef %110, i64 noundef %111, ptr noundef nonnull @.str.7) #12
+  %111 = load i64, ptr %H5E_CANTSET_g.sink314, align 8, !tbaa !10
+  %112 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_read_vector, i32 noundef %.sink311, i64 noundef %110, i64 noundef %111, ptr noundef nonnull @.str.7) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread167
 
@@ -1169,11 +1169,11 @@ define range(i32 -1, -2147483648) i32 @H5FD_read_vector(ptr noundef %0, i32 noun
   br i1 %159, label %.thread178, label %163
 
 .thread178:                                       ; preds = %149, %146
-  %H5E_CANTSET_g.sink312 = phi ptr [ @H5E_CANTSET_g, %146 ], [ @H5E_CANTRESTORE_g, %149 ]
-  %.sink309 = phi i32 [ 556, %146 ], [ 560, %149 ]
+  %H5E_CANTSET_g.sink318 = phi ptr [ @H5E_CANTSET_g, %146 ], [ @H5E_CANTRESTORE_g, %149 ]
+  %.sink315 = phi i32 [ 556, %146 ], [ 560, %149 ]
   %160 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !10
-  %161 = load i64, ptr %H5E_CANTSET_g.sink312, align 8, !tbaa !10
-  %162 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_read_vector, i32 noundef %.sink309, i64 noundef %160, i64 noundef %161, ptr noundef nonnull @.str.7) #12
+  %161 = load i64, ptr %H5E_CANTSET_g.sink318, align 8, !tbaa !10
+  %162 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_read_vector, i32 noundef %.sink315, i64 noundef %160, i64 noundef %161, ptr noundef nonnull @.str.7) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %177
 
@@ -1432,11 +1432,11 @@ define range(i32 -1, -2147483648) i32 @H5FD_write_vector(ptr noundef %0, i32 nou
   br i1 %101, label %.thread144, label %105
 
 .thread144:                                       ; preds = %95, %92
-  %H5E_CANTSET_g.sink265 = phi ptr [ @H5E_CANTSET_g, %92 ], [ @H5E_CANTRESTORE_g, %95 ]
-  %.sink262 = phi i32 [ 723, %92 ], [ 727, %95 ]
+  %H5E_CANTSET_g.sink271 = phi ptr [ @H5E_CANTSET_g, %92 ], [ @H5E_CANTRESTORE_g, %95 ]
+  %.sink268 = phi i32 [ 723, %92 ], [ 727, %95 ]
   %102 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !10
-  %103 = load i64, ptr %H5E_CANTSET_g.sink265, align 8, !tbaa !10
-  %104 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_write_vector, i32 noundef %.sink262, i64 noundef %102, i64 noundef %103, ptr noundef nonnull @.str.7) #12
+  %103 = load i64, ptr %H5E_CANTSET_g.sink271, align 8, !tbaa !10
+  %104 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_write_vector, i32 noundef %.sink268, i64 noundef %102, i64 noundef %103, ptr noundef nonnull @.str.7) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %172
 
@@ -1536,11 +1536,11 @@ define range(i32 -1, -2147483648) i32 @H5FD_write_vector(ptr noundef %0, i32 nou
   br i1 %152, label %.thread148, label %156
 
 .thread148:                                       ; preds = %142, %139
-  %H5E_CANTSET_g.sink269 = phi ptr [ @H5E_CANTSET_g, %139 ], [ @H5E_CANTRESTORE_g, %142 ]
-  %.sink266 = phi i32 [ 772, %139 ], [ 776, %142 ]
+  %H5E_CANTSET_g.sink275 = phi ptr [ @H5E_CANTSET_g, %139 ], [ @H5E_CANTRESTORE_g, %142 ]
+  %.sink272 = phi i32 [ 772, %139 ], [ 776, %142 ]
   %153 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !10
-  %154 = load i64, ptr %H5E_CANTSET_g.sink269, align 8, !tbaa !10
-  %155 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_write_vector, i32 noundef %.sink266, i64 noundef %153, i64 noundef %154, ptr noundef nonnull @.str.7) #12
+  %154 = load i64, ptr %H5E_CANTSET_g.sink275, align 8, !tbaa !10
+  %155 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_write_vector, i32 noundef %.sink272, i64 noundef %153, i64 noundef %154, ptr noundef nonnull @.str.7) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %171
 
@@ -1599,7 +1599,7 @@ define range(i32 -1, -2147483648) i32 @H5FD_write_vector(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5FD_read_selection(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @H5FD_read_selection(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca [8 x i64], align 16
   %10 = alloca [8 x i64], align 16
   %11 = alloca %struct.H5_user_cb_state_t, align 8
@@ -1632,19 +1632,19 @@ define i32 @H5FD_read_selection(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %23 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !10
   %24 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !10
   %25 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_read_selection, i32 noundef 1195, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.6) #12
-  br label %.thread220
+  br label %.thread226
 
 26:                                               ; preds = %._crit_edge202, %8
   %.pre-phi206 = phi i1 [ %.pre205, %._crit_edge202 ], [ %17, %8 ]
   %.pre-phi = phi i1 [ %.pre204, %._crit_edge202 ], [ %15, %8 ]
   %27 = xor i1 %.pre-phi206, true
   %28 = select i1 %.pre-phi, i1 true, i1 %27
-  br i1 %28, label %29, label %.thread220, !prof !9
+  br i1 %28, label %29, label %.thread226, !prof !9
 
 29:                                               ; preds = %26
   %30 = tail call i64 @H5CX_get_dxpl() #12
   %31 = icmp eq i32 %2, 0
-  br i1 %31, label %.thread220, label %32
+  br i1 %31, label %.thread226, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1842,11 +1842,11 @@ define i32 @H5FD_read_selection(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %134, label %.thread143, label %138
 
 .thread143:                                       ; preds = %128, %125
-  %H5E_CANTSET_g.sink236 = phi ptr [ @H5E_CANTSET_g, %125 ], [ @H5E_CANTRESTORE_g, %128 ]
-  %.sink233 = phi i32 [ 1288, %125 ], [ 1293, %128 ]
+  %H5E_CANTSET_g.sink242 = phi ptr [ @H5E_CANTSET_g, %125 ], [ @H5E_CANTRESTORE_g, %128 ]
+  %.sink239 = phi i32 [ 1288, %125 ], [ 1293, %128 ]
   %135 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !10
-  %136 = load i64, ptr %H5E_CANTSET_g.sink236, align 8, !tbaa !10
-  %137 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_read_selection, i32 noundef %.sink233, i64 noundef %135, i64 noundef %136, ptr noundef nonnull @.str.7) #12
+  %136 = load i64, ptr %H5E_CANTSET_g.sink242, align 8, !tbaa !10
+  %137 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_read_selection, i32 noundef %.sink239, i64 noundef %135, i64 noundef %136, ptr noundef nonnull @.str.7) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %150
 
@@ -1968,13 +1968,13 @@ define i32 @H5FD_read_selection(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 
 183:                                              ; preds = %181, %._crit_edge
   %.not133 = icmp eq ptr %.0113, %10
-  br i1 %.not133, label %.thread220, label %184
+  br i1 %.not133, label %.thread226, label %184
 
 184:                                              ; preds = %183
   %185 = call ptr @H5MM_xfree(ptr noundef %.0113) #12
-  br label %.thread220
+  br label %.thread226
 
-.thread220:                                       ; preds = %22, %29, %26, %184, %183
+.thread226:                                       ; preds = %22, %29, %26, %184, %183
   %.0121 = phi i32 [ %.7.lcssa, %184 ], [ %.7.lcssa, %183 ], [ 0, %26 ], [ -1, %22 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1989,7 +1989,7 @@ declare i64 @H5I_register(i32 noundef, ptr noundef, i1 noundef zeroext) local_un
 declare ptr @H5I_remove(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @H5FD__read_selection_translate(i32 noundef range(i32 0, 3) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef range(i32 1, 0) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8, ptr noundef readonly captures(none) %9) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @H5FD__read_selection_translate(i32 noundef range(i32 0, 3) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef range(i32 1, 0) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8, ptr noundef readonly captures(none) %9) unnamed_addr #0 {
   %11 = alloca [8 x i64], align 16
   %12 = alloca [8 x i64], align 16
   %13 = alloca [8 x ptr], align 16
@@ -2063,13 +2063,13 @@ define internal fastcc i32 @H5FD__read_selection_translate(i32 noundef range(i32
 
 .preheader267:                                    ; preds = %.preheader267.preheader, %50
   %indvars.iv = phi i64 [ 0, %.preheader267.preheader ], [ %indvars.iv.next, %50 ]
-  %.2161483 = phi i32 [ 0, %.preheader267.preheader ], [ %.3162.lcssa633, %50 ]
-  %.0163482 = phi i64 [ 0, %.preheader267.preheader ], [ %.1164.lcssa632, %50 ]
-  %.0166481 = phi i64 [ 8, %.preheader267.preheader ], [ %.1167.lcssa631, %50 ]
+  %.2161483 = phi i32 [ 0, %.preheader267.preheader ], [ %.3162.lcssa648, %50 ]
+  %.0163482 = phi i64 [ 0, %.preheader267.preheader ], [ %.1164.lcssa647, %50 ]
+  %.0166481 = phi i64 [ 8, %.preheader267.preheader ], [ %.1167.lcssa646, %50 ]
   %.0182480 = phi i1 [ false, %.preheader267.preheader ], [ %.1183, %50 ]
-  %.1191479 = phi ptr [ %13, %.preheader267.preheader ], [ %.2192.lcssa629, %50 ]
-  %.1198478 = phi ptr [ %12, %.preheader267.preheader ], [ %.2199.lcssa627, %50 ]
-  %.1205477 = phi ptr [ %11, %.preheader267.preheader ], [ %.2206.lcssa625, %50 ]
+  %.1191479 = phi ptr [ %13, %.preheader267.preheader ], [ %.2192.lcssa644, %50 ]
+  %.1198478 = phi ptr [ %12, %.preheader267.preheader ], [ %.2199.lcssa642, %50 ]
+  %.1205477 = phi ptr [ %11, %.preheader267.preheader ], [ %.2206.lcssa640, %50 ]
   %.0211476 = phi ptr [ null, %.preheader267.preheader ], [ %.1212, %50 ]
   %.0213475 = phi i64 [ 0, %.preheader267.preheader ], [ %.1214, %50 ]
   %.0216473 = phi i1 [ false, %.preheader267.preheader ], [ %.1217, %50 ]
@@ -2425,12 +2425,12 @@ define internal fastcc i32 @H5FD__read_selection_translate(i32 noundef range(i32
   br label %.preheader
 
 ._crit_edge.thread:                               ; preds = %96, %._crit_edge
-  %.3162.lcssa633 = phi i32 [ %.7, %._crit_edge ], [ %.2161483, %96 ]
-  %.1164.lcssa632 = phi i64 [ %.2165, %._crit_edge ], [ %.0163482, %96 ]
-  %.1167.lcssa631 = phi i64 [ %.3169, %._crit_edge ], [ %.0166481, %96 ]
-  %.2192.lcssa629 = phi ptr [ %.6196, %._crit_edge ], [ %.1191479, %96 ]
-  %.2199.lcssa627 = phi ptr [ %.6203, %._crit_edge ], [ %.1198478, %96 ]
-  %.2206.lcssa625 = phi ptr [ %.6210, %._crit_edge ], [ %.1205477, %96 ]
+  %.3162.lcssa648 = phi i32 [ %.7, %._crit_edge ], [ %.2161483, %96 ]
+  %.1164.lcssa647 = phi i64 [ %.2165, %._crit_edge ], [ %.0163482, %96 ]
+  %.1167.lcssa646 = phi i64 [ %.3169, %._crit_edge ], [ %.0166481, %96 ]
+  %.2192.lcssa644 = phi ptr [ %.6196, %._crit_edge ], [ %.1191479, %96 ]
+  %.2199.lcssa642 = phi ptr [ %.6203, %._crit_edge ], [ %.1198478, %96 ]
+  %.2206.lcssa640 = phi ptr [ %.6210, %._crit_edge ], [ %.1205477, %96 ]
   %242 = call i32 @H5S_select_iter_release(ptr noundef nonnull %41) #12
   %243 = icmp slt i32 %242, 0
   br i1 %243, label %244, label %248
@@ -2466,18 +2466,18 @@ define internal fastcc i32 @H5FD__read_selection_translate(i32 noundef range(i32
   %260 = load ptr, ptr %35, align 8, !tbaa !15
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 224
   %262 = load ptr, ptr %261, align 8, !tbaa !34
-  %263 = trunc i64 %.1164.lcssa632 to i32
-  %264 = call i32 %262(ptr noundef %1, i64 noundef %3, i32 noundef %263, ptr noundef nonnull %21, ptr noundef %.2206.lcssa625, ptr noundef %.2199.lcssa627, ptr noundef %.2192.lcssa629) #12
+  %263 = trunc i64 %.1164.lcssa647 to i32
+  %264 = call i32 %262(ptr noundef %1, i64 noundef %3, i32 noundef %263, ptr noundef nonnull %21, ptr noundef %.2206.lcssa640, ptr noundef %.2199.lcssa642, ptr noundef %.2192.lcssa644) #12
   %265 = call i32 @H5_user_cb_restore(ptr noundef nonnull %24) #12
   %266 = icmp slt i32 %265, 0
   br i1 %266, label %.thread253, label %270
 
 .thread253:                                       ; preds = %259, %256
   %H5E_CANTSET_g.sink = phi ptr [ @H5E_CANTSET_g, %256 ], [ @H5E_CANTRESTORE_g, %259 ]
-  %.sink776 = phi i32 [ 1080, %256 ], [ 1085, %259 ]
+  %.sink791 = phi i32 [ 1080, %256 ], [ 1085, %259 ]
   %267 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !10
   %268 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !10
-  %269 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__read_selection_translate, i32 noundef %.sink776, i64 noundef %267, i64 noundef %268, ptr noundef nonnull @.str.7) #12
+  %269 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__read_selection_translate, i32 noundef %.sink791, i64 noundef %267, i64 noundef %268, ptr noundef nonnull @.str.7) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %282
 
@@ -2537,12 +2537,12 @@ define internal fastcc i32 @H5FD__read_selection_translate(i32 noundef range(i32
   br label %.preheader
 
 .preheader:                                       ; preds = %292, %.thread258, %154, %161, %168, %46, %75, %84, %92, %103, %115, %131, %138, %145, %208, %238, %244, %251, %202, %282
-  %.0204.ph = phi ptr [ %.2206.lcssa625, %282 ], [ %.2206.lcssa625, %251 ], [ %.2206.lcssa625, %244 ], [ %.6210, %238 ], [ %.2206458, %202 ], [ %.2206458, %208 ], [ %129, %145 ], [ %129, %138 ], [ null, %131 ], [ %.2206458, %115 ], [ %.2206458, %103 ], [ %.1205477, %92 ], [ %.1205477, %84 ], [ %.1205477, %75 ], [ %11, %46 ], [ %.2206458, %154 ], [ %152, %161 ], [ %152, %168 ], [ %.2206.lcssa625, %.thread258 ], [ %.2206.lcssa625, %292 ]
-  %.0197.ph = phi ptr [ %.2199.lcssa627, %282 ], [ %.2199.lcssa627, %251 ], [ %.2199.lcssa627, %244 ], [ %.6203, %238 ], [ %.2199459, %202 ], [ %.2199459, %208 ], [ %136, %145 ], [ null, %138 ], [ %.2199459, %131 ], [ %.2199459, %115 ], [ %.2199459, %103 ], [ %.1198478, %92 ], [ %.1198478, %84 ], [ %.1198478, %75 ], [ %12, %46 ], [ %.2199459, %154 ], [ %.2199459, %161 ], [ %159, %168 ], [ %.2199.lcssa627, %.thread258 ], [ %.2199.lcssa627, %292 ]
-  %.0190.ph = phi ptr [ %.2192.lcssa629, %282 ], [ %.2192.lcssa629, %251 ], [ %.2192.lcssa629, %244 ], [ %.6196, %238 ], [ %.2192460, %202 ], [ %.2192460, %208 ], [ null, %145 ], [ %.2192460, %138 ], [ %.2192460, %131 ], [ %.2192460, %115 ], [ %.2192460, %103 ], [ %.1191479, %92 ], [ %.1191479, %84 ], [ %.1191479, %75 ], [ %13, %46 ], [ %.2192460, %154 ], [ %.2192460, %161 ], [ %.2192460, %168 ], [ %.2192.lcssa629, %.thread258 ], [ %.2192.lcssa629, %292 ]
+  %.0204.ph = phi ptr [ %.2206.lcssa640, %282 ], [ %.2206.lcssa640, %251 ], [ %.2206.lcssa640, %244 ], [ %.6210, %238 ], [ %.2206458, %202 ], [ %.2206458, %208 ], [ %129, %145 ], [ %129, %138 ], [ null, %131 ], [ %.2206458, %115 ], [ %.2206458, %103 ], [ %.1205477, %92 ], [ %.1205477, %84 ], [ %.1205477, %75 ], [ %11, %46 ], [ %.2206458, %154 ], [ %152, %161 ], [ %152, %168 ], [ %.2206.lcssa640, %.thread258 ], [ %.2206.lcssa640, %292 ]
+  %.0197.ph = phi ptr [ %.2199.lcssa642, %282 ], [ %.2199.lcssa642, %251 ], [ %.2199.lcssa642, %244 ], [ %.6203, %238 ], [ %.2199459, %202 ], [ %.2199459, %208 ], [ %136, %145 ], [ null, %138 ], [ %.2199459, %131 ], [ %.2199459, %115 ], [ %.2199459, %103 ], [ %.1198478, %92 ], [ %.1198478, %84 ], [ %.1198478, %75 ], [ %12, %46 ], [ %.2199459, %154 ], [ %.2199459, %161 ], [ %159, %168 ], [ %.2199.lcssa642, %.thread258 ], [ %.2199.lcssa642, %292 ]
+  %.0190.ph = phi ptr [ %.2192.lcssa644, %282 ], [ %.2192.lcssa644, %251 ], [ %.2192.lcssa644, %244 ], [ %.6196, %238 ], [ %.2192460, %202 ], [ %.2192460, %208 ], [ null, %145 ], [ %.2192460, %138 ], [ %.2192460, %131 ], [ %.2192460, %115 ], [ %.2192460, %103 ], [ %.1191479, %92 ], [ %.1191479, %84 ], [ %.1191479, %75 ], [ %13, %46 ], [ %.2192460, %154 ], [ %.2192460, %161 ], [ %.2192460, %168 ], [ %.2192.lcssa644, %.thread258 ], [ %.2192.lcssa644, %292 ]
   %.0172.ph = phi i1 [ false, %282 ], [ false, %251 ], [ true, %244 ], [ true, %238 ], [ true, %202 ], [ true, %208 ], [ true, %145 ], [ true, %138 ], [ true, %131 ], [ true, %115 ], [ true, %103 ], [ true, %92 ], [ true, %84 ], [ false, %75 ], [ false, %46 ], [ true, %154 ], [ true, %161 ], [ true, %168 ], [ false, %.thread258 ], [ false, %292 ]
   %.0170.ph = phi i1 [ false, %282 ], [ true, %251 ], [ true, %244 ], [ true, %238 ], [ true, %202 ], [ true, %208 ], [ true, %145 ], [ true, %138 ], [ true, %131 ], [ true, %115 ], [ true, %103 ], [ true, %92 ], [ false, %84 ], [ false, %75 ], [ false, %46 ], [ true, %154 ], [ true, %161 ], [ true, %168 ], [ false, %.thread258 ], [ false, %292 ]
-  %.1160.ph = phi i32 [ -1, %282 ], [ -1, %251 ], [ -1, %244 ], [ -1, %238 ], [ -1, %202 ], [ -1, %208 ], [ -1, %145 ], [ -1, %138 ], [ -1, %131 ], [ -1, %115 ], [ -1, %103 ], [ -1, %92 ], [ -1, %84 ], [ -1, %75 ], [ -1, %46 ], [ -1, %154 ], [ -1, %161 ], [ -1, %168 ], [ %264, %.thread258 ], [ %.3162.lcssa633, %292 ]
+  %.1160.ph = phi i32 [ -1, %282 ], [ -1, %251 ], [ -1, %244 ], [ -1, %238 ], [ -1, %202 ], [ -1, %208 ], [ -1, %145 ], [ -1, %138 ], [ -1, %131 ], [ -1, %115 ], [ -1, %103 ], [ -1, %92 ], [ -1, %84 ], [ -1, %75 ], [ -1, %46 ], [ -1, %154 ], [ -1, %161 ], [ -1, %168 ], [ %264, %.thread258 ], [ %.3162.lcssa648, %292 ]
   %.not240 = icmp eq ptr %.1175.ph.fr, null
   br i1 %.not240, label %.lr.ph486.split.us501, label %.outer
 
@@ -2622,34 +2622,34 @@ define internal fastcc i32 @H5FD__read_selection_translate(i32 noundef range(i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.outer.us.thread, %.split.us500, %319
-  %.0190.ph650 = phi ptr [ %.0190.ph, %319 ], [ %.0190.ph, %.split.us500 ], [ %13, %.outer.us.thread ]
-  %.0197.ph647 = phi ptr [ %.0197.ph, %319 ], [ %.0197.ph, %.split.us500 ], [ %12, %.outer.us.thread ]
-  %.0204.ph644 = phi ptr [ %.0204.ph, %319 ], [ %.0204.ph, %.split.us500 ], [ %11, %.outer.us.thread ]
+  %.0190.ph665 = phi ptr [ %.0190.ph, %319 ], [ %.0190.ph, %.split.us500 ], [ %13, %.outer.us.thread ]
+  %.0197.ph662 = phi ptr [ %.0197.ph, %319 ], [ %.0197.ph, %.split.us500 ], [ %12, %.outer.us.thread ]
+  %.0204.ph659 = phi ptr [ %.0204.ph, %319 ], [ %.0204.ph, %.split.us500 ], [ %11, %.outer.us.thread ]
   %.1160269271 = phi i32 [ %.1160269, %319 ], [ %.us-phi489.us, %.split.us500 ], [ -1, %.outer.us.thread ]
   br i1 %40, label %321, label %330
 
 321:                                              ; preds = %.loopexit
-  %.not241 = icmp eq ptr %.0204.ph644, %11
+  %.not241 = icmp eq ptr %.0204.ph659, %11
   br i1 %.not241, label %324, label %322
 
 322:                                              ; preds = %321
-  %323 = call ptr @H5MM_xfree(ptr noundef %.0204.ph644) #12
+  %323 = call ptr @H5MM_xfree(ptr noundef %.0204.ph659) #12
   br label %324
 
 324:                                              ; preds = %322, %321
-  %.not242 = icmp eq ptr %.0197.ph647, %12
+  %.not242 = icmp eq ptr %.0197.ph662, %12
   br i1 %.not242, label %327, label %325
 
 325:                                              ; preds = %324
-  %326 = call ptr @H5MM_xfree(ptr noundef %.0197.ph647) #12
+  %326 = call ptr @H5MM_xfree(ptr noundef %.0197.ph662) #12
   br label %327
 
 327:                                              ; preds = %325, %324
-  %.not243 = icmp eq ptr %.0190.ph650, %13
+  %.not243 = icmp eq ptr %.0190.ph665, %13
   br i1 %.not243, label %330, label %328
 
 328:                                              ; preds = %327
-  %329 = call ptr @H5MM_xfree(ptr noundef %.0190.ph650) #12
+  %329 = call ptr @H5MM_xfree(ptr noundef %.0190.ph665) #12
   br label %330
 
 330:                                              ; preds = %10, %327, %328, %.loopexit
@@ -2837,11 +2837,11 @@ define range(i32 -1, -2147483648) i32 @H5FD_read_selection_id(i32 noundef %0, pt
   br i1 %88, label %.thread131, label %92
 
 .thread131:                                       ; preds = %81, %78
-  %H5E_CANTSET_g.sink197 = phi ptr [ @H5E_CANTSET_g, %78 ], [ @H5E_CANTRESTORE_g, %81 ]
-  %.sink194 = phi i32 [ 1452, %78 ], [ 1457, %81 ]
+  %H5E_CANTSET_g.sink202 = phi ptr [ @H5E_CANTSET_g, %78 ], [ @H5E_CANTRESTORE_g, %81 ]
+  %.sink199 = phi i32 [ 1452, %78 ], [ 1457, %81 ]
   %89 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !10
-  %90 = load i64, ptr %H5E_CANTSET_g.sink197, align 8, !tbaa !10
-  %91 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_read_selection_id, i32 noundef %.sink194, i64 noundef %89, i64 noundef %90, ptr noundef nonnull @.str.7) #12
+  %90 = load i64, ptr %H5E_CANTSET_g.sink202, align 8, !tbaa !10
+  %91 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_read_selection_id, i32 noundef %.sink199, i64 noundef %89, i64 noundef %90, ptr noundef nonnull @.str.7) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %104
 
@@ -3000,7 +3000,7 @@ define range(i32 -1, -2147483648) i32 @H5FD_read_selection_id(i32 noundef %0, pt
 declare ptr @H5I_object_verify(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5FD_write_selection(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @H5FD_write_selection(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca [8 x i64], align 16
   %10 = alloca [8 x i64], align 16
   %11 = alloca %struct.H5_user_cb_state_t, align 8
@@ -3033,19 +3033,19 @@ define i32 @H5FD_write_selection(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %23 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !10
   %24 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !10
   %25 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_write_selection, i32 noundef 1892, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.6) #12
-  br label %.thread209
+  br label %.thread214
 
 26:                                               ; preds = %._crit_edge191, %8
   %.pre-phi195 = phi i1 [ %.pre194, %._crit_edge191 ], [ %17, %8 ]
   %.pre-phi = phi i1 [ %.pre193, %._crit_edge191 ], [ %15, %8 ]
   %27 = xor i1 %.pre-phi195, true
   %28 = select i1 %.pre-phi, i1 true, i1 %27
-  br i1 %28, label %29, label %.thread209, !prof !9
+  br i1 %28, label %29, label %.thread214, !prof !9
 
 29:                                               ; preds = %26
   %30 = tail call i64 @H5CX_get_dxpl() #12
   %31 = icmp eq i32 %2, 0
-  br i1 %31, label %.thread209, label %32
+  br i1 %31, label %.thread214, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3234,11 +3234,11 @@ define i32 @H5FD_write_selection(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %129, label %.thread133, label %133
 
 .thread133:                                       ; preds = %123, %120
-  %H5E_CANTSET_g.sink225 = phi ptr [ @H5E_CANTSET_g, %120 ], [ @H5E_CANTRESTORE_g, %123 ]
-  %.sink222 = phi i32 [ 1975, %120 ], [ 1980, %123 ]
+  %H5E_CANTSET_g.sink230 = phi ptr [ @H5E_CANTSET_g, %120 ], [ @H5E_CANTRESTORE_g, %123 ]
+  %.sink227 = phi i32 [ 1975, %120 ], [ 1980, %123 ]
   %130 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !10
-  %131 = load i64, ptr %H5E_CANTSET_g.sink225, align 8, !tbaa !10
-  %132 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_write_selection, i32 noundef %.sink222, i64 noundef %130, i64 noundef %131, ptr noundef nonnull @.str.7) #12
+  %131 = load i64, ptr %H5E_CANTSET_g.sink230, align 8, !tbaa !10
+  %132 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_write_selection, i32 noundef %.sink227, i64 noundef %130, i64 noundef %131, ptr noundef nonnull @.str.7) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %145
 
@@ -3360,13 +3360,13 @@ define i32 @H5FD_write_selection(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 
 179:                                              ; preds = %177, %._crit_edge
   %.not128 = icmp eq ptr %.0109, %10
-  br i1 %.not128, label %.thread209, label %180
+  br i1 %.not128, label %.thread214, label %180
 
 180:                                              ; preds = %179
   %181 = call ptr @H5MM_xfree(ptr noundef %.0109) #12
-  br label %.thread209
+  br label %.thread214
 
-.thread209:                                       ; preds = %22, %29, %26, %180, %179
+.thread214:                                       ; preds = %22, %29, %26, %180, %179
   %.0117 = phi i32 [ %.5.lcssa, %180 ], [ %.5.lcssa, %179 ], [ 0, %26 ], [ -1, %22 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3374,7 +3374,7 @@ define i32 @H5FD_write_selection(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @H5FD__write_selection_translate(i32 noundef range(i32 0, 3) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef range(i32 1, 0) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8, ptr noundef readonly captures(none) %9) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @H5FD__write_selection_translate(i32 noundef range(i32 0, 3) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef range(i32 1, 0) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8, ptr noundef readonly captures(none) %9) unnamed_addr #0 {
   %11 = alloca [8 x i64], align 16
   %12 = alloca [8 x i64], align 16
   %13 = alloca [8 x ptr], align 16
@@ -3448,13 +3448,13 @@ define internal fastcc i32 @H5FD__write_selection_translate(i32 noundef range(i3
 
 .preheader267:                                    ; preds = %.preheader267.preheader, %50
   %indvars.iv = phi i64 [ 0, %.preheader267.preheader ], [ %indvars.iv.next, %50 ]
-  %.2161483 = phi i32 [ 0, %.preheader267.preheader ], [ %.3162.lcssa633, %50 ]
-  %.0163482 = phi i64 [ 0, %.preheader267.preheader ], [ %.1164.lcssa632, %50 ]
-  %.0166481 = phi i64 [ 8, %.preheader267.preheader ], [ %.1167.lcssa631, %50 ]
+  %.2161483 = phi i32 [ 0, %.preheader267.preheader ], [ %.3162.lcssa648, %50 ]
+  %.0163482 = phi i64 [ 0, %.preheader267.preheader ], [ %.1164.lcssa647, %50 ]
+  %.0166481 = phi i64 [ 8, %.preheader267.preheader ], [ %.1167.lcssa646, %50 ]
   %.0182480 = phi i1 [ false, %.preheader267.preheader ], [ %.1183, %50 ]
-  %.1191479 = phi ptr [ %13, %.preheader267.preheader ], [ %.2192.lcssa629, %50 ]
-  %.1198478 = phi ptr [ %12, %.preheader267.preheader ], [ %.2199.lcssa627, %50 ]
-  %.1205477 = phi ptr [ %11, %.preheader267.preheader ], [ %.2206.lcssa625, %50 ]
+  %.1191479 = phi ptr [ %13, %.preheader267.preheader ], [ %.2192.lcssa644, %50 ]
+  %.1198478 = phi ptr [ %12, %.preheader267.preheader ], [ %.2199.lcssa642, %50 ]
+  %.1205477 = phi ptr [ %11, %.preheader267.preheader ], [ %.2206.lcssa640, %50 ]
   %.0211476 = phi ptr [ null, %.preheader267.preheader ], [ %.1212, %50 ]
   %.0213475 = phi i64 [ 0, %.preheader267.preheader ], [ %.1214, %50 ]
   %.0216473 = phi i1 [ false, %.preheader267.preheader ], [ %.1217, %50 ]
@@ -3810,12 +3810,12 @@ define internal fastcc i32 @H5FD__write_selection_translate(i32 noundef range(i3
   br label %.preheader
 
 ._crit_edge.thread:                               ; preds = %96, %._crit_edge
-  %.3162.lcssa633 = phi i32 [ %.7, %._crit_edge ], [ %.2161483, %96 ]
-  %.1164.lcssa632 = phi i64 [ %.2165, %._crit_edge ], [ %.0163482, %96 ]
-  %.1167.lcssa631 = phi i64 [ %.3169, %._crit_edge ], [ %.0166481, %96 ]
-  %.2192.lcssa629 = phi ptr [ %.6196, %._crit_edge ], [ %.1191479, %96 ]
-  %.2199.lcssa627 = phi ptr [ %.6203, %._crit_edge ], [ %.1198478, %96 ]
-  %.2206.lcssa625 = phi ptr [ %.6210, %._crit_edge ], [ %.1205477, %96 ]
+  %.3162.lcssa648 = phi i32 [ %.7, %._crit_edge ], [ %.2161483, %96 ]
+  %.1164.lcssa647 = phi i64 [ %.2165, %._crit_edge ], [ %.0163482, %96 ]
+  %.1167.lcssa646 = phi i64 [ %.3169, %._crit_edge ], [ %.0166481, %96 ]
+  %.2192.lcssa644 = phi ptr [ %.6196, %._crit_edge ], [ %.1191479, %96 ]
+  %.2199.lcssa642 = phi ptr [ %.6203, %._crit_edge ], [ %.1198478, %96 ]
+  %.2206.lcssa640 = phi ptr [ %.6210, %._crit_edge ], [ %.1205477, %96 ]
   %242 = call i32 @H5S_select_iter_release(ptr noundef nonnull %41) #12
   %243 = icmp slt i32 %242, 0
   br i1 %243, label %244, label %248
@@ -3851,18 +3851,18 @@ define internal fastcc i32 @H5FD__write_selection_translate(i32 noundef range(i3
   %260 = load ptr, ptr %35, align 8, !tbaa !15
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 232
   %262 = load ptr, ptr %261, align 8, !tbaa !40
-  %263 = trunc i64 %.1164.lcssa632 to i32
-  %264 = call i32 %262(ptr noundef %1, i64 noundef %3, i32 noundef %263, ptr noundef nonnull %21, ptr noundef %.2206.lcssa625, ptr noundef %.2199.lcssa627, ptr noundef %.2192.lcssa629) #12
+  %263 = trunc i64 %.1164.lcssa647 to i32
+  %264 = call i32 %262(ptr noundef %1, i64 noundef %3, i32 noundef %263, ptr noundef nonnull %21, ptr noundef %.2206.lcssa640, ptr noundef %.2199.lcssa642, ptr noundef %.2192.lcssa644) #12
   %265 = call i32 @H5_user_cb_restore(ptr noundef nonnull %24) #12
   %266 = icmp slt i32 %265, 0
   br i1 %266, label %.thread253, label %270
 
 .thread253:                                       ; preds = %259, %256
   %H5E_CANTSET_g.sink = phi ptr [ @H5E_CANTSET_g, %256 ], [ @H5E_CANTRESTORE_g, %259 ]
-  %.sink776 = phi i32 [ 1778, %256 ], [ 1783, %259 ]
+  %.sink791 = phi i32 [ 1778, %256 ], [ 1783, %259 ]
   %267 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !10
   %268 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !10
-  %269 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__write_selection_translate, i32 noundef %.sink776, i64 noundef %267, i64 noundef %268, ptr noundef nonnull @.str.7) #12
+  %269 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__write_selection_translate, i32 noundef %.sink791, i64 noundef %267, i64 noundef %268, ptr noundef nonnull @.str.7) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %282
 
@@ -3922,12 +3922,12 @@ define internal fastcc i32 @H5FD__write_selection_translate(i32 noundef range(i3
   br label %.preheader
 
 .preheader:                                       ; preds = %292, %.thread258, %154, %161, %168, %46, %75, %84, %92, %103, %115, %131, %138, %145, %208, %238, %244, %251, %202, %282
-  %.0204.ph = phi ptr [ %.2206.lcssa625, %282 ], [ %.2206.lcssa625, %251 ], [ %.2206.lcssa625, %244 ], [ %.6210, %238 ], [ %.2206458, %202 ], [ %.2206458, %208 ], [ %129, %145 ], [ %129, %138 ], [ null, %131 ], [ %.2206458, %115 ], [ %.2206458, %103 ], [ %.1205477, %92 ], [ %.1205477, %84 ], [ %.1205477, %75 ], [ %11, %46 ], [ %.2206458, %154 ], [ %152, %161 ], [ %152, %168 ], [ %.2206.lcssa625, %.thread258 ], [ %.2206.lcssa625, %292 ]
-  %.0197.ph = phi ptr [ %.2199.lcssa627, %282 ], [ %.2199.lcssa627, %251 ], [ %.2199.lcssa627, %244 ], [ %.6203, %238 ], [ %.2199459, %202 ], [ %.2199459, %208 ], [ %136, %145 ], [ null, %138 ], [ %.2199459, %131 ], [ %.2199459, %115 ], [ %.2199459, %103 ], [ %.1198478, %92 ], [ %.1198478, %84 ], [ %.1198478, %75 ], [ %12, %46 ], [ %.2199459, %154 ], [ %.2199459, %161 ], [ %159, %168 ], [ %.2199.lcssa627, %.thread258 ], [ %.2199.lcssa627, %292 ]
-  %.0190.ph = phi ptr [ %.2192.lcssa629, %282 ], [ %.2192.lcssa629, %251 ], [ %.2192.lcssa629, %244 ], [ %.6196, %238 ], [ %.2192460, %202 ], [ %.2192460, %208 ], [ null, %145 ], [ %.2192460, %138 ], [ %.2192460, %131 ], [ %.2192460, %115 ], [ %.2192460, %103 ], [ %.1191479, %92 ], [ %.1191479, %84 ], [ %.1191479, %75 ], [ %13, %46 ], [ %.2192460, %154 ], [ %.2192460, %161 ], [ %.2192460, %168 ], [ %.2192.lcssa629, %.thread258 ], [ %.2192.lcssa629, %292 ]
+  %.0204.ph = phi ptr [ %.2206.lcssa640, %282 ], [ %.2206.lcssa640, %251 ], [ %.2206.lcssa640, %244 ], [ %.6210, %238 ], [ %.2206458, %202 ], [ %.2206458, %208 ], [ %129, %145 ], [ %129, %138 ], [ null, %131 ], [ %.2206458, %115 ], [ %.2206458, %103 ], [ %.1205477, %92 ], [ %.1205477, %84 ], [ %.1205477, %75 ], [ %11, %46 ], [ %.2206458, %154 ], [ %152, %161 ], [ %152, %168 ], [ %.2206.lcssa640, %.thread258 ], [ %.2206.lcssa640, %292 ]
+  %.0197.ph = phi ptr [ %.2199.lcssa642, %282 ], [ %.2199.lcssa642, %251 ], [ %.2199.lcssa642, %244 ], [ %.6203, %238 ], [ %.2199459, %202 ], [ %.2199459, %208 ], [ %136, %145 ], [ null, %138 ], [ %.2199459, %131 ], [ %.2199459, %115 ], [ %.2199459, %103 ], [ %.1198478, %92 ], [ %.1198478, %84 ], [ %.1198478, %75 ], [ %12, %46 ], [ %.2199459, %154 ], [ %.2199459, %161 ], [ %159, %168 ], [ %.2199.lcssa642, %.thread258 ], [ %.2199.lcssa642, %292 ]
+  %.0190.ph = phi ptr [ %.2192.lcssa644, %282 ], [ %.2192.lcssa644, %251 ], [ %.2192.lcssa644, %244 ], [ %.6196, %238 ], [ %.2192460, %202 ], [ %.2192460, %208 ], [ null, %145 ], [ %.2192460, %138 ], [ %.2192460, %131 ], [ %.2192460, %115 ], [ %.2192460, %103 ], [ %.1191479, %92 ], [ %.1191479, %84 ], [ %.1191479, %75 ], [ %13, %46 ], [ %.2192460, %154 ], [ %.2192460, %161 ], [ %.2192460, %168 ], [ %.2192.lcssa644, %.thread258 ], [ %.2192.lcssa644, %292 ]
   %.0172.ph = phi i1 [ false, %282 ], [ false, %251 ], [ true, %244 ], [ true, %238 ], [ true, %202 ], [ true, %208 ], [ true, %145 ], [ true, %138 ], [ true, %131 ], [ true, %115 ], [ true, %103 ], [ true, %92 ], [ true, %84 ], [ false, %75 ], [ false, %46 ], [ true, %154 ], [ true, %161 ], [ true, %168 ], [ false, %.thread258 ], [ false, %292 ]
   %.0170.ph = phi i1 [ false, %282 ], [ true, %251 ], [ true, %244 ], [ true, %238 ], [ true, %202 ], [ true, %208 ], [ true, %145 ], [ true, %138 ], [ true, %131 ], [ true, %115 ], [ true, %103 ], [ true, %92 ], [ false, %84 ], [ false, %75 ], [ false, %46 ], [ true, %154 ], [ true, %161 ], [ true, %168 ], [ false, %.thread258 ], [ false, %292 ]
-  %.1160.ph = phi i32 [ -1, %282 ], [ -1, %251 ], [ -1, %244 ], [ -1, %238 ], [ -1, %202 ], [ -1, %208 ], [ -1, %145 ], [ -1, %138 ], [ -1, %131 ], [ -1, %115 ], [ -1, %103 ], [ -1, %92 ], [ -1, %84 ], [ -1, %75 ], [ -1, %46 ], [ -1, %154 ], [ -1, %161 ], [ -1, %168 ], [ %264, %.thread258 ], [ %.3162.lcssa633, %292 ]
+  %.1160.ph = phi i32 [ -1, %282 ], [ -1, %251 ], [ -1, %244 ], [ -1, %238 ], [ -1, %202 ], [ -1, %208 ], [ -1, %145 ], [ -1, %138 ], [ -1, %131 ], [ -1, %115 ], [ -1, %103 ], [ -1, %92 ], [ -1, %84 ], [ -1, %75 ], [ -1, %46 ], [ -1, %154 ], [ -1, %161 ], [ -1, %168 ], [ %264, %.thread258 ], [ %.3162.lcssa648, %292 ]
   %.not240 = icmp eq ptr %.1175.ph.fr, null
   br i1 %.not240, label %.lr.ph486.split.us501, label %.outer
 
@@ -4007,34 +4007,34 @@ define internal fastcc i32 @H5FD__write_selection_translate(i32 noundef range(i3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.outer.us.thread, %.split.us500, %319
-  %.0190.ph650 = phi ptr [ %.0190.ph, %319 ], [ %.0190.ph, %.split.us500 ], [ %13, %.outer.us.thread ]
-  %.0197.ph647 = phi ptr [ %.0197.ph, %319 ], [ %.0197.ph, %.split.us500 ], [ %12, %.outer.us.thread ]
-  %.0204.ph644 = phi ptr [ %.0204.ph, %319 ], [ %.0204.ph, %.split.us500 ], [ %11, %.outer.us.thread ]
+  %.0190.ph665 = phi ptr [ %.0190.ph, %319 ], [ %.0190.ph, %.split.us500 ], [ %13, %.outer.us.thread ]
+  %.0197.ph662 = phi ptr [ %.0197.ph, %319 ], [ %.0197.ph, %.split.us500 ], [ %12, %.outer.us.thread ]
+  %.0204.ph659 = phi ptr [ %.0204.ph, %319 ], [ %.0204.ph, %.split.us500 ], [ %11, %.outer.us.thread ]
   %.1160269271 = phi i32 [ %.1160269, %319 ], [ %.us-phi489.us, %.split.us500 ], [ -1, %.outer.us.thread ]
   br i1 %40, label %321, label %330
 
 321:                                              ; preds = %.loopexit
-  %.not241 = icmp eq ptr %.0204.ph644, %11
+  %.not241 = icmp eq ptr %.0204.ph659, %11
   br i1 %.not241, label %324, label %322
 
 322:                                              ; preds = %321
-  %323 = call ptr @H5MM_xfree(ptr noundef %.0204.ph644) #12
+  %323 = call ptr @H5MM_xfree(ptr noundef %.0204.ph659) #12
   br label %324
 
 324:                                              ; preds = %322, %321
-  %.not242 = icmp eq ptr %.0197.ph647, %12
+  %.not242 = icmp eq ptr %.0197.ph662, %12
   br i1 %.not242, label %327, label %325
 
 325:                                              ; preds = %324
-  %326 = call ptr @H5MM_xfree(ptr noundef %.0197.ph647) #12
+  %326 = call ptr @H5MM_xfree(ptr noundef %.0197.ph662) #12
   br label %327
 
 327:                                              ; preds = %325, %324
-  %.not243 = icmp eq ptr %.0190.ph650, %13
+  %.not243 = icmp eq ptr %.0190.ph665, %13
   br i1 %.not243, label %330, label %328
 
 328:                                              ; preds = %327
-  %329 = call ptr @H5MM_xfree(ptr noundef %.0190.ph650) #12
+  %329 = call ptr @H5MM_xfree(ptr noundef %.0190.ph665) #12
   br label %330
 
 330:                                              ; preds = %10, %327, %328, %.loopexit
@@ -4211,11 +4211,11 @@ define range(i32 -1, -2147483648) i32 @H5FD_write_selection_id(i32 noundef %0, p
   br i1 %83, label %.thread121, label %87
 
 .thread121:                                       ; preds = %77, %74
-  %H5E_CANTSET_g.sink184 = phi ptr [ @H5E_CANTSET_g, %74 ], [ @H5E_CANTRESTORE_g, %77 ]
-  %.sink181 = phi i32 [ 2129, %74 ], [ 2134, %77 ]
+  %H5E_CANTSET_g.sink189 = phi ptr [ @H5E_CANTSET_g, %74 ], [ @H5E_CANTRESTORE_g, %77 ]
+  %.sink186 = phi i32 [ 2129, %74 ], [ 2134, %77 ]
   %84 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !10
-  %85 = load i64, ptr %H5E_CANTSET_g.sink184, align 8, !tbaa !10
-  %86 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_write_selection_id, i32 noundef %.sink181, i64 noundef %84, i64 noundef %85, ptr noundef nonnull @.str.7) #12
+  %85 = load i64, ptr %H5E_CANTSET_g.sink189, align 8, !tbaa !10
+  %86 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_write_selection_id, i32 noundef %.sink186, i64 noundef %84, i64 noundef %85, ptr noundef nonnull @.str.7) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %99
 
@@ -5124,8 +5124,8 @@ define range(i32 -1, 1) i32 @H5FD_sort_selection_io_req(ptr noundef captures(non
   br i1 %.not126, label %.loopexit, label %.lr.ph125
 
 .lr.ph125:                                        ; preds = %76, %.critedge
-  %.095.lcssa136 = phi i64 [ %.095.lcssa, %.critedge ], [ %.1, %76 ]
-  %.096.lcssa135 = phi i64 [ %.096.lcssa, %.critedge ], [ %.197, %76 ]
+  %.095.lcssa144 = phi i64 [ %.095.lcssa, %.critedge ], [ %.1, %76 ]
+  %.096.lcssa143 = phi i64 [ %.096.lcssa, %.critedge ], [ %.197, %76 ]
   %78 = load ptr, ptr %13, align 8, !tbaa !70
   br label %79
 
@@ -5148,7 +5148,7 @@ define range(i32 -1, 1) i32 @H5FD_sort_selection_io_req(ptr noundef captures(non
   %92 = load ptr, ptr %9, align 8, !tbaa !72
   %93 = getelementptr inbounds nuw i64, ptr %92, i64 %.1102124
   store i64 %91, ptr %93, align 8, !tbaa !10
-  %94 = tail call i64 @llvm.umin.i64(i64 %81, i64 %.096.lcssa135)
+  %94 = tail call i64 @llvm.umin.i64(i64 %81, i64 %.096.lcssa143)
   %95 = getelementptr inbounds nuw i64, ptr %5, i64 %94
   %96 = load i64, ptr %95, align 8, !tbaa !10
   %97 = load ptr, ptr %10, align 8, !tbaa !72
@@ -5156,7 +5156,7 @@ define range(i32 -1, 1) i32 @H5FD_sort_selection_io_req(ptr noundef captures(non
   store i64 %96, ptr %98, align 8, !tbaa !10
   %99 = load ptr, ptr %11, align 8, !tbaa !36
   %100 = getelementptr inbounds nuw %union.H5_flexible_const_ptr_t, ptr %99, i64 %.1102124
-  %101 = tail call i64 @llvm.umin.i64(i64 %81, i64 %.095.lcssa136)
+  %101 = tail call i64 @llvm.umin.i64(i64 %81, i64 %.095.lcssa144)
   %102 = getelementptr inbounds nuw %union.H5_flexible_const_ptr_t, ptr %6, i64 %101
   %103 = load i64, ptr %102, align 8, !tbaa !77
   store i64 %103, ptr %100, align 8, !tbaa !77

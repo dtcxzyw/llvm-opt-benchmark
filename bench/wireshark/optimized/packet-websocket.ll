@@ -807,10 +807,10 @@ websocket_parse_extensions.exit:                  ; preds = %websocket_init_z_st
 .sink.split:                                      ; preds = %185, %167
   %.str.136.sink = phi ptr [ @.str.135, %167 ], [ @.str.136, %185 ]
   %hf_ws_payload_length_ext_64.sink = phi ptr [ @hf_ws_payload_length_ext_16, %167 ], [ @hf_ws_payload_length_ext_64, %185 ]
-  %.sink140 = phi i32 [ 2, %167 ], [ 8, %185 ]
+  %.sink163 = phi i32 [ 2, %167 ], [ 8, %185 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %184, ptr noundef nonnull %.str.136.sink)
   %187 = load i32, ptr %hf_ws_payload_length_ext_64.sink, align 4
-  %188 = call ptr @proto_tree_add_item(ptr noundef %156, i32 noundef %187, ptr noundef %0, i32 noundef 2, i32 noundef %.sink140, i32 noundef 0)
+  %188 = call ptr @proto_tree_add_item(ptr noundef %156, i32 noundef %187, ptr noundef %0, i32 noundef 2, i32 noundef %.sink163, i32 noundef 0)
   br label %189
 
 189:                                              ; preds = %.sink.split, %185
@@ -1202,12 +1202,12 @@ tvb_unmasked.exit:                                ; preds = %.lr.ph.i, %194
   store ptr null, ptr %385, align 8
   %387 = load i32, ptr @pref_text_type, align 4
   %switch.selectcmp.i.i = icmp eq i32 %387, 2
-  %switch.selectcmp106.i.i = icmp eq i32 %387, 3
+  %switch.selectcmp111.i.i = icmp eq i32 %387, 3
   %sip_handle.val.i.i = load ptr, ptr @sip_handle, align 8
   %json_handle.val.i.i = load ptr, ptr @json_handle, align 8
   %text_lines_handle.val.i.i = load ptr, ptr @text_lines_handle, align 8
   %switch.select.val.i.i = select i1 %switch.selectcmp.i.i, ptr %json_handle.val.i.i, ptr %text_lines_handle.val.i.i
-  %388 = select i1 %switch.selectcmp106.i.i, ptr %sip_handle.val.i.i, ptr %switch.select.val.i.i
+  %388 = select i1 %switch.selectcmp111.i.i, ptr %sip_handle.val.i.i, ptr %switch.select.val.i.i
   %389 = call i32 @call_dissector(ptr noundef %388, ptr noundef %.0.i.i131, ptr noundef %1, ptr noundef %2)
   store ptr %386, ptr %385, align 8
   br label %dissect_websocket_data_frame.exit.i

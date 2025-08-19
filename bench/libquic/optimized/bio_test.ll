@@ -264,7 +264,7 @@ _ZN12ScopedSocketD2Ev.exit41.i:                   ; preds = %53
   unreachable
 
 _ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit.i: ; preds = %92, %_ZN12ScopedSocketD2Ev.exit41.i
-  %.350.i = phi i1 [ false, %_ZN12ScopedSocketD2Ev.exit41.i ], [ %.3.ph.i, %92 ]
+  %.354.i = phi i1 [ false, %_ZN12ScopedSocketD2Ev.exit41.i ], [ %.3.ph.i, %92 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %99
@@ -288,7 +288,7 @@ _ZN12ScopedSocketD2Ev.exit.i:                     ; preds = %78, %72, %65
           to label %common.resume unwind label %105
 
 99:                                               ; preds = %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit.i, %45
-  %.2.i = phi i1 [ %.350.i, %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit.i ], [ false, %45 ]
+  %.2.i = phi i1 [ %.354.i, %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit.i ], [ false, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %100
 
@@ -351,7 +351,7 @@ _ZL17TestSocketConnectv.exit:                     ; preds = %100
 .critedge.i:                                      ; preds = %117, %115
   %120 = load ptr, ptr @stderr, align 8, !tbaa !18
   %121 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %120, ptr noundef nonnull @.str.15, i32 noundef %114) #19
-  br label %.loopexit50.sink.split.i
+  br label %.loopexit54.sink.split.i
 
 122:                                              ; preds = %.preheader.i
   %123 = landingpad { ptr, i32 }
@@ -423,7 +423,7 @@ _ZL17TestSocketConnectv.exit:                     ; preds = %100
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %150 = add nuw nsw i64 %.01738.i, 1
   %exitcond.i = icmp eq i64 %150, 7
-  br i1 %exitcond.i, label %.loopexit50.i, label %.preheader.i, !llvm.loop !25
+  br i1 %exitcond.i, label %.loopexit54.i, label %.preheader.i, !llvm.loop !25
 
 151:                                              ; preds = %130, %122
   %.pn.i = phi { ptr, i32 } [ %131, %130 ], [ %123, %122 ]
@@ -435,7 +435,7 @@ _ZL17TestSocketConnectv.exit:                     ; preds = %100
 .critedge30.i:                                    ; preds = %146, %139, %127
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %.loopexit50.sink.split.i
+  br label %.loopexit54.sink.split.i
 
 _ZL10TestPrintfv.exit.thread:                     ; preds = %108
   %152 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -443,23 +443,23 @@ _ZL10TestPrintfv.exit.thread:                     ; preds = %108
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %_ZL8TestASN1v.exit.thread
 
-.loopexit50.sink.split.i:                         ; preds = %.critedge30.i, %.critedge.i
+.loopexit54.sink.split.i:                         ; preds = %.critedge30.i, %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %.loopexit50.i
+  br label %.loopexit54.i
 
-.loopexit50.i:                                    ; preds = %149, %.loopexit50.sink.split.i
-  %.016.ph.i = phi i1 [ false, %.loopexit50.sink.split.i ], [ true, %149 ]
+.loopexit54.i:                                    ; preds = %149, %.loopexit54.sink.split.i
+  %.016.ph.i = phi i1 [ false, %.loopexit54.sink.split.i ], [ true, %149 ]
   invoke void @BIO_vfree(ptr noundef nonnull %110)
           to label %_ZL10TestPrintfv.exit unwind label %154
 
-154:                                              ; preds = %.loopexit50.i
+154:                                              ; preds = %.loopexit54.i
   %155 = landingpad { ptr, i32 }
           catch ptr null
   %156 = extractvalue { ptr, i32 } %155, 0
   call void @__clang_call_terminate(ptr %156) #18
   unreachable
 
-_ZL10TestPrintfv.exit:                            ; preds = %.loopexit50.i
+_ZL10TestPrintfv.exit:                            ; preds = %.loopexit54.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br i1 %.016.ph.i, label %157, label %_ZL8TestASN1v.exit.thread
 

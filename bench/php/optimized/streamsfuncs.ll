@@ -1112,23 +1112,23 @@ define hidden void @zif_stream_socket_accept(ptr noundef %0, ptr noundef writeon
   %22 = load i8, ptr %21, align 8, !tbaa !4
   switch i8 %22, label %zend_parse_arg_double.exit [
     i8 5, label %.critedge
-    i8 1, label %.critedge.thread125
+    i8 1, label %.critedge.thread131
   ], !prof !33
 
-.critedge.thread125:                              ; preds = %19
-  %.not128 = icmp eq i32 %9, 3
+.critedge.thread131:                              ; preds = %19
+  %.not134 = icmp eq i32 %9, 3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %spec.select129 = select i1 %.not128, ptr %23, ptr null, !prof !8
+  %spec.select135 = select i1 %.not134, ptr %23, ptr null, !prof !8
   br label %.critedge.thread
 
 zend_parse_arg_double.exit:                       ; preds = %19
   %24 = call zeroext i1 @zend_parse_arg_double_slow(ptr noundef nonnull %20, ptr noundef nonnull %3, i32 noundef 2) #12
-  br i1 %24, label %.critedge.thread120, label %zend_parse_arg_resource.exit, !prof !11
+  br i1 %24, label %.critedge.thread126, label %zend_parse_arg_resource.exit, !prof !11
 
 .critedge:                                        ; preds = %19
   %25 = load double, ptr %20, align 8, !tbaa !4
   store double %25, ptr %3, align 8, !tbaa !34
-  br label %.critedge.thread120
+  br label %.critedge.thread126
 
 zend_parse_arg_resource.exit:                     ; preds = %12, %11, %zend_parse_arg_double.exit
   %.085 = phi i32 [ 0, %11 ], [ 21, %zend_parse_arg_double.exit ], [ 14, %12 ]
@@ -1138,14 +1138,14 @@ zend_parse_arg_resource.exit:                     ; preds = %12, %11, %zend_pars
   call void @zend_wrong_parameter_error(i32 noundef %.084, i32 noundef %.0, ptr noundef null, i32 noundef %.085, ptr noundef %.080) #12
   br label %zend_string_release_ex.exit
 
-.critedge.thread:                                 ; preds = %.critedge.thread125, %17
-  %.0108117 = phi ptr [ null, %17 ], [ %spec.select129, %.critedge.thread125 ]
+.critedge.thread:                                 ; preds = %.critedge.thread131, %17
+  %.0108117 = phi ptr [ null, %17 ], [ %spec.select135, %.critedge.thread131 ]
   %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 24), align 8, !tbaa !37
   %27 = sitofp i64 %26 to double
   store double %27, ptr %3, align 8, !tbaa !34
   br label %35
 
-.critedge.thread120:                              ; preds = %zend_parse_arg_double.exit, %.critedge
+.critedge.thread126:                              ; preds = %zend_parse_arg_double.exit, %.critedge
   %.not = icmp eq i32 %9, 3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %spec.select = select i1 %.not, ptr %28, ptr null
@@ -1154,15 +1154,15 @@ zend_parse_arg_resource.exit:                     ; preds = %12, %11, %zend_pars
   %31 = fcmp ueq double %30, 0x7FF0000000000000
   br i1 %31, label %32, label %35
 
-32:                                               ; preds = %.critedge.thread120
+32:                                               ; preds = %.critedge.thread126
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.2) #12
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !44
   %34 = icmp ne ptr %33, null
   call void @llvm.assume(i1 %34)
   br label %zend_string_release_ex.exit
 
-35:                                               ; preds = %.critedge.thread, %.critedge.thread120
-  %.0108116 = phi ptr [ %.0108117, %.critedge.thread ], [ %spec.select, %.critedge.thread120 ]
+35:                                               ; preds = %.critedge.thread, %.critedge.thread126
+  %.0108116 = phi ptr [ %.0108117, %.critedge.thread ], [ %spec.select, %.critedge.thread126 ]
   %36 = call i32 @php_file_le_stream() #12
   %37 = call i32 @php_file_le_pstream() #12
   %38 = call ptr @zend_fetch_resource2_ex(ptr noundef nonnull %13, ptr noundef nonnull @.str.7, i32 noundef %36, i32 noundef %37) #12
@@ -1543,8 +1543,8 @@ zend_parse_arg_str_ex.exit96:                     ; preds = %36
   br i1 %41, label %zend_parse_arg_resource.exit.thread143, label %zend_parse_arg_resource.exit
 
 zend_parse_arg_resource.exit.thread143:           ; preds = %zend_parse_arg_str_ex.exit96, %36
-  %.in151 = phi ptr [ %37, %36 ], [ %4, %zend_parse_arg_str_ex.exit96 ]
-  %42 = load ptr, ptr %.in151, align 8
+  %.in152 = phi ptr [ %37, %36 ], [ %4, %zend_parse_arg_str_ex.exit96 ]
+  %42 = load ptr, ptr %.in152, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %45 = load i64, ptr %44, align 8, !tbaa !76
@@ -1929,8 +1929,8 @@ zend_parse_arg_resource.exit.thread117:           ; preds = %zend_parse_arg_long
   %46 = icmp sgt i64 %45, -1
   %.pre = load i64, ptr %4, align 8, !tbaa !9
   %47 = icmp sgt i64 %.pre, %45
-  %or.cond143 = select i1 %46, i1 %47, i1 false
-  br i1 %or.cond143, label %48, label %51
+  %or.cond146 = select i1 %46, i1 %47, i1 false
+  br i1 %or.cond146, label %48, label %51
 
 48:                                               ; preds = %44
   %49 = sub nsw i64 %.pre, %45
@@ -2689,7 +2689,7 @@ zend_parse_arg_array.exit.thread259:              ; preds = %zend_parse_arg_long
 
 106:                                              ; preds = %101, %89
   %.0 = phi ptr [ null, %89 ], [ %3, %101 ]
-  br i1 %.not175, label %stream_array_emulate_read_fd_set.exit.thread.thread288, label %107
+  br i1 %.not175, label %stream_array_emulate_read_fd_set.exit.thread.thread296, label %107
 
 107:                                              ; preds = %106
   %108 = getelementptr inbounds nuw i8, ptr %.2229.ph, i64 8
@@ -2842,11 +2842,11 @@ stream_array_emulate_read_fd_set.exit.thread:     ; preds = %110, %._crit_edge.i
   %171 = icmp eq i32 %170, -1
   br i1 %171, label %178, label %.thread
 
-stream_array_emulate_read_fd_set.exit.thread.thread288: ; preds = %106
+stream_array_emulate_read_fd_set.exit.thread.thread296: ; preds = %106
   %172 = add nsw i32 %79, 1
   %173 = call i32 @select(i32 noundef %172, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %.0) #12
   %174 = icmp eq i32 %173, -1
-  br i1 %174, label %178, label %.thread289
+  br i1 %174, label %178, label %.thread297
 
 stream_array_emulate_read_fd_set.exit.thread.thread: ; preds = %107
   %175 = add nsw i32 %79, 1
@@ -2854,8 +2854,8 @@ stream_array_emulate_read_fd_set.exit.thread.thread: ; preds = %107
   %177 = icmp eq i32 %176, -1
   br i1 %177, label %178, label %.thread
 
-178:                                              ; preds = %stream_array_emulate_read_fd_set.exit.thread.thread288, %stream_array_emulate_read_fd_set.exit.thread.thread, %stream_array_emulate_read_fd_set.exit.thread
-  %179 = phi i32 [ %79, %stream_array_emulate_read_fd_set.exit.thread.thread ], [ %.pre, %stream_array_emulate_read_fd_set.exit.thread ], [ %79, %stream_array_emulate_read_fd_set.exit.thread.thread288 ]
+178:                                              ; preds = %stream_array_emulate_read_fd_set.exit.thread.thread296, %stream_array_emulate_read_fd_set.exit.thread.thread, %stream_array_emulate_read_fd_set.exit.thread
+  %179 = phi i32 [ %79, %stream_array_emulate_read_fd_set.exit.thread.thread ], [ %.pre, %stream_array_emulate_read_fd_set.exit.thread ], [ %79, %stream_array_emulate_read_fd_set.exit.thread.thread296 ]
   %180 = tail call ptr @__errno_location() #13
   %181 = load i32, ptr %180, align 4, !tbaa !13
   %182 = call ptr @strerror(i32 noundef %181) #12
@@ -2867,17 +2867,17 @@ stream_array_emulate_read_fd_set.exit.thread.thread: ; preds = %107
 .thread:                                          ; preds = %stream_array_emulate_read_fd_set.exit.thread, %stream_array_emulate_read_fd_set.exit.thread.thread
   %184 = phi i32 [ %176, %stream_array_emulate_read_fd_set.exit.thread.thread ], [ %170, %stream_array_emulate_read_fd_set.exit.thread ]
   call fastcc void @stream_array_from_fd_set(ptr noundef %.2229.ph, ptr noundef %4)
-  br label %.thread289
+  br label %.thread297
 
-.thread289:                                       ; preds = %stream_array_emulate_read_fd_set.exit.thread.thread288, %.thread
-  %185 = phi i32 [ %184, %.thread ], [ %173, %stream_array_emulate_read_fd_set.exit.thread.thread288 ]
+.thread297:                                       ; preds = %stream_array_emulate_read_fd_set.exit.thread.thread296, %.thread
+  %185 = phi i32 [ %184, %.thread ], [ %173, %stream_array_emulate_read_fd_set.exit.thread.thread296 ]
   br i1 %.not177, label %187, label %186
 
-186:                                              ; preds = %.thread289
+186:                                              ; preds = %.thread297
   call fastcc void @stream_array_from_fd_set(ptr noundef %.2226.ph, ptr noundef %5)
   br label %187
 
-187:                                              ; preds = %186, %.thread289
+187:                                              ; preds = %186, %.thread297
   br i1 %.not178, label %189, label %188
 
 188:                                              ; preds = %187
@@ -4459,7 +4459,7 @@ zend_parse_arg_resource.exit:                     ; preds = %zend_parse_arg_stri
   %58 = phi i64 [ %49, %53 ], [ %56, %55 ], [ %38, %37 ]
   %59 = and i64 %58, 1
   %.not124 = icmp eq i64 %59, 0
-  br i1 %.not124, label %.thread153, label %60
+  br i1 %.not124, label %.thread157, label %60
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds nuw i8, ptr %35, i64 96
@@ -4505,12 +4505,12 @@ zend_parse_arg_resource.exit:                     ; preds = %zend_parse_arg_stri
   %.not127 = icmp eq i64 %80, 0
   br i1 %.not127, label %.thread, label %82
 
-.thread153:                                       ; preds = %57
+.thread157:                                       ; preds = %57
   %81 = and i64 %58, 2
-  %.not127155 = icmp eq i64 %81, 0
-  br i1 %.not127155, label %107, label %82
+  %.not127159 = icmp eq i64 %81, 0
+  br i1 %.not127159, label %107, label %82
 
-82:                                               ; preds = %.thread153, %79
+82:                                               ; preds = %.thread157, %79
   %83 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %84 = load i16, ptr %83, align 8
   %85 = trunc i16 %84 to i8
@@ -4562,7 +4562,7 @@ zend_parse_arg_resource.exit:                     ; preds = %zend_parse_arg_stri
   store i32 265, ptr %106, align 8, !tbaa !4
   br label %109
 
-107:                                              ; preds = %.thread153
+107:                                              ; preds = %.thread157
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 2, ptr %108, align 8, !tbaa !4
   br label %109

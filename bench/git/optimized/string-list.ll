@@ -1059,25 +1059,25 @@ define dso_local ptr @unsorted_string_list_lookup(ptr noundef readonly captures(
   %8 = load i64, ptr %6, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw %struct.string_list_item, ptr %7, i64 %8
   %10 = icmp ult ptr %5, %9
-  br i1 %10, label %.lr.ph24, label %.critedge
+  br i1 %10, label %.lr.ph25, label %.critedge
 
-.lr.ph24:                                         ; preds = %.lr.ph, %13
-  %.0131823 = phi ptr [ %14, %13 ], [ %5, %.lr.ph ]
-  %11 = load ptr, ptr %.0131823, align 8, !tbaa !14
+.lr.ph25:                                         ; preds = %.lr.ph, %13
+  %.0131824 = phi ptr [ %14, %13 ], [ %5, %.lr.ph ]
+  %11 = load ptr, ptr %.0131824, align 8, !tbaa !14
   %12 = tail call i32 %spec.select(ptr noundef %1, ptr noundef %11) #11
   %.not16 = icmp eq i32 %12, 0
   br i1 %.not16, label %.critedge, label %13
 
-13:                                               ; preds = %.lr.ph24
-  %14 = getelementptr inbounds nuw i8, ptr %.0131823, i64 16
+13:                                               ; preds = %.lr.ph25
+  %14 = getelementptr inbounds nuw i8, ptr %.0131824, i64 16
   %15 = load ptr, ptr %0, align 8, !tbaa !13
   %16 = load i64, ptr %6, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw %struct.string_list_item, ptr %15, i64 %16
   %18 = icmp ult ptr %14, %17
-  br i1 %18, label %.lr.ph24, label %.critedge
+  br i1 %18, label %.lr.ph25, label %.critedge
 
-.critedge:                                        ; preds = %13, %.lr.ph24, %.lr.ph, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %.lr.ph ], [ %.0131823, %.lr.ph24 ], [ null, %13 ]
+.critedge:                                        ; preds = %13, %.lr.ph25, %.lr.ph, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %.lr.ph ], [ %.0131824, %.lr.ph25 ], [ null, %13 ]
   ret ptr %.0
 }
 
@@ -1253,13 +1253,13 @@ string_list_append_nodup.exit.us:                 ; preds = %st_mult.exit.i.us, 
   br i1 %39, label %41, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.lcssa67 = phi i32 [ %11, %._crit_edge ], [ 1, %.preheader ]
-  %.020.lcssa66 = phi ptr [ %84, %._crit_edge ], [ %1, %.preheader ]
-  %40 = tail call ptr @xstrdup(ptr noundef %.020.lcssa66) #11
+  %.lcssa84 = phi i32 [ %11, %._crit_edge ], [ 1, %.preheader ]
+  %.020.lcssa83 = phi ptr [ %84, %._crit_edge ], [ %1, %.preheader ]
+  %40 = tail call ptr @xstrdup(ptr noundef %.020.lcssa83) #11
   br label %41
 
 41:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.lcssa68 = phi i32 [ %.lcssa67, %._crit_edge.thread ], [ %11, %._crit_edge ]
+  %.lcssa85 = phi i32 [ %.lcssa84, %._crit_edge.thread ], [ %11, %._crit_edge ]
   %42 = phi ptr [ %40, %._crit_edge.thread ], [ %84, %._crit_edge ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !4
@@ -1419,9 +1419,9 @@ string_list_append.exit33:                        ; preds = %._crit_edge.i.i26, 
   br label %108
 
 108:                                              ; preds = %string_list_append.exit33, %string_list_append.exit
-  %.sink78 = phi ptr [ %107, %string_list_append.exit33 ], [ %60, %string_list_append.exit ]
-  %109 = phi i32 [ %.us-phi42, %string_list_append.exit33 ], [ %.lcssa68, %string_list_append.exit ]
-  %110 = getelementptr inbounds nuw i8, ptr %.sink78, i64 8
+  %.sink95 = phi ptr [ %107, %string_list_append.exit33 ], [ %60, %string_list_append.exit ]
+  %109 = phi i32 [ %.us-phi42, %string_list_append.exit33 ], [ %.lcssa85, %string_list_append.exit ]
+  %110 = getelementptr inbounds nuw i8, ptr %.sink95, i64 8
   store ptr null, ptr %110, align 8, !tbaa !20
   ret i32 %109
 }
@@ -1535,7 +1535,7 @@ string_list_append.exit32.us:                     ; preds = %st_mult.exit.i.i29.
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %42, %._crit_edge
-  %.lcssa74 = phi i32 [ %11, %42 ], [ %11, %._crit_edge ], [ 1, %.preheader ]
+  %.lcssa90 = phi i32 [ %11, %42 ], [ %11, %._crit_edge ], [ 1, %.preheader ]
   %44 = phi ptr [ %43, %42 ], [ %88, %._crit_edge ], [ %1, %.preheader ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load i64, ptr %45, align 8, !tbaa !4
@@ -1703,9 +1703,9 @@ string_list_append.exit41:                        ; preds = %._crit_edge.i.i34, 
   br label %112
 
 112:                                              ; preds = %string_list_append.exit41, %string_list_append.exit
-  %.sink84 = phi ptr [ %111, %string_list_append.exit41 ], [ %62, %string_list_append.exit ]
-  %113 = phi i32 [ %.us-phi50, %string_list_append.exit41 ], [ %.lcssa74, %string_list_append.exit ]
-  %114 = getelementptr inbounds nuw i8, ptr %.sink84, i64 8
+  %.sink100 = phi ptr [ %111, %string_list_append.exit41 ], [ %62, %string_list_append.exit ]
+  %113 = phi i32 [ %.us-phi50, %string_list_append.exit41 ], [ %.lcssa90, %string_list_append.exit ]
+  %114 = getelementptr inbounds nuw i8, ptr %.sink100, i64 8
   store ptr null, ptr %114, align 8, !tbaa !20
   ret i32 %113
 }

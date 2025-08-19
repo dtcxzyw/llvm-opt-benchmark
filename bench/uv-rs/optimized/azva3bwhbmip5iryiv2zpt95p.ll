@@ -2986,7 +2986,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   store ptr %31, ptr %24, align 8, !alias.scope !1058, !noalias !1048
   %.sroa.0.0.copyload4.i.i = load i64, ptr %30, align 8, !noalias !1059
   %32 = icmp eq i64 %.sroa.0.0.copyload4.i.i, 12
-  br i1 %32, label %.thread.loopexit.split.loop.exit32, label %33
+  br i1 %32, label %.thread.loopexit.split.loop.exit35, label %33
 
 33:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1eb145e507b6ab4E.llvm.11871282392527080692.exit.i.i"
   %.sroa.8.0..sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -3015,7 +3015,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   invoke void @"_ZN4core3ptr102drop_in_place$LT$alloc..vec..Vec$LT$uv_distribution_types..dependency_metadata..StaticMetadata$GT$$GT$17h838427f513792e86E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #25
           to label %10 unwind label %75
 
-.thread.loopexit.split.loop.exit32:               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1eb145e507b6ab4E.llvm.11871282392527080692.exit.i.i"
+.thread.loopexit.split.loop.exit35:               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1eb145e507b6ab4E.llvm.11871282392527080692.exit.i.i"
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 176
   br label %.loopexit
 
@@ -3078,8 +3078,8 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %.pre = load ptr, ptr %24, align 8, !alias.scope !1074
   br label %.loopexit
 
-.loopexit:                                        ; preds = %51, %19, %.thread.loopexit.split.loop.exit32, %.loopexit.loopexit
-  %58 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %26, %19 ], [ %38, %.thread.loopexit.split.loop.exit32 ], [ %56, %51 ]
+.loopexit:                                        ; preds = %51, %19, %.thread.loopexit.split.loop.exit35, %.loopexit.loopexit
+  %58 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %26, %19 ], [ %38, %.thread.loopexit.split.loop.exit35 ], [ %56, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
@@ -3230,7 +3230,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   store ptr %31, ptr %24, align 8, !alias.scope !1114, !noalias !1104
   %.sroa.0.0.copyload3.i.i = load i64, ptr %30, align 8, !noalias !1115
   %32 = icmp eq i64 %.sroa.0.0.copyload3.i.i, 12
-  br i1 %32, label %._crit_edge.loopexit.split.loop.exit24, label %33
+  br i1 %32, label %._crit_edge.loopexit.split.loop.exit27, label %33
 
 33:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1eb145e507b6ab4E.llvm.11871282392527080692.exit.i.i"
   %.sroa.8.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -3308,12 +3308,12 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %._crit_edge, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1eb145e507b6ab4E.llvm.11871282392527080692.exit.i.i"
 
-._crit_edge.loopexit.split.loop.exit24:           ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1eb145e507b6ab4E.llvm.11871282392527080692.exit.i.i"
+._crit_edge.loopexit.split.loop.exit27:           ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1eb145e507b6ab4E.llvm.11871282392527080692.exit.i.i"
   %56 = getelementptr inbounds nuw i8, ptr %30, i64 176
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %49, %._crit_edge.loopexit.split.loop.exit24, %19
-  %57 = phi ptr [ %26, %19 ], [ %56, %._crit_edge.loopexit.split.loop.exit24 ], [ %54, %49 ]
+._crit_edge:                                      ; preds = %49, %._crit_edge.loopexit.split.loop.exit27, %19
+  %57 = phi ptr [ %26, %19 ], [ %56, %._crit_edge.loopexit.split.loop.exit27 ], [ %54, %49 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   store i64 2, ptr %0, align 8
@@ -3460,7 +3460,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   store ptr %31, ptr %24, align 8, !alias.scope !1165, !noalias !1155
   %.sroa.0.0.copyload3.i.i = load i64, ptr %30, align 8, !noalias !1166
   %32 = icmp eq i64 %.sroa.0.0.copyload3.i.i, 12
-  br i1 %32, label %._crit_edge.loopexit.split.loop.exit24, label %33
+  br i1 %32, label %._crit_edge.loopexit.split.loop.exit28, label %33
 
 33:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1eb145e507b6ab4E.llvm.11871282392527080692.exit.i.i"
   %.sroa.8.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -3532,12 +3532,12 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %58 = icmp eq ptr %57, %56
   br i1 %58, label %._crit_edge, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1eb145e507b6ab4E.llvm.11871282392527080692.exit.i.i"
 
-._crit_edge.loopexit.split.loop.exit24:           ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1eb145e507b6ab4E.llvm.11871282392527080692.exit.i.i"
+._crit_edge.loopexit.split.loop.exit28:           ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1eb145e507b6ab4E.llvm.11871282392527080692.exit.i.i"
   %59 = getelementptr inbounds nuw i8, ptr %30, i64 176
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %52, %._crit_edge.loopexit.split.loop.exit24, %19
-  %60 = phi ptr [ %26, %19 ], [ %59, %._crit_edge.loopexit.split.loop.exit24 ], [ %57, %52 ]
+._crit_edge:                                      ; preds = %52, %._crit_edge.loopexit.split.loop.exit28, %19
+  %60 = phi ptr [ %26, %19 ], [ %59, %._crit_edge.loopexit.split.loop.exit28 ], [ %57, %52 ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   store i64 2, ptr %0, align 8
@@ -3922,7 +3922,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   store ptr %31, ptr %24, align 8, !alias.scope !1271, !noalias !1261
   %.sroa.0.0.copyload4.i.i = load i64, ptr %30, align 8, !noalias !1272
   %32 = icmp eq i64 %.sroa.0.0.copyload4.i.i, 12
-  br i1 %32, label %.thread.loopexit.split.loop.exit32, label %33
+  br i1 %32, label %.thread.loopexit.split.loop.exit35, label %33
 
 33:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1eb145e507b6ab4E.llvm.11871282392527080692.exit.i.i"
   %.sroa.8.0..sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -3951,7 +3951,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   invoke void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$uv_tool..tool..ToolEntrypoint$GT$$GT$17hf5d91631ea5f4c52E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #25
           to label %10 unwind label %75
 
-.thread.loopexit.split.loop.exit32:               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1eb145e507b6ab4E.llvm.11871282392527080692.exit.i.i"
+.thread.loopexit.split.loop.exit35:               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1eb145e507b6ab4E.llvm.11871282392527080692.exit.i.i"
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 176
   br label %.loopexit
 
@@ -4014,8 +4014,8 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %.pre = load ptr, ptr %24, align 8, !alias.scope !1286
   br label %.loopexit
 
-.loopexit:                                        ; preds = %51, %19, %.thread.loopexit.split.loop.exit32, %.loopexit.loopexit
-  %58 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %26, %19 ], [ %38, %.thread.loopexit.split.loop.exit32 ], [ %56, %51 ]
+.loopexit:                                        ; preds = %51, %19, %.thread.loopexit.split.loop.exit35, %.loopexit.loopexit
+  %58 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %26, %19 ], [ %38, %.thread.loopexit.split.loop.exit35 ], [ %56, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
@@ -4399,7 +4399,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   store ptr %31, ptr %24, align 8, !alias.scope !1372, !noalias !1362
   %.sroa.0.0.copyload3.i.i = load i64, ptr %30, align 8, !noalias !1373
   %32 = icmp eq i64 %.sroa.0.0.copyload3.i.i, 12
-  br i1 %32, label %._crit_edge.loopexit.split.loop.exit24, label %33
+  br i1 %32, label %._crit_edge.loopexit.split.loop.exit27, label %33
 
 33:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1eb145e507b6ab4E.llvm.11871282392527080692.exit.i.i"
   %.sroa.8.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -4477,12 +4477,12 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %._crit_edge, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1eb145e507b6ab4E.llvm.11871282392527080692.exit.i.i"
 
-._crit_edge.loopexit.split.loop.exit24:           ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1eb145e507b6ab4E.llvm.11871282392527080692.exit.i.i"
+._crit_edge.loopexit.split.loop.exit27:           ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1eb145e507b6ab4E.llvm.11871282392527080692.exit.i.i"
   %56 = getelementptr inbounds nuw i8, ptr %30, i64 176
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %49, %._crit_edge.loopexit.split.loop.exit24, %19
-  %57 = phi ptr [ %26, %19 ], [ %56, %._crit_edge.loopexit.split.loop.exit24 ], [ %54, %49 ]
+._crit_edge:                                      ; preds = %49, %._crit_edge.loopexit.split.loop.exit27, %19
+  %57 = phi ptr [ %26, %19 ], [ %56, %._crit_edge.loopexit.split.loop.exit27 ], [ %54, %49 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   store i64 2, ptr %0, align 8
@@ -5389,7 +5389,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   store ptr %31, ptr %24, align 8, !alias.scope !1585, !noalias !1575
   %.sroa.0.0.copyload3.i.i = load i64, ptr %30, align 8, !noalias !1586
   %32 = icmp eq i64 %.sroa.0.0.copyload3.i.i, 12
-  br i1 %32, label %._crit_edge.loopexit.split.loop.exit24, label %33
+  br i1 %32, label %._crit_edge.loopexit.split.loop.exit27, label %33
 
 33:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1eb145e507b6ab4E.llvm.11871282392527080692.exit.i.i"
   %.sroa.8.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -5467,12 +5467,12 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %._crit_edge, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1eb145e507b6ab4E.llvm.11871282392527080692.exit.i.i"
 
-._crit_edge.loopexit.split.loop.exit24:           ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1eb145e507b6ab4E.llvm.11871282392527080692.exit.i.i"
+._crit_edge.loopexit.split.loop.exit27:           ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1eb145e507b6ab4E.llvm.11871282392527080692.exit.i.i"
   %56 = getelementptr inbounds nuw i8, ptr %30, i64 176
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %49, %._crit_edge.loopexit.split.loop.exit24, %19
-  %57 = phi ptr [ %26, %19 ], [ %56, %._crit_edge.loopexit.split.loop.exit24 ], [ %54, %49 ]
+._crit_edge:                                      ; preds = %49, %._crit_edge.loopexit.split.loop.exit27, %19
+  %57 = phi ptr [ %26, %19 ], [ %56, %._crit_edge.loopexit.split.loop.exit27 ], [ %54, %49 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   store i64 2, ptr %0, align 8
@@ -9746,7 +9746,7 @@ define hidden { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrinter15prin
 26:                                               ; preds = %17
   %.not.i.i.i.i = icmp eq i64 %spec.select.i.i.i.i, 0
   %27 = add nsw i32 %16, 1000000000
-  br i1 %.not.i.i.i.i, label %.thread14.i.i.i, label %31
+  br i1 %.not.i.i.i.i, label %.thread15.i.i.i, label %31
 
 28:                                               ; preds = %31, %17
   %.sroa.011.0.i.i.i.i = phi i32 [ %27, %31 ], [ %16, %17 ]
@@ -9754,7 +9754,7 @@ define hidden { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrinter15prin
   %29 = icmp eq i64 %.sroa.04.0.i.i.i.i, 0
   br i1 %29, label %_ZN4jiff2tz6offset6Offset11to_datetime17hd955ab1466179a3dE.exit, label %33
 
-.thread14.i.i.i:                                  ; preds = %26
+.thread15.i.i.i:                                  ; preds = %26
   %30 = add i32 %22, -1
   br label %39
 
@@ -9770,11 +9770,11 @@ define hidden { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrinter15prin
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %_ZN4jiff2tz6offset6Offset11to_datetime17hd955ab1466179a3dE.exit, label %39
 
-39:                                               ; preds = %33, %.thread14.i.i.i
-  %40 = phi i32 [ 3599, %.thread14.i.i.i ], [ %37, %33 ]
-  %41 = phi i8 [ 23, %.thread14.i.i.i ], [ %36, %33 ]
-  %.sroa.011.0.i919.i.i.i = phi i32 [ %27, %.thread14.i.i.i ], [ %.sroa.011.0.i.i.i.i, %33 ]
-  %.sroa.02.0.i1218.i.i.i = phi i32 [ %30, %.thread14.i.i.i ], [ %22, %33 ]
+39:                                               ; preds = %33, %.thread15.i.i.i
+  %40 = phi i32 [ 3599, %.thread15.i.i.i ], [ %37, %33 ]
+  %41 = phi i8 [ 23, %.thread15.i.i.i ], [ %36, %33 ]
+  %.sroa.011.0.i1020.i.i.i = phi i32 [ %27, %.thread15.i.i.i ], [ %.sroa.011.0.i.i.i.i, %33 ]
+  %.sroa.02.0.i1319.i.i.i = phi i32 [ %30, %.thread15.i.i.i ], [ %22, %33 ]
   %.lhs.trunc2.i.i.i = trunc nuw nsw i32 %40 to i16
   %42 = udiv i16 %.lhs.trunc2.i.i.i, 60
   %43 = zext nneg i16 %42 to i64
@@ -9785,12 +9785,12 @@ define hidden { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrinter15prin
   br label %_ZN4jiff2tz6offset6Offset11to_datetime17hd955ab1466179a3dE.exit
 
 _ZN4jiff2tz6offset6Offset11to_datetime17hd955ab1466179a3dE.exit: ; preds = %28, %33, %39
-  %.sroa.02.0.i13.i.i.i = phi i32 [ %22, %28 ], [ %22, %33 ], [ %.sroa.02.0.i1218.i.i.i, %39 ]
-  %.sroa.011.0.i10.i.i.i = phi i32 [ %.sroa.011.0.i.i.i.i, %28 ], [ %.sroa.011.0.i.i.i.i, %33 ], [ %.sroa.011.0.i919.i.i.i, %39 ]
+  %.sroa.02.0.i14.i.i.i = phi i32 [ %22, %28 ], [ %22, %33 ], [ %.sroa.02.0.i1319.i.i.i, %39 ]
+  %.sroa.011.0.i11.i.i.i = phi i32 [ %.sroa.011.0.i.i.i.i, %28 ], [ %.sroa.011.0.i.i.i.i, %33 ], [ %.sroa.011.0.i1020.i.i.i, %39 ]
   %.sroa.5.0.i.i.i.i = phi i64 [ 0, %28 ], [ 0, %33 ], [ %46, %39 ]
   %.sroa.4.0.i.i.i.i = phi i64 [ 0, %28 ], [ 0, %33 ], [ %47, %39 ]
   %.sroa.3.0.i.i.i.i = phi i8 [ 0, %28 ], [ %36, %33 ], [ %41, %39 ]
-  %48 = shl i32 %.sroa.02.0.i13.i.i.i, 2
+  %48 = shl i32 %.sroa.02.0.i14.i.i.i, 2
   %49 = add i32 %48, 50797691
   %50 = urem i32 %49, 146097
   %51 = or i32 %50, 3
@@ -9822,7 +9822,7 @@ _ZN4jiff2tz6offset6Offset11to_datetime17hd955ab1466179a3dE.exit: ; preds = %28, 
   %.sroa.8.10.insert.insert = or disjoint i32 %.sroa.8.8.insert.ext, %.sroa.8.10.insert.ext
   %.sroa.8.11.insert.shift = shl nuw nsw i32 %.sroa.014.3.extract.trunc.i, 24
   %.sroa.8.11.insert.insert = or disjoint i32 %.sroa.8.10.insert.insert, %.sroa.8.11.insert.shift
-  %.sroa.080.0.insert.ext = zext i32 %.sroa.011.0.i10.i.i.i to i64
+  %.sroa.080.0.insert.ext = zext i32 %.sroa.011.0.i11.i.i.i to i64
   %.sroa.080.4.insert.ext = zext nneg i8 %.sroa.3.0.i.i.i.i to i64
   %.sroa.080.4.insert.shift = shl nuw nsw i64 %.sroa.080.4.insert.ext, 32
   %.sroa.080.4.insert.insert = or disjoint i64 %.sroa.080.4.insert.shift, %.sroa.080.0.insert.ext
@@ -10184,7 +10184,7 @@ _ZN4jiff3fmt8temporal7printer15DateTimePrinter20print_offset_rounded17h69d65783e
 225:                                              ; preds = %218
   %.not.i.i.i.i75 = icmp eq i64 %spec.select.i.i.i.i48, 0
   %226 = add nsw i32 %16, 1000000000
-  br i1 %.not.i.i.i.i75, label %.thread14.i.i.i76, label %230
+  br i1 %.not.i.i.i.i75, label %.thread15.i.i.i76, label %230
 
 227:                                              ; preds = %230, %218
   %.sroa.011.0.i.i.i.i49 = phi i32 [ %226, %230 ], [ %16, %218 ]
@@ -10192,7 +10192,7 @@ _ZN4jiff3fmt8temporal7printer15DateTimePrinter20print_offset_rounded17h69d65783e
   %228 = icmp eq i64 %.sroa.04.0.i.i.i.i50, 0
   br i1 %228, label %"_ZN4core3ptr49drop_in_place$LT$jiff..tz..timezone..TimeZone$GT$17h4d4da31c84a20d5dE.exit", label %232
 
-.thread14.i.i.i76:                                ; preds = %225
+.thread15.i.i.i76:                                ; preds = %225
   %229 = add i32 %221, -1
   br label %238
 
@@ -10208,11 +10208,11 @@ _ZN4jiff3fmt8temporal7printer15DateTimePrinter20print_offset_rounded17h69d65783e
   %237 = icmp eq i32 %236, 0
   br i1 %237, label %"_ZN4core3ptr49drop_in_place$LT$jiff..tz..timezone..TimeZone$GT$17h4d4da31c84a20d5dE.exit", label %238
 
-238:                                              ; preds = %232, %.thread14.i.i.i76
-  %239 = phi i32 [ 3599, %.thread14.i.i.i76 ], [ %236, %232 ]
-  %240 = phi i8 [ 23, %.thread14.i.i.i76 ], [ %235, %232 ]
-  %.sroa.011.0.i919.i.i.i51 = phi i32 [ %226, %.thread14.i.i.i76 ], [ %.sroa.011.0.i.i.i.i49, %232 ]
-  %.sroa.02.0.i1218.i.i.i52 = phi i32 [ %229, %.thread14.i.i.i76 ], [ %221, %232 ]
+238:                                              ; preds = %232, %.thread15.i.i.i76
+  %239 = phi i32 [ 3599, %.thread15.i.i.i76 ], [ %236, %232 ]
+  %240 = phi i8 [ 23, %.thread15.i.i.i76 ], [ %235, %232 ]
+  %.sroa.011.0.i1020.i.i.i51 = phi i32 [ %226, %.thread15.i.i.i76 ], [ %.sroa.011.0.i.i.i.i49, %232 ]
+  %.sroa.02.0.i1319.i.i.i52 = phi i32 [ %229, %.thread15.i.i.i76 ], [ %221, %232 ]
   %.lhs.trunc2.i.i.i53 = trunc nuw nsw i32 %239 to i16
   %241 = udiv i16 %.lhs.trunc2.i.i.i53, 60
   %242 = zext nneg i16 %241 to i64
@@ -10223,21 +10223,21 @@ _ZN4jiff3fmt8temporal7printer15DateTimePrinter20print_offset_rounded17h69d65783e
   br label %"_ZN4core3ptr49drop_in_place$LT$jiff..tz..timezone..TimeZone$GT$17h4d4da31c84a20d5dE.exit"
 
 "_ZN4core3ptr49drop_in_place$LT$jiff..tz..timezone..TimeZone$GT$17h4d4da31c84a20d5dE.exit": ; preds = %227, %232, %238
-  %.sroa.02.0.i13.i.i.i54 = phi i32 [ %221, %227 ], [ %221, %232 ], [ %.sroa.02.0.i1218.i.i.i52, %238 ]
-  %.sroa.011.0.i10.i.i.i55 = phi i32 [ %.sroa.011.0.i.i.i.i49, %227 ], [ %.sroa.011.0.i.i.i.i49, %232 ], [ %.sroa.011.0.i919.i.i.i51, %238 ]
+  %.sroa.02.0.i14.i.i.i54 = phi i32 [ %221, %227 ], [ %221, %232 ], [ %.sroa.02.0.i1319.i.i.i52, %238 ]
+  %.sroa.011.0.i11.i.i.i55 = phi i32 [ %.sroa.011.0.i.i.i.i49, %227 ], [ %.sroa.011.0.i.i.i.i49, %232 ], [ %.sroa.011.0.i1020.i.i.i51, %238 ]
   %.sroa.5.0.i.i.i.i56 = phi i64 [ 0, %227 ], [ 0, %232 ], [ %245, %238 ]
   %.sroa.4.0.i.i.i.i57 = phi i64 [ 0, %227 ], [ 0, %232 ], [ %246, %238 ]
   %.sroa.3.0.i.i.i.i58 = phi i8 [ 0, %227 ], [ %235, %232 ], [ %240, %238 ]
   %.sroa.0.4.insert.ext = zext nneg i8 %.sroa.3.0.i.i.i.i58 to i64
   %.sroa.0.4.insert.shift = shl nuw nsw i64 %.sroa.0.4.insert.ext, 32
-  %.sroa.0.0.insert.ext = zext i32 %.sroa.011.0.i10.i.i.i55 to i64
+  %.sroa.0.0.insert.ext = zext i32 %.sroa.011.0.i11.i.i.i55 to i64
   %.sroa.0.4.insert.insert = or disjoint i64 %.sroa.0.4.insert.shift, %.sroa.0.0.insert.ext
   %.sroa.0.5.insert.ext = and i64 %.sroa.4.0.i.i.i.i57, 280375465082880
   %.sroa.0.5.insert.insert = or disjoint i64 %.sroa.0.4.insert.insert, %.sroa.0.5.insert.ext
   %.sroa.615.10.extract.shift.i68 = or i64 %.sroa.4.0.i.i.i.i57, %.sroa.5.0.i.i.i.i56
   %.sroa.0.6.insert.ext = and i64 %.sroa.615.10.extract.shift.i68, 71776119061217280
   %.sroa.0.6.insert.insert = or disjoint i64 %.sroa.0.5.insert.insert, %.sroa.0.6.insert.ext
-  %247 = shl i32 %.sroa.02.0.i13.i.i.i54, 2
+  %247 = shl i32 %.sroa.02.0.i14.i.i.i54, 2
   %248 = add i32 %247, 50797691
   %249 = udiv i32 %248, 146097
   %250 = mul nuw nsw i32 %249, 100

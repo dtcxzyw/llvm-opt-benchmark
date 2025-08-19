@@ -1767,11 +1767,11 @@ _ZN4llvm11SmallVectorINS_9FlagEntryELj10EED2Ev.exit: ; preds = %_ZN4llvm4sortIRN
   br i1 %or.cond, label %104, label %.thread
 
 .thread:                                          ; preds = %93, %95, %97
-  %.034213 = phi i16 [ %spec.select, %97 ], [ %6, %93 ], [ %7, %95 ]
-  %.pre-phi212 = phi i1 [ %99, %97 ], [ false, %93 ], [ false, %95 ]
-  %102 = and i16 %.034213, %3
+  %.034220 = phi i16 [ %spec.select, %97 ], [ %6, %93 ], [ %7, %95 ]
+  %.pre-phi219 = phi i1 [ %99, %97 ], [ false, %93 ], [ false, %95 ]
+  %102 = and i16 %.034220, %3
   %103 = icmp ne i16 %102, %91
-  %or.cond196.not = or i1 %103, %.pre-phi212
+  %or.cond196.not = or i1 %103, %.pre-phi219
   br i1 %or.cond196.not, label %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE12emplace_backIJRKNS_9StringRefERKtEEERS1_DpOT_.exit, label %104
 
 104:                                              ; preds = %.thread, %97
@@ -2554,11 +2554,11 @@ _ZN4llvm11SmallVectorINS_9FlagEntryELj10EED2Ev.exit: ; preds = %_ZN4llvm4sortIRN
   br i1 %or.cond, label %104, label %.thread
 
 .thread:                                          ; preds = %93, %95, %97
-  %.034213 = phi i8 [ %spec.select, %97 ], [ %6, %93 ], [ %7, %95 ]
-  %.pre-phi212 = phi i1 [ %99, %97 ], [ false, %93 ], [ false, %95 ]
-  %102 = and i8 %.034213, %3
+  %.034220 = phi i8 [ %spec.select, %97 ], [ %6, %93 ], [ %7, %95 ]
+  %.pre-phi219 = phi i1 [ %99, %97 ], [ false, %93 ], [ false, %95 ]
+  %102 = and i8 %.034220, %3
   %103 = icmp ne i8 %102, %91
-  %or.cond196.not = or i1 %103, %.pre-phi212
+  %or.cond196.not = or i1 %103, %.pre-phi219
   br i1 %or.cond196.not, label %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE12emplace_backIJRKNS_9StringRefERKhEEERS1_DpOT_.exit, label %104
 
 104:                                              ; preds = %.thread, %97
@@ -4735,7 +4735,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPN4llvm9FlagEntryElN9__gnu_cxx5
   %30 = and i64 %25, 1
   %31 = icmp eq i64 %30, 0
   %32 = or disjoint i64 %26, 1
-  %33 = getelementptr inbounds %"struct.llvm::FlagEntry", ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %0, i64 %32
   %34 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %0, i64 %27
   br label %35
 
@@ -4784,19 +4784,19 @@ define linkonce_odr void @_ZSt16__introsort_loopIPN4llvm9FlagEntryElN9__gnu_cxx5
   %.01316.i.i.i.i = phi i64 [ %.017.i.i.i.i, %54 ], [ %.127.i.i.i, %50 ]
   %.017.in.i.i.i.i = add nsw i64 %.01316.i.i.i.i, -1
   %.017.i.i.i.i = sdiv i64 %.017.in.i.i.i.i, 2
-  %52 = getelementptr inbounds %"struct.llvm::FlagEntry", ptr %0, i64 %.017.i.i.i.i
+  %52 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %0, i64 %.017.i.i.i.i
   %53 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %5) #15
   br i1 %53, label %54, label %_ZSt13__adjust_heapIPN4llvm9FlagEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit.i.i
 
 54:                                               ; preds = %.lr.ph.i.i.i.i17
-  %55 = getelementptr inbounds %"struct.llvm::FlagEntry", ptr %0, i64 %.01316.i.i.i.i
+  %55 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %0, i64 %.01316.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false), !tbaa.struct !73
   %56 = icmp sgt i64 %.017.i.i.i.i, %.013.i.i16
   br i1 %56, label %.lr.ph.i.i.i.i17, label %_ZSt13__adjust_heapIPN4llvm9FlagEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit.i.i, !llvm.loop !195
 
 _ZSt13__adjust_heapIPN4llvm9FlagEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit.i.i: ; preds = %54, %.lr.ph.i.i.i.i17, %50
   %.013.lcssa.i.i.i.i = phi i64 [ %.127.i.i.i, %50 ], [ %.017.i.i.i.i, %54 ], [ %.01316.i.i.i.i, %.lr.ph.i.i.i.i17 ]
-  %57 = getelementptr inbounds %"struct.llvm::FlagEntry", ptr %0, i64 %.013.lcssa.i.i.i.i
+  %57 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %0, i64 %.013.lcssa.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !73
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

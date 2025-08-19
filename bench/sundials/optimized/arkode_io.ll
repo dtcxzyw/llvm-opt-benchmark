@@ -1260,10 +1260,10 @@ define range(i32 -20, 1) i32 @arkReplaceAdaptController(ptr noundef %0, ptr noun
   br label %44
 
 44:                                               ; preds = %33, %42
-  %.sink31 = phi ptr [ %43, %42 ], [ %34, %33 ]
+  %.sink34 = phi ptr [ %43, %42 ], [ %34, %33 ]
   %.sink = phi i32 [ 1, %42 ], [ %2, %33 ]
   %.024 = phi ptr [ %39, %42 ], [ %1, %33 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.sink31, i64 112
+  %45 = getelementptr inbounds nuw i8, ptr %.sink34, i64 112
   store i32 %.sink, ptr %45, align 8, !tbaa !87
   %46 = call i32 @SUNAdaptController_Space(ptr noundef nonnull %.024, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
   %47 = icmp eq i32 %46, 0

@@ -13850,16 +13850,16 @@ _ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.ex
 85:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd7662c5bafdc1f27E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   store i32 0, ptr %.sroa.4, align 4
-  %.sroa.4.4..sroa_idx19 = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 4
-  store i32 0, ptr %.sroa.4.4..sroa_idx19, align 4
+  %.sroa.4.4..sroa_idx21 = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 4
+  store i32 0, ptr %.sroa.4.4..sroa_idx21, align 4
   %.sroa.4.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 8
   store i32 0, ptr %.sroa.4.8..sroa_idx, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.4, ptr align 1 %9, i64 %10, i1 false)
   %.sroa.4.0..sroa.4.0..sroa.4.0..sroa.3.4.copyload = load i32, ptr %.sroa.4, align 4
-  %.sroa.4.4..sroa_idx20 = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 4
-  %.sroa.4.4..sroa.4.4..sroa.4.4..sroa.6.4.copyload = load i32, ptr %.sroa.4.4..sroa_idx20, align 4
-  %.sroa.4.8..sroa_idx21 = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 8
-  %.sroa.4.8..sroa.4.8..sroa.4.8..sroa.7.4.copyload = load i32, ptr %.sroa.4.8..sroa_idx21, align 4
+  %.sroa.4.4..sroa_idx22 = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 4
+  %.sroa.4.4..sroa.4.4..sroa.4.4..sroa.6.4.copyload = load i32, ptr %.sroa.4.4..sroa_idx22, align 4
+  %.sroa.4.8..sroa_idx23 = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 8
+  %.sroa.4.8..sroa.4.8..sroa.4.8..sroa.7.4.copyload = load i32, ptr %.sroa.4.8..sroa_idx23, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
   br label %_ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.exit
 }
@@ -17300,7 +17300,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !724, !noundef !6
-  switch i8 %23, label %default.unreachable61 [
+  switch i8 %23, label %default.unreachable66 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -17342,7 +17342,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %228
   ]
 
-default.unreachable61:                            ; preds = %2
+default.unreachable66:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2

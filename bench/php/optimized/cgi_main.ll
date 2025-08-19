@@ -310,28 +310,28 @@ define hidden void @zif_apache_request_headers(ptr noundef readonly captures(non
 
 .lr.ph.preheader:                                 ; preds = %16
   %18 = load ptr, ptr %17, align 8, !tbaa !60
-  %.not161188 = icmp eq ptr %18, null
-  br i1 %.not161188, label %.critedge, label %.lr.ph192
+  %.not161195 = icmp eq ptr %18, null
+  br i1 %.not161195, label %.critedge, label %.lr.ph199
 
-.lr.ph192:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph199:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %19 = phi ptr [ %93, %.lr.ph ], [ %18, %.lr.ph.preheader ]
-  %.0147177191 = phi ptr [ %92, %.lr.ph ], [ %17, %.lr.ph.preheader ]
-  %.0137182190 = phi ptr [ %.1138, %.lr.ph ], [ %3, %.lr.ph.preheader ]
-  %.0136183189 = phi i64 [ %.1, %.lr.ph ], [ 128, %.lr.ph.preheader ]
+  %.0147177198 = phi ptr [ %92, %.lr.ph ], [ %17, %.lr.ph.preheader ]
+  %.0137182197 = phi ptr [ %.1138, %.lr.ph ], [ %3, %.lr.ph.preheader ]
+  %.0136183196 = phi i64 [ %.1, %.lr.ph ], [ 128, %.lr.ph.preheader ]
   %20 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %19, i32 noundef 61) #30
   %.not162 = icmp eq ptr %20, null
   br i1 %.not162, label %.lr.ph, label %21
 
-21:                                               ; preds = %.lr.ph192
+21:                                               ; preds = %.lr.ph199
   %22 = ptrtoint ptr %20 to i64
   %23 = ptrtoint ptr %19 to i64
   %24 = sub i64 %22, %23
-  %.not163 = icmp ult i64 %24, %.0136183189
+  %.not163 = icmp ult i64 %24, %.0136183196
   br i1 %.not163, label %32, label %25
 
 25:                                               ; preds = %21
   %26 = add i64 %24, 64
-  %27 = icmp eq ptr %.0137182190, %3
+  %27 = icmp eq ptr %.0137182197, %3
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %25
@@ -339,13 +339,13 @@ define hidden void @zif_apache_request_headers(ptr noundef readonly captures(non
   br label %32
 
 30:                                               ; preds = %25
-  %31 = call ptr @_erealloc(ptr noundef %.0137182190, i64 noundef %26) #32
+  %31 = call ptr @_erealloc(ptr noundef %.0137182197, i64 noundef %26) #32
   br label %32
 
 32:                                               ; preds = %30, %28, %21
-  %.2139 = phi ptr [ %.0137182190, %21 ], [ %31, %30 ], [ %29, %28 ]
-  %.2 = phi i64 [ %.0136183189, %21 ], [ %26, %30 ], [ %26, %28 ]
-  %33 = load ptr, ptr %.0147177191, align 8, !tbaa !60
+  %.2139 = phi ptr [ %.0137182197, %21 ], [ %31, %30 ], [ %29, %28 ]
+  %.2 = phi i64 [ %.0136183196, %21 ], [ %26, %30 ], [ %26, %28 ]
+  %33 = load ptr, ptr %.0147177198, align 8, !tbaa !60
   %34 = icmp ugt i64 %24, 5
   br i1 %34, label %35, label %85
 
@@ -483,13 +483,13 @@ define hidden void @zif_apache_request_headers(ptr noundef readonly captures(non
   call void @add_assoc_string_ex(ptr noundef nonnull %1, ptr noundef nonnull %.0142, i64 noundef %.0, ptr noundef nonnull %91) #29
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %86, %85, %88, %.lr.ph192, %90
-  %.1138 = phi ptr [ %.4141, %90 ], [ %.2139, %88 ], [ %.0137182190, %.lr.ph192 ], [ %.2139, %85 ], [ %.2139, %86 ]
-  %.1 = phi i64 [ %.4, %90 ], [ %.2, %88 ], [ %.0136183189, %.lr.ph192 ], [ %.2, %85 ], [ %.2, %86 ]
-  %92 = getelementptr inbounds nuw i8, ptr %.0147177191, i64 8
+.lr.ph:                                           ; preds = %86, %85, %88, %.lr.ph199, %90
+  %.1138 = phi ptr [ %.4141, %90 ], [ %.2139, %88 ], [ %.0137182197, %.lr.ph199 ], [ %.2139, %85 ], [ %.2139, %86 ]
+  %.1 = phi i64 [ %.4, %90 ], [ %.2, %88 ], [ %.0136183196, %.lr.ph199 ], [ %.2, %85 ], [ %.2, %86 ]
+  %92 = getelementptr inbounds nuw i8, ptr %.0147177198, i64 8
   %93 = load ptr, ptr %92, align 8, !tbaa !60
   %.not161 = icmp eq ptr %93, null
-  br i1 %.not161, label %.critedge, label %.lr.ph192
+  br i1 %.not161, label %.critedge, label %.lr.ph199
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader
   %.0137182.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %.1138, %.lr.ph ]
@@ -704,12 +704,12 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %28 = phi i1 [ false, %2 ], [ true, %26 ], [ false, %24 ]
   %29 = call ptr @getenv(ptr noundef nonnull @.str.8) #29
   %.not311 = icmp eq ptr %29, null
-  br i1 %.not311, label %.thread488, label %30
+  br i1 %.not311, label %.thread531, label %30
 
 30:                                               ; preds = %27
   %31 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %29, i32 noundef 61) #30
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %.thread488
+  br i1 %32, label %33, label %.thread531
 
 33:                                               ; preds = %30
   %34 = call noalias ptr @strdup(ptr noundef nonnull %29) #29
@@ -725,17 +725,17 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %40 = getelementptr inbounds nuw i8, ptr %.0252, i64 1
   br i1 %or.cond357, label %37, label %41
 
-.thread488:                                       ; preds = %30, %27
+.thread531:                                       ; preds = %30, %27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   br label %.lr.ph.split.us.preheader
 
 41:                                               ; preds = %37
-  %.not518 = icmp eq i8 %38, 45
+  %.not561 = icmp eq i8 %38, 45
   call void @free(ptr noundef nonnull %34) #29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  br i1 %.not518, label %.critedge4.thread, label %.lr.ph.split.us.preheader
+  br i1 %.not561, label %.critedge4.thread, label %.lr.ph.split.us.preheader
 
-.lr.ph.split.us.preheader:                        ; preds = %.thread488, %41
+.lr.ph.split.us.preheader:                        ; preds = %.thread531, %41
   br label %.lr.ph.split.us.outer
 
 .critedge4.thread:                                ; preds = %41
@@ -743,7 +743,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   store ptr %14, ptr @php_optarg, align 8, !tbaa !60
   br label %php_ini_builder_finish.exit
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.backedge, %.lr.ph.split.us.outer586
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.backedge, %.lr.ph.split.us.outer629
   %42 = call i32 @php_getopt(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @OPTIONS, ptr noundef nonnull @php_optarg, ptr noundef nonnull @php_optind, i32 noundef 0, i32 noundef 2) #29
   switch i32 %42, label %.lr.ph.split.us.backedge [
     i32 -1, label %.critedge4
@@ -756,8 +756,8 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 .lr.ph.split.us.outer:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.preheader
   %.0226436.us.ph = phi i32 [ 1, %.lr.ph.split.us.preheader ], [ 2, %.lr.ph.split.us ]
-  %.0275435.us.ph = phi ptr [ null, %.lr.ph.split.us.preheader ], [ %.0275435.us.ph587, %.lr.ph.split.us ]
-  br label %.lr.ph.split.us.outer586
+  %.0275435.us.ph = phi ptr [ null, %.lr.ph.split.us.preheader ], [ %.0275435.us.ph630, %.lr.ph.split.us ]
+  br label %.lr.ph.split.us.outer629
 
 43:                                               ; preds = %.lr.ph.split.us
   br i1 %17, label %.lr.ph.split.us.backedge, label %44
@@ -765,10 +765,10 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 44:                                               ; preds = %43
   %45 = load ptr, ptr @php_optarg, align 8, !tbaa !60
   %46 = call noalias ptr @strdup(ptr noundef %45) #29
-  br label %.lr.ph.split.us.outer586
+  br label %.lr.ph.split.us.outer629
 
-.lr.ph.split.us.outer586:                         ; preds = %.lr.ph.split.us.outer, %44
-  %.0275435.us.ph587 = phi ptr [ %.0275435.us.ph, %.lr.ph.split.us.outer ], [ %46, %44 ]
+.lr.ph.split.us.outer629:                         ; preds = %.lr.ph.split.us.outer, %44
+  %.0275435.us.ph630 = phi ptr [ %.0275435.us.ph, %.lr.ph.split.us.outer ], [ %46, %44 ]
   br label %.lr.ph.split.us
 
 47:                                               ; preds = %.lr.ph.split.us
@@ -814,12 +814,12 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %php_ini_builder_finish.exit
 
 php_ini_builder_finish.exit:                      ; preds = %.critedge4.thread, %.critedge4, %56
-  %.0226.lcssa498 = phi i32 [ %.0226436.us.ph, %56 ], [ %.0226436.us.ph, %.critedge4 ], [ 1, %.critedge4.thread ]
-  %.0275.lcssa497 = phi ptr [ %.0275435.us.ph587, %56 ], [ %.0275435.us.ph587, %.critedge4 ], [ null, %.critedge4.thread ]
-  %.0253490496 = phi i1 [ true, %56 ], [ true, %.critedge4 ], [ false, %.critedge4.thread ]
+  %.0226.lcssa541 = phi i32 [ %.0226436.us.ph, %56 ], [ %.0226436.us.ph, %.critedge4 ], [ 1, %.critedge4.thread ]
+  %.0275.lcssa540 = phi ptr [ %.0275435.us.ph630, %56 ], [ %.0275435.us.ph630, %.critedge4 ], [ null, %.critedge4.thread ]
+  %.0253533539 = phi i1 [ true, %56 ], [ true, %.critedge4 ], [ false, %.critedge4.thread ]
   %60 = phi ptr [ %.pre.i, %56 ], [ null, %.critedge4 ], [ null, %.critedge4.thread ]
   store ptr %60, ptr getelementptr inbounds nuw (i8, ptr @cgi_sapi_module, i64 256), align 8, !tbaa !82
-  %61 = icmp ne ptr %.0275.lcssa497, null
+  %61 = icmp ne ptr %.0275.lcssa540, null
   %or.cond = select i1 %17, i1 true, i1 %61
   br i1 %or.cond, label %62, label %63
 
@@ -849,7 +849,7 @@ php_ini_builder_finish.exit:                      ; preds = %.critedge4.thread, 
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %66
-  call void @free(ptr noundef %.0275.lcssa497) #29
+  call void @free(ptr noundef %.0275.lcssa540) #29
   br label %.thread375
 
 71:                                               ; preds = %66
@@ -882,7 +882,7 @@ php_ini_builder_finish.exit:                      ; preds = %.critedge4.thread, 
 .thread:                                          ; preds = %77, %81
   store ptr %78, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !92
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @free(ptr noundef %.0275.lcssa497) #29
+  call void @free(ptr noundef %.0275.lcssa540) #29
   br label %.thread375
 
 83:                                               ; preds = %74, %71
@@ -907,13 +907,13 @@ php_ini_builder_finish.exit:                      ; preds = %.critedge4.thread, 
 
 .thread371:                                       ; preds = %84, %86
   %.0233374 = phi i32 [ %88, %86 ], [ 128, %84 ]
-  %93 = call i32 @fcgi_listen(ptr noundef nonnull %.0275.lcssa497, i32 noundef %.0233374) #29
+  %93 = call i32 @fcgi_listen(ptr noundef nonnull %.0275.lcssa540, i32 noundef %.0233374) #29
   %94 = icmp slt i32 %93, 0
   br i1 %94, label %95, label %98
 
 95:                                               ; preds = %.thread371
   %96 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %97 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef nonnull @.str.13, ptr noundef nonnull %.0275.lcssa497) #34
+  %97 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef nonnull @.str.13, ptr noundef nonnull %.0275.lcssa540) #34
   br label %.thread375
 
 98:                                               ; preds = %.thread371
@@ -1098,7 +1098,7 @@ php_ini_builder_finish.exit:                      ; preds = %.critedge4.thread, 
   br i1 %162, label %.preheader414, label %678
 
 .preheader414:                                    ; preds = %.loopexit418
-  br i1 %.0253490496, label %.lr.ph447.split.us.outer, label %.critedge15
+  br i1 %.0253533539, label %.lr.ph447.split.us.outer, label %.critedge15
 
 .lr.ph447.split.us.outer:                         ; preds = %.preheader414, %172
   %.0257446.us.ph = phi i32 [ 1, %172 ], [ 0, %.preheader414 ]
@@ -1182,7 +1182,7 @@ php_ini_builder_finish.exit:                      ; preds = %.critedge4.thread, 
   %.0251.ph = phi i32 [ 0, %.critedge15 ], [ %.0251, %.backedge.outer.backedge ]
   %.0239.ph = phi ptr [ null, %.critedge15 ], [ %.0239.ph.be, %.backedge.outer.backedge ]
   %.0234.ph = phi i32 [ 0, %.critedge15 ], [ %.1235, %.backedge.outer.backedge ]
-  %.2228.ph = phi i32 [ %.0226.lcssa498, %.critedge15 ], [ %.3229, %.backedge.outer.backedge ]
+  %.2228.ph = phi i32 [ %.0226.lcssa541, %.critedge15 ], [ %.3229, %.backedge.outer.backedge ]
   %.2209.ph = phi i32 [ 0, %.critedge15 ], [ %spec.select, %.backedge.outer.backedge ]
   %.0203.ph = phi i32 [ 0, %.critedge15 ], [ %.1204, %.backedge.outer.backedge ]
   %.not343 = icmp eq i32 %.3271.ph, 0
@@ -1333,7 +1333,7 @@ _sapi_cgi_putenv.exit.i:                          ; preds = %216
   %250 = call noalias ptr @_estrndup(ptr noundef nonnull %.1.i, i64 noundef %240) #29
   br label %251
 
-251:                                              ; preds = %.backedge535, %249
+251:                                              ; preds = %.backedge578, %249
   %252 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %250, i32 noundef 47) #30
   %.not370.i = icmp eq ptr %252, null
   br i1 %.not370.i, label %253, label %.critedge.i
@@ -1348,15 +1348,15 @@ _sapi_cgi_putenv.exit.i:                          ; preds = %216
   store i8 0, ptr %.0320.i, align 1, !tbaa !4
   %255 = call i32 @stat(ptr noundef nonnull %250, ptr noundef nonnull %3) #29
   %256 = icmp eq i32 %255, 0
-  br i1 %256, label %257, label %.backedge535
+  br i1 %256, label %257, label %.backedge578
 
 257:                                              ; preds = %.critedge.i
   %258 = load i32, ptr %181, align 8, !tbaa !109
   %259 = and i32 %258, 61440
   %260 = icmp eq i32 %259, 32768
-  br i1 %260, label %261, label %.backedge535
+  br i1 %260, label %261, label %.backedge578
 
-.backedge535:                                     ; preds = %257, %.critedge.i
+.backedge578:                                     ; preds = %257, %.critedge.i
   br label %251
 
 261:                                              ; preds = %257
@@ -1427,7 +1427,7 @@ _sapi_cgi_putenv.exit369:                         ; preds = %.thread472.i, %274
   store i8 %271, ptr %266, align 1, !tbaa !4
   %283 = call i32 @setenv(ptr noundef nonnull @.str.114, ptr noundef nonnull %266, i32 noundef 1) #29
   %284 = call noundef ptr @getenv(ptr noundef nonnull @.str.114) #29
-  br i1 %200, label %_sapi_cgi_putenv.exit421.i, label %.thread534.i
+  br i1 %200, label %_sapi_cgi_putenv.exit421.i, label %.thread555.i
 
 .thread477.i:                                     ; preds = %.thread474.i, %.thread519.i
   %storemerge.i = phi ptr [ %280, %.thread474.i ], [ %234, %.thread519.i ]
@@ -1441,10 +1441,10 @@ _sapi_cgi_putenv.exit369:                         ; preds = %.thread472.i, %274
   %.not379.i = icmp eq i32 %287, 0
   br i1 %.not379.i, label %297, label %290
 
-.thread534.i:                                     ; preds = %_sapi_cgi_putenv.exit369
+.thread555.i:                                     ; preds = %_sapi_cgi_putenv.exit369
   %288 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(1) %250) #30
-  %.not379536.i = icmp eq i32 %288, 0
-  br i1 %.not379536.i, label %297, label %.critedge400.thread.i
+  %.not379557.i = icmp eq i32 %288, 0
+  br i1 %.not379557.i, label %297, label %.critedge400.thread.i
 
 .thread524.i:                                     ; preds = %.thread477.i
   %289 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(1) %250) #30
@@ -1459,8 +1459,8 @@ _sapi_cgi_putenv.exit369:                         ; preds = %.thread472.i, %274
   %291 = call ptr @fcgi_quick_putenv(ptr noundef %.0272, ptr noundef nonnull @.str.150, i32 noundef 20, i32 noundef 1812, ptr noundef nonnull %198) #29
   br label %.critedge400.thread484.i
 
-.critedge400.thread.i:                            ; preds = %290, %.thread534.i
-  %.0315482537540.i = phi ptr [ %231, %290 ], [ %284, %.thread534.i ]
+.critedge400.thread.i:                            ; preds = %290, %.thread555.i
+  %.0315482558561.i = phi ptr [ %231, %290 ], [ %284, %.thread555.i ]
   %292 = call i32 @setenv(ptr noundef nonnull @.str.150, ptr noundef nonnull %198, i32 noundef 1) #29
   %293 = call noundef ptr @getenv(ptr noundef nonnull @.str.150) #29
   br label %_sapi_cgi_putenv.exit421.i
@@ -1474,14 +1474,14 @@ _sapi_cgi_putenv.exit369:                         ; preds = %.thread472.i, %274
   br label %297
 
 _sapi_cgi_putenv.exit421.i:                       ; preds = %.critedge400.i, %.critedge400.thread.i, %_sapi_cgi_putenv.exit369
-  %.0315480.i = phi ptr [ %.0315482537540.i, %.critedge400.thread.i ], [ %231, %.critedge400.i ], [ %284, %_sapi_cgi_putenv.exit369 ]
+  %.0315480.i = phi ptr [ %.0315482558561.i, %.critedge400.thread.i ], [ %231, %.critedge400.i ], [ %284, %_sapi_cgi_putenv.exit369 ]
   %295 = call i32 @setenv(ptr noundef nonnull @.str.144, ptr noundef nonnull %250, i32 noundef 1) #29
   %296 = call noundef ptr @getenv(ptr noundef nonnull @.str.144) #29
   br label %297
 
-297:                                              ; preds = %_sapi_cgi_putenv.exit421.i, %.critedge400.thread484.i, %.thread524.i, %.thread534.i, %286
-  %.0315481.i = phi ptr [ %231, %286 ], [ %.0315479.i, %.critedge400.thread484.i ], [ %.0315480.i, %_sapi_cgi_putenv.exit421.i ], [ %285, %.thread524.i ], [ %284, %.thread534.i ]
-  %.3.i = phi ptr [ %.1.i, %286 ], [ %294, %.critedge400.thread484.i ], [ %296, %_sapi_cgi_putenv.exit421.i ], [ %.1.i, %.thread524.i ], [ %.1.i, %.thread534.i ]
+297:                                              ; preds = %_sapi_cgi_putenv.exit421.i, %.critedge400.thread484.i, %.thread524.i, %.thread555.i, %286
+  %.0315481.i = phi ptr [ %231, %286 ], [ %.0315479.i, %.critedge400.thread484.i ], [ %.0315480.i, %_sapi_cgi_putenv.exit421.i ], [ %285, %.thread524.i ], [ %284, %.thread555.i ]
+  %.3.i = phi ptr [ %.1.i, %286 ], [ %294, %.critedge400.thread484.i ], [ %296, %_sapi_cgi_putenv.exit421.i ], [ %.1.i, %.thread524.i ], [ %.1.i, %.thread555.i ]
   %.not380.i = icmp eq ptr %.0319.i, null
   br i1 %.not380.i, label %328, label %298
 
@@ -1665,7 +1665,7 @@ _sapi_cgi_putenv.exit:                            ; preds = %350, %.thread492.i
 371:                                              ; preds = %370
   %372 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %234, ptr noundef nonnull dereferenceable(1) %.0317.i) #30
   %.not390.i = icmp eq i32 %372, 0
-  br i1 %.not390.i, label %.sink.split542.i, label %373
+  br i1 %.not390.i, label %.sink.split563.i, label %373
 
 373:                                              ; preds = %371
   br i1 %.not357.i, label %.critedge403.thread.i, label %.critedge403.thread499.i
@@ -1684,11 +1684,11 @@ _sapi_cgi_putenv.exit:                            ; preds = %350, %.thread492.i
 
 377:                                              ; preds = %.critedge403.i, %.critedge403.thread499.i
   %378 = call ptr @fcgi_quick_putenv(ptr noundef %.0272, ptr noundef nonnull @.str.146, i32 noundef 11, i32 noundef 1811, ptr noundef %.0317.i) #29
-  br label %.sink.split542.i
+  br label %.sink.split563.i
 
 379:                                              ; preds = %.critedge403.i, %.critedge403.thread.i
   %380 = call fastcc ptr @_sapi_cgi_putenv(ptr noundef nonnull @.str.146, ptr noundef %.0317.i)
-  br label %.sink.split542.i
+  br label %.sink.split563.i
 
 381:                                              ; preds = %246, %239
   %.0318.i = phi ptr [ %247, %246 ], [ null, %239 ]
@@ -1770,7 +1770,7 @@ _sapi_cgi_putenv.exit440.i:                       ; preds = %.critedge405.i, %.c
 
 410:                                              ; preds = %.thread505.i, %.thread503.i, %.thread502.i, %.thread504.i, %396, %393
   %.not367.i = icmp eq ptr %.0317.i, %234
-  br i1 %.not367.i, label %.sink.split542.i, label %411
+  br i1 %.not367.i, label %.sink.split563.i, label %411
 
 411:                                              ; preds = %410
   %.not369.i = icmp eq ptr %234, null
@@ -1793,7 +1793,7 @@ _sapi_cgi_putenv.exit440.i:                       ; preds = %.critedge405.i, %.c
 
 417:                                              ; preds = %416, %.thread508.i
   %418 = call ptr @fcgi_quick_putenv(ptr noundef %.0272, ptr noundef nonnull @.str.146, i32 noundef 11, i32 noundef 1811, ptr noundef %.0317.i) #29
-  br label %.sink.split542.i
+  br label %.sink.split563.i
 
 419:                                              ; preds = %416, %.thread507.i
   %.not.i452.i = icmp eq ptr %.0317.i, null
@@ -1809,7 +1809,7 @@ _sapi_cgi_putenv.exit440.i:                       ; preds = %.critedge405.i, %.c
 
 _sapi_cgi_putenv.exit454.i:                       ; preds = %.critedge.i453.i, %420
   %423 = call noundef ptr @getenv(ptr noundef nonnull @.str.146) #29
-  br label %.sink.split542.i
+  br label %.sink.split563.i
 
 424:                                              ; preds = %.thread459.i, %203
   %425 = phi ptr [ %213, %.thread459.i ], [ %207, %203 ]
@@ -1826,17 +1826,17 @@ _sapi_cgi_putenv.exit454.i:                       ; preds = %.critedge.i453.i, %
   %spec.select531.i = select i1 %or.cond7.i, ptr %199, ptr %spec.select.i
   br label %.thread.i
 
-.sink.split542.i:                                 ; preds = %_sapi_cgi_putenv.exit454.i, %417, %410, %379, %377, %371
+.sink.split563.i:                                 ; preds = %_sapi_cgi_putenv.exit454.i, %417, %410, %379, %377, %371
   %.sink.sink.i = phi ptr [ %378, %377 ], [ %380, %379 ], [ %234, %371 ], [ %418, %417 ], [ %423, %_sapi_cgi_putenv.exit454.i ], [ %.0317.i, %410 ]
-  %.sink541.ph.i = phi ptr [ %250, %377 ], [ %250, %379 ], [ %250, %371 ], [ %.0318.i, %417 ], [ %.0318.i, %_sapi_cgi_putenv.exit454.i ], [ %.0318.i, %410 ]
+  %.sink562.ph.i = phi ptr [ %250, %377 ], [ %250, %379 ], [ %250, %371 ], [ %.0318.i, %417 ], [ %.0318.i, %_sapi_cgi_putenv.exit454.i ], [ %.0318.i, %410 ]
   %.5.ph.i = phi ptr [ %.4.i, %377 ], [ %.4.i, %379 ], [ %.4.i, %371 ], [ %.6.i, %417 ], [ %.6.i, %_sapi_cgi_putenv.exit454.i ], [ %.6.i, %410 ]
   store ptr %.sink.sink.i, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 48), align 8, !tbaa !105
   br label %431
 
-431:                                              ; preds = %.sink.split542.i, %.thread494.i
-  %.sink541.i = phi ptr [ %250, %.thread494.i ], [ %.sink541.ph.i, %.sink.split542.i ]
-  %.5.i = phi ptr [ %.4.i, %.thread494.i ], [ %.5.ph.i, %.sink.split542.i ]
-  call void @_efree(ptr noundef %.sink541.i) #29
+431:                                              ; preds = %.sink.split563.i, %.thread494.i
+  %.sink562.i = phi ptr [ %250, %.thread494.i ], [ %.sink562.ph.i, %.sink.split563.i ]
+  %.5.i = phi ptr [ %.4.i, %.thread494.i ], [ %.5.ph.i, %.sink.split563.i ]
+  call void @_efree(ptr noundef %.sink562.i) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i455.i = icmp eq ptr %.5.i, null
   br i1 %.not.i455.i, label %is_valid_path.exit.thread.i, label %.thread.i, !prof !110
@@ -1847,28 +1847,28 @@ _sapi_cgi_putenv.exit454.i:                       ; preds = %.critedge.i453.i, %
   %433 = phi ptr [ %233, %431 ], [ %426, %424 ]
   %434 = load i8, ptr %.7512.i, align 1, !tbaa !4
   %435 = icmp eq i8 %434, 46
-  br i1 %435, label %436, label %.preheader534, !prof !64
+  br i1 %435, label %436, label %.preheader577, !prof !64
 
 436:                                              ; preds = %.thread.i
   %437 = getelementptr inbounds nuw i8, ptr %.7512.i, i64 1
   %438 = load i8, ptr %437, align 1, !tbaa !4
   %439 = icmp eq i8 %438, 46
-  br i1 %439, label %440, label %.preheader534
+  br i1 %439, label %440, label %.preheader577
 
 440:                                              ; preds = %436
   %441 = getelementptr inbounds nuw i8, ptr %.7512.i, i64 2
   %442 = load i8, ptr %441, align 1, !tbaa !4
-  switch i8 %442, label %.preheader534 [
+  switch i8 %442, label %.preheader577 [
     i8 0, label %is_valid_path.exit.thread.i
     i8 47, label %is_valid_path.exit.thread.i
   ]
 
-.preheader534:                                    ; preds = %440, %436, %.thread.i
+.preheader577:                                    ; preds = %440, %436, %.thread.i
   br label %443
 
-443:                                              ; preds = %.preheader534, %456
-  %444 = phi i8 [ %.pre.i.i, %456 ], [ %434, %.preheader534 ]
-  %.0.i.i = phi ptr [ %457, %456 ], [ %.7512.i, %.preheader534 ]
+443:                                              ; preds = %.preheader577, %456
+  %444 = phi i8 [ %.pre.i.i, %456 ], [ %434, %.preheader577 ]
+  %.0.i.i = phi ptr [ %457, %456 ], [ %.7512.i, %.preheader577 ]
   switch i8 %444, label %456 [
     i8 0, label %is_valid_path.exit.i
     i8 47, label %445
@@ -2029,7 +2029,7 @@ init_request_info.exit:                           ; preds = %197, %478
 501:                                              ; preds = %498
   store ptr null, ptr @sapi_globals, align 8, !tbaa !44
   call void @php_module_shutdown() #29
-  call void @free(ptr noundef %.0275.lcssa497) #29
+  call void @free(ptr noundef %.0275.lcssa540) #29
   br label %679
 
 502:                                              ; preds = %498
@@ -2088,7 +2088,7 @@ init_request_info.exit:                           ; preds = %197, %478
 518:                                              ; preds = %515
   store ptr null, ptr @sapi_globals, align 8, !tbaa !44
   call void @php_module_shutdown() #29
-  call void @free(ptr noundef %.0275.lcssa497) #29
+  call void @free(ptr noundef %.0275.lcssa540) #29
   br label %679
 
 519:                                              ; preds = %515
@@ -2191,8 +2191,8 @@ init_request_info.exit:                           ; preds = %197, %478
   %554 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 16), align 8, !tbaa !104
   %.not348 = icmp eq ptr %554, null
   %555 = icmp sgt i32 %0, %551
-  %or.cond517 = select i1 %.not348, i1 %555, i1 false
-  br i1 %or.cond517, label %556, label %576
+  %or.cond560 = select i1 %.not348, i1 %555, i1 false
+  br i1 %or.cond560, label %556, label %576
 
 556:                                              ; preds = %553
   %557 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 208), align 8, !tbaa !128
@@ -2342,7 +2342,7 @@ init_request_info.exit:                           ; preds = %197, %478
   store ptr null, ptr @sapi_globals, align 8, !tbaa !44
   call void @php_module_shutdown() #29
   call void @sapi_shutdown() #29
-  call void @free(ptr noundef %.0275.lcssa497) #29
+  call void @free(ptr noundef %.0275.lcssa540) #29
   br label %679
 
 613:                                              ; preds = %585
@@ -2498,7 +2498,7 @@ init_request_info.exit:                           ; preds = %197, %478
 
 671:                                              ; preds = %668
   %672 = call i32 @fcgi_finish_request(ptr noundef %.0272, i32 noundef 1) #29
-  call void @free(ptr noundef %.0275.lcssa497) #29
+  call void @free(ptr noundef %.0275.lcssa540) #29
   %.not351 = icmp eq i32 %.0244, 1
   %spec.select359 = select i1 %.not351, i32 %spec.select, i32 0
   br label %.loopexit
@@ -3451,8 +3451,8 @@ define internal noundef i32 @sapi_cgi_send_headers(ptr noundef %0) #0 {
 
 .thread:                                          ; preds = %7
   %66 = call ptr @zend_llist_get_first_ex(ptr noundef %0, ptr noundef nonnull %2) #29
-  %.not6296104124 = icmp eq ptr %66, null
-  br i1 %.not6296104124, label %.outer._crit_edge, label %.lr.ph98.preheader
+  %.not6296104136 = icmp eq ptr %66, null
+  br i1 %.not6296104136, label %.outer._crit_edge, label %.lr.ph98.preheader
 
 .lr.ph98.lr.ph:                                   ; preds = %.loopexit
   %.24576.fr = freeze i32 %.24576

@@ -1129,8 +1129,8 @@ select.unfold:                                    ; preds = %83, %95, %79
   %106 = and i64 %.0.copyload.i.i.i.i.i.i109, 4
   %.not.i.i.i110 = icmp ne i64 %106, 0
   %107 = and i64 %.0.copyload.i.i.i.i.i.i109, -8
-  %.not195 = icmp eq i64 %107, 0
-  %.not = or i1 %.not.i.i.i110, %.not195
+  %.not196 = icmp eq i64 %107, 0
+  %.not = or i1 %.not.i.i.i110, %.not196
   br i1 %.not, label %select.unfold._crit_edge, label %79
 
 108:                                              ; preds = %select.unfold._crit_edge
@@ -1168,8 +1168,8 @@ select.unfold135:                                 ; preds = %_ZNK4llvm3DIE8child
   %117 = and i64 %.0.copyload.i.i.i.i.i, 4
   %.not.i.i118 = icmp ne i64 %117, 0
   %118 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %.not137196 = icmp eq i64 %118, 0
-  %.not137 = or i1 %.not.i.i118, %.not137196
+  %.not137197 = icmp eq i64 %118, 0
+  %.not137 = or i1 %.not.i.i118, %.not137197
   br i1 %.not137, label %select.unfold135._crit_edge, label %select.unfold135
 
 119:                                              ; preds = %select.unfold135._crit_edge, %select.unfold._crit_edge

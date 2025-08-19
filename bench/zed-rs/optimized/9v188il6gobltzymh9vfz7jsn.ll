@@ -2478,7 +2478,7 @@ common.ret:                                       ; preds = %295, %54
   store i8 1, ptr %70, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %71 = icmp eq i64 %61, -9223372036854775808
-  br i1 %71, label %"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$gpui..window..AnyWindowHandle$GT$$GT$17h8e9ac3f80f48419dE.exit", label %.thread48
+  br i1 %71, label %"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$gpui..window..AnyWindowHandle$GT$$GT$17h8e9ac3f80f48419dE.exit", label %.thread59
 
 72:                                               ; preds = %293
   %.phi.trans.insert45 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2486,7 +2486,7 @@ common.ret:                                       ; preds = %295, %54
   %73 = icmp eq i64 %.pre46, -9223372036854775808
   br i1 %73, label %"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$gpui..window..AnyWindowHandle$GT$$GT$17h8e9ac3f80f48419dE.exit", label %303
 
-.thread48:                                        ; preds = %"_ZN4core6option43Option$LT$core..option..Option$LT$T$GT$$GT$7flatten17h95cae05156c37452E.exit"
+.thread59:                                        ; preds = %"_ZN4core6option43Option$LT$core..option..Option$LT$T$GT$$GT$7flatten17h95cae05156c37452E.exit"
   store i8 0, ptr %70, align 8
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %69, i64 24, i1 false)
@@ -2515,9 +2515,9 @@ default.unreachable:                              ; preds = %173, %77
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   br label %173
 
-81:                                               ; preds = %.thread48, %77
-  %82 = phi ptr [ %76, %.thread48 ], [ %79, %77 ]
-  %83 = phi ptr [ %75, %.thread48 ], [ %78, %77 ]
+81:                                               ; preds = %.thread59, %77
+  %82 = phi ptr [ %76, %.thread59 ], [ %79, %77 ]
+  %83 = phi ptr [ %75, %.thread59 ], [ %78, %77 ]
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 218
   store i8 0, ptr %84, align 2, !noalias !463
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 217

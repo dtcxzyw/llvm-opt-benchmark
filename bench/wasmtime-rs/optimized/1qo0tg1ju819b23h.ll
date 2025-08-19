@@ -1239,8 +1239,8 @@ define hidden void @_ZN14cranelift_wasm15code_translator18translate_operator17h4
   %255 = getelementptr inbounds nuw i8, ptr %4, i64 240
   %256 = load i8, ptr %255, align 8, !range !56, !noundef !4
   %257 = trunc nuw i8 %256 to i1
-  %.sink4217.sroa.gep = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sink4217.sroa.gep4232 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %.sink4402.sroa.gep = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sink4402.sroa.gep4417 = getelementptr inbounds nuw i8, ptr %15, i64 4
   br i1 %257, label %354, label %258
 
 258:                                              ; preds = %6
@@ -1486,7 +1486,7 @@ _ZN14cranelift_wasm15code_translator30translate_unreachable_operator17h8ffca4091
 
 354:                                              ; preds = %6
   %355 = load i16, ptr %2, align 8, !range !57, !noundef !4
-  switch i16 %355, label %default.unreachable4208 [
+  switch i16 %355, label %default.unreachable4393 [
     i16 0, label %359
     i16 1, label %366
     i16 2, label %367
@@ -2063,7 +2063,7 @@ _ZN14cranelift_wasm15code_translator30translate_unreachable_operator17h8ffca4091
     i16 573, label %2662
   ]
 
-default.unreachable4208:                          ; preds = %2892, %2998, %2926, %354
+default.unreachable4393:                          ; preds = %2892, %2998, %2926, %354
   unreachable
 
 356:                                              ; preds = %3265, %3243
@@ -6152,12 +6152,12 @@ _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h76147083c2b91f2fE.exit
   br label %358
 
 2788:                                             ; preds = %2799, %2778
-  %.sink4217.sroa.phi = phi ptr [ %.sink4217.sroa.gep, %2799 ], [ %.sink4217.sroa.gep4232, %2778 ]
+  %.sink4402.sroa.phi = phi ptr [ %.sink4402.sroa.gep, %2799 ], [ %.sink4402.sroa.gep4417, %2778 ]
   %.sink = phi i32 [ %2771, %2799 ], [ %2776, %2778 ]
   %.sink1.i.i3475.pre-phi = phi i64 [ %.sink1.i.i3479, %2799 ], [ %.sink1.i.i3474, %2778 ]
   %storemerge = phi i32 [ 0, %2799 ], [ 1, %2778 ]
   %.0 = phi i32 [ %2771, %2799 ], [ %2763, %2778 ]
-  store i32 %.sink, ptr %.sink4217.sroa.phi, align 4
+  store i32 %.sink, ptr %.sink4402.sroa.phi, align 4
   store i32 %storemerge, ptr %15, align 4
   tail call void @_ZN18cranelift_frontend8frontend15FunctionBuilder10seal_block17hc7ce5644f1852b67E(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %378)
   tail call void @_ZN18cranelift_frontend8frontend15FunctionBuilder15switch_to_block17h0ad797f5d6836863E(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %378)
@@ -6399,7 +6399,7 @@ _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h76147083c2b91f2fE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %222)
   call void @"_ZN100_$LT$wasmparser..binary_reader..BrTableTargets$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9f10e670f8dab288E"(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %222, ptr noalias noundef nonnull align 8 dereferenceable(48) %223)
   %2893 = load i32, ptr %222, align 8, !range !199, !noundef !4
-  switch i32 %2893, label %default.unreachable4208 [
+  switch i32 %2893, label %default.unreachable4393 [
     i32 2, label %2894
     i32 0, label %3095
     i32 1, label %3096
@@ -6501,7 +6501,7 @@ _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h76147083c2b91f2fE.exit
 
 2926:                                             ; preds = %2924
   %2927 = load i32, ptr %219, align 8, !range !199, !noundef !4
-  switch i32 %2927, label %default.unreachable4208 [
+  switch i32 %2927, label %default.unreachable4393 [
     i32 2, label %2928
     i32 0, label %2964
     i32 1, label %2970
@@ -6724,7 +6724,7 @@ _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h76147083c2b91f2fE.exit
 
 2998:                                             ; preds = %2996
   %2999 = load i32, ptr %214, align 8, !range !199, !noundef !4
-  switch i32 %2999, label %default.unreachable4208 [
+  switch i32 %2999, label %default.unreachable4393 [
     i32 2, label %3000
     i32 0, label %3069
     i32 1, label %3071
@@ -17933,7 +17933,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit185: ; preds = %89
   %142 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h5e82261509bfdc70E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %24)
           to label %311 unwind label %103
 
-143:                                              ; preds = %.invoke227, %199, %175, %157, %299, %294, %289, %288, %286, %284, %282, %278, %273, %272, %269, %264, %262, %260, %258, %256, %252, %247, %245, %241, %236, %234, %232, %230, %228, %224, %219, %217, %215, %213, %209, %192, %188, %185, %168, %150, %139
+143:                                              ; preds = %.invoke277, %199, %175, %157, %299, %294, %289, %288, %286, %284, %282, %278, %273, %272, %269, %264, %262, %260, %258, %256, %252, %247, %245, %241, %236, %234, %232, %230, %228, %224, %219, %217, %215, %213, %209, %192, %188, %185, %168, %150, %139
   %144 = landingpad { ptr, i32 }
           cleanup
   br label %102
@@ -17941,7 +17941,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit185: ; preds = %89
 145:                                              ; preds = %139
   %146 = load i64, ptr %107, align 8, !noundef !4
   %147 = icmp ult i64 %140, %146
-  br i1 %147, label %148, label %.invoke227, !prof !12
+  br i1 %147, label %148, label %.invoke277, !prof !12
 
 148:                                              ; preds = %145
   %149 = icmp eq i64 %.sroa.0211.0225, 13
@@ -17984,7 +17984,7 @@ _ZN18wasmtime_cranelift5debug9transform4refs15PendingUnitRefs6insert17h91d75e7c3
 164:                                              ; preds = %150
   %165 = load i64, ptr %107, align 8, !noundef !4
   %166 = icmp ult i64 %151, %165
-  br i1 %166, label %167, label %.invoke227, !prof !12
+  br i1 %166, label %167, label %.invoke277, !prof !12
 
 167:                                              ; preds = %164
   br i1 %149, label %170, label %168
@@ -18026,7 +18026,7 @@ _ZN18wasmtime_cranelift5debug9transform4refs15PendingUnitRefs6insert17h91d75e7c3
 182:                                              ; preds = %168
   %183 = load i64, ptr %107, align 8, !noundef !4
   %184 = icmp ult i64 %169, %183
-  br i1 %184, label %185, label %.invoke227, !prof !12
+  br i1 %184, label %185, label %.invoke277, !prof !12
 
 185:                                              ; preds = %182
   %186 = load ptr, ptr %106, align 8, !nonnull !4, !noundef !4
@@ -18083,7 +18083,7 @@ _ZN18wasmtime_cranelift5debug9transform4refs15PendingUnitRefs6insert17h91d75e7c3
 206:                                              ; preds = %192
   %207 = load i64, ptr %107, align 8, !noundef !4
   %208 = icmp ult i64 %193, %207
-  br i1 %208, label %209, label %.invoke227, !prof !12
+  br i1 %208, label %209, label %.invoke277, !prof !12
 
 209:                                              ; preds = %206
   %210 = load ptr, ptr %106, align 8, !nonnull !4, !noundef !4
@@ -18125,7 +18125,7 @@ _ZN18wasmtime_cranelift5debug9transform4refs15PendingUnitRefs6insert17h91d75e7c3
 221:                                              ; preds = %219
   %222 = load i64, ptr %107, align 8, !noundef !4
   %223 = icmp ult i64 %220, %222
-  br i1 %223, label %224, label %.invoke227, !prof !12
+  br i1 %223, label %224, label %.invoke277, !prof !12
 
 224:                                              ; preds = %221
   %225 = load ptr, ptr %106, align 8, !nonnull !4, !noundef !4
@@ -18172,7 +18172,7 @@ _ZN18wasmtime_cranelift5debug9transform4refs15PendingUnitRefs6insert17h91d75e7c3
 238:                                              ; preds = %236
   %239 = load i64, ptr %107, align 8, !noundef !4
   %240 = icmp ult i64 %237, %239
-  br i1 %240, label %241, label %.invoke227, !prof !12
+  br i1 %240, label %241, label %.invoke277, !prof !12
 
 241:                                              ; preds = %238
   %242 = load ptr, ptr %106, align 8, !nonnull !4, !noundef !4
@@ -18203,7 +18203,7 @@ _ZN18wasmtime_cranelift5debug9transform4refs15PendingUnitRefs6insert17h91d75e7c3
 249:                                              ; preds = %247
   %250 = load i64, ptr %107, align 8, !noundef !4
   %251 = icmp ult i64 %248, %250
-  br i1 %251, label %252, label %.invoke227, !prof !12
+  br i1 %251, label %252, label %.invoke277, !prof !12
 
 252:                                              ; preds = %249
   %253 = load ptr, ptr %106, align 8, !nonnull !4, !noundef !4
@@ -18249,7 +18249,7 @@ _ZN18wasmtime_cranelift5debug9transform4refs15PendingUnitRefs6insert17h91d75e7c3
 266:                                              ; preds = %264
   %267 = load i64, ptr %107, align 8, !noundef !4
   %268 = icmp ult i64 %265, %267
-  br i1 %268, label %269, label %.invoke227, !prof !12
+  br i1 %268, label %269, label %.invoke277, !prof !12
 
 269:                                              ; preds = %266
   %270 = load ptr, ptr %106, align 8, !nonnull !4, !noundef !4
@@ -18274,7 +18274,7 @@ _ZN18wasmtime_cranelift5debug9transform4refs15PendingUnitRefs6insert17h91d75e7c3
 275:                                              ; preds = %273
   %276 = load i64, ptr %107, align 8, !noundef !4
   %277 = icmp ult i64 %274, %276
-  br i1 %277, label %278, label %.invoke227, !prof !12
+  br i1 %277, label %278, label %.invoke277, !prof !12
 
 278:                                              ; preds = %275
   %279 = load ptr, ptr %106, align 8, !nonnull !4, !noundef !4
@@ -18315,7 +18315,7 @@ _ZN18wasmtime_cranelift5debug9transform4refs15PendingUnitRefs6insert17h91d75e7c3
 291:                                              ; preds = %289
   %292 = load i64, ptr %107, align 8, !noundef !4
   %293 = icmp ult i64 %290, %292
-  br i1 %293, label %294, label %.invoke227, !prof !12
+  br i1 %293, label %294, label %.invoke277, !prof !12
 
 294:                                              ; preds = %291
   %295 = load ptr, ptr %106, align 8, !nonnull !4, !noundef !4
@@ -18323,13 +18323,13 @@ _ZN18wasmtime_cranelift5debug9transform4refs15PendingUnitRefs6insert17h91d75e7c3
   invoke void @_ZN5gimli5write4unit25DebuggingInformationEntry3set17hd18c46863f6a8a91E(ptr noalias noundef nonnull align 8 dereferenceable(80) %296, i16 noundef 73, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %32)
           to label %299 unwind label %143
 
-.invoke227:                                       ; preds = %291, %275, %266, %249, %238, %221, %206, %182, %164, %145
+.invoke277:                                       ; preds = %291, %275, %266, %249, %238, %221, %206, %182, %164, %145
   %297 = phi i64 [ %140, %145 ], [ %151, %164 ], [ %169, %182 ], [ %193, %206 ], [ %220, %221 ], [ %237, %238 ], [ %248, %249 ], [ %265, %266 ], [ %274, %275 ], [ %290, %291 ]
   %298 = phi i64 [ %146, %145 ], [ %165, %164 ], [ %183, %182 ], [ %207, %206 ], [ %222, %221 ], [ %239, %238 ], [ %250, %249 ], [ %267, %266 ], [ %276, %275 ], [ %292, %291 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %297, i64 noundef %298, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5ab26575ffe9d889a156f0026d0f5130.266) #16
-          to label %.cont228 unwind label %143
+          to label %.cont278 unwind label %143
 
-.cont228:                                         ; preds = %.invoke227
+.cont278:                                         ; preds = %.invoke277
   unreachable
 
 299:                                              ; preds = %294
@@ -19672,7 +19672,7 @@ _ZN18wasmtime_cranelift5debug9transform5utils23get_function_frame_info17h0d4451c
 440:                                              ; preds = %.preheader, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc7bd8b85a41eb820E.exit"
   %.sroa.0153.0838 = phi i64 [ %296, %.preheader ], [ %442, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc7bd8b85a41eb820E.exit" ]
   %441 = phi i64 [ %.promoted, %.preheader ], [ %447, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc7bd8b85a41eb820E.exit" ]
-  %442 = add i64 %.sroa.0153.0838, 1
+  %442 = add nsw i64 %.sroa.0153.0838, 1
   %443 = icmp eq i64 %441, 0
   br i1 %443, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc7bd8b85a41eb820E.exit", label %444
 

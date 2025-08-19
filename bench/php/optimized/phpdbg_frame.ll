@@ -686,11 +686,11 @@ define hidden void @phpdbg_switch_frame(i32 noundef %0) local_unnamed_addr #0 {
 
 .preheader.preheader:                             ; preds = %.lr.ph.preheader, %.lr.ph.loopexit
   %19 = phi i32 [ %17, %.lr.ph.loopexit ], [ 1, %.lr.ph.preheader ]
-  %.03745 = phi ptr [ %21, %.lr.ph.loopexit ], [ %15, %.lr.ph.preheader ]
+  %.03751 = phi ptr [ %21, %.lr.ph.loopexit ], [ %15, %.lr.ph.preheader ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %22
-  %.1 = phi ptr [ %21, %22 ], [ %.03745, %.preheader.preheader ]
+  %.1 = phi ptr [ %21, %22 ], [ %.03751, %.preheader.preheader ]
   %20 = getelementptr inbounds nuw i8, ptr %.1, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !114
   %.not28 = icmp eq ptr %21, null

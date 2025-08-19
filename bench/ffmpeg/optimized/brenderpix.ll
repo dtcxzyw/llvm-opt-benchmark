@@ -237,11 +237,11 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table.pix_decode_frame, i64 0, i64 %92
   %switch.load = load i32, ptr %switch.gep, align 4
   %93 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep148 = getelementptr inbounds nuw [16 x i32], ptr @switch.table.pix_decode_frame.1, i64 0, i64 %93
-  %switch.load149 = load i32, ptr %switch.gep148, align 4
+  %switch.gep152 = getelementptr inbounds nuw [16 x i32], ptr @switch.table.pix_decode_frame.1, i64 0, i64 %93
+  %switch.load153 = load i32, ptr %switch.gep152, align 4
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %switch.load, ptr %94, align 8, !tbaa !22
-  %95 = mul nuw nsw i32 %switch.load149, %.0.i14.i
+  %95 = mul nuw nsw i32 %switch.load153, %.0.i14.i
   %96 = ptrtoint ptr %89 to i64
   %97 = sub i64 %17, %96
   %98 = trunc i64 %97 to i32

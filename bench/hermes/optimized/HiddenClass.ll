@@ -1028,8 +1028,8 @@ if.end:                                           ; preds = %_ZNSt6vectorISt4pai
   %conv.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i to i64
   %add.i.i.i.i.i = add i64 %conv.i.i.i.i.i, %0
   %7 = inttoptr i64 %add.i.i.i.i.i to ptr
-  %tobool.not79 = icmp eq i64 %add.i.i.i.i.i, 0
-  %tobool.not = or i1 %cmp.i.not.i.i.i.i, %tobool.not79
+  %tobool.not82 = icmp eq i64 %add.i.i.i.i.i, 0
+  %tobool.not = or i1 %cmp.i.not.i.i.i.i, %tobool.not82
   br i1 %tobool.not, label %if.end13, label %land.rhs
 
 if.then10:                                        ; preds = %land.rhs

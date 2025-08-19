@@ -707,8 +707,8 @@ define void @_ZN6LibRaw18crop_masked_pixelsEv(ptr noundef nonnull align 8 derefe
   %69 = icmp eq i64 %.unpack, ptrtoint (ptr @_ZN6LibRaw14nokia_load_rawEv to i64)
   %70 = icmp eq i64 %.unpack, ptrtoint (ptr @_ZN6LibRaw17broadcom_load_rawEv to i64)
   %71 = or i1 %69, %70
-  %or.cond109 = and i1 %71, %10
-  br i1 %or.cond109, label %.thread76.thread.sink.split, label %.thread76.thread
+  %or.cond110 = and i1 %71, %10
+  br i1 %or.cond110, label %.thread76.thread.sink.split, label %.thread76.thread
 
 .thread76.thread.sink.split:                      ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -768,7 +768,7 @@ define void @_ZN6LibRaw18crop_masked_pixelsEv(ptr noundef nonnull align 8 derefe
   br i1 %103, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %99
-  %104 = shl nuw i32 %.084, 1
+  %104 = shl nuw nsw i32 %.084, 1
   %105 = and i32 %104, 14
   %106 = mul i32 %90, %.084
   %107 = lshr i32 %106, 1

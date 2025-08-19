@@ -22,8 +22,8 @@ define void @If_ManCacheRecord(ptr noundef captures(none) %0, i32 noundef %1, i3
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %11, ptr %12, align 8, !tbaa !28
   store ptr %9, ptr %6, align 8, !tbaa !3
-  %spec.select41 = tail call i32 @llvm.smax.i32(i32 %1, i32 %2)
-  %spec.select1842 = tail call i32 @llvm.smin.i32(i32 %1, i32 %2)
+  %spec.select53 = tail call i32 @llvm.smax.i32(i32 %1, i32 %2)
+  %spec.select1854 = tail call i32 @llvm.smin.i32(i32 %1, i32 %2)
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
   br label %.Vec_IntGrow.exit10_crit_edge.i
 
@@ -39,8 +39,8 @@ define void @If_ManCacheRecord(ptr noundef captures(none) %0, i32 noundef %1, i3
 
 .Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %.thread, %14
   %17 = phi ptr [ %13, %.thread ], [ %16, %14 ]
-  %spec.select1846 = phi i32 [ %spec.select1842, %.thread ], [ %spec.select18, %14 ]
-  %spec.select44 = phi i32 [ %spec.select41, %.thread ], [ %spec.select, %14 ]
+  %spec.select1858 = phi i32 [ %spec.select1854, %.thread ], [ %spec.select18, %14 ]
+  %spec.select56 = phi i32 [ %spec.select53, %.thread ], [ %spec.select, %14 ]
   %18 = phi ptr [ %9, %.thread ], [ %7, %14 ]
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !28
@@ -95,15 +95,15 @@ Vec_IntGrow.exit.i:                               ; preds = %26, %24
 
 Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %39
   %41 = phi ptr [ %17, %.Vec_IntGrow.exit10_crit_edge.i ], [ %16, %39 ], [ %16, %Vec_IntGrow.exit.i ]
-  %spec.select1845 = phi i32 [ %spec.select1846, %.Vec_IntGrow.exit10_crit_edge.i ], [ %spec.select18, %39 ], [ %spec.select18, %Vec_IntGrow.exit.i ]
-  %spec.select43 = phi i32 [ %spec.select44, %.Vec_IntGrow.exit10_crit_edge.i ], [ %spec.select, %39 ], [ %spec.select, %Vec_IntGrow.exit.i ]
+  %spec.select1857 = phi i32 [ %spec.select1858, %.Vec_IntGrow.exit10_crit_edge.i ], [ %spec.select18, %39 ], [ %spec.select18, %Vec_IntGrow.exit.i ]
+  %spec.select55 = phi i32 [ %spec.select56, %.Vec_IntGrow.exit10_crit_edge.i ], [ %spec.select, %39 ], [ %spec.select, %Vec_IntGrow.exit.i ]
   %42 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %40, %39 ], [ %28, %Vec_IntGrow.exit.i ]
   %43 = load i32, ptr %41, align 4, !tbaa !24
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %41, align 4, !tbaa !24
   %45 = sext i32 %43 to i64
   %46 = getelementptr inbounds i32, ptr %42, i64 %45
-  store i32 %spec.select1845, ptr %46, align 4, !tbaa !29
+  store i32 %spec.select1857, ptr %46, align 4, !tbaa !29
   %47 = load ptr, ptr %6, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4, !tbaa !24
@@ -170,7 +170,7 @@ Vec_IntPush.exit25:                               ; preds = %.Vec_IntGrow.exit10
   store i32 %76, ptr %48, align 4, !tbaa !24
   %77 = sext i32 %75 to i64
   %78 = getelementptr inbounds i32, ptr %74, i64 %77
-  store i32 %spec.select43, ptr %78, align 4, !tbaa !29
+  store i32 %spec.select55, ptr %78, align 4, !tbaa !29
   %79 = load ptr, ptr %6, align 8, !tbaa !3
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4, !tbaa !24
@@ -754,14 +754,14 @@ Hsh_IntManAdd.exit.i:                             ; preds = %Hsh_IntObj.exit.i.i
   br label %Vec_IntPush.exit.sink.split.i
 
 Vec_IntPush.exit.sink.split.i:                    ; preds = %184, %182, %176, %174
-  %.sink79.i = phi ptr [ %175, %174 ], [ %177, %176 ], [ %183, %182 ], [ %185, %184 ]
+  %.sink93.i = phi ptr [ %175, %174 ], [ %177, %176 ], [ %183, %182 ], [ %185, %184 ]
   %.sink.i = phi i32 [ 16, %174 ], [ 16, %176 ], [ %179, %182 ], [ %179, %184 ]
-  store ptr %.sink79.i, ptr %8, align 8, !tbaa !28
+  store ptr %.sink93.i, ptr %8, align 8, !tbaa !28
   store i32 %.sink.i, ptr %5, align 8, !tbaa !27
   br label %Vec_IntPush.exit.i
 
 Vec_IntPush.exit.i:                               ; preds = %Vec_IntPush.exit.sink.split.i, %Hsh_IntManAdd.exit.i
-  %.pre.i2162.i = phi ptr [ %43, %Hsh_IntManAdd.exit.i ], [ %.sink79.i, %Vec_IntPush.exit.sink.split.i ]
+  %.pre.i2162.i = phi ptr [ %43, %Hsh_IntManAdd.exit.i ], [ %.sink93.i, %Vec_IntPush.exit.sink.split.i ]
   %186 = add nsw i32 %168, 1
   store i32 %186, ptr %6, align 4, !tbaa !24
   %187 = sext i32 %168 to i64
@@ -1006,22 +1006,22 @@ Vec_IntFindMax.exit.i:                            ; preds = %.lr.ph.i.i50, %257,
   br i1 %.not.i, label %Vec_IntCountUnique.exit, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %279, %._crit_edge.i44
-  %.014.lcssa21.i = phi i32 [ 0, %._crit_edge.i44 ], [ %.1.i, %279 ]
+  %.014.lcssa23.i = phi i32 [ 0, %._crit_edge.i44 ], [ %.1.i, %279 ]
   tail call void @free(ptr noundef nonnull %266) #14
   br label %Vec_IntCountUnique.exit
 
 Vec_IntCountUnique.exit:                          ; preds = %._crit_edge.i44, %._crit_edge.thread.i
-  %.014.lcssa22.i = phi i32 [ 0, %._crit_edge.i44 ], [ %.014.lcssa21.i, %._crit_edge.thread.i ]
+  %.014.lcssa24.i = phi i32 [ 0, %._crit_edge.i44 ], [ %.014.lcssa23.i, %._crit_edge.thread.i ]
   %280 = sitofp i32 %255 to double
   %281 = fmul double %280, 1.000000e+02
   %282 = fdiv double %281, %206
-  %283 = sitofp i32 %.014.lcssa22.i to double
+  %283 = sitofp i32 %.014.lcssa24.i to double
   %284 = fmul double %283, 1.000000e+02
   %285 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %255, i32 1)
   %286 = uitofp nneg i32 %285 to double
   %287 = fdiv double %284, %286
   %288 = trunc nuw nsw i64 %indvars.iv128 to i32
-  %289 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %288, i32 noundef %255, double noundef %282, i32 noundef %.014.lcssa22.i, double noundef %287)
+  %289 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %288, i32 noundef %255, double noundef %282, i32 noundef %.014.lcssa24.i, double noundef %287)
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %290 = load ptr, ptr %194, align 8, !tbaa !52
   %291 = load i32, ptr %290, align 8, !tbaa !53
@@ -1113,22 +1113,22 @@ Vec_IntFindMax.exit.i54:                          ; preds = %.lr.ph.i.i70, %302,
   br i1 %.not.i57, label %Vec_IntCountUnique.exit76, label %._crit_edge.thread.i58
 
 ._crit_edge.thread.i58:                           ; preds = %320, %._crit_edge.i56
-  %.014.lcssa21.i59 = phi i32 [ 0, %._crit_edge.i56 ], [ %.1.i65, %320 ]
+  %.014.lcssa23.i59 = phi i32 [ 0, %._crit_edge.i56 ], [ %.1.i65, %320 ]
   tail call void @free(ptr noundef nonnull %309) #14
   br label %Vec_IntCountUnique.exit76
 
 Vec_IntCountUnique.exit76:                        ; preds = %._crit_edge.i56, %._crit_edge.thread.i58
-  %.014.lcssa22.i60 = phi i32 [ 0, %._crit_edge.i56 ], [ %.014.lcssa21.i59, %._crit_edge.thread.i58 ]
+  %.014.lcssa24.i60 = phi i32 [ 0, %._crit_edge.i56 ], [ %.014.lcssa23.i59, %._crit_edge.thread.i58 ]
   %321 = load ptr, ptr %3, align 8, !tbaa !3
   %322 = getelementptr i8, ptr %321, i64 4
   %.val39 = load i32, ptr %322, align 4, !tbaa !24
   %323 = sdiv i32 %.val39, 4
-  %324 = sitofp i32 %.014.lcssa22.i60 to double
+  %324 = sitofp i32 %.014.lcssa24.i60 to double
   %325 = fmul double %324, 1.000000e+02
   %326 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %323, i32 1)
   %327 = uitofp nneg i32 %326 to double
   %328 = fdiv double %325, %327
-  %329 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %323, double noundef 1.000000e+02, i32 noundef %.014.lcssa22.i60, double noundef %328)
+  %329 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %323, double noundef 1.000000e+02, i32 noundef %.014.lcssa24.i60, double noundef %328)
   %.not.i77 = icmp eq ptr %189, null
   br i1 %.not.i77, label %Vec_IntFree.exit78, label %330
 

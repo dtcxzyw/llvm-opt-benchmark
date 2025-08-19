@@ -2613,26 +2613,26 @@ sub_0.i:                                          ; preds = %13, %8
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %39, %33
-  %.sink15.i = phi i64 [ 1, %33 ], [ 3, %39 ]
+  %.sink18.i = phi i64 [ 1, %33 ], [ 3, %39 ]
   %.sink.i = phi i64 [ -1, %33 ], [ -3, %39 ]
-  %44 = getelementptr inbounds nuw i8, ptr %.0124.i, i64 %.sink15.i
+  %44 = getelementptr inbounds nuw i8, ptr %.0124.i, i64 %.sink18.i
   %45 = add i64 %.sink.i, %.0125.i
   br label %33, !llvm.loop !147
 
 46:                                               ; preds = %39, %35, %33
   %.not143.i = icmp eq ptr %.0124.i, %32
-  br i1 %.not143.i, label %.preheader95, label %47
+  br i1 %.not143.i, label %.preheader103, label %47
 
 47:                                               ; preds = %46
   %48 = add i64 %.0125.i, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %32, ptr nonnull align 1 %.0124.i, i64 %48, i1 false)
-  br label %.preheader95
+  br label %.preheader103
 
-.preheader95:                                     ; preds = %47, %46
+.preheader103:                                    ; preds = %47, %46
   br label %49
 
-49:                                               ; preds = %.preheader95, %.thread.i
-  %.2127.i = phi i64 [ %.5130.i, %.thread.i ], [ %.0125.i, %.preheader95 ]
+49:                                               ; preds = %.preheader103, %.thread.i
+  %.2127.i = phi i64 [ %.5130.i, %.thread.i ], [ %.0125.i, %.preheader103 ]
   %.not144.i = icmp eq i64 %.2127.i, 0
   br i1 %.not144.i, label %.preheader, label %50
 
@@ -3476,10 +3476,10 @@ mtree_quote.exit167:                              ; preds = %82, %._crit_edge.i1
   br i1 %.not35.i, label %get_global_set_keys.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %173, %171
-  %.sink43.i = phi i32 [ 16384, %171 ], [ 32768, %173 ]
+  %.sink44.i = phi i32 [ 16384, %171 ], [ 32768, %173 ]
   %175 = getelementptr inbounds nuw i8, ptr %10, i64 132
   %176 = load i32, ptr %175, align 4, !tbaa !159
-  %177 = icmp eq i32 %176, %.sink43.i
+  %177 = icmp eq i32 %176, %.sink44.i
   %178 = and i32 %.3.i, -524289
   %spec.select40.i = select i1 %177, i32 %178, i32 %.3.i
   br label %get_global_set_keys.exit
@@ -5179,9 +5179,9 @@ define internal fastcc void @mtree_indent(ptr noundef %0) unnamed_addr #0 {
   br label %._crit_edge114
 
 ._crit_edge114:                                   ; preds = %.backedge, %._crit_edge119
-  %.0.lcssa134 = phi ptr [ null, %._crit_edge119 ], [ %.0.be, %.backedge ]
+  %.0.lcssa139 = phi ptr [ null, %._crit_edge119 ], [ %.0.be, %.backedge ]
   %.276 = phi ptr [ %74, %._crit_edge119 ], [ %.074.be, %.backedge ]
-  %.not93 = icmp eq ptr %.0.lcssa134, null
+  %.not93 = icmp eq ptr %.0.lcssa139, null
   br i1 %.not93, label %92, label %75
 
 75:                                               ; preds = %._crit_edge114
@@ -5193,7 +5193,7 @@ define internal fastcc void @mtree_indent(ptr noundef %0) unnamed_addr #0 {
 
 80:                                               ; preds = %75
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %82 = ptrtoint ptr %.0.lcssa134 to i64
+  %82 = ptrtoint ptr %.0.lcssa139 to i64
   %83 = ptrtoint ptr %.276 to i64
   %84 = sub i64 %82, %83
   %85 = tail call ptr @archive_strncat(ptr noundef nonnull %81, ptr noundef nonnull %.276, i64 noundef %84) #14
@@ -5214,7 +5214,7 @@ define internal fastcc void @mtree_indent(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond130.not, label %._crit_edge123, label %.lr.ph122, !llvm.loop !175
 
 ._crit_edge123:                                   ; preds = %.lr.ph122, %80
-  %91 = getelementptr inbounds nuw i8, ptr %.0.lcssa134, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.0.lcssa139, i64 1
   br label %92
 
 92:                                               ; preds = %._crit_edge123, %75, %._crit_edge114

@@ -4520,11 +4520,11 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
   br i1 %56, label %._crit_edge33, label %57
 
 57:                                               ; preds = %48
-  %spec.select42 = tail call i64 @llvm.umin.i64(i64 %55, i64 %.pre)
+  %spec.select52 = tail call i64 @llvm.umin.i64(i64 %55, i64 %.pre)
   br label %._crit_edge33
 
 ._crit_edge33:                                    ; preds = %57, %48, %46
-  %58 = phi i64 [ %47, %46 ], [ %.pre, %48 ], [ %spec.select42, %57 ]
+  %58 = phi i64 [ %47, %46 ], [ %.pre, %48 ], [ %spec.select52, %57 ]
   %59 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %60 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i32 1, ptr %60, align 4

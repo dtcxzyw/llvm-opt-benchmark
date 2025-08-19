@@ -450,9 +450,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %38
   br label %56
 
 50:                                               ; preds = %23, %20, %17, %14, %11, %8
-  %.sink40 = phi i32 [ 0, %8 ], [ 0, %11 ], [ 1, %14 ], [ 1, %17 ], [ 2, %20 ], [ 2, %23 ]
+  %.sink43 = phi i32 [ 0, %8 ], [ 0, %11 ], [ 1, %14 ], [ 1, %17 ], [ 2, %20 ], [ 2, %23 ]
   %.sink = phi i32 [ 0, %8 ], [ 1, %11 ], [ 0, %14 ], [ 1, %17 ], [ 0, %20 ], [ 1, %23 ]
-  store i32 %.sink40, ptr %1, align 4, !tbaa !13
+  store i32 %.sink43, ptr %1, align 4, !tbaa !13
   store i32 %.sink, ptr %2, align 4, !tbaa !15
   ret void
 

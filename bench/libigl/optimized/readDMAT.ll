@@ -3800,18 +3800,18 @@ _ZL20readDMAT_read_headerP8_IO_FILERiS1_.exit62:  ; preds = %77, %79
   %97 = zext nneg i32 %95 to i64
   %wide.trip.count = zext nneg i32 %93 to i64
   %98 = zext nneg i32 %95 to i64
-  %99 = getelementptr double, ptr %91, i64 %98
-  %invariant.gep = getelementptr i8, ptr %99, i64 -8
+  %invariant.gep = getelementptr double, ptr %91, i64 %98
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %.preheader.us
   %indvars.iv96 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next97, %.preheader.us ]
-  %100 = mul nuw nsw i64 %indvars.iv96, %97
-  %101 = getelementptr float, ptr %1, i64 %indvars.iv96
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %100
-  %102 = load double, ptr %gep, align 8, !tbaa !17
+  %99 = mul nuw nsw i64 %indvars.iv96, %97
+  %100 = getelementptr float, ptr %1, i64 %indvars.iv96
+  %gep = getelementptr double, ptr %invariant.gep, i64 %99
+  %101 = getelementptr i8, ptr %gep, i64 -8
+  %102 = load double, ptr %101, align 8, !tbaa !17
   %103 = fptrunc double %102 to float
-  store float %103, ptr %101, align 4, !tbaa !97
+  store float %103, ptr %100, align 4, !tbaa !97
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count
   br i1 %exitcond.not, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %.preheader.us, !llvm.loop !101

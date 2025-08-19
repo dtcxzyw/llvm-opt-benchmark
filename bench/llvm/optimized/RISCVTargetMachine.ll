@@ -10012,11 +10012,11 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i:        ; preds = %_ZN4llvm5APIntC2ERK
   %170 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %9) #31
   %171 = sub i32 %166, %170
   %172 = icmp ugt i32 %171, 64
-  br i1 %172, label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread, label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread115
+  br i1 %172, label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread, label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread128
 
-_ZNK4llvm5APInt15getLimitedValueEm.exit.thread115: ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i
-  %.0.i.i.i117 = load i64, ptr %169, align 8, !tbaa !125
-  %173 = call i64 @llvm.uadd.sat.i64(i64 %.0.i.i.i117, i64 1)
+_ZNK4llvm5APInt15getLimitedValueEm.exit.thread128: ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i
+  %.0.i.i.i130 = load i64, ptr %169, align 8, !tbaa !125
+  %173 = call i64 @llvm.uadd.sat.i64(i64 %.0.i.i.i130, i64 1)
   br label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread
 
 _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %_ZN4llvm5APIntC2ERKS0_.exit70
@@ -10024,8 +10024,8 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %_ZN4llvm5APIntC2ERK
   %174 = call i64 @llvm.uadd.sat.i64(i64 %.0.i.i.i, i64 1)
   br label %_ZN4llvm5APIntD2Ev.exit72
 
-_ZNK4llvm5APInt15getLimitedValueEm.exit.thread:   ; preds = %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread115, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i
-  %175 = phi i64 [ -1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i ], [ %173, %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread115 ]
+_ZNK4llvm5APInt15getLimitedValueEm.exit.thread:   ; preds = %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread128, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i
+  %175 = phi i64 [ -1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i ], [ %173, %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread128 ]
   %176 = icmp eq i64 %167, 0
   br i1 %176, label %_ZN4llvm5APIntD2Ev.exit72, label %_ZN4llvm5APIntD2Ev.exit
 
@@ -10148,11 +10148,11 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i:        ; preds = %_ZN4llvm5APIntC2ERK
   %23 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %5) #31
   %24 = sub i32 %19, %23
   %25 = icmp ugt i32 %24, 64
-  br i1 %25, label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread, label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread5
+  br i1 %25, label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread, label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread7
 
-_ZNK4llvm5APInt15getLimitedValueEm.exit.thread5:  ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i
-  %.0.i.i.i7 = load i64, ptr %22, align 8, !tbaa !125
-  %26 = call i64 @llvm.uadd.sat.i64(i64 %.0.i.i.i7, i64 1)
+_ZNK4llvm5APInt15getLimitedValueEm.exit.thread7:  ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i
+  %.0.i.i.i9 = load i64, ptr %22, align 8, !tbaa !125
+  %26 = call i64 @llvm.uadd.sat.i64(i64 %.0.i.i.i9, i64 1)
   br label %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread
 
 _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
@@ -10160,8 +10160,8 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %_ZN4llvm5APIntC2ERK
   %27 = call i64 @llvm.uadd.sat.i64(i64 %.0.i.i.i, i64 1)
   br label %_ZN4llvm5APIntD2Ev.exit4
 
-_ZNK4llvm5APInt15getLimitedValueEm.exit.thread:   ; preds = %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread5, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i
-  %28 = phi i64 [ -1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i ], [ %26, %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread5 ]
+_ZNK4llvm5APInt15getLimitedValueEm.exit.thread:   ; preds = %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread7, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i
+  %28 = phi i64 [ -1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i ], [ %26, %_ZNK4llvm5APInt15getLimitedValueEm.exit.thread7 ]
   %29 = icmp eq i64 %20, 0
   br i1 %29, label %_ZN4llvm5APIntD2Ev.exit4, label %_ZN4llvm5APIntD2Ev.exit
 
@@ -10689,8 +10689,8 @@ _ZN4llvm11SmallVectorIPKNS_5ValueELj2EED2Ev.exit: ; preds = %198, %217
   br label %491
 
 249:                                              ; preds = %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit
-  %.not575 = icmp eq i8 %36, 91
-  br i1 %.not575, label %250, label %491
+  %.not590 = icmp eq i8 %36, 91
+  br i1 %.not590, label %250, label %491
 
 250:                                              ; preds = %249
   %251 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -10743,8 +10743,8 @@ _ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE18getVectorInstrCostERKNS_11Instru
   br label %491
 
 276:                                              ; preds = %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit
-  %.not574 = icmp eq i8 %36, 92
-  br i1 %.not574, label %277, label %491
+  %.not589 = icmp eq i8 %36, 92
+  br i1 %.not589, label %277, label %491
 
 277:                                              ; preds = %276
   %278 = load ptr, ptr %2, align 8, !tbaa !746
@@ -11201,8 +11201,8 @@ _ZNK4llvm4Type13getScalarTypeEv.exit402:          ; preds = %442, %448
   br label %491
 
 463:                                              ; preds = %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit
-  %.not573 = icmp eq i8 %36, 90
-  br i1 %.not573, label %464, label %491
+  %.not588 = icmp eq i8 %36, 90
+  br i1 %.not588, label %464, label %491
 
 464:                                              ; preds = %463
   %465 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -12575,7 +12575,7 @@ _ZNK4llvm3EVT8isVectorEv.exit.i:                  ; preds = %.thread, %27
 32:                                               ; preds = %29
   %33 = zext nneg i16 %28 to i64
   %34 = add nsw i64 %33, -1
-  %35 = getelementptr inbounds [241 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [241 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %34
   %36 = load i16, ptr %35, align 2, !tbaa !827
   %37 = insertvalue { i16, ptr } poison, i16 %36, 0
   %38 = insertvalue { i16, ptr } %37, ptr null, 1
@@ -12613,7 +12613,7 @@ _ZNK4llvm3EVT13getScalarTypeEv.exit:              ; preds = %32, %39, %41
 53:                                               ; preds = %52
   %54 = zext i16 %45 to i64
   %55 = add nsw i64 %54, -1
-  %56 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %55
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %56, align 16
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   %.sroa.2.0.copyload.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
@@ -13648,7 +13648,7 @@ _ZNK4llvm3EVT8isVectorEv.exit.i:                  ; preds = %.thread, %41
 46:                                               ; preds = %43
   %47 = zext nneg i16 %42 to i64
   %48 = add nsw i64 %47, -1
-  %49 = getelementptr inbounds [241 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [241 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %48
   %50 = load i16, ptr %49, align 2, !tbaa !827
   %51 = insertvalue { i16, ptr } poison, i16 %50, 0
   %52 = insertvalue { i16, ptr } %51, ptr null, 1
@@ -13686,7 +13686,7 @@ _ZNK4llvm3EVT13getScalarTypeEv.exit:              ; preds = %46, %53, %55
 67:                                               ; preds = %66
   %68 = zext i16 %59 to i64
   %69 = add nsw i64 %68, -1
-  %70 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %69
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %70, align 16
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %70, i64 8
   %.sroa.2.0.copyload.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
@@ -13797,11 +13797,11 @@ define linkonce_odr hidden { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12RISCVTT
   br label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit
 
 _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %6, %._crit_edge, %19
-  %.sroa.434.0.lcssa49 = phi i32 [ %.sroa.434.1, %._crit_edge ], [ %.sroa.434.1, %19 ], [ 0, %6 ]
-  %.sroa.032.0.lcssa48 = phi i64 [ %.sroa.032.1, %._crit_edge ], [ %.sroa.032.1, %19 ], [ 0, %6 ]
+  %.sroa.434.0.lcssa54 = phi i32 [ %.sroa.434.1, %._crit_edge ], [ %.sroa.434.1, %19 ], [ 0, %6 ]
+  %.sroa.032.0.lcssa53 = phi i64 [ %.sroa.032.1, %._crit_edge ], [ %.sroa.032.1, %19 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.032.0.lcssa48, 0
-  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.434.0.lcssa49, 1
+  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.032.0.lcssa53, 0
+  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.434.0.lcssa54, 1
   ret { i64, i32 } %.fca.1.insert
 
 21:                                               ; preds = %.lr.ph, %.critedge
@@ -13899,9 +13899,9 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread:   ; preds = %_ZNK4llvm4Type13get
 ._crit_edge.i.i:                                  ; preds = %.critedge.i.i, %48
   %55 = load i32, ptr %11, align 8, !tbaa !29, !noalias !831
   %56 = icmp ult i32 %50, %55
-  br i1 %56, label %.critedge50, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
+  br i1 %56, label %.critedge55, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
-.critedge50:                                      ; preds = %._crit_edge.i.i
+.critedge55:                                      ; preds = %._crit_edge.i.i
   %57 = add nuw i32 %50, 1
   store i32 %57, ptr %12, align 4, !tbaa !30, !noalias !831
   store ptr %23, ptr %52, align 8, !tbaa !188, !noalias !831
@@ -13913,7 +13913,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %61, label %.critedge
 
-61:                                               ; preds = %.critedge50, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
+61:                                               ; preds = %.critedge55, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
   %62 = load i32, ptr %26, align 8
   %63 = and i32 %62, 255
   %64 = add nsw i32 %63, -19

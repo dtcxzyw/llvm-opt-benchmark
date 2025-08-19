@@ -771,8 +771,8 @@ _ZN2cv6detail8tracking15online_boosting8Detector24prepareConfidencesMemoryEi.exi
   %87 = load ptr, ptr %1, align 8
   %88 = mul i64 %84, %indvars.iv161
   %89 = getelementptr inbounds nuw i8, ptr %78, i64 %88
-  %sext191 = shl i64 %.066103.us108, 32
-  %90 = ashr exact i64 %sext191, 32
+  %sext208 = shl i64 %.066103.us108, 32
+  %90 = ashr exact i64 %sext208, 32
   br label %.lr.ph.i.us.us
 
 .lr.ph.i.us.us:                                   ; preds = %_ZN2cv6detail8tracking15online_boosting31StrongClassifierDirectSelection4evalERKNS_3MatE.exit.us.us, %.preheader95.us106
@@ -961,8 +961,8 @@ _ZN2cv6detail8tracking15online_boosting31StrongClassifierDirectSelection4evalERK
   %.066103 = phi i64 [ 0, %.preheader95.preheader ], [ %indvars.iv.next143, %._crit_edge.split ]
   %217 = mul i64 %84, %indvars.iv147
   %218 = getelementptr inbounds nuw i8, ptr %78, i64 %217
-  %sext190 = shl i64 %.066103, 32
-  %219 = ashr exact i64 %sext190, 32
+  %sext207 = shl i64 %.066103, 32
+  %219 = ashr exact i64 %sext207, 32
   br label %_ZN2cv6detail8tracking15online_boosting31StrongClassifierDirectSelection4evalERKNS_3MatE.exit
 
 ._crit_edge.split:                                ; preds = %_ZN2cv6detail8tracking15online_boosting31StrongClassifierDirectSelection4evalERKNS_3MatE.exit
@@ -1106,8 +1106,8 @@ _ZN2cv6detail8tracking15online_boosting31StrongClassifierDirectSelection4evalERK
   %.promoted = load i32, ptr %37, align 4
   %279 = mul i64 %246, %indvars.iv178
   %280 = getelementptr inbounds nuw i8, ptr %241, i64 %279
-  %sext192 = shl i64 %.2123, 32
-  %281 = ashr exact i64 %sext192, 32
+  %sext209 = shl i64 %.2123, 32
+  %281 = ashr exact i64 %sext209, 32
   br label %308
 
 ._crit_edge125:                                   ; preds = %._crit_edge120, %.preheader.lr.ph, %.preheader91
@@ -1485,8 +1485,8 @@ _ZN2cv6detail8tracking15online_boosting14BaseClassifier20selectBestClassifierERS
   %124 = fsub float 1.000000e+00, %123
   %125 = fdiv float %123, %124
   %126 = fdiv float %124, %123
-  %.sink42 = select i1 %.not, float %125, float %126
-  %127 = call noundef float @sqrtf(float noundef %.sink42) #25, !tbaa !40
+  %.sink51 = select i1 %.not, float %125, float %126
+  %127 = call noundef float @sqrtf(float noundef %.sink51) #25, !tbaa !40
   %.1 = fmul float %.02735, %127
   %128 = load i32, ptr %8, align 4, !tbaa !31
   %129 = icmp sgt i32 %128, 0
@@ -4653,13 +4653,13 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4, !tbaa !34
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !34
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -4756,13 +4756,13 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !40
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !40
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

@@ -352,28 +352,28 @@ define void @_ZN6LibRaw10parse_cineEv(ptr noundef nonnull align 8 dereferenceabl
   %79 = add i32 %78, 3600
   %80 = urem i32 %79, 360
   switch i32 %80, label %85 [
-    i32 270, label %.sink.split12
+    i32 270, label %.sink.split13
     i32 180, label %81
     i32 90, label %82
     i32 0, label %83
   ]
 
 81:                                               ; preds = %72
-  br label %.sink.split12
+  br label %.sink.split13
 
 82:                                               ; preds = %72
-  br label %.sink.split12
+  br label %.sink.split13
 
 83:                                               ; preds = %72
-  br label %.sink.split12
+  br label %.sink.split13
 
-.sink.split12:                                    ; preds = %72, %81, %82, %83
-  %.sink13 = phi i32 [ 2, %83 ], [ 7, %82 ], [ 1, %81 ], [ 4, %72 ]
+.sink.split13:                                    ; preds = %72, %81, %82, %83
+  %.sink14 = phi i32 [ 2, %83 ], [ 7, %82 ], [ 1, %81 ], [ 4, %72 ]
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %.sink13, ptr %84, align 8, !tbaa !90
+  store i32 %.sink14, ptr %84, align 8, !tbaa !90
   br label %85
 
-85:                                               ; preds = %.sink.split12, %72
+85:                                               ; preds = %.sink.split13, %72
   %86 = tail call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef 11)
   %87 = fptrunc reassoc nsz arcp contract afn double %86 to float
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 153176
@@ -989,19 +989,19 @@ _ZN6LibRaw13get_timestampEi.exit:                 ; preds = %85, %92, %99
   %131 = getelementptr inbounds nuw [12 x [4 x i8]], ptr @_ZZN6LibRaw10parse_riffEiE3mon, i64 0, i64 %indvars.iv
   %132 = call i32 @strcasecmp(ptr noundef nonnull %131, ptr noundef nonnull %7) #16
   %.not31 = icmp eq i32 %132, 0
-  br i1 %.not31, label %.critedge5.split.loop.exit44, label %133
+  br i1 %.not31, label %.critedge5.split.loop.exit46, label %133
 
 133:                                              ; preds = %.preheader34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
   br i1 %exitcond.not, label %.critedge5, label %.preheader34, !llvm.loop !108
 
-.critedge5.split.loop.exit44:                     ; preds = %.preheader34
+.critedge5.split.loop.exit46:                     ; preds = %.preheader34
   %134 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge5
 
-.critedge5:                                       ; preds = %133, %.critedge5.split.loop.exit44
-  %.021.lcssa = phi i32 [ %134, %.critedge5.split.loop.exit44 ], [ 12, %133 ]
+.critedge5:                                       ; preds = %133, %.critedge5.split.loop.exit46
+  %.021.lcssa = phi i32 [ %134, %.critedge5.split.loop.exit46 ], [ 12, %133 ]
   %135 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %.021.lcssa, ptr %135, align 8, !tbaa !105
   %136 = load i32, ptr %128, align 4, !tbaa !103

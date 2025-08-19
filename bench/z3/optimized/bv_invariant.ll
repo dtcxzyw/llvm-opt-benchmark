@@ -476,7 +476,7 @@ _ZNK6vectorIbLb0EjE4sizeEv.exit.thread.i81:       ; preds = %_ZN6vectorIbLb0EjE6
 56:                                               ; preds = %_ZNK6vectorIbLb0EjE4sizeEv.exit.thread.i81, %.noexc94
   %57 = phi ptr [ %62, %.noexc94 ], [ %52, %_ZNK6vectorIbLb0EjE4sizeEv.exit.thread.i81 ]
   %.pr.i84 = phi ptr [ %.pr.pre.i91, %.noexc94 ], [ %51, %_ZNK6vectorIbLb0EjE4sizeEv.exit.thread.i81 ]
-  %.0.i17.ph.i85 = phi i32 [ %.0.i17.i86145, %.noexc94 ], [ %54, %_ZNK6vectorIbLb0EjE4sizeEv.exit.thread.i81 ]
+  %.0.i17.ph.i85 = phi i32 [ %.0.i17.i86165, %.noexc94 ], [ %54, %_ZNK6vectorIbLb0EjE4sizeEv.exit.thread.i81 ]
   %58 = icmp eq ptr %.pr.i84, null
   br i1 %58, label %_ZNK6vectorIbLb0EjE8capacityEv.exit.thread.i90, label %_ZNK6vectorIbLb0EjE8capacityEv.exit.i87
 
@@ -487,7 +487,7 @@ _ZNK6vectorIbLb0EjE8capacityEv.exit.i87:          ; preds = %56
   br i1 %61, label %_ZNK6vectorIbLb0EjE8capacityEv.exit.thread.i90, label %63
 
 _ZNK6vectorIbLb0EjE8capacityEv.exit.thread.i90:   ; preds = %_ZNK6vectorIbLb0EjE4sizeEv.exit.i92, %_ZNK6vectorIbLb0EjE8capacityEv.exit.i87, %56
-  %.0.i17.i86145 = phi i32 [ %.0.i17.ph.i85, %_ZNK6vectorIbLb0EjE8capacityEv.exit.i87 ], [ %.0.i17.ph.i85, %56 ], [ 0, %_ZNK6vectorIbLb0EjE4sizeEv.exit.i92 ]
+  %.0.i17.i86165 = phi i32 [ %.0.i17.ph.i85, %_ZNK6vectorIbLb0EjE8capacityEv.exit.i87 ], [ %.0.i17.ph.i85, %56 ], [ 0, %_ZNK6vectorIbLb0EjE4sizeEv.exit.i92 ]
   %62 = phi ptr [ %57, %_ZNK6vectorIbLb0EjE8capacityEv.exit.i87 ], [ %57, %56 ], [ %45, %_ZNK6vectorIbLb0EjE4sizeEv.exit.i92 ]
   invoke void @_ZN6vectorIbLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %62)
           to label %.noexc94 unwind label %.loopexit.split-lp

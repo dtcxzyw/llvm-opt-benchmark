@@ -2078,7 +2078,7 @@ define hidden void @"_ZN80_$LT$core..core_arch..x86..__m128i$u20$as$u20$core..co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(1576) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17ha87276f6ca4aee14E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #7 {
+define hidden noundef nonnull align 8 dereferenceable(1576) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17ha87276f6ca4aee14E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !7
   %4 = icmp eq ptr %3, null
@@ -2111,7 +2111,7 @@ define hidden noundef align 8 dereferenceable(1576) ptr @"_ZN84_$LT$gpui..app..e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(5472) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hc98766fb460b54f8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #7 {
+define hidden noundef nonnull align 8 dereferenceable(5472) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hc98766fb460b54f8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !7
   %4 = icmp eq ptr %3, null
@@ -2836,7 +2836,7 @@ select.unfold179:                                 ; preds = %187, %._crit_edge.i
 
 260:                                              ; preds = %253, %._crit_edge.i.i.i
   %.sroa.6.1.i.i.i = phi i64 [ %.sroa.3.0.i.i.i.i, %253 ], [ %.sroa.6.0.i.i.i, %._crit_edge.i.i.i ]
-  %.sroa.01.1.i.i.i = phi i64 [ %.sroa.0.0.i.i.i.i, %253 ], [ %.sroa.01.0.i.i.i93, %._crit_edge.i.i.i ]
+  %.sroa.01.1.i.i.i = phi i64 [ %.sroa.0.0.i.i.i.i, %253 ], [ 1, %._crit_edge.i.i.i ]
   %261 = icmp eq <16 x i8> %.sroa.0.0.copyload.i21.i.i.i, splat (i8 -1)
   %262 = bitcast <16 x i1> %261 to i16
   %.not.i.i.i94 = icmp eq i16 %262, 0
@@ -3098,7 +3098,7 @@ select.unfold179:                                 ; preds = %187, %._crit_edge.i
 
 363:                                              ; preds = %356, %._crit_edge.i.i.i117
   %.sroa.6.1.i.i.i119 = phi i64 [ %.sroa.3.0.i.i.i.i126, %356 ], [ %.sroa.6.0.i.i.i109, %._crit_edge.i.i.i117 ]
-  %.sroa.01.1.i.i.i120 = phi i64 [ %.sroa.0.0.i.i.i.i127, %356 ], [ %.sroa.01.0.i.i.i110, %._crit_edge.i.i.i117 ]
+  %.sroa.01.1.i.i.i120 = phi i64 [ %.sroa.0.0.i.i.i.i127, %356 ], [ 1, %._crit_edge.i.i.i117 ]
   %364 = icmp eq <16 x i8> %.sroa.0.0.copyload.i21.i.i.i112, splat (i8 -1)
   %365 = bitcast <16 x i1> %364 to i16
   %.not.i.i.i121 = icmp eq i16 %365, 0
@@ -3389,10 +3389,10 @@ select.unfold179:                                 ; preds = %187, %._crit_edge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   invoke void @_ZN8schemars6schema6Schema7new_ref17ha44400ec2ddc908eE(ptr noalias noundef nonnull sret([240 x i8]) align 8 captures(none) dereferenceable(240) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %28)
-          to label %477 unwind label %.body146.thread224
+          to label %477 unwind label %.body146.thread253
 
-.body146.thread224:                               ; preds = %463
-  %lpad.thr_comm.split-lp196226 = landingpad { ptr, i32 }
+.body146.thread253:                               ; preds = %463
+  %lpad.thr_comm.split-lp196255 = landingpad { ptr, i32 }
           cleanup
   br label %500
 
@@ -3566,8 +3566,8 @@ select.unfold179:                                 ; preds = %187, %._crit_edge.i
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hac90b818a05c3920E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33) #41
           to label %448 unwind label %442
 
-500:                                              ; preds = %.body146.thread224, %.thread185, %448
-  %.pn39188 = phi { ptr, i32 } [ %449, %.thread185 ], [ %eh.lpad-body147193, %448 ], [ %lpad.thr_comm.split-lp196226, %.body146.thread224 ]
+500:                                              ; preds = %.body146.thread253, %.thread185, %448
+  %.pn39188 = phi { ptr, i32 } [ %449, %.thread185 ], [ %eh.lpad-body147193, %448 ], [ %lpad.thr_comm.split-lp196255, %.body146.thread253 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hac90b818a05c3920E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %44) #41
           to label %.thread unwind label %442
 
@@ -4478,7 +4478,7 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
 
 45:                                               ; preds = %38, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %38 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %38 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %38 ], [ 1, %._crit_edge.i.i ]
   %46 = icmp eq <16 x i8> %.sroa.0.0.copyload.i21.i.i, splat (i8 -1)
   %47 = bitcast <16 x i1> %46 to i16
   %.not.i.i = icmp eq i16 %47, 0

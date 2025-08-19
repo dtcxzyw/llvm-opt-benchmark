@@ -196,9 +196,9 @@ define internal i32 @dissect_wimax_pdu_decoder(ptr noundef %0, ptr noundef %1, p
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %11, %40, %51
-  %.sink148 = phi ptr [ %57, %51 ], [ %44, %40 ], [ %13, %11 ]
+  %.sink150 = phi ptr [ %57, %51 ], [ %44, %40 ], [ %13, %11 ]
   %82 = load i32, ptr @ett_wimax_pdu_decoder, align 4
-  %83 = tail call ptr @proto_item_add_subtree(ptr noundef %.sink148, i32 noundef %82)
+  %83 = tail call ptr @proto_item_add_subtree(ptr noundef %.sink150, i32 noundef %82)
   %84 = load i32, ptr @hf_wimax_value_bytes, align 4
   %85 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %84, ptr noundef %0, i32 noundef %.0120, i32 noundef %7, i32 noundef 0)
   br label %.loopexit

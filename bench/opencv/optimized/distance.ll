@@ -516,13 +516,13 @@ define hidden noundef double @_ZN2cv3ccm8deltaCMCERKNS_3VecIdLi3EEES4_RKdS6_(ptr
   %34 = fcmp ugt double %.0, 0x401815E630C155E2
   %or.cond = or i1 %33, %34
   %. = select i1 %or.cond, double 0x3FE38C35418A5BF6, double 0x4007750CB50C6E5B
-  %.63 = select i1 %or.cond, double 4.000000e-01, double 2.000000e-01
-  %.64 = select i1 %or.cond, double 3.600000e-01, double 5.600000e-01
+  %.64 = select i1 %or.cond, double 4.000000e-01, double 2.000000e-01
+  %.65 = select i1 %or.cond, double 3.600000e-01, double 5.600000e-01
   %35 = fadd double %.0, %.
   %36 = tail call double @cos(double noundef %35) #16, !tbaa !13
-  %37 = fmul double %36, %.63
+  %37 = fmul double %36, %.64
   %38 = tail call noundef double @llvm.fabs.f64(double %37)
-  %39 = fadd double %38, %.64
+  %39 = fadd double %38, %.65
   %square56 = fmul double %sqrt57, %sqrt57
   %40 = fcmp olt double %6, 1.600000e+01
   %41 = fmul double %6, 4.097500e-02

@@ -5852,7 +5852,7 @@ define linkonce_odr hidden void @_ZN5boost6locale8impl_icu5uconvC2ERKNSt7__cxx11
   invoke void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTIN5boost6locale4conv21invalid_charset_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #30
           to label %29 unwind label %16
 
-16:                                               ; preds = %.invoke9, %.invoke, %9, %23, %22, %15, %3
+16:                                               ; preds = %.invoke10, %.invoke, %9, %23, %22, %15, %3
   %17 = landingpad { ptr, i32 }
           cleanup
   br label %28
@@ -5869,19 +5869,19 @@ define linkonce_odr hidden void @_ZN5boost6locale8impl_icu5uconvC2ERKNSt7__cxx11
 
 22:                                               ; preds = %20
   invoke void @ucnv_setFromUCallBack_70(ptr noundef nonnull %6, ptr noundef nonnull @UCNV_FROM_U_CALLBACK_SKIP_70, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %4)
-          to label %.invoke9 unwind label %16
+          to label %.invoke10 unwind label %16
 
 23:                                               ; preds = %20
   invoke void @ucnv_setFromUCallBack_70(ptr noundef nonnull %6, ptr noundef nonnull @UCNV_FROM_U_CALLBACK_STOP_70, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %4)
-          to label %.invoke9 unwind label %16
+          to label %.invoke10 unwind label %16
 
-.invoke9:                                         ; preds = %23, %22
+.invoke10:                                        ; preds = %23, %22
   %24 = phi ptr [ @UCNV_TO_U_CALLBACK_SKIP_70, %22 ], [ @UCNV_TO_U_CALLBACK_STOP_70, %23 ]
   %25 = load ptr, ptr %0, align 8, !tbaa !70
   invoke void @ucnv_setToUCallBack_70(ptr noundef %25, ptr noundef nonnull %24, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %4)
           to label %.invoke unwind label %16
 
-.invoke:                                          ; preds = %.invoke9
+.invoke:                                          ; preds = %.invoke10
   %26 = load i32, ptr %4, align 4, !tbaa !58
   invoke void @_ZN5boost6locale8impl_icu25check_and_throw_icu_errorE10UErrorCodePKc(i32 noundef %26, ptr noundef nonnull @.str.16)
           to label %27 unwind label %16

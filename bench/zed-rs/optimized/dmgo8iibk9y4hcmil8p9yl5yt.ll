@@ -1195,10 +1195,10 @@ _ZN5audio6assets13SoundRegistry6global17h1894ba1ab8449af2E.exit: ; preds = %12
   %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN5audio5Audio10play_sound28_$u7b$$u7b$closure$u7d$$u7d$17h2abbe7b054e0dea1E.llvm.1926931935225978806", i64 0, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   %20 = zext nneg i8 %18 to i64
-  %switch.gep31 = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN5audio5Audio10play_sound28_$u7b$$u7b$closure$u7d$$u7d$17h2abbe7b054e0dea1E.llvm.1926931935225978806.5", i64 0, i64 %20
-  %switch.load32 = load ptr, ptr %switch.gep31, align 8
+  %switch.gep33 = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN5audio5Audio10play_sound28_$u7b$$u7b$closure$u7d$$u7d$17h2abbe7b054e0dea1E.llvm.1926931935225978806.5", i64 0, i64 %20
+  %switch.load34 = load ptr, ptr %switch.gep33, align 8
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  invoke void @_ZN5audio6assets13SoundRegistry3get17hbb6b61378f730f06E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 1 %switch.load32, i64 noundef %switch.load)
+  invoke void @_ZN5audio6assets13SoundRegistry3get17hbb6b61378f730f06E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 1 %switch.load34, i64 noundef %switch.load)
           to label %29 unwind label %23
 
 .sink.split:                                      ; preds = %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$audio..assets..SoundRegistry$GT$$GT$17hee7d784bae85193fE.exit11", %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$audio..assets..SoundRegistry$GT$$GT$17hee7d784bae85193fE.exit9", %"_ZN78_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$util..ResultExt$LT$E$GT$$GT$7log_err17h18ab10bcab30fd5aE.exit.thread"

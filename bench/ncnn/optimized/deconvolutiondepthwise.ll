@@ -1065,8 +1065,8 @@ _ZNK4ncnn3Mat5emptyEv.exit166:                    ; preds = %49
   %65 = icmp slt i32 %61, 1
   %66 = icmp slt i32 %42, 1
   %67 = icmp slt i32 %62, 1
-  %or.cond219.not223 = select i1 %65, i1 true, i1 %67
-  %brmerge = or i1 %or.cond219.not223, %66
+  %or.cond254.not258 = select i1 %65, i1 true, i1 %67
+  %brmerge = or i1 %or.cond254.not258, %66
   br i1 %brmerge, label %._crit_edge185, label %.preheader171.lr.ph.us.us.us.preheader
 
 .preheader171.lr.ph.us.us.us.preheader:           ; preds = %.lr.ph
@@ -1098,15 +1098,15 @@ _ZNK4ncnn3Mat5emptyEv.exit166:                    ; preds = %49
   %80 = add nuw nsw i64 %indvars.iv201, %76
   %81 = mul nuw nsw i64 %80, %69
   %invariant.gep = getelementptr inbounds nuw float, ptr %75, i64 %79
-  %invariant.gep217 = getelementptr inbounds nuw float, ptr %74, i64 %81
+  %invariant.gep252 = getelementptr inbounds nuw float, ptr %74, i64 %81
   br label %82
 
 82:                                               ; preds = %82, %.preheader.us.us.us.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %82 ], [ 0, %.preheader.us.us.us.us.us.us ]
   %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
   %83 = load float, ptr %gep, align 4, !tbaa !64
-  %gep218 = getelementptr inbounds nuw float, ptr %invariant.gep217, i64 %indvars.iv
-  store float %83, ptr %gep218, align 4, !tbaa !64
+  %gep253 = getelementptr inbounds nuw float, ptr %invariant.gep252, i64 %indvars.iv
+  store float %83, ptr %gep253, align 4, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %69
   br i1 %exitcond.not, label %._crit_edge.us.us.us.us.us.us, label %82, !llvm.loop !66
@@ -1887,10 +1887,10 @@ _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %75, %90, %91, %86, 
   br label %_ZN4ncnn3MataSERKS0_.exit.invoke
 
 _ZN4ncnn3MataSERKS0_.exit.invoke:                 ; preds = %73, %_ZN4ncnn3Mat7releaseEv.exit.i, %4, %64
-  %.sink54 = phi i64 [ 16, %64 ], [ 16, %4 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %73 ]
+  %.sink66 = phi i64 [ 16, %64 ], [ 16, %4 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %73 ]
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %113 = load i32, ptr %112, align 8, !tbaa !18
-  %114 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink54
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink66
   %115 = load ptr, ptr %114, align 8, !tbaa !71
   invoke void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef %33, i32 noundef %41, i32 noundef %113, i64 noundef %11, ptr noundef %115)
           to label %116 unwind label %71
@@ -2159,8 +2159,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %41 = sub i32 %39, %40
   %42 = icmp sgt i32 %5, 0
   %43 = icmp sgt i32 %4, 0
-  %or.cond62 = and i1 %42, %43
-  br i1 %or.cond62, label %.preheader.us, label %._crit_edge57
+  %or.cond66 = and i1 %42, %43
+  br i1 %or.cond66, label %.preheader.us, label %._crit_edge57
 
 .preheader.us:                                    ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %._crit_edge.us
   %.03956.us = phi i32 [ %50, %._crit_edge.us ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ]
@@ -2240,8 +2240,8 @@ define hidden void @_ZNK4ncnn22DeconvolutionDepthWise11cut_paddingERKNS_3MatERS1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 240
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !41
   %8 = icmp sgt i32 %.pre, 0
-  %or.cond35 = select i1 %7, i1 true, i1 %8
-  br i1 %or.cond35, label %._crit_edge, label %9
+  %or.cond46 = select i1 %7, i1 true, i1 %8
+  br i1 %or.cond46, label %._crit_edge, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 244
@@ -2547,13 +2547,13 @@ _ZN4ncnn3Mat4fillEf.exit:                         ; preds = %.lr.ph, %_ZNK4ncnn3
   %93 = load i32, ptr %8, align 4
   %94 = sext i32 %92 to i64
   %95 = sext i32 %93 to i64
-  %factor.op.mul151 = mul i64 %72, %95
+  %factor.op.mul162 = mul i64 %72, %95
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge115.split.us.us.us
   %indvars.iv137 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next138, %._crit_edge115.split.us.us.us ]
-  %.reass152 = mul i64 %indvars.iv137, %factor.op.mul151
-  %96 = getelementptr inbounds nuw i8, ptr %85, i64 %.reass152
+  %.reass163 = mul i64 %indvars.iv137, %factor.op.mul162
+  %96 = getelementptr inbounds nuw i8, ptr %85, i64 %.reass163
   %97 = mul nuw nsw i64 %indvars.iv137, %77
   %98 = load ptr, ptr %10, align 8
   %invariant.gep = getelementptr float, ptr %82, i64 %97
@@ -2865,14 +2865,14 @@ _ZN4ncnn3Mat4fillEf.exit:                         ; preds = %.lr.ph, %_ZNK4ncnn3
   %108 = sext i32 %105 to i64
   %109 = sext i32 %106 to i64
   %110 = sext i32 %107 to i64
-  %factor.op.mul187 = mul i64 %76, %110
+  %factor.op.mul200 = mul i64 %76, %110
   %wide.trip.count169 = zext nneg i32 %99 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv176 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next177, %._crit_edge.us ]
-  %.reass188 = mul i64 %indvars.iv176, %factor.op.mul187
-  %111 = getelementptr inbounds nuw i8, ptr %89, i64 %.reass188
+  %.reass201 = mul i64 %indvars.iv176, %factor.op.mul200
+  %111 = getelementptr inbounds nuw i8, ptr %89, i64 %.reass201
   %112 = load i32, ptr %70, align 4
   %113 = load ptr, ptr %9, align 8
   %114 = load i64, ptr %77, align 8
@@ -2885,8 +2885,8 @@ _ZN4ncnn3Mat4fillEf.exit:                         ; preds = %.lr.ph, %_ZNK4ncnn3
   %119 = load i32, ptr %6, align 4
   %120 = sext i32 %119 to i64
   %121 = icmp sgt i32 %119, 0
-  %or.cond189 = select i1 %104, i1 %121, i1 false
-  br i1 %or.cond189, label %.noexc94.lr.ph.us.us.us.preheader, label %._crit_edge.us
+  %or.cond202 = select i1 %104, i1 %121, i1 false
+  br i1 %or.cond202, label %.noexc94.lr.ph.us.us.us.preheader, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %._crit_edge135.split.us.us.us.us, %.preheader.us
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1

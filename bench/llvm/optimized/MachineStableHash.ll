@@ -1242,8 +1242,8 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit60: ; preds = %_ZN4llvm
   %.pre110 = load i32, ptr %.044103, align 8
   %67 = and i32 %.pre110, 16777471
   %or.cond = icmp ne i32 %67, 16777216
-  %or.cond118.not = select i1 %1, i1 true, i1 %or.cond
-  br i1 %or.cond118.not, label %.critedge, label %68
+  %or.cond147.not = select i1 %1, i1 true, i1 %or.cond
+  br i1 %or.cond147.not, label %.critedge, label %68
 
 68:                                               ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %.044103, i64 4
@@ -1286,19 +1286,19 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit60: ; preds = %_ZN4llvm
   br i1 %.not.i.i.not.i64, label %.sink.split, label %.sink.split.sink.split, !prof !155
 
 .sink.split.sink.split:                           ; preds = %86, %74
-  %.sink126 = phi i32 [ %82, %74 ], [ %87, %86 ]
+  %.sink155 = phi i32 [ %82, %74 ], [ %87, %86 ]
   %.sink.ph = phi i64 [ %81, %74 ], [ %85, %86 ]
-  %89 = zext i32 %.sink126 to i64
+  %89 = zext i32 %.sink155 to i64
   %90 = add nuw nsw i64 %89, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %8, i64 noundef %90, i64 noundef 8) #15
   %.pre.i65 = load i32, ptr %9, align 8, !tbaa !130
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %86, %74
-  %.sink123 = phi i32 [ %82, %74 ], [ %87, %86 ], [ %.pre.i65, %.sink.split.sink.split ]
+  %.sink152 = phi i32 [ %82, %74 ], [ %87, %86 ], [ %.pre.i65, %.sink.split.sink.split ]
   %.sink = phi i64 [ %81, %74 ], [ %85, %86 ], [ %.sink.ph, %.sink.split.sink.split ]
   %91 = load ptr, ptr %6, align 8, !tbaa !129
-  %92 = zext i32 %.sink123 to i64
+  %92 = zext i32 %.sink152 to i64
   %93 = getelementptr inbounds nuw i64, ptr %91, i64 %92
   store i64 %.sink, ptr %93, align 1
   %94 = load i32, ptr %9, align 8, !tbaa !130

@@ -2359,8 +2359,8 @@ dissect_PNDCP_Suboption_DeviceInitiative.exit:    ; preds = %716, %718
   %.not207.i = icmp eq i8 %834, 0
   %indvars.iv.next219.i = add nuw nsw i64 %indvars.iv218.i, 1
   %exitcond221.i = icmp ne i64 %indvars.iv.next219.i, 8
-  %or.cond226.not.i = select i1 %.not207.i, i1 %exitcond221.i, i1 false
-  br i1 %or.cond226.not.i, label %832, label %835, !llvm.loop !9
+  %or.cond228.not.i = select i1 %.not207.i, i1 %exitcond221.i, i1 false
+  br i1 %or.cond228.not.i, label %832, label %835, !llvm.loop !9
 
 835:                                              ; preds = %832
   %836 = load i32, ptr %16, align 4
@@ -2416,8 +2416,8 @@ dissect_PNDCP_Suboption_DeviceInitiative.exit:    ; preds = %716, %718
   %.not.i113 = icmp eq i8 %861, 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp ne i64 %indvars.iv.next.i, 8
-  %or.cond227.not.i = select i1 %.not.i113, i1 %exitcond.i, i1 false
-  br i1 %or.cond227.not.i, label %859, label %862, !llvm.loop !10
+  %or.cond229.not.i = select i1 %.not.i113, i1 %exitcond.i, i1 false
+  br i1 %or.cond229.not.i, label %859, label %862, !llvm.loop !10
 
 862:                                              ; preds = %859
   %863 = load i32, ptr %17, align 4

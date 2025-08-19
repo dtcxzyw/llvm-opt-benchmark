@@ -419,8 +419,8 @@ define internal i32 @activate(ptr noundef %0) #1 {
   ]
 
 160:                                              ; preds = %156
-  %.idx259.i = shl nuw nsw i64 %indvars.iv256.i, 2
-  %161 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx259.i
+  %.idx269.i = shl nuw nsw i64 %indvars.iv256.i, 2
+  %161 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx269.i
   %162 = load i16, ptr %161, align 2, !tbaa !63
   %163 = sitofp i16 %162 to float
   %164 = fdiv nsz float %163, 3.276700e+04

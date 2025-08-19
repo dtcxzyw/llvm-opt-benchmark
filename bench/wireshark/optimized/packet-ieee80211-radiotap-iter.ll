@@ -66,7 +66,7 @@ define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_init(ptr nounde
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %33, align 8
   %.not40 = icmp sgt i32 %21, -1
-  br i1 %.not40, label %.loopexit53, label %34
+  br i1 %.not40, label %.loopexit54, label %34
 
 34:                                               ; preds = %12
   %35 = ptrtoint ptr %1 to i64
@@ -84,7 +84,7 @@ define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_init(ptr nounde
   %.not42 = icmp sgt i32 %38, -1
   %40 = getelementptr i8, ptr %39, i64 4
   store ptr %40, ptr %24, align 8
-  br i1 %.not42, label %.loopexit53, label %41
+  br i1 %.not42, label %.loopexit54, label %41
 
 41:                                               ; preds = %37
   %42 = getelementptr i8, ptr %39, i64 8
@@ -99,14 +99,14 @@ define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_init(ptr nounde
   %or.cond.not = icmp eq i32 %47, -1879048192
   br i1 %or.cond.not, label %.loopexit, label %37, !llvm.loop !6
 
-.loopexit53:                                      ; preds = %37, %12
+.loopexit54:                                      ; preds = %37, %12
   %48 = phi ptr [ %23, %12 ], [ %40, %37 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %48, ptr %49, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %45, %41, %34, %8, %6, %4, %.loopexit53
-  %.0 = phi i32 [ 0, %.loopexit53 ], [ -22, %4 ], [ -22, %6 ], [ -22, %8 ], [ -22, %34 ], [ -22, %41 ], [ -22, %45 ]
+.loopexit:                                        ; preds = %45, %41, %34, %8, %6, %4, %.loopexit54
+  %.0 = phi i32 [ 0, %.loopexit54 ], [ -22, %4 ], [ -22, %6 ], [ -22, %8 ], [ -22, %34 ], [ -22, %41 ], [ -22, %45 ]
   ret i32 %.0
 }
 
@@ -266,10 +266,10 @@ find_override.exit:                               ; preds = %82
   %88 = load i8, ptr %87, align 1
   %89 = and i8 %88, 15
   %.not15.i.not = icmp eq i8 %89, 0
-  br i1 %.not15.i.not, label %find_override.exit.thread, label %.thread276
+  br i1 %.not15.i.not, label %find_override.exit.thread, label %.thread288
 
-.thread276:                                       ; preds = %find_override.exit
-  %.4163.in279 = lshr i8 %88, 4
+.thread288:                                       ; preds = %find_override.exit
+  %.4163.in291 = lshr i8 %88, 4
   br label %113
 
 find_override.exit.thread:                        ; preds = %81, %.preheader.i, %77, %find_override.exit
@@ -324,14 +324,14 @@ switch.lookup:                                    ; preds = %.thread
   %switch.shiftamt = shl nuw nsw i32 %switch.tableidx, 3
   %switch.downshift = lshr i32 16908548, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
-  %switch.shiftamt307 = shl nuw nsw i32 %switch.tableidx, 3
-  %switch.downshift308 = lshr i32 393216, %switch.shiftamt307
-  %switch.masked309 = trunc i32 %switch.downshift308 to i8
+  %switch.shiftamt319 = shl nuw nsw i32 %switch.tableidx, 3
+  %switch.downshift320 = lshr i32 393216, %switch.shiftamt319
+  %switch.masked321 = trunc i32 %switch.downshift320 to i8
   br label %113
 
-113:                                              ; preds = %switch.lookup, %.thread276, %96
-  %.3170.shrunk = phi i8 [ %101, %96 ], [ %89, %.thread276 ], [ %switch.masked, %switch.lookup ]
-  %.3162.shrunk = phi i8 [ %.4163.in, %96 ], [ %.4163.in279, %.thread276 ], [ %switch.masked309, %switch.lookup ]
+113:                                              ; preds = %switch.lookup, %.thread288, %96
+  %.3170.shrunk = phi i8 [ %101, %96 ], [ %89, %.thread288 ], [ %switch.masked, %switch.lookup ]
+  %.3162.shrunk = phi i8 [ %.4163.in, %96 ], [ %.4163.in291, %.thread288 ], [ %switch.masked321, %switch.lookup ]
   %.3162 = zext nneg i8 %.3162.shrunk to i32
   %.3170 = zext nneg i8 %.3170.shrunk to i32
   %114 = load ptr, ptr %4, align 8
@@ -408,21 +408,21 @@ switch.lookup:                                    ; preds = %.thread
 155:                                              ; preds = %164, %.lr.ph.i148
   %indvars.iv.i150 = phi i64 [ 0, %.lr.ph.i148 ], [ %indvars.iv.next.i151, %164 ]
   %156 = getelementptr %struct.ieee80211_radiotap_namespace, ptr %154, i64 %indvars.iv.i150
-  %.fr296 = freeze ptr %156
-  %157 = getelementptr inbounds nuw i8, ptr %.fr296, i64 12
+  %.fr308 = freeze ptr %156
+  %157 = getelementptr inbounds nuw i8, ptr %.fr308, i64 12
   %158 = load i32, ptr %157, align 4
   %.not13.i = icmp eq i32 %158, %147
   br i1 %.not13.i, label %159, label %164
 
 159:                                              ; preds = %155
-  %160 = getelementptr inbounds nuw i8, ptr %.fr296, i64 16
+  %160 = getelementptr inbounds nuw i8, ptr %.fr308, i64 16
   %161 = load i8, ptr %160, align 8
   %.not14.i = icmp eq i8 %161, %149
   br i1 %.not14.i, label %162, label %164
 
 162:                                              ; preds = %159
-  store ptr %.fr296, ptr %9, align 8
-  %163 = icmp eq ptr %.fr296, null
+  store ptr %.fr308, ptr %9, align 8
+  %163 = icmp eq ptr %.fr308, null
   br label %find_ns.exit
 
 164:                                              ; preds = %159, %155

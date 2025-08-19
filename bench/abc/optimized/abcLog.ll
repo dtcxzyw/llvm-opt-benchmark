@@ -300,14 +300,14 @@ define range(i32 -1, 2) i32 @Abc_NtkReadLogFile(ptr noundef %0, ptr noundef writ
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %61, %63, %53, %55
-  %.sink144 = phi ptr [ %54, %53 ], [ %56, %55 ], [ %62, %61 ], [ %64, %63 ]
+  %.sink160 = phi ptr [ %54, %53 ], [ %56, %55 ], [ %62, %61 ], [ %64, %63 ]
   %.sink = phi i32 [ 16, %53 ], [ 16, %55 ], [ %58, %61 ], [ %58, %63 ]
-  store ptr %.sink144, ptr %40, align 8, !tbaa !20
+  store ptr %.sink160, ptr %40, align 8, !tbaa !20
   store i32 %.sink, ptr %37, align 8, !tbaa !19
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %45
-  %.pre.i141 = phi ptr [ %.pre.i116139.ph, %45 ], [ %.sink144, %Vec_IntPush.exit.sink.split ]
+  %.pre.i141 = phi ptr [ %.pre.i116139.ph, %45 ], [ %.sink160, %Vec_IntPush.exit.sink.split ]
   %65 = add nsw i32 %47, 1
   store i32 %65, ptr %38, align 4, !tbaa !15
   %66 = sext i32 %47 to i64
@@ -367,14 +367,14 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %Vec_IntPush.exit120.sink.split
 
 Vec_IntPush.exit120.sink.split:                   ; preds = %89, %91, %81, %83
-  %.sink146 = phi ptr [ %82, %81 ], [ %84, %83 ], [ %90, %89 ], [ %92, %91 ]
-  %.sink145 = phi i32 [ 16, %81 ], [ 16, %83 ], [ %86, %89 ], [ %86, %91 ]
-  store ptr %.sink146, ptr %40, align 8, !tbaa !20
-  store i32 %.sink145, ptr %37, align 8, !tbaa !19
+  %.sink162 = phi ptr [ %82, %81 ], [ %84, %83 ], [ %90, %89 ], [ %92, %91 ]
+  %.sink161 = phi i32 [ 16, %81 ], [ 16, %83 ], [ %86, %89 ], [ %86, %91 ]
+  store ptr %.sink162, ptr %40, align 8, !tbaa !20
+  store i32 %.sink161, ptr %37, align 8, !tbaa !19
   br label %Vec_IntPush.exit120
 
 Vec_IntPush.exit120:                              ; preds = %Vec_IntPush.exit120.sink.split, %73
-  %.pre.i116136 = phi ptr [ %70, %73 ], [ %.sink146, %Vec_IntPush.exit120.sink.split ]
+  %.pre.i116136 = phi ptr [ %70, %73 ], [ %.sink162, %Vec_IntPush.exit120.sink.split ]
   %93 = add nsw i32 %75, 1
   store i32 %93, ptr %38, align 4, !tbaa !15
   %94 = sext i32 %75 to i64

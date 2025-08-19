@@ -166,7 +166,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_read(ptr noundef
 
 .sink.split:                                      ; preds = %48, %52
   %.sink = phi { ptr, i64 } [ %54, %52 ], [ %51, %48 ]
-  %.sink11 = phi i64 [ 8, %52 ], [ 4, %48 ]
+  %.sink12 = phi i64 [ 8, %52 ], [ 4, %48 ]
   %55 = extractvalue { ptr, i64 } %.sink, 0
   %56 = extractvalue { ptr, i64 } %.sink, 1
   %57 = ptrtoint ptr %55 to i64
@@ -174,7 +174,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_read(ptr noundef
   %58 = shl i64 %57, 32
   %59 = ashr exact i64 %58, 32
   %60 = icmp eq i64 %58, 0
-  %61 = select i1 %60, i64 %.sink11, i64 %59
+  %61 = select i1 %60, i64 %.sink12, i64 %59
   br label %62
 
 62:                                               ; preds = %.sink.split, %.critedge, %4

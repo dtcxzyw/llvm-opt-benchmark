@@ -400,40 +400,40 @@ define noundef i64 @_ZN6google8protobuf5Arena10FreeBlocksEv(ptr noundef nonnull 
   %8 = load i64, ptr %7, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !28
-  %.not1828 = icmp eq ptr %10, null
-  br i1 %.not1828, label %._crit_edge31, label %.lr.ph30
+  %.not1829 = icmp eq ptr %10, null
+  br i1 %.not1829, label %._crit_edge32, label %.lr.ph31
 
-._crit_edge31:                                    ; preds = %.lr.ph30, %.lr.ph
-  %.01720.lcssa = phi ptr [ %4, %.lr.ph ], [ %15, %.lr.ph30 ]
-  %.lcssa27 = phi i64 [ %8, %.lr.ph ], [ %20, %.lr.ph30 ]
-  %.lcssa = phi i64 [ %8, %.lr.ph ], [ %21, %.lr.ph30 ]
+._crit_edge32:                                    ; preds = %.lr.ph31, %.lr.ph
+  %.01720.lcssa = phi ptr [ %4, %.lr.ph ], [ %15, %.lr.ph31 ]
+  %.lcssa28 = phi i64 [ %8, %.lr.ph ], [ %20, %.lr.ph31 ]
+  %.lcssa = phi i64 [ %8, %.lr.ph ], [ %21, %.lr.ph31 ]
   %11 = load i8, ptr %6, align 8, !tbaa !15, !range !40, !noundef !41
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %._crit_edge
 
-13:                                               ; preds = %._crit_edge31
+13:                                               ; preds = %._crit_edge32
   %14 = load ptr, ptr %5, align 8, !tbaa !42
-  tail call void %14(ptr noundef nonnull %.01720.lcssa, i64 noundef %.lcssa27)
+  tail call void %14(ptr noundef nonnull %.01720.lcssa, i64 noundef %.lcssa28)
   br label %._crit_edge
 
-.lr.ph30:                                         ; preds = %.lr.ph, %.lr.ph30
-  %15 = phi ptr [ %23, %.lr.ph30 ], [ %10, %.lr.ph ]
-  %16 = phi i64 [ %21, %.lr.ph30 ], [ %8, %.lr.ph ]
-  %17 = phi i64 [ %20, %.lr.ph30 ], [ %8, %.lr.ph ]
-  %.0172029 = phi ptr [ %15, %.lr.ph30 ], [ %4, %.lr.ph ]
+.lr.ph31:                                         ; preds = %.lr.ph, %.lr.ph31
+  %15 = phi ptr [ %23, %.lr.ph31 ], [ %10, %.lr.ph ]
+  %16 = phi i64 [ %21, %.lr.ph31 ], [ %8, %.lr.ph ]
+  %17 = phi i64 [ %20, %.lr.ph31 ], [ %8, %.lr.ph ]
+  %.0172030 = phi ptr [ %15, %.lr.ph31 ], [ %4, %.lr.ph ]
   %18 = load ptr, ptr %5, align 8, !tbaa !42
-  tail call void %18(ptr noundef nonnull %.0172029, i64 noundef %17)
+  tail call void %18(ptr noundef nonnull %.0172030, i64 noundef %17)
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %20 = load i64, ptr %19, align 8, !tbaa !19
   %21 = add i64 %20, %16
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !28
   %.not18 = icmp eq ptr %23, null
-  br i1 %.not18, label %._crit_edge31, label %.lr.ph30, !llvm.loop !43
+  br i1 %.not18, label %._crit_edge32, label %.lr.ph31, !llvm.loop !43
 
-._crit_edge:                                      ; preds = %13, %._crit_edge31, %1
-  %.016.lcssa = phi ptr [ null, %1 ], [ %.01720.lcssa, %._crit_edge31 ], [ null, %13 ]
-  %.0.lcssa = phi i64 [ 0, %1 ], [ %.lcssa, %._crit_edge31 ], [ %.lcssa, %13 ]
+._crit_edge:                                      ; preds = %13, %._crit_edge32, %1
+  %.016.lcssa = phi ptr [ null, %1 ], [ %.01720.lcssa, %._crit_edge32 ], [ null, %13 ]
+  %.0.lcssa = phi i64 [ 0, %1 ], [ %.lcssa, %._crit_edge32 ], [ %.lcssa, %13 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -787,11 +787,11 @@ _ZN6google8protobuf5Arena8NewBlockEPvPNS1_5BlockEmmm.exit: ; preds = %_ZN6google
   br label %60
 
 29:                                               ; preds = %_ZN6google8protobuf5Arena8NewBlockEPvPNS1_5BlockEmmm.exit, %.split
-  %spec.select.i.sink45 = phi i64 [ %spec.select.i, %_ZN6google8protobuf5Arena8NewBlockEPvPNS1_5BlockEmmm.exit ], [ %12, %.split ]
-  %30 = add i64 %spec.select.i.sink45, -32
+  %spec.select.i.sink49 = phi i64 [ %spec.select.i, %_ZN6google8protobuf5Arena8NewBlockEPvPNS1_5BlockEmmm.exit ], [ %12, %.split ]
+  %30 = add i64 %spec.select.i.sink49, -32
   %31 = icmp ugt i64 %1, %30
   %32 = add i64 %1, 32
-  %spec.select23.i22 = select i1 %31, i64 %32, i64 %spec.select.i.sink45
+  %spec.select23.i22 = select i1 %31, i64 %32, i64 %spec.select.i.sink49
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %34 = load ptr, ptr %33, align 8, !tbaa !45
   %35 = tail call noundef ptr %34(i64 noundef %spec.select23.i22)

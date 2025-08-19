@@ -925,7 +925,7 @@ define hidden void @_ZN3ue214hwlmBuildProtoERSt6vectorINS_11hwlmLiteralESaIS1_EE
   br label %121
 
 47:                                               ; preds = %38
-  %48 = add i64 %40, %.03067
+  %48 = add nuw nsw i64 %40, %.03067
   %49 = icmp ugt i64 %48, %28
   br i1 %49, label %50, label %55
 

@@ -547,7 +547,7 @@ define noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da4
 6:                                                ; preds = %2
   %7 = load i8, ptr %3, align 1, !noalias !58, !noundef !3
   %8 = icmp sgt i8 %7, -1
-  br i1 %8, label %_ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E.exit.thread7, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i"
+  br i1 %8, label %_ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E.exit.thread9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i": ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -596,12 +596,12 @@ _ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E.exit: ; preds = 
   %39 = icmp eq i32 %spec.select.i, %1
   br i1 %39, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i2", label %_ZN18ruff_python_trivia6cursor6Cursor4bump17h73b075b2b931ac3aE.exit
 
-_ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E.exit.thread7: ; preds = %6
+_ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E.exit.thread9: ; preds = %6
   %40 = zext nneg i8 %7 to i32
   %41 = icmp eq i32 %1, %40
   br i1 %41, label %.thread, label %_ZN18ruff_python_trivia6cursor6Cursor4bump17h73b075b2b931ac3aE.exit
 
-.thread:                                          ; preds = %_ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E.exit.thread7
+.thread:                                          ; preds = %_ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E.exit.thread9
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %42, ptr %0, align 8, !alias.scope !61
   br label %_ZN18ruff_python_trivia6cursor6Cursor4bump17h73b075b2b931ac3aE.exit
@@ -635,8 +635,8 @@ _ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E.exit.thread: ; p
   store ptr %52, ptr %0, align 8, !alias.scope !74
   br label %_ZN18ruff_python_trivia6cursor6Cursor4bump17h73b075b2b931ac3aE.exit
 
-_ZN18ruff_python_trivia6cursor6Cursor4bump17h73b075b2b931ac3aE.exit: ; preds = %.thread, %_ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E.exit.thread7, %_ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E.exit.thread, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit16.i.i5", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i.i4", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i2", %_ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E.exit
-  %53 = phi i1 [ false, %_ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E.exit ], [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i2" ], [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i.i4" ], [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit16.i.i5" ], [ %43, %_ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E.exit.thread ], [ false, %_ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E.exit.thread7 ], [ true, %.thread ]
+_ZN18ruff_python_trivia6cursor6Cursor4bump17h73b075b2b931ac3aE.exit: ; preds = %.thread, %_ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E.exit.thread9, %_ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E.exit.thread, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit16.i.i5", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i.i4", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i2", %_ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E.exit
+  %53 = phi i1 [ false, %_ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E.exit ], [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i2" ], [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i.i4" ], [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit16.i.i5" ], [ %43, %_ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E.exit.thread ], [ false, %_ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E.exit.thread9 ], [ true, %.thread ]
   ret i1 %53
 }
 
@@ -1061,7 +1061,7 @@ define noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor13eat_char_back1
   %13 = and i8 %12, 31
   %14 = zext nneg i8 %13 to i32
   %15 = icmp slt i8 %12, -64
-  br i1 %15, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE.exit19.i.i", label %_ZN18ruff_python_trivia6cursor6Cursor4last17hf63c639dedf39e98E.exit.thread9
+  br i1 %15, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE.exit19.i.i", label %_ZN18ruff_python_trivia6cursor6Cursor4last17hf63c639dedf39e98E.exit.thread13
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE.exit19.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE.exit17.i.i"
   %16 = icmp ne ptr %3, %11
@@ -1092,14 +1092,14 @@ define noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor13eat_char_back1
   %33 = and i8 %12, 63
   %34 = zext nneg i8 %33 to i32
   %35 = or disjoint i32 %32, %34
-  br label %_ZN18ruff_python_trivia6cursor6Cursor4last17hf63c639dedf39e98E.exit.thread9
+  br label %_ZN18ruff_python_trivia6cursor6Cursor4last17hf63c639dedf39e98E.exit.thread13
 
 _ZN18ruff_python_trivia6cursor6Cursor4last17hf63c639dedf39e98E.exit: ; preds = %6
   %36 = zext nneg i8 %8 to i32
   %37 = icmp eq i32 %1, %36
   br i1 %37, label %44, label %_ZN18ruff_python_trivia6cursor6Cursor9bump_back17h02c92c1cbe8eefd0E.exit
 
-_ZN18ruff_python_trivia6cursor6Cursor4last17hf63c639dedf39e98E.exit.thread9: ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE.exit17.i.i", %31
+_ZN18ruff_python_trivia6cursor6Cursor4last17hf63c639dedf39e98E.exit.thread13: ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE.exit17.i.i", %31
   %.sroa.04.0.i.i = phi i32 [ %35, %31 ], [ %14, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE.exit17.i.i" ]
   %38 = shl nuw nsw i32 %.sroa.04.0.i.i, 6
   %39 = and i8 %8, 63
@@ -1118,7 +1118,7 @@ _ZN18ruff_python_trivia6cursor6Cursor4last17hf63c639dedf39e98E.exit.thread: ; pr
   store ptr %7, ptr %4, align 8, !alias.scope !139
   br label %_ZN18ruff_python_trivia6cursor6Cursor9bump_back17h02c92c1cbe8eefd0E.exit
 
-"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE.exit17.i.i2": ; preds = %_ZN18ruff_python_trivia6cursor6Cursor4last17hf63c639dedf39e98E.exit.thread9
+"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE.exit17.i.i2": ; preds = %_ZN18ruff_python_trivia6cursor6Cursor4last17hf63c639dedf39e98E.exit.thread13
   %45 = getelementptr inbounds i8, ptr %5, i64 -2
   store ptr %45, ptr %4, align 8, !alias.scope !142
   %46 = load i8, ptr %45, align 1, !noalias !145, !noundef !3
@@ -1141,8 +1141,8 @@ _ZN18ruff_python_trivia6cursor6Cursor4last17hf63c639dedf39e98E.exit.thread: ; pr
   store ptr %53, ptr %4, align 8, !alias.scope !149
   br label %_ZN18ruff_python_trivia6cursor6Cursor9bump_back17h02c92c1cbe8eefd0E.exit
 
-_ZN18ruff_python_trivia6cursor6Cursor9bump_back17h02c92c1cbe8eefd0E.exit: ; preds = %44, %_ZN18ruff_python_trivia6cursor6Cursor4last17hf63c639dedf39e98E.exit.thread9, %_ZN18ruff_python_trivia6cursor6Cursor4last17hf63c639dedf39e98E.exit.thread, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE.exit19.i.i5", %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE.exit21.i.i7", %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE.exit17.i.i2", %_ZN18ruff_python_trivia6cursor6Cursor4last17hf63c639dedf39e98E.exit
-  %54 = phi i1 [ false, %_ZN18ruff_python_trivia6cursor6Cursor4last17hf63c639dedf39e98E.exit ], [ true, %44 ], [ %43, %_ZN18ruff_python_trivia6cursor6Cursor4last17hf63c639dedf39e98E.exit.thread ], [ true, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE.exit17.i.i2" ], [ true, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE.exit21.i.i7" ], [ true, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE.exit19.i.i5" ], [ false, %_ZN18ruff_python_trivia6cursor6Cursor4last17hf63c639dedf39e98E.exit.thread9 ]
+_ZN18ruff_python_trivia6cursor6Cursor9bump_back17h02c92c1cbe8eefd0E.exit: ; preds = %44, %_ZN18ruff_python_trivia6cursor6Cursor4last17hf63c639dedf39e98E.exit.thread13, %_ZN18ruff_python_trivia6cursor6Cursor4last17hf63c639dedf39e98E.exit.thread, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE.exit19.i.i5", %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE.exit21.i.i7", %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE.exit17.i.i2", %_ZN18ruff_python_trivia6cursor6Cursor4last17hf63c639dedf39e98E.exit
+  %54 = phi i1 [ false, %_ZN18ruff_python_trivia6cursor6Cursor4last17hf63c639dedf39e98E.exit ], [ true, %44 ], [ %43, %_ZN18ruff_python_trivia6cursor6Cursor4last17hf63c639dedf39e98E.exit.thread ], [ true, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE.exit17.i.i2" ], [ true, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE.exit21.i.i7" ], [ true, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE.exit19.i.i5" ], [ false, %_ZN18ruff_python_trivia6cursor6Cursor4last17hf63c639dedf39e98E.exit.thread13 ]
   ret i1 %54
 }
 

@@ -10202,17 +10202,17 @@ invoke.cont2:                                     ; preds = %if.then.i24, %if.th
   br i1 %cmp6.not, label %cleanup87, label %if.end
 
 lpad.loopexit:                                    ; preds = %if.end78, %if.end8.i.i, %if.end6.i
-  %lpad.loopexit164 = landingpad { ptr, i32 }
+  %lpad.loopexit165 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then46
-  %lpad.loopexit167 = landingpad { ptr, i32 }
+  %lpad.loopexit168 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.then24.i, %if.then.i37, %cond.false, %if.end.i.i.i, %if.then.i.i.i, %invoke.cont30, %cond.true, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
-  %lpad.loopexit.split-lp168 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp169 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -10590,7 +10590,7 @@ cleanup87:                                        ; preds = %invoke.cont, %invok
   ret ptr %retval.1
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad55
-  %.pn = phi { ptr, i32 } [ %45, %lpad55 ], [ %lpad.loopexit164, %lpad.loopexit ], [ %lpad.loopexit167, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp168, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %45, %lpad55 ], [ %lpad.loopexit165, %lpad.loopexit ], [ %lpad.loopexit168, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp169, %lpad.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %payload) #30
   resume { ptr, i32 } %.pn
 }
@@ -13967,7 +13967,7 @@ for.cond69.preheader:                             ; preds = %if.then3
   %3 = load ptr, ptr %this, align 8
   %4 = load i32, ptr %3, align 8
   %cmp71487 = icmp sgt i32 %4, 0
-  br i1 %cmp71487, label %for.body72.lr.ph, label %sw.epilog.thread609
+  br i1 %cmp71487, label %for.body72.lr.ph, label %sw.epilog.thread615
 
 for.body72.lr.ph:                                 ; preds = %for.cond69.preheader
   %arena_or_elements_.i.i.i164 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -13979,7 +13979,7 @@ for.cond57.preheader:                             ; preds = %if.then3
   %6 = load ptr, ptr %this, align 8
   %7 = load i32, ptr %6, align 8
   %cmp59491 = icmp sgt i32 %7, 0
-  br i1 %cmp59491, label %for.body60.lr.ph, label %sw.epilog.thread609
+  br i1 %cmp59491, label %for.body60.lr.ph, label %sw.epilog.thread615
 
 for.body60.lr.ph:                                 ; preds = %for.cond57.preheader
   %arena_or_elements_.i.i.i153 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -13991,7 +13991,7 @@ for.cond45.preheader:                             ; preds = %if.then3
   %9 = load ptr, ptr %this, align 8
   %10 = load i32, ptr %9, align 8
   %cmp47495 = icmp sgt i32 %10, 0
-  br i1 %cmp47495, label %for.body48.lr.ph, label %sw.epilog.thread609
+  br i1 %cmp47495, label %for.body48.lr.ph, label %sw.epilog.thread615
 
 for.body48.lr.ph:                                 ; preds = %for.cond45.preheader
   %arena_or_elements_.i.i.i144 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -14003,7 +14003,7 @@ for.cond33.preheader:                             ; preds = %if.then3
   %12 = load ptr, ptr %this, align 8
   %13 = load i32, ptr %12, align 8
   %cmp35499 = icmp sgt i32 %13, 0
-  br i1 %cmp35499, label %for.body36.lr.ph, label %sw.epilog.thread609
+  br i1 %cmp35499, label %for.body36.lr.ph, label %sw.epilog.thread615
 
 for.body36.lr.ph:                                 ; preds = %for.cond33.preheader
   %arena_or_elements_.i.i.i136 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -14015,7 +14015,7 @@ for.cond21.preheader:                             ; preds = %if.then3
   %15 = load ptr, ptr %this, align 8
   %16 = load i32, ptr %15, align 8
   %cmp23503 = icmp sgt i32 %16, 0
-  br i1 %cmp23503, label %for.body24.lr.ph, label %sw.epilog.thread609
+  br i1 %cmp23503, label %for.body24.lr.ph, label %sw.epilog.thread615
 
 for.body24.lr.ph:                                 ; preds = %for.cond21.preheader
   %arena_or_elements_.i.i.i128 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -14027,7 +14027,7 @@ for.cond9.preheader:                              ; preds = %if.then3
   %18 = load ptr, ptr %this, align 8
   %19 = load i32, ptr %18, align 8
   %cmp11507 = icmp sgt i32 %19, 0
-  br i1 %cmp11507, label %for.body12.lr.ph, label %sw.epilog.thread609
+  br i1 %cmp11507, label %for.body12.lr.ph, label %sw.epilog.thread615
 
 for.body12.lr.ph:                                 ; preds = %for.cond9.preheader
   %arena_or_elements_.i.i.i125 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -14039,7 +14039,7 @@ for.cond.preheader:                               ; preds = %if.then3
   %21 = load ptr, ptr %this, align 8
   %22 = load i32, ptr %21, align 8
   %cmp511 = icmp sgt i32 %22, 0
-  br i1 %cmp511, label %for.body.lr.ph, label %sw.epilog.thread609
+  br i1 %cmp511, label %for.body.lr.ph, label %sw.epilog.thread615
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -14237,9 +14237,9 @@ lpad:                                             ; preds = %sw.bb113
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp114) #32
   unreachable
 
-sw.epilog.thread609:                              ; preds = %for.cond.preheader, %for.cond9.preheader, %for.cond21.preheader, %for.cond33.preheader, %for.cond45.preheader, %for.cond57.preheader, %for.cond69.preheader
-  %cached_size612 = getelementptr inbounds nuw i8, ptr %this, i64 12
-  store i32 0, ptr %cached_size612, align 4
+sw.epilog.thread615:                              ; preds = %for.cond.preheader, %for.cond9.preheader, %for.cond21.preheader, %for.cond33.preheader, %for.cond45.preheader, %for.cond57.preheader, %for.cond69.preheader
+  %cached_size618 = getelementptr inbounds nuw i8, ptr %this, i64 12
+  store i32 0, ptr %cached_size618, align 4
   br label %if.end415
 
 sw.epilog:                                        ; preds = %for.body72, %for.body60, %for.body48, %for.body36, %for.body24, %for.body12, %for.body, %sw.bb108, %sw.bb103, %sw.bb98, %sw.bb93, %sw.bb88, %sw.bb83, %sw.bb79
@@ -14953,8 +14953,8 @@ sw.bb411:                                         ; preds = %if.then353
   %add412 = add nuw nsw i64 %retval.0.i346, 1
   br label %if.end415
 
-if.end415:                                        ; preds = %for.body301, %for.body285, %for.body269, %for.body253, %for.body237, %for.body221, %for.body205, %for.body189, %for.body173, %for.body157, %for.body141, %sw.epilog.thread609, %sw.bb292, %sw.bb276, %sw.bb260, %sw.bb244, %sw.bb228, %sw.bb212, %sw.bb196, %sw.bb180, %sw.bb164, %sw.bb148, %sw.bb132, %sw.epilog.thread, %if.else352, %sw.bb411, %sw.bb409, %sw.bb407, %sw.bb405, %sw.bb403, %sw.bb401, %sw.bb399, %sw.bb390, %sw.bb387, %sw.bb384, %sw.bb381, %sw.bb378, %sw.bb375, %sw.bb372, %sw.bb369, %sw.bb366, %sw.bb363, %sw.bb360, %if.then353, %if.then121, %sw.epilog, %sw.bb344, %sw.bb338, %sw.bb332, %sw.bb326, %sw.bb320, %sw.bb314, %sw.bb308, %if.else
-  %result.19 = phi i64 [ %add126, %if.then121 ], [ 0, %sw.epilog ], [ 0, %if.else ], [ %mul312, %sw.bb308 ], [ %mul318, %sw.bb314 ], [ %mul324, %sw.bb320 ], [ %mul330, %sw.bb326 ], [ %mul336, %sw.bb332 ], [ %mul342, %sw.bb338 ], [ %mul348, %sw.bb344 ], [ 0, %if.else352 ], [ %retval.0.i346, %if.then353 ], [ %add362, %sw.bb360 ], [ %add365, %sw.bb363 ], [ %add368, %sw.bb366 ], [ %add371, %sw.bb369 ], [ %add374, %sw.bb372 ], [ %add377, %sw.bb375 ], [ %add380, %sw.bb378 ], [ %add383, %sw.bb381 ], [ %add386, %sw.bb384 ], [ %add389, %sw.bb387 ], [ %add398, %sw.bb390 ], [ %add400, %sw.bb399 ], [ %add402, %sw.bb401 ], [ %add404, %sw.bb403 ], [ %add406, %sw.bb405 ], [ %add408, %sw.bb407 ], [ %add410, %sw.bb409 ], [ %add412, %sw.bb411 ], [ 0, %sw.epilog.thread ], [ %mul135, %sw.bb132 ], [ %mul151, %sw.bb148 ], [ %mul167, %sw.bb164 ], [ %mul183, %sw.bb180 ], [ %mul199, %sw.bb196 ], [ %mul215, %sw.bb212 ], [ %mul231, %sw.bb228 ], [ %mul247, %sw.bb244 ], [ %mul263, %sw.bb260 ], [ %mul279, %sw.bb276 ], [ %mul295, %sw.bb292 ], [ 0, %sw.epilog.thread609 ], [ %add144, %for.body141 ], [ %add160, %for.body157 ], [ %add176, %for.body173 ], [ %add192, %for.body189 ], [ %add208, %for.body205 ], [ %add224, %for.body221 ], [ %add240, %for.body237 ], [ %add256, %for.body253 ], [ %add272, %for.body269 ], [ %add288, %for.body285 ], [ %add304, %for.body301 ]
+if.end415:                                        ; preds = %for.body301, %for.body285, %for.body269, %for.body253, %for.body237, %for.body221, %for.body205, %for.body189, %for.body173, %for.body157, %for.body141, %sw.epilog.thread615, %sw.bb292, %sw.bb276, %sw.bb260, %sw.bb244, %sw.bb228, %sw.bb212, %sw.bb196, %sw.bb180, %sw.bb164, %sw.bb148, %sw.bb132, %sw.epilog.thread, %if.else352, %sw.bb411, %sw.bb409, %sw.bb407, %sw.bb405, %sw.bb403, %sw.bb401, %sw.bb399, %sw.bb390, %sw.bb387, %sw.bb384, %sw.bb381, %sw.bb378, %sw.bb375, %sw.bb372, %sw.bb369, %sw.bb366, %sw.bb363, %sw.bb360, %if.then353, %if.then121, %sw.epilog, %sw.bb344, %sw.bb338, %sw.bb332, %sw.bb326, %sw.bb320, %sw.bb314, %sw.bb308, %if.else
+  %result.19 = phi i64 [ %add126, %if.then121 ], [ 0, %sw.epilog ], [ 0, %if.else ], [ %mul312, %sw.bb308 ], [ %mul318, %sw.bb314 ], [ %mul324, %sw.bb320 ], [ %mul330, %sw.bb326 ], [ %mul336, %sw.bb332 ], [ %mul342, %sw.bb338 ], [ %mul348, %sw.bb344 ], [ 0, %if.else352 ], [ %retval.0.i346, %if.then353 ], [ %add362, %sw.bb360 ], [ %add365, %sw.bb363 ], [ %add368, %sw.bb366 ], [ %add371, %sw.bb369 ], [ %add374, %sw.bb372 ], [ %add377, %sw.bb375 ], [ %add380, %sw.bb378 ], [ %add383, %sw.bb381 ], [ %add386, %sw.bb384 ], [ %add389, %sw.bb387 ], [ %add398, %sw.bb390 ], [ %add400, %sw.bb399 ], [ %add402, %sw.bb401 ], [ %add404, %sw.bb403 ], [ %add406, %sw.bb405 ], [ %add408, %sw.bb407 ], [ %add410, %sw.bb409 ], [ %add412, %sw.bb411 ], [ 0, %sw.epilog.thread ], [ %mul135, %sw.bb132 ], [ %mul151, %sw.bb148 ], [ %mul167, %sw.bb164 ], [ %mul183, %sw.bb180 ], [ %mul199, %sw.bb196 ], [ %mul215, %sw.bb212 ], [ %mul231, %sw.bb228 ], [ %mul247, %sw.bb244 ], [ %mul263, %sw.bb260 ], [ %mul279, %sw.bb276 ], [ %mul295, %sw.bb292 ], [ 0, %sw.epilog.thread615 ], [ %add144, %for.body141 ], [ %add160, %for.body157 ], [ %add176, %for.body173 ], [ %add192, %for.body189 ], [ %add208, %for.body205 ], [ %add224, %for.body221 ], [ %add240, %for.body237 ], [ %add256, %for.body253 ], [ %add272, %for.body269 ], [ %add288, %for.body285 ], [ %add304, %for.body301 ]
   ret i64 %result.19
 }
 

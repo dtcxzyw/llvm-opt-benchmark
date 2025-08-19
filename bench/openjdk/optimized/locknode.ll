@@ -222,7 +222,7 @@ define hidden noundef zeroext i1 @_ZNK11BoxLockNode3cmpERK4Node(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11BoxLockNode8IdentityEP8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZN11BoxLockNode8IdentityEP8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 align 2 {
   %3 = load i8, ptr @EliminateNestedLocks, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %22, label %5

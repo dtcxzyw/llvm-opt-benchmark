@@ -437,7 +437,7 @@ decode_envelope.exit.thread:                      ; preds = %50, %decode_envelop
   br i1 %exitcond190.not.i, label %._crit_edge.i179, label %.lr.ph.i, !llvm.loop !76
 
 ._crit_edge.i179:                                 ; preds = %.lr.ph.i, %.preheader146.._crit_edge_crit_edge.i
-  %.0106.lcssa209.i = phi i32 [ -32, %.preheader146.._crit_edge_crit_edge.i ], [ %spec.select.i, %.lr.ph.i ]
+  %.0106.lcssa213.i = phi i32 [ -32, %.preheader146.._crit_edge_crit_edge.i ], [ %spec.select.i, %.lr.ph.i ]
   %.pre-phi.i = phi i64 [ %.pre.i, %.preheader146.._crit_edge_crit_edge.i ], [ %wide.trip.count.i182, %.lr.ph.i ]
   %.1113.lcssa.i = phi i32 [ 0, %.preheader146.._crit_edge_crit_edge.i ], [ %171, %.lr.ph.i ]
   %172 = getelementptr inbounds nuw i8, ptr %7, i64 64
@@ -488,7 +488,7 @@ decode_envelope.exit.thread:                      ; preds = %50, %decode_envelop
   %183 = load i32, ptr %182, align 4, !tbaa !37
   %184 = shl i32 %179, 1
   %185 = add i32 %184, %183
-  %186 = sub i32 %.0106.lcssa209.i, %185
+  %186 = sub i32 %.0106.lcssa213.i, %185
   %187 = icmp sgt i32 %186, %.0101164.i
   %spec.select127.i = tail call i32 @llvm.smax.i32(i32 %186, i32 %.0101164.i)
   %188 = trunc nuw nsw i64 %indvars.iv.next197.i to i32
@@ -539,7 +539,7 @@ decode_envelope.exit.thread:                      ; preds = %50, %decode_envelop
   %213 = load i32, ptr %212, align 4, !tbaa !37
   %214 = shl nuw i32 %209, 1
   %215 = add i32 %214, %213
-  %216 = sub i32 %.0106.lcssa209.i, %215
+  %216 = sub i32 %.0106.lcssa213.i, %215
   %217 = icmp slt i32 %216, %.2103157.i
   %spec.select129.i = tail call i32 @llvm.smin.i32(i32 %216, i32 %.2103157.i)
   %218 = trunc nuw nsw i64 %indvars.iv191.i to i32
@@ -848,9 +848,9 @@ categorize_regions.exit:                          ; preds = %.preheader.i181
 
 359:                                              ; preds = %356
   %360 = icmp ugt i32 %.2133.i, 20
-  br i1 %360, label %decode_vector.exit.thread, label %.thread280.i
+  br i1 %360, label %decode_vector.exit.thread, label %.thread289.i
 
-.thread280.i:                                     ; preds = %359
+.thread289.i:                                     ; preds = %359
   %361 = zext nneg i32 %.2133.i to i64
   %362 = load float, ptr %268, align 4, !tbaa !4
   %363 = getelementptr inbounds nuw [21 x float], ptr @noise_category5, i64 0, i64 %361
@@ -864,7 +864,7 @@ categorize_regions.exit:                          ; preds = %.preheader.i181
   br i1 %or.cond3.i190, label %.preheader191.preheader.i, label %.thread170.i.thread
 
 .preheader191.preheader.i:                        ; preds = %.thread170.i, %342
-  %.0136174275.i = phi i32 [ 6, %.thread170.i ], [ 5, %342 ]
+  %.0136174284.i = phi i32 [ 6, %.thread170.i ], [ 5, %342 ]
   %noise_category5.noise_category6.i = phi ptr [ @noise_category6, %.thread170.i ], [ @noise_category5, %342 ]
   br label %.preheader191.i
 
@@ -895,7 +895,7 @@ categorize_regions.exit:                          ; preds = %.preheader.i181
   br i1 %377, label %.thread177.i, label %381
 
 .thread177.i:                                     ; preds = %.lr.ph226.i, %.thread170.i.thread, %.preheader192.i
-  %.2176268279.i = phi i32 [ %.2176.i208, %.thread170.i.thread ], [ 1, %.preheader192.i ], [ 1, %.lr.ph226.i ]
+  %.2176277288.i = phi i32 [ %.2176.i208, %.thread170.i.thread ], [ 1, %.preheader192.i ], [ 1, %.lr.ph226.i ]
   %378 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv256.i
   %379 = load float, ptr %378, align 4, !tbaa !4
   %380 = fmul nsz float %379, 0x3FE6A0A520000000
@@ -903,16 +903,16 @@ categorize_regions.exit:                          ; preds = %.preheader.i181
 
 381:                                              ; preds = %.thread170.i.thread, %.sink.split.i
   %.2175.i = phi i32 [ %.2176.i208, %.thread170.i.thread ], [ 0, %.sink.split.i ]
-  %.0136173.i = phi i32 [ %256, %.thread170.i.thread ], [ %.0136174275.i, %.sink.split.i ]
+  %.0136173.i = phi i32 [ %256, %.thread170.i.thread ], [ %.0136174284.i, %.sink.split.i ]
   %.0143.i = phi nsz float [ 0.000000e+00, %.thread170.i.thread ], [ %376, %.sink.split.i ]
   %382 = add i32 %.0136173.i, -5
   %or.cond7.i = icmp ult i32 %382, 3
   br i1 %or.cond7.i, label %383, label %.loopexit.i
 
-383:                                              ; preds = %381, %.thread177.i, %.thread280.i
-  %384 = phi i1 [ true, %.thread177.i ], [ false, %381 ], [ false, %.thread280.i ]
-  %.0143184.i = phi float [ %380, %.thread177.i ], [ %.0143.i, %381 ], [ %365, %.thread280.i ]
-  %.2175183.i = phi i32 [ %.2176268279.i, %.thread177.i ], [ %.2175.i, %381 ], [ 0, %.thread280.i ]
+383:                                              ; preds = %381, %.thread177.i, %.thread289.i
+  %384 = phi i1 [ true, %.thread177.i ], [ false, %381 ], [ false, %.thread289.i ]
+  %.0143184.i = phi float [ %380, %.thread177.i ], [ %.0143.i, %381 ], [ %365, %.thread289.i ]
+  %.2175183.i = phi i32 [ %.2176277288.i, %.thread177.i ], [ %.2175.i, %381 ], [ 0, %.thread289.i ]
   %385 = load i32, ptr %249, align 4, !tbaa !48
   %386 = load i32, ptr %250, align 8, !tbaa !45
   %387 = add i32 %386, %385

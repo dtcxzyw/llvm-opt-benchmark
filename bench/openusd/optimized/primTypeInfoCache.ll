@@ -147,14 +147,14 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21Usd_PrimTypeInfoCache35Compu
   %.not.i.i = icmp eq ptr %18, null
   %33 = icmp eq ptr %15, %18
   %34 = icmp eq ptr %14, %17
-  %or.cond90 = select i1 %.not.i.i, i1 true, i1 %34
-  %or.cond8791 = select i1 %33, i1 %or.cond90, i1 false
-  br i1 %or.cond8791, label %._crit_edge, label %_ZNK32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt23_Rb_tree_const_iteratorISE_EEneISI_SK_EEbRKNS1_IT_T0_EE.exit
+  %or.cond104 = select i1 %.not.i.i, i1 true, i1 %34
+  %or.cond101105 = select i1 %33, i1 %or.cond104, i1 false
+  br i1 %or.cond101105, label %._crit_edge, label %_ZNK32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt23_Rb_tree_const_iteratorISE_EEneISI_SK_EEbRKNS1_IT_T0_EE.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt23_Rb_tree_const_iteratorISE_EEneISI_SK_EEbRKNS1_IT_T0_EE.exit: ; preds = %3, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt23_Rb_tree_const_iteratorISE_EEppEv.exit
-  %.sroa.5.093 = phi ptr [ %.sroa.5.1, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt23_Rb_tree_const_iteratorISE_EEppEv.exit ], [ %15, %3 ]
-  %.sroa.071.092 = phi ptr [ %.sroa.071.1, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt23_Rb_tree_const_iteratorISE_EEppEv.exit ], [ %14, %3 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.071.092, i64 32
+  %.sroa.5.0107 = phi ptr [ %.sroa.5.1, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt23_Rb_tree_const_iteratorISE_EEppEv.exit ], [ %15, %3 ]
+  %.sroa.071.0106 = phi ptr [ %.sroa.071.1, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt23_Rb_tree_const_iteratorISE_EEppEv.exit ], [ %14, %3 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.071.0106, i64 32
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %35)
   %36 = load i64, ptr %8, align 8
   store i64 %36, ptr %9, align 8
@@ -276,8 +276,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfo7_TypeIdD2Ev.exit: ; preds
   br label %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_ED2Ev.exit63
 
 89:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfo7_TypeIdD2Ev.exit
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.071.092, i64 64
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.071.092, i64 72
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.071.0106, i64 64
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.071.0106, i64 72
   %92 = load ptr, ptr %91, align 8
   %93 = ptrtoint ptr %92 to i64
   %.not.i = icmp eq ptr %92, null
@@ -593,7 +593,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_ED2Ev.exit: ; preds = 
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_ED2Ev.exit, %229
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.not.i.i65 = icmp eq ptr %.sroa.5.093, null
+  %.not.i.i65 = icmp eq ptr %.sroa.5.0107, null
   br i1 %.not.i.i65, label %233, label %234
 
 233:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
@@ -607,21 +607,21 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZNSt4pairIN3
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt23_Rb_tree_const_iteratorISE_EEppEv.exit
 
 234:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
-  %235 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.071.092) #16
-  %236 = getelementptr inbounds nuw i8, ptr %.sroa.5.093, i64 8
+  %235 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.071.0106) #16
+  %236 = getelementptr inbounds nuw i8, ptr %.sroa.5.0107, i64 8
   %237 = icmp eq ptr %235, %236
-  %spec.select77 = select i1 %237, ptr null, ptr %.sroa.5.093
+  %spec.select77 = select i1 %237, ptr null, ptr %.sroa.5.0107
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt23_Rb_tree_const_iteratorISE_EEppEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt23_Rb_tree_const_iteratorISE_EEppEv.exit: ; preds = %234, %233
-  %.sroa.071.1 = phi ptr [ %.sroa.071.092, %233 ], [ %235, %234 ]
+  %.sroa.071.1 = phi ptr [ %.sroa.071.0106, %233 ], [ %235, %234 ]
   %.sroa.5.1 = phi ptr [ null, %233 ], [ %spec.select77, %234 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %238 = icmp eq ptr %.sroa.5.1, %18
   %239 = icmp eq ptr %.sroa.071.1, %17
   %or.cond = select i1 %.not.i.i, i1 true, i1 %239
-  %or.cond87 = select i1 %238, i1 %or.cond, i1 false
-  br i1 %or.cond87, label %._crit_edge, label %_ZNK32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt23_Rb_tree_const_iteratorISE_EEneISI_SK_EEbRKNS1_IT_T0_EE.exit
+  %or.cond101 = select i1 %238, i1 %or.cond, i1 false
+  br i1 %or.cond101, label %._crit_edge, label %_ZNK32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt23_Rb_tree_const_iteratorISE_EEneISI_SK_EEbRKNS1_IT_T0_EE.exit
 
 _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_ED2Ev.exit63: ; preds = %220, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i57, %206, %87, %85
   %.pn = phi { ptr, i32 } [ %86, %85 ], [ %207, %206 ], [ %88, %87 ], [ %209, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i57 ], [ %209, %220 ]

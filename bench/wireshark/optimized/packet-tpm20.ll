@@ -890,9 +890,9 @@ get_num_hndl.exit.i:                              ; preds = %.loopexit.i.i
 
 dissect_auth_command.exit.i:                      ; preds = %160, %._crit_edge.i.i, %129
   %.4.i = phi i32 [ %126, %129 ], [ %155, %160 ], [ %155, %._crit_edge.i.i ]
-  %.0.lcssa6.i.i = phi i32 [ 0, %129 ], [ %158, %160 ], [ %158, %._crit_edge.i.i ]
+  %.0.lcssa7.i.i = phi i32 [ 0, %129 ], [ %158, %160 ], [ %158, %._crit_edge.i.i ]
   %162 = getelementptr inbounds nuw i8, ptr %121, i64 12
-  store i32 %.0.lcssa6.i.i, ptr %162, align 4
+  store i32 %.0.lcssa7.i.i, ptr %162, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %166
 
@@ -1110,7 +1110,7 @@ dissect_tpm20_tpm_command.exit:                   ; preds = %166, %167, %170, %d
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %282
   %289 = phi i8 [ 0, %282 ], [ %.be, %.backedge.i.backedge ]
-  %290 = phi i8 [ 0, %282 ], [ %.be96, %.backedge.i.backedge ]
+  %290 = phi i8 [ 0, %282 ], [ %.be112, %.backedge.i.backedge ]
   %indvar.i.i38 = phi i64 [ 0, %282 ], [ %indvar.i.i38.be, %.backedge.i.backedge ]
   %291 = shl nuw nsw i64 %indvar.i.i38, 6
   %292 = getelementptr i8, ptr @tpm_handles_map, i64 %291
@@ -1156,14 +1156,14 @@ dissect_tpm20_tpm_command.exit:                   ; preds = %166, %167, %170, %d
   br i1 %exitcond.not.i.i43, label %get_num_hndl.exit.i44, label %.backedge.i.backedge
 
 .loopexit.i.thread.i:                             ; preds = %.preheader.i.i55
-  %indvar.next.i74.i = add nuw nsw i64 %indvar.i.i38, 1
-  %exitcond.not.i75.i = icmp eq i64 %indvar.next.i74.i, 117
-  br i1 %exitcond.not.i75.i, label %get_num_hndl.exit.thread.i, label %.backedge.i.backedge
+  %indvar.next.i82.i = add nuw nsw i64 %indvar.i.i38, 1
+  %exitcond.not.i83.i = icmp eq i64 %indvar.next.i82.i, 117
+  br i1 %exitcond.not.i83.i, label %get_num_hndl.exit.thread.i, label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %.loopexit.i.thread.i, %.loopexit.i.i41
   %.be = phi i8 [ %306, %.loopexit.i.i41 ], [ 0, %.loopexit.i.thread.i ]
-  %.be96 = phi i8 [ %307, %.loopexit.i.i41 ], [ %298, %.loopexit.i.thread.i ]
-  %indvar.i.i38.be = phi i64 [ %indvar.next.i.i42, %.loopexit.i.i41 ], [ %indvar.next.i74.i, %.loopexit.i.thread.i ]
+  %.be112 = phi i8 [ %307, %.loopexit.i.i41 ], [ %298, %.loopexit.i.thread.i ]
+  %indvar.i.i38.be = phi i64 [ %indvar.next.i.i42, %.loopexit.i.i41 ], [ %indvar.next.i82.i, %.loopexit.i.thread.i ]
   br label %.backedge.i, !llvm.loop !6
 
 get_num_hndl.exit.thread.i:                       ; preds = %.loopexit.i.thread.i

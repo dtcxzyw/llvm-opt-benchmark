@@ -2683,9 +2683,9 @@ fw_domains_put.exit:                              ; preds = %536
   br i1 %558, label %.thread39, label %.thread41
 
 .thread39.sink.split:                             ; preds = %497, %498, %461, %462, %391, %392, %294, %295
-  %.sink58 = phi i64 [ 328, %295 ], [ 328, %294 ], [ 224, %392 ], [ 224, %391 ], [ 224, %462 ], [ 224, %461 ], [ 208, %498 ], [ 208, %497 ]
+  %.sink83 = phi i64 [ 328, %295 ], [ 328, %294 ], [ 224, %392 ], [ 224, %391 ], [ 224, %462 ], [ 224, %461 ], [ 208, %498 ], [ 208, %497 ]
   %.sink = phi ptr [ %266, %295 ], [ %266, %294 ], [ %365, %392 ], [ %365, %391 ], [ %435, %462 ], [ %435, %461 ], [ %469, %498 ], [ %469, %497 ]
-  %559 = getelementptr i8, ptr %0, i64 %.sink58
+  %559 = getelementptr i8, ptr %0, i64 %.sink83
   store ptr %.sink, ptr %559, align 8
   br label %.thread39
 
@@ -3398,9 +3398,9 @@ define dso_local range(i32 -110, 1) i32 @__intel_wait_for_register_fw(ptr nounde
 
 .split.us.outer:                                  ; preds = %13, %42
   %.ph = phi i64 [ %45, %42 ], [ %16, %13 ]
-  %.ph60 = phi i32 [ %44, %42 ], [ %14, %13 ]
-  %.ph61 = phi i32 [ %40, %42 ], [ %15, %13 ]
-  %19 = sext i32 %.ph60 to i64
+  %.ph70 = phi i32 [ %44, %42 ], [ %14, %13 ]
+  %.ph71 = phi i32 [ %40, %42 ], [ %15, %13 ]
+  %19 = sext i32 %.ph70 to i64
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.outer, %39
@@ -3440,12 +3440,12 @@ define dso_local range(i32 -110, 1) i32 @__intel_wait_for_register_fw(ptr nounde
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !80
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !88
   %40 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !89
-  %41 = icmp eq i32 %.ph61, %40
+  %41 = icmp eq i32 %.ph71, %40
   br i1 %41, label %.split.us, label %42, !prof !30
 
 42:                                               ; preds = %39
   %43 = trunc i64 %37 to i32
-  %44 = sub i32 %.ph60, %43
+  %44 = sub i32 %.ph70, %43
   %45 = tail call i64 @local_clock() #12
   br label %.split.us.outer
 
@@ -3454,10 +3454,10 @@ define dso_local range(i32 -110, 1) i32 @__intel_wait_for_register_fw(ptr nounde
   br label %.outer
 
 .outer:                                           ; preds = %68, %.split
-  %.ph70 = phi i64 [ %71, %68 ], [ %16, %.split ]
-  %.ph71 = phi i32 [ %70, %68 ], [ %14, %.split ]
-  %.ph72 = phi i32 [ %66, %68 ], [ %15, %.split ]
-  %47 = sext i32 %.ph71 to i64
+  %.ph80 = phi i64 [ %71, %68 ], [ %16, %.split ]
+  %.ph81 = phi i32 [ %70, %68 ], [ %14, %.split ]
+  %.ph82 = phi i32 [ %66, %68 ], [ %15, %.split ]
+  %47 = sext i32 %.ph81 to i64
   br label %48
 
 48:                                               ; preds = %.outer, %65
@@ -3485,7 +3485,7 @@ define dso_local range(i32 -110, 1) i32 @__intel_wait_for_register_fw(ptr nounde
   br i1 %61, label %.thread6, label %62
 
 62:                                               ; preds = %56
-  %63 = sub i64 %49, %.ph70
+  %63 = sub i64 %49, %.ph80
   %64 = icmp ult i64 %63, %47
   br i1 %64, label %65, label %.thread
 
@@ -3494,12 +3494,12 @@ define dso_local range(i32 -110, 1) i32 @__intel_wait_for_register_fw(ptr nounde
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !80
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !88
   %66 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !89
-  %67 = icmp eq i32 %.ph72, %66
+  %67 = icmp eq i32 %.ph82, %66
   br i1 %67, label %48, label %68, !prof !30
 
 68:                                               ; preds = %65
   %69 = trunc i64 %63 to i32
-  %70 = sub i32 %.ph71, %69
+  %70 = sub i32 %.ph81, %69
   %71 = tail call i64 @local_clock() #12
   br label %.outer
 
@@ -8570,14 +8570,14 @@ define internal fastcc void @__gen6_gt_wait_for_fifo(ptr noundef captures(none) 
 .lr.ph.preheader:                                 ; preds = %19
   %27 = sub i64 %21, %20
   %28 = icmp ugt i64 %27, 9999999
-  br i1 %28, label %.lr.ph._crit_edge, label %.lr.ph11
+  br i1 %28, label %.lr.ph._crit_edge, label %.lr.ph15
 
-.lr.ph:                                           ; preds = %.lr.ph11
+.lr.ph:                                           ; preds = %.lr.ph15
   %29 = sub i64 %31, %20
   %30 = icmp ugt i64 %29, 9999999
-  br i1 %30, label %.lr.ph._crit_edge, label %.lr.ph11
+  br i1 %30, label %.lr.ph._crit_edge, label %.lr.ph15
 
-.lr.ph11:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph15:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !87
   %31 = tail call i64 @local_clock() #12
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !155
@@ -8604,8 +8604,8 @@ define internal fastcc void @__gen6_gt_wait_for_fifo(ptr noundef captures(none) 
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %43, i32 noundef 1, ptr noundef nonnull @.str.59, i32 noundef %.lcssa) #12
   br label %47
 
-.thread2:                                         ; preds = %.lr.ph11, %19, %16
-  %44 = phi i32 [ %17, %16 ], [ %25, %19 ], [ %35, %.lr.ph11 ]
+.thread2:                                         ; preds = %.lr.ph15, %19, %16
+  %44 = phi i32 [ %17, %16 ], [ %25, %19 ], [ %35, %.lr.ph15 ]
   %45 = add i32 %44, -1
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 %45, ptr %46, align 8

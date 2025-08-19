@@ -607,7 +607,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
   %53 = xor i64 %indvars.iv95, -1
   %54 = add nsw i64 %49, %53
   %55 = mul nsw i64 %54, %49
-  %invariant.gep104 = getelementptr float, ptr %2, i64 %55
+  %invariant.gep108 = getelementptr float, ptr %2, i64 %55
   br label %.preheader.us.us
 
 56:                                               ; preds = %57
@@ -617,7 +617,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
 
 57:                                               ; preds = %.preheader.us.us, %57
   %indvars.iv86 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next87, %57 ]
-  %58 = getelementptr float, ptr %gep105, i64 %indvars.iv86
+  %58 = getelementptr float, ptr %gep109, i64 %indvars.iv86
   %59 = load float, ptr %58, align 4, !tbaa !27
   %60 = getelementptr inbounds nuw [3 x float], ptr %61, i64 0, i64 %indvars.iv86
   store float %59, ptr %60, align 4, !tbaa !27
@@ -628,8 +628,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
 .preheader.us.us:                                 ; preds = %.preheader.lr.ph.us.us, %56
   %indvars.iv90 = phi i64 [ 0, %.preheader.lr.ph.us.us ], [ %indvars.iv.next91, %56 ]
   %61 = getelementptr inbounds nuw [3 x float], ptr %18, i64 %indvars.iv90
-  %.idx100 = mul i64 %indvars.iv90, 12
-  %gep105 = getelementptr i8, ptr %invariant.gep104, i64 %.idx100
+  %.idx104 = mul i64 %indvars.iv90, 12
+  %gep109 = getelementptr i8, ptr %invariant.gep108, i64 %.idx104
   br label %57
 
 ._crit_edge.us.us:                                ; preds = %56

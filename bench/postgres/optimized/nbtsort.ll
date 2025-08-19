@@ -141,10 +141,10 @@ define dso_local noundef ptr @btbuild(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %66
 
 66:                                               ; preds = %64, %48
-  %.sink133.i.i = phi i64 [ 3, %64 ], [ 2, %48 ]
+  %.sink134.i.i = phi i64 [ 3, %64 ], [ 2, %48 ]
   %67 = getelementptr inbounds nuw i8, ptr %43, i64 64
   %68 = load i64, ptr %67, align 8
-  %69 = tail call i64 @add_size(i64 noundef %68, i64 noundef %.sink133.i.i) #10
+  %69 = tail call i64 @add_size(i64 noundef %68, i64 noundef %.sink134.i.i) #10
   store i64 %69, ptr %67, align 8
   %70 = load i64, ptr %52, align 8
   %71 = getelementptr inbounds nuw i8, ptr %43, i64 20
@@ -691,7 +691,7 @@ _bt_spools_heapscan.exit:                         ; preds = %290, %295, %298
   br i1 %373, label %.thread194.thread.i.i, label %.preheader211.i.i
 
 .preheader211.i.i:                                ; preds = %375
-  br i1 %.not145222.i.i, label %.loopexit278.i.i, label %.lr.ph224.i.i
+  br i1 %.not145222.i.i, label %.loopexit289.i.i, label %.lr.ph224.i.i
 
 .lr.ph224.i.i:                                    ; preds = %.preheader211.i.i
   %376 = getelementptr i8, ptr %.0119.i.i, i64 6
@@ -921,15 +921,15 @@ ApplySortComparator.exit.i.i:                     ; preds = %493, %486
 .thread188.thread205.i.i:                         ; preds = %.thread188.i.i, %index_getattr.exit150.thread.i.i
   %indvars.iv.next252.i.i = add nuw nsw i64 %indvars.iv251.i.i, 1
   %exitcond255.not.i.i = icmp eq i64 %indvars.iv.next252.i.i, %wide.trip.count254.i.i
-  br i1 %exitcond255.not.i.i, label %.loopexit278.i.i, label %380, !llvm.loop !12
+  br i1 %exitcond255.not.i.i, label %.loopexit289.i.i, label %380, !llvm.loop !12
 
-.loopexit278.i.i:                                 ; preds = %.thread188.thread205.i.i, %.preheader211.i.i
+.loopexit289.i.i:                                 ; preds = %.thread188.thread205.i.i, %.preheader211.i.i
   %497 = call i32 @ItemPointerCompare(ptr noundef nonnull %.0119.i.i, ptr noundef nonnull %.0121.i.i) #10
   %498 = icmp slt i32 %497, 1
   br label %.thread194.thread.i.i
 
-.thread194.thread.i.i:                            ; preds = %.thread188.i.i, %ApplySortComparator.exit.i.i, %493, %.loopexit278.i.i, %.thread188.thread.i.i, %482, %478, %375, %374
-  %.0123.i.i = phi i1 [ true, %374 ], [ false, %375 ], [ %498, %.loopexit278.i.i ], [ true, %.thread188.thread.i.i ], [ false, %482 ], [ false, %478 ], [ false, %493 ], [ false, %ApplySortComparator.exit.i.i ], [ true, %.thread188.i.i ]
+.thread194.thread.i.i:                            ; preds = %.thread188.i.i, %ApplySortComparator.exit.i.i, %493, %.loopexit289.i.i, %.thread188.thread.i.i, %482, %478, %375, %374
+  %.0123.i.i = phi i1 [ true, %374 ], [ false, %375 ], [ %498, %.loopexit289.i.i ], [ true, %.thread188.thread.i.i ], [ false, %482 ], [ false, %478 ], [ false, %493 ], [ false, %ApplySortComparator.exit.i.i ], [ true, %.thread188.i.i ]
   %499 = icmp eq ptr %.0.i.i16, null
   br i1 %499, label %500, label %533
 

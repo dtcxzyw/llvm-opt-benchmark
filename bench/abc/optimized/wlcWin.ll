@@ -542,13 +542,13 @@ Vec_IntPush.exit28:                               ; preds = %.Vec_IntGrow.exit10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %Vec_IntPush.exit, %Vec_IntPush.exit28
-  %.sink37 = phi i32 [ %91, %Vec_IntPush.exit28 ], [ %41, %Vec_IntPush.exit ]
-  %.sink35 = phi ptr [ %90, %Vec_IntPush.exit28 ], [ %40, %Vec_IntPush.exit ]
+  %.sink42 = phi i32 [ %91, %Vec_IntPush.exit28 ], [ %41, %Vec_IntPush.exit ]
+  %.sink40 = phi ptr [ %90, %Vec_IntPush.exit28 ], [ %40, %Vec_IntPush.exit ]
   %.sink.in.in = phi i64 [ %63, %Vec_IntPush.exit28 ], [ %13, %Vec_IntPush.exit ]
   %.sink.in = sdiv exact i64 %.sink.in.in, 24
   %.sink = trunc i64 %.sink.in to i32
-  %93 = sext i32 %.sink37 to i64
-  %94 = getelementptr inbounds i32, ptr %.sink35, i64 %93
+  %93 = sext i32 %.sink42 to i64
+  %94 = getelementptr inbounds i32, ptr %.sink40, i64 %93
   store i32 %.sink, ptr %94, align 4, !tbaa !20
   br label %95
 

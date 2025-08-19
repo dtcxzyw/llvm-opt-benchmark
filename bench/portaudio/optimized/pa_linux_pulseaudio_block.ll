@@ -104,9 +104,9 @@ define range(i32 -9983, 1) i32 @PaPulseAudio_ReadStreamBlock(ptr noundef %0, ptr
   %53 = sub nsw i64 %.03458, %52
   %54 = icmp sgt i64 %53, 0
   %55 = load ptr, ptr %14, align 8, !tbaa !30
-  br i1 %54, label %56, label %.thread69
+  br i1 %54, label %56, label %.thread76
 
-.thread69:                                        ; preds = %50
+.thread76:                                        ; preds = %50
   tail call void @PaPulseAudio_UnLock(ptr noundef %55) #3
   br label %.critedge
 
@@ -118,8 +118,8 @@ define range(i32 -9983, 1) i32 @PaPulseAudio_ReadStreamBlock(ptr noundef %0, ptr
   %59 = tail call i32 @usleep(i32 noundef 100) #3
   br label %16, !llvm.loop !31
 
-.critedge:                                        ; preds = %43, %38, %34, %48, %46, %.thread69, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %.thread69 ], [ -9983, %46 ], [ -9983, %48 ], [ -9983, %34 ], [ -9983, %38 ], [ -9983, %43 ]
+.critedge:                                        ; preds = %43, %38, %34, %48, %46, %.thread76, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %.thread76 ], [ -9983, %46 ], [ -9983, %48 ], [ -9983, %34 ], [ -9983, %38 ], [ -9983, %43 ]
   ret i32 %.0
 }
 

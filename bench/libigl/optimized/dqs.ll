@@ -955,9 +955,9 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
   %127 = load <2 x double>, ptr %126, align 16, !tbaa !71
   %128 = fmul <2 x double> %.sroa.10124.0141, %127
   %129 = fadd <2 x double> %125, %128
-  %shift163 = shufflevector <2 x double> %129, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop164 = fadd <2 x double> %129, %shift163
-  %130 = extractelement <2 x double> %foldExtExtBinop164, i64 0
+  %shift164 = shufflevector <2 x double> %129, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop165 = fadd <2 x double> %129, %shift164
+  %130 = extractelement <2 x double> %foldExtExtBinop165, i64 0
   %131 = fcmp olt double %130, 0.000000e+00
   %132 = fneg double %122
   %.0129 = select i1 %131, double %132, double %122

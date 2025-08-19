@@ -409,18 +409,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i16: ; preds = %99, %86
   br label %.body
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit.sink.split: ; preds = %105, %59
-  %.sink21 = phi ptr [ %58, %59 ], [ %104, %105 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__12Usd_PrimDataD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink21) #15
-  call void @_ZdlPvm(ptr noundef nonnull %.sink21, i64 noundef 64) #16
+  %.sink26 = phi ptr [ %58, %59 ], [ %104, %105 ]
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__12Usd_PrimDataD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink26) #15
+  call void @_ZdlPvm(ptr noundef nonnull %.sink26, i64 noundef 64) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit.sink.split, %105, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i16, %59, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i
   ret void
 
 .body:                                            ; preds = %108, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i8, %62, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i
-  %.sink22 = phi ptr [ %5, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i ], [ %5, %62 ], [ %6, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i8 ], [ %6, %108 ]
+  %.sink27 = phi ptr [ %5, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i ], [ %5, %62 ], [ %6, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i8 ], [ %6, %108 ]
   %.pn = phi { ptr, i32 } [ %23, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i ], [ %63, %62 ], [ %68, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i8 ], [ %109, %108 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink22) #15
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink27) #15
   resume { ptr, i32 } %.pn
 }
 

@@ -1661,7 +1661,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZN8QuantLib6MatrixD2Ev.exit329
 
 _ZN8QuantLib6MatrixD2Ev.exit329:                  ; preds = %ehcleanup341.thread, %ehcleanup341, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i328
-  %.pn57.pn.pn.pn.pn.pn.pn456 = phi { ptr, i32 } [ %30, %ehcleanup341.thread ], [ %.pn57.pn.pn.pn.pn.pn, %ehcleanup341 ], [ %.pn57.pn.pn.pn.pn.pn, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i328 ]
+  %.pn57.pn.pn.pn.pn.pn.pn518 = phi { ptr, i32 } [ %30, %ehcleanup341.thread ], [ %.pn57.pn.pn.pn.pn.pn, %ehcleanup341 ], [ %.pn57.pn.pn.pn.pn.pn, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i328 ]
   store ptr null, ptr %C_, align 8, !tbaa !36
   %202 = load ptr, ptr %oneOverTaus_, align 8, !tbaa !8
   %tobool.not.i.i.i330 = icmp eq ptr %202, null
@@ -1677,7 +1677,7 @@ if.then.i.i.i331:                                 ; preds = %_ZN8QuantLib6Matrix
   br label %eh.resume
 
 eh.resume:                                        ; preds = %if.then.i.i.i331, %_ZN8QuantLib6MatrixD2Ev.exit329
-  resume { ptr, i32 } %.pn57.pn.pn.pn.pn.pn.pn456
+  resume { ptr, i32 } %.pn57.pn.pn.pn.pn.pn.pn518
 
 unreachable:                                      ; preds = %invoke.cont270, %invoke.cont226, %invoke.cont181, %invoke.cont137, %invoke.cont88, %invoke.cont50
   unreachable
@@ -2050,8 +2050,8 @@ _ZN8QuantLib6MatrixC2Emmd.exit:                   ; preds = %for.body.i.i.i.preh
   %cmp5297.not = icmp eq i64 %0, 0
   %or.cond = or i1 %cmp4999.not, %cmp5297.not
   %cmp5795.not = icmp eq i64 %28, 0
-  %or.cond112 = or i1 %or.cond, %cmp5795.not
-  br i1 %or.cond112, label %nrvo.skipdtor, label %for.cond50.preheader.us.us.preheader
+  %or.cond122 = or i1 %or.cond, %cmp5795.not
+  br i1 %or.cond122, label %nrvo.skipdtor, label %for.cond50.preheader.us.us.preheader
 
 for.cond50.preheader.us.us.preheader:             ; preds = %_ZN8QuantLib6MatrixC2Emmd.exit
   %.pre = load ptr, ptr %m1, align 8
@@ -2552,8 +2552,8 @@ for.cond71.preheader.thread:                      ; preds = %for.body28.lr.ph
   %scevgep = getelementptr i8, ptr %16, i64 %36
   %37 = add nuw nsw i64 %34, 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %37, i1 false), !tbaa !33
-  %cmp73131154 = icmp ult i64 %13, %1
-  br i1 %cmp73131154, label %for.body75.lr.ph.thread, label %for.cond.cleanup74
+  %cmp73131159 = icmp ult i64 %13, %1
+  br i1 %cmp73131159, label %for.body75.lr.ph.thread, label %for.cond.cleanup74
 
 for.body75.lr.ph.thread:                          ; preds = %for.cond71.preheader.thread
   %38 = load ptr, ptr %drifts, align 8, !tbaa !8
@@ -2606,15 +2606,15 @@ for.body75.us:                                    ; preds = %for.body75.us.prehe
 
 for.body82.us133.lver.check:                      ; preds = %for.body75.us
   %56 = shl i64 %indvar, 3
-  %scevgep165 = getelementptr i8, ptr %44, i64 %56
-  %scevgep164 = getelementptr i8, ptr %45, i64 %56
+  %scevgep170 = getelementptr i8, ptr %44, i64 %56
+  %scevgep169 = getelementptr i8, ptr %45, i64 %56
   %57 = add i64 %42, %indvar
   %58 = shl i64 %57, 3
   %59 = getelementptr i8, ptr %51, i64 %41
-  %scevgep162 = getelementptr i8, ptr %59, i64 %56
-  %scevgep163 = getelementptr i8, ptr %51, i64 %58
-  %bound0 = icmp ult ptr %scevgep162, %scevgep165
-  %bound1 = icmp ult ptr %scevgep164, %scevgep163
+  %scevgep167 = getelementptr i8, ptr %59, i64 %56
+  %scevgep168 = getelementptr i8, ptr %51, i64 %58
+  %bound0 = icmp ult ptr %scevgep167, %scevgep170
+  %bound1 = icmp ult ptr %scevgep169, %scevgep168
   %found.conflict = and i1 %bound0, %bound1
   %ident.check = icmp ne i64 %52, 1
   %lver.safe = or i1 %found.conflict, %ident.check
@@ -2641,8 +2641,8 @@ for.body82.us133.lver.orig:                       ; preds = %for.body82.us133.lv
 
 for.body82.us133.ph:                              ; preds = %for.body82.us133.lver.check
   %67 = getelementptr i8, ptr %51, i64 %41
-  %scevgep167 = getelementptr i8, ptr %67, i64 %50
-  %load_initial = load double, ptr %scevgep167, align 8
+  %scevgep172 = getelementptr i8, ptr %67, i64 %50
+  %load_initial = load double, ptr %scevgep172, align 8
   br label %for.body82.us133
 
 for.body82.us133:                                 ; preds = %for.body82.us133.ph, %for.body82.us133

@@ -1079,12 +1079,12 @@ if.end:                                           ; preds = %if.then12.i.i, %ent
   br label %return
 
 return:                                           ; preds = %if.end13.i.i, %_ZN6hermes2vm6detail11WeakRefInfo7isEqualERKNS1_10WeakRefKeyES5_.exit.i.i, %if.end13.us.i.i, %if.end.i.i, %if.end
-  %.sink34 = phi i32 [ %13, %if.end ], [ %1, %if.end.i.i ], [ %1, %if.end13.us.i.i ], [ %1, %_ZN6hermes2vm6detail11WeakRefInfo7isEqualERKNS1_10WeakRefKeyES5_.exit.i.i ], [ %1, %if.end13.i.i ]
-  %.sink33 = phi ptr [ %12, %if.end ], [ %0, %if.end.i.i ], [ %0, %if.end13.us.i.i ], [ %0, %_ZN6hermes2vm6detail11WeakRefInfo7isEqualERKNS1_10WeakRefKeyES5_.exit.i.i ], [ %0, %if.end13.i.i ]
+  %.sink40 = phi i32 [ %13, %if.end ], [ %1, %if.end.i.i ], [ %1, %if.end13.us.i.i ], [ %1, %_ZN6hermes2vm6detail11WeakRefInfo7isEqualERKNS1_10WeakRefKeyES5_.exit.i.i ], [ %1, %if.end13.i.i ]
+  %.sink39 = phi ptr [ %12, %if.end ], [ %0, %if.end.i.i ], [ %0, %if.end13.us.i.i ], [ %0, %_ZN6hermes2vm6detail11WeakRefInfo7isEqualERKNS1_10WeakRefKeyES5_.exit.i.i ], [ %0, %if.end13.i.i ]
   %call.i.sink = phi ptr [ %call.i, %if.end ], [ %add.ptr47.i.i, %if.end.i.i ], [ %add.ptr.us.i.i, %if.end13.us.i.i ], [ %add.ptr.i.i, %if.end13.i.i ], [ %add.ptr52.i.i, %_ZN6hermes2vm6detail11WeakRefInfo7isEqualERKNS1_10WeakRefKeyES5_.exit.i.i ]
   %.sink = phi i8 [ 1, %if.end ], [ 0, %if.end.i.i ], [ 0, %if.end13.us.i.i ], [ 0, %_ZN6hermes2vm6detail11WeakRefInfo7isEqualERKNS1_10WeakRefKeyES5_.exit.i.i ], [ 0, %if.end13.i.i ]
-  %idx.ext.i4 = zext i32 %.sink34 to i64
-  %add.ptr.i5 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %.sink33, i64 %idx.ext.i4
+  %idx.ext.i4 = zext i32 %.sink40 to i64
+  %add.ptr.i5 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %.sink39, i64 %idx.ext.i4
   store ptr %call.i.sink, ptr %agg.result, align 8
   %ref.tmp6.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i5, ptr %ref.tmp6.sroa.2.0.agg.result.sroa_idx, align 8

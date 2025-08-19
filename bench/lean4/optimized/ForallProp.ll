@@ -27644,7 +27644,7 @@ lean_dec.exit407:                                 ; preds = %190, %189, %187, %1
   br label %lean_nat_add.exit338
 
 205:                                              ; preds = %197
-  %206 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %199) #5
+  %206 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #5
   br label %lean_nat_add.exit338
 
 .critedge.i336:                                   ; preds = %192
@@ -27996,7 +27996,7 @@ lean_dec.exit405:                                 ; preds = %333, %332, %330, %l
   br label %lean_nat_add.exit335
 
 342:                                              ; preds = %334
-  %343 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %336) #5
+  %343 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #5
   br label %lean_nat_add.exit335
 
 .critedge.i333:                                   ; preds = %lean_dec.exit405
@@ -29030,7 +29030,7 @@ lean_dec_ref.exit447:                             ; preds = %732, %731, %729, %l
   br label %lean_nat_add.exit
 
 741:                                              ; preds = %733
-  %742 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %735) #5
+  %742 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #5
   br label %lean_nat_add.exit
 
 .critedge.i:                                      ; preds = %lean_dec_ref.exit447

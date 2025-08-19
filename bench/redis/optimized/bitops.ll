@@ -1646,8 +1646,8 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
   br i1 %31, label %.preheader264.lr.ph, label %128
 
 .preheader264.lr.ph:                              ; preds = %98
-  %.not428 = icmp eq i32 %35, 1
-  br i1 %.not428, label %.preheader264.preheader, label %.preheader264.us
+  %.not443 = icmp eq i32 %35, 1
+  br i1 %.not443, label %.preheader264.preheader, label %.preheader264.us
 
 .preheader264.preheader:                          ; preds = %.preheader264.lr.ph
   %100 = and i64 %.1219, -32
@@ -1706,8 +1706,8 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
   br i1 %30, label %.preheader267.lr.ph, label %157
 
 .preheader267.lr.ph:                              ; preds = %128
-  %.not427 = icmp eq i32 %35, 1
-  br i1 %.not427, label %.preheader267.preheader, label %.preheader267.us
+  %.not442 = icmp eq i32 %35, 1
+  br i1 %.not442, label %.preheader267.preheader, label %.preheader267.us
 
 .preheader267.preheader:                          ; preds = %.preheader267.lr.ph
   %129 = and i64 %.1219, -32
@@ -1766,8 +1766,8 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
   br i1 %29, label %.preheader270.lr.ph, label %186
 
 .preheader270.lr.ph:                              ; preds = %157
-  %.not426 = icmp eq i32 %35, 1
-  br i1 %.not426, label %.preheader270.preheader, label %.preheader270.us
+  %.not441 = icmp eq i32 %35, 1
+  br i1 %.not441, label %.preheader270.preheader, label %.preheader270.us
 
 .preheader270.preheader:                          ; preds = %.preheader270.lr.ph
   %158 = and i64 %.1219, -32
@@ -1862,7 +1862,7 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
 
 .lr.ph356:                                        ; preds = %201
   %203 = sext i1 %32 to i8
-  %.not429 = icmp eq i32 %35, 1
+  %.not444 = icmp eq i32 %35, 1
   %umax394 = tail call i64 @llvm.umax.i64(i64 %36, i64 2)
   br label %204
 
@@ -1881,7 +1881,7 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
 210:                                              ; preds = %204, %206
   %211 = phi i8 [ %209, %206 ], [ 0, %204 ]
   %spec.select252 = xor i8 %211, %203
-  br i1 %.not429, label %._crit_edge317.split.us, label %.lr.ph316
+  br i1 %.not444, label %._crit_edge317.split.us, label %.lr.ph316
 
 .lr.ph316:                                        ; preds = %210
   switch i64 %.0225256, label %default.unreachable [
@@ -1977,7 +1977,7 @@ default.unreachable:                              ; preds = %.lr.ph316
   br i1 %exitcond400.not, label %.loopexit, label %204, !llvm.loop !93
 
 .loopexit:                                        ; preds = %._crit_edge317.split.us, %201, %._crit_edge
-  %.0222.lcssa406 = phi i64 [ 0, %._crit_edge ], [ %.1223, %201 ], [ %.1223, %._crit_edge317.split.us ]
+  %.0222.lcssa421 = phi i64 [ 0, %._crit_edge ], [ %.1223, %201 ], [ %.1223, %._crit_edge317.split.us ]
   %.0217 = phi ptr [ null, %._crit_edge ], [ %95, %201 ], [ %95, %._crit_edge317.split.us ]
   br label %.lr.ph359
 
@@ -1998,16 +1998,16 @@ default.unreachable:                              ; preds = %.lr.ph316
   br i1 %exitcond402.not, label %._crit_edge360, label %.lr.ph359, !llvm.loop !94
 
 ._crit_edge360:                                   ; preds = %251, %.thread
-  %.0217413 = phi ptr [ null, %.thread ], [ %.0217, %251 ]
-  %.0222.lcssa406412 = phi i64 [ 0, %.thread ], [ %.0222.lcssa406, %251 ]
-  %.not245407411 = phi i1 [ true, %.thread ], [ %.not245, %251 ]
+  %.0217428 = phi ptr [ null, %.thread ], [ %.0217, %251 ]
+  %.0222.lcssa421427 = phi i64 [ 0, %.thread ], [ %.0222.lcssa421, %251 ]
+  %.not245422426 = phi i1 [ true, %.thread ], [ %.not245, %251 ]
   tail call void @zfree(ptr noundef %38) #18
   tail call void @zfree(ptr noundef %39) #18
   tail call void @zfree(ptr noundef %40) #18
-  br i1 %.not245407411, label %260, label %253
+  br i1 %.not245422426, label %260, label %253
 
 253:                                              ; preds = %._crit_edge360
-  %254 = tail call ptr @createObject(i32 noundef 0, ptr noundef %.0217413) #18
+  %254 = tail call ptr @createObject(i32 noundef 0, ptr noundef %.0217428) #18
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %256 = load ptr, ptr %255, align 8, !tbaa !73
   tail call void @setKey(ptr noundef %0, ptr noundef %256, ptr noundef %10, ptr noundef %254, i32 noundef 0) #18
@@ -2041,7 +2041,7 @@ default.unreachable:                              ; preds = %.lr.ph316
   br label %271
 
 271:                                              ; preds = %.sink.split, %260
-  tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.0222.lcssa406412) #18
+  tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.0222.lcssa421427) #18
   br label %272
 
 272:                                              ; preds = %271, %._crit_edge363, %28, %23
@@ -2397,7 +2397,7 @@ getObjectReadOnlyString.exit88:                   ; preds = %124, %134, %.crited
 
 .sink.split:                                      ; preds = %getObjectReadOnlyString.exit88, %104
   %.sink = phi i64 [ %114, %104 ], [ %160, %getObjectReadOnlyString.exit88 ]
-  %.ph94 = phi i64 [ %113, %104 ], [ 0, %getObjectReadOnlyString.exit88 ]
+  %.ph109 = phi i64 [ %113, %104 ], [ 0, %getObjectReadOnlyString.exit88 ]
   %.059.ph = phi ptr [ %.0.ph.i93, %104 ], [ %.0.ph.i86, %getObjectReadOnlyString.exit88 ]
   %.257.ph = phi i32 [ %108, %104 ], [ 0, %getObjectReadOnlyString.exit88 ]
   %.2.ph = phi i8 [ %112, %104 ], [ 0, %getObjectReadOnlyString.exit88 ]
@@ -2407,7 +2407,7 @@ getObjectReadOnlyString.exit88:                   ; preds = %124, %134, %.crited
 
 163:                                              ; preds = %.sink.split, %103
   %164 = phi i64 [ %100, %103 ], [ %.sink, %.sink.split ]
-  %165 = phi i64 [ %96, %103 ], [ %.ph94, %.sink.split ]
+  %165 = phi i64 [ %96, %103 ], [ %.ph109, %.sink.split ]
   %.059 = phi ptr [ %.0.ph.i93, %103 ], [ %.059.ph, %.sink.split ]
   %.257 = phi i32 [ 0, %103 ], [ %.257.ph, %.sink.split ]
   %.2 = phi i8 [ 0, %103 ], [ %.2.ph, %.sink.split ]
@@ -2432,7 +2432,7 @@ getObjectReadOnlyString.exit88:                   ; preds = %124, %134, %.crited
 173:                                              ; preds = %169
   %reass.sub = sub nsw i64 %164, %165
   %174 = add nuw nsw i64 %reass.sub, 1
-  %175 = getelementptr inbounds i8, ptr %.059, i64 %165
+  %175 = getelementptr inbounds nuw i8, ptr %.059, i64 %165
   %176 = call i64 @redisPopcount(ptr noundef %175, i64 noundef %174)
   %177 = and i32 %.257, 255
   %178 = icmp ne i32 %177, 0
@@ -2456,7 +2456,7 @@ getObjectReadOnlyString.exit88:                   ; preds = %124, %134, %.crited
   br i1 %179, label %186, label %191
 
 186:                                              ; preds = %185
-  %187 = getelementptr inbounds i8, ptr %.059, i64 %164
+  %187 = getelementptr inbounds nuw i8, ptr %.059, i64 %164
   %188 = load i8, ptr %187, align 1, !tbaa !5
   %189 = and i8 %188, %.2
   %190 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -2658,8 +2658,8 @@ define dso_local void @bitposCommand(ptr noundef %0) local_unnamed_addr #3 {
 
 88:                                               ; preds = %80, %87
   %.not123 = icmp sgt i64 %81, %85
-  %or.cond148 = select i1 %.not120139, i1 true, i1 %.not123
-  br i1 %or.cond148, label %115, label %89
+  %or.cond166 = select i1 %.not120139, i1 true, i1 %.not123
+  br i1 %or.cond166, label %115, label %89
 
 89:                                               ; preds = %88
   %90 = trunc i64 %81 to i16
@@ -2739,7 +2739,7 @@ define dso_local void @bitposCommand(ptr noundef %0) local_unnamed_addr #3 {
 128:                                              ; preds = %125
   %129 = load i64, ptr %4, align 8, !tbaa !11
   %.not126 = icmp eq i64 %129, 0
-  %130 = getelementptr inbounds i8, ptr %.099, i64 %117
+  %130 = getelementptr inbounds nuw i8, ptr %.099, i64 %117
   %131 = load i8, ptr %130, align 1, !tbaa !5
   br i1 %.not126, label %132, label %.thread141
 
@@ -2766,13 +2766,13 @@ define dso_local void @bitposCommand(ptr noundef %0) local_unnamed_addr #3 {
   %142 = and i8 %137, %141
   store i8 %142, ptr %7, align 1, !tbaa !5
   %143 = trunc i64 %129 to i32
-  br label %.sink.split149
+  br label %.sink.split167
 
 144:                                              ; preds = %132
   %145 = trunc nuw nsw i32 %.193 to i8
   %146 = or i8 %133, %145
   store i8 %146, ptr %7, align 1, !tbaa !5
-  br label %.sink.split149
+  br label %.sink.split167
 
 147:                                              ; preds = %.thread141, %132
   %148 = phi i1 [ %139, %.thread141 ], [ %135, %132 ]
@@ -2835,17 +2835,17 @@ define dso_local void @bitposCommand(ptr noundef %0) local_unnamed_addr #3 {
   %storemerge132 = select i1 %.not131, i8 %175, i8 %177
   store i8 %storemerge132, ptr %7, align 1, !tbaa !5
   %178 = trunc i64 %170 to i32
-  br label %.sink.split149
+  br label %.sink.split167
 
-.sink.split149:                                   ; preds = %169, %.thread145, %144
-  %.sink150 = phi i32 [ 0, %144 ], [ %143, %.thread145 ], [ %178, %169 ]
+.sink.split167:                                   ; preds = %169, %.thread145, %144
+  %.sink168 = phi i32 [ 0, %144 ], [ %143, %.thread145 ], [ %178, %169 ]
   %.189.ph = phi i64 [ 1, %144 ], [ 1, %.thread145 ], [ %.2, %169 ]
-  %179 = call i64 @redisBitpos(ptr noundef nonnull %7, i64 noundef 1, i32 noundef %.sink150)
+  %179 = call i64 @redisBitpos(ptr noundef nonnull %7, i64 noundef 1, i32 noundef %.sink168)
   br label %180
 
-180:                                              ; preds = %.sink.split149, %164, %151, %159, %147
-  %.189 = phi i64 [ 1, %147 ], [ %127, %151 ], [ %.088, %159 ], [ %.088, %164 ], [ %.189.ph, %.sink.split149 ]
-  %.087 = phi i64 [ %150, %147 ], [ %150, %151 ], [ %163, %159 ], [ %163, %164 ], [ %179, %.sink.split149 ]
+180:                                              ; preds = %.sink.split167, %164, %151, %159, %147
+  %.189 = phi i64 [ 1, %147 ], [ %127, %151 ], [ %.088, %159 ], [ %.088, %164 ], [ %.189.ph, %.sink.split167 ]
+  %.087 = phi i64 [ %150, %147 ], [ %150, %151 ], [ %163, %159 ], [ %163, %164 ], [ %179, %.sink.split167 ]
   %181 = load i64, ptr %4, align 8
   %182 = icmp eq i64 %181, 0
   %or.cond7 = select i1 %.197, i1 %182, i1 false
@@ -3093,8 +3093,8 @@ define dso_local void @bitfieldGeneric(ptr noundef %0, i32 noundef %1) local_unn
   br i1 %110, label %121, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.0186.lcssa462 = phi i32 [ %.1187, %._crit_edge ], [ 0, %2 ]
-  %.0202.lcssa460 = phi ptr [ %.1203, %._crit_edge ], [ null, %2 ]
+  %.0186.lcssa480 = phi i32 [ %.1187, %._crit_edge ], [ 0, %2 ]
+  %.0202.lcssa478 = phi ptr [ %.1203, %._crit_edge ], [ null, %2 ]
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %112 = load ptr, ptr %111, align 8, !tbaa !73
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -3111,7 +3111,7 @@ define dso_local void @bitfieldGeneric(ptr noundef %0, i32 noundef %1) local_unn
   br i1 %.not227, label %128, label %120
 
 120:                                              ; preds = %118
-  call void @zfree(ptr noundef %.0202.lcssa460) #18
+  call void @zfree(ptr noundef %.0202.lcssa478) #18
   br label %443
 
 121:                                              ; preds = %._crit_edge
@@ -3134,12 +3134,12 @@ define dso_local void @bitfieldGeneric(ptr noundef %0, i32 noundef %1) local_unn
   br label %443
 
 128:                                              ; preds = %124, %._crit_edge.thread, %118
-  %.0186.lcssa461 = phi i32 [ %.0186.lcssa462, %118 ], [ %.0186.lcssa462, %._crit_edge.thread ], [ %.1187, %124 ]
-  %.0202.lcssa459 = phi ptr [ %.0202.lcssa460, %118 ], [ %.0202.lcssa460, %._crit_edge.thread ], [ %.1203, %124 ]
+  %.0186.lcssa479 = phi i32 [ %.0186.lcssa480, %118 ], [ %.0186.lcssa480, %._crit_edge.thread ], [ %.1187, %124 ]
+  %.0202.lcssa477 = phi ptr [ %.0202.lcssa478, %118 ], [ %.0202.lcssa478, %._crit_edge.thread ], [ %.1203, %124 ]
   %.0 = phi ptr [ %117, %118 ], [ null, %._crit_edge.thread ], [ %125, %124 ]
-  %129 = sext i32 %.0186.lcssa461 to i64
+  %129 = sext i32 %.0186.lcssa479 to i64
   call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %129) #18
-  %130 = icmp sgt i32 %.0186.lcssa461, 0
+  %130 = icmp sgt i32 %.0186.lcssa479, 0
   br i1 %130, label %.lr.ph437, label %._crit_edge438.thread
 
 .lr.ph437:                                        ; preds = %128
@@ -3147,14 +3147,14 @@ define dso_local void @bitfieldGeneric(ptr noundef %0, i32 noundef %1) local_unn
   %131 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %132 = load i64, ptr %6, align 8
   %.not241 = icmp ne i64 %132, 0
-  %wide.trip.count = zext nneg i32 %.0186.lcssa461 to i64
+  %wide.trip.count = zext nneg i32 %.0186.lcssa479 to i64
   br label %133
 
 133:                                              ; preds = %.lr.ph437, %410
   %indvars.iv451 = phi i64 [ 0, %.lr.ph437 ], [ %indvars.iv.next452, %410 ]
   %.0195434 = phi i32 [ 0, %.lr.ph437 ], [ %.3, %410 ]
   %.0331433 = phi i64 [ undef, %.lr.ph437 ], [ %.2333, %410 ]
-  %134 = getelementptr inbounds nuw %struct.bitfieldOp, ptr %.0202.lcssa459, i64 %indvars.iv451
+  %134 = getelementptr inbounds nuw %struct.bitfieldOp, ptr %.0202.lcssa477, i64 %indvars.iv451
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %136 = load i32, ptr %135, align 8, !tbaa !99
   %.off = add i32 %136, -1
@@ -3787,7 +3787,7 @@ getSignedBitfield.exit310:                        ; preds = %.lr.ph.i312, %394, 
   br label %._crit_edge438.thread
 
 ._crit_edge438.thread:                            ; preds = %128, %427, %._crit_edge438
-  call void @zfree(ptr noundef %.0202.lcssa459) #18
+  call void @zfree(ptr noundef %.0202.lcssa477) #18
   br label %443
 
 443:                                              ; preds = %.thread, %._crit_edge438.thread, %127, %123, %120

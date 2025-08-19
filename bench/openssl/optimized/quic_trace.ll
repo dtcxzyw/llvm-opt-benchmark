@@ -353,14 +353,14 @@ put_token.exit:                                   ; preds = %.lr.ph.i.i59, %95
     i64 5, label %197
     i64 6, label %200
     i64 7, label %203
-    i64 8, label %switch.lookup75
-    i64 9, label %switch.lookup75
-    i64 10, label %switch.lookup75
-    i64 11, label %switch.lookup75
-    i64 12, label %switch.lookup75
-    i64 13, label %switch.lookup75
-    i64 14, label %switch.lookup75
-    i64 15, label %switch.lookup75
+    i64 8, label %switch.lookup80
+    i64 9, label %switch.lookup80
+    i64 10, label %switch.lookup80
+    i64 11, label %switch.lookup80
+    i64 12, label %switch.lookup80
+    i64 13, label %switch.lookup80
+    i64 14, label %switch.lookup80
+    i64 15, label %switch.lookup80
     i64 16, label %224
     i64 17, label %227
     i64 18, label %230
@@ -505,18 +505,18 @@ frame_ack.exit.i:                                 ; preds = %152
   %.not80.i = icmp eq i32 %205, 0
   br i1 %.not80.i, label %291, label %288
 
-switch.lookup75:                                  ; preds = %131, %131, %131, %131, %131, %131, %131, %131
+switch.lookup80:                                  ; preds = %131, %131, %131, %131, %131, %131, %131, %131
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %206 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.64) #3
-  %switch.tableidx76 = add nsw i64 %132, -8
-  %switch.gep77 = getelementptr inbounds [8 x ptr], ptr @switch.table.ossl_quic_trace.2, i64 0, i64 %switch.tableidx76
-  %switch.load78 = load ptr, ptr %switch.gep77, align 8
-  %207 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %switch.load78) #3
+  %switch.tableidx81 = add nsw i64 %132, -8
+  %switch.gep82 = getelementptr inbounds [8 x ptr], ptr @switch.table.ossl_quic_trace.2, i64 0, i64 %switch.tableidx81
+  %switch.load83 = load ptr, ptr %switch.gep82, align 8
+  %207 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %switch.load83) #3
   %208 = call i32 @ossl_quic_wire_decode_frame_stream(ptr noundef nonnull %15, i32 noundef 1, ptr noundef nonnull %11) #3
   %.not.i87.i = icmp eq i32 %208, 0
   br i1 %.not.i87.i, label %frame_stream.exit.thread.i, label %209
 
-209:                                              ; preds = %switch.lookup75
+209:                                              ; preds = %switch.lookup80
   %210 = load i64, ptr %11, align 8, !tbaa !33
   %211 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.58, i64 noundef %210) #3
   %212 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -538,7 +538,7 @@ switch.lookup75:                                  ; preds = %131, %131, %131, %1
   %223 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.72) #3
   br label %frame_stream.exit.i
 
-frame_stream.exit.thread.i:                       ; preds = %switch.lookup75
+frame_stream.exit.thread.i:                       ; preds = %switch.lookup80
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %291
 
@@ -596,8 +596,8 @@ frame_max_streams.exit.i:                         ; preds = %230
   %245 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.41) #3
   %246 = load i64, ptr %14, align 8, !tbaa !23
   %247 = icmp eq i64 %246, 22
-  %.str.37..str.38110.i = select i1 %247, ptr @.str.37, ptr @.str.38
-  %248 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %.str.37..str.38110.i) #3
+  %.str.37..str.38113.i = select i1 %247, ptr @.str.37, ptr @.str.38
+  %248 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %.str.37..str.38113.i) #3
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !23
   %249 = call i32 @ossl_quic_wire_decode_frame_streams_blocked(ptr noundef nonnull %15, ptr noundef nonnull %9) #3

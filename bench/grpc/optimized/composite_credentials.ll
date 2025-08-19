@@ -1600,13 +1600,13 @@ _ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_re
   %.0.lcssa.i.i.i.i = phi ptr [ %120, %.noexc65 ], [ %124, %.lr.ph.i.i.i.i58 ]
   %125 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %101, null
-  br i1 %.not.i23.i, label %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit.thread112, label %126
+  br i1 %.not.i23.i, label %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit.thread136, label %126
 
 126:                                              ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i
   tail call void @_ZdlPvm(ptr noundef nonnull %101, i64 noundef %111) #30
-  br label %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit.thread112
+  br label %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit.thread136
 
-_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit.thread112: ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i, %126
+_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit.thread136: ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i, %126
   store ptr %120, ptr %8, align 8, !tbaa !112
   store ptr %125, ptr %105, align 8, !tbaa !109
   %127 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr", ptr %120, i64 %118
@@ -1619,7 +1619,7 @@ _ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI2
   %131 = load ptr, ptr %130, align 8, !tbaa !109
   %132 = load ptr, ptr %129, align 8, !tbaa !112
   %.not.i32 = icmp eq ptr %131, %132
-  br i1 %.not.i32, label %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit.thread115, label %.lr.ph.i
+  br i1 %.not.i32, label %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit.thread139, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %128
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1673,33 +1673,33 @@ _ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE9push_b
 _ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit: ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE9push_backERKS3_.exit.i
   %.pr.pre = load ptr, ptr %4, align 8, !tbaa !22
   %.not.i35 = icmp eq ptr %.pr.pre, null
-  br i1 %.not.i35, label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit, label %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit.thread115
+  br i1 %.not.i35, label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit, label %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit.thread139
 
-_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit.thread115: ; preds = %128, %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit
-  %.pr118 = phi ptr [ %.pr.pre, %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit ], [ %103, %128 ]
-  %156 = getelementptr inbounds nuw i8, ptr %.pr118, i64 8
+_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit.thread139: ; preds = %128, %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit
+  %.pr142 = phi ptr [ %.pr.pre, %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit ], [ %103, %128 ]
+  %156 = getelementptr inbounds nuw i8, ptr %.pr142, i64 8
   %157 = atomicrmw add ptr %156, i64 -4294967295 acq_rel, align 8
   %.mask.i.i = and i64 %157, -4294967296
   %158 = icmp eq i64 %.mask.i.i, 4294967296
   br i1 %158, label %159, label %.noexc.i, !prof !77
 
-159:                                              ; preds = %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit.thread115
-  %160 = load ptr, ptr %.pr118, align 8, !tbaa !46
+159:                                              ; preds = %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit.thread139
+  %160 = load ptr, ptr %.pr142, align 8, !tbaa !46
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
   %162 = load ptr, ptr %161, align 8
-  invoke void %162(ptr noundef nonnull align 8 dereferenceable(16) %.pr118)
+  invoke void %162(ptr noundef nonnull align 8 dereferenceable(16) %.pr142)
           to label %.noexc.i unwind label %169
 
-.noexc.i:                                         ; preds = %159, %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit.thread115
+.noexc.i:                                         ; preds = %159, %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit.thread139
   %163 = atomicrmw sub ptr %156, i64 1 acq_rel, align 8
   %164 = icmp eq i64 %163, 1
   br i1 %164, label %165, label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit, !prof !77
 
 165:                                              ; preds = %.noexc.i
-  %166 = load ptr, ptr %.pr118, align 8, !tbaa !46
+  %166 = load ptr, ptr %.pr142, align 8, !tbaa !46
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load ptr, ptr %167, align 8
-  tail call void %168(ptr noundef nonnull align 8 dereferenceable(20) %.pr118) #27
+  tail call void %168(ptr noundef nonnull align 8 dereferenceable(20) %.pr142) #27
   br label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit
 
 169:                                              ; preds = %159
@@ -1709,7 +1709,7 @@ _ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI2
   tail call void @__clang_call_terminate(ptr %171) #31
   unreachable
 
-_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit: ; preds = %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit.thread112, %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit.thread, %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit, %.noexc.i, %165
+_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit: ; preds = %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit.thread136, %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit.thread, %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit, %.noexc.i, %165
   %172 = load ptr, ptr %2, align 8, !tbaa !22
   store ptr %172, ptr %5, align 8, !tbaa !22
   store ptr null, ptr %2, align 8, !tbaa !22
@@ -1781,13 +1781,13 @@ _ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_re
   %.0.lcssa.i.i.i.i75 = phi ptr [ %191, %.noexc86 ], [ %195, %.lr.ph.i.i.i.i70 ]
   %196 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i75, i64 8
   %.not.i23.i83 = icmp eq ptr %179, null
-  br i1 %.not.i23.i83, label %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48.thread119, label %197
+  br i1 %.not.i23.i83, label %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48.thread143, label %197
 
 197:                                              ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i81
   tail call void @_ZdlPvm(ptr noundef nonnull %179, i64 noundef %182) #30
-  br label %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48.thread119
+  br label %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48.thread143
 
-_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48.thread119: ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i81, %197
+_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48.thread143: ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i81, %197
   store ptr %191, ptr %8, align 8, !tbaa !112
   store ptr %196, ptr %174, align 8, !tbaa !109
   %198 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr", ptr %191, i64 %189
@@ -1800,7 +1800,7 @@ _ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI2
   %202 = load ptr, ptr %201, align 8, !tbaa !109
   %203 = load ptr, ptr %200, align 8, !tbaa !112
   %.not.i37 = icmp eq ptr %202, %203
-  br i1 %.not.i37, label %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48.thread122, label %.lr.ph.i38
+  br i1 %.not.i37, label %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48.thread146, label %.lr.ph.i38
 
 .lr.ph.i38:                                       ; preds = %199
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1854,33 +1854,33 @@ _ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE9push_b
 _ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48: ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EE9push_backERKS3_.exit.i45
   %.pr96.pre = load ptr, ptr %5, align 8, !tbaa !22
   %.not.i49 = icmp eq ptr %.pr96.pre, null
-  br i1 %.not.i49, label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit52, label %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48.thread122
+  br i1 %.not.i49, label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit52, label %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48.thread146
 
-_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48.thread122: ; preds = %199, %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48
-  %.pr96125 = phi ptr [ %.pr96.pre, %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48 ], [ %172, %199 ]
-  %227 = getelementptr inbounds nuw i8, ptr %.pr96125, i64 8
+_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48.thread146: ; preds = %199, %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48
+  %.pr96149 = phi ptr [ %.pr96.pre, %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48 ], [ %172, %199 ]
+  %227 = getelementptr inbounds nuw i8, ptr %.pr96149, i64 8
   %228 = atomicrmw add ptr %227, i64 -4294967295 acq_rel, align 8
   %.mask.i.i50 = and i64 %228, -4294967296
   %229 = icmp eq i64 %.mask.i.i50, 4294967296
   br i1 %229, label %230, label %.noexc.i51, !prof !77
 
-230:                                              ; preds = %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48.thread122
-  %231 = load ptr, ptr %.pr96125, align 8, !tbaa !46
+230:                                              ; preds = %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48.thread146
+  %231 = load ptr, ptr %.pr96149, align 8, !tbaa !46
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 16
   %233 = load ptr, ptr %232, align 8
-  invoke void %233(ptr noundef nonnull align 8 dereferenceable(16) %.pr96125)
+  invoke void %233(ptr noundef nonnull align 8 dereferenceable(16) %.pr96149)
           to label %.noexc.i51 unwind label %240
 
-.noexc.i51:                                       ; preds = %230, %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48.thread122
+.noexc.i51:                                       ; preds = %230, %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48.thread146
   %234 = atomicrmw sub ptr %227, i64 1 acq_rel, align 8
   %235 = icmp eq i64 %234, 1
   br i1 %235, label %236, label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit52, !prof !77
 
 236:                                              ; preds = %.noexc.i51
-  %237 = load ptr, ptr %.pr96125, align 8, !tbaa !46
+  %237 = load ptr, ptr %.pr96149, align 8, !tbaa !46
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 8
   %239 = load ptr, ptr %238, align 8
-  tail call void %239(ptr noundef nonnull align 8 dereferenceable(20) %.pr96125) #27
+  tail call void %239(ptr noundef nonnull align 8 dereferenceable(20) %.pr96149) #27
   br label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit52
 
 240:                                              ; preds = %230
@@ -1890,7 +1890,7 @@ _ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI2
   tail call void @__clang_call_terminate(ptr %242) #31
   unreachable
 
-_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit52: ; preds = %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48.thread119, %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48.thread, %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48, %.noexc.i51, %236
+_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit52: ; preds = %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48.thread143, %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48.thread, %_ZN31grpc_composite_call_credentials13push_to_innerEN9grpc_core13RefCountedPtrI21grpc_call_credentialsEEb.exit48, %.noexc.i51, %236
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %243, align 4, !tbaa !136
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2554,20 +2554,20 @@ _ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsEC2ERKS2_.exit31: ; preds = 
   br label %107
 
 _ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit28.sink.split: ; preds = %.noexc.i34, %.noexc.i27
-  %.sink45 = phi ptr [ %65, %.noexc.i27 ], [ %88, %.noexc.i34 ]
-  %104 = load ptr, ptr %.sink45, align 8, !tbaa !46
+  %.sink50 = phi ptr [ %65, %.noexc.i27 ], [ %88, %.noexc.i34 ]
+  %104 = load ptr, ptr %.sink50, align 8, !tbaa !46
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8
-  call void %106(ptr noundef nonnull align 8 dereferenceable(20) %.sink45) #27
+  call void %106(ptr noundef nonnull align 8 dereferenceable(20) %.sink50) #27
   br label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit28
 
 _ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit28: ; preds = %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit28.sink.split, %.noexc.i34, %87, %.noexc.i27, %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit24
   ret void
 
 107:                                              ; preds = %102, %83
-  %.sink46 = phi ptr [ %12, %102 ], [ %10, %83 ]
+  %.sink51 = phi ptr [ %12, %102 ], [ %10, %83 ]
   %.pn.pn = phi { ptr, i32 } [ %103, %102 ], [ %.pn, %83 ]
-  call void @_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink46) #27
+  call void @_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink51) #27
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -4389,7 +4389,7 @@ define internal fastcc void @"_ZN9grpc_core14promise_detail12BasicSeqIterINS0_12
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %24 = and i64 %21, 1
   %.not.i.i.i.i = icmp eq i64 %24, 0
-  br i1 %.not.i.i.i.i, label %84, label %.thread69
+  br i1 %.not.i.i.i.i, label %84, label %.thread78
 
 _ZN4absl12lts_202407228StatusOrISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEEC2EOS8_.exit17: ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -4489,10 +4489,10 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i23.thread: ; preds = %_ZN4absl12lts_2024
 
 65:                                               ; preds = %.noexc18
   %66 = load ptr, ptr %61, align 8, !tbaa !29, !noalias !232
-  %.not.i.i.i.i78 = icmp ne ptr %66, null
+  %.not.i.i.i.i87 = icmp ne ptr %66, null
   %67 = load i8, ptr %3, align 8, !range !48, !noalias !232
   %68 = trunc nuw i8 %67 to i1
-  %or.cond.i.i.i.i = select i1 %.not.i.i.i.i78, i1 %68, i1 false
+  %or.cond.i.i.i.i = select i1 %.not.i.i.i.i87, i1 %68, i1 false
   br i1 %or.cond.i.i.i.i, label %69, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit
 
 69:                                               ; preds = %65
@@ -4515,14 +4515,14 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i23.thread: ; preds = %_ZN4absl12lts_2024
 _ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit: ; preds = %65, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !229
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !223
-  %.sroa.0.0.copyload79 = load ptr, ptr %5, align 16, !tbaa !49, !noalias !215
-  %.sroa.5.0..sroa_idx80 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx80, i64 24, i1 false), !tbaa.struct !235, !noalias !215
+  %.sroa.0.0.copyload88 = load ptr, ptr %5, align 16, !tbaa !49, !noalias !215
+  %.sroa.5.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx89, i64 24, i1 false), !tbaa.struct !235, !noalias !215
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !226
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !223
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !223
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !215
-  store ptr %.sroa.0.0.copyload79, ptr %13, align 16, !tbaa !49, !noalias !215
+  store ptr %.sroa.0.0.copyload88, ptr %13, align 16, !tbaa !49, !noalias !215
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false), !tbaa.struct !235, !noalias !215
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
@@ -4536,9 +4536,9 @@ _ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.ex
 
 _ZN4absl12lts_202407226StatusD2Ev.exit.i23:       ; preds = %"_ZZN9grpc_core14promise_detail12BasicSeqIterINS0_12TrySeqTraitsEN9__gnu_cxx17__normal_iteratorIPNS_13RefCountedPtrI21grpc_call_credentialsEESt6vectorIS7_SaIS7_EEEEZN31grpc_composite_call_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKNS6_22GetRequestMetadataArgsEE3$_0SI_E12PollNonEmptyEvENKUlT_E_clIN4absl12lts_202407228StatusOrISI_EEEENS_4PollISU_EESO_.exit"
   %.pre = load ptr, ptr %35, align 8, !tbaa !29
-  %.pre81 = load i8, ptr %34, align 8, !range !48
+  %.pre90 = load i8, ptr %34, align 8, !range !48
   %.not.i.i24 = icmp ne ptr %.pre, null
-  %72 = trunc nuw i8 %.pre81 to i1
+  %72 = trunc nuw i8 %.pre90 to i1
   %or.cond.i.i25 = select i1 %.not.i.i24, i1 %72, i1 false
   br i1 %or.cond.i.i25, label %73, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i38
 
@@ -4569,7 +4569,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i23:       ; preds = %"_ZZN9grpc_core14pr
           cleanup
   br label %_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit
 
-.thread69:                                        ; preds = %23
+.thread78:                                        ; preds = %23
   store i8 1, ptr %0, align 8, !tbaa !199
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %21, ptr %83, align 8, !tbaa !197
@@ -4610,7 +4610,7 @@ _ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit2
 
-_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit2: ; preds = %.thread69, %84, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEED2Ev.exit33, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i38
+_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit2: ; preds = %.thread78, %84, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEED2Ev.exit33, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i38
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 }

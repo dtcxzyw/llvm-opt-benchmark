@@ -621,8 +621,8 @@ _ZSt4copyIPKPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoEPS3_ET0_T_S8_S7_.exit43.
 
 _ZSt4copyIPKPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoEPS3_ET0_T_S8_S7_.exit43.i.thread.i.i.i.i: ; preds = %_ZSt4copyIPKPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoEPS3_ET0_T_S8_S7_.exit43.i.i._ZSt4copyIPKPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoEPS3_ET0_T_S8_S7_.exit43.i.thread.i_crit_edge.i.i.i, %232
   %.val.i.i.i.i.i = phi ptr [ %.val.i.i.pre.i.i.i, %_ZSt4copyIPKPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoEPS3_ET0_T_S8_S7_.exit43.i.i._ZSt4copyIPKPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoEPS3_ET0_T_S8_S7_.exit43.i.thread.i_crit_edge.i.i.i ], [ %67, %232 ]
-  %.val41.i7.i.i.i.i = phi i32 [ %.val41.i.pre.i.i.i.i, %_ZSt4copyIPKPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoEPS3_ET0_T_S8_S7_.exit43.i.i._ZSt4copyIPKPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoEPS3_ET0_T_S8_S7_.exit43.i.thread.i_crit_edge.i.i.i ], [ %231, %232 ]
-  %235 = zext i32 %.val41.i7.i.i.i.i to i64
+  %.val41.i9.i.i.i.i = phi i32 [ %.val41.i.pre.i.i.i.i, %_ZSt4copyIPKPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoEPS3_ET0_T_S8_S7_.exit43.i.i._ZSt4copyIPKPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoEPS3_ET0_T_S8_S7_.exit43.i.thread.i_crit_edge.i.i.i ], [ %231, %232 ]
+  %235 = zext i32 %.val41.i9.i.i.i.i to i64
   %.val39.i.i.i.i.i = load ptr, ptr %56, align 8, !tbaa !170
   %gepdiff.i.i.i.i.i = shl nuw nsw i64 %235, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.val.i.i.i.i.i, ptr align 8 %.val39.i.i.i.i.i, i64 %gepdiff.i.i.i.i.i, i1 false)
@@ -657,8 +657,8 @@ _ZSt4copyIPKPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoEPS3_ET0_T_S8_S7_.exit43.
 
 _ZSt4copyIPKPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoEPS3_ET0_T_S8_S7_.exit43.i.thread.i7.i.i.i: ; preds = %_ZSt4copyIPKPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoEPS3_ET0_T_S8_S7_.exit43.i.i13._ZSt4copyIPKPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoEPS3_ET0_T_S8_S7_.exit43.i.thread.i7_crit_edge.i.i.i, %237
   %.val.i.i10.i.i.i = phi ptr [ %.val.i.i10.pre.i.i.i, %_ZSt4copyIPKPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoEPS3_ET0_T_S8_S7_.exit43.i.i13._ZSt4copyIPKPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoEPS3_ET0_T_S8_S7_.exit43.i.thread.i7_crit_edge.i.i.i ], [ %71, %237 ]
-  %.val41.i7.i8.i.i.i = phi i32 [ %.val41.i.pre.i14.i.i.i, %_ZSt4copyIPKPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoEPS3_ET0_T_S8_S7_.exit43.i.i13._ZSt4copyIPKPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoEPS3_ET0_T_S8_S7_.exit43.i.thread.i7_crit_edge.i.i.i ], [ %236, %237 ]
-  %240 = zext i32 %.val41.i7.i8.i.i.i to i64
+  %.val41.i9.i8.i.i.i = phi i32 [ %.val41.i.pre.i14.i.i.i, %_ZSt4copyIPKPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoEPS3_ET0_T_S8_S7_.exit43.i.i13._ZSt4copyIPKPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoEPS3_ET0_T_S8_S7_.exit43.i.thread.i7_crit_edge.i.i.i ], [ %236, %237 ]
+  %240 = zext i32 %.val41.i9.i8.i.i.i to i64
   %.val39.i.i9.i.i.i = load ptr, ptr %60, align 8, !tbaa !170
   %gepdiff.i.i11.i.i.i = shl nuw nsw i64 %240, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.val.i.i10.i.i.i, ptr align 8 %.val39.i.i9.i.i.i, i64 %gepdiff.i.i11.i.i.i, i1 false)
@@ -690,25 +690,25 @@ _ZNSt4pairIKPKN4llvm10BasicBlockEN12_GLOBAL__N_116ProfileAnnotator6BBInfoEEC2IS4
   br i1 %243, label %._crit_edge.thread.i.i.i.i, label %247
 
 ._crit_edge.thread.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i, %_ZNSt4pairIKPKN4llvm10BasicBlockEN12_GLOBAL__N_116ProfileAnnotator6BBInfoEEC2IS4_S7_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISB_SC_EEEbE4typeELb1EEERS4_RKS7_.exit.i
-  %.010.lcssa19.i.i.i.i = phi ptr [ %.01115.i.i.i.i, %._crit_edge.i.i.i.i ], [ %49, %_ZNSt4pairIKPKN4llvm10BasicBlockEN12_GLOBAL__N_116ProfileAnnotator6BBInfoEEC2IS4_S7_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISB_SC_EEEbE4typeELb1EEERS4_RKS7_.exit.i ]
+  %.010.lcssa20.i.i.i.i = phi ptr [ %.01115.i.i.i.i, %._crit_edge.i.i.i.i ], [ %49, %_ZNSt4pairIKPKN4llvm10BasicBlockEN12_GLOBAL__N_116ProfileAnnotator6BBInfoEEC2IS4_S7_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISB_SC_EEEbE4typeELb1EEERS4_RKS7_.exit.i ]
   %.val7.i.i.i.i = load ptr, ptr %51, align 8, !tbaa !34
-  %244 = icmp eq ptr %.010.lcssa19.i.i.i.i, %.val7.i.i.i.i
+  %244 = icmp eq ptr %.010.lcssa20.i.i.i.i, %.val7.i.i.i.i
   br i1 %244, label %select.unfold.i.i.i, label %245
 
 245:                                              ; preds = %._crit_edge.thread.i.i.i.i
-  %246 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.010.lcssa19.i.i.i.i) #17
+  %246 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.010.lcssa20.i.i.i.i) #17
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %246, i64 32
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !201
   br label %247
 
 247:                                              ; preds = %245, %._crit_edge.i.i.i.i
   %248 = phi ptr [ %.pre.i.i.i, %245 ], [ %242, %._crit_edge.i.i.i.i ]
-  %.010.lcssa20.i.i.i.i = phi ptr [ %.010.lcssa19.i.i.i.i, %245 ], [ %.01115.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %.010.lcssa19.i.i.i.i = phi ptr [ %.010.lcssa20.i.i.i.i, %245 ], [ %.01115.i.i.i.i, %._crit_edge.i.i.i.i ]
   %249 = icmp ult ptr %248, %.val.i.i.i
   br i1 %249, label %select.unfold.i.i.i, label %_ZNSt3mapIPKN4llvm10BasicBlockEN12_GLOBAL__N_116ProfileAnnotator6BBInfoESt4lessIS3_ESaISt4pairIKS3_S6_EEE6insertEOSB_.exit.i
 
 select.unfold.i.i.i:                              ; preds = %247, %._crit_edge.thread.i.i.i.i
-  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.010.lcssa19.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.010.lcssa20.i.i.i.i, %247 ]
+  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.010.lcssa20.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.010.lcssa19.i.i.i.i, %247 ]
   %250 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %49
   br i1 %250, label %255, label %251
 
@@ -769,8 +769,8 @@ _ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.
 _ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.thread.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.i._ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.thread.i_crit_edge.i.i.i.i.i.i.i.i.i.i.i, %269
   %.val39.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.val39.i.i.pre.i.i.i.i.i.i.i.i.i.i.i, %_ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.i._ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.thread.i_crit_edge.i.i.i.i.i.i.i.i.i.i.i ], [ %261, %269 ]
   %.val38.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.val38.i.i.pre.i.i.i.i.i.i.i.i.i.i.i, %_ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.i._ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.thread.i_crit_edge.i.i.i.i.i.i.i.i.i.i.i ], [ %266, %269 ]
-  %.val45.i7.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.val45.i.pre.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.i._ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.thread.i_crit_edge.i.i.i.i.i.i.i.i.i.i.i ], [ %264, %269 ]
-  %272 = zext i32 %.val45.i7.i.i.i.i.i.i.i.i.i.i.i.i to i64
+  %.val45.i11.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.val45.i.pre.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.i._ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.thread.i_crit_edge.i.i.i.i.i.i.i.i.i.i.i ], [ %264, %269 ]
+  %272 = zext i32 %.val45.i11.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %gepdiff.i.i.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %272, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.val39.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr align 8 %.val38.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %gepdiff.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZN4llvm23SmallVectorTemplateBaseIPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -830,8 +830,8 @@ _ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.
 _ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.thread.i9.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.i15._ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.thread.i9_crit_edge.i.i.i.i.i.i.i.i.i.i.i, %282
   %.val39.i.i12.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.val39.i.i12.pre.i.i.i.i.i.i.i.i.i.i.i, %_ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.i15._ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.thread.i9_crit_edge.i.i.i.i.i.i.i.i.i.i.i ], [ %275, %282 ]
   %.val38.i.i11.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.val38.i.i11.pre.i.i.i.i.i.i.i.i.i.i.i, %_ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.i15._ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.thread.i9_crit_edge.i.i.i.i.i.i.i.i.i.i.i ], [ %279, %282 ]
-  %.val45.i7.i10.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.val45.i.pre.i16.i.i.i.i.i.i.i.i.i.i.i, %_ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.i15._ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.thread.i9_crit_edge.i.i.i.i.i.i.i.i.i.i.i ], [ %273, %282 ]
-  %285 = zext i32 %.val45.i7.i10.i.i.i.i.i.i.i.i.i.i.i to i64
+  %.val45.i11.i10.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.val45.i.pre.i16.i.i.i.i.i.i.i.i.i.i.i, %_ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.i15._ZSt4moveIPPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoES4_ET0_T_S6_S5_.exit47.i.thread.i9_crit_edge.i.i.i.i.i.i.i.i.i.i.i ], [ %273, %282 ]
+  %285 = zext i32 %.val45.i11.i10.i.i.i.i.i.i.i.i.i.i.i to i64
   %gepdiff.i.i13.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %285, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.val39.i.i12.i.i.i.i.i.i.i.i.i.i.i, ptr align 8 %.val38.i.i11.i.i.i.i.i.i.i.i.i.i.i, i64 %gepdiff.i.i13.i.i.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZN4llvm23SmallVectorTemplateBaseIPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i.i14.i.i.i.i.i.i.i.i.i.i.i
@@ -1223,7 +1223,7 @@ _ZN12_GLOBAL__N_116ProfileAnnotatorC2ERN4llvm8FunctionERKNS1_15SmallVectorImplIm
   %422 = icmp eq ptr %420, %421
   br i1 %422, label %_ZN12_GLOBAL__N_116ProfileAnnotator22propagateCounterValuesERKN4llvm15SmallVectorImplImEE.exit.i, label %.split.i.i
 
-.loopexit.i.i:                                    ; preds = %.thread28.i.i
+.loopexit.i.i:                                    ; preds = %.thread39.i.i
   %423 = trunc nuw i8 %.3.i.i to i1
   br i1 %423, label %.split.i.i, label %.loopexit.i._ZN12_GLOBAL__N_116ProfileAnnotator22propagateCounterValuesERKN4llvm15SmallVectorImplImEE.exit.loopexit_crit_edge.i, !llvm.loop !231
 
@@ -1239,9 +1239,9 @@ _ZN12_GLOBAL__N_116ProfileAnnotatorC2ERN4llvm8FunctionERKNS1_15SmallVectorImplIm
   %.not14.i.i = icmp eq ptr %.sroa.01.013.i.i, %426
   br i1 %.not14.i.i, label %_ZN12_GLOBAL__N_116ProfileAnnotator22propagateCounterValuesERKN4llvm15SmallVectorImplImEE.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.split.i.i, %.thread28.i.i
-  %.sroa.01.016.i.i = phi ptr [ %.sroa.01.0.i.i, %.thread28.i.i ], [ %.sroa.01.013.i.i, %.split.i.i ]
-  %.115.i.i = phi i8 [ %.3.i.i, %.thread28.i.i ], [ 0, %.split.i.i ]
+.lr.ph.i.i:                                       ; preds = %.split.i.i, %.thread39.i.i
+  %.sroa.01.016.i.i = phi ptr [ %.sroa.01.0.i.i, %.thread39.i.i ], [ %.sroa.01.013.i.i, %.split.i.i ]
+  %.115.i.i = phi i8 [ %.3.i.i, %.thread39.i.i ], [ 0, %.split.i.i ]
   %427 = getelementptr inbounds i8, ptr %.sroa.01.016.i.i, i64 -24
   %.val.i.i.i.i.i25 = load ptr, ptr %50, align 8, !tbaa !33
   %.not2.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i25, null
@@ -1334,7 +1334,7 @@ _ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo29tryTakeCountFromKnownOutEdgesERKN4ll
   %452 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 192
   %453 = load i64, ptr %452, align 8, !tbaa !219
   %.not.i16.i.i = icmp eq i64 %453, 0
-  br i1 %.not.i16.i.i, label %454, label %.thread28.i.i
+  br i1 %.not.i16.i.i, label %454, label %.thread39.i.i
 
 454:                                              ; preds = %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo29tryTakeCountFromKnownOutEdgesERKN4llvm10BasicBlockE.exit.thread.i.i
   %455 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 120
@@ -1345,11 +1345,11 @@ _ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo29tryTakeCountFromKnownOutEdgesERKN4ll
   %.idx.i.i.i20.i.i = shl nuw nsw i64 %457, 3
   %458 = getelementptr inbounds nuw i8, ptr %.val.i18.i.i, i64 %.idx.i.i.i20.i.i
   %.not5.i.i.i21.i.i = icmp eq i32 %.val2.i19.i.i, 0
-  br i1 %.not5.i.i.i21.i.i, label %.thread29.i.i, label %.lr.ph.split.us.i.i.i22.i.i
+  br i1 %.not5.i.i.i21.i.i, label %.thread40.i.i, label %.lr.ph.split.us.i.i.i22.i.i
 
-.thread29.i.i:                                    ; preds = %454
+.thread40.i.i:                                    ; preds = %454
   store i8 0, ptr %436, align 8
-  br label %.thread28.i.i
+  br label %.thread39.i.i
 
 .lr.ph.split.us.i.i.i22.i.i:                      ; preds = %454, %464
   %.08.us.i.i.i23.i.i = phi ptr [ %465, %464 ], [ %.val.i18.i.i, %454 ]
@@ -1379,10 +1379,10 @@ _ZNSt8optionalImEaSIiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remov
   store i8 %.sroa.4.3.us.i.i.i30.i.i, ptr %436, align 8
   %467 = or i8 %.sroa.4.3.us.i.i.i30.i.i, %.115.i.i
   %468 = trunc nuw i8 %.sroa.4.3.us.i.i.i30.i.i to i1
-  br i1 %468, label %.thread.i.i, label %.thread28.i.i
+  br i1 %468, label %.thread.i.i, label %.thread39.i.i
 
 .thread.i.i:                                      ; preds = %466, %_ZN12_GLOBAL__N_116ProfileAnnotator9getBBInfoERKN4llvm10BasicBlockE.exit.i.i
-  %.226.i.i = phi i8 [ %467, %466 ], [ %.115.i.i, %_ZN12_GLOBAL__N_116ProfileAnnotator9getBBInfoERKN4llvm10BasicBlockE.exit.i.i ]
+  %.237.i.i = phi i8 [ %467, %466 ], [ %.115.i.i, %_ZN12_GLOBAL__N_116ProfileAnnotator9getBBInfoERKN4llvm10BasicBlockE.exit.i.i ]
   %469 = icmp eq i64 %.pre.i29, 1
   br i1 %469, label %470, label %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo31trySetSingleUnknownOutEdgeCountEv.exit.i.i
 
@@ -1474,7 +1474,7 @@ _ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo25setSingleUnknownEdgeCountERN4llvm11S
 
 _ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo31trySetSingleUnknownOutEdgeCountEv.exit.i.i: ; preds = %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo25setSingleUnknownEdgeCountERN4llvm11SmallVectorIPNS0_8EdgeInfoELj6EEE.exit.i.i.i, %.thread.i.i, %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo29tryTakeCountFromKnownOutEdgesERKN4llvm10BasicBlockE.exit.i.i
   %508 = phi i1 [ true, %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo25setSingleUnknownEdgeCountERN4llvm11SmallVectorIPNS0_8EdgeInfoELj6EEE.exit.i.i.i ], [ false, %.thread.i.i ], [ false, %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo29tryTakeCountFromKnownOutEdgesERKN4llvm10BasicBlockE.exit.i.i ]
-  %.226.i64.i = phi i8 [ %.226.i.i, %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo25setSingleUnknownEdgeCountERN4llvm11SmallVectorIPNS0_8EdgeInfoELj6EEE.exit.i.i.i ], [ %.226.i.i, %.thread.i.i ], [ 1, %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo29tryTakeCountFromKnownOutEdgesERKN4llvm10BasicBlockE.exit.i.i ]
+  %.237.i82.i = phi i8 [ %.237.i.i, %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo25setSingleUnknownEdgeCountERN4llvm11SmallVectorIPNS0_8EdgeInfoELj6EEE.exit.i.i.i ], [ %.237.i.i, %.thread.i.i ], [ 1, %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo29tryTakeCountFromKnownOutEdgesERKN4llvm10BasicBlockE.exit.i.i ]
   %509 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 192
   %510 = load i64, ptr %509, align 8, !tbaa !219
   %511 = icmp eq i64 %510, 1
@@ -1569,11 +1569,11 @@ _ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo25setSingleUnknownEdgeCountERN4llvm11S
 _ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo30trySetSingleUnknownInEdgeCountEv.exit.i.i: ; preds = %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo25setSingleUnknownEdgeCountERN4llvm11SmallVectorIPNS0_8EdgeInfoELj6EEE.exit.i64.i.i, %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo31trySetSingleUnknownOutEdgeCountEv.exit.i.i
   %550 = or i1 %508, %511
   %551 = zext i1 %550 to i8
-  %552 = or i8 %.226.i64.i, %551
-  br label %.thread28.i.i
+  %552 = or i8 %.237.i82.i, %551
+  br label %.thread39.i.i
 
-.thread28.i.i:                                    ; preds = %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo30trySetSingleUnknownInEdgeCountEv.exit.i.i, %466, %.thread29.i.i, %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo29tryTakeCountFromKnownOutEdgesERKN4llvm10BasicBlockE.exit.thread.i.i
-  %.3.i.i = phi i8 [ %552, %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo30trySetSingleUnknownInEdgeCountEv.exit.i.i ], [ %467, %466 ], [ %.115.i.i, %.thread29.i.i ], [ %.115.i.i, %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo29tryTakeCountFromKnownOutEdgesERKN4llvm10BasicBlockE.exit.thread.i.i ]
+.thread39.i.i:                                    ; preds = %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo30trySetSingleUnknownInEdgeCountEv.exit.i.i, %466, %.thread40.i.i, %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo29tryTakeCountFromKnownOutEdgesERKN4llvm10BasicBlockE.exit.thread.i.i
+  %.3.i.i = phi i8 [ %552, %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo30trySetSingleUnknownInEdgeCountEv.exit.i.i ], [ %467, %466 ], [ %.115.i.i, %.thread40.i.i ], [ %.115.i.i, %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo29tryTakeCountFromKnownOutEdgesERKN4llvm10BasicBlockE.exit.thread.i.i ]
   %553 = getelementptr inbounds nuw i8, ptr %.sroa.01.016.i.i, i64 8
   %.sroa.01.0.i.i = load ptr, ptr %553, align 8, !tbaa !41
   %.not.i.i31 = icmp eq ptr %.sroa.01.0.i.i, %426

@@ -3647,7 +3647,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit699: ; preds = %_Z
           to label %1248 unwind label %1283
 
 1248:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit699
-  br i1 %1247, label %.invoke822, label %1293
+  br i1 %1247, label %.invoke1040, label %1293
 
 1249:                                             ; preds = %.thread816
   %1250 = landingpad { ptr, i32 }
@@ -3740,7 +3740,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit708: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit711
 
-1283:                                             ; preds = %.invoke822, %1296, %1293, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit699
+1283:                                             ; preds = %.invoke1040, %1296, %1293, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit699
   %1284 = landingpad { ptr, i32 }
           cleanup
   %1285 = load ptr, ptr %68, align 8, !tbaa !25
@@ -3763,14 +3763,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70
 
 1293:                                             ; preds = %1248
   %1294 = invoke noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull @.str.73)
-          to label %.invoke822 unwind label %1283
+          to label %.invoke1040 unwind label %1283
 
-.invoke822:                                       ; preds = %1293, %1248
+.invoke1040:                                      ; preds = %1293, %1248
   %1295 = phi i1 [ false, %1248 ], [ %1294, %1293 ]
   invoke void @_ZN6open3d13visualization29VisualizerWithCustomAnimation4PlayEbbb(ptr noundef nonnull align 8 dereferenceable(656) %46, i1 noundef zeroext true, i1 noundef zeroext %1295, i1 noundef zeroext true)
           to label %1296 unwind label %1283
 
-1296:                                             ; preds = %.invoke822
+1296:                                             ; preds = %.invoke1040
   invoke void @_ZN6open3d13visualization10Visualizer3RunEv(ptr noundef nonnull align 8 dereferenceable(456) %46)
           to label %1297 unwind label %1283
 

@@ -1434,8 +1434,8 @@ define internal fastcc range(i32 -1, 1) i32 @hashsig(ptr noundef nonnull readonl
   br label %.thread.i
 
 .thread.i:                                        ; preds = %115, %112, %72, %65
-  %.0315563.i = phi i32 [ %.031.ph.i, %115 ], [ %.031.ph.i, %112 ], [ -1, %65 ], [ -1, %72 ]
-  %.0305762.i = phi ptr [ %74, %115 ], [ %74, %112 ], [ null, %65 ], [ null, %72 ]
+  %.0315569.i = phi i32 [ %.031.ph.i, %115 ], [ %.031.ph.i, %112 ], [ -1, %65 ], [ -1, %72 ]
+  %.0305768.i = phi ptr [ %74, %115 ], [ %74, %112 ], [ null, %65 ], [ null, %72 ]
   %116 = load ptr, ptr %14, align 8, !tbaa !59
   %.not47.i = icmp eq ptr %116, null
   br i1 %.not47.i, label %118, label %117
@@ -1445,11 +1445,11 @@ define internal fastcc range(i32 -1, 1) i32 @hashsig(ptr noundef nonnull readonl
   br label %118
 
 118:                                              ; preds = %117, %.thread.i
-  %.not48.i = icmp eq ptr %.0305762.i, null
+  %.not48.i = icmp eq ptr %.0305768.i, null
   br i1 %.not48.i, label %121, label %119
 
 119:                                              ; preds = %118
-  %120 = call i32 @cl_engine_free(ptr noundef nonnull %.0305762.i) #24
+  %120 = call i32 @cl_engine_free(ptr noundef nonnull %.0305768.i) #24
   br label %121
 
 121:                                              ; preds = %119, %118
@@ -1464,7 +1464,7 @@ hashpe.exit:                                      ; preds = %121, %122
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %124 = icmp eq i32 %.0315563.i, 0
+  %124 = icmp eq i32 %.0315569.i, 0
   br i1 %124, label %128, label %.split43.us
 
 .split43.us:                                      ; preds = %hashpe.exit, %30
@@ -2383,14 +2383,14 @@ getdbname.exit:                                   ; preds = %49, %51
 .thread:                                          ; preds = %.preheader401
   %103 = call i32 @closedir(ptr noundef nonnull %74)
   %104 = call i32 @access(ptr noundef nonnull @.str.170, i32 noundef 4) #24
-  %.not345569 = icmp eq i32 %104, 0
-  br i1 %.not345569, label %.thread572, label %122
+  %.not345597 = icmp eq i32 %104, 0
+  br i1 %.not345597, label %.thread600, label %122
 
 105:                                              ; preds = %101
   %.not346 = icmp eq i32 %.3, 0
-  br i1 %.not346, label %.thread572, label %106
+  br i1 %.not346, label %.thread600, label %106
 
-.thread572:                                       ; preds = %.thread, %105
+.thread600:                                       ; preds = %.thread, %105
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.171) #24
   br label %523
 
@@ -3450,8 +3450,8 @@ getdbname.exit:                                   ; preds = %49, %51
   %. = sext i1 %not. to i32
   br label %523
 
-523:                                              ; preds = %517, %515, %518, %491, %485, %475, %505, %497, %489, %484, %472, %462, %454, %449, %424, %409, %399, %395, %._crit_edge439, %376, %._crit_edge431, %._crit_edge451, %._crit_edge455, %._crit_edge459, %._crit_edge463, %248, %._crit_edge467, %._crit_edge427, %._crit_edge422, %118, %111, %.thread572, %._crit_edge416, %88, %77, %65, %62, %39, %27
-  %.0 = phi i32 [ -1, %39 ], [ -1, %65 ], [ -1, %77 ], [ -1, %._crit_edge416 ], [ -1, %88 ], [ -1, %._crit_edge422 ], [ -1, %._crit_edge463 ], [ -1, %._crit_edge455 ], [ -1, %._crit_edge451 ], [ -1, %376 ], [ -1, %._crit_edge439 ], [ 35, %409 ], [ -1, %454 ], [ -1, %462 ], [ -1, %472 ], [ 0, %484 ], [ -1, %489 ], [ -1, %497 ], [ -1, %505 ], [ -1, %449 ], [ -1, %424 ], [ -1, %399 ], [ -1, %395 ], [ -1, %._crit_edge431 ], [ -1, %._crit_edge459 ], [ -1, %248 ], [ -1, %._crit_edge467 ], [ -1, %._crit_edge427 ], [ -1, %118 ], [ -1, %111 ], [ -1, %.thread572 ], [ 50, %62 ], [ -1, %27 ], [ 0, %475 ], [ -1, %485 ], [ -1, %491 ], [ -1, %515 ], [ -1, %517 ], [ %., %518 ]
+523:                                              ; preds = %517, %515, %518, %491, %485, %475, %505, %497, %489, %484, %472, %462, %454, %449, %424, %409, %399, %395, %._crit_edge439, %376, %._crit_edge431, %._crit_edge451, %._crit_edge455, %._crit_edge459, %._crit_edge463, %248, %._crit_edge467, %._crit_edge427, %._crit_edge422, %118, %111, %.thread600, %._crit_edge416, %88, %77, %65, %62, %39, %27
+  %.0 = phi i32 [ -1, %39 ], [ -1, %65 ], [ -1, %77 ], [ -1, %._crit_edge416 ], [ -1, %88 ], [ -1, %._crit_edge422 ], [ -1, %._crit_edge463 ], [ -1, %._crit_edge455 ], [ -1, %._crit_edge451 ], [ -1, %376 ], [ -1, %._crit_edge439 ], [ 35, %409 ], [ -1, %454 ], [ -1, %462 ], [ -1, %472 ], [ 0, %484 ], [ -1, %489 ], [ -1, %497 ], [ -1, %505 ], [ -1, %449 ], [ -1, %424 ], [ -1, %399 ], [ -1, %395 ], [ -1, %._crit_edge431 ], [ -1, %._crit_edge459 ], [ -1, %248 ], [ -1, %._crit_edge467 ], [ -1, %._crit_edge427 ], [ -1, %118 ], [ -1, %111 ], [ -1, %.thread600 ], [ 50, %62 ], [ -1, %27 ], [ 0, %475 ], [ -1, %485 ], [ -1, %491 ], [ -1, %515 ], [ -1, %517 ], [ %., %518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -4369,9 +4369,9 @@ define internal fastcc range(i32 -1, 1) i32 @dumpcerts(ptr noundef nonnull %0) u
   br label %.thread
 
 .thread:                                          ; preds = %8, %20, %12, %66, %63
-  %.0295567 = phi ptr [ %22, %66 ], [ %22, %63 ], [ null, %12 ], [ null, %20 ], [ null, %8 ]
-  %.0285766 = phi i32 [ %10, %66 ], [ %10, %63 ], [ %10, %12 ], [ %10, %20 ], [ -1, %8 ]
-  %.06065 = phi i32 [ %.0.ph, %66 ], [ %.0.ph, %63 ], [ -1, %12 ], [ -1, %20 ], [ -1, %8 ]
+  %.0295573 = phi ptr [ %22, %66 ], [ %22, %63 ], [ null, %12 ], [ null, %20 ], [ null, %8 ]
+  %.0285772 = phi i32 [ %10, %66 ], [ %10, %63 ], [ %10, %12 ], [ %10, %20 ], [ -1, %8 ]
+  %.06071 = phi i32 [ %.0.ph, %66 ], [ %.0.ph, %63 ], [ -1, %12 ], [ -1, %20 ], [ -1, %8 ]
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %68 = load ptr, ptr %67, align 8, !tbaa !59
   %.not46 = icmp eq ptr %68, null
@@ -4382,26 +4382,26 @@ define internal fastcc range(i32 -1, 1) i32 @dumpcerts(ptr noundef nonnull %0) u
   br label %70
 
 70:                                               ; preds = %69, %.thread
-  %.not47 = icmp eq ptr %.0295567, null
+  %.not47 = icmp eq ptr %.0295573, null
   br i1 %.not47, label %73, label %71
 
 71:                                               ; preds = %70
-  %72 = call i32 @cl_engine_free(ptr noundef nonnull %.0295567) #24
+  %72 = call i32 @cl_engine_free(ptr noundef nonnull %.0295573) #24
   br label %73
 
 73:                                               ; preds = %71, %70
-  %.not48 = icmp eq i32 %.0285766, -1
+  %.not48 = icmp eq i32 %.0285772, -1
   br i1 %.not48, label %76, label %74
 
 74:                                               ; preds = %73
-  %75 = call i32 @close(i32 noundef %.0285766) #24
+  %75 = call i32 @close(i32 noundef %.0285772) #24
   br label %76
 
 76:                                               ; preds = %74, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.06065
+  ret i32 %.06071
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5184,8 +5184,8 @@ define internal fastcc noalias noundef ptr @sha256file(ptr noundef %0, ptr nound
   store i32 0, ptr %1, align 4, !tbaa !81
   %13 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8192, ptr noundef nonnull %7)
   %14 = trunc i64 %13 to i32
-  %.not303236 = icmp eq i32 %14, 0
-  br i1 %.not303236, label %._crit_edge, label %.lr.ph.split
+  %.not303241 = icmp eq i32 %14, 0
+  br i1 %.not303241, label %._crit_edge, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %10, %.lr.ph.split.us
   %15 = phi i64 [ %18, %.lr.ph.split.us ], [ %11, %10 ]
@@ -5374,7 +5374,7 @@ define internal fastcc range(i32 -1, 1) i32 @compare(ptr noundef %0, ptr noundef
 .outer.split.us:                                  ; preds = %.outer
   %47 = tail call ptr @fgets(ptr noundef nonnull %25, i32 noundef %20, ptr noundef nonnull %37)
   %.not183.us = icmp eq ptr %47, null
-  br i1 %.not183.us, label %.critedge279, label %48
+  br i1 %.not183.us, label %.critedge290, label %48
 
 48:                                               ; preds = %.outer.split.us
   %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #30
@@ -5551,7 +5551,7 @@ define internal fastcc range(i32 -1, 1) i32 @compare(ptr noundef %0, ptr noundef
 .preheader:                                       ; preds = %.outer.split
   %120 = tail call ptr @fgets(ptr noundef nonnull %22, i32 noundef %20, ptr noundef nonnull %.0151.ph)
   %.not195229 = icmp eq ptr %120, null
-  br i1 %.not195229, label %.critedge280, label %.lr.ph231
+  br i1 %.not195229, label %.critedge291, label %.lr.ph231
 
 .lr.ph231:                                        ; preds = %.preheader, %125
   %.3230 = phi i32 [ %121, %125 ], [ %.0158, %.preheader ]
@@ -5570,7 +5570,7 @@ define internal fastcc range(i32 -1, 1) i32 @compare(ptr noundef %0, ptr noundef
   %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.284, i32 noundef %121, ptr noundef nonnull %22) #24
   %127 = tail call ptr @fgets(ptr noundef nonnull %22, i32 noundef %20, ptr noundef nonnull %.0151.ph)
   %.not195 = icmp eq ptr %127, null
-  br i1 %.not195, label %.critedge280, label %.lr.ph231
+  br i1 %.not195, label %.critedge291, label %.lr.ph231
 
 .loopexit:                                        ; preds = %.critedge, %.critedge
   %128 = tail call i32 @fclose(ptr noundef nonnull %.0151.ph)
@@ -5595,20 +5595,20 @@ define internal fastcc range(i32 -1, 1) i32 @compare(ptr noundef %0, ptr noundef
   %136 = tail call i64 @fwrite(ptr nonnull @.str.286, i64 6, i64 1, ptr %2)
   br label %140
 
-.critedge279:                                     ; preds = %.outer.split.us
+.critedge290:                                     ; preds = %.outer.split.us
   %137 = tail call i64 @fwrite(ptr nonnull @.str.286, i64 6, i64 1, ptr %2)
   tail call void @free(ptr noundef %22) #24
   tail call void @free(ptr noundef %28) #24
   br label %140
 
-.critedge280:                                     ; preds = %125, %.preheader
+.critedge291:                                     ; preds = %125, %.preheader
   %138 = tail call i32 @fclose(ptr noundef nonnull %.0151.ph)
   %139 = tail call i64 @fwrite(ptr nonnull @.str.286, i64 6, i64 1, ptr %2)
   tail call void @free(ptr noundef %22) #24
   tail call void @free(ptr noundef %28) #24
   br label %140
 
-140:                                              ; preds = %.critedge280, %.critedge279, %._crit_edge235
+140:                                              ; preds = %.critedge291, %.critedge290, %._crit_edge235
   tail call void @free(ptr noundef %25) #24
   %141 = tail call i32 @fclose(ptr noundef nonnull %37)
   br label %142
@@ -6503,8 +6503,8 @@ define internal fastcc range(i32 -1, 1) i32 @decodesig(ptr noundef nonnull %0, i
 47:                                               ; preds = %43
   %48 = add nsw i32 %18, -3
   %.not89 = icmp eq i32 %44, %48
-  %or.cond96 = select i1 %.not88, i1 true, i1 %.not89
-  br i1 %or.cond96, label %.lr.ph, label %49
+  %or.cond106 = select i1 %.not88, i1 true, i1 %.not89
+  br i1 %or.cond106, label %.lr.ph, label %49
 
 49:                                               ; preds = %47
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.349, i32 noundef %48, i32 noundef %44) #24
@@ -7589,8 +7589,8 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not222, label %.loopexit.sink.split, label %.lr.ph291
 
 .loopexit251.sink.split:                          ; preds = %140, %133, %135, %124, %126
-  %.lcssa349.sink = phi ptr [ %123, %126 ], [ %123, %124 ], [ %132, %135 ], [ %132, %133 ], [ %141, %140 ]
-  tail call void @free(ptr noundef nonnull %.lcssa349.sink) #24
+  %.lcssa376.sink = phi ptr [ %123, %126 ], [ %123, %124 ], [ %132, %135 ], [ %132, %133 ], [ %141, %140 ]
+  tail call void @free(ptr noundef nonnull %.lcssa376.sink) #24
   br label %.loopexit251
 
 .loopexit251:                                     ; preds = %116, %118, %111, %.loopexit251.sink.split

@@ -163,18 +163,18 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 94:                                               ; preds = %91
   %95 = load i32, ptr %10, align 4, !tbaa !3
   %96 = icmp slt i32 %95, %78
-  %or.cond1553 = select i1 %63, i1 %96, i1 false
+  %or.cond1574 = select i1 %63, i1 %96, i1 false
   %97 = icmp slt i32 %95, 1
-  %or.cond1554 = select i1 %or.cond1553, i1 true, i1 %97
-  br i1 %or.cond1554, label %.thread.sink.split, label %98
+  %or.cond1575 = select i1 %or.cond1574, i1 true, i1 %97
+  br i1 %or.cond1575, label %.thread.sink.split, label %98
 
 98:                                               ; preds = %94
   %99 = load i32, ptr %12, align 4, !tbaa !3
   %100 = icmp slt i32 %99, %78
-  %or.cond1555 = select i1 %69, i1 %100, i1 false
+  %or.cond1576 = select i1 %69, i1 %100, i1 false
   %101 = icmp slt i32 %99, 1
-  %or.cond1556 = select i1 %or.cond1555, i1 true, i1 %101
-  br i1 %or.cond1556, label %.thread.sink.split, label %102
+  %or.cond1577 = select i1 %or.cond1576, i1 true, i1 %101
+  br i1 %or.cond1577, label %.thread.sink.split, label %102
 
 102:                                              ; preds = %98
   %103 = load i32, ptr %14, align 4, !tbaa !3
@@ -416,8 +416,8 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %219 = mul nsw i64 %indvars.iv1393, %166
   %220 = mul nsw i64 %indvars.iv1393, %165
   %invariant.gep = getelementptr double, ptr %41, i64 %219
-  %invariant.gep1479 = getelementptr double, ptr %41, i64 %219
-  %invariant.gep1481 = getelementptr double, ptr %44, i64 %220
+  %invariant.gep1500 = getelementptr double, ptr %41, i64 %219
+  %invariant.gep1502 = getelementptr double, ptr %44, i64 %220
   br label %221
 
 221:                                              ; preds = %.lr.ph1054, %221
@@ -426,13 +426,13 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv.next
   %222 = load double, ptr %gep, align 8, !tbaa !7
   store double %222, ptr %29, align 8, !tbaa !7
-  %gep1480 = getelementptr double, ptr %invariant.gep1479, i64 %indvars.iv
-  call void @dlartg_(ptr noundef nonnull %29, ptr noundef %gep1480, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %gep) #5
+  %gep1501 = getelementptr double, ptr %invariant.gep1500, i64 %indvars.iv
+  call void @dlartg_(ptr noundef nonnull %29, ptr noundef %gep1501, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %gep) #5
   %223 = load double, ptr %30, align 8, !tbaa !7
-  store double %223, ptr %gep1480, align 8, !tbaa !7
+  store double %223, ptr %gep1501, align 8, !tbaa !7
   %224 = load double, ptr %31, align 8, !tbaa !7
-  %gep1482 = getelementptr double, ptr %invariant.gep1481, i64 %indvars.iv
-  store double %224, ptr %gep1482, align 8, !tbaa !7
+  %gep1503 = getelementptr double, ptr %invariant.gep1502, i64 %indvars.iv
+  store double %224, ptr %gep1503, align 8, !tbaa !7
   %225 = load i32, ptr %20, align 4, !tbaa !3
   %226 = sext i32 %225 to i64
   %.not997.not = icmp sgt i64 %indvars.iv, %226
@@ -470,19 +470,19 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %244 = sext i32 %227 to i64
   %245 = sext i32 %234 to i64
   %246 = sext i32 %230 to i64
-  %invariant.gep1485 = getelementptr double, ptr %41, i64 %240
-  %invariant.gep1487 = getelementptr double, ptr %44, i64 %241
-  %invariant.gep1483 = getelementptr double, ptr %51, i64 %243
+  %invariant.gep1506 = getelementptr double, ptr %41, i64 %240
+  %invariant.gep1508 = getelementptr double, ptr %44, i64 %241
+  %invariant.gep1504 = getelementptr double, ptr %51, i64 %243
   br label %247
 
 247:                                              ; preds = %.lr.ph1065, %263
   %indvars.iv1302 = phi i64 [ %246, %.lr.ph1065 ], [ %indvars.iv.next1303, %263 ]
   %indvars.iv1300 = phi i64 [ %244, %.lr.ph1065 ], [ %indvars.iv.next1301, %263 ]
   %.01063 = phi i32 [ %239, %.lr.ph1065 ], [ %264, %263 ]
-  %gep1486 = getelementptr double, ptr %invariant.gep1485, i64 %indvars.iv1300
-  %248 = load double, ptr %gep1486, align 8, !tbaa !7
-  %gep1488 = getelementptr double, ptr %invariant.gep1487, i64 %indvars.iv1300
-  %249 = load double, ptr %gep1488, align 8, !tbaa !7
+  %gep1507 = getelementptr double, ptr %invariant.gep1506, i64 %indvars.iv1300
+  %248 = load double, ptr %gep1507, align 8, !tbaa !7
+  %gep1509 = getelementptr double, ptr %invariant.gep1508, i64 %indvars.iv1300
+  %249 = load double, ptr %gep1509, align 8, !tbaa !7
   %.not1014.not1056 = icmp sgt i64 %indvars.iv1302, 0
   br i1 %.not1014.not1056, label %.lr.ph1059.preheader, label %263
 
@@ -495,14 +495,14 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph1059:                                       ; preds = %.lr.ph1059.preheader, %.lr.ph1059
   %indvars.iv1297 = phi i64 [ %252, %.lr.ph1059.preheader ], [ %indvars.iv.next1298, %.lr.ph1059 ]
-  %gep1484 = getelementptr double, ptr %invariant.gep1483, i64 %indvars.iv1297
-  %254 = load double, ptr %gep1484, align 8, !tbaa !7
+  %gep1505 = getelementptr double, ptr %invariant.gep1504, i64 %indvars.iv1297
+  %254 = load double, ptr %gep1505, align 8, !tbaa !7
   %255 = getelementptr inbounds double, ptr %51, i64 %indvars.iv1297
   %256 = load double, ptr %255, align 8, !tbaa !7
   %257 = fneg double %256
   %258 = fmul double %249, %257
   %259 = call double @llvm.fmuladd.f64(double %248, double %254, double %258)
-  store double %259, ptr %gep1484, align 8, !tbaa !7
+  store double %259, ptr %gep1505, align 8, !tbaa !7
   %260 = load double, ptr %255, align 8, !tbaa !7
   %261 = fmul double %248, %260
   %262 = call double @llvm.fmuladd.f64(double %249, double %254, double %261)
@@ -556,9 +556,9 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %282 = add i32 %indvars.iv1310, %231
   %283 = sub i32 %indvars.iv1310, %173
   %284 = sext i32 %283 to i64
-  %invariant.gep1492 = getelementptr double, ptr %41, i64 %278
-  %invariant.gep1494 = getelementptr double, ptr %44, i64 %279
-  %invariant.gep1489 = getelementptr double, ptr %51, i64 %281
+  %invariant.gep1513 = getelementptr double, ptr %41, i64 %278
+  %invariant.gep1515 = getelementptr double, ptr %44, i64 %279
+  %invariant.gep1510 = getelementptr double, ptr %51, i64 %281
   br label %285
 
 285:                                              ; preds = %.lr.ph1096, %307
@@ -578,10 +578,10 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv1314 = phi i64 [ %286, %.lr.ph1083.preheader ], [ %indvars.iv.next1315, %303 ]
   %.11080 = phi i32 [ %.09351092, %.lr.ph1083.preheader ], [ %304, %303 ]
   %indvars.iv.next1315 = add nsw i64 %indvars.iv1314, -1
-  %gep1493 = getelementptr double, ptr %invariant.gep1492, i64 %indvars.iv.next1315
-  %288 = load double, ptr %gep1493, align 8, !tbaa !7
-  %gep1495 = getelementptr double, ptr %invariant.gep1494, i64 %indvars.iv.next1315
-  %289 = load double, ptr %gep1495, align 8, !tbaa !7
+  %gep1514 = getelementptr double, ptr %invariant.gep1513, i64 %indvars.iv.next1315
+  %288 = load double, ptr %gep1514, align 8, !tbaa !7
+  %gep1516 = getelementptr double, ptr %invariant.gep1515, i64 %indvars.iv.next1315
+  %289 = load double, ptr %gep1516, align 8, !tbaa !7
   %290 = trunc nsw i64 %indvars.iv1316 to i32
   %291 = add nsw i32 %.11080, %290
   %.not1013.not1071 = icmp sgt i64 %indvars.iv1316, 0
@@ -594,14 +594,14 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph1074:                                       ; preds = %.lr.ph1074.preheader, %.lr.ph1074
   %indvars.iv1307 = phi i64 [ %292, %.lr.ph1074.preheader ], [ %indvars.iv.next1308, %.lr.ph1074 ]
-  %gep1490 = getelementptr double, ptr %invariant.gep1489, i64 %indvars.iv1307
-  %294 = load double, ptr %gep1490, align 8, !tbaa !7
+  %gep1511 = getelementptr double, ptr %invariant.gep1510, i64 %indvars.iv1307
+  %294 = load double, ptr %gep1511, align 8, !tbaa !7
   %295 = getelementptr inbounds double, ptr %51, i64 %indvars.iv1307
   %296 = load double, ptr %295, align 8, !tbaa !7
   %297 = fneg double %296
   %298 = fmul double %289, %297
   %299 = call double @llvm.fmuladd.f64(double %288, double %294, double %298)
-  store double %299, ptr %gep1490, align 8, !tbaa !7
+  store double %299, ptr %gep1511, align 8, !tbaa !7
   %300 = load double, ptr %295, align 8, !tbaa !7
   %301 = fmul double %288, %300
   %302 = call double @llvm.fmuladd.f64(double %289, double %294, double %301)
@@ -657,10 +657,10 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph1110:                                       ; preds = %312
   %316 = mul nsw i64 %indvars.iv1393, %166
   %317 = mul nsw i64 %indvars.iv1393, %165
-  %invariant.gep1496 = getelementptr double, ptr %41, i64 %316
-  %invariant.gep1498 = getelementptr double, ptr %44, i64 %317
-  %invariant.gep1504 = getelementptr double, ptr %41, i64 %316
-  %invariant.gep1506 = getelementptr double, ptr %44, i64 %317
+  %invariant.gep1517 = getelementptr double, ptr %41, i64 %316
+  %invariant.gep1519 = getelementptr double, ptr %44, i64 %317
+  %invariant.gep1525 = getelementptr double, ptr %41, i64 %316
+  %invariant.gep1527 = getelementptr double, ptr %44, i64 %317
   %318 = mul i64 %168, %315
   %319 = getelementptr i8, ptr %170, i64 %318
   br label %320
@@ -685,31 +685,31 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %327 = mul i64 %169, %indvar
   %scevgep = getelementptr i8, ptr %319, i64 %327
   %328 = mul nsw i64 %indvars.iv1324, %165
-  %invariant.gep1500 = getelementptr double, ptr %44, i64 %328
-  %invariant.gep1502 = getelementptr double, ptr %44, i64 %328
+  %invariant.gep1521 = getelementptr double, ptr %44, i64 %328
+  %invariant.gep1523 = getelementptr double, ptr %44, i64 %328
   %329 = shl nsw i64 %326, 3
-  %scevgep1584 = getelementptr i8, ptr %scevgep, i64 %329
-  %load_initial = load double, ptr %scevgep1584, align 8
+  %scevgep1605 = getelementptr i8, ptr %scevgep, i64 %329
+  %load_initial = load double, ptr %scevgep1605, align 8
   br label %330
 
 330:                                              ; preds = %.lr.ph1102, %330
   %store_forwarded = phi double [ %load_initial, %.lr.ph1102 ], [ %338, %330 ]
   %indvars.iv1321 = phi i64 [ %326, %.lr.ph1102 ], [ %indvars.iv.next1322, %330 ]
-  %gep1497 = getelementptr double, ptr %invariant.gep1496, i64 %indvars.iv1321
-  %331 = load double, ptr %gep1497, align 8, !tbaa !7
-  %gep1499 = getelementptr double, ptr %invariant.gep1498, i64 %indvars.iv1321
-  %332 = load double, ptr %gep1499, align 8, !tbaa !7
-  %gep1501 = getelementptr double, ptr %invariant.gep1500, i64 %indvars.iv1321
+  %gep1518 = getelementptr double, ptr %invariant.gep1517, i64 %indvars.iv1321
+  %331 = load double, ptr %gep1518, align 8, !tbaa !7
+  %gep1520 = getelementptr double, ptr %invariant.gep1519, i64 %indvars.iv1321
+  %332 = load double, ptr %gep1520, align 8, !tbaa !7
+  %gep1522 = getelementptr double, ptr %invariant.gep1521, i64 %indvars.iv1321
   %indvars.iv.next1322 = add nsw i64 %indvars.iv1321, -1
-  %gep1503 = getelementptr double, ptr %invariant.gep1502, i64 %indvars.iv.next1322
-  %333 = load double, ptr %gep1503, align 8, !tbaa !7
+  %gep1524 = getelementptr double, ptr %invariant.gep1523, i64 %indvars.iv.next1322
+  %333 = load double, ptr %gep1524, align 8, !tbaa !7
   %334 = fneg double %333
   %335 = fmul double %332, %334
   %336 = call double @llvm.fmuladd.f64(double %331, double %store_forwarded, double %335)
-  store double %336, ptr %gep1501, align 8, !tbaa !7
+  store double %336, ptr %gep1522, align 8, !tbaa !7
   %337 = fmul double %331, %333
   %338 = call double @llvm.fmuladd.f64(double %332, double %store_forwarded, double %337)
-  store double %338, ptr %gep1503, align 8, !tbaa !7
+  store double %338, ptr %gep1524, align 8, !tbaa !7
   %.not1011.not = icmp sgt i64 %indvars.iv1321, %215
   br i1 %.not1011.not, label %330, label %._crit_edge1103, !llvm.loop !18
 
@@ -745,12 +745,12 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %356 = getelementptr double, ptr %355, i64 %352
   call void @drot_(ptr noundef nonnull %22, ptr noundef %354, ptr noundef nonnull @c__1, ptr noundef %356, ptr noundef nonnull @c__1, ptr noundef nonnull %30, ptr noundef nonnull %31) #5
   %357 = load double, ptr %30, align 8, !tbaa !7
-  %gep1505 = getelementptr double, ptr %invariant.gep1504, i64 %322
-  store double %357, ptr %gep1505, align 8, !tbaa !7
+  %gep1526 = getelementptr double, ptr %invariant.gep1525, i64 %322
+  store double %357, ptr %gep1526, align 8, !tbaa !7
   %358 = load double, ptr %31, align 8, !tbaa !7
   %359 = fneg double %358
-  %gep1507 = getelementptr double, ptr %invariant.gep1506, i64 %322
-  store double %359, ptr %gep1507, align 8, !tbaa !7
+  %gep1528 = getelementptr double, ptr %invariant.gep1527, i64 %322
+  store double %359, ptr %gep1528, align 8, !tbaa !7
   %.pre1441 = load i32, ptr %21, align 4, !tbaa !3
   br label %360
 
@@ -787,10 +787,10 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %373 = add i32 %363, %indvars.iv1330
   %374 = sext i32 %373 to i64
   %375 = sext i32 %366 to i64
-  %invariant.gep1516 = getelementptr double, ptr %41, i64 %369
-  %invariant.gep1518 = getelementptr double, ptr %44, i64 %370
-  %invariant.gep1520 = getelementptr double, ptr %41, i64 %369
-  %invariant.gep1522 = getelementptr double, ptr %44, i64 %370
+  %invariant.gep1537 = getelementptr double, ptr %41, i64 %369
+  %invariant.gep1539 = getelementptr double, ptr %44, i64 %370
+  %invariant.gep1541 = getelementptr double, ptr %41, i64 %369
+  %invariant.gep1543 = getelementptr double, ptr %44, i64 %370
   %376 = getelementptr double, ptr %41, i64 %369
   %377 = getelementptr double, ptr %44, i64 %370
   %wide.trip.count = sext i32 %363 to i64
@@ -810,16 +810,16 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv1332 = phi i64 [ %374, %.lr.ph1122 ], [ %indvars.iv.next1333, %.loopexit ]
   %.5948.in1119 = phi i32 [ %368, %.lr.ph1122 ], [ %378, %.loopexit ]
   %380 = add nsw i64 %indvars.iv1332, %indvars.iv.next1394
-  %gep1517 = getelementptr double, ptr %invariant.gep1516, i64 %380
-  %381 = load double, ptr %gep1517, align 8, !tbaa !7
-  %gep1519 = getelementptr double, ptr %invariant.gep1518, i64 %380
-  %382 = load double, ptr %gep1519, align 8, !tbaa !7
+  %gep1538 = getelementptr double, ptr %invariant.gep1537, i64 %380
+  %381 = load double, ptr %gep1538, align 8, !tbaa !7
+  %gep1540 = getelementptr double, ptr %invariant.gep1539, i64 %380
+  %382 = load double, ptr %gep1540, align 8, !tbaa !7
   %383 = fneg double %382
   %384 = add nsw i64 %indvars.iv1332, %215
-  %gep1521 = getelementptr double, ptr %invariant.gep1520, i64 %384
-  %385 = load double, ptr %gep1521, align 8, !tbaa !7
-  %gep1523 = getelementptr double, ptr %invariant.gep1522, i64 %384
-  %386 = load double, ptr %gep1523, align 8, !tbaa !7
+  %gep1542 = getelementptr double, ptr %invariant.gep1541, i64 %384
+  %385 = load double, ptr %gep1542, align 8, !tbaa !7
+  %gep1544 = getelementptr double, ptr %invariant.gep1543, i64 %384
+  %386 = load double, ptr %gep1544, align 8, !tbaa !7
   %387 = fneg double %386
   %388 = add i32 %.5948.in1119, %232
   %389 = sext i32 %388 to i64
@@ -839,39 +839,39 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %400 = mul nsw i64 %399, %166
   %401 = mul nsw i32 %388, %39
   %402 = sext i32 %401 to i64
-  %invariant.gep1508 = getelementptr double, ptr %41, i64 %396
-  %invariant.gep1510 = getelementptr double, ptr %41, i64 %398
-  %invariant.gep1512 = getelementptr double, ptr %41, i64 %400
-  %invariant.gep1514 = getelementptr double, ptr %41, i64 %402
+  %invariant.gep1529 = getelementptr double, ptr %41, i64 %396
+  %invariant.gep1531 = getelementptr double, ptr %41, i64 %398
+  %invariant.gep1533 = getelementptr double, ptr %41, i64 %400
+  %invariant.gep1535 = getelementptr double, ptr %41, i64 %402
   br label %403
 
 403:                                              ; preds = %.lr.ph1115, %403
   %indvars.iv1327 = phi i64 [ %372, %.lr.ph1115 ], [ %indvars.iv.next1328, %403 ]
   %indvars.iv.next1328 = add nsw i64 %indvars.iv1327, 1
-  %gep1509 = getelementptr double, ptr %invariant.gep1508, i64 %indvars.iv.next1328
-  %404 = load double, ptr %gep1509, align 8, !tbaa !7
-  %gep1511 = getelementptr double, ptr %invariant.gep1510, i64 %indvars.iv.next1328
-  %405 = load double, ptr %gep1511, align 8, !tbaa !7
-  %gep1513 = getelementptr double, ptr %invariant.gep1512, i64 %indvars.iv.next1328
-  %406 = load double, ptr %gep1513, align 8, !tbaa !7
-  %gep1515 = getelementptr double, ptr %invariant.gep1514, i64 %indvars.iv.next1328
-  %407 = load double, ptr %gep1515, align 8, !tbaa !7
+  %gep1530 = getelementptr double, ptr %invariant.gep1529, i64 %indvars.iv.next1328
+  %404 = load double, ptr %gep1530, align 8, !tbaa !7
+  %gep1532 = getelementptr double, ptr %invariant.gep1531, i64 %indvars.iv.next1328
+  %405 = load double, ptr %gep1532, align 8, !tbaa !7
+  %gep1534 = getelementptr double, ptr %invariant.gep1533, i64 %indvars.iv.next1328
+  %406 = load double, ptr %gep1534, align 8, !tbaa !7
+  %gep1536 = getelementptr double, ptr %invariant.gep1535, i64 %indvars.iv.next1328
+  %407 = load double, ptr %gep1536, align 8, !tbaa !7
   %408 = fmul double %406, %394
   %409 = call double @llvm.fmuladd.f64(double %391, double %407, double %408)
-  store double %409, ptr %gep1515, align 8, !tbaa !7
+  store double %409, ptr %gep1536, align 8, !tbaa !7
   %410 = fmul double %391, %406
   %411 = call double @llvm.fmuladd.f64(double %393, double %407, double %410)
   %412 = fmul double %405, %387
   %413 = call double @llvm.fmuladd.f64(double %385, double %411, double %412)
-  store double %413, ptr %gep1513, align 8, !tbaa !7
+  store double %413, ptr %gep1534, align 8, !tbaa !7
   %414 = fmul double %385, %405
   %415 = call double @llvm.fmuladd.f64(double %386, double %411, double %414)
   %416 = fmul double %404, %383
   %417 = call double @llvm.fmuladd.f64(double %381, double %415, double %416)
-  store double %417, ptr %gep1511, align 8, !tbaa !7
+  store double %417, ptr %gep1532, align 8, !tbaa !7
   %418 = fmul double %381, %404
   %419 = call double @llvm.fmuladd.f64(double %382, double %415, double %418)
-  store double %419, ptr %gep1509, align 8, !tbaa !7
+  store double %419, ptr %gep1530, align 8, !tbaa !7
   %exitcond.not = icmp eq i64 %indvars.iv.next1328, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge, label %403, !llvm.loop !21
 
@@ -889,8 +889,8 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %422 = mul nsw i64 %indvars.iv1393, %165
   %423 = mul nsw i64 %indvars.iv1393, %166
   %424 = zext nneg i32 %366 to i64
-  %invariant.gep1524 = getelementptr double, ptr %44, i64 %422
-  %invariant.gep1526 = getelementptr double, ptr %41, i64 %423
+  %invariant.gep1545 = getelementptr double, ptr %44, i64 %422
+  %invariant.gep1547 = getelementptr double, ptr %41, i64 %423
   br label %425
 
 425:                                              ; preds = %.preheader, %425
@@ -900,8 +900,8 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %428 = sub nsw i32 %426, %427
   store i32 %428, ptr %21, align 4, !tbaa !3
   %429 = add nsw i64 %indvars.iv1335, %indvars.iv.next1394
-  %gep1525 = getelementptr double, ptr %invariant.gep1524, i64 %429
-  %430 = load double, ptr %gep1525, align 8, !tbaa !7
+  %gep1546 = getelementptr double, ptr %invariant.gep1545, i64 %429
+  %430 = load double, ptr %gep1546, align 8, !tbaa !7
   %431 = fneg double %430
   store double %431, ptr %25, align 8, !tbaa !7
   %432 = add nsw i32 %427, 1
@@ -914,8 +914,8 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %439 = mul nsw i64 %433, %166
   %440 = getelementptr double, ptr %41, i64 %439
   %441 = getelementptr double, ptr %440, i64 %436
-  %gep1527 = getelementptr double, ptr %invariant.gep1526, i64 %429
-  call void @drot_(ptr noundef nonnull %21, ptr noundef %438, ptr noundef nonnull @c__1, ptr noundef %441, ptr noundef nonnull @c__1, ptr noundef %gep1527, ptr noundef nonnull %25) #5
+  %gep1548 = getelementptr double, ptr %invariant.gep1547, i64 %429
+  call void @drot_(ptr noundef nonnull %21, ptr noundef %438, ptr noundef nonnull @c__1, ptr noundef %441, ptr noundef nonnull @c__1, ptr noundef %gep1548, ptr noundef nonnull %25) #5
   %indvars.iv.next1336 = add nsw i64 %indvars.iv1335, -1
   %442 = icmp samesign ugt i64 %indvars.iv1335, 1
   br i1 %442, label %425, label %.loopexit1040, !llvm.loop !22
@@ -955,14 +955,14 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %466 = add i32 %465, %449
   %467 = add i32 %457, %450
   %468 = sub i32 %466, %467
-  %invariant.gep1528 = getelementptr double, ptr %41, i64 %453
+  %invariant.gep1549 = getelementptr double, ptr %41, i64 %453
   br label %.lr.ph1131
 
 .lr.ph1131:                                       ; preds = %.lr.ph1131.preheader, %.lr.ph1131
   %indvars.iv1343 = phi i64 [ %464, %.lr.ph1131.preheader ], [ %indvars.iv.next1344, %.lr.ph1131 ]
   %indvars.iv1341 = phi i64 [ %462, %.lr.ph1131.preheader ], [ %indvars.iv.next1342, %.lr.ph1131 ]
-  %gep1529 = getelementptr double, ptr %invariant.gep1528, i64 %indvars.iv1343
-  %469 = load double, ptr %gep1529, align 8, !tbaa !7
+  %gep1550 = getelementptr double, ptr %invariant.gep1549, i64 %indvars.iv1343
+  %469 = load double, ptr %gep1550, align 8, !tbaa !7
   %470 = getelementptr inbounds double, ptr %51, i64 %indvars.iv1341
   store double %469, ptr %470, align 8, !tbaa !7
   %indvars.iv.next1342 = add nsw i64 %indvars.iv1341, 1
@@ -1011,7 +1011,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %499 = add i32 %495, 1
   %500 = add i32 %499, %449
   %501 = sub i32 %500, %450
-  %invariant.gep1530 = getelementptr double, ptr %41, i64 %453
+  %invariant.gep1551 = getelementptr double, ptr %41, i64 %453
   br label %.lr.ph1137
 
 .lr.ph1137:                                       ; preds = %.lr.ph1137.preheader, %.lr.ph1137
@@ -1019,8 +1019,8 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv1352 = phi i64 [ %.pre1448, %.lr.ph1137.preheader ], [ %indvars.iv.next1353, %.lr.ph1137 ]
   %502 = getelementptr inbounds double, ptr %51, i64 %indvars.iv1352
   %503 = load double, ptr %502, align 8, !tbaa !7
-  %gep1531 = getelementptr double, ptr %invariant.gep1530, i64 %indvars.iv1354
-  store double %503, ptr %gep1531, align 8, !tbaa !7
+  %gep1552 = getelementptr double, ptr %invariant.gep1551, i64 %indvars.iv1354
+  store double %503, ptr %gep1552, align 8, !tbaa !7
   %indvars.iv.next1353 = add nsw i64 %indvars.iv1352, 1
   %indvars.iv.next1355 = add nsw i64 %indvars.iv1354, 1
   %lftr.wideiv1359 = trunc i64 %indvars.iv.next1355 to i32
@@ -1043,10 +1043,10 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %510 = mul nsw i32 %495, %495
   %511 = add nuw nsw i32 %510, 1
   %.pre1443 = load i32, ptr %37, align 4, !tbaa !3
-  %invariant.gep1532 = getelementptr double, ptr %41, i64 %453
-  %invariant.gep1534 = getelementptr double, ptr %41, i64 %453
+  %invariant.gep1553 = getelementptr double, ptr %41, i64 %453
+  %invariant.gep1555 = getelementptr double, ptr %41, i64 %453
   %512 = getelementptr double, ptr %41, i64 %453
-  %invariant.gep1536 = getelementptr double, ptr %41, i64 %453
+  %invariant.gep1557 = getelementptr double, ptr %41, i64 %453
   br label %.lr.ph1161
 
 .lr.ph1161:                                       ; preds = %.lr.ph1161.preheader, %._crit_edge1156
@@ -1068,8 +1068,8 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph1143:                                       ; preds = %.lr.ph1143.preheader, %.lr.ph1143
   %indvars.iv1366 = phi i64 [ %518, %.lr.ph1143.preheader ], [ %indvars.iv.next1367, %.lr.ph1143 ]
   %indvars.iv1364 = phi i64 [ %517, %.lr.ph1143.preheader ], [ %indvars.iv.next1365, %.lr.ph1143 ]
-  %gep1533 = getelementptr double, ptr %invariant.gep1532, i64 %indvars.iv1366
-  %520 = load double, ptr %gep1533, align 8, !tbaa !7
+  %gep1554 = getelementptr double, ptr %invariant.gep1553, i64 %indvars.iv1366
+  %520 = load double, ptr %gep1554, align 8, !tbaa !7
   %521 = getelementptr inbounds double, ptr %51, i64 %indvars.iv1364
   store double %520, ptr %521, align 8, !tbaa !7
   %indvars.iv.next1365 = add nsw i64 %indvars.iv1364, 1
@@ -1090,8 +1090,8 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph1149:                                       ; preds = %.lr.ph1149.preheader, %.lr.ph1149
   %indvars.iv1376 = phi i64 [ %523, %.lr.ph1149.preheader ], [ %indvars.iv.next1377, %.lr.ph1149 ]
   %indvars.iv1374 = phi i64 [ %.pre1448, %.lr.ph1149.preheader ], [ %indvars.iv.next1375, %.lr.ph1149 ]
-  %gep1535 = getelementptr double, ptr %invariant.gep1534, i64 %indvars.iv1376
-  %525 = load double, ptr %gep1535, align 8, !tbaa !7
+  %gep1556 = getelementptr double, ptr %invariant.gep1555, i64 %indvars.iv1376
+  %525 = load double, ptr %gep1556, align 8, !tbaa !7
   %526 = getelementptr inbounds double, ptr %51, i64 %indvars.iv1374
   store double %525, ptr %526, align 8, !tbaa !7
   %indvars.iv.next1375 = add nsw i64 %indvars.iv1374, 1
@@ -1161,8 +1161,8 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv1384 = phi i64 [ %.pre1448, %.lr.ph1155.preheader ], [ %indvars.iv.next1385, %.lr.ph1155 ]
   %567 = getelementptr inbounds double, ptr %51, i64 %indvars.iv1384
   %568 = load double, ptr %567, align 8, !tbaa !7
-  %gep1537 = getelementptr double, ptr %invariant.gep1536, i64 %indvars.iv1386
-  store double %568, ptr %gep1537, align 8, !tbaa !7
+  %gep1558 = getelementptr double, ptr %invariant.gep1557, i64 %indvars.iv1386
+  store double %568, ptr %gep1558, align 8, !tbaa !7
   %indvars.iv.next1385 = add nsw i64 %indvars.iv1384, 1
   %indvars.iv.next1387 = add nsw i64 %indvars.iv1386, 1
   %exitcond1392.not = icmp eq i64 %indvars.iv.next1387, %wide.trip.count1391
@@ -1479,8 +1479,8 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %752 = add nuw i32 %732, 2
   %753 = sext i32 %173 to i64
   %754 = sext i32 %733 to i64
-  %invariant.gep1538 = getelementptr double, ptr %51, i64 %747
-  %invariant.gep1544 = getelementptr double, ptr %51, i64 %749
+  %invariant.gep1559 = getelementptr double, ptr %51, i64 %747
+  %invariant.gep1565 = getelementptr double, ptr %51, i64 %749
   br label %755
 
 755:                                              ; preds = %.lr.ph1238, %810
@@ -1502,8 +1502,8 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %762 = mul nsw i64 %indvars.iv1436, %166
   %763 = mul nsw i64 %indvars.iv1436, %165
   %764 = sext i32 %759 to i64
-  %invariant.gep1540 = getelementptr double, ptr %41, i64 %762
-  %invariant.gep1542 = getelementptr double, ptr %44, i64 %763
+  %invariant.gep1561 = getelementptr double, ptr %41, i64 %762
+  %invariant.gep1563 = getelementptr double, ptr %44, i64 %763
   br label %765
 
 765:                                              ; preds = %.lr.ph1197, %779
@@ -1511,26 +1511,26 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv1401 = phi i64 [ %748, %.lr.ph1197 ], [ %indvars.iv.next1402, %779 ]
   %.71195 = phi i32 [ %.reass1239, %.lr.ph1197 ], [ %780, %779 ]
   %766 = sext i32 %.71195 to i64
-  %gep1541 = getelementptr double, ptr %invariant.gep1540, i64 %indvars.iv1401
-  %767 = load double, ptr %gep1541, align 8, !tbaa !7
-  store double 0.000000e+00, ptr %gep1541, align 8, !tbaa !7
-  %gep1543 = getelementptr double, ptr %invariant.gep1542, i64 %indvars.iv1401
-  %768 = load double, ptr %gep1543, align 8, !tbaa !7
-  store double 0.000000e+00, ptr %gep1543, align 8, !tbaa !7
+  %gep1562 = getelementptr double, ptr %invariant.gep1561, i64 %indvars.iv1401
+  %767 = load double, ptr %gep1562, align 8, !tbaa !7
+  store double 0.000000e+00, ptr %gep1562, align 8, !tbaa !7
+  %gep1564 = getelementptr double, ptr %invariant.gep1563, i64 %indvars.iv1401
+  %768 = load double, ptr %gep1564, align 8, !tbaa !7
+  store double 0.000000e+00, ptr %gep1564, align 8, !tbaa !7
   %769 = add nsw i64 %indvars.iv1405, %766
   %.not996.not1186 = icmp sgt i64 %indvars.iv1405, 0
   br i1 %.not996.not1186, label %.lr.ph1189, label %779
 
 .lr.ph1189:                                       ; preds = %765, %.lr.ph1189
   %indvars.iv1396 = phi i64 [ %indvars.iv.next1397, %.lr.ph1189 ], [ %766, %765 ]
-  %gep1539 = getelementptr double, ptr %invariant.gep1538, i64 %indvars.iv1396
-  %770 = load double, ptr %gep1539, align 8, !tbaa !7
+  %gep1560 = getelementptr double, ptr %invariant.gep1559, i64 %indvars.iv1396
+  %770 = load double, ptr %gep1560, align 8, !tbaa !7
   %771 = getelementptr inbounds double, ptr %51, i64 %indvars.iv1396
   %772 = load double, ptr %771, align 8, !tbaa !7
   %773 = fneg double %772
   %774 = fmul double %768, %773
   %775 = call double @llvm.fmuladd.f64(double %767, double %770, double %774)
-  store double %775, ptr %gep1539, align 8, !tbaa !7
+  store double %775, ptr %gep1560, align 8, !tbaa !7
   %776 = load double, ptr %771, align 8, !tbaa !7
   %777 = fmul double %767, %776
   %778 = call double @llvm.fmuladd.f64(double %768, double %770, double %777)
@@ -1569,8 +1569,8 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.reass1241 = add i32 %785, %invariant.op1240
   %786 = mul nsw i64 %indvars.iv1436, %166
   %787 = mul nsw i64 %indvars.iv1436, %165
-  %invariant.gep1547 = getelementptr double, ptr %41, i64 %786
-  %invariant.gep1549 = getelementptr double, ptr %44, i64 %787
+  %invariant.gep1568 = getelementptr double, ptr %41, i64 %786
+  %invariant.gep1570 = getelementptr double, ptr %44, i64 %787
   br label %788
 
 788:                                              ; preds = %.lr.ph1230, %807
@@ -1589,12 +1589,12 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv1425 = phi i64 [ %789, %.lr.ph1215.preheader ], [ %indvars.iv.next1426, %804 ]
   %.81212 = phi i32 [ %.49391226, %.lr.ph1215.preheader ], [ %805, %804 ]
   %indvars.iv.next1426 = add nsw i64 %indvars.iv1425, -1
-  %gep1548 = getelementptr double, ptr %invariant.gep1547, i64 %indvars.iv.next1426
-  %790 = load double, ptr %gep1548, align 8, !tbaa !7
-  store double 0.000000e+00, ptr %gep1548, align 8, !tbaa !7
-  %gep1550 = getelementptr double, ptr %invariant.gep1549, i64 %indvars.iv.next1426
-  %791 = load double, ptr %gep1550, align 8, !tbaa !7
-  store double 0.000000e+00, ptr %gep1550, align 8, !tbaa !7
+  %gep1569 = getelementptr double, ptr %invariant.gep1568, i64 %indvars.iv.next1426
+  %790 = load double, ptr %gep1569, align 8, !tbaa !7
+  store double 0.000000e+00, ptr %gep1569, align 8, !tbaa !7
+  %gep1571 = getelementptr double, ptr %invariant.gep1570, i64 %indvars.iv.next1426
+  %791 = load double, ptr %gep1571, align 8, !tbaa !7
+  store double 0.000000e+00, ptr %gep1571, align 8, !tbaa !7
   %792 = trunc nsw i64 %indvars.iv1427 to i32
   %793 = add nsw i32 %.81212, %792
   %.not995.not1203 = icmp sgt i64 %indvars.iv1427, 0
@@ -1607,14 +1607,14 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph1206:                                       ; preds = %.lr.ph1206.preheader, %.lr.ph1206
   %indvars.iv1410 = phi i64 [ %794, %.lr.ph1206.preheader ], [ %indvars.iv.next1411, %.lr.ph1206 ]
-  %gep1545 = getelementptr double, ptr %invariant.gep1544, i64 %indvars.iv1410
-  %796 = load double, ptr %gep1545, align 8, !tbaa !7
+  %gep1566 = getelementptr double, ptr %invariant.gep1565, i64 %indvars.iv1410
+  %796 = load double, ptr %gep1566, align 8, !tbaa !7
   %797 = getelementptr inbounds double, ptr %51, i64 %indvars.iv1410
   %798 = load double, ptr %797, align 8, !tbaa !7
   %799 = fneg double %798
   %800 = fmul double %791, %799
   %801 = call double @llvm.fmuladd.f64(double %790, double %796, double %800)
-  store double %801, ptr %gep1545, align 8, !tbaa !7
+  store double %801, ptr %gep1566, align 8, !tbaa !7
   %802 = fmul double %790, %798
   %803 = call double @llvm.fmuladd.f64(double %791, double %796, double %802)
   store double %803, ptr %797, align 8, !tbaa !7
@@ -2006,13 +2006,13 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %69, label %.sink.split, label %1006
 
 .sink.split:                                      ; preds = %1005, %.loopexit1045.thread
-  %.sink1552 = phi i8 [ %158, %.loopexit1045.thread ], [ 86, %1005 ]
-  %.ph1551 = phi i32 [ %156, %.loopexit1045.thread ], [ %173, %1005 ]
-  store i8 %.sink1552, ptr %34, align 1, !tbaa !9
+  %.sink1573 = phi i8 [ %158, %.loopexit1045.thread ], [ 86, %1005 ]
+  %.ph1572 = phi i32 [ %156, %.loopexit1045.thread ], [ %173, %1005 ]
+  store i8 %.sink1573, ptr %34, align 1, !tbaa !9
   br label %1006
 
 1006:                                             ; preds = %.sink.split, %1005, %.loopexit1045
-  %1007 = phi i32 [ %173, %1005 ], [ %173, %.loopexit1045 ], [ %.ph1551, %.sink.split ]
+  %1007 = phi i32 [ %173, %1005 ], [ %173, %.loopexit1045 ], [ %.ph1572, %.sink.split ]
   %1008 = load i32, ptr %4, align 4, !tbaa !3
   %1009 = icmp slt i32 %1007, %1008
   br i1 %1009, label %1010, label %1011

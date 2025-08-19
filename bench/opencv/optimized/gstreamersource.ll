@@ -725,20 +725,20 @@ _ZNSt10unique_ptrI8_GstCapsPFvPS0_EED2Ev.exit:    ; preds = %60, %59
 
 64:                                               ; preds = %_ZNSt10unique_ptrI8_GstCapsPFvPS0_EED2Ev.exit
   %65 = invoke ptr @g_type_check_instance_cast(ptr noundef nonnull %31, i64 noundef 80)
-          to label %.noexc41 unwind label %66
+          to label %.noexc46 unwind label %66
 
-.noexc41:                                         ; preds = %64
+.noexc46:                                         ; preds = %64
   invoke void @gst_object_unref(ptr noundef %65)
           to label %_ZNSt10unique_ptrI7_GstPadPFvPS0_EED2Ev.exit unwind label %66
 
-66:                                               ; preds = %.noexc41, %64
+66:                                               ; preds = %.noexc46, %64
   %67 = landingpad { ptr, i32 }
           catch ptr null
   %68 = extractvalue { ptr, i32 } %67, 0
   tail call void @__clang_call_terminate(ptr %68) #27
   unreachable
 
-_ZNSt10unique_ptrI7_GstPadPFvPS0_EED2Ev.exit:     ; preds = %.noexc41, %_ZNSt10unique_ptrI8_GstCapsPFvPS0_EED2Ev.exit
+_ZNSt10unique_ptrI7_GstPadPFvPS0_EED2Ev.exit:     ; preds = %.noexc46, %_ZNSt10unique_ptrI8_GstCapsPFvPS0_EED2Ev.exit
   %.not.i17 = icmp eq ptr %29, null
   br i1 %.not.i17, label %_ZNSt10unique_ptrI8_GstCapsPFvPS0_EED2Ev.exit18, label %69
 
@@ -779,21 +779,21 @@ _ZNSt10unique_ptrI8_GstCapsPFvPS0_EED2Ev.exit20:  ; preds = %74, %73, %42
 
 78:                                               ; preds = %_ZNSt10unique_ptrI8_GstCapsPFvPS0_EED2Ev.exit20
   %79 = invoke ptr @g_type_check_instance_cast(ptr noundef nonnull %31, i64 noundef 80)
-          to label %.noexc50 unwind label %80
+          to label %.noexc55 unwind label %80
 
-.noexc50:                                         ; preds = %78
+.noexc55:                                         ; preds = %78
   invoke void @gst_object_unref(ptr noundef %79)
           to label %_ZNSt10unique_ptrI7_GstPadPFvPS0_EED2Ev.exit22 unwind label %80
 
-80:                                               ; preds = %.noexc50, %78
+80:                                               ; preds = %.noexc55, %78
   %81 = landingpad { ptr, i32 }
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
   call void @__clang_call_terminate(ptr %82) #27
   unreachable
 
-_ZNSt10unique_ptrI7_GstPadPFvPS0_EED2Ev.exit22:   ; preds = %.noexc50, %_ZNSt10unique_ptrI8_GstCapsPFvPS0_EED2Ev.exit20, %40
-  %.pn9.pn.pn = phi { ptr, i32 } [ %41, %40 ], [ %.pn9.pn, %_ZNSt10unique_ptrI8_GstCapsPFvPS0_EED2Ev.exit20 ], [ %.pn9.pn, %.noexc50 ]
+_ZNSt10unique_ptrI7_GstPadPFvPS0_EED2Ev.exit22:   ; preds = %.noexc55, %_ZNSt10unique_ptrI8_GstCapsPFvPS0_EED2Ev.exit20, %40
+  %.pn9.pn.pn = phi { ptr, i32 } [ %41, %40 ], [ %.pn9.pn, %_ZNSt10unique_ptrI8_GstCapsPFvPS0_EED2Ev.exit20 ], [ %.pn9.pn, %.noexc55 ]
   %.not.i23 = icmp eq ptr %29, null
   br i1 %.not.i23, label %_ZNSt10unique_ptrI8_GstCapsPFvPS0_EED2Ev.exit24, label %83
 

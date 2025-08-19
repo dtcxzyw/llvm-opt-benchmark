@@ -652,7 +652,7 @@ define noundef zeroext i1 @_Z17gmx_fio_is_doubleP8t_fileio(ptr noundef %0) local
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z14gmx_fio_getxdrP8t_fileio(ptr noundef %0) local_unnamed_addr #3 {
+define noundef nonnull ptr @_Z14gmx_fio_getxdrP8t_fileio(ptr noundef %0) local_unnamed_addr #3 {
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !35
@@ -752,7 +752,7 @@ common.resume:                                    ; preds = %288, %37
   br label %common.resume
 
 _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26
-  switch i32 %3, label %default.unreachable269 [
+  switch i32 %3, label %default.unreachable277 [
     i32 0, label %46
     i32 1, label %76
     i32 2, label %88
@@ -1238,7 +1238,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26
 
 .thread:                                          ; preds = %.thread225
   store ptr null, ptr %19, align 8, !tbaa !48
-  br label %.thread273
+  br label %.thread281
 
 252:                                              ; preds = %.thread225
   %253 = load i32, ptr %20, align 4, !tbaa !39
@@ -1246,13 +1246,13 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26
   %255 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 415, i64 noundef range(i64 -2147483648, 2147483648) %254, i64 noundef 1)
   store ptr %255, ptr %19, align 8, !tbaa !48
   %.not171 = icmp eq ptr %255, null
-  br i1 %.not171, label %.thread273, label %.thread277
+  br i1 %.not171, label %.thread281, label %.thread285
 
-.thread277:                                       ; preds = %252
+.thread285:                                       ; preds = %252
   %256 = load ptr, ptr %23, align 8, !tbaa !35
   %257 = load i32, ptr %20, align 4, !tbaa !39
   %258 = call noundef i32 @_Z10xdr_stringP3XDRPPcj(ptr noundef %256, ptr noundef nonnull %19, i32 noundef %257)
-  br label %.thread273
+  br label %.thread281
 
 259:                                              ; preds = %239
   store ptr %1, ptr %19, align 8, !tbaa !48
@@ -1261,20 +1261,20 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26
   %262 = call noundef i32 @_Z10xdr_stringP3XDRPPcj(ptr noundef %260, ptr noundef nonnull %19, i32 noundef %261)
   br label %268
 
-.thread273:                                       ; preds = %252, %.thread, %.thread277
-  %.3276 = phi i32 [ %258, %.thread277 ], [ 1, %.thread ], [ 1, %252 ]
+.thread281:                                       ; preds = %252, %.thread, %.thread285
+  %.3284 = phi i32 [ %258, %.thread285 ], [ 1, %.thread ], [ 1, %252 ]
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %264 = load i8, ptr %263, align 8, !tbaa !11, !range !33, !noundef !34
   %265 = trunc nuw i8 %264 to i1
   br i1 %265, label %266, label %268
 
-266:                                              ; preds = %.thread273
+266:                                              ; preds = %.thread281
   %267 = load ptr, ptr %19, align 8, !tbaa !48
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 431, ptr noundef %267)
   br label %268
 
-268:                                              ; preds = %259, %266, %.thread273
-  %.3275 = phi i32 [ %.3276, %266 ], [ %.3276, %.thread273 ], [ %262, %259 ]
+268:                                              ; preds = %259, %266, %.thread281
+  %.3283 = phi i32 [ %.3284, %266 ], [ %.3284, %.thread281 ], [ %262, %259 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.loopexit
@@ -1319,7 +1319,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26
   %285 = and i1 %283, %284
   br i1 %285, label %.preheader235, label %.loopexit, !llvm.loop !54
 
-default.unreachable269:                           ; preds = %_ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit
+default.unreachable277:                           ; preds = %_ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit
   unreachable
 
 .loopexit.loopexit248:                            ; preds = %211
@@ -1327,7 +1327,7 @@ default.unreachable269:                           ; preds = %_ZL19gmx_fio_check_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader235, %222, %.preheader233.split.us, %199, %.loopexit.loopexit248, %.loopexit230, %.preheader231, %.thread221, %.thread220, %179, %155, %143, %131, %119, %107, %95, %83, %71, %58, %276, %181, %157, %145, %133, %121, %109, %97, %85, %60, %73, %268, %169, %163
-  %.0 = phi i32 [ %61, %60 ], [ %59, %58 ], [ %74, %73 ], [ %72, %71 ], [ %86, %85 ], [ %84, %83 ], [ %98, %97 ], [ %96, %95 ], [ %110, %109 ], [ %108, %107 ], [ %122, %121 ], [ %120, %119 ], [ %134, %133 ], [ %132, %131 ], [ %146, %145 ], [ %144, %143 ], [ %158, %157 ], [ %156, %155 ], [ %165, %163 ], [ %171, %169 ], [ %182, %181 ], [ %180, %179 ], [ %.3275, %268 ], [ 1, %276 ], [ %189, %.thread220 ], [ %205, %.thread221 ], [ 1, %.preheader231 ], [ %210, %.loopexit230 ], [ %286, %.loopexit.loopexit248 ], [ %198, %199 ], [ %41, %.preheader233.split.us ], [ %224, %222 ], [ %280, %.preheader235 ]
+  %.0 = phi i32 [ %61, %60 ], [ %59, %58 ], [ %74, %73 ], [ %72, %71 ], [ %86, %85 ], [ %84, %83 ], [ %98, %97 ], [ %96, %95 ], [ %110, %109 ], [ %108, %107 ], [ %122, %121 ], [ %120, %119 ], [ %134, %133 ], [ %132, %131 ], [ %146, %145 ], [ %144, %143 ], [ %158, %157 ], [ %156, %155 ], [ %165, %163 ], [ %171, %169 ], [ %182, %181 ], [ %180, %179 ], [ %.3283, %268 ], [ 1, %276 ], [ %189, %.thread220 ], [ %205, %.thread221 ], [ 1, %.preheader231 ], [ %210, %.loopexit230 ], [ %286, %.loopexit.loopexit248 ], [ %198, %199 ], [ %41, %.preheader233.split.us ], [ %224, %222 ], [ %280, %.preheader235 ]
   %287 = icmp ne i32 %.0, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)

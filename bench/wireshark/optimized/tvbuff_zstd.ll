@@ -35,8 +35,8 @@ define noundef ptr @tvb_uncompress_zstd(ptr noundef %0, i32 noundef %1, i32 noun
   store i64 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %15, align 8
-  %.not61 = icmp eq i32 %2, 0
-  br i1 %.not61, label %._crit_edge, label %.lr.ph
+  %.not62 = icmp eq i32 %2, 0
+  br i1 %.not62, label %._crit_edge, label %.lr.ph
 
 16:                                               ; preds = %40
   %17 = add nuw nsw i32 %.02650, 1

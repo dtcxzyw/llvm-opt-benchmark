@@ -99,7 +99,7 @@ define dso_local noundef zeroext i8 @_ZN4absl16strings_internal32CappedDamerauLe
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %.05795
-  %48 = add i64 %44, 1
+  %48 = add nuw nsw i64 %44, 1
   %49 = getelementptr inbounds nuw [102 x i8], ptr %47, i64 0, i64 %48
   store i8 %8, ptr %49, align 1, !tbaa !4
   br label %50
@@ -177,7 +177,7 @@ _ZSt3minIhET_St16initializer_listIS0_E.exit.us:   ; preds = %.lr.ph.i.i.us
   %81 = getelementptr inbounds nuw [102 x i8], ptr %52, i64 0, i64 %.06093
   %82 = load i8, ptr %81, align 1, !tbaa !4
   %83 = add i8 %82, 1
-  %84 = add i64 %.06093, -1
+  %84 = add nsw i64 %.06093, -1
   %85 = getelementptr inbounds nuw [102 x i8], ptr %53, i64 0, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !4
   %87 = add i8 %86, 1
@@ -192,7 +192,7 @@ _ZSt3minIhET_St16initializer_listIS0_E.exit.us:   ; preds = %.lr.ph.i.i.us
   br i1 %95, label %96, label %108
 
 96:                                               ; preds = %.lr.ph.split
-  %97 = add i64 %.06093, -2
+  %97 = add nsw i64 %.06093, -2
   %98 = getelementptr inbounds nuw i8, ptr %.sroa.11.0, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !4
   %100 = icmp eq i8 %.pre99, %99
@@ -237,9 +237,9 @@ _ZSt3minIhET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i
   %114 = getelementptr inbounds nuw [102 x i8], ptr %53, i64 0, i64 %.06093
   store i8 %113, ptr %114, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %115 = add i64 %.06093, 1
-  %.not64 = icmp ugt i64 %115, %.059
-  br i1 %.not64, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
+  %115 = add nuw nsw i64 %.06093, 1
+  %.not64.not = icmp ult i64 %.06093, %.059
+  br i1 %.not64.not, label %.lr.ph.split, label %._crit_edge, !llvm.loop !10
 
 116:                                              ; preds = %11, %._crit_edge97, %18
   %.0 = phi i8 [ %19, %18 ], [ %33, %._crit_edge97 ], [ %8, %11 ]

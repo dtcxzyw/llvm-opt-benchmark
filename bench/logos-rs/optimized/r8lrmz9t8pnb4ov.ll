@@ -396,7 +396,7 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
           to label %118 unwind label %115, !noalias !3
 
 118:                                              ; preds = %117
-  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h6ce486da8440b8a0E"(ptr align 8 %106, ptr nonnull align 8 %38)
+  invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h6ce486da8440b8a0E"(ptr nonnull align 8 %106, ptr nonnull align 8 %38)
           to label %119 unwind label %115, !noalias !3
 
 119:                                              ; preds = %118
@@ -4492,7 +4492,7 @@ define hidden void @_ZN13logos_codegen9generator9Generator8generate17h9f3c2cf60f
   br label %10
 
 13:                                               ; preds = %2
-  invoke void @"_ZN68_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..clone..Clone$GT$5clone17hfc021a92a961e390E"(ptr nonnull sret([32 x i8]) align 8 %3, ptr align 8 %9)
+  invoke void @"_ZN68_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..clone..Clone$GT$5clone17hfc021a92a961e390E"(ptr nonnull sret([32 x i8]) align 8 %3, ptr nonnull align 8 %9)
           to label %14 unwind label %11
 
 14:                                               ; preds = %13
@@ -4549,7 +4549,7 @@ define hidden void @_ZN13logos_codegen9generator9Generator8generate17h9f3c2cf60f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden align 8 ptr @_ZN13logos_codegen9generator9Generator4goto17h8d34e3b2bbffa129E(ptr align 8 %0, i32 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden nonnull align 8 ptr @_ZN13logos_codegen9generator9Generator4goto17h8d34e3b2bbffa129E(ptr align 8 %0, i32 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -5215,7 +5215,7 @@ default.unreachable:                              ; preds = %.noexc24
           to label %281 unwind label %273
 
 281:                                              ; preds = %280
-  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd968260794a784bbE"(ptr align 8 %222, ptr nonnull align 8 %6)
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd968260794a784bbE"(ptr nonnull align 8 %222, ptr nonnull align 8 %6)
           to label %282 unwind label %273
 
 282:                                              ; preds = %281
@@ -6331,7 +6331,7 @@ default.unreachable:                              ; preds = %.noexc24
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden align 8 ptr @_ZN13logos_codegen9generator9Generator13generate_test17h8bbdc7d579d62f05E(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden nonnull align 8 ptr @_ZN13logos_codegen9generator9Generator13generate_test17h8bbdc7d579d62f05E(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8

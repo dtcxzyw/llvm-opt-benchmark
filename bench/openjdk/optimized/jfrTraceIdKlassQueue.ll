@@ -838,11 +838,11 @@ _Z13find_adjacentI9JfrBuffer14RefCountHandleIN16JfrVersionSystem4NodeEE8HeadNode
   %60 = inttoptr i64 %59 to ptr
   %61 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %60, ptr %56, ptr nonnull %40) #11, !srcloc !10
   %62 = icmp eq ptr %61, %53
-  %spec.select115 = select i1 %62, ptr %56, ptr null
+  %spec.select130 = select i1 %62, ptr %56, ptr null
   br label %_Z16mark_for_removalI9JfrBufferEPT_S2_.exit
 
 _Z16mark_for_removalI9JfrBufferEPT_S2_.exit:      ; preds = %58, %52
-  %63 = phi ptr [ null, %52 ], [ %spec.select115, %58 ]
+  %63 = phi ptr [ null, %52 ], [ %spec.select130, %58 ]
   %.not27 = icmp eq ptr %63, null
   br i1 %.not27, label %.backedge, label %64
 
@@ -1112,8 +1112,8 @@ _ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb
   %.0811 = phi i64 [ %37, %_ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES2_18JfrConcurrentQueueIS1_11JfrCHeapObjE13JfrLinkedListIS1_S5_ELb1EE16add_to_free_listEPS1_.exit.loopexit ], [ 0, %.lr.ph ]
   %25 = load i64, ptr %7, align 8
   %26 = add i64 %25, -1
-  %or.cond26 = icmp slt i64 %26, 0
-  br i1 %or.cond26, label %_ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES2_18JfrConcurrentQueueIS1_11JfrCHeapObjE13JfrLinkedListIS1_S5_ELb1EE8allocateEm.exit.thread, label %27
+  %or.cond34 = icmp slt i64 %26, 0
+  br i1 %or.cond34, label %_ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES2_18JfrConcurrentQueueIS1_11JfrCHeapObjE13JfrLinkedListIS1_S5_ELb1EE8allocateEm.exit.thread, label %27
 
 27:                                               ; preds = %.lr.ph.split
   %28 = add nuw i64 %25, 48

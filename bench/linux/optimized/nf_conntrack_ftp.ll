@@ -717,17 +717,17 @@ define internal i32 @try_eprt(ptr noundef %0, i64 noundef %1, ptr noundef %2, i8
 
 24:                                               ; preds = %21
   %25 = icmp eq i8 %.pre, 49
-  br i1 %25, label %.thread36, label %.thread12
+  br i1 %25, label %.thread45, label %.thread12
 
-.thread36:                                        ; preds = %24
+.thread45:                                        ; preds = %24
   %26 = add i64 %1, -3
   br label %33
 
 27:                                               ; preds = %21
   %28 = icmp eq i8 %.pre, 50
-  br i1 %28, label %.thread37, label %.thread12
+  br i1 %28, label %.thread46, label %.thread12
 
-.thread37:                                        ; preds = %27
+.thread46:                                        ; preds = %27
   %29 = add i64 %1, -3
   br label %84
 
@@ -736,8 +736,8 @@ define internal i32 @try_eprt(ptr noundef %0, i64 noundef %1, ptr noundef %2, i8
   %32 = add i64 %1, -3
   br i1 %31, label %33, label %84
 
-33:                                               ; preds = %.thread36, %30
-  %34 = phi i64 [ %26, %.thread36 ], [ %32, %30 ]
+33:                                               ; preds = %.thread45, %30
+  %34 = phi i64 [ %26, %.thread45 ], [ %32, %30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %35 = getelementptr i8, ptr %0, i64 3
@@ -814,8 +814,8 @@ define internal i32 @try_eprt(ptr noundef %0, i64 noundef %1, ptr noundef %2, i8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %select.unfold11
 
-84:                                               ; preds = %.thread37, %30
-  %85 = phi i64 [ %29, %.thread37 ], [ %32, %30 ]
+84:                                               ; preds = %.thread46, %30
+  %85 = phi i64 [ %29, %.thread46 ], [ %32, %30 ]
   %86 = getelementptr i8, ptr %0, i64 3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !annotation !8

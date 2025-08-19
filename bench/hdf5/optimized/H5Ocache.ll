@@ -1591,7 +1591,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__prefix_deserialize(ptr noundef
   %.2276 = phi ptr [ %129, %111 ], [ %.1275, %135 ]
   %139 = and i8 %64, 3
   %140 = icmp ugt ptr %.2276, %5
-  switch i8 %139, label %default.unreachable335 [
+  switch i8 %139, label %default.unreachable346 [
     i8 0, label %141
     i8 1, label %154
     i8 2, label %174
@@ -1731,7 +1731,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__prefix_deserialize(ptr noundef
   %226 = getelementptr inbounds nuw i8, ptr %.4278333, i64 7
   br label %227
 
-default.unreachable335:                           ; preds = %138
+default.unreachable346:                           ; preds = %138
   unreachable
 
 227:                                              ; preds = %225, %184, %164, %149
@@ -2211,8 +2211,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
 160:                                              ; preds = %155
   %161 = sub i64 %140, %159
   %162 = icmp ult i64 %161, 2
-  %or.cond556 = select i1 %158, i1 true, i1 %162
-  br i1 %or.cond556, label %163, label %167
+  %or.cond578 = select i1 %158, i1 true, i1 %162
+  br i1 %or.cond578, label %163, label %167
 
 163:                                              ; preds = %160
   %164 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -2251,8 +2251,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
   %184 = ptrtoint ptr %.4 to i64
   %185 = sub i64 %140, %184
   %186 = icmp ult i64 %185, 2
-  %or.cond559 = select i1 %183, i1 true, i1 %186
-  br i1 %or.cond559, label %187, label %191
+  %or.cond581 = select i1 %183, i1 true, i1 %186
+  br i1 %or.cond581, label %187, label %191
 
 187:                                              ; preds = %182
   %188 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -2341,8 +2341,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
   %241 = ptrtoint ptr %217 to i64
   %242 = sub i64 %140, %241
   %243 = icmp ult i64 %242, 3
-  %or.cond562 = select i1 %240, i1 true, i1 %243
-  br i1 %or.cond562, label %244, label %248
+  %or.cond584 = select i1 %240, i1 true, i1 %243
+  br i1 %or.cond584, label %244, label %248
 
 244:                                              ; preds = %239
   %245 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -2365,8 +2365,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
   %255 = ptrtoint ptr %217 to i64
   %256 = sub i64 %140, %255
   %257 = icmp ult i64 %256, 2
-  %or.cond565 = select i1 %254, i1 true, i1 %257
-  br i1 %or.cond565, label %258, label %262
+  %or.cond587 = select i1 %254, i1 true, i1 %257
+  br i1 %or.cond587, label %258, label %262
 
 258:                                              ; preds = %253
   %259 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -2403,8 +2403,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
   %or.cond6 = and i1 %274, %278
   %.pre546 = load i64, ptr %143, align 8, !tbaa !41
   %.not388 = icmp ne i64 %.pre546, 0
-  %or.cond566.not = select i1 %or.cond6, i1 %.not388, i1 false
-  br i1 %or.cond566.not, label %279, label %305
+  %or.cond588.not = select i1 %or.cond6, i1 %.not388, i1 false
+  br i1 %or.cond588.not, label %279, label %305
 
 279:                                              ; preds = %273
   %280 = load ptr, ptr %144, align 8, !tbaa !59

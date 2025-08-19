@@ -1388,8 +1388,8 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %14, %BTreeTupleIsPo
   br i1 %.not105, label %.loopexit, label %.lr.ph
 
 .thread:                                          ; preds = %47
-  %.not105139 = icmp eq i16 %48, 0
-  br i1 %.not105139, label %.loopexit.thread, label %.lr.ph.split.us.thread
+  %.not105141 = icmp eq i16 %48, 0
+  br i1 %.not105141, label %.loopexit.thread, label %.lr.ph.split.us.thread
 
 .lr.ph.split.us.thread:                           ; preds = %.thread
   %88 = load ptr, ptr %11, align 8

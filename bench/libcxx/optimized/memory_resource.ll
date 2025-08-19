@@ -196,20 +196,20 @@ define dso_local void @_ZNSt3__13pmr28unsynchronized_pool_resource12__adhoc_pool
   br i1 %14, label %.loopexit.sink.split, label %.preheader, !llvm.loop !20
 
 .loopexit.sink.split:                             ; preds = %11, %5
-  %.lcssa25.sink37 = phi ptr [ %6, %5 ], [ %10, %11 ]
-  %.0.lcssa26.sink = phi ptr [ %0, %5 ], [ %.0, %11 ]
-  %15 = load ptr, ptr %.lcssa25.sink37, align 8, !tbaa !10
-  %16 = ptrtoint ptr %.lcssa25.sink37 to i64
+  %.lcssa27.sink39 = phi ptr [ %6, %5 ], [ %10, %11 ]
+  %.0.lcssa28.sink = phi ptr [ %0, %5 ], [ %.0, %11 ]
+  %15 = load ptr, ptr %.lcssa27.sink39, align 8, !tbaa !10
+  %16 = ptrtoint ptr %.lcssa27.sink39 to i64
   %17 = ptrtoint ptr %2 to i64
   %18 = add i64 %16, 24
   %19 = sub i64 %18, %17
-  %20 = getelementptr inbounds nuw i8, ptr %.lcssa25.sink37, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.lcssa27.sink39, i64 16
   %21 = load i64, ptr %20, align 8, !tbaa !15
   %22 = load ptr, ptr %1, align 8, !tbaa !16
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %2, i64 noundef %19, i64 noundef %21)
-  store ptr %15, ptr %.0.lcssa26.sink, align 8, !tbaa !21
+  store ptr %15, ptr %.0.lcssa28.sink, align 8, !tbaa !21
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split
@@ -295,8 +295,8 @@ define dso_local void @_ZNSt3__13pmr28unsynchronized_pool_resourceC2ERKNS0_12poo
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %15
-  %spec.select18 = tail call i64 @llvm.umin.i64(i64 %13, i64 1048576)
-  %spec.select = trunc nuw nsw i64 %spec.select18 to i32
+  %spec.select19 = tail call i64 @llvm.umin.i64(i64 %13, i64 1048576)
+  %spec.select = trunc nuw nsw i64 %spec.select19 to i32
   br label %18
 
 18:                                               ; preds = %17, %15, %12
@@ -440,7 +440,7 @@ _ZNSt3__13pmr28unsynchronized_pool_resource12__fixed_pool13__release_ptrEPNS0_15
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNSt3__13pmr28unsynchronized_pool_resource11do_allocateEmm(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #4 align 2 {
+define dso_local noundef nonnull ptr @_ZNSt3__13pmr28unsynchronized_pool_resource11do_allocateEmm(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #4 align 2 {
   %4 = icmp ugt i64 %2, 16
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !22
@@ -681,20 +681,20 @@ _ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread: ; pre
   br i1 %27, label %.loopexit.sink.split.i, label %.preheader.i, !llvm.loop !20
 
 .loopexit.sink.split.i:                           ; preds = %24, %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread
-  %.lcssa25.sink37.i = phi ptr [ %19, %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread ], [ %23, %24 ]
-  %.0.lcssa26.sink.i = phi ptr [ %16, %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread ], [ %.0.i, %24 ]
-  %28 = load ptr, ptr %.lcssa25.sink37.i, align 8, !tbaa !10
-  %29 = ptrtoint ptr %.lcssa25.sink37.i to i64
+  %.lcssa27.sink39.i = phi ptr [ %19, %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread ], [ %23, %24 ]
+  %.0.lcssa28.sink.i = phi ptr [ %16, %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit.thread ], [ %.0.i, %24 ]
+  %28 = load ptr, ptr %.lcssa27.sink39.i, align 8, !tbaa !10
+  %29 = ptrtoint ptr %.lcssa27.sink39.i to i64
   %30 = ptrtoint ptr %1 to i64
   %reass.sub = sub i64 %29, %30
   %31 = add i64 %reass.sub, 24
-  %32 = getelementptr inbounds nuw i8, ptr %.lcssa25.sink37.i, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.lcssa27.sink39.i, i64 16
   %33 = load i64, ptr %32, align 8, !tbaa !15
   %34 = load ptr, ptr %18, align 8, !tbaa !16
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %1, i64 noundef %31, i64 noundef %33)
-  store ptr %28, ptr %.0.lcssa26.sink.i, align 8, !tbaa !21
+  store ptr %28, ptr %.0.lcssa28.sink.i, align 8, !tbaa !21
   br label %_ZNSt3__13pmr28unsynchronized_pool_resource12__adhoc_pool15__do_deallocateEPNS0_15memory_resourceEPvmm.exit
 
 37:                                               ; preds = %_ZNKSt3__13pmr28unsynchronized_pool_resource12__pool_indexEmm.exit

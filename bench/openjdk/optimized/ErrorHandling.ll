@@ -568,7 +568,7 @@ define internal fastcc noundef i64 @_ZN12_GLOBAL__N_123printWithoutWhitespacesER
   %31 = zext i8 %30 to i32
   %32 = call i32 @isspace(i32 noundef %31) #8
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit80, label %34
+  br i1 %33, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit82, label %34
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 3
@@ -576,7 +576,7 @@ define internal fastcc noundef i64 @_ZN12_GLOBAL__N_123printWithoutWhitespacesER
   %37 = zext i8 %36 to i32
   %38 = call i32 @isspace(i32 noundef %37) #8
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit82, label %40
+  br i1 %39, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit84, label %40
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 4
@@ -634,16 +634,16 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11ch
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 1
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit80: ; preds = %28
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit82: ; preds = %28
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 2
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit82: ; preds = %34
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit84: ; preds = %34
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 3
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit: ; preds = %.lr.ph.i.i.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit80, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit82, %._crit_edge.i.i.i, %45, %52, %59
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %45 ], [ %.sroa.032.1.i.i.i, %52 ], [ %11, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %59 ], [ %64, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit ], [ %65, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit80 ], [ %66, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit82 ], [ %.sroa.032.051.i.i.i, %.lr.ph.i.i.i ]
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit: ; preds = %.lr.ph.i.i.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit82, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit84, %._crit_edge.i.i.i, %45, %52, %59
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %45 ], [ %.sroa.032.1.i.i.i, %52 ], [ %11, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %59 ], [ %64, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit ], [ %65, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit82 ], [ %66, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit84 ], [ %.sroa.032.051.i.i.i, %.lr.ph.i.i.i ]
   %67 = ptrtoint ptr %.sroa.08.0.in.sroa.speculated.i.i.i to i64
   store i64 %67, ptr %5, align 8
   br label %68

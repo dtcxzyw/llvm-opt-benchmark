@@ -4329,12 +4329,12 @@ define internal fastcc void @_ZN5alloc7raw_vec11finish_grow17h4ba4a54466580611E(
   %30 = icmp eq ptr %.sroa.012.0.i.i.pn, null
   %31 = inttoptr i64 %1 to ptr
   %spec.select = select i1 %30, ptr %31, ptr %.sroa.012.0.i.i.pn
-  %spec.select4 = zext i1 %30 to i64
+  %spec.select6 = zext i1 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %33, align 8
-  store i64 %spec.select4, ptr %0, align 8
+  store i64 %spec.select6, ptr %0, align 8
   ret void
 }
 
@@ -5730,7 +5730,7 @@ define internal fastcc void @"_ZN84_$LT$ruff_formatter..format_element..FormatEl
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = load i8, ptr %1, align 8, !range !738, !noundef !35
-  switch i8 %6, label %default.unreachable41 [
+  switch i8 %6, label %default.unreachable48 [
     i8 0, label %162
     i8 1, label %7
     i8 2, label %162
@@ -5744,7 +5744,7 @@ define internal fastcc void @"_ZN84_$LT$ruff_formatter..format_element..FormatEl
     i8 10, label %109
   ]
 
-default.unreachable41:                            ; preds = %109, %2
+default.unreachable48:                            ; preds = %109, %2
   unreachable
 
 7:                                                ; preds = %2
@@ -5876,7 +5876,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i: ; preds = %54
   %.sroa.10.036 = phi i64 [ %74, %77 ], [ %58, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h712c76d0a8d1ecdfE.exit" ]
   %.sroa.7.035 = phi i64 [ %78, %77 ], [ 0, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h712c76d0a8d1ecdfE.exit" ]
   %.sroa.025.034 = phi ptr [ %79, %77 ], [ %56, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h712c76d0a8d1ecdfE.exit" ]
-  %74 = add i64 %.sroa.10.036, -1
+  %74 = add nsw i64 %.sroa.10.036, -1
   %75 = icmp eq ptr %.sroa.025.034, %72
   br i1 %75, label %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hddddb22782d52400E.exit.i", label %76
 
@@ -5983,7 +5983,7 @@ common.resume:                                    ; preds = %99, %84
 109:                                              ; preds = %2
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %111 = load i8, ptr %110, align 8, !range !767, !noalias !768, !noundef !35
-  switch i8 %111, label %default.unreachable41 [
+  switch i8 %111, label %default.unreachable48 [
     i8 0, label %"_ZN79_$LT$ruff_formatter..format_element..tag..Tag$u20$as$u20$core..clone..Clone$GT$5clone17h821775493f0fd8b0E.exit"
     i8 1, label %"_ZN79_$LT$ruff_formatter..format_element..tag..Tag$u20$as$u20$core..clone..Clone$GT$5clone17h821775493f0fd8b0E.exit"
     i8 2, label %112
@@ -6202,7 +6202,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i: ; preds 
   %.sroa.10.032.i.i.i = phi i64 [ %33, %"_ZN65_$LT$clap_builder..util..id..Id$u20$as$u20$core..clone..Clone$GT$5clone17hdac245afe8e8c2d2E.exit.i.i.i" ], [ %.val1.i, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h712c76d0a8d1ecdfE.exit.i.i.i" ]
   %.sroa.012.031.i.i.i = phi ptr [ %36, %"_ZN65_$LT$clap_builder..util..id..Id$u20$as$u20$core..clone..Clone$GT$5clone17hdac245afe8e8c2d2E.exit.i.i.i" ], [ %.val.i, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h712c76d0a8d1ecdfE.exit.i.i.i" ]
   %.sroa.7.030.i.i.i = phi i64 [ %37, %"_ZN65_$LT$clap_builder..util..id..Id$u20$as$u20$core..clone..Clone$GT$5clone17hdac245afe8e8c2d2E.exit.i.i.i" ], [ 0, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h712c76d0a8d1ecdfE.exit.i.i.i" ]
-  %33 = add i64 %.sroa.10.032.i.i.i, -1
+  %33 = add nsw i64 %.sroa.10.032.i.i.i, -1
   %34 = icmp eq ptr %.sroa.012.031.i.i.i, %31
   br i1 %34, label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07614c25b0a797aeE.exit.i", label %35
 
@@ -6325,7 +6325,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i4.i: ; preds
   %.sroa.10.087.i.i.i = phi i64 [ %.val3.i, %.lr.ph.i.i6.i ], [ %79, %.loopexit.i.i.i ]
   %.sroa.011.086.i.i.i = phi ptr [ %.val2.i, %.lr.ph.i.i6.i ], [ %84, %.loopexit.i.i.i ]
   %.sroa.7.084.i.i.i = phi i64 [ 0, %.lr.ph.i.i6.i ], [ %85, %.loopexit.i.i.i ]
-  %79 = add i64 %.sroa.10.087.i.i.i, -1
+  %79 = add nsw i64 %.sroa.10.087.i.i.i, -1
   %80 = icmp eq ptr %.sroa.011.086.i.i.i, %70
   br i1 %80, label %"_ZN89_$LT$clap_builder..util..flat_map..FlatMap$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9783b80008fad70cE.exit", label %83
 
@@ -6432,7 +6432,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i10.i.i.i.i: 
   %.sroa.10.035.i.i.i.i.i.i = phi i64 [ %119, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8843f67d10511a14E.exit.i.i.i.i.i.i" ], [ %.val7.i.i.i.i, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h712c76d0a8d1ecdfE.exit.i.i.i.i.i.i" ]
   %.sroa.013.034.i.i.i.i.i.i = phi ptr [ %122, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8843f67d10511a14E.exit.i.i.i.i.i.i" ], [ %.val6.i.i.i.i, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h712c76d0a8d1ecdfE.exit.i.i.i.i.i.i" ]
   %.sroa.7.033.i.i.i.i.i.i = phi i64 [ %123, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8843f67d10511a14E.exit.i.i.i.i.i.i" ], [ 0, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h712c76d0a8d1ecdfE.exit.i.i.i.i.i.i" ]
-  %119 = add i64 %.sroa.10.035.i.i.i.i.i.i, -1
+  %119 = add nsw i64 %.sroa.10.035.i.i.i.i.i.i, -1
   %120 = icmp eq ptr %.sroa.013.034.i.i.i.i.i.i, %117
   br i1 %120, label %.loopexit28.i.i.i.i, label %121
 
@@ -6482,7 +6482,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i.i.i.i.i
   %.sroa.10.032.i.i.i.i.i.i.i.i = phi i64 [ %139, %146 ], [ %.val12.i.i.i.i.i.i, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h712c76d0a8d1ecdfE.exit.i.i.i.i.i.i.i.i" ]
   %.sroa.011.031.i.i.i.i.i.i.i.i = phi ptr [ %148, %146 ], [ %.val11.i.i.i.i.i.i, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h712c76d0a8d1ecdfE.exit.i.i.i.i.i.i.i.i" ]
   %.sroa.7.030.i.i.i.i.i.i.i.i = phi i64 [ %147, %146 ], [ 0, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h712c76d0a8d1ecdfE.exit.i.i.i.i.i.i.i.i" ]
-  %139 = add i64 %.sroa.10.032.i.i.i.i.i.i.i.i, -1
+  %139 = add nsw i64 %.sroa.10.032.i.i.i.i.i.i.i.i, -1
   %140 = icmp eq ptr %.sroa.011.031.i.i.i.i.i.i.i.i, %137
   br i1 %140, label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8843f67d10511a14E.exit.i.i.i.i.i.i", label %141
 
@@ -6601,7 +6601,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i12.i.i.i.i: 
   %.sroa.10.030.i.i.i.i.i.i = phi i64 [ %178, %.loopexit.i.i.i.i.i.i ], [ %.val9.i.i.i.i, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h712c76d0a8d1ecdfE.exit.i.i13.i.i.i.i" ]
   %.sroa.013.029.i.i.i.i.i.i = phi ptr [ %183, %.loopexit.i.i.i.i.i.i ], [ %.val8.i.i.i.i, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h712c76d0a8d1ecdfE.exit.i.i13.i.i.i.i" ]
   %.sroa.7.027.i.i.i.i.i.i = phi i64 [ %184, %.loopexit.i.i.i.i.i.i ], [ 0, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h712c76d0a8d1ecdfE.exit.i.i13.i.i.i.i" ]
-  %178 = add i64 %.sroa.10.030.i.i.i.i.i.i, -1
+  %178 = add nsw i64 %.sroa.10.030.i.i.i.i.i.i, -1
   %179 = icmp eq ptr %.sroa.013.029.i.i.i.i.i.i, %176
   br i1 %179, label %.loopexit.i.i.i, label %182
 
@@ -6659,7 +6659,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i17.i.i.i
   %.sroa.10.033.i.i.i.i.i.i.i.i = phi i64 [ %198, %212 ], [ %.val12.i.i16.i.i.i.i, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h712c76d0a8d1ecdfE.exit.i.i.i.i18.i.i.i.i" ]
   %.sroa.013.032.i.i.i.i.i.i.i.i = phi ptr [ %201, %212 ], [ %.val11.i.i15.i.i.i.i, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h712c76d0a8d1ecdfE.exit.i.i.i.i18.i.i.i.i" ]
   %.sroa.7.031.i.i.i.i.i.i.i.i = phi i64 [ %202, %212 ], [ 0, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h712c76d0a8d1ecdfE.exit.i.i.i.i18.i.i.i.i" ]
-  %198 = add i64 %.sroa.10.033.i.i.i.i.i.i.i.i, -1
+  %198 = add nsw i64 %.sroa.10.033.i.i.i.i.i.i.i.i, -1
   %199 = icmp eq ptr %.sroa.013.032.i.i.i.i.i.i.i.i, %196
   br i1 %199, label %.loopexit.i.i.i.i.i.i, label %200
 
@@ -6991,13 +6991,13 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   br i1 %24, label %"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h1ab0772468082d5eE.exit", label %.preheader.i.i.i
 
 "_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h1ab0772468082d5eE.exit": ; preds = %.preheader.i.i.i, %4
-  %.sroa.10.0.i9.i = phi ptr [ inttoptr (i64 8 to ptr), %4 ], [ %14, %.preheader.i.i.i ]
-  %.sroa.4.0.i8.i = phi i64 [ 0, %4 ], [ %9, %.preheader.i.i.i ]
-  store i64 %.sroa.4.0.i8.i, ptr %0, align 8, !alias.scope !923, !noalias !953
+  %.sroa.10.0.i11.i = phi ptr [ inttoptr (i64 8 to ptr), %4 ], [ %14, %.preheader.i.i.i ]
+  %.sroa.4.0.i10.i = phi i64 [ 0, %4 ], [ %9, %.preheader.i.i.i ]
+  store i64 %.sroa.4.0.i10.i, ptr %0, align 8, !alias.scope !923, !noalias !953
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.10.0.i9.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !923, !noalias !953
+  store ptr %.sroa.10.0.i11.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !923, !noalias !953
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.4.0.i8.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !923, !noalias !953
+  store i64 %.sroa.4.0.i10.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !923, !noalias !953
   ret void
 }
 

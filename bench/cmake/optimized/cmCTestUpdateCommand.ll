@@ -2101,18 +2101,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit436: ; preds = %_Z
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit438 unwind label %1144
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit438: ; preds = %717
-  %switch.tableidx1062 = add nsw i32 %.1161, -1
-  %719 = icmp ult i32 %switch.tableidx1062, 6
-  br i1 %719, label %switch.lookup1061, label %_ZN12_GLOBAL__N_112TypeToStringEi.exit
+  %switch.tableidx1343 = add nsw i32 %.1161, -1
+  %719 = icmp ult i32 %switch.tableidx1343, 6
+  br i1 %719, label %switch.lookup1342, label %_ZN12_GLOBAL__N_112TypeToStringEi.exit
 
-switch.lookup1061:                                ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit438
-  %720 = zext nneg i32 %switch.tableidx1062 to i64
-  %switch.gep1063 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK20cmCTestUpdateCommand13ExecuteUpdateERNS_15UpdateArgumentsER17cmExecutionStatus.12, i64 0, i64 %720
-  %switch.load1064 = load ptr, ptr %switch.gep1063, align 8
+switch.lookup1342:                                ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit438
+  %720 = zext nneg i32 %switch.tableidx1343 to i64
+  %switch.gep1344 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK20cmCTestUpdateCommand13ExecuteUpdateERNS_15UpdateArgumentsER17cmExecutionStatus.12, i64 0, i64 %720
+  %switch.load1345 = load ptr, ptr %switch.gep1344, align 8
   br label %_ZN12_GLOBAL__N_112TypeToStringEi.exit
 
-_ZN12_GLOBAL__N_112TypeToStringEi.exit:           ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit438, %switch.lookup1061
-  %.0.i439 = phi ptr [ %switch.load1064, %switch.lookup1061 ], [ @.str.76, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit438 ]
+_ZN12_GLOBAL__N_112TypeToStringEi.exit:           ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit438, %switch.lookup1342
+  %.0.i439 = phi ptr [ %switch.load1345, %switch.lookup1342 ], [ @.str.76, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit438 ]
   %721 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i439) #22
   %722 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull %.0.i439, i64 noundef %721)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit442 unwind label %1144
@@ -3221,18 +3221,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit613: ; preds = %_Z
   store i64 10, ptr %1080, align 8, !tbaa !24
   %1081 = getelementptr inbounds nuw i8, ptr %93, i64 26
   store i8 0, ptr %1081, align 2, !tbaa !28
-  %switch.tableidx1066 = add nsw i32 %.1161, -1
-  %1082 = icmp ult i32 %switch.tableidx1066, 6
-  br i1 %1082, label %switch.lookup1065, label %_ZN12_GLOBAL__N_112TypeToStringEi.exit619
+  %switch.tableidx1347 = add nsw i32 %.1161, -1
+  %1082 = icmp ult i32 %switch.tableidx1347, 6
+  br i1 %1082, label %switch.lookup1346, label %_ZN12_GLOBAL__N_112TypeToStringEi.exit619
 
-switch.lookup1065:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit613
-  %1083 = zext nneg i32 %switch.tableidx1066 to i64
-  %switch.gep1067 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK20cmCTestUpdateCommand13ExecuteUpdateERNS_15UpdateArgumentsER17cmExecutionStatus.12, i64 0, i64 %1083
-  %switch.load1068 = load ptr, ptr %switch.gep1067, align 8
+switch.lookup1346:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit613
+  %1083 = zext nneg i32 %switch.tableidx1347 to i64
+  %switch.gep1348 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK20cmCTestUpdateCommand13ExecuteUpdateERNS_15UpdateArgumentsER17cmExecutionStatus.12, i64 0, i64 %1083
+  %switch.load1349 = load ptr, ptr %switch.gep1348, align 8
   br label %_ZN12_GLOBAL__N_112TypeToStringEi.exit619
 
-_ZN12_GLOBAL__N_112TypeToStringEi.exit619:        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit613, %switch.lookup1065
-  %.0.i618 = phi ptr [ %switch.load1068, %switch.lookup1065 ], [ @.str.76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit613 ]
+_ZN12_GLOBAL__N_112TypeToStringEi.exit619:        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit613, %switch.lookup1346
+  %.0.i618 = phi ptr [ %switch.load1349, %switch.lookup1346 ], [ @.str.76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit613 ]
   invoke void @_ZN11cmXMLWriter12StartElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(83) %78, ptr noundef nonnull align 8 dereferenceable(32) %93)
           to label %.noexc620 unwind label %1293
 

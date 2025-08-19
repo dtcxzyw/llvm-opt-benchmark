@@ -4225,18 +4225,18 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %_ZN4ncnn3MatC2Eiiim
 284:                                              ; preds = %267
   %285 = load ptr, ptr %207, align 8, !tbaa !7
   %.not.i287 = icmp eq ptr %285, null
-  br i1 %.not.i287, label %.thread406, label %286
+  br i1 %.not.i287, label %.thread489, label %286
 
 286:                                              ; preds = %284
   %287 = atomicrmw add ptr %285, i32 1 acq_rel, align 4
   %.pre400 = load ptr, ptr %268, align 8, !tbaa !7
   %.not.i.i288 = icmp eq ptr %.pre400, null
-  br i1 %.not.i.i288, label %.thread406, label %288
+  br i1 %.not.i.i288, label %.thread489, label %288
 
 288:                                              ; preds = %286
   %289 = atomicrmw add ptr %.pre400, i32 -1 acq_rel, align 4
   %290 = icmp eq i32 %289, 1
-  br i1 %290, label %291, label %.thread406
+  br i1 %290, label %291, label %.thread489
 
 291:                                              ; preds = %288
   %292 = load ptr, ptr %271, align 8, !tbaa !15
@@ -4249,17 +4249,17 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %_ZN4ncnn3MatC2Eiiim
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 24
   %297 = load ptr, ptr %296, align 8
   invoke void %297(ptr noundef nonnull align 8 dereferenceable(8) %292, ptr noundef %293)
-          to label %.thread406 unwind label %311
+          to label %.thread489 unwind label %311
 
 298:                                              ; preds = %291
   %.not.i18.i290 = icmp eq ptr %293, null
-  br i1 %.not.i18.i290, label %.thread406, label %299
+  br i1 %.not.i18.i290, label %.thread489, label %299
 
 299:                                              ; preds = %298
   call void @free(ptr noundef nonnull %293) #9
-  br label %.thread406
+  br label %.thread489
 
-.thread406:                                       ; preds = %284, %288, %286, %294, %299, %298
+.thread489:                                       ; preds = %284, %288, %286, %294, %299, %298
   %300 = load ptr, ptr %15, align 8, !tbaa !16
   store ptr %300, ptr %19, align 8, !tbaa !16
   %301 = load ptr, ptr %207, align 8, !tbaa !7
@@ -4291,18 +4291,18 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %_ZN4ncnn3MatC2Eiiim
 313:                                              ; preds = %267
   %314 = load ptr, ptr %218, align 8, !tbaa !7
   %.not.i285 = icmp eq ptr %314, null
-  br i1 %.not.i285, label %.thread408, label %315
+  br i1 %.not.i285, label %.thread491, label %315
 
 315:                                              ; preds = %313
   %316 = atomicrmw add ptr %314, i32 1 acq_rel, align 4
   %.pre399 = load ptr, ptr %268, align 8, !tbaa !7
   %.not.i.i = icmp eq ptr %.pre399, null
-  br i1 %.not.i.i, label %.thread408, label %317
+  br i1 %.not.i.i, label %.thread491, label %317
 
 317:                                              ; preds = %315
   %318 = atomicrmw add ptr %.pre399, i32 -1 acq_rel, align 4
   %319 = icmp eq i32 %318, 1
-  br i1 %319, label %320, label %.thread408
+  br i1 %319, label %320, label %.thread491
 
 320:                                              ; preds = %317
   %321 = load ptr, ptr %271, align 8, !tbaa !15
@@ -4315,17 +4315,17 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %_ZN4ncnn3MatC2Eiiim
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 24
   %326 = load ptr, ptr %325, align 8
   invoke void %326(ptr noundef nonnull align 8 dereferenceable(8) %321, ptr noundef %322)
-          to label %.thread408 unwind label %311
+          to label %.thread491 unwind label %311
 
 327:                                              ; preds = %320
   %.not.i18.i = icmp eq ptr %322, null
-  br i1 %.not.i18.i, label %.thread408, label %328
+  br i1 %.not.i18.i, label %.thread491, label %328
 
 328:                                              ; preds = %327
   call void @free(ptr noundef nonnull %322) #9
-  br label %.thread408
+  br label %.thread491
 
-.thread408:                                       ; preds = %313, %317, %315, %323, %328, %327
+.thread491:                                       ; preds = %313, %317, %315, %323, %328, %327
   %329 = load ptr, ptr %17, align 8, !tbaa !16
   store ptr %329, ptr %19, align 8, !tbaa !16
   %330 = load ptr, ptr %218, align 8, !tbaa !7
@@ -4354,11 +4354,11 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %_ZN4ncnn3MatC2Eiiim
   invoke fastcc void @_ZN4ncnnL19dynamic_quantize_2dERKNS_3MatERS0_RfRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %83, ptr noundef nonnull align 8 dereferenceable(72) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr %.val322)
           to label %342 unwind label %311
 
-.sink.split:                                      ; preds = %.thread406, %.thread408
-  %.sink = phi i64 [ %339, %.thread408 ], [ %310, %.thread406 ]
-  %.sink412 = phi ptr [ %18, %.thread408 ], [ %16, %.thread406 ]
+.sink.split:                                      ; preds = %.thread489, %.thread491
+  %.sink = phi i64 [ %339, %.thread491 ], [ %310, %.thread489 ]
+  %.sink495 = phi ptr [ %18, %.thread491 ], [ %16, %.thread489 ]
   store i64 %.sink, ptr %277, align 8, !tbaa !17
-  %341 = load float, ptr %.sink412, align 4, !tbaa !49
+  %341 = load float, ptr %.sink495, align 4, !tbaa !49
   store float %341, ptr %20, align 4, !tbaa !49
   br label %342
 
@@ -6375,9 +6375,9 @@ define internal fastcc void @_ZN4ncnnL19dynamic_quantize_2dERKNS_3MatERS0_RfRKNS
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i32, ptr %8, align 8, !tbaa !46
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph8, label %._crit_edge9.thread31
+  br i1 %10, label %.lr.ph8, label %._crit_edge9.thread34
 
-._crit_edge9.thread31:                            ; preds = %3
+._crit_edge9.thread34:                            ; preds = %3
   store float 1.000000e+00, ptr %2, align 4, !tbaa !49
   br label %._crit_edge15
 
@@ -6438,7 +6438,7 @@ define internal fastcc void @_ZN4ncnnL19dynamic_quantize_2dERKNS_3MatERS0_RfRKNS
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph14.split, label %._crit_edge15
 
-._crit_edge15:                                    ; preds = %._crit_edge, %.lr.ph14, %._crit_edge9.thread31
+._crit_edge15:                                    ; preds = %._crit_edge, %.lr.ph14, %._crit_edge9.thread34
   ret void
 
 .lr.ph14.split:                                   ; preds = %.lr.ph14, %._crit_edge

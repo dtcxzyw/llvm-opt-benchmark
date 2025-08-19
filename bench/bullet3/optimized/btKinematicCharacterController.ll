@@ -620,8 +620,8 @@ _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; pred
   %.not.i5.i.i = icmp ne ptr %.pre, null
   %62 = load i8, ptr %46, align 8, !range !55
   %63 = trunc nuw i8 %62 to i1
-  %or.cond27.i = select i1 %.not.i5.i.i, i1 %63, i1 false
-  br i1 %or.cond27.i, label %64, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
+  %or.cond29.i = select i1 %.not.i5.i.i, i1 %63, i1 false
+  br i1 %or.cond29.i, label %64, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
 64:                                               ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
   call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %.pre)
@@ -2262,21 +2262,21 @@ define dso_local void @_ZN30btKinematicCharacterController8stepDownEP16btCollisi
   br label %329
 
 329:                                              ; preds = %317, %325, %327
-  %.sink143 = phi float [ %326, %325 ], [ %328, %327 ], [ %321, %317 ]
-  %330 = fsub float 1.000000e+00, %.sink143
+  %.sink146 = phi float [ %326, %325 ], [ %328, %327 ], [ %321, %317 ]
+  %330 = fsub float 1.000000e+00, %.sink146
   %331 = load float, ptr %95, align 4, !tbaa !4
   %332 = load float, ptr %9, align 8, !tbaa !4
-  %333 = fmul float %.sink143, %332
+  %333 = fmul float %.sink146, %332
   %334 = call float @llvm.fmuladd.f32(float %330, float %331, float %333)
   store float %334, ptr %95, align 4, !tbaa !4
   %335 = load float, ptr %46, align 4, !tbaa !4
-  %336 = fmul float %.sink143, %335
+  %336 = fmul float %.sink146, %335
   %337 = call float @llvm.fmuladd.f32(float %330, float %314, float %336)
   store float %337, ptr %313, align 8, !tbaa !4
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %339 = load float, ptr %338, align 4, !tbaa !4
   %340 = load float, ptr %49, align 8, !tbaa !4
-  %341 = fmul float %.sink143, %340
+  %341 = fmul float %.sink146, %340
   %342 = call float @llvm.fmuladd.f32(float %330, float %339, float %341)
   store float %342, ptr %338, align 4, !tbaa !4
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 317

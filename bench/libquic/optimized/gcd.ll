@@ -119,28 +119,22 @@ define hidden range(i32 0, 2) i32 @BN_gcd(ptr noundef %0, ptr noundef %1, ptr no
 
 ._crit_edge.i:                                    ; preds = %47
   %.not43.i = icmp eq i32 %.1.i, 0
-  br i1 %.not43.i, label %euclid.exit, label %49
+  br i1 %.not43.i, label %euclid.exit.thread31, label %49
 
 49:                                               ; preds = %._crit_edge.i
   %50 = tail call i32 @BN_lshift(ptr noundef %.141.i, ptr noundef %.141.i, i32 noundef %.1.i) #3
   %.not44.i = icmp eq i32 %50, 0
-  %51 = icmp eq ptr %.141.i, null
-  %or.cond34 = select i1 %.not44.i, i1 true, i1 %51
-  br i1 %or.cond34, label %euclid.exit.thread, label %euclid.exit.thread31
+  br i1 %.not44.i, label %euclid.exit.thread, label %euclid.exit.thread31
 
-euclid.exit:                                      ; preds = %._crit_edge.i
-  %.old = icmp eq ptr %.141.i, null
-  br i1 %.old, label %euclid.exit.thread, label %euclid.exit.thread31
-
-euclid.exit.thread31:                             ; preds = %49, %15, %euclid.exit
-  %.042.i33 = phi ptr [ %.141.i, %euclid.exit ], [ %spec.select, %15 ], [ %.141.i, %49 ]
-  %52 = tail call ptr @BN_copy(ptr noundef %0, ptr noundef nonnull %.042.i33) #3
-  %53 = icmp ne ptr %52, null
-  %spec.select29 = zext i1 %53 to i32
+euclid.exit.thread31:                             ; preds = %._crit_edge.i, %49, %15
+  %.042.i33 = phi ptr [ %spec.select, %15 ], [ %.141.i, %49 ], [ %.141.i, %._crit_edge.i ]
+  %51 = tail call ptr @BN_copy(ptr noundef %0, ptr noundef nonnull %.042.i33) #3
+  %52 = icmp ne ptr %51, null
+  %spec.select29 = zext i1 %52 to i32
   br label %euclid.exit.thread
 
-euclid.exit.thread:                               ; preds = %43, %42, %38, %31, %26, %24, %49, %euclid.exit.thread31, %euclid.exit, %12, %9, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ 0, %euclid.exit ], [ %spec.select29, %euclid.exit.thread31 ], [ 0, %49 ], [ 0, %24 ], [ 0, %26 ], [ 0, %31 ], [ 0, %38 ], [ 0, %42 ], [ 0, %43 ]
+euclid.exit.thread:                               ; preds = %43, %42, %38, %31, %26, %24, %49, %euclid.exit.thread31, %12, %9, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ %spec.select29, %euclid.exit.thread31 ], [ 0, %49 ], [ 0, %24 ], [ 0, %26 ], [ 0, %31 ], [ 0, %38 ], [ 0, %42 ], [ 0, %43 ]
   tail call void @BN_CTX_end(ptr noundef %3) #3
   ret i32 %.0
 }
@@ -270,37 +264,37 @@ define hidden ptr @BN_mod_inverse_ex(ptr noundef %0, ptr noundef writeonly captu
   br i1 %55, label %._crit_edge.thread.i, label %57
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %45
-  %.077.lcssa139.i = phi ptr [ %.079126.i, %._crit_edge.i ], [ %16, %45 ]
-  %.085.lcssa137.i = phi ptr [ %.083125.i, %._crit_edge.i ], [ %21, %45 ]
-  %56 = call i32 @BN_sub(ptr noundef %.085.lcssa137.i, ptr noundef %3, ptr noundef %.085.lcssa137.i) #3
+  %.077.lcssa140.i = phi ptr [ %.079126.i, %._crit_edge.i ], [ %16, %45 ]
+  %.085.lcssa138.i = phi ptr [ %.083125.i, %._crit_edge.i ], [ %21, %45 ]
+  %56 = call i32 @BN_sub(ptr noundef %.085.lcssa138.i, ptr noundef %3, ptr noundef %.085.lcssa138.i) #3
   %.not93.i = icmp eq i32 %56, 0
   br i1 %.not93.i, label %.thread105.i, label %57
 
 57:                                               ; preds = %._crit_edge.thread.i, %._crit_edge.i
-  %.077.lcssa138.i = phi ptr [ %.077.lcssa139.i, %._crit_edge.thread.i ], [ %.079126.i, %._crit_edge.i ]
-  %.085.lcssa136.i = phi ptr [ %.085.lcssa137.i, %._crit_edge.thread.i ], [ %.083125.i, %._crit_edge.i ]
-  %58 = call i32 @BN_is_one(ptr noundef %.077.lcssa138.i) #3
+  %.077.lcssa139.i = phi ptr [ %.077.lcssa140.i, %._crit_edge.thread.i ], [ %.079126.i, %._crit_edge.i ]
+  %.085.lcssa137.i = phi ptr [ %.085.lcssa138.i, %._crit_edge.thread.i ], [ %.083125.i, %._crit_edge.i ]
+  %58 = call i32 @BN_is_one(ptr noundef %.077.lcssa139.i) #3
   %.not94.i = icmp eq i32 %58, 0
   br i1 %.not94.i, label %69, label %59
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds nuw i8, ptr %.085.lcssa136.i, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %.085.lcssa137.i, i64 16
   %61 = load i32, ptr %60, align 8, !tbaa !6
   %.not95.i = icmp eq i32 %61, 0
   br i1 %.not95.i, label %62, label %67
 
 62:                                               ; preds = %59
-  %63 = call i32 @BN_ucmp(ptr noundef nonnull %.085.lcssa136.i, ptr noundef %3) #3
+  %63 = call i32 @BN_ucmp(ptr noundef nonnull %.085.lcssa137.i, ptr noundef %3) #3
   %64 = icmp slt i32 %63, 0
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %62
-  %66 = call ptr @BN_copy(ptr noundef nonnull %.182103.i, ptr noundef nonnull %.085.lcssa136.i) #3
+  %66 = call ptr @BN_copy(ptr noundef nonnull %.182103.i, ptr noundef nonnull %.085.lcssa137.i) #3
   %.not96.i = icmp eq ptr %66, null
   br i1 %.not96.i, label %.thread105.i, label %BN_mod_inverse_no_branch.exit
 
 67:                                               ; preds = %62, %59
-  %68 = call i32 @BN_nnmod(ptr noundef nonnull %.182103.i, ptr noundef nonnull %.085.lcssa136.i, ptr noundef %3, ptr noundef %4) #3
+  %68 = call i32 @BN_nnmod(ptr noundef nonnull %.182103.i, ptr noundef nonnull %.085.lcssa137.i, ptr noundef %3, ptr noundef %4) #3
   %.not97.i = icmp eq i32 %68, 0
   br i1 %.not97.i, label %.thread105.i, label %BN_mod_inverse_no_branch.exit
 
@@ -315,8 +309,8 @@ define hidden ptr @BN_mod_inverse_ex(ptr noundef %0, ptr noundef writeonly captu
   br i1 %70, label %.thread105.thread.i, label %BN_mod_inverse_no_branch.exit
 
 .thread105.thread.i:                              ; preds = %.thread105.i, %26
-  %.081141.i = phi ptr [ %.081.i, %.thread105.i ], [ null, %26 ]
-  call void @BN_free(ptr noundef %.081141.i) #3
+  %.081142.i = phi ptr [ %.081.i, %.thread105.i ], [ null, %26 ]
+  call void @BN_free(ptr noundef %.081142.i) #3
   br label %BN_mod_inverse_no_branch.exit
 
 BN_mod_inverse_no_branch.exit:                    ; preds = %65, %67, %.thread105.i, %.thread105.thread.i
@@ -426,18 +420,18 @@ BN_mod_inverse_no_branch.exit:                    ; preds = %65, %67, %.thread10
 
 115:                                              ; preds = %.preheader
   %.not216 = icmp eq i32 %.0165, 0
-  br i1 %.not216, label %.preheader331, label %116
+  br i1 %.not216, label %.preheader336, label %116
 
 116:                                              ; preds = %115
   %117 = tail call i32 @BN_rshift(ptr noundef nonnull %73, ptr noundef nonnull %73, i32 noundef %.0165) #3
   %.not217 = icmp eq i32 %117, 0
-  br i1 %.not217, label %.thread243, label %.preheader331
+  br i1 %.not217, label %.thread243, label %.preheader336
 
-.preheader331:                                    ; preds = %116, %115
+.preheader336:                                    ; preds = %116, %115
   br label %118
 
-118:                                              ; preds = %.preheader331, %125
-  %.1 = phi i32 [ %121, %125 ], [ 0, %.preheader331 ]
+118:                                              ; preds = %.preheader336, %125
+  %.1 = phi i32 [ %121, %125 ], [ 0, %.preheader336 ]
   %119 = tail call i32 @BN_is_bit_set(ptr noundef %72, i32 noundef %.1) #3
   %.not218 = icmp eq i32 %119, 0
   br i1 %.not218, label %120, label %127
@@ -703,8 +697,8 @@ BN_mod_inverse_no_branch.exit:                    ; preds = %65, %67, %.thread10
   br i1 %226, label %.thread243.thread, label %.thread264
 
 .thread243.thread:                                ; preds = %82, %.thread243
-  %.0171305 = phi ptr [ %.0171, %.thread243 ], [ null, %82 ]
-  tail call void @BN_free(ptr noundef %.0171305) #3
+  %.0171310 = phi ptr [ %.0171, %.thread243 ], [ null, %82 ]
+  tail call void @BN_free(ptr noundef %.0171310) #3
   br label %.thread264
 
 .thread264:                                       ; preds = %221, %223, %.thread243.thread, %.thread243

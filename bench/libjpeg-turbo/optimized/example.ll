@@ -497,7 +497,7 @@ define internal fastcc void @do_read_JPEG_file(ptr noundef nonnull %0, ptr nound
   %46 = load ptr, ptr %45, align 8, !tbaa !46
   %47 = call ptr %46(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %.fr65, i32 noundef 1) #12
   %. = select i1 %42, ptr %47, ptr null
-  %.71 = select i1 %42, ptr null, ptr %47
+  %.73 = select i1 %42, ptr null, ptr %47
   %48 = load i32, ptr %30, align 8, !tbaa !80
   %49 = icmp eq i32 %48, 12
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -559,7 +559,7 @@ define internal fastcc void @do_read_JPEG_file(ptr noundef nonnull %0, ptr nound
   br i1 %73, label %.lr.ph64.split, label %.loopexit, !llvm.loop !87
 
 74:                                               ; preds = %.lr.ph, %74
-  %75 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %0, ptr noundef %.71, i32 noundef 1) #12
+  %75 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %0, ptr noundef %.73, i32 noundef 1) #12
   %76 = load ptr, ptr %47, align 8, !tbaa !8
   %77 = call i64 @fwrite(ptr noundef %76, i64 noundef 1, i64 noundef %55, ptr noundef nonnull %11)
   %78 = load i32, ptr %50, align 8, !tbaa !84

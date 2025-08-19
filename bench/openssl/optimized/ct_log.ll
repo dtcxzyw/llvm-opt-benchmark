@@ -228,10 +228,10 @@ define internal range(i32 -2147483648, 2) i32 @ctlog_store_load_log(ptr noundef 
   br i1 %18, label %.thread, label %ctlog_new_from_conf.exit
 
 .thread:                                          ; preds = %16, %10
-  %.sink20 = phi i32 [ 147, %10 ], [ 153, %16 ]
+  %.sink26 = phi i32 [ 147, %10 ], [ 153, %16 ]
   %.sink = phi i32 [ 111, %10 ], [ 112, %16 ]
   tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink20, ptr noundef nonnull @__func__.ctlog_new_from_conf) #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink26, ptr noundef nonnull @__func__.ctlog_new_from_conf) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 50, i32 noundef %.sink, ptr noundef null) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %8, ptr noundef nonnull @.str, i32 noundef 195) #6
   br label %26
@@ -359,10 +359,10 @@ ct_v1_log_id_from_pkey.exit:                      ; preds = %21
   br label %42
 
 CTLOG_free.exit.critedge:                         ; preds = %21, %18
-  %.sink20 = phi i32 [ 83, %18 ], [ 88, %21 ]
+  %.sink24 = phi i32 [ 83, %18 ], [ 88, %21 ]
   %.sink = phi i32 [ 113, %18 ], [ 524294, %21 ]
   call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink20, ptr noundef nonnull @__func__.ct_v1_log_id_from_pkey) #6
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink24, ptr noundef nonnull @__func__.ct_v1_log_id_from_pkey) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 50, i32 noundef %.sink, ptr noundef null) #6
   call void @EVP_MD_free(ptr noundef null) #6
   %35 = load ptr, ptr %5, align 8, !tbaa !28

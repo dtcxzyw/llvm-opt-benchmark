@@ -1265,7 +1265,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZNK4ncnn3Mat5empty
 
 352:                                              ; preds = %349
   %353 = sub nsw i32 %331, %346
-  br label %.sink.split460
+  br label %.sink.split500
 
 354:                                              ; preds = %349
   %355 = getelementptr inbounds nuw i32, ptr %33, i64 %.0349424
@@ -1274,7 +1274,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZNK4ncnn3Mat5empty
   %358 = select i1 %357, i32 %331, i32 0
   %359 = sub i32 %356, %346
   %360 = add i32 %359, %358
-  br label %.sink.split460
+  br label %.sink.split500
 
 361:                                              ; preds = %345
   %362 = getelementptr inbounds nuw i32, ptr %31, i64 %.0349424
@@ -1289,15 +1289,15 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZNK4ncnn3Mat5empty
   %368 = sub i64 %347, %.0349424
   %369 = udiv i64 %367, %368
   %370 = trunc i64 %369 to i32
-  br label %.sink.split460
+  br label %.sink.split500
 
-.sink.split460:                                   ; preds = %354, %352, %365
-  %.sink462 = phi i32 [ %370, %365 ], [ %353, %352 ], [ %360, %354 ]
-  store i32 %.sink462, ptr %13, align 4, !tbaa !44
+.sink.split500:                                   ; preds = %354, %352, %365
+  %.sink502 = phi i32 [ %370, %365 ], [ %353, %352 ], [ %360, %354 ]
+  store i32 %.sink502, ptr %13, align 4, !tbaa !44
   br label %371
 
-371:                                              ; preds = %.sink.split460, %361
-  %372 = phi i32 [ %363, %361 ], [ %.sink462, %.sink.split460 ]
+371:                                              ; preds = %.sink.split500, %361
+  %372 = phi i32 [ %363, %361 ], [ %.sink502, %.sink.split500 ]
   %373 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %348, i64 %.0349424
   %374 = load i32, ptr %9, align 4, !tbaa !44
   %375 = load i32, ptr %10, align 4, !tbaa !44
@@ -1407,7 +1407,7 @@ _ZNK4ncnn3Mat5emptyEv.exit400:                    ; preds = %371
 
 428:                                              ; preds = %425
   %429 = sub nsw i32 %405, %422
-  br label %.sink.split463
+  br label %.sink.split503
 
 430:                                              ; preds = %425
   %431 = getelementptr inbounds nuw i32, ptr %33, i64 %.0343421
@@ -1416,7 +1416,7 @@ _ZNK4ncnn3Mat5emptyEv.exit400:                    ; preds = %371
   %434 = select i1 %433, i32 %405, i32 0
   %435 = sub i32 %432, %422
   %436 = add i32 %435, %434
-  br label %.sink.split463
+  br label %.sink.split503
 
 437:                                              ; preds = %421
   %438 = getelementptr inbounds nuw i32, ptr %31, i64 %.0343421
@@ -1431,15 +1431,15 @@ _ZNK4ncnn3Mat5emptyEv.exit400:                    ; preds = %371
   %444 = sub i64 %423, %.0343421
   %445 = udiv i64 %443, %444
   %446 = trunc i64 %445 to i32
-  br label %.sink.split463
+  br label %.sink.split503
 
-.sink.split463:                                   ; preds = %430, %428, %441
-  %.sink465 = phi i32 [ %446, %441 ], [ %429, %428 ], [ %436, %430 ]
-  store i32 %.sink465, ptr %18, align 4, !tbaa !44
+.sink.split503:                                   ; preds = %430, %428, %441
+  %.sink505 = phi i32 [ %446, %441 ], [ %429, %428 ], [ %436, %430 ]
+  store i32 %.sink505, ptr %18, align 4, !tbaa !44
   br label %447
 
-447:                                              ; preds = %.sink.split463, %437
-  %448 = phi i32 [ %439, %437 ], [ %.sink465, %.sink.split463 ]
+447:                                              ; preds = %.sink.split503, %437
+  %448 = phi i32 [ %439, %437 ], [ %.sink505, %.sink.split503 ]
   %449 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %424, i64 %.0343421
   %450 = load i32, ptr %14, align 4, !tbaa !44
   %451 = load i32, ptr %15, align 4, !tbaa !44
@@ -1546,7 +1546,7 @@ _ZNK4ncnn3Mat5emptyEv.exit401:                    ; preds = %447
 
 503:                                              ; preds = %500
   %504 = sub nsw i32 %484, %497
-  br label %.sink.split466
+  br label %.sink.split506
 
 505:                                              ; preds = %500
   %506 = getelementptr inbounds nuw i32, ptr %33, i64 %.0324419
@@ -1555,7 +1555,7 @@ _ZNK4ncnn3Mat5emptyEv.exit401:                    ; preds = %447
   %509 = select i1 %508, i32 %484, i32 0
   %510 = sub i32 %507, %497
   %511 = add i32 %510, %509
-  br label %.sink.split466
+  br label %.sink.split506
 
 512:                                              ; preds = %496
   %513 = getelementptr inbounds nuw i32, ptr %31, i64 %.0324419
@@ -1570,15 +1570,15 @@ _ZNK4ncnn3Mat5emptyEv.exit401:                    ; preds = %447
   %519 = sub i64 %498, %.0324419
   %520 = udiv i64 %518, %519
   %521 = trunc i64 %520 to i32
-  br label %.sink.split466
+  br label %.sink.split506
 
-.sink.split466:                                   ; preds = %505, %503, %516
-  %.sink468 = phi i32 [ %521, %516 ], [ %504, %503 ], [ %511, %505 ]
-  store i32 %.sink468, ptr %23, align 4, !tbaa !44
+.sink.split506:                                   ; preds = %505, %503, %516
+  %.sink508 = phi i32 [ %521, %516 ], [ %504, %503 ], [ %511, %505 ]
+  store i32 %.sink508, ptr %23, align 4, !tbaa !44
   br label %522
 
-522:                                              ; preds = %.sink.split466, %512
-  %523 = phi i32 [ %514, %512 ], [ %.sink468, %.sink.split466 ]
+522:                                              ; preds = %.sink.split506, %512
+  %523 = phi i32 [ %514, %512 ], [ %.sink508, %.sink.split506 ]
   %524 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %499, i64 %.0324419
   %525 = load i32, ptr %19, align 4, !tbaa !44
   %526 = load i32, ptr %20, align 4, !tbaa !44

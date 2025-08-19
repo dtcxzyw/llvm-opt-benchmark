@@ -11257,7 +11257,7 @@ define dso_local void @_ZN4pbrt8Material6CreateERKNSt7__cxx1112basic_stringIcSt1
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !97
   %17 = icmp eq i64 %16, 0
-  %indvars.iv.sroa.gep120 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %indvars.iv.sroa.gep128 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %7
@@ -11572,7 +11572,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88: ; preds = %_ZN
 
 162:                                              ; preds = %.preheader, %159
   %163 = phi i1 [ true, %.preheader ], [ false, %159 ]
-  %indvars.iv.sroa.phi = phi ptr [ %13, %.preheader ], [ %indvars.iv.sroa.gep120, %159 ]
+  %indvars.iv.sroa.phi = phi ptr [ %13, %.preheader ], [ %indvars.iv.sroa.gep128, %159 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %159 ]
   %164 = load ptr, ptr %10, align 8, !tbaa !213
   %165 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %164, i64 %indvars.iv

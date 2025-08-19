@@ -1186,8 +1186,8 @@ fread.inline.exit74.i.i.i:                        ; preds = %585, %.lr.ph108.i.i
   %.not66.i.i.i = icmp ne i32 %.2105.i.i.i, 0
   %.pr.i.i.i = load i32, ptr %597, align 8, !tbaa !28
   %603 = icmp eq i32 %.pr.i.i.i, 4
-  %or.cond153.i.i.i = select i1 %.not66.i.i.i, i1 %603, i1 false
-  br i1 %or.cond153.i.i.i, label %604, label %thread-pre-split.i.i.i
+  %or.cond158.i.i.i = select i1 %.not66.i.i.i, i1 %603, i1 false
+  br i1 %or.cond158.i.i.i, label %604, label %thread-pre-split.i.i.i
 
 604:                                              ; preds = %602
   %605 = load ptr, ptr @stderr, align 8, !tbaa !37
@@ -1347,29 +1347,29 @@ do_major_operation__remove_all.exit.i.i:          ; preds = %662, %652
 
 663:                                              ; preds = %61
   call void @FLAC__metadata_chain_merge_padding(ptr noundef %43) #10
-  br label %.thread114.i.i
+  br label %.thread130.i.i
 
 664:                                              ; preds = %61
   call void @FLAC__metadata_chain_sort_padding(ptr noundef %43) #10
-  br label %.thread114.i.i
+  br label %.thread130.i.i
 
 665:                                              ; preds = %do_major_operation__remove_all.exit.i.i, %do_major_operation__remove.exit.i.i, %do_major_operation__append.exit.i.i
   %.046.i.i = phi i32 [ %.0.i.i.i, %do_major_operation__append.exit.i.i ], [ %.016.lcssa.i.i.i, %do_major_operation__remove.exit.i.i ], [ %.0.lcssa.i.i.i, %do_major_operation__remove_all.exit.i.i ]
   %.not.i.i = icmp eq i32 %.046.i.i, 0
-  br i1 %.not.i.i, label %do_major_operation_on_file.exit.sink.split.i, label %.thread114.i.i
+  br i1 %.not.i.i, label %do_major_operation_on_file.exit.sink.split.i, label %.thread130.i.i
 
-.thread114.i.i:                                   ; preds = %665, %664, %663
+.thread130.i.i:                                   ; preds = %665, %664, %663
   %666 = load i32, ptr %26, align 4, !tbaa !64
   %.not54.i.i = icmp eq i32 %666, 0
   br i1 %.not54.i.i, label %668, label %667
 
-667:                                              ; preds = %.thread114.i.i
+667:                                              ; preds = %.thread130.i.i
   call void @FLAC__metadata_chain_sort_padding(ptr noundef %43) #10
   %.pre.i = load i32, ptr %26, align 4, !tbaa !64
   br label %668
 
-668:                                              ; preds = %667, %.thread114.i.i
-  %669 = phi i32 [ %.pre.i, %667 ], [ 0, %.thread114.i.i ]
+668:                                              ; preds = %667, %.thread130.i.i
+  %669 = phi i32 [ %.pre.i, %667 ], [ 0, %.thread130.i.i ]
   %670 = load ptr, ptr %32, align 8, !tbaa !67
   %671 = icmp eq ptr %670, null
   br i1 %671, label %672, label %675
@@ -1538,7 +1538,7 @@ do_major_operation_on_file.exit.i:                ; preds = %do_major_operation_
   br i1 %749, label %.lr.ph67.i.i, label %._crit_edge.i.i, !llvm.loop !73
 
 ._crit_edge.i.i:                                  ; preds = %744, %.preheader.i.i, %.preheader59.i.i
-  %.053.lcssa82.i.i = phi i32 [ %spec.select.i.i, %.preheader.i.i ], [ %705, %.preheader59.i.i ], [ %spec.select.i.i, %744 ]
+  %.053.lcssa84.i.i = phi i32 [ %spec.select.i.i, %.preheader.i.i ], [ %705, %.preheader59.i.i ], [ %spec.select.i.i, %744 ]
   %.3.lcssa.i.i = phi i32 [ %.2.i.i12, %.preheader.i.i ], [ 1, %.preheader59.i.i ], [ %.4.i.i, %744 ]
   %.lcssa.i.i = phi i1 [ %732, %.preheader.i.i ], [ true, %.preheader59.i.i ], [ %748, %744 ]
   %750 = load i32, ptr %5, align 4
@@ -1547,7 +1547,7 @@ do_major_operation_on_file.exit.i:                ; preds = %do_major_operation_
   br i1 %or.cond.i.i, label %752, label %do_shorthand_operations_on_file.exit.i
 
 752:                                              ; preds = %._crit_edge.i.i
-  %.not56.i.i = icmp eq i32 %.053.lcssa82.i.i, 0
+  %.not56.i.i = icmp eq i32 %.053.lcssa84.i.i, 0
   br i1 %.not56.i.i, label %754, label %753
 
 753:                                              ; preds = %752
@@ -1561,11 +1561,11 @@ do_major_operation_on_file.exit.i:                ; preds = %do_major_operation_
 
 757:                                              ; preds = %754
   %758 = load i32, ptr %0, align 8, !tbaa !68
-  %759 = call i32 @FLAC__metadata_chain_write(ptr noundef %706, i32 noundef %.053.lcssa82.i.i, i32 noundef %758) #10
+  %759 = call i32 @FLAC__metadata_chain_write(ptr noundef %706, i32 noundef %.053.lcssa84.i.i, i32 noundef %758) #10
   br label %762
 
 760:                                              ; preds = %754
-  %761 = call i32 @FLAC__metadata_chain_write_new_file(ptr noundef %706, ptr noundef nonnull %755, i32 noundef %.053.lcssa82.i.i) #10
+  %761 = call i32 @FLAC__metadata_chain_write_new_file(ptr noundef %706, ptr noundef nonnull %755, i32 noundef %.053.lcssa84.i.i) #10
   br label %762
 
 762:                                              ; preds = %760, %757

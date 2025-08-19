@@ -3356,7 +3356,7 @@ define void @Ssw_SmlSimulateOneDyn_rec(ptr noundef %0, ptr noundef readonly capt
   %13 = getelementptr inbounds i32, ptr %3, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !15
   %15 = icmp eq i32 %14, %4
-  br i1 %15, label %common.ret81, label %16
+  br i1 %15, label %common.ret82, label %16
 
 16:                                               ; preds = %5
   store i32 %4, ptr %13, align 4, !tbaa !15
@@ -3366,7 +3366,7 @@ define void @Ssw_SmlSimulateOneDyn_rec(ptr noundef %0, ptr noundef readonly capt
   %19 = and i64 %.val3.i, 7
   switch i64 %19, label %Saig_ObjIsLi.exit.thread [
     i64 2, label %Saig_ObjIsPi.exit
-    i64 1, label %common.ret81
+    i64 1, label %common.ret82
     i64 3, label %Saig_ObjIsLi.exit
   ]
 
@@ -3377,7 +3377,7 @@ Saig_ObjIsPi.exit:                                ; preds = %16
   %.not = icmp slt i32 %.val4.i, %.val.i
   %21 = icmp eq i32 %2, 0
   %or.cond = or i1 %.not, %21
-  br i1 %or.cond, label %common.ret81, label %22
+  br i1 %or.cond, label %common.ret82, label %22
 
 22:                                               ; preds = %Saig_ObjIsPi.exit
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -3429,7 +3429,7 @@ Saig_ObjIsPi.exit:                                ; preds = %16
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds i32, ptr %60, i64 %62
   %64 = icmp sgt i32 %53, 0
-  br i1 %64, label %.lr.ph.i, label %common.ret81
+  br i1 %64, label %.lr.ph.i, label %common.ret82
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %22 ]
@@ -3441,7 +3441,7 @@ Saig_ObjIsPi.exit:                                ; preds = %16
   %68 = load i32, ptr %52, align 8, !tbaa !66
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv.next.i, %69
-  br i1 %70, label %.lr.ph.i, label %common.ret81, !llvm.loop !92
+  br i1 %70, label %.lr.ph.i, label %common.ret82, !llvm.loop !92
 
 Saig_ObjIsLi.exit:                                ; preds = %16
   %.val3.i69 = load i32, ptr %1, align 8, !tbaa !121
@@ -3450,7 +3450,7 @@ Saig_ObjIsLi.exit:                                ; preds = %16
   %.not79 = icmp slt i32 %.val3.i69, %.val.i70
   br i1 %.not79, label %Saig_ObjIsLi.exit.thread, label %72
 
-common.ret81:                                     ; preds = %16, %22, %Saig_ObjIsPi.exit, %5, %.lr.ph.i, %Saig_ObjIsLi.exit.thread, %72
+common.ret82:                                     ; preds = %16, %22, %Saig_ObjIsPi.exit, %5, %.lr.ph.i, %Saig_ObjIsLi.exit.thread, %72
   ret void
 
 72:                                               ; preds = %Saig_ObjIsLi.exit
@@ -3461,7 +3461,7 @@ common.ret81:                                     ; preds = %16, %22, %Saig_ObjI
   %76 = inttoptr i64 %75 to ptr
   tail call void @Ssw_SmlSimulateOneDyn_rec(ptr noundef nonnull %0, ptr noundef %76, i32 noundef %2, ptr noundef nonnull %3, i32 noundef %4)
   tail call void @Ssw_SmlNodeCopyFanin(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
-  br label %common.ret81
+  br label %common.ret82
 
 Saig_ObjIsLi.exit.thread:                         ; preds = %16, %Saig_ObjIsLi.exit
   %77 = getelementptr i8, ptr %1, i64 8
@@ -3477,7 +3477,7 @@ Saig_ObjIsLi.exit.thread:                         ; preds = %16, %Saig_ObjIsLi.e
   %84 = inttoptr i64 %83 to ptr
   tail call void @Ssw_SmlSimulateOneDyn_rec(ptr noundef nonnull %0, ptr noundef %84, i32 noundef %2, ptr noundef nonnull %3, i32 noundef %4)
   tail call void @Ssw_SmlNodeSimulate(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
-  br label %common.ret81
+  br label %common.ret82
 }
 
 ; Function Attrs: nounwind uwtable

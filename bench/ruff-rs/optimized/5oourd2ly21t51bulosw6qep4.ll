@@ -354,10 +354,10 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h33de5dc56ab19083E.exit.i.i", %137, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17hee31e7f6d56e80abE.exit", %139
-  %.sroa.0.035 = phi i64 [ %.sroa.0.0, %139 ], [ %.sroa.0.0, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17hee31e7f6d56e80abE.exit" ], [ %.sroa.0.0, %137 ], [ 0, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h33de5dc56ab19083E.exit.i.i" ]
+  %.sroa.0.045 = phi i64 [ %.sroa.0.0, %139 ], [ %.sroa.0.0, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17hee31e7f6d56e80abE.exit" ], [ %.sroa.0.0, %137 ], [ 0, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h33de5dc56ab19083E.exit.i.i" ]
   %.sroa.01.1 = phi i64 [ %143, %139 ], [ %.sroa.14.018, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17hee31e7f6d56e80abE.exit" ], [ %.sroa.14.018, %137 ], [ 0, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h33de5dc56ab19083E.exit.i.i" ]
-  %144 = sub nuw i64 %.sroa.01.1, %.sroa.0.035
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.035
+  %144 = sub nuw i64 %.sroa.01.1, %.sroa.0.045
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.045
   %146 = insertvalue { ptr, i64 } poison, ptr %145, 0
   %147 = insertvalue { ptr, i64 } %146, i64 %144, 1
   ret { ptr, i64 } %147
@@ -551,11 +551,11 @@ _ZN8smallvec12layout_array17h0391d686fb6a00e5E.exit77.i: ; preds = %29
   br label %35
 
 38:                                               ; preds = %.thread.thread, %20
-  %.sink.i.i172122 = phi i64 [ %4, %.thread.thread ], [ %.sink.i.i, %20 ]
+  %.sink.i.i202425 = phi i64 [ %4, %.thread.thread ], [ %.sink.i.i, %20 ]
   %39 = shl i64 %8, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(72) %0, ptr nonnull align 8 %6, i64 %39, i1 false)
   store i64 %8, ptr %3, align 8, !alias.scope !67
-  %40 = shl i64 %.sink.i.i172122, 4
+  %40 = shl i64 %.sink.i.i202425, 4
   %41 = icmp ugt i64 %4, 1152921504606846975
   br i1 %41, label %44, label %42, !prof !70
 

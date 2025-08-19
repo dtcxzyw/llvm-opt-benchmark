@@ -421,9 +421,9 @@ switch.early.test:                                ; preds = %67
   br label %.thread
 
 .thread:                                          ; preds = %139, %147
-  %.sink130 = phi i32 [ %151, %147 ], [ 1, %139 ]
+  %.sink137 = phi i32 [ %151, %147 ], [ 1, %139 ]
   %152 = getelementptr inbounds nuw i8, ptr %calloc, i64 96
-  store i32 %.sink130, ptr %152, align 8, !tbaa !66
+  store i32 %.sink137, ptr %152, align 8, !tbaa !66
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 1888
   store ptr %calloc, ptr %153, align 8, !tbaa !67
   br label %154
@@ -3089,16 +3089,16 @@ define range(i32 -102, 1) i32 @idaLs_AccessLMemB(ptr noundef %0, i32 noundef %1,
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %21
-  %storemerge.sink34.in = phi ptr [ %25, %.lr.ph ], [ %22, %21 ]
-  %storemerge.sink34 = load ptr, ptr %storemerge.sink34.in, align 8, !tbaa !130, !nonnull !141, !noundef !141
-  store ptr %storemerge.sink34, ptr %5, align 8, !tbaa !130
-  %23 = load i32, ptr %storemerge.sink34, align 8, !tbaa !131
+  %storemerge.sink37.in = phi ptr [ %25, %.lr.ph ], [ %22, %21 ]
+  %storemerge.sink37 = load ptr, ptr %storemerge.sink37.in, align 8, !tbaa !130, !nonnull !141, !noundef !141
+  store ptr %storemerge.sink37, ptr %5, align 8, !tbaa !130
+  %23 = load i32, ptr %storemerge.sink37, align 8, !tbaa !131
   %24 = icmp eq i32 %1, %23
-  %25 = getelementptr inbounds nuw i8, ptr %storemerge.sink34, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %storemerge.sink37, i64 128
   br i1 %24, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %26 = getelementptr inbounds nuw i8, ptr %storemerge.sink34, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %storemerge.sink37, i64 72
   %27 = load ptr, ptr %26, align 8, !tbaa !134
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %30

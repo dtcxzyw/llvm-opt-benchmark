@@ -212,8 +212,8 @@ ossl_list_uint_set_remove.exit:                   ; preds = %64
   %.phi.trans.insert = getelementptr i8, ptr %.094166, i64 24
   %.val121.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !17
   %.not109 = icmp ult i64 %.val121.pre, %5
-  %or.cond224 = select i1 %.not108, i1 true, i1 %.not109
-  br i1 %or.cond224, label %.lr.ph167._crit_edge, label %create_set_item.exit.thread
+  %or.cond239 = select i1 %.not108, i1 true, i1 %.not109
+  br i1 %or.cond239, label %.lr.ph167._crit_edge, label %create_set_item.exit.thread
 
 .lr.ph167._crit_edge:                             ; preds = %.lr.ph167
   %73 = tail call noundef i64 @llvm.umin.i64(i64 %.val121.pre, i64 %5)
@@ -237,15 +237,15 @@ ossl_list_uint_set_remove.exit:                   ; preds = %64
 .lr.ph172:                                        ; preds = %75
   %.val127 = load i64, ptr %4, align 8, !tbaa !17
   %80 = getelementptr inbounds nuw i8, ptr %.094.val, i64 16
-  %.val124241 = load i64, ptr %80, align 8, !tbaa !16
+  %.val124256 = load i64, ptr %80, align 8, !tbaa !16
   %81 = getelementptr i8, ptr %.094.val, i64 24
-  %.val125242 = load i64, ptr %81, align 8, !tbaa !17
-  %82 = tail call noundef i64 @llvm.umin.i64(i64 %.val125242, i64 %.val127)
-  %83 = tail call noundef i64 @llvm.umax.i64(i64 %.val124241, i64 %3)
-  %.not141243 = icmp ult i64 %82, %83
-  br i1 %.not141243, label %.critedge, label %.lr.ph245
+  %.val125257 = load i64, ptr %81, align 8, !tbaa !17
+  %82 = tail call noundef i64 @llvm.umin.i64(i64 %.val125257, i64 %.val127)
+  %83 = tail call noundef i64 @llvm.umax.i64(i64 %.val124256, i64 %3)
+  %.not141258 = icmp ult i64 %82, %83
+  br i1 %.not141258, label %.critedge, label %.lr.ph260
 
-84:                                               ; preds = %.lr.ph245
+84:                                               ; preds = %.lr.ph260
   %85 = getelementptr inbounds nuw i8, ptr %.095.val, i64 16
   %.val124 = load i64, ptr %85, align 8, !tbaa !16
   %86 = getelementptr i8, ptr %.095.val, i64 24
@@ -253,20 +253,20 @@ ossl_list_uint_set_remove.exit:                   ; preds = %64
   %87 = tail call noundef i64 @llvm.umin.i64(i64 %.val125, i64 %.val127)
   %88 = tail call noundef i64 @llvm.umax.i64(i64 %.val124, i64 %3)
   %.not141 = icmp ult i64 %87, %88
-  br i1 %.not141, label %.critedge, label %.lr.ph245, !llvm.loop !25
+  br i1 %.not141, label %.critedge, label %.lr.ph260, !llvm.loop !25
 
-.lr.ph245:                                        ; preds = %.lr.ph172, %84
-  %.095170244 = phi ptr [ %.095.val, %84 ], [ %.094.val, %.lr.ph172 ]
-  %89 = getelementptr i8, ptr %.095170244, i64 8
+.lr.ph260:                                        ; preds = %.lr.ph172, %84
+  %.095170259 = phi ptr [ %.095.val, %84 ], [ %.094.val, %.lr.ph172 ]
+  %89 = getelementptr i8, ptr %.095170259, i64 8
   %.095.val = load ptr, ptr %89, align 8, !tbaa !22
   %.not112 = icmp eq ptr %.095.val, null
-  br i1 %.not112, label %..critedge_crit_edge246, label %84, !llvm.loop !25
+  br i1 %.not112, label %..critedge_crit_edge261, label %84, !llvm.loop !25
 
-..critedge_crit_edge246:                          ; preds = %.lr.ph245
+..critedge_crit_edge261:                          ; preds = %.lr.ph260
   br label %.critedge, !llvm.loop !25
 
-.critedge:                                        ; preds = %84, %..critedge_crit_edge246, %.lr.ph172
-  %.1.lcssa.ph = phi ptr [ %.095170244, %..critedge_crit_edge246 ], [ %.094166, %.lr.ph172 ], [ %.095170244, %84 ]
+.critedge:                                        ; preds = %84, %..critedge_crit_edge261, %.lr.ph172
+  %.1.lcssa.ph = phi ptr [ %.095170259, %..critedge_crit_edge261 ], [ %.094166, %.lr.ph172 ], [ %.095170259, %84 ]
   %.phi.trans.insert192 = getelementptr inbounds nuw i8, ptr %.1.lcssa.ph, i64 16
   %.pre = load i64, ptr %.phi.trans.insert192, align 8, !tbaa !20
   %90 = tail call noundef i64 @llvm.umin.i64(i64 %3, i64 %.pre)

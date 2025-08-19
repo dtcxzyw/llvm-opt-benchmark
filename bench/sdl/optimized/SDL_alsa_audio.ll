@@ -973,10 +973,10 @@ ALSA_pcm_cfg_hw.exit.thread:                      ; preds = %66, %61, %ALSA_pcm_
   br i1 %112, label %ALSA_pcm_cfg_sw.exit, label %ALSA_pcm_cfg_sw.exit.thread
 
 ALSA_pcm_cfg_sw.exit:                             ; preds = %ALSA_pcm_cfg_hw.exit.thread, %85, %95, %104
-  %.sink21.i = phi i32 [ %83, %ALSA_pcm_cfg_hw.exit.thread ], [ %93, %85 ], [ %102, %95 ], [ %111, %104 ]
+  %.sink25.i = phi i32 [ %83, %ALSA_pcm_cfg_hw.exit.thread ], [ %93, %85 ], [ %102, %95 ], [ %111, %104 ]
   %.str.117.sink.i = phi ptr [ @.str.114, %ALSA_pcm_cfg_hw.exit.thread ], [ @.str.115, %85 ], [ @.str.116, %95 ], [ @.str.117, %104 ]
   %113 = load ptr, ptr @ALSA_snd_strerror, align 8
-  %114 = call ptr %113(i32 noundef %.sink21.i) #8
+  %114 = call ptr %113(i32 noundef %.sink25.i) #8
   %115 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.117.sink.i, ptr noundef %114) #8
   br i1 %115, label %ALSA_pcm_cfg_sw.exit.thread, label %156
 
@@ -1505,7 +1505,7 @@ define internal fastcc void @ALSA_HotplugIteration(ptr noundef writeonly capture
   %45 = load ptr, ptr %3, align 8
   %46 = call i32 %44(ptr noundef %45, ptr noundef nonnull %8) #8
   %47 = icmp slt i32 %46, 0
-  br i1 %47, label %.thread69, label %48
+  br i1 %47, label %.thread74, label %48
 
 48:                                               ; preds = %43
   %49 = load i32, ptr %8, align 4
@@ -1516,16 +1516,16 @@ define internal fastcc void @ALSA_HotplugIteration(ptr noundef writeonly capture
   %52 = load ptr, ptr %3, align 8
   %53 = call fastcc i32 @hotplug_device_process(ptr noundef %52, ptr noundef %22, i32 noundef %49, i32 noundef 0, ptr noundef %4, ptr noundef %5)
   %54 = icmp slt i32 %53, 0
-  br i1 %54, label %.thread69, label %55
+  br i1 %54, label %.thread74, label %55
 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %3, align 8
   %57 = load i32, ptr %8, align 4
   %58 = call fastcc i32 @hotplug_device_process(ptr noundef %56, ptr noundef %22, i32 noundef %57, i32 noundef 1, ptr noundef %4, ptr noundef %5)
   %59 = icmp slt i32 %58, 0
-  br i1 %59, label %.thread69, label %43
+  br i1 %59, label %.thread74, label %43
 
-.thread69:                                        ; preds = %43, %51, %55
+.thread74:                                        ; preds = %43, %51, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread39.sink.split
 
@@ -1570,7 +1570,7 @@ thread-pre-split:                                 ; preds = %.lr.ph
   store ptr %75, ptr @hotplug_devices, align 8
   br i1 %15, label %.loopexit48, label %.loopexit48.sink.split
 
-.thread39.sink.split:                             ; preds = %37, %.thread69
+.thread39.sink.split:                             ; preds = %37, %.thread74
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread39
 
@@ -1726,10 +1726,10 @@ define internal fastcc range(i32 -1, 1) i32 @hotplug_device_process(ptr noundef 
   br label %21
 
 21:                                               ; preds = %100, %17
-  %.sink154 = phi i64 [ %102, %100 ], [ %20, %17 ]
+  %.sink157 = phi i64 [ %102, %100 ], [ %20, %17 ]
   %.083 = phi i32 [ %96, %100 ], [ 0, %17 ]
   %.080 = phi i32 [ %.282, %100 ], [ 1, %17 ]
-  call void @llvm.memset.p0.i64(ptr align 1 %18, i8 0, i64 %.sink154, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %18, i8 0, i64 %.sink157, i1 false)
   %22 = load ptr, ptr @ALSA_snd_pcm_info_set_stream, align 8
   call void %22(ptr noundef %18, i32 noundef %3) #8
   %23 = load ptr, ptr @ALSA_snd_pcm_info_set_device, align 8
@@ -2161,10 +2161,10 @@ define internal fastcc range(i32 -1, 2) i32 @ALSA_pcm_cfg_hw_chans_n_scan(ptr no
   br label %14
 
 .thread92.sink.split:                             ; preds = %112, %103, %94, %82, %71, %62, %60, %28, %19, %.backedge
-  %.lcssa215.sink = phi i32 [ %35, %.backedge ], [ %26, %19 ], [ %35, %28 ], [ %35, %60 ], [ %69, %62 ], [ %80, %71 ], [ %92, %82 ], [ %101, %94 ], [ %110, %103 ], [ %119, %112 ]
+  %.lcssa224.sink = phi i32 [ %35, %.backedge ], [ %26, %19 ], [ %35, %28 ], [ %35, %60 ], [ %69, %62 ], [ %80, %71 ], [ %92, %82 ], [ %101, %94 ], [ %110, %103 ], [ %119, %112 ]
   %.str.99.sink = phi ptr [ @.str.93, %.backedge ], [ @.str.91, %19 ], [ @.str.92, %28 ], [ @.str.93, %60 ], [ @.str.94, %62 ], [ @.str.95, %71 ], [ @.str.96, %82 ], [ @.str.97, %94 ], [ @.str.98, %103 ], [ @.str.99, %112 ]
   %135 = load ptr, ptr @ALSA_snd_strerror, align 8
-  %136 = tail call ptr %135(i32 noundef %.lcssa215.sink) #8
+  %136 = tail call ptr %135(i32 noundef %.lcssa224.sink) #8
   %137 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.99.sink, ptr noundef %136) #8
   br label %.thread92
 
@@ -2228,9 +2228,9 @@ define internal fastcc range(i32 -1, 2) i32 @alsa_chmap_cfg(ptr noundef nonnull 
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 4, ptr noundef nonnull @.str.103, ptr noundef nonnull %4) #8
   %28 = load i32, ptr %16, align 4
   %.not60.i.i = icmp eq i32 %28, 0
-  br i1 %.not60.i.i, label %.thread66.i.i, label %._crit_edge.i.i
+  br i1 %.not60.i.i, label %.thread69.i.i, label %._crit_edge.i.i
 
-.thread66.i.i:                                    ; preds = %25
+.thread69.i.i:                                    ; preds = %25
   %29 = load ptr, ptr %.03857.i.i, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   br label %alsa_chmap_has_duplicate_position.exit.i.i
@@ -2286,8 +2286,8 @@ alsa_chmap_has_duplicate_position.exit.thread.i.i: ; preds = %44
   %48 = icmp eq i64 %indvars.iv.next.i.i.i, %zext.i.i
   br i1 %48, label %alsa_chmap_has_duplicate_position.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !19
 
-alsa_chmap_has_duplicate_position.exit.i.i:       ; preds = %._crit_edge.i.i.i, %38, %.thread66.i.i
-  %49 = phi ptr [ %30, %.thread66.i.i ], [ %35, %38 ], [ %35, %._crit_edge.i.i.i ]
+alsa_chmap_has_duplicate_position.exit.i.i:       ; preds = %._crit_edge.i.i.i, %38, %.thread69.i.i
+  %49 = phi ptr [ %30, %.thread69.i.i ], [ %35, %38 ], [ %35, %._crit_edge.i.i.i ]
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 4, ptr noundef nonnull @.str.107) #8
   %50 = load i32, ptr %17, align 4
   %51 = load i32, ptr %49, align 4
@@ -2356,9 +2356,9 @@ alsa_chmap_cfg_ordered_fixed_or_paired.exit.i:    ; preds = %60
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 4, ptr noundef nonnull @.str.111, ptr noundef nonnull %3) #8
   %75 = load i32, ptr %16, align 4
   %.not76.i.i = icmp eq i32 %75, 0
-  br i1 %.not76.i.i, label %.thread82.i.i, label %._crit_edge.i5.i
+  br i1 %.not76.i.i, label %.thread88.i.i, label %._crit_edge.i5.i
 
-.thread82.i.i:                                    ; preds = %72
+.thread88.i.i:                                    ; preds = %72
   %76 = load ptr, ptr %.04573.i.i, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   br label %alsa_chmap_has_duplicate_position.exit.i15.i
@@ -2414,8 +2414,8 @@ alsa_chmap_has_duplicate_position.exit.thread.i17.i: ; preds = %91
   %95 = icmp eq i64 %indvars.iv.next.i.i14.i, %zext.i7.i
   br i1 %95, label %alsa_chmap_has_duplicate_position.exit.i15.i, label %.lr.ph.i.i8.i, !llvm.loop !19
 
-alsa_chmap_has_duplicate_position.exit.i15.i:     ; preds = %._crit_edge.i.i13.i, %85, %.thread82.i.i
-  %96 = phi ptr [ %77, %.thread82.i.i ], [ %82, %85 ], [ %82, %._crit_edge.i.i13.i ]
+alsa_chmap_has_duplicate_position.exit.i15.i:     ; preds = %._crit_edge.i.i13.i, %85, %.thread88.i.i
+  %96 = phi ptr [ %77, %.thread88.i.i ], [ %82, %85 ], [ %82, %._crit_edge.i.i13.i ]
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 4, ptr noundef nonnull @.str.107) #8
   %97 = load i32, ptr %16, align 4
   %.not5264.i.i = icmp eq i32 %97, 0
@@ -2516,9 +2516,9 @@ alsa_chmap_cfg_ordered.exit.thread:               ; preds = %110
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 4, ptr noundef nonnull @.str.112, ptr noundef nonnull %2) #8
   %127 = load i32, ptr %115, align 4
   %.not80.i = icmp eq i32 %127, 0
-  br i1 %.not80.i, label %.thread86.i, label %._crit_edge.i
+  br i1 %.not80.i, label %.thread92.i, label %._crit_edge.i
 
-.thread86.i:                                      ; preds = %124
+.thread92.i:                                      ; preds = %124
   %128 = load ptr, ptr %.04677.i, align 8
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   br label %alsa_chmap_has_duplicate_position.exit.i
@@ -2574,8 +2574,8 @@ alsa_chmap_has_duplicate_position.exit.thread.i:  ; preds = %143
   %147 = icmp eq i64 %indvars.iv.next.i.i39, %zext.i
   br i1 %147, label %alsa_chmap_has_duplicate_position.exit.i, label %.lr.ph.i.i, !llvm.loop !19
 
-alsa_chmap_has_duplicate_position.exit.i:         ; preds = %._crit_edge.i.i38, %137, %.thread86.i
-  %148 = phi ptr [ %129, %.thread86.i ], [ %134, %137 ], [ %134, %._crit_edge.i.i38 ]
+alsa_chmap_has_duplicate_position.exit.i:         ; preds = %._crit_edge.i.i38, %137, %.thread92.i
+  %148 = phi ptr [ %129, %.thread92.i ], [ %134, %137 ], [ %134, %._crit_edge.i.i38 ]
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 4, ptr noundef nonnull @.str.107) #8
   %149 = load i32, ptr %115, align 4
   %.not5568.i = icmp eq i32 %149, 0

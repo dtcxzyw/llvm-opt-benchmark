@@ -7039,9 +7039,9 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %58, i8 0, i64 128, i1 false)
   %59 = add nsw i32 %0, -2
   %60 = icmp sgt i32 %0, 2
-  %indvars.iv264.sroa.gep272 = getelementptr inbounds nuw i8, ptr %25, i64 128
-  %indvars.iv261.sroa.gep273 = getelementptr inbounds nuw i8, ptr %25, i64 128
-  %indvars.iv258.sroa.gep274 = getelementptr inbounds nuw i8, ptr %25, i64 128
+  %indvars.iv264.sroa.gep276 = getelementptr inbounds nuw i8, ptr %25, i64 128
+  %indvars.iv261.sroa.gep277 = getelementptr inbounds nuw i8, ptr %25, i64 128
+  %indvars.iv258.sroa.gep278 = getelementptr inbounds nuw i8, ptr %25, i64 128
   br i1 %60, label %.lr.ph, label %.preheader235
 
 .preheader235:                                    ; preds = %62, %.preheader239.preheader
@@ -7066,7 +7066,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
 
 66:                                               ; preds = %.lr.ph, %_ZN5faiss12simd16uint16pLERKS0_.exit136
   %67 = phi i1 [ true, %.lr.ph ], [ false, %_ZN5faiss12simd16uint16pLERKS0_.exit136 ]
-  %indvars.iv258.sroa.phi = phi ptr [ %25, %.lr.ph ], [ %indvars.iv258.sroa.gep274, %_ZN5faiss12simd16uint16pLERKS0_.exit136 ]
+  %indvars.iv258.sroa.phi = phi ptr [ %25, %.lr.ph ], [ %indvars.iv258.sroa.gep278, %_ZN5faiss12simd16uint16pLERKS0_.exit136 ]
   %.1244 = phi ptr [ %.096247, %.lr.ph ], [ %150, %_ZN5faiss12simd16uint16pLERKS0_.exit136 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %26, ptr noundef nonnull align 1 dereferenceable(32) %.1244, i64 32, i1 false)
@@ -7352,7 +7352,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit136:          ; preds = %143
 
 153:                                              ; preds = %.preheader235, %_ZN5faiss12simd16uint16pLERKS0_.exit193
   %154 = phi i1 [ true, %.preheader235 ], [ false, %_ZN5faiss12simd16uint16pLERKS0_.exit193 ]
-  %indvars.iv261.sroa.phi = phi ptr [ %25, %.preheader235 ], [ %indvars.iv261.sroa.gep273, %_ZN5faiss12simd16uint16pLERKS0_.exit193 ]
+  %indvars.iv261.sroa.phi = phi ptr [ %25, %.preheader235 ], [ %indvars.iv261.sroa.gep277, %_ZN5faiss12simd16uint16pLERKS0_.exit193 ]
   %.3251 = phi ptr [ %.096.lcssa, %.preheader235 ], [ %265, %_ZN5faiss12simd16uint16pLERKS0_.exit193 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %41, ptr noundef nonnull align 1 dereferenceable(32) %.3251, i64 32, i1 false)
@@ -7722,7 +7722,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit193:          ; preds = %258
 
 266:                                              ; preds = %.preheader232, %_ZN5faiss10combine2x2ERKNS_12simd16uint16ES2_.exit214
   %267 = phi i1 [ true, %.preheader232 ], [ false, %_ZN5faiss10combine2x2ERKNS_12simd16uint16ES2_.exit214 ]
-  %indvars.iv264.sroa.phi = phi ptr [ %25, %.preheader232 ], [ %indvars.iv264.sroa.gep272, %_ZN5faiss10combine2x2ERKNS_12simd16uint16ES2_.exit214 ]
+  %indvars.iv264.sroa.phi = phi ptr [ %25, %.preheader232 ], [ %indvars.iv264.sroa.gep276, %_ZN5faiss10combine2x2ERKNS_12simd16uint16ES2_.exit214 ]
   %indvars.iv264 = phi i64 [ 0, %.preheader232 ], [ 2, %_ZN5faiss10combine2x2ERKNS_12simd16uint16ES2_.exit214 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %268 = getelementptr inbounds nuw i8, ptr %indvars.iv264.sroa.phi, i64 32
@@ -10777,13 +10777,13 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %60, i8 0, i64 128, i1 false)
   %61 = add nsw i32 %0, -2
   %62 = icmp sgt i32 %0, 2
-  %indvars.iv274.sroa.gep286 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %indvars.iv277.sroa.gep287 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %indvars.iv268.sroa.gep288 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %indvars.iv271.sroa.gep289 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %indvars.iv271.sroa.gep292 = getelementptr inbounds nuw i8, ptr %25, i64 128
-  %indvars.iv277.sroa.gep295 = getelementptr inbounds nuw i8, ptr %25, i64 128
-  %indvars.iv280.sroa.gep296 = getelementptr inbounds nuw i8, ptr %25, i64 128
+  %indvars.iv274.sroa.gep290 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %indvars.iv277.sroa.gep291 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %indvars.iv268.sroa.gep292 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %indvars.iv271.sroa.gep293 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %indvars.iv271.sroa.gep296 = getelementptr inbounds nuw i8, ptr %25, i64 128
+  %indvars.iv277.sroa.gep299 = getelementptr inbounds nuw i8, ptr %25, i64 128
+  %indvars.iv280.sroa.gep300 = getelementptr inbounds nuw i8, ptr %25, i64 128
   br i1 %62, label %.lr.ph, label %.preheader244
 
 .preheader244:                                    ; preds = %84, %.preheader248.preheader
@@ -10801,7 +10801,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
 
 .preheader246:                                    ; preds = %.lr.ph, %.preheader246
   %63 = phi i1 [ true, %.lr.ph ], [ false, %.preheader246 ]
-  %indvars.iv268.sroa.phi = phi ptr [ %26, %.lr.ph ], [ %indvars.iv268.sroa.gep288, %.preheader246 ]
+  %indvars.iv268.sroa.phi = phi ptr [ %26, %.lr.ph ], [ %indvars.iv268.sroa.gep292, %.preheader246 ]
   %.198251 = phi ptr [ %.097255, %.lr.ph ], [ %64, %.preheader246 ]
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %indvars.iv268.sroa.phi, ptr noundef nonnull align 1 dereferenceable(32) %.198251, i64 32, i1 false)
   %64 = getelementptr inbounds nuw i8, ptr %.198251, i64 32
@@ -10892,8 +10892,8 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit116: ; preds = %77
 
 88:                                               ; preds = %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit116, %_ZN5faiss12simd16uint16pLERKS0_.exit144
   %89 = phi i1 [ true, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit116 ], [ false, %_ZN5faiss12simd16uint16pLERKS0_.exit144 ]
-  %indvars.iv271.sroa.phi = phi ptr [ %26, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit116 ], [ %indvars.iv271.sroa.gep289, %_ZN5faiss12simd16uint16pLERKS0_.exit144 ]
-  %indvars.iv271.sroa.phi290 = phi ptr [ %25, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit116 ], [ %indvars.iv271.sroa.gep292, %_ZN5faiss12simd16uint16pLERKS0_.exit144 ]
+  %indvars.iv271.sroa.phi = phi ptr [ %26, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit116 ], [ %indvars.iv271.sroa.gep293, %_ZN5faiss12simd16uint16pLERKS0_.exit144 ]
+  %indvars.iv271.sroa.phi294 = phi ptr [ %25, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit116 ], [ %indvars.iv271.sroa.gep296, %_ZN5faiss12simd16uint16pLERKS0_.exit144 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %33, ptr noundef nonnull align 16 dereferenceable(32) %indvars.iv271.sroa.phi, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
@@ -10965,7 +10965,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit124: ; preds = %110
 
 112:                                              ; preds = %112, %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit124
   %indvars.iv.i.i.i = phi i64 [ 0, %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit124 ], [ %indvars.iv.next.i.i.i, %112 ]
-  %113 = getelementptr inbounds nuw [16 x i16], ptr %indvars.iv271.sroa.phi290, i64 0, i64 %indvars.iv.i.i.i
+  %113 = getelementptr inbounds nuw [16 x i16], ptr %indvars.iv271.sroa.phi294, i64 0, i64 %indvars.iv.i.i.i
   %114 = load i16, ptr %113, align 2, !tbaa !16, !noalias !1505
   %115 = getelementptr inbounds nuw [16 x i16], ptr %36, i64 0, i64 %indvars.iv.i.i.i
   %116 = load i16, ptr %115, align 2, !tbaa !16, !noalias !1505
@@ -10977,7 +10977,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit124: ; preds = %110
   br i1 %exitcond.not.i.i.i, label %_ZN5faiss12simd16uint16pLERKS0_.exit, label %112, !llvm.loop !181
 
 _ZN5faiss12simd16uint16pLERKS0_.exit:             ; preds = %112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %indvars.iv271.sroa.phi290, ptr noundef nonnull align 4 dereferenceable(32) %22, i64 32, i1 false), !noalias !1496
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %indvars.iv271.sroa.phi294, ptr noundef nonnull align 4 dereferenceable(32) %22, i64 32, i1 false), !noalias !1496
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !1496
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
@@ -10999,7 +10999,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit:             ; preds = %112
   br i1 %exitcond.not.i.i127, label %_ZNK5faiss12simd16uint16rsEi.exit128, label %119, !llvm.loop !146
 
 _ZNK5faiss12simd16uint16rsEi.exit128:             ; preds = %119
-  %124 = getelementptr inbounds nuw i8, ptr %indvars.iv271.sroa.phi290, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %indvars.iv271.sroa.phi294, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !1514
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1517)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1520)
@@ -11025,7 +11025,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit132:          ; preds = %125
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %39, ptr noundef nonnull align 4 dereferenceable(32) %35, i64 32, i1 false), !tbaa.struct !147
-  %132 = getelementptr inbounds nuw i8, ptr %indvars.iv271.sroa.phi290, i64 64
+  %132 = getelementptr inbounds nuw i8, ptr %indvars.iv271.sroa.phi294, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !1525
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1528)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1531)
@@ -11067,7 +11067,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit136:          ; preds = %133
   br i1 %exitcond.not.i.i139, label %_ZNK5faiss12simd16uint16rsEi.exit140, label %140, !llvm.loop !146
 
 _ZNK5faiss12simd16uint16rsEi.exit140:             ; preds = %140
-  %145 = getelementptr inbounds nuw i8, ptr %indvars.iv271.sroa.phi290, i64 96
+  %145 = getelementptr inbounds nuw i8, ptr %indvars.iv271.sroa.phi294, i64 96
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !1543
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1546)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1549)
@@ -11098,7 +11098,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit144:          ; preds = %146
 
 .preheader243:                                    ; preds = %.preheader244, %.preheader243
   %153 = phi i1 [ true, %.preheader244 ], [ false, %.preheader243 ]
-  %indvars.iv274.sroa.phi = phi ptr [ %42, %.preheader244 ], [ %indvars.iv274.sroa.gep286, %.preheader243 ]
+  %indvars.iv274.sroa.phi = phi ptr [ %42, %.preheader244 ], [ %indvars.iv274.sroa.gep290, %.preheader243 ]
   %.3100259 = phi ptr [ %.097.lcssa, %.preheader244 ], [ %154, %.preheader243 ]
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %indvars.iv274.sroa.phi, ptr noundef nonnull align 1 dereferenceable(32) %.3100259, i64 32, i1 false)
   %154 = getelementptr inbounds nuw i8, ptr %.3100259, i64 32
@@ -11189,8 +11189,8 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit156: ; preds = %167
 
 177:                                              ; preds = %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit156, %_ZN5faiss12simd16uint16pLERKS0_.exit201
   %178 = phi i1 [ true, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit156 ], [ false, %_ZN5faiss12simd16uint16pLERKS0_.exit201 ]
-  %indvars.iv277.sroa.phi = phi ptr [ %42, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit156 ], [ %indvars.iv277.sroa.gep287, %_ZN5faiss12simd16uint16pLERKS0_.exit201 ]
-  %indvars.iv277.sroa.phi293 = phi ptr [ %25, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit156 ], [ %indvars.iv277.sroa.gep295, %_ZN5faiss12simd16uint16pLERKS0_.exit201 ]
+  %indvars.iv277.sroa.phi = phi ptr [ %42, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit156 ], [ %indvars.iv277.sroa.gep291, %_ZN5faiss12simd16uint16pLERKS0_.exit201 ]
+  %indvars.iv277.sroa.phi297 = phi ptr [ %25, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit156 ], [ %indvars.iv277.sroa.gep299, %_ZN5faiss12simd16uint16pLERKS0_.exit201 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %49, ptr noundef nonnull align 16 dereferenceable(32) %indvars.iv277.sroa.phi, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
@@ -11254,7 +11254,7 @@ _ZNK5faiss15NormTableScaler8scale_loERKNS_11simd32uint8E.exit: ; preds = %190
 
 197:                                              ; preds = %197, %_ZNK5faiss15NormTableScaler8scale_loERKNS_11simd32uint8E.exit
   %indvars.iv.i.i.i163 = phi i64 [ 0, %_ZNK5faiss15NormTableScaler8scale_loERKNS_11simd32uint8E.exit ], [ %indvars.iv.next.i.i.i164, %197 ]
-  %198 = getelementptr inbounds nuw [16 x i16], ptr %indvars.iv277.sroa.phi293, i64 0, i64 %indvars.iv.i.i.i163
+  %198 = getelementptr inbounds nuw [16 x i16], ptr %indvars.iv277.sroa.phi297, i64 0, i64 %indvars.iv.i.i.i163
   %199 = load i16, ptr %198, align 2, !tbaa !16, !noalias !1603
   %200 = getelementptr inbounds nuw [16 x i16], ptr %51, i64 0, i64 %indvars.iv.i.i.i163
   %201 = load i16, ptr %200, align 2, !tbaa !16, !noalias !1603
@@ -11266,7 +11266,7 @@ _ZNK5faiss15NormTableScaler8scale_loERKNS_11simd32uint8E.exit: ; preds = %190
   br i1 %exitcond.not.i.i.i165, label %_ZN5faiss12simd16uint16pLERKS0_.exit166, label %197, !llvm.loop !181
 
 _ZN5faiss12simd16uint16pLERKS0_.exit166:          ; preds = %197
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %indvars.iv277.sroa.phi293, ptr noundef nonnull align 4 dereferenceable(32) %15, i64 32, i1 false), !noalias !1594
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %indvars.iv277.sroa.phi297, ptr noundef nonnull align 4 dereferenceable(32) %15, i64 32, i1 false), !noalias !1594
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1594
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
@@ -11310,7 +11310,7 @@ _ZNK5faiss12simd16uint16rsEi.exit.i:              ; preds = %204
 _ZNK5faiss15NormTableScaler8scale_hiERKNS_11simd32uint8E.exit: ; preds = %209
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !1605
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1605
-  %216 = getelementptr inbounds nuw i8, ptr %indvars.iv277.sroa.phi293, i64 32
+  %216 = getelementptr inbounds nuw i8, ptr %indvars.iv277.sroa.phi297, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1623
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1626)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1629)
@@ -11387,7 +11387,7 @@ _ZNK5faiss15NormTableScaler6lookupERKNS_11simd32uint8ES3_.exit181: ; preds = %23
 
 _ZNK5faiss15NormTableScaler8scale_loERKNS_11simd32uint8E.exit185: ; preds = %235
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1641
-  %242 = getelementptr inbounds nuw i8, ptr %indvars.iv277.sroa.phi293, i64 64
+  %242 = getelementptr inbounds nuw i8, ptr %indvars.iv277.sroa.phi297, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1651
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1654)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1657)
@@ -11451,7 +11451,7 @@ _ZNK5faiss12simd16uint16rsEi.exit.i193:           ; preds = %250
 _ZNK5faiss15NormTableScaler8scale_hiERKNS_11simd32uint8E.exit197: ; preds = %255
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1662
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1662
-  %262 = getelementptr inbounds nuw i8, ptr %indvars.iv277.sroa.phi293, i64 96
+  %262 = getelementptr inbounds nuw i8, ptr %indvars.iv277.sroa.phi297, i64 96
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1680
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1683)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1686)
@@ -11481,7 +11481,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit201:          ; preds = %263
 
 .preheader:                                       ; preds = %.preheader241, %_ZN5faiss10combine2x2ERKNS_12simd16uint16ES2_.exit222
   %270 = phi i1 [ true, %.preheader241 ], [ false, %_ZN5faiss10combine2x2ERKNS_12simd16uint16ES2_.exit222 ]
-  %indvars.iv280.sroa.phi = phi ptr [ %25, %.preheader241 ], [ %indvars.iv280.sroa.gep296, %_ZN5faiss10combine2x2ERKNS_12simd16uint16ES2_.exit222 ]
+  %indvars.iv280.sroa.phi = phi ptr [ %25, %.preheader241 ], [ %indvars.iv280.sroa.gep300, %_ZN5faiss10combine2x2ERKNS_12simd16uint16ES2_.exit222 ]
   %indvars.iv280 = phi i64 [ 0, %.preheader241 ], [ 1, %_ZN5faiss10combine2x2ERKNS_12simd16uint16ES2_.exit222 ]
   %271 = getelementptr inbounds nuw i8, ptr %indvars.iv280.sroa.phi, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
@@ -11734,13 +11734,13 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %62, i8 0, i64 128, i1 false)
   %63 = add nsw i32 %0, -2
   %64 = icmp sgt i32 %0, 2
-  %indvars.iv285.sroa.gep303 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %indvars.iv288.sroa.gep304 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %indvars.iv276.sroa.gep305 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %indvars.iv279.sroa.gep306 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %indvars.iv297.sroa.gep307 = getelementptr inbounds nuw i8, ptr %25, i64 256
+  %indvars.iv285.sroa.gep307 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %indvars.iv288.sroa.gep308 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %indvars.iv276.sroa.gep309 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %indvars.iv279.sroa.gep310 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %indvars.iv297.sroa.gep311 = getelementptr inbounds nuw i8, ptr %25, i64 256
   %indvars.iv282.sroa.gep = getelementptr inbounds nuw i8, ptr %25, i64 128
-  %indvars.iv291.sroa.gep309 = getelementptr inbounds nuw i8, ptr %25, i64 128
+  %indvars.iv291.sroa.gep313 = getelementptr inbounds nuw i8, ptr %25, i64 128
   br i1 %64, label %.lr.ph, label %.preheader243
 
 .preheader243:                                    ; preds = %67, %.preheader247.preheader
@@ -11758,7 +11758,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
 
 .preheader245:                                    ; preds = %.lr.ph, %.preheader245
   %65 = phi i1 [ true, %.lr.ph ], [ false, %.preheader245 ]
-  %indvars.iv276.sroa.phi = phi ptr [ %26, %.lr.ph ], [ %indvars.iv276.sroa.gep305, %.preheader245 ]
+  %indvars.iv276.sroa.phi = phi ptr [ %26, %.lr.ph ], [ %indvars.iv276.sroa.gep309, %.preheader245 ]
   %.198251 = phi ptr [ %.097256, %.lr.ph ], [ %66, %.preheader245 ]
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %indvars.iv276.sroa.phi, ptr noundef nonnull align 1 dereferenceable(32) %.198251, i64 32, i1 false)
   %66 = getelementptr inbounds nuw i8, ptr %.198251, i64 32
@@ -11855,7 +11855,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit116: ; preds = %83
 
 92:                                               ; preds = %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit116, %_ZN5faiss12simd16uint16pLERKS0_.exit144
   %93 = phi i1 [ true, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit116 ], [ false, %_ZN5faiss12simd16uint16pLERKS0_.exit144 ]
-  %indvars.iv279.sroa.phi = phi ptr [ %26, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit116 ], [ %indvars.iv279.sroa.gep306, %_ZN5faiss12simd16uint16pLERKS0_.exit144 ]
+  %indvars.iv279.sroa.phi = phi ptr [ %26, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit116 ], [ %indvars.iv279.sroa.gep310, %_ZN5faiss12simd16uint16pLERKS0_.exit144 ]
   %indvars.iv279 = phi i64 [ 0, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit116 ], [ 1, %_ZN5faiss12simd16uint16pLERKS0_.exit144 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %33, ptr noundef nonnull align 16 dereferenceable(32) %indvars.iv279.sroa.phi, i64 32, i1 false)
@@ -12062,7 +12062,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit144:          ; preds = %150
 
 .preheader242:                                    ; preds = %.preheader243, %.preheader242
   %157 = phi i1 [ true, %.preheader243 ], [ false, %.preheader242 ]
-  %indvars.iv285.sroa.phi = phi ptr [ %42, %.preheader243 ], [ %indvars.iv285.sroa.gep303, %.preheader242 ]
+  %indvars.iv285.sroa.phi = phi ptr [ %42, %.preheader243 ], [ %indvars.iv285.sroa.gep307, %.preheader242 ]
   %.3100260 = phi ptr [ %.097.lcssa, %.preheader243 ], [ %158, %.preheader242 ]
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %indvars.iv285.sroa.phi, ptr noundef nonnull align 1 dereferenceable(32) %.3100260, i64 32, i1 false)
   %158 = getelementptr inbounds nuw i8, ptr %.3100260, i64 32
@@ -12080,7 +12080,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit144:          ; preds = %150
 
 .preheader241:                                    ; preds = %.preheader241.preheader, %182
   %162 = phi i1 [ true, %.preheader241.preheader ], [ false, %182 ]
-  %indvars.iv291.sroa.phi = phi ptr [ %25, %.preheader241.preheader ], [ %indvars.iv291.sroa.gep309, %182 ]
+  %indvars.iv291.sroa.phi = phi ptr [ %25, %.preheader241.preheader ], [ %indvars.iv291.sroa.gep313, %182 ]
   %.3265 = phi ptr [ %.096.lcssa, %.preheader241.preheader ], [ %183, %182 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %43, ptr noundef nonnull align 1 dereferenceable(32) %.3265, i64 32, i1 false)
@@ -12163,7 +12163,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit156: ; preds = %175
 
 184:                                              ; preds = %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit156, %_ZN5faiss12simd16uint16pLERKS0_.exit201
   %185 = phi i1 [ true, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit156 ], [ false, %_ZN5faiss12simd16uint16pLERKS0_.exit201 ]
-  %indvars.iv288.sroa.phi = phi ptr [ %42, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit156 ], [ %indvars.iv288.sroa.gep304, %_ZN5faiss12simd16uint16pLERKS0_.exit201 ]
+  %indvars.iv288.sroa.phi = phi ptr [ %42, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit156 ], [ %indvars.iv288.sroa.gep308, %_ZN5faiss12simd16uint16pLERKS0_.exit201 ]
   %indvars.iv288 = phi i64 [ 0, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit156 ], [ 1, %_ZN5faiss12simd16uint16pLERKS0_.exit201 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %49, ptr noundef nonnull align 16 dereferenceable(32) %indvars.iv288.sroa.phi, i64 32, i1 false)
@@ -12456,7 +12456,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit201:          ; preds = %270
 
 .preheader:                                       ; preds = %.preheader240, %279
   %277 = phi i1 [ true, %.preheader240 ], [ false, %279 ]
-  %indvars.iv297.sroa.phi = phi ptr [ %25, %.preheader240 ], [ %indvars.iv297.sroa.gep307, %279 ]
+  %indvars.iv297.sroa.phi = phi ptr [ %25, %.preheader240 ], [ %indvars.iv297.sroa.gep311, %279 ]
   %indvars.iv297 = phi i64 [ 0, %.preheader240 ], [ 1, %279 ]
   br label %280
 
@@ -15081,8 +15081,8 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %32, i8 0, i64 128, i1 false)
   %33 = icmp sgt i32 %0, 0
-  %indvars.iv31.sroa.gep35 = getelementptr inbounds nuw i8, ptr %12, i64 128
-  %indvars.iv28.sroa.gep36 = getelementptr inbounds nuw i8, ptr %12, i64 128
+  %indvars.iv31.sroa.gep38 = getelementptr inbounds nuw i8, ptr %12, i64 128
+  %indvars.iv28.sroa.gep39 = getelementptr inbounds nuw i8, ptr %12, i64 128
   br i1 %33, label %.lr.ph, label %.preheader12
 
 .preheader12:                                     ; preds = %36, %.preheader16.preheader
@@ -15104,7 +15104,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
 
 40:                                               ; preds = %.lr.ph, %_ZN5faiss12simd16uint16pLERKS0_.exit136
   %41 = phi i1 [ true, %.lr.ph ], [ false, %_ZN5faiss12simd16uint16pLERKS0_.exit136 ]
-  %indvars.iv28.sroa.phi = phi ptr [ %12, %.lr.ph ], [ %indvars.iv28.sroa.gep36, %_ZN5faiss12simd16uint16pLERKS0_.exit136 ]
+  %indvars.iv28.sroa.phi = phi ptr [ %12, %.lr.ph ], [ %indvars.iv28.sroa.gep39, %_ZN5faiss12simd16uint16pLERKS0_.exit136 ]
   %.121 = phi ptr [ %.09624, %.lr.ph ], [ %124, %_ZN5faiss12simd16uint16pLERKS0_.exit136 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %13, ptr noundef nonnull align 1 dereferenceable(32) %.121, i64 32, i1 false)
@@ -15388,7 +15388,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit136:          ; preds = %117
 
 125:                                              ; preds = %.preheader12, %_ZN5faiss10combine2x2ERKNS_12simd16uint16ES2_.exit157
   %126 = phi i1 [ true, %.preheader12 ], [ false, %_ZN5faiss10combine2x2ERKNS_12simd16uint16ES2_.exit157 ]
-  %indvars.iv31.sroa.phi = phi ptr [ %12, %.preheader12 ], [ %indvars.iv31.sroa.gep35, %_ZN5faiss10combine2x2ERKNS_12simd16uint16ES2_.exit157 ]
+  %indvars.iv31.sroa.phi = phi ptr [ %12, %.preheader12 ], [ %indvars.iv31.sroa.gep38, %_ZN5faiss10combine2x2ERKNS_12simd16uint16ES2_.exit157 ]
   %indvars.iv31 = phi i64 [ 0, %.preheader12 ], [ 2, %_ZN5faiss10combine2x2ERKNS_12simd16uint16ES2_.exit157 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %127 = getelementptr inbounds nuw i8, ptr %indvars.iv31.sroa.phi, i64 32
@@ -17064,10 +17064,10 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %33, i8 0, i64 128, i1 false)
   %34 = icmp sgt i32 %0, 0
-  %indvars.iv29.sroa.gep38 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %indvars.iv32.sroa.gep39 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %indvars.iv32.sroa.gep42 = getelementptr inbounds nuw i8, ptr %12, i64 128
-  %indvars.iv35.sroa.gep43 = getelementptr inbounds nuw i8, ptr %12, i64 128
+  %indvars.iv29.sroa.gep41 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %indvars.iv32.sroa.gep42 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %indvars.iv32.sroa.gep45 = getelementptr inbounds nuw i8, ptr %12, i64 128
+  %indvars.iv35.sroa.gep46 = getelementptr inbounds nuw i8, ptr %12, i64 128
   br i1 %34, label %.lr.ph, label %.preheader13
 
 .preheader13:                                     ; preds = %58, %.preheader17.preheader
@@ -17084,7 +17084,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
 
 .preheader15:                                     ; preds = %.lr.ph, %.preheader15
   %37 = phi i1 [ true, %.lr.ph ], [ false, %.preheader15 ]
-  %indvars.iv29.sroa.phi = phi ptr [ %13, %.lr.ph ], [ %indvars.iv29.sroa.gep38, %.preheader15 ]
+  %indvars.iv29.sroa.phi = phi ptr [ %13, %.lr.ph ], [ %indvars.iv29.sroa.gep41, %.preheader15 ]
   %.19820 = phi ptr [ %.09724, %.lr.ph ], [ %38, %.preheader15 ]
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %indvars.iv29.sroa.phi, ptr noundef nonnull align 1 dereferenceable(32) %.19820, i64 32, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %.19820, i64 32
@@ -17175,8 +17175,8 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112: ; preds = %51
 
 62:                                               ; preds = %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112, %_ZN5faiss12simd16uint16pLERKS0_.exit140
   %63 = phi i1 [ true, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112 ], [ false, %_ZN5faiss12simd16uint16pLERKS0_.exit140 ]
-  %indvars.iv32.sroa.phi = phi ptr [ %13, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112 ], [ %indvars.iv32.sroa.gep39, %_ZN5faiss12simd16uint16pLERKS0_.exit140 ]
-  %indvars.iv32.sroa.phi40 = phi ptr [ %12, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112 ], [ %indvars.iv32.sroa.gep42, %_ZN5faiss12simd16uint16pLERKS0_.exit140 ]
+  %indvars.iv32.sroa.phi = phi ptr [ %13, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112 ], [ %indvars.iv32.sroa.gep42, %_ZN5faiss12simd16uint16pLERKS0_.exit140 ]
+  %indvars.iv32.sroa.phi43 = phi ptr [ %12, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112 ], [ %indvars.iv32.sroa.gep45, %_ZN5faiss12simd16uint16pLERKS0_.exit140 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %20, ptr noundef nonnull align 16 dereferenceable(32) %indvars.iv32.sroa.phi, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -17248,7 +17248,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit120: ; preds = %84
 
 86:                                               ; preds = %86, %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit120
   %indvars.iv.i.i.i = phi i64 [ 0, %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit120 ], [ %indvars.iv.next.i.i.i, %86 ]
-  %87 = getelementptr inbounds nuw [16 x i16], ptr %indvars.iv32.sroa.phi40, i64 0, i64 %indvars.iv.i.i.i
+  %87 = getelementptr inbounds nuw [16 x i16], ptr %indvars.iv32.sroa.phi43, i64 0, i64 %indvars.iv.i.i.i
   %88 = load i16, ptr %87, align 2, !tbaa !16, !noalias !3233
   %89 = getelementptr inbounds nuw [16 x i16], ptr %23, i64 0, i64 %indvars.iv.i.i.i
   %90 = load i16, ptr %89, align 2, !tbaa !16, !noalias !3233
@@ -17260,7 +17260,7 @@ _ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit120: ; preds = %84
   br i1 %exitcond.not.i.i.i, label %_ZN5faiss12simd16uint16pLERKS0_.exit, label %86, !llvm.loop !181
 
 _ZN5faiss12simd16uint16pLERKS0_.exit:             ; preds = %86
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %indvars.iv32.sroa.phi40, ptr noundef nonnull align 4 dereferenceable(32) %9, i64 32, i1 false), !noalias !3224
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %indvars.iv32.sroa.phi43, ptr noundef nonnull align 4 dereferenceable(32) %9, i64 32, i1 false), !noalias !3224
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !3224
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -17282,7 +17282,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit:             ; preds = %86
   br i1 %exitcond.not.i.i123, label %_ZNK5faiss12simd16uint16rsEi.exit124, label %93, !llvm.loop !146
 
 _ZNK5faiss12simd16uint16rsEi.exit124:             ; preds = %93
-  %98 = getelementptr inbounds nuw i8, ptr %indvars.iv32.sroa.phi40, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %indvars.iv32.sroa.phi43, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !3242
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3245)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3248)
@@ -17308,7 +17308,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit128:          ; preds = %99
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %26, ptr noundef nonnull align 4 dereferenceable(32) %22, i64 32, i1 false), !tbaa.struct !147
-  %106 = getelementptr inbounds nuw i8, ptr %indvars.iv32.sroa.phi40, i64 64
+  %106 = getelementptr inbounds nuw i8, ptr %indvars.iv32.sroa.phi43, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !3253
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3256)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3259)
@@ -17350,7 +17350,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit132:          ; preds = %107
   br i1 %exitcond.not.i.i135, label %_ZNK5faiss12simd16uint16rsEi.exit136, label %114, !llvm.loop !146
 
 _ZNK5faiss12simd16uint16rsEi.exit136:             ; preds = %114
-  %119 = getelementptr inbounds nuw i8, ptr %indvars.iv32.sroa.phi40, i64 96
+  %119 = getelementptr inbounds nuw i8, ptr %indvars.iv32.sroa.phi43, i64 96
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3271
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3274)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3277)
@@ -17381,7 +17381,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit140:          ; preds = %120
 
 .preheader:                                       ; preds = %.preheader13, %_ZN5faiss10combine2x2ERKNS_12simd16uint16ES2_.exit161
   %127 = phi i1 [ true, %.preheader13 ], [ false, %_ZN5faiss10combine2x2ERKNS_12simd16uint16ES2_.exit161 ]
-  %indvars.iv35.sroa.phi = phi ptr [ %12, %.preheader13 ], [ %indvars.iv35.sroa.gep43, %_ZN5faiss10combine2x2ERKNS_12simd16uint16ES2_.exit161 ]
+  %indvars.iv35.sroa.phi = phi ptr [ %12, %.preheader13 ], [ %indvars.iv35.sroa.gep46, %_ZN5faiss10combine2x2ERKNS_12simd16uint16ES2_.exit161 ]
   %indvars.iv35 = phi i64 [ 0, %.preheader13 ], [ 1, %_ZN5faiss10combine2x2ERKNS_12simd16uint16ES2_.exit161 ]
   %128 = getelementptr inbounds nuw i8, ptr %indvars.iv35.sroa.phi, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
@@ -17572,9 +17572,9 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 384
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %35, i8 0, i64 128, i1 false)
   %36 = icmp sgt i32 %0, 0
-  %indvars.iv35.sroa.gep53 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %indvars.iv38.sroa.gep54 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %indvars.iv47.sroa.gep55 = getelementptr inbounds nuw i8, ptr %12, i64 256
+  %indvars.iv35.sroa.gep56 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %indvars.iv38.sroa.gep57 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %indvars.iv47.sroa.gep58 = getelementptr inbounds nuw i8, ptr %12, i64 256
   %indvars.iv41.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 128
   br i1 %36, label %.lr.ph, label %.preheader12
 
@@ -17592,7 +17592,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
 
 .preheader14:                                     ; preds = %.lr.ph, %.preheader14
   %39 = phi i1 [ true, %.lr.ph ], [ false, %.preheader14 ]
-  %indvars.iv35.sroa.phi = phi ptr [ %13, %.lr.ph ], [ %indvars.iv35.sroa.gep53, %.preheader14 ]
+  %indvars.iv35.sroa.phi = phi ptr [ %13, %.lr.ph ], [ %indvars.iv35.sroa.gep56, %.preheader14 ]
   %.19820 = phi ptr [ %.09725, %.lr.ph ], [ %40, %.preheader14 ]
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %indvars.iv35.sroa.phi, ptr noundef nonnull align 1 dereferenceable(32) %.19820, i64 32, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %.19820, i64 32
@@ -17689,7 +17689,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112: ; preds = %57
 
 66:                                               ; preds = %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112, %_ZN5faiss12simd16uint16pLERKS0_.exit140
   %67 = phi i1 [ true, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112 ], [ false, %_ZN5faiss12simd16uint16pLERKS0_.exit140 ]
-  %indvars.iv38.sroa.phi = phi ptr [ %13, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112 ], [ %indvars.iv38.sroa.gep54, %_ZN5faiss12simd16uint16pLERKS0_.exit140 ]
+  %indvars.iv38.sroa.phi = phi ptr [ %13, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112 ], [ %indvars.iv38.sroa.gep57, %_ZN5faiss12simd16uint16pLERKS0_.exit140 ]
   %indvars.iv38 = phi i64 [ 0, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112 ], [ 1, %_ZN5faiss12simd16uint16pLERKS0_.exit140 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %20, ptr noundef nonnull align 16 dereferenceable(32) %indvars.iv38.sroa.phi, i64 32, i1 false)
@@ -17896,7 +17896,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit140:          ; preds = %124
 
 .preheader:                                       ; preds = %.preheader12, %133
   %131 = phi i1 [ true, %.preheader12 ], [ false, %133 ]
-  %indvars.iv47.sroa.phi = phi ptr [ %12, %.preheader12 ], [ %indvars.iv47.sroa.gep55, %133 ]
+  %indvars.iv47.sroa.phi = phi ptr [ %12, %.preheader12 ], [ %indvars.iv47.sroa.gep58, %133 ]
   %indvars.iv47 = phi i64 [ 0, %.preheader12 ], [ 1, %133 ]
   br label %134
 
@@ -31371,11 +31371,11 @@ _ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i:            ; preds = %146
   br i1 %150, label %_ZN5faiss16heap_replace_topINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %151
 
 151:                                              ; preds = %_ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit54.i
-  %.sink63.i = phi i16 [ %139, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit54.i ], [ %130, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i ]
+  %.sink71.i = phi i16 [ %139, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit54.i ], [ %130, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i ]
   %.sink.i = phi i32 [ %142, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit54.i ], [ %132, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i ]
   %.1.i = phi i64 [ %124, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit54.i ], [ %123, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i ]
   %152 = getelementptr inbounds nuw i16, ptr %92, i64 %.056.i
-  store i16 %.sink63.i, ptr %152, align 2, !tbaa !3868
+  store i16 %.sink71.i, ptr %152, align 2, !tbaa !3868
   %153 = getelementptr inbounds nuw i32, ptr %93, i64 %.056.i
   store i32 %.sink.i, ptr %153, align 4, !tbaa !3894
   %154 = shl i64 %.1.i, 1
@@ -31466,11 +31466,11 @@ _ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i49:          ; preds = %195
   br i1 %199, label %_ZN5faiss16heap_replace_topINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit58, label %200
 
 200:                                              ; preds = %_ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i49, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit54.i55
-  %.sink63.i50 = phi i16 [ %188, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit54.i55 ], [ %179, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i49 ]
+  %.sink71.i50 = phi i16 [ %188, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit54.i55 ], [ %179, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i49 ]
   %.sink.i51 = phi i32 [ %191, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit54.i55 ], [ %181, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i49 ]
   %.1.i52 = phi i64 [ %173, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit54.i55 ], [ %172, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i49 ]
   %201 = getelementptr inbounds nuw i16, ptr %97, i64 %.056.i47
-  store i16 %.sink63.i50, ptr %201, align 2, !tbaa !3868
+  store i16 %.sink71.i50, ptr %201, align 2, !tbaa !3868
   %202 = getelementptr inbounds nuw i32, ptr %98, i64 %.056.i47
   store i32 %.sink.i51, ptr %202, align 4, !tbaa !3894
   %203 = shl i64 %.1.i52, 1
@@ -34524,11 +34524,11 @@ _ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i:            ; preds = %132
   br i1 %136, label %_ZN5faiss16heap_replace_topINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %137
 
 137:                                              ; preds = %_ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit54.i
-  %.sink63.i = phi i16 [ %125, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit54.i ], [ %116, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i ]
+  %.sink71.i = phi i16 [ %125, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit54.i ], [ %116, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i ]
   %.sink.i = phi i32 [ %128, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit54.i ], [ %118, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i ]
   %.1.i = phi i64 [ %110, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit54.i ], [ %109, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i ]
   %138 = getelementptr inbounds nuw i16, ptr %86, i64 %.056.i
-  store i16 %.sink63.i, ptr %138, align 2, !tbaa !3868
+  store i16 %.sink71.i, ptr %138, align 2, !tbaa !3868
   %139 = getelementptr inbounds nuw i32, ptr %87, i64 %.056.i
   store i32 %.sink.i, ptr %139, align 4, !tbaa !3894
   %140 = shl i64 %.1.i, 1
@@ -34617,11 +34617,11 @@ _ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i47:          ; preds = %179
   br i1 %183, label %_ZN5faiss16heap_replace_topINS_4CMaxItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit56, label %184
 
 184:                                              ; preds = %_ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i47, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit54.i53
-  %.sink63.i48 = phi i16 [ %172, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit54.i53 ], [ %163, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i47 ]
+  %.sink71.i48 = phi i16 [ %172, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit54.i53 ], [ %163, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i47 ]
   %.sink.i49 = phi i32 [ %175, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit54.i53 ], [ %165, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i47 ]
   %.1.i50 = phi i64 [ %157, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit54.i53 ], [ %156, %_ZN5faiss4CMaxItiE4cmp2Ettii.exit55.i47 ]
   %185 = getelementptr inbounds nuw i16, ptr %86, i64 %.056.i45
-  store i16 %.sink63.i48, ptr %185, align 2, !tbaa !3868
+  store i16 %.sink71.i48, ptr %185, align 2, !tbaa !3868
   %186 = getelementptr inbounds nuw i32, ptr %87, i64 %.056.i45
   store i32 %.sink.i49, ptr %186, align 4, !tbaa !3894
   %187 = shl i64 %.1.i50, 1
@@ -47227,11 +47227,11 @@ _ZN5faiss4CMinItiE4cmp2Ettii.exit55.i:            ; preds = %146
   br i1 %150, label %_ZN5faiss16heap_replace_topINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %151
 
 151:                                              ; preds = %_ZN5faiss4CMinItiE4cmp2Ettii.exit55.i, %_ZN5faiss4CMinItiE4cmp2Ettii.exit54.i
-  %.sink63.i = phi i16 [ %139, %_ZN5faiss4CMinItiE4cmp2Ettii.exit54.i ], [ %130, %_ZN5faiss4CMinItiE4cmp2Ettii.exit55.i ]
+  %.sink71.i = phi i16 [ %139, %_ZN5faiss4CMinItiE4cmp2Ettii.exit54.i ], [ %130, %_ZN5faiss4CMinItiE4cmp2Ettii.exit55.i ]
   %.sink.i = phi i32 [ %142, %_ZN5faiss4CMinItiE4cmp2Ettii.exit54.i ], [ %132, %_ZN5faiss4CMinItiE4cmp2Ettii.exit55.i ]
   %.1.i = phi i64 [ %124, %_ZN5faiss4CMinItiE4cmp2Ettii.exit54.i ], [ %123, %_ZN5faiss4CMinItiE4cmp2Ettii.exit55.i ]
   %152 = getelementptr inbounds nuw i16, ptr %92, i64 %.056.i
-  store i16 %.sink63.i, ptr %152, align 2, !tbaa !3868
+  store i16 %.sink71.i, ptr %152, align 2, !tbaa !3868
   %153 = getelementptr inbounds nuw i32, ptr %93, i64 %.056.i
   store i32 %.sink.i, ptr %153, align 4, !tbaa !3894
   %154 = shl i64 %.1.i, 1
@@ -47322,11 +47322,11 @@ _ZN5faiss4CMinItiE4cmp2Ettii.exit55.i49:          ; preds = %195
   br i1 %199, label %_ZN5faiss16heap_replace_topINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit58, label %200
 
 200:                                              ; preds = %_ZN5faiss4CMinItiE4cmp2Ettii.exit55.i49, %_ZN5faiss4CMinItiE4cmp2Ettii.exit54.i55
-  %.sink63.i50 = phi i16 [ %188, %_ZN5faiss4CMinItiE4cmp2Ettii.exit54.i55 ], [ %179, %_ZN5faiss4CMinItiE4cmp2Ettii.exit55.i49 ]
+  %.sink71.i50 = phi i16 [ %188, %_ZN5faiss4CMinItiE4cmp2Ettii.exit54.i55 ], [ %179, %_ZN5faiss4CMinItiE4cmp2Ettii.exit55.i49 ]
   %.sink.i51 = phi i32 [ %191, %_ZN5faiss4CMinItiE4cmp2Ettii.exit54.i55 ], [ %181, %_ZN5faiss4CMinItiE4cmp2Ettii.exit55.i49 ]
   %.1.i52 = phi i64 [ %173, %_ZN5faiss4CMinItiE4cmp2Ettii.exit54.i55 ], [ %172, %_ZN5faiss4CMinItiE4cmp2Ettii.exit55.i49 ]
   %201 = getelementptr inbounds nuw i16, ptr %97, i64 %.056.i47
-  store i16 %.sink63.i50, ptr %201, align 2, !tbaa !3868
+  store i16 %.sink71.i50, ptr %201, align 2, !tbaa !3868
   %202 = getelementptr inbounds nuw i32, ptr %98, i64 %.056.i47
   store i32 %.sink.i51, ptr %202, align 4, !tbaa !3894
   %203 = shl i64 %.1.i52, 1
@@ -50380,11 +50380,11 @@ _ZN5faiss4CMinItiE4cmp2Ettii.exit55.i:            ; preds = %132
   br i1 %136, label %_ZN5faiss16heap_replace_topINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %137
 
 137:                                              ; preds = %_ZN5faiss4CMinItiE4cmp2Ettii.exit55.i, %_ZN5faiss4CMinItiE4cmp2Ettii.exit54.i
-  %.sink63.i = phi i16 [ %125, %_ZN5faiss4CMinItiE4cmp2Ettii.exit54.i ], [ %116, %_ZN5faiss4CMinItiE4cmp2Ettii.exit55.i ]
+  %.sink71.i = phi i16 [ %125, %_ZN5faiss4CMinItiE4cmp2Ettii.exit54.i ], [ %116, %_ZN5faiss4CMinItiE4cmp2Ettii.exit55.i ]
   %.sink.i = phi i32 [ %128, %_ZN5faiss4CMinItiE4cmp2Ettii.exit54.i ], [ %118, %_ZN5faiss4CMinItiE4cmp2Ettii.exit55.i ]
   %.1.i = phi i64 [ %110, %_ZN5faiss4CMinItiE4cmp2Ettii.exit54.i ], [ %109, %_ZN5faiss4CMinItiE4cmp2Ettii.exit55.i ]
   %138 = getelementptr inbounds nuw i16, ptr %86, i64 %.056.i
-  store i16 %.sink63.i, ptr %138, align 2, !tbaa !3868
+  store i16 %.sink71.i, ptr %138, align 2, !tbaa !3868
   %139 = getelementptr inbounds nuw i32, ptr %87, i64 %.056.i
   store i32 %.sink.i, ptr %139, align 4, !tbaa !3894
   %140 = shl i64 %.1.i, 1
@@ -50473,11 +50473,11 @@ _ZN5faiss4CMinItiE4cmp2Ettii.exit55.i47:          ; preds = %179
   br i1 %183, label %_ZN5faiss16heap_replace_topINS_4CMinItiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit56, label %184
 
 184:                                              ; preds = %_ZN5faiss4CMinItiE4cmp2Ettii.exit55.i47, %_ZN5faiss4CMinItiE4cmp2Ettii.exit54.i53
-  %.sink63.i48 = phi i16 [ %172, %_ZN5faiss4CMinItiE4cmp2Ettii.exit54.i53 ], [ %163, %_ZN5faiss4CMinItiE4cmp2Ettii.exit55.i47 ]
+  %.sink71.i48 = phi i16 [ %172, %_ZN5faiss4CMinItiE4cmp2Ettii.exit54.i53 ], [ %163, %_ZN5faiss4CMinItiE4cmp2Ettii.exit55.i47 ]
   %.sink.i49 = phi i32 [ %175, %_ZN5faiss4CMinItiE4cmp2Ettii.exit54.i53 ], [ %165, %_ZN5faiss4CMinItiE4cmp2Ettii.exit55.i47 ]
   %.1.i50 = phi i64 [ %157, %_ZN5faiss4CMinItiE4cmp2Ettii.exit54.i53 ], [ %156, %_ZN5faiss4CMinItiE4cmp2Ettii.exit55.i47 ]
   %185 = getelementptr inbounds nuw i16, ptr %86, i64 %.056.i45
-  store i16 %.sink63.i48, ptr %185, align 2, !tbaa !3868
+  store i16 %.sink71.i48, ptr %185, align 2, !tbaa !3868
   %186 = getelementptr inbounds nuw i32, ptr %87, i64 %.056.i45
   store i32 %.sink.i49, ptr %186, align 4, !tbaa !3894
   %187 = shl i64 %.1.i50, 1
@@ -63079,11 +63079,11 @@ _ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i:            ; preds = %142
   br i1 %146, label %_ZN5faiss16heap_replace_topINS_4CMaxItlEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %147
 
 147:                                              ; preds = %_ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit54.i
-  %.sink63.i = phi i16 [ %135, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit54.i ], [ %126, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i ]
+  %.sink71.i = phi i16 [ %135, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit54.i ], [ %126, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i ]
   %.sink.i = phi i64 [ %138, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit54.i ], [ %128, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i ]
   %.1.i = phi i64 [ %120, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit54.i ], [ %119, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i ]
   %148 = getelementptr inbounds nuw i16, ptr %92, i64 %.056.i
-  store i16 %.sink63.i, ptr %148, align 2, !tbaa !3868
+  store i16 %.sink71.i, ptr %148, align 2, !tbaa !3868
   %149 = getelementptr inbounds nuw i64, ptr %93, i64 %.056.i
   store i64 %.sink.i, ptr %149, align 8, !tbaa !3901
   %150 = shl i64 %.1.i, 1
@@ -63181,11 +63181,11 @@ _ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i49:          ; preds = %193
   br i1 %197, label %_ZN5faiss16heap_replace_topINS_4CMaxItlEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit58, label %198
 
 198:                                              ; preds = %_ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i49, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit54.i55
-  %.sink63.i50 = phi i16 [ %186, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit54.i55 ], [ %177, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i49 ]
+  %.sink71.i50 = phi i16 [ %186, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit54.i55 ], [ %177, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i49 ]
   %.sink.i51 = phi i64 [ %189, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit54.i55 ], [ %179, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i49 ]
   %.1.i52 = phi i64 [ %171, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit54.i55 ], [ %170, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i49 ]
   %199 = getelementptr inbounds nuw i16, ptr %95, i64 %.056.i47
-  store i16 %.sink63.i50, ptr %199, align 2, !tbaa !3868
+  store i16 %.sink71.i50, ptr %199, align 2, !tbaa !3868
   %200 = getelementptr inbounds nuw i64, ptr %96, i64 %.056.i47
   store i64 %.sink.i51, ptr %200, align 8, !tbaa !3901
   %201 = shl i64 %.1.i52, 1
@@ -66232,11 +66232,11 @@ _ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i:            ; preds = %129
   br i1 %133, label %_ZN5faiss16heap_replace_topINS_4CMaxItlEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %134
 
 134:                                              ; preds = %_ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit54.i
-  %.sink63.i = phi i16 [ %122, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit54.i ], [ %113, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i ]
+  %.sink71.i = phi i16 [ %122, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit54.i ], [ %113, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i ]
   %.sink.i = phi i64 [ %125, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit54.i ], [ %115, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i ]
   %.1.i = phi i64 [ %107, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit54.i ], [ %106, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i ]
   %135 = getelementptr inbounds nuw i16, ptr %86, i64 %.056.i
-  store i16 %.sink63.i, ptr %135, align 2, !tbaa !3868
+  store i16 %.sink71.i, ptr %135, align 2, !tbaa !3868
   %136 = getelementptr inbounds nuw i64, ptr %87, i64 %.056.i
   store i64 %.sink.i, ptr %136, align 8, !tbaa !3901
   %137 = shl i64 %.1.i, 1
@@ -66333,11 +66333,11 @@ _ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i47:          ; preds = %179
   br i1 %183, label %_ZN5faiss16heap_replace_topINS_4CMaxItlEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit56, label %184
 
 184:                                              ; preds = %_ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i47, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit54.i53
-  %.sink63.i48 = phi i16 [ %172, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit54.i53 ], [ %163, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i47 ]
+  %.sink71.i48 = phi i16 [ %172, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit54.i53 ], [ %163, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i47 ]
   %.sink.i49 = phi i64 [ %175, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit54.i53 ], [ %165, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i47 ]
   %.1.i50 = phi i64 [ %157, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit54.i53 ], [ %156, %_ZN5faiss4CMaxItlE4cmp2Ettll.exit55.i47 ]
   %185 = getelementptr inbounds nuw i16, ptr %86, i64 %.056.i45
-  store i16 %.sink63.i48, ptr %185, align 2, !tbaa !3868
+  store i16 %.sink71.i48, ptr %185, align 2, !tbaa !3868
   %186 = getelementptr inbounds nuw i64, ptr %87, i64 %.056.i45
   store i64 %.sink.i49, ptr %186, align 8, !tbaa !3901
   %187 = shl i64 %.1.i50, 1
@@ -78939,11 +78939,11 @@ _ZN5faiss4CMinItlE4cmp2Ettll.exit55.i:            ; preds = %142
   br i1 %146, label %_ZN5faiss16heap_replace_topINS_4CMinItlEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %147
 
 147:                                              ; preds = %_ZN5faiss4CMinItlE4cmp2Ettll.exit55.i, %_ZN5faiss4CMinItlE4cmp2Ettll.exit54.i
-  %.sink63.i = phi i16 [ %135, %_ZN5faiss4CMinItlE4cmp2Ettll.exit54.i ], [ %126, %_ZN5faiss4CMinItlE4cmp2Ettll.exit55.i ]
+  %.sink71.i = phi i16 [ %135, %_ZN5faiss4CMinItlE4cmp2Ettll.exit54.i ], [ %126, %_ZN5faiss4CMinItlE4cmp2Ettll.exit55.i ]
   %.sink.i = phi i64 [ %138, %_ZN5faiss4CMinItlE4cmp2Ettll.exit54.i ], [ %128, %_ZN5faiss4CMinItlE4cmp2Ettll.exit55.i ]
   %.1.i = phi i64 [ %120, %_ZN5faiss4CMinItlE4cmp2Ettll.exit54.i ], [ %119, %_ZN5faiss4CMinItlE4cmp2Ettll.exit55.i ]
   %148 = getelementptr inbounds nuw i16, ptr %92, i64 %.056.i
-  store i16 %.sink63.i, ptr %148, align 2, !tbaa !3868
+  store i16 %.sink71.i, ptr %148, align 2, !tbaa !3868
   %149 = getelementptr inbounds nuw i64, ptr %93, i64 %.056.i
   store i64 %.sink.i, ptr %149, align 8, !tbaa !3901
   %150 = shl i64 %.1.i, 1
@@ -79041,11 +79041,11 @@ _ZN5faiss4CMinItlE4cmp2Ettll.exit55.i49:          ; preds = %193
   br i1 %197, label %_ZN5faiss16heap_replace_topINS_4CMinItlEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit58, label %198
 
 198:                                              ; preds = %_ZN5faiss4CMinItlE4cmp2Ettll.exit55.i49, %_ZN5faiss4CMinItlE4cmp2Ettll.exit54.i55
-  %.sink63.i50 = phi i16 [ %186, %_ZN5faiss4CMinItlE4cmp2Ettll.exit54.i55 ], [ %177, %_ZN5faiss4CMinItlE4cmp2Ettll.exit55.i49 ]
+  %.sink71.i50 = phi i16 [ %186, %_ZN5faiss4CMinItlE4cmp2Ettll.exit54.i55 ], [ %177, %_ZN5faiss4CMinItlE4cmp2Ettll.exit55.i49 ]
   %.sink.i51 = phi i64 [ %189, %_ZN5faiss4CMinItlE4cmp2Ettll.exit54.i55 ], [ %179, %_ZN5faiss4CMinItlE4cmp2Ettll.exit55.i49 ]
   %.1.i52 = phi i64 [ %171, %_ZN5faiss4CMinItlE4cmp2Ettll.exit54.i55 ], [ %170, %_ZN5faiss4CMinItlE4cmp2Ettll.exit55.i49 ]
   %199 = getelementptr inbounds nuw i16, ptr %95, i64 %.056.i47
-  store i16 %.sink63.i50, ptr %199, align 2, !tbaa !3868
+  store i16 %.sink71.i50, ptr %199, align 2, !tbaa !3868
   %200 = getelementptr inbounds nuw i64, ptr %96, i64 %.056.i47
   store i64 %.sink.i51, ptr %200, align 8, !tbaa !3901
   %201 = shl i64 %.1.i52, 1
@@ -82092,11 +82092,11 @@ _ZN5faiss4CMinItlE4cmp2Ettll.exit55.i:            ; preds = %129
   br i1 %133, label %_ZN5faiss16heap_replace_topINS_4CMinItlEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %134
 
 134:                                              ; preds = %_ZN5faiss4CMinItlE4cmp2Ettll.exit55.i, %_ZN5faiss4CMinItlE4cmp2Ettll.exit54.i
-  %.sink63.i = phi i16 [ %122, %_ZN5faiss4CMinItlE4cmp2Ettll.exit54.i ], [ %113, %_ZN5faiss4CMinItlE4cmp2Ettll.exit55.i ]
+  %.sink71.i = phi i16 [ %122, %_ZN5faiss4CMinItlE4cmp2Ettll.exit54.i ], [ %113, %_ZN5faiss4CMinItlE4cmp2Ettll.exit55.i ]
   %.sink.i = phi i64 [ %125, %_ZN5faiss4CMinItlE4cmp2Ettll.exit54.i ], [ %115, %_ZN5faiss4CMinItlE4cmp2Ettll.exit55.i ]
   %.1.i = phi i64 [ %107, %_ZN5faiss4CMinItlE4cmp2Ettll.exit54.i ], [ %106, %_ZN5faiss4CMinItlE4cmp2Ettll.exit55.i ]
   %135 = getelementptr inbounds nuw i16, ptr %86, i64 %.056.i
-  store i16 %.sink63.i, ptr %135, align 2, !tbaa !3868
+  store i16 %.sink71.i, ptr %135, align 2, !tbaa !3868
   %136 = getelementptr inbounds nuw i64, ptr %87, i64 %.056.i
   store i64 %.sink.i, ptr %136, align 8, !tbaa !3901
   %137 = shl i64 %.1.i, 1
@@ -82193,11 +82193,11 @@ _ZN5faiss4CMinItlE4cmp2Ettll.exit55.i47:          ; preds = %179
   br i1 %183, label %_ZN5faiss16heap_replace_topINS_4CMinItlEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit56, label %184
 
 184:                                              ; preds = %_ZN5faiss4CMinItlE4cmp2Ettll.exit55.i47, %_ZN5faiss4CMinItlE4cmp2Ettll.exit54.i53
-  %.sink63.i48 = phi i16 [ %172, %_ZN5faiss4CMinItlE4cmp2Ettll.exit54.i53 ], [ %163, %_ZN5faiss4CMinItlE4cmp2Ettll.exit55.i47 ]
+  %.sink71.i48 = phi i16 [ %172, %_ZN5faiss4CMinItlE4cmp2Ettll.exit54.i53 ], [ %163, %_ZN5faiss4CMinItlE4cmp2Ettll.exit55.i47 ]
   %.sink.i49 = phi i64 [ %175, %_ZN5faiss4CMinItlE4cmp2Ettll.exit54.i53 ], [ %165, %_ZN5faiss4CMinItlE4cmp2Ettll.exit55.i47 ]
   %.1.i50 = phi i64 [ %157, %_ZN5faiss4CMinItlE4cmp2Ettll.exit54.i53 ], [ %156, %_ZN5faiss4CMinItlE4cmp2Ettll.exit55.i47 ]
   %185 = getelementptr inbounds nuw i16, ptr %86, i64 %.056.i45
-  store i16 %.sink63.i48, ptr %185, align 2, !tbaa !3868
+  store i16 %.sink71.i48, ptr %185, align 2, !tbaa !3868
   %186 = getelementptr inbounds nuw i64, ptr %87, i64 %.056.i45
   store i64 %.sink.i49, ptr %186, align 8, !tbaa !3901
   %187 = shl i64 %.1.i50, 1

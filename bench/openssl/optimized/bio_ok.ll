@@ -530,10 +530,10 @@ sig_in.exit.thread:                               ; preds = %70, %112, %._crit_e
   br label %block_in.exit.thread.sink.split
 
 block_in.exit.thread.sink.split:                  ; preds = %154, %157
-  %.sink102 = phi i64 [ 48, %157 ], [ 32, %154 ]
-  %.sink100 = phi i32 [ 1, %157 ], [ 0, %154 ]
-  %162 = getelementptr inbounds nuw i8, ptr %119, i64 %.sink102
-  store i32 %.sink100, ptr %162, align 8, !tbaa !23
+  %.sink119 = phi i64 [ 48, %157 ], [ 32, %154 ]
+  %.sink117 = phi i32 [ 1, %157 ], [ 0, %154 ]
+  %162 = getelementptr inbounds nuw i8, ptr %119, i64 %.sink119
+  store i32 %.sink117, ptr %162, align 8, !tbaa !23
   br label %block_in.exit.thread
 
 block_in.exit.thread:                             ; preds = %block_in.exit.thread.sink.split, %125

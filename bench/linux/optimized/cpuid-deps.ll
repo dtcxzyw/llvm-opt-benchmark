@@ -38,24 +38,24 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
 9:                                                ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %5, i8 0, i64 96, i1 false), !annotation !9
   %10 = icmp eq ptr %0, null
-  br i1 %10, label %11, label %.thread9
+  br i1 %10, label %11, label %.thread15
 
 11:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 40), i64 %6) #4, !srcloc !10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %4, i8 0, i64 96, i1 false)
   call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %6) #4, !srcloc !11
-  br label %.outer28
+  br label %.outer34
 
-.outer28:                                         ; preds = %.outer28.backedge, %11
-  %.ph29 = phi i32 [ 24, %11 ], [ %.ph29.be, %.outer28.backedge ]
-  %.ph30 = phi ptr [ @cpuid_deps, %11 ], [ %.ph30.be, %.outer28.backedge ]
-  %.ph31 = phi i8 [ 0, %11 ], [ %.ph31.be, %.outer28.backedge ]
+.outer34:                                         ; preds = %.outer34.backedge, %11
+  %.ph35 = phi i32 [ 24, %11 ], [ %.ph35.be, %.outer34.backedge ]
+  %.ph36 = phi ptr [ @cpuid_deps, %11 ], [ %.ph36.be, %.outer34.backedge ]
+  %.ph37 = phi i8 [ 0, %11 ], [ %.ph37.be, %.outer34.backedge ]
   br label %12
 
-12:                                               ; preds = %.outer28, %26
-  %13 = phi i32 [ %28, %26 ], [ %.ph29, %.outer28 ]
-  %14 = phi ptr [ %27, %26 ], [ %.ph30, %.outer28 ]
+12:                                               ; preds = %.outer34, %26
+  %13 = phi i32 [ %28, %26 ], [ %.ph35, %.outer34 ]
+  %14 = phi ptr [ %27, %26 ], [ %.ph36, %.outer34 ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %16 to i64
@@ -84,22 +84,22 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   %30 = getelementptr i8, ptr %14, i64 8
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %.thread4, label %.outer28.backedge
+  br i1 %32, label %.thread4, label %.outer34.backedge
 
 .thread4:                                         ; preds = %.thread
-  br label %.outer28.backedge
+  br label %.outer34.backedge
 
 33:                                               ; preds = %26
-  %34 = icmp eq i8 %.ph31, 0
-  br i1 %34, label %37, label %.outer28.backedge
+  %34 = icmp eq i8 %.ph37, 0
+  br i1 %34, label %37, label %.outer34.backedge
 
-.outer28.backedge:                                ; preds = %33, %.thread, %.thread4
-  %.ph29.be = phi i32 [ 24, %.thread4 ], [ %31, %.thread ], [ 24, %33 ]
-  %.ph30.be = phi ptr [ @cpuid_deps, %.thread4 ], [ %30, %.thread ], [ @cpuid_deps, %33 ]
-  %.ph31.be = phi i8 [ 0, %.thread4 ], [ 1, %.thread ], [ 0, %33 ]
-  br label %.outer28, !llvm.loop !14
+.outer34.backedge:                                ; preds = %33, %.thread, %.thread4
+  %.ph35.be = phi i32 [ 24, %.thread4 ], [ %31, %.thread ], [ 24, %33 ]
+  %.ph36.be = phi ptr [ @cpuid_deps, %.thread4 ], [ %30, %.thread ], [ @cpuid_deps, %33 ]
+  %.ph37.be = phi i8 [ 0, %.thread4 ], [ 1, %.thread ], [ 0, %33 ]
+  br label %.outer34, !llvm.loop !14
 
-.thread9:                                         ; preds = %9
+.thread15:                                        ; preds = %9
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %35, i64 %6) #4, !srcloc !10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %5, i8 0, i64 96, i1 false)
@@ -115,14 +115,14 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   br label %.split.us.outer
 
 .split.us.outer:                                  ; preds = %.split.us.outer.backedge, %37
-  %.ph18 = phi i32 [ 24, %37 ], [ %.ph18.be, %.split.us.outer.backedge ]
-  %.ph19 = phi ptr [ @cpuid_deps, %37 ], [ %.ph19.be, %.split.us.outer.backedge ]
-  %.ph20 = phi i8 [ 0, %37 ], [ %.ph20.be, %.split.us.outer.backedge ]
+  %.ph24 = phi i32 [ 24, %37 ], [ %.ph24.be, %.split.us.outer.backedge ]
+  %.ph25 = phi ptr [ @cpuid_deps, %37 ], [ %.ph25.be, %.split.us.outer.backedge ]
+  %.ph26 = phi i8 [ 0, %37 ], [ %.ph26.be, %.split.us.outer.backedge ]
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.outer, %78
-  %38 = phi i32 [ %80, %78 ], [ %.ph18, %.split.us.outer ]
-  %39 = phi ptr [ %79, %78 ], [ %.ph19, %.split.us.outer ]
+  %38 = phi i32 [ %80, %78 ], [ %.ph24, %.split.us.outer ]
+  %39 = phi ptr [ %79, %78 ], [ %.ph25, %.split.us.outer ]
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = zext i32 %41 to i64
@@ -154,13 +154,13 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
 
 .outer:                                           ; preds = %.outer.backedge, %53
   %.ph = phi i32 [ 24, %53 ], [ %.ph.be, %.outer.backedge ]
-  %.ph16 = phi ptr [ @cpuid_deps, %53 ], [ %.ph16.be, %.outer.backedge ]
-  %.ph17 = phi i8 [ 0, %53 ], [ %.ph17.be, %.outer.backedge ]
+  %.ph22 = phi ptr [ @cpuid_deps, %53 ], [ %.ph22.be, %.outer.backedge ]
+  %.ph23 = phi i8 [ 0, %53 ], [ %.ph23.be, %.outer.backedge ]
   br label %54
 
 54:                                               ; preds = %.outer, %71
   %55 = phi i32 [ %73, %71 ], [ %.ph, %.outer ]
-  %56 = phi ptr [ %72, %71 ], [ %.ph16, %.outer ]
+  %56 = phi ptr [ %72, %71 ], [ %.ph22, %.outer ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = zext i32 %58 to i64
@@ -195,20 +195,20 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   br i1 %74, label %75, label %54, !llvm.loop !14
 
 75:                                               ; preds = %71
-  %76 = icmp eq i8 %.ph17, 0
-  br i1 %76, label %.thread10, label %.outer.backedge
+  %76 = icmp eq i8 %.ph23, 0
+  br i1 %76, label %.thread16, label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %75, %.thread5.us, %.thread6.us
   %.ph.be = phi i32 [ 24, %.thread6.us ], [ %69, %.thread5.us ], [ 24, %75 ]
-  %.ph16.be = phi ptr [ @cpuid_deps, %.thread6.us ], [ %68, %.thread5.us ], [ @cpuid_deps, %75 ]
-  %.ph17.be = phi i8 [ 0, %.thread6.us ], [ 1, %.thread5.us ], [ 0, %75 ]
+  %.ph22.be = phi ptr [ @cpuid_deps, %.thread6.us ], [ %68, %.thread5.us ], [ @cpuid_deps, %75 ]
+  %.ph23.be = phi i8 [ 0, %.thread6.us ], [ 1, %.thread5.us ], [ 0, %75 ]
   br label %.outer, !llvm.loop !14
 
 77:                                               ; preds = %51
   call void asm sideeffect "303: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 303b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 303) #4, !srcloc !6
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 112, i32 2305, i64 12) #4, !srcloc !7
   call void asm sideeffect "304: nop\0A\09.pushsection .discard.instr_end\0A\09.long 304b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 304) #4, !srcloc !8
-  br label %.thread10
+  br label %.thread16
 
 78:                                               ; preds = %46, %.split.us
   %79 = getelementptr i8, ptr %39, i64 8
@@ -216,30 +216,30 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %85, label %.split.us, !llvm.loop !14
 
-.thread10:                                        ; preds = %75, %77
+.thread16:                                        ; preds = %75, %77
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @cpu_caps_cleared, i64 %47) #4, !srcloc !17
   %82 = getelementptr i8, ptr %39, i64 8
   %83 = load i32, ptr %82, align 4
   %84 = icmp eq i32 %83, 0
-  br i1 %84, label %.thread11, label %.split.us.outer.backedge
+  br i1 %84, label %.thread17, label %.split.us.outer.backedge
 
-.thread11:                                        ; preds = %.thread10
+.thread17:                                        ; preds = %.thread16
   br label %.split.us.outer.backedge
 
 85:                                               ; preds = %78
-  %86 = icmp eq i8 %.ph20, 0
+  %86 = icmp eq i8 %.ph26, 0
   br i1 %86, label %.loopexit7, label %.split.us.outer.backedge
 
-.split.us.outer.backedge:                         ; preds = %85, %.thread10, %.thread11
-  %.ph18.be = phi i32 [ 24, %.thread11 ], [ %83, %.thread10 ], [ 24, %85 ]
-  %.ph19.be = phi ptr [ @cpuid_deps, %.thread11 ], [ %82, %.thread10 ], [ @cpuid_deps, %85 ]
-  %.ph20.be = phi i8 [ 0, %.thread11 ], [ 1, %.thread10 ], [ 0, %85 ]
+.split.us.outer.backedge:                         ; preds = %85, %.thread16, %.thread17
+  %.ph24.be = phi i32 [ 24, %.thread17 ], [ %83, %.thread16 ], [ 24, %85 ]
+  %.ph25.be = phi ptr [ @cpuid_deps, %.thread17 ], [ %82, %.thread16 ], [ @cpuid_deps, %85 ]
+  %.ph26.be = phi i8 [ 0, %.thread17 ], [ 1, %.thread16 ], [ 0, %85 ]
   br label %.split.us.outer, !llvm.loop !14
 
 .split:                                           ; preds = %.split.outer, %100
-  %87 = phi i32 [ %102, %100 ], [ %.ph36, %.split.outer ]
-  %88 = phi ptr [ %101, %100 ], [ %.ph37, %.split.outer ]
+  %87 = phi i32 [ %102, %100 ], [ %.ph42, %.split.outer ]
+  %88 = phi ptr [ %101, %100 ], [ %.ph43, %.split.outer ]
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %90 = load i32, ptr %89, align 4
   %91 = zext i32 %90 to i64
@@ -255,7 +255,7 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   %98 = icmp ult i8 %97, 2
   call void @llvm.assume(i1 %98)
   %99 = icmp eq i8 %97, 0
-  br i1 %99, label %.thread12, label %100
+  br i1 %99, label %.thread18, label %100
 
 100:                                              ; preds = %95, %.split
   %101 = getelementptr i8, ptr %88, i64 8
@@ -263,30 +263,30 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %107, label %.split, !llvm.loop !14
 
-.thread12:                                        ; preds = %95
+.thread18:                                        ; preds = %95
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %36, i64 %96) #4, !srcloc !10
   %104 = getelementptr i8, ptr %88, i64 8
   %105 = load i32, ptr %104, align 4
   %106 = icmp eq i32 %105, 0
-  br i1 %106, label %.thread13, label %.split.outer.backedge
+  br i1 %106, label %.thread19, label %.split.outer.backedge
 
-.split.outer:                                     ; preds = %.split.outer.backedge, %.thread9
-  %.ph36 = phi i32 [ 24, %.thread9 ], [ %.ph36.be, %.split.outer.backedge ]
-  %.ph37 = phi ptr [ @cpuid_deps, %.thread9 ], [ %.ph37.be, %.split.outer.backedge ]
-  %.ph38 = phi i8 [ 0, %.thread9 ], [ %.ph38.be, %.split.outer.backedge ]
+.split.outer:                                     ; preds = %.split.outer.backedge, %.thread15
+  %.ph42 = phi i32 [ 24, %.thread15 ], [ %.ph42.be, %.split.outer.backedge ]
+  %.ph43 = phi ptr [ @cpuid_deps, %.thread15 ], [ %.ph43.be, %.split.outer.backedge ]
+  %.ph44 = phi i8 [ 0, %.thread15 ], [ %.ph44.be, %.split.outer.backedge ]
   br label %.split
 
-.thread13:                                        ; preds = %.thread12
+.thread19:                                        ; preds = %.thread18
   br label %.split.outer.backedge
 
 107:                                              ; preds = %100
-  %108 = icmp eq i8 %.ph38, 0
+  %108 = icmp eq i8 %.ph44, 0
   br i1 %108, label %.loopexit7, label %.split.outer.backedge
 
-.split.outer.backedge:                            ; preds = %107, %.thread12, %.thread13
-  %.ph36.be = phi i32 [ 24, %.thread13 ], [ %105, %.thread12 ], [ 24, %107 ]
-  %.ph37.be = phi ptr [ @cpuid_deps, %.thread13 ], [ %104, %.thread12 ], [ @cpuid_deps, %107 ]
-  %.ph38.be = phi i8 [ 0, %.thread13 ], [ 1, %.thread12 ], [ 0, %107 ]
+.split.outer.backedge:                            ; preds = %107, %.thread18, %.thread19
+  %.ph42.be = phi i32 [ 24, %.thread19 ], [ %105, %.thread18 ], [ 24, %107 ]
+  %.ph43.be = phi ptr [ @cpuid_deps, %.thread19 ], [ %104, %.thread18 ], [ @cpuid_deps, %107 ]
+  %.ph44.be = phi i8 [ 0, %.thread19 ], [ 1, %.thread18 ], [ 0, %107 ]
   br label %.split.outer, !llvm.loop !14
 
 .loopexit7:                                       ; preds = %107, %85, %8

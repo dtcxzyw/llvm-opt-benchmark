@@ -462,12 +462,12 @@ check_retval.exit101:                             ; preds = %132
 203:                                              ; preds = %162, %184
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
   %exitcond280.not = icmp eq i64 %indvars.iv.next278, 8
-  br i1 %exitcond280.not, label %.preheader338, label %152
+  br i1 %exitcond280.not, label %.preheader343, label %152
 
-.preheader338:                                    ; preds = %203, %.preheader338
-  %.0130 = phi double [ %..i, %.preheader338 ], [ 0.000000e+00, %203 ]
-  %.0127 = phi double [ %207, %.preheader338 ], [ 0.000000e+00, %203 ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader338 ], [ 1, %203 ]
+.preheader343:                                    ; preds = %203, %.preheader343
+  %.0130 = phi double [ %..i, %.preheader343 ], [ 0.000000e+00, %203 ]
+  %.0127 = phi double [ %207, %.preheader343 ], [ 0.000000e+00, %203 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader343 ], [ 1, %203 ]
   %204 = getelementptr double, ptr %6, i64 %indvars.iv.i
   %205 = getelementptr i8, ptr %204, i64 -8
   %206 = load double, ptr %205, align 8, !tbaa !32
@@ -476,9 +476,9 @@ check_retval.exit101:                             ; preds = %132
   %..i = select i1 %208, double %.0130, double %206
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %ComputeConvergence.exit, label %.preheader338
+  br i1 %exitcond.not.i, label %ComputeConvergence.exit, label %.preheader343
 
-ComputeConvergence.exit:                          ; preds = %.preheader338
+ComputeConvergence.exit:                          ; preds = %.preheader343
   %209 = fdiv double %207, 7.000000e+00
   %210 = fneg double %174
   %211 = fmul double %173, %210

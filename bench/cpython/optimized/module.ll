@@ -1215,9 +1215,9 @@ define internal noundef ptr @pysqlite_complete_statement(ptr readnone captures(n
   br i1 %33, label %pysqlite_complete_statement_impl.exit, label %_Py_NewRef.exit.sink.split.i
 
 _Py_NewRef.exit.sink.split.i:                     ; preds = %31, %28
-  %.sink1.i = phi i32 [ %29, %28 ], [ %32, %31 ]
+  %.sink3.i = phi i32 [ %29, %28 ], [ %32, %31 ]
   %_Py_FalseStruct.sink.i = phi ptr [ @_Py_TrueStruct, %28 ], [ @_Py_FalseStruct, %31 ]
-  %34 = add nuw i32 %.sink1.i, 1
+  %34 = add nuw i32 %.sink3.i, 1
   store i32 %34, ptr %_Py_FalseStruct.sink.i, align 8, !tbaa !37
   br label %pysqlite_complete_statement_impl.exit
 

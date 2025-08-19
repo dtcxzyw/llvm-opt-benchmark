@@ -229,8 +229,8 @@ define internal ptr @H5B__cache_deserialize(ptr noundef %0, i64 noundef %1, ptr 
   %106 = ptrtoint ptr %94 to i64
   %107 = sub i64 %60, %106
   %108 = icmp ult i64 %107, 2
-  %or.cond147 = select i1 %105, i1 true, i1 %108
-  br i1 %or.cond147, label %109, label %113
+  %or.cond155 = select i1 %105, i1 true, i1 %108
+  br i1 %or.cond155, label %109, label %113
 
 109:                                              ; preds = %104
   %110 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !24
@@ -349,8 +349,8 @@ define internal ptr @H5B__cache_deserialize(ptr noundef %0, i64 noundef %1, ptr 
   %183 = ptrtoint ptr %.pre to i64
   %184 = sub i64 %60, %183
   %185 = icmp ugt i64 %180, %184
-  %or.cond150 = select i1 %182, i1 true, i1 %185
-  br i1 %or.cond150, label %186, label %190
+  %or.cond158 = select i1 %182, i1 true, i1 %185
+  br i1 %or.cond158, label %186, label %190
 
 186:                                              ; preds = %181
   %187 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !24
@@ -541,7 +541,7 @@ define internal range(i32 -1, 1) i32 @H5B__cache_serialize(ptr noundef %0, ptr n
   br i1 %.not44, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %27
-  %.pre50 = load ptr, ptr %5, align 8, !tbaa !25
+  %.pre51 = load ptr, ptr %5, align 8, !tbaa !25
   br label %89
 
 .lr.ph:                                           ; preds = %27
@@ -614,7 +614,7 @@ define internal range(i32 -1, 1) i32 @H5B__cache_serialize(ptr noundef %0, ptr n
   br label %89
 
 89:                                               ; preds = %._crit_edge.thread, %84, %._crit_edge
-  %90 = phi ptr [ %88, %84 ], [ %.pre, %._crit_edge ], [ %.pre50, %._crit_edge.thread ]
+  %90 = phi ptr [ %88, %84 ], [ %.pre, %._crit_edge ], [ %.pre51, %._crit_edge.thread ]
   %91 = ptrtoint ptr %90 to i64
   %92 = ptrtoint ptr %1 to i64
   %.neg = add i64 %2, %92

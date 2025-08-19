@@ -14991,28 +14991,28 @@ define internal i32 @dissect_pfcp_nokia_detailed_statistics(ptr noundef %0, ptr 
   br i1 %.not85, label %._crit_edge, label %20, !llvm.loop !30
 
 ._crit_edge.thread:                               ; preds = %4, %._crit_edge
-  %.0.lcssa120 = phi i32 [ %.1, %._crit_edge ], [ 12, %4 ]
+  %.0.lcssa123 = phi i32 [ %.1, %._crit_edge ], [ 12, %4 ]
   %60 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %60, ptr noundef nonnull @.str.2781)
   br label %61
 
 61:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.0.lcssa119 = phi i32 [ %.0.lcssa120, %._crit_edge.thread ], [ %.1, %._crit_edge ]
-  %.069.lcssa117 = phi i32 [ 0, %._crit_edge.thread ], [ %.170, %._crit_edge ]
+  %.0.lcssa122 = phi i32 [ %.0.lcssa123, %._crit_edge.thread ], [ %.1, %._crit_edge ]
+  %.069.lcssa120 = phi i32 [ 0, %._crit_edge.thread ], [ %.170, %._crit_edge ]
   %62 = call ptr @proto_tree_get_parent(ptr noundef %2)
   %63 = select i1 %.not, ptr @.str.2784, ptr @.str.2783
   %64 = select i1 %.not84, ptr @.str.2786, ptr @.str.2785
-  %65 = icmp eq i32 %.069.lcssa117, 1
+  %65 = icmp eq i32 %.069.lcssa120, 1
   %66 = select i1 %65, ptr @.str.2787, ptr @.str.2788
   %67 = load i64, ptr %5, align 8
   %68 = trunc i64 %67 to i32
   %69 = lshr i32 %68, 16
   %70 = and i32 %69, 63
   %71 = and i32 %68, 31
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %62, ptr noundef nonnull @.str.2782, i32 noundef %.069.lcssa117, ptr noundef nonnull %63, ptr noundef nonnull %64, ptr noundef nonnull %66, i32 noundef %70, i32 noundef %71)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %62, ptr noundef nonnull @.str.2782, i32 noundef %.069.lcssa120, ptr noundef nonnull %63, ptr noundef nonnull %64, ptr noundef nonnull %66, i32 noundef %70, i32 noundef %71)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.0.lcssa119
+  ret i32 %.0.lcssa122
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

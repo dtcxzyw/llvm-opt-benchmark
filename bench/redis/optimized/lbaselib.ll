@@ -1084,9 +1084,9 @@ define internal range(i32 1, -2147483648) i32 @luaB_coresume(ptr noundef %0) #0 
   br label %12
 
 12:                                               ; preds = %9, %8
-  %.sink18 = phi i32 [ %11, %9 ], [ -2, %8 ]
+  %.sink19 = phi i32 [ %11, %9 ], [ -2, %8 ]
   %.0 = phi i32 [ %10, %9 ], [ 2, %8 ]
-  tail call void @lua_insert(ptr noundef %0, i32 noundef %.sink18) #8
+  tail call void @lua_insert(ptr noundef %0, i32 noundef %.sink19) #8
   ret i32 %.0
 }
 

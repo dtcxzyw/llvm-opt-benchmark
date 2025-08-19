@@ -446,7 +446,7 @@ define noundef zeroext i8 @_ZN5ZXing11TextDecoder13GuessEncodingEPKhmNS_12Charac
 
 16:                                               ; preds = %3
   %.not216 = icmp eq i64 %1, 0
-  br i1 %.not216, label %.thread246, label %.lr.ph.preheader
+  br i1 %.not216, label %.thread248, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %5, %8, %12, %16
   %17 = phi i1 [ false, %16 ], [ %15, %12 ], [ false, %5 ], [ false, %8 ]
@@ -583,8 +583,8 @@ define noundef zeroext i8 @_ZN5ZXing11TextDecoder13GuessEncodingEPKhmNS_12Charac
   br i1 %19, label %65, label %84
 
 65:                                               ; preds = %64
-  %.not217 = icmp eq i32 %.0140182, 0
-  br i1 %.not217, label %70, label %66
+  %.not219 = icmp eq i32 %.0140182, 0
+  br i1 %.not219, label %70, label %66
 
 66:                                               ; preds = %65
   %67 = icmp eq i8 %.fr, 127
@@ -649,65 +649,65 @@ switch.early.test:                                ; preds = %73
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !23
 
 86:                                               ; preds = %.critedge
-  br i1 %17, label %103, label %.thread246
+  br i1 %17, label %103, label %.thread248
 
-.thread246:                                       ; preds = %16, %86
-  %.0150.lcssa230266 = phi i1 [ %22, %86 ], [ true, %16 ]
-  %.0146.lcssa231265 = phi i32 [ %.0146.lcssa.ph, %86 ], [ 0, %16 ]
-  %.0144.lcssa232264 = phi i32 [ %.0144.lcssa.ph, %86 ], [ 0, %16 ]
-  %.0142.lcssa233263 = phi i32 [ %.0142.lcssa.ph, %86 ], [ 0, %16 ]
-  %.0138.lcssa235262 = phi i1 [ %29, %86 ], [ false, %16 ]
-  %.0132.lcssa237261 = phi i32 [ %.0132.lcssa.ph, %86 ], [ 0, %16 ]
-  %.0130.lcssa239260 = phi i1 [ %28, %86 ], [ false, %16 ]
-  %.0128.lcssa241259 = phi i32 [ %30, %86 ], [ 0, %16 ]
-  %.0126.lcssa243258 = phi i1 [ %26, %86 ], [ true, %16 ]
-  %.0123.lcssa245257 = phi i1 [ %27, %86 ], [ true, %16 ]
-  %87 = add nsw i32 %.0144.lcssa232264, %.0146.lcssa231265
-  %88 = add nsw i32 %87, %.0142.lcssa233263
+.thread248:                                       ; preds = %16, %86
+  %.0150.lcssa232268 = phi i1 [ %22, %86 ], [ true, %16 ]
+  %.0146.lcssa233267 = phi i32 [ %.0146.lcssa.ph, %86 ], [ 0, %16 ]
+  %.0144.lcssa234266 = phi i32 [ %.0144.lcssa.ph, %86 ], [ 0, %16 ]
+  %.0142.lcssa235265 = phi i32 [ %.0142.lcssa.ph, %86 ], [ 0, %16 ]
+  %.0138.lcssa237264 = phi i1 [ %29, %86 ], [ false, %16 ]
+  %.0132.lcssa239263 = phi i32 [ %.0132.lcssa.ph, %86 ], [ 0, %16 ]
+  %.0130.lcssa241262 = phi i1 [ %28, %86 ], [ false, %16 ]
+  %.0128.lcssa243261 = phi i32 [ %30, %86 ], [ 0, %16 ]
+  %.0126.lcssa245260 = phi i1 [ %26, %86 ], [ true, %16 ]
+  %.0123.lcssa247259 = phi i1 [ %27, %86 ], [ true, %16 ]
+  %87 = add nsw i32 %.0144.lcssa234266, %.0146.lcssa233267
+  %88 = add nsw i32 %87, %.0142.lcssa235265
   %89 = icmp sgt i32 %88, 0
   br i1 %89, label %103, label %90
 
-90:                                               ; preds = %.thread246, %.critedge
-  %.0123.lcssa244 = phi i1 [ %.0123.lcssa245257, %.thread246 ], [ %27, %.critedge ]
-  %.0126.lcssa242 = phi i1 [ %.0126.lcssa243258, %.thread246 ], [ %26, %.critedge ]
-  %.0128.lcssa240 = phi i32 [ %.0128.lcssa241259, %.thread246 ], [ %30, %.critedge ]
-  %.0130.lcssa238 = phi i1 [ %.0130.lcssa239260, %.thread246 ], [ %28, %.critedge ]
-  %.0132.lcssa236 = phi i32 [ %.0132.lcssa237261, %.thread246 ], [ %.0132.lcssa.ph, %.critedge ]
-  %.0138.lcssa234 = phi i1 [ %.0138.lcssa235262, %.thread246 ], [ %29, %.critedge ]
-  %.0150.lcssa229 = phi i1 [ %.0150.lcssa230266, %.thread246 ], [ false, %.critedge ]
-  br i1 %.0126.lcssa242, label %91, label %.thread172
+90:                                               ; preds = %.thread248, %.critedge
+  %.0123.lcssa246 = phi i1 [ %.0123.lcssa247259, %.thread248 ], [ %27, %.critedge ]
+  %.0126.lcssa244 = phi i1 [ %.0126.lcssa245260, %.thread248 ], [ %26, %.critedge ]
+  %.0128.lcssa242 = phi i32 [ %.0128.lcssa243261, %.thread248 ], [ %30, %.critedge ]
+  %.0130.lcssa240 = phi i1 [ %.0130.lcssa241262, %.thread248 ], [ %28, %.critedge ]
+  %.0132.lcssa238 = phi i32 [ %.0132.lcssa239263, %.thread248 ], [ %.0132.lcssa.ph, %.critedge ]
+  %.0138.lcssa236 = phi i1 [ %.0138.lcssa237264, %.thread248 ], [ %29, %.critedge ]
+  %.0150.lcssa231 = phi i1 [ %.0150.lcssa232268, %.thread248 ], [ false, %.critedge ]
+  br i1 %.0126.lcssa244, label %91, label %.thread172
 
 .thread172:                                       ; preds = %90
-  br i1 %.0123.lcssa244, label %103, label %102
+  br i1 %.0123.lcssa246, label %103, label %102
 
 91:                                               ; preds = %90
   %92 = icmp eq i8 %2, 22
   %93 = icmp eq i8 %2, 26
   %94 = or i1 %92, %93
-  %95 = icmp sgt i32 %.0132.lcssa236, 2
+  %95 = icmp sgt i32 %.0132.lcssa238, 2
   %or.cond29 = select i1 %94, i1 true, i1 %95
-  %or.cond31 = select i1 %or.cond29, i1 true, i1 %.0130.lcssa238
+  %or.cond31 = select i1 %or.cond29, i1 true, i1 %.0130.lcssa240
   br i1 %or.cond31, label %103, label %96
 
 96:                                               ; preds = %91
-  br i1 %.0123.lcssa244, label %97, label %102
+  br i1 %.0123.lcssa246, label %97, label %102
 
 97:                                               ; preds = %96
-  %98 = icmp eq i32 %.0132.lcssa236, 2
-  %or.cond35 = select i1 %98, i1 %.0138.lcssa234, i1 false
+  %98 = icmp eq i32 %.0132.lcssa238, 2
+  %or.cond35 = select i1 %98, i1 %.0138.lcssa236, i1 false
   %99 = trunc i64 %1 to i32
-  %.not = icmp slt i32 %.0128.lcssa240, %99
+  %.not = icmp slt i32 %.0128.lcssa242, %99
   %100 = select i1 %.not, i8 2, i8 22
   %101 = select i1 %or.cond35, i8 22, i8 %100
   br label %103
 
 102:                                              ; preds = %96, %.thread172
-  %.164 = select i1 %.0150.lcssa229, i8 29, i8 %2
-  %spec.select169 = select i1 %.0126.lcssa242, i8 22, i8 %.164
+  %.164 = select i1 %.0150.lcssa231, i8 29, i8 %2
+  %spec.select169 = select i1 %.0126.lcssa244, i8 22, i8 %.164
   br label %103
 
-103:                                              ; preds = %.thread172, %102, %97, %91, %86, %.thread246
-  %.0 = phi i8 [ 29, %.thread246 ], [ 29, %86 ], [ %101, %97 ], [ 22, %91 ], [ %spec.select169, %102 ], [ 2, %.thread172 ]
+103:                                              ; preds = %.thread172, %102, %97, %91, %86, %.thread248
+  %.0 = phi i8 [ 29, %.thread248 ], [ 29, %86 ], [ %101, %97 ], [ 22, %91 ], [ %spec.select169, %102 ], [ 2, %.thread172 ]
   ret i8 %.0
 }
 

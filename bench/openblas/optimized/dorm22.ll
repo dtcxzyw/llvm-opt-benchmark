@@ -143,8 +143,8 @@ define void @dorm22_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 72:                                               ; preds = %69
   %73 = icmp eq i32 %42, 0
   %74 = icmp eq i32 %45, 0
-  %or.cond441 = or i1 %73, %74
-  br i1 %or.cond441, label %75, label %76
+  %or.cond444 = or i1 %73, %74
+  br i1 %or.cond444, label %75, label %76
 
 75:                                               ; preds = %72
   store double 1.000000e+00, ptr %10, align 8, !tbaa !7
@@ -303,8 +303,8 @@ define void @dorm22_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @dgemm_(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.10, ptr noundef nonnull %4, ptr noundef nonnull %16, ptr noundef nonnull %5, ptr noundef nonnull @c_b10, ptr noundef %171, ptr noundef nonnull %7, ptr noundef %174, ptr noundef nonnull %9, ptr noundef nonnull @c_b10, ptr noundef nonnull %176, ptr noundef nonnull %15) #4
   call void @dlacpy_(ptr noundef nonnull @.str.8, ptr noundef nonnull %2, ptr noundef nonnull %16, ptr noundef nonnull %10, ptr noundef nonnull %15, ptr noundef %151, ptr noundef nonnull %9) #4
   %177 = add nuw nsw i32 %84, %.1418
-  %.not436 = icmp sgt i32 %177, %45
-  br i1 %.not436, label %.loopexit, label %134, !llvm.loop !11
+  %.not439 = icmp sgt i32 %177, %45
+  br i1 %.not439, label %.loopexit, label %134, !llvm.loop !11
 
 178:                                              ; preds = %82
   %179 = add i32 %17, 1
@@ -445,8 +445,8 @@ define void @dorm22_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @dgemm_(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull %16, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull @c_b10, ptr noundef %270, ptr noundef nonnull %9, ptr noundef %276, ptr noundef nonnull %7, ptr noundef nonnull @c_b10, ptr noundef %281, ptr noundef nonnull %15) #4
   call void @dlacpy_(ptr noundef nonnull @.str.8, ptr noundef nonnull %16, ptr noundef nonnull %3, ptr noundef nonnull %10, ptr noundef nonnull %15, ptr noundef %249, ptr noundef nonnull %9) #4
   %282 = add nuw nsw i32 %84, %.3424
-  %.not437 = icmp sgt i32 %282, %42
-  br i1 %.not437, label %.loopexit, label %.lr.ph425, !llvm.loop !13
+  %.not440 = icmp sgt i32 %282, %42
+  br i1 %.not440, label %.loopexit, label %.lr.ph425, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %134, %183, %.lr.ph425
   store double %71, ptr %10, align 8, !tbaa !7

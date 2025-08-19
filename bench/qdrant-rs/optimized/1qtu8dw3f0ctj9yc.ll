@@ -1313,8 +1313,8 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i.i: 
   %.sroa.9.16..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 %33, ptr %.sroa.9.16..sroa_idx, align 8
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.not19 = icmp eq i64 %2, 0
-  br i1 %.not19, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h84361c141cff9278E.exit.i.i", label %38
+  %.not21 = icmp eq i64 %2, 0
+  br i1 %.not21, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h84361c141cff9278E.exit.i.i", label %38
 
 36:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h84361c141cff9278E.exit.i.i", %38
   %37 = landingpad { ptr, i32 }

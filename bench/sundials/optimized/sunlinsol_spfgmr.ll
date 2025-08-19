@@ -286,9 +286,9 @@ define range(i32 -806, 805) i32 @SUNLinSolSetup_SPFGMR(ptr noundef readonly capt
   br label %13
 
 13:                                               ; preds = %2, %6, %10
-  %.sink15 = phi ptr [ %.pre, %10 ], [ %.pre, %6 ], [ %3, %2 ]
+  %.sink17 = phi ptr [ %.pre, %10 ], [ %.pre, %6 ], [ %3, %2 ]
   %.sink = phi i32 [ %12, %10 ], [ 0, %6 ], [ 0, %2 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sink15, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %.sink17, i64 32
   store i32 %.sink, ptr %14, align 8, !tbaa !27
   ret i32 %.sink
 }
@@ -632,8 +632,8 @@ switch.edge:
 .lr.ph338:                                        ; preds = %.lr.ph338.preheader, %.lr.ph338
   %indvars.iv391 = phi i64 [ %155, %.lr.ph338.preheader ], [ %indvars.iv.next392, %.lr.ph338 ]
   %.0259337 = phi double [ 1.000000e+00, %.lr.ph338.preheader ], [ %163, %.lr.ph338 ]
-  %.idx407 = shl i64 %indvars.iv391, 4
-  %156 = getelementptr i8, ptr %18, i64 %.idx407
+  %.idx418 = shl i64 %indvars.iv391, 4
+  %156 = getelementptr i8, ptr %18, i64 %.idx418
   %157 = getelementptr i8, ptr %156, i64 -16
   %158 = load double, ptr %157, align 8, !tbaa !59
   %159 = fmul double %.0259337, %158

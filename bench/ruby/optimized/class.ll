@@ -1205,12 +1205,12 @@ rb_obj_write.exit.thread.i:                       ; preds = %RARRAY_AREF.exit119
   %.pre144 = load i64, ptr %131, align 8, !tbaa !35
   %181 = and i64 %.pre144, 31
   %.not.i.i120 = icmp ne i64 %181, 27
-  %or.cond153.not = and i1 %.not6.i, %.not.i.i120
+  %or.cond166.not = and i1 %.not6.i, %.not.i.i120
   %182 = or i64 %.pre144, 4096
-  %183 = select i1 %or.cond153.not, i64 %182, i64 %.pre144
+  %183 = select i1 %or.cond166.not, i64 %182, i64 %.pre144
   %184 = and i64 %183, 31
   %.not.i.i122 = icmp ne i64 %184, 27
-  %185 = or i1 %or.cond153.not, %.not.i.i122
+  %185 = or i1 %or.cond166.not, %.not.i.i122
   br i1 %185, label %186, label %RICLASS_SET_ORIGIN_SHARED_MTBL.exit
 
 186:                                              ; preds = %rb_obj_write.exit.thread.i
@@ -3655,12 +3655,12 @@ rb_obj_write.exit.thread.i:                       ; preds = %RARRAY_AREF.exit126
   %.pre197 = load i64, ptr %87, align 8, !tbaa !35
   %130 = and i64 %.pre197, 31
   %.not.i.i127 = icmp ne i64 %130, 27
-  %or.cond210.not = and i1 %.not6.i, %.not.i.i127
+  %or.cond225.not = and i1 %.not6.i, %.not.i.i127
   %131 = or i64 %.pre197, 4096
-  %132 = select i1 %or.cond210.not, i64 %131, i64 %.pre197
+  %132 = select i1 %or.cond225.not, i64 %131, i64 %.pre197
   %133 = and i64 %132, 31
   %.not.i.i129 = icmp ne i64 %133, 27
-  %134 = or i1 %or.cond210.not, %.not.i.i129
+  %134 = or i1 %or.cond225.not, %.not.i.i129
   br i1 %134, label %135, label %RICLASS_SET_ORIGIN_SHARED_MTBL.exit
 
 135:                                              ; preds = %rb_obj_write.exit.thread.i
@@ -4120,8 +4120,8 @@ rb_check_arity.exit:                              ; preds = %5
   %or.cond = select i1 %.not5.i, i1 %or.cond.i32, i1 false
   %19 = and i64 %.pre, 31
   %20 = icmp eq i64 %19, 28
-  %or.cond60 = select i1 %or.cond, i1 true, i1 %20
-  br i1 %or.cond60, label %particular_class_p.exit.thread, label %particular_class_p.exit.thread37
+  %or.cond68 = select i1 %or.cond, i1 true, i1 %20
+  br i1 %or.cond68, label %particular_class_p.exit.thread, label %particular_class_p.exit.thread37
 
 particular_class_p.exit.thread:                   ; preds = %.lr.ph
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -4152,8 +4152,8 @@ particular_class_p.exit.thread37:                 ; preds = %add_instance_method
   br i1 %.not2742, label %add_instance_method_list.exit35._crit_edge, label %.lr.ph44.split
 
 .thread:                                          ; preds = %particular_class_p.exit.thread37
-  %.not274252 = icmp eq i64 %.023, 0
-  br i1 %.not274252, label %add_instance_method_list.exit35._crit_edge, label %.lr.ph44.split.us
+  %.not274260 = icmp eq i64 %.023, 0
+  br i1 %.not274260, label %add_instance_method_list.exit35._crit_edge, label %.lr.ph44.split.us
 
 .lr.ph44.split.us:                                ; preds = %.thread, %add_instance_method_list.exit35.us
   %.343.us = phi i64 [ %35, %add_instance_method_list.exit35.us ], [ %.023, %.thread ]
@@ -4563,8 +4563,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i42:               ; preds = %.preheader
   %or.cond55 = icmp eq i64 %70, 8194
   %71 = and i64 %69, 31
   %72 = icmp eq i64 %71, 28
-  %or.cond59 = or i1 %or.cond55, %72
-  br i1 %or.cond59, label %.critedge2, label %.critedge
+  %or.cond66 = or i1 %or.cond55, %72
+  br i1 %or.cond66, label %.critedge2, label %.critedge
 
 .critedge2:                                       ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i42
   %.not34 = icmp eq i64 %.1, %50
@@ -5992,14 +5992,14 @@ rb_scan_args_keyword_p.exit.thread:               ; preds = %22, %30, %28, %rb_s
   br i1 %.not108, label %87, label %83
 
 83:                                               ; preds = %82
-  %84 = sext i32 %.184118 to i64
+  %84 = zext nneg i32 %.184118 to i64
   %85 = getelementptr i64, ptr %2, i64 %84
   %86 = load i64, ptr %85, align 8, !tbaa !29
   store i64 %86, ptr %80, align 8, !tbaa !29
   br label %87
 
 87:                                               ; preds = %83, %82
-  %88 = add nsw i32 %.184118, 1
+  %88 = add nuw nsw i32 %.184118, 1
   br label %91
 
 89:                                               ; preds = %78
@@ -6054,14 +6054,14 @@ rb_scan_args_keyword_p.exit.thread:               ; preds = %22, %30, %28, %rb_s
 
 113:                                              ; preds = %112
   %114 = zext nneg i32 %95 to i64
-  %115 = sext i32 %.184.lcssa to i64
+  %115 = zext nneg i32 %.184.lcssa to i64
   %116 = getelementptr i64, ptr %2, i64 %115
   %117 = tail call i64 @rb_ary_new_from_values(i64 noundef %114, ptr noundef %116) #19
   store i64 %117, ptr %110, align 8, !tbaa !29
   br label %118
 
 118:                                              ; preds = %113, %112
-  %119 = add i32 %95, %.184.lcssa
+  %119 = add nuw i32 %95, %.184.lcssa
   br label %123
 
 120:                                              ; preds = %108

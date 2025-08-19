@@ -1271,13 +1271,13 @@ ehcleanup282:                                     ; preds = %_ZNKSt14default_del
   br i1 %cmp.not.i.i325, label %ehcleanup284, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i326
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i326: ; preds = %ehcleanup282.thread, %ehcleanup282
-  %.pn74.pn.pn.pn442 = phi { ptr, i32 } [ %99, %ehcleanup282.thread ], [ %.pn74.pn.pn, %ehcleanup282 ]
+  %.pn74.pn.pn.pn491 = phi { ptr, i32 } [ %99, %ehcleanup282.thread ], [ %.pn74.pn.pn, %ehcleanup282 ]
   %149 = phi ptr [ %call.i181, %ehcleanup282.thread ], [ %.pre, %ehcleanup282 ]
   call void @_ZdaPv(ptr noundef nonnull %149) #26
   br label %ehcleanup284
 
 ehcleanup284:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i326, %ehcleanup282, %lpad170
-  %.pn74.pn.pn.pn.pn = phi { ptr, i32 } [ %98, %lpad170 ], [ %.pn74.pn.pn, %ehcleanup282 ], [ %.pn74.pn.pn.pn442, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i326 ]
+  %.pn74.pn.pn.pn.pn = phi { ptr, i32 } [ %98, %lpad170 ], [ %.pn74.pn.pn, %ehcleanup282 ], [ %.pn74.pn.pn.pn491, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i326 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %thisDerivative)
   br label %ehcleanup289
 
@@ -2288,7 +2288,7 @@ for.body.lr.ph:                                   ; preds = %call5.i.i.i.i2.i.i.
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %invoke.cont213
-  %conv = uitofp i64 %sub to double
+  %conv = uitofp nneg i64 %sub to double
   %div224 = fdiv double %add199, %conv
   %mul.i326 = mul i64 %call88, %call81
   %cmp.not.i327 = icmp eq i64 %mul.i326, 0
@@ -4128,8 +4128,8 @@ ehcleanup326:                                     ; preds = %_ZNKSt14default_del
 
 invoke.cont337.thread:                            ; preds = %_ZNK8QuantLib12_GLOBAL__N_18QuickCapclEd.exit.i, %if.then52.i.i
   %retval.0.i.ph = phi double [ %solver.sroa.0.1, %if.then52.i.i ], [ %mul335, %_ZNK8QuantLib12_GLOBAL__N_18QuickCapclEd.exit.i ]
-  %impliedVolatility_892 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store double %retval.0.i.ph, ptr %impliedVolatility_892, align 8, !tbaa !81
+  %impliedVolatility_992 = getelementptr inbounds nuw i8, ptr %this, i64 64
+  store double %retval.0.i.ph, ptr %impliedVolatility_992, align 8, !tbaa !81
   br label %invoke.cont340
 
 invoke.cont337:                                   ; preds = %call7.i67.i.i.noexc, %_ZNK8QuantLib12_GLOBAL__N_18QuickCapclEd.exit.i.thread, %_ZNK8QuantLib12_GLOBAL__N_18QuickCapclEd.exit159.i
@@ -4454,8 +4454,8 @@ if.then.i.i.i485:                                 ; preds = %ehcleanup418, %ehcl
 
 ehcleanup422:                                     ; preds = %if.then.i.i.i485, %lpad132
   %.pn114.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %79, %lpad132 ], [ %.pn114.pn.pn.pn.pn.pn.pn767, %if.then.i.i.i485 ]
-  %add.ptr.i.i.i208.idx890 = shl nuw nsw i64 %sub, 3
-  call void @_ZdlPvm(ptr noundef nonnull %call5.i.i.i.i2.i.i222, i64 noundef %add.ptr.i.i.i208.idx890) #26
+  %add.ptr.i.i.i208.idx990 = shl nuw nsw i64 %sub, 3
+  call void @_ZdlPvm(ptr noundef nonnull %call5.i.i.i.i2.i.i222, i64 noundef %add.ptr.i.i.i208.idx990) #26
   br label %if.then.i.i.i499
 
 if.then.i.i.i499:                                 ; preds = %ehcleanup422, %ehcleanup422.thread

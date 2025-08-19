@@ -791,7 +791,7 @@ define internal noundef zeroext i8 @thisObject(ptr noundef %0, ptr noundef %1) #
 
 validateThreadFrame.exit.thread:                  ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.sink.split48
+  br label %.sink.split52
 
 20:                                               ; preds = %17
   %21 = call zeroext i16 @validateFrameID(ptr noundef %9, i64 noundef %12) #3
@@ -805,7 +805,7 @@ validateThreadFrame.exit:                         ; preds = %20, %22
   %.0.i = phi i16 [ %21, %20 ], [ %23, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not38 = icmp eq i16 %.0.i, 0
-  br i1 %.not38, label %24, label %.sink.split48
+  br i1 %.not38, label %24, label %.sink.split52
 
 24:                                               ; preds = %validateThreadFrame.exit
   call void @createLocalRefSpace(ptr noundef %8, i32 noundef 2) #3
@@ -908,14 +908,14 @@ validateThreadFrame.exit:                         ; preds = %20, %22
   %79 = load ptr, ptr %78, align 8
   %80 = call ptr %79(ptr noundef nonnull %8, ptr noundef null) #3
   %.not43 = icmp eq i16 %70, 0
-  br i1 %.not43, label %81, label %.sink.split48
+  br i1 %.not43, label %81, label %.sink.split52
 
-.sink.split48:                                    ; preds = %76, %validateThreadFrame.exit, %validateThreadFrame.exit.thread
-  %.sink49 = phi i16 [ 13, %validateThreadFrame.exit.thread ], [ %.0.i, %validateThreadFrame.exit ], [ %70, %76 ]
-  call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %.sink49) #3
+.sink.split52:                                    ; preds = %76, %validateThreadFrame.exit, %validateThreadFrame.exit.thread
+  %.sink53 = phi i16 [ 13, %validateThreadFrame.exit.thread ], [ %.0.i, %validateThreadFrame.exit ], [ %70, %76 ]
+  call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %.sink53) #3
   br label %81
 
-81:                                               ; preds = %.sink.split48, %76, %11, %2
+81:                                               ; preds = %.sink.split52, %76, %11, %2
   ret i8 1
 }
 

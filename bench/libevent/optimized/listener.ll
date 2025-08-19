@@ -427,7 +427,7 @@ define ptr @evconnlistener_new_bind(ptr noundef %0, ptr noundef %1, ptr noundef 
 22:                                               ; preds = %18
   %23 = and i32 %3, 8
   %.not47 = icmp eq i32 %23, 0
-  br i1 %.not47, label %.thread56, label %25
+  br i1 %.not47, label %.thread61, label %25
 
 .thread:                                          ; preds = %19
   %24 = and i32 %3, 8
@@ -448,12 +448,12 @@ define ptr @evconnlistener_new_bind(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.not48 = icmp eq i32 %31, 0
   br i1 %.not48, label %37, label %34
 
-.thread56:                                        ; preds = %22
+.thread61:                                        ; preds = %22
   %32 = and i32 %3, 128
-  %.not4857 = icmp eq i32 %32, 0
-  br i1 %.not4857, label %37, label %.thread58
+  %.not4862 = icmp eq i32 %32, 0
+  br i1 %.not4862, label %37, label %.thread63
 
-.thread58:                                        ; preds = %.thread56
+.thread63:                                        ; preds = %.thread61
   %33 = tail call i32 @evutil_closesocket(i32 noundef %16) #6
   br label %63
 
@@ -462,7 +462,7 @@ define ptr @evconnlistener_new_bind(ptr noundef %0, ptr noundef %1, ptr noundef 
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %58, label %37
 
-37:                                               ; preds = %.thread56, %34, %30
+37:                                               ; preds = %.thread61, %34, %30
   %38 = and i32 %3, 64
   %.not49 = icmp eq i32 %38, 0
   br i1 %.not49, label %42, label %39
@@ -516,8 +516,8 @@ define ptr @evconnlistener_new_bind(ptr noundef %0, ptr noundef %1, ptr noundef 
   store i32 %60, ptr %59, align 4
   br label %63
 
-63:                                               ; preds = %58, %62, %56, %14, %11, %.thread58, %25
-  %.0 = phi ptr [ null, %25 ], [ null, %.thread58 ], [ null, %11 ], [ null, %14 ], [ %57, %56 ], [ null, %62 ], [ null, %58 ]
+63:                                               ; preds = %58, %62, %56, %14, %11, %.thread63, %25
+  %.0 = phi ptr [ null, %25 ], [ null, %.thread63 ], [ null, %11 ], [ null, %14 ], [ %57, %56 ], [ null, %62 ], [ null, %58 ]
   ret ptr %.0
 }
 

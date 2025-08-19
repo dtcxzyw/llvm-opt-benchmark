@@ -214,8 +214,8 @@ define dso_local double @expression_returns_set_rows(ptr noundef %0, ptr noundef
 .thread23.sink.split:                             ; preds = %6, %14
   %.sink = phi i64 [ 8, %14 ], [ 4, %6 ]
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
-  %.sink26 = load i32, ptr %15, align 4
-  %16 = tail call double @get_function_rows(ptr noundef %0, i32 noundef %.sink26, ptr noundef nonnull %1) #9
+  %.sink27 = load i32, ptr %15, align 4
+  %16 = tail call double @get_function_rows(ptr noundef %0, i32 noundef %.sink27, ptr noundef nonnull %1) #9
   %17 = tail call double @clamp_row_est(double noundef %16) #9
   br label %.thread23
 
@@ -1031,8 +1031,8 @@ define internal zeroext i1 @contain_leaked_vars_walker(ptr noundef %0, ptr nound
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %brmerge = select i1 %.not68, i1 true, i1 %.not66
-  %brmerge105 = select i1 %brmerge, i1 true, i1 %.not67
-  br i1 %brmerge105, label %.thread, label %.split.split.split
+  %brmerge109 = select i1 %brmerge, i1 true, i1 %.not67
+  br i1 %brmerge109, label %.thread, label %.split.split.split
 
 .split.split.split:                               ; preds = %27, %.critedge80
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge80 ], [ 0, %27 ]
@@ -1370,8 +1370,8 @@ tailrecurse.backedge:                             ; preds = %24, %112, %109, %10
   %115 = icmp eq i32 %114, 2
   %or.cond = select i1 %.tr116131, i1 %115, i1 false
   %116 = icmp eq i32 %114, 3
-  %or.cond195 = select i1 %or.cond, i1 true, i1 %116
-  br i1 %or.cond195, label %tailrecurse.backedge, label %.critedge
+  %or.cond199 = select i1 %or.cond, i1 true, i1 %116
+  br i1 %or.cond199, label %tailrecurse.backedge, label %.critedge
 
 117:                                              ; preds = %.lr.ph
   %118 = getelementptr inbounds nuw i8, ptr %.tr130, i64 8
@@ -1650,8 +1650,8 @@ tailrecurse.backedge:                             ; preds = %28, %.lr.ph, %117, 
   %120 = icmp eq i32 %119, 2
   %or.cond = select i1 %.tr113126, i1 %120, i1 false
   %121 = icmp eq i32 %119, 3
-  %or.cond186 = select i1 %or.cond, i1 true, i1 %121
-  br i1 %or.cond186, label %tailrecurse.backedge, label %.critedge
+  %or.cond190 = select i1 %or.cond, i1 true, i1 %121
+  br i1 %or.cond190, label %tailrecurse.backedge, label %.critedge
 
 .critedge:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %113, %114, %104, %105, %109, %34, %28, %38, %54, %71, %68, %58, %52, %46, %117, %97, %86, %20, %2, %79, %.lr.ph144, %.preheader, %12, %8
   %.0 = phi ptr [ %19, %12 ], [ null, %8 ], [ null, %.preheader ], [ null, %79 ], [ null, %.lr.ph144 ], [ null, %2 ], [ %25, %20 ], [ null, %97 ], [ %.9, %86 ], [ null, %117 ], [ null, %46 ], [ null, %52 ], [ null, %58 ], [ null, %68 ], [ null, %71 ], [ null, %54 ], [ null, %38 ], [ null, %28 ], [ null, %34 ], [ null, %109 ], [ null, %105 ], [ null, %104 ], [ null, %114 ], [ null, %113 ], [ null, %.lr.ph ], [ null, %tailrecurse.backedge ]
@@ -2028,7 +2028,7 @@ define internal ptr @eval_const_expressions_mutator(ptr noundef %0, ptr noundef 
   %17 = alloca i32, align 4
   tail call void @check_stack_depth() #9
   %18 = icmp eq ptr %0, null
-  br i1 %18, label %common.ret1229, label %.lr.ph
+  br i1 %18, label %common.ret1269, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2047,8 +2047,8 @@ define internal ptr @eval_const_expressions_mutator(ptr noundef %0, ptr noundef 
     i32 20, label %307
     i32 21, label %322
     i32 44, label %390
-    i32 23, label %common.ret1229
-    i32 24, label %common.ret1229
+    i32 23, label %common.ret1269
+    i32 24, label %common.ret1269
     i32 27, label %405
     i32 28, label %420
     i32 29, label %459
@@ -2178,11 +2178,11 @@ define internal ptr @eval_const_expressions_mutator(ptr noundef %0, ptr noundef 
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %common.ret1229
+  br label %common.ret1269
 
 81:                                               ; preds = %.thread, %32, %28, %22
   %82 = call ptr @copyObjectImpl(ptr noundef nonnull %.tr900) #9
-  br label %common.ret1229
+  br label %common.ret1269
 
 83:                                               ; preds = %20
   %84 = getelementptr inbounds nuw i8, ptr %.tr900, i64 4
@@ -2199,9 +2199,9 @@ define internal ptr @eval_const_expressions_mutator(ptr noundef %0, ptr noundef 
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2543, ptr noundef nonnull @__func__.eval_const_expressions_mutator) #9
   unreachable
 
-common.ret1229:                                   ; preds = %.thread856, %.split, %.critedge767, %727, %730, %.thread834, %709, %.split924, %.split957, %69, %982, %979, %977, %916, %928, %885, %888, %817, %.thread853, %797, %794, %._crit_edge.thread, %658, %622, %628, %.critedge765.thread.thread, %607, %568, %547, %.critedge763.thread, %480, %478, %475, %473, %470, %459, %396, %351, %378, %ece_function_is_safe.exit775.thread, %ece_function_is_safe.exit775, %307, %ece_function_is_safe.exit.thread, %ece_function_is_safe.exit, %._crit_edge951, %81, %987, %571, %566, %564, %458, %274, %209, %168, %2, %._crit_edge951.thread, %tailrecurse, %20, %20, %485, %405, %399, %379, %91
-  %common.ret1229.op = phi ptr [ %101, %91 ], [ %385, %379 ], [ %404, %399 ], [ %419, %405 ], [ %495, %485 ], [ %988, %987 ], [ %.3, %168 ], [ %.4, %209 ], [ %.5, %274 ], [ %.13, %458 ], [ %565, %564 ], [ %567, %566 ], [ %575, %571 ], [ %82, %81 ], [ %77, %69 ], [ %306, %ece_function_is_safe.exit.thread ], [ %294, %.split957 ], [ %276, %ece_function_is_safe.exit ], [ %276, %._crit_edge951 ], [ %321, %ece_function_is_safe.exit775.thread ], [ %308, %ece_function_is_safe.exit775 ], [ %308, %307 ], [ %.9, %351 ], [ %.11, %378 ], [ %395, %396 ], [ %484, %480 ], [ %460, %478 ], [ %460, %475 ], [ %460, %473 ], [ %460, %470 ], [ %460, %459 ], [ %548, %547 ], [ %545, %.critedge763.thread ], [ %569, %568 ], [ %606, %.critedge765.thread.thread ], [ %608, %607 ], [ %627, %622 ], [ %629, %628 ], [ %666, %658 ], [ %819, %817 ], [ %820, %.thread853 ], [ %790, %._crit_edge.thread ], [ %796, %794 ], [ %798, %797 ], [ %788, %.split ], [ %887, %885 ], [ %889, %888 ], [ %927, %916 ], [ %929, %928 ], [ %986, %982 ], [ %955, %979 ], [ %955, %977 ], [ %586, %.split924 ], [ %691, %709 ], [ %738, %.thread834 ], [ %713, %730 ], [ %713, %727 ], [ %713, %.critedge767 ], [ %955, %.thread856 ], [ null, %2 ], [ %276, %._crit_edge951.thread ], [ %.tr900, %20 ], [ %.tr900, %20 ], [ null, %tailrecurse ]
-  ret ptr %common.ret1229.op
+common.ret1269:                                   ; preds = %.thread856, %.split, %.critedge767, %727, %730, %.thread834, %709, %.split924, %.split957, %69, %982, %979, %977, %916, %928, %885, %888, %817, %.thread853, %797, %794, %._crit_edge.thread, %658, %622, %628, %.critedge765.thread.thread, %607, %568, %547, %.critedge763.thread, %480, %478, %475, %473, %470, %459, %396, %351, %378, %ece_function_is_safe.exit775.thread, %ece_function_is_safe.exit775, %307, %ece_function_is_safe.exit.thread, %ece_function_is_safe.exit, %._crit_edge951, %81, %987, %571, %566, %564, %458, %274, %209, %168, %2, %._crit_edge951.thread, %tailrecurse, %20, %20, %485, %405, %399, %379, %91
+  %common.ret1269.op = phi ptr [ %101, %91 ], [ %385, %379 ], [ %404, %399 ], [ %419, %405 ], [ %495, %485 ], [ %988, %987 ], [ %.3, %168 ], [ %.4, %209 ], [ %.5, %274 ], [ %.13, %458 ], [ %565, %564 ], [ %567, %566 ], [ %575, %571 ], [ %82, %81 ], [ %77, %69 ], [ %306, %ece_function_is_safe.exit.thread ], [ %294, %.split957 ], [ %276, %ece_function_is_safe.exit ], [ %276, %._crit_edge951 ], [ %321, %ece_function_is_safe.exit775.thread ], [ %308, %ece_function_is_safe.exit775 ], [ %308, %307 ], [ %.9, %351 ], [ %.11, %378 ], [ %395, %396 ], [ %484, %480 ], [ %460, %478 ], [ %460, %475 ], [ %460, %473 ], [ %460, %470 ], [ %460, %459 ], [ %548, %547 ], [ %545, %.critedge763.thread ], [ %569, %568 ], [ %606, %.critedge765.thread.thread ], [ %608, %607 ], [ %627, %622 ], [ %629, %628 ], [ %666, %658 ], [ %819, %817 ], [ %820, %.thread853 ], [ %790, %._crit_edge.thread ], [ %796, %794 ], [ %798, %797 ], [ %788, %.split ], [ %887, %885 ], [ %889, %888 ], [ %927, %916 ], [ %929, %928 ], [ %986, %982 ], [ %955, %979 ], [ %955, %977 ], [ %586, %.split924 ], [ %691, %709 ], [ %738, %.thread834 ], [ %713, %730 ], [ %713, %727 ], [ %713, %.critedge767 ], [ %955, %.thread856 ], [ null, %2 ], [ %276, %._crit_edge951.thread ], [ %.tr900, %20 ], [ %.tr900, %20 ], [ null, %tailrecurse ]
+  ret ptr %common.ret1269.op
 
 91:                                               ; preds = %83
   %92 = getelementptr inbounds nuw i8, ptr %.tr900, i64 24
@@ -2254,7 +2254,7 @@ common.ret1229:                                   ; preds = %.thread856, %.split
   %127 = load i32, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %101, i64 56
   store i32 %127, ptr %128, align 8
-  br label %common.ret1229
+  br label %common.ret1269
 
 129:                                              ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -2315,7 +2315,7 @@ common.ret1229:                                   ; preds = %.thread856, %.split
 168:                                              ; preds = %129, %145
   %.3 = phi ptr [ %146, %145 ], [ %144, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %common.ret1229
+  br label %common.ret1269
 
 169:                                              ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -2392,7 +2392,7 @@ common.ret1229:                                   ; preds = %.thread856, %.split
 209:                                              ; preds = %184, %169, %189
   %.4 = phi ptr [ %191, %189 ], [ %180, %169 ], [ %188, %184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %common.ret1229
+  br label %common.ret1269
 
 210:                                              ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2401,13 +2401,13 @@ common.ret1229:                                   ; preds = %.thread856, %.split
   %213 = tail call ptr @expression_tree_mutator_impl(ptr noundef %212, ptr noundef nonnull @eval_const_expressions_mutator, ptr noundef %1) #9
   store ptr %213, ptr %8, align 8
   %.not751 = icmp eq ptr %213, null
-  br i1 %.not751, label %.thread1061, label %.lr.ph968
+  br i1 %.not751, label %.thread1101, label %.lr.ph968
 
 .lr.ph968:                                        ; preds = %210
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 4
   %215 = load i32, ptr %214, align 4
   %216 = icmp sgt i32 %215, 0
-  br i1 %216, label %.lr.ph986, label %.thread1061
+  br i1 %216, label %.lr.ph986, label %.thread1101
 
 .lr.ph986:                                        ; preds = %.lr.ph968
   %217 = getelementptr inbounds nuw i8, ptr %213, i64 16
@@ -2415,11 +2415,11 @@ common.ret1229:                                   ; preds = %.thread856, %.split
   %wide.trip.count1031 = zext nneg i32 %215 to i64
   br label %.outer
 
-.outer:                                           ; preds = %.thread1048, %.lr.ph986
-  %indvars.iv1029.ph = phi i64 [ %indvars.iv.next10301052, %.thread1048 ], [ 0, %.lr.ph986 ]
-  %.0663964984.ph = phi i1 [ true, %.thread1048 ], [ false, %.lr.ph986 ]
-  %.0661965983.ph = phi i8 [ %.0661965983, %.thread1048 ], [ 1, %.lr.ph986 ]
-  %.0659966982.ph = phi i8 [ %.0659966982, %.thread1048 ], [ 0, %.lr.ph986 ]
+.outer:                                           ; preds = %.thread1088, %.lr.ph986
+  %indvars.iv1029.ph = phi i64 [ %indvars.iv.next10301092, %.thread1088 ], [ 0, %.lr.ph986 ]
+  %.0663964984.ph = phi i1 [ true, %.thread1088 ], [ false, %.lr.ph986 ]
+  %.0661965983.ph = phi i8 [ %.0661965983, %.thread1088 ], [ 1, %.lr.ph986 ]
+  %.0659966982.ph = phi i8 [ %.0659966982, %.thread1088 ], [ 0, %.lr.ph986 ]
   br label %219
 
 219:                                              ; preds = %.outer, %225
@@ -2430,11 +2430,11 @@ common.ret1229:                                   ; preds = %.thread856, %.split
   %221 = load ptr, ptr %220, align 8
   %222 = load i32, ptr %221, align 4
   %223 = icmp eq i32 %222, 7
-  br i1 %223, label %225, label %.thread1048
+  br i1 %223, label %225, label %.thread1088
 
 .critedge:                                        ; preds = %225
   %224 = trunc nuw i8 %228 to i1
-  br i1 %.0663964984.ph, label %.critedge.thread1057, label %230
+  br i1 %.0663964984.ph, label %.critedge.thread1097, label %230
 
 225:                                              ; preds = %219
   %226 = getelementptr inbounds nuw i8, ptr %221, i64 32
@@ -2445,16 +2445,16 @@ common.ret1229:                                   ; preds = %.thread856, %.split
   %exitcond1032.not = icmp eq i64 %indvars.iv.next1030, %wide.trip.count1031
   br i1 %exitcond1032.not, label %.critedge, label %219
 
-.thread1048:                                      ; preds = %219
-  %indvars.iv.next10301052 = add nuw nsw i64 %indvars.iv1029, 1
-  %exitcond1032.not1053 = icmp eq i64 %indvars.iv.next10301052, %wide.trip.count1031
-  br i1 %exitcond1032.not1053, label %.critedge.thread1057, label %.outer
+.thread1088:                                      ; preds = %219
+  %indvars.iv.next10301092 = add nuw nsw i64 %indvars.iv1029, 1
+  %exitcond1032.not1093 = icmp eq i64 %indvars.iv.next10301092, %wide.trip.count1031
+  br i1 %exitcond1032.not1093, label %.critedge.thread1097, label %.outer
 
 230:                                              ; preds = %.critedge
   %231 = trunc nuw i8 %229 to i1
-  br i1 %231, label %.thread1061, label %233
+  br i1 %231, label %.thread1101, label %233
 
-.thread1061:                                      ; preds = %210, %.lr.ph968, %230
+.thread1101:                                      ; preds = %210, %.lr.ph968, %230
   %232 = tail call ptr @makeBoolConst(i1 noundef zeroext false, i1 noundef zeroext false) #9
   br label %274
 
@@ -2481,7 +2481,7 @@ common.ret1229:                                   ; preds = %.thread856, %.split
 
 ._crit_edge1034:                                  ; preds = %236
   %.pre1035 = load ptr, ptr %8, align 8
-  br label %.critedge.thread1057
+  br label %.critedge.thread1097
 
 246:                                              ; preds = %236
   %247 = getelementptr inbounds nuw i8, ptr %245, i64 24
@@ -2491,8 +2491,8 @@ common.ret1229:                                   ; preds = %.thread856, %.split
   store i64 %249, ptr %247, align 8
   br label %274
 
-.critedge.thread1057:                             ; preds = %.thread1048, %._crit_edge1034, %.critedge
-  %250 = phi ptr [ %.pre1035, %._crit_edge1034 ], [ %213, %.critedge ], [ %213, %.thread1048 ]
+.critedge.thread1097:                             ; preds = %.thread1088, %._crit_edge1034, %.critedge
+  %250 = phi ptr [ %.pre1035, %._crit_edge1034 ], [ %213, %.critedge ], [ %213, %.thread1088 ]
   %251 = tail call noundef ptr @palloc0(i64 noundef 48) #9
   store i32 18, ptr %251, align 4
   %252 = getelementptr inbounds nuw i8, ptr %.tr900, i64 4
@@ -2527,10 +2527,10 @@ common.ret1229:                                   ; preds = %.thread856, %.split
   store i32 %272, ptr %273, align 8
   br label %274
 
-274:                                              ; preds = %.critedge.thread1057, %246, %234, %.thread1061
-  %.5 = phi ptr [ %251, %.critedge.thread1057 ], [ %232, %.thread1061 ], [ %235, %234 ], [ %245, %246 ]
+274:                                              ; preds = %.critedge.thread1097, %246, %234, %.thread1101
+  %.5 = phi ptr [ %251, %.critedge.thread1097 ], [ %232, %.thread1101 ], [ %235, %234 ], [ %245, %246 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %common.ret1229
+  br label %common.ret1269
 
 275:                                              ; preds = %20
   %276 = tail call ptr @expression_tree_mutator_impl(ptr noundef nonnull %.tr900, ptr noundef nonnull @eval_const_expressions_mutator, ptr noundef %1) #9
@@ -2549,20 +2549,20 @@ common.ret1229:                                   ; preds = %.thread856, %.split
   %282 = getelementptr i8, ptr %278, i64 16
   %283 = load ptr, ptr %282, align 8
   %wide.trip.count = zext nneg i32 %280 to i64
-  br label %.outer1072
+  br label %.outer1112
 
-.outer1072:                                       ; preds = %.thread1064, %.lr.ph961
-  %indvars.iv1027.ph = phi i64 [ %indvars.iv.next10281066, %.thread1064 ], [ 0, %.lr.ph961 ]
-  %.0667948959.ph = phi i1 [ true, %.thread1064 ], [ false, %.lr.ph961 ]
+.outer1112:                                       ; preds = %.thread1104, %.lr.ph961
+  %indvars.iv1027.ph = phi i64 [ %indvars.iv.next10281106, %.thread1104 ], [ 0, %.lr.ph961 ]
+  %.0667948959.ph = phi i1 [ true, %.thread1104 ], [ false, %.lr.ph961 ]
   br label %284
 
-284:                                              ; preds = %.outer1072, %293
-  %indvars.iv1027 = phi i64 [ %indvars.iv.next1028, %293 ], [ %indvars.iv1027.ph, %.outer1072 ]
+284:                                              ; preds = %.outer1112, %293
+  %indvars.iv1027 = phi i64 [ %indvars.iv.next1028, %293 ], [ %indvars.iv1027.ph, %.outer1112 ]
   %285 = getelementptr inbounds nuw %union.ListCell, ptr %283, i64 %indvars.iv1027
   %286 = load ptr, ptr %285, align 8
   %287 = load i32, ptr %286, align 4
   %288 = icmp eq i32 %287, 7
-  br i1 %288, label %289, label %.thread1064
+  br i1 %288, label %289, label %.thread1104
 
 289:                                              ; preds = %284
   %290 = getelementptr inbounds nuw i8, ptr %286, i64 32
@@ -2575,22 +2575,22 @@ common.ret1229:                                   ; preds = %.thread856, %.split
   %exitcond.not = icmp eq i64 %indvars.iv.next1028, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge951, label %284
 
-.thread1064:                                      ; preds = %284
-  %indvars.iv.next10281066 = add nuw nsw i64 %indvars.iv1027, 1
-  %exitcond.not1067 = icmp eq i64 %indvars.iv.next10281066, %wide.trip.count
-  br i1 %exitcond.not1067, label %._crit_edge951.thread, label %.outer1072
+.thread1104:                                      ; preds = %284
+  %indvars.iv.next10281106 = add nuw nsw i64 %indvars.iv1027, 1
+  %exitcond.not1107 = icmp eq i64 %indvars.iv.next10281106, %wide.trip.count
+  br i1 %exitcond.not1107, label %._crit_edge951.thread, label %.outer1112
 
-._crit_edge951.thread:                            ; preds = %.thread1064
+._crit_edge951.thread:                            ; preds = %.thread1104
   tail call void @set_opfuncid(ptr noundef %276) #9
-  br label %common.ret1229
+  br label %common.ret1269
 
 .split957:                                        ; preds = %289
   %294 = load ptr, ptr %283, align 8
-  br label %common.ret1229
+  br label %common.ret1269
 
 ._crit_edge951:                                   ; preds = %293
   tail call void @set_opfuncid(ptr noundef %276) #9
-  br i1 %.0667948959.ph, label %common.ret1229, label %295
+  br i1 %.0667948959.ph, label %common.ret1269, label %295
 
 .critedge990:                                     ; preds = %.lr.ph950, %275
   tail call void @set_opfuncid(ptr noundef nonnull %276) #9
@@ -2608,20 +2608,20 @@ ece_function_is_safe.exit:                        ; preds = %295
   %301 = trunc nuw i8 %300 to i1
   %302 = icmp eq i8 %298, 115
   %or.cond.i = and i1 %302, %301
-  br i1 %or.cond.i, label %ece_function_is_safe.exit.thread, label %common.ret1229
+  br i1 %or.cond.i, label %ece_function_is_safe.exit.thread, label %common.ret1269
 
 ece_function_is_safe.exit.thread:                 ; preds = %295, %ece_function_is_safe.exit
   %303 = tail call i32 @exprType(ptr noundef nonnull %276) #9
   %304 = tail call i32 @exprTypmod(ptr noundef nonnull %276) #9
   %305 = tail call i32 @exprCollation(ptr noundef nonnull %276) #9
   %306 = tail call ptr @evaluate_expr(ptr noundef nonnull %276, i32 noundef %303, i32 noundef %304, i32 noundef %305)
-  br label %common.ret1229
+  br label %common.ret1269
 
 307:                                              ; preds = %20
   %308 = tail call ptr @expression_tree_mutator_impl(ptr noundef nonnull %.tr900, ptr noundef nonnull @eval_const_expressions_mutator, ptr noundef %1) #9
   tail call void @set_sa_opfuncid(ptr noundef %308) #9
   %309 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef %308, ptr noundef nonnull @contain_non_const_walker, ptr noundef null) #9
-  br i1 %309, label %common.ret1229, label %310
+  br i1 %309, label %common.ret1269, label %310
 
 310:                                              ; preds = %307
   %311 = getelementptr inbounds nuw i8, ptr %308, i64 8
@@ -2635,14 +2635,14 @@ ece_function_is_safe.exit775:                     ; preds = %310
   %316 = trunc nuw i8 %315 to i1
   %317 = icmp eq i8 %313, 115
   %or.cond.i773 = and i1 %317, %316
-  br i1 %or.cond.i773, label %ece_function_is_safe.exit775.thread, label %common.ret1229
+  br i1 %or.cond.i773, label %ece_function_is_safe.exit775.thread, label %common.ret1269
 
 ece_function_is_safe.exit775.thread:              ; preds = %310, %ece_function_is_safe.exit775
   %318 = tail call i32 @exprType(ptr noundef nonnull %308) #9
   %319 = tail call i32 @exprTypmod(ptr noundef nonnull %308) #9
   %320 = tail call i32 @exprCollation(ptr noundef nonnull %308) #9
   %321 = tail call ptr @evaluate_expr(ptr noundef nonnull %308, i32 noundef %318, i32 noundef %319, i32 noundef %320)
-  br label %common.ret1229
+  br label %common.ret1269
 
 322:                                              ; preds = %20
   %323 = getelementptr inbounds nuw i8, ptr %.tr900, i64 4
@@ -2708,7 +2708,7 @@ list_length.exit:                                 ; preds = %339
   %.9 = phi ptr [ %332, %331 ], [ %342, %341 ], [ %348, %346 ], [ %350, %349 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %common.ret1229
+  br label %common.ret1269
 
 352:                                              ; preds = %322
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -2765,7 +2765,7 @@ list_length.exit777:                              ; preds = %366
   %.11 = phi ptr [ %359, %358 ], [ %369, %368 ], [ %375, %373 ], [ %377, %376 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %common.ret1229
+  br label %common.ret1269
 
 379:                                              ; preds = %322
   %380 = getelementptr inbounds nuw i8, ptr %.tr900, i64 8
@@ -2775,7 +2775,7 @@ list_length.exit777:                              ; preds = %366
   %383 = load ptr, ptr %.val768, align 8
   %384 = tail call ptr @eval_const_expressions_mutator(ptr noundef %383, ptr noundef %1)
   %385 = tail call ptr @negate_clause(ptr noundef %384) #9
-  br label %common.ret1229
+  br label %common.ret1269
 
 386:                                              ; preds = %322
   %387 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -2797,7 +2797,7 @@ list_length.exit777:                              ; preds = %366
 396:                                              ; preds = %390
   %397 = load i32, ptr %395, align 4
   %398 = icmp eq i32 %397, 7
-  br i1 %398, label %common.ret1229, label %399
+  br i1 %398, label %common.ret1269, label %399
 
 399:                                              ; preds = %396, %390
   %400 = tail call ptr @eval_const_expressions_mutator(ptr noundef %392, ptr noundef %1)
@@ -2805,7 +2805,7 @@ list_length.exit777:                              ; preds = %366
   %402 = load ptr, ptr %401, align 8
   %403 = tail call ptr @copyObjectImpl(ptr noundef %402) #9
   %404 = tail call ptr @makeJsonValueExpr(ptr noundef %400, ptr noundef %395, ptr noundef %403) #9
-  br label %common.ret1229
+  br label %common.ret1269
 
 405:                                              ; preds = %20
   %406 = getelementptr inbounds nuw i8, ptr %.tr900, i64 8
@@ -2822,7 +2822,7 @@ list_length.exit777:                              ; preds = %366
   %417 = getelementptr inbounds nuw i8, ptr %.tr900, i64 32
   %418 = load i32, ptr %417, align 8
   %419 = tail call ptr @applyRelabelType(ptr noundef %408, i32 noundef %410, i32 noundef %412, i32 noundef %414, i32 noundef %416, i32 noundef %418, i1 noundef zeroext true) #9
-  br label %common.ret1229
+  br label %common.ret1269
 
 420:                                              ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -2893,7 +2893,7 @@ list_length.exit777:                              ; preds = %366
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %common.ret1229
+  br label %common.ret1269
 
 459:                                              ; preds = %20
   %460 = tail call noundef ptr @palloc0(i64 noundef 48) #9
@@ -2913,33 +2913,33 @@ list_length.exit777:                              ; preds = %366
   store ptr %465, ptr %464, align 8
   %469 = load ptr, ptr %461, align 8
   %.not744 = icmp eq ptr %469, null
-  br i1 %.not744, label %common.ret1229, label %470
+  br i1 %.not744, label %common.ret1269, label %470
 
 470:                                              ; preds = %459
   %471 = load i32, ptr %469, align 4
   %472 = icmp eq i32 %471, 7
-  br i1 %472, label %473, label %common.ret1229
+  br i1 %472, label %473, label %common.ret1269
 
 473:                                              ; preds = %470
   %474 = load ptr, ptr %466, align 8
   %.not745 = icmp eq ptr %474, null
-  br i1 %.not745, label %common.ret1229, label %475
+  br i1 %.not745, label %common.ret1269, label %475
 
 475:                                              ; preds = %473
   %476 = load i32, ptr %474, align 4
   %477 = icmp eq i32 %476, 55
-  br i1 %477, label %common.ret1229, label %478
+  br i1 %477, label %common.ret1269, label %478
 
 478:                                              ; preds = %475
   %479 = tail call zeroext i1 @contain_mutable_functions_walker(ptr noundef nonnull %474, ptr noundef null)
-  br i1 %479, label %common.ret1229, label %480
+  br i1 %479, label %common.ret1269, label %480
 
 480:                                              ; preds = %478
   %481 = tail call i32 @exprType(ptr noundef nonnull %460) #9
   %482 = tail call i32 @exprTypmod(ptr noundef nonnull %460) #9
   %483 = tail call i32 @exprCollation(ptr noundef nonnull %460) #9
   %484 = tail call ptr @evaluate_expr(ptr noundef nonnull %460, i32 noundef %481, i32 noundef %482, i32 noundef %483)
-  br label %common.ret1229
+  br label %common.ret1269
 
 485:                                              ; preds = %20
   %486 = getelementptr inbounds nuw i8, ptr %.tr900, i64 8
@@ -2952,7 +2952,7 @@ list_length.exit777:                              ; preds = %366
   %493 = getelementptr inbounds nuw i8, ptr %.tr900, i64 20
   %494 = load i32, ptr %493, align 4
   %495 = tail call ptr @applyRelabelType(ptr noundef %488, i32 noundef %489, i32 noundef %490, i32 noundef %492, i32 noundef 2, i32 noundef %494, i1 noundef zeroext true) #9
-  br label %common.ret1229
+  br label %common.ret1269
 
 496:                                              ; preds = %20
   %497 = getelementptr inbounds nuw i8, ptr %.tr900, i64 16
@@ -3057,7 +3057,7 @@ list_length.exit777:                              ; preds = %366
   %545 = tail call ptr @eval_const_expressions_mutator(ptr noundef %.sink, ptr noundef %1)
   store ptr %501, ptr %500, align 8
   %546 = icmp eq ptr %.0676870, null
-  br i1 %546, label %common.ret1229, label %547
+  br i1 %546, label %common.ret1269, label %547
 
 547:                                              ; preds = %.critedge763.thread
   %548 = tail call noundef ptr @palloc0(i64 noundef 48) #9
@@ -3080,7 +3080,7 @@ list_length.exit777:                              ; preds = %366
   %559 = load i32, ptr %558, align 8
   %560 = getelementptr inbounds nuw i8, ptr %548, i64 40
   store i32 %559, ptr %560, align 8
-  br label %common.ret1229
+  br label %common.ret1269
 
 561:                                              ; preds = %20
   %562 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3090,23 +3090,23 @@ list_length.exit777:                              ; preds = %366
 
 564:                                              ; preds = %561
   %565 = tail call ptr @copyObjectImpl(ptr noundef nonnull %563) #9
-  br label %common.ret1229
+  br label %common.ret1269
 
 566:                                              ; preds = %561
   %567 = tail call ptr @copyObjectImpl(ptr noundef nonnull %.tr900) #9
-  br label %common.ret1229
+  br label %common.ret1269
 
 568:                                              ; preds = %20, %20, %20, %20
   %569 = tail call ptr @expression_tree_mutator_impl(ptr noundef nonnull %.tr900, ptr noundef nonnull @eval_const_expressions_mutator, ptr noundef %1) #9
   %570 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef %569, ptr noundef nonnull @contain_non_const_walker, ptr noundef null) #9
-  br i1 %570, label %common.ret1229, label %571
+  br i1 %570, label %common.ret1269, label %571
 
 571:                                              ; preds = %568
   %572 = tail call i32 @exprType(ptr noundef %569) #9
   %573 = tail call i32 @exprTypmod(ptr noundef %569) #9
   %574 = tail call i32 @exprCollation(ptr noundef %569) #9
   %575 = tail call ptr @evaluate_expr(ptr noundef %569, i32 noundef %572, i32 noundef %573, i32 noundef %574)
-  br label %common.ret1229
+  br label %common.ret1269
 
 576:                                              ; preds = %20
   %577 = getelementptr inbounds nuw i8, ptr %.tr900, i64 16
@@ -3140,7 +3140,7 @@ list_length.exit777:                              ; preds = %366
 
 .split924:                                        ; preds = %589
   %593 = icmp eq ptr %.0689916928, null
-  br i1 %593, label %common.ret1229, label %.critedge765.thread825
+  br i1 %593, label %common.ret1269, label %.critedge765.thread825
 
 .critedge765.thread825:                           ; preds = %.split924
   %594 = tail call ptr @lappend(ptr noundef nonnull %.0689916928, ptr noundef nonnull %586) #9
@@ -3169,7 +3169,7 @@ list_length.exit777:                              ; preds = %366
   %604 = getelementptr inbounds nuw i8, ptr %.tr900, i64 8
   %605 = load i32, ptr %604, align 8
   %606 = tail call ptr @makeNullConst(i32 noundef %603, i32 noundef -1, i32 noundef %605) #9
-  br label %common.ret1229
+  br label %common.ret1269
 
 607:                                              ; preds = %.critedge765.thread
   %608 = tail call noundef ptr @palloc0(i64 noundef 32) #9
@@ -3188,7 +3188,7 @@ list_length.exit777:                              ; preds = %366
   %617 = load i32, ptr %616, align 8
   %618 = getelementptr inbounds nuw i8, ptr %608, i64 24
   store i32 %617, ptr %618, align 8
-  br label %common.ret1229
+  br label %common.ret1269
 
 619:                                              ; preds = %20
   %620 = load i8, ptr %19, align 8, !range !4, !noundef !5
@@ -3201,11 +3201,11 @@ list_length.exit777:                              ; preds = %366
   %625 = getelementptr inbounds nuw i8, ptr %.tr900, i64 12
   %626 = load i32, ptr %625, align 4
   %627 = tail call ptr @evaluate_expr(ptr noundef nonnull %.tr900, i32 noundef %624, i32 noundef %626, i32 noundef 0)
-  br label %common.ret1229
+  br label %common.ret1269
 
 628:                                              ; preds = %619
   %629 = tail call ptr @copyObjectImpl(ptr noundef nonnull %.tr900) #9
-  br label %common.ret1229
+  br label %common.ret1269
 
 630:                                              ; preds = %20
   %631 = getelementptr inbounds nuw i8, ptr %.tr900, i64 8
@@ -3267,7 +3267,7 @@ list_length.exit777:                              ; preds = %366
   %671 = load ptr, ptr %670, align 8
   %672 = getelementptr inbounds nuw i8, ptr %666, i64 24
   store ptr %671, ptr %672, align 8
-  br label %common.ret1229
+  br label %common.ret1269
 
 thread-pre-split:                                 ; preds = %.thread-pre-split_crit_edge, %634
   %673 = phi i32 [ %635, %634 ], [ %.pr.pre, %.thread-pre-split_crit_edge ]
@@ -3327,7 +3327,7 @@ list_length.exit779:                              ; preds = %679
   %710 = load i32, ptr %698, align 4
   %711 = tail call i32 @exprCollation(ptr noundef %691) #9
   %712 = icmp eq i32 %710, %711
-  br i1 %712, label %common.ret1229, label %.critedge767
+  br i1 %712, label %common.ret1269, label %.critedge767
 
 .critedge767:                                     ; preds = %637, %641, %679, %686, %701, %705, %709, %675, %list_length.exit779, %630, %thread-pre-split
   %713 = tail call noundef ptr @palloc0(i64 noundef 32) #9
@@ -3350,26 +3350,26 @@ list_length.exit779:                              ; preds = %679
   %725 = load i32, ptr %724, align 4
   %726 = getelementptr inbounds nuw i8, ptr %713, i64 28
   store i32 %725, ptr %726, align 4
-  br i1 %.not735, label %common.ret1229, label %727
+  br i1 %.not735, label %common.ret1269, label %727
 
 727:                                              ; preds = %.critedge767
   %728 = load i32, ptr %633, align 4
   %729 = icmp eq i32 %728, 7
-  br i1 %729, label %730, label %common.ret1229
+  br i1 %729, label %730, label %common.ret1269
 
 730:                                              ; preds = %727
   %731 = getelementptr inbounds nuw i8, ptr %633, i64 4
   %732 = load i32, ptr %731, align 4
   %733 = sext i16 %716 to i32
   %734 = tail call fastcc zeroext i1 @rowtype_field_matches(i32 noundef %732, i32 noundef %733, i32 noundef %719, i32 noundef %722, i32 noundef %725)
-  br i1 %734, label %.thread834, label %common.ret1229
+  br i1 %734, label %.thread834, label %common.ret1269
 
 .thread834:                                       ; preds = %730
   %735 = tail call i32 @exprType(ptr noundef nonnull %713) #9
   %736 = tail call i32 @exprTypmod(ptr noundef nonnull %713) #9
   %737 = tail call i32 @exprCollation(ptr noundef nonnull %713) #9
   %738 = tail call ptr @evaluate_expr(ptr noundef nonnull %713, i32 noundef %735, i32 noundef %736, i32 noundef %737)
-  br label %common.ret1229
+  br label %common.ret1269
 
 739:                                              ; preds = %20
   %740 = getelementptr inbounds nuw i8, ptr %.tr900, i64 8
@@ -3459,7 +3459,7 @@ list_length.exit779:                              ; preds = %679
 
 .split:                                           ; preds = %771, %773
   %788 = tail call ptr @makeBoolConst(i1 noundef zeroext false, i1 noundef zeroext false) #9
-  br label %common.ret1229
+  br label %common.ret1269
 
 ._crit_edge:                                      ; preds = %784
   %789 = icmp eq ptr %.2674.ph, null
@@ -3467,7 +3467,7 @@ list_length.exit779:                              ; preds = %679
 
 ._crit_edge.thread:                               ; preds = %.lr.ph906, %750, %._crit_edge
   %790 = tail call ptr @makeBoolConst(i1 noundef zeroext true, i1 noundef zeroext false) #9
-  br label %common.ret1229
+  br label %common.ret1269
 
 list_length.exit781:                              ; preds = %._crit_edge
   %791 = getelementptr inbounds nuw i8, ptr %.2674.ph, i64 4
@@ -3479,11 +3479,11 @@ list_length.exit781:                              ; preds = %._crit_edge
   %795 = getelementptr i8, ptr %.2674.ph, i64 16
   %.1673.val = load ptr, ptr %795, align 8
   %796 = load ptr, ptr %.1673.val, align 8
-  br label %common.ret1229
+  br label %common.ret1269
 
 797:                                              ; preds = %list_length.exit781
   %798 = tail call ptr @make_andclause(ptr noundef nonnull %.2674.ph) #9
-  br label %common.ret1229
+  br label %common.ret1269
 
 799:                                              ; preds = %739
   %.not = xor i1 %745, true
@@ -3526,7 +3526,7 @@ list_length.exit781:                              ; preds = %._crit_edge
   %.0665 = phi i8 [ %808, %806 ], [ %812, %809 ]
   %818 = trunc nuw i8 %.0665 to i1
   %819 = tail call ptr @makeBoolConst(i1 noundef zeroext %818, i1 noundef zeroext false) #9
-  br label %common.ret1229
+  br label %common.ret1269
 
 .thread853:                                       ; preds = %747, %800, %799
   %820 = tail call noundef ptr @palloc0(i64 noundef 32) #9
@@ -3544,7 +3544,7 @@ list_length.exit781:                              ; preds = %._crit_edge
   %828 = load i32, ptr %827, align 8
   %829 = getelementptr inbounds nuw i8, ptr %820, i64 24
   store i32 %828, ptr %829, align 8
-  br label %common.ret1229
+  br label %common.ret1269
 
 830:                                              ; preds = %20
   %831 = getelementptr inbounds nuw i8, ptr %.tr900, i64 8
@@ -3645,7 +3645,7 @@ list_length.exit781:                              ; preds = %._crit_edge
   %.0658 = phi i8 [ %876, %874 ], [ %880, %877 ], [ 0, %840 ], [ %848, %844 ], [ 1, %849 ], [ %856, %853 ], [ 0, %857 ], [ %864, %861 ], [ 1, %865 ], [ %873, %869 ]
   %886 = trunc nuw i8 %.0658 to i1
   %887 = tail call ptr @makeBoolConst(i1 noundef zeroext %886, i1 noundef zeroext false) #9
-  br label %common.ret1229
+  br label %common.ret1269
 
 888:                                              ; preds = %834, %830
   %889 = tail call noundef ptr @palloc0(i64 noundef 24) #9
@@ -3660,7 +3660,7 @@ list_length.exit781:                              ; preds = %._crit_edge
   %895 = load i32, ptr %894, align 4
   %896 = getelementptr inbounds nuw i8, ptr %889, i64 20
   store i32 %895, ptr %896, align 4
-  br label %common.ret1229
+  br label %common.ret1269
 
 897:                                              ; preds = %20
   %898 = getelementptr inbounds nuw i8, ptr %.tr900, i64 8
@@ -3705,7 +3705,7 @@ list_length.exit781:                              ; preds = %._crit_edge
   %925 = getelementptr inbounds nuw i8, ptr %.tr900, i64 32
   %926 = load i32, ptr %925, align 8
   %927 = tail call ptr @applyRelabelType(ptr noundef %900, i32 noundef %918, i32 noundef %920, i32 noundef %922, i32 noundef %924, i32 noundef %926, i1 noundef zeroext true) #9
-  br label %common.ret1229
+  br label %common.ret1269
 
 928:                                              ; preds = %903
   %929 = tail call noundef ptr @palloc0(i64 noundef 40) #9
@@ -3731,7 +3731,7 @@ list_length.exit781:                              ; preds = %._crit_edge
   %943 = load i32, ptr %942, align 8
   %944 = getelementptr inbounds nuw i8, ptr %929, i64 32
   store i32 %943, ptr %944, align 8
-  br label %common.ret1229
+  br label %common.ret1269
 
 945:                                              ; preds = %20
   %946 = load i8, ptr %19, align 8, !range !4, !noundef !5
@@ -3743,7 +3743,7 @@ tailrecurse:                                      ; preds = %945
   %949 = load ptr, ptr %948, align 8
   tail call void @check_stack_depth() #9
   %950 = icmp eq ptr %949, null
-  br i1 %950, label %common.ret1229, label %20
+  br i1 %950, label %common.ret1269, label %20
 
 951:                                              ; preds = %20
   %952 = getelementptr inbounds nuw i8, ptr %.tr900, i64 8
@@ -3769,7 +3769,7 @@ tailrecurse:                                      ; preds = %945
 .thread856:                                       ; preds = %951
   %965 = getelementptr inbounds nuw i8, ptr %955, i64 8
   store ptr null, ptr %965, align 8
-  br label %common.ret1229
+  br label %common.ret1269
 
 966:                                              ; preds = %951
   %967 = load i32, ptr %954, align 4
@@ -3797,24 +3797,24 @@ tailrecurse:                                      ; preds = %945
   %978 = getelementptr inbounds nuw i8, ptr %955, i64 8
   store ptr %972, ptr %978, align 8
   %.not729 = icmp eq ptr %972, null
-  br i1 %.not729, label %common.ret1229, label %979
+  br i1 %.not729, label %common.ret1269, label %979
 
 979:                                              ; preds = %.thread859, %977
   %.0639862 = phi ptr [ %954, %.thread859 ], [ %972, %977 ]
   %980 = load i32, ptr %.0639862, align 4
   %981 = icmp eq i32 %980, 7
-  br i1 %981, label %982, label %common.ret1229
+  br i1 %981, label %982, label %common.ret1269
 
 982:                                              ; preds = %979
   %983 = tail call i32 @exprType(ptr noundef nonnull %955) #9
   %984 = tail call i32 @exprTypmod(ptr noundef nonnull %955) #9
   %985 = tail call i32 @exprCollation(ptr noundef nonnull %955) #9
   %986 = tail call ptr @evaluate_expr(ptr noundef nonnull %955, i32 noundef %983, i32 noundef %984, i32 noundef %985)
-  br label %common.ret1229
+  br label %common.ret1269
 
 987:                                              ; preds = %20, %945
   %988 = tail call ptr @expression_tree_mutator_impl(ptr noundef nonnull %.tr900, ptr noundef nonnull @eval_const_expressions_mutator, ptr noundef %1) #9
-  br label %common.ret1229
+  br label %common.ret1269
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4067,8 +4067,8 @@ list_length.exit.thread.i:                        ; preds = %48
   %54 = zext i8 %53 to i64
   %55 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %54
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %or.cond78.i = icmp ugt i32 %.045, 100
-  br i1 %or.cond78.i, label %56, label %.lr.ph56.i
+  %or.cond82.i = icmp ugt i32 %.045, 100
+  br i1 %or.cond82.i, label %56, label %.lr.ph56.i
 
 56:                                               ; preds = %list_length.exit.thread.i
   %57 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -4108,10 +4108,10 @@ list_length.exit.thread.i:                        ; preds = %48
   br label %74
 
 74:                                               ; preds = %69, %67
-  %.sink81.i = phi i32 [ %73, %69 ], [ %.0415254.i, %67 ]
+  %.sink85.i = phi i32 [ %73, %69 ], [ %.0415254.i, %67 ]
   %.sink.i = phi ptr [ %71, %69 ], [ %63, %67 ]
   %.142.i = phi i32 [ %.0415254.i, %69 ], [ %68, %67 ]
-  %75 = sext i32 %.sink81.i to i64
+  %75 = sext i32 %.sink85.i to i64
   %76 = getelementptr inbounds [100 x ptr], ptr %5, i64 0, i64 %75
   store ptr %.sink.i, ptr %76, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

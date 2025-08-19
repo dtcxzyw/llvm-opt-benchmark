@@ -495,11 +495,11 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
 
 21:                                               ; preds = %7
   %22 = fcmp ugt double %19, 0.000000e+00
-  br i1 %22, label %.thread39, label %.thread38
+  br i1 %22, label %.thread42, label %.thread41
 
-.thread39:                                        ; preds = %21
+.thread42:                                        ; preds = %21
   %23 = tail call double @sqrt(double noundef %19) #14, !tbaa !15
-  br label %.thread38
+  br label %.thread41
 
 .thread:                                          ; preds = %7
   %24 = tail call double @sqrt(double noundef %15) #14, !tbaa !15
@@ -517,11 +517,11 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   %31 = phi double [ %30, %27 ], [ 0.000000e+00, %.thread ]
   %32 = tail call double @sqrt(double noundef %15) #14, !tbaa !15
   %33 = fmul double %32, 3.000000e+00
-  br label %.thread38
+  br label %.thread41
 
-.thread38:                                        ; preds = %21, %.thread39, %.thread37
-  %34 = phi double [ %31, %.thread37 ], [ %23, %.thread39 ], [ 0.000000e+00, %21 ]
-  %35 = phi double [ %33, %.thread37 ], [ 0.000000e+00, %.thread39 ], [ 0.000000e+00, %21 ]
+.thread41:                                        ; preds = %21, %.thread42, %.thread37
+  %34 = phi double [ %31, %.thread37 ], [ %23, %.thread42 ], [ 0.000000e+00, %21 ]
+  %35 = phi double [ %33, %.thread37 ], [ 0.000000e+00, %.thread42 ], [ 0.000000e+00, %21 ]
   %36 = fdiv double 1.000000e+00, %35
   %37 = fsub double %34, %36
   store double %37, ptr %5, align 8, !tbaa !13
@@ -541,8 +541,8 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   store double %37, ptr %46, align 8, !tbaa !13
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
-ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable_Free.exit.i, %ARKodeSPRKTable_Free.exit19.i, %.thread38
-  %.0 = phi ptr [ %calloc.i, %.thread38 ], [ null, %ARKodeSPRKTable_Free.exit19.i ], [ null, %ARKodeSPRKTable_Free.exit.i ], [ null, %0 ]
+ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable_Free.exit.i, %ARKodeSPRKTable_Free.exit19.i, %.thread41
+  %.0 = phi ptr [ %calloc.i, %.thread41 ], [ null, %ARKodeSPRKTable_Free.exit19.i ], [ null, %ARKodeSPRKTable_Free.exit.i ], [ null, %0 ]
   ret ptr %.0
 }
 

@@ -301,7 +301,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_set_mode(ptr no
 28:                                               ; preds = %27, %7
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 248
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %3, ptr noundef nonnull align 8 dereferenceable(60) %29, i64 60, i1 false)
-  switch i32 %1, label %.preheader34 [
+  switch i32 %1, label %.preheader38 [
     i32 2, label %44
     i32 1, label %30
   ]
@@ -326,16 +326,16 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_set_mode(ptr no
   store i8 1, ptr %42, align 1
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 22
   store i8 0, ptr %43, align 2
-  br label %.preheader34
+  br label %.preheader38
 
 44:                                               ; preds = %28
   call void @cfmakeraw(ptr noundef nonnull %3) #8
-  br label %.preheader34
+  br label %.preheader38
 
-.preheader34:                                     ; preds = %44, %30, %28
+.preheader38:                                     ; preds = %44, %30, %28
   br label %45
 
-45:                                               ; preds = %.preheader34, %48
+45:                                               ; preds = %.preheader38, %48
   %46 = call i32 @tcsetattr(i32 noundef %9, i32 noundef 1, ptr noundef nonnull %3) #8
   %47 = icmp eq i32 %46, -1
   br i1 %47, label %48, label %uv__tcsetattr.exit.thread

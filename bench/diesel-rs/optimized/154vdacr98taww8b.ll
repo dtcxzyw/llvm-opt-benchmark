@@ -404,9 +404,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br i1 %exitcond.not, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h9878aa96837342beE.exit.thread.sink.split", label %7
 
 "_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h9878aa96837342beE.exit.thread.sink.split": ; preds = %16, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h9878aa96837342beE.exit", %7, %33, %34, %32, %36, %37, %.backedge
-  %.lcssa50.sink = phi i64 [ %4, %.backedge ], [ %9, %37 ], [ %9, %36 ], [ %9, %32 ], [ %9, %34 ], [ %9, %33 ], [ %9, %7 ], [ %9, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h9878aa96837342beE.exit" ], [ %9, %16 ]
+  %.lcssa52.sink = phi i64 [ %4, %.backedge ], [ %9, %37 ], [ %9, %36 ], [ %9, %32 ], [ %9, %34 ], [ %9, %33 ], [ %9, %7 ], [ %9, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h9878aa96837342beE.exit" ], [ %9, %16 ]
   %.lcssa.ph = phi i1 [ false, %.backedge ], [ true, %37 ], [ true, %36 ], [ true, %32 ], [ true, %34 ], [ true, %33 ], [ true, %7 ], [ true, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h9878aa96837342beE.exit" ], [ true, %16 ]
-  store i64 %.lcssa50.sink, ptr %2, align 8, !alias.scope !73
+  store i64 %.lcssa52.sink, ptr %2, align 8, !alias.scope !73
   br label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h9878aa96837342beE.exit.thread"
 
 "_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h9878aa96837342beE.exit.thread": ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h9878aa96837342beE.exit.thread.sink.split", %1

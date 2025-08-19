@@ -287,19 +287,19 @@ switch.lookup:                                    ; preds = %8
   %28 = shl nuw nsw i32 1, %.0102146
   %29 = and i32 %28, %1
   %.not128 = icmp eq i32 %29, 0
-  br i1 %.not128, label %CMP_PKIFAILUREINFO_to_string.exit, label %switch.lookup161
+  br i1 %.not128, label %CMP_PKIFAILUREINFO_to_string.exit, label %switch.lookup180
 
-switch.lookup161:                                 ; preds = %27
+switch.lookup180:                                 ; preds = %27
   %30 = zext nneg i32 %.0102146 to i64
-  %switch.gep162 = getelementptr inbounds nuw [27 x ptr], ptr @switch.table.snprint_PKIStatusInfo_parts.1, i64 0, i64 %30
-  %switch.load163 = load ptr, ptr %switch.gep162, align 8
+  %switch.gep181 = getelementptr inbounds nuw [27 x ptr], ptr @switch.table.snprint_PKIStatusInfo_parts.1, i64 0, i64 %30
+  %switch.load182 = load ptr, ptr %switch.gep181, align 8
   %.not130 = icmp eq i32 %.194148, 0
   %31 = select i1 %.not130, ptr @.str.13, ptr @.str.12
-  %32 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %.1149, i64 noundef %.198147, ptr noundef nonnull @.str.11, ptr noundef nonnull %31, ptr noundef nonnull %switch.load163) #3
+  %32 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %.1149, i64 noundef %.198147, ptr noundef nonnull @.str.11, ptr noundef nonnull %31, ptr noundef nonnull %switch.load182) #3
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %.loopexit, label %34
 
-34:                                               ; preds = %switch.lookup161
+34:                                               ; preds = %switch.lookup180
   %35 = zext nneg i32 %32 to i64
   %.not131 = icmp ugt i64 %.198147, %35
   br i1 %.not131, label %36, label %.loopexit
@@ -394,8 +394,8 @@ CMP_PKIFAILUREINFO_to_string.exit:                ; preds = %27, %36
   %exitcond158.not = icmp eq i32 %75, %51
   br i1 %exitcond158.not, label %.loopexit, label %62, !llvm.loop !16
 
-.loopexit:                                        ; preds = %switch.lookup161, %34, %70, %62, %72, %ossl_cmp_PKIStatus_to_string.exit, %50, %53, %57, %42, %45, %19, %22, %switch.lookup, %13, %5
-  %.092 = phi ptr [ null, %ossl_cmp_PKIStatus_to_string.exit ], [ null, %5 ], [ null, %13 ], [ null, %switch.lookup ], [ null, %22 ], [ null, %19 ], [ null, %45 ], [ null, %42 ], [ null, %57 ], [ null, %53 ], [ %3, %50 ], [ null, %70 ], [ null, %62 ], [ %3, %72 ], [ null, %34 ], [ null, %switch.lookup161 ]
+.loopexit:                                        ; preds = %switch.lookup180, %34, %70, %62, %72, %ossl_cmp_PKIStatus_to_string.exit, %50, %53, %57, %42, %45, %19, %22, %switch.lookup, %13, %5
+  %.092 = phi ptr [ null, %ossl_cmp_PKIStatus_to_string.exit ], [ null, %5 ], [ null, %13 ], [ null, %switch.lookup ], [ null, %22 ], [ null, %19 ], [ null, %45 ], [ null, %42 ], [ null, %57 ], [ null, %53 ], [ %3, %50 ], [ null, %70 ], [ null, %62 ], [ %3, %72 ], [ null, %34 ], [ null, %switch.lookup180 ]
   ret ptr %.092
 }
 

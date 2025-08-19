@@ -338,13 +338,13 @@ if.then.i:                                        ; preds = %invoke.cont42
 if.then.i.i.i.i:                                  ; preds = %if.then.i
   store double 0.000000e+00, ptr %25, align 8, !tbaa !37
   %incdec.ptr.i.i.i.i45 = getelementptr i8, ptr %25, i64 8
-  %sub.i.i.i.i = add i64 %sub.i, -1
+  %sub.i.i.i.i = add nsw i64 %sub.i, -1
   %cmp.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i
-  %28 = shl i64 %sub.i, 3
-  %29 = add i64 %28, -8
+  %28 = shl nuw nsw i64 %sub.i, 3
+  %29 = add nsw i64 %28, -8
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i45, i8 0, i64 %29, i1 false), !tbaa !37
   %add.ptr.idx.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i, 3
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i45, i64 %add.ptr.idx.i.i.i.i.i.i

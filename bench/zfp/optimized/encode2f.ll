@@ -96,10 +96,10 @@ rev_fwd_reversible_float.exit.thread.i:           ; preds = %20
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 256 dereferenceable(64) %7, i8 0, i64 64, i1 false), !tbaa !12
-  %bcmp.i71.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(64) %1, ptr noundef nonnull dereferenceable(64) %7, i64 64)
-  %.not.i38.not72.i = icmp eq i32 %bcmp.i71.i, 0
+  %bcmp.i83.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(64) %1, ptr noundef nonnull dereferenceable(64) %7, i64 64)
+  %.not.i38.not84.i = icmp eq i32 %bcmp.i83.i, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not.i38.not72.i, label %79, label %95
+  br i1 %.not.i38.not84.i, label %79, label %95
 
 45:                                               ; preds = %rev_fwd_reversible_float.exit.i
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16

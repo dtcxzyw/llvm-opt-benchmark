@@ -47375,21 +47375,21 @@ lean_dec.exit:                                    ; preds = %312, %311, %309, %l
   br i1 %exitcond.not, label %._crit_edge, label %118
 
 .sink.split:                                      ; preds = %lean_dec.exit, %lean_dec.exit106
-  %.sink246 = phi ptr [ %115, %lean_dec.exit106 ], [ %313, %lean_dec.exit ]
+  %.sink291 = phi ptr [ %115, %lean_dec.exit106 ], [ %313, %lean_dec.exit ]
   %.sink = phi i32 [ 131096, %lean_dec.exit106 ], [ 16908312, %lean_dec.exit ]
   %.075.lcssa.sink = phi ptr [ %.075.lcssa, %lean_dec.exit106 ], [ %287, %lean_dec.exit ]
   %.078.lcssa.sink = phi ptr [ %.078.lcssa, %lean_dec.exit106 ], [ %289, %lean_dec.exit ]
-  %318 = getelementptr inbounds nuw i8, ptr %.sink246, i64 4
-  store i32 1, ptr %.sink246, align 4, !tbaa !4
+  %318 = getelementptr inbounds nuw i8, ptr %.sink291, i64 4
+  store i32 1, ptr %.sink291, align 4, !tbaa !4
   store i32 %.sink, ptr %318, align 4
-  %319 = getelementptr inbounds nuw i8, ptr %.sink246, i64 8
+  %319 = getelementptr inbounds nuw i8, ptr %.sink291, i64 8
   store ptr %.075.lcssa.sink, ptr %319, align 8, !tbaa !10
-  %320 = getelementptr inbounds nuw i8, ptr %.sink246, i64 16
+  %320 = getelementptr inbounds nuw i8, ptr %.sink291, i64 16
   store ptr %.078.lcssa.sink, ptr %320, align 8, !tbaa !10
   br label %321
 
 321:                                              ; preds = %.sink.split, %lean_dec.exit95
-  %.1.ph = phi ptr [ %192, %lean_dec.exit95 ], [ %.sink246, %.sink.split ]
+  %.1.ph = phi ptr [ %192, %lean_dec.exit95 ], [ %.sink291, %.sink.split ]
   ret ptr %.1.ph
 }
 

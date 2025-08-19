@@ -1855,7 +1855,7 @@ common.resume:                                    ; preds = %380, %293
   %exitcond241.not = icmp eq i64 %indvars.iv.next238, %wide.trip.count240
   br i1 %exitcond241.not, label %.loopexit, label %346, !llvm.loop !169
 
-.loopexit:                                        ; preds = %139, %346, %.preheader, %.preheader169, %._crit_edge201
+.loopexit:                                        ; preds = %139, %346, %.preheader169, %.preheader, %._crit_edge201
   %.pre-phi = phi i32 [ 0, %._crit_edge201 ], [ 0, %.preheader ], [ 0, %.preheader169 ], [ %325, %346 ], [ %58, %139 ]
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %374 = load ptr, ptr %373, align 8
@@ -2720,8 +2720,8 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor28_interpolateBayerRGBchanne
   br i1 %49, label %.preheader65.us, label %.preheader64, !llvm.loop !196
 
 .preheader64:                                     ; preds = %._crit_edge.us, %.preheader65.lr.ph
-  %.not95 = icmp eq i32 %6, 1
-  br i1 %.not95, label %._crit_edge78, label %.preheader63.lr.ph
+  %.not101 = icmp eq i32 %6, 1
+  br i1 %.not101, label %._crit_edge78, label %.preheader63.lr.ph
 
 .preheader63.lr.ph:                               ; preds = %.preheader64
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3243,10 +3243,10 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor16_computeGradientEPKf(ptr n
   %78 = zext i32 %77 to i64
   %79 = getelementptr inbounds nuw float, ptr %19, i64 %78
   %. = select i1 %76, float 0x3FAEB851E0000000, float 0x3FE23D70A0000000
-  %.50 = select i1 %76, float 0x3FE23D70A0000000, float 0x3FAEB851E0000000
+  %.52 = select i1 %76, float 0x3FE23D70A0000000, float 0x3FAEB851E0000000
   store float %., ptr %79, align 4, !tbaa !31
   %80 = getelementptr inbounds nuw float, ptr %19, i64 %43
-  store float %.50, ptr %80, align 4, !tbaa !31
+  store float %.52, ptr %80, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %20, !llvm.loop !206
@@ -3624,10 +3624,10 @@ define linkonce_odr hidden void @_ZNK2cv11bioinspired11RetinaColor24Parallel_com
   %77 = zext i32 %76 to i64
   %78 = getelementptr inbounds nuw float, ptr %17, i64 %77
   %. = select i1 %75, float 0x3FAEB851E0000000, float 0x3FE23D70A0000000
-  %.40 = select i1 %75, float 0x3FE23D70A0000000, float 0x3FAEB851E0000000
+  %.43 = select i1 %75, float 0x3FE23D70A0000000, float 0x3FAEB851E0000000
   store float %., ptr %78, align 4, !tbaa !31
   %79 = getelementptr inbounds nuw float, ptr %17, i64 %42
-  store float %.40, ptr %79, align 4, !tbaa !31
+  store float %.43, ptr %79, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !209

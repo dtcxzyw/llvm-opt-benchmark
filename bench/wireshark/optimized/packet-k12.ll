@@ -545,9 +545,9 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %176 = getelementptr i8, ptr %151, i64 15
   %177 = load i8, ptr %176, align 1
   %178 = icmp eq i8 %177, 1
-  %spec.select83.i = zext i1 %178 to i8
+  %spec.select85.i = zext i1 %178 to i8
   %179 = getelementptr inbounds nuw i8, ptr %146, i64 13
-  store i8 %spec.select83.i, ptr %179, align 1
+  store i8 %spec.select85.i, ptr %179, align 1
   switch i16 %158, label %.thread76.i [
     i16 17, label %182
     i16 48, label %181
@@ -562,10 +562,10 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %182
 
 182:                                              ; preds = %181, %161
-  %.sink84.i = phi i64 [ 22, %181 ], [ 21, %161 ]
+  %.sink86.i = phi i64 [ 22, %181 ], [ 21, %161 ]
   %183 = zext nneg i32 %spec.select.i to i64
   %184 = getelementptr i8, ptr %151, i64 %183
-  %185 = getelementptr i8, ptr %184, i64 %.sink84.i
+  %185 = getelementptr i8, ptr %184, i64 %.sink86.i
   %.065.i = load i8, ptr %185, align 1
   switch i8 %.065.i, label %215 [
     i8 1, label %186

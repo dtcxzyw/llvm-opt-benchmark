@@ -38154,9 +38154,9 @@ _ZN7testing15AssertionResultD2Ev.exit358:         ; preds = %259, %_ZNKSt14defau
   store i64 %.sroa.0.0.extract.trunc.i367, ptr %15, align 16, !tbaa !35
   store i64 %.sroa.2.0.extract.trunc.i369, ptr %.sroa.473.0..sroa_idx, align 8, !tbaa !35
   %272 = mul i128 %271, %.sroa.01.0.insert.insert.i366.frozen
-  %.decomposed845 = sub i128 %.sroa.03.0.insert.insert.i362.frozen, %272
-  %.sroa.0.0.extract.trunc.i380 = trunc i128 %.decomposed845 to i64
-  %.sroa.2.0.extract.shift.i381 = lshr i128 %.decomposed845, 64
+  %.decomposed943 = sub i128 %.sroa.03.0.insert.insert.i362.frozen, %272
+  %.sroa.0.0.extract.trunc.i380 = trunc i128 %.decomposed943 to i64
+  %.sroa.2.0.extract.shift.i381 = lshr i128 %.decomposed943, 64
   %.sroa.2.0.extract.trunc.i382 = trunc nuw i128 %.sroa.2.0.extract.shift.i381 to i64
   store i64 %.sroa.0.0.extract.trunc.i380, ptr %16, align 16, !tbaa !35
   store i64 %.sroa.2.0.extract.trunc.i382, ptr %.sroa.467.0..sroa_idx, align 8, !tbaa !35
@@ -38453,9 +38453,9 @@ _ZN7testing15AssertionResultD2Ev.exit440:         ; preds = %343, %_ZNKSt14defau
   store i64 %.sroa.0.0.extract.trunc.i449, ptr %15, align 16, !tbaa !35
   store i64 %.sroa.2.0.extract.trunc.i451, ptr %.sroa.473.0..sroa_idx, align 8, !tbaa !35
   %356 = mul i128 %355, %.sroa.01.0.insert.insert.i448.frozen
-  %.decomposed846 = sub i128 %.sroa.03.0.insert.insert.i444.frozen, %356
-  %.sroa.0.0.extract.trunc.i462 = trunc i128 %.decomposed846 to i64
-  %.sroa.2.0.extract.shift.i463 = lshr i128 %.decomposed846, 64
+  %.decomposed944 = sub i128 %.sroa.03.0.insert.insert.i444.frozen, %356
+  %.sroa.0.0.extract.trunc.i462 = trunc i128 %.decomposed944 to i64
+  %.sroa.2.0.extract.shift.i463 = lshr i128 %.decomposed944, 64
   %.sroa.2.0.extract.trunc.i464 = trunc nuw i128 %.sroa.2.0.extract.shift.i463 to i64
   store i64 %.sroa.0.0.extract.trunc.i462, ptr %16, align 16, !tbaa !35
   store i64 %.sroa.2.0.extract.trunc.i464, ptr %.sroa.467.0..sroa_idx, align 8, !tbaa !35
@@ -38742,17 +38742,17 @@ _ZN7testing15AssertionResultD2Ev.exit516:         ; preds = %427, %_ZNKSt14defau
   %.sroa.03.0.insert.ext.i519 = zext i64 %.sroa.034.0.copyload to i128
   %.sroa.03.0.insert.insert.i520 = or disjoint i128 %.sroa.24.0.insert.shift.i518, %.sroa.03.0.insert.ext.i519
   %.sroa.03.0.insert.insert.i520.frozen = freeze i128 %.sroa.03.0.insert.insert.i520
-  %.sroa.01.0.insert.insert.i448.frozen847 = freeze i128 %.sroa.01.0.insert.insert.i448
-  %439 = udiv i128 %.sroa.03.0.insert.insert.i520.frozen, %.sroa.01.0.insert.insert.i448.frozen847
+  %.sroa.01.0.insert.insert.i448.frozen945 = freeze i128 %.sroa.01.0.insert.insert.i448
+  %439 = udiv i128 %.sroa.03.0.insert.insert.i520.frozen, %.sroa.01.0.insert.insert.i448.frozen945
   %.sroa.0.0.extract.trunc.i525 = trunc i128 %439 to i64
   %.sroa.2.0.extract.shift.i526 = lshr i128 %439, 64
   %.sroa.2.0.extract.trunc.i527 = trunc nuw i128 %.sroa.2.0.extract.shift.i526 to i64
   store i64 %.sroa.0.0.extract.trunc.i525, ptr %15, align 16, !tbaa !35
   store i64 %.sroa.2.0.extract.trunc.i527, ptr %.sroa.473.0..sroa_idx, align 8, !tbaa !35
-  %440 = mul i128 %439, %.sroa.01.0.insert.insert.i448.frozen847
-  %.decomposed848 = sub i128 %.sroa.03.0.insert.insert.i520.frozen, %440
-  %.sroa.0.0.extract.trunc.i538 = trunc i128 %.decomposed848 to i64
-  %.sroa.2.0.extract.shift.i539 = lshr i128 %.decomposed848, 64
+  %440 = mul i128 %439, %.sroa.01.0.insert.insert.i448.frozen945
+  %.decomposed946 = sub i128 %.sroa.03.0.insert.insert.i520.frozen, %440
+  %.sroa.0.0.extract.trunc.i538 = trunc i128 %.decomposed946 to i64
+  %.sroa.2.0.extract.shift.i539 = lshr i128 %.decomposed946, 64
   %.sroa.2.0.extract.trunc.i540 = trunc nuw i128 %.sroa.2.0.extract.shift.i539 to i64
   store i64 %.sroa.0.0.extract.trunc.i538, ptr %16, align 16, !tbaa !35
   store i64 %.sroa.2.0.extract.trunc.i540, ptr %.sroa.467.0..sroa_idx, align 8, !tbaa !35
@@ -39401,9 +39401,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   store i64 %.sroa.0.0.extract.trunc.i725, ptr %15, align 16, !tbaa !35
   store i64 %.sroa.2.0.extract.trunc.i727, ptr %.sroa.473.0..sroa_idx, align 8, !tbaa !35
   %631 = mul i128 %630, %.sroa.03.0.insert.insert.i611.frozen
-  %.decomposed849 = sub i128 %.sroa.03.0.insert.insert.i720.frozen, %631
-  %.sroa.0.0.extract.trunc.i738 = trunc i128 %.decomposed849 to i64
-  %.sroa.2.0.extract.shift.i739 = lshr i128 %.decomposed849, 64
+  %.decomposed947 = sub i128 %.sroa.03.0.insert.insert.i720.frozen, %631
+  %.sroa.0.0.extract.trunc.i738 = trunc i128 %.decomposed947 to i64
+  %.sroa.2.0.extract.shift.i739 = lshr i128 %.decomposed947, 64
   %.sroa.2.0.extract.trunc.i740 = trunc nuw nsw i128 %.sroa.2.0.extract.shift.i739 to i64
   store i64 %.sroa.0.0.extract.trunc.i738, ptr %16, align 16, !tbaa !35
   store i64 %.sroa.2.0.extract.trunc.i740, ptr %.sroa.467.0..sroa_idx, align 8, !tbaa !35
@@ -41595,7 +41595,7 @@ define linkonce_odr dso_local void @_ZN4absl13hash_internal37VerifyTypeImplement
   %100 = load ptr, ptr %60, align 8, !tbaa !702
   %101 = load ptr, ptr %89, align 8, !tbaa !702
   %.not834842 = icmp eq ptr %100, %101
-  br i1 %.not834842, label %.loopexit874, label %.lr.ph
+  br i1 %.not834842, label %.loopexit1102, label %.lr.ph
 
 .lr.ph:                                           ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %.sroa.0820.0846, i64 8
@@ -41630,22 +41630,22 @@ _ZSt5visitIN4absl13hash_internal9EqVisitorINS1_13DefaultEqualsEEEJRKSt7variantIJ
 117:                                              ; preds = %_ZSt5visitIN4absl13hash_internal9EqVisitorINS1_13DefaultEqualsEEEJRKSt7variantIJPKNS0_7uint128EPKoEESD_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit
   %118 = getelementptr inbounds nuw i8, ptr %.sroa.0816.0843, i64 24
   %.not834 = icmp eq ptr %118, %101
-  br i1 %.not834, label %.loopexit874, label %103
+  br i1 %.not834, label %.loopexit1102, label %103
 
-.loopexit874:                                     ; preds = %117, %99
+.loopexit1102:                                    ; preds = %117, %99
   %119 = load ptr, ptr %89, align 8, !tbaa !712
   %120 = load ptr, ptr %90, align 8, !tbaa !714
   %.not.i = icmp eq ptr %119, %120
   br i1 %.not.i, label %124, label %121
 
-121:                                              ; preds = %.loopexit874
+121:                                              ; preds = %.loopexit1102
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, i8 0, i64 24, i1 false)
   %122 = load ptr, ptr %89, align 8, !tbaa !712
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 24
   store ptr %123, ptr %89, align 8, !tbaa !712
   br label %_ZNSt6vectorIS_IZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_ISt7variantIJPKNS0_7uint128EPKoEESaIS9_EENS1_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISJ_EESaISL_EE12emplace_backIJEEERSL_DpOT_.exit
 
-124:                                              ; preds = %.loopexit874
+124:                                              ; preds = %.loopexit1102
   invoke void @_ZNSt6vectorIS_IZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_ISt7variantIJPKNS0_7uint128EPKoEESaIS9_EENS1_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISJ_EESaISL_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPSL_SN_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr %119)
           to label %._ZNSt6vectorIS_IZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_ISt7variantIJPKNS0_7uint128EPKoEESaIS9_EENS1_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISJ_EESaISL_EE12emplace_backIJEEERSL_DpOT_.exit_crit_edge unwind label %127
 
@@ -46294,7 +46294,7 @@ _ZN4absl7StrJoinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
 _ZN4absl7StrJoinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEES7_RKT_St17basic_string_viewIcS5_E.exit28.thread: ; preds = %_ZN4absl7StrJoinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEES7_RKT_St17basic_string_viewIcS5_E.exit
   %77 = load i64, ptr %9, align 8, !tbaa !10
   %78 = icmp eq i64 %77, 0
-  %.pre5961 = load ptr, ptr %4, align 8, !tbaa !17
+  %.pre5982 = load ptr, ptr %4, align 8, !tbaa !17
   %. = select i1 %78, i32 0, i32 2
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
 
@@ -46368,7 +46368,7 @@ _ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit38.thread: ;
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread: ; preds = %_ZN4absl7StrJoinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEES7_RKT_St17basic_string_viewIcS5_E.exit28.thread, %.thread, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread47, %79, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit38.thread, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit38, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %101 = phi i64 [ %.pr, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.pr, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit ], [ %.pr, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit38.thread ], [ %.pr, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit38 ], [ 0, %79 ], [ 0, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread47 ], [ %.pr, %.thread ], [ 0, %_ZN4absl7StrJoinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEES7_RKT_St17basic_string_viewIcS5_E.exit28.thread ]
-  %102 = phi ptr [ %.pre59, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.pre59, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit ], [ %.pre59, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit38.thread ], [ %.pre59, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit38 ], [ %.pre59, %79 ], [ %.pre59, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread47 ], [ %.pre59, %.thread ], [ %.pre5961, %_ZN4absl7StrJoinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEES7_RKT_St17basic_string_viewIcS5_E.exit28.thread ]
+  %102 = phi ptr [ %.pre59, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.pre59, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit ], [ %.pre59, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit38.thread ], [ %.pre59, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit38 ], [ %.pre59, %79 ], [ %.pre59, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread47 ], [ %.pre59, %.thread ], [ %.pre5982, %_ZN4absl7StrJoinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEES7_RKT_St17basic_string_viewIcS5_E.exit28.thread ]
   %.0 = phi i32 [ 0, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ 2, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit ], [ 1, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit38.thread ], [ 3, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit38 ], [ 0, %79 ], [ 2, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread47 ], [ 3, %.thread ], [ %., %_ZN4absl7StrJoinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEES7_RKT_St17basic_string_viewIcS5_E.exit28.thread ]
   %103 = icmp eq ptr %102, %43
   br i1 %103, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i39
@@ -61934,7 +61934,7 @@ define internal void @_ZN12_GLOBAL__N_130Int128_MultiplicationTest_Test8TestBody
   %indvars.iv = phi i32 [ 127, %1 ], [ %indvars.iv.next, %._crit_edge ]
   %storemerge2796 = phi i32 [ 0, %1 ], [ %251, %._crit_edge ]
   %233 = zext nneg i32 %storemerge2796 to i128
-  %.neg2810 = shl nsw i128 -1, %233
+  %.neg3120 = shl nsw i128 -1, %233
   br label %252
 
 234:                                              ; preds = %._crit_edge
@@ -62304,7 +62304,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   store i64 %.sroa.03.0.extract.trunc.i571, ptr %28, align 16
   store i64 %.sroa.2.0.extract.trunc.i570, ptr %189, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  %354 = shl i128 %.neg2810, %271
+  %354 = shl i128 %.neg3120, %271
   %.sroa.2.0.extract.shift.i592 = lshr i128 %354, 64
   %.sroa.2.0.extract.trunc.i593 = trunc nuw i128 %.sroa.2.0.extract.shift.i592 to i64
   %.sroa.012.0.extract.trunc.i594 = trunc i128 %354 to i64
@@ -62813,7 +62813,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
-  %500 = mul nsw i128 %.sroa.01.0.insert.insert.neg.i641, %.neg2810
+  %500 = mul nsw i128 %.sroa.01.0.insert.insert.neg.i641, %.neg3120
   %.sroa.2.0.extract.shift.i718 = lshr i128 %500, 64
   %.sroa.2.0.extract.trunc.i719 = trunc nuw i128 %.sroa.2.0.extract.shift.i718 to i64
   %.sroa.012.0.extract.trunc.i720 = trunc i128 %500 to i64
@@ -72259,17 +72259,17 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   store i64 %.sroa.2.0.extract.shift.i1246, ptr %1060, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %102)
   %1256 = mul i128 %1106, %.frozen
-  %.decomposed1644 = sub i128 %.sroa.01.0.insert.insert.i1132.frozen, %1256
-  %.sroa.2.0.extract.shift.i1257 = lshr i128 %.decomposed1644, 64
+  %.decomposed1849 = sub i128 %.sroa.01.0.insert.insert.i1132.frozen, %1256
+  %.sroa.2.0.extract.shift.i1257 = lshr i128 %.decomposed1849, 64
   %.sroa.2.0.extract.trunc.i1258 = trunc nuw i128 %.sroa.2.0.extract.shift.i1257 to i64
-  %.sroa.012.0.extract.trunc.i1259 = trunc i128 %.decomposed1644 to i64
+  %.sroa.012.0.extract.trunc.i1259 = trunc i128 %.decomposed1849 to i64
   store i64 %.sroa.012.0.extract.trunc.i1259, ptr %102, align 16
   store i64 %.sroa.2.0.extract.trunc.i1258, ptr %1061, align 8
   %.sroa.22.0.insert.ext.i.i.i1268 = zext nneg i64 %.sroa.2.0.extract.shift.i1246 to i128
   %.sroa.22.0.insert.shift.i.i.i1269 = shl nuw nsw i128 %.sroa.22.0.insert.ext.i.i.i1268, 64
   %.sroa.01.0.insert.ext.i.i.i1270 = zext i64 %.sroa.0.0.insert.ext.i16.i to i128
   %.sroa.01.0.insert.insert.i.i.i1271 = or disjoint i128 %.sroa.22.0.insert.shift.i.i.i1269, %.sroa.01.0.insert.ext.i.i.i1270
-  %1257 = icmp eq i128 %.sroa.01.0.insert.insert.i.i.i1271, %.decomposed1644
+  %1257 = icmp eq i128 %.sroa.01.0.insert.insert.i.i.i1271, %.decomposed1849
   br i1 %1257, label %1258, label %1259
 
 1258:                                             ; preds = %1254

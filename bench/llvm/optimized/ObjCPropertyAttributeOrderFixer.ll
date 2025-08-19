@@ -271,25 +271,25 @@ define dso_local void @_ZN5clang6format31ObjCPropertyAttributeOrderFixer22sortPr
   br i1 %65, label %._crit_edge.thread.i.i.i, label %70
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %56
-  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %24, %56 ]
+  %.019.lcssa29.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %24, %56 ]
   %66 = load ptr, ptr %26, align 8, !tbaa !62
-  %67 = icmp eq ptr %.019.lcssa28.i.i.i, %66
+  %67 = icmp eq ptr %.019.lcssa29.i.i.i, %66
   br i1 %67, label %select.unfold.i.i, label %68
 
 68:                                               ; preds = %._crit_edge.thread.i.i.i
-  %69 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #15
+  %69 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i) #15
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %69, i64 32
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !22
   br label %70
 
 70:                                               ; preds = %68, %._crit_edge.i.i.i
   %71 = phi i32 [ %.pre.i.i, %68 ], [ %64, %._crit_edge.i.i.i ]
-  %.019.lcssa29.i.i.i = phi ptr [ %.019.lcssa28.i.i.i, %68 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
+  %.019.lcssa28.i.i.i = phi ptr [ %.019.lcssa29.i.i.i, %68 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
   %72 = icmp ult i32 %71, %62
   br i1 %72, label %select.unfold.i.i, label %.thread
 
 select.unfold.i.i:                                ; preds = %70, %._crit_edge.thread.i.i.i
-  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %70 ]
+  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa29.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa28.i.i.i, %70 ]
   %73 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %24
   br i1 %73, label %78, label %74
 

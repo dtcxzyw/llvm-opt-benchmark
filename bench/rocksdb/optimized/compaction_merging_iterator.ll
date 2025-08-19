@@ -2358,8 +2358,8 @@ define linkonce_odr void @_ZN7rocksdb25CompactionMergingIteratorC2EPKNS_21Intern
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i64 0, ptr %28, align 8, !tbaa !193
   %29 = sext i32 %3 to i64
-  %.not74 = icmp eq i32 %3, 0
-  br i1 %.not74, label %._crit_edge, label %30
+  %.not98 = icmp eq i32 %3, 0
+  br i1 %.not98, label %._crit_edge, label %30
 
 30:                                               ; preds = %7
   invoke void @_ZNSt6vectorIN7rocksdb25CompactionMergingIterator8HeapItemESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %29)

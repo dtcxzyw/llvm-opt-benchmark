@@ -323,19 +323,19 @@ define range(i32 0, 2) i32 @blend_color_picker_apply(ptr noundef %0, ptr noundef
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 480
   %28 = load i32, ptr %27, align 8, !tbaa !73
-  %.not184 = icmp eq i32 %28, 0
-  br i1 %.not184, label %.loopexit, label %.preheader
+  %.not200 = icmp eq i32 %28, 0
+  br i1 %.not200, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %26
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %26, %.preheader
   %.sink = phi i64 [ 576, %.preheader ], [ 528, %26 ], [ 528, %19 ]
-  %.sink186 = phi i64 [ 592, %.preheader ], [ 544, %26 ], [ 544, %19 ]
+  %.sink202 = phi i64 [ 592, %.preheader ], [ 544, %26 ], [ 544, %19 ]
   %29 = phi i32 [ 1, %.preheader ], [ 0, %26 ], [ 0, %19 ]
   %30 = phi i64 [ 1, %.preheader ], [ 0, %26 ], [ 0, %19 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink186
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink202
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %31, i64 16, i1 false), !tbaa !74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %32, i64 16, i1 false), !tbaa !74
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 384
@@ -1574,8 +1574,8 @@ _blendif_cook.exit:                               ; preds = %79, %82, %dt_ioppr_
 
 261:                                              ; preds = %252, %256
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not75 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not75, label %44, label %49
+  %.not81 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not81, label %44, label %49
 }
 
 declare double @dtgtk_gradient_slider_multivalue_get_value(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1766,8 +1766,8 @@ define internal fastcc void @_blendop_blendif_update_tab(ptr noundef %0, i32 nou
 
 119:                                              ; preds = %110, %106
   %indvars.iv.next105 = add nsw i64 %indvars.iv104, -1
-  %.not107 = icmp eq i64 %indvars.iv104, 0
-  br i1 %.not107, label %33, label %36
+  %.not108 = icmp eq i64 %indvars.iv104, 0
+  br i1 %.not108, label %33, label %36
 
 120:                                              ; preds = %33
   %121 = getelementptr inbounds nuw i8, ptr %7, i64 324
@@ -3192,8 +3192,8 @@ define internal void @_blendop_blendif_boost_factor_callback(ptr noundef %0, ptr
 105:                                              ; preds = %103, %90
   %106 = fcmp reassoc nsz arcp contract afn oeq float %76, 0.000000e+00
   %107 = fcmp reassoc nsz arcp contract afn oeq float %91, 1.000000e+00
-  %or.cond109 = and i1 %106, %107
-  br i1 %or.cond109, label %108, label %113
+  %or.cond118 = and i1 %106, %107
+  br i1 %or.cond118, label %108, label %113
 
 108:                                              ; preds = %105
   %109 = shl nuw i32 1, %36
@@ -3206,8 +3206,8 @@ define internal void @_blendop_blendif_boost_factor_callback(ptr noundef %0, ptr
 113:                                              ; preds = %108, %105
   store float %40, ptr %42, align 4, !tbaa !74
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not108 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not108, label %30, label %34
+  %.not117 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not117, label %30, label %34
 
 114:                                              ; preds = %2, %8, %30
   ret void
@@ -3507,11 +3507,11 @@ define void @dt_iop_gui_update_masks(ptr noundef %0) local_unnamed_addr #0 {
   br label %89
 
 89:                                               ; preds = %82, %88
-  %.sink52 = phi i32 [ 0, %88 ], [ 1, %82 ]
+  %.sink56 = phi i32 [ 0, %88 ], [ 1, %82 ]
   %90 = getelementptr inbounds nuw [5 x ptr], ptr %61, i64 0, i64 %indvars.iv
   %91 = load ptr, ptr %90, align 8, !tbaa !179
   %92 = call ptr @g_type_check_instance_cast(ptr noundef %91, i64 noundef %62) #18
-  call void @gtk_toggle_button_set_active(ptr noundef %92, i32 noundef %.sink52) #18
+  call void @gtk_toggle_button_set_active(ptr noundef %92, i32 noundef %.sink56) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %63, label %68
@@ -4858,7 +4858,7 @@ dt_iop_gui_update_raster.exit:                    ; preds = %248, %252, %255, %2
   br label %353
 
 353:                                              ; preds = %349, %352
-  %.sink213 = phi i32 [ 0, %352 ], [ %.mux, %349 ]
+  %.sink220 = phi i32 [ 0, %352 ], [ %.mux, %349 ]
   %354 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %355 = load ptr, ptr %354, align 8, !tbaa !180
   %356 = call ptr @g_type_check_instance_cast(ptr noundef %355, i64 noundef %271) #18
@@ -4866,7 +4866,7 @@ dt_iop_gui_update_raster.exit:                    ; preds = %248, %252, %255, %2
   %358 = call ptr @g_type_check_instance_cast(ptr noundef %357, i64 noundef %274) #18
   %359 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.215) #18
   call void @gtk_revealer_set_transition_duration(ptr noundef %358, i32 noundef %359) #18
-  call void @gtk_revealer_set_reveal_child(ptr noundef %358, i32 noundef %.sink213) #18
+  call void @gtk_revealer_set_reveal_child(ptr noundef %358, i32 noundef %.sink220) #18
   %360 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %361 = load ptr, ptr %360, align 8, !tbaa !204
   %362 = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -4889,16 +4889,16 @@ dt_iop_gui_update_raster.exit:                    ; preds = %248, %252, %255, %2
   %.not195 = icmp eq i32 %375, 0
   %or.cond202 = or i1 %.not195, %.not194
   %or.cond202.not = xor i1 %or.cond202, true
-  %brmerge223 = or i1 %.not194, %or.cond202.not
-  %.mux224 = zext i1 %or.cond202.not to i32
-  br i1 %brmerge223, label %377, label %376
+  %brmerge230 = or i1 %.not194, %or.cond202.not
+  %.mux231 = zext i1 %or.cond202.not to i32
+  br i1 %brmerge230, label %377, label %376
 
 376:                                              ; preds = %353
   call void @dt_iop_color_picker_reset(ptr noundef nonnull %0, i32 noundef 0) #18
   br label %377
 
 377:                                              ; preds = %353, %376
-  %.sink218 = phi i32 [ 0, %376 ], [ %.mux224, %353 ]
+  %.sink225 = phi i32 [ 0, %376 ], [ %.mux231, %353 ]
   %378 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %379 = load ptr, ptr %378, align 8, !tbaa !151
   %380 = call ptr @g_type_check_instance_cast(ptr noundef %379, i64 noundef %271) #18
@@ -4906,7 +4906,7 @@ dt_iop_gui_update_raster.exit:                    ; preds = %248, %252, %255, %2
   %382 = call ptr @g_type_check_instance_cast(ptr noundef %381, i64 noundef %274) #18
   %383 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.215) #18
   call void @gtk_revealer_set_transition_duration(ptr noundef %382, i32 noundef %383) #18
-  call void @gtk_revealer_set_reveal_child(ptr noundef %382, i32 noundef %.sink218) #18
+  call void @gtk_revealer_set_reveal_child(ptr noundef %382, i32 noundef %.sink225) #18
   %384 = getelementptr inbounds nuw i8, ptr %0, i64 484
   %385 = load i32, ptr %384, align 4, !tbaa !249
   %.not197 = icmp eq i32 %385, 0
@@ -6903,7 +6903,7 @@ define internal fastcc void @_blendop_masks_mode_callback(i32 noundef %0, ptr no
   br label %91
 
 91:                                               ; preds = %23, %._crit_edge96, %50, %84
-  %.sink99 = phi i32 [ 1, %84 ], [ 1, %50 ], [ 0, %._crit_edge96 ], [ 0, %23 ]
+  %.sink100 = phi i32 [ 1, %84 ], [ 1, %50 ], [ 0, %._crit_edge96 ], [ 0, %23 ]
   %.pre-phi = phi i32 [ %20, %84 ], [ %20, %50 ], [ %.pre97, %._crit_edge96 ], [ %20, %23 ]
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %93 = load ptr, ptr %92, align 8, !tbaa !247
@@ -6912,7 +6912,7 @@ define internal fastcc void @_blendop_masks_mode_callback(i32 noundef %0, ptr no
   %96 = tail call ptr @g_type_check_instance_cast(ptr noundef %95, i64 noundef %13) #18
   %97 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.215) #18
   tail call void @gtk_revealer_set_transition_duration(ptr noundef %96, i32 noundef %97) #18
-  tail call void @gtk_revealer_set_reveal_child(ptr noundef %96, i32 noundef %.sink99) #18
+  tail call void @gtk_revealer_set_reveal_child(ptr noundef %96, i32 noundef %.sink100) #18
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %99 = load i32, ptr %98, align 8, !tbaa !163
   %.not73 = icmp eq i32 %99, 0
@@ -6969,7 +6969,7 @@ define internal fastcc void @_blendop_masks_mode_callback(i32 noundef %0, ptr no
   br i1 %exitcond92.not, label %.sink.split, label %117
 
 .sink.split:                                      ; preds = %117, %91, %103
-  %.sink104 = phi i32 [ 0, %103 ], [ 1, %91 ], [ 0, %117 ]
+  %.sink105 = phi i32 [ 0, %103 ], [ 1, %91 ], [ 0, %117 ]
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %122 = load ptr, ptr %121, align 8, !tbaa !180
   %123 = tail call ptr @g_type_check_instance_cast(ptr noundef %122, i64 noundef %10) #18
@@ -6977,7 +6977,7 @@ define internal fastcc void @_blendop_masks_mode_callback(i32 noundef %0, ptr no
   %125 = tail call ptr @g_type_check_instance_cast(ptr noundef %124, i64 noundef %13) #18
   %126 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.215) #18
   tail call void @gtk_revealer_set_transition_duration(ptr noundef %125, i32 noundef %126) #18
-  tail call void @gtk_revealer_set_reveal_child(ptr noundef %125, i32 noundef %.sink104) #18
+  tail call void @gtk_revealer_set_reveal_child(ptr noundef %125, i32 noundef %.sink105) #18
   br label %127
 
 127:                                              ; preds = %.sink.split, %112
@@ -7013,7 +7013,7 @@ define internal fastcc void @_blendop_masks_mode_callback(i32 noundef %0, ptr no
   br label %146
 
 146:                                              ; preds = %127, %144
-  %.sink109 = phi i32 [ 0, %144 ], [ %.mux, %127 ]
+  %.sink110 = phi i32 [ 0, %144 ], [ %.mux, %127 ]
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %148 = load ptr, ptr %147, align 8, !tbaa !151
   %149 = tail call ptr @g_type_check_instance_cast(ptr noundef %148, i64 noundef %10) #18
@@ -7021,7 +7021,7 @@ define internal fastcc void @_blendop_masks_mode_callback(i32 noundef %0, ptr no
   %151 = tail call ptr @g_type_check_instance_cast(ptr noundef %150, i64 noundef %13) #18
   %152 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.215) #18
   tail call void @gtk_revealer_set_transition_duration(ptr noundef %151, i32 noundef %152) #18
-  tail call void @gtk_revealer_set_reveal_child(ptr noundef %151, i32 noundef %.sink109) #18
+  tail call void @gtk_revealer_set_reveal_child(ptr noundef %151, i32 noundef %.sink110) #18
   %153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !119
   %154 = load ptr, ptr %3, align 8, !tbaa !79
   tail call void @dt_dev_add_history_item(ptr noundef %153, ptr noundef %154, i32 noundef 1) #18

@@ -46,7 +46,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly cap
 
 .preheader:                                       ; preds = %8
   %10 = icmp sgt i32 %0, 1
-  br i1 %10, label %.lr.ph, label %.thread174
+  br i1 %10, label %.lr.ph, label %.thread181
 
 11:                                               ; preds = %8, %2
   %12 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -168,16 +168,16 @@ sub_1113:                                         ; preds = %.tail, %sub_1
   br i1 %or.cond3, label %56, label %60
 
 56:                                               ; preds = %._crit_edge
-  br i1 %51, label %59, label %.thread174
+  br i1 %51, label %59, label %.thread181
 
-.thread174:                                       ; preds = %.preheader, %56
-  %.083.lcssa172177 = phi i32 [ %.2, %56 ], [ 1, %.preheader ]
+.thread181:                                       ; preds = %.preheader, %56
+  %.083.lcssa179184 = phi i32 [ %.2, %56 ], [ 1, %.preheader ]
   %57 = load ptr, ptr @stderr, align 8, !tbaa !4
   %58 = call i64 @fwrite(ptr nonnull @.str.9, i64 26, i64 1, ptr %57) #14
   br label %59
 
-59:                                               ; preds = %.thread174, %56
-  %.083.lcssa172178 = phi i32 [ %.083.lcssa172177, %.thread174 ], [ %.2, %56 ]
+59:                                               ; preds = %.thread181, %56
+  %.083.lcssa179185 = phi i32 [ %.083.lcssa179184, %.thread181 ], [ %.2, %56 ]
   call fastcc void @Help()
   br label %165
 
@@ -258,12 +258,12 @@ sub_1113:                                         ; preds = %.tail, %sub_1
 
 108:                                              ; preds = %106
   %109 = call i64 @fwrite(ptr nonnull @.str.13, i64 29, i64 1, ptr %107) #14
-  %.not182 = icmp eq i32 %.182, 0
+  %.not189 = icmp eq i32 %.182, 0
   %110 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %111 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %112 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  br i1 %.not182, label %.thread, label %.split.us
+  br i1 %.not189, label %.thread, label %.split.us
 
 .split.us:                                        ; preds = %108, %129
   %indvars.iv154 = phi i64 [ %indvars.iv.next155, %129 ], [ 0, %108 ]
@@ -358,7 +358,7 @@ sub_1113:                                         ; preds = %.tail, %sub_1
   br label %165
 
 165:                                              ; preds = %72, %164, %.thread108, %60, %69, %59, %40
-  %.184 = phi i32 [ %.083125, %40 ], [ %.083.lcssa172178, %59 ], [ %.2, %60 ], [ %.2, %69 ], [ %.3.ph, %.thread108 ], [ 0, %164 ], [ 0, %72 ]
+  %.184 = phi i32 [ %.083125, %40 ], [ %.083.lcssa179185, %59 ], [ %.2, %60 ], [ %.2, %69 ], [ %.3.ph, %.thread108 ], [ 0, %164 ], [ 0, %72 ]
   call void @WebPPictureFree(ptr noundef nonnull %3) #13
   call void @WebPPictureFree(ptr noundef nonnull %4) #13
   br label %166
@@ -450,8 +450,8 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noun
 .preheader81:                                     ; preds = %7
   %16 = icmp sgt i32 %5, 0
   %17 = icmp sgt i32 %4, 0
-  %or.cond131 = and i1 %16, %17
-  br i1 %or.cond131, label %.preheader80.us.preheader, label %._crit_edge93
+  %or.cond137 = and i1 %16, %17
+  br i1 %or.cond137, label %.preheader80.us.preheader, label %._crit_edge93
 
 .preheader80.us.preheader:                        ; preds = %.preheader81
   %18 = sext i32 %1 to i64
@@ -467,7 +467,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noun
   %22 = mul nuw nsw i64 %indvars.iv105, %19
   %23 = mul nsw i64 %indvars.iv105, %20
   %invariant.gep = getelementptr i8, ptr %0, i64 %21
-  %invariant.gep127 = getelementptr i8, ptr %2, i64 %23
+  %invariant.gep133 = getelementptr i8, ptr %2, i64 %23
   br label %24
 
 24:                                               ; preds = %.preheader80.us, %24
@@ -478,8 +478,8 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noun
   %27 = add nuw nsw i64 %indvars.iv, %22
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 %27
   store i8 %26, ptr %28, align 1, !tbaa !27
-  %gep128 = getelementptr i8, ptr %invariant.gep127, i64 %25
-  %29 = load i8, ptr %gep128, align 1, !tbaa !27
+  %gep134 = getelementptr i8, ptr %invariant.gep133, i64 %25
+  %29 = load i8, ptr %gep134, align 1, !tbaa !27
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 %27
   store i8 %29, ptr %30, align 1, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -514,14 +514,14 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noun
   %40 = tail call i32 @llvm.smin.i32(i32 %39, i32 %31)
   %.not81.i.us = icmp sgt i32 %37, %40
   %41 = mul nsw i32 %37, %4
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %11, i64 %42
-  %44 = getelementptr inbounds i8, ptr %14, i64 %42
+  %42 = zext nneg i32 %41 to i64
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 %42
   %45 = zext nneg i32 %36 to i64
   %46 = add nsw i64 %45, -3
   %47 = zext nneg i32 %40 to i64
   %48 = mul nsw i64 %indvars.iv115, %34
-  %invariant.gep129 = getelementptr i8, ptr %0, i64 %48
+  %invariant.gep135 = getelementptr i8, ptr %0, i64 %48
   br label %49
 
 49:                                               ; preds = %.preheader.us, %SSIMGetClipped.exit.us
@@ -571,8 +571,8 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noun
   %.sroa.0.169.i.us = phi i32 [ %.sroa.0.082.i.us, %.preheader.i.us ], [ %74, %62 ]
   %reass.sub96 = sub i64 %indvars.iv.i.us, %indvars.iv110
   %63 = shl i64 %reass.sub96, 32
-  %sext120 = add i64 %63, 12884901888
-  %64 = ashr exact i64 %sext120, 32
+  %sext126 = add i64 %63, 12884901888
+  %64 = ashr exact i64 %sext126, 32
   %65 = getelementptr inbounds [7 x i32], ptr @kWeight, i64 0, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !30
   %67 = mul i32 %66, %61
@@ -669,8 +669,8 @@ SSIMGetClipped.exit.us:                           ; preds = %98, %._crit_edge91.
   %126 = tail call i32 @llvm.umin.i32(i32 %.0.us, i32 255)
   %127 = trunc nuw i32 %126 to i8
   %128 = shl nsw i64 %indvars.iv110, 2
-  %gep130 = getelementptr i8, ptr %invariant.gep129, i64 %128
-  store i8 %127, ptr %gep130, align 1, !tbaa !27
+  %gep136 = getelementptr i8, ptr %invariant.gep135, i64 %128
+  store i8 %127, ptr %gep136, align 1, !tbaa !27
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count113
   br i1 %exitcond114.not, label %._crit_edge.us95, label %49, !llvm.loop !33

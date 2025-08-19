@@ -1587,7 +1587,7 @@ define hidden noundef i32 @_ZN9G1CardSet16add_to_containerEPVPvS0_jjb(ptr nounde
   %7 = ptrtoint ptr %2 to i64
   %8 = trunc i64 %7 to i32
   %9 = and i32 %8, 3
-  switch i32 %9, label %default.unreachable23 [
+  switch i32 %9, label %default.unreachable28 [
     i32 0, label %10
     i32 1, label %54
     i32 2, label %58
@@ -1737,7 +1737,7 @@ _ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i.i: ; preds = %33, %_ZN18G1CardSe
   %96 = tail call noundef i32 @_ZN9G1CardSet11add_to_howlEPvjjb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5)
   br label %_ZN9G1CardSet17add_to_inline_ptrEPVPvS0_j.exit
 
-default.unreachable23:                            ; preds = %6
+default.unreachable28:                            ; preds = %6
   unreachable
 
 _ZN9G1CardSet17add_to_inline_ptrEPVPvS0_j.exit:   ; preds = %85, %51, %37, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i.i, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i, %90, %75, %54, %95, %92
@@ -1750,7 +1750,7 @@ define hidden noundef zeroext i1 @_ZN9G1CardSet17coarsen_containerEPVPvS0_jb(ptr
   %6 = ptrtoint ptr %2 to i64
   %7 = trunc i64 %6 to i32
   %8 = and i32 %7, 3
-  switch i32 %8, label %default.unreachable22 [
+  switch i32 %8, label %default.unreachable25 [
     i32 1, label %9
     i32 2, label %11
     i32 0, label %13
@@ -1793,7 +1793,7 @@ define hidden noundef zeroext i1 @_ZN9G1CardSet17coarsen_containerEPVPvS0_jb(ptr
   %32 = load ptr, ptr @_ZN9G1CardSet11FullCardSetE, align 8
   br label %33
 
-default.unreachable22:                            ; preds = %5
+default.unreachable25:                            ; preds = %5
   unreachable
 
 33:                                               ; preds = %31, %13, %11, %9
@@ -2349,10 +2349,10 @@ _ZN18G1CardSetInlinePtr3addEjjj.exit.i:           ; preds = %79, %_ZN18G1CardSet
   br i1 %exitcond.not.i, label %_ZN13G1CardSetHowlC2EjP22G1CardSetConfiguration.exit, label %52, !llvm.loop !26
 
 _ZN13G1CardSetHowlC2EjP22G1CardSetConfiguration.exit: ; preds = %_ZN18G1CardSetInlinePtr3addEjjj.exit.i, %31, %_ZN15G1CardSetBitMapC2Ejj.exit
-  %.sink15 = phi ptr [ %17, %_ZN15G1CardSetBitMapC2Ejj.exit ], [ %37, %31 ], [ %37, %_ZN18G1CardSetInlinePtr3addEjjj.exit.i ]
-  %.sink14 = phi i64 [ 2, %_ZN15G1CardSetBitMapC2Ejj.exit ], [ 3, %31 ], [ 3, %_ZN18G1CardSetInlinePtr3addEjjj.exit.i ]
-  %95 = ptrtoint ptr %.sink15 to i64
-  %96 = or i64 %.sink14, %95
+  %.sink20 = phi ptr [ %17, %_ZN15G1CardSetBitMapC2Ejj.exit ], [ %37, %31 ], [ %37, %_ZN18G1CardSetInlinePtr3addEjjj.exit.i ]
+  %.sink19 = phi i64 [ 2, %_ZN15G1CardSetBitMapC2Ejj.exit ], [ 3, %31 ], [ 3, %_ZN18G1CardSetInlinePtr3addEjjj.exit.i ]
+  %95 = ptrtoint ptr %.sink20 to i64
+  %96 = or i64 %.sink19, %95
   %.0 = inttoptr i64 %96 to ptr
   ret ptr %.0
 }
@@ -3094,7 +3094,7 @@ _ZN9G1CardSet13get_containerEj.exit.thread:       ; preds = %55, %_ZNK19Concurre
   %63 = ptrtoint ptr %59 to i64
   %64 = trunc i64 %63 to i32
   %65 = and i32 %64, 3
-  switch i32 %65, label %default.unreachable28 [
+  switch i32 %65, label %default.unreachable37 [
     i32 0, label %66
     i32 1, label %85
     i32 2, label %96
@@ -3193,7 +3193,7 @@ _ZN18G1CardSetInlinePtr4findEjjjj.exit.i:         ; preds = %81, %78
   %120 = ptrtoint ptr %119 to i64
   %121 = trunc i64 %120 to i32
   %122 = and i32 %121, 3
-  switch i32 %122, label %default.unreachable28 [
+  switch i32 %122, label %default.unreachable37 [
     i32 1, label %123
     i32 2, label %134
     i32 0, label %149
@@ -3223,8 +3223,8 @@ _ZN18G1CardSetInlinePtr4findEjjjj.exit.i:         ; preds = %81, %78
   %133 = icmp eq i32 %2, %132
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i19 = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  %or.cond35 = select i1 %133, i1 true, i1 %exitcond.not.i.i19
-  br i1 %or.cond35, label %_ZN18G1CardSetInlinePtr8containsEjj.exit, label %.lr.ph.i.i18, !llvm.loop !30
+  %or.cond44 = select i1 %133, i1 true, i1 %exitcond.not.i.i19
+  br i1 %or.cond44, label %_ZN18G1CardSetInlinePtr8containsEjj.exit, label %.lr.ph.i.i18, !llvm.loop !30
 
 134:                                              ; preds = %108
   %135 = getelementptr inbounds nuw i8, ptr %112, i64 32
@@ -3277,7 +3277,7 @@ _ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i:       ; preds = %162, %159
   %165 = icmp samesign ult i32 %.016.i.i.i, %151
   br label %_ZN18G1CardSetInlinePtr8containsEjj.exit
 
-default.unreachable28:                            ; preds = %108, %62
+default.unreachable37:                            ; preds = %108, %62
   unreachable
 
 _ZN18G1CardSetInlinePtr8containsEjj.exit:         ; preds = %.lr.ph.i.i18, %.lr.ph.i, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i, %149, %134, %123, %108, %85, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i, %66, %_ZN9G1CardSet13get_containerEj.exit.thread, %57, %96
@@ -3401,7 +3401,7 @@ _ZNK19ConcurrentHashTableI24G1CardSetHashTableConfigL8MEMFLAGS6EE10get_bucketEm.
   %62 = ptrtoint ptr %57 to i64
   %63 = trunc i64 %62 to i32
   %64 = and i32 %63, 3
-  switch i32 %64, label %default.unreachable21 [
+  switch i32 %64, label %default.unreachable23 [
     i32 0, label %65
     i32 1, label %66
     i32 2, label %67
@@ -3424,7 +3424,7 @@ _ZNK19ConcurrentHashTableI24G1CardSetHashTableConfigL8MEMFLAGS6EE10get_bucketEm.
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.20, i32 noundef %10) #19
   br label %69
 
-default.unreachable21:                            ; preds = %61
+default.unreachable23:                            ; preds = %61
   unreachable
 
 69:                                               ; preds = %68, %67, %66, %65, %60, %.loopexit
@@ -5078,8 +5078,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %180, %177
   br label %185
 
 185:                                              ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %186 = getelementptr inbounds nuw i8, ptr %155, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %186 = getelementptr inbounds nuw i8, ptr %155, i64 %.sink12.i.i.i.i.i
   %187 = load i64, ptr %186, align 8
   %188 = add i64 %187, 1
   store i64 %188, ptr %186, align 8
@@ -5465,8 +5465,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %171, %168
   br label %176
 
 176:                                              ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %177 = getelementptr inbounds nuw i8, ptr %146, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %177 = getelementptr inbounds nuw i8, ptr %146, i64 %.sink12.i.i.i.i.i
   %178 = load i64, ptr %177, align 8
   %179 = add i64 %178, 1
   store i64 %179, ptr %177, align 8
@@ -5930,8 +5930,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i: ; preds = %133, %130
   br label %_ZN16G1ConcurrentMark15add_to_livenessEjP7oopDescm.exit
 
 _ZN16G1ConcurrentMark15add_to_livenessEjP7oopDescm.exit: ; preds = %_ZN7oopDesc4sizeEv.exit, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i
-  %.sink10.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit ]
-  %138 = getelementptr inbounds nuw i8, ptr %108, i64 %.sink10.i.i.i.i
+  %.sink12.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit ]
+  %138 = getelementptr inbounds nuw i8, ptr %108, i64 %.sink12.i.i.i.i
   %139 = load i64, ptr %138, align 8
   %140 = add i64 %139, 1
   store i64 %140, ptr %138, align 8
@@ -6227,8 +6227,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %181, %178
   br label %186
 
 186:                                              ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %187 = getelementptr inbounds nuw i8, ptr %156, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %187 = getelementptr inbounds nuw i8, ptr %156, i64 %.sink12.i.i.i.i.i
   %188 = load i64, ptr %187, align 8
   %189 = add i64 %188, 1
   store i64 %189, ptr %187, align 8
@@ -7472,14 +7472,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #19, !srcloc !12
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #19, !srcloc !12
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -8026,14 +8026,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #19, !srcloc !12
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #19, !srcloc !12
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -8298,8 +8298,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %172, %169
   br label %177
 
 177:                                              ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %178 = getelementptr inbounds nuw i8, ptr %147, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %178 = getelementptr inbounds nuw i8, ptr %147, i64 %.sink12.i.i.i.i.i
   %179 = load i64, ptr %178, align 8
   %180 = add i64 %179, 1
   store i64 %180, ptr %178, align 8
@@ -8876,8 +8876,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %180, %177
   br label %185
 
 185:                                              ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %186 = getelementptr inbounds nuw i8, ptr %155, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %186 = getelementptr inbounds nuw i8, ptr %155, i64 %.sink12.i.i.i.i.i
   %187 = load i64, ptr %186, align 8
   %188 = add i64 %187, 1
   store i64 %188, ptr %186, align 8
@@ -9337,8 +9337,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %171, %168
   br label %176
 
 176:                                              ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %177 = getelementptr inbounds nuw i8, ptr %146, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %177 = getelementptr inbounds nuw i8, ptr %146, i64 %.sink12.i.i.i.i.i
   %178 = load i64, ptr %177, align 8
   %179 = add i64 %178, 1
   store i64 %179, ptr %177, align 8
@@ -9809,8 +9809,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %180, %177
   br label %185
 
 185:                                              ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %186 = getelementptr inbounds nuw i8, ptr %155, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %186 = getelementptr inbounds nuw i8, ptr %155, i64 %.sink12.i.i.i.i.i
   %187 = load i64, ptr %186, align 8
   %188 = add i64 %187, 1
   store i64 %188, ptr %186, align 8
@@ -10208,8 +10208,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %171, %168
   br label %176
 
 176:                                              ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %177 = getelementptr inbounds nuw i8, ptr %146, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %177 = getelementptr inbounds nuw i8, ptr %146, i64 %.sink12.i.i.i.i.i
   %178 = load i64, ptr %177, align 8
   %179 = add i64 %178, 1
   store i64 %179, ptr %177, align 8
@@ -10681,7 +10681,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br i1 %.not36.i.i.i.i, label %.preheader.i.i, label %44, !llvm.loop !68
 
 44:                                               ; preds = %41
-  %45 = shl i64 %39, 6
+  %45 = shl nuw i64 %39, 6
   br label %46
 
 46:                                               ; preds = %44, %37
@@ -10924,7 +10924,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br i1 %.not36.i.i.i.i, label %.preheader.i.i, label %44, !llvm.loop !68
 
 44:                                               ; preds = %41
-  %45 = shl i64 %39, 6
+  %45 = shl nuw i64 %39, 6
   br label %46
 
 46:                                               ; preds = %44, %37
@@ -11449,8 +11449,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %190, %187
   br label %195
 
 195:                                              ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %196 = getelementptr inbounds nuw i8, ptr %165, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %196 = getelementptr inbounds nuw i8, ptr %165, i64 %.sink12.i.i.i.i.i
   %197 = load i64, ptr %196, align 8
   %198 = add i64 %197, 1
   store i64 %198, ptr %196, align 8
@@ -11849,8 +11849,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %181, %178
   br label %186
 
 186:                                              ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %187 = getelementptr inbounds nuw i8, ptr %156, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %187 = getelementptr inbounds nuw i8, ptr %156, i64 %.sink12.i.i.i.i.i
   %188 = load i64, ptr %187, align 8
   %189 = add i64 %188, 1
   store i64 %189, ptr %187, align 8
@@ -12281,8 +12281,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %191, %188
   br label %196
 
 196:                                              ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %197 = getelementptr inbounds nuw i8, ptr %166, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %197 = getelementptr inbounds nuw i8, ptr %166, i64 %.sink12.i.i.i.i.i
   %198 = load i64, ptr %197, align 8
   %199 = add i64 %198, 1
   store i64 %199, ptr %197, align 8
@@ -12954,8 +12954,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %182, %179
   br label %187
 
 187:                                              ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %188 = getelementptr inbounds nuw i8, ptr %157, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %188 = getelementptr inbounds nuw i8, ptr %157, i64 %.sink12.i.i.i.i.i
   %189 = load i64, ptr %188, align 8
   %190 = add i64 %189, 1
   store i64 %190, ptr %188, align 8
@@ -13607,8 +13607,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %190, %187
   br label %195
 
 195:                                              ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %196 = getelementptr inbounds nuw i8, ptr %165, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %196 = getelementptr inbounds nuw i8, ptr %165, i64 %.sink12.i.i.i.i.i
   %197 = load i64, ptr %196, align 8
   %198 = add i64 %197, 1
   store i64 %198, ptr %196, align 8
@@ -14080,8 +14080,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %181, %178
   br label %186
 
 186:                                              ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %187 = getelementptr inbounds nuw i8, ptr %156, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %187 = getelementptr inbounds nuw i8, ptr %156, i64 %.sink12.i.i.i.i.i
   %188 = load i64, ptr %187, align 8
   %189 = add i64 %188, 1
   store i64 %189, ptr %187, align 8
@@ -14568,8 +14568,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %190, %187
   br label %195
 
 195:                                              ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %196 = getelementptr inbounds nuw i8, ptr %165, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %196 = getelementptr inbounds nuw i8, ptr %165, i64 %.sink12.i.i.i.i.i
   %197 = load i64, ptr %196, align 8
   %198 = add i64 %197, 1
   store i64 %198, ptr %196, align 8
@@ -14982,8 +14982,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %181, %178
   br label %186
 
 186:                                              ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %187 = getelementptr inbounds nuw i8, ptr %156, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %187 = getelementptr inbounds nuw i8, ptr %156, i64 %.sink12.i.i.i.i.i
   %188 = load i64, ptr %187, align 8
   %189 = add i64 %188, 1
   store i64 %189, ptr %187, align 8
@@ -15691,7 +15691,7 @@ define linkonce_odr hidden void @_ZN9G1CardSet36iterate_cards_or_ranges_in_conta
   %4 = ptrtoint ptr %1 to i64
   %5 = trunc i64 %4 to i32
   %6 = and i32 %5, 3
-  switch i32 %6, label %default.unreachable31 [
+  switch i32 %6, label %default.unreachable33 [
     i32 0, label %7
     i32 1, label %26
     i32 2, label %42
@@ -15820,7 +15820,7 @@ define linkonce_odr hidden void @_ZN9G1CardSet36iterate_cards_or_ranges_in_conta
   %73 = icmp samesign ult i64 %indvars.iv.next.i24, %72
   br i1 %73, label %67, label %_ZN18G1CardSetInlinePtr7iterateI23G1ContainerCardsClosureIN9G1CardSet11CardClosureEEEEvRT_j.exit, !llvm.loop !100
 
-default.unreachable31:                            ; preds = %3
+default.unreachable33:                            ; preds = %3
   unreachable
 
 _ZN18G1CardSetInlinePtr7iterateI23G1ContainerCardsClosureIN9G1CardSet11CardClosureEEEEvRT_j.exit: ; preds = %67, %53, %34, %17, %59, %47, %26, %7
@@ -15832,7 +15832,7 @@ define linkonce_odr hidden void @_ZN13G1CardSetHowl15iterate_cardsetI23G1Contain
   %6 = ptrtoint ptr %1 to i64
   %7 = trunc i64 %6 to i32
   %8 = and i32 %7, 3
-  switch i32 %8, label %default.unreachable38 [
+  switch i32 %8, label %default.unreachable46 [
     i32 0, label %9
     i32 1, label %26
     i32 2, label %42
@@ -15946,7 +15946,7 @@ define linkonce_odr hidden void @_ZN13G1CardSetHowl15iterate_cardsetI23G1Contain
   br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %69, !llvm.loop !68
 
 69:                                               ; preds = %66
-  %70 = shl i64 %64, 6
+  %70 = shl nuw nsw i64 %64, 6
   br label %71
 
 71:                                               ; preds = %69, %62
@@ -15963,14 +15963,14 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %71, %55
   br i1 %.not.not.i.i.i, label %75, label %_ZN18G1CardSetInlinePtr7iterateI23G1ContainerCardsClosureIN9G1CardSet11CardClosureEEEEvRT_j.exit
 
 75:                                               ; preds = %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i
-  %76 = trunc i64 %.0.i.i.i.i.i to i32
+  %76 = trunc nuw i64 %.0.i.i.i.i.i to i32
   %77 = or i32 %45, %76
   %78 = load ptr, ptr %3, align 8
   %79 = load i32, ptr %54, align 8
   %80 = load ptr, ptr %78, align 8
   %81 = load ptr, ptr %80, align 8
   tail call void %81(ptr noundef nonnull align 8 dereferenceable(8) %78, i32 noundef %79, i32 noundef %77) #19
-  %82 = add nuw i64 %.0.i.i.i.i.i, 1
+  %82 = add nuw nsw i64 %.0.i.i.i.i.i, 1
   %83 = icmp ult i64 %82, %50
   br i1 %83, label %55, label %_ZN18G1CardSetInlinePtr7iterateI23G1ContainerCardsClosureIN9G1CardSet11CardClosureEEEEvRT_j.exit, !llvm.loop !101
 
@@ -15998,7 +15998,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %71, %55
   %exitcond.not.i25 = icmp eq i32 %96, %89
   br i1 %exitcond.not.i25, label %_ZN18G1CardSetInlinePtr7iterateI23G1ContainerCardsClosureIN9G1CardSet11CardClosureEEEEvRT_j.exit, label %91, !llvm.loop !99
 
-default.unreachable38:                            ; preds = %5
+default.unreachable46:                            ; preds = %5
   unreachable
 
 _ZN18G1CardSetInlinePtr7iterateI23G1ContainerCardsClosureIN9G1CardSet11CardClosureEEEEvRT_j.exit: ; preds = %91, %75, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, %71, %.preheader.i.i.i, %34, %17, %84, %42, %26, %9

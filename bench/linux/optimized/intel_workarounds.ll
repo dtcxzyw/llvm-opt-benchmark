@@ -1434,7 +1434,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   %199 = zext i8 %198 to i32
   %200 = or disjoint i32 %196, %199
   %201 = icmp eq i32 %200, 3142
-  br i1 %201, label %202, label %.thread29
+  br i1 %201, label %202, label %.thread51
 
 202:                                              ; preds = %191
   %203 = getelementptr inbounds nuw i8, ptr %192, i64 7200
@@ -1482,9 +1482,9 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 226:                                              ; preds = %221
   %.pr.pre = load i32, ptr %52, align 8
   %227 = icmp eq i32 %.pr.pre, 2
-  br i1 %227, label %.thread, label %.thread29
+  br i1 %227, label %.thread, label %.thread51
 
-.thread29:                                        ; preds = %191, %226
+.thread51:                                        ; preds = %191, %226
   %228 = phi ptr [ %223, %226 ], [ %192, %191 ]
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 7176
   %230 = load i8, ptr %229, align 8
@@ -1497,7 +1497,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   %237 = icmp eq i32 %236, 3143
   br i1 %237, label %238, label %.thread
 
-238:                                              ; preds = %.thread29
+238:                                              ; preds = %.thread51
   %239 = getelementptr inbounds nuw i8, ptr %228, i64 7200
   %240 = load i8, ptr %239, align 8
   %241 = icmp eq i8 %240, 0
@@ -1568,7 +1568,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %.thread
 
-.thread:                                          ; preds = %179, %261, %257, %.thread29, %226
+.thread:                                          ; preds = %179, %261, %257, %.thread51, %226
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store ptr @__drm_printfn_debug, ptr %33, align 8, !alias.scope !56
   %271 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -4250,7 +4250,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %420 = zext i8 %419 to i32
   %421 = or disjoint i32 %417, %420
   %422 = icmp eq i32 %421, 3142
-  br i1 %422, label %423, label %.thread135
+  br i1 %422, label %423, label %.thread178
 
 423:                                              ; preds = %412
   %424 = getelementptr inbounds nuw i8, ptr %413, i64 7200
@@ -4298,9 +4298,9 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 447:                                              ; preds = %442
   %.pr33.pre = load i32, ptr %150, align 8
   %448 = icmp eq i32 %.pr33.pre, 2
-  br i1 %448, label %.thread35, label %.thread135
+  br i1 %448, label %.thread35, label %.thread178
 
-.thread135:                                       ; preds = %412, %447
+.thread178:                                       ; preds = %412, %447
   %449 = phi ptr [ %444, %447 ], [ %413, %412 ]
   %450 = getelementptr inbounds nuw i8, ptr %449, i64 7176
   %451 = load i8, ptr %450, align 8
@@ -4313,7 +4313,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %458 = icmp eq i32 %457, 3143
   br i1 %458, label %459, label %.thread35
 
-459:                                              ; preds = %.thread135
+459:                                              ; preds = %.thread178
   %460 = getelementptr inbounds nuw i8, ptr %449, i64 7200
   %461 = load i8, ptr %460, align 8
   %462 = icmp eq i8 %461, 0
@@ -4355,7 +4355,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %481 = icmp ult i8 %480, 4
   br i1 %481, label %486, label %.thread35
 
-.thread35:                                        ; preds = %213, %251, %.thread21, %292, %369, %.thread28, %478, %.thread135, %447
+.thread35:                                        ; preds = %213, %251, %.thread21, %292, %369, %.thread28, %478, %.thread178, %447
   %482 = getelementptr i8, ptr %147, i64 7188
   %483 = load i32, ptr %482, align 4
   %484 = and i32 %483, 2048
@@ -4409,7 +4409,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %508 = zext i8 %507 to i32
   %509 = or disjoint i32 %505, %508
   %510 = icmp eq i32 %509, 3142
-  br i1 %510, label %511, label %.thread137
+  br i1 %510, label %511, label %.thread180
 
 511:                                              ; preds = %500
   %512 = getelementptr inbounds nuw i8, ptr %501, i64 7200
@@ -4457,9 +4457,9 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 535:                                              ; preds = %530
   %.pr37.pre = load i32, ptr %150, align 8
   %536 = icmp eq i32 %.pr37.pre, 2
-  br i1 %536, label %.thread38, label %.thread137
+  br i1 %536, label %.thread38, label %.thread180
 
-.thread137:                                       ; preds = %500, %535
+.thread180:                                       ; preds = %500, %535
   %537 = phi ptr [ %532, %535 ], [ %501, %500 ]
   %538 = getelementptr inbounds nuw i8, ptr %537, i64 7176
   %539 = load i8, ptr %538, align 8
@@ -4472,7 +4472,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %546 = icmp eq i32 %545, 3143
   br i1 %546, label %547, label %.thread38
 
-547:                                              ; preds = %.thread137
+547:                                              ; preds = %.thread180
   %548 = getelementptr inbounds nuw i8, ptr %537, i64 7200
   %549 = load i8, ptr %548, align 8
   %550 = icmp eq i8 %549, 0
@@ -4514,14 +4514,14 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %569 = icmp ult i8 %568, 4
   br i1 %569, label %575, label %.thread38
 
-.thread38:                                        ; preds = %497, %566, %.thread137, %535
+.thread38:                                        ; preds = %497, %566, %.thread180, %535
   %570 = getelementptr i8, ptr %147, i64 7188
   %571 = load i32, ptr %570, align 4
   %572 = and i32 %571, 6144
   %573 = icmp eq i32 %572, 0
-  br i1 %573, label %.thread139, label %575
+  br i1 %573, label %.thread182, label %575
 
-.thread139:                                       ; preds = %.thread38
+.thread182:                                       ; preds = %.thread38
   %574 = getelementptr i8, ptr %147, i64 7188
   br label %594
 
@@ -4579,9 +4579,9 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %.pre129 = load i32, ptr %582, align 4
   br label %594
 
-594:                                              ; preds = %.thread139, %583, %575
-  %595 = phi ptr [ %582, %583 ], [ %582, %575 ], [ %574, %.thread139 ]
-  %596 = phi i32 [ %.pre129, %583 ], [ %.pre93, %575 ], [ %571, %.thread139 ]
+594:                                              ; preds = %.thread182, %583, %575
+  %595 = phi ptr [ %582, %583 ], [ %582, %575 ], [ %574, %.thread182 ]
+  %596 = phi i32 [ %.pre129, %583 ], [ %.pre93, %575 ], [ %571, %.thread182 ]
   %597 = and i32 %596, 2048
   %598 = icmp eq i32 %597, 0
   br i1 %598, label %610, label %599
@@ -4816,7 +4816,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %703 = zext i8 %702 to i32
   %704 = or disjoint i32 %700, %703
   %705 = icmp eq i32 %704, 3142
-  br i1 %705, label %706, label %.thread141
+  br i1 %705, label %706, label %.thread184
 
 706:                                              ; preds = %695
   %707 = getelementptr inbounds nuw i8, ptr %696, i64 7200
@@ -4864,9 +4864,9 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
 730:                                              ; preds = %725
   %.pr40.pre = load i32, ptr %692, align 8
   %731 = icmp eq i32 %.pr40.pre, 2
-  br i1 %731, label %.thread48, label %.thread141
+  br i1 %731, label %.thread48, label %.thread184
 
-.thread141:                                       ; preds = %695, %730
+.thread184:                                       ; preds = %695, %730
   %732 = phi ptr [ %727, %730 ], [ %696, %695 ]
   %733 = getelementptr inbounds nuw i8, ptr %732, i64 7176
   %734 = load i8, ptr %733, align 8
@@ -4879,7 +4879,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %741 = icmp eq i32 %740, 3143
   br i1 %741, label %742, label %771
 
-742:                                              ; preds = %.thread141
+742:                                              ; preds = %.thread184
   %743 = getelementptr inbounds nuw i8, ptr %732, i64 7200
   %744 = load i8, ptr %743, align 8
   %745 = icmp eq i8 %744, 0
@@ -4938,7 +4938,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %771
 
-771:                                              ; preds = %765, %761, %.thread141
+771:                                              ; preds = %765, %761, %.thread184
   %.pr43 = load i32, ptr %692, align 8
   %772 = icmp eq i32 %.pr43, 2
   br i1 %772, label %.thread48, label %773
@@ -5148,7 +5148,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %891 = load i32, ptr %890, align 4
   %892 = and i32 %891, 2048
   %893 = icmp eq i32 %892, 0
-  br i1 %893, label %.thread144, label %894
+  br i1 %893, label %.thread187, label %894
 
 894:                                              ; preds = %885, %889
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
@@ -5169,7 +5169,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %.pre115 = load i32, ptr %.phi.trans.insert114, align 4
   %.pre130 = and i32 %.pre115, 2048
   %900 = icmp eq i32 %.pre130, 0
-  br i1 %900, label %.thread144, label %901
+  br i1 %900, label %.thread187, label %901
 
 901:                                              ; preds = %894
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
@@ -5186,16 +5186,16 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   store i8 3, ptr %906, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %53)
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
-  br label %.thread144
+  br label %.thread187
 
-.thread144:                                       ; preds = %889, %901, %894
+.thread187:                                       ; preds = %889, %901, %894
   %907 = getelementptr inbounds nuw i8, ptr %655, i64 7184
   %908 = getelementptr i8, ptr %655, i64 7188
   %909 = load i32, ptr %692, align 8
   %910 = icmp eq i32 %909, 2
   br i1 %910, label %923, label %911
 
-911:                                              ; preds = %.thread144
+911:                                              ; preds = %.thread187
   %912 = load ptr, ptr %691, align 8
   %913 = getelementptr inbounds nuw i8, ptr %912, i64 7176
   %914 = load i8, ptr %913, align 8
@@ -5209,7 +5209,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %922 = icmp eq i32 %921, 3142
   br i1 %922, label %927, label %923
 
-923:                                              ; preds = %911, %.thread144
+923:                                              ; preds = %911, %.thread187
   %924 = load i32, ptr %908, align 4
   %925 = and i32 %924, 2048
   %926 = icmp eq i32 %925, 0
@@ -7547,9 +7547,9 @@ define internal fastcc void @_wa_add(ptr noundef captures(none) %0, ptr noundef 
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 15
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %13, label %.thread15
+  br i1 %10, label %13, label %.thread24
 
-.thread15:                                        ; preds = %2
+.thread24:                                        ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre.pre = load ptr, ptr %.phi.trans.insert, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7599,10 +7599,10 @@ define internal fastcc void @_wa_add(ptr noundef captures(none) %0, ptr noundef 
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread15, %33
-  %36 = phi ptr [ %12, %.thread15 ], [ %35, %33 ]
-  %37 = phi ptr [ %11, %.thread15 ], [ %34, %33 ]
-  %.pre18 = phi ptr [ %.pre.pre, %.thread15 ], [ %17, %33 ]
+.lr.ph:                                           ; preds = %.thread24, %33
+  %36 = phi ptr [ %12, %.thread24 ], [ %35, %33 ]
+  %37 = phi ptr [ %11, %.thread24 ], [ %34, %33 ]
+  %.pre27 = phi ptr [ %.pre.pre, %.thread24 ], [ %17, %33 ]
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %39 = icmp eq ptr %6, null
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -7617,7 +7617,7 @@ define internal fastcc void @_wa_add(ptr noundef captures(none) %0, ptr noundef 
   %47 = lshr i32 %46, 1
   %48 = add i32 %47, %45
   %49 = zext i32 %48 to i64
-  %50 = getelementptr %struct.i915_wa, ptr %.pre18, i64 %49
+  %50 = getelementptr %struct.i915_wa, ptr %.pre27, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = icmp ult i32 %51, %4
   br i1 %52, label %53, label %55
@@ -7692,7 +7692,7 @@ define internal fastcc void @_wa_add(ptr noundef captures(none) %0, ptr noundef 
 ._crit_edge:                                      ; preds = %91, %33
   %95 = phi ptr [ %35, %33 ], [ %36, %91 ]
   %96 = phi ptr [ %34, %33 ], [ %37, %91 ]
-  %.pre19 = phi ptr [ %17, %33 ], [ %.pre18, %91 ]
+  %.pre28 = phi ptr [ %17, %33 ], [ %.pre27, %91 ]
   %97 = load i32, ptr %95, align 4
   %98 = add i32 %97, 1
   store i32 %98, ptr %95, align 4
@@ -7700,7 +7700,7 @@ define internal fastcc void @_wa_add(ptr noundef captures(none) %0, ptr noundef 
   %100 = add i32 %99, 1
   store i32 %100, ptr %7, align 8
   %101 = zext i32 %99 to i64
-  %102 = getelementptr %struct.i915_wa, ptr %.pre19, i64 %101
+  %102 = getelementptr %struct.i915_wa, ptr %.pre28, i64 %101
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(20) %102, ptr noundef align 4 dereferenceable(20) %1, i64 20, i1 false)
   %103 = load ptr, ptr %96, align 8
   %104 = icmp ugt ptr %102, %103

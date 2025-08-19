@@ -621,11 +621,11 @@ inc_128.exit87:                                   ; preds = %.preheader
   %53 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %52) #8, !srcloc !39
   %54 = add i32 %53, %51
   %55 = icmp ult i32 %54, %51
-  br i1 %55, label %.preheader92, label %ctr96_inc.exit
+  br i1 %55, label %.preheader97, label %ctr96_inc.exit
 
-.preheader92:                                     ; preds = %47, %.preheader92
-  %indvars.iv.i88 = phi i64 [ %indvars.iv.next.i90, %.preheader92 ], [ 12, %47 ]
-  %.0.i89 = phi i32 [ %61, %.preheader92 ], [ 1, %47 ]
+.preheader97:                                     ; preds = %47, %.preheader97
+  %indvars.iv.i88 = phi i64 [ %indvars.iv.next.i90, %.preheader97 ], [ 12, %47 ]
+  %.0.i89 = phi i32 [ %61, %.preheader97 ], [ 1, %47 ]
   %indvars.iv.next.i90 = add nsw i64 %indvars.iv.i88, -1
   %56 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv.next.i90
   %57 = load i8, ptr %56, align 1, !tbaa !26
@@ -635,9 +635,9 @@ inc_128.exit87:                                   ; preds = %.preheader
   store i8 %60, ptr %56, align 1, !tbaa !26
   %61 = lshr i32 %59, 8
   %.not.i91 = icmp eq i64 %indvars.iv.next.i90, 0
-  br i1 %.not.i91, label %ctr96_inc.exit.loopexit, label %.preheader92, !llvm.loop !40
+  br i1 %.not.i91, label %ctr96_inc.exit.loopexit, label %.preheader97, !llvm.loop !40
 
-ctr96_inc.exit.loopexit:                          ; preds = %.preheader92
+ctr96_inc.exit.loopexit:                          ; preds = %.preheader97
   %.not68 = icmp eq i32 %54, 0
   %.neg = mul i32 %53, -16
   %spec.select75 = select i1 %.not68, i32 %49, i32 %.neg
@@ -1529,7 +1529,7 @@ define internal fastcc i32 @drbg_ctr_set_ctx_params_locked(ptr noundef %0, ptr n
   %106 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %107 = load ptr, ptr %106, align 8, !tbaa !16
   %108 = icmp eq ptr %107, null
-  br i1 %108, label %109, label %.thread35.i
+  br i1 %108, label %109, label %.thread42.i
 
 109:                                              ; preds = %104
   %110 = call ptr @EVP_CIPHER_CTX_new() #7
@@ -1538,21 +1538,21 @@ define internal fastcc i32 @drbg_ctr_set_ctx_params_locked(ptr noundef %0, ptr n
   %111 = icmp eq ptr %110, null
   %112 = icmp eq ptr %.pre.i, null
   %brmerge.i = select i1 %112, i1 true, i1 %111
-  br i1 %brmerge.i, label %167, label %.thread36.i
+  br i1 %brmerge.i, label %167, label %.thread43.i
 
-.thread35.i:                                      ; preds = %104
+.thread42.i:                                      ; preds = %104
   %113 = icmp eq ptr %105, null
-  br i1 %113, label %167, label %.thread36.i
+  br i1 %113, label %167, label %.thread43.i
 
-.thread36.i:                                      ; preds = %.thread35.i, %109
-  %114 = phi ptr [ %105, %.thread35.i ], [ %.pre.i, %109 ]
+.thread43.i:                                      ; preds = %.thread42.i, %109
+  %114 = phi ptr [ %105, %.thread42.i ], [ %.pre.i, %109 ]
   %115 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %116 = load ptr, ptr %115, align 8, !tbaa !18
   %117 = call i32 @EVP_CipherInit_ex(ptr noundef nonnull %114, ptr noundef %116, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 1) #7
   %.not.i = icmp eq i32 %117, 0
   br i1 %.not.i, label %167, label %118
 
-118:                                              ; preds = %.thread36.i
+118:                                              ; preds = %.thread43.i
   %119 = load ptr, ptr %106, align 8, !tbaa !16
   %120 = load ptr, ptr %92, align 8, !tbaa !19
   %121 = call i32 @EVP_CipherInit_ex(ptr noundef %119, ptr noundef %120, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 1) #7
@@ -1647,11 +1647,11 @@ define internal fastcc i32 @drbg_ctr_set_ctx_params_locked(ptr noundef %0, ptr n
   store i64 %161, ptr %166, align 8, !tbaa !36
   br label %drbg_ctr_init.exit.thread
 
-167:                                              ; preds = %.thread.i, %133, %118, %.thread36.i, %.thread35.i, %109
-  %.sink37.i = phi i32 [ 575, %109 ], [ 575, %.thread35.i ], [ 583, %118 ], [ 583, %.thread36.i ], [ 602, %133 ], [ 608, %.thread.i ]
-  %.sink.i = phi i32 [ 524294, %109 ], [ 524294, %.thread35.i ], [ 208, %118 ], [ 208, %.thread36.i ], [ 524294, %133 ], [ 205, %.thread.i ]
+167:                                              ; preds = %.thread.i, %133, %118, %.thread43.i, %.thread42.i, %109
+  %.sink44.i = phi i32 [ 575, %109 ], [ 575, %.thread42.i ], [ 583, %118 ], [ 583, %.thread43.i ], [ 602, %133 ], [ 608, %.thread.i ]
+  %.sink.i = phi i32 [ 524294, %109 ], [ 524294, %.thread42.i ], [ 208, %118 ], [ 208, %.thread43.i ], [ 524294, %133 ], [ 205, %.thread.i ]
   call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink37.i, ptr noundef nonnull @__func__.drbg_ctr_init) #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink44.i, ptr noundef nonnull @__func__.drbg_ctr_init) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink.i, ptr noundef null) #7
   %168 = load ptr, ptr %91, align 8, !tbaa !12
   call void @EVP_CIPHER_CTX_free(ptr noundef %168) #7

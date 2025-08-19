@@ -860,18 +860,18 @@ Cmd_Argv.exit198.i:                               ; preds = %Cmd_Argv.exit189.th
   br i1 %.not117.not.i, label %Cmd_Argv_length.exit174.i, label %Cmd_Argv_start.exit201.i
 
 Cmd_Argv_start.exit201.i:                         ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %.lcssa272332.i = phi i32 [ %298, %._crit_edge.thread.i ], [ %.lcssa272.i, %._crit_edge.i ]
-  %.0104243328331.i = phi ptr [ null, %._crit_edge.thread.i ], [ %.0104243.i, %._crit_edge.i ]
+  %.lcssa272341.i = phi i32 [ %298, %._crit_edge.thread.i ], [ %.lcssa272.i, %._crit_edge.i ]
+  %.0104243337340.i = phi ptr [ null, %._crit_edge.thread.i ], [ %.0104243.i, %._crit_edge.i ]
   %316 = load i32, ptr @hf_quakeworld_connectionless_rcon_command, align 4
-  %.not.i199.i = icmp sgt i32 %.lcssa272332.i, 2
+  %.not.i199.i = icmp sgt i32 %.lcssa272341.i, 2
   %317 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cmd_argv_start, i64 8), align 8
   %318 = add i32 %317, 4
   %319 = select i1 %.not.i199.i, i32 %318, i32 4
-  %.not.i202.not.i = icmp eq i32 %.lcssa272332.i, -2147483648
+  %.not.i202.not.i = icmp eq i32 %.lcssa272341.i, -2147483648
   br i1 %.not.i202.not.i, label %Cmd_Argv_length.exit207.i, label %320
 
 320:                                              ; preds = %Cmd_Argv_start.exit201.i
-  %321 = add nsw i32 %.lcssa272332.i, -1
+  %321 = add nsw i32 %.lcssa272341.i, -1
   %322 = sext i32 %321 to i64
   %323 = getelementptr [80 x i32], ptr @cmd_argv_start, i64 0, i64 %322
   %324 = load i32, ptr %323, align 4
@@ -884,7 +884,7 @@ Cmd_Argv_length.exit207.i:                        ; preds = %320, %Cmd_Argv_star
   %328 = phi i32 [ %327, %320 ], [ 0, %Cmd_Argv_start.exit201.i ]
   %spec.select258.i = select i1 %.not.i199.i, i32 %317, i32 0
   %329 = sub i32 %328, %spec.select258.i
-  %330 = call ptr @proto_tree_add_string(ptr noundef %.0104243328331.i, i32 noundef %316, ptr noundef %0, i32 noundef %319, i32 noundef %329, ptr noundef nonnull %9)
+  %330 = call ptr @proto_tree_add_string(ptr noundef %.0104243337340.i, i32 noundef %316, ptr noundef %0, i32 noundef %319, i32 noundef %329, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %331 = load ptr, ptr %15, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %331, i32 noundef 25, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.77)

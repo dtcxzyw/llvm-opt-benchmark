@@ -4524,30 +4524,30 @@ define dso_local noundef i32 @_Z6lua_gcP9lua_Stateii(ptr noundef %0, i32 noundef
   store i64 %spec.select, ptr %44, align 8, !tbaa !46
   %45 = icmp eq i8 %32, 0
   %46 = load i64, ptr %43, align 8, !tbaa !31
-  %.not4762 = icmp ugt i64 %spec.select, %46
-  br i1 %.not4762, label %._crit_edge65, label %.lr.ph
+  %.not4766 = icmp ugt i64 %spec.select, %46
+  br i1 %.not4766, label %._crit_edge69, label %.lr.ph
 
 47:                                               ; preds = %.lr.ph
-  %48 = add i64 %51, %.04363
+  %48 = add i64 %51, %.04367
   %49 = load i64, ptr %44, align 8, !tbaa !46
   %50 = load i64, ptr %43, align 8, !tbaa !31
   %.not47 = icmp ugt i64 %49, %50
-  br i1 %.not47, label %._crit_edge65, label %.lr.ph
+  br i1 %.not47, label %._crit_edge69, label %.lr.ph
 
 .lr.ph:                                           ; preds = %40, %47
-  %.04363 = phi i64 [ %48, %47 ], [ 0, %40 ]
+  %.04367 = phi i64 [ %48, %47 ], [ 0, %40 ]
   %51 = tail call noundef i64 @_Z9luaC_stepP9lua_Stateb(ptr noundef %0, i1 noundef zeroext false)
   %52 = load i8, ptr %31, align 1, !tbaa !88
   %53 = icmp eq i8 %52, 0
   br i1 %53, label %.thread, label %47
 
-._crit_edge65:                                    ; preds = %47, %40
+._crit_edge69:                                    ; preds = %47, %40
   %.pr.lcssa = phi i1 [ %45, %40 ], [ false, %47 ]
   %.043.lcssa = phi i64 [ 0, %40 ], [ %48, %47 ]
   %.lcssa = phi i64 [ %46, %40 ], [ %50, %47 ]
   br i1 %.pr.lcssa, label %.thread, label %54
 
-54:                                               ; preds = %._crit_edge65
+54:                                               ; preds = %._crit_edge69
   %55 = add i64 %.043.lcssa, %42
   %56 = add i64 %55, %.lcssa
   %57 = tail call i64 @llvm.smax.i64(i64 %56, i64 0)
@@ -4574,8 +4574,8 @@ define dso_local noundef i32 @_Z6lua_gcP9lua_Stateii(ptr noundef %0, i32 noundef
   store i32 %68, ptr %65, align 8, !tbaa !91
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %3, %._crit_edge65, %54, %64, %61, %58, %23, %18, %13, %12, %8, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %8 ], [ 0, %12 ], [ %17, %13 ], [ %22, %18 ], [ %27, %23 ], [ %60, %58 ], [ %63, %61 ], [ %67, %64 ], [ 0, %54 ], [ 0, %._crit_edge65 ], [ -1, %3 ], [ 1, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %3, %._crit_edge69, %54, %64, %61, %58, %23, %18, %13, %12, %8, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %8 ], [ 0, %12 ], [ %17, %13 ], [ %22, %18 ], [ %27, %23 ], [ %60, %58 ], [ %63, %61 ], [ %67, %64 ], [ 0, %54 ], [ 0, %._crit_edge69 ], [ -1, %3 ], [ 1, %.lr.ph ]
   ret i32 %.0
 }
 

@@ -804,14 +804,14 @@ Vec_PtrPush.exit.i28:                             ; preds = %141, %Vec_PtrGrow.e
   br i1 %.not87.i, label %152, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %147, %.lr.ph116.split.us.i, %._crit_edge.i
-  %.0.lcssa131.i = phi ptr [ null, %._crit_edge.i ], [ %109, %.lr.ph116.split.us.i ], [ %117, %147 ]
+  %.0.lcssa141.i = phi ptr [ null, %._crit_edge.i ], [ %109, %.lr.ph116.split.us.i ], [ %117, %147 ]
   call void @free(ptr noundef nonnull %103) #10
   br label %152
 
 152:                                              ; preds = %._crit_edge.thread.i, %._crit_edge.i
-  %.0.lcssa132.i = phi ptr [ null, %._crit_edge.i ], [ %.0.lcssa131.i, %._crit_edge.thread.i ]
+  %.0.lcssa142.i = phi ptr [ null, %._crit_edge.i ], [ %.0.lcssa141.i, %._crit_edge.thread.i ]
   call void @Abc_ObjRemoveFanins(ptr noundef nonnull %72) #10
-  call void @Abc_ObjAddFanin(ptr noundef nonnull %72, ptr noundef %.0.lcssa132.i) #10
+  call void @Abc_ObjAddFanin(ptr noundef nonnull %72, ptr noundef %.0.lcssa142.i) #10
   %153 = load ptr, ptr %76, align 8, !tbaa !58
   call void @Cudd_RecursiveDeref(ptr noundef %75, ptr noundef %153) #10
   %154 = getelementptr inbounds nuw i8, ptr %75, i64 344
@@ -909,9 +909,9 @@ Vec_PtrPush.exit104.i.sink.split:                 ; preds = %201
   %205 = shl nuw nsw i32 %69, 1
   %206 = zext nneg i32 %205 to i64
   %207 = shl nuw nsw i64 %206, 3
-  %.sink51 = select i1 %204, i64 128, i64 %207
+  %.sink63 = select i1 %204, i64 128, i64 %207
   %.sink = select i1 %204, i32 16, i32 %205
-  %208 = call ptr @realloc(ptr noundef nonnull %70, i64 noundef %.sink51) #12
+  %208 = call ptr @realloc(ptr noundef nonnull %70, i64 noundef %.sink63) #12
   store ptr %208, ptr %15, align 8, !tbaa !28
   store i32 %.sink, ptr %12, align 8, !tbaa !27
   br label %Vec_PtrPush.exit104.i
@@ -953,11 +953,11 @@ Vec_PtrPush.exit112.i.sink.split:                 ; preds = %226
   %230 = shl nuw nsw i32 %214, 1
   %231 = zext nneg i32 %230 to i64
   %232 = shl nuw nsw i64 %231, 3
-  %.sink54 = select i1 %229, i64 128, i64 %232
-  %.sink52 = select i1 %229, i32 16, i32 %230
-  %233 = call ptr @realloc(ptr noundef nonnull %215, i64 noundef %.sink54) #12
+  %.sink66 = select i1 %229, i64 128, i64 %232
+  %.sink64 = select i1 %229, i32 16, i32 %230
+  %233 = call ptr @realloc(ptr noundef nonnull %215, i64 noundef %.sink66) #12
   store ptr %233, ptr %15, align 8, !tbaa !28
-  store i32 %.sink52, ptr %12, align 8, !tbaa !27
+  store i32 %.sink64, ptr %12, align 8, !tbaa !27
   br label %Vec_PtrPush.exit112.i
 
 Vec_PtrPush.exit112.i:                            ; preds = %Vec_PtrPush.exit112.i.sink.split, %226

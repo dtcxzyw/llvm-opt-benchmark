@@ -2011,8 +2011,8 @@ define dso_local noundef zeroext i1 @_ZN5clang7CodeGen12isEmptyFieldERNS_10ASTCo
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i8, ptr %14, align 16
   %16 = and i8 %15, -2
-  %spec.select.i.i.i.i.i.i.i.i.i.i62 = icmp eq i8 %16, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i62, label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit, label %.thread38
+  %spec.select.i.i.i.i.i.i.i.i.i.i67 = icmp eq i8 %16, 2
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i67, label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit, label %.thread38
 
 .lr.ph:                                           ; preds = %38
   %17 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -2617,8 +2617,8 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit94:    ; preds = %40, %47
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load i8, ptr %58, align 16
   %60 = and i8 %59, -2
-  %spec.select.i.i.i.i.i.i.i.i.i.i180 = icmp eq i8 %60, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i180, label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit, label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread
+  %spec.select.i.i.i.i.i.i.i.i.i.i191 = icmp eq i8 %60, 2
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i191, label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit, label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread
 
 .lr.ph167:                                        ; preds = %76
   %61 = getelementptr inbounds nuw i8, ptr %78, i64 16
@@ -2629,7 +2629,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit94:    ; preds = %40, %47
 
 _ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit: ; preds = %.lr.ph167.preheader, %.lr.ph167
   %64 = phi ptr [ %61, %.lr.ph167 ], [ %58, %.lr.ph167.preheader ]
-  %.sroa.0.0166181 = phi i64 [ %.sroa.0.0.copyload.i99, %.lr.ph167 ], [ %.sroa.0.0.copyload.i97, %.lr.ph167.preheader ]
+  %.sroa.0.0166192 = phi i64 [ %.sroa.0.0.copyload.i99, %.lr.ph167 ], [ %.sroa.0.0.copyload.i97, %.lr.ph167.preheader ]
   %65 = phi ptr [ %78, %.lr.ph167 ], [ %57, %.lr.ph167.preheader ]
   %66 = load i32, ptr %64, align 16
   %67 = and i32 %66, 33554432
@@ -2660,7 +2660,7 @@ _ZNK5clang17ConstantArrayType11getZExtSizeEv.exit: ; preds = %_ZNK5clang10ASTCon
   br i1 %.not.i.i.i, label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread, label %.lr.ph167
 
 _ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread: ; preds = %76, %.lr.ph167, %_ZNK5clang17ConstantArrayType11getZExtSizeEv.exit, %.lr.ph167.preheader, %.preheader
-  %.sroa.0.0.lcssa = phi i64 [ %.sroa.0.0.copyload.i97, %.preheader ], [ %.sroa.0.0.copyload.i97, %.lr.ph167.preheader ], [ %.sroa.0.0166181, %_ZNK5clang17ConstantArrayType11getZExtSizeEv.exit ], [ %.sroa.0.0.copyload.i99, %.lr.ph167 ], [ %.sroa.0.0.copyload.i99, %76 ]
+  %.sroa.0.0.lcssa = phi i64 [ %.sroa.0.0.copyload.i97, %.preheader ], [ %.sroa.0.0.copyload.i97, %.lr.ph167.preheader ], [ %.sroa.0.0166192, %_ZNK5clang17ConstantArrayType11getZExtSizeEv.exit ], [ %.sroa.0.0.copyload.i99, %.lr.ph167 ], [ %.sroa.0.0.copyload.i99, %76 ]
   %79 = tail call noundef i32 @_ZN5clang7CodeGen15CodeGenFunction17getEvaluationKindENS_8QualTypeE(i64 %.sroa.0.0.lcssa) #12
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %81, label %_ZN5clang7CodeGen21isAggregateTypeForABIENS_8QualTypeE.exit.thread138

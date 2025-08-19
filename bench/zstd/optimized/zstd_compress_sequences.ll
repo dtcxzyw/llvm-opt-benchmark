@@ -61,8 +61,8 @@ define range(i64 -1, 72057594037927936) i64 @ZSTD_fseBitCost(ptr noundef readonl
 
 34:                                               ; preds = %33
   %35 = zext i32 %31 to i64
-  %36 = zext i32 %29 to i64
-  %37 = mul nuw i64 %36, %35
+  %36 = zext nneg i32 %29 to i64
+  %37 = mul nuw nsw i64 %36, %35
   %38 = add i64 %37, %.01932
   br label %39
 
@@ -254,8 +254,8 @@ ZSTD_crossEntropyCost.exit:                       ; preds = %42
 
 89:                                               ; preds = %88
   %90 = zext i32 %86 to i64
-  %91 = zext i32 %84 to i64
-  %92 = mul nuw i64 %91, %90
+  %91 = zext nneg i32 %84 to i64
+  %92 = mul nuw nsw i64 %91, %90
   %93 = add i64 %92, %.01932.i
   br label %94
 

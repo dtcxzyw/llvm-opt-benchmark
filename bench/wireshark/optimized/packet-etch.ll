@@ -363,8 +363,8 @@ gbl_symbols_new.exit.i:                           ; preds = %37
   br i1 %.not19.i.i, label %.critedge.i.i, label %.lr.ph.i19.i, !llvm.loop !9
 
 .critedge.i.i:                                    ; preds = %.critedge2.i.i, %.lr.ph.i19.i
-  %.0.in.lcssa.i.i = phi i64 [ 1, %.critedge2.i.i ], [ %.0.in25.i.i, %.lr.ph.i19.i ]
-  %58 = getelementptr [256 x i8], ptr %2, i64 0, i64 %.0.in.lcssa.i.i
+  %.0.in.lcssa.ph.i.i = phi i64 [ 1, %.critedge2.i.i ], [ %.0.in25.i.i, %.lr.ph.i19.i ]
+  %58 = getelementptr [256 x i8], ptr %2, i64 0, i64 %.0.in.lcssa.ph.i.i
   store i8 0, ptr %58, align 1
   %59 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %2, ptr noundef nonnull @.str.82, ptr noundef nonnull %3) #11
   %.not20.i.i = icmp eq i32 %59, 1
@@ -760,10 +760,10 @@ define internal fastcc range(i32 0, 256) i32 @read_value(ptr noundef captures(no
     i8 -109, label %62
     i8 -120, label %76
     i8 -119, label %read_number.exit
-    i8 -123, label %read_number.exit61
+    i8 -123, label %read_number.exit63
     i8 -122, label %106
-    i8 -121, label %read_number.exit63
-    i8 -124, label %read_number.exit65
+    i8 -121, label %read_number.exit65
+    i8 -124, label %read_number.exit67
     i8 -117, label %136
   ]
 
@@ -880,7 +880,7 @@ read_number.exit:                                 ; preds = %14
   store i32 %91, ptr %0, align 4
   br label %151
 
-read_number.exit61:                               ; preds = %14
+read_number.exit63:                               ; preds = %14
   %92 = load i32, ptr @hf_etch_short, align 4
   %93 = load i32, ptr %0, align 4
   %94 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %93)
@@ -905,7 +905,7 @@ read_number.exit61:                               ; preds = %14
   tail call fastcc void @read_number(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %107, i8 noundef zeroext -122)
   br label %151
 
-read_number.exit63:                               ; preds = %14
+read_number.exit65:                               ; preds = %14
   %108 = load i32, ptr @hf_etch_long, align 4
   %109 = load i32, ptr %0, align 4
   %110 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %109)
@@ -925,7 +925,7 @@ read_number.exit63:                               ; preds = %14
   store i32 %121, ptr %0, align 4
   br label %151
 
-read_number.exit65:                               ; preds = %14
+read_number.exit67:                               ; preds = %14
   %122 = load i32, ptr @hf_etch_byte, align 4
   %123 = load i32, ptr %0, align 4
   %124 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %123)
@@ -967,7 +967,7 @@ read_number.exit65:                               ; preds = %14
   tail call fastcc void @read_number(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %4, i8 noundef zeroext %7)
   br label %151
 
-151:                                              ; preds = %150, %136, %read_number.exit65, %read_number.exit63, %106, %read_number.exit61, %read_number.exit, %76, %62, %read_array.exit, %15
+151:                                              ; preds = %150, %136, %read_number.exit67, %read_number.exit65, %106, %read_number.exit63, %read_number.exit, %76, %62, %read_array.exit, %15
   tail call void @decrement_dissection_depth(ptr noundef %3)
   br label %152
 

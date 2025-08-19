@@ -856,10 +856,10 @@ define noundef ptr @_ZNK6icu_776number4impl11CompactData10getPatternEiPKNS_11Plu
   br label %18
 
 18:                                               ; preds = %15, %17
-  %.sink34 = phi i32 [ 7, %17 ], [ 6, %15 ]
+  %.sink36 = phi i32 [ 7, %17 ], [ 6, %15 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = shl nsw i32 %spec.select, 3
-  %21 = or disjoint i32 %20, %.sink34
+  %21 = or disjoint i32 %20, %.sink36
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds [168 x ptr], ptr %19, i64 0, i64 %22
   %.024 = load ptr, ptr %23, align 8, !tbaa !32

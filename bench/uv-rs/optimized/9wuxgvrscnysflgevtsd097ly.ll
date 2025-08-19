@@ -574,8 +574,8 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h758fa218
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !133, !noalias !130
-  %.sroa.03.0.copyload432 = load i64, ptr %6, align 8, !alias.scope !135
-  %7 = icmp eq i64 %.sroa.03.0.copyload432, 2
+  %.sroa.03.0.copyload437 = load i64, ptr %6, align 8, !alias.scope !135
+  %7 = icmp eq i64 %.sroa.03.0.copyload437, 2
   br i1 %7, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b10ced6e1a76f9E.llvm.5773283630039730002.exit.thread", label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
@@ -594,11 +594,11 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h758fa218
   br i1 %12, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b10ced6e1a76f9E.llvm.5773283630039730002.exit.thread", label %.lr.ph
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b10ced6e1a76f9E.llvm.5773283630039730002.exit.thread": ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b10ced6e1a76f9E.llvm.5773283630039730002.exit", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b10ced6e1a76f9E.llvm.5773283630039730002.exit.lr.ph"
-  %.lcssa29 = phi i64 [ 2, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b10ced6e1a76f9E.llvm.5773283630039730002.exit.lr.ph" ], [ %37, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b10ced6e1a76f9E.llvm.5773283630039730002.exit" ]
-  %.lcssa26 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b10ced6e1a76f9E.llvm.5773283630039730002.exit.lr.ph" ], [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b10ced6e1a76f9E.llvm.5773283630039730002.exit" ]
-  %13 = sub nuw i64 %.lcssa29, %.lcssa26
-  %14 = getelementptr inbounds { [3 x i64] }, ptr %6, i64 %.lcssa26
-  %15 = icmp eq i64 %.lcssa29, %.lcssa26
+  %.lcssa34 = phi i64 [ 2, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b10ced6e1a76f9E.llvm.5773283630039730002.exit.lr.ph" ], [ %37, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b10ced6e1a76f9E.llvm.5773283630039730002.exit" ]
+  %.lcssa31 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b10ced6e1a76f9E.llvm.5773283630039730002.exit.lr.ph" ], [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b10ced6e1a76f9E.llvm.5773283630039730002.exit" ]
+  %13 = sub nuw i64 %.lcssa34, %.lcssa31
+  %14 = getelementptr inbounds { [3 x i64] }, ptr %6, i64 %.lcssa31
+  %15 = icmp eq i64 %.lcssa34, %.lcssa31
   br i1 %15, label %"_ZN4core3ptr92drop_in_place$LT$core..array..iter..IntoIter$LT$clap_builder..util..id..Id$C$2_usize$GT$$GT$17h2aa494918e68cfd3E.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b10ced6e1a76f9E.llvm.5773283630039730002.exit.thread", %"_ZN4core3ptr47drop_in_place$LT$clap_builder..util..id..Id$GT$17hafb57be87719c2a5E.exit.i.i.i"
@@ -648,10 +648,10 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h758fa218
   unreachable
 
 .lr.ph:                                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b10ced6e1a76f9E.llvm.5773283630039730002.exit.lr.ph", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b10ced6e1a76f9E.llvm.5773283630039730002.exit"
-  %.sroa.03.0.copyload433 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b10ced6e1a76f9E.llvm.5773283630039730002.exit" ], [ %.sroa.03.0.copyload432, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b10ced6e1a76f9E.llvm.5773283630039730002.exit.lr.ph" ]
+  %.sroa.03.0.copyload438 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b10ced6e1a76f9E.llvm.5773283630039730002.exit" ], [ %.sroa.03.0.copyload437, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b10ced6e1a76f9E.llvm.5773283630039730002.exit.lr.ph" ]
   %35 = phi ptr [ %11, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b10ced6e1a76f9E.llvm.5773283630039730002.exit" ], [ %6, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b10ced6e1a76f9E.llvm.5773283630039730002.exit.lr.ph" ]
   %.sroa.7.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store i64 %.sroa.03.0.copyload433, ptr %5, align 8
+  store i64 %.sroa.03.0.copyload438, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx5, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

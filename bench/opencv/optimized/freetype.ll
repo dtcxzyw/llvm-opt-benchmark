@@ -3036,8 +3036,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %_Z
 
 213:                                              ; preds = %212, %209, %204
   %214 = add nsw i32 %.0121.us.us.us.us, -1
-  %.not163 = icmp eq i32 %.0121.us.us.us.us, 0
-  br i1 %.not163, label %.loopexit.split.us.us.us.us.loopexit, label %204, !llvm.loop !160
+  %.not186 = icmp eq i32 %.0121.us.us.us.us, 0
+  br i1 %.not186, label %.loopexit.split.us.us.us.us.loopexit, label %204, !llvm.loop !160
 
 .split137.us:                                     ; preds = %139, %.lr.ph134.split.us
   %215 = landingpad { ptr, i32 }
@@ -3268,8 +3268,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118: ; preds = %_Z
 
 308:                                              ; preds = %299, %302, %294
   %309 = add nsw i32 %.0121, -1
-  %.not162 = icmp eq i32 %.0121, 0
-  br i1 %.not162, label %.loopexit.split.loopexit, label %294, !llvm.loop !160
+  %.not185 = icmp eq i32 %.0121, 0
+  br i1 %.not185, label %.loopexit.split.loopexit, label %294, !llvm.loop !160
 
 .loopexit.split.loopexit:                         ; preds = %297, %308
   %.pre152 = load i32, ptr %273, align 8, !tbaa !150

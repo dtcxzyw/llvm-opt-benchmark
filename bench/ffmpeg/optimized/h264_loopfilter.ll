@@ -1841,8 +1841,8 @@ filter_mb_edgev.exit129:                          ; preds = %1169, %1139, %1098,
 1193:                                             ; preds = %1191
   call void @llvm.lifetime.start.p0(ptr nonnull %110)
   %1194 = getelementptr inbounds nuw [156 x [4 x i8]], ptr @tc0_table, i64 0, i64 %1180
-  %sext594 = shl i64 %1176, 48
-  %1195 = ashr exact i64 %sext594, 48
+  %sext749 = shl i64 %1176, 48
+  %1195 = ashr exact i64 %sext749, 48
   %1196 = getelementptr inbounds [4 x i8], ptr %1194, i64 0, i64 %1195
   %1197 = load i8, ptr %1196, align 1, !tbaa !87
   store i8 %1197, ptr %110, align 1, !tbaa !87
@@ -2127,8 +2127,8 @@ filter_mb_edgeh.exit270:                          ; preds = %1178, %1193, %1215
   %1392 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %165)
   %1393 = getelementptr inbounds nuw [156 x [4 x i8]], ptr @tc0_table, i64 0, i64 %1388
-  %sext554 = shl i64 %1377, 48
-  %1394 = ashr exact i64 %sext554, 48
+  %sext709 = shl i64 %1377, 48
+  %1394 = ashr exact i64 %sext709, 48
   %1395 = getelementptr inbounds [4 x i8], ptr %1393, i64 0, i64 %1394
   %1396 = load i8, ptr %1395, align 1, !tbaa !87
   store i8 %1396, ptr %165, align 1, !tbaa !87
@@ -2361,8 +2361,8 @@ filter_mb_edgev.exit151:                          ; preds = %1477, %1419, %1478,
 1562:                                             ; preds = %1560
   call void @llvm.lifetime.start.p0(ptr nonnull %92)
   %1563 = getelementptr inbounds nuw [156 x [4 x i8]], ptr @tc0_table, i64 0, i64 %1549
-  %sext558 = shl i64 %1545, 48
-  %1564 = ashr exact i64 %sext558, 48
+  %sext713 = shl i64 %1545, 48
+  %1564 = ashr exact i64 %sext713, 48
   %1565 = getelementptr inbounds [4 x i8], ptr %1563, i64 0, i64 %1564
   %1566 = load i8, ptr %1565, align 1, !tbaa !87
   store i8 %1566, ptr %92, align 1, !tbaa !87
@@ -2646,8 +2646,8 @@ filter_mb_edgeh.exit296:                          ; preds = %1739, %1709, %1668,
   %1761 = getelementptr inbounds nuw i8, ptr %4, i64 %1747
   call void @llvm.lifetime.start.p0(ptr nonnull %93)
   %1762 = getelementptr inbounds nuw [156 x [4 x i8]], ptr @tc0_table, i64 0, i64 %1757
-  %sext562 = shl i64 %1744, 48
-  %1763 = ashr exact i64 %sext562, 48
+  %sext717 = shl i64 %1744, 48
+  %1763 = ashr exact i64 %sext717, 48
   %1764 = getelementptr inbounds [4 x i8], ptr %1762, i64 0, i64 %1763
   %1765 = load i8, ptr %1764, align 1, !tbaa !87
   store i8 %1765, ptr %93, align 1, !tbaa !87
@@ -2874,8 +2874,8 @@ filter_mb_edgeh.exit304:                          ; preds = %1745, %1752
   %1931 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %168)
   %1932 = getelementptr inbounds nuw [156 x [4 x i8]], ptr @tc0_table, i64 0, i64 %1927
-  %sext566 = shl i64 %1916, 48
-  %1933 = ashr exact i64 %sext566, 48
+  %sext721 = shl i64 %1916, 48
+  %1933 = ashr exact i64 %sext721, 48
   %1934 = getelementptr inbounds [4 x i8], ptr %1932, i64 0, i64 %1933
   %1935 = load i8, ptr %1934, align 1, !tbaa !87
   store i8 %1935, ptr %168, align 1, !tbaa !87
@@ -3013,8 +3013,8 @@ filter_mb_edgev.exit133:                          ; preds = %1953, %1958, %filte
   %2031 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %169)
   %2032 = getelementptr inbounds nuw [156 x [4 x i8]], ptr @tc0_table, i64 0, i64 %2027
-  %sext570 = shl i64 %2016, 48
-  %2033 = ashr exact i64 %sext570, 48
+  %sext725 = shl i64 %2016, 48
+  %2033 = ashr exact i64 %sext725, 48
   %2034 = getelementptr inbounds [4 x i8], ptr %2032, i64 0, i64 %2033
   %2035 = load i8, ptr %2034, align 1, !tbaa !87
   store i8 %2035, ptr %169, align 1, !tbaa !87
@@ -3239,8 +3239,8 @@ filter_mb_edgev.exit137:                          ; preds = %2116, %2058, %2117,
   %2198 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %170)
   %2199 = getelementptr inbounds nuw [156 x [4 x i8]], ptr @tc0_table, i64 0, i64 %2194
-  %sext574 = shl i64 %2183, 48
-  %2200 = ashr exact i64 %sext574, 48
+  %sext729 = shl i64 %2183, 48
+  %2200 = ashr exact i64 %sext729, 48
   %2201 = getelementptr inbounds [4 x i8], ptr %2199, i64 0, i64 %2200
   %2202 = load i8, ptr %2201, align 1, !tbaa !87
   store i8 %2202, ptr %170, align 1, !tbaa !87
@@ -3386,8 +3386,8 @@ filter_mb_edgev.exit141:                          ; preds = %2220, %2225, %filte
 2301:                                             ; preds = %2299
   call void @llvm.lifetime.start.p0(ptr nonnull %98)
   %2302 = getelementptr inbounds nuw [156 x [4 x i8]], ptr @tc0_table, i64 0, i64 %2288
-  %sext578 = shl i64 %2284, 48
-  %2303 = ashr exact i64 %sext578, 48
+  %sext733 = shl i64 %2284, 48
+  %2303 = ashr exact i64 %sext733, 48
   %2304 = getelementptr inbounds [4 x i8], ptr %2302, i64 0, i64 %2303
   %2305 = load i8, ptr %2304, align 1, !tbaa !87
   store i8 %2305, ptr %98, align 1, !tbaa !87
@@ -3671,8 +3671,8 @@ filter_mb_edgeh.exit272:                          ; preds = %2478, %2448, %2407,
   %2500 = getelementptr inbounds nuw i8, ptr %4, i64 %2486
   call void @llvm.lifetime.start.p0(ptr nonnull %99)
   %2501 = getelementptr inbounds nuw [156 x [4 x i8]], ptr @tc0_table, i64 0, i64 %2496
-  %sext582 = shl i64 %2483, 48
-  %2502 = ashr exact i64 %sext582, 48
+  %sext737 = shl i64 %2483, 48
+  %2502 = ashr exact i64 %sext737, 48
   %2503 = getelementptr inbounds [4 x i8], ptr %2501, i64 0, i64 %2502
   %2504 = load i8, ptr %2503, align 1, !tbaa !87
   store i8 %2504, ptr %99, align 1, !tbaa !87
@@ -3812,8 +3812,8 @@ filter_mb_edgeh.exit276:                          ; preds = %2522, %2527, %filte
   %2602 = getelementptr inbounds nuw i8, ptr %4, i64 %2588
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
   %2603 = getelementptr inbounds nuw [156 x [4 x i8]], ptr @tc0_table, i64 0, i64 %2598
-  %sext586 = shl i64 %2585, 48
-  %2604 = ashr exact i64 %sext586, 48
+  %sext741 = shl i64 %2585, 48
+  %2604 = ashr exact i64 %sext741, 48
   %2605 = getelementptr inbounds [4 x i8], ptr %2603, i64 0, i64 %2604
   %2606 = load i8, ptr %2605, align 1, !tbaa !87
   store i8 %2606, ptr %100, align 1, !tbaa !87
@@ -4042,8 +4042,8 @@ filter_mb_edgeh.exit280:                          ; preds = %2687, %2629, %2688,
   %2773 = getelementptr inbounds nuw i8, ptr %4, i64 %2759
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
   %2774 = getelementptr inbounds nuw [156 x [4 x i8]], ptr @tc0_table, i64 0, i64 %2769
-  %sext590 = shl i64 %2756, 48
-  %2775 = ashr exact i64 %sext590, 48
+  %sext745 = shl i64 %2756, 48
+  %2775 = ashr exact i64 %sext745, 48
   %2776 = getelementptr inbounds [4 x i8], ptr %2774, i64 0, i64 %2775
   %2777 = load i8, ptr %2776, align 1, !tbaa !87
   store i8 %2777, ptr %101, align 1, !tbaa !87
@@ -5403,8 +5403,8 @@ filter_mb_edgech.exit438:                         ; preds = %3480, %3449, %3433,
 3565:                                             ; preds = %3563
   call void @llvm.lifetime.start.p0(ptr nonnull %191)
   %3566 = getelementptr inbounds nuw [156 x [4 x i8]], ptr @tc0_table, i64 0, i64 %3552
-  %sext598 = shl i64 %3548, 48
-  %3567 = ashr exact i64 %sext598, 48
+  %sext753 = shl i64 %3548, 48
+  %3567 = ashr exact i64 %sext753, 48
   %3568 = getelementptr inbounds [4 x i8], ptr %3566, i64 0, i64 %3567
   %3569 = load i8, ptr %3568, align 1, !tbaa !87
   store i8 %3569, ptr %191, align 1, !tbaa !87
@@ -5697,8 +5697,8 @@ filter_mb_edgev.exit:                             ; preds = %3742, %3712, %3671,
 3766:                                             ; preds = %3764
   call void @llvm.lifetime.start.p0(ptr nonnull %149)
   %3767 = getelementptr inbounds nuw [156 x [4 x i8]], ptr @tc0_table, i64 0, i64 %3753
-  %sext642 = shl i64 %3749, 48
-  %3768 = ashr exact i64 %sext642, 48
+  %sext797 = shl i64 %3749, 48
+  %3768 = ashr exact i64 %sext797, 48
   %3769 = getelementptr inbounds [4 x i8], ptr %3767, i64 0, i64 %3768
   %3770 = load i8, ptr %3769, align 1, !tbaa !87
   store i8 %3770, ptr %149, align 1, !tbaa !87
@@ -5983,8 +5983,8 @@ filter_mb_edgeh.exit192:                          ; preds = %3751, %3766, %3788
   %3965 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %192)
   %3966 = getelementptr inbounds nuw [156 x [4 x i8]], ptr @tc0_table, i64 0, i64 %3961
-  %sext602 = shl i64 %3950, 48
-  %3967 = ashr exact i64 %sext602, 48
+  %sext757 = shl i64 %3950, 48
+  %3967 = ashr exact i64 %sext757, 48
   %3968 = getelementptr inbounds [4 x i8], ptr %3966, i64 0, i64 %3967
   %3969 = load i8, ptr %3968, align 1, !tbaa !87
   store i8 %3969, ptr %192, align 1, !tbaa !87
@@ -6217,8 +6217,8 @@ filter_mb_edgev.exit91:                           ; preds = %4050, %3992, %4051,
 4135:                                             ; preds = %4133
   call void @llvm.lifetime.start.p0(ptr nonnull %131)
   %4136 = getelementptr inbounds nuw [156 x [4 x i8]], ptr @tc0_table, i64 0, i64 %4122
-  %sext606 = shl i64 %4118, 48
-  %4137 = ashr exact i64 %sext606, 48
+  %sext761 = shl i64 %4118, 48
+  %4137 = ashr exact i64 %sext761, 48
   %4138 = getelementptr inbounds [4 x i8], ptr %4136, i64 0, i64 %4137
   %4139 = load i8, ptr %4138, align 1, !tbaa !87
   store i8 %4139, ptr %131, align 1, !tbaa !87
@@ -6502,8 +6502,8 @@ filter_mb_edgeh.exit218:                          ; preds = %4312, %4282, %4241,
   %4334 = getelementptr inbounds nuw i8, ptr %4, i64 %4320
   call void @llvm.lifetime.start.p0(ptr nonnull %132)
   %4335 = getelementptr inbounds nuw [156 x [4 x i8]], ptr @tc0_table, i64 0, i64 %4330
-  %sext610 = shl i64 %4317, 48
-  %4336 = ashr exact i64 %sext610, 48
+  %sext765 = shl i64 %4317, 48
+  %4336 = ashr exact i64 %sext765, 48
   %4337 = getelementptr inbounds [4 x i8], ptr %4335, i64 0, i64 %4336
   %4338 = load i8, ptr %4337, align 1, !tbaa !87
   store i8 %4338, ptr %132, align 1, !tbaa !87
@@ -6730,8 +6730,8 @@ filter_mb_edgeh.exit226:                          ; preds = %4318, %4325
   %4504 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.lifetime.start.p0(ptr nonnull %195)
   %4505 = getelementptr inbounds nuw [156 x [4 x i8]], ptr @tc0_table, i64 0, i64 %4500
-  %sext614 = shl i64 %4489, 48
-  %4506 = ashr exact i64 %sext614, 48
+  %sext769 = shl i64 %4489, 48
+  %4506 = ashr exact i64 %sext769, 48
   %4507 = getelementptr inbounds [4 x i8], ptr %4505, i64 0, i64 %4506
   %4508 = load i8, ptr %4507, align 1, !tbaa !87
   store i8 %4508, ptr %195, align 1, !tbaa !87
@@ -6869,8 +6869,8 @@ filter_mb_edgev.exit73:                           ; preds = %4526, %4531, %filte
   %4604 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %196)
   %4605 = getelementptr inbounds nuw [156 x [4 x i8]], ptr @tc0_table, i64 0, i64 %4600
-  %sext618 = shl i64 %4589, 48
-  %4606 = ashr exact i64 %sext618, 48
+  %sext773 = shl i64 %4589, 48
+  %4606 = ashr exact i64 %sext773, 48
   %4607 = getelementptr inbounds [4 x i8], ptr %4605, i64 0, i64 %4606
   %4608 = load i8, ptr %4607, align 1, !tbaa !87
   store i8 %4608, ptr %196, align 1, !tbaa !87
@@ -7095,8 +7095,8 @@ filter_mb_edgev.exit77:                           ; preds = %4689, %4631, %4690,
   %4771 = getelementptr inbounds nuw i8, ptr %4, i64 12
   call void @llvm.lifetime.start.p0(ptr nonnull %197)
   %4772 = getelementptr inbounds nuw [156 x [4 x i8]], ptr @tc0_table, i64 0, i64 %4767
-  %sext622 = shl i64 %4756, 48
-  %4773 = ashr exact i64 %sext622, 48
+  %sext777 = shl i64 %4756, 48
+  %4773 = ashr exact i64 %sext777, 48
   %4774 = getelementptr inbounds [4 x i8], ptr %4772, i64 0, i64 %4773
   %4775 = load i8, ptr %4774, align 1, !tbaa !87
   store i8 %4775, ptr %197, align 1, !tbaa !87
@@ -7242,8 +7242,8 @@ filter_mb_edgev.exit81:                           ; preds = %4793, %4798, %filte
 4874:                                             ; preds = %4872
   call void @llvm.lifetime.start.p0(ptr nonnull %137)
   %4875 = getelementptr inbounds nuw [156 x [4 x i8]], ptr @tc0_table, i64 0, i64 %4861
-  %sext626 = shl i64 %4857, 48
-  %4876 = ashr exact i64 %sext626, 48
+  %sext781 = shl i64 %4857, 48
+  %4876 = ashr exact i64 %sext781, 48
   %4877 = getelementptr inbounds [4 x i8], ptr %4875, i64 0, i64 %4876
   %4878 = load i8, ptr %4877, align 1, !tbaa !87
   store i8 %4878, ptr %137, align 1, !tbaa !87
@@ -7527,8 +7527,8 @@ filter_mb_edgeh.exit194:                          ; preds = %5051, %5021, %4980,
   %5073 = getelementptr inbounds nuw i8, ptr %4, i64 %5059
   call void @llvm.lifetime.start.p0(ptr nonnull %138)
   %5074 = getelementptr inbounds nuw [156 x [4 x i8]], ptr @tc0_table, i64 0, i64 %5069
-  %sext630 = shl i64 %5056, 48
-  %5075 = ashr exact i64 %sext630, 48
+  %sext785 = shl i64 %5056, 48
+  %5075 = ashr exact i64 %sext785, 48
   %5076 = getelementptr inbounds [4 x i8], ptr %5074, i64 0, i64 %5075
   %5077 = load i8, ptr %5076, align 1, !tbaa !87
   store i8 %5077, ptr %138, align 1, !tbaa !87
@@ -7668,8 +7668,8 @@ filter_mb_edgeh.exit198:                          ; preds = %5095, %5100, %filte
   %5175 = getelementptr inbounds nuw i8, ptr %4, i64 %5161
   call void @llvm.lifetime.start.p0(ptr nonnull %139)
   %5176 = getelementptr inbounds nuw [156 x [4 x i8]], ptr @tc0_table, i64 0, i64 %5171
-  %sext634 = shl i64 %5158, 48
-  %5177 = ashr exact i64 %sext634, 48
+  %sext789 = shl i64 %5158, 48
+  %5177 = ashr exact i64 %sext789, 48
   %5178 = getelementptr inbounds [4 x i8], ptr %5176, i64 0, i64 %5177
   %5179 = load i8, ptr %5178, align 1, !tbaa !87
   store i8 %5179, ptr %139, align 1, !tbaa !87
@@ -7898,8 +7898,8 @@ filter_mb_edgeh.exit202:                          ; preds = %5260, %5202, %5261,
   %5346 = getelementptr inbounds nuw i8, ptr %4, i64 %5332
   call void @llvm.lifetime.start.p0(ptr nonnull %140)
   %5347 = getelementptr inbounds nuw [156 x [4 x i8]], ptr @tc0_table, i64 0, i64 %5342
-  %sext638 = shl i64 %5329, 48
-  %5348 = ashr exact i64 %sext638, 48
+  %sext793 = shl i64 %5329, 48
+  %5348 = ashr exact i64 %sext793, 48
   %5349 = getelementptr inbounds [4 x i8], ptr %5347, i64 0, i64 %5348
   %5350 = load i8, ptr %5349, align 1, !tbaa !87
   store i8 %5350, ptr %140, align 1, !tbaa !87
@@ -8213,9 +8213,9 @@ define void @ff_h264_filter_mb(ptr noundef readonly %0, ptr noundef readonly %1,
   br label %160
 
 160:                                              ; preds = %115, %156
-  %.sink532 = phi i16 [ %159, %156 ], [ 4, %115 ]
+  %.sink601 = phi i16 [ %159, %156 ], [ 4, %115 ]
   %161 = getelementptr inbounds nuw i16, ptr %67, i64 %indvars.iv
-  store i16 %.sink532, ptr %161, align 2, !tbaa !92
+  store i16 %.sink601, ptr %161, align 2, !tbaa !92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %.loopexit432, label %115, !llvm.loop !107
@@ -11273,9 +11273,9 @@ filter_mb_edgeh.exit:                             ; preds = %2210, %filter_mb_ed
   br label %.sink.split
 
 .sink.split:                                      ; preds = %2265, %2274
-  %.sink534 = phi i16 [ %2276, %2274 ], [ 2, %2265 ]
+  %.sink603 = phi i16 [ %2276, %2274 ], [ 2, %2265 ]
   %2277 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv482
-  store i16 %.sink534, ptr %2277, align 2, !tbaa !92
+  store i16 %.sink603, ptr %2277, align 2, !tbaa !92
   br label %2278
 
 2278:                                             ; preds = %.sink.split, %2273

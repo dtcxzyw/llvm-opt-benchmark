@@ -457,13 +457,13 @@ define dso_local void @_Z8TestPrimv() local_unnamed_addr #3 personality ptr @__g
   %38 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #20
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sink.sroa.gep165 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sink.sroa.gep167 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sink.sroa.gep168 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sink.sroa.gep170 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sink.sroa.gep171 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sink.sroa.gep173 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.sink.sroa.gep174 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sink.sroa.gep195 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sink.sroa.gep197 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sink.sroa.gep198 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sink.sroa.gep200 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.sink.sroa.gep201 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sink.sroa.gep203 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %.sink.sroa.gep204 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %39 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc unwind label %572
 
@@ -940,16 +940,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInter
   br i1 %.not.i79, label %.invoke, label %205
 
 .invoke:                                          ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread ], [ %.sink.sroa.gep165, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit ]
-  %.sink.sroa.phi166 = phi ptr [ %.sink.sroa.gep167, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread ], [ %.sink.sroa.gep168, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit ]
-  %.sink.sroa.phi169 = phi ptr [ %.sink.sroa.gep170, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread ], [ %.sink.sroa.gep171, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit ]
-  %.sink.sroa.phi172 = phi ptr [ %.sink.sroa.gep173, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread ], [ %.sink.sroa.gep174, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread ], [ %.sink.sroa.gep195, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit ]
+  %.sink.sroa.phi196 = phi ptr [ %.sink.sroa.gep197, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread ], [ %.sink.sroa.gep198, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit ]
+  %.sink.sroa.phi199 = phi ptr [ %.sink.sroa.gep200, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread ], [ %.sink.sroa.gep201, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit ]
+  %.sink.sroa.phi202 = phi ptr [ %.sink.sroa.gep203, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread ], [ %.sink.sroa.gep204, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit ]
   %.sink = phi ptr [ %2, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit ]
   store ptr @.str.104, ptr %.sink, align 8
   store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEptEv, ptr %.sink.sroa.phi, align 8
-  store i64 936, ptr %.sink.sroa.phi166, align 8
-  store ptr @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEptEv, ptr %.sink.sroa.phi169, align 8
-  store i8 0, ptr %.sink.sroa.phi172, align 8
+  store i64 936, ptr %.sink.sroa.phi196, align 8
+  store ptr @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEptEv, ptr %.sink.sroa.phi199, align 8
+  store i8 0, ptr %.sink.sroa.phi202, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__40Tf_PostNullSmartPtrDereferenceFatalErrorERKNS_13TfCallContextEPKc(ptr noundef nonnull align 8 dereferenceable(33) %.sink, ptr noundef nonnull @_ZTSN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEE) #21
           to label %.cont unwind label %590
 
@@ -2379,13 +2379,13 @@ define dso_local void @_Z13TestIsDefinedv() local_unnamed_addr #3 personality pt
   %57 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #20
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sink.sroa.gep217 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sink.sroa.gep219 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sink.sroa.gep220 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sink.sroa.gep222 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sink.sroa.gep223 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sink.sroa.gep225 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.sink.sroa.gep226 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %.sink.sroa.gep264 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sink.sroa.gep266 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink.sroa.gep267 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sink.sroa.gep269 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink.sroa.gep270 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.sink.sroa.gep272 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sink.sroa.gep273 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %58 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %.noexc unwind label %898
 
@@ -2963,18 +2963,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit: ; preds 
   br i1 %.not.i93, label %.invoke, label %291
 
 .invoke:                                          ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit83
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit83 ], [ %.sink.sroa.gep217, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit ]
-  %.sink.sroa.phi218 = phi ptr [ %.sink.sroa.gep219, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit83 ], [ %.sink.sroa.gep220, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit ]
-  %.sink.sroa.phi221 = phi ptr [ %.sink.sroa.gep222, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit83 ], [ %.sink.sroa.gep223, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit ]
-  %.sink.sroa.phi224 = phi ptr [ %.sink.sroa.gep225, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit83 ], [ %.sink.sroa.gep226, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit83 ], [ %.sink.sroa.gep264, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit ]
+  %.sink.sroa.phi265 = phi ptr [ %.sink.sroa.gep266, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit83 ], [ %.sink.sroa.gep267, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit ]
+  %.sink.sroa.phi268 = phi ptr [ %.sink.sroa.gep269, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit83 ], [ %.sink.sroa.gep270, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit ]
+  %.sink.sroa.phi271 = phi ptr [ %.sink.sroa.gep272, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit83 ], [ %.sink.sroa.gep273, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit ]
   %.sink = phi ptr [ %3, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit83 ], [ %2, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit ]
   %__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.sink = phi ptr [ @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit83 ], [ @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEptEv, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit ]
   %290 = phi ptr [ @_ZTSN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEE, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit83 ], [ @_ZTSN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEE, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit ]
   store ptr @.str.104, ptr %.sink, align 8
   store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEptEv, ptr %.sink.sroa.phi, align 8
-  store i64 936, ptr %.sink.sroa.phi218, align 8
-  store ptr %__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.sink, ptr %.sink.sroa.phi221, align 8
-  store i8 0, ptr %.sink.sroa.phi224, align 8
+  store i64 936, ptr %.sink.sroa.phi265, align 8
+  store ptr %__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.sink, ptr %.sink.sroa.phi268, align 8
+  store i8 0, ptr %.sink.sroa.phi271, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__40Tf_PostNullSmartPtrDereferenceFatalErrorERKNS_13TfCallContextEPKc(ptr noundef nonnull align 8 dereferenceable(33) %.sink, ptr noundef nonnull %290) #21
           to label %.cont unwind label %919
 
@@ -4873,14 +4873,14 @@ define dso_local void @_Z21VerifyTimeSampleRangeRKN32pxrInternal_v0_24__pxrReser
   %19 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %20 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %.sink23.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sink23.sroa.gep24 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %.sink23.sroa.gep26 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %.sink23.sroa.gep27 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %.sink23.sroa.gep29 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %.sink23.sroa.gep30 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %.sink23.sroa.gep32 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %.sink23.sroa.gep33 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %.sink25.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sink25.sroa.gep26 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %.sink25.sroa.gep28 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sink25.sroa.gep29 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %.sink25.sroa.gep31 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %.sink25.sroa.gep32 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %.sink25.sroa.gep34 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.sink25.sroa.gep35 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %21 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute14GetTimeSamplesEPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %5)
           to label %22 unwind label %30
 
@@ -5118,19 +5118,19 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %30, %33
   br i1 %138, label %141, label %.invoke
 
 .invoke:                                          ; preds = %136, %80
-  %.sink23.sroa.phi = phi ptr [ %.sink23.sroa.gep, %80 ], [ %.sink23.sroa.gep24, %136 ]
-  %.sink23.sroa.phi25 = phi ptr [ %.sink23.sroa.gep26, %80 ], [ %.sink23.sroa.gep27, %136 ]
-  %.sink23.sroa.phi28 = phi ptr [ %.sink23.sroa.gep29, %80 ], [ %.sink23.sroa.gep30, %136 ]
-  %.sink23.sroa.phi31 = phi ptr [ %.sink23.sroa.gep32, %80 ], [ %.sink23.sroa.gep33, %136 ]
-  %.sink23 = phi ptr [ %13, %80 ], [ %20, %136 ]
+  %.sink25.sroa.phi = phi ptr [ %.sink25.sroa.gep, %80 ], [ %.sink25.sroa.gep26, %136 ]
+  %.sink25.sroa.phi27 = phi ptr [ %.sink25.sroa.gep28, %80 ], [ %.sink25.sroa.gep29, %136 ]
+  %.sink25.sroa.phi30 = phi ptr [ %.sink25.sroa.gep31, %80 ], [ %.sink25.sroa.gep32, %136 ]
+  %.sink25.sroa.phi33 = phi ptr [ %.sink25.sroa.gep34, %80 ], [ %.sink25.sroa.gep35, %136 ]
+  %.sink25 = phi ptr [ %13, %80 ], [ %20, %136 ]
   %.sink = phi i64 [ 169, %80 ], [ 177, %136 ]
   %139 = phi ptr [ @.str.40, %80 ], [ @.str.47, %136 ]
-  store ptr @.str.7, ptr %.sink23, align 8
-  store ptr @__func__._Z21VerifyTimeSampleRangeRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeEmdd, ptr %.sink23.sroa.phi, align 8
-  store i64 %.sink, ptr %.sink23.sroa.phi25, align 8
-  store ptr @__PRETTY_FUNCTION__._Z21VerifyTimeSampleRangeRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeEmdd, ptr %.sink23.sroa.phi28, align 8
-  store i8 0, ptr %.sink23.sroa.phi31, align 8
-  %140 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %.sink23, ptr noundef nonnull %139, ptr noundef null)
+  store ptr @.str.7, ptr %.sink25, align 8
+  store ptr @__func__._Z21VerifyTimeSampleRangeRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeEmdd, ptr %.sink25.sroa.phi, align 8
+  store i64 %.sink, ptr %.sink25.sroa.phi27, align 8
+  store ptr @__PRETTY_FUNCTION__._Z21VerifyTimeSampleRangeRKN32pxrInternal_v0_24__pxrReserved__12UsdAttributeEmdd, ptr %.sink25.sroa.phi30, align 8
+  store i8 0, ptr %.sink25.sroa.phi33, align 8
+  %140 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %.sink25, ptr noundef nonnull %139, ptr noundef null)
           to label %141 unwind label %30
 
 141:                                              ; preds = %.invoke, %80, %136, %29

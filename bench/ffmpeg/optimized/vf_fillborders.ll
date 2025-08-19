@@ -560,7 +560,7 @@ define internal void @smear_borders16(ptr noundef readonly captures(none) %0, pt
   %37 = sext i32 %19 to i64
   %38 = sext i32 %24 to i64
   %wide.trip.count120 = zext nneg i32 %26 to i64
-  %invariant.gep144 = getelementptr i16, ptr %12, i64 %invariant.op
+  %invariant.gep149 = getelementptr i16, ptr %12, i64 %invariant.op
   %wide.trip.count125 = zext nneg i32 %30 to i64
   br label %.preheader85.us
 
@@ -588,7 +588,7 @@ define internal void @smear_borders16(ptr noundef readonly captures(none) %0, pt
 .preheader.us:                                    ; preds = %42, %.preheader85.us
   %gep101 = getelementptr i16, ptr %invariant.gep100, i64 %39
   %44 = getelementptr inbounds i8, ptr %gep101, i64 -2
-  %gep = getelementptr i16, ptr %invariant.gep144, i64 %39
+  %gep = getelementptr i16, ptr %invariant.gep149, i64 %39
   %.pre140 = load i16, ptr %44, align 2, !tbaa !67
   br label %40
 
@@ -802,7 +802,7 @@ define internal void @mirror_borders8(ptr noundef readonly captures(none) %0, pt
   %53 = load i32, ptr %26, align 4, !tbaa !45
   %54 = sext i32 %53 to i64
   %55 = sext i32 %52 to i64
-  %56 = sub i64 %38, %55
+  %56 = sub nsw i64 %38, %55
   %57 = xor i64 %indvars.iv107, -1
   %58 = getelementptr i8, ptr %12, i64 %56
   %59 = getelementptr i8, ptr %58, i64 %54
@@ -1496,8 +1496,8 @@ define internal void @reflect_borders8(ptr noundef readonly captures(none) %0, p
   %53 = load i32, ptr %26, align 4, !tbaa !45
   %54 = sext i32 %53 to i64
   %55 = sext i32 %52 to i64
-  %56 = sub i64 %38, %55
-  %57 = add i64 %56, %54
+  %56 = sub nsw i64 %38, %55
+  %57 = add nsw i64 %56, %54
   %reass.sub = sub i64 %57, %indvars.iv110
   %58 = getelementptr i8, ptr %12, i64 %reass.sub
   %59 = getelementptr i8, ptr %58, i64 -2
@@ -1661,8 +1661,8 @@ define internal void @reflect_borders16(ptr noundef readonly captures(none) %0, 
   %42 = load i32, ptr %33, align 4, !tbaa !45
   %43 = sext i32 %42 to i64
   %44 = sub nsw i64 %41, %34
-  %45 = add i64 %44, %43
-  %invariant.op98 = add i64 %45, -2
+  %45 = add nsw i64 %44, %43
+  %invariant.op98 = add nsw i64 %45, -2
   %46 = getelementptr i16, ptr %12, i64 %45
   br label %51
 
@@ -1842,9 +1842,9 @@ define internal void @wrap_borders8(ptr noundef readonly captures(none) %0, ptr 
   %44 = load i32, ptr %26, align 4, !tbaa !54
   %45 = sext i32 %44 to i64
   %46 = sext i32 %41 to i64
-  %47 = add i64 %34, %43
+  %47 = add nsw i64 %34, %43
   %48 = add nsw i64 %46, %45
-  %49 = sub i64 %47, %48
+  %49 = sub nsw i64 %47, %48
   %50 = getelementptr i8, ptr %12, i64 %49
   %51 = getelementptr i8, ptr %50, i64 %indvars.iv
   %52 = load i8, ptr %51, align 1, !tbaa !58
@@ -1867,7 +1867,7 @@ define internal void @wrap_borders8(ptr noundef readonly captures(none) %0, ptr 
   %64 = load i32, ptr %25, align 4, !tbaa !45
   %65 = sext i32 %64 to i64
   %66 = sext i32 %58 to i64
-  %67 = sub i64 %38, %66
+  %67 = sub nsw i64 %38, %66
   %68 = getelementptr i8, ptr %12, i64 %67
   %69 = getelementptr i8, ptr %68, i64 %65
   %70 = getelementptr i8, ptr %69, i64 %indvars.iv118
@@ -2023,7 +2023,7 @@ define internal void @wrap_borders16(ptr noundef readonly captures(none) %0, ptr
   %40 = load i32, ptr %28, align 4, !tbaa !45
   %41 = sext i32 %40 to i64
   %42 = add nsw i64 %39, %41
-  %43 = sub i64 %42, %36
+  %43 = sub nsw i64 %42, %36
   %44 = getelementptr i16, ptr %12, i64 %43
   %45 = getelementptr i16, ptr %12, i64 %39
   br label %52
@@ -2196,8 +2196,8 @@ define internal void @fade_borders8(ptr noundef readonly captures(none) %0, ptr 
   %39 = phi i32 [ %.pre, %.preheader122.loopexit ], [ %29, %11 ]
   %40 = icmp slt i32 %32, %39
   %41 = icmp sgt i32 %38, 0
-  %or.cond170 = select i1 %40, i1 %41, i1 false
-  br i1 %or.cond170, label %.preheader119.preheader, label %.preheader121
+  %or.cond179 = select i1 %40, i1 %41, i1 false
+  br i1 %or.cond179, label %.preheader119.preheader, label %.preheader121
 
 .preheader119.preheader:                          ; preds = %.preheader122
   %42 = zext i8 %15 to i64
@@ -2215,8 +2215,8 @@ define internal void @fade_borders8(ptr noundef readonly captures(none) %0, ptr 
   %47 = mul nsw i64 %indvars.iv143, %18
   %48 = getelementptr i8, ptr %13, i64 %47
   %49 = sub nsw i64 %37, %indvars.iv143
-  %50 = mul i64 %36, %49
-  %51 = trunc i64 %50 to i32
+  %50 = mul nsw i64 %36, %49
+  %51 = trunc nsw i64 %50 to i32
   %52 = sdiv i32 %51, %27
   %53 = trunc nuw nsw i64 %indvars.iv143 to i32
   %54 = shl i32 %53, 8

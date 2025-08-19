@@ -3567,8 +3567,8 @@ _ZN12b3HashStringD2Ev.exit.i:                     ; preds = %_ZNKSt7__cxx1112bas
   br i1 %53, label %_ZN20b3AlignedObjectArrayI12b3HashStringE7destroyEii.exit, label %42, !llvm.loop !70
 
 _ZN20b3AlignedObjectArrayI12b3HashStringE7destroyEii.exit: ; preds = %_ZN12b3HashStringD2Ev.exit.i, %.split7, %.split, %_ZNK20b3AlignedObjectArrayI12b3HashStringE4copyEiiPS0_.exit
-  %.032 = phi i32 [ %1, %_ZNK20b3AlignedObjectArrayI12b3HashStringE4copyEiiPS0_.exit ], [ 0, %.split7 ], [ %1, %.split ], [ %1, %_ZN12b3HashStringD2Ev.exit.i ]
-  %.0.i2631 = phi ptr [ %10, %_ZNK20b3AlignedObjectArrayI12b3HashStringE4copyEiiPS0_.exit ], [ null, %.split7 ], [ %10, %.split ], [ %10, %_ZN12b3HashStringD2Ev.exit.i ]
+  %.039 = phi i32 [ %1, %_ZNK20b3AlignedObjectArrayI12b3HashStringE4copyEiiPS0_.exit ], [ 0, %.split7 ], [ %1, %.split ], [ %1, %_ZN12b3HashStringD2Ev.exit.i ]
+  %.0.i2638 = phi ptr [ %10, %_ZNK20b3AlignedObjectArrayI12b3HashStringE4copyEiiPS0_.exit ], [ null, %.split7 ], [ %10, %.split ], [ %10, %_ZN12b3HashStringD2Ev.exit.i ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !55
   %.not.i24 = icmp ne ptr %55, null
@@ -3585,8 +3585,8 @@ _ZN20b3AlignedObjectArrayI12b3HashStringE7destroyEii.exit: ; preds = %_ZN12b3Has
 _ZN20b3AlignedObjectArrayI12b3HashStringE10deallocateEv.exit: ; preds = %59, %_ZN20b3AlignedObjectArrayI12b3HashStringE7destroyEii.exit
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %60, align 8, !tbaa !51
-  store ptr %.0.i2631, ptr %54, align 8, !tbaa !55
-  store i32 %.032, ptr %4, align 8, !tbaa !57
+  store ptr %.0.i2638, ptr %54, align 8, !tbaa !55
+  store i32 %.039, ptr %4, align 8, !tbaa !57
   br label %61
 
 61:                                               ; preds = %_ZN20b3AlignedObjectArrayI12b3HashStringE10deallocateEv.exit, %2

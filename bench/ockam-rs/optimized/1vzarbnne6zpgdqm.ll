@@ -478,7 +478,7 @@ define hidden void @_ZN3der6reader6Reader11read_nested17hd0b7c18024abeae6E(ptr n
   store ptr %.sroa.517.0.copyload.i.i.i.i, ptr %.sroa.349.sroa.2.0..sroa.349.0..sroa_idx.sroa_idx.i.i.i, align 8, !alias.scope !67, !noalias !66
   %.sroa.349.sroa.3.0..sroa.349.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 %.sroa.618.0.copyload.i.i.i.i, ptr %.sroa.349.sroa.3.0..sroa.349.0..sroa_idx.sroa_idx.i.i.i, align 8, !alias.scope !67, !noalias !66
-  br label %"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17heb05f5c9f739cf82E.exit.thread42.i"
+  br label %"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17heb05f5c9f739cf82E.exit.thread48.i"
 
 57:                                               ; preds = %"_ZN69_$LT$der..bytes_ref..BytesRef$u20$as$u20$der..decode..DecodeValue$GT$12decode_value17h1b29aebbc23d02a4E.exit.i.i.i"
   %.sroa.454.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -490,7 +490,7 @@ define hidden void @_ZN3der6reader6Reader11read_nested17hd0b7c18024abeae6E(ptr n
   %.sroa.257.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.257.0..sroa_idx.i.i.i, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.725.i.i.i, i64 28, i1 false), !noalias !66
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !59
-  br label %"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17heb05f5c9f739cf82E.exit.thread42.i"
+  br label %"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17heb05f5c9f739cf82E.exit.thread48.i"
 
 58:                                               ; preds = %30
   %.sroa.429.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -502,7 +502,7 @@ define hidden void @_ZN3der6reader6Reader11read_nested17hd0b7c18024abeae6E(ptr n
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !51
   br label %.sink.split.i
 
-"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17heb05f5c9f739cf82E.exit.thread42.i": ; preds = %57, %56
+"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17heb05f5c9f739cf82E.exit.thread48.i": ; preds = %57, %56
   %.pr.pr.ph.i = phi i32 [ %54, %57 ], [ %40, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.725.i.i.i)
   br label %.sink.split.i
@@ -542,8 +542,8 @@ define hidden void @_ZN3der6reader6Reader11read_nested17hd0b7c18024abeae6E(ptr n
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !42
   br label %78
 
-.sink.split.i:                                    ; preds = %33, %"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17heb05f5c9f739cf82E.exit.thread36.i", %58, %"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17heb05f5c9f739cf82E.exit.thread42.i", %"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17heb05f5c9f739cf82E.exit.i"
-  %65 = phi i32 [ %.pr.pr.pre.i, %"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17heb05f5c9f739cf82E.exit.i" ], [ %.pr.pr.ph.i, %"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17heb05f5c9f739cf82E.exit.thread42.i" ], [ %35, %"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17heb05f5c9f739cf82E.exit.thread36.i" ], [ %31, %58 ], [ %27, %33 ]
+.sink.split.i:                                    ; preds = %33, %"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17heb05f5c9f739cf82E.exit.thread36.i", %58, %"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17heb05f5c9f739cf82E.exit.thread48.i", %"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17heb05f5c9f739cf82E.exit.i"
+  %65 = phi i32 [ %.pr.pr.pre.i, %"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17heb05f5c9f739cf82E.exit.i" ], [ %.pr.pr.ph.i, %"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17heb05f5c9f739cf82E.exit.thread48.i" ], [ %35, %"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17heb05f5c9f739cf82E.exit.thread36.i" ], [ %31, %58 ], [ %27, %33 ]
   %.sroa.427.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.sroa.712.i.sroa.0.0.copyload = load i32, ptr %.sroa.427.0..sroa_idx.i, align 4, !noalias !42
   %.sroa.712.i.sroa.4.0..sroa.427.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -987,7 +987,7 @@ define hidden void @"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17h23b
   %32 = icmp eq i32 %31, 2
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %34 = load i32, ptr %33, align 4, !noalias !138
-  br i1 %32, label %35, label %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17h0ef7b51c395f6829E.exit.thread154.i"
+  br i1 %32, label %35, label %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17h0ef7b51c395f6829E.exit.thread157.i"
 
 35:                                               ; preds = %.thread129.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !138
@@ -996,7 +996,7 @@ define hidden void @"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17h23b
   %37 = icmp eq i32 %36, 2
   br i1 %37, label %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17h0ef7b51c395f6829E.exit.i", label %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17h0ef7b51c395f6829E.exit.thread.i"
 
-"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17h0ef7b51c395f6829E.exit.thread154.i": ; preds = %.thread129.i
+"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17h0ef7b51c395f6829E.exit.thread157.i": ; preds = %.thread129.i
   %.sroa.515.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.318.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.318.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.515.0..sroa_idx.i.i, i64 48, i1 false), !noalias !141
@@ -1041,8 +1041,8 @@ define hidden void @"_ZN41_$LT$T$u20$as$u20$der..decode..Decode$GT$6decode17h23b
   %trunc.i = trunc nuw i8 %42 to i1
   br i1 %trunc.i, label %48, label %45
 
-.sink.split.i:                                    ; preds = %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17h0ef7b51c395f6829E.exit.thread.i", %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17h0ef7b51c395f6829E.exit.thread154.i"
-  %.ph.i = phi i32 [ %31, %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17h0ef7b51c395f6829E.exit.thread154.i" ], [ %36, %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17h0ef7b51c395f6829E.exit.thread.i" ]
+.sink.split.i:                                    ; preds = %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17h0ef7b51c395f6829E.exit.thread.i", %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17h0ef7b51c395f6829E.exit.thread157.i"
+  %.ph.i = phi i32 [ %31, %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17h0ef7b51c395f6829E.exit.thread157.i" ], [ %36, %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17h0ef7b51c395f6829E.exit.thread.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !138
   br label %43
 
@@ -1993,7 +1993,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h1501fd6e96870
   %.sroa.5.0 = phi i64 [ 0, %2 ], [ %18, %17 ], [ %18, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.sink.split.i.i.i" ]
   %.sroa.11.0 = phi i64 [ 0, %2 ], [ 1, %17 ], [ 1, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.sink.split.i.i.i" ]
   %.not3.i = icmp eq i64 %.sroa.5.0, %4
-  br i1 %.not3.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h12703ed7c2a2d640E.llvm.17228757137531789492.exit._crit_edge", label %.lr.ph.i2
+  br i1 %.not3.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h12703ed7c2a2d640E.llvm.17228757137531789492.exit", label %.lr.ph.i2
 
 .lr.ph.i2:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17hff9b50b9bac258e9E.llvm.17228757137531789492.exit"
   %.val.i.i4 = load ptr, ptr %1, align 8, !noalias !303, !nonnull !4, !align !80, !noundef !4
@@ -2049,7 +2049,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h1501fd6e96870
   %42 = phi i64 [ %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h256e7d44592d8780E.exit.thread.i5" ], [ %37, %36 ], [ %37, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.sink.split.i.i.i15" ]
   %43 = add i64 %28, 1
   %.not.i6 = icmp eq i64 %43, %4
-  br i1 %.not.i6, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h12703ed7c2a2d640E.llvm.17228757137531789492.exit._crit_edge", label %25
+  br i1 %.not.i6, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h12703ed7c2a2d640E.llvm.17228757137531789492.exit", label %25
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h256e7d44592d8780E.exit.thread.i5": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h256e7d44592d8780E.exit.i10", %33, %25
   %44 = sub i64 %28, %27
@@ -2057,9 +2057,13 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h1501fd6e96870
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %45, ptr noundef nonnull align 8 dereferenceable(104) %29, i64 104, i1 false), !noalias !309
   br label %.backedge.i
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h12703ed7c2a2d640E.llvm.17228757137531789492.exit._crit_edge": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h256e7d44592d8780E.exit.thread.i", %.backedge.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17hff9b50b9bac258e9E.llvm.17228757137531789492.exit"
-  %.sroa.11.140 = phi i64 [ %.sroa.11.0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17hff9b50b9bac258e9E.llvm.17228757137531789492.exit" ], [ %41, %.backedge.i ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h256e7d44592d8780E.exit.thread.i" ]
-  %.pre-phi = sub i64 %4, %.sroa.11.140
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h12703ed7c2a2d640E.llvm.17228757137531789492.exit": ; preds = %.backedge.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17hff9b50b9bac258e9E.llvm.17228757137531789492.exit"
+  %.sroa.11.1 = phi i64 [ %.sroa.11.0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17hff9b50b9bac258e9E.llvm.17228757137531789492.exit" ], [ %41, %.backedge.i ]
+  %46 = sub i64 %4, %.sroa.11.1
+  br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h12703ed7c2a2d640E.llvm.17228757137531789492.exit._crit_edge"
+
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h12703ed7c2a2d640E.llvm.17228757137531789492.exit._crit_edge": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h256e7d44592d8780E.exit.thread.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h12703ed7c2a2d640E.llvm.17228757137531789492.exit"
+  %.pre-phi = phi i64 [ %46, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h12703ed7c2a2d640E.llvm.17228757137531789492.exit" ], [ %4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h256e7d44592d8780E.exit.thread.i" ]
   store i64 %.pre-phi, ptr %3, align 8, !noalias !331
   ret void
 }

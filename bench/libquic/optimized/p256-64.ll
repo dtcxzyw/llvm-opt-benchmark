@@ -2697,8 +2697,8 @@ flip_endian.exit:                                 ; preds = %131, %128
   br i1 %.not159, label %flip_endian.exit171, label %729
 
 729:                                              ; preds = %724, %726
-  %.sink247 = phi ptr [ %50, %726 ], [ %2, %724 ]
-  %730 = call i64 @BN_bn2bin(ptr noundef nonnull %.sink247, ptr noundef nonnull %29) #9
+  %.sink264 = phi ptr [ %50, %726 ], [ %2, %724 ]
+  %730 = call i64 @BN_bn2bin(ptr noundef nonnull %.sink264, ptr noundef nonnull %29) #9
   %.not.i167 = icmp eq i64 %730, 0
   br i1 %.not.i167, label %flip_endian.exit171.thread, label %.lr.ph.i168
 

@@ -1796,7 +1796,7 @@ _queuerefs_find.exit.i:                           ; preds = %.lr.ph.i.i
 
 15:                                               ; preds = %_queuerefs_find.exit.i, %_queuerefs_find.exit.thread.i
   %16 = phi ptr [ %8, %_queuerefs_find.exit.thread.i ], [ %14, %_queuerefs_find.exit.i ]
-  %.014.i.lcssa12.i = phi ptr [ %4, %_queuerefs_find.exit.thread.i ], [ %12, %_queuerefs_find.exit.i ]
+  %.014.i.lcssa15.i = phi ptr [ %4, %_queuerefs_find.exit.thread.i ], [ %12, %_queuerefs_find.exit.i ]
   store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 16), align 8, !tbaa !39
   br label %19
 
@@ -1810,15 +1810,15 @@ _queues_remove.exit.thread:                       ; preds = %.lr.ph.i, %1
   br label %47
 
 19:                                               ; preds = %17, %15
-  %.014.i.lcssa11.i = phi ptr [ %.014.i.lcssa12.i, %15 ], [ %12, %17 ]
-  store ptr null, ptr %.014.i.lcssa11.i, align 8, !tbaa !40
+  %.014.i.lcssa14.i = phi ptr [ %.014.i.lcssa15.i, %15 ], [ %12, %17 ]
+  store ptr null, ptr %.014.i.lcssa14.i, align 8, !tbaa !40
   %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 24), align 8, !tbaa !42
   %21 = add i64 %20, -1
   store i64 %21, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 24), align 8, !tbaa !42
-  %22 = getelementptr inbounds nuw i8, ptr %.014.i.lcssa11.i, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %.014.i.lcssa14.i, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !49
   store ptr null, ptr %22, align 8, !tbaa !49
-  tail call void @PyMem_RawFree(ptr noundef nonnull %.014.i.lcssa11.i) #6
+  tail call void @PyMem_RawFree(ptr noundef nonnull %.014.i.lcssa14.i) #6
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 8), align 8, !tbaa !20
   tail call void @PyThread_release_lock(ptr noundef %24) #6
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8

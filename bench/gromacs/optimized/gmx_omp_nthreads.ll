@@ -1024,11 +1024,11 @@ define internal fastcc void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleM
   %or.cond.not = xor i1 %or.cond, true
   %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL5modth, i64 4), align 4
   %.not17 = icmp eq i32 %.pre, %18
-  %or.cond24 = select i1 %or.cond.not, i1 true, i1 %.not17
+  %or.cond28 = select i1 %or.cond.not, i1 true, i1 %.not17
   %19 = load i32, ptr @_ZL5modth, align 4
   %.not18 = icmp eq i32 %.pre, %19
-  %or.cond25 = select i1 %or.cond24, i1 %.not18, i1 false
-  br i1 %or.cond25, label %54, label %20
+  %or.cond29 = select i1 %or.cond28, i1 %.not18, i1 false
+  br i1 %or.cond29, label %54, label %20
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %0, align 8, !tbaa !8

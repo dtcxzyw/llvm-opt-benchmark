@@ -1734,9 +1734,9 @@ thread-pre-split:                                 ; preds = %117
   br label %134
 
 134:                                              ; preds = %131, %129
-  %.sink186 = phi ptr [ %95, %131 ], [ %130, %129 ]
+  %.sink195 = phi ptr [ %95, %131 ], [ %130, %129 ]
   %.sink = phi i32 [ 12450, %131 ], [ 12448, %129 ]
-  %135 = getelementptr inbounds nuw i8, ptr %.sink186, i64 200
+  %135 = getelementptr inbounds nuw i8, ptr %.sink195, i64 200
   %136 = load ptr, ptr %135, align 8
   %137 = tail call i32 %136(i32 noundef %.sink) #7
   %.10 = add nuw nsw i32 %.8, 2
@@ -1803,8 +1803,8 @@ thread-pre-split:                                 ; preds = %117
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %177 = sext i32 %.pre.pre to i64
   %178 = icmp sge i64 %indvars.iv.next, %177
-  %or.cond189.not = select i1 %176, i1 true, i1 %178
-  br i1 %or.cond189.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  %or.cond198.not = select i1 %176, i1 true, i1 %178
+  br i1 %or.cond198.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %159
   %179 = phi i32 [ %157, %159 ], [ %.pre.pre, %.lr.ph ]

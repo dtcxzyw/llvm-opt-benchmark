@@ -268,8 +268,8 @@ _ZNK9StubQueue13stub_containsEP4StubPh.exit.thread: ; preds = %20, %_ZNK9StubQue
   %48 = load ptr, ptr %3, align 8
   %49 = sext i32 %.0.i to i64
   %50 = getelementptr inbounds i8, ptr %48, i64 %49
-  %.not16 = icmp eq ptr %48, null
-  %.not = select i1 %47, i1 true, i1 %.not16
+  %.not17 = icmp eq ptr %48, null
+  %.not = select i1 %47, i1 true, i1 %.not17
   br i1 %.not, label %.loopexit, label %20
 
 .loopexit:                                        ; preds = %_ZNK9StubQueue13stub_containsEP4StubPh.exit, %_ZNK9StubQueue13stub_containsEP4StubPh.exit.thread, %11, %2
@@ -879,8 +879,8 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %5, %8
   %64 = load i32, ptr %63, align 8
   %65 = icmp slt i32 %64, 1
   %66 = load ptr, ptr %2, align 8
-  %.not132023 = icmp eq ptr %66, null
-  %.not1320 = select i1 %65, i1 true, i1 %.not132023
+  %.not132027 = icmp eq ptr %66, null
+  %.not1320 = select i1 %65, i1 true, i1 %.not132027
   br i1 %.not1320, label %select.unfold._crit_edge, label %select.unfold.preheader
 
 select.unfold.preheader:                          ; preds = %62
@@ -918,8 +918,8 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %90 = load ptr, ptr %2, align 8
   %91 = sext i32 %.0.i to i64
   %92 = getelementptr inbounds i8, ptr %90, i64 %91
-  %.not1325 = icmp eq ptr %90, null
-  %.not13 = select i1 %89, i1 true, i1 %.not1325
+  %.not1329 = icmp eq ptr %90, null
+  %.not13 = select i1 %89, i1 true, i1 %.not1329
   br i1 %.not13, label %select.unfold._crit_edge.loopexit, label %select.unfold
 
 select.unfold._crit_edge.loopexit:                ; preds = %select.unfold
@@ -1024,8 +1024,8 @@ select.unfold:                                    ; preds = %.lr.ph, %select.unf
   %36 = load ptr, ptr %8, align 8
   %37 = sext i32 %.0.i to i64
   %38 = getelementptr inbounds i8, ptr %36, i64 %37
-  %.not10 = icmp eq ptr %36, null
-  %.not = select i1 %35, i1 true, i1 %.not10
+  %.not11 = icmp eq ptr %36, null
+  %.not = select i1 %35, i1 true, i1 %.not11
   br i1 %.not, label %select.unfold._crit_edge, label %select.unfold
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit

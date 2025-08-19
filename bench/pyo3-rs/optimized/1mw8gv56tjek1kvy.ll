@@ -899,8 +899,8 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction20impl_wrap_pyfunction17
   %56 = alloca [56 x i8], align 8
   %57 = alloca [32 x i8], align 8
   %58 = alloca [24 x i8], align 8
-  %.sink170.sroa.gep = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %.sink170.sroa.gep173 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %.sink173.sroa.gep = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %.sink173.sroa.gep176 = getelementptr inbounds nuw i8, ptr %42, i64 32
   invoke void @_ZN19pyo3_macros_backend8pymethod13check_generic17h9f195b25c501a07dE(ptr nonnull sret([24 x i8]) align 8 %58, ptr align 8 %1)
           to label %59 unwind label %363
 
@@ -1090,12 +1090,12 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction20impl_wrap_pyfunction17
   br i1 %.not78, label %328, label %131
 
 131:                                              ; preds = %133, %128
-  %.sink170.sroa.phi = phi ptr [ %.sink170.sroa.gep, %128 ], [ %.sink170.sroa.gep173, %133 ]
+  %.sink173.sroa.phi = phi ptr [ %.sink173.sroa.gep, %128 ], [ %.sink173.sroa.gep176, %133 ]
   %.sroa.267.0..sroa_idx.sink = phi ptr [ %130, %128 ], [ %135, %133 ]
   %.sink = phi i64 [ %129, %128 ], [ %134, %133 ]
   %.sroa.041.9 = phi i8 [ 0, %128 ], [ 1, %133 ]
   %.sroa.333.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.333.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(160) %.sink170.sroa.phi, i64 160, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.333.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(160) %.sink173.sroa.phi, i64 160, i1 false)
   %.sroa.232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.232.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.267.0..sroa_idx.sink, i64 24, i1 false)
   store i64 %.sink, ptr %46, align 8
@@ -1760,10 +1760,10 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction20impl_wrap_pyfunction17
           to label %330 unwind label %72
 
 328:                                              ; preds = %133, %128, %118, %102
-  %.sink172 = phi ptr [ %50, %102 ], [ %121, %118 ], [ %130, %128 ], [ %135, %133 ]
+  %.sink175 = phi ptr [ %50, %102 ], [ %121, %118 ], [ %130, %128 ], [ %135, %133 ]
   %.sroa.041.6.ph = phi i8 [ 1, %102 ], [ 1, %118 ], [ 0, %128 ], [ 1, %133 ]
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %329, ptr noundef nonnull align 8 dereferenceable(24) %.sink172, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %329, ptr noundef nonnull align 8 dereferenceable(24) %.sink175, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %0, align 8
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %52)
           to label %326 unwind label %80
@@ -1787,8 +1787,8 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction20impl_wrap_pyfunction17
           to label %332 unwind label %341
 
 337:                                              ; preds = %.thread, %307, %346, %341, %306
-  %.sroa.041.11 = phi i8 [ %.sroa.041.6140, %341 ], [ %.sroa.041.2166, %346 ], [ %.sroa.041.1, %306 ], [ %.sroa.041.6140, %307 ], [ %.sroa.041.9, %.thread ]
-  %.pn107 = phi { ptr, i32 } [ %342, %341 ], [ %.pn105167, %346 ], [ %.pn103, %306 ], [ %308, %307 ], [ %305, %.thread ]
+  %.sroa.041.11 = phi i8 [ %.sroa.041.6140, %341 ], [ %.sroa.041.2169, %346 ], [ %.sroa.041.1, %306 ], [ %.sroa.041.6140, %307 ], [ %.sroa.041.9, %.thread ]
+  %.pn107 = phi { ptr, i32 } [ %342, %341 ], [ %.pn105170, %346 ], [ %.pn103, %306 ], [ %308, %307 ], [ %305, %.thread ]
   %338 = load i64, ptr %56, align 8
   %339 = icmp ne i64 %338, -9223372036854775808
   %340 = trunc nuw i8 %.sroa.041.11 to i1
@@ -1815,8 +1815,8 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction20impl_wrap_pyfunction17
           to label %.thread145 unwind label %318
 
 346:                                              ; preds = %307, %306
-  %.pn105167 = phi { ptr, i32 } [ %308, %307 ], [ %.pn103, %306 ]
-  %.sroa.041.2166 = phi i8 [ %.sroa.041.6140, %307 ], [ %.sroa.041.1, %306 ]
+  %.pn105170 = phi { ptr, i32 } [ %308, %307 ], [ %.pn103, %306 ]
+  %.sroa.041.2169 = phi i8 [ %.sroa.041.6140, %307 ], [ %.sroa.041.1, %306 ]
   invoke void @"_ZN4core3ptr220drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$pyo3_macros_backend..attributes..kw..text_signature$C$pyo3_macros_backend..attributes..TextSignatureAttributeValue$GT$$GT$$GT$17h00dba8eaf4ad99a3E"(ptr nonnull align 8 %55) #7
           to label %337 unwind label %318
 

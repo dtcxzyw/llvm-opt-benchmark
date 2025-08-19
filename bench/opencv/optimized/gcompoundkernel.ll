@@ -136,8 +136,8 @@ define hidden void @_ZN2cv6detail16GCompoundContextC2ERKSt6vectorINS_4GArgESaIS3
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = load ptr, ptr %1, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.not89 = icmp eq ptr %14, %15
-  br i1 %.not89, label %22, label %17
+  %.not108 = icmp eq ptr %14, %15
+  br i1 %.not108, label %22, label %17
 
 17:                                               ; preds = %2
   %18 = ptrtoint ptr %15 to i64
@@ -960,7 +960,7 @@ define linkonce_odr void @_ZNSt6vectorIN2cv4GArgESaIS1_EE17_M_default_appendEm(p
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPN2cv4GArgEmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN2cv4GArgEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 4
+  %19 = shl nuw nsw i64 %1, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !3

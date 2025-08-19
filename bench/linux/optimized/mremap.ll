@@ -788,7 +788,7 @@ define internal fastcc noundef zeroext i1 @move_pgt_entry(i32 noundef range(i32 
   br label %24
 
 24:                                               ; preds = %21, %17
-  switch i32 %0, label %default.unreachable8 [
+  switch i32 %0, label %default.unreachable12 [
     i32 0, label %25
     i32 2, label %96
     i32 1, label %140
@@ -971,7 +971,7 @@ define internal fastcc noundef zeroext i1 @move_pgt_entry(i32 noundef range(i32 
   tail call void @_raw_spin_unlock(ptr noundef nonnull %104) #7
   br label %140
 
-default.unreachable8:                             ; preds = %24
+default.unreachable12:                            ; preds = %24
   unreachable
 
 140:                                              ; preds = %138, %100, %95, %30, %24

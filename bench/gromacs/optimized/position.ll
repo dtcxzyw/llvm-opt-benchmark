@@ -544,22 +544,22 @@ define void @_Z23gmx_ana_pos_append_initP13gmx_ana_pos_tS0_i(ptr noundef capture
   store float %48, ptr %49, align 4, !tbaa !22
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %51 = load float, ptr %50, align 4, !tbaa !22
-  br label %.sink.split64
+  br label %.sink.split68
 
 52:                                               ; preds = %40
   %53 = getelementptr inbounds [3 x float], ptr %39, i64 %10
   store float 0.000000e+00, ptr %53, align 4, !tbaa !22
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   store float 0.000000e+00, ptr %54, align 4, !tbaa !22
-  br label %.sink.split64
+  br label %.sink.split68
 
-.sink.split64:                                    ; preds = %52, %43
-  %.sink65 = phi float [ %51, %43 ], [ 0.000000e+00, %52 ]
+.sink.split68:                                    ; preds = %52, %43
+  %.sink69 = phi float [ %51, %43 ], [ 0.000000e+00, %52 ]
   %55 = getelementptr inbounds [3 x float], ptr %39, i64 %10, i64 2
-  store float %.sink65, ptr %55, align 4, !tbaa !22
+  store float %.sink69, ptr %55, align 4, !tbaa !22
   br label %56
 
-56:                                               ; preds = %.sink.split64, %37
+56:                                               ; preds = %.sink.split68, %37
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %58 = load ptr, ptr %57, align 8, !tbaa !32
   %59 = getelementptr inbounds i32, ptr %58, i64 %10

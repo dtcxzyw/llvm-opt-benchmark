@@ -463,14 +463,14 @@ Vec_PtrPush.exit148:                              ; preds = %.Vec_PtrGrow.exit11
   %smax296 = tail call i32 @llvm.abs.i32(i32 %156, i1 false)
   %157 = add nuw i32 %smax296, 1
   %wide.trip.count297 = zext i32 %157 to i64
-  %invariant.gep321 = getelementptr i32, ptr %.val122, i64 %155
+  %invariant.gep336 = getelementptr i32, ptr %.val122, i64 %155
   br label %.split.us.us.split.us
 
 .split.us.us.split.us:                            ; preds = %.split.us.us.split.us.preheader, %..loopexit185_crit_edge.us.us.us
   %indvars.iv293 = phi i64 [ 0, %.split.us.us.split.us.preheader ], [ %indvars.iv.next294, %..loopexit185_crit_edge.us.us.us ]
   %.2106204.us.us.us = phi i32 [ %.1105222.us, %.split.us.us.split.us.preheader ], [ %.3.us.us.us, %..loopexit185_crit_edge.us.us.us ]
-  %gep322 = getelementptr i32, ptr %invariant.gep321, i64 %indvars.iv293
-  %158 = load i32, ptr %gep322, align 4, !tbaa !50
+  %gep337 = getelementptr i32, ptr %invariant.gep336, i64 %indvars.iv293
+  %158 = load i32, ptr %gep337, align 4, !tbaa !50
   %159 = getelementptr inbounds nuw ptr, ptr %.val2.i.us, i64 %indvars.iv293
   %160 = load ptr, ptr %159, align 8, !tbaa !10
   %161 = icmp eq i32 %158, -1
@@ -487,7 +487,7 @@ Vec_PtrPush.exit148:                              ; preds = %.Vec_PtrGrow.exit11
   %166 = getelementptr inbounds i64, ptr %.val132.val.us.us.us, i64 %165
   %167 = and i32 %158, 1
   %.not111.us.us.us = icmp eq i32 %167, 0
-  %invariant.gep319 = getelementptr inbounds nuw i64, ptr %160, i64 %143
+  %invariant.gep334 = getelementptr inbounds nuw i64, ptr %160, i64 %143
   br i1 %.not111.us.us.us, label %.lr.ph201.split.us.us.us.us, label %.lr.ph201.split.us208.us.us
 
 .lr.ph201.split.us208.us.us:                      ; preds = %.lr.ph201.us.us.us, %.lr.ph201.split.us208.us.us
@@ -495,8 +495,8 @@ Vec_PtrPush.exit148:                              ; preds = %.Vec_PtrGrow.exit11
   %168 = getelementptr inbounds nuw i64, ptr %166, i64 %indvars.iv280
   %169 = load i64, ptr %168, align 8, !tbaa !61
   %170 = xor i64 %169, -1
-  %gep318 = getelementptr inbounds nuw i64, ptr %invariant.gep319, i64 %indvars.iv280
-  store i64 %170, ptr %gep318, align 8, !tbaa !61
+  %gep333 = getelementptr inbounds nuw i64, ptr %invariant.gep334, i64 %indvars.iv280
+  store i64 %170, ptr %gep333, align 8, !tbaa !61
   %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
   %exitcond284.not = icmp eq i64 %indvars.iv.next281, %132
   br i1 %exitcond284.not, label %..loopexit185_crit_edge.us.us.us, label %.lr.ph201.split.us208.us.us, !llvm.loop !62
@@ -517,8 +517,8 @@ Vec_PtrPush.exit148:                              ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv285 = phi i64 [ %indvars.iv.next286, %.lr.ph201.split.us.us.us.us ], [ 0, %.lr.ph201.us.us.us ]
   %172 = getelementptr inbounds nuw i64, ptr %166, i64 %indvars.iv285
   %173 = load i64, ptr %172, align 8, !tbaa !61
-  %gep320 = getelementptr inbounds nuw i64, ptr %invariant.gep319, i64 %indvars.iv285
-  store i64 %173, ptr %gep320, align 8, !tbaa !61
+  %gep335 = getelementptr inbounds nuw i64, ptr %invariant.gep334, i64 %indvars.iv285
+  store i64 %173, ptr %gep335, align 8, !tbaa !61
   %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
   %exitcond289.not = icmp eq i64 %indvars.iv.next286, %132
   br i1 %exitcond289.not, label %..loopexit185_crit_edge.us.us.us, label %.lr.ph201.split.us.us.us.us, !llvm.loop !62

@@ -546,7 +546,7 @@ oe_tree_depth.exit:                               ; preds = %26, %30
 
 sane_qsort.exit:                                  ; preds = %st_mult.exit, %._crit_edge, %39
   %40 = phi i64 [ %37, %._crit_edge ], [ %37, %39 ], [ 0, %st_mult.exit ]
-  %.0.lcssa113 = phi i32 [ %.1, %._crit_edge ], [ %.1, %39 ], [ 0, %st_mult.exit ]
+  %.0.lcssa123 = phi i32 [ %.1, %._crit_edge ], [ %.1, %39 ], [ 0, %st_mult.exit ]
   %.not47 = icmp eq i32 %1, 0
   br i1 %.not47, label %47, label %41
 
@@ -568,12 +568,12 @@ _.exit:                                           ; preds = %41, %44
 
 47:                                               ; preds = %_.exit, %sane_qsort.exit
   %48 = phi ptr [ %46, %_.exit ], [ null, %sane_qsort.exit ]
-  %49 = icmp sgt i32 %.0.lcssa113, 0
+  %49 = icmp sgt i32 %.0.lcssa123, 0
   br i1 %49, label %.lr.ph90, label %._crit_edge91
 
 .lr.ph90:                                         ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 52
-  %wide.trip.count109 = zext nneg i32 %.0.lcssa113 to i64
+  %wide.trip.count109 = zext nneg i32 %.0.lcssa123 to i64
   %.pre111 = load ptr, ptr @island_marks, align 8, !tbaa !4
   br label %51
 

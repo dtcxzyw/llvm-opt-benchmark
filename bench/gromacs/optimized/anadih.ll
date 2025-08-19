@@ -2840,7 +2840,7 @@ define void @_Z23calc_distribution_propsiPKifiP9t_karplusPf(i32 noundef %0, ptr 
 
 .lr.ph91.preheader:                               ; preds = %._crit_edge.thread, %._crit_edge
   %26 = phi float [ 0x7FF0000000000000, %._crit_edge.thread ], [ %23, %._crit_edge ]
-  %.079.lcssa142 = phi i32 [ 0, %._crit_edge.thread ], [ %20, %._crit_edge ]
+  %.079.lcssa143 = phi i32 [ 0, %._crit_edge.thread ], [ %20, %._crit_edge ]
   %wide.trip.count115 = zext nneg i32 %3 to i64
   br label %.lr.ph91
 
@@ -2926,9 +2926,9 @@ define void @_Z23calc_distribution_propsiPKifiP9t_karplusPf(i32 noundef %0, ptr 
   br i1 %exitcond116.not, label %.preheader86, label %.lr.ph91, !llvm.loop !75
 
 .lr.ph104:                                        ; preds = %._crit_edge95.us, %.preheader86
-  %.0.lcssa147 = phi float [ 0.000000e+00, %.preheader86 ], [ %65, %._crit_edge95.us ]
-  %.083.lcssa146 = phi float [ 0.000000e+00, %.preheader86 ], [ %66, %._crit_edge95.us ]
-  %70 = sitofp i32 %.079.lcssa142 to float
+  %.0.lcssa148 = phi float [ 0.000000e+00, %.preheader86 ], [ %65, %._crit_edge95.us ]
+  %.083.lcssa147 = phi float [ 0.000000e+00, %.preheader86 ], [ %66, %._crit_edge95.us ]
+  %70 = sitofp i32 %.079.lcssa143 to float
   %wide.trip.count135 = zext nneg i32 %3 to i64
   br label %84
 
@@ -2972,10 +2972,10 @@ define void @_Z23calc_distribution_propsiPKifiP9t_karplusPf(i32 noundef %0, ptr 
   br i1 %exitcond136.not, label %._crit_edge105, label %84, !llvm.loop !76
 
 ._crit_edge105:                                   ; preds = %.lr.ph99.split, %84, %._crit_edge.thread
-  %.0.lcssa140 = phi float [ 0.000000e+00, %._crit_edge.thread ], [ %.0.lcssa147, %84 ], [ %82, %.lr.ph99.split ]
-  %.083.lcssa139 = phi float [ 0.000000e+00, %._crit_edge.thread ], [ %.083.lcssa146, %84 ], [ %83, %.lr.ph99.split ]
-  %95 = fmul float %.083.lcssa139, %.083.lcssa139
-  %96 = tail call float @llvm.fmuladd.f32(float %.0.lcssa140, float %.0.lcssa140, float %95)
+  %.0.lcssa141 = phi float [ 0.000000e+00, %._crit_edge.thread ], [ %.0.lcssa148, %84 ], [ %82, %.lr.ph99.split ]
+  %.083.lcssa140 = phi float [ 0.000000e+00, %._crit_edge.thread ], [ %.083.lcssa147, %84 ], [ %83, %.lr.ph99.split ]
+  %95 = fmul float %.083.lcssa140, %.083.lcssa140
+  %96 = tail call float @llvm.fmuladd.f32(float %.0.lcssa141, float %.0.lcssa141, float %95)
   store float %96, ptr %5, align 4, !tbaa !20
   ret void
 }

@@ -816,9 +816,9 @@ get_srice.exit.us.i.i:                            ; preds = %376, %358, %get_una
   br label %get_sbits_long.exit.us.i.i
 
 get_sbits_long.exit.us.i.i:                       ; preds = %get_srice.exit.us.i.i, %get_bits_long.exit.i.us.i.i, %292, %289
-  %.sink21.i.i = phi i32 [ %396, %get_srice.exit.us.i.i ], [ %331, %get_bits_long.exit.i.us.i.i ], [ 0, %292 ], [ %291, %289 ]
+  %.sink28.i.i = phi i32 [ %396, %get_srice.exit.us.i.i ], [ %331, %get_bits_long.exit.i.us.i.i ], [ 0, %292 ], [ %291, %289 ]
   %397 = getelementptr inbounds nuw i32, ptr %248, i64 %indvars.iv15.i.i
-  store i32 %.sink21.i.i, ptr %397, align 4, !tbaa !80
+  store i32 %.sink28.i.i, ptr %397, align 4, !tbaa !80
   %.val.us.i.i = load i32, ptr %238, align 8, !tbaa !68
   %.val193.us.i.i = load i32, ptr %240, align 4, !tbaa !65
   %398 = icmp slt i32 %.val193.us.i.i, %.val.us.i.i
@@ -854,7 +854,7 @@ get_sbits_long.exit.us.i.i:                       ; preds = %get_srice.exit.us.i
   %408 = sub i32 %404, %407
   %409 = add i32 %408, %405
   %410 = sdiv i32 %409, 2
-  %411 = add i32 %.sink21.i.i, %400
+  %411 = add i32 %.sink28.i.i, %400
   %412 = add i32 %411, %410
   br label %.sink.split.i.i
 
@@ -865,13 +865,13 @@ get_sbits_long.exit.us.i.i:                       ; preds = %get_srice.exit.us.i
   %417 = load i32, ptr %416, align 4, !tbaa !80
   %418 = add i32 %417, %415
   %419 = sdiv i32 %418, 2
-  %420 = add i32 %419, %.sink21.i.i
+  %420 = add i32 %419, %.sink28.i.i
   br label %.sink.split.i.i
 
 421:                                              ; preds = %399
   %422 = getelementptr inbounds nuw i8, ptr %247, i64 12
   %423 = load i32, ptr %422, align 4, !tbaa !80
-  %424 = add i32 %423, %.sink21.i.i
+  %424 = add i32 %423, %.sink28.i.i
   br label %.sink.split.i.i
 
 425:                                              ; preds = %399
@@ -881,7 +881,7 @@ get_sbits_long.exit.us.i.i:                       ; preds = %get_srice.exit.us.i
   %429 = load i32, ptr %428, align 4, !tbaa !80
   %430 = add i32 %429, %427
   %431 = sdiv i32 %430, 2
-  %432 = add i32 %431, %.sink21.i.i
+  %432 = add i32 %431, %.sink28.i.i
   br label %.sink.split.i.i
 
 433:                                              ; preds = %399
@@ -899,7 +899,7 @@ get_sbits_long.exit.us.i.i:                       ; preds = %get_srice.exit.us.i
   %445 = shl i32 %444, 1
   %446 = add i32 %439, %445
   %447 = sdiv i32 %446, 3
-  %448 = add i32 %.sink21.i.i, %400
+  %448 = add i32 %.sink28.i.i, %400
   %449 = add i32 %448, %447
   br label %.sink.split.i.i
 
@@ -918,7 +918,7 @@ get_sbits_long.exit.us.i.i:                       ; preds = %get_srice.exit.us.i
   %462 = add i32 %461, %459
   %463 = add i32 %462, %457
   %464 = sdiv i32 %463, 3
-  %465 = add i32 %.sink21.i.i, %400
+  %465 = add i32 %.sink28.i.i, %400
   %466 = add i32 %465, %464
   br label %.sink.split.i.i
 
@@ -936,7 +936,7 @@ get_sbits_long.exit.us.i.i:                       ; preds = %get_srice.exit.us.i
   %478 = add i32 %477, %476
   %479 = add i32 %478, %474
   %480 = sdiv i32 %479, 2
-  %481 = add i32 %480, %.sink21.i.i
+  %481 = add i32 %480, %.sink28.i.i
   br label %.sink.split.i.i
 
 482:                                              ; preds = %399
@@ -953,7 +953,7 @@ get_sbits_long.exit.us.i.i:                       ; preds = %get_srice.exit.us.i
   %493 = add i32 %492, %491
   %494 = add i32 %493, %489
   %495 = sdiv i32 %494, 2
-  %496 = add i32 %.sink21.i.i, %400
+  %496 = add i32 %.sink28.i.i, %400
   %497 = add i32 %496, %495
   br label %.sink.split.i.i
 
@@ -966,7 +966,7 @@ get_sbits_long.exit.us.i.i:                       ; preds = %get_srice.exit.us.i
   %504 = mul i32 %503, 3
   %505 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %506 = load i32, ptr %505, align 4, !tbaa !80
-  %507 = add i32 %.sink21.i.i, %400
+  %507 = add i32 %.sink28.i.i, %400
   %508 = add i32 %507, %506
   %509 = add i32 %508, %504
   br label %.sink.split.i.i
@@ -980,7 +980,7 @@ get_sbits_long.exit.us.i.i:                       ; preds = %get_srice.exit.us.i
   %516 = mul i32 %515, 3
   %517 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %518 = load i32, ptr %517, align 4, !tbaa !80
-  %519 = add i32 %518, %.sink21.i.i
+  %519 = add i32 %518, %.sink28.i.i
   %520 = add i32 %519, %516
   br label %.sink.split.i.i
 
@@ -990,7 +990,7 @@ get_sbits_long.exit.us.i.i:                       ; preds = %get_srice.exit.us.i
   %524 = shl i32 %523, 1
   %525 = getelementptr inbounds nuw i8, ptr %247, i64 12
   %526 = load i32, ptr %525, align 4, !tbaa !80
-  %527 = add i32 %.sink21.i.i, %400
+  %527 = add i32 %.sink28.i.i, %400
   %528 = sub i32 %527, %526
   %529 = add i32 %528, %524
   br label %.sink.split.i.i
@@ -1001,30 +1001,30 @@ get_sbits_long.exit.us.i.i:                       ; preds = %get_srice.exit.us.i
   %533 = shl i32 %532, 1
   %534 = getelementptr inbounds nuw i8, ptr %247, i64 12
   %535 = load i32, ptr %534, align 4, !tbaa !80
-  %536 = sub i32 %.sink21.i.i, %535
+  %536 = sub i32 %.sink28.i.i, %535
   %537 = add i32 %536, %533
   br label %.sink.split.i.i
 
 538:                                              ; preds = %399
   %539 = getelementptr inbounds nuw i8, ptr %247, i64 16
   %540 = load i32, ptr %539, align 4, !tbaa !80
-  %541 = add i32 %.sink21.i.i, %400
+  %541 = add i32 %.sink28.i.i, %400
   %542 = add i32 %541, %540
   br label %.sink.split.i.i
 
 543:                                              ; preds = %399
   %544 = getelementptr inbounds nuw i8, ptr %247, i64 16
   %545 = load i32, ptr %544, align 4, !tbaa !80
-  %546 = add i32 %545, %.sink21.i.i
+  %546 = add i32 %545, %.sink28.i.i
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %543, %538, %530, %521, %510, %498, %482, %467, %450, %433, %425, %421, %413, %402
-  %.sink23.i.i = phi i32 [ %546, %543 ], [ %542, %538 ], [ %537, %530 ], [ %529, %521 ], [ %520, %510 ], [ %509, %498 ], [ %497, %482 ], [ %481, %467 ], [ %466, %450 ], [ %449, %433 ], [ %432, %425 ], [ %424, %421 ], [ %420, %413 ], [ %412, %402 ]
-  store i32 %.sink23.i.i, ptr %397, align 4, !tbaa !80
+  %.sink30.i.i = phi i32 [ %546, %543 ], [ %542, %538 ], [ %537, %530 ], [ %529, %521 ], [ %520, %510 ], [ %509, %498 ], [ %497, %482 ], [ %481, %467 ], [ %466, %450 ], [ %449, %433 ], [ %432, %425 ], [ %424, %421 ], [ %420, %413 ], [ %412, %402 ]
+  store i32 %.sink30.i.i, ptr %397, align 4, !tbaa !80
   br label %547
 
 547:                                              ; preds = %.sink.split.i.i, %399
-  store i32 %.sink21.i.i, ptr %249, align 8, !tbaa !69
+  store i32 %.sink28.i.i, ptr %249, align 8, !tbaa !69
   %.pre.i.i = load i32, ptr %397, align 4, !tbaa !80
   br i1 %.not189.i.i, label %550, label %548
 

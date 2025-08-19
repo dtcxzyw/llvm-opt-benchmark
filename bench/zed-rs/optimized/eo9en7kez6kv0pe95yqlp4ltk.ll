@@ -46723,14 +46723,14 @@ _ZN5prost8encoding7message11encoded_len17h33fb741348325584E.exit.i.i.i.i: ; pred
   br label %"_ZN56_$LT$proto..Shell$u20$as$u20$prost..message..Message$GT$11encoded_len17h7ebc504d4f29099dE.llvm.12582631992428692812.exit"
 
 "_ZN56_$LT$proto..Shell$u20$as$u20$prost..message..Message$GT$11encoded_len17h7ebc504d4f29099dE.llvm.12582631992428692812.exit": ; preds = %39, %_ZN5prost8encoding7message11encoded_len17h33fb741348325584E.exit.i.i.i.i
-  %.sink21 = phi i64 [ %41, %39 ], [ %70, %_ZN5prost8encoding7message11encoded_len17h33fb741348325584E.exit.i.i.i.i ]
-  %71 = or i64 %.sink21, 1
+  %.sink30 = phi i64 [ %41, %39 ], [ %70, %_ZN5prost8encoding7message11encoded_len17h33fb741348325584E.exit.i.i.i.i ]
+  %71 = or i64 %.sink30, 1
   %72 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %71, i1 true)
   %73 = xor i64 %72, 63
   %74 = mul nuw nsw i64 %73, 9
   %75 = add nuw nsw i64 %74, 73
   %76 = lshr i64 %75, 6
-  %77 = add i64 %.sink21, 1
+  %77 = add i64 %.sink30, 1
   %78 = add i64 %77, %76
   %79 = icmp ult i64 %78, 128
   br i1 %79, label %._crit_edge, label %.lr.ph
@@ -96995,14 +96995,14 @@ _ZN5prost8encoding7message11encoded_len17hc1b10961749fcc65E.exit: ; preds = %"_Z
   br label %_ZN5prost8encoding7message11encoded_len17h5fb852ab39bf029bE.exit
 
 _ZN5prost8encoding7message11encoded_len17h5fb852ab39bf029bE.exit: ; preds = %"_ZN85_$LT$proto..context_operation..BufferOperation$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17ha8ec4c9991e5825fE.llvm.12582631992428692812.exit.i.i.i", %130, %_ZN5prost8encoding7message11encoded_len17hc1b10961749fcc65E.exit, %_ZN5prost8encoding7message11encoded_len17hf7a75485def276e5E.exit, %29, %_ZN5prost8encoding7message11encoded_len17h45c33d2fbb76a0b7E.exit
-  %.sroa.02.0.i.i.i8.sink12 = phi i64 [ %129, %_ZN5prost8encoding7message11encoded_len17hc1b10961749fcc65E.exit ], [ %80, %_ZN5prost8encoding7message11encoded_len17hf7a75485def276e5E.exit ], [ %31, %29 ], [ %28, %_ZN5prost8encoding7message11encoded_len17h45c33d2fbb76a0b7E.exit ], [ %142, %"_ZN85_$LT$proto..context_operation..BufferOperation$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17ha8ec4c9991e5825fE.llvm.12582631992428692812.exit.i.i.i" ], [ 0, %130 ]
-  %143 = or i64 %.sroa.02.0.i.i.i8.sink12, 1
+  %.sroa.02.0.i.i.i8.sink14 = phi i64 [ %129, %_ZN5prost8encoding7message11encoded_len17hc1b10961749fcc65E.exit ], [ %80, %_ZN5prost8encoding7message11encoded_len17hf7a75485def276e5E.exit ], [ %31, %29 ], [ %28, %_ZN5prost8encoding7message11encoded_len17h45c33d2fbb76a0b7E.exit ], [ %142, %"_ZN85_$LT$proto..context_operation..BufferOperation$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17ha8ec4c9991e5825fE.llvm.12582631992428692812.exit.i.i.i" ], [ 0, %130 ]
+  %143 = or i64 %.sroa.02.0.i.i.i8.sink14, 1
   %144 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %143, i1 true)
   %145 = xor i64 %144, 63
   %146 = mul nuw nsw i64 %145, 9
   %147 = add nuw nsw i64 %146, 73
   %148 = lshr i64 %147, 6
-  %149 = add i64 %.sroa.02.0.i.i.i8.sink12, 1
+  %149 = add i64 %.sroa.02.0.i.i.i8.sink14, 1
   %150 = add i64 %149, %148
   ret i64 %150
 }
@@ -97339,14 +97339,14 @@ _ZN5prost8encoding7message11encoded_len17h1a4c9f7be64e0636E.llvm.125826319924286
   br label %58
 
 58:                                               ; preds = %_ZN5prost8encoding7message11encoded_len17h1a4c9f7be64e0636E.llvm.12582631992428692812.exit, %_ZN5prost8encoding7message11encoded_len17h7aa488eaac0fd831E.llvm.12582631992428692812.exit, %5
-  %.sink7 = phi i64 [ %57, %_ZN5prost8encoding7message11encoded_len17h1a4c9f7be64e0636E.llvm.12582631992428692812.exit ], [ %34, %_ZN5prost8encoding7message11encoded_len17h7aa488eaac0fd831E.llvm.12582631992428692812.exit ], [ %7, %5 ]
-  %59 = or i64 %.sink7, 1
+  %.sink8 = phi i64 [ %57, %_ZN5prost8encoding7message11encoded_len17h1a4c9f7be64e0636E.llvm.12582631992428692812.exit ], [ %34, %_ZN5prost8encoding7message11encoded_len17h7aa488eaac0fd831E.llvm.12582631992428692812.exit ], [ %7, %5 ]
+  %59 = or i64 %.sink8, 1
   %60 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %59, i1 true)
   %61 = xor i64 %60, 63
   %62 = mul nuw nsw i64 %61, 9
   %63 = add nuw nsw i64 %62, 73
   %64 = lshr i64 %63, 6
-  %65 = add i64 %.sink7, 1
+  %65 = add i64 %.sink8, 1
   %66 = add i64 %65, %64
   ret i64 %66
 }
@@ -97817,14 +97817,14 @@ _ZN5prost8encoding7message11encoded_len17h34ad4fad5e05b5d2E.exit: ; preds = %.pr
   br label %249
 
 249:                                              ; preds = %_ZN5prost8encoding7message11encoded_len17h34ad4fad5e05b5d2E.exit, %_ZN5prost8encoding7message11encoded_len17h7e0db80b3abd8378E.exit, %_ZN5prost8encoding7message11encoded_len17hc7821945a8386bcbE.exit, %_ZN5prost8encoding7message11encoded_len17h91c9ac71a0676430E.exit, %_ZN5prost8encoding7message11encoded_len17h86c08b9743f13ac2E.exit
-  %.sink26 = phi i64 [ %248, %_ZN5prost8encoding7message11encoded_len17h34ad4fad5e05b5d2E.exit ], [ %204, %_ZN5prost8encoding7message11encoded_len17h7e0db80b3abd8378E.exit ], [ %158, %_ZN5prost8encoding7message11encoded_len17hc7821945a8386bcbE.exit ], [ %107, %_ZN5prost8encoding7message11encoded_len17h91c9ac71a0676430E.exit ], [ %66, %_ZN5prost8encoding7message11encoded_len17h86c08b9743f13ac2E.exit ]
-  %250 = or i64 %.sink26, 1
+  %.sink39 = phi i64 [ %248, %_ZN5prost8encoding7message11encoded_len17h34ad4fad5e05b5d2E.exit ], [ %204, %_ZN5prost8encoding7message11encoded_len17h7e0db80b3abd8378E.exit ], [ %158, %_ZN5prost8encoding7message11encoded_len17hc7821945a8386bcbE.exit ], [ %107, %_ZN5prost8encoding7message11encoded_len17h91c9ac71a0676430E.exit ], [ %66, %_ZN5prost8encoding7message11encoded_len17h86c08b9743f13ac2E.exit ]
+  %250 = or i64 %.sink39, 1
   %251 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %250, i1 true)
   %252 = xor i64 %251, 63
   %253 = mul nuw nsw i64 %252, 9
   %254 = add nuw nsw i64 %253, 73
   %255 = lshr i64 %254, 6
-  %256 = add i64 %.sink26, 1
+  %256 = add i64 %.sink39, 1
   %257 = add i64 %256, %255
   ret i64 %257
 }

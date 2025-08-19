@@ -64,12 +64,12 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.cdata_read_header, i64 0, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = zext nneg i32 %8 to i64
-  %switch.gep36 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.cdata_read_header.1, i64 0, i64 %12
-  %switch.load37 = load i32, ptr %switch.gep36, align 4
+  %switch.gep37 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.cdata_read_header.1, i64 0, i64 %12
+  %switch.load38 = load i32, ptr %switch.gep37, align 4
   %13 = zext nneg i32 %8 to i64
-  %switch.gep38 = getelementptr inbounds nuw [6 x i64], ptr @switch.table.cdata_read_header.2, i64 0, i64 %13
-  %switch.load39 = load i64, ptr %switch.gep38, align 8
-  store i32 %switch.load37, ptr %3, align 4, !tbaa !28
+  %switch.gep39 = getelementptr inbounds nuw [6 x i64], ptr @switch.table.cdata_read_header.2, i64 0, i64 %13
+  %switch.load40 = load i64, ptr %switch.gep39, align 8
+  store i32 %switch.load38, ptr %3, align 4, !tbaa !28
   %14 = tail call i32 @avio_rb16(ptr noundef %5) #4
   %15 = tail call i32 @avio_r8(ptr noundef %5) #4
   %16 = and i32 %15, 32
@@ -91,9 +91,9 @@ switch.lookup:                                    ; preds = %1
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 128
   store i32 %switch.load, ptr %25, align 8, !tbaa !42
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 132
-  store i32 %switch.load37, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !42
+  store i32 %switch.load38, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !42
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 136
-  store i64 %switch.load39, ptr %.sroa.12.0..sroa_idx, align 8, !tbaa !11
+  store i64 %switch.load40, ptr %.sroa.12.0..sroa_idx, align 8, !tbaa !11
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 144
   store ptr null, ptr %.sroa.16.0..sroa_idx, align 8, !tbaa !43
   %26 = load ptr, ptr %21, align 8, !tbaa !30

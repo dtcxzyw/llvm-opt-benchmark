@@ -392,18 +392,18 @@ define dso_local void @sg_free_append_table(ptr noundef captures(none) %0) #2 al
   br i1 %8, label %.preheader, label %.preheader._crit_edge
 
 .preheader._crit_edge:                            ; preds = %.preheader, %.preheader.preheader
-  %.lcssa7 = phi ptr [ %2, %.preheader.preheader ], [ %16, %.preheader ]
+  %.lcssa10 = phi ptr [ %2, %.preheader.preheader ], [ %16, %.preheader ]
   %.lcssa = phi i32 [ %6, %.preheader.preheader ], [ %17, %.preheader ]
   %9 = icmp eq i32 %.lcssa, 128
-  br i1 %9, label %.thread5, label %.thread4
+  br i1 %9, label %.thread8, label %.thread7
 
-.thread5:                                         ; preds = %.preheader._crit_edge
-  %10 = ptrtoint ptr %.lcssa7 to i64
+.thread8:                                         ; preds = %.preheader._crit_edge
+  %10 = ptrtoint ptr %.lcssa10 to i64
   tail call void @free_pages(i64 noundef %10, i32 noundef 0) #16
   br label %.loopexit
 
-.thread4:                                         ; preds = %.preheader._crit_edge
-  tail call void @kfree(ptr noundef %.lcssa7) #16
+.thread7:                                         ; preds = %.preheader._crit_edge
+  tail call void @kfree(ptr noundef %.lcssa10) #16
   br label %.loopexit
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -419,7 +419,7 @@ define dso_local void @sg_free_append_table(ptr noundef captures(none) %0) #2 al
   %19 = icmp ugt i32 %17, 128
   br i1 %19, label %.preheader, label %.preheader._crit_edge
 
-.loopexit:                                        ; preds = %.thread4, %.thread5, %4
+.loopexit:                                        ; preds = %.thread7, %.thread8, %4
   store ptr null, ptr %0, align 8
   br label %20
 
@@ -444,18 +444,18 @@ define dso_local void @sg_free_table(ptr noundef captures(none) %0) #2 align 16 
   br i1 %8, label %.preheader, label %.preheader._crit_edge
 
 .preheader._crit_edge:                            ; preds = %.preheader, %.preheader.preheader
-  %.lcssa7 = phi ptr [ %2, %.preheader.preheader ], [ %16, %.preheader ]
+  %.lcssa10 = phi ptr [ %2, %.preheader.preheader ], [ %16, %.preheader ]
   %.lcssa = phi i32 [ %6, %.preheader.preheader ], [ %17, %.preheader ]
   %9 = icmp eq i32 %.lcssa, 128
-  br i1 %9, label %.thread5, label %.thread4
+  br i1 %9, label %.thread8, label %.thread7
 
-.thread5:                                         ; preds = %.preheader._crit_edge
-  %10 = ptrtoint ptr %.lcssa7 to i64
+.thread8:                                         ; preds = %.preheader._crit_edge
+  %10 = ptrtoint ptr %.lcssa10 to i64
   tail call void @free_pages(i64 noundef %10, i32 noundef 0) #16
   br label %.loopexit
 
-.thread4:                                         ; preds = %.preheader._crit_edge
-  tail call void @kfree(ptr noundef %.lcssa7) #16
+.thread7:                                         ; preds = %.preheader._crit_edge
+  tail call void @kfree(ptr noundef %.lcssa10) #16
   br label %.loopexit
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -471,7 +471,7 @@ define dso_local void @sg_free_table(ptr noundef captures(none) %0) #2 align 16 
   %19 = icmp ugt i32 %17, 128
   br i1 %19, label %.preheader, label %.preheader._crit_edge
 
-.loopexit:                                        ; preds = %.thread4, %.thread5, %4
+.loopexit:                                        ; preds = %.thread7, %.thread8, %4
   store ptr null, ptr %0, align 8
   br label %20
 
@@ -1068,18 +1068,18 @@ define dso_local i32 @sg_alloc_table_from_pages_segment(ptr noundef captures(non
   br i1 %17, label %.preheader, label %.preheader._crit_edge
 
 .preheader._crit_edge:                            ; preds = %.preheader, %.preheader.preheader
-  %.lcssa10 = phi ptr [ %12, %.preheader.preheader ], [ %25, %.preheader ]
+  %.lcssa13 = phi ptr [ %12, %.preheader.preheader ], [ %25, %.preheader ]
   %.lcssa = phi i32 [ %15, %.preheader.preheader ], [ %26, %.preheader ]
   %18 = icmp eq i32 %.lcssa, 128
-  br i1 %18, label %.thread6, label %.thread5
+  br i1 %18, label %.thread9, label %.thread8
 
-.thread6:                                         ; preds = %.preheader._crit_edge
-  %19 = ptrtoint ptr %.lcssa10 to i64
+.thread9:                                         ; preds = %.preheader._crit_edge
+  %19 = ptrtoint ptr %.lcssa13 to i64
   tail call void @free_pages(i64 noundef %19, i32 noundef 0) #16
   br label %.loopexit
 
-.thread5:                                         ; preds = %.preheader._crit_edge
-  tail call void @kfree(ptr noundef %.lcssa10) #16
+.thread8:                                         ; preds = %.preheader._crit_edge
+  tail call void @kfree(ptr noundef %.lcssa13) #16
   br label %.loopexit
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -1110,7 +1110,7 @@ define dso_local i32 @sg_alloc_table_from_pages_segment(ptr noundef captures(non
   tail call void asm sideeffect "391: nop\0A\09.pushsection .discard.instr_end\0A\09.long 391b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 391) #16, !srcloc !34
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread6, %.thread5, %35, %29, %11
+.loopexit:                                        ; preds = %.thread9, %.thread8, %35, %29, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %9
 }
@@ -2096,7 +2096,7 @@ define dso_local range(i64 0, 4294967296) i64 @sg_copy_buffer(ptr noundef %0, i3
   br i1 %31, label %.critedge, label %32
 
 32:                                               ; preds = %28
-  %33 = add i32 %24, %26
+  %33 = add nuw nsw i32 %24, %26
   store i32 %33, ptr %11, align 8
   store i32 1, ptr %18, align 8
   br label %34
@@ -2116,7 +2116,7 @@ define dso_local range(i64 0, 4294967296) i64 @sg_copy_buffer(ptr noundef %0, i3
   br i1 %45, label %.critedge7, label %46
 
 46:                                               ; preds = %34
-  %47 = sub nuw i32 %37, %44
+  %47 = sub nuw nsw i32 %37, %44
   store i32 %47, ptr %11, align 8
   %48 = load i64, ptr %35, align 8
   %49 = and i64 %48, 2
@@ -2355,7 +2355,7 @@ define dso_local range(i64 0, 4294967296) i64 @sg_zero_buffer(ptr noundef %0, i3
   br i1 %28, label %.critedge, label %29
 
 29:                                               ; preds = %25
-  %30 = add i32 %21, %23
+  %30 = add nuw nsw i32 %21, %23
   store i32 %30, ptr %8, align 8
   store i32 1, ptr %15, align 8
   br label %31
@@ -2375,7 +2375,7 @@ define dso_local range(i64 0, 4294967296) i64 @sg_zero_buffer(ptr noundef %0, i3
   br i1 %42, label %.critedge7, label %43
 
 43:                                               ; preds = %31
-  %44 = sub nuw i32 %34, %41
+  %44 = sub nuw nsw i32 %34, %41
   store i32 %44, ptr %8, align 8
   %45 = load i64, ptr %32, align 8
   %46 = and i64 %45, 2

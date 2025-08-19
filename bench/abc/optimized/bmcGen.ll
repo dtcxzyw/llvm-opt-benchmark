@@ -545,14 +545,14 @@ Abc_Clock.exit:                                   ; preds = %1, %9
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %81, %83, %73, %75
-  %.sink83 = phi ptr [ %74, %73 ], [ %76, %75 ], [ %82, %81 ], [ %84, %83 ]
+  %.sink89 = phi ptr [ %74, %73 ], [ %76, %75 ], [ %82, %81 ], [ %84, %83 ]
   %.sink = phi i32 [ 16, %73 ], [ 16, %75 ], [ %78, %81 ], [ %78, %83 ]
-  store ptr %.sink83, ptr %18, align 8, !tbaa !38
+  store ptr %.sink89, ptr %18, align 8, !tbaa !38
   store i32 %.sink, ptr %15, align 8, !tbaa !56
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %66
-  %.pre.i79 = phi ptr [ %52, %66 ], [ %.sink83, %Vec_IntPush.exit.sink.split ]
+  %.pre.i79 = phi ptr [ %52, %66 ], [ %.sink89, %Vec_IntPush.exit.sink.split ]
   %85 = add nsw i32 %67, 1
   store i32 %85, ptr %16, align 4, !tbaa !37
   %86 = sext i32 %67 to i64

@@ -581,15 +581,15 @@ define hidden void @_ZN5zxing6qrcode17FinderPatternInfo14calculateSidesENS_3RefI
   %83 = fcmp ogt float %78, %54
   %or.cond41 = and i1 %82, %83
   %. = select i1 %or.cond41, float %78, float %54
-  %.44 = select i1 %or.cond41, float %54, float %78
+  %.47 = select i1 %or.cond41, float %54, float %78
   br label %84
 
 84:                                               ; preds = %81, %6
-  %.sink43 = phi float [ %30, %6 ], [ %., %81 ]
-  %.sink42 = phi float [ %54, %6 ], [ %30, %81 ]
-  %.sink = phi float [ %78, %6 ], [ %.44, %81 ]
-  store float %.sink43, ptr %3, align 4, !tbaa !20
-  store float %.sink42, ptr %4, align 4, !tbaa !20
+  %.sink46 = phi float [ %30, %6 ], [ %., %81 ]
+  %.sink45 = phi float [ %54, %6 ], [ %30, %81 ]
+  %.sink = phi float [ %78, %6 ], [ %.47, %81 ]
+  store float %.sink46, ptr %3, align 4, !tbaa !20
+  store float %.sink45, ptr %4, align 4, !tbaa !20
   store float %.sink, ptr %5, align 4, !tbaa !20
   ret void
 }

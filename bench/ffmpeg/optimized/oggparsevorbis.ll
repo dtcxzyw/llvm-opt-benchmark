@@ -718,7 +718,7 @@ define internal range(i32 -1094995529, 1) i32 @vorbis_packet(ptr noundef %0, i32
   br label %.thread
 
 .thread:                                          ; preds = %64, %61
-  %66 = add nsw i32 %59, %.098137
+  %66 = add nuw nsw i32 %59, %.098137
   %67 = load i8, ptr %55, align 1, !tbaa !19
   %68 = zext i8 %67 to i64
   %69 = getelementptr inbounds nuw i8, ptr %.0100136, i64 %68

@@ -153,9 +153,9 @@ define hidden i32 @mbedtls_ssl_cache_set(ptr noundef captures(none) %0, ptr noun
 26:                                               ; preds = %.lr.ph70.split.i
   %27 = icmp eq i64 %.04567.i, 0
   %28 = icmp slt i64 %22, %.04567.i
-  %or.cond86.i = or i1 %27, %28
-  %.146.i = select i1 %or.cond86.i, i64 %22, i64 %.04567.i
-  %.144.i = select i1 %or.cond86.i, ptr %.269.i, ptr %.04368.i
+  %or.cond89.i = or i1 %27, %28
+  %.146.i = select i1 %or.cond89.i, i64 %22, i64 %.04567.i
+  %.144.i = select i1 %or.cond89.i, ptr %.269.i, ptr %.04368.i
   %29 = getelementptr inbounds nuw i8, ptr %.269.i, i64 64
   %.2.i = load ptr, ptr %29, align 8, !tbaa !11
   %.not51.i = icmp eq ptr %.2.i, null

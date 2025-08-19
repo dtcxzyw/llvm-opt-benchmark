@@ -11192,7 +11192,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h9338f8c444fb7d79E.exit.i.i: ; pred
   ret void
 
 _ZN4core4iter6traits8iterator8Iterator8for_each17h69764f7af09cb64fE.exit: ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h690b09f7cc1eef26E.exit", %.lr.ph.split.us.i.i.i, %_ZN4core4iter6traits8iterator8Iterator4fold17h9338f8c444fb7d79E.exit.i.i
-  %.05.i.i183543 = phi ptr [ %24, %_ZN4core4iter6traits8iterator8Iterator4fold17h9338f8c444fb7d79E.exit.i.i ], [ %24, %.lr.ph.split.us.i.i.i ], [ %16, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h690b09f7cc1eef26E.exit" ]
+  %.05.i.i184250 = phi ptr [ %24, %_ZN4core4iter6traits8iterator8Iterator4fold17h9338f8c444fb7d79E.exit.i.i ], [ %24, %.lr.ph.split.us.i.i.i ], [ %16, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h690b09f7cc1eef26E.exit" ]
   %.114 = phi i64 [ %.013, %_ZN4core4iter6traits8iterator8Iterator4fold17h9338f8c444fb7d79E.exit.i.i ], [ %39, %.lr.ph.split.us.i.i.i ], [ 1, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h690b09f7cc1eef26E.exit" ]
   %.1 = phi ptr [ %.0, %_ZN4core4iter6traits8iterator8Iterator4fold17h9338f8c444fb7d79E.exit.i.i ], [ %.sroa.4.0.copyload.pre, %.lr.ph.split.us.i.i.i ], [ %16, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h690b09f7cc1eef26E.exit" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -11237,11 +11237,11 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17h69764f7af09cb64fE.exit: ; pred
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store ptr %.05.i.i183543, ptr %57, align 8
+  store ptr %.05.i.i184250, ptr %57, align 8
   br label %59
 
 58:                                               ; preds = %53
-  store ptr %.05.i.i183543, ptr %45, align 8
+  store ptr %.05.i.i184250, ptr %45, align 8
   br label %59
 
 59:                                               ; preds = %58, %56
@@ -11263,7 +11263,7 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17h69764f7af09cb64fE.exit: ; pred
   br label %.loopexit
 
 "_ZN4core3ptr81drop_in_place$LT$tokio..runtime..scheduler..multi_thread..worker..InjectGuard$GT$17h756735999a3df537E.exit.i": ; preds = %"_ZN4core3ptr81drop_in_place$LT$tokio..runtime..scheduler..multi_thread..worker..InjectGuard$GT$17h756735999a3df537E.exit.i.preheader", %"_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h00c58693331cd200E.exit.i"
-  %.019.i = phi ptr [ %67, %"_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h00c58693331cd200E.exit.i" ], [ %.05.i.i183543, %"_ZN4core3ptr81drop_in_place$LT$tokio..runtime..scheduler..multi_thread..worker..InjectGuard$GT$17h756735999a3df537E.exit.i.preheader" ]
+  %.019.i = phi ptr [ %67, %"_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h00c58693331cd200E.exit.i" ], [ %.05.i.i184250, %"_ZN4core3ptr81drop_in_place$LT$tokio..runtime..scheduler..multi_thread..worker..InjectGuard$GT$17h756735999a3df537E.exit.i.preheader" ]
   %66 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
   %67 = load ptr, ptr %66, align 8, !noundef !4
   %68 = atomicrmw sub ptr %.019.i, i64 64 acq_rel, align 8, !noalias !1611

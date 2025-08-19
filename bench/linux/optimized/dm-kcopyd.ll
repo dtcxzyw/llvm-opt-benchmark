@@ -991,14 +991,14 @@ define internal fastcc void @process_jobs(ptr noundef %0, ptr noundef %1, ptr no
   %13 = getelementptr i8, ptr %10, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.loopexit69, label %16
+  br i1 %15, label %.loopexit76, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr i8, ptr %10, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 4
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %.loopexit69, label %21
+  br i1 %20, label %.loopexit76, label %21
 
 21:                                               ; preds = %16
   %22 = getelementptr i8, ptr %10, i64 336
@@ -1016,9 +1016,9 @@ define internal fastcc void @process_jobs(ptr noundef %0, ptr noundef %1, ptr no
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, %23
   store i64 %33, ptr %30, align 8
-  br label %.loopexit69
+  br label %.loopexit76
 
-.loopexit69:                                      ; preds = %12, %16, %29
+.loopexit76:                                      ; preds = %12, %16, %29
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %10, align 8
@@ -1032,7 +1032,7 @@ define internal fastcc void @process_jobs(ptr noundef %0, ptr noundef %1, ptr no
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.loopexit, label %40
 
-40:                                               ; preds = %.loopexit69
+40:                                               ; preds = %.loopexit76
   %41 = tail call i32 %2(ptr noundef nonnull %38) #9, !callees !29
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %.split17.us, label %43
@@ -1128,7 +1128,7 @@ define internal fastcc void @process_jobs(ptr noundef %0, ptr noundef %1, ptr no
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %80) #9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %47, %.loopexit69, %.thread, %.split20.us, %65
+.loopexit:                                        ; preds = %47, %.loopexit76, %.thread, %.split20.us, %65
   ret void
 }
 
@@ -1571,11 +1571,11 @@ define internal void @complete_io(i64 noundef %0, ptr noundef %1) #2 align 16 {
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %.old = and i32 %.pre, 1
-  %.old16 = icmp eq i32 %.old, 0
+  %.old18 = icmp eq i32 %.old, 0
   br i1 %32, label %._crit_edge, label %33
 
 33:                                               ; preds = %31
-  br i1 %.old16, label %38, label %34
+  br i1 %.old18, label %38, label %34
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1600,7 +1600,7 @@ define internal void @complete_io(i64 noundef %0, ptr noundef %1) #2 align 16 {
   br i1 %or.cond, label %47, label %49
 
 ._crit_edge:                                      ; preds = %31
-  br i1 %.old16, label %47, label %49
+  br i1 %.old18, label %47, label %49
 
 47:                                               ; preds = %40, %._crit_edge
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1609,13 +1609,13 @@ define internal void @complete_io(i64 noundef %0, ptr noundef %1) #2 align 16 {
 
 49:                                               ; preds = %._crit_edge, %40, %47
   %.sink = phi i64 [ 216, %47 ], [ 200, %40 ], [ 200, %._crit_edge ]
-  %.sink13 = phi i64 [ 224, %47 ], [ 208, %40 ], [ 208, %._crit_edge ]
+  %.sink15 = phi i64 [ 224, %47 ], [ 208, %40 ], [ 208, %._crit_edge ]
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink
   %51 = load ptr, ptr %1, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 180
   %53 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %52) #9
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %55 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink13
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink15
   %56 = load ptr, ptr %55, align 8
   store ptr %54, ptr %55, align 8
   store ptr %50, ptr %54, align 8

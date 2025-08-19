@@ -842,7 +842,7 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = load i16, ptr %122, align 8
   %124 = icmp eq i32 %116, 2
-  br i1 %124, label %.thread79, label %125
+  br i1 %124, label %.thread88, label %125
 
 125:                                              ; preds = %119
   %126 = getelementptr inbounds nuw i8, ptr %110, i64 448
@@ -850,16 +850,16 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
   %128 = call i32 @select_g_select_nodeinfo_get(ptr noundef %127, i32 noundef 2, i32 noundef 3, ptr noundef nonnull %3) #7
   %.pre77 = load i16, ptr %3, align 2
   %129 = icmp eq i16 %.pre77, 0
-  br i1 %129, label %.thread79, label %138
+  br i1 %129, label %.thread88, label %138
 
-.thread79:                                        ; preds = %119, %125
+.thread88:                                        ; preds = %119, %125
   br i1 %.not54, label %130, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.thread79
+._crit_edge:                                      ; preds = %.thread88
   %.pre78 = load i32, ptr %114, align 8
   br label %134
 
-130:                                              ; preds = %.thread79
+130:                                              ; preds = %.thread88
   br i1 %.not55, label %.thread, label %131
 
 131:                                              ; preds = %130

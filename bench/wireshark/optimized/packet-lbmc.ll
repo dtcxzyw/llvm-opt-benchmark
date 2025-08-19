@@ -9549,8 +9549,8 @@ proto_item_set_generated.exit926:                 ; preds = %3634, %3616, %3570,
 
 3857:                                             ; preds = %3856
   %3858 = call i32 @tvb_get_letohl(ptr noundef nonnull %.4742, i32 noundef 0)
-  %.not176.i = icmp eq i32 %3858, -1160074069
-  %.167.i = select i1 %.not176.i, i32 0, i32 -2147483648
+  %.not177.i = icmp eq i32 %3858, -1160074069
+  %.167.i = select i1 %.not177.i, i32 0, i32 -2147483648
   %3859 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %.4742, i32 noundef 0)
   %3860 = load i32, ptr @hf_lbm_msg_properties, align 4
   %3861 = call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %3860, ptr noundef nonnull %.4742, i32 noundef 0, i32 noundef %3859, i32 noundef %.167.i)
@@ -9580,7 +9580,7 @@ proto_item_set_generated.exit926:                 ; preds = %3634, %3616, %3570,
   br label %dissect_msg_properties.exit
 
 3880:                                             ; preds = %3857, %3857
-  br i1 %.not176.i, label %3883, label %3881
+  br i1 %.not177.i, label %3883, label %3881
 
 3881:                                             ; preds = %3880
   %3882 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %.4742, i32 noundef 4)
@@ -9600,7 +9600,7 @@ proto_item_set_generated.exit926:                 ; preds = %3634, %3616, %3570,
   %.0163173.i = phi i16 [ %3936, %3932 ], [ 0, %3885 ]
   %3886 = or disjoint i32 %.0161174.i, 4
   %3887 = add nuw nsw i32 %.0161174.i, 12
-  br i1 %.not176.i, label %3892, label %3888
+  br i1 %.not177.i, label %3892, label %3888
 
 3888:                                             ; preds = %.lr.ph.i932
   %3889 = call i32 @tvb_get_letohl(ptr noundef nonnull %.4742, i32 noundef %.0161174.i)
@@ -10731,10 +10731,10 @@ cmp_address.exit.thread.thread90:                 ; preds = %43, %cmp_address.ex
   br label %.critedge
 
 .critedge:                                        ; preds = %cmp_address.exit.thread.thread90, %cmp_address.exit, %20, %16, %33, %41, %.critedge81
-  %.sink95 = phi ptr [ %7, %.critedge81 ], [ %6, %41 ], [ %6, %33 ], [ %6, %16 ], [ %6, %20 ], [ %6, %cmp_address.exit ], [ %6, %cmp_address.exit.thread.thread90 ]
-  %.sink94 = phi ptr [ %6, %.critedge81 ], [ %7, %41 ], [ %7, %33 ], [ %7, %16 ], [ %7, %20 ], [ %7, %cmp_address.exit ], [ %7, %cmp_address.exit.thread.thread90 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sink95, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sink94, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false)
+  %.sink106 = phi ptr [ %7, %.critedge81 ], [ %6, %41 ], [ %6, %33 ], [ %6, %16 ], [ %6, %20 ], [ %6, %cmp_address.exit ], [ %6, %cmp_address.exit.thread.thread90 ]
+  %.sink105 = phi ptr [ %6, %.critedge81 ], [ %7, %41 ], [ %7, %33 ], [ %7, %16 ], [ %7, %20 ], [ %7, %cmp_address.exit ], [ %7, %cmp_address.exit.thread.thread90 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sink106, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sink105, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false)
   %56 = tail call noalias dereferenceable_or_null(136) ptr @g_malloc0(i64 noundef 136) #16
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 208

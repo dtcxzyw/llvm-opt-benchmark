@@ -2904,9 +2904,9 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   %30 = load ptr, ptr %29, align 8
   %switch.selectcmp = icmp eq i32 %28, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.1814, ptr @.str.1815
-  %switch.selectcmp1093 = icmp eq i32 %28, 0
-  %switch.select1094 = select i1 %switch.selectcmp1093, ptr @.str.1813, ptr %switch.select
-  tail call void @col_set_str(ptr noundef %30, i32 noundef 25, ptr noundef nonnull %switch.select1094)
+  %switch.selectcmp1121 = icmp eq i32 %28, 0
+  %switch.select1122 = select i1 %switch.selectcmp1121, ptr @.str.1813, ptr %switch.select
+  tail call void @col_set_str(ptr noundef %30, i32 noundef 25, ptr noundef nonnull %switch.select1122)
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i32 7, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 212
@@ -3672,8 +3672,8 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   %399 = trunc nuw i8 %398 to i1
   %400 = load ptr, ptr @hci_vendor_table, align 8
   %bthci_vendor_manufacturer_android. = select i1 %399, ptr @bthci_vendor_manufacturer_android, ptr %396
-  %.sink1092 = load i16, ptr %bthci_vendor_manufacturer_android., align 2
-  %401 = zext i16 %.sink1092 to i32
+  %.sink1120 = load i16, ptr %bthci_vendor_manufacturer_android., align 2
+  %401 = zext i16 %.sink1120 to i32
   %402 = call i32 @dissector_try_uint_with_data(ptr noundef %400, i32 noundef %401, ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull %3)
   %403 = icmp sgt i32 %402, 0
   br i1 %403, label %404, label %411
@@ -3789,7 +3789,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   %456 = getelementptr inbounds nuw i8, ptr %442, i64 24
   %457 = load i32, ptr %456, align 8
   %458 = icmp eq i32 %457, %435
-  br i1 %458, label %._crit_edge.thread1083, label %459
+  br i1 %458, label %._crit_edge.thread1111, label %459
 
 459:                                              ; preds = %455
   %460 = getelementptr inbounds nuw i8, ptr %442, i64 48
@@ -3807,7 +3807,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   %467 = getelementptr inbounds nuw i8, ptr %442, i64 48
   %468 = load i32, ptr %467, align 8
   %469 = icmp eq i32 %468, %435
-  br i1 %469, label %._crit_edge.thread1083, label %470
+  br i1 %469, label %._crit_edge.thread1111, label %470
 
 470:                                              ; preds = %466
   %471 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
@@ -3823,7 +3823,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
 477:                                              ; preds = %473, %449
   %478 = phi i32 [ %468, %473 ], [ %451, %449 ]
   %479 = icmp eq i32 %478, %435
-  br i1 %479, label %._crit_edge.thread1083, label %480
+  br i1 %479, label %._crit_edge.thread1111, label %480
 
 480:                                              ; preds = %477
   %481 = icmp eq i32 %448, 1
@@ -3833,7 +3833,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %442, i64 24
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %482 = icmp eq i32 %.pre, %435
-  br i1 %482, label %._crit_edge.thread1083, label %.thread1036
+  br i1 %482, label %._crit_edge.thread1111, label %.thread1036
 
 .thread1036:                                      ; preds = %459, %447, %449, %.thread1040, %480, %473, %470, %443
   %.2947.ph = phi ptr [ %.1946, %443 ], [ %.1946, %470 ], [ %.1946, %473 ], [ %442, %480 ], [ %442, %.thread1040 ], [ %.1946, %449 ], [ %.1946, %447 ], [ %spec.select, %459 ]
@@ -3843,7 +3843,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   %or.cond1060 = or i1 %483, %485
   br i1 %or.cond1060, label %.thread1053, label %.split, !llvm.loop !8
 
-._crit_edge.thread1083:                           ; preds = %466, %455, %477, %.thread1040
+._crit_edge.thread1111:                           ; preds = %466, %455, %477, %.thread1040
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -3862,8 +3862,8 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   %.not971 = icmp eq ptr %.us-phi, null
   br i1 %.not971, label %._crit_edge.thread, label %487
 
-487:                                              ; preds = %._crit_edge.thread1083, %._crit_edge
-  %.0945.lcssa1088 = phi ptr [ %442, %._crit_edge.thread1083 ], [ %.us-phi, %._crit_edge ]
+487:                                              ; preds = %._crit_edge.thread1111, %._crit_edge
+  %.0945.lcssa1116 = phi ptr [ %442, %._crit_edge.thread1111 ], [ %.us-phi, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %488 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -3938,7 +3938,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   store i8 1, ptr %521, align 8
   %522 = getelementptr inbounds nuw i8, ptr %515, i64 16
   store i32 1, ptr %522, align 8
-  %523 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 72
+  %523 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 72
   %524 = load ptr, ptr %523, align 8
   %525 = getelementptr inbounds nuw i8, ptr %515, i64 24
   store ptr %524, ptr %525, align 8
@@ -4007,7 +4007,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   store i8 1, ptr %558, align 8
   %559 = getelementptr inbounds nuw i8, ptr %552, i64 16
   store i32 12, ptr %559, align 8
-  %560 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 72
+  %560 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 72
   %561 = load i16, ptr %560, align 8
   %562 = getelementptr inbounds nuw i8, ptr %552, i64 24
   store i16 %561, ptr %562, align 8
@@ -4030,7 +4030,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   store i8 1, ptr %572, align 8
   %573 = getelementptr inbounds nuw i8, ptr %566, i64 16
   store i32 6, ptr %573, align 8
-  %574 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 72
+  %574 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 72
   %575 = load i8, ptr %574, align 8
   %576 = getelementptr inbounds nuw i8, ptr %566, i64 24
   store i8 %575, ptr %576, align 8
@@ -4053,7 +4053,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   store i8 1, ptr %586, align 8
   %587 = getelementptr inbounds nuw i8, ptr %580, i64 16
   store i32 8, ptr %587, align 8
-  %588 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 72
+  %588 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 72
   %589 = load i8, ptr %588, align 8
   %590 = getelementptr inbounds nuw i8, ptr %580, i64 24
   store i8 %589, ptr %590, align 8
@@ -4076,7 +4076,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   store i8 1, ptr %600, align 8
   %601 = getelementptr inbounds nuw i8, ptr %594, i64 16
   store i32 9, ptr %601, align 8
-  %602 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 72
+  %602 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 72
   %603 = load i8, ptr %602, align 8
   %604 = getelementptr inbounds nuw i8, ptr %594, i64 24
   store i8 %603, ptr %604, align 8
@@ -4099,7 +4099,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   store i8 1, ptr %614, align 8
   %615 = getelementptr inbounds nuw i8, ptr %608, i64 16
   store i32 10, ptr %615, align 8
-  %616 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 72
+  %616 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 72
   %617 = load i32, ptr %616, align 8
   %618 = getelementptr inbounds nuw i8, ptr %608, i64 24
   store i32 %617, ptr %618, align 8
@@ -4122,7 +4122,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   store i8 1, ptr %628, align 8
   %629 = getelementptr inbounds nuw i8, ptr %622, i64 16
   store i32 7, ptr %629, align 8
-  %630 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 72
+  %630 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 72
   %631 = load i16, ptr %630, align 8
   %632 = getelementptr inbounds nuw i8, ptr %622, i64 24
   store i16 %631, ptr %632, align 8
@@ -4145,19 +4145,19 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   store i8 1, ptr %642, align 8
   %643 = getelementptr inbounds nuw i8, ptr %636, i64 16
   store i32 14, ptr %643, align 8
-  %644 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 72
+  %644 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 72
   %645 = load i16, ptr %644, align 8
   %646 = getelementptr inbounds nuw i8, ptr %636, i64 24
   store i16 %645, ptr %646, align 8
-  %647 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 74
+  %647 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 74
   %648 = load i8, ptr %647, align 2
   %649 = getelementptr inbounds nuw i8, ptr %636, i64 26
   store i8 %648, ptr %649, align 2
-  %650 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 76
+  %650 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 76
   %651 = load i16, ptr %650, align 4
   %652 = getelementptr inbounds nuw i8, ptr %636, i64 28
   store i16 %651, ptr %652, align 4
-  %653 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 78
+  %653 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 78
   %654 = load i16, ptr %653, align 2
   %655 = getelementptr inbounds nuw i8, ptr %636, i64 30
   store i16 %654, ptr %655, align 2
@@ -4180,7 +4180,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   store i8 1, ptr %665, align 8
   %666 = getelementptr inbounds nuw i8, ptr %659, i64 16
   store i32 13, ptr %666, align 8
-  %667 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 72
+  %667 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 72
   %668 = load i8, ptr %667, align 8
   %669 = getelementptr inbounds nuw i8, ptr %659, i64 24
   store i8 %668, ptr %669, align 8
@@ -4203,7 +4203,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   store i8 1, ptr %679, align 8
   %680 = getelementptr inbounds nuw i8, ptr %673, i64 16
   store i32 11, ptr %680, align 8
-  %681 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 72
+  %681 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 72
   %682 = load i8, ptr %681, align 8
   %683 = getelementptr inbounds nuw i8, ptr %673, i64 24
   store i8 %682, ptr %683, align 8
@@ -4226,7 +4226,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %693, label %694, label %703
 
 694:                                              ; preds = %690
-  %695 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 24
+  %695 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 24
   %696 = load i32, ptr %695, align 8
   %697 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
   %698 = icmp eq i32 %696, %697
@@ -4235,7 +4235,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
 699:                                              ; preds = %694
   %700 = load i32, ptr %13, align 4
   store i32 %700, ptr %695, align 8
-  %701 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 32
+  %701 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 32
   %702 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %701, ptr noundef nonnull align 8 dereferenceable(16) %702, i64 16, i1 false)
   %.pre1069 = load ptr, ptr %55, align 8
@@ -4256,7 +4256,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %709, label %710, label %719
 
 710:                                              ; preds = %706
-  %711 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 48
+  %711 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 48
   %712 = load i32, ptr %711, align 8
   %713 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
   %714 = icmp eq i32 %712, %713
@@ -4265,7 +4265,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
 715:                                              ; preds = %710
   %716 = load i32, ptr %13, align 4
   store i32 %716, ptr %711, align 8
-  %717 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 56
+  %717 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 56
   %718 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %717, ptr noundef nonnull align 8 dereferenceable(16) %718, i64 16, i1 false)
   %.pre1072 = load ptr, ptr %55, align 8
@@ -4286,14 +4286,14 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %725, label %726, label %739
 
 726:                                              ; preds = %722
-  %727 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 48
+  %727 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 48
   %728 = load i32, ptr %727, align 8
   %729 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
   %730 = icmp eq i32 %728, %729
   br i1 %730, label %731, label %739
 
 731:                                              ; preds = %726
-  %732 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 24
+  %732 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 24
   %733 = load i32, ptr %732, align 8
   %734 = icmp eq i32 %733, %728
   br i1 %734, label %735, label %739
@@ -4301,13 +4301,13 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
 735:                                              ; preds = %731
   %736 = load i32, ptr %13, align 4
   store i32 %736, ptr %727, align 8
-  %737 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 56
+  %737 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 56
   %738 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %737, ptr noundef nonnull align 8 dereferenceable(16) %738, i64 16, i1 false)
   br label %739
 
 739:                                              ; preds = %735, %731, %726, %722, %719
-  %740 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 24
+  %740 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 24
   %741 = load i32, ptr %740, align 8
   %742 = load i32, ptr %13, align 4
   %743 = icmp eq i32 %741, %742
@@ -4315,7 +4315,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
 
 744:                                              ; preds = %739
   %745 = load i32, ptr @hf_command_in_frame, align 4
-  %746 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 4
+  %746 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 4
   %747 = load i32, ptr %746, align 4
   %748 = call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %745, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %747)
   %.not.i = icmp eq ptr %748, null
@@ -4335,7 +4335,7 @@ define internal i32 @dissect_bthci_evt(ptr noundef %0, ptr noundef %1, ptr nound
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %744, %749, %752
-  %756 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 48
+  %756 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 48
   %757 = load i32, ptr %756, align 8
   %758 = load i32, ptr @bluetooth_max_disconnect_in_frame, align 4
   %759 = icmp ult i32 %757, %758
@@ -4361,8 +4361,8 @@ proto_item_set_generated.exit:                    ; preds = %744, %749, %752
   br label %proto_item_set_generated.exit1014
 
 proto_item_set_generated.exit1014:                ; preds = %766, %763, %760, %proto_item_set_generated.exit
-  %770 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 32
-  %771 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 8
+  %770 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 32
+  %771 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 8
   call void @nstime_delta(ptr noundef nonnull %14, ptr noundef nonnull %770, ptr noundef nonnull %771)
   %772 = load i32, ptr @hf_command_pending_time_delta, align 4
   %773 = call double @nstime_to_msec(ptr noundef nonnull %14)
@@ -4390,7 +4390,7 @@ proto_item_set_generated.exit1017:                ; preds = %proto_item_set_gene
   br i1 %784, label %785, label %proto_item_set_generated.exit1020
 
 785:                                              ; preds = %proto_item_set_generated.exit1017
-  %786 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 56
+  %786 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 56
   call void @nstime_delta(ptr noundef nonnull %14, ptr noundef nonnull %786, ptr noundef nonnull %770)
   %787 = load i32, ptr @hf_pending_response_time_delta, align 4
   %788 = call double @nstime_to_msec(ptr noundef nonnull %14)
@@ -4412,7 +4412,7 @@ proto_item_set_generated.exit1017:                ; preds = %proto_item_set_gene
   br label %proto_item_set_generated.exit1020
 
 proto_item_set_generated.exit1020:                ; preds = %793, %790, %785, %proto_item_set_generated.exit1017, %739
-  %797 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 48
+  %797 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 48
   %798 = load i32, ptr %797, align 8
   %799 = load i32, ptr %13, align 4
   %800 = icmp eq i32 %798, %799
@@ -4420,7 +4420,7 @@ proto_item_set_generated.exit1020:                ; preds = %793, %790, %785, %p
 
 801:                                              ; preds = %proto_item_set_generated.exit1020
   %802 = load i32, ptr @hf_command_in_frame, align 4
-  %803 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 4
+  %803 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 4
   %804 = load i32, ptr %803, align 4
   %805 = call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %802, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %804)
   %.not.i1021 = icmp eq ptr %805, null
@@ -4465,8 +4465,8 @@ proto_item_set_generated.exit1023:                ; preds = %801, %806, %809
   br label %proto_item_set_generated.exit1026
 
 proto_item_set_generated.exit1026:                ; preds = %816, %819, %822
-  %826 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 56
-  %827 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 32
+  %826 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 56
+  %827 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 32
   call void @nstime_delta(ptr noundef nonnull %14, ptr noundef nonnull %826, ptr noundef nonnull %827)
   %828 = load i32, ptr @hf_pending_response_time_delta, align 4
   %829 = call double @nstime_to_msec(ptr noundef nonnull %14)
@@ -4488,8 +4488,8 @@ proto_item_set_generated.exit1026:                ; preds = %816, %819, %822
   br label %proto_item_set_generated.exit1029
 
 proto_item_set_generated.exit1029:                ; preds = %834, %831, %proto_item_set_generated.exit1026, %proto_item_set_generated.exit1023
-  %838 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 56
-  %839 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1088, i64 8
+  %838 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 56
+  %839 = getelementptr inbounds nuw i8, ptr %.0945.lcssa1116, i64 8
   call void @nstime_delta(ptr noundef nonnull %14, ptr noundef nonnull %838, ptr noundef nonnull %839)
   %840 = load i32, ptr @hf_command_response_time_delta, align 4
   %841 = call double @nstime_to_msec(ptr noundef nonnull %14)
@@ -5881,8 +5881,8 @@ define internal fastcc i32 @dissect_bthci_evt_command_complete(ptr noundef %0, p
   %86 = load ptr, ptr @hci_vendor_table, align 8
   %bthci_vendor_manufacturer_android. = select i1 %85, ptr @bthci_vendor_manufacturer_android, ptr %82
   %. = select i1 %85, ptr %3, ptr %2
-  %.sink2658 = load i16, ptr %bthci_vendor_manufacturer_android., align 2
-  %87 = zext i16 %.sink2658 to i32
+  %.sink2670 = load i16, ptr %bthci_vendor_manufacturer_android., align 2
+  %87 = zext i16 %.sink2670 to i32
   %88 = call i32 @dissector_try_uint_with_data(ptr noundef %86, i32 noundef %87, ptr noundef %0, ptr noundef %1, ptr noundef %., i1 noundef zeroext true, ptr noundef nonnull %5)
   %89 = icmp sgt i32 %88, 0
   br i1 %89, label %90, label %.thread2584
@@ -7424,9 +7424,9 @@ proto_item_set_generated.exit2580:                ; preds = %823, %820, %812, %p
   br label %844
 
 844:                                              ; preds = %839, %843
-  %.sink2659 = phi ptr [ null, %843 ], [ %751, %839 ]
+  %.sink2671 = phi ptr [ null, %843 ], [ %751, %839 ]
   %845 = getelementptr inbounds nuw i8, ptr %834, i64 16
-  store ptr %.sink2659, ptr %845, align 8
+  store ptr %.sink2671, ptr %845, align 8
   %846 = load ptr, ptr %749, align 8
   call void @wmem_tree_insert32_array(ptr noundef %846, ptr noundef nonnull %9, ptr noundef %834)
   br label %send_hci_summary_status_tap.exit
@@ -8665,12 +8665,12 @@ define internal fastcc i32 @dissect_bthci_evt_command_status(ptr noundef %0, ptr
   br label %send_hci_summary_status_tap.exit.sink.split
 
 send_hci_summary_status_tap.exit.sink.split:      ; preds = %17, %29, %36
-  %.sink121 = phi ptr [ %39, %36 ], [ %20, %29 ], [ %20, %17 ]
+  %.sink124 = phi ptr [ %39, %36 ], [ %20, %29 ], [ %20, %17 ]
   %.str.1572.sink = phi ptr [ @.str.1572, %36 ], [ %30, %29 ], [ null, %17 ]
-  %46 = getelementptr inbounds nuw i8, ptr %.sink121, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.sink124, i64 16
   store ptr %.str.1572.sink, ptr %46, align 8
   %47 = load i32, ptr @bluetooth_hci_summary_tap, align 4
-  tail call void @tap_queue_packet(i32 noundef %47, ptr noundef %1, ptr noundef %.sink121)
+  tail call void @tap_queue_packet(i32 noundef %47, ptr noundef %1, ptr noundef %.sink124)
   br label %send_hci_summary_status_tap.exit
 
 send_hci_summary_status_tap.exit:                 ; preds = %send_hci_summary_status_tap.exit.sink.split, %31, %11
@@ -8827,8 +8827,8 @@ add_opcode.exit:                                  ; preds = %75, %add_opcode.exi
   %119 = load ptr, ptr @hci_vendor_table, align 8
   %bthci_vendor_manufacturer_android. = select i1 %118, ptr @bthci_vendor_manufacturer_android, ptr %115
   %.1 = select i1 %118, ptr %3, ptr %2
-  %.sink126 = load i16, ptr %bthci_vendor_manufacturer_android., align 2
-  %120 = zext i16 %.sink126 to i32
+  %.sink129 = load i16, ptr %bthci_vendor_manufacturer_android., align 2
+  %120 = zext i16 %.sink129 to i32
   %121 = call i32 @dissector_try_uint_with_data(ptr noundef %119, i32 noundef %120, ptr noundef %0, ptr noundef %1, ptr noundef %.1, i1 noundef zeroext true, ptr noundef nonnull %5)
   %122 = icmp sgt i32 %121, 0
   br i1 %122, label %123, label %130

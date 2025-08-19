@@ -443,7 +443,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %34, %37
   %.033.lcssa.i = phi float [ 0.000000e+00, %.split.i ], [ %203, %188 ]
   %trunc.i = trunc nuw i64 %indvars.iv53.i to i1
   %187 = fadd float %182, %.033.lcssa.i
-  br i1 %trunc.i, label %.thread59.i, label %207
+  br i1 %trunc.i, label %.thread60.i, label %207
 
 188:                                              ; preds = %188, %.lr.ph.i
   %indvars.iv50.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next51.i, %188 ]
@@ -470,7 +470,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %34, %37
   %206 = icmp slt i64 %indvars.iv.next51.i, %205
   br i1 %206, label %188, label %._crit_edge.i, !llvm.loop !45
 
-.thread59.i:                                      ; preds = %._crit_edge.i
+.thread60.i:                                      ; preds = %._crit_edge.i
   %.sroa.035.4.vec.insert.i = insertelement <2 x float> %.sroa.035.044.i, float %187, i64 1
   %.pre = load i32, ptr %40, align 4, !tbaa !37
   br label %_ZN2cvL20_applyTransformationERKNS_3MatENS_6Point_IfEES2_.exit
@@ -479,10 +479,10 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %34, %37
   %.sroa.035.0.vec.insert.i = insertelement <2 x float> %.sroa.035.044.i, float %187, i64 0
   br label %.split.i, !llvm.loop !46
 
-_ZN2cvL20_applyTransformationERKNS_3MatENS_6Point_IfEES2_.exit: ; preds = %.thread59.i, %.split.us.i
-  %208 = phi i32 [ %125, %.split.us.i ], [ %.pre, %.thread59.i ]
-  %209 = phi i32 [ %126, %.split.us.i ], [ %185, %.thread59.i ]
-  %.us-phi.i = phi <2 x float> [ %.sroa.035.4.vec.insert.us.i, %.split.us.i ], [ %.sroa.035.4.vec.insert.i, %.thread59.i ]
+_ZN2cvL20_applyTransformationERKNS_3MatENS_6Point_IfEES2_.exit: ; preds = %.thread60.i, %.split.us.i
+  %208 = phi i32 [ %125, %.split.us.i ], [ %.pre, %.thread60.i ]
+  %209 = phi i32 [ %126, %.split.us.i ], [ %185, %.thread60.i ]
+  %.us-phi.i = phi <2 x float> [ %.sroa.035.4.vec.insert.us.i, %.split.us.i ], [ %.sroa.035.4.vec.insert.i, %.thread60.i ]
   %.sroa.0.0.vec.extract = extractelement <2 x float> %.us-phi.i, i64 0
   %210 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv57
   store float %.sroa.0.0.vec.extract, ptr %210, align 4, !tbaa !39
@@ -900,7 +900,7 @@ _ZNK2cv11_InputArray6getMatEi.exit37:             ; preds = %68, %65
   %.033.lcssa.i = phi float [ 0.000000e+00, %.split.i ], [ %160, %145 ]
   %trunc.i = trunc nuw i64 %indvars.iv53.i to i1
   %144 = fadd float %140, %.033.lcssa.i
-  br i1 %trunc.i, label %.thread59.i, label %164
+  br i1 %trunc.i, label %.thread60.i, label %164
 
 145:                                              ; preds = %145, %.lr.ph.i
   %indvars.iv50.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next51.i, %145 ]
@@ -927,7 +927,7 @@ _ZNK2cv11_InputArray6getMatEi.exit37:             ; preds = %68, %65
   %163 = icmp slt i64 %indvars.iv.next51.i, %162
   br i1 %163, label %145, label %._crit_edge.i, !llvm.loop !45
 
-.thread59.i:                                      ; preds = %._crit_edge.i
+.thread60.i:                                      ; preds = %._crit_edge.i
   %.sroa.035.4.vec.insert.i = insertelement <2 x float> %.sroa.035.044.i, float %144, i64 1
   br label %_ZN2cvL20_applyTransformationERKNS_3MatENS_6Point_IfEES2_.exit
 
@@ -935,8 +935,8 @@ _ZNK2cv11_InputArray6getMatEi.exit37:             ; preds = %68, %65
   %.sroa.035.0.vec.insert.i = insertelement <2 x float> %.sroa.035.044.i, float %144, i64 0
   br label %.split.i, !llvm.loop !46
 
-_ZN2cvL20_applyTransformationERKNS_3MatENS_6Point_IfEES2_.exit: ; preds = %.thread59.i, %.split.us.i
-  %.us-phi.i = phi <2 x float> [ %.sroa.035.4.vec.insert.us.i, %.split.us.i ], [ %.sroa.035.4.vec.insert.i, %.thread59.i ]
+_ZN2cvL20_applyTransformationERKNS_3MatENS_6Point_IfEES2_.exit: ; preds = %.thread60.i, %.split.us.i
+  %.us-phi.i = phi <2 x float> [ %.sroa.035.4.vec.insert.us.i, %.split.us.i ], [ %.sroa.035.4.vec.insert.i, %.thread60.i ]
   %165 = load ptr, ptr %78, align 8, !tbaa !61
   %166 = getelementptr inbounds nuw %"class.cv::Point_", ptr %165, i64 %indvars.iv
   store <2 x float> %.us-phi.i, ptr %166, align 4

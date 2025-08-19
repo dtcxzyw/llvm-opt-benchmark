@@ -399,11 +399,11 @@ av_iamf_param_definition_get_subblock.exit.i:     ; preds = %175
 
 190:                                              ; preds = %av_iamf_param_definition_get_subblock.exit.i
   %191 = icmp eq i64 %indvars.iv249.i, %172
-  %spec.select263.i = select i1 %191, i32 %174, i32 %.0154.i
+  %spec.select273.i = select i1 %191, i32 %174, i32 %.0154.i
   br label %192
 
 192:                                              ; preds = %190, %187
-  %.0165.i = phi i32 [ %188, %187 ], [ %spec.select263.i, %190 ]
+  %.0165.i = phi i32 [ %188, %187 ], [ %spec.select273.i, %190 ]
   %.3.i = phi i32 [ %189, %187 ], [ %.1236.i, %190 ]
   %193 = load i32, ptr %154, align 4, !tbaa !67
   switch i32 %193, label %257 [

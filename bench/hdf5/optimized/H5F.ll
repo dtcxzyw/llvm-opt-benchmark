@@ -620,7 +620,7 @@ define i64 @H5Fget_obj_count(i64 noundef %0, i32 noundef %1) local_unnamed_addr 
   %73 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !11
   %74 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !11
   %75 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Fget_obj_count, i32 noundef 263, i64 noundef %73, i64 noundef %74, ptr noundef nonnull @.str.10) #6
-  br label %.thread59
+  br label %.thread60
 
 76:                                               ; preds = %69, %65
   %77 = and i32 %1, 2
@@ -636,7 +636,7 @@ define i64 @H5Fget_obj_count(i64 noundef %0, i32 noundef %1) local_unnamed_addr 
   %82 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !11
   %83 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !11
   %84 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Fget_obj_count, i32 noundef 266, i64 noundef %82, i64 noundef %83, ptr noundef nonnull @.str.11) #6
-  br label %.thread59
+  br label %.thread60
 
 85:                                               ; preds = %78, %76
   %86 = and i32 %1, 4
@@ -652,7 +652,7 @@ define i64 @H5Fget_obj_count(i64 noundef %0, i32 noundef %1) local_unnamed_addr 
   %91 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !11
   %92 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !11
   %93 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Fget_obj_count, i32 noundef 269, i64 noundef %91, i64 noundef %92, ptr noundef nonnull @.str.12) #6
-  br label %.thread59
+  br label %.thread60
 
 94:                                               ; preds = %87, %85
   %95 = and i32 %1, 8
@@ -668,7 +668,7 @@ define i64 @H5Fget_obj_count(i64 noundef %0, i32 noundef %1) local_unnamed_addr 
   %100 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !11
   %101 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !11
   %102 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Fget_obj_count, i32 noundef 272, i64 noundef %100, i64 noundef %101, ptr noundef nonnull @.str.13) #6
-  br label %.thread59
+  br label %.thread60
 
 103:                                              ; preds = %96, %94
   %104 = and i32 %1, 16
@@ -684,9 +684,9 @@ define i64 @H5Fget_obj_count(i64 noundef %0, i32 noundef %1) local_unnamed_addr 
   %109 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !11
   %110 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !11
   %111 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Fget_obj_count, i32 noundef 275, i64 noundef %109, i64 noundef %110, ptr noundef nonnull @.str.14) #6
-  br label %.thread59
+  br label %.thread60
 
-.thread59:                                        ; preds = %72, %81, %90, %99, %108
+.thread60:                                        ; preds = %72, %81, %90, %99, %108
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %112 = call i32 @H5CX_pop(i1 noundef zeroext true) #6
   br label %.thread49
@@ -710,7 +710,7 @@ define i64 @H5Fget_obj_count(i64 noundef %0, i32 noundef %1) local_unnamed_addr 
   %119 = call i32 @H5CX_pop(i1 noundef zeroext true) #6
   br label %121
 
-.thread49:                                        ; preds = %.thread59, %.thread, %35, %28, %15, %.thread53
+.thread49:                                        ; preds = %.thread60, %.thread, %35, %28, %15, %.thread53
   %120 = call i32 @H5E_dump_api_stack() #6
   br label %121
 
@@ -885,7 +885,7 @@ define i64 @H5Fget_obj_ids(i64 noundef %0, i32 noundef %1, i64 noundef %2, ptr n
   %82 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !11
   %83 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !11
   %84 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Fget_obj_ids, i32 noundef 389, i64 noundef %82, i64 noundef %83, ptr noundef nonnull @.str.10) #6
-  br label %.thread67
+  br label %.thread69
 
 85:                                               ; preds = %78, %74
   %86 = and i32 %1, 2
@@ -901,7 +901,7 @@ define i64 @H5Fget_obj_ids(i64 noundef %0, i32 noundef %1, i64 noundef %2, ptr n
   %91 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !11
   %92 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !11
   %93 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Fget_obj_ids, i32 noundef 392, i64 noundef %91, i64 noundef %92, ptr noundef nonnull @.str.11) #6
-  br label %.thread67
+  br label %.thread69
 
 94:                                               ; preds = %87, %85
   %95 = and i32 %1, 4
@@ -917,7 +917,7 @@ define i64 @H5Fget_obj_ids(i64 noundef %0, i32 noundef %1, i64 noundef %2, ptr n
   %100 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !11
   %101 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !11
   %102 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Fget_obj_ids, i32 noundef 395, i64 noundef %100, i64 noundef %101, ptr noundef nonnull @.str.12) #6
-  br label %.thread67
+  br label %.thread69
 
 103:                                              ; preds = %96, %94
   %104 = and i32 %1, 8
@@ -933,7 +933,7 @@ define i64 @H5Fget_obj_ids(i64 noundef %0, i32 noundef %1, i64 noundef %2, ptr n
   %109 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !11
   %110 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !11
   %111 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Fget_obj_ids, i32 noundef 398, i64 noundef %109, i64 noundef %110, ptr noundef nonnull @.str.13) #6
-  br label %.thread67
+  br label %.thread69
 
 112:                                              ; preds = %105, %103
   %113 = and i32 %1, 16
@@ -949,9 +949,9 @@ define i64 @H5Fget_obj_ids(i64 noundef %0, i32 noundef %1, i64 noundef %2, ptr n
   %118 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !11
   %119 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !11
   %120 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Fget_obj_ids, i32 noundef 401, i64 noundef %118, i64 noundef %119, ptr noundef nonnull @.str.14) #6
-  br label %.thread67
+  br label %.thread69
 
-.thread67:                                        ; preds = %81, %90, %99, %108, %117
+.thread69:                                        ; preds = %81, %90, %99, %108, %117
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %121 = call i32 @H5CX_pop(i1 noundef zeroext true) #6
   br label %.thread56
@@ -979,7 +979,7 @@ define i64 @H5Fget_obj_ids(i64 noundef %0, i32 noundef %1, i64 noundef %2, ptr n
   %129 = call i32 @H5CX_pop(i1 noundef zeroext true) #6
   br label %131
 
-.thread56:                                        ; preds = %.thread67, %.thread, %37, %30, %17, %.thread61
+.thread56:                                        ; preds = %.thread69, %.thread, %37, %30, %17, %.thread61
   %130 = call i32 @H5E_dump_api_stack() #6
   br label %131
 

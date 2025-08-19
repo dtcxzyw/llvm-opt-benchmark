@@ -162,7 +162,7 @@ define void @"_ZN74_$LT$uu_cut..matcher..ExactMatcher$u20$as$u20$uu_cut..matcher
   br i1 %9, label %.lr.ph.split.us, label %.lr.ph.split.split.preheader
 
 .lr.ph.split.split.preheader:                     ; preds = %.lr.ph
-  br i1 %switch8.i.not.us, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h0fc16ebcfda6d3f2E.exit.thread, label %.lr.ph78
+  br i1 %switch8.i.not.us, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h0fc16ebcfda6d3f2E.exit.thread, label %.lr.ph81
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %switch8.i.not.us, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h0fc16ebcfda6d3f2E.exit.thread, label %.split48.us
@@ -180,17 +180,17 @@ define void @"_ZN74_$LT$uu_cut..matcher..ExactMatcher$u20$as$u20$uu_cut..matcher
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8526faa418182fe6b4253bd802f2c489.17) #7
   unreachable
 
-.lr.ph78:                                         ; preds = %.lr.ph.split.split.preheader, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h264b331da921283aE.exit.backedge"
+.lr.ph81:                                         ; preds = %.lr.ph.split.split.preheader, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h264b331da921283aE.exit.backedge"
   %21 = phi { i64, ptr } [ %41, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h264b331da921283aE.exit.backedge" ], [ %14, %.lr.ph.split.split.preheader ]
   %22 = phi ptr [ %39, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h264b331da921283aE.exit.backedge" ], [ %2, %.lr.ph.split.split.preheader ]
-  %.0466377 = phi i64 [ %29, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h264b331da921283aE.exit.backedge" ], [ 0, %.lr.ph.split.split.preheader ]
+  %.0466380 = phi i64 [ %29, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h264b331da921283aE.exit.backedge" ], [ 0, %.lr.ph.split.split.preheader ]
   %23 = extractvalue { i64, ptr } %21, 1
   %24 = ptrtoint ptr %23 to i64
   %25 = ptrtoint ptr %22 to i64
   %26 = sub i64 %24, %25
   %27 = icmp sgt i64 %26, -1
   tail call void @llvm.assume(i1 %27)
-  %28 = add i64 %26, %.0466377
+  %28 = add i64 %26, %.0466380
   %29 = add i64 %28, 1
   %30 = icmp ugt i64 %29, %3
   br i1 %30, label %.split57.us, label %34
@@ -209,11 +209,11 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17h0fc16ebcfda6d3f2E.exit.t
   store i64 %31, ptr %33, align 8
   br label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h0fc16ebcfda6d3f2E.exit.thread
 
-.split57.us:                                      ; preds = %.lr.ph78
+.split57.us:                                      ; preds = %.lr.ph81
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %29, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8526faa418182fe6b4253bd802f2c489.19) #7
   unreachable
 
-34:                                               ; preds = %.lr.ph78
+34:                                               ; preds = %.lr.ph81
   %35 = sub nuw i64 %3, %29
   %.not.i = icmp ult i64 %35, %10
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h264b331da921283aE.exit.backedge", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha096326d6343c9deE.exit.i"
@@ -232,7 +232,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17h0fc16ebcfda6d3f2E.exit.t
   %41 = tail call { i64, ptr } %.0.i.i(i8 noundef %38, ptr noundef nonnull readonly align 1 %39, ptr noundef nonnull readonly %8), !noalias !10
   %42 = extractvalue { i64, ptr } %41, 0
   %switch8.i.not = icmp eq i64 %42, 0
-  br i1 %switch8.i.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h0fc16ebcfda6d3f2E.exit.thread, label %.lr.ph78
+  br i1 %switch8.i.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h0fc16ebcfda6d3f2E.exit.thread, label %.lr.ph81
 }
 
 ; Function Attrs: nonlazybind uwtable

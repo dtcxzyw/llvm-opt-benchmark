@@ -1826,8 +1826,8 @@ attribute_stats.exit.i:                           ; preds = %299, %._crit_edge.i
   br label %377
 
 377:                                              ; preds = %372, %371
-  %.sink242.i = phi i64 [ 576, %372 ], [ 568, %371 ]
-  %378 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink242.i
+  %.sink290.i = phi i64 [ 576, %372 ], [ 568, %371 ]
+  %378 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink290.i
   %379 = load i64, ptr %378, align 8, !tbaa !18
   %380 = add i64 %379, %304
   store i64 %380, ptr %378, align 8, !tbaa !18
@@ -2264,9 +2264,9 @@ ceil_log10.exit.i53:                              ; preds = %.lr.ph.i200.i, %446
 
 628:                                              ; preds = %625
   %629 = icmp eq i32 %626, 0
-  br i1 %629, label %.thread234.i, label %.lr.ph222.i
+  br i1 %629, label %.thread282.i, label %.lr.ph222.i
 
-.thread234.i:                                     ; preds = %628
+.thread282.i:                                     ; preds = %628
   %630 = getelementptr inbounds nuw i8, ptr %3, i64 456
   %631 = load i64, ptr %630, align 8, !tbaa !18
   %632 = add i64 %631, 1
@@ -2307,7 +2307,7 @@ ceil_log10.exit.i53:                              ; preds = %.lr.ph.i200.i, %446
   %exitcond230.not.i = icmp eq i32 %649, %626
   br i1 %exitcond230.not.i, label %.loopexit.i, label %635, !llvm.loop !106
 
-.loopexit.i:                                      ; preds = %648, %.thread234.i, %625
+.loopexit.i:                                      ; preds = %648, %.thread282.i, %625
   %650 = call i32 @H5Pclose(i64 noundef %305) #15
   %651 = icmp slt i32 %650, 0
   br i1 %651, label %652, label %668

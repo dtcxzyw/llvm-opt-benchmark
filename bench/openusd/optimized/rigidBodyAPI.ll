@@ -428,18 +428,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i11: ; preds = %79, %66
   br label %90
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit.sink.split: ; preds = %85, %49
-  %.sink16 = phi ptr [ %48, %49 ], [ %84, %85 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__12Usd_PrimDataD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink16) #21
-  call void @_ZdlPvm(ptr noundef nonnull %.sink16, i64 noundef 64) #22
+  %.sink21 = phi ptr [ %48, %49 ], [ %84, %85 ]
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__12Usd_PrimDataD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink21) #21
+  call void @_ZdlPvm(ptr noundef nonnull %.sink21, i64 noundef 64) #22
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit.sink.split, %85, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i11, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i
   ret void
 
 90:                                               ; preds = %88, %52
-  %.sink17 = phi ptr [ %6, %88 ], [ %5, %52 ]
+  %.sink22 = phi ptr [ %6, %88 ], [ %5, %52 ]
   %.pn = phi { ptr, i32 } [ %89, %88 ], [ %53, %52 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink17) #21
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink22) #21
   resume { ptr, i32 } %.pn
 }
 
@@ -2743,9 +2743,9 @@ define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__21UsdPhysics
   br label %103
 
 103:                                              ; preds = %83, %75
-  %storemerge87 = phi <2 x float> [ %.sroa.0.4.vec.insert.i57, %83 ], [ %.sroa.0.4.vec.insert.i, %75 ]
+  %storemerge89 = phi <2 x float> [ %.sroa.0.4.vec.insert.i57, %83 ], [ %.sroa.0.4.vec.insert.i, %75 ]
   %storemerge = phi <2 x float> [ %.sroa.3.12.vec.insert.i59, %83 ], [ %.sroa.3.12.vec.insert.i, %75 ]
-  store <2 x float> %storemerge87, ptr %13, align 8
+  store <2 x float> %storemerge89, ptr %13, align 8
   store <2 x float> %storemerge, ptr %.sroa.214.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
@@ -2912,8 +2912,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute3GetIfEEbPT_NS_11UsdTimeCode
   %.sroa.6.0..sroa_idx.i.i17 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.6.0.copyload.i.i18 = load float, ptr %.sroa.6.0..sroa_idx.i.i17, align 8
   %.sroa.0.0.vec.extract.i.i19 = extractelement <2 x float> %.sroa.0.0.copyload.i.i16, i64 0
-  %foldExtExtBinop46 = fmul <2 x float> %.sroa.0.0.copyload.i.i16, %.sroa.0.0.copyload.i.i16
-  %53 = extractelement <2 x float> %foldExtExtBinop46, i64 1
+  %foldExtExtBinop54 = fmul <2 x float> %.sroa.0.0.copyload.i.i16, %.sroa.0.0.copyload.i.i16
+  %53 = extractelement <2 x float> %foldExtExtBinop54, i64 1
   %54 = call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract.i.i19, float %.sroa.0.0.vec.extract.i.i19, float %53)
   %55 = call noundef float @llvm.fmuladd.f32(float %.sroa.6.0.copyload.i.i18, float %.sroa.6.0.copyload.i.i18, float %54)
   %56 = fpext float %55 to double
@@ -4164,19 +4164,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %195
 
 195:                                              ; preds = %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit
-  %.sink45 = phi i64 [ 48, %186 ], [ 32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit ]
+  %.sink53 = phi i64 [ 48, %186 ], [ 32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit ]
   %.sink = phi float [ %192, %186 ], [ 1.000000e+00, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit ]
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink45
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink53
   store float %.sink, ptr %196, align 4
   ret void
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8UsdStageEED2Ev.exit31.sink.split: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i33, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i30
-  %.sink50 = phi ptr [ %94, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i30 ], [ %101, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i33 ]
+  %.sink58 = phi ptr [ %94, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i30 ], [ %101, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i33 ]
   %.pn.ph = phi { ptr, i32 } [ %92, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i30 ], [ %99, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i33 ]
-  %197 = load ptr, ptr %.sink50, align 8
+  %197 = load ptr, ptr %.sink58, align 8
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %199 = load ptr, ptr %198, align 8
-  call void %199(ptr noundef nonnull align 8 dereferenceable(12) %.sink50) #21
+  call void %199(ptr noundef nonnull align 8 dereferenceable(12) %.sink58) #21
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8UsdStageEED2Ev.exit31
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8UsdStageEED2Ev.exit31: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8UsdStageEED2Ev.exit31.sink.split, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i33, %98, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i30, %91
@@ -4446,14 +4446,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorppEv.exit: ; preds =
   %.pre = load ptr, ptr %22, align 8, !noalias !30
   %144 = load ptr, ptr %130, align 8
   %145 = icmp eq ptr %.pre, %144
-  %or.cond360 = select i1 %143, i1 %145, i1 false
+  %or.cond403 = select i1 %143, i1 %145, i1 false
   %.0.copyload.i.i.i.i = load i64, ptr %132, align 8
   %146 = icmp eq i64 %.0.copyload.i.i.i.i, 0
-  %or.cond361 = select i1 %or.cond360, i1 %146, i1 false
+  %or.cond404 = select i1 %or.cond403, i1 %146, i1 false
   %147 = load i32, ptr %133, align 8
   %148 = icmp eq i32 %147, 0
-  %or.cond363 = select i1 %or.cond361, i1 %148, i1 false
-  br i1 %or.cond363, label %149, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorD2Ev.exit.thread
+  %or.cond406 = select i1 %or.cond404, i1 %148, i1 false
+  br i1 %or.cond406, label %149, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorD2Ev.exit.thread
 
 149:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorppEv.exit
   %150 = load i8, ptr %134, align 4
@@ -4464,8 +4464,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorppEv.exit: ; preds =
 _ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorD2Ev.exit: ; preds = %149
   %153 = load i8, ptr %135, align 1
   %154 = and i8 %153, 1
-  %.not364 = icmp eq i8 %154, 0
-  br i1 %.not364, label %155, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorD2Ev.exit.thread
+  %.not407 = icmp eq i8 %154, 0
+  br i1 %.not407, label %155, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorD2Ev.exit.thread
 
 155:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iteratorD2Ev.exit
   %156 = load i32, ptr %132, align 8
@@ -5122,10 +5122,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i116: ; preds = %423, %
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %582, %570, %547, %.noexc133, %.noexc132, %.noexc131, %515, %507, %585, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit143, %573, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit, %556, %498
-  %.sroa.0192.4.lcssa329 = phi ptr [ %.sroa.0192.4.lcssa328, %582 ], [ %.sroa.0192.4.lcssa328, %570 ], [ %.sroa.0192.6, %547 ], [ %.sroa.0192.6, %.noexc133 ], [ %.sroa.0192.6, %.noexc132 ], [ %.sroa.0192.6, %.noexc131 ], [ %.sroa.0192.6, %515 ], [ %.sroa.0192.6, %507 ], [ %.sroa.0192.4.lcssa328, %585 ], [ %.sroa.0192.4.lcssa328, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit143 ], [ %.sroa.0192.4.lcssa328, %573 ], [ %.sroa.0192.4.lcssa328, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit ], [ %.sroa.0192.4.lcssa328, %556 ], [ %.sroa.0192.6, %498 ]
-  %.sroa.14.4.lcssa326 = phi ptr [ %.sroa.14.4.lcssa325, %582 ], [ %.sroa.14.4.lcssa325, %570 ], [ %.sroa.14.6, %547 ], [ %.sroa.14.6, %.noexc133 ], [ %.sroa.14.6, %.noexc132 ], [ %.sroa.14.6, %.noexc131 ], [ %.sroa.14.6, %515 ], [ %.sroa.14.6, %507 ], [ %.sroa.14.4.lcssa325, %585 ], [ %.sroa.14.4.lcssa325, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit143 ], [ %.sroa.14.4.lcssa325, %573 ], [ %.sroa.14.4.lcssa325, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit ], [ %.sroa.14.4.lcssa325, %556 ], [ %.sroa.14.6, %498 ]
-  %.sroa.0185.4.lcssa323 = phi ptr [ %.sroa.0185.4.lcssa322, %582 ], [ %.sroa.0185.4.lcssa322, %570 ], [ %.sroa.0185.5, %547 ], [ %.sroa.0185.5, %.noexc133 ], [ %.sroa.0185.5, %.noexc132 ], [ %.sroa.0185.5, %.noexc131 ], [ %.sroa.0185.5, %515 ], [ %.sroa.0185.5, %507 ], [ %.sroa.0185.4.lcssa322, %585 ], [ %.sroa.0185.4.lcssa322, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit143 ], [ %.sroa.0185.4.lcssa322, %573 ], [ %.sroa.0185.4.lcssa322, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit ], [ %.sroa.0185.4.lcssa322, %556 ], [ %.sroa.0185.5, %498 ]
-  %.sroa.10.4.lcssa320 = phi ptr [ %.sroa.10.4.lcssa319, %582 ], [ %.sroa.10.4.lcssa319, %570 ], [ %.sroa.10.5, %547 ], [ %.sroa.10.5, %.noexc133 ], [ %.sroa.10.5, %.noexc132 ], [ %.sroa.10.5, %.noexc131 ], [ %.sroa.10.5, %515 ], [ %.sroa.10.5, %507 ], [ %.sroa.10.4.lcssa319, %585 ], [ %.sroa.10.4.lcssa319, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit143 ], [ %.sroa.10.4.lcssa319, %573 ], [ %.sroa.10.4.lcssa319, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit ], [ %.sroa.10.4.lcssa319, %556 ], [ %.sroa.10.5, %498 ]
+  %.sroa.0192.4.lcssa372 = phi ptr [ %.sroa.0192.4.lcssa371, %582 ], [ %.sroa.0192.4.lcssa371, %570 ], [ %.sroa.0192.6, %547 ], [ %.sroa.0192.6, %.noexc133 ], [ %.sroa.0192.6, %.noexc132 ], [ %.sroa.0192.6, %.noexc131 ], [ %.sroa.0192.6, %515 ], [ %.sroa.0192.6, %507 ], [ %.sroa.0192.4.lcssa371, %585 ], [ %.sroa.0192.4.lcssa371, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit143 ], [ %.sroa.0192.4.lcssa371, %573 ], [ %.sroa.0192.4.lcssa371, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit ], [ %.sroa.0192.4.lcssa371, %556 ], [ %.sroa.0192.6, %498 ]
+  %.sroa.14.4.lcssa369 = phi ptr [ %.sroa.14.4.lcssa368, %582 ], [ %.sroa.14.4.lcssa368, %570 ], [ %.sroa.14.6, %547 ], [ %.sroa.14.6, %.noexc133 ], [ %.sroa.14.6, %.noexc132 ], [ %.sroa.14.6, %.noexc131 ], [ %.sroa.14.6, %515 ], [ %.sroa.14.6, %507 ], [ %.sroa.14.4.lcssa368, %585 ], [ %.sroa.14.4.lcssa368, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit143 ], [ %.sroa.14.4.lcssa368, %573 ], [ %.sroa.14.4.lcssa368, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit ], [ %.sroa.14.4.lcssa368, %556 ], [ %.sroa.14.6, %498 ]
+  %.sroa.0185.4.lcssa366 = phi ptr [ %.sroa.0185.4.lcssa365, %582 ], [ %.sroa.0185.4.lcssa365, %570 ], [ %.sroa.0185.5, %547 ], [ %.sroa.0185.5, %.noexc133 ], [ %.sroa.0185.5, %.noexc132 ], [ %.sroa.0185.5, %.noexc131 ], [ %.sroa.0185.5, %515 ], [ %.sroa.0185.5, %507 ], [ %.sroa.0185.4.lcssa365, %585 ], [ %.sroa.0185.4.lcssa365, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit143 ], [ %.sroa.0185.4.lcssa365, %573 ], [ %.sroa.0185.4.lcssa365, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit ], [ %.sroa.0185.4.lcssa365, %556 ], [ %.sroa.0185.5, %498 ]
+  %.sroa.10.4.lcssa363 = phi ptr [ %.sroa.10.4.lcssa362, %582 ], [ %.sroa.10.4.lcssa362, %570 ], [ %.sroa.10.5, %547 ], [ %.sroa.10.5, %.noexc133 ], [ %.sroa.10.5, %.noexc132 ], [ %.sroa.10.5, %.noexc131 ], [ %.sroa.10.5, %515 ], [ %.sroa.10.5, %507 ], [ %.sroa.10.4.lcssa362, %585 ], [ %.sroa.10.4.lcssa362, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit143 ], [ %.sroa.10.4.lcssa362, %573 ], [ %.sroa.10.4.lcssa362, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit ], [ %.sroa.10.4.lcssa362, %556 ], [ %.sroa.10.5, %498 ]
   %lpad.loopexit.split-lp238 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -5487,10 +5487,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassProperties19GetMassSpaceIne
   br label %589
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.sroa.0192.4.lcssa328 = phi ptr [ %.sroa.0192.6, %._crit_edge ], [ null, %.preheader ]
-  %.sroa.14.4.lcssa325 = phi ptr [ %.sroa.14.6, %._crit_edge ], [ null, %.preheader ]
-  %.sroa.0185.4.lcssa322 = phi ptr [ %.sroa.0185.5, %._crit_edge ], [ null, %.preheader ]
-  %.sroa.10.4.lcssa319 = phi ptr [ %.sroa.10.5, %._crit_edge ], [ null, %.preheader ]
+  %.sroa.0192.4.lcssa371 = phi ptr [ %.sroa.0192.6, %._crit_edge ], [ null, %.preheader ]
+  %.sroa.14.4.lcssa368 = phi ptr [ %.sroa.14.6, %._crit_edge ], [ null, %.preheader ]
+  %.sroa.0185.4.lcssa365 = phi ptr [ %.sroa.0185.5, %._crit_edge ], [ null, %.preheader ]
+  %.sroa.10.4.lcssa362 = phi ptr [ %.sroa.10.5, %._crit_edge ], [ null, %.preheader ]
   %552 = load i8, ptr %59, align 4
   %553 = trunc i8 %552 to i1
   br i1 %553, label %589, label %554
@@ -5591,10 +5591,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit143: ; preds
           to label %589 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 589:                                              ; preds = %._crit_edge.thread, %585, %573, %_ZN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassProperties19GetMassSpaceInertiaERKNS_10GfMatrix3fERNS_7GfQuatfE.exit, %551
-  %.sroa.0192.4.lcssa327 = phi ptr [ %.sroa.0192.4.lcssa328, %._crit_edge.thread ], [ %.sroa.0192.4.lcssa328, %573 ], [ %.sroa.0192.4.lcssa328, %585 ], [ %.sroa.0192.6, %_ZN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassProperties19GetMassSpaceInertiaERKNS_10GfMatrix3fERNS_7GfQuatfE.exit ], [ %.sroa.0192.6, %551 ]
-  %.sroa.14.4.lcssa324 = phi ptr [ %.sroa.14.4.lcssa325, %._crit_edge.thread ], [ %.sroa.14.4.lcssa325, %573 ], [ %.sroa.14.4.lcssa325, %585 ], [ %.sroa.14.6, %_ZN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassProperties19GetMassSpaceInertiaERKNS_10GfMatrix3fERNS_7GfQuatfE.exit ], [ %.sroa.14.6, %551 ]
-  %.sroa.0185.4.lcssa321 = phi ptr [ %.sroa.0185.4.lcssa322, %._crit_edge.thread ], [ %.sroa.0185.4.lcssa322, %573 ], [ %.sroa.0185.4.lcssa322, %585 ], [ %.sroa.0185.5, %_ZN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassProperties19GetMassSpaceInertiaERKNS_10GfMatrix3fERNS_7GfQuatfE.exit ], [ %.sroa.0185.5, %551 ]
-  %.sroa.10.4.lcssa318 = phi ptr [ %.sroa.10.4.lcssa319, %._crit_edge.thread ], [ %.sroa.10.4.lcssa319, %573 ], [ %.sroa.10.4.lcssa319, %585 ], [ %.sroa.10.5, %_ZN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassProperties19GetMassSpaceInertiaERKNS_10GfMatrix3fERNS_7GfQuatfE.exit ], [ %.sroa.10.5, %551 ]
+  %.sroa.0192.4.lcssa370 = phi ptr [ %.sroa.0192.4.lcssa371, %._crit_edge.thread ], [ %.sroa.0192.4.lcssa371, %573 ], [ %.sroa.0192.4.lcssa371, %585 ], [ %.sroa.0192.6, %_ZN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassProperties19GetMassSpaceInertiaERKNS_10GfMatrix3fERNS_7GfQuatfE.exit ], [ %.sroa.0192.6, %551 ]
+  %.sroa.14.4.lcssa367 = phi ptr [ %.sroa.14.4.lcssa368, %._crit_edge.thread ], [ %.sroa.14.4.lcssa368, %573 ], [ %.sroa.14.4.lcssa368, %585 ], [ %.sroa.14.6, %_ZN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassProperties19GetMassSpaceInertiaERKNS_10GfMatrix3fERNS_7GfQuatfE.exit ], [ %.sroa.14.6, %551 ]
+  %.sroa.0185.4.lcssa364 = phi ptr [ %.sroa.0185.4.lcssa365, %._crit_edge.thread ], [ %.sroa.0185.4.lcssa365, %573 ], [ %.sroa.0185.4.lcssa365, %585 ], [ %.sroa.0185.5, %_ZN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassProperties19GetMassSpaceInertiaERKNS_10GfMatrix3fERNS_7GfQuatfE.exit ], [ %.sroa.0185.5, %551 ]
+  %.sroa.10.4.lcssa361 = phi ptr [ %.sroa.10.4.lcssa362, %._crit_edge.thread ], [ %.sroa.10.4.lcssa362, %573 ], [ %.sroa.10.4.lcssa362, %585 ], [ %.sroa.10.5, %_ZN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassProperties19GetMassSpaceInertiaERKNS_10GfMatrix3fERNS_7GfQuatfE.exit ], [ %.sroa.10.5, %551 ]
   %.sroa.0203.2 = phi <2 x float> [ %.sroa.0203.0.copyload, %._crit_edge.thread ], [ %.sroa.0203.4.vec.insert, %573 ], [ %.sroa.0203.0.copyload, %585 ], [ %.sroa.0203.1, %_ZN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassProperties19GetMassSpaceInertiaERKNS_10GfMatrix3fERNS_7GfQuatfE.exit ], [ %.sroa.0203.1, %551 ]
   %.sroa.5205.2 = phi float [ %.sroa.5205.0.copyload, %._crit_edge.thread ], [ %563, %573 ], [ %.sroa.5205.0.copyload, %585 ], [ %.sroa.5205.1, %_ZN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassProperties19GetMassSpaceInertiaERKNS_10GfMatrix3fERNS_7GfQuatfE.exit ], [ %.sroa.5205.1, %551 ]
   %.260 = phi float [ %57, %._crit_edge.thread ], [ %57, %573 ], [ %57, %585 ], [ %.159, %_ZN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassProperties19GetMassSpaceInertiaERKNS_10GfMatrix3fERNS_7GfQuatfE.exit ], [ %.159, %551 ]
@@ -5688,32 +5688,32 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7UsdPrimES1_EvT_S3_RSaIT0_E.ex
   unreachable
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7UsdPrimES1_EvT_S3_RSaIT0_E.exit.i, %623
-  %.not.i.i.i148 = icmp eq ptr %.sroa.0185.4.lcssa321, null
+  %.not.i.i.i148 = icmp eq ptr %.sroa.0185.4.lcssa364, null
   br i1 %.not.i.i.i148, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fESaIS1_EED2Ev.exit, label %631
 
 631:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimESaIS1_EED2Ev.exit
-  %632 = ptrtoint ptr %.sroa.10.4.lcssa318 to i64
-  %633 = ptrtoint ptr %.sroa.0185.4.lcssa321 to i64
+  %632 = ptrtoint ptr %.sroa.10.4.lcssa361 to i64
+  %633 = ptrtoint ptr %.sroa.0185.4.lcssa364 to i64
   %634 = sub i64 %632, %633
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0185.4.lcssa321, i64 noundef %634) #22
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0185.4.lcssa364, i64 noundef %634) #22
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimESaIS1_EED2Ev.exit, %631
-  %.not.i.i.i149 = icmp eq ptr %.sroa.0192.4.lcssa327, null
+  %.not.i.i.i149 = icmp eq ptr %.sroa.0192.4.lcssa370, null
   br i1 %.not.i.i.i149, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassPropertiesESaIS1_EED2Ev.exit, label %635
 
 635:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fESaIS1_EED2Ev.exit
-  %636 = ptrtoint ptr %.sroa.14.4.lcssa324 to i64
-  %637 = ptrtoint ptr %.sroa.0192.4.lcssa327 to i64
+  %636 = ptrtoint ptr %.sroa.14.4.lcssa367 to i64
+  %637 = ptrtoint ptr %.sroa.0192.4.lcssa370 to i64
   %638 = sub i64 %636, %637
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0192.4.lcssa327, i64 noundef %638) #22
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0192.4.lcssa370, i64 noundef %638) #22
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassPropertiesESaIS1_EED2Ev.exit
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %432, %496, %438
-  %.sroa.10.3 = phi ptr [ null, %438 ], [ null, %432 ], [ %.sroa.10.4272290, %496 ], [ %.sroa.10.4272, %.loopexit ], [ null, %.loopexit.split-lp.loopexit ], [ %.sroa.10.4.lcssa320, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.0185.3 = phi ptr [ null, %438 ], [ null, %432 ], [ %.sroa.0185.4274, %496 ], [ %.sroa.0185.4274, %.loopexit ], [ null, %.loopexit.split-lp.loopexit ], [ %.sroa.0185.4.lcssa323, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.14.3 = phi ptr [ null, %438 ], [ null, %432 ], [ %.sroa.14.5, %496 ], [ %.sroa.14.4275, %.loopexit ], [ null, %.loopexit.split-lp.loopexit ], [ %.sroa.14.4.lcssa326, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.0192.3 = phi ptr [ null, %438 ], [ null, %432 ], [ %.sroa.0192.5, %496 ], [ %.sroa.0192.4277, %.loopexit ], [ null, %.loopexit.split-lp.loopexit ], [ %.sroa.0192.4.lcssa329, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.10.3 = phi ptr [ null, %438 ], [ null, %432 ], [ %.sroa.10.4272290, %496 ], [ %.sroa.10.4272, %.loopexit ], [ null, %.loopexit.split-lp.loopexit ], [ %.sroa.10.4.lcssa363, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0185.3 = phi ptr [ null, %438 ], [ null, %432 ], [ %.sroa.0185.4274, %496 ], [ %.sroa.0185.4274, %.loopexit ], [ null, %.loopexit.split-lp.loopexit ], [ %.sroa.0185.4.lcssa366, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.14.3 = phi ptr [ null, %438 ], [ null, %432 ], [ %.sroa.14.5, %496 ], [ %.sroa.14.4275, %.loopexit ], [ null, %.loopexit.split-lp.loopexit ], [ %.sroa.14.4.lcssa369, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0192.3 = phi ptr [ null, %438 ], [ null, %432 ], [ %.sroa.0192.5, %496 ], [ %.sroa.0192.4277, %.loopexit ], [ null, %.loopexit.split-lp.loopexit ], [ %.sroa.0192.4.lcssa372, %.loopexit.split-lp.loopexit.split-lp ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %438 ], [ %433, %432 ], [ %lpad.phi236, %496 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit237, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp238, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16UsdShadeMaterialESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #21
   %639 = ptrtoint ptr %.sroa.10.3 to i64

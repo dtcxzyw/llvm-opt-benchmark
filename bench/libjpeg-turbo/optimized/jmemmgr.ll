@@ -1227,8 +1227,8 @@ define internal ptr @access_virt_sarray(ptr noundef %0, ptr noundef %1, i32 noun
   store i32 %6, ptr %57, align 8, !tbaa !95
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %71 = load i32, ptr %70, align 4, !tbaa !74
-  %.not82105 = icmp eq i32 %71, 0
-  br i1 %.not82105, label %.loopexit.thread110, label %74
+  %.not82110 = icmp eq i32 %71, 0
+  br i1 %.not82110, label %.loopexit.thread115, label %74
 
 .thread93:                                        ; preds = %62
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -1274,14 +1274,14 @@ define internal ptr @access_virt_sarray(ptr noundef %0, ptr noundef %1, i32 noun
 
 .loopexit:                                        ; preds = %.lr.ph, %74, %56
   %.not83 = icmp eq i32 %4, 0
-  br i1 %.not83, label %92, label %.loopexit.thread110
+  br i1 %.not83, label %92, label %.loopexit.thread115
 
-.loopexit.thread110:                              ; preds = %.thread, %.loopexit
+.loopexit.thread115:                              ; preds = %.thread, %.loopexit
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 1, ptr %91, align 8, !tbaa !96
   br label %92
 
-92:                                               ; preds = %.loopexit.thread, %.loopexit.thread110, %.loopexit
+92:                                               ; preds = %.loopexit.thread, %.loopexit.thread115, %.loopexit
   %93 = load ptr, ptr %1, align 8, !tbaa !67
   %94 = load i32, ptr %26, align 4, !tbaa !94
   %95 = sub i32 %2, %94
@@ -1530,8 +1530,8 @@ do_barray_io.exit80:                              ; preds = %123, %.lr.ph.split.
   store i32 %6, ptr %136, align 8, !tbaa !101
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %150 = load i32, ptr %149, align 4, !tbaa !84
-  %.not75102 = icmp eq i32 %150, 0
-  br i1 %.not75102, label %.loopexit.thread107, label %153
+  %.not75115 = icmp eq i32 %150, 0
+  br i1 %.not75115, label %.loopexit.thread120, label %153
 
 .thread90:                                        ; preds = %141
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -1576,14 +1576,14 @@ do_barray_io.exit80:                              ; preds = %123, %.lr.ph.split.
 
 .loopexit:                                        ; preds = %.lr.ph, %153, %do_barray_io.exit80
   %.not76 = icmp eq i32 %4, 0
-  br i1 %.not76, label %170, label %.loopexit.thread107
+  br i1 %.not76, label %170, label %.loopexit.thread120
 
-.loopexit.thread107:                              ; preds = %.thread, %.loopexit
+.loopexit.thread120:                              ; preds = %.thread, %.loopexit
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 1, ptr %169, align 8, !tbaa !102
   br label %170
 
-170:                                              ; preds = %.loopexit.thread, %.loopexit.thread107, %.loopexit
+170:                                              ; preds = %.loopexit.thread, %.loopexit.thread120, %.loopexit
   %171 = load ptr, ptr %1, align 8, !tbaa !78
   %172 = load i32, ptr %22, align 4, !tbaa !100
   %173 = sub i32 %2, %172
@@ -1806,7 +1806,7 @@ define internal fastcc void @do_sarray_io(ptr noundef %0, ptr noundef %1, i32 no
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %.pre116 = load i32, ptr %17, align 8, !tbaa !93
-  %.124 = select i1 %.not96, ptr %24, ptr %25
+  %.135 = select i1 %.not96, ptr %24, ptr %25
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %42
@@ -1836,7 +1836,7 @@ define internal fastcc void @do_sarray_io(ptr noundef %0, ptr noundef %1, i32 no
   %44 = load ptr, ptr %1, align 8, !tbaa !67
   %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %.08699.us
   %46 = load ptr, ptr %45, align 8, !tbaa !56
-  %.sink = load ptr, ptr %.124, align 8, !tbaa !116
+  %.sink = load ptr, ptr %.135, align 8, !tbaa !116
   tail call void %.sink(ptr noundef %0, ptr noundef nonnull %24, ptr noundef %46, i64 noundef %.0100.us, i64 noundef %43) #9
   %47 = add nuw nsw i64 %43, %.0100.us
   %48 = load i32, ptr %17, align 8, !tbaa !93
@@ -1853,7 +1853,7 @@ define internal fastcc void @do_sarray_io(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %54, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split
 
 .lr.ph.split.split.us.preheader:                  ; preds = %.lr.ph.split
-  %.125 = select i1 %.not96, ptr %24, ptr %25
+  %.136 = select i1 %.not96, ptr %24, ptr %25
   br label %.lr.ph.split.split.us
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split.split.us.preheader, %71
@@ -1883,8 +1883,8 @@ define internal fastcc void @do_sarray_io(ptr noundef %0, ptr noundef %1, i32 no
   %73 = load ptr, ptr %1, align 8, !tbaa !67
   %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %.08699.us103
   %75 = load ptr, ptr %74, align 8, !tbaa !60
-  %.sink120 = load ptr, ptr %.125, align 8, !tbaa !116
-  tail call void %.sink120(ptr noundef %0, ptr noundef nonnull %24, ptr noundef %75, i64 noundef %.0100.us102, i64 noundef %72) #9
+  %.sink131 = load ptr, ptr %.136, align 8, !tbaa !116
+  tail call void %.sink131(ptr noundef %0, ptr noundef nonnull %24, ptr noundef %75, i64 noundef %.0100.us102, i64 noundef %72) #9
   %76 = add nuw nsw i64 %72, %.0100.us102
   %77 = load i32, ptr %17, align 8, !tbaa !93
   %78 = zext i32 %77 to i64

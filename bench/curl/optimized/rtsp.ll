@@ -1121,7 +1121,7 @@ define hidden range(i32 0, 87) i32 @Curl_rtsp_parseheader(ptr noundef %0, ptr no
   br i1 %.not7578.i, label %.loopexit.i, label %.lr.ph80.preheader.i
 
 .lr.ph80.preheader.i:                             ; preds = %82, %81, %77, %70, %69, %59
-  %.05583.i = phi i64 [ %65, %82 ], [ %55, %59 ], [ %55, %81 ], [ %55, %77 ], [ %55, %70 ], [ %55, %69 ]
+  %.05591.i = phi i64 [ %65, %82 ], [ %55, %59 ], [ %55, %81 ], [ %55, %77 ], [ %55, %70 ], [ %55, %69 ]
   br label %.lr.ph80.i
 
 .lr.ph80.i:                                       ; preds = %.lr.ph80.i, %.lr.ph80.preheader.i
@@ -1135,7 +1135,7 @@ define hidden range(i32 0, 87) i32 @Curl_rtsp_parseheader(ptr noundef %0, ptr no
   %89 = or i8 %86, %88
   store i8 %89, ptr %87, align 1, !tbaa !7
   %90 = add i64 %.05679.i, 1
-  %exitcond.not.i = icmp eq i64 %.05679.i, %.05583.i
+  %exitcond.not.i = icmp eq i64 %.05679.i, %.05591.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph80.i, !llvm.loop !129
 
 91:                                               ; preds = %53
@@ -1311,7 +1311,7 @@ define internal fastcc i32 @rtsp_filter_rtp(ptr noundef %0, ptr noundef %1, i64 
   %38 = add i64 %.1114240.us, -1
   %39 = add i64 %.1135239.us, 1
   %.not161.us = icmp eq i64 %38, 0
-  br i1 %.not161.us, label %.critedge169.thread.loopexit277, label %.preheader.split.us, !llvm.loop !132
+  br i1 %.not161.us, label %.critedge169.thread.loopexit291, label %.preheader.split.us, !llvm.loop !132
 
 .preheader.split:                                 ; preds = %.preheader, %50
   %.1111241 = phi ptr [ %53, %50 ], [ %.0110249, %.preheader ]
@@ -1584,14 +1584,14 @@ rtp_client_write.exit:                            ; preds = %140, %152, %156
   %164 = add i64 %.0113248, %.0134247
   br label %.critedge169.thread
 
-.critedge169.thread.loopexit277:                  ; preds = %34
+.critedge169.thread.loopexit291:                  ; preds = %34
   %scevgep.le = getelementptr i8, ptr %.0110249, i64 %.0113248
   %165 = add i64 %.0113248, %.0134247
   br label %.critedge169.thread
 
-.critedge169.thread:                              ; preds = %.critedge169, %.critedge169.thread.loopexit277, %.critedge169.thread.loopexit, %159, %47
-  %.7141 = phi i64 [ %.1135239, %47 ], [ %.0134247, %159 ], [ %164, %.critedge169.thread.loopexit ], [ %165, %.critedge169.thread.loopexit277 ], [ %.2136, %.critedge169 ]
-  %.8 = phi ptr [ %.1111241, %47 ], [ %162, %159 ], [ %scevgep265.le, %.critedge169.thread.loopexit ], [ %scevgep.le, %.critedge169.thread.loopexit277 ], [ %.2112, %.critedge169 ]
+.critedge169.thread:                              ; preds = %.critedge169, %.critedge169.thread.loopexit291, %.critedge169.thread.loopexit, %159, %47
+  %.7141 = phi i64 [ %.1135239, %47 ], [ %.0134247, %159 ], [ %164, %.critedge169.thread.loopexit ], [ %165, %.critedge169.thread.loopexit291 ], [ %.2136, %.critedge169 ]
+  %.8 = phi ptr [ %.1111241, %47 ], [ %162, %159 ], [ %scevgep265.le, %.critedge169.thread.loopexit ], [ %scevgep.le, %.critedge169.thread.loopexit291 ], [ %.2112, %.critedge169 ]
   %.not224 = icmp eq i64 %.7141, 0
   br i1 %.not224, label %rtp_write_body_junk.exit183, label %166
 

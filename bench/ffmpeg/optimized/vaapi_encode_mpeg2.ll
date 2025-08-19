@@ -336,15 +336,15 @@ switch.lookup:                                    ; preds = %22
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.vaapi_encode_mpeg2_init_sequence_params, i64 0, i64 %33
   %switch.load = load i32, ptr %switch.gep, align 4
   %34 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep261 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.vaapi_encode_mpeg2_init_sequence_params.1, i64 0, i64 %34
-  %switch.load262 = load i32, ptr %switch.gep261, align 4
+  %switch.gep263 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.vaapi_encode_mpeg2_init_sequence_params.1, i64 0, i64 %34
+  %switch.load264 = load i32, ptr %switch.gep263, align 4
   br label %35
 
 35:                                               ; preds = %22, %switch.lookup
-  %.sink257 = phi i32 [ %switch.load, %switch.lookup ], [ 7, %22 ]
-  %.sink = phi i32 [ %switch.load262, %switch.lookup ], [ 4, %22 ]
+  %.sink259 = phi i32 [ %switch.load, %switch.lookup ], [ 7, %22 ]
+  %.sink = phi i32 [ %switch.load264, %switch.lookup ], [ 4, %22 ]
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 2012
-  store i32 %.sink257, ptr %36, align 4, !tbaa !84
+  store i32 %.sink259, ptr %36, align 4, !tbaa !84
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 2016
   store i32 %.sink, ptr %37, align 8, !tbaa !85
   store i8 -77, ptr %7, align 8, !tbaa !86
@@ -435,9 +435,9 @@ av_cmp_q.exit230.thread:                          ; preds = %71, %av_cmp_q.exit2
   br label %av_cmp_q.exit.thread232
 
 av_cmp_q.exit.thread232:                          ; preds = %35, %50, %71, %67, %63, %57, %av_cmp_q.exit230.thread
-  %.sink259 = phi i8 [ 1, %av_cmp_q.exit230.thread ], [ 1, %57 ], [ 2, %63 ], [ 3, %67 ], [ 4, %71 ], [ 1, %50 ], [ 1, %35 ]
+  %.sink261 = phi i8 [ 1, %av_cmp_q.exit230.thread ], [ 1, %57 ], [ 2, %63 ], [ 3, %67 ], [ 4, %71 ], [ 1, %50 ], [ 1, %35 ]
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 2038
-  store i8 %.sink259, ptr %73, align 2, !tbaa !91
+  store i8 %.sink261, ptr %73, align 2, !tbaa !91
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %75 = load i32, ptr %74, align 4, !tbaa !92
   %76 = icmp sgt i32 %75, 0

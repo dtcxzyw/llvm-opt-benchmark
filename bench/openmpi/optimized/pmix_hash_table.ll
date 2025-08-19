@@ -1010,8 +1010,8 @@ pmix_hash_hash_key_ptr.exit:                      ; preds = %.lr.ph.i, %3
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 0, ptr %18, align 8, !tbaa !18
   store i64 0, ptr %27, align 8, !tbaa !36
-  %.not.i46 = icmp eq ptr %24, null
-  br i1 %.not.i46, label %pmix_hash_destruct_elt_ptr.exit, label %28
+  %.not.i48 = icmp eq ptr %24, null
+  br i1 %.not.i48, label %pmix_hash_destruct_elt_ptr.exit, label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 8

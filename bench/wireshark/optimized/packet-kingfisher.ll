@@ -286,8 +286,8 @@ define internal fastcc range(i32 0, 2) i32 @dissect_kingfisher(ptr noundef %0, p
   %44 = and i16 %43, 1
   %45 = or disjoint i16 %44, %42
   %46 = xor i16 %45, 4129
-  %.not27.i = icmp slt i16 %.123.i, 0
-  %.2.i = select i1 %.not27.i, i16 %46, i16 %45
+  %.not29.i = icmp slt i16 %.123.i, 0
+  %.2.i = select i1 %.not29.i, i16 %46, i16 %45
   %.118.i = shl i16 %.01722.i, 1
   %47 = add nuw nsw i32 %.01921.i, 1
   %exitcond.not.i = icmp eq i32 %47, 8

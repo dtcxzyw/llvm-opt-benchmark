@@ -4812,13 +4812,13 @@ define dso_local range(i32 -2147483648, 1) i32 @sendmsg_copy_msghdr(ptr noundef 
 35:                                               ; preds = %33
   %36 = icmp eq i32 %27, 0
   %or.cond = select i1 %30, i1 true, i1 %36
-  br i1 %or.cond, label %54, label %.thread1
+  br i1 %or.cond, label %54, label %.thread6
 
 .thread:                                          ; preds = %33
   store i32 128, ptr %28, align 8
-  br i1 %30, label %54, label %.thread1
+  br i1 %30, label %54, label %.thread6
 
-.thread1:                                         ; preds = %35, %.thread
+.thread6:                                         ; preds = %35, %.thread
   %37 = phi i32 [ 128, %.thread ], [ %27, %35 ]
   %38 = load ptr, ptr %0, align 8
   %39 = zext nneg i32 %37 to i64
@@ -4826,7 +4826,7 @@ define dso_local range(i32 -2147483648, 1) i32 @sendmsg_copy_msghdr(ptr noundef 
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %42, label %__copy_msghdr.exit.thread
 
-42:                                               ; preds = %.thread1
+42:                                               ; preds = %.thread6
   %43 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #21, !srcloc !6
   %44 = inttoptr i64 %43 to ptr
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1976
@@ -4867,8 +4867,8 @@ define dso_local range(i32 -2147483648, 1) i32 @sendmsg_copy_msghdr(ptr noundef 
   %66 = trunc i64 %65 to i32
   br label %__copy_msghdr.exit.thread
 
-__copy_msghdr.exit.thread:                        ; preds = %.thread1, %.thread7.i, %51, %12, %58, %9
-  %67 = phi i32 [ %66, %58 ], [ -14, %9 ], [ -14, %.thread1 ], [ -90, %.thread7.i ], [ %52, %51 ], [ -22, %12 ]
+__copy_msghdr.exit.thread:                        ; preds = %.thread6, %.thread7.i, %51, %12, %58, %9
+  %67 = phi i32 [ %66, %58 ], [ -14, %9 ], [ -14, %.thread6 ], [ -90, %.thread7.i ], [ %52, %51 ], [ -22, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %68
 
@@ -5165,13 +5165,13 @@ define internal fastcc i32 @___sys_sendmsg(ptr noundef nonnull %0, ptr noundef %
 40:                                               ; preds = %38
   %41 = icmp eq i32 %32, 0
   %or.cond = select i1 %35, i1 true, i1 %41
-  br i1 %or.cond, label %59, label %.thread1
+  br i1 %or.cond, label %59, label %.thread7
 
 .thread:                                          ; preds = %38
   store i32 128, ptr %33, align 8
-  br i1 %35, label %59, label %.thread1
+  br i1 %35, label %59, label %.thread7
 
-.thread1:                                         ; preds = %40, %.thread
+.thread7:                                         ; preds = %40, %.thread
   %42 = phi i32 [ 128, %.thread ], [ %32, %40 ]
   %43 = load ptr, ptr %2, align 8
   %44 = zext nneg i32 %42 to i64
@@ -5179,7 +5179,7 @@ define internal fastcc i32 @___sys_sendmsg(ptr noundef nonnull %0, ptr noundef %
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %47, label %__copy_msghdr.exit.thread
 
-47:                                               ; preds = %.thread1
+47:                                               ; preds = %.thread7
   %48 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #21, !srcloc !6
   %49 = inttoptr i64 %48 to ptr
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 1976
@@ -5220,8 +5220,8 @@ define internal fastcc i32 @___sys_sendmsg(ptr noundef nonnull %0, ptr noundef %
   %71 = trunc i64 %70 to i32
   br label %__copy_msghdr.exit.thread
 
-__copy_msghdr.exit.thread:                        ; preds = %.thread1, %.thread7.i, %56, %17, %63, %14
-  %72 = phi i32 [ %71, %63 ], [ -14, %14 ], [ -14, %.thread1 ], [ -90, %.thread7.i ], [ %57, %56 ], [ -22, %17 ]
+__copy_msghdr.exit.thread:                        ; preds = %.thread7, %.thread7.i, %56, %17, %63, %14
+  %72 = phi i32 [ %71, %63 ], [ -14, %14 ], [ -14, %.thread7 ], [ -90, %.thread7.i ], [ %57, %56 ], [ -22, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %73
 
@@ -5910,31 +5910,31 @@ define internal fastcc i32 @___sys_recvmsg(ptr noundef nonnull %0, ptr noundef %
 
 37:                                               ; preds = %16
   %38 = icmp samesign ugt i32 %35, 128
-  br i1 %38, label %.thread1, label %39
+  br i1 %38, label %.thread3, label %39
 
 39:                                               ; preds = %37
   store ptr %33, ptr %9, align 8
   %40 = icmp eq i32 %31, 0
   %or.cond = select i1 %34, i1 true, i1 %40
-  br i1 %or.cond, label %41, label %.thread2
+  br i1 %or.cond, label %41, label %.thread4
 
-.thread1:                                         ; preds = %37
+.thread3:                                         ; preds = %37
   store i32 128, ptr %32, align 8
   store ptr %33, ptr %9, align 8
-  br i1 %34, label %41, label %.thread2
+  br i1 %34, label %41, label %.thread4
 
-41:                                               ; preds = %.thread1, %39
+41:                                               ; preds = %.thread3, %39
   store ptr null, ptr %2, align 8
   store i32 0, ptr %32, align 8
-  br label %.thread2
+  br label %.thread4
 
-.thread2:                                         ; preds = %39, %.thread1, %41
+.thread4:                                         ; preds = %39, %.thread3, %41
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %43 = load i64, ptr %42, align 8
   %44 = icmp ugt i64 %43, 1024
   br i1 %44, label %.thread, label %45
 
-45:                                               ; preds = %.thread2
+45:                                               ; preds = %.thread4
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -5946,8 +5946,8 @@ define internal fastcc i32 @___sys_recvmsg(ptr noundef nonnull %0, ptr noundef %
   %53 = trunc i64 %52 to i32
   br label %.thread
 
-.thread:                                          ; preds = %.thread2, %16, %45, %13
-  %54 = phi i32 [ %53, %45 ], [ -14, %13 ], [ -90, %.thread2 ], [ -22, %16 ]
+.thread:                                          ; preds = %.thread4, %16, %45, %13
+  %54 = phi i32 [ %53, %45 ], [ -14, %13 ], [ -90, %.thread4 ], [ -22, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %55
 
@@ -6125,17 +6125,17 @@ define dso_local i32 @__sys_recvmmsg(i32 noundef %0, ptr noundef %1, i32 noundef
 8:                                                ; preds = %6
   %9 = call i32 @get_timespec64(ptr noundef nonnull %7, ptr noundef nonnull %4) #20
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %.thread6, label %33
+  br i1 %10, label %.thread10, label %33
 
 11:                                               ; preds = %6
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %15, label %12
 
-.thread6:                                         ; preds = %8
-  %.not7 = icmp eq ptr %5, null
-  br i1 %.not7, label %.thread.thread, label %12
+.thread10:                                        ; preds = %8
+  %.not11 = icmp eq ptr %5, null
+  br i1 %.not11, label %.thread.thread, label %12
 
-12:                                               ; preds = %.thread6, %11
+12:                                               ; preds = %.thread10, %11
   %13 = call i32 @get_old_timespec32(ptr noundef nonnull %7, ptr noundef nonnull %5) #20
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.thread, label %33
@@ -6149,35 +6149,35 @@ define dso_local i32 @__sys_recvmmsg(i32 noundef %0, ptr noundef %1, i32 noundef
   %18 = icmp slt i32 %17, 1
   br i1 %18, label %33, label %24
 
-.thread.thread:                                   ; preds = %.thread6
+.thread.thread:                                   ; preds = %.thread10
   %19 = call fastcc i32 @do_recvmmsg(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %7)
   %20 = icmp slt i32 %19, 1
-  br i1 %20, label %33, label %.thread21
+  br i1 %20, label %33, label %.thread25
 
-.thread21:                                        ; preds = %.thread.thread
+.thread25:                                        ; preds = %.thread.thread
   %21 = call i32 @put_timespec64(ptr noundef nonnull %7, ptr noundef nonnull %4) #20
   %22 = icmp eq i32 %21, 0
   %23 = select i1 %22, i32 %19, i32 -14
   br label %33
 
 24:                                               ; preds = %.thread
-  br i1 %.not5, label %.thread19, label %25
+  br i1 %.not5, label %.thread23, label %25
 
 25:                                               ; preds = %24
   %26 = call i32 @put_timespec64(ptr noundef nonnull %7, ptr noundef nonnull %4) #20
   %27 = icmp eq i32 %26, 0
   %28 = select i1 %27, i32 %17, i32 -14
-  br label %.thread19
+  br label %.thread23
 
-.thread19:                                        ; preds = %24, %25
+.thread23:                                        ; preds = %24, %25
   %29 = phi i32 [ %28, %25 ], [ %17, %24 ]
   %30 = call i32 @put_old_timespec32(ptr noundef nonnull %7, ptr noundef nonnull %5) #20
   %31 = icmp eq i32 %30, 0
   %32 = select i1 %31, i32 %29, i32 -14
   br label %33
 
-33:                                               ; preds = %.thread21, %.thread.thread, %.thread19, %.thread, %15, %12, %8
-  %34 = phi i32 [ %16, %15 ], [ -14, %8 ], [ -14, %12 ], [ %17, %.thread ], [ %32, %.thread19 ], [ %19, %.thread.thread ], [ %23, %.thread21 ]
+33:                                               ; preds = %.thread25, %.thread.thread, %.thread23, %.thread, %15, %12, %8
+  %34 = phi i32 [ %16, %15 ], [ -14, %8 ], [ -14, %12 ], [ %17, %.thread ], [ %32, %.thread23 ], [ %19, %.thread.thread ], [ %23, %.thread25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %34
 }

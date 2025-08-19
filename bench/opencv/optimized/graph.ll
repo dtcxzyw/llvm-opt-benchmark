@@ -1107,13 +1107,13 @@ _ZNSt13unordered_mapIPvSt10unique_ptrIN3ade7details8MetadataESt14default_deleteI
   %146 = getelementptr inbounds nuw i8, ptr %.sroa.038.057.i.i.i, i64 32
   %.val1.i23.i.i.i = load ptr, ptr %146, align 8, !tbaa !52
   %147 = icmp eq ptr %.val1.i23.i.i.i, %1
-  br i1 %147, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit50", label %148
+  br i1 %147, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit62", label %148
 
 148:                                              ; preds = %145
   %149 = getelementptr inbounds nuw i8, ptr %.sroa.038.057.i.i.i, i64 48
   %.val1.i24.i.i.i = load ptr, ptr %149, align 8, !tbaa !52
   %150 = icmp eq ptr %.val1.i24.i.i.i, %1
-  br i1 %150, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit52", label %151
+  br i1 %150, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit64", label %151
 
 151:                                              ; preds = %148
   %152 = getelementptr inbounds nuw i8, ptr %.sroa.038.057.i.i.i, i64 64
@@ -1166,16 +1166,16 @@ _ZNSt13unordered_mapIPvSt10unique_ptrIN3ade7details8MetadataESt14default_deleteI
   %166 = getelementptr inbounds nuw i8, ptr %.sroa.038.057.i.i.i, i64 16
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit50": ; preds = %145
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit62": ; preds = %145
   %167 = getelementptr inbounds nuw i8, ptr %.sroa.038.057.i.i.i, i64 32
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit52": ; preds = %148
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit64": ; preds = %148
   %168 = getelementptr inbounds nuw i8, ptr %.sroa.038.057.i.i.i, i64 48
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit": ; preds = %.lr.ph.i.i.i15, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit50", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit52", %._crit_edge.i.i.i, %156, %160, %164
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %156 ], [ %.sroa.038.1.i.i.i, %160 ], [ %134, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %164 ], [ %166, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit" ], [ %167, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit50" ], [ %168, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit52" ], [ %.sroa.038.057.i.i.i, %.lr.ph.i.i.i15 ]
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit": ; preds = %.lr.ph.i.i.i15, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit62", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit64", %._crit_edge.i.i.i, %156, %160, %164
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %156 ], [ %.sroa.038.1.i.i.i, %160 ], [ %134, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %164 ], [ %166, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit" ], [ %167, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit62" ], [ %168, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4NodeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeNodeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit64" ], [ %.sroa.038.057.i.i.i, %.lr.ph.i.i.i15 ]
   store ptr %.sroa.08.0.in.sroa.speculated.i.i.i, ptr %5, align 8
   call void @_ZN3ade4util14unstable_eraseIRSt6vectorISt10shared_ptrINS_4NodeEESaIS5_EERN9__gnu_cxx17__normal_iteratorIPS5_S7_EEEEvOT_OT0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1661,13 +1661,13 @@ _ZNSt13unordered_mapIPvSt10unique_ptrIN3ade7details8MetadataESt14default_deleteI
   %147 = getelementptr inbounds nuw i8, ptr %.sroa.038.057.i.i.i, i64 32
   %.val1.i23.i.i.i = load ptr, ptr %147, align 8, !tbaa !102
   %148 = icmp eq ptr %.val1.i23.i.i.i, %1
-  br i1 %148, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit50", label %149
+  br i1 %148, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit62", label %149
 
 149:                                              ; preds = %146
   %150 = getelementptr inbounds nuw i8, ptr %.sroa.038.057.i.i.i, i64 48
   %.val1.i24.i.i.i = load ptr, ptr %150, align 8, !tbaa !102
   %151 = icmp eq ptr %.val1.i24.i.i.i, %1
-  br i1 %151, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit52", label %152
+  br i1 %151, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit64", label %152
 
 152:                                              ; preds = %149
   %153 = getelementptr inbounds nuw i8, ptr %.sroa.038.057.i.i.i, i64 64
@@ -1720,16 +1720,16 @@ _ZNSt13unordered_mapIPvSt10unique_ptrIN3ade7details8MetadataESt14default_deleteI
   %167 = getelementptr inbounds nuw i8, ptr %.sroa.038.057.i.i.i, i64 16
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit50": ; preds = %146
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit62": ; preds = %146
   %168 = getelementptr inbounds nuw i8, ptr %.sroa.038.057.i.i.i, i64 32
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit52": ; preds = %149
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit64": ; preds = %149
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.038.057.i.i.i, i64 48
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit": ; preds = %.lr.ph.i.i.i15, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit50", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit52", %._crit_edge.i.i.i, %157, %161, %165
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %157 ], [ %.sroa.038.1.i.i.i, %161 ], [ %135, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %165 ], [ %167, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit" ], [ %168, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit50" ], [ %169, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit52" ], [ %.sroa.038.057.i.i.i, %.lr.ph.i.i.i15 ]
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit": ; preds = %.lr.ph.i.i.i15, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit62", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit64", %._crit_edge.i.i.i, %157, %161, %165
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i, %157 ], [ %.sroa.038.1.i.i.i, %161 ], [ %135, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %165 ], [ %167, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit" ], [ %168, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit62" ], [ %169, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ade4EdgeEESt6vectorIS5_SaIS5_EEEEZNS3_5Graph10removeEdgeEPS4_E3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit64" ], [ %.sroa.038.057.i.i.i, %.lr.ph.i.i.i15 ]
   store ptr %.sroa.08.0.in.sroa.speculated.i.i.i, ptr %5, align 8
   call void @_ZN3ade4util14unstable_eraseIRSt6vectorISt10shared_ptrINS_4EdgeEESaIS5_EERN9__gnu_cxx17__normal_iteratorIPS5_S7_EEEEvOT_OT0_(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2239,8 +2239,8 @@ _ZN3ade6HandleINS_4EdgeEEC2ERKSt10shared_ptrIS1_E.exit21: ; preds = %136
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN3ade4EdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %142
 
 142:                                              ; preds = %_ZN3ade6HandleINS_4EdgeEEC2ERKSt10shared_ptrIS1_E.exit21.thread, %_ZN3ade6HandleINS_4EdgeEEC2ERKSt10shared_ptrIS1_E.exit21
-  %.pr38 = phi ptr [ %133, %_ZN3ade6HandleINS_4EdgeEEC2ERKSt10shared_ptrIS1_E.exit21.thread ], [ %.pr.pre, %_ZN3ade6HandleINS_4EdgeEEC2ERKSt10shared_ptrIS1_E.exit21 ]
-  %143 = getelementptr inbounds nuw i8, ptr %.pr38, i64 8
+  %.pr47 = phi ptr [ %133, %_ZN3ade6HandleINS_4EdgeEEC2ERKSt10shared_ptrIS1_E.exit21.thread ], [ %.pr.pre, %_ZN3ade6HandleINS_4EdgeEEC2ERKSt10shared_ptrIS1_E.exit21 ]
+  %143 = getelementptr inbounds nuw i8, ptr %.pr47, i64 8
   %144 = load atomic i64, ptr %143 acquire, align 8
   %145 = icmp eq i64 %144, 4294967297
   %146 = trunc i64 %144 to i32
@@ -2248,16 +2248,16 @@ _ZN3ade6HandleINS_4EdgeEEC2ERKSt10shared_ptrIS1_E.exit21: ; preds = %136
 
 147:                                              ; preds = %142
   store i32 0, ptr %143, align 8, !tbaa !37
-  %148 = getelementptr inbounds nuw i8, ptr %.pr38, i64 12
+  %148 = getelementptr inbounds nuw i8, ptr %.pr47, i64 12
   store i32 0, ptr %148, align 4, !tbaa !40
-  %149 = load ptr, ptr %.pr38, align 8, !tbaa !41
+  %149 = load ptr, ptr %.pr47, align 8, !tbaa !41
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %151 = load ptr, ptr %150, align 8
-  call void %151(ptr noundef nonnull align 8 dereferenceable(16) %.pr38) #23
-  %152 = load ptr, ptr %.pr38, align 8, !tbaa !41
+  call void %151(ptr noundef nonnull align 8 dereferenceable(16) %.pr47) #23
+  %152 = load ptr, ptr %.pr47, align 8, !tbaa !41
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 24
   %154 = load ptr, ptr %153, align 8
-  call void %154(ptr noundef nonnull align 8 dereferenceable(16) %.pr38) #23
+  call void %154(ptr noundef nonnull align 8 dereferenceable(16) %.pr47) #23
   br label %_ZNSt12__shared_ptrIN3ade4EdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 155:                                              ; preds = %142
@@ -2280,7 +2280,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %159, %157
   br i1 %161, label %162, label %_ZNSt12__shared_ptrIN3ade4EdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !45
 
 162:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr38) #23
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr47) #23
   br label %_ZNSt12__shared_ptrIN3ade4EdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN3ade4EdgeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %132, %_ZN3ade6HandleINS_4EdgeEEC2ERKSt10shared_ptrIS1_E.exit21, %147, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %162

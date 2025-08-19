@@ -539,40 +539,40 @@ _addto_job_list.exit56:                           ; preds = %42, %47
   %sext = shl i64 %106, 32
   %107 = ashr exact i64 %sext, 32
   %108 = call i32 @xstrncasecmp(ptr noundef nonnull %105, ptr noundef nonnull %.1, i64 noundef %107) #16
-  %.not5294 = icmp eq i32 %108, 0
-  br i1 %.not5294, label %._crit_edge97, label %.lr.ph96
+  %.not52103 = icmp eq i32 %108, 0
+  br i1 %.not52103, label %._crit_edge106, label %.lr.ph105
 
-.lr.ph96:                                         ; preds = %.lr.ph63, %112
-  %indvars.iv95 = phi i64 [ %indvars.iv.next, %112 ], [ 0, %.lr.ph63 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv95, 1
+.lr.ph105:                                        ; preds = %.lr.ph63, %112
+  %indvars.iv104 = phi i64 [ %indvars.iv.next, %112 ], [ 0, %.lr.ph63 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv104, 1
   %109 = getelementptr inbounds nuw [0 x %struct.print_field], ptr @fields, i64 0, i64 %indvars.iv.next
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8
   %.not51 = icmp eq ptr %111, null
   br i1 %.not51, label %._crit_edge64, label %112, !llvm.loop !15
 
-112:                                              ; preds = %.lr.ph96
+112:                                              ; preds = %.lr.ph105
   %113 = call i32 @xstrncasecmp(ptr noundef nonnull %111, ptr noundef nonnull %.1, i64 noundef %107) #16
   %.not52 = icmp eq i32 %113, 0
-  br i1 %.not52, label %._crit_edge97, label %.lr.ph96, !llvm.loop !15
+  br i1 %.not52, label %._crit_edge106, label %.lr.ph105, !llvm.loop !15
 
-._crit_edge64:                                    ; preds = %104, %.lr.ph96
+._crit_edge64:                                    ; preds = %104, %.lr.ph105
   %114 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.41, ptr noundef nonnull %.1) #16
   call void @exit(i32 noundef 1) #18
   unreachable
 
-._crit_edge97:                                    ; preds = %112, %.lr.ph63
-  %.lcssa92 = phi ptr [ @fields, %.lr.ph63 ], [ %109, %112 ]
+._crit_edge106:                                   ; preds = %112, %.lr.ph63
+  %.lcssa101 = phi ptr [ @fields, %.lr.ph63 ], [ %109, %112 ]
   %.not53 = icmp eq i32 %.0, 0
   br i1 %.not53, label %116, label %115
 
-115:                                              ; preds = %._crit_edge97
-  store i32 %.0, ptr %.lcssa92, align 8
+115:                                              ; preds = %._crit_edge106
+  store i32 %.0, ptr %.lcssa101, align 8
   br label %116
 
-116:                                              ; preds = %115, %._crit_edge97
+116:                                              ; preds = %115, %._crit_edge106
   %117 = load ptr, ptr @print_fields_list, align 8
-  call void @list_append(ptr noundef %117, ptr noundef nonnull %.lcssa92) #16
+  call void @list_append(ptr noundef %117, ptr noundef nonnull %.lcssa101) #16
   %118 = getelementptr inbounds nuw i8, ptr %strchr70, i64 1
   br label %119
 

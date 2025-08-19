@@ -685,11 +685,11 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
 
 .sink.split:                                      ; preds = %134, %128, %.thread318.thread324
   %.lcssa.sink = phi i64 [ %120, %.thread318.thread324 ], [ %131, %128 ], [ %139, %134 ]
-  %.sink355 = phi i64 [ %119, %.thread318.thread324 ], [ %125, %128 ], [ %125, %134 ]
+  %.sink373 = phi i64 [ %119, %.thread318.thread324 ], [ %125, %128 ], [ %125, %134 ]
   %.2254322.ph = phi i32 [ %115, %.thread318.thread324 ], [ %.0252339, %128 ], [ %.0252339, %134 ]
   store i64 %.lcssa.sink, ptr %81, align 8, !tbaa !25
   %145 = load i64, ptr %79, align 8, !tbaa !47
-  %146 = add i64 %145, %.sink355
+  %146 = add i64 %145, %.sink373
   store i64 %146, ptr %79, align 8, !tbaa !47
   br label %147
 
@@ -928,7 +928,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
 .preheader:                                       ; preds = %244, %242
   %.not290 = icmp eq ptr %4, null
   %.not291 = icmp eq i32 %.2254322, 0
-  %246 = sext i32 %.2254322 to i64
+  %246 = zext nneg i32 %.2254322 to i64
   %247 = select i1 %.not291, i64 %5, i64 %246
   br label %250
 
@@ -1095,7 +1095,7 @@ define internal range(i32 0, 2) i32 @tls1_mac(ptr noundef %0, ptr noundef %1, pt
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4280
   %28 = load i32, ptr %27, align 8, !tbaa !57
   %.not57 = icmp eq i32 %28, 0
-  br i1 %.not57, label %.thread67, label %29
+  br i1 %.not57, label %.thread69, label %29
 
 29:                                               ; preds = %26
   %30 = tail call i32 @EVP_MD_CTX_ctrl(ptr noundef %.049, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %9) #4
@@ -1105,7 +1105,7 @@ define internal range(i32 0, 2) i32 @tls1_mac(ptr noundef %0, ptr noundef %1, pt
 32:                                               ; preds = %29
   %.pr.pre = load i32, ptr %24, align 8, !tbaa !48
   %33 = icmp eq i32 %.pr.pre, 0
-  br i1 %33, label %.thread67, label %.thread
+  br i1 %33, label %.thread69, label %.thread
 
 .thread:                                          ; preds = %23, %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1121,12 +1121,12 @@ define internal range(i32 0, 2) i32 @tls1_mac(ptr noundef %0, ptr noundef %1, pt
   store i8 %38, ptr %.sroa.4.0..sroa_idx, align 1
   br label %41
 
-.thread67:                                        ; preds = %26, %32
+.thread69:                                        ; preds = %26, %32
   %40 = load i64, ptr %9, align 1
   store i64 %40, ptr %6, align 8
   br label %41
 
-41:                                               ; preds = %.thread67, %.thread
+41:                                               ; preds = %.thread69, %.thread
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %43 = load i32, ptr %42, align 4, !tbaa !50
   %44 = trunc i32 %43 to i8

@@ -545,7 +545,7 @@ sub_2:                                            ; preds = %sub_1
 169:                                              ; preds = %.thread, %168
   %.2311538 = phi ptr [ %150, %.thread ], [ %.0309, %168 ]
   %.8322537 = phi i32 [ %143, %.thread ], [ %.7321, %168 ]
-  %170 = call i32 @cl_engine_set_str(ptr noundef %62, i32 noundef 6, ptr noundef nonnull %.2311538) #21
+  %170 = call i32 @cl_engine_set_str(ptr noundef nonnull %62, i32 noundef 6, ptr noundef nonnull %.2311538) #21
   %.not404 = icmp eq i32 %170, 0
   br i1 %.not404, label %174, label %171
 
@@ -568,7 +568,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not405, label %181, label %179
 
 179:                                              ; preds = %175
-  %180 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 10, i64 noundef 1) #21
+  %180 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 10, i64 noundef 1) #21
   br label %181
 
 181:                                              ; preds = %179, %175
@@ -582,7 +582,7 @@ sub_2:                                            ; preds = %sub_1
   %186 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.28) #21
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 24
   %188 = load i64, ptr %187, align 8, !tbaa !4
-  %189 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 12, i64 noundef %188) #21
+  %189 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 12, i64 noundef %188) #21
   br label %190
 
 190:                                              ; preds = %185, %181
@@ -593,7 +593,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not407, label %196, label %194
 
 194:                                              ; preds = %190
-  %195 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 14, i64 noundef 1) #21
+  %195 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 14, i64 noundef 1) #21
   br label %196
 
 196:                                              ; preds = %194, %190
@@ -604,7 +604,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not408, label %202, label %200
 
 200:                                              ; preds = %196
-  %201 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 23, i64 noundef 1) #21
+  %201 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 23, i64 noundef 1) #21
   br label %202
 
 202:                                              ; preds = %200, %196
@@ -623,7 +623,7 @@ sub_2:                                            ; preds = %sub_1
 210:                                              ; preds = %202
   %211 = getelementptr inbounds nuw i8, ptr %207, i64 24
   %212 = load i64, ptr %211, align 8, !tbaa !4
-  %213 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 16, i64 noundef %212) #21
+  %213 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 16, i64 noundef %212) #21
   br label %214
 
 214:                                              ; preds = %210, %202
@@ -634,7 +634,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not411, label %220, label %218
 
 218:                                              ; preds = %214
-  %219 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 35, i64 noundef 1) #21
+  %219 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 35, i64 noundef 1) #21
   br label %220
 
 220:                                              ; preds = %218, %214
@@ -645,7 +645,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not412, label %226, label %224
 
 224:                                              ; preds = %220
-  %225 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 36, i64 noundef 1) #21
+  %225 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 36, i64 noundef 1) #21
   br label %226
 
 226:                                              ; preds = %224, %220
@@ -675,7 +675,7 @@ sub_2:                                            ; preds = %sub_1
 
 238:                                              ; preds = %236, %234, %230
   %.0301 = phi i64 [ 1, %230 ], [ 2, %234 ], [ %., %236 ]
-  %239 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 17, i64 noundef %.0301) #21
+  %239 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 17, i64 noundef %.0301) #21
   br label %240
 
 240:                                              ; preds = %238, %226
@@ -738,7 +738,7 @@ sub_2:                                            ; preds = %sub_1
 267:                                              ; preds = %263
   %268 = getelementptr inbounds nuw i8, ptr %264, i64 16
   %269 = load ptr, ptr %268, align 8, !tbaa !15
-  %270 = call i32 @cl_engine_set_str(ptr noundef %62, i32 noundef 13, ptr noundef %269) #21
+  %270 = call i32 @cl_engine_set_str(ptr noundef nonnull %62, i32 noundef 13, ptr noundef %269) #21
   %.not421 = icmp eq i32 %270, 0
   br i1 %.not421, label %274, label %271
 
@@ -814,7 +814,7 @@ sub_2:                                            ; preds = %sub_1
 307:                                              ; preds = %301, %279
   %308 = getelementptr inbounds nuw i8, ptr %.3307570, i64 16
   %309 = load ptr, ptr %308, align 8, !tbaa !15
-  %310 = call i32 @cl_load(ptr noundef %309, ptr noundef %62, ptr noundef nonnull @info, i32 noundef %.10324) #21
+  %310 = call i32 @cl_load(ptr noundef %309, ptr noundef nonnull %62, ptr noundef nonnull @info, i32 noundef %.10324) #21
   %.not521 = icmp eq i32 %310, 0
   br i1 %.not521, label %.backedge, label %311
 
@@ -840,7 +840,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not424, label %324, label %.thread539
 
 324:                                              ; preds = %319, %314
-  %325 = call i32 @cl_load(ptr noundef %315, ptr noundef %62, ptr noundef nonnull @info, i32 noundef %.10324) #21
+  %325 = call i32 @cl_load(ptr noundef %315, ptr noundef nonnull %62, ptr noundef nonnull @info, i32 noundef %.10324) #21
   %.not425 = icmp eq i32 %325, 0
   br i1 %.not425, label %329, label %326
 
@@ -864,7 +864,7 @@ sub_2:                                            ; preds = %sub_1
 333:                                              ; preds = %.loopexit
   %334 = getelementptr inbounds nuw i8, ptr %330, i64 24
   %335 = load i64, ptr %334, align 8, !tbaa !4
-  %336 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 32, i64 noundef %335) #21
+  %336 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 32, i64 noundef %335) #21
   %.not428 = icmp eq i32 %336, 0
   br i1 %.not428, label %340, label %337
 
@@ -883,7 +883,7 @@ sub_2:                                            ; preds = %sub_1
 344:                                              ; preds = %340
   %345 = getelementptr inbounds nuw i8, ptr %341, i64 24
   %346 = load i64, ptr %345, align 8, !tbaa !4
-  %347 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 33, i64 noundef %346) #21
+  %347 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 33, i64 noundef %346) #21
   %.not430 = icmp eq i32 %347, 0
   br i1 %.not430, label %351, label %348
 
@@ -893,7 +893,7 @@ sub_2:                                            ; preds = %sub_1
   br label %.thread539
 
 351:                                              ; preds = %344, %340
-  %352 = call i32 @cl_engine_compile(ptr noundef %62) #21
+  %352 = call i32 @cl_engine_compile(ptr noundef nonnull %62) #21
   %.not431 = icmp eq i32 %352, 0
   br i1 %.not431, label %356, label %353
 
@@ -949,9 +949,9 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not437, label %383, label %382
 
 382:                                              ; preds = %378
-  call void @cl_engine_set_clcb_meta(ptr noundef %62, ptr noundef nonnull @meta) #21
-  call void @cl_engine_set_clcb_pre_cache(ptr noundef %62, ptr noundef nonnull @pre) #21
-  call void @cl_engine_set_clcb_post_scan(ptr noundef %62, ptr noundef nonnull @post) #21
+  call void @cl_engine_set_clcb_meta(ptr noundef nonnull %62, ptr noundef nonnull @meta) #21
+  call void @cl_engine_set_clcb_pre_cache(ptr noundef nonnull %62, ptr noundef nonnull @pre) #21
+  call void @cl_engine_set_clcb_post_scan(ptr noundef nonnull %62, ptr noundef nonnull @post) #21
   br label %383
 
 383:                                              ; preds = %382, %378
@@ -964,7 +964,7 @@ sub_2:                                            ; preds = %sub_1
 387:                                              ; preds = %383
   %388 = getelementptr inbounds nuw i8, ptr %384, i64 24
   %389 = load i64, ptr %388, align 8, !tbaa !4
-  %390 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 31, i64 noundef %389) #21
+  %390 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 31, i64 noundef %389) #21
   %.not439 = icmp eq i32 %390, 0
   br i1 %.not439, label %394, label %391
 
@@ -983,7 +983,7 @@ sub_2:                                            ; preds = %sub_1
 398:                                              ; preds = %394
   %399 = getelementptr inbounds nuw i8, ptr %395, i64 24
   %400 = load i64, ptr %399, align 8, !tbaa !4
-  %401 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 31, i64 noundef %400) #21
+  %401 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 31, i64 noundef %400) #21
   %.not441 = icmp eq i32 %401, 0
   br i1 %.not441, label %405, label %402
 
@@ -1002,7 +1002,7 @@ sub_2:                                            ; preds = %sub_1
 409:                                              ; preds = %405
   %410 = getelementptr inbounds nuw i8, ptr %406, i64 24
   %411 = load i64, ptr %410, align 8, !tbaa !4
-  %412 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 0, i64 noundef %411) #21
+  %412 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 0, i64 noundef %411) #21
   %.not443 = icmp eq i32 %412, 0
   br i1 %.not443, label %416, label %413
 
@@ -1021,7 +1021,7 @@ sub_2:                                            ; preds = %sub_1
 420:                                              ; preds = %416
   %421 = getelementptr inbounds nuw i8, ptr %417, i64 24
   %422 = load i64, ptr %421, align 8, !tbaa !4
-  %423 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 1, i64 noundef %422) #21
+  %423 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 1, i64 noundef %422) #21
   %.not445 = icmp eq i32 %423, 0
   br i1 %.not445, label %427, label %424
 
@@ -1037,7 +1037,7 @@ sub_2:                                            ; preds = %sub_1
 
 430:                                              ; preds = %427
   %431 = load i64, ptr %4, align 8, !tbaa !27
-  %432 = call i64 @cl_engine_get_num(ptr noundef %62, i32 noundef 1, ptr noundef null) #21
+  %432 = call i64 @cl_engine_get_num(ptr noundef nonnull %62, i32 noundef 1, ptr noundef null) #21
   %433 = icmp ult i64 %431, %432
   br i1 %433, label %434, label %436
 
@@ -1047,7 +1047,7 @@ sub_2:                                            ; preds = %sub_1
 
 436:                                              ; preds = %434, %430
   %437 = load i64, ptr %4, align 8, !tbaa !27
-  %438 = call i64 @cl_engine_get_num(ptr noundef %62, i32 noundef 0, ptr noundef null) #21
+  %438 = call i64 @cl_engine_get_num(ptr noundef nonnull %62, i32 noundef 0, ptr noundef null) #21
   %439 = icmp ult i64 %437, %438
   br i1 %439, label %.sink.split, label %441
 
@@ -1066,7 +1066,7 @@ sub_2:                                            ; preds = %sub_1
 445:                                              ; preds = %441
   %446 = getelementptr inbounds nuw i8, ptr %442, i64 24
   %447 = load i64, ptr %446, align 8, !tbaa !4
-  %448 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 3, i64 noundef %447) #21
+  %448 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 3, i64 noundef %447) #21
   %.not447 = icmp eq i32 %448, 0
   br i1 %.not447, label %452, label %449
 
@@ -1095,7 +1095,7 @@ sub_2:                                            ; preds = %sub_1
   br label %.thread539
 
 463:                                              ; preds = %456
-  %464 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 2, i64 noundef %458) #21
+  %464 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 2, i64 noundef %458) #21
   %.not449 = icmp eq i32 %464, 0
   br i1 %.not449, label %468, label %465
 
@@ -1114,7 +1114,7 @@ sub_2:                                            ; preds = %sub_1
 472:                                              ; preds = %468
   %473 = getelementptr inbounds nuw i8, ptr %469, i64 24
   %474 = load i64, ptr %473, align 8, !tbaa !4
-  %475 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 18, i64 noundef %474) #21
+  %475 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 18, i64 noundef %474) #21
   %.not451 = icmp eq i32 %475, 0
   br i1 %.not451, label %479, label %476
 
@@ -1133,7 +1133,7 @@ sub_2:                                            ; preds = %sub_1
 483:                                              ; preds = %479
   %484 = getelementptr inbounds nuw i8, ptr %480, i64 24
   %485 = load i64, ptr %484, align 8, !tbaa !4
-  %486 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 19, i64 noundef %485) #21
+  %486 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 19, i64 noundef %485) #21
   %.not453 = icmp eq i32 %486, 0
   br i1 %.not453, label %490, label %487
 
@@ -1152,7 +1152,7 @@ sub_2:                                            ; preds = %sub_1
 494:                                              ; preds = %490
   %495 = getelementptr inbounds nuw i8, ptr %491, i64 24
   %496 = load i64, ptr %495, align 8, !tbaa !4
-  %497 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 20, i64 noundef %496) #21
+  %497 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 20, i64 noundef %496) #21
   %.not455 = icmp eq i32 %497, 0
   br i1 %.not455, label %501, label %498
 
@@ -1171,7 +1171,7 @@ sub_2:                                            ; preds = %sub_1
 505:                                              ; preds = %501
   %506 = getelementptr inbounds nuw i8, ptr %502, i64 24
   %507 = load i64, ptr %506, align 8, !tbaa !4
-  %508 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 21, i64 noundef %507) #21
+  %508 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 21, i64 noundef %507) #21
   %.not457 = icmp eq i32 %508, 0
   br i1 %.not457, label %512, label %509
 
@@ -1190,7 +1190,7 @@ sub_2:                                            ; preds = %sub_1
 516:                                              ; preds = %512
   %517 = getelementptr inbounds nuw i8, ptr %513, i64 24
   %518 = load i64, ptr %517, align 8, !tbaa !4
-  %519 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 22, i64 noundef %518) #21
+  %519 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 22, i64 noundef %518) #21
   %.not459 = icmp eq i32 %519, 0
   br i1 %.not459, label %523, label %520
 
@@ -1209,7 +1209,7 @@ sub_2:                                            ; preds = %sub_1
 527:                                              ; preds = %523
   %528 = getelementptr inbounds nuw i8, ptr %524, i64 24
   %529 = load i64, ptr %528, align 8, !tbaa !4
-  %530 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 28, i64 noundef %529) #21
+  %530 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 28, i64 noundef %529) #21
   %.not461 = icmp eq i32 %530, 0
   br i1 %.not461, label %534, label %531
 
@@ -1228,7 +1228,7 @@ sub_2:                                            ; preds = %sub_1
 538:                                              ; preds = %534
   %539 = getelementptr inbounds nuw i8, ptr %535, i64 24
   %540 = load i64, ptr %539, align 8, !tbaa !4
-  %541 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 29, i64 noundef %540) #21
+  %541 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 29, i64 noundef %540) #21
   %.not463 = icmp eq i32 %541, 0
   br i1 %.not463, label %545, label %542
 
@@ -1247,7 +1247,7 @@ sub_2:                                            ; preds = %sub_1
 549:                                              ; preds = %545
   %550 = getelementptr inbounds nuw i8, ptr %546, i64 24
   %551 = load i64, ptr %550, align 8, !tbaa !4
-  %552 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 30, i64 noundef %551) #21
+  %552 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 30, i64 noundef %551) #21
   %.not465 = icmp eq i32 %552, 0
   br i1 %.not465, label %556, label %553
 
@@ -1266,7 +1266,7 @@ sub_2:                                            ; preds = %sub_1
 560:                                              ; preds = %556
   %561 = getelementptr inbounds nuw i8, ptr %557, i64 24
   %562 = load i64, ptr %561, align 8, !tbaa !4
-  %563 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 34, i64 noundef %562) #21
+  %563 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 34, i64 noundef %562) #21
   %.not467 = icmp eq i32 %563, 0
   br i1 %.not467, label %567, label %564
 
@@ -1761,9 +1761,9 @@ switch.lookup:                                    ; preds = %834
   br label %840
 
 840:                                              ; preds = %switch.lookup, %829
-  %.sink597 = phi i32 [ 1024, %829 ], [ %switch.offset, %switch.lookup ]
+  %.sink633 = phi i32 [ 1024, %829 ], [ %switch.offset, %switch.lookup ]
   %841 = load i32, ptr %827, align 4, !tbaa !29
-  %842 = or i32 %841, %.sink597
+  %842 = or i32 %841, %.sink633
   store i32 %842, ptr %827, align 4, !tbaa !29
   %843 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.130) #21
   %844 = getelementptr inbounds nuw i8, ptr %843, i64 36
@@ -1774,7 +1774,7 @@ switch.lookup:                                    ; preds = %834
 846:                                              ; preds = %840
   %847 = getelementptr inbounds nuw i8, ptr %843, i64 24
   %848 = load i64, ptr %847, align 8, !tbaa !4
-  %849 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 5, i64 noundef %848) #21
+  %849 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 5, i64 noundef %848) #21
   %.not508 = icmp eq i32 %849, 0
   br i1 %.not508, label %853, label %850
 
@@ -1793,7 +1793,7 @@ switch.lookup:                                    ; preds = %834
 857:                                              ; preds = %853
   %858 = getelementptr inbounds nuw i8, ptr %854, i64 24
   %859 = load i64, ptr %858, align 8, !tbaa !4
-  %860 = call i32 @cl_engine_set_num(ptr noundef %62, i32 noundef 4, i64 noundef %859) #21
+  %860 = call i32 @cl_engine_set_num(ptr noundef nonnull %62, i32 noundef 4, i64 noundef %859) #21
   %.not510 = icmp eq i32 %860, 0
   br i1 %.not510, label %864, label %861
 
@@ -1820,7 +1820,7 @@ switch.lookup:                                    ; preds = %834
 871:                                              ; preds = %868
   %872 = load i32, ptr %827, align 4, !tbaa !29
   %873 = or i32 %872, 4096
-  br label %.sink.split598
+  br label %.sink.split634
 
 874:                                              ; preds = %868
   %875 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.135) #21
@@ -1828,14 +1828,14 @@ switch.lookup:                                    ; preds = %834
 
 876:                                              ; preds = %823
   %877 = and i32 %828, -513
-  br label %.sink.split598
+  br label %.sink.split634
 
-.sink.split598:                                   ; preds = %876, %871
+.sink.split634:                                   ; preds = %876, %871
   %.sink = phi i32 [ %873, %871 ], [ %877, %876 ]
   store i32 %.sink, ptr %827, align 4, !tbaa !29
   br label %878
 
-878:                                              ; preds = %.sink.split598, %864, %868
+878:                                              ; preds = %.sink.split634, %864, %868
   store i64 0, ptr @procdev, align 8, !tbaa !32
   %879 = call i32 @stat(ptr noundef nonnull @.str.136, ptr noundef nonnull %3) #21
   %880 = icmp eq i32 %879, -1
@@ -2147,16 +2147,16 @@ print_time.exit56:                                ; preds = %74, %83, %87
   %fputc36 = tail call i32 @fputc(i32 91, ptr %91)
   switch i32 %14, label %.lr.ph.preheader [
     i32 0, label %.lr.ph60.preheader
-    i32 1, label %.thread65
+    i32 1, label %.thread72
   ]
 
 .lr.ph.preheader:                                 ; preds = %90
   %92 = add i32 %14, -2
   br label %.lr.ph
 
-.thread65:                                        ; preds = %90
+.thread72:                                        ; preds = %90
   %93 = load ptr, ptr @stdout, align 8, !tbaa !16
-  %fputc3967 = tail call i32 @fputc(i32 62, ptr %93)
+  %fputc3974 = tail call i32 @fputc(i32 62, ptr %93)
   br label %.lr.ph60.preheader
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2173,7 +2173,7 @@ print_time.exit56:                                ; preds = %74, %83, %87
   %98 = icmp ult i32 %14, 25
   br i1 %98, label %.lr.ph60.preheader, label %._crit_edge
 
-.lr.ph60.preheader:                               ; preds = %90, %.thread65, %96
+.lr.ph60.preheader:                               ; preds = %90, %.thread72, %96
   br label %.lr.ph60
 
 .lr.ph60:                                         ; preds = %.lr.ph60.preheader, %.lr.ph60
@@ -2426,16 +2426,16 @@ print_time.exit56:                                ; preds = %74, %83, %87
   %fputc36 = tail call i32 @fputc(i32 91, ptr %91)
   switch i32 %14, label %.lr.ph.preheader [
     i32 0, label %.lr.ph60.preheader
-    i32 1, label %.thread65
+    i32 1, label %.thread72
   ]
 
 .lr.ph.preheader:                                 ; preds = %90
   %92 = add i32 %14, -2
   br label %.lr.ph
 
-.thread65:                                        ; preds = %90
+.thread72:                                        ; preds = %90
   %93 = load ptr, ptr @stdout, align 8, !tbaa !16
-  %fputc3967 = tail call i32 @fputc(i32 62, ptr %93)
+  %fputc3974 = tail call i32 @fputc(i32 62, ptr %93)
   br label %.lr.ph60.preheader
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2452,7 +2452,7 @@ print_time.exit56:                                ; preds = %74, %83, %87
   %98 = icmp ult i32 %14, 25
   br i1 %98, label %.lr.ph60.preheader, label %._crit_edge
 
-.lr.ph60.preheader:                               ; preds = %90, %.thread65, %96
+.lr.ph60.preheader:                               ; preds = %90, %.thread72, %96
   br label %.lr.ph60
 
 .lr.ph60:                                         ; preds = %.lr.ph60.preheader, %.lr.ph60

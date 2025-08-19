@@ -115,8 +115,8 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %20 = load i32, ptr %19, align 8, !tbaa !30
   %21 = sext i32 %20 to i64
-  %spec.select46 = tail call i64 @llvm.smin.i64(i64 %13, i64 %21)
-  %spec.select = trunc i64 %spec.select46 to i32
+  %spec.select48 = tail call i64 @llvm.smin.i64(i64 %13, i64 %21)
+  %spec.select = trunc i64 %spec.select48 to i32
   br label %22
 
 22:                                               ; preds = %18, %._crit_edge44

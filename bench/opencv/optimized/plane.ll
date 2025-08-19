@@ -3114,7 +3114,7 @@ _ZNKSt6vectorISt4pairIiiESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %227
   %231 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
   %.sroa.6233.0.insert.ext235 = zext i32 %.sroa.13312.0.copyload to i64
   %.sroa.6233.0.insert.shift236 = shl nuw i64 %.sroa.6233.0.insert.ext235, 32
-  %.sroa.0228.0.insert.ext230 = zext i32 %230 to i64
+  %.sroa.0228.0.insert.ext230 = zext nneg i32 %230 to i64
   %.sroa.0228.0.insert.insert232 = or disjoint i64 %.sroa.6233.0.insert.shift236, %.sroa.0228.0.insert.ext230
   store i64 %.sroa.0228.0.insert.insert232, ptr %231, align 4
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
@@ -3293,8 +3293,8 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit154: ; preds = %289, %238, %
   br i1 %.not.i.i155, label %319, label %317
 
 317:                                              ; preds = %315
-  %.sroa.6209.0.insert.ext = zext i32 %316 to i64
-  %.sroa.6209.0.insert.shift = shl nuw i64 %.sroa.6209.0.insert.ext, 32
+  %.sroa.6209.0.insert.ext = zext nneg i32 %316 to i64
+  %.sroa.6209.0.insert.shift = shl nuw nsw i64 %.sroa.6209.0.insert.ext, 32
   %.sroa.0204.0.insert.ext = zext i32 %.sroa.0303.0.copyload to i64
   %.sroa.0204.0.insert.insert = or disjoint i64 %.sroa.6209.0.insert.shift, %.sroa.0204.0.insert.ext
   store i64 %.sroa.0204.0.insert.insert, ptr %.sroa.21.1, align 4
@@ -3330,8 +3330,8 @@ _ZNKSt6vectorISt4pairIiiESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i156: ; preds = %3
 
 .noexc169:                                        ; preds = %_ZNKSt6vectorISt4pairIiiESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i156
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 %322
-  %.sroa.6209.0.insert.ext211 = zext i32 %316 to i64
-  %.sroa.6209.0.insert.shift212 = shl nuw i64 %.sroa.6209.0.insert.ext211, 32
+  %.sroa.6209.0.insert.ext211 = zext nneg i32 %316 to i64
+  %.sroa.6209.0.insert.shift212 = shl nuw nsw i64 %.sroa.6209.0.insert.ext211, 32
   %.sroa.0204.0.insert.ext206 = zext i32 %.sroa.0303.0.copyload to i64
   %.sroa.0204.0.insert.insert208 = or disjoint i64 %.sroa.6209.0.insert.shift212, %.sroa.0204.0.insert.ext206
   store i64 %.sroa.0204.0.insert.insert208, ptr %332, align 4

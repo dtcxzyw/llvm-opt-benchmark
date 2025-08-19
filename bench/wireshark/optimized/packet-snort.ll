@@ -1309,8 +1309,8 @@ switch.lookup:                                    ; preds = %496
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.snort_dissector, i64 0, i64 %500
   %switch.load = load ptr, ptr %switch.gep, align 8
   %501 = zext nneg i32 %498 to i64
-  %switch.gep110 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.snort_dissector.3, i64 0, i64 %501
-  %switch.load111 = load ptr, ptr %switch.gep110, align 8
+  %switch.gep186 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.snort_dissector.3, i64 0, i64 %501
+  %switch.load187 = load ptr, ptr %switch.gep186, align 8
   %.0283.i = load i32, ptr %switch.load, align 4
   %502 = getelementptr inbounds nuw i8, ptr %497, i64 16
   %503 = load i8, ptr %502, align 8, !range !8, !noundef !9
@@ -1503,7 +1503,7 @@ get_content_match.exit.i:                         ; preds = %559, %532
   %.3295439452.ph.i = phi i32 [ %.1293480.i, %switch.lookup ], [ %.4296.i, %get_content_match.exit.thread429.i ], [ %.4296.i, %get_content_match.exit.i ], [ %.4296.i, %522 ], [ %.4296.i, %566 ], [ %.4296.i, %content_compare_case_insensitive.exit.i.i.i ]
   %603 = getelementptr inbounds nuw i8, ptr %497, i64 8
   %604 = load ptr, ptr %603, align 8
-  %605 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %253, i32 noundef %.0283.i, ptr noundef %.1.i, i32 noundef 0, i32 noundef 0, ptr noundef %604, ptr noundef nonnull %switch.load111, ptr noundef %604)
+  %605 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %253, i32 noundef %.0283.i, ptr noundef %.1.i, i32 noundef 0, i32 noundef 0, ptr noundef %604, ptr noundef nonnull %switch.load187, ptr noundef %604)
   br label %612
 
 606:                                              ; preds = %get_content_match.exit.i, %get_content_match.exit.thread.i
@@ -1512,7 +1512,7 @@ get_content_match.exit.i:                         ; preds = %559, %532
   %608 = phi i32 [ %599, %get_content_match.exit.thread.i ], [ %.2404.i, %get_content_match.exit.i ]
   %609 = getelementptr inbounds nuw i8, ptr %497, i64 8
   %610 = load ptr, ptr %609, align 8
-  %611 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %253, i32 noundef %.0283.i, ptr noundef %.1.i, i32 noundef %607, i32 noundef %608, ptr noundef %610, ptr noundef nonnull %switch.load111, ptr noundef %610)
+  %611 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %253, i32 noundef %.0283.i, ptr noundef %.1.i, i32 noundef %607, i32 noundef %608, ptr noundef %610, ptr noundef nonnull %switch.load187, ptr noundef %610)
   br label %612
 
 612:                                              ; preds = %606, %.thread456.i
@@ -2551,14 +2551,14 @@ snort_parse_ts.exit.i:                            ; preds = %.lr.ph
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %67, %.thread.i
-  %.13555.i = phi ptr [ %62, %.thread.i ], [ %72, %67 ]
-  %75 = call i32 @g_str_has_prefix(ptr noundef %.13555.i, ptr noundef nonnull @snort_parse_fast_line.priority)
+  %.13559.i = phi ptr [ %62, %.thread.i ], [ %72, %67 ]
+  %75 = call i32 @g_str_has_prefix(ptr noundef %.13559.i, ptr noundef nonnull @snort_parse_fast_line.priority)
   %.not47.i = icmp eq i32 %75, 0
   br i1 %.not47.i, label %81, label %76
 
 76:                                               ; preds = %74, %67
-  %.13554.i = phi ptr [ %.13555.i, %74 ], [ %72, %67 ]
-  %77 = getelementptr i8, ptr %.13554.i, i64 11
+  %.13558.i = phi ptr [ %.13559.i, %74 ], [ %72, %67 ]
+  %77 = getelementptr i8, ptr %.13558.i, i64 11
   %78 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %77, ptr noundef nonnull @.str.162, ptr noundef nonnull %24) #13
   %.not48.i = icmp eq i32 %78, 1
   br i1 %.not48.i, label %79, label %111

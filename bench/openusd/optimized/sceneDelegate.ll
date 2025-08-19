@@ -1281,7 +1281,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.
   %43 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 4
   %44 = load i32, ptr %24, align 4
   store i32 %44, ptr %43, align 4
-  %45 = add i64 %.068.i.i.i.i.i.i, -1
+  %45 = add nsw i64 %.068.i.i.i.i.i.i, -1
   %46 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq i64 %45, 0
   br i1 %.not.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.splitthread-pre-split.i, !llvm.loop !6

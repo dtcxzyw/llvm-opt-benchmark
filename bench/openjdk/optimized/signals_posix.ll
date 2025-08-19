@@ -1170,8 +1170,8 @@ define internal fastcc noundef ptr @_ZL15get_signal_nameiPcm(i32 noundef %0, ptr
   br i1 %20, label %.preheader._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader.preheader, %.preheader
-  %indvars.iv41 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv41, 1
+  %indvars.iv44 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv44, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 33
   br i1 %exitcond, label %.loopexit, label %.preheader, !llvm.loop !13
 

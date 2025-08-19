@@ -810,7 +810,7 @@ define noundef i32 @hwloc_pcidisc_tree_attach(ptr noundef %0, ptr noundef %1) lo
 
 .thread.i:                                        ; preds = %8
   store ptr %.05667.i, ptr %.04768.i, align 8, !tbaa !54
-  br label %.loopexit106
+  br label %.loopexit114
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 160
@@ -885,22 +885,22 @@ define noundef i32 @hwloc_pcidisc_tree_attach(ptr noundef %0, ptr noundef %1) lo
   store i8 %.1.i, ptr %52, align 1, !tbaa !35
   store ptr %9, ptr %.04768.i, align 8, !tbaa !54
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  br i1 %.not61.i, label %.loopexit106, label %8, !llvm.loop !64
+  br i1 %.not61.i, label %.loopexit114, label %8, !llvm.loop !64
 
-.loopexit106:                                     ; preds = %41, %.thread.i
+.loopexit114:                                     ; preds = %41, %.thread.i
   %.0..0..0..0..2.i = load ptr, ptr %3, align 8, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not8698 = icmp eq ptr %.0..0..0..0..2.i, null
   br i1 %.not8698, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %4, %.loopexit106
-  %.078105 = phi ptr [ %.0..0..0..0..2.i, %.loopexit106 ], [ %1, %4 ]
+.lr.ph:                                           ; preds = %4, %.loopexit114
+  %.078113 = phi ptr [ %.0..0..0..0..2.i, %.loopexit114 ], [ %1, %4 ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 920
   br label %56
 
 56:                                               ; preds = %.lr.ph, %125
-  %.199 = phi ptr [ %.078105, %.lr.ph ], [ %127, %125 ]
+  %.199 = phi ptr [ %.078113, %.lr.ph ], [ %127, %125 ]
   %57 = load i32, ptr %.199, align 8, !tbaa !60
   %58 = icmp eq i32 %57, 16
   br i1 %58, label %59, label %80
@@ -1041,7 +1041,7 @@ define noundef i32 @hwloc_pcidisc_tree_attach(ptr noundef %0, ptr noundef %1) lo
   %.not86 = icmp eq ptr %127, null
   br i1 %.not86, label %.loopexit, label %56, !llvm.loop !73
 
-.loopexit:                                        ; preds = %125, %.loopexit106, %2
+.loopexit:                                        ; preds = %125, %.loopexit114, %2
   ret i32 0
 }
 

@@ -2065,7 +2065,7 @@ define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator5Bound9has_lowerEv(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN20RangeCheckEliminator5Bound4copyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20RangeCheckEliminator5Bound4copyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -2743,14 +2743,14 @@ _ZN22CompilationResourceObjnwEm.exit103:          ; preds = %324, %326
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %48, %94, %125, %208, %214, %239, %262, %295, %306, %329
-  %.0.i.i.i102.sink110 = phi ptr [ %.0.i.i.i102, %329 ], [ %.0.i.i.i99, %306 ], [ %.0.i.i.i96, %295 ], [ %.0.i.i.i93, %262 ], [ %.0.i.i.i90, %239 ], [ %212, %214 ], [ %206, %208 ], [ %.0.i.i.i85, %125 ], [ %.0.i.i.i82, %94 ], [ %.0.i.i.i, %48 ]
+  %.0.i.i.i102.sink112 = phi ptr [ %.0.i.i.i102, %329 ], [ %.0.i.i.i99, %306 ], [ %.0.i.i.i96, %295 ], [ %.0.i.i.i93, %262 ], [ %.0.i.i.i90, %239 ], [ %212, %214 ], [ %206, %208 ], [ %.0.i.i.i85, %125 ], [ %.0.i.i.i82, %94 ], [ %.0.i.i.i, %48 ]
   %.sink = phi ptr [ null, %329 ], [ null, %306 ], [ null, %295 ], [ null, %262 ], [ null, %239 ], [ %216, %214 ], [ null, %208 ], [ null, %125 ], [ null, %94 ], [ %6, %48 ]
-  %332 = getelementptr inbounds nuw i8, ptr %.0.i.i.i102.sink110, i64 8
+  %332 = getelementptr inbounds nuw i8, ptr %.0.i.i.i102.sink112, i64 8
   store ptr %.sink, ptr %332, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %_ZN22CompilationResourceObjnwEm.exit103, %_ZN22CompilationResourceObjnwEm.exit100, %_ZN22CompilationResourceObjnwEm.exit97, %_ZN22CompilationResourceObjnwEm.exit94, %_ZN22CompilationResourceObjnwEm.exit91, %211, %.critedge, %_ZN22CompilationResourceObjnwEm.exit86, %_ZN22CompilationResourceObjnwEm.exit83, %_ZN22CompilationResourceObjnwEm.exit
-  %.0.i.i.i102.sink = phi ptr [ %.0.i.i.i, %_ZN22CompilationResourceObjnwEm.exit ], [ %.0.i.i.i82, %_ZN22CompilationResourceObjnwEm.exit83 ], [ %.0.i.i.i85, %_ZN22CompilationResourceObjnwEm.exit86 ], [ %206, %.critedge ], [ %212, %211 ], [ %.0.i.i.i90, %_ZN22CompilationResourceObjnwEm.exit91 ], [ %.0.i.i.i93, %_ZN22CompilationResourceObjnwEm.exit94 ], [ %.0.i.i.i96, %_ZN22CompilationResourceObjnwEm.exit97 ], [ %.0.i.i.i99, %_ZN22CompilationResourceObjnwEm.exit100 ], [ %.0.i.i.i102, %_ZN22CompilationResourceObjnwEm.exit103 ], [ %.0.i.i.i102.sink110, %.sink.split.sink.split ]
+  %.0.i.i.i102.sink = phi ptr [ %.0.i.i.i, %_ZN22CompilationResourceObjnwEm.exit ], [ %.0.i.i.i82, %_ZN22CompilationResourceObjnwEm.exit83 ], [ %.0.i.i.i85, %_ZN22CompilationResourceObjnwEm.exit86 ], [ %206, %.critedge ], [ %212, %211 ], [ %.0.i.i.i90, %_ZN22CompilationResourceObjnwEm.exit91 ], [ %.0.i.i.i93, %_ZN22CompilationResourceObjnwEm.exit94 ], [ %.0.i.i.i96, %_ZN22CompilationResourceObjnwEm.exit97 ], [ %.0.i.i.i99, %_ZN22CompilationResourceObjnwEm.exit100 ], [ %.0.i.i.i102, %_ZN22CompilationResourceObjnwEm.exit103 ], [ %.0.i.i.i102.sink112, %.sink.split.sink.split ]
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i102.sink, ptr %333, align 8
   br label %334
@@ -5241,8 +5241,8 @@ _ZN13GrowableArrayIP13AccessIndexedED2Ev.exit:    ; preds = %.lr.ph333, %.loopex
   %1005 = icmp eq i64 %1004, 0
   %1006 = load i32, ptr %7, align 4
   %1007 = icmp eq i32 %1006, 0
-  %or.cond382 = select i1 %1005, i1 true, i1 %1007
-  br i1 %or.cond382, label %_ZN13GrowableArrayIP11InstructionED2Ev.exit, label %.loopexit.i247
+  %or.cond392 = select i1 %1005, i1 true, i1 %1007
+  br i1 %or.cond392, label %_ZN13GrowableArrayIP11InstructionED2Ev.exit, label %.loopexit.i247
 
 .loopexit.i247:                                   ; preds = %._crit_edge337
   %1008 = load ptr, ptr %8, align 8

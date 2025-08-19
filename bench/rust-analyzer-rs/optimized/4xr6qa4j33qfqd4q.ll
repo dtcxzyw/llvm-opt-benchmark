@@ -603,8 +603,8 @@ define hidden void @"_ZN6object4read2pe4file20PeFile$LT$Pe$C$R$GT$5parse17h75b05
 
 39:                                               ; preds = %32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i8 0, i64 16, i1 false)
-  %.sroa.640.8..sroa_idx50 = getelementptr inbounds nuw i8, ptr %.sroa.640, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.640.8..sroa_idx50, i8 0, i64 16, i1 false)
+  %.sroa.640.8..sroa_idx53 = getelementptr inbounds nuw i8, ptr %.sroa.640, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.640.8..sroa_idx53, i8 0, i64 16, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$17unwrap_or_default17h7194396515465c9fE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$17unwrap_or_default17h7194396515465c9fE.exit": ; preds = %38, %39
@@ -730,8 +730,8 @@ define hidden void @"_ZN6object4read2pe4file20PeFile$LT$Pe$C$R$GT$5parse17h88bee
 
 38:                                               ; preds = %32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i8 0, i64 16, i1 false)
-  %.sroa.640.8..sroa_idx50 = getelementptr inbounds nuw i8, ptr %.sroa.640, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.640.8..sroa_idx50, i8 0, i64 16, i1 false)
+  %.sroa.640.8..sroa_idx53 = getelementptr inbounds nuw i8, ptr %.sroa.640, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.640.8..sroa_idx53, i8 0, i64 16, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$17unwrap_or_default17h7194396515465c9fE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$17unwrap_or_default17h7194396515465c9fE.exit": ; preds = %37, %38

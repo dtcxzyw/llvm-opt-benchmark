@@ -140,8 +140,8 @@ define range(i32 -1, 1) i32 @H5HL_debug(ptr noundef %0, i64 noundef %1, ptr noun
   br label %67
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.lcssa115 = phi i64 [ %61, %._crit_edge ], [ 0, %.preheader ]
-  %66 = add i64 %.lcssa115, %.071105
+  %.lcssa118 = phi i64 [ %61, %._crit_edge ], [ 0, %.preheader ]
+  %66 = add i64 %.lcssa118, %.071105
   br label %67
 
 67:                                               ; preds = %64, %._crit_edge.thread, %53

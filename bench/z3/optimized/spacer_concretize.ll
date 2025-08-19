@@ -1129,15 +1129,15 @@ _ZNK10arith_util6mk_addEjPKP4expr.exit:           ; preds = %204
   br i1 %.not.i51, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit49, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit49.sink.split
 
 _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit49.sink.split: ; preds = %_ZNK10arith_util6mk_addEjPKP4expr.exit, %200
-  %.sink106 = phi ptr [ %201, %200 ], [ %206, %_ZNK10arith_util6mk_addEjPKP4expr.exit ]
-  %207 = getelementptr inbounds nuw i8, ptr %.sink106, i64 8
+  %.sink126 = phi ptr [ %201, %200 ], [ %206, %_ZNK10arith_util6mk_addEjPKP4expr.exit ]
+  %207 = getelementptr inbounds nuw i8, ptr %.sink126, i64 8
   %208 = load i32, ptr %207, align 4, !tbaa !32
   %209 = add i32 %208, 1
   store i32 %209, ptr %207, align 4, !tbaa !32
   br label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit49
 
 _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit49:    ; preds = %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit49.sink.split, %_ZNK10arith_util6mk_addEjPKP4expr.exit, %200
-  %210 = phi ptr [ null, %200 ], [ null, %_ZNK10arith_util6mk_addEjPKP4expr.exit ], [ %.sink106, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit49.sink.split ]
+  %210 = phi ptr [ null, %200 ], [ null, %_ZNK10arith_util6mk_addEjPKP4expr.exit ], [ %.sink126, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit49.sink.split ]
   store ptr %210, ptr %10, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1846,15 +1846,15 @@ _ZNK10arith_util6mk_addEjPKP4expr.exit:           ; preds = %204
   br i1 %.not.i51, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit49, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit49.sink.split
 
 _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit49.sink.split: ; preds = %_ZNK10arith_util6mk_addEjPKP4expr.exit, %200
-  %.sink106 = phi ptr [ %201, %200 ], [ %206, %_ZNK10arith_util6mk_addEjPKP4expr.exit ]
-  %207 = getelementptr inbounds nuw i8, ptr %.sink106, i64 8
+  %.sink126 = phi ptr [ %201, %200 ], [ %206, %_ZNK10arith_util6mk_addEjPKP4expr.exit ]
+  %207 = getelementptr inbounds nuw i8, ptr %.sink126, i64 8
   %208 = load i32, ptr %207, align 4, !tbaa !32
   %209 = add i32 %208, 1
   store i32 %209, ptr %207, align 4, !tbaa !32
   br label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit49
 
 _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit49:    ; preds = %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit49.sink.split, %_ZNK10arith_util6mk_addEjPKP4expr.exit, %200
-  %210 = phi ptr [ null, %200 ], [ null, %_ZNK10arith_util6mk_addEjPKP4expr.exit ], [ %.sink106, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit49.sink.split ]
+  %210 = phi ptr [ null, %200 ], [ null, %_ZNK10arith_util6mk_addEjPKP4expr.exit ], [ %.sink126, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit49.sink.split ]
   store ptr %210, ptr %10, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2966,11 +2966,11 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i155: ; preds = %.noexc160, 
 
 229:                                              ; preds = %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i155, %._crit_edge.i157, %._crit_edge.i116, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i114, %._crit_edge.i97, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i95
   %.sink = phi i32 [ %102, %._crit_edge.i97 ], [ %.pre2.i96, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i95 ], [ %123, %._crit_edge.i116 ], [ %.pre2.i115, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i114 ], [ %212, %._crit_edge.i157 ], [ %.pre2.i156, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i155 ]
-  %.sink294 = phi ptr [ %.pre.i98, %._crit_edge.i97 ], [ %108, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i95 ], [ %.pre.i117, %._crit_edge.i116 ], [ %129, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i114 ], [ %.pre.i158, %._crit_edge.i157 ], [ %218, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i155 ]
-  %.0.i265.sink = phi ptr [ %66, %._crit_edge.i97 ], [ %66, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i95 ], [ %66, %._crit_edge.i116 ], [ %66, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i114 ], [ %.0.i, %._crit_edge.i157 ], [ %.0.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i155 ]
+  %.sink315 = phi ptr [ %.pre.i98, %._crit_edge.i97 ], [ %108, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i95 ], [ %.pre.i117, %._crit_edge.i116 ], [ %129, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i114 ], [ %.pre.i158, %._crit_edge.i157 ], [ %218, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i155 ]
+  %.0.i286.sink = phi ptr [ %66, %._crit_edge.i97 ], [ %66, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i95 ], [ %66, %._crit_edge.i116 ], [ %66, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i114 ], [ %.0.i, %._crit_edge.i157 ], [ %.0.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i155 ]
   %230 = zext i32 %.sink to i64
-  %231 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sink294, i64 %230
-  store ptr %.0.i265.sink, ptr %231, align 8
+  %231 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sink315, i64 %230
+  store ptr %.0.i286.sink, ptr %231, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %231, i64 8
   store i32 0, ptr %.sroa.5.0..sroa_idx, align 8
   %232 = load i32, ptr %38, align 8, !tbaa !91

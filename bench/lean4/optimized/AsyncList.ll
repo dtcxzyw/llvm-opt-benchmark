@@ -1174,9 +1174,9 @@ lean_dec.exit85:                                  ; preds = %43, %42, %40, %lean
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
-common.ret144:                                    ; preds = %lean_alloc_ctor.exit, %lean_alloc_ctor.exit128, %lean_dec.exit, %lean_alloc_closure.exit132, %lean_alloc_closure.exit126, %lean_alloc_closure.exit
-  %common.ret144.op = phi ptr [ %60, %lean_alloc_closure.exit ], [ %153, %lean_alloc_closure.exit126 ], [ %223, %lean_dec.exit ], [ %212, %lean_alloc_closure.exit132 ], [ %88, %lean_alloc_ctor.exit ], [ %181, %lean_alloc_ctor.exit128 ]
-  ret ptr %common.ret144.op
+common.ret166:                                    ; preds = %lean_alloc_ctor.exit, %lean_alloc_ctor.exit128, %lean_dec.exit, %lean_alloc_closure.exit132, %lean_alloc_closure.exit126, %lean_alloc_closure.exit
+  %common.ret166.op = phi ptr [ %60, %lean_alloc_closure.exit ], [ %153, %lean_alloc_closure.exit126 ], [ %223, %lean_dec.exit ], [ %212, %lean_alloc_closure.exit132 ], [ %88, %lean_alloc_ctor.exit ], [ %181, %lean_alloc_ctor.exit128 ]
+  ret ptr %common.ret166.op
 
 lean_alloc_closure.exit:                          ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 4
@@ -1196,7 +1196,7 @@ lean_alloc_closure.exit:                          ; preds = %46
   %58 = lshr i64 %57, 1
   %59 = trunc i64 %58 to i32
   %60 = tail call ptr @lean_task_map_core(ptr noundef nonnull %47, ptr noundef %55, i32 noundef %59, i1 noundef zeroext true, i1 noundef zeroext false) #6
-  br label %common.ret144
+  br label %common.ret166
 
 61:                                               ; preds = %lean_dec.exit85
   %62 = ptrtoint ptr %16 to i64
@@ -1268,7 +1268,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit83
   %87 = getelementptr inbounds nuw i8, ptr %82, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %87, align 8, !tbaa !4
   %88 = tail call ptr @lean_task_pure(ptr noundef nonnull %82) #6
-  br label %common.ret144
+  br label %common.ret166
 
 89:                                               ; preds = %11
   %90 = ptrtoint ptr %16 to i64
@@ -1442,7 +1442,7 @@ lean_alloc_closure.exit126:                       ; preds = %139
   %151 = lshr i64 %150, 1
   %152 = trunc i64 %151 to i32
   %153 = tail call ptr @lean_task_map_core(ptr noundef nonnull %140, ptr noundef %148, i32 noundef %152, i1 noundef zeroext true, i1 noundef zeroext false) #6
-  br label %common.ret144
+  br label %common.ret166
 
 154:                                              ; preds = %lean_dec.exit81
   br i1 %.not134, label %155, label %lean_dec.exit80
@@ -1522,7 +1522,7 @@ lean_alloc_ctor.exit128:                          ; preds = %lean_alloc_ctor.exi
   %180 = getelementptr inbounds nuw i8, ptr %175, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %180, align 8, !tbaa !4
   %181 = tail call ptr @lean_task_pure(ptr noundef nonnull %175) #6
-  br label %common.ret144
+  br label %common.ret166
 
 182:                                              ; preds = %lean_obj_tag.exit
   %183 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1598,7 +1598,7 @@ lean_alloc_closure.exit132:                       ; preds = %lean_dec.exit78
   %210 = lshr i64 %209, 1
   %211 = trunc i64 %210 to i32
   %212 = tail call ptr @lean_task_bind_core(ptr noundef %184, ptr noundef nonnull %200, i32 noundef %211, i1 noundef zeroext true, i1 noundef zeroext false) #6
-  br label %common.ret144
+  br label %common.ret166
 
 213:                                              ; preds = %lean_obj_tag.exit
   %214 = ptrtoint ptr %0 to i64
@@ -1626,7 +1626,7 @@ lean_alloc_closure.exit132:                       ; preds = %lean_dec.exit78
 
 lean_dec.exit:                                    ; preds = %222, %221, %219, %213
   %223 = load ptr, ptr @l_IO_AsyncList_waitUntil___rarg___closed__2, align 8, !tbaa !4
-  br label %common.ret144
+  br label %common.ret166
 }
 
 declare ptr @lean_apply_1(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -10401,8 +10401,8 @@ lean_dec.exit135.thread:                          ; preds = %129, %133, %lean_de
   br label %lean_dec.exit132
 
 lean_dec.exit132:                                 ; preds = %159, %156, %171, %173, %174
-  %.1.i302 = phi ptr [ %168, %171 ], [ %168, %173 ], [ %168, %174 ], [ inttoptr (i64 1 to ptr), %156 ], [ %163, %159 ]
-  %175 = ptrtoint ptr %.1.i302 to i64
+  %.1.i353 = phi ptr [ %168, %171 ], [ %168, %173 ], [ %168, %174 ], [ inttoptr (i64 1 to ptr), %156 ], [ %163, %159 ]
+  %175 = ptrtoint ptr %.1.i353 to i64
   %176 = and i64 %175, 1
   %.not.i229 = icmp eq i64 %176, 0
   br i1 %.not.i229, label %179, label %lean_uint32_of_nat.exit.thread
@@ -10413,14 +10413,14 @@ lean_uint32_of_nat.exit.thread:                   ; preds = %lean_dec.exit132
   br label %lean_dec.exit131
 
 179:                                              ; preds = %lean_dec.exit132
-  %180 = tail call i32 @lean_uint32_of_big_nat(ptr noundef %.1.i302) #6
-  %181 = load i32, ptr %.1.i302, align 4, !tbaa !8
+  %180 = tail call i32 @lean_uint32_of_big_nat(ptr noundef %.1.i353) #6
+  %181 = load i32, ptr %.1.i353, align 4, !tbaa !8
   %182 = icmp sgt i32 %181, 1
   br i1 %182, label %183, label %185, !prof !11
 
 183:                                              ; preds = %179
   %184 = add nsw i32 %181, -1
-  store i32 %184, ptr %.1.i302, align 4, !tbaa !8
+  store i32 %184, ptr %.1.i353, align 4, !tbaa !8
   br label %lean_dec.exit131
 
 185:                                              ; preds = %179
@@ -10428,7 +10428,7 @@ lean_uint32_of_nat.exit.thread:                   ; preds = %lean_dec.exit132
   br i1 %.not.i166, label %lean_dec.exit131, label %186
 
 186:                                              ; preds = %185
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.1.i302) #6
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.1.i353) #6
   br label %lean_dec.exit131
 
 lean_dec.exit131:                                 ; preds = %186, %185, %183, %lean_uint32_of_nat.exit.thread
@@ -11538,18 +11538,18 @@ _init_l_IO_AsyncList_getFinishedPrefixWithTimeout___rarg___closed__1.exit: ; pre
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_IO_AsyncList_getFinishedPrefixWithTimeout___rarg___closed__1.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %111, %_init_l_IO_AsyncList_getFinishedPrefixWithTimeout___rarg___closed__1.exit ]
-  %114 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !8
+  %.sink34 = phi ptr [ %4, %3 ], [ %111, %_init_l_IO_AsyncList_getFinishedPrefixWithTimeout___rarg___closed__1.exit ]
+  %114 = getelementptr inbounds nuw i8, ptr %.sink34, i64 4
+  store i32 1, ptr %.sink34, align 4, !tbaa !8
   store i32 131096, ptr %114, align 4
-  %115 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %.sink34, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %115, align 8, !tbaa !4
-  %116 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %.sink34, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %116, align 8, !tbaa !4
   br label %117
 
 117:                                              ; preds = %.sink.split, %lean_dec_ref.exit10, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink34, %.sink.split ]
   ret ptr %.0
 }
 

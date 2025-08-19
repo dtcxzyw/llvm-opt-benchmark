@@ -1955,9 +1955,9 @@ _Py_NewRef.exit.thread.i:                         ; preds = %_Py_NewRef.exit.i, 
   %.0177249.i = phi ptr [ %135, %_Py_NewRef.exit.i ], [ %26, %132 ], [ %26, %129 ]
   %142 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.087) #6
   %.not325.i = icmp eq i64 %142, 0
-  br i1 %.not325.i, label %.thread423.i, label %.lr.ph.i
+  br i1 %.not325.i, label %.thread449.i, label %.lr.ph.i
 
-.thread423.i:                                     ; preds = %_Py_NewRef.exit.thread.i
+.thread449.i:                                     ; preds = %_Py_NewRef.exit.thread.i
   store i8 0, ptr %7, align 1, !tbaa !25
   br label %181
 
@@ -2071,9 +2071,9 @@ _Py_NewRef.exit.thread.i:                         ; preds = %_Py_NewRef.exit.i, 
   br i1 %160, label %178, label %176
 
 176:                                              ; preds = %175, %173
-  %.3168422.i = phi ptr [ %174, %173 ], [ %.2167.i, %175 ]
-  %177 = getelementptr i8, ptr %.3168422.i, i64 1
-  store i8 43, ptr %.3168422.i, align 1, !tbaa !25
+  %.3168448.i = phi ptr [ %174, %173 ], [ %.2167.i, %175 ]
+  %177 = getelementptr i8, ptr %.3168448.i, i64 1
+  store i8 43, ptr %.3168448.i, align 1, !tbaa !25
   store i8 0, ptr %177, align 1, !tbaa !25
   br i1 %163, label %179, label %181
 
@@ -2087,17 +2087,17 @@ _Py_NewRef.exit.thread.i:                         ; preds = %_Py_NewRef.exit.i, 
   call void @PyErr_SetString(ptr noundef %180, ptr noundef nonnull @.str.24) #5
   br label %Py_DECREF.exit.i
 
-181:                                              ; preds = %178, %176, %.thread423.i
-  %.not192357369395406439.i = phi i1 [ true, %.thread423.i ], [ %.not192.i, %178 ], [ %.not192.i, %176 ]
-  %.0159.lcssa334356370394407438.i = phi i1 [ false, %.thread423.i ], [ %162, %178 ], [ %162, %176 ]
-  %.0146.lcssa336354372392409437.i = phi i1 [ true, %.thread423.i ], [ true, %178 ], [ false, %176 ]
-  %.0142.lcssa337353373391410436.i = phi i32 [ 0, %.thread423.i ], [ %.1143.i, %178 ], [ %.1143.i, %176 ]
-  %.0138.lcssa338352374390411435.i = phi i32 [ 0, %.thread423.i ], [ %.1139.i, %178 ], [ %.1139.i, %176 ]
-  %.0134.lcssa339351375389412434.i = phi i32 [ 0, %.thread423.i ], [ %.1135.i, %178 ], [ %.1135.i, %176 ]
-  %.0131.lcssa340350376388413433.i = phi i32 [ 0, %.thread423.i ], [ %.1132.i, %178 ], [ %.1132.i, %176 ]
-  %182 = add nuw nsw i32 %.0138.lcssa338352374390411435.i, %.0142.lcssa337353373391410436.i
-  %183 = add nuw nsw i32 %182, %.0134.lcssa339351375389412434.i
-  %184 = add nuw nsw i32 %183, %.0131.lcssa340350376388413433.i
+181:                                              ; preds = %178, %176, %.thread449.i
+  %.not192383395421432465.i = phi i1 [ true, %.thread449.i ], [ %.not192.i, %178 ], [ %.not192.i, %176 ]
+  %.0159.lcssa360382396420433464.i = phi i1 [ false, %.thread449.i ], [ %162, %178 ], [ %162, %176 ]
+  %.0146.lcssa362380398418435463.i = phi i1 [ true, %.thread449.i ], [ true, %178 ], [ false, %176 ]
+  %.0142.lcssa363379399417436462.i = phi i32 [ 0, %.thread449.i ], [ %.1143.i, %178 ], [ %.1143.i, %176 ]
+  %.0138.lcssa364378400416437461.i = phi i32 [ 0, %.thread449.i ], [ %.1139.i, %178 ], [ %.1139.i, %176 ]
+  %.0134.lcssa365377401415438460.i = phi i32 [ 0, %.thread449.i ], [ %.1135.i, %178 ], [ %.1135.i, %176 ]
+  %.0131.lcssa366376402414439459.i = phi i32 [ 0, %.thread449.i ], [ %.1132.i, %178 ], [ %.1132.i, %176 ]
+  %182 = add nuw nsw i32 %.0138.lcssa364378400416437461.i, %.0142.lcssa363379399417436462.i
+  %183 = add nuw nsw i32 %182, %.0134.lcssa365377401415438460.i
+  %184 = add nuw nsw i32 %183, %.0131.lcssa366376402414439459.i
   %185 = icmp sgt i32 %184, 1
   br i1 %185, label %186, label %188
 
@@ -2108,7 +2108,7 @@ _Py_NewRef.exit.thread.i:                         ; preds = %_Py_NewRef.exit.i, 
 
 188:                                              ; preds = %181
   %189 = icmp ne ptr %.082, null
-  %or.cond3.i = and i1 %189, %.0159.lcssa334356370394407438.i
+  %or.cond3.i = and i1 %189, %.0159.lcssa360382396420433464.i
   br i1 %or.cond3.i, label %190, label %192
 
 190:                                              ; preds = %188
@@ -2118,7 +2118,7 @@ _Py_NewRef.exit.thread.i:                         ; preds = %_Py_NewRef.exit.i, 
 
 192:                                              ; preds = %188
   %193 = icmp ne ptr %.079, null
-  %or.cond5.i = and i1 %193, %.0159.lcssa334356370394407438.i
+  %or.cond5.i = and i1 %193, %.0159.lcssa360382396420433464.i
   br i1 %or.cond5.i, label %194, label %196
 
 194:                                              ; preds = %192
@@ -2128,7 +2128,7 @@ _Py_NewRef.exit.thread.i:                         ; preds = %_Py_NewRef.exit.i, 
 
 196:                                              ; preds = %192
   %197 = icmp ne ptr %.076, null
-  %or.cond7.i = and i1 %197, %.0159.lcssa334356370394407438.i
+  %or.cond7.i = and i1 %197, %.0159.lcssa360382396420433464.i
   br i1 %or.cond7.i, label %198, label %200
 
 198:                                              ; preds = %196
@@ -2138,7 +2138,7 @@ _Py_NewRef.exit.thread.i:                         ; preds = %_Py_NewRef.exit.i, 
 
 200:                                              ; preds = %196
   %201 = icmp eq i32 %.085, 1
-  %or.cond9.i = and i1 %201, %.0159.lcssa334356370394407438.i
+  %or.cond9.i = and i1 %201, %.0159.lcssa360382396420433464.i
   br i1 %or.cond9.i, label %202, label %206
 
 202:                                              ; preds = %200
@@ -2208,18 +2208,18 @@ Py_DECREF.exit229.i:                              ; preds = %218, %215, %213
 
 Py_DECREF.exit227.i:                              ; preds = %232, %229, %226
   %233 = icmp slt i32 %227, 0
-  br i1 %233, label %.thread266.i, label %.thread440.i
+  br i1 %233, label %.thread266.i, label %.thread466.i
 
-.thread440.i:                                     ; preds = %Py_DECREF.exit227.i
+.thread466.i:                                     ; preds = %Py_DECREF.exit227.i
   %234 = icmp ne i32 %227, 0
-  %or.cond11442.i = select i1 %201, i1 true, i1 %234
+  %or.cond11468.i = select i1 %201, i1 true, i1 %234
   br label %236
 
 235:                                              ; preds = %221
   br i1 %201, label %236, label %.thread277.i
 
-236:                                              ; preds = %235, %.thread440.i
-  %or.cond11444.i = phi i1 [ %or.cond11442.i, %.thread440.i ], [ true, %235 ]
+236:                                              ; preds = %235, %.thread466.i
+  %or.cond11470.i = phi i1 [ %or.cond11468.i, %.thread466.i ], [ true, %235 ]
   %237 = call ptr @PyObject_GetAttr(ptr noundef nonnull %211, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45712)) #5
   %238 = icmp eq ptr %237, null
   br i1 %238, label %.thread266.i, label %239
@@ -2260,13 +2260,13 @@ Py_DECREF.exit225.i:                              ; preds = %246, %243, %239
   br label %.thread266.i
 
 .thread277.i:                                     ; preds = %250, %235
-  %or.cond11443.i = phi i1 [ %or.cond11444.i, %250 ], [ false, %235 ]
+  %or.cond11469.i = phi i1 [ %or.cond11470.i, %250 ], [ false, %235 ]
   %.1279.i = phi i32 [ %241, %250 ], [ %.085, %235 ]
   %253 = icmp eq i32 %.1279.i, 0
   br i1 %253, label %254, label %262
 
 254:                                              ; preds = %.thread277.i
-  br i1 %.0159.lcssa334356370394407438.i, label %257, label %255
+  br i1 %.0159.lcssa360382396420433464.i, label %257, label %255
 
 255:                                              ; preds = %254
   %256 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !4
@@ -2285,13 +2285,13 @@ Py_DECREF.exit225.i:                              ; preds = %246, %243, %239
   br i1 %261, label %Py_DECREF.exit223.sink.split.i, label %_io_open_impl.exit
 
 262:                                              ; preds = %.thread277.i
-  br i1 %.0146.lcssa336354372392409437.i, label %263, label %268
+  br i1 %.0146.lcssa362380398418435463.i, label %263, label %268
 
 263:                                              ; preds = %262
-  %264 = or i32 %.0138.lcssa338352374390411435.i, %.0142.lcssa337353373391410436.i
-  %265 = or i32 %264, %.0131.lcssa340350376388413433.i
+  %264 = or i32 %.0138.lcssa364378400416437461.i, %.0142.lcssa363379399417436462.i
+  %265 = or i32 %264, %.0131.lcssa366376402414439459.i
   %or.cond15.not.i = icmp eq i32 %265, 0
-  %brmerge.not.i = and i1 %.not192357369395406439.i, %or.cond15.not.i
+  %brmerge.not.i = and i1 %.not192383395421432465.i, %or.cond15.not.i
   %.mux.i = select i1 %or.cond15.not.i, i64 64, i64 72
   br i1 %brmerge.not.i, label %.thread280.i, label %268
 
@@ -2324,7 +2324,7 @@ Py_DECREF.exit225.i:                              ; preds = %246, %243, %239
   br label %Py_DECREF.exit221.i
 
 Py_DECREF.exit221.i:                              ; preds = %277, %274, %272
-  br i1 %.0159.lcssa334356370394407438.i, label %278, label %283
+  br i1 %.0159.lcssa360382396420433464.i, label %278, label %283
 
 278:                                              ; preds = %Py_DECREF.exit221.i
   %279 = load i32, ptr %219, align 8, !tbaa !25
@@ -2340,7 +2340,7 @@ Py_DECREF.exit221.i:                              ; preds = %277, %274, %272
 283:                                              ; preds = %Py_DECREF.exit221.i
   %284 = getelementptr inbounds nuw i8, ptr %.val.i, i64 120
   %285 = load ptr, ptr %284, align 8, !tbaa !44
-  %286 = select i1 %or.cond11443.i, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
+  %286 = select i1 %or.cond11469.i, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
   %287 = call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %285, ptr noundef nonnull @.str.35, ptr noundef nonnull %270, ptr noundef %.082, ptr noundef %.079, ptr noundef %.076, ptr noundef nonnull %286) #5
   %288 = icmp eq ptr %287, null
   br i1 %288, label %.thread266.i, label %289

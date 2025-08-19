@@ -565,8 +565,8 @@ define internal fastcc range(i32 0, 2) i32 @tls1_prf_P_hash(ptr noundef nonnull 
 
 .thread:                                          ; preds = %18
   %22 = call i32 @EVP_MAC_final(ptr noundef nonnull %15, ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef 64) #7
-  %.not5563106 = icmp eq i32 %22, 0
-  br i1 %.not5563106, label %.loopexit, label %.lr.ph.split
+  %.not5563113 = icmp eq i32 %22, 0
+  br i1 %.not5563113, label %.loopexit, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %20, %35
   %.166.us = phi ptr [ %31, %35 ], [ %15, %20 ]
@@ -622,7 +622,7 @@ define internal fastcc range(i32 0, 2) i32 @tls1_prf_P_hash(ptr noundef nonnull 
 
 44:                                               ; preds = %41
   %45 = icmp ugt i64 %.04364, %12
-  br i1 %45, label %46, label %.thread110
+  br i1 %45, label %46, label %.thread117
 
 46:                                               ; preds = %44
   %47 = call ptr @EVP_MAC_CTX_dup(ptr noundef nonnull %39) #7
@@ -634,15 +634,15 @@ define internal fastcc range(i32 0, 2) i32 @tls1_prf_P_hash(ptr noundef nonnull 
   %.not57 = icmp eq i32 %50, 0
   br i1 %.not57, label %.loopexit, label %54
 
-.thread110:                                       ; preds = %44
+.thread117:                                       ; preds = %44
   %51 = call i32 @EVP_MAC_update(ptr noundef nonnull %39, ptr noundef nonnull %3, i64 noundef %4) #7
-  %.not57112 = icmp eq i32 %51, 0
-  br i1 %.not57112, label %.loopexit, label %.split.us
+  %.not57119 = icmp eq i32 %51, 0
+  br i1 %.not57119, label %.loopexit, label %.split.us
 
-.split.us:                                        ; preds = %28, %.thread110
-  %.us-phi88 = phi i64 [ %.04364, %.thread110 ], [ %.04364.us, %28 ]
-  %.us-phi89 = phi ptr [ %.04265, %.thread110 ], [ %.04265.us, %28 ]
-  %.us-phi91 = phi ptr [ %39, %.thread110 ], [ %23, %28 ]
+.split.us:                                        ; preds = %28, %.thread117
+  %.us-phi88 = phi i64 [ %.04364, %.thread117 ], [ %.04364.us, %28 ]
+  %.us-phi89 = phi ptr [ %.04265, %.thread117 ], [ %.04265.us, %28 ]
+  %.us-phi91 = phi ptr [ %39, %.thread117 ], [ %23, %28 ]
   %52 = call i32 @EVP_MAC_final(ptr noundef nonnull %.us-phi91, ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef 64) #7
   %.not60 = icmp eq i32 %52, 0
   br i1 %.not60, label %.loopexit, label %53
@@ -664,10 +664,10 @@ define internal fastcc range(i32 0, 2) i32 @tls1_prf_P_hash(ptr noundef nonnull 
   %.not55 = icmp eq i32 %59, 0
   br i1 %.not55, label %.loopexit, label %.lr.ph.split
 
-.loopexit:                                        ; preds = %56, %.lr.ph.split, %41, %46, %49, %54, %35, %.lr.ph.split.us, %25, %30, %33, %.thread110, %.thread, %20, %.split.us, %18, %14, %11, %7, %53
-  %.040 = phi ptr [ null, %11 ], [ null, %14 ], [ %.us-phi91, %53 ], [ %.us-phi91, %.split.us ], [ null, %18 ], [ null, %7 ], [ null, %20 ], [ null, %.thread ], [ %39, %.thread110 ], [ null, %35 ], [ null, %.lr.ph.split.us ], [ %23, %25 ], [ %23, %30 ], [ %23, %33 ], [ null, %56 ], [ null, %.lr.ph.split ], [ %39, %41 ], [ %39, %46 ], [ %39, %49 ], [ %39, %54 ]
-  %.039 = phi ptr [ null, %11 ], [ null, %14 ], [ null, %53 ], [ null, %.split.us ], [ %15, %18 ], [ null, %7 ], [ %15, %20 ], [ %15, %.thread ], [ null, %.thread110 ], [ %31, %35 ], [ null, %.lr.ph.split.us ], [ null, %25 ], [ null, %30 ], [ %31, %33 ], [ %47, %56 ], [ null, %.lr.ph.split ], [ null, %41 ], [ null, %46 ], [ %47, %49 ], [ %47, %54 ]
-  %.0 = phi i32 [ 0, %11 ], [ 0, %14 ], [ 1, %53 ], [ 0, %.split.us ], [ 0, %18 ], [ 0, %7 ], [ 0, %20 ], [ 0, %.thread ], [ 0, %.thread110 ], [ 0, %33 ], [ 0, %30 ], [ 0, %25 ], [ 0, %.lr.ph.split.us ], [ 0, %35 ], [ 0, %54 ], [ 0, %49 ], [ 0, %46 ], [ 0, %41 ], [ 0, %.lr.ph.split ], [ 0, %56 ]
+.loopexit:                                        ; preds = %56, %.lr.ph.split, %41, %46, %49, %54, %35, %.lr.ph.split.us, %25, %30, %33, %.thread117, %.thread, %20, %.split.us, %18, %14, %11, %7, %53
+  %.040 = phi ptr [ null, %11 ], [ null, %14 ], [ %.us-phi91, %53 ], [ %.us-phi91, %.split.us ], [ null, %18 ], [ null, %7 ], [ null, %20 ], [ null, %.thread ], [ %39, %.thread117 ], [ null, %35 ], [ null, %.lr.ph.split.us ], [ %23, %25 ], [ %23, %30 ], [ %23, %33 ], [ null, %56 ], [ null, %.lr.ph.split ], [ %39, %41 ], [ %39, %46 ], [ %39, %49 ], [ %39, %54 ]
+  %.039 = phi ptr [ null, %11 ], [ null, %14 ], [ null, %53 ], [ null, %.split.us ], [ %15, %18 ], [ null, %7 ], [ %15, %20 ], [ %15, %.thread ], [ null, %.thread117 ], [ %31, %35 ], [ null, %.lr.ph.split.us ], [ null, %25 ], [ null, %30 ], [ %31, %33 ], [ %47, %56 ], [ null, %.lr.ph.split ], [ null, %41 ], [ null, %46 ], [ %47, %49 ], [ %47, %54 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %14 ], [ 1, %53 ], [ 0, %.split.us ], [ 0, %18 ], [ 0, %7 ], [ 0, %20 ], [ 0, %.thread ], [ 0, %.thread117 ], [ 0, %33 ], [ 0, %30 ], [ 0, %25 ], [ 0, %.lr.ph.split.us ], [ 0, %35 ], [ 0, %54 ], [ 0, %49 ], [ 0, %46 ], [ 0, %41 ], [ 0, %.lr.ph.split ], [ 0, %56 ]
   call void @EVP_MAC_CTX_free(ptr noundef %.040) #7
   call void @EVP_MAC_CTX_free(ptr noundef %.039) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %8, i64 noundef 64) #7

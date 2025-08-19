@@ -350,7 +350,7 @@ lean_dec.exit:                                    ; preds = %11, %10, %8, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Term_expandMatchAlt___spec__1(i64 noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Term_expandMatchAlt___spec__1(i64 noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not44 = icmp ult i64 %1, %0
   br i1 %.not44, label %.lr.ph, label %._crit_edge
 
@@ -534,7 +534,7 @@ lean_alloc_small_object.exit.i:                   ; preds = %2
 declare ptr @l_Lean_Syntax_getArgs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Term_expandMatchAlt___spec__2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef readonly captures(none) %7, ptr noundef %8) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Term_expandMatchAlt___spec__2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef readonly captures(none) %7, ptr noundef %8) local_unnamed_addr #0 {
   %.not130 = icmp ult i64 %5, %4
   br i1 %.not130, label %.lr.ph, label %.._crit_edge_crit_edge
 
@@ -1004,7 +1004,7 @@ declare ptr @l_Lean_Syntax_node1(ptr noundef, ptr noundef, ptr noundef) local_un
 declare ptr @l_Lean_Syntax_node4(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Lean_Elab_Term_expandMatchAlt(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Lean_Elab_Term_expandMatchAlt(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @l_Lean_Elab_Term_expandMatchAlt___closed__5, align 8, !tbaa !12
   %5 = ptrtoint ptr %0 to i64
   %6 = and i64 %5, 1
@@ -1394,7 +1394,7 @@ declare ptr @lean_array_mk(ptr noundef) local_unnamed_addr #1
 declare ptr @l_Array_foldlMUnsafe_fold___at_Lean_Syntax_SepArray_getElems___spec__1(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Term_expandMatchAlt___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Term_expandMatchAlt___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 8
   %.val = load i64, ptr %4, align 8, !tbaa !10
   %5 = ptrtoint ptr %0 to i64
@@ -1452,7 +1452,7 @@ lean_dec.exit:                                    ; preds = %23, %22, %20, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Term_expandMatchAlt___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Term_expandMatchAlt___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = getelementptr i8, ptr %4, i64 8
   %.val24 = load i64, ptr %10, align 8, !tbaa !10
   %11 = ptrtoint ptr %4 to i64
@@ -1558,7 +1558,7 @@ lean_dec.exit:                                    ; preds = %48, %47, %45, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Lean_Elab_Term_expandMatchAlt___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Lean_Elab_Term_expandMatchAlt___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @l_Lean_Elab_Term_expandMatchAlt(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = ptrtoint ptr %1 to i64
   %6 = and i64 %5, 1
@@ -1950,7 +1950,7 @@ lean_array_uget.exit._crit_edge:                  ; preds = %5, %lean_array_uget
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Term_expandMatchAlts_x3f___spec__2(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Term_expandMatchAlts_x3f___spec__2(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #0 {
   %.not54 = icmp eq i64 %1, %2
   br i1 %.not54, label %._crit_edge, label %.lr.ph
 
@@ -2115,7 +2115,7 @@ lean_dec.exit34:                                  ; preds = %48, %47, %45, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l_Lean_Elab_Term_expandMatchAlts_x3f___lambda__1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6) local_unnamed_addr #0 {
+define nonnull ptr @l_Lean_Elab_Term_expandMatchAlts_x3f___lambda__1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = tail call ptr @l_Lean_Syntax_getArg(ptr noundef %0, ptr noundef nonnull inttoptr (i64 7 to ptr)) #5
   %9 = tail call ptr @l_Lean_Syntax_getArg(ptr noundef %0, ptr noundef nonnull inttoptr (i64 11 to ptr)) #5
   %10 = load ptr, ptr @l_Lean_Elab_Term_expandMatchAlts_x3f___lambda__1___closed__2, align 8, !tbaa !12
@@ -4819,7 +4819,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l_Lean_Elab_Term_expandMatchAlts_x3f___lambda__2(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #0 {
+define nonnull ptr @l_Lean_Elab_Term_expandMatchAlts_x3f___lambda__2(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call ptr @l_Lean_Syntax_getArg(ptr noundef %0, ptr noundef nonnull inttoptr (i64 5 to ptr)) #5
   %8 = tail call zeroext i8 @l_Lean_Syntax_isNone(ptr noundef %7) #5
   %9 = icmp eq i8 %8, 0
@@ -5021,7 +5021,7 @@ lean_dec.exit:                                    ; preds = %77, %76, %74, %70
 declare zeroext i8 @l_Lean_Syntax_matchesNull(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @l_Lean_Elab_Term_expandMatchAlts_x3f(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
+define nonnull ptr @l_Lean_Elab_Term_expandMatchAlts_x3f(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @l_Lean_Elab_Term_expandMatchAlts_x3f___closed__1, align 8, !tbaa !12
   %5 = ptrtoint ptr %0 to i64
   %6 = and i64 %5, 1
@@ -5431,7 +5431,7 @@ lean_dec.exit:                                    ; preds = %48, %47, %45, %l_Ar
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Term_expandMatchAlts_x3f___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Term_expandMatchAlts_x3f___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr i8, ptr %1, i64 8
   %.val21 = load i64, ptr %7, align 8, !tbaa !10
   %8 = ptrtoint ptr %1 to i64
@@ -5537,7 +5537,7 @@ lean_dec.exit:                                    ; preds = %45, %44, %42, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l_Lean_Elab_Term_expandMatchAlts_x3f___lambda__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define nonnull ptr @l_Lean_Elab_Term_expandMatchAlts_x3f___lambda__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = tail call ptr @l_Lean_Elab_Term_expandMatchAlts_x3f___lambda__1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %9 = ptrtoint ptr %5 to i64
   %10 = and i64 %9, 1
@@ -5615,7 +5615,7 @@ lean_dec.exit:                                    ; preds = %35, %34, %32, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l_Lean_Elab_Term_expandMatchAlts_x3f___lambda__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define nonnull ptr @l_Lean_Elab_Term_expandMatchAlts_x3f___lambda__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call ptr @l_Lean_Elab_Term_expandMatchAlts_x3f___lambda__2(ptr noundef %0, ptr noundef %1, ptr poison, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %8 = ptrtoint ptr %4 to i64
   %9 = and i64 %8, 1
@@ -5693,7 +5693,7 @@ lean_dec.exit:                                    ; preds = %34, %33, %31, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l_Lean_Elab_Term_expandMatchAlts_x3f___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define nonnull ptr @l_Lean_Elab_Term_expandMatchAlts_x3f___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @l_Lean_Elab_Term_expandMatchAlts_x3f(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = ptrtoint ptr %1 to i64
   %6 = and i64 %5, 1
@@ -5723,7 +5723,7 @@ lean_dec.exit:                                    ; preds = %13, %12, %10, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Term_clearInMatchAlt___spec__1(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Term_clearInMatchAlt___spec__1(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7) local_unnamed_addr #0 {
   %.not56 = icmp ult i64 %4, %3
   br i1 %.not56, label %.lr.ph, label %._crit_edge
 
@@ -6379,7 +6379,7 @@ lean_alloc_ctor.exit144:                          ; preds = %lean_array_fset.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Term_clearInMatchAlt___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Term_clearInMatchAlt___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr i8, ptr %3, i64 8
   %.val31 = load i64, ptr %9, align 8, !tbaa !10
   %10 = ptrtoint ptr %3 to i64
@@ -7724,16 +7724,16 @@ lean_alloc_ctor.exit306:                          ; preds = %lean_inc.exit
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_alloc_ctor.exit306, %lean_alloc_ctor.exit298, %lean_alloc_ctor.exit282, %lean_inc.exit202, %lean_dec.exit191
-  %.sink333 = phi ptr [ %67, %lean_dec.exit191 ], [ %233, %lean_inc.exit202 ], [ %279, %lean_alloc_ctor.exit282 ], [ %349, %lean_alloc_ctor.exit298 ], [ %395, %lean_alloc_ctor.exit306 ]
+  %.sink380 = phi ptr [ %67, %lean_dec.exit191 ], [ %233, %lean_inc.exit202 ], [ %279, %lean_alloc_ctor.exit282 ], [ %349, %lean_alloc_ctor.exit298 ], [ %395, %lean_alloc_ctor.exit306 ]
   %.sink = phi ptr [ %0, %lean_dec.exit191 ], [ %232, %lean_inc.exit202 ], [ %278, %lean_alloc_ctor.exit282 ], [ %348, %lean_alloc_ctor.exit298 ], [ %394, %lean_alloc_ctor.exit306 ]
-  %398 = getelementptr inbounds nuw i8, ptr %.sink333, i64 4
-  store i32 1, ptr %.sink333, align 4, !tbaa !4
+  %398 = getelementptr inbounds nuw i8, ptr %.sink380, i64 4
+  store i32 1, ptr %.sink380, align 4, !tbaa !4
   store i32 131096, ptr %398, align 4
-  %399 = getelementptr inbounds nuw i8, ptr %.sink333, i64 8
+  %399 = getelementptr inbounds nuw i8, ptr %.sink380, i64 8
   store ptr %.sink, ptr %399, align 8, !tbaa !12
-  %400 = getelementptr inbounds nuw i8, ptr %.sink333, i64 16
+  %400 = getelementptr inbounds nuw i8, ptr %.sink380, i64 16
   store ptr %7, ptr %400, align 8, !tbaa !12
-  ret ptr %.sink333
+  ret ptr %.sink380
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8683,9 +8683,9 @@ _init_l_Lean_Elab_Term_expandMatchAlt___closed__7.exit: ; preds = %lean_dec_ref.
   %45 = load ptr, ptr @l_Lean_Elab_Term_expandMatchAlt___closed__6, align 8, !tbaa !12
   %46 = getelementptr i8, ptr %45, i64 8
   %.val.i = load i64, ptr %46, align 8, !tbaa !10
-  %47 = tail call noalias ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Term_expandMatchAlt___spec__1(i64 noundef %.val.i, i64 noundef 0, ptr noundef %45)
+  %47 = tail call noalias nonnull ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Term_expandMatchAlt___spec__1(i64 noundef %.val.i, i64 noundef 0, ptr noundef %45)
   store ptr %47, ptr @l_Lean_Elab_Term_shouldExpandMatchAlt___closed__2, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef %47) #5
+  tail call void @lean_mark_persistent(ptr noundef nonnull %47) #5
   %48 = load ptr, ptr @l_Lean_Elab_Term_shouldExpandMatchAlt___closed__2, align 8, !tbaa !12
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !12
@@ -8839,7 +8839,7 @@ _init_l_Lean_Elab_Term_clearInMatchAlt___closed__1.exit: ; preds = %_init_l_Lean
   br label %_init_l_Lean_Elab_Term_clearInMatchAlt___closed__2.exit
 
 117:                                              ; preds = %109
-  %118 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %111) #5
+  %118 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #5
   br label %_init_l_Lean_Elab_Term_clearInMatchAlt___closed__2.exit
 
 .critedge.i.i:                                    ; preds = %_init_l_Lean_Elab_Term_clearInMatchAlt___closed__1.exit
@@ -8860,18 +8860,18 @@ _init_l_Lean_Elab_Term_clearInMatchAlt___closed__2.exit: ; preds = %113, %117, %
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Elab_Term_clearInMatchAlt___closed__2.exit, %3
-  %.sink12 = phi ptr [ %4, %3 ], [ %120, %_init_l_Lean_Elab_Term_clearInMatchAlt___closed__2.exit ]
-  %123 = getelementptr inbounds nuw i8, ptr %.sink12, i64 4
-  store i32 1, ptr %.sink12, align 4, !tbaa !4
+  %.sink20 = phi ptr [ %4, %3 ], [ %120, %_init_l_Lean_Elab_Term_clearInMatchAlt___closed__2.exit ]
+  %123 = getelementptr inbounds nuw i8, ptr %.sink20, i64 4
+  store i32 1, ptr %.sink20, align 4, !tbaa !4
   store i32 131096, ptr %123, align 4
-  %124 = getelementptr inbounds nuw i8, ptr %.sink12, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %.sink20, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %124, align 8, !tbaa !12
-  %125 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %.sink20, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %125, align 8, !tbaa !12
   br label %126
 
 126:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink12, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink20, %.sink.split ]
   ret ptr %.0
 }
 

@@ -23,8 +23,8 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl3stb14render_to_fileENSt7__cx
   %12 = icmp slt i32 %1, 1
   %or.cond.not = or i1 %12, %3
   %13 = icmp slt i32 %2, 1
-  %or.cond.not38 = or i1 %13, %or.cond.not
-  br i1 %or.cond.not38, label %.loopexit, label %.preheader.us.preheader
+  %or.cond.not42 = or i1 %13, %or.cond.not
+  br i1 %or.cond.not42, label %.loopexit, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %4
   %14 = zext nneg i32 %1 to i64

@@ -2394,7 +2394,7 @@ define ptr @H5O_protect(ptr noundef readonly captures(none) %0, i32 noundef %1, 
 
 95:                                               ; preds = %76, %87
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread101
+  br label %.thread106
 
 96:                                               ; preds = %.thread84, %50
   br i1 %2, label %97, label %.thread93
@@ -2421,7 +2421,7 @@ define ptr @H5O_protect(ptr noundef readonly captures(none) %0, i32 noundef %1, 
   %108 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
   %109 = load i64, ptr @H5E_CANTPROTECT_g, align 8, !tbaa !11
   %110 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5O_protect, i32 noundef 1115, i64 noundef %108, i64 noundef %109, ptr noundef nonnull @.str.45) #13
-  br label %.thread101
+  br label %.thread106
 
 111:                                              ; preds = %102
   %112 = call i32 @H5AC_pin_protected_entry(ptr noundef nonnull %105) #13
@@ -2432,7 +2432,7 @@ define ptr @H5O_protect(ptr noundef readonly captures(none) %0, i32 noundef %1, 
   %115 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
   %116 = load i64, ptr @H5E_CANTPIN_g, align 8, !tbaa !11
   %117 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5O_protect, i32 noundef 1119, i64 noundef %115, i64 noundef %116, ptr noundef nonnull @.str.46) #13
-  br label %.thread101
+  br label %.thread106
 
 118:                                              ; preds = %111
   %119 = load ptr, ptr %0, align 8, !tbaa !63
@@ -2444,7 +2444,7 @@ define ptr @H5O_protect(ptr noundef readonly captures(none) %0, i32 noundef %1, 
   %123 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
   %124 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !11
   %125 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5O_protect, i32 noundef 1123, i64 noundef %123, i64 noundef %124, ptr noundef nonnull @.str.47) #13
-  br label %.thread101
+  br label %.thread106
 
 126:                                              ; preds = %118
   %127 = load ptr, ptr %101, align 8, !tbaa !42
@@ -2461,18 +2461,18 @@ define ptr @H5O_protect(ptr noundef readonly captures(none) %0, i32 noundef %1, 
   store i8 1, ptr %133, align 8, !tbaa !115
   br label %.thread93
 
-.thread101:                                       ; preds = %122, %114, %107, %95
+.thread106:                                       ; preds = %122, %114, %107, %95
   %134 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %135 = load ptr, ptr %134, align 8, !tbaa !108
   %.not77 = icmp eq ptr %135, null
   br i1 %.not77, label %138, label %136
 
-136:                                              ; preds = %.thread101
+136:                                              ; preds = %.thread106
   %137 = call ptr @H5FL_seq_free(ptr noundef nonnull @H5_H5O_cont_t_seq_free_list, ptr noundef nonnull %135) #13
   store ptr %137, ptr %134, align 8, !tbaa !108
   br label %138
 
-138:                                              ; preds = %136, %.thread101
+138:                                              ; preds = %136, %.thread106
   %139 = call i32 @H5O_unprotect(ptr noundef nonnull %0, ptr noundef nonnull %44, i32 noundef 1)
   %140 = icmp slt i32 %139, 0
   br i1 %140, label %141, label %.thread93
@@ -3735,9 +3735,9 @@ H5O__obj_class_real.exit.i:                       ; preds = %57
   br label %.thread83
 
 .sink.split:                                      ; preds = %108, %70
-  %.sink96 = phi i64 [ 56, %70 ], [ 48, %108 ]
+  %.sink99 = phi i64 [ 56, %70 ], [ 48, %108 ]
   %.sink = phi i64 [ %81, %70 ], [ 0, %108 ]
-  %118 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink96
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink99
   store i64 %.sink, ptr %118, align 8, !tbaa !11
   br label %119
 

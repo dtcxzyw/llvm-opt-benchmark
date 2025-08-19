@@ -356,18 +356,18 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i43: ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %107 = phi i32 [ %.pre, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %92, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ]
-  %.pre-phi111 = phi i64 [ %.pre109, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %93, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ]
+  %.pre-phi120 = phi i64 [ %.pre109, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %93, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ]
   %.not.i.i.i.i44 = icmp eq i32 %107, 0
   br i1 %.not.i.i.i.i44, label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit52, label %108
 
 108:                                              ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i43
-  %109 = shl nuw nsw i64 %.pre-phi111, 2
+  %109 = shl nuw nsw i64 %.pre-phi120, 2
   %110 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %109) #19
           to label %.noexc51 unwind label %157
 
 .noexc51:                                         ; preds = %108
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %110, i8 0, i64 %109, i1 false), !tbaa !29
-  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %.pre-phi111
+  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %.pre-phi120
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 %109
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit52
 
@@ -841,7 +841,7 @@ _ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.split.preheader: ; 
 
 _ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.splitthread-pre-split: ; preds = %166, %_ZN2cv6detail8tracking11KuhnMunkres9FindInColEii.exit, %._crit_edge.loopexit.split.loop.exit.i81
   %spec.select.i75 = phi i64 [ 4294967295, %_ZN2cv6detail8tracking11KuhnMunkres9FindInColEii.exit ], [ %167, %._crit_edge.loopexit.split.loop.exit.i81 ], [ 4294967295, %166 ]
-  %131 = add nuw nsw i32 %.035189, 2
+  %131 = add nuw nsw i32 %.035201, 2
   %132 = zext nneg i32 %131 to i64
   %133 = getelementptr inbounds nuw %"class.cv::Point_", ptr %152, i64 %132
   %.sroa.4.0.insert.ext = zext i32 %154 to i64
@@ -858,7 +858,7 @@ _ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.splitthread-pre-spl
 .lr.ph.i67:                                       ; preds = %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.split.preheader, %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.splitthread-pre-split
   %.in = phi ptr [ %130, %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.split.preheader ], [ %136, %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.splitthread-pre-split ]
   %137 = phi ptr [ %130, %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.split.preheader ], [ %135, %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.splitthread-pre-split ]
-  %.035189 = phi i32 [ 0, %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.split.preheader ], [ %131, %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.splitthread-pre-split ]
+  %.035201 = phi i32 [ 0, %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.split.preheader ], [ %131, %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.splitthread-pre-split ]
   %138 = phi i32 [ %128, %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.split.preheader ], [ %.pr, %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.splitthread-pre-split ]
   %139 = load i32, ptr %.in, align 4, !tbaa !77
   %140 = load ptr, ptr %9, align 8, !tbaa !60
@@ -883,7 +883,7 @@ _ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.splitthread-pre-spl
   br i1 %exitcond.not.i71, label %.lr.ph.preheader, label %144, !llvm.loop !79
 
 _ZN2cv6detail8tracking11KuhnMunkres9FindInColEii.exit: ; preds = %144
-  %149 = or disjoint i32 %.035189, 1
+  %149 = or disjoint i32 %.035201, 1
   %150 = zext nneg i32 %149 to i64
   %151 = getelementptr inbounds nuw %"class.cv::Point_", ptr %137, i64 %150
   %.sroa.4120.0.insert.ext = shl i64 %indvars.iv.i69, 32
@@ -924,7 +924,7 @@ _ZN2cv6detail8tracking11KuhnMunkres9FindInColEii.exit: ; preds = %144
   br label %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.splitthread-pre-split
 
 .lr.ph.preheader:                                 ; preds = %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.splitthread-pre-split, %148, %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread
-  %.us-phi = phi i32 [ 0, %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread ], [ %.035189, %148 ], [ %131, %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.splitthread-pre-split ]
+  %.us-phi = phi i32 [ 0, %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread ], [ %.035201, %148 ], [ %131, %_ZN2cv6detail8tracking11KuhnMunkres9FindInRowEii.exit.thread.splitthread-pre-split ]
   %168 = or disjoint i32 %.us-phi, 1
   %wide.trip.count = zext nneg i32 %168 to i64
   br label %.lr.ph
@@ -998,15 +998,15 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i84: ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %194 = phi i32 [ %.pre160, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %169, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ]
-  %.pre-phi168 = phi i64 [ %.pre163, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %170, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ]
+  %.pre-phi180 = phi i64 [ %.pre163, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %170, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ]
   %.not.i.i.i.i85 = icmp eq i32 %194, 0
   br i1 %.not.i.i.i.i85, label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit93, label %.noexc92
 
 .noexc92:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i84
-  %195 = shl nuw nsw i64 %.pre-phi168, 2
+  %195 = shl nuw nsw i64 %.pre-phi180, 2
   %196 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %195) #19
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %196, i8 0, i64 %195, i1 false), !tbaa !29
-  %197 = getelementptr inbounds nuw i32, ptr %196, i64 %.pre-phi168
+  %197 = getelementptr inbounds nuw i32, ptr %196, i64 %.pre-phi180
   %198 = getelementptr inbounds nuw i8, ptr %196, i64 %195
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit93
 

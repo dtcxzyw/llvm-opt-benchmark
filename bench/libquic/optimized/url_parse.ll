@@ -1317,14 +1317,14 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_116DoParseAuthorityIcEEvPKT_RKN
   %24 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next
   %25 = load i8, ptr %24, align 1, !tbaa !21
   %.not = icmp eq i8 %25, 64
-  br i1 %.not, label %.critedge.split.loop.exit73, label %21, !llvm.loop !35
+  br i1 %.not, label %.critedge.split.loop.exit77, label %21, !llvm.loop !35
 
-.critedge.split.loop.exit73:                      ; preds = %23
+.critedge.split.loop.exit77:                      ; preds = %23
   %26 = trunc nsw i64 %indvars.iv.next to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %21, %.critedge.split.loop.exit73
-  %.0.lcssa = phi i32 [ %26, %.critedge.split.loop.exit73 ], [ %smin, %21 ]
+.critedge:                                        ; preds = %21, %.critedge.split.loop.exit77
+  %.0.lcssa = phi i32 [ %26, %.critedge.split.loop.exit77 ], [ %smin, %21 ]
   %.lcssa = trunc i64 %indvars.iv to i32
   %27 = sext i32 %.0.lcssa to i64
   %28 = getelementptr inbounds i8, ptr %0, i64 %27
@@ -1635,14 +1635,14 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_116DoParseAuthorityItEEvPKT_RKN
   %24 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.next
   %25 = load i16, ptr %24, align 2, !tbaa !25
   %.not = icmp eq i16 %25, 64
-  br i1 %.not, label %.critedge.split.loop.exit73, label %21, !llvm.loop !38
+  br i1 %.not, label %.critedge.split.loop.exit77, label %21, !llvm.loop !38
 
-.critedge.split.loop.exit73:                      ; preds = %23
+.critedge.split.loop.exit77:                      ; preds = %23
   %26 = trunc nsw i64 %indvars.iv.next to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %21, %.critedge.split.loop.exit73
-  %.0.lcssa = phi i32 [ %26, %.critedge.split.loop.exit73 ], [ %smin, %21 ]
+.critedge:                                        ; preds = %21, %.critedge.split.loop.exit77
+  %.0.lcssa = phi i32 [ %26, %.critedge.split.loop.exit77 ], [ %smin, %21 ]
   %.lcssa = trunc i64 %indvars.iv to i32
   %27 = sext i32 %.0.lcssa to i64
   %28 = getelementptr inbounds i16, ptr %0, i64 %27
@@ -2104,7 +2104,7 @@ define void @_ZN3url16ParseStandardURLEPKciPNS_6ParsedE(ptr noundef readonly cap
   br label %.lr.ph14.preheader.i.i
 
 .lr.ph14.preheader.i.i:                           ; preds = %.lr.ph.i.preheader.i, %.critedge.i.i
-  %.150.i = phi i32 [ %13, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
+  %.153.i = phi i32 [ %13, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
   %14 = getelementptr i8, ptr %0, i64 %7
   %15 = getelementptr i8, ptr %14, i64 -1
   %16 = load i8, ptr %15, align 1, !tbaa !21
@@ -2112,7 +2112,7 @@ define void @_ZN3url16ParseStandardURLEPKciPNS_6ParsedE(ptr noundef readonly cap
   br i1 %17, label %.lr.ph39.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
 .lr.ph39.i:                                       ; preds = %.lr.ph14.preheader.i.i
-  %18 = sext i32 %.150.i to i64
+  %18 = sext i32 %.153.i to i64
   br label %23
 
 .lr.ph14.i.i:                                     ; preds = %23
@@ -2136,8 +2136,8 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %.lr.ph14.i.i
   br label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %12, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i, %.lr.ph14.preheader.i.i
-  %.151.i = phi i32 [ %.150.i, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %.150.i, %.lr.ph14.preheader.i.i ], [ %.150.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ], [ %1, %12 ]
-  %.120.i = phi i32 [ %.150.i, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %1, %.lr.ph14.preheader.i.i ], [ %25, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ], [ %1, %12 ]
+  %.152.i = phi i32 [ %.153.i, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %.153.i, %.lr.ph14.preheader.i.i ], [ %.153.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ], [ %1, %12 ]
+  %.120.i = phi i32 [ %.153.i, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %1, %.lr.ph14.preheader.i.i ], [ %25, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ], [ %1, %12 ]
   %26 = icmp sgt i32 %.120.i, 0
   br i1 %26, label %.lr.ph.preheader.i8.i, label %.critedge.i7.i
 
@@ -2162,7 +2162,7 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %12, %_ZN3url7TrimUR
   br label %.critedge.i7.i
 
 .critedge.i7.i:                                   ; preds = %.critedge.loopexit.i.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i, %3
-  %.226.i = phi i32 [ %.151.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i ], [ %.151.i, %.critedge.loopexit.i.i ], [ 0, %3 ]
+  %.226.i = phi i32 [ %.152.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i ], [ %.152.i, %.critedge.loopexit.i.i ], [ 0, %3 ]
   %.12023.i = phi i32 [ %.120.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i ], [ %.120.i, %.critedge.loopexit.i.i ], [ %1, %3 ]
   %.019.lcssa.i.i = phi i32 [ 0, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i ], [ %31, %.critedge.loopexit.i.i ], [ 0, %3 ]
   %.not25.i.i = icmp slt i32 %.019.lcssa.i.i, %.12023.i
@@ -2196,7 +2196,7 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %12, %_ZN3url7TrimUR
   br label %_ZN3url12_GLOBAL__N_118DoParseStandardURLIcEEvPKT_iPNS_6ParsedE.exit
 
 .loopexit.i:                                      ; preds = %30, %36, %.critedge.i7.i
-  %.225.ph.i = phi i32 [ %.226.i, %.critedge.i7.i ], [ %.226.i, %36 ], [ %.151.i, %30 ]
+  %.225.ph.i = phi i32 [ %.226.i, %.critedge.i7.i ], [ %.226.i, %36 ], [ %.152.i, %30 ]
   %.12024.ph.i = phi i32 [ %.12023.i, %.critedge.i7.i ], [ %.12023.i, %36 ], [ %.120.i, %30 ]
   store i32 0, ptr %2, align 4, !tbaa !3
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -2243,7 +2243,7 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_118DoParseStandardURLIcEEvPKT_i
   br i1 %14, label %.lr.ph14.preheader.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit
 
 .lr.ph14.preheader.i:                             ; preds = %.lr.ph.i.preheader, %.critedge.i
-  %.150 = phi i32 [ %13, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
+  %.153 = phi i32 [ %13, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
   %15 = zext nneg i32 %1 to i64
   %16 = getelementptr i8, ptr %0, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -1
@@ -2252,7 +2252,7 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_118DoParseStandardURLIcEEvPKT_i
   br i1 %19, label %.lr.ph39, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit
 
 .lr.ph39:                                         ; preds = %.lr.ph14.preheader.i
-  %20 = sext i32 %.150 to i64
+  %20 = sext i32 %.153 to i64
   br label %25
 
 .lr.ph14.i:                                       ; preds = %25
@@ -2276,8 +2276,8 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit:     ; preds = %.lr.ph14.i
   br label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit:              ; preds = %12, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit, %.lr.ph14.preheader.i, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge, %.critedge.i
-  %.151 = phi i32 [ %13, %.critedge.i ], [ %.150, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge ], [ %.150, %.lr.ph14.preheader.i ], [ %.150, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit ], [ %1, %12 ]
-  %.120 = phi i32 [ %1, %.critedge.i ], [ %.150, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge ], [ %1, %.lr.ph14.preheader.i ], [ %27, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit ], [ %1, %12 ]
+  %.152 = phi i32 [ %13, %.critedge.i ], [ %.153, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge ], [ %.153, %.lr.ph14.preheader.i ], [ %.153, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit ], [ %1, %12 ]
+  %.120 = phi i32 [ %1, %.critedge.i ], [ %.153, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge ], [ %1, %.lr.ph14.preheader.i ], [ %27, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit ], [ %1, %12 ]
   %28 = icmp sgt i32 %.120, 0
   br i1 %28, label %.lr.ph.preheader.i8, label %.critedge.i7
 
@@ -2302,7 +2302,7 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit:              ; preds = %12, %_ZN3url7TrimUR
   br label %.critedge.i7
 
 .critedge.i7:                                     ; preds = %3, %.critedge.loopexit.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit
-  %.226 = phi i32 [ %.151, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit ], [ %.151, %.critedge.loopexit.i ], [ 0, %3 ]
+  %.226 = phi i32 [ %.152, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit ], [ %.152, %.critedge.loopexit.i ], [ 0, %3 ]
   %.12023 = phi i32 [ %.120, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit ], [ %.120, %.critedge.loopexit.i ], [ %1, %3 ]
   %.019.lcssa.i = phi i32 [ 0, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit ], [ %33, %.critedge.loopexit.i ], [ 0, %3 ]
   %.not25.i = icmp slt i32 %.019.lcssa.i, %.12023
@@ -2336,7 +2336,7 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit:              ; preds = %12, %_ZN3url7TrimUR
   br label %44
 
 .loopexit:                                        ; preds = %32, %38, %.critedge.i7
-  %.225.ph = phi i32 [ %.226, %.critedge.i7 ], [ %.226, %38 ], [ %.151, %32 ]
+  %.225.ph = phi i32 [ %.226, %.critedge.i7 ], [ %.226, %38 ], [ %.152, %32 ]
   %.12024.ph = phi i32 [ %.12023, %.critedge.i7 ], [ %.12023, %38 ], [ %.120, %32 ]
   store i32 0, ptr %2, align 4, !tbaa !3
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -2382,7 +2382,7 @@ define void @_ZN3url16ParseStandardURLEPKtiPNS_6ParsedE(ptr noundef readonly cap
   br label %.lr.ph14.preheader.i.i
 
 .lr.ph14.preheader.i.i:                           ; preds = %.lr.ph.i.preheader.i, %.critedge.i.i
-  %.150.i = phi i32 [ %13, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
+  %.153.i = phi i32 [ %13, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
   %14 = getelementptr i16, ptr %0, i64 %7
   %15 = getelementptr i8, ptr %14, i64 -2
   %16 = load i16, ptr %15, align 2, !tbaa !25
@@ -2390,7 +2390,7 @@ define void @_ZN3url16ParseStandardURLEPKtiPNS_6ParsedE(ptr noundef readonly cap
   br i1 %17, label %.lr.ph39.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
 .lr.ph39.i:                                       ; preds = %.lr.ph14.preheader.i.i
-  %18 = sext i32 %.150.i to i64
+  %18 = sext i32 %.153.i to i64
   br label %23
 
 .lr.ph14.i.i:                                     ; preds = %23
@@ -2414,8 +2414,8 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %.lr.ph14.i.i
   br label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %12, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i, %.lr.ph14.preheader.i.i
-  %.151.i = phi i32 [ %.150.i, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %.150.i, %.lr.ph14.preheader.i.i ], [ %.150.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ], [ %1, %12 ]
-  %.120.i = phi i32 [ %.150.i, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %1, %.lr.ph14.preheader.i.i ], [ %25, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ], [ %1, %12 ]
+  %.152.i = phi i32 [ %.153.i, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %.153.i, %.lr.ph14.preheader.i.i ], [ %.153.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ], [ %1, %12 ]
+  %.120.i = phi i32 [ %.153.i, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %1, %.lr.ph14.preheader.i.i ], [ %25, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ], [ %1, %12 ]
   %26 = icmp sgt i32 %.120.i, 0
   br i1 %26, label %.lr.ph.preheader.i8.i, label %.critedge.i7.i
 
@@ -2440,7 +2440,7 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %12, %_ZN3url7TrimUR
   br label %.critedge.i7.i
 
 .critedge.i7.i:                                   ; preds = %.critedge.loopexit.i.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i, %3
-  %.226.i = phi i32 [ %.151.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i ], [ %.151.i, %.critedge.loopexit.i.i ], [ 0, %3 ]
+  %.226.i = phi i32 [ %.152.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i ], [ %.152.i, %.critedge.loopexit.i.i ], [ 0, %3 ]
   %.12023.i = phi i32 [ %.120.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i ], [ %.120.i, %.critedge.loopexit.i.i ], [ %1, %3 ]
   %.019.lcssa.i.i = phi i32 [ 0, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i ], [ %31, %.critedge.loopexit.i.i ], [ 0, %3 ]
   %.not25.i.i = icmp slt i32 %.019.lcssa.i.i, %.12023.i
@@ -2474,7 +2474,7 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %12, %_ZN3url7TrimUR
   br label %_ZN3url12_GLOBAL__N_118DoParseStandardURLItEEvPKT_iPNS_6ParsedE.exit
 
 .loopexit.i:                                      ; preds = %30, %36, %.critedge.i7.i
-  %.225.ph.i = phi i32 [ %.226.i, %.critedge.i7.i ], [ %.226.i, %36 ], [ %.151.i, %30 ]
+  %.225.ph.i = phi i32 [ %.226.i, %.critedge.i7.i ], [ %.226.i, %36 ], [ %.152.i, %30 ]
   %.12024.ph.i = phi i32 [ %.12023.i, %.critedge.i7.i ], [ %.12023.i, %36 ], [ %.120.i, %30 ]
   store i32 0, ptr %2, align 4, !tbaa !3
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -2521,7 +2521,7 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_118DoParseStandardURLItEEvPKT_i
   br i1 %14, label %.lr.ph14.preheader.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit
 
 .lr.ph14.preheader.i:                             ; preds = %.lr.ph.i.preheader, %.critedge.i
-  %.150 = phi i32 [ %13, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
+  %.153 = phi i32 [ %13, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
   %15 = zext nneg i32 %1 to i64
   %16 = getelementptr i16, ptr %0, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -2
@@ -2530,7 +2530,7 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_118DoParseStandardURLItEEvPKT_i
   br i1 %19, label %.lr.ph39, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit
 
 .lr.ph39:                                         ; preds = %.lr.ph14.preheader.i
-  %20 = sext i32 %.150 to i64
+  %20 = sext i32 %.153 to i64
   br label %25
 
 .lr.ph14.i:                                       ; preds = %25
@@ -2554,8 +2554,8 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit:     ; preds = %.lr.ph14.i
   br label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit:              ; preds = %12, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit, %.lr.ph14.preheader.i, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge, %.critedge.i
-  %.151 = phi i32 [ %13, %.critedge.i ], [ %.150, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge ], [ %.150, %.lr.ph14.preheader.i ], [ %.150, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit ], [ %1, %12 ]
-  %.120 = phi i32 [ %1, %.critedge.i ], [ %.150, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge ], [ %1, %.lr.ph14.preheader.i ], [ %27, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit ], [ %1, %12 ]
+  %.152 = phi i32 [ %13, %.critedge.i ], [ %.153, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge ], [ %.153, %.lr.ph14.preheader.i ], [ %.153, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit ], [ %1, %12 ]
+  %.120 = phi i32 [ %1, %.critedge.i ], [ %.153, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge ], [ %1, %.lr.ph14.preheader.i ], [ %27, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit ], [ %1, %12 ]
   %28 = icmp sgt i32 %.120, 0
   br i1 %28, label %.lr.ph.preheader.i8, label %.critedge.i7
 
@@ -2580,7 +2580,7 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit:              ; preds = %12, %_ZN3url7TrimUR
   br label %.critedge.i7
 
 .critedge.i7:                                     ; preds = %3, %.critedge.loopexit.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit
-  %.226 = phi i32 [ %.151, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit ], [ %.151, %.critedge.loopexit.i ], [ 0, %3 ]
+  %.226 = phi i32 [ %.152, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit ], [ %.152, %.critedge.loopexit.i ], [ 0, %3 ]
   %.12023 = phi i32 [ %.120, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit ], [ %.120, %.critedge.loopexit.i ], [ %1, %3 ]
   %.019.lcssa.i = phi i32 [ 0, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit ], [ %33, %.critedge.loopexit.i ], [ 0, %3 ]
   %.not25.i = icmp slt i32 %.019.lcssa.i, %.12023
@@ -2614,7 +2614,7 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit:              ; preds = %12, %_ZN3url7TrimUR
   br label %44
 
 .loopexit:                                        ; preds = %32, %38, %.critedge.i7
-  %.225.ph = phi i32 [ %.226, %.critedge.i7 ], [ %.226, %38 ], [ %.151, %32 ]
+  %.225.ph = phi i32 [ %.226, %.critedge.i7 ], [ %.226, %38 ], [ %.152, %32 ]
   %.12024.ph = phi i32 [ %.12023, %.critedge.i7 ], [ %.12023, %38 ], [ %.120, %32 ]
   store i32 0, ptr %2, align 4, !tbaa !3
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -2882,19 +2882,19 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i:     ; preds = %27, %_ZN3url7TrimUR
   br label %92
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %73
-  %.0.lcssa64.i.i = phi i32 [ %.1.i.i, %._crit_edge.i.i ], [ -1, %73 ]
+  %.0.lcssa65.i.i = phi i32 [ %.1.i.i, %._crit_edge.i.i ], [ -1, %73 ]
   store i32 0, ptr %17, align 4, !tbaa !3
   store i32 -1, ptr %18, align 4, !tbaa !8
   br label %92
 
 92:                                               ; preds = %._crit_edge.thread.i.i, %89
-  %.0.lcssa63.i.i = phi i32 [ %.1.i.i, %89 ], [ %.0.lcssa64.i.i, %._crit_edge.thread.i.i ]
+  %.0.lcssa64.i.i = phi i32 [ %.1.i.i, %89 ], [ %.0.lcssa65.i.i, %._crit_edge.thread.i.i ]
   %.041.i.i = phi i32 [ %.139.i.i, %89 ], [ %.1.i, %._crit_edge.thread.i.i ]
-  %93 = icmp sgt i32 %.0.lcssa63.i.i, -1
+  %93 = icmp sgt i32 %.0.lcssa64.i.i, -1
   br i1 %93, label %94, label %97
 
 94:                                               ; preds = %92
-  %95 = add nuw nsw i32 %.0.lcssa63.i.i, 1
+  %95 = add nuw nsw i32 %.0.lcssa64.i.i, 1
   %96 = sub nsw i32 %.041.i.i, %95
   %.sroa.2.0.insert.ext.i48.i.i = zext i32 %96 to i64
   %.sroa.2.0.insert.shift.i49.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i48.i.i, 32
@@ -2909,7 +2909,7 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i:     ; preds = %27, %_ZN3url7TrimUR
   br label %98
 
 98:                                               ; preds = %97, %94
-  %.143.i.i = phi i32 [ %.0.lcssa63.i.i, %94 ], [ %.041.i.i, %97 ]
+  %.143.i.i = phi i32 [ %.0.lcssa64.i.i, %94 ], [ %.041.i.i, %97 ]
   %.not.i23.i = icmp eq i32 %.143.i.i, %.0.i
   br i1 %.not.i23.i, label %101, label %99
 
@@ -3183,19 +3183,19 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i:     ; preds = %27, %_ZN3url7TrimUR
   br label %92
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %73
-  %.0.lcssa64.i.i = phi i32 [ %.1.i.i, %._crit_edge.i.i ], [ -1, %73 ]
+  %.0.lcssa65.i.i = phi i32 [ %.1.i.i, %._crit_edge.i.i ], [ -1, %73 ]
   store i32 0, ptr %17, align 4, !tbaa !3
   store i32 -1, ptr %18, align 4, !tbaa !8
   br label %92
 
 92:                                               ; preds = %._crit_edge.thread.i.i, %89
-  %.0.lcssa63.i.i = phi i32 [ %.1.i.i, %89 ], [ %.0.lcssa64.i.i, %._crit_edge.thread.i.i ]
+  %.0.lcssa64.i.i = phi i32 [ %.1.i.i, %89 ], [ %.0.lcssa65.i.i, %._crit_edge.thread.i.i ]
   %.041.i.i = phi i32 [ %.139.i.i, %89 ], [ %.1.i, %._crit_edge.thread.i.i ]
-  %93 = icmp sgt i32 %.0.lcssa63.i.i, -1
+  %93 = icmp sgt i32 %.0.lcssa64.i.i, -1
   br i1 %93, label %94, label %97
 
 94:                                               ; preds = %92
-  %95 = add nuw nsw i32 %.0.lcssa63.i.i, 1
+  %95 = add nuw nsw i32 %.0.lcssa64.i.i, 1
   %96 = sub nsw i32 %.041.i.i, %95
   %.sroa.2.0.insert.ext.i48.i.i = zext i32 %96 to i64
   %.sroa.2.0.insert.shift.i49.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i48.i.i, 32
@@ -3210,7 +3210,7 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i:     ; preds = %27, %_ZN3url7TrimUR
   br label %98
 
 98:                                               ; preds = %97, %94
-  %.143.i.i = phi i32 [ %.0.lcssa63.i.i, %94 ], [ %.041.i.i, %97 ]
+  %.143.i.i = phi i32 [ %.0.lcssa64.i.i, %94 ], [ %.041.i.i, %97 ]
   %.not.i23.i = icmp eq i32 %.143.i.i, %.0.i
   br i1 %.not.i23.i, label %101, label %99
 
@@ -3306,7 +3306,7 @@ _ZN3url6Parsed18clear_inner_parsedEv.exit.i:      ; preds = %22, %3
   br label %.lr.ph14.preheader.i.i
 
 .lr.ph14.preheader.i.i:                           ; preds = %.lr.ph.i.preheader.i, %.critedge.i.i
-  %.1123.i = phi i32 [ %32, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
+  %.1132.i = phi i32 [ %32, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
   %33 = getelementptr i8, ptr %0, i64 %26
   %34 = getelementptr i8, ptr %33, i64 -1
   %35 = load i8, ptr %34, align 1, !tbaa !21
@@ -3314,7 +3314,7 @@ _ZN3url6Parsed18clear_inner_parsedEv.exit.i:      ; preds = %22, %3
   br i1 %36, label %.lr.ph109.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
 .lr.ph109.i:                                      ; preds = %.lr.ph14.preheader.i.i
-  %37 = sext i32 %.1123.i to i64
+  %37 = sext i32 %.1132.i to i64
   br label %42
 
 .lr.ph14.i.i:                                     ; preds = %42
@@ -3339,7 +3339,7 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %.lr.ph14.i.i
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, %.lr.ph14.preheader.i.i, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i
   %.193.i = phi i32 [ %1, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i ], [ %1, %.lr.ph14.preheader.i.i ], [ %44, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
-  %.2.i = phi i32 [ 0, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i ], [ %.1123.i, %.lr.ph14.preheader.i.i ], [ %.1123.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
+  %.2.i = phi i32 [ 0, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i ], [ %.1132.i, %.lr.ph14.preheader.i.i ], [ %.1132.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
   %45 = icmp eq i32 %.2.i, %.193.i
   br i1 %45, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i, label %47
 
@@ -3712,7 +3712,7 @@ _ZN3url6Parsed18clear_inner_parsedEv.exit.i:      ; preds = %22, %3
   br label %.lr.ph14.preheader.i.i
 
 .lr.ph14.preheader.i.i:                           ; preds = %.lr.ph.i.preheader.i, %.critedge.i.i
-  %.1123.i = phi i32 [ %32, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
+  %.1132.i = phi i32 [ %32, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
   %33 = getelementptr i16, ptr %0, i64 %26
   %34 = getelementptr i8, ptr %33, i64 -2
   %35 = load i16, ptr %34, align 2, !tbaa !25
@@ -3720,7 +3720,7 @@ _ZN3url6Parsed18clear_inner_parsedEv.exit.i:      ; preds = %22, %3
   br i1 %36, label %.lr.ph109.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
 .lr.ph109.i:                                      ; preds = %.lr.ph14.preheader.i.i
-  %37 = sext i32 %.1123.i to i64
+  %37 = sext i32 %.1132.i to i64
   br label %42
 
 .lr.ph14.i.i:                                     ; preds = %42
@@ -3745,7 +3745,7 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %.lr.ph14.i.i
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, %.lr.ph14.preheader.i.i, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i
   %.193.i = phi i32 [ %1, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i ], [ %1, %.lr.ph14.preheader.i.i ], [ %44, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
-  %.2.i = phi i32 [ 0, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i ], [ %.1123.i, %.lr.ph14.preheader.i.i ], [ %.1123.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
+  %.2.i = phi i32 [ 0, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i ], [ %.1132.i, %.lr.ph14.preheader.i.i ], [ %.1132.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
   %45 = icmp eq i32 %.2.i, %.193.i
   br i1 %45, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i, label %47
 
@@ -4100,7 +4100,7 @@ define void @_ZN3url14ParseMailtoURLEPKciPNS_6ParsedE(ptr noundef readonly captu
   br label %.lr.ph14.preheader.i.i
 
 .lr.ph14.preheader.i.i:                           ; preds = %.lr.ph.i.preheader.i, %.critedge.i.i
-  %.15078.i = phi i32 [ %25, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
+  %.15082.i = phi i32 [ %25, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
   %26 = getelementptr i8, ptr %0, i64 %19
   %27 = getelementptr i8, ptr %26, i64 -1
   %28 = load i8, ptr %27, align 1, !tbaa !21
@@ -4108,7 +4108,7 @@ define void @_ZN3url14ParseMailtoURLEPKciPNS_6ParsedE(ptr noundef readonly captu
   br i1 %29, label %.lr.ph63.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
 .lr.ph63.i:                                       ; preds = %.lr.ph14.preheader.i.i
-  %30 = sext i32 %.15078.i to i64
+  %30 = sext i32 %.15082.i to i64
   br label %35
 
 .lr.ph14.i.i:                                     ; preds = %35
@@ -4133,7 +4133,7 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %.lr.ph14.i.i
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, %.lr.ph14.preheader.i.i, %3
   %.152.i = phi i32 [ %1, %3 ], [ %1, %.lr.ph14.preheader.i.i ], [ %37, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
-  %.2.i = phi i32 [ 0, %3 ], [ %.15078.i, %.lr.ph14.preheader.i.i ], [ %.15078.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
+  %.2.i = phi i32 [ 0, %3 ], [ %.15082.i, %.lr.ph14.preheader.i.i ], [ %.15082.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
   %38 = icmp eq i32 %.2.i, %.152.i
   br i1 %38, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i, label %42
 
@@ -4335,7 +4335,7 @@ define void @_ZN3url14ParseMailtoURLEPKtiPNS_6ParsedE(ptr noundef readonly captu
   br label %.lr.ph14.preheader.i.i
 
 .lr.ph14.preheader.i.i:                           ; preds = %.lr.ph.i.preheader.i, %.critedge.i.i
-  %.15078.i = phi i32 [ %25, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
+  %.15082.i = phi i32 [ %25, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
   %26 = getelementptr i16, ptr %0, i64 %19
   %27 = getelementptr i8, ptr %26, i64 -2
   %28 = load i16, ptr %27, align 2, !tbaa !25
@@ -4343,7 +4343,7 @@ define void @_ZN3url14ParseMailtoURLEPKtiPNS_6ParsedE(ptr noundef readonly captu
   br i1 %29, label %.lr.ph63.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
 .lr.ph63.i:                                       ; preds = %.lr.ph14.preheader.i.i
-  %30 = sext i32 %.15078.i to i64
+  %30 = sext i32 %.15082.i to i64
   br label %35
 
 .lr.ph14.i.i:                                     ; preds = %35
@@ -4368,7 +4368,7 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %.lr.ph14.i.i
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, %.lr.ph14.preheader.i.i, %3
   %.152.i = phi i32 [ %1, %3 ], [ %1, %.lr.ph14.preheader.i.i ], [ %37, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
-  %.2.i = phi i32 [ 0, %3 ], [ %.15078.i, %.lr.ph14.preheader.i.i ], [ %.15078.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
+  %.2.i = phi i32 [ 0, %3 ], [ %.15082.i, %.lr.ph14.preheader.i.i ], [ %.15082.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
   %38 = icmp eq i32 %.2.i, %.152.i
   br i1 %38, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i, label %42
 
@@ -4591,20 +4591,20 @@ define void @_ZN3url17ParsePathInternalEPKcRKNS_9ComponentEPS2_S5_S5_(ptr nounde
   br label %35
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %13
-  %.0.lcssa64.i = phi i32 [ %.1.i, %._crit_edge.i ], [ -1, %13 ]
+  %.0.lcssa65.i = phi i32 [ %.1.i, %._crit_edge.i ], [ -1, %13 ]
   store i32 0, ptr %4, align 4, !tbaa !3
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 -1, ptr %34, align 4, !tbaa !8
   br label %35
 
 35:                                               ; preds = %._crit_edge.thread.i, %31
-  %.0.lcssa63.i = phi i32 [ %.1.i, %31 ], [ %.0.lcssa64.i, %._crit_edge.thread.i ]
+  %.0.lcssa64.i = phi i32 [ %.1.i, %31 ], [ %.0.lcssa65.i, %._crit_edge.thread.i ]
   %.041.i = phi i32 [ %.139.i, %31 ], [ %15, %._crit_edge.thread.i ]
-  %36 = icmp sgt i32 %.0.lcssa63.i, -1
+  %36 = icmp sgt i32 %.0.lcssa64.i, -1
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %35
-  %38 = add nuw nsw i32 %.0.lcssa63.i, 1
+  %38 = add nuw nsw i32 %.0.lcssa64.i, 1
   %39 = sub nsw i32 %.041.i, %38
   %.sroa.2.0.insert.ext.i48.i = zext i32 %39 to i64
   %.sroa.2.0.insert.shift.i49.i = shl nuw i64 %.sroa.2.0.insert.ext.i48.i, 32
@@ -4620,7 +4620,7 @@ define void @_ZN3url17ParsePathInternalEPKcRKNS_9ComponentEPS2_S5_S5_(ptr nounde
   br label %42
 
 42:                                               ; preds = %40, %37
-  %.143.i = phi i32 [ %.0.lcssa63.i, %37 ], [ %.041.i, %40 ]
+  %.143.i = phi i32 [ %.0.lcssa64.i, %37 ], [ %.041.i, %40 ]
   %43 = load i32, ptr %1, align 4, !tbaa !3
   %.not.i = icmp eq i32 %.143.i, %43
   br i1 %.not.i, label %46, label %44
@@ -4721,20 +4721,20 @@ define void @_ZN3url17ParsePathInternalEPKtRKNS_9ComponentEPS2_S5_S5_(ptr nounde
   br label %35
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %13
-  %.0.lcssa64.i = phi i32 [ %.1.i, %._crit_edge.i ], [ -1, %13 ]
+  %.0.lcssa65.i = phi i32 [ %.1.i, %._crit_edge.i ], [ -1, %13 ]
   store i32 0, ptr %4, align 4, !tbaa !3
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 -1, ptr %34, align 4, !tbaa !8
   br label %35
 
 35:                                               ; preds = %._crit_edge.thread.i, %31
-  %.0.lcssa63.i = phi i32 [ %.1.i, %31 ], [ %.0.lcssa64.i, %._crit_edge.thread.i ]
+  %.0.lcssa64.i = phi i32 [ %.1.i, %31 ], [ %.0.lcssa65.i, %._crit_edge.thread.i ]
   %.041.i = phi i32 [ %.139.i, %31 ], [ %15, %._crit_edge.thread.i ]
-  %36 = icmp sgt i32 %.0.lcssa63.i, -1
+  %36 = icmp sgt i32 %.0.lcssa64.i, -1
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %35
-  %38 = add nuw nsw i32 %.0.lcssa63.i, 1
+  %38 = add nuw nsw i32 %.0.lcssa64.i, 1
   %39 = sub nsw i32 %.041.i, %38
   %.sroa.2.0.insert.ext.i48.i = zext i32 %39 to i64
   %.sroa.2.0.insert.shift.i49.i = shl nuw i64 %.sroa.2.0.insert.ext.i48.i, 32
@@ -4750,7 +4750,7 @@ define void @_ZN3url17ParsePathInternalEPKtRKNS_9ComponentEPS2_S5_S5_(ptr nounde
   br label %42
 
 42:                                               ; preds = %40, %37
-  %.143.i = phi i32 [ %.0.lcssa63.i, %37 ], [ %.041.i, %40 ]
+  %.143.i = phi i32 [ %.0.lcssa64.i, %37 ], [ %.041.i, %40 ]
   %43 = load i32, ptr %1, align 4, !tbaa !3
   %.not.i = icmp eq i32 %.143.i, %43
   br i1 %.not.i, label %46, label %44

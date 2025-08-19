@@ -904,8 +904,8 @@ define ptr @lv_draw_layer_alloc_buf(ptr noundef %0) local_unnamed_addr #1 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1, %21
-  %.sink17 = phi ptr [ %22, %21 ], [ %2, %1 ]
-  %23 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %.sink18 = phi ptr [ %22, %21 ], [ %2, %1 ]
+  %23 = getelementptr inbounds nuw i8, ptr %.sink18, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !111
   br label %25
 

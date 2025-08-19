@@ -1818,7 +1818,7 @@ define internal fastcc void @build_xlaw_table(ptr noundef captures(none) initial
   %8 = and i8 %4, 63
   %9 = xor i8 %8, 63
   %10 = xor i8 %4, 127
-  %11 = sext i32 %.1.lcssa to i64
+  %11 = zext nneg i32 %.1.lcssa to i64
   br label %32
 
 12:                                               ; preds = %3, %.loopexit
@@ -1840,8 +1840,8 @@ define internal fastcc void @build_xlaw_table(ptr noundef captures(none) initial
 .lr.ph:                                           ; preds = %12
   %24 = xor i32 %.035, %6
   %25 = trunc nuw nsw i32 %24 to i8
-  %26 = sext i32 %.03234 to i64
-  %wide.trip.count = sext i32 %22 to i64
+  %26 = zext nneg i32 %.03234 to i64
+  %wide.trip.count = zext nneg i32 %22 to i64
   br label %27
 
 27:                                               ; preds = %.lr.ph, %27
@@ -1852,7 +1852,7 @@ define internal fastcc void @build_xlaw_table(ptr noundef captures(none) initial
   %30 = getelementptr i8, ptr %0, i64 %indvars.iv
   %31 = getelementptr i8, ptr %30, i64 8192
   store i8 %14, ptr %31, align 1, !tbaa !55
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !126
 
@@ -1864,7 +1864,7 @@ define internal fastcc void @build_xlaw_table(ptr noundef captures(none) initial
   %35 = getelementptr i8, ptr %0, i64 %indvars.iv45
   %36 = getelementptr i8, ptr %35, i64 8192
   store i8 %10, ptr %36, align 1, !tbaa !55
-  %indvars.iv.next46 = add nsw i64 %indvars.iv45, 1
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %37 = and i64 %indvars.iv.next46, 4294967295
   %exitcond48.not = icmp eq i64 %37, 8192
   br i1 %exitcond48.not, label %._crit_edge, label %32, !llvm.loop !127

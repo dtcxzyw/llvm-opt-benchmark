@@ -3274,13 +3274,13 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %70
   br i1 %92, label %.lr.ph83.preheader, label %.loopexit
 
 .lr.ph83.preheader:                               ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %.preheader
-  %.038.lcssa99 = phi i32 [ %91, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %93 = shl nuw nsw i32 %.038.lcssa99, 4
+  %.038.lcssa103 = phi i32 [ %91, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
+  %93 = shl nuw nsw i32 %.038.lcssa103, 4
   %94 = zext nneg i32 %93 to i64
   %scevgep93 = getelementptr i8, ptr %1, i64 %94
-  %95 = shl nuw nsw i32 %.038.lcssa99, 4
-  %narrow97 = sub nuw nsw i32 64, %95
-  %96 = zext nneg i32 %narrow97 to i64
+  %95 = shl nuw nsw i32 %.038.lcssa103, 4
+  %narrow101 = sub nuw nsw i32 64, %95
+  %96 = zext nneg i32 %narrow101 to i64
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep93, i8 0, i64 %96, i1 false)
   br label %.loopexit
 
@@ -3290,11 +3290,11 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %70
   br i1 %98, label %.lr.ph78, label %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit
 
 .lr.ph78:                                         ; preds = %.preheader72, %.preheader71
-  %.036.lcssa101 = phi i32 [ %97, %.preheader71 ], [ 0, %.preheader72 ]
-  %99 = shl nuw nsw i32 %.036.lcssa101, 2
+  %.036.lcssa105 = phi i32 [ %97, %.preheader71 ], [ 0, %.preheader72 ]
+  %99 = shl nuw nsw i32 %.036.lcssa105, 2
   %100 = zext nneg i32 %99 to i64
   %scevgep88 = getelementptr i8, ptr %scevgep, i64 %100
-  %101 = shl nuw nsw i32 %.036.lcssa101, 2
+  %101 = shl nuw nsw i32 %.036.lcssa105, 2
   %narrow = sub nuw nsw i32 16, %101
   %102 = zext nneg i32 %narrow to i64
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep88, i8 0, i64 %102, i1 false)
@@ -3621,10 +3621,10 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %69
   br i1 %87, label %.lr.ph56.preheader, label %.loopexit
 
 .lr.ph56.preheader:                               ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %.preheader
-  %.027.lcssa63 = phi i32 [ %86, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %88 = zext nneg i32 %.027.lcssa63 to i64
+  %.027.lcssa67 = phi i32 [ %86, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
+  %88 = zext nneg i32 %.027.lcssa67 to i64
   %scevgep = getelementptr i8, ptr %1, i64 %88
-  %narrow = sub nuw nsw i32 32, %.027.lcssa63
+  %narrow = sub nuw nsw i32 32, %.027.lcssa67
   %89 = zext nneg i32 %narrow to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %89, i1 false)
   br label %.loopexit
@@ -8041,10 +8041,10 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %69
   br i1 %87, label %.lr.ph53.preheader, label %.loopexit
 
 .lr.ph53.preheader:                               ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %.preheader
-  %.027.lcssa60 = phi i32 [ %86, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %88 = zext nneg i32 %.027.lcssa60 to i64
+  %.027.lcssa64 = phi i32 [ %86, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
+  %88 = zext nneg i32 %.027.lcssa64 to i64
   %scevgep = getelementptr i8, ptr %1, i64 %88
-  %narrow = sub nuw nsw i32 32, %.027.lcssa60
+  %narrow = sub nuw nsw i32 32, %.027.lcssa64
   %89 = zext nneg i32 %narrow to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %89, i1 false)
   br label %.loopexit
@@ -8568,11 +8568,11 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %69
   br i1 %87, label %.lr.ph53.preheader, label %.loopexit
 
 .lr.ph53.preheader:                               ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %.preheader
-  %.027.lcssa60 = phi i32 [ %86, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %88 = shl nuw nsw i32 %.027.lcssa60, 2
+  %.027.lcssa64 = phi i32 [ %86, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
+  %88 = shl nuw nsw i32 %.027.lcssa64, 2
   %89 = zext nneg i32 %88 to i64
   %scevgep = getelementptr i8, ptr %1, i64 %89
-  %90 = shl nuw nsw i32 %.027.lcssa60, 2
+  %90 = shl nuw nsw i32 %.027.lcssa64, 2
   %narrow = sub nsw i32 12, %90
   %91 = zext i32 %narrow to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %91, i1 false)
@@ -9636,11 +9636,11 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %71
   br i1 %92, label %.lr.ph80.preheader, label %.loopexit
 
 .lr.ph80.preheader:                               ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %.preheader
-  %.038.lcssa95 = phi i32 [ %91, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %93 = shl nuw nsw i32 %.038.lcssa95, 3
+  %.038.lcssa99 = phi i32 [ %91, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
+  %93 = shl nuw nsw i32 %.038.lcssa99, 3
   %94 = zext nneg i32 %93 to i64
   %scevgep = getelementptr i8, ptr %1, i64 %94
-  %95 = shl nuw nsw i32 %.038.lcssa95, 3
+  %95 = shl nuw nsw i32 %.038.lcssa99, 3
   %narrow = sub nuw nsw i32 32, %95
   %96 = zext nneg i32 %narrow to i64
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %96, i1 false)
@@ -9650,7 +9650,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %71
   br i1 %99, label %.lr.ph75, label %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit
 
 .lr.ph75:                                         ; preds = %.preheader69, %.preheader68
-  %.036.lcssa97 = phi i64 [ 1, %.preheader68 ], [ 0, %.preheader69 ]
+  %.036.lcssa101 = phi i64 [ 1, %.preheader68 ], [ 0, %.preheader69 ]
   %97 = getelementptr inbounds nuw [4 x [2 x float]], ptr %1, i64 0, i64 %indvars.iv88
   br label %106
 
@@ -9675,7 +9675,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %71
   br label %.body
 
 106:                                              ; preds = %.lr.ph75, %106
-  %indvars.iv85 = phi i64 [ %.036.lcssa97, %.lr.ph75 ], [ 1, %106 ]
+  %indvars.iv85 = phi i64 [ %.036.lcssa101, %.lr.ph75 ], [ 1, %106 ]
   %107 = getelementptr inbounds nuw [2 x float], ptr %97, i64 0, i64 %indvars.iv85
   store float 0.000000e+00, ptr %107, align 4
   %108 = icmp eq i64 %indvars.iv85, 0
@@ -9982,11 +9982,11 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %70
   br i1 %88, label %.lr.ph54.preheader, label %.loopexit
 
 .lr.ph54.preheader:                               ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %.preheader
-  %.027.lcssa61 = phi i32 [ %87, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %89 = shl nuw nsw i32 %.027.lcssa61, 2
+  %.027.lcssa65 = phi i32 [ %87, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
+  %89 = shl nuw nsw i32 %.027.lcssa65, 2
   %90 = zext nneg i32 %89 to i64
   %scevgep = getelementptr i8, ptr %1, i64 %90
-  %91 = shl nuw nsw i32 %.027.lcssa61, 2
+  %91 = shl nuw nsw i32 %.027.lcssa65, 2
   %narrow = sub nuw nsw i32 16, %91
   %92 = zext nneg i32 %narrow to i64
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %92, i1 false)
@@ -13143,8 +13143,8 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %_ZNSt7__c
   br label %.preheader
 
 .lr.ph66.preheader:                               ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %.preheader60
-  %.038.lcssa73 = phi i64 [ %89, %.preheader60 ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %61 = shl nuw nsw i64 %.038.lcssa73, 3
+  %.038.lcssa79 = phi i64 [ %89, %.preheader60 ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
+  %61 = shl nuw nsw i64 %.038.lcssa79, 3
   %scevgep = getelementptr i8, ptr %6, i64 %61
   %62 = sub nuw nsw i64 144, %61
   call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %62, i1 false)
@@ -19934,11 +19934,11 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %70
   br i1 %88, label %.lr.ph53.preheader, label %.loopexit
 
 .lr.ph53.preheader:                               ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %.preheader
-  %.027.lcssa60 = phi i32 [ %87, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %89 = shl nuw nsw i32 %.027.lcssa60, 2
+  %.027.lcssa64 = phi i32 [ %87, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
+  %89 = shl nuw nsw i32 %.027.lcssa64, 2
   %90 = zext nneg i32 %89 to i64
   %scevgep = getelementptr i8, ptr %1, i64 %90
-  %91 = shl nuw nsw i32 %.027.lcssa60, 2
+  %91 = shl nuw nsw i32 %.027.lcssa64, 2
   %narrow = sub nsw i32 12, %91
   %92 = zext i32 %narrow to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %92, i1 false)
@@ -20256,11 +20256,11 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %69
   br i1 %87, label %.lr.ph56.preheader, label %.loopexit
 
 .lr.ph56.preheader:                               ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %.preheader
-  %.027.lcssa63 = phi i32 [ %86, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %88 = shl nuw nsw i32 %.027.lcssa63, 2
+  %.027.lcssa67 = phi i32 [ %86, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
+  %88 = shl nuw nsw i32 %.027.lcssa67, 2
   %89 = zext nneg i32 %88 to i64
   %scevgep = getelementptr i8, ptr %1, i64 %89
-  %90 = shl nuw nsw i32 %.027.lcssa63, 2
+  %90 = shl nuw nsw i32 %.027.lcssa67, 2
   %narrow = sub nsw i32 12, %90
   %91 = zext i32 %narrow to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %91, i1 false)
@@ -22449,10 +22449,10 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %69
   br i1 %87, label %.lr.ph56.preheader, label %.loopexit
 
 .lr.ph56.preheader:                               ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %.preheader
-  %.027.lcssa63 = phi i32 [ %86, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %88 = zext nneg i32 %.027.lcssa63 to i64
+  %.027.lcssa67 = phi i32 [ %86, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
+  %88 = zext nneg i32 %.027.lcssa67 to i64
   %scevgep = getelementptr i8, ptr %1, i64 %88
-  %narrow = sub nuw nsw i32 1024, %.027.lcssa63
+  %narrow = sub nuw nsw i32 1024, %.027.lcssa67
   %89 = zext nneg i32 %narrow to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %89, i1 false)
   br label %.loopexit
@@ -23881,10 +23881,10 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %69
   br i1 %87, label %.lr.ph56.preheader, label %.loopexit
 
 .lr.ph56.preheader:                               ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %.preheader
-  %.027.lcssa63 = phi i32 [ %86, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %88 = zext nneg i32 %.027.lcssa63 to i64
+  %.027.lcssa67 = phi i32 [ %86, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
+  %88 = zext nneg i32 %.027.lcssa67 to i64
   %scevgep = getelementptr i8, ptr %1, i64 %88
-  %narrow = sub nuw nsw i32 240, %.027.lcssa63
+  %narrow = sub nuw nsw i32 240, %.027.lcssa67
   %89 = zext nneg i32 %narrow to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %89, i1 false)
   br label %.loopexit
@@ -24204,10 +24204,10 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %70
   br i1 %88, label %.lr.ph53.preheader, label %.loopexit
 
 .lr.ph53.preheader:                               ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %.preheader
-  %.027.lcssa60 = phi i32 [ %87, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %89 = zext nneg i32 %.027.lcssa60 to i64
+  %.027.lcssa64 = phi i32 [ %87, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
+  %89 = zext nneg i32 %.027.lcssa64 to i64
   %scevgep = getelementptr i8, ptr %1, i64 %89
-  %narrow = sub nuw nsw i32 240, %.027.lcssa60
+  %narrow = sub nuw nsw i32 240, %.027.lcssa64
   %90 = zext nneg i32 %narrow to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %90, i1 false)
   br label %.loopexit
@@ -25948,11 +25948,11 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %69
   br i1 %87, label %.lr.ph57.preheader, label %.loopexit
 
 .lr.ph57.preheader:                               ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %.preheader
-  %.027.lcssa64 = phi i32 [ %86, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %88 = shl nuw nsw i32 %.027.lcssa64, 2
+  %.027.lcssa68 = phi i32 [ %86, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
+  %88 = shl nuw nsw i32 %.027.lcssa68, 2
   %89 = zext nneg i32 %88 to i64
   %scevgep = getelementptr i8, ptr %1, i64 %89
-  %90 = shl nuw nsw i32 %.027.lcssa64, 2
+  %90 = shl nuw nsw i32 %.027.lcssa68, 2
   %narrow = sub nsw i32 168, %90
   %91 = zext i32 %narrow to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %91, i1 false)
@@ -26949,10 +26949,10 @@ _ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader: ; preds = %69
   br i1 %87, label %.lr.ph56.preheader, label %.loopexit
 
 .lr.ph56.preheader:                               ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader, %.preheader
-  %.027.lcssa63 = phi i32 [ %86, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
-  %88 = zext nneg i32 %.027.lcssa63 to i64
+  %.027.lcssa67 = phi i32 [ %86, %.preheader ], [ 0, %_ZN6Assimp12StreamReaderILb1ELb1EE6IncPtrEl.exit.preheader ]
+  %88 = zext nneg i32 %.027.lcssa67 to i64
   %scevgep = getelementptr i8, ptr %1, i64 %88
-  %narrow = sub nuw nsw i32 64, %.027.lcssa63
+  %narrow = sub nuw nsw i32 64, %.027.lcssa67
   %89 = zext nneg i32 %narrow to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %89, i1 false)
   br label %.loopexit
@@ -33869,8 +33869,8 @@ _ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit:  ; preds = %94
   br label %common.resume
 
 118:                                              ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit
-  %.sink26 = phi i32 [ %49, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit ], [ %90, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit ], [ %112, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit ], [ %68, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit ], [ %.sroa.02.0.insert.insert.i.i, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit ]
-  store i32 %.sink26, ptr %0, align 4
+  %.sink30 = phi i32 [ %49, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit ], [ %90, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit ], [ %112, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit ], [ %68, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit ], [ %.sroa.02.0.insert.insert.i.i, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit ]
+  store i32 %.sink30, ptr %0, align 4
   ret void
 }
 
@@ -35559,8 +35559,8 @@ _ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit:  ; preds = %90
   br label %common.resume
 
 114:                                              ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit
-  %.sink26 = phi i8 [ %46, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit ], [ %86, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit ], [ %108, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit ], [ %64, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit ], [ %24, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit ]
-  store i8 %.sink26, ptr %0, align 1
+  %.sink30 = phi i8 [ %46, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit ], [ %86, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit ], [ %108, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit ], [ %64, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit ], [ %24, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit ]
+  store i8 %.sink30, ptr %0, align 1
   ret void
 }
 
@@ -39348,14 +39348,14 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN6Assimp7Blender7Pointer
   br i1 %22, label %._crit_edge.thread.i, label %28
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
+  %.019.lcssa29.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %.019.lcssa28.i, %24
+  %25 = icmp eq ptr %.019.lcssa29.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeIN6Assimp7Blender7PointerESt4pairIKS2_St10shared_ptrINS1_8ElemBaseEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE24_M_get_insert_unique_posERS4_.exit, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #28
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i) #28
   %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81 = load i64, ptr %.phi.trans.insert80, align 8
   %.pre82 = load i64, ptr %2, align 8
@@ -39364,11 +39364,11 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN6Assimp7Blender7Pointer
 28:                                               ; preds = %26, %._crit_edge.i
   %29 = phi i64 [ %.pre82, %26 ], [ %18, %._crit_edge.i ]
   %30 = phi i64 [ %.pre81, %26 ], [ %21, %._crit_edge.i ]
-  %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %26 ], [ %.02024.i, %._crit_edge.i ]
+  %.019.lcssa28.i = phi ptr [ %.019.lcssa29.i, %26 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %27, %26 ], [ %.02024.i, %._crit_edge.i ]
   %31 = icmp ult i64 %30, %29
   %spec.select.i = select i1 %31, ptr null, ptr %.sroa.05.0.i
-  %spec.select21.i = select i1 %31, ptr %.019.lcssa29.i, ptr null
+  %spec.select21.i = select i1 %31, ptr %.019.lcssa28.i, ptr null
   br label %_ZNSt8_Rb_treeIN6Assimp7Blender7PointerESt4pairIKS2_St10shared_ptrINS1_8ElemBaseEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE24_M_get_insert_unique_posERS4_.exit
 
 32:                                               ; preds = %3
@@ -39420,23 +39420,23 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN6Assimp7Blender7Pointer
   br i1 %54, label %._crit_edge.thread.i27, label %58
 
 ._crit_edge.thread.i27:                           ; preds = %._crit_edge.i18, %50
-  %.019.lcssa28.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
-  %55 = icmp eq ptr %.019.lcssa28.i28, %39
+  %.019.lcssa29.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
+  %55 = icmp eq ptr %.019.lcssa29.i28, %39
   br i1 %55, label %_ZNSt8_Rb_treeIN6Assimp7Blender7PointerESt4pairIKS2_St10shared_ptrINS1_8ElemBaseEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE24_M_get_insert_unique_posERS4_.exit, label %56
 
 56:                                               ; preds = %._crit_edge.thread.i27
-  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #28
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i28) #28
   %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %.pre79 = load i64, ptr %.phi.trans.insert78, align 8
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i18
   %59 = phi i64 [ %.pre79, %56 ], [ %53, %._crit_edge.i18 ]
-  %.019.lcssa29.i19 = phi ptr [ %.019.lcssa28.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
+  %.019.lcssa28.i19 = phi ptr [ %.019.lcssa29.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %.sroa.05.0.i20 = phi ptr [ %57, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %60 = icmp ult i64 %59, %34
   %spec.select.i21 = select i1 %60, ptr null, ptr %.sroa.05.0.i20
-  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa29.i19, ptr null
+  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa28.i19, ptr null
   br label %_ZNSt8_Rb_treeIN6Assimp7Blender7PointerESt4pairIKS2_St10shared_ptrINS1_8ElemBaseEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE24_M_get_insert_unique_posERS4_.exit
 
 61:                                               ; preds = %32
@@ -39485,30 +39485,30 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN6Assimp7Blender7Pointer
   br i1 %80, label %._crit_edge.thread.i47, label %86
 
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
-  %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
+  %.019.lcssa29.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8
-  %83 = icmp eq ptr %.019.lcssa28.i48, %82
+  %83 = icmp eq ptr %.019.lcssa29.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeIN6Assimp7Blender7PointerESt4pairIKS2_St10shared_ptrINS1_8ElemBaseEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE24_M_get_insert_unique_posERS4_.exit, label %84
 
 84:                                               ; preds = %._crit_edge.thread.i47
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #28
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i48) #28
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %85, i64 32
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %86
 
 86:                                               ; preds = %84, %._crit_edge.i38
   %87 = phi i64 [ %.pre, %84 ], [ %79, %._crit_edge.i38 ]
-  %.019.lcssa29.i39 = phi ptr [ %.019.lcssa28.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
+  %.019.lcssa28.i39 = phi ptr [ %.019.lcssa29.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %.sroa.05.0.i40 = phi ptr [ %85, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %88 = icmp ult i64 %87, %34
   %spec.select.i41 = select i1 %88, ptr null, ptr %.sroa.05.0.i40
-  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa29.i39, ptr null
+  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa28.i39, ptr null
   br label %_ZNSt8_Rb_treeIN6Assimp7Blender7PointerESt4pairIKS2_St10shared_ptrINS1_8ElemBaseEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE24_M_get_insert_unique_posERS4_.exit
 
 _ZNSt8_Rb_treeIN6Assimp7Blender7PointerESt4pairIKS2_St10shared_ptrINS1_8ElemBaseEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE24_M_get_insert_unique_posERS4_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
   %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa28.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -57630,7 +57630,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt10shared_ptrIN6Assimp7Blender8Ma
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPSt10shared_ptrIN6Assimp7Blender8MaterialEEmS4_ET_S6_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt10shared_ptrIN6Assimp7Blender8MaterialEEmS4_ET_S6_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 4
+  %19 = shl nuw nsw i64 %1, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8
@@ -59958,8 +59958,8 @@ _ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit:  ; preds = %90
   br label %common.resume
 
 114:                                              ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit
-  %.sink26 = phi i8 [ %46, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit ], [ %86, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit ], [ %108, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit ], [ %64, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit ], [ %24, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit ]
-  store i8 %.sink26, ptr %0, align 1
+  %.sink30 = phi i8 [ %46, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU2Ev.exit ], [ %86, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF4Ev.exit ], [ %108, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetF8Ev.exit ], [ %64, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU1Ev.exit ], [ %24, %_ZN6Assimp12StreamReaderILb1ELb1EE5GetU4Ev.exit ]
+  store i8 %.sink30, ptr %0, align 1
   ret void
 }
 
@@ -64316,18 +64316,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #28
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #28
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8
@@ -64361,7 +64361,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

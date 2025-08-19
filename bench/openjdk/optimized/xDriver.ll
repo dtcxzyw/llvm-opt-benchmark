@@ -1973,8 +1973,8 @@ define linkonce_odr hidden void @_ZN12XMessagePortI14XDriverRequestE3ackEv(ptr n
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %28, %23
-  %.not.i.not18 = icmp eq i64 %20, 0
-  %.not.i.not = select i1 %18, i1 true, i1 %.not.i.not18
+  %.not.i.not19 = icmp eq i64 %20, 0
+  %.not.i.not = select i1 %18, i1 true, i1 %.not.i.not19
   br i1 %.not.i.not, label %_ZN17XListIteratorImplI15XMessageRequestI14XDriverRequestELb1EE4nextEPPS2_.exit.loopexit, label %15, !llvm.loop !11
 
 _ZN17XListIteratorImplI15XMessageRequestI14XDriverRequestELb1EE4nextEPPS2_.exit.loopexit: ; preds = %.critedge
@@ -2739,8 +2739,8 @@ define linkonce_odr hidden void @_ZN12XMessagePortIbE3ackEv(ptr noundef nonnull 
   br label %select.unfold
 
 select.unfold:                                    ; preds = %30, %25, %15
-  %.not.i.not14 = icmp eq i64 %20, 0
-  %.not.i.not = select i1 %18, i1 true, i1 %.not.i.not14
+  %.not.i.not15 = icmp eq i64 %20, 0
+  %.not.i.not = select i1 %18, i1 true, i1 %.not.i.not15
   br i1 %.not.i.not, label %_ZN17XListIteratorImplI15XMessageRequestIbELb1EE4nextEPPS1_.exit.loopexit, label %15, !llvm.loop !14
 
 _ZN17XListIteratorImplI15XMessageRequestIbELb1EE4nextEPPS1_.exit.loopexit: ; preds = %select.unfold

@@ -7800,13 +7800,13 @@ if.end10.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %incdec.ptr.i56.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.097.i.i.i.i, i64 64
   %12 = load ptr, ptr %incdec.ptr.i56.i.i.i.i, align 8, !tbaa !150
   %cmp.i.i57.i.i.i.i = icmp eq ptr %12, %node
-  br i1 %cmp.i.i57.i.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit16, label %if.end16.i.i.i.i
+  br i1 %cmp.i.i57.i.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit18, label %if.end16.i.i.i.i
 
 if.end16.i.i.i.i:                                 ; preds = %if.end10.i.i.i.i
   %incdec.ptr.i58.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.097.i.i.i.i, i64 96
   %13 = load ptr, ptr %incdec.ptr.i58.i.i.i.i, align 8, !tbaa !150
   %cmp.i.i59.i.i.i.i = icmp eq ptr %13, %node
-  br i1 %cmp.i.i59.i.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit18, label %if.end22.i.i.i.i
+  br i1 %cmp.i.i59.i.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit20, label %if.end22.i.i.i.i
 
 if.end22.i.i.i.i:                                 ; preds = %if.end16.i.i.i.i
   %incdec.ptr.i60.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.097.i.i.i.i, i64 128
@@ -7859,16 +7859,16 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt
   %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.097.i.i.i.i, i64 32
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit16: ; preds = %if.end10.i.i.i.i
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit18: ; preds = %if.end10.i.i.i.i
   %incdec.ptr.i56.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.097.i.i.i.i, i64 64
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit18: ; preds = %if.end16.i.i.i.i
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit20: ; preds = %if.end16.i.i.i.i
   %incdec.ptr.i58.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.097.i.i.i.i, i64 96
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i: ; preds = %for.body.i.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit16, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit18, %sw.bb38.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit ], [ %incdec.ptr.i56.i.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit16 ], [ %incdec.ptr.i58.i.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit18 ], [ %__first.sroa.0.097.i.i.i.i, %for.body.i.i.i.i ]
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i: ; preds = %for.body.i.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit18, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit20, %sw.bb38.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit ], [ %incdec.ptr.i56.i.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit18 ], [ %incdec.ptr.i58.i.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit20 ], [ %__first.sroa.0.097.i.i.i.i, %for.body.i.i.i.i ]
   %cmp.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %8
   br i1 %cmp.i.i, label %if.then.i73, label %if.end.i
 
@@ -8332,13 +8332,13 @@ if.end10.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %incdec.ptr.i56.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.097.i.i.i.i, i64 64
   %6 = load ptr, ptr %incdec.ptr.i56.i.i.i.i, align 8, !tbaa !150
   %cmp.i.i57.i.i.i.i = icmp eq ptr %6, %node
-  br i1 %cmp.i.i57.i.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit19, label %if.end16.i.i.i.i
+  br i1 %cmp.i.i57.i.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit22, label %if.end16.i.i.i.i
 
 if.end16.i.i.i.i:                                 ; preds = %if.end10.i.i.i.i
   %incdec.ptr.i58.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.097.i.i.i.i, i64 96
   %7 = load ptr, ptr %incdec.ptr.i58.i.i.i.i, align 8, !tbaa !150
   %cmp.i.i59.i.i.i.i = icmp eq ptr %7, %node
-  br i1 %cmp.i.i59.i.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit21, label %if.end22.i.i.i.i
+  br i1 %cmp.i.i59.i.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit24, label %if.end22.i.i.i.i
 
 if.end22.i.i.i.i:                                 ; preds = %if.end16.i.i.i.i
   %incdec.ptr.i60.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.097.i.i.i.i, i64 128
@@ -8391,16 +8391,16 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt
   %incdec.ptr.i.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.097.i.i.i.i, i64 32
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit19: ; preds = %if.end10.i.i.i.i
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit22: ; preds = %if.end10.i.i.i.i
   %incdec.ptr.i56.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.097.i.i.i.i, i64 64
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit21: ; preds = %if.end16.i.i.i.i
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit24: ; preds = %if.end16.i.i.i.i
   %incdec.ptr.i58.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.097.i.i.i.i, i64 96
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i: ; preds = %for.body.i.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit19, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit21, %sw.bb38.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit ], [ %incdec.ptr.i56.i.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit19 ], [ %incdec.ptr.i58.i.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit21 ], [ %__first.sroa.0.097.i.i.i.i, %for.body.i.i.i.i ]
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i: ; preds = %for.body.i.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit22, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit24, %sw.bb38.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit ], [ %incdec.ptr.i56.i.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit22 ], [ %incdec.ptr.i58.i.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN3irr5video11CNullDriver9SOccQueryESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i.loopexit.split.loop.exit24 ], [ %__first.sroa.0.097.i.i.i.i, %for.body.i.i.i.i ]
   %cmp.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %2
   br i1 %cmp.i.i, label %if.then.i56, label %if.end.i
 
@@ -11656,13 +11656,13 @@ entry:
 while.body.lr.ph:                                 ; preds = %entry
   %add.ptr.i28.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 8
   %cmp259 = icmp eq i64 %__depth_limit, 0
-  br i1 %cmp259, label %if.end.i.i27.split, label %if.end
+  br i1 %cmp259, label %while.cond.i.i.split.lr.ph, label %if.end
 
 while.body:                                       ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEET_SD_SD_T0_.exit
   %cmp2 = icmp eq i64 %dec, 0
-  br i1 %cmp2, label %if.end.i.i27.split, label %if.end, !llvm.loop !294
+  br i1 %cmp2, label %while.cond.i.i.split.lr.ph, label %if.end, !llvm.loop !294
 
-if.end.i.i27.split:                               ; preds = %while.body, %while.body.lr.ph
+while.cond.i.i.split.lr.ph:                       ; preds = %while.body, %while.body.lr.ph
   %sub.ptr.div.i43.lcssa = phi i64 [ %sub.ptr.div.i38, %while.body.lr.ph ], [ %sub.ptr.div.i, %while.body ]
   %storemerge40.lcssa = phi ptr [ %__last.coerce, %while.body.lr.ph ], [ %__first.sroa.0.1.i.i, %while.body ]
   %sub.i.i = add nsw i64 %sub.ptr.div.i43.lcssa, -2
@@ -11672,8 +11672,8 @@ if.end.i.i27.split:                               ; preds = %while.body, %while.
   tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_(ptr %__first.coerce, i64 noundef %div2627.i.i, i64 noundef %sub.ptr.div.i43.lcssa, ptr %__value.sroa.0.0.copyload.i.i2)
   br label %while.cond.i.i.split, !llvm.loop !295
 
-while.cond.i.i.split:                             ; preds = %if.end.i.i27.split, %while.cond.i.i.split
-  %__parent.0.i.i11 = phi i64 [ %div2627.i.i, %if.end.i.i27.split ], [ %dec.i.i, %while.cond.i.i.split ]
+while.cond.i.i.split:                             ; preds = %while.cond.i.i.split.lr.ph, %while.cond.i.i.split
+  %__parent.0.i.i11 = phi i64 [ %div2627.i.i, %while.cond.i.i.split.lr.ph ], [ %dec.i.i, %while.cond.i.i.split ]
   %dec.i.i = add nsw i64 %__parent.0.i.i11, -1
   %add.ptr.i.i.i3 = getelementptr inbounds %"struct.irr::video::CNullDriver::SSurface", ptr %__first.coerce, i64 %dec.i.i
   %__value.sroa.0.0.copyload.i.i4 = load ptr, ptr %add.ptr.i.i.i3, align 8, !tbaa !118
@@ -12356,7 +12356,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN3irr5video11CNullDriver8SSu
   %add.ptr.i.i.i61.idx = shl nuw nsw i64 %__len.0133, 3
   %incdec.ptr.i66 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   %.neg = add nsw i64 %add.ptr.i.i.i61.idx, -8
-  %gepdiff = sub i64 %.neg, %add.ptr.i.i.i.idx
+  %gepdiff = sub nsw i64 %.neg, %add.ptr.i.i.i.idx
   %sub.ptr.div.i.i.i.i70 = ashr exact i64 %gepdiff, 3
   %cmp16.i71 = icmp sgt i64 %sub.ptr.div.i.i.i.i70, 0
   br i1 %cmp16.i71, label %while.body.i76, label %cleanup33

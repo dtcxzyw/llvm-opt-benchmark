@@ -1226,21 +1226,21 @@ proto_item_set_generated.exit534:                 ; preds = %272, %275, %278
   %.0442.lcssa = phi i32 [ 0, %284 ], [ %.2444, %344 ]
   %.1440.lcssa = phi i32 [ %269, %284 ], [ %345, %344 ]
   %. = select i1 %.0462646686, i64 208, i64 232
-  %.796 = select i1 %.0462646686, i64 212, i64 236
-  %.797 = select i1 %.0462646686, i64 216, i64 240
-  %.798 = select i1 %.0462646686, i64 284, i64 288
-  %.799 = select i1 %.0462646686, i64 232, i64 208
-  %.800 = select i1 %.0462646686, i64 236, i64 212
-  %.801 = select i1 %.0462646686, i64 240, i64 216
-  %.802 = select i1 %.0462646686, i64 288, i64 284
+  %.919 = select i1 %.0462646686, i64 212, i64 236
+  %.920 = select i1 %.0462646686, i64 216, i64 240
+  %.921 = select i1 %.0462646686, i64 284, i64 288
+  %.922 = select i1 %.0462646686, i64 232, i64 208
+  %.923 = select i1 %.0462646686, i64 236, i64 212
+  %.924 = select i1 %.0462646686, i64 240, i64 216
+  %.925 = select i1 %.0462646686, i64 288, i64 284
   %347 = getelementptr inbounds nuw i8, ptr %1, i64 %.
-  %348 = getelementptr inbounds nuw i8, ptr %1, i64 %.796
-  %349 = getelementptr inbounds nuw i8, ptr %1, i64 %.797
-  %350 = getelementptr inbounds nuw i8, ptr %1, i64 %.798
-  %351 = getelementptr inbounds nuw i8, ptr %1, i64 %.799
-  %352 = getelementptr inbounds nuw i8, ptr %1, i64 %.800
-  %353 = getelementptr inbounds nuw i8, ptr %1, i64 %.801
-  %354 = getelementptr inbounds nuw i8, ptr %1, i64 %.802
+  %348 = getelementptr inbounds nuw i8, ptr %1, i64 %.919
+  %349 = getelementptr inbounds nuw i8, ptr %1, i64 %.920
+  %350 = getelementptr inbounds nuw i8, ptr %1, i64 %.921
+  %351 = getelementptr inbounds nuw i8, ptr %1, i64 %.922
+  %352 = getelementptr inbounds nuw i8, ptr %1, i64 %.923
+  %353 = getelementptr inbounds nuw i8, ptr %1, i64 %.924
+  %354 = getelementptr inbounds nuw i8, ptr %1, i64 %.925
   %.0461.in = load i32, ptr %350, align 4
   %.sink = load ptr, ptr %353, align 8
   %.sink771 = load i32, ptr %352, align 4
@@ -1557,9 +1557,9 @@ lbtru_client_transport_sqn_find.exit.i:           ; preds = %484
   br label %.sink.split.i543
 
 .sink.split.i543:                                 ; preds = %512, %505
-  %.sink158.i = phi i64 [ 36, %505 ], [ 32, %512 ]
+  %.sink178.i = phi i64 [ 36, %505 ], [ 32, %512 ]
   %.sink.i544 = phi i32 [ %506, %505 ], [ %516, %512 ]
-  %517 = getelementptr inbounds nuw i8, ptr %472, i64 %.sink158.i
+  %517 = getelementptr inbounds nuw i8, ptr %472, i64 %.sink178.i
   store i32 %.sink.i544, ptr %517, align 4
   br label %518
 

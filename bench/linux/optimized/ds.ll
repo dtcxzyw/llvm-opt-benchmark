@@ -937,7 +937,7 @@ define dso_local void @reserve_ds_buffers() local_unnamed_addr #3 align 16 {
   br i1 %216, label %.preheader32, label %.thread23, !prof !12, !llvm.loop !37
 
 .thread23:                                        ; preds = %.preheader32, %213, %209, %.thread
-  %.not39 = phi i1 [ true, %.thread ], [ false, %209 ], [ false, %213 ], [ false, %.preheader32 ]
+  %.not58 = phi i1 [ true, %.thread ], [ false, %209 ], [ false, %213 ], [ false, %.preheader32 ]
   %217 = phi i32 [ %14, %.thread ], [ %203, %209 ], [ %203, %213 ], [ %203, %.preheader32 ]
   %218 = icmp eq i32 %217, 0
   br i1 %218, label %.thread26, label %.preheader
@@ -964,7 +964,7 @@ define dso_local void @reserve_ds_buffers() local_unnamed_addr #3 align 16 {
   br i1 %231, label %.preheader, label %.thread25, !prof !12, !llvm.loop !38
 
 .thread25:                                        ; preds = %.preheader, %228, %224
-  br i1 %.not39, label %.thread26, label %232
+  br i1 %.not58, label %.thread26, label %232
 
 232:                                              ; preds = %.thread25
   %233 = load i64, ptr @__cpu_possible_mask, align 8
@@ -1000,18 +1000,18 @@ define dso_local void @reserve_ds_buffers() local_unnamed_addr #3 align 16 {
   %253 = load i16, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 376), align 8
   %254 = and i16 %253, 1
   %255 = icmp ne i16 %254, 0
-  %.not41 = and i1 %.not39, %255
+  %.not60 = and i1 %.not58, %255
   %256 = or i16 %253, 2
-  %257 = select i1 %.not41, i16 %256, i16 %253
+  %257 = select i1 %.not60, i16 %256, i16 %253
   %258 = and i16 %257, 4
   %259 = icmp ne i16 %258, 0
-  %.not44 = and i1 %218, %259
-  %260 = or i1 %.not41, %.not44
+  %.not63 = and i1 %218, %259
+  %260 = or i1 %.not60, %.not63
   br i1 %260, label %261, label %263
 
 261:                                              ; preds = %.thread26
   %262 = or i16 %257, 8
-  %simplifycfg.merge = select i1 %.not44, i16 %262, i16 %257
+  %simplifycfg.merge = select i1 %.not63, i16 %262, i16 %257
   store i16 %simplifycfg.merge, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 376), align 8
   br label %263
 

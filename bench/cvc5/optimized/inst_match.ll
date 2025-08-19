@@ -607,14 +607,14 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory11quantifiers9InstMat
 
 _ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit: ; preds = %.lr.ph, %9, %13
   %17 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !32
-  %.not16 = icmp ne ptr %6, %17
+  %.not18 = icmp ne ptr %6, %17
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 8
   %.not = icmp ne ptr %18, %5
-  %or.cond.not = select i1 %.not16, i1 %.not, i1 false
+  %or.cond.not = select i1 %.not18, i1 %.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit, %1
-  %.not.lcssa = phi i1 [ true, %1 ], [ %.not16, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit ]
+  %.not.lcssa = phi i1 [ true, %1 ], [ %.not18, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit ]
   ret i1 %.not.lcssa
 }
 

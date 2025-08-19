@@ -935,19 +935,19 @@ define internal fastcc void @_ZL16setCommonICUDataP11UDataMemoryaP10UErrorCode(p
   %17 = load ptr, ptr %16, align 8, !tbaa !32
   %18 = load ptr, ptr %8, align 8, !tbaa !32
   %19 = icmp eq ptr %17, %18
-  br i1 %19, label %.loopexit.loopexit.split.loop.exit35, label %20
+  br i1 %19, label %.loopexit.loopexit.split.loop.exit36, label %20
 
 20:                                               ; preds = %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !34
 
-.loopexit.loopexit.split.loop.exit35:             ; preds = %15
+.loopexit.loopexit.split.loop.exit36:             ; preds = %15
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %20, %.loopexit.loopexit.split.loop.exit35, %12
-  %.01823 = phi i32 [ %14, %12 ], [ %21, %.loopexit.loopexit.split.loop.exit35 ], [ 10, %20 ]
+.loopexit:                                        ; preds = %20, %.loopexit.loopexit.split.loop.exit36, %12
+  %.01823 = phi i32 [ %14, %12 ], [ %21, %.loopexit.loopexit.split.loop.exit36 ], [ 10, %20 ]
   tail call void @umtx_unlock_77(ptr noundef null)
   %22 = icmp eq i32 %.01823, 10
   %23 = icmp ne i8 %1, 0
@@ -1162,10 +1162,10 @@ define internal fastcc noundef ptr @_ZL12doOpenChoicePKcS0_S0_PFaPvS0_S0_PK9UDat
   store i32 0, ptr %7, align 4, !tbaa !13
   %25 = icmp eq ptr %0, null
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sink.sroa.gep225 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink.sroa.gep226 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink.sroa.gep227 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.sink.sroa.gep228 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %.sink.sroa.gep240 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink.sroa.gep241 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink.sroa.gep242 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %.sink.sroa.gep243 = getelementptr inbounds nuw i8, ptr %18, i64 8
   br i1 %25, label %32, label %26
 
 26:                                               ; preds = %6
@@ -1336,7 +1336,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit196: ; preds = 
           to label %.invoke unwind label %68
 
 .invoke:                                          ; preds = %92, %91, %80, %70, %66
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %66 ], [ %.sink.sroa.gep225, %70 ], [ %.sink.sroa.gep226, %80 ], [ %.sink.sroa.gep227, %91 ], [ %.sink.sroa.gep228, %92 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %66 ], [ %.sink.sroa.gep240, %70 ], [ %.sink.sroa.gep241, %80 ], [ %.sink.sroa.gep242, %91 ], [ %.sink.sroa.gep243, %92 ]
   %.sink = phi ptr [ %13, %66 ], [ %14, %70 ], [ %16, %80 ], [ %17, %91 ], [ %18, %92 ]
   %93 = load ptr, ptr %.sink, align 8
   %94 = load i32, ptr %.sink.sroa.phi, align 8
@@ -1630,22 +1630,22 @@ thread-pre-split:                                 ; preds = %199, %196, %.thread
 222:                                              ; preds = %221
   %223 = load i32, ptr %5, align 4, !tbaa !13
   %224 = icmp slt i32 %223, 1
-  br i1 %224, label %.thread222, label %.thread
+  br i1 %224, label %.thread237, label %.thread
 
 225:                                              ; preds = %215
   %.pre221 = load i32, ptr %5, align 4, !tbaa !13
   %226 = icmp sgt i32 %.pre221, 0
-  br i1 %226, label %.thread, label %.thread222
+  br i1 %226, label %.thread, label %.thread237
 
-.thread222:                                       ; preds = %222, %225
+.thread237:                                       ; preds = %222, %225
   %227 = load i32, ptr %7, align 4, !tbaa !13
   %228 = icmp sgt i32 %227, 0
   %. = select i1 %228, i32 %227, i32 4
   store i32 %., ptr %5, align 4, !tbaa !13
   br label %.thread
 
-.thread:                                          ; preds = %.thread222, %177, %178, %225, %221, %222, %211, %212, %203, %204, %188, %189
-  %.1 = phi ptr [ null, %189 ], [ %187, %188 ], [ null, %204 ], [ %202, %203 ], [ null, %212 ], [ %210, %211 ], [ null, %222 ], [ %220, %221 ], [ null, %225 ], [ null, %178 ], [ %176, %177 ], [ null, %.thread222 ]
+.thread:                                          ; preds = %.thread237, %177, %178, %225, %221, %222, %211, %212, %203, %204, %188, %189
+  %.1 = phi ptr [ null, %189 ], [ %187, %188 ], [ null, %204 ], [ %202, %203 ], [ null, %212 ], [ %210, %211 ], [ null, %222 ], [ %220, %221 ], [ null, %225 ], [ null, %178 ], [ %176, %177 ], [ null, %.thread237 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %10) #15
@@ -2047,17 +2047,17 @@ _ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB
   br label %_ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB_.exit.thread
 
 .split33.us:                                      ; preds = %.noexc27, %.noexc27.us
-  %.lcssa41.sink = phi ptr [ %33, %.noexc27.us ], [ %63, %.noexc27 ]
-  %.lcssa40.sink = phi ptr [ %21, %.noexc27.us ], [ %48, %.noexc27 ]
-  %67 = getelementptr inbounds nuw i8, ptr %.lcssa41.sink, i64 8
-  store ptr %.lcssa40.sink, ptr %67, align 8, !tbaa !32
+  %.lcssa46.sink = phi ptr [ %33, %.noexc27.us ], [ %63, %.noexc27 ]
+  %.lcssa45.sink = phi ptr [ %21, %.noexc27.us ], [ %48, %.noexc27 ]
+  %67 = getelementptr inbounds nuw i8, ptr %.lcssa46.sink, i64 8
+  store ptr %.lcssa45.sink, ptr %67, align 8, !tbaa !32
   %68 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %69 = load ptr, ptr %68, align 8, !tbaa !57
-  %70 = getelementptr inbounds nuw i8, ptr %.lcssa41.sink, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.lcssa46.sink, i64 32
   store ptr %69, ptr %70, align 8, !tbaa !57
   %71 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %72 = load ptr, ptr %71, align 8, !tbaa !58
-  %73 = getelementptr inbounds nuw i8, ptr %.lcssa41.sink, i64 40
+  %73 = getelementptr inbounds nuw i8, ptr %.lcssa46.sink, i64 40
   store ptr %72, ptr %73, align 8, !tbaa !58
   br label %.loopexit
 
@@ -2095,7 +2095,7 @@ _ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB
   br label %.split, !llvm.loop !56
 
 .loopexit:                                        ; preds = %79, %43, %37, %16, %.split33.us
-  %.0 = phi ptr [ %.lcssa41.sink, %.split33.us ], [ null, %16 ], [ null, %37 ], [ null, %43 ], [ null, %79 ]
+  %.0 = phi ptr [ %.lcssa46.sink, %.split33.us ], [ null, %16 ], [ null, %37 ], [ null, %43 ], [ null, %79 ]
   %83 = getelementptr inbounds nuw i8, ptr %12, i64 176
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %83) #15
   %84 = getelementptr inbounds nuw i8, ptr %12, i64 112

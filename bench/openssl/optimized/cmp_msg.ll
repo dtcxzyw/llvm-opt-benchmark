@@ -261,10 +261,10 @@ OSSL_CMP_MSG_get_bodytype.exit:                   ; preds = %2
   br i1 %16, label %.sink.split, label %17
 
 .sink.split:                                      ; preds = %OSSL_CMP_MSG_get_bodytype.exit, %2, %1, %11, %14, %6
-  %.sink11 = phi i32 [ 119, %6 ], [ 124, %14 ], [ 124, %11 ], [ 129, %1 ], [ 129, %2 ], [ 129, %OSSL_CMP_MSG_get_bodytype.exit ]
+  %.sink16 = phi i32 [ 119, %6 ], [ 124, %14 ], [ 124, %11 ], [ 129, %1 ], [ 129, %2 ], [ 129, %OSSL_CMP_MSG_get_bodytype.exit ]
   %.sink = phi i32 [ 157, %6 ], [ 118, %14 ], [ 118, %11 ], [ 133, %1 ], [ 133, %2 ], [ 133, %OSSL_CMP_MSG_get_bodytype.exit ]
   tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink11, ptr noundef nonnull @__func__.OSSL_CMP_MSG_get0_certreq_publickey) #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink16, ptr noundef nonnull @__func__.OSSL_CMP_MSG_get0_certreq_publickey) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef %.sink, ptr noundef null) #7
   br label %17
 
@@ -461,10 +461,10 @@ OSSL_CMP_MSG_new.exit:                            ; preds = %13, %9
   br i1 %92, label %ossl_cmp_msg_set_bodytype.exit.thread, label %OSSL_CMP_MSG_new.exit.thread
 
 ossl_cmp_msg_set_bodytype.exit.thread.sink.split: ; preds = %29, %35
-  %.sink49 = phi i32 [ 190, %35 ], [ 245, %29 ]
+  %.sink55 = phi i32 [ 190, %35 ], [ 245, %29 ]
   %.sink = phi i32 [ 121, %35 ], [ 133, %29 ]
   tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink49, ptr noundef nonnull @__func__.ossl_cmp_msg_create) #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink55, ptr noundef nonnull @__func__.ossl_cmp_msg_create) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef %.sink, ptr noundef null) #7
   br label %ossl_cmp_msg_set_bodytype.exit.thread
 
@@ -2323,7 +2323,7 @@ define ptr @ossl_cmp_certresponse_get1_cert(ptr noundef %0, ptr noundef readonly
   %30 = load ptr, ptr %29, align 8, !tbaa !38
   %31 = tail call ptr @OSSL_CRMF_ENCRYPTEDKEY_get1_pkey(ptr noundef nonnull %11, ptr noundef %19, ptr noundef %21, ptr noundef %23, ptr noundef %25, ptr noundef %27, ptr noundef %28, ptr noundef %30) #7
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %.thread45
+  br i1 %32, label %33, label %.thread51
 
 33:                                               ; preds = %17
   tail call void @ERR_new() #7
@@ -2331,7 +2331,7 @@ define ptr @ossl_cmp_certresponse_get1_cert(ptr noundef %0, ptr noundef readonly
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef 203, ptr noundef null) #7
   br label %64
 
-.thread45:                                        ; preds = %17
+.thread51:                                        ; preds = %17
   %34 = tail call i32 @OSSL_CMP_CTX_set0_newPkey(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %31) #7
   br label %36
 
@@ -2339,7 +2339,7 @@ define ptr @ossl_cmp_certresponse_get1_cert(ptr noundef %0, ptr noundef readonly
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %64, label %36, !prof !116
 
-36:                                               ; preds = %.thread45, %35
+36:                                               ; preds = %.thread51, %35
   %37 = load ptr, ptr %5, align 8, !tbaa !62
   %38 = load ptr, ptr %37, align 8, !tbaa !63
   %.not42 = icmp eq ptr %38, null

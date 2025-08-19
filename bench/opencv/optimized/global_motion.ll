@@ -3204,7 +3204,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit218:            ; preds = %_ZSt6fill_nIPimiET_
 .preheader337:                                    ; preds = %.preheader337.lr.ph, %302
   %.0102375 = phi i32 [ 0, %.preheader337.lr.ph ], [ %303, %302 ]
   %.0103374 = phi i32 [ -1, %.preheader337.lr.ph ], [ %.1104, %302 ]
-  %.sroa.0273.0373 = phi i64 [ 4294967295, %.preheader337.lr.ph ], [ %.sroa.0273.1.lcssa418, %302 ]
+  %.sroa.0273.0373 = phi i64 [ 4294967295, %.preheader337.lr.ph ], [ %.sroa.0273.1.lcssa450, %302 ]
   %.sroa.0286.0372 = phi ptr [ %.sroa.0286.5304314325, %.preheader337.lr.ph ], [ %.sroa.0286.4, %302 ]
   %.sroa.0275.0371 = phi ptr [ %.sroa.0275.2, %.preheader337.lr.ph ], [ %.sroa.0275.1, %302 ]
   %199 = load i32, ptr %4, align 4, !tbaa !118
@@ -3332,7 +3332,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit251.thread: ; preds = %.lr.ph.prehe
   br i1 %252, label %.lr.ph364, label %._crit_edge365, !llvm.loop !138
 
 ._crit_edge365:                                   ; preds = %.lr.ph364, %.preheader337, %.preheader336
-  %.sroa.0273.1.lcssa418 = phi i64 [ %.us-phi, %.preheader336 ], [ %.sroa.0273.0373, %.preheader337 ], [ %.us-phi, %.lr.ph364 ]
+  %.sroa.0273.1.lcssa450 = phi i64 [ %.us-phi, %.preheader336 ], [ %.sroa.0273.0373, %.preheader337 ], [ %.us-phi, %.lr.ph364 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -3554,7 +3554,7 @@ _ZN2cv4Mat_IfEC2EONS_3MatE.exit:                  ; preds = %253
   br i1 %.not28.i.i, label %352, label %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i
 
 _ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i: ; preds = %342
-  %351 = shl nuw i64 %343, 3
+  %351 = shl nuw nsw i64 %343, 3
   call void @llvm.memset.p0.i64(ptr align 4 %335, i8 0, i64 %351, i1 false), !tbaa !54
   %scevgep.i.i.i.i.i221 = getelementptr i8, ptr %335, i64 %351
   store ptr %scevgep.i.i.i.i.i221, ptr %188, align 8, !tbaa !135
@@ -3645,7 +3645,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit: ; preds = %370, %368, %366, 
   br i1 %.not28.i.i225, label %388, label %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i226
 
 _ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i226: ; preds = %378
-  %387 = shl nuw i64 %379, 3
+  %387 = shl nuw nsw i64 %379, 3
   call void @llvm.memset.p0.i64(ptr align 4 %371, i8 0, i64 %387, i1 false), !tbaa !54
   %scevgep.i.i.i.i.i227 = getelementptr i8, ptr %371, i64 %387
   store ptr %scevgep.i.i.i.i.i227, ptr %187, align 8, !tbaa !135
@@ -4025,7 +4025,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm(p
   br i1 %.not28.i, label %22, label %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i: ; preds = %11
-  %21 = shl nuw i64 %12, 3
+  %21 = shl nuw nsw i64 %12, 3
   tail call void @llvm.memset.p0.i64(ptr align 4 %4, i8 0, i64 %21, i1 false), !tbaa !54
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !135

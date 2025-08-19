@@ -130,7 +130,7 @@ select.unfold.preheader:                          ; preds = %1
   br label %select.unfold
 
 select.unfold:                                    ; preds = %.critedge.i.i.i, %select.unfold.preheader
-  %36 = phi i32 [ %spec.select, %select.unfold.preheader ], [ %.be172, %.critedge.i.i.i ]
+  %36 = phi i32 [ %spec.select, %select.unfold.preheader ], [ %.be187, %.critedge.i.i.i ]
   switch i32 %36, label %.sink.split [
     i32 32, label %.critedge.i.i.i
     i32 9, label %.critedge.i.i.i
@@ -148,7 +148,7 @@ select.unfold:                                    ; preds = %.critedge.i.i.i, %s
   %41 = icmp eq i32 %37, 0
   %42 = select i1 %41, i32 -541478725, i32 %37
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %.be172 = select i1 %38, i32 %40, i32 %42
+  %.be187 = select i1 %38, i32 %40, i32 %42
   br label %select.unfold
 
 43:                                               ; preds = %select.unfold
@@ -177,7 +177,7 @@ select.unfold:                                    ; preds = %.critedge.i.i.i, %s
   br label %select.unfold35
 
 select.unfold35:                                  ; preds = %.critedge.i.i62.i, %56
-  %57 = phi i32 [ %.pr.i.i61.i, %56 ], [ %.be170, %.critedge.i.i62.i ]
+  %57 = phi i32 [ %.pr.i.i61.i, %56 ], [ %.be185, %.critedge.i.i62.i ]
   switch i32 %57, label %.sink.split [
     i32 32, label %.critedge.i.i62.i
     i32 9, label %.critedge.i.i62.i
@@ -195,7 +195,7 @@ select.unfold35:                                  ; preds = %.critedge.i.i62.i, 
   %62 = icmp eq i32 %58, 0
   %63 = select i1 %62, i32 -541478725, i32 %58
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %.be170 = select i1 %59, i32 %61, i32 %63
+  %.be185 = select i1 %59, i32 %61, i32 %63
   br label %select.unfold35
 
 expect_byte.exit67.i:                             ; preds = %select.unfold35
@@ -212,7 +212,7 @@ expect_byte.exit67.i:                             ; preds = %select.unfold35
   br label %select.unfold36
 
 select.unfold36:                                  ; preds = %select.unfold36.backedge, %expect_byte.exit67.i
-  %72 = phi i32 [ %70, %expect_byte.exit67.i ], [ %.be252, %select.unfold36.backedge ]
+  %72 = phi i32 [ %70, %expect_byte.exit67.i ], [ %.be267, %select.unfold36.backedge ]
   switch i32 %72, label %79 [
     i32 32, label %.critedge.i.i69.i
     i32 9, label %.critedge.i.i69.i
@@ -230,11 +230,11 @@ select.unfold36:                                  ; preds = %select.unfold36.bac
   %77 = icmp eq i32 %73, 0
   %78 = select i1 %77, i32 -541478725, i32 %73
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %.be167 = select i1 %74, i32 %76, i32 %78
+  %.be182 = select i1 %74, i32 %76, i32 %78
   br label %select.unfold36.backedge
 
 select.unfold36.backedge:                         ; preds = %.critedge.i.i69.i, %236
-  %.be252 = phi i32 [ %.be167, %.critedge.i.i69.i ], [ %243, %236 ]
+  %.be267 = phi i32 [ %.be182, %.critedge.i.i69.i ], [ %243, %236 ]
   br label %select.unfold36
 
 79:                                               ; preds = %select.unfold36
@@ -392,15 +392,15 @@ skip_spaces.exit.i81.i:                           ; preds = %select.unfold38
 .lr.ph.i82.i:                                     ; preds = %141
   %138 = sub nuw nsw i32 214748412, %152
   %139 = zext nneg i32 %138 to i64
-  %140 = icmp sgt i64 %145, %139
+  %140 = icmp samesign ugt i64 %145, %139
   br i1 %140, label %.thread53, label %141, !llvm.loop !36
 
 141:                                              ; preds = %.lr.ph.i82.i, %.lr.ph.preheader.i.i
   %.015.i165.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %145, %.lr.ph.i82.i ]
   %142 = phi i32 [ %137, %.lr.ph.preheader.i.i ], [ %153, %.lr.ph.i82.i ]
-  %143 = mul nsw i64 %.015.i165.i, 10
+  %143 = mul nuw nsw i64 %.015.i165.i, 10
   %144 = zext nneg i32 %142 to i64
-  %145 = add nsw i64 %143, %144
+  %145 = add nuw nsw i64 %143, %144
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %146 = call i32 @avio_read(ptr noundef %28, ptr noundef nonnull %10, i32 noundef 1) #7
   %147 = icmp sgt i32 %146, 0
@@ -424,7 +424,7 @@ skip_spaces.exit.i81.i:                           ; preds = %select.unfold38
   br label %select.unfold39
 
 select.unfold39:                                  ; preds = %.critedge.i.i85.i, %157
-  %158 = phi i32 [ %.pr.i.i84.i, %157 ], [ %.be163, %.critedge.i.i85.i ]
+  %158 = phi i32 [ %.pr.i.i84.i, %157 ], [ %.be178, %.critedge.i.i85.i ]
   switch i32 %158, label %skip_spaces.exit.i86.i [
     i32 32, label %.critedge.i.i85.i
     i32 9, label %.critedge.i.i85.i
@@ -441,7 +441,7 @@ select.unfold39:                                  ; preds = %.critedge.i.i85.i, 
   %163 = icmp eq i32 %159, 0
   %164 = select i1 %163, i32 -541478725, i32 %159
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.be163 = select i1 %160, i32 %162, i32 %164
+  %.be178 = select i1 %160, i32 %162, i32 %164
   br label %select.unfold39
 
 skip_spaces.exit.i86.i:                           ; preds = %select.unfold39
@@ -456,15 +456,15 @@ skip_spaces.exit.i86.i:                           ; preds = %select.unfold39
 .lr.ph.i88.i:                                     ; preds = %171
   %168 = sub nuw nsw i32 214748412, %182
   %169 = zext nneg i32 %168 to i64
-  %170 = icmp sgt i64 %175, %169
+  %170 = icmp samesign ugt i64 %175, %169
   br i1 %170, label %.thread53, label %171, !llvm.loop !36
 
 171:                                              ; preds = %.lr.ph.i88.i, %.lr.ph.preheader.i87.i
   %.015.i89159.i = phi i64 [ 0, %.lr.ph.preheader.i87.i ], [ %175, %.lr.ph.i88.i ]
   %172 = phi i32 [ %167, %.lr.ph.preheader.i87.i ], [ %183, %.lr.ph.i88.i ]
-  %173 = mul nsw i64 %.015.i89159.i, 10
+  %173 = mul nuw nsw i64 %.015.i89159.i, 10
   %174 = zext nneg i32 %172 to i64
-  %175 = add nsw i64 %173, %174
+  %175 = add nuw nsw i64 %173, %174
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %176 = call i32 @avio_read(ptr noundef %28, ptr noundef nonnull %8, i32 noundef 1) #7
   %177 = icmp sgt i32 %176, 0
@@ -522,7 +522,7 @@ select.unfold40:                                  ; preds = %.critedge.i.i, %par
   br i1 %200, label %select.unfold45, label %.lr.ph178.i
 
 .preheader.i:                                     ; preds = %select.unfold40, %.critedge.i.i95.i
-  %201 = phi i32 [ %.be165, %.critedge.i.i95.i ], [ %.promoted189.i, %select.unfold40 ]
+  %201 = phi i32 [ %.be180, %.critedge.i.i95.i ], [ %.promoted189.i, %select.unfold40 ]
   switch i32 %201, label %208 [
     i32 32, label %.critedge.i.i95.i
     i32 9, label %.critedge.i.i95.i
@@ -540,7 +540,7 @@ select.unfold40:                                  ; preds = %.critedge.i.i, %par
   %206 = icmp eq i32 %202, 0
   %207 = select i1 %206, i32 -541478725, i32 %202
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.be165 = select i1 %203, i32 %205, i32 %207
+  %.be180 = select i1 %203, i32 %205, i32 %207
   br label %.preheader.i
 
 208:                                              ; preds = %.preheader.i
@@ -588,7 +588,7 @@ select.unfold40:                                  ; preds = %.critedge.i.i, %par
   br label %select.unfold42
 
 select.unfold42:                                  ; preds = %.critedge.i102.i, %225
-  %229 = phi i32 [ %217, %225 ], [ %.be164, %.critedge.i102.i ]
+  %229 = phi i32 [ %217, %225 ], [ %.be179, %.critedge.i102.i ]
   switch i32 %229, label %skip_spaces.exit103.i [
     i32 32, label %.critedge.i102.i
     i32 9, label %.critedge.i102.i
@@ -605,7 +605,7 @@ select.unfold42:                                  ; preds = %.critedge.i102.i, %
   %234 = icmp eq i32 %230, 0
   %235 = select i1 %234, i32 -541478725, i32 %230
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.be164 = select i1 %231, i32 %233, i32 %235
+  %.be179 = select i1 %231, i32 %233, i32 %235
   br label %select.unfold42
 
 skip_spaces.exit103.i:                            ; preds = %select.unfold42
@@ -1062,8 +1062,8 @@ av_bprint_utf8.exit:                              ; preds = %54
   br label %expect_byte.exit.thread
 
 av_bprint_utf8.exit.thread.sink.split:            ; preds = %.lr.ph, %42, %64
-  %.lcssa88.sink = phi i32 [ %62, %64 ], [ %40, %42 ], [ %31, %.lr.ph ]
-  %89 = trunc i32 %.lcssa88.sink to i8
+  %.lcssa93.sink = phi i32 [ %62, %64 ], [ %40, %42 ], [ %31, %.lr.ph ]
+  %89 = trunc i32 %.lcssa93.sink to i8
   call void @av_bprint_chars(ptr noundef nonnull %2, i8 noundef signext %89, i32 noundef 1) #7
   br label %av_bprint_utf8.exit.thread
 

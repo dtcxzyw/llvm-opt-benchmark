@@ -211,11 +211,11 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %8
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16, %.lr.ph
-  %.sink56 = phi ptr [ %20, %.lr.ph ], [ %18, %16 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.sink56, i64 24
+  %.sink58 = phi ptr [ %20, %.lr.ph ], [ %18, %16 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.sink58, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !32
-  %21 = load i32, ptr %.sink56, align 8, !tbaa !28
-  %22 = getelementptr inbounds nuw i8, ptr %.sink56, i64 4
+  %21 = load i32, ptr %.sink58, align 8, !tbaa !28
+  %22 = getelementptr inbounds nuw i8, ptr %.sink58, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !28
   %24 = mul i32 %23, 2003
   %25 = add i32 %24, %21
@@ -223,9 +223,9 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %8
   %27 = zext i32 %26 to i64
   %28 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !29
-  %30 = getelementptr inbounds nuw i8, ptr %.sink56, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %.sink58, i64 24
   store ptr %29, ptr %30, align 8, !tbaa !32
-  store ptr %.sink56, ptr %28, align 8, !tbaa !29
+  store ptr %.sink58, ptr %28, align 8, !tbaa !29
   %.not38 = icmp eq ptr %20, null
   br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 

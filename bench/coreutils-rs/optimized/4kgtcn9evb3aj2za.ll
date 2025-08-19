@@ -119,7 +119,7 @@ define hidden { i32, i32 } @"_ZN107_$LT$signal_hook..iterator..backend..Pending$
   br label %.loopexit
 
 18:                                               ; preds = %9
-  %19 = add i64 %10, 1
+  %19 = add nuw nsw i64 %10, 1
   store i64 %19, ptr %2, align 8
   %exitcond.not = icmp eq i64 %19, 128
   br i1 %exitcond.not, label %.loopexit, label %9
@@ -281,7 +281,7 @@ define internal void @"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals
   br i1 %.2.i.i, label %284, label %.critedge
 
 .thread.i.i:                                      ; preds = %279, %276, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.4233002952263615725.exit.i.i.i.i123.i.i, %271, %74
-  %lpad.thr_comm182.i.i = landingpad { ptr, i32 }
+  %lpad.thr_comm183.i.i = landingpad { ptr, i32 }
           cleanup
   br label %284
 
@@ -883,7 +883,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.4233002952263615725.exit.
           to label %.body81.i.i unwind label %258, !noalias !30
 
 284:                                              ; preds = %.thread.i.i, %75
-  %.pn68181.i.i = phi { ptr, i32 } [ %.pn.pn.i.i, %75 ], [ %lpad.thr_comm182.i.i, %.thread.i.i ]
+  %.pn68182.i.i = phi { ptr, i32 } [ %.pn.pn.i.i, %75 ], [ %lpad.thr_comm183.i.i, %.thread.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !181)
   call void @llvm.experimental.noalias.scope.decl(metadata !184)
   %285 = load ptr, ptr %27, align 8, !alias.scope !187, !noalias !30, !nonnull !4, !noundef !4
@@ -990,7 +990,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.4233002952263615725.exit.
   unreachable
 
 .critedge:                                        ; preds = %.noexc20, %317, %298, %289, %288, %284, %75, %70
-  %eh.lpad-body25 = phi { ptr, i32 } [ %lpad.phi.i, %298 ], [ %290, %289 ], [ %71, %70 ], [ %.pn.pn.i.i, %75 ], [ %.pn68181.i.i, %288 ], [ %.pn68181.i.i, %284 ], [ %lpad.thr_comm.split-lp, %317 ], [ %lpad.thr_comm.split-lp, %.noexc20 ]
+  %eh.lpad-body25 = phi { ptr, i32 } [ %lpad.phi.i, %298 ], [ %290, %289 ], [ %71, %70 ], [ %.pn.pn.i.i, %75 ], [ %.pn68182.i.i, %288 ], [ %.pn68182.i.i, %284 ], [ %lpad.thr_comm.split-lp, %317 ], [ %lpad.thr_comm.split-lp, %.noexc20 ]
   resume { ptr, i32 } %eh.lpad-body25
 
 .noexc20:                                         ; preds = %311, %308
@@ -1449,7 +1449,7 @@ define hidden void @"_ZN11signal_hook8iterator7backend28SignalIterator$LT$SD$C$E
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %16
-  %24 = add i64 %17, 1
+  %24 = add nuw nsw i64 %17, 1
   store i64 %24, ptr %9, align 8, !alias.scope !270
   %exitcond.not.i = icmp eq i64 %24, 128
   br i1 %exitcond.not.i, label %.loopexit, label %16
@@ -2021,9 +2021,9 @@ default.unreachable:                              ; preds = %.lr.ph
   br label %.outer
 
 .loopexit:                                        ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h91f87a3fef4eec95E.exit21", %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %21, %23, %27
-  %.lcssa47.sink = phi ptr [ %18, %27 ], [ %18, %23 ], [ %18, %21 ], [ %18, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ], [ %35, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h91f87a3fef4eec95E.exit21" ]
+  %.lcssa51.sink = phi ptr [ %18, %27 ], [ %18, %23 ], [ %18, %21 ], [ %18, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ], [ %35, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h91f87a3fef4eec95E.exit21" ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.lcssa47.sink, ptr %40, align 8
+  store ptr %.lcssa51.sink, ptr %40, align 8
   br label %37
 
 _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %.lr.ph
@@ -2143,9 +2143,9 @@ default.unreachable:                              ; preds = %.lr.ph
   br label %.outer
 
 .loopexit:                                        ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h91f87a3fef4eec95E.exit21", %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %21, %23, %27
-  %.lcssa47.sink = phi ptr [ %18, %27 ], [ %18, %23 ], [ %18, %21 ], [ %18, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ], [ %35, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h91f87a3fef4eec95E.exit21" ]
+  %.lcssa51.sink = phi ptr [ %18, %27 ], [ %18, %23 ], [ %18, %21 ], [ %18, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ], [ %35, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h91f87a3fef4eec95E.exit21" ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.lcssa47.sink, ptr %40, align 8
+  store ptr %.lcssa51.sink, ptr %40, align 8
   br label %37
 
 _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %.lr.ph

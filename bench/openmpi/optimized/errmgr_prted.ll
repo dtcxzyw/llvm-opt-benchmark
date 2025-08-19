@@ -1767,7 +1767,7 @@ pmix_obj_run_destructors.exit389:                 ; preds = %.lr.ph.i386, %666
   br i1 %685, label %pmix_pointer_array_get_item.exit384, label %._crit_edge, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %680, %638
-  %686 = call i32 @pthread_mutex_lock(ptr noundef %72) #13
+  %686 = call i32 @pthread_mutex_lock(ptr noundef nonnull %72) #13
   %687 = icmp eq i32 %686, 35
   br i1 %687, label %688, label %pmix_obj_update.exit369
 
@@ -1783,7 +1783,7 @@ pmix_obj_update.exit369:                          ; preds = %._crit_edge
   %691 = load i32, ptr %690, align 8, !tbaa !30
   %692 = add nsw i32 %691, -1
   store i32 %692, ptr %690, align 8, !tbaa !30
-  %693 = call i32 @pthread_mutex_unlock(ptr noundef %72) #13
+  %693 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %72) #13
   %694 = icmp eq i32 %692, 0
   br i1 %694, label %695, label %709
 
@@ -2232,10 +2232,10 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %54
   br label %97
 
 .sink.split.sink.split:                           ; preds = %27, %25, %23, %21, %19, %17, %11
-  %.sink82 = phi i32 [ %16, %11 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ]
-  %.sink81 = phi i32 [ 164, %11 ], [ 171, %17 ], [ 178, %19 ], [ 185, %21 ], [ 192, %23 ], [ 199, %25 ], [ 206, %27 ]
-  %69 = call ptr @PMIx_Error_string(i32 noundef %.sink82) #13
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %69, ptr noundef nonnull @.str.3, i32 noundef %.sink81) #13
+  %.sink86 = phi i32 [ %16, %11 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ]
+  %.sink85 = phi i32 [ 164, %11 ], [ 171, %17 ], [ 178, %19 ], [ 185, %21 ], [ 192, %23 ], [ 199, %25 ], [ 206, %27 ]
+  %69 = call ptr @PMIx_Error_string(i32 noundef %.sink86) #13
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %69, ptr noundef nonnull @.str.3, i32 noundef %.sink85) #13
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %27, %25, %23, %21, %19, %17, %11

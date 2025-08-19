@@ -224,7 +224,7 @@ Abc_Clock.exit418:                                ; preds = %61, %64
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 104
   %70 = load i32, ptr %69, align 8, !tbaa !39
   %.not267 = icmp eq i32 %70, 0
-  br i1 %.not267, label %.thread565, label %71
+  br i1 %.not267, label %.thread584, label %71
 
 71:                                               ; preds = %Abc_Clock.exit418
   %72 = call ptr @Aig_ManReduceLaches(ptr noundef nonnull %68, i32 noundef 0) #12
@@ -232,20 +232,20 @@ Abc_Clock.exit418:                                ; preds = %61, %64
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %72, i64 104
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !39
   %73 = icmp eq i32 %.pre, 0
-  br i1 %73, label %.thread565, label %74
+  br i1 %73, label %.thread584, label %74
 
 74:                                               ; preds = %71
   %75 = call ptr @Aig_ManConstReduce(ptr noundef nonnull %72, i32 noundef 0, i32 noundef -1, i32 noundef -1, i32 noundef 0, i32 noundef 0) #12
   store ptr %75, ptr %31, align 8, !tbaa !35
-  br label %.thread565
+  br label %.thread584
 
-.thread565:                                       ; preds = %Abc_Clock.exit418, %74, %71
+.thread584:                                       ; preds = %Abc_Clock.exit418, %74, %71
   %76 = phi ptr [ %75, %74 ], [ %72, %71 ], [ %68, %Abc_Clock.exit418 ]
   %77 = load i32, ptr %52, align 4, !tbaa !38
   %.not269 = icmp eq i32 %77, 0
   br i1 %.not269, label %96, label %78
 
-78:                                               ; preds = %.thread565
+78:                                               ; preds = %.thread584
   %79 = getelementptr i8, ptr %76, i64 104
   %.val340 = load i32, ptr %79, align 8, !tbaa !39
   %80 = getelementptr i8, ptr %76, i64 148
@@ -279,8 +279,8 @@ Abc_Clock.exit420:                                ; preds = %78, %86
   %.pre545 = load ptr, ptr %31, align 8, !tbaa !35
   br label %96
 
-96:                                               ; preds = %Abc_Clock.exit420, %.thread565
-  %97 = phi ptr [ %.pre545, %Abc_Clock.exit420 ], [ %76, %.thread565 ]
+96:                                               ; preds = %Abc_Clock.exit420, %.thread584
+  %97 = phi ptr [ %.pre545, %Abc_Clock.exit420 ], [ %76, %.thread584 ]
   %98 = call i32 @Fra_FraigMiterStatus(ptr noundef %97) #12
   %99 = icmp sgt i32 %98, -1
   br i1 %99, label %762, label %100

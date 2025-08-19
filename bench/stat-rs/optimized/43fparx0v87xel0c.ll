@@ -1226,8 +1226,8 @@ define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hyperge
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
-  %.sroa.01.0.lcssa24.i.i = phi double [ 0.000000e+00, %.preheader.i.i ], [ %36, %.lr.ph.i.i ]
-  %37 = call fastcc noundef double @"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h94b98d020904bcbdE"(ptr nonnull readonly align 8 dereferenceable(8) %7, ptr nonnull readonly align 8 dereferenceable(8) %6, double noundef %.sroa.01.0.lcssa24.i.i, i64 noundef %.sroa.0.0.sroa.speculated.i.i), !noalias !218
+  %.sroa.01.0.lcssa25.i.i = phi double [ 0.000000e+00, %.preheader.i.i ], [ %36, %.lr.ph.i.i ]
+  %37 = call fastcc noundef double @"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h94b98d020904bcbdE"(ptr nonnull readonly align 8 dereferenceable(8) %7, ptr nonnull readonly align 8 dereferenceable(8) %6, double noundef %.sroa.01.0.lcssa25.i.i, i64 noundef %.sroa.0.0.sroa.speculated.i.i), !noalias !218
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
 

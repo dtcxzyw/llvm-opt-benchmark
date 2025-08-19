@@ -466,9 +466,9 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %.ph = phi ptr [ %.pre107, %43 ], [ %.pre, %._crit_edge106 ]
   %.pr = load ptr, ptr %.ph, align 8, !tbaa !58
   %.not61 = icmp eq ptr %.pr, null
-  br i1 %.not61, label %.thread115, label %.thread
+  br i1 %.not61, label %.thread127, label %.thread
 
-.thread115:                                       ; preds = %55
+.thread127:                                       ; preds = %55
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %57 = load i32, ptr %56, align 8, !tbaa !51
   br label %._crit_edge
@@ -549,15 +549,15 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %97 = icmp samesign ult i64 %indvars.iv.next104, %96
   br i1 %97, label %.lr.ph85.split, label %._crit_edge, !llvm.loop !68
 
-._crit_edge:                                      ; preds = %94, %.thread115, %.thread
-  %98 = phi ptr [ %62, %.thread ], [ %56, %.thread115 ], [ %62, %94 ]
-  %.lcssa = phi i32 [ %64, %.thread ], [ %57, %.thread115 ], [ %95, %94 ]
+._crit_edge:                                      ; preds = %94, %.thread127, %.thread
+  %98 = phi ptr [ %62, %.thread ], [ %56, %.thread127 ], [ %62, %94 ]
+  %.lcssa = phi i32 [ %64, %.thread ], [ %57, %.thread127 ], [ %95, %94 ]
   %99 = load ptr, ptr %7, align 8, !tbaa !53
   %100 = load ptr, ptr %99, align 8, !tbaa !54
   %101 = load ptr, ptr %5, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not172.i = icmp eq i32 %.lcssa, 0
-  br i1 %.not172.i, label %._crit_edge.thread208.i, label %.lr.ph.i
+  br i1 %.not172.i, label %._crit_edge.thread216.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 72
@@ -583,7 +583,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 ._crit_edge.i:                                    ; preds = %107
   %.not116.i = icmp eq i32 %..094.i, 0
-  br i1 %.not116.i, label %.preheader.i, label %._crit_edge.thread208.i
+  br i1 %.not116.i, label %.preheader.i, label %._crit_edge.thread216.i
 
 .preheader.i:                                     ; preds = %104, %._crit_edge.i
   %110 = getelementptr inbounds nuw i8, ptr %101, i64 56
@@ -592,14 +592,14 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %try_push_frame.exit, label %.lr.ph171.split.i
 
-._crit_edge.thread208.i:                          ; preds = %._crit_edge.i, %._crit_edge
-  %.1211.i = phi i32 [ %..094.i, %._crit_edge.i ], [ 2147483647, %._crit_edge ]
+._crit_edge.thread216.i:                          ; preds = %._crit_edge.i, %._crit_edge
+  %.1219.i = phi i32 [ %..094.i, %._crit_edge.i ], [ 2147483647, %._crit_edge ]
   %114 = call ptr @av_frame_alloc() #11
   store ptr %114, ptr %2, align 8, !tbaa !58
   %.not119.i = icmp eq ptr %114, null
   br i1 %.not119.i, label %try_push_frame.exit, label %115
 
-115:                                              ; preds = %._crit_edge.thread208.i
+115:                                              ; preds = %._crit_edge.thread216.i
   %116 = getelementptr inbounds nuw i8, ptr %101, i64 28
   %117 = load i32, ptr %116, align 4, !tbaa !20
   %118 = icmp ugt i32 %117, 8
@@ -740,7 +740,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br i1 %exitcond194.not.i, label %.preheader133.i, label %186, !llvm.loop !79
 
 .preheader133.i:                                  ; preds = %180, %177, %123
-  %.093.lcssa215219.i = phi i32 [ %..093.i, %177 ], [ 2147483647, %123 ], [ %..093.i, %180 ]
+  %.093.lcssa223227.i = phi i32 [ %..093.i, %177 ], [ 2147483647, %123 ], [ %..093.i, %180 ]
   %181 = getelementptr inbounds nuw i8, ptr %114, i64 256
   %182 = load i32, ptr %181, align 8, !tbaa !77
   %183 = icmp sgt i32 %182, 0
@@ -784,8 +784,8 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 ._crit_edge165.i:                                 ; preds = %192, %.preheader133.i
   %204 = getelementptr inbounds nuw i8, ptr %114, i64 112
-  store i32 %.1211.i, ptr %204, align 8, !tbaa !62
-  %205 = sext i32 %.1211.i to i64
+  store i32 %.1219.i, ptr %204, align 8, !tbaa !62
+  %205 = sext i32 %.1219.i to i64
   %206 = getelementptr inbounds nuw i8, ptr %100, i64 64
   %207 = load i32, ptr %206, align 8, !tbaa !81
   %.sroa.2.0.insert.ext.i.i = zext i32 %207 to i64
@@ -818,7 +818,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %227 = getelementptr inbounds nuw i8, ptr %114, i64 136
   store i64 %226, ptr %227, align 8, !tbaa !90
   %228 = getelementptr inbounds nuw i8, ptr %114, i64 64
-  store i32 %.093.lcssa215219.i, ptr %228, align 8, !tbaa !60
+  store i32 %.093.lcssa223227.i, ptr %228, align 8, !tbaa !60
   %229 = getelementptr inbounds nuw i8, ptr %114, i64 96
   %230 = load ptr, ptr %229, align 8, !tbaa !70
   %.not122.i = icmp eq ptr %114, %230
@@ -905,8 +905,8 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %268 = icmp samesign ult i64 %indvars.iv.next202.i, %267
   br i1 %268, label %.lr.ph171.splitthread-pre-split.i, label %try_push_frame.exit, !llvm.loop !93
 
-try_push_frame.exit:                              ; preds = %265, %.lr.ph169.i, %.preheader.i, %._crit_edge.thread208.i, %235, %.loopexit134.i, %262
-  %.0.i = phi i32 [ %.0101.i, %.loopexit134.i ], [ -12, %._crit_edge.thread208.i ], [ 0, %262 ], [ %244, %235 ], [ 0, %.preheader.i ], [ %244, %.lr.ph169.i ], [ 0, %265 ]
+try_push_frame.exit:                              ; preds = %265, %.lr.ph169.i, %.preheader.i, %._crit_edge.thread216.i, %235, %.loopexit134.i, %262
+  %.0.i = phi i32 [ %.0101.i, %.loopexit134.i ], [ -12, %._crit_edge.thread216.i ], [ 0, %262 ], [ %244, %235 ], [ 0, %.preheader.i ], [ %244, %.lr.ph169.i ], [ 0, %265 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
@@ -1226,7 +1226,7 @@ guess_map_matching.exit:                          ; preds = %channel_list_pop_ch
 153:                                              ; preds = %148
   %154 = load i32, ptr %8, align 8, !tbaa !51
   %.not14.i135 = icmp eq i32 %154, 0
-  br i1 %.not14.i135, label %guess_map_any.exit.thread243, label %.lr.ph.preheader.i
+  br i1 %.not14.i135, label %guess_map_any.exit.thread259, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %153
   %wide.trip.count.i136 = zext i32 %154 to i64
@@ -1267,7 +1267,7 @@ guess_map_matching.exit:                          ; preds = %channel_list_pop_ch
 guess_map_any.exit:                               ; preds = %170, %158
   %.pr = phi i32 [ %.pr.pre, %158 ], [ %151, %170 ]
   %171 = icmp slt i32 %.pr, 0
-  br i1 %171, label %guess_map_any.exit.thread243, label %guess_map_any.exit.thread
+  br i1 %171, label %guess_map_any.exit.thread259, label %guess_map_any.exit.thread
 
 guess_map_any.exit.thread:                        ; preds = %148, %guess_map_any.exit
   %172 = phi i32 [ %.pr, %guess_map_any.exit ], [ %151, %148 ]
@@ -1302,7 +1302,7 @@ guess_map_any.exit.thread._crit_edge:             ; preds = %guess_map_any.exit.
   tail call void @abort() #14
   unreachable
 
-guess_map_any.exit.thread243:                     ; preds = %153, %guess_map_any.exit
+guess_map_any.exit.thread259:                     ; preds = %153, %guess_map_any.exit
   %187 = getelementptr inbounds nuw i8, ptr %150, i64 12
   %188 = load i32, ptr %187, align 4, !tbaa !31
   %189 = call i32 @av_channel_name(ptr noundef nonnull %4, i64 noundef 64, i32 noundef %188) #11
@@ -1383,10 +1383,10 @@ guess_map_any.exit.thread243:                     ; preds = %153, %guess_map_any
   %233 = icmp samesign ult i64 %indvars.iv.next233, %232
   br i1 %233, label %218, label %channel_list_pop_ch.exit, !llvm.loop !112
 
-channel_list_pop_ch.exit:                         ; preds = %19, %230, %guess_map_any.exit.thread243, %65, %74
-  %.2113.ph = phi i32 [ -22, %74 ], [ -22, %65 ], [ -22, %guess_map_any.exit.thread243 ], [ 0, %230 ], [ -12, %19 ]
-  %.pr245 = load i32, ptr %8, align 8, !tbaa !51
-  %.not200 = icmp eq i32 %.pr245, 0
+channel_list_pop_ch.exit:                         ; preds = %19, %230, %guess_map_any.exit.thread259, %65, %74
+  %.2113.ph = phi i32 [ -22, %74 ], [ -22, %65 ], [ -22, %guess_map_any.exit.thread259 ], [ 0, %230 ], [ -12, %19 ]
+  %.pr261 = load i32, ptr %8, align 8, !tbaa !51
+  %.not200 = icmp eq i32 %.pr261, 0
   br i1 %.not200, label %._crit_edge197, label %.lr.ph196
 
 .lr.ph196:                                        ; preds = %channel_list_pop_ch.exit, %.lr.ph196
@@ -1400,12 +1400,12 @@ channel_list_pop_ch.exit:                         ; preds = %19, %230, %guess_ma
   br i1 %237, label %.lr.ph196, label %._crit_edge197, !llvm.loop !113
 
 ._crit_edge197:                                   ; preds = %.lr.ph196, %._crit_edge191, %channel_list_pop_ch.exit
-  %.2113248 = phi i32 [ %.2113.ph, %channel_list_pop_ch.exit ], [ 0, %._crit_edge191 ], [ %.2113.ph, %.lr.ph196 ]
+  %.2113264 = phi i32 [ %.2113.ph, %channel_list_pop_ch.exit ], [ 0, %._crit_edge191 ], [ %.2113.ph, %.lr.ph196 ]
   call void @av_freep(ptr noundef nonnull %2) #11
   br label %238
 
 238:                                              ; preds = %1, %._crit_edge197
-  %.0 = phi i32 [ %.2113248, %._crit_edge197 ], [ -12, %1 ]
+  %.0 = phi i32 [ %.2113264, %._crit_edge197 ], [ -12, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

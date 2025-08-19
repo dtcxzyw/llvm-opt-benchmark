@@ -693,9 +693,9 @@ define range(i32 0, 2) i32 @PQrequestCancel(ptr noundef %0) local_unnamed_addr #
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %22
-  %.sink29.in = phi ptr [ %23, %22 ], [ %7, %6 ]
-  %.sink29 = load ptr, ptr %.sink29.in, align 8
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink29) #20
+  %.sink31.in = phi ptr [ %23, %22 ], [ %7, %6 ]
+  %.sink31 = load ptr, ptr %.sink31.in, align 8
+  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink31) #20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   store i64 %24, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1144

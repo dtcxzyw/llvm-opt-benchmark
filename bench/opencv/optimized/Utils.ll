@@ -3850,7 +3850,7 @@ define hidden void @_Z9rot2eulerRKN2cv3MatE(ptr dead_on_unwind noalias nonnull w
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !131
   store double %.024, ptr %44, align 8, !tbaa !35
-  br i1 %42, label %.thread36, label %45
+  br i1 %42, label %.thread37, label %45
 
 45:                                               ; preds = %38
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 4
@@ -3888,13 +3888,13 @@ _ZN2cv3Mat2atIdEERT_i.exit28:                     ; preds = %35
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %71 = load ptr, ptr %70, align 8, !tbaa !131
   store double %.024, ptr %71, align 8, !tbaa !35
-  br label %.thread36
+  br label %.thread37
 
-.thread36:                                        ; preds = %38, %_ZN2cv3Mat2atIdEERT_i.exit28
-  %.sink37 = phi ptr [ %71, %_ZN2cv3Mat2atIdEERT_i.exit28 ], [ %44, %38 ]
-  %72 = getelementptr inbounds nuw i8, ptr %.sink37, i64 8
+.thread37:                                        ; preds = %38, %_ZN2cv3Mat2atIdEERT_i.exit28
+  %.sink38 = phi ptr [ %71, %_ZN2cv3Mat2atIdEERT_i.exit28 ], [ %44, %38 ]
+  %72 = getelementptr inbounds nuw i8, ptr %.sink38, i64 8
   store double %.023, ptr %72, align 8, !tbaa !35
-  %73 = getelementptr inbounds nuw i8, ptr %.sink37, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %.sink38, i64 16
   br label %_ZN2cv3Mat2atIdEERT_i.exit31
 
 74:                                               ; preds = %54, %49
@@ -3929,8 +3929,8 @@ _ZN2cv3Mat2atIdEERT_i.exit28:                     ; preds = %35
   %96 = getelementptr inbounds double, ptr %94, i64 %95
   br label %_ZN2cv3Mat2atIdEERT_i.exit31
 
-_ZN2cv3Mat2atIdEERT_i.exit31:                     ; preds = %84, %78, %.thread36
-  %.0.i30 = phi ptr [ %73, %.thread36 ], [ %83, %78 ], [ %96, %84 ]
+_ZN2cv3Mat2atIdEERT_i.exit31:                     ; preds = %84, %78, %.thread37
+  %.0.i30 = phi ptr [ %73, %.thread37 ], [ %83, %78 ], [ %96, %84 ]
   store double %.0, ptr %.0.i30, align 8, !tbaa !35
   ret void
 }

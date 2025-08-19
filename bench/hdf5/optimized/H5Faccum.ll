@@ -950,7 +950,7 @@ define range(i32 -1, 1) i32 @H5F__accum_write(ptr noundef %0, i32 noundef %1, i6
 
 252:                                              ; preds = %248
   %253 = add nsw i64 %3, -1
-  %.not23.i = icmp samesign ult i64 %253, 65536
+  %.not23.i = icmp samesign ult i64 %3, 65537
   br i1 %.not23.i, label %260, label %254
 
 254:                                              ; preds = %252
@@ -962,7 +962,7 @@ define range(i32 -1, 1) i32 @H5F__accum_write(ptr noundef %0, i32 noundef %1, i6
   br label %H5VM_log2_gen.exit
 
 260:                                              ; preds = %252
-  %.not24.i = icmp samesign ult i64 %253, 256
+  %.not24.i = icmp samesign ult i64 %3, 257
   br i1 %.not24.i, label %267, label %261
 
 261:                                              ; preds = %260
@@ -1174,8 +1174,8 @@ H5VM_log2_gen.exit:                               ; preds = %254, %261, %267
   br label %.sink.split
 
 .sink.split:                                      ; preds = %365, %359
-  %.sink501 = phi i64 [ 0, %359 ], [ %366, %365 ]
-  store i64 %.sink501, ptr %356, align 8, !tbaa !44
+  %.sink526 = phi i64 [ 0, %359 ], [ %366, %365 ]
+  store i64 %.sink526, ptr %356, align 8, !tbaa !44
   br label %367
 
 367:                                              ; preds = %.sink.split, %360, %348
@@ -1282,9 +1282,9 @@ H5VM_log2_gen.exit.thread:                        ; preds = %18, %22, %H5VM_log2
   %52 = trunc nuw i8 %51 to i1
   %53 = icmp ult i64 %49, 1048577
   %or.cond = select i1 %52, i1 %53, i1 false
-  br i1 %or.cond, label %.thread153, label %.thread160
+  br i1 %or.cond, label %.thread158, label %.thread165
 
-.thread153:                                       ; preds = %46
+.thread158:                                       ; preds = %46
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %55 = load i64, ptr %54, align 8, !tbaa !43
   %56 = add i64 %49, %55
@@ -1296,7 +1296,7 @@ H5VM_log2_gen.exit.thread:                        ; preds = %18, %22, %H5VM_log2
   %60 = sub i64 %13, %.188
   %61 = add i64 %60, %3
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br label %.thread167
+  br label %.thread172
 
 63:                                               ; preds = %H5VM_log2_gen.exit.thread
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1305,11 +1305,11 @@ H5VM_log2_gen.exit.thread:                        ; preds = %18, %22, %H5VM_log2
   %65 = icmp eq i32 %2, 0
   br i1 %64, label %73, label %117
 
-.thread160:                                       ; preds = %46
+.thread165:                                       ; preds = %46
   %66 = add i64 %13, -524288
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %68 = trunc nuw i8 %51 to i1
-  br i1 %68, label %.thread167, label %.sink.split
+  br i1 %68, label %.thread172, label %.sink.split
 
 .thread:                                          ; preds = %44
   %69 = add i64 %13, -524288
@@ -1320,7 +1320,7 @@ H5VM_log2_gen.exit.thread:                        ; preds = %18, %22, %H5VM_log2
 
 73:                                               ; preds = %63
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br i1 %65, label %.thread112, label %.thread167
+  br i1 %65, label %.thread112, label %.thread172
 
 .thread112:                                       ; preds = %.thread, %73
   %.191107118 = phi i64 [ 1048576, %73 ], [ 524288, %.thread ]
@@ -1356,17 +1356,17 @@ H5VM_log2_gen.exit.thread:                        ; preds = %18, %22, %H5VM_log2
   store i8 0, ptr %75, align 8, !tbaa !42
   br label %.thread119
 
-.thread167:                                       ; preds = %.thread160, %.thread153, %73
-  %.191147159 = phi i64 [ %61, %.thread153 ], [ 1048576, %73 ], [ 524288, %.thread160 ]
-  %.087149158 = phi i64 [ %.188, %.thread153 ], [ %13, %73 ], [ 524288, %.thread160 ]
-  %.085151157 = phi i64 [ %60, %.thread153 ], [ 0, %73 ], [ %66, %.thread160 ]
-  %96 = phi ptr [ %62, %.thread153 ], [ %74, %73 ], [ %67, %.thread160 ]
+.thread172:                                       ; preds = %.thread165, %.thread158, %73
+  %.191152164 = phi i64 [ %61, %.thread158 ], [ 1048576, %73 ], [ 524288, %.thread165 ]
+  %.087154163 = phi i64 [ %.188, %.thread158 ], [ %13, %73 ], [ 524288, %.thread165 ]
+  %.085156162 = phi i64 [ %60, %.thread158 ], [ 0, %73 ], [ %66, %.thread165 ]
+  %96 = phi ptr [ %62, %.thread158 ], [ %74, %73 ], [ %67, %.thread165 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %98 = load i64, ptr %97, align 8, !tbaa !43
-  %99 = icmp ugt i64 %.087149158, %98
+  %99 = icmp ugt i64 %.087154163, %98
   br i1 %99, label %100, label %.thread124
 
-100:                                              ; preds = %.thread167
+100:                                              ; preds = %.thread172
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %102 = load i64, ptr %101, align 8, !tbaa !36
   %103 = add i64 %102, %98
@@ -1389,9 +1389,9 @@ H5VM_log2_gen.exit.thread:                        ; preds = %18, %22, %H5VM_log2
   %.pre142 = load i64, ptr %97, align 8, !tbaa !43
   br label %.thread124
 
-.thread124:                                       ; preds = %.thread167, %114
-  %115 = phi i64 [ %98, %.thread167 ], [ %.pre142, %114 ]
-  %116 = sub i64 %115, %.087149158
+.thread124:                                       ; preds = %.thread172, %114
+  %115 = phi i64 [ %98, %.thread172 ], [ %.pre142, %114 ]
+  %116 = sub i64 %115, %.087154163
   store i64 %116, ptr %97, align 8, !tbaa !43
   br label %.sink.split
 
@@ -1405,28 +1405,28 @@ H5VM_log2_gen.exit.thread:                        ; preds = %18, %22, %H5VM_log2
   store i64 0, ptr %12, align 8, !tbaa !37
   br i1 %65, label %.thread133, label %118
 
-.sink.split:                                      ; preds = %.thread160, %.thread124
-  %.sink = phi i64 [ %.085151157, %.thread124 ], [ %66, %.thread160 ]
-  %.087150.ph = phi i64 [ %.087149158, %.thread124 ], [ 524288, %.thread160 ]
-  %.191148.ph = phi i64 [ %.191147159, %.thread124 ], [ 524288, %.thread160 ]
+.sink.split:                                      ; preds = %.thread165, %.thread124
+  %.sink = phi i64 [ %.085156162, %.thread124 ], [ %66, %.thread165 ]
+  %.087155.ph = phi i64 [ %.087154163, %.thread124 ], [ 524288, %.thread165 ]
+  %.191153.ph = phi i64 [ %.191152164, %.thread124 ], [ 524288, %.thread165 ]
   store i64 %.sink, ptr %12, align 8, !tbaa !37
   br label %118
 
 118:                                              ; preds = %.sink.split, %117
-  %.085152 = phi i64 [ 0, %117 ], [ %.sink, %.sink.split ]
-  %.087150 = phi i64 [ %13, %117 ], [ %.087150.ph, %.sink.split ]
-  %.191148 = phi i64 [ 1048576, %117 ], [ %.191148.ph, %.sink.split ]
+  %.085157 = phi i64 [ 0, %117 ], [ %.sink, %.sink.split ]
+  %.087155 = phi i64 [ %13, %117 ], [ %.087155.ph, %.sink.split ]
+  %.191153 = phi i64 [ 1048576, %117 ], [ %.191153.ph, %.sink.split ]
   %119 = load ptr, ptr %0, align 8, !tbaa !40
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 %.087150
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %119, ptr align 1 %120, i64 %.085152, i1 false)
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 %.087155
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %119, ptr align 1 %120, i64 %.085157, i1 false)
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %122 = load i64, ptr %121, align 8, !tbaa !36
-  %123 = add i64 %122, %.087150
+  %123 = add i64 %122, %.087155
   store i64 %123, ptr %121, align 8, !tbaa !36
   br label %.thread133
 
 .thread133:                                       ; preds = %.thread119, %117, %118, %H5VM_log2_gen.exit
-  %.090 = phi i64 [ %41, %H5VM_log2_gen.exit ], [ %.191106.ph, %.thread119 ], [ 1048576, %117 ], [ %.191148, %118 ]
+  %.090 = phi i64 [ %41, %H5VM_log2_gen.exit ], [ %.191106.ph, %.thread119 ], [ 1048576, %117 ], [ %.191153, %118 ]
   %124 = load i64, ptr %15, align 8, !tbaa !38
   %125 = icmp ugt i64 %.090, %124
   br i1 %125, label %126, label %138

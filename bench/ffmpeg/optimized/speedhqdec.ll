@@ -806,7 +806,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_speedhq_field(ptr n
   br i1 %236, label %282, label %237
 
 237:                                              ; preds = %233
-  %238 = add nsw i32 %.086.i, %.087.i
+  %238 = add nuw nsw i32 %.086.i, %.087.i
   %239 = icmp sgt i32 %238, 127
   br i1 %239, label %decode_alpha_block.exit.thread, label %240
 
@@ -860,9 +860,9 @@ decode_alpha_block.exit.thread:                   ; preds = %237
   %276 = add i32 %.080.i, %.3.i
   %277 = tail call i32 @llvm.umin.i32(i32 %195, i32 %276)
   %278 = trunc i16 %.085.i to i8
-  %279 = add nsw i32 %238, 1
-  %280 = sext i32 %238 to i64
-  %281 = getelementptr inbounds [128 x i8], ptr %15, i64 0, i64 %280
+  %279 = add nuw nsw i32 %238, 1
+  %280 = zext nneg i32 %238 to i64
+  %281 = getelementptr inbounds nuw [128 x i8], ptr %15, i64 0, i64 %280
   store i8 %278, ptr %281, align 1, !tbaa !42
   br label %197
 
@@ -958,7 +958,7 @@ decode_alpha_block.exit.thread:                   ; preds = %237
   br i1 %337, label %383, label %338
 
 338:                                              ; preds = %334
-  %339 = add nsw i32 %.086.i230, %.087.i228
+  %339 = add nuw nsw i32 %.086.i230, %.087.i228
   %340 = icmp sgt i32 %339, 127
   br i1 %340, label %decode_alpha_block.exit244.thread, label %341
 
@@ -1012,9 +1012,9 @@ decode_alpha_block.exit244.thread:                ; preds = %338
   %377 = add i32 %.080.i234, %.3.i232
   %378 = tail call i32 @llvm.umin.i32(i32 %296, i32 %377)
   %379 = trunc i16 %.085.i233 to i8
-  %380 = add nsw i32 %339, 1
-  %381 = sext i32 %339 to i64
-  %382 = getelementptr inbounds [128 x i8], ptr %14, i64 0, i64 %381
+  %380 = add nuw nsw i32 %339, 1
+  %381 = zext nneg i32 %339 to i64
+  %382 = getelementptr inbounds nuw [128 x i8], ptr %14, i64 0, i64 %381
   store i8 %379, ptr %382, align 1, !tbaa !42
   br label %298
 
@@ -1178,8 +1178,8 @@ decode_alpha_block.exit244.thread:                ; preds = %338
   %467 = load i32, ptr %23, align 4, !tbaa !44
   %468 = lshr exact i32 %.0136181.i, 1
   %469 = or disjoint i32 %468, %4
-  %.sink197.i = select i1 %465, i32 %469, i32 %458
-  %470 = mul nsw i32 %467, %.sink197.i
+  %.sink211.i = select i1 %465, i32 %469, i32 %458
+  %470 = mul nsw i32 %467, %.sink211.i
   %471 = sext i32 %470 to i64
   %472 = getelementptr inbounds i8, ptr %466, i64 %471
   %473 = sdiv i32 %455, 2
@@ -1187,7 +1187,7 @@ decode_alpha_block.exit244.thread:                ; preds = %338
   %475 = getelementptr inbounds i8, ptr %472, i64 %474
   %476 = load ptr, ptr %441, align 8, !tbaa !71
   %477 = load i32, ptr %26, align 8, !tbaa !44
-  %478 = mul nsw i32 %477, %.sink197.i
+  %478 = mul nsw i32 %477, %.sink211.i
   %479 = sext i32 %478 to i64
   %480 = getelementptr inbounds i8, ptr %476, i64 %479
   %481 = getelementptr inbounds i8, ptr %480, i64 %474
@@ -1323,7 +1323,7 @@ decode_alpha_block.exit244.thread:                ; preds = %338
   br i1 %566, label %612, label %567
 
 567:                                              ; preds = %563
-  %568 = add nsw i32 %.086.i.i, %.087.i.i
+  %568 = add nuw nsw i32 %.086.i.i, %.087.i.i
   %569 = icmp sgt i32 %568, 127
   br i1 %569, label %decode_alpha_block.exit.thread.i, label %570
 
@@ -1377,9 +1377,9 @@ decode_alpha_block.exit.thread.i:                 ; preds = %567
   %606 = add i32 %.080.i.i, %.3.i.i
   %607 = tail call i32 @llvm.umin.i32(i32 %525, i32 %606)
   %608 = trunc i16 %.085.i.i to i8
-  %609 = add nsw i32 %568, 1
-  %610 = sext i32 %568 to i64
-  %611 = getelementptr inbounds [128 x i8], ptr %11, i64 0, i64 %610
+  %609 = add nuw nsw i32 %568, 1
+  %610 = zext nneg i32 %568 to i64
+  %611 = getelementptr inbounds nuw [128 x i8], ptr %11, i64 0, i64 %610
   store i8 %608, ptr %611, align 1, !tbaa !42
   br label %527
 
@@ -1475,7 +1475,7 @@ decode_alpha_block.exit.thread.i:                 ; preds = %567
   br i1 %667, label %713, label %668
 
 668:                                              ; preds = %664
-  %669 = add nsw i32 %.086.i158.i, %.087.i156.i
+  %669 = add nuw nsw i32 %.086.i158.i, %.087.i156.i
   %670 = icmp sgt i32 %669, 127
   br i1 %670, label %decode_alpha_block.exit172.thread.i, label %671
 
@@ -1529,9 +1529,9 @@ decode_alpha_block.exit172.thread.i:              ; preds = %668
   %707 = add i32 %.080.i162.i, %.3.i160.i
   %708 = tail call i32 @llvm.umin.i32(i32 %626, i32 %707)
   %709 = trunc i16 %.085.i161.i to i8
-  %710 = add nsw i32 %669, 1
-  %711 = sext i32 %669 to i64
-  %712 = getelementptr inbounds [128 x i8], ptr %10, i64 0, i64 %711
+  %710 = add nuw nsw i32 %669, 1
+  %711 = zext nneg i32 %669 to i64
+  %712 = getelementptr inbounds nuw [128 x i8], ptr %10, i64 0, i64 %711
   store i8 %709, ptr %712, align 1, !tbaa !42
   br label %628
 
@@ -1845,7 +1845,7 @@ decode_dc_le.exit:                                ; preds = %97, %101
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 3
   %170 = load i8, ptr %169, align 1, !tbaa !42
   %171 = zext i8 %170 to i32
-  %172 = add nsw i32 %.088, %171
+  %172 = add nuw nsw i32 %.088, %171
   %173 = icmp sgt i32 %172, 63
   br i1 %173, label %.loopexit, label %174
 
@@ -1867,8 +1867,8 @@ decode_dc_le.exit:                                ; preds = %97, %101
   %187 = add nsw i32 %186, -2048
   %188 = add i32 %185, 12
   %189 = call i32 @llvm.umin.i32(i32 %130, i32 %188)
-  %190 = add i32 %.088, 1
-  %191 = add i32 %190, %182
+  %190 = add nuw nsw i32 %.088, 1
+  %191 = add nuw nsw i32 %190, %182
   %192 = icmp sgt i32 %191, 63
   br i1 %192, label %.loopexit, label %193
 
@@ -1876,13 +1876,13 @@ decode_dc_le.exit:                                ; preds = %97, %101
   %.3 = phi i32 [ %180, %174 ], [ %189, %181 ]
   %.290 = phi i32 [ %172, %174 ], [ %191, %181 ]
   %.187 = phi i32 [ %178, %174 ], [ %187, %181 ]
-  %194 = sext i32 %.290 to i64
-  %195 = getelementptr inbounds i32, ptr %8, i64 %194
+  %194 = zext nneg i32 %.290 to i64
+  %195 = getelementptr inbounds nuw i32, ptr %8, i64 %194
   %196 = load i32, ptr %195, align 4, !tbaa !44
   %197 = mul nsw i32 %196, %.187
   %198 = lshr i32 %197, 4
   %199 = trunc i32 %198 to i16
-  %200 = getelementptr inbounds i8, ptr %9, i64 %194
+  %200 = getelementptr inbounds nuw i8, ptr %9, i64 %194
   %201 = load i8, ptr %200, align 1, !tbaa !42
   %202 = zext i8 %201 to i64
   %203 = getelementptr inbounds nuw i16, ptr %7, i64 %202

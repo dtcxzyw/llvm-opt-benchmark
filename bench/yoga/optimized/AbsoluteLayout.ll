@@ -962,7 +962,7 @@ _ZNK8facebook4yoga5Style11aspectRatioEv.exit.thread: ; preds = %426
   br i1 %422, label %469, label %478
 
 _ZNK8facebook4yoga5Style11aspectRatioEv.exit.thread.thread: ; preds = %_ZNK8facebook4yoga5Style11aspectRatioEv.exit
-  br i1 %422, label %449, label %.thread302
+  br i1 %422, label %449, label %.thread315
 
 449:                                              ; preds = %_ZNK8facebook4yoga5Style11aspectRatioEv.exit.thread.thread
   %450 = lshr i16 %.sroa.0.0.copyload.i, 4
@@ -1021,10 +1021,10 @@ _ZNK8facebook4yoga5Style11aspectRatioEv.exit202:  ; preds = %_ZNK8facebook4yoga1
 478:                                              ; preds = %_ZNK8facebook4yoga5Style11aspectRatioEv.exit.thread
   br i1 %421, label %499, label %_ZNK8facebook4yoga5Style11aspectRatioEv.exit.thread278
 
-.thread302:                                       ; preds = %_ZNK8facebook4yoga5Style11aspectRatioEv.exit.thread.thread
+.thread315:                                       ; preds = %_ZNK8facebook4yoga5Style11aspectRatioEv.exit.thread.thread
   br i1 %421, label %479, label %_ZNK8facebook4yoga5Style11aspectRatioEv.exit.thread278
 
-479:                                              ; preds = %.thread302
+479:                                              ; preds = %.thread315
   %480 = lshr i16 %.sroa.0.0.copyload.i, 4
   %481 = zext nneg i16 %480 to i64
   %482 = icmp ult i16 %.sroa.0.0.copyload.i, 64
@@ -1079,9 +1079,9 @@ _ZNK8facebook4yoga5Style11aspectRatioEv.exit212:  ; preds = %_ZNK8facebook4yoga1
   %508 = fadd float %65, %507
   br label %_ZNK8facebook4yoga5Style11aspectRatioEv.exit.thread278
 
-_ZNK8facebook4yoga5Style11aspectRatioEv.exit.thread278: ; preds = %.thread302, %420, %_ZNK8facebook4yoga5Style11aspectRatioEv.exit, %478, %_ZNK8facebook4yoga5Style11aspectRatioEv.exit212, %_ZNK8facebook4yoga5Style11aspectRatioEv.exit202, %416
-  %.1138 = phi float [ %.0137276, %_ZNK8facebook4yoga5Style11aspectRatioEv.exit202 ], [ %508, %_ZNK8facebook4yoga5Style11aspectRatioEv.exit212 ], [ %.0137276, %478 ], [ %.0137276, %_ZNK8facebook4yoga5Style11aspectRatioEv.exit ], [ %.0137, %416 ], [ %.0137276, %420 ], [ %.0137276, %.thread302 ]
-  %.1 = phi float [ %477, %_ZNK8facebook4yoga5Style11aspectRatioEv.exit202 ], [ %.0, %_ZNK8facebook4yoga5Style11aspectRatioEv.exit212 ], [ %.0, %478 ], [ %.0, %_ZNK8facebook4yoga5Style11aspectRatioEv.exit ], [ %.0, %416 ], [ %.0, %420 ], [ %.0, %.thread302 ]
+_ZNK8facebook4yoga5Style11aspectRatioEv.exit.thread278: ; preds = %.thread315, %420, %_ZNK8facebook4yoga5Style11aspectRatioEv.exit, %478, %_ZNK8facebook4yoga5Style11aspectRatioEv.exit212, %_ZNK8facebook4yoga5Style11aspectRatioEv.exit202, %416
+  %.1138 = phi float [ %.0137276, %_ZNK8facebook4yoga5Style11aspectRatioEv.exit202 ], [ %508, %_ZNK8facebook4yoga5Style11aspectRatioEv.exit212 ], [ %.0137276, %478 ], [ %.0137276, %_ZNK8facebook4yoga5Style11aspectRatioEv.exit ], [ %.0137, %416 ], [ %.0137276, %420 ], [ %.0137276, %.thread315 ]
+  %.1 = phi float [ %477, %_ZNK8facebook4yoga5Style11aspectRatioEv.exit202 ], [ %.0, %_ZNK8facebook4yoga5Style11aspectRatioEv.exit212 ], [ %.0, %478 ], [ %.0, %_ZNK8facebook4yoga5Style11aspectRatioEv.exit ], [ %.0, %416 ], [ %.0, %420 ], [ %.0, %.thread315 ]
   %509 = fcmp uno float %.1, 0.000000e+00
   br i1 %509, label %.thread286, label %510
 

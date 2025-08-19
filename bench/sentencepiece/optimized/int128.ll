@@ -685,7 +685,7 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; pred
   %148 = getelementptr inbounds nuw i8, ptr %142, i64 240
   %149 = load ptr, ptr %148, align 8, !tbaa !36
   %.not.i.i.i = icmp eq ptr %149, null
-  br i1 %.not.i.i.i, label %.invoke95, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
+  br i1 %.not.i.i.i, label %.invoke109, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %147
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 56
@@ -721,7 +721,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc61._ZNKSt
   store i8 1, ptr %143, align 1, !tbaa !26
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit75.invoke
 
-161:                                              ; preds = %.invoke95, %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit75.invoke, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit, %.noexc73, %178, %.noexc61, %155
+161:                                              ; preds = %.invoke109, %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit75.invoke, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit, %.noexc73, %178, %.noexc61, %155
   %162 = landingpad { ptr, i32 }
           cleanup
   %163 = load ptr, ptr %7, align 8, !tbaa !61
@@ -752,13 +752,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %171 = getelementptr inbounds nuw i8, ptr %142, i64 240
   %172 = load ptr, ptr %171, align 8, !tbaa !36
   %.not.i.i.i64 = icmp eq ptr %172, null
-  br i1 %.not.i.i.i64, label %.invoke95, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i65
+  br i1 %.not.i.i.i64, label %.invoke109, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i65
 
-.invoke95:                                        ; preds = %147, %170
+.invoke109:                                       ; preds = %147, %170
   invoke void @_ZSt16__throw_bad_castv() #15
-          to label %.cont96 unwind label %161
+          to label %.cont110 unwind label %161
 
-.cont96:                                          ; preds = %.invoke95
+.cont110:                                         ; preds = %.invoke109
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i65: ; preds = %170

@@ -575,8 +575,8 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15fin
   %.pre141 = load float, ptr %8, align 4
   %154 = call float @llvm.fabs.f32(float %.pre141)
   %155 = fcmp one float %154, 0x7FF0000000000000
-  %or.cond149.not = select i1 %153, i1 %155, i1 false
-  br i1 %or.cond149.not, label %156, label %_ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb.exit
+  %or.cond157.not = select i1 %153, i1 %155, i1 false
+  br i1 %or.cond157.not, label %156, label %_ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb.exit
 
 156:                                              ; preds = %151
   %157 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -1254,8 +1254,8 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %287, %285, %275, %2
   %.pre222 = load float, ptr %22, align 4
   %344 = call float @llvm.fabs.f32(float %.pre222)
   %345 = fcmp one float %344, 0x7FF0000000000000
-  %or.cond231.not = select i1 %343, i1 %345, i1 false
-  br i1 %or.cond231.not, label %346, label %_ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb.exit
+  %or.cond247.not = select i1 %343, i1 %345, i1 false
+  br i1 %or.cond247.not, label %346, label %_ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb.exit
 
 346:                                              ; preds = %341
   %347 = getelementptr inbounds nuw i8, ptr %22, i64 4
@@ -1686,8 +1686,8 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %22
   br label %_Z11dtVisfinitePKf.exit.thread.sink.split
 
 62:                                               ; preds = %._crit_edge
-  %.not68 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not68, label %._crit_edge53, label %.lr.ph52.preheader
+  %.not72 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not72, label %._crit_edge53, label %.lr.ph52.preheader
 
 .lr.ph52.preheader:                               ; preds = %62
   %63 = load float, ptr %8, align 16
@@ -1709,13 +1709,13 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %22
   br i1 %exitcond.not, label %._crit_edge53, label %.lr.ph52, !llvm.loop !19
 
 ._crit_edge53:                                    ; preds = %.lr.ph52, %62
-  %.032.lcssa6466 = phi i32 [ 1, %62 ], [ %54, %.lr.ph52 ]
+  %.032.lcssa6870 = phi i32 [ 1, %62 ], [ %54, %.lr.ph52 ]
   %.034.lcssa = phi i32 [ 0, %62 ], [ %.1, %.lr.ph52 ]
   %68 = mul nuw nsw i32 %.034.lcssa, 3
   %69 = zext nneg i32 %68 to i64
   %70 = getelementptr inbounds nuw [18 x float], ptr %7, i64 0, i64 %69
   %71 = add nuw nsw i32 %.034.lcssa, 1
-  %72 = urem i32 %71, %.032.lcssa6466
+  %72 = urem i32 %71, %.032.lcssa6870
   %73 = mul nuw nsw i32 %72, 3
   %74 = zext nneg i32 %73 to i64
   %75 = getelementptr inbounds nuw [18 x float], ptr %7, i64 0, i64 %74
@@ -2288,7 +2288,7 @@ define void @_ZNK14dtNavMeshQuery19queryPolygonsInTileEPK10dtMeshTilePKfS4_PK13d
   br label %101
 
 101:                                              ; preds = %.lr.ph, %167
-  %.0117146 = phi i32 [ 0, %.lr.ph ], [ %.1179, %167 ]
+  %.0117146 = phi i32 [ 0, %.lr.ph ], [ %.1181, %167 ]
   %.0118145 = phi ptr [ %15, %.lr.ph ], [ %.1119, %167 ]
   %102 = getelementptr inbounds nuw i8, ptr %.0118145, i64 6
   %103 = load i16, ptr %102, align 2
@@ -2384,7 +2384,7 @@ _Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit:        ; preds = %117
   br i1 %or.cond3, label %.thread, label %162
 
 .thread:                                          ; preds = %131, %155, %151, %157
-  %.1180 = phi i32 [ %.0117146, %157 ], [ %.0117146, %131 ], [ %156, %155 ], [ 0, %151 ]
+  %.1182 = phi i32 [ %.0117146, %157 ], [ %.0117146, %131 ], [ %156, %155 ], [ 0, %151 ]
   %161 = getelementptr inbounds nuw i8, ptr %.0118145, i64 16
   br label %167
 
@@ -2396,7 +2396,7 @@ _Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit:        ; preds = %117
   br label %167
 
 167:                                              ; preds = %162, %.thread
-  %.1179 = phi i32 [ %.1180, %.thread ], [ %.0117146, %162 ]
+  %.1181 = phi i32 [ %.1182, %.thread ], [ %.0117146, %162 ]
   %.1119 = phi ptr [ %161, %.thread ], [ %166, %162 ]
   %168 = icmp ult ptr %.1119, %22
   br i1 %168, label %101, label %.loopexit, !llvm.loop !24
@@ -2580,7 +2580,7 @@ _Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread:      ; preds = %255, %252, %267, %2
   br i1 %273, label %185, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %167, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread
-  %.2 = phi i32 [ %.4, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread ], [ %.1179, %167 ]
+  %.2 = phi i32 [ %.4, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread ], [ %.1181, %167 ]
   %274 = icmp sgt i32 %.2, 0
   br i1 %274, label %275, label %.loopexit.thread
 
@@ -3280,9 +3280,9 @@ define noundef range(i32 1073741824, 1073741841) i32 @_ZNK14dtNavMeshQuery13getP
   br i1 %17, label %.lr.ph60.preheader, label %._crit_edge
 
 .lr.ph60.preheader:                               ; preds = %.preheader51, %.preheader
-  %.1.lcssa67 = phi ptr [ %.0.i47, %.preheader ], [ %1, %.preheader51 ]
-  %.040.lcssa66 = phi i32 [ %4, %.preheader ], [ %.us-phi53, %.preheader51 ]
-  %18 = zext nneg i32 %.040.lcssa66 to i64
+  %.1.lcssa71 = phi ptr [ %.0.i47, %.preheader ], [ %1, %.preheader51 ]
+  %.040.lcssa70 = phi i32 [ %4, %.preheader ], [ %.us-phi53, %.preheader51 ]
+  %18 = zext nneg i32 %.040.lcssa70 to i64
   br label %.lr.ph60
 
 .lr.ph:                                           ; preds = %.preheader51, %23
@@ -3315,7 +3315,7 @@ define noundef range(i32 1073741824, 1073741841) i32 @_ZNK14dtNavMeshQuery13getP
 
 .lr.ph60:                                         ; preds = %.lr.ph60.preheader, %38
   %indvars.iv = phi i64 [ %18, %.lr.ph60.preheader ], [ %indvars.iv.next, %38 ]
-  %.258 = phi ptr [ %.1.lcssa67, %.lr.ph60.preheader ], [ %.0.i49, %38 ]
+  %.258 = phi ptr [ %.1.lcssa71, %.lr.ph60.preheader ], [ %.0.i49, %38 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %34 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %35 = icmp eq ptr %34, null
@@ -4856,7 +4856,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %37, %46
 
 66:                                               ; preds = %.preheader, %.thread
   %.152 = phi ptr [ %74, %.thread ], [ %.051, %.preheader ]
-  %.1 = phi i32 [ %.286, %.thread ], [ 0, %.preheader ]
+  %.1 = phi i32 [ %.291, %.thread ], [ 0, %.preheader ]
   %67 = load ptr, ptr %36, align 8
   %68 = getelementptr inbounds nuw i8, ptr %.152, i64 20
   %69 = load i32, ptr %68, align 4
@@ -4879,7 +4879,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %37, %46
   %81 = add nsw i32 %.1, 1
   store i32 %77, ptr %79, align 4
   %.not67 = icmp slt i32 %81, %3
-  br i1 %.not67, label %.thread, label %.thread87
+  br i1 %.not67, label %.thread, label %.thread92
 
 82:                                               ; preds = %66
   %83 = load ptr, ptr %62, align 8
@@ -4902,23 +4902,23 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %37, %46
   %spec.select = add nsw i32 %87, %95
   %96 = and i32 %85, 16777215
   %.not68 = icmp eq i32 %96, 0
-  br i1 %.not68, label %.thread, label %.thread87
+  br i1 %.not68, label %.thread, label %.thread92
 
-.thread87:                                        ; preds = %80, %82
-  %.04892 = phi i32 [ %96, %82 ], [ 16, %80 ]
-  %.291 = phi i32 [ %spec.select, %82 ], [ %81, %80 ]
+.thread92:                                        ; preds = %80, %82
+  %.04897 = phi i32 [ %96, %82 ], [ 16, %80 ]
+  %.296 = phi i32 [ %spec.select, %82 ], [ %81, %80 ]
   %97 = load i32, ptr %10, align 8
-  %98 = or i32 %97, %.04892
+  %98 = or i32 %97, %.04897
   store i32 %98, ptr %10, align 8
   br label %.loopexit
 
 .thread:                                          ; preds = %80, %82
-  %.286 = phi i32 [ %spec.select, %82 ], [ %81, %80 ]
+  %.291 = phi i32 [ %spec.select, %82 ], [ %81, %80 ]
   %.not69 = icmp eq ptr %.0.i76, null
   br i1 %.not69, label %.loopexit, label %66, !llvm.loop !37
 
-.loopexit:                                        ; preds = %.thread, %.thread87, %20
-  %.049 = phi i32 [ 1, %20 ], [ %.291, %.thread87 ], [ %.286, %.thread ]
+.loopexit:                                        ; preds = %.thread, %.thread92, %20
+  %.049 = phi i32 [ 1, %20 ], [ %.296, %.thread92 ], [ %.291, %.thread ]
   %99 = load i32, ptr %10, align 8
   %100 = and i32 %99, 16777215
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false)
@@ -5109,9 +5109,9 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %.thread, %55
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br label %76
 
-76:                                               ; preds = %.thread94, %71
-  %77 = phi ptr [ %.0.i87, %71 ], [ %85, %.thread94 ]
-  %.1 = phi i32 [ 0, %71 ], [ %.298, %.thread94 ]
+76:                                               ; preds = %.thread102, %71
+  %77 = phi ptr [ %.0.i87, %71 ], [ %85, %.thread102 ]
+  %.1 = phi i32 [ 0, %71 ], [ %.2106, %.thread102 ]
   %78 = load ptr, ptr %27, align 8
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 20
   %80 = load i32, ptr %79, align 4
@@ -5134,7 +5134,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %.thread, %55
   %92 = add nsw i32 %.1, 1
   store i32 %88, ptr %90, align 4
   %.not73 = icmp slt i32 %92, %5
-  br i1 %.not73, label %.thread94, label %.thread99
+  br i1 %.not73, label %.thread102, label %.thread107
 
 93:                                               ; preds = %76
   %94 = load ptr, ptr %72, align 8
@@ -5157,24 +5157,24 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %.thread, %55
   %spec.select = add nsw i32 %98, %106
   %107 = and i32 %96, 16777215
   %.not74 = icmp eq i32 %107, 0
-  br i1 %.not74, label %.thread94, label %.thread99
+  br i1 %.not74, label %.thread102, label %.thread107
 
-.thread99:                                        ; preds = %91, %93
-  %.049104 = phi i32 [ %107, %93 ], [ 16, %91 ]
-  %.2103 = phi i32 [ %spec.select, %93 ], [ %92, %91 ]
+.thread107:                                       ; preds = %91, %93
+  %.049112 = phi i32 [ %107, %93 ], [ 16, %91 ]
+  %.2111 = phi i32 [ %spec.select, %93 ], [ %92, %91 ]
   %108 = load i32, ptr %15, align 8
-  %109 = or i32 %108, %.049104
+  %109 = or i32 %108, %.049112
   store i32 %109, ptr %15, align 8
   br label %.loopexit
 
-.thread94:                                        ; preds = %91, %93
-  %.298 = phi i32 [ %spec.select, %93 ], [ %92, %91 ]
+.thread102:                                       ; preds = %91, %93
+  %.2106 = phi i32 [ %spec.select, %93 ], [ %92, %91 ]
   store ptr %.0.i81, ptr %8, align 8
   %.not75 = icmp eq ptr %.0.i81, null
   br i1 %.not75, label %.loopexit, label %76, !llvm.loop !40
 
-.loopexit:                                        ; preds = %.thread94, %.thread99, %25
-  %.050 = phi i32 [ 1, %25 ], [ %.2103, %.thread99 ], [ %.298, %.thread94 ]
+.loopexit:                                        ; preds = %.thread102, %.thread107, %25
+  %.050 = phi i32 [ 1, %25 ], [ %.2111, %.thread107 ], [ %.2106, %.thread102 ]
   %110 = load i32, ptr %15, align 8
   %111 = and i32 %110, 16777215
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false)
@@ -6441,13 +6441,13 @@ _Z11dtVisfinitePKf.exit190:                       ; preds = %49, %53, %58
   br i1 %203, label %.lr.ph231, label %.loopexit207
 
 .lr.ph231:                                        ; preds = %.preheader206.thread, %.preheader206
-  %.2158280282 = phi i32 [ 1, %.preheader206.thread ], [ %.1157, %.preheader206 ]
+  %.2158293295 = phi i32 [ 1, %.preheader206.thread ], [ %.1157, %.preheader206 ]
   %204 = mul nsw i32 %.0155236, 3
   %205 = sext i32 %204 to i64
   %206 = getelementptr inbounds [18 x float], ptr %12, i64 0, i64 %205
   %207 = mul nuw nsw i64 %indvars.iv266, 3
   %208 = getelementptr inbounds nuw [18 x float], ptr %12, i64 0, i64 %207
-  %wide.trip.count264 = zext nneg i32 %.2158280282 to i64
+  %wide.trip.count264 = zext nneg i32 %.2158293295 to i64
   br label %234
 
 .thread:                                          ; preds = %.preheader208, %184, %185, %.loopexit209
@@ -6551,15 +6551,15 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %243
   br i1 %.not183, label %.loopexit, label %.preheader205.preheader
 
 .preheader205.preheader:                          ; preds = %.loopexit211.thread, %.loopexit211
-  %.1148294 = phi ptr [ %104, %.loopexit211.thread ], [ %.2149.lcssa, %.loopexit211 ]
-  %.sroa.0.1292 = phi float [ %135, %.loopexit211.thread ], [ %.sroa.0.2.lcssa, %.loopexit211 ]
-  %.sroa.4.1290 = phi float [ %136, %.loopexit211.thread ], [ %.sroa.4.2.lcssa, %.loopexit211 ]
-  %.sroa.8.1288 = phi float [ %137, %.loopexit211.thread ], [ %.sroa.8.2.lcssa, %.loopexit211 ]
+  %.1148307 = phi ptr [ %104, %.loopexit211.thread ], [ %.2149.lcssa, %.loopexit211 ]
+  %.sroa.0.1305 = phi float [ %135, %.loopexit211.thread ], [ %.sroa.0.2.lcssa, %.loopexit211 ]
+  %.sroa.4.1303 = phi float [ %136, %.loopexit211.thread ], [ %.sroa.4.2.lcssa, %.loopexit211 ]
+  %.sroa.8.1301 = phi float [ %137, %.loopexit211.thread ], [ %.sroa.8.2.lcssa, %.loopexit211 ]
   br label %.preheader205
 
 .preheader205:                                    ; preds = %.preheader205.preheader, %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit197
   %.0138 = phi ptr [ %.0137, %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit197 ], [ null, %.preheader205.preheader ]
-  %.0137 = phi ptr [ %276, %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit197 ], [ %.1148294, %.preheader205.preheader ]
+  %.0137 = phi ptr [ %276, %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit197 ], [ %.1148307, %.preheader205.preheader ]
   %269 = load ptr, ptr %27, align 8
   %270 = getelementptr inbounds nuw i8, ptr %.0137, i64 20
   %271 = load i32, ptr %270, align 4
@@ -6627,16 +6627,16 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit197:   ; preds = %.preheader205, %277
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.loopexit.split.loop.exit, %.loopexit211
-  %.sroa.0.1293 = phi float [ %.sroa.0.2.lcssa, %.loopexit211 ], [ %.sroa.0.1292, %.loopexit.loopexit.split.loop.exit ], [ %.sroa.0.1292, %.preheader ]
-  %.sroa.4.1291 = phi float [ %.sroa.4.2.lcssa, %.loopexit211 ], [ %.sroa.4.1290, %.loopexit.loopexit.split.loop.exit ], [ %.sroa.4.1290, %.preheader ]
-  %.sroa.8.1289 = phi float [ %.sroa.8.2.lcssa, %.loopexit211 ], [ %.sroa.8.1288, %.loopexit.loopexit.split.loop.exit ], [ %.sroa.8.1288, %.preheader ]
+  %.sroa.0.1306 = phi float [ %.sroa.0.2.lcssa, %.loopexit211 ], [ %.sroa.0.1305, %.loopexit.loopexit.split.loop.exit ], [ %.sroa.0.1305, %.preheader ]
+  %.sroa.4.1304 = phi float [ %.sroa.4.2.lcssa, %.loopexit211 ], [ %.sroa.4.1303, %.loopexit.loopexit.split.loop.exit ], [ %.sroa.4.1303, %.preheader ]
+  %.sroa.8.1302 = phi float [ %.sroa.8.2.lcssa, %.loopexit211 ], [ %.sroa.8.1301, %.loopexit.loopexit.split.loop.exit ], [ %.sroa.8.1301, %.preheader ]
   %.0141 = phi i32 [ 1073741824, %.loopexit211 ], [ 1073741824, %.loopexit.loopexit.split.loop.exit ], [ 1073741840, %.preheader ]
   %.0139 = phi i32 [ 0, %.loopexit211 ], [ %300, %.loopexit.loopexit.split.loop.exit ], [ %smax, %.preheader ]
-  store float %.sroa.0.1293, ptr %5, align 4
+  store float %.sroa.0.1306, ptr %5, align 4
   %301 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store float %.sroa.4.1291, ptr %301, align 4
+  store float %.sroa.4.1304, ptr %301, align 4
   %302 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store float %.sroa.8.1289, ptr %302, align 4
+  store float %.sroa.8.1302, ptr %302, align 4
   store i32 %.0139, ptr %7, align 4
   br label %_Z11dtVisfinitePKf.exit.thread
 
@@ -8413,8 +8413,8 @@ _ZL14insertIntervalP13dtSegIntervalRiissj.exit:   ; preds = %._crit_edge._crit_e
   br i1 %.not26.i143, label %._crit_edge.i141.._crit_edge._crit_edge.i145_crit_edge, label %158
 
 ._crit_edge.i141.._crit_edge._crit_edge.i145_crit_edge: ; preds = %.preheader, %._crit_edge.i141
-  %.0180.lcssa227231235 = phi i32 [ %.1181, %._crit_edge.i141 ], [ 0, %.preheader ]
-  %.pre223 = zext nneg i32 %.0180.lcssa227231235 to i64
+  %.0180.lcssa241244249 = phi i32 [ %.1181, %._crit_edge.i141 ], [ 0, %.preheader ]
+  %.pre223 = zext nneg i32 %.0180.lcssa241244249 to i64
   br label %_ZL14insertIntervalP13dtSegIntervalRiissj.exit156
 
 158:                                              ; preds = %._crit_edge.i141
@@ -8428,7 +8428,7 @@ _ZL14insertIntervalP13dtSegIntervalRiissj.exit:   ; preds = %._crit_edge._crit_e
   br label %_ZL14insertIntervalP13dtSegIntervalRiissj.exit156
 
 _ZL14insertIntervalP13dtSegIntervalRiissj.exit156: ; preds = %156, %._crit_edge.i141.._crit_edge._crit_edge.i145_crit_edge, %158
-  %.0180.lcssa227229 = phi i32 [ %.1181, %158 ], [ %.0180.lcssa227231235, %._crit_edge.i141.._crit_edge._crit_edge.i145_crit_edge ], [ %.1181, %156 ]
+  %.0180.lcssa242 = phi i32 [ %.1181, %158 ], [ %.0180.lcssa241244249, %._crit_edge.i141.._crit_edge._crit_edge.i145_crit_edge ], [ %.1181, %156 ]
   %.pre-phi.i144 = phi i64 [ %160, %158 ], [ %.pre223, %._crit_edge.i141.._crit_edge._crit_edge.i145_crit_edge ], [ %wide.trip.count.i149, %156 ]
   %165 = getelementptr inbounds nuw %struct.dtSegInterval, ptr %10, i64 %.pre-phi.i144
   store i32 0, ptr %165, align 8
@@ -8436,12 +8436,12 @@ _ZL14insertIntervalP13dtSegIntervalRiissj.exit156: ; preds = %156, %._crit_edge.
   store i16 -1, ptr %166, align 4
   %167 = getelementptr inbounds nuw i8, ptr %165, i64 6
   store i16 0, ptr %167, align 2
-  %168 = add nsw i32 %.0180.lcssa227229, 1
-  %169 = icmp eq i32 %.0180.lcssa227229, 15
+  %168 = add nsw i32 %.0180.lcssa242, 1
+  %169 = icmp eq i32 %.0180.lcssa242, 15
   br i1 %169, label %_ZL14insertIntervalP13dtSegIntervalRiissj.exit173, label %.preheader.i157
 
 .preheader.i157:                                  ; preds = %_ZL14insertIntervalP13dtSegIntervalRiissj.exit156
-  %170 = icmp sgt i32 %.0180.lcssa227229, -1
+  %170 = icmp sgt i32 %.0180.lcssa242, -1
   br i1 %170, label %.lr.ph.preheader.i165, label %._crit_edge.i158
 
 .lr.ph.preheader.i165:                            ; preds = %.preheader.i157
@@ -8491,7 +8491,7 @@ _ZL14insertIntervalP13dtSegIntervalRiissj.exit156: ; preds = %156, %._crit_edge.
   store i16 255, ptr %183, align 4
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 6
   store i16 256, ptr %184, align 2
-  %185 = add nsw i32 %.0180.lcssa227229, 2
+  %185 = add nsw i32 %.0180.lcssa242, 2
   br label %_ZL14insertIntervalP13dtSegIntervalRiissj.exit173
 
 _ZL14insertIntervalP13dtSegIntervalRiissj.exit173: ; preds = %._crit_edge, %_ZL14insertIntervalP13dtSegIntervalRiissj.exit156, %._crit_edge._crit_edge.i162

@@ -1573,8 +1573,8 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %12
   %62 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %63 = load ptr, ptr %62, align 8
   %.not33.i17 = icmp eq ptr %57, %63
-  %or.cond43.i = select i1 %.not.i16, i1 %.not33.i17, i1 false
-  br i1 %or.cond43.i, label %65, label %64
+  %or.cond45.i = select i1 %.not.i16, i1 %.not33.i17, i1 false
+  br i1 %or.cond45.i, label %65, label %64
 
 64:                                               ; preds = %59, %54
   tail call fastcc void @_ZL13throw_no_cudav() #15
@@ -1643,8 +1643,8 @@ _ZN12_GLOBAL__N_122ensureSizeIsEnoughImplIN2cv4cuda6GpuMatEEEviiiRT_.exit: ; pre
   %109 = getelementptr inbounds nuw i8, ptr %102, i64 40
   %110 = load ptr, ptr %109, align 8
   %.not33.i21 = icmp eq ptr %104, %110
-  %or.cond42.i = select i1 %.not.i20, i1 %.not33.i21, i1 false
-  br i1 %or.cond42.i, label %112, label %111
+  %or.cond45.i22 = select i1 %.not.i20, i1 %.not33.i21, i1 false
+  br i1 %or.cond45.i22, label %112, label %111
 
 111:                                              ; preds = %106, %101
   tail call void @_ZN2cv4cuda7HostMem6createEiii(ptr noundef nonnull align 8 dereferenceable(60) %102, i32 noundef %0, i32 noundef %1, i32 noundef %2)
@@ -1677,18 +1677,18 @@ _ZN12_GLOBAL__N_122ensureSizeIsEnoughImplIN2cv4cuda6GpuMatEEEviiiRT_.exit: ; pre
   %136 = add i32 %135, 1
   %137 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %138 = load i32, ptr %137, align 4, !tbaa !13
-  %.sroa.speculated38.i22 = tail call i32 @llvm.smax.i32(i32 %136, i32 %138)
-  %139 = add nsw i32 %.sroa.speculated38.i22, -1
+  %.sroa.speculated38.i23 = tail call i32 @llvm.smax.i32(i32 %136, i32 %138)
+  %139 = add nsw i32 %.sroa.speculated38.i23, -1
   %140 = sext i32 %139 to i64
   %141 = mul i64 %133, %140
   %142 = sub i64 %126, %141
   %143 = udiv i64 %142, %121
   %144 = trunc i64 %143 to i32
-  %.sroa.speculated.i23 = tail call i32 @llvm.smax.i32(i32 %128, i32 %144)
-  %145 = icmp slt i32 %.sroa.speculated38.i22, %0
-  %146 = icmp slt i32 %.sroa.speculated.i23, %1
-  %or.cond.i24 = select i1 %145, i1 true, i1 %146
-  br i1 %or.cond.i24, label %147, label %148
+  %.sroa.speculated.i24 = tail call i32 @llvm.smax.i32(i32 %128, i32 %144)
+  %145 = icmp slt i32 %.sroa.speculated38.i23, %0
+  %146 = icmp slt i32 %.sroa.speculated.i24, %1
+  %or.cond.i25 = select i1 %145, i1 true, i1 %146
+  br i1 %or.cond.i25, label %147, label %148
 
 147:                                              ; preds = %112
   tail call void @_ZN2cv4cuda7HostMem6createEiii(ptr noundef nonnull align 8 dereferenceable(60) %102, i32 noundef %0, i32 noundef %1, i32 noundef %2)

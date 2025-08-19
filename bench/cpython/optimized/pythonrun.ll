@@ -1637,7 +1637,7 @@ define internal fastcc range(i32 -1, 12) i32 @PyRun_InteractiveOneObjectEx(ptr n
 36:                                               ; preds = %34
   %37 = tail call ptr @PyObject_Str(ptr noundef nonnull %35) #8
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.sink.split68.i, label %39
+  br i1 %38, label %.sink.split80.i, label %39
 
 39:                                               ; preds = %36
   %40 = getelementptr i8, ptr %37, i64 8
@@ -1651,15 +1651,15 @@ define internal fastcc range(i32 -1, 12) i32 @PyRun_InteractiveOneObjectEx(ptr n
 43:                                               ; preds = %39
   %44 = tail call ptr @PyUnicode_AsUTF8(ptr noundef nonnull %37) #8
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %.sink.split68.i, label %46
+  br i1 %45, label %.sink.split80.i, label %46
 
-.sink.split68.i:                                  ; preds = %43, %36
+.sink.split80.i:                                  ; preds = %43, %36
   tail call void @PyErr_Clear() #8
   br label %46
 
-46:                                               ; preds = %.sink.split68.i, %43, %39, %34
-  %.036.i = phi ptr [ %37, %43 ], [ %37, %39 ], [ null, %34 ], [ %37, %.sink.split68.i ]
-  %.0.i = phi ptr [ %44, %43 ], [ @.str.18, %39 ], [ @.str.18, %34 ], [ @.str.18, %.sink.split68.i ]
+46:                                               ; preds = %.sink.split80.i, %43, %39, %34
+  %.036.i = phi ptr [ %37, %43 ], [ %37, %39 ], [ null, %34 ], [ %37, %.sink.split80.i ]
+  %.0.i = phi ptr [ %44, %43 ], [ @.str.18, %39 ], [ @.str.18, %34 ], [ @.str.18, %.sink.split80.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !33
   %47 = call ptr @_PyParser_InteractiveASTFromFile(ptr noundef %0, ptr noundef %1, ptr noundef %.039.i, i32 noundef 256, ptr noundef nonnull %.037.i, ptr noundef nonnull %.0.i, ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #8

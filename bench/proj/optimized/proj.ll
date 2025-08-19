@@ -391,13 +391,13 @@ sub_1:                                            ; preds = %sub_0
   %98 = getelementptr inbounds nuw i8, ptr %.0205450, i64 16
   %99 = load ptr, ptr %98, align 8, !tbaa !20
   %100 = load ptr, ptr %99, align 8, !tbaa !4
-  br i1 %82, label %101, label %.preheader526
+  br i1 %82, label %101, label %.preheader570
 
 101:                                              ; preds = %96
   %102 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) %100)
   br label %112
 
-.preheader526:                                    ; preds = %96, %104
+.preheader570:                                    ; preds = %96, %104
   %.0206 = phi ptr [ %106, %104 ], [ %100, %96 ]
   %103 = load i8, ptr %.0206, align 1, !tbaa !14
   switch i8 %103, label %104 [
@@ -405,14 +405,14 @@ sub_1:                                            ; preds = %sub_0
     i8 0, label %109
   ]
 
-104:                                              ; preds = %.preheader526
+104:                                              ; preds = %.preheader570
   %105 = sext i8 %103 to i32
   %106 = getelementptr inbounds nuw i8, ptr %.0206, i64 1
   %107 = load ptr, ptr @stdout, align 8, !tbaa !12
   %108 = tail call i32 @putc(i32 noundef %105, ptr noundef %107)
-  br label %.preheader526
+  br label %.preheader570
 
-109:                                              ; preds = %.preheader526, %.preheader526
+109:                                              ; preds = %.preheader570, %.preheader570
   %110 = load ptr, ptr @stdout, align 8, !tbaa !12
   %111 = tail call i32 @putc(i32 noundef 10, ptr noundef %110)
   br label %112
@@ -584,10 +584,10 @@ sub_1369:                                         ; preds = %.tail363
   br label %.tail367
 
 .tail367:                                         ; preds = %sub_0364, %sub_1369
-  %.sink560 = phi i8 [ %182, %sub_1369 ], [ %178, %sub_0364 ]
-  %.sink558 = phi i32 [ 58, %sub_1369 ], [ 49, %sub_0364 ]
-  %183 = zext i8 %.sink560 to i32
-  %.not291 = icmp eq i32 %.sink558, %183
+  %.sink604 = phi i8 [ %182, %sub_1369 ], [ %178, %sub_0364 ]
+  %.sink602 = phi i32 [ 58, %sub_1369 ], [ 49, %sub_0364 ]
+  %183 = zext i8 %.sink604 to i32
+  %.not291 = icmp eq i32 %.sink602, %183
   br i1 %.not291, label %184, label %190
 
 184:                                              ; preds = %.tail367, %.tail363
@@ -2013,8 +2013,8 @@ _ZL8vprocessP8_IO_FILE.exit:                      ; preds = %.noexc311, %.noexc3
   br i1 %.b.i335, label %789, label %792
 
 .thread.i:                                        ; preds = %758
-  %.b52.i = load i1, ptr @_ZL7bin_out, align 4
-  br i1 %.b52.i, label %789, label %.thread54.i
+  %.b57.i = load i1, ptr @_ZL7bin_out, align 4
+  br i1 %.b57.i, label %789, label %.thread59.i
 
 789:                                              ; preds = %.thread.i, %785
   %790 = load ptr, ptr @stdout, align 8, !tbaa !12
@@ -2023,10 +2023,10 @@ _ZL8vprocessP8_IO_FILE.exit:                      ; preds = %.noexc311, %.noexc3
 
 792:                                              ; preds = %785
   %793 = fcmp oeq double %787, 0x7FF0000000000000
-  br i1 %793, label %.thread54.i, label %795
+  br i1 %793, label %.thread59.i, label %795
 
-.thread54.i:                                      ; preds = %792, %.thread.i
-  %.05357.i = phi i1 [ %788, %792 ], [ true, %.thread.i ]
+.thread59.i:                                      ; preds = %792, %.thread.i
+  %.05862.i = phi i1 [ %788, %792 ], [ true, %.thread.i ]
   %794 = load ptr, ptr @_ZL5oterr, align 8, !tbaa !4
   br label %.noexc355.sink.split
 
@@ -2049,12 +2049,12 @@ _ZL8vprocessP8_IO_FILE.exit:                      ; preds = %.noexc311, %.noexc3
           to label %.noexc350.invoke unwind label %.loopexit.split-lp.loopexit
 
 .noexc350.invoke:                                 ; preds = %801, %799
-  %.sink524 = phi ptr [ %800, %799 ], [ %802, %801 ]
+  %.sink568 = phi ptr [ %800, %799 ], [ %802, %801 ]
   %803 = phi double [ %787, %799 ], [ %786, %801 ]
   %804 = phi i32 [ 69, %799 ], [ 78, %801 ]
   %805 = phi i32 [ 87, %799 ], [ 83, %801 ]
   %806 = load ptr, ptr @stdout, align 8, !tbaa !12
-  %807 = call i32 @fputs(ptr noundef %.sink524, ptr noundef %806)
+  %807 = call i32 @fputs(ptr noundef %.sink568, ptr noundef %806)
   %808 = load ptr, ptr @stdout, align 8, !tbaa !12
   %809 = call i32 @putc(i32 noundef 9, ptr noundef %808)
   %810 = invoke noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull %5, i64 noundef 40, double noundef %803, i32 noundef %804, i32 noundef %805)
@@ -2112,20 +2112,20 @@ _ZL8vprocessP8_IO_FILE.exit:                      ; preds = %.noexc311, %.noexc3
   invoke void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %829, ptr noundef %830, double noundef %826)
           to label %.noexc355 unwind label %.loopexit.split-lp.loopexit
 
-.noexc355.sink.split:                             ; preds = %.noexc350.invoke, %.thread54.i
-  %.sink = phi ptr [ %794, %.thread54.i ], [ %810, %.noexc350.invoke ]
-  %.05356.i.ph = phi i1 [ %.05357.i, %.thread54.i ], [ %788, %.noexc350.invoke ]
+.noexc355.sink.split:                             ; preds = %.noexc350.invoke, %.thread59.i
+  %.sink = phi ptr [ %794, %.thread59.i ], [ %810, %.noexc350.invoke ]
+  %.05861.i.ph = phi i1 [ %.05862.i, %.thread59.i ], [ %788, %.noexc350.invoke ]
   %831 = load ptr, ptr @stdout, align 8, !tbaa !12
   %832 = call i32 @fputs(ptr noundef %.sink, ptr noundef %831)
   br label %.noexc355
 
 .noexc355:                                        ; preds = %.noexc355.sink.split, %.noexc356.invoke
-  %.05356.i = phi i1 [ %788, %.noexc356.invoke ], [ %.05356.i.ph, %.noexc355.sink.split ]
+  %.05861.i = phi i1 [ %788, %.noexc356.invoke ], [ %.05861.i.ph, %.noexc355.sink.split ]
   %.b31.i = load i1, ptr @_ZL9dofactors, align 4
   br i1 %.b31.i, label %833, label %846
 
 833:                                              ; preds = %.noexc355
-  br i1 %.05356.i, label %834, label %843
+  br i1 %.05861.i, label %834, label %843
 
 834:                                              ; preds = %833
   %835 = load double, ptr @_ZL4facs, align 8, !tbaa !98

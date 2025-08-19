@@ -1193,8 +1193,8 @@ pmix_pointer_array_get_item.exit:                 ; preds = %.lr.ph146
 ._crit_edge147:                                   ; preds = %._crit_edge143
   %70 = add nuw nsw i32 %.182149, 1
   %71 = icmp slt i32 %70, %66
-  %or.cond175 = select i1 %.286.lcssa, i1 %71, i1 false
-  br i1 %or.cond175, label %.preheader, label %._crit_edge150, !llvm.loop !68
+  %or.cond194 = select i1 %.286.lcssa, i1 %71, i1 false
+  br i1 %or.cond194, label %.preheader, label %._crit_edge150, !llvm.loop !68
 
 ._crit_edge150:                                   ; preds = %._crit_edge147, %._crit_edge
   %72 = phi i32 [ %.pre, %._crit_edge ], [ %66, %._crit_edge147 ]
@@ -1729,7 +1729,7 @@ pmix_pointer_array_get_item.exit.i92.i:           ; preds = %108
   %116 = getelementptr inbounds nuw i8, ptr %112, i64 256
   %.pn26.i93.i = load ptr, ptr %116, align 8, !tbaa !41
   %.not2327.i94.i = icmp eq ptr %.pn26.i93.i, %115
-  br i1 %.not2327.i94.i, label %pmix_pointer_array_get_item.exit.i105.i.thread124, label %.lr.ph.i95.i
+  br i1 %.not2327.i94.i, label %pmix_pointer_array_get_item.exit.i105.i.thread149, label %.lr.ph.i95.i
 
 .lr.ph.i95.i:                                     ; preds = %114, %123
   %.pn28.i96.i = phi ptr [ %.pn.i97.i, %123 ], [ %.pn26.i93.i, %114 ]
@@ -1752,9 +1752,9 @@ pmix_pointer_array_get_item.exit.i92.i:           ; preds = %108
 pmix_pointer_array_get_item.exit.i105.i:          ; preds = %123, %120
   %.0.i88.ph.pn.i = phi i32 [ %122, %120 ], [ 0, %123 ]
   %125 = add nsw i32 %.0.i88.ph.pn.i, %58
-  br label %pmix_pointer_array_get_item.exit.i105.i.thread124
+  br label %pmix_pointer_array_get_item.exit.i105.i.thread149
 
-pmix_pointer_array_get_item.exit.i105.i.thread124: ; preds = %pmix_pointer_array_get_item.exit.i105.i, %114
+pmix_pointer_array_get_item.exit.i105.i.thread149: ; preds = %pmix_pointer_array_get_item.exit.i105.i, %114
   %126 = phi i32 [ %125, %pmix_pointer_array_get_item.exit.i105.i ], [ %58, %114 ]
   %127 = getelementptr inbounds nuw i8, ptr %112, i64 136
   %128 = getelementptr inbounds nuw i8, ptr %112, i64 256
@@ -1762,8 +1762,8 @@ pmix_pointer_array_get_item.exit.i105.i.thread124: ; preds = %pmix_pointer_array
   %.not2428.i107.i = icmp eq ptr %.pn27.i106.i, %127
   br i1 %.not2428.i107.i, label %get_capacity.exit99.thread119.i, label %.lr.ph.i108.i
 
-.lr.ph.i108.i:                                    ; preds = %pmix_pointer_array_get_item.exit.i105.i.thread124, %132
-  %.pn29.i109.i = phi ptr [ %.pn.i110.i, %132 ], [ %.pn27.i106.i, %pmix_pointer_array_get_item.exit.i105.i.thread124 ]
+.lr.ph.i108.i:                                    ; preds = %pmix_pointer_array_get_item.exit.i105.i.thread149, %132
+  %.pn29.i109.i = phi ptr [ %.pn.i110.i, %132 ], [ %.pn27.i106.i, %pmix_pointer_array_get_item.exit.i105.i.thread149 ]
   %129 = getelementptr inbounds nuw i8, ptr %.pn29.i109.i, i64 292
   %130 = load i32, ptr %129, align 4, !tbaa !56
   %131 = icmp eq i32 %130, %.064137.i
@@ -1783,15 +1783,15 @@ set_capacity.exit112.i:                           ; preds = %.lr.ph.i108.i
   %.not.i = icmp eq i32 %.064.i, -1
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !81
 
-get_capacity.exit99.thread119.i:                  ; preds = %pmix_pointer_array_get_item.exit.i92.i, %108, %pmix_pointer_array_get_item.exit.i105.i.thread124, %132
+get_capacity.exit99.thread119.i:                  ; preds = %pmix_pointer_array_get_item.exit.i92.i, %108, %pmix_pointer_array_get_item.exit.i105.i.thread149, %132
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 819, ptr noundef nonnull @__func__.min_cost_flow_ssp) #14
   call void @abort() #18
   unreachable
 
 min_cost_flow_ssp.exit:                           ; preds = %13, %19
-  %.sink158.i = phi i32 [ 767, %13 ], [ 775, %19 ]
+  %.sink173.i = phi i32 [ 767, %13 ], [ 775, %19 ]
   %135 = call ptr @prte_strerror(i32 noundef -2) #14
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %135, ptr noundef nonnull @.str.2, i32 noundef %.sink158.i) #14
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %135, ptr noundef nonnull @.str.2, i32 noundef %.sink173.i) #14
   call void @free(ptr noundef %17) #14
   br label %178
 
@@ -1888,15 +1888,15 @@ min_cost_flow_ssp.exit:                           ; preds = %13, %19
   %indvars.iv116 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next117, %._crit_edge.us96 ]
   %.04994.us = phi i32 [ 0, %.preheader.us.preheader ], [ %.2.us, %._crit_edge.us96 ]
   %163 = mul nuw nsw i64 %indvars.iv116, %162
-  %invariant.gep132 = getelementptr inbounds nuw i32, ptr %22, i64 %163
+  %invariant.gep157 = getelementptr inbounds nuw i32, ptr %22, i64 %163
   %164 = trunc nuw nsw i64 %indvars.iv116 to i32
   br label %165
 
 165:                                              ; preds = %.preheader.us, %174
   %indvars.iv111 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next112, %174 ]
   %.15092.us = phi i32 [ %.04994.us, %.preheader.us ], [ %.2.us, %174 ]
-  %gep133 = getelementptr inbounds nuw i32, ptr %invariant.gep132, i64 %indvars.iv111
-  %166 = load i32, ptr %gep133, align 4, !tbaa !3
+  %gep158 = getelementptr inbounds nuw i32, ptr %invariant.gep157, i64 %indvars.iv111
+  %166 = load i32, ptr %gep158, align 4, !tbaa !3
   %167 = icmp sgt i32 %166, 0
   br i1 %167, label %168, label %174
 

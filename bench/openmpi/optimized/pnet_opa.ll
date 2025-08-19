@@ -692,13 +692,13 @@ pmix_obj_run_destructors.exit149:                 ; preds = %.lr.ph.i146, %._cri
 
 311:                                              ; preds = %303
   store i8 %310, ptr %284, align 8, !tbaa !76
-  br label %.sink.split222
+  br label %.sink.split257
 
 312:                                              ; preds = %303
   %313 = icmp eq i8 %304, %310
-  br i1 %313, label %.sink.split222, label %322
+  br i1 %313, label %.sink.split257, label %322
 
-.sink.split222:                                   ; preds = %312, %311
+.sink.split257:                                   ; preds = %312, %311
   %314 = getelementptr inbounds nuw i8, ptr %308, i64 488
   %315 = load ptr, ptr %314, align 8, !tbaa !73
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 24
@@ -709,7 +709,7 @@ pmix_obj_run_destructors.exit149:                 ; preds = %.lr.ph.i146, %._cri
   %321 = call i32 %317(ptr noundef nonnull %9, ptr noundef nonnull %320, i32 noundef 1, i16 noundef zeroext 46) #15
   br label %322
 
-322:                                              ; preds = %.sink.split222, %312
+322:                                              ; preds = %.sink.split257, %312
   %323 = getelementptr inbounds nuw i8, ptr %.0103206, i64 120
   %324 = load ptr, ptr %323, align 8, !tbaa !90
   %.not124 = icmp eq ptr %324, %281

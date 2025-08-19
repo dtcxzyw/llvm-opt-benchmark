@@ -631,7 +631,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit131.i: ; preds = %105
 
 214:                                              ; preds = %269, %.lr.ph.i
   %215 = phi i64 [ %205, %.lr.ph.i ], [ %270, %269 ]
-  %.078210.i = phi i64 [ 0, %.lr.ph.i ], [ %.1240.i, %269 ]
+  %.078210.i = phi i64 [ 0, %.lr.ph.i ], [ %.1249.i, %269 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !36
   %216 = load ptr, ptr %183, align 8, !noalias !36, !nonnull !4, !noundef !4
   invoke void @"_ZN47_$LT$std..fs..File$u20$as$u20$std..io..Read$GT$4read17h8460fb0b076d3424E"(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %36, ptr noalias noundef nonnull align 4 dereferenceable(4) %42, ptr noalias noundef nonnull align 1 %216, i64 noundef %215)
@@ -846,7 +846,7 @@ _ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread.i: ; preds = %_ZN3st
           to label %275 unwind label %.body.i, !noalias !36
 
 269:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb17b421a97266478E.exit.i", %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread182.i
-  %.1240.i = phi i64 [ %.078210.i, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb17b421a97266478E.exit.i" ], [ %253, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread182.i ]
+  %.1249.i = phi i64 [ %.078210.i, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb17b421a97266478E.exit.i" ], [ %253, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread182.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !36
   %270 = load i64, ptr %184, align 8, !noalias !36, !noundef !4
   %271 = icmp eq i64 %270, 0

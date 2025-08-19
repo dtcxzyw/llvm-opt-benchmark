@@ -681,8 +681,8 @@ bytestream2_get_byte.exit213:                     ; preds = %39, %40
   %spec.select = select i1 %71, i32 %72, i32 %70
   %73 = and i32 %69, 15
   %74 = icmp samesign ugt i32 %73, 7
-  %spec.select313 = select i1 %74, i32 -16, i32 0
-  %75 = or disjoint i32 %spec.select313, %73
+  %spec.select325 = select i1 %74, i32 -16, i32 0
+  %75 = or disjoint i32 %spec.select325, %73
   br label %76
 
 76:                                               ; preds = %66, %.thread
@@ -763,9 +763,9 @@ bytestream2_get_byte.exit213:                     ; preds = %39, %40
   %111 = ptrtoint ptr %109 to i64
   %112 = sub i64 %110, %111
   %113 = icmp slt i64 %112, 1
-  br i1 %113, label %.thread296, label %bytestream2_get_byte.exit209
+  br i1 %113, label %.thread308, label %bytestream2_get_byte.exit209
 
-.thread296:                                       ; preds = %.loopexit
+.thread308:                                       ; preds = %.loopexit
   store ptr %108, ptr %16, align 8, !tbaa !37
   br label %215
 
@@ -982,7 +982,7 @@ bytestream2_get_byte.exit203:                     ; preds = %196, %195, %185, %1
   store i8 %212, ptr %214, align 1, !tbaa !41
   br label %215
 
-215:                                              ; preds = %.thread296, %208, %209
+215:                                              ; preds = %.thread308, %208, %209
   %.9 = add nsw i32 %.0161247, 1
   %.not190 = icmp slt i32 %.9, %3
   br i1 %.not190, label %.loopexit219, label %216

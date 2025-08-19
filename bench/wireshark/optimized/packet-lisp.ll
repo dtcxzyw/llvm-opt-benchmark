@@ -2730,17 +2730,17 @@ define internal i32 @dissect_lisp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 129:                                              ; preds = %124, %115
   %hf_lisp_mreq_itr_rloc_ipv6.sink.i = phi ptr [ @hf_lisp_mreq_itr_rloc_ipv6, %124 ], [ @hf_lisp_mreq_itr_rloc_ipv4, %115 ]
-  %.sink271.i = phi i32 [ 16, %124 ], [ 4, %115 ]
-  %.sink269.i = phi i32 [ 3, %124 ], [ 2, %115 ]
-  %.sink265.i = phi i32 [ 18, %124 ], [ 6, %115 ]
+  %.sink273.i = phi i32 [ 16, %124 ], [ 4, %115 ]
+  %.sink271.i = phi i32 [ 3, %124 ], [ 2, %115 ]
+  %.sink267.i = phi i32 [ 18, %124 ], [ 6, %115 ]
   %130 = load i32, ptr %hf_lisp_mreq_itr_rloc_ipv6.sink.i, align 4
-  %131 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %130, ptr noundef %0, i32 noundef %123, i32 noundef %.sink271.i, i32 noundef 0)
+  %131 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %130, ptr noundef %0, i32 noundef %123, i32 noundef %.sink273.i, i32 noundef 0)
   %132 = add nuw nsw i32 %.0248.i, 1
   %133 = load ptr, ptr %112, align 8
-  %134 = call ptr @tvb_address_to_str(ptr noundef %133, ptr noundef %0, i32 noundef %.sink269.i, i32 noundef %123)
+  %134 = call ptr @tvb_address_to_str(ptr noundef %133, ptr noundef %0, i32 noundef %.sink271.i, i32 noundef %123)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %118, ptr noundef nonnull @.str.471, i32 noundef %132, ptr noundef %134)
-  call void @proto_item_set_len(ptr noundef %118, i32 noundef %.sink265.i)
-  %135 = add i32 %.sink265.i, %.1232247.i
+  call void @proto_item_set_len(ptr noundef %118, i32 noundef %.sink267.i)
+  %135 = add i32 %.sink267.i, %.1232247.i
   %exitcond.not.i = icmp eq i32 %132, %111
   br i1 %exitcond.not.i, label %.preheader.i, label %115, !llvm.loop !15
 
@@ -3078,9 +3078,9 @@ dissect_lisp_map_referral.exit:                   ; preds = %.lr.ph.i52, %280
 
 .sink.split.i:                                    ; preds = %334, %333
   %hf_lisp_info_prefix_ipv6.sink.i = phi ptr [ @hf_lisp_info_prefix_ipv6, %334 ], [ @hf_lisp_info_prefix_ipv4, %333 ]
-  %.sink110.i = phi i32 [ 16, %334 ], [ 4, %333 ]
+  %.sink112.i = phi i32 [ 16, %334 ], [ 4, %333 ]
   %335 = load i32, ptr %hf_lisp_info_prefix_ipv6.sink.i, align 4
-  %336 = call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %335, ptr noundef %0, i32 noundef %327, i32 noundef %.sink110.i, i32 noundef 0)
+  %336 = call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %335, ptr noundef %0, i32 noundef %327, i32 noundef %.sink112.i, i32 noundef 0)
   br label %337
 
 337:                                              ; preds = %.sink.split.i, %333

@@ -332,7 +332,7 @@ ginVacuumItemPointers.exit.thread.i:              ; preds = %125
   br label %157
 
 .lr.ph.i.i:                                       ; preds = %125, %.thread.i
-  %.06395.i = phi ptr [ %123, %.thread.i ], [ %129, %125 ]
+  %.063101.i = phi ptr [ %123, %.thread.i ], [ %129, %125 ]
   %131 = phi i32 [ %124, %.thread.i ], [ %.pr.i, %125 ]
   %132 = zext nneg i32 %131 to i64
   %133 = mul nuw nsw i64 %132, 6
@@ -343,7 +343,7 @@ ginVacuumItemPointers.exit.thread.i:              ; preds = %125
   %.029.i.i = phi ptr [ null, %.lr.ph.i.i ], [ %.1.i.i, %156 ]
   %.02228.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.123.i.i, %156 ]
   %135 = load ptr, ptr %14, align 8
-  %136 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %.06395.i, i64 %indvars.iv.i.i
+  %136 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %.063101.i, i64 %indvars.iv.i.i
   %137 = load ptr, ptr %15, align 8
   %138 = call zeroext i1 %135(ptr noundef %136, ptr noundef %137) #7
   %139 = load ptr, ptr %27, align 8
@@ -360,7 +360,7 @@ ginVacuumItemPointers.exit.thread.i:              ; preds = %125
 144:                                              ; preds = %140
   %145 = call ptr @palloc(i64 noundef %133) #7
   %146 = mul nuw nsw i64 %indvars.iv.i.i, 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %145, ptr align 2 %.06395.i, i64 %146, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %145, ptr align 2 %.063101.i, i64 %146, i1 false)
   br label %156
 
 147:                                              ; preds = %134
@@ -392,14 +392,14 @@ ginVacuumItemPointers.exit.i:                     ; preds = %156
   br i1 %.not69.i, label %157, label %158
 
 157:                                              ; preds = %ginVacuumItemPointers.exit.i, %ginVacuumItemPointers.exit.thread.i
-  %.0.lcssa.i101.i = phi ptr [ null, %ginVacuumItemPointers.exit.thread.i ], [ %.1.i.i, %ginVacuumItemPointers.exit.i ]
-  %.0639499.i = phi ptr [ %129, %ginVacuumItemPointers.exit.thread.i ], [ %.06395.i, %ginVacuumItemPointers.exit.i ]
-  call void @pfree(ptr noundef %.0639499.i) #7
+  %.0.lcssa.i107.i = phi ptr [ null, %ginVacuumItemPointers.exit.thread.i ], [ %.1.i.i, %ginVacuumItemPointers.exit.i ]
+  %.063100105.i = phi ptr [ %129, %ginVacuumItemPointers.exit.thread.i ], [ %.063101.i, %ginVacuumItemPointers.exit.i ]
+  call void @pfree(ptr noundef %.063100105.i) #7
   br label %158
 
 158:                                              ; preds = %157, %ginVacuumItemPointers.exit.i
-  %.0.lcssa.i100.i = phi ptr [ %.0.lcssa.i101.i, %157 ], [ %.1.i.i, %ginVacuumItemPointers.exit.i ]
-  %.not70.i = icmp eq ptr %.0.lcssa.i100.i, null
+  %.0.lcssa.i106.i = phi ptr [ %.0.lcssa.i107.i, %157 ], [ %.1.i.i, %ginVacuumItemPointers.exit.i ]
+  %.not70.i = icmp eq ptr %.0.lcssa.i106.i, null
   br i1 %.not70.i, label %199, label %159
 
 159:                                              ; preds = %158
@@ -409,7 +409,7 @@ ginVacuumItemPointers.exit.i:                     ; preds = %156
   br i1 %161, label %162, label %170
 
 162:                                              ; preds = %159
-  %163 = call ptr @ginCompressPostingList(ptr noundef nonnull %.0.lcssa.i100.i, i32 noundef %160, i32 noundef 2712, ptr noundef null) #7
+  %163 = call ptr @ginCompressPostingList(ptr noundef nonnull %.0.lcssa.i106.i, i32 noundef %160, i32 noundef 2712, ptr noundef null) #7
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 6
   %165 = load i16, ptr %164, align 2
   %166 = zext i16 %165 to i64
@@ -472,7 +472,7 @@ ginVacuumItemPointers.exit.i:                     ; preds = %156
 
 198:                                              ; preds = %186
   call void @pfree(ptr noundef nonnull %184) #7
-  call void @pfree(ptr noundef nonnull %.0.lcssa.i100.i) #7
+  call void @pfree(ptr noundef nonnull %.0.lcssa.i106.i) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %199
 
@@ -571,19 +571,19 @@ xlogVacuumPage.exit:                              ; preds = %BufferGetPage.exit.
 
 248:                                              ; preds = %ginVacuumEntryPage.exit.thread, %ginVacuumEntryPage.exit
   %249 = phi i32 [ %98, %ginVacuumEntryPage.exit.thread ], [ %207, %ginVacuumEntryPage.exit ]
-  %.279101 = phi i32 [ 0, %ginVacuumEntryPage.exit.thread ], [ %.178, %ginVacuumEntryPage.exit ]
+  %.279112 = phi i32 [ 0, %ginVacuumEntryPage.exit.thread ], [ %.178, %ginVacuumEntryPage.exit ]
   call void @UnlockReleaseBuffer(i32 noundef %.2) #7
   br label %250
 
 250:                                              ; preds = %248, %xlogVacuumPage.exit
   %251 = phi i32 [ %249, %248 ], [ %207, %xlogVacuumPage.exit ]
-  %.279100 = phi i32 [ %.279101, %248 ], [ %.178, %xlogVacuumPage.exit ]
+  %.279111 = phi i32 [ %.279112, %248 ], [ %.178, %xlogVacuumPage.exit ]
   call void @vacuum_delay_point(i1 noundef zeroext false) #7
-  %.not89 = icmp eq i32 %.279100, 0
+  %.not89 = icmp eq i32 %.279111, 0
   br i1 %.not89, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %250
-  %wide.trip.count = zext i32 %.279100 to i64
+  %wide.trip.count = zext i32 %.279111 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %ginVacuumPostingTree.exit

@@ -1788,8 +1788,8 @@ _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit: ; preds = %617
   %630 = load i16, ptr %629, align 8
   %631 = and i16 %630, 31
   %632 = icmp eq i16 %631, 2
-  %or.cond62.i = select i1 %.393, i1 %632, i1 false
-  br i1 %or.cond62.i, label %633, label %._crit_edge.i
+  %or.cond64.i = select i1 %.393, i1 %632, i1 false
+  br i1 %or.cond64.i, label %633, label %._crit_edge.i
 
 633:                                              ; preds = %.loopexit327
   %634 = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -1973,8 +1973,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37.i:             ; preds = %709, %707
   %729 = icmp ne i16 %728, 512
   %730 = and i16 %.sroa.853.0.copyload.i305, 768
   %.not24.i = icmp eq i16 %730, 512
-  %or.cond63.i = or i1 %729, %.not24.i
-  br i1 %or.cond63.i, label %733, label %731
+  %or.cond65.i = or i1 %729, %.not24.i
+  br i1 %or.cond65.i, label %733, label %731
 
 731:                                              ; preds = %727
   %732 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull @.str.77)

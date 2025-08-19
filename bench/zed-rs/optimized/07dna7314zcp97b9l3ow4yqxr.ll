@@ -1515,7 +1515,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
 
 "_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h02b4dafd1c6939bfE.exit.i.i": ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4ad9b9c8b95553f3E.exit.i.i.i", %42, %42, %42, %42, %42, %42
   %70 = icmp eq ptr %43, %3
-  br i1 %70, label %.thread57, label %.lr.ph.i.i
+  br i1 %70, label %.thread67, label %.lr.ph.i.i
 
 "_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h86bad9cf07e3b29bE.exit": ; preds = %48, %50, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4ad9b9c8b95553f3E.exit.i.i.i", %2
   %spec.select = phi i64 [ 0, %2 ], [ %4, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4ad9b9c8b95553f3E.exit.i.i.i" ], [ %4, %50 ], [ %4, %48 ]
@@ -1650,21 +1650,21 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   %138 = ptrtoint ptr %.sroa.4.0 to i64
   %139 = sub i64 %.sroa.14.0, %138
   %140 = add i64 %139, %137
-  br label %.thread53
+  br label %.thread63
 
 141:                                              ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h4ad9b9c8b95553f3E.exit.i.i.i8", %111, %111, %111, %111, %111, %111
   %142 = icmp eq ptr %.sroa.4.0, %112
   br i1 %142, label %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h8924fb57f6bc2661E.exit", label %.lr.ph.i.i6
 
 "_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h8924fb57f6bc2661E.exit": ; preds = %141, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h86bad9cf07e3b29bE.exit"
-  br i1 %.not, label %.thread57, label %.thread53
+  br i1 %.not, label %.thread67, label %.thread63
 
-.thread57:                                        ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h02b4dafd1c6939bfE.exit.i.i", %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h8924fb57f6bc2661E.exit"
-  br label %.thread53
+.thread67:                                        ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h02b4dafd1c6939bfE.exit.i.i", %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h8924fb57f6bc2661E.exit"
+  br label %.thread63
 
-.thread53:                                        ; preds = %136, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h8924fb57f6bc2661E.exit", %.thread57
-  %143 = phi i64 [ 0, %.thread57 ], [ %.sroa.412.0, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h8924fb57f6bc2661E.exit" ], [ %spec.select, %136 ]
-  %144 = phi i64 [ 0, %.thread57 ], [ %.sroa.6.0, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h8924fb57f6bc2661E.exit" ], [ %140, %136 ]
+.thread63:                                        ; preds = %136, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h8924fb57f6bc2661E.exit", %.thread67
+  %143 = phi i64 [ 0, %.thread67 ], [ %.sroa.412.0, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h8924fb57f6bc2661E.exit" ], [ %spec.select, %136 ]
+  %144 = phi i64 [ 0, %.thread67 ], [ %.sroa.6.0, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h8924fb57f6bc2661E.exit" ], [ %140, %136 ]
   %145 = sub nuw i64 %144, %143
   %146 = getelementptr inbounds i8, ptr %0, i64 %143
   %147 = insertvalue { ptr, i64 } poison, ptr %146, 0
@@ -6427,7 +6427,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   br i1 %.sroa.044.384, label %242, label %241
 
 .thread:                                          ; preds = %45, %54, %2
-  %lpad.thr_comm115 = landingpad { ptr, i32 }
+  %lpad.thr_comm125 = landingpad { ptr, i32 }
           cleanup
   br label %242
 
@@ -7012,11 +7012,11 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   br label %233
 
 241:                                              ; preds = %242, %44
-  %.pn60113 = phi { ptr, i32 } [ %.pn60114, %242 ], [ %.pn85, %44 ]
-  resume { ptr, i32 } %.pn60113
+  %.pn60123 = phi { ptr, i32 } [ %.pn60124, %242 ], [ %.pn85, %44 ]
+  resume { ptr, i32 } %.pn60123
 
 242:                                              ; preds = %.thread, %44
-  %.pn60114 = phi { ptr, i32 } [ %.pn85, %44 ], [ %lpad.thr_comm115, %.thread ]
+  %.pn60124 = phi { ptr, i32 } [ %.pn85, %44 ], [ %lpad.thr_comm125, %.thread ]
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke fastcc void @"_ZN4core3ptr335drop_in_place$LT$gpui..window..WindowContext..defer$LT$gpui..window..ViewContext$LT$workspace..modal_layer..ModalLayer$GT$..defer$LT$workspace..modal_layer..ModalLayer..show_modal$LT$go_to_line..GoToLine$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcd4b711c46bb7b54E"(ptr noalias noundef align 8 dereferenceable(64) %243) #37
           to label %241 unwind label %236

@@ -7096,11 +7096,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_125FindBlockDeclRefExprsVals16Visit
   %6 = icmp ult i32 %5, -7
   %.not2 = icmp eq ptr %.16.val, null
   %.not = or i1 %.not2, %6
-  br i1 %.not, label %.critedge5, label %7
+  br i1 %.not, label %.critedge11, label %7
 
 7:                                                ; preds = %1
   %8 = tail call noundef zeroext i1 @_ZNK5clang7VarDecl15hasLocalStorageEv(ptr noundef nonnull align 8 dereferenceable(100) %.16.val)
-  br i1 %8, label %.critedge5, label %9
+  br i1 %8, label %.critedge11, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7123,7 +7123,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125FindBlockDeclRefExprsVals16Visit
   %.02937.i.i = phi ptr [ %21, %.critedge.i.i ], [ %15, %14 ]
   %20 = load ptr, ptr %.02937.i.i, align 8, !tbaa !604, !noalias !737
   %.not17.i.i = icmp eq ptr %20, %.16.val
-  br i1 %.not17.i.i, label %.critedge5, label %.critedge.i.i
+  br i1 %.not17.i.i, label %.critedge11, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
   %21 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
@@ -7146,7 +7146,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   %26 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %10, ptr noundef nonnull %.16.val) #26, !noalias !737
   %27 = extractvalue { ptr, i8 } %26, 1
   %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %29, label %.critedge5
+  br i1 %28, label %29, label %.critedge11
 
 29:                                               ; preds = %.critedge, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
   %30 = load ptr, ptr %0, align 8, !tbaa !741
@@ -7224,9 +7224,9 @@ _ZN5clang10BumpVectorIPKNS_7VarDeclEE9push_backERKS3_RNS_17BumpVectorContextE.ex
   store ptr %.16.val, ptr %72, align 8, !tbaa !692
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store ptr %73, ptr %31, align 8, !tbaa !680
-  br label %.critedge5
+  br label %.critedge11
 
-.critedge5:                                       ; preds = %.lr.ph.i.i, %7, %_ZN5clang10BumpVectorIPKNS_7VarDeclEE9push_backERKS3_RNS_17BumpVectorContextE.exit, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %1
+.critedge11:                                      ; preds = %.lr.ph.i.i, %7, %_ZN5clang10BumpVectorIPKNS_7VarDeclEE9push_backERKS3_RNS_17BumpVectorContextE.exit, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %1
   ret void
 }
 

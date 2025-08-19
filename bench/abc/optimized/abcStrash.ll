@@ -2121,9 +2121,9 @@ Vec_PtrPush.exit54.sink.split:                    ; preds = %37
   %40 = shl nuw nsw i32 %12, 1
   %41 = zext nneg i32 %40 to i64
   %42 = shl nuw nsw i64 %41, 3
-  %.sink117 = select i1 %39, i64 128, i64 %42
+  %.sink135 = select i1 %39, i64 128, i64 %42
   %.sink = select i1 %39, i32 16, i32 %40
-  %43 = tail call ptr @realloc(ptr noundef nonnull %.val43, i64 noundef %.sink117) #13
+  %43 = tail call ptr @realloc(ptr noundef nonnull %.val43, i64 noundef %.sink135) #13
   store ptr %43, ptr %8, align 8, !tbaa !9
   store i32 %.sink, ptr %5, align 8, !tbaa !80
   br label %Vec_PtrPush.exit54
@@ -2197,16 +2197,16 @@ Vec_PtrPush.exit61:                               ; preds = %.Vec_PtrGrow.exit11
   br label %74
 
 74:                                               ; preds = %Vec_PtrPush.exit61, %Vec_PtrPush.exit54
-  %.sink121 = phi i32 [ %14, %Vec_PtrPush.exit61 ], [ %.val4196, %Vec_PtrPush.exit54 ]
-  %.sink119 = phi ptr [ %72, %Vec_PtrPush.exit61 ], [ %46, %Vec_PtrPush.exit54 ]
+  %.sink139 = phi i32 [ %14, %Vec_PtrPush.exit61 ], [ %.val4196, %Vec_PtrPush.exit54 ]
+  %.sink137 = phi ptr [ %72, %Vec_PtrPush.exit61 ], [ %46, %Vec_PtrPush.exit54 ]
   %75 = phi i32 [ %10, %Vec_PtrPush.exit61 ], [ %44, %Vec_PtrPush.exit54 ]
   %76 = phi i32 [ %70, %Vec_PtrPush.exit61 ], [ %11, %Vec_PtrPush.exit54 ]
   %77 = phi i32 [ %12, %Vec_PtrPush.exit61 ], [ %45, %Vec_PtrPush.exit54 ]
   %78 = phi i32 [ %71, %Vec_PtrPush.exit61 ], [ %13, %Vec_PtrPush.exit54 ]
   %79 = phi i32 [ %73, %Vec_PtrPush.exit61 ], [ %14, %Vec_PtrPush.exit54 ]
   %.val41.pr98 = phi i32 [ %.val4196, %Vec_PtrPush.exit61 ], [ %47, %Vec_PtrPush.exit54 ]
-  %80 = sext i32 %.sink121 to i64
-  %81 = getelementptr inbounds ptr, ptr %.sink119, i64 %80
+  %80 = sext i32 %.sink139 to i64
+  %81 = getelementptr inbounds ptr, ptr %.sink137, i64 %80
   store ptr %29, ptr %81, align 8, !tbaa !10
   %.val.i62 = load ptr, ptr %16, align 8, !tbaa !28
   %.val2.i63 = load ptr, ptr %17, align 8, !tbaa !31
@@ -2362,7 +2362,7 @@ Vec_PtrPush.exit81:                               ; preds = %.Vec_PtrGrow.exit11
 
 151:                                              ; preds = %Vec_PtrPush.exit74, %Vec_PtrPush.exit81
   %.val41.pr98.sink = phi i32 [ %.val41.pr98, %Vec_PtrPush.exit74 ], [ %79, %Vec_PtrPush.exit81 ]
-  %.sink123 = phi ptr [ %124, %Vec_PtrPush.exit74 ], [ %149, %Vec_PtrPush.exit81 ]
+  %.sink141 = phi ptr [ %124, %Vec_PtrPush.exit74 ], [ %149, %Vec_PtrPush.exit81 ]
   %152 = phi i32 [ %123, %Vec_PtrPush.exit74 ], [ %75, %Vec_PtrPush.exit81 ]
   %153 = phi i32 [ %76, %Vec_PtrPush.exit74 ], [ %148, %Vec_PtrPush.exit81 ]
   %154 = phi i32 [ %123, %Vec_PtrPush.exit74 ], [ %77, %Vec_PtrPush.exit81 ]
@@ -2370,7 +2370,7 @@ Vec_PtrPush.exit81:                               ; preds = %.Vec_PtrGrow.exit11
   %.val40 = phi i32 [ %79, %Vec_PtrPush.exit74 ], [ %150, %Vec_PtrPush.exit81 ]
   %.val41.pr100 = phi i32 [ %125, %Vec_PtrPush.exit74 ], [ %.val41.pr98, %Vec_PtrPush.exit81 ]
   %156 = sext i32 %.val41.pr98.sink to i64
-  %157 = getelementptr inbounds ptr, ptr %.sink123, i64 %156
+  %157 = getelementptr inbounds ptr, ptr %.sink141, i64 %156
   store ptr %93, ptr %157, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %158 = sext i32 %.val41.pr100 to i64

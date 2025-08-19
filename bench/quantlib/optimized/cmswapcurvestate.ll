@@ -374,7 +374,7 @@ ehcleanup:                                        ; preds = %if.end.i.i.i.i.i.i.
   br i1 %tobool.not.i.i.i148, label %ehcleanup41, label %if.then.i.i.i149
 
 if.then.i.i.i149:                                 ; preds = %ehcleanup.thread, %ehcleanup
-  %.pn301 = phi { ptr, i32 } [ %15, %ehcleanup.thread ], [ %16, %ehcleanup ]
+  %.pn307 = phi { ptr, i32 } [ %15, %ehcleanup.thread ], [ %16, %ehcleanup ]
   %17 = phi ptr [ %call5.i.i.i.i2.i.i104, %ehcleanup.thread ], [ %.pre, %ehcleanup ]
   %18 = load ptr, ptr %_M_end_of_storage.i.i.i92, align 8, !tbaa !19
   %sub.ptr.lhs.cast.i.i151 = ptrtoint ptr %18 to i64
@@ -384,7 +384,7 @@ if.then.i.i.i149:                                 ; preds = %ehcleanup.thread, %
   br label %ehcleanup41
 
 ehcleanup41:                                      ; preds = %if.then.i.i.i149, %ehcleanup, %lpad27
-  %.pn.pn = phi { ptr, i32 } [ %14, %lpad27 ], [ %16, %ehcleanup ], [ %.pn301, %if.then.i.i.i149 ]
+  %.pn.pn = phi { ptr, i32 } [ %14, %lpad27 ], [ %16, %ehcleanup ], [ %.pn307, %if.then.i.i.i149 ]
   %19 = load ptr, ptr %irrCMSwapRates_, align 8, !tbaa !18
   %tobool.not.i.i.i155 = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i155, label %ehcleanup42, label %if.then.i.i.i156
@@ -3395,13 +3395,13 @@ if.else:                                          ; preds = %do.end111
   br label %return
 
 return:                                           ; preds = %if.else, %if.then113
-  %.sink146.in = phi ptr [ %discRatios_117, %if.else ], [ %discRatios_, %if.then113 ]
-  %.pn147.in = phi ptr [ %irrCMSwapAnnuities_, %if.else ], [ %cmSwapAnnuities_, %if.then113 ]
-  %.pn147 = load ptr, ptr %.pn147.in, align 8, !tbaa !18
-  %.sink.in = getelementptr inbounds nuw double, ptr %.pn147, i64 %i
+  %.sink171.in = phi ptr [ %discRatios_117, %if.else ], [ %discRatios_, %if.then113 ]
+  %.pn172.in = phi ptr [ %irrCMSwapAnnuities_, %if.else ], [ %cmSwapAnnuities_, %if.then113 ]
+  %.pn172 = load ptr, ptr %.pn172.in, align 8, !tbaa !18
+  %.sink.in = getelementptr inbounds nuw double, ptr %.pn172, i64 %i
   %.sink = load double, ptr %.sink.in, align 8, !tbaa !20
-  %.sink146 = load ptr, ptr %.sink146.in, align 8, !tbaa !18
-  %add.ptr.i90 = getelementptr inbounds nuw double, ptr %.sink146, i64 %numeraire
+  %.sink171 = load ptr, ptr %.sink171.in, align 8, !tbaa !18
+  %add.ptr.i90 = getelementptr inbounds nuw double, ptr %.sink171, i64 %numeraire
   %66 = load double, ptr %add.ptr.i90, align 8, !tbaa !20
   %div122 = fdiv double %.sink, %66
   ret double %div122

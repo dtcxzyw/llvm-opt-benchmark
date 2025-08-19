@@ -466,9 +466,9 @@ if.end.i:                                         ; preds = %if.then4
   br i1 %cmp.not.i.i, label %_ZN4llvh15SmallVectorImplIjE6appendIPKjvEEvT_S5_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i.thread, %if.end.i
-  %.pre13.i66 = phi i32 [ %.pre13.pre.i, %if.end.i.thread ], [ %add.i, %if.end.i ]
+  %.pre13.i68 = phi i32 [ %.pre13.pre.i, %if.end.i.thread ], [ %add.i, %if.end.i ]
   %7 = load ptr, ptr %this, align 8
-  %conv.i9.i = zext i32 %.pre13.i66 to i64
+  %conv.i9.i = zext i32 %.pre13.i68 to i64
   %add.ptr.i.i14 = getelementptr inbounds nuw i32, ptr %7, i64 %conv.i9.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i14, ptr align 4 %String.coerce0, i64 %add.ptr.idx, i1 false)
   %.pre.i15 = load i32, ptr %Size.i.i, align 8
@@ -1324,7 +1324,7 @@ _ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit: 
   br i1 %tobool.not, label %if.end, label %cleanup
 
 if.end:                                           ; preds = %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit.thread, %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit
-  %IP.02227 = phi ptr [ %add.ptr.i.i, %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit.thread ], [ %IP.0.ph, %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit ]
+  %IP.02631 = phi ptr [ %add.ptr.i.i, %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit.thread ], [ %IP.0.ph, %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %TempID.i4)
   %NumNodes.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %10 = load i32, ptr %NumNodes.i, align 4
@@ -1361,7 +1361,7 @@ if.then.i.i.i.i18:                                ; preds = %if.then.i
   br label %_ZN4llvh14FoldingSetBase10InsertNodeEPNS0_4NodeEPv.exit
 
 _ZN4llvh14FoldingSetBase10InsertNodeEPNS0_4NodeEPv.exit: ; preds = %if.end, %if.then.i, %if.then.i.i.i.i18
-  %InsertPos.addr.0.i = phi ptr [ %IP.02227, %if.end ], [ %add.ptr.i.i16, %if.then.i ], [ %add.ptr.i.i16, %if.then.i.i.i.i18 ]
+  %InsertPos.addr.0.i = phi ptr [ %IP.02631, %if.end ], [ %add.ptr.i.i16, %if.then.i ], [ %add.ptr.i.i16, %if.then.i.i.i.i18 ]
   %16 = load i32, ptr %NumNodes.i, align 4
   %inc.i = add i32 %16, 1
   store i32 %inc.i, ptr %NumNodes.i, align 4

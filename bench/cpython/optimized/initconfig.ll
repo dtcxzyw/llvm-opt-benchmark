@@ -1482,8 +1482,8 @@ _PyWideStringList_Clear.exit:                     ; preds = %9, %5
   br i1 %.not, label %29, label %33
 
 29:                                               ; preds = %24
-  %.not46 = icmp eq i64 %.01843, 0
-  br i1 %.not46, label %.loopexit, label %.lr.ph.i23
+  %.not50 = icmp eq i64 %.01843, 0
+  br i1 %.not50, label %.loopexit, label %.lr.ph.i23
 
 .lr.ph.i23:                                       ; preds = %29, %.lr.ph.i23
   %.07.i24 = phi i64 [ %32, %.lr.ph.i23 ], [ 0, %29 ]
@@ -3255,8 +3255,8 @@ Py_DECREF.exit45.i:                               ; preds = %219, %216, %214
 .thread.i73:                                      ; preds = %213
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  %.in23111.i = getelementptr i8, ptr %204, i64 16
-  %225 = load i64, ptr %.in23111.i, align 8, !tbaa !278
+  %.in23130.i = getelementptr i8, ptr %204, i64 16
+  %225 = load i64, ptr %.in23130.i, align 8, !tbaa !278
   %226 = icmp sgt i64 %225, 0
   br i1 %226, label %.lr.ph.split.preheader.i, label %281
 
@@ -3784,9 +3784,9 @@ config_get_xoption_value.exit.thread19:           ; preds = %29, %config_get_xop
   br label %47
 
 config_get_xoption_value.exit.thread.sink.split:  ; preds = %38, %35, %config_get_xoption_value.exit.thread19
-  %.sink25 = phi i32 [ 1, %config_get_xoption_value.exit.thread19 ], [ 0, %35 ], [ 1, %38 ]
+  %.sink28 = phi i32 [ 1, %config_get_xoption_value.exit.thread19 ], [ 0, %35 ], [ 1, %38 ]
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  store i32 %.sink25, ptr %46, align 8, !tbaa !240
+  store i32 %.sink28, ptr %46, align 8, !tbaa !240
   br label %config_get_xoption_value.exit.thread
 
 config_get_xoption_value.exit.thread:             ; preds = %config_get_xoption_value.exit.thread.sink.split, %25, %config_get_xoption_value.exit
@@ -4970,25 +4970,25 @@ PyWideStringList_Insert.exit.i.i:                 ; preds = %292
 340:                                              ; preds = %337
   %.pr.pre.i.i = load ptr, ptr %317, align 8, !tbaa !220, !noalias !329
   %341 = icmp eq ptr %.pr.pre.i.i, null
-  br i1 %341, label %.thread192.i.i, label %.thread143.i.i
+  br i1 %341, label %.thread201.i.i, label %.thread143.i.i
 
-.thread192.i.i:                                   ; preds = %340
+.thread201.i.i:                                   ; preds = %340
   %.pr.i.pre.i = load ptr, ptr %321, align 8, !tbaa !221, !noalias !329
   %342 = icmp eq ptr %.pr.i.pre.i, null
-  br i1 %342, label %.thread192.i.i.._crit_edge191.i.i_crit_edge, label %.thread143.i.i
+  br i1 %342, label %.thread201.i.i.._crit_edge191.i.i_crit_edge, label %.thread143.i.i
 
-.thread192.i.i.._crit_edge191.i.i_crit_edge:      ; preds = %.thread192.i.i
+.thread201.i.i.._crit_edge191.i.i_crit_edge:      ; preds = %.thread201.i.i
   %.pre.i.i.pre = load i64, ptr @_PyOS_optind, align 8, !tbaa !30, !noalias !329
   br label %config_parse_cmdline.exit.i
 
-.thread143.i.i:                                   ; preds = %.thread192.i.i, %340, %320, %316
+.thread143.i.i:                                   ; preds = %.thread201.i.i, %340, %320, %316
   %343 = load i64, ptr @_PyOS_optind, align 8, !tbaa !30, !noalias !329
   %344 = add i64 %343, -1
   store i64 %344, ptr @_PyOS_optind, align 8, !tbaa !30, !noalias !329
   br label %config_parse_cmdline.exit.i
 
-config_parse_cmdline.exit.i:                      ; preds = %324, %328, %333, %.thread192.i.i.._crit_edge191.i.i_crit_edge, %.thread143.i.i
-  %.0183.i = phi i64 [ %344, %.thread143.i.i ], [ %.pre.i.i.pre, %.thread192.i.i.._crit_edge191.i.i_crit_edge ], [ %325, %333 ], [ %325, %328 ], [ %325, %324 ]
+config_parse_cmdline.exit.i:                      ; preds = %324, %328, %333, %.thread201.i.i.._crit_edge191.i.i_crit_edge, %.thread143.i.i
+  %.0183.i = phi i64 [ %344, %.thread143.i.i ], [ %.pre.i.i.pre, %.thread201.i.i.._crit_edge191.i.i_crit_edge ], [ %325, %333 ], [ %325, %328 ], [ %325, %324 ]
   %345 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %346 = load ptr, ptr %345, align 8, !tbaa !222, !noalias !339
   %.not.i21.i = icmp eq ptr %346, null
@@ -5801,12 +5801,12 @@ warnoptions_extend.exit.i.i:                      ; preds = %warnoptions_extend.
 
 .lr.ph.i102.i.i:                                  ; preds = %warnoptions_extend.exit.i.i, %.loopexit.i71.i.i
   %633 = phi ptr [ %551, %.loopexit.i71.i.i ], [ %.pre.i, %warnoptions_extend.exit.i.i ]
-  %.sroa.0.0231.i.i = phi i32 [ 1, %.loopexit.i71.i.i ], [ %.sroa.0.0.i.i, %warnoptions_extend.exit.i.i ]
-  %.sroa.15.sroa.0.0230.i.i = phi i32 [ 0, %.loopexit.i71.i.i ], [ %.sroa.15.sroa.0.0.i.i, %warnoptions_extend.exit.i.i ]
-  %.sroa.15.sroa.9.0229.i.i = phi ptr [ @__func__.PyWideStringList_Insert, %.loopexit.i71.i.i ], [ %.sroa.15.sroa.9.0.i.i, %warnoptions_extend.exit.i.i ]
-  %.sroa.15.sroa.14.0228.i.i = phi ptr [ @.str, %.loopexit.i71.i.i ], [ %.sroa.15.sroa.14.0.i.i, %warnoptions_extend.exit.i.i ]
-  %.sroa.15.sroa.19.0227.i.i = phi i32 [ 0, %.loopexit.i71.i.i ], [ %.sroa.15.sroa.19.0.i.i, %warnoptions_extend.exit.i.i ]
-  %.sroa.15.sroa.24.0226.i.i = phi i32 [ 0, %.loopexit.i71.i.i ], [ %.sroa.15.sroa.24.0.i.i, %warnoptions_extend.exit.i.i ]
+  %.sroa.0.0270.i.i = phi i32 [ 1, %.loopexit.i71.i.i ], [ %.sroa.0.0.i.i, %warnoptions_extend.exit.i.i ]
+  %.sroa.15.sroa.0.0269.i.i = phi i32 [ 0, %.loopexit.i71.i.i ], [ %.sroa.15.sroa.0.0.i.i, %warnoptions_extend.exit.i.i ]
+  %.sroa.15.sroa.9.0268.i.i = phi ptr [ @__func__.PyWideStringList_Insert, %.loopexit.i71.i.i ], [ %.sroa.15.sroa.9.0.i.i, %warnoptions_extend.exit.i.i ]
+  %.sroa.15.sroa.14.0267.i.i = phi ptr [ @.str, %.loopexit.i71.i.i ], [ %.sroa.15.sroa.14.0.i.i, %warnoptions_extend.exit.i.i ]
+  %.sroa.15.sroa.19.0266.i.i = phi i32 [ 0, %.loopexit.i71.i.i ], [ %.sroa.15.sroa.19.0.i.i, %warnoptions_extend.exit.i.i ]
+  %.sroa.15.sroa.24.0265.i.i = phi i32 [ 0, %.loopexit.i71.i.i ], [ %.sroa.15.sroa.24.0.i.i, %warnoptions_extend.exit.i.i ]
   %634 = phi i64 [ 9223372036854775807, %.loopexit.i71.i.i ], [ %631, %warnoptions_extend.exit.i.i ]
   br label %635
 
@@ -5820,12 +5820,12 @@ warnoptions_extend.exit.i.i:                      ; preds = %warnoptions_extend.
   br i1 %exitcond.not.i37.i, label %config_init_warnoptions.exit.i, label %635, !llvm.loop !27
 
 config_init_warnoptions.exit.i:                   ; preds = %635, %.loopexit.i.thread.i.i, %468, %.loopexit.i71.thread.i.i, %warnoptions_extend.exit.i.i
-  %.sroa.0.0217.i.i = phi i32 [ 1, %468 ], [ 1, %.loopexit.i.thread.i.i ], [ 1, %.loopexit.i71.thread.i.i ], [ %.sroa.0.0.i.i, %warnoptions_extend.exit.i.i ], [ %.sroa.0.0231.i.i, %635 ]
-  %.sroa.15.sroa.0.0215.i.i = phi i32 [ 0, %468 ], [ 0, %.loopexit.i.thread.i.i ], [ 0, %.loopexit.i71.thread.i.i ], [ %.sroa.15.sroa.0.0.i.i, %warnoptions_extend.exit.i.i ], [ %.sroa.15.sroa.0.0230.i.i, %635 ]
-  %.sroa.15.sroa.9.0213.i.i = phi ptr [ @__func__.PyWideStringList_Insert, %468 ], [ @__func__.PyWideStringList_Insert, %.loopexit.i.thread.i.i ], [ @__func__.PyWideStringList_Insert, %.loopexit.i71.thread.i.i ], [ %.sroa.15.sroa.9.0.i.i, %warnoptions_extend.exit.i.i ], [ %.sroa.15.sroa.9.0229.i.i, %635 ]
-  %.sroa.15.sroa.14.0211.i.i = phi ptr [ @.str, %468 ], [ @.str, %.loopexit.i.thread.i.i ], [ @.str.5, %.loopexit.i71.thread.i.i ], [ %.sroa.15.sroa.14.0.i.i, %warnoptions_extend.exit.i.i ], [ %.sroa.15.sroa.14.0228.i.i, %635 ]
-  %.sroa.15.sroa.19.0209.i.i = phi i32 [ 0, %468 ], [ 0, %.loopexit.i.thread.i.i ], [ 0, %.loopexit.i71.thread.i.i ], [ %.sroa.15.sroa.19.0.i.i, %warnoptions_extend.exit.i.i ], [ %.sroa.15.sroa.19.0227.i.i, %635 ]
-  %.sroa.15.sroa.24.0207.i.i = phi i32 [ 0, %468 ], [ 0, %.loopexit.i.thread.i.i ], [ 0, %.loopexit.i71.thread.i.i ], [ %.sroa.15.sroa.24.0.i.i, %warnoptions_extend.exit.i.i ], [ %.sroa.15.sroa.24.0226.i.i, %635 ]
+  %.sroa.0.0256.i.i = phi i32 [ 1, %468 ], [ 1, %.loopexit.i.thread.i.i ], [ 1, %.loopexit.i71.thread.i.i ], [ %.sroa.0.0.i.i, %warnoptions_extend.exit.i.i ], [ %.sroa.0.0270.i.i, %635 ]
+  %.sroa.15.sroa.0.0254.i.i = phi i32 [ 0, %468 ], [ 0, %.loopexit.i.thread.i.i ], [ 0, %.loopexit.i71.thread.i.i ], [ %.sroa.15.sroa.0.0.i.i, %warnoptions_extend.exit.i.i ], [ %.sroa.15.sroa.0.0269.i.i, %635 ]
+  %.sroa.15.sroa.9.0252.i.i = phi ptr [ @__func__.PyWideStringList_Insert, %468 ], [ @__func__.PyWideStringList_Insert, %.loopexit.i.thread.i.i ], [ @__func__.PyWideStringList_Insert, %.loopexit.i71.thread.i.i ], [ %.sroa.15.sroa.9.0.i.i, %warnoptions_extend.exit.i.i ], [ %.sroa.15.sroa.9.0268.i.i, %635 ]
+  %.sroa.15.sroa.14.0250.i.i = phi ptr [ @.str, %468 ], [ @.str, %.loopexit.i.thread.i.i ], [ @.str.5, %.loopexit.i71.thread.i.i ], [ %.sroa.15.sroa.14.0.i.i, %warnoptions_extend.exit.i.i ], [ %.sroa.15.sroa.14.0267.i.i, %635 ]
+  %.sroa.15.sroa.19.0248.i.i = phi i32 [ 0, %468 ], [ 0, %.loopexit.i.thread.i.i ], [ 0, %.loopexit.i71.thread.i.i ], [ %.sroa.15.sroa.19.0.i.i, %warnoptions_extend.exit.i.i ], [ %.sroa.15.sroa.19.0266.i.i, %635 ]
+  %.sroa.15.sroa.24.0246.i.i = phi i32 [ 0, %468 ], [ 0, %.loopexit.i.thread.i.i ], [ 0, %.loopexit.i71.thread.i.i ], [ %.sroa.15.sroa.24.0.i.i, %warnoptions_extend.exit.i.i ], [ %.sroa.15.sroa.24.0265.i.i, %635 ]
   %639 = phi ptr [ null, %468 ], [ null, %.loopexit.i.thread.i.i ], [ %551, %.loopexit.i71.thread.i.i ], [ %.pre.i, %warnoptions_extend.exit.i.i ], [ %633, %635 ]
   call void @PyMem_RawFree(ptr noundef %639) #29, !noalias !365
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !365
@@ -5838,12 +5838,12 @@ config_init_warnoptions.exit.i:                   ; preds = %635, %.loopexit.i.t
   br label %.thread188.i
 
 .thread188.i:                                     ; preds = %337, %313, %.thread111.i.i, %config_init_warnoptions.exit.i, %config_init_env_warnoptions.exit.i.thread175, %config_init_env_warnoptions.exit.i.thread164, %config_run_filename_abspath.exit.i, %640, %config_init_env_warnoptions.exit.i.thread, %config_update_argv.exit.i
-  %.sroa.0.1 = phi i32 [ 0, %640 ], [ %.sroa.0.0217.i.i, %config_init_warnoptions.exit.i ], [ %.sroa.0.0.copyload, %config_init_env_warnoptions.exit.i.thread ], [ 1, %config_update_argv.exit.i ], [ 1, %config_run_filename_abspath.exit.i ], [ %.sroa.014.0.ph.i.i, %config_init_env_warnoptions.exit.i.thread164 ], [ 1, %config_init_env_warnoptions.exit.i.thread175 ], [ 1, %337 ], [ 2, %313 ], [ %.sroa.0114.0.i, %.thread111.i.i ]
-  %.sroa.13.1 = phi i32 [ 0, %640 ], [ %.sroa.15.sroa.0.0215.i.i, %config_init_warnoptions.exit.i ], [ %.sroa.13.0.copyload, %config_init_env_warnoptions.exit.i.thread ], [ 0, %config_update_argv.exit.i ], [ 0, %config_run_filename_abspath.exit.i ], [ %.sroa.815.0.ph.i.i, %config_init_env_warnoptions.exit.i.thread164 ], [ 0, %config_init_env_warnoptions.exit.i.thread175 ], [ 0, %337 ], [ 0, %313 ], [ %.sroa.23.0.i, %.thread111.i.i ]
-  %.sroa.20.1 = phi ptr [ null, %640 ], [ %.sroa.15.sroa.9.0213.i.i, %config_init_warnoptions.exit.i ], [ %.sroa.20.0.copyload, %config_init_env_warnoptions.exit.i.thread ], [ %.sroa.16.1.i, %config_update_argv.exit.i ], [ @__func__.config_run_filename_abspath, %config_run_filename_abspath.exit.i ], [ %.sroa.10.0.ph.i.i, %config_init_env_warnoptions.exit.i.thread164 ], [ @__func__.PyWideStringList_Insert, %config_init_env_warnoptions.exit.i.thread175 ], [ @__func__.config_parse_cmdline, %337 ], [ null, %313 ], [ %.sroa.28.0.i, %.thread111.i.i ]
-  %.sroa.26.1 = phi ptr [ null, %640 ], [ %.sroa.15.sroa.14.0211.i.i, %config_init_warnoptions.exit.i ], [ %.sroa.26.0.copyload, %config_init_env_warnoptions.exit.i.thread ], [ @.str, %config_update_argv.exit.i ], [ @.str, %config_run_filename_abspath.exit.i ], [ %.sroa.11.0.ph.i.i, %config_init_env_warnoptions.exit.i.thread164 ], [ @.str, %config_init_env_warnoptions.exit.i.thread175 ], [ @.str, %337 ], [ null, %313 ], [ %.sroa.33.0.i, %.thread111.i.i ]
-  %.sroa.32.1 = phi i32 [ 0, %640 ], [ %.sroa.15.sroa.19.0209.i.i, %config_init_warnoptions.exit.i ], [ %.sroa.32.0.copyload, %config_init_env_warnoptions.exit.i.thread ], [ 0, %config_update_argv.exit.i ], [ 0, %config_run_filename_abspath.exit.i ], [ %.sroa.12.0.ph.i.i, %config_init_env_warnoptions.exit.i.thread164 ], [ 0, %config_init_env_warnoptions.exit.i.thread175 ], [ 0, %337 ], [ 0, %313 ], [ %.sroa.38.0.i, %.thread111.i.i ]
-  %.sroa.38.1 = phi i32 [ 0, %640 ], [ %.sroa.15.sroa.24.0207.i.i, %config_init_warnoptions.exit.i ], [ %.sroa.38.0.copyload, %config_init_env_warnoptions.exit.i.thread ], [ 0, %config_update_argv.exit.i ], [ 0, %config_run_filename_abspath.exit.i ], [ %.sroa.1316.0.ph.i.i, %config_init_env_warnoptions.exit.i.thread164 ], [ 0, %config_init_env_warnoptions.exit.i.thread175 ], [ 0, %337 ], [ 0, %313 ], [ %.sroa.45.0.i, %.thread111.i.i ]
+  %.sroa.0.1 = phi i32 [ 0, %640 ], [ %.sroa.0.0256.i.i, %config_init_warnoptions.exit.i ], [ %.sroa.0.0.copyload, %config_init_env_warnoptions.exit.i.thread ], [ 1, %config_update_argv.exit.i ], [ 1, %config_run_filename_abspath.exit.i ], [ %.sroa.014.0.ph.i.i, %config_init_env_warnoptions.exit.i.thread164 ], [ 1, %config_init_env_warnoptions.exit.i.thread175 ], [ 1, %337 ], [ 2, %313 ], [ %.sroa.0114.0.i, %.thread111.i.i ]
+  %.sroa.13.1 = phi i32 [ 0, %640 ], [ %.sroa.15.sroa.0.0254.i.i, %config_init_warnoptions.exit.i ], [ %.sroa.13.0.copyload, %config_init_env_warnoptions.exit.i.thread ], [ 0, %config_update_argv.exit.i ], [ 0, %config_run_filename_abspath.exit.i ], [ %.sroa.815.0.ph.i.i, %config_init_env_warnoptions.exit.i.thread164 ], [ 0, %config_init_env_warnoptions.exit.i.thread175 ], [ 0, %337 ], [ 0, %313 ], [ %.sroa.23.0.i, %.thread111.i.i ]
+  %.sroa.20.1 = phi ptr [ null, %640 ], [ %.sroa.15.sroa.9.0252.i.i, %config_init_warnoptions.exit.i ], [ %.sroa.20.0.copyload, %config_init_env_warnoptions.exit.i.thread ], [ %.sroa.16.1.i, %config_update_argv.exit.i ], [ @__func__.config_run_filename_abspath, %config_run_filename_abspath.exit.i ], [ %.sroa.10.0.ph.i.i, %config_init_env_warnoptions.exit.i.thread164 ], [ @__func__.PyWideStringList_Insert, %config_init_env_warnoptions.exit.i.thread175 ], [ @__func__.config_parse_cmdline, %337 ], [ null, %313 ], [ %.sroa.28.0.i, %.thread111.i.i ]
+  %.sroa.26.1 = phi ptr [ null, %640 ], [ %.sroa.15.sroa.14.0250.i.i, %config_init_warnoptions.exit.i ], [ %.sroa.26.0.copyload, %config_init_env_warnoptions.exit.i.thread ], [ @.str, %config_update_argv.exit.i ], [ @.str, %config_run_filename_abspath.exit.i ], [ %.sroa.11.0.ph.i.i, %config_init_env_warnoptions.exit.i.thread164 ], [ @.str, %config_init_env_warnoptions.exit.i.thread175 ], [ @.str, %337 ], [ null, %313 ], [ %.sroa.33.0.i, %.thread111.i.i ]
+  %.sroa.32.1 = phi i32 [ 0, %640 ], [ %.sroa.15.sroa.19.0248.i.i, %config_init_warnoptions.exit.i ], [ %.sroa.32.0.copyload, %config_init_env_warnoptions.exit.i.thread ], [ 0, %config_update_argv.exit.i ], [ 0, %config_run_filename_abspath.exit.i ], [ %.sroa.12.0.ph.i.i, %config_init_env_warnoptions.exit.i.thread164 ], [ 0, %config_init_env_warnoptions.exit.i.thread175 ], [ 0, %337 ], [ 0, %313 ], [ %.sroa.38.0.i, %.thread111.i.i ]
+  %.sroa.38.1 = phi i32 [ 0, %640 ], [ %.sroa.15.sroa.24.0246.i.i, %config_init_warnoptions.exit.i ], [ %.sroa.38.0.copyload, %config_init_env_warnoptions.exit.i.thread ], [ 0, %config_update_argv.exit.i ], [ 0, %config_run_filename_abspath.exit.i ], [ %.sroa.1316.0.ph.i.i, %config_init_env_warnoptions.exit.i.thread164 ], [ 0, %config_init_env_warnoptions.exit.i.thread175 ], [ 0, %337 ], [ 0, %313 ], [ %.sroa.45.0.i, %.thread111.i.i ]
   %.sroa.0170.0.i = phi i64 [ %.sroa.0170.1.i, %640 ], [ %.sroa.0170.1.i, %config_init_warnoptions.exit.i ], [ %.sroa.0170.1.i, %config_init_env_warnoptions.exit.i.thread ], [ %.sroa.0170.2.i, %config_update_argv.exit.i ], [ %.sroa.0170.2.i, %config_run_filename_abspath.exit.i ], [ %.sroa.0170.1.i, %config_init_env_warnoptions.exit.i.thread164 ], [ %.sroa.0170.1.i, %config_init_env_warnoptions.exit.i.thread175 ], [ %.sroa.0170.2.i, %337 ], [ %.sroa.0170.2.i, %313 ], [ %.sroa.0170.2377.i, %.thread111.i.i ]
   %.sroa.10174.0.i = phi ptr [ %.sroa.10174.1.i, %640 ], [ %.sroa.10174.1.i, %config_init_warnoptions.exit.i ], [ %.sroa.10174.1.i, %config_init_env_warnoptions.exit.i.thread ], [ %.sroa.10174.2.i, %config_update_argv.exit.i ], [ %.sroa.10174.2.i, %config_run_filename_abspath.exit.i ], [ %.sroa.10174.1.i, %config_init_env_warnoptions.exit.i.thread164 ], [ %.sroa.10174.1.i, %config_init_env_warnoptions.exit.i.thread175 ], [ %.sroa.10174.2.i, %337 ], [ %.sroa.10174.2.i, %313 ], [ %.sroa.10174.2.i, %.thread111.i.i ]
   %.sroa.0157.0.i = phi i64 [ %.sroa.0157.1.i, %640 ], [ %.sroa.0157.1.i, %config_init_warnoptions.exit.i ], [ %.sroa.0157.1.i, %config_init_env_warnoptions.exit.i.thread ], [ 0, %config_update_argv.exit.i ], [ 0, %config_run_filename_abspath.exit.i ], [ 0, %config_init_env_warnoptions.exit.i.thread164 ], [ %.sroa.0157.2.i, %config_init_env_warnoptions.exit.i.thread175 ], [ 0, %337 ], [ 0, %313 ], [ 0, %.thread111.i.i ]
@@ -7096,7 +7096,7 @@ config_read_complex_options.exit:                 ; preds = %config_init_pycache
   %381 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %382 = load ptr, ptr %381, align 8, !tbaa !217
   %383 = icmp eq ptr %382, null
-  br i1 %383, label %.thread281, label %config_init_fs_encoding.exit
+  br i1 %383, label %.thread335, label %config_init_fs_encoding.exit
 
 384:                                              ; preds = %376
   %385 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10460), align 4, !tbaa !462, !noalias !463
@@ -7264,9 +7264,9 @@ config_get_fs_encoding.exit.i:                    ; preds = %PyConfig_SetString.
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !217, !noalias !471
   %421 = icmp eq ptr %.pre, null
-  br i1 %421, label %.thread281, label %config_init_fs_encoding.exit
+  br i1 %421, label %.thread335, label %config_init_fs_encoding.exit
 
-.thread281:                                       ; preds = %380, %420
+.thread335:                                       ; preds = %380, %420
   %422 = getelementptr inbounds nuw i8, ptr %1, i64 88
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !481
   call void @_Py_PreInitializeFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %11, ptr noundef nonnull %1, ptr noundef null) #29, !noalias !481
@@ -7274,7 +7274,7 @@ config_get_fs_encoding.exit.i:                    ; preds = %PyConfig_SetString.
   %.not.i16.i = icmp eq i32 %423, 0
   br i1 %.not.i16.i, label %425, label %424
 
-424:                                              ; preds = %.thread281
+424:                                              ; preds = %.thread335
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.sroa.6.0.copyload.i = load i32, ptr %.sroa.6.0..sroa_idx.i, align 4, !noalias !471
   %.sroa.82.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -7287,7 +7287,7 @@ config_get_fs_encoding.exit.i:                    ; preds = %PyConfig_SetString.
   %.sroa.11.0.copyload.i = load i32, ptr %.sroa.11.0..sroa_idx.i, align 4, !noalias !471
   br label %429
 
-425:                                              ; preds = %.thread281
+425:                                              ; preds = %.thread335
   %426 = call ptr @_PyMem_RawWcsdup(ptr noundef nonnull @.str.207) #29, !noalias !481
   %427 = icmp eq ptr %426, null
   br i1 %427, label %429, label %PyConfig_SetString.exit.i
@@ -8861,9 +8861,9 @@ define dso_local range(i32 0, 2) i32 @PyInitConfig_GetError(ptr noundef captures
   %14 = call noalias ptr @strdup(ptr noundef nonnull %3) #29
   store ptr %14, ptr %10, align 8, !tbaa !506
   %.not18.not = icmp eq ptr %14, null
-  br i1 %.not18.not, label %.thread21, label %15
+  br i1 %.not18.not, label %.thread24, label %15
 
-.thread21:                                        ; preds = %13
+.thread24:                                        ; preds = %13
   store i32 1, ptr %4, align 8, !tbaa !4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 508
   store i32 0, ptr %.sroa.2.0..sroa_idx, align 4
@@ -8882,7 +8882,7 @@ define dso_local range(i32 0, 2) i32 @PyInitConfig_GetError(ptr noundef captures
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %21
 
-16:                                               ; preds = %2, %.thread21
+16:                                               ; preds = %2, %.thread24
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %18 = load ptr, ptr %17, align 8, !tbaa !510
   %.not19 = icmp eq ptr %18, null
@@ -9516,11 +9516,11 @@ initconfig_find_spec.exit22.i:                    ; preds = %.lr.ph.i18.i, %init
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %32
-  %.sink62 = phi i64 [ 60, %32 ], [ 532, %.sink.split.sink.split ]
-  %.sink61 = phi i32 [ 1, %32 ], [ 0, %.sink.split.sink.split ]
+  %.sink65 = phi i64 [ 60, %32 ], [ 532, %.sink.split.sink.split ]
+  %.sink64 = phi i32 [ 1, %32 ], [ 0, %.sink.split.sink.split ]
   %.0.ph = phi i32 [ 0, %32 ], [ -1, %.sink.split.sink.split ]
-  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink62
-  store i32 %.sink61, ptr %.sroa.6.0..sroa_idx.i.i, align 4
+  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink65
+  store i32 %.sink64, ptr %.sroa.6.0..sroa_idx.i.i, align 4
   br label %36
 
 36:                                               ; preds = %.sink.split, %32
@@ -9828,8 +9828,8 @@ initconfig_find_spec.exit22.i:                    ; preds = %.lr.ph.i18.i, %init
   br i1 %.not.i, label %34, label %38
 
 34:                                               ; preds = %.lr.ph.i
-  %.not45.i = icmp eq i64 %.01741.i, 0
-  br i1 %.not45.i, label %.loopexit.i, label %.lr.ph.i.i13
+  %.not49.i = icmp eq i64 %.01741.i, 0
+  br i1 %.not49.i, label %.loopexit.i, label %.lr.ph.i.i13
 
 .lr.ph.i.i13:                                     ; preds = %34, %.lr.ph.i.i13
   %.07.i.i = phi i64 [ %37, %.lr.ph.i.i13 ], [ 0, %34 ]
@@ -10535,8 +10535,8 @@ config_find_spec.exit:                            ; preds = %10, %20
 48:                                               ; preds = %43
   %49 = icmp sgt i32 %44, -1
   %.not77 = icmp eq i32 %35, 0
-  %or.cond135 = or i1 %49, %.not77
-  br i1 %or.cond135, label %.critedge80, label %50
+  %or.cond147 = or i1 %49, %.not77
+  br i1 %or.cond147, label %.critedge80, label %50
 
 .thread:                                          ; preds = %46
   %.not77.old = icmp eq i32 %35, 0

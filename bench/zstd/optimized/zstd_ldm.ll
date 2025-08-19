@@ -25,7 +25,7 @@ define void @ZSTD_ldm_adjustParameters(ptr noundef captures(none) initializes((2
   br i1 %7, label %10, label %19
 
 10:                                               ; preds = %2
-  br i1 %.not, label %.thread48, label %11
+  br i1 %.not, label %.thread52, label %11
 
 11:                                               ; preds = %10
   %12 = icmp ugt i32 %3, %9
@@ -36,7 +36,7 @@ define void @ZSTD_ldm_adjustParameters(ptr noundef captures(none) initializes((2
   store i32 %14, ptr %5, align 4, !tbaa !10
   br label %.thread
 
-.thread48:                                        ; preds = %10
+.thread52:                                        ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load i32, ptr %15, align 4, !tbaa !12
   %17 = udiv i32 %16, 3
@@ -47,8 +47,8 @@ define void @ZSTD_ldm_adjustParameters(ptr noundef captures(none) initializes((2
 19:                                               ; preds = %2
   br i1 %.not, label %20, label %.thread
 
-20:                                               ; preds = %.thread48, %19
-  %21 = phi i32 [ %18, %.thread48 ], [ %6, %19 ]
+20:                                               ; preds = %.thread52, %19
+  %21 = phi i32 [ %18, %.thread52 ], [ %6, %19 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %23 = sub i32 %3, %21
   %24 = tail call i32 @llvm.umax.i32(i32 %23, i32 6)

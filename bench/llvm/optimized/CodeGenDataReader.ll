@@ -303,7 +303,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread38.i:     ; preds = %_ZN4llvmneENS_9Stri
 
 _ZN4llvmeqENS_9StringRefES0_.exit.preheader.i:    ; preds = %75, %73
   %.not1951.i = icmp samesign eq i64 %55, 0
-  br i1 %.not1951.i, label %"_ZZN4llvm17CodeGenDataReader19mergeFromObjectFileEPKNS_6object10ObjectFileERNS_22OutlinedHashTreeRecordERNS_23StableFunctionMapRecordEPmENK3$_0clERKNS_9StringRefESD_.exit.thread67", label %.lr.ph.i
+  br i1 %.not1951.i, label %"_ZZN4llvm17CodeGenDataReader19mergeFromObjectFileEPKNS_6object10ObjectFileERNS_22OutlinedHashTreeRecordERNS_23StableFunctionMapRecordEPmENK3$_0clERKNS_9StringRefESD_.exit.thread81", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.preheader.i, %_ZN4llvm22OutlinedHashTreeRecordD2Ev.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -385,7 +385,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %75, %69
   %106 = load ptr, ptr %13, align 8, !tbaa !45
   %107 = load i64, ptr %37, align 8, !tbaa !46
   %.not.i26.i = icmp eq i64 %.sroa.22.0.copyload.i, %107
-  br i1 %.not.i26.i, label %108, label %"_ZZN4llvm17CodeGenDataReader19mergeFromObjectFileEPKNS_6object10ObjectFileERNS_22OutlinedHashTreeRecordERNS_23StableFunctionMapRecordEPmENK3$_0clERKNS_9StringRefESD_.exit.thread67"
+  br i1 %.not.i26.i, label %108, label %"_ZZN4llvm17CodeGenDataReader19mergeFromObjectFileEPKNS_6object10ObjectFileERNS_22OutlinedHashTreeRecordERNS_23StableFunctionMapRecordEPmENK3$_0clERKNS_9StringRefESD_.exit.thread81"
 
 108:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
   %109 = icmp eq i64 %.sroa.22.0.copyload.i, 0
@@ -400,7 +400,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit29.i:            ; preds = %110, %108
   %.0.i27.i = phi i1 [ %111, %110 ], [ false, %108 ]
   %.not18.i = icmp samesign eq i64 %55, 0
   %or.cond.i = select i1 %.0.i27.i, i1 true, i1 %.not18.i
-  br i1 %or.cond.i, label %"_ZZN4llvm17CodeGenDataReader19mergeFromObjectFileEPKNS_6object10ObjectFileERNS_22OutlinedHashTreeRecordERNS_23StableFunctionMapRecordEPmENK3$_0clERKNS_9StringRefESD_.exit.thread67", label %.preheader.i
+  br i1 %or.cond.i, label %"_ZZN4llvm17CodeGenDataReader19mergeFromObjectFileEPKNS_6object10ObjectFileERNS_22OutlinedHashTreeRecordERNS_23StableFunctionMapRecordEPmENK3$_0clERKNS_9StringRefESD_.exit.thread81", label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit29.i, %_ZN4llvm23StableFunctionMapRecordD2Ev.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -435,7 +435,7 @@ _ZN4llvm23StableFunctionMapRecordD2Ev.exit.i:     ; preds = %_ZNKSt14default_del
   %.not18.old.i = icmp eq ptr %.old.i, %72
   br i1 %.not18.old.i, label %"_ZZN4llvm17CodeGenDataReader19mergeFromObjectFileEPKNS_6object10ObjectFileERNS_22OutlinedHashTreeRecordERNS_23StableFunctionMapRecordEPmENK3$_0clERKNS_9StringRefESD_.exit", label %.preheader.i
 
-"_ZZN4llvm17CodeGenDataReader19mergeFromObjectFileEPKNS_6object10ObjectFileERNS_22OutlinedHashTreeRecordERNS_23StableFunctionMapRecordEPmENK3$_0clERKNS_9StringRefESD_.exit.thread67": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.preheader.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit29.i
+"_ZZN4llvm17CodeGenDataReader19mergeFromObjectFileEPKNS_6object10ObjectFileERNS_22OutlinedHashTreeRecordERNS_23StableFunctionMapRecordEPmENK3$_0clERKNS_9StringRefESD_.exit.thread81": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.preheader.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit29.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit29
 
@@ -443,7 +443,7 @@ _ZN4llvm23StableFunctionMapRecordD2Ev.exit.i:     ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit29
 
-_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit29:     ; preds = %"_ZZN4llvm17CodeGenDataReader19mergeFromObjectFileEPKNS_6object10ObjectFileERNS_22OutlinedHashTreeRecordERNS_23StableFunctionMapRecordEPmENK3$_0clERKNS_9StringRefESD_.exit", %_ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv.exit24, %_ZN4llvmneENS_9StringRefES0_.exit.thread.i, %_ZN4llvmneENS_9StringRefES0_.exit24.i, %"_ZZN4llvm17CodeGenDataReader19mergeFromObjectFileEPKNS_6object10ObjectFileERNS_22OutlinedHashTreeRecordERNS_23StableFunctionMapRecordEPmENK3$_0clERKNS_9StringRefESD_.exit.thread67"
+_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit29:     ; preds = %"_ZZN4llvm17CodeGenDataReader19mergeFromObjectFileEPKNS_6object10ObjectFileERNS_22OutlinedHashTreeRecordERNS_23StableFunctionMapRecordEPmENK3$_0clERKNS_9StringRefESD_.exit", %_ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv.exit24, %_ZN4llvmneENS_9StringRefES0_.exit.thread.i, %_ZN4llvmneENS_9StringRefES0_.exit24.i, %"_ZZN4llvm17CodeGenDataReader19mergeFromObjectFileEPKNS_6object10ObjectFileERNS_22OutlinedHashTreeRecordERNS_23StableFunctionMapRecordEPmENK3$_0clERKNS_9StringRefESD_.exit.thread81"
   %121 = load i8, ptr %33, align 8
   %122 = trunc i8 %121 to i1
   br i1 %122, label %123, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit33
@@ -1459,9 +1459,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %70
 
 .thread:                                          ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit4, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit
-  %.sink34 = phi i32 [ 1, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit ], [ 2, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit4 ]
+  %.sink38 = phi i32 [ 1, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit ], [ 2, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit4 ]
   %68 = load i32, ptr %20, align 8, !tbaa !235
-  %69 = or i32 %68, %.sink34
+  %69 = or i32 %68, %.sink38
   store i32 %69, ptr %20, align 8, !tbaa !235
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %71

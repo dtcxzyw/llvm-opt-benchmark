@@ -47,11 +47,11 @@ define internal i32 @g729_parse(ptr noundef captures(none) %0, ptr noundef reado
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %31 = load i32, ptr %30, align 8, !tbaa !39
   %.not38 = icmp eq i32 %31, 0
-  %spec.select41 = select i1 %.not38, i32 %29, i32 %31
-  %.not39 = icmp sgt i32 %spec.select41, %5
-  %32 = sub nsw i32 %spec.select41, %5
+  %spec.select45 = select i1 %.not38, i32 %29, i32 %31
+  %.not39 = icmp sgt i32 %spec.select45, %5
+  %32 = sub nsw i32 %spec.select45, %5
   %storemerge = select i1 %.not39, i32 %32, i32 0
-  %.0 = select i1 %.not39, i32 -100, i32 %spec.select41
+  %.0 = select i1 %.not39, i32 -100, i32 %spec.select45
   store i32 %storemerge, ptr %30, align 8, !tbaa !39
   %33 = call i32 @ff_combine_frame(ptr noundef nonnull %9, i32 noundef %.0, ptr noundef nonnull %7, ptr noundef nonnull %8) #2
   %34 = icmp sgt i32 %33, -1
@@ -69,10 +69,10 @@ define internal i32 @g729_parse(ptr noundef captures(none) %0, ptr noundef reado
   br label %42
 
 42:                                               ; preds = %.thread, %12, %37
-  %.sink42 = phi ptr [ %41, %37 ], [ %4, %12 ], [ null, %.thread ]
+  %.sink46 = phi ptr [ %41, %37 ], [ %4, %12 ], [ null, %.thread ]
   %.sink = phi i32 [ %35, %37 ], [ %5, %12 ], [ 0, %.thread ]
   %.033 = phi i32 [ %.0, %37 ], [ %5, %12 ], [ %35, %.thread ]
-  store ptr %.sink42, ptr %2, align 8, !tbaa !4
+  store ptr %.sink46, ptr %2, align 8, !tbaa !4
   store i32 %.sink, ptr %3, align 4, !tbaa !9
   ret i32 %.033
 }

@@ -34,14 +34,14 @@ define dso_local range(i32 -30, 1) i32 @__archive_cmdline_parse(ptr noundef capt
   %10 = getelementptr inbounds nuw i8, ptr %.129.i, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !4
   %.not37.i = icmp eq i8 %11, 0
-  br i1 %.not37.i, label %get_argument.exit.split.loop.exit90, label %.sink.split.i
+  br i1 %.not37.i, label %get_argument.exit.split.loop.exit103, label %.sink.split.i
 
 12:                                               ; preds = %.critedge.i
   %13 = getelementptr inbounds nuw i8, ptr %.129.i, i64 1
   br label %14
 
-14:                                               ; preds = %.backedge107, %12
-  %.0.i.i = phi ptr [ %13, %12 ], [ %.0.i.i.be, %.backedge107 ]
+14:                                               ; preds = %.backedge120, %12
+  %.0.i.i = phi ptr [ %13, %12 ], [ %.0.i.i.be, %.backedge120 ]
   %15 = load i8, ptr %.0.i.i, align 1, !tbaa !4
   switch i8 %15, label %.sink.split.i.i [
     i8 0, label %extract_quotation.exit.i
@@ -53,16 +53,16 @@ define dso_local range(i32 -30, 1) i32 @__archive_cmdline_parse(ptr noundef capt
   %17 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   %18 = load i8, ptr %17, align 1, !tbaa !4
   %.not19.i.i = icmp eq i8 %18, 0
-  br i1 %.not19.i.i, label %.backedge107, label %.sink.split.i.i
+  br i1 %.not19.i.i, label %.backedge120, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %16, %14
-  %.sink20.i.i = phi i8 [ %18, %16 ], [ %15, %14 ]
+  %.sink21.i.i = phi i8 [ %18, %16 ], [ %15, %14 ]
   %.sink.i.i = phi i64 [ 2, %16 ], [ 1, %14 ]
-  %19 = call ptr @archive_strappend_char(ptr noundef nonnull %3, i8 noundef signext %.sink20.i.i) #11
+  %19 = call ptr @archive_strappend_char(ptr noundef nonnull %3, i8 noundef signext %.sink21.i.i) #11
   %20 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.sink.i.i
-  br label %.backedge107
+  br label %.backedge120
 
-.backedge107:                                     ; preds = %.sink.split.i.i, %16
+.backedge120:                                     ; preds = %.sink.split.i.i, %16
   %.0.i.i.be = phi ptr [ %17, %16 ], [ %20, %.sink.split.i.i ]
   br label %14, !llvm.loop !9
 
@@ -77,9 +77,9 @@ extract_quotation.exit.i:                         ; preds = %14, %14
   br i1 %26, label %28, label %cmdline_set_path.exit
 
 .sink.split.i:                                    ; preds = %9, %.critedge.i
-  %.sink47.i = phi i8 [ %11, %9 ], [ %8, %.critedge.i ]
+  %.sink49.i = phi i8 [ %11, %9 ], [ %8, %.critedge.i ]
   %.sink.i = phi i64 [ 2, %9 ], [ 1, %.critedge.i ]
-  %27 = call ptr @archive_strappend_char(ptr noundef nonnull %3, i8 noundef signext %.sink47.i) #11
+  %27 = call ptr @archive_strappend_char(ptr noundef nonnull %3, i8 noundef signext %.sink49.i) #11
   br label %28
 
 28:                                               ; preds = %.sink.split.i, %extract_quotation.exit.i
@@ -88,12 +88,12 @@ extract_quotation.exit.i:                         ; preds = %14, %14
   %.pr.i = load i8, ptr %.331.i, align 1, !tbaa !4
   br label %.critedge.i, !llvm.loop !10
 
-get_argument.exit.split.loop.exit90:              ; preds = %9
+get_argument.exit.split.loop.exit103:             ; preds = %9
   %29 = getelementptr inbounds nuw i8, ptr %.129.i, i64 1
   br label %get_argument.exit
 
-get_argument.exit:                                ; preds = %.critedge.i, %.critedge.i, %get_argument.exit.split.loop.exit90
-  %.230.i = phi ptr [ %29, %get_argument.exit.split.loop.exit90 ], [ %.129.i, %.critedge.i ], [ %.129.i, %.critedge.i ]
+get_argument.exit:                                ; preds = %.critedge.i, %.critedge.i, %get_argument.exit.split.loop.exit103
+  %.230.i = phi ptr [ %29, %get_argument.exit.split.loop.exit103 ], [ %.129.i, %.critedge.i ], [ %.129.i, %.critedge.i ]
   %30 = ptrtoint ptr %.230.i to i64
   %31 = ptrtoint ptr %1 to i64
   %32 = sub i64 %30, %31
@@ -176,7 +176,7 @@ get_argument.exit:                                ; preds = %.critedge.i, %.crit
   %75 = getelementptr inbounds nuw i8, ptr %.129.i34, i64 1
   %76 = load i8, ptr %75, align 1, !tbaa !4
   %.not37.i48 = icmp eq i8 %76, 0
-  br i1 %.not37.i48, label %get_argument.exit55.split.loop.exit92, label %.sink.split.i49
+  br i1 %.not37.i48, label %get_argument.exit55.split.loop.exit105, label %.sink.split.i49
 
 77:                                               ; preds = %.critedge.i33
   %78 = getelementptr inbounds nuw i8, ptr %.129.i34, i64 1
@@ -198,9 +198,9 @@ get_argument.exit:                                ; preds = %.critedge.i, %.crit
   br i1 %.not19.i.i43, label %.backedge, label %.sink.split.i.i44
 
 .sink.split.i.i44:                                ; preds = %81, %79
-  %.sink20.i.i45 = phi i8 [ %83, %81 ], [ %80, %79 ]
+  %.sink21.i.i45 = phi i8 [ %83, %81 ], [ %80, %79 ]
   %.sink.i.i46 = phi i64 [ 2, %81 ], [ 1, %79 ]
-  %84 = call ptr @archive_strappend_char(ptr noundef nonnull %3, i8 noundef signext %.sink20.i.i45) #11
+  %84 = call ptr @archive_strappend_char(ptr noundef nonnull %3, i8 noundef signext %.sink21.i.i45) #11
   %85 = getelementptr inbounds nuw i8, ptr %.0.i.i35, i64 %.sink.i.i46
   br label %.backedge
 
@@ -219,9 +219,9 @@ extract_quotation.exit.i36:                       ; preds = %79, %79
   br i1 %91, label %93, label %cmdline_set_path.exit
 
 .sink.split.i49:                                  ; preds = %74, %.critedge.i33
-  %.sink47.i50 = phi i8 [ %76, %74 ], [ %73, %.critedge.i33 ]
+  %.sink49.i50 = phi i8 [ %76, %74 ], [ %73, %.critedge.i33 ]
   %.sink.i51 = phi i64 [ 2, %74 ], [ 1, %.critedge.i33 ]
-  %92 = call ptr @archive_strappend_char(ptr noundef nonnull %3, i8 noundef signext %.sink47.i50) #11
+  %92 = call ptr @archive_strappend_char(ptr noundef nonnull %3, i8 noundef signext %.sink49.i50) #11
   br label %93
 
 93:                                               ; preds = %.sink.split.i49, %extract_quotation.exit.i36
@@ -230,12 +230,12 @@ extract_quotation.exit.i36:                       ; preds = %79, %79
   %.pr.i42 = load i8, ptr %.331.i41, align 1, !tbaa !4
   br label %.critedge.i33, !llvm.loop !10
 
-get_argument.exit55.split.loop.exit92:            ; preds = %74
+get_argument.exit55.split.loop.exit105:           ; preds = %74
   %94 = getelementptr inbounds nuw i8, ptr %.129.i34, i64 1
   br label %get_argument.exit55
 
-get_argument.exit55:                              ; preds = %.critedge.i33, %.critedge.i33, %get_argument.exit55.split.loop.exit92
-  %.230.i54 = phi ptr [ %94, %get_argument.exit55.split.loop.exit92 ], [ %.129.i34, %.critedge.i33 ], [ %.129.i34, %.critedge.i33 ]
+get_argument.exit55:                              ; preds = %.critedge.i33, %.critedge.i33, %get_argument.exit55.split.loop.exit105
+  %.230.i54 = phi ptr [ %94, %get_argument.exit55.split.loop.exit105 ], [ %.129.i34, %.critedge.i33 ], [ %.129.i34, %.critedge.i33 ]
   %95 = ptrtoint ptr %.230.i54 to i64
   %96 = ptrtoint ptr %.020 to i64
   %97 = sub i64 %95, %96

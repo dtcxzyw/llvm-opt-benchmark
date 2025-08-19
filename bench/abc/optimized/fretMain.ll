@@ -206,31 +206,31 @@ define ptr @Abc_FlowRetime_MinReg(ptr noundef %0, i32 noundef %1, i32 noundef %2
   ]
 
 71:                                               ; preds = %66
-  br i1 %.not109, label %76, label %.sink.split268
+  br i1 %.not109, label %76, label %.sink.split286
 
 72:                                               ; preds = %66
-  br i1 %.not109, label %76, label %.sink.split268
+  br i1 %.not109, label %76, label %.sink.split286
 
 73:                                               ; preds = %66
-  br i1 %.not109, label %76, label %.sink.split268
+  br i1 %.not109, label %76, label %.sink.split286
 
 74:                                               ; preds = %66
-  br i1 %.not109, label %76, label %.sink.split268
+  br i1 %.not109, label %76, label %.sink.split286
 
 75:                                               ; preds = %66
-  br i1 %.not109, label %76, label %.sink.split268
+  br i1 %.not109, label %76, label %.sink.split286
 
-.sink.split268:                                   ; preds = %75, %74, %73, %72, %71
+.sink.split286:                                   ; preds = %75, %74, %73, %72, %71
   %str.5.sink = phi ptr [ @str.6, %71 ], [ @str.5, %72 ], [ @str.4, %73 ], [ @str.3, %74 ], [ @str.2, %75 ]
   %puts116 = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.5.sink)
   br label %76
 
-76:                                               ; preds = %.sink.split268, %72, %74, %75, %73, %71
+76:                                               ; preds = %.sink.split286, %72, %74, %75, %73, %71
   %77 = load ptr, ptr @pManMR, align 8, !tbaa !3
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 40
   %79 = load i32, ptr %78, align 8, !tbaa !16
   %.not119 = icmp eq i32 %79, 0
-  br i1 %.not119, label %.thread258, label %80
+  br i1 %.not119, label %.thread276, label %80
 
 80:                                               ; preds = %76
   %.val = load i32, ptr %37, align 8, !tbaa !48
@@ -239,7 +239,7 @@ define ptr @Abc_FlowRetime_MinReg(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre232, i64 40
   %.pre233 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !16
   %82 = icmp eq i32 %.pre233, 0
-  br i1 %82, label %.thread258, label %83
+  br i1 %82, label %.thread276, label %83
 
 83:                                               ; preds = %80
   %84 = tail call i32 @Abc_NtkLevel(ptr noundef nonnull %0) #18
@@ -248,7 +248,7 @@ define ptr @Abc_FlowRetime_MinReg(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %.phi.trans.insert235 = getelementptr inbounds nuw i8, ptr %.pre234, i64 40
   %.pre236 = load i32, ptr %.phi.trans.insert235, align 8, !tbaa !16
   %86 = icmp eq i32 %.pre236, 0
-  br i1 %86, label %.thread258, label %87
+  br i1 %86, label %.thread276, label %87
 
 87:                                               ; preds = %83
   tail call void @Abc_FlowRetime_PrintInitStateInfo(ptr noundef nonnull %0) #18
@@ -256,22 +256,22 @@ define ptr @Abc_FlowRetime_MinReg(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %.phi.trans.insert238 = getelementptr inbounds nuw i8, ptr %.pre237, i64 40
   %.pre239 = load i32, ptr %.phi.trans.insert238, align 8, !tbaa !16
   %88 = icmp eq i32 %.pre239, 0
-  br i1 %88, label %.thread258, label %89
+  br i1 %88, label %.thread276, label %89
 
 89:                                               ; preds = %87
   %puts123 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
-  br label %.thread258
+  br label %.thread276
 
-.thread258:                                       ; preds = %76, %80, %83, %89, %87
+.thread276:                                       ; preds = %76, %80, %83, %89, %87
   %90 = load ptr, ptr %36, align 8, !tbaa !34
   %91 = getelementptr i8, ptr %90, i64 4
   %.val143204 = load i32, ptr %91, align 4, !tbaa !25
   %92 = icmp sgt i32 %.val143204, 0
   br i1 %92, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %.thread258, %146
-  %93 = phi ptr [ %147, %146 ], [ %90, %.thread258 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %146 ], [ 0, %.thread258 ]
+.lr.ph:                                           ; preds = %.thread276, %146
+  %93 = phi ptr [ %147, %146 ], [ %90, %.thread276 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %146 ], [ 0, %.thread276 ]
   %94 = getelementptr i8, ptr %93, i64 8
   %.val157.val = load ptr, ptr %94, align 8, !tbaa !28
   %95 = getelementptr inbounds nuw ptr, ptr %.val157.val, i64 %indvars.iv
@@ -395,8 +395,8 @@ Abc_FlowRetime_RemoveLatchBubbles.exit:           ; preds = %121, %129
   %150 = icmp slt i64 %indvars.iv.next, %149
   br i1 %150, label %.lr.ph, label %.critedge, !llvm.loop !60
 
-.critedge:                                        ; preds = %146, %.thread258
-  %151 = phi ptr [ %90, %.thread258 ], [ %147, %146 ]
+.critedge:                                        ; preds = %146, %.thread276
+  %151 = phi ptr [ %90, %.thread276 ], [ %147, %146 ]
   %152 = load ptr, ptr @pManMR, align 8, !tbaa !3
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 40
   %154 = load i32, ptr %153, align 8, !tbaa !16
@@ -1386,7 +1386,7 @@ Vec_IntFree.exit187:                              ; preds = %609, %612
   %644 = getelementptr inbounds nuw i8, ptr %643, i64 40
   %645 = load i32, ptr %644, align 8, !tbaa !16
   %.not134 = icmp eq i32 %645, 0
-  br i1 %.not134, label %.thread260, label %646
+  br i1 %.not134, label %.thread278, label %646
 
 646:                                              ; preds = %642
   %647 = getelementptr i8, ptr %.080, i64 128
@@ -1396,26 +1396,26 @@ Vec_IntFree.exit187:                              ; preds = %609, %612
   %.phi.trans.insert252 = getelementptr inbounds nuw i8, ptr %.pre251, i64 40
   %.pre253 = load i32, ptr %.phi.trans.insert252, align 8, !tbaa !16
   %649 = icmp eq i32 %.pre253, 0
-  br i1 %649, label %.thread260, label %650
+  br i1 %649, label %.thread278, label %650
 
 650:                                              ; preds = %646
   %651 = tail call i32 @Abc_NtkLevel(ptr noundef nonnull %.080) #18
   %652 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %651)
-  br label %.thread260
+  br label %.thread278
 
-.thread260:                                       ; preds = %642, %650, %646
+.thread278:                                       ; preds = %642, %650, %646
   %653 = tail call i32 @Abc_NtkDoCheck(ptr noundef %.080) #18
   %654 = load ptr, ptr @pManMR, align 8, !tbaa !3
   %.not136 = icmp eq ptr %654, null
   br i1 %.not136, label %656, label %655
 
-655:                                              ; preds = %.thread260
+655:                                              ; preds = %.thread278
   tail call void @free(ptr noundef nonnull %654) #18
   store ptr null, ptr @pManMR, align 8, !tbaa !3
   br label %656
 
-656:                                              ; preds = %655, %.thread260, %49, %39
-  %.079 = phi ptr [ %0, %49 ], [ %0, %39 ], [ %.080, %.thread260 ], [ %.080, %655 ]
+656:                                              ; preds = %655, %.thread278, %49, %39
+  %.079 = phi ptr [ %0, %49 ], [ %0, %39 ], [ %.080, %.thread278 ], [ %.080, %655 ]
   ret ptr %.079
 }
 
@@ -2212,9 +2212,9 @@ Vec_PtrPush.exit119:                              ; preds = %.Vec_PtrGrow.exit11
   %.phi.trans.insert150 = getelementptr i8, ptr %.val93.val.pre, i64 8
   %.val93.val.val.pre = load ptr, ptr %.phi.trans.insert150, align 8, !tbaa !28
   %159 = getelementptr i8, ptr %139, i64 32
-  %.val94156 = load ptr, ptr %159, align 8, !tbaa !55
-  %.val94.val157 = load i32, ptr %.val94156, align 4, !tbaa !48
-  %160 = sext i32 %.val94.val157 to i64
+  %.val94164 = load ptr, ptr %159, align 8, !tbaa !55
+  %.val94.val165 = load i32, ptr %.val94164, align 4, !tbaa !48
+  %160 = sext i32 %.val94.val165 to i64
   %161 = getelementptr inbounds ptr, ptr %.val93.val.val.pre, i64 %160
   %162 = load ptr, ptr %161, align 8, !tbaa !51
   %163 = load ptr, ptr %10, align 8, !tbaa !28
@@ -4487,7 +4487,7 @@ Abc_FlowRetime_IsAcrossCut.exit:                  ; preds = %226, %223, %190, %V
 262:                                              ; preds = %.critedge4.thread, %.critedge4
   %263 = phi i1 [ true, %.critedge4.thread ], [ false, %.critedge4 ]
   %264 = phi i32 [ %261, %.critedge4.thread ], [ %255, %.critedge4 ]
-  %.promoted207 = phi i32 [ 0, %.critedge4.thread ], [ %256, %.critedge4 ]
+  %.promoted226 = phi i32 [ 0, %.critedge4.thread ], [ %256, %.critedge4 ]
   %265 = load ptr, ptr %11, align 8, !tbaa !28
   %266 = add nsw i32 %160, -1
   store i32 %266, ptr %5, align 4, !tbaa !25
@@ -4499,7 +4499,7 @@ Abc_FlowRetime_IsAcrossCut.exit:                  ; preds = %226, %223, %190, %V
 
 .lr.ph170:                                        ; preds = %262
   %270 = load ptr, ptr %23, align 8, !tbaa !28
-  %271 = sext i32 %.promoted207 to i64
+  %271 = sext i32 %.promoted226 to i64
   br label %272
 
 272:                                              ; preds = %.lr.ph170, %272
@@ -4778,12 +4778,12 @@ define internal fastcc range(i32 -1, 2) i32 @Abc_FlowRetime_VerifyPathLatencies_
   %13 = load i32, ptr %12, align 4, !tbaa !72
   %.not46 = icmp eq i32 %13, 0
   %.not89 = icmp ne i32 %10, 3
-  %or.cond95.not215 = and i1 %.not89, %.not46
+  %or.cond95.not216 = and i1 %.not89, %.not46
   %.phi.trans.insert = getelementptr i8, ptr %0, i64 44
   %.val73104.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !58
   %.not48 = icmp eq i32 %.val73104.pre, 0
-  %or.cond214 = select i1 %or.cond95.not215, i1 %.not48, i1 false
-  br i1 %or.cond214, label %.critedge.thread, label %._crit_edge
+  %or.cond215 = select i1 %or.cond95.not216, i1 %.not48, i1 false
+  br i1 %or.cond215, label %.critedge.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %6
   %14 = getelementptr i8, ptr %0, i64 44
@@ -4927,9 +4927,9 @@ define internal fastcc range(i32 -1, 2) i32 @Abc_FlowRetime_VerifyPathLatencies_
 
 .thread81.sink.split:                             ; preds = %64, %42, %44
   %str.15.sink = phi ptr [ @str.15, %44 ], [ @str.14, %42 ], [ @str.14, %64 ]
-  %.lcssa204.sink = phi ptr [ %23, %44 ], [ %23, %42 ], [ %56, %64 ]
+  %.lcssa205.sink = phi ptr [ %23, %44 ], [ %23, %42 ], [ %56, %64 ]
   %puts59 = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.15.sink)
-  tail call void @print_node(ptr noundef nonnull %.lcssa204.sink)
+  tail call void @print_node(ptr noundef nonnull %.lcssa205.sink)
   %putchar60 = tail call i32 @putchar(i32 10)
   store i32 1, ptr @fPathError, align 4, !tbaa !48
   br label %.thread81

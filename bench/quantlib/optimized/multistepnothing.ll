@@ -73,11 +73,11 @@ entry:
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.i.thread, label %cond.true.i.i.i.i
 
 invoke.cont.i.thread:                             ; preds = %entry
-  %_M_finish.i.i.i14 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
-  %add.ptr.i.i.i15 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  %_M_end_of_storage.i.i.i16 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
+  %_M_finish.i.i.i16 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
+  %add.ptr.i.i.i17 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
+  %_M_end_of_storage.i.i.i18 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i15, ptr %_M_end_of_storage.i.i.i16, align 8, !tbaa !9
+  store ptr %add.ptr.i.i.i17, ptr %_M_end_of_storage.i.i.i18, align 8, !tbaa !9
   br label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
 
 cond.true.i.i.i.i:                                ; preds = %entry
@@ -100,10 +100,10 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %cond.true.i.i.i.i
   br label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
 
 _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.thread, %if.then.i.i.i.i.i.i.i.i.i
-  %_M_end_of_storage.i.i.i19 = phi ptr [ %_M_end_of_storage.i.i.i16, %invoke.cont.i.thread ], [ %_M_end_of_storage.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
-  %add.ptr.i.i.i18 = phi ptr [ %add.ptr.i.i.i15, %invoke.cont.i.thread ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
-  %_M_finish.i.i.i17 = phi ptr [ %_M_finish.i.i.i14, %invoke.cont.i.thread ], [ %_M_finish.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
-  store ptr %add.ptr.i.i.i18, ptr %_M_finish.i.i.i17, align 8, !tbaa !3
+  %_M_end_of_storage.i.i.i21 = phi ptr [ %_M_end_of_storage.i.i.i18, %invoke.cont.i.thread ], [ %_M_end_of_storage.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i20 = phi ptr [ %add.ptr.i.i.i17, %invoke.cont.i.thread ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
+  %_M_finish.i.i.i19 = phi ptr [ %_M_finish.i.i.i16, %invoke.cont.i.thread ], [ %_M_finish.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
+  store ptr %add.ptr.i.i.i20, ptr %_M_finish.i.i.i19, align 8, !tbaa !3
   invoke void @_ZN8QuantLib21MultiProductMultiStepC2ESt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -113,7 +113,7 @@ invoke.cont:                                      ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %3 = load ptr, ptr %_M_end_of_storage.i.i.i19, align 8, !tbaa !9
+  %3 = load ptr, ptr %_M_end_of_storage.i.i.i21, align 8, !tbaa !9
   %sub.ptr.lhs.cast.i.i2 = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i3 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i4 = sub i64 %sub.ptr.lhs.cast.i.i2, %sub.ptr.rhs.cast.i.i3
@@ -136,7 +136,7 @@ lpad:                                             ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %tobool.not.i.i.i6, label %_ZNSt6vectorIdSaIdEED2Ev.exit12, label %if.then.i.i.i7
 
 if.then.i.i.i7:                                   ; preds = %lpad
-  %6 = load ptr, ptr %_M_end_of_storage.i.i.i19, align 8, !tbaa !9
+  %6 = load ptr, ptr %_M_end_of_storage.i.i.i21, align 8, !tbaa !9
   %sub.ptr.lhs.cast.i.i9 = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i10 = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i11 = sub i64 %sub.ptr.lhs.cast.i.i9, %sub.ptr.rhs.cast.i.i10

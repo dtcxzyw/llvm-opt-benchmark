@@ -1128,9 +1128,9 @@ expert_dlt_buffer_too_short.exit.i.i.i:           ; preds = %346, %345
   %353 = load ptr, ptr %20, align 8
   %switch.selectcmp.i.i.i = icmp eq i8 %352, 1
   %switch.select.i.i.i = select i1 %switch.selectcmp.i.i.i, ptr @.str.228, ptr @.str.229
-  %switch.selectcmp40.i.i.i = icmp eq i8 %352, 0
-  %switch.select41.i.i.i = select i1 %switch.selectcmp40.i.i.i, ptr @.str.227, ptr %switch.select.i.i.i
-  call void @col_append_str(ptr noundef %353, i32 noundef 25, ptr noundef nonnull %switch.select41.i.i.i)
+  %switch.selectcmp42.i.i.i = icmp eq i8 %352, 0
+  %switch.select43.i.i.i = select i1 %switch.selectcmp42.i.i.i, ptr @.str.227, ptr %switch.select.i.i.i
+  call void @col_append_str(ptr noundef %353, i32 noundef 25, ptr noundef nonnull %switch.select43.i.i.i)
   %354 = icmp ne ptr %351, null
   %355 = icmp ne ptr %.039.i.i.i, null
   %or.cond.i.i.i = select i1 %354, i1 %355, i1 false

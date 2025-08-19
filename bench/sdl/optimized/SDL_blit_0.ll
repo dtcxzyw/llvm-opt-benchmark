@@ -699,10 +699,10 @@ define internal void @BlitBtoNAlpha(ptr noundef readonly captures(none) %0) #1 {
   br i1 %416, label %.preheader.us, label %.loopexit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us410
-  %.in417 = phi i32 [ %433, %._crit_edge.us410 ], [ %5, %.preheader.lr.ph ]
+  %.in421 = phi i32 [ %433, %._crit_edge.us410 ], [ %5, %.preheader.lr.ph ]
   %.0363409.us = phi ptr [ %780, %._crit_edge.us410 ], [ %7, %.preheader.lr.ph ]
   %.0365408.us = phi ptr [ %781, %._crit_edge.us410 ], [ %9, %.preheader.lr.ph ]
-  %433 = add nsw i32 %.in417, -1
+  %433 = add nsw i32 %.in421, -1
   br label %434
 
 434:                                              ; preds = %.preheader.us, %775
@@ -1660,10 +1660,10 @@ define internal void @BlitBtoNAlphaKey(ptr noundef readonly captures(none) %0) #
   br i1 %419, label %.preheader.us, label %.loopexit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us417
-  %.in424 = phi i32 [ %436, %._crit_edge.us417 ], [ %5, %.preheader.lr.ph ]
+  %.in429 = phi i32 [ %436, %._crit_edge.us417 ], [ %5, %.preheader.lr.ph ]
   %.0368416.us = phi ptr [ %785, %._crit_edge.us417 ], [ %7, %.preheader.lr.ph ]
   %.0370415.us = phi ptr [ %786, %._crit_edge.us417 ], [ %9, %.preheader.lr.ph ]
-  %436 = add nsw i32 %.in424, -1
+  %436 = add nsw i32 %.in429, -1
   br label %437
 
 437:                                              ; preds = %.preheader.us, %780
@@ -2177,10 +2177,10 @@ define internal void @Blit1bto1(ptr noundef readonly captures(none) %0) #1 {
   br i1 %44, label %.preheader5.us, label %BlitBto1.exit
 
 .preheader5.us:                                   ; preds = %.preheader5.lr.ph, %._crit_edge.us27
-  %.in62 = phi i32 [ %47, %._crit_edge.us27 ], [ %5, %.preheader5.lr.ph ]
+  %.in71 = phi i32 [ %47, %._crit_edge.us27 ], [ %5, %.preheader5.lr.ph ]
   %.0107.i26.us = phi ptr [ %61, %._crit_edge.us27 ], [ %7, %.preheader5.lr.ph ]
   %.0113.i25.us = phi ptr [ %62, %._crit_edge.us27 ], [ %11, %.preheader5.lr.ph ]
-  %47 = add nsw i32 %.in62, -1
+  %47 = add nsw i32 %.in71, -1
   br label %48
 
 48:                                               ; preds = %.preheader5.us, %53
@@ -2230,10 +2230,10 @@ define internal void @Blit1bto1(ptr noundef readonly captures(none) %0) #1 {
   br i1 %64, label %.preheader2.us, label %BlitBto1.exit
 
 .preheader2.us:                                   ; preds = %.preheader2.lr.ph, %._crit_edge.us37
-  %.in63 = phi i32 [ %67, %._crit_edge.us37 ], [ %5, %.preheader2.lr.ph ]
+  %.in72 = phi i32 [ %67, %._crit_edge.us37 ], [ %5, %.preheader2.lr.ph ]
   %.9.i36.us = phi ptr [ %78, %._crit_edge.us37 ], [ %7, %.preheader2.lr.ph ]
   %.6119.i35.us = phi ptr [ %79, %._crit_edge.us37 ], [ %11, %.preheader2.lr.ph ]
-  %67 = add nsw i32 %.in63, -1
+  %67 = add nsw i32 %.in72, -1
   br label %68
 
 68:                                               ; preds = %.preheader2.us, %73
@@ -2277,10 +2277,10 @@ define internal void @Blit1bto1(ptr noundef readonly captures(none) %0) #1 {
   br i1 %80, label %.preheader.us, label %BlitBto1.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us47
-  %.in64 = phi i32 [ %83, %._crit_edge.us47 ], [ %5, %.preheader.lr.ph ]
+  %.in73 = phi i32 [ %83, %._crit_edge.us47 ], [ %5, %.preheader.lr.ph ]
   %.6.i46.us = phi ptr [ %94, %._crit_edge.us47 ], [ %7, %.preheader.lr.ph ]
   %.4117.i45.us = phi ptr [ %95, %._crit_edge.us47 ], [ %11, %.preheader.lr.ph ]
-  %83 = add nsw i32 %.in64, -1
+  %83 = add nsw i32 %.in73, -1
   br label %84
 
 84:                                               ; preds = %.preheader.us, %89
@@ -2407,10 +2407,10 @@ define internal void @Blit1bto2(ptr noundef readonly captures(none) %0) #1 {
   br i1 %44, label %.preheader.us, label %BlitBto2.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us21
-  %.in28 = phi i32 [ %47, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
+  %.in32 = phi i32 [ %47, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
   %.066.i20.us = phi ptr [ %61, %._crit_edge.us21 ], [ %7, %.preheader.lr.ph ]
   %.069.i19.us = phi ptr [ %62, %._crit_edge.us21 ], [ %11, %.preheader.lr.ph ]
-  %47 = add nsw i32 %.in28, -1
+  %47 = add nsw i32 %.in32, -1
   br label %48
 
 48:                                               ; preds = %.preheader.us, %53
@@ -2548,10 +2548,10 @@ define internal void @Blit1bto3(ptr noundef readonly captures(none) %0) #1 {
   br i1 %50, label %.preheader.us, label %BlitBto3.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us21
-  %.in28 = phi i32 [ %53, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
+  %.in32 = phi i32 [ %53, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
   %.081.i20.us = phi ptr [ %75, %._crit_edge.us21 ], [ %11, %.preheader.lr.ph ]
   %.083.i19.us = phi ptr [ %74, %._crit_edge.us21 ], [ %7, %.preheader.lr.ph ]
-  %53 = add nsw i32 %.in28, -1
+  %53 = add nsw i32 %.in32, -1
   br label %54
 
 54:                                               ; preds = %.preheader.us, %59
@@ -2690,10 +2690,10 @@ define internal void @Blit1bto4(ptr noundef readonly captures(none) %0) #1 {
   br i1 %44, label %.preheader.us, label %BlitBto4.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us21
-  %.in28 = phi i32 [ %47, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
+  %.in32 = phi i32 [ %47, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
   %.062.i20.us = phi ptr [ %61, %._crit_edge.us21 ], [ %7, %.preheader.lr.ph ]
   %.068.i19.us = phi ptr [ %62, %._crit_edge.us21 ], [ %11, %.preheader.lr.ph ]
-  %47 = add nsw i32 %.in28, -1
+  %47 = add nsw i32 %.in32, -1
   br label %48
 
 48:                                               ; preds = %.preheader.us, %53
@@ -2836,10 +2836,10 @@ define internal void @Blit1bto1Key(ptr noundef readonly captures(none) %0) #1 {
   br i1 %49, label %.preheader5.us, label %BlitBto1Key.exit
 
 .preheader5.us:                                   ; preds = %.preheader5.lr.ph, %._crit_edge.us27
-  %.in62 = phi i32 [ %52, %._crit_edge.us27 ], [ %5, %.preheader5.lr.ph ]
+  %.in71 = phi i32 [ %52, %._crit_edge.us27 ], [ %5, %.preheader5.lr.ph ]
   %.0110.i26.us = phi ptr [ %69, %._crit_edge.us27 ], [ %7, %.preheader5.lr.ph ]
   %.0116.i25.us = phi ptr [ %70, %._crit_edge.us27 ], [ %9, %.preheader5.lr.ph ]
-  %52 = add nsw i32 %.in62, -1
+  %52 = add nsw i32 %.in71, -1
   br label %53
 
 53:                                               ; preds = %.preheader5.us, %65
@@ -2897,10 +2897,10 @@ define internal void @Blit1bto1Key(ptr noundef readonly captures(none) %0) #1 {
   br i1 %72, label %.preheader2.us, label %BlitBto1Key.exit
 
 .preheader2.us:                                   ; preds = %.preheader2.lr.ph, %._crit_edge.us37
-  %.in63 = phi i32 [ %75, %._crit_edge.us37 ], [ %5, %.preheader2.lr.ph ]
+  %.in72 = phi i32 [ %75, %._crit_edge.us37 ], [ %5, %.preheader2.lr.ph ]
   %.9.i36.us = phi ptr [ %89, %._crit_edge.us37 ], [ %7, %.preheader2.lr.ph ]
   %.6122.i35.us = phi ptr [ %90, %._crit_edge.us37 ], [ %9, %.preheader2.lr.ph ]
-  %75 = add nsw i32 %.in63, -1
+  %75 = add nsw i32 %.in72, -1
   br label %76
 
 76:                                               ; preds = %.preheader2.us, %85
@@ -2952,10 +2952,10 @@ define internal void @Blit1bto1Key(ptr noundef readonly captures(none) %0) #1 {
   br i1 %91, label %.preheader.us, label %BlitBto1Key.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us47
-  %.in64 = phi i32 [ %94, %._crit_edge.us47 ], [ %5, %.preheader.lr.ph ]
+  %.in73 = phi i32 [ %94, %._crit_edge.us47 ], [ %5, %.preheader.lr.ph ]
   %.6.i46.us = phi ptr [ %108, %._crit_edge.us47 ], [ %7, %.preheader.lr.ph ]
   %.4120.i45.us = phi ptr [ %109, %._crit_edge.us47 ], [ %9, %.preheader.lr.ph ]
-  %94 = add nsw i32 %.in64, -1
+  %94 = add nsw i32 %.in73, -1
   br label %95
 
 95:                                               ; preds = %.preheader.us, %104
@@ -3100,10 +3100,10 @@ define internal void @Blit1bto2Key(ptr noundef readonly captures(none) %0) #1 {
   br i1 %49, label %.preheader.us, label %BlitBto2Key.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us21
-  %.in28 = phi i32 [ %52, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
+  %.in32 = phi i32 [ %52, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
   %.068.i20.us = phi ptr [ %69, %._crit_edge.us21 ], [ %7, %.preheader.lr.ph ]
   %.074.i19.us = phi ptr [ %70, %._crit_edge.us21 ], [ %9, %.preheader.lr.ph ]
-  %52 = add nsw i32 %.in28, -1
+  %52 = add nsw i32 %.in32, -1
   br label %53
 
 53:                                               ; preds = %.preheader.us, %65
@@ -3250,10 +3250,10 @@ define internal void @Blit1bto3Key(ptr noundef readonly captures(none) %0) #1 {
   br i1 %48, label %.preheader.us, label %BlitBto3Key.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us21
-  %.in28 = phi i32 [ %51, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
+  %.in34 = phi i32 [ %51, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
   %.067.i20.us = phi ptr [ %68, %._crit_edge.us21 ], [ %7, %.preheader.lr.ph ]
   %.073.i19.us = phi ptr [ %69, %._crit_edge.us21 ], [ %9, %.preheader.lr.ph ]
-  %51 = add nsw i32 %.in28, -1
+  %51 = add nsw i32 %.in34, -1
   br label %52
 
 52:                                               ; preds = %.preheader.us, %64
@@ -3401,10 +3401,10 @@ define internal void @Blit1bto4Key(ptr noundef readonly captures(none) %0) #1 {
   br i1 %49, label %.preheader.us, label %BlitBto4Key.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us21
-  %.in28 = phi i32 [ %52, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
+  %.in32 = phi i32 [ %52, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
   %.068.i20.us = phi ptr [ %69, %._crit_edge.us21 ], [ %7, %.preheader.lr.ph ]
   %.074.i19.us = phi ptr [ %70, %._crit_edge.us21 ], [ %9, %.preheader.lr.ph ]
-  %52 = add nsw i32 %.in28, -1
+  %52 = add nsw i32 %.in32, -1
   br label %53
 
 53:                                               ; preds = %.preheader.us, %65
@@ -3548,10 +3548,10 @@ define internal void @Blit2bto1(ptr noundef readonly captures(none) %0) #1 {
   br i1 %44, label %.preheader5.us, label %BlitBto1.exit
 
 .preheader5.us:                                   ; preds = %.preheader5.lr.ph, %._crit_edge.us27
-  %.in62 = phi i32 [ %47, %._crit_edge.us27 ], [ %5, %.preheader5.lr.ph ]
+  %.in71 = phi i32 [ %47, %._crit_edge.us27 ], [ %5, %.preheader5.lr.ph ]
   %.0107.i26.us = phi ptr [ %61, %._crit_edge.us27 ], [ %7, %.preheader5.lr.ph ]
   %.0113.i25.us = phi ptr [ %62, %._crit_edge.us27 ], [ %11, %.preheader5.lr.ph ]
-  %47 = add nsw i32 %.in62, -1
+  %47 = add nsw i32 %.in71, -1
   br label %48
 
 48:                                               ; preds = %.preheader5.us, %53
@@ -3601,10 +3601,10 @@ define internal void @Blit2bto1(ptr noundef readonly captures(none) %0) #1 {
   br i1 %64, label %.preheader2.us, label %BlitBto1.exit
 
 .preheader2.us:                                   ; preds = %.preheader2.lr.ph, %._crit_edge.us37
-  %.in63 = phi i32 [ %67, %._crit_edge.us37 ], [ %5, %.preheader2.lr.ph ]
+  %.in72 = phi i32 [ %67, %._crit_edge.us37 ], [ %5, %.preheader2.lr.ph ]
   %.9.i36.us = phi ptr [ %78, %._crit_edge.us37 ], [ %7, %.preheader2.lr.ph ]
   %.6119.i35.us = phi ptr [ %79, %._crit_edge.us37 ], [ %11, %.preheader2.lr.ph ]
-  %67 = add nsw i32 %.in63, -1
+  %67 = add nsw i32 %.in72, -1
   br label %68
 
 68:                                               ; preds = %.preheader2.us, %73
@@ -3648,10 +3648,10 @@ define internal void @Blit2bto1(ptr noundef readonly captures(none) %0) #1 {
   br i1 %80, label %.preheader.us, label %BlitBto1.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us47
-  %.in64 = phi i32 [ %83, %._crit_edge.us47 ], [ %5, %.preheader.lr.ph ]
+  %.in73 = phi i32 [ %83, %._crit_edge.us47 ], [ %5, %.preheader.lr.ph ]
   %.6.i46.us = phi ptr [ %94, %._crit_edge.us47 ], [ %7, %.preheader.lr.ph ]
   %.4117.i45.us = phi ptr [ %95, %._crit_edge.us47 ], [ %11, %.preheader.lr.ph ]
-  %83 = add nsw i32 %.in64, -1
+  %83 = add nsw i32 %.in73, -1
   br label %84
 
 84:                                               ; preds = %.preheader.us, %89
@@ -3778,10 +3778,10 @@ define internal void @Blit2bto2(ptr noundef readonly captures(none) %0) #1 {
   br i1 %44, label %.preheader.us, label %BlitBto2.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us21
-  %.in28 = phi i32 [ %47, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
+  %.in32 = phi i32 [ %47, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
   %.066.i20.us = phi ptr [ %61, %._crit_edge.us21 ], [ %7, %.preheader.lr.ph ]
   %.069.i19.us = phi ptr [ %62, %._crit_edge.us21 ], [ %11, %.preheader.lr.ph ]
-  %47 = add nsw i32 %.in28, -1
+  %47 = add nsw i32 %.in32, -1
   br label %48
 
 48:                                               ; preds = %.preheader.us, %53
@@ -3919,10 +3919,10 @@ define internal void @Blit2bto3(ptr noundef readonly captures(none) %0) #1 {
   br i1 %50, label %.preheader.us, label %BlitBto3.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us21
-  %.in28 = phi i32 [ %53, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
+  %.in32 = phi i32 [ %53, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
   %.081.i20.us = phi ptr [ %75, %._crit_edge.us21 ], [ %11, %.preheader.lr.ph ]
   %.083.i19.us = phi ptr [ %74, %._crit_edge.us21 ], [ %7, %.preheader.lr.ph ]
-  %53 = add nsw i32 %.in28, -1
+  %53 = add nsw i32 %.in32, -1
   br label %54
 
 54:                                               ; preds = %.preheader.us, %59
@@ -4061,10 +4061,10 @@ define internal void @Blit2bto4(ptr noundef readonly captures(none) %0) #1 {
   br i1 %44, label %.preheader.us, label %BlitBto4.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us21
-  %.in28 = phi i32 [ %47, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
+  %.in32 = phi i32 [ %47, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
   %.062.i20.us = phi ptr [ %61, %._crit_edge.us21 ], [ %7, %.preheader.lr.ph ]
   %.068.i19.us = phi ptr [ %62, %._crit_edge.us21 ], [ %11, %.preheader.lr.ph ]
-  %47 = add nsw i32 %.in28, -1
+  %47 = add nsw i32 %.in32, -1
   br label %48
 
 48:                                               ; preds = %.preheader.us, %53
@@ -4207,10 +4207,10 @@ define internal void @Blit2bto1Key(ptr noundef readonly captures(none) %0) #1 {
   br i1 %49, label %.preheader5.us, label %BlitBto1Key.exit
 
 .preheader5.us:                                   ; preds = %.preheader5.lr.ph, %._crit_edge.us27
-  %.in62 = phi i32 [ %52, %._crit_edge.us27 ], [ %5, %.preheader5.lr.ph ]
+  %.in71 = phi i32 [ %52, %._crit_edge.us27 ], [ %5, %.preheader5.lr.ph ]
   %.0110.i26.us = phi ptr [ %69, %._crit_edge.us27 ], [ %7, %.preheader5.lr.ph ]
   %.0116.i25.us = phi ptr [ %70, %._crit_edge.us27 ], [ %9, %.preheader5.lr.ph ]
-  %52 = add nsw i32 %.in62, -1
+  %52 = add nsw i32 %.in71, -1
   br label %53
 
 53:                                               ; preds = %.preheader5.us, %65
@@ -4268,10 +4268,10 @@ define internal void @Blit2bto1Key(ptr noundef readonly captures(none) %0) #1 {
   br i1 %72, label %.preheader2.us, label %BlitBto1Key.exit
 
 .preheader2.us:                                   ; preds = %.preheader2.lr.ph, %._crit_edge.us37
-  %.in63 = phi i32 [ %75, %._crit_edge.us37 ], [ %5, %.preheader2.lr.ph ]
+  %.in72 = phi i32 [ %75, %._crit_edge.us37 ], [ %5, %.preheader2.lr.ph ]
   %.9.i36.us = phi ptr [ %89, %._crit_edge.us37 ], [ %7, %.preheader2.lr.ph ]
   %.6122.i35.us = phi ptr [ %90, %._crit_edge.us37 ], [ %9, %.preheader2.lr.ph ]
-  %75 = add nsw i32 %.in63, -1
+  %75 = add nsw i32 %.in72, -1
   br label %76
 
 76:                                               ; preds = %.preheader2.us, %85
@@ -4323,10 +4323,10 @@ define internal void @Blit2bto1Key(ptr noundef readonly captures(none) %0) #1 {
   br i1 %91, label %.preheader.us, label %BlitBto1Key.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us47
-  %.in64 = phi i32 [ %94, %._crit_edge.us47 ], [ %5, %.preheader.lr.ph ]
+  %.in73 = phi i32 [ %94, %._crit_edge.us47 ], [ %5, %.preheader.lr.ph ]
   %.6.i46.us = phi ptr [ %108, %._crit_edge.us47 ], [ %7, %.preheader.lr.ph ]
   %.4120.i45.us = phi ptr [ %109, %._crit_edge.us47 ], [ %9, %.preheader.lr.ph ]
-  %94 = add nsw i32 %.in64, -1
+  %94 = add nsw i32 %.in73, -1
   br label %95
 
 95:                                               ; preds = %.preheader.us, %104
@@ -4471,10 +4471,10 @@ define internal void @Blit2bto2Key(ptr noundef readonly captures(none) %0) #1 {
   br i1 %49, label %.preheader.us, label %BlitBto2Key.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us21
-  %.in28 = phi i32 [ %52, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
+  %.in32 = phi i32 [ %52, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
   %.068.i20.us = phi ptr [ %69, %._crit_edge.us21 ], [ %7, %.preheader.lr.ph ]
   %.074.i19.us = phi ptr [ %70, %._crit_edge.us21 ], [ %9, %.preheader.lr.ph ]
-  %52 = add nsw i32 %.in28, -1
+  %52 = add nsw i32 %.in32, -1
   br label %53
 
 53:                                               ; preds = %.preheader.us, %65
@@ -4621,10 +4621,10 @@ define internal void @Blit2bto3Key(ptr noundef readonly captures(none) %0) #1 {
   br i1 %48, label %.preheader.us, label %BlitBto3Key.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us21
-  %.in28 = phi i32 [ %51, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
+  %.in34 = phi i32 [ %51, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
   %.067.i20.us = phi ptr [ %68, %._crit_edge.us21 ], [ %7, %.preheader.lr.ph ]
   %.073.i19.us = phi ptr [ %69, %._crit_edge.us21 ], [ %9, %.preheader.lr.ph ]
-  %51 = add nsw i32 %.in28, -1
+  %51 = add nsw i32 %.in34, -1
   br label %52
 
 52:                                               ; preds = %.preheader.us, %64
@@ -4772,10 +4772,10 @@ define internal void @Blit2bto4Key(ptr noundef readonly captures(none) %0) #1 {
   br i1 %49, label %.preheader.us, label %BlitBto4Key.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us21
-  %.in28 = phi i32 [ %52, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
+  %.in32 = phi i32 [ %52, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
   %.068.i20.us = phi ptr [ %69, %._crit_edge.us21 ], [ %7, %.preheader.lr.ph ]
   %.074.i19.us = phi ptr [ %70, %._crit_edge.us21 ], [ %9, %.preheader.lr.ph ]
-  %52 = add nsw i32 %.in28, -1
+  %52 = add nsw i32 %.in32, -1
   br label %53
 
 53:                                               ; preds = %.preheader.us, %65
@@ -4916,10 +4916,10 @@ define internal void @Blit4bto1(ptr noundef readonly captures(none) %0) #1 {
   br i1 %44, label %.preheader5.us, label %BlitBto1.exit
 
 .preheader5.us:                                   ; preds = %.preheader5.lr.ph, %._crit_edge.us27
-  %.in62 = phi i32 [ %47, %._crit_edge.us27 ], [ %5, %.preheader5.lr.ph ]
+  %.in71 = phi i32 [ %47, %._crit_edge.us27 ], [ %5, %.preheader5.lr.ph ]
   %.0107.i26.us = phi ptr [ %61, %._crit_edge.us27 ], [ %7, %.preheader5.lr.ph ]
   %.0113.i25.us = phi ptr [ %62, %._crit_edge.us27 ], [ %11, %.preheader5.lr.ph ]
-  %47 = add nsw i32 %.in62, -1
+  %47 = add nsw i32 %.in71, -1
   br label %48
 
 48:                                               ; preds = %.preheader5.us, %53
@@ -4969,10 +4969,10 @@ define internal void @Blit4bto1(ptr noundef readonly captures(none) %0) #1 {
   br i1 %64, label %.preheader2.us, label %BlitBto1.exit
 
 .preheader2.us:                                   ; preds = %.preheader2.lr.ph, %._crit_edge.us37
-  %.in63 = phi i32 [ %67, %._crit_edge.us37 ], [ %5, %.preheader2.lr.ph ]
+  %.in72 = phi i32 [ %67, %._crit_edge.us37 ], [ %5, %.preheader2.lr.ph ]
   %.9.i36.us = phi ptr [ %78, %._crit_edge.us37 ], [ %7, %.preheader2.lr.ph ]
   %.6119.i35.us = phi ptr [ %79, %._crit_edge.us37 ], [ %11, %.preheader2.lr.ph ]
-  %67 = add nsw i32 %.in63, -1
+  %67 = add nsw i32 %.in72, -1
   br label %68
 
 68:                                               ; preds = %.preheader2.us, %73
@@ -5016,10 +5016,10 @@ define internal void @Blit4bto1(ptr noundef readonly captures(none) %0) #1 {
   br i1 %80, label %.preheader.us, label %BlitBto1.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us47
-  %.in64 = phi i32 [ %83, %._crit_edge.us47 ], [ %5, %.preheader.lr.ph ]
+  %.in73 = phi i32 [ %83, %._crit_edge.us47 ], [ %5, %.preheader.lr.ph ]
   %.6.i46.us = phi ptr [ %94, %._crit_edge.us47 ], [ %7, %.preheader.lr.ph ]
   %.4117.i45.us = phi ptr [ %95, %._crit_edge.us47 ], [ %11, %.preheader.lr.ph ]
-  %83 = add nsw i32 %.in64, -1
+  %83 = add nsw i32 %.in73, -1
   br label %84
 
 84:                                               ; preds = %.preheader.us, %89
@@ -5146,10 +5146,10 @@ define internal void @Blit4bto2(ptr noundef readonly captures(none) %0) #1 {
   br i1 %44, label %.preheader.us, label %BlitBto2.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us21
-  %.in28 = phi i32 [ %47, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
+  %.in32 = phi i32 [ %47, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
   %.066.i20.us = phi ptr [ %61, %._crit_edge.us21 ], [ %7, %.preheader.lr.ph ]
   %.069.i19.us = phi ptr [ %62, %._crit_edge.us21 ], [ %11, %.preheader.lr.ph ]
-  %47 = add nsw i32 %.in28, -1
+  %47 = add nsw i32 %.in32, -1
   br label %48
 
 48:                                               ; preds = %.preheader.us, %53
@@ -5287,10 +5287,10 @@ define internal void @Blit4bto3(ptr noundef readonly captures(none) %0) #1 {
   br i1 %50, label %.preheader.us, label %BlitBto3.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us21
-  %.in28 = phi i32 [ %53, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
+  %.in32 = phi i32 [ %53, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
   %.081.i20.us = phi ptr [ %75, %._crit_edge.us21 ], [ %11, %.preheader.lr.ph ]
   %.083.i19.us = phi ptr [ %74, %._crit_edge.us21 ], [ %7, %.preheader.lr.ph ]
-  %53 = add nsw i32 %.in28, -1
+  %53 = add nsw i32 %.in32, -1
   br label %54
 
 54:                                               ; preds = %.preheader.us, %59
@@ -5429,10 +5429,10 @@ define internal void @Blit4bto4(ptr noundef readonly captures(none) %0) #1 {
   br i1 %44, label %.preheader.us, label %BlitBto4.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us21
-  %.in28 = phi i32 [ %47, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
+  %.in32 = phi i32 [ %47, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
   %.062.i20.us = phi ptr [ %61, %._crit_edge.us21 ], [ %7, %.preheader.lr.ph ]
   %.068.i19.us = phi ptr [ %62, %._crit_edge.us21 ], [ %11, %.preheader.lr.ph ]
-  %47 = add nsw i32 %.in28, -1
+  %47 = add nsw i32 %.in32, -1
   br label %48
 
 48:                                               ; preds = %.preheader.us, %53
@@ -5575,10 +5575,10 @@ define internal void @Blit4bto1Key(ptr noundef readonly captures(none) %0) #1 {
   br i1 %49, label %.preheader5.us, label %BlitBto1Key.exit
 
 .preheader5.us:                                   ; preds = %.preheader5.lr.ph, %._crit_edge.us27
-  %.in62 = phi i32 [ %52, %._crit_edge.us27 ], [ %5, %.preheader5.lr.ph ]
+  %.in71 = phi i32 [ %52, %._crit_edge.us27 ], [ %5, %.preheader5.lr.ph ]
   %.0110.i26.us = phi ptr [ %69, %._crit_edge.us27 ], [ %7, %.preheader5.lr.ph ]
   %.0116.i25.us = phi ptr [ %70, %._crit_edge.us27 ], [ %9, %.preheader5.lr.ph ]
-  %52 = add nsw i32 %.in62, -1
+  %52 = add nsw i32 %.in71, -1
   br label %53
 
 53:                                               ; preds = %.preheader5.us, %65
@@ -5636,10 +5636,10 @@ define internal void @Blit4bto1Key(ptr noundef readonly captures(none) %0) #1 {
   br i1 %72, label %.preheader2.us, label %BlitBto1Key.exit
 
 .preheader2.us:                                   ; preds = %.preheader2.lr.ph, %._crit_edge.us37
-  %.in63 = phi i32 [ %75, %._crit_edge.us37 ], [ %5, %.preheader2.lr.ph ]
+  %.in72 = phi i32 [ %75, %._crit_edge.us37 ], [ %5, %.preheader2.lr.ph ]
   %.9.i36.us = phi ptr [ %89, %._crit_edge.us37 ], [ %7, %.preheader2.lr.ph ]
   %.6122.i35.us = phi ptr [ %90, %._crit_edge.us37 ], [ %9, %.preheader2.lr.ph ]
-  %75 = add nsw i32 %.in63, -1
+  %75 = add nsw i32 %.in72, -1
   br label %76
 
 76:                                               ; preds = %.preheader2.us, %85
@@ -5691,10 +5691,10 @@ define internal void @Blit4bto1Key(ptr noundef readonly captures(none) %0) #1 {
   br i1 %91, label %.preheader.us, label %BlitBto1Key.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us47
-  %.in64 = phi i32 [ %94, %._crit_edge.us47 ], [ %5, %.preheader.lr.ph ]
+  %.in73 = phi i32 [ %94, %._crit_edge.us47 ], [ %5, %.preheader.lr.ph ]
   %.6.i46.us = phi ptr [ %108, %._crit_edge.us47 ], [ %7, %.preheader.lr.ph ]
   %.4120.i45.us = phi ptr [ %109, %._crit_edge.us47 ], [ %9, %.preheader.lr.ph ]
-  %94 = add nsw i32 %.in64, -1
+  %94 = add nsw i32 %.in73, -1
   br label %95
 
 95:                                               ; preds = %.preheader.us, %104
@@ -5839,10 +5839,10 @@ define internal void @Blit4bto2Key(ptr noundef readonly captures(none) %0) #1 {
   br i1 %49, label %.preheader.us, label %BlitBto2Key.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us21
-  %.in28 = phi i32 [ %52, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
+  %.in32 = phi i32 [ %52, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
   %.068.i20.us = phi ptr [ %69, %._crit_edge.us21 ], [ %7, %.preheader.lr.ph ]
   %.074.i19.us = phi ptr [ %70, %._crit_edge.us21 ], [ %9, %.preheader.lr.ph ]
-  %52 = add nsw i32 %.in28, -1
+  %52 = add nsw i32 %.in32, -1
   br label %53
 
 53:                                               ; preds = %.preheader.us, %65
@@ -5989,10 +5989,10 @@ define internal void @Blit4bto3Key(ptr noundef readonly captures(none) %0) #1 {
   br i1 %48, label %.preheader.us, label %BlitBto3Key.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us21
-  %.in28 = phi i32 [ %51, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
+  %.in34 = phi i32 [ %51, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
   %.067.i20.us = phi ptr [ %68, %._crit_edge.us21 ], [ %7, %.preheader.lr.ph ]
   %.073.i19.us = phi ptr [ %69, %._crit_edge.us21 ], [ %9, %.preheader.lr.ph ]
-  %51 = add nsw i32 %.in28, -1
+  %51 = add nsw i32 %.in34, -1
   br label %52
 
 52:                                               ; preds = %.preheader.us, %64
@@ -6140,10 +6140,10 @@ define internal void @Blit4bto4Key(ptr noundef readonly captures(none) %0) #1 {
   br i1 %49, label %.preheader.us, label %BlitBto4Key.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us21
-  %.in28 = phi i32 [ %52, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
+  %.in32 = phi i32 [ %52, %._crit_edge.us21 ], [ %5, %.preheader.lr.ph ]
   %.068.i20.us = phi ptr [ %69, %._crit_edge.us21 ], [ %7, %.preheader.lr.ph ]
   %.074.i19.us = phi ptr [ %70, %._crit_edge.us21 ], [ %9, %.preheader.lr.ph ]
-  %52 = add nsw i32 %.in28, -1
+  %52 = add nsw i32 %.in32, -1
   br label %53
 
 53:                                               ; preds = %.preheader.us, %65

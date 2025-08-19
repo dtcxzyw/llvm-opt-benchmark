@@ -336,21 +336,21 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17h37cae6603202fe98E.exit: 
   %.sroa.0.i.1.i.1.i.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
   %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
   %.sroa.0.i.3.i.3.i.3.gep2.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 3
-  %.sroa.0.i.i42.1.i.i42.1.i.i42.1.i.1.i.1.gep.sroa_idx333 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i42, i64 1
-  %.sroa.0.i.i42.2.i.i42.2.i.i42.2.i.2.i.2.gep1.sroa_idx335 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i42, i64 2
-  %.sroa.0.i.i42.1.i.i42.1.i.i42.1.i.1.i.1.gep.sroa_idx334 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i42, i64 1
-  %.sroa.0.i26.i.1.i26.i.1.i26.i.1.i26.1.i26.1.gep.sroa_idx330 = getelementptr inbounds nuw i8, ptr %.sroa.0.i26.i, i64 1
-  %.sroa.0.i26.i.2.i26.i.2.i26.i.2.i26.2.i26.2.gep1.sroa_idx332 = getelementptr inbounds nuw i8, ptr %.sroa.0.i26.i, i64 2
-  %.sroa.0.i26.i.1.i26.i.1.i26.i.1.i26.1.i26.1.gep.sroa_idx331 = getelementptr inbounds nuw i8, ptr %.sroa.0.i26.i, i64 1
-  %.sroa.0.i.i19.1.i.i19.1.i.i19.1.i.1.i.1.gep.sroa_idx327 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i19, i64 1
-  %.sroa.0.i.i19.2.i.i19.2.i.i19.2.i.2.i.2.gep1.sroa_idx329 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i19, i64 2
-  %.sroa.0.i.i19.1.i.i19.1.i.i19.1.i.1.i.1.gep.sroa_idx328 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i19, i64 1
-  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx324 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 1
-  %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx326 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 2
-  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx325 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 1
-  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx321 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx323 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx322 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  %.sroa.0.i.i42.1.i.i42.1.i.i42.1.i.1.i.1.gep.sroa_idx354 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i42, i64 1
+  %.sroa.0.i.i42.2.i.i42.2.i.i42.2.i.2.i.2.gep1.sroa_idx356 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i42, i64 2
+  %.sroa.0.i.i42.1.i.i42.1.i.i42.1.i.1.i.1.gep.sroa_idx355 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i42, i64 1
+  %.sroa.0.i26.i.1.i26.i.1.i26.i.1.i26.1.i26.1.gep.sroa_idx351 = getelementptr inbounds nuw i8, ptr %.sroa.0.i26.i, i64 1
+  %.sroa.0.i26.i.2.i26.i.2.i26.i.2.i26.2.i26.2.gep1.sroa_idx353 = getelementptr inbounds nuw i8, ptr %.sroa.0.i26.i, i64 2
+  %.sroa.0.i26.i.1.i26.i.1.i26.i.1.i26.1.i26.1.gep.sroa_idx352 = getelementptr inbounds nuw i8, ptr %.sroa.0.i26.i, i64 1
+  %.sroa.0.i.i19.1.i.i19.1.i.i19.1.i.1.i.1.gep.sroa_idx348 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i19, i64 1
+  %.sroa.0.i.i19.2.i.i19.2.i.i19.2.i.2.i.2.gep1.sroa_idx350 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i19, i64 2
+  %.sroa.0.i.i19.1.i.i19.1.i.i19.1.i.1.i.1.gep.sroa_idx349 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i19, i64 1
+  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx345 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 1
+  %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx347 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 2
+  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx346 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 1
+  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx342 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx344 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx343 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
   br label %27
 
 _ZN6memchr4arch7generic6memchr21search_slice_with_raw17h37cae6603202fe98E.exit.thread: ; preds = %3, %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h37cae6603202fe98E.exit
@@ -485,12 +485,12 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17h37cae6603202fe98E.exit.t
   %84 = trunc i32 %83 to i8
   %85 = and i8 %84, 63
   %86 = or disjoint i8 %85, -128
-  store i8 %86, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx321, align 1, !alias.scope !49, !noalias !46
+  store i8 %86, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx342, align 1, !alias.scope !49, !noalias !46
   %87 = lshr i32 %.sroa.4.0.i.ph.i.i, 6
   %88 = trunc i32 %87 to i8
   %89 = and i8 %88, 63
   %90 = or disjoint i8 %89, -128
-  store i8 %90, ptr %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx323, align 2, !alias.scope !49, !noalias !46
+  store i8 %90, ptr %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx344, align 2, !alias.scope !49, !noalias !46
   br label %_ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i
 
 91:                                               ; preds = %77
@@ -502,7 +502,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17h37cae6603202fe98E.exit.t
   %96 = trunc i32 %95 to i8
   %97 = and i8 %96, 63
   %98 = or disjoint i8 %97, -128
-  store i8 %98, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx322, align 1, !alias.scope !49, !noalias !46
+  store i8 %98, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx343, align 1, !alias.scope !49, !noalias !46
   br label %_ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i
 
 99:                                               ; preds = %75
@@ -661,12 +661,12 @@ _ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i: ; preds = %99
   %183 = trunc i32 %182 to i8
   %184 = and i8 %183, 63
   %185 = or disjoint i8 %184, -128
-  store i8 %185, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx324, align 1, !alias.scope !80, !noalias !79
+  store i8 %185, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx345, align 1, !alias.scope !80, !noalias !79
   %186 = lshr i32 %.sroa.4.0.i.ph.i.i.i, 6
   %187 = trunc i32 %186 to i8
   %188 = and i8 %187, 63
   %189 = or disjoint i8 %188, -128
-  store i8 %189, ptr %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx326, align 2, !alias.scope !80, !noalias !79
+  store i8 %189, ptr %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx347, align 2, !alias.scope !80, !noalias !79
   br label %_ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i.i
 
 190:                                              ; preds = %176
@@ -678,7 +678,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i: ; preds = %99
   %195 = trunc i32 %194 to i8
   %196 = and i8 %195, 63
   %197 = or disjoint i8 %196, -128
-  store i8 %197, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx325, align 1, !alias.scope !80, !noalias !79
+  store i8 %197, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx346, align 1, !alias.scope !80, !noalias !79
   br label %_ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i.i
 
 198:                                              ; preds = %174
@@ -844,12 +844,12 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.i: ; preds = %"_ZN5alloc3v
   %283 = trunc i32 %282 to i8
   %284 = and i8 %283, 63
   %285 = or disjoint i8 %284, -128
-  store i8 %285, ptr %.sroa.0.i.i19.1.i.i19.1.i.i19.1.i.1.i.1.gep.sroa_idx327, align 1, !alias.scope !111, !noalias !110
+  store i8 %285, ptr %.sroa.0.i.i19.1.i.i19.1.i.i19.1.i.1.i.1.gep.sroa_idx348, align 1, !alias.scope !111, !noalias !110
   %286 = lshr i32 %.sroa.4.0.i.ph.i.i.i26, 6
   %287 = trunc i32 %286 to i8
   %288 = and i8 %287, 63
   %289 = or disjoint i8 %288, -128
-  store i8 %289, ptr %.sroa.0.i.i19.2.i.i19.2.i.i19.2.i.2.i.2.gep1.sroa_idx329, align 2, !alias.scope !111, !noalias !110
+  store i8 %289, ptr %.sroa.0.i.i19.2.i.i19.2.i.i19.2.i.2.i.2.gep1.sroa_idx350, align 2, !alias.scope !111, !noalias !110
   br label %_ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i.i28
 
 290:                                              ; preds = %276
@@ -861,7 +861,7 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.i: ; preds = %"_ZN5alloc3v
   %295 = trunc i32 %294 to i8
   %296 = and i8 %295, 63
   %297 = or disjoint i8 %296, -128
-  store i8 %297, ptr %.sroa.0.i.i19.1.i.i19.1.i.i19.1.i.1.i.1.gep.sroa_idx328, align 1, !alias.scope !111, !noalias !110
+  store i8 %297, ptr %.sroa.0.i.i19.1.i.i19.1.i.i19.1.i.1.i.1.gep.sroa_idx349, align 1, !alias.scope !111, !noalias !110
   br label %_ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i.i28
 
 298:                                              ; preds = %274
@@ -1051,12 +1051,12 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit25.i: ; preds = %379, %376
   %393 = trunc i32 %392 to i8
   %394 = and i8 %393, 63
   %395 = or disjoint i8 %394, -128
-  store i8 %395, ptr %.sroa.0.i26.i.1.i26.i.1.i26.i.1.i26.1.i26.1.gep.sroa_idx330, align 1, !alias.scope !148, !noalias !147
+  store i8 %395, ptr %.sroa.0.i26.i.1.i26.i.1.i26.i.1.i26.1.i26.1.gep.sroa_idx351, align 1, !alias.scope !148, !noalias !147
   %396 = lshr i32 %.sroa.4.0.i.ph.i.i2.i, 6
   %397 = trunc i32 %396 to i8
   %398 = and i8 %397, 63
   %399 = or disjoint i8 %398, -128
-  store i8 %399, ptr %.sroa.0.i26.i.2.i26.i.2.i26.i.2.i26.2.i26.2.gep1.sroa_idx332, align 2, !alias.scope !148, !noalias !147
+  store i8 %399, ptr %.sroa.0.i26.i.2.i26.i.2.i26.i.2.i26.2.i26.2.gep1.sroa_idx353, align 2, !alias.scope !148, !noalias !147
   br label %_ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i30.i
 
 400:                                              ; preds = %386
@@ -1068,7 +1068,7 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit25.i: ; preds = %379, %376
   %405 = trunc i32 %404 to i8
   %406 = and i8 %405, 63
   %407 = or disjoint i8 %406, -128
-  store i8 %407, ptr %.sroa.0.i26.i.1.i26.i.1.i26.i.1.i26.1.i26.1.gep.sroa_idx331, align 1, !alias.scope !148, !noalias !147
+  store i8 %407, ptr %.sroa.0.i26.i.1.i26.i.1.i26.i.1.i26.1.i26.1.gep.sroa_idx352, align 1, !alias.scope !148, !noalias !147
   br label %_ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i30.i
 
 408:                                              ; preds = %384
@@ -1230,12 +1230,12 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.i27: ; preds = %"_ZN5alloc
   %494 = trunc i32 %493 to i8
   %495 = and i8 %494, 63
   %496 = or disjoint i8 %495, -128
-  store i8 %496, ptr %.sroa.0.i.i42.1.i.i42.1.i.i42.1.i.1.i.1.gep.sroa_idx333, align 1, !alias.scope !178, !noalias !177
+  store i8 %496, ptr %.sroa.0.i.i42.1.i.i42.1.i.i42.1.i.1.i.1.gep.sroa_idx354, align 1, !alias.scope !178, !noalias !177
   %497 = lshr i32 %.sroa.4.0.i.ph.i.i.i44, 6
   %498 = trunc i32 %497 to i8
   %499 = and i8 %498, 63
   %500 = or disjoint i8 %499, -128
-  store i8 %500, ptr %.sroa.0.i.i42.2.i.i42.2.i.i42.2.i.2.i.2.gep1.sroa_idx335, align 2, !alias.scope !178, !noalias !177
+  store i8 %500, ptr %.sroa.0.i.i42.2.i.i42.2.i.i42.2.i.2.i.2.gep1.sroa_idx356, align 2, !alias.scope !178, !noalias !177
   br label %_ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i.i48
 
 501:                                              ; preds = %487
@@ -1247,7 +1247,7 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.i27: ; preds = %"_ZN5alloc
   %506 = trunc i32 %505 to i8
   %507 = and i8 %506, 63
   %508 = or disjoint i8 %507, -128
-  store i8 %508, ptr %.sroa.0.i.i42.1.i.i42.1.i.i42.1.i.1.i.1.gep.sroa_idx334, align 1, !alias.scope !178, !noalias !177
+  store i8 %508, ptr %.sroa.0.i.i42.1.i.i42.1.i.i42.1.i.1.i.1.gep.sroa_idx355, align 1, !alias.scope !178, !noalias !177
   br label %_ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i.i48
 
 509:                                              ; preds = %485

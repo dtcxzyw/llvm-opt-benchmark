@@ -186,8 +186,8 @@ define internal range(i32 -1, 1) i32 @hwloc_cuda_discover(ptr noundef readonly c
   %switch.maskindex = trunc i32 %66 to i16
   %switch.shifted = lshr i16 705, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond90 = select i1 %73, i1 %switch.lobit, i1 false
-  br i1 %or.cond90, label %switch.lookup87, label %hwloc_cuda_cores_per_MP.exit.thread60
+  %or.cond94 = select i1 %73, i1 %switch.lobit, i1 false
+  br i1 %or.cond94, label %switch.lookup91, label %hwloc_cuda_cores_per_MP.exit.thread60
 
 hwloc_cuda_cores_per_MP.exit.thread.fold.split:   ; preds = %68
   br label %hwloc_cuda_cores_per_MP.exit.thread
@@ -198,14 +198,14 @@ switch.lookup:                                    ; preds = %70
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %hwloc_cuda_cores_per_MP.exit.thread
 
-switch.lookup87:                                  ; preds = %72
+switch.lookup91:                                  ; preds = %72
   %75 = zext nneg i32 %66 to i64
-  %switch.gep88 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.hwloc_cuda_discover.3, i64 0, i64 %75
-  %switch.load89 = load i32, ptr %switch.gep88, align 4
+  %switch.gep92 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.hwloc_cuda_discover.3, i64 0, i64 %75
+  %switch.load93 = load i32, ptr %switch.gep92, align 4
   br label %hwloc_cuda_cores_per_MP.exit.thread
 
-hwloc_cuda_cores_per_MP.exit.thread:              ; preds = %switch.lookup87, %switch.lookup, %68, %hwloc_cuda_cores_per_MP.exit.thread.fold.split, %52, %67, %69
-  %.0.i59 = phi i32 [ 192, %52 ], [ 8, %67 ], [ 128, %69 ], [ 32, %68 ], [ 48, %hwloc_cuda_cores_per_MP.exit.thread.fold.split ], [ %switch.load, %switch.lookup ], [ %switch.load89, %switch.lookup87 ]
+hwloc_cuda_cores_per_MP.exit.thread:              ; preds = %switch.lookup91, %switch.lookup, %68, %hwloc_cuda_cores_per_MP.exit.thread.fold.split, %52, %67, %69
+  %.0.i59 = phi i32 [ 192, %52 ], [ 8, %67 ], [ 128, %69 ], [ 32, %68 ], [ 48, %hwloc_cuda_cores_per_MP.exit.thread.fold.split ], [ %switch.load, %switch.lookup ], [ %switch.load93, %switch.lookup91 ]
   %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.13, i32 noundef %.0.i59) #8
   %77 = call i32 @hwloc_modify_infos(ptr noundef nonnull %44, i64 noundef 1, ptr noundef nonnull @.str.14, ptr noundef nonnull %7) #8
   br label %hwloc_cuda_cores_per_MP.exit.thread60

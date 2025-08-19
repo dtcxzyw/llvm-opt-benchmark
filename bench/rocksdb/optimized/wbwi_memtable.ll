@@ -986,9 +986,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   %.lhs.trunc = trunc i64 %.0.copyload.i.i93 to i8
   %216 = urem i8 %.lhs.trunc, 100
   %217 = shl nuw i8 %216, 1
-  %.lhs.trunc312 = trunc i64 %.0.copyload.i.i93 to i8
-  %218 = udiv i8 %.lhs.trunc312, 100
-  %.zext313 = zext nneg i8 %218 to i32
+  %.lhs.trunc385 = trunc i64 %.0.copyload.i.i93 to i8
+  %218 = udiv i8 %.lhs.trunc385, 100
+  %.zext386 = zext nneg i8 %218 to i32
   %219 = or disjoint i8 %217, 1
   %220 = zext i8 %219 to i64
   %221 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %220
@@ -1024,8 +1024,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 243:                                              ; preds = %._crit_edge.i.i.thread, %._crit_edge.i.i
-  %.0.lcssa.i.i311 = phi i32 [ %.zext313, %._crit_edge.i.i.thread ], [ %209, %._crit_edge.i.i ]
-  %244 = trunc nuw nsw i32 %.0.lcssa.i.i311 to i8
+  %.0.lcssa.i.i384 = phi i32 [ %.zext386, %._crit_edge.i.i.thread ], [ %209, %._crit_edge.i.i ]
+  %244 = trunc nuw nsw i32 %.0.lcssa.i.i384 to i8
   %245 = or disjoint i8 %244, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 

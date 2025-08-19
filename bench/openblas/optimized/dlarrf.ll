@@ -377,8 +377,8 @@ define void @dlarrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br i1 %230, label %.lr.ph493.preheader, label %._crit_edge494
 
 .lr.ph493.preheader:                              ; preds = %222
-  %invariant.gep538 = getelementptr double, ptr %22, i64 %224
-  %invariant.gep540 = getelementptr double, ptr %22, i64 %224
+  %invariant.gep546 = getelementptr double, ptr %22, i64 %224
+  %invariant.gep548 = getelementptr double, ptr %22, i64 %224
   br label %.lr.ph493
 
 .lr.ph493:                                        ; preds = %.lr.ph493.preheader, %250
@@ -400,15 +400,15 @@ define void @dlarrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %239 = fmul double %231, %238
   %240 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv.next519
   %241 = load double, ptr %240, align 8, !tbaa !7
-  %gep539 = getelementptr double, ptr %invariant.gep538, i64 %indvars.iv.next519
-  %242 = load double, ptr %gep539, align 8, !tbaa !7
+  %gep547 = getelementptr double, ptr %invariant.gep546, i64 %indvars.iv.next519
+  %242 = load double, ptr %gep547, align 8, !tbaa !7
   %243 = fmul double %241, %242
   %244 = fdiv double %239, %243
   br label %250
 
 245:                                              ; preds = %.lr.ph493
-  %gep541 = getelementptr double, ptr %invariant.gep540, i64 %indvars.iv.next519
-  %246 = load double, ptr %gep541, align 8, !tbaa !7
+  %gep549 = getelementptr double, ptr %invariant.gep548, i64 %indvars.iv.next519
+  %246 = load double, ptr %gep549, align 8, !tbaa !7
   %247 = fcmp oge double %246, 0.000000e+00
   %248 = fneg double %246
   %249 = select i1 %247, double %246, double %248

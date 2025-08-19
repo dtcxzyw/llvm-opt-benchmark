@@ -94,7 +94,7 @@ define internal zeroext i1 @HIDAPI_DriverSteam_InitDevice(ptr noundef %0) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %9 = load i16, ptr %8, align 2
   %10 = icmp eq i16 %9, 4418
-  br i1 %10, label %11, label %.thread72
+  br i1 %10, label %11, label %.thread75
 
 11:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -215,7 +215,7 @@ define internal zeroext i1 @HIDAPI_DriverSteam_InitDevice(ptr noundef %0) #0 {
   %exitcond.not = icmp eq i32 %60, 5
   br i1 %exitcond.not, label %.loopexit, label %38, !llvm.loop !7
 
-.thread72:                                        ; preds = %6
+.thread75:                                        ; preds = %6
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 1, ptr %61, align 8
   br label %64
@@ -228,7 +228,7 @@ define internal zeroext i1 @HIDAPI_DriverSteam_InitDevice(ptr noundef %0) #0 {
   %63 = trunc nuw i8 %.pre to i1
   br i1 %63, label %64, label %66
 
-64:                                               ; preds = %.thread72, %.loopexit
+64:                                               ; preds = %.thread75, %.loopexit
   %65 = call zeroext i1 @HIDAPI_JoystickConnected(ptr noundef nonnull %0, ptr noundef null) #9
   br label %66
 
@@ -964,25 +964,25 @@ UpdateSteamControllerState.exit:                  ; preds = %144
   %or.cond = and i1 %.1.i, %.not
   %421 = icmp eq i8 %142, 1
   %422 = icmp ult i16 %141, 256
-  %or.cond153 = and i1 %421, %422
+  %or.cond163 = and i1 %421, %422
   br i1 %or.cond, label %425, label %433
 
 UpdateSteamControllerState.exit.thread:           ; preds = %266
   %423 = load i8, ptr %96, align 8, !range !3, !noundef !4
   %424 = trunc nuw i8 %423 to i1
-  %.not145 = xor i1 %424, true
-  %or.cond146 = and i1 %.1.i, %.not145
-  br i1 %or.cond146, label %.thread148, label %.thread149
+  %.not155 = xor i1 %424, true
+  %or.cond156 = and i1 %.1.i, %.not155
+  br i1 %or.cond156, label %.thread158, label %.thread159
 
 425:                                              ; preds = %UpdateSteamControllerState.exit
-  br i1 %or.cond153, label %.thread148, label %.thread
+  br i1 %or.cond163, label %.thread158, label %.thread
 
-.thread148:                                       ; preds = %425, %UpdateSteamControllerState.exit.thread
+.thread158:                                       ; preds = %425, %UpdateSteamControllerState.exit.thread
   %426 = load i8, ptr %57, align 1
   %427 = icmp eq i8 %426, 3
   br i1 %427, label %428, label %.thread
 
-428:                                              ; preds = %.thread148
+428:                                              ; preds = %.thread158
   %429 = load i8, ptr %105, align 1
   %.not114 = icmp eq i8 %429, 0
   br i1 %.not114, label %.thread, label %430
@@ -997,20 +997,20 @@ UpdateSteamControllerState.exit.thread:           ; preds = %266
   br label %.thread
 
 433:                                              ; preds = %UpdateSteamControllerState.exit
-  %434 = and i1 %or.cond153, %420
-  %or.cond155 = and i1 %434, %.1.i
-  br i1 %or.cond155, label %.thread152, label %.thread
+  %434 = and i1 %or.cond163, %420
+  %or.cond165 = and i1 %434, %.1.i
+  br i1 %or.cond165, label %.thread162, label %.thread
 
-.thread149:                                       ; preds = %UpdateSteamControllerState.exit.thread
-  %or.cond3150 = and i1 %.1.i, %424
-  br i1 %or.cond3150, label %.thread152, label %.thread
+.thread159:                                       ; preds = %UpdateSteamControllerState.exit.thread
+  %or.cond3160 = and i1 %.1.i, %424
+  br i1 %or.cond3160, label %.thread162, label %.thread
 
-.thread152:                                       ; preds = %433, %.thread149
+.thread162:                                       ; preds = %433, %.thread159
   %435 = load i8, ptr %57, align 1
   %436 = icmp eq i8 %435, 3
   br i1 %436, label %437, label %.thread
 
-437:                                              ; preds = %.thread152
+437:                                              ; preds = %.thread162
   %438 = load i8, ptr %105, align 1
   %.not116 = icmp eq i8 %438, 0
   br i1 %.not116, label %.thread, label %439
@@ -1037,7 +1037,7 @@ ControllerDisconnected.exit127:                   ; preds = %442, %445
   store ptr null, ptr %4, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.thread149, %136, %129, %126, %119, %125, %425, %.thread148, %428, %430, %313, %433, %.thread152, %437, %439, %ControllerDisconnected.exit127, %432, %418
+.thread:                                          ; preds = %.thread159, %136, %129, %126, %119, %125, %425, %.thread158, %428, %430, %313, %433, %.thread162, %437, %439, %ControllerDisconnected.exit127, %432, %418
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %448 = load ptr, ptr %46, align 8

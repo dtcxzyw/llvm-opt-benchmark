@@ -1215,13 +1215,13 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn uwtable
 define void @_ZN9uv_pep5086marker4tree14MarkerOperator11from_bounds17h00571ef34ad18c67E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = load i64, ptr %1, align 8, !range !231, !noundef !4
-  switch i64 %4, label %default.unreachable56 [
+  switch i64 %4, label %default.unreachable57 [
     i64 0, label %5
     i64 1, label %9
     i64 2, label %13
   ]
 
-default.unreachable56:                            ; preds = %_ZN9uv_pep5086marker4tree14MarkerOperator16from_lower_bound17h6b4ab95bf61f8e11E.exit, %3
+default.unreachable57:                            ; preds = %_ZN9uv_pep5086marker4tree14MarkerOperator16from_lower_bound17h6b4ab95bf61f8e11E.exit, %3
   unreachable
 
 5:                                                ; preds = %3
@@ -1302,7 +1302,7 @@ _ZN9uv_pep5086marker4tree14MarkerOperator16from_lower_bound17h6b4ab95bf61f8e11E.
   %.sroa.0.0.i = phi i8 [ 11, %13 ], [ 3, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.thread45" ], [ 3, %17 ], [ 3, %21 ], [ 2, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit36.thread48" ], [ 2, %27 ], [ 2, %31 ], [ %.sroa.0.0.ph.i, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.sink.split.i" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !235)
   %35 = load i64, ptr %2, align 8, !range !231, !alias.scope !235, !noundef !4
-  switch i64 %35, label %default.unreachable56 [
+  switch i64 %35, label %default.unreachable57 [
     i64 0, label %36
     i64 1, label %48
     i64 2, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit"
@@ -1632,8 +1632,8 @@ define void @"_ZN86_$LT$uv_pep508..marker..tree..MarkerOperator$u20$as$u20$core.
   br i1 %11, label %31, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h427c5a219e77aa44E.exit38"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h427c5a219e77aa44E.exit30.thread75": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h427c5a219e77aa44E.exit22"
-  %lhsc81 = load i8, ptr %1, align 1
-  %12 = icmp eq i8 %lhsc81, 60
+  %lhsc82 = load i8, ptr %1, align 1
+  %12 = icmp eq i8 %lhsc82, 60
   br i1 %12, label %31, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h590cb62755244ca7E.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h427c5a219e77aa44E.exit38": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h427c5a219e77aa44E.exit30.thread.thread"
@@ -3392,10 +3392,10 @@ define void @_ZN9uv_pep5086marker4tree10MarkerTree15top_level_extra17h21735e3a0a
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.54.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.559.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %.sroa.764.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.8.0..sroa_idx67 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sroa.969.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sroa.564.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %.sroa.769.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.8.0..sroa_idx72 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sroa.974.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0465bb0e59f50dcfE.exit"
 
 23:                                               ; preds = %.loopexit36, %.loopexit.split-lp37, %41
@@ -3638,22 +3638,22 @@ define void @_ZN9uv_pep5086marker4tree10MarkerTree15top_level_extra17h21735e3a0a
   %102 = landingpad { ptr, i32 }
           cleanup
   store i8 3, ptr %7, align 8
-  %.sroa.559.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 0, ptr %.sroa.559.0..sroa_idx, align 1
-  %.sroa.764.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %.sroa.02.0.i, ptr %.sroa.764.0..sroa_idx, align 8
+  %.sroa.564.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1
+  store i8 0, ptr %.sroa.564.0..sroa_idx, align 1
+  %.sroa.769.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %.sroa.02.0.i, ptr %.sroa.769.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %.sroa.54.0.i, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.969.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 %.sroa.6.0.i, ptr %.sroa.969.0..sroa_idx, align 8
+  %.sroa.974.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i64 %.sroa.6.0.i, ptr %.sroa.974.0..sroa_idx, align 8
   br label %41
 
 "_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..tree..MarkerExpression$GT$$GT$17h8941a2adb555377eE.exit22": ; preds = %"_ZN80_$LT$uv_pep508..marker..tree..MarkerExpression$u20$as$u20$core..clone..Clone$GT$5clone17h4170c1034d203473E.exit", %100
   store i8 3, ptr %7, align 8
-  store i8 0, ptr %.sroa.559.0..sroa_idx60, align 1
-  store i64 %.sroa.02.0.i, ptr %.sroa.764.0..sroa_idx65, align 8
-  store ptr %.sroa.54.0.i, ptr %.sroa.8.0..sroa_idx67, align 8
-  store i64 %.sroa.6.0.i, ptr %.sroa.969.0..sroa_idx70, align 8
+  store i8 0, ptr %.sroa.564.0..sroa_idx65, align 1
+  store i64 %.sroa.02.0.i, ptr %.sroa.769.0..sroa_idx70, align 8
+  store ptr %.sroa.54.0.i, ptr %.sroa.8.0..sroa_idx72, align 8
+  store i64 %.sroa.6.0.i, ptr %.sroa.974.0..sroa_idx75, align 8
   br label %"_ZN82_$LT$uv_pep508..marker..tree..MarkerExpression$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd39f066ffd81ac76E.exit.thread32.invoke"
 
 103:                                              ; preds = %23, %10, %41
@@ -6532,8 +6532,8 @@ _ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.exit: ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.9, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr null, ptr %.sroa.14.0..sroa_idx, align 8
-  %.sroa.1249.176..sroa.14.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i64 0, ptr %.sroa.1249.176..sroa.14.0..sroa_idx.sroa_idx, align 8
+  %.sroa.1252.176..sroa.14.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store i64 0, ptr %.sroa.1252.176..sroa.14.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 -9223372036854775808, ptr %0, align 8
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24

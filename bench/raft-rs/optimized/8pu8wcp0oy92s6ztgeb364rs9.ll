@@ -605,13 +605,13 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_general17h2
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 125:                                              ; preds = %._crit_edge.i.i
-  %.not19 = icmp ult ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %112
-  %.sroa.0.0..sroa.06.0.i.i = select i1 %.not19, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel
+  %.not23 = icmp ult ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %112
+  %.sroa.0.0..sroa.06.0.i.i = select i1 %.not23, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel
   %126 = load i64, ptr %.sroa.0.0..sroa.06.0.i.i, align 8, !alias.scope !97, !noalias !49
   store i64 %126, ptr %118, align 8, !alias.scope !49, !noalias !97
-  %.sroa.sel18.idx.sroa.sel.idx = select i1 %.not19, i64 8, i64 0
+  %.sroa.sel18.idx.sroa.sel.idx = select i1 %.not23, i64 8, i64 0
   %.sroa.sel18.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, i64 %.sroa.sel18.idx.sroa.sel.idx
-  %.sroa.sel.idx.sroa.sel.idx = select i1 %.not19, i64 0, i64 8
+  %.sroa.sel.idx.sroa.sel.idx = select i1 %.not23, i64 0, i64 8
   %.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel, i64 %.sroa.sel.idx.sroa.sel.idx
   br label %127
 

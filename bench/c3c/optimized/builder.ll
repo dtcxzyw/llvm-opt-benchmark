@@ -370,7 +370,7 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %45, %47
   %72 = getelementptr inbounds i8, ptr %70, i64 -8
   %73 = load i32, ptr %72, align 4
   %.not524 = icmp eq i32 %73, 0
-  br i1 %.not524, label %._crit_edge502.thread569, label %.lr.ph501.preheader
+  br i1 %.not524, label %._crit_edge502.thread629, label %.lr.ph501.preheader
 
 .lr.ph501.preheader:                              ; preds = %71
   %wide.trip.count535 = zext i32 %73 to i64
@@ -391,7 +391,7 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %45, %47
 ._crit_edge502:                                   ; preds = %74
   %.pre = load ptr, ptr %66, align 8
   %.not.i453 = icmp eq ptr %.pre, null
-  br i1 %.not.i453, label %._crit_edge502.thread, label %._crit_edge502.thread569
+  br i1 %.not.i453, label %._crit_edge502.thread, label %._crit_edge502.thread629
 
 ._crit_edge502.thread:                            ; preds = %67, %._crit_edge502
   %78 = tail call ptr @calloc_arena(i64 noundef 72) #7
@@ -399,16 +399,16 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %45, %47
   store i32 8, ptr %79, align 4
   br label %82
 
-._crit_edge502.thread569:                         ; preds = %71, %._crit_edge502
+._crit_edge502.thread629:                         ; preds = %71, %._crit_edge502
   %80 = phi ptr [ %.pre, %._crit_edge502 ], [ %70, %71 ]
   %81 = getelementptr inbounds i8, ptr %80, i64 -8
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %80, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %82
 
-82:                                               ; preds = %._crit_edge502.thread569, %._crit_edge502.thread
-  %83 = phi i32 [ %.pre.i, %._crit_edge502.thread569 ], [ 8, %._crit_edge502.thread ]
-  %.0.i = phi ptr [ %81, %._crit_edge502.thread569 ], [ %78, %._crit_edge502.thread ]
+82:                                               ; preds = %._crit_edge502.thread629, %._crit_edge502.thread
+  %83 = phi i32 [ %.pre.i, %._crit_edge502.thread629 ], [ 8, %._crit_edge502.thread ]
+  %.0.i = phi ptr [ %81, %._crit_edge502.thread629 ], [ %78, %._crit_edge502.thread ]
   %84 = load i32, ptr %.0.i, align 4
   %85 = icmp eq i32 %84, %83
   br i1 %85, label %86, label %100
@@ -1477,13 +1477,13 @@ command_accepts_files.exit:                       ; preds = %446, %446, %446, %4
 634:                                              ; preds = %._crit_edge520
   %635 = load i32, ptr %632, align 4
   %636 = icmp eq i32 %635, -1
-  br i1 %636, label %.thread571, label %637
+  br i1 %636, label %.thread631, label %637
 
-.thread571:                                       ; preds = %634
+.thread631:                                       ; preds = %634
   store i32 0, ptr %632, align 4
   br label %647
 
-637:                                              ; preds = %633, %634
+637:                                              ; preds = %634, %633
   %638 = phi i32 [ %635, %634 ], [ %631, %633 ]
   switch i32 %638, label %646 [
     i32 0, label %647
@@ -1521,13 +1521,13 @@ command_accepts_files.exit:                       ; preds = %446, %446, %446, %4
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.update_build_target_with_opt_level, ptr noundef nonnull @.str.2, i32 noundef 146) #6
   unreachable
 
-647:                                              ; preds = %.thread571, %645, %644, %643, %642, %641, %640, %639, %637
-  %.024.i = phi i32 [ %638, %637 ], [ 2, %639 ], [ %638, %640 ], [ 2, %641 ], [ 3, %642 ], [ 3, %643 ], [ 2, %644 ], [ 2, %645 ], [ 0, %.thread571 ]
-  %.023.i = phi i32 [ %638, %637 ], [ 0, %639 ], [ 0, %640 ], [ 0, %641 ], [ 0, %642 ], [ 0, %643 ], [ 1, %644 ], [ 2, %645 ], [ 0, %.thread571 ]
-  %.022.i = phi i32 [ 2, %637 ], [ 2, %639 ], [ 2, %640 ], [ 2, %641 ], [ 2, %642 ], [ 2, %643 ], [ 2, %644 ], [ 0, %645 ], [ 2, %.thread571 ]
-  %.021.i = phi i32 [ 1, %637 ], [ 1, %639 ], [ 0, %640 ], [ 0, %641 ], [ 0, %642 ], [ 0, %643 ], [ 0, %644 ], [ 0, %645 ], [ 1, %.thread571 ]
-  %.020.i = phi i1 [ false, %637 ], [ false, %639 ], [ false, %640 ], [ true, %641 ], [ true, %642 ], [ true, %643 ], [ false, %644 ], [ true, %645 ], [ false, %.thread571 ]
-  %.0.i490 = phi i32 [ %638, %637 ], [ 0, %639 ], [ 0, %640 ], [ 0, %641 ], [ 1, %642 ], [ 2, %643 ], [ 0, %644 ], [ 0, %645 ], [ 0, %.thread571 ]
+647:                                              ; preds = %.thread631, %645, %644, %643, %642, %641, %640, %639, %637
+  %.024.i = phi i32 [ %638, %637 ], [ 2, %639 ], [ %638, %640 ], [ 2, %641 ], [ 3, %642 ], [ 3, %643 ], [ 2, %644 ], [ 2, %645 ], [ 0, %.thread631 ]
+  %.023.i = phi i32 [ %638, %637 ], [ 0, %639 ], [ 0, %640 ], [ 0, %641 ], [ 0, %642 ], [ 0, %643 ], [ 1, %644 ], [ 2, %645 ], [ 0, %.thread631 ]
+  %.022.i = phi i32 [ 2, %637 ], [ 2, %639 ], [ 2, %640 ], [ 2, %641 ], [ 2, %642 ], [ 2, %643 ], [ 2, %644 ], [ 0, %645 ], [ 2, %.thread631 ]
+  %.021.i = phi i32 [ 1, %637 ], [ 1, %639 ], [ 0, %640 ], [ 0, %641 ], [ 0, %642 ], [ 0, %643 ], [ 0, %644 ], [ 0, %645 ], [ 1, %.thread631 ]
+  %.020.i = phi i1 [ false, %637 ], [ false, %639 ], [ false, %640 ], [ true, %641 ], [ true, %642 ], [ true, %643 ], [ false, %644 ], [ true, %645 ], [ false, %.thread631 ]
+  %.0.i490 = phi i32 [ %638, %637 ], [ 0, %639 ], [ 0, %640 ], [ 0, %641 ], [ 1, %642 ], [ 2, %643 ], [ 0, %644 ], [ 0, %645 ], [ 0, %.thread631 ]
   %648 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %649 = load i32, ptr %648, align 8
   %650 = icmp eq i32 %649, -1

@@ -1081,7 +1081,7 @@ define internal fastcc noundef zeroext i1 @_ZL20isConfigurationValuePKN5clang4St
   %18 = getelementptr inbounds nuw i8, ptr %.169, i64 16
   %.sroa.0.0.copyload.i = load i32, ptr %18, align 8, !tbaa !205
   %19 = icmp slt i32 %.sroa.0.0.copyload.i, 0
-  br i1 %19, label %.thread231, label %tailrecurse
+  br i1 %19, label %.thread238, label %tailrecurse
 
 tailrecurse:                                      ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %.169, i64 24
@@ -1092,16 +1092,16 @@ tailrecurse:                                      ; preds = %17
 22:                                               ; preds = %.thread
   %23 = add nsw i16 %16, -132
   %spec.select.i.i.i.i.i.i.i.i95 = icmp ult i16 %23, -129
-  br i1 %spec.select.i.i.i.i.i.i.i.i95, label %25, label %.thread231
+  br i1 %spec.select.i.i.i.i.i.i.i.i95, label %25, label %.thread238
 
-.thread231:                                       ; preds = %17, %22
+.thread238:                                       ; preds = %17, %22
   %24 = tail call noundef ptr @_ZN5clang4Expr11IgnoreCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %.169) #17
   %.pre225 = load i16, ptr %24, align 8
   br label %25
 
-25:                                               ; preds = %.thread231, %22
-  %26 = phi i16 [ %.pre225, %.thread231 ], [ %15, %22 ]
-  %.270 = phi ptr [ %24, %.thread231 ], [ %.169, %22 ]
+25:                                               ; preds = %.thread238, %22
+  %26 = phi i16 [ %.pre225, %.thread238 ], [ %15, %22 ]
+  %.270 = phi ptr [ %24, %.thread238 ], [ %.169, %22 ]
   %27 = and i16 %26, 511
   switch i16 %27, label %_ZL32isExpandedFromConfigurationMacroPKN5clang4StmtERNS_12PreprocessorEb.exit [
     i16 91, label %28
@@ -1110,7 +1110,7 @@ tailrecurse:                                      ; preds = %17
     i16 117, label %.loopexit.loopexit
     i16 54, label %.loopexit.loopexit
     i16 48, label %91
-    i16 5, label %_ZL32isExpandedFromConfigurationMacroPKN5clang4StmtERNS_12PreprocessorEb.exit.loopexit338
+    i16 5, label %_ZL32isExpandedFromConfigurationMacroPKN5clang4StmtERNS_12PreprocessorEb.exit.loopexit345
     i16 120, label %95
     i16 4, label %110
   ]
@@ -1351,11 +1351,11 @@ tailrecurse.outer123:                             ; preds = %95
   store i64 %133, ptr %.tr120.ph177, align 4
   br label %_ZL32isExpandedFromConfigurationMacroPKN5clang4StmtERNS_12PreprocessorEb.exit
 
-_ZL32isExpandedFromConfigurationMacroPKN5clang4StmtERNS_12PreprocessorEb.exit.loopexit338: ; preds = %25
+_ZL32isExpandedFromConfigurationMacroPKN5clang4StmtERNS_12PreprocessorEb.exit.loopexit345: ; preds = %25
   br label %_ZL32isExpandedFromConfigurationMacroPKN5clang4StmtERNS_12PreprocessorEb.exit
 
-_ZL32isExpandedFromConfigurationMacroPKN5clang4StmtERNS_12PreprocessorEb.exit: ; preds = %.thread109, %110, %95, %tailrecurse.outer123, %tailrecurse, %25, %_ZL32isExpandedFromConfigurationMacroPKN5clang4StmtERNS_12PreprocessorEb.exit.loopexit338, %5, %28, %35, %122, %117, %_ZN4llvmeqENS_9StringRefES0_.exit50.i, %_ZN4llvmeqENS_9StringRefES0_.exit46.i, %_ZL15getTopMostMacroN5clang14SourceLocationERNS_13SourceManagerE.exit42.i, %73, %_ZN4llvmeqENS_9StringRefES0_.exit36.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZL15getTopMostMacroN5clang14SourceLocationERNS_13SourceManagerE.exit.i, %53, %45, %91, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit, %.loopexit, %.critedge, %123, %132
-  %.0 = phi i1 [ %48, %45 ], [ %94, %91 ], [ %44, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit ], [ true, %.critedge ], [ false, %.loopexit ], [ %121, %132 ], [ %121, %123 ], [ true, %73 ], [ false, %53 ], [ true, %_ZL15getTopMostMacroN5clang14SourceLocationERNS_13SourceManagerE.exit.i ], [ %72, %_ZN4llvmeqENS_9StringRefES0_.exit36.i ], [ true, %_ZL15getTopMostMacroN5clang14SourceLocationERNS_13SourceManagerE.exit42.i ], [ %90, %_ZN4llvmeqENS_9StringRefES0_.exit50.i ], [ %71, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ %89, %_ZN4llvmeqENS_9StringRefES0_.exit46.i ], [ %121, %117 ], [ %121, %122 ], [ false, %35 ], [ false, %28 ], [ false, %5 ], [ false, %25 ], [ false, %tailrecurse ], [ false, %tailrecurse.outer123 ], [ true, %95 ], [ true, %_ZL32isExpandedFromConfigurationMacroPKN5clang4StmtERNS_12PreprocessorEb.exit.loopexit338 ], [ false, %110 ], [ false, %.thread109 ]
+_ZL32isExpandedFromConfigurationMacroPKN5clang4StmtERNS_12PreprocessorEb.exit: ; preds = %.thread109, %110, %95, %tailrecurse.outer123, %tailrecurse, %25, %_ZL32isExpandedFromConfigurationMacroPKN5clang4StmtERNS_12PreprocessorEb.exit.loopexit345, %5, %28, %35, %122, %117, %_ZN4llvmeqENS_9StringRefES0_.exit50.i, %_ZN4llvmeqENS_9StringRefES0_.exit46.i, %_ZL15getTopMostMacroN5clang14SourceLocationERNS_13SourceManagerE.exit42.i, %73, %_ZN4llvmeqENS_9StringRefES0_.exit36.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZL15getTopMostMacroN5clang14SourceLocationERNS_13SourceManagerE.exit.i, %53, %45, %91, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit, %.loopexit, %.critedge, %123, %132
+  %.0 = phi i1 [ %48, %45 ], [ %94, %91 ], [ %44, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit ], [ true, %.critedge ], [ false, %.loopexit ], [ %121, %132 ], [ %121, %123 ], [ true, %73 ], [ false, %53 ], [ true, %_ZL15getTopMostMacroN5clang14SourceLocationERNS_13SourceManagerE.exit.i ], [ %72, %_ZN4llvmeqENS_9StringRefES0_.exit36.i ], [ true, %_ZL15getTopMostMacroN5clang14SourceLocationERNS_13SourceManagerE.exit42.i ], [ %90, %_ZN4llvmeqENS_9StringRefES0_.exit50.i ], [ %71, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ %89, %_ZN4llvmeqENS_9StringRefES0_.exit46.i ], [ %121, %117 ], [ %121, %122 ], [ false, %35 ], [ false, %28 ], [ false, %5 ], [ false, %25 ], [ false, %tailrecurse ], [ false, %tailrecurse.outer123 ], [ true, %95 ], [ true, %_ZL32isExpandedFromConfigurationMacroPKN5clang4StmtERNS_12PreprocessorEb.exit.loopexit345 ], [ false, %110 ], [ false, %.thread109 ]
   ret i1 %.0
 }
 

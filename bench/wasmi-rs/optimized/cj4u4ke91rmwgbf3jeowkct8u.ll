@@ -457,7 +457,7 @@ define hidden void @_ZN5wasmi4func2ty8FuncType3new17h290989b8929d6290E(ptr dead_
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !69
   %78 = zext i8 %.sroa.13.sroa.6.1.copyload.i to i16
   %79 = shl nuw i16 %78, 8
-  %80 = trunc nuw i64 %31 to i16
+  %80 = trunc nuw nsw i64 %31 to i16
   br label %81
 
 81:                                               ; preds = %.loopexit.i.i, %24, %22

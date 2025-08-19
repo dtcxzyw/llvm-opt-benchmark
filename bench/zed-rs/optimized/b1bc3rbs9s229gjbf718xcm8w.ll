@@ -1582,8 +1582,8 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %17 = trunc i32 %16 to i8
   %18 = and i8 %17, 63
   %19 = or disjoint i8 %18, -128
-  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %19, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8, align 1, !alias.scope !478, !noalias !475
+  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %19, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx9, align 1, !alias.scope !478, !noalias !475
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 20:                                               ; preds = %6
@@ -1596,14 +1596,14 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %26 = trunc i32 %25 to i8
   %27 = and i8 %26, 63
   %28 = or disjoint i8 %27, -128
-  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %28, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx7, align 1, !alias.scope !478, !noalias !475
+  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %28, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8, align 1, !alias.scope !478, !noalias !475
   %29 = lshr i32 %1, 6
   %30 = trunc i32 %29 to i8
   %31 = and i8 %30, 63
   %32 = or disjoint i8 %31, -128
-  %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %32, ptr %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx9, align 2, !alias.scope !478, !noalias !475
+  %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %32, ptr %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx10, align 2, !alias.scope !478, !noalias !475
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i: ; preds = %20, %12, %8
@@ -4491,14 +4491,14 @@ _ZN5prost8encoding7message11encoded_len17h34ad4fad5e05b5d2E.exit.i.i.i.i.i.i.i.i
   br label %_ZN4core3ops8function6FnOnce9call_once17he3477c1d7c2b6540E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17he3477c1d7c2b6540E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN5prost8encoding7message11encoded_len17h34ad4fad5e05b5d2E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN5prost8encoding7message11encoded_len17h7e0db80b3abd8378E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN5prost8encoding7message11encoded_len17hc7821945a8386bcbE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN5prost8encoding7message11encoded_len17h91c9ac71a0676430E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN5prost8encoding7message11encoded_len17h86c08b9743f13ac2E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sink26.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %778, %_ZN5prost8encoding7message11encoded_len17h34ad4fad5e05b5d2E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %734, %_ZN5prost8encoding7message11encoded_len17h7e0db80b3abd8378E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %688, %_ZN5prost8encoding7message11encoded_len17hc7821945a8386bcbE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %637, %_ZN5prost8encoding7message11encoded_len17h91c9ac71a0676430E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %596, %_ZN5prost8encoding7message11encoded_len17h86c08b9743f13ac2E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %779 = or i64 %.sink26.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %.sink39.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %778, %_ZN5prost8encoding7message11encoded_len17h34ad4fad5e05b5d2E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %734, %_ZN5prost8encoding7message11encoded_len17h7e0db80b3abd8378E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %688, %_ZN5prost8encoding7message11encoded_len17hc7821945a8386bcbE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %637, %_ZN5prost8encoding7message11encoded_len17h91c9ac71a0676430E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %596, %_ZN5prost8encoding7message11encoded_len17h86c08b9743f13ac2E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %779 = or i64 %.sink39.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %780 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %779, i1 true)
   %781 = xor i64 %780, 63
   %782 = mul nuw nsw i64 %781, 9
   %783 = add nuw nsw i64 %782, 73
   %784 = lshr i64 %783, 6
-  %785 = add i64 %.sink26.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %785 = add i64 %.sink39.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %786 = add i64 %785, %784
   br label %"_ZN85_$LT$proto..context_operation..BufferOperation$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17ha8ec4c9991e5825fE.exit.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -4515,14 +4515,14 @@ _ZN4core3ops8function6FnOnce9call_once17he3477c1d7c2b6540E.exit.i.i.i.i.i.i.i.i.
   br label %_ZN4core3ops8function6FnOnce9call_once17h5e5817ab7d59bd5eE.exit.i.i.i.i.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17h5e5817ab7d59bd5eE.exit.i.i.i.i.i.i: ; preds = %"_ZN85_$LT$proto..context_operation..BufferOperation$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17ha8ec4c9991e5825fE.exit.i.i.i.i.i.i.i.i.i.i.i", %526, %_ZN5prost8encoding7message11encoded_len17hc1b10961749fcc65E.exit.i.i.i.i.i.i.i.i, %_ZN5prost8encoding7message11encoded_len17hf7a75485def276e5E.exit.i.i.i.i.i.i.i.i, %_ZN5prost8encoding7message11encoded_len17h038b08635658ffb5E.exit.i.i.i.i.i.i.i.i, %_ZN5prost8encoding7message11encoded_len17h45c33d2fbb76a0b7E.exit.i.i.i.i.i.i.i.i
-  %.sroa.02.0.i.i.i30.sink39.i.i.i.i.i.i.i.i = phi i64 [ %525, %_ZN5prost8encoding7message11encoded_len17hc1b10961749fcc65E.exit.i.i.i.i.i.i.i.i ], [ %349, %_ZN5prost8encoding7message11encoded_len17hf7a75485def276e5E.exit.i.i.i.i.i.i.i.i ], [ %299, %_ZN5prost8encoding7message11encoded_len17h038b08635658ffb5E.exit.i.i.i.i.i.i.i.i ], [ %190, %_ZN5prost8encoding7message11encoded_len17h45c33d2fbb76a0b7E.exit.i.i.i.i.i.i.i.i ], [ %794, %"_ZN85_$LT$proto..context_operation..BufferOperation$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17ha8ec4c9991e5825fE.exit.i.i.i.i.i.i.i.i.i.i.i" ], [ 0, %526 ]
-  %795 = or i64 %.sroa.02.0.i.i.i30.sink39.i.i.i.i.i.i.i.i, 1
+  %.sroa.02.0.i.i.i30.sink72.i.i.i.i.i.i.i.i = phi i64 [ %525, %_ZN5prost8encoding7message11encoded_len17hc1b10961749fcc65E.exit.i.i.i.i.i.i.i.i ], [ %349, %_ZN5prost8encoding7message11encoded_len17hf7a75485def276e5E.exit.i.i.i.i.i.i.i.i ], [ %299, %_ZN5prost8encoding7message11encoded_len17h038b08635658ffb5E.exit.i.i.i.i.i.i.i.i ], [ %190, %_ZN5prost8encoding7message11encoded_len17h45c33d2fbb76a0b7E.exit.i.i.i.i.i.i.i.i ], [ %794, %"_ZN85_$LT$proto..context_operation..BufferOperation$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17ha8ec4c9991e5825fE.exit.i.i.i.i.i.i.i.i.i.i.i" ], [ 0, %526 ]
+  %795 = or i64 %.sroa.02.0.i.i.i30.sink72.i.i.i.i.i.i.i.i, 1
   %796 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %795, i1 true)
   %797 = xor i64 %796, 63
   %798 = mul nuw nsw i64 %797, 9
   %799 = add nuw nsw i64 %798, 73
   %800 = lshr i64 %799, 6
-  %801 = add i64 %.sroa.02.0.i.i.i30.sink39.i.i.i.i.i.i.i.i, 1
+  %801 = add i64 %.sroa.02.0.i.i.i30.sink72.i.i.i.i.i.i.i.i, 1
   %802 = add i64 %801, %800
   br label %"_ZN64_$LT$proto..UpdateContext$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h4b51e99b02bac686E.exit.i.i"
 
@@ -13185,14 +13185,14 @@ _ZN5prost8encoding7message11encoded_len17h67bada11ab4f87abE.exit.i.i.i.i: ; pred
   br label %_ZN4core3ops8function6FnOnce9call_once17hc9ec6fcc49ebb685E.exit.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17hc9ec6fcc49ebb685E.exit.i.i: ; preds = %_ZN5prost8encoding7message11encoded_len17h67bada11ab4f87abE.exit.i.i.i.i, %_ZN5prost8encoding7message11encoded_len17he9843e64d58181d7E.exit.i.i.i.i
-  %.sink6.i.i.i.i = phi i64 [ %228, %_ZN5prost8encoding7message11encoded_len17h67bada11ab4f87abE.exit.i.i.i.i ], [ %204, %_ZN5prost8encoding7message11encoded_len17he9843e64d58181d7E.exit.i.i.i.i ]
-  %229 = or i64 %.sink6.i.i.i.i, 1
+  %.sink11.i.i.i.i = phi i64 [ %228, %_ZN5prost8encoding7message11encoded_len17h67bada11ab4f87abE.exit.i.i.i.i ], [ %204, %_ZN5prost8encoding7message11encoded_len17he9843e64d58181d7E.exit.i.i.i.i ]
+  %229 = or i64 %.sink11.i.i.i.i, 1
   %230 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %229, i1 true)
   %231 = xor i64 %230, 63
   %232 = mul nuw nsw i64 %231, 9
   %233 = add nuw nsw i64 %232, 73
   %234 = lshr i64 %233, 6
-  %235 = add i64 %.sink6.i.i.i.i, 1
+  %235 = add i64 %.sink11.i.i.i.i, 1
   %236 = add i64 %235, %234
   br label %"_ZN70_$LT$proto..CreateBufferForPeer$u20$as$u20$prost..message..Message$GT$11encoded_len17haddb869ad721d309E.exit"
 
@@ -20654,7 +20654,7 @@ define internal void @"_ZN6remote11ssh_session16ChannelForwarder3new28_$u7b$$u7b
   %5 = alloca [416 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 458
   %7 = load i8, ptr %6, align 2, !range !157, !noundef !13
-  switch i8 %7, label %default.unreachable80 [
+  switch i8 %7, label %default.unreachable88 [
     i8 0, label %8
     i8 1, label %11
     i8 2, label %12
@@ -20663,7 +20663,7 @@ define internal void @"_ZN6remote11ssh_session16ChannelForwarder3new28_$u7b$$u7b
     i8 5, label %13
   ]
 
-default.unreachable80:                            ; preds = %43, %3
+default.unreachable88:                            ; preds = %43, %3
   unreachable
 
 8:                                                ; preds = %3
@@ -20709,9 +20709,9 @@ default.unreachable80:                            ; preds = %43, %3
           to label %26 unwind label %24
 
 common.ret:                                       ; preds = %99, %19, %"_ZN4core3ptr82drop_in_place$LT$futures_channel..mpsc..UnboundedSender$LT$proto..Envelope$GT$$GT$17h0fd19190dc435631E.exit51", %51
-  %.sink82 = phi i64 [ 0, %"_ZN4core3ptr82drop_in_place$LT$futures_channel..mpsc..UnboundedSender$LT$proto..Envelope$GT$$GT$17h0fd19190dc435631E.exit51" ], [ 1, %51 ], [ 1, %19 ], [ 1, %99 ]
+  %.sink90 = phi i64 [ 0, %"_ZN4core3ptr82drop_in_place$LT$futures_channel..mpsc..UnboundedSender$LT$proto..Envelope$GT$$GT$17h0fd19190dc435631E.exit51" ], [ 1, %51 ], [ 1, %19 ], [ 1, %99 ]
   %.sink = phi i8 [ 1, %"_ZN4core3ptr82drop_in_place$LT$futures_channel..mpsc..UnboundedSender$LT$proto..Envelope$GT$$GT$17h0fd19190dc435631E.exit51" ], [ 3, %51 ], [ 5, %19 ], [ 4, %99 ]
-  store i64 %.sink82, ptr %0, align 8
+  store i64 %.sink90, ptr %0, align 8
   store i8 %.sink, ptr %6, align 2
   ret void
 
@@ -20778,7 +20778,7 @@ common.ret:                                       ; preds = %99, %19, %"_ZN4core
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %50 = load i8, ptr %1, align 8, !range !2077, !noundef !13
-  switch i8 %50, label %default.unreachable80 [
+  switch i8 %50, label %default.unreachable88 [
     i8 0, label %52
     i8 1, label %75
     i8 2, label %81
@@ -21822,7 +21822,7 @@ define internal { i64, ptr } @"_ZN6remote11ssh_session15SshRemoteClient9multiple
   %43 = alloca [408 x i8], align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 625
   %45 = load i8, ptr %44, align 1, !range !292, !noundef !13
-  switch i8 %45, label %default.unreachable687 [
+  switch i8 %45, label %default.unreachable730 [
     i8 0, label %59
     i8 1, label %75
     i8 2, label %76
@@ -21839,7 +21839,7 @@ define internal { i64, ptr } @"_ZN6remote11ssh_session15SshRemoteClient9multiple
   %.pre681 = load ptr, ptr %.phi.trans.insert680, align 8, !alias.scope !2882, !noalias !2885
   br label %1475
 
-default.unreachable687:                           ; preds = %1505, %252, %77, %2
+default.unreachable730:                           ; preds = %1505, %315, %252, %77, %2
   unreachable
 
 46:                                               ; preds = %222
@@ -21934,15 +21934,15 @@ default.unreachable687:                           ; preds = %1505, %252, %77, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9405)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.730.i)
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 684
-  switch i8 %.pre678, label %default.unreachable687 [
+  switch i8 %.pre678, label %default.unreachable730 [
     i8 0, label %79
     i8 1, label %103
     i8 2, label %104
     i8 3, label %105
   ]
 
-79:                                               ; preds = %.thread688, %77
-  %80 = phi ptr [ %1693, %.thread688 ], [ %78, %77 ]
+79:                                               ; preds = %.thread731, %77
+  %80 = phi ptr [ %1693, %.thread731 ], [ %78, %77 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %82 = load ptr, ptr %81, align 8, !noalias !2932, !nonnull !13, !align !2469, !noundef !13
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 648
@@ -22412,7 +22412,7 @@ _ZN3log13__private_api3log17h0fa816d13ada2eb4E.exit: ; preds = %175
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %232, ptr noundef nonnull align 8 dereferenceable(408) %43, i64 408, i1 false)
   %233 = load i64, ptr %232, align 8, !range !38, !noundef !13
   %234 = icmp eq i64 %233, 230
-  br i1 %234, label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17h34db7742f303f9c5E.exit", label %.thread689
+  br i1 %234, label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17h34db7742f303f9c5E.exit", label %.thread732
 
 235:                                              ; preds = %222
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -22434,7 +22434,7 @@ _ZN3log13__private_api3log17h0fa816d13ada2eb4E.exit: ; preds = %175
   %trunc = trunc nuw i64 %244 to i1
   br i1 %trunc, label %1812, label %1707
 
-.thread689:                                       ; preds = %230
+.thread732:                                       ; preds = %230
   store i8 0, ptr %231, align 8
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -22455,7 +22455,7 @@ _ZN3log13__private_api3log17h0fa816d13ada2eb4E.exit: ; preds = %175
   %.pre684 = load i8, ptr %.phi.trans.insert683, align 4, !range !124, !noalias !2987
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 1892
-  switch i8 %.pre684, label %default.unreachable687 [
+  switch i8 %.pre684, label %default.unreachable730 [
     i8 0, label %255
     i8 1, label %1325
     i8 2, label %1326
@@ -22463,9 +22463,9 @@ _ZN3log13__private_api3log17h0fa816d13ada2eb4E.exit: ; preds = %175
     i8 4, label %1387
   ]
 
-255:                                              ; preds = %.thread689, %252
-  %256 = phi ptr [ %251, %.thread689 ], [ %254, %252 ]
-  %257 = phi ptr [ %250, %.thread689 ], [ %253, %252 ]
+255:                                              ; preds = %.thread732, %252
+  %256 = phi ptr [ %251, %.thread732 ], [ %254, %252 ]
+  %257 = phi ptr [ %250, %.thread732 ], [ %253, %252 ]
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %260 = load ptr, ptr %259, align 8, !noalias !2987, !nonnull !13, !align !2469, !noundef !13
@@ -22570,7 +22570,7 @@ _ZN3log13__private_api3log17h0fa816d13ada2eb4E.exit: ; preds = %175
   %317 = icmp ult i64 %316, 227
   %318 = trunc nuw i64 %316 to i8
   %trunc.i.i.i.i.i = select i1 %317, i8 %318, i8 97
-  switch i8 %trunc.i.i.i.i.i, label %default.unreachable.i.i.i [
+  switch i8 %trunc.i.i.i.i.i, label %default.unreachable730 [
     i8 0, label %319
     i8 1, label %1309
     i8 2, label %322
@@ -22799,9 +22799,6 @@ _ZN3log13__private_api3log17h0fa816d13ada2eb4E.exit: ; preds = %175
     i8 -31, label %1299
     i8 -30, label %1303
   ]
-
-default.unreachable.i.i.i:                        ; preds = %315
-  unreachable
 
 319:                                              ; preds = %315
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 1488
@@ -24778,7 +24775,7 @@ common.ret.sink.split.i:                          ; preds = %1424
   br i1 %or.cond.not, label %1449, label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17h34db7742f303f9c5E.exit"
 
 "_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17h34db7742f303f9c5E.exit": ; preds = %230, %1449, %1437, %1443
-  %.sroa.046.0692 = phi ptr [ %1422, %1449 ], [ %1422, %1437 ], [ %1422, %1443 ], [ null, %230 ]
+  %.sroa.046.0735 = phi ptr [ %1422, %1449 ], [ %1422, %1437 ], [ %1422, %1443 ], [ null, %230 ]
   %1448 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i8 0, ptr %1448, align 8
   br label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hdb803f76a9bb55f7E.exit"
@@ -24799,7 +24796,7 @@ common.ret.sink.split.i:                          ; preds = %1424
   br label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17h34db7742f303f9c5E.exit241"
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hdb803f76a9bb55f7E.exit": ; preds = %1684, %1497, %1824, %1706, %1660, %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17h34db7742f303f9c5E.exit"
-  %.sroa.046.1 = phi ptr [ %.sroa.046.0692, %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17h34db7742f303f9c5E.exit" ], [ %.sroa.046.2, %1660 ], [ %1699, %1706 ], [ %1817, %1824 ], [ %1498, %1497 ], [ %1685, %1684 ]
+  %.sroa.046.1 = phi ptr [ %.sroa.046.0735, %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17h34db7742f303f9c5E.exit" ], [ %.sroa.046.2, %1660 ], [ %1699, %1706 ], [ %1817, %1824 ], [ %1498, %1497 ], [ %1685, %1684 ]
   %1453 = getelementptr inbounds nuw i8, ptr %0, i64 128
   call void @llvm.experimental.noalias.scope.decl(metadata !3082)
   call void @llvm.experimental.noalias.scope.decl(metadata !3085)
@@ -24935,7 +24932,7 @@ common.ret.sink.split.i:                          ; preds = %1424
   %1506 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %1507 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %1508 = load i8, ptr %1507, align 8, !range !37, !noalias !3119, !noundef !13
-  switch i8 %1508, label %default.unreachable687 [
+  switch i8 %1508, label %default.unreachable730 [
     i8 0, label %1509
     i8 1, label %1532
     i8 2, label %1533
@@ -25521,7 +25518,7 @@ _ZN3log13__private_api3log17h0fa816d13ada2eb4E.exit269: ; preds = %1638
 1686:                                             ; preds = %._crit_edge674, %1662
   %.val184 = phi i64 [ %.val184.pre, %._crit_edge674 ], [ %.val196, %1662 ]
   %.not.i278 = icmp eq i64 %.val184, 4
-  br i1 %.not.i278, label %.thread688, label %.critedge.i
+  br i1 %.not.i278, label %.thread731, label %.critedge.i
 
 .critedge.i:                                      ; preds = %1686
   invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.b76ab01d5750a6d1a437cc5a7344e7fe.50.llvm.16598411116039850189, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b76ab01d5750a6d1a437cc5a7344e7fe.49.llvm.16598411116039850189, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b76ab01d5750a6d1a437cc5a7344e7fe.128.llvm.16598411116039850189) #27
@@ -25535,7 +25532,7 @@ _ZN3log13__private_api3log17h0fa816d13ada2eb4E.exit269: ; preds = %1638
           cleanup
   br label %1464
 
-.thread688:                                       ; preds = %1686
+.thread731:                                       ; preds = %1686
   %1689 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1690 = getelementptr i8, ptr %0, i64 112
   %.val183 = load ptr, ptr %1690, align 8, !nonnull !13, !noundef !13
@@ -27032,14 +27029,14 @@ define internal void @"_ZN6remote11ssh_session13ChannelClient15request_dynamic28
   %17 = alloca [8 x i8], align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 448
   %19 = load i8, ptr %18, align 8, !range !37, !noundef !13
-  switch i8 %19, label %default.unreachable90 [
+  switch i8 %19, label %default.unreachable91 [
     i8 0, label %20
     i8 1, label %64
     i8 2, label %65
     i8 3, label %24
   ]
 
-default.unreachable90:                            ; preds = %3
+default.unreachable91:                            ; preds = %3
   unreachable
 
 20:                                               ; preds = %3

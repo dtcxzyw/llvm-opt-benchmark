@@ -578,23 +578,23 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vnclip_wiP
   %281 = ashr i128 %.0207, %189
   %282 = sext i64 %267 to i128
   %283 = icmp slt i128 %281, %282
-  br i1 %283, label %.sink.split295, label %284
+  br i1 %283, label %.sink.split301, label %284
 
 284:                                              ; preds = %280
   %285 = zext nneg i64 %266 to i128
   %286 = icmp sgt i128 %281, %285
   %extract.t242 = trunc i128 %281 to i16
-  br i1 %286, label %.sink.split295, label %288
+  br i1 %286, label %.sink.split301, label %288
 
-.sink.split295:                                   ; preds = %284, %280
-  %.sink296 = phi i64 [ %267, %280 ], [ %266, %284 ]
+.sink.split301:                                   ; preds = %284, %280
+  %.sink302 = phi i64 [ %267, %280 ], [ %266, %284 ]
   %287 = load ptr, ptr %190, align 8, !tbaa !153
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %287, i64 noundef 1) #15
-  %extract.t241 = trunc i64 %.sink296 to i16
+  %extract.t241 = trunc i64 %.sink302 to i16
   br label %288
 
-288:                                              ; preds = %.sink.split295, %284
-  %.1208.off0 = phi i16 [ %extract.t242, %284 ], [ %extract.t241, %.sink.split295 ]
+288:                                              ; preds = %.sink.split301, %284
+  %.1208.off0 = phi i16 [ %extract.t242, %284 ], [ %extract.t241, %.sink.split301 ]
   store i16 %.1208.off0, ptr %254, align 2, !tbaa !151
   br label %325
 
@@ -651,23 +651,23 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vnclip_wiP
   %317 = ashr i128 %.0206, %189
   %318 = sext i64 %303 to i128
   %319 = icmp slt i128 %317, %318
-  br i1 %319, label %.sink.split298, label %320
+  br i1 %319, label %.sink.split304, label %320
 
 320:                                              ; preds = %316
   %321 = zext nneg i64 %302 to i128
   %322 = icmp sgt i128 %317, %321
   %extract.t235 = trunc i128 %317 to i32
-  br i1 %322, label %.sink.split298, label %324
+  br i1 %322, label %.sink.split304, label %324
 
-.sink.split298:                                   ; preds = %320, %316
-  %.sink299 = phi i64 [ %303, %316 ], [ %302, %320 ]
+.sink.split304:                                   ; preds = %320, %316
+  %.sink305 = phi i64 [ %303, %316 ], [ %302, %320 ]
   %323 = load ptr, ptr %190, align 8, !tbaa !153
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %323, i64 noundef 1) #15
-  %extract.t234 = trunc i64 %.sink299 to i32
+  %extract.t234 = trunc i64 %.sink305 to i32
   br label %324
 
-324:                                              ; preds = %.sink.split298, %320
-  %.1.off0 = phi i32 [ %extract.t235, %320 ], [ %extract.t234, %.sink.split298 ]
+324:                                              ; preds = %.sink.split304, %320
+  %.1.off0 = phi i32 [ %extract.t235, %320 ], [ %extract.t234, %.sink.split304 ]
   store i32 %.1.off0, ptr %290, align 4, !tbaa !155
   br label %325
 
@@ -1307,23 +1307,23 @@ define noundef i64 @_Z20fast_rv64i_vnclip_wiP11processor_t6insn_tm(ptr noundef %
   %279 = ashr i128 %.0207, %189
   %280 = sext i64 %265 to i128
   %281 = icmp slt i128 %279, %280
-  br i1 %281, label %.sink.split295, label %282
+  br i1 %281, label %.sink.split301, label %282
 
 282:                                              ; preds = %278
   %283 = zext nneg i64 %264 to i128
   %284 = icmp sgt i128 %279, %283
   %extract.t242 = trunc i128 %279 to i16
-  br i1 %284, label %.sink.split295, label %286
+  br i1 %284, label %.sink.split301, label %286
 
-.sink.split295:                                   ; preds = %282, %278
-  %.sink296 = phi i64 [ %265, %278 ], [ %264, %282 ]
+.sink.split301:                                   ; preds = %282, %278
+  %.sink302 = phi i64 [ %265, %278 ], [ %264, %282 ]
   %285 = load ptr, ptr %190, align 8, !tbaa !153
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %285, i64 noundef 1) #15
-  %extract.t241 = trunc i64 %.sink296 to i16
+  %extract.t241 = trunc i64 %.sink302 to i16
   br label %286
 
-286:                                              ; preds = %.sink.split295, %282
-  %.1208.off0 = phi i16 [ %extract.t242, %282 ], [ %extract.t241, %.sink.split295 ]
+286:                                              ; preds = %.sink.split301, %282
+  %.1208.off0 = phi i16 [ %extract.t242, %282 ], [ %extract.t241, %.sink.split301 ]
   store i16 %.1208.off0, ptr %252, align 2, !tbaa !151
   br label %323
 
@@ -1380,23 +1380,23 @@ define noundef i64 @_Z20fast_rv64i_vnclip_wiP11processor_t6insn_tm(ptr noundef %
   %315 = ashr i128 %.0206, %189
   %316 = sext i64 %301 to i128
   %317 = icmp slt i128 %315, %316
-  br i1 %317, label %.sink.split298, label %318
+  br i1 %317, label %.sink.split304, label %318
 
 318:                                              ; preds = %314
   %319 = zext nneg i64 %300 to i128
   %320 = icmp sgt i128 %315, %319
   %extract.t235 = trunc i128 %315 to i32
-  br i1 %320, label %.sink.split298, label %322
+  br i1 %320, label %.sink.split304, label %322
 
-.sink.split298:                                   ; preds = %318, %314
-  %.sink299 = phi i64 [ %301, %314 ], [ %300, %318 ]
+.sink.split304:                                   ; preds = %318, %314
+  %.sink305 = phi i64 [ %301, %314 ], [ %300, %318 ]
   %321 = load ptr, ptr %190, align 8, !tbaa !153
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %321, i64 noundef 1) #15
-  %extract.t234 = trunc i64 %.sink299 to i32
+  %extract.t234 = trunc i64 %.sink305 to i32
   br label %322
 
-322:                                              ; preds = %.sink.split298, %318
-  %.1.off0 = phi i32 [ %extract.t235, %318 ], [ %extract.t234, %.sink.split298 ]
+322:                                              ; preds = %.sink.split304, %318
+  %.1.off0 = phi i32 [ %extract.t235, %318 ], [ %extract.t234, %.sink.split304 ]
   store i32 %.1.off0, ptr %288, align 4, !tbaa !155
   br label %323
 
@@ -1916,23 +1916,23 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vnclip_w
   %281 = ashr i128 %.0207, %189
   %282 = sext i64 %267 to i128
   %283 = icmp slt i128 %281, %282
-  br i1 %283, label %.sink.split295, label %284
+  br i1 %283, label %.sink.split301, label %284
 
 284:                                              ; preds = %280
   %285 = zext nneg i64 %266 to i128
   %286 = icmp sgt i128 %281, %285
   %extract.t242 = trunc i128 %281 to i16
-  br i1 %286, label %.sink.split295, label %288
+  br i1 %286, label %.sink.split301, label %288
 
-.sink.split295:                                   ; preds = %284, %280
-  %.sink296 = phi i64 [ %267, %280 ], [ %266, %284 ]
+.sink.split301:                                   ; preds = %284, %280
+  %.sink302 = phi i64 [ %267, %280 ], [ %266, %284 ]
   %287 = load ptr, ptr %190, align 8, !tbaa !153
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %287, i64 noundef 1) #15
-  %extract.t241 = trunc i64 %.sink296 to i16
+  %extract.t241 = trunc i64 %.sink302 to i16
   br label %288
 
-288:                                              ; preds = %.sink.split295, %284
-  %.1208.off0 = phi i16 [ %extract.t242, %284 ], [ %extract.t241, %.sink.split295 ]
+288:                                              ; preds = %.sink.split301, %284
+  %.1208.off0 = phi i16 [ %extract.t242, %284 ], [ %extract.t241, %.sink.split301 ]
   store i16 %.1208.off0, ptr %254, align 2, !tbaa !151
   br label %325
 
@@ -1989,23 +1989,23 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vnclip_w
   %317 = ashr i128 %.0206, %189
   %318 = sext i64 %303 to i128
   %319 = icmp slt i128 %317, %318
-  br i1 %319, label %.sink.split298, label %320
+  br i1 %319, label %.sink.split304, label %320
 
 320:                                              ; preds = %316
   %321 = zext nneg i64 %302 to i128
   %322 = icmp sgt i128 %317, %321
   %extract.t235 = trunc i128 %317 to i32
-  br i1 %322, label %.sink.split298, label %324
+  br i1 %322, label %.sink.split304, label %324
 
-.sink.split298:                                   ; preds = %320, %316
-  %.sink299 = phi i64 [ %303, %316 ], [ %302, %320 ]
+.sink.split304:                                   ; preds = %320, %316
+  %.sink305 = phi i64 [ %303, %316 ], [ %302, %320 ]
   %323 = load ptr, ptr %190, align 8, !tbaa !153
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %323, i64 noundef 1) #15
-  %extract.t234 = trunc i64 %.sink299 to i32
+  %extract.t234 = trunc i64 %.sink305 to i32
   br label %324
 
-324:                                              ; preds = %.sink.split298, %320
-  %.1.off0 = phi i32 [ %extract.t235, %320 ], [ %extract.t234, %.sink.split298 ]
+324:                                              ; preds = %.sink.split304, %320
+  %.1.off0 = phi i32 [ %extract.t235, %320 ], [ %extract.t234, %.sink.split304 ]
   store i32 %.1.off0, ptr %290, align 4, !tbaa !155
   br label %325
 
@@ -2523,23 +2523,23 @@ define noundef i64 @_Z22logged_rv64i_vnclip_wiP11processor_t6insn_tm(ptr noundef
   %279 = ashr i128 %.0207, %189
   %280 = sext i64 %265 to i128
   %281 = icmp slt i128 %279, %280
-  br i1 %281, label %.sink.split295, label %282
+  br i1 %281, label %.sink.split301, label %282
 
 282:                                              ; preds = %278
   %283 = zext nneg i64 %264 to i128
   %284 = icmp sgt i128 %279, %283
   %extract.t242 = trunc i128 %279 to i16
-  br i1 %284, label %.sink.split295, label %286
+  br i1 %284, label %.sink.split301, label %286
 
-.sink.split295:                                   ; preds = %282, %278
-  %.sink296 = phi i64 [ %265, %278 ], [ %264, %282 ]
+.sink.split301:                                   ; preds = %282, %278
+  %.sink302 = phi i64 [ %265, %278 ], [ %264, %282 ]
   %285 = load ptr, ptr %190, align 8, !tbaa !153
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %285, i64 noundef 1) #15
-  %extract.t241 = trunc i64 %.sink296 to i16
+  %extract.t241 = trunc i64 %.sink302 to i16
   br label %286
 
-286:                                              ; preds = %.sink.split295, %282
-  %.1208.off0 = phi i16 [ %extract.t242, %282 ], [ %extract.t241, %.sink.split295 ]
+286:                                              ; preds = %.sink.split301, %282
+  %.1208.off0 = phi i16 [ %extract.t242, %282 ], [ %extract.t241, %.sink.split301 ]
   store i16 %.1208.off0, ptr %252, align 2, !tbaa !151
   br label %323
 
@@ -2596,23 +2596,23 @@ define noundef i64 @_Z22logged_rv64i_vnclip_wiP11processor_t6insn_tm(ptr noundef
   %315 = ashr i128 %.0206, %189
   %316 = sext i64 %301 to i128
   %317 = icmp slt i128 %315, %316
-  br i1 %317, label %.sink.split298, label %318
+  br i1 %317, label %.sink.split304, label %318
 
 318:                                              ; preds = %314
   %319 = zext nneg i64 %300 to i128
   %320 = icmp sgt i128 %315, %319
   %extract.t235 = trunc i128 %315 to i32
-  br i1 %320, label %.sink.split298, label %322
+  br i1 %320, label %.sink.split304, label %322
 
-.sink.split298:                                   ; preds = %318, %314
-  %.sink299 = phi i64 [ %301, %314 ], [ %300, %318 ]
+.sink.split304:                                   ; preds = %318, %314
+  %.sink305 = phi i64 [ %301, %314 ], [ %300, %318 ]
   %321 = load ptr, ptr %190, align 8, !tbaa !153
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %321, i64 noundef 1) #15
-  %extract.t234 = trunc i64 %.sink299 to i32
+  %extract.t234 = trunc i64 %.sink305 to i32
   br label %322
 
-322:                                              ; preds = %.sink.split298, %318
-  %.1.off0 = phi i32 [ %extract.t235, %318 ], [ %extract.t234, %.sink.split298 ]
+322:                                              ; preds = %.sink.split304, %318
+  %.1.off0 = phi i32 [ %extract.t235, %318 ], [ %extract.t234, %.sink.split304 ]
   store i32 %.1.off0, ptr %288, align 4, !tbaa !155
   br label %323
 
@@ -3132,23 +3132,23 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vnclip_wiP
   %281 = ashr i128 %.0207, %189
   %282 = sext i64 %267 to i128
   %283 = icmp slt i128 %281, %282
-  br i1 %283, label %.sink.split295, label %284
+  br i1 %283, label %.sink.split301, label %284
 
 284:                                              ; preds = %280
   %285 = zext nneg i64 %266 to i128
   %286 = icmp sgt i128 %281, %285
   %extract.t242 = trunc i128 %281 to i16
-  br i1 %286, label %.sink.split295, label %288
+  br i1 %286, label %.sink.split301, label %288
 
-.sink.split295:                                   ; preds = %284, %280
-  %.sink296 = phi i64 [ %267, %280 ], [ %266, %284 ]
+.sink.split301:                                   ; preds = %284, %280
+  %.sink302 = phi i64 [ %267, %280 ], [ %266, %284 ]
   %287 = load ptr, ptr %190, align 8, !tbaa !153
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %287, i64 noundef 1) #15
-  %extract.t241 = trunc i64 %.sink296 to i16
+  %extract.t241 = trunc i64 %.sink302 to i16
   br label %288
 
-288:                                              ; preds = %.sink.split295, %284
-  %.1208.off0 = phi i16 [ %extract.t242, %284 ], [ %extract.t241, %.sink.split295 ]
+288:                                              ; preds = %.sink.split301, %284
+  %.1208.off0 = phi i16 [ %extract.t242, %284 ], [ %extract.t241, %.sink.split301 ]
   store i16 %.1208.off0, ptr %254, align 2, !tbaa !151
   br label %325
 
@@ -3205,23 +3205,23 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vnclip_wiP
   %317 = ashr i128 %.0206, %189
   %318 = sext i64 %303 to i128
   %319 = icmp slt i128 %317, %318
-  br i1 %319, label %.sink.split298, label %320
+  br i1 %319, label %.sink.split304, label %320
 
 320:                                              ; preds = %316
   %321 = zext nneg i64 %302 to i128
   %322 = icmp sgt i128 %317, %321
   %extract.t235 = trunc i128 %317 to i32
-  br i1 %322, label %.sink.split298, label %324
+  br i1 %322, label %.sink.split304, label %324
 
-.sink.split298:                                   ; preds = %320, %316
-  %.sink299 = phi i64 [ %303, %316 ], [ %302, %320 ]
+.sink.split304:                                   ; preds = %320, %316
+  %.sink305 = phi i64 [ %303, %316 ], [ %302, %320 ]
   %323 = load ptr, ptr %190, align 8, !tbaa !153
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %323, i64 noundef 1) #15
-  %extract.t234 = trunc i64 %.sink299 to i32
+  %extract.t234 = trunc i64 %.sink305 to i32
   br label %324
 
-324:                                              ; preds = %.sink.split298, %320
-  %.1.off0 = phi i32 [ %extract.t235, %320 ], [ %extract.t234, %.sink.split298 ]
+324:                                              ; preds = %.sink.split304, %320
+  %.1.off0 = phi i32 [ %extract.t235, %320 ], [ %extract.t234, %.sink.split304 ]
   store i32 %.1.off0, ptr %290, align 4, !tbaa !155
   br label %325
 
@@ -3739,23 +3739,23 @@ define noundef i64 @_Z20fast_rv64e_vnclip_wiP11processor_t6insn_tm(ptr noundef %
   %279 = ashr i128 %.0207, %189
   %280 = sext i64 %265 to i128
   %281 = icmp slt i128 %279, %280
-  br i1 %281, label %.sink.split295, label %282
+  br i1 %281, label %.sink.split301, label %282
 
 282:                                              ; preds = %278
   %283 = zext nneg i64 %264 to i128
   %284 = icmp sgt i128 %279, %283
   %extract.t242 = trunc i128 %279 to i16
-  br i1 %284, label %.sink.split295, label %286
+  br i1 %284, label %.sink.split301, label %286
 
-.sink.split295:                                   ; preds = %282, %278
-  %.sink296 = phi i64 [ %265, %278 ], [ %264, %282 ]
+.sink.split301:                                   ; preds = %282, %278
+  %.sink302 = phi i64 [ %265, %278 ], [ %264, %282 ]
   %285 = load ptr, ptr %190, align 8, !tbaa !153
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %285, i64 noundef 1) #15
-  %extract.t241 = trunc i64 %.sink296 to i16
+  %extract.t241 = trunc i64 %.sink302 to i16
   br label %286
 
-286:                                              ; preds = %.sink.split295, %282
-  %.1208.off0 = phi i16 [ %extract.t242, %282 ], [ %extract.t241, %.sink.split295 ]
+286:                                              ; preds = %.sink.split301, %282
+  %.1208.off0 = phi i16 [ %extract.t242, %282 ], [ %extract.t241, %.sink.split301 ]
   store i16 %.1208.off0, ptr %252, align 2, !tbaa !151
   br label %323
 
@@ -3812,23 +3812,23 @@ define noundef i64 @_Z20fast_rv64e_vnclip_wiP11processor_t6insn_tm(ptr noundef %
   %315 = ashr i128 %.0206, %189
   %316 = sext i64 %301 to i128
   %317 = icmp slt i128 %315, %316
-  br i1 %317, label %.sink.split298, label %318
+  br i1 %317, label %.sink.split304, label %318
 
 318:                                              ; preds = %314
   %319 = zext nneg i64 %300 to i128
   %320 = icmp sgt i128 %315, %319
   %extract.t235 = trunc i128 %315 to i32
-  br i1 %320, label %.sink.split298, label %322
+  br i1 %320, label %.sink.split304, label %322
 
-.sink.split298:                                   ; preds = %318, %314
-  %.sink299 = phi i64 [ %301, %314 ], [ %300, %318 ]
+.sink.split304:                                   ; preds = %318, %314
+  %.sink305 = phi i64 [ %301, %314 ], [ %300, %318 ]
   %321 = load ptr, ptr %190, align 8, !tbaa !153
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %321, i64 noundef 1) #15
-  %extract.t234 = trunc i64 %.sink299 to i32
+  %extract.t234 = trunc i64 %.sink305 to i32
   br label %322
 
-322:                                              ; preds = %.sink.split298, %318
-  %.1.off0 = phi i32 [ %extract.t235, %318 ], [ %extract.t234, %.sink.split298 ]
+322:                                              ; preds = %.sink.split304, %318
+  %.1.off0 = phi i32 [ %extract.t235, %318 ], [ %extract.t234, %.sink.split304 ]
   store i32 %.1.off0, ptr %288, align 4, !tbaa !155
   br label %323
 
@@ -4348,23 +4348,23 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vnclip_w
   %281 = ashr i128 %.0207, %189
   %282 = sext i64 %267 to i128
   %283 = icmp slt i128 %281, %282
-  br i1 %283, label %.sink.split295, label %284
+  br i1 %283, label %.sink.split301, label %284
 
 284:                                              ; preds = %280
   %285 = zext nneg i64 %266 to i128
   %286 = icmp sgt i128 %281, %285
   %extract.t242 = trunc i128 %281 to i16
-  br i1 %286, label %.sink.split295, label %288
+  br i1 %286, label %.sink.split301, label %288
 
-.sink.split295:                                   ; preds = %284, %280
-  %.sink296 = phi i64 [ %267, %280 ], [ %266, %284 ]
+.sink.split301:                                   ; preds = %284, %280
+  %.sink302 = phi i64 [ %267, %280 ], [ %266, %284 ]
   %287 = load ptr, ptr %190, align 8, !tbaa !153
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %287, i64 noundef 1) #15
-  %extract.t241 = trunc i64 %.sink296 to i16
+  %extract.t241 = trunc i64 %.sink302 to i16
   br label %288
 
-288:                                              ; preds = %.sink.split295, %284
-  %.1208.off0 = phi i16 [ %extract.t242, %284 ], [ %extract.t241, %.sink.split295 ]
+288:                                              ; preds = %.sink.split301, %284
+  %.1208.off0 = phi i16 [ %extract.t242, %284 ], [ %extract.t241, %.sink.split301 ]
   store i16 %.1208.off0, ptr %254, align 2, !tbaa !151
   br label %325
 
@@ -4421,23 +4421,23 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vnclip_w
   %317 = ashr i128 %.0206, %189
   %318 = sext i64 %303 to i128
   %319 = icmp slt i128 %317, %318
-  br i1 %319, label %.sink.split298, label %320
+  br i1 %319, label %.sink.split304, label %320
 
 320:                                              ; preds = %316
   %321 = zext nneg i64 %302 to i128
   %322 = icmp sgt i128 %317, %321
   %extract.t235 = trunc i128 %317 to i32
-  br i1 %322, label %.sink.split298, label %324
+  br i1 %322, label %.sink.split304, label %324
 
-.sink.split298:                                   ; preds = %320, %316
-  %.sink299 = phi i64 [ %303, %316 ], [ %302, %320 ]
+.sink.split304:                                   ; preds = %320, %316
+  %.sink305 = phi i64 [ %303, %316 ], [ %302, %320 ]
   %323 = load ptr, ptr %190, align 8, !tbaa !153
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %323, i64 noundef 1) #15
-  %extract.t234 = trunc i64 %.sink299 to i32
+  %extract.t234 = trunc i64 %.sink305 to i32
   br label %324
 
-324:                                              ; preds = %.sink.split298, %320
-  %.1.off0 = phi i32 [ %extract.t235, %320 ], [ %extract.t234, %.sink.split298 ]
+324:                                              ; preds = %.sink.split304, %320
+  %.1.off0 = phi i32 [ %extract.t235, %320 ], [ %extract.t234, %.sink.split304 ]
   store i32 %.1.off0, ptr %290, align 4, !tbaa !155
   br label %325
 
@@ -4955,23 +4955,23 @@ define noundef i64 @_Z22logged_rv64e_vnclip_wiP11processor_t6insn_tm(ptr noundef
   %279 = ashr i128 %.0207, %189
   %280 = sext i64 %265 to i128
   %281 = icmp slt i128 %279, %280
-  br i1 %281, label %.sink.split295, label %282
+  br i1 %281, label %.sink.split301, label %282
 
 282:                                              ; preds = %278
   %283 = zext nneg i64 %264 to i128
   %284 = icmp sgt i128 %279, %283
   %extract.t242 = trunc i128 %279 to i16
-  br i1 %284, label %.sink.split295, label %286
+  br i1 %284, label %.sink.split301, label %286
 
-.sink.split295:                                   ; preds = %282, %278
-  %.sink296 = phi i64 [ %265, %278 ], [ %264, %282 ]
+.sink.split301:                                   ; preds = %282, %278
+  %.sink302 = phi i64 [ %265, %278 ], [ %264, %282 ]
   %285 = load ptr, ptr %190, align 8, !tbaa !153
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %285, i64 noundef 1) #15
-  %extract.t241 = trunc i64 %.sink296 to i16
+  %extract.t241 = trunc i64 %.sink302 to i16
   br label %286
 
-286:                                              ; preds = %.sink.split295, %282
-  %.1208.off0 = phi i16 [ %extract.t242, %282 ], [ %extract.t241, %.sink.split295 ]
+286:                                              ; preds = %.sink.split301, %282
+  %.1208.off0 = phi i16 [ %extract.t242, %282 ], [ %extract.t241, %.sink.split301 ]
   store i16 %.1208.off0, ptr %252, align 2, !tbaa !151
   br label %323
 
@@ -5028,23 +5028,23 @@ define noundef i64 @_Z22logged_rv64e_vnclip_wiP11processor_t6insn_tm(ptr noundef
   %315 = ashr i128 %.0206, %189
   %316 = sext i64 %301 to i128
   %317 = icmp slt i128 %315, %316
-  br i1 %317, label %.sink.split298, label %318
+  br i1 %317, label %.sink.split304, label %318
 
 318:                                              ; preds = %314
   %319 = zext nneg i64 %300 to i128
   %320 = icmp sgt i128 %315, %319
   %extract.t235 = trunc i128 %315 to i32
-  br i1 %320, label %.sink.split298, label %322
+  br i1 %320, label %.sink.split304, label %322
 
-.sink.split298:                                   ; preds = %318, %314
-  %.sink299 = phi i64 [ %301, %314 ], [ %300, %318 ]
+.sink.split304:                                   ; preds = %318, %314
+  %.sink305 = phi i64 [ %301, %314 ], [ %300, %318 ]
   %321 = load ptr, ptr %190, align 8, !tbaa !153
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %321, i64 noundef 1) #15
-  %extract.t234 = trunc i64 %.sink299 to i32
+  %extract.t234 = trunc i64 %.sink305 to i32
   br label %322
 
-322:                                              ; preds = %.sink.split298, %318
-  %.1.off0 = phi i32 [ %extract.t235, %318 ], [ %extract.t234, %.sink.split298 ]
+322:                                              ; preds = %.sink.split304, %318
+  %.1.off0 = phi i32 [ %extract.t235, %318 ], [ %extract.t234, %.sink.split304 ]
   store i32 %.1.off0, ptr %288, align 4, !tbaa !155
   br label %323
 
@@ -5170,14 +5170,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br i1 %22, label %._crit_edge.thread.i, label %28
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
+  %.019.lcssa29.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !175
-  %25 = icmp eq ptr %.019.lcssa28.i, %24
+  %25 = icmp eq ptr %.019.lcssa29.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #19
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i) #19
   %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81 = load i64, ptr %.phi.trans.insert80, align 8, !tbaa !146
   %.pre82 = load i64, ptr %2, align 8, !tbaa !146
@@ -5186,11 +5186,11 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 28:                                               ; preds = %26, %._crit_edge.i
   %29 = phi i64 [ %.pre82, %26 ], [ %18, %._crit_edge.i ]
   %30 = phi i64 [ %.pre81, %26 ], [ %21, %._crit_edge.i ]
-  %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %26 ], [ %.02024.i, %._crit_edge.i ]
+  %.019.lcssa28.i = phi ptr [ %.019.lcssa29.i, %26 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %27, %26 ], [ %.02024.i, %._crit_edge.i ]
   %31 = icmp ult i64 %30, %29
   %spec.select.i = select i1 %31, ptr null, ptr %.sroa.05.0.i
-  %spec.select21.i = select i1 %31, ptr %.019.lcssa29.i, ptr null
+  %spec.select21.i = select i1 %31, ptr %.019.lcssa28.i, ptr null
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 32:                                               ; preds = %3
@@ -5242,23 +5242,23 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br i1 %54, label %._crit_edge.thread.i27, label %58
 
 ._crit_edge.thread.i27:                           ; preds = %._crit_edge.i18, %50
-  %.019.lcssa28.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
-  %55 = icmp eq ptr %.019.lcssa28.i28, %39
+  %.019.lcssa29.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
+  %55 = icmp eq ptr %.019.lcssa29.i28, %39
   br i1 %55, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %56
 
 56:                                               ; preds = %._crit_edge.thread.i27
-  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #19
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i28) #19
   %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %.pre79 = load i64, ptr %.phi.trans.insert78, align 8, !tbaa !146
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i18
   %59 = phi i64 [ %.pre79, %56 ], [ %53, %._crit_edge.i18 ]
-  %.019.lcssa29.i19 = phi ptr [ %.019.lcssa28.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
+  %.019.lcssa28.i19 = phi ptr [ %.019.lcssa29.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %.sroa.05.0.i20 = phi ptr [ %57, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %60 = icmp ult i64 %59, %34
   %spec.select.i21 = select i1 %60, ptr null, ptr %.sroa.05.0.i20
-  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa29.i19, ptr null
+  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa28.i19, ptr null
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 61:                                               ; preds = %32
@@ -5307,30 +5307,30 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br i1 %80, label %._crit_edge.thread.i47, label %86
 
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
-  %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
+  %.019.lcssa29.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !175
-  %83 = icmp eq ptr %.019.lcssa28.i48, %82
+  %83 = icmp eq ptr %.019.lcssa29.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %84
 
 84:                                               ; preds = %._crit_edge.thread.i47
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #19
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i48) #19
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %85, i64 32
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !146
   br label %86
 
 86:                                               ; preds = %84, %._crit_edge.i38
   %87 = phi i64 [ %.pre, %84 ], [ %79, %._crit_edge.i38 ]
-  %.019.lcssa29.i39 = phi ptr [ %.019.lcssa28.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
+  %.019.lcssa28.i39 = phi ptr [ %.019.lcssa29.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %.sroa.05.0.i40 = phi ptr [ %85, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %88 = icmp ult i64 %87, %34
   %spec.select.i41 = select i1 %88, ptr null, ptr %.sroa.05.0.i40
-  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa29.i39, ptr null
+  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa28.i39, ptr null
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
   %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa28.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

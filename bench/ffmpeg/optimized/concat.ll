@@ -449,17 +449,17 @@ define internal i32 @concatf_open(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store ptr %33, ptr %7, align 8, !tbaa !4
   %34 = load i8, ptr %33, align 1, !tbaa !16
   %.not6190 = icmp eq i8 %34, 0
-  br i1 %.not6190, label %.thread135.sink.split, label %.lr.ph.preheader
+  br i1 %.not6190, label %.thread143.sink.split, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %35 = call i64 @strspn(ptr noundef nonnull %33, ptr noundef nonnull @.str.8) #6
-  %sext180 = shl i64 %35, 32
-  %36 = ashr exact i64 %sext180, 32
+  %sext188 = shl i64 %35, 32
+  %36 = ashr exact i64 %sext188, 32
   %37 = getelementptr inbounds i8, ptr %33, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !16
-  %.not62181 = icmp eq i8 %38, 0
-  br i1 %.not62181, label %.loopexit, label %.lr.ph184
+  %.not62189 = icmp eq i8 %38, 0
+  br i1 %.not62189, label %.loopexit, label %.lr.ph192
 
 .lr.ph:                                           ; preds = %65
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -469,16 +469,16 @@ define internal i32 @concatf_open(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %41 = getelementptr inbounds i8, ptr %70, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !16
   %.not62 = icmp eq i8 %42, 0
-  br i1 %.not62, label %.loopexit, label %.lr.ph184
+  br i1 %.not62, label %.loopexit, label %.lr.ph192
 
-.lr.ph184:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.04492183 = phi i64 [ %50, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.04393182 = phi i64 [ %69, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph192:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.04492191 = phi i64 [ %50, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.04393190 = phi i64 [ %69, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %43 = call ptr @av_get_token(ptr noundef nonnull %7, ptr noundef nonnull @.str.9) #5
   %.not63 = icmp eq ptr %43, null
   br i1 %.not63, label %.loopexit, label %44
 
-44:                                               ; preds = %.lr.ph184
+44:                                               ; preds = %.lr.ph192
   %45 = load ptr, ptr %7, align 8, !tbaa !4
   %46 = load i8, ptr %45, align 1, !tbaa !16
   %.not64 = icmp eq i8 %46, 0
@@ -490,14 +490,14 @@ define internal i32 @concatf_open(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %49
 
 49:                                               ; preds = %47, %44
-  %50 = add i64 %.04492183, 1
+  %50 = add i64 %.04492191, 1
   %51 = icmp eq i64 %50, 1152921504606846975
-  br i1 %51, label %.loopexit.thread130, label %52
+  br i1 %51, label %.loopexit.thread138, label %52
 
-.loopexit.thread130:                              ; preds = %49
+.loopexit.thread138:                              ; preds = %49
   call void @av_free(ptr noundef nonnull %43) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread135.sink.split
+  br label %.thread143.sink.split
 
 52:                                               ; preds = %49
   %53 = load ptr, ptr %19, align 8, !tbaa !22
@@ -523,18 +523,18 @@ define internal i32 @concatf_open(ptr noundef %0, ptr noundef %1, i32 noundef %2
 65:                                               ; preds = %61
   store ptr %64, ptr %11, align 8, !tbaa !19
   %66 = load ptr, ptr %9, align 8, !tbaa !24
-  %67 = getelementptr inbounds nuw %struct.concat_nodes, ptr %64, i64 %.04492183
+  %67 = getelementptr inbounds nuw %struct.concat_nodes, ptr %64, i64 %.04492191
   store ptr %66, ptr %67, align 8, !tbaa !26
-  %68 = getelementptr inbounds nuw %struct.concat_nodes, ptr %64, i64 %.04492183, i32 1
+  %68 = getelementptr inbounds nuw %struct.concat_nodes, ptr %64, i64 %.04492191, i32 1
   store i64 %59, ptr %68, align 8, !tbaa !28
-  %69 = add nuw nsw i64 %59, %.04393182
+  %69 = add nuw nsw i64 %59, %.04393190
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %70 = load ptr, ptr %7, align 8, !tbaa !4
   %71 = load i8, ptr %70, align 1, !tbaa !16
   %.not61 = icmp eq i8 %71, 0
-  br i1 %.not61, label %.thread139, label %.lr.ph
+  br i1 %.not61, label %.thread147, label %.lr.ph
 
-.thread139:                                       ; preds = %65
+.thread147:                                       ; preds = %65
   %72 = call i32 @av_bprint_finalize(ptr noundef nonnull %5, ptr noundef null) #5
   %73 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %50, ptr %73, align 8, !tbaa !30
@@ -546,41 +546,41 @@ define internal i32 @concatf_open(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %75 = call i32 @ffurl_close(ptr noundef %74) #5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph184, %52, %.lr.ph.preheader, %.loopexit.sink.split
-  %.04393171 = phi i64 [ %.04393182, %.loopexit.sink.split ], [ 0, %.lr.ph.preheader ], [ %.04393182, %52 ], [ %.04393182, %.lr.ph184 ], [ %69, %.lr.ph ]
-  %.04492167 = phi i64 [ %.04492183, %.loopexit.sink.split ], [ 0, %.lr.ph.preheader ], [ %.04492183, %52 ], [ %.04492183, %.lr.ph184 ], [ %50, %.lr.ph ]
-  %.249.ph = phi i32 [ %.249.ph.ph, %.loopexit.sink.split ], [ %27, %.lr.ph.preheader ], [ %55, %52 ], [ -12, %.lr.ph184 ], [ %55, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph192, %52, %.lr.ph.preheader, %.loopexit.sink.split
+  %.04393179 = phi i64 [ %.04393190, %.loopexit.sink.split ], [ 0, %.lr.ph.preheader ], [ %.04393190, %52 ], [ %.04393190, %.lr.ph192 ], [ %69, %.lr.ph ]
+  %.04492175 = phi i64 [ %.04492191, %.loopexit.sink.split ], [ 0, %.lr.ph.preheader ], [ %.04492191, %52 ], [ %.04492191, %.lr.ph192 ], [ %50, %.lr.ph ]
+  %.249.ph = phi i32 [ %.249.ph.ph, %.loopexit.sink.split ], [ %27, %.lr.ph.preheader ], [ %55, %52 ], [ -12, %.lr.ph192 ], [ %55, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %76 = call i32 @av_bprint_finalize(ptr noundef nonnull %5, ptr noundef null) #5
   %77 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %.04492167, ptr %77, align 8, !tbaa !30
-  %.not66 = icmp eq i64 %.04492167, 0
-  br i1 %.not66, label %.thread135, label %78
+  store i64 %.04492175, ptr %77, align 8, !tbaa !30
+  %.not66 = icmp eq i64 %.04492175, 0
+  br i1 %.not66, label %.thread143, label %78
 
 78:                                               ; preds = %.loopexit
   %79 = icmp slt i32 %.249.ph, 0
-  br i1 %79, label %.thread135, label %84
+  br i1 %79, label %.thread143, label %84
 
-.thread135.sink.split:                            ; preds = %32, %.loopexit.thread130
-  %.sink = phi i64 [ 1152921504606846974, %.loopexit.thread130 ], [ 0, %32 ]
-  %.ph = phi i32 [ -36, %.loopexit.thread130 ], [ -1094995529, %32 ]
-  %.04376122138.ph = phi i64 [ %.04393182, %.loopexit.thread130 ], [ 0, %32 ]
+.thread143.sink.split:                            ; preds = %32, %.loopexit.thread138
+  %.sink = phi i64 [ 1152921504606846974, %.loopexit.thread138 ], [ 0, %32 ]
+  %.ph = phi i32 [ -36, %.loopexit.thread138 ], [ -1094995529, %32 ]
+  %.04376130146.ph = phi i64 [ %.04393190, %.loopexit.thread138 ], [ 0, %32 ]
   %80 = call i32 @av_bprint_finalize(ptr noundef nonnull %5, ptr noundef null) #5
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %.sink, ptr %81, align 8, !tbaa !30
-  br label %.thread135
+  br label %.thread143
 
-.thread135:                                       ; preds = %.thread135.sink.split, %.loopexit, %78
-  %82 = phi i32 [ %.249.ph, %78 ], [ -1094995529, %.loopexit ], [ %.ph, %.thread135.sink.split ]
-  %.04376122138 = phi i64 [ %.04393171, %78 ], [ %.04393171, %.loopexit ], [ %.04376122138.ph, %.thread135.sink.split ]
+.thread143:                                       ; preds = %.thread143.sink.split, %.loopexit, %78
+  %82 = phi i32 [ %.249.ph, %78 ], [ -1094995529, %.loopexit ], [ %.ph, %.thread143.sink.split ]
+  %.04376130146 = phi i64 [ %.04393179, %78 ], [ %.04393179, %.loopexit ], [ %.04376130146.ph, %.thread143.sink.split ]
   %83 = call i32 @concat_close(ptr noundef nonnull %0) #7
   br label %84
 
-84:                                               ; preds = %.thread139, %.thread135, %78
-  %85 = phi i32 [ %82, %.thread135 ], [ %.249.ph, %78 ], [ %55, %.thread139 ]
-  %.04376122137 = phi i64 [ %.04376122138, %.thread135 ], [ %.04393171, %78 ], [ %69, %.thread139 ]
+84:                                               ; preds = %.thread147, %.thread143, %78
+  %85 = phi i32 [ %82, %.thread143 ], [ %.249.ph, %78 ], [ %55, %.thread147 ]
+  %.04376130145 = phi i64 [ %.04376130146, %.thread143 ], [ %.04393179, %78 ], [ %69, %.thread147 ]
   %86 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i64 %.04376122137, ptr %86, align 8, !tbaa !31
+  store i64 %.04376130145, ptr %86, align 8, !tbaa !31
   br label %87
 
 87:                                               ; preds = %17, %15, %84, %30, %14

@@ -149,11 +149,11 @@ Extra_zddSelectOneSubset.exit:                    ; preds = %37
   %51 = getelementptr inbounds nuw i32, ptr %calloc, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !37
   %. = tail call i32 @llvm.smin.i32(i32 %49, i32 %52)
-  %.82 = tail call i32 @llvm.smax.i32(i32 %49, i32 %52)
+  %.92 = tail call i32 @llvm.smax.i32(i32 %49, i32 %52)
   %53 = sext i32 %. to i64
   %54 = getelementptr inbounds ptr, ptr %10, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !31
-  %56 = sext i32 %.82 to i64
+  %56 = sext i32 %.92 to i64
   %57 = getelementptr inbounds i8, ptr %55, i64 %56
   store i8 1, ptr %57, align 1, !tbaa !38
   %58 = add nuw nsw i32 %36, 1
@@ -1376,10 +1376,10 @@ define ptr @extraBddCheckVarsSymmetric(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.sink.split
 
 .sink.split:                                      ; preds = %29, %42
-  %.sink129 = phi ptr [ %34, %42 ], [ %28, %29 ]
+  %.sink147 = phi ptr [ %34, %42 ], [ %28, %29 ]
   %.sink = phi ptr [ %38, %42 ], [ %31, %29 ]
   %.095.ph = phi i32 [ %43, %42 ], [ -1, %29 ]
-  %44 = load i32, ptr %.sink129, align 8, !tbaa !36
+  %44 = load i32, ptr %.sink147, align 8, !tbaa !36
   %45 = zext i32 %44 to i64
   %46 = getelementptr inbounds nuw i32, ptr %.sink, i64 %45
   br label %47

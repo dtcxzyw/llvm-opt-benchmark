@@ -510,7 +510,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %4, %32
   %64 = getelementptr inbounds nuw %"struct.Assimp::SpatialSort::Entry", ptr %37, i64 %indvars.iv, i32 2
   %65 = load float, ptr %64, align 4
   %66 = fcmp ogt float %65, %27
-  br i1 %66, label %67, label %.critedge.loopexit.split.loop.exit58
+  br i1 %66, label %67, label %.critedge.loopexit.split.loop.exit73
 
 67:                                               ; preds = %.lr.ph48
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -518,12 +518,12 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %4, %32
   %.not = icmp eq i64 %68, 0
   br i1 %.not, label %.critedge, label %.lr.ph48, !llvm.loop !17
 
-.critedge.loopexit.split.loop.exit58:             ; preds = %.lr.ph48
+.critedge.loopexit.split.loop.exit73:             ; preds = %.lr.ph48
   %69 = trunc nuw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %67, %.critedge.loopexit.split.loop.exit58, %.preheader
-  %.2.lcssa = phi i32 [ 0, %.preheader ], [ %69, %.critedge.loopexit.split.loop.exit58 ], [ 0, %67 ]
+.critedge:                                        ; preds = %67, %.critedge.loopexit.split.loop.exit73, %.preheader
+  %.2.lcssa = phi i32 [ 0, %.preheader ], [ %69, %.critedge.loopexit.split.loop.exit73 ], [ 0, %67 ]
   %70 = add nsw i64 %41, -1
   %71 = zext i32 %.2.lcssa to i64
   %72 = icmp ugt i64 %70, %71
@@ -743,7 +743,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %3, %33
   %.not1.i34 = icmp slt i32 %.val28, 0
   %.0.i35 = select i1 %.not1.i34, i32 %56, i32 %.val28
   %57 = icmp slt i32 %28, %.0.i35
-  br i1 %57, label %58, label %.critedge.loopexit.split.loop.exit64
+  br i1 %57, label %58, label %.critedge.loopexit.split.loop.exit75
 
 58:                                               ; preds = %.lr.ph54
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -751,12 +751,12 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %3, %33
   %.not = icmp eq i64 %59, 0
   br i1 %.not, label %.critedge, label %.lr.ph54, !llvm.loop !21
 
-.critedge.loopexit.split.loop.exit64:             ; preds = %.lr.ph54
+.critedge.loopexit.split.loop.exit75:             ; preds = %.lr.ph54
   %60 = trunc nuw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %58, %.critedge.loopexit.split.loop.exit64, %.preheader
-  %.2.lcssa = phi i32 [ 0, %.preheader ], [ %60, %.critedge.loopexit.split.loop.exit64 ], [ 0, %58 ]
+.critedge:                                        ; preds = %58, %.critedge.loopexit.split.loop.exit75, %.preheader
+  %.2.lcssa = phi i32 [ 0, %.preheader ], [ %60, %.critedge.loopexit.split.loop.exit75 ], [ 0, %58 ]
   %61 = add nsw i64 %42, -1
   %62 = zext i32 %.2.lcssa to i64
   %63 = icmp ugt i64 %61, %62
@@ -1104,7 +1104,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %27 = and i64 %22, 1
   %28 = icmp eq i64 %27, 0
   %29 = or disjoint i64 %23, 1
-  %30 = getelementptr inbounds %"struct.Assimp::SpatialSort::Entry", ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw %"struct.Assimp::SpatialSort::Entry", ptr %0, i64 %29
   %31 = getelementptr inbounds nuw %"struct.Assimp::SpatialSort::Entry", ptr %0, i64 %24
   br label %32
 
@@ -1154,21 +1154,21 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.018.i.i.i.i = phi i64 [ %.0919.i.i.i.i, %54 ], [ %.1.i.i.i, %48 ]
   %.0919.in.i.i.i.i = add nsw i64 %.018.i.i.i.i, -1
   %.0919.i.i.i.i = sdiv i64 %.0919.in.i.i.i.i, 2
-  %50 = getelementptr inbounds %"struct.Assimp::SpatialSort::Entry", ptr %0, i64 %.0919.i.i.i.i
+  %50 = getelementptr inbounds nuw %"struct.Assimp::SpatialSort::Entry", ptr %0, i64 %.0919.i.i.i.i
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load float, ptr %51, align 4
   %53 = fcmp olt float %52, %.sroa.416.0.copyload.i.i
   br i1 %53, label %54, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i
 
 54:                                               ; preds = %.lr.ph.i.i.i.i11
-  %55 = getelementptr inbounds %"struct.Assimp::SpatialSort::Entry", ptr %0, i64 %.018.i.i.i.i
+  %55 = getelementptr inbounds nuw %"struct.Assimp::SpatialSort::Entry", ptr %0, i64 %.018.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %55, ptr noundef nonnull align 4 dereferenceable(20) %50, i64 20, i1 false)
   %56 = icmp sgt i64 %.0919.i.i.i.i, %.07.i.i
   br i1 %56, label %.lr.ph.i.i.i.i11, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i, !llvm.loop !27
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i: ; preds = %54, %.lr.ph.i.i.i.i11, %48
   %.0.lcssa.i.i.i.i10 = phi i64 [ %.1.i.i.i, %48 ], [ %.0919.i.i.i.i, %54 ], [ %.018.i.i.i.i, %.lr.ph.i.i.i.i11 ]
-  %57 = getelementptr inbounds %"struct.Assimp::SpatialSort::Entry", ptr %0, i64 %.0.lcssa.i.i.i.i10
+  %57 = getelementptr inbounds nuw %"struct.Assimp::SpatialSort::Entry", ptr %0, i64 %.0.lcssa.i.i.i.i10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.013.i.i, i64 16, i1 false)
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %57, i64 16
   store float %.sroa.416.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 4

@@ -1137,11 +1137,11 @@ define hidden void @_ZN3std6thread7Builder15spawn_unchecked17h464c910663dd1062E(
           to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h93bab6f71c26ef53E.exit.i" unwind label %157, !noalias !126
 
 171:                                              ; preds = %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h93bab6f71c26ef53E.exit.thread.i", %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h93bab6f71c26ef53E.exit.i"
-  %.pn3273447.i = phi { ptr, i32 } [ %.pn3273448.i, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h93bab6f71c26ef53E.exit.thread.i" ], [ %.pn327.i, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h93bab6f71c26ef53E.exit.i" ]
-  resume { ptr, i32 } %.pn3273447.i
+  %.pn3273455.i = phi { ptr, i32 } [ %.pn3273456.i, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h93bab6f71c26ef53E.exit.thread.i" ], [ %.pn327.i, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h93bab6f71c26ef53E.exit.i" ]
+  resume { ptr, i32 } %.pn3273455.i
 
 "_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h93bab6f71c26ef53E.exit.thread.i": ; preds = %.thread8.i, %164, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h93bab6f71c26ef53E.exit.i"
-  %.pn3273448.i = phi { ptr, i32 } [ %.pn327.i, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h93bab6f71c26ef53E.exit.i" ], [ %eh.lpad-body3813.i, %164 ], [ %eh.lpad-body3813.i, %.thread8.i ]
+  %.pn3273456.i = phi { ptr, i32 } [ %.pn327.i, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h93bab6f71c26ef53E.exit.i" ], [ %eh.lpad-body3813.i, %164 ], [ %eh.lpad-body3813.i, %.thread8.i ]
   invoke fastcc void @"_ZN4core3ptr154drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$GT$17ha1b0b2948b6cfa73E"(ptr nonnull align 1 %2, ptr nonnull readonly align 8 dereferenceable(32) %3) #27
           to label %171 unwind label %157, !noalias !126
 
@@ -4941,12 +4941,12 @@ define hidden { i64, ptr } @_ZN9elfshaker5batch14compress_files17h5958161a24c9fc
   call void @llvm.assume(i1 %68)
   %69 = ptrtoint ptr %66 to i64
   %spec.select = select i1 %67, i64 %69, i64 %.sroa.050.0.lcssa
-  %spec.select148 = and i64 %65, 1
+  %spec.select152 = and i64 %65, 1
   br label %70
 
 70:                                               ; preds = %63, %21, %.thread122
   %.sroa.9.3 = phi i64 [ %22, %21 ], [ %.sroa.9.1, %.thread122 ], [ %spec.select, %63 ]
-  %.sroa.0.3 = phi i64 [ 1, %21 ], [ 1, %.thread122 ], [ %spec.select148, %63 ]
+  %.sroa.0.3 = phi i64 [ 1, %21 ], [ 1, %.thread122 ], [ %spec.select152, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %71 = inttoptr i64 %.sroa.9.3 to ptr
   %72 = insertvalue { i64, ptr } poison, i64 %.sroa.0.3, 0

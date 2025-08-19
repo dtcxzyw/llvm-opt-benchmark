@@ -49,9 +49,9 @@ define hidden zeroext i1 @OFFSCREEN_Vulkan_LoadLibrary(ptr noundef %0, ptr nound
   br i1 %12, label %.critedge, label %.critedge.thread
 
 .critedge:                                        ; preds = %9, %10
-  %.058 = phi ptr [ %11, %10 ], [ %1, %9 ]
-  %.not43 = icmp eq ptr %.058, null
-  %.sroa.speculated = select i1 %.not43, ptr @.str.14, ptr %.058
+  %.062 = phi ptr [ %11, %10 ], [ %1, %9 ]
+  %.not43 = icmp eq ptr %.062, null
+  %.sroa.speculated = select i1 %.not43, ptr @.str.14, ptr %.062
   %13 = tail call ptr @SDL_LoadObject_REAL(ptr noundef nonnull %.sroa.speculated) #4
   store ptr %13, ptr %5, align 8
   %14 = icmp eq ptr %13, null

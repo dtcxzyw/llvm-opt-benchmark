@@ -68,11 +68,11 @@ define dso_local i64 @syncRead(i32 noundef %0, ptr noundef captures(none) %1, i6
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %4, %.thread48
-  %.034 = phi i64 [ %.23652, %.thread48 ], [ 0, %4 ]
-  %.031 = phi i64 [ %.23353, %.thread48 ], [ %2, %4 ]
-  %.029 = phi i64 [ %20, %.thread48 ], [ %3, %4 ]
-  %.025 = phi ptr [ %.22754, %.thread48 ], [ %1, %4 ]
+.preheader:                                       ; preds = %4, %.thread49
+  %.034 = phi i64 [ %.23653, %.thread49 ], [ 0, %4 ]
+  %.031 = phi i64 [ %.23354, %.thread49 ], [ %2, %4 ]
+  %.029 = phi i64 [ %20, %.thread49 ], [ %3, %4 ]
+  %.025 = phi ptr [ %.22755, %.thread49 ], [ %1, %4 ]
   %7 = tail call i64 @llvm.smax.i64(i64 %.029, i64 10)
   %8 = tail call i64 @read(i32 noundef %0, ptr noundef %.025, i64 noundef %.031) #6
   switch i64 %8, label %12 [
@@ -84,19 +84,19 @@ define dso_local i64 @syncRead(i32 noundef %0, ptr noundef captures(none) %1, i6
   %10 = tail call ptr @__errno_location() #7
   %11 = load i32, ptr %10, align 4, !tbaa !5
   %.not = icmp eq i32 %11, 11
-  br i1 %.not, label %.thread48, label %.thread
+  br i1 %.not, label %.thread49, label %.thread
 
 12:                                               ; preds = %.preheader
   %13 = getelementptr inbounds i8, ptr %.025, i64 %8
   %14 = sub nsw i64 %.031, %8
   %15 = add nsw i64 %8, %.034
   %16 = icmp eq i64 %14, 0
-  br i1 %16, label %.thread, label %.thread48
+  br i1 %16, label %.thread, label %.thread49
 
-.thread48:                                        ; preds = %9, %12
-  %.22754 = phi ptr [ %13, %12 ], [ %.025, %9 ]
-  %.23353 = phi i64 [ %14, %12 ], [ %.031, %9 ]
-  %.23652 = phi i64 [ %15, %12 ], [ %.034, %9 ]
+.thread49:                                        ; preds = %9, %12
+  %.22755 = phi ptr [ %13, %12 ], [ %.025, %9 ]
+  %.23354 = phi i64 [ %14, %12 ], [ %.031, %9 ]
+  %.23653 = phi i64 [ %15, %12 ], [ %.034, %9 ]
   %17 = tail call i32 @aeWait(i32 noundef %0, i32 noundef 1, i64 noundef %7) #6
   %18 = tail call i64 @mstime() #6
   %19 = sub nsw i64 %18, %5
@@ -104,7 +104,7 @@ define dso_local i64 @syncRead(i32 noundef %0, ptr noundef captures(none) %1, i6
   %20 = sub nsw i64 %3, %19
   br i1 %.not41, label %.preheader, label %21
 
-21:                                               ; preds = %.thread48
+21:                                               ; preds = %.thread49
   %22 = tail call ptr @__errno_location() #7
   store i32 110, ptr %22, align 4, !tbaa !5
   br label %.thread

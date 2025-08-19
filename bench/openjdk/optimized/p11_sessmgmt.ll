@@ -381,10 +381,10 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1CloseSession(ptr noundef
   br label %30
 
 30:                                               ; preds = %._crit_edge.i, %24
-  %.017.lcssa31.i = phi ptr [ %23, %._crit_edge.i ], [ %17, %24 ]
-  %31 = getelementptr inbounds nuw i8, ptr %.017.lcssa31.i, i64 8
+  %.017.lcssa33.i = phi ptr [ %23, %._crit_edge.i ], [ %17, %24 ]
+  %31 = getelementptr inbounds nuw i8, ptr %.017.lcssa33.i, i64 8
   %32 = load ptr, ptr %31, align 8
-  tail call void @free(ptr noundef nonnull %.017.lcssa31.i) #4
+  tail call void @free(ptr noundef nonnull %.017.lcssa33.i) #4
   br label %removeNotifyEntry.exit
 
 removeNotifyEntry.exit:                           ; preds = %.lr.ph.i, %11, %30
@@ -465,10 +465,10 @@ define hidden ptr @removeNotifyEntry(ptr noundef %0, i64 noundef %1) local_unnam
   br label %21
 
 21:                                               ; preds = %._crit_edge, %15
-  %.017.lcssa31 = phi ptr [ %14, %._crit_edge ], [ %8, %15 ]
-  %22 = getelementptr inbounds nuw i8, ptr %.017.lcssa31, i64 8
+  %.017.lcssa33 = phi ptr [ %14, %._crit_edge ], [ %8, %15 ]
+  %22 = getelementptr inbounds nuw i8, ptr %.017.lcssa33, i64 8
   %23 = load ptr, ptr %22, align 8
-  tail call void @free(ptr noundef nonnull %.017.lcssa31) #4
+  tail call void @free(ptr noundef nonnull %.017.lcssa33) #4
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %2, %21

@@ -180,7 +180,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL39BrotliFindAllStaticDict
 51:                                               ; preds = %.lr.ph1201
   %52 = getelementptr inbounds nuw i8, ptr %.025.i9971199, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %.022.i9981200, i64 8
-  %54 = add i64 %.027.i9961198, -8
+  %54 = add nsw i64 %.027.i9961198, -8
   %55 = icmp ugt i64 %54, 7
   br i1 %55, label %.lr.ph1201, label %.preheader1139, !llvm.loop !35
 
@@ -1316,8 +1316,8 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
   %806 = load ptr, ptr %18, align 8, !tbaa !33
   %807 = getelementptr inbounds nuw i8, ptr %806, i64 %804
   %808 = getelementptr inbounds nuw i8, ptr %807, i64 %805
-  %cond1376 = icmp eq i8 %.sroa.7581.0.copyload, 10
-  br i1 %cond1376, label %809, label %.preheader1140
+  %cond = icmp eq i8 %.sroa.7581.0.copyload, 10
+  br i1 %cond, label %809, label %.preheader1140
 
 .preheader1140:                                   ; preds = %801
   %.not1319 = icmp eq i8 %24, 0
@@ -1927,8 +1927,8 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
   %1164 = load ptr, ptr %1007, align 8, !tbaa !33
   %1165 = getelementptr inbounds nuw i8, ptr %1164, i64 %1162
   %1166 = getelementptr inbounds nuw i8, ptr %1165, i64 %1163
-  %cond = icmp eq i8 %.sroa.8160.0.copyload, 10
-  br i1 %cond, label %1167, label %.preheader1135
+  %cond1461 = icmp eq i8 %.sroa.8160.0.copyload, 10
+  br i1 %cond1461, label %1167, label %.preheader1135
 
 .preheader1135:                                   ; preds = %1159
   %.not1320 = icmp eq i8 %1015, 0
@@ -2252,8 +2252,8 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
   %1344 = icmp slt i8 %.sroa.047.0.copyload, 0
   %1345 = icmp ne i8 %.sroa.749.0.copyload, 0
   %1346 = icmp ult i64 %1332, %1339
-  %or.cond1412 = or i1 %1345, %1346
-  br i1 %or.cond1412, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread, label %1347
+  %or.cond1462 = or i1 %1345, %1346
+  br i1 %or.cond1462, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread, label %1347
 
 1347:                                             ; preds = %1335
   %1348 = getelementptr inbounds nuw [32 x i32], ptr %1333, i64 0, i64 %1339
@@ -2356,14 +2356,14 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread
 
 _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread.sink.split: ; preds = %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread1097, %1387
   %.sink = phi i64 [ %1391, %1387 ], [ 102, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread1097 ]
-  %.sink1417 = phi i64 [ 12, %1387 ], [ 8, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread1097 ]
+  %.sink1467 = phi i64 [ 12, %1387 ], [ 8, %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread1097 ]
   %1392 = shl i64 %.sink, %1342
   %1393 = add i64 %1392, %1343
   %1394 = shl i64 %1393, 5
   %1395 = or disjoint i64 %1394, %1339
   %1396 = trunc i64 %1395 to i32
   %1397 = getelementptr inbounds nuw i32, ptr %4, i64 %1339
-  %1398 = getelementptr inbounds nuw i8, ptr %1397, i64 %.sink1417
+  %1398 = getelementptr inbounds nuw i8, ptr %1397, i64 %.sink1467
   %1399 = load i32, ptr %1398, align 4, !tbaa !22
   %1400 = tail call noundef i32 @llvm.umin.i32(i32 %1399, i32 %1396)
   store i32 %1400, ptr %1398, align 4, !tbaa !22
@@ -2472,8 +2472,8 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread
   %1458 = icmp slt i8 %.sroa.028.0.copyload, 0
   %1459 = icmp ne i8 %.sroa.7.0.copyload, 0
   %1460 = icmp ult i64 %1446, %1453
-  %or.cond1420 = or i1 %1459, %1460
-  br i1 %or.cond1420, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread, label %1461
+  %or.cond1470 = or i1 %1459, %1460
+  br i1 %or.cond1470, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread, label %1461
 
 1461:                                             ; preds = %1449
   %1462 = getelementptr inbounds nuw [32 x i32], ptr %1447, i64 0, i64 %1453

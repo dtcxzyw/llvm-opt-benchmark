@@ -2724,31 +2724,31 @@ condstore.split:                                  ; preds = %45
   %54 = and i32 %53, 16
   %.lobit = lshr exact i32 %54, 4
   %55 = trunc nuw nsw i32 %.lobit to i8
-  %.lobit37 = lshr exact i32 %54, 4
+  %.lobit59 = lshr exact i32 %54, 4
   %56 = and i32 %53, 256
-  %.not40 = icmp eq i32 %56, 0
-  %.lobit38 = lshr exact i32 %56, 8
-  %.ph = trunc nuw nsw i32 %.lobit38 to i8
-  %.ph36 = select i1 %.not40, i32 %.lobit37, i32 1
+  %.not62 = icmp eq i32 %56, 0
+  %.lobit60 = lshr exact i32 %56, 8
+  %.ph = trunc nuw nsw i32 %.lobit60 to i8
+  %.ph58 = select i1 %.not62, i32 %.lobit59, i32 1
   %57 = and i32 %53, 272
   %.not = icmp eq i32 %57, 0
   br i1 %.not, label %64, label %58
 
 58:                                               ; preds = %condstore.split
-  %.not39 = icmp eq i32 %54, 0
+  %.not61 = icmp eq i32 %54, 0
   %59 = and i32 %47, -17
   %60 = or disjoint i32 %59, %49
-  %61 = select i1 %.not39, i32 %47, i32 %60
+  %61 = select i1 %.not61, i32 %47, i32 %60
   %62 = and i32 %61, -257
   %63 = or disjoint i32 %62, %51
-  %simplifycfg.merge = select i1 %.not40, i32 %61, i32 %63
+  %simplifycfg.merge = select i1 %.not62, i32 %61, i32 %63
   store i32 %simplifycfg.merge, ptr %46, align 8
   br label %64
 
 64:                                               ; preds = %58, %condstore.split, %45
   %65 = phi i8 [ 0, %45 ], [ %55, %condstore.split ], [ %55, %58 ]
   %66 = phi i8 [ 0, %45 ], [ %.ph, %condstore.split ], [ %.ph, %58 ]
-  %67 = phi i32 [ 0, %45 ], [ %.ph36, %condstore.split ], [ %.ph36, %58 ]
+  %67 = phi i32 [ 0, %45 ], [ %.ph58, %condstore.split ], [ %.ph58, %58 ]
   %68 = and i64 %40, 24
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %72, label %70
@@ -5535,13 +5535,13 @@ define dso_local ptr @neigh_seq_start(ptr noundef readonly captures(none) %0, pt
   br i1 %76, label %.thread34, label %.lr.ph
 
 thread-pre-splitthread-pre-split:                 ; preds = %106, %87
-  %.ph79 = phi ptr [ %79, %87 ], [ %97, %106 ]
+  %.ph97 = phi ptr [ %79, %87 ], [ %97, %106 ]
   %.pr.pr = load i64, ptr %6, align 8
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %thread-pre-splitthread-pre-split, %129
   %.pr = phi i64 [ %.pr.pr, %thread-pre-splitthread-pre-split ], [ %131, %129 ]
-  %77 = phi ptr [ %.ph79, %thread-pre-splitthread-pre-split ], [ %97, %129 ]
+  %77 = phi ptr [ %.ph97, %thread-pre-splitthread-pre-split ], [ %97, %129 ]
   %78 = icmp eq i64 %.pr, 0
   br i1 %78, label %.thread34, label %.lr.ph
 
@@ -5638,15 +5638,15 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 .thread34:                                        ; preds = %thread-pre-split, %71
   %133 = phi ptr [ %39, %71 ], [ %77, %thread-pre-split ]
   %134 = load i64, ptr %6, align 8
-  %.not103 = icmp eq i64 %134, 0
-  br i1 %.not103, label %.thread37.thread82, label %135
+  %.not121 = icmp eq i64 %134, 0
+  br i1 %.not121, label %.thread37.thread100, label %135
 
 135:                                              ; preds = %.thread34.thread, %.thread34
   %136 = phi i64 [ %132, %.thread34.thread ], [ %134, %.thread34 ]
   %137 = load i32, ptr %24, align 4
   %138 = and i32 %137, 1
   %139 = icmp eq i32 %138, 0
-  br i1 %139, label %140, label %.thread37.thread82
+  br i1 %139, label %140, label %.thread37.thread100
 
 140:                                              ; preds = %135
   %141 = load ptr, ptr %7, align 8
@@ -5686,7 +5686,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 .thread35:                                        ; preds = %161
   %164 = getelementptr inbounds nuw i8, ptr %141, i64 32
   store i32 16, ptr %164, align 8
-  br label %.thread37.thread82
+  br label %.thread37.thread100
 
 165:                                              ; preds = %157
   %166 = trunc i64 %151 to i32
@@ -5695,7 +5695,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
   %168 = add i64 %136, -1
   store i64 %168, ptr %6, align 8
   %169 = icmp eq i64 %168, 0
-  br i1 %169, label %.thread37.thread82, label %.lr.ph59
+  br i1 %169, label %.thread37.thread100, label %.lr.ph59
 
 .lr.ph59:                                         ; preds = %165, %.loopexit
   %170 = phi i64 [ %207, %.loopexit ], [ %168, %165 ]
@@ -5725,13 +5725,13 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
   %188 = add i32 %187, 1
   store i32 %188, ptr %185, align 8
   %189 = icmp ugt i32 %188, 15
-  br i1 %189, label %.thread37.thread82, label %.preheader
+  br i1 %189, label %.thread37.thread100, label %.preheader
 
 190:                                              ; preds = %197
   %191 = add nuw nsw i32 %193, 1
   store i32 %191, ptr %185, align 8
   %192 = icmp ugt i32 %193, 14
-  br i1 %192, label %.thread37.thread82, label %.preheader
+  br i1 %192, label %.thread37.thread100, label %.preheader
 
 .preheader:                                       ; preds = %184, %190
   %193 = phi i32 [ %191, %190 ], [ %188, %184 ]
@@ -5760,15 +5760,15 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
   %207 = add i64 %170, -1
   store i64 %207, ptr %6, align 8
   %208 = icmp eq i64 %207, 0
-  br i1 %208, label %.thread37.thread82, label %.lr.ph59
+  br i1 %208, label %.thread37.thread100, label %.lr.ph59
 
-.thread37.thread82:                               ; preds = %184, %.loopexit, %190, %.thread35, %165, %135, %.thread34
+.thread37.thread100:                              ; preds = %184, %.loopexit, %190, %.thread35, %165, %135, %.thread34
   %209 = phi ptr [ %133, %.thread34 ], [ null, %135 ], [ %155, %165 ], [ null, %.thread35 ], [ null, %190 ], [ %206, %.loopexit ], [ null, %184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %210
 
-210:                                              ; preds = %.thread37.thread82, %4
-  %211 = phi ptr [ %209, %.thread37.thread82 ], [ inttoptr (i64 1 to ptr), %4 ]
+210:                                              ; preds = %.thread37.thread100, %4
+  %211 = phi ptr [ %209, %.thread37.thread100 ], [ inttoptr (i64 1 to ptr), %4 ]
   ret ptr %211
 }
 
@@ -6629,7 +6629,7 @@ define internal void @neigh_timer_handler(ptr noundef %0) #0 align 16 {
   %33 = getelementptr i8, ptr %0, i64 -48
   %34 = getelementptr i8, ptr %0, i64 224
   %35 = getelementptr i8, ptr %0, i64 216
-  br i1 %32, label %36, label %.thread9.thread13
+  br i1 %32, label %36, label %.thread13.thread17
 
 36:                                               ; preds = %24
   store volatile i8 8, ptr %4, align 4
@@ -6642,9 +6642,9 @@ define internal void @neigh_timer_handler(ptr noundef %0) #0 align 16 {
   %41 = load i32, ptr %27, align 8
   %42 = sext i32 %41 to i64
   %43 = add i64 %7, %42
-  br label %.thread9.thread
+  br label %.thread13.thread
 
-.thread9.thread13:                                ; preds = %24
+.thread13.thread17:                               ; preds = %24
   store volatile i8 4, ptr %4, align 4
   %44 = load volatile i64, ptr @jiffies, align 64
   store i64 %44, ptr %33, align 8
@@ -6671,7 +6671,7 @@ define internal void @neigh_timer_handler(ptr noundef %0) #0 align 16 {
   %60 = add i64 %59, %58
   %61 = icmp sgt i64 %60, -1
   %62 = getelementptr i8, ptr %0, i64 -48
-  br i1 %61, label %63, label %.thread10
+  br i1 %61, label %63, label %.thread14
 
 63:                                               ; preds = %51
   store volatile i8 2, ptr %4, align 4
@@ -6687,9 +6687,9 @@ define internal void @neigh_timer_handler(ptr noundef %0) #0 align 16 {
   %71 = load i32, ptr %70, align 8
   %72 = sext i32 %71 to i64
   %73 = add i64 %53, %72
-  br label %.thread9.thread
+  br label %.thread13.thread
 
-.thread10:                                        ; preds = %51
+.thread14:                                        ; preds = %51
   store volatile i8 16, ptr %4, align 4
   %74 = load volatile i64, ptr @jiffies, align 64
   store i64 %74, ptr %62, align 8
@@ -6717,13 +6717,13 @@ define internal void @neigh_timer_handler(ptr noundef %0) #0 align 16 {
   %91 = phi i64 [ %88, %81 ], [ %21, %13 ]
   %92 = and i8 %5, 17
   %93 = icmp eq i8 %92, 0
-  br i1 %93, label %.thread9, label %94
+  br i1 %93, label %.thread13, label %94
 
-94:                                               ; preds = %.thread10, %89
-  %95 = phi i64 [ %80, %.thread10 ], [ %91, %89 ]
-  %96 = phi i32 [ 1, %.thread10 ], [ 0, %89 ]
-  %97 = phi i8 [ 16, %.thread10 ], [ %5, %89 ]
-  %98 = phi ptr [ %55, %.thread10 ], [ %90, %89 ]
+94:                                               ; preds = %.thread14, %89
+  %95 = phi i64 [ %80, %.thread14 ], [ %91, %89 ]
+  %96 = phi i32 [ 1, %.thread14 ], [ 0, %89 ]
+  %97 = phi i8 [ 16, %.thread14 ], [ %5, %89 ]
+  %98 = phi ptr [ %55, %.thread14 ], [ %90, %89 ]
   %99 = getelementptr i8, ptr %0, i64 48
   %100 = load volatile i32, ptr %99, align 4
   %101 = getelementptr i8, ptr %98, i64 92
@@ -6738,37 +6738,37 @@ define internal void @neigh_timer_handler(ptr noundef %0) #0 align 16 {
   %110 = add i32 %104, %102
   %111 = add i32 %110, %109
   %112 = icmp slt i32 %100, %111
-  br i1 %112, label %.thread9, label %113
+  br i1 %112, label %.thread13, label %113
 
 113:                                              ; preds = %94
   store volatile i8 32, ptr %4, align 4
   tail call fastcc void @neigh_invalidate(ptr noundef %2)
   br label %166
 
-.thread9:                                         ; preds = %94, %89
+.thread13:                                        ; preds = %94, %89
   %114 = phi i64 [ %95, %94 ], [ %91, %89 ]
   %115 = phi i32 [ %96, %94 ], [ 0, %89 ]
   %116 = phi i8 [ %97, %94 ], [ %5, %89 ]
   %117 = and i8 %116, 27
   %118 = icmp eq i8 %117, 0
-  br i1 %118, label %142, label %.thread9.thread
+  br i1 %118, label %142, label %.thread13.thread
 
-.thread9.thread:                                  ; preds = %36, %63, %.thread9
-  %119 = phi i32 [ %115, %.thread9 ], [ 0, %36 ], [ 1, %63 ]
-  %120 = phi i64 [ %114, %.thread9 ], [ %43, %36 ], [ %73, %63 ]
+.thread13.thread:                                 ; preds = %36, %63, %.thread13
+  %119 = phi i32 [ %115, %.thread13 ], [ 0, %36 ], [ 1, %63 ]
+  %120 = phi i64 [ %114, %.thread13 ], [ %43, %36 ], [ %73, %63 ]
   %121 = load volatile i64, ptr @jiffies, align 64
   %122 = add i64 %120, -10
   %123 = sub i64 %122, %121
   %124 = icmp slt i64 %123, 0
   br i1 %124, label %125, label %128
 
-125:                                              ; preds = %.thread9.thread
+125:                                              ; preds = %.thread13.thread
   %126 = load volatile i64, ptr @jiffies, align 64
   %127 = add i64 %126, 10
   br label %128
 
-128:                                              ; preds = %125, %.thread9.thread
-  %129 = phi i64 [ %127, %125 ], [ %120, %.thread9.thread ]
+128:                                              ; preds = %125, %.thread13.thread
+  %129 = phi i64 [ %127, %125 ], [ %120, %.thread13.thread ]
   %130 = tail call i32 @mod_timer(ptr noundef %0, i64 noundef %129) #21
   %131 = icmp eq i32 %130, 0
   br i1 %131, label %132, label %142
@@ -6790,8 +6790,8 @@ define internal void @neigh_timer_handler(ptr noundef %0) #0 align 16 {
   tail call void @refcount_warn_saturate(ptr noundef %133, i32 noundef %141) #21
   br label %142
 
-142:                                              ; preds = %.thread9.thread13, %140, %136, %128, %.thread9
-  %143 = phi i32 [ %119, %140 ], [ %119, %136 ], [ %119, %128 ], [ %115, %.thread9 ], [ 1, %.thread9.thread13 ]
+142:                                              ; preds = %.thread13.thread17, %140, %136, %128, %.thread13
+  %143 = phi i32 [ %119, %140 ], [ %119, %136 ], [ %119, %128 ], [ %115, %.thread13 ], [ 1, %.thread13.thread17 ]
   %144 = load i8, ptr %4, align 4
   %145 = and i8 %144, 17
   %146 = icmp eq i8 %145, 0
@@ -8516,7 +8516,7 @@ define internal i32 @neigh_dump_info(ptr noundef %0, ptr noundef captures(none) 
   %50 = load i8, ptr %49, align 2
   %51 = and i8 %50, -9
   %52 = icmp eq i8 %51, 0
-  br i1 %52, label %.thread220, label %53
+  br i1 %52, label %.thread265, label %53
 
 53:                                               ; preds = %48
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @neigh_valid_dump_req.__msg.60) #21
@@ -8537,7 +8537,7 @@ define internal i32 @neigh_dump_info(ptr noundef %0, ptr noundef captures(none) 
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %.thread, label %.preheader47.split.us
 
-.thread220:                                       ; preds = %48
+.thread265:                                       ; preds = %48
   %62 = call fastcc i32 @nlmsg_parse_deprecated_strict(ptr noundef %5, ptr noundef nonnull %3, ptr noundef %21)
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %.thread, label %.preheader47.split
@@ -8575,10 +8575,10 @@ define internal i32 @neigh_dump_info(ptr noundef %0, ptr noundef captures(none) 
   %82 = icmp eq i64 %81, 18
   br i1 %82, label %.critedge, label %.preheader47.split.us, !llvm.loop !167
 
-.preheader47.split:                               ; preds = %.thread220, %99
-  %83 = phi i32 [ %100, %99 ], [ 0, %.thread220 ]
-  %84 = phi i32 [ %101, %99 ], [ 0, %.thread220 ]
-  %85 = phi i64 [ %102, %99 ], [ 0, %.thread220 ]
+.preheader47.split:                               ; preds = %.thread265, %99
+  %83 = phi i32 [ %100, %99 ], [ 0, %.thread265 ]
+  %84 = phi i32 [ %101, %99 ], [ 0, %.thread265 ]
+  %85 = phi i64 [ %102, %99 ], [ 0, %.thread265 ]
   %86 = getelementptr [18 x ptr], ptr %3, i64 0, i64 %85
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, null
@@ -8626,10 +8626,10 @@ define internal i32 @neigh_dump_info(ptr noundef %0, ptr noundef captures(none) 
   store ptr %__nlmsg_parse.__msg.sink, ptr %21, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %.thread220, %56, %58, %97, %53, %46, %24
-  %.ph = phi i32 [ 0, %24 ], [ 0, %46 ], [ 0, %53 ], [ %83, %97 ], [ 0, %58 ], [ 0, %56 ], [ 0, %.thread220 ], [ %.ph.ph, %.thread.sink.split ]
-  %.ph28 = phi i32 [ 0, %24 ], [ 0, %46 ], [ 0, %53 ], [ %84, %97 ], [ 0, %58 ], [ 0, %56 ], [ 0, %.thread220 ], [ %.ph28.ph, %.thread.sink.split ]
-  %.ph29 = phi i32 [ -22, %24 ], [ -22, %46 ], [ -22, %53 ], [ -22, %97 ], [ %60, %58 ], [ -22, %56 ], [ %62, %.thread220 ], [ -22, %.thread.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %.thread265, %56, %58, %97, %53, %46, %24
+  %.ph = phi i32 [ 0, %24 ], [ 0, %46 ], [ 0, %53 ], [ %83, %97 ], [ 0, %58 ], [ 0, %56 ], [ 0, %.thread265 ], [ %.ph.ph, %.thread.sink.split ]
+  %.ph28 = phi i32 [ 0, %24 ], [ 0, %46 ], [ 0, %53 ], [ %84, %97 ], [ 0, %58 ], [ 0, %56 ], [ 0, %.thread265 ], [ %.ph28.ph, %.thread.sink.split ]
+  %.ph29 = phi i32 [ -22, %24 ], [ -22, %46 ], [ -22, %53 ], [ -22, %97 ], [ %60, %58 ], [ -22, %56 ], [ %62, %.thread265 ], [ -22, %.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %104 = load i8, ptr %17, align 8, !range !165, !noundef !166
   %105 = icmp eq i8 %104, 0
@@ -8871,17 +8871,17 @@ define internal i32 @neigh_dump_info(ptr noundef %0, ptr noundef captures(none) 
   %253 = getelementptr inbounds nuw i8, ptr %245, i64 216
   %254 = load i32, ptr %253, align 8
   %255 = icmp eq i32 %254, %.fr
-  br i1 %255, label %.thread221, label %.thread33.us118
+  br i1 %255, label %.thread266, label %.thread33.us118
 
 256:                                              ; preds = %249
-  br i1 %250, label %.thread32.us, label %.thread221
+  br i1 %250, label %.thread32.us, label %.thread266
 
-.thread221:                                       ; preds = %252, %256
+.thread266:                                       ; preds = %252, %256
   %257 = call ptr @netdev_master_upper_dev_get(ptr noundef nonnull %245) #21
   %.not39.us = icmp eq ptr %257, null
   br i1 %121, label %262, label %258
 
-258:                                              ; preds = %.thread221
+258:                                              ; preds = %.thread266
   br i1 %.not39.us, label %.thread33.us118, label %259
 
 259:                                              ; preds = %258
@@ -8890,7 +8890,7 @@ define internal i32 @neigh_dump_info(ptr noundef %0, ptr noundef captures(none) 
   %.not38.us = icmp eq i32 %261, %.fr146
   br i1 %.not38.us, label %.thread36.us117, label %.thread33.us118
 
-262:                                              ; preds = %.thread221
+262:                                              ; preds = %.thread266
   br i1 %.not39.us, label %.thread36.us117, label %.thread33.us118
 
 .thread32.us:                                     ; preds = %256
@@ -9138,12 +9138,12 @@ define internal i32 @neigh_dump_info(ptr noundef %0, ptr noundef captures(none) 
   %406 = getelementptr inbounds nuw i8, ptr %402, i64 216
   %407 = load i32, ptr %406, align 8
   %408 = icmp eq i32 %407, %.fr
-  br i1 %408, label %.thread222, label %.thread31
+  br i1 %408, label %.thread267, label %.thread31
 
 409:                                              ; preds = %400
-  br i1 %403, label %.thread30, label %.thread222
+  br i1 %403, label %.thread30, label %.thread267
 
-.thread222:                                       ; preds = %405, %409
+.thread267:                                       ; preds = %405, %409
   %410 = call ptr @netdev_master_upper_dev_get(ptr noundef nonnull %402) #21
   %.not37 = icmp eq ptr %410, null
   br i1 %121, label %411, label %412
@@ -9151,10 +9151,10 @@ define internal i32 @neigh_dump_info(ptr noundef %0, ptr noundef captures(none) 
 .thread30:                                        ; preds = %409
   br i1 %121, label %.thread35, label %.thread31
 
-411:                                              ; preds = %.thread222
+411:                                              ; preds = %.thread267
   br i1 %.not37, label %.thread35, label %.thread31
 
-412:                                              ; preds = %.thread222
+412:                                              ; preds = %.thread267
   br i1 %.not37, label %.thread31, label %413
 
 413:                                              ; preds = %412
@@ -9217,13 +9217,13 @@ define internal i32 @neigh_dump_info(ptr noundef %0, ptr noundef captures(none) 
   br i1 %443, label %.loopexit45, label %.split116, !llvm.loop !170
 
 .loopexit45.loopexit.critedge:                    ; preds = %.thread36.us117, %.thread36.us.us125.us, %.thread36.us.us.us.us.us
-  %.ph288 = phi i64 [ %157, %.thread36.us.us.us.us.us ], [ %192, %.thread36.us.us125.us ], [ %232, %.thread36.us117 ]
-  %.ph289 = phi i32 [ %172, %.thread36.us.us.us.us.us ], [ %207, %.thread36.us.us125.us ], [ %241, %.thread36.us117 ]
+  %.ph333 = phi i64 [ %157, %.thread36.us.us.us.us.us ], [ %192, %.thread36.us.us125.us ], [ %232, %.thread36.us117 ]
+  %.ph334 = phi i32 [ %172, %.thread36.us.us.us.us.us ], [ %207, %.thread36.us.us125.us ], [ %241, %.thread36.us117 ]
   call void @__rcu_read_unlock() #21
-  %444 = shl i64 %.ph288, 32
+  %444 = shl i64 %.ph333, 32
   %445 = ashr exact i64 %444, 32
   store i64 %445, ptr %112, align 8
-  %446 = sext i32 %.ph289 to i64
+  %446 = sext i32 %.ph334 to i64
   store i64 %446, ptr %123, align 8
   br label %.loopexit45
 

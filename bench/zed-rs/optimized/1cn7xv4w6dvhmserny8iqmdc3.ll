@@ -827,9 +827,9 @@ tailrecurse.backedge:                             ; preds = %63
   %.sroa.08.0 = load i32, ptr %.sroa.08.0.in, align 4, !noundef !4
   %68 = icmp ugt i32 %.sroa.07.0, %.sroa.08.0
   %spec.select = select i1 %68, i64 %61, i64 %65
-  %spec.select78 = select i1 %68, ptr %64, ptr %60
+  %spec.select83 = select i1 %68, ptr %64, ptr %60
   %69 = tail call fastcc noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$17find_max_ordering17hb58b47e7101ce5f4E"(ptr noalias noundef readonly align 8 dereferenceable(64) %0, i64 noundef %spec.select, ptr noalias noundef readonly align 4 dereferenceable(16) %2, i32 noundef %.tr2950)
-  %.tr27.be = load i64, ptr %spec.select78, align 8, !noundef !4
+  %.tr27.be = load i64, ptr %spec.select83, align 8, !noundef !4
   %70 = icmp ult i64 %.tr27.be, %8
   br i1 %70, label %19, label %tailrecurse._crit_edge
 
@@ -870,8 +870,8 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %24 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds [0 x { i32, [9 x i32] }], ptr %24, i64 0, i64 %7
   %26 = load i32, ptr %25, align 8, !range !85, !noundef !4
-  %trunc42262 = trunc nuw i32 %26 to i1
-  br i1 %trunc42262, label %.lr.ph265, label %._crit_edge266
+  %trunc42284 = trunc nuw i32 %26 to i1
+  br i1 %trunc42284, label %.lr.ph287, label %._crit_edge288
 
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -906,21 +906,21 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
 
 40:                                               ; preds = %81
   %41 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds [0 x { i32, [9 x i32] }], ptr %41, i64 0, i64 %.228
+  %42 = getelementptr inbounds [0 x { i32, [9 x i32] }], ptr %41, i64 0, i64 %.250
   %43 = load i32, ptr %42, align 8, !range !85, !noundef !4
   %trunc42 = trunc nuw i32 %43 to i1
-  br i1 %trunc42, label %.lr.ph265, label %._crit_edge266
+  br i1 %trunc42, label %.lr.ph287, label %._crit_edge288
 
 ._crit_edge:                                      ; preds = %81, %5
-  %.sroa.08.0.lcssa = phi i64 [ %7, %5 ], [ %.228, %81 ]
+  %.sroa.08.0.lcssa = phi i64 [ %7, %5 ], [ %.250, %81 ]
   %.lcssa133 = phi i64 [ %10, %5 ], [ %129, %81 ]
   tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.08.0.lcssa, i64 noundef %.lcssa133, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4124a00d859aaef46b4b357ba03cc7eb.23) #31
   unreachable
 
-.lr.ph265:                                        ; preds = %.lr.ph, %40
+.lr.ph287:                                        ; preds = %.lr.ph, %40
   %44 = phi ptr [ %42, %40 ], [ %25, %.lr.ph ]
-  %.sroa.017.0164264 = phi i32 [ %128, %40 ], [ 0, %.lr.ph ]
-  %.sroa.08.0165263 = phi i64 [ %.228, %40 ], [ %7, %.lr.ph ]
+  %.sroa.017.0164286 = phi i32 [ %128, %40 ], [ 0, %.lr.ph ]
+  %.sroa.08.0165285 = phi i64 [ %.250, %40 ], [ %7, %.lr.ph ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i64, ptr %45, align 8, !noundef !4
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -966,14 +966,14 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %71 = icmp eq i64 %69, %70
   br i1 %71, label %72, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h41c68a15850421d4E.exit"
 
-72:                                               ; preds = %.lr.ph265
+72:                                               ; preds = %.lr.ph287
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h612397cbc0427267E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21)
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h41c68a15850421d4E.exit"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h41c68a15850421d4E.exit": ; preds = %.lr.ph265, %72
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h41c68a15850421d4E.exit": ; preds = %.lr.ph287, %72
   %73 = load ptr, ptr %23, align 8, !alias.scope !166, !nonnull !4, !noundef !4
   %74 = getelementptr inbounds i64, ptr %73, i64 %69
-  store i64 %.sroa.08.0165263, ptr %74, align 8
+  store i64 %.sroa.08.0165285, ptr %74, align 8
   %75 = add i64 %69, 1
   store i64 %75, ptr %22, align 8, !alias.scope !166
   %76 = load i64, ptr %9, align 8, !noundef !4
@@ -1066,35 +1066,35 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %126 = fadd float %124, %125
   %127 = fcmp olt float %104, %126
   %. = select i1 %127, i64 %48, i64 %46
-  %.228 = select i1 %127, i64 %46, i64 %48
-  %128 = tail call fastcc noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$17find_max_ordering17hb58b47e7101ce5f4E"(ptr noalias noundef readonly align 8 dereferenceable(64) %0, i64 noundef %., ptr noalias noundef readonly align 4 dereferenceable(16) %1, i32 noundef %.sroa.017.0164264)
+  %.250 = select i1 %127, i64 %46, i64 %48
+  %128 = tail call fastcc noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$17find_max_ordering17hb58b47e7101ce5f4E"(ptr noalias noundef readonly align 8 dereferenceable(64) %0, i64 noundef %., ptr noalias noundef readonly align 4 dereferenceable(16) %1, i32 noundef %.sroa.017.0164286)
   %129 = load i64, ptr %9, align 8, !noundef !4
-  %130 = icmp ult i64 %.228, %129
+  %130 = icmp ult i64 %.250, %129
   br i1 %130, label %40, label %._crit_edge
 
 131:                                              ; preds = %78
   tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %48, i64 noundef %76, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4124a00d859aaef46b4b357ba03cc7eb.25) #31
   unreachable
 
-._crit_edge266:                                   ; preds = %40, %.lr.ph
-  %.lcssa248 = phi i64 [ %10, %.lr.ph ], [ %129, %40 ]
-  %.sroa.08.0165.lcssa = phi i64 [ %7, %.lr.ph ], [ %.228, %40 ]
+._crit_edge288:                                   ; preds = %40, %.lr.ph
+  %.lcssa270 = phi i64 [ %10, %.lr.ph ], [ %129, %40 ]
+  %.sroa.08.0165.lcssa = phi i64 [ %7, %.lr.ph ], [ %.250, %40 ]
   %.sroa.017.0164.lcssa = phi i32 [ 0, %.lr.ph ], [ %128, %40 ]
-  %.lcssa238 = phi ptr [ %24, %.lr.ph ], [ %41, %40 ]
-  %.lcssa234 = phi ptr [ %25, %.lr.ph ], [ %42, %40 ]
+  %.lcssa260 = phi ptr [ %24, %.lr.ph ], [ %41, %40 ]
+  %.lcssa256 = phi ptr [ %25, %.lr.ph ], [ %42, %40 ]
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %133 = getelementptr inbounds nuw i8, ptr %.lcssa234, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %.lcssa256, i64 8
   %134 = load float, ptr %133, align 4, !alias.scope !245, !noalias !252, !noundef !4
   %135 = fcmp olt float %134, %17
   br i1 %135, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit", label %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit.thread"
 
-"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit": ; preds = %._crit_edge266
-  %136 = getelementptr inbounds nuw i8, ptr %.lcssa234, i64 12
+"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit": ; preds = %._crit_edge288
+  %136 = getelementptr inbounds nuw i8, ptr %.lcssa256, i64 12
   %137 = load float, ptr %136, align 4, !alias.scope !254, !noalias !252, !noundef !4
-  %138 = getelementptr inbounds nuw i8, ptr %.lcssa234, i64 20
+  %138 = getelementptr inbounds nuw i8, ptr %.lcssa256, i64 20
   %139 = load float, ptr %138, align 4, !alias.scope !257, !noalias !252, !noundef !4
   %140 = fadd float %137, %139
-  %141 = getelementptr inbounds nuw i8, ptr %.lcssa234, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %.lcssa256, i64 16
   %142 = load float, ptr %141, align 4, !alias.scope !260, !noalias !252, !noundef !4
   %143 = fadd float %134, %142
   %144 = fcmp ogt float %143, %12
@@ -1105,16 +1105,16 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   br i1 %spec.select.i, label %147, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit.thread"
 
 147:                                              ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit"
-  %148 = getelementptr inbounds nuw i8, ptr %.lcssa234, i64 4
+  %148 = getelementptr inbounds nuw i8, ptr %.lcssa256, i64 4
   %149 = load i32, ptr %148, align 4, !noundef !4
   %.sroa.0.0.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.sroa.017.0164.lcssa, i32 %149)
   br label %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit.thread"
 
-"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit.thread": ; preds = %._crit_edge266, %147, %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit"
-  %.sroa.017.2 = phi i32 [ %.sroa.017.0164.lcssa, %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit" ], [ %.sroa.0.0.sroa.speculated.i, %147 ], [ %.sroa.017.0164.lcssa, %._crit_edge266 ]
+"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit.thread": ; preds = %._crit_edge288, %147, %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit"
+  %.sroa.017.2 = phi i32 [ %.sroa.017.0164.lcssa, %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit" ], [ %.sroa.0.0.sroa.speculated.i, %147 ], [ %.sroa.017.0164.lcssa, %._crit_edge288 ]
   %150 = add i32 %.sroa.017.2, 1
   %151 = load i64, ptr %132, align 8, !alias.scope !263, !noalias !266, !noundef !4
-  %152 = icmp eq i64 %.lcssa248, %151
+  %152 = icmp eq i64 %.lcssa270, %151
   br i1 %152, label %153, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17fa986f2bd1078dE.exit93"
 
 153:                                              ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit.thread"
@@ -1123,14 +1123,14 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17fa986f2bd1078dE.exit93"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17fa986f2bd1078dE.exit93": ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit.thread", %153
-  %154 = phi ptr [ %.lcssa238, %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit.thread" ], [ %.pre, %153 ]
-  %155 = getelementptr inbounds { i32, [9 x i32] }, ptr %154, i64 %.lcssa248
+  %154 = phi ptr [ %.lcssa260, %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit.thread" ], [ %.pre, %153 ]
+  %155 = getelementptr inbounds { i32, [9 x i32] }, ptr %154, i64 %.lcssa270
   store i32 0, ptr %155, align 8
   %.sroa.4115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 4
   store i32 %150, ptr %.sroa.4115.0..sroa_idx, align 4
   %.sroa.5116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5116.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
-  %156 = add i64 %.lcssa248, 1
+  %156 = add i64 %.lcssa270, 1
   store i64 %156, ptr %9, align 8, !alias.scope !263, !noalias !266
   tail call void @llvm.experimental.noalias.scope.decl(metadata !268)
   %157 = icmp ult i64 %.sroa.08.0165.lcssa, %156
@@ -1143,7 +1143,7 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
 159:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17fa986f2bd1078dE.exit93"
   %160 = load ptr, ptr %8, align 8, !alias.scope !268, !nonnull !4, !noundef !4
   %161 = getelementptr inbounds [0 x { i32, [9 x i32] }], ptr %160, i64 0, i64 %.sroa.08.0165.lcssa
-  %162 = getelementptr inbounds [0 x { i32, [9 x i32] }], ptr %160, i64 0, i64 %.lcssa248
+  %162 = getelementptr inbounds [0 x { i32, [9 x i32] }], ptr %160, i64 0, i64 %.lcssa270
   %163 = load i32, ptr %161, align 8, !range !85, !noalias !268, !noundef !4
   %trunc.i = trunc nuw i32 %163 to i1
   %.sroa.0.0.v.i = select i1 %trunc.i, i64 24, i64 8
@@ -1231,7 +1231,7 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %.sroa.516.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %197, i64 8
   store i64 %.sroa.08.0165.lcssa, ptr %.sroa.516.0..sroa_idx.i, align 8
   %.sroa.617.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %197, i64 16
-  store i64 %.lcssa248, ptr %.sroa.617.0..sroa_idx.i, align 8
+  store i64 %.lcssa270, ptr %.sroa.617.0..sroa_idx.i, align 8
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %197, i64 24
   store float %..i.i.i, ptr %.sroa.7.0..sroa_idx.i, align 8
   %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %197, i64 28
@@ -1240,7 +1240,7 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   store float %196, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx.i, align 8
   %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %197, i64 36
   store float %189, ptr %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx.i, align 4
-  %198 = add i64 %.lcssa248, 2
+  %198 = add i64 %.lcssa270, 2
   store i64 %198, ptr %9, align 8, !alias.scope !338, !noalias !341
   %199 = load i64, ptr %22, align 8, !noundef !4
   %.not = icmp eq i64 %199, 0
@@ -8279,7 +8279,7 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$gpui..elements..canvas..Canvas$LT$T
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(248) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h11bd84aaf9db3168E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 {
+define hidden noundef nonnull align 8 dereferenceable(248) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h11bd84aaf9db3168E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -8312,7 +8312,7 @@ define hidden noundef align 8 dereferenceable(248) ptr @"_ZN84_$LT$gpui..app..en
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(544) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h11be8e85f38718d0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 {
+define hidden noundef nonnull align 8 dereferenceable(544) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h11be8e85f38718d0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -8345,7 +8345,7 @@ define hidden noundef align 8 dereferenceable(544) ptr @"_ZN84_$LT$gpui..app..en
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(96) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h1aef4b21b032a914E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h1aef4b21b032a914E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -8378,7 +8378,7 @@ define hidden noundef align 8 dereferenceable(96) ptr @"_ZN84_$LT$gpui..app..ent
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(1576) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h56f1e38e562b8946E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 {
+define hidden noundef nonnull align 8 dereferenceable(1576) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h56f1e38e562b8946E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -8411,7 +8411,7 @@ define hidden noundef align 8 dereferenceable(1576) ptr @"_ZN84_$LT$gpui..app..e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(8) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h8ed6ac063bbe1e68E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h8ed6ac063bbe1e68E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -8444,7 +8444,7 @@ define hidden noundef align 8 dereferenceable(8) ptr @"_ZN84_$LT$gpui..app..enti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(240) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17ha18373a1e457151cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 {
+define hidden noundef nonnull align 8 dereferenceable(240) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17ha18373a1e457151cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -8477,7 +8477,7 @@ define hidden noundef align 8 dereferenceable(240) ptr @"_ZN84_$LT$gpui..app..en
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(72) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hc010cebfd259ec4bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 {
+define hidden noundef nonnull align 8 dereferenceable(72) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hc010cebfd259ec4bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -8510,7 +8510,7 @@ define hidden noundef align 8 dereferenceable(72) ptr @"_ZN84_$LT$gpui..app..ent
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(944) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17he9d3b43ce6bf317fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 {
+define hidden noundef nonnull align 8 dereferenceable(944) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17he9d3b43ce6bf317fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null

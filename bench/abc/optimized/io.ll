@@ -482,20 +482,20 @@ define internal range(i32 0, 2) i32 @IoCommandRead(ptr noundef %0, i32 noundef %
 
 .outer:                                           ; preds = %11, %3
   %.076.ph = phi i32 [ %12, %11 ], [ 1, %3 ]
-  %.074.ph = phi i32 [ %.074.ph135, %11 ], [ 0, %3 ]
-  %.072.ph = phi i32 [ %.072.ph138, %11 ], [ 0, %3 ]
-  br label %.outer134
-
-.outer134:                                        ; preds = %.outer, %13
-  %.074.ph135 = phi i32 [ %.074.ph, %.outer ], [ %14, %13 ]
-  %.072.ph136 = phi i32 [ %.072.ph, %.outer ], [ %.072.ph138, %13 ]
+  %.074.ph = phi i32 [ %.074.ph138, %11 ], [ 0, %3 ]
+  %.072.ph = phi i32 [ %.072.ph141, %11 ], [ 0, %3 ]
   br label %.outer137
 
-.outer137:                                        ; preds = %.outer134, %15
-  %.072.ph138 = phi i32 [ %.072.ph136, %.outer134 ], [ %16, %15 ]
+.outer137:                                        ; preds = %.outer, %13
+  %.074.ph138 = phi i32 [ %.074.ph, %.outer ], [ %14, %13 ]
+  %.072.ph139 = phi i32 [ %.072.ph, %.outer ], [ %.072.ph141, %13 ]
+  br label %.outer140
+
+.outer140:                                        ; preds = %.outer137, %15
+  %.072.ph141 = phi i32 [ %.072.ph139, %.outer137 ], [ %16, %15 ]
   br label %6
 
-6:                                                ; preds = %.outer137, %8
+6:                                                ; preds = %.outer140, %8
   %7 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.84) #18
   switch i32 %7, label %.loopexit [
     i32 -1, label %17
@@ -516,12 +516,12 @@ define internal range(i32 0, 2) i32 @IoCommandRead(ptr noundef %0, i32 noundef %
   br label %.outer, !llvm.loop !7
 
 13:                                               ; preds = %6
-  %14 = xor i32 %.074.ph135, 1
-  br label %.outer134, !llvm.loop !7
+  %14 = xor i32 %.074.ph138, 1
+  br label %.outer137, !llvm.loop !7
 
 15:                                               ; preds = %6
-  %16 = xor i32 %.072.ph138, 1
-  br label %.outer137, !llvm.loop !7
+  %16 = xor i32 %.072.ph141, 1
+  br label %.outer140, !llvm.loop !7
 
 17:                                               ; preds = %6
   %18 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
@@ -622,7 +622,7 @@ sub_0:                                            ; preds = %41
   br label %121
 
 59:                                               ; preds = %55
-  %.not96 = icmp eq i32 %.072.ph138, 0
+  %.not96 = icmp eq i32 %.072.ph141, 0
   br i1 %.not96, label %67, label %60
 
 60:                                               ; preds = %59
@@ -700,7 +700,7 @@ sub_1108:                                         ; preds = %sub_0107
 
 .tail106.thread:                                  ; preds = %sub_1108, %sub_0107, %.tail106, %73
   %87 = tail call i32 @Io_ReadFileType(ptr noundef nonnull %23) #18
-  %88 = tail call ptr @Io_Read(ptr noundef nonnull %23, i32 noundef %87, i32 noundef %.076.ph, i32 noundef %.074.ph135) #18
+  %88 = tail call ptr @Io_Read(ptr noundef nonnull %23, i32 noundef %87, i32 noundef %.076.ph, i32 noundef %.074.ph138) #18
   %89 = icmp eq ptr %88, null
   br i1 %89, label %121, label %90
 
@@ -743,7 +743,7 @@ sub_1108:                                         ; preds = %sub_0107
   %110 = select i1 %.not104, ptr @.str.114, ptr @.str.113
   %111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.115, ptr noundef nonnull %110) #18
   %112 = load ptr, ptr %96, align 8, !tbaa !34
-  %.not105 = icmp eq i32 %.074.ph135, 0
+  %.not105 = icmp eq i32 %.074.ph138, 0
   %113 = select i1 %.not105, ptr @.str.114, ptr @.str.113
   %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef nonnull @.str.116, ptr noundef nonnull %113) #18
   %115 = load ptr, ptr %96, align 8, !tbaa !34
@@ -1278,8 +1278,8 @@ define internal range(i32 0, 2) i32 @IoCommandReadCex(ptr noundef %0, i32 nounde
 
 42:                                               ; preds = %35
   %43 = icmp eq i32 %37, 1
-  %or.cond72 = select i1 %41, i1 %43, i1 false
-  br i1 %or.cond72, label %44, label %72
+  %or.cond75 = select i1 %41, i1 %43, i1 false
+  br i1 %or.cond75, label %44, label %72
 
 44:                                               ; preds = %42
   %45 = call ptr @Abc_NtkToDar(ptr noundef nonnull %29, i32 noundef 0, i32 noundef 1) #18
@@ -2201,14 +2201,14 @@ define internal range(i32 0, 2) i32 @IoCommandReadVerilog(ptr noundef %0, i32 no
 
 .outer:                                           ; preds = %9, %3
   %.024.ph = phi i32 [ %10, %9 ], [ 1, %3 ]
-  %.023.ph = phi i32 [ %.023.ph49, %9 ], [ 0, %3 ]
-  br label %.outer48
+  %.023.ph = phi i32 [ %.023.ph50, %9 ], [ 0, %3 ]
+  br label %.outer49
 
-.outer48:                                         ; preds = %.outer, %11
-  %.023.ph49 = phi i32 [ %.023.ph, %.outer ], [ %12, %11 ]
+.outer49:                                         ; preds = %.outer, %11
+  %.023.ph50 = phi i32 [ %.023.ph, %.outer ], [ %12, %11 ]
   br label %4
 
-4:                                                ; preds = %.outer48, %6
+4:                                                ; preds = %.outer49, %6
   %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.212) #18
   switch i32 %5, label %.loopexit [
     i32 -1, label %13
@@ -2228,8 +2228,8 @@ define internal range(i32 0, 2) i32 @IoCommandReadVerilog(ptr noundef %0, i32 no
   br label %.outer, !llvm.loop !69
 
 11:                                               ; preds = %4
-  %12 = xor i32 %.023.ph49, 1
-  br label %.outer48, !llvm.loop !69
+  %12 = xor i32 %.023.ph50, 1
+  br label %.outer49, !llvm.loop !69
 
 13:                                               ; preds = %4
   %14 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
@@ -2241,7 +2241,7 @@ define internal range(i32 0, 2) i32 @IoCommandReadVerilog(ptr noundef %0, i32 no
   %17 = sext i32 %14 to i64
   %18 = getelementptr inbounds ptr, ptr %2, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !9
-  %20 = tail call ptr @Io_Read(ptr noundef %19, i32 noundef 18, i32 noundef %.024.ph, i32 noundef %.023.ph49) #18
+  %20 = tail call ptr @Io_Read(ptr noundef %19, i32 noundef 18, i32 noundef %.024.ph, i32 noundef %.023.ph50) #18
   %21 = icmp eq ptr %20, null
   br i1 %21, label %42, label %22
 
@@ -2266,7 +2266,7 @@ define internal range(i32 0, 2) i32 @IoCommandReadVerilog(ptr noundef %0, i32 no
   %33 = select i1 %.not30, ptr @.str.114, ptr @.str.113
   %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.115, ptr noundef nonnull %33) #18
   %35 = load ptr, ptr %23, align 8, !tbaa !34
-  %.not31 = icmp eq i32 %.023.ph49, 0
+  %.not31 = icmp eq i32 %.023.ph50, 0
   %36 = select i1 %.not31, ptr @.str.114, ptr @.str.113
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.116, ptr noundef nonnull %36) #18
   %38 = load ptr, ptr %23, align 8, !tbaa !34
@@ -2797,24 +2797,24 @@ define internal range(i32 0, 2) i32 @IoCommandWriteAiger(ptr noundef readonly ca
 
 .outer:                                           ; preds = %12, %3
   %.047.ph = phi i32 [ %13, %12 ], [ 0, %3 ]
-  %.045.ph = phi i32 [ %.045.ph91, %12 ], [ 0, %3 ]
-  %.043.ph = phi i32 [ %.043.ph95, %12 ], [ 0, %3 ]
+  %.045.ph = phi i32 [ %.045.ph92, %12 ], [ 0, %3 ]
+  %.043.ph = phi i32 [ %.043.ph96, %12 ], [ 0, %3 ]
   %.042.ph = phi i32 [ %.042, %12 ], [ 0, %3 ]
-  br label %.outer90
+  br label %.outer91
 
-.outer90:                                         ; preds = %.outer, %10
-  %.045.ph91 = phi i32 [ %.045.ph, %.outer ], [ %11, %10 ]
-  %.043.ph92 = phi i32 [ %.043.ph, %.outer ], [ %.043.ph95, %10 ]
-  %.042.ph93 = phi i32 [ %.042.ph, %.outer ], [ %.042, %10 ]
-  br label %.outer94
+.outer91:                                         ; preds = %.outer, %10
+  %.045.ph92 = phi i32 [ %.045.ph, %.outer ], [ %11, %10 ]
+  %.043.ph93 = phi i32 [ %.043.ph, %.outer ], [ %.043.ph96, %10 ]
+  %.042.ph94 = phi i32 [ %.042.ph, %.outer ], [ %.042, %10 ]
+  br label %.outer95
 
-.outer94:                                         ; preds = %.outer90, %8
-  %.043.ph95 = phi i32 [ %.043.ph92, %.outer90 ], [ %9, %8 ]
-  %.042.ph96 = phi i32 [ %.042.ph93, %.outer90 ], [ %.042, %8 ]
+.outer95:                                         ; preds = %.outer91, %8
+  %.043.ph96 = phi i32 [ %.043.ph93, %.outer91 ], [ %9, %8 ]
+  %.042.ph97 = phi i32 [ %.042.ph94, %.outer91 ], [ %.042, %8 ]
   br label %4
 
-4:                                                ; preds = %.outer94, %6
-  %.042 = phi i32 [ %7, %6 ], [ %.042.ph96, %.outer94 ]
+4:                                                ; preds = %.outer95, %6
+  %.042 = phi i32 [ %7, %6 ], [ %.042.ph97, %.outer95 ]
   %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.239) #18
   switch i32 %5, label %.loopexit [
     i32 -1, label %14
@@ -2829,12 +2829,12 @@ define internal range(i32 0, 2) i32 @IoCommandWriteAiger(ptr noundef readonly ca
   br label %4, !llvm.loop !73
 
 8:                                                ; preds = %4
-  %9 = xor i32 %.043.ph95, 1
-  br label %.outer94, !llvm.loop !73
+  %9 = xor i32 %.043.ph96, 1
+  br label %.outer95, !llvm.loop !73
 
 10:                                               ; preds = %4
-  %11 = xor i32 %.045.ph91, 1
-  br label %.outer90, !llvm.loop !73
+  %11 = xor i32 %.045.ph92, 1
+  br label %.outer91, !llvm.loop !73
 
 12:                                               ; preds = %4
   %13 = xor i32 %.047.ph, 1
@@ -2872,7 +2872,7 @@ define internal range(i32 0, 2) i32 @IoCommandWriteAiger(ptr noundef readonly ca
   br label %59
 
 32:                                               ; preds = %25
-  %.not53 = icmp eq i32 %.045.ph91, 0
+  %.not53 = icmp eq i32 %.045.ph92, 0
   br i1 %.not53, label %37, label %33
 
 33:                                               ; preds = %32
@@ -2881,12 +2881,12 @@ define internal range(i32 0, 2) i32 @IoCommandWriteAiger(ptr noundef readonly ca
   %36 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef %35) #18
   tail call void @Aig_ManStop(ptr noundef %35) #18
   tail call void @Aig_ManStop(ptr noundef %34) #18
-  tail call void @Io_WriteAiger(ptr noundef %36, ptr noundef %28, i32 noundef %.042, i32 noundef %.043.ph95, i32 noundef 1) #18
+  tail call void @Io_WriteAiger(ptr noundef %36, ptr noundef %28, i32 noundef %.042, i32 noundef %.043.ph96, i32 noundef 1) #18
   tail call void @Abc_NtkDelete(ptr noundef %36) #18
   br label %59
 
 37:                                               ; preds = %32
-  tail call void @Io_WriteAiger(ptr noundef nonnull %16, ptr noundef %28, i32 noundef %.042, i32 noundef %.043.ph95, i32 noundef 0) #18
+  tail call void @Io_WriteAiger(ptr noundef nonnull %16, ptr noundef %28, i32 noundef %.042, i32 noundef %.043.ph96, i32 noundef 0) #18
   br label %59
 
 .loopexit:                                        ; preds = %4, %22
@@ -2900,11 +2900,11 @@ define internal range(i32 0, 2) i32 @IoCommandWriteAiger(ptr noundef readonly ca
   %44 = select i1 %.not54, ptr @.str.114, ptr @.str.113
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.243, ptr noundef nonnull %44) #18
   %46 = load ptr, ptr %38, align 8, !tbaa !34
-  %.not55 = icmp eq i32 %.043.ph95, 0
+  %.not55 = icmp eq i32 %.043.ph96, 0
   %47 = select i1 %.not55, ptr @.str.114, ptr @.str.113
   %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.244, ptr noundef nonnull %47) #18
   %49 = load ptr, ptr %38, align 8, !tbaa !34
-  %.not56 = icmp eq i32 %.045.ph91, 0
+  %.not56 = icmp eq i32 %.045.ph92, 0
   %50 = select i1 %.not56, ptr @.str.114, ptr @.str.113
   %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.245, ptr noundef nonnull %50) #18
   %52 = load ptr, ptr %38, align 8, !tbaa !34
@@ -3080,17 +3080,17 @@ define internal range(i32 0, 2) i32 @IoCommandWriteBlif(ptr noundef readonly cap
 
 .outer:                                           ; preds = %8, %3
   %.036.ph = phi ptr [ %11, %8 ], [ null, %3 ]
-  %.033.ph = phi i32 [ %.033.ph91, %8 ], [ 0, %3 ]
+  %.033.ph = phi i32 [ %.033.ph93, %8 ], [ 0, %3 ]
   %.0.ph = phi i32 [ %.0, %8 ], [ 0, %3 ]
-  br label %.outer90
+  br label %.outer92
 
-.outer90:                                         ; preds = %.outer, %15
-  %.033.ph91 = phi i32 [ %.033.ph, %.outer ], [ %16, %15 ]
-  %.0.ph92 = phi i32 [ %.0.ph, %.outer ], [ %.0, %15 ]
+.outer92:                                         ; preds = %.outer, %15
+  %.033.ph93 = phi i32 [ %.033.ph, %.outer ], [ %16, %15 ]
+  %.0.ph94 = phi i32 [ %.0.ph, %.outer ], [ %.0, %15 ]
   br label %4
 
-4:                                                ; preds = %.outer90, %17
-  %.0 = phi i32 [ %18, %17 ], [ %.0.ph92, %.outer90 ]
+4:                                                ; preds = %.outer92, %17
+  %.0 = phi i32 [ %18, %17 ], [ %.0.ph94, %.outer92 ]
   %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.256) #18
   switch i32 %5, label %.loopexit [
     i32 -1, label %19
@@ -3116,8 +3116,8 @@ define internal range(i32 0, 2) i32 @IoCommandWriteBlif(ptr noundef readonly cap
   br i1 %switch, label %.outer, label %.loopexit.sink.split, !llvm.loop !76
 
 15:                                               ; preds = %4
-  %16 = xor i32 %.033.ph91, 1
-  br label %.outer90, !llvm.loop !76
+  %16 = xor i32 %.033.ph93, 1
+  br label %.outer92, !llvm.loop !76
 
 17:                                               ; preds = %4
   %18 = xor i32 %.0, 1
@@ -3145,7 +3145,7 @@ define internal range(i32 0, 2) i32 @IoCommandWriteBlif(ptr noundef readonly cap
   %31 = sext i32 %28 to i64
   %32 = getelementptr inbounds ptr, ptr %2, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !9
-  %34 = icmp ne i32 %.033.ph91, 0
+  %34 = icmp ne i32 %.033.ph93, 0
   %35 = icmp ne ptr %.036.ph, null
   %or.cond = or i1 %34, %35
   br i1 %or.cond, label %36, label %37
@@ -3176,7 +3176,7 @@ define internal range(i32 0, 2) i32 @IoCommandWriteBlif(ptr noundef readonly cap
   %44 = select i1 %.not46, ptr @.str.261, ptr %.137
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.260, ptr noundef nonnull %44) #18
   %46 = load ptr, ptr %38, align 8, !tbaa !34
-  %.not47 = icmp eq i32 %.033.ph91, 0
+  %.not47 = icmp eq i32 %.033.ph93, 0
   %47 = select i1 %.not47, ptr @.str.114, ptr @.str.113
   %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.262, ptr noundef nonnull %47) #18
   %49 = load ptr, ptr %38, align 8, !tbaa !34
@@ -3797,32 +3797,32 @@ define internal range(i32 0, 2) i32 @IoCommandWriteCnf(ptr noundef readonly capt
 
 .outer:                                           ; preds = %6, %3
   %.050.ph = phi i32 [ %7, %6 ], [ 1, %3 ]
-  %.048.ph = phi i32 [ %.048.ph105, %6 ], [ 0, %3 ]
-  %.046.ph = phi i32 [ %.046.ph110, %6 ], [ 0, %3 ]
-  %.044.ph = phi i32 [ %.044.ph114, %6 ], [ 1, %3 ]
+  %.048.ph = phi i32 [ %.048.ph106, %6 ], [ 0, %3 ]
+  %.046.ph = phi i32 [ %.046.ph111, %6 ], [ 0, %3 ]
+  %.044.ph = phi i32 [ %.044.ph115, %6 ], [ 1, %3 ]
   %.0.ph = phi i32 [ %.0, %6 ], [ 0, %3 ]
-  br label %.outer104
+  br label %.outer105
 
-.outer104:                                        ; preds = %.outer, %8
-  %.048.ph105 = phi i32 [ %.048.ph, %.outer ], [ %9, %8 ]
-  %.046.ph106 = phi i32 [ %.046.ph, %.outer ], [ %.046.ph110, %8 ]
-  %.044.ph107 = phi i32 [ %.044.ph, %.outer ], [ %.044.ph114, %8 ]
-  %.0.ph108 = phi i32 [ %.0.ph, %.outer ], [ %.0, %8 ]
-  br label %.outer109
+.outer105:                                        ; preds = %.outer, %8
+  %.048.ph106 = phi i32 [ %.048.ph, %.outer ], [ %9, %8 ]
+  %.046.ph107 = phi i32 [ %.046.ph, %.outer ], [ %.046.ph111, %8 ]
+  %.044.ph108 = phi i32 [ %.044.ph, %.outer ], [ %.044.ph115, %8 ]
+  %.0.ph109 = phi i32 [ %.0.ph, %.outer ], [ %.0, %8 ]
+  br label %.outer110
 
-.outer109:                                        ; preds = %.outer104, %10
-  %.046.ph110 = phi i32 [ %.046.ph106, %.outer104 ], [ %11, %10 ]
-  %.044.ph111 = phi i32 [ %.044.ph107, %.outer104 ], [ %.044.ph114, %10 ]
-  %.0.ph112 = phi i32 [ %.0.ph108, %.outer104 ], [ %.0, %10 ]
-  br label %.outer113
+.outer110:                                        ; preds = %.outer105, %10
+  %.046.ph111 = phi i32 [ %.046.ph107, %.outer105 ], [ %11, %10 ]
+  %.044.ph112 = phi i32 [ %.044.ph108, %.outer105 ], [ %.044.ph115, %10 ]
+  %.0.ph113 = phi i32 [ %.0.ph109, %.outer105 ], [ %.0, %10 ]
+  br label %.outer114
 
-.outer113:                                        ; preds = %.outer109, %12
-  %.044.ph114 = phi i32 [ %.044.ph111, %.outer109 ], [ %13, %12 ]
-  %.0.ph115 = phi i32 [ %.0.ph112, %.outer109 ], [ %.0, %12 ]
+.outer114:                                        ; preds = %.outer110, %12
+  %.044.ph115 = phi i32 [ %.044.ph112, %.outer110 ], [ %13, %12 ]
+  %.0.ph116 = phi i32 [ %.0.ph113, %.outer110 ], [ %.0, %12 ]
   br label %4
 
-4:                                                ; preds = %.outer113, %14
-  %.0 = phi i32 [ %15, %14 ], [ %.0.ph115, %.outer113 ]
+4:                                                ; preds = %.outer114, %14
+  %.0 = phi i32 [ %15, %14 ], [ %.0.ph116, %.outer114 ]
   %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.282) #18
   switch i32 %5, label %.loopexit [
     i32 -1, label %16
@@ -3838,16 +3838,16 @@ define internal range(i32 0, 2) i32 @IoCommandWriteCnf(ptr noundef readonly capt
   br label %.outer, !llvm.loop !84
 
 8:                                                ; preds = %4
-  %9 = xor i32 %.048.ph105, 1
-  br label %.outer104, !llvm.loop !84
+  %9 = xor i32 %.048.ph106, 1
+  br label %.outer105, !llvm.loop !84
 
 10:                                               ; preds = %4
-  %11 = xor i32 %.046.ph110, 1
-  br label %.outer109, !llvm.loop !84
+  %11 = xor i32 %.046.ph111, 1
+  br label %.outer110, !llvm.loop !84
 
 12:                                               ; preds = %4
-  %13 = xor i32 %.044.ph114, 1
-  br label %.outer113, !llvm.loop !84
+  %13 = xor i32 %.044.ph115, 1
+  br label %.outer114, !llvm.loop !84
 
 14:                                               ; preds = %4
   %15 = xor i32 %.0, 1
@@ -3877,7 +3877,7 @@ define internal range(i32 0, 2) i32 @IoCommandWriteCnf(ptr noundef readonly capt
   %30 = load ptr, ptr %29, align 8, !tbaa !9
   %.val = load i32, ptr %18, align 8, !tbaa !74
   %31 = icmp eq i32 %.val, 3
-  %32 = icmp ne i32 %.046.ph110, 0
+  %32 = icmp ne i32 %.046.ph111, 0
   %or.cond = select i1 %31, i1 %32, i1 false
   br i1 %or.cond, label %33, label %34
 
@@ -3886,13 +3886,13 @@ define internal range(i32 0, 2) i32 @IoCommandWriteCnf(ptr noundef readonly capt
   br label %34
 
 34:                                               ; preds = %33, %27
-  %.2 = phi i32 [ 0, %33 ], [ %.046.ph110, %27 ]
-  %.not56 = icmp eq i32 %.048.ph105, 0
+  %.2 = phi i32 [ 0, %33 ], [ %.046.ph111, %27 ]
+  %.not56 = icmp eq i32 %.048.ph106, 0
   br i1 %.not56, label %38, label %35
 
 35:                                               ; preds = %34
   %36 = load ptr, ptr %17, align 8, !tbaa !49
-  %37 = tail call ptr @Abc_NtkDarToCnf(ptr noundef %36, ptr noundef %30, i32 noundef 1, i32 noundef %.044.ph114, i32 noundef %.0) #18
+  %37 = tail call ptr @Abc_NtkDarToCnf(ptr noundef %36, ptr noundef %30, i32 noundef 1, i32 noundef %.044.ph115, i32 noundef %.0) #18
   br label %71
 
 38:                                               ; preds = %34
@@ -3901,7 +3901,7 @@ define internal range(i32 0, 2) i32 @IoCommandWriteCnf(ptr noundef readonly capt
 
 39:                                               ; preds = %38
   %40 = load ptr, ptr %17, align 8, !tbaa !49
-  %41 = tail call ptr @Abc_NtkDarToCnf(ptr noundef %40, ptr noundef %30, i32 noundef 0, i32 noundef %.044.ph114, i32 noundef %.0) #18
+  %41 = tail call ptr @Abc_NtkDarToCnf(ptr noundef %40, ptr noundef %30, i32 noundef 0, i32 noundef %.044.ph115, i32 noundef %.0) #18
   br label %71
 
 42:                                               ; preds = %38
@@ -3928,15 +3928,15 @@ define internal range(i32 0, 2) i32 @IoCommandWriteCnf(ptr noundef readonly capt
   %53 = select i1 %.not59, ptr @.str.114, ptr @.str.113
   %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.286, ptr noundef nonnull %53) #18
   %55 = load ptr, ptr %47, align 8, !tbaa !34
-  %.not60 = icmp eq i32 %.048.ph105, 0
+  %.not60 = icmp eq i32 %.048.ph106, 0
   %56 = select i1 %.not60, ptr @.str.114, ptr @.str.113
   %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.287, ptr noundef nonnull %56) #18
   %58 = load ptr, ptr %47, align 8, !tbaa !34
-  %.not61 = icmp eq i32 %.046.ph110, 0
+  %.not61 = icmp eq i32 %.046.ph111, 0
   %59 = select i1 %.not61, ptr @.str.114, ptr @.str.113
   %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.288, ptr noundef nonnull %59) #18
   %61 = load ptr, ptr %47, align 8, !tbaa !34
-  %.not62 = icmp eq i32 %.044.ph114, 0
+  %.not62 = icmp eq i32 %.044.ph115, 0
   %62 = select i1 %.not62, ptr @.str.114, ptr @.str.113
   %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.289, ptr noundef nonnull %62) #18
   %64 = load ptr, ptr %47, align 8, !tbaa !34
@@ -3961,32 +3961,32 @@ define internal range(i32 0, 2) i32 @IoCommandWriteCnf2(ptr noundef readonly cap
 
 .outer:                                           ; preds = %9, %3
   %.064.ph = phi i32 [ %14, %9 ], [ 8, %3 ]
-  %.062.ph = phi i32 [ %.062.ph140, %9 ], [ 1, %3 ]
-  %.060.ph = phi i32 [ %.060.ph145, %9 ], [ 0, %3 ]
-  %.058.ph = phi i32 [ %.058.ph149, %9 ], [ 1, %3 ]
+  %.062.ph = phi i32 [ %.062.ph143, %9 ], [ 1, %3 ]
+  %.060.ph = phi i32 [ %.060.ph148, %9 ], [ 0, %3 ]
+  %.058.ph = phi i32 [ %.058.ph152, %9 ], [ 1, %3 ]
   %.0.ph = phi i32 [ %.0, %9 ], [ 0, %3 ]
-  br label %.outer139
+  br label %.outer142
 
-.outer139:                                        ; preds = %.outer, %16
-  %.062.ph140 = phi i32 [ %.062.ph, %.outer ], [ %17, %16 ]
-  %.060.ph141 = phi i32 [ %.060.ph, %.outer ], [ %.060.ph145, %16 ]
-  %.058.ph142 = phi i32 [ %.058.ph, %.outer ], [ %.058.ph149, %16 ]
-  %.0.ph143 = phi i32 [ %.0.ph, %.outer ], [ %.0, %16 ]
-  br label %.outer144
+.outer142:                                        ; preds = %.outer, %16
+  %.062.ph143 = phi i32 [ %.062.ph, %.outer ], [ %17, %16 ]
+  %.060.ph144 = phi i32 [ %.060.ph, %.outer ], [ %.060.ph148, %16 ]
+  %.058.ph145 = phi i32 [ %.058.ph, %.outer ], [ %.058.ph152, %16 ]
+  %.0.ph146 = phi i32 [ %.0.ph, %.outer ], [ %.0, %16 ]
+  br label %.outer147
 
-.outer144:                                        ; preds = %.outer139, %18
-  %.060.ph145 = phi i32 [ %.060.ph141, %.outer139 ], [ %19, %18 ]
-  %.058.ph146 = phi i32 [ %.058.ph142, %.outer139 ], [ %.058.ph149, %18 ]
-  %.0.ph147 = phi i32 [ %.0.ph143, %.outer139 ], [ %.0, %18 ]
-  br label %.outer148
+.outer147:                                        ; preds = %.outer142, %18
+  %.060.ph148 = phi i32 [ %.060.ph144, %.outer142 ], [ %19, %18 ]
+  %.058.ph149 = phi i32 [ %.058.ph145, %.outer142 ], [ %.058.ph152, %18 ]
+  %.0.ph150 = phi i32 [ %.0.ph146, %.outer142 ], [ %.0, %18 ]
+  br label %.outer151
 
-.outer148:                                        ; preds = %.outer144, %20
-  %.058.ph149 = phi i32 [ %.058.ph146, %.outer144 ], [ %21, %20 ]
-  %.0.ph150 = phi i32 [ %.0.ph147, %.outer144 ], [ %.0, %20 ]
+.outer151:                                        ; preds = %.outer147, %20
+  %.058.ph152 = phi i32 [ %.058.ph149, %.outer147 ], [ %21, %20 ]
+  %.0.ph153 = phi i32 [ %.0.ph150, %.outer147 ], [ %.0, %20 ]
   br label %4
 
-4:                                                ; preds = %.outer148, %22
-  %.0 = phi i32 [ %23, %22 ], [ %.0.ph150, %.outer148 ]
+4:                                                ; preds = %.outer151, %22
+  %.0 = phi i32 [ %23, %22 ], [ %.0.ph153, %.outer151 ]
   %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.290) #18
   switch i32 %5, label %.loopexit [
     i32 -1, label %24
@@ -4017,16 +4017,16 @@ define internal range(i32 0, 2) i32 @IoCommandWriteCnf2(ptr noundef readonly cap
   br label %.outer, !llvm.loop !85
 
 16:                                               ; preds = %4
-  %17 = xor i32 %.062.ph140, 1
-  br label %.outer139, !llvm.loop !85
+  %17 = xor i32 %.062.ph143, 1
+  br label %.outer142, !llvm.loop !85
 
 18:                                               ; preds = %4
-  %19 = xor i32 %.060.ph145, 1
-  br label %.outer144, !llvm.loop !85
+  %19 = xor i32 %.060.ph148, 1
+  br label %.outer147, !llvm.loop !85
 
 20:                                               ; preds = %4
-  %21 = xor i32 %.058.ph149, 1
-  br label %.outer148, !llvm.loop !85
+  %21 = xor i32 %.058.ph152, 1
+  br label %.outer151, !llvm.loop !85
 
 22:                                               ; preds = %4
   %23 = xor i32 %.0, 1
@@ -4062,7 +4062,7 @@ define internal range(i32 0, 2) i32 @IoCommandWriteCnf2(ptr noundef readonly cap
   br label %99
 
 36:                                               ; preds = %33
-  %.not70 = icmp eq i32 %.062.ph140, 0
+  %.not70 = icmp eq i32 %.062.ph143, 0
   br i1 %.not70, label %37, label %40
 
 37:                                               ; preds = %36
@@ -4098,7 +4098,7 @@ define internal range(i32 0, 2) i32 @IoCommandWriteCnf2(ptr noundef readonly cap
   br i1 %.not70, label %55, label %54
 
 54:                                               ; preds = %51
-  tail call void @Mf_ManDumpCnf(ptr noundef %53, ptr noundef %46, i32 noundef %.064.ph, i32 noundef %.060.ph145, i32 noundef %.058.ph149, i32 noundef %.0) #18
+  tail call void @Mf_ManDumpCnf(ptr noundef %53, ptr noundef %46, i32 noundef %.064.ph, i32 noundef %.060.ph148, i32 noundef %.058.ph152, i32 noundef %.0) #18
   br label %99
 
 55:                                               ; preds = %51
@@ -4114,15 +4114,15 @@ define internal range(i32 0, 2) i32 @IoCommandWriteCnf2(ptr noundef readonly cap
   %61 = load ptr, ptr %56, align 8, !tbaa !34
   %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.300, i32 noundef %.064.ph) #18
   %63 = load ptr, ptr %56, align 8, !tbaa !34
-  %.not74 = icmp eq i32 %.062.ph140, 0
+  %.not74 = icmp eq i32 %.062.ph143, 0
   %64 = select i1 %.not74, ptr @.str.114, ptr @.str.113
   %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.301, ptr noundef nonnull %64) #18
   %66 = load ptr, ptr %56, align 8, !tbaa !34
-  %.not75 = icmp eq i32 %.060.ph145, 0
+  %.not75 = icmp eq i32 %.060.ph148, 0
   %67 = select i1 %.not75, ptr @.str.114, ptr @.str.113
   %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.302, ptr noundef nonnull %67) #18
   %69 = load ptr, ptr %56, align 8, !tbaa !34
-  %.not76 = icmp eq i32 %.058.ph149, 0
+  %.not76 = icmp eq i32 %.058.ph152, 0
   %70 = select i1 %.not76, ptr @.str.114, ptr @.str.113
   %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.303, ptr noundef nonnull %70) #18
   %72 = load ptr, ptr %56, align 8, !tbaa !34
@@ -4504,32 +4504,32 @@ define internal range(i32 0, 2) i32 @IoCommandWriteVerilog(ptr noundef readonly 
 
 .outer:                                           ; preds = %17, %3
   %.056.ph = phi i32 [ %18, %17 ], [ 0, %3 ]
-  %.054.ph = phi i32 [ %.054.ph129, %17 ], [ 0, %3 ]
-  %.052.ph = phi i32 [ %.052.ph134, %17 ], [ 0, %3 ]
-  %.050.ph = phi i32 [ %.050.ph138, %17 ], [ 0, %3 ]
+  %.054.ph = phi i32 [ %.054.ph131, %17 ], [ 0, %3 ]
+  %.052.ph = phi i32 [ %.052.ph136, %17 ], [ 0, %3 ]
+  %.050.ph = phi i32 [ %.050.ph140, %17 ], [ 0, %3 ]
   %.049.ph = phi i32 [ %.049, %17 ], [ -1, %3 ]
-  br label %.outer128
+  br label %.outer130
 
-.outer128:                                        ; preds = %.outer, %19
-  %.054.ph129 = phi i32 [ %.054.ph, %.outer ], [ %20, %19 ]
-  %.052.ph130 = phi i32 [ %.052.ph, %.outer ], [ %.052.ph134, %19 ]
-  %.050.ph131 = phi i32 [ %.050.ph, %.outer ], [ %.050.ph138, %19 ]
-  %.049.ph132 = phi i32 [ %.049.ph, %.outer ], [ %.049, %19 ]
-  br label %.outer133
+.outer130:                                        ; preds = %.outer, %19
+  %.054.ph131 = phi i32 [ %.054.ph, %.outer ], [ %20, %19 ]
+  %.052.ph132 = phi i32 [ %.052.ph, %.outer ], [ %.052.ph136, %19 ]
+  %.050.ph133 = phi i32 [ %.050.ph, %.outer ], [ %.050.ph140, %19 ]
+  %.049.ph134 = phi i32 [ %.049.ph, %.outer ], [ %.049, %19 ]
+  br label %.outer135
 
-.outer133:                                        ; preds = %.outer128, %21
-  %.052.ph134 = phi i32 [ %.052.ph130, %.outer128 ], [ %22, %21 ]
-  %.050.ph135 = phi i32 [ %.050.ph131, %.outer128 ], [ %.050.ph138, %21 ]
-  %.049.ph136 = phi i32 [ %.049.ph132, %.outer128 ], [ %.049, %21 ]
-  br label %.outer137
+.outer135:                                        ; preds = %.outer130, %21
+  %.052.ph136 = phi i32 [ %.052.ph132, %.outer130 ], [ %22, %21 ]
+  %.050.ph137 = phi i32 [ %.050.ph133, %.outer130 ], [ %.050.ph140, %21 ]
+  %.049.ph138 = phi i32 [ %.049.ph134, %.outer130 ], [ %.049, %21 ]
+  br label %.outer139
 
-.outer137:                                        ; preds = %.outer133, %23
-  %.050.ph138 = phi i32 [ %.050.ph135, %.outer133 ], [ %24, %23 ]
-  %.049.ph139 = phi i32 [ %.049.ph136, %.outer133 ], [ %.049, %23 ]
+.outer139:                                        ; preds = %.outer135, %23
+  %.050.ph140 = phi i32 [ %.050.ph137, %.outer135 ], [ %24, %23 ]
+  %.049.ph141 = phi i32 [ %.049.ph138, %.outer135 ], [ %.049, %23 ]
   br label %4
 
-4:                                                ; preds = %.outer137, %9
-  %.049 = phi i32 [ %14, %9 ], [ %.049.ph139, %.outer137 ]
+4:                                                ; preds = %.outer139, %9
+  %.049 = phi i32 [ %14, %9 ], [ %.049.ph141, %.outer139 ]
   %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.360) #18
   switch i32 %5, label %.loopexit [
     i32 -1, label %25
@@ -4566,16 +4566,16 @@ define internal range(i32 0, 2) i32 @IoCommandWriteVerilog(ptr noundef readonly 
   br label %.outer, !llvm.loop !101
 
 19:                                               ; preds = %4
-  %20 = xor i32 %.054.ph129, 1
-  br label %.outer128, !llvm.loop !101
+  %20 = xor i32 %.054.ph131, 1
+  br label %.outer130, !llvm.loop !101
 
 21:                                               ; preds = %4
-  %22 = xor i32 %.052.ph134, 1
-  br label %.outer133, !llvm.loop !101
+  %22 = xor i32 %.052.ph136, 1
+  br label %.outer135, !llvm.loop !101
 
 23:                                               ; preds = %4
-  %24 = xor i32 %.050.ph138, 1
-  br label %.outer137, !llvm.loop !101
+  %24 = xor i32 %.050.ph140, 1
+  br label %.outer139, !llvm.loop !101
 
 25:                                               ; preds = %4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4605,7 +4605,7 @@ define internal range(i32 0, 2) i32 @IoCommandWriteVerilog(ptr noundef readonly 
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %36
-  tail call void @Io_WriteVerilogLut(ptr noundef nonnull %27, ptr noundef %39, i32 noundef %spec.select, i32 noundef %.056.ph, i32 noundef %.052.ph134, i32 noundef %.050.ph138) #18
+  tail call void @Io_WriteVerilogLut(ptr noundef nonnull %27, ptr noundef %39, i32 noundef %spec.select, i32 noundef %.056.ph, i32 noundef %.052.ph136, i32 noundef %.050.ph140) #18
   br label %71
 
 42:                                               ; preds = %36
@@ -4621,7 +4621,7 @@ define internal range(i32 0, 2) i32 @IoCommandWriteVerilog(ptr noundef readonly 
   br label %47
 
 47:                                               ; preds = %42, %45
-  tail call void @Io_WriteVerilog(ptr noundef nonnull %43, ptr noundef %39, i32 noundef %.054.ph129, i32 noundef %.050.ph138) #18
+  tail call void @Io_WriteVerilog(ptr noundef nonnull %43, ptr noundef %39, i32 noundef %.054.ph131, i32 noundef %.050.ph140) #18
   tail call void @Abc_NtkDelete(ptr noundef nonnull %43) #18
   br label %71
 
@@ -4638,15 +4638,15 @@ define internal range(i32 0, 2) i32 @IoCommandWriteVerilog(ptr noundef readonly 
   %56 = select i1 %.not66, ptr @.str.114, ptr @.str.113
   %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.364, ptr noundef nonnull %56) #18
   %58 = load ptr, ptr %48, align 8, !tbaa !34
-  %.not67 = icmp eq i32 %.054.ph129, 0
+  %.not67 = icmp eq i32 %.054.ph131, 0
   %59 = select i1 %.not67, ptr @.str.114, ptr @.str.113
   %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.365, ptr noundef nonnull %59) #18
   %61 = load ptr, ptr %48, align 8, !tbaa !34
-  %.not68 = icmp eq i32 %.052.ph134, 0
+  %.not68 = icmp eq i32 %.052.ph136, 0
   %62 = select i1 %.not68, ptr @.str.113, ptr @.str.114
   %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.366, ptr noundef nonnull %62) #18
   %64 = load ptr, ptr %48, align 8, !tbaa !34
-  %.not69 = icmp eq i32 %.050.ph138, 0
+  %.not69 = icmp eq i32 %.050.ph140, 0
   %65 = select i1 %.not69, ptr @.str.114, ptr @.str.113
   %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull @.str.367, ptr noundef nonnull %65) #18
   %67 = load ptr, ptr %48, align 8, !tbaa !34
@@ -4932,17 +4932,17 @@ define internal range(i32 0, 2) i32 @IoCommandWriteTruths(ptr noundef readonly c
 
 .outer:                                           ; preds = %6, %3
   %.050.ph = phi i32 [ %7, %6 ], [ 0, %3 ]
-  %.048.ph = phi i32 [ %.048.ph119, %6 ], [ 1, %3 ]
+  %.048.ph = phi i32 [ %.048.ph121, %6 ], [ 1, %3 ]
   %.047.ph = phi i32 [ %.047, %6 ], [ 0, %3 ]
-  br label %.outer118
+  br label %.outer120
 
-.outer118:                                        ; preds = %.outer, %8
-  %.048.ph119 = phi i32 [ %.048.ph, %.outer ], [ %9, %8 ]
-  %.047.ph120 = phi i32 [ %.047.ph, %.outer ], [ %.047, %8 ]
+.outer120:                                        ; preds = %.outer, %8
+  %.048.ph121 = phi i32 [ %.048.ph, %.outer ], [ %9, %8 ]
+  %.047.ph122 = phi i32 [ %.047.ph, %.outer ], [ %.047, %8 ]
   br label %4
 
-4:                                                ; preds = %.outer118, %10
-  %.047 = phi i32 [ %11, %10 ], [ %.047.ph120, %.outer118 ]
+4:                                                ; preds = %.outer120, %10
+  %.047 = phi i32 [ %11, %10 ], [ %.047.ph122, %.outer120 ]
   %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.386) #18
   switch i32 %5, label %.loopexit [
     i32 -1, label %12
@@ -4956,8 +4956,8 @@ define internal range(i32 0, 2) i32 @IoCommandWriteTruths(ptr noundef readonly c
   br label %.outer, !llvm.loop !112
 
 8:                                                ; preds = %4
-  %9 = xor i32 %.048.ph119, 1
-  br label %.outer118, !llvm.loop !112
+  %9 = xor i32 %.048.ph121, 1
+  br label %.outer120, !llvm.loop !112
 
 10:                                               ; preds = %4
   %11 = xor i32 %.047, 1
@@ -5040,7 +5040,7 @@ define internal range(i32 0, 2) i32 @IoCommandWriteTruths(ptr noundef readonly c
   br i1 %.not58, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %.not59 = icmp eq i32 %.048.ph119, 0
+  %.not59 = icmp eq i32 %.048.ph121, 0
   br i1 %.not59, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %56
@@ -5161,7 +5161,7 @@ define internal range(i32 0, 2) i32 @IoCommandWriteTruths(ptr noundef readonly c
   %120 = select i1 %.not61, ptr @.str.114, ptr @.str.113
   %121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef nonnull @.str.385, ptr noundef nonnull %120) #18
   %122 = load ptr, ptr %114, align 8, !tbaa !34
-  %.not62 = icmp eq i32 %.048.ph119, 0
+  %.not62 = icmp eq i32 %.048.ph121, 0
   %123 = select i1 %.not62, ptr @.str.114, ptr @.str.113
   %124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.392, ptr noundef nonnull %123) #18
   %125 = load ptr, ptr %114, align 8, !tbaa !34
@@ -5562,20 +5562,20 @@ define i32 @Abc_NtkReadCexFile(ptr noundef %0, ptr noundef readonly captures(non
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %63, %65, %55, %57
-  %.sink561 = phi ptr [ %56, %55 ], [ %58, %57 ], [ %64, %63 ], [ %66, %65 ]
+  %.sink593 = phi ptr [ %56, %55 ], [ %58, %57 ], [ %64, %63 ], [ %66, %65 ]
   %.sink = phi i32 [ 16, %55 ], [ 16, %57 ], [ %60, %63 ], [ %60, %65 ]
-  store ptr %.sink561, ptr %16, align 8, !tbaa !59
+  store ptr %.sink593, ptr %16, align 8, !tbaa !59
   store i32 %.sink, ptr %13, align 8, !tbaa !120
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %48
-  %.pre.i305539 = phi ptr [ %.pre.i305540, %48 ], [ %.sink561, %Vec_IntPush.exit.sink.split ]
-  %.pre.i312522 = phi ptr [ %.pre.i312523, %48 ], [ %.sink561, %Vec_IntPush.exit.sink.split ]
-  %.pre.i277511 = phi ptr [ %.pre.i277496, %48 ], [ %.sink561, %Vec_IntPush.exit.sink.split ]
-  %.pre.i298484 = phi ptr [ %.pre.i298485, %48 ], [ %.sink561, %Vec_IntPush.exit.sink.split ]
-  %.pre.i284471 = phi ptr [ %.pre.i284472, %48 ], [ %.sink561, %Vec_IntPush.exit.sink.split ]
-  %.pre.i291459 = phi ptr [ %.pre.i291460, %48 ], [ %.sink561, %Vec_IntPush.exit.sink.split ]
-  %.pre.i454 = phi ptr [ %31, %48 ], [ %.sink561, %Vec_IntPush.exit.sink.split ]
+  %.pre.i305539 = phi ptr [ %.pre.i305540, %48 ], [ %.sink593, %Vec_IntPush.exit.sink.split ]
+  %.pre.i312522 = phi ptr [ %.pre.i312523, %48 ], [ %.sink593, %Vec_IntPush.exit.sink.split ]
+  %.pre.i277511 = phi ptr [ %.pre.i277496, %48 ], [ %.sink593, %Vec_IntPush.exit.sink.split ]
+  %.pre.i298484 = phi ptr [ %.pre.i298485, %48 ], [ %.sink593, %Vec_IntPush.exit.sink.split ]
+  %.pre.i284471 = phi ptr [ %.pre.i284472, %48 ], [ %.sink593, %Vec_IntPush.exit.sink.split ]
+  %.pre.i291459 = phi ptr [ %.pre.i291460, %48 ], [ %.sink593, %Vec_IntPush.exit.sink.split ]
+  %.pre.i454 = phi ptr [ %31, %48 ], [ %.sink593, %Vec_IntPush.exit.sink.split ]
   %67 = load i32, ptr %14, align 4, !tbaa !114
   %68 = add nsw i32 %67, 1
   store i32 %68, ptr %14, align 4, !tbaa !114
@@ -5672,16 +5672,16 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %Vec_IntPush.exit281.sink.split
 
 Vec_IntPush.exit281.sink.split:                   ; preds = %95, %97, %87, %89
-  %.sink563 = phi ptr [ %88, %87 ], [ %90, %89 ], [ %96, %95 ], [ %98, %97 ]
-  %.sink562 = phi i32 [ 16, %87 ], [ 16, %89 ], [ %92, %95 ], [ %92, %97 ]
-  store ptr %.sink563, ptr %16, align 8, !tbaa !59
-  store i32 %.sink562, ptr %13, align 8, !tbaa !120
+  %.sink595 = phi ptr [ %88, %87 ], [ %90, %89 ], [ %96, %95 ], [ %98, %97 ]
+  %.sink594 = phi i32 [ 16, %87 ], [ 16, %89 ], [ %92, %95 ], [ %92, %97 ]
+  store ptr %.sink595, ptr %16, align 8, !tbaa !59
+  store i32 %.sink594, ptr %13, align 8, !tbaa !120
   br label %Vec_IntPush.exit281
 
 Vec_IntPush.exit281:                              ; preds = %Vec_IntPush.exit281.sink.split, %80
-  %.pre.i305537 = phi ptr [ %.pre.i305538, %80 ], [ %.sink563, %Vec_IntPush.exit281.sink.split ]
-  %.pre.i312520 = phi ptr [ %.pre.i312521, %80 ], [ %.sink563, %Vec_IntPush.exit281.sink.split ]
-  %.pre.i277506 = phi ptr [ %72, %80 ], [ %.sink563, %Vec_IntPush.exit281.sink.split ]
+  %.pre.i305537 = phi ptr [ %.pre.i305538, %80 ], [ %.sink595, %Vec_IntPush.exit281.sink.split ]
+  %.pre.i312520 = phi ptr [ %.pre.i312521, %80 ], [ %.sink595, %Vec_IntPush.exit281.sink.split ]
+  %.pre.i277506 = phi ptr [ %72, %80 ], [ %.sink595, %Vec_IntPush.exit281.sink.split ]
   %99 = load i32, ptr %14, align 4, !tbaa !114
   %100 = add nsw i32 %99, 1
   store i32 %100, ptr %14, align 4, !tbaa !114
@@ -5797,29 +5797,29 @@ Vec_IntPush.exit281:                              ; preds = %Vec_IntPush.exit281
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %143, %141, %151, %149, %122, %120, %130, %128
-  %.sink567.sink = phi ptr [ %121, %120 ], [ %123, %122 ], [ %129, %128 ], [ %131, %130 ], [ %142, %141 ], [ %144, %143 ], [ %150, %149 ], [ %152, %151 ]
-  %.sink566.sink = phi i32 [ 16, %120 ], [ 16, %122 ], [ %125, %128 ], [ %125, %130 ], [ 16, %141 ], [ 16, %143 ], [ %146, %149 ], [ %146, %151 ]
-  %.sink568.ph = phi i32 [ %113, %120 ], [ %113, %122 ], [ %113, %128 ], [ %113, %130 ], [ 2, %141 ], [ 2, %143 ], [ 2, %149 ], [ 2, %151 ]
+  %.sink599.sink = phi ptr [ %121, %120 ], [ %123, %122 ], [ %129, %128 ], [ %131, %130 ], [ %142, %141 ], [ %144, %143 ], [ %150, %149 ], [ %152, %151 ]
+  %.sink598.sink = phi i32 [ 16, %120 ], [ 16, %122 ], [ %125, %128 ], [ %125, %130 ], [ 16, %141 ], [ 16, %143 ], [ %146, %149 ], [ %146, %151 ]
+  %.sink600.ph = phi i32 [ %113, %120 ], [ %113, %122 ], [ %113, %128 ], [ %113, %130 ], [ 2, %141 ], [ 2, %143 ], [ 2, %149 ], [ 2, %151 ]
   %.5223.ph.ph = phi i32 [ %.4222379, %120 ], [ %.4222379, %122 ], [ %.4222379, %128 ], [ %.4222379, %130 ], [ 1, %141 ], [ 1, %143 ], [ 1, %149 ], [ 1, %151 ]
-  store ptr %.sink567.sink, ptr %16, align 8, !tbaa !59
-  store i32 %.sink566.sink, ptr %13, align 8, !tbaa !120
+  store ptr %.sink599.sink, ptr %16, align 8, !tbaa !59
+  store i32 %.sink598.sink, ptr %13, align 8, !tbaa !120
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %134, %111
-  %.pre.i291466.sink = phi ptr [ %106, %111 ], [ %107, %134 ], [ %.sink567.sink, %.sink.split.sink.split ]
-  %.sink568 = phi i32 [ %113, %111 ], [ 2, %134 ], [ %.sink568.ph, %.sink.split.sink.split ]
-  %.pre.i305533.ph = phi ptr [ %.pre.i305536, %111 ], [ %.pre.i305536, %134 ], [ %.sink567.sink, %.sink.split.sink.split ]
-  %.pre.i312516.ph = phi ptr [ %.pre.i312519, %111 ], [ %.pre.i312519, %134 ], [ %.sink567.sink, %.sink.split.sink.split ]
-  %.pre.i277502.ph = phi ptr [ %.pre.i277505, %111 ], [ %.pre.i277505, %134 ], [ %.sink567.sink, %.sink.split.sink.split ]
-  %.pre.i298493.ph = phi ptr [ %.pre.i298492, %111 ], [ %.pre.i298492, %134 ], [ %.sink567.sink, %.sink.split.sink.split ]
-  %.pre.i284478.ph = phi ptr [ %106, %111 ], [ %106, %134 ], [ %.sink567.sink, %.sink.split.sink.split ]
+  %.pre.i291466.sink = phi ptr [ %106, %111 ], [ %107, %134 ], [ %.sink599.sink, %.sink.split.sink.split ]
+  %.sink600 = phi i32 [ %113, %111 ], [ 2, %134 ], [ %.sink600.ph, %.sink.split.sink.split ]
+  %.pre.i305533.ph = phi ptr [ %.pre.i305536, %111 ], [ %.pre.i305536, %134 ], [ %.sink599.sink, %.sink.split.sink.split ]
+  %.pre.i312516.ph = phi ptr [ %.pre.i312519, %111 ], [ %.pre.i312519, %134 ], [ %.sink599.sink, %.sink.split.sink.split ]
+  %.pre.i277502.ph = phi ptr [ %.pre.i277505, %111 ], [ %.pre.i277505, %134 ], [ %.sink599.sink, %.sink.split.sink.split ]
+  %.pre.i298493.ph = phi ptr [ %.pre.i298492, %111 ], [ %.pre.i298492, %134 ], [ %.sink599.sink, %.sink.split.sink.split ]
+  %.pre.i284478.ph = phi ptr [ %106, %111 ], [ %106, %134 ], [ %.sink599.sink, %.sink.split.sink.split ]
   %.5223.ph = phi i32 [ %.4222379, %111 ], [ 1, %134 ], [ %.5223.ph.ph, %.sink.split.sink.split ]
   %153 = load i32, ptr %14, align 4, !tbaa !114
   %154 = add nsw i32 %153, 1
   store i32 %154, ptr %14, align 4, !tbaa !114
   %155 = sext i32 %153 to i64
   %156 = getelementptr inbounds i32, ptr %.pre.i291466.sink, i64 %155
-  store i32 %.sink568, ptr %156, align 4, !tbaa !3
+  store i32 %.sink600, ptr %156, align 4, !tbaa !3
   br label %157
 
 157:                                              ; preds = %.sink.split, %132
@@ -5897,17 +5897,17 @@ Vec_IntPush.exit281:                              ; preds = %Vec_IntPush.exit281
   br label %Vec_IntPush.exit302.sink.split
 
 Vec_IntPush.exit302.sink.split:                   ; preds = %177, %179, %169, %171
-  %.sink575 = phi ptr [ %170, %169 ], [ %172, %171 ], [ %178, %177 ], [ %180, %179 ]
-  %.sink574 = phi i32 [ 16, %169 ], [ 16, %171 ], [ %174, %177 ], [ %174, %179 ]
-  store ptr %.sink575, ptr %16, align 8, !tbaa !59
-  store i32 %.sink574, ptr %13, align 8, !tbaa !120
+  %.sink607 = phi ptr [ %170, %169 ], [ %172, %171 ], [ %178, %177 ], [ %180, %179 ]
+  %.sink606 = phi i32 [ 16, %169 ], [ 16, %171 ], [ %174, %177 ], [ %174, %179 ]
+  store ptr %.sink607, ptr %16, align 8, !tbaa !59
+  store i32 %.sink606, ptr %13, align 8, !tbaa !120
   br label %Vec_IntPush.exit302
 
 Vec_IntPush.exit302:                              ; preds = %Vec_IntPush.exit302.sink.split, %.lr.ph385
-  %.pre.i305530 = phi ptr [ %.pre.i305531, %.lr.ph385 ], [ %.sink575, %Vec_IntPush.exit302.sink.split ]
-  %.pre.i312513 = phi ptr [ %.pre.i312514, %.lr.ph385 ], [ %.sink575, %Vec_IntPush.exit302.sink.split ]
-  %.pre.i277499 = phi ptr [ %.pre.i277500, %.lr.ph385 ], [ %.sink575, %Vec_IntPush.exit302.sink.split ]
-  %.pre.i298488 = phi ptr [ %162, %.lr.ph385 ], [ %.sink575, %Vec_IntPush.exit302.sink.split ]
+  %.pre.i305530 = phi ptr [ %.pre.i305531, %.lr.ph385 ], [ %.sink607, %Vec_IntPush.exit302.sink.split ]
+  %.pre.i312513 = phi ptr [ %.pre.i312514, %.lr.ph385 ], [ %.sink607, %Vec_IntPush.exit302.sink.split ]
+  %.pre.i277499 = phi ptr [ %.pre.i277500, %.lr.ph385 ], [ %.sink607, %Vec_IntPush.exit302.sink.split ]
+  %.pre.i298488 = phi ptr [ %162, %.lr.ph385 ], [ %.sink607, %Vec_IntPush.exit302.sink.split ]
   %181 = load i32, ptr %14, align 4, !tbaa !114
   %182 = add nsw i32 %181, 1
   store i32 %182, ptr %14, align 4, !tbaa !114
@@ -5953,7 +5953,7 @@ Vec_IntPush.exit302:                              ; preds = %Vec_IntPush.exit302
   %197 = load i32, ptr %14, align 4, !tbaa !114
   %198 = load i32, ptr %13, align 8, !tbaa !120
   %199 = icmp eq i32 %197, %198
-  br i1 %199, label %200, label %.sink.split580
+  br i1 %199, label %200, label %.sink.split612
 
 200:                                              ; preds = %194
   %201 = icmp slt i32 %197, 16
@@ -5965,11 +5965,11 @@ Vec_IntPush.exit302:                              ; preds = %Vec_IntPush.exit302
 
 203:                                              ; preds = %202
   %204 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %189, i64 noundef 64) #21
-  br label %.sink.split580.sink.split
+  br label %.sink.split612.sink.split
 
 205:                                              ; preds = %202
   %206 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
-  br label %.sink.split580.sink.split
+  br label %.sink.split612.sink.split
 
 207:                                              ; preds = %200
   %208 = shl nuw nsw i32 %197, 1
@@ -5980,11 +5980,11 @@ Vec_IntPush.exit302:                              ; preds = %Vec_IntPush.exit302
 
 211:                                              ; preds = %207
   %212 = tail call ptr @realloc(ptr noundef nonnull %189, i64 noundef %210) #21
-  br label %.sink.split580.sink.split
+  br label %.sink.split612.sink.split
 
 213:                                              ; preds = %207
   %214 = tail call noalias ptr @malloc(i64 noundef %210) #20
-  br label %.sink.split580.sink.split
+  br label %.sink.split612.sink.split
 
 215:                                              ; preds = %.lr.ph389
   %216 = icmp eq i8 %192, 120
@@ -5994,7 +5994,7 @@ Vec_IntPush.exit302:                              ; preds = %Vec_IntPush.exit302
   %218 = load i32, ptr %14, align 4, !tbaa !114
   %219 = load i32, ptr %13, align 8, !tbaa !120
   %220 = icmp eq i32 %218, %219
-  br i1 %220, label %221, label %.sink.split580
+  br i1 %220, label %221, label %.sink.split612
 
 221:                                              ; preds = %217
   %222 = icmp slt i32 %218, 16
@@ -6006,11 +6006,11 @@ Vec_IntPush.exit302:                              ; preds = %Vec_IntPush.exit302
 
 224:                                              ; preds = %223
   %225 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %190, i64 noundef 64) #21
-  br label %.sink.split580.sink.split
+  br label %.sink.split612.sink.split
 
 226:                                              ; preds = %223
   %227 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
-  br label %.sink.split580.sink.split
+  br label %.sink.split612.sink.split
 
 228:                                              ; preds = %221
   %229 = shl nuw nsw i32 %218, 1
@@ -6021,43 +6021,43 @@ Vec_IntPush.exit302:                              ; preds = %Vec_IntPush.exit302
 
 232:                                              ; preds = %228
   %233 = tail call ptr @realloc(ptr noundef nonnull %190, i64 noundef %231) #21
-  br label %.sink.split580.sink.split
+  br label %.sink.split612.sink.split
 
 234:                                              ; preds = %228
   %235 = tail call noalias ptr @malloc(i64 noundef %231) #20
-  br label %.sink.split580.sink.split
+  br label %.sink.split612.sink.split
 
-.sink.split580.sink.split:                        ; preds = %226, %224, %234, %232, %205, %203, %213, %211
-  %.sink579.sink = phi ptr [ %204, %203 ], [ %206, %205 ], [ %212, %211 ], [ %214, %213 ], [ %225, %224 ], [ %227, %226 ], [ %233, %232 ], [ %235, %234 ]
-  %.sink578.sink = phi i32 [ 16, %203 ], [ 16, %205 ], [ %208, %211 ], [ %208, %213 ], [ 16, %224 ], [ 16, %226 ], [ %229, %232 ], [ %229, %234 ]
-  %.sink581.ph = phi i32 [ %196, %203 ], [ %196, %205 ], [ %196, %211 ], [ %196, %213 ], [ 2, %224 ], [ 2, %226 ], [ 2, %232 ], [ 2, %234 ]
+.sink.split612.sink.split:                        ; preds = %226, %224, %234, %232, %205, %203, %213, %211
+  %.sink611.sink = phi ptr [ %204, %203 ], [ %206, %205 ], [ %212, %211 ], [ %214, %213 ], [ %225, %224 ], [ %227, %226 ], [ %233, %232 ], [ %235, %234 ]
+  %.sink610.sink = phi i32 [ 16, %203 ], [ 16, %205 ], [ %208, %211 ], [ %208, %213 ], [ 16, %224 ], [ 16, %226 ], [ %229, %232 ], [ %229, %234 ]
+  %.sink613.ph = phi i32 [ %196, %203 ], [ %196, %205 ], [ %196, %211 ], [ %196, %213 ], [ 2, %224 ], [ 2, %226 ], [ 2, %232 ], [ 2, %234 ]
   %.7.ph.ph = phi i32 [ %.6224387, %203 ], [ %.6224387, %205 ], [ %.6224387, %211 ], [ %.6224387, %213 ], [ 1, %224 ], [ 1, %226 ], [ 1, %232 ], [ 1, %234 ]
-  store ptr %.sink579.sink, ptr %16, align 8, !tbaa !59
-  store i32 %.sink578.sink, ptr %13, align 8, !tbaa !120
-  br label %.sink.split580
+  store ptr %.sink611.sink, ptr %16, align 8, !tbaa !59
+  store i32 %.sink610.sink, ptr %13, align 8, !tbaa !120
+  br label %.sink.split612
 
-.sink.split580:                                   ; preds = %.sink.split580.sink.split, %217, %194
-  %.pre.i312528.sink = phi ptr [ %189, %194 ], [ %190, %217 ], [ %.sink579.sink, %.sink.split580.sink.split ]
-  %.sink581 = phi i32 [ %196, %194 ], [ 2, %217 ], [ %.sink581.ph, %.sink.split580.sink.split ]
-  %.pre.i305545.ph = phi ptr [ %189, %194 ], [ %189, %217 ], [ %.sink579.sink, %.sink.split580.sink.split ]
-  %.7.ph = phi i32 [ %.6224387, %194 ], [ 1, %217 ], [ %.7.ph.ph, %.sink.split580.sink.split ]
+.sink.split612:                                   ; preds = %.sink.split612.sink.split, %217, %194
+  %.pre.i312528.sink = phi ptr [ %189, %194 ], [ %190, %217 ], [ %.sink611.sink, %.sink.split612.sink.split ]
+  %.sink613 = phi i32 [ %196, %194 ], [ 2, %217 ], [ %.sink613.ph, %.sink.split612.sink.split ]
+  %.pre.i305545.ph = phi ptr [ %189, %194 ], [ %189, %217 ], [ %.sink611.sink, %.sink.split612.sink.split ]
+  %.7.ph = phi i32 [ %.6224387, %194 ], [ 1, %217 ], [ %.7.ph.ph, %.sink.split612.sink.split ]
   %236 = load i32, ptr %14, align 4, !tbaa !114
   %237 = add nsw i32 %236, 1
   store i32 %237, ptr %14, align 4, !tbaa !114
   %238 = sext i32 %236 to i64
   %239 = getelementptr inbounds i32, ptr %.pre.i312528.sink, i64 %238
-  store i32 %.sink581, ptr %239, align 4, !tbaa !3
+  store i32 %.sink613, ptr %239, align 4, !tbaa !3
   br label %240
 
-240:                                              ; preds = %.sink.split580, %215
-  %.pre.i305545 = phi ptr [ %189, %215 ], [ %.pre.i305545.ph, %.sink.split580 ]
-  %.pre.i312527 = phi ptr [ %190, %215 ], [ %.pre.i312528.sink, %.sink.split580 ]
-  %.pre.i277508 = phi ptr [ %.pre.i277509, %215 ], [ %.pre.i312528.sink, %.sink.split580 ]
-  %.pre.i298481 = phi ptr [ %.pre.i298482, %215 ], [ %.pre.i312528.sink, %.sink.split580 ]
-  %.pre.i284468 = phi ptr [ %.pre.i284469, %215 ], [ %.pre.i312528.sink, %.sink.split580 ]
-  %.pre.i291456 = phi ptr [ %.pre.i291457, %215 ], [ %.pre.i312528.sink, %.sink.split580 ]
-  %.pre.i451 = phi ptr [ %.pre.i452, %215 ], [ %.pre.i312528.sink, %.sink.split580 ]
-  %.7 = phi i32 [ %.6224387, %215 ], [ %.7.ph, %.sink.split580 ]
+240:                                              ; preds = %.sink.split612, %215
+  %.pre.i305545 = phi ptr [ %189, %215 ], [ %.pre.i305545.ph, %.sink.split612 ]
+  %.pre.i312527 = phi ptr [ %190, %215 ], [ %.pre.i312528.sink, %.sink.split612 ]
+  %.pre.i277508 = phi ptr [ %.pre.i277509, %215 ], [ %.pre.i312528.sink, %.sink.split612 ]
+  %.pre.i298481 = phi ptr [ %.pre.i298482, %215 ], [ %.pre.i312528.sink, %.sink.split612 ]
+  %.pre.i284468 = phi ptr [ %.pre.i284469, %215 ], [ %.pre.i312528.sink, %.sink.split612 ]
+  %.pre.i291456 = phi ptr [ %.pre.i291457, %215 ], [ %.pre.i312528.sink, %.sink.split612 ]
+  %.pre.i451 = phi ptr [ %.pre.i452, %215 ], [ %.pre.i312528.sink, %.sink.split612 ]
+  %.7 = phi i32 [ %.6224387, %215 ], [ %.7.ph, %.sink.split612 ]
   %indvars.iv.next431 = add nuw nsw i64 %indvars.iv430, 1
   %exitcond434.not = icmp eq i64 %indvars.iv.next431, %wide.trip.count433
   br i1 %exitcond434.not, label %._crit_edge390, label %.lr.ph389, !llvm.loop !126
@@ -6120,11 +6120,11 @@ Vec_IntPush.exit302:                              ; preds = %Vec_IntPush.exit302
 252:                                              ; preds = %250
   %253 = load i32, ptr %5, align 4, !tbaa !3
   %254 = icmp eq i32 %253, 0
-  %spec.select598 = select i1 %254, ptr @str.22, ptr @str.21
+  %spec.select630 = select i1 %254, ptr @str.22, ptr @str.21
   br label %255
 
 255:                                              ; preds = %252, %250
-  %str.21.sink = phi ptr [ @str.22, %250 ], [ %spec.select598, %252 ]
+  %str.21.sink = phi ptr [ @str.22, %250 ], [ %spec.select630, %252 ]
   %puts255 = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.21.sink)
   %.not.i = icmp eq ptr %243, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %256
@@ -6240,9 +6240,9 @@ Vec_IntFree.exit322:                              ; preds = %269, %270
   %.val274.us = load i32, ptr %287, align 4
   %288 = and i32 %.val274.us, 15
   %.not346.us = icmp eq i32 %288, 8
-  br i1 %.not346.us, label %.sink.split587, label %293
+  br i1 %.not346.us, label %.sink.split619, label %293
 
-.sink.split587:                                   ; preds = %.lr.ph407.split.us
+.sink.split619:                                   ; preds = %.lr.ph407.split.us
   %289 = getelementptr inbounds nuw i32, ptr %243, i64 %indvars.iv435
   %290 = load i32, ptr %289, align 4, !tbaa !3
   %291 = icmp eq i32 %290, 1
@@ -6251,7 +6251,7 @@ Vec_IntFree.exit322:                              ; preds = %269, %270
   store ptr %., ptr %292, align 8, !tbaa !12
   br label %293
 
-293:                                              ; preds = %.sink.split587, %.lr.ph407.split.us
+293:                                              ; preds = %.sink.split619, %.lr.ph407.split.us
   %indvars.iv.next436 = add nuw nsw i64 %indvars.iv435, 1
   %294 = load ptr, ptr %17, align 8, !tbaa !121
   %295 = getelementptr i8, ptr %294, i64 4
@@ -6278,22 +6278,22 @@ Vec_IntFree.exit322:                              ; preds = %269, %270
   %306 = load i32, ptr %305, align 4, !tbaa !3
   %307 = getelementptr inbounds nuw i8, ptr %301, i64 56
   switch i32 %306, label %309 [
-    i32 1, label %.sink.split589
+    i32 1, label %.sink.split621
     i32 2, label %308
   ]
 
 308:                                              ; preds = %304
-  br label %.sink.split589
+  br label %.sink.split621
 
 309:                                              ; preds = %304
-  br label %.sink.split589
+  br label %.sink.split621
 
-.sink.split589:                                   ; preds = %304, %309, %308
-  %.sink590 = phi ptr [ null, %308 ], [ inttoptr (i64 1 to ptr), %309 ], [ inttoptr (i64 2 to ptr), %304 ]
-  store ptr %.sink590, ptr %307, align 8, !tbaa !12
+.sink.split621:                                   ; preds = %304, %309, %308
+  %.sink622 = phi ptr [ null, %308 ], [ inttoptr (i64 1 to ptr), %309 ], [ inttoptr (i64 2 to ptr), %304 ]
+  store ptr %.sink622, ptr %307, align 8, !tbaa !12
   br label %310
 
-310:                                              ; preds = %.sink.split589, %.lr.ph407.split
+310:                                              ; preds = %.sink.split621, %.lr.ph407.split
   %indvars.iv.next439 = add nuw nsw i64 %indvars.iv438, 1
   %311 = load ptr, ptr %17, align 8, !tbaa !121
   %312 = getelementptr i8, ptr %311, i64 4
@@ -6338,7 +6338,7 @@ Vec_IntFree.exit322:                              ; preds = %269, %270
   %335 = load i32, ptr %334, align 4, !tbaa !3
   %336 = or i32 %335, %331
   store i32 %336, ptr %334, align 4, !tbaa !3
-  br label %.sink.split591
+  br label %.sink.split623
 
 337:                                              ; preds = %324
   %338 = icmp eq i32 %326, 2
@@ -6351,18 +6351,18 @@ Vec_IntFree.exit322:                              ; preds = %269, %270
   %342 = shl nuw i32 1, %341
   %343 = lshr i64 %indvars.iv441, 5
   %344 = and i64 %343, 134217727
-  br label %.sink.split591
+  br label %.sink.split623
 
-.sink.split591:                                   ; preds = %339, %328
-  %.sink597 = phi i64 [ %333, %328 ], [ %344, %339 ]
-  %.sink595 = phi i32 [ %331, %328 ], [ %342, %339 ]
-  %345 = getelementptr inbounds nuw i32, ptr %322, i64 %.sink597
+.sink.split623:                                   ; preds = %339, %328
+  %.sink629 = phi i64 [ %333, %328 ], [ %344, %339 ]
+  %.sink627 = phi i32 [ %331, %328 ], [ %342, %339 ]
+  %345 = getelementptr inbounds nuw i32, ptr %322, i64 %.sink629
   %346 = load i32, ptr %345, align 4, !tbaa !3
-  %347 = or i32 %346, %.sink595
+  %347 = or i32 %346, %.sink627
   store i32 %347, ptr %345, align 4, !tbaa !3
   br label %348
 
-348:                                              ; preds = %.sink.split591, %337
+348:                                              ; preds = %.sink.split623, %337
   %indvars.iv.next442 = add nuw nsw i64 %indvars.iv441, 1
   %349 = load i32, ptr %319, align 4, !tbaa !129
   %350 = sext i32 %349 to i64
@@ -6830,7 +6830,7 @@ define void @Abc_NtkDumpOneCex(ptr noundef captures(none) %0, ptr noundef %1, pt
   %80 = getelementptr i8, ptr %.val265, i64 4
   %.val265.val = load i32, ptr %80, align 4, !tbaa !32
   %81 = icmp eq i32 %.val265.val, 1
-  br i1 %81, label %82, label %.thread425
+  br i1 %81, label %82, label %.thread435
 
 82:                                               ; preds = %78
   %83 = getelementptr i8, ptr %72, i64 108
@@ -6839,7 +6839,7 @@ define void @Abc_NtkDumpOneCex(ptr noundef captures(none) %0, ptr noundef %1, pt
   store ptr %84, ptr %16, align 8, !tbaa !47
   br label %113
 
-.thread425:                                       ; preds = %78
+.thread435:                                       ; preds = %78
   %puts240 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.26)
   tail call void @Aig_ManStop(ptr noundef %72) #18
   br label %116
@@ -6924,7 +6924,7 @@ define void @Abc_NtkDumpOneCex(ptr noundef captures(none) %0, ptr noundef %1, pt
   %115 = icmp eq ptr %114, null
   br i1 %115, label %116, label %117
 
-116:                                              ; preds = %.thread425, %113
+116:                                              ; preds = %.thread435, %113
   %puts242 = call i32 @puts(ptr nonnull dereferenceable(1) @str.27)
   br label %117
 

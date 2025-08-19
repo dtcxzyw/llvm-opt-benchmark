@@ -1065,7 +1065,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(pt
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 1184
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq ptr %20, null
-  br i1 %38, label %.critedge.thread69, label %39
+  br i1 %38, label %.critedge.thread84, label %39
 
 39:                                               ; preds = %19
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 172
@@ -1074,7 +1074,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(pt
   %43 = icmp eq i8 %42, 0
   %44 = icmp sgt i32 %37, 0
   %45 = select i1 %43, i1 %44, i1 false
-  br i1 %45, label %46, label %.critedge.thread69
+  br i1 %45, label %46, label %.critedge.thread84
 
 46:                                               ; preds = %39
   %47 = getelementptr inbounds nuw i8, ptr %20, i64 108
@@ -1108,12 +1108,12 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(pt
 69:                                               ; preds = %59
   %70 = load ptr, ptr %2, align 8
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %70, ptr noundef nonnull @.str.2, i32 noundef %67) #11
-  br label %.critedge.thread69
+  br label %.critedge.thread84
 
 71:                                               ; preds = %59
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 1176
   %73 = icmp sgt i32 %67, 0
-  br i1 %73, label %.lr.ph, label %.critedge.thread69
+  br i1 %73, label %.lr.ph, label %.critedge.thread84
 
 .lr.ph:                                           ; preds = %71, %79
   %74 = phi i32 [ %97, %79 ], [ 0, %71 ]
@@ -1152,16 +1152,16 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(pt
 
 .critedge:                                        ; preds = %79
   %100 = icmp slt i32 %98, 0
-  br i1 %100, label %.critedge.thread, label %.critedge.thread69
+  br i1 %100, label %.critedge.thread, label %.critedge.thread84
 
-.critedge.thread69:                               ; preds = %71, %.critedge, %69, %39, %19
+.critedge.thread84:                               ; preds = %71, %.critedge, %69, %39, %19
   %101 = phi ptr [ %34, %19 ], [ %95, %.critedge ], [ %34, %69 ], [ %34, %39 ], [ %34, %71 ]
   %102 = phi i32 [ 0, %19 ], [ %98, %.critedge ], [ 0, %69 ], [ 0, %39 ], [ 0, %71 ]
   %103 = phi i32 [ 0, %19 ], [ %67, %.critedge ], [ 0, %69 ], [ 0, %39 ], [ %67, %71 ]
   %104 = icmp sgt i32 %32, 0
   br i1 %104, label %105, label %.loopexit18
 
-105:                                              ; preds = %.critedge.thread69
+105:                                              ; preds = %.critedge.thread84
   %.fr = freeze i32 %103
   %106 = add nsw i32 %32, -1
   %107 = icmp ne i32 %.fr, 0
@@ -1340,8 +1340,8 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(pt
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %213, ptr noundef nonnull @.str.3, i32 noundef %214, i32 noundef %.fr50) #11
   br label %.loopexit18
 
-.loopexit18:                                      ; preds = %.loopexit15.us40.thread, %.loopexit.us.thread, %.split, %.critedge.thread, %.critedge.thread69, %18
-  %215 = phi i32 [ -22, %.critedge.thread ], [ -22, %18 ], [ 0, %.critedge.thread69 ], [ 0, %.split ], [ 0, %.loopexit.us.thread ], [ 0, %.loopexit15.us40.thread ]
+.loopexit18:                                      ; preds = %.loopexit15.us40.thread, %.loopexit.us.thread, %.split, %.critedge.thread, %.critedge.thread84, %18
+  %215 = phi i32 [ -22, %.critedge.thread ], [ -22, %18 ], [ 0, %.critedge.thread84 ], [ 0, %.split ], [ 0, %.loopexit.us.thread ], [ 0, %.loopexit15.us40.thread ]
   ret i32 %215
 }
 
@@ -1501,7 +1501,7 @@ define dso_local void @snd_hdac_stream_timecounter_init(ptr noundef readonly cap
 
 31:                                               ; preds = %29, %28, %.preheader
   %32 = phi i64 [ %13, %28 ], [ %30, %29 ], [ %13, %.preheader ]
-  %33 = phi i8 [ %12, %28 ], [ 1, %29 ], [ %12, %.preheader ]
+  %33 = phi i8 [ 1, %28 ], [ 1, %29 ], [ %12, %.preheader ]
   %34 = load ptr, ptr %11, align 8
   %35 = icmp eq ptr %34, %8
   br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !43

@@ -2016,9 +2016,9 @@ _ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i13: ; preds =
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %75 = load ptr, ptr %74, align 16
   %76 = icmp eq ptr %75, null
-  br i1 %76, label %.thread38, label %77
+  br i1 %76, label %.thread47, label %77
 
-.thread38:                                        ; preds = %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i13
+.thread47:                                        ; preds = %_ZNSt3__110__function12__value_funcIFvvEEaSB8ne190000EDn.exit.i.i.i13
   store ptr null, ptr %45, align 16
   br label %_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit18
 
@@ -2062,7 +2062,7 @@ _ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit14:    ; preds = %79
   call void %90(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #15
   br label %_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit18
 
-_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit18:       ; preds = %.thread38, %.sink.split.i.i.i16, %87, %.thread, %7, %4
+_ZN3tev10ThreadPool10QueuedTaskD2Ev.exit18:       ; preds = %.thread47, %.sink.split.i.i.i16, %87, %.thread, %7, %4
   ret void
 }
 

@@ -576,11 +576,11 @@ _.exit:                                           ; preds = %132, %134
   %172 = load i64, ptr %163, align 8, !tbaa !48
   %173 = getelementptr inbounds nuw %struct.string_list_item, ptr %171, i64 %172
   %174 = icmp ult ptr %162, %173
-  br i1 %174, label %.lr.ph90, label %.critedge
+  br i1 %174, label %.lr.ph93, label %.critedge
 
-.lr.ph90:                                         ; preds = %.lr.ph72, %set_reflog_expiry_param.exit
-  %.16989 = phi i32 [ %215, %set_reflog_expiry_param.exit ], [ 0, %.lr.ph72 ]
-  %.0327088 = phi ptr [ %216, %set_reflog_expiry_param.exit ], [ %162, %.lr.ph72 ]
+.lr.ph93:                                         ; preds = %.lr.ph72, %set_reflog_expiry_param.exit
+  %.16992 = phi i32 [ %215, %set_reflog_expiry_param.exit ], [ 0, %.lr.ph72 ]
+  %.0327091 = phi ptr [ %216, %set_reflog_expiry_param.exit ], [ %162, %.lr.ph72 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !49
@@ -590,13 +590,13 @@ _.exit:                                           ; preds = %132, %134
   %177 = and i8 %176, 1
   store i8 %177, ptr %166, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %167, i8 0, i64 7, i1 false)
-  %178 = load ptr, ptr %.0327088, align 8, !tbaa !50
+  %178 = load ptr, ptr %.0327091, align 8, !tbaa !50
   %179 = load i32, ptr %168, align 4, !tbaa !29
   %180 = icmp eq i32 %179, 3
   br i1 %180, label %set_reflog_expiry_param.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.lr.ph90, %181
-  %.0.in.i = phi ptr [ %.0.i46, %181 ], [ @reflog_expire_cfg, %.lr.ph90 ]
+.preheader.i:                                     ; preds = %.lr.ph93, %181
+  %.0.in.i = phi ptr [ %.0.i46, %181 ], [ @reflog_expire_cfg, %.lr.ph93 ]
   %.0.i46 = load ptr, ptr %.0.in.i, align 8, !tbaa !52
   %.not.i = icmp eq ptr %.0.i46, null
   br i1 %.not.i, label %195, label %181
@@ -671,20 +671,20 @@ _.exit:                                           ; preds = %132, %134
   store i64 %.sink.i, ptr %170, align 8, !tbaa !32
   br label %set_reflog_expiry_param.exit
 
-set_reflog_expiry_param.exit:                     ; preds = %.lr.ph90, %190, %201, %206, %.sink.split.i
+set_reflog_expiry_param.exit:                     ; preds = %.lr.ph93, %190, %201, %206, %.sink.split.i
   %210 = load ptr, ptr @the_repository, align 8, !tbaa !17
   %211 = call ptr @get_main_ref_store(ptr noundef %210) #13
-  %212 = load ptr, ptr %.0327088, align 8, !tbaa !50
+  %212 = load ptr, ptr %.0327091, align 8, !tbaa !50
   %213 = load i32, ptr %9, align 4, !tbaa !19
   %214 = call i32 @refs_reflog_expire(ptr noundef %211, ptr noundef %212, i32 noundef %213, ptr noundef nonnull @reflog_expiry_prepare, ptr noundef nonnull %spec.select, ptr noundef nonnull @reflog_expiry_cleanup, ptr noundef nonnull %14) #13
-  %215 = or i32 %214, %.16989
+  %215 = or i32 %214, %.16992
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %216 = getelementptr inbounds nuw i8, ptr %.0327088, i64 16
+  %216 = getelementptr inbounds nuw i8, ptr %.0327091, i64 16
   %217 = load ptr, ptr %146, align 8, !tbaa !47
   %218 = load i64, ptr %163, align 8, !tbaa !48
   %219 = getelementptr inbounds nuw %struct.string_list_item, ptr %217, i64 %218
   %220 = icmp ult ptr %216, %219
-  br i1 %220, label %.lr.ph90, label %.critedge
+  br i1 %220, label %.lr.ph93, label %.critedge
 
 .critedge:                                        ; preds = %set_reflog_expiry_param.exit, %.lr.ph72, %._crit_edge
   %.1.lcssa = phi i32 [ 0, %._crit_edge ], [ 0, %.lr.ph72 ], [ %215, %set_reflog_expiry_param.exit ]
@@ -1182,8 +1182,8 @@ define internal i32 @reflog_expire_config(ptr noundef %0, ptr noundef %1, ptr no
 
 .thread:                                          ; preds = %20
   %26 = load ptr, ptr %5, align 8, !tbaa !20
-  %.not2433 = icmp eq ptr %26, null
-  br i1 %.not2433, label %29, label %31
+  %.not2436 = icmp eq ptr %26, null
+  br i1 %.not2436, label %29, label %31
 
 27:                                               ; preds = %24
   %28 = load i64, ptr %8, align 8, !tbaa !28

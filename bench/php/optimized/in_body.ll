@@ -1555,8 +1555,8 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_li(ptr n
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !42
   %17 = icmp eq i64 %16, 2
-  %or.cond4546 = select i1 %14, i1 %17, i1 false
-  br i1 %or.cond4546, label %.lr.ph._crit_edge, label %lxb_html_tree_node_is.exit.thread
+  %or.cond4950 = select i1 %14, i1 %17, i1 false
+  br i1 %or.cond4950, label %.lr.ph._crit_edge, label %lxb_html_tree_node_is.exit.thread
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph.backedge, %.lr.ph.preheader
   tail call void @lxb_html_tree_generate_implied_end_tags(ptr noundef %0, i64 noundef 113, i64 noundef 2) #6
@@ -1651,8 +1651,8 @@ lxb_html_tag_is_category.exit.thread:             ; preds = %lxb_html_tree_node_
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %53 = load i64, ptr %52, align 8, !tbaa !42
   %54 = icmp eq i64 %53, 2
-  %or.cond45 = select i1 %51, i1 %54, i1 false
-  br i1 %or.cond45, label %.lr.ph._crit_edge, label %lxb_html_tree_node_is.exit.thread
+  %or.cond49 = select i1 %51, i1 %54, i1 false
+  br i1 %or.cond49, label %.lr.ph._crit_edge, label %lxb_html_tree_node_is.exit.thread
 
 lxb_html_tree_node_is.exit35.thread:              ; preds = %lxb_html_tag_is_category.exit.thread, %lxb_html_tree_node_is.exit35, %lxb_html_tree_node_is.exit33, %lxb_html_tree_node_is.exit34, %42, %2, %32
   %55 = tail call ptr @lxb_html_tree_element_in_scope(ptr noundef %0, i64 noundef 145, i64 noundef 2, i32 noundef 32) #6

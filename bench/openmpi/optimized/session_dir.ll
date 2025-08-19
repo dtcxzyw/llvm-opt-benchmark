@@ -42,9 +42,9 @@ define i32 @prte_session_dir(ptr noundef %0) local_unnamed_addr #0 {
   %4 = tail call i32 @prte_proc_info() #9
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 840), align 8, !tbaa !3
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %8, label %.thread25.i
+  br i1 %6, label %8, label %.thread32.i
 
-.thread25.i:                                      ; preds = %3
+.thread32.i:                                      ; preds = %3
   %7 = load ptr, ptr @prte_prohibited_session_dirs, align 8, !tbaa !14
   br label %16
 
@@ -66,8 +66,8 @@ define i32 @prte_session_dir(ptr noundef %0) local_unnamed_addr #0 {
   %or.cond.i = select i1 %15, i1 true, i1 %13
   br i1 %or.cond.i, label %16, label %30
 
-16:                                               ; preds = %12, %.thread25.i
-  %17 = phi ptr [ %7, %.thread25.i ], [ %14, %12 ]
+16:                                               ; preds = %12, %.thread32.i
+  %17 = phi ptr [ %7, %.thread32.i ], [ %14, %12 ]
   %18 = tail call ptr @PMIx_Argv_split(ptr noundef %17, i32 noundef 44) #9
   %19 = tail call i32 @PMIx_Argv_count(ptr noundef %18) #9
   %.not2021.i = icmp sgt i32 %19, 0

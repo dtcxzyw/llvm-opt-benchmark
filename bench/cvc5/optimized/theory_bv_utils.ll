@@ -5715,11 +5715,11 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTempla
 
 41:                                               ; preds = %39
   %42 = icmp samesign ult i64 %30, %34
-  %.26.i.i = select i1 %42, ptr %24, ptr %23
+  %.30.i.i = select i1 %42, ptr %24, ptr %23
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_SD_T0_.exit.i
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_SD_T0_.exit.i: ; preds = %41, %39, %37, %35
-  %.sink.i.i = phi ptr [ %23, %35 ], [ %..i.i, %37 ], [ %11, %39 ], [ %.26.i.i, %41 ]
+  %.sink.i.i = phi ptr [ %23, %35 ], [ %..i.i, %37 ], [ %11, %39 ], [ %.30.i.i, %41 ]
   tail call void @_ZSt4swapIN4cvc58internal12NodeTemplateILb1EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sink.i.i)
   br label %43
 
@@ -7488,13 +7488,13 @@ define linkonce_odr hidden void @_ZNSt3setIN4cvc58internal12NodeTemplateILb0EEES
   br i1 %26, label %._crit_edge.thread.i.i, label %31
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %18
-  %.019.lcssa28.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %4, %18 ]
+  %.019.lcssa29.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %4, %18 ]
   %27 = load ptr, ptr %6, align 8, !tbaa !192
-  %28 = icmp eq ptr %.019.lcssa28.i.i, %27
+  %28 = icmp eq ptr %.019.lcssa29.i.i, %27
   br i1 %28, label %select.unfold, label %29
 
 29:                                               ; preds = %._crit_edge.thread.i.i
-  %30 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #27
+  %30 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i) #27
   %.phi.trans.insert82.i = getelementptr inbounds nuw i8, ptr %30, i64 32
   %.pre83.i = load ptr, ptr %.phi.trans.insert82.i, align 8, !tbaa !10
   %.pre84.i = load i64, ptr %.pre83.i, align 8
@@ -7506,12 +7506,12 @@ define linkonce_odr hidden void @_ZNSt3setIN4cvc58internal12NodeTemplateILb0EEES
 31:                                               ; preds = %29, %._crit_edge.i.i
   %.pre-phi89.i = phi i64 [ %.pre88.i, %29 ], [ %20, %._crit_edge.i.i ]
   %.pre-phi.i = phi i64 [ %.pre87.i, %29 ], [ %25, %._crit_edge.i.i ]
-  %.019.lcssa29.i.i = phi ptr [ %.019.lcssa28.i.i, %29 ], [ %.02024.i.i, %._crit_edge.i.i ]
+  %.019.lcssa28.i.i = phi ptr [ %.019.lcssa29.i.i, %29 ], [ %.02024.i.i, %._crit_edge.i.i ]
   %32 = icmp samesign ult i64 %.pre-phi.i, %.pre-phi89.i
   br i1 %32, label %select.unfold, label %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb0EEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE17_M_insert_unique_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_ESt23_Rb_tree_const_iteratorIS3_EOT_RT0_.exit.i
 
 select.unfold:                                    ; preds = %31, %9, %._crit_edge.thread.i.i
-  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %10, %9 ], [ %.019.lcssa29.i.i, %31 ]
+  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %10, %9 ], [ %.019.lcssa28.i.i, %31 ]
   %33 = icmp eq ptr %.sroa.12.0.i.ph, %4
   br i1 %33, label %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb0EEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i, label %34
 

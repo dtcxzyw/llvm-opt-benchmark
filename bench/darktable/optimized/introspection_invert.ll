@@ -495,8 +495,8 @@ FCxtrans.exit322:                                 ; preds = %FCxtrans.exit318
 ._crit_edge402:                                   ; preds = %121, %65
   %.0301.lcssa = phi i64 [ 0, %65 ], [ %umin, %121 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %125 = trunc nuw nsw i64 %.0301.lcssa to i32
-  %126 = add nuw nsw i32 %125, 600
+  %125 = trunc nsw i64 %.0301.lcssa to i32
+  %126 = add nsw i32 %125, 600
   %127 = load i32, ptr %49, align 4, !tbaa !127
   %128 = add nsw i32 %127, %.pre473
   %129 = load i32, ptr %5, align 4, !tbaa !128
@@ -512,7 +512,7 @@ FCxtrans.exit322:                                 ; preds = %FCxtrans.exit318
   %139 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %138
   %140 = load float, ptr %139, align 4, !tbaa !6
   store float %140, ptr %8, align 16, !tbaa !6
-  %141 = add nuw nsw i32 %125, 601
+  %141 = add nsw i32 %125, 601
   %142 = load i32, ptr %49, align 4, !tbaa !127
   %143 = add nsw i32 %142, %.pre473
   %144 = load i32, ptr %5, align 4, !tbaa !128
@@ -528,7 +528,7 @@ FCxtrans.exit322:                                 ; preds = %FCxtrans.exit318
   %154 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %153
   %155 = load float, ptr %154, align 4, !tbaa !6
   store float %155, ptr %50, align 4, !tbaa !6
-  %156 = add nuw nsw i32 %125, 602
+  %156 = add nsw i32 %125, 602
   %157 = load i32, ptr %49, align 4, !tbaa !127
   %158 = add nsw i32 %157, %.pre473
   %159 = load i32, ptr %5, align 4, !tbaa !128
@@ -544,7 +544,7 @@ FCxtrans.exit322:                                 ; preds = %FCxtrans.exit318
   %169 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %168
   %170 = load float, ptr %169, align 4, !tbaa !6
   store float %170, ptr %51, align 8, !tbaa !6
-  %171 = add nuw nsw i32 %125, 603
+  %171 = add nsw i32 %125, 603
   %172 = load i32, ptr %49, align 4, !tbaa !127
   %173 = add nsw i32 %172, %.pre473
   %174 = load i32, ptr %5, align 4, !tbaa !128
@@ -560,7 +560,7 @@ FCxtrans.exit322:                                 ; preds = %FCxtrans.exit318
   %184 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %183
   %185 = load float, ptr %184, align 4, !tbaa !6
   store float %185, ptr %52, align 4, !tbaa !6
-  %186 = add nuw nsw i32 %125, 604
+  %186 = add nsw i32 %125, 604
   %187 = load i32, ptr %49, align 4, !tbaa !127
   %188 = add nsw i32 %187, %.pre473
   %189 = load i32, ptr %5, align 4, !tbaa !128
@@ -576,7 +576,7 @@ FCxtrans.exit322:                                 ; preds = %FCxtrans.exit318
   %199 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %198
   %200 = load float, ptr %199, align 4, !tbaa !6
   store float %200, ptr %53, align 16, !tbaa !6
-  %201 = add nuw nsw i32 %125, 605
+  %201 = add nsw i32 %125, 605
   %202 = load i32, ptr %49, align 4, !tbaa !127
   %203 = add nsw i32 %202, %.pre473
   %204 = load i32, ptr %5, align 4, !tbaa !128
@@ -592,7 +592,7 @@ FCxtrans.exit322:                                 ; preds = %FCxtrans.exit318
   %214 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %213
   %215 = load float, ptr %214, align 4, !tbaa !6
   store float %215, ptr %54, align 4, !tbaa !6
-  %216 = add nuw nsw i32 %125, 606
+  %216 = add nsw i32 %125, 606
   %217 = load i32, ptr %49, align 4, !tbaa !127
   %218 = add nsw i32 %217, %.pre473
   %219 = load i32, ptr %5, align 4, !tbaa !128
@@ -608,7 +608,7 @@ FCxtrans.exit322:                                 ; preds = %FCxtrans.exit318
   %229 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %228
   %230 = load float, ptr %229, align 4, !tbaa !6
   store float %230, ptr %55, align 8, !tbaa !6
-  %231 = add nuw nsw i32 %125, 607
+  %231 = add nsw i32 %125, 607
   %232 = load i32, ptr %49, align 4, !tbaa !127
   %233 = add nsw i32 %232, %.pre473
   %234 = load i32, ptr %5, align 4, !tbaa !128
@@ -624,7 +624,7 @@ FCxtrans.exit322:                                 ; preds = %FCxtrans.exit318
   %244 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %243
   %245 = load float, ptr %244, align 4, !tbaa !6
   store float %245, ptr %56, align 4, !tbaa !6
-  %246 = add nuw nsw i32 %125, 608
+  %246 = add nsw i32 %125, 608
   %247 = load i32, ptr %49, align 4, !tbaa !127
   %248 = add nsw i32 %247, %.pre473
   %249 = load i32, ptr %5, align 4, !tbaa !128
@@ -640,7 +640,7 @@ FCxtrans.exit322:                                 ; preds = %FCxtrans.exit318
   %259 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %258
   %260 = load float, ptr %259, align 4, !tbaa !6
   store float %260, ptr %57, align 16, !tbaa !6
-  %261 = add nuw nsw i32 %125, 609
+  %261 = add nsw i32 %125, 609
   %262 = load i32, ptr %49, align 4, !tbaa !127
   %263 = add nsw i32 %262, %.pre473
   %264 = load i32, ptr %5, align 4, !tbaa !128
@@ -656,7 +656,7 @@ FCxtrans.exit322:                                 ; preds = %FCxtrans.exit318
   %274 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %273
   %275 = load float, ptr %274, align 4, !tbaa !6
   store float %275, ptr %58, align 4, !tbaa !6
-  %276 = add nuw nsw i32 %125, 610
+  %276 = add nsw i32 %125, 610
   %277 = load i32, ptr %49, align 4, !tbaa !127
   %278 = add nsw i32 %277, %.pre473
   %279 = load i32, ptr %5, align 4, !tbaa !128
@@ -672,7 +672,7 @@ FCxtrans.exit322:                                 ; preds = %FCxtrans.exit318
   %289 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %288
   %290 = load float, ptr %289, align 4, !tbaa !6
   store float %290, ptr %59, align 8, !tbaa !6
-  %291 = add nuw nsw i32 %125, 611
+  %291 = add nsw i32 %125, 611
   %292 = load i32, ptr %49, align 4, !tbaa !127
   %293 = add nsw i32 %292, %.pre473
   %294 = load i32, ptr %5, align 4, !tbaa !128

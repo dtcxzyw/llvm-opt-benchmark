@@ -838,15 +838,15 @@ if.then.i12.i:                                    ; preds = %lor.rhs.i2.i, %if.e
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit: ; preds = %lor.rhs.i.i186, %lor.rhs.i2.i
-  %.sink16.i = phi i64 [ 232, %lor.rhs.i.i186 ], [ 216, %lor.rhs.i2.i ]
-  %.sink14.i = phi i64 [ 240, %lor.rhs.i.i186 ], [ 224, %lor.rhs.i2.i ]
+  %.sink18.i = phi i64 [ 232, %lor.rhs.i.i186 ], [ 216, %lor.rhs.i2.i ]
+  %.sink16.i = phi i64 [ 240, %lor.rhs.i.i186 ], [ 224, %lor.rhs.i2.i ]
   %mul.i8.i = shl nuw nsw i64 %conv8.i, 3
   %add.ptr.i9.i = getelementptr inbounds nuw i8, ptr %93, i64 %mul.i8.i
   store ptr %add.ptr.i9.i, ptr %buf.i, align 8
   %98 = load ptr, ptr %visitor, align 8
-  %cjsModuleTable.i = getelementptr inbounds nuw i8, ptr %98, i64 %.sink16.i
+  %cjsModuleTable.i = getelementptr inbounds nuw i8, ptr %98, i64 %.sink18.i
   store ptr %93, ptr %cjsModuleTable.i, align 8
-  %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.i = getelementptr inbounds nuw i8, ptr %98, i64 %.sink14.i
+  %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.i = getelementptr inbounds nuw i8, ptr %98, i64 %.sink16.i
   store i64 %conv8.i, ptr %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.i, align 8
   %99 = load ptr, ptr %buf.i, align 8
   %100 = ptrtoint ptr %99 to i64
@@ -1381,15 +1381,15 @@ if.then.i12.i:                                    ; preds = %lor.rhs.i2.i, %if.e
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit: ; preds = %lor.rhs.i.i186, %lor.rhs.i2.i
-  %.sink16.i = phi i64 [ 232, %lor.rhs.i.i186 ], [ 216, %lor.rhs.i2.i ]
-  %.sink14.i = phi i64 [ 240, %lor.rhs.i.i186 ], [ 224, %lor.rhs.i2.i ]
+  %.sink18.i = phi i64 [ 232, %lor.rhs.i.i186 ], [ 216, %lor.rhs.i2.i ]
+  %.sink16.i = phi i64 [ 240, %lor.rhs.i.i186 ], [ 224, %lor.rhs.i2.i ]
   %mul.i8.i = shl nuw nsw i64 %conv8.i, 3
   %add.ptr.i9.i = getelementptr inbounds nuw i8, ptr %93, i64 %mul.i8.i
   store ptr %add.ptr.i9.i, ptr %buf.i, align 8
   %98 = load ptr, ptr %visitor, align 8
-  %cjsModuleTable.i = getelementptr inbounds nuw i8, ptr %98, i64 %.sink16.i
+  %cjsModuleTable.i = getelementptr inbounds nuw i8, ptr %98, i64 %.sink18.i
   store ptr %93, ptr %cjsModuleTable.i, align 8
-  %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.i = getelementptr inbounds nuw i8, ptr %98, i64 %.sink14.i
+  %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.i = getelementptr inbounds nuw i8, ptr %98, i64 %.sink16.i
   store i64 %conv8.i, ptr %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.i, align 8
   %99 = load ptr, ptr %buf.i, align 8
   %100 = ptrtoint ptr %99 to i64
@@ -2278,11 +2278,11 @@ if.end37.i:                                       ; preds = %if.end24.i
   br i1 %cmp.not.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i, label %if.then.i.i.i41
 
 if.then.i.i.i41:                                  ; preds = %if.end24.i, %if.end37.i
-  %.pre56.pre5866 = phi ptr [ %.pre56.pre58.pre, %if.end37.i ], [ %.pre57, %if.end24.i ]
-  %conv.i51.i.pre-phi65 = phi i64 [ %.pre61, %if.end37.i ], [ 1, %if.end24.i ]
+  %.pre56.pre5869 = phi ptr [ %.pre56.pre58.pre, %if.end37.i ], [ %.pre57, %if.end24.i ]
+  %conv.i51.i.pre-phi68 = phi i64 [ %.pre61, %if.end37.i ], [ 1, %if.end24.i ]
   %18 = load ptr, ptr %files_.i, align 8
-  %gepdiff.i = mul nuw nsw i64 %conv.i51.i.pre-phi65, 12
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %.pre56.pre5866, i64 %gepdiff.i, i1 false)
+  %gepdiff.i = mul nuw nsw i64 %conv.i51.i.pre-phi68, 12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %.pre56.pre5869, i64 %gepdiff.i, i1 false)
   %.pre56.pre = load ptr, ptr %files, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i
 

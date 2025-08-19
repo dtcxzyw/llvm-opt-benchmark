@@ -645,7 +645,7 @@ define internal fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types12type_id_info1
   %16 = call align 8 ptr @"_ZN128_$LT$id_arena..Arena$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$$LT$A$u20$as$u20$id_arena..ArenaBehavior$GT$..Id$GT$$GT$5index17ha84aa2f870282f85E"(ptr nonnull align 8 %13, i64 %14, i32 %15, ptr nonnull align 8 @anon.79fddc410019ed2c53b457c2d17796ca.15)
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load i64, ptr %17, align 8, !range !8, !noundef !4
-  switch i64 %18, label %default.unreachable538 [
+  switch i64 %18, label %default.unreachable545 [
     i64 0, label %20
     i64 1, label %45
     i64 2, label %49
@@ -667,7 +667,7 @@ define internal fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types12type_id_info1
   %.sroa.0.0 = load i40, ptr %.sroa.0.0.in, align 1
   ret i40 %.sroa.0.0
 
-default.unreachable538:                           ; preds = %12
+default.unreachable545:                           ; preds = %12
   unreachable
 
 20:                                               ; preds = %12
@@ -680,14 +680,14 @@ default.unreachable538:                           ; preds = %12
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %25, ptr %26, align 8
   %.0..0..promoted455 = load i8, ptr %8, align 8
-  %.1..1..1..sroa_idx591 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %.1..1..1..sroa_idx.promoted457 = load i8, ptr %.1..1..1..sroa_idx591, align 1
-  %.2..2..2..sroa_idx600 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  %.2..2..2..sroa_idx.promoted459 = load i8, ptr %.2..2..2..sroa_idx600, align 2
-  %.3..3..3..sroa_idx610 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  %.3..3..3..sroa_idx399.promoted461 = load i8, ptr %.3..3..3..sroa_idx610, align 1
-  %.4..4..4..sroa_idx620 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %.4..4..4..sroa_idx414.promoted463 = load i8, ptr %.4..4..4..sroa_idx620, align 4
+  %.1..1..1..sroa_idx598 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %.1..1..1..sroa_idx.promoted457 = load i8, ptr %.1..1..1..sroa_idx598, align 1
+  %.2..2..2..sroa_idx607 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %.2..2..2..sroa_idx.promoted459 = load i8, ptr %.2..2..2..sroa_idx607, align 2
+  %.3..3..3..sroa_idx617 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  %.3..3..3..sroa_idx399.promoted461 = load i8, ptr %.3..3..3..sroa_idx617, align 1
+  %.4..4..4..sroa_idx627 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %.4..4..4..sroa_idx414.promoted463 = load i8, ptr %.4..4..4..sroa_idx627, align 4
   %27 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4300f30c2ec56335E"(ptr nonnull align 8 %7)
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.loopexit, label %.lr.ph465.preheader
@@ -713,14 +713,14 @@ default.unreachable538:                           ; preds = %12
   %.lcssa458 = phi i8 [ %.1..1..1..sroa_idx.promoted457, %20 ], [ %36, %.loopexit.loopexit ]
   %.lcssa456 = phi i8 [ %.0..0..promoted455, %20 ], [ %206, %.loopexit.loopexit ]
   store i8 %.lcssa456, ptr %8, align 8
-  %.1..1..1..sroa_idx592 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i8 %.lcssa458, ptr %.1..1..1..sroa_idx592, align 1
-  %.2..2..2..sroa_idx601 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i8 %.lcssa460, ptr %.2..2..2..sroa_idx601, align 2
-  %.3..3..3..sroa_idx611 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  store i8 %.lcssa462, ptr %.3..3..3..sroa_idx611, align 1
-  %.4..4..4..sroa_idx621 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i8 %.lcssa464, ptr %.4..4..4..sroa_idx621, align 4
+  %.1..1..1..sroa_idx599 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  store i8 %.lcssa458, ptr %.1..1..1..sroa_idx599, align 1
+  %.2..2..2..sroa_idx608 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  store i8 %.lcssa460, ptr %.2..2..2..sroa_idx608, align 2
+  %.3..3..3..sroa_idx618 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  store i8 %.lcssa462, ptr %.3..3..3..sroa_idx618, align 1
+  %.4..4..4..sroa_idx628 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i8 %.lcssa464, ptr %.4..4..4..sroa_idx628, align 4
   br label %45
 
 .loopexit429.loopexit:                            ; preds = %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308
@@ -737,14 +737,14 @@ default.unreachable538:                           ; preds = %12
   %.lcssa442 = phi i8 [ %.1..1..1..sroa_idx.promoted441, %50 ], [ %40, %.loopexit429.loopexit ]
   %.lcssa440 = phi i8 [ %.0..0..promoted439, %50 ], [ %236, %.loopexit429.loopexit ]
   store i8 %.lcssa440, ptr %8, align 8
-  %.1..1..1..sroa_idx590 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i8 %.lcssa442, ptr %.1..1..1..sroa_idx590, align 1
-  %.2..2..2..sroa_idx599 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i8 %.lcssa444, ptr %.2..2..2..sroa_idx599, align 2
-  %.3..3..3..sroa_idx609 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  store i8 %.lcssa446, ptr %.3..3..3..sroa_idx609, align 1
-  %.4..4..4..sroa_idx618 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i8 %.lcssa448, ptr %.4..4..4..sroa_idx618, align 4
+  %.1..1..1..sroa_idx597 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  store i8 %.lcssa442, ptr %.1..1..1..sroa_idx597, align 1
+  %.2..2..2..sroa_idx606 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  store i8 %.lcssa444, ptr %.2..2..2..sroa_idx606, align 2
+  %.3..3..3..sroa_idx616 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  store i8 %.lcssa446, ptr %.3..3..3..sroa_idx616, align 1
+  %.4..4..4..sroa_idx625 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i8 %.lcssa448, ptr %.4..4..4..sroa_idx625, align 4
   br label %45
 
 .loopexit430.loopexit:                            ; preds = %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337
@@ -761,14 +761,14 @@ default.unreachable538:                           ; preds = %12
   %.lcssa431 = phi i8 [ %.1..1..1..sroa_idx.promoted, %63 ], [ %44, %.loopexit430.loopexit ]
   %.lcssa = phi i8 [ %.0..0..promoted, %63 ], [ %266, %.loopexit430.loopexit ]
   store i8 %.lcssa, ptr %8, align 8
-  %.1..1..1..sroa_idx588 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i8 %.lcssa431, ptr %.1..1..1..sroa_idx588, align 1
-  %.2..2..2..sroa_idx597 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i8 %.lcssa432, ptr %.2..2..2..sroa_idx597, align 2
-  %.3..3..3..sroa_idx607 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  store i8 %.lcssa433, ptr %.3..3..3..sroa_idx607, align 1
-  %.4..4..4..sroa_idx616 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i8 %.lcssa434, ptr %.4..4..4..sroa_idx616, align 4
+  %.1..1..1..sroa_idx595 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  store i8 %.lcssa431, ptr %.1..1..1..sroa_idx595, align 1
+  %.2..2..2..sroa_idx604 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  store i8 %.lcssa432, ptr %.2..2..2..sroa_idx604, align 2
+  %.3..3..3..sroa_idx614 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  store i8 %.lcssa433, ptr %.3..3..3..sroa_idx614, align 1
+  %.4..4..4..sroa_idx623 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i8 %.lcssa434, ptr %.4..4..4..sroa_idx623, align 4
   br label %45
 
 45:                                               ; preds = %.loopexit430, %.loopexit429, %.loopexit, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit222, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit166, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit110, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit251, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit138, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit, %49, %12, %12, %12
@@ -779,8 +779,8 @@ default.unreachable538:                           ; preds = %12
   br label %19
 
 49:                                               ; preds = %12
-  %.4..4..4..sroa_idx619 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i8 1, ptr %.4..4..4..sroa_idx619, align 4
+  %.4..4..4..sroa_idx626 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i8 1, ptr %.4..4..4..sroa_idx626, align 4
   br label %45
 
 50:                                               ; preds = %12
@@ -793,14 +793,14 @@ default.unreachable538:                           ; preds = %12
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %55, ptr %56, align 8
   %.0..0..promoted439 = load i8, ptr %8, align 8
-  %.1..1..1..sroa_idx589 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %.1..1..1..sroa_idx.promoted441 = load i8, ptr %.1..1..1..sroa_idx589, align 1
-  %.2..2..2..sroa_idx598 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  %.2..2..2..sroa_idx.promoted443 = load i8, ptr %.2..2..2..sroa_idx598, align 2
-  %.3..3..3..sroa_idx608 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  %.3..3..3..sroa_idx399.promoted445 = load i8, ptr %.3..3..3..sroa_idx608, align 1
-  %.4..4..4..sroa_idx617 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %.4..4..4..sroa_idx414.promoted447 = load i8, ptr %.4..4..4..sroa_idx617, align 4
+  %.1..1..1..sroa_idx596 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %.1..1..1..sroa_idx.promoted441 = load i8, ptr %.1..1..1..sroa_idx596, align 1
+  %.2..2..2..sroa_idx605 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %.2..2..2..sroa_idx.promoted443 = load i8, ptr %.2..2..2..sroa_idx605, align 2
+  %.3..3..3..sroa_idx615 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  %.3..3..3..sroa_idx399.promoted445 = load i8, ptr %.3..3..3..sroa_idx615, align 1
+  %.4..4..4..sroa_idx624 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %.4..4..4..sroa_idx414.promoted447 = load i8, ptr %.4..4..4..sroa_idx624, align 4
   %57 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2454e89c1de15270E"(ptr nonnull align 8 %6)
   %58 = icmp eq ptr %57, null
   br i1 %58, label %.loopexit429, label %.lr.ph449.preheader
@@ -822,14 +822,14 @@ default.unreachable538:                           ; preds = %12
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %68, ptr %69, align 8
   %.0..0..promoted = load i8, ptr %8, align 8
-  %.1..1..1..sroa_idx587 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %.1..1..1..sroa_idx.promoted = load i8, ptr %.1..1..1..sroa_idx587, align 1
-  %.2..2..2..sroa_idx596 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  %.2..2..2..sroa_idx.promoted = load i8, ptr %.2..2..2..sroa_idx596, align 2
-  %.3..3..3..sroa_idx606 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  %.3..3..3..sroa_idx399.promoted = load i8, ptr %.3..3..3..sroa_idx606, align 1
-  %.4..4..4..sroa_idx615 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %.4..4..4..sroa_idx414.promoted = load i8, ptr %.4..4..4..sroa_idx615, align 4
+  %.1..1..1..sroa_idx594 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %.1..1..1..sroa_idx.promoted = load i8, ptr %.1..1..1..sroa_idx594, align 1
+  %.2..2..2..sroa_idx603 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %.2..2..2..sroa_idx.promoted = load i8, ptr %.2..2..2..sroa_idx603, align 2
+  %.3..3..3..sroa_idx613 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  %.3..3..3..sroa_idx399.promoted = load i8, ptr %.3..3..3..sroa_idx613, align 1
+  %.4..4..4..sroa_idx622 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %.4..4..4..sroa_idx414.promoted = load i8, ptr %.4..4..4..sroa_idx622, align 4
   %70 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce8b98510e597cc5E"(ptr nonnull align 8 %5)
   %71 = icmp eq ptr %70, null
   br i1 %71, label %.loopexit430, label %.lr.ph.preheader
@@ -948,14 +948,14 @@ _ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.ex
   %106 = and i40 %98, 4294967296
   %107 = icmp ne i40 %106, 0
   %.0..0..0..pre = load i8, ptr %8, align 8
-  %.1..1..1..sroa_idx585 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %.1..1..1..pre = load i8, ptr %.1..1..1..sroa_idx585, align 1
-  %.2..2..2..sroa_idx594 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  %.2..2..2..pre = load i8, ptr %.2..2..2..sroa_idx594, align 2
-  %.3..3..3..sroa_idx604 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  %.3..3..3..pre = load i8, ptr %.3..3..3..sroa_idx604, align 1
-  %.4..4..4..sroa_idx613 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %.4..4..4..pre = load i8, ptr %.4..4..4..sroa_idx613, align 4
+  %.1..1..1..sroa_idx592 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %.1..1..1..pre = load i8, ptr %.1..1..1..sroa_idx592, align 1
+  %.2..2..2..sroa_idx601 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %.2..2..2..pre = load i8, ptr %.2..2..2..sroa_idx601, align 2
+  %.3..3..3..sroa_idx611 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  %.3..3..3..pre = load i8, ptr %.3..3..3..sroa_idx611, align 1
+  %.4..4..4..sroa_idx620 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %.4..4..4..pre = load i8, ptr %.4..4..4..sroa_idx620, align 4
   br label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit110
 
 _ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit110: ; preds = %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit, %97
@@ -974,23 +974,23 @@ _ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.ex
   %109 = trunc nuw i8 %.1..1. to i1
   %110 = or i1 %.sroa.3.0.i94, %109
   %111 = zext i1 %110 to i8
-  %.1..1..1..sroa_idx586 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i8 %111, ptr %.1..1..1..sroa_idx586, align 1
+  %.1..1..1..sroa_idx593 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  store i8 %111, ptr %.1..1..1..sroa_idx593, align 1
   %112 = trunc nuw i8 %.2..2. to i1
   %113 = or i1 %.sroa.4.0.i93, %112
   %114 = zext i1 %113 to i8
-  %.2..2..2..sroa_idx595 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i8 %114, ptr %.2..2..2..sroa_idx595, align 2
+  %.2..2..2..sroa_idx602 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  store i8 %114, ptr %.2..2..2..sroa_idx602, align 2
   %115 = trunc nuw i8 %.3..3. to i1
   %116 = or i1 %.sroa.5.0.i92, %115
   %117 = zext i1 %116 to i8
-  %.3..3..3..sroa_idx605 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  store i8 %117, ptr %.3..3..3..sroa_idx605, align 1
+  %.3..3..3..sroa_idx612 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  store i8 %117, ptr %.3..3..3..sroa_idx612, align 1
   %118 = trunc nuw i8 %.4..4. to i1
   %119 = or i1 %.sroa.6.0.i96, %118
   %120 = zext i1 %119 to i8
-  %.4..4..4..sroa_idx614 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i8 %120, ptr %.4..4..4..sroa_idx614, align 4
+  %.4..4..4..sroa_idx621 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i8 %120, ptr %.4..4..4..sroa_idx621, align 4
   br label %45
 
 121:                                              ; preds = %12
@@ -1041,8 +1041,8 @@ _ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit138: ; p
   %.sroa.0.0.insert.ext.i136 = zext i8 %.sroa.0.0.i124 to i40
   %.sroa.0.0.insert.insert.i137 = or disjoint i40 %.sroa.3.0.insert.insert.i135, %.sroa.0.0.insert.ext.i136
   store i40 %.sroa.0.0.insert.insert.i137, ptr %8, align 8
-  %.3..3..3..sroa_idx603 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  store i8 1, ptr %.3..3..3..sroa_idx603, align 1
+  %.3..3..3..sroa_idx610 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  store i8 1, ptr %.3..3..3..sroa_idx610, align 1
   br label %45
 
 131:                                              ; preds = %12
@@ -1169,23 +1169,23 @@ _ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.ex
   %160 = trunc nuw i8 %.1..1.374 to i1
   %161 = or i1 %.sroa.3.0.i206, %160
   %162 = zext i1 %161 to i8
-  %.1..1..1..sroa_idx584 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i8 %162, ptr %.1..1..1..sroa_idx584, align 1
+  %.1..1..1..sroa_idx591 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  store i8 %162, ptr %.1..1..1..sroa_idx591, align 1
   %163 = trunc nuw i8 %.2..2.388 to i1
   %164 = or i1 %.sroa.4.0.i205, %163
   %165 = zext i1 %164 to i8
-  %.2..2..2..sroa_idx593 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i8 %165, ptr %.2..2..2..sroa_idx593, align 2
+  %.2..2..2..sroa_idx600 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  store i8 %165, ptr %.2..2..2..sroa_idx600, align 2
   %166 = trunc nuw i8 %.3..3.403 to i1
   %167 = or i1 %.sroa.5.0.i204, %166
   %168 = zext i1 %167 to i8
-  %.3..3..3..sroa_idx602 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  store i8 %168, ptr %.3..3..3..sroa_idx602, align 1
+  %.3..3..3..sroa_idx609 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  store i8 %168, ptr %.3..3..3..sroa_idx609, align 1
   %169 = trunc nuw i8 %.4..4.418 to i1
   %170 = or i1 %.sroa.6.0.i208, %169
   %171 = zext i1 %170 to i8
-  %.4..4..4..sroa_idx612 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i8 %171, ptr %.4..4..4..sroa_idx612, align 4
+  %.4..4..4..sroa_idx619 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i8 %171, ptr %.4..4..4..sroa_idx619, align 4
   br label %45
 
 172:                                              ; preds = %12

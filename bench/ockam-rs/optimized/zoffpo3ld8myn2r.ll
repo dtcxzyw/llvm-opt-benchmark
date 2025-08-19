@@ -3338,8 +3338,8 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !535, !noalias !532
+  %.sroa.0.i.1.i.1.i.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx11, align 1, !alias.scope !535, !noalias !532
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i
 
 15:                                               ; preds = %6
@@ -3351,13 +3351,13 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !535, !noalias !532
+  %.sroa.0.i.1.i.1.i.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx10, align 1, !alias.scope !535, !noalias !532
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !535, !noalias !532
+  %.sroa.0.i.2.i.2.i.2..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx12, align 2, !alias.scope !535, !noalias !532
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i
 
 26:                                               ; preds = %6
@@ -4900,9 +4900,9 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5ockam6remote9addresses9Addresses8generate17h20123510a13ef396E, i64 0, i64 %27
   %switch.load = load i64, ptr %switch.gep, align 8
   %28 = zext nneg i8 %1 to i64
-  %switch.gep76 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5ockam6remote9addresses9Addresses8generate17h20123510a13ef396E.20, i64 0, i64 %28
-  %switch.load77 = load ptr, ptr %switch.gep76, align 8
-  store ptr %switch.load77, ptr %26, align 8
+  %switch.gep83 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5ockam6remote9addresses9Addresses8generate17h20123510a13ef396E.20, i64 0, i64 %28
+  %switch.load84 = load ptr, ptr %switch.gep83, align 8
+  store ptr %switch.load84, ptr %26, align 8
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %switch.load, ptr %.fca.1.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %25)

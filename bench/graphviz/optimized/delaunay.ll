@@ -161,8 +161,8 @@ gv_calloc.exit52:                                 ; preds = %31
   store ptr @vcmp, ptr %60, align 8, !tbaa !21
   %61 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gv_sort_arg)
   store ptr %59, ptr %61, align 8, !tbaa !21
-  %.not72 = icmp eq i32 %2, 1
-  br i1 %.not72, label %gv_sort.exit, label %.lr.ph62.preheader
+  %.not77 = icmp eq i32 %2, 1
+  br i1 %.not77, label %gv_sort.exit, label %.lr.ph62.preheader
 
 gv_sort.exit:                                     ; preds = %._crit_edge
   store ptr null, ptr %60, align 8, !tbaa !21
@@ -298,18 +298,18 @@ g_vertex_class.exit:                              ; preds = %gv_calloc.exit88, %
   %45 = phi ptr [ %44, %42 ], [ %40, %gv_calloc.exit88 ]
   %46 = call ptr @gts_constraint_class() #19
   %.not = icmp eq i32 %5, 0
-  %.not150 = icmp eq i32 %2, 0
+  %.not162 = icmp eq i32 %2, 0
   br i1 %.not, label %.preheader105, label %.preheader106
 
 .preheader106:                                    ; preds = %g_vertex_class.exit
-  br i1 %.not150, label %.loopexit, label %.lr.ph.preheader
+  br i1 %.not162, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader106
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
 .preheader105:                                    ; preds = %g_vertex_class.exit
-  br i1 %.not150, label %.loopexit, label %.lr.ph110.preheader
+  br i1 %.not162, label %.loopexit, label %.lr.ph110.preheader
 
 .lr.ph110.preheader:                              ; preds = %.preheader105
   %wide.trip.count126 = zext nneg i32 %2 to i64
@@ -349,16 +349,16 @@ g_vertex_class.exit:                              ; preds = %gv_calloc.exit88, %
   br i1 %exitcond127.not, label %.loopexit, label %.lr.ph110, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph110, %.preheader106, %.preheader105
-  %.not151 = icmp eq i32 %4, 0
-  br i1 %.not151, label %.preheader104, label %.lr.ph112.preheader
+  %.not163 = icmp eq i32 %4, 0
+  br i1 %.not163, label %.preheader104, label %.lr.ph112.preheader
 
 .lr.ph112.preheader:                              ; preds = %.loopexit
   %wide.trip.count131 = zext nneg i32 %4 to i64
   br label %.lr.ph112
 
 .preheader104:                                    ; preds = %.lr.ph112, %.loopexit
-  %.not152 = icmp eq i32 %2, 0
-  br i1 %.not152, label %._crit_edge, label %.lr.ph115.preheader
+  %.not164 = icmp eq i32 %2, 0
+  br i1 %.not164, label %._crit_edge, label %.lr.ph115.preheader
 
 .lr.ph115.preheader:                              ; preds = %.preheader104
   %wide.trip.count136 = zext nneg i32 %2 to i64
@@ -366,8 +366,8 @@ g_vertex_class.exit:                              ; preds = %gv_calloc.exit88, %
 
 .lr.ph112:                                        ; preds = %.lr.ph112.preheader, %.lr.ph112
   %indvars.iv128 = phi i64 [ 0, %.lr.ph112.preheader ], [ %indvars.iv.next129, %.lr.ph112 ]
-  %.idx148 = shl nuw nsw i64 %indvars.iv128, 3
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx148
+  %.idx160 = shl nuw nsw i64 %indvars.iv128, 3
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx160
   %64 = load i32, ptr %63, align 4, !tbaa !10
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds ptr, ptr %25, i64 %65
@@ -428,14 +428,14 @@ g_face_class.exit:                                ; preds = %._crit_edge, %83
   %96 = load ptr, ptr %95, align 8, !tbaa !39
   %97 = call ptr @gts_face_new(ptr noundef %90, ptr noundef %92, ptr noundef %94, ptr noundef %96) #19
   call void @gts_surface_add_face(ptr noundef %89, ptr noundef %97) #19
-  br i1 %.not152, label %.preheader, label %.lr.ph117.preheader
+  br i1 %.not164, label %.preheader, label %.lr.ph117.preheader
 
 .lr.ph117.preheader:                              ; preds = %g_face_class.exit
   %wide.trip.count141 = zext nneg i32 %2 to i64
   br label %.lr.ph117
 
 .preheader:                                       ; preds = %102, %g_face_class.exit
-  br i1 %.not151, label %._crit_edge120, label %.lr.ph119.preheader
+  br i1 %.not163, label %._crit_edge120, label %.lr.ph119.preheader
 
 .lr.ph119.preheader:                              ; preds = %.preheader
   %wide.trip.count146 = zext nneg i32 %4 to i64
@@ -1256,8 +1256,8 @@ delaunay_triangulation.exit:                      ; preds = %33, %._crit_edge47.
   %137 = getelementptr inbounds nuw i32, ptr %129, i64 %indvars.iv.i115
   %138 = add nsw i32 %127, -1
   store i32 %138, ptr %100, align 8, !tbaa !69
-  %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds i32, ptr %129, i64 %139
+  %139 = zext nneg i32 %138 to i64
+  %140 = getelementptr inbounds nuw i32, ptr %129, i64 %139
   %141 = load i32, ptr %140, align 4, !tbaa !10
   store i32 %141, ptr %137, align 4, !tbaa !10
   br label %remove_edge.exit.thread

@@ -91023,7 +91023,7 @@ _ZN7testing15AssertionResultD2Ev.exit110:         ; preds = %217, %_ZNKSt14defau
 231:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit110
   %.val3.i.i.i.i124 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !tbaa !1287
   %.not.i.i.i.i.i125 = icmp ult i64 %.val3.i.i.i.i124, 2
-  br i1 %.not.i.i.i.i.i125, label %.sink.split422, label %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_125TypeWithAbslContainerHashEiEENS4_19absl_container_hashESt8equal_toIvESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit
+  br i1 %.not.i.i.i.i.i125, label %.sink.split504, label %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_125TypeWithAbslContainerHashEiEENS4_19absl_container_hashESt8equal_toIvESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit
 
 232:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit110
   %233 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -91075,7 +91075,7 @@ _ZN7testing15AssertionResultD2Ev.exit110:         ; preds = %217, %_ZNKSt14defau
   %259 = icmp eq <16 x i8> %247, splat (i8 -128)
   %260 = bitcast <16 x i1> %259 to i16
   %.not46.i.i.i.i119 = icmp eq i16 %260, 0
-  br i1 %.not46.i.i.i.i119, label %261, label %.sink.split422, !prof !346
+  br i1 %.not46.i.i.i.i119, label %261, label %.sink.split504, !prof !346
 
 261:                                              ; preds = %._crit_edge.i.i.i.i118
   %262 = add i64 %.sroa.12.0.i.i.i.i112, 16
@@ -91103,14 +91103,14 @@ _ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBA
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %800
 
-.sink.split422:                                   ; preds = %._crit_edge.i.i.i.i118, %231
+.sink.split504:                                   ; preds = %._crit_edge.i.i.i.i118, %231
   store i8 0, ptr %14, align 8, !tbaa !270
   %271 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr null, ptr %271, align 8, !tbaa !326
   br label %272
 
-272:                                              ; preds = %.sink.split422, %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_125TypeWithAbslContainerHashEiEENS4_19absl_container_hashESt8equal_toIvESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit
-  %273 = phi ptr [ %269, %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_125TypeWithAbslContainerHashEiEENS4_19absl_container_hashESt8equal_toIvESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit ], [ %271, %.sink.split422 ]
+272:                                              ; preds = %.sink.split504, %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_125TypeWithAbslContainerHashEiEENS4_19absl_container_hashESt8equal_toIvESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit
+  %273 = phi ptr [ %269, %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_125TypeWithAbslContainerHashEiEENS4_19absl_container_hashESt8equal_toIvESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit ], [ %271, %.sink.split504 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %274 unwind label %291
@@ -91518,7 +91518,7 @@ _ZN7testing15AssertionResultD2Ev.exit180:         ; preds = %403, %_ZNKSt14defau
 417:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit180
   %.val3.i.i.i.i199 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !tbaa !1287
   %.not.i.i.i.i.i200 = icmp ult i64 %.val3.i.i.i.i199, 2
-  br i1 %.not.i.i.i.i.i200, label %.sink.split423, label %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_125TypeWithAbslContainerHashEiEENS4_19absl_container_hashESt8equal_toIvESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit202
+  br i1 %.not.i.i.i.i.i200, label %.sink.split505, label %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_125TypeWithAbslContainerHashEiEENS4_19absl_container_hashESt8equal_toIvESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit202
 
 418:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit180
   %419 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -91570,7 +91570,7 @@ _ZN7testing15AssertionResultD2Ev.exit180:         ; preds = %403, %_ZNKSt14defau
   %445 = icmp eq <16 x i8> %433, splat (i8 -128)
   %446 = bitcast <16 x i1> %445 to i16
   %.not46.i.i.i.i193 = icmp eq i16 %446, 0
-  br i1 %.not46.i.i.i.i193, label %447, label %.sink.split423, !prof !346
+  br i1 %.not46.i.i.i.i193, label %447, label %.sink.split505, !prof !346
 
 447:                                              ; preds = %._crit_edge.i.i.i.i192
   %448 = add i64 %.sroa.12.0.i.i.i.i185, 16
@@ -91598,14 +91598,14 @@ _ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBA
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %800
 
-.sink.split423:                                   ; preds = %._crit_edge.i.i.i.i192, %417
+.sink.split505:                                   ; preds = %._crit_edge.i.i.i.i192, %417
   store i8 0, ptr %22, align 8, !tbaa !270
   %457 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr null, ptr %457, align 8, !tbaa !326
   br label %458
 
-458:                                              ; preds = %.sink.split423, %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_125TypeWithAbslContainerHashEiEENS4_19absl_container_hashESt8equal_toIvESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit202
-  %459 = phi ptr [ %455, %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_125TypeWithAbslContainerHashEiEENS4_19absl_container_hashESt8equal_toIvESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit202 ], [ %457, %.sink.split423 ]
+458:                                              ; preds = %.sink.split505, %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_125TypeWithAbslContainerHashEiEENS4_19absl_container_hashESt8equal_toIvESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit202
+  %459 = phi ptr [ %455, %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_125TypeWithAbslContainerHashEiEENS4_19absl_container_hashESt8equal_toIvESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit202 ], [ %457, %.sink.split505 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %23)
           to label %460 unwind label %477
@@ -92652,15 +92652,15 @@ define internal fastcc noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl1
   br label %35
 
 59:                                               ; preds = %.thread.i.i.i.i, %12, %7
-  %.sink83.i.sink.i.ph.i.i = phi ptr [ %55, %.thread.i.i.i.i ], [ %8, %7 ], [ %19, %12 ]
+  %.sink85.i.sink.i.ph.i.i = phi ptr [ %55, %.thread.i.i.i.i ], [ %8, %7 ], [ %19, %12 ]
   %.val2.val.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %1, align 4, !noalias !1320
-  store i64 %.val2.val.i.i.i.i.i.i.i.i.i.i.i, ptr %.sink83.i.sink.i.ph.i.i, align 4, !noalias !1320
-  %60 = getelementptr inbounds nuw i8, ptr %.sink83.i.sink.i.ph.i.i, i64 8
+  store i64 %.val2.val.i.i.i.i.i.i.i.i.i.i.i, ptr %.sink85.i.sink.i.ph.i.i, align 4, !noalias !1320
+  %60 = getelementptr inbounds nuw i8, ptr %.sink85.i.sink.i.ph.i.i, i64 8
   store i32 0, ptr %60, align 4, !tbaa !1321, !noalias !1320
   br label %_ZN4absl18container_internal12raw_hash_mapINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_125TypeWithAbslContainerHashEiEENS4_19absl_container_hashESt8equal_toIvESaISt4pairIKS4_iEEE11try_emplaceIS4_JETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS0_12raw_hash_setIS5_S6_S8_SC_E14const_iteratorEEE5valueEiE4typeELi0EEES9_INSI_8iteratorEbERKSG_DpOT0_.exit
 
 _ZN4absl18container_internal12raw_hash_mapINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_125TypeWithAbslContainerHashEiEENS4_19absl_container_hashESt8equal_toIvESaISt4pairIKS4_iEEE11try_emplaceIS4_JETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS0_12raw_hash_setIS5_S6_S8_SC_E14const_iteratorEEE5valueEiE4typeELi0EEES9_INSI_8iteratorEbERKSG_DpOT0_.exit: ; preds = %.lr.ph.i.i.i.i, %9, %59
-  %.sroa.5.0 = phi ptr [ %.sink83.i.sink.i.ph.i.i, %59 ], [ %10, %9 ], [ %44, %.lr.ph.i.i.i.i ]
+  %.sroa.5.0 = phi ptr [ %.sink85.i.sink.i.ph.i.i, %59 ], [ %10, %9 ], [ %44, %.lr.ph.i.i.i.i ]
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.5.0, i64 8
   ret ptr %61
 }
@@ -93892,7 +93892,7 @@ _ZN7testing15AssertionResultD2Ev.exit110:         ; preds = %217, %_ZNKSt14defau
 231:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit110
   %.val3.i.i.i.i124 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !tbaa !1287
   %.not.i.i.i.i.i125 = icmp ult i64 %.val3.i.i.i.i124, 2
-  br i1 %.not.i.i.i.i.i125, label %.sink.split422, label %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_130TypeWithAbslContainerHashAndEqEiEENS4_19absl_container_hashENS4_17absl_container_eqESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit
+  br i1 %.not.i.i.i.i.i125, label %.sink.split504, label %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_130TypeWithAbslContainerHashAndEqEiEENS4_19absl_container_hashENS4_17absl_container_eqESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit
 
 232:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit110
   %233 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -93944,7 +93944,7 @@ _ZN7testing15AssertionResultD2Ev.exit110:         ; preds = %217, %_ZNKSt14defau
   %259 = icmp eq <16 x i8> %247, splat (i8 -128)
   %260 = bitcast <16 x i1> %259 to i16
   %.not46.i.i.i.i119 = icmp eq i16 %260, 0
-  br i1 %.not46.i.i.i.i119, label %261, label %.sink.split422, !prof !346
+  br i1 %.not46.i.i.i.i119, label %261, label %.sink.split504, !prof !346
 
 261:                                              ; preds = %._crit_edge.i.i.i.i118
   %262 = add i64 %.sroa.12.0.i.i.i.i112, 16
@@ -93972,14 +93972,14 @@ _ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBA
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %800
 
-.sink.split422:                                   ; preds = %._crit_edge.i.i.i.i118, %231
+.sink.split504:                                   ; preds = %._crit_edge.i.i.i.i118, %231
   store i8 0, ptr %14, align 8, !tbaa !270
   %271 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr null, ptr %271, align 8, !tbaa !326
   br label %272
 
-272:                                              ; preds = %.sink.split422, %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_130TypeWithAbslContainerHashAndEqEiEENS4_19absl_container_hashENS4_17absl_container_eqESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit
-  %273 = phi ptr [ %269, %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_130TypeWithAbslContainerHashAndEqEiEENS4_19absl_container_hashENS4_17absl_container_eqESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit ], [ %271, %.sink.split422 ]
+272:                                              ; preds = %.sink.split504, %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_130TypeWithAbslContainerHashAndEqEiEENS4_19absl_container_hashENS4_17absl_container_eqESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit
+  %273 = phi ptr [ %269, %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_130TypeWithAbslContainerHashAndEqEiEENS4_19absl_container_hashENS4_17absl_container_eqESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit ], [ %271, %.sink.split504 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %274 unwind label %291
@@ -94387,7 +94387,7 @@ _ZN7testing15AssertionResultD2Ev.exit180:         ; preds = %403, %_ZNKSt14defau
 417:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit180
   %.val3.i.i.i.i199 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !tbaa !1287
   %.not.i.i.i.i.i200 = icmp ult i64 %.val3.i.i.i.i199, 2
-  br i1 %.not.i.i.i.i.i200, label %.sink.split423, label %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_130TypeWithAbslContainerHashAndEqEiEENS4_19absl_container_hashENS4_17absl_container_eqESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit202
+  br i1 %.not.i.i.i.i.i200, label %.sink.split505, label %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_130TypeWithAbslContainerHashAndEqEiEENS4_19absl_container_hashENS4_17absl_container_eqESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit202
 
 418:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit180
   %419 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -94439,7 +94439,7 @@ _ZN7testing15AssertionResultD2Ev.exit180:         ; preds = %403, %_ZNKSt14defau
   %445 = icmp eq <16 x i8> %433, splat (i8 -128)
   %446 = bitcast <16 x i1> %445 to i16
   %.not46.i.i.i.i193 = icmp eq i16 %446, 0
-  br i1 %.not46.i.i.i.i193, label %447, label %.sink.split423, !prof !346
+  br i1 %.not46.i.i.i.i193, label %447, label %.sink.split505, !prof !346
 
 447:                                              ; preds = %._crit_edge.i.i.i.i192
   %448 = add i64 %.sroa.12.0.i.i.i.i185, 16
@@ -94467,14 +94467,14 @@ _ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBA
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %800
 
-.sink.split423:                                   ; preds = %._crit_edge.i.i.i.i192, %417
+.sink.split505:                                   ; preds = %._crit_edge.i.i.i.i192, %417
   store i8 0, ptr %22, align 8, !tbaa !270
   %457 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr null, ptr %457, align 8, !tbaa !326
   br label %458
 
-458:                                              ; preds = %.sink.split423, %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_130TypeWithAbslContainerHashAndEqEiEENS4_19absl_container_hashENS4_17absl_container_eqESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit202
-  %459 = phi ptr [ %455, %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_130TypeWithAbslContainerHashAndEqEiEENS4_19absl_container_hashENS4_17absl_container_eqESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit202 ], [ %457, %.sink.split423 ]
+458:                                              ; preds = %.sink.split505, %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_130TypeWithAbslContainerHashAndEqEiEENS4_19absl_container_hashENS4_17absl_container_eqESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit202
+  %459 = phi ptr [ %455, %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_130TypeWithAbslContainerHashAndEqEiEENS4_19absl_container_hashENS4_17absl_container_eqESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit202 ], [ %457, %.sink.split505 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %23)
           to label %460 unwind label %477
@@ -95521,15 +95521,15 @@ define internal fastcc noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl1
   br label %35
 
 59:                                               ; preds = %.thread.i.i.i.i, %12, %7
-  %.sink83.i.sink.i.ph.i.i = phi ptr [ %55, %.thread.i.i.i.i ], [ %8, %7 ], [ %19, %12 ]
+  %.sink85.i.sink.i.ph.i.i = phi ptr [ %55, %.thread.i.i.i.i ], [ %8, %7 ], [ %19, %12 ]
   %.val2.val.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %1, align 4, !noalias !1384
-  store i64 %.val2.val.i.i.i.i.i.i.i.i.i.i.i, ptr %.sink83.i.sink.i.ph.i.i, align 4, !noalias !1384
-  %60 = getelementptr inbounds nuw i8, ptr %.sink83.i.sink.i.ph.i.i, i64 8
+  store i64 %.val2.val.i.i.i.i.i.i.i.i.i.i.i, ptr %.sink85.i.sink.i.ph.i.i, align 4, !noalias !1384
+  %60 = getelementptr inbounds nuw i8, ptr %.sink85.i.sink.i.ph.i.i, i64 8
   store i32 0, ptr %60, align 4, !tbaa !1385, !noalias !1384
   br label %_ZN4absl18container_internal12raw_hash_mapINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_130TypeWithAbslContainerHashAndEqEiEENS4_19absl_container_hashENS4_17absl_container_eqESaISt4pairIKS4_iEEE11try_emplaceIS4_JETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS0_12raw_hash_setIS5_S6_S7_SB_E14const_iteratorEEE5valueEiE4typeELi0EEES8_INSH_8iteratorEbERKSF_DpOT0_.exit
 
 _ZN4absl18container_internal12raw_hash_mapINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_130TypeWithAbslContainerHashAndEqEiEENS4_19absl_container_hashENS4_17absl_container_eqESaISt4pairIKS4_iEEE11try_emplaceIS4_JETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS0_12raw_hash_setIS5_S6_S7_SB_E14const_iteratorEEE5valueEiE4typeELi0EEES8_INSH_8iteratorEbERKSF_DpOT0_.exit: ; preds = %.lr.ph.i.i.i.i, %9, %59
-  %.sroa.5.0 = phi ptr [ %.sink83.i.sink.i.ph.i.i, %59 ], [ %10, %9 ], [ %44, %.lr.ph.i.i.i.i ]
+  %.sroa.5.0 = phi ptr [ %.sink85.i.sink.i.ph.i.i, %59 ], [ %10, %9 ], [ %44, %.lr.ph.i.i.i.i ]
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.5.0, i64 8
   ret ptr %61
 }

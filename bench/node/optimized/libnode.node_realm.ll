@@ -4650,11 +4650,11 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   br i1 %or.cond, label %if.then.i.i.i.i14, label %if.end9
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i33 = getelementptr inbounds i8, ptr %1, i64 -8
-  %7 = load ptr, ptr %incdec.ptr.i.i.i.i33, align 8
-  %cmp34 = icmp ne ptr %7, null
-  %or.cond35 = and i1 %subtract_from_self, %cmp34
-  br i1 %or.cond35, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, label %if.end9
+  %incdec.ptr.i.i.i.i36 = getelementptr inbounds i8, ptr %1, i64 -8
+  %7 = load ptr, ptr %incdec.ptr.i.i.i.i36, align 8
+  %cmp37 = icmp ne ptr %7, null
+  %or.cond38 = and i1 %subtract_from_self, %cmp37
+  br i1 %or.cond38, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, label %if.end9
 
 if.then.i.i.i.i14:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -8007,9 +8007,9 @@ if.end56:                                         ; preds = %if.then46, %if.then
   br i1 %15, label %land.lhs.true62, label %if.end1970
 
 land.lhs.true62:                                  ; preds = %land.lhs.true29, %if.end56
-  %i.11613 = phi i64 [ %inc55, %if.end56 ], [ %i.0, %land.lhs.true29 ]
+  %i.11615 = phi i64 [ %inc55, %if.end56 ], [ %i.0, %land.lhs.true29 ]
   %16 = phi ptr [ %.pre1264, %if.end56 ], [ %8, %land.lhs.true29 ]
-  %add.ptr.i860 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %16, i64 %i.11613
+  %add.ptr.i860 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %16, i64 %i.11615
   %id64 = getelementptr inbounds nuw i8, ptr %add.ptr.i860, i64 32
   %17 = load i32, ptr %id64, align 8
   %cmp65 = icmp eq i32 %17, 2
@@ -8032,7 +8032,7 @@ if.end89:                                         ; preds = %if.then79, %if.then
   %vfn87 = getelementptr inbounds nuw i8, ptr %vtable86, i64 112
   %21 = load ptr, ptr %vfn87, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2763) #20
-  %inc88 = add nuw nsw i64 %i.11613, 1
+  %inc88 = add nuw nsw i64 %i.11615, 1
   %.pre1265 = load ptr, ptr %_M_finish.i, align 8
   %.pre1266 = load ptr, ptr %persistent_values, align 8
   %.pre1383 = ptrtoint ptr %.pre1265 to i64
@@ -8043,9 +8043,9 @@ if.end89:                                         ; preds = %if.then79, %if.then
   br i1 %22, label %land.lhs.true95, label %if.end1970
 
 land.lhs.true95:                                  ; preds = %land.lhs.true62, %if.end89
-  %i.21622 = phi i64 [ %inc88, %if.end89 ], [ %i.11613, %land.lhs.true62 ]
+  %i.21624 = phi i64 [ %inc88, %if.end89 ], [ %i.11615, %land.lhs.true62 ]
   %23 = phi ptr [ %.pre1266, %if.end89 ], [ %16, %land.lhs.true62 ]
-  %add.ptr.i867 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %23, i64 %i.21622
+  %add.ptr.i867 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %23, i64 %i.21624
   %id97 = getelementptr inbounds nuw i8, ptr %add.ptr.i867, i64 32
   %24 = load i32, ptr %id97, align 8
   %cmp98 = icmp eq i32 %24, 3
@@ -8068,7 +8068,7 @@ if.end122:                                        ; preds = %if.then112, %if.the
   %vfn120 = getelementptr inbounds nuw i8, ptr %vtable119, i64 128
   %28 = load ptr, ptr %vfn120, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3249) #20
-  %inc121 = add nuw nsw i64 %i.21622, 1
+  %inc121 = add nuw nsw i64 %i.21624, 1
   %.pre1267 = load ptr, ptr %_M_finish.i, align 8
   %.pre1268 = load ptr, ptr %persistent_values, align 8
   %.pre1387 = ptrtoint ptr %.pre1267 to i64
@@ -8079,9 +8079,9 @@ if.end122:                                        ; preds = %if.then112, %if.the
   br i1 %29, label %land.lhs.true128, label %if.end1970
 
 land.lhs.true128:                                 ; preds = %land.lhs.true95, %if.end122
-  %i.31629 = phi i64 [ %inc121, %if.end122 ], [ %i.21622, %land.lhs.true95 ]
+  %i.31631 = phi i64 [ %inc121, %if.end122 ], [ %i.21624, %land.lhs.true95 ]
   %30 = phi ptr [ %.pre1268, %if.end122 ], [ %23, %land.lhs.true95 ]
-  %add.ptr.i874 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %30, i64 %i.31629
+  %add.ptr.i874 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %30, i64 %i.31631
   %id130 = getelementptr inbounds nuw i8, ptr %add.ptr.i874, i64 32
   %31 = load i32, ptr %id130, align 8
   %cmp131 = icmp eq i32 %31, 4
@@ -8104,7 +8104,7 @@ if.end155:                                        ; preds = %if.then145, %if.the
   %vfn153 = getelementptr inbounds nuw i8, ptr %vtable152, i64 144
   %35 = load ptr, ptr %vfn153, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2751) #20
-  %inc154 = add nuw nsw i64 %i.31629, 1
+  %inc154 = add nuw nsw i64 %i.31631, 1
   %.pre1269 = load ptr, ptr %_M_finish.i, align 8
   %.pre1270 = load ptr, ptr %persistent_values, align 8
   %.pre1391 = ptrtoint ptr %.pre1269 to i64
@@ -8115,9 +8115,9 @@ if.end155:                                        ; preds = %if.then145, %if.the
   br i1 %36, label %land.lhs.true161, label %if.end1970
 
 land.lhs.true161:                                 ; preds = %land.lhs.true128, %if.end155
-  %i.41636 = phi i64 [ %inc154, %if.end155 ], [ %i.31629, %land.lhs.true128 ]
+  %i.41638 = phi i64 [ %inc154, %if.end155 ], [ %i.31631, %land.lhs.true128 ]
   %37 = phi ptr [ %.pre1270, %if.end155 ], [ %30, %land.lhs.true128 ]
-  %add.ptr.i881 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %37, i64 %i.41636
+  %add.ptr.i881 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %37, i64 %i.41638
   %id163 = getelementptr inbounds nuw i8, ptr %add.ptr.i881, i64 32
   %38 = load i32, ptr %id163, align 8
   %cmp164 = icmp eq i32 %38, 5
@@ -8140,7 +8140,7 @@ if.end188:                                        ; preds = %if.then178, %if.the
   %vfn186 = getelementptr inbounds nuw i8, ptr %vtable185, i64 160
   %42 = load ptr, ptr %vfn186, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2739) #20
-  %inc187 = add nuw nsw i64 %i.41636, 1
+  %inc187 = add nuw nsw i64 %i.41638, 1
   %.pre1271 = load ptr, ptr %_M_finish.i, align 8
   %.pre1272 = load ptr, ptr %persistent_values, align 8
   %.pre1395 = ptrtoint ptr %.pre1271 to i64
@@ -8151,9 +8151,9 @@ if.end188:                                        ; preds = %if.then178, %if.the
   br i1 %43, label %land.lhs.true194, label %if.end1970
 
 land.lhs.true194:                                 ; preds = %land.lhs.true161, %if.end188
-  %i.51643 = phi i64 [ %inc187, %if.end188 ], [ %i.41636, %land.lhs.true161 ]
+  %i.51645 = phi i64 [ %inc187, %if.end188 ], [ %i.41638, %land.lhs.true161 ]
   %44 = phi ptr [ %.pre1272, %if.end188 ], [ %37, %land.lhs.true161 ]
-  %add.ptr.i888 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %44, i64 %i.51643
+  %add.ptr.i888 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %44, i64 %i.51645
   %id196 = getelementptr inbounds nuw i8, ptr %add.ptr.i888, i64 32
   %45 = load i32, ptr %id196, align 8
   %cmp197 = icmp eq i32 %45, 6
@@ -8176,7 +8176,7 @@ if.end221:                                        ; preds = %if.then211, %if.the
   %vfn219 = getelementptr inbounds nuw i8, ptr %vtable218, i64 176
   %49 = load ptr, ptr %vfn219, align 8
   tail call void %49(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2727) #20
-  %inc220 = add nuw nsw i64 %i.51643, 1
+  %inc220 = add nuw nsw i64 %i.51645, 1
   %.pre1273 = load ptr, ptr %_M_finish.i, align 8
   %.pre1274 = load ptr, ptr %persistent_values, align 8
   %.pre1399 = ptrtoint ptr %.pre1273 to i64
@@ -8187,9 +8187,9 @@ if.end221:                                        ; preds = %if.then211, %if.the
   br i1 %50, label %land.lhs.true227, label %if.end1970
 
 land.lhs.true227:                                 ; preds = %land.lhs.true194, %if.end221
-  %i.61650 = phi i64 [ %inc220, %if.end221 ], [ %i.51643, %land.lhs.true194 ]
+  %i.61652 = phi i64 [ %inc220, %if.end221 ], [ %i.51645, %land.lhs.true194 ]
   %51 = phi ptr [ %.pre1274, %if.end221 ], [ %44, %land.lhs.true194 ]
-  %add.ptr.i895 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %51, i64 %i.61650
+  %add.ptr.i895 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %51, i64 %i.61652
   %id229 = getelementptr inbounds nuw i8, ptr %add.ptr.i895, i64 32
   %52 = load i32, ptr %id229, align 8
   %cmp230 = icmp eq i32 %52, 7
@@ -8212,7 +8212,7 @@ if.end254:                                        ; preds = %if.then244, %if.the
   %vfn252 = getelementptr inbounds nuw i8, ptr %vtable251, i64 192
   %56 = load ptr, ptr %vfn252, align 8
   tail call void %56(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3237) #20
-  %inc253 = add nuw nsw i64 %i.61650, 1
+  %inc253 = add nuw nsw i64 %i.61652, 1
   %.pre1275 = load ptr, ptr %_M_finish.i, align 8
   %.pre1276 = load ptr, ptr %persistent_values, align 8
   %.pre1403 = ptrtoint ptr %.pre1275 to i64
@@ -8223,9 +8223,9 @@ if.end254:                                        ; preds = %if.then244, %if.the
   br i1 %57, label %land.lhs.true260, label %if.end1970
 
 land.lhs.true260:                                 ; preds = %land.lhs.true227, %if.end254
-  %i.71657 = phi i64 [ %inc253, %if.end254 ], [ %i.61650, %land.lhs.true227 ]
+  %i.71659 = phi i64 [ %inc253, %if.end254 ], [ %i.61652, %land.lhs.true227 ]
   %58 = phi ptr [ %.pre1276, %if.end254 ], [ %51, %land.lhs.true227 ]
-  %add.ptr.i902 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %58, i64 %i.71657
+  %add.ptr.i902 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %58, i64 %i.71659
   %id262 = getelementptr inbounds nuw i8, ptr %add.ptr.i902, i64 32
   %59 = load i32, ptr %id262, align 8
   %cmp263 = icmp eq i32 %59, 8
@@ -8248,7 +8248,7 @@ if.end287:                                        ; preds = %if.then277, %if.the
   %vfn285 = getelementptr inbounds nuw i8, ptr %vtable284, i64 208
   %63 = load ptr, ptr %vfn285, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2715) #20
-  %inc286 = add nuw nsw i64 %i.71657, 1
+  %inc286 = add nuw nsw i64 %i.71659, 1
   %.pre1277 = load ptr, ptr %_M_finish.i, align 8
   %.pre1278 = load ptr, ptr %persistent_values, align 8
   %.pre1407 = ptrtoint ptr %.pre1277 to i64
@@ -8259,9 +8259,9 @@ if.end287:                                        ; preds = %if.then277, %if.the
   br i1 %64, label %land.lhs.true293, label %if.end1970
 
 land.lhs.true293:                                 ; preds = %land.lhs.true260, %if.end287
-  %i.81664 = phi i64 [ %inc286, %if.end287 ], [ %i.71657, %land.lhs.true260 ]
+  %i.81666 = phi i64 [ %inc286, %if.end287 ], [ %i.71659, %land.lhs.true260 ]
   %65 = phi ptr [ %.pre1278, %if.end287 ], [ %58, %land.lhs.true260 ]
-  %add.ptr.i909 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %65, i64 %i.81664
+  %add.ptr.i909 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %65, i64 %i.81666
   %id295 = getelementptr inbounds nuw i8, ptr %add.ptr.i909, i64 32
   %66 = load i32, ptr %id295, align 8
   %cmp296 = icmp eq i32 %66, 9
@@ -8284,7 +8284,7 @@ if.end320:                                        ; preds = %if.then310, %if.the
   %vfn318 = getelementptr inbounds nuw i8, ptr %vtable317, i64 224
   %70 = load ptr, ptr %vfn318, align 8
   tail call void %70(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2703) #20
-  %inc319 = add nuw nsw i64 %i.81664, 1
+  %inc319 = add nuw nsw i64 %i.81666, 1
   %.pre1279 = load ptr, ptr %_M_finish.i, align 8
   %.pre1280 = load ptr, ptr %persistent_values, align 8
   %.pre1411 = ptrtoint ptr %.pre1279 to i64
@@ -8295,9 +8295,9 @@ if.end320:                                        ; preds = %if.then310, %if.the
   br i1 %71, label %land.lhs.true326, label %if.end1970
 
 land.lhs.true326:                                 ; preds = %land.lhs.true293, %if.end320
-  %i.91671 = phi i64 [ %inc319, %if.end320 ], [ %i.81664, %land.lhs.true293 ]
+  %i.91673 = phi i64 [ %inc319, %if.end320 ], [ %i.81666, %land.lhs.true293 ]
   %72 = phi ptr [ %.pre1280, %if.end320 ], [ %65, %land.lhs.true293 ]
-  %add.ptr.i916 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %72, i64 %i.91671
+  %add.ptr.i916 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %72, i64 %i.91673
   %id328 = getelementptr inbounds nuw i8, ptr %add.ptr.i916, i64 32
   %73 = load i32, ptr %id328, align 8
   %cmp329 = icmp eq i32 %73, 10
@@ -8320,7 +8320,7 @@ if.end353:                                        ; preds = %if.then343, %if.the
   %vfn351 = getelementptr inbounds nuw i8, ptr %vtable350, i64 240
   %77 = load ptr, ptr %vfn351, align 8
   tail call void %77(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2691) #20
-  %inc352 = add nuw nsw i64 %i.91671, 1
+  %inc352 = add nuw nsw i64 %i.91673, 1
   %.pre1281 = load ptr, ptr %_M_finish.i, align 8
   %.pre1282 = load ptr, ptr %persistent_values, align 8
   %.pre1415 = ptrtoint ptr %.pre1281 to i64
@@ -8331,9 +8331,9 @@ if.end353:                                        ; preds = %if.then343, %if.the
   br i1 %78, label %land.lhs.true359, label %if.end1970
 
 land.lhs.true359:                                 ; preds = %land.lhs.true326, %if.end353
-  %i.101678 = phi i64 [ %inc352, %if.end353 ], [ %i.91671, %land.lhs.true326 ]
+  %i.101680 = phi i64 [ %inc352, %if.end353 ], [ %i.91673, %land.lhs.true326 ]
   %79 = phi ptr [ %.pre1282, %if.end353 ], [ %72, %land.lhs.true326 ]
-  %add.ptr.i923 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %79, i64 %i.101678
+  %add.ptr.i923 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %79, i64 %i.101680
   %id361 = getelementptr inbounds nuw i8, ptr %add.ptr.i923, i64 32
   %80 = load i32, ptr %id361, align 8
   %cmp362 = icmp eq i32 %80, 11
@@ -8356,7 +8356,7 @@ if.end386:                                        ; preds = %if.then376, %if.the
   %vfn384 = getelementptr inbounds nuw i8, ptr %vtable383, i64 256
   %84 = load ptr, ptr %vfn384, align 8
   tail call void %84(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2679) #20
-  %inc385 = add nuw nsw i64 %i.101678, 1
+  %inc385 = add nuw nsw i64 %i.101680, 1
   %.pre1283 = load ptr, ptr %_M_finish.i, align 8
   %.pre1284 = load ptr, ptr %persistent_values, align 8
   %.pre1419 = ptrtoint ptr %.pre1283 to i64
@@ -8367,9 +8367,9 @@ if.end386:                                        ; preds = %if.then376, %if.the
   br i1 %85, label %land.lhs.true392, label %if.end1970
 
 land.lhs.true392:                                 ; preds = %land.lhs.true359, %if.end386
-  %i.111685 = phi i64 [ %inc385, %if.end386 ], [ %i.101678, %land.lhs.true359 ]
+  %i.111687 = phi i64 [ %inc385, %if.end386 ], [ %i.101680, %land.lhs.true359 ]
   %86 = phi ptr [ %.pre1284, %if.end386 ], [ %79, %land.lhs.true359 ]
-  %add.ptr.i930 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %86, i64 %i.111685
+  %add.ptr.i930 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %86, i64 %i.111687
   %id394 = getelementptr inbounds nuw i8, ptr %add.ptr.i930, i64 32
   %87 = load i32, ptr %id394, align 8
   %cmp395 = icmp eq i32 %87, 12
@@ -8392,7 +8392,7 @@ if.end419:                                        ; preds = %if.then409, %if.the
   %vfn417 = getelementptr inbounds nuw i8, ptr %vtable416, i64 272
   %91 = load ptr, ptr %vfn417, align 8
   tail call void %91(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2667) #20
-  %inc418 = add nuw nsw i64 %i.111685, 1
+  %inc418 = add nuw nsw i64 %i.111687, 1
   %.pre1285 = load ptr, ptr %_M_finish.i, align 8
   %.pre1286 = load ptr, ptr %persistent_values, align 8
   %.pre1423 = ptrtoint ptr %.pre1285 to i64
@@ -8403,9 +8403,9 @@ if.end419:                                        ; preds = %if.then409, %if.the
   br i1 %92, label %land.lhs.true425, label %if.end1970
 
 land.lhs.true425:                                 ; preds = %land.lhs.true392, %if.end419
-  %i.121692 = phi i64 [ %inc418, %if.end419 ], [ %i.111685, %land.lhs.true392 ]
+  %i.121694 = phi i64 [ %inc418, %if.end419 ], [ %i.111687, %land.lhs.true392 ]
   %93 = phi ptr [ %.pre1286, %if.end419 ], [ %86, %land.lhs.true392 ]
-  %add.ptr.i937 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %93, i64 %i.121692
+  %add.ptr.i937 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %93, i64 %i.121694
   %id427 = getelementptr inbounds nuw i8, ptr %add.ptr.i937, i64 32
   %94 = load i32, ptr %id427, align 8
   %cmp428 = icmp eq i32 %94, 13
@@ -8428,7 +8428,7 @@ if.end452:                                        ; preds = %if.then442, %if.the
   %vfn450 = getelementptr inbounds nuw i8, ptr %vtable449, i64 288
   %98 = load ptr, ptr %vfn450, align 8
   tail call void %98(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2655) #20
-  %inc451 = add nuw nsw i64 %i.121692, 1
+  %inc451 = add nuw nsw i64 %i.121694, 1
   %.pre1287 = load ptr, ptr %_M_finish.i, align 8
   %.pre1288 = load ptr, ptr %persistent_values, align 8
   %.pre1427 = ptrtoint ptr %.pre1287 to i64
@@ -8439,9 +8439,9 @@ if.end452:                                        ; preds = %if.then442, %if.the
   br i1 %99, label %land.lhs.true458, label %if.end1970
 
 land.lhs.true458:                                 ; preds = %land.lhs.true425, %if.end452
-  %i.131699 = phi i64 [ %inc451, %if.end452 ], [ %i.121692, %land.lhs.true425 ]
+  %i.131701 = phi i64 [ %inc451, %if.end452 ], [ %i.121694, %land.lhs.true425 ]
   %100 = phi ptr [ %.pre1288, %if.end452 ], [ %93, %land.lhs.true425 ]
-  %add.ptr.i944 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %100, i64 %i.131699
+  %add.ptr.i944 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %100, i64 %i.131701
   %id460 = getelementptr inbounds nuw i8, ptr %add.ptr.i944, i64 32
   %101 = load i32, ptr %id460, align 8
   %cmp461 = icmp eq i32 %101, 14
@@ -8464,7 +8464,7 @@ if.end485:                                        ; preds = %if.then475, %if.the
   %vfn483 = getelementptr inbounds nuw i8, ptr %vtable482, i64 304
   %105 = load ptr, ptr %vfn483, align 8
   tail call void %105(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2643) #20
-  %inc484 = add nuw nsw i64 %i.131699, 1
+  %inc484 = add nuw nsw i64 %i.131701, 1
   %.pre1289 = load ptr, ptr %_M_finish.i, align 8
   %.pre1290 = load ptr, ptr %persistent_values, align 8
   %.pre1431 = ptrtoint ptr %.pre1289 to i64
@@ -8475,9 +8475,9 @@ if.end485:                                        ; preds = %if.then475, %if.the
   br i1 %106, label %land.lhs.true491, label %if.end1970
 
 land.lhs.true491:                                 ; preds = %land.lhs.true458, %if.end485
-  %i.141706 = phi i64 [ %inc484, %if.end485 ], [ %i.131699, %land.lhs.true458 ]
+  %i.141708 = phi i64 [ %inc484, %if.end485 ], [ %i.131701, %land.lhs.true458 ]
   %107 = phi ptr [ %.pre1290, %if.end485 ], [ %100, %land.lhs.true458 ]
-  %add.ptr.i951 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %107, i64 %i.141706
+  %add.ptr.i951 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %107, i64 %i.141708
   %id493 = getelementptr inbounds nuw i8, ptr %add.ptr.i951, i64 32
   %108 = load i32, ptr %id493, align 8
   %cmp494 = icmp eq i32 %108, 15
@@ -8500,7 +8500,7 @@ if.end518:                                        ; preds = %if.then508, %if.the
   %vfn516 = getelementptr inbounds nuw i8, ptr %vtable515, i64 320
   %112 = load ptr, ptr %vfn516, align 8
   tail call void %112(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2631) #20
-  %inc517 = add nuw nsw i64 %i.141706, 1
+  %inc517 = add nuw nsw i64 %i.141708, 1
   %.pre1291 = load ptr, ptr %_M_finish.i, align 8
   %.pre1292 = load ptr, ptr %persistent_values, align 8
   %.pre1435 = ptrtoint ptr %.pre1291 to i64
@@ -8511,9 +8511,9 @@ if.end518:                                        ; preds = %if.then508, %if.the
   br i1 %113, label %land.lhs.true524, label %if.end1970
 
 land.lhs.true524:                                 ; preds = %land.lhs.true491, %if.end518
-  %i.151713 = phi i64 [ %inc517, %if.end518 ], [ %i.141706, %land.lhs.true491 ]
+  %i.151715 = phi i64 [ %inc517, %if.end518 ], [ %i.141708, %land.lhs.true491 ]
   %114 = phi ptr [ %.pre1292, %if.end518 ], [ %107, %land.lhs.true491 ]
-  %add.ptr.i958 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %114, i64 %i.151713
+  %add.ptr.i958 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %114, i64 %i.151715
   %id526 = getelementptr inbounds nuw i8, ptr %add.ptr.i958, i64 32
   %115 = load i32, ptr %id526, align 8
   %cmp527 = icmp eq i32 %115, 16
@@ -8536,7 +8536,7 @@ if.end551:                                        ; preds = %if.then541, %if.the
   %vfn549 = getelementptr inbounds nuw i8, ptr %vtable548, i64 336
   %119 = load ptr, ptr %vfn549, align 8
   tail call void %119(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2619) #20
-  %inc550 = add nuw nsw i64 %i.151713, 1
+  %inc550 = add nuw nsw i64 %i.151715, 1
   %.pre1293 = load ptr, ptr %_M_finish.i, align 8
   %.pre1294 = load ptr, ptr %persistent_values, align 8
   %.pre1439 = ptrtoint ptr %.pre1293 to i64
@@ -8547,9 +8547,9 @@ if.end551:                                        ; preds = %if.then541, %if.the
   br i1 %120, label %land.lhs.true557, label %if.end1970
 
 land.lhs.true557:                                 ; preds = %land.lhs.true524, %if.end551
-  %i.161720 = phi i64 [ %inc550, %if.end551 ], [ %i.151713, %land.lhs.true524 ]
+  %i.161722 = phi i64 [ %inc550, %if.end551 ], [ %i.151715, %land.lhs.true524 ]
   %121 = phi ptr [ %.pre1294, %if.end551 ], [ %114, %land.lhs.true524 ]
-  %add.ptr.i965 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %121, i64 %i.161720
+  %add.ptr.i965 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %121, i64 %i.161722
   %id559 = getelementptr inbounds nuw i8, ptr %add.ptr.i965, i64 32
   %122 = load i32, ptr %id559, align 8
   %cmp560 = icmp eq i32 %122, 17
@@ -8572,7 +8572,7 @@ if.end584:                                        ; preds = %if.then574, %if.the
   %vfn582 = getelementptr inbounds nuw i8, ptr %vtable581, i64 352
   %126 = load ptr, ptr %vfn582, align 8
   tail call void %126(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2607) #20
-  %inc583 = add nuw nsw i64 %i.161720, 1
+  %inc583 = add nuw nsw i64 %i.161722, 1
   %.pre1295 = load ptr, ptr %_M_finish.i, align 8
   %.pre1296 = load ptr, ptr %persistent_values, align 8
   %.pre1443 = ptrtoint ptr %.pre1295 to i64
@@ -8583,9 +8583,9 @@ if.end584:                                        ; preds = %if.then574, %if.the
   br i1 %127, label %land.lhs.true590, label %if.end1970
 
 land.lhs.true590:                                 ; preds = %land.lhs.true557, %if.end584
-  %i.171727 = phi i64 [ %inc583, %if.end584 ], [ %i.161720, %land.lhs.true557 ]
+  %i.171729 = phi i64 [ %inc583, %if.end584 ], [ %i.161722, %land.lhs.true557 ]
   %128 = phi ptr [ %.pre1296, %if.end584 ], [ %121, %land.lhs.true557 ]
-  %add.ptr.i972 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %128, i64 %i.171727
+  %add.ptr.i972 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %128, i64 %i.171729
   %id592 = getelementptr inbounds nuw i8, ptr %add.ptr.i972, i64 32
   %129 = load i32, ptr %id592, align 8
   %cmp593 = icmp eq i32 %129, 18
@@ -8608,7 +8608,7 @@ if.end617:                                        ; preds = %if.then607, %if.the
   %vfn615 = getelementptr inbounds nuw i8, ptr %vtable614, i64 368
   %133 = load ptr, ptr %vfn615, align 8
   tail call void %133(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2595) #20
-  %inc616 = add nuw nsw i64 %i.171727, 1
+  %inc616 = add nuw nsw i64 %i.171729, 1
   %.pre1297 = load ptr, ptr %_M_finish.i, align 8
   %.pre1298 = load ptr, ptr %persistent_values, align 8
   %.pre1447 = ptrtoint ptr %.pre1297 to i64
@@ -8619,9 +8619,9 @@ if.end617:                                        ; preds = %if.then607, %if.the
   br i1 %134, label %land.lhs.true623, label %if.end1970
 
 land.lhs.true623:                                 ; preds = %land.lhs.true590, %if.end617
-  %i.181734 = phi i64 [ %inc616, %if.end617 ], [ %i.171727, %land.lhs.true590 ]
+  %i.181736 = phi i64 [ %inc616, %if.end617 ], [ %i.171729, %land.lhs.true590 ]
   %135 = phi ptr [ %.pre1298, %if.end617 ], [ %128, %land.lhs.true590 ]
-  %add.ptr.i979 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %135, i64 %i.181734
+  %add.ptr.i979 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %135, i64 %i.181736
   %id625 = getelementptr inbounds nuw i8, ptr %add.ptr.i979, i64 32
   %136 = load i32, ptr %id625, align 8
   %cmp626 = icmp eq i32 %136, 19
@@ -8644,7 +8644,7 @@ if.end650:                                        ; preds = %if.then640, %if.the
   %vfn648 = getelementptr inbounds nuw i8, ptr %vtable647, i64 384
   %140 = load ptr, ptr %vfn648, align 8
   tail call void %140(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2583) #20
-  %inc649 = add nuw nsw i64 %i.181734, 1
+  %inc649 = add nuw nsw i64 %i.181736, 1
   %.pre1299 = load ptr, ptr %_M_finish.i, align 8
   %.pre1300 = load ptr, ptr %persistent_values, align 8
   %.pre1451 = ptrtoint ptr %.pre1299 to i64
@@ -8655,9 +8655,9 @@ if.end650:                                        ; preds = %if.then640, %if.the
   br i1 %141, label %land.lhs.true656, label %if.end1970
 
 land.lhs.true656:                                 ; preds = %land.lhs.true623, %if.end650
-  %i.191741 = phi i64 [ %inc649, %if.end650 ], [ %i.181734, %land.lhs.true623 ]
+  %i.191743 = phi i64 [ %inc649, %if.end650 ], [ %i.181736, %land.lhs.true623 ]
   %142 = phi ptr [ %.pre1300, %if.end650 ], [ %135, %land.lhs.true623 ]
-  %add.ptr.i986 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %142, i64 %i.191741
+  %add.ptr.i986 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %142, i64 %i.191743
   %id658 = getelementptr inbounds nuw i8, ptr %add.ptr.i986, i64 32
   %143 = load i32, ptr %id658, align 8
   %cmp659 = icmp eq i32 %143, 20
@@ -8680,7 +8680,7 @@ if.end683:                                        ; preds = %if.then673, %if.the
   %vfn681 = getelementptr inbounds nuw i8, ptr %vtable680, i64 400
   %147 = load ptr, ptr %vfn681, align 8
   tail call void %147(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2571) #20
-  %inc682 = add nuw nsw i64 %i.191741, 1
+  %inc682 = add nuw nsw i64 %i.191743, 1
   %.pre1301 = load ptr, ptr %_M_finish.i, align 8
   %.pre1302 = load ptr, ptr %persistent_values, align 8
   %.pre1455 = ptrtoint ptr %.pre1301 to i64
@@ -8691,9 +8691,9 @@ if.end683:                                        ; preds = %if.then673, %if.the
   br i1 %148, label %land.lhs.true689, label %if.end1970
 
 land.lhs.true689:                                 ; preds = %land.lhs.true656, %if.end683
-  %i.201748 = phi i64 [ %inc682, %if.end683 ], [ %i.191741, %land.lhs.true656 ]
+  %i.201750 = phi i64 [ %inc682, %if.end683 ], [ %i.191743, %land.lhs.true656 ]
   %149 = phi ptr [ %.pre1302, %if.end683 ], [ %142, %land.lhs.true656 ]
-  %add.ptr.i993 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %149, i64 %i.201748
+  %add.ptr.i993 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %149, i64 %i.201750
   %id691 = getelementptr inbounds nuw i8, ptr %add.ptr.i993, i64 32
   %150 = load i32, ptr %id691, align 8
   %cmp692 = icmp eq i32 %150, 21
@@ -8716,7 +8716,7 @@ if.end716:                                        ; preds = %if.then706, %if.the
   %vfn714 = getelementptr inbounds nuw i8, ptr %vtable713, i64 416
   %154 = load ptr, ptr %vfn714, align 8
   tail call void %154(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2559) #20
-  %inc715 = add nuw nsw i64 %i.201748, 1
+  %inc715 = add nuw nsw i64 %i.201750, 1
   %.pre1303 = load ptr, ptr %_M_finish.i, align 8
   %.pre1304 = load ptr, ptr %persistent_values, align 8
   %.pre1459 = ptrtoint ptr %.pre1303 to i64
@@ -8727,9 +8727,9 @@ if.end716:                                        ; preds = %if.then706, %if.the
   br i1 %155, label %land.lhs.true722, label %if.end1970
 
 land.lhs.true722:                                 ; preds = %land.lhs.true689, %if.end716
-  %i.211755 = phi i64 [ %inc715, %if.end716 ], [ %i.201748, %land.lhs.true689 ]
+  %i.211757 = phi i64 [ %inc715, %if.end716 ], [ %i.201750, %land.lhs.true689 ]
   %156 = phi ptr [ %.pre1304, %if.end716 ], [ %149, %land.lhs.true689 ]
-  %add.ptr.i1000 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %156, i64 %i.211755
+  %add.ptr.i1000 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %156, i64 %i.211757
   %id724 = getelementptr inbounds nuw i8, ptr %add.ptr.i1000, i64 32
   %157 = load i32, ptr %id724, align 8
   %cmp725 = icmp eq i32 %157, 22
@@ -8752,7 +8752,7 @@ if.end749:                                        ; preds = %if.then739, %if.the
   %vfn747 = getelementptr inbounds nuw i8, ptr %vtable746, i64 432
   %161 = load ptr, ptr %vfn747, align 8
   tail call void %161(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2547) #20
-  %inc748 = add nuw nsw i64 %i.211755, 1
+  %inc748 = add nuw nsw i64 %i.211757, 1
   %.pre1305 = load ptr, ptr %_M_finish.i, align 8
   %.pre1306 = load ptr, ptr %persistent_values, align 8
   %.pre1463 = ptrtoint ptr %.pre1305 to i64
@@ -8763,9 +8763,9 @@ if.end749:                                        ; preds = %if.then739, %if.the
   br i1 %162, label %land.lhs.true755, label %if.end1970
 
 land.lhs.true755:                                 ; preds = %land.lhs.true722, %if.end749
-  %i.221762 = phi i64 [ %inc748, %if.end749 ], [ %i.211755, %land.lhs.true722 ]
+  %i.221764 = phi i64 [ %inc748, %if.end749 ], [ %i.211757, %land.lhs.true722 ]
   %163 = phi ptr [ %.pre1306, %if.end749 ], [ %156, %land.lhs.true722 ]
-  %add.ptr.i1007 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %163, i64 %i.221762
+  %add.ptr.i1007 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %163, i64 %i.221764
   %id757 = getelementptr inbounds nuw i8, ptr %add.ptr.i1007, i64 32
   %164 = load i32, ptr %id757, align 8
   %cmp758 = icmp eq i32 %164, 23
@@ -8788,7 +8788,7 @@ if.end782:                                        ; preds = %if.then772, %if.the
   %vfn780 = getelementptr inbounds nuw i8, ptr %vtable779, i64 448
   %168 = load ptr, ptr %vfn780, align 8
   tail call void %168(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2535) #20
-  %inc781 = add nuw nsw i64 %i.221762, 1
+  %inc781 = add nuw nsw i64 %i.221764, 1
   %.pre1307 = load ptr, ptr %_M_finish.i, align 8
   %.pre1308 = load ptr, ptr %persistent_values, align 8
   %.pre1467 = ptrtoint ptr %.pre1307 to i64
@@ -8799,9 +8799,9 @@ if.end782:                                        ; preds = %if.then772, %if.the
   br i1 %169, label %land.lhs.true788, label %if.end1970
 
 land.lhs.true788:                                 ; preds = %land.lhs.true755, %if.end782
-  %i.231769 = phi i64 [ %inc781, %if.end782 ], [ %i.221762, %land.lhs.true755 ]
+  %i.231771 = phi i64 [ %inc781, %if.end782 ], [ %i.221764, %land.lhs.true755 ]
   %170 = phi ptr [ %.pre1308, %if.end782 ], [ %163, %land.lhs.true755 ]
-  %add.ptr.i1014 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %170, i64 %i.231769
+  %add.ptr.i1014 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %170, i64 %i.231771
   %id790 = getelementptr inbounds nuw i8, ptr %add.ptr.i1014, i64 32
   %171 = load i32, ptr %id790, align 8
   %cmp791 = icmp eq i32 %171, 24
@@ -8824,7 +8824,7 @@ if.end815:                                        ; preds = %if.then805, %if.the
   %vfn813 = getelementptr inbounds nuw i8, ptr %vtable812, i64 464
   %175 = load ptr, ptr %vfn813, align 8
   tail call void %175(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2523) #20
-  %inc814 = add nuw nsw i64 %i.231769, 1
+  %inc814 = add nuw nsw i64 %i.231771, 1
   %.pre1309 = load ptr, ptr %_M_finish.i, align 8
   %.pre1310 = load ptr, ptr %persistent_values, align 8
   %.pre1471 = ptrtoint ptr %.pre1309 to i64
@@ -8835,9 +8835,9 @@ if.end815:                                        ; preds = %if.then805, %if.the
   br i1 %176, label %land.lhs.true821, label %if.end1970
 
 land.lhs.true821:                                 ; preds = %land.lhs.true788, %if.end815
-  %i.241776 = phi i64 [ %inc814, %if.end815 ], [ %i.231769, %land.lhs.true788 ]
+  %i.241778 = phi i64 [ %inc814, %if.end815 ], [ %i.231771, %land.lhs.true788 ]
   %177 = phi ptr [ %.pre1310, %if.end815 ], [ %170, %land.lhs.true788 ]
-  %add.ptr.i1021 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %177, i64 %i.241776
+  %add.ptr.i1021 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %177, i64 %i.241778
   %id823 = getelementptr inbounds nuw i8, ptr %add.ptr.i1021, i64 32
   %178 = load i32, ptr %id823, align 8
   %cmp824 = icmp eq i32 %178, 25
@@ -8860,7 +8860,7 @@ if.end848:                                        ; preds = %if.then838, %if.the
   %vfn846 = getelementptr inbounds nuw i8, ptr %vtable845, i64 480
   %182 = load ptr, ptr %vfn846, align 8
   tail call void %182(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2511) #20
-  %inc847 = add nuw nsw i64 %i.241776, 1
+  %inc847 = add nuw nsw i64 %i.241778, 1
   %.pre1311 = load ptr, ptr %_M_finish.i, align 8
   %.pre1312 = load ptr, ptr %persistent_values, align 8
   %.pre1475 = ptrtoint ptr %.pre1311 to i64
@@ -8871,9 +8871,9 @@ if.end848:                                        ; preds = %if.then838, %if.the
   br i1 %183, label %land.lhs.true854, label %if.end1970
 
 land.lhs.true854:                                 ; preds = %land.lhs.true821, %if.end848
-  %i.251783 = phi i64 [ %inc847, %if.end848 ], [ %i.241776, %land.lhs.true821 ]
+  %i.251785 = phi i64 [ %inc847, %if.end848 ], [ %i.241778, %land.lhs.true821 ]
   %184 = phi ptr [ %.pre1312, %if.end848 ], [ %177, %land.lhs.true821 ]
-  %add.ptr.i1028 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %184, i64 %i.251783
+  %add.ptr.i1028 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %184, i64 %i.251785
   %id856 = getelementptr inbounds nuw i8, ptr %add.ptr.i1028, i64 32
   %185 = load i32, ptr %id856, align 8
   %cmp857 = icmp eq i32 %185, 26
@@ -8896,7 +8896,7 @@ if.end881:                                        ; preds = %if.then871, %if.the
   %vfn879 = getelementptr inbounds nuw i8, ptr %vtable878, i64 496
   %189 = load ptr, ptr %vfn879, align 8
   tail call void %189(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2499) #20
-  %inc880 = add nuw nsw i64 %i.251783, 1
+  %inc880 = add nuw nsw i64 %i.251785, 1
   %.pre1313 = load ptr, ptr %_M_finish.i, align 8
   %.pre1314 = load ptr, ptr %persistent_values, align 8
   %.pre1479 = ptrtoint ptr %.pre1313 to i64
@@ -8907,9 +8907,9 @@ if.end881:                                        ; preds = %if.then871, %if.the
   br i1 %190, label %land.lhs.true887, label %if.end1970
 
 land.lhs.true887:                                 ; preds = %land.lhs.true854, %if.end881
-  %i.261790 = phi i64 [ %inc880, %if.end881 ], [ %i.251783, %land.lhs.true854 ]
+  %i.261792 = phi i64 [ %inc880, %if.end881 ], [ %i.251785, %land.lhs.true854 ]
   %191 = phi ptr [ %.pre1314, %if.end881 ], [ %184, %land.lhs.true854 ]
-  %add.ptr.i1035 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %191, i64 %i.261790
+  %add.ptr.i1035 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %191, i64 %i.261792
   %id889 = getelementptr inbounds nuw i8, ptr %add.ptr.i1035, i64 32
   %192 = load i32, ptr %id889, align 8
   %cmp890 = icmp eq i32 %192, 27
@@ -8932,7 +8932,7 @@ if.end914:                                        ; preds = %if.then904, %if.the
   %vfn912 = getelementptr inbounds nuw i8, ptr %vtable911, i64 512
   %196 = load ptr, ptr %vfn912, align 8
   tail call void %196(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2487) #20
-  %inc913 = add nuw nsw i64 %i.261790, 1
+  %inc913 = add nuw nsw i64 %i.261792, 1
   %.pre1315 = load ptr, ptr %_M_finish.i, align 8
   %.pre1316 = load ptr, ptr %persistent_values, align 8
   %.pre1483 = ptrtoint ptr %.pre1315 to i64
@@ -8943,9 +8943,9 @@ if.end914:                                        ; preds = %if.then904, %if.the
   br i1 %197, label %land.lhs.true920, label %if.end1970
 
 land.lhs.true920:                                 ; preds = %land.lhs.true887, %if.end914
-  %i.271797 = phi i64 [ %inc913, %if.end914 ], [ %i.261790, %land.lhs.true887 ]
+  %i.271799 = phi i64 [ %inc913, %if.end914 ], [ %i.261792, %land.lhs.true887 ]
   %198 = phi ptr [ %.pre1316, %if.end914 ], [ %191, %land.lhs.true887 ]
-  %add.ptr.i1042 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %198, i64 %i.271797
+  %add.ptr.i1042 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %198, i64 %i.271799
   %id922 = getelementptr inbounds nuw i8, ptr %add.ptr.i1042, i64 32
   %199 = load i32, ptr %id922, align 8
   %cmp923 = icmp eq i32 %199, 28
@@ -8968,7 +8968,7 @@ if.end947:                                        ; preds = %if.then937, %if.the
   %vfn945 = getelementptr inbounds nuw i8, ptr %vtable944, i64 528
   %203 = load ptr, ptr %vfn945, align 8
   tail call void %203(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2475) #20
-  %inc946 = add nuw nsw i64 %i.271797, 1
+  %inc946 = add nuw nsw i64 %i.271799, 1
   %.pre1317 = load ptr, ptr %_M_finish.i, align 8
   %.pre1318 = load ptr, ptr %persistent_values, align 8
   %.pre1487 = ptrtoint ptr %.pre1317 to i64
@@ -8979,9 +8979,9 @@ if.end947:                                        ; preds = %if.then937, %if.the
   br i1 %204, label %land.lhs.true953, label %if.end1970
 
 land.lhs.true953:                                 ; preds = %land.lhs.true920, %if.end947
-  %i.281804 = phi i64 [ %inc946, %if.end947 ], [ %i.271797, %land.lhs.true920 ]
+  %i.281806 = phi i64 [ %inc946, %if.end947 ], [ %i.271799, %land.lhs.true920 ]
   %205 = phi ptr [ %.pre1318, %if.end947 ], [ %198, %land.lhs.true920 ]
-  %add.ptr.i1049 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %205, i64 %i.281804
+  %add.ptr.i1049 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %205, i64 %i.281806
   %id955 = getelementptr inbounds nuw i8, ptr %add.ptr.i1049, i64 32
   %206 = load i32, ptr %id955, align 8
   %cmp956 = icmp eq i32 %206, 29
@@ -9004,7 +9004,7 @@ if.end980:                                        ; preds = %if.then970, %if.the
   %vfn978 = getelementptr inbounds nuw i8, ptr %vtable977, i64 544
   %210 = load ptr, ptr %vfn978, align 8
   tail call void %210(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2463) #20
-  %inc979 = add nuw nsw i64 %i.281804, 1
+  %inc979 = add nuw nsw i64 %i.281806, 1
   %.pre1319 = load ptr, ptr %_M_finish.i, align 8
   %.pre1320 = load ptr, ptr %persistent_values, align 8
   %.pre1491 = ptrtoint ptr %.pre1319 to i64
@@ -9015,9 +9015,9 @@ if.end980:                                        ; preds = %if.then970, %if.the
   br i1 %211, label %land.lhs.true986, label %if.end1970
 
 land.lhs.true986:                                 ; preds = %land.lhs.true953, %if.end980
-  %i.291811 = phi i64 [ %inc979, %if.end980 ], [ %i.281804, %land.lhs.true953 ]
+  %i.291813 = phi i64 [ %inc979, %if.end980 ], [ %i.281806, %land.lhs.true953 ]
   %212 = phi ptr [ %.pre1320, %if.end980 ], [ %205, %land.lhs.true953 ]
-  %add.ptr.i1056 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %212, i64 %i.291811
+  %add.ptr.i1056 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %212, i64 %i.291813
   %id988 = getelementptr inbounds nuw i8, ptr %add.ptr.i1056, i64 32
   %213 = load i32, ptr %id988, align 8
   %cmp989 = icmp eq i32 %213, 30
@@ -9040,7 +9040,7 @@ if.end1013:                                       ; preds = %if.then1003, %if.th
   %vfn1011 = getelementptr inbounds nuw i8, ptr %vtable1010, i64 560
   %217 = load ptr, ptr %vfn1011, align 8
   tail call void %217(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2451) #20
-  %inc1012 = add nuw nsw i64 %i.291811, 1
+  %inc1012 = add nuw nsw i64 %i.291813, 1
   %.pre1321 = load ptr, ptr %_M_finish.i, align 8
   %.pre1322 = load ptr, ptr %persistent_values, align 8
   %.pre1495 = ptrtoint ptr %.pre1321 to i64
@@ -9051,9 +9051,9 @@ if.end1013:                                       ; preds = %if.then1003, %if.th
   br i1 %218, label %land.lhs.true1019, label %if.end1970
 
 land.lhs.true1019:                                ; preds = %land.lhs.true986, %if.end1013
-  %i.301818 = phi i64 [ %inc1012, %if.end1013 ], [ %i.291811, %land.lhs.true986 ]
+  %i.301820 = phi i64 [ %inc1012, %if.end1013 ], [ %i.291813, %land.lhs.true986 ]
   %219 = phi ptr [ %.pre1322, %if.end1013 ], [ %212, %land.lhs.true986 ]
-  %add.ptr.i1063 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %219, i64 %i.301818
+  %add.ptr.i1063 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %219, i64 %i.301820
   %id1021 = getelementptr inbounds nuw i8, ptr %add.ptr.i1063, i64 32
   %220 = load i32, ptr %id1021, align 8
   %cmp1022 = icmp eq i32 %220, 31
@@ -9076,7 +9076,7 @@ if.end1046:                                       ; preds = %if.then1036, %if.th
   %vfn1044 = getelementptr inbounds nuw i8, ptr %vtable1043, i64 576
   %224 = load ptr, ptr %vfn1044, align 8
   tail call void %224(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2439) #20
-  %inc1045 = add nuw nsw i64 %i.301818, 1
+  %inc1045 = add nuw nsw i64 %i.301820, 1
   %.pre1323 = load ptr, ptr %_M_finish.i, align 8
   %.pre1324 = load ptr, ptr %persistent_values, align 8
   %.pre1499 = ptrtoint ptr %.pre1323 to i64
@@ -9087,9 +9087,9 @@ if.end1046:                                       ; preds = %if.then1036, %if.th
   br i1 %225, label %land.lhs.true1052, label %if.end1970
 
 land.lhs.true1052:                                ; preds = %land.lhs.true1019, %if.end1046
-  %i.311825 = phi i64 [ %inc1045, %if.end1046 ], [ %i.301818, %land.lhs.true1019 ]
+  %i.311827 = phi i64 [ %inc1045, %if.end1046 ], [ %i.301820, %land.lhs.true1019 ]
   %226 = phi ptr [ %.pre1324, %if.end1046 ], [ %219, %land.lhs.true1019 ]
-  %add.ptr.i1070 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %226, i64 %i.311825
+  %add.ptr.i1070 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %226, i64 %i.311827
   %id1054 = getelementptr inbounds nuw i8, ptr %add.ptr.i1070, i64 32
   %227 = load i32, ptr %id1054, align 8
   %cmp1055 = icmp eq i32 %227, 32
@@ -9112,7 +9112,7 @@ if.end1079:                                       ; preds = %if.then1069, %if.th
   %vfn1077 = getelementptr inbounds nuw i8, ptr %vtable1076, i64 592
   %231 = load ptr, ptr %vfn1077, align 8
   tail call void %231(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2427) #20
-  %inc1078 = add nuw nsw i64 %i.311825, 1
+  %inc1078 = add nuw nsw i64 %i.311827, 1
   %.pre1325 = load ptr, ptr %_M_finish.i, align 8
   %.pre1326 = load ptr, ptr %persistent_values, align 8
   %.pre1503 = ptrtoint ptr %.pre1325 to i64
@@ -9123,9 +9123,9 @@ if.end1079:                                       ; preds = %if.then1069, %if.th
   br i1 %232, label %land.lhs.true1085, label %if.end1970
 
 land.lhs.true1085:                                ; preds = %land.lhs.true1052, %if.end1079
-  %i.321832 = phi i64 [ %inc1078, %if.end1079 ], [ %i.311825, %land.lhs.true1052 ]
+  %i.321834 = phi i64 [ %inc1078, %if.end1079 ], [ %i.311827, %land.lhs.true1052 ]
   %233 = phi ptr [ %.pre1326, %if.end1079 ], [ %226, %land.lhs.true1052 ]
-  %add.ptr.i1077 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %233, i64 %i.321832
+  %add.ptr.i1077 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %233, i64 %i.321834
   %id1087 = getelementptr inbounds nuw i8, ptr %add.ptr.i1077, i64 32
   %234 = load i32, ptr %id1087, align 8
   %cmp1088 = icmp eq i32 %234, 33
@@ -9148,7 +9148,7 @@ if.end1112:                                       ; preds = %if.then1102, %if.th
   %vfn1110 = getelementptr inbounds nuw i8, ptr %vtable1109, i64 608
   %238 = load ptr, ptr %vfn1110, align 8
   tail call void %238(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2415) #20
-  %inc1111 = add nuw nsw i64 %i.321832, 1
+  %inc1111 = add nuw nsw i64 %i.321834, 1
   %.pre1327 = load ptr, ptr %_M_finish.i, align 8
   %.pre1328 = load ptr, ptr %persistent_values, align 8
   %.pre1507 = ptrtoint ptr %.pre1327 to i64
@@ -9159,9 +9159,9 @@ if.end1112:                                       ; preds = %if.then1102, %if.th
   br i1 %239, label %land.lhs.true1118, label %if.end1970
 
 land.lhs.true1118:                                ; preds = %land.lhs.true1085, %if.end1112
-  %i.331839 = phi i64 [ %inc1111, %if.end1112 ], [ %i.321832, %land.lhs.true1085 ]
+  %i.331841 = phi i64 [ %inc1111, %if.end1112 ], [ %i.321834, %land.lhs.true1085 ]
   %240 = phi ptr [ %.pre1328, %if.end1112 ], [ %233, %land.lhs.true1085 ]
-  %add.ptr.i1084 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %240, i64 %i.331839
+  %add.ptr.i1084 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %240, i64 %i.331841
   %id1120 = getelementptr inbounds nuw i8, ptr %add.ptr.i1084, i64 32
   %241 = load i32, ptr %id1120, align 8
   %cmp1121 = icmp eq i32 %241, 34
@@ -9184,7 +9184,7 @@ if.end1145:                                       ; preds = %if.then1135, %if.th
   %vfn1143 = getelementptr inbounds nuw i8, ptr %vtable1142, i64 624
   %245 = load ptr, ptr %vfn1143, align 8
   tail call void %245(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2403) #20
-  %inc1144 = add nuw nsw i64 %i.331839, 1
+  %inc1144 = add nuw nsw i64 %i.331841, 1
   %.pre1329 = load ptr, ptr %_M_finish.i, align 8
   %.pre1330 = load ptr, ptr %persistent_values, align 8
   %.pre1511 = ptrtoint ptr %.pre1329 to i64
@@ -9195,9 +9195,9 @@ if.end1145:                                       ; preds = %if.then1135, %if.th
   br i1 %246, label %land.lhs.true1151, label %if.end1970
 
 land.lhs.true1151:                                ; preds = %land.lhs.true1118, %if.end1145
-  %i.341846 = phi i64 [ %inc1144, %if.end1145 ], [ %i.331839, %land.lhs.true1118 ]
+  %i.341848 = phi i64 [ %inc1144, %if.end1145 ], [ %i.331841, %land.lhs.true1118 ]
   %247 = phi ptr [ %.pre1330, %if.end1145 ], [ %240, %land.lhs.true1118 ]
-  %add.ptr.i1091 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %247, i64 %i.341846
+  %add.ptr.i1091 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %247, i64 %i.341848
   %id1153 = getelementptr inbounds nuw i8, ptr %add.ptr.i1091, i64 32
   %248 = load i32, ptr %id1153, align 8
   %cmp1154 = icmp eq i32 %248, 35
@@ -9220,7 +9220,7 @@ if.end1178:                                       ; preds = %if.then1168, %if.th
   %vfn1176 = getelementptr inbounds nuw i8, ptr %vtable1175, i64 640
   %252 = load ptr, ptr %vfn1176, align 8
   tail call void %252(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2391) #20
-  %inc1177 = add nuw nsw i64 %i.341846, 1
+  %inc1177 = add nuw nsw i64 %i.341848, 1
   %.pre1331 = load ptr, ptr %_M_finish.i, align 8
   %.pre1332 = load ptr, ptr %persistent_values, align 8
   %.pre1515 = ptrtoint ptr %.pre1331 to i64
@@ -9231,9 +9231,9 @@ if.end1178:                                       ; preds = %if.then1168, %if.th
   br i1 %253, label %land.lhs.true1184, label %if.end1970
 
 land.lhs.true1184:                                ; preds = %land.lhs.true1151, %if.end1178
-  %i.351853 = phi i64 [ %inc1177, %if.end1178 ], [ %i.341846, %land.lhs.true1151 ]
+  %i.351855 = phi i64 [ %inc1177, %if.end1178 ], [ %i.341848, %land.lhs.true1151 ]
   %254 = phi ptr [ %.pre1332, %if.end1178 ], [ %247, %land.lhs.true1151 ]
-  %add.ptr.i1098 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %254, i64 %i.351853
+  %add.ptr.i1098 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %254, i64 %i.351855
   %id1186 = getelementptr inbounds nuw i8, ptr %add.ptr.i1098, i64 32
   %255 = load i32, ptr %id1186, align 8
   %cmp1187 = icmp eq i32 %255, 36
@@ -9256,7 +9256,7 @@ if.end1211:                                       ; preds = %if.then1201, %if.th
   %vfn1209 = getelementptr inbounds nuw i8, ptr %vtable1208, i64 656
   %259 = load ptr, ptr %vfn1209, align 8
   tail call void %259(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3225) #20
-  %inc1210 = add nuw nsw i64 %i.351853, 1
+  %inc1210 = add nuw nsw i64 %i.351855, 1
   %.pre1333 = load ptr, ptr %_M_finish.i, align 8
   %.pre1334 = load ptr, ptr %persistent_values, align 8
   %.pre1519 = ptrtoint ptr %.pre1333 to i64
@@ -9267,9 +9267,9 @@ if.end1211:                                       ; preds = %if.then1201, %if.th
   br i1 %260, label %land.lhs.true1217, label %if.end1970
 
 land.lhs.true1217:                                ; preds = %land.lhs.true1184, %if.end1211
-  %i.361860 = phi i64 [ %inc1210, %if.end1211 ], [ %i.351853, %land.lhs.true1184 ]
+  %i.361862 = phi i64 [ %inc1210, %if.end1211 ], [ %i.351855, %land.lhs.true1184 ]
   %261 = phi ptr [ %.pre1334, %if.end1211 ], [ %254, %land.lhs.true1184 ]
-  %add.ptr.i1105 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %261, i64 %i.361860
+  %add.ptr.i1105 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %261, i64 %i.361862
   %id1219 = getelementptr inbounds nuw i8, ptr %add.ptr.i1105, i64 32
   %262 = load i32, ptr %id1219, align 8
   %cmp1220 = icmp eq i32 %262, 37
@@ -9292,7 +9292,7 @@ if.end1244:                                       ; preds = %if.then1234, %if.th
   %vfn1242 = getelementptr inbounds nuw i8, ptr %vtable1241, i64 672
   %266 = load ptr, ptr %vfn1242, align 8
   tail call void %266(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2379) #20
-  %inc1243 = add nuw nsw i64 %i.361860, 1
+  %inc1243 = add nuw nsw i64 %i.361862, 1
   %.pre1335 = load ptr, ptr %_M_finish.i, align 8
   %.pre1336 = load ptr, ptr %persistent_values, align 8
   %.pre1523 = ptrtoint ptr %.pre1335 to i64
@@ -9303,9 +9303,9 @@ if.end1244:                                       ; preds = %if.then1234, %if.th
   br i1 %267, label %land.lhs.true1250, label %if.end1970
 
 land.lhs.true1250:                                ; preds = %land.lhs.true1217, %if.end1244
-  %i.371867 = phi i64 [ %inc1243, %if.end1244 ], [ %i.361860, %land.lhs.true1217 ]
+  %i.371869 = phi i64 [ %inc1243, %if.end1244 ], [ %i.361862, %land.lhs.true1217 ]
   %268 = phi ptr [ %.pre1336, %if.end1244 ], [ %261, %land.lhs.true1217 ]
-  %add.ptr.i1112 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %268, i64 %i.371867
+  %add.ptr.i1112 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %268, i64 %i.371869
   %id1252 = getelementptr inbounds nuw i8, ptr %add.ptr.i1112, i64 32
   %269 = load i32, ptr %id1252, align 8
   %cmp1253 = icmp eq i32 %269, 38
@@ -9328,7 +9328,7 @@ if.end1277:                                       ; preds = %if.then1267, %if.th
   %vfn1275 = getelementptr inbounds nuw i8, ptr %vtable1274, i64 688
   %273 = load ptr, ptr %vfn1275, align 8
   tail call void %273(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2367) #20
-  %inc1276 = add nuw nsw i64 %i.371867, 1
+  %inc1276 = add nuw nsw i64 %i.371869, 1
   %.pre1337 = load ptr, ptr %_M_finish.i, align 8
   %.pre1338 = load ptr, ptr %persistent_values, align 8
   %.pre1527 = ptrtoint ptr %.pre1337 to i64
@@ -9339,9 +9339,9 @@ if.end1277:                                       ; preds = %if.then1267, %if.th
   br i1 %274, label %land.lhs.true1283, label %if.end1970
 
 land.lhs.true1283:                                ; preds = %land.lhs.true1250, %if.end1277
-  %i.381874 = phi i64 [ %inc1276, %if.end1277 ], [ %i.371867, %land.lhs.true1250 ]
+  %i.381876 = phi i64 [ %inc1276, %if.end1277 ], [ %i.371869, %land.lhs.true1250 ]
   %275 = phi ptr [ %.pre1338, %if.end1277 ], [ %268, %land.lhs.true1250 ]
-  %add.ptr.i1119 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %275, i64 %i.381874
+  %add.ptr.i1119 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %275, i64 %i.381876
   %id1285 = getelementptr inbounds nuw i8, ptr %add.ptr.i1119, i64 32
   %276 = load i32, ptr %id1285, align 8
   %cmp1286 = icmp eq i32 %276, 39
@@ -9364,7 +9364,7 @@ if.end1310:                                       ; preds = %if.then1300, %if.th
   %vfn1308 = getelementptr inbounds nuw i8, ptr %vtable1307, i64 704
   %280 = load ptr, ptr %vfn1308, align 8
   tail call void %280(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2355) #20
-  %inc1309 = add nuw nsw i64 %i.381874, 1
+  %inc1309 = add nuw nsw i64 %i.381876, 1
   %.pre1339 = load ptr, ptr %_M_finish.i, align 8
   %.pre1340 = load ptr, ptr %persistent_values, align 8
   %.pre1531 = ptrtoint ptr %.pre1339 to i64
@@ -9375,9 +9375,9 @@ if.end1310:                                       ; preds = %if.then1300, %if.th
   br i1 %281, label %land.lhs.true1316, label %if.end1970
 
 land.lhs.true1316:                                ; preds = %land.lhs.true1283, %if.end1310
-  %i.391881 = phi i64 [ %inc1309, %if.end1310 ], [ %i.381874, %land.lhs.true1283 ]
+  %i.391883 = phi i64 [ %inc1309, %if.end1310 ], [ %i.381876, %land.lhs.true1283 ]
   %282 = phi ptr [ %.pre1340, %if.end1310 ], [ %275, %land.lhs.true1283 ]
-  %add.ptr.i1126 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %282, i64 %i.391881
+  %add.ptr.i1126 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %282, i64 %i.391883
   %id1318 = getelementptr inbounds nuw i8, ptr %add.ptr.i1126, i64 32
   %283 = load i32, ptr %id1318, align 8
   %cmp1319 = icmp eq i32 %283, 40
@@ -9400,7 +9400,7 @@ if.end1343:                                       ; preds = %if.then1333, %if.th
   %vfn1341 = getelementptr inbounds nuw i8, ptr %vtable1340, i64 720
   %287 = load ptr, ptr %vfn1341, align 8
   tail call void %287(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3213) #20
-  %inc1342 = add nuw nsw i64 %i.391881, 1
+  %inc1342 = add nuw nsw i64 %i.391883, 1
   %.pre1341 = load ptr, ptr %_M_finish.i, align 8
   %.pre1342 = load ptr, ptr %persistent_values, align 8
   %.pre1535 = ptrtoint ptr %.pre1341 to i64
@@ -9411,9 +9411,9 @@ if.end1343:                                       ; preds = %if.then1333, %if.th
   br i1 %288, label %land.lhs.true1349, label %if.end1970
 
 land.lhs.true1349:                                ; preds = %land.lhs.true1316, %if.end1343
-  %i.401888 = phi i64 [ %inc1342, %if.end1343 ], [ %i.391881, %land.lhs.true1316 ]
+  %i.401890 = phi i64 [ %inc1342, %if.end1343 ], [ %i.391883, %land.lhs.true1316 ]
   %289 = phi ptr [ %.pre1342, %if.end1343 ], [ %282, %land.lhs.true1316 ]
-  %add.ptr.i1133 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %289, i64 %i.401888
+  %add.ptr.i1133 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %289, i64 %i.401890
   %id1351 = getelementptr inbounds nuw i8, ptr %add.ptr.i1133, i64 32
   %290 = load i32, ptr %id1351, align 8
   %cmp1352 = icmp eq i32 %290, 41
@@ -9436,7 +9436,7 @@ if.end1376:                                       ; preds = %if.then1366, %if.th
   %vfn1374 = getelementptr inbounds nuw i8, ptr %vtable1373, i64 736
   %294 = load ptr, ptr %vfn1374, align 8
   tail call void %294(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3201) #20
-  %inc1375 = add nuw nsw i64 %i.401888, 1
+  %inc1375 = add nuw nsw i64 %i.401890, 1
   %.pre1343 = load ptr, ptr %_M_finish.i, align 8
   %.pre1344 = load ptr, ptr %persistent_values, align 8
   %.pre1539 = ptrtoint ptr %.pre1343 to i64
@@ -9447,9 +9447,9 @@ if.end1376:                                       ; preds = %if.then1366, %if.th
   br i1 %295, label %land.lhs.true1382, label %if.end1970
 
 land.lhs.true1382:                                ; preds = %land.lhs.true1349, %if.end1376
-  %i.411895 = phi i64 [ %inc1375, %if.end1376 ], [ %i.401888, %land.lhs.true1349 ]
+  %i.411897 = phi i64 [ %inc1375, %if.end1376 ], [ %i.401890, %land.lhs.true1349 ]
   %296 = phi ptr [ %.pre1344, %if.end1376 ], [ %289, %land.lhs.true1349 ]
-  %add.ptr.i1140 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %296, i64 %i.411895
+  %add.ptr.i1140 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %296, i64 %i.411897
   %id1384 = getelementptr inbounds nuw i8, ptr %add.ptr.i1140, i64 32
   %297 = load i32, ptr %id1384, align 8
   %cmp1385 = icmp eq i32 %297, 42
@@ -9472,7 +9472,7 @@ if.end1409:                                       ; preds = %if.then1399, %if.th
   %vfn1407 = getelementptr inbounds nuw i8, ptr %vtable1406, i64 752
   %301 = load ptr, ptr %vfn1407, align 8
   tail call void %301(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3189) #20
-  %inc1408 = add nuw nsw i64 %i.411895, 1
+  %inc1408 = add nuw nsw i64 %i.411897, 1
   %.pre1345 = load ptr, ptr %_M_finish.i, align 8
   %.pre1346 = load ptr, ptr %persistent_values, align 8
   %.pre1543 = ptrtoint ptr %.pre1345 to i64
@@ -9483,9 +9483,9 @@ if.end1409:                                       ; preds = %if.then1399, %if.th
   br i1 %302, label %land.lhs.true1415, label %if.end1970
 
 land.lhs.true1415:                                ; preds = %land.lhs.true1382, %if.end1409
-  %i.421902 = phi i64 [ %inc1408, %if.end1409 ], [ %i.411895, %land.lhs.true1382 ]
+  %i.421904 = phi i64 [ %inc1408, %if.end1409 ], [ %i.411897, %land.lhs.true1382 ]
   %303 = phi ptr [ %.pre1346, %if.end1409 ], [ %296, %land.lhs.true1382 ]
-  %add.ptr.i1147 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %303, i64 %i.421902
+  %add.ptr.i1147 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %303, i64 %i.421904
   %id1417 = getelementptr inbounds nuw i8, ptr %add.ptr.i1147, i64 32
   %304 = load i32, ptr %id1417, align 8
   %cmp1418 = icmp eq i32 %304, 43
@@ -9508,7 +9508,7 @@ if.end1442:                                       ; preds = %if.then1432, %if.th
   %vfn1440 = getelementptr inbounds nuw i8, ptr %vtable1439, i64 768
   %308 = load ptr, ptr %vfn1440, align 8
   tail call void %308(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3177) #20
-  %inc1441 = add nuw nsw i64 %i.421902, 1
+  %inc1441 = add nuw nsw i64 %i.421904, 1
   %.pre1347 = load ptr, ptr %_M_finish.i, align 8
   %.pre1348 = load ptr, ptr %persistent_values, align 8
   %.pre1547 = ptrtoint ptr %.pre1347 to i64
@@ -9519,9 +9519,9 @@ if.end1442:                                       ; preds = %if.then1432, %if.th
   br i1 %309, label %land.lhs.true1448, label %if.end1970
 
 land.lhs.true1448:                                ; preds = %land.lhs.true1415, %if.end1442
-  %i.431909 = phi i64 [ %inc1441, %if.end1442 ], [ %i.421902, %land.lhs.true1415 ]
+  %i.431911 = phi i64 [ %inc1441, %if.end1442 ], [ %i.421904, %land.lhs.true1415 ]
   %310 = phi ptr [ %.pre1348, %if.end1442 ], [ %303, %land.lhs.true1415 ]
-  %add.ptr.i1154 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %310, i64 %i.431909
+  %add.ptr.i1154 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %310, i64 %i.431911
   %id1450 = getelementptr inbounds nuw i8, ptr %add.ptr.i1154, i64 32
   %311 = load i32, ptr %id1450, align 8
   %cmp1451 = icmp eq i32 %311, 44
@@ -9544,7 +9544,7 @@ if.end1475:                                       ; preds = %if.then1465, %if.th
   %vfn1473 = getelementptr inbounds nuw i8, ptr %vtable1472, i64 784
   %315 = load ptr, ptr %vfn1473, align 8
   tail call void %315(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3165) #20
-  %inc1474 = add nuw nsw i64 %i.431909, 1
+  %inc1474 = add nuw nsw i64 %i.431911, 1
   %.pre1349 = load ptr, ptr %_M_finish.i, align 8
   %.pre1350 = load ptr, ptr %persistent_values, align 8
   %.pre1551 = ptrtoint ptr %.pre1349 to i64
@@ -9555,9 +9555,9 @@ if.end1475:                                       ; preds = %if.then1465, %if.th
   br i1 %316, label %land.lhs.true1481, label %if.end1970
 
 land.lhs.true1481:                                ; preds = %land.lhs.true1448, %if.end1475
-  %i.441916 = phi i64 [ %inc1474, %if.end1475 ], [ %i.431909, %land.lhs.true1448 ]
+  %i.441918 = phi i64 [ %inc1474, %if.end1475 ], [ %i.431911, %land.lhs.true1448 ]
   %317 = phi ptr [ %.pre1350, %if.end1475 ], [ %310, %land.lhs.true1448 ]
-  %add.ptr.i1161 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %317, i64 %i.441916
+  %add.ptr.i1161 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %317, i64 %i.441918
   %id1483 = getelementptr inbounds nuw i8, ptr %add.ptr.i1161, i64 32
   %318 = load i32, ptr %id1483, align 8
   %cmp1484 = icmp eq i32 %318, 45
@@ -9580,7 +9580,7 @@ if.end1508:                                       ; preds = %if.then1498, %if.th
   %vfn1506 = getelementptr inbounds nuw i8, ptr %vtable1505, i64 800
   %322 = load ptr, ptr %vfn1506, align 8
   tail call void %322(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3154) #20
-  %inc1507 = add nuw nsw i64 %i.441916, 1
+  %inc1507 = add nuw nsw i64 %i.441918, 1
   %.pre1351 = load ptr, ptr %_M_finish.i, align 8
   %.pre1352 = load ptr, ptr %persistent_values, align 8
   %.pre1555 = ptrtoint ptr %.pre1351 to i64
@@ -9591,9 +9591,9 @@ if.end1508:                                       ; preds = %if.then1498, %if.th
   br i1 %323, label %land.lhs.true1514, label %if.end1970
 
 land.lhs.true1514:                                ; preds = %land.lhs.true1481, %if.end1508
-  %i.451923 = phi i64 [ %inc1507, %if.end1508 ], [ %i.441916, %land.lhs.true1481 ]
+  %i.451925 = phi i64 [ %inc1507, %if.end1508 ], [ %i.441918, %land.lhs.true1481 ]
   %324 = phi ptr [ %.pre1352, %if.end1508 ], [ %317, %land.lhs.true1481 ]
-  %add.ptr.i1168 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %324, i64 %i.451923
+  %add.ptr.i1168 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %324, i64 %i.451925
   %id1516 = getelementptr inbounds nuw i8, ptr %add.ptr.i1168, i64 32
   %325 = load i32, ptr %id1516, align 8
   %cmp1517 = icmp eq i32 %325, 46
@@ -9616,7 +9616,7 @@ if.end1541:                                       ; preds = %if.then1531, %if.th
   %vfn1539 = getelementptr inbounds nuw i8, ptr %vtable1538, i64 816
   %329 = load ptr, ptr %vfn1539, align 8
   tail call void %329(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2343) #20
-  %inc1540 = add nuw nsw i64 %i.451923, 1
+  %inc1540 = add nuw nsw i64 %i.451925, 1
   %.pre1353 = load ptr, ptr %_M_finish.i, align 8
   %.pre1354 = load ptr, ptr %persistent_values, align 8
   %.pre1559 = ptrtoint ptr %.pre1353 to i64
@@ -9627,9 +9627,9 @@ if.end1541:                                       ; preds = %if.then1531, %if.th
   br i1 %330, label %land.lhs.true1547, label %if.end1970
 
 land.lhs.true1547:                                ; preds = %land.lhs.true1514, %if.end1541
-  %i.461930 = phi i64 [ %inc1540, %if.end1541 ], [ %i.451923, %land.lhs.true1514 ]
+  %i.461932 = phi i64 [ %inc1540, %if.end1541 ], [ %i.451925, %land.lhs.true1514 ]
   %331 = phi ptr [ %.pre1354, %if.end1541 ], [ %324, %land.lhs.true1514 ]
-  %add.ptr.i1175 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %331, i64 %i.461930
+  %add.ptr.i1175 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %331, i64 %i.461932
   %id1549 = getelementptr inbounds nuw i8, ptr %add.ptr.i1175, i64 32
   %332 = load i32, ptr %id1549, align 8
   %cmp1550 = icmp eq i32 %332, 47
@@ -9652,7 +9652,7 @@ if.end1574:                                       ; preds = %if.then1564, %if.th
   %vfn1572 = getelementptr inbounds nuw i8, ptr %vtable1571, i64 832
   %336 = load ptr, ptr %vfn1572, align 8
   tail call void %336(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2331) #20
-  %inc1573 = add nuw nsw i64 %i.461930, 1
+  %inc1573 = add nuw nsw i64 %i.461932, 1
   %.pre1355 = load ptr, ptr %_M_finish.i, align 8
   %.pre1356 = load ptr, ptr %persistent_values, align 8
   %.pre1563 = ptrtoint ptr %.pre1355 to i64
@@ -9663,9 +9663,9 @@ if.end1574:                                       ; preds = %if.then1564, %if.th
   br i1 %337, label %land.lhs.true1580, label %if.end1970
 
 land.lhs.true1580:                                ; preds = %land.lhs.true1547, %if.end1574
-  %i.471937 = phi i64 [ %inc1573, %if.end1574 ], [ %i.461930, %land.lhs.true1547 ]
+  %i.471939 = phi i64 [ %inc1573, %if.end1574 ], [ %i.461932, %land.lhs.true1547 ]
   %338 = phi ptr [ %.pre1356, %if.end1574 ], [ %331, %land.lhs.true1547 ]
-  %add.ptr.i1182 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %338, i64 %i.471937
+  %add.ptr.i1182 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %338, i64 %i.471939
   %id1582 = getelementptr inbounds nuw i8, ptr %add.ptr.i1182, i64 32
   %339 = load i32, ptr %id1582, align 8
   %cmp1583 = icmp eq i32 %339, 48
@@ -9688,7 +9688,7 @@ if.end1607:                                       ; preds = %if.then1597, %if.th
   %vfn1605 = getelementptr inbounds nuw i8, ptr %vtable1604, i64 848
   %343 = load ptr, ptr %vfn1605, align 8
   tail call void %343(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2319) #20
-  %inc1606 = add nuw nsw i64 %i.471937, 1
+  %inc1606 = add nuw nsw i64 %i.471939, 1
   %.pre1357 = load ptr, ptr %_M_finish.i, align 8
   %.pre1358 = load ptr, ptr %persistent_values, align 8
   %.pre1567 = ptrtoint ptr %.pre1357 to i64
@@ -9699,9 +9699,9 @@ if.end1607:                                       ; preds = %if.then1597, %if.th
   br i1 %344, label %land.lhs.true1613, label %if.end1970
 
 land.lhs.true1613:                                ; preds = %land.lhs.true1580, %if.end1607
-  %i.481944 = phi i64 [ %inc1606, %if.end1607 ], [ %i.471937, %land.lhs.true1580 ]
+  %i.481946 = phi i64 [ %inc1606, %if.end1607 ], [ %i.471939, %land.lhs.true1580 ]
   %345 = phi ptr [ %.pre1358, %if.end1607 ], [ %338, %land.lhs.true1580 ]
-  %add.ptr.i1189 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %345, i64 %i.481944
+  %add.ptr.i1189 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %345, i64 %i.481946
   %id1615 = getelementptr inbounds nuw i8, ptr %add.ptr.i1189, i64 32
   %346 = load i32, ptr %id1615, align 8
   %cmp1616 = icmp eq i32 %346, 49
@@ -9724,7 +9724,7 @@ if.end1640:                                       ; preds = %if.then1630, %if.th
   %vfn1638 = getelementptr inbounds nuw i8, ptr %vtable1637, i64 864
   %350 = load ptr, ptr %vfn1638, align 8
   tail call void %350(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2307) #20
-  %inc1639 = add nuw nsw i64 %i.481944, 1
+  %inc1639 = add nuw nsw i64 %i.481946, 1
   %.pre1359 = load ptr, ptr %_M_finish.i, align 8
   %.pre1360 = load ptr, ptr %persistent_values, align 8
   %.pre1571 = ptrtoint ptr %.pre1359 to i64
@@ -9735,9 +9735,9 @@ if.end1640:                                       ; preds = %if.then1630, %if.th
   br i1 %351, label %land.lhs.true1646, label %if.end1970
 
 land.lhs.true1646:                                ; preds = %land.lhs.true1613, %if.end1640
-  %i.491951 = phi i64 [ %inc1639, %if.end1640 ], [ %i.481944, %land.lhs.true1613 ]
+  %i.491953 = phi i64 [ %inc1639, %if.end1640 ], [ %i.481946, %land.lhs.true1613 ]
   %352 = phi ptr [ %.pre1360, %if.end1640 ], [ %345, %land.lhs.true1613 ]
-  %add.ptr.i1196 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %352, i64 %i.491951
+  %add.ptr.i1196 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %352, i64 %i.491953
   %id1648 = getelementptr inbounds nuw i8, ptr %add.ptr.i1196, i64 32
   %353 = load i32, ptr %id1648, align 8
   %cmp1649 = icmp eq i32 %353, 50
@@ -9760,7 +9760,7 @@ if.end1673:                                       ; preds = %if.then1663, %if.th
   %vfn1671 = getelementptr inbounds nuw i8, ptr %vtable1670, i64 880
   %357 = load ptr, ptr %vfn1671, align 8
   tail call void %357(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2295) #20
-  %inc1672 = add nuw nsw i64 %i.491951, 1
+  %inc1672 = add nuw nsw i64 %i.491953, 1
   %.pre1361 = load ptr, ptr %_M_finish.i, align 8
   %.pre1362 = load ptr, ptr %persistent_values, align 8
   %.pre1575 = ptrtoint ptr %.pre1361 to i64
@@ -9771,9 +9771,9 @@ if.end1673:                                       ; preds = %if.then1663, %if.th
   br i1 %358, label %land.lhs.true1679, label %if.end1970
 
 land.lhs.true1679:                                ; preds = %land.lhs.true1646, %if.end1673
-  %i.501958 = phi i64 [ %inc1672, %if.end1673 ], [ %i.491951, %land.lhs.true1646 ]
+  %i.501960 = phi i64 [ %inc1672, %if.end1673 ], [ %i.491953, %land.lhs.true1646 ]
   %359 = phi ptr [ %.pre1362, %if.end1673 ], [ %352, %land.lhs.true1646 ]
-  %add.ptr.i1203 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %359, i64 %i.501958
+  %add.ptr.i1203 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %359, i64 %i.501960
   %id1681 = getelementptr inbounds nuw i8, ptr %add.ptr.i1203, i64 32
   %360 = load i32, ptr %id1681, align 8
   %cmp1682 = icmp eq i32 %360, 51
@@ -9796,7 +9796,7 @@ if.end1706:                                       ; preds = %if.then1696, %if.th
   %vfn1704 = getelementptr inbounds nuw i8, ptr %vtable1703, i64 896
   %364 = load ptr, ptr %vfn1704, align 8
   tail call void %364(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2283) #20
-  %inc1705 = add nuw nsw i64 %i.501958, 1
+  %inc1705 = add nuw nsw i64 %i.501960, 1
   %.pre1363 = load ptr, ptr %_M_finish.i, align 8
   %.pre1364 = load ptr, ptr %persistent_values, align 8
   %.pre1579 = ptrtoint ptr %.pre1363 to i64
@@ -9807,9 +9807,9 @@ if.end1706:                                       ; preds = %if.then1696, %if.th
   br i1 %365, label %land.lhs.true1712, label %if.end1970
 
 land.lhs.true1712:                                ; preds = %land.lhs.true1679, %if.end1706
-  %i.511965 = phi i64 [ %inc1705, %if.end1706 ], [ %i.501958, %land.lhs.true1679 ]
+  %i.511967 = phi i64 [ %inc1705, %if.end1706 ], [ %i.501960, %land.lhs.true1679 ]
   %366 = phi ptr [ %.pre1364, %if.end1706 ], [ %359, %land.lhs.true1679 ]
-  %add.ptr.i1210 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %366, i64 %i.511965
+  %add.ptr.i1210 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %366, i64 %i.511967
   %id1714 = getelementptr inbounds nuw i8, ptr %add.ptr.i1210, i64 32
   %367 = load i32, ptr %id1714, align 8
   %cmp1715 = icmp eq i32 %367, 52
@@ -9832,7 +9832,7 @@ if.end1739:                                       ; preds = %if.then1729, %if.th
   %vfn1737 = getelementptr inbounds nuw i8, ptr %vtable1736, i64 912
   %371 = load ptr, ptr %vfn1737, align 8
   tail call void %371(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2271) #20
-  %inc1738 = add nuw nsw i64 %i.511965, 1
+  %inc1738 = add nuw nsw i64 %i.511967, 1
   %.pre1365 = load ptr, ptr %_M_finish.i, align 8
   %.pre1366 = load ptr, ptr %persistent_values, align 8
   %.pre1583 = ptrtoint ptr %.pre1365 to i64
@@ -9843,9 +9843,9 @@ if.end1739:                                       ; preds = %if.then1729, %if.th
   br i1 %372, label %land.lhs.true1745, label %if.end1970
 
 land.lhs.true1745:                                ; preds = %land.lhs.true1712, %if.end1739
-  %i.521972 = phi i64 [ %inc1738, %if.end1739 ], [ %i.511965, %land.lhs.true1712 ]
+  %i.521974 = phi i64 [ %inc1738, %if.end1739 ], [ %i.511967, %land.lhs.true1712 ]
   %373 = phi ptr [ %.pre1366, %if.end1739 ], [ %366, %land.lhs.true1712 ]
-  %add.ptr.i1217 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %373, i64 %i.521972
+  %add.ptr.i1217 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %373, i64 %i.521974
   %id1747 = getelementptr inbounds nuw i8, ptr %add.ptr.i1217, i64 32
   %374 = load i32, ptr %id1747, align 8
   %cmp1748 = icmp eq i32 %374, 53
@@ -9868,7 +9868,7 @@ if.end1772:                                       ; preds = %if.then1762, %if.th
   %vfn1770 = getelementptr inbounds nuw i8, ptr %vtable1769, i64 928
   %378 = load ptr, ptr %vfn1770, align 8
   tail call void %378(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2259) #20
-  %inc1771 = add nuw nsw i64 %i.521972, 1
+  %inc1771 = add nuw nsw i64 %i.521974, 1
   %.pre1367 = load ptr, ptr %_M_finish.i, align 8
   %.pre1368 = load ptr, ptr %persistent_values, align 8
   %.pre1587 = ptrtoint ptr %.pre1367 to i64
@@ -9879,9 +9879,9 @@ if.end1772:                                       ; preds = %if.then1762, %if.th
   br i1 %379, label %land.lhs.true1778, label %if.end1970
 
 land.lhs.true1778:                                ; preds = %land.lhs.true1745, %if.end1772
-  %i.531979 = phi i64 [ %inc1771, %if.end1772 ], [ %i.521972, %land.lhs.true1745 ]
+  %i.531981 = phi i64 [ %inc1771, %if.end1772 ], [ %i.521974, %land.lhs.true1745 ]
   %380 = phi ptr [ %.pre1368, %if.end1772 ], [ %373, %land.lhs.true1745 ]
-  %add.ptr.i1224 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %380, i64 %i.531979
+  %add.ptr.i1224 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %380, i64 %i.531981
   %id1780 = getelementptr inbounds nuw i8, ptr %add.ptr.i1224, i64 32
   %381 = load i32, ptr %id1780, align 8
   %cmp1781 = icmp eq i32 %381, 54
@@ -9904,7 +9904,7 @@ if.end1805:                                       ; preds = %if.then1795, %if.th
   %vfn1803 = getelementptr inbounds nuw i8, ptr %vtable1802, i64 944
   %385 = load ptr, ptr %vfn1803, align 8
   tail call void %385(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2247) #20
-  %inc1804 = add nuw nsw i64 %i.531979, 1
+  %inc1804 = add nuw nsw i64 %i.531981, 1
   %.pre1369 = load ptr, ptr %_M_finish.i, align 8
   %.pre1370 = load ptr, ptr %persistent_values, align 8
   %.pre1591 = ptrtoint ptr %.pre1369 to i64
@@ -9915,9 +9915,9 @@ if.end1805:                                       ; preds = %if.then1795, %if.th
   br i1 %386, label %land.lhs.true1811, label %if.end1970
 
 land.lhs.true1811:                                ; preds = %land.lhs.true1778, %if.end1805
-  %i.541986 = phi i64 [ %inc1804, %if.end1805 ], [ %i.531979, %land.lhs.true1778 ]
+  %i.541988 = phi i64 [ %inc1804, %if.end1805 ], [ %i.531981, %land.lhs.true1778 ]
   %387 = phi ptr [ %.pre1370, %if.end1805 ], [ %380, %land.lhs.true1778 ]
-  %add.ptr.i1231 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %387, i64 %i.541986
+  %add.ptr.i1231 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %387, i64 %i.541988
   %id1813 = getelementptr inbounds nuw i8, ptr %add.ptr.i1231, i64 32
   %388 = load i32, ptr %id1813, align 8
   %cmp1814 = icmp eq i32 %388, 55
@@ -9940,7 +9940,7 @@ if.end1838:                                       ; preds = %if.then1828, %if.th
   %vfn1836 = getelementptr inbounds nuw i8, ptr %vtable1835, i64 960
   %392 = load ptr, ptr %vfn1836, align 8
   tail call void %392(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2235) #20
-  %inc1837 = add nuw nsw i64 %i.541986, 1
+  %inc1837 = add nuw nsw i64 %i.541988, 1
   %.pre1371 = load ptr, ptr %_M_finish.i, align 8
   %.pre1372 = load ptr, ptr %persistent_values, align 8
   %.pre1595 = ptrtoint ptr %.pre1371 to i64
@@ -9951,9 +9951,9 @@ if.end1838:                                       ; preds = %if.then1828, %if.th
   br i1 %393, label %land.lhs.true1844, label %if.end1970
 
 land.lhs.true1844:                                ; preds = %land.lhs.true1811, %if.end1838
-  %i.551993 = phi i64 [ %inc1837, %if.end1838 ], [ %i.541986, %land.lhs.true1811 ]
+  %i.551995 = phi i64 [ %inc1837, %if.end1838 ], [ %i.541988, %land.lhs.true1811 ]
   %394 = phi ptr [ %.pre1372, %if.end1838 ], [ %387, %land.lhs.true1811 ]
-  %add.ptr.i1238 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %394, i64 %i.551993
+  %add.ptr.i1238 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %394, i64 %i.551995
   %id1846 = getelementptr inbounds nuw i8, ptr %add.ptr.i1238, i64 32
   %395 = load i32, ptr %id1846, align 8
   %cmp1847 = icmp eq i32 %395, 56
@@ -9976,7 +9976,7 @@ if.end1871:                                       ; preds = %if.then1861, %if.th
   %vfn1869 = getelementptr inbounds nuw i8, ptr %vtable1868, i64 976
   %399 = load ptr, ptr %vfn1869, align 8
   tail call void %399(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2223) #20
-  %inc1870 = add nuw nsw i64 %i.551993, 1
+  %inc1870 = add nuw nsw i64 %i.551995, 1
   %.pre1373 = load ptr, ptr %_M_finish.i, align 8
   %.pre1374 = load ptr, ptr %persistent_values, align 8
   %.pre1599 = ptrtoint ptr %.pre1373 to i64
@@ -9987,9 +9987,9 @@ if.end1871:                                       ; preds = %if.then1861, %if.th
   br i1 %400, label %land.lhs.true1877, label %if.end1970
 
 land.lhs.true1877:                                ; preds = %land.lhs.true1844, %if.end1871
-  %i.562000 = phi i64 [ %inc1870, %if.end1871 ], [ %i.551993, %land.lhs.true1844 ]
+  %i.562002 = phi i64 [ %inc1870, %if.end1871 ], [ %i.551995, %land.lhs.true1844 ]
   %401 = phi ptr [ %.pre1374, %if.end1871 ], [ %394, %land.lhs.true1844 ]
-  %add.ptr.i1245 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %401, i64 %i.562000
+  %add.ptr.i1245 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %401, i64 %i.562002
   %id1879 = getelementptr inbounds nuw i8, ptr %add.ptr.i1245, i64 32
   %402 = load i32, ptr %id1879, align 8
   %cmp1880 = icmp eq i32 %402, 57
@@ -10012,7 +10012,7 @@ if.end1904:                                       ; preds = %if.then1894, %if.th
   %vfn1902 = getelementptr inbounds nuw i8, ptr %vtable1901, i64 992
   %406 = load ptr, ptr %vfn1902, align 8
   tail call void %406(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2211) #20
-  %inc1903 = add nuw nsw i64 %i.562000, 1
+  %inc1903 = add nuw nsw i64 %i.562002, 1
   %.pre1375 = load ptr, ptr %_M_finish.i, align 8
   %.pre1376 = load ptr, ptr %persistent_values, align 8
   %.pre1603 = ptrtoint ptr %.pre1375 to i64
@@ -10023,9 +10023,9 @@ if.end1904:                                       ; preds = %if.then1894, %if.th
   br i1 %407, label %land.lhs.true1910, label %if.end1970
 
 land.lhs.true1910:                                ; preds = %land.lhs.true1877, %if.end1904
-  %i.572007 = phi i64 [ %inc1903, %if.end1904 ], [ %i.562000, %land.lhs.true1877 ]
+  %i.572009 = phi i64 [ %inc1903, %if.end1904 ], [ %i.562002, %land.lhs.true1877 ]
   %408 = phi ptr [ %.pre1376, %if.end1904 ], [ %401, %land.lhs.true1877 ]
-  %add.ptr.i1252 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %408, i64 %i.572007
+  %add.ptr.i1252 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %408, i64 %i.572009
   %id1912 = getelementptr inbounds nuw i8, ptr %add.ptr.i1252, i64 32
   %409 = load i32, ptr %id1912, align 8
   %cmp1913 = icmp eq i32 %409, 58
@@ -10048,7 +10048,7 @@ if.end1937:                                       ; preds = %if.then1927, %if.th
   %vfn1935 = getelementptr inbounds nuw i8, ptr %vtable1934, i64 1008
   %413 = load ptr, ptr %vfn1935, align 8
   tail call void %413(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2199) #20
-  %inc1936 = add nuw nsw i64 %i.572007, 1
+  %inc1936 = add nuw nsw i64 %i.572009, 1
   %.pre1377 = load ptr, ptr %_M_finish.i, align 8
   %.pre1378 = load ptr, ptr %persistent_values, align 8
   %.pre1607 = ptrtoint ptr %.pre1377 to i64
@@ -10059,9 +10059,9 @@ if.end1937:                                       ; preds = %if.then1927, %if.th
   br i1 %414, label %land.lhs.true1943, label %if.end1970
 
 land.lhs.true1943:                                ; preds = %land.lhs.true1910, %if.end1937
-  %i.582014 = phi i64 [ %inc1936, %if.end1937 ], [ %i.572007, %land.lhs.true1910 ]
+  %i.582016 = phi i64 [ %inc1936, %if.end1937 ], [ %i.572009, %land.lhs.true1910 ]
   %415 = phi ptr [ %.pre1378, %if.end1937 ], [ %408, %land.lhs.true1910 ]
-  %add.ptr.i1259 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %415, i64 %i.582014
+  %add.ptr.i1259 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %415, i64 %i.582016
   %id1945 = getelementptr inbounds nuw i8, ptr %add.ptr.i1259, i64 32
   %416 = load i32, ptr %id1945, align 8
   %cmp1946 = icmp eq i32 %416, 59
@@ -13740,10 +13740,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   br i1 %cmp.not, label %cleanup, label %if.then.i.i.i.i13
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i59 = getelementptr inbounds i8, ptr %12, i64 -8
-  %18 = load ptr, ptr %incdec.ptr.i.i.i.i59, align 8
-  %cmp.not60 = icmp eq ptr %18, null
-  br i1 %cmp.not60, label %cleanup, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit17
+  %incdec.ptr.i.i.i.i65 = getelementptr inbounds i8, ptr %12, i64 -8
+  %18 = load ptr, ptr %incdec.ptr.i.i.i.i65, align 8
+  %cmp.not66 = icmp eq ptr %18, null
+  br i1 %cmp.not66, label %cleanup, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit17
 
 if.then.i.i.i.i13:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -14001,10 +14001,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   br i1 %cmp.not, label %if.end19, label %if.then.i.i.i.i19
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i41 = getelementptr inbounds i8, ptr %16, i64 -8
-  %22 = load ptr, ptr %incdec.ptr.i.i.i.i41, align 8
-  %cmp.not42 = icmp eq ptr %22, null
-  br i1 %cmp.not42, label %if.end19, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit23
+  %incdec.ptr.i.i.i.i45 = getelementptr inbounds i8, ptr %16, i64 -8
+  %22 = load ptr, ptr %incdec.ptr.i.i.i.i45, align 8
+  %cmp.not46 = icmp eq ptr %22, null
+  br i1 %cmp.not46, label %if.end19, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit23
 
 if.then.i.i.i.i19:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -14803,10 +14803,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i:   ; preds = %if.end.i.i
   br i1 %cmp.not.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i: ; preds = %if.end.i.i
-  %incdec.ptr.i.i.i.i19.i = getelementptr inbounds i8, ptr %4, i64 -8
-  %10 = load ptr, ptr %incdec.ptr.i.i.i.i19.i, align 8
-  %cmp.not20.i = icmp eq ptr %10, null
-  br i1 %cmp.not20.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i
+  %incdec.ptr.i.i.i.i20.i = getelementptr inbounds i8, ptr %4, i64 -8
+  %10 = load ptr, ptr %incdec.ptr.i.i.i.i20.i, align 8
+  %cmp.not21.i = icmp eq ptr %10, null
+  br i1 %cmp.not21.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i
   %11 = phi ptr [ %10, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i ], [ %9, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i ]
@@ -14912,10 +14912,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i: ; preds = %if.end.i.i.i
   br i1 %cmp.not.i3.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i: ; preds = %if.end.i.i.i
-  %incdec.ptr.i.i.i.i19.i.i = getelementptr inbounds i8, ptr %4, i64 -8
-  %10 = load ptr, ptr %incdec.ptr.i.i.i.i19.i.i, align 8
-  %cmp.not20.i.i = icmp eq ptr %10, null
-  br i1 %cmp.not20.i.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
+  %incdec.ptr.i.i.i.i20.i.i = getelementptr inbounds i8, ptr %4, i64 -8
+  %10 = load ptr, ptr %incdec.ptr.i.i.i.i20.i.i, align 8
+  %cmp.not21.i.i = icmp eq ptr %10, null
+  br i1 %cmp.not21.i.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i
   %11 = phi ptr [ %10, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i ], [ %9, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i ]

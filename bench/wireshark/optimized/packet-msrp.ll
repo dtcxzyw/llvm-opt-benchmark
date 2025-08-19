@@ -605,7 +605,7 @@ show_setup_info.exit:                             ; preds = %173, %170, %proto_i
   br i1 %211, label %msrp_is_known_msrp_header.exit.preheader, label %213
 
 msrp_is_known_msrp_header.exit.preheader:         ; preds = %209
-  %.0253282 = add i32 %192, 1
+  %.0253282 = add nuw i32 %192, 1
   %212 = icmp slt i32 %.0253282, %191
   br i1 %212, label %.lr.ph, label %.critedge
 

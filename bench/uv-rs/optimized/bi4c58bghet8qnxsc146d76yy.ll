@@ -1639,7 +1639,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
 
 "_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hcdb1a922a561f59bE.llvm.16679439562553428002.exit.i": ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hacdd5ff8bb9118b1E.exit.i.i", %42, %42, %42, %42, %42, %42
   %70 = icmp eq ptr %43, %3
-  br i1 %70, label %.thread52, label %.lr.ph.i
+  br i1 %70, label %.thread62, label %.lr.ph.i
 
 _ZN4core3str7pattern8Searcher11next_reject17h5cf5ec56f45b18ffE.llvm.16679439562553428002.exit: ; preds = %48, %50, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hacdd5ff8bb9118b1E.exit.i.i", %2
   %spec.select = phi i64 [ 0, %2 ], [ %4, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hacdd5ff8bb9118b1E.exit.i.i" ], [ %4, %50 ], [ %4, %48 ]
@@ -1774,21 +1774,21 @@ _ZN4core3str7pattern8Searcher11next_reject17h5cf5ec56f45b18ffE.llvm.166794395625
   %138 = ptrtoint ptr %.sroa.4.0 to i64
   %139 = sub i64 %.sroa.14.0, %138
   %140 = add i64 %139, %137
-  br label %.thread48
+  br label %.thread58
 
 141:                                              ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hacdd5ff8bb9118b1E.exit.i.i.i", %111, %111, %111, %111, %111, %111
   %142 = icmp eq ptr %.sroa.4.0, %112
   br i1 %142, label %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hffa313c359e416f5E.llvm.16679439562553428002.exit", label %.lr.ph.i.i
 
 "_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hffa313c359e416f5E.llvm.16679439562553428002.exit": ; preds = %141, %_ZN4core3str7pattern8Searcher11next_reject17h5cf5ec56f45b18ffE.llvm.16679439562553428002.exit
-  br i1 %.not, label %.thread52, label %.thread48
+  br i1 %.not, label %.thread62, label %.thread58
 
-.thread52:                                        ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hcdb1a922a561f59bE.llvm.16679439562553428002.exit.i", %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hffa313c359e416f5E.llvm.16679439562553428002.exit"
-  br label %.thread48
+.thread62:                                        ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hcdb1a922a561f59bE.llvm.16679439562553428002.exit.i", %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hffa313c359e416f5E.llvm.16679439562553428002.exit"
+  br label %.thread58
 
-.thread48:                                        ; preds = %136, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hffa313c359e416f5E.llvm.16679439562553428002.exit", %.thread52
-  %143 = phi i64 [ 0, %.thread52 ], [ %.sroa.47.0, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hffa313c359e416f5E.llvm.16679439562553428002.exit" ], [ %spec.select, %136 ]
-  %144 = phi i64 [ 0, %.thread52 ], [ %.sroa.6.0, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hffa313c359e416f5E.llvm.16679439562553428002.exit" ], [ %140, %136 ]
+.thread58:                                        ; preds = %136, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hffa313c359e416f5E.llvm.16679439562553428002.exit", %.thread62
+  %143 = phi i64 [ 0, %.thread62 ], [ %.sroa.47.0, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hffa313c359e416f5E.llvm.16679439562553428002.exit" ], [ %spec.select, %136 ]
+  %144 = phi i64 [ 0, %.thread62 ], [ %.sroa.6.0, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hffa313c359e416f5E.llvm.16679439562553428002.exit" ], [ %140, %136 ]
   %145 = sub nuw i64 %144, %143
   %146 = getelementptr inbounds i8, ptr %0, i64 %143
   %147 = insertvalue { ptr, i64 } poison, ptr %146, 0
@@ -4803,8 +4803,8 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hf6e8df8bc752ff
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %11 = phi i64 [ %13, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %12 = getelementptr inbounds { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.3aa18e283ff517eb43af79d2053ec9e5.63.llvm.16679439562553428002, i64 %11
-  %13 = add i64 %11, 1
+  %12 = getelementptr inbounds nuw { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.3aa18e283ff517eb43af79d2053ec9e5.63.llvm.16679439562553428002, i64 %11
+  %13 = add nuw nsw i64 %11, 1
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i64, ptr %14, align 8, !noalias !867, !noundef !11
   %16 = icmp eq i64 %15, 0
@@ -6612,7 +6612,7 @@ switch.lookup:                                    ; preds = %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1140)
   %24 = load i64, ptr %23, align 8, !range !959, !alias.scope !1140, !noalias !1133, !noundef !11
   %25 = icmp eq i64 %24, -9223372036854775806
-  br i1 %25, label %switch.lookup39, label %26
+  br i1 %25, label %switch.lookup53, label %26
 
 26:                                               ; preds = %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1143)
@@ -6655,19 +6655,19 @@ default.unreachable:                              ; preds = %118, %73, %26
   %42 = getelementptr inbounds nuw i8, ptr %22, i64 128
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit"
 
-switch.lookup39:                                  ; preds = %20
+switch.lookup53:                                  ; preds = %20
   %43 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %44 = load i64, ptr %43, align 8, !range !1087, !alias.scope !1154, !noalias !1133, !noundef !11
   %45 = add nsw i64 %44, -2
   %46 = icmp ult i64 %45, 5
   %47 = select i1 %46, i64 %45, i64 3
-  %switch.gep40 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN83_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17ha3b4409357c441cdE", i64 0, i64 %47
-  %switch.load41 = load i64, ptr %switch.gep40, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 %switch.load41
+  %switch.gep54 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN83_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17ha3b4409357c441cdE", i64 0, i64 %47
+  %switch.load55 = load i64, ptr %switch.gep54, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 %switch.load55
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit"
 
-"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit": ; preds = %switch.lookup, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i", %39, %41, %switch.lookup39
-  %.sroa.0.0.i = phi ptr [ %19, %switch.lookup ], [ %48, %switch.lookup39 ], [ %38, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i" ], [ %40, %39 ], [ %42, %41 ]
+"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit": ; preds = %switch.lookup, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i", %39, %41, %switch.lookup53
+  %.sroa.0.0.i = phi ptr [ %19, %switch.lookup ], [ %48, %switch.lookup53 ], [ %38, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i" ], [ %40, %39 ], [ %42, %41 ]
   %.val6 = load ptr, ptr %1, align 8, !nonnull !11, !noundef !11
   %.val7 = load ptr, ptr %.sroa.0.0.i, align 8, !nonnull !11, !noundef !11
   %49 = icmp eq ptr %.val6, %.val7
@@ -6686,9 +6686,9 @@ switch.lookup39:                                  ; preds = %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1157)
   %57 = load i64, ptr %56, align 8, !range !915, !alias.scope !1157, !noundef !11
   %58 = icmp eq i64 %57, 2
-  br i1 %58, label %switch.lookup42, label %67
+  br i1 %58, label %switch.lookup56, label %67
 
-switch.lookup42:                                  ; preds = %55
+switch.lookup56:                                  ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %60 = load ptr, ptr %59, align 8, !alias.scope !1157, !nonnull !11, !noundef !11
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
@@ -6696,9 +6696,9 @@ switch.lookup42:                                  ; preds = %55
   %63 = add nsw i64 %62, -3
   %64 = icmp ult i64 %63, 5
   %65 = select i1 %64, i64 %63, i64 1
-  %switch.gep43 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN121_$LT$uv_distribution_types..resolution..ResolutionDiagnostic$u20$as$u20$uv_distribution_types..diagnostic..Diagnostic$GT$8includes17h2db4d6302617d4dfE.37", i64 0, i64 %65
-  %switch.load44 = load i64, ptr %switch.gep43, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 %switch.load44
+  %switch.gep57 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN121_$LT$uv_distribution_types..resolution..ResolutionDiagnostic$u20$as$u20$uv_distribution_types..diagnostic..Diagnostic$GT$8includes17h2db4d6302617d4dfE.37", i64 0, i64 %65
+  %switch.load58 = load i64, ptr %switch.gep57, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 %switch.load58
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit16"
 
 67:                                               ; preds = %55
@@ -6708,7 +6708,7 @@ switch.lookup42:                                  ; preds = %55
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1163)
   %71 = load i64, ptr %70, align 8, !range !959, !alias.scope !1163, !noalias !1157, !noundef !11
   %72 = icmp eq i64 %71, -9223372036854775806
-  br i1 %72, label %switch.lookup45, label %73
+  br i1 %72, label %switch.lookup59, label %73
 
 73:                                               ; preds = %67
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1166)
@@ -6748,19 +6748,19 @@ switch.lookup42:                                  ; preds = %55
   %89 = getelementptr inbounds nuw i8, ptr %69, i64 128
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit16"
 
-switch.lookup45:                                  ; preds = %67
+switch.lookup59:                                  ; preds = %67
   %90 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %91 = load i64, ptr %90, align 8, !range !1087, !alias.scope !1177, !noalias !1157, !noundef !11
   %92 = add nsw i64 %91, -2
   %93 = icmp ult i64 %92, 5
   %94 = select i1 %93, i64 %92, i64 3
-  %switch.gep46 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN83_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17ha3b4409357c441cdE", i64 0, i64 %94
-  %switch.load47 = load i64, ptr %switch.gep46, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %90, i64 %switch.load47
+  %switch.gep60 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN83_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17ha3b4409357c441cdE", i64 0, i64 %94
+  %switch.load61 = load i64, ptr %switch.gep60, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 %switch.load61
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit16"
 
-"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit16": ; preds = %switch.lookup42, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i10", %86, %88, %switch.lookup45
-  %.sroa.0.0.i9 = phi ptr [ %66, %switch.lookup42 ], [ %95, %switch.lookup45 ], [ %85, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i10" ], [ %87, %86 ], [ %89, %88 ]
+"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit16": ; preds = %switch.lookup56, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i10", %86, %88, %switch.lookup59
+  %.sroa.0.0.i9 = phi ptr [ %66, %switch.lookup56 ], [ %95, %switch.lookup59 ], [ %85, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i10" ], [ %87, %86 ], [ %89, %88 ]
   %.val4 = load ptr, ptr %1, align 8, !nonnull !11, !noundef !11
   %.val5 = load ptr, ptr %.sroa.0.0.i9, align 8, !nonnull !11, !noundef !11
   %96 = icmp eq ptr %.val4, %.val5
@@ -6777,9 +6777,9 @@ switch.lookup45:                                  ; preds = %67
 102:                                              ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1180)
   %103 = icmp eq i64 %3, 2
-  br i1 %103, label %switch.lookup48, label %112
+  br i1 %103, label %switch.lookup62, label %112
 
-switch.lookup48:                                  ; preds = %102
+switch.lookup62:                                  ; preds = %102
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %105 = load ptr, ptr %104, align 8, !alias.scope !1180, !nonnull !11, !noundef !11
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
@@ -6787,9 +6787,9 @@ switch.lookup48:                                  ; preds = %102
   %108 = add nsw i64 %107, -3
   %109 = icmp ult i64 %108, 5
   %110 = select i1 %109, i64 %108, i64 1
-  %switch.gep49 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN121_$LT$uv_distribution_types..resolution..ResolutionDiagnostic$u20$as$u20$uv_distribution_types..diagnostic..Diagnostic$GT$8includes17h2db4d6302617d4dfE.37", i64 0, i64 %110
-  %switch.load50 = load i64, ptr %switch.gep49, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %106, i64 %switch.load50
+  %switch.gep63 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN121_$LT$uv_distribution_types..resolution..ResolutionDiagnostic$u20$as$u20$uv_distribution_types..diagnostic..Diagnostic$GT$8includes17h2db4d6302617d4dfE.37", i64 0, i64 %110
+  %switch.load64 = load i64, ptr %switch.gep63, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %106, i64 %switch.load64
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit28"
 
 112:                                              ; preds = %102
@@ -6799,7 +6799,7 @@ switch.lookup48:                                  ; preds = %102
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1186)
   %116 = load i64, ptr %115, align 8, !range !959, !alias.scope !1186, !noalias !1180, !noundef !11
   %117 = icmp eq i64 %116, -9223372036854775806
-  br i1 %117, label %switch.lookup51, label %118
+  br i1 %117, label %switch.lookup65, label %118
 
 118:                                              ; preds = %112
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1189)
@@ -6839,19 +6839,19 @@ switch.lookup48:                                  ; preds = %102
   %134 = getelementptr inbounds nuw i8, ptr %114, i64 128
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit28"
 
-switch.lookup51:                                  ; preds = %112
+switch.lookup65:                                  ; preds = %112
   %135 = getelementptr inbounds nuw i8, ptr %114, i64 24
   %136 = load i64, ptr %135, align 8, !range !1087, !alias.scope !1200, !noalias !1180, !noundef !11
   %137 = add nsw i64 %136, -2
   %138 = icmp ult i64 %137, 5
   %139 = select i1 %138, i64 %137, i64 3
-  %switch.gep52 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN83_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17ha3b4409357c441cdE", i64 0, i64 %139
-  %switch.load53 = load i64, ptr %switch.gep52, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %135, i64 %switch.load53
+  %switch.gep66 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN83_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17ha3b4409357c441cdE", i64 0, i64 %139
+  %switch.load67 = load i64, ptr %switch.gep66, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %135, i64 %switch.load67
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit28"
 
-"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit28": ; preds = %switch.lookup48, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i22", %131, %133, %switch.lookup51
-  %.sroa.0.0.i21 = phi ptr [ %111, %switch.lookup48 ], [ %140, %switch.lookup51 ], [ %130, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i22" ], [ %132, %131 ], [ %134, %133 ]
+"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit28": ; preds = %switch.lookup62, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i22", %131, %133, %switch.lookup65
+  %.sroa.0.0.i21 = phi ptr [ %111, %switch.lookup62 ], [ %140, %switch.lookup65 ], [ %130, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i22" ], [ %132, %131 ], [ %134, %133 ]
   %.val2 = load ptr, ptr %1, align 8, !nonnull !11, !noundef !11
   %.val3 = load ptr, ptr %.sroa.0.0.i21, align 8, !nonnull !11, !noundef !11
   %141 = icmp eq ptr %.val2, %.val3
@@ -6883,10 +6883,10 @@ switch.lookup51:                                  ; preds = %112
 "_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.sink.split": ; preds = %150, %142, %97, %50
   %.val1.sink = phi ptr [ %.val7, %50 ], [ %.val5, %97 ], [ %.val3, %142 ], [ %.val1, %150 ]
   %.val.sink = phi ptr [ %.val6, %50 ], [ %.val4, %97 ], [ %.val2, %142 ], [ %.val, %150 ]
-  %.sink38 = phi i64 [ %52, %50 ], [ %99, %97 ], [ %144, %142 ], [ %152, %150 ]
+  %.sink52 = phi i64 [ %52, %50 ], [ %99, %97 ], [ %144, %142 ], [ %152, %150 ]
   %155 = getelementptr inbounds nuw i8, ptr %.val1.sink, i64 16
   %156 = getelementptr inbounds nuw i8, ptr %.val.sink, i64 16
-  %bcmp.i.i35 = tail call i32 @bcmp(ptr nonnull readonly align 1 %156, ptr nonnull readonly align 1 %155, i64 %.sink38)
+  %bcmp.i.i35 = tail call i32 @bcmp(ptr nonnull readonly align 1 %156, ptr nonnull readonly align 1 %155, i64 %.sink52)
   %157 = icmp eq i32 %bcmp.i.i35, 0
   br label %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit"
 
@@ -7136,14 +7136,14 @@ default.unreachable:                              ; preds = %9
   %23 = icmp ult i64 %22, 5
   %24 = select i1 %23, i64 %22, i64 3
   switch i64 %24, label %26 [
-    i64 0, label %.thread13
+    i64 0, label %.thread18
     i64 1, label %46
     i64 2, label %46
-    i64 3, label %.thread15
+    i64 3, label %.thread20
     i64 4, label %46
   ]
 
-.thread13:                                        ; preds = %19
+.thread18:                                        ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %25, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -7152,7 +7152,7 @@ default.unreachable:                              ; preds = %9
 26:                                               ; preds = %19
   unreachable
 
-.thread15:                                        ; preds = %19
+.thread20:                                        ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %27, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -7205,12 +7205,12 @@ default.unreachable:                              ; preds = %9
   %switch = icmp eq i64 %24, 3
   br i1 %switch, label %48, label %"_ZN105_$LT$uv_distribution_types..SourceDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h8963330b8d27eddbE.exit.i"
 
-48:                                               ; preds = %46, %.thread15
+48:                                               ; preds = %46, %.thread20
   br label %"_ZN105_$LT$uv_distribution_types..SourceDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h8963330b8d27eddbE.exit.i"
 
-"_ZN105_$LT$uv_distribution_types..SourceDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h8963330b8d27eddbE.exit.i": ; preds = %46, %.thread13, %48
-  %.sink.i.i8 = phi i64 [ 24, %48 ], [ 64, %.thread13 ], [ 8, %46 ]
-  %.sroa.0.0.i2.i = phi i64 [ 1, %48 ], [ 0, %.thread13 ], [ 1, %46 ]
+"_ZN105_$LT$uv_distribution_types..SourceDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h8963330b8d27eddbE.exit.i": ; preds = %46, %.thread18, %48
+  %.sink.i.i8 = phi i64 [ 24, %48 ], [ 64, %.thread18 ], [ 8, %46 ]
+  %.sroa.0.0.i2.i = phi i64 [ 1, %48 ], [ 0, %.thread18 ], [ 1, %46 ]
   %49 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink.i.i8
   br label %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit
 
@@ -11808,13 +11808,13 @@ switch.lookup:                                    ; preds = %1
   %23 = select i1 %22, i64 %21, i64 3
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN99_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h68549a9ee928fd64E", i64 0, i64 %23
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep6 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN99_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h68549a9ee928fd64E.40", i64 0, i64 %23
-  %switch.load7 = load i64, ptr %switch.gep6, align 8
+  %switch.gep8 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN99_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h68549a9ee928fd64E.40", i64 0, i64 %23
+  %switch.load9 = load i64, ptr %switch.gep8, align 8
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 %switch.load
   br label %"_ZN104_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17he8e41b7350d6f218E.exit"
 
 "_ZN104_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17he8e41b7350d6f218E.exit": ; preds = %17, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i", %4, %switch.lookup
-  %.sroa.0.0.i2.pn = phi i64 [ %switch.load7, %switch.lookup ], [ 0, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i" ], [ 1, %17 ], [ 1, %4 ]
+  %.sroa.0.0.i2.pn = phi i64 [ %switch.load9, %switch.lookup ], [ 0, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i" ], [ 1, %17 ], [ 1, %4 ]
   %.pn4 = phi ptr [ %24, %switch.lookup ], [ %16, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i" ], [ %18, %17 ], [ %0, %4 ]
   %.pn3 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i2.pn, 0
   %.pn = insertvalue { i64, ptr } %.pn3, ptr %.pn4, 1
@@ -13994,13 +13994,13 @@ define hidden void @"_ZN79_$LT$uv_distribution_types..index_url..IndexUrl$u20$as
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noundef !11
   %11 = icmp ult i64 %10, 17
-  switch i64 %3, label %default.unreachable45 [
+  switch i64 %3, label %default.unreachable52 [
     i64 0, label %12
     i64 1, label %60
     i64 2, label %108
   ]
 
-default.unreachable45:                            ; preds = %2
+default.unreachable52:                            ; preds = %2
   unreachable
 
 12:                                               ; preds = %2

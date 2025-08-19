@@ -4658,7 +4658,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46: ; preds = %_ZStl
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit50 unwind label %108
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit50: ; preds = %.lr.ph
-  %107 = add i64 %.0117, 1
+  %107 = add nuw nsw i64 %.0117, 1
   %exitcond.not = icmp eq i64 %107, 15
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !335
 
@@ -8722,7 +8722,7 @@ _ZNK2lp10int_solver3imp17column_is_int_infEj.exit.thread229: ; preds = %.noexc17
   br label %525
 
 500:                                              ; preds = %490, %.critedge139
-  %.0207.lcssa372 = phi i32 [ %.1.ph, %490 ], [ -1, %.critedge139 ]
+  %.0207.lcssa375 = phi i32 [ %.1.ph, %490 ], [ -1, %.critedge139 ]
   %.not122 = icmp eq i32 %.1226.ph, -1
   br i1 %.not122, label %512, label %501
 
@@ -8745,14 +8745,14 @@ _ZNK2lp10int_solver3imp17column_is_int_infEj.exit.thread229: ; preds = %.noexc17
   br i1 %.not127, label %512, label %_ZZN2lp10int_solver3imp25select_int_infeasible_varEvENKUlbRiRjjE_clEbS2_S3_j.exit
 
 512:                                              ; preds = %504, %500
-  %.0225.lcssa370382 = phi i32 [ %.1226.ph, %504 ], [ -1, %500 ]
+  %.0225.lcssa373385 = phi i32 [ %.1226.ph, %504 ], [ -1, %500 ]
   %.not128 = icmp eq i32 %.1222.ph, -1
-  %.0225.lcssa370382..0207.lcssa372 = select i1 %.not120, i32 %.0225.lcssa370382, i32 %.0207.lcssa372
-  %spec.select405 = select i1 %.not128, i32 %.0225.lcssa370382..0207.lcssa372, i32 %.1222.ph
+  %.0225.lcssa373385..0207.lcssa375 = select i1 %.not120, i32 %.0225.lcssa373385, i32 %.0207.lcssa375
+  %spec.select408 = select i1 %.not128, i32 %.0225.lcssa373385..0207.lcssa375, i32 %.1222.ph
   br label %_ZZN2lp10int_solver3imp25select_int_infeasible_varEvENKUlbRiRjjE_clEbS2_S3_j.exit
 
 _ZZN2lp10int_solver3imp25select_int_infeasible_varEvENKUlbRiRjjE_clEbS2_S3_j.exit: ; preds = %_ZNK2lp11lp_settings15get_cancel_flagEv.exit, %512, %27, %_ZNK6vectorIjLb1EjE3endEv.exit, %504, %490
-  %.365 = phi i32 [ %.1.ph, %490 ], [ %.1226.ph, %504 ], [ -1, %27 ], [ -1, %_ZNK6vectorIjLb1EjE3endEv.exit ], [ %spec.select405, %512 ], [ -1, %_ZNK2lp11lp_settings15get_cancel_flagEv.exit ]
+  %.365 = phi i32 [ %.1.ph, %490 ], [ %.1226.ph, %504 ], [ -1, %27 ], [ -1, %_ZNK6vectorIjLb1EjE3endEv.exit ], [ %spec.select408, %512 ], [ -1, %_ZNK2lp11lp_settings15get_cancel_flagEv.exit ]
   %513 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !14
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %513, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %.noexc.i186 unwind label %514
@@ -10243,8 +10243,8 @@ _ZN6vectorISt4pairIj8rationalELb1EjE5clearEv.exit: ; preds = %1, %_ZN6vectorISt4
   %37 = icmp ugt i32 %25, 16
   %38 = mul i32 %25, 3
   %39 = icmp ugt i32 %36, %38
-  %or.cond16.i = select i1 %37, i1 %39, i1 false
-  br i1 %or.cond16.i, label %40, label %._crit_edge.thread.i
+  %or.cond18.i = select i1 %37, i1 %39, i1 false
+  br i1 %or.cond18.i, label %40, label %._crit_edge.thread.i
 
 40:                                               ; preds = %._crit_edge.i
   %41 = icmp eq ptr %23, null
@@ -10587,8 +10587,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %23 = icmp ugt i32 %11, 16
   %24 = mul i32 %11, 3
   %25 = icmp ugt i32 %22, %24
-  %or.cond18 = select i1 %23, i1 %25, i1 false
-  br i1 %or.cond18, label %26, label %._crit_edge.thread
+  %or.cond21 = select i1 %23, i1 %25, i1 false
+  br i1 %or.cond21, label %26, label %._crit_edge.thread
 
 26:                                               ; preds = %._crit_edge
   %27 = icmp eq ptr %9, null

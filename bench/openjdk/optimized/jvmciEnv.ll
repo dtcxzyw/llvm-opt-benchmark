@@ -1407,13 +1407,13 @@ define hidden void @_ZN8JVMCIEnv26describe_pending_exceptionEP12outputStream(ptr
   br i1 %.not40, label %._crit_edge.thread, label %55
 
 55:                                               ; preds = %._crit_edge
-  %.not53 = icmp slt i32 %.03745, %21
+  %.not55 = icmp slt i32 %.03745, %21
   %56 = load i64, ptr @JVMCITraceLevel, align 8
   %57 = icmp slt i64 %56, 1
   %58 = load i64, ptr @JVMCIEventLogLevel, align 8
   %59 = icmp slt i64 %58, 1
   %or.cond5 = select i1 %57, i1 %59, i1 false
-  br i1 %.not53, label %63, label %60
+  br i1 %.not55, label %63, label %60
 
 60:                                               ; preds = %55
   br i1 %or.cond5, label %._crit_edge.thread, label %61

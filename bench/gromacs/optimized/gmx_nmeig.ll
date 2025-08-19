@@ -1058,8 +1058,8 @@ _ZL20allocateEigenvectorsiiib.exit:               ; preds = %327
   %375 = icmp ne ptr %328, null
   %.not77.i = icmp sge i32 %339, %338
   %376 = and i1 %375, %.not77.i
-  %or.cond93.not.i = and i1 %376, %332
-  br i1 %or.cond93.not.i, label %.preheader.lr.ph.i, label %_ZL16nma_full_hessianPfibPK10t_topologyN3gmx8ArrayRefIKiEEiiS_S_.exit
+  %or.cond97.not.i = and i1 %376, %332
+  br i1 %or.cond97.not.i, label %.preheader.lr.ph.i, label %_ZL16nma_full_hessianPfibPK10t_topologyN3gmx8ArrayRefIKiEEiiS_S_.exit
 
 .preheader.lr.ph.i:                               ; preds = %.noexc242
   %377 = ashr exact i64 %337, 2
@@ -2535,8 +2535,8 @@ _ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit94.i
 
 987:                                              ; preds = %._crit_edge.i368, %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i, %980
-  %.sroa.15.1.i = phi ptr [ null, %980 ], [ %.sroa.15.051.i, %._crit_edge.i368 ], [ null, %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %.sroa.014.1.i = phi ptr [ null, %980 ], [ %.sroa.014.056.i, %._crit_edge.i368 ], [ null, %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.sroa.15.1.i = phi ptr [ null, %980 ], [ %.sroa.15.053.i, %._crit_edge.i368 ], [ null, %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.sroa.014.1.i = phi ptr [ null, %980 ], [ %.sroa.014.058.i, %._crit_edge.i368 ], [ null, %_ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %988 = landingpad { ptr, i32 }
           cleanup
   br label %1088
@@ -2564,15 +2564,15 @@ _ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
   br label %._crit_edge.i368
 
 ._crit_edge.i368:                                 ; preds = %._crit_edge.i368.loopexit, %976
-  %.sroa.014.056.i = phi ptr [ null, %976 ], [ %982, %._crit_edge.i368.loopexit ]
-  %.sroa.15.051.i = phi ptr [ null, %976 ], [ %998, %._crit_edge.i368.loopexit ]
-  %999 = invoke noundef float @_Z7sub_xcmPA3_fiPKiPK6t_atomPfb(ptr noundef %.sroa.014.056.i, i32 noundef %972, ptr noundef %.sroa.023.0.i, ptr noundef %.sroa.5416.0.copyload, ptr noundef nonnull %2, i1 noundef zeroext false)
+  %.sroa.014.058.i = phi ptr [ null, %976 ], [ %982, %._crit_edge.i368.loopexit ]
+  %.sroa.15.053.i = phi ptr [ null, %976 ], [ %998, %._crit_edge.i368.loopexit ]
+  %999 = invoke noundef float @_Z7sub_xcmPA3_fiPKiPK6t_atomPfb(ptr noundef %.sroa.014.058.i, i32 noundef %972, ptr noundef %.sroa.023.0.i, ptr noundef %.sroa.5416.0.copyload, ptr noundef nonnull %2, i1 noundef zeroext false)
           to label %1000 unwind label %987
 
 1000:                                             ; preds = %._crit_edge.i368
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  invoke void @_Z14principal_compiPKiP6t_atomPA3_fS4_Pf(i32 noundef %972, ptr noundef %.sroa.023.0.i, ptr noundef %.sroa.5416.0.copyload, ptr noundef %.sroa.014.056.i, ptr noundef nonnull %4, ptr noundef nonnull %3)
+  invoke void @_Z14principal_compiPKiP6t_atomPA3_fS4_Pf(i32 noundef %972, ptr noundef %.sroa.023.0.i, ptr noundef %.sroa.5416.0.copyload, ptr noundef %.sroa.014.058.i, ptr noundef nonnull %4, ptr noundef nonnull %3)
           to label %1001 unwind label %1016
 
 1001:                                             ; preds = %1000
@@ -2695,14 +2695,14 @@ _ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not.i.i.i90.i = icmp eq ptr %.sroa.014.056.i, null
+  %.not.i.i.i90.i = icmp eq ptr %.sroa.014.058.i, null
   br i1 %.not.i.i.i90.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit.i, label %1069
 
 1069:                                             ; preds = %1067
-  %1070 = ptrtoint ptr %.sroa.15.051.i to i64
-  %1071 = ptrtoint ptr %.sroa.014.056.i to i64
+  %1070 = ptrtoint ptr %.sroa.15.053.i to i64
+  %1071 = ptrtoint ptr %.sroa.014.058.i to i64
   %1072 = sub i64 %1070, %1071
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.014.056.i, i64 noundef %1072) #17
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.014.058.i, i64 noundef %1072) #17
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit.i
 
 _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit.i: ; preds = %1069, %1067
@@ -2753,8 +2753,8 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit.i: ; preds = %1069, %1067
   br label %1088
 
 1088:                                             ; preds = %1087, %987
-  %.sroa.15.2.i = phi ptr [ %.sroa.15.1.i, %987 ], [ %.sroa.15.051.i, %1087 ]
-  %.sroa.014.2.i = phi ptr [ %.sroa.014.1.i, %987 ], [ %.sroa.014.056.i, %1087 ]
+  %.sroa.15.2.i = phi ptr [ %.sroa.15.1.i, %987 ], [ %.sroa.15.053.i, %1087 ]
+  %.sroa.014.2.i = phi ptr [ %.sroa.014.1.i, %987 ], [ %.sroa.014.058.i, %1087 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %988, %987 ], [ %.pn.pn.pn.pn.pn.pn.pn.i, %1087 ]
   %.not.i.i.i93.i = icmp eq ptr %.sroa.014.2.i, null
   br i1 %.not.i.i.i93.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit94.i, label %1089

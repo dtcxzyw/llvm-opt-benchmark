@@ -976,9 +976,9 @@ _ZN10rayon_core8registry19set_global_registry17h8c93fbc64a3f9233E.exit: ; preds 
 
 25:                                               ; preds = %.thread, %16
   %.sroa.4.0.copyload1118 = phi ptr [ undef, %.thread ], [ %.sroa.4.0.copyload.pre, %16 ]
-  %.sroa.02.0.copyload1216 = phi i64 [ 0, %.thread ], [ %.sroa.02.0.copyload.pre, %16 ]
+  %.sroa.02.0.copyload1217 = phi i64 [ 0, %.thread ], [ %.sroa.02.0.copyload.pre, %16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !100
-  store i64 %.sroa.02.0.copyload1216, ptr %1, align 8, !noalias !100
+  store i64 %.sroa.02.0.copyload1217, ptr %1, align 8, !noalias !100
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %.sroa.4.0.copyload1118, ptr %26, align 8, !noalias !100
   invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.d61528429f0bdeb9caa8633bd1eca0a2.46.llvm.14976363794789945401, i64 noundef 48, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d61528429f0bdeb9caa8633bd1eca0a2.28.llvm.14976363794789945401, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d61528429f0bdeb9caa8633bd1eca0a2.48.llvm.14976363794789945401) #21

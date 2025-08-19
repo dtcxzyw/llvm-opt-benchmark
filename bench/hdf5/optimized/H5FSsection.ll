@@ -1662,8 +1662,8 @@ H5VM_log2_gen.exit.i:                             ; preds = %69, %63, %57, %51, 
   br i1 %143, label %.sink.split.i, label %147
 
 .sink.split.i:                                    ; preds = %136, %128
-  %.sink65.i = phi i64 [ 288, %128 ], [ 280, %136 ]
-  %144 = getelementptr inbounds nuw i8, ptr %18, i64 %.sink65.i
+  %.sink70.i = phi i64 [ 288, %128 ], [ 280, %136 ]
+  %144 = getelementptr inbounds nuw i8, ptr %18, i64 %.sink70.i
   %145 = load i64, ptr %144, align 8, !tbaa !10
   %146 = add i64 %145, 1
   store i64 %146, ptr %144, align 8, !tbaa !10
@@ -1915,7 +1915,7 @@ define range(i32 -1, 2) i32 @H5FS_sect_try_extend(ptr noundef %0, ptr noundef %1
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 48
   %60 = load ptr, ptr %59, align 8, !tbaa !88
   %.not44 = icmp eq ptr %60, null
-  br i1 %.not44, label %.thread56, label %61
+  br i1 %.not44, label %.thread60, label %61
 
 61:                                               ; preds = %55
   %62 = call i32 %60(ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef %6) #5
@@ -1931,15 +1931,15 @@ define range(i32 -1, 2) i32 @H5FS_sect_try_extend(ptr noundef %0, ptr noundef %1
 68:                                               ; preds = %61
   %.pre = load ptr, ptr %10, align 8, !tbaa !84
   %.not45 = icmp eq ptr %.pre, null
-  br i1 %.not45, label %89, label %.thread56
+  br i1 %.not45, label %89, label %.thread60
 
-.thread56:                                        ; preds = %55, %68
+.thread60:                                        ; preds = %55, %68
   %69 = phi ptr [ %.pre, %68 ], [ %30, %55 ]
   %70 = call fastcc i32 @H5FS__sect_link(ptr noundef nonnull %1, ptr noundef nonnull %69, i32 noundef 0)
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %72, label %89
 
-72:                                               ; preds = %.thread56
+72:                                               ; preds = %.thread60
   %73 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !10
   %74 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !10
   %75 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5FS_sect_try_extend, i32 noundef 1472, i64 noundef %73, i64 noundef %74, ptr noundef nonnull @.str.12) #5
@@ -1965,9 +1965,9 @@ define range(i32 -1, 2) i32 @H5FS_sect_try_extend(ptr noundef %0, ptr noundef %1
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread46
 
-89:                                               ; preds = %.thread56, %68, %76, %81, %72, %64, %42, %31, %34, %25
-  %.032.ph = phi i1 [ false, %25 ], [ false, %34 ], [ false, %31 ], [ true, %.thread56 ], [ true, %68 ], [ true, %76 ], [ false, %81 ], [ false, %72 ], [ false, %64 ], [ false, %42 ]
-  %.131.ph = phi i32 [ 0, %25 ], [ 0, %34 ], [ 0, %31 ], [ 1, %.thread56 ], [ 1, %68 ], [ 1, %76 ], [ -1, %81 ], [ -1, %72 ], [ -1, %64 ], [ -1, %42 ]
+89:                                               ; preds = %.thread60, %68, %76, %81, %72, %64, %42, %31, %34, %25
+  %.032.ph = phi i1 [ false, %25 ], [ false, %34 ], [ false, %31 ], [ true, %.thread60 ], [ true, %68 ], [ true, %76 ], [ false, %81 ], [ false, %72 ], [ false, %64 ], [ false, %42 ]
+  %.131.ph = phi i32 [ 0, %25 ], [ 0, %34 ], [ 0, %31 ], [ 1, %.thread60 ], [ 1, %68 ], [ 1, %76 ], [ -1, %81 ], [ -1, %72 ], [ -1, %64 ], [ -1, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %90 = call fastcc i32 @H5FS__sinfo_unlock(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %.032.ph)
   %91 = icmp slt i32 %90, 0
@@ -2926,11 +2926,11 @@ H5VM_log2_gen.exit:                               ; preds = %34, %40, %46, %52, 
   br i1 %141, label %.sink.split, label %145
 
 .sink.split:                                      ; preds = %140, %116
-  %.sink102 = phi ptr [ %98, %116 ], [ %122, %140 ]
-  %.sink101 = phi i64 [ 1, %116 ], [ -1, %140 ]
-  %142 = getelementptr inbounds nuw i8, ptr %.sink102, i64 288
+  %.sink106 = phi ptr [ %98, %116 ], [ %122, %140 ]
+  %.sink105 = phi i64 [ 1, %116 ], [ -1, %140 ]
+  %142 = getelementptr inbounds nuw i8, ptr %.sink106, i64 288
   %143 = load i64, ptr %142, align 8, !tbaa !126
-  %144 = add i64 %143, %.sink101
+  %144 = add i64 %143, %.sink105
   store i64 %144, ptr %142, align 8, !tbaa !126
   br label %145
 

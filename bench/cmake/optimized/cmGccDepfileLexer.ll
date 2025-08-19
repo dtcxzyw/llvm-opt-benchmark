@@ -693,8 +693,8 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i172, %299
   %318 = shl nuw i64 1, %.lcssa.i175
   %319 = and i64 %318, 143982696924708864
   %.not18.i = icmp ne i64 %319, 0
-  %.not163507 = icmp eq i64 %.lcssa.i175, 0
-  %.not163 = or i1 %.not18.i, %.not163507
+  %.not163539 = icmp eq i64 %.lcssa.i175, 0
+  %.not163 = or i1 %.not18.i, %.not163539
   br i1 %.not163, label %.preheader.outer.backedge, label %320
 
 320:                                              ; preds = %_ZL16yy_try_NUL_transiPv.exit
@@ -883,11 +883,11 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i172, %299
 .critedge.i:                                      ; preds = %389, %.critedge.split.loop.exit.i
   %.0128.lcssa.i = phi i32 [ %399, %.critedge.split.loop.exit.i ], [ %382, %389 ]
   switch i32 %388, label %.loopexit.i [
-    i32 10, label %.loopexit.thread198.i
+    i32 10, label %.loopexit.thread205.i
     i32 -1, label %415
   ]
 
-.loopexit.thread198.i:                            ; preds = %.critedge.i
+.loopexit.thread205.i:                            ; preds = %.critedge.i
   %400 = load ptr, ptr %79, align 8, !tbaa !20
   %401 = load i64, ptr %80, align 8, !tbaa !21
   %402 = getelementptr inbounds nuw ptr, ptr %400, i64 %401
@@ -938,9 +938,9 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i172, %299
   %430 = load ptr, ptr %82, align 8, !tbaa !17
   %431 = call i32 @ferror(ptr noundef %430) #34
   %.not142.i = icmp eq i32 %431, 0
-  br i1 %.not142.i, label %.loopexit.thread196.i, label %436
+  br i1 %.not142.i, label %.loopexit.thread203.i, label %436
 
-.loopexit.thread196.i:                            ; preds = %.lr.ph174.i
+.loopexit.thread203.i:                            ; preds = %.lr.ph174.i
   %432 = load ptr, ptr %79, align 8, !tbaa !20
   %433 = load i64, ptr %80, align 8, !tbaa !21
   %434 = getelementptr inbounds nuw ptr, ptr %432, i64 %433
@@ -994,14 +994,14 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i172, %299
   %461 = icmp eq i32 %.0128.lcssa.i, 0
   br i1 %461, label %463, label %470
 
-.sink.split.i:                                    ; preds = %.loopexit.thread196.i, %.thread157.i
-  %.sink209.i = phi ptr [ %435, %.loopexit.thread196.i ], [ %349, %.thread157.i ]
-  %462 = getelementptr inbounds nuw i8, ptr %.sink209.i, i64 28
+.sink.split.i:                                    ; preds = %.loopexit.thread203.i, %.thread157.i
+  %.sink216.i = phi ptr [ %435, %.loopexit.thread203.i ], [ %349, %.thread157.i ]
+  %462 = getelementptr inbounds nuw i8, ptr %.sink216.i, i64 28
   store i32 0, ptr %462, align 4, !tbaa !29
   br label %463
 
 463:                                              ; preds = %.sink.split.i, %.loopexit.i
-  %464 = phi ptr [ %459, %.loopexit.i ], [ %.sink209.i, %.sink.split.i ]
+  %464 = phi ptr [ %459, %.loopexit.i ], [ %.sink216.i, %.sink.split.i ]
   %465 = icmp eq i32 %342, 0
   br i1 %465, label %466, label %468
 
@@ -1020,10 +1020,10 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i172, %299
   store i32 2, ptr %469, align 8, !tbaa !52
   br label %470
 
-470:                                              ; preds = %468, %466, %.loopexit.i, %.loopexit.thread.i, %.loopexit.thread198.i
-  %471 = phi ptr [ %.pre189.i, %466 ], [ %464, %468 ], [ %459, %.loopexit.i ], [ %454, %.loopexit.thread.i ], [ %413, %.loopexit.thread198.i ]
-  %472 = phi i32 [ %.pre185.i, %466 ], [ 0, %468 ], [ %.0128.lcssa.i, %.loopexit.i ], [ %.pr.ph.i, %.loopexit.thread.i ], [ %407, %.loopexit.thread198.i ]
-  %.0135.i = phi i32 [ 1, %466 ], [ 2, %468 ], [ 0, %.loopexit.i ], [ 0, %.loopexit.thread.i ], [ 0, %.loopexit.thread198.i ]
+470:                                              ; preds = %468, %466, %.loopexit.i, %.loopexit.thread.i, %.loopexit.thread205.i
+  %471 = phi ptr [ %.pre189.i, %466 ], [ %464, %468 ], [ %459, %.loopexit.i ], [ %454, %.loopexit.thread.i ], [ %413, %.loopexit.thread205.i ]
+  %472 = phi i32 [ %.pre185.i, %466 ], [ 0, %468 ], [ %.0128.lcssa.i, %.loopexit.i ], [ %.pr.ph.i, %.loopexit.thread.i ], [ %407, %.loopexit.thread205.i ]
+  %.0135.i = phi i32 [ 1, %466 ], [ 2, %468 ], [ 0, %.loopexit.i ], [ 0, %.loopexit.thread.i ], [ 0, %.loopexit.thread205.i ]
   %473 = add nsw i32 %472, %342
   %474 = getelementptr inbounds nuw i8, ptr %471, i64 24
   %475 = load i32, ptr %474, align 8, !tbaa !25
@@ -1088,7 +1088,7 @@ _ZL18yy_get_next_bufferPv.exit:                   ; preds = %._crit_edge191.i, %
   %510 = getelementptr inbounds nuw i8, ptr %509, i64 8
   %511 = load ptr, ptr %510, align 8, !tbaa !27
   store ptr %511, ptr %77, align 8, !tbaa !33
-  switch i32 %.0135.i, label %default.unreachable400 [
+  switch i32 %.0135.i, label %default.unreachable432 [
     i32 1, label %_ZL21yy_get_previous_statePv.exit196
     i32 0, label %512
     i32 2, label %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread214_crit_edge
@@ -1105,8 +1105,8 @@ _ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread214_crit_edg
   %515 = sub i64 %513, %514
   %516 = trunc i64 %515 to i32
   %517 = shl i64 %515, 32
-  %sext508 = add i64 %517, -4294967296
-  %518 = ashr exact i64 %sext508, 32
+  %sext540 = add i64 %517, -4294967296
+  %518 = ashr exact i64 %sext540, 32
   %519 = getelementptr inbounds i8, ptr %511, i64 %518
   store ptr %519, ptr %72, align 8, !tbaa !32
   %520 = load i32, ptr %74, align 4, !tbaa !16
@@ -1283,7 +1283,7 @@ _ZL18yy_get_next_bufferPv.exit.thread214:         ; preds = %336, %_ZL18yy_get_n
   %exitcond.not.i211 = icmp eq ptr %612, %567
   br i1 %exitcond.not.i211, label %.preheader.outer.backedge, label %.lr.ph33.i198, !llvm.loop !54
 
-default.unreachable400:                           ; preds = %_ZL18yy_get_next_bufferPv.exit
+default.unreachable432:                           ; preds = %_ZL18yy_get_next_bufferPv.exit
   unreachable
 
 _ZL21yy_get_previous_statePv.exit196:             ; preds = %_ZL18yy_get_next_bufferPv.exit, %336
@@ -1501,9 +1501,9 @@ define internal fastcc void @_ZL27cmGccDepfile_yy_init_bufferP15yy_buffer_stateP
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !20
   %.not15.i = icmp eq ptr %17, null
-  br i1 %.not15.i, label %_Z28cmGccDepfile_yy_flush_bufferP15yy_buffer_statePv.exit.thread20, label %19
+  br i1 %.not15.i, label %_Z28cmGccDepfile_yy_flush_bufferP15yy_buffer_statePv.exit.thread24, label %19
 
-_Z28cmGccDepfile_yy_flush_bufferP15yy_buffer_statePv.exit.thread20: ; preds = %6
+_Z28cmGccDepfile_yy_flush_bufferP15yy_buffer_statePv.exit.thread24: ; preds = %6
   store ptr %1, ptr %0, align 8, !tbaa !34
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %18, align 4, !tbaa !56
@@ -1560,7 +1560,7 @@ _Z28cmGccDepfile_yy_flush_bufferP15yy_buffer_statePv.exit: ; preds = %3
   %45 = icmp eq ptr %0, %44
   br i1 %45, label %48, label %.critedge
 
-.critedge:                                        ; preds = %_Z28cmGccDepfile_yy_flush_bufferP15yy_buffer_statePv.exit.thread20, %_Z28cmGccDepfile_yy_flush_bufferP15yy_buffer_statePv.exit, %39
+.critedge:                                        ; preds = %_Z28cmGccDepfile_yy_flush_bufferP15yy_buffer_statePv.exit.thread24, %_Z28cmGccDepfile_yy_flush_bufferP15yy_buffer_statePv.exit, %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 1, ptr %46, align 4, !tbaa !65
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1901,9 +1901,9 @@ _ZL34cmGccDepfile_yyensure_buffer_stackPv.exit:   ; preds = %10, %13, %24
   br label %.critedge29
 
 .critedge29:                                      ; preds = %_ZL34cmGccDepfile_yyensure_buffer_stackPv.exit, %32
-  %.pr33 = phi ptr [ %39, %32 ], [ %28, %_ZL34cmGccDepfile_yyensure_buffer_stackPv.exit ]
+  %.pr37 = phi ptr [ %39, %32 ], [ %28, %_ZL34cmGccDepfile_yyensure_buffer_stackPv.exit ]
   %48 = phi i64 [ %47, %32 ], [ %27, %_ZL34cmGccDepfile_yyensure_buffer_stackPv.exit ]
-  %49 = getelementptr inbounds nuw ptr, ptr %.pr33, i64 %48
+  %49 = getelementptr inbounds nuw ptr, ptr %.pr37, i64 %48
   store ptr %0, ptr %49, align 8, !tbaa !22
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %51 = load i32, ptr %50, align 4, !tbaa !29

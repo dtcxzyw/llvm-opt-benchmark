@@ -679,8 +679,8 @@ put_str8.exit259:                                 ; preds = %.lr.ph.i256
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
   %160 = load i32, ptr %159, align 4, !tbaa !60
   %161 = icmp eq i32 %160, 5
-  %.307 = select i1 %161, i32 808539730, i32 808605266
-  tail call void @avio_wl32(ptr noundef nonnull %6, i32 noundef %.307) #6
+  %.315 = select i1 %161, i32 808539730, i32 808605266
+  tail call void @avio_wl32(ptr noundef nonnull %6, i32 noundef %.315) #6
   %162 = load ptr, ptr %71, align 8, !tbaa !42
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 72
   %164 = load i32, ptr %163, align 8, !tbaa !80

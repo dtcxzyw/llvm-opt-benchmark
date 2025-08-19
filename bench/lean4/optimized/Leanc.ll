@@ -1408,11 +1408,11 @@ lean_dec.exit27:                                  ; preds = %13, %15, %16
 
 lean_dec.exit27.thread:                           ; preds = %6
   %19 = getelementptr i8, ptr %8, i64 8
-  %.val43 = load i64, ptr %19, align 8, !tbaa !8
-  %.mask44 = and i64 %.val43, 9223372036854775807
-  %.not3845 = icmp eq i64 %.mask44, 1
+  %.val46 = load i64, ptr %19, align 8, !tbaa !8
+  %.mask47 = and i64 %.val46, 9223372036854775807
+  %.not3848 = icmp eq i64 %.mask47, 1
   %20 = add i64 %.02242, 1
-  br i1 %.not3845, label %lean_dec.exit, label %21
+  br i1 %.not3848, label %lean_dec.exit, label %21
 
 21:                                               ; preds = %lean_dec.exit27.thread, %lean_dec.exit27
   %22 = phi i64 [ %20, %lean_dec.exit27.thread ], [ %18, %lean_dec.exit27 ]
@@ -1806,11 +1806,11 @@ lean_dec.exit27.i:                                ; preds = %46, %45, %43
 
 lean_dec.exit27.thread.i:                         ; preds = %36
   %49 = getelementptr i8, ptr %38, i64 8
-  %.val43.i = load i64, ptr %49, align 8, !tbaa !8
-  %.mask44.i = and i64 %.val43.i, 9223372036854775807
-  %.not3845.i = icmp eq i64 %.mask44.i, 1
+  %.val46.i = load i64, ptr %49, align 8, !tbaa !8
+  %.mask47.i = and i64 %.val46.i, 9223372036854775807
+  %.not3848.i = icmp eq i64 %.mask47.i, 1
   %50 = add i64 %.02242.i, 1
-  br i1 %.not3845.i, label %lean_dec.exit.i, label %51
+  br i1 %.not3848.i, label %lean_dec.exit.i, label %51
 
 51:                                               ; preds = %lean_dec.exit27.thread.i, %lean_dec.exit27.i
   %52 = phi i64 [ %50, %lean_dec.exit27.thread.i ], [ %48, %lean_dec.exit27.i ]
@@ -5516,11 +5516,11 @@ lean_dec.exit27.i:                                ; preds = %36, %35, %33
 
 lean_dec.exit27.thread.i:                         ; preds = %26
   %39 = getelementptr i8, ptr %28, i64 8
-  %.val43.i = load i64, ptr %39, align 8, !tbaa !8
-  %.mask44.i = and i64 %.val43.i, 9223372036854775807
-  %.not3845.i = icmp eq i64 %.mask44.i, 1
+  %.val46.i = load i64, ptr %39, align 8, !tbaa !8
+  %.mask47.i = and i64 %.val46.i, 9223372036854775807
+  %.not3848.i = icmp eq i64 %.mask47.i, 1
   %40 = add i64 %.02242.i, 1
-  br i1 %.not3845.i, label %lean_dec.exit.i, label %41
+  br i1 %.not3848.i, label %lean_dec.exit.i, label %41
 
 41:                                               ; preds = %lean_dec.exit27.thread.i, %lean_dec.exit27.i
   %42 = phi i64 [ %40, %lean_dec.exit27.thread.i ], [ %38, %lean_dec.exit27.i ]
@@ -6130,18 +6130,18 @@ _init_l_main___lambda__4___closed__9.exit:        ; preds = %_init_l_main___lamb
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_main___lambda__4___closed__9.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %99, %_init_l_main___lambda__4___closed__9.exit ]
-  %102 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !10
+  %.sink29 = phi ptr [ %4, %3 ], [ %99, %_init_l_main___lambda__4___closed__9.exit ]
+  %102 = getelementptr inbounds nuw i8, ptr %.sink29, i64 4
+  store i32 1, ptr %.sink29, align 4, !tbaa !10
   store i32 131096, ptr %102, align 4
-  %103 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %.sink29, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %103, align 8, !tbaa !4
-  %104 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %.sink29, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %104, align 8, !tbaa !4
   br label %105
 
 105:                                              ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink29, %.sink.split ]
   ret ptr %.0
 }
 

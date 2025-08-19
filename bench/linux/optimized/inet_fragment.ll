@@ -378,18 +378,18 @@ define dso_local void @inet_frag_kill(ptr noundef %0) #0 align 16 {
   %90 = icmp ult i8 %89, 2
   call void @llvm.assume(i1 %90)
   %91 = icmp eq i8 %89, 0
-  br i1 %91, label %.preheader63, label %92, !prof !7
+  br i1 %91, label %.preheader69, label %92, !prof !7
 
 92:                                               ; preds = %.preheader
   %93 = call i64 @llvm.read_register.i64(metadata !0)
   %94 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %93) #11, !srcloc !22
   call void @llvm.write_register.i64(metadata !0, i64 %94)
-  br label %.preheader63
+  br label %.preheader69
 
-.preheader63:                                     ; preds = %92, %.preheader
+.preheader69:                                     ; preds = %92, %.preheader
   br label %95
 
-95:                                               ; preds = %.preheader63, %95
+95:                                               ; preds = %.preheader69, %95
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !23
   %96 = load volatile i64, ptr %82, align 8
   %97 = and i64 %96, 1
@@ -423,8 +423,8 @@ define dso_local void @inet_frag_kill(ptr noundef %0) #0 align 16 {
   br i1 %114, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %112
-  %.lcssa16.in44 = and i64 %85, 512
-  %.lcssa1645 = icmp eq i64 %.lcssa16.in44, 0
+  %.lcssa16.in50 = and i64 %85, 512
+  %.lcssa1651 = icmp eq i64 %.lcssa16.in50, 0
   %115 = load ptr, ptr %0, align 8
   br label %129
 
@@ -466,7 +466,7 @@ define dso_local void @inet_frag_kill(ptr noundef %0) #0 align 16 {
 
 129:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %130 = phi ptr [ %115, %._crit_edge.thread ], [ %118, %._crit_edge ]
-  %.lcssa1646 = phi i1 [ %.lcssa1645, %._crit_edge.thread ], [ %.lcssa16, %._crit_edge ]
+  %.lcssa1652 = phi i1 [ %.lcssa1651, %._crit_edge.thread ], [ %.lcssa16, %._crit_edge ]
   %131 = ptrtoint ptr %130 to i64
   %132 = and i64 %131, 1
   %133 = icmp eq i64 %132, 0
@@ -487,7 +487,7 @@ define dso_local void @inet_frag_kill(ptr noundef %0) #0 align 16 {
   br label %141
 
 141:                                              ; preds = %138, %129
-  br i1 %.lcssa1646, label %158, label %142
+  br i1 %.lcssa1652, label %158, label %142
 
 142:                                              ; preds = %141
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !36
@@ -1077,18 +1077,18 @@ define dso_local ptr @inet_frag_find(ptr noundef %0, ptr noundef %1) #0 align 16
   %222 = icmp ult i8 %221, 2
   call void @llvm.assume(i1 %222)
   %223 = icmp eq i8 %221, 0
-  br i1 %223, label %.preheader104, label %224, !prof !7
+  br i1 %223, label %.preheader117, label %224, !prof !7
 
 224:                                              ; preds = %.preheader26
   %225 = call i64 @llvm.read_register.i64(metadata !0)
   %226 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %225) #11, !srcloc !22
   call void @llvm.write_register.i64(metadata !0, i64 %226)
-  br label %.preheader104
+  br label %.preheader117
 
-.preheader104:                                    ; preds = %224, %.preheader26
+.preheader117:                                    ; preds = %224, %.preheader26
   br label %227
 
-227:                                              ; preds = %.preheader104, %227
+227:                                              ; preds = %.preheader117, %227
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !23
   %228 = load volatile i64, ptr %214, align 8
   %229 = and i64 %228, 1

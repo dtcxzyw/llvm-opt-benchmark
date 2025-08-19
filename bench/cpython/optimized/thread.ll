@@ -1496,11 +1496,11 @@ fix_status.exit:                                  ; preds = %33, %.split.split.s
   br i1 %38, label %.thread, label %.split40.us.thread
 
 .split40.us.thread:                               ; preds = %fix_status.exit, %fix_status.exit.us43, %fix_status.exit.us, %.split40.us
-  %.us-phi75 = phi i32 [ %.us-phi, %.split40.us ], [ %.034.us, %fix_status.exit.us ], [ %.034.us44, %fix_status.exit.us43 ], [ %.034, %fix_status.exit ]
+  %.us-phi82 = phi i32 [ %.us-phi, %.split40.us ], [ %.034.us, %fix_status.exit.us ], [ %.034.us44, %fix_status.exit.us43 ], [ %.034, %fix_status.exit ]
   br i1 %13, label %39, label %40
 
 39:                                               ; preds = %.split40.us.thread
-  switch i32 %.us-phi75, label %45 [
+  switch i32 %.us-phi82, label %45 [
     i32 0, label %47
     i32 110, label %.thread
   ]
@@ -1510,13 +1510,13 @@ fix_status.exit:                                  ; preds = %33, %.split.split.s
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %40
-  switch i32 %.us-phi75, label %45 [
+  switch i32 %.us-phi82, label %45 [
     i32 0, label %47
     i32 11, label %.thread
   ]
 
 43:                                               ; preds = %40
-  %cond = icmp eq i32 %.us-phi75, 0
+  %cond = icmp eq i32 %.us-phi82, 0
   br i1 %cond, label %47, label %44
 
 44:                                               ; preds = %43
@@ -1526,7 +1526,7 @@ fix_status.exit:                                  ; preds = %33, %.split.split.s
 45:                                               ; preds = %42, %39
   %.str.2.sink = phi ptr [ @.str.2, %39 ], [ @.str.3, %42 ]
   call void @perror(ptr noundef nonnull %.str.2.sink) #16
-  %46 = icmp eq i32 %.us-phi75, 0
+  %46 = icmp eq i32 %.us-phi82, 0
   br i1 %46, label %47, label %.thread
 
 .thread:                                          ; preds = %.split40.us, %44, %42, %39, %45
@@ -1765,8 +1765,8 @@ define dso_local range(i32 -1, 1) i32 @PyThread_set_stacksize(i64 noundef %0) lo
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %20, %4
-  %.sink12.i = phi ptr [ %21, %20 ], [ %5, %4 ]
-  %22 = load ptr, ptr %.sink12.i, align 8, !tbaa !178
+  %.sink13.i = phi ptr [ %21, %20 ], [ %5, %4 ]
+  %22 = load ptr, ptr %.sink13.i, align 8, !tbaa !178
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !179
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 7368

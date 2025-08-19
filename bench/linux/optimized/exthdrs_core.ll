@@ -56,7 +56,7 @@ define dso_local i32 @ipv6_skip_exthdr(ptr noundef %0, i32 noundef %1, ptr nound
 12:                                               ; preds = %62, %4
   %13 = phi i32 [ %1, %4 ], [ %65, %62 ]
   %14 = phi i8 [ %7, %4 ], [ %64, %62 ]
-  switch i8 %14, label %.loopexit18 [
+  switch i8 %14, label %.loopexit21 [
     i8 59, label %15
     i8 51, label %15
     i8 44, label %15
@@ -143,7 +143,7 @@ define dso_local i32 @ipv6_skip_exthdr(ptr noundef %0, i32 noundef %1, ptr nound
 
 .thread:                                          ; preds = %.thread9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.loopexit18
+  br label %.loopexit21
 
 54:                                               ; preds = %.thread5
   br label %55
@@ -168,12 +168,12 @@ define dso_local i32 @ipv6_skip_exthdr(ptr noundef %0, i32 noundef %1, ptr nound
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %12
 
-.loopexit18:                                      ; preds = %12, %.thread
+.loopexit21:                                      ; preds = %12, %.thread
   store i8 %14, ptr %2, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread13, %.loopexit18
-  %66 = phi i32 [ %13, %.loopexit18 ], [ -1, %.thread13 ]
+.loopexit:                                        ; preds = %.thread13, %.loopexit21
+  %66 = phi i32 [ %13, %.loopexit21 ], [ -1, %.thread13 ]
   ret i32 %66
 }
 

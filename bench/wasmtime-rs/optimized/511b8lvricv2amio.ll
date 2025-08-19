@@ -622,7 +622,7 @@ define hidden noundef zeroext i1 @_ZN14cranelift_isle7codegen7Codegen10emit_bloc
 ._crit_edge:                                      ; preds = %.backedge, %259
   %269 = getelementptr inbounds nuw i8, ptr %260, i64 24
   %270 = load i16, ptr %269, align 8, !range !5, !noundef !3
-  switch i16 %270, label %default.unreachable576 [
+  switch i16 %270, label %default.unreachable592 [
     i16 0, label %279
     i16 1, label %284
     i16 2, label %286
@@ -639,7 +639,7 @@ define hidden noundef zeroext i1 @_ZN14cranelift_isle7codegen7Codegen10emit_bloc
   %277 = icmp ult i64 %274, %276
   br i1 %277, label %530, label %535, !prof !6
 
-default.unreachable576:                           ; preds = %._crit_edge
+default.unreachable592:                           ; preds = %._crit_edge
   unreachable
 
 278:                                              ; preds = %514, %499
@@ -1839,7 +1839,7 @@ define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen9emit_expr
   %58 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %36, ptr %58, align 8
   %59 = load i8, ptr %56, align 16, !range !9, !noundef !3
-  switch i8 %59, label %default.unreachable116 [
+  switch i8 %59, label %default.unreachable135 [
     i8 0, label %61
     i8 1, label %67
     i8 2, label %77
@@ -1856,7 +1856,7 @@ define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen9emit_expr
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %43, i64 %45, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.75) #10
   unreachable
 
-default.unreachable116:                           ; preds = %53
+default.unreachable135:                           ; preds = %53
   unreachable
 
 61:                                               ; preds = %53
@@ -2611,7 +2611,7 @@ define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen15emit_con
 
 ._crit_edge:                                      ; preds = %.backedge, %4
   %45 = load i8, ptr %3, align 16, !range !7, !noundef !3
-  switch i8 %45, label %default.unreachable126 [
+  switch i8 %45, label %default.unreachable143 [
     i8 0, label %51
     i8 1, label %61
     i8 2, label %67
@@ -2629,7 +2629,7 @@ define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen15emit_con
   %50 = icmp eq ptr %49, null
   br i1 %50, label %._crit_edge, label %46
 
-default.unreachable126:                           ; preds = %._crit_edge
+default.unreachable143:                           ; preds = %._crit_edge
   unreachable
 
 51:                                               ; preds = %._crit_edge

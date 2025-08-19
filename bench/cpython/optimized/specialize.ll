@@ -1341,8 +1341,8 @@ specialize_class_load_attr.exit.thread34:         ; preds = %110, %112, %114
   br label %296
 
 specialize_class_load_attr.exit.thread37:         ; preds = %86, %100, %121
-  %.sink39.i.ph = phi ptr [ %118, %121 ], [ %97, %100 ], [ %83, %86 ]
-  call void @_Py_Dealloc(ptr noundef nonnull %.sink39.i.ph) #9
+  %.sink49.i.ph = phi ptr [ %118, %121 ], [ %97, %100 ], [ %83, %86 ]
+  call void @_Py_Dealloc(ptr noundef nonnull %.sink49.i.ph) #9
   br label %.critedge.sink.split.sink.split
 
 specialize_class_load_attr.exit:                  ; preds = %114
@@ -1686,14 +1686,14 @@ default.unreachable:                              ; preds = %151
   br i1 %.not12.i.i.i.i, label %specialize_dict_access.exit.i.i, label %do_specialize_instance_load_attr.exit.i
 
 specialize_dict_access.exit.i.i:                  ; preds = %272, %259
-  %.sink42.i.i.i = phi i64 [ %263, %259 ], [ %273, %272 ]
-  %.sink40.i.i.i = phi i8 [ -56, %259 ], [ -47, %272 ]
-  %274 = trunc nuw i64 %.sink42.i.i.i to i16
+  %.sink45.i.i.i = phi i64 [ %263, %259 ], [ %273, %272 ]
+  %.sink43.i.i.i = phi i8 [ -56, %259 ], [ -47, %272 ]
+  %274 = trunc nuw i64 %.sink45.i.i.i to i16
   %275 = getelementptr i8, ptr %1, i64 8
   store i16 %274, ptr %275, align 2, !tbaa !45
   %276 = getelementptr i8, ptr %1, i64 4
   store i32 %148, ptr %276, align 2
-  store i8 %.sink40.i.i.i, ptr %1, align 2, !tbaa !4
+  store i8 %.sink43.i.i.i, ptr %1, align 2, !tbaa !4
   store i16 832, ptr %149, align 2, !tbaa !24
   br label %do_specialize_instance_load_attr.exit.i
 
@@ -2028,14 +2028,14 @@ unspecialize.exit:                                ; preds = %Py_XDECREF.exit, %1
   br label %Py_XDECREF.exit43
 
 113:                                              ; preds = %93, %80
-  %.sink42.i = phi i64 [ %84, %80 ], [ %94, %93 ]
-  %.sink40.i = phi i8 [ -38, %80 ], [ -36, %93 ]
-  %114 = trunc nuw i64 %.sink42.i to i16
+  %.sink45.i = phi i64 [ %84, %80 ], [ %94, %93 ]
+  %.sink43.i = phi i8 [ -38, %80 ], [ -36, %93 ]
+  %114 = trunc nuw i64 %.sink45.i to i16
   %115 = getelementptr i8, ptr %1, i64 8
   store i16 %114, ptr %115, align 2, !tbaa !45
   %116 = getelementptr i8, ptr %1, i64 4
   store i32 %.pr, ptr %116, align 2
-  store i8 %.sink40.i, ptr %1, align 2, !tbaa !4
+  store i8 %.sink43.i, ptr %1, align 2, !tbaa !4
   %117 = getelementptr i8, ptr %1, i64 2
   store i16 832, ptr %117, align 2, !tbaa !24
   %.not.i41 = icmp eq ptr %13, null

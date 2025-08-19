@@ -273,12 +273,12 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   unreachable
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6a1db553ce68df21E.llvm.3086495437288348183.exit": ; preds = %2, %10
-  %.0.sink6.i.i = phi i64 [ %.0.i.i, %10 ], [ 0, %2 ]
-  store i64 %.0.sink6.i.i, ptr %0, align 8, !alias.scope !21, !noalias !20
+  %.0.sink8.i.i = phi i64 [ %.0.i.i, %10 ], [ 0, %2 ]
+  store i64 %.0.sink8.i.i, ptr %0, align 8, !alias.scope !21, !noalias !20
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %15, align 8, !alias.scope !21, !noalias !20
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.0.sink6.i.i, ptr %16, align 8, !alias.scope !21, !noalias !20
+  store i64 %.0.sink8.i.i, ptr %16, align 8, !alias.scope !21, !noalias !20
   ret void
 }
 
@@ -597,12 +597,12 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   unreachable
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6e338d5c56a35932E.llvm.3086495437288348183.exit": ; preds = %14, %6, %2
-  %.0.sink6.i.i.i.sink = phi i64 [ 0, %2 ], [ %.0.i.i.i, %14 ], [ 0, %6 ]
+  %.0.sink8.i.i.i.sink = phi i64 [ 0, %2 ], [ %.0.i.i.i, %14 ], [ 0, %6 ]
   store i64 0, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.0.sink6.i.i.i.sink, ptr %20, align 8
+  store i64 %.0.sink8.i.i.i.sink, ptr %20, align 8
   ret void
 }
 
@@ -634,12 +634,12 @@ define hidden void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$
   unreachable
 
 "_ZN93_$LT$core..slice..iter..Chunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0dea6130b8a7ee40E.llvm.3086495437288348183.exit": ; preds = %2, %10
-  %.0.sink6.i = phi i64 [ %.0.i, %10 ], [ 0, %2 ]
-  store i64 %.0.sink6.i, ptr %0, align 8, !alias.scope !130, !noalias !133
+  %.0.sink8.i = phi i64 [ %.0.i, %10 ], [ 0, %2 ]
+  store i64 %.0.sink8.i, ptr %0, align 8, !alias.scope !130, !noalias !133
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %15, align 8, !alias.scope !130, !noalias !133
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.0.sink6.i, ptr %16, align 8, !alias.scope !130, !noalias !133
+  store i64 %.0.sink8.i, ptr %16, align 8, !alias.scope !130, !noalias !133
   ret void
 }
 
@@ -8532,12 +8532,12 @@ define hidden void @"_ZN93_$LT$core..slice..iter..Chunks$LT$T$GT$$u20$as$u20$cor
   br i1 %9, label %17, label %13, !prof !22
 
 10:                                               ; preds = %2, %13
-  %.0.sink6 = phi i64 [ %.0, %13 ], [ 0, %2 ]
-  store i64 %.0.sink6, ptr %0, align 8
+  %.0.sink8 = phi i64 [ %.0, %13 ], [ 0, %2 ]
+  store i64 %.0.sink8, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.0.sink6, ptr %12, align 8
+  store i64 %.0.sink8, ptr %12, align 8
   ret void
 
 13:                                               ; preds = %6

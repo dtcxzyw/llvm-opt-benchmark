@@ -2347,7 +2347,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %.sroa.9.023.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %59 = landingpad { ptr, i32 }
           cleanup
-  %60 = shl i64 %.sroa.4.026.i.i, 2
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
   resume { ptr, i32 } %59
@@ -2359,7 +2359,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %61 = shl i64 %.sroa.4.024.i.i, 2
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #21
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEvT_SB_T0_.exit
 
@@ -2965,7 +2965,7 @@ define linkonce_odr void @_ZNSt6vectorIN5draco8rans_symESaIS1_EE17_M_default_app
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN5draco8rans_symEmS1_ET_S3_T0_RSaIT1_E.exit, label %23
 
@@ -3816,9 +3816,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15Probabili
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !105
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %70
-  %.sink71.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink84.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa.sink.i = phi ptr [ %67, %70 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %81 = ptrtoint ptr %.sink71.i to i64
+  %81 = ptrtoint ptr %.sink84.i to i64
   %82 = ptrtoint ptr %5 to i64
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
@@ -8219,7 +8219,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %.sroa.9.023.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %59 = landingpad { ptr, i32 }
           cleanup
-  %60 = shl i64 %.sroa.4.026.i.i, 2
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
   resume { ptr, i32 } %59
@@ -8231,7 +8231,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %61 = shl i64 %.sroa.4.024.i.i, 2
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #21
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEvT_SB_T0_.exit
 
@@ -9360,9 +9360,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15Probabili
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !237
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %70
-  %.sink71.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink84.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa.sink.i = phi ptr [ %67, %70 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %81 = ptrtoint ptr %.sink71.i to i64
+  %81 = ptrtoint ptr %.sink84.i to i64
   %82 = ptrtoint ptr %5 to i64
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
@@ -10193,7 +10193,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %.sroa.9.023.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %59 = landingpad { ptr, i32 }
           cleanup
-  %60 = shl i64 %.sroa.4.026.i.i, 2
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
   resume { ptr, i32 } %59
@@ -10205,7 +10205,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %61 = shl i64 %.sroa.4.024.i.i, 2
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #21
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEvT_SB_T0_.exit
 
@@ -11334,9 +11334,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15Probabili
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !259
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %70
-  %.sink71.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink84.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa.sink.i = phi ptr [ %67, %70 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %81 = ptrtoint ptr %.sink71.i to i64
+  %81 = ptrtoint ptr %.sink84.i to i64
   %82 = ptrtoint ptr %5 to i64
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
@@ -12167,7 +12167,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %.sroa.9.023.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %59 = landingpad { ptr, i32 }
           cleanup
-  %60 = shl i64 %.sroa.4.026.i.i, 2
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
   resume { ptr, i32 } %59
@@ -12179,7 +12179,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %61 = shl i64 %.sroa.4.024.i.i, 2
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #21
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEvT_SB_T0_.exit
 
@@ -13308,9 +13308,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15Probabili
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !281
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %70
-  %.sink71.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink84.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa.sink.i = phi ptr [ %67, %70 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %81 = ptrtoint ptr %.sink71.i to i64
+  %81 = ptrtoint ptr %.sink84.i to i64
   %82 = ptrtoint ptr %5 to i64
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
@@ -14141,7 +14141,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %.sroa.9.023.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %59 = landingpad { ptr, i32 }
           cleanup
-  %60 = shl i64 %.sroa.4.026.i.i, 2
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
   resume { ptr, i32 } %59
@@ -14153,7 +14153,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %61 = shl i64 %.sroa.4.024.i.i, 2
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #21
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEvT_SB_T0_.exit
 
@@ -15282,9 +15282,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15Probabili
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !303
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %70
-  %.sink71.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink84.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa.sink.i = phi ptr [ %67, %70 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %81 = ptrtoint ptr %.sink71.i to i64
+  %81 = ptrtoint ptr %.sink84.i to i64
   %82 = ptrtoint ptr %5 to i64
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
@@ -16115,7 +16115,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %.sroa.9.023.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %59 = landingpad { ptr, i32 }
           cleanup
-  %60 = shl i64 %.sroa.4.026.i.i, 2
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
   resume { ptr, i32 } %59
@@ -16127,7 +16127,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %61 = shl i64 %.sroa.4.024.i.i, 2
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #21
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEvT_SB_T0_.exit
 
@@ -17256,9 +17256,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15Probabili
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !325
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %70
-  %.sink71.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink84.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa.sink.i = phi ptr [ %67, %70 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %81 = ptrtoint ptr %.sink71.i to i64
+  %81 = ptrtoint ptr %.sink84.i to i64
   %82 = ptrtoint ptr %5 to i64
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
@@ -18089,7 +18089,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %.sroa.9.023.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %59 = landingpad { ptr, i32 }
           cleanup
-  %60 = shl i64 %.sroa.4.026.i.i, 2
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
   resume { ptr, i32 } %59
@@ -18101,7 +18101,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %61 = shl i64 %.sroa.4.024.i.i, 2
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #21
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEvT_SB_T0_.exit
 
@@ -19230,9 +19230,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15Probabili
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !347
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %70
-  %.sink71.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink84.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa.sink.i = phi ptr [ %67, %70 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %81 = ptrtoint ptr %.sink71.i to i64
+  %81 = ptrtoint ptr %.sink84.i to i64
   %82 = ptrtoint ptr %5 to i64
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
@@ -20063,7 +20063,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %.sroa.9.023.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %59 = landingpad { ptr, i32 }
           cleanup
-  %60 = shl i64 %.sroa.4.026.i.i, 2
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
   resume { ptr, i32 } %59
@@ -20075,7 +20075,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %61 = shl i64 %.sroa.4.024.i.i, 2
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #21
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEvT_SB_T0_.exit
 
@@ -21204,9 +21204,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15Probabili
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !369
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %70
-  %.sink71.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink84.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa.sink.i = phi ptr [ %67, %70 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %81 = ptrtoint ptr %.sink71.i to i64
+  %81 = ptrtoint ptr %.sink84.i to i64
   %82 = ptrtoint ptr %5 to i64
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
@@ -22037,7 +22037,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %.sroa.9.023.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %59 = landingpad { ptr, i32 }
           cleanup
-  %60 = shl i64 %.sroa.4.026.i.i, 2
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
   resume { ptr, i32 } %59
@@ -22049,7 +22049,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %61 = shl i64 %.sroa.4.024.i.i, 2
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #21
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEvT_SB_T0_.exit
 
@@ -23179,9 +23179,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15Probabili
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !391
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %70
-  %.sink71.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink84.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa.sink.i = phi ptr [ %67, %70 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %81 = ptrtoint ptr %.sink71.i to i64
+  %81 = ptrtoint ptr %.sink84.i to i64
   %82 = ptrtoint ptr %5 to i64
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
@@ -24012,7 +24012,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %.sroa.9.023.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %59 = landingpad { ptr, i32 }
           cleanup
-  %60 = shl i64 %.sroa.4.026.i.i, 2
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
   resume { ptr, i32 } %59
@@ -24024,7 +24024,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %61 = shl i64 %.sroa.4.024.i.i, 2
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #21
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEvT_SB_T0_.exit
 
@@ -25154,9 +25154,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15Probabil
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !413
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %70
-  %.sink71.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink84.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa.sink.i = phi ptr [ %67, %70 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %81 = ptrtoint ptr %.sink71.i to i64
+  %81 = ptrtoint ptr %.sink84.i to i64
   %82 = ptrtoint ptr %5 to i64
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
@@ -25987,7 +25987,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %.sroa.9.023.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %59 = landingpad { ptr, i32 }
           cleanup
-  %60 = shl i64 %.sroa.4.026.i.i, 2
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
   resume { ptr, i32 } %59
@@ -25999,7 +25999,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %61 = shl i64 %.sroa.4.024.i.i, 2
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #21
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEvT_SB_T0_.exit
 
@@ -27129,9 +27129,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15Probabil
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !435
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %70
-  %.sink71.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink84.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa.sink.i = phi ptr [ %67, %70 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %81 = ptrtoint ptr %.sink71.i to i64
+  %81 = ptrtoint ptr %.sink84.i to i64
   %82 = ptrtoint ptr %5 to i64
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
@@ -27962,7 +27962,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %.sroa.9.023.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %59 = landingpad { ptr, i32 }
           cleanup
-  %60 = shl i64 %.sroa.4.026.i.i, 2
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
   resume { ptr, i32 } %59
@@ -27974,7 +27974,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %61 = shl i64 %.sroa.4.024.i.i, 2
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #21
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEvT_SB_T0_.exit
 
@@ -29104,9 +29104,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15Probabil
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !457
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %70
-  %.sink71.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink84.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa.sink.i = phi ptr [ %67, %70 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %81 = ptrtoint ptr %.sink71.i to i64
+  %81 = ptrtoint ptr %.sink84.i to i64
   %82 = ptrtoint ptr %5 to i64
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
@@ -29937,7 +29937,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %.sroa.9.023.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %59 = landingpad { ptr, i32 }
           cleanup
-  %60 = shl i64 %.sroa.4.026.i.i, 2
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
   resume { ptr, i32 } %59
@@ -29949,7 +29949,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %61 = shl i64 %.sroa.4.024.i.i, 2
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #21
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEvT_SB_T0_.exit
 
@@ -31079,9 +31079,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15Probabil
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !479
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %70
-  %.sink71.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink84.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa.sink.i = phi ptr [ %67, %70 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %81 = ptrtoint ptr %.sink71.i to i64
+  %81 = ptrtoint ptr %.sink84.i to i64
   %82 = ptrtoint ptr %5 to i64
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
@@ -31912,7 +31912,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %.sroa.9.023.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %59 = landingpad { ptr, i32 }
           cleanup
-  %60 = shl i64 %.sroa.4.026.i.i, 2
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
   resume { ptr, i32 } %59
@@ -31924,7 +31924,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %61 = shl i64 %.sroa.4.024.i.i, 2
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #21
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEvT_SB_T0_.exit
 
@@ -33054,9 +33054,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15Probabil
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !501
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %70
-  %.sink71.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink84.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa.sink.i = phi ptr [ %67, %70 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %81 = ptrtoint ptr %.sink71.i to i64
+  %81 = ptrtoint ptr %.sink84.i to i64
   %82 = ptrtoint ptr %5 to i64
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
@@ -33887,7 +33887,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %.sroa.9.023.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %59 = landingpad { ptr, i32 }
           cleanup
-  %60 = shl i64 %.sroa.4.026.i.i, 2
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
   resume { ptr, i32 } %59
@@ -33899,7 +33899,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %61 = shl i64 %.sroa.4.024.i.i, 2
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #21
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEvT_SB_T0_.exit
 
@@ -35029,9 +35029,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15Probabil
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !523
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %70
-  %.sink71.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink84.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa.sink.i = phi ptr [ %67, %70 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %81 = ptrtoint ptr %.sink71.i to i64
+  %81 = ptrtoint ptr %.sink84.i to i64
   %82 = ptrtoint ptr %5 to i64
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
@@ -35862,7 +35862,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %.sroa.9.023.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %59 = landingpad { ptr, i32 }
           cleanup
-  %60 = shl i64 %.sroa.4.026.i.i, 2
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
   resume { ptr, i32 } %59
@@ -35874,7 +35874,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %61 = shl i64 %.sroa.4.024.i.i, 2
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #21
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEvT_SB_T0_.exit
 
@@ -37004,9 +37004,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15Probabil
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !545
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %70
-  %.sink71.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink84.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa.sink.i = phi ptr [ %67, %70 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %81 = ptrtoint ptr %.sink71.i to i64
+  %81 = ptrtoint ptr %.sink84.i to i64
   %82 = ptrtoint ptr %5 to i64
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
@@ -37837,7 +37837,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %.sroa.9.023.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %59 = landingpad { ptr, i32 }
           cleanup
-  %60 = shl i64 %.sroa.4.026.i.i, 2
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
   resume { ptr, i32 } %59
@@ -37849,7 +37849,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %61 = shl i64 %.sroa.4.024.i.i, 2
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #21
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEvT_SB_T0_.exit
 
@@ -38979,9 +38979,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15Probabil
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !567
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %70
-  %.sink71.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink84.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa.sink.i = phi ptr [ %67, %70 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %81 = ptrtoint ptr %.sink71.i to i64
+  %81 = ptrtoint ptr %.sink84.i to i64
   %82 = ptrtoint ptr %5 to i64
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2
@@ -39812,7 +39812,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt17_Temporary_b
   %.sroa.9.023.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
   %59 = landingpad { ptr, i32 }
           cleanup
-  %60 = shl i64 %.sroa.4.026.i.i, 2
+  %60 = shl nuw nsw i64 %.sroa.4.026.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i, i64 noundef %60) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %42) #18
   resume { ptr, i32 } %59
@@ -39824,7 +39824,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i
   %.sroa.4.024.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %.sroa.9.021.i.i = phi ptr [ %58, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC2ES6_l.exit.i.i ], [ null, %.loopexit.i.i ]
-  %61 = shl i64 %.sroa.4.024.i.i, 2
+  %61 = shl nuw nsw i64 %.sroa.4.024.i.i, 2
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i, i64 noundef %61) #21
   br label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEvT_SB_T0_.exit
 
@@ -40954,9 +40954,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15Probabil
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !589
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %70
-  %.sink71.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink84.i = phi ptr [ %71, %70 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa.sink.i = phi ptr [ %67, %70 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %81 = ptrtoint ptr %.sink71.i to i64
+  %81 = ptrtoint ptr %.sink84.i to i64
   %82 = ptrtoint ptr %5 to i64
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 2

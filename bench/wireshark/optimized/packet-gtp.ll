@@ -7869,12 +7869,12 @@ define internal void @pdcp_lte_users_direction_set_cb(ptr noundef writeonly capt
 
 .lr.ph.preheader:                                 ; preds = %5
   %11 = tail call i32 @g_str_equal(ptr noundef nonnull %10, ptr noundef %7)
-  %.not1320 = icmp eq i32 %11, 0
-  br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
+  %.not1321 = icmp eq i32 %11, 0
+  br i1 %.not1321, label %.lr.ph23, label %.lr.ph._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01621 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %12 = add i32 %.01621, 1
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -7882,10 +7882,10 @@ define internal void @pdcp_lte_users_direction_set_cb(ptr noundef writeonly capt
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !14
+  br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !14
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -7893,7 +7893,7 @@ define internal void @pdcp_lte_users_direction_set_cb(ptr noundef writeonly capt
   store i32 %18, ptr %8, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge
   tail call void @g_free(ptr noundef %7)
   ret void
 }
@@ -7910,11 +7910,11 @@ define internal void @pdcp_lte_users_direction_tostr_cb(ptr noundef readonly cap
   %9 = load i32, ptr %8, align 8
   %10 = load i32, ptr %3, align 8
   %11 = icmp eq i32 %10, %9
-  br i1 %11, label %._crit_edge21, label %.lr.ph20
+  br i1 %11, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph20:                                         ; preds = %.lr.ph, %17
-  %.01519 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
-  %12 = add i32 %.01519, 1
+.lr.ph21:                                         ; preds = %.lr.ph, %17
+  %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
+  %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -7922,12 +7922,12 @@ define internal void @pdcp_lte_users_direction_tostr_cb(ptr noundef readonly cap
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !15
 
-17:                                               ; preds = %.lr.ph20
+17:                                               ; preds = %.lr.ph21
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !15
+  br i1 %19, label %._crit_edge22, label %.lr.ph21, !llvm.loop !15
 
-._crit_edge21:                                    ; preds = %17, %.lr.ph
+._crit_edge22:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
   %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %20, ptr %1, align 8
@@ -7935,13 +7935,13 @@ define internal void @pdcp_lte_users_direction_tostr_cb(ptr noundef readonly cap
   %22 = trunc i64 %21 to i32
   br label %24
 
-._crit_edge:                                      ; preds = %.lr.ph20, %5
+._crit_edge:                                      ; preds = %.lr.ph21, %5
   %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1715)
   store ptr %23, ptr %1, align 8
   br label %24
 
-24:                                               ; preds = %._crit_edge, %._crit_edge21
-  %storemerge = phi i32 [ 2, %._crit_edge ], [ %22, %._crit_edge21 ]
+24:                                               ; preds = %._crit_edge, %._crit_edge22
+  %storemerge = phi i32 [ 2, %._crit_edge ], [ %22, %._crit_edge22 ]
   store i32 %storemerge, ptr %2, align 4
   ret void
 }
@@ -7959,12 +7959,12 @@ define internal void @pdcp_lte_users_header_present_set_cb(ptr noundef writeonly
 
 .lr.ph.preheader:                                 ; preds = %5
   %11 = tail call i32 @g_str_equal(ptr noundef nonnull %10, ptr noundef %7)
-  %.not1320 = icmp eq i32 %11, 0
-  br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
+  %.not1321 = icmp eq i32 %11, 0
+  br i1 %.not1321, label %.lr.ph23, label %.lr.ph._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01621 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %12 = add i32 %.01621, 1
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -7972,10 +7972,10 @@ define internal void @pdcp_lte_users_header_present_set_cb(ptr noundef writeonly
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !16
+  br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !16
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -7983,7 +7983,7 @@ define internal void @pdcp_lte_users_header_present_set_cb(ptr noundef writeonly
   store i32 %18, ptr %8, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge
   tail call void @g_free(ptr noundef %7)
   ret void
 }
@@ -8000,11 +8000,11 @@ define internal void @pdcp_lte_users_header_present_tostr_cb(ptr noundef readonl
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %3, align 8
   %11 = icmp eq i32 %10, %9
-  br i1 %11, label %._crit_edge21, label %.lr.ph20
+  br i1 %11, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph20:                                         ; preds = %.lr.ph, %17
-  %.01519 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
-  %12 = add i32 %.01519, 1
+.lr.ph21:                                         ; preds = %.lr.ph, %17
+  %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
+  %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -8012,12 +8012,12 @@ define internal void @pdcp_lte_users_header_present_tostr_cb(ptr noundef readonl
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !17
 
-17:                                               ; preds = %.lr.ph20
+17:                                               ; preds = %.lr.ph21
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !17
+  br i1 %19, label %._crit_edge22, label %.lr.ph21, !llvm.loop !17
 
-._crit_edge21:                                    ; preds = %17, %.lr.ph
+._crit_edge22:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
   %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %20, ptr %1, align 8
@@ -8025,13 +8025,13 @@ define internal void @pdcp_lte_users_header_present_tostr_cb(ptr noundef readonl
   %22 = trunc i64 %21 to i32
   br label %24
 
-._crit_edge:                                      ; preds = %.lr.ph20, %5
+._crit_edge:                                      ; preds = %.lr.ph21, %5
   %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.972)
   store ptr %23, ptr %1, align 8
   br label %24
 
-24:                                               ; preds = %._crit_edge, %._crit_edge21
-  %storemerge = phi i32 [ 14, %._crit_edge ], [ %22, %._crit_edge21 ]
+24:                                               ; preds = %._crit_edge, %._crit_edge22
+  %storemerge = phi i32 [ 14, %._crit_edge ], [ %22, %._crit_edge22 ]
   store i32 %storemerge, ptr %2, align 4
   ret void
 }
@@ -8049,12 +8049,12 @@ define internal void @pdcp_lte_users_plane_set_cb(ptr noundef writeonly captures
 
 .lr.ph.preheader:                                 ; preds = %5
   %11 = tail call i32 @g_str_equal(ptr noundef nonnull %10, ptr noundef %7)
-  %.not1320 = icmp eq i32 %11, 0
-  br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
+  %.not1321 = icmp eq i32 %11, 0
+  br i1 %.not1321, label %.lr.ph23, label %.lr.ph._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01621 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %12 = add i32 %.01621, 1
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -8062,10 +8062,10 @@ define internal void @pdcp_lte_users_plane_set_cb(ptr noundef writeonly captures
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !18
+  br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !18
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -8073,7 +8073,7 @@ define internal void @pdcp_lte_users_plane_set_cb(ptr noundef writeonly captures
   store i32 %18, ptr %8, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge
   tail call void @g_free(ptr noundef %7)
   ret void
 }
@@ -8090,11 +8090,11 @@ define internal void @pdcp_lte_users_plane_tostr_cb(ptr noundef readonly capture
   %9 = load i32, ptr %8, align 8
   %10 = load i32, ptr %3, align 8
   %11 = icmp eq i32 %10, %9
-  br i1 %11, label %._crit_edge21, label %.lr.ph20
+  br i1 %11, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph20:                                         ; preds = %.lr.ph, %17
-  %.01519 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
-  %12 = add i32 %.01519, 1
+.lr.ph21:                                         ; preds = %.lr.ph, %17
+  %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
+  %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -8102,12 +8102,12 @@ define internal void @pdcp_lte_users_plane_tostr_cb(ptr noundef readonly capture
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !19
 
-17:                                               ; preds = %.lr.ph20
+17:                                               ; preds = %.lr.ph21
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !19
+  br i1 %19, label %._crit_edge22, label %.lr.ph21, !llvm.loop !19
 
-._crit_edge21:                                    ; preds = %17, %.lr.ph
+._crit_edge22:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
   %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %20, ptr %1, align 8
@@ -8115,13 +8115,13 @@ define internal void @pdcp_lte_users_plane_tostr_cb(ptr noundef readonly capture
   %22 = trunc i64 %21 to i32
   br label %24
 
-._crit_edge:                                      ; preds = %.lr.ph20, %5
+._crit_edge:                                      ; preds = %.lr.ph21, %5
   %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1719)
   store ptr %23, ptr %1, align 8
   br label %24
 
-24:                                               ; preds = %._crit_edge, %._crit_edge21
-  %storemerge = phi i32 [ 10, %._crit_edge ], [ %22, %._crit_edge21 ]
+24:                                               ; preds = %._crit_edge, %._crit_edge22
+  %storemerge = phi i32 [ 10, %._crit_edge ], [ %22, %._crit_edge22 ]
   store i32 %storemerge, ptr %2, align 4
   ret void
 }
@@ -8139,12 +8139,12 @@ define internal void @pdcp_lte_users_lte_sn_length_set_cb(ptr noundef writeonly 
 
 .lr.ph.preheader:                                 ; preds = %5
   %11 = tail call i32 @g_str_equal(ptr noundef nonnull %10, ptr noundef %7)
-  %.not1320 = icmp eq i32 %11, 0
-  br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
+  %.not1321 = icmp eq i32 %11, 0
+  br i1 %.not1321, label %.lr.ph23, label %.lr.ph._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01621 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %12 = add i32 %.01621, 1
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -8152,10 +8152,10 @@ define internal void @pdcp_lte_users_lte_sn_length_set_cb(ptr noundef writeonly 
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !20
+  br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !20
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -8163,7 +8163,7 @@ define internal void @pdcp_lte_users_lte_sn_length_set_cb(ptr noundef writeonly 
   store i32 %18, ptr %8, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge
   tail call void @g_free(ptr noundef %7)
   ret void
 }
@@ -8180,11 +8180,11 @@ define internal void @pdcp_lte_users_lte_sn_length_tostr_cb(ptr noundef readonly
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %3, align 8
   %11 = icmp eq i32 %10, %9
-  br i1 %11, label %._crit_edge21, label %.lr.ph20
+  br i1 %11, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph20:                                         ; preds = %.lr.ph, %17
-  %.01519 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
-  %12 = add i32 %.01519, 1
+.lr.ph21:                                         ; preds = %.lr.ph, %17
+  %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
+  %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -8192,12 +8192,12 @@ define internal void @pdcp_lte_users_lte_sn_length_tostr_cb(ptr noundef readonly
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !21
 
-17:                                               ; preds = %.lr.ph20
+17:                                               ; preds = %.lr.ph21
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !21
+  br i1 %19, label %._crit_edge22, label %.lr.ph21, !llvm.loop !21
 
-._crit_edge21:                                    ; preds = %17, %.lr.ph
+._crit_edge22:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
   %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %20, ptr %1, align 8
@@ -8205,13 +8205,13 @@ define internal void @pdcp_lte_users_lte_sn_length_tostr_cb(ptr noundef readonly
   %22 = trunc i64 %21 to i32
   br label %24
 
-._crit_edge:                                      ; preds = %.lr.ph20, %5
+._crit_edge:                                      ; preds = %.lr.ph21, %5
   %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1009)
   store ptr %23, ptr %1, align 8
   br label %24
 
-24:                                               ; preds = %._crit_edge, %._crit_edge21
-  %storemerge = phi i32 [ 7, %._crit_edge ], [ %22, %._crit_edge21 ]
+24:                                               ; preds = %._crit_edge, %._crit_edge22
+  %storemerge = phi i32 [ 7, %._crit_edge ], [ %22, %._crit_edge22 ]
   store i32 %storemerge, ptr %2, align 4
   ret void
 }
@@ -8229,12 +8229,12 @@ define internal void @pdcp_lte_users_rohc_compression_set_cb(ptr noundef writeon
 
 .lr.ph.preheader:                                 ; preds = %5
   %11 = tail call i32 @g_str_equal(ptr noundef nonnull %10, ptr noundef %7)
-  %.not1320 = icmp eq i32 %11, 0
-  br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
+  %.not1321 = icmp eq i32 %11, 0
+  br i1 %.not1321, label %.lr.ph23, label %.lr.ph._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01621 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %12 = add i32 %.01621, 1
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -8242,10 +8242,10 @@ define internal void @pdcp_lte_users_rohc_compression_set_cb(ptr noundef writeon
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !22
+  br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !22
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -8253,7 +8253,7 @@ define internal void @pdcp_lte_users_rohc_compression_set_cb(ptr noundef writeon
   store i32 %18, ptr %8, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge
   tail call void @g_free(ptr noundef %7)
   ret void
 }
@@ -8270,11 +8270,11 @@ define internal void @pdcp_lte_users_rohc_compression_tostr_cb(ptr noundef reado
   %9 = load i32, ptr %8, align 8
   %10 = load i32, ptr %3, align 8
   %11 = icmp eq i32 %10, %9
-  br i1 %11, label %._crit_edge21, label %.lr.ph20
+  br i1 %11, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph20:                                         ; preds = %.lr.ph, %17
-  %.01519 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
-  %12 = add i32 %.01519, 1
+.lr.ph21:                                         ; preds = %.lr.ph, %17
+  %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
+  %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -8282,12 +8282,12 @@ define internal void @pdcp_lte_users_rohc_compression_tostr_cb(ptr noundef reado
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !23
 
-17:                                               ; preds = %.lr.ph20
+17:                                               ; preds = %.lr.ph21
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !23
+  br i1 %19, label %._crit_edge22, label %.lr.ph21, !llvm.loop !23
 
-._crit_edge21:                                    ; preds = %17, %.lr.ph
+._crit_edge22:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
   %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %20, ptr %1, align 8
@@ -8295,13 +8295,13 @@ define internal void @pdcp_lte_users_rohc_compression_tostr_cb(ptr noundef reado
   %22 = trunc i64 %21 to i32
   br label %24
 
-._crit_edge:                                      ; preds = %.lr.ph20, %5
+._crit_edge:                                      ; preds = %.lr.ph21, %5
   %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1010)
   store ptr %23, ptr %1, align 8
   br label %24
 
-24:                                               ; preds = %._crit_edge, %._crit_edge21
-  %storemerge = phi i32 [ 19, %._crit_edge ], [ %22, %._crit_edge21 ]
+24:                                               ; preds = %._crit_edge, %._crit_edge22
+  %storemerge = phi i32 [ 19, %._crit_edge ], [ %22, %._crit_edge22 ]
   store i32 %storemerge, ptr %2, align 4
   ret void
 }
@@ -8319,12 +8319,12 @@ define internal void @pdcp_lte_users_rohc_profile_set_cb(ptr noundef writeonly c
 
 .lr.ph.preheader:                                 ; preds = %5
   %11 = tail call i32 @g_str_equal(ptr noundef nonnull %10, ptr noundef %7)
-  %.not1320 = icmp eq i32 %11, 0
-  br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
+  %.not1321 = icmp eq i32 %11, 0
+  br i1 %.not1321, label %.lr.ph23, label %.lr.ph._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01621 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %12 = add i32 %.01621, 1
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -8332,10 +8332,10 @@ define internal void @pdcp_lte_users_rohc_profile_set_cb(ptr noundef writeonly c
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !24
+  br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !24
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -8343,7 +8343,7 @@ define internal void @pdcp_lte_users_rohc_profile_set_cb(ptr noundef writeonly c
   store i32 %18, ptr %8, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge
   tail call void @g_free(ptr noundef %7)
   ret void
 }
@@ -8360,11 +8360,11 @@ define internal void @pdcp_lte_users_rohc_profile_tostr_cb(ptr noundef readonly 
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %3, align 8
   %11 = icmp eq i32 %10, %9
-  br i1 %11, label %._crit_edge21, label %.lr.ph20
+  br i1 %11, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph20:                                         ; preds = %.lr.ph, %17
-  %.01519 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
-  %12 = add i32 %.01519, 1
+.lr.ph21:                                         ; preds = %.lr.ph, %17
+  %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
+  %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -8372,12 +8372,12 @@ define internal void @pdcp_lte_users_rohc_profile_tostr_cb(ptr noundef readonly 
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !25
 
-17:                                               ; preds = %.lr.ph20
+17:                                               ; preds = %.lr.ph21
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !25
+  br i1 %19, label %._crit_edge22, label %.lr.ph21, !llvm.loop !25
 
-._crit_edge21:                                    ; preds = %17, %.lr.ph
+._crit_edge22:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
   %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %20, ptr %1, align 8
@@ -8385,13 +8385,13 @@ define internal void @pdcp_lte_users_rohc_profile_tostr_cb(ptr noundef readonly 
   %22 = trunc i64 %21 to i32
   br label %24
 
-._crit_edge:                                      ; preds = %.lr.ph20, %5
+._crit_edge:                                      ; preds = %.lr.ph21, %5
   %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1011)
   store ptr %23, ptr %1, align 8
   br label %24
 
-24:                                               ; preds = %._crit_edge, %._crit_edge21
-  %storemerge = phi i32 [ 16, %._crit_edge ], [ %22, %._crit_edge21 ]
+24:                                               ; preds = %._crit_edge, %._crit_edge22
+  %storemerge = phi i32 [ 16, %._crit_edge ], [ %22, %._crit_edge22 ]
   store i32 %storemerge, ptr %2, align 4
   ret void
 }
@@ -8595,12 +8595,12 @@ free_address_wmem.exit:                           ; preds = %20, %24, %28, %31
   br label %.sink.split
 
 46:                                               ; preds = %40, %34
-  %.sink38 = phi ptr [ %42, %40 ], [ %36, %34 ]
+  %.sink40 = phi ptr [ %42, %40 ], [ %36, %34 ]
   %.sink = phi i32 [ 4, %40 ], [ 16, %34 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink38, ptr %47, align 8
+  store ptr %.sink40, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink38, ptr %48, align 8
+  store ptr %.sink40, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.sink, ptr %49, align 4
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -8633,8 +8633,8 @@ free_address_wmem.exit:                           ; preds = %20, %24, %28, %31
   br label %.sink.split
 
 .sink.split:                                      ; preds = %18, %44, %54, %61
-  %.sink40 = phi ptr [ %62, %61 ], [ %55, %54 ], [ %45, %44 ], [ %19, %18 ]
-  store ptr %.sink40, ptr %1, align 8
+  %.sink42 = phi ptr [ %62, %61 ], [ %55, %54 ], [ %45, %44 ], [ %19, %18 ]
+  store ptr %.sink42, ptr %1, align 8
   br label %63
 
 63:                                               ; preds = %.sink.split, %56, %60, %53, %43, %17
@@ -8766,12 +8766,12 @@ define internal void @pdcp_nr_users_direction_set_cb(ptr noundef writeonly captu
 
 .lr.ph.preheader:                                 ; preds = %5
   %11 = tail call i32 @g_str_equal(ptr noundef nonnull %10, ptr noundef %7)
-  %.not1320 = icmp eq i32 %11, 0
-  br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
+  %.not1321 = icmp eq i32 %11, 0
+  br i1 %.not1321, label %.lr.ph23, label %.lr.ph._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01621 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %12 = add i32 %.01621, 1
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -8779,10 +8779,10 @@ define internal void @pdcp_nr_users_direction_set_cb(ptr noundef writeonly captu
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !26
+  br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !26
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -8790,7 +8790,7 @@ define internal void @pdcp_nr_users_direction_set_cb(ptr noundef writeonly captu
   store i32 %18, ptr %8, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge
   tail call void @g_free(ptr noundef %7)
   ret void
 }
@@ -8807,11 +8807,11 @@ define internal void @pdcp_nr_users_direction_tostr_cb(ptr noundef readonly capt
   %9 = load i32, ptr %8, align 8
   %10 = load i32, ptr %3, align 8
   %11 = icmp eq i32 %10, %9
-  br i1 %11, label %._crit_edge21, label %.lr.ph20
+  br i1 %11, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph20:                                         ; preds = %.lr.ph, %17
-  %.01519 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
-  %12 = add i32 %.01519, 1
+.lr.ph21:                                         ; preds = %.lr.ph, %17
+  %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
+  %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -8819,12 +8819,12 @@ define internal void @pdcp_nr_users_direction_tostr_cb(ptr noundef readonly capt
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !27
 
-17:                                               ; preds = %.lr.ph20
+17:                                               ; preds = %.lr.ph21
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !27
+  br i1 %19, label %._crit_edge22, label %.lr.ph21, !llvm.loop !27
 
-._crit_edge21:                                    ; preds = %17, %.lr.ph
+._crit_edge22:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
   %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %20, ptr %1, align 8
@@ -8832,13 +8832,13 @@ define internal void @pdcp_nr_users_direction_tostr_cb(ptr noundef readonly capt
   %22 = trunc i64 %21 to i32
   br label %24
 
-._crit_edge:                                      ; preds = %.lr.ph20, %5
+._crit_edge:                                      ; preds = %.lr.ph21, %5
   %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1715)
   store ptr %23, ptr %1, align 8
   br label %24
 
-24:                                               ; preds = %._crit_edge, %._crit_edge21
-  %storemerge = phi i32 [ 2, %._crit_edge ], [ %22, %._crit_edge21 ]
+24:                                               ; preds = %._crit_edge, %._crit_edge22
+  %storemerge = phi i32 [ 2, %._crit_edge ], [ %22, %._crit_edge22 ]
   store i32 %storemerge, ptr %2, align 4
   ret void
 }
@@ -8856,12 +8856,12 @@ define internal void @pdcp_nr_users_sdap_header_present_set_cb(ptr noundef write
 
 .lr.ph.preheader:                                 ; preds = %5
   %11 = tail call i32 @g_str_equal(ptr noundef nonnull %10, ptr noundef %7)
-  %.not1320 = icmp eq i32 %11, 0
-  br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
+  %.not1321 = icmp eq i32 %11, 0
+  br i1 %.not1321, label %.lr.ph23, label %.lr.ph._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01621 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %12 = add i32 %.01621, 1
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -8869,10 +8869,10 @@ define internal void @pdcp_nr_users_sdap_header_present_set_cb(ptr noundef write
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !28
+  br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !28
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -8880,7 +8880,7 @@ define internal void @pdcp_nr_users_sdap_header_present_set_cb(ptr noundef write
   store i32 %18, ptr %8, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge
   tail call void @g_free(ptr noundef %7)
   ret void
 }
@@ -8897,11 +8897,11 @@ define internal void @pdcp_nr_users_sdap_header_present_tostr_cb(ptr noundef rea
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %3, align 8
   %11 = icmp eq i32 %10, %9
-  br i1 %11, label %._crit_edge21, label %.lr.ph20
+  br i1 %11, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph20:                                         ; preds = %.lr.ph, %17
-  %.01519 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
-  %12 = add i32 %.01519, 1
+.lr.ph21:                                         ; preds = %.lr.ph, %17
+  %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
+  %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -8909,12 +8909,12 @@ define internal void @pdcp_nr_users_sdap_header_present_tostr_cb(ptr noundef rea
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !29
 
-17:                                               ; preds = %.lr.ph20
+17:                                               ; preds = %.lr.ph21
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !29
+  br i1 %19, label %._crit_edge22, label %.lr.ph21, !llvm.loop !29
 
-._crit_edge21:                                    ; preds = %17, %.lr.ph
+._crit_edge22:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
   %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %20, ptr %1, align 8
@@ -8922,13 +8922,13 @@ define internal void @pdcp_nr_users_sdap_header_present_tostr_cb(ptr noundef rea
   %22 = trunc i64 %21 to i32
   br label %24
 
-._crit_edge:                                      ; preds = %.lr.ph20, %5
+._crit_edge:                                      ; preds = %.lr.ph21, %5
   %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1006)
   store ptr %23, ptr %1, align 8
   br label %24
 
-24:                                               ; preds = %._crit_edge, %._crit_edge21
-  %storemerge = phi i32 [ 23, %._crit_edge ], [ %22, %._crit_edge21 ]
+24:                                               ; preds = %._crit_edge, %._crit_edge22
+  %storemerge = phi i32 [ 23, %._crit_edge ], [ %22, %._crit_edge22 ]
   store i32 %storemerge, ptr %2, align 4
   ret void
 }
@@ -8946,12 +8946,12 @@ define internal void @pdcp_nr_users_mac_i_present_set_cb(ptr noundef writeonly c
 
 .lr.ph.preheader:                                 ; preds = %5
   %11 = tail call i32 @g_str_equal(ptr noundef nonnull %10, ptr noundef %7)
-  %.not1320 = icmp eq i32 %11, 0
-  br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
+  %.not1321 = icmp eq i32 %11, 0
+  br i1 %.not1321, label %.lr.ph23, label %.lr.ph._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01621 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %12 = add i32 %.01621, 1
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -8959,10 +8959,10 @@ define internal void @pdcp_nr_users_mac_i_present_set_cb(ptr noundef writeonly c
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !30
+  br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !30
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -8970,7 +8970,7 @@ define internal void @pdcp_nr_users_mac_i_present_set_cb(ptr noundef writeonly c
   store i32 %18, ptr %8, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge
   tail call void @g_free(ptr noundef %7)
   ret void
 }
@@ -8987,11 +8987,11 @@ define internal void @pdcp_nr_users_mac_i_present_tostr_cb(ptr noundef readonly 
   %9 = load i32, ptr %8, align 8
   %10 = load i32, ptr %3, align 8
   %11 = icmp eq i32 %10, %9
-  br i1 %11, label %._crit_edge21, label %.lr.ph20
+  br i1 %11, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph20:                                         ; preds = %.lr.ph, %17
-  %.01519 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
-  %12 = add i32 %.01519, 1
+.lr.ph21:                                         ; preds = %.lr.ph, %17
+  %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
+  %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -8999,12 +8999,12 @@ define internal void @pdcp_nr_users_mac_i_present_tostr_cb(ptr noundef readonly 
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !31
 
-17:                                               ; preds = %.lr.ph20
+17:                                               ; preds = %.lr.ph21
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !31
+  br i1 %19, label %._crit_edge22, label %.lr.ph21, !llvm.loop !31
 
-._crit_edge21:                                    ; preds = %17, %.lr.ph
+._crit_edge22:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
   %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %20, ptr %1, align 8
@@ -9012,13 +9012,13 @@ define internal void @pdcp_nr_users_mac_i_present_tostr_cb(ptr noundef readonly 
   %22 = trunc i64 %21 to i32
   br label %24
 
-._crit_edge:                                      ; preds = %.lr.ph20, %5
+._crit_edge:                                      ; preds = %.lr.ph21, %5
   %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1737)
   store ptr %23, ptr %1, align 8
   br label %24
 
-24:                                               ; preds = %._crit_edge, %._crit_edge21
-  %storemerge = phi i32 [ 17, %._crit_edge ], [ %22, %._crit_edge21 ]
+24:                                               ; preds = %._crit_edge, %._crit_edge22
+  %storemerge = phi i32 [ 17, %._crit_edge ], [ %22, %._crit_edge22 ]
   store i32 %storemerge, ptr %2, align 4
   ret void
 }
@@ -9036,12 +9036,12 @@ define internal void @pdcp_nr_users_plane_set_cb(ptr noundef writeonly captures(
 
 .lr.ph.preheader:                                 ; preds = %5
   %11 = tail call i32 @g_str_equal(ptr noundef nonnull %10, ptr noundef %7)
-  %.not1320 = icmp eq i32 %11, 0
-  br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
+  %.not1321 = icmp eq i32 %11, 0
+  br i1 %.not1321, label %.lr.ph23, label %.lr.ph._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01621 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %12 = add i32 %.01621, 1
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -9049,10 +9049,10 @@ define internal void @pdcp_nr_users_plane_set_cb(ptr noundef writeonly captures(
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !32
+  br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !32
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -9060,7 +9060,7 @@ define internal void @pdcp_nr_users_plane_set_cb(ptr noundef writeonly captures(
   store i32 %18, ptr %8, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge
   tail call void @g_free(ptr noundef %7)
   ret void
 }
@@ -9077,11 +9077,11 @@ define internal void @pdcp_nr_users_plane_tostr_cb(ptr noundef readonly captures
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %3, align 8
   %11 = icmp eq i32 %10, %9
-  br i1 %11, label %._crit_edge21, label %.lr.ph20
+  br i1 %11, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph20:                                         ; preds = %.lr.ph, %17
-  %.01519 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
-  %12 = add i32 %.01519, 1
+.lr.ph21:                                         ; preds = %.lr.ph, %17
+  %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
+  %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -9089,12 +9089,12 @@ define internal void @pdcp_nr_users_plane_tostr_cb(ptr noundef readonly captures
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !33
 
-17:                                               ; preds = %.lr.ph20
+17:                                               ; preds = %.lr.ph21
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !33
+  br i1 %19, label %._crit_edge22, label %.lr.ph21, !llvm.loop !33
 
-._crit_edge21:                                    ; preds = %17, %.lr.ph
+._crit_edge22:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
   %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %20, ptr %1, align 8
@@ -9102,13 +9102,13 @@ define internal void @pdcp_nr_users_plane_tostr_cb(ptr noundef readonly captures
   %22 = trunc i64 %21 to i32
   br label %24
 
-._crit_edge:                                      ; preds = %.lr.ph20, %5
+._crit_edge:                                      ; preds = %.lr.ph21, %5
   %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1719)
   store ptr %23, ptr %1, align 8
   br label %24
 
-24:                                               ; preds = %._crit_edge, %._crit_edge21
-  %storemerge = phi i32 [ 10, %._crit_edge ], [ %22, %._crit_edge21 ]
+24:                                               ; preds = %._crit_edge, %._crit_edge22
+  %storemerge = phi i32 [ 10, %._crit_edge ], [ %22, %._crit_edge22 ]
   store i32 %storemerge, ptr %2, align 4
   ret void
 }
@@ -9126,12 +9126,12 @@ define internal void @pdcp_nr_users_pdcp_nr_sn_length_set_cb(ptr noundef writeon
 
 .lr.ph.preheader:                                 ; preds = %5
   %11 = tail call i32 @g_str_equal(ptr noundef nonnull %10, ptr noundef %7)
-  %.not1320 = icmp eq i32 %11, 0
-  br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
+  %.not1321 = icmp eq i32 %11, 0
+  br i1 %.not1321, label %.lr.ph23, label %.lr.ph._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01621 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %12 = add i32 %.01621, 1
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -9139,10 +9139,10 @@ define internal void @pdcp_nr_users_pdcp_nr_sn_length_set_cb(ptr noundef writeon
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !34
+  br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !34
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -9150,7 +9150,7 @@ define internal void @pdcp_nr_users_pdcp_nr_sn_length_set_cb(ptr noundef writeon
   store i32 %18, ptr %8, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge
   tail call void @g_free(ptr noundef %7)
   ret void
 }
@@ -9167,11 +9167,11 @@ define internal void @pdcp_nr_users_pdcp_nr_sn_length_tostr_cb(ptr noundef reado
   %9 = load i32, ptr %8, align 8
   %10 = load i32, ptr %3, align 8
   %11 = icmp eq i32 %10, %9
-  br i1 %11, label %._crit_edge21, label %.lr.ph20
+  br i1 %11, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph20:                                         ; preds = %.lr.ph, %17
-  %.01519 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
-  %12 = add i32 %.01519, 1
+.lr.ph21:                                         ; preds = %.lr.ph, %17
+  %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
+  %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -9179,12 +9179,12 @@ define internal void @pdcp_nr_users_pdcp_nr_sn_length_tostr_cb(ptr noundef reado
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !35
 
-17:                                               ; preds = %.lr.ph20
+17:                                               ; preds = %.lr.ph21
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !35
+  br i1 %19, label %._crit_edge22, label %.lr.ph21, !llvm.loop !35
 
-._crit_edge21:                                    ; preds = %17, %.lr.ph
+._crit_edge22:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
   %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %20, ptr %1, align 8
@@ -9192,13 +9192,13 @@ define internal void @pdcp_nr_users_pdcp_nr_sn_length_tostr_cb(ptr noundef reado
   %22 = trunc i64 %21 to i32
   br label %24
 
-._crit_edge:                                      ; preds = %.lr.ph20, %5
+._crit_edge:                                      ; preds = %.lr.ph21, %5
   %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1009)
   store ptr %23, ptr %1, align 8
   br label %24
 
-24:                                               ; preds = %._crit_edge, %._crit_edge21
-  %storemerge = phi i32 [ 7, %._crit_edge ], [ %22, %._crit_edge21 ]
+24:                                               ; preds = %._crit_edge, %._crit_edge22
+  %storemerge = phi i32 [ 7, %._crit_edge ], [ %22, %._crit_edge22 ]
   store i32 %storemerge, ptr %2, align 4
   ret void
 }
@@ -9216,12 +9216,12 @@ define internal void @pdcp_nr_users_rohc_compression_set_cb(ptr noundef writeonl
 
 .lr.ph.preheader:                                 ; preds = %5
   %11 = tail call i32 @g_str_equal(ptr noundef nonnull %10, ptr noundef %7)
-  %.not1320 = icmp eq i32 %11, 0
-  br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
+  %.not1321 = icmp eq i32 %11, 0
+  br i1 %.not1321, label %.lr.ph23, label %.lr.ph._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01621 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %12 = add i32 %.01621, 1
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -9229,10 +9229,10 @@ define internal void @pdcp_nr_users_rohc_compression_set_cb(ptr noundef writeonl
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !36
+  br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !36
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -9240,7 +9240,7 @@ define internal void @pdcp_nr_users_rohc_compression_set_cb(ptr noundef writeonl
   store i32 %18, ptr %8, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge
   tail call void @g_free(ptr noundef %7)
   ret void
 }
@@ -9257,11 +9257,11 @@ define internal void @pdcp_nr_users_rohc_compression_tostr_cb(ptr noundef readon
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %3, align 8
   %11 = icmp eq i32 %10, %9
-  br i1 %11, label %._crit_edge21, label %.lr.ph20
+  br i1 %11, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph20:                                         ; preds = %.lr.ph, %17
-  %.01519 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
-  %12 = add i32 %.01519, 1
+.lr.ph21:                                         ; preds = %.lr.ph, %17
+  %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
+  %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -9269,12 +9269,12 @@ define internal void @pdcp_nr_users_rohc_compression_tostr_cb(ptr noundef readon
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !37
 
-17:                                               ; preds = %.lr.ph20
+17:                                               ; preds = %.lr.ph21
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !37
+  br i1 %19, label %._crit_edge22, label %.lr.ph21, !llvm.loop !37
 
-._crit_edge21:                                    ; preds = %17, %.lr.ph
+._crit_edge22:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
   %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %20, ptr %1, align 8
@@ -9282,13 +9282,13 @@ define internal void @pdcp_nr_users_rohc_compression_tostr_cb(ptr noundef readon
   %22 = trunc i64 %21 to i32
   br label %24
 
-._crit_edge:                                      ; preds = %.lr.ph20, %5
+._crit_edge:                                      ; preds = %.lr.ph21, %5
   %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1010)
   store ptr %23, ptr %1, align 8
   br label %24
 
-24:                                               ; preds = %._crit_edge, %._crit_edge21
-  %storemerge = phi i32 [ 19, %._crit_edge ], [ %22, %._crit_edge21 ]
+24:                                               ; preds = %._crit_edge, %._crit_edge22
+  %storemerge = phi i32 [ 19, %._crit_edge ], [ %22, %._crit_edge22 ]
   store i32 %storemerge, ptr %2, align 4
   ret void
 }
@@ -9306,12 +9306,12 @@ define internal void @pdcp_nr_users_rohc_profile_set_cb(ptr noundef writeonly ca
 
 .lr.ph.preheader:                                 ; preds = %5
   %11 = tail call i32 @g_str_equal(ptr noundef nonnull %10, ptr noundef %7)
-  %.not1320 = icmp eq i32 %11, 0
-  br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
+  %.not1321 = icmp eq i32 %11, 0
+  br i1 %.not1321, label %.lr.ph23, label %.lr.ph._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01621 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %12 = add i32 %.01621, 1
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -9319,10 +9319,10 @@ define internal void @pdcp_nr_users_rohc_profile_set_cb(ptr noundef writeonly ca
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !38
+  br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !38
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -9330,7 +9330,7 @@ define internal void @pdcp_nr_users_rohc_profile_set_cb(ptr noundef writeonly ca
   store i32 %18, ptr %8, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge
   tail call void @g_free(ptr noundef %7)
   ret void
 }
@@ -9347,11 +9347,11 @@ define internal void @pdcp_nr_users_rohc_profile_tostr_cb(ptr noundef readonly c
   %9 = load i32, ptr %8, align 8
   %10 = load i32, ptr %3, align 8
   %11 = icmp eq i32 %10, %9
-  br i1 %11, label %._crit_edge21, label %.lr.ph20
+  br i1 %11, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph20:                                         ; preds = %.lr.ph, %17
-  %.01519 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
-  %12 = add i32 %.01519, 1
+.lr.ph21:                                         ; preds = %.lr.ph, %17
+  %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
+  %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -9359,12 +9359,12 @@ define internal void @pdcp_nr_users_rohc_profile_tostr_cb(ptr noundef readonly c
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !39
 
-17:                                               ; preds = %.lr.ph20
+17:                                               ; preds = %.lr.ph21
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !39
+  br i1 %19, label %._crit_edge22, label %.lr.ph21, !llvm.loop !39
 
-._crit_edge21:                                    ; preds = %17, %.lr.ph
+._crit_edge22:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
   %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %20, ptr %1, align 8
@@ -9372,13 +9372,13 @@ define internal void @pdcp_nr_users_rohc_profile_tostr_cb(ptr noundef readonly c
   %22 = trunc i64 %21 to i32
   br label %24
 
-._crit_edge:                                      ; preds = %.lr.ph20, %5
+._crit_edge:                                      ; preds = %.lr.ph21, %5
   %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1011)
   store ptr %23, ptr %1, align 8
   br label %24
 
-24:                                               ; preds = %._crit_edge, %._crit_edge21
-  %storemerge = phi i32 [ 16, %._crit_edge ], [ %22, %._crit_edge21 ]
+24:                                               ; preds = %._crit_edge, %._crit_edge22
+  %storemerge = phi i32 [ 16, %._crit_edge ], [ %22, %._crit_edge22 ]
   store i32 %storemerge, ptr %2, align 4
   ret void
 }
@@ -9580,12 +9580,12 @@ free_address_wmem.exit:                           ; preds = %20, %24, %28, %31
   br label %.sink.split
 
 46:                                               ; preds = %40, %34
-  %.sink38 = phi ptr [ %42, %40 ], [ %36, %34 ]
+  %.sink40 = phi ptr [ %42, %40 ], [ %36, %34 ]
   %.sink = phi i32 [ 4, %40 ], [ 16, %34 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink38, ptr %47, align 8
+  store ptr %.sink40, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink38, ptr %48, align 8
+  store ptr %.sink40, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.sink, ptr %49, align 4
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -9618,8 +9618,8 @@ free_address_wmem.exit:                           ; preds = %20, %24, %28, %31
   br label %.sink.split
 
 .sink.split:                                      ; preds = %18, %44, %54, %61
-  %.sink40 = phi ptr [ %62, %61 ], [ %55, %54 ], [ %45, %44 ], [ %19, %18 ]
-  store ptr %.sink40, ptr %1, align 8
+  %.sink42 = phi ptr [ %62, %61 ], [ %55, %54 ], [ %45, %44 ], [ %19, %18 ]
+  store ptr %.sink42, ptr %1, align 8
   br label %63
 
 63:                                               ; preds = %.sink.split, %56, %60, %53, %43, %17
@@ -10501,8 +10501,8 @@ define internal fastcc i32 @dissect_gtp_common(ptr noundef %0, ptr noundef %1, p
   store i8 %52, ptr %34, align 8
   %53 = and i8 %52, 16
   %.not = icmp ne i8 %53, 0
-  %switch.selectcmp522 = icmp ugt i8 %52, 31
-  store i1 %switch.selectcmp522, ptr @gtp_version, align 1
+  %switch.selectcmp540 = icmp ugt i8 %52, 31
+  store i1 %switch.selectcmp540, ptr @gtp_version, align 1
   %.not387 = icmp eq ptr %2, null
   br i1 %.not387, label %81, label %54
 
@@ -10574,9 +10574,9 @@ define internal fastcc i32 @dissect_gtp_common(ptr noundef %0, ptr noundef %1, p
   br label %.sink.split
 
 .sink.split:                                      ; preds = %81, %81, %81, %81, %81, %81, %81, %84
-  %.sink516 = phi i32 [ 1, %84 ], [ 0, %81 ], [ 0, %81 ], [ 0, %81 ], [ 0, %81 ], [ 0, %81 ], [ 0, %81 ], [ 0, %81 ]
+  %.sink534 = phi i32 [ 1, %84 ], [ 0, %81 ], [ 0, %81 ], [ 0, %81 ], [ 0, %81 ], [ 0, %81 ], [ 0, %81 ], [ 0, %81 ]
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  store i32 %.sink516, ptr %85, align 8
+  store i32 %.sink534, ptr %85, align 8
   br label %86
 
 86:                                               ; preds = %.sink.split, %81
@@ -11031,18 +11031,18 @@ id_to_str.exit:                                   ; preds = %115
 
 336:                                              ; preds = %.lr.ph
   %337 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %163, ptr noundef nonnull @ei_gtp_ext_length_mal, ptr noundef nonnull @.str.1741)
-  br label %.sink.split521
+  br label %.sink.split539
 
 .thread.sink.split:                               ; preds = %97, %100, %104, %id_to_str.exit
-  %.sink520 = phi i32 [ 20, %id_to_str.exit ], [ 20, %104 ], [ 6, %100 ], [ 6, %97 ]
+  %.sink538 = phi i32 [ 20, %id_to_str.exit ], [ 20, %104 ], [ 6, %100 ], [ 6, %97 ]
   %338 = load i32, ptr %95, align 4
-  %339 = add i32 %338, %.sink520
+  %339 = add i32 %338, %.sink538
   call void @set_actual_length(ptr noundef %0, i32 noundef %339)
   br label %.thread
 
 .thread:                                          ; preds = %327, %.thread.sink.split, %154, %151, %130
   %.0376 = phi i1 [ false, %130 ], [ %.not389, %151 ], [ %.not389, %154 ], [ true, %.thread.sink.split ], [ %.not389, %327 ]
-  %.1372 = phi i32 [ 8, %130 ], [ 12, %151 ], [ 12, %154 ], [ %.sink520, %.thread.sink.split ], [ %334, %327 ]
+  %.1372 = phi i32 [ 8, %130 ], [ 12, %151 ], [ 12, %154 ], [ %.sink538, %.thread.sink.split ], [ %334, %327 ]
   %340 = load i8, ptr %83, align 1
   %.not405 = icmp eq i8 %340, -1
   br i1 %.not405, label %439, label %341
@@ -11098,7 +11098,7 @@ check_field_presence_and_decoder.exit.thread.us:  ; preds = %.lr.ph464.split.us
 
 .lr.ph464.split:                                  ; preds = %.lr.ph464, %409
   %.4375463 = phi i32 [ %411, %409 ], [ %.1372, %.lr.ph464 ]
-  %.0422462 = phi i32 [ %.1423495, %409 ], [ 0, %.lr.ph464 ]
+  %.0422462 = phi i32 [ %.1423513, %409 ], [ 0, %.lr.ph464 ]
   %363 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.4375463)
   %364 = load i8, ptr @g_gtp_etsi_order, align 1, !range !12, !noundef !13
   %365 = trunc nuw i8 %364 to i1
@@ -11175,7 +11175,7 @@ check_field_presence_and_decoder.exit.thread433:  ; preds = %385, %.preheader.i
   br i1 %398, label %.preheader, label %409
 
 .preheader:                                       ; preds = %.lr.ph464.split, %check_field_presence_and_decoder.exit.thread433, %check_field_presence_and_decoder.exit.thread.loopexit, %check_field_presence_and_decoder.exit, %394
-  %.1423496 = phi i32 [ %397, %394 ], [ %.0422462, %.lr.ph464.split ], [ %.3425437, %check_field_presence_and_decoder.exit.thread433 ], [ %.0422462, %check_field_presence_and_decoder.exit.thread.loopexit ], [ %384, %check_field_presence_and_decoder.exit ]
+  %.1423514 = phi i32 [ %397, %394 ], [ %.0422462, %.lr.ph464.split ], [ %.3425437, %check_field_presence_and_decoder.exit.thread433 ], [ %.0422462, %check_field_presence_and_decoder.exit.thread.loopexit ], [ %384, %check_field_presence_and_decoder.exit ]
   %399 = zext i8 %363 to i32
   br label %400
 
@@ -11196,7 +11196,7 @@ check_field_presence_and_decoder.exit.thread433:  ; preds = %385, %.preheader.i
   br label %409
 
 409:                                              ; preds = %406, %394
-  %.1423495 = phi i32 [ %.1423496, %406 ], [ %397, %394 ]
+  %.1423513 = phi i32 [ %.1423514, %406 ], [ %397, %394 ]
   %.1420 = phi ptr [ %408, %406 ], [ %396, %394 ]
   %410 = call i32 %.1420(ptr noundef %0, i32 noundef %.4375463, ptr noundef %1, ptr noundef %.0365, ptr noundef %.0368)
   %411 = add i32 %410, %.4375463
@@ -11561,14 +11561,14 @@ track_gtp_session.exit:                           ; preds = %546, %538, %get_fra
 588:                                              ; preds = %569, %570, %571, %572, %574, %585, %582, %580, %555, %track_gtp_session.exit
   %589 = load i32, ptr @gtpv1_tap, align 4
   call void @tap_queue_packet(i32 noundef %589, ptr noundef %1, ptr noundef %34)
-  br label %.sink.split521
+  br label %.sink.split539
 
-.sink.split521:                                   ; preds = %588, %336
+.sink.split539:                                   ; preds = %588, %336
   %590 = call i32 @tvb_reported_length(ptr noundef %0)
   br label %591
 
-591:                                              ; preds = %.sink.split521, %24, %27, %21, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %21 ], [ 0, %27 ], [ 0, %24 ], [ %590, %.sink.split521 ]
+591:                                              ; preds = %.sink.split539, %24, %27, %21, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %21 ], [ 0, %27 ], [ 0, %24 ], [ %590, %.sink.split539 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -13544,7 +13544,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mm_cntxt(ptr noundef %0, i32
   %.b173 = load i1, ptr @gtp_version, align 1
   %spec.select = select i1 %.b173, i8 %16, i8 1
   %22 = add i32 %1, 3
-  switch i8 %spec.select, label %default.unreachable175 [
+  switch i8 %spec.select, label %default.unreachable177 [
     i8 0, label %23
     i8 1, label %45
     i8 2, label %74
@@ -13669,7 +13669,7 @@ decode_triplet.exit:                              ; preds = %.lr.ph.i, %51
   %112 = add i32 %109, %111
   br label %113
 
-default.unreachable175:                           ; preds = %13
+default.unreachable177:                           ; preds = %13
   unreachable
 
 113:                                              ; preds = %94, %74, %decode_triplet.exit, %23
@@ -14705,9 +14705,9 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_ue_ctx(ptr noundef %0, 
 
 .sink.split:                                      ; preds = %48, %50
   %hf_gtp_pdp_address_ipv6.sink = phi ptr [ @hf_gtp_pdp_address_ipv6, %50 ], [ @hf_gtp_pdp_address_ipv4, %48 ]
-  %.sink76 = phi i32 [ 16, %50 ], [ 4, %48 ]
+  %.sink77 = phi i32 [ 16, %50 ], [ 4, %48 ]
   %51 = load i32, ptr %hf_gtp_pdp_address_ipv6.sink, align 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %51, ptr noundef %0, i32 noundef %46, i32 noundef %.sink76, i32 noundef 0)
+  %52 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %51, ptr noundef %0, i32 noundef %46, i32 noundef %.sink77, i32 noundef 0)
   br label %53
 
 53:                                               ; preds = %.sink.split, %48
@@ -14722,20 +14722,20 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mbms_ue_ctx(ptr noundef %0, 
   %59 = add i32 %.0, 1
   %60 = load i32, ptr %9, align 4
   switch i32 %60, label %64 [
-    i32 4, label %.sink.split77
+    i32 4, label %.sink.split78
     i32 16, label %61
   ]
 
 61:                                               ; preds = %56
-  br label %.sink.split77
+  br label %.sink.split78
 
-.sink.split77:                                    ; preds = %56, %61
+.sink.split78:                                    ; preds = %56, %61
   %hf_gtp_ggsn_address_for_control_plane_ipv6.sink = phi ptr [ @hf_gtp_ggsn_address_for_control_plane_ipv6, %61 ], [ @hf_gtp_ggsn_address_for_control_plane_ipv4, %56 ]
   %62 = load i32, ptr %hf_gtp_ggsn_address_for_control_plane_ipv6.sink, align 4
   %63 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %62, ptr noundef %0, i32 noundef %59, i32 noundef %60, i32 noundef 0)
   br label %64
 
-64:                                               ; preds = %.sink.split77, %56
+64:                                               ; preds = %.sink.split78, %56
   %65 = load i32, ptr %9, align 4
   %66 = add i32 %65, %59
   %67 = load i32, ptr @hf_gtp_apn_length, align 4

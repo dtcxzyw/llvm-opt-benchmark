@@ -84,15 +84,15 @@ define internal void @_php_import_environment_variables(ptr noundef readonly cap
 .lr.ph13:                                         ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %4, align 8, !tbaa !9
-  %.not615 = icmp eq ptr %6, null
-  br i1 %.not615, label %.critedge, label %.lr.ph17
+  %.not621 = icmp eq ptr %6, null
+  br i1 %.not621, label %.critedge, label %.lr.ph23
 
 .critedge:                                        ; preds = %import_environment_variable.exit, %.lr.ph13, %1
   ret void
 
-.lr.ph17:                                         ; preds = %.lr.ph13, %import_environment_variable.exit
+.lr.ph23:                                         ; preds = %.lr.ph13, %import_environment_variable.exit
   %7 = phi ptr [ %67, %import_environment_variable.exit ], [ %6, %.lr.ph13 ]
-  %.01216 = phi ptr [ %66, %import_environment_variable.exit ], [ %4, %.lr.ph13 ]
+  %.01222 = phi ptr [ %66, %import_environment_variable.exit ], [ %4, %.lr.ph13 ]
   %8 = ptrtoint ptr %7 to i64
   %9 = load ptr, ptr %0, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -104,7 +104,7 @@ define internal void @_php_import_environment_variables(ptr noundef readonly cap
   %or.cond.i = or i1 %.not.i, %12
   br i1 %or.cond.i, label %import_environment_variable.exit, label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph17
+.preheader:                                       ; preds = %.lr.ph23
   %13 = icmp ult ptr %7, %10
   br i1 %13, label %.lr.ph, label %valid_environment_name.exit
 
@@ -221,13 +221,13 @@ _zend_handle_numeric_str.exit.i.thread:           ; preds = %46, %45, %zend_stri
   call void @_efree(ptr noundef nonnull %55) #18
   br label %import_environment_variable.exit
 
-import_environment_variable.exit:                 ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %_zend_handle_numeric_str.exit.i.thread, %60, %65, %.lr.ph17, %51
+import_environment_variable.exit:                 ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %_zend_handle_numeric_str.exit.i.thread, %60, %65, %.lr.ph23, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %66 = getelementptr inbounds nuw i8, ptr %.01216, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.01222, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !9
   %.not6 = icmp eq ptr %67, null
-  br i1 %.not6, label %.critedge, label %.lr.ph17
+  br i1 %.not6, label %.critedge, label %.lr.ph23
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1008,8 +1008,8 @@ zend_gc_try_delref.exit:                          ; preds = %266, %261, %257, %z
   store i8 0, ptr %270, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %274 = load i64, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 528), align 8, !tbaa !35
-  %.not421 = icmp sgt i64 %274, %indvars.iv
-  br i1 %.not421, label %142, label %._crit_edge
+  %.not438 = icmp sgt i64 %274, %indvars.iv
+  br i1 %.not438, label %142, label %._crit_edge
 
 .loopexit:                                        ; preds = %zend_gc_try_delref.exit, %107
   %.3207 = phi ptr [ %16, %107 ], [ %269, %zend_gc_try_delref.exit ]
@@ -1679,7 +1679,7 @@ define dso_local void @php_default_treat_data(i32 noundef %0, ptr noundef %1, pt
   %11 = tail call ptr @_zend_new_array_0() #18
   store ptr %11, ptr %6, align 8, !tbaa !11
   store i32 775, ptr %9, align 8, !tbaa !11
-  switch i32 %0, label %default.unreachable [
+  switch i32 %0, label %default.unreachable136 [
     i32 0, label %12
     i32 1, label %21
     i32 2, label %31
@@ -1965,7 +1965,7 @@ php_register_variable_safe.exit:                  ; preds = %zend_string_alloc.e
   call void @_efree(ptr noundef nonnull %.0) #18
   br label %.thread103
 
-default.unreachable:                              ; preds = %10
+default.unreachable136:                           ; preds = %10
   unreachable
 
 .thread103:                                       ; preds = %41, %.thread102, %47, %.thread101, %45, %.loopexit, %50, %.thread
@@ -2013,7 +2013,7 @@ define dso_local void @php_build_argv(ptr noundef %0, ptr noundef readonly captu
 
 .preheader61:                                     ; preds = %9
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.lr.ph, label %.loopexit.thread70
+  br i1 %13, label %.lr.ph, label %.loopexit.thread77
 
 .lr.ph:                                           ; preds = %.preheader61
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2130,11 +2130,11 @@ thread-pre-split.loopexit:                        ; preds = %63
   %66 = phi i32 [ %.pr.pre, %thread-pre-split.loopexit ], [ %33, %32 ]
   %.036 = phi i64 [ %65, %thread-pre-split.loopexit ], [ 0, %32 ]
   %.not48 = icmp eq i32 %66, 0
-  br i1 %.not48, label %.thread58, label %.loopexit.thread70
+  br i1 %.not48, label %.thread58, label %.loopexit.thread77
 
 .thread58:                                        ; preds = %37, %.loopexit
-  %.03669 = phi i64 [ %.036, %.loopexit ], [ 0, %37 ]
-  store i64 %.03669, ptr %4, align 8, !tbaa !11
+  %.03676 = phi i64 [ %.036, %.loopexit ], [ 0, %37 ]
+  store i64 %.03676, ptr %4, align 8, !tbaa !11
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 4, ptr %67, align 8, !tbaa !11
   br label %87
@@ -2145,7 +2145,7 @@ thread-pre-split.loopexit:                        ; preds = %63
   store i32 4, ptr %69, align 8, !tbaa !11
   br label %87
 
-.loopexit.thread70:                               ; preds = %.preheader61, %.loopexit
+.loopexit.thread77:                               ; preds = %.preheader61, %.loopexit
   %70 = phi i32 [ %66, %.loopexit ], [ %12, %.preheader61 ]
   %71 = sext i32 %70 to i64
   store i64 %71, ptr %4, align 8, !tbaa !11
@@ -2169,7 +2169,7 @@ thread-pre-split.loopexit:                        ; preds = %63
   %86 = call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), ptr noundef %85, ptr noundef nonnull %4) #18
   br label %87
 
-87:                                               ; preds = %68, %.thread58, %.loopexit.thread70
+87:                                               ; preds = %68, %.thread58, %.loopexit.thread77
   br i1 %8, label %88, label %109
 
 88:                                               ; preds = %87

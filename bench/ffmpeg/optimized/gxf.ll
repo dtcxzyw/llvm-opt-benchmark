@@ -1101,8 +1101,8 @@ define internal fastcc void @gxf_read_index(ptr noundef %0, i32 noundef %1) unna
   br i1 %exitcond.not, label %.sink.split, label %28, !llvm.loop !86
 
 .sink.split:                                      ; preds = %28, %24, %6, %13, %23
-  %.sink41 = phi i32 [ %9, %23 ], [ %9, %13 ], [ %9, %6 ], [ %25, %24 ], [ %25, %28 ]
-  %35 = zext nneg i32 %.sink41 to i64
+  %.sink46 = phi i32 [ %9, %23 ], [ %9, %13 ], [ %9, %6 ], [ %25, %24 ], [ %25, %28 ]
+  %35 = zext nneg i32 %.sink46 to i64
   %36 = tail call i64 @avio_skip(ptr noundef %4, i64 noundef %35) #7
   br label %37
 

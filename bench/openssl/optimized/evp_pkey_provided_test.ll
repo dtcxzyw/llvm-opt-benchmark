@@ -2796,7 +2796,7 @@ define internal range(i32 0, 2) i32 @test_fromdata_ecx(i32 noundef %0) #0 {
   %.048.sroa.gep100 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.048.sroa.gep110 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %.048.sroa.gep115 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  switch i32 %11, label %default.unreachable125 [
+  switch i32 %11, label %default.unreachable128 [
     i32 0, label %15
     i32 1, label %12
     i32 2, label %13
@@ -2830,7 +2830,7 @@ define internal range(i32 0, 2) i32 @test_fromdata_ecx(i32 noundef %0) #0 {
   %.048.sroa.gep84 = getelementptr inbounds nuw i8, ptr %10, i64 80
   br label %15
 
-default.unreachable125:                           ; preds = %1
+default.unreachable128:                           ; preds = %1
   unreachable
 
 15:                                               ; preds = %1, %14, %13, %12
@@ -3015,23 +3015,23 @@ default.unreachable125:                           ; preds = %1
   call void @EVP_PKEY_CTX_free(ptr noundef %100) #6
   call void @EVP_PKEY_free(ptr noundef %91) #6
   %106 = load ptr, ptr %2, align 8, !tbaa !15
-  br i1 %19, label %.preheader128, label %112
+  br i1 %19, label %.preheader131, label %112
 
-.preheader128:                                    ; preds = %105, %109
+.preheader131:                                    ; preds = %105, %109
   %.08.i = phi i32 [ %110, %109 ], [ 1, %105 ]
   %.067.i = phi i32 [ %111, %109 ], [ 3, %105 ]
   %.not.i = icmp eq i32 %.08.i, 0
   br i1 %.not.i, label %109, label %107
 
-107:                                              ; preds = %.preheader128
+107:                                              ; preds = %.preheader131
   %108 = call fastcc i32 @test_print_key_type_using_encoder(ptr noundef nonnull %.049, i32 noundef %.067.i, ptr noundef %106)
   br label %109
 
-109:                                              ; preds = %107, %.preheader128
-  %110 = phi i32 [ 0, %.preheader128 ], [ %108, %107 ]
+109:                                              ; preds = %107, %.preheader131
+  %110 = phi i32 [ 0, %.preheader131 ], [ %108, %107 ]
   %111 = add nuw nsw i32 %.067.i, 1
   %exitcond.not.i = icmp eq i32 %111, 6
-  br i1 %exitcond.not.i, label %test_print_key_using_encoder_public.exit, label %.preheader128, !llvm.loop !29
+  br i1 %exitcond.not.i, label %test_print_key_using_encoder_public.exit, label %.preheader131, !llvm.loop !29
 
 112:                                              ; preds = %105
   %113 = call fastcc i32 @test_print_key_using_pem(ptr noundef nonnull %.049, ptr noundef %106)

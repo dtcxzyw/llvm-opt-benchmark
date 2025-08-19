@@ -727,7 +727,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
 
 .lr.ph.preheader.i.i33:                           ; preds = %111
   %113 = zext nneg i32 %.ph to i64
-  %114 = zext i32 %.0.i16.i.i30.ph to i64
+  %114 = zext nneg i32 %.0.i16.i.i30.ph to i64
   %115 = getelementptr i32, ptr %.pre60, i64 %114
   %116 = sub nsw i64 %113, %114
   %117 = shl nsw i64 %116, 2
@@ -754,7 +754,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   br i1 %.not.i.i, label %_ZN6vectorIjLb0EjED2Ev.exit, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %118, %_ZNK8uint_set8containsEj.exit, %.critedge
-  %.not.lcssa64 = phi i1 [ %.not51, %.critedge ], [ false, %_ZNK8uint_set8containsEj.exit ], [ true, %118 ]
+  %.not.lcssa78 = phi i1 [ %.not51, %.critedge ], [ false, %_ZNK8uint_set8containsEj.exit ], [ true, %118 ]
   %128 = phi ptr [ %127, %.critedge ], [ %38, %_ZNK8uint_set8containsEj.exit ], [ %.pre61, %118 ]
   %129 = getelementptr inbounds i8, ptr %128, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %129)
@@ -768,9 +768,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   unreachable
 
 _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %.critedge, %.critedge.thread
-  %.not.lcssa65 = phi i1 [ %.not51, %.critedge ], [ %.not.lcssa64, %.critedge.thread ]
+  %.not.lcssa79 = phi i1 [ %.not51, %.critedge ], [ %.not.lcssa78, %.critedge.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %.not.lcssa65
+  ret i1 %.not.lcssa79
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %104, %49, %23
   %.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %50, %49 ], [ %97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %105, %104 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]

@@ -2043,7 +2043,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h28bcbc63f9
   %21 = load ptr, ptr %20, align 8, !noalias !680, !nonnull !12, !align !37, !noundef !12
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !680
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val19 = load ptr, ptr %22, align 8
+  %.val21 = load ptr, ptr %22, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !683
   br label %78
 
@@ -2224,18 +2224,18 @@ common.resume.i:                                  ; preds = %85, %54
   resume { ptr, i32 } %common.resume.op.i
 
 78:                                               ; preds = %.thread, %27
-  %.val21 = phi ptr [ %.val19, %.thread ], [ %.val, %27 ]
-  %.sroa.2.0.copyload20 = phi ptr [ %21, %.thread ], [ %.sroa.2.0.copyload.pre, %27 ]
-  %79 = ptrtoint ptr %.sroa.2.0.copyload20 to i64
+  %.val23 = phi ptr [ %.val21, %.thread ], [ %.val, %27 ]
+  %.sroa.2.0.copyload22 = phi ptr [ %21, %.thread ], [ %.sroa.2.0.copyload.pre, %27 ]
+  %79 = ptrtoint ptr %.sroa.2.0.copyload22 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !683
-  %80 = icmp ne ptr %.val21, null
+  %80 = icmp ne ptr %.val23, null
   tail call void @llvm.assume(i1 %80)
-  %81 = load i64, ptr %.val21, align 8, !range !108, !alias.scope !719, !noalias !722, !noundef !12
+  %81 = load i64, ptr %.val23, align 8, !range !108, !alias.scope !719, !noalias !722, !noundef !12
   %82 = icmp eq i64 %81, 18
   br i1 %82, label %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$uv_install_wheel..Error$GT$$GT$$GT$17h67c4d8bdf46c068bE.exit.i.i", label %83
 
 83:                                               ; preds = %78
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$uv_install_wheel..Error$GT$17h8e2856df451448d0E.llvm.6977651101888460017"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val21)
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$uv_install_wheel..Error$GT$17h8e2856df451448d0E.llvm.6977651101888460017"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val23)
           to label %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$uv_install_wheel..Error$GT$$GT$$GT$17h67c4d8bdf46c068bE.exit.i.i" unwind label %85, !noalias !722
 
 84:                                               ; preds = %72, %63
@@ -2246,14 +2246,14 @@ common.resume.i:                                  ; preds = %85, %54
 85:                                               ; preds = %83
   %86 = landingpad { ptr, i32 }
           cleanup
-  store i64 5, ptr %.val21, align 8, !noalias !722
-  %.sroa.515.0..8.val.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.val21, i64 8
+  store i64 5, ptr %.val23, align 8, !noalias !722
+  %.sroa.515.0..8.val.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.val23, i64 8
   store i64 %79, ptr %.sroa.515.0..8.val.sroa_idx.i.i, align 8, !noalias !726
   br label %common.resume.i
 
 "_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$uv_install_wheel..Error$GT$$GT$$GT$17h67c4d8bdf46c068bE.exit.i.i": ; preds = %83, %78
-  store i64 5, ptr %.val21, align 8, !noalias !722
-  %.sroa.515.0..8.val.sroa_idx16.i.i = getelementptr inbounds nuw i8, ptr %.val21, i64 8
+  store i64 5, ptr %.val23, align 8, !noalias !722
+  %.sroa.515.0..8.val.sroa_idx16.i.i = getelementptr inbounds nuw i8, ptr %.val23, i64 8
   store i64 %79, ptr %.sroa.515.0..8.val.sroa_idx16.i.i, align 8, !noalias !726
   br label %87
 

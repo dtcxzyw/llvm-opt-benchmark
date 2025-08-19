@@ -1072,14 +1072,14 @@ define internal fastcc void @dissect_cemi_link_layer(ptr noundef %0, ptr noundef
   %49 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.1344397)
   %50 = zext i8 %49 to i32
   %51 = tail call ptr @try_val_to_str(i32 noundef %50, ptr noundef nonnull @aiet_vals)
-  %52 = add nsw i32 %.1344397, 1
+  %52 = add nuw nsw i32 %.1344397, 1
   %.not = icmp slt i32 %52, %.0241
   br i1 %.not, label %53, label %60
 
 53:                                               ; preds = %.lr.ph
   %54 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %52)
-  %55 = sub i32 %.0241, %.1344397
-  %56 = add i32 %55, -2
+  %55 = sub nsw i32 %.0241, %.1344397
+  %56 = add nsw i32 %55, -2
   %57 = zext i8 %54 to i32
   %58 = icmp slt i32 %56, %57
   %59 = add nuw nsw i32 %57, 2
@@ -1118,7 +1118,7 @@ define internal fastcc void @dissect_cemi_link_layer(ptr noundef %0, ptr noundef
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %63, ptr noundef nonnull @.str.515, i32 noundef %.0237)
   %74 = load i32, ptr @hf_cemi_aie_length, align 4
   %75 = tail call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %74, ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef 0)
-  %76 = add i32 %.1344397, 2
+  %76 = add nuw nsw i32 %.1344397, 2
   %77 = icmp eq i8 %.4, 4
   br i1 %77, label %78, label %81
 
@@ -1150,7 +1150,7 @@ define internal fastcc void @dissect_cemi_link_layer(ptr noundef %0, ptr noundef
   br i1 %88, label %.lr.ph.split.us.split.us.i, label %proto_tree_add_data.exit, !llvm.loop !6
 
 proto_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.split.us.i
-  %89 = add i32 %.0237, %76
+  %89 = add nuw nsw i32 %.0237, %76
   br label %92
 
 90:                                               ; preds = %81
@@ -1417,7 +1417,7 @@ proto_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.spl
   %storemerge = phi i32 [ %198, %197 ], [ %7, %181 ]
   %.1246 = phi ptr [ %.2, %197 ], [ null, %181 ]
   %.1239 = phi i16 [ %187, %197 ], [ 0, %181 ]
-  %200 = add nuw i32 %storemerge, 1
+  %200 = add nuw nsw i32 %storemerge, 1
   %.not282 = icmp slt i32 %200, %7
   br i1 %.not282, label %206, label %201
 
@@ -1435,10 +1435,10 @@ proto_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.spl
   %209 = lshr i32 %208, 8
   %210 = and i32 %208, 255
   %. = select i1 %.not283, i32 11, i32 12
-  %.427 = select i1 %.not283, i32 7, i32 15
+  %.466 = select i1 %.not283, i32 7, i32 15
   %.str.545..str.542 = select i1 %.not283, ptr @.str.545, ptr @.str.542
   %211 = lshr i32 %208, %.
-  %212 = and i32 %209, %.427
+  %212 = and i32 %209, %.466
   %213 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %19, i64 noundef 128, i32 noundef 2, i64 noundef 128, ptr noundef nonnull %.str.545..str.542, i32 noundef %211, i32 noundef %212, i32 noundef %210)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.546, ptr noundef nonnull %19)
   %.not284 = icmp eq ptr %2, null
@@ -1453,7 +1453,7 @@ proto_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.spl
 
 217:                                              ; preds = %214, %206
   %.1244 = phi ptr [ %216, %214 ], [ null, %206 ]
-  %218 = add nuw i32 %storemerge, 2
+  %218 = add nuw nsw i32 %storemerge, 2
   br label %219
 
 219:                                              ; preds = %201, %217
@@ -1555,7 +1555,7 @@ proto_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.spl
 
 260:                                              ; preds = %257, %.thread.i
   %261 = phi i8 [ %256, %.thread.i ], [ %259, %257 ]
-  %.1102.i = phi i8 [ 1, %.thread.i ], [ %.0.i, %257 ]
+  %.1135.i = phi i8 [ 1, %.thread.i ], [ %.0.i, %257 ]
   %262 = zext nneg i8 %261 to i32
   %263 = load i32, ptr @hf_cemi_num, align 4
   %264 = call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %263, ptr noundef %0, i32 noundef %.7350, i32 noundef 1, i32 noundef 0)
@@ -1567,7 +1567,7 @@ proto_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.spl
   br label %267
 
 267:                                              ; preds = %265, %260, %257
-  %.2.i = phi i8 [ %.1102.i, %260 ], [ 1, %265 ], [ %.0.i, %257 ]
+  %.2.i = phi i8 [ %.1135.i, %260 ], [ 1, %265 ], [ %.0.i, %257 ]
   br i1 %.not72.i, label %278, label %268
 
 268:                                              ; preds = %267
@@ -2453,10 +2453,10 @@ dissect_extended_app_service.exit.i.i:            ; preds = %628, %627, %dissect
   %.0155.i.i.i = phi ptr [ %637, %635 ], [ null, %632 ]
   %643 = call i32 @llvm.fshl.i32(i32 %633, i32 %633, i32 31)
   %644 = icmp ult i32 %643, 7
-  %switch.maskindex443 = trunc i32 %643 to i8
-  %switch.shifted444 = lshr i8 89, %switch.maskindex443
-  %switch.lobit445 = trunc i8 %switch.shifted444 to i1
-  %or.cond = select i1 %644, i1 %switch.lobit445, i1 false
+  %switch.maskindex482 = trunc i32 %643 to i8
+  %switch.shifted483 = lshr i8 89, %switch.maskindex482
+  %switch.lobit484 = trunc i8 %switch.shifted483 to i1
+  %or.cond = select i1 %644, i1 %switch.lobit484, i1 false
   %.0153.i.i.i = select i1 %or.cond, i8 0, i8 %24
   switch i8 %294, label %dissect_simple_app_service.exit.i.i [
     i8 0, label %645
@@ -3294,7 +3294,7 @@ proto_tree_add_data.exit226:                      ; preds = %.lr.ph.split.us.spl
   br i1 %.not21119, label %._crit_edge.thread, label %.lr.ph.outer
 
 .lr.ph.outer:                                     ; preds = %.preheader, %.thread
-  %.020121.ph = phi ptr [ %.020140, %.thread ], [ %.020118, %.preheader ]
+  %.020121.ph = phi ptr [ %.020154, %.thread ], [ %.020118, %.preheader ]
   %94 = phi i1 [ false, %.thread ], [ true, %.preheader ]
   br label %.lr.ph
 
@@ -3317,14 +3317,14 @@ proto_tree_add_data.exit226:                      ; preds = %.lr.ph.split.us.spl
   br i1 %.not211, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 .thread:                                          ; preds = %98
-  %.020140 = load ptr, ptr %.020121, align 8
-  %.not21141 = icmp eq ptr %.020140, null
-  br i1 %.not21141, label %._crit_edge.thread43, label %.lr.ph.outer, !llvm.loop !9
+  %.020154 = load ptr, ptr %.020121, align 8
+  %.not21155 = icmp eq ptr %.020154, null
+  br i1 %.not21155, label %._crit_edge.thread57, label %.lr.ph.outer, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %102
-  br i1 %94, label %._crit_edge.thread, label %._crit_edge.thread43
+  br i1 %94, label %._crit_edge.thread, label %._crit_edge.thread57
 
-._crit_edge.thread43:                             ; preds = %.thread, %._crit_edge
+._crit_edge.thread57:                             ; preds = %.thread, %._crit_edge
   %103 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %6, ptr noundef nonnull @ei_knxip_error, ptr noundef nonnull @.str.627)
   br label %.loopexit6
 
@@ -3332,8 +3332,8 @@ proto_tree_add_data.exit226:                      ; preds = %.lr.ph.split.us.spl
   %104 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %8, ptr noundef nonnull @ei_knxip_warning, ptr noundef nonnull @.str.628)
   br label %.loopexit6
 
-.loopexit6:                                       ; preds = %98, %._crit_edge.thread, %._crit_edge.thread43, %88
-  %.3 = phi i8 [ %20, %88 ], [ 1, %._crit_edge.thread43 ], [ %20, %._crit_edge.thread ], [ %20, %98 ]
+.loopexit6:                                       ; preds = %98, %._crit_edge.thread, %._crit_edge.thread57, %88
+  %.3 = phi i8 [ %20, %88 ], [ 1, %._crit_edge.thread57 ], [ %20, %._crit_edge.thread ], [ %20, %98 ]
   %.019622 = load ptr, ptr @knx_keyring_ia_seqs, align 8
   %.not21423 = icmp eq ptr %.019622, null
   br i1 %.not21423, label %.loopexit, label %.lr.ph26
@@ -3499,7 +3499,7 @@ proto_tree_add_data.exit226:                      ; preds = %.lr.ph.split.us.spl
   %165 = load i8, ptr @knx_decryption_key_count, align 1
   %166 = zext i8 %165 to i64
   %167 = icmp samesign ult i64 %indvars.iv.next.i, %166
-  br i1 %167, label %.lr.ph276.i, label %.loopexit45, !llvm.loop !14
+  br i1 %167, label %.lr.ph276.i, label %.loopexit59, !llvm.loop !14
 
 .lr.ph276.i:                                      ; preds = %.loopexit203.i, %164
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %164 ], [ 0, %.loopexit203.i ]
@@ -3572,7 +3572,7 @@ proto_tree_add_data.exit226:                      ; preds = %.lr.ph.split.us.spl
   %.7142.fr.i = freeze i8 %.7142.i
   %.not170.i = icmp eq i8 %.7142.fr.i, 0
   %spec.select.i = select i1 %.not170.i, ptr @.str.660, ptr @.str.659
-  br label %.loopexit45
+  br label %.loopexit59
 
 decrypt_data_security_data.exit:                  ; preds = %._crit_edge282.i
   %195 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %.11132191.i, i32 noundef %118, i32 noundef %118)
@@ -3666,7 +3666,7 @@ proto_tree_add_data.exit238:                      ; preds = %.lr.ph.split.us.spl
   %246 = call i32 @call_dissector(ptr noundef nonnull %244, ptr noundef %243, ptr noundef %1, ptr noundef %2)
   br label %251
 
-.loopexit45:                                      ; preds = %164, %.thread193.i
+.loopexit59:                                      ; preds = %164, %.thread193.i
   %247 = phi ptr [ %spec.select.i, %.thread193.i ], [ @.str.659, %164 ]
   %248 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %93, i64 noundef 128, i32 noundef 2, i64 noundef 128, ptr noundef nonnull %247)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.635)
@@ -3674,11 +3674,11 @@ proto_tree_add_data.exit238:                      ; preds = %.lr.ph.split.us.spl
   %.not216 = icmp eq i8 %249, 0
   br i1 %.not216, label %251, label %250
 
-250:                                              ; preds = %.loopexit45
+250:                                              ; preds = %.loopexit59
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.632, ptr noundef nonnull %93)
   br label %251
 
-251:                                              ; preds = %proto_tree_add_data.exit238, %245, %224, %.loopexit45, %250
+251:                                              ; preds = %proto_tree_add_data.exit238, %245, %224, %.loopexit59, %250
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %252
 

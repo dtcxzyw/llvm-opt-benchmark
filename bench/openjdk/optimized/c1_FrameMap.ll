@@ -1140,9 +1140,9 @@ _ZNK7LIR_Opr10is_addressEv.exit.thread:           ; preds = %36, %_ZNK7LIR_Opr10
   unreachable
 
 58:                                               ; preds = %44, %_ZNK8FrameMap18sp_offset_for_slotEi.exit, %5
-  %.sink5 = phi i32 [ %56, %44 ], [ %35, %_ZNK8FrameMap18sp_offset_for_slotEi.exit ], [ %12, %5 ]
+  %.sink7 = phi i32 [ %56, %44 ], [ %35, %_ZNK8FrameMap18sp_offset_for_slotEi.exit ], [ %12, %5 ]
   %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), %44 ], [ getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), %_ZNK8FrameMap18sp_offset_for_slotEi.exit ], [ getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), %5 ]
-  %59 = sext i32 %.sink5 to i64
+  %59 = sext i32 %.sink7 to i64
   %60 = getelementptr inbounds %class.VMRegImpl, ptr %.sink, i64 %59
   ret ptr %60
 }

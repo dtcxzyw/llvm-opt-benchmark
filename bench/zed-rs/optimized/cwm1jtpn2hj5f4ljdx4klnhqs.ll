@@ -42035,10 +42035,10 @@ define hidden void @"_ZN4core3ptr227drop_in_place$LT$async_compression..futures.
 
 "_ZN4core3ptr67drop_in_place$LT$async_compression..codec..gzip..header..Parser$GT$17h9e1df7be1fea20afE.exit.sink.split.i.i": ; preds = %30, %26, %22, %20
   %.sink.i.i = phi i64 [ 8, %20 ], [ 16, %22 ], [ 16, %26 ], [ 16, %30 ]
-  %.sink1.i.i = phi i64 [ %9, %20 ], [ %24, %22 ], [ %28, %26 ], [ %32, %30 ]
+  %.sink4.i.i = phi i64 [ %9, %20 ], [ %24, %22 ], [ %28, %26 ], [ %32, %30 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i.i
   %15 = load ptr, ptr %14, align 8, !alias.scope !15472, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %.sink1.i.i, i64 noundef 1) #30, !noalias !15472
+  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %.sink4.i.i, i64 noundef 1) #30, !noalias !15472
   br label %"_ZN4core3ptr73drop_in_place$LT$async_compression..codec..gzip..decoder..GzipDecoder$GT$17h1b8e2a341c6cea6dE.llvm.5062695954853193952.exit"
 
 16:                                               ; preds = %"_ZN4core3ptr102drop_in_place$LT$futures_lite..io..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$17hfe22d2c85ba686beE.exit"
@@ -42939,10 +42939,10 @@ define hidden void @"_ZN4core3ptr239drop_in_place$LT$async_compression..futures.
 
 "_ZN4core3ptr67drop_in_place$LT$async_compression..codec..gzip..header..Parser$GT$17h9e1df7be1fea20afE.exit.sink.split.i.i": ; preds = %30, %26, %22, %20
   %.sink.i.i = phi i64 [ 8, %20 ], [ 16, %22 ], [ 16, %26 ], [ 16, %30 ]
-  %.sink1.i.i = phi i64 [ %9, %20 ], [ %24, %22 ], [ %28, %26 ], [ %32, %30 ]
+  %.sink4.i.i = phi i64 [ %9, %20 ], [ %24, %22 ], [ %28, %26 ], [ %32, %30 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i.i
   %15 = load ptr, ptr %14, align 8, !alias.scope !15800, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %.sink1.i.i, i64 noundef 1) #30, !noalias !15800
+  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %.sink4.i.i, i64 noundef 1) #30, !noalias !15800
   br label %"_ZN4core3ptr73drop_in_place$LT$async_compression..codec..gzip..decoder..GzipDecoder$GT$17h1b8e2a341c6cea6dE.llvm.5062695954853193952.exit"
 
 16:                                               ; preds = %"_ZN4core3ptr114drop_in_place$LT$futures_util..io..buf_reader..BufReader$LT$$RF$mut$u20$http_client..async_body..AsyncBody$GT$$GT$17hb75e6685b74ac649E.exit"
@@ -49610,10 +49610,10 @@ define hidden void @"_ZN4core3ptr324drop_in_place$LT$either..Either$LT$core..ite
 
 "_ZN4core3ptr78drop_in_place$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$17h114a85b6b52b5fe0E.llvm.5062695954853193952.exit.sink.split": ; preds = %4, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$GT$17hf9e97ae4b5686e39E.llvm.5062695954853193952.exit.i"
   %.sink = phi i64 [ 8, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$GT$17hf9e97ae4b5686e39E.llvm.5062695954853193952.exit.i" ], [ 16, %4 ]
-  %.sink2 = phi i64 [ %2, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$GT$17hf9e97ae4b5686e39E.llvm.5062695954853193952.exit.i" ], [ %6, %4 ]
+  %.sink7 = phi i64 [ %2, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$GT$17hf9e97ae4b5686e39E.llvm.5062695954853193952.exit.i" ], [ %6, %4 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %32 = load ptr, ptr %31, align 8, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %32, i64 noundef %.sink2, i64 noundef 1) #30, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %32, i64 noundef %.sink7, i64 noundef 1) #30, !noalias !4
   br label %"_ZN4core3ptr78drop_in_place$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$17h114a85b6b52b5fe0E.llvm.5062695954853193952.exit"
 
 "_ZN4core3ptr78drop_in_place$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$17h114a85b6b52b5fe0E.llvm.5062695954853193952.exit": ; preds = %4, %4, %"_ZN4core3ptr78drop_in_place$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$17h114a85b6b52b5fe0E.llvm.5062695954853193952.exit.sink.split", %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$GT$17hf9e97ae4b5686e39E.llvm.5062695954853193952.exit.i"
@@ -59843,10 +59843,10 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$async_zip..entry..ZipEntry$G
 
 "_ZN4core3ptr63drop_in_place$LT$async_zip..spec..header..UnknownExtraField$GT$17h20d277a2773b7392E.llvm.5062695954853193952.exit.sink.split.i.i.i.i": ; preds = %36, %32, %26
   %.sink.i.i.i.i = phi i64 [ 24, %32 ], [ 24, %36 ], [ 16, %26 ]
-  %.sink3.i2.sink.i.i.i.i = phi i64 [ %34, %32 ], [ %38, %36 ], [ %28, %26 ]
+  %.sink4.i2.sink.i.i.i.i = phi i64 [ %34, %32 ], [ %38, %36 ], [ %28, %26 ]
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 %.sink.i.i.i.i
   %31 = load ptr, ptr %30, align 8, !alias.scope !24107, !noalias !24100, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef %.sink3.i2.sink.i.i.i.i, i64 noundef 1) #30, !noalias !24121
+  tail call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef %.sink4.i2.sink.i.i.i.i, i64 noundef 1) #30, !noalias !24121
   br label %"_ZN4core3ptr56drop_in_place$LT$async_zip..spec..header..ExtraField$GT$17hd03f66da4b482f42E.llvm.5062695954853193952.exit.i.i.i"
 
 32:                                               ; preds = %.lr.ph.i.i.i
@@ -64793,14 +64793,14 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$task..task_template..TaskTem
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17hf15b73f7b5b39dfeE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !8315, !noundef !4
-  switch i8 %2, label %default.unreachable2 [
+  switch i8 %2, label %default.unreachable4 [
     i8 0, label %15
     i8 1, label %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$$u5b$alloc..boxed..Box$LT$str$GT$$u5d$$GT$$GT$17hc3ccfd70e6a398bcE.exit"
     i8 2, label %21
     i8 3, label %3
   ]
 
-default.unreachable2:                             ; preds = %1
+default.unreachable4:                             ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -66069,10 +66069,10 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$async_zip..spec..header..Ext
 
 "_ZN4core3ptr63drop_in_place$LT$async_zip..spec..header..UnknownExtraField$GT$17h20d277a2773b7392E.llvm.5062695954853193952.exit.sink.split": ; preds = %7, %17, %13
   %.sink = phi i64 [ 24, %13 ], [ 24, %17 ], [ 16, %7 ]
-  %.sink3.i2.sink = phi i64 [ %15, %13 ], [ %19, %17 ], [ %9, %7 ]
+  %.sink4.i2.sink = phi i64 [ %15, %13 ], [ %19, %17 ], [ %9, %7 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %12 = load ptr, ptr %11, align 8, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %.sink3.i2.sink, i64 noundef 1) #30, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %.sink4.i2.sink, i64 noundef 1) #30, !noalias !4
   br label %"_ZN4core3ptr63drop_in_place$LT$async_zip..spec..header..UnknownExtraField$GT$17h20d277a2773b7392E.llvm.5062695954853193952.exit"
 
 "_ZN4core3ptr63drop_in_place$LT$async_zip..spec..header..UnknownExtraField$GT$17h20d277a2773b7392E.llvm.5062695954853193952.exit": ; preds = %17, %13, %"_ZN4core3ptr63drop_in_place$LT$async_zip..spec..header..UnknownExtraField$GT$17h20d277a2773b7392E.llvm.5062695954853193952.exit.sink.split", %7, %1
@@ -67922,14 +67922,14 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$gpui..app..entity_map..Entit
 define hidden void @"_ZN4core3ptr59drop_in_place$LT$language..language_settings..Formatter$GT$17h1aebb5eb25716b24E.llvm.5062695954853193952"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !8104, !noundef !4
-  switch i64 %3, label %default.unreachable3 [
+  switch i64 %3, label %default.unreachable6 [
     i64 0, label %23
     i64 1, label %"_ZN4core3ptr154drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$bool$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hb96516440ef033cbE.exit"
     i64 2, label %31
     i64 3, label %4
   ]
 
-default.unreachable3:                             ; preds = %1
+default.unreachable6:                             ; preds = %1
   unreachable
 
 4:                                                ; preds = %1
@@ -71386,10 +71386,10 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$$u5b$async_zip..spec..header
 
 "_ZN4core3ptr63drop_in_place$LT$async_zip..spec..header..UnknownExtraField$GT$17h20d277a2773b7392E.llvm.5062695954853193952.exit.sink.split.i": ; preds = %21, %17, %11
   %.sink.i = phi i64 [ 24, %17 ], [ 24, %21 ], [ 16, %11 ]
-  %.sink3.i2.sink.i = phi i64 [ %19, %17 ], [ %23, %21 ], [ %13, %11 ]
+  %.sink4.i2.sink.i = phi i64 [ %19, %17 ], [ %23, %21 ], [ %13, %11 ]
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink.i
   %16 = load ptr, ptr %15, align 8, !alias.scope !29937, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %.sink3.i2.sink.i, i64 noundef 1) #30, !noalias !29937
+  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %.sink4.i2.sink.i, i64 noundef 1) #30, !noalias !29937
   br label %"_ZN4core3ptr56drop_in_place$LT$async_zip..spec..header..ExtraField$GT$17hd03f66da4b482f42E.llvm.5062695954853193952.exit"
 
 17:                                               ; preds = %.lr.ph
@@ -71603,10 +71603,10 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$async_compression..codec..gz
 
 "_ZN4core3ptr92drop_in_place$LT$async_compression..util..PartialBuffer$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h5a362d3ab0c0d2f4E.exit.sink.split": ; preds = %14, %10, %8
   %.sink = phi i64 [ 8, %8 ], [ 16, %10 ], [ 16, %14 ]
-  %.sink3 = phi i64 [ %2, %8 ], [ %12, %10 ], [ %16, %14 ]
+  %.sink5 = phi i64 [ %2, %8 ], [ %12, %10 ], [ %16, %14 ]
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %7 = load ptr, ptr %6, align 8, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %7, i64 noundef %.sink3, i64 noundef 1) #30, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %7, i64 noundef %.sink5, i64 noundef 1) #30, !noalias !4
   br label %"_ZN4core3ptr92drop_in_place$LT$async_compression..util..PartialBuffer$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h5a362d3ab0c0d2f4E.exit"
 
 "_ZN4core3ptr92drop_in_place$LT$async_compression..util..PartialBuffer$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h5a362d3ab0c0d2f4E.exit": ; preds = %"_ZN4core3ptr92drop_in_place$LT$async_compression..util..PartialBuffer$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h5a362d3ab0c0d2f4E.exit.sink.split", %14, %10, %8, %1
@@ -72386,10 +72386,10 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$async_compression..codec..gz
 
 "_ZN4core3ptr67drop_in_place$LT$async_compression..codec..gzip..header..Parser$GT$17h9e1df7be1fea20afE.exit.sink.split": ; preds = %23, %13, %15, %19
   %.sink = phi i64 [ 8, %13 ], [ 16, %15 ], [ 16, %19 ], [ 16, %23 ]
-  %.sink1 = phi i64 [ %2, %13 ], [ %17, %15 ], [ %21, %19 ], [ %25, %23 ]
+  %.sink4 = phi i64 [ %2, %13 ], [ %17, %15 ], [ %21, %19 ], [ %25, %23 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %8 = load ptr, ptr %7, align 8, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %.sink1, i64 noundef 1) #30, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %.sink4, i64 noundef 1) #30, !noalias !4
   br label %"_ZN4core3ptr67drop_in_place$LT$async_compression..codec..gzip..header..Parser$GT$17h9e1df7be1fea20afE.exit"
 
 "_ZN4core3ptr67drop_in_place$LT$async_compression..codec..gzip..header..Parser$GT$17h9e1df7be1fea20afE.exit": ; preds = %"_ZN4core3ptr67drop_in_place$LT$async_compression..codec..gzip..header..Parser$GT$17h9e1df7be1fea20afE.exit.sink.split", %23, %19, %15, %13, %9, %1
@@ -72443,10 +72443,10 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$async_compression..codec..gz
 
 "_ZN4core3ptr92drop_in_place$LT$async_compression..util..PartialBuffer$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h5a362d3ab0c0d2f4E.exit.sink.split.i": ; preds = %14, %10, %8
   %.sink.i = phi i64 [ 8, %8 ], [ 16, %10 ], [ 16, %14 ]
-  %.sink3.i = phi i64 [ %2, %8 ], [ %12, %10 ], [ %16, %14 ]
+  %.sink5.i = phi i64 [ %2, %8 ], [ %12, %10 ], [ %16, %14 ]
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
   %7 = load ptr, ptr %6, align 8, !alias.scope !30449, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %7, i64 noundef %.sink3.i, i64 noundef 1) #30, !noalias !30449
+  tail call void @__rust_dealloc(ptr noundef nonnull %7, i64 noundef %.sink5.i, i64 noundef 1) #30, !noalias !30449
   br label %"_ZN4core3ptr66drop_in_place$LT$async_compression..codec..gzip..header..State$GT$17h60f169d7c361f4dbE.llvm.5062695954853193952.exit"
 
 8:                                                ; preds = %1
@@ -76271,10 +76271,10 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$async_compression..codec..gz
 
 "_ZN4core3ptr67drop_in_place$LT$async_compression..codec..gzip..header..Parser$GT$17h9e1df7be1fea20afE.exit.sink.split.i": ; preds = %25, %21, %17, %15
   %.sink.i = phi i64 [ 8, %15 ], [ 16, %17 ], [ 16, %21 ], [ 16, %25 ]
-  %.sink1.i = phi i64 [ %4, %15 ], [ %19, %17 ], [ %23, %21 ], [ %27, %25 ]
+  %.sink4.i = phi i64 [ %4, %15 ], [ %19, %17 ], [ %23, %21 ], [ %27, %25 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
   %10 = load ptr, ptr %9, align 8, !alias.scope !32109, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %.sink1.i, i64 noundef 1) #30, !noalias !32109
+  tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %.sink4.i, i64 noundef 1) #30, !noalias !32109
   br label %"_ZN4core3ptr67drop_in_place$LT$async_compression..codec..gzip..decoder..State$GT$17ha7be43962b027e73E.llvm.5062695954853193952.exit"
 
 11:                                               ; preds = %1
@@ -80324,10 +80324,10 @@ define hidden void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$async_zip
 
 "_ZN4core3ptr63drop_in_place$LT$async_zip..spec..header..UnknownExtraField$GT$17h20d277a2773b7392E.llvm.5062695954853193952.exit.sink.split.i.i.i": ; preds = %24, %20, %14
   %.sink.i.i.i = phi i64 [ 24, %20 ], [ 24, %24 ], [ 16, %14 ]
-  %.sink3.i2.sink.i.i.i = phi i64 [ %22, %20 ], [ %26, %24 ], [ %16, %14 ]
+  %.sink4.i2.sink.i.i.i = phi i64 [ %22, %20 ], [ %26, %24 ], [ %16, %14 ]
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink.i.i.i
   %19 = load ptr, ptr %18, align 8, !alias.scope !33679, !noalias !33670, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %.sink3.i2.sink.i.i.i, i64 noundef 1) #30, !noalias !33693
+  tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %.sink4.i2.sink.i.i.i, i64 noundef 1) #30, !noalias !33693
   br label %"_ZN4core3ptr56drop_in_place$LT$async_zip..spec..header..ExtraField$GT$17hd03f66da4b482f42E.llvm.5062695954853193952.exit.i.i"
 
 20:                                               ; preds = %.lr.ph.i.i
@@ -92873,10 +92873,10 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 
 "_ZN4core3ptr63drop_in_place$LT$async_zip..spec..header..UnknownExtraField$GT$17h20d277a2773b7392E.llvm.5062695954853193952.exit.sink.split.i.i": ; preds = %24, %20, %14
   %.sink.i.i = phi i64 [ 24, %20 ], [ 24, %24 ], [ 16, %14 ]
-  %.sink3.i2.sink.i.i = phi i64 [ %22, %20 ], [ %26, %24 ], [ %16, %14 ]
+  %.sink4.i2.sink.i.i = phi i64 [ %22, %20 ], [ %26, %24 ], [ %16, %14 ]
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink.i.i
   %19 = load ptr, ptr %18, align 8, !alias.scope !37558, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %.sink3.i2.sink.i.i, i64 noundef 1) #30, !noalias !37558
+  tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %.sink4.i2.sink.i.i, i64 noundef 1) #30, !noalias !37558
   br label %"_ZN4core3ptr56drop_in_place$LT$async_zip..spec..header..ExtraField$GT$17hd03f66da4b482f42E.llvm.5062695954853193952.exit.i"
 
 20:                                               ; preds = %.lr.ph.i

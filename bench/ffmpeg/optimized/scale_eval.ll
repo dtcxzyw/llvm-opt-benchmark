@@ -302,10 +302,10 @@ define range(i32 -22, 1) i32 @ff_scale_adjust_dimensions(ptr noundef readonly ca
   br label %.sink.split
 
 .sink.split:                                      ; preds = %85, %79
-  %.fr95.sink99 = phi i64 [ %.fr95, %79 ], [ %90, %85 ]
+  %.fr95.sink100 = phi i64 [ %.fr95, %79 ], [ %90, %85 ]
   %.2.ph = phi i64 [ %81, %79 ], [ %89, %85 ]
-  %91 = srem i64 %.fr95.sink99, %65
-  %92 = sub nsw i64 %.fr95.sink99, %91
+  %91 = srem i64 %.fr95.sink100, %65
+  %92 = sub nsw i64 %.fr95.sink100, %91
   br label %93
 
 93:                                               ; preds = %.sink.split, %76, %82, %55

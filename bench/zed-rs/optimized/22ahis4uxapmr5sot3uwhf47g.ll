@@ -1114,13 +1114,13 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %13 = lshr exact i64 %.sroa.012.0.ph90, 1
   %14 = and i64 %13, 31
   %15 = icmp eq i64 %14, 31
-  br i1 %15, label %.lr.ph157, label %._crit_edge
+  br i1 %15, label %.lr.ph159, label %._crit_edge
 
 16:                                               ; preds = %73
   %17 = lshr exact i64 %74, 1
   %18 = and i64 %17, 31
   %19 = icmp eq i64 %18, 31
-  br i1 %19, label %.lr.ph157, label %._crit_edge
+  br i1 %19, label %.lr.ph159, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %73, %3
   %.sroa.0.0.ph.lcssa85 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph89, %73 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
@@ -1137,7 +1137,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %24, label %22
 
-.lr.ph157:                                        ; preds = %.lr.ph, %16
+.lr.ph159:                                        ; preds = %.lr.ph, %16
   invoke void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
           to label %73 unwind label %.loopexit
 
@@ -1284,14 +1284,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   store i64 2, ptr %0, align 8
   br label %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$alloc..string..String$GT$$GT$$GT$$GT$17h3efe883c615521c7E.exit42"
 
-73:                                               ; preds = %.lr.ph157
+73:                                               ; preds = %.lr.ph159
   %74 = load atomic i64, ptr %6 acquire, align 128
   %75 = load atomic ptr, ptr %8 acquire, align 8
   %76 = and i64 %74, 1
   %77 = icmp eq i64 %76, 0
   br i1 %77, label %16, label %.critedge
 
-.loopexit:                                        ; preds = %.lr.ph157
+.loopexit:                                        ; preds = %.lr.ph159
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %78
@@ -2079,7 +2079,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
 
 "_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h3958d1cc5d73edc6E.llvm.10525918402515997389.exit.i": ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h40b948168713dcb6E.exit.i.i", %42, %42, %42, %42, %42, %42
   %70 = icmp eq ptr %43, %3
-  br i1 %70, label %.thread52, label %.lr.ph.i
+  br i1 %70, label %.thread62, label %.lr.ph.i
 
 _ZN4core3str7pattern8Searcher11next_reject17h2534e8e8744dd670E.llvm.10525918402515997389.exit: ; preds = %48, %50, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h40b948168713dcb6E.exit.i.i", %2
   %spec.select = phi i64 [ 0, %2 ], [ %4, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h40b948168713dcb6E.exit.i.i" ], [ %4, %50 ], [ %4, %48 ]
@@ -2214,21 +2214,21 @@ _ZN4core3str7pattern8Searcher11next_reject17h2534e8e8744dd670E.llvm.105259184025
   %138 = ptrtoint ptr %.sroa.4.0 to i64
   %139 = sub i64 %.sroa.14.0, %138
   %140 = add i64 %139, %137
-  br label %.thread48
+  br label %.thread58
 
 141:                                              ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h40b948168713dcb6E.exit.i.i.i", %111, %111, %111, %111, %111, %111
   %142 = icmp eq ptr %.sroa.4.0, %112
   br i1 %142, label %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h3aa51488605c19acE.llvm.10525918402515997389.exit", label %.lr.ph.i.i
 
 "_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h3aa51488605c19acE.llvm.10525918402515997389.exit": ; preds = %141, %_ZN4core3str7pattern8Searcher11next_reject17h2534e8e8744dd670E.llvm.10525918402515997389.exit
-  br i1 %.not, label %.thread52, label %.thread48
+  br i1 %.not, label %.thread62, label %.thread58
 
-.thread52:                                        ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h3958d1cc5d73edc6E.llvm.10525918402515997389.exit.i", %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h3aa51488605c19acE.llvm.10525918402515997389.exit"
-  br label %.thread48
+.thread62:                                        ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h3958d1cc5d73edc6E.llvm.10525918402515997389.exit.i", %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h3aa51488605c19acE.llvm.10525918402515997389.exit"
+  br label %.thread58
 
-.thread48:                                        ; preds = %136, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h3aa51488605c19acE.llvm.10525918402515997389.exit", %.thread52
-  %143 = phi i64 [ 0, %.thread52 ], [ %.sroa.47.0, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h3aa51488605c19acE.llvm.10525918402515997389.exit" ], [ %spec.select, %136 ]
-  %144 = phi i64 [ 0, %.thread52 ], [ %.sroa.6.0, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h3aa51488605c19acE.llvm.10525918402515997389.exit" ], [ %140, %136 ]
+.thread58:                                        ; preds = %136, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h3aa51488605c19acE.llvm.10525918402515997389.exit", %.thread62
+  %143 = phi i64 [ 0, %.thread62 ], [ %.sroa.47.0, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h3aa51488605c19acE.llvm.10525918402515997389.exit" ], [ %spec.select, %136 ]
+  %144 = phi i64 [ 0, %.thread62 ], [ %.sroa.6.0, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h3aa51488605c19acE.llvm.10525918402515997389.exit" ], [ %140, %136 ]
   %145 = sub nuw i64 %144, %143
   %146 = getelementptr inbounds i8, ptr %0, i64 %143
   %147 = insertvalue { ptr, i64 } poison, ptr %146, 0

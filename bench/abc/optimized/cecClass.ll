@@ -1392,11 +1392,11 @@ Vec_IntPush.exit39:                               ; preds = %.Vec_IntGrow.exit10
   br label %86
 
 86:                                               ; preds = %Vec_IntPush.exit, %Vec_IntPush.exit39
-  %.sink66 = phi i32 [ %53, %Vec_IntPush.exit ], [ %84, %Vec_IntPush.exit39 ]
-  %.sink64 = phi ptr [ %52, %Vec_IntPush.exit ], [ %83, %Vec_IntPush.exit39 ]
+  %.sink73 = phi i32 [ %53, %Vec_IntPush.exit ], [ %84, %Vec_IntPush.exit39 ]
+  %.sink71 = phi ptr [ %52, %Vec_IntPush.exit ], [ %83, %Vec_IntPush.exit39 ]
   %.sink = phi i32 [ %1, %Vec_IntPush.exit ], [ %.058, %Vec_IntPush.exit39 ]
-  %87 = sext i32 %.sink66 to i64
-  %88 = getelementptr inbounds i32, ptr %.sink64, i64 %87
+  %87 = sext i32 %.sink73 to i64
+  %88 = getelementptr inbounds i32, ptr %.sink71, i64 %87
   store i32 %.sink, ptr %88, align 4, !tbaa !3
   %89 = load ptr, ptr %0, align 8, !tbaa !58
   %90 = getelementptr i8, ptr %89, i64 200
@@ -3100,8 +3100,8 @@ Cec_ManSimSimDeref.exit:                          ; preds = %104, %117
   %146 = sub nsw i64 %indvars.iv383, %145
   %147 = load ptr, ptr %60, align 8, !tbaa !57
   %148 = load ptr, ptr %61, align 8, !tbaa !56
-  %sext398 = shl i64 %146, 32
-  %149 = ashr exact i64 %sext398, 30
+  %sext415 = shl i64 %146, 32
+  %149 = ashr exact i64 %sext415, 30
   %150 = getelementptr inbounds i8, ptr %148, i64 %149
   %151 = load i32, ptr %150, align 4, !tbaa !3
   %152 = sext i32 %151 to i64
@@ -3128,8 +3128,8 @@ Cec_ManSimSimDeref.exit244:                       ; preds = %142, %157
   %162 = lshr i64 %.val238, 32
   %163 = and i64 %162, 536870911
   %164 = sub nsw i64 %indvars.iv383, %163
-  %sext399 = shl i64 %164, 32
-  %165 = ashr exact i64 %sext399, 30
+  %sext416 = shl i64 %164, 32
+  %165 = ashr exact i64 %sext416, 30
   %166 = getelementptr inbounds i8, ptr %148, i64 %165
   %167 = load i32, ptr %166, align 4, !tbaa !3
   %168 = sext i32 %167 to i64
@@ -3971,13 +3971,13 @@ define void @Cec_ManSimCreateInfo(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph74:                                         ; preds = %.lr.ph61, %.preheader53, %.preheader
   %.val4958.pn = phi ptr [ %.val49, %.preheader ], [ %.val4958, %.preheader53 ], [ %.val4958, %.lr.ph61 ]
-  %.lcssa112 = phi ptr [ %38, %.preheader ], [ %.pre106, %.preheader53 ], [ %.pre106, %.lr.ph61 ]
-  %.val4470111 = phi i32 [ %.val48, %.preheader ], [ %.val45, %.preheader53 ], [ %.val45, %.lr.ph61 ]
-  %19 = getelementptr i8, ptr %.lcssa112, i64 16
+  %.lcssa118 = phi ptr [ %38, %.preheader ], [ %.pre106, %.preheader53 ], [ %.pre106, %.lr.ph61 ]
+  %.val4470117 = phi i32 [ %.val48, %.preheader ], [ %.val45, %.preheader53 ], [ %.val45, %.lr.ph61 ]
+  %19 = getelementptr i8, ptr %.lcssa118, i64 16
   %20 = getelementptr i8, ptr %.val4958.pn, i64 4
   %21 = getelementptr i8, ptr %1, i64 8
   %.val42 = load ptr, ptr %21, align 8, !tbaa !88
-  %22 = getelementptr i8, ptr %.lcssa112, i64 72
+  %22 = getelementptr i8, ptr %.lcssa118, i64 72
   %.val51 = load ptr, ptr %22, align 8, !tbaa !99
   %23 = getelementptr i8, ptr %.val51, i64 4
   %24 = getelementptr i8, ptr %2, i64 8
@@ -4028,7 +4028,7 @@ define void @Cec_ManSimCreateInfo(ptr noundef readonly captures(none) %0, ptr no
   br i1 %45, label %.lr.ph61.split, label %.preheader, !llvm.loop !131
 
 .lr.ph74.split:                                   ; preds = %.lr.ph74, %._crit_edge69
-  %.val44104 = phi i32 [ %.val44, %._crit_edge69 ], [ %.val4470111, %.lr.ph74 ]
+  %.val44104 = phi i32 [ %.val44, %._crit_edge69 ], [ %.val4470117, %.lr.ph74 ]
   %46 = phi i32 [ %63, %._crit_edge69 ], [ %26, %.lr.ph74 ]
   %.13872 = phi i32 [ %64, %._crit_edge69 ], [ 0, %.lr.ph74 ]
   %.val47.val = load i32, ptr %20, align 4, !tbaa !25
@@ -4554,7 +4554,7 @@ Gia_ObjLevel.exit:                                ; preds = %67, %._crit_edge.i.
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 44
   %224 = load i32, ptr %223, align 4, !tbaa !150
   %.not101 = icmp eq i32 %224, 0
-  br i1 %.not101, label %.preheader188, label %225
+  br i1 %.not101, label %.preheader197, label %225
 
 225:                                              ; preds = %221
   %226 = load ptr, ptr %0, align 8, !tbaa !58
@@ -4567,9 +4567,9 @@ Gia_ObjLevel.exit:                                ; preds = %67, %._crit_edge.i.
   %231 = fmul double %230, 0x3EB0000000000000
   %232 = fptrunc double %231 to float
   tail call void @Gia_ManEquivPrintClasses(ptr noundef %226, i32 noundef 0, float noundef %232) #23
-  br label %.preheader188
+  br label %.preheader197
 
-.preheader188:                                    ; preds = %225, %221
+.preheader197:                                    ; preds = %225, %221
   br label %235
 
 233:                                              ; preds = %235
@@ -4577,8 +4577,8 @@ Gia_ObjLevel.exit:                                ; preds = %67, %._crit_edge.i.
   %exitcond.not = icmp eq i32 %234, 4
   br i1 %exitcond.not, label %241, label %235, !llvm.loop !151
 
-235:                                              ; preds = %.preheader188, %233
-  %.5161 = phi i32 [ %234, %233 ], [ 0, %.preheader188 ]
+235:                                              ; preds = %.preheader197, %233
+  %.5161 = phi i32 [ %234, %233 ], [ 0, %.preheader197 ]
   %236 = load ptr, ptr %219, align 8, !tbaa !87
   %237 = load ptr, ptr %220, align 8, !tbaa !100
   tail call void @Cec_ManSimCreateInfo(ptr noundef nonnull %0, ptr noundef %236, ptr noundef %237)

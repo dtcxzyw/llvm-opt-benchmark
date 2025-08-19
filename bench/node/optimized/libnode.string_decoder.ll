@@ -242,8 +242,8 @@ for.cond107.preheader:                            ; preds = %land.lhs.true
   %inc110135 = add i8 %arrayidx109.promoted, 1
   store i8 %inc110135, ptr %arrayidx109, align 1
   %19 = load i8, ptr %arrayidx101, align 1
-  %conv112137146 = zext i8 %19 to i32
-  %and113138 = and i32 %conv112137146, 192
+  %conv112137148 = zext i8 %19 to i32
+  %and113138 = and i32 %conv112137148, 192
   %cmp114139 = icmp eq i32 %and113138, 128
   br i1 %cmp114139, label %if.then115, label %if.else126
 
@@ -253,8 +253,8 @@ for.cond107:                                      ; preds = %if.then115
   store i8 %inc110, ptr %arrayidx109, align 1
   %arrayidx111 = getelementptr inbounds i8, ptr %data.addr.0, i64 %dec
   %20 = load i8, ptr %arrayidx111, align 1
-  %conv112147 = zext i8 %20 to i32
-  %and113 = and i32 %conv112147, 192
+  %conv112149 = zext i8 %20 to i32
+  %and113 = and i32 %conv112149, 192
   %cmp114 = icmp eq i32 %and113, 128
   br i1 %cmp114, label %if.then115, label %if.else126, !llvm.loop !7
 
@@ -272,7 +272,7 @@ if.then122:                                       ; preds = %if.then115
 
 if.else126:                                       ; preds = %for.cond107, %for.cond107.preheader
   %inc110.lcssa = phi i8 [ %inc110135, %for.cond107.preheader ], [ %inc110, %for.cond107 ]
-  %conv112.lcssa = phi i32 [ %conv112137146, %for.cond107.preheader ], [ %conv112147, %for.cond107 ]
+  %conv112.lcssa = phi i32 [ %conv112137148, %for.cond107.preheader ], [ %conv112149, %for.cond107 ]
   %and129 = and i32 %conv112.lcssa, 224
   %cmp130 = icmp eq i32 %and129, 192
   br i1 %cmp130, label %if.end155, label %if.else134

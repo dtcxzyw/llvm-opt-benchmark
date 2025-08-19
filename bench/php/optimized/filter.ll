@@ -215,8 +215,8 @@ thread-pre-split.i:                               ; preds = %9, %6, %4
   br i1 %.not20.i, label %php_stream_bucket_unlink.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %11, %thread-pre-split.i
-  %.sink22.i = phi ptr [ %10, %thread-pre-split.i ], [ %13, %11 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sink22.i, i64 8
+  %.sink25.i = phi ptr [ %10, %thread-pre-split.i ], [ %13, %11 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.sink25.i, i64 8
   store ptr %3, ptr %14, align 8, !tbaa !36
   br label %php_stream_bucket_unlink.exit
 
@@ -356,8 +356,8 @@ thread-pre-split:                                 ; preds = %6, %4, %9
   br i1 %.not20, label %15, label %.sink.split
 
 .sink.split:                                      ; preds = %11, %thread-pre-split
-  %.sink22 = phi ptr [ %10, %thread-pre-split ], [ %13, %11 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sink22, i64 8
+  %.sink25 = phi ptr [ %10, %thread-pre-split ], [ %13, %11 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
   store ptr %3, ptr %14, align 8, !tbaa !36
   br label %15
 
@@ -589,9 +589,9 @@ define dso_local ptr @php_stream_filter_create(ptr noundef %0, ptr noundef %1, i
   %12 = add i64 %6, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr nonnull align 1 %0, i64 %12, i1 false)
   %.not65 = icmp eq ptr %11, null
-  br i1 %.not65, label %.thread74, label %.lr.ph.preheader
+  br i1 %.not65, label %.thread79, label %.lr.ph.preheader
 
-.thread74:                                        ; preds = %10
+.thread79:                                        ; preds = %10
   tail call void @_efree(ptr noundef %11) #15
   br label %.sink.split
 
@@ -641,16 +641,16 @@ zend_hash_str_find_ptr.exit48.thread:             ; preds = %.lr.ph, %23
   %33 = load ptr, ptr %32, align 8, !tbaa !39
   %34 = tail call ptr %33(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %2) #15
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.thread69, label %37
+  br i1 %35, label %.thread74, label %37
 
 36:                                               ; preds = %30
-  br i1 %.not.i46, label %.sink.split, label %.thread69
+  br i1 %.not.i46, label %.sink.split, label %.thread74
 
-.thread69:                                        ; preds = %.thread, %36
+.thread74:                                        ; preds = %.thread, %36
   br label %.sink.split
 
-.sink.split:                                      ; preds = %36, %8, %.thread74, %.thread69
-  %.str.sink = phi ptr [ @.str.1, %.thread69 ], [ @.str, %.thread74 ], [ @.str, %8 ], [ @.str, %36 ]
+.sink.split:                                      ; preds = %36, %8, %.thread79, %.thread74
+  %.str.sink = phi ptr [ @.str.1, %.thread74 ], [ @.str, %.thread79 ], [ @.str, %8 ], [ @.str, %36 ]
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull %.str.sink, ptr noundef nonnull %0) #15
   br label %37
 
@@ -934,8 +934,8 @@ thread-pre-split.i:                               ; preds = %65, %62, %60
   br i1 %.not20.i, label %php_stream_bucket_unlink.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %67, %thread-pre-split.i
-  %.sink22.i = phi ptr [ %66, %thread-pre-split.i ], [ %69, %67 ]
-  %70 = getelementptr inbounds nuw i8, ptr %.sink22.i, i64 8
+  %.sink25.i = phi ptr [ %66, %thread-pre-split.i ], [ %69, %67 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.sink25.i, i64 8
   store ptr %59, ptr %70, align 8, !tbaa !36
   br label %php_stream_bucket_unlink.exit
 
@@ -1024,8 +1024,8 @@ thread-pre-split.i77:                             ; preds = %99, %96, %94
   br i1 %.not20.i81, label %php_stream_bucket_unlink.exit84, label %.sink.split.i79
 
 .sink.split.i79:                                  ; preds = %101, %thread-pre-split.i77
-  %.sink22.i80 = phi ptr [ %100, %thread-pre-split.i77 ], [ %103, %101 ]
-  %104 = getelementptr inbounds nuw i8, ptr %.sink22.i80, i64 8
+  %.sink25.i80 = phi ptr [ %100, %thread-pre-split.i77 ], [ %103, %101 ]
+  %104 = getelementptr inbounds nuw i8, ptr %.sink25.i80, i64 8
   store ptr %93, ptr %104, align 8, !tbaa !36
   br label %php_stream_bucket_unlink.exit84
 
@@ -1180,8 +1180,8 @@ thread-pre-split.i90:                             ; preds = %165, %162, %160
   br i1 %.not20.i94, label %php_stream_bucket_unlink.exit97, label %.sink.split.i92
 
 .sink.split.i92:                                  ; preds = %167, %thread-pre-split.i90
-  %.sink22.i93 = phi ptr [ %166, %thread-pre-split.i90 ], [ %169, %167 ]
-  %170 = getelementptr inbounds nuw i8, ptr %.sink22.i93, i64 8
+  %.sink25.i93 = phi ptr [ %166, %thread-pre-split.i90 ], [ %169, %167 ]
+  %170 = getelementptr inbounds nuw i8, ptr %.sink25.i93, i64 8
   store ptr %159, ptr %170, align 8, !tbaa !36
   br label %php_stream_bucket_unlink.exit97
 
@@ -1318,7 +1318,7 @@ define dso_local range(i32 -1, 1) i32 @_php_stream_filter_flush(ptr noundef %0, 
   %12 = load ptr, ptr %11, align 8, !tbaa !68
   %13 = call i32 %12(ptr noundef nonnull %9, ptr noundef nonnull %.081123, ptr noundef nonnull %.073126, ptr noundef nonnull %.079124, ptr noundef null, i32 noundef %.076125) #15
   switch i32 %13, label %14 [
-    i32 1, label %.thread.loopexit153
+    i32 1, label %.thread.loopexit171
     i32 0, label %.thread
   ]
 
@@ -1457,8 +1457,8 @@ thread-pre-split.i:                               ; preds = %81, %78, %76
   br i1 %.not20.i, label %php_stream_bucket_unlink.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %83, %thread-pre-split.i
-  %.sink22.i = phi ptr [ %82, %thread-pre-split.i ], [ %85, %83 ]
-  %86 = getelementptr inbounds nuw i8, ptr %.sink22.i, i64 8
+  %.sink25.i = phi ptr [ %82, %thread-pre-split.i ], [ %85, %83 ]
+  %86 = getelementptr inbounds nuw i8, ptr %.sink25.i, i64 8
   store ptr %75, ptr %86, align 8, !tbaa !36
   br label %php_stream_bucket_unlink.exit
 
@@ -1572,8 +1572,8 @@ thread-pre-split.i99:                             ; preds = %131, %128, %126
   br i1 %.not20.i103, label %php_stream_bucket_unlink.exit106, label %.sink.split.i101
 
 .sink.split.i101:                                 ; preds = %133, %thread-pre-split.i99
-  %.sink22.i102 = phi ptr [ %132, %thread-pre-split.i99 ], [ %135, %133 ]
-  %136 = getelementptr inbounds nuw i8, ptr %.sink22.i102, i64 8
+  %.sink25.i102 = phi ptr [ %132, %thread-pre-split.i99 ], [ %135, %133 ]
+  %136 = getelementptr inbounds nuw i8, ptr %.sink25.i102, i64 8
   store ptr %125, ptr %136, align 8, !tbaa !36
   br label %php_stream_bucket_unlink.exit106
 
@@ -1626,11 +1626,11 @@ php_stream_bucket_delref.exit110:                 ; preds = %php_stream_bucket_u
   %.not94 = icmp eq ptr %155, null
   br i1 %.not94, label %.thread, label %110
 
-.thread.loopexit153:                              ; preds = %.lr.ph
+.thread.loopexit171:                              ; preds = %.lr.ph
   br label %.thread
 
-.thread:                                          ; preds = %php_stream_bucket_delref.exit110, %php_stream_bucket_delref.exit, %.lr.ph, %.thread.loopexit153, %.preheader117, %59, %106, %._crit_edge, %2, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %2 ], [ 0, %._crit_edge ], [ 0, %106 ], [ 0, %59 ], [ 0, %.preheader117 ], [ 0, %.thread.loopexit153 ], [ -1, %.lr.ph ], [ 0, %php_stream_bucket_delref.exit ], [ 0, %php_stream_bucket_delref.exit110 ]
+.thread:                                          ; preds = %php_stream_bucket_delref.exit110, %php_stream_bucket_delref.exit, %.lr.ph, %.thread.loopexit171, %.preheader117, %59, %106, %._crit_edge, %2, %7
+  %.0 = phi i32 [ -1, %7 ], [ -1, %2 ], [ 0, %._crit_edge ], [ 0, %106 ], [ 0, %59 ], [ 0, %.preheader117 ], [ 0, %.thread.loopexit171 ], [ -1, %.lr.ph ], [ 0, %php_stream_bucket_delref.exit ], [ 0, %php_stream_bucket_delref.exit110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

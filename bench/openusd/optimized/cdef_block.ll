@@ -297,7 +297,7 @@ define hidden void @cdef_filter_block_c(ptr noundef writeonly captures(address_i
   %43 = mul nuw nsw i64 %indvars.iv225, 144
   %44 = mul nsw i64 %indvars.iv225, %42
   %invariant.gep = getelementptr i8, ptr %0, i64 %44
-  %invariant.gep232 = getelementptr i16, ptr %1, i64 %44
+  %invariant.gep234 = getelementptr i16, ptr %1, i64 %44
   br label %45
 
 45:                                               ; preds = %.preheader, %182
@@ -497,8 +497,8 @@ constrain.exit210:                                ; preds = %constrain.exit182, 
 
 180:                                              ; preds = %167
   %181 = trunc i32 %177 to i16
-  %gep233 = getelementptr i16, ptr %invariant.gep232, i64 %indvars.iv222
-  store i16 %181, ptr %gep233, align 2
+  %gep235 = getelementptr i16, ptr %invariant.gep234, i64 %indvars.iv222
+  store i16 %181, ptr %gep235, align 2
   br label %182
 
 182:                                              ; preds = %178, %180
@@ -575,8 +575,8 @@ define hidden void @av1_cdef_filter_fb(ptr noundef writeonly captures(address_is
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds i16, ptr %1, i64 %48
   %50 = add nsw i64 %indvars.iv205, %42
-  %.idx216 = mul i64 %50, 288
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx216
+  %.idx221 = mul i64 %50, 288
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx221
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %49, ptr align 2 %gep, i64 %30, i1 false)
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond210.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count209
@@ -670,11 +670,11 @@ define hidden void @av1_cdef_filter_fb(ptr noundef writeonly captures(address_is
   br i1 %exitcond194.not, label %.thread.thread, label %73, !llvm.loop !19
 
 .thread.thread:                                   ; preds = %73
-  %.not155217 = icmp eq i32 %5, 0
-  %.not157218 = icmp eq i32 %4, 0
-  %86 = select i1 %.not157218, i32 2, i32 0
-  %87 = select i1 %.not157218, i32 3, i32 1
-  %88 = select i1 %.not155217, i32 %87, i32 %86
+  %.not155222 = icmp eq i32 %5, 0
+  %.not157223 = icmp eq i32 %4, 0
+  %86 = select i1 %.not157223, i32 2, i32 0
+  %87 = select i1 %.not157223, i32 3, i32 1
+  %88 = select i1 %.not155222, i32 %87, i32 %86
   br label %.lr.ph176
 
 .thread:                                          ; preds = %._crit_edge, %70, %53, %51, %71

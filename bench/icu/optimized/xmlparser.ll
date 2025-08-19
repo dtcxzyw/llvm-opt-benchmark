@@ -1456,7 +1456,7 @@ _ZNK6icu_7713UnicodeString7indexOfEDsi.exit.i:    ; preds = %_ZNK6icu_7713Unicod
   %92 = getelementptr inbounds nuw i8, ptr %.078.ph, i64 168
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.outer, %.thread166
+.backedge:                                        ; preds = %.backedge.outer, %.thread168
   %93 = load i32, ptr %9, align 8, !tbaa !29
   %94 = sext i32 %93 to i64
   %95 = call noundef signext i8 @_ZN6icu_7712RegexMatcher9lookingAtElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %20, i64 noundef %94, ptr noundef nonnull align 4 dereferenceable(4) %2)
@@ -1477,8 +1477,8 @@ _ZNK6icu_7713UnicodeString7indexOfEDsi.exit.i:    ; preds = %_ZNK6icu_7713Unicod
   call void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %84, ptr noundef nonnull %.078.ph, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %.backedge.outer.backedge
 
-.backedge.outer.backedge:                         ; preds = %101, %102, %.thread173
-  %.078.ph.be = phi ptr [ %203, %.thread173 ], [ %97, %102 ], [ %97, %101 ]
+.backedge.outer.backedge:                         ; preds = %101, %102, %.thread175
+  %.078.ph.be = phi ptr [ %203, %.thread175 ], [ %97, %102 ], [ %97, %101 ]
   br label %.backedge.outer
 
 102:                                              ; preds = %96
@@ -1522,7 +1522,7 @@ _ZNK6icu_7713UnicodeString7indexOfEDsi.exit.i:    ; preds = %_ZNK6icu_7713Unicod
           to label %121 unwind label %.loopexit138.loopexit
 
 .loopexit138.loopexit:                            ; preds = %205, %135, %130, %123, %121, %120, %118, %117, %113, %111, %.invoke
-  %lpad.loopexit202 = landingpad { ptr, i32 }
+  %lpad.loopexit204 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit138
 
@@ -1538,7 +1538,7 @@ _ZNK6icu_7713UnicodeString7indexOfEDsi.exit.i:    ; preds = %_ZNK6icu_7713Unicod
 
 121:                                              ; preds = %120, %115
   %122 = invoke noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(336) %14, ptr noundef nonnull align 8 dereferenceable(64) %1)
-          to label %.thread166 unwind label %.loopexit138.loopexit, !llvm.loop !54
+          to label %.thread168 unwind label %.loopexit138.loopexit, !llvm.loop !54
 
 123:                                              ; preds = %103
   %124 = load i32, ptr %9, align 8, !tbaa !29
@@ -1553,7 +1553,7 @@ _ZNK6icu_7713UnicodeString7indexOfEDsi.exit.i:    ; preds = %_ZNK6icu_7713Unicod
 .invoke:                                          ; preds = %134, %127
   %128 = phi ptr [ %12, %127 ], [ %18, %134 ]
   %129 = invoke noundef i32 @_ZNK6icu_7712RegexMatcher3endER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %128, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %.thread166.sink.split unwind label %.loopexit138.loopexit, !llvm.loop !54
+          to label %.thread168.sink.split unwind label %.loopexit138.loopexit, !llvm.loop !54
 
 130:                                              ; preds = %127
   %131 = load i32, ptr %9, align 8, !tbaa !29
@@ -1597,8 +1597,8 @@ _ZNK6icu_7713UnicodeString7indexOfEDsi.exit.i:    ; preds = %_ZNK6icu_7713Unicod
   %149 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %150 = load i16, ptr %149, align 8, !tbaa !17
   %151 = and i16 %150, 1
-  %.not188 = icmp eq i16 %151, 0
-  br i1 %.not188, label %.thread, label %200
+  %.not190 = icmp eq i16 %151, 0
+  br i1 %.not190, label %.thread, label %200
 
 152:                                              ; preds = %143
   %153 = icmp slt i16 %146, 0
@@ -1631,8 +1631,8 @@ _ZNK6icu_7713UnicodeString7indexOfEDsi.exit.i:    ; preds = %_ZNK6icu_7713Unicod
           to label %175 unwind label %.loopexit.split-lp.loopexit
 
 175:                                              ; preds = %168
-  %.not189 = icmp eq i8 %174, 0
-  br i1 %.not189, label %.thread, label %200
+  %.not191 = icmp eq i8 %174, 0
+  br i1 %.not191, label %.thread, label %200
 
 .thread:                                          ; preds = %148, %152, %175
   %176 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7712RegexMatcher5inputEv(ptr noundef nonnull align 8 dereferenceable(336) %10)
@@ -1694,17 +1694,17 @@ _ZNK6icu_7713UnicodeString7indexOfEDsi.exit.i100: ; preds = %.noexc106, %_ZNK6ic
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %168, %202
-  %lpad.loopexit176 = landingpad { ptr, i32 }
+  %lpad.loopexit178 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.thread
-  %lpad.loopexit.split-lp177 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp179 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit176, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp177, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit178, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp179, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #13
   br label %204
 
@@ -1715,9 +1715,9 @@ _ZNK6icu_7713UnicodeString7indexOfEDsi.exit.i100: ; preds = %.noexc106, %_ZNK6ic
 
 202:                                              ; preds = %200
   %203 = invoke noundef ptr @_ZN6icu_776UStack3popEv(ptr noundef nonnull align 8 dereferenceable(40) %84)
-          to label %.thread173 unwind label %.loopexit.split-lp.loopexit, !llvm.loop !54
+          to label %.thread175 unwind label %.loopexit.split-lp.loopexit, !llvm.loop !54
 
-.thread173:                                       ; preds = %202
+.thread175:                                       ; preds = %202
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #13
@@ -1745,7 +1745,7 @@ _ZNK6icu_7713UnicodeString7indexOfEDsi.exit.i100: ; preds = %.noexc106, %_ZNK6ic
 
 212:                                              ; preds = %210
   invoke void @_ZN6icu_777UVector10addElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %91, ptr noundef %211, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %.thread166 unwind label %213
+          to label %.thread168 unwind label %213
 
 213:                                              ; preds = %212, %210
   %214 = landingpad { ptr, i32 }
@@ -1756,17 +1756,17 @@ _ZNK6icu_7713UnicodeString7indexOfEDsi.exit.i100: ; preds = %.noexc106, %_ZNK6ic
   invoke void @_ZN6icu_7710UXMLParser5errorEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(4576) %0, ptr noundef nonnull @.str.19, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %.loopexit143 unwind label %.loopexit.split-lp139
 
-.thread166.sink.split:                            ; preds = %.invoke
+.thread168.sink.split:                            ; preds = %.invoke
   store i32 %129, ptr %9, align 8, !tbaa !29
-  br label %.thread166
+  br label %.thread168
 
-.thread166:                                       ; preds = %.thread166.sink.split, %121, %212
+.thread168:                                       ; preds = %.thread168.sink.split, %121, %212
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.backedge
 
 .loopexit138:                                     ; preds = %.loopexit138.loopexit, %.loopexit138.loopexit.split-lp, %.loopexit.split-lp139, %213, %204
-  %.pn91 = phi { ptr, i32 } [ %.pn, %204 ], [ %214, %213 ], [ %lpad.loopexit.split-lp141, %.loopexit.split-lp139 ], [ %lpad.loopexit202, %.loopexit138.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit138.loopexit.split-lp ]
+  %.pn91 = phi { ptr, i32 } [ %.pn, %204 ], [ %214, %213 ], [ %lpad.loopexit.split-lp141, %.loopexit.split-lp139 ], [ %lpad.loopexit204, %.loopexit138.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit138.loopexit.split-lp ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn91

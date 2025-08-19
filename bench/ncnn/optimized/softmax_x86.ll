@@ -140,8 +140,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn11Softmax_x8615forward_in
 .lr.ph1681:                                       ; preds = %.lr.ph1681.preheader, %.lr.ph1681
   %indvars.iv1869 = phi i64 [ 0, %.lr.ph1681.preheader ], [ %indvars.iv.next1870, %.lr.ph1681 ]
   %.06361679 = phi <4 x float> [ zeroinitializer, %.lr.ph1681.preheader ], [ %101, %.lr.ph1681 ]
-  %.idx1930 = shl nsw i64 %indvars.iv1869, 4
-  %68 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx1930
+  %.idx2075 = shl nsw i64 %indvars.iv1869, 4
+  %68 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx2075
   %69 = load <4 x float>, ptr %68, align 16, !tbaa !33
   %70 = fsub fast <4 x float> %69, %59
   %71 = tail call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %70, <4 x float> splat (float 0x40561814A0000000))
@@ -182,8 +182,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn11Softmax_x8615forward_in
 
 .lr.ph1686:                                       ; preds = %.lr.ph1686.preheader, %.lr.ph1686
   %indvars.iv1874 = phi i64 [ 0, %.lr.ph1686.preheader ], [ %indvars.iv.next1875, %.lr.ph1686 ]
-  %.idx1931 = shl nsw i64 %indvars.iv1874, 4
-  %102 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx1931
+  %.idx2076 = shl nsw i64 %indvars.iv1874, 4
+  %102 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx2076
   %103 = load <4 x float>, ptr %102, align 16, !tbaa !33
   %104 = fmul fast <4 x float> %103, %67
   store <4 x float> %104, ptr %102, align 16, !tbaa !33
@@ -866,9 +866,9 @@ _ZN4ncnn3MatD2Ev.exit934:                         ; preds = %498, %496, %504, %5
   %515 = phi i1 [ false, %.loopexit.thread ], [ %106, %_ZN4ncnn3MatD2Ev.exit932 ], [ %106, %.loopexit ]
   %516 = icmp eq i32 %47, 1
   %or.cond8 = select i1 %515, i1 %516, i1 false
-  br i1 %or.cond8, label %.thread1935, label %523
+  br i1 %or.cond8, label %.thread2080, label %523
 
-.thread1935:                                      ; preds = %513
+.thread2080:                                      ; preds = %513
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %517 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %518 = load i32, ptr %517, align 4, !tbaa !31
@@ -883,7 +883,7 @@ _ZN4ncnn3MatD2Ev.exit934:                         ; preds = %498, %496, %504, %5
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 3, ptr nonnull @_ZNK4ncnn11Softmax_x8615forward_inplaceERNS_3MatERKNS_6OptionE.omp_outlined, ptr nonnull %7, ptr nonnull %1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread1937
+  br label %.thread2082
 
 523:                                              ; preds = %513
   %524 = icmp eq i32 %38, 3
@@ -1776,7 +1776,7 @@ _ZN4ncnn3MatD2Ev.exit943:                         ; preds = %1013, %_ZN4ncnn3Mat
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %995, label %.thread1937, label %1800
+  br i1 %995, label %.thread2082, label %1800
 
 1028:                                             ; preds = %_ZN4ncnn3MatD2Ev.exit941, %944
   %.pn778 = phi { ptr, i32 } [ %970, %_ZN4ncnn3MatD2Ev.exit941 ], [ %945, %944 ]
@@ -1824,7 +1824,7 @@ _ZN4ncnn3MatD2Ev.exit944:                         ; preds = %1030, %1028, %1036,
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %1801
 
-.thread1937:                                      ; preds = %.thread1935, %_ZN4ncnn3MatD2Ev.exit943
+.thread2082:                                      ; preds = %.thread2080, %_ZN4ncnn3MatD2Ev.exit943
   br label %1800
 
 1045:                                             ; preds = %921
@@ -2546,9 +2546,9 @@ _ZN4ncnn3MatD2Ev.exit948:                         ; preds = %1365, %1363, %1371,
   %1382 = phi i1 [ false, %.loopexit1540.thread ], [ %1146, %_ZN4ncnn3MatD2Ev.exit946 ], [ %1146, %.loopexit1540 ]
   %1383 = icmp eq i32 %47, 1
   %or.cond18 = select i1 %1382, i1 %1383, i1 false
-  br i1 %or.cond18, label %.thread1940, label %1390
+  br i1 %or.cond18, label %.thread2085, label %1390
 
-.thread1940:                                      ; preds = %1380
+.thread2085:                                      ; preds = %1380
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %1384 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %1385 = load i32, ptr %1384, align 4, !tbaa !31
@@ -2563,7 +2563,7 @@ _ZN4ncnn3MatD2Ev.exit948:                         ; preds = %1365, %1363, %1371,
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 3, ptr nonnull @_ZNK4ncnn11Softmax_x8615forward_inplaceERNS_3MatERKNS_6OptionE.omp_outlined.6, ptr nonnull %23, ptr nonnull %1, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %.thread1943
+  br label %.thread2088
 
 1390:                                             ; preds = %1380
   %1391 = icmp eq i32 %38, 3
@@ -3224,7 +3224,7 @@ _ZN4ncnn3MatD2Ev.exit957:                         ; preds = %1661, %_ZN4ncnn3Mat
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  br i1 %1643, label %.thread1943, label %1800
+  br i1 %1643, label %.thread2088, label %1800
 
 1676:                                             ; preds = %_ZN4ncnn3MatD2Ev.exit955, %1592
   %.pn764 = phi { ptr, i32 } [ %1618, %_ZN4ncnn3MatD2Ev.exit955 ], [ %1593, %1592 ]
@@ -3272,7 +3272,7 @@ _ZN4ncnn3MatD2Ev.exit958:                         ; preds = %1678, %1676, %1684,
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %1801
 
-.thread1943:                                      ; preds = %.thread1940, %_ZN4ncnn3MatD2Ev.exit957
+.thread2088:                                      ; preds = %.thread2085, %_ZN4ncnn3MatD2Ev.exit957
   br label %1800
 
 1693:                                             ; preds = %1569
@@ -3564,8 +3564,8 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %1785, %.critedge790
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %1800
 
-1800:                                             ; preds = %.thread1943, %.thread1937, %1693, %1695, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit926, %_ZN4ncnn3MatD2Ev.exit927, %1045, %1047, %_ZN4ncnn3MatD2Ev.exit928, %_ZN4ncnn3MatD2Ev.exit929, %_ZN4ncnn3MatD2Ev.exit930, %_ZN4ncnn3MatD2Ev.exit932, %_ZN4ncnn3MatD2Ev.exit938, %_ZN4ncnn3MatD2Ev.exit943, %_ZN4ncnn3MatD2Ev.exit946, %_ZN4ncnn3MatD2Ev.exit952, %_ZN4ncnn3MatD2Ev.exit957
-  %.3 = phi i32 [ -100, %_ZN4ncnn3MatD2Ev.exit943 ], [ -100, %_ZN4ncnn3MatD2Ev.exit938 ], [ -100, %_ZN4ncnn3MatD2Ev.exit932 ], [ -100, %_ZN4ncnn3MatD2Ev.exit957 ], [ -100, %_ZN4ncnn3MatD2Ev.exit952 ], [ -100, %_ZN4ncnn3MatD2Ev.exit946 ], [ -100, %_ZN4ncnn3MatD2Ev.exit930 ], [ -100, %_ZN4ncnn3MatD2Ev.exit929 ], [ -100, %_ZN4ncnn3MatD2Ev.exit928 ], [ 0, %1047 ], [ 0, %1045 ], [ -100, %_ZN4ncnn3MatD2Ev.exit927 ], [ -100, %_ZN4ncnn3MatD2Ev.exit926 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ 0, %1695 ], [ 0, %1693 ], [ 0, %.thread1937 ], [ 0, %.thread1943 ]
+1800:                                             ; preds = %.thread2088, %.thread2082, %1693, %1695, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit926, %_ZN4ncnn3MatD2Ev.exit927, %1045, %1047, %_ZN4ncnn3MatD2Ev.exit928, %_ZN4ncnn3MatD2Ev.exit929, %_ZN4ncnn3MatD2Ev.exit930, %_ZN4ncnn3MatD2Ev.exit932, %_ZN4ncnn3MatD2Ev.exit938, %_ZN4ncnn3MatD2Ev.exit943, %_ZN4ncnn3MatD2Ev.exit946, %_ZN4ncnn3MatD2Ev.exit952, %_ZN4ncnn3MatD2Ev.exit957
+  %.3 = phi i32 [ -100, %_ZN4ncnn3MatD2Ev.exit943 ], [ -100, %_ZN4ncnn3MatD2Ev.exit938 ], [ -100, %_ZN4ncnn3MatD2Ev.exit932 ], [ -100, %_ZN4ncnn3MatD2Ev.exit957 ], [ -100, %_ZN4ncnn3MatD2Ev.exit952 ], [ -100, %_ZN4ncnn3MatD2Ev.exit946 ], [ -100, %_ZN4ncnn3MatD2Ev.exit930 ], [ -100, %_ZN4ncnn3MatD2Ev.exit929 ], [ -100, %_ZN4ncnn3MatD2Ev.exit928 ], [ 0, %1047 ], [ 0, %1045 ], [ -100, %_ZN4ncnn3MatD2Ev.exit927 ], [ -100, %_ZN4ncnn3MatD2Ev.exit926 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ 0, %1695 ], [ 0, %1693 ], [ 0, %.thread2082 ], [ 0, %.thread2088 ]
   ret i32 %.3
 
 1801:                                             ; preds = %_ZN4ncnn3MatD2Ev.exit958, %_ZN4ncnn3MatD2Ev.exit954, %_ZN4ncnn3MatD2Ev.exit948, %_ZN4ncnn3MatD2Ev.exit944, %_ZN4ncnn3MatD2Ev.exit940, %_ZN4ncnn3MatD2Ev.exit934
@@ -3664,8 +3664,8 @@ define internal void @_ZNK4ncnn11Softmax_x8615forward_inplaceERNS_3MatERKNS_6Opt
 .lr.ph78:                                         ; preds = %.lr.ph, %.lr.ph78
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %.lr.ph78 ], [ 0, %.lr.ph ]
   %.04276 = phi <4 x float> [ %70, %.lr.ph78 ], [ zeroinitializer, %.lr.ph ]
-  %.idx99 = shl nsw i64 %indvars.iv89, 4
-  %37 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx99
+  %.idx103 = shl nsw i64 %indvars.iv89, 4
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx103
   %38 = load <4 x float>, ptr %37, align 16, !tbaa !33
   %39 = fsub fast <4 x float> %38, %34
   %40 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %39, <4 x float> splat (float 0x40561814A0000000))
@@ -3715,8 +3715,8 @@ define internal void @_ZNK4ncnn11Softmax_x8615forward_inplaceERNS_3MatERKNS_6Opt
 
 .lr.ph81:                                         ; preds = %.lr.ph81.preheader, %.lr.ph81
   %indvars.iv92 = phi i64 [ %indvars.iv.next93, %.lr.ph81 ], [ 0, %.lr.ph81.preheader ]
-  %.idx100 = shl nsw i64 %indvars.iv92, 4
-  %75 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx100
+  %.idx104 = shl nsw i64 %indvars.iv92, 4
+  %75 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx104
   %76 = load <4 x float>, ptr %75, align 16, !tbaa !33
   %77 = fmul fast <4 x float> %76, %36
   store <4 x float> %77, ptr %75, align 16, !tbaa !33
@@ -4388,8 +4388,8 @@ define internal void @_ZNK4ncnn11Softmax_x8615forward_inplaceERNS_3MatERKNS_6Opt
 .lr.ph94:                                         ; preds = %.lr.ph, %.lr.ph94
   %indvars.iv110 = phi i64 [ %indvars.iv.next111, %.lr.ph94 ], [ 0, %.lr.ph ]
   %.04692 = phi <4 x float> [ %74, %.lr.ph94 ], [ zeroinitializer, %.lr.ph ]
-  %.idx120 = shl nsw i64 %indvars.iv110, 4
-  %41 = getelementptr inbounds nuw i8, ptr %.047100, i64 %.idx120
+  %.idx128 = shl nsw i64 %indvars.iv110, 4
+  %41 = getelementptr inbounds nuw i8, ptr %.047100, i64 %.idx128
   %42 = load <4 x float>, ptr %41, align 16, !tbaa !33
   %43 = fsub fast <4 x float> %42, %38
   %44 = call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> nofpclass(nan inf) %43, <4 x float> splat (float 0x40561814A0000000))
@@ -4442,8 +4442,8 @@ define internal void @_ZNK4ncnn11Softmax_x8615forward_inplaceERNS_3MatERKNS_6Opt
 
 .lr.ph97:                                         ; preds = %.lr.ph97.preheader, %.lr.ph97
   %indvars.iv113 = phi i64 [ %indvars.iv.next114, %.lr.ph97 ], [ 0, %.lr.ph97.preheader ]
-  %.idx121 = shl nsw i64 %indvars.iv113, 4
-  %85 = getelementptr inbounds nuw i8, ptr %.047100, i64 %.idx121
+  %.idx129 = shl nsw i64 %indvars.iv113, 4
+  %85 = getelementptr inbounds nuw i8, ptr %.047100, i64 %.idx129
   %86 = load <4 x float>, ptr %85, align 16, !tbaa !33
   %87 = fmul fast <4 x float> %86, %40
   store <4 x float> %87, ptr %85, align 16, !tbaa !33

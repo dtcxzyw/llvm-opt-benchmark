@@ -1517,8 +1517,8 @@ define linkonce_odr dso_local void @_ZN19SplitIntoComponents15colorComponentsEv(
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.not93 = icmp eq i64 %7, 0
-  br i1 %.not93, label %16, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i
+  %.not111 = icmp eq i64 %7, 0
+  br i1 %.not111, label %16, label %_ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIP9DfgVertexSaIS1_EE11_M_allocateEm.exit.i: ; preds = %10
   %12 = shl nuw nsw i64 %7, 3
@@ -3319,7 +3319,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt10unique_ptrI8DfgGraphSt14def
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrI8DfgGraphSt14default_deleteIS1_EEmS4_ET_S6_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt10unique_ptrI8DfgGraphSt14default_deleteIS1_EEmS4_ET_S6_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 3
+  %19 = shl nuw nsw i64 %1, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false), !tbaa !126
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !13
@@ -7515,11 +7515,11 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN8DfgGraph13forEa
   %.not.i15.i23 = icmp eq ptr %57, null
   br i1 %.not.i15.i23, label %._crit_edge58.i32, label %.lr.ph57.i24
 
-.invoke88:                                        ; preds = %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy23UnlinkableItertatorImplIS1_EppEv.exit.i21, %.lr.ph57.i24, %.lr.ph62.i34
+.invoke100:                                       ; preds = %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy23UnlinkableItertatorImplIS1_EppEv.exit.i21, %.lr.ph57.i24, %.lr.ph62.i34
   invoke void @_ZSt25__throw_bad_function_callv() #25
-          to label %.cont89 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont101 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont89:                                          ; preds = %.invoke88
+.cont101:                                         ; preds = %.invoke100
   unreachable
 
 _ZNKSt8functionIFvR9DfgVertexEEclES1_.exit.i20:   ; preds = %.lr.ph.i14.preheader, %_ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy23UnlinkableItertatorImplIS1_EppEv.exit.i21
@@ -7541,7 +7541,7 @@ _ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy23Unlin
   %59 = select i1 %.not.i.i.i18, ptr %.sroa.746.053.i1786, ptr %.sroa.746.053.i17
   call void @llvm.prefetch.p0(ptr nonnull %59, i32 1, i32 3, i32 1)
   %.not.i.i19.i19 = icmp eq ptr %.pr59, null
-  br i1 %.not.i.i19.i19, label %.invoke88, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit.i20
+  br i1 %.not.i.i19.i19, label %.invoke100, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit.i20
 
 ._crit_edge58.i32:                                ; preds = %.noexc45, %._crit_edge.i22
   %60 = load ptr, ptr %38, align 8, !tbaa !117
@@ -7557,7 +7557,7 @@ _ZN6V3ListI9DfgVertexXadL_ZNS0_5linksEvEE12DfgVertexVarE15UnlinkableProxy23Unlin
   call void @llvm.prefetch.p0(ptr nonnull %61, i32 1, i32 3, i32 1)
   %62 = load ptr, ptr %52, align 8, !tbaa !87
   %.not.i.i24.i29 = icmp eq ptr %62, null
-  br i1 %.not.i.i24.i29, label %.invoke88, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit25.i30
+  br i1 %.not.i.i24.i29, label %.invoke100, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit25.i30
 
 _ZNKSt8functionIFvR9DfgVertexEEclES1_.exit25.i30: ; preds = %.lr.ph57.i24
   %63 = load ptr, ptr %53, align 8, !tbaa !84
@@ -7576,7 +7576,7 @@ _ZNKSt8functionIFvR9DfgVertexEEclES1_.exit25.i30: ; preds = %.lr.ph57.i24
   call void @llvm.prefetch.p0(ptr nonnull %64, i32 1, i32 3, i32 1)
   %65 = load ptr, ptr %52, align 8, !tbaa !87
   %.not.i.i26.i39 = icmp eq ptr %65, null
-  br i1 %.not.i.i26.i39, label %.invoke88, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit27.i40
+  br i1 %.not.i.i26.i39, label %.invoke100, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit27.i40
 
 _ZNKSt8functionIFvR9DfgVertexEEclES1_.exit27.i40: ; preds = %.lr.ph62.i34
   %66 = load ptr, ptr %53, align 8, !tbaa !84
@@ -7686,7 +7686,7 @@ _ZNSt13unordered_setIPK9DfgVertexSt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit: 
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke88
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke100
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

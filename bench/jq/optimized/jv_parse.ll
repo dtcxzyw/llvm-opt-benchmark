@@ -221,7 +221,7 @@ define dso_local void @jv_parser_set_buf(ptr noundef captures(none) %0, ptr noun
   br i1 %19, label %7, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %7, %10, %4
-  %.016.lcssa = phi i32 [ %2, %4 ], [ %.117, %10 ], [ %.01619, %7 ]
+  %.016.lcssa = phi i32 [ %2, %4 ], [ 0, %10 ], [ %.01619, %7 ]
   %.0.lcssa = phi ptr [ %1, %4 ], [ %.1, %10 ], [ %.020, %7 ]
   store ptr %.0.lcssa, ptr %0, align 8, !tbaa !22
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1011,8 +1011,8 @@ tokenadd.exit134.i:                               ; preds = %336, %._crit_edge.i
   br label %.backedge
 
 .critedge:                                        ; preds = %classify.exit.thread.i, %189, %.backedge, %unhex4.exit.i, %290, %219, %254, %257, %259, %unhex4.exit.i.i, %234, %218, %243, %271, %312, %316, %stream_is_top_num.exit.i, %parse_is_top_num.exit.i, %seq_check_truncation.exit.thread138.i, %stream_is_top_num.exit.thread.i
-  %.0119.be164 = phi ptr [ @.str.37, %312 ], [ @.str.37, %316 ], [ @.str.12, %stream_is_top_num.exit.i ], [ @.str.12, %parse_is_top_num.exit.i ], [ %125, %seq_check_truncation.exit.thread138.i ], [ @.str.13, %stream_is_top_num.exit.thread.i ], [ @.str.42, %271 ], [ @.str.41, %243 ], [ @.str.39, %218 ], [ @.str.40, %234 ], [ @.str.41, %unhex4.exit.i.i ], [ @.str.42, %259 ], [ @.str.42, %257 ], [ @.str.42, %254 ], [ @.str.43, %219 ], [ @.str.44, %290 ], [ @.str.42, %unhex4.exit.i ], [ %190, %189 ], [ %150, %classify.exit.thread.i ], [ %.0119.be, %.backedge ]
-  %353 = icmp eq ptr %.0119.be164, @.str.1
+  %.0119.be180 = phi ptr [ @.str.37, %312 ], [ @.str.37, %316 ], [ @.str.12, %stream_is_top_num.exit.i ], [ @.str.12, %parse_is_top_num.exit.i ], [ %125, %seq_check_truncation.exit.thread138.i ], [ @.str.13, %stream_is_top_num.exit.thread.i ], [ @.str.42, %271 ], [ @.str.41, %243 ], [ @.str.39, %218 ], [ @.str.40, %234 ], [ @.str.41, %unhex4.exit.i.i ], [ @.str.42, %259 ], [ @.str.42, %257 ], [ @.str.42, %254 ], [ @.str.43, %219 ], [ @.str.44, %290 ], [ @.str.42, %unhex4.exit.i ], [ %190, %189 ], [ %150, %classify.exit.thread.i ], [ %.0119.be, %.backedge ]
+  %353 = icmp eq ptr %.0119.be180, @.str.1
   br i1 %353, label %.critedge.thread, label %356
 
 .critedge.thread:                                 ; preds = %322, %194, %parse_check_done.exit128.i, %parse_check_done.exit123.i, %136, %134, %132, %.critedge
@@ -1039,14 +1039,14 @@ tokenadd.exit134.i:                               ; preds = %336, %._crit_edge.i
   store i32 3, ptr %42, align 8, !tbaa !17
   %363 = load i32, ptr %50, align 8, !tbaa !18
   %364 = load i32, ptr %43, align 4, !tbaa !19
-  %365 = tail call { i64, ptr } (ptr, ptr, ...) @make_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %.0119.be164, i32 noundef %363, i32 noundef %364)
+  %365 = tail call { i64, ptr } (ptr, ptr, ...) @make_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %.0119.be180, i32 noundef %363, i32 noundef %364)
   tail call fastcc void @parser_reset(ptr noundef nonnull %0)
   br label %449
 
 366:                                              ; preds = %359, %356
   %367 = load i32, ptr %50, align 8, !tbaa !18
   %368 = load i32, ptr %43, align 4, !tbaa !19
-  %369 = tail call { i64, ptr } (ptr, ptr, ...) @make_error(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %.0119.be164, i32 noundef %367, i32 noundef %368)
+  %369 = tail call { i64, ptr } (ptr, ptr, ...) @make_error(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %.0119.be180, i32 noundef %367, i32 noundef %368)
   tail call fastcc void @parser_reset(ptr noundef %0)
   %370 = load i32, ptr %31, align 4, !tbaa !4
   %371 = and i32 %370, 1
@@ -2197,14 +2197,14 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   br label %441
 
 212:                                              ; preds = %208, %176
-  %.sink309 = phi { i64, ptr } [ %210, %208 ], [ %180, %176 ]
-  %.sink306.in = phi i32 [ %209, %208 ], [ %177, %176 ]
-  %.sink306 = add nsw i32 %.sink306.in, -1
-  %213 = extractvalue { i64, ptr } %.sink309, 0
-  %214 = extractvalue { i64, ptr } %.sink309, 1
+  %.sink310 = phi { i64, ptr } [ %210, %208 ], [ %180, %176 ]
+  %.sink307.in = phi i32 [ %209, %208 ], [ %177, %176 ]
+  %.sink307 = add nsw i32 %.sink307.in, -1
+  %213 = extractvalue { i64, ptr } %.sink310, 0
+  %214 = extractvalue { i64, ptr } %.sink310, 1
   %215 = load i64, ptr %134, align 8
   %216 = load ptr, ptr %136, align 8
-  %217 = tail call { i64, ptr } @jv_array_set(i64 %215, ptr %216, i32 noundef %.sink306, i64 %213, ptr %214) #9
+  %217 = tail call { i64, ptr } @jv_array_set(i64 %215, ptr %216, i32 noundef %.sink307, i64 %213, ptr %214) #9
   %storemerge291 = extractvalue { i64, ptr } %217, 0
   store i64 %storemerge291, ptr %134, align 8
   %storemerge = extractvalue { i64, ptr } %217, 1

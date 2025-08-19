@@ -918,11 +918,11 @@ define internal fastcc ptr @bn_to_asn1_string(ptr noundef %0, ptr noundef %1, i3
   br label %34
 
 32:                                               ; preds = %17, %6
-  %.sink32 = phi i32 [ 479, %6 ], [ 492, %17 ]
+  %.sink34 = phi i32 [ 479, %6 ], [ 492, %17 ]
   %.sink = phi i32 [ 524554, %6 ], [ 524301, %17 ]
   %.02330 = phi ptr [ null, %6 ], [ %.02331, %17 ]
   tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink32, ptr noundef nonnull @__func__.bn_to_asn1_string) #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink34, ptr noundef nonnull @__func__.bn_to_asn1_string) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.sink, ptr noundef null) #6
   %.not28 = icmp eq ptr %.02330, %1
   br i1 %.not28, label %34, label %33

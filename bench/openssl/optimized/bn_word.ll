@@ -125,9 +125,9 @@ thread-pre-split.thread:                          ; preds = %27
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %13, %35, %._crit_edge
-  %.032.lcssa44 = phi i64 [ %22, %35 ], [ %22, %._crit_edge ], [ 0, %13 ]
+  %.032.lcssa46 = phi i64 [ %22, %35 ], [ %22, %._crit_edge ], [ 0, %13 ]
   %37 = phi i32 [ %36, %35 ], [ %.pre41, %._crit_edge ], [ %14, %13 ]
-  %38 = lshr i64 %.032.lcssa44, %10
+  %38 = lshr i64 %.032.lcssa46, %10
   %.not37 = icmp eq i32 %37, 0
   br i1 %.not37, label %39, label %41
 
@@ -305,8 +305,8 @@ define i32 @BN_sub_word(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %25 = icmp eq i64 %.lcssa, %.038.lcssa
   %26 = add nsw i32 %15, -1
   %27 = icmp eq i32 %.0.lcssa, %26
-  %or.cond63 = select i1 %25, i1 %27, i1 false
-  br i1 %or.cond63, label %32, label %33
+  %or.cond65 = select i1 %25, i1 %27, i1 false
+  br i1 %or.cond65, label %32, label %33
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]

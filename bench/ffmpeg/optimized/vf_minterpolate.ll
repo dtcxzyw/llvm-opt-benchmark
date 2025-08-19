@@ -186,7 +186,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 136
   %23 = load i64, ptr %22, align 8, !tbaa !46
   %24 = icmp slt i64 %13, %23
-  br i1 %24, label %25, label %.thread64
+  br i1 %24, label %25, label %.thread87
 
 25:                                               ; preds = %17, %21
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %6, i32 noundef 40, ptr noundef nonnull @.str.3, i64 noundef %13) #13
@@ -200,7 +200,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   store i64 %31, ptr %32, align 8, !tbaa !54
   %.pre = load ptr, ptr %19, align 8, !tbaa !51
   %33 = icmp eq ptr %.pre, null
-  br i1 %33, label %34, label %.thread64
+  br i1 %33, label %34, label %.thread87
 
 34:                                               ; preds = %25
   %35 = tail call ptr @av_frame_clone(ptr noundef nonnull %1) #13
@@ -209,9 +209,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %.val.val = load ptr, ptr %36, align 8, !tbaa !4
   %37 = tail call fastcc i32 @inject_frame(ptr %.val.val, ptr noundef %35)
   %.not52 = icmp eq i32 %37, 0
-  br i1 %.not52, label %.thread64, label %.thread
+  br i1 %.not52, label %.thread87, label %.thread
 
-.thread64:                                        ; preds = %21, %34, %25
+.thread87:                                        ; preds = %21, %34, %25
   %.val56 = load ptr, ptr %5, align 8, !tbaa !35
   %38 = getelementptr i8, ptr %.val56, i64 72
   %.val56.val = load ptr, ptr %38, align 8, !tbaa !4
@@ -219,7 +219,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %.not53 = icmp eq i32 %39, 0
   br i1 %.not53, label %40, label %.thread
 
-40:                                               ; preds = %.thread64
+40:                                               ; preds = %.thread87
   %41 = load ptr, ptr %18, align 8, !tbaa !51
   %.not54 = icmp eq ptr %41, null
   br i1 %.not54, label %.thread, label %42
@@ -1067,8 +1067,8 @@ interpolate.exit:                                 ; preds = %._crit_edge168.i, %
   %570 = icmp slt i32 %569, 0
   br i1 %570, label %.thread, label %107
 
-.thread:                                          ; preds = %interpolate.exit, %116, %107, %40, %.thread64, %34, %15
-  %.0 = phi i32 [ %16, %15 ], [ %37, %34 ], [ %39, %.thread64 ], [ 0, %40 ], [ %569, %interpolate.exit ], [ -12, %116 ], [ 0, %107 ]
+.thread:                                          ; preds = %interpolate.exit, %116, %107, %40, %.thread87, %34, %15
+  %.0 = phi i32 [ %16, %15 ], [ %37, %34 ], [ %39, %.thread87 ], [ 0, %40 ], [ %569, %interpolate.exit ], [ -12, %116 ], [ 0, %107 ]
   ret i32 %.0
 }
 
@@ -1578,9 +1578,9 @@ bilateral_me.exit:                                ; preds = %._crit_edge.i, %.pr
 
 .preheader11:                                     ; preds = %164
   %140 = icmp sgt i32 %107, 0
-  br i1 %140, label %.preheader10.lr.ph, label %._crit_edge32.thread85
+  br i1 %140, label %.preheader10.lr.ph, label %._crit_edge32.thread124
 
-._crit_edge32.thread85:                           ; preds = %.preheader11
+._crit_edge32.thread124:                          ; preds = %.preheader11
   %141 = getelementptr inbounds nuw i8, ptr %.16.val.72.val, i64 3496
   %142 = load i32, ptr %141, align 8, !tbaa !30
   %143 = getelementptr inbounds nuw i8, ptr %.16.val.72.val, i64 368
@@ -2069,8 +2069,8 @@ bilateral_me.exit:                                ; preds = %._crit_edge.i, %.pr
   %386 = icmp slt i32 %385, %382
   br i1 %386, label %.preheader.i119, label %cluster_mvs.exit, !llvm.loop !161
 
-cluster_mvs.exit:                                 ; preds = %._crit_edge.i120, %359, %325, %._crit_edge42, %._crit_edge32.thread85, %.split.us.i, %.loopexit, %1, %31, %28, %67
-  %.1 = phi i32 [ 0, %67 ], [ 0, %28 ], [ 0, %31 ], [ 0, %1 ], [ 0, %.loopexit ], [ 0, %.split.us.i ], [ 0, %._crit_edge32.thread85 ], [ 0, %._crit_edge42 ], [ %329, %325 ], [ %363, %359 ], [ 0, %._crit_edge.i120 ]
+cluster_mvs.exit:                                 ; preds = %._crit_edge.i120, %359, %325, %._crit_edge42, %._crit_edge32.thread124, %.split.us.i, %.loopexit, %1, %31, %28, %67
+  %.1 = phi i32 [ 0, %67 ], [ 0, %28 ], [ 0, %31 ], [ 0, %1 ], [ 0, %.loopexit ], [ 0, %.split.us.i ], [ 0, %._crit_edge32.thread124 ], [ 0, %._crit_edge42 ], [ %329, %325 ], [ %363, %359 ], [ 0, %._crit_edge.i120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
 }
@@ -2622,11 +2622,11 @@ mid_pred.exit320:                                 ; preds = %139, %137, %136, %1
   br label %thread-pre-split.sink.split
 
 thread-pre-split.sink.split:                      ; preds = %321, %311
-  %.sink355.in = phi ptr [ %319, %311 ], [ %331, %321 ]
-  %.sink354 = phi i64 [ %316, %311 ], [ %329, %321 ]
-  %.sink355 = load i16, ptr %.sink355.in, align 2, !tbaa !91
-  %332 = sext i16 %.sink355 to i32
-  %.idx306 = shl nuw nsw i64 %.sink354, 3
+  %.sink393.in = phi ptr [ %319, %311 ], [ %331, %321 ]
+  %.sink392 = phi i64 [ %316, %311 ], [ %329, %321 ]
+  %.sink393 = load i16, ptr %.sink393.in, align 2, !tbaa !91
+  %332 = sext i16 %.sink393 to i32
+  %.idx306 = shl nuw nsw i64 %.sink392, 3
   %333 = getelementptr i8, ptr %8, i64 %.idx306
   %334 = getelementptr i8, ptr %333, i64 4
   store i32 %332, ptr %334, align 4, !tbaa !56
@@ -2973,7 +2973,7 @@ define internal fastcc range(i32 -12, 1) i32 @var_size_bme(ptr noundef %0, ptr n
   %40 = trunc nuw nsw i64 %indvars.iv95 to i32
   %41 = shl nuw i32 %40, %33
   %42 = add nsw i32 %41, %3
-  %.idx98 = mul nuw nsw i64 %indvars.iv95, 80
+  %.idx100 = mul nuw nsw i64 %indvars.iv95, 80
   br label %43
 
 43:                                               ; preds = %68, %.preheader.us
@@ -3003,7 +3003,7 @@ define internal fastcc range(i32 -12, 1) i32 @var_size_bme(ptr noundef %0, ptr n
 
 56:                                               ; preds = %43
   %57 = getelementptr inbounds nuw %struct.Block, ptr %45, i64 %indvars.iv92
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx98
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx100
   %59 = sub nsw i32 %54, %3
   %60 = sub nsw i32 %53, %2
   %61 = trunc i32 %60 to i16
@@ -3499,8 +3499,8 @@ define internal fastcc void @set_frame_data(ptr noundef readonly captures(none) 
   %57 = ashr i32 %.1104.us, 1
   %58 = icmp slt i32 %140, 0
   %59 = sub nsw i32 0, %57
-  %.p.us156 = select i1 %58, i32 %59, i32 %57
-  %60 = add i32 %.p.us156, %140
+  %.p.us162 = select i1 %58, i32 %59, i32 %57
+  %60 = add i32 %.p.us162, %140
   %61 = load i32, ptr %14, align 8, !tbaa !74
   %62 = lshr i32 %.0118.us, %61
   %63 = load i32, ptr %15, align 4, !tbaa !75
@@ -3511,13 +3511,13 @@ define internal fastcc void @set_frame_data(ptr noundef readonly captures(none) 
   br label %68
 
 68:                                               ; preds = %56, %48
-  %.sink162 = phi i32 [ %67, %56 ], [ %55, %48 ]
+  %.sink168 = phi i32 [ %67, %56 ], [ %55, %48 ]
   %.pn = phi i32 [ %60, %56 ], [ %52, %48 ]
   %.sink.in = sdiv i32 %.pn, %.1104.us
   %.sink = trunc i32 %.sink.in to i8
-  %.sink160 = load ptr, ptr %27, align 8, !tbaa !57
-  %69 = sext i32 %.sink162 to i64
-  %70 = getelementptr inbounds i8, ptr %.sink160, i64 %69
+  %.sink166 = load ptr, ptr %27, align 8, !tbaa !57
+  %69 = sext i32 %.sink168 to i64
+  %70 = getelementptr inbounds i8, ptr %.sink166, i64 %69
   store i8 %.sink, ptr %70, align 1, !tbaa !76
   %71 = add nuw nsw i32 %.0118.us, 1
   %exitcond146.not = icmp eq i32 %71, %21

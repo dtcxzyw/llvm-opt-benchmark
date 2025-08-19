@@ -469,11 +469,11 @@ _ZSt4moveIPN5clang5TokenES2_ET0_T_S4_S3_.exit35.i: ; preds = %58
 
 _ZSt4moveIPN5clang5TokenES2_ET0_T_S4_S3_.exit35.i.thread: ; preds = %58, %_ZSt4moveIPN5clang5TokenES2_ET0_T_S4_S3_.exit35.i
   %61 = phi i32 [ %.pre13, %_ZSt4moveIPN5clang5TokenES2_ET0_T_S4_S3_.exit35.i ], [ 1, %58 ]
-  %.pre14.pre1823 = phi ptr [ %.pre14.pre18.pre, %_ZSt4moveIPN5clang5TokenES2_ET0_T_S4_S3_.exit35.i ], [ %.pre15, %58 ]
+  %.pre14.pre1831 = phi ptr [ %.pre14.pre18.pre, %_ZSt4moveIPN5clang5TokenES2_ET0_T_S4_S3_.exit35.i ], [ %.pre15, %58 ]
   %62 = zext i32 %61 to i64
   %63 = load ptr, ptr %0, align 8, !tbaa !21
   %gepdiff.i = mul nuw nsw i64 %62, 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %63, ptr noundef nonnull align 8 dereferenceable(1) %.pre14.pre1823, i64 %gepdiff.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %63, ptr noundef nonnull align 8 dereferenceable(1) %.pre14.pre1831, i64 %gepdiff.i, i1 false)
   %.pre14.pre = load ptr, ptr %3, align 8, !tbaa !21
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i
 

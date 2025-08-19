@@ -1005,7 +1005,7 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
 
 49:                                               ; preds = %"_ZN103_$LT$object..macho..SegmentCommand32$LT$Endian$GT$$u20$as$u20$object..read..macho..segment..Segment$GT$12from_command17h6b6a6395506fad59E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.loopexit280
+  br label %.loopexit292
 
 50:                                               ; preds = %48
   %51 = load i64, ptr %27, align 8, !noundef !4
@@ -1031,7 +1031,7 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
 
 .noexc104:                                        ; preds = %57
   %.not.i103 = icmp eq ptr %58, null
-  br i1 %.not.i103, label %.loopexit280, label %101
+  br i1 %.not.i103, label %.loopexit292, label %101
 
 59:                                               ; preds = %.noexc, %50
   %60 = phi i64 [ %.pre.i, %.noexc ], [ %51, %50 ]
@@ -1061,7 +1061,7 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !153
   %72 = extractvalue { ptr, i64 } %70, 0
   %.not162 = icmp eq ptr %72, null
-  br i1 %.not162, label %.loopexit280, label %73
+  br i1 %.not162, label %.loopexit292, label %73
 
 73:                                               ; preds = %71
   %74 = extractvalue { ptr, i64 } %70, 1
@@ -1118,11 +1118,11 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
   %90 = icmp eq ptr %78, %75
   br i1 %90, label %.thread150, label %.lr.ph
 
-.loopexit280:                                     ; preds = %71, %.noexc104, %109, %49
-  %.sink276.sink = phi ptr [ %46, %49 ], [ %105, %109 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.52.llvm.14695038267805529467, %.noexc104 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.65.llvm.14695038267805529467, %71 ]
+.loopexit292:                                     ; preds = %71, %.noexc104, %109, %49
+  %.sink288.sink = phi ptr [ %46, %49 ], [ %105, %109 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.52.llvm.14695038267805529467, %.noexc104 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.65.llvm.14695038267805529467, %71 ]
   %.sink.sink = phi i64 [ %47, %49 ], [ %106, %109 ], [ 27, %.noexc104 ], [ 33, %71 ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink276.sink, ptr %91, align 8
+  store ptr %.sink288.sink, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink.sink, ptr %92, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -1133,7 +1133,7 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h73a21ec0ac6c2c94E.llvm.5062853439722839227"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
           to label %.noexc108 unwind label %111
 
-.noexc108:                                        ; preds = %.loopexit280
+.noexc108:                                        ; preds = %.loopexit292
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %94 = load i64, ptr %93, align 8, !range !169, !noalias !162, !noundef !4
   %.not.i.i.i = icmp eq i64 %94, 0
@@ -1172,14 +1172,14 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
 
 109:                                              ; preds = %102
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.loopexit280
+  br label %.loopexit292
 
 110:                                              ; preds = %111, %.loopexit.split-lp
   %.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %112, %111 ]
   invoke void @"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$object..read..macho..segment..MachOSegmentInternal$LT$object..macho..MachHeader32$LT$object..endian..Endianness$GT$$C$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hb1f85f8c6f999fe8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #30
           to label %125 unwind label %123
 
-111:                                              ; preds = %.loopexit280
+111:                                              ; preds = %.loopexit292
   %112 = landingpad { ptr, i32 }
           cleanup
   br label %110
@@ -1423,7 +1423,7 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
 
 49:                                               ; preds = %"_ZN103_$LT$object..macho..SegmentCommand64$LT$Endian$GT$$u20$as$u20$object..read..macho..segment..Segment$GT$12from_command17h020cb6ec523c921eE.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.loopexit280
+  br label %.loopexit292
 
 50:                                               ; preds = %48
   %51 = load i64, ptr %27, align 8, !noundef !4
@@ -1449,7 +1449,7 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
 
 .noexc104:                                        ; preds = %57
   %.not.i103 = icmp eq ptr %58, null
-  br i1 %.not.i103, label %.loopexit280, label %101
+  br i1 %.not.i103, label %.loopexit292, label %101
 
 59:                                               ; preds = %.noexc, %50
   %60 = phi i64 [ %.pre.i, %.noexc ], [ %51, %50 ]
@@ -1479,7 +1479,7 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !204
   %72 = extractvalue { ptr, i64 } %70, 0
   %.not162 = icmp eq ptr %72, null
-  br i1 %.not162, label %.loopexit280, label %73
+  br i1 %.not162, label %.loopexit292, label %73
 
 73:                                               ; preds = %71
   %74 = extractvalue { ptr, i64 } %70, 1
@@ -1536,11 +1536,11 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
   %90 = icmp eq ptr %78, %75
   br i1 %90, label %.thread150, label %.lr.ph
 
-.loopexit280:                                     ; preds = %71, %.noexc104, %109, %49
-  %.sink276.sink = phi ptr [ %46, %49 ], [ %105, %109 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.52.llvm.14695038267805529467, %.noexc104 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.65.llvm.14695038267805529467, %71 ]
+.loopexit292:                                     ; preds = %71, %.noexc104, %109, %49
+  %.sink288.sink = phi ptr [ %46, %49 ], [ %105, %109 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.52.llvm.14695038267805529467, %.noexc104 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.65.llvm.14695038267805529467, %71 ]
   %.sink.sink = phi i64 [ %47, %49 ], [ %106, %109 ], [ 27, %.noexc104 ], [ 33, %71 ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink276.sink, ptr %91, align 8
+  store ptr %.sink288.sink, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink.sink, ptr %92, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -1551,7 +1551,7 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9113333c31db324dE.llvm.5062853439722839227"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
           to label %.noexc108 unwind label %111
 
-.noexc108:                                        ; preds = %.loopexit280
+.noexc108:                                        ; preds = %.loopexit292
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %94 = load i64, ptr %93, align 8, !range !169, !noalias !213, !noundef !4
   %.not.i.i.i = icmp eq i64 %94, 0
@@ -1590,14 +1590,14 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
 
 109:                                              ; preds = %102
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.loopexit280
+  br label %.loopexit292
 
 110:                                              ; preds = %111, %.loopexit.split-lp
   %.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %112, %111 ]
   invoke void @"_ZN4core3ptr182drop_in_place$LT$alloc..vec..Vec$LT$object..read..macho..segment..MachOSegmentInternal$LT$object..macho..MachHeader64$LT$object..endian..Endianness$GT$$C$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h5d5710fc57ce9a38E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #30
           to label %125 unwind label %123
 
-111:                                              ; preds = %.loopexit280
+111:                                              ; preds = %.loopexit292
   %112 = landingpad { ptr, i32 }
           cleanup
   br label %110

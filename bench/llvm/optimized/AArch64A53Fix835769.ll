@@ -723,10 +723,10 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i: ; preds
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %202, %.loopexit.i
-  %.sink118.in = phi ptr [ %207, %.loopexit.i ], [ %44, %202 ]
+  %.sink151.in = phi ptr [ %207, %.loopexit.i ], [ %44, %202 ]
   %spec.select.ph.i.i.sink = phi ptr [ %spec.select.ph.i.i, %.loopexit.i ], [ %.sroa.081.098, %202 ]
-  %.sink118 = load ptr, ptr %.sink118.in, align 8, !tbaa !290
-  %208 = getelementptr inbounds nuw i8, ptr %.sink118, i64 328
+  %.sink151 = load ptr, ptr %.sink151.in, align 8, !tbaa !290
+  %208 = getelementptr inbounds nuw i8, ptr %.sink151, i64 328
   %209 = load ptr, ptr %208, align 8, !tbaa !289
   %210 = icmp ne ptr %spec.select.ph.i.i.sink, %209
   call void @llvm.assume(i1 %210)
@@ -1054,8 +1054,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit20.i.i:             ; preds = %_ZN4llvm8DebugLocC2
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit22.sink.split.i.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit22.sink.split.i.i: ; preds = %318, %_ZN4llvm8DebugLocC2ERKS0_.exit18.i.i, %_ZN4llvm8DebugLocC2ERKS0_.exit18.thread.i.i
-  %.sink40.i.i = phi ptr [ %19, %318 ], [ %18, %_ZN4llvm8DebugLocC2ERKS0_.exit18.thread.i.i ], [ %18, %_ZN4llvm8DebugLocC2ERKS0_.exit18.i.i ]
-  store ptr null, ptr %.sink40.i.i, align 8, !tbaa !363
+  %.sink48.i.i = phi ptr [ %19, %318 ], [ %18, %_ZN4llvm8DebugLocC2ERKS0_.exit18.thread.i.i ], [ %18, %_ZN4llvm8DebugLocC2ERKS0_.exit18.i.i ]
+  store ptr null, ptr %.sink48.i.i, align 8, !tbaa !363
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit22.i.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit22.i.i: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit22.sink.split.i.i, %_ZN4llvm8DebugLocC2ERKS0_.exit20.i.i
@@ -1222,8 +1222,8 @@ _ZL26insertNopBeforeInstructionRN4llvm17MachineBasicBlockEPNS_12MachineInstrEPKN
   br i1 %.not36.i, label %._crit_edge.i, label %202
 
 _ZN12_GLOBAL__N_119AArch64A53Fix83576915runOnBasicBlockERN4llvm17MachineBasicBlockE.exit: ; preds = %_ZL16getLastNonPseudoRN4llvm17MachineBasicBlockEPKNS_15TargetInstrInfoE.exit67, %._crit_edge.i, %199
-  %.not36526267.i = phi i1 [ %.not3652.not.i, %._crit_edge.i ], [ %.not3652.not.i, %199 ], [ false, %_ZL16getLastNonPseudoRN4llvm17MachineBasicBlockEPKNS_15TargetInstrInfoE.exit67 ]
-  %367 = or i1 %.01097, %.not36526267.i
+  %.not36527378.i = phi i1 [ %.not3652.not.i, %._crit_edge.i ], [ %.not3652.not.i, %199 ], [ false, %_ZL16getLastNonPseudoRN4llvm17MachineBasicBlockEPKNS_15TargetInstrInfoE.exit67 ]
+  %367 = or i1 %.01097, %.not36527378.i
   %368 = getelementptr inbounds nuw i8, ptr %.sroa.081.098, i64 8
   %.sroa.081.0 = load ptr, ptr %368, align 8, !tbaa !289
   %.not = icmp eq ptr %.sroa.081.0, %29

@@ -859,11 +859,11 @@ _ZN6uucore4mods5error12USimpleError3new17h8ab8503d1d0d3306E.exit32: ; preds = %.
   br label %82
 
 82:                                               ; preds = %_ZN6uucore4mods5error12USimpleError3new17h8ab8503d1d0d3306E.exit, %_ZN6uucore4mods5error12USimpleError3new17h8ab8503d1d0d3306E.exit32, %81, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17heb62a26a78760e30E.exit", %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit
-  %.sink63 = phi ptr [ %32, %_ZN6uucore4mods5error12USimpleError3new17h8ab8503d1d0d3306E.exit ], [ %62, %_ZN6uucore4mods5error12USimpleError3new17h8ab8503d1d0d3306E.exit32 ], [ %45, %81 ], [ %73, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17heb62a26a78760e30E.exit" ], [ %22, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit ]
+  %.sink67 = phi ptr [ %32, %_ZN6uucore4mods5error12USimpleError3new17h8ab8503d1d0d3306E.exit ], [ %62, %_ZN6uucore4mods5error12USimpleError3new17h8ab8503d1d0d3306E.exit32 ], [ %45, %81 ], [ %73, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17heb62a26a78760e30E.exit" ], [ %22, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit ]
   %anon.a0e0e54d9afc9a74039639e8ddac8b21.7.llvm.3190753283198546435.sink = phi ptr [ @anon.a0e0e54d9afc9a74039639e8ddac8b21.7.llvm.3190753283198546435, %_ZN6uucore4mods5error12USimpleError3new17h8ab8503d1d0d3306E.exit ], [ @anon.a0e0e54d9afc9a74039639e8ddac8b21.7.llvm.3190753283198546435, %_ZN6uucore4mods5error12USimpleError3new17h8ab8503d1d0d3306E.exit32 ], [ @anon.a2b1db0c2618090bfd5b451151e46022.3, %81 ], [ @anon.a2b1db0c2618090bfd5b451151e46022.24, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17heb62a26a78760e30E.exit" ], [ @anon.a2b1db0c2618090bfd5b451151e46022.29, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit ]
   %.sink = phi i64 [ 1, %_ZN6uucore4mods5error12USimpleError3new17h8ab8503d1d0d3306E.exit ], [ 1, %_ZN6uucore4mods5error12USimpleError3new17h8ab8503d1d0d3306E.exit32 ], [ 1, %81 ], [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17heb62a26a78760e30E.exit" ], [ 0, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink63, ptr %83, align 8
+  store ptr %.sink67, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %anon.a0e0e54d9afc9a74039639e8ddac8b21.7.llvm.3190753283198546435.sink, ptr %84, align 8
   store i64 %.sink, ptr %0, align 8

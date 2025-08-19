@@ -54,15 +54,15 @@ _ZL9getthreadP9lua_StatePi.exit.thread:           ; preds = %6, %_ZL9getthreadP9
 
 _ZL9getthreadP9lua_StatePi.exit.thread.thread:    ; preds = %1
   %9 = tail call noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef %0, i32 noundef 1)
-  %.not6194 = icmp eq i32 %9, 0
-  br i1 %.not6194, label %.thread, label %10
+  %.not61101 = icmp eq i32 %9, 0
+  br i1 %.not61101, label %.thread, label %10
 
 10:                                               ; preds = %_ZL9getthreadP9lua_StatePi.exit.thread.thread, %_ZL9getthreadP9lua_StatePi.exit.thread
   %11 = phi i32 [ 1, %_ZL9getthreadP9lua_StatePi.exit.thread.thread ], [ 2, %_ZL9getthreadP9lua_StatePi.exit.thread ]
-  %.053105 = phi i32 [ 0, %_ZL9getthreadP9lua_StatePi.exit.thread.thread ], [ %.053, %_ZL9getthreadP9lua_StatePi.exit.thread ]
-  %.07276102 = phi i32 [ 0, %_ZL9getthreadP9lua_StatePi.exit.thread.thread ], [ 1, %_ZL9getthreadP9lua_StatePi.exit.thread ]
-  %.0.i7799 = phi ptr [ %0, %_ZL9getthreadP9lua_StatePi.exit.thread.thread ], [ %5, %_ZL9getthreadP9lua_StatePi.exit.thread ]
-  %.not7896 = phi i1 [ true, %_ZL9getthreadP9lua_StatePi.exit.thread.thread ], [ %.not, %_ZL9getthreadP9lua_StatePi.exit.thread ]
+  %.053112 = phi i32 [ 0, %_ZL9getthreadP9lua_StatePi.exit.thread.thread ], [ %.053, %_ZL9getthreadP9lua_StatePi.exit.thread ]
+  %.07276109 = phi i32 [ 0, %_ZL9getthreadP9lua_StatePi.exit.thread.thread ], [ 1, %_ZL9getthreadP9lua_StatePi.exit.thread ]
+  %.0.i77106 = phi ptr [ %0, %_ZL9getthreadP9lua_StatePi.exit.thread.thread ], [ %5, %_ZL9getthreadP9lua_StatePi.exit.thread ]
+  %.not78103 = phi i1 [ true, %_ZL9getthreadP9lua_StatePi.exit.thread.thread ], [ %.not, %_ZL9getthreadP9lua_StatePi.exit.thread ]
   %12 = tail call noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef %0, i32 noundef %11, ptr noundef null)
   %13 = icmp sgt i32 %12, -1
   br i1 %13, label %22, label %14
@@ -87,15 +87,15 @@ _ZL9getthreadP9lua_StatePi.exit.thread.thread:    ; preds = %1
   unreachable
 
 22:                                               ; preds = %10, %17
-  %.053104 = phi i32 [ %.053105, %10 ], [ 0, %17 ]
-  %.07276101 = phi i32 [ %.07276102, %10 ], [ 0, %17 ]
-  %.0.i7798 = phi ptr [ %.0.i7799, %10 ], [ %0, %17 ]
-  %.not7895 = phi i1 [ %.not7896, %10 ], [ true, %17 ]
+  %.053111 = phi i32 [ %.053112, %10 ], [ 0, %17 ]
+  %.07276108 = phi i32 [ %.07276109, %10 ], [ 0, %17 ]
+  %.0.i77105 = phi ptr [ %.0.i77106, %10 ], [ %0, %17 ]
+  %.not78102 = phi i1 [ %.not78103, %10 ], [ true, %17 ]
   %.052 = phi i32 [ %12, %10 ], [ %19, %17 ]
-  %23 = or disjoint i32 %.07276101, 2
+  %23 = or disjoint i32 %.07276108, 2
   %24 = tail call noundef ptr @_Z17luaL_checklstringP9lua_StateiPm(ptr noundef %0, i32 noundef %23, ptr noundef null)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %25 = call noundef i32 @_Z11lua_getinfoP9lua_StateiPKcP9lua_Debug(ptr noundef %.0.i7798, i32 noundef %.052, ptr noundef %24, ptr noundef nonnull %2)
+  %25 = call noundef i32 @_Z11lua_getinfoP9lua_StateiPKcP9lua_Debug(ptr noundef %.0.i77105, i32 noundef %.052, ptr noundef %24, ptr noundef nonnull %2)
   %.not62 = icmp eq i32 %25, 0
   br i1 %.not62, label %93, label %26
 
@@ -111,7 +111,7 @@ _ZL9getthreadP9lua_StatePi.exit.thread.thread:    ; preds = %1
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 42
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br i1 %.not7895, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not78102, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %57
   %32 = phi i8 [ %60, %57 ], [ %27, %.lr.ph ]
@@ -203,10 +203,10 @@ _ZL9getthreadP9lua_StatePi.exit.thread.thread:    ; preds = %1
   br i1 %69, label %.split.us, label %72
 
 .split.us:                                        ; preds = %65, %36
-  br i1 %.not7895, label %71, label %70
+  br i1 %.not78102, label %71, label %70
 
 70:                                               ; preds = %.split.us
-  call void @_Z10lua_settopP9lua_Statei(ptr noundef %.0.i7798, i32 noundef %.053104)
+  call void @_Z10lua_settopP9lua_Statei(ptr noundef %.0.i77105, i32 noundef %.053111)
   br label %71
 
 71:                                               ; preds = %70, %.split.us
@@ -244,7 +244,7 @@ _ZL9getthreadP9lua_StatePi.exit.thread.thread:    ; preds = %1
   br label %89
 
 81:                                               ; preds = %73
-  call void @_Z9lua_xmoveP9lua_StateS0_i(ptr noundef %.0.i7798, ptr noundef %0, i32 noundef 1)
+  call void @_Z9lua_xmoveP9lua_StateS0_i(ptr noundef %.0.i77105, ptr noundef %0, i32 noundef 1)
   br label %89
 
 82:                                               ; preds = %73
@@ -257,10 +257,10 @@ _ZL9getthreadP9lua_StatePi.exit.thread.thread:    ; preds = %1
   br label %89
 
 .split86.us:                                      ; preds = %73, %42
-  br i1 %.not7895, label %88, label %87
+  br i1 %.not78102, label %88, label %87
 
 87:                                               ; preds = %.split86.us
-  call void @_Z10lua_settopP9lua_Statei(ptr noundef %.0.i7798, i32 noundef %.053104)
+  call void @_Z10lua_settopP9lua_Statei(ptr noundef %.0.i77105, i32 noundef %.053111)
   br label %88
 
 88:                                               ; preds = %87, %.split86.us
@@ -268,8 +268,8 @@ _ZL9getthreadP9lua_StatePi.exit.thread.thread:    ; preds = %1
   unreachable
 
 89:                                               ; preds = %74, %76, %78, %81, %82
-  %.sink118 = phi i32 [ 1, %74 ], [ 1, %76 ], [ 1, %78 ], [ 1, %81 ], [ 2, %82 ]
-  %90 = add nuw nsw i32 %.05083, %.sink118
+  %.sink125 = phi i32 [ 1, %74 ], [ 1, %76 ], [ 1, %78 ], [ 1, %81 ], [ 2, %82 ]
+  %90 = add nuw nsw i32 %.05083, %.sink125
   %91 = getelementptr inbounds nuw i8, ptr %.084, i64 1
   %92 = load i8, ptr %91, align 1, !tbaa !4
   %.not63 = icmp eq i8 %92, 0

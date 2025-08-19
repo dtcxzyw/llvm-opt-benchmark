@@ -393,9 +393,9 @@ strip_trailing_whitespace.exit:                   ; preds = %.critedge.i, %123
   br i1 %138, label %.lr.ph107, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %133, %strip_trailing_whitespace.exit
-  %.sink134 = phi ptr [ %127, %strip_trailing_whitespace.exit ], [ %134, %133 ]
+  %.sink139 = phi ptr [ %127, %strip_trailing_whitespace.exit ], [ %134, %133 ]
   %.sink = phi i32 [ 262, %strip_trailing_whitespace.exit ], [ 6, %133 ]
-  store ptr %.sink134, ptr %3, align 8, !tbaa !8
+  store ptr %.sink139, ptr %3, align 8, !tbaa !8
   %139 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.sink, ptr %139, align 8, !tbaa !8
   br label %.loopexit
@@ -836,14 +836,14 @@ zend_string_release_ex.exit:                      ; preds = %56, %59, %64
 
 66:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %67 = phi ptr [ %19, %._crit_edge.thread ], [ %51, %._crit_edge ]
-  %.062.lcssa85 = phi i64 [ 0, %._crit_edge.thread ], [ %.163, %._crit_edge ]
-  %68 = sub i64 %8, %.062.lcssa85
+  %.062.lcssa90 = phi i64 [ 0, %._crit_edge.thread ], [ %.163, %._crit_edge ]
+  %68 = sub i64 %8, %.062.lcssa90
   %69 = icmp ugt i64 %68, 4096
   br i1 %69, label %70, label %zend_string_truncate.exit
 
 70:                                               ; preds = %66
   %71 = load i64, ptr %18, align 8, !tbaa !19
-  %72 = icmp ule i64 %.062.lcssa85, %71
+  %72 = icmp ule i64 %.062.lcssa90, %71
   tail call void @llvm.assume(i1 %72)
   %73 = load i32, ptr %16, align 4, !tbaa !8
   %74 = and i32 %73, 64
@@ -856,11 +856,11 @@ zend_string_release_ex.exit:                      ; preds = %56, %59, %64
   br i1 %77, label %78, label %zend_string_alloc.exit, !prof !23
 
 78:                                               ; preds = %75
-  %79 = and i64 %.062.lcssa85, -8
+  %79 = and i64 %.062.lcssa90, -8
   %80 = add i64 %79, 32
   %81 = tail call ptr @_erealloc(ptr noundef nonnull %15, i64 noundef %80) #13
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  store i64 %.062.lcssa85, ptr %82, align 8, !tbaa !19
+  store i64 %.062.lcssa90, ptr %82, align 8, !tbaa !19
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i64 0, ptr %83, align 8, !tbaa !17
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 4
@@ -870,7 +870,7 @@ zend_string_release_ex.exit:                      ; preds = %56, %59, %64
   br label %zend_string_truncate.exit
 
 zend_string_alloc.exit:                           ; preds = %70, %75
-  %87 = and i64 %.062.lcssa85, -8
+  %87 = and i64 %.062.lcssa90, -8
   %88 = add i64 %87, 32
   %89 = tail call noalias ptr @_emalloc(i64 noundef %88) #12
   store i32 1, ptr %89, align 4, !tbaa !14
@@ -879,9 +879,9 @@ zend_string_alloc.exit:                           ; preds = %70, %75
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i64 0, ptr %91, align 8, !tbaa !17
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  store i64 %.062.lcssa85, ptr %92, align 8, !tbaa !19
+  store i64 %.062.lcssa90, ptr %92, align 8, !tbaa !19
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 24
-  %94 = add i64 %.062.lcssa85, 1
+  %94 = add i64 %.062.lcssa90, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %93, ptr nonnull align 8 %67, i64 %94, i1 false)
   %95 = load i32, ptr %16, align 4, !tbaa !8
   %96 = and i32 %95, 64
@@ -899,7 +899,7 @@ zend_string_alloc.exit:                           ; preds = %70, %75
 zend_string_truncate.exit:                        ; preds = %97, %zend_string_alloc.exit, %78, %66
   %.064 = phi ptr [ %15, %66 ], [ %81, %78 ], [ %89, %97 ], [ %89, %zend_string_alloc.exit ]
   %101 = getelementptr inbounds nuw i8, ptr %.064, i64 16
-  store i64 %.062.lcssa85, ptr %101, align 8, !tbaa !19
+  store i64 %.062.lcssa90, ptr %101, align 8, !tbaa !19
   br label %102
 
 102:                                              ; preds = %zend_string_truncate.exit, %zend_string_release_ex.exit, %12

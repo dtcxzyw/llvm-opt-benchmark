@@ -759,35 +759,35 @@ configure_handshake_ssl.exit:                     ; preds = %225, %228
   br label %.outer.outer.outer
 
 .outer.outer.outer:                               ; preds = %336, %278
-  %.ph228.ph.ph = phi i32 [ %314, %336 ], [ 1, %278 ]
-  %.ph229.ph.ph = phi i32 [ 0, %336 ], [ 3, %278 ]
-  %.ph230.ph.ph = phi i32 [ %316, %336 ], [ 1, %278 ]
+  %.ph251.ph.ph = phi i32 [ %314, %336 ], [ 1, %278 ]
+  %.ph252.ph.ph = phi i32 [ 0, %336 ], [ 3, %278 ]
+  %.ph253.ph.ph = phi i32 [ %316, %336 ], [ 1, %278 ]
   %.0133.ph.ph.ph = phi i32 [ %331, %336 ], [ 0, %278 ]
   %.0131.ph.ph.ph = phi i32 [ %337, %336 ], [ 0, %278 ]
-  %.0130.ph.ph.ph = phi i32 [ %.0130.ph.ph.ph237, %336 ], [ 0, %278 ]
-  br label %.outer.outer.outer231
+  %.0130.ph.ph.ph = phi i32 [ %.0130.ph.ph.ph260, %336 ], [ 0, %278 ]
+  br label %.outer.outer.outer254
 
-.outer.outer.outer231:                            ; preds = %.outer.outer.outer, %312
-  %.ph228.ph.ph233 = phi i32 [ %.ph228.ph.ph, %.outer.outer.outer ], [ 1, %312 ]
-  %.ph229.ph.ph234 = phi i32 [ %.ph229.ph.ph, %.outer.outer.outer ], [ 1, %312 ]
-  %.ph230.ph.ph235 = phi i32 [ %.ph230.ph.ph, %.outer.outer.outer ], [ 1, %312 ]
-  %.0133.ph.ph.ph236 = phi i32 [ %.0133.ph.ph.ph, %.outer.outer.outer ], [ 0, %312 ]
-  %.0130.ph.ph.ph237 = phi i32 [ %.0130.ph.ph.ph, %.outer.outer.outer ], [ %.0.i172.ph, %312 ]
+.outer.outer.outer254:                            ; preds = %.outer.outer.outer, %312
+  %.ph251.ph.ph256 = phi i32 [ %.ph251.ph.ph, %.outer.outer.outer ], [ 1, %312 ]
+  %.ph252.ph.ph257 = phi i32 [ %.ph252.ph.ph, %.outer.outer.outer ], [ 1, %312 ]
+  %.ph253.ph.ph258 = phi i32 [ %.ph253.ph.ph, %.outer.outer.outer ], [ 1, %312 ]
+  %.0133.ph.ph.ph259 = phi i32 [ %.0133.ph.ph.ph, %.outer.outer.outer ], [ 0, %312 ]
+  %.0130.ph.ph.ph260 = phi i32 [ %.0130.ph.ph.ph, %.outer.outer.outer ], [ %.0.i172.ph, %312 ]
   br label %.outer.outer
 
-.outer.outer:                                     ; preds = %.outer.outer.outer231, %340
-  %.ph228.ph = phi i32 [ %314, %340 ], [ %.ph228.ph.ph233, %.outer.outer.outer231 ]
-  %.ph229.ph = phi i32 [ %313, %340 ], [ %.ph229.ph.ph234, %.outer.outer.outer231 ]
-  %.ph230.ph = phi i32 [ %316, %340 ], [ %.ph230.ph.ph235, %.outer.outer.outer231 ]
-  %.0135.ph.ph = phi i32 [ %341, %340 ], [ 1, %.outer.outer.outer231 ]
-  %.0133.ph.ph = phi i32 [ %331, %340 ], [ %.0133.ph.ph.ph236, %.outer.outer.outer231 ]
+.outer.outer:                                     ; preds = %.outer.outer.outer254, %340
+  %.ph251.ph = phi i32 [ %314, %340 ], [ %.ph251.ph.ph256, %.outer.outer.outer254 ]
+  %.ph252.ph = phi i32 [ %313, %340 ], [ %.ph252.ph.ph257, %.outer.outer.outer254 ]
+  %.ph253.ph = phi i32 [ %316, %340 ], [ %.ph253.ph.ph258, %.outer.outer.outer254 ]
+  %.0135.ph.ph = phi i32 [ %341, %340 ], [ 1, %.outer.outer.outer254 ]
+  %.0133.ph.ph = phi i32 [ %331, %340 ], [ %.0133.ph.ph.ph259, %.outer.outer.outer254 ]
   br label %.outer
 
 .outer:                                           ; preds = %.outer.outer, %327
-  %.ph = phi i32 [ %313, %327 ], [ %.ph229.ph, %.outer.outer ]
-  %.ph228 = phi i32 [ %314, %327 ], [ %.ph228.ph, %.outer.outer ]
-  %.ph229 = phi i32 [ %315, %327 ], [ %.ph229.ph, %.outer.outer ]
-  %.ph230 = phi i32 [ %328, %327 ], [ %.ph230.ph, %.outer.outer ]
+  %.ph = phi i32 [ %313, %327 ], [ %.ph252.ph, %.outer.outer ]
+  %.ph251 = phi i32 [ %314, %327 ], [ %.ph251.ph, %.outer.outer ]
+  %.ph252 = phi i32 [ %315, %327 ], [ %.ph252.ph, %.outer.outer ]
+  %.ph253 = phi i32 [ %328, %327 ], [ %.ph253.ph, %.outer.outer ]
   %.0135.ph = phi i32 [ %329, %327 ], [ %.0135.ph.ph, %.outer.outer ]
   %283 = icmp ne i32 %.0135.ph, 0
   %284 = icmp eq i32 %.0135.ph, 0
@@ -795,13 +795,13 @@ configure_handshake_ssl.exit:                     ; preds = %225, %228
 
 285:                                              ; preds = %.outer, %325
   %286 = phi i32 [ %313, %325 ], [ %.ph, %.outer ]
-  %287 = phi i32 [ %314, %325 ], [ %.ph228, %.outer ]
-  %288 = phi i32 [ %315, %325 ], [ %.ph229, %.outer ]
-  %289 = phi i32 [ %314, %325 ], [ %.ph230, %.outer ]
+  %287 = phi i32 [ %314, %325 ], [ %.ph251, %.outer ]
+  %288 = phi i32 [ %315, %325 ], [ %.ph252, %.outer ]
+  %289 = phi i32 [ %314, %325 ], [ %.ph253, %.outer ]
   br i1 %283, label %290, label %297
 
 290:                                              ; preds = %285
-  call fastcc void @do_connect_step(ptr noundef %3, ptr noundef %19, i32 noundef %.0130.ph.ph.ph237)
+  call fastcc void @do_connect_step(ptr noundef %3, ptr noundef %19, i32 noundef %.0130.ph.ph.ph260)
   %291 = load i32, ptr %279, align 4, !tbaa !58
   switch i32 %291, label %handshake_status.exit [
     i32 2, label %295
@@ -823,7 +823,7 @@ configure_handshake_ssl.exit:                     ; preds = %225, %228
   br label %handshake_status.exit
 
 295:                                              ; preds = %290
-  switch i32 %288, label %default.unreachable227 [
+  switch i32 %288, label %handshake_status.exit171.thread [
     i32 2, label %handshake_status.exit171.thread210
     i32 3, label %handshake_status.exit.thread199
     i32 0, label %handshake_status.exit171.thread208
@@ -841,7 +841,7 @@ handshake_status.exit.thread199:                  ; preds = %295, %handshake_sta
   br label %handshake_status.exit171
 
 297:                                              ; preds = %285
-  call fastcc void @do_connect_step(ptr noundef %3, ptr noundef %18, i32 noundef %.0130.ph.ph.ph237)
+  call fastcc void @do_connect_step(ptr noundef %3, ptr noundef %18, i32 noundef %.0130.ph.ph.ph260)
   %298 = load i32, ptr %280, align 4, !tbaa !58
   switch i32 %298, label %handshake_status.exit171.thread [
     i32 2, label %300
@@ -867,7 +867,7 @@ handshake_status.exit171:                         ; preds = %handshake_status.ex
   %301 = phi i32 [ 1, %handshake_status.exit.thread199 ], [ %286, %handshake_status.exit ]
   %302 = phi i32 [ 1, %handshake_status.exit.thread199 ], [ %288, %handshake_status.exit ]
   %.0129 = phi i32 [ %.0.i201, %handshake_status.exit.thread199 ], [ %.0.i, %handshake_status.exit ]
-  switch i32 %.0129, label %default.unreachable227 [
+  switch i32 %.0129, label %default.unreachable250 [
     i32 4, label %handshake_status.exit171.thread204
     i32 1, label %handshake_status.exit171.thread208
     i32 2, label %handshake_status.exit171.thread210
@@ -875,7 +875,7 @@ handshake_status.exit171:                         ; preds = %handshake_status.ex
   ]
 
 handshake_status.exit171.thread206:               ; preds = %292, %299
-  switch i32 %.0130.ph.ph.ph237, label %311 [
+  switch i32 %.0130.ph.ph.ph260, label %311 [
     i32 0, label %303
     i32 1, label %312
     i32 2, label %307
@@ -920,7 +920,7 @@ next_phase.exit:                                  ; preds = %handshake_status.ex
   %.0.i172.ph = phi i32 [ %spec.select.i, %305 ], [ %..i, %307 ], [ 2, %handshake_status.exit171.thread206 ], [ 1, %303 ], [ 5, %310 ], [ 4, %309 ], [ -1, %311 ]
   store i32 1, ptr %280, align 4, !tbaa !58
   store i32 1, ptr %279, align 4, !tbaa !58
-  br label %.outer.outer.outer231
+  br label %.outer.outer.outer254
 
 handshake_status.exit171.thread208:               ; preds = %295, %300, %handshake_status.exit171
   store i32 2, ptr %31, align 8, !tbaa !27
@@ -930,10 +930,7 @@ handshake_status.exit171.thread210:               ; preds = %295, %300, %handsha
   store i32 1, ptr %31, align 8, !tbaa !27
   br label %342
 
-default.unreachable227:                           ; preds = %handshake_status.exit171, %295
-  unreachable
-
-handshake_status.exit171.thread:                  ; preds = %297, %299, %300, %handshake_status.exit171
+handshake_status.exit171.thread:                  ; preds = %295, %297, %299, %300, %handshake_status.exit171
   store i32 3, ptr %31, align 8, !tbaa !27
   br label %342
 
@@ -997,6 +994,9 @@ handshake_status.exit171.thread204:               ; preds = %300, %handshake_sta
 340:                                              ; preds = %334
   %341 = xor i32 %.0135.ph, 1
   br label %.outer.outer
+
+default.unreachable250:                           ; preds = %handshake_status.exit171
+  unreachable
 
 342:                                              ; preds = %267, %270, %274, %261, %264, %251, %253, %232, %237, %339, %333, %322, %handshake_status.exit171.thread, %handshake_status.exit171.thread210, %handshake_status.exit171.thread208, %next_phase.exit, %211, %208
   %343 = load i32, ptr %20, align 4, !tbaa !59
@@ -1764,7 +1764,7 @@ thread-pre-split.i:                               ; preds = %45
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %65 = load i32, ptr %64, align 4, !tbaa !93
   %.not101.i = icmp eq i32 %65, 0
-  br i1 %.not101.i, label %66, label %.thread130.i
+  br i1 %.not101.i, label %66, label %.thread136.i
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1772,22 +1772,22 @@ thread-pre-split.i:                               ; preds = %45
   %.not102.i = icmp eq ptr %68, null
   br i1 %.not102.i, label %79, label %73
 
-.thread130.i:                                     ; preds = %63
+.thread136.i:                                     ; preds = %63
   %69 = load ptr, ptr %1, align 8, !tbaa !54
   %70 = tail call i64 @SSL_set_options(ptr noundef %69, i64 noundef 1) #10
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %72 = load ptr, ptr %71, align 8, !tbaa !94
-  %.not102131.i = icmp eq ptr %72, null
-  br i1 %.not102131.i, label %.thread.i, label %73
+  %.not102137.i = icmp eq ptr %72, null
+  br i1 %.not102137.i, label %.thread.i, label %73
 
-73:                                               ; preds = %.thread130.i, %66
-  %74 = phi ptr [ %72, %.thread130.i ], [ %68, %66 ]
+73:                                               ; preds = %.thread136.i, %66
+  %74 = phi ptr [ %72, %.thread136.i ], [ %68, %66 ]
   %75 = load ptr, ptr %1, align 8, !tbaa !54
   %76 = tail call i32 @SSL_set_cipher_list(ptr noundef %75, ptr noundef nonnull %74) #10
   %.not103.i = icmp eq i32 %76, 0
   br i1 %.not103.i, label %.critedge109.sink.split.i, label %.thread.i
 
-.thread.i:                                        ; preds = %73, %.thread130.i
+.thread.i:                                        ; preds = %73, %.thread136.i
   %77 = load ptr, ptr %1, align 8, !tbaa !54
   %78 = tail call i32 @SSL_renegotiate(ptr noundef %77) #10
   br label %82
@@ -2647,8 +2647,8 @@ define internal fastcc range(i32 0, 2) i32 @client_hello_select_server_ctx(ptr n
   %51 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(8) @.str.36, i64 noundef 7) #11
   %52 = icmp ne i32 %51, 0
   %.not24 = icmp eq i32 %2, 0
-  %or.cond26 = and i1 %52, %.not24
-  br i1 %or.cond26, label %54, label %.sink.split
+  %or.cond28 = and i1 %52, %.not24
+  br i1 %or.cond28, label %54, label %.sink.split
 
 .critedge:                                        ; preds = %40
   %.not24.old = icmp eq i32 %2, 0
@@ -2718,8 +2718,8 @@ define internal fastcc void @do_app_data_step(ptr noundef nonnull captures(none)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pr = load i32, ptr %5, align 8, !tbaa !50
-  %.not4352 = icmp eq i32 %.pr, 0
-  br i1 %.not4352, label %.critedge, label %.lr.ph
+  %.not4353 = icmp eq i32 %.pr, 0
+  br i1 %.not4353, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.critedge49
   %8 = load ptr, ptr %0, align 8, !tbaa !54

@@ -640,9 +640,9 @@ _ZN6marisa6Keyset7reserveEm.exit.thread:          ; preds = %29
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %40 = load i64, ptr %39, align 8, !tbaa !22
   %41 = icmp ugt i64 %2, %40
-  br i1 %41, label %_ZN6marisa6Keyset7reserveEm.exit.thread24, label %_ZN6marisa6Keyset7reserveEm.exit
+  br i1 %41, label %_ZN6marisa6Keyset7reserveEm.exit.thread25, label %_ZN6marisa6Keyset7reserveEm.exit
 
-_ZN6marisa6Keyset7reserveEm.exit.thread24:        ; preds = %38
+_ZN6marisa6Keyset7reserveEm.exit.thread25:        ; preds = %38
   tail call void @_ZN6marisa6Keyset17append_base_blockEv(ptr noundef nonnull align 8 dereferenceable(104) %0)
   %.pre.i = load i64, ptr %39, align 8, !tbaa !22
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -663,12 +663,12 @@ _ZN6marisa6Keyset7reserveEm.exit:                 ; preds = %38
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %_ZN6marisa6Keyset7reserveEm.exit.thread24, %_ZN6marisa6Keyset7reserveEm.exit.thread, %_ZN6marisa6Keyset7reserveEm.exit
-  %.0.i22 = phi ptr [ %37, %_ZN6marisa6Keyset7reserveEm.exit.thread ], [ %47, %_ZN6marisa6Keyset7reserveEm.exit ], [ %43, %_ZN6marisa6Keyset7reserveEm.exit.thread24 ]
+.lr.ph.preheader:                                 ; preds = %_ZN6marisa6Keyset7reserveEm.exit.thread25, %_ZN6marisa6Keyset7reserveEm.exit.thread, %_ZN6marisa6Keyset7reserveEm.exit
+  %.0.i23 = phi ptr [ %37, %_ZN6marisa6Keyset7reserveEm.exit.thread ], [ %47, %_ZN6marisa6Keyset7reserveEm.exit ], [ %43, %_ZN6marisa6Keyset7reserveEm.exit.thread25 ]
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN6marisa6Keyset7reserveEm.exit
-  %.0.i23 = phi ptr [ %47, %_ZN6marisa6Keyset7reserveEm.exit ], [ %.0.i22, %.lr.ph ]
+  %.0.i24 = phi ptr [ %47, %_ZN6marisa6Keyset7reserveEm.exit ], [ %.0.i23, %.lr.ph ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %51 = load i64, ptr %22, align 8, !tbaa !15
   %52 = lshr i64 %51, 8
@@ -677,7 +677,7 @@ _ZN6marisa6Keyset7reserveEm.exit:                 ; preds = %38
   %55 = and i64 %51, 255
   %56 = load ptr, ptr %54, align 8, !tbaa !25
   %57 = getelementptr inbounds nuw %"class.marisa::Key", ptr %56, i64 %55
-  store ptr %.0.i23, ptr %57, align 8, !tbaa !28
+  store ptr %.0.i24, ptr %57, align 8, !tbaa !28
   %58 = trunc nuw i64 %2 to i32
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i32 %58, ptr %59, align 8, !tbaa !12
@@ -696,7 +696,7 @@ _ZN6marisa6Keyset7reserveEm.exit:                 ; preds = %38
   %.019 = phi i64 [ %69, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 %.019
   %67 = load i8, ptr %66, align 1, !tbaa !29
-  %68 = getelementptr inbounds nuw i8, ptr %.0.i22, i64 %.019
+  %68 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 %.019
   store i8 %67, ptr %68, align 1, !tbaa !29
   %69 = add nuw nsw i64 %.019, 1
   %exitcond.not = icmp eq i64 %69, %2

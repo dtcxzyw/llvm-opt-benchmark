@@ -99,8 +99,8 @@ define dso_local void @CatCacheInvalidate(ptr noundef captures(address) %0, i32 
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not51 = icmp eq ptr %31, null
-  %.not526385 = icmp eq ptr %31, %29
-  %.not5263 = or i1 %.not51, %.not526385
+  %.not526394 = icmp eq ptr %31, %29
+  %.not5263 = or i1 %.not51, %.not526394
   br i1 %.not5263, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26, %124
@@ -695,8 +695,8 @@ define internal fastcc void @ResetCatalogCache(ptr noundef nonnull captures(addr
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not49 = icmp eq ptr %26, null
-  %.not5083110 = icmp eq ptr %26, %24
-  %.not5083 = or i1 %.not49, %.not5083110
+  %.not5083122 = icmp eq ptr %26, %24
+  %.not5083 = or i1 %.not49, %.not5083122
   br i1 %.not5083, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21, %119
@@ -895,8 +895,8 @@ CatCacheRemoveCList.exit:                         ; preds = %116, %._crit_edge.i
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load ptr, ptr %127, align 8
   %.not46 = icmp eq ptr %128, null
-  %.not4791111 = icmp eq ptr %128, %126
-  %.not4791 = or i1 %.not46, %.not4791111
+  %.not4791123 = icmp eq ptr %128, %126
+  %.not4791 = or i1 %.not46, %.not4791123
   br i1 %.not4791, label %._crit_edge96, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %123, %CatCacheRemoveCTup.exit
@@ -1998,8 +1998,8 @@ define dso_local ptr @SearchCatCacheList(ptr noundef %0, i32 noundef %1, i64 nou
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   %.not.i = icmp eq ptr %58, null
-  %.not282936.i = icmp eq ptr %58, %56
-  %.not2829.i = or i1 %.not.i, %.not282936.i
+  %.not282938.i = icmp eq ptr %58, %56
+  %.not2829.i = or i1 %.not.i, %.not282938.i
   br i1 %.not2829.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %53, %dlist_push_head.exit.i
@@ -2536,9 +2536,9 @@ CatCacheCopyKeys.exit:                            ; preds = %285, %list_length.e
   br i1 %314, label %.lr.ph, label %.critedge199
 
 .lr.ph:                                           ; preds = %.lr.ph239, %CatCacheRemoveCTup.exit
-  %indvars.iv283 = phi i64 [ %indvars.iv.next, %CatCacheRemoveCTup.exit ], [ 0, %.lr.ph239 ]
+  %indvars.iv303 = phi i64 [ %indvars.iv.next, %CatCacheRemoveCTup.exit ], [ 0, %.lr.ph239 ]
   %315 = load ptr, ptr %309, align 8
-  %316 = getelementptr inbounds nuw %union.ListCell, ptr %315, i64 %indvars.iv283
+  %316 = getelementptr inbounds nuw %union.ListCell, ptr %315, i64 %indvars.iv303
   %317 = load ptr, ptr %316, align 8
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 56
   %319 = load i32, ptr %318, align 8
@@ -2639,7 +2639,7 @@ CatCacheFreeKeys.exit.i:                          ; preds = %365, %344, %334
   br label %CatCacheRemoveCTup.exit
 
 CatCacheRemoveCTup.exit:                          ; preds = %CatCacheFreeKeys.exit.i, %333, %.lr.ph, %329
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv283, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv303, 1
   %372 = load i32, ptr %308, align 4
   %373 = sext i32 %372 to i64
   %374 = icmp slt i64 %indvars.iv.next, %373
@@ -2701,14 +2701,14 @@ dlist_push_head.exit:                             ; preds = %.critedge201, %389
   br i1 %401, label %.lr.ph261, label %.critedge201
 
 402:                                              ; preds = %dlist_push_head.exit, %dlist_move_head.exit
-  %.sink280 = phi ptr [ %261, %dlist_push_head.exit ], [ %130, %dlist_move_head.exit ]
+  %.sink300 = phi ptr [ %261, %dlist_push_head.exit ], [ %130, %dlist_move_head.exit ]
   %403 = load ptr, ptr @CurrentResourceOwner, align 8
-  %404 = ptrtoint ptr %.sink280 to i64
+  %404 = ptrtoint ptr %.sink300 to i64
   call void @ResourceOwnerRemember(ptr noundef %403, i64 noundef %404, ptr noundef nonnull @catlistref_resowner_desc) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret ptr %.sink280
+  ret ptr %.sink300
 }
 
 declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -3135,8 +3135,8 @@ dlist_push_head.exit:                             ; preds = %.loopexit, %138
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %177 = load ptr, ptr %176, align 8
   %.not.i = icmp eq ptr %177, null
-  %.not282936.i = icmp eq ptr %177, %175
-  %.not2829.i = or i1 %.not.i, %.not282936.i
+  %.not282938.i = icmp eq ptr %177, %175
+  %.not2829.i = or i1 %.not.i, %.not282938.i
   br i1 %.not2829.i, label %._crit_edge.i, label %.lr.ph.i83
 
 .lr.ph.i83:                                       ; preds = %172, %dlist_push_head.exit.i

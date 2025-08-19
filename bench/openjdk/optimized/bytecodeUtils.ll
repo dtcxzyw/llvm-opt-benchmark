@@ -406,10 +406,10 @@ _ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE4pus
 
 _ZN21SimulatedOperandStack8push_rawE21StackSlotAnalysisData.exit7.sink.split: ; preds = %_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE4pushERKS0_.exit.i3, %_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE4pushERKS0_.exit.i8
   %.sink = phi i32 [ %59, %_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE4pushERKS0_.exit.i8 ], [ %43, %_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE4pushERKS0_.exit.i3 ]
-  %.sink16.in = phi ptr [ %61, %_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE4pushERKS0_.exit.i8 ], [ %28, %_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE4pushERKS0_.exit.i3 ]
-  %.sink16 = load ptr, ptr %.sink16.in, align 8
+  %.sink20.in = phi ptr [ %61, %_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE4pushERKS0_.exit.i8 ], [ %28, %_ZN26GrowableArrayWithAllocatorI21StackSlotAnalysisData13GrowableArrayIS0_EE4pushERKS0_.exit.i3 ]
+  %.sink20 = load ptr, ptr %.sink20.in, align 8
   %62 = sext i32 %.sink to i64
-  %63 = getelementptr inbounds %class.StackSlotAnalysisData, ptr %.sink16, i64 %62
+  %63 = getelementptr inbounds %class.StackSlotAnalysisData, ptr %.sink20, i64 %62
   store i32 %1, ptr %63, align 4
   br label %_ZN21SimulatedOperandStack8push_rawE21StackSlotAnalysisData.exit7
 
@@ -3663,7 +3663,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI21StackSlotAnal
   br i1 %.not, label %_ZN13GrowableArrayI21StackSlotAnalysisDataE10deallocateEPS0_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -3675,8 +3675,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI21StackSlotAnal
   br label %_ZN13GrowableArrayI21StackSlotAnalysisDataE10deallocateEPS0_.exit
 
 _ZN13GrowableArrayI21StackSlotAnalysisDataE10deallocateEPS0_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayI21StackSlotAnalysisDataE10deallocateEPS0_.exit

@@ -53,14 +53,15 @@ define internal ptr @file_open(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %1, ptr %4, align 16, !tbaa !3
   %7 = tail call i32 @OPENSSL_strncasecmp(ptr noundef %1, ptr noundef nonnull @.str, i64 noundef 5) #8
   %8 = icmp eq i32 %7, 0
+  %.04154.sroa.gep63 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br i1 %8, label %9, label %30
 
 9:                                                ; preds = %2
   %.143.sroa.gep50 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %11 = tail call i32 @OPENSSL_strncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.1, i64 noundef 2) #8
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %26
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %26, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 7
@@ -88,7 +89,6 @@ define internal ptr @file_open(ptr noundef %0, ptr noundef %1) #0 {
 
 26:                                               ; preds = %9, %20
   %.143.sroa.phi = phi ptr [ %4, %20 ], [ %.143.sroa.gep50, %9 ]
-  %.143 = phi i64 [ 1, %20 ], [ 2, %9 ]
   %.039 = phi ptr [ %23, %20 ], [ %10, %9 ]
   %27 = getelementptr inbounds nuw i8, ptr %.143.sroa.phi, i64 8
   %28 = load i8, ptr %27, align 8
@@ -98,134 +98,132 @@ define internal ptr @file_open(ptr noundef %0, ptr noundef %1) #0 {
   br label %30
 
 30:                                               ; preds = %2, %26
-  %.042 = phi i64 [ %.143, %26 ], [ 1, %2 ]
+  %.042 = phi i1 [ %12, %26 ], [ false, %2 ]
   br label %31
 
-31:                                               ; preds = %30, %46
-  %.04154 = phi i64 [ 0, %30 ], [ %47, %46 ]
-  %32 = getelementptr inbounds nuw [2 x %struct.anon], ptr %4, i64 0, i64 %.04154
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load i8, ptr %33, align 8
-  %35 = and i8 %34, 1
-  %.not = icmp eq i8 %35, 0
-  %.pre = load ptr, ptr %32, align 16, !tbaa !3
-  br i1 %.not, label %40, label %36
+31:                                               ; preds = %30, %45
+  %.04154.sroa.phi = phi ptr [ %4, %30 ], [ %.04154.sroa.gep63, %45 ]
+  %.04154 = phi i1 [ %.042, %30 ], [ false, %45 ]
+  %32 = getelementptr inbounds nuw i8, ptr %.04154.sroa.phi, i64 8
+  %33 = load i8, ptr %32, align 8
+  %34 = and i8 %33, 1
+  %.not = icmp eq i8 %34, 0
+  %.pre = load ptr, ptr %.04154.sroa.phi, align 16, !tbaa !3
+  br i1 %.not, label %39, label %35
 
-36:                                               ; preds = %31
-  %37 = load i8, ptr %.pre, align 1, !tbaa !10
-  %.not49 = icmp eq i8 %37, 47
-  br i1 %.not49, label %40, label %38
+35:                                               ; preds = %31
+  %36 = load i8, ptr %.pre, align 1, !tbaa !10
+  %.not49 = icmp eq i8 %36, 47
+  br i1 %.not49, label %39, label %37
 
-38:                                               ; preds = %36
-  %39 = tail call i32 @ERR_clear_last_mark() #8
+37:                                               ; preds = %35
+  %38 = tail call i32 @ERR_clear_last_mark() #8
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.4, i32 noundef 258, ptr noundef nonnull @__func__.file_open) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 219, ptr noundef nonnull @.str.5, ptr noundef nonnull %.pre) #8
   br label %file_open_dir.exit
 
-40:                                               ; preds = %36, %31
-  %41 = call i32 @stat(ptr noundef %.pre, ptr noundef nonnull %3) #8
-  %42 = icmp slt i32 %41, 0
-  br i1 %42, label %43, label %46
+39:                                               ; preds = %35, %31
+  %40 = call i32 @stat(ptr noundef %.pre, ptr noundef nonnull %3) #8
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %42, label %45
 
-43:                                               ; preds = %40
+42:                                               ; preds = %39
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.4, i32 noundef 264, ptr noundef nonnull @__func__.file_open) #8
-  %44 = tail call ptr @__errno_location() #9
-  %45 = load i32, ptr %44, align 4, !tbaa !11
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %45, ptr noundef nonnull @.str.6, ptr noundef %.pre) #8
-  br label %46
+  %43 = tail call ptr @__errno_location() #9
+  %44 = load i32, ptr %43, align 4, !tbaa !11
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %44, ptr noundef nonnull @.str.6, ptr noundef %.pre) #8
+  br label %45
 
-46:                                               ; preds = %40, %43
-  %.1 = phi ptr [ null, %43 ], [ %.pre, %40 ]
-  %47 = add nuw nsw i64 %.04154, 1
-  %48 = icmp eq ptr %.1, null
-  %49 = icmp ult i64 %47, %.042
-  %50 = select i1 %48, i1 %49, i1 false
-  br i1 %50, label %31, label %51, !llvm.loop !12
+45:                                               ; preds = %39, %42
+  %.1 = phi ptr [ null, %42 ], [ %.pre, %39 ]
+  %46 = icmp eq ptr %.1, null
+  %47 = and i1 %46, %.04154
+  br i1 %47, label %31, label %48, !llvm.loop !12
 
-51:                                               ; preds = %46
-  br i1 %48, label %52, label %54
+48:                                               ; preds = %45
+  br i1 %46, label %49, label %51
 
-52:                                               ; preds = %51
-  %53 = tail call i32 @ERR_clear_last_mark() #8
+49:                                               ; preds = %48
+  %50 = tail call i32 @ERR_clear_last_mark() #8
   br label %file_open_dir.exit
 
-54:                                               ; preds = %51
-  %55 = tail call i32 @ERR_pop_to_mark() #8
-  %56 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %57 = load i32, ptr %56, align 8, !tbaa !14
-  %58 = and i32 %57, 61440
-  %59 = icmp eq i32 %58, 16384
-  br i1 %59, label %60, label %78
+51:                                               ; preds = %48
+  %52 = tail call i32 @ERR_pop_to_mark() #8
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %54 = load i32, ptr %53, align 8, !tbaa !14
+  %55 = and i32 %54, 61440
+  %56 = icmp eq i32 %55, 16384
+  br i1 %56, label %57, label %75
 
-60:                                               ; preds = %54
-  %61 = tail call fastcc ptr @new_file_ctx(i32 noundef 1, ptr noundef %1, ptr noundef %0)
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %63, label %64
+57:                                               ; preds = %51
+  %58 = tail call fastcc ptr @new_file_ctx(i32 noundef 1, ptr noundef %1, ptr noundef %0)
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %60, label %61
 
-63:                                               ; preds = %60
+60:                                               ; preds = %57
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.4, i32 noundef 174, ptr noundef nonnull @__func__.file_open_dir) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 524345, ptr noundef null) #8
   br label %file_open_dir.exit
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %66 = tail call ptr @OPENSSL_DIR_read(ptr noundef nonnull %65, ptr noundef nonnull %.1) #8
-  %67 = getelementptr inbounds nuw i8, ptr %61, i64 48
-  store ptr %66, ptr %67, align 8, !tbaa !10
-  %68 = tail call ptr @__errno_location() #9
-  %69 = load i32, ptr %68, align 4, !tbaa !11
-  %70 = getelementptr inbounds nuw i8, ptr %61, i64 56
-  store i32 %69, ptr %70, align 8, !tbaa !10
-  %71 = icmp eq ptr %66, null
-  br i1 %71, label %72, label %file_open_dir.exit
+61:                                               ; preds = %57
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  %63 = tail call ptr @OPENSSL_DIR_read(ptr noundef nonnull %62, ptr noundef nonnull %.1) #8
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 48
+  store ptr %63, ptr %64, align 8, !tbaa !10
+  %65 = tail call ptr @__errno_location() #9
+  %66 = load i32, ptr %65, align 4, !tbaa !11
+  %67 = getelementptr inbounds nuw i8, ptr %58, i64 56
+  store i32 %66, ptr %67, align 8, !tbaa !10
+  %68 = icmp eq ptr %63, null
+  br i1 %68, label %69, label %file_open_dir.exit
 
-72:                                               ; preds = %64
-  %.not.i = icmp eq i32 %69, 0
-  br i1 %.not.i, label %76, label %73
+69:                                               ; preds = %61
+  %.not.i = icmp eq i32 %66, 0
+  br i1 %.not.i, label %73, label %70
 
-73:                                               ; preds = %72
+70:                                               ; preds = %69
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.4, i32 noundef 182, ptr noundef nonnull @__func__.file_open_dir) #8
-  %74 = load i32, ptr %70, align 8, !tbaa !10
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %74, ptr noundef nonnull @.str.8, ptr noundef nonnull %.1) #8
-  %75 = tail call i32 @file_close(ptr noundef nonnull %61)
+  %71 = load i32, ptr %67, align 8, !tbaa !10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %71, ptr noundef nonnull @.str.8, ptr noundef nonnull %.1) #8
+  %72 = tail call i32 @file_close(ptr noundef nonnull %58)
   br label %file_open_dir.exit
 
-76:                                               ; preds = %72
-  %77 = getelementptr inbounds nuw i8, ptr %61, i64 32
-  store i32 1, ptr %77, align 8, !tbaa !10
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  store i32 1, ptr %74, align 8, !tbaa !10
   br label %file_open_dir.exit
 
-78:                                               ; preds = %54
-  %79 = tail call ptr @BIO_new_file(ptr noundef nonnull %.1, ptr noundef nonnull @.str.7) #8
+75:                                               ; preds = %51
+  %76 = tail call ptr @BIO_new_file(ptr noundef nonnull %.1, ptr noundef nonnull @.str.7) #8
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %82, label %78
+
+78:                                               ; preds = %75
+  %79 = tail call fastcc ptr @new_file_ctx(i32 noundef 0, ptr noundef %1, ptr noundef %0)
   %80 = icmp eq ptr %79, null
-  br i1 %80, label %85, label %81
+  br i1 %80, label %file_open_stream.exit.thread, label %file_open_stream.exit
 
-81:                                               ; preds = %78
-  %82 = tail call fastcc ptr @new_file_ctx(i32 noundef 0, ptr noundef %1, ptr noundef %0)
-  %83 = icmp eq ptr %82, null
-  br i1 %83, label %file_open_stream.exit.thread, label %file_open_stream.exit
-
-file_open_stream.exit.thread:                     ; preds = %81
+file_open_stream.exit.thread:                     ; preds = %78
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.4, i32 noundef 157, ptr noundef nonnull @__func__.file_open_stream) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 524345, ptr noundef null) #8
-  br label %85
+  br label %82
 
-file_open_stream.exit:                            ; preds = %81
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  store ptr %79, ptr %84, align 8, !tbaa !10
+file_open_stream.exit:                            ; preds = %78
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  store ptr %76, ptr %81, align 8, !tbaa !10
   br label %file_open_dir.exit
 
-85:                                               ; preds = %file_open_stream.exit.thread, %78
-  tail call void @BIO_free_all(ptr noundef %79) #8
+82:                                               ; preds = %file_open_stream.exit.thread, %75
+  tail call void @BIO_free_all(ptr noundef %76) #8
   br label %file_open_dir.exit
 
-file_open_dir.exit:                               ; preds = %file_open_stream.exit, %76, %73, %64, %63, %85, %52, %38, %24
-  %.0 = phi ptr [ null, %38 ], [ null, %52 ], [ null, %24 ], [ null, %85 ], [ %82, %file_open_stream.exit ], [ null, %63 ], [ null, %73 ], [ %61, %76 ], [ %61, %64 ]
+file_open_dir.exit:                               ; preds = %file_open_stream.exit, %73, %70, %61, %60, %82, %49, %37, %24
+  %.0 = phi ptr [ null, %37 ], [ null, %49 ], [ null, %24 ], [ null, %82 ], [ %79, %file_open_stream.exit ], [ null, %60 ], [ null, %70 ], [ %58, %73 ], [ %58, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0

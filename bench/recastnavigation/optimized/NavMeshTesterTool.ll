@@ -2114,12 +2114,12 @@ _Z7inRangePKfS0_ff.exit51.thread:                 ; preds = %162, %_Z7inRangePKf
   br label %.sink.split
 
 .sink.split:                                      ; preds = %235, %157
-  %.sink82 = phi ptr [ %161, %157 ], [ %239, %235 ]
+  %.sink91 = phi ptr [ %161, %157 ], [ %239, %235 ]
   %241 = load float, ptr %71, align 4
-  %242 = getelementptr inbounds nuw i8, ptr %.sink82, i64 4
+  %242 = getelementptr inbounds nuw i8, ptr %.sink91, i64 4
   store float %241, ptr %242, align 4
   %243 = load float, ptr %74, align 8
-  %244 = getelementptr inbounds nuw i8, ptr %.sink82, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %.sink91, i64 8
   store float %243, ptr %244, align 4
   %245 = load i32, ptr %82, align 4
   %246 = add nsw i32 %245, 1
@@ -2325,7 +2325,7 @@ define internal fastcc noundef i32 @_ZL14fixupShortcutsPjiP14dtNavMeshQuery(ptr 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %31 = call noundef i32 @llvm.smin.i32(i32 %1, i32 6)
   %.03959 = add nsw i32 %31, -1
-  %32 = zext i32 %.03959 to i64
+  %32 = zext nneg i32 %.03959 to i64
   %wide.trip.count = zext nneg i32 %.144 to i64
   br label %.preheader.us
 
@@ -2369,12 +2369,12 @@ define internal fastcc noundef i32 @_ZL14fixupShortcutsPjiP14dtNavMeshQuery(ptr 
 .lr.ph65.preheader:                               ; preds = %45
   %49 = zext nneg i32 %46 to i64
   %wide.trip.count74 = zext nneg i32 %47 to i64
-  %invariant.gep = getelementptr i32, ptr %0, i64 %49
+  %invariant.gep = getelementptr inbounds nuw i32, ptr %0, i64 %49
   br label %.lr.ph65
 
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %.lr.ph65
   %indvars.iv71 = phi i64 [ 1, %.lr.ph65.preheader ], [ %indvars.iv.next72, %.lr.ph65 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv71
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv71
   %50 = load i32, ptr %gep, align 4
   %51 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv71
   store i32 %50, ptr %51, align 4
@@ -2616,8 +2616,8 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
 
 60:                                               ; preds = %38
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32136
-  %.b576 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE8startCol, align 4
-  %62 = select i1 %.b576, i32 -1073735296, i32 0
+  %.b586 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE8startCol, align 4
+  %62 = select i1 %.b586, i32 -1073735296, i32 0
   tail call void @_ZN17NavMeshTesterTool9drawAgentEPKffffj(ptr noundef nonnull align 8 dereferenceable(33408) %0, ptr noundef nonnull %61, float noundef %43, float noundef %48, float noundef %53, i32 noundef %62)
   br label %63
 
@@ -2629,8 +2629,8 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
 
 67:                                               ; preds = %63
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 32148
-  %.b580 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE6endCol, align 4
-  %69 = select i1 %.b580, i32 -2130680269, i32 0
+  %.b590 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE6endCol, align 4
+  %69 = select i1 %.b590, i32 -2130680269, i32 0
   tail call void @_ZN17NavMeshTesterTool9drawAgentEPKffffj(ptr noundef nonnull align 8 dereferenceable(33408) %0, ptr noundef nonnull %68, float noundef %43, float noundef %48, float noundef %53, i32 noundef %69)
   br label %70
 
@@ -2700,14 +2700,14 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
 100:                                              ; preds = %76
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %102 = load i32, ptr %101, align 8
-  %.b575 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE8startCol, align 4
-  %103 = select i1 %.b575, i32 -1073735296, i32 0
+  %.b585 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE8startCol, align 4
+  %103 = select i1 %.b585, i32 -1073735296, i32 0
   tail call void @_Z22duDebugDrawNavMeshPolyP11duDebugDrawRK9dtNavMeshjj(ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(100) %75, i32 noundef %102, i32 noundef %103)
   %104 = load ptr, ptr %74, align 8
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %106 = load i32, ptr %105, align 4
-  %.b579 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE6endCol, align 4
-  %107 = select i1 %.b579, i32 -2130680269, i32 0
+  %.b589 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE6endCol, align 4
+  %107 = select i1 %.b589, i32 -2130680269, i32 0
   tail call void @_Z22duDebugDrawNavMeshPolyP11duDebugDrawRK9dtNavMeshjj(ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(100) %104, i32 noundef %106, i32 noundef %107)
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 2360
   %109 = load i32, ptr %108, align 8
@@ -2732,8 +2732,8 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
 
 120:                                              ; preds = %112
   %121 = load ptr, ptr %74, align 8
-  %.b586 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE7pathCol, align 4
-  %122 = select i1 %.b586, i32 1073741824, i32 0
+  %.b596 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE7pathCol, align 4
+  %122 = select i1 %.b596, i32 1073741824, i32 0
   tail call void @_Z22duDebugDrawNavMeshPolyP11duDebugDrawRK9dtNavMeshjj(ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(100) %121, i32 noundef %115, i32 noundef %122)
   %.pre554 = load i32, ptr %108, align 8
   br label %123
@@ -2953,14 +2953,14 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
 281:                                              ; preds = %76, %76
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %283 = load i32, ptr %282, align 8
-  %.b574 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE8startCol, align 4
-  %284 = select i1 %.b574, i32 -1073735296, i32 0
+  %.b584 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE8startCol, align 4
+  %284 = select i1 %.b584, i32 -1073735296, i32 0
   tail call void @_Z22duDebugDrawNavMeshPolyP11duDebugDrawRK9dtNavMeshjj(ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(100) %75, i32 noundef %283, i32 noundef %284)
   %285 = load ptr, ptr %74, align 8
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %287 = load i32, ptr %286, align 4
-  %.b578 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE6endCol, align 4
-  %288 = select i1 %.b578, i32 -2130680269, i32 0
+  %.b588 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE6endCol, align 4
+  %288 = select i1 %.b588, i32 -2130680269, i32 0
   tail call void @_Z22duDebugDrawNavMeshPolyP11duDebugDrawRK9dtNavMeshjj(ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(100) %285, i32 noundef %287, i32 noundef %288)
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 2360
   %290 = load i32, ptr %289, align 8
@@ -2985,8 +2985,8 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
 
 301:                                              ; preds = %293
   %302 = load ptr, ptr %74, align 8
-  %.b585 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE7pathCol, align 4
-  %303 = select i1 %.b585, i32 1073741824, i32 0
+  %.b595 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE7pathCol, align 4
+  %303 = select i1 %.b595, i32 1073741824, i32 0
   tail call void @_Z22duDebugDrawNavMeshPolyP11duDebugDrawRK9dtNavMeshjj(ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(100) %302, i32 noundef %296, i32 noundef %303)
   %.pre = load i32, ptr %289, align 8
   br label %304
@@ -3092,8 +3092,8 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
   br i1 %.not302, label %372, label %370
 
 370:                                              ; preds = %365
-  %.b573 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE8startCol, align 4
-  %371 = select i1 %.b573, i32 -1073735296, i32 0
+  %.b583 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE8startCol, align 4
+  %371 = select i1 %.b583, i32 -1073735296, i32 0
   br label %378
 
 372:                                              ; preds = %365
@@ -3102,8 +3102,8 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
   br i1 %.not303, label %376, label %374
 
 374:                                              ; preds = %372
-  %.b577 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE6endCol, align 4
-  %375 = select i1 %.b577, i32 -2130680269, i32 0
+  %.b587 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE6endCol, align 4
+  %375 = select i1 %.b587, i32 -2130680269, i32 0
   br label %378
 
 376:                                              ; preds = %372
@@ -3148,8 +3148,8 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
 401:                                              ; preds = %76
   %402 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %403 = load i32, ptr %402, align 8
-  %.b572 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE8startCol, align 4
-  %404 = select i1 %.b572, i32 -1073735296, i32 0
+  %.b582 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE8startCol, align 4
+  %404 = select i1 %.b582, i32 -1073735296, i32 0
   tail call void @_Z22duDebugDrawNavMeshPolyP11duDebugDrawRK9dtNavMeshjj(ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(100) %75, i32 noundef %403, i32 noundef %404)
   %405 = getelementptr inbounds nuw i8, ptr %0, i64 6716
   %406 = load i32, ptr %405, align 4
@@ -3171,8 +3171,8 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
   %412 = load ptr, ptr %74, align 8
   %413 = getelementptr inbounds nuw [256 x i32], ptr %410, i64 0, i64 %indvars.iv524
   %414 = load i32, ptr %413, align 4
-  %.b584 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE7pathCol, align 4
-  %415 = select i1 %.b584, i32 1073741824, i32 0
+  %.b594 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE7pathCol, align 4
+  %415 = select i1 %.b594, i32 1073741824, i32 0
   tail call void @_Z22duDebugDrawNavMeshPolyP11duDebugDrawRK9dtNavMeshjj(ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(100) %412, i32 noundef %414, i32 noundef %415)
   %indvars.iv.next525 = add nuw nsw i64 %indvars.iv524, 1
   %416 = load i32, ptr %407, align 8
@@ -3391,8 +3391,8 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
   %574 = load ptr, ptr %74, align 8
   %575 = getelementptr inbounds nuw [256 x i32], ptr %98, i64 0, i64 %indvars.iv521
   %576 = load i32, ptr %575, align 4
-  %.b583 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE7pathCol, align 4
-  %577 = select i1 %.b583, i32 1073741824, i32 0
+  %.b593 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE7pathCol, align 4
+  %577 = select i1 %.b593, i32 1073741824, i32 0
   call void @_Z22duDebugDrawNavMeshPolyP11duDebugDrawRK9dtNavMeshjj(ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(100) %574, i32 noundef %576, i32 noundef %577)
   %578 = load ptr, ptr %20, align 8
   %579 = getelementptr inbounds nuw i8, ptr %578, i64 16
@@ -3604,8 +3604,8 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit331:         ; preds = %_ZL13getPolyCenterP
   %697 = load ptr, ptr %74, align 8
   %698 = getelementptr inbounds nuw [256 x i32], ptr %93, i64 0, i64 %indvars.iv512
   %699 = load i32, ptr %698, align 4
-  %.b582 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE7pathCol, align 4
-  %700 = select i1 %.b582, i32 1073741824, i32 0
+  %.b592 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE7pathCol, align 4
+  %700 = select i1 %.b592, i32 1073741824, i32 0
   call void @_Z22duDebugDrawNavMeshPolyP11duDebugDrawRK9dtNavMeshjj(ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(100) %697, i32 noundef %699, i32 noundef %700)
   %701 = load ptr, ptr %20, align 8
   %702 = getelementptr inbounds nuw i8, ptr %701, i64 16
@@ -3831,8 +3831,8 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit357:         ; preds = %_ZL13getPolyCenterP
   %824 = load ptr, ptr %74, align 8
   %825 = getelementptr inbounds nuw [256 x i32], ptr %82, i64 0, i64 %indvars.iv507
   %826 = load i32, ptr %825, align 4
-  %.b581 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE7pathCol, align 4
-  %827 = select i1 %.b581, i32 1073741824, i32 0
+  %.b591 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE7pathCol, align 4
+  %827 = select i1 %.b591, i32 1073741824, i32 0
   call void @_Z22duDebugDrawNavMeshPolyP11duDebugDrawRK9dtNavMeshjj(ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(100) %824, i32 noundef %826, i32 noundef %827)
   %828 = load ptr, ptr %20, align 8
   %829 = getelementptr inbounds nuw i8, ptr %828, i64 16

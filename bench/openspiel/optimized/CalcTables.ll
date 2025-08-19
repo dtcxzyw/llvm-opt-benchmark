@@ -637,8 +637,8 @@ define i32 @CalcAllTables(ptr noundef readonly captures(none) %0, i32 noundef %1
   %.292 = phi i32 [ %.191116, %26 ], [ %40, %36 ]
   %.2 = phi i32 [ %.189117, %26 ], [ %.191116, %36 ]
   %indvars.iv.next148 = add nsw i64 %indvars.iv147, -1
-  %.not167 = icmp eq i64 %indvars.iv147, 0
-  br i1 %.not167, label %42, label %26, !llvm.loop !17
+  %.not171 = icmp eq i64 %indvars.iv147, 0
+  br i1 %.not171, label %42, label %26, !llvm.loop !17
 
 42:                                               ; preds = %41
   %indvar.next134 = add nuw nsw i64 %indvar133, 1
@@ -876,13 +876,13 @@ define linkonce_odr void @_ZNSt6vectorI12futureTricksSaIS0_EE17_M_default_append
 19:                                               ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %5, i8 0, i64 216, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 216
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIP12futureTricksmS0_ET_S2_T0_RSaIT1_E.exit, label %23
 
 23:                                               ; preds = %19
-  %.idx.i.i.i.i.i = mul nsw i64 %21, 216
-  %24 = getelementptr inbounds i8, ptr %20, i64 %.idx.i.i.i.i.i
+  %.idx.i.i.i.i.i = mul nuw nsw i64 %21, 216
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %23
@@ -949,7 +949,7 @@ _ZNSt6vectorI12futureTricksSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = 
 
 _ZNSt12_Vector_baseI12futureTricksSaIS0_EE13_M_deallocateEPS0_m.exit38: ; preds = %_ZNSt6vectorI12futureTricksSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %42
   store ptr %32, ptr %0, align 8
-  %44 = getelementptr inbounds %struct.futureTricks, ptr %33, i64 %1
+  %44 = getelementptr inbounds nuw %struct.futureTricks, ptr %33, i64 %1
   store ptr %44, ptr %4, align 8
   %45 = getelementptr inbounds nuw %struct.futureTricks, ptr %32, i64 %30
   store ptr %45, ptr %11, align 8

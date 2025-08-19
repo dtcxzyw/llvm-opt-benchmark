@@ -2295,18 +2295,18 @@ _init_l_Lean_Meta_instBEqOccurrences___closed__1.exit: ; preds = %_init_l_Lean_M
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Meta_instBEqOccurrences___closed__1.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %104, %_init_l_Lean_Meta_instBEqOccurrences___closed__1.exit ]
-  %107 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !4
+  %.sink22 = phi ptr [ %4, %3 ], [ %104, %_init_l_Lean_Meta_instBEqOccurrences___closed__1.exit ]
+  %107 = getelementptr inbounds nuw i8, ptr %.sink22, i64 4
+  store i32 1, ptr %.sink22, align 4, !tbaa !4
   store i32 131096, ptr %107, align 4
-  %108 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %.sink22, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %108, align 8, !tbaa !10
-  %109 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %.sink22, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %109, align 8, !tbaa !10
   br label %110
 
 110:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink22, %.sink.split ]
   ret ptr %.0
 }
 

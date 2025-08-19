@@ -623,11 +623,11 @@ define internal fastcc void @zend_analyze_recursion(ptr noundef readonly capture
   br i1 %35, label %.sink.split, label %39
 
 .sink.split:                                      ; preds = %34, %31
-  %.sink73 = phi i32 [ 384, %31 ], [ 640, %34 ]
+  %.sink77 = phi i32 [ 384, %31 ], [ 640, %34 ]
   %36 = getelementptr inbounds nuw i8, ptr %.066, i64 48
   store i8 1, ptr %36, align 8, !tbaa !92
   %37 = load i32, ptr %26, align 4, !tbaa !77
-  %38 = or i32 %37, %.sink73
+  %38 = or i32 %37, %.sink77
   store i32 %38, ptr %26, align 4, !tbaa !77
   br label %39
 

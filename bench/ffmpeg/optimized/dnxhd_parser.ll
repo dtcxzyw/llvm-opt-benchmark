@@ -80,27 +80,27 @@ ff_dnxhd_check_header_prefix.exit.thread.i:       ; preds = %25
 
 35:                                               ; preds = %34, %.thread.i
   %36 = phi ptr [ %33, %.thread.i ], [ %.phi.trans.insert.i, %34 ]
-  %.072.ph154.i = phi i64 [ %23, %.thread.i ], [ %15, %34 ]
-  %.077.ph153.i = phi i32 [ %31, %.thread.i ], [ 0, %34 ]
-  %.080.ph152.i = phi i32 [ 1, %.thread.i ], [ %17, %34 ]
+  %.072.ph162.i = phi i64 [ %23, %.thread.i ], [ %15, %34 ]
+  %.077.ph161.i = phi i32 [ %31, %.thread.i ], [ 0, %34 ]
+  %.080.ph160.i = phi i32 [ 1, %.thread.i ], [ %17, %34 ]
   %.not96.i = icmp eq i32 %5, 0
   br i1 %.not96.i, label %dnxhd_find_frame_end.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %35
-  %37 = icmp slt i32 %.077.ph153.i, %5
+  %37 = icmp slt i32 %.077.ph161.i, %5
   br i1 %37, label %.lr.ph135.i, label %.critedge.i
 
 .lr.ph135.i:                                      ; preds = %.preheader.i
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %40 = getelementptr inbounds nuw i8, ptr %13, i64 60
-  %41 = zext nneg i32 %.077.ph153.i to i64
+  %41 = zext nneg i32 %.077.ph161.i to i64
   %wide.trip.count146.i = zext i32 %5 to i64
   br label %42
 
 42:                                               ; preds = %.thread113.i, %.lr.ph135.i
   %indvars.iv143.i = phi i64 [ %41, %.lr.ph135.i ], [ %indvars.iv.next144.i, %.thread113.i ]
-  %.274134.i = phi i64 [ %.072.ph154.i, %.lr.ph135.i ], [ %49, %.thread113.i ]
+  %.274134.i = phi i64 [ %.072.ph162.i, %.lr.ph135.i ], [ %49, %.thread113.i ]
   %43 = load i32, ptr %38, align 8, !tbaa !20
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %38, align 8, !tbaa !20
@@ -194,8 +194,8 @@ ff_dnxhd_check_header_prefix.exit.thread.i:       ; preds = %25
   br label %dnxhd_find_frame_end.exit
 
 .critedge.i:                                      ; preds = %ff_dnxhd_check_header_prefix.exit.thread.i, %.thread113.i, %81, %74, %.preheader.i, %.preheader124.i
-  %.080109.i = phi i32 [ %17, %81 ], [ %.080.ph152.i, %74 ], [ %.080.ph152.i, %.preheader.i ], [ 0, %.preheader124.i ], [ %.080.ph152.i, %.thread113.i ], [ 0, %ff_dnxhd_check_header_prefix.exit.thread.i ]
-  %.5.i = phi i64 [ %15, %81 ], [ -1, %74 ], [ %.072.ph154.i, %.preheader.i ], [ %15, %.preheader124.i ], [ %49, %.thread113.i ], [ %23, %ff_dnxhd_check_header_prefix.exit.thread.i ]
+  %.080109.i = phi i32 [ %17, %81 ], [ %.080.ph160.i, %74 ], [ %.080.ph160.i, %.preheader.i ], [ 0, %.preheader124.i ], [ %.080.ph160.i, %.thread113.i ], [ 0, %ff_dnxhd_check_header_prefix.exit.thread.i ]
+  %.5.i = phi i64 [ %15, %81 ], [ -1, %74 ], [ %.072.ph162.i, %.preheader.i ], [ %15, %.preheader124.i ], [ %49, %.thread113.i ], [ %23, %ff_dnxhd_check_header_prefix.exit.thread.i ]
   store i32 %.080109.i, ptr %16, align 8, !tbaa !18
   store i64 %.5.i, ptr %14, align 8, !tbaa !16
   br label %dnxhd_find_frame_end.exit

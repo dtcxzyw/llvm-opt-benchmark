@@ -80,16 +80,16 @@ _ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatT
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %35 = load i8, ptr %34, align 8
   %36 = and i8 %35, 1
-  %.not3470 = icmp eq i8 %36, 0
-  br i1 %.not3470, label %.lr.ph72, label %..critedge_crit_edge51, !llvm.loop !63
+  %.not3474 = icmp eq i8 %36, 0
+  br i1 %.not3474, label %.lr.ph76, label %..critedge_crit_edge51, !llvm.loop !63
 
-.lr.ph72:                                         ; preds = %.lr.ph.preheader
+.lr.ph76:                                         ; preds = %.lr.ph.preheader
   br label %37, !llvm.loop !63
 
-37:                                               ; preds = %.lr.ph72, %.lr.ph
-  %38 = phi ptr [ %32, %.lr.ph72 ], [ %39, %.lr.ph ]
-  %.04971 = phi ptr [ %.046, %.lr.ph72 ], [ %.0, %.lr.ph ]
-  %.0 = getelementptr inbounds nuw i8, ptr %.04971, i64 8
+37:                                               ; preds = %.lr.ph76, %.lr.ph
+  %38 = phi ptr [ %32, %.lr.ph76 ], [ %39, %.lr.ph ]
+  %.04975 = phi ptr [ %.046, %.lr.ph76 ], [ %.0, %.lr.ph ]
+  %.0 = getelementptr inbounds nuw i8, ptr %.04975, i64 8
   %.not33 = icmp eq ptr %.0, %7
   br i1 %.not33, label %.critedge, label %.lr.ph, !llvm.loop !63
 

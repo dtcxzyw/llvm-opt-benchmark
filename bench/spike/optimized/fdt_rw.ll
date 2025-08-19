@@ -1662,9 +1662,9 @@ define i32 @fdt_open_into(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
 
 .sink.split:                                      ; preds = %80, %117
   %.sink = phi i32 [ %235, %117 ], [ %2, %80 ]
-  %.sink63 = phi i64 [ 28, %117 ], [ 4, %80 ]
+  %.sink70 = phi i64 [ 28, %117 ], [ 4, %80 ]
   %rev.i.i62 = call noundef i32 @llvm.bswap.i32(i32 %.sink)
-  %236 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink63
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink70
   store i32 %rev.i.i62, ptr %236, align 4, !tbaa !15
   br label %237
 

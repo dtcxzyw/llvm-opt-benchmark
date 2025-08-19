@@ -436,7 +436,7 @@ define linkonce_odr void @_ZNSt6vectorI8wallcc_tSaIS0_EE17_M_default_appendEm(pt
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIP8wallcc_tmS0_ET_S2_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIP8wallcc_tmS0_ET_S2_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 24
+  %19 = mul nuw nsw i64 %1, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !63
@@ -1482,7 +1482,7 @@ _ZL12print_headerP8_IO_FILEiiii.exit:             ; preds = %111, %113, %121, %1
   %indvars.iv559 = phi i64 [ %indvars.iv.next560, %.split.us.us.split.us.us.split.us.us ], [ 0, %.preheader493.split.us.split.us ]
   %147 = getelementptr inbounds nuw [60 x ptr], ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 0, i64 %indvars.iv559
   %148 = load ptr, ptr %147, align 8, !tbaa !124
-  %.idx585 = mul nuw nsw i64 %indvars.iv559, 1440
+  %.idx657 = mul nuw nsw i64 %indvars.iv559, 1440
   br label %149
 
 149:                                              ; preds = %_ZL12print_cyclesP8_IO_FILEdPKciiidd.exit.us.us.us.us.us.us, %.preheader492.us.us.us
@@ -1492,7 +1492,7 @@ _ZL12print_headerP8_IO_FILEiiii.exit:             ; preds = %111, %113, %121, %1
   %152 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %21, i64 noundef 20, ptr noundef nonnull @.str.12, ptr noundef %148, ptr noundef %151) #27
   %153 = load ptr, ptr %139, align 8, !tbaa !64
   %154 = getelementptr inbounds nuw %struct.wallcc_t, ptr %153, i64 %indvars.iv556
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 %.idx585
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 %.idx657
   %156 = load i32, ptr %155, align 8, !tbaa !13
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %158 = load i64, ptr %157, align 8, !tbaa !17
@@ -1544,7 +1544,7 @@ _ZL12print_cyclesP8_IO_FILEdPKciiidd.exit.us.us.us.us.us.us: ; preds = %167, %14
   %indvars.iv553 = phi i64 [ %indvars.iv.next554, %.split.us.us.split.us.us.split ], [ 0, %.preheader493.split.us.split.us ]
   %171 = getelementptr inbounds nuw [60 x ptr], ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 0, i64 %indvars.iv553
   %172 = load ptr, ptr %171, align 8, !tbaa !124
-  %.idx584 = mul nuw nsw i64 %indvars.iv553, 1440
+  %.idx656 = mul nuw nsw i64 %indvars.iv553, 1440
   br label %173
 
 173:                                              ; preds = %_ZL12print_cyclesP8_IO_FILEdPKciiidd.exit.us.us.us.us, %.preheader492.us.us
@@ -1554,7 +1554,7 @@ _ZL12print_cyclesP8_IO_FILEdPKciiidd.exit.us.us.us.us.us.us: ; preds = %167, %14
   %176 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %21, i64 noundef 20, ptr noundef nonnull @.str.12, ptr noundef %172, ptr noundef %175) #27
   %177 = load ptr, ptr %139, align 8, !tbaa !64
   %178 = getelementptr inbounds nuw %struct.wallcc_t, ptr %177, i64 %indvars.iv550
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 %.idx584
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 %.idx656
   %180 = load i32, ptr %179, align 8, !tbaa !13
   %181 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %182 = load i64, ptr %181, align 8, !tbaa !17
@@ -1604,7 +1604,7 @@ _ZL12print_cyclesP8_IO_FILEdPKciiidd.exit.us.us.us.us: ; preds = %189, %173
   %indvars.iv547 = phi i64 [ %indvars.iv.next548, %.split.us.us.split ], [ 0, %.preheader493.split.us ]
   %193 = getelementptr inbounds nuw [60 x ptr], ptr @__const._ZL17enumValuetoString16WallCycleCounter.wallCycleCounterNames, i64 0, i64 %indvars.iv547
   %194 = load ptr, ptr %193, align 8, !tbaa !124
-  %.idx583 = mul nuw nsw i64 %indvars.iv547, 1440
+  %.idx655 = mul nuw nsw i64 %indvars.iv547, 1440
   br label %195
 
 195:                                              ; preds = %_ZL12print_cyclesP8_IO_FILEdPKciiidd.exit.us.us, %.preheader492.us
@@ -1614,7 +1614,7 @@ _ZL12print_cyclesP8_IO_FILEdPKciiidd.exit.us.us.us.us: ; preds = %189, %173
   %198 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %21, i64 noundef 20, ptr noundef nonnull @.str.12, ptr noundef %194, ptr noundef %197) #27
   %199 = load ptr, ptr %139, align 8, !tbaa !64
   %200 = getelementptr inbounds nuw %struct.wallcc_t, ptr %199, i64 %indvars.iv544
-  %201 = getelementptr inbounds nuw i8, ptr %200, i64 %.idx583
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 %.idx655
   %202 = load i32, ptr %201, align 8, !tbaa !13
   %203 = getelementptr inbounds nuw i8, ptr %201, i64 8
   %204 = load i64, ptr %203, align 8, !tbaa !17
@@ -1717,8 +1717,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %245 = getelementptr inbounds nuw [60 x %struct.wallcc_t], ptr %7, i64 0, i64 %indvars.iv
   %246 = load i32, ptr %245, align 8, !tbaa !13
   %247 = icmp sgt i32 %246, 0
-  %or.cond595 = select i1 %or.cond475, i1 %247, i1 false
-  br i1 %or.cond595, label %248, label %._crit_edge
+  %or.cond667 = select i1 %or.cond475, i1 %247, i1 false
+  br i1 %or.cond667, label %248, label %._crit_edge
 
 248:                                              ; preds = %241
   %249 = load ptr, ptr %135, align 8, !tbaa !67
@@ -1882,26 +1882,26 @@ _ZL12print_cyclesP8_IO_FILEdPKciiidd.exit340:     ; preds = %_ZL12print_cyclesP8
   %319 = getelementptr inbounds nuw i8, ptr %7, i64 432
   %320 = load i32, ptr %319, align 8, !tbaa !13
   %321 = icmp sgt i32 %320, 0
-  br i1 %321, label %.preheader606, label %322
+  br i1 %321, label %.preheader678, label %322
 
-.preheader606:                                    ; preds = %322, %318
+.preheader678:                                    ; preds = %322, %318
   br label %328
 
 322:                                              ; preds = %318
   %323 = getelementptr inbounds nuw i8, ptr %7, i64 456
   %324 = load i32, ptr %323, align 8, !tbaa !13
   %325 = icmp sgt i32 %324, 0
-  br i1 %325, label %.preheader606, label %_ZNSt6vectorI16WallCycleCounterSaIS0_EED2Ev.exit
+  br i1 %325, label %.preheader678, label %_ZNSt6vectorI16WallCycleCounterSaIS0_EED2Ev.exit
 
 326:                                              ; preds = %_ZNSt6vectorI16WallCycleCounterSaIS0_EE9push_backEOS0_.exit
   %327 = icmp eq ptr %.sroa.0436.1, %.sroa.10.1
   br i1 %327, label %377, label %361
 
-328:                                              ; preds = %.preheader606, %_ZNSt6vectorI16WallCycleCounterSaIS0_EE9push_backEOS0_.exit
-  %indvars.iv562 = phi i64 [ %indvars.iv.next563, %_ZNSt6vectorI16WallCycleCounterSaIS0_EE9push_backEOS0_.exit ], [ 3, %.preheader606 ]
-  %.sroa.0436.0513 = phi ptr [ %.sroa.0436.1, %_ZNSt6vectorI16WallCycleCounterSaIS0_EE9push_backEOS0_.exit ], [ null, %.preheader606 ]
-  %.sroa.10.0512 = phi ptr [ %.sroa.10.1, %_ZNSt6vectorI16WallCycleCounterSaIS0_EE9push_backEOS0_.exit ], [ null, %.preheader606 ]
-  %.sroa.15.0511 = phi ptr [ %.sroa.15.1, %_ZNSt6vectorI16WallCycleCounterSaIS0_EE9push_backEOS0_.exit ], [ null, %.preheader606 ]
+328:                                              ; preds = %.preheader678, %_ZNSt6vectorI16WallCycleCounterSaIS0_EE9push_backEOS0_.exit
+  %indvars.iv562 = phi i64 [ %indvars.iv.next563, %_ZNSt6vectorI16WallCycleCounterSaIS0_EE9push_backEOS0_.exit ], [ 3, %.preheader678 ]
+  %.sroa.0436.0513 = phi ptr [ %.sroa.0436.1, %_ZNSt6vectorI16WallCycleCounterSaIS0_EE9push_backEOS0_.exit ], [ null, %.preheader678 ]
+  %.sroa.10.0512 = phi ptr [ %.sroa.10.1, %_ZNSt6vectorI16WallCycleCounterSaIS0_EE9push_backEOS0_.exit ], [ null, %.preheader678 ]
+  %.sroa.15.0511 = phi ptr [ %.sroa.15.1, %_ZNSt6vectorI16WallCycleCounterSaIS0_EE9push_backEOS0_.exit ], [ null, %.preheader678 ]
   %329 = trunc i64 %indvars.iv562 to i32
   %330 = add i32 %329, -20
   %331 = icmp ult i32 %330, 17

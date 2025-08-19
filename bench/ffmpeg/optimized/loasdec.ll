@@ -20,7 +20,7 @@ define internal range(i32 0, 52) i32 @loas_probe(ptr noundef readonly captures(n
   %7 = getelementptr i8, ptr %3, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -3
   %9 = icmp sgt i32 %5, 3
-  br i1 %9, label %.preheader.lr.ph, label %.thread61
+  br i1 %9, label %.preheader.lr.ph, label %.thread63
 
 .preheader.lr.ph:                                 ; preds = %1
   %10 = ptrtoint ptr %8 to i64
@@ -82,19 +82,19 @@ define internal range(i32 0, 52) i32 @loas_probe(ptr noundef readonly captures(n
 
 ._crit_edge:                                      ; preds = %.thread
   %39 = icmp samesign ugt i32 %spec.select, 2
-  br i1 %39, label %.thread61, label %40
+  br i1 %39, label %.thread63, label %40
 
 40:                                               ; preds = %._crit_edge
   %41 = icmp samesign ugt i32 %35, 100
-  br i1 %41, label %.thread61, label %42
+  br i1 %41, label %.thread63, label %42
 
 42:                                               ; preds = %40
   %43 = icmp ugt i32 %35, 2
-  %spec.select64 = select i1 %43, i32 25, i32 0
-  br label %.thread61
+  %spec.select66 = select i1 %43, i32 25, i32 0
+  br label %.thread63
 
-.thread61:                                        ; preds = %42, %1, %40, %._crit_edge
-  %.036 = phi i32 [ 51, %._crit_edge ], [ 50, %40 ], [ 0, %1 ], [ %spec.select64, %42 ]
+.thread63:                                        ; preds = %42, %1, %40, %._crit_edge
+  %.036 = phi i32 [ 51, %._crit_edge ], [ 50, %40 ], [ 0, %1 ], [ %spec.select66, %42 ]
   ret i32 %.036
 }
 

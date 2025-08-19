@@ -1043,20 +1043,20 @@ Vec_PtrPush.exit87:                               ; preds = %.Vec_PtrGrow.exit11
 
 .critedge4.thread:                                ; preds = %.critedge
   %171 = getelementptr i8, ptr %1, i64 48
-  %.val76116169 = load ptr, ptr %171, align 8, !tbaa !63
-  %172 = getelementptr i8, ptr %.val76116169, i64 4
-  %.val76.val117170 = load i32, ptr %172, align 4, !tbaa !27
-  %173 = icmp sgt i32 %.val76.val117170, 0
+  %.val76116191 = load ptr, ptr %171, align 8, !tbaa !63
+  %172 = getelementptr i8, ptr %.val76116191, i64 4
+  %.val76.val117192 = load i32, ptr %172, align 4, !tbaa !27
+  %173 = icmp sgt i32 %.val76.val117192, 0
   br i1 %173, label %.lr.ph121.preheader, label %.critedge6.thread.thread
 
 .lr.ph121.preheader:                              ; preds = %.critedge4.thread, %.critedge4
-  %.val76116171 = phi ptr [ %.val76116169, %.critedge4.thread ], [ %.val76116, %.critedge4 ]
+  %.val76116193 = phi ptr [ %.val76116191, %.critedge4.thread ], [ %.val76116, %.critedge4 ]
   %174 = phi ptr [ %171, %.critedge4.thread ], [ %168, %.critedge4 ]
   br label %.lr.ph121
 
 .lr.ph121:                                        ; preds = %.lr.ph121.preheader, %.lr.ph121
   %indvars.iv137 = phi i64 [ 0, %.lr.ph121.preheader ], [ %indvars.iv.next138, %.lr.ph121 ]
-  %.val76120 = phi ptr [ %.val76116171, %.lr.ph121.preheader ], [ %.val76, %.lr.ph121 ]
+  %.val76120 = phi ptr [ %.val76116193, %.lr.ph121.preheader ], [ %.val76, %.lr.ph121 ]
   %.0119 = phi i32 [ 0, %.lr.ph121.preheader ], [ %185, %.lr.ph121 ]
   %175 = getelementptr i8, ptr %.val76120, i64 8
   %.val78.val = load ptr, ptr %175, align 8, !tbaa !29
@@ -1098,7 +1098,7 @@ Vec_PtrPush.exit87:                               ; preds = %.Vec_PtrGrow.exit11
   br label %195
 
 .critedge8.preheader:                             ; preds = %Vec_PtrPush.exit94, %.critedge4, %.preheader
-  %.0.lcssa164168 = phi i32 [ %185, %.preheader ], [ 0, %.critedge4 ], [ %185, %Vec_PtrPush.exit94 ]
+  %.0.lcssa186190 = phi i32 [ %185, %.preheader ], [ 0, %.critedge4 ], [ %185, %Vec_PtrPush.exit94 ]
   %191 = getelementptr i8, ptr %0, i64 44
   %.val67127 = load i32, ptr %191, align 4, !tbaa !53
   %192 = icmp sgt i32 %.val67127, 0
@@ -1273,7 +1273,7 @@ Vec_PtrPush.exit101:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %269, label %231, label %.critedge10, !llvm.loop !66
 
 .critedge10:                                      ; preds = %Vec_PtrPush.exit101, %.critedge8.preheader
-  %270 = add nsw i32 %.0.lcssa164168, 1
+  %270 = add nsw i32 %.0.lcssa186190, 1
   br label %.critedge6.thread.thread
 
 .critedge6.thread.thread:                         ; preds = %.critedge4.thread, %.critedge10, %.critedge6

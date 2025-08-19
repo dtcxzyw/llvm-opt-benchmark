@@ -261,7 +261,7 @@ Abc_ObjGlobalBdd.exit.i.i:                        ; preds = %81, %78, %Vec_AttGr
   br i1 %.not40.us.i.i.i, label %.preheader.us.outer.i.i.i, label %121
 
 .preheader.us.outer.i.i.i:                        ; preds = %.lr.ph45.split.us.i.i.i, %.thread.i.i.i
-  %indvars.iv.ph.i.i.i = phi i64 [ %indvars.iv.next55.i.i.i, %.thread.i.i.i ], [ 0, %.lr.ph45.split.us.i.i.i ]
+  %indvars.iv.ph.i.i.i = phi i64 [ %indvars.iv.next57.i.i.i, %.thread.i.i.i ], [ 0, %.lr.ph45.split.us.i.i.i ]
   %118 = phi i1 [ false, %.thread.i.i.i ], [ true, %.lr.ph45.split.us.i.i.i ]
   %119 = phi i1 [ true, %.thread.i.i.i ], [ false, %.lr.ph45.split.us.i.i.i ]
   br label %.preheader.us.i.i.i
@@ -318,9 +318,9 @@ Abc_ObjGlobalBdd.exit.i.i:                        ; preds = %81, %78, %Vec_AttGr
   %146 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, ptr noundef %145)
   %147 = getelementptr inbounds nuw i32, ptr %calloc.i.i.i, i64 %indvars.iv.i.i.i
   store i32 1, ptr %147, align 4, !tbaa !50
-  %indvars.iv.next55.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %exitcond.not56.i.i.i = icmp eq i64 %indvars.iv.next55.i.i.i, %wide.trip.count52.i.i.i
-  br i1 %exitcond.not56.i.i.i, label %._crit_edge.us.thread.i.i.i, label %.preheader.us.outer.i.i.i, !llvm.loop !57
+  %indvars.iv.next57.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
+  %exitcond.not58.i.i.i = icmp eq i64 %indvars.iv.next57.i.i.i, %wide.trip.count52.i.i.i
+  br i1 %exitcond.not58.i.i.i, label %._crit_edge.us.thread.i.i.i, label %.preheader.us.outer.i.i.i, !llvm.loop !57
 
 ._crit_edge.us.i.i.i:                             ; preds = %139
   br i1 %119, label %._crit_edge.us.thread.i.i.i, label %121

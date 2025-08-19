@@ -586,7 +586,7 @@ define internal range(i32 -21, 903) i32 @cvNlsConvTestSensSim(ptr noundef %0, pt
   %38 = fmul double %23, %37
   %39 = fdiv double %38, %3
   %40 = fcmp ugt double %39, 1.000000e+00
-  br i1 %40, label %61, label %.thread50
+  br i1 %40, label %61, label %.thread51
 
 .thread:                                          ; preds = %25
   %41 = fcmp ogt double %29, 1.000000e+00
@@ -598,7 +598,7 @@ define internal range(i32 -21, 903) i32 @cvNlsConvTestSensSim(ptr noundef %0, pt
 
 46:                                               ; preds = %.thread
   %47 = icmp eq i32 %26, 0
-  br i1 %47, label %48, label %.thread50
+  br i1 %47, label %48, label %.thread51
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 224
@@ -607,17 +607,17 @@ define internal range(i32 -21, 903) i32 @cvNlsConvTestSensSim(ptr noundef %0, pt
   %51 = select i1 %.not48, double %22, double %23
   br label %58
 
-.thread50:                                        ; preds = %30, %46
+.thread51:                                        ; preds = %30, %46
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 224
   %53 = load i32, ptr %52, align 8, !tbaa !66
   %.not47 = icmp eq i32 %53, 0
   br i1 %.not47, label %56, label %54
 
-54:                                               ; preds = %.thread50
+54:                                               ; preds = %.thread51
   %55 = call double @N_VWrmsNorm(ptr noundef nonnull %1, ptr noundef nonnull %4) #3
   br label %58
 
-56:                                               ; preds = %.thread50
+56:                                               ; preds = %.thread51
   %57 = call double @N_VWrmsNorm(ptr noundef %13, ptr noundef %20) #3
   br label %58
 

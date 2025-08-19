@@ -316,8 +316,8 @@ _ZNSt6vectorIiSaIiEEaSESt16initializer_listIiE.exit: ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 248
   %23 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #29
   store i32 10, ptr %23, align 4
-  %.sroa.4.0..sroa_idx54 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  store i32 5, ptr %.sroa.4.0..sroa_idx54, align 4
+  %.sroa.4.0..sroa_idx59 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  store i32 5, ptr %.sroa.4.0..sroa_idx59, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 4, ptr %.sroa.5.0..sroa_idx, align 4
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 240
@@ -388,7 +388,7 @@ _ZN2cv3VecIfLi3EE3allEf.exit:                     ; preds = %31
   store float 0.000000e+00, ptr %37, align 8, !tbaa !55
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
   %38 = invoke noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #29
-          to label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.body.thread50
+          to label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.body.thread55
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN2cv3VecIfLi3EE3allEf.exit
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -429,7 +429,7 @@ _ZN2cv13colored_kinfu6ParamsD2Ev.exit:            ; preds = %_ZNSt16allocator_tr
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-.body.thread50:                                   ; preds = %_ZN2cv3VecIfLi3EE3allEf.exit
+.body.thread55:                                   ; preds = %_ZN2cv3VecIfLi3EE3allEf.exit
   %54 = landingpad { ptr, i32 }
           cleanup
   br label %56
@@ -442,16 +442,16 @@ _ZN2cv13colored_kinfu6ParamsD2Ev.exit:            ; preds = %_ZNSt16allocator_tr
   %.not.i.i.i.i22 = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i.i22, label %_ZN2cv13colored_kinfu6ParamsD2Ev.exit23, label %56
 
-56:                                               ; preds = %.body.thread50, %.body
-  %.pn16.pn53 = phi { ptr, i32 } [ %54, %.body.thread50 ], [ %55, %.body ]
-  %57 = phi ptr [ %23, %.body.thread50 ], [ %.pre, %.body ]
+56:                                               ; preds = %.body.thread55, %.body
+  %.pn16.pn58 = phi { ptr, i32 } [ %54, %.body.thread55 ], [ %55, %.body ]
+  %57 = phi ptr [ %23, %.body.thread55 ], [ %.pre, %.body ]
   tail call void @_ZdlPv(ptr noundef nonnull %57) #30
   br label %_ZN2cv13colored_kinfu6ParamsD2Ev.exit23
 
 _ZN2cv13colored_kinfu6ParamsD2Ev.exit23:          ; preds = %.body, %56
-  %.pn16.pn49 = phi { ptr, i32 } [ %55, %.body ], [ %.pn16.pn53, %56 ]
+  %.pn16.pn54 = phi { ptr, i32 } [ %55, %.body ], [ %.pn16.pn58, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  resume { ptr, i32 } %.pn16.pn49
+  resume { ptr, i32 } %.pn16.pn54
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -528,10 +528,10 @@ _ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i:             ; preds = %_ZSt7advanceIPKimEv
   br label %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i.thread
 
 _ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i.thread:      ; preds = %_ZSt7advanceIPKimEvRT_T0_.exit.i, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i
-  %.sink.i.i25.i.idx8 = phi i64 [ %23, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i ], [ 0, %_ZSt7advanceIPKimEvRT_T0_.exit.i ]
+  %.sink.i.i25.i.idx11 = phi i64 [ %23, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i ], [ 0, %_ZSt7advanceIPKimEvRT_T0_.exit.i ]
   %27 = phi ptr [ %.pre26.i, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i ], [ %21, %_ZSt7advanceIPKimEvRT_T0_.exit.i ]
   %28 = sub nsw i64 12, %23
-  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %.sink.i.i25.i.idx8
+  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %.sink.i.i25.i.idx11
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %27, ptr nonnull align 4 %.sink.i.i25.i.ptr, i64 %28, i1 false)
   %29 = getelementptr inbounds i8, ptr %27, i64 %28
   store ptr %29, ptr %20, align 8, !tbaa !40

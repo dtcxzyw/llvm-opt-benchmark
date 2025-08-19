@@ -571,8 +571,8 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit219.thread: ; preds = %168, %._crit
 
 .preheader305.preheader:                          ; preds = %.thread292
   %196 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.09.0..sroa.09.0..cast, ptr noundef nonnull dereferenceable(4) @.str.27) #12
-  %.not162364 = icmp eq i32 %196, 0
-  br i1 %.not162364, label %.critedge, label %.lr.ph
+  %.not162389 = icmp eq i32 %196, 0
+  br i1 %.not162389, label %.critedge, label %.lr.ph
 
 .preheader305:                                    ; preds = %.lr.ph
   %197 = getelementptr inbounds nuw [5 x %"struct.(anonymous namespace)::TIME_UNITS"], ptr @_ZL10time_units, i64 0, i64 %indvars.iv.next
@@ -582,8 +582,8 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit219.thread: ; preds = %168, %._crit
   br i1 %.not162, label %.preheader305..critedge_crit_edge, label %.lr.ph, !llvm.loop !65
 
 .lr.ph:                                           ; preds = %.preheader305.preheader, %.preheader305
-  %indvars.iv365 = phi i64 [ %indvars.iv.next, %.preheader305 ], [ 0, %.preheader305.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv365, 1
+  %indvars.iv390 = phi i64 [ %indvars.iv.next, %.preheader305 ], [ 0, %.preheader305.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv390, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond, label %.critedge176, label %.preheader305, !llvm.loop !65
 
@@ -598,9 +598,9 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit219.thread: ; preds = %168, %._crit
 
 .critedge:                                        ; preds = %.preheader305..critedge_crit_edge, %.preheader305.preheader
   %indvars.iv.lcssa = phi i32 [ %201, %.preheader305..critedge_crit_edge ], [ 0, %.preheader305.preheader ]
-  %.lcssa353 = phi ptr [ %197, %.preheader305..critedge_crit_edge ], [ @_ZL10time_units, %.preheader305.preheader ]
+  %.lcssa378 = phi ptr [ %197, %.preheader305..critedge_crit_edge ], [ @_ZL10time_units, %.preheader305.preheader ]
   store i32 %indvars.iv.lcssa, ptr %2, align 8, !tbaa !49
-  %202 = getelementptr inbounds nuw i8, ptr %.lcssa353, i64 24
+  %202 = getelementptr inbounds nuw i8, ptr %.lcssa378, i64 24
   %203 = load ptr, ptr %202, align 8, !tbaa !66
   tail call void (ptr, ptr, ...) @_Z14proj_log_traceP8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, ptr noundef %203)
   br label %204
@@ -615,23 +615,23 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit219.thread: ; preds = %168, %._crit
 
 .preheader.preheader:                             ; preds = %204
   %208 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0..sroa.0.0..cast, ptr noundef nonnull dereferenceable(4) @.str.27) #12
-  %.not165367 = icmp eq i32 %208, 0
-  br i1 %.not165367, label %.critedge8, label %.lr.ph369
+  %.not165392 = icmp eq i32 %208, 0
+  br i1 %.not165392, label %.critedge8, label %.lr.ph394
 
-.preheader:                                       ; preds = %.lr.ph369
+.preheader:                                       ; preds = %.lr.ph394
   %209 = getelementptr inbounds nuw [5 x %"struct.(anonymous namespace)::TIME_UNITS"], ptr @_ZL10time_units, i64 0, i64 %indvars.iv.next335
   %210 = load ptr, ptr %209, align 16, !tbaa !63
   %211 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0..sroa.0.0..cast, ptr noundef nonnull dereferenceable(1) %210) #12
   %.not165 = icmp eq i32 %211, 0
-  br i1 %.not165, label %.preheader..critedge8_crit_edge, label %.lr.ph369, !llvm.loop !67
+  br i1 %.not165, label %.preheader..critedge8_crit_edge, label %.lr.ph394, !llvm.loop !67
 
-.lr.ph369:                                        ; preds = %.preheader.preheader, %.preheader
-  %indvars.iv334368 = phi i64 [ %indvars.iv.next335, %.preheader ], [ 0, %.preheader.preheader ]
-  %indvars.iv.next335 = add nuw nsw i64 %indvars.iv334368, 1
+.lr.ph394:                                        ; preds = %.preheader.preheader, %.preheader
+  %indvars.iv334393 = phi i64 [ %indvars.iv.next335, %.preheader ], [ 0, %.preheader.preheader ]
+  %indvars.iv.next335 = add nuw nsw i64 %indvars.iv334393, 1
   %exitcond337 = icmp eq i64 %indvars.iv.next335, 4
   br i1 %exitcond337, label %.critedge177, label %.preheader, !llvm.loop !67
 
-.critedge177:                                     ; preds = %.lr.ph369
+.critedge177:                                     ; preds = %.lr.ph394
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.25)
   %212 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
   br label %216
@@ -969,20 +969,20 @@ _ZL12days_in_yearl.exit20:                        ; preds = %._crit_edge
   br label %_ZL12days_in_yearl.exit26
 
 _ZL12is_leap_yearl.exit.i23:                      ; preds = %1, %._crit_edge
-  %.0.lcssa42 = phi i32 [ %.035, %._crit_edge ], [ 1858, %1 ]
-  %.013.lcssa41 = phi double [ %9, %._crit_edge ], [ 4.500000e+01, %1 ]
-  %16 = urem i32 %.0.lcssa42, 400
+  %.0.lcssa43 = phi i32 [ %.035, %._crit_edge ], [ 1858, %1 ]
+  %.013.lcssa42 = phi double [ %9, %._crit_edge ], [ 4.500000e+01, %1 ]
+  %16 = urem i32 %.0.lcssa43, 400
   %.not.i18 = icmp eq i32 %16, 0
   %spec.select.i19 = select i1 %.not.i18, i32 366, i32 365
   %17 = uitofp nneg i32 %spec.select.i19 to double
-  %18 = fsub double %.013.lcssa41, %17
+  %18 = fsub double %.013.lcssa42, %17
   br label %_ZL12days_in_yearl.exit26
 
 _ZL12days_in_yearl.exit26:                        ; preds = %_ZL12days_in_yearl.exit20, %_ZL12is_leap_yearl.exit.i23
-  %.0.lcssa43 = phi i32 [ %.035, %_ZL12days_in_yearl.exit20 ], [ %.0.lcssa42, %_ZL12is_leap_yearl.exit.i23 ]
+  %.0.lcssa44 = phi i32 [ %.035, %_ZL12days_in_yearl.exit20 ], [ %.0.lcssa43, %_ZL12is_leap_yearl.exit.i23 ]
   %.pn = phi double [ %15, %_ZL12days_in_yearl.exit20 ], [ %18, %_ZL12is_leap_yearl.exit.i23 ]
   %19 = phi double [ 3.660000e+02, %_ZL12days_in_yearl.exit20 ], [ %17, %_ZL12is_leap_yearl.exit.i23 ]
-  %20 = uitofp nneg i32 %.0.lcssa43 to double
+  %20 = uitofp nneg i32 %.0.lcssa44 to double
   %21 = fsub double %0, %.pn
   %22 = fdiv double %21, %19
   %23 = fadd double %22, %20
@@ -1049,7 +1049,7 @@ _ZL13days_in_monthmm.exit.thread.i:               ; preds = %1
   %spec.select.i34.i = add i32 %19, %30
   %31 = zext i32 %spec.select.i34.i to i64
   %32 = icmp samesign ugt i64 %spec.store.select1.i, 1
-  %.26 = tail call i64 @llvm.umin.i64(i64 %15, i64 %31)
+  %.29 = tail call i64 @llvm.umin.i64(i64 %15, i64 %31)
   br i1 %32, label %_ZL13days_in_monthmm.exit32.i, label %_ZL17daynumber_in_yearmmm.exit
 
 _ZL13days_in_monthmm.exit32.us.i:                 ; preds = %_ZL13days_in_monthmm.exit.i, %_ZL13days_in_monthmm.exit32.us.i
@@ -1084,7 +1084,7 @@ _ZL13days_in_monthmm.exit32.i:                    ; preds = %_ZL13days_in_monthm
   br i1 %exitcond.not.i, label %_ZL17daynumber_in_yearmmm.exit, label %_ZL13days_in_monthmm.exit32.i, !llvm.loop !81
 
 _ZL17daynumber_in_yearmmm.exit:                   ; preds = %_ZL13days_in_monthmm.exit32.i, %_ZL13days_in_monthmm.exit32.us.i, %_ZL13days_in_monthmm.exit.thread.i, %_ZL13days_in_monthmm.exit.i
-  %.01845.i = phi i64 [ %., %_ZL13days_in_monthmm.exit.i ], [ %.26, %_ZL13days_in_monthmm.exit.thread.i ], [ %., %_ZL13days_in_monthmm.exit32.us.i ], [ %.26, %_ZL13days_in_monthmm.exit32.i ]
+  %.01845.i = phi i64 [ %., %_ZL13days_in_monthmm.exit.i ], [ %.29, %_ZL13days_in_monthmm.exit.thread.i ], [ %., %_ZL13days_in_monthmm.exit32.us.i ], [ %.29, %_ZL13days_in_monthmm.exit32.i ]
   %.017.lcssa.i = phi i32 [ 0, %_ZL13days_in_monthmm.exit.i ], [ 0, %_ZL13days_in_monthmm.exit.thread.i ], [ %38, %_ZL13days_in_monthmm.exit32.us.i ], [ %44, %_ZL13days_in_monthmm.exit32.i ]
   %45 = trunc nuw i64 %.01845.i to i32
   %46 = add i32 %.017.lcssa.i, %45

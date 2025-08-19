@@ -119,8 +119,8 @@ define hidden void @_ZN8rawspeed17KodakDecompressorC2ENS_8RawImageENS_10ByteStre
   %37 = icmp samesign ugt i32 %29, 4516
   %or.cond = or i1 %37, %.not6
   %38 = icmp samesign ugt i32 %32, 3012
-  %or.cond9 = select i1 %or.cond, i1 true, i1 %38
-  br i1 %or.cond9, label %39, label %41
+  %or.cond10 = select i1 %or.cond, i1 true, i1 %38
+  br i1 %or.cond10, label %39, label %41
 
 39:                                               ; preds = %35, %27
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed17KodakDecompressorC2ENS_8RawImageENS_10ByteStreamEib, i32 noundef %29, i32 noundef %32) #10
@@ -286,9 +286,9 @@ define hidden void @_ZN8rawspeed17KodakDecompressor13decodeSegmentEj(ptr dead_on
 17:                                               ; preds = %_ZN8rawspeed10ByteStream7getByteEv.exit
   %18 = and i32 %2, 4
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %.preheader85, label %31
+  br i1 %.not, label %.preheader89, label %31
 
-.preheader85:                                     ; preds = %_ZN8rawspeed10ByteStream7getByteEv.exit48, %17
+.preheader89:                                     ; preds = %_ZN8rawspeed10ByteStream7getByteEv.exit48, %17
   %.promoted5462.ph = phi i32 [ %26, %17 ], [ %41, %_ZN8rawspeed10ByteStream7getByteEv.exit48 ]
   %.159.ph = phi i64 [ 0, %17 ], [ %43, %_ZN8rawspeed10ByteStream7getByteEv.exit48 ]
   %.13658.ph = phi i32 [ 0, %17 ], [ 16, %_ZN8rawspeed10ByteStream7getByteEv.exit48 ]
@@ -356,17 +356,17 @@ _ZN8rawspeed10ByteStream7getByteEv.exit48:        ; preds = %_ZN8rawspeed10ByteS
   store i32 %41, ptr %9, align 8, !tbaa !95
   %42 = zext i8 %.0.copyload.i.i.i.i.i.i47 to i64
   %43 = or disjoint i64 %38, %42
-  br label %.preheader85
+  br label %.preheader89
 
 44:                                               ; preds = %81
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-45:                                               ; preds = %.preheader85, %81
-  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %81 ], [ 0, %.preheader85 ]
-  %.promoted5462 = phi i32 [ %.promoted5461, %81 ], [ %.promoted5462.ph, %.preheader85 ]
-  %.159 = phi i64 [ %73, %81 ], [ %.159.ph, %.preheader85 ]
-  %.13658 = phi i32 [ %74, %81 ], [ %.13658.ph, %.preheader85 ]
+45:                                               ; preds = %.preheader89, %81
+  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %81 ], [ 0, %.preheader89 ]
+  %.promoted5462 = phi i32 [ %.promoted5461, %81 ], [ %.promoted5462.ph, %.preheader89 ]
+  %.159 = phi i64 [ %73, %81 ], [ %.159.ph, %.preheader89 ]
+  %.13658 = phi i32 [ %74, %81 ], [ %.13658.ph, %.preheader89 ]
   %46 = getelementptr inbounds nuw [512 x i8], ptr %4, i64 0, i64 %indvars.iv75
   %47 = load i8, ptr %46, align 1, !tbaa !102
   %48 = zext nneg i8 %47 to i32

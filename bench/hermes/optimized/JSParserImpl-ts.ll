@@ -1076,8 +1076,8 @@ land.lhs.true117.thread:                          ; preds = %if.end.i.i.i64, %if
   %Next2.i7.i.i.i.i74 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %retval.0.i.i.i66, ptr %Next2.i7.i.i.i.i74, align 8
   store ptr %retval.0.i.i.i66, ptr %params, align 8
-  %call118251 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
-  br i1 %call118251, label %while.cond.us, label %if.end149
+  %call118253 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
+  br i1 %call118253, label %while.cond.us, label %if.end149
 
 while.cond.us:                                    ; preds = %land.lhs.true117.thread, %if.else143.us
   %58 = load ptr, ptr %tok_.i, align 8
@@ -1997,7 +1997,7 @@ entry:
 
 while.cond:                                       ; preds = %while.cond.backedge, %entry
   %1 = phi i32 [ %.pre, %entry ], [ %.be, %while.cond.backedge ]
-  %2 = phi ptr [ %0, %entry ], [ %.be146, %while.cond.backedge ]
+  %2 = phi ptr [ %0, %entry ], [ %.be147, %while.cond.backedge ]
   %exportNode.0 = phi i8 [ 0, %entry ], [ %exportNode.0.be, %while.cond.backedge ]
   %staticNode.0 = phi i8 [ 0, %entry ], [ %staticNode.0.be, %while.cond.backedge ]
   %readonlyNode.0 = phi i8 [ 0, %entry ], [ %readonlyNode.0.be, %while.cond.backedge ]
@@ -2040,8 +2040,8 @@ if.end7:                                          ; preds = %if.then, %while.bod
   %7 = phi ptr [ %call2.i, %if.then ], [ %2, %while.body.thread ], [ %2, %_ZNK6hermes6parser6detail12JSParserImpl6checkNINS0_9TokenKindEJPNS_12UniqueStringEEEEbT_DpT0_.exit ], [ %2, %while.body ]
   %tobool8 = trunc nuw i8 %exportNode.0 to i1
   %cmp.i.i23 = icmp ne i32 %6, 34
-  %or.cond144.not = or i1 %cmp.i.i23, %tobool8
-  br i1 %or.cond144.not, label %if.end17, label %if.then11
+  %or.cond145.not = or i1 %cmp.i.i23, %tobool8
+  br i1 %or.cond145.not, label %if.end17, label %if.then11
 
 if.then11:                                        ; preds = %if.end7
   %call2.i32 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #4
@@ -2058,8 +2058,8 @@ if.end17:                                         ; preds = %if.then11, %if.end7
   %10 = phi ptr [ %call2.i32, %if.then11 ], [ %7, %if.end7 ]
   %tobool18 = trunc nuw i8 %readonlyNode.0 to i1
   %cmp.i.i41 = icmp ne i32 %9, 1
-  %or.cond145.not = or i1 %cmp.i.i41, %tobool18
-  br i1 %or.cond145.not, label %if.end27, label %_ZNK6hermes6parser6detail12JSParserImpl6checkNIPNS_12UniqueStringEEEbT_.exit
+  %or.cond146.not = or i1 %cmp.i.i41, %tobool18
+  br i1 %or.cond146.not, label %if.end27, label %_ZNK6hermes6parser6detail12JSParserImpl6checkNIPNS_12UniqueStringEEEbT_.exit
 
 _ZNK6hermes6parser6detail12JSParserImpl6checkNIPNS_12UniqueStringEEEbT_.exit: ; preds = %if.end17
   %11 = load ptr, ptr %readonlyIdent_, align 8
@@ -2113,7 +2113,7 @@ if.then35:                                        ; preds = %if.then31, %if.then
 
 while.cond.backedge:                              ; preds = %if.then35, %if.then44, %if.then53, %if.then, %if.then, %if.then, %if.then11, %if.then11, %if.then11, %if.then21, %if.then21, %if.then21
   %.be = phi i32 [ %18, %if.then35 ], [ %25, %if.then44 ], [ %32, %if.then53 ], [ %5, %if.then ], [ %8, %if.then11 ], [ %13, %if.then21 ], [ %5, %if.then ], [ %5, %if.then ], [ %8, %if.then11 ], [ %8, %if.then11 ], [ %13, %if.then21 ], [ %13, %if.then21 ]
-  %.be146 = phi ptr [ %call2.i74, %if.then35 ], [ %call2.i98, %if.then44 ], [ %call2.i122, %if.then53 ], [ %call2.i, %if.then ], [ %call2.i32, %if.then11 ], [ %call2.i50, %if.then21 ], [ %call2.i, %if.then ], [ %call2.i, %if.then ], [ %call2.i32, %if.then11 ], [ %call2.i32, %if.then11 ], [ %call2.i50, %if.then21 ], [ %call2.i50, %if.then21 ]
+  %.be147 = phi ptr [ %call2.i74, %if.then35 ], [ %call2.i98, %if.then44 ], [ %call2.i122, %if.then53 ], [ %call2.i, %if.then ], [ %call2.i32, %if.then11 ], [ %call2.i50, %if.then21 ], [ %call2.i, %if.then ], [ %call2.i, %if.then ], [ %call2.i32, %if.then11 ], [ %call2.i32, %if.then11 ], [ %call2.i50, %if.then21 ], [ %call2.i50, %if.then21 ]
   %exportNode.0.be = phi i8 [ %exportNode.0, %if.then35 ], [ %exportNode.0, %if.then44 ], [ %exportNode.0, %if.then53 ], [ %exportNode.0, %if.then ], [ 1, %if.then11 ], [ %exportNode.0, %if.then21 ], [ %exportNode.0, %if.then ], [ %exportNode.0, %if.then ], [ 1, %if.then11 ], [ 1, %if.then11 ], [ %exportNode.0, %if.then21 ], [ %exportNode.0, %if.then21 ]
   %staticNode.0.be = phi i8 [ %staticNode.0, %if.then35 ], [ %staticNode.0, %if.then44 ], [ %staticNode.0, %if.then53 ], [ 1, %if.then ], [ %staticNode.0, %if.then11 ], [ %staticNode.0, %if.then21 ], [ 1, %if.then ], [ 1, %if.then ], [ %staticNode.0, %if.then11 ], [ %staticNode.0, %if.then11 ], [ %staticNode.0, %if.then21 ], [ %staticNode.0, %if.then21 ]
   %readonlyNode.0.be = phi i8 [ %readonlyNode.0, %if.then35 ], [ %readonlyNode.0, %if.then44 ], [ %readonlyNode.0, %if.then53 ], [ %readonlyNode.0, %if.then ], [ %readonlyNode.0, %if.then11 ], [ 1, %if.then21 ], [ %readonlyNode.0, %if.then ], [ %readonlyNode.0, %if.then ], [ %readonlyNode.0, %if.then11 ], [ %readonlyNode.0, %if.then11 ], [ 1, %if.then21 ], [ 1, %if.then21 ]

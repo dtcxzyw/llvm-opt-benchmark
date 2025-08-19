@@ -1708,9 +1708,9 @@ _ZN6icu_7715MeasureUnitImplD2Ev.exit:             ; preds = %._crit_edge.i.i, %1
   br label %174
 
 174:                                              ; preds = %172, %171
-  %.lcssa187.sink = phi ptr [ %154, %172 ], [ %128, %171 ]
+  %.lcssa202.sink = phi ptr [ %154, %172 ], [ %128, %171 ]
   %.pn101 = phi { ptr, i32 } [ %173, %172 ], [ %.pn98, %171 ]
-  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.lcssa187.sink) #14
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.lcssa202.sink) #14
   call void @_ZN6icu_7711FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #14
   br label %175
 
@@ -1839,9 +1839,9 @@ _ZN6icu_7715MeasureUnitImplD2Ev.exit126:          ; preds = %._crit_edge.i.i120,
   br label %224
 
 224:                                              ; preds = %222, %221
-  %.lcssa182.sink = phi ptr [ %204, %222 ], [ %178, %221 ]
+  %.lcssa197.sink = phi ptr [ %204, %222 ], [ %178, %221 ]
   %.pn95 = phi { ptr, i32 } [ %223, %222 ], [ %.pn, %221 ]
-  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.lcssa182.sink) #14
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.lcssa197.sink) #14
   call void @_ZN6icu_7711FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %11) #14
   br label %225
 

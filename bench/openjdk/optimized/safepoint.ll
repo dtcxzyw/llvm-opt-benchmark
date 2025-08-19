@@ -679,7 +679,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
 
 38:                                               ; preds = %_ZL8back_offl.exit, %36
   %.032 = phi i32 [ 1, %36 ], [ %62, %_ZL8back_offl.exit ]
-  %.2 = phi i32 [ %.030.lcssa, %36 ], [ %.3.lcssa53, %_ZL8back_offl.exit ]
+  %.2 = phi i32 [ %.030.lcssa, %36 ], [ %.3.lcssa55, %_ZL8back_offl.exit ]
   %39 = load i8, ptr @SafepointTimeout, align 1
   %40 = trunc i8 %39 to i1
   br i1 %40, label %41, label %45
@@ -735,7 +735,7 @@ _ZL8back_offl.exit.thread:                        ; preds = %._crit_edge
   br label %63
 
 ._crit_edge.thread:                               ; preds = %45, %._crit_edge
-  %.3.lcssa53 = phi i32 [ %.4, %._crit_edge ], [ %.2, %45 ]
+  %.3.lcssa55 = phi i32 [ %.4, %._crit_edge ], [ %.2, %45 ]
   %57 = call noundef i64 @_ZN2os13javaTimeNanosEv() #16
   %58 = sub nsw i64 %57, %37
   %59 = icmp slt i64 %58, 1000000

@@ -337,15 +337,15 @@ get_categories_list.exit:                         ; preds = %8
 
 sub_0:                                            ; preds = %37
   %.not69 = icmp eq i8 %42, 110
-  br i1 %.not69, label %sub_1, label %.thread80
+  br i1 %.not69, label %sub_1, label %.thread84
 
 sub_1:                                            ; preds = %sub_0
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %44 = load i8, ptr %43, align 1
   %.not70 = icmp eq i8 %44, 111
-  br i1 %.not70, label %.tail, label %.thread80
+  br i1 %.not70, label %.tail, label %.thread84
 
-.thread80:                                        ; preds = %sub_1, %sub_0
+.thread84:                                        ; preds = %sub_1, %sub_0
   %45 = tail call ptr @findlongopt(ptr noundef nonnull %41) #16
   br label %59
 
@@ -376,8 +376,8 @@ sub_1:                                            ; preds = %sub_0
   %58 = tail call ptr @findshortopt(i8 noundef signext %39) #16
   br label %59
 
-59:                                               ; preds = %.thread80, %.tail, %57
-  %.1 = phi ptr [ %58, %57 ], [ %50, %.tail ], [ %45, %.thread80 ]
+59:                                               ; preds = %.thread84, %.tail, %57
+  %.1 = phi ptr [ %58, %57 ], [ %50, %.tail ], [ %45, %.thread84 ]
   %.not40 = icmp eq ptr %.1, null
   br i1 %.not40, label %.thread, label %.thread54
 

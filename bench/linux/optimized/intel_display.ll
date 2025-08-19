@@ -3549,7 +3549,7 @@ define dso_local void @ilk_set_pipeconf(ptr noundef readonly captures(none) %0) 
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 4744
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %.thread3, label %44, !prof !6
+  br i1 %43, label %.thread4, label %44, !prof !6
 
 44:                                               ; preds = %40
   tail call void asm sideeffect "1061: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1061b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1061) #25, !srcloc !81
@@ -3575,9 +3575,9 @@ define dso_local void @ilk_set_pipeconf(ptr noundef readonly captures(none) %0) 
   tail call void asm sideeffect "1064: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1064b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1064) #25, !srcloc !85
   %.pr.pre = load i8, ptr %37, align 4
   %56 = icmp eq i8 %.pr.pre, 0
-  br i1 %56, label %.thread, label %.thread3
+  br i1 %56, label %.thread, label %.thread4
 
-.thread3:                                         ; preds = %40, %54
+.thread4:                                         ; preds = %40, %54
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %58 = load i32, ptr %57, align 8
   %59 = shl i32 %58, 10
@@ -3586,8 +3586,8 @@ define dso_local void @ilk_set_pipeconf(ptr noundef readonly captures(none) %0) 
   %62 = or i32 %61, %36
   br label %.thread
 
-.thread:                                          ; preds = %24, %.thread3, %54
-  %63 = phi i32 [ %36, %54 ], [ %62, %.thread3 ], [ %36, %24 ]
+.thread:                                          ; preds = %24, %.thread4, %54
+  %63 = phi i32 [ %36, %54 ], [ %62, %.thread4 ], [ %36, %24 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 4744
   %65 = load i32, ptr %64, align 8
   %66 = icmp eq i32 %65, 0
@@ -4421,8 +4421,8 @@ define dso_local zeroext i1 @intel_pipe_config_compare(ptr noundef %0, ptr nound
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 1372
   %178 = load i32, ptr %177, align 4
   %179 = icmp eq i32 %176, %178
-  %or.cond413 = select i1 %174, i1 %179, i1 false
-  br i1 %or.cond413, label %180, label %._crit_edge393
+  %or.cond803 = select i1 %174, i1 %179, i1 false
+  br i1 %or.cond803, label %180, label %._crit_edge393
 
 180:                                              ; preds = %169
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 1376
@@ -4476,8 +4476,8 @@ define dso_local zeroext i1 @intel_pipe_config_compare(ptr noundef %0, ptr nound
   %219 = getelementptr inbounds nuw i8, ptr %1, i64 1372
   %220 = load i32, ptr %219, align 4
   %221 = icmp eq i32 %218, %220
-  %or.cond414 = select i1 %216, i1 %221, i1 false
-  br i1 %or.cond414, label %222, label %._crit_edge383
+  %or.cond804 = select i1 %216, i1 %221, i1 false
+  br i1 %or.cond804, label %222, label %._crit_edge383
 
 222:                                              ; preds = %211
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 1376
@@ -4532,8 +4532,8 @@ define dso_local zeroext i1 @intel_pipe_config_compare(ptr noundef %0, ptr nound
   %262 = getelementptr inbounds nuw i8, ptr %1, i64 1392
   %263 = load i32, ptr %262, align 4
   %264 = icmp eq i32 %261, %263
-  %or.cond415 = select i1 %259, i1 %264, i1 false
-  br i1 %or.cond415, label %265, label %._crit_edge388
+  %or.cond805 = select i1 %259, i1 %264, i1 false
+  br i1 %or.cond805, label %265, label %._crit_edge388
 
 265:                                              ; preds = %253
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 1396
@@ -5144,11 +5144,11 @@ define dso_local zeroext i1 @intel_pipe_config_compare(ptr noundef %0, ptr nound
   %664 = load i32, ptr %663, align 8
   %665 = and i32 %664, 4194304
   %666 = icmp ne i32 %665, 0
-  %or.cond417.not421 = select i1 %662, i1 true, i1 %666
+  %or.cond807.not811 = select i1 %662, i1 true, i1 %666
   %667 = and i32 %664, 18874368
   %668 = icmp eq i32 %667, 0
-  %or.cond419 = select i1 %or.cond417.not421, i1 %668, i1 false
-  br i1 %or.cond419, label %680, label %669
+  %or.cond809 = select i1 %or.cond807.not811, i1 %668, i1 false
+  br i1 %or.cond809, label %680, label %669
 
 669:                                              ; preds = %659
   %670 = getelementptr inbounds nuw i8, ptr %0, i64 868
@@ -9158,17 +9158,17 @@ intel_crtc_copy_uapi_to_hw_state_modeset.exit:    ; preds = %403, %425, %432
   %654 = getelementptr inbounds nuw i8, ptr %648, i64 632
   %655 = load i32, ptr %654, align 8
   %656 = and i32 %655, 3
-  %.not811 = icmp eq i32 %656, 0
+  %.not989 = icmp eq i32 %656, 0
   %657 = or disjoint i32 %655, 2
-  %658 = select i1 %.not811, i32 %657, i32 %655
+  %658 = select i1 %.not989, i32 %657, i32 %655
   %659 = and i32 %658, 12
-  %.not812 = icmp eq i32 %659, 0
-  %660 = or i1 %.not811, %.not812
+  %.not990 = icmp eq i32 %659, 0
+  %660 = or i1 %.not989, %.not990
   br i1 %660, label %661, label %663
 
 661:                                              ; preds = %642
   %662 = or disjoint i32 %658, 8
-  %simplifycfg.merge = select i1 %.not812, i32 %662, i32 %658
+  %simplifycfg.merge = select i1 %.not990, i32 %662, i32 %658
   store i32 %simplifycfg.merge, ptr %654, align 8
   br label %663
 
@@ -14288,9 +14288,9 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %410 = load ptr, ptr %409, align 8
   %411 = icmp ne ptr %410, null
   %412 = and i1 %408, %411
-  br i1 %412, label %.preheader97, label %.thread43
+  br i1 %412, label %.preheader143, label %.thread43
 
-.preheader97:                                     ; preds = %407, %434
+.preheader143:                                    ; preds = %407, %434
   %413 = phi ptr [ %435, %434 ], [ %401, %407 ]
   %414 = phi i64 [ %436, %434 ], [ 0, %407 ]
   %415 = load ptr, ptr %374, align 8
@@ -14303,7 +14303,7 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %422 = icmp eq ptr %417, null
   br i1 %422, label %434, label %423
 
-423:                                              ; preds = %.preheader97
+423:                                              ; preds = %.preheader143
   %424 = getelementptr inbounds nuw i8, ptr %421, i64 10
   %425 = load i8, ptr %424, align 2
   %426 = and i8 %425, 14
@@ -14321,14 +14321,14 @@ define internal fastcc void @intel_atomic_commit_tail(ptr noundef %0) unnamed_ad
   %.pre67 = load ptr, ptr %3, align 8
   br label %434
 
-434:                                              ; preds = %428, %423, %.preheader97
-  %435 = phi ptr [ %.pre67, %428 ], [ %413, %423 ], [ %413, %.preheader97 ]
+434:                                              ; preds = %428, %423, %.preheader143
+  %435 = phi ptr [ %.pre67, %428 ], [ %413, %423 ], [ %413, %.preheader143 ]
   %436 = add nuw nsw i64 %414, 1
   %437 = getelementptr inbounds nuw i8, ptr %435, i64 728
   %438 = load i32, ptr %437, align 8
   %439 = sext i32 %438 to i64
   %440 = icmp slt i64 %436, %439
-  br i1 %440, label %.preheader97, label %.thread43, !llvm.loop !221
+  br i1 %440, label %.preheader143, label %.thread43, !llvm.loop !221
 
 .thread43:                                        ; preds = %434, %368, %407
   call void @intel_dbuf_pre_plane_update(ptr noundef %0) #25
@@ -15608,23 +15608,23 @@ define dso_local void @intel_setup_outputs(ptr noundef %0) local_unnamed_addr #0
   %265 = phi ptr [ %263, %261 ], [ null, %259 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %265, i32 noundef 2, ptr noundef nonnull @.str.238) #25
   %266 = tail call zeroext i1 @intel_sdvo_init(ptr noundef %0, i32 397664, i32 noundef 2) #25
-  br i1 %266, label %.thread21, label %268
+  br i1 %266, label %.thread33, label %268
 
 267:                                              ; preds = %.thread
-  br i1 %254, label %.thread21, label %268
+  br i1 %254, label %.thread33, label %268
 
 268:                                              ; preds = %264, %267
   %269 = load ptr, ptr %228, align 8
   %270 = tail call i32 %269(ptr noundef nonnull %227, i32 397664, i1 noundef zeroext true) #25
   %271 = and i32 %270, 4
   %272 = icmp eq i32 %271, 0
-  br i1 %272, label %.thread21, label %273
+  br i1 %272, label %.thread33, label %273
 
 273:                                              ; preds = %268
   %274 = load i32, ptr %131, align 4
   %275 = and i32 %274, 196608
   %276 = icmp eq i32 %275, 0
-  br i1 %276, label %.thread21, label %277
+  br i1 %276, label %.thread33, label %277
 
 277:                                              ; preds = %273
   %278 = icmp eq ptr %0, null
@@ -15642,19 +15642,19 @@ define dso_local void @intel_setup_outputs(ptr noundef %0) local_unnamed_addr #0
   %.pre16 = load i32, ptr %131, align 4
   %.pre17 = and i32 %.pre16, 196608
   %284 = icmp eq i32 %.pre17, 0
-  br i1 %284, label %.thread21, label %285
+  br i1 %284, label %.thread33, label %285
 
 285:                                              ; preds = %282
   %286 = tail call zeroext i1 @g4x_dp_init(ptr noundef %0, i32 410112, i32 noundef 2) #25
-  br label %.thread21
+  br label %.thread33
 
-.thread21:                                        ; preds = %273, %264, %285, %282, %268, %267
+.thread33:                                        ; preds = %273, %264, %285, %282, %268, %267
   %287 = load i32, ptr %131, align 4
   %288 = and i32 %287, 196608
   %289 = icmp eq i32 %288, 0
   br i1 %289, label %297, label %290
 
-290:                                              ; preds = %.thread21
+290:                                              ; preds = %.thread33
   %291 = load ptr, ptr %228, align 8
   %292 = tail call i32 %291(ptr noundef nonnull %227, i32 410368, i1 noundef zeroext true) #25
   %293 = and i32 %292, 4
@@ -15665,7 +15665,7 @@ define dso_local void @intel_setup_outputs(ptr noundef %0) local_unnamed_addr #0
   %296 = tail call zeroext i1 @g4x_dp_init(ptr noundef %0, i32 410368, i32 noundef 3) #25
   br label %297
 
-297:                                              ; preds = %295, %290, %.thread21
+297:                                              ; preds = %295, %290, %.thread33
   %298 = load ptr, ptr %2, align 8
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 28
   %300 = load i16, ptr %299, align 4
@@ -17366,7 +17366,7 @@ define internal fastcc void @intel_pre_plane_update(ptr noundef %0, ptr noundef 
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 4932
   %21 = load i8, ptr %20, align 4, !range !14, !noundef !15
   %22 = icmp eq i8 %21, 0
-  br i1 %22, label %.thread32, label %23
+  br i1 %22, label %.thread39, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 4932
@@ -17431,22 +17431,22 @@ define internal fastcc void @intel_pre_plane_update(ptr noundef %0, ptr noundef 
   %66 = getelementptr inbounds nuw i8, ptr %13, i64 4934
   %67 = load i8, ptr %66, align 2
   %.not14 = icmp eq i8 %65, %67
-  br i1 %.not14, label %.thread32, label %68
+  br i1 %.not14, label %.thread39, label %68
 
 68:                                               ; preds = %23, %31, %35, %39, %45, %51, %57, %63, %27
   tail call void @intel_vrr_disable(ptr noundef %11) #25
   tail call void @intel_crtc_update_active_timings(ptr noundef %11, i1 noundef zeroext false) #25
   %.pr.pre = load i8, ptr %16, align 8
   %69 = icmp eq i8 %.pr.pre, 0
-  br i1 %69, label %.thread, label %.thread32
+  br i1 %69, label %.thread, label %.thread39
 
-.thread32:                                        ; preds = %19, %63, %68
+.thread39:                                        ; preds = %19, %63, %68
   %70 = getelementptr inbounds nuw i8, ptr %11, i64 877
   %71 = load i8, ptr %70, align 1, !range !14, !noundef !15
   %72 = icmp eq i8 %71, 0
   br i1 %72, label %.thread, label %73
 
-73:                                               ; preds = %.thread32
+73:                                               ; preds = %.thread39
   %74 = getelementptr inbounds nuw i8, ptr %13, i64 877
   %75 = load i8, ptr %74, align 1, !range !14, !noundef !15
   %76 = icmp eq i8 %75, 0
@@ -17518,7 +17518,7 @@ define internal fastcc void @intel_pre_plane_update(ptr noundef %0, ptr noundef 
   %119 = icmp slt i64 %117, %118
   br i1 %119, label %95, label %.thread, !llvm.loop !278
 
-.thread:                                          ; preds = %115, %2, %.critedge8, %81, %.thread32, %68
+.thread:                                          ; preds = %115, %2, %.critedge8, %81, %.thread39, %68
   tail call void @intel_drrs_deactivate(ptr noundef %11) #25
   tail call void @intel_psr_pre_plane_update(ptr noundef %0, ptr noundef nonnull %1) #25
   %120 = tail call zeroext i1 @hsw_ips_pre_update(ptr noundef %0, ptr noundef nonnull %1) #25
@@ -18581,7 +18581,7 @@ define internal noundef zeroext i1 @hsw_get_pipe_config(ptr noundef %0, ptr noun
   %359 = getelementptr inbounds nuw i8, ptr %7, i64 2632
   %360 = load i16, ptr %359, align 8
   %361 = icmp ugt i16 %360, 10
-  br i1 %361, label %362, label %.thread27
+  br i1 %361, label %362, label %.thread36
 
 362:                                              ; preds = %353, %358
   %.val = load ptr, ptr %0, align 8
@@ -18589,19 +18589,19 @@ define internal noundef zeroext i1 @hsw_get_pipe_config(ptr noundef %0, ptr noun
   %.phi.trans.insert22 = getelementptr inbounds nuw i8, ptr %7, i64 2632
   %.pre23 = load i16, ptr %.phi.trans.insert22, align 8
   %363 = icmp ugt i16 %.pre23, 10
-  br i1 %363, label %364, label %.thread27
+  br i1 %363, label %364, label %.thread36
 
 364:                                              ; preds = %362
   %365 = load i32, ptr %354, align 8
   %366 = add i32 %365, -5
   %367 = icmp ult i32 %366, 2
-  br i1 %367, label %.thread27, label %368
+  br i1 %367, label %.thread36, label %368
 
 368:                                              ; preds = %364
   tail call void @intel_vrr_get_config(ptr noundef %1) #25
-  br label %.thread27
+  br label %.thread36
 
-.thread27:                                        ; preds = %358, %368, %364, %362
+.thread36:                                        ; preds = %358, %368, %364, %362
   %369 = getelementptr inbounds nuw i8, ptr %7, i64 2624
   %370 = getelementptr inbounds nuw i8, ptr %7, i64 2632
   %371 = load ptr, ptr %0, align 8
@@ -18641,7 +18641,7 @@ define internal noundef zeroext i1 @hsw_get_pipe_config(ptr noundef %0, ptr noun
   %401 = icmp slt i32 %400, 2
   br i1 %401, label %410, label %402
 
-402:                                              ; preds = %.thread27
+402:                                              ; preds = %.thread36
   %403 = load ptr, ptr %1, align 8
   %404 = getelementptr inbounds nuw i8, ptr %403, i64 1648
   %405 = load i32, ptr %404, align 8
@@ -18655,7 +18655,7 @@ define internal noundef zeroext i1 @hsw_get_pipe_config(ptr noundef %0, ptr noun
   store i32 %393, ptr %396, align 4
   br label %410
 
-410:                                              ; preds = %402, %.thread27
+410:                                              ; preds = %402, %.thread36
   %411 = load i32, ptr %246, align 4
   %412 = and i32 %411, 4194304
   %413 = icmp eq i32 %412, 0
@@ -19027,16 +19027,16 @@ define internal void @hsw_crtc_enable(ptr noundef %0, ptr noundef %1) #0 align 1
   %114 = zext i8 %32 to i32
   %115 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %114, i32 -1) #26, !srcloc !12
   %116 = icmp eq i32 %113, %115
-  br i1 %116, label %.thread42, label %117
+  br i1 %116, label %.thread66, label %117
 
 117:                                              ; preds = %110
   %118 = load ptr, ptr %111, align 8
   %119 = tail call ptr @intel_crtc_for_pipe(ptr noundef %118, i32 noundef %115) #25
   %.pre = load i8, ptr %31, align 1
   %120 = icmp eq i8 %.pre, 0
-  br i1 %120, label %.loopexit32, label %.thread42
+  br i1 %120, label %.loopexit32, label %.thread66
 
-.thread42:                                        ; preds = %110, %117
+.thread66:                                        ; preds = %110, %117
   %121 = phi ptr [ %119, %117 ], [ %111, %110 ]
   %122 = phi i8 [ %.pre, %117 ], [ %32, %110 ]
   %123 = load ptr, ptr %9, align 8
@@ -19047,7 +19047,7 @@ define internal void @hsw_crtc_enable(ptr noundef %0, ptr noundef %1) #0 align 1
   %128 = icmp eq i32 %125, %127
   br i1 %128, label %.loopexit32, label %129
 
-129:                                              ; preds = %.thread42
+129:                                              ; preds = %.thread66
   %130 = load ptr, ptr %3, align 8
   %131 = getelementptr inbounds nuw i8, ptr %121, i64 144
   %132 = load i32, ptr %131, align 8
@@ -19100,8 +19100,8 @@ define internal void @hsw_crtc_enable(ptr noundef %0, ptr noundef %1) #0 align 1
   %165 = icmp slt i64 %163, %164
   br i1 %165, label %141, label %.loopexit32, !llvm.loop !317
 
-.loopexit32:                                      ; preds = %161, %129, %.thread42, %117
-  %166 = phi ptr [ %121, %129 ], [ %121, %.thread42 ], [ %119, %117 ], [ %121, %161 ]
+.loopexit32:                                      ; preds = %161, %129, %.thread66, %117
+  %166 = phi ptr [ %121, %129 ], [ %121, %.thread66 ], [ %119, %117 ], [ %121, %161 ]
   %167 = getelementptr inbounds nuw i8, ptr %9, i64 920
   %168 = load ptr, ptr %167, align 8
   %169 = icmp eq ptr %168, null
@@ -19422,39 +19422,39 @@ intel_cpu_transcoder_set_m1_n1.exit23:            ; preds = %327, %343
   br label %intel_cpu_transcoder_set_m2_n2.exit.sink.split
 
 intel_cpu_transcoder_set_m2_n2.exit.sink.split:   ; preds = %309, %293, %386
-  %.sink75.in = phi ptr [ %370, %386 ], [ %289, %293 ], [ %289, %309 ]
-  %.sink73 = phi i64 [ 1392, %386 ], [ 1500, %293 ], [ 1500, %309 ]
-  %.sink70 = phi ptr [ %371, %386 ], [ %283, %293 ], [ %283, %309 ]
-  %.sink65 = phi i32 [ %398, %386 ], [ %305, %293 ], [ %313, %309 ]
-  %.sink63 = phi i64 [ 1396, %386 ], [ 1504, %293 ], [ 1504, %309 ]
-  %.sink58 = phi i32 [ %399, %386 ], [ %306, %293 ], [ %314, %309 ]
-  %.sink56 = phi i64 [ 1400, %386 ], [ 1508, %293 ], [ 1508, %309 ]
-  %.sink51 = phi i32 [ %400, %386 ], [ %307, %293 ], [ %315, %309 ]
-  %.sink49 = phi i64 [ 1404, %386 ], [ 1512, %293 ], [ 1512, %309 ]
-  %.sink44 = phi i32 [ %401, %386 ], [ %308, %293 ], [ %316, %309 ]
-  %.sink75 = load i32, ptr %.sink75.in, align 4
-  %402 = shl i32 %.sink75, 25
+  %.sink99.in = phi ptr [ %370, %386 ], [ %289, %293 ], [ %289, %309 ]
+  %.sink97 = phi i64 [ 1392, %386 ], [ 1500, %293 ], [ 1500, %309 ]
+  %.sink94 = phi ptr [ %371, %386 ], [ %283, %293 ], [ %283, %309 ]
+  %.sink89 = phi i32 [ %398, %386 ], [ %305, %293 ], [ %313, %309 ]
+  %.sink87 = phi i64 [ 1396, %386 ], [ 1504, %293 ], [ 1504, %309 ]
+  %.sink82 = phi i32 [ %399, %386 ], [ %306, %293 ], [ %314, %309 ]
+  %.sink80 = phi i64 [ 1400, %386 ], [ 1508, %293 ], [ 1508, %309 ]
+  %.sink75 = phi i32 [ %400, %386 ], [ %307, %293 ], [ %315, %309 ]
+  %.sink73 = phi i64 [ 1404, %386 ], [ 1512, %293 ], [ 1512, %309 ]
+  %.sink68 = phi i32 [ %401, %386 ], [ %308, %293 ], [ %316, %309 ]
+  %.sink99 = load i32, ptr %.sink99.in, align 4
+  %402 = shl i32 %.sink99, 25
   %403 = add i32 %402, 2113929216
   %404 = and i32 %403, 2113929216
-  %405 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink73
+  %405 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink97
   %406 = load i32, ptr %405, align 4
   %407 = or i32 %404, %406
-  %408 = getelementptr inbounds nuw i8, ptr %.sink70, i64 7368
-  %409 = getelementptr inbounds nuw i8, ptr %.sink70, i64 7544
+  %408 = getelementptr inbounds nuw i8, ptr %.sink94, i64 7368
+  %409 = getelementptr inbounds nuw i8, ptr %.sink94, i64 7544
   %410 = load ptr, ptr %409, align 8
-  tail call void %410(ptr noundef nonnull %408, i32 %.sink65, i32 noundef %407, i1 noundef zeroext true) #25
-  %411 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink63
+  tail call void %410(ptr noundef nonnull %408, i32 %.sink89, i32 noundef %407, i1 noundef zeroext true) #25
+  %411 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink87
   %412 = load i32, ptr %411, align 4
   %413 = load ptr, ptr %409, align 8
-  tail call void %413(ptr noundef nonnull %408, i32 %.sink58, i32 noundef %412, i1 noundef zeroext true) #25
-  %414 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink56
+  tail call void %413(ptr noundef nonnull %408, i32 %.sink82, i32 noundef %412, i1 noundef zeroext true) #25
+  %414 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink80
   %415 = load i32, ptr %414, align 4
   %416 = load ptr, ptr %409, align 8
-  tail call void %416(ptr noundef nonnull %408, i32 %.sink51, i32 noundef %415, i1 noundef zeroext true) #25
-  %417 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink49
+  tail call void %416(ptr noundef nonnull %408, i32 %.sink75, i32 noundef %415, i1 noundef zeroext true) #25
+  %417 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink73
   %418 = load i32, ptr %417, align 4
   %419 = load ptr, ptr %409, align 8
-  tail call void %419(ptr noundef nonnull %408, i32 %.sink44, i32 noundef %418, i1 noundef zeroext true) #25
+  tail call void %419(ptr noundef nonnull %408, i32 %.sink68, i32 noundef %418, i1 noundef zeroext true) #25
   br label %intel_cpu_transcoder_set_m2_n2.exit
 
 intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %intel_cpu_transcoder_set_m2_n2.exit.sink.split, %379, %377, %317
@@ -19901,9 +19901,9 @@ define internal void @hsw_crtc_disable(ptr noundef %0, ptr noundef readonly capt
   %56 = getelementptr %struct.__drm_crtcs_state, ptr %53, i64 %55, i32 2
   %57 = load ptr, ptr %56, align 8
   %58 = icmp sgt i32 %49, 0
-  br i1 %58, label %.preheader13, label %.thread
+  br i1 %58, label %.preheader26, label %.thread
 
-.preheader13:                                     ; preds = %52, %78
+.preheader26:                                     ; preds = %52, %78
   %59 = phi i32 [ %79, %78 ], [ %49, %52 ]
   %60 = phi i64 [ %80, %78 ], [ 0, %52 ]
   %61 = load ptr, ptr %26, align 8
@@ -19912,7 +19912,7 @@ define internal void @hsw_crtc_disable(ptr noundef %0, ptr noundef readonly capt
   %64 = icmp eq ptr %63, null
   br i1 %64, label %78, label %65
 
-65:                                               ; preds = %.preheader13
+65:                                               ; preds = %.preheader26
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
@@ -19933,12 +19933,12 @@ define internal void @hsw_crtc_disable(ptr noundef %0, ptr noundef readonly capt
   %.pre = load i32, ptr %22, align 8
   br label %78
 
-78:                                               ; preds = %77, %73, %65, %.preheader13
-  %79 = phi i32 [ %.pre, %77 ], [ %59, %73 ], [ %59, %65 ], [ %59, %.preheader13 ]
+78:                                               ; preds = %77, %73, %65, %.preheader26
+  %79 = phi i32 [ %.pre, %77 ], [ %59, %73 ], [ %59, %65 ], [ %59, %.preheader26 ]
   %80 = add nuw nsw i64 %60, 1
   %81 = sext i32 %79 to i64
   %82 = icmp slt i64 %80, %81
-  br i1 %82, label %.preheader13, label %.thread, !llvm.loop !321
+  br i1 %82, label %.preheader26, label %.thread, !llvm.loop !321
 
 .thread:                                          ; preds = %78, %21, %52, %14
   tail call void @intel_disable_shared_dpll(ptr noundef %9) #25
@@ -23233,39 +23233,39 @@ intel_cpu_transcoder_set_m1_n1.exit9:             ; preds = %78, %94
   br label %intel_cpu_transcoder_set_m2_n2.exit.sink.split
 
 intel_cpu_transcoder_set_m2_n2.exit.sink.split:   ; preds = %59, %43, %137
-  %.sink44.in = phi ptr [ %121, %137 ], [ %38, %43 ], [ %38, %59 ]
-  %.sink42 = phi i64 [ 1392, %137 ], [ 1500, %43 ], [ 1500, %59 ]
-  %.sink39 = phi ptr [ %122, %137 ], [ %39, %43 ], [ %39, %59 ]
-  %.sink34 = phi i32 [ %149, %137 ], [ %55, %43 ], [ %63, %59 ]
-  %.sink32 = phi i64 [ 1396, %137 ], [ 1504, %43 ], [ 1504, %59 ]
-  %.sink27 = phi i32 [ %150, %137 ], [ %56, %43 ], [ %64, %59 ]
-  %.sink25 = phi i64 [ 1400, %137 ], [ 1508, %43 ], [ 1508, %59 ]
-  %.sink20 = phi i32 [ %151, %137 ], [ %57, %43 ], [ %65, %59 ]
-  %.sink18 = phi i64 [ 1404, %137 ], [ 1512, %43 ], [ 1512, %59 ]
-  %.sink13 = phi i32 [ %152, %137 ], [ %58, %43 ], [ %66, %59 ]
-  %.sink44 = load i32, ptr %.sink44.in, align 4
-  %153 = shl i32 %.sink44, 25
+  %.sink50.in = phi ptr [ %121, %137 ], [ %38, %43 ], [ %38, %59 ]
+  %.sink48 = phi i64 [ 1392, %137 ], [ 1500, %43 ], [ 1500, %59 ]
+  %.sink45 = phi ptr [ %122, %137 ], [ %39, %43 ], [ %39, %59 ]
+  %.sink40 = phi i32 [ %149, %137 ], [ %55, %43 ], [ %63, %59 ]
+  %.sink38 = phi i64 [ 1396, %137 ], [ 1504, %43 ], [ 1504, %59 ]
+  %.sink33 = phi i32 [ %150, %137 ], [ %56, %43 ], [ %64, %59 ]
+  %.sink31 = phi i64 [ 1400, %137 ], [ 1508, %43 ], [ 1508, %59 ]
+  %.sink26 = phi i32 [ %151, %137 ], [ %57, %43 ], [ %65, %59 ]
+  %.sink24 = phi i64 [ 1404, %137 ], [ 1512, %43 ], [ 1512, %59 ]
+  %.sink19 = phi i32 [ %152, %137 ], [ %58, %43 ], [ %66, %59 ]
+  %.sink50 = load i32, ptr %.sink50.in, align 4
+  %153 = shl i32 %.sink50, 25
   %154 = add i32 %153, 2113929216
   %155 = and i32 %154, 2113929216
-  %156 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink42
+  %156 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink48
   %157 = load i32, ptr %156, align 4
   %158 = or i32 %155, %157
-  %159 = getelementptr inbounds nuw i8, ptr %.sink39, i64 7368
-  %160 = getelementptr inbounds nuw i8, ptr %.sink39, i64 7544
+  %159 = getelementptr inbounds nuw i8, ptr %.sink45, i64 7368
+  %160 = getelementptr inbounds nuw i8, ptr %.sink45, i64 7544
   %161 = load ptr, ptr %160, align 8
-  tail call void %161(ptr noundef nonnull %159, i32 %.sink34, i32 noundef %158, i1 noundef zeroext true) #25
-  %162 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink32
+  tail call void %161(ptr noundef nonnull %159, i32 %.sink40, i32 noundef %158, i1 noundef zeroext true) #25
+  %162 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink38
   %163 = load i32, ptr %162, align 4
   %164 = load ptr, ptr %160, align 8
-  tail call void %164(ptr noundef nonnull %159, i32 %.sink27, i32 noundef %163, i1 noundef zeroext true) #25
-  %165 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink25
+  tail call void %164(ptr noundef nonnull %159, i32 %.sink33, i32 noundef %163, i1 noundef zeroext true) #25
+  %165 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink31
   %166 = load i32, ptr %165, align 4
   %167 = load ptr, ptr %160, align 8
-  tail call void %167(ptr noundef nonnull %159, i32 %.sink20, i32 noundef %166, i1 noundef zeroext true) #25
-  %168 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink18
+  tail call void %167(ptr noundef nonnull %159, i32 %.sink26, i32 noundef %166, i1 noundef zeroext true) #25
+  %168 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink24
   %169 = load i32, ptr %168, align 4
   %170 = load ptr, ptr %160, align 8
-  tail call void %170(ptr noundef nonnull %159, i32 %.sink13, i32 noundef %169, i1 noundef zeroext true) #25
+  tail call void %170(ptr noundef nonnull %159, i32 %.sink19, i32 noundef %169, i1 noundef zeroext true) #25
   br label %intel_cpu_transcoder_set_m2_n2.exit
 
 intel_cpu_transcoder_set_m2_n2.exit:              ; preds = %intel_cpu_transcoder_set_m2_n2.exit.sink.split, %130, %128, %67

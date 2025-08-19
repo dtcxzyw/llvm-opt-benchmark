@@ -334,12 +334,12 @@ define noundef zeroext i1 @_ZN3g2o32OptimizationAlgorithmWithHessian4initEb(ptr 
   br i1 %35, label %.sink.split, label %40
 
 .sink.split:                                      ; preds = %.critedge, %25
-  %.sink13 = phi i1 [ true, %25 ], [ false, %.critedge ]
+  %.sink15 = phi i1 [ true, %25 ], [ false, %.critedge ]
   %36 = load ptr, ptr %3, align 8, !tbaa !47
   %37 = load ptr, ptr %36, align 8, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(64) %36, i1 noundef zeroext %.sink13)
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(64) %36, i1 noundef zeroext %.sink15)
   br label %40
 
 40:                                               ; preds = %.sink.split, %.critedge, %25

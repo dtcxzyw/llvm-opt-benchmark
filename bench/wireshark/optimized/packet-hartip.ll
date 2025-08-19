@@ -943,27 +943,27 @@ dissect_session_init.exit:                        ; preds = %95, %101
 120:                                              ; preds = %.lr.ph.i
   %121 = add nuw nsw i32 %.0109210.i, 1
   %exitcond.not.i = icmp eq i32 %121, %84
-  br i1 %exitcond.not.i, label %._crit_edge.thread216.i.loopexit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %._crit_edge.thread224.i.loopexit, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %.not126.i = icmp eq i32 %.0109210.i, 0
-  br i1 %.not126.i, label %125, label %._crit_edge.thread216.i
+  br i1 %.not126.i, label %125, label %._crit_edge.thread224.i
 
-._crit_edge.thread216.i.loopexit:                 ; preds = %120
+._crit_edge.thread224.i.loopexit:                 ; preds = %120
   %.pre = add i32 %3, %11
-  br label %._crit_edge.thread216.i
+  br label %._crit_edge.thread224.i
 
-._crit_edge.thread216.i:                          ; preds = %._crit_edge.thread216.i.loopexit, %._crit_edge.i
-  %.pre-phi = phi i32 [ %.pre, %._crit_edge.thread216.i.loopexit ], [ %118, %._crit_edge.i ]
-  %.0109.lcssa219.i = phi i32 [ %84, %._crit_edge.thread216.i.loopexit ], [ %.0109210.i, %._crit_edge.i ]
+._crit_edge.thread224.i:                          ; preds = %._crit_edge.thread224.i.loopexit, %._crit_edge.i
+  %.pre-phi = phi i32 [ %.pre, %._crit_edge.thread224.i.loopexit ], [ %118, %._crit_edge.i ]
+  %.0109.lcssa227.i = phi i32 [ %84, %._crit_edge.thread224.i.loopexit ], [ %.0109210.i, %._crit_edge.i ]
   %122 = load i32, ptr @hf_hartip_pt_preambles, align 4
-  %123 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %122, ptr noundef %0, i32 noundef %79, i32 noundef %.0109.lcssa219.i, i32 noundef 0)
-  %124 = sub nsw i32 %84, %.0109.lcssa219.i
+  %123 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %122, ptr noundef %0, i32 noundef %79, i32 noundef %.0109.lcssa227.i, i32 noundef 0)
+  %124 = sub nsw i32 %84, %.0109.lcssa227.i
   br label %125
 
-125:                                              ; preds = %._crit_edge.thread216.i, %._crit_edge.i
-  %.0114.i = phi i32 [ %124, %._crit_edge.thread216.i ], [ %84, %._crit_edge.i ]
-  %.0108.i = phi i32 [ %.pre-phi, %._crit_edge.thread216.i ], [ %79, %._crit_edge.i ]
+125:                                              ; preds = %._crit_edge.thread224.i, %._crit_edge.i
+  %.0114.i = phi i32 [ %124, %._crit_edge.thread224.i ], [ %84, %._crit_edge.i ]
+  %.0108.i = phi i32 [ %.pre-phi, %._crit_edge.thread224.i ], [ %79, %._crit_edge.i ]
   %126 = icmp sgt i32 %.0114.i, 0
   br i1 %126, label %127, label %dissect_pass_through.exit
 

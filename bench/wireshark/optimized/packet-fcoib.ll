@@ -348,12 +348,12 @@ define internal i32 @dissect_fcoib(ptr noundef %0, ptr noundef %1, ptr noundef %
   %73 = icmp ult i8 %switch.tableidx, 7
   %switch.shifted = lshr i8 99, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond112 = select i1 %73, i1 %switch.lobit, i1 false
+  %or.cond114 = select i1 %73, i1 %switch.lobit, i1 false
   %74 = shl nuw nsw i8 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i8 %74 to i56
   %switch.downshift = lshr i56 282574488338690, %switch.shiftamt
   %switch.masked = trunc i56 %switch.downshift to i8
-  %storemerge = select i1 %or.cond112, i8 %switch.masked, i8 0
+  %storemerge = select i1 %or.cond114, i8 %switch.masked, i8 0
   store i8 %storemerge, ptr %72, align 4
   %.not109 = icmp eq i32 %.097, 65
   br i1 %.not109, label %79, label %75

@@ -275,9 +275,9 @@ define internal void @lv_arc_event(ptr readnone captures(none) %0, ptr noundef %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %121, %126
-  %.sink352 = phi i8 [ %127, %126 ], [ %122, %121 ]
+  %.sink370 = phi i8 [ %127, %126 ], [ %122, %121 ]
   %.3254.ph = phi float [ %98, %126 ], [ 0.000000e+00, %121 ]
-  store i8 %.sink352, ptr %33, align 8
+  store i8 %.sink370, ptr %33, align 8
   br label %128
 
 128:                                              ; preds = %.sink.split, %120, %123
@@ -413,21 +413,21 @@ lv_arc_get_value.exit:                            ; preds = %143, %168
   %203 = load i32, ptr %202, align 4, !tbaa !21
   %204 = and i32 %201, -3
   %or.cond9 = icmp eq i32 %204, 17
-  br i1 %or.cond9, label %.sink.split353, label %205
+  br i1 %or.cond9, label %.sink.split371, label %205
 
 205:                                              ; preds = %200
   switch i32 %201, label %207 [
-    i32 20, label %.sink.split353
-    i32 18, label %.sink.split353
+    i32 20, label %.sink.split371
+    i32 18, label %.sink.split371
   ]
 
-.sink.split353:                                   ; preds = %205, %205, %200
-  %.sink355 = phi i32 [ 1, %200 ], [ -1, %205 ], [ -1, %205 ]
-  %206 = add nsw i32 %203, %.sink355
+.sink.split371:                                   ; preds = %205, %205, %200
+  %.sink373 = phi i32 [ 1, %200 ], [ -1, %205 ], [ -1, %205 ]
+  %206 = add nsw i32 %203, %.sink373
   tail call void @lv_arc_set_value(ptr noundef nonnull %17, i32 noundef %206)
   br label %207
 
-207:                                              ; preds = %.sink.split353, %205
+207:                                              ; preds = %.sink.split371, %205
   %208 = load i32, ptr %202, align 4, !tbaa !21
   %.not282 = icmp eq i32 %203, %208
   br i1 %.not282, label %.critedge, label %209
@@ -1088,7 +1088,7 @@ define internal fastcc void @value_update(ptr noundef nonnull %0) unnamed_addr #
   %13 = load i8, ptr %12, align 8
   %14 = lshr i8 %13, 1
   %15 = and i8 %14, 3
-  switch i8 %15, label %default.unreachable56 [
+  switch i8 %15, label %default.unreachable58 [
     i8 1, label %16
     i8 2, label %36
     i8 0, label %46
@@ -1153,7 +1153,7 @@ define internal fastcc void @value_update(ptr noundef nonnull %0) unnamed_addr #
   tail call void @lv_arc_set_start_angle(ptr noundef nonnull %0, float noundef %54)
   br label %56
 
-default.unreachable56:                            ; preds = %5
+default.unreachable58:                            ; preds = %5
   unreachable
 
 56:                                               ; preds = %26, %31, %46, %36
@@ -1386,10 +1386,10 @@ define void @lv_arc_set_range(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
   store i32 %2, ptr %13, align 4, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %15 = load i32, ptr %14, align 4, !tbaa !21
-  %.not20 = icmp slt i32 %15, %1
+  %.not23 = icmp slt i32 %15, %1
   %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 %1)
-  %.not21 = icmp sgt i32 %16, %2
-  %17 = or i1 %.not20, %.not21
+  %.not24 = icmp sgt i32 %16, %2
+  %17 = or i1 %.not23, %.not24
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %12
@@ -1776,8 +1776,8 @@ define void @lv_arc_rotate_obj_to_angle(ptr noundef %0, ptr noundef %1, i32 noun
   %.neg.neg = sdiv i32 %.sroa.0.0.extract.trunc.i, 2
   %10 = load i32, ptr %5, align 4, !tbaa !30
   %11 = add i32 %10, %2
-  %.neg24 = sub i32 %.neg.neg, %11
-  tail call void @lv_obj_align_to(ptr noundef nonnull %1, ptr noundef nonnull %0, i32 noundef 9, i32 noundef 0, i32 noundef %.neg24) #7
+  %.neg27 = sub i32 %.neg.neg, %11
+  tail call void @lv_obj_align_to(ptr noundef nonnull %1, ptr noundef nonnull %0, i32 noundef 9, i32 noundef 0, i32 noundef %.neg27) #7
   tail call void @lv_obj_update_layout(ptr noundef nonnull %0) #7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i32, ptr %12, align 8, !tbaa !3

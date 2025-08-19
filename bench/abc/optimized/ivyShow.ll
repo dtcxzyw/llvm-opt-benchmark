@@ -168,8 +168,8 @@ define void @Ivy_ManShow(ptr noundef %0, i32 noundef %1, ptr noundef readonly ca
   %fputc350.i = tail call i32 @fputc(i32 34, ptr nonnull %23)
   %55 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 3, i64 1, ptr nonnull %23)
   %56 = add nsw i32 %.0272418.i, -1
-  %.not495.i = icmp eq i32 %.0272418.i, 0
-  br i1 %.not495.i, label %.lr.ph422.preheader.i, label %.lr.ph419.i, !llvm.loop !16
+  %.not507.i = icmp eq i32 %.0272418.i, 0
+  br i1 %.not507.i, label %.lr.ph422.preheader.i, label %.lr.ph419.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %.critedge.i
   %57 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 32, i64 1, ptr nonnull %23)
@@ -278,7 +278,7 @@ define void @Ivy_ManShow(ptr noundef %0, i32 noundef %1, ptr noundef readonly ca
 111:                                              ; preds = %107, %106
   %112 = load i32, ptr %100, align 8, !tbaa !28
   %113 = select i1 %105, ptr @.str.44, ptr @.str.45
-  %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.43, i32 noundef %112, ptr noundef nonnull %113, i32 noundef %112, ptr noundef nonnull %113) #5
+  %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.43, i32 noundef %112, ptr noundef nonnull %113, i32 noundef %112, ptr noundef nonnull %113) #5
   br label %125
 
 115:                                              ; preds = %107
@@ -291,7 +291,7 @@ define void @Ivy_ManShow(ptr noundef %0, i32 noundef %1, ptr noundef readonly ca
   %122 = and i64 %118, 1
   %.not343.i = icmp eq i64 %122, 0
   %123 = select i1 %.not343.i, ptr @.str.45, ptr @.str.47
-  %124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.46, i32 noundef %116, ptr noundef nonnull %117, i32 noundef %116, ptr noundef nonnull %117, i32 noundef %121, ptr noundef nonnull %123) #5
+  %124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.46, i32 noundef %116, ptr noundef nonnull %117, i32 noundef %116, ptr noundef nonnull %117, i32 noundef %121, ptr noundef nonnull %123) #5
   br label %125
 
 125:                                              ; preds = %115, %111
@@ -299,9 +299,9 @@ define void @Ivy_ManShow(ptr noundef %0, i32 noundef %1, ptr noundef readonly ca
   %126 = and i32 %.val375.i, 15
   %.not413.i = icmp eq i32 %126, 4
   %127 = select i1 %.not413.i, ptr @.str.49, ptr @.str.50
-  %128 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.48, ptr noundef nonnull %127) #5
-  %129 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 34, i64 1, ptr %23)
-  %130 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 3, i64 1, ptr %23)
+  %128 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.48, ptr noundef nonnull %127) #5
+  %129 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 34, i64 1, ptr nonnull %23)
+  %130 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 3, i64 1, ptr nonnull %23)
   %.pre.i = load ptr, ptr %92, align 8, !tbaa !18
   br label %131
 
@@ -315,9 +315,9 @@ define void @Ivy_ManShow(ptr noundef %0, i32 noundef %1, ptr noundef readonly ca
   br i1 %135, label %96, label %.critedge2.i, !llvm.loop !29
 
 .critedge2.i:                                     ; preds = %131, %._crit_edge423.i
-  %fputc297.i = tail call i32 @fputc(i32 125, ptr %23)
-  %fputc298.i = tail call i32 @fputc(i32 10, ptr %23)
-  %fputc299.i = tail call i32 @fputc(i32 10, ptr %23)
+  %fputc297.i = tail call i32 @fputc(i32 125, ptr nonnull %23)
+  %fputc298.i = tail call i32 @fputc(i32 10, ptr nonnull %23)
+  %fputc299.i = tail call i32 @fputc(i32 10, ptr nonnull %23)
   %136 = icmp sgt i32 %40, 0
   br i1 %136, label %.lr.ph434.i, label %._crit_edge435.i
 
@@ -327,9 +327,9 @@ define void @Ivy_ManShow(ptr noundef %0, i32 noundef %1, ptr noundef readonly ca
 
 137:                                              ; preds = %.critedge4.i, %.lr.ph434.i
   %.2274432.i = phi i32 [ %40, %.lr.ph434.i ], [ %207, %.critedge4.i ]
-  %138 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 2, i64 1, ptr %23)
-  %139 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 15, i64 1, ptr %23)
-  %140 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.42, i32 noundef %.2274432.i) #5
+  %138 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 2, i64 1, ptr nonnull %23)
+  %139 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 15, i64 1, ptr nonnull %23)
+  %140 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.42, i32 noundef %.2274432.i) #5
   %141 = load ptr, ptr %92, align 8, !tbaa !18
   %142 = getelementptr i8, ptr %141, i64 4
   %.val356428.i = load i32, ptr %142, align 4, !tbaa !10
@@ -371,15 +371,15 @@ define void @Ivy_ManShow(ptr noundef %0, i32 noundef %1, ptr noundef readonly ca
   %163 = and i64 %159, 1
   %.not337.us.i = icmp eq i64 %163, 0
   %164 = select i1 %.not337.us.i, ptr @.str.45, ptr @.str.47
-  %165 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.53, i32 noundef %157, i32 noundef %157, i32 noundef %162, ptr noundef nonnull %164) #5
+  %165 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.53, i32 noundef %157, i32 noundef %157, i32 noundef %162, ptr noundef nonnull %164) #5
   br label %168
 
 166:                                              ; preds = %153
-  %167 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.52, i32 noundef %157, i32 noundef %157) #5
+  %167 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.52, i32 noundef %157, i32 noundef %157) #5
   br label %168
 
 168:                                              ; preds = %166, %158
-  %169 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 17, i64 1, ptr %23)
+  %169 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 17, i64 1, ptr nonnull %23)
   br i1 %.not.i, label %175, label %170
 
 170:                                              ; preds = %168
@@ -389,11 +389,11 @@ define void @Ivy_ManShow(ptr noundef %0, i32 noundef %1, ptr noundef readonly ca
   br i1 %.not338.us.i, label %175, label %173
 
 173:                                              ; preds = %170
-  %174 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 16, i64 1, ptr %23)
+  %174 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 16, i64 1, ptr nonnull %23)
   br label %175
 
 175:                                              ; preds = %173, %170, %168
-  %176 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 3, i64 1, ptr %23)
+  %176 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 3, i64 1, ptr nonnull %23)
   %.pre478.i = load ptr, ptr %92, align 8, !tbaa !18
   br label %177
 
@@ -425,8 +425,8 @@ define void @Ivy_ManShow(ptr noundef %0, i32 noundef %1, ptr noundef readonly ca
 
 191:                                              ; preds = %187
   %192 = load i32, ptr %185, align 8, !tbaa !28
-  %193 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.52, i32 noundef %192, i32 noundef %192) #5
-  %194 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 17, i64 1, ptr %23)
+  %193 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.52, i32 noundef %192, i32 noundef %192) #5
+  %194 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 17, i64 1, ptr nonnull %23)
   br i1 %.not.i, label %200, label %195
 
 195:                                              ; preds = %191
@@ -436,11 +436,11 @@ define void @Ivy_ManShow(ptr noundef %0, i32 noundef %1, ptr noundef readonly ca
   br i1 %.not338.i, label %200, label %198
 
 198:                                              ; preds = %195
-  %199 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 16, i64 1, ptr %23)
+  %199 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 16, i64 1, ptr nonnull %23)
   br label %200
 
 200:                                              ; preds = %198, %195, %191
-  %201 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 3, i64 1, ptr %23)
+  %201 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 3, i64 1, ptr nonnull %23)
   %.pre477.i = load ptr, ptr %92, align 8, !tbaa !18
   br label %202
 
@@ -454,17 +454,17 @@ define void @Ivy_ManShow(ptr noundef %0, i32 noundef %1, ptr noundef readonly ca
   br i1 %206, label %.lr.ph431.split.i, label %.critedge4.i, !llvm.loop !30
 
 .critedge4.i:                                     ; preds = %202, %177, %137
-  %fputc332.i = tail call i32 @fputc(i32 125, ptr %23)
-  %fputc333.i = tail call i32 @fputc(i32 10, ptr %23)
-  %fputc334.i = tail call i32 @fputc(i32 10, ptr %23)
+  %fputc332.i = tail call i32 @fputc(i32 125, ptr nonnull %23)
+  %fputc333.i = tail call i32 @fputc(i32 10, ptr nonnull %23)
+  %fputc334.i = tail call i32 @fputc(i32 10, ptr nonnull %23)
   %207 = add nsw i32 %.2274432.i, -1
   %208 = icmp sgt i32 %.2274432.i, 1
   br i1 %208, label %137, label %._crit_edge435.i, !llvm.loop !31
 
 ._crit_edge435.i:                                 ; preds = %.critedge4.i, %.critedge2.i
-  %209 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 2, i64 1, ptr %23)
-  %210 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 15, i64 1, ptr %23)
-  %211 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.42, i32 noundef 0) #5
+  %209 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 2, i64 1, ptr nonnull %23)
+  %210 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 15, i64 1, ptr nonnull %23)
+  %211 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.42, i32 noundef 0) #5
   %212 = getelementptr i8, ptr %0, i64 32
   %.val385.i = load ptr, ptr %212, align 8, !tbaa !32
   %213 = getelementptr i8, ptr %.val385.i, i64 12
@@ -474,10 +474,10 @@ define void @Ivy_ManShow(ptr noundef %0, i32 noundef %1, ptr noundef readonly ca
 
 215:                                              ; preds = %._crit_edge435.i
   %216 = load i32, ptr %.val385.i, align 8, !tbaa !28
-  %217 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.56, i32 noundef %216) #5
-  %218 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 17, i64 1, ptr %23)
-  %219 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 34, i64 1, ptr %23)
-  %220 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 3, i64 1, ptr %23)
+  %217 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.56, i32 noundef %216) #5
+  %218 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 17, i64 1, ptr nonnull %23)
+  %219 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 34, i64 1, ptr nonnull %23)
+  %220 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 3, i64 1, ptr nonnull %23)
   br label %221
 
 221:                                              ; preds = %215, %._crit_edge435.i
@@ -523,7 +523,7 @@ define void @Ivy_ManShow(ptr noundef %0, i32 noundef %1, ptr noundef readonly ca
 240:                                              ; preds = %236, %235
   %241 = load i32, ptr %229, align 8, !tbaa !28
   %242 = select i1 %234, ptr @.str.57, ptr @.str.45
-  %243 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.43, i32 noundef %241, ptr noundef nonnull %242, i32 noundef %241, ptr noundef nonnull %242) #5
+  %243 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.43, i32 noundef %241, ptr noundef nonnull %242, i32 noundef %241, ptr noundef nonnull %242) #5
   br label %254
 
 244:                                              ; preds = %236
@@ -536,7 +536,7 @@ define void @Ivy_ManShow(ptr noundef %0, i32 noundef %1, ptr noundef readonly ca
   %251 = and i64 %247, 1
   %.not328.i = icmp eq i64 %251, 0
   %252 = select i1 %.not328.i, ptr @.str.45, ptr @.str.47
-  %253 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.46, i32 noundef %245, ptr noundef nonnull %246, i32 noundef %245, ptr noundef nonnull %246, i32 noundef %250, ptr noundef nonnull %252) #5
+  %253 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.46, i32 noundef %245, ptr noundef nonnull %246, i32 noundef %245, ptr noundef nonnull %246, i32 noundef %250, ptr noundef nonnull %252) #5
   br label %254
 
 254:                                              ; preds = %244, %240
@@ -544,9 +544,9 @@ define void @Ivy_ManShow(ptr noundef %0, i32 noundef %1, ptr noundef readonly ca
   %255 = and i32 %.val380.i, 15
   %.not412.i = icmp eq i32 %255, 4
   %256 = select i1 %.not412.i, ptr @.str.49, ptr @.str.58
-  %257 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.48, ptr noundef nonnull %256) #5
-  %258 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 34, i64 1, ptr %23)
-  %259 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 3, i64 1, ptr %23)
+  %257 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.48, ptr noundef nonnull %256) #5
+  %258 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 34, i64 1, ptr nonnull %23)
+  %259 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 3, i64 1, ptr nonnull %23)
   %.pre479.i = load ptr, ptr %92, align 8, !tbaa !18
   br label %260
 
@@ -560,10 +560,10 @@ define void @Ivy_ManShow(ptr noundef %0, i32 noundef %1, ptr noundef readonly ca
   br i1 %264, label %225, label %.critedge6.i, !llvm.loop !34
 
 .critedge6.i:                                     ; preds = %260, %221
-  %fputc300.i = tail call i32 @fputc(i32 125, ptr %23)
-  %fputc301.i = tail call i32 @fputc(i32 10, ptr %23)
-  %fputc302.i = tail call i32 @fputc(i32 10, ptr %23)
-  %265 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 34, i64 1, ptr %23)
+  %fputc300.i = tail call i32 @fputc(i32 125, ptr nonnull %23)
+  %fputc301.i = tail call i32 @fputc(i32 10, ptr nonnull %23)
+  %fputc302.i = tail call i32 @fputc(i32 10, ptr nonnull %23)
+  %265 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 34, i64 1, ptr nonnull %23)
   %266 = load ptr, ptr %92, align 8, !tbaa !18
   %267 = getelementptr i8, ptr %266, i64 4
   %.val358440.i = load i32, ptr %267, align 4, !tbaa !10
@@ -601,7 +601,7 @@ define void @Ivy_ManShow(ptr noundef %0, i32 noundef %1, ptr noundef readonly ca
   %279 = icmp eq i32 %277, 4
   %280 = load i32, ptr %273, align 8, !tbaa !28
   %281 = select i1 %279, ptr @.str.44, ptr @.str.45
-  %282 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.60, i32 noundef %280, ptr noundef nonnull %281) #5
+  %282 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.60, i32 noundef %280, ptr noundef nonnull %281) #5
   %.pre480.i = load ptr, ptr %92, align 8, !tbaa !18
   br label %283
 
@@ -643,8 +643,8 @@ Ivy_ObjFaninId0.exit.i:                           ; preds = %298, %298, %298, %2
   %299 = load i32, ptr %292, align 8, !tbaa !28
   %.not409.i = icmp eq i32 %296, 4
   %300 = select i1 %.not409.i, ptr @.str.44, ptr @.str.45
-  %301 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.61, i32 noundef %299, ptr noundef nonnull %300) #5
-  %302 = tail call i64 @fwrite(ptr nonnull @.str.62, i64 4, i64 1, ptr %23)
+  %301 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.61, i32 noundef %299, ptr noundef nonnull %300) #5
+  %302 = tail call i64 @fwrite(ptr nonnull @.str.62, i64 4, i64 1, ptr nonnull %23)
   %303 = getelementptr i8, ptr %292, i64 16
   %.val393.i = load ptr, ptr %303, align 8, !tbaa !36, !nonnull !37, !noundef !37
   %304 = ptrtoint ptr %.val393.i to i64
@@ -656,16 +656,16 @@ Ivy_ObjFaninId0.exit.i:                           ; preds = %298, %298, %298, %2
   %308 = and i32 %.val383.i, 15
   %.not410.i = icmp eq i32 %308, 4
   %309 = select i1 %.not410.i, ptr @.str.57, ptr @.str.45
-  %310 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.61, i32 noundef %.val.i.i, ptr noundef nonnull %309) #5
-  %311 = tail call i64 @fwrite(ptr nonnull @.str.63, i64 2, i64 1, ptr %23)
+  %310 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.61, i32 noundef %.val.i.i, ptr noundef nonnull %309) #5
+  %311 = tail call i64 @fwrite(ptr nonnull @.str.63, i64 2, i64 1, ptr nonnull %23)
   %.val395.i = load ptr, ptr %303, align 8, !tbaa !36
   %312 = ptrtoint ptr %.val395.i to i64
   %313 = and i64 %312, 1
   %.not311.i = icmp eq i64 %313, 0
   %314 = select i1 %.not311.i, ptr @.str.66, ptr @.str.65
-  %315 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.64, ptr noundef nonnull %314) #5
-  %fputc312.i = tail call i32 @fputc(i32 93, ptr %23)
-  %316 = tail call i64 @fwrite(ptr nonnull @.str.68, i64 2, i64 1, ptr %23)
+  %315 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.64, ptr noundef nonnull %314) #5
+  %fputc312.i = tail call i32 @fputc(i32 93, ptr nonnull %23)
+  %316 = tail call i64 @fwrite(ptr nonnull @.str.68, i64 2, i64 1, ptr nonnull %23)
   %.val391.i = load i32, ptr %295, align 8
   %317 = and i32 %.val391.i, 15
   %318 = add nsw i32 %317, -7
@@ -674,8 +674,8 @@ Ivy_ObjFaninId0.exit.i:                           ; preds = %298, %298, %298, %2
 
 Ivy_ObjFaninId1.exit.i:                           ; preds = %Ivy_ObjFaninId0.exit.i
   %319 = load i32, ptr %292, align 8, !tbaa !28
-  %320 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.69, i32 noundef %319) #5
-  %321 = tail call i64 @fwrite(ptr nonnull @.str.62, i64 4, i64 1, ptr %23)
+  %320 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.69, i32 noundef %319) #5
+  %321 = tail call i64 @fwrite(ptr nonnull @.str.62, i64 4, i64 1, ptr nonnull %23)
   %322 = getelementptr i8, ptr %292, i64 24
   %.val396.i = load ptr, ptr %322, align 8, !tbaa !38, !nonnull !37, !noundef !37
   %323 = ptrtoint ptr %.val396.i to i64
@@ -687,16 +687,16 @@ Ivy_ObjFaninId1.exit.i:                           ; preds = %Ivy_ObjFaninId0.exi
   %327 = and i32 %.val384.i, 15
   %.not411.i = icmp eq i32 %327, 4
   %328 = select i1 %.not411.i, ptr @.str.57, ptr @.str.45
-  %329 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.61, i32 noundef %.val.i405.i, ptr noundef nonnull %328) #5
-  %330 = tail call i64 @fwrite(ptr nonnull @.str.63, i64 2, i64 1, ptr %23)
+  %329 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.61, i32 noundef %.val.i405.i, ptr noundef nonnull %328) #5
+  %330 = tail call i64 @fwrite(ptr nonnull @.str.63, i64 2, i64 1, ptr nonnull %23)
   %.val398.i = load ptr, ptr %322, align 8, !tbaa !38
   %331 = ptrtoint ptr %.val398.i to i64
   %332 = and i64 %331, 1
   %.not315.i = icmp eq i64 %332, 0
   %333 = select i1 %.not315.i, ptr @.str.66, ptr @.str.65
-  %334 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.64, ptr noundef nonnull %333) #5
-  %fputc316.i = tail call i32 @fputc(i32 93, ptr %23)
-  %335 = tail call i64 @fwrite(ptr nonnull @.str.68, i64 2, i64 1, ptr %23)
+  %334 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.64, ptr noundef nonnull %333) #5
+  %fputc316.i = tail call i32 @fputc(i32 93, ptr nonnull %23)
+  %335 = tail call i64 @fwrite(ptr nonnull @.str.68, i64 2, i64 1, ptr nonnull %23)
   br i1 %.not317.i, label %.critedge8.i, label %336
 
 336:                                              ; preds = %Ivy_ObjFaninId1.exit.i
@@ -719,18 +719,18 @@ Ivy_ObjFaninId1.exit.i:                           ; preds = %Ivy_ObjFaninId0.exi
   %.0275445.i = phi ptr [ %.0276444.i, %.lr.ph446.i ], [ %292, %.preheader414.i ]
   %.0276444.i = phi ptr [ %357, %.lr.ph446.i ], [ %338, %.preheader414.i ]
   %342 = load i32, ptr %.0275445.i, align 8, !tbaa !28
-  %343 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.69, i32 noundef %342) #5
-  %344 = tail call i64 @fwrite(ptr nonnull @.str.62, i64 4, i64 1, ptr %23)
+  %343 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.69, i32 noundef %342) #5
+  %344 = tail call i64 @fwrite(ptr nonnull @.str.62, i64 4, i64 1, ptr nonnull %23)
   %345 = load i32, ptr %.0276444.i, align 8, !tbaa !28
-  %346 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.69, i32 noundef %345) #5
+  %346 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.69, i32 noundef %345) #5
   %347 = getelementptr inbounds nuw i8, ptr %.0276444.i, i64 72
   %348 = load ptr, ptr %347, align 8, !tbaa !27
   %349 = ptrtoint ptr %348 to i64
   %350 = and i64 %349, 1
   %.not321.i = icmp eq i64 %350, 0
   %351 = select i1 %.not321.i, ptr @.str.66, ptr @.str.65
-  %352 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.70, ptr noundef nonnull %351) #5
-  %353 = tail call i64 @fwrite(ptr nonnull @.str.68, i64 2, i64 1, ptr %23)
+  %352 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.70, ptr noundef nonnull %351) #5
+  %353 = tail call i64 @fwrite(ptr nonnull @.str.68, i64 2, i64 1, ptr nonnull %23)
   %354 = load ptr, ptr %347, align 8, !tbaa !27
   %355 = ptrtoint ptr %354 to i64
   %356 = and i64 %355, -2
@@ -741,18 +741,18 @@ Ivy_ObjFaninId1.exit.i:                           ; preds = %Ivy_ObjFaninId0.exi
 ._crit_edge447.i:                                 ; preds = %.lr.ph446.i, %.preheader414.i
   %.0275.lcssa.i = phi ptr [ %292, %.preheader414.i ], [ %.0276444.i, %.lr.ph446.i ]
   %358 = load i32, ptr %.0275.lcssa.i, align 8, !tbaa !28
-  %359 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.69, i32 noundef %358) #5
-  %360 = tail call i64 @fwrite(ptr nonnull @.str.62, i64 4, i64 1, ptr %23)
+  %359 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.69, i32 noundef %358) #5
+  %360 = tail call i64 @fwrite(ptr nonnull @.str.62, i64 4, i64 1, ptr nonnull %23)
   %361 = load i32, ptr %292, align 8, !tbaa !28
-  %362 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.69, i32 noundef %361) #5
+  %362 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.69, i32 noundef %361) #5
   %363 = getelementptr inbounds nuw i8, ptr %.0275.lcssa.i, i64 72
   %364 = load ptr, ptr %363, align 8, !tbaa !27
   %365 = ptrtoint ptr %364 to i64
   %366 = and i64 %365, 1
   %.not320.i = icmp eq i64 %366, 0
   %367 = select i1 %.not320.i, ptr @.str.66, ptr @.str.65
-  %368 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.70, ptr noundef nonnull %367) #5
-  %369 = tail call i64 @fwrite(ptr nonnull @.str.68, i64 2, i64 1, ptr %23)
+  %368 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %23, ptr noundef nonnull @.str.70, ptr noundef nonnull %367) #5
+  %369 = tail call i64 @fwrite(ptr nonnull @.str.68, i64 2, i64 1, ptr nonnull %23)
   br label %.critedge8.i
 
 .critedge8.i:                                     ; preds = %._crit_edge447.i, %339, %336, %Ivy_ObjFaninId1.exit.i, %Ivy_ObjFaninId0.exit.i, %298, %288
@@ -765,10 +765,10 @@ Ivy_ObjFaninId1.exit.i:                           ; preds = %Ivy_ObjFaninId0.exi
   br i1 %373, label %288, label %.critedge10.i, !llvm.loop !40
 
 .critedge10.i:                                    ; preds = %.critedge8.i, %.critedge8.preheader.i, %.critedge6.i
-  %fputc303.i = tail call i32 @fputc(i32 125, ptr %23)
-  %fputc304.i = tail call i32 @fputc(i32 10, ptr %23)
-  %fputc305.i = tail call i32 @fputc(i32 10, ptr %23)
-  %374 = tail call i32 @fclose(ptr noundef %23)
+  %fputc303.i = tail call i32 @fputc(i32 125, ptr nonnull %23)
+  %fputc304.i = tail call i32 @fputc(i32 10, ptr nonnull %23)
+  %fputc305.i = tail call i32 @fputc(i32 10, ptr nonnull %23)
+  %374 = tail call i32 @fclose(ptr noundef nonnull %23)
   br i1 %.not.i, label %Ivy_WriteDotAig.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.critedge10.i

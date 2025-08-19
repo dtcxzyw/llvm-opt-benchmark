@@ -189,9 +189,9 @@ define internal i32 @dissect_bthci_acl(ptr noundef %0, ptr noundef %1, ptr nound
   %23 = load ptr, ptr %22, align 8
   %switch.selectcmp = icmp eq i32 %21, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.73, ptr @.str.74
-  %switch.selectcmp534 = icmp eq i32 %21, 0
-  %switch.select535 = select i1 %switch.selectcmp534, ptr @.str.72, ptr %switch.select
-  tail call void @col_set_str(ptr noundef %23, i32 noundef 25, ptr noundef nonnull %switch.select535)
+  %switch.selectcmp591 = icmp eq i32 %21, 0
+  %switch.select592 = select i1 %switch.selectcmp591, ptr @.str.72, ptr %switch.select
+  tail call void @col_set_str(ptr noundef %23, i32 noundef 25, ptr noundef nonnull %switch.select592)
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @col_set_str(ptr noundef %25, i32 noundef 35, ptr noundef nonnull @.str.45)
@@ -388,7 +388,7 @@ define internal i32 @dissect_bthci_acl(ptr noundef %0, ptr noundef %1, ptr nound
 
 133:                                              ; preds = %129
   %134 = load i32, ptr %128, align 4
-  switch i32 %134, label %.thread513.fold.split532 [
+  switch i32 %134, label %.thread513.fold.split589 [
     i32 2, label %.thread513
     i32 1, label %135
   ]
@@ -399,12 +399,12 @@ define internal i32 @dissect_bthci_acl(ptr noundef %0, ptr noundef %1, ptr nound
 .thread513.fold.split:                            ; preds = %131
   br label %.thread513
 
-.thread513.fold.split532:                         ; preds = %133
+.thread513.fold.split589:                         ; preds = %133
   br label %.thread513
 
-.thread513:                                       ; preds = %133, %.thread513.fold.split532, %131, %.thread513.fold.split, %129, %135
-  %.1377 = phi i32 [ 1, %135 ], [ %134, %133 ], [ 2, %131 ], [ 0, %129 ], [ 0, %.thread513.fold.split ], [ 0, %.thread513.fold.split532 ]
-  %.1375 = phi i32 [ 2, %135 ], [ 1, %133 ], [ %132, %131 ], [ 0, %129 ], [ 0, %.thread513.fold.split ], [ 0, %.thread513.fold.split532 ]
+.thread513:                                       ; preds = %133, %.thread513.fold.split589, %131, %.thread513.fold.split, %129, %135
+  %.1377 = phi i32 [ 1, %135 ], [ %134, %133 ], [ 2, %131 ], [ 0, %129 ], [ 0, %.thread513.fold.split ], [ 0, %.thread513.fold.split589 ]
+  %.1375 = phi i32 [ 2, %135 ], [ 1, %133 ], [ %132, %131 ], [ 0, %129 ], [ 0, %.thread513.fold.split ], [ 0, %.thread513.fold.split589 ]
   %136 = getelementptr inbounds nuw i8, ptr %128, i64 4
   %137 = load i32, ptr %136, align 4
   br label %.thread510
@@ -977,7 +977,7 @@ proto_item_set_generated.exit468:                 ; preds = %.thread521, %397, %
 
 407:                                              ; preds = %proto_item_set_generated.exit468
   %.not453 = icmp eq i32 %406, %.pre529
-  br i1 %.not453, label %.thread531, label %408
+  br i1 %.not453, label %.thread588, label %408
 
 408:                                              ; preds = %407
   %409 = load i32, ptr @hf_bthci_acl_reassembled_in, align 4
@@ -1009,9 +1009,9 @@ proto_item_set_generated.exit471:                 ; preds = %408, %411, %414
   %420 = phi i32 [ %.pre528, %proto_item_set_generated.exit471 ], [ %.pre529, %proto_item_set_generated.exit468 ]
   %421 = phi i32 [ %.pre527, %proto_item_set_generated.exit471 ], [ 0, %proto_item_set_generated.exit468 ]
   %422 = icmp eq i32 %421, %420
-  br i1 %422, label %.thread531, label %.critedge
+  br i1 %422, label %.thread588, label %.critedge
 
-.thread531:                                       ; preds = %407, %419
+.thread588:                                       ; preds = %407, %419
   %423 = getelementptr inbounds nuw i8, ptr %362, i64 16
   %424 = load ptr, ptr %423, align 8
   %425 = getelementptr inbounds nuw i8, ptr %362, i64 8
@@ -1021,10 +1021,10 @@ proto_item_set_generated.exit471:                 ; preds = %408, %411, %414
   call void @add_new_data_source(ptr noundef %1, ptr noundef %428, ptr noundef nonnull @.str.84)
   br label %.critedge.sink.split
 
-.critedge.sink.split:                             ; preds = %307, %.thread531
-  %.sink533 = phi ptr [ %428, %.thread531 ], [ %309, %307 ]
+.critedge.sink.split:                             ; preds = %307, %.thread588
+  %.sink590 = phi ptr [ %428, %.thread588 ], [ %309, %307 ]
   %429 = load ptr, ptr @btl2cap_handle, align 8
-  %430 = call i32 @call_dissector_with_data(ptr noundef %429, ptr noundef %.sink533, ptr noundef %1, ptr noundef %2, ptr noundef %45)
+  %430 = call i32 @call_dissector_with_data(ptr noundef %429, ptr noundef %.sink590, ptr noundef %1, ptr noundef %2, ptr noundef %45)
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %367, %357, %419, %393, %310

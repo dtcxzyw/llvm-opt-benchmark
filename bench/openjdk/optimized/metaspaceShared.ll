@@ -3179,12 +3179,12 @@ _ZN15MetaspaceShared19open_static_archiveEv.exit: ; preds = %0
   br label %28
 
 28:                                               ; preds = %23, %.thread56
-  %.sink70 = phi ptr [ %2, %.thread56 ], [ %spec.select, %23 ]
+  %.sink72 = phi ptr [ %2, %.thread56 ], [ %spec.select, %23 ]
   %.pn = phi ptr [ %22, %.thread56 ], [ %27, %23 ]
   %29 = phi i1 [ false, %.thread56 ], [ %26, %23 ]
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 80
   %30 = load ptr, ptr %.in, align 8
-  %31 = tail call noundef ptr @_ZNK11FileMapInfo16last_core_regionEv(ptr noundef nonnull align 8 dereferenceable(40) %.sink70) #15
+  %31 = tail call noundef ptr @_ZNK11FileMapInfo16last_core_regionEv(ptr noundef nonnull align 8 dereferenceable(40) %.sink72) #15
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 80
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef i64 @_ZNK13FileMapRegion12used_alignedEv(ptr noundef nonnull align 8 dereferenceable(88) %31) #15
@@ -3686,10 +3686,10 @@ _ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit43: ; preds = %_ZN15Metas
   br i1 %.not12.i, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %105, %94
-  %.sink15.i = phi ptr [ %93, %94 ], [ %104, %105 ]
+  %.sink17.i = phi ptr [ %93, %94 ], [ %104, %105 ]
   %.str.67.sink.i = phi ptr [ @.str.65, %94 ], [ @.str.67, %105 ]
   %.sink.ph.i = phi ptr [ %4, %94 ], [ %6, %105 ]
-  %107 = ptrtoint ptr %.sink15.i to i64
+  %107 = ptrtoint ptr %.sink17.i to i64
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull %.str.67.sink.i, i64 noundef %107)
   br label %.sink.split.i
 
@@ -3830,8 +3830,8 @@ _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %38, %41
   br label %71
 
 71:                                               ; preds = %70, %68
-  %.sink91 = phi ptr [ %12, %70 ], [ %11, %68 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %3, ptr noundef nonnull align 8 dereferenceable(49) %.sink91, i64 49, i1 false)
+  %.sink96 = phi ptr [ %12, %70 ], [ %11, %68 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %3, ptr noundef nonnull align 8 dereferenceable(49) %.sink96, i64 49, i1 false)
   %72 = load ptr, ptr %3, align 8
   %.not86 = icmp eq ptr %72, null
   br i1 %.not86, label %86, label %73
@@ -4000,10 +4000,10 @@ define hidden void @_ZN15MetaspaceShared23release_reserved_spacesER13ReservedSpa
   br i1 %.not12, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %16, %5
-  %.sink15 = phi ptr [ %4, %5 ], [ %15, %16 ]
+  %.sink17 = phi ptr [ %4, %5 ], [ %15, %16 ]
   %.str.67.sink = phi ptr [ @.str.65, %5 ], [ @.str.67, %16 ]
   %.sink.ph = phi ptr [ %0, %5 ], [ %2, %16 ]
-  %18 = ptrtoint ptr %.sink15 to i64
+  %18 = ptrtoint ptr %.sink17 to i64
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull %.str.67.sink, i64 noundef %18)
   br label %.sink.split
 

@@ -590,11 +590,11 @@ bev_group_random_element_.exit:                   ; preds = %.lr.ph.i, %7
   br i1 %.not37, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %26, %1, %bev_group_random_element_.exit
-  %.08.i47 = phi ptr [ null, %bev_group_random_element_.exit ], [ null, %1 ], [ %.08.i, %26 ]
+  %.08.i55 = phi ptr [ null, %bev_group_random_element_.exit ], [ null, %1 ], [ %.08.i, %26 ]
   %.0.lcssa = phi i8 [ 0, %bev_group_random_element_.exit ], [ 0, %1 ], [ %.1, %26 ]
   %.12040 = load ptr, ptr %0, align 8
   %13 = icmp ne ptr %.12040, null
-  %14 = icmp ne ptr %.12040, %.08.i47
+  %14 = icmp ne ptr %.12040, %.08.i55
   %15 = and i1 %13, %14
   br i1 %15, label %.lr.ph43, label %._crit_edge
 
@@ -666,7 +666,7 @@ EVLOCK_TRY_LOCK_.exit32.thread:                   ; preds = %.lr.ph43, %EVLOCK_T
   %42 = load ptr, ptr %41, align 8
   %.120 = load ptr, ptr %42, align 8
   %43 = icmp ne ptr %.120, null
-  %44 = icmp ne ptr %.120, %.08.i47
+  %44 = icmp ne ptr %.120, %.08.i55
   %45 = and i1 %43, %44
   br i1 %45, label %.lr.ph43, label %._crit_edge, !llvm.loop !7
 
@@ -890,11 +890,11 @@ bev_group_random_element_.exit:                   ; preds = %.lr.ph.i, %7
   br i1 %.not37, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %26, %1, %bev_group_random_element_.exit
-  %.08.i47 = phi ptr [ null, %bev_group_random_element_.exit ], [ null, %1 ], [ %.08.i, %26 ]
+  %.08.i55 = phi ptr [ null, %bev_group_random_element_.exit ], [ null, %1 ], [ %.08.i, %26 ]
   %.0.lcssa = phi i8 [ 0, %bev_group_random_element_.exit ], [ 0, %1 ], [ %.1, %26 ]
   %.12040 = load ptr, ptr %0, align 8
   %13 = icmp ne ptr %.12040, null
-  %14 = icmp ne ptr %.12040, %.08.i47
+  %14 = icmp ne ptr %.12040, %.08.i55
   %15 = and i1 %13, %14
   br i1 %15, label %.lr.ph43, label %._crit_edge
 
@@ -966,7 +966,7 @@ EVLOCK_TRY_LOCK_.exit32.thread:                   ; preds = %.lr.ph43, %EVLOCK_T
   %42 = load ptr, ptr %41, align 8
   %.120 = load ptr, ptr %42, align 8
   %43 = icmp ne ptr %.120, null
-  %44 = icmp ne ptr %.120, %.08.i47
+  %44 = icmp ne ptr %.120, %.08.i55
   %45 = and i1 %43, %44
   br i1 %45, label %.lr.ph43, label %._crit_edge, !llvm.loop !10
 

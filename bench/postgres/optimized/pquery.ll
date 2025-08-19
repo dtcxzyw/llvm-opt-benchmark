@@ -197,7 +197,7 @@ list_length.exit:                                 ; preds = %1
   %49 = load i32, ptr %48, align 4
   switch i32 %49, label %.split [
     i32 67, label %50
-    i32 329, label %64
+    i32 329, label %63
   ]
 
 50:                                               ; preds = %46
@@ -207,66 +207,64 @@ list_length.exit:                                 ; preds = %1
   br i1 %53, label %54, label %.thread103
 
 54:                                               ; preds = %50
-  %55 = add i32 %.050130138, 1
-  %56 = icmp sgt i32 %55, 1
-  br i1 %56, label %.thread90, label %57
+  %55 = icmp sgt i32 %.050130138, 0
+  br i1 %55, label %.thread90, label %56
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %59 = load i32, ptr %58, align 4
-  %60 = icmp eq i32 %59, 6
-  br i1 %60, label %.thread90, label %61
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  %58 = load i32, ptr %57, align 4
+  %59 = icmp eq i32 %58, 6
+  br i1 %59, label %.thread90, label %60
 
-61:                                               ; preds = %57
-  %62 = getelementptr inbounds nuw i8, ptr %48, i64 152
-  %63 = load ptr, ptr %62, align 8
-  %.not = icmp eq ptr %63, null
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds nuw i8, ptr %48, i64 152
+  %62 = load ptr, ptr %61, align 8
+  %.not = icmp eq ptr %62, null
   br i1 %.not, label %.thread90, label %.thread103
 
-64:                                               ; preds = %46
-  %65 = getelementptr inbounds nuw i8, ptr %48, i64 18
-  %66 = load i8, ptr %65, align 2, !range !4, !noundef !5
-  %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %68, label %.thread103
+63:                                               ; preds = %46
+  %64 = getelementptr inbounds nuw i8, ptr %48, i64 18
+  %65 = load i8, ptr %64, align 2, !range !4, !noundef !5
+  %66 = trunc nuw i8 %65 to i1
+  br i1 %66, label %67, label %.thread103
 
-68:                                               ; preds = %64
-  %69 = add i32 %.050130138, 1
-  %70 = icmp sgt i32 %69, 1
-  br i1 %70, label %.thread90, label %71
+67:                                               ; preds = %63
+  %68 = icmp sgt i32 %.050130138, 0
+  br i1 %68, label %.thread90, label %69
 
-71:                                               ; preds = %68
-  %72 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %73 = load i32, ptr %72, align 4
-  %74 = icmp eq i32 %73, 6
-  br i1 %74, label %.thread90, label %75
+69:                                               ; preds = %67
+  %70 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  %71 = load i32, ptr %70, align 4
+  %72 = icmp eq i32 %71, 6
+  br i1 %72, label %.thread90, label %73
 
-75:                                               ; preds = %71
-  %76 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %77 = load i8, ptr %76, align 8, !range !4, !noundef !5
-  %78 = trunc nuw i8 %77 to i1
-  br i1 %78, label %.thread103, label %.thread90
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %75 = load i8, ptr %74, align 8, !range !4, !noundef !5
+  %76 = trunc nuw i8 %75 to i1
+  br i1 %76, label %.thread103, label %.thread90
 
 .split:                                           ; preds = %46
-  %79 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %79)
-  %80 = load i32, ptr %48, align 4
-  %81 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %80) #11
+  %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %77)
+  %78 = load i32, ptr %48, align 4
+  %79 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %78) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 309, ptr noundef nonnull @__func__.ChoosePortalStrategy) #11
   unreachable
 
-.thread103:                                       ; preds = %64, %50, %75, %61
-  %.555 = phi i32 [ %55, %61 ], [ %69, %75 ], [ %.050130138, %50 ], [ %.050130138, %64 ]
+.thread103:                                       ; preds = %63, %50, %73, %60
+  %.555 = phi i32 [ 1, %60 ], [ 1, %73 ], [ %.050130138, %50 ], [ %.050130138, %63 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %46
 
 ._crit_edge.loopexit:                             ; preds = %.thread103
-  %82 = icmp eq i32 %.555, 1
-  %83 = select i1 %82, i32 1, i32 4
+  %.not148 = icmp eq i32 %.555, 0
+  %80 = select i1 %.not148, i32 4, i32 1
   br label %.thread90
 
-.thread90:                                        ; preds = %61, %75, %54, %57, %68, %71, %.lr.ph, %1, %._crit_edge.loopexit, %31, %35, %16, %20
-  %.5 = phi i32 [ %.78, %35 ], [ %.77, %31 ], [ %.76, %20 ], [ %., %16 ], [ 4, %.lr.ph ], [ 4, %1 ], [ %83, %._crit_edge.loopexit ], [ 4, %71 ], [ 4, %68 ], [ 4, %57 ], [ 4, %54 ], [ 4, %75 ], [ 4, %61 ]
+.thread90:                                        ; preds = %60, %73, %54, %56, %67, %69, %.lr.ph, %1, %._crit_edge.loopexit, %31, %35, %16, %20
+  %.5 = phi i32 [ %.78, %35 ], [ %.77, %31 ], [ %.76, %20 ], [ %., %16 ], [ 4, %.lr.ph ], [ 4, %1 ], [ %80, %._crit_edge.loopexit ], [ 4, %69 ], [ 4, %67 ], [ 4, %56 ], [ 4, %54 ], [ 4, %73 ], [ 4, %60 ]
   ret i32 %.5
 }
 
@@ -453,7 +451,7 @@ define dso_local void @PortalStart(ptr noundef %0, ptr noundef %1, i32 noundef %
   %24 = call i32 @ChoosePortalStrategy(ptr noundef %23)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %24, ptr %25, align 8
-  switch i32 %24, label %default.unreachable57 [
+  switch i32 %24, label %default.unreachable59 [
     i32 0, label %26
     i32 1, label %64
     i32 2, label %64
@@ -576,7 +574,7 @@ define dso_local void @PortalStart(ptr noundef %0, ptr noundef %1, i32 noundef %
   call void @pg_re_throw() #14
   unreachable
 
-default.unreachable57:                            ; preds = %17
+default.unreachable59:                            ; preds = %17
   unreachable
 
 87:                                               ; preds = %84, %75, %64, %29
@@ -1140,23 +1138,23 @@ define internal fastcc void @PortalRunMulti(ptr noundef captures(none) %0, i1 no
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i32, ptr %16, align 4
   %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %.lr.ph74, label %.critedge62.thread
+  br i1 %24, label %.lr.ph78, label %.critedge62.thread
 
-.lr.ph74:                                         ; preds = %.lr.ph, %75
-  %.0506573 = phi i8 [ %.3, %75 ], [ 0, %.lr.ph ]
-  %indvars.iv72 = phi i64 [ %indvars.iv.next, %75 ], [ 0, %.lr.ph ]
+.lr.ph78:                                         ; preds = %.lr.ph, %75
+  %.0506577 = phi i8 [ %.3, %75 ], [ 0, %.lr.ph ]
+  %indvars.iv76 = phi i64 [ %indvars.iv.next, %75 ], [ 0, %.lr.ph ]
   %25 = load ptr, ptr %17, align 8
-  %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv72
+  %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv76
   %27 = load ptr, ptr %26, align 8
   %28 = load volatile i32, ptr @InterruptPending, align 4
   %.not56 = icmp eq i32 %28, 0
   br i1 %.not56, label %30, label %29, !prof !9
 
-29:                                               ; preds = %.lr.ph74
+29:                                               ; preds = %.lr.ph78
   tail call void @ProcessInterrupts() #11
   br label %30
 
-30:                                               ; preds = %29, %.lr.ph74
+30:                                               ; preds = %29, %.lr.ph78
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 136
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
@@ -1172,7 +1170,7 @@ define internal fastcc void @PortalRunMulti(ptr noundef captures(none) %0, i1 no
   br label %38
 
 38:                                               ; preds = %37, %34
-  %39 = trunc nuw i8 %.0506573 to i1
+  %39 = trunc nuw i8 %.0506577 to i1
   br i1 %39, label %45, label %40
 
 40:                                               ; preds = %38
@@ -1234,7 +1232,7 @@ define internal fastcc void @PortalRunMulti(ptr noundef captures(none) %0, i1 no
   br label %65
 
 65:                                               ; preds = %63, %64, %58, %55
-  %.3 = phi i8 [ 1, %58 ], [ 1, %55 ], [ %.0506573, %63 ], [ %.0506573, %64 ]
+  %.3 = phi i8 [ 1, %58 ], [ 1, %55 ], [ %.0506577, %63 ], [ %.0506577, %64 ]
   %66 = load ptr, ptr %22, align 8
   tail call void @MemoryContextDeleteChildren(ptr noundef %66) #11
   %67 = load ptr, ptr %14, align 8
@@ -1257,11 +1255,11 @@ define internal fastcc void @PortalRunMulti(ptr noundef captures(none) %0, i1 no
   br label %75
 
 75:                                               ; preds = %74, %68
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv72, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv76, 1
   %76 = load i32, ptr %16, align 4
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %.lr.ph74, label %.critedge62.loopexit
+  br i1 %78, label %.lr.ph78, label %.critedge62.loopexit
 
 .critedge62.loopexit:                             ; preds = %65, %75
   %79 = trunc nuw i8 %.3 to i1

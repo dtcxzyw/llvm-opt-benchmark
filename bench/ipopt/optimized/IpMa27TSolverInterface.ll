@@ -3097,13 +3097,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit214: ; preds = %_Z
   %415 = icmp slt i32 %342, 2
   %spec.select = select i1 %415, i64 160, i64 164
   %416 = call i32 @llvm.smax.i32(i32 %342, i32 2)
-  %spec.select242 = add nsw i32 %416, -2
+  %spec.select303 = add nsw i32 %416, -2
   br label %417
 
 417:                                              ; preds = %414, %.thread
-  %.sink241 = phi i64 [ 160, %.thread ], [ %spec.select, %414 ]
-  %.sink = phi i32 [ 0, %.thread ], [ %spec.select242, %414 ]
-  %418 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink241
+  %.sink302 = phi i64 [ 160, %.thread ], [ %spec.select, %414 ]
+  %.sink = phi i32 [ 0, %.thread ], [ %spec.select303, %414 ]
+  %418 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink302
   store i32 %.sink, ptr %418, align 4, !tbaa !62
   %419 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i8 0, ptr %419, align 4, !tbaa !14
@@ -3807,9 +3807,9 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %15, %11, %5
 
 181:                                              ; preds = %177, %172
   %.sink = phi i32 [ %180, %177 ], [ %176, %172 ]
-  %.sink82 = load double, ptr %170, align 8, !tbaa !75
+  %.sink96 = load double, ptr %170, align 8, !tbaa !75
   %182 = sitofp i32 %.sink to double
-  %183 = fmul double %.sink82, %182
+  %183 = fmul double %.sink96, %182
   call void @_ZN5Ipopt18ComputeMemIncreaseIiEEvRT_dS1_PKc(ptr noundef nonnull align 4 dereferenceable(4) %134, double noundef %183, i32 noundef 0, ptr noundef nonnull @.str.48)
   %184 = load ptr, ptr %151, align 8, !tbaa !42
   %185 = load i32, ptr %136, align 8, !tbaa !32

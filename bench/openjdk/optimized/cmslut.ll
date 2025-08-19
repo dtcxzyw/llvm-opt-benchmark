@@ -914,13 +914,13 @@ cmsStageFree.exit:                                ; preds = %22, %24
   %30 = getelementptr i32, ptr %1, i64 %indvars.iv.i
   %31 = getelementptr i8, ptr %30, i64 -4
   %32 = load i32, ptr %31, align 4
-  %.fr22.i = freeze i32 %32
-  %33 = icmp ult i32 %.fr22.i, 2
+  %.fr24.i = freeze i32 %32
+  %33 = icmp ult i32 %.fr24.i, 2
   br i1 %33, label %CubeSize.exit, label %34
 
 34:                                               ; preds = %.lr.ph.i
-  %35 = mul i32 %.fr22.i, %.01118.i
-  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr22.i, i32 %35)
+  %35 = mul i32 %.fr24.i, %.01118.i
+  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr24.i, i32 %35)
   %mul.ov.i = extractvalue { i32, i1 } %mul.i, 1
   br i1 %mul.ov.i, label %CubeSize.exit, label %28
 
@@ -1323,13 +1323,13 @@ cmsStageFree.exit:                                ; preds = %22, %24
   %30 = getelementptr i32, ptr %1, i64 %indvars.iv.i
   %31 = getelementptr i8, ptr %30, i64 -4
   %32 = load i32, ptr %31, align 4
-  %.fr22.i = freeze i32 %32
-  %33 = icmp ult i32 %.fr22.i, 2
+  %.fr24.i = freeze i32 %32
+  %33 = icmp ult i32 %.fr24.i, 2
   br i1 %33, label %CubeSize.exit, label %34
 
 34:                                               ; preds = %.lr.ph.i
-  %35 = mul i32 %.fr22.i, %.01118.i
-  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr22.i, i32 %35)
+  %35 = mul i32 %.fr24.i, %.01118.i
+  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr24.i, i32 %35)
   %mul.ov.i = extractvalue { i32, i1 } %mul.i, 1
   br i1 %mul.ov.i, label %CubeSize.exit, label %28
 
@@ -1540,13 +1540,13 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLut16bit(ptr noundef readonly 
   %27 = getelementptr i32, ptr %15, i64 %indvars.iv.i
   %28 = getelementptr i8, ptr %27, i64 -4
   %29 = load i32, ptr %28, align 4
-  %.fr22.i = freeze i32 %29
-  %30 = icmp ult i32 %.fr22.i, 2
+  %.fr24.i = freeze i32 %29
+  %30 = icmp ult i32 %.fr24.i, 2
   br i1 %30, label %CubeSize.exit.thread, label %31
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = mul i32 %.fr22.i, %.01118.i
-  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr22.i, i32 %32)
+  %32 = mul i32 %.fr24.i, %.01118.i
+  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr24.i, i32 %32)
   %mul.ov.i = extractvalue { i32, i1 } %mul.i, 1
   br i1 %mul.ov.i, label %CubeSize.exit.thread, label %25
 
@@ -1886,13 +1886,13 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLutFloat(ptr noundef readonly 
   %27 = getelementptr i32, ptr %15, i64 %indvars.iv.i
   %28 = getelementptr i8, ptr %27, i64 -4
   %29 = load i32, ptr %28, align 4
-  %.fr22.i = freeze i32 %29
-  %30 = icmp ult i32 %.fr22.i, 2
+  %.fr24.i = freeze i32 %29
+  %30 = icmp ult i32 %.fr24.i, 2
   br i1 %30, label %CubeSize.exit.thread, label %31
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = mul i32 %.fr22.i, %.01118.i
-  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr22.i, i32 %32)
+  %32 = mul i32 %.fr24.i, %.01118.i
+  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr24.i, i32 %32)
   %mul.ov.i = extractvalue { i32, i1 } %mul.i, 1
   br i1 %mul.ov.i, label %CubeSize.exit.thread, label %25
 
@@ -2162,13 +2162,13 @@ define hidden range(i32 0, 2) i32 @cmsSliceSpace16(i32 noundef %0, ptr noundef r
   %11 = getelementptr i32, ptr %1, i64 %indvars.iv.i
   %12 = getelementptr i8, ptr %11, i64 -4
   %13 = load i32, ptr %12, align 4
-  %.fr22.i = freeze i32 %13
-  %14 = icmp ult i32 %.fr22.i, 2
+  %.fr24.i = freeze i32 %13
+  %14 = icmp ult i32 %.fr24.i, 2
   br i1 %14, label %CubeSize.exit.thread, label %15
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = mul i32 %.fr22.i, %.01118.i
-  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr22.i, i32 %16)
+  %16 = mul i32 %.fr24.i, %.01118.i
+  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr24.i, i32 %16)
   %mul.ov.i = extractvalue { i32, i1 } %mul.i, 1
   br i1 %mul.ov.i, label %CubeSize.exit.thread, label %9
 
@@ -2268,13 +2268,13 @@ define hidden range(i32 0, 2) i32 @cmsSliceSpaceFloat(i32 noundef %0, ptr nounde
   %11 = getelementptr i32, ptr %1, i64 %indvars.iv.i
   %12 = getelementptr i8, ptr %11, i64 -4
   %13 = load i32, ptr %12, align 4
-  %.fr22.i = freeze i32 %13
-  %14 = icmp ult i32 %.fr22.i, 2
+  %.fr24.i = freeze i32 %13
+  %14 = icmp ult i32 %.fr24.i, 2
   br i1 %14, label %CubeSize.exit.thread, label %15
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = mul i32 %.fr22.i, %.01118.i
-  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr22.i, i32 %16)
+  %16 = mul i32 %.fr24.i, %.01118.i
+  %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr24.i, i32 %16)
   %mul.ov.i = extractvalue { i32, i1 } %mul.i, 1
   br i1 %mul.ov.i, label %CubeSize.exit.thread, label %9
 
@@ -3664,13 +3664,13 @@ define hidden range(i32 0, 2) i32 @cmsPipelineCat(ptr noundef captures(none) %0,
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %14
-  %.02941 = phi ptr [ %.029, %14 ], [ %.029.pre37, %5 ]
+  %.02946 = phi ptr [ %.029, %14 ], [ %.029.pre37, %5 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %17
 
 17:                                               ; preds = %.lr.ph, %.loopexit
-  %.031 = phi ptr [ %.02941, %.lr.ph ], [ %.0, %.loopexit ]
+  %.031 = phi ptr [ %.02946, %.lr.ph ], [ %.0, %.loopexit ]
   %18 = load ptr, ptr %.031, align 8
   %19 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %20 = load i32, ptr %19, align 8
@@ -4111,8 +4111,8 @@ EuclideanDistance.exit:                           ; preds = %48
   br i1 %122, label %.sink.split, label %123
 
 .sink.split:                                      ; preds = %121, %117
-  %.sink73 = phi float [ 0.000000e+00, %117 ], [ 1.000000e+00, %121 ]
-  store float %.sink73, ptr %118, align 4
+  %.sink76 = phi float [ 0.000000e+00, %117 ], [ 1.000000e+00, %121 ]
+  store float %.sink76, ptr %118, align 4
   br label %123
 
 123:                                              ; preds = %.sink.split, %121

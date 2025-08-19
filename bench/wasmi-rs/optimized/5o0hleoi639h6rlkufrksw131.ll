@@ -869,9 +869,9 @@ default.unreachable:                              ; preds = %.noexc44, %109
           to label %218 unwind label %210, !noalias !65
 
 "_ZN77_$LT$wasmi_core..func_type..FuncTypeInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24f42bee7560e470E.exit.thread.i.thread": ; preds = %185, %190
-  %.sroa.0321.0.copyload578 = load ptr, ptr %53, align 8, !noalias !52
-  %.sroa.6323.0.copyload579 = load i64, ptr %84, align 8, !noalias !52
-  %.sroa.7326.0.copyload580 = load i64, ptr %85, align 8, !noalias !52
+  %.sroa.0321.0.copyload594 = load ptr, ptr %53, align 8, !noalias !52
+  %.sroa.6323.0.copyload595 = load i64, ptr %84, align 8, !noalias !52
+  %.sroa.7326.0.copyload596 = load i64, ptr %85, align 8, !noalias !52
   br label %226
 
 "_ZN77_$LT$wasmi_core..func_type..FuncTypeInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24f42bee7560e470E.exit.thread.i": ; preds = %172, %"_ZN77_$LT$wasmi_core..func_type..FuncTypeInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24f42bee7560e470E.exit._ZN77_$LT$wasmi_core..func_type..FuncTypeInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24f42bee7560e470E.exit.thread_crit_edge.i"
@@ -907,9 +907,9 @@ default.unreachable:                              ; preds = %.noexc44, %109
   br i1 %225, label %229, label %227
 
 226:                                              ; preds = %"_ZN77_$LT$wasmi_core..func_type..FuncTypeInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24f42bee7560e470E.exit.thread.i.thread", %"_ZN77_$LT$wasmi_core..func_type..FuncTypeInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24f42bee7560e470E.exit.thread.i"
-  %.sroa.7326.0.copyload583 = phi i64 [ %.sroa.7326.0.copyload580, %"_ZN77_$LT$wasmi_core..func_type..FuncTypeInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24f42bee7560e470E.exit.thread.i.thread" ], [ %.sroa.7326.0.copyload, %"_ZN77_$LT$wasmi_core..func_type..FuncTypeInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24f42bee7560e470E.exit.thread.i" ]
-  %.sroa.6323.0.copyload582 = phi i64 [ %.sroa.6323.0.copyload579, %"_ZN77_$LT$wasmi_core..func_type..FuncTypeInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24f42bee7560e470E.exit.thread.i.thread" ], [ %.sroa.6323.0.copyload, %"_ZN77_$LT$wasmi_core..func_type..FuncTypeInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24f42bee7560e470E.exit.thread.i" ]
-  %.sroa.0321.0.copyload581 = phi ptr [ %.sroa.0321.0.copyload578, %"_ZN77_$LT$wasmi_core..func_type..FuncTypeInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24f42bee7560e470E.exit.thread.i.thread" ], [ %.sroa.0321.0.copyload, %"_ZN77_$LT$wasmi_core..func_type..FuncTypeInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24f42bee7560e470E.exit.thread.i" ]
+  %.sroa.7326.0.copyload599 = phi i64 [ %.sroa.7326.0.copyload596, %"_ZN77_$LT$wasmi_core..func_type..FuncTypeInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24f42bee7560e470E.exit.thread.i.thread" ], [ %.sroa.7326.0.copyload, %"_ZN77_$LT$wasmi_core..func_type..FuncTypeInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24f42bee7560e470E.exit.thread.i" ]
+  %.sroa.6323.0.copyload598 = phi i64 [ %.sroa.6323.0.copyload595, %"_ZN77_$LT$wasmi_core..func_type..FuncTypeInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24f42bee7560e470E.exit.thread.i.thread" ], [ %.sroa.6323.0.copyload, %"_ZN77_$LT$wasmi_core..func_type..FuncTypeInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24f42bee7560e470E.exit.thread.i" ]
+  %.sroa.0321.0.copyload597 = phi ptr [ %.sroa.0321.0.copyload594, %"_ZN77_$LT$wasmi_core..func_type..FuncTypeInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24f42bee7560e470E.exit.thread.i.thread" ], [ %.sroa.0321.0.copyload, %"_ZN77_$LT$wasmi_core..func_type..FuncTypeInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24f42bee7560e470E.exit.thread.i" ]
   %.sroa.548.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %101, i64 9
   %.sroa.548.0.copyload.i = load i8, ptr %.sroa.548.0..sroa_idx.i, align 1, !noalias !65
   %.sroa.551.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %101, i64 10
@@ -920,9 +920,9 @@ default.unreachable:                              ; preds = %.noexc44, %109
   br label %227
 
 227:                                              ; preds = %226, %220
-  %.sroa.0321.0 = phi ptr [ %.sroa.0321.1, %220 ], [ %.sroa.0321.0.copyload581, %226 ]
-  %.sroa.6323.0 = phi i64 [ %.sroa.6323.1, %220 ], [ %.sroa.6323.0.copyload582, %226 ]
-  %.sroa.7326.0 = phi i64 [ %.sroa.7326.1, %220 ], [ %.sroa.7326.0.copyload583, %226 ]
+  %.sroa.0321.0 = phi ptr [ %.sroa.0321.1, %220 ], [ %.sroa.0321.0.copyload597, %226 ]
+  %.sroa.6323.0 = phi i64 [ %.sroa.6323.1, %220 ], [ %.sroa.6323.0.copyload598, %226 ]
+  %.sroa.7326.0 = phi i64 [ %.sroa.7326.1, %220 ], [ %.sroa.7326.0.copyload599, %226 ]
   %.sroa.046.0.i = phi i32 [ 1, %220 ], [ 0, %226 ]
   %.sroa.548.0.i = phi i8 [ undef, %220 ], [ %.sroa.548.0.copyload.i, %226 ]
   %.sroa.551.0.i = phi i16 [ %221, %220 ], [ %.sroa.551.0.copyload.i, %226 ]

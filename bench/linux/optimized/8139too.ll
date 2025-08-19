@@ -1082,19 +1082,19 @@ define internal i32 @rtl8139_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %139 = icmp ne i64 %138, 0
   %140 = icmp slt i32 %108, %1
   %141 = select i1 %139, i1 %140, i1 false
-  br i1 %141, label %.lr.ph, label %._crit_edge.thread34
+  br i1 %141, label %.lr.ph, label %._crit_edge.thread39
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %142 = icmp eq i32 %36, 0
-  br i1 %142, label %._crit_edge.thread, label %._crit_edge.thread34, !prof !20
+  br i1 %142, label %._crit_edge.thread, label %._crit_edge.thread39, !prof !20
 
 ._crit_edge.thread:                               ; preds = %12, %.thread8, %._crit_edge
   %143 = phi i32 [ %36, %.thread8 ], [ 0, %._crit_edge ], [ 0, %12 ]
   %144 = phi i32 [ %35, %.thread8 ], [ %35, %._crit_edge ], [ %17, %12 ]
   tail call fastcc void @rtl8139_isr_ack(ptr noundef %3)
-  br label %._crit_edge.thread34
+  br label %._crit_edge.thread39
 
-._crit_edge.thread34:                             ; preds = %136, %._crit_edge.thread, %._crit_edge
+._crit_edge.thread39:                             ; preds = %136, %._crit_edge.thread, %._crit_edge
   %145 = phi i32 [ %143, %._crit_edge.thread ], [ %36, %._crit_edge ], [ %108, %136 ]
   %146 = phi i32 [ %144, %._crit_edge.thread ], [ %35, %._crit_edge ], [ %111, %136 ]
   store i32 %146, ptr %16, align 8
@@ -1103,8 +1103,8 @@ define internal i32 @rtl8139_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %149 = select i1 %148, i32 %145, i32 %1
   br label %150
 
-150:                                              ; preds = %.thread6, %._crit_edge.thread34, %2
-  %151 = phi i32 [ 0, %2 ], [ %149, %._crit_edge.thread34 ], [ -1, %.thread6 ]
+150:                                              ; preds = %.thread6, %._crit_edge.thread39, %2
+  %151 = phi i32 [ 0, %2 ], [ %149, %._crit_edge.thread39 ], [ -1, %.thread6 ]
   %152 = icmp slt i32 %151, %1
   br i1 %152, label %153, label %161
 

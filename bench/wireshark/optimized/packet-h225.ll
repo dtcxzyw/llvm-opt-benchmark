@@ -4553,8 +4553,8 @@ proto_item_set_generated.exit117.i:               ; preds = %199, %196, %190
   br i1 %.not5.i119.i, label %ras_call_matching.exit, label %proto_item_set_generated.exit.sink.split.i
 
 proto_item_set_generated.exit.sink.split.i:       ; preds = %208, %134
-  %.sink141.i = phi ptr [ %136, %134 ], [ %210, %208 ]
-  %211 = getelementptr inbounds nuw i8, ptr %.sink141.i, i64 28
+  %.sink163.i = phi ptr [ %136, %134 ], [ %210, %208 ]
+  %211 = getelementptr inbounds nuw i8, ptr %.sink163.i, i64 28
   %212 = load i32, ptr %211, align 4
   %213 = or i32 %212, 2
   store i32 %213, ptr %211, align 4

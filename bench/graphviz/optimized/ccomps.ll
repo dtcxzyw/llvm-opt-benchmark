@@ -2054,8 +2054,8 @@ agxblen.exit.i.i.i:                               ; preds = %12
   br i1 %.not.i26.i.i.i, label %24, label %.thread.i
 
 .thread.i:                                        ; preds = %18, %agxblen.exit.i.i.i
-  %.val.i25.i.i5.i = phi i8 [ %.val.i25.pre.i.i.i, %18 ], [ 0, %agxblen.exit.i.i.i ]
-  %19 = zext i8 %.val.i25.i.i5.i to i64
+  %.val.i25.i.i9.i = phi i8 [ %.val.i25.pre.i.i.i, %18 ], [ 0, %agxblen.exit.i.i.i ]
+  %19 = zext i8 %.val.i25.i.i9.i to i64
   %20 = getelementptr inbounds nuw [31 x i8], ptr %2, i64 0, i64 %19
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %3, i64 %13, i1 false)
   %21 = trunc i64 %13 to i8

@@ -133,9 +133,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %55
 
 55:                                               ; preds = %52, %46
-  %.sink32 = phi i32 [ %54, %52 ], [ %51, %46 ]
+  %.sink35 = phi i32 [ %54, %52 ], [ %51, %46 ]
   %.val26.sink = load ptr, ptr %10, align 8, !tbaa !28
-  %56 = sext i32 %.sink32 to i64
+  %56 = sext i32 %.sink35 to i64
   %57 = getelementptr inbounds i32, ptr %.val26.sink, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !29
   %.val27 = load ptr, ptr %12, align 8, !tbaa !30

@@ -321,8 +321,8 @@ EVP_ASYM_CIPHER_free.exit97:                      ; preds = %52, %82, %CRYPTO_DO
   br label %.thread115
 
 137:                                              ; preds = %132, %128
-  %.sink124 = phi ptr [ %130, %128 ], [ %134, %132 ]
-  %138 = call i32 %.sink124(ptr noundef nonnull %0) #5
+  %.sink138 = phi ptr [ %130, %128 ], [ %134, %132 ]
+  %138 = call i32 %.sink138(ptr noundef nonnull %0) #5
   %139 = icmp slt i32 %138, 1
   br i1 %139, label %.thread115, label %140
 

@@ -1823,11 +1823,11 @@ _ZNK6icu_775Edits11copyErrorToER10UErrorCode.exit: ; preds = %9
   br i1 %50, label %._crit_edge.thread, label %70
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %._crit_edge
-  %.192252 = phi i32 [ %.192, %._crit_edge ], [ %.091.ph, %.lr.ph.split.us ]
-  %.195249 = phi i32 [ %.195, %._crit_edge ], [ 0, %.lr.ph.split.us ]
-  %.1104248 = phi i8 [ %.1104, %._crit_edge ], [ 0, %.lr.ph.split.us ]
-  %.085.lcssa245 = phi i32 [ %.085.lcssa, %._crit_edge ], [ %.085.ph, %.lr.ph.split.us ]
-  %.087.lcssa243 = phi i32 [ %.087.lcssa, %._crit_edge ], [ %.087.ph, %.lr.ph.split.us ]
+  %.192258 = phi i32 [ %.192, %._crit_edge ], [ %.091.ph, %.lr.ph.split.us ]
+  %.195255 = phi i32 [ %.195, %._crit_edge ], [ 0, %.lr.ph.split.us ]
+  %.1104254 = phi i8 [ %.1104, %._crit_edge ], [ 0, %.lr.ph.split.us ]
+  %.085.lcssa251 = phi i32 [ %.085.lcssa, %._crit_edge ], [ %.085.ph, %.lr.ph.split.us ]
+  %.087.lcssa249 = phi i32 [ %.087.lcssa, %._crit_edge ], [ %.087.ph, %.lr.ph.split.us ]
   %51 = load i8, ptr %24, align 4, !tbaa !33
   %52 = call noundef signext i8 @_ZN6icu_775Edits8Iterator4nextEaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 noundef signext %51, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %.not111 = icmp eq i8 %52, 0
@@ -1841,29 +1841,29 @@ _ZNK6icu_775Edits11copyErrorToER10UErrorCode.exit: ; preds = %9
 
 57:                                               ; preds = %53
   %58 = load i32, ptr %21, align 8, !tbaa !35
-  %59 = icmp eq i32 %.195249, %58
+  %59 = icmp eq i32 %.195255, %58
   %60 = load i8, ptr %27, align 1
   %.not123 = icmp eq i8 %60, 0
   %or.cond141 = select i1 %59, i1 true, i1 %.not123
-  %61 = add nsw i32 %54, %.087.lcssa243
+  %61 = add nsw i32 %54, %.087.lcssa249
   br i1 %or.cond141, label %62, label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %57, %107, %109, %62, %100, %95, %89, %84
-  %.0103.ph.be = phi i8 [ %.1104247, %84 ], [ %.1104247, %89 ], [ %.1104247, %95 ], [ %.1104247, %100 ], [ %.1104248, %62 ], [ %.1104247, %107 ], [ %.1104247, %109 ], [ %.1104248, %57 ]
+  %.0103.ph.be = phi i8 [ %.1104253, %84 ], [ %.1104253, %89 ], [ %.1104253, %95 ], [ %.1104253, %100 ], [ %.1104254, %62 ], [ %.1104253, %107 ], [ %.1104253, %109 ], [ %.1104254, %57 ]
   %.0100.ph.be = phi i32 [ %86, %84 ], [ %92, %89 ], [ %.1101, %95 ], [ %.1101, %100 ], [ %54, %62 ], [ %.1101, %107 ], [ 0, %109 ], [ %54, %57 ]
   %.097.ph.be = phi i32 [ %86, %84 ], [ %92, %89 ], [ 0, %95 ], [ 0, %100 ], [ 0, %62 ], [ 0, %107 ], [ %110, %109 ], [ 0, %57 ]
-  %.094.ph.be = phi i32 [ %87, %84 ], [ 0, %89 ], [ %98, %95 ], [ 0, %100 ], [ %.195249, %62 ], [ %108, %107 ], [ 0, %109 ], [ %.195249, %57 ]
-  %.091.ph.be = phi i32 [ %87, %84 ], [ %.192251, %89 ], [ %98, %95 ], [ %.192251, %100 ], [ %.192252, %62 ], [ 0, %107 ], [ %.192251, %109 ], [ %.192252, %57 ]
+  %.094.ph.be = phi i32 [ %87, %84 ], [ 0, %89 ], [ %98, %95 ], [ 0, %100 ], [ %.195255, %62 ], [ %108, %107 ], [ 0, %109 ], [ %.195255, %57 ]
+  %.091.ph.be = phi i32 [ %87, %84 ], [ %.192257, %89 ], [ %98, %95 ], [ %.192257, %100 ], [ %.192258, %62 ], [ 0, %107 ], [ %.192257, %109 ], [ %.192258, %57 ]
   %.087.ph.be = phi i32 [ 0, %84 ], [ 0, %89 ], [ 0, %95 ], [ 0, %100 ], [ 0, %62 ], [ %104, %107 ], [ %104, %109 ], [ %61, %57 ]
-  %.085.ph.be = phi i32 [ 0, %84 ], [ 0, %89 ], [ 0, %95 ], [ 0, %100 ], [ 0, %62 ], [ %105, %107 ], [ %105, %109 ], [ %.085.lcssa245, %57 ]
+  %.085.ph.be = phi i32 [ 0, %84 ], [ 0, %89 ], [ 0, %95 ], [ 0, %100 ], [ 0, %62 ], [ %105, %107 ], [ %105, %109 ], [ %.085.lcssa251, %57 ]
   br label %.outer, !llvm.loop !37
 
 62:                                               ; preds = %57
-  call void @_ZN6icu_775Edits10addReplaceEii(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %61, i32 noundef %.085.lcssa245)
+  call void @_ZN6icu_775Edits10addReplaceEii(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %61, i32 noundef %.085.lcssa251)
   br label %.outer.backedge
 
 63:                                               ; preds = %._crit_edge.thread
-  %64 = icmp eq i32 %.195249, 0
+  %64 = icmp eq i32 %.195255, 0
   br i1 %64, label %111, label %65
 
 65:                                               ; preds = %63
@@ -1877,14 +1877,14 @@ _ZNK6icu_775Edits11copyErrorToER10UErrorCode.exit: ; preds = %9
   br label %_ZNK6icu_775Edits11copyErrorToER10UErrorCode.exit130.sink.split
 
 70:                                               ; preds = %53, %._crit_edge
-  %.192251 = phi i32 [ %.192252, %53 ], [ %.192, %._crit_edge ]
-  %.195250 = phi i32 [ %.195249, %53 ], [ %.195, %._crit_edge ]
-  %.1104247 = phi i8 [ %.1104248, %53 ], [ %.1104, %._crit_edge ]
-  %.085.lcssa244 = phi i32 [ %.085.lcssa245, %53 ], [ %.085.lcssa, %._crit_edge ]
-  %.087.lcssa242 = phi i32 [ %.087.lcssa243, %53 ], [ %.087.lcssa, %._crit_edge ]
+  %.192257 = phi i32 [ %.192258, %53 ], [ %.192, %._crit_edge ]
+  %.195256 = phi i32 [ %.195255, %53 ], [ %.195, %._crit_edge ]
+  %.1104253 = phi i8 [ %.1104254, %53 ], [ %.1104, %._crit_edge ]
+  %.085.lcssa250 = phi i32 [ %.085.lcssa251, %53 ], [ %.085.lcssa, %._crit_edge ]
+  %.087.lcssa248 = phi i32 [ %.087.lcssa249, %53 ], [ %.087.lcssa, %._crit_edge ]
   %.1101 = phi i32 [ %54, %53 ], [ %.0100.ph, %._crit_edge ]
   %.198 = phi i32 [ %55, %53 ], [ %.097.ph.fr, %._crit_edge ]
-  %71 = icmp eq i32 %.195250, 0
+  %71 = icmp eq i32 %.195256, 0
   br i1 %71, label %.thread, label %76
 
 .thread:                                          ; preds = %.lr.ph.split, %70
@@ -1894,7 +1894,7 @@ _ZNK6icu_775Edits11copyErrorToER10UErrorCode.exit: ; preds = %9
 
 74:                                               ; preds = %.thread
   %75 = load i32, ptr %10, align 8, !tbaa !18
-  %.272 = call i32 @llvm.smax.i32(i32 %75, i32 1)
+  %.278 = call i32 @llvm.smax.i32(i32 %75, i32 1)
   br label %_ZNK6icu_775Edits11copyErrorToER10UErrorCode.exit130.sink.split
 
 76:                                               ; preds = %70
@@ -1908,79 +1908,79 @@ _ZNK6icu_775Edits11copyErrorToER10UErrorCode.exit: ; preds = %9
   br i1 %.not114, label %80, label %88
 
 80:                                               ; preds = %79
-  %81 = icmp ne i32 %.087.lcssa242, 0
-  %82 = icmp ne i32 %.085.lcssa244, 0
+  %81 = icmp ne i32 %.087.lcssa248, 0
+  %82 = icmp ne i32 %.085.lcssa250, 0
   %or.cond = select i1 %81, i1 true, i1 %82
   br i1 %or.cond, label %83, label %84
 
 83:                                               ; preds = %80
-  call void @_ZN6icu_775Edits10addReplaceEii(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %.087.lcssa242, i32 noundef %.085.lcssa244)
+  call void @_ZN6icu_775Edits10addReplaceEii(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %.087.lcssa248, i32 noundef %.085.lcssa250)
   br label %84
 
 84:                                               ; preds = %80, %83
-  %85 = call i32 @llvm.smin.i32(i32 %.1101, i32 %.192251)
+  %85 = call i32 @llvm.smin.i32(i32 %.1101, i32 %.192257)
   call void @_ZN6icu_775Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %85)
   %86 = sub nsw i32 %.1101, %85
-  %87 = sub nsw i32 %.192251, %85
+  %87 = sub nsw i32 %.192257, %85
   br label %.outer.backedge
 
 88:                                               ; preds = %79
-  %.not118 = icmp slt i32 %.198, %.195250
+  %.not118 = icmp slt i32 %.198, %.195256
   br i1 %.not118, label %103, label %89
 
 89:                                               ; preds = %88
-  %90 = add nsw i32 %.195250, %.087.lcssa242
-  %91 = add nsw i32 %.192251, %.085.lcssa244
+  %90 = add nsw i32 %.195256, %.087.lcssa248
+  %91 = add nsw i32 %.192257, %.085.lcssa250
   call void @_ZN6icu_775Edits10addReplaceEii(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %90, i32 noundef %91)
-  %92 = sub nsw i32 %.198, %.195250
+  %92 = sub nsw i32 %.198, %.195256
   br label %.outer.backedge
 
 93:                                               ; preds = %76
   br i1 %.not114, label %94, label %.thread137
 
 94:                                               ; preds = %93
-  %.not121 = icmp sgt i32 %.198, %.195250
+  %.not121 = icmp sgt i32 %.198, %.195256
   br i1 %.not121, label %103, label %95
 
 95:                                               ; preds = %94
-  %96 = add nsw i32 %.1101, %.087.lcssa242
-  %97 = add nsw i32 %.198, %.085.lcssa244
+  %96 = add nsw i32 %.1101, %.087.lcssa248
+  %97 = add nsw i32 %.198, %.085.lcssa250
   call void @_ZN6icu_775Edits10addReplaceEii(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %96, i32 noundef %97)
-  %98 = sub nsw i32 %.195250, %.198
+  %98 = sub nsw i32 %.195256, %.198
   br label %.outer.backedge
 
 .thread137:                                       ; preds = %93
-  %99 = icmp eq i32 %.198, %.195250
+  %99 = icmp eq i32 %.198, %.195256
   br i1 %99, label %100, label %103
 
 100:                                              ; preds = %.thread137
-  %101 = add nsw i32 %.1101, %.087.lcssa242
-  %102 = add nsw i32 %.192251, %.085.lcssa244
+  %101 = add nsw i32 %.1101, %.087.lcssa248
+  %102 = add nsw i32 %.192257, %.085.lcssa250
   call void @_ZN6icu_775Edits10addReplaceEii(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %101, i32 noundef %102)
   br label %.outer.backedge
 
 103:                                              ; preds = %94, %.thread137, %88
-  %104 = add nsw i32 %.1101, %.087.lcssa242
-  %105 = add nsw i32 %.192251, %.085.lcssa244
-  %106 = icmp slt i32 %.198, %.195250
+  %104 = add nsw i32 %.1101, %.087.lcssa248
+  %105 = add nsw i32 %.192257, %.085.lcssa250
+  %106 = icmp slt i32 %.198, %.195256
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %103
-  %108 = sub nsw i32 %.195250, %.198
+  %108 = sub nsw i32 %.195256, %.198
   br label %.outer.backedge
 
 109:                                              ; preds = %103
-  %110 = sub nsw i32 %.198, %.195250
+  %110 = sub nsw i32 %.198, %.195256
   br label %.outer.backedge
 
 111:                                              ; preds = %63
-  %112 = icmp ne i32 %.087.lcssa243, 0
-  %113 = icmp ne i32 %.085.lcssa245, 0
+  %112 = icmp ne i32 %.087.lcssa249, 0
+  %113 = icmp ne i32 %.085.lcssa251, 0
   %or.cond3 = select i1 %112, i1 true, i1 %113
   br i1 %or.cond3, label %114, label %115
 
 114:                                              ; preds = %111
-  call void @_ZN6icu_775Edits10addReplaceEii(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %.087.lcssa243, i32 noundef %.085.lcssa245)
+  call void @_ZN6icu_775Edits10addReplaceEii(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %.087.lcssa249, i32 noundef %.085.lcssa251)
   br label %115
 
 115:                                              ; preds = %111, %114
@@ -1988,11 +1988,11 @@ _ZNK6icu_775Edits11copyErrorToER10UErrorCode.exit: ; preds = %9
   %117 = icmp slt i32 %116, 1
   %118 = load i32, ptr %10, align 8
   %119 = icmp sgt i32 %118, 0
-  %or.cond274 = select i1 %117, i1 %119, i1 false
-  br i1 %or.cond274, label %_ZNK6icu_775Edits11copyErrorToER10UErrorCode.exit130.sink.split, label %_ZNK6icu_775Edits11copyErrorToER10UErrorCode.exit130
+  %or.cond280 = select i1 %117, i1 %119, i1 false
+  br i1 %or.cond280, label %_ZNK6icu_775Edits11copyErrorToER10UErrorCode.exit130.sink.split, label %_ZNK6icu_775Edits11copyErrorToER10UErrorCode.exit130
 
 _ZNK6icu_775Edits11copyErrorToER10UErrorCode.exit130.sink.split: ; preds = %115, %74, %68
-  %.sink = phi i32 [ %., %68 ], [ %.272, %74 ], [ %118, %115 ]
+  %.sink = phi i32 [ %., %68 ], [ %.278, %74 ], [ %118, %115 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !13
   br label %_ZNK6icu_775Edits11copyErrorToER10UErrorCode.exit130
 
@@ -2262,7 +2262,7 @@ _ZN6icu_775Edits8Iterator17updateNextIndexesEv.exit: ; preds = %10, %18
   %64 = load i16, ptr %63, align 2, !tbaa !23
   %65 = zext i16 %64 to i32
   %66 = icmp ugt i16 %64, 4095
-  br i1 %66, label %.critedge.loopexit.split.loop.exit91, label %67
+  br i1 %66, label %.critedge.loopexit.split.loop.exit106, label %67
 
 67:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -2273,15 +2273,15 @@ _ZN6icu_775Edits8Iterator17updateNextIndexesEv.exit: ; preds = %10, %18
   %exitcond.not = icmp eq i32 %47, %68
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !48
 
-.critedge.loopexit.split.loop.exit91:             ; preds = %.lr.ph
+.critedge.loopexit.split.loop.exit106:            ; preds = %.lr.ph
   %71 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %67, %.critedge.loopexit.split.loop.exit91, %57
-  %storemerge.lcssa67 = phi i32 [ %59, %57 ], [ %storemerge68, %.critedge.loopexit.split.loop.exit91 ], [ %70, %67 ]
-  %.lcssa66 = phi i32 [ %51, %57 ], [ %71, %.critedge.loopexit.split.loop.exit91 ], [ %47, %67 ]
-  %.lcssa = phi i1 [ false, %57 ], [ true, %.critedge.loopexit.split.loop.exit91 ], [ false, %67 ]
-  %.233 = phi i32 [ %55, %57 ], [ %65, %.critedge.loopexit.split.loop.exit91 ], [ %65, %67 ]
+.critedge:                                        ; preds = %67, %.critedge.loopexit.split.loop.exit106, %57
+  %storemerge.lcssa67 = phi i32 [ %59, %57 ], [ %storemerge68, %.critedge.loopexit.split.loop.exit106 ], [ %70, %67 ]
+  %.lcssa66 = phi i32 [ %51, %57 ], [ %71, %.critedge.loopexit.split.loop.exit106 ], [ %47, %67 ]
+  %.lcssa = phi i1 [ false, %57 ], [ true, %.critedge.loopexit.split.loop.exit106 ], [ false, %67 ]
+  %.233 = phi i32 [ %55, %57 ], [ %65, %.critedge.loopexit.split.loop.exit106 ], [ %65, %67 ]
   store i32 %storemerge.lcssa67, ptr %60, align 8, !tbaa !35
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %storemerge.lcssa67, ptr %72, align 4, !tbaa !36
@@ -3128,7 +3128,7 @@ define noundef range(i32 -1, 2) i32 @_ZN6icu_775Edits8Iterator9findIndexEiaR10UE
 
 47:                                               ; preds = %25
   %48 = xor i32 %1, -1
-  %49 = add i32 %22, %48
+  %49 = add nsw i32 %22, %48
   %50 = sdiv i32 %49, %26
   %51 = add nsw i32 %50, 1
   %52 = load i32, ptr %10, align 8, !tbaa !35

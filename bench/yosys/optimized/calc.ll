@@ -1920,9 +1920,9 @@ _ZN10BigIntegerD2Ev.exit58:                       ; preds = %118, %114, %112
           to label %126 unwind label %93
 
 126:                                              ; preds = %124, %109, %79
-  %.sink68 = phi ptr [ %80, %79 ], [ %111, %109 ], [ %125, %124 ]
+  %.sink84 = phi ptr [ %80, %79 ], [ %111, %109 ], [ %125, %124 ]
   %.sink = phi i8 [ %7, %79 ], [ %110, %109 ], [ %123, %124 ]
-  %127 = load ptr, ptr %.sink68, align 8, !tbaa !6
+  %127 = load ptr, ptr %.sink84, align 8, !tbaa !6
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 %indvars.iv
   store i8 %.sink, ptr %128, align 1, !tbaa !11
   %129 = load ptr, ptr %60, align 8, !tbaa !38
@@ -3645,15 +3645,15 @@ _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %.loopexit, %73
   br i1 %75, label %_ZN15NumberlikeArrayImED2Ev.exit26, label %76
 
 76:                                               ; preds = %.thread, %74
-  %.pn.pn40 = phi { ptr, i32 } [ %29, %.thread ], [ %.pn, %74 ]
+  %.pn.pn45 = phi { ptr, i32 } [ %29, %.thread ], [ %.pn, %74 ]
   %77 = phi ptr [ %14, %.thread ], [ %.pre, %74 ]
   call void @_ZdaPv(ptr noundef nonnull %77) #22
   br label %_ZN15NumberlikeArrayImED2Ev.exit26
 
 _ZN15NumberlikeArrayImED2Ev.exit26:               ; preds = %74, %76
-  %.pn.pn41 = phi { ptr, i32 } [ %.pn, %74 ], [ %.pn.pn40, %76 ]
+  %.pn.pn46 = phi { ptr, i32 } [ %.pn, %74 ], [ %.pn.pn45, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  resume { ptr, i32 } %.pn.pn41
+  resume { ptr, i32 } %.pn.pn46
 
 78:                                               ; preds = %_ZN15NumberlikeArrayImED2Ev.exit, %7
   ret void
@@ -5478,9 +5478,9 @@ _ZN10BigIntegerD2Ev.exit95:                       ; preds = %201, %.body86, %191
   br i1 %204, label %.body83, label %.body83.sink.split
 
 .body83.sink.split:                               ; preds = %_ZN10BigIntegerD2Ev.exit95, %156
-  %.sink117 = phi ptr [ %159, %156 ], [ %203, %_ZN10BigIntegerD2Ev.exit95 ]
+  %.sink149 = phi ptr [ %159, %156 ], [ %203, %_ZN10BigIntegerD2Ev.exit95 ]
   %.pn39.pn.pn.ph = phi { ptr, i32 } [ %157, %156 ], [ %.pn39.pn, %_ZN10BigIntegerD2Ev.exit95 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink117) #22
+  call void @_ZdaPv(ptr noundef nonnull %.sink149) #22
   br label %.body83
 
 .body83:                                          ; preds = %.body83.sink.split, %_ZN10BigIntegerD2Ev.exit95, %156
@@ -5503,9 +5503,9 @@ _ZN10BigIntegerD2Ev.exit97:                       ; preds = %208, %.body83, %189
   br i1 %211, label %.body80, label %.body80.sink.split
 
 .body80.sink.split:                               ; preds = %_ZN10BigIntegerD2Ev.exit97, %149
-  %.sink118 = phi ptr [ %152, %149 ], [ %210, %_ZN10BigIntegerD2Ev.exit97 ]
+  %.sink150 = phi ptr [ %152, %149 ], [ %210, %_ZN10BigIntegerD2Ev.exit97 ]
   %.pn39.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %150, %149 ], [ %.pn39.pn.pn.pn, %_ZN10BigIntegerD2Ev.exit97 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink118) #22
+  call void @_ZdaPv(ptr noundef nonnull %.sink150) #22
   br label %.body80
 
 .body80:                                          ; preds = %.body80.sink.split, %_ZN10BigIntegerD2Ev.exit97, %149
@@ -7238,8 +7238,8 @@ _ZN10BigIntegerD2Ev.exit215:                      ; preds = %_ZN10BigIntegermLER
   %.not8.i.i.i222 = icmp eq i64 %388, %390
   %indvars.iv.next.i.i.i223 = add nuw nsw i64 %indvars.iv.i.i.i221, 1
   %exitcond.not.i.i.i224 = icmp ne i64 %indvars.iv.next.i.i.i223, %wide.trip.count.i.i.i220
-  %or.cond309.not = select i1 %.not8.i.i.i222, i1 %exitcond.not.i.i.i224, i1 false
-  br i1 %or.cond309.not, label %386, label %_ZNK10BigIntegereqERKS_.exit225, !llvm.loop !96
+  %or.cond390.not = select i1 %.not8.i.i.i222, i1 %exitcond.not.i.i.i224, i1 false
+  br i1 %or.cond390.not, label %386, label %_ZNK10BigIntegereqERKS_.exit225, !llvm.loop !96
 
 _ZNK10BigIntegereqERKS_.exit225:                  ; preds = %386, %.preheader.i.i.i217, %377, %373
   %391 = phi i1 [ false, %373 ], [ false, %377 ], [ true, %.preheader.i.i.i217 ], [ %.not8.i.i.i222, %386 ]
@@ -7449,8 +7449,8 @@ _ZN10BigIntegerD2Ev.exit235:                      ; preds = %452, %456
   %.not8.i.i.i242 = icmp eq i64 %471, %473
   %indvars.iv.next.i.i.i243 = add nuw nsw i64 %indvars.iv.i.i.i241, 1
   %exitcond.not.i.i.i244 = icmp ne i64 %indvars.iv.next.i.i.i243, %wide.trip.count.i.i.i240
-  %or.cond310.not = select i1 %.not8.i.i.i242, i1 %exitcond.not.i.i.i244, i1 false
-  br i1 %or.cond310.not, label %469, label %_ZNK10BigIntegereqERKS_.exit245, !llvm.loop !96
+  %or.cond391.not = select i1 %.not8.i.i.i242, i1 %exitcond.not.i.i.i244, i1 false
+  br i1 %or.cond391.not, label %469, label %_ZNK10BigIntegereqERKS_.exit245, !llvm.loop !96
 
 _ZNK10BigIntegereqERKS_.exit245:                  ; preds = %469, %.preheader.i.i.i237, %464, %460
   %474 = phi i1 [ false, %460 ], [ false, %464 ], [ true, %.preheader.i.i.i237 ], [ %.not8.i.i.i242, %469 ]
@@ -7614,9 +7614,9 @@ _ZN10BigIntegerD2Ev.exit258:                      ; preds = %522, %518, %516
   br i1 %524, label %.body250, label %.body250.sink.split
 
 .body250.sink.split:                              ; preds = %_ZN10BigIntegerD2Ev.exit258, %485
-  %.sink304 = phi ptr [ %487, %485 ], [ %523, %_ZN10BigIntegerD2Ev.exit258 ]
+  %.sink385 = phi ptr [ %487, %485 ], [ %523, %_ZN10BigIntegerD2Ev.exit258 ]
   %.pn125.pn.ph = phi { ptr, i32 } [ %486, %485 ], [ %.pn125, %_ZN10BigIntegerD2Ev.exit258 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink304) #22
+  call void @_ZdaPv(ptr noundef nonnull %.sink385) #22
   br label %.body250
 
 .body250:                                         ; preds = %.body250.sink.split, %_ZN10BigIntegerD2Ev.exit258, %485
@@ -7765,9 +7765,9 @@ _ZN10BigIntegerD2Ev.exit270:                      ; preds = %565, %561, %559
   br i1 %567, label %.body263, label %.body263.sink.split
 
 .body263.sink.split:                              ; preds = %_ZN10BigIntegerD2Ev.exit270, %535
-  %.sink305 = phi ptr [ %537, %535 ], [ %566, %_ZN10BigIntegerD2Ev.exit270 ]
+  %.sink386 = phi ptr [ %537, %535 ], [ %566, %_ZN10BigIntegerD2Ev.exit270 ]
   %.pn131.pn.ph = phi { ptr, i32 } [ %536, %535 ], [ %.pn131, %_ZN10BigIntegerD2Ev.exit270 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink305) #22
+  call void @_ZdaPv(ptr noundef nonnull %.sink386) #22
   br label %.body263
 
 .body263:                                         ; preds = %.body263.sink.split, %_ZN10BigIntegerD2Ev.exit270, %535
@@ -8263,14 +8263,14 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i:
   br i1 %.not.i.i.i32, label %.body, label %.body.sink.split
 
 .body.sink.split:                                 ; preds = %57, %28
-  %.sink49 = phi ptr [ %30, %28 ], [ %59, %57 ]
+  %.sink52 = phi ptr [ %30, %28 ], [ %59, %57 ]
   %.pn.ph = phi { ptr, i32 } [ %29, %28 ], [ %58, %57 ]
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !16
   %62 = ptrtoint ptr %61 to i64
-  %63 = ptrtoint ptr %.sink49 to i64
+  %63 = ptrtoint ptr %.sink52 to i64
   %64 = sub i64 %62, %63
-  call void @_ZdlPvm(ptr noundef nonnull %.sink49, i64 noundef %64) #22
+  call void @_ZdlPvm(ptr noundef nonnull %.sink52, i64 noundef %64) #22
   br label %.body
 
 .body:                                            ; preds = %.body.sink.split, %57, %28
@@ -8751,8 +8751,8 @@ define void @_ZN5Yosys5RTLIL11const_demuxERKNS0_5ConstES3_(ptr dead_on_unwind no
 .noexc47.thread:                                  ; preds = %._crit_edge199.thread, %._crit_edge199
   %27 = phi i64 [ 0, %._crit_edge199.thread ], [ %25, %._crit_edge199 ]
   %28 = phi ptr [ %12, %._crit_edge199.thread ], [ %23, %._crit_edge199 ]
-  %.sroa.0.0.lcssa251 = phi ptr [ null, %._crit_edge199.thread ], [ %.sroa.0.2, %._crit_edge199 ]
-  %.sroa.25.0.lcssa249 = phi ptr [ null, %._crit_edge199.thread ], [ %.sroa.25.2, %._crit_edge199 ]
+  %.sroa.0.0.lcssa261 = phi ptr [ null, %._crit_edge199.thread ], [ %.sroa.0.2, %._crit_edge199 ]
+  %.sroa.25.0.lcssa259 = phi ptr [ null, %._crit_edge199.thread ], [ %.sroa.25.2, %._crit_edge199 ]
   store ptr null, ptr %28, align 8, !tbaa !6
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %29, align 8, !tbaa !15
@@ -9129,18 +9129,18 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit80: ; preds = %_ZNS
 
 121:                                              ; preds = %34, %.noexc47.thread
   %122 = phi i64 [ %27, %.noexc47.thread ], [ %25, %34 ]
-  %.sroa.0.0.lcssa250 = phi ptr [ %.sroa.0.0.lcssa251, %.noexc47.thread ], [ %.sroa.0.2, %34 ]
-  %.sroa.25.0.lcssa248 = phi ptr [ %.sroa.25.0.lcssa249, %.noexc47.thread ], [ %.sroa.25.2, %34 ]
+  %.sroa.0.0.lcssa260 = phi ptr [ %.sroa.0.0.lcssa261, %.noexc47.thread ], [ %.sroa.0.2, %34 ]
+  %.sroa.25.0.lcssa258 = phi ptr [ %.sroa.25.0.lcssa259, %.noexc47.thread ], [ %.sroa.25.2, %34 ]
   %123 = phi ptr [ null, %.noexc47.thread ], [ %36, %34 ]
   %124 = phi ptr [ %29, %.noexc47.thread ], [ %35, %34 ]
   store ptr %123, ptr %124, align 8, !tbaa !15
-  %.not.i.i.i = icmp eq ptr %.sroa.0.0.lcssa250, null
+  %.not.i.i.i = icmp eq ptr %.sroa.0.0.lcssa260, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit, label %125
 
 125:                                              ; preds = %121
-  %126 = ptrtoint ptr %.sroa.25.0.lcssa248 to i64
+  %126 = ptrtoint ptr %.sroa.25.0.lcssa258 to i64
   %127 = sub i64 %126, %122
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0.lcssa250, i64 noundef %127) #22
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0.lcssa260, i64 noundef %127) #22
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit: ; preds = %121, %125
@@ -9375,7 +9375,7 @@ define linkonce_odr void @_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE6resizeEm(ptr
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1, !tbaa !11
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %21 = add i64 %11, -1
+  %21 = add nsw i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN5Yosys5RTLIL5StateEmS2_ET_S4_T0_RSaIT1_E.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i
 

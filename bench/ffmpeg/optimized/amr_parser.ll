@@ -60,7 +60,7 @@ define internal i32 @amr_parse(ptr noundef captures(none) %0, ptr noundef %1, pt
 ..loopexit_crit_edge:                             ; preds = %19
   %.pre = load i32, ptr %23, align 4, !tbaa !12
   %24 = icmp slt i32 %.pre, 0
-  br i1 %24, label %.loopexit.thread88, label %.loopexit.thread
+  br i1 %24, label %.loopexit.thread97, label %.loopexit.thread
 
 .lr.ph:                                           ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -115,7 +115,7 @@ define internal i32 @amr_parse(ptr noundef captures(none) %0, ptr noundef %1, pt
   %exitcond.not = icmp eq i32 %46, %15
   br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !40
 
-.loopexit.thread88:                               ; preds = %..loopexit_crit_edge
+.loopexit.thread97:                               ; preds = %..loopexit_crit_edge
   %47 = srem i32 %21, %15
   store i32 %47, ptr %20, align 8, !tbaa !38
   br label %49
@@ -131,11 +131,11 @@ define internal i32 @amr_parse(ptr noundef captures(none) %0, ptr noundef %1, pt
   %.not62 = icmp eq i32 %42, -100
   br i1 %.not62, label %63, label %49
 
-49:                                               ; preds = %.loopexit.thread88, %.loopexit
-  %spec.select92 = phi i32 [ 0, %.loopexit.thread88 ], [ %42, %.loopexit ]
+49:                                               ; preds = %.loopexit.thread97, %.loopexit
+  %spec.select101 = phi i32 [ 0, %.loopexit.thread97 ], [ %42, %.loopexit ]
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %51 = load i64, ptr %50, align 8, !tbaa !42
-  %52 = sext i32 %spec.select92 to i64
+  %52 = sext i32 %spec.select101 to i64
   %53 = xor i64 %52, -1
   %54 = icmp ult i64 %51, %53
   br i1 %54, label %55, label %63
@@ -154,8 +154,8 @@ define internal i32 @amr_parse(ptr noundef captures(none) %0, ptr noundef %1, pt
   br label %63
 
 63:                                               ; preds = %.loopexit.thread, %49, %55, %.loopexit
-  %spec.select87 = phi i32 [ -100, %.loopexit.thread ], [ %spec.select92, %49 ], [ %spec.select92, %55 ], [ -100, %.loopexit ]
-  %64 = call i32 @ff_combine_frame(ptr noundef nonnull %9, i32 noundef %spec.select87, ptr noundef nonnull %7, ptr noundef nonnull %8) #3
+  %spec.select96 = phi i32 [ -100, %.loopexit.thread ], [ %spec.select101, %49 ], [ %spec.select101, %55 ], [ -100, %.loopexit ]
+  %64 = call i32 @ff_combine_frame(ptr noundef nonnull %9, i32 noundef %spec.select96, ptr noundef nonnull %7, ptr noundef nonnull %8) #3
   %65 = icmp sgt i32 %64, -1
   br i1 %65, label %..thread_crit_edge, label %66
 
@@ -173,7 +173,7 @@ define internal i32 @amr_parse(ptr noundef captures(none) %0, ptr noundef %1, pt
 .thread:                                          ; preds = %14, %..thread_crit_edge
   %68 = phi i32 [ %.pre83, %..thread_crit_edge ], [ %5, %14 ]
   %69 = phi ptr [ %.pre82, %..thread_crit_edge ], [ %4, %14 ]
-  %.052 = phi i32 [ %spec.select87, %..thread_crit_edge ], [ %5, %14 ]
+  %.052 = phi i32 [ %spec.select96, %..thread_crit_edge ], [ %5, %14 ]
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %71 = load i32, ptr %70, align 8, !tbaa !39
   %72 = icmp eq i32 %71, 73728

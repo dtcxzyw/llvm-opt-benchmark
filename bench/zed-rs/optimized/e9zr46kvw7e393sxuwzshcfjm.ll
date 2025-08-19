@@ -8040,8 +8040,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h1d9cddd59
   %19 = load i64, ptr %18, align 8, !noundef !7
   %20 = load i64, ptr %0, align 8, !noundef !7
   %21 = sub i64 %20, %19
-  %.not10 = icmp ult i64 %15, %21
-  br i1 %.not10, label %27, label %32
+  %.not11 = icmp ult i64 %15, %21
+  br i1 %.not11, label %27, label %32
 
 22:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h12170fcf78f73aaaE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -9350,8 +9350,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h226e44636042e929E.exit: ; preds = %.no
 
 102:                                              ; preds = %91
   store i64 1, ptr %95, align 8
-  %.sroa.4.0..sroa_idx143 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store i64 1, ptr %.sroa.4.0..sroa_idx143, align 8
+  %.sroa.4.0..sroa_idx153 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  store i64 1, ptr %.sroa.4.0..sroa_idx153, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 24
@@ -11297,8 +11297,8 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %19 = load i64, ptr %18, align 8, !alias.scope !1632, !noalias !1635, !noundef !7
   %20 = load i64, ptr %0, align 8, !alias.scope !1632, !noalias !1635, !noundef !7
   %21 = sub i64 %20, %19
-  %.not10.i = icmp ult i64 %15, %21
-  br i1 %.not10.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h1d9cddd59e40e629E.llvm.11295554435427826298.exit", label %27
+  %.not11.i = icmp ult i64 %15, %21
+  br i1 %.not11.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h1d9cddd59e40e629E.llvm.11295554435427826298.exit", label %27
 
 22:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h12170fcf78f73aaaE.exit.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1654

@@ -640,7 +640,7 @@ define ptr @ossl_b2i_RSA_after_header(ptr noundef captures(none) %0, i32 noundef
   br label %57
 
 read_lebn.exit.thread:                            ; preds = %11, %14, %19, %25, %28, %33, %37, %41, %45, %3, %49, %51, %54
-  %.sink127 = phi i32 [ 496, %54 ], [ 496, %51 ], [ 496, %49 ], [ 496, %3 ], [ 499, %45 ], [ 499, %41 ], [ 499, %37 ], [ 499, %33 ], [ 499, %28 ], [ 499, %25 ], [ 499, %19 ], [ 499, %14 ], [ 499, %11 ]
+  %.sink136 = phi i32 [ 496, %54 ], [ 496, %51 ], [ 496, %49 ], [ 496, %3 ], [ 499, %45 ], [ 499, %41 ], [ 499, %37 ], [ 499, %33 ], [ 499, %28 ], [ 499, %25 ], [ 499, %19 ], [ 499, %14 ], [ 499, %11 ]
   %.sink = phi i32 [ 524292, %54 ], [ 524292, %51 ], [ 524292, %49 ], [ 524292, %3 ], [ 524291, %45 ], [ 524291, %41 ], [ 524291, %37 ], [ 524291, %33 ], [ 524291, %28 ], [ 524291, %25 ], [ 524291, %19 ], [ 524291, %14 ], [ 524291, %11 ]
   %.2101 = phi ptr [ %20, %54 ], [ %20, %51 ], [ %20, %49 ], [ null, %3 ], [ %20, %45 ], [ %20, %41 ], [ %20, %37 ], [ %20, %33 ], [ %20, %28 ], [ %20, %25 ], [ null, %19 ], [ null, %14 ], [ null, %11 ]
   %.398 = phi ptr [ %.297, %54 ], [ %47, %51 ], [ %47, %49 ], [ null, %3 ], [ null, %45 ], [ null, %41 ], [ null, %37 ], [ null, %33 ], [ null, %28 ], [ null, %25 ], [ null, %19 ], [ null, %14 ], [ null, %11 ]
@@ -651,7 +651,7 @@ read_lebn.exit.thread:                            ; preds = %11, %14, %19, %25, 
   %.3 = phi ptr [ null, %54 ], [ %43, %51 ], [ %43, %49 ], [ null, %3 ], [ %43, %45 ], [ null, %41 ], [ null, %37 ], [ null, %33 ], [ null, %28 ], [ null, %25 ], [ null, %19 ], [ null, %14 ], [ null, %11 ]
   %.1 = phi ptr [ %12, %54 ], [ %12, %51 ], [ %12, %49 ], [ null, %3 ], [ %12, %45 ], [ %12, %41 ], [ %12, %37 ], [ %12, %33 ], [ %12, %28 ], [ %12, %25 ], [ %12, %19 ], [ %12, %14 ], [ %12, %11 ]
   tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink127, ptr noundef nonnull @__func__.ossl_b2i_RSA_after_header) #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink136, ptr noundef nonnull @__func__.ossl_b2i_RSA_after_header) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef %.sink, ptr noundef null) #6
   tail call void @BN_free(ptr noundef %.1) #6
   tail call void @BN_free(ptr noundef %.2101) #6
@@ -754,7 +754,7 @@ read_lebn.exit32:                                 ; preds = %23
   br label %45
 
 read_lebn.exit.thread:                            ; preds = %30, %34, %37, %9, %12, %17, %23, %27, %3, %40, %42
-  %.sink94 = phi i32 [ 431, %42 ], [ 431, %40 ], [ 431, %3 ], [ 434, %27 ], [ 434, %23 ], [ 434, %17 ], [ 434, %12 ], [ 434, %9 ], [ 434, %37 ], [ 434, %34 ], [ 434, %30 ]
+  %.sink102 = phi i32 [ 431, %42 ], [ 431, %40 ], [ 431, %3 ], [ 434, %27 ], [ 434, %23 ], [ 434, %17 ], [ 434, %12 ], [ 434, %9 ], [ 434, %37 ], [ 434, %34 ], [ 434, %30 ]
   %.sink = phi i32 [ 524298, %42 ], [ 524298, %40 ], [ 524298, %3 ], [ 524291, %27 ], [ 524291, %23 ], [ 524291, %17 ], [ 524291, %12 ], [ 524291, %9 ], [ 524291, %37 ], [ 524291, %34 ], [ 524291, %30 ]
   %.174 = phi ptr [ null, %42 ], [ %10, %40 ], [ null, %3 ], [ %10, %27 ], [ %10, %23 ], [ %10, %17 ], [ %10, %12 ], [ %10, %9 ], [ %10, %37 ], [ %10, %34 ], [ %10, %30 ]
   %.272 = phi ptr [ null, %42 ], [ %15, %40 ], [ null, %3 ], [ %15, %27 ], [ %15, %23 ], [ %15, %17 ], [ null, %12 ], [ null, %9 ], [ %15, %37 ], [ %15, %34 ], [ %15, %30 ]
@@ -763,7 +763,7 @@ read_lebn.exit.thread:                            ; preds = %30, %34, %37, %9, %
   %.362 = phi ptr [ %.2, %42 ], [ %.2, %40 ], [ null, %3 ], [ null, %27 ], [ null, %23 ], [ null, %17 ], [ null, %12 ], [ null, %9 ], [ %32, %37 ], [ %32, %34 ], [ null, %30 ]
   %.3 = phi ptr [ null, %42 ], [ null, %40 ], [ null, %3 ], [ null, %27 ], [ null, %23 ], [ null, %17 ], [ null, %12 ], [ null, %9 ], [ %35, %37 ], [ null, %34 ], [ null, %30 ]
   tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink94, ptr noundef nonnull @__func__.ossl_b2i_DSA_after_header) #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink102, ptr noundef nonnull @__func__.ossl_b2i_DSA_after_header) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef %.sink, ptr noundef null) #6
   tail call void @DSA_free(ptr noundef %7) #6
   tail call void @BN_free(ptr noundef %.174) #6
@@ -1181,12 +1181,12 @@ define internal fastcc ptr @do_PVK_key_bio(ptr noundef %0, ptr noundef readonly 
   ]
 
 .thread.sink.split.i:                             ; preds = %80, %48, %39
-  %.sink17.i = phi i32 [ 869, %39 ], [ 883, %48 ], [ 908, %80 ]
+  %.sink22.i = phi i32 [ 869, %39 ], [ 883, %48 ], [ 908, %80 ]
   %.sink.i = phi i32 [ 104, %39 ], [ 125, %48 ], [ 101, %80 ]
   %.257.ph.ph.i = phi ptr [ null, %39 ], [ %44, %48 ], [ %44, %80 ]
   %.2.ph.ph.i = phi ptr [ null, %39 ], [ null, %48 ], [ %57, %80 ]
   call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink17.i, ptr noundef nonnull @__func__.do_PVK_body_key) #6
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink22.i, ptr noundef nonnull @__func__.do_PVK_body_key) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef %.sink.i, ptr noundef null) #6
   br label %.thread.i
 
@@ -1557,7 +1557,7 @@ define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef captur
   %32 = load ptr, ptr %22, align 8, !tbaa !11
   %33 = call i32 @BN_num_bits(ptr noundef %32) #6
   %34 = icmp sgt i32 %33, 32
-  br i1 %34, label %.thread69.thread, label %35
+  br i1 %34, label %.thread74.thread, label %35
 
 35:                                               ; preds = %30
   %36 = call i32 @RSA_bits(ptr noundef %31) #6
@@ -1565,7 +1565,7 @@ define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef captur
   %38 = add nsw i32 %36, 15
   %39 = ashr i32 %38, 4
   %.not.i = icmp eq i32 %2, 0
-  br i1 %.not.i, label %40, label %.thread69.thread102
+  br i1 %.not.i, label %40, label %.thread74.thread107
 
 40:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -1622,7 +1622,7 @@ define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef captur
   %73 = add nsw i32 %72, 7
   %74 = sdiv i32 %73, 8
   %75 = icmp sgt i32 %74, %39
-  br i1 %75, label %.thread.i, label %.thread69
+  br i1 %75, label %.thread.i, label %.thread74
 
 .thread.i:                                        ; preds = %70, %64, %58, %52, %46, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
@@ -1631,9 +1631,9 @@ define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef captur
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %.thread69.thread
+  br label %.thread74.thread
 
-.thread69.thread:                                 ; preds = %30, %.thread.i
+.thread74.thread:                                 ; preds = %30, %.thread.i
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 672, ptr noundef nonnull @__func__.check_bitlen_rsa) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef 126, ptr noundef null) #6
@@ -1663,19 +1663,19 @@ define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef captur
   %81 = call i32 @BN_num_bits(ptr noundef %80) #6
   %82 = and i32 %81, 7
   %.not.i35 = icmp eq i32 %82, 0
-  br i1 %.not.i35, label %83, label %.thread97
+  br i1 %.not.i35, label %83, label %.thread102
 
 83:                                               ; preds = %78
   %84 = load ptr, ptr %18, align 8, !tbaa !11
   %85 = call i32 @BN_num_bits(ptr noundef %84) #6
   %.not10.i = icmp eq i32 %85, 160
-  br i1 %.not10.i, label %86, label %.thread97
+  br i1 %.not10.i, label %86, label %.thread102
 
 86:                                               ; preds = %83
   %87 = load ptr, ptr %19, align 8, !tbaa !11
   %88 = call i32 @BN_num_bits(ptr noundef %87) #6
   %89 = icmp sgt i32 %88, %81
-  br i1 %89, label %.thread97, label %90
+  br i1 %89, label %.thread102, label %90
 
 90:                                               ; preds = %86
   %.not11.i = icmp eq i32 %2, 0
@@ -1685,15 +1685,15 @@ define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef captur
   %92 = load ptr, ptr %20, align 8, !tbaa !11
   %93 = call i32 @BN_num_bits(ptr noundef %92) #6
   %94 = icmp sgt i32 %93, %81
-  br i1 %94, label %.thread97, label %.thread109
+  br i1 %94, label %.thread102, label %.thread114
 
 95:                                               ; preds = %90
   %96 = load ptr, ptr %21, align 8, !tbaa !11
   %97 = call i32 @BN_num_bits(ptr noundef %96) #6
   %98 = icmp sgt i32 %97, 160
-  br i1 %98, label %.thread97, label %99
+  br i1 %98, label %.thread102, label %99
 
-.thread97:                                        ; preds = %78, %83, %86, %91, %95
+.thread102:                                       ; preds = %78, %83, %86, %91, %95
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 723, ptr noundef nonnull @__func__.check_bitlen_dsa) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef 126, ptr noundef null) #6
@@ -1713,7 +1713,7 @@ define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef captur
   %100 = icmp eq i32 %81, 0
   br i1 %100, label %.thread, label %108
 
-.thread109:                                       ; preds = %91
+.thread114:                                       ; preds = %91
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -1722,7 +1722,7 @@ define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef captur
   %101 = icmp eq i32 %81, 0
   br i1 %101, label %.thread, label %104
 
-.thread69:                                        ; preds = %70
+.thread74:                                        ; preds = %70
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -1731,14 +1731,14 @@ define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef captur
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %102 = icmp eq i32 %36, 0
-  br i1 %102, label %.thread, label %.thread76
+  br i1 %102, label %.thread, label %.thread81
 
-.thread69.thread102:                              ; preds = %35
+.thread74.thread107:                              ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %103 = icmp eq i32 %36, 0
-  br i1 %103, label %.thread, label %.thread76.thread
+  br i1 %103, label %.thread, label %.thread81.thread
 
-104:                                              ; preds = %.thread109
+104:                                              ; preds = %.thread114
   %105 = lshr exact i32 %81, 3
   %106 = mul nuw nsw i32 %105, 3
   %107 = add nuw nsw i32 %106, 44
@@ -1749,13 +1749,13 @@ define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef captur
   %110 = add nuw nsw i32 %109, 64
   br label %ossl_blob_length.exit
 
-.thread76.thread:                                 ; preds = %.thread69.thread102
+.thread81.thread:                                 ; preds = %.thread74.thread107
   %111 = add i32 %36, 7
   %112 = lshr i32 %111, 3
   %113 = add nuw nsw i32 %112, 4
   br label %ossl_blob_length.exit
 
-.thread76:                                        ; preds = %.thread69
+.thread81:                                        ; preds = %.thread74
   %114 = add i32 %36, 7
   %115 = add i32 %36, 15
   %116 = lshr i32 %115, 4
@@ -1766,12 +1766,12 @@ define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef captur
   %121 = add nuw i32 %119, %120
   br label %ossl_blob_length.exit
 
-ossl_blob_length.exit:                            ; preds = %104, %108, %.thread76.thread, %.thread76
-  %.not11.i3788 = phi i1 [ false, %104 ], [ true, %108 ], [ false, %.thread76.thread ], [ true, %.thread76 ]
-  %.07385 = phi i32 [ 827544388, %104 ], [ 844321604, %108 ], [ 826364754, %.thread76.thread ], [ 843141970, %.thread76 ]
-  %.0287483 = phi i32 [ %81, %104 ], [ %81, %108 ], [ %36, %.thread76.thread ], [ %36, %.thread76 ]
-  %.0277581 = phi i32 [ 8704, %104 ], [ 8704, %108 ], [ 41984, %.thread76.thread ], [ 41984, %.thread76 ]
-  %.0.i38 = phi i32 [ %107, %104 ], [ %110, %108 ], [ %113, %.thread76.thread ], [ %121, %.thread76 ]
+ossl_blob_length.exit:                            ; preds = %104, %108, %.thread81.thread, %.thread81
+  %.not11.i3793 = phi i1 [ false, %104 ], [ true, %108 ], [ false, %.thread81.thread ], [ true, %.thread81 ]
+  %.07890 = phi i32 [ 827544388, %104 ], [ 844321604, %108 ], [ 826364754, %.thread81.thread ], [ 843141970, %.thread81 ]
+  %.0287988 = phi i32 [ %81, %104 ], [ %81, %108 ], [ %36, %.thread81.thread ], [ %36, %.thread81 ]
+  %.0278086 = phi i32 [ 8704, %104 ], [ 8704, %108 ], [ 41984, %.thread81.thread ], [ 41984, %.thread81 ]
+  %.0.i38 = phi i32 [ %107, %104 ], [ %110, %108 ], [ %113, %.thread81.thread ], [ %121, %.thread81 ]
   %122 = add nuw i32 %.0.i38, 16
   %123 = icmp eq ptr %0, null
   br i1 %123, label %.thread, label %124
@@ -1793,7 +1793,7 @@ ossl_blob_length.exit:                            ; preds = %104, %108, %.thread
 
 131:                                              ; preds = %124, %130
   %.064 = phi ptr [ %128, %130 ], [ %125, %124 ]
-  %. = select i1 %.not11.i3788, i8 7, i8 6
+  %. = select i1 %.not11.i3793, i8 7, i8 6
   %.165 = getelementptr inbounds nuw i8, ptr %.064, i64 1
   store i8 %., ptr %.064, align 1, !tbaa !8
   %132 = getelementptr inbounds nuw i8, ptr %.064, i64 2
@@ -1802,11 +1802,11 @@ ossl_blob_length.exit:                            ; preds = %104, %108, %.thread
   store i8 0, ptr %132, align 1, !tbaa !8
   %134 = getelementptr inbounds nuw i8, ptr %.064, i64 4
   store i8 0, ptr %133, align 1, !tbaa !8
-  store i32 %.0277581, ptr %134, align 1
+  store i32 %.0278086, ptr %134, align 1
   %135 = getelementptr inbounds nuw i8, ptr %.064, i64 8
-  store i32 %.07385, ptr %135, align 1
+  store i32 %.07890, ptr %135, align 1
   %136 = getelementptr inbounds nuw i8, ptr %.064, i64 12
-  store i32 %.0287483, ptr %136, align 1
+  store i32 %.0287988, ptr %136, align 1
   %137 = getelementptr inbounds nuw i8, ptr %.064, i64 16
   br i1 %.not.not.not, label %170, label %138
 
@@ -1828,7 +1828,7 @@ ossl_blob_length.exit:                            ; preds = %104, %108, %.thread
   %144 = getelementptr inbounds nuw i8, ptr %.064, i64 20
   %145 = load ptr, ptr %9, align 8, !tbaa !11
   %146 = call i32 @BN_bn2lebinpad(ptr noundef %145, ptr noundef nonnull %144, i32 noundef %140) #6
-  br i1 %.not11.i3788, label %147, label %write_rsa.exit
+  br i1 %.not11.i3793, label %147, label %write_rsa.exit
 
 147:                                              ; preds = %138
   %148 = sext i32 %140 to i64
@@ -1896,11 +1896,11 @@ write_rsa.exit:                                   ; preds = %138, %147
   %183 = load ptr, ptr %6, align 8, !tbaa !11
   %184 = call i32 @BN_bn2lebinpad(ptr noundef %183, ptr noundef nonnull %182, i32 noundef %175) #6
   %185 = getelementptr inbounds i8, ptr %182, i64 %178
-  %.15.i = select i1 %.not11.i3788, i32 20, i32 %175
-  %.16.i = select i1 %.not11.i3788, i64 20, i64 %178
+  %.15.i = select i1 %.not11.i3793, i32 20, i32 %175
+  %.16.i = select i1 %.not11.i3793, i64 20, i64 %178
   %.val.i = load ptr, ptr %8, align 8
   %.val17.i = load ptr, ptr %7, align 8
-  %186 = select i1 %.not11.i3788, ptr %.val.i, ptr %.val17.i
+  %186 = select i1 %.not11.i3793, ptr %.val.i, ptr %.val17.i
   %187 = call i32 @BN_bn2lebinpad(ptr noundef %186, ptr noundef nonnull %185, i32 noundef %.15.i) #6
   %188 = getelementptr inbounds i8, ptr %185, i64 %.16.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %188, i8 -1, i64 24, i1 false)
@@ -1921,8 +1921,8 @@ write_rsa.exit:                                   ; preds = %138, %147
   store ptr %193, ptr %0, align 8, !tbaa !3
   br label %.thread
 
-.thread:                                          ; preds = %.thread109, %.thread69.thread102, %.thread69.thread, %.thread97, %.thread69, %76, %126, %189, %190, %ossl_blob_length.exit, %99
-  %.026 = phi i32 [ -1, %99 ], [ %122, %ossl_blob_length.exit ], [ %122, %189 ], [ %122, %190 ], [ -1, %126 ], [ -1, %76 ], [ -1, %.thread69 ], [ -1, %.thread97 ], [ -1, %.thread69.thread ], [ -1, %.thread69.thread102 ], [ -1, %.thread109 ]
+.thread:                                          ; preds = %.thread114, %.thread74.thread107, %.thread74.thread, %.thread102, %.thread74, %76, %126, %189, %190, %ossl_blob_length.exit, %99
+  %.026 = phi i32 [ -1, %99 ], [ %122, %ossl_blob_length.exit ], [ %122, %189 ], [ %122, %190 ], [ -1, %126 ], [ -1, %76 ], [ -1, %.thread74 ], [ -1, %.thread102 ], [ -1, %.thread74.thread ], [ -1, %.thread74.thread107 ], [ -1, %.thread114 ]
   ret i32 %.026
 }
 

@@ -359,7 +359,7 @@ _ZN2cv3hal12cpu_baselineL15cartToPolar32f_EPKfS3_PfS4_ib.exit.loopexit: ; preds 
 
 .lr.ph43.preheader:                               ; preds = %.lr.ph41
   %70 = sext i32 %.sroa.speculated to i64
-  %invariant.gep59 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv56
+  %invariant.gep62 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv56
   br label %.lr.ph43
 
 .lr.ph41:                                         ; preds = %.lr.ph41.preheader, %.lr.ph41
@@ -378,8 +378,8 @@ _ZN2cv3hal12cpu_baselineL15cartToPolar32f_EPKfS3_PfS4_ib.exit.loopexit: ; preds 
   %75 = getelementptr inbounds nuw [128 x float], ptr %11, i64 0, i64 %indvars.iv53
   %76 = load float, ptr %75, align 4, !tbaa !3
   %77 = fpext float %76 to double
-  %gep60 = getelementptr inbounds nuw double, ptr %invariant.gep59, i64 %indvars.iv53
-  store double %77, ptr %gep60, align 8, !tbaa !14
+  %gep63 = getelementptr inbounds nuw double, ptr %invariant.gep62, i64 %indvars.iv53
+  store double %77, ptr %gep63, align 8, !tbaa !14
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %78 = icmp slt i64 %indvars.iv.next54, %70
   br i1 %78, label %.lr.ph43, label %._crit_edge44, !llvm.loop !18

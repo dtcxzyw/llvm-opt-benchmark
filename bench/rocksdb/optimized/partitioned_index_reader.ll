@@ -1993,7 +1993,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit111:                ; preds = %.body100.thread, %.body100, %337
-  %eh.lpad-body101206 = phi { ptr, i32 } [ %335, %.body100.thread ], [ %336, %.body100 ], [ %336, %337 ]
+  %eh.lpad-body101267 = phi { ptr, i32 } [ %335, %.body100.thread ], [ %336, %.body100 ], [ %336, %337 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %607
@@ -2678,15 +2678,15 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %277, i8 0, i64 16, i1 false)
   %600 = load ptr, ptr %274, align 8, !tbaa !399
   %601 = icmp eq ptr %600, %275
-  br i1 %601, label %.thread207, label %602
+  br i1 %601, label %.thread268, label %602
 
 602:                                              ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i167
   %603 = load i64, ptr %276, align 8, !tbaa !400
   %604 = shl i64 %603, 3
   call void @_ZdlPvm(ptr noundef %600, i64 noundef %604) #20
-  br label %.thread207
+  br label %.thread268
 
-.thread207:                                       ; preds = %602, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i167
+.thread268:                                       ; preds = %602, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i167
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %_ZNKSt14default_deleteIN7rocksdb18FilePrefetchBufferEEclEPS1_.exit.i
 
@@ -2696,8 +2696,8 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %.not.i148 = icmp eq ptr %.pre202, null
   br i1 %.not.i148, label %_ZNSt10unique_ptrIN7rocksdb18FilePrefetchBufferESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb18FilePrefetchBufferEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN7rocksdb18FilePrefetchBufferEEclEPS1_.exit.i: ; preds = %.thread207, %605
-  %606 = phi ptr [ %253, %.thread207 ], [ %.pre202, %605 ]
+_ZNKSt14default_deleteIN7rocksdb18FilePrefetchBufferEEclEPS1_.exit.i: ; preds = %.thread268, %605
+  %606 = phi ptr [ %253, %.thread268 ], [ %.pre202, %605 ]
   call void @_ZN7rocksdb18FilePrefetchBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %606) #21
   call void @_ZdlPvm(ptr noundef nonnull %606, i64 noundef 320) #20
   br label %_ZNSt10unique_ptrIN7rocksdb18FilePrefetchBufferESt14default_deleteIS1_EED2Ev.exit
@@ -2707,7 +2707,7 @@ _ZNSt10unique_ptrIN7rocksdb18FilePrefetchBufferESt14default_deleteIS1_EED2Ev.exi
   br label %.critedge
 
 607:                                              ; preds = %576, %379, %_ZNSt14_Function_baseD2Ev.exit111
-  %.pn62.pn.pn = phi { ptr, i32 } [ %.pn62.pn, %576 ], [ %.pn.pn, %379 ], [ %eh.lpad-body101206, %_ZNSt14_Function_baseD2Ev.exit111 ]
+  %.pn62.pn.pn = phi { ptr, i32 } [ %.pn62.pn, %576 ], [ %.pn.pn, %379 ], [ %eh.lpad-body101267, %_ZNSt14_Function_baseD2Ev.exit111 ]
   call void @_ZNSt10unique_ptrIN7rocksdb18FilePrefetchBufferESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.body
@@ -3577,7 +3577,7 @@ _ZN7rocksdb9BlockIterINS_10IndexValueEE11SeekToFirstEv.exit: ; preds = %_ZN7rock
 _ZN7rocksdb28UncacheAggressivenessAdvisor14ShouldContinueEv.exit: ; preds = %156
   %158 = sitofp i32 %.sroa.745.0 to double
   %159 = fadd double %158, 1.000000e+00
-  %160 = sub i32 %.sroa.10.0, %.sroa.speculated.i
+  %160 = sub nsw i32 %.sroa.10.0, %.sroa.speculated.i
   %161 = add i32 %160, %.sroa.745.0
   %162 = sitofp i32 %161 to double
   %163 = fadd double %162, 1.500000e+00

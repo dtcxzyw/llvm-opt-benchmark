@@ -261,16 +261,16 @@ define hidden void @SDL_HIDAPI_HapticClose(ptr noundef readonly captures(address
 .lr.ph.preheader:                                 ; preds = %1
   %3 = load ptr, ptr %.020, align 8
   %4 = icmp eq ptr %3, %0
-  br i1 %4, label %.lr.ph._crit_edge, label %.lr.ph31
+  br i1 %4, label %.lr.ph._crit_edge, label %.lr.ph32
 
-.lr.ph:                                           ; preds = %.lr.ph31
+.lr.ph:                                           ; preds = %.lr.ph32
   %5 = load ptr, ptr %.0, align 8
   %6 = icmp eq ptr %5, %0
-  br i1 %6, label %.lr.ph._crit_edge, label %.lr.ph31, !llvm.loop !8
+  br i1 %6, label %.lr.ph._crit_edge, label %.lr.ph32, !llvm.loop !8
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.023.lcssa = phi ptr [ %.020, %.lr.ph.preheader ], [ %.0, %.lr.ph ]
-  %.01622.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.02330, %.lr.ph ]
+  %.01622.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.02331, %.lr.ph ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -304,14 +304,14 @@ define hidden void @SDL_HIDAPI_HapticClose(ptr noundef readonly captures(address
   tail call void @SDL_free_REAL(ptr noundef nonnull %.023.lcssa) #3
   br label %._crit_edge
 
-.lr.ph31:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.02330 = phi ptr [ %.0, %.lr.ph ], [ %.020, %.lr.ph.preheader ]
-  %25 = getelementptr inbounds nuw i8, ptr %.02330, i64 8
+.lr.ph32:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.02331 = phi ptr [ %.0, %.lr.ph ], [ %.020, %.lr.ph.preheader ]
+  %25 = getelementptr inbounds nuw i8, ptr %.02331, i64 8
   %.0 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph31, %1, %22
+._crit_edge:                                      ; preds = %.lr.ph32, %1, %22
   %26 = load ptr, ptr @haptic_list_mutex, align 8
   tail call void @SDL_UnlockMutex_REAL(ptr noundef %26) #3
   ret void

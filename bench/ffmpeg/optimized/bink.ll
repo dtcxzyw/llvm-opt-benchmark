@@ -339,11 +339,11 @@ binkb_init_bundles.exit.i:                        ; preds = %112
   %.not61 = icmp eq i32 %103, 1
   %121 = select i1 %.not61, i32 -15, i32 0
   %..i = select i1 %90, i32 15, i32 7
-  %.390.i = select i1 %90, i32 4, i32 3
+  %.405.i = select i1 %90, i32 4, i32 3
   %122 = add nsw i32 %109, %..i
-  %123 = ashr i32 %122, %.390.i
+  %123 = ashr i32 %122, %.405.i
   %124 = add nsw i32 %111, %..i
-  %125 = ashr i32 %124, %.390.i
+  %125 = ashr i32 %124, %.405.i
   %126 = add nsw i32 %125, 536870911
   %127 = mul i32 %120, %126
   %128 = add i32 %127, %123
@@ -1446,19 +1446,19 @@ define internal fastcc range(i32 -1094995529, 1) i32 @bink_decode_plane(ptr noun
   %19 = load i32, ptr %18, align 8, !tbaa !40
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 116
   %21 = load i32, ptr %20, align 4, !tbaa !41
-  %.762 = select i1 %.not, i32 7, i32 15
-  %.763 = select i1 %.not, i32 3, i32 4
-  %22 = add nsw i32 %19, %.762
-  %23 = ashr i32 %22, %.763
-  %24 = add nsw i32 %21, %.762
-  %25 = ashr i32 %24, %.763
+  %.802 = select i1 %.not, i32 7, i32 15
+  %.803 = select i1 %.not, i32 3, i32 4
+  %22 = add nsw i32 %19, %.802
+  %23 = ashr i32 %22, %.803
+  %24 = add nsw i32 %21, %.802
+  %25 = ashr i32 %24, %.803
   %26 = ashr i32 %19, %4
   %27 = ashr i32 %21, %4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %29 = load i32, ptr %28, align 8, !tbaa !28
   %30 = icmp eq i32 %29, 107
-  %indvars.iv673.sroa.gep889 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %indvars.iv652.sroa.gep890 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %indvars.iv673.sroa.gep929 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %indvars.iv652.sroa.gep930 = getelementptr inbounds nuw i8, ptr %6, i64 4
   br i1 %30, label %31, label %65
 
 31:                                               ; preds = %5
@@ -2291,8 +2291,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @bink_decode_plane(ptr noun
   br i1 %604, label %.lr.ph.i410, label %.loopexit489, !llvm.loop !113
 
 .loopexit489.sink.split:                          ; preds = %524, %559
-  %.sink761 = phi ptr [ %571, %559 ], [ null, %524 ]
-  store ptr %.sink761, ptr %188, align 8, !tbaa !63
+  %.sink801 = phi ptr [ %571, %559 ], [ null, %524 ]
+  store ptr %.sink801, ptr %188, align 8, !tbaa !63
   br label %.loopexit489
 
 .loopexit489:                                     ; preds = %.lr.ph.i410, %.loopexit489.sink.split, %521, %518, %.preheader.i409
@@ -2342,7 +2342,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @bink_decode_plane(ptr noun
     i8 6, label %923
     i8 7, label %928
     i8 8, label %975
-    i8 9, label %.preheader829
+    i8 9, label %.preheader869
   ]
 
 624:                                              ; preds = %623, %619
@@ -2362,10 +2362,10 @@ define internal fastcc range(i32 -1094995529, 1) i32 @bink_decode_plane(ptr noun
     i8 6, label %923
     i8 7, label %928
     i8 8, label %975
-    i8 9, label %.preheader829
+    i8 9, label %.preheader869
   ]
 
-.preheader829:                                    ; preds = %623, %628
+.preheader869:                                    ; preds = %623, %628
   br label %995
 
 629:                                              ; preds = %623, %628
@@ -2576,7 +2576,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @bink_decode_plane(ptr noun
 
 733:                                              ; preds = %.preheader484, %733
   %734 = phi i1 [ true, %.preheader484 ], [ false, %733 ]
-  %indvars.iv673.sroa.phi = phi ptr [ %6, %.preheader484 ], [ %indvars.iv673.sroa.gep889, %733 ]
+  %indvars.iv673.sroa.phi = phi ptr [ %6, %.preheader484 ], [ %indvars.iv673.sroa.gep929, %733 ]
   %735 = phi ptr [ %.promoted560, %.preheader484 ], [ %736, %733 ]
   %736 = getelementptr inbounds nuw i8, ptr %735, i64 1
   store ptr %736, ptr %176, align 8, !tbaa !62
@@ -2593,7 +2593,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @bink_decode_plane(ptr noun
   %742 = load i8, ptr %740, align 1, !tbaa !36
   %743 = zext i8 %742 to i32
   %744 = shl nuw nsw i64 %indvars.iv680, 3
-  %invariant.gep755 = getelementptr inbounds nuw i8, ptr %8, i64 %744
+  %invariant.gep795 = getelementptr inbounds nuw i8, ptr %8, i64 %744
   br label %745
 
 745:                                              ; preds = %739, %745
@@ -2604,8 +2604,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @bink_decode_plane(ptr noun
   %748 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 0, i64 %747
   %749 = load i32, ptr %748, align 4, !tbaa !58
   %750 = trunc i32 %749 to i8
-  %gep756 = getelementptr inbounds nuw i8, ptr %invariant.gep755, i64 %indvars.iv676
-  store i8 %750, ptr %gep756, align 1, !tbaa !36
+  %gep796 = getelementptr inbounds nuw i8, ptr %invariant.gep795, i64 %indvars.iv676
+  store i8 %750, ptr %gep796, align 1, !tbaa !36
   %indvars.iv.next677 = add nuw nsw i64 %indvars.iv676, 1
   %751 = lshr i32 %.0348562, 1
   %exitcond679.not = icmp eq i64 %indvars.iv.next677, 8
@@ -2620,7 +2620,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @bink_decode_plane(ptr noun
   %indvars.iv669 = phi i64 [ 0, %.preheader485 ], [ %indvars.iv.next670, %758 ]
   %.promoted553556558 = phi ptr [ %.promoted555, %.preheader485 ], [ %756, %758 ]
   %753 = shl nuw nsw i64 %indvars.iv669, 3
-  %invariant.gep753 = getelementptr inbounds nuw i8, ptr %8, i64 %753
+  %invariant.gep793 = getelementptr inbounds nuw i8, ptr %8, i64 %753
   br label %754
 
 754:                                              ; preds = %.preheader478, %754
@@ -2629,8 +2629,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @bink_decode_plane(ptr noun
   %756 = getelementptr inbounds nuw i8, ptr %755, i64 1
   store ptr %756, ptr %176, align 8, !tbaa !62
   %757 = load i8, ptr %755, align 1, !tbaa !36
-  %gep754 = getelementptr inbounds nuw i8, ptr %invariant.gep753, i64 %indvars.iv665
-  store i8 %757, ptr %gep754, align 1, !tbaa !36
+  %gep794 = getelementptr inbounds nuw i8, ptr %invariant.gep793, i64 %indvars.iv665
+  store i8 %757, ptr %gep794, align 1, !tbaa !36
   %indvars.iv.next666 = add nuw nsw i64 %indvars.iv665, 1
   %exitcond668.not = icmp eq i64 %indvars.iv.next666, 8
   br i1 %exitcond668.not, label %758, label %754, !llvm.loop !120
@@ -3007,7 +3007,7 @@ unquantize_dct_coeffs.exit459:                    ; preds = %.lr.ph.i455, %953
 
 976:                                              ; preds = %975, %976
   %977 = phi i1 [ true, %975 ], [ false, %976 ]
-  %indvars.iv652.sroa.phi = phi ptr [ %6, %975 ], [ %indvars.iv652.sroa.gep890, %976 ]
+  %indvars.iv652.sroa.phi = phi ptr [ %6, %975 ], [ %indvars.iv652.sroa.gep930, %976 ]
   %978 = phi ptr [ %.promoted, %975 ], [ %979, %976 ]
   %979 = getelementptr inbounds nuw i8, ptr %978, i64 1
   store ptr %979, ptr %176, align 8, !tbaa !62
@@ -3047,8 +3047,8 @@ unquantize_dct_coeffs.exit459:                    ; preds = %.lr.ph.i455, %953
   %exitcond662.not = icmp eq i64 %indvars.iv.next660, 8
   br i1 %exitcond662.not, label %.loopexit488, label %.preheader487, !llvm.loop !128
 
-995:                                              ; preds = %.preheader829, %995
-  %indvars.iv648 = phi i64 [ %indvars.iv.next649, %995 ], [ 0, %.preheader829 ]
+995:                                              ; preds = %.preheader869, %995
+  %indvars.iv648 = phi i64 [ %indvars.iv.next649, %995 ], [ 0, %.preheader869 ]
   %996 = mul nsw i64 %indvars.iv648, %200
   %997 = getelementptr inbounds i8, ptr %.0344574, i64 %996
   %998 = load ptr, ptr %176, align 8, !tbaa !62

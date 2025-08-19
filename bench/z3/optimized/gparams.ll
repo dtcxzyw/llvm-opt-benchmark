@@ -563,8 +563,8 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   %39 = icmp ugt i32 %27, 16
   %40 = mul i32 %27, 3
   %41 = icmp ugt i32 %38, %40
-  %or.cond16.i.i = select i1 %39, i1 %41, i1 false
-  br i1 %or.cond16.i.i, label %42, label %._crit_edge.thread.i.i
+  %or.cond18.i.i = select i1 %39, i1 %41, i1 false
+  br i1 %or.cond18.i.i, label %42, label %._crit_edge.thread.i.i
 
 42:                                               ; preds = %._crit_edge.i.i
   %43 = icmp eq ptr %26, null
@@ -1815,14 +1815,14 @@ _ZN6vectorIPFP12param_descrsvELb0EjE3endEv.exit.i: ; preds = %_ZStlsISt11char_tr
   %95 = shl nuw nsw i64 %94, 3
   %96 = getelementptr inbounds nuw i8, ptr %90, i64 %95
   %.not8.i = icmp eq i32 %93, 0
-  br i1 %.not8.i, label %._crit_edge.thread13.i, label %.lr.ph.i
+  br i1 %.not8.i, label %._crit_edge.thread16.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %_ZN17lazy_param_descrs5applyEPFP12param_descrsvE.exit.i
   %.pre.i = load ptr, ptr %89, align 8, !tbaa !71
   %.not.i.i.i = icmp eq ptr %.pre.i, null
-  br i1 %.not.i.i.i, label %104, label %._crit_edge.thread13.i
+  br i1 %.not.i.i.i, label %104, label %._crit_edge.thread16.i
 
-._crit_edge.thread13.i:                           ; preds = %._crit_edge.i, %_ZN6vectorIPFP12param_descrsvELb0EjE3endEv.exit.i
+._crit_edge.thread16.i:                           ; preds = %._crit_edge.i, %_ZN6vectorIPFP12param_descrsvELb0EjE3endEv.exit.i
   %97 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %90, %_ZN6vectorIPFP12param_descrsvELb0EjE3endEv.exit.i ]
   %98 = getelementptr inbounds i8, ptr %97, i64 -4
   store i32 0, ptr %98, align 4, !tbaa !74
@@ -1857,7 +1857,7 @@ _ZN17lazy_param_descrs5applyEPFP12param_descrsvE.exit.i: ; preds = %.noexc66, %1
   %.not.i64 = icmp eq ptr %103, %96
   br i1 %.not.i64, label %._crit_edge.i, label %.lr.ph.i
 
-104:                                              ; preds = %._crit_edge.thread13.i, %._crit_edge.i, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit62
+104:                                              ; preds = %._crit_edge.thread16.i, %._crit_edge.i, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit62
   %105 = load ptr, ptr %88, align 8, !tbaa !95
   invoke void @_ZNK12param_descrs7displayERSojbb(ptr noundef nonnull align 8 dereferenceable(8) %105, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %16, i1 noundef zeroext %3, i1 noundef zeroext %4)
           to label %106 unwind label %.loopexit.split-lp
@@ -6352,14 +6352,14 @@ _ZN6vectorIPFP12param_descrsvELb0EjE3endEv.exit.i: ; preds = %12
   %21 = shl nuw nsw i64 %20, 3
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 %21
   %.not8.i = icmp eq i32 %19, 0
-  br i1 %.not8.i, label %._crit_edge.thread13.i, label %.lr.ph.i
+  br i1 %.not8.i, label %._crit_edge.thread16.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %_ZN17lazy_param_descrs5applyEPFP12param_descrsvE.exit.i
   %.pre.i = load ptr, ptr %15, align 8, !tbaa !71
   %.not.i.i.i = icmp eq ptr %.pre.i, null
-  br i1 %.not.i.i.i, label %_ZN17lazy_param_descrs5derefEv.exit, label %._crit_edge.thread13.i
+  br i1 %.not.i.i.i, label %_ZN17lazy_param_descrs5derefEv.exit, label %._crit_edge.thread16.i
 
-._crit_edge.thread13.i:                           ; preds = %._crit_edge.i, %_ZN6vectorIPFP12param_descrsvELb0EjE3endEv.exit.i
+._crit_edge.thread16.i:                           ; preds = %._crit_edge.i, %_ZN6vectorIPFP12param_descrsvELb0EjE3endEv.exit.i
   %23 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %16, %_ZN6vectorIPFP12param_descrsvELb0EjE3endEv.exit.i ]
   %24 = getelementptr inbounds i8, ptr %23, i64 -4
   store i32 0, ptr %24, align 4, !tbaa !74
@@ -6388,7 +6388,7 @@ _ZN17lazy_param_descrs5applyEPFP12param_descrsvE.exit.i: ; preds = %28, %_Z7deal
   %.not.i = icmp eq ptr %29, %22
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-_ZN17lazy_param_descrs5derefEv.exit:              ; preds = %12, %._crit_edge.i, %._crit_edge.thread13.i
+_ZN17lazy_param_descrs5derefEv.exit:              ; preds = %12, %._crit_edge.i, %._crit_edge.thread16.i
   %30 = load ptr, ptr %14, align 8, !tbaa !95
   store ptr %30, ptr %2, align 8, !tbaa !60
   br label %_ZNK9table2mapI17default_map_entryIPKcP17lazy_param_descrsE13str_hash_proc11str_eq_procE4findERKS2_RS4_.exit

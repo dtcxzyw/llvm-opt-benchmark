@@ -834,7 +834,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111MacroFusion20scheduleAdjacentImp
   %24 = load i32, ptr %23, align 8
   %25 = icmp ugt i32 %24, 3
   %26 = select i1 %22, i1 %25, i1 false
-  br i1 %26, label %69, label %27
+  br i1 %26, label %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread61, label %27
 
 27:                                               ; preds = %.lr.ph
   %28 = trunc i64 %.0.copyload.i.i.i.i.i to i32
@@ -842,7 +842,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111MacroFusion20scheduleAdjacentImp
   %30 = and i32 %29, 3
   %31 = add nsw i32 %30, -1
   %spec.select.i = icmp ult i32 %31, 2
-  br i1 %spec.select.i, label %69, label %32
+  br i1 %spec.select.i, label %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread61, label %32
 
 32:                                               ; preds = %27
   %33 = and i64 %.0.copyload.i.i.i.i.i, -8
@@ -850,7 +850,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111MacroFusion20scheduleAdjacentImp
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 200
   %36 = load i32, ptr %35, align 8, !tbaa !215
   %37 = icmp eq i32 %36, -1
-  br i1 %37, label %69, label %38
+  br i1 %37, label %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread61, label %38
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr %34, align 8, !tbaa !62
@@ -867,79 +867,75 @@ define internal fastcc void @_ZN12_GLOBAL__N_111MacroFusion20scheduleAdjacentImp
   %43 = getelementptr inbounds nuw i8, ptr %.0.val15.i, i64 %.idx.i17.i
   br label %.lr.ph.i.preheader.i
 
-.lr.ph.i.preheader.i:                             ; preds = %58, %.lr.ph.i.preheader.preheader.i
-  %44 = phi ptr [ %64, %58 ], [ %43, %.lr.ph.i.preheader.preheader.i ]
-  %.0.val20.i = phi ptr [ %.0.val.i, %58 ], [ %.0.val15.i, %.lr.ph.i.preheader.preheader.i ]
-  %.0619.i = phi i32 [ %60, %58 ], [ 1, %.lr.ph.i.preheader.preheader.i ]
+.lr.ph.i.preheader.i:                             ; preds = %57, %.lr.ph.i.preheader.preheader.i
+  %44 = phi ptr [ %62, %57 ], [ %43, %.lr.ph.i.preheader.preheader.i ]
+  %.0.val20.i = phi ptr [ %.0.val.i, %57 ], [ %.0.val15.i, %.lr.ph.i.preheader.preheader.i ]
+  %45 = phi i1 [ false, %57 ], [ true, %.lr.ph.i.preheader.preheader.i ]
   br label %.lr.ph.i.i
 
-45:                                               ; preds = %.lr.ph.i.i
-  %46 = getelementptr inbounds nuw i8, ptr %.0133.i.i, i64 16
-  %.not.i.i = icmp eq ptr %46, %44
+46:                                               ; preds = %.lr.ph.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %.0133.i.i, i64 16
+  %.not.i.i = icmp eq ptr %47, %44
   br i1 %.not.i.i, label %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %45, %.lr.ph.i.preheader.i
-  %.0133.i.i = phi ptr [ %46, %45 ], [ %.0.val20.i, %.lr.ph.i.preheader.i ]
+.lr.ph.i.i:                                       ; preds = %46, %.lr.ph.i.preheader.i
+  %.0133.i.i = phi ptr [ %47, %46 ], [ %.0.val20.i, %.lr.ph.i.preheader.i ]
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.0133.i.i, align 8
-  %47 = and i64 %.0.copyload.i.i.i.i.i.i.i, 6
-  %48 = icmp eq i64 %47, 6
-  %49 = getelementptr inbounds nuw i8, ptr %.0133.i.i, i64 8
-  %50 = load i32, ptr %49, align 8
-  %51 = icmp eq i32 %50, 5
-  %52 = select i1 %48, i1 %51, i1 false
-  br i1 %52, label %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.i, label %45
+  %48 = and i64 %.0.copyload.i.i.i.i.i.i.i, 6
+  %49 = icmp eq i64 %48, 6
+  %50 = getelementptr inbounds nuw i8, ptr %.0133.i.i, i64 8
+  %51 = load i32, ptr %50, align 8
+  %52 = icmp eq i32 %51, 5
+  %53 = select i1 %49, i1 %52, i1 false
+  br i1 %53, label %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.i, label %46
 
-_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i: ; preds = %58, %45
-  %.0614.i = phi i32 [ %.0619.i, %45 ], [ %60, %58 ]
-  %53 = icmp ult i32 %.0614.i, 2
-  br i1 %53, label %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread, label %69
+_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i: ; preds = %46
+  br i1 %45, label %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread, label %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread61
 
 _ZL16getPredClusterSURKN4llvm5SUnitE.exit.i:      ; preds = %.lr.ph.i.i
   %54 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %55 = icmp ne i64 %54, 0
-  %56 = icmp samesign ult i32 %.0619.i, 2
-  %57 = select i1 %55, i1 %56, i1 false
-  br i1 %57, label %58, label %_ZN4llvm19hasLessThanNumFusedERKNS_5SUnitEj.exit
+  %56 = and i1 %55, %45
+  br i1 %56, label %57, label %_ZN4llvm19hasLessThanNumFusedERKNS_5SUnitEj.exit
 
-58:                                               ; preds = %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.i
-  %59 = inttoptr i64 %54 to ptr
-  %60 = add nuw nsw i32 %.0619.i, 1
-  %61 = getelementptr i8, ptr %59, i64 40
-  %.0.val.i = load ptr, ptr %61, align 8, !tbaa !25
-  %62 = getelementptr i8, ptr %59, i64 48
-  %.0.val8.i = load i32, ptr %62, align 8, !tbaa !26
-  %63 = zext i32 %.0.val8.i to i64
-  %.idx.i.i = shl nuw nsw i64 %63, 4
-  %64 = getelementptr inbounds nuw i8, ptr %.0.val.i, i64 %.idx.i.i
+57:                                               ; preds = %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.i
+  %58 = inttoptr i64 %54 to ptr
+  %59 = getelementptr i8, ptr %58, i64 40
+  %.0.val.i = load ptr, ptr %59, align 8, !tbaa !25
+  %60 = getelementptr i8, ptr %58, i64 48
+  %.0.val8.i = load i32, ptr %60, align 8, !tbaa !26
+  %61 = zext i32 %.0.val8.i to i64
+  %.idx.i.i = shl nuw nsw i64 %61, 4
+  %62 = getelementptr inbounds nuw i8, ptr %.0.val.i, i64 %.idx.i.i
   %.not2.i.i = icmp eq i32 %.0.val8.i, 0
-  br i1 %.not2.i.i, label %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i, label %.lr.ph.i.preheader.i, !llvm.loop !56
+  br i1 %.not2.i.i, label %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread61, label %.lr.ph.i.preheader.i, !llvm.loop !56
 
 _ZN4llvm19hasLessThanNumFusedERKNS_5SUnitEj.exit: ; preds = %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.i
-  br i1 %56, label %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread, label %69
+  br i1 %45, label %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread, label %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread61
 
 _ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread: ; preds = %38, %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i, %_ZN4llvm19hasLessThanNumFusedERKNS_5SUnitEj.exit
   %.val37 = load ptr, ptr %11, align 8, !tbaa !81
   %.val38 = load ptr, ptr %12, align 8, !tbaa !81
-  %65 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentERKN4llvm15TargetInstrInfoERKNS1_19TargetSubtargetInfoEPKNS1_12MachineInstrERS9_(ptr %.val37, ptr %.val38, ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(304) %10, ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(70) %4)
-  br i1 %65, label %66, label %69
+  %63 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentERKN4llvm15TargetInstrInfoERKNS1_19TargetSubtargetInfoEPKNS1_12MachineInstrERS9_(ptr %.val37, ptr %.val38, ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(304) %10, ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(70) %4)
+  br i1 %63, label %64, label %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread61
 
-66:                                               ; preds = %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread
-  %67 = tail call noundef zeroext i1 @_ZN4llvm19fuseInstructionPairERNS_17ScheduleDAGInstrsERNS_5SUnitES3_(ptr noundef nonnull align 8 dereferenceable(3280) %1, ptr noundef nonnull align 8 dereferenceable(255) %34, ptr noundef nonnull align 8 dereferenceable(255) %2)
-  %68 = getelementptr inbounds nuw i8, ptr %.03548, i64 16
-  %.not.not = icmp eq ptr %68, %20
-  %or.cond = select i1 %67, i1 true, i1 %.not.not
+64:                                               ; preds = %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread
+  %65 = tail call noundef zeroext i1 @_ZN4llvm19fuseInstructionPairERNS_17ScheduleDAGInstrsERNS_5SUnitES3_(ptr noundef nonnull align 8 dereferenceable(3280) %1, ptr noundef nonnull align 8 dereferenceable(255) %34, ptr noundef nonnull align 8 dereferenceable(255) %2)
+  %66 = getelementptr inbounds nuw i8, ptr %.03548, i64 16
+  %.not.not = icmp eq ptr %66, %20
+  %or.cond = select i1 %65, i1 true, i1 %.not.not
   br i1 %or.cond, label %.loopexit, label %.lr.ph.backedge
 
-69:                                               ; preds = %27, %.lr.ph, %32, %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread, %_ZN4llvm19hasLessThanNumFusedERKNS_5SUnitEj.exit, %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i
+_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread61: ; preds = %57, %27, %.lr.ph, %32, %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread, %_ZN4llvm19hasLessThanNumFusedERKNS_5SUnitEj.exit, %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i
   %.old = getelementptr inbounds nuw i8, ptr %.03548, i64 16
   %.not.not.old = icmp eq ptr %.old, %20
   br i1 %.not.not.old, label %.loopexit, label %.lr.ph.backedge
 
-.lr.ph.backedge:                                  ; preds = %69, %66
-  %.03548.be = phi ptr [ %.old, %69 ], [ %68, %66 ]
+.lr.ph.backedge:                                  ; preds = %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread61, %64
+  %.03548.be = phi ptr [ %.old, %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread61 ], [ %66, %64 ]
   br label %.lr.ph
 
-.loopexit:                                        ; preds = %66, %69, %14, %3
+.loopexit:                                        ; preds = %64, %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread61, %14, %3
   ret void
 }
 

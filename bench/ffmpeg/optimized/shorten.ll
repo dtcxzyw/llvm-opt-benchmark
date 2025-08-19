@@ -345,8 +345,8 @@ define internal i32 @shorten_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %166, label %168, label %.preheader198.i
 
 .preheader198.i:                                  ; preds = %162
-  %.not276.i = icmp eq i32 %163, 0
-  br i1 %.not276.i, label %175, label %.lr.ph.i
+  %.not297.i = icmp eq i32 %163, 0
+  br i1 %.not297.i, label %175, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader198.i
   %167 = load i32, ptr %71, align 8, !tbaa !43
@@ -998,7 +998,7 @@ init_offset.exit.i:                               ; preds = %445
   %484 = phi i32 [ %476, %475 ], [ %.pre901, %478 ]
   %.341 = tail call i32 @llvm.smax.i32(i32 %484, i32 %470)
   store i32 %.341, ptr %11, align 4, !tbaa !35
-  br label %.sink.split1029
+  br label %.sink.split1095
 
 485:                                              ; preds = %.loopexit621, %76
   %486 = getelementptr inbounds nuw i8, ptr %10, i64 16704
@@ -1299,7 +1299,7 @@ get_ur_golomb_jpegls.exit:                        ; preds = %532, %565
 
 646:                                              ; preds = %._crit_edge.i412
   %647 = icmp eq i32 %.1.lcssa.i414, 2147483646
-  br i1 %647, label %.thread910, label %get_ur_golomb_jpegls.exit427.thread
+  br i1 %647, label %.thread977, label %get_ur_golomb_jpegls.exit427.thread
 
 get_ur_golomb_jpegls.exit427.thread:              ; preds = %646, %.lr.ph.i423
   %storemerge123.i417.ph = phi i32 [ %.0110130.i424, %.lr.ph.i423 ], [ %633, %646 ]
@@ -1313,25 +1313,25 @@ get_ur_golomb_jpegls.exit427:                     ; preds = %602, %635
   %648 = icmp slt i32 %.0106.i418, 0
   %649 = sub nsw i32 %.val349, %storemerge123.i417
   %650 = icmp sgt i32 %.0106.i418, %649
-  %or.cond1022 = select i1 %648, i1 true, i1 %650
-  br i1 %or.cond1022, label %.loopexit620, label %.preheader614
+  %or.cond1089 = select i1 %648, i1 true, i1 %650
+  br i1 %or.cond1089, label %.loopexit620, label %.preheader614
 
-.thread910:                                       ; preds = %646
+.thread977:                                       ; preds = %646
   store i32 %633, ptr %75, align 8, !tbaa !45
-  %.not1030 = icmp sgt i32 %.val349, %633
-  br i1 %.not1030, label %.lr.ph.preheader, label %.loopexit620
+  %.not1096 = icmp sgt i32 %.val349, %633
+  br i1 %.not1096, label %.lr.ph.preheader, label %.loopexit620
 
 .preheader614:                                    ; preds = %get_ur_golomb_jpegls.exit427
   %.not335731 = icmp eq i32 %.0106.i418, 0
   br i1 %.not335731, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.thread910, %.preheader614
-  %storemerge123.i444733.ph = phi i32 [ %633, %.thread910 ], [ %storemerge123.i417, %.preheader614 ]
-  %.0287732.ph = phi i32 [ 1, %.thread910 ], [ %.0106.i418, %.preheader614 ]
+.lr.ph.preheader:                                 ; preds = %.thread977, %.preheader614
+  %storemerge123.i444733.ph = phi i32 [ %633, %.thread977 ], [ %storemerge123.i417, %.preheader614 ]
+  %.0287732.ph = phi i32 [ 1, %.thread977 ], [ %.0106.i418, %.preheader614 ]
   br label %.lr.ph
 
-.loopexit620:                                     ; preds = %get_ur_golomb_jpegls.exit427, %.thread910, %get_ur_golomb_jpegls.exit427.thread
-  %.0106.i418522 = phi i32 [ -1, %get_ur_golomb_jpegls.exit427.thread ], [ 1, %.thread910 ], [ %.0106.i418, %get_ur_golomb_jpegls.exit427 ]
+.loopexit620:                                     ; preds = %get_ur_golomb_jpegls.exit427, %.thread977, %get_ur_golomb_jpegls.exit427.thread
+  %.0106.i418522 = phi i32 [ -1, %get_ur_golomb_jpegls.exit427.thread ], [ 1, %.thread977 ], [ %.0106.i418, %get_ur_golomb_jpegls.exit427 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.4, i32 noundef %.0106.i418522) #8
   br label %read_header.exit.thread
 
@@ -1948,8 +1948,8 @@ get_ur_golomb_jpegls.exit.i372:                   ; preds = %962, %951, %918
 get_ur_golomb_jpegls.exit.thread.i390:            ; preds = %.lr.ph.i.i387
   store i32 %.0110130.i.i388, ptr %75, align 8, !tbaa !45
   %966 = load i32, ptr %499, align 4, !tbaa !57
-  %.not226.i = icmp eq i32 %966, -1
-  br i1 %.not226.i, label %get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i375.thread_crit_edge, label %decode_subframe_lpc.exit
+  %.not234.i = icmp eq i32 %966, -1
+  br i1 %.not234.i, label %get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i375.thread_crit_edge, label %decode_subframe_lpc.exit
 
 get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i375.thread_crit_edge: ; preds = %get_ur_golomb_jpegls.exit.thread.i390
   %.pre.i.pre = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !77
@@ -1962,7 +1962,7 @@ get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i375.thread_crit_edge: ; preds
 
 ._crit_edge.i375.thread:                          ; preds = %get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i375.thread_crit_edge, %.preheader131.i
   %.pre.i = phi ptr [ %.pre.i.pre902, %.preheader131.i ], [ %.pre.i.pre, %get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i375.thread_crit_edge ]
-  %.0106.i193196.i = phi i32 [ %.0106.i.i374, %.preheader131.i ], [ -1, %get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i375.thread_crit_edge ]
+  %.0106.i201204.i = phi i32 [ %.0106.i.i374, %.preheader131.i ], [ -1, %get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i375.thread_crit_edge ]
   %.not124.i566 = icmp ne i32 %.0281, 0
   br label %.loopexit130.i
 
@@ -2129,8 +2129,8 @@ get_ur_golomb_jpegls.exit102.i:                   ; preds = %999, %1034, %1023, 
 .loopexit130.i:                                   ; preds = %1048, %._crit_edge.i375.thread, %._crit_edge.i375
   %.not124.i569 = phi i1 [ %.not124.i566, %._crit_edge.i375.thread ], [ false, %._crit_edge.i375 ], [ true, %1048 ]
   %1053 = phi ptr [ %.pre.i, %._crit_edge.i375.thread ], [ %.pre.i.pre902, %._crit_edge.i375 ], [ %.pre.i.pre902, %1048 ]
-  %.0106.i193195.i568 = phi i32 [ %.0106.i193196.i, %._crit_edge.i375.thread ], [ %.0106.i.i374, %._crit_edge.i375 ], [ %.0106.i.i374, %1048 ]
-  %.not.i376 = icmp eq i32 %.0106.i193195.i568, 0
+  %.0106.i201203.i568 = phi i32 [ %.0106.i201204.i, %._crit_edge.i375.thread ], [ %.0106.i.i374, %._crit_edge.i375 ], [ %.0106.i.i374, %1048 ]
+  %.not.i376 = icmp eq i32 %.0106.i201203.i568, 0
   br i1 %.not.i376, label %1056, label %1054
 
 1054:                                             ; preds = %.loopexit130.i
@@ -2153,15 +2153,15 @@ get_ur_golomb_jpegls.exit102.i:                   ; preds = %999, %1034, %1023, 
 
 .preheader129.lr.ph.i:                            ; preds = %.thread.i, %1056
   %1063 = phi i32 [ %.mux119.i, %.thread.i ], [ %1057, %1056 ]
-  %or.cond110120204.i = phi i1 [ false, %.thread.i ], [ %.not124.i569, %1056 ]
-  %.0109121203.i = phi ptr [ %1060, %.thread.i ], [ %1053, %1056 ]
-  %.067108122202.i = phi i32 [ 0, %.thread.i ], [ 5, %1056 ]
-  %.069107123201.i = phi i32 [ %.0106.i518551561, %.thread.i ], [ %.0106.i193195.i568, %1056 ]
-  %1064 = icmp sgt i32 %.069107123201.i, 0
+  %or.cond110120212.i = phi i1 [ false, %.thread.i ], [ %.not124.i569, %1056 ]
+  %.0109121211.i = phi ptr [ %1060, %.thread.i ], [ %1053, %1056 ]
+  %.067108122210.i = phi i32 [ 0, %.thread.i ], [ 5, %1056 ]
+  %.069107123209.i = phi i32 [ %.0106.i518551561, %.thread.i ], [ %.0106.i201203.i568, %1056 ]
+  %1064 = icmp sgt i32 %.069107123209.i, 0
   %1065 = sext i32 %508 to i64
   %1066 = getelementptr inbounds [8 x ptr], ptr %500, i64 0, i64 %1065
   %1067 = add nuw nsw i32 %.0285, 1
-  %wide.trip.count182.i = zext nneg i32 %.069107123201.i to i64
+  %wide.trip.count182.i = zext nneg i32 %.069107123209.i to i64
   br label %.preheader129.i
 
 .preheader129.i:                                  ; preds = %._crit_edge153.i, %.preheader129.lr.ph.i
@@ -2176,7 +2176,7 @@ get_ur_golomb_jpegls.exit102.i:                   ; preds = %999, %1034, %1023, 
 1070:                                             ; preds = %1070, %.lr.ph152.i
   %indvars.iv179.i = phi i64 [ 0, %.lr.ph152.i ], [ %indvars.iv.next180.i, %1070 ]
   %.068150.i = phi i32 [ %1063, %.lr.ph152.i ], [ %1077, %1070 ]
-  %1071 = getelementptr inbounds nuw i32, ptr %.0109121203.i, i64 %indvars.iv179.i
+  %1071 = getelementptr inbounds nuw i32, ptr %.0109121211.i, i64 %indvars.iv179.i
   %1072 = load i32, ptr %1071, align 4, !tbaa !40
   %1073 = xor i64 %indvars.iv179.i, -1
   %1074 = getelementptr i32, ptr %1069, i64 %1073
@@ -2194,7 +2194,7 @@ get_ur_golomb_jpegls.exit102.i:                   ; preds = %999, %1034, %1023, 
   %1080 = and i32 %1078, 1
   %1081 = sub nsw i32 0, %1080
   %1082 = xor i32 %1079, %1081
-  %1083 = ashr i32 %.068.lcssa.i, %.067108122202.i
+  %1083 = ashr i32 %.068.lcssa.i, %.067108122210.i
   %1084 = add i32 %1082, %1083
   %1085 = load ptr, ptr %1066, align 8, !tbaa !65
   %1086 = getelementptr inbounds nuw i32, ptr %1085, i64 %indvars.iv184.i
@@ -2207,8 +2207,8 @@ get_ur_golomb_jpegls.exit102.i:                   ; preds = %999, %1034, %1023, 
 
 ._crit_edge155.i:                                 ; preds = %._crit_edge153.i
   %1090 = icmp sgt i32 %1087, 0
-  %brmerge224.not.i = and i1 %or.cond110120204.i, %1090
-  br i1 %brmerge224.not.i, label %.lr.ph157.i, label %decode_subframe_lpc.exit.thread
+  %brmerge232.not.i = and i1 %or.cond110120212.i, %1090
+  br i1 %brmerge232.not.i, label %.lr.ph157.i, label %decode_subframe_lpc.exit.thread
 
 .lr.ph157.i:                                      ; preds = %._crit_edge155.i, %.lr.ph157.i
   %indvars.iv187.i = phi i64 [ %indvars.iv.next188.i, %.lr.ph157.i ], [ 0, %._crit_edge155.i ]
@@ -2223,10 +2223,10 @@ get_ur_golomb_jpegls.exit102.i:                   ; preds = %999, %1034, %1023, 
   br i1 %1096, label %.lr.ph157.i, label %decode_subframe_lpc.exit.thread, !llvm.loop !82
 
 decode_subframe_lpc.exit:                         ; preds = %get_ur_golomb_jpegls.exit.i372, %get_ur_golomb_jpegls.exit.thread.i390, %1041
-  %.sink225.i = phi i32 [ -1, %get_ur_golomb_jpegls.exit.thread.i390 ], [ %.0106.i.i374, %get_ur_golomb_jpegls.exit.i372 ], [ %.0106.i518551561, %1041 ]
+  %.sink233.i = phi i32 [ -1, %get_ur_golomb_jpegls.exit.thread.i390 ], [ %.0106.i.i374, %get_ur_golomb_jpegls.exit.i372 ], [ %.0106.i518551561, %1041 ]
   %.066.ph.i = phi i32 [ -22, %get_ur_golomb_jpegls.exit.thread.i390 ], [ -22, %get_ur_golomb_jpegls.exit.i372 ], [ -1094995529, %1041 ]
   %1097 = load ptr, ptr %10, align 8, !tbaa !27
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1097, i32 noundef 16, ptr noundef nonnull @.str.38, i32 noundef %.sink225.i) #8
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1097, i32 noundef 16, ptr noundef nonnull @.str.38, i32 noundef %.sink233.i) #8
   br label %read_header.exit.thread
 
 decode_subframe_lpc.exit.thread:                  ; preds = %.lr.ph157.i, %893, %.preheader612, %1056, %.thread.i, %._crit_edge155.i
@@ -2259,8 +2259,8 @@ decode_subframe_lpc.exit.thread:                  ; preds = %.lr.ph157.i, %893, 
 
 .preheader611:                                    ; preds = %1116, %1107
   %.0279.lcssa = phi i64 [ %1108, %1107 ], [ %1120, %1116 ]
-  %.not909 = icmp eq i32 %1099, 1
-  br i1 %.not909, label %._crit_edge746, label %.lr.ph745
+  %.not976 = icmp eq i32 %1099, 1
+  br i1 %.not976, label %._crit_edge746, label %.lr.ph745
 
 .lr.ph745:                                        ; preds = %.preheader611
   %1113 = sext i32 %508 to i64
@@ -2526,13 +2526,13 @@ fix_bitshift.exit:                                ; preds = %.lr.ph.i392, %.lr.p
   %1235 = load i32, ptr %491, align 4, !tbaa !71
   %1236 = load i32, ptr %492, align 8, !tbaa !54
   %1237 = icmp ult i32 %1235, %1236
-  br i1 %1237, label %.sink.split1029, label %1238
+  br i1 %1237, label %.sink.split1095, label %1238
 
-.sink.split1029:                                  ; preds = %.thread584, %483
+.sink.split1095:                                  ; preds = %.thread584, %483
   store i32 0, ptr %2, align 4, !tbaa !40
   br label %1238
 
-1238:                                             ; preds = %.sink.split1029, %.thread584
+1238:                                             ; preds = %.sink.split1095, %.thread584
   %.val = load i32, ptr %75, align 8, !tbaa !45
   %1239 = srem i32 %.val, 8
   store i32 %1239, ptr %77, align 4, !tbaa !46

@@ -158,8 +158,8 @@ define hidden void @_ZN14deltalake_core5table7builder16ensure_table_uri17hae3ecd
   br i1 %trunc, label %39, label %38
 
 .thread:                                          ; preds = %.thread173, %109, %88, %.body.thread139
-  %.pn.pn186 = phi { ptr, i32 } [ %110, %109 ], [ %89, %88 ], [ %eh.lpad-body142, %.body.thread139 ], [ %.pn176, %.thread173 ]
-  resume { ptr, i32 } %.pn.pn186
+  %.pn.pn194 = phi { ptr, i32 } [ %110, %109 ], [ %89, %88 ], [ %eh.lpad-body142, %.body.thread139 ], [ %.pn176, %.thread173 ]
+  resume { ptr, i32 } %.pn.pn194
 
 38:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -169,8 +169,8 @@ define hidden void @_ZN14deltalake_core5table7builder16ensure_table_uri17hae3ecd
 39:                                               ; preds = %2
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.6.sroa.0.0.copyload, ptr %40, align 8
-  %.sroa.6.sroa.4.0..sroa_idx192 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4.0..sroa_idx192, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4, i64 80, i1 false)
+  %.sroa.6.sroa.4.0..sroa_idx200 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4.0..sroa_idx200, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4, i64 80, i1 false)
   store i64 1, ptr %0, align 8
   br label %165
 
@@ -192,8 +192,8 @@ define hidden void @_ZN14deltalake_core5table7builder16ensure_table_uri17hae3ecd
 
 48:                                               ; preds = %38
   store i64 %.sroa.6.sroa.0.0.copyload, ptr %30, align 8
-  %.sroa.6.sroa.4.0..sroa_idx193 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4.0..sroa_idx193, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4, i64 80, i1 false)
+  %.sroa.6.sroa.4.0..sroa_idx201 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4.0..sroa_idx201, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4, i64 80, i1 false)
   br label %126
 
 .body.thread144:                                  ; preds = %41, %49, %53, %55, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i, %70
@@ -6292,8 +6292,8 @@ common.resume:                                    ; preds = %15, %22, %25, %3
   br label %common.resume
 
 .sink.split:                                      ; preds = %2, %24, %18
-  %.sink1 = phi i64 [ 48, %18 ], [ 48, %24 ], [ 64, %2 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %.8.val, i64 noundef %.sink1, i64 noundef 8) #16
+  %.sink2 = phi i64 [ 48, %18 ], [ 48, %24 ], [ 64, %2 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %.8.val, i64 noundef %.sink2, i64 noundef 8) #16
   br label %5
 
 5:                                                ; preds = %.sink.split, %0

@@ -3477,10 +3477,10 @@ _ZNK2OT13VarRegionAxis8evaluateEi.exit:           ; preds = %74
   %77 = sub nsw i32 %48, %59
   %78 = sub nsw i32 %68, %38
   %79 = sub nsw i32 %68, %48
-  %.sink45 = select i1 %75, i32 %77, i32 %79
+  %.sink55 = select i1 %75, i32 %77, i32 %79
   %.sink.in = select i1 %75, i32 %76, i32 %78
   %.sink = sitofp i32 %.sink.in to float
-  %80 = sitofp i32 %.sink45 to float
+  %80 = sitofp i32 %.sink55 to float
   %81 = fdiv float %.sink, %80
   %82 = fcmp oeq float %81, 0.000000e+00
   br i1 %82, label %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread37, label %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread
@@ -5152,7 +5152,7 @@ _ZN11hb_vector_tIjLb0EE5allocEjb.exit:            ; preds = %.sink.split.i, %89,
   br i1 %114, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread6.i, label %115
 
 115:                                              ; preds = %113
-  %.not.i.i33.not = icmp ult i32 %102, %112
+  %.not.i.i33.not = icmp samesign ult i32 %102, %112
   br i1 %.not.i.i33.not, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %115, %.preheader.i.i
@@ -5160,8 +5160,8 @@ _ZN11hb_vector_tIjLb0EE5allocEjb.exit:            ; preds = %.sink.split.i, %89,
   %116 = lshr i32 %.143.i.i, 1
   %117 = add nuw nsw i32 %.143.i.i, 8
   %118 = add nuw nsw i32 %117, %116
-  %.not47 = icmp ult i32 %102, %118
-  br i1 %.not47, label %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i, label %.preheader.i.i, !llvm.loop !14
+  %.not62 = icmp samesign ult i32 %102, %118
+  br i1 %.not62, label %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i, label %.preheader.i.i, !llvm.loop !14
 
 _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i: ; preds = %.preheader.i.i
   %119 = load ptr, ptr %99, align 8

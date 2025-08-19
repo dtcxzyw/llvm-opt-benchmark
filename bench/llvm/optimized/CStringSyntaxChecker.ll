@@ -2901,7 +2901,7 @@ _ZNK5clang12APIntStorage8getValueEv.exit.i:       ; preds = %435
   br label %_ZN4llvm5APIntD2Ev.exit.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %448, %_ZNK5clang12APIntStorage8getValueEv.exit.i, %.thread.i
-  %.0.i110.i = phi i64 [ %440, %.thread.i ], [ %.0.i.i58, %_ZNK5clang12APIntStorage8getValueEv.exit.i ], [ %.0.i.i58, %448 ]
+  %.0.i115.i = phi i64 [ %440, %.thread.i ], [ %.0.i.i58, %_ZNK5clang12APIntStorage8getValueEv.exit.i ], [ %.0.i.i58, %448 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not100.i, label %.thread84.i, label %449
 
@@ -2988,7 +2988,7 @@ _ZN4llvm5APIntD2Ev.exit80.i:                      ; preds = %475, %468
   %494 = extractvalue { i64, i64 } %493, 0
   %495 = lshr i64 %494, 3
   %496 = sub i64 %495, %.04688.i
-  %497 = icmp ult i64 %496, %.0.i110.i
+  %497 = icmp ult i64 %496, %.0.i115.i
   br i1 %497, label %_ZN12_GLOBAL__N_17WalkAST32containsBadStrlcpyStrlcatPatternEPKN5clang8CallExprE.exit, label %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.exit.thread
 
 _ZN12_GLOBAL__N_17WalkAST32containsBadStrlcpyStrlcatPatternEPKN5clang8CallExprE.exit: ; preds = %484

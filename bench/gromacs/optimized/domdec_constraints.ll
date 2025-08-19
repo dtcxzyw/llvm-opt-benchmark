@@ -2713,9 +2713,9 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit108:        ; preds = %254, %_ZNSt6vectorI
   br label %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i
 
 _ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i: ; preds = %308, %307, %306, %.critedge.i.i
-  %.1.lcssa35.i.i = phi i64 [ -1, %308 ], [ 0, %307 ], [ %298, %306 ], [ %.1.lcssa.i.i, %.critedge.i.i ]
+  %.1.lcssa39.i.i = phi i64 [ -1, %308 ], [ 0, %307 ], [ %298, %306 ], [ %.1.lcssa.i.i, %.critedge.i.i ]
   %309 = phi ptr [ %276, %308 ], [ %276, %307 ], [ %.pre.i.i, %306 ], [ %276, %.critedge.i.i ]
-  %310 = trunc i64 %.1.lcssa35.i.i to i32
+  %310 = trunc i64 %.1.lcssa39.i.i to i32
   %311 = getelementptr inbounds nuw %"struct.gmx::HashedMap<int>::hashEntry", ptr %309, i64 %285, i32 2
   store i32 %310, ptr %311, align 4, !tbaa !34
   %312 = add i32 %310, 1
@@ -2724,7 +2724,7 @@ _ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i: ; preds = 
 
 _ZN3gmx9HashedMapIiE6insertEiRKi.exit:            ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit108, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i
   %313 = phi ptr [ %309, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i ], [ %276, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit108 ]
-  %.020.i.i = phi i64 [ %.1.lcssa35.i.i, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i ], [ %281, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit108 ]
+  %.020.i.i = phi i64 [ %.1.lcssa39.i.i, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i ], [ %281, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit108 ]
   %314 = getelementptr inbounds nuw %"struct.gmx::HashedMap<int>::hashEntry", ptr %313, i64 %.020.i.i
   store i32 %235, ptr %314, align 4, !tbaa !32
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 4
@@ -2918,13 +2918,13 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !41
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !41
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -4312,7 +4312,7 @@ define linkonce_odr void @_ZNSt6vectorI15InteractionListSaIS0_EE17_M_default_app
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIP15InteractionListmS0_ET_S2_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIP15InteractionListmS0_ET_S2_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 24
+  %19 = mul nuw nsw i64 %1, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !372
@@ -4509,7 +4509,7 @@ define linkonce_odr void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_default_appendEm(p
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPSt6vectorIiSaIiEEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt6vectorIiSaIiEEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 24
+  %19 = mul nuw nsw i64 %1, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !377

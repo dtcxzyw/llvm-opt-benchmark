@@ -1152,9 +1152,9 @@ lpad43:                                           ; preds = %cond.false.i
 if.end50:                                         ; preds = %if.then.i.i.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i5.i.i, %_ZN5boost10shared_ptrIN8QuantLib10DayCounter4ImplEEC2ERKS4_.exit.i.i, %_ZN8QuantLib10DayCounterD2Ev.exit
   %loadedv.i.i = trunc i64 %paymentConvention.coerce to i1
   %76 = load i32, ptr %convention_.i28, align 8
-  %spec.select201 = select i1 %loadedv.i.i, i32 %paymentConvention.sroa.3157.0.extract.trunc, i32 %76
+  %spec.select237 = select i1 %loadedv.i.i, i32 %paymentConvention.sroa.3157.0.extract.trunc, i32 %76
   %77 = getelementptr inbounds nuw i8, ptr %this, i64 648
-  store i32 %spec.select201, ptr %77, align 8, !tbaa !105
+  store i32 %spec.select237, ptr %77, align 8, !tbaa !105
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp60)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp61)
   invoke void @_ZN8QuantLib8ScheduleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(136) %fixedSchedule_)
@@ -1635,11 +1635,11 @@ ehcleanup140:                                     ; preds = %ehcleanup139, %lpad
   br label %ehcleanup186
 
 sw.epilog:                                        ; preds = %_ZN8QuantLib8ScheduleD2Ev.exit, %sw.bb98
-  %.sink203 = phi double [ 1.000000e+00, %sw.bb98 ], [ -1.000000e+00, %_ZN8QuantLib8ScheduleD2Ev.exit ]
+  %.sink239 = phi double [ 1.000000e+00, %sw.bb98 ], [ -1.000000e+00, %_ZN8QuantLib8ScheduleD2Ev.exit ]
   %.sink = phi double [ -1.000000e+00, %sw.bb98 ], [ 1.000000e+00, %_ZN8QuantLib8ScheduleD2Ev.exit ]
   %payer_99 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %144 = load ptr, ptr %payer_99, align 8, !tbaa !92
-  store double %.sink203, ptr %144, align 8, !tbaa !115
+  store double %.sink239, ptr %144, align 8, !tbaa !115
   %add.ptr.i103 = getelementptr inbounds nuw i8, ptr %144, i64 8
   store double %.sink, ptr %add.ptr.i103, align 8, !tbaa !115
   %145 = load ptr, ptr %fixedNominals_, align 8, !tbaa !3
@@ -1660,10 +1660,10 @@ if.end.i.i:                                       ; preds = %sw.epilog
   br i1 %cmp.not4.i.i.i.i.i.i, label %if.else167.thread, label %for.body.i.i.i.i.i.i133
 
 if.else167.thread:                                ; preds = %if.end.i.i
-  %sameNominals_165199 = getelementptr inbounds nuw i8, ptr %this, i64 673
-  store i8 1, ptr %sameNominals_165199, align 1, !tbaa !116
-  %constantNominals_168200 = getelementptr inbounds nuw i8, ptr %this, i64 672
-  store i8 1, ptr %constantNominals_168200, align 8, !tbaa !117
+  %sameNominals_165235 = getelementptr inbounds nuw i8, ptr %this, i64 673
+  store i8 1, ptr %sameNominals_165235, align 1, !tbaa !116
+  %constantNominals_168236 = getelementptr inbounds nuw i8, ptr %this, i64 672
+  store i8 1, ptr %constantNominals_168236, align 8, !tbaa !117
   br label %if.end185
 
 for.body.i.i.i.i.i.i133:                          ; preds = %if.end.i.i, %for.inc.i.i.i.i.i.i
@@ -3251,7 +3251,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
           to label %for.inc.i.i.i.i unwind label %invoke.cont2.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %dec.i.i.i.i = add i64 %__n.addr.08.i.i.i.i, -1
+  %dec.i.i.i.i = add nsw i64 %__n.addr.08.i.i.i.i, -1
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i, !llvm.loop !137
@@ -4723,7 +4723,7 @@ if.end:                                           ; preds = %dynamic_cast.end
   br i1 %4, label %if.then10, label %if.end21
 
 if.then10:                                        ; preds = %if.end.thread, %if.end
-  %cmp2510 = phi i1 [ true, %if.end.thread ], [ %5, %if.end ]
+  %cmp2512 = phi i1 [ true, %if.end.thread ], [ %5, %if.end ]
   %legBPS_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   %6 = load ptr, ptr %legBPS_, align 8, !tbaa !92
   %7 = load double, ptr %6, align 8, !tbaa !115
@@ -4731,7 +4731,7 @@ if.then10:                                        ; preds = %if.end.thread, %if.
   br i1 %cmp14, label %if.then15, label %if.end21
 
 if.then15:                                        ; preds = %if.then10
-  %fairRate_611 = getelementptr inbounds nuw i8, ptr %this, i64 656
+  %fairRate_613 = getelementptr inbounds nuw i8, ptr %this, i64 656
   %fixedRate_ = getelementptr inbounds nuw i8, ptr %this, i64 424
   %8 = load double, ptr %fixedRate_, align 8, !tbaa !100
   %NPV_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -4739,12 +4739,12 @@ if.then15:                                        ; preds = %if.then10
   %div = fdiv double %7, 1.000000e-04
   %div18 = fdiv double %9, %div
   %sub = fsub double %8, %div18
-  store double %sub, ptr %fairRate_611, align 8, !tbaa !139
-  br i1 %cmp2510, label %if.then26, label %if.end41
+  store double %sub, ptr %fairRate_613, align 8, !tbaa !139
+  br i1 %cmp2512, label %if.then26, label %if.end41
 
 if.end21:                                         ; preds = %if.then10, %if.end
-  %cmp259 = phi i1 [ %cmp2510, %if.then10 ], [ %5, %if.end ]
-  br i1 %cmp259, label %if.then26, label %if.end41
+  %cmp2511 = phi i1 [ %cmp2512, %if.then10 ], [ %5, %if.end ]
+  br i1 %cmp2511, label %if.then26, label %if.end41
 
 if.then26:                                        ; preds = %if.then15, %if.end21
   %legBPS_27 = getelementptr inbounds nuw i8, ptr %this, i64 176
@@ -4755,7 +4755,7 @@ if.then26:                                        ; preds = %if.then15, %if.end2
   br i1 %cmp31, label %if.then32, label %if.end41
 
 if.then32:                                        ; preds = %if.then26
-  %fairSpread_2213 = getelementptr inbounds nuw i8, ptr %this, i64 664
+  %fairSpread_2215 = getelementptr inbounds nuw i8, ptr %this, i64 664
   %spread_ = getelementptr inbounds nuw i8, ptr %this, i64 624
   %12 = load double, ptr %spread_, align 8, !tbaa !103
   %NPV_33 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -4763,7 +4763,7 @@ if.then32:                                        ; preds = %if.then26
   %div36 = fdiv double %11, 1.000000e-04
   %div37 = fdiv double %13, %div36
   %sub38 = fsub double %12, %div37
-  store double %sub38, ptr %fairSpread_2213, align 8, !tbaa !140
+  store double %sub38, ptr %fairSpread_2215, align 8, !tbaa !140
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then15, %if.then26, %if.then32, %if.end21

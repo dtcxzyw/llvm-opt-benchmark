@@ -222,9 +222,9 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN18btQuantizedBvhTree20_calc_spl
   %74 = fmul float %71, %.sroa.14.0.lcssa
   %75 = fcmp olt float %72, %73
   %..i = select i1 %75, float %73, float %72
-  %.4.i = zext i1 %75 to i32
+  %.5.i = zext i1 %75 to i32
   %76 = fcmp olt float %..i, %74
-  %77 = select i1 %76, i32 2, i32 %.4.i
+  %77 = select i1 %76, i32 2, i32 %.5.i
   ret i32 %77
 }
 
@@ -491,7 +491,7 @@ common.ret:                                       ; preds = %4
   %78 = load i32, ptr %77, align 4, !tbaa !23
   %79 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %14, i64 %15, i32 2
   store i32 %78, ptr %79, align 4, !tbaa !39
-  br label %common.ret95
+  br label %common.ret98
 
 80:                                               ; preds = %4
   %81 = tail call noundef i32 @_ZN18btQuantizedBvhTree20_calc_splitting_axisER18GIM_BVH_DATA_ARRAYii(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef %2, i32 noundef %3)
@@ -506,7 +506,7 @@ common.ret:                                       ; preds = %4
   %wide.trip.count = sext i32 %3 to i64
   br label %.cont60
 
-common.ret95:                                     ; preds = %._crit_edge, %common.ret
+common.ret98:                                     ; preds = %._crit_edge, %common.ret
   ret void
 
 ._crit_edge:                                      ; preds = %.cont60, %80
@@ -604,7 +604,7 @@ common.ret95:                                     ; preds = %._crit_edge, %commo
   %.neg = sub nsw i32 %5, %151
   %152 = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %150, i64 %89, i32 2
   store i32 %.neg, ptr %152, align 4, !tbaa !39
-  br label %common.ret95
+  br label %common.ret98
 
 .cont60:                                          ; preds = %.lr.ph, %.cont60
   %indvars.iv = phi i64 [ %86, %.lr.ph ], [ %indvars.iv.next, %.cont60 ]
@@ -2236,9 +2236,9 @@ _ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.i.i.i: ; preds = %_ZN20bt
 
 _ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.thread.i.i.i: ; preds = %136
   %.old.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.old5.i.i = load i8, ptr %.old.i.i, align 8, !tbaa !95, !range !46, !noundef !68
-  %.old6.i.i = trunc nuw i8 %.old5.i.i to i1
-  br i1 %.old6.i.i, label %146, label %_ZN20btAlignedObjectArrayI8GIM_PAIRE10deallocateEv.exit.i.i.i
+  %.old8.i.i = load i8, ptr %.old.i.i, align 8, !tbaa !95, !range !46, !noundef !68
+  %.old9.i.i = trunc nuw i8 %.old8.i.i to i1
+  br i1 %.old9.i.i, label %146, label %_ZN20btAlignedObjectArrayI8GIM_PAIRE10deallocateEv.exit.i.i.i
 
 146:                                              ; preds = %_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.thread.i.i.i, %_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.i.i.i
   call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %135)

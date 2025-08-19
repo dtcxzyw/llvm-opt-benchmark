@@ -136,7 +136,7 @@ define internal i32 @mss1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br label %60
 
 60:                                               ; preds = %87, %57
-  %spec.select.i.i.i98 = phi i32 [ %spec.select.i.i.i, %87 ], [ %.promoted, %57 ]
+  %spec.select.i.i.i122 = phi i32 [ %spec.select.i.i.i, %87 ], [ %.promoted, %57 ]
   %.promoted70 = phi i32 [ %88, %87 ], [ 0, %57 ]
   %61 = phi i32 [ %82, %87 ], [ %.pre20.i15.i, %57 ]
   %62 = phi i32 [ %100, %87 ], [ %28, %57 ]
@@ -173,10 +173,10 @@ define internal i32 @mss1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %81 = shl i32 %79, 1
   %82 = shl i32 %78, 1
   store i32 %82, ptr %6, align 8, !tbaa !46
-  %83 = shl i32 %80, 1
+  %83 = shl nuw nsw i32 %80, 1
   %84 = or disjoint i32 %83, 1
   store i32 %84, ptr %25, align 4, !tbaa !48
-  %.not.i.i = icmp sgt i32 %.val19.i.i, %spec.select.i.i.i98
+  %.not.i.i = icmp sgt i32 %.val19.i.i, %spec.select.i.i.i122
   br i1 %.not.i.i, label %87, label %85
 
 85:                                               ; preds = %._crit_edge.i.i
@@ -186,15 +186,15 @@ define internal i32 @mss1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
 
 87:                                               ; preds = %85, %._crit_edge.i.i
   %88 = phi i32 [ %86, %85 ], [ %.promoted70, %._crit_edge.i.i ]
-  %89 = lshr i32 %spec.select.i.i.i98, 3
+  %89 = lshr i32 %spec.select.i.i.i122, 3
   %90 = zext nneg i32 %89 to i64
   %91 = getelementptr inbounds nuw i8, ptr %58, i64 %90
   %92 = load i8, ptr %91, align 1, !tbaa !49
-  %93 = icmp slt i32 %spec.select.i.i.i98, %59
+  %93 = icmp slt i32 %spec.select.i.i.i122, %59
   %94 = zext i1 %93 to i32
-  %spec.select.i.i.i = add i32 %spec.select.i.i.i98, %94
+  %spec.select.i.i.i = add i32 %spec.select.i.i.i122, %94
   %95 = zext i8 %92 to i32
-  %96 = and i32 %spec.select.i.i.i98, 7
+  %96 = and i32 %spec.select.i.i.i122, 7
   %97 = shl nuw nsw i32 %95, %96
   %98 = lshr i32 %97, 7
   store i32 %spec.select.i.i.i, ptr %23, align 8, !tbaa !50
@@ -240,11 +240,11 @@ arith_get_bit.exit:                               ; preds = %67
   %.val19.i.i64 = load i32, ptr %17, align 4
   %123 = load ptr, ptr %5, align 8
   %124 = load i32, ptr %19, align 8
-  %.promoted99 = load i32, ptr %23, align 8
+  %.promoted123 = load i32, ptr %23, align 8
   br label %125
 
 125:                                              ; preds = %153, %108
-  %spec.select.i.i.i66100 = phi i32 [ %spec.select.i.i.i66, %153 ], [ %.promoted99, %108 ]
+  %spec.select.i.i.i66124 = phi i32 [ %spec.select.i.i.i66, %153 ], [ %.promoted123, %108 ]
   %126 = phi i32 [ %154, %153 ], [ %.promoted70, %108 ]
   %127 = phi i32 [ %148, %153 ], [ %122, %108 ]
   %128 = phi i32 [ %166, %153 ], [ %62, %108 ]
@@ -284,7 +284,7 @@ arith_get_bit.exit:                               ; preds = %67
   %149 = shl i32 %146, 1
   %150 = or disjoint i32 %149, 1
   store i32 %150, ptr %25, align 4, !tbaa !48
-  %.not.i.i65 = icmp sgt i32 %.val19.i.i64, %spec.select.i.i.i66100
+  %.not.i.i65 = icmp sgt i32 %.val19.i.i64, %spec.select.i.i.i66124
   br i1 %.not.i.i65, label %153, label %151
 
 151:                                              ; preds = %._crit_edge.i.i62
@@ -294,15 +294,15 @@ arith_get_bit.exit:                               ; preds = %67
 
 153:                                              ; preds = %151, %._crit_edge.i.i62
   %154 = phi i32 [ %152, %151 ], [ %126, %._crit_edge.i.i62 ]
-  %155 = lshr i32 %spec.select.i.i.i66100, 3
+  %155 = lshr i32 %spec.select.i.i.i66124, 3
   %156 = zext nneg i32 %155 to i64
   %157 = getelementptr inbounds nuw i8, ptr %123, i64 %156
   %158 = load i8, ptr %157, align 1, !tbaa !49
-  %159 = icmp slt i32 %spec.select.i.i.i66100, %124
+  %159 = icmp slt i32 %spec.select.i.i.i66124, %124
   %160 = zext i1 %159 to i32
-  %spec.select.i.i.i66 = add i32 %spec.select.i.i.i66100, %160
+  %spec.select.i.i.i66 = add i32 %spec.select.i.i.i66124, %160
   %161 = zext i8 %158 to i32
-  %162 = and i32 %spec.select.i.i.i66100, 7
+  %162 = and i32 %spec.select.i.i.i66124, 7
   %163 = shl nuw nsw i32 %161, %162
   %164 = lshr i32 %163, 7
   store i32 %spec.select.i.i.i66, ptr %23, align 8, !tbaa !50
@@ -351,11 +351,11 @@ arith_get_number.exit:                            ; preds = %133
   %.val19.i.i57 = load i32, ptr %17, align 4
   %193 = load ptr, ptr %5, align 8
   %194 = load i32, ptr %19, align 8
-  %.promoted101 = load i32, ptr %23, align 8
+  %.promoted125 = load i32, ptr %23, align 8
   br label %195
 
 195:                                              ; preds = %222, %.lr.ph.i
-  %spec.select.i.i.i59102 = phi i32 [ %spec.select.i.i.i59, %222 ], [ %.promoted101, %.lr.ph.i ]
+  %spec.select.i.i.i59126 = phi i32 [ %spec.select.i.i.i59, %222 ], [ %.promoted125, %.lr.ph.i ]
   %.promoted7380 = phi i32 [ %.promoted7375, %222 ], [ %.promoted7381, %.lr.ph.i ]
   %196 = phi i32 [ %235, %222 ], [ %177, %.lr.ph.i ]
   %.promoted72 = phi i32 [ %223, %222 ], [ %.promoted71, %.lr.ph.i ]
@@ -396,7 +396,7 @@ arith_get_number.exit:                            ; preds = %133
   %218 = shl i32 %215, 1
   %219 = or disjoint i32 %218, 1
   store i32 %219, ptr %25, align 4, !tbaa !48
-  %.not.i.i58 = icmp sgt i32 %.val19.i.i57, %spec.select.i.i.i59102
+  %.not.i.i58 = icmp sgt i32 %.val19.i.i57, %spec.select.i.i.i59126
   br i1 %.not.i.i58, label %222, label %220
 
 220:                                              ; preds = %._crit_edge.i.i55
@@ -407,15 +407,15 @@ arith_get_number.exit:                            ; preds = %133
 222:                                              ; preds = %220, %._crit_edge.i.i55
   %.promoted7375 = phi i32 [ %221, %220 ], [ %.promoted7380, %._crit_edge.i.i55 ]
   %223 = phi i32 [ %221, %220 ], [ %.promoted72, %._crit_edge.i.i55 ]
-  %224 = lshr i32 %spec.select.i.i.i59102, 3
+  %224 = lshr i32 %spec.select.i.i.i59126, 3
   %225 = zext nneg i32 %224 to i64
   %226 = getelementptr inbounds nuw i8, ptr %193, i64 %225
   %227 = load i8, ptr %226, align 1, !tbaa !49
-  %228 = icmp slt i32 %spec.select.i.i.i59102, %194
+  %228 = icmp slt i32 %spec.select.i.i.i59126, %194
   %229 = zext i1 %228 to i32
-  %spec.select.i.i.i59 = add i32 %spec.select.i.i.i59102, %229
+  %spec.select.i.i.i59 = add i32 %spec.select.i.i.i59126, %229
   %230 = zext i8 %227 to i32
-  %231 = and i32 %spec.select.i.i.i59102, 7
+  %231 = and i32 %spec.select.i.i.i59126, 7
   %232 = shl nuw nsw i32 %230, %231
   %233 = lshr i32 %232, 7
   store i32 %spec.select.i.i.i59, ptr %23, align 8, !tbaa !50
@@ -441,11 +441,11 @@ arith_get_bits.exit61:                            ; preds = %202
   %.val19.i.i50 = load i32, ptr %172, align 4
   %249 = load ptr, ptr %5, align 8
   %250 = load i32, ptr %173, align 8
-  %.promoted103 = load i32, ptr %171, align 8
+  %.promoted127 = load i32, ptr %171, align 8
   br label %251
 
 251:                                              ; preds = %279, %arith_get_bits.exit61
-  %.val.i.i49104 = phi i32 [ %spec.select.i.i.i52, %279 ], [ %.promoted103, %arith_get_bits.exit61 ]
+  %.val.i.i49128 = phi i32 [ %spec.select.i.i.i52, %279 ], [ %.promoted127, %arith_get_bits.exit61 ]
   %.promoted73 = phi i32 [ %.promoted7376, %279 ], [ %.promoted7380, %arith_get_bits.exit61 ]
   %252 = phi i32 [ %292, %279 ], [ %196, %arith_get_bits.exit61 ]
   %253 = phi i32 [ %280, %279 ], [ %.promoted72, %arith_get_bits.exit61 ]
@@ -486,7 +486,7 @@ arith_get_bits.exit61:                            ; preds = %202
   %275 = shl i32 %272, 1
   %276 = or disjoint i32 %275, 1
   store i32 %276, ptr %25, align 4, !tbaa !48
-  %.not.i.i51 = icmp sgt i32 %.val19.i.i50, %.val.i.i49104
+  %.not.i.i51 = icmp sgt i32 %.val19.i.i50, %.val.i.i49128
   br i1 %.not.i.i51, label %279, label %277
 
 277:                                              ; preds = %._crit_edge.i.i48
@@ -497,15 +497,15 @@ arith_get_bits.exit61:                            ; preds = %202
 279:                                              ; preds = %277, %._crit_edge.i.i48
   %.promoted7376 = phi i32 [ %278, %277 ], [ %.promoted73, %._crit_edge.i.i48 ]
   %280 = phi i32 [ %278, %277 ], [ %253, %._crit_edge.i.i48 ]
-  %281 = lshr i32 %.val.i.i49104, 3
+  %281 = lshr i32 %.val.i.i49128, 3
   %282 = zext nneg i32 %281 to i64
   %283 = getelementptr inbounds nuw i8, ptr %249, i64 %282
   %284 = load i8, ptr %283, align 1, !tbaa !49
-  %285 = icmp slt i32 %.val.i.i49104, %250
+  %285 = icmp slt i32 %.val.i.i49128, %250
   %286 = zext i1 %285 to i32
-  %spec.select.i.i.i52 = add i32 %.val.i.i49104, %286
+  %spec.select.i.i.i52 = add i32 %.val.i.i49128, %286
   %287 = zext i8 %284 to i32
-  %288 = and i32 %.val.i.i49104, 7
+  %288 = and i32 %.val.i.i49128, 7
   %289 = shl nuw nsw i32 %287, %288
   %290 = lshr i32 %289, 7
   store i32 %spec.select.i.i.i52, ptr %171, align 8, !tbaa !50
@@ -533,11 +533,11 @@ arith_get_bits.exit54:                            ; preds = %259
   %.val19.i.i44 = load i32, ptr %175, align 4
   %306 = load ptr, ptr %5, align 8
   %307 = load i32, ptr %176, align 8
-  %.promoted105 = load i32, ptr %174, align 8
+  %.promoted129 = load i32, ptr %174, align 8
   br label %308
 
 308:                                              ; preds = %336, %arith_get_bits.exit54
-  %.val.i.i43106 = phi i32 [ %spec.select.i.i.i46, %336 ], [ %.promoted105, %arith_get_bits.exit54 ]
+  %.val.i.i43130 = phi i32 [ %spec.select.i.i.i46, %336 ], [ %.promoted129, %arith_get_bits.exit54 ]
   %.promoted7378 = phi i32 [ %.promoted7377, %336 ], [ %.promoted73, %arith_get_bits.exit54 ]
   %309 = phi i32 [ %349, %336 ], [ %252, %arith_get_bits.exit54 ]
   %310 = phi i32 [ %337, %336 ], [ %.promoted73, %arith_get_bits.exit54 ]
@@ -578,7 +578,7 @@ arith_get_bits.exit54:                            ; preds = %259
   %332 = shl i32 %329, 1
   %333 = or disjoint i32 %332, 1
   store i32 %333, ptr %25, align 4, !tbaa !48
-  %.not.i.i45 = icmp sgt i32 %.val19.i.i44, %.val.i.i43106
+  %.not.i.i45 = icmp sgt i32 %.val19.i.i44, %.val.i.i43130
   br i1 %.not.i.i45, label %336, label %334
 
 334:                                              ; preds = %._crit_edge.i.i42
@@ -589,15 +589,15 @@ arith_get_bits.exit54:                            ; preds = %259
 336:                                              ; preds = %334, %._crit_edge.i.i42
   %.promoted7377 = phi i32 [ %335, %334 ], [ %.promoted7378, %._crit_edge.i.i42 ]
   %337 = phi i32 [ %335, %334 ], [ %310, %._crit_edge.i.i42 ]
-  %338 = lshr i32 %.val.i.i43106, 3
+  %338 = lshr i32 %.val.i.i43130, 3
   %339 = zext nneg i32 %338 to i64
   %340 = getelementptr inbounds nuw i8, ptr %306, i64 %339
   %341 = load i8, ptr %340, align 1, !tbaa !49
-  %342 = icmp slt i32 %.val.i.i43106, %307
+  %342 = icmp slt i32 %.val.i.i43130, %307
   %343 = zext i1 %342 to i32
-  %spec.select.i.i.i46 = add i32 %.val.i.i43106, %343
+  %spec.select.i.i.i46 = add i32 %.val.i.i43130, %343
   %344 = zext i8 %341 to i32
-  %345 = and i32 %.val.i.i43106, 7
+  %345 = and i32 %.val.i.i43130, 7
   %346 = shl nuw nsw i32 %344, %345
   %347 = lshr i32 %346, 7
   store i32 %spec.select.i.i.i46, ptr %174, align 8, !tbaa !50

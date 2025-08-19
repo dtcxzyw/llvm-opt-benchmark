@@ -1638,21 +1638,21 @@ err_clear_data.exit.i:                            ; preds = %74, %73
 
 err_clear_data.exit.thread.i:                     ; preds = %71, %err_clear_data.exit.i
   %78 = phi ptr [ %.phi.trans.insert11.i, %err_clear_data.exit.i ], [ %66, %71 ]
-  %.pre-phi17.i = phi i64 [ %.phi.trans.insert.i, %err_clear_data.exit.i ], [ %64, %71 ]
+  %.pre-phi20.i = phi i64 [ %.phi.trans.insert.i, %err_clear_data.exit.i ], [ %64, %71 ]
   %79 = getelementptr inbounds nuw i8, ptr %59, i64 256
-  %80 = getelementptr inbounds nuw [16 x ptr], ptr %79, i64 0, i64 %.pre-phi17.i
+  %80 = getelementptr inbounds nuw [16 x ptr], ptr %79, i64 0, i64 %.pre-phi20.i
   %81 = load ptr, ptr %80, align 8, !tbaa !7
   tail call void @CRYPTO_free(ptr noundef %81, ptr noundef nonnull @.str.7, i32 noundef 78) #10
   br label %err_set_error_data_int.exit
 
 err_set_error_data_int.exit:                      ; preds = %err_clear_data.exit.i, %err_clear_data.exit.thread.i
   %82 = phi ptr [ %.phi.trans.insert11.i, %err_clear_data.exit.i ], [ %78, %err_clear_data.exit.thread.i ]
-  %.pre-phi18.i = phi i64 [ %.phi.trans.insert.i, %err_clear_data.exit.i ], [ %.pre-phi17.i, %err_clear_data.exit.thread.i ]
+  %.pre-phi21.i = phi i64 [ %.phi.trans.insert.i, %err_clear_data.exit.i ], [ %.pre-phi20.i, %err_clear_data.exit.thread.i ]
   %83 = getelementptr inbounds nuw i8, ptr %59, i64 256
-  %84 = getelementptr inbounds nuw [16 x ptr], ptr %83, i64 0, i64 %.pre-phi18.i
+  %84 = getelementptr inbounds nuw [16 x ptr], ptr %83, i64 0, i64 %.pre-phi21.i
   store ptr %.1.lcssa, ptr %84, align 8, !tbaa !7
   %85 = getelementptr inbounds nuw i8, ptr %59, i64 384
-  %86 = getelementptr inbounds nuw [16 x i64], ptr %85, i64 0, i64 %.pre-phi18.i
+  %86 = getelementptr inbounds nuw [16 x i64], ptr %85, i64 0, i64 %.pre-phi21.i
   store i64 %.pre-phi66, ptr %86, align 8, !tbaa !10
   store i32 3, ptr %82, align 4, !tbaa !3
   br label %88

@@ -16,7 +16,7 @@ $__clang_call_terminate = comdat any
 @.str = private unnamed_addr constant [28 x i8] c"nanobind.nb_static_property\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8nanobind6detail21nb_static_property_tpEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN8nanobind6detail21nb_static_property_tpEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %1 = alloca [4 x %struct.PyType_Slot], align 16
   %2 = alloca %struct.PyType_Spec, align 8
   %3 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8

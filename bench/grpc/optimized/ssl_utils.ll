@@ -947,18 +947,18 @@ _Z26grpc_ssl_host_matches_namePK8tsi_peerSt17basic_string_viewIcSt11char_traitsI
   %31 = load i64, ptr %5, align 8, !tbaa !33
   %32 = icmp ne i64 %31, 0
   %33 = icmp eq i64 %1, %3
-  %or.cond25 = select i1 %32, i1 %33, i1 false
-  br i1 %or.cond25, label %34, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread
+  %or.cond29 = select i1 %32, i1 %33, i1 false
+  br i1 %or.cond29, label %34, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread
 
 34:                                               ; preds = %.thread, %27
-  %.not11.old27 = phi i1 [ false, %.thread ], [ true, %27 ]
+  %.not11.old31 = phi i1 [ false, %.thread ], [ true, %27 ]
   %35 = icmp eq i64 %1, 0
   br i1 %35, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread20, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %34
   %bcmp.i = call i32 @bcmp(ptr %2, ptr %4, i64 %1)
   %36 = icmp eq i32 %bcmp.i, 0
-  %or.cond23 = or i1 %.not11.old27, %36
+  %or.cond23 = or i1 %.not11.old31, %36
   br i1 %or.cond23, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread20, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread: ; preds = %.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
@@ -1655,9 +1655,9 @@ _ZL10IsSpiffeIdSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.thread: ; 
   %166 = add nuw i64 %.075184, 1
   %167 = load i64, ptr %16, align 8, !tbaa !61
   %168 = icmp ult i64 %166, %167
-  br i1 %168, label %37, label %._crit_edge.thread210, !llvm.loop !78
+  br i1 %168, label %37, label %._crit_edge.thread215, !llvm.loop !78
 
-._crit_edge.thread210:                            ; preds = %_ZL10IsSpiffeIdSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.thread
+._crit_edge.thread215:                            ; preds = %_ZL10IsSpiffeIdSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.thread
   %169 = icmp eq i32 %.092181.ph, 1
   br label %171
 
@@ -1666,13 +1666,13 @@ _ZL10IsSpiffeIdSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.thread: ; 
   %.not103 = icmp eq ptr %.1, null
   br i1 %.not103, label %.critedge, label %171
 
-171:                                              ; preds = %._crit_edge.thread210, %._crit_edge
-  %172 = phi i1 [ %169, %._crit_edge.thread210 ], [ %170, %._crit_edge ]
-  %.1139205220 = phi ptr [ %.0179.ph, %._crit_edge.thread210 ], [ %.1139, %._crit_edge ]
-  %.196206219 = phi i1 [ %.095180.ph, %._crit_edge.thread210 ], [ %.196, %._crit_edge ]
-  %.187208218 = phi i64 [ %.086182.ph, %._crit_edge.thread210 ], [ %.187, %._crit_edge ]
-  %.1209217 = phi ptr [ @.str.14, %._crit_edge.thread210 ], [ %.1, %._crit_edge ]
-  %173 = invoke i32 @grpc_auth_context_set_peer_identity_property_name(ptr noundef %27, ptr noundef nonnull %.1209217)
+171:                                              ; preds = %._crit_edge.thread215, %._crit_edge
+  %172 = phi i1 [ %169, %._crit_edge.thread215 ], [ %170, %._crit_edge ]
+  %.1139210225 = phi ptr [ %.0179.ph, %._crit_edge.thread215 ], [ %.1139, %._crit_edge ]
+  %.196211224 = phi i1 [ %.095180.ph, %._crit_edge.thread215 ], [ %.196, %._crit_edge ]
+  %.187213223 = phi i64 [ %.086182.ph, %._crit_edge.thread215 ], [ %.187, %._crit_edge ]
+  %.1214222 = phi ptr [ @.str.14, %._crit_edge.thread215 ], [ %.1, %._crit_edge ]
+  %173 = invoke i32 @grpc_auth_context_set_peer_identity_property_name(ptr noundef %27, ptr noundef nonnull %.1214222)
           to label %174 unwind label %177
 
 174:                                              ; preds = %171
@@ -1700,17 +1700,17 @@ _ZL10IsSpiffeIdSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.thread: ; 
   br label %.body
 
 .critedge:                                        ; preds = %174, %._crit_edge
-  %.086.lcssa199 = phi i64 [ %.187208218, %174 ], [ %.187, %._crit_edge ]
-  %.092.lcssa198 = phi i1 [ %172, %174 ], [ %170, %._crit_edge ]
-  %.095.lcssa197 = phi i1 [ %.196206219, %174 ], [ %.196, %._crit_edge ]
-  %.0.lcssa196 = phi ptr [ %.1139205220, %174 ], [ %.1139, %._crit_edge ]
-  br i1 %.095.lcssa197, label %181, label %.critedge118
+  %.086.lcssa204 = phi i64 [ %.187213223, %174 ], [ %.187, %._crit_edge ]
+  %.092.lcssa203 = phi i1 [ %172, %174 ], [ %170, %._crit_edge ]
+  %.095.lcssa202 = phi i1 [ %.196211224, %174 ], [ %.196, %._crit_edge ]
+  %.0.lcssa201 = phi ptr [ %.1139210225, %174 ], [ %.1139, %._crit_edge ]
+  br i1 %.095.lcssa202, label %181, label %.critedge118
 
 181:                                              ; preds = %.critedge
-  br i1 %.092.lcssa198, label %182, label %206
+  br i1 %.092.lcssa203, label %182, label %206
 
 182:                                              ; preds = %181
-  %.not = icmp eq i64 %.086.lcssa199, 0
+  %.not = icmp eq i64 %.086.lcssa204, 0
   br i1 %.not, label %183, label %185, !prof !59
 
 183:                                              ; preds = %182
@@ -1718,7 +1718,7 @@ _ZL10IsSpiffeIdSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.thread: ; 
           to label %_ZN4absl12lts_2024072212log_internal12Check_GTImplImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit unwind label %188
 
 185:                                              ; preds = %182
-  %.not.i122 = icmp eq ptr %.0.lcssa196, null
+  %.not.i122 = icmp eq ptr %.0.lcssa201, null
   br i1 %.not.i122, label %186, label %196, !prof !59
 
 186:                                              ; preds = %185
@@ -1750,7 +1750,7 @@ _ZN4absl12lts_2024072212log_internal12Check_GTImplImjEEPNSt7__cxx1112basic_strin
 
 196:                                              ; preds = %185
   %197 = load ptr, ptr %0, align 8, !tbaa !65
-  invoke void @grpc_auth_context_add_property(ptr noundef %197, ptr noundef nonnull @.str.30, ptr noundef nonnull %.0.lcssa196, i64 noundef %.086.lcssa199)
+  invoke void @grpc_auth_context_add_property(ptr noundef %197, ptr noundef nonnull @.str.30, ptr noundef nonnull %.0.lcssa201, i64 noundef %.086.lcssa204)
           to label %.critedge118 unwind label %177
 
 198:                                              ; preds = %186
@@ -3137,7 +3137,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %173 = load i64, ptr %14, align 8, !tbaa !21
   %174 = icmp eq i64 %173, 1
-  br i1 %174, label %.thread89, label %175
+  br i1 %174, label %.thread103, label %175
 
 175:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -3200,7 +3200,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #33
   br label %216
 
-.thread89:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+.thread103:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %194 = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !139
@@ -3216,7 +3216,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
   %196 = icmp eq i64 %.pre86, 1
   br i1 %196, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i65, label %209
 
-_ZN4absl12lts_202407226StatusD2Ev.exit.i65:       ; preds = %.thread89, %195
+_ZN4absl12lts_202407226StatusD2Ev.exit.i65:       ; preds = %.thread103, %195
   %197 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %198 = load ptr, ptr %197, align 8, !tbaa !80
   %199 = icmp ugt ptr %198, inttoptr (i64 1 to ptr)
@@ -4483,20 +4483,20 @@ _ZNSt10unique_ptrIN17grpc_auth_context9ExtensionESt14default_deleteIS1_EED2Ev.ex
   store ptr null, ptr %26, align 8, !tbaa !210
   %31 = load ptr, ptr %2, align 8, !tbaa !65
   %.not.i5 = icmp eq ptr %31, null
-  br i1 %.not.i5, label %common.ret8, label %32
+  br i1 %.not.i5, label %common.ret13, label %32
 
 32:                                               ; preds = %_ZNSt10unique_ptrIN17grpc_auth_context9ExtensionESt14default_deleteIS1_EED2Ev.exit
   %33 = atomicrmw sub ptr %31, i64 1 acq_rel, align 8
   %34 = icmp eq i64 %33, 1
-  br i1 %34, label %_ZNK9grpc_core11UnrefDeleteclIK17grpc_auth_contextEEvPT_.exit, label %common.ret8, !prof !59
+  br i1 %34, label %_ZNK9grpc_core11UnrefDeleteclIK17grpc_auth_contextEEvPT_.exit, label %common.ret13, !prof !59
 
-common.ret8:                                      ; preds = %32, %_ZNSt10unique_ptrIN17grpc_auth_context9ExtensionESt14default_deleteIS1_EED2Ev.exit, %_ZNK9grpc_core11UnrefDeleteclIK17grpc_auth_contextEEvPT_.exit
+common.ret13:                                     ; preds = %32, %_ZNSt10unique_ptrIN17grpc_auth_context9ExtensionESt14default_deleteIS1_EED2Ev.exit, %_ZNK9grpc_core11UnrefDeleteclIK17grpc_auth_contextEEvPT_.exit
   ret void
 
 _ZNK9grpc_core11UnrefDeleteclIK17grpc_auth_contextEEvPT_.exit: ; preds = %32
   tail call void @_ZN17grpc_auth_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %31) #35
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(8) %31, i64 noundef 64) #31
-  br label %common.ret8
+  br label %common.ret13
 
 .loopexit:                                        ; preds = %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }

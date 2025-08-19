@@ -10708,13 +10708,13 @@ define hidden { i64, ptr } @"_ZN80_$LT$zstd..stream..zio..reader..Reader$LT$R$C$
 .backedge:                                        ; preds = %.backedge.backedge, %3
   %.sroa.07.0.not = phi i1 [ false, %3 ], [ true, %.backedge.backedge ]
   %17 = load i8, ptr %8, align 8, !range !1397, !noundef !6
-  switch i8 %17, label %default.unreachable45 [
+  switch i8 %17, label %default.unreachable48 [
     i8 0, label %18
     i8 1, label %19
     i8 2, label %.loopexit
   ]
 
-default.unreachable45:                            ; preds = %.backedge
+default.unreachable48:                            ; preds = %.backedge
   unreachable
 
 18:                                               ; preds = %.backedge

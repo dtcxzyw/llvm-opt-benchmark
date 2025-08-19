@@ -244,7 +244,7 @@ str_is_nonascii.exit.i:                           ; preds = %44
   %70 = load ptr, ptr %.070105.i, align 8, !tbaa !97
   %71 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %70, i32 noundef 61) #10
   %.not81.i = icmp eq ptr %71, null
-  br i1 %.not81.i, label %._crit_edge.thread118.i.sink.split, label %72
+  br i1 %.not81.i, label %._crit_edge.thread122.i.sink.split, label %72
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 1
@@ -265,7 +265,7 @@ str_is_nonascii.exit93.i:                         ; preds = %74
   %78 = ptrtoint ptr %71 to i64
   %79 = ptrtoint ptr %70 to i64
   %80 = sub i64 %78, %79
-  switch i64 %80, label %._crit_edge.thread118.i.sink.split [
+  switch i64 %80, label %._crit_edge.thread122.i.sink.split [
     i64 5, label %81
     i64 8, label %84
     i64 7, label %87
@@ -276,7 +276,7 @@ str_is_nonascii.exit93.i:                         ; preds = %74
 81:                                               ; preds = %77
   %82 = call i32 @curl_strnequal(ptr noundef nonnull %70, ptr noundef nonnull @.str.4, i64 noundef 5) #9
   %.not89.i = icmp eq i32 %82, 0
-  br i1 %.not89.i, label %._crit_edge.thread118.i, label %83
+  br i1 %.not89.i, label %._crit_edge.thread122.i, label %83
 
 83:                                               ; preds = %81
   store ptr %73, ptr %67, align 8, !tbaa !99
@@ -286,7 +286,7 @@ str_is_nonascii.exit93.i:                         ; preds = %74
 84:                                               ; preds = %77
   %85 = call i32 @curl_strnequal(ptr noundef nonnull %70, ptr noundef nonnull @.str.5, i64 noundef 8) #9
   %.not88.i = icmp eq i32 %85, 0
-  br i1 %.not88.i, label %._crit_edge.thread118.i, label %86
+  br i1 %.not88.i, label %._crit_edge.thread122.i, label %86
 
 86:                                               ; preds = %84
   store ptr %73, ptr %65, align 8, !tbaa !100
@@ -296,13 +296,13 @@ str_is_nonascii.exit93.i:                         ; preds = %74
 87:                                               ; preds = %77
   %88 = call i32 @curl_strnequal(ptr noundef nonnull %70, ptr noundef nonnull @.str.6, i64 noundef 7) #9
   %.not86.i = icmp eq i32 %88, 0
-  br i1 %.not86.i, label %._crit_edge.thread118.i, label %89
+  br i1 %.not86.i, label %._crit_edge.thread122.i, label %89
 
 89:                                               ; preds = %87
   %90 = load ptr, ptr %63, align 8, !tbaa !95
   %91 = call ptr @curl_slist_append(ptr noundef %90, ptr noundef nonnull %73) #9
   %.not87.i = icmp eq ptr %91, null
-  br i1 %.not87.i, label %._crit_edge.thread118.i, label %92
+  br i1 %.not87.i, label %._crit_edge.thread122.i, label %92
 
 92:                                               ; preds = %89
   store ptr %91, ptr %63, align 8, !tbaa !95
@@ -312,7 +312,7 @@ str_is_nonascii.exit93.i:                         ; preds = %74
 93:                                               ; preds = %77
   %94 = call i32 @curl_strnequal(ptr noundef nonnull %70, ptr noundef nonnull @.str.7, i64 noundef 2) #9
   %.not84.i = icmp eq i32 %94, 0
-  br i1 %.not84.i, label %._crit_edge.thread118.i, label %95
+  br i1 %.not84.i, label %._crit_edge.thread122.i, label %95
 
 95:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -360,7 +360,7 @@ str_is_nonascii.exit93.i:                         ; preds = %74
 112:                                              ; preds = %77
   %113 = call i32 @curl_strnequal(ptr noundef nonnull %70, ptr noundef nonnull @.str.9, i64 noundef 6) #9
   %.not82.i = icmp eq i32 %113, 0
-  br i1 %.not82.i, label %._crit_edge.thread118.i, label %114
+  br i1 %.not82.i, label %._crit_edge.thread122.i, label %114
 
 114:                                              ; preds = %112
   %115 = call i64 @strtol(ptr noundef nonnull captures(none) %73, ptr noundef null, i32 noundef 10) #9
@@ -383,16 +383,16 @@ str_is_nonascii.exit93.i:                         ; preds = %74
   br i1 %121, label %69, label %._crit_edge.i, !llvm.loop !104
 
 ._crit_edge.i:                                    ; preds = %118
-  br i1 %.not80.i, label %123, label %._crit_edge.thread118.i
+  br i1 %.not80.i, label %123, label %._crit_edge.thread122.i
 
-._crit_edge.thread118.i.sink.split:               ; preds = %69, %77
+._crit_edge.thread122.i.sink.split:               ; preds = %69, %77
   %.str.8.sink = phi ptr [ @.str.10, %77 ], [ @.str.8, %69 ]
-  %.071.lcssa121.i.ph = phi i32 [ 48, %77 ], [ 49, %69 ]
+  %.071.lcssa125.i.ph = phi i32 [ 48, %77 ], [ 49, %69 ]
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull %.str.8.sink, ptr noundef nonnull %70) #9
-  br label %._crit_edge.thread118.i
+  br label %._crit_edge.thread122.i
 
-._crit_edge.thread118.i:                          ; preds = %112, %93, %89, %87, %84, %81, %._crit_edge.thread118.i.sink.split, %._crit_edge.i
-  %.071.lcssa121.i = phi i32 [ %.172.i, %._crit_edge.i ], [ %.071.lcssa121.i.ph, %._crit_edge.thread118.i.sink.split ], [ 48, %112 ], [ 48, %93 ], [ 48, %87 ], [ 27, %89 ], [ 48, %84 ], [ 48, %81 ]
+._crit_edge.thread122.i:                          ; preds = %112, %93, %89, %87, %84, %81, %._crit_edge.thread122.i.sink.split, %._crit_edge.i
+  %.071.lcssa125.i = phi i32 [ %.172.i, %._crit_edge.i ], [ %.071.lcssa125.i.ph, %._crit_edge.thread122.i.sink.split ], [ 48, %112 ], [ 48, %93 ], [ 48, %87 ], [ 27, %89 ], [ 48, %84 ], [ 48, %81 ]
   %122 = load ptr, ptr %63, align 8, !tbaa !95
   call void @curl_slist_free_all(ptr noundef %122) #9
   store ptr null, ptr %63, align 8, !tbaa !95
@@ -2199,8 +2199,8 @@ telrcv.exit.thread:                               ; preds = %198, %211, %825, %1
   call void @Curl_xfer_setup_nop(ptr noundef %0) #9
   br label %init_telnet.exit
 
-init_telnet.exit:                                 ; preds = %._crit_edge.thread118.i, %.thread.i, %2, %.loopexit
-  %.0 = phi i32 [ %.2, %.loopexit ], [ 27, %2 ], [ %.071.lcssa121.i, %._crit_edge.thread118.i ], [ %.0.ph.i, %.thread.i ]
+init_telnet.exit:                                 ; preds = %._crit_edge.thread122.i, %.thread.i, %2, %.loopexit
+  %.0 = phi i32 [ %.2, %.loopexit ], [ 27, %2 ], [ %.071.lcssa125.i, %._crit_edge.thread122.i ], [ %.0.ph.i, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -2491,7 +2491,7 @@ define internal fastcc i32 @send_telnet_data(ptr noundef %0, ptr noundef %1, i64
   br i1 %24, label %13, label %.thread, !llvm.loop !122
 
 .thread:                                          ; preds = %13, %21
-  %.13549 = phi i32 [ %.135, %21 ], [ %15, %13 ]
+  %.13550 = phi i32 [ %.135, %21 ], [ %15, %13 ]
   %25 = tail call i64 @Curl_dyn_len(ptr noundef nonnull %12) #9
   %26 = tail call ptr @Curl_dyn_uptr(ptr noundef nonnull %12) #9
   br label %27
@@ -2499,7 +2499,7 @@ define internal fastcc i32 @send_telnet_data(ptr noundef %0, ptr noundef %1, i64
 27:                                               ; preds = %3, %.thread
   %.037 = phi i64 [ %25, %.thread ], [ %2, %3 ]
   %.036 = phi ptr [ %26, %.thread ], [ %1, %3 ]
-  %.2 = phi i32 [ %.13549, %.thread ], [ 0, %3 ]
+  %.2 = phi i32 [ %.13550, %.thread ], [ 0, %3 ]
   %.not4245 = icmp eq i32 %.2, 0
   %28 = icmp ne i64 %.037, 0
   %29 = select i1 %.not4245, i1 %28, i1 false
@@ -2518,11 +2518,11 @@ define internal fastcc i32 @send_telnet_data(ptr noundef %0, ptr noundef %1, i64
   store i16 4, ptr %31, align 4, !tbaa !107
   %34 = call i32 @Curl_poll(ptr noundef nonnull %5, i32 noundef 1, i64 noundef -1) #9
   switch i32 %34, label %35 [
-    i32 -1, label %.thread50
-    i32 0, label %.thread50
+    i32 -1, label %.thread51
+    i32 0, label %.thread51
   ]
 
-.thread50:                                        ; preds = %32, %32
+.thread51:                                        ; preds = %32, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %._crit_edge
 
@@ -2539,8 +2539,8 @@ define internal fastcc i32 @send_telnet_data(ptr noundef %0, ptr noundef %1, i64
   %42 = select i1 %.not42, i1 %41, i1 false
   br i1 %42, label %32, label %._crit_edge, !llvm.loop !123
 
-._crit_edge:                                      ; preds = %35, %.thread50, %27
-  %.3.lcssa = phi i32 [ %.2, %27 ], [ 55, %.thread50 ], [ %38, %35 ]
+._crit_edge:                                      ; preds = %35, %.thread51, %27
+  %.3.lcssa = phi i32 [ %.2, %27 ], [ 55, %.thread51 ], [ %38, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.3.lcssa
 }

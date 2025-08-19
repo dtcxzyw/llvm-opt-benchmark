@@ -265,7 +265,7 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %156 = icmp ne ptr %.fr178, null
   %157 = icmp eq i8 %152, 2
   %or.cond = and i1 %156, %157
-  br i1 %or.cond, label %.thread185, label %158
+  br i1 %or.cond, label %.thread196, label %158
 
 158:                                              ; preds = %131
   %159 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -275,7 +275,7 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %.not168 = icmp sgt i32 %160, %162
   br i1 %.not168, label %._crit_edge, label %.lr.ph171
 
-.thread185:                                       ; preds = %131
+.thread196:                                       ; preds = %131
   %163 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %10, ptr %163, align 8, !tbaa !40
   %164 = load ptr, ptr %.fr178, align 8, !tbaa !41
@@ -298,8 +298,8 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %179 = load i32, ptr %178, align 4, !tbaa !12
   %180 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %181 = load i32, ptr %180, align 4, !tbaa !14
-  %.not168187 = icmp sgt i32 %179, %181
-  br i1 %.not168187, label %._crit_edge, label %.lr.ph171.split
+  %.not168198 = icmp sgt i32 %179, %181
+  br i1 %.not168198, label %._crit_edge, label %.lr.ph171.split
 
 .lr.ph171:                                        ; preds = %158
   %182 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -356,7 +356,7 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %206 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %6, ptr noundef %136, i32 noundef %205, i32 noundef %160, i32 noundef %134) #5
   br label %236
 
-.lr.ph171.split:                                  ; preds = %.thread185
+.lr.ph171.split:                                  ; preds = %.thread196
   %207 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %208 = icmp sgt i32 %134, 0
   %209 = icmp ne ptr %177, null
@@ -446,7 +446,7 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
 236:                                              ; preds = %.lr.ph171.split.us.split, %236
   br label %236
 
-._crit_edge:                                      ; preds = %.thread.us.us, %.thread, %229, %.thread185, %158
+._crit_edge:                                      ; preds = %.thread.us.us, %.thread, %229, %.thread196, %158
   call void @lv_free(ptr noundef %136) #5
   call void @lv_draw_sw_mask_free_param(ptr noundef nonnull %9) #5
   call void @lv_draw_sw_mask_free_param(ptr noundef nonnull %7) #5

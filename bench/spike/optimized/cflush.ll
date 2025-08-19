@@ -381,12 +381,12 @@ _ZNSt6vectorI11insn_desc_tSaIS0_EE9push_backEOS0_.exit24: ; preds = %_ZNKSt6vect
 
 _ZNSt6vectorI11insn_desc_tSaIS0_EED2Ev.exit:      ; preds = %16, %14
   %.ph = phi ptr [ %5, %14 ], [ %9, %16 ]
-  %.ph102 = phi ptr [ %4, %14 ], [ %6, %16 ]
+  %.ph105 = phi ptr [ %4, %14 ], [ %6, %16 ]
   %.pn.ph = phi { ptr, i32 } [ %15, %14 ], [ %17, %16 ]
   %18 = ptrtoint ptr %.ph to i64
-  %19 = ptrtoint ptr %.ph102 to i64
+  %19 = ptrtoint ptr %.ph105 to i64
   %20 = sub i64 %18, %19
-  tail call void @_ZdlPvm(ptr noundef nonnull %.ph102, i64 noundef %20) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %.ph105, i64 noundef %20) #23
   resume { ptr, i32 } %.pn.ph
 }
 
@@ -652,8 +652,8 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit65:         ; preds = %82
   br label %_ZNSt6vectorIP13disasm_insn_tSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIP13disasm_insn_tSaIS1_EED2Ev.exit:   ; preds = %61, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit61, %66, %91
-  %.pn27.pn.pn89 = phi { ptr, i32 } [ %.pn27.pn.pn.ph.ph, %91 ], [ %59, %61 ], [ %59, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit61 ], [ %.pn79, %66 ]
-  resume { ptr, i32 } %.pn27.pn.pn89
+  %.pn27.pn.pn104 = phi { ptr, i32 } [ %.pn27.pn.pn.ph.ph, %91 ], [ %59, %61 ], [ %59, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit61 ], [ %.pn79, %66 ]
+  resume { ptr, i32 } %.pn27.pn.pn104
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

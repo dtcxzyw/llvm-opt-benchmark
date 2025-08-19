@@ -508,16 +508,16 @@ define dso_local i32 @suspend_devices_and_enter(i32 noundef %0) local_unnamed_ad
 
 124:                                              ; preds = %123
   %125 = call zeroext i1 @pm_debug_messages_should_print() #13
-  br i1 %125, label %126, label %.preheader49
+  br i1 %125, label %126, label %.preheader92
 
 126:                                              ; preds = %124
   %127 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19) #14
-  br label %.preheader49
+  br label %.preheader92
 
-.preheader49:                                     ; preds = %126, %124
+.preheader92:                                     ; preds = %126, %124
   br label %128
 
-128:                                              ; preds = %.backedge, %.preheader49
+128:                                              ; preds = %.backedge, %.preheader92
   %129 = load ptr, ptr @s2idle_ops, align 8
   %130 = icmp eq ptr %129, null
   br i1 %130, label %137, label %131

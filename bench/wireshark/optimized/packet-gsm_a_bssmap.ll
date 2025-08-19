@@ -1682,31 +1682,31 @@ define hidden zeroext i16 @be_chan_type(ptr noundef %0, ptr noundef %1, ptr noun
   br label %91
 
 84:                                               ; preds = %57
-  %switch.tableidx200 = add nsw i32 %65, -16
+  %switch.tableidx207 = add nsw i32 %65, -16
   br i1 %.not188, label %87, label %85
 
 85:                                               ; preds = %84
-  %86 = icmp ult i32 %switch.tableidx200, 7
+  %86 = icmp ult i32 %switch.tableidx207, 7
   br i1 %86, label %switch.lookup, label %91
 
 87:                                               ; preds = %84
-  %88 = icmp ult i32 %switch.tableidx200, 16
-  br i1 %88, label %switch.lookup199, label %91
+  %88 = icmp ult i32 %switch.tableidx207, 16
+  br i1 %88, label %switch.lookup206, label %91
 
 switch.lookup:                                    ; preds = %85
-  %89 = zext nneg i32 %switch.tableidx200 to i64
+  %89 = zext nneg i32 %switch.tableidx207 to i64
   %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.be_chan_type, i64 0, i64 %89
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %91
 
-switch.lookup199:                                 ; preds = %87
-  %90 = zext nneg i32 %switch.tableidx200 to i64
-  %switch.gep201 = getelementptr inbounds nuw [16 x ptr], ptr @switch.table.be_chan_type.1, i64 0, i64 %90
-  %switch.load202 = load ptr, ptr %switch.gep201, align 8
+switch.lookup206:                                 ; preds = %87
+  %90 = zext nneg i32 %switch.tableidx207 to i64
+  %switch.gep208 = getelementptr inbounds nuw [16 x ptr], ptr @switch.table.be_chan_type.1, i64 0, i64 %90
+  %switch.load209 = load ptr, ptr %switch.gep208, align 8
   br label %91
 
-91:                                               ; preds = %87, %switch.lookup199, %85, %switch.lookup, %74, %67, %73, %72, %71, %70, %69, %68, %83, %82, %81, %80, %79, %78, %77, %76, %75
-  %.0 = phi ptr [ @.str.28, %73 ], [ @.str.99, %68 ], [ @.str.100, %69 ], [ @.str.101, %70 ], [ @.str.102, %71 ], [ @.str.103, %72 ], [ @.str.28, %83 ], [ @.str.105, %75 ], [ @.str.106, %76 ], [ @.str.107, %77 ], [ @.str.108, %78 ], [ @.str.109, %79 ], [ @.str.110, %80 ], [ @.str.111, %81 ], [ @.str.112, %82 ], [ @.str.98, %67 ], [ @.str.104, %74 ], [ %switch.load, %switch.lookup ], [ @.str.28, %85 ], [ %switch.load202, %switch.lookup199 ], [ @.str.28, %87 ]
+91:                                               ; preds = %87, %switch.lookup206, %85, %switch.lookup, %74, %67, %73, %72, %71, %70, %69, %68, %83, %82, %81, %80, %79, %78, %77, %76, %75
+  %.0 = phi ptr [ @.str.28, %73 ], [ @.str.99, %68 ], [ @.str.100, %69 ], [ @.str.101, %70 ], [ @.str.102, %71 ], [ @.str.103, %72 ], [ @.str.28, %83 ], [ @.str.105, %75 ], [ @.str.106, %76 ], [ @.str.107, %77 ], [ @.str.108, %78 ], [ @.str.109, %79 ], [ @.str.110, %80 ], [ @.str.111, %81 ], [ @.str.112, %82 ], [ @.str.98, %67 ], [ @.str.104, %74 ], [ %switch.load, %switch.lookup ], [ @.str.28, %85 ], [ %switch.load209, %switch.lookup206 ], [ @.str.28, %87 ]
   %92 = load i32, ptr @hf_gsm_a_bssmap_rate, align 4
   %93 = and i8 %58, 63
   %94 = zext nneg i8 %93 to i32
@@ -2069,19 +2069,19 @@ define hidden zeroext i16 @be_cell_id_list(ptr noundef %0, ptr noundef %1, ptr n
   br label %.split82.us.thread
 
 .split82.us.thread:                               ; preds = %.thread.us, %.split82.us
-  %.us-phi8399 = phi i32 [ %45, %.split82.us ], [ %27, %.thread.us ]
-  %.us-phi98 = phi i32 [ %47, %.split82.us ], [ %29, %.thread.us ]
-  %56 = icmp ugt i32 %4, %.us-phi98
+  %.us-phi83103 = phi i32 [ %45, %.split82.us ], [ %27, %.thread.us ]
+  %.us-phi102 = phi i32 [ %47, %.split82.us ], [ %29, %.thread.us ]
+  %56 = icmp ugt i32 %4, %.us-phi102
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %.split82.us.thread
-  %58 = sub nuw i32 %4, %.us-phi98
-  %59 = call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_extraneous_data, ptr noundef %0, i32 noundef %.us-phi8399, i32 noundef %58)
-  %60 = add i32 %58, %.us-phi8399
+  %58 = sub nuw i32 %4, %.us-phi102
+  %59 = call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_extraneous_data, ptr noundef %0, i32 noundef %.us-phi83103, i32 noundef %58)
+  %60 = add i32 %58, %.us-phi83103
   br label %61
 
 61:                                               ; preds = %57, %.split82.us.thread
-  %.1 = phi i32 [ %60, %57 ], [ %.us-phi8399, %.split82.us.thread ]
+  %.1 = phi i32 [ %60, %57 ], [ %.us-phi83103, %.split82.us.thread ]
   %62 = sub i32 %.1, %3
   br label %63
 
@@ -3498,9 +3498,9 @@ define internal zeroext i16 @be_aoip_trans_lay_add(ptr noundef %0, ptr noundef %
   br label %42
 
 20:                                               ; preds = %15, %11
-  %.sink45 = phi i32 [ 16, %15 ], [ 4, %11 ]
+  %.sink46 = phi i32 [ 16, %15 ], [ 4, %11 ]
   %switch = phi i1 [ false, %15 ], [ true, %11 ]
-  %21 = add i32 %3, %.sink45
+  %21 = add i32 %3, %.sink46
   %22 = load i32, ptr @hf_gsm_a_bssmap_aoip_trans_port, align 4
   %23 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %22, ptr noundef %0, i32 noundef %21, i32 noundef 2, i32 noundef 0)
   %24 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %21)
@@ -3533,7 +3533,7 @@ define internal zeroext i16 @be_aoip_trans_lay_add(ptr noundef %0, ptr noundef %
   br label %40
 
 40:                                               ; preds = %34, %20
-  %41 = or disjoint i32 %.sink45, 2
+  %41 = or disjoint i32 %.sink46, 2
   br label %42
 
 42:                                               ; preds = %40, %18

@@ -304,24 +304,24 @@ define internal fastcc range(i32 -22, 1) i32 @ip_parse_addr_list(ptr noundef %0,
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %12 = load i8, ptr %1, align 1, !tbaa !26
-  %.not1626 = icmp eq i8 %12, 0
-  br i1 %.not1626, label %.critedge, label %.lr.ph27
+  %.not1629 = icmp eq i8 %12, 0
+  br i1 %.not1629, label %.critedge, label %.lr.ph30
 
 thread-pre-split:                                 ; preds = %35, %32
   %.pr = phi ptr [ %36, %35 ], [ %33, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %13 = load i8, ptr %.pr, align 1, !tbaa !26
   %.not16 = icmp eq i8 %13, 0
-  br i1 %.not16, label %.critedge, label %.lr.ph27
+  br i1 %.not16, label %.critedge, label %.lr.ph30
 
-.lr.ph27:                                         ; preds = %.lr.ph, %thread-pre-split
+.lr.ph30:                                         ; preds = %.lr.ph, %thread-pre-split
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = call ptr @av_get_token(ptr noundef nonnull %7, ptr noundef nonnull @.str.5) #9
   store ptr %14, ptr %8, align 8, !tbaa !33
   %.not17 = icmp eq ptr %14, null
   br i1 %.not17, label %.thread, label %15
 
-15:                                               ; preds = %.lr.ph27
+15:                                               ; preds = %.lr.ph30
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -387,8 +387,8 @@ ff_ip_resolve_host.exit:                          ; preds = %18, %20
   store ptr %36, ptr %7, align 8, !tbaa !33
   br label %thread-pre-split
 
-.thread:                                          ; preds = %24, %.lr.ph27, %ff_ip_resolve_host.exit
-  %.112.ph = phi i32 [ -22, %ff_ip_resolve_host.exit ], [ -12, %.lr.ph27 ], [ -12, %24 ]
+.thread:                                          ; preds = %24, %.lr.ph30, %ff_ip_resolve_host.exit
+  %.112.ph = phi i32 [ -22, %ff_ip_resolve_host.exit ], [ -12, %.lr.ph30 ], [ -12, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
 

@@ -7051,8 +7051,8 @@ define internal fastcc void @_ZN4llvm13X86AsmPrinter24LowerPATCHABLE_TAIL_CALLER
     i32 4965, label %24
     i32 4959, label %25
     i32 4960, label %25
-    i32 4962, label %_ZL21convertTailJumpOpcodej.exit.thread52
-    i32 4961, label %_ZL21convertTailJumpOpcodej.exit.thread52
+    i32 4962, label %_ZL21convertTailJumpOpcodej.exit.thread61
+    i32 4961, label %_ZL21convertTailJumpOpcodej.exit.thread61
   ]
 
 20:                                               ; preds = %3
@@ -7073,12 +7073,12 @@ define internal fastcc void @_ZN4llvm13X86AsmPrinter24LowerPATCHABLE_TAIL_CALLER
 25:                                               ; preds = %3, %3
   br label %_ZL21convertTailJumpOpcodej.exit.thread
 
-_ZL21convertTailJumpOpcodej.exit.thread52:        ; preds = %3, %3
+_ZL21convertTailJumpOpcodej.exit.thread61:        ; preds = %3, %3
   store i32 1967, ptr %7, align 8, !tbaa !219
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %27 = load i24, ptr %26, align 8
   %28 = zext i24 %27 to i64
-  %.idx54 = shl nuw nsw i64 %28, 5
+  %.idx63 = shl nuw nsw i64 %28, 5
   br label %36
 
 _ZL21convertTailJumpOpcodej.exit.thread:          ; preds = %20, %21, %22, %23, %24, %25, %3
@@ -7087,7 +7087,7 @@ _ZL21convertTailJumpOpcodej.exit.thread:          ; preds = %20, %21, %22, %23, 
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load i24, ptr %29, align 8
   %31 = zext i24 %30 to i64
-  %.idx51 = shl nuw nsw i64 %31, 5
+  %.idx60 = shl nuw nsw i64 %31, 5
   br label %79
 
 _ZL21convertTailJumpOpcodej.exit:                 ; preds = %3
@@ -7099,8 +7099,8 @@ _ZL21convertTailJumpOpcodej.exit:                 ; preds = %3
   %35 = icmp eq i32 %19, 1967
   br i1 %35, label %36, label %79
 
-36:                                               ; preds = %_ZL21convertTailJumpOpcodej.exit.thread52, %_ZL21convertTailJumpOpcodej.exit
-  %.idx55 = phi i64 [ %.idx54, %_ZL21convertTailJumpOpcodej.exit.thread52 ], [ %.idx, %_ZL21convertTailJumpOpcodej.exit ]
+36:                                               ; preds = %_ZL21convertTailJumpOpcodej.exit.thread61, %_ZL21convertTailJumpOpcodej.exit
+  %.idx64 = phi i64 [ %.idx63, %_ZL21convertTailJumpOpcodej.exit.thread61 ], [ %.idx, %_ZL21convertTailJumpOpcodej.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %38 = load ptr, ptr %37, align 8, !tbaa !227
   %39 = call noundef ptr @_ZN4llvm9MCContext16createTempSymbolEv(ptr noundef nonnull align 8 dereferenceable(2432) %38) #21
@@ -7183,12 +7183,12 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit:            ; preds = %_ZN4llvm13MCInstBui
 _ZN4llvm13MCInstBuilderD2Ev.exit:                 ; preds = %_ZN4llvm13MCInstBuilder6addImmEl.exit, %78
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i32 1987, ptr %7, align 8, !tbaa !219
-  %.add = add nsw i64 %.idx55, -32
+  %.add = add nsw i64 %.idx64, -32
   br label %79
 
 79:                                               ; preds = %_ZL21convertTailJumpOpcodej.exit.thread, %_ZN4llvm13MCInstBuilderD2Ev.exit, %_ZL21convertTailJumpOpcodej.exit
   %80 = phi i1 [ true, %_ZN4llvm13MCInstBuilderD2Ev.exit ], [ false, %_ZL21convertTailJumpOpcodej.exit ], [ false, %_ZL21convertTailJumpOpcodej.exit.thread ]
-  %.sroa.643.0.idx = phi i64 [ %.add, %_ZN4llvm13MCInstBuilderD2Ev.exit ], [ %.idx, %_ZL21convertTailJumpOpcodej.exit ], [ %.idx51, %_ZL21convertTailJumpOpcodej.exit.thread ]
+  %.sroa.643.0.idx = phi i64 [ %.add, %_ZN4llvm13MCInstBuilderD2Ev.exit ], [ %.idx, %_ZL21convertTailJumpOpcodej.exit ], [ %.idx60, %_ZL21convertTailJumpOpcodej.exit.thread ]
   %.0 = phi ptr [ %39, %_ZN4llvm13MCInstBuilderD2Ev.exit ], [ undef, %_ZL21convertTailJumpOpcodej.exit ], [ undef, %_ZL21convertTailJumpOpcodej.exit.thread ]
   %.sroa.643.0.ptr = getelementptr inbounds i8, ptr %16, i64 %.sroa.643.0.idx
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -8471,12 +8471,12 @@ _ZN4llvm13MCInstBuilderD2Ev.exit38:               ; preds = %_ZN4llvm13MCInstBui
   br label %64
 
 _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit60: ; preds = %.lr.ph, %18, %27, %22, %23, %24, %25, %26, %28
-  %.03194113 = phi i32 [ 2857, %28 ], [ 2857, %27 ], [ 2853, %22 ], [ 2853, %23 ], [ 2857, %24 ], [ 2853, %25 ], [ 2853, %26 ], [ 2853, %18 ], [ 2857, %.lr.ph ]
-  %.03095112 = phi i64 [ 51, %28 ], [ 51, %27 ], [ 0, %22 ], [ 51, %23 ], [ 51, %24 ], [ 0, %25 ], [ 51, %26 ], [ 0, %18 ], [ 51, %.lr.ph ]
-  %.02996111 = phi i64 [ 512, %28 ], [ 512, %27 ], [ 8, %22 ], [ 8, %23 ], [ 8, %24 ], [ 512, %25 ], [ 512, %26 ], [ 0, %18 ], [ 512, %.lr.ph ]
-  %.02897110 = phi i64 [ 12, %28 ], [ 0, %27 ], [ 0, %22 ], [ 0, %23 ], [ 0, %24 ], [ 0, %25 ], [ 0, %26 ], [ 0, %18 ], [ 12, %.lr.ph ]
-  %.02798109 = phi i32 [ 10, %28 ], [ %.sroa.speculated70, %27 ], [ %.sroa.speculated70, %22 ], [ %.sroa.speculated70, %23 ], [ %.sroa.speculated70, %24 ], [ %.sroa.speculated70, %25 ], [ %.sroa.speculated70, %26 ], [ %.sroa.speculated70, %18 ], [ 10, %.lr.ph ]
-  %.sroa.speculated99107 = phi i32 [ %.sroa.speculated, %28 ], [ 0, %27 ], [ 0, %22 ], [ 0, %23 ], [ 0, %24 ], [ 0, %25 ], [ 0, %26 ], [ 0, %18 ], [ %.sroa.speculated, %.lr.ph ]
+  %.03196115 = phi i32 [ 2857, %28 ], [ 2857, %27 ], [ 2853, %22 ], [ 2853, %23 ], [ 2857, %24 ], [ 2853, %25 ], [ 2853, %26 ], [ 2853, %18 ], [ 2857, %.lr.ph ]
+  %.03097114 = phi i64 [ 51, %28 ], [ 51, %27 ], [ 0, %22 ], [ 51, %23 ], [ 51, %24 ], [ 0, %25 ], [ 51, %26 ], [ 0, %18 ], [ 51, %.lr.ph ]
+  %.02998113 = phi i64 [ 512, %28 ], [ 512, %27 ], [ 8, %22 ], [ 8, %23 ], [ 8, %24 ], [ 512, %25 ], [ 512, %26 ], [ 0, %18 ], [ 512, %.lr.ph ]
+  %.02899112 = phi i64 [ 12, %28 ], [ 0, %27 ], [ 0, %22 ], [ 0, %23 ], [ 0, %24 ], [ 0, %25 ], [ 0, %26 ], [ 0, %18 ], [ 12, %.lr.ph ]
+  %.027100111 = phi i32 [ 10, %28 ], [ %.sroa.speculated70, %27 ], [ %.sroa.speculated70, %22 ], [ %.sroa.speculated70, %23 ], [ %.sroa.speculated70, %24 ], [ %.sroa.speculated70, %25 ], [ %.sroa.speculated70, %26 ], [ %.sroa.speculated70, %18 ], [ 10, %.lr.ph ]
+  %.sroa.speculated101109 = phi i32 [ %.sroa.speculated, %28 ], [ 0, %27 ], [ 0, %22 ], [ 0, %23 ], [ 0, %24 ], [ 0, %25 ], [ 0, %26 ], [ 0, %18 ], [ %.sroa.speculated, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -8485,7 +8485,7 @@ _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit60: ; preds = %.lr.ph, %18, 
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 6, ptr %56, align 4, !tbaa !27
-  store i32 %.03194113, ptr %6, align 8, !tbaa !219
+  store i32 %.03196115, ptr %6, align 8, !tbaa !219
   store i8 1, ptr %54, align 8
   %.sroa.22.0..sroa_idx.i.i.i42 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 51, ptr %.sroa.22.0..sroa_idx.i.i.i42, align 8
@@ -8496,18 +8496,18 @@ _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit60: ; preds = %.lr.ph, %18, 
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i8 1, ptr %58, align 8
   %.sroa.22.0..sroa_idx.i.i.i50 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store i64 %.03095112, ptr %.sroa.22.0..sroa_idx.i.i.i50, align 8
+  store i64 %.03097114, ptr %.sroa.22.0..sroa_idx.i.i.i50, align 8
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store i8 2, ptr %59, align 8
   %.sroa.22.0..sroa_idx.i.i.i54 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  store i64 %.02996111, ptr %.sroa.22.0..sroa_idx.i.i.i54, align 8
+  store i64 %.02998113, ptr %.sroa.22.0..sroa_idx.i.i.i54, align 8
   %.pre = load ptr, ptr %0, align 8, !tbaa !3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 1272
   %.pre83 = load ptr, ptr %.phi.trans.insert, align 8
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i8 1, ptr %60, align 8
   %.sroa.22.0..sroa_idx.i.i.i59 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  store i64 %.02897110, ptr %.sroa.22.0..sroa_idx.i.i.i59, align 8
+  store i64 %.02899112, ptr %.sroa.22.0..sroa_idx.i.i.i59, align 8
   store i32 5, ptr %55, align 8, !tbaa !26
   call void %.pre83(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull align 8 dereferenceable(304) %2) #21
   %61 = load ptr, ptr %53, align 8, !tbaa !25
@@ -8523,9 +8523,9 @@ _ZN4llvm13MCInstBuilderD2Ev.exit61:               ; preds = %_ZN4llvm13MCInstBui
   br label %64
 
 64:                                               ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit61, %_ZN4llvm13MCInstBuilderD2Ev.exit38, %_ZN4llvm13MCInstBuilderD2Ev.exit
-  %.02798108 = phi i32 [ %.02798109, %_ZN4llvm13MCInstBuilderD2Ev.exit61 ], [ 2, %_ZN4llvm13MCInstBuilderD2Ev.exit38 ], [ 1, %_ZN4llvm13MCInstBuilderD2Ev.exit ]
-  %.sroa.speculated99106 = phi i32 [ %.sroa.speculated99107, %_ZN4llvm13MCInstBuilderD2Ev.exit61 ], [ 0, %_ZN4llvm13MCInstBuilderD2Ev.exit38 ], [ 0, %_ZN4llvm13MCInstBuilderD2Ev.exit ]
-  %65 = add nuw nsw i32 %.sroa.speculated99106, %.02798108
+  %.027100110 = phi i32 [ %.027100111, %_ZN4llvm13MCInstBuilderD2Ev.exit61 ], [ 2, %_ZN4llvm13MCInstBuilderD2Ev.exit38 ], [ 1, %_ZN4llvm13MCInstBuilderD2Ev.exit ]
+  %.sroa.speculated101108 = phi i32 [ %.sroa.speculated101109, %_ZN4llvm13MCInstBuilderD2Ev.exit61 ], [ 0, %_ZN4llvm13MCInstBuilderD2Ev.exit38 ], [ 0, %_ZN4llvm13MCInstBuilderD2Ev.exit ]
+  %65 = add nuw nsw i32 %.sroa.speculated101108, %.027100110
   ret i32 %65
 }
 

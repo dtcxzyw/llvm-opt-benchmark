@@ -2969,49 +2969,49 @@ define void @_ZN6quiche2h35frame5Frame10from_bytes17h450230d6c19e99bdE(ptr dead_
 .outer:                                           ; preds = %70, %.preheader.i
   %.sroa.012.0.i.ph = phi i64 [ 0, %.preheader.i ], [ 1, %70 ]
   %.sroa.3.0.i.ph = phi i64 [ undef, %.preheader.i ], [ %63, %70 ]
-  %.sroa.013.0.i.ph = phi i64 [ 0, %.preheader.i ], [ %.sroa.013.0.i.ph218, %70 ]
-  %.sroa.314.0.i.ph = phi i64 [ undef, %.preheader.i ], [ %.sroa.314.0.i.ph219, %70 ]
-  %.sroa.015.0.i.ph = phi i64 [ 0, %.preheader.i ], [ %.sroa.015.0.i.ph227, %70 ]
-  %.sroa.316.0.i.ph = phi i64 [ undef, %.preheader.i ], [ %.sroa.316.0.i.ph228, %70 ]
-  %.sroa.017.0.i.ph = phi i64 [ 0, %.preheader.i ], [ %.sroa.017.0.i.ph234, %70 ]
-  %.sroa.318.0.i.ph = phi i64 [ undef, %.preheader.i ], [ %.sroa.318.0.i.ph235, %70 ]
-  %.sroa.019.0.i.ph = phi i64 [ 0, %.preheader.i ], [ %.sroa.019.0.i.ph239, %70 ]
-  %.sroa.320.0.i.ph = phi i64 [ undef, %.preheader.i ], [ %.sroa.320.0.i.ph240, %70 ]
-  br label %.outer217
+  %.sroa.013.0.i.ph = phi i64 [ 0, %.preheader.i ], [ %.sroa.013.0.i.ph220, %70 ]
+  %.sroa.314.0.i.ph = phi i64 [ undef, %.preheader.i ], [ %.sroa.314.0.i.ph221, %70 ]
+  %.sroa.015.0.i.ph = phi i64 [ 0, %.preheader.i ], [ %.sroa.015.0.i.ph229, %70 ]
+  %.sroa.316.0.i.ph = phi i64 [ undef, %.preheader.i ], [ %.sroa.316.0.i.ph230, %70 ]
+  %.sroa.017.0.i.ph = phi i64 [ 0, %.preheader.i ], [ %.sroa.017.0.i.ph236, %70 ]
+  %.sroa.318.0.i.ph = phi i64 [ undef, %.preheader.i ], [ %.sroa.318.0.i.ph237, %70 ]
+  %.sroa.019.0.i.ph = phi i64 [ 0, %.preheader.i ], [ %.sroa.019.0.i.ph241, %70 ]
+  %.sroa.320.0.i.ph = phi i64 [ undef, %.preheader.i ], [ %.sroa.320.0.i.ph242, %70 ]
+  br label %.outer219
 
-.outer217:                                        ; preds = %70, %.outer
-  %.sroa.013.0.i.ph218 = phi i64 [ %.sroa.013.0.i.ph, %.outer ], [ %57, %70 ]
-  %.sroa.314.0.i.ph219 = phi i64 [ %.sroa.314.0.i.ph, %.outer ], [ %63, %70 ]
-  %.sroa.015.0.i.ph220 = phi i64 [ %.sroa.015.0.i.ph, %.outer ], [ %.sroa.015.0.i.ph227, %70 ]
-  %.sroa.316.0.i.ph221 = phi i64 [ %.sroa.316.0.i.ph, %.outer ], [ %.sroa.316.0.i.ph228, %70 ]
-  %.sroa.017.0.i.ph222 = phi i64 [ %.sroa.017.0.i.ph, %.outer ], [ %.sroa.017.0.i.ph234, %70 ]
-  %.sroa.318.0.i.ph223 = phi i64 [ %.sroa.318.0.i.ph, %.outer ], [ %.sroa.318.0.i.ph235, %70 ]
-  %.sroa.019.0.i.ph224 = phi i64 [ %.sroa.019.0.i.ph, %.outer ], [ %.sroa.019.0.i.ph239, %70 ]
-  %.sroa.320.0.i.ph225 = phi i64 [ %.sroa.320.0.i.ph, %.outer ], [ %.sroa.320.0.i.ph240, %70 ]
-  br label %.outer226
+.outer219:                                        ; preds = %70, %.outer
+  %.sroa.013.0.i.ph220 = phi i64 [ %.sroa.013.0.i.ph, %.outer ], [ %57, %70 ]
+  %.sroa.314.0.i.ph221 = phi i64 [ %.sroa.314.0.i.ph, %.outer ], [ %63, %70 ]
+  %.sroa.015.0.i.ph222 = phi i64 [ %.sroa.015.0.i.ph, %.outer ], [ %.sroa.015.0.i.ph229, %70 ]
+  %.sroa.316.0.i.ph223 = phi i64 [ %.sroa.316.0.i.ph, %.outer ], [ %.sroa.316.0.i.ph230, %70 ]
+  %.sroa.017.0.i.ph224 = phi i64 [ %.sroa.017.0.i.ph, %.outer ], [ %.sroa.017.0.i.ph236, %70 ]
+  %.sroa.318.0.i.ph225 = phi i64 [ %.sroa.318.0.i.ph, %.outer ], [ %.sroa.318.0.i.ph237, %70 ]
+  %.sroa.019.0.i.ph226 = phi i64 [ %.sroa.019.0.i.ph, %.outer ], [ %.sroa.019.0.i.ph241, %70 ]
+  %.sroa.320.0.i.ph227 = phi i64 [ %.sroa.320.0.i.ph, %.outer ], [ %.sroa.320.0.i.ph242, %70 ]
+  br label %.outer228
 
-.outer226:                                        ; preds = %70, %.outer217
-  %.sroa.015.0.i.ph227 = phi i64 [ %.sroa.015.0.i.ph220, %.outer217 ], [ 1, %70 ]
-  %.sroa.316.0.i.ph228 = phi i64 [ %.sroa.316.0.i.ph221, %.outer217 ], [ %63, %70 ]
-  %.sroa.017.0.i.ph229 = phi i64 [ %.sroa.017.0.i.ph222, %.outer217 ], [ %.sroa.017.0.i.ph234, %70 ]
-  %.sroa.318.0.i.ph230 = phi i64 [ %.sroa.318.0.i.ph223, %.outer217 ], [ %.sroa.318.0.i.ph235, %70 ]
-  %.sroa.019.0.i.ph231 = phi i64 [ %.sroa.019.0.i.ph224, %.outer217 ], [ %.sroa.019.0.i.ph239, %70 ]
-  %.sroa.320.0.i.ph232 = phi i64 [ %.sroa.320.0.i.ph225, %.outer217 ], [ %.sroa.320.0.i.ph240, %70 ]
-  br label %.outer233
+.outer228:                                        ; preds = %70, %.outer219
+  %.sroa.015.0.i.ph229 = phi i64 [ %.sroa.015.0.i.ph222, %.outer219 ], [ 1, %70 ]
+  %.sroa.316.0.i.ph230 = phi i64 [ %.sroa.316.0.i.ph223, %.outer219 ], [ %63, %70 ]
+  %.sroa.017.0.i.ph231 = phi i64 [ %.sroa.017.0.i.ph224, %.outer219 ], [ %.sroa.017.0.i.ph236, %70 ]
+  %.sroa.318.0.i.ph232 = phi i64 [ %.sroa.318.0.i.ph225, %.outer219 ], [ %.sroa.318.0.i.ph237, %70 ]
+  %.sroa.019.0.i.ph233 = phi i64 [ %.sroa.019.0.i.ph226, %.outer219 ], [ %.sroa.019.0.i.ph241, %70 ]
+  %.sroa.320.0.i.ph234 = phi i64 [ %.sroa.320.0.i.ph227, %.outer219 ], [ %.sroa.320.0.i.ph242, %70 ]
+  br label %.outer235
 
-.outer233:                                        ; preds = %.outer226, %80
-  %.sroa.017.0.i.ph234 = phi i64 [ %.sroa.017.0.i.ph229, %.outer226 ], [ 1, %80 ]
-  %.sroa.318.0.i.ph235 = phi i64 [ %.sroa.318.0.i.ph230, %.outer226 ], [ %63, %80 ]
-  %.sroa.019.0.i.ph236 = phi i64 [ %.sroa.019.0.i.ph231, %.outer226 ], [ %.sroa.019.0.i.ph239, %80 ]
-  %.sroa.320.0.i.ph237 = phi i64 [ %.sroa.320.0.i.ph232, %.outer226 ], [ %.sroa.320.0.i.ph240, %80 ]
-  br label %.outer238
+.outer235:                                        ; preds = %.outer228, %80
+  %.sroa.017.0.i.ph236 = phi i64 [ %.sroa.017.0.i.ph231, %.outer228 ], [ 1, %80 ]
+  %.sroa.318.0.i.ph237 = phi i64 [ %.sroa.318.0.i.ph232, %.outer228 ], [ %63, %80 ]
+  %.sroa.019.0.i.ph238 = phi i64 [ %.sroa.019.0.i.ph233, %.outer228 ], [ %.sroa.019.0.i.ph241, %80 ]
+  %.sroa.320.0.i.ph239 = phi i64 [ %.sroa.320.0.i.ph234, %.outer228 ], [ %.sroa.320.0.i.ph242, %80 ]
+  br label %.outer240
 
-.outer238:                                        ; preds = %.outer233, %82
-  %.sroa.019.0.i.ph239 = phi i64 [ %.sroa.019.0.i.ph236, %.outer233 ], [ 1, %82 ]
-  %.sroa.320.0.i.ph240 = phi i64 [ %.sroa.320.0.i.ph237, %.outer233 ], [ %63, %82 ]
+.outer240:                                        ; preds = %.outer235, %82
+  %.sroa.019.0.i.ph241 = phi i64 [ %.sroa.019.0.i.ph238, %.outer235 ], [ 1, %82 ]
+  %.sroa.320.0.i.ph242 = phi i64 [ %.sroa.320.0.i.ph239, %.outer235 ], [ %63, %82 ]
   br label %44
 
-44:                                               ; preds = %.outer238, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h10a83882e3e5d593E.exit30.i"
+44:                                               ; preds = %.outer240, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h10a83882e3e5d593E.exit30.i"
   %45 = invoke noundef i64 @_ZN6octets6Octets3off17hf222d50a51def15fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24)
           to label %51 unwind label %46, !noalias !302
 
@@ -3069,9 +3069,9 @@ define void @_ZN6quiche2h35frame5Frame10from_bytes17h450230d6c19e99bdE(ptr dead_
   %74 = add i64 %66, 1
   store i64 %74, ptr %40, align 8, !alias.scope !306, !noalias !309
   switch i64 %57, label %75 [
-    i64 1, label %.outer217
+    i64 1, label %.outer219
     i64 6, label %.outer
-    i64 7, label %.outer226
+    i64 7, label %.outer228
     i64 8, label %80
     i64 630, label %82
     i64 51, label %82
@@ -3109,11 +3109,11 @@ define void @_ZN6quiche2h35frame5Frame10from_bytes17h450230d6c19e99bdE(ptr dead_
 
 80:                                               ; preds = %70
   %81 = icmp ugt i64 %63, 1
-  br i1 %81, label %.loopexit, label %.outer233
+  br i1 %81, label %.loopexit, label %.outer235
 
 82:                                               ; preds = %70, %70
   %83 = icmp ugt i64 %63, 1
-  br i1 %83, label %.loopexit, label %.outer238
+  br i1 %83, label %.loopexit, label %.outer240
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8f24b423e028d5b6E.exit.i": ; preds = %".critedge.i._ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8f24b423e028d5b6E.exit_crit_edge.i", %77
   %84 = phi i64 [ %.pre.i, %".critedge.i._ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8f24b423e028d5b6E.exit_crit_edge.i" ], [ %78, %77 ]
@@ -3280,17 +3280,17 @@ _ZN6quiche2h35frame20parse_settings_frame17hc39346d516f4e3cfE.exit: ; preds = %5
   br label %134
 
 134:                                              ; preds = %157, %130, %151, %147, %144, %_ZN6quiche2h35frame20parse_settings_frame17hc39346d516f4e3cfE.exit, %140, %137, %133
-  %.sroa.26.sroa.0.0 = phi i64 [ undef, %157 ], [ undef, %133 ], [ undef, %137 ], [ undef, %140 ], [ %.sroa.316.0.i.ph228, %_ZN6quiche2h35frame20parse_settings_frame17hc39346d516f4e3cfE.exit ], [ %.sroa.975.sroa.0.0.copyload, %144 ], [ undef, %147 ], [ undef, %151 ], [ undef, %130 ]
-  %.sroa.26.sroa.4.0 = phi i64 [ undef, %157 ], [ undef, %133 ], [ undef, %137 ], [ undef, %140 ], [ %.sroa.017.0.i.ph234, %_ZN6quiche2h35frame20parse_settings_frame17hc39346d516f4e3cfE.exit ], [ %.sroa.975.sroa.5.0.copyload, %144 ], [ undef, %147 ], [ undef, %151 ], [ undef, %130 ]
-  %.sroa.26.sroa.5.0 = phi i64 [ undef, %157 ], [ undef, %133 ], [ undef, %137 ], [ undef, %140 ], [ %.sroa.318.0.i.ph235, %_ZN6quiche2h35frame20parse_settings_frame17hc39346d516f4e3cfE.exit ], [ %.sroa.975.sroa.6.0.copyload, %144 ], [ undef, %147 ], [ undef, %151 ], [ undef, %130 ]
-  %.sroa.26.sroa.6.0 = phi i64 [ undef, %157 ], [ undef, %133 ], [ undef, %137 ], [ undef, %140 ], [ %.sroa.019.0.i.ph239, %_ZN6quiche2h35frame20parse_settings_frame17hc39346d516f4e3cfE.exit ], [ %.sroa.975.sroa.7.0.copyload, %144 ], [ undef, %147 ], [ undef, %151 ], [ undef, %130 ]
-  %.sroa.26.sroa.7.0 = phi i64 [ undef, %157 ], [ undef, %133 ], [ undef, %137 ], [ undef, %140 ], [ %.sroa.320.0.i.ph240, %_ZN6quiche2h35frame20parse_settings_frame17hc39346d516f4e3cfE.exit ], [ %.sroa.975.sroa.8.0.copyload, %144 ], [ undef, %147 ], [ undef, %151 ], [ undef, %130 ]
+  %.sroa.26.sroa.0.0 = phi i64 [ undef, %157 ], [ undef, %133 ], [ undef, %137 ], [ undef, %140 ], [ %.sroa.316.0.i.ph230, %_ZN6quiche2h35frame20parse_settings_frame17hc39346d516f4e3cfE.exit ], [ %.sroa.975.sroa.0.0.copyload, %144 ], [ undef, %147 ], [ undef, %151 ], [ undef, %130 ]
+  %.sroa.26.sroa.4.0 = phi i64 [ undef, %157 ], [ undef, %133 ], [ undef, %137 ], [ undef, %140 ], [ %.sroa.017.0.i.ph236, %_ZN6quiche2h35frame20parse_settings_frame17hc39346d516f4e3cfE.exit ], [ %.sroa.975.sroa.5.0.copyload, %144 ], [ undef, %147 ], [ undef, %151 ], [ undef, %130 ]
+  %.sroa.26.sroa.5.0 = phi i64 [ undef, %157 ], [ undef, %133 ], [ undef, %137 ], [ undef, %140 ], [ %.sroa.318.0.i.ph237, %_ZN6quiche2h35frame20parse_settings_frame17hc39346d516f4e3cfE.exit ], [ %.sroa.975.sroa.6.0.copyload, %144 ], [ undef, %147 ], [ undef, %151 ], [ undef, %130 ]
+  %.sroa.26.sroa.6.0 = phi i64 [ undef, %157 ], [ undef, %133 ], [ undef, %137 ], [ undef, %140 ], [ %.sroa.019.0.i.ph241, %_ZN6quiche2h35frame20parse_settings_frame17hc39346d516f4e3cfE.exit ], [ %.sroa.975.sroa.7.0.copyload, %144 ], [ undef, %147 ], [ undef, %151 ], [ undef, %130 ]
+  %.sroa.26.sroa.7.0 = phi i64 [ undef, %157 ], [ undef, %133 ], [ undef, %137 ], [ undef, %140 ], [ %.sroa.320.0.i.ph242, %_ZN6quiche2h35frame20parse_settings_frame17hc39346d516f4e3cfE.exit ], [ %.sroa.975.sroa.8.0.copyload, %144 ], [ undef, %147 ], [ undef, %151 ], [ undef, %130 ]
   %.sroa.26.sroa.8.0 = phi i64 [ undef, %157 ], [ undef, %133 ], [ undef, %137 ], [ undef, %140 ], [ 0, %_ZN6quiche2h35frame20parse_settings_frame17hc39346d516f4e3cfE.exit ], [ %.sroa.975.sroa.9.0.copyload, %144 ], [ undef, %147 ], [ undef, %151 ], [ undef, %130 ]
   %.sroa.047.0 = phi i64 [ 11, %157 ], [ 2, %133 ], [ 3, %137 ], [ 4, %140 ], [ %.sroa.012.0.i.ph, %_ZN6quiche2h35frame20parse_settings_frame17hc39346d516f4e3cfE.exit ], [ 6, %144 ], [ 7, %147 ], [ 8, %151 ], [ %.sroa.092.0, %130 ]
   %.sroa.1048.0 = phi i64 [ %.sroa.1048.8.copyload50, %157 ], [ %.sroa.1048.8.copyload, %133 ], [ %.sroa.1048.8.copyload49, %137 ], [ %141, %140 ], [ %.sroa.3.0.i.ph, %_ZN6quiche2h35frame20parse_settings_frame17hc39346d516f4e3cfE.exit ], [ %.sroa.571.0.copyload, %144 ], [ %148, %147 ], [ %152, %151 ], [ %.sroa.8.0, %130 ]
-  %.sroa.19.0 = phi i64 [ %.sroa.19.8.copyload54, %157 ], [ %.sroa.19.8.copyload, %133 ], [ %.sroa.19.8.copyload52, %137 ], [ undef, %140 ], [ %.sroa.013.0.i.ph218, %_ZN6quiche2h35frame20parse_settings_frame17hc39346d516f4e3cfE.exit ], [ %.sroa.672.0.copyload, %144 ], [ undef, %147 ], [ undef, %151 ], [ %.sroa.14.8.copyload95, %130 ]
-  %.sroa.22.0 = phi i64 [ %.sroa.22.8.copyload58, %157 ], [ %.sroa.22.8.copyload, %133 ], [ %.sroa.22.8.copyload56, %137 ], [ undef, %140 ], [ %.sroa.314.0.i.ph219, %_ZN6quiche2h35frame20parse_settings_frame17hc39346d516f4e3cfE.exit ], [ %.sroa.773.0.copyload, %144 ], [ undef, %147 ], [ undef, %151 ], [ %.sroa.16.8.copyload97, %130 ]
-  %.sroa.25.0 = phi i64 [ %1, %157 ], [ undef, %133 ], [ undef, %137 ], [ undef, %140 ], [ %.sroa.015.0.i.ph227, %_ZN6quiche2h35frame20parse_settings_frame17hc39346d516f4e3cfE.exit ], [ %103, %144 ], [ undef, %147 ], [ undef, %151 ], [ %122, %130 ]
+  %.sroa.19.0 = phi i64 [ %.sroa.19.8.copyload54, %157 ], [ %.sroa.19.8.copyload, %133 ], [ %.sroa.19.8.copyload52, %137 ], [ undef, %140 ], [ %.sroa.013.0.i.ph220, %_ZN6quiche2h35frame20parse_settings_frame17hc39346d516f4e3cfE.exit ], [ %.sroa.672.0.copyload, %144 ], [ undef, %147 ], [ undef, %151 ], [ %.sroa.14.8.copyload95, %130 ]
+  %.sroa.22.0 = phi i64 [ %.sroa.22.8.copyload58, %157 ], [ %.sroa.22.8.copyload, %133 ], [ %.sroa.22.8.copyload56, %137 ], [ undef, %140 ], [ %.sroa.314.0.i.ph221, %_ZN6quiche2h35frame20parse_settings_frame17hc39346d516f4e3cfE.exit ], [ %.sroa.773.0.copyload, %144 ], [ undef, %147 ], [ undef, %151 ], [ %.sroa.16.8.copyload97, %130 ]
+  %.sroa.25.0 = phi i64 [ %1, %157 ], [ undef, %133 ], [ undef, %137 ], [ undef, %140 ], [ %.sroa.015.0.i.ph229, %_ZN6quiche2h35frame20parse_settings_frame17hc39346d516f4e3cfE.exit ], [ %103, %144 ], [ undef, %147 ], [ undef, %151 ], [ %122, %130 ]
   store i64 %.sroa.047.0, ptr %0, align 8
   %.sroa.1048.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.1048.0, ptr %.sroa.1048.0..sroa_idx, align 8

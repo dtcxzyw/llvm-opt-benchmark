@@ -42,7 +42,7 @@ define hidden void @_ZN5ceres8internal34CreateFakeBundleAdjustmentJacobianEiiiid
   br i1 %13, label %.lr.ph113, label %._crit_edge123
 
 .lr.ph113:                                        ; preds = %.preheader101.thread, %.preheader101
-  %.0.lcssa136 = phi i32 [ 0, %.preheader101.thread ], [ %45, %.preheader101 ]
+  %.0.lcssa166 = phi i32 [ 0, %.preheader101.thread ], [ %45, %.preheader101 ]
   %14 = phi ptr [ null, %.preheader101.thread ], [ %44, %.preheader101 ]
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -503,7 +503,7 @@ _ZNSt6vectorIN5ceres8internal4CellESaIS2_EE6resizeEm.exit.us: ; preds = %_ZNSt12
 
 229:                                              ; preds = %.lr.ph113, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE9push_backEOS2_.exit67
   %230 = phi ptr [ %14, %.lr.ph113 ], [ %256, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE9push_backEOS2_.exit67 ]
-  %.1112 = phi i32 [ %.0.lcssa136, %.lr.ph113 ], [ %257, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE9push_backEOS2_.exit67 ]
+  %.1112 = phi i32 [ %.0.lcssa166, %.lr.ph113 ], [ %257, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE9push_backEOS2_.exit67 ]
   %.044111 = phi i32 [ 0, %.lr.ph113 ], [ %258, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE9push_backEOS2_.exit67 ]
   %231 = load ptr, ptr %16, align 8, !tbaa !3
   %.not.i.i54 = icmp eq ptr %230, %231

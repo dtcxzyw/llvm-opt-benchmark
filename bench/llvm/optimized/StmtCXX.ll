@@ -305,7 +305,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang17CoroutineBodyStmt6CreateERKNS_10ASTContextENS_4Stmt10EmptyShellEj(ptr noundef nonnull align 8 dereferenceable(23216) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define dso_local noundef nonnull ptr @_ZN5clang17CoroutineBodyStmt6CreateERKNS_10ASTContextENS_4Stmt10EmptyShellEj(ptr noundef nonnull align 8 dereferenceable(23216) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %"struct.clang::CoroutineBodyStmt::CtorArgs", align 8
   %4 = add i32 %1, 12
   %5 = zext i32 %4 to i64

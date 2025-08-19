@@ -3038,7 +3038,7 @@ define dso_local void @searchInHistory(ptr dead_on_unwind noalias writable write
 
 28:                                               ; preds = %.lr.ph42.split
   %indvars.iv.next71 = add nsw i64 %indvars.iv70, -1
-  %29 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv.next71
+  %29 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next71
   %30 = load ptr, ptr %29, align 8, !tbaa !15
   %31 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %1) #25
   %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %10) #25
@@ -3085,7 +3085,7 @@ define dso_local void @searchInHistory(ptr dead_on_unwind noalias writable write
   br label %.split30.us
 
 .split30.us.loopexit50:                           ; preds = %28
-  %52 = trunc nsw i64 %indvars.iv.next71 to i32
+  %52 = trunc nuw nsw i64 %indvars.iv.next71 to i32
   br label %.split30.us
 
 .split30.us.loopexit52:                           ; preds = %46
@@ -3093,7 +3093,7 @@ define dso_local void @searchInHistory(ptr dead_on_unwind noalias writable write
   br label %.split30.us
 
 .split30.us.loopexit54:                           ; preds = %67
-  %54 = trunc nsw i64 %indvars.iv.next to i32
+  %54 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.split30.us
 
 .split30.us:                                      ; preds = %.split30.us.loopexit54, %.split30.us.loopexit52, %.split30.us.loopexit50, %.split30.us.loopexit, %.split, %.split.us
@@ -3125,7 +3125,7 @@ define dso_local void @searchInHistory(ptr dead_on_unwind noalias writable write
 
 67:                                               ; preds = %.lr.ph.split
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %68 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv.next
+  %68 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.next
   %69 = load ptr, ptr %68, align 8, !tbaa !15
   %70 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(1) %1) #25
   %71 = icmp eq ptr %70, null

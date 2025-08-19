@@ -407,13 +407,13 @@ Vec_PtrPush.exit.i:                               ; preds = %110, %Vec_PtrGrow.e
   br i1 %exitcond.not.i, label %.critedge10.thread.i, label %.critedge6.i, !llvm.loop !49
 
 .critedge10.i:                                    ; preds = %.critedge6.preheader.i, %.critedge4.i
-  %.pre180185.i = phi ptr [ %.pre180.pre.i, %.critedge6.preheader.i ], [ %56, %.critedge4.i ]
-  %.not.i.i = icmp eq ptr %.pre180185.i, null
+  %.pre180188.i = phi ptr [ %.pre180.pre.i, %.critedge6.preheader.i ], [ %56, %.critedge4.i ]
+  %.not.i.i = icmp eq ptr %.pre180188.i, null
   br i1 %.not.i.i, label %Vec_PtrFree.exit.i, label %.critedge10.thread.i
 
 .critedge10.thread.i:                             ; preds = %.critedge6.i, %.critedge10.i
-  %.pre180185188.i = phi ptr [ %.pre180185.i, %.critedge10.i ], [ %.pre180.pre.i, %.critedge6.i ]
-  tail call void @free(ptr noundef nonnull %.pre180185188.i) #9
+  %.pre180188191.i = phi ptr [ %.pre180188.i, %.critedge10.i ], [ %.pre180.pre.i, %.critedge6.i ]
+  tail call void @free(ptr noundef nonnull %.pre180188191.i) #9
   br label %Vec_PtrFree.exit.i
 
 Vec_PtrFree.exit.i:                               ; preds = %.critedge10.thread.i, %.critedge10.i
@@ -1582,7 +1582,7 @@ define i32 @Abc_NtkRetimeMinAreaInitValues_rec(ptr noundef %0) local_unnamed_add
   %5 = load ptr, ptr %4, align 8, !tbaa !58
   %6 = ptrtoint ptr %5 to i64
   %7 = trunc i64 %6 to i32
-  br label %common.ret29
+  br label %common.ret33
 
 8:                                                ; preds = %1
   %.val22 = load ptr, ptr %0, align 8, !tbaa !38
@@ -1702,9 +1702,9 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %59 = getelementptr i8, ptr %0, i64 32
   br label %71
 
-common.ret29:                                     ; preds = %.critedge, %3, %60
-  %common.ret29.op = phi i32 [ %67, %60 ], [ %7, %3 ], [ %82, %.critedge ]
-  ret i32 %common.ret29.op
+common.ret33:                                     ; preds = %.critedge, %3, %60
+  %common.ret33.op = phi i32 [ %67, %60 ], [ %7, %3 ], [ %82, %.critedge ]
+  ret i32 %common.ret33.op
 
 60:                                               ; preds = %Abc_NodeSetTravIdCurrent.exit
   %.val = load ptr, ptr %0, align 8, !tbaa !38
@@ -1723,7 +1723,7 @@ common.ret29:                                     ; preds = %.critedge, %3, %60
   %69 = inttoptr i64 %68 to ptr
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %69, ptr %70, align 8, !tbaa !58
-  br label %common.ret29
+  br label %common.ret33
 
 71:                                               ; preds = %.lr.ph, %71
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %71 ]
@@ -1751,7 +1751,7 @@ common.ret29:                                     ; preds = %.critedge, %3, %60
   %84 = inttoptr i64 %83 to ptr
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %84, ptr %85, align 8, !tbaa !58
-  br label %common.ret29
+  br label %common.ret33
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind willreturn uwtable
@@ -1875,7 +1875,7 @@ define ptr @Abc_NtkRetimeMinAreaConstructNtk_rec(ptr noundef %0, ptr noundef %1)
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load ptr, ptr %5, align 8, !tbaa !58
-  br label %common.ret49
+  br label %common.ret53
 
 7:                                                ; preds = %2
   %.val36 = load ptr, ptr %1, align 8, !tbaa !38
@@ -1995,9 +1995,9 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %7, %._crit_edge.i.i
   %58 = getelementptr i8, ptr %1, i64 32
   br label %68
 
-common.ret49:                                     ; preds = %.critedge2, %4, %59
-  %common.ret49.op = phi ptr [ %66, %59 ], [ %6, %4 ], [ %97, %.critedge2 ]
-  ret ptr %common.ret49.op
+common.ret53:                                     ; preds = %.critedge2, %4, %59
+  %common.ret53.op = phi ptr [ %66, %59 ], [ %6, %4 ], [ %97, %.critedge2 ]
+  ret ptr %common.ret53.op
 
 59:                                               ; preds = %Abc_NodeSetTravIdCurrent.exit
   %.val = load ptr, ptr %1, align 8, !tbaa !38
@@ -2014,7 +2014,7 @@ common.ret49:                                     ; preds = %.critedge2, %4, %59
   %66 = tail call ptr @Abc_NtkRetimeMinAreaConstructNtk_rec(ptr noundef %0, ptr noundef %65)
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %66, ptr %67, align 8, !tbaa !58
-  br label %common.ret49
+  br label %common.ret53
 
 68:                                               ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
@@ -2073,7 +2073,7 @@ common.ret49:                                     ; preds = %.critedge2, %4, %59
 .critedge2:                                       ; preds = %83, %.critedge
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %97 = load ptr, ptr %96, align 8, !tbaa !58
-  br label %common.ret49
+  br label %common.ret53
 }
 
 declare ptr @Abc_NtkDupObj(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

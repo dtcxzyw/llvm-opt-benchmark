@@ -97,10 +97,10 @@ define range(i64 -2147483648, 2147483648) i64 @euc_kr_to_mic(ptr noundef readonl
   br label %37
 
 37:                                               ; preds = %35, %25
-  %.sink56.i = phi i64 [ 1, %35 ], [ 2, %25 ]
+  %.sink57.i = phi i64 [ 1, %35 ], [ 2, %25 ]
   %.sink.i = phi i32 [ -1, %35 ], [ -2, %25 ]
   %.128.i = phi ptr [ %36, %35 ], [ %30, %25 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.042.i, i64 %.sink56.i
+  %38 = getelementptr inbounds nuw i8, ptr %.042.i, i64 %.sink57.i
   %39 = add nsw i32 %.sink.i, %.02940.i
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph.i, label %euc_kr2mic.exit, !llvm.loop !3

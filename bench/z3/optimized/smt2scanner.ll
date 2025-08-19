@@ -550,7 +550,7 @@ common.resume:                                    ; preds = %51, %_ZNSt7__cxx111
   %57 = add nsw i32 %56, 1
   store i32 %57, ptr %12, align 4, !tbaa !58
   store i32 0, ptr %13, align 4, !tbaa !45
-  br label %.thread37
+  br label %.thread50
 
 58:                                               ; preds = %53
   %59 = icmp ne i8 %54, 124
@@ -598,8 +598,8 @@ _ZN6vectorIcLb0EjE9push_backEOc.exit:             ; preds = %62, %68
 
 switch.early.test:                                ; preds = %79
   switch i8 %54, label %80 [
-    i8 124, label %.thread37
-    i8 92, label %.thread37
+    i8 124, label %.thread50
+    i8 92, label %.thread50
   ]
 
 80:                                               ; preds = %switch.early.test
@@ -613,16 +613,16 @@ switch.early.test:                                ; preds = %79
   %86 = getelementptr inbounds i8, ptr %81, i64 -8
   %87 = load i32, ptr %86, align 4, !tbaa !23
   %88 = icmp eq i32 %85, %87
-  br i1 %88, label %89, label %.thread37.thread
+  br i1 %88, label %89, label %.thread50.thread
 
 89:                                               ; preds = %83, %80
   tail call void @_ZN6vectorIcLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.pre.i21 = load ptr, ptr %4, align 8, !tbaa !22
   %.phi.trans.insert.i22 = getelementptr inbounds i8, ptr %.pre.i21, i64 -4
   %.pre2.i23 = load i32, ptr %.phi.trans.insert.i22, align 4, !tbaa !23
-  br label %.thread37.thread
+  br label %.thread50.thread
 
-.thread37.thread:                                 ; preds = %89, %83
+.thread50.thread:                                 ; preds = %89, %83
   %90 = phi i32 [ %.pre2.i23, %89 ], [ %85, %83 ]
   %91 = phi ptr [ %.pre.i21, %89 ], [ %81, %83 ]
   %92 = zext i32 %90 to i64
@@ -637,15 +637,15 @@ switch.early.test:                                ; preds = %79
 
 98:                                               ; preds = %79
   %.not = icmp eq i8 %54, 92
-  br i1 %.not, label %116, label %.thread37
+  br i1 %.not, label %116, label %.thread50
 
-.thread37:                                        ; preds = %switch.early.test, %switch.early.test, %.thread, %98
+.thread50:                                        ; preds = %switch.early.test, %switch.early.test, %.thread, %98
   %.pr = load ptr, ptr %4, align 8, !tbaa !22
   %99 = icmp eq ptr %.pr, null
   br i1 %99, label %107, label %100
 
-100:                                              ; preds = %.thread37.thread, %.thread37
-  %101 = phi ptr [ %94, %.thread37.thread ], [ %.pr, %.thread37 ]
+100:                                              ; preds = %.thread50.thread, %.thread50
+  %101 = phi ptr [ %94, %.thread50.thread ], [ %.pr, %.thread50 ]
   %102 = getelementptr inbounds i8, ptr %101, i64 -4
   %103 = load i32, ptr %102, align 4, !tbaa !23
   %104 = getelementptr inbounds i8, ptr %101, i64 -8
@@ -653,7 +653,7 @@ switch.early.test:                                ; preds = %79
   %106 = icmp eq i32 %103, %105
   br i1 %106, label %107, label %_ZN6vectorIcLb0EjE9push_backERKc.exit
 
-107:                                              ; preds = %100, %.thread37
+107:                                              ; preds = %100, %.thread50
   tail call void @_ZN6vectorIcLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.pre.i25 = load ptr, ptr %4, align 8, !tbaa !22
   %.phi.trans.insert.i26 = getelementptr inbounds i8, ptr %.pre.i25, i64 -4
@@ -3782,7 +3782,7 @@ _ZN6vectorIcLb0EjE5resetEv.exit:                  ; preds = %3, %6
   %15 = sext i8 %14 to i32
   %16 = tail call i32 @isspace(i32 noundef %15) #26
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %.critedge.loopexit.split.loop.exit35, label %17
+  br i1 %.not, label %.critedge.loopexit.split.loop.exit41, label %17
 
 17:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3790,12 +3790,12 @@ _ZN6vectorIcLb0EjE5resetEv.exit:                  ; preds = %3, %6
   %exitcond.not = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond.not, label %.critedge, label %12, !llvm.loop !77
 
-.critedge.loopexit.split.loop.exit35:             ; preds = %12
+.critedge.loopexit.split.loop.exit41:             ; preds = %12
   %18 = trunc nuw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %17, %.critedge.loopexit.split.loop.exit35, %_ZN6vectorIcLb0EjE5resetEv.exit
-  %.016.lcssa = phi i32 [ %1, %_ZN6vectorIcLb0EjE5resetEv.exit ], [ %18, %.critedge.loopexit.split.loop.exit35 ], [ %2, %17 ]
+.critedge:                                        ; preds = %17, %.critedge.loopexit.split.loop.exit41, %_ZN6vectorIcLb0EjE5resetEv.exit
+  %.016.lcssa = phi i32 [ %1, %_ZN6vectorIcLb0EjE5resetEv.exit ], [ %18, %.critedge.loopexit.split.loop.exit41 ], [ %2, %17 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   %20 = zext i32 %2 to i64
   %21 = zext i32 %.016.lcssa to i64
@@ -3814,14 +3814,14 @@ _ZN6vectorIcLb0EjE5resetEv.exit:                  ; preds = %3, %6
   %28 = sext i8 %27 to i32
   %29 = tail call i32 @isspace(i32 noundef %28) #26
   %.not17 = icmp eq i32 %29, 0
-  br i1 %.not17, label %.critedge2.split.loop.exit37, label %22, !llvm.loop !78
+  br i1 %.not17, label %.critedge2.split.loop.exit43, label %22, !llvm.loop !78
 
-.critedge2.split.loop.exit37:                     ; preds = %24
+.critedge2.split.loop.exit43:                     ; preds = %24
   %30 = trunc nuw i64 %indvars.iv27 to i32
   br label %.critedge2
 
-.critedge2:                                       ; preds = %22, %.critedge2.split.loop.exit37
-  %.015.lcssa = phi i32 [ %30, %.critedge2.split.loop.exit37 ], [ %umin, %22 ]
+.critedge2:                                       ; preds = %22, %.critedge2.split.loop.exit43
+  %.015.lcssa = phi i32 [ %30, %.critedge2.split.loop.exit43 ], [ %umin, %22 ]
   %31 = icmp ult i32 %.016.lcssa, %.015.lcssa
   br i1 %31, label %.lr.ph25, label %._crit_edge
 

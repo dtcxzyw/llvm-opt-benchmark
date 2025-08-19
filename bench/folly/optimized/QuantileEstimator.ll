@@ -31,8 +31,8 @@ define void @_ZN5folly6detail19estimatesFromDigestERKNS_7TDigestENS_5RangeIPKdEE
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.not47 = icmp eq ptr %3, %2
-  br i1 %.not47, label %_ZNSt6vectorISt4pairIddESaIS1_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt4pairIddESaIS1_EE11_M_allocateEm.exit.i
+  %.not56 = icmp eq ptr %3, %2
+  br i1 %.not56, label %_ZNSt6vectorISt4pairIddESaIS1_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt4pairIddESaIS1_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseISt4pairIddESaIS1_EE11_M_allocateEm.exit.i: ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24

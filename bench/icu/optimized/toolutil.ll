@@ -708,9 +708,9 @@ define internal fastcc void @_ZL15utm_hasCapacityP11UToolMemoryi(ptr noundef %0,
   %28 = tail call noalias ptr @uprv_malloc_77(i64 noundef %26) #28
   store ptr %28, ptr %19, align 16, !tbaa !36
   %.not38 = icmp eq ptr %28, null
-  br i1 %.not38, label %.thread, label %.thread39
+  br i1 %.not38, label %.thread, label %.thread46
 
-.thread39:                                        ; preds = %27
+.thread46:                                        ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %30 = load i32, ptr %29, align 4, !tbaa !41
   %31 = sext i32 %30 to i64
@@ -732,7 +732,7 @@ define internal fastcc void @_ZL15utm_hasCapacityP11UToolMemoryi(ptr noundef %0,
   tail call void @exit(i32 noundef 7) #29
   unreachable
 
-40:                                               ; preds = %.thread39, %35
+40:                                               ; preds = %.thread46, %35
   store i32 %.0, ptr %3, align 16, !tbaa !38
   br label %41
 

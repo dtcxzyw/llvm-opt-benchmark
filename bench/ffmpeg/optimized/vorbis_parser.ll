@@ -556,8 +556,8 @@ define ptr @av_vorbis_parse_init(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %159 = getelementptr inbounds nuw [64 x i32], ptr %141, i64 0, i64 %indvars.iv134.i.i
   store i32 %158, ptr %159, align 4, !tbaa !13
   %indvars.iv.next135.i.i = add nsw i64 %indvars.iv134.i.i, -1
-  %.not139.i.i = icmp eq i64 %indvars.iv134.i.i, 0
-  br i1 %.not139.i.i, label %.loopexit, label %143, !llvm.loop !27
+  %.not141.i.i = icmp eq i64 %indvars.iv134.i.i, 0
+  br i1 %.not141.i.i, label %.loopexit, label %143, !llvm.loop !27
 
 parse_setup_header.exit.thread22.i:               ; preds = %125, %._crit_edge118.thread.i.i, %.thread.i.i
   call void @av_free(ptr noundef nonnull %54) #6

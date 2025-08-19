@@ -189,8 +189,8 @@ define internal i32 @pcx_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %99 = zext i16 %58 to i64
   %100 = zext nneg i32 %98 to i64
   %wide.trip.count288 = zext nneg i32 %51 to i64
-  %invariant.gep309 = getelementptr inbounds nuw i8, ptr %92, i64 %99
-  %invariant.gep311 = getelementptr inbounds nuw i8, ptr %92, i64 %100
+  %invariant.gep328 = getelementptr inbounds nuw i8, ptr %92, i64 %99
+  %invariant.gep330 = getelementptr inbounds nuw i8, ptr %92, i64 %100
   br label %101
 
 101:                                              ; preds = %.preheader, %160
@@ -260,10 +260,10 @@ bytestream2_get_byte.exit29.i:                    ; preds = %124, %114, %127, %1
   br i1 %or.cond32.i, label %.critedge2.loopexit.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %bytestream2_get_byte.exit29.i
-  %132 = zext i32 %.02235.i to i64
+  %132 = zext nneg i32 %.02235.i to i64
   %scevgep.i = getelementptr i8, ptr %92, i64 %132
   %133 = xor i32 %.02235.i, -1
-  %134 = add i32 %60, %133
+  %134 = add nsw i32 %60, %133
   %135 = zext i32 %134 to i64
   %136 = add nsw i8 %.021.i, -1
   %137 = zext nneg i8 %136 to i64
@@ -286,12 +286,12 @@ bytestream2_get_byte.exit29.i:                    ; preds = %124, %114, %127, %1
   br label %pcx_rle_decode.exit.sink.split
 
 pcx_rle_decode.exit.sink.split:                   ; preds = %.critedge2.loopexit.i, %.lr.ph36.i, %144
-  %.sink314 = phi ptr [ %147, %144 ], [ %109, %.lr.ph36.i ], [ %130, %.critedge2.loopexit.i ]
-  store ptr %.sink314, ptr %5, align 8
+  %.sink333 = phi ptr [ %147, %144 ], [ %109, %.lr.ph36.i ], [ %130, %.critedge2.loopexit.i ]
+  store ptr %.sink333, ptr %5, align 8
   br label %pcx_rle_decode.exit
 
 pcx_rle_decode.exit:                              ; preds = %pcx_rle_decode.exit.sink.split, %.critedge2.preheader.i
-  %148 = phi ptr [ %102, %.critedge2.preheader.i ], [ %.sink314, %pcx_rle_decode.exit.sink.split ]
+  %148 = phi ptr [ %102, %.critedge2.preheader.i ], [ %.sink333, %pcx_rle_decode.exit.sink.split ]
   br label %149
 
 149:                                              ; preds = %pcx_rle_decode.exit, %149
@@ -301,13 +301,13 @@ pcx_rle_decode.exit:                              ; preds = %pcx_rle_decode.exit
   %152 = mul nuw nsw i64 %indvars.iv285, 3
   %153 = getelementptr inbounds nuw i8, ptr %.0174251, i64 %152
   store i8 %151, ptr %153, align 1, !tbaa !20
-  %gep310 = getelementptr inbounds nuw i8, ptr %invariant.gep309, i64 %indvars.iv285
-  %154 = load i8, ptr %gep310, align 1, !tbaa !20
+  %gep329 = getelementptr inbounds nuw i8, ptr %invariant.gep328, i64 %indvars.iv285
+  %154 = load i8, ptr %gep329, align 1, !tbaa !20
   %155 = getelementptr inbounds nuw i8, ptr %.0174251, i64 %152
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 1
   store i8 %154, ptr %156, align 1, !tbaa !20
-  %gep312 = getelementptr inbounds nuw i8, ptr %invariant.gep311, i64 %indvars.iv285
-  %157 = load i8, ptr %gep312, align 1, !tbaa !20
+  %gep331 = getelementptr inbounds nuw i8, ptr %invariant.gep330, i64 %indvars.iv285
+  %157 = load i8, ptr %gep331, align 1, !tbaa !20
   %158 = getelementptr inbounds nuw i8, ptr %.0174251, i64 %152
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 2
   store i8 %157, ptr %159, align 1, !tbaa !20
@@ -697,7 +697,7 @@ bytestream2_get_byte.exit29:                      ; preds = %38, %37, %bytestrea
   br i1 %or.cond32, label %.critedge2.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %bytestream2_get_byte.exit29
-  %42 = zext i32 %.02235 to i64
+  %42 = zext nneg i32 %.02235 to i64
   %scevgep = getelementptr i8, ptr %1, i64 %42
   %43 = xor i32 %.02235, -1
   %44 = add i32 %2, %43

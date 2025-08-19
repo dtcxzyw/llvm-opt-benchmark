@@ -29,12 +29,12 @@ switch.lookup:                                    ; preds = %4
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.pg_hmac_create, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   %9 = zext nneg i32 %0 to i64
-  %switch.gep29 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.pg_hmac_create.1, i64 0, i64 %9
-  %switch.load30 = load i32, ptr %switch.gep29, align 4
+  %switch.gep30 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.pg_hmac_create.1, i64 0, i64 %9
+  %switch.load31 = load i32, ptr %switch.gep30, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %switch.load, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 %switch.load30, ptr %11, align 8
+  store i32 %switch.load31, ptr %11, align 8
   br label %12
 
 12:                                               ; preds = %4, %switch.lookup

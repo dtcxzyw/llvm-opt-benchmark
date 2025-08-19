@@ -41192,10 +41192,10 @@ _ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.ex
   store i32 0, ptr %.sroa.4.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 4, !noalias !8066
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.4.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !8059
   %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.3.4.copyload.i.i = load i32, ptr %.sroa.4.i.i, align 4, !noalias !8066
-  %.sroa.4.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx15 = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i, i64 4
-  %.sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.4..sroa.4.i.4..sroa.4.4..sroa.4.4..sroa.6.4.copyload.i.i = load i32, ptr %.sroa.4.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx15, align 4, !noalias !8066
-  %.sroa.4.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx16 = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i, i64 8
-  %.sroa.4.i.i.8..sroa.4.i.i.8..sroa.4.i.i.8..sroa.4.i.8..sroa.4.i.8..sroa.4.8..sroa.4.8..sroa.7.4.copyload.i.i = load i32, ptr %.sroa.4.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx16, align 4, !noalias !8066
+  %.sroa.4.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx20 = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i, i64 4
+  %.sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.4..sroa.4.i.4..sroa.4.4..sroa.4.4..sroa.6.4.copyload.i.i = load i32, ptr %.sroa.4.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx20, align 4, !noalias !8066
+  %.sroa.4.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx21 = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i, i64 8
+  %.sroa.4.i.i.8..sroa.4.i.i.8..sroa.4.i.i.8..sroa.4.i.8..sroa.4.i.8..sroa.4.8..sroa.4.8..sroa.7.4.copyload.i.i = load i32, ptr %.sroa.4.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx21, align 4, !noalias !8066
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i)
   br label %_ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.exit.i.i
 
@@ -41531,10 +41531,10 @@ _ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.ex
   store i32 0, ptr %.sroa.4.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 4, !noalias !8124
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.4.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !8117
   %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.3.4.copyload.i.i = load i32, ptr %.sroa.4.i.i, align 4, !noalias !8124
-  %.sroa.4.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx15 = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i, i64 4
-  %.sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.4..sroa.4.i.4..sroa.4.4..sroa.4.4..sroa.6.4.copyload.i.i = load i32, ptr %.sroa.4.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx15, align 4, !noalias !8124
-  %.sroa.4.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx16 = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i, i64 8
-  %.sroa.4.i.i.8..sroa.4.i.i.8..sroa.4.i.i.8..sroa.4.i.8..sroa.4.i.8..sroa.4.8..sroa.4.8..sroa.7.4.copyload.i.i = load i32, ptr %.sroa.4.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx16, align 4, !noalias !8124
+  %.sroa.4.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx20 = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i, i64 4
+  %.sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.4..sroa.4.i.4..sroa.4.4..sroa.4.4..sroa.6.4.copyload.i.i = load i32, ptr %.sroa.4.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx20, align 4, !noalias !8124
+  %.sroa.4.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx21 = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i, i64 8
+  %.sroa.4.i.i.8..sroa.4.i.i.8..sroa.4.i.i.8..sroa.4.i.8..sroa.4.i.8..sroa.4.8..sroa.4.8..sroa.7.4.copyload.i.i = load i32, ptr %.sroa.4.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx21, align 4, !noalias !8124
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i)
   br label %_ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.exit.i.i
 

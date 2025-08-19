@@ -316,8 +316,8 @@ _ZN8CodeHeap19mark_segmap_as_usedEmmb.exit:       ; preds = %60, %.thread, %51, 
   %72 = icmp uge i64 %70, %71
   %73 = shl i64 %70, %66
   %74 = getelementptr inbounds i8, ptr %62, i64 %73
-  %.not46 = icmp eq ptr %62, null
-  %.not = or i1 %72, %.not46
+  %.not52 = icmp eq ptr %62, null
+  %.not = or i1 %72, %.not52
   br i1 %.not, label %select.unfold._crit_edge.loopexit, label %9, !llvm.loop !10
 
 select.unfold._crit_edge.loopexit:                ; preds = %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
@@ -1105,7 +1105,7 @@ define hidden void @_ZN8CodeHeap15deallocate_tailEPvm(ptr noundef nonnull align 
   br i1 %55, label %50, label %_ZN8CodeHeap11split_blockEP9HeapBlockm.exit, !llvm.loop !8
 
 _ZN8CodeHeap11split_blockEP9HeapBlockm.exit:      ; preds = %54, %17, %44, %45, %.thread.i.i
-  %56 = trunc i64 %14 to i32
+  %56 = trunc nuw i64 %14 to i32
   store i32 %56, ptr %4, align 8
   tail call void @_ZN8CodeHeap15add_to_freelistEP9HeapBlock(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %27)
   ret void

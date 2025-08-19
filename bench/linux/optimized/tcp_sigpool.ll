@@ -771,8 +771,8 @@ define internal void @cpool_cleanup_work_cb(ptr readnone captures(none) %0) #0 a
   br i1 %3, label %.preheader, label %.outer
 
 .outer:                                           ; preds = %1, %.thread
-  %4 = phi i32 [ %.lcssa21, %.thread ], [ %2, %1 ]
-  %5 = phi i32 [ %.lcssa19, %.thread ], [ %2, %1 ]
+  %4 = phi i32 [ %.lcssa25, %.thread ], [ %2, %1 ]
+  %5 = phi i32 [ %.lcssa23, %.thread ], [ %2, %1 ]
   %.ph = phi i64 [ %31, %.thread ], [ 0, %1 ]
   %6 = phi i1 [ true, %.thread ], [ false, %1 ]
   %7 = getelementptr [170 x %struct.sigpool_entry], ptr @cpool, i64 0, i64 %.ph
@@ -815,11 +815,11 @@ define internal void @cpool_cleanup_work_cb(ptr readnone captures(none) %0) #0 a
   br i1 %30, label %11, label %34, !llvm.loop !45
 
 .thread:                                          ; preds = %11, %.outer
-  %.lcssa21 = phi i32 [ %4, %.outer ], [ %27, %11 ]
-  %.lcssa19 = phi i32 [ %5, %.outer ], [ %27, %11 ]
+  %.lcssa25 = phi i32 [ %4, %.outer ], [ %27, %11 ]
+  %.lcssa23 = phi i32 [ %5, %.outer ], [ %27, %11 ]
   %.lcssa = phi i64 [ %.ph, %.outer ], [ %28, %11 ]
   %31 = add nuw nsw i64 %.lcssa, 1
-  %32 = zext nneg i32 %.lcssa19 to i64
+  %32 = zext nneg i32 %.lcssa23 to i64
   %33 = icmp samesign ult i64 %31, %32
   br i1 %33, label %.outer, label %.thread3, !llvm.loop !45
 

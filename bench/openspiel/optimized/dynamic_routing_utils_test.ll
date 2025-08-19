@@ -699,7 +699,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   br label %.body23.i
 
 .body31.i:                                        ; preds = %207, %.body46.thread.i
-  %eh.lpad-body4756.i = phi { ptr, i32 } [ %206, %.body46.thread.i ], [ %201, %207 ]
+  %eh.lpad-body4764.i = phi { ptr, i32 } [ %206, %.body46.thread.i ], [ %201, %207 ]
   br label %230
 
 230:                                              ; preds = %230, %.body31.i
@@ -715,7 +715,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   br label %.loopexit.i
 
 .body23.i:                                        ; preds = %230, %228, %.body
-  %.pn.i1 = phi { ptr, i32 } [ %229, %228 ], [ %189, %.body ], [ %eh.lpad-body4756.i, %230 ]
+  %.pn.i1 = phi { ptr, i32 } [ %229, %228 ], [ %189, %.body ], [ %eh.lpad-body4764.i, %230 ]
   %234 = phi i1 [ false, %228 ], [ false, %.body ], [ true, %230 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %144) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %143) #21
@@ -2890,12 +2890,12 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   br label %.body.i26
 
 .body45.i:                                        ; preds = %896, %.body124.i, %.body124.thread.i
-  %eh.lpad-body125179.i = phi { ptr, i32 } [ %895, %.body124.thread.i ], [ %890, %.body124.i ], [ %890, %896 ]
+  %eh.lpad-body125241.i = phi { ptr, i32 } [ %895, %.body124.thread.i ], [ %890, %.body124.i ], [ %890, %896 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #21
   br label %.body.i26
 
 .body.i26:                                        ; preds = %.body45.i, %905, %.body53
-  %.pn.i27 = phi { ptr, i32 } [ %906, %905 ], [ %880, %.body53 ], [ %eh.lpad-body125179.i, %.body45.i ]
+  %.pn.i27 = phi { ptr, i32 } [ %906, %905 ], [ %880, %.body53 ], [ %eh.lpad-body125241.i, %.body45.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #21
   br label %969
 
@@ -3111,12 +3111,12 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   br label %.body62.i
 
 .body67.i:                                        ; preds = %959, %.body138.i, %.body138.thread.i
-  %eh.lpad-body139182.i = phi { ptr, i32 } [ %958, %.body138.thread.i ], [ %953, %.body138.i ], [ %953, %959 ]
+  %eh.lpad-body139244.i = phi { ptr, i32 } [ %958, %.body138.thread.i ], [ %953, %.body138.i ], [ %953, %959 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #21
   br label %.body62.i
 
 .body62.i:                                        ; preds = %.body67.i, %970, %.body50
-  %.pn27.i = phi { ptr, i32 } [ %971, %970 ], [ %943, %.body50 ], [ %eh.lpad-body139182.i, %.body67.i ]
+  %.pn27.i = phi { ptr, i32 } [ %971, %970 ], [ %943, %.body50 ], [ %eh.lpad-body139244.i, %.body67.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #21
   br label %1006
 
@@ -5794,7 +5794,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4absl7debian213hash_internal9HashS
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = add nsw i64 %2, -1
-  %43 = getelementptr inbounds i8, ptr %1, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %38 to i32
   %46 = zext i8 %41 to i32

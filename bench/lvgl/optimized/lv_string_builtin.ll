@@ -319,9 +319,9 @@ define void @lv_memset(ptr noundef %0, i8 noundef zeroext %1, i64 noundef %2) lo
   br i1 %.not5363, label %._crit_edge, label %.lr.ph66.preheader
 
 .lr.ph66.preheader:                               ; preds = %.lr.ph60, %.preheader
-  %.0.lcssa76 = phi ptr [ %.049, %.preheader ], [ %21, %.lr.ph60 ]
-  %.2.lcssa75 = phi i64 [ %.047, %.preheader ], [ %22, %.lr.ph60 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.0.lcssa76, i8 %1, i64 %.2.lcssa75, i1 false), !tbaa !3
+  %.0.lcssa78 = phi ptr [ %.049, %.preheader ], [ %21, %.lr.ph60 ]
+  %.2.lcssa77 = phi i64 [ %.047, %.preheader ], [ %22, %.lr.ph60 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.0.lcssa78, i8 %1, i64 %.2.lcssa77, i1 false), !tbaa !3
   br label %._crit_edge
 
 .lr.ph60:                                         ; preds = %.loopexit, %.lr.ph60

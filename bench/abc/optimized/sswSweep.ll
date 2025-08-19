@@ -949,13 +949,13 @@ Vec_IntGrow.exit.i109:                            ; preds = %190
   br label %Vec_IntPush.exit110.sink.split
 
 Vec_IntPush.exit110.sink.split:                   ; preds = %194, %Vec_IntGrow.exit.i109
-  %.sink117 = phi i32 [ 16, %Vec_IntGrow.exit.i109 ], [ %195, %194 ]
-  %.ph116 = phi ptr [ %193, %Vec_IntGrow.exit.i109 ], [ %199, %194 ]
-  store i32 %.sink117, ptr %4, align 8, !tbaa !30
+  %.sink133 = phi i32 [ 16, %Vec_IntGrow.exit.i109 ], [ %195, %194 ]
+  %.ph132 = phi ptr [ %193, %Vec_IntGrow.exit.i109 ], [ %199, %194 ]
+  store i32 %.sink133, ptr %4, align 8, !tbaa !30
   br label %Vec_IntPush.exit110
 
 Vec_IntPush.exit110:                              ; preds = %Vec_IntPush.exit110.sink.split, %Vec_IntPush.exit103
-  %200 = phi ptr [ %181, %Vec_IntPush.exit103 ], [ %.ph116, %Vec_IntPush.exit110.sink.split ]
+  %200 = phi ptr [ %181, %Vec_IntPush.exit103 ], [ %.ph132, %Vec_IntPush.exit110.sink.split ]
   %201 = load i32, ptr %155, align 4, !tbaa !28
   %202 = add nsw i32 %201, 1
   store i32 %202, ptr %155, align 4, !tbaa !28

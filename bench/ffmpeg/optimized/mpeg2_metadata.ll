@@ -96,7 +96,7 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %12 = load i32, ptr %11, align 8, !tbaa !27
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.lr.ph, label %.thread118
+  br i1 %13, label %.lr.ph, label %.thread127
 
 .lr.ph:                                           ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -158,18 +158,18 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
   br i1 %or.cond, label %41, label %36
 
 36:                                               ; preds = %._crit_edge
-  br i1 %34, label %37, label %.thread118
+  br i1 %34, label %37, label %.thread127
 
 37:                                               ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 376
   %39 = load i32, ptr %38, align 8, !tbaa !35
   %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %40, label %.thread118
+  br i1 %.not, label %40, label %.thread127
 
 40:                                               ; preds = %37
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.20) #3
   store i32 1, ptr %38, align 8, !tbaa !35
-  br label %.thread118
+  br label %.thread127
 
 41:                                               ; preds = %._crit_edge
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 344
@@ -289,7 +289,7 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
   %99 = getelementptr inbounds nuw i8, ptr %10, i64 372
   %100 = load i32, ptr %99, align 4, !tbaa !26
   %101 = icmp sgt i32 %100, -1
-  br i1 %101, label %102, label %.thread118
+  br i1 %101, label %102, label %.thread127
 
 102:                                              ; preds = %98, %94, %90, %86
   %.not102 = icmp eq ptr %.286, null
@@ -340,7 +340,7 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
 
 123:                                              ; preds = %103
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.21) #3
-  br label %.thread118
+  br label %.thread127
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %102
   %124 = phi i32 [ %88, %102 ], [ %.pre, %..critedge_crit_edge ]
@@ -369,7 +369,7 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
   %137 = getelementptr inbounds nuw i8, ptr %10, i64 372
   %138 = load i32, ptr %137, align 4, !tbaa !26
   %139 = icmp sgt i32 %138, -1
-  br i1 %139, label %.thread, label %.thread118
+  br i1 %139, label %.thread, label %.thread127
 
 .thread:                                          ; preds = %136, %132
   %140 = getelementptr inbounds nuw i8, ptr %.3, i64 1
@@ -401,15 +401,15 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
   %152 = getelementptr inbounds nuw i8, ptr %10, i64 372
   %153 = load i32, ptr %152, align 4, !tbaa !26
   %154 = icmp sgt i32 %153, -1
-  br i1 %154, label %155, label %.thread118
+  br i1 %154, label %155, label %.thread127
 
 155:                                              ; preds = %151
   %156 = trunc i32 %153 to i8
   %157 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   store i8 %156, ptr %157, align 2, !tbaa !62
-  br label %.thread118
+  br label %.thread127
 
-.thread118:                                       ; preds = %3, %123, %98, %151, %155, %136, %36, %37, %40
+.thread127:                                       ; preds = %3, %123, %98, %151, %155, %136, %36, %37, %40
   %.0 = phi i32 [ %121, %123 ], [ 0, %40 ], [ 0, %37 ], [ 0, %36 ], [ 0, %136 ], [ 0, %155 ], [ 0, %151 ], [ 0, %98 ], [ 0, %3 ]
   ret i32 %.0
 }

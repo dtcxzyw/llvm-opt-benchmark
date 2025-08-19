@@ -966,29 +966,29 @@ define ptr @Gia_ManVerifyCexAndMove(ptr noundef %0, ptr noundef readonly capture
   br i1 %157, label %.lr.ph208.preheader, label %.critedge10
 
 .lr.ph208.preheader:                              ; preds = %.critedge6._crit_edge
-  %.val144250 = load ptr, ptr %3, align 8, !tbaa !51
-  %.not115251 = icmp eq ptr %.val144250, null
-  br i1 %.not115251, label %.critedge10, label %.lr.ph255
+  %.val144255 = load ptr, ptr %3, align 8, !tbaa !51
+  %.not115256 = icmp eq ptr %.val144255, null
+  br i1 %.not115256, label %.critedge10, label %.lr.ph260
 
-.lr.ph208:                                        ; preds = %.lr.ph255
+.lr.ph208:                                        ; preds = %.lr.ph260
   %.val144 = load ptr, ptr %3, align 8, !tbaa !51
   %.not115 = icmp eq ptr %.val144, null
-  br i1 %.not115, label %.critedge10, label %.lr.ph255, !llvm.loop !72
+  br i1 %.not115, label %.critedge10, label %.lr.ph260, !llvm.loop !72
 
-.lr.ph255:                                        ; preds = %.lr.ph208.preheader, %.lr.ph208
-  %.val144254 = phi ptr [ %.val144, %.lr.ph208 ], [ %.val144250, %.lr.ph208.preheader ]
-  %.val135206253 = phi ptr [ %.val135, %.lr.ph208 ], [ %.val135203, %.lr.ph208.preheader ]
-  %indvars.iv230252 = phi i64 [ %indvars.iv.next231, %.lr.ph208 ], [ 0, %.lr.ph208.preheader ]
-  %158 = getelementptr i8, ptr %.val135206253, i64 8
+.lr.ph260:                                        ; preds = %.lr.ph208.preheader, %.lr.ph208
+  %.val144259 = phi ptr [ %.val144, %.lr.ph208 ], [ %.val144255, %.lr.ph208.preheader ]
+  %.val135206258 = phi ptr [ %.val135, %.lr.ph208 ], [ %.val135203, %.lr.ph208.preheader ]
+  %indvars.iv230257 = phi i64 [ %indvars.iv.next231, %.lr.ph208 ], [ 0, %.lr.ph208.preheader ]
+  %158 = getelementptr i8, ptr %.val135206258, i64 8
   %.val145.val = load ptr, ptr %158, align 8, !tbaa !64
-  %159 = getelementptr inbounds nuw i32, ptr %.val145.val, i64 %indvars.iv230252
+  %159 = getelementptr inbounds nuw i32, ptr %.val145.val, i64 %indvars.iv230257
   %160 = load i32, ptr %159, align 4, !tbaa !43
   %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val144254, i64 %161
+  %162 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val144259, i64 %161
   %163 = load i64, ptr %162, align 4
   %164 = and i64 %163, -1073741825
   store i64 %164, ptr %162, align 4
-  %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230252, 1
+  %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230257, 1
   %.val134 = load i32, ptr %4, align 8, !tbaa !60
   %.val135 = load ptr, ptr %155, align 8, !tbaa !61
   %165 = getelementptr i8, ptr %.val135, i64 4
@@ -998,7 +998,7 @@ define ptr @Gia_ManVerifyCexAndMove(ptr noundef %0, ptr noundef readonly capture
   %168 = icmp slt i64 %indvars.iv.next231, %167
   br i1 %168, label %.lr.ph208, label %..critedge10.loopexit_crit_edge, !llvm.loop !72
 
-..critedge10.loopexit_crit_edge:                  ; preds = %.lr.ph255
+..critedge10.loopexit_crit_edge:                  ; preds = %.lr.ph260
   br label %.critedge10, !llvm.loop !72
 
 .critedge10:                                      ; preds = %.lr.ph208, %.lr.ph208.preheader, %..critedge10.loopexit_crit_edge, %.critedge6._crit_edge
@@ -1010,29 +1010,29 @@ define ptr @Gia_ManVerifyCexAndMove(ptr noundef %0, ptr noundef readonly capture
   br i1 %170, label %.lr.ph215.preheader, label %.critedge12
 
 .lr.ph215.preheader:                              ; preds = %.critedge10
-  %.val152257 = load ptr, ptr %3, align 8, !tbaa !51
-  %.not116258 = icmp eq ptr %.val152257, null
-  br i1 %.not116258, label %.critedge12, label %.lr.ph262
+  %.val152262 = load ptr, ptr %3, align 8, !tbaa !51
+  %.not116263 = icmp eq ptr %.val152262, null
+  br i1 %.not116263, label %.critedge12, label %.lr.ph267
 
-.lr.ph215:                                        ; preds = %.lr.ph262
+.lr.ph215:                                        ; preds = %.lr.ph267
   %.val152 = load ptr, ptr %3, align 8, !tbaa !51
   %.not116 = icmp eq ptr %.val152, null
-  br i1 %.not116, label %.critedge12, label %.lr.ph262, !llvm.loop !73
+  br i1 %.not116, label %.critedge12, label %.lr.ph267, !llvm.loop !73
 
-.lr.ph262:                                        ; preds = %.lr.ph215.preheader, %.lr.ph215
-  %.val152261 = phi ptr [ %.val152, %.lr.ph215 ], [ %.val152257, %.lr.ph215.preheader ]
-  %.val159214260 = phi ptr [ %.val159, %.lr.ph215 ], [ %.val159211, %.lr.ph215.preheader ]
-  %indvars.iv233259 = phi i64 [ %indvars.iv.next234, %.lr.ph215 ], [ 0, %.lr.ph215.preheader ]
-  %171 = getelementptr i8, ptr %.val159214260, i64 8
+.lr.ph267:                                        ; preds = %.lr.ph215.preheader, %.lr.ph215
+  %.val152266 = phi ptr [ %.val152, %.lr.ph215 ], [ %.val152262, %.lr.ph215.preheader ]
+  %.val159214265 = phi ptr [ %.val159, %.lr.ph215 ], [ %.val159211, %.lr.ph215.preheader ]
+  %indvars.iv233264 = phi i64 [ %indvars.iv.next234, %.lr.ph215 ], [ 0, %.lr.ph215.preheader ]
+  %171 = getelementptr i8, ptr %.val159214265, i64 8
   %.val153.val = load ptr, ptr %171, align 8, !tbaa !64
-  %172 = getelementptr inbounds nuw i32, ptr %.val153.val, i64 %indvars.iv233259
+  %172 = getelementptr inbounds nuw i32, ptr %.val153.val, i64 %indvars.iv233264
   %173 = load i32, ptr %172, align 4, !tbaa !43
   %174 = sext i32 %173 to i64
-  %175 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val152261, i64 %174
+  %175 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val152266, i64 %174
   %176 = load i64, ptr %175, align 4
   %177 = and i64 %176, -1073741825
   store i64 %177, ptr %175, align 4
-  %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233259, 1
+  %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233264, 1
   %.val158 = load i32, ptr %4, align 8, !tbaa !60
   %.val159 = load ptr, ptr %154, align 8, !tbaa !65
   %178 = getelementptr i8, ptr %.val159, i64 4
@@ -1042,7 +1042,7 @@ define ptr @Gia_ManVerifyCexAndMove(ptr noundef %0, ptr noundef readonly capture
   %181 = icmp slt i64 %indvars.iv.next234, %180
   br i1 %181, label %.lr.ph215, label %..critedge12.loopexit_crit_edge, !llvm.loop !73
 
-..critedge12.loopexit_crit_edge:                  ; preds = %.lr.ph262
+..critedge12.loopexit_crit_edge:                  ; preds = %.lr.ph267
   br label %.critedge12, !llvm.loop !73
 
 .critedge12:                                      ; preds = %.lr.ph215, %.lr.ph215.preheader, %..critedge12.loopexit_crit_edge, %.critedge10

@@ -639,26 +639,26 @@ _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boun
   br i1 %134, label %._crit_edge.thread.i.i.i, label %139
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %.lr.ph271
-  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %61, %.lr.ph271 ]
+  %.019.lcssa29.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %61, %.lr.ph271 ]
   %135 = load ptr, ptr %63, align 8, !tbaa !47
-  %136 = icmp eq ptr %.019.lcssa28.i.i.i, %135
+  %136 = icmp eq ptr %.019.lcssa29.i.i.i, %135
   br i1 %136, label %select.unfold.i.i, label %137
 
 137:                                              ; preds = %._crit_edge.thread.i.i.i
-  %138 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #27
+  %138 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i) #27
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %138, i64 32
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !54
   br label %139
 
 139:                                              ; preds = %137, %._crit_edge.i.i.i
   %140 = phi i32 [ %.pre.i.i, %137 ], [ %133, %._crit_edge.i.i.i ]
-  %.019.lcssa29.i.i.i = phi ptr [ %.019.lcssa28.i.i.i, %137 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
+  %.019.lcssa28.i.i.i = phi ptr [ %.019.lcssa29.i.i.i, %137 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
   %.sroa.05.0.i.i.i = phi ptr [ %138, %137 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
   %141 = icmp slt i32 %140, %131
   br i1 %141, label %select.unfold.i.i, label %152
 
 select.unfold.i.i:                                ; preds = %139, %._crit_edge.thread.i.i.i
-  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %139 ]
+  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa29.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa28.i.i.i, %139 ]
   %142 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %61
   br i1 %142, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i, label %143
 
@@ -973,15 +973,15 @@ _ZNSt6vectorIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESaIS2_EE6resizeEm.exit184
 272:                                              ; preds = %264
   %273 = sdiv i64 9223372036854775807, %270
   %274 = icmp sgt i64 %.0115239243, %273
-  br i1 %274, label %.invoke314, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i185
+  br i1 %274, label %.invoke358, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i185
 
-.invoke314:                                       ; preds = %272, %284
+.invoke358:                                       ; preds = %272, %284
   %275 = call ptr @__cxa_allocate_exception(i64 8) #24
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %275, align 8, !tbaa !57
   invoke void @__cxa_throw(ptr nonnull %275, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #26
-          to label %.cont315 unwind label %.loopexit.split-lp252
+          to label %.cont359 unwind label %.loopexit.split-lp252
 
-.cont315:                                         ; preds = %.invoke314
+.cont359:                                         ; preds = %.invoke358
   unreachable
 
 _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i185: ; preds = %272, %264
@@ -1003,7 +1003,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 284:                                              ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
   %285 = sdiv i64 9223372036854775807, %282
   %286 = icmp sgt i64 %.0114244, %285
-  br i1 %286, label %.invoke314, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i189
+  br i1 %286, label %.invoke358, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i189
 
 _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i189: ; preds = %284, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
   %287 = mul nsw i64 %.0114244, %282
@@ -1027,7 +1027,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
           catch ptr @_ZTISt9exception
   br label %451
 
-.loopexit.split-lp252:                            ; preds = %.invoke314
+.loopexit.split-lp252:                            ; preds = %.invoke358
   %lpad.loopexit.split-lp254 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
@@ -1790,26 +1790,26 @@ _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boun
   br i1 %138, label %._crit_edge.thread.i.i.i, label %143
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %.lr.ph269
-  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %61, %.lr.ph269 ]
+  %.019.lcssa29.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %61, %.lr.ph269 ]
   %139 = load ptr, ptr %63, align 8, !tbaa !47
-  %140 = icmp eq ptr %.019.lcssa28.i.i.i, %139
+  %140 = icmp eq ptr %.019.lcssa29.i.i.i, %139
   br i1 %140, label %select.unfold.i.i, label %141
 
 141:                                              ; preds = %._crit_edge.thread.i.i.i
-  %142 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #27
+  %142 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i) #27
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %142, i64 32
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !54
   br label %143
 
 143:                                              ; preds = %141, %._crit_edge.i.i.i
   %144 = phi i32 [ %.pre.i.i, %141 ], [ %137, %._crit_edge.i.i.i ]
-  %.019.lcssa29.i.i.i = phi ptr [ %.019.lcssa28.i.i.i, %141 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
+  %.019.lcssa28.i.i.i = phi ptr [ %.019.lcssa29.i.i.i, %141 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
   %.sroa.05.0.i.i.i = phi ptr [ %142, %141 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
   %145 = icmp slt i32 %144, %135
   br i1 %145, label %select.unfold.i.i, label %156
 
 select.unfold.i.i:                                ; preds = %143, %._crit_edge.thread.i.i.i
-  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %143 ]
+  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa29.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa28.i.i.i, %143 ]
   %146 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %61
   br i1 %146, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i, label %147
 
@@ -2115,7 +2115,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEESaIS2_EE6resizeEm.exit184
           catch ptr @_ZTISt9exception
   br label %457
 
-.loopexit.split-lp250:                            ; preds = %.invoke313
+.loopexit.split-lp250:                            ; preds = %.invoke356
   %lpad.loopexit.split-lp252 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
@@ -2136,15 +2136,15 @@ _ZNSt6vectorIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEESaIS2_EE6resizeEm.exit184
 276:                                              ; preds = %268
   %277 = sdiv i64 9223372036854775807, %274
   %278 = icmp sgt i64 %.0115239243, %277
-  br i1 %278, label %.invoke313, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i185
+  br i1 %278, label %.invoke356, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i185
 
-.invoke313:                                       ; preds = %276, %288
+.invoke356:                                       ; preds = %276, %288
   %279 = call ptr @__cxa_allocate_exception(i64 8) #24
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %279, align 8, !tbaa !57
   invoke void @__cxa_throw(ptr nonnull %279, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #26
-          to label %.cont314 unwind label %.loopexit.split-lp250
+          to label %.cont357 unwind label %.loopexit.split-lp250
 
-.cont314:                                         ; preds = %.invoke313
+.cont357:                                         ; preds = %.invoke356
   unreachable
 
 _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i185: ; preds = %276, %268
@@ -2166,7 +2166,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
 288:                                              ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit
   %289 = sdiv i64 9223372036854775807, %286
   %290 = icmp sgt i64 %.0114244, %289
-  br i1 %290, label %.invoke313, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i189
+  br i1 %290, label %.invoke356, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i189
 
 _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i189: ; preds = %288, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit
   %291 = mul nsw i64 %.0114244, %286
@@ -3495,7 +3495,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN5Eigen6MatrixIdLin1ELin1ELi0EL
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 24
+  %19 = mul nuw nsw i64 %1, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !10
@@ -3981,7 +3981,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN5Eigen6MatrixIdLin1ELin1ELi1EL
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 24
+  %19 = mul nuw nsw i64 %1, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !107

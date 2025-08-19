@@ -2026,7 +2026,7 @@ define dso_local ptr @i915_gem_object_ggtt_pin(ptr noundef %0, ptr noundef %1, i
 
 .thread9:                                         ; preds = %.thread9.backedge, %5
   %14 = phi ptr [ null, %5 ], [ %.be, %.thread9.backedge ]
-  %15 = phi i32 [ -35, %5 ], [ %.be22, %.thread9.backedge ]
+  %15 = phi i32 [ -35, %5 ], [ %.be25, %.thread9.backedge ]
   switch i32 %15, label %62 [
     i32 -35, label %16
     i32 0, label %.loopexit
@@ -2124,7 +2124,7 @@ define dso_local ptr @i915_gem_object_ggtt_pin(ptr noundef %0, ptr noundef %1, i
 
 .thread9.backedge:                                ; preds = %57, %57, %.thread8
   %.be = phi ptr [ %61, %.thread8 ], [ %58, %57 ], [ %58, %57 ]
-  %.be22 = phi i32 [ %60, %.thread8 ], [ -35, %57 ], [ -35, %57 ]
+  %.be25 = phi i32 [ %60, %.thread8 ], [ -35, %57 ], [ -35, %57 ]
   br label %.thread9, !llvm.loop !52
 
 .thread8:                                         ; preds = %57, %38, %50, %53

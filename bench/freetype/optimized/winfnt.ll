@@ -605,8 +605,8 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   br label %fnt_face_get_dll_font.exit
 
 .thread174.thread.sink.split.i:                   ; preds = %95, %88, %.loopexit.i
-  %.sink240.i = phi i32 [ 3, %.loopexit.i ], [ 3, %88 ], [ 6, %95 ]
-  store i32 %.sink240.i, ptr %6, align 4, !tbaa !29
+  %.sink253.i = phi i32 [ 3, %.loopexit.i ], [ 3, %88 ], [ 6, %95 ]
+  store i32 %.sink253.i, ptr %6, align 4, !tbaa !29
   br label %.thread174.thread.i
 
 .thread174.thread.i:                              ; preds = %.thread174.thread.sink.split.i, %96, %94, %53, %45

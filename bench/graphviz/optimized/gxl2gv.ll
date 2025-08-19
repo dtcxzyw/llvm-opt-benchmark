@@ -1352,8 +1352,8 @@ agxblen.exit.i.i75:                               ; preds = %agxbuse.exit73
   br i1 %.not.i26.i.i, label %136, label %.thread
 
 .thread:                                          ; preds = %agxblen.exit.i.i75, %130
-  %.val.i25.i.i93 = phi i8 [ %.val.i25.pre.i.i, %130 ], [ 0, %agxblen.exit.i.i75 ]
-  %131 = zext i8 %.val.i25.i.i93 to i64
+  %.val.i25.i.i95 = phi i8 [ %.val.i25.pre.i.i, %130 ], [ 0, %agxblen.exit.i.i75 ]
+  %131 = zext i8 %.val.i25.i.i95 to i64
   %132 = getelementptr inbounds nuw [31 x i8], ptr %3, i64 0, i64 %131
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %132, ptr nonnull readonly align 1 %124, i64 %125, i1 false)
   %133 = trunc i64 %125 to i8

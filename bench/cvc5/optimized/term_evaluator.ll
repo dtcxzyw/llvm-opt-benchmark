@@ -1613,7 +1613,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit259: ; preds = %182, %187, %193
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit267
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit267: ; preds = %._ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit267_crit_edge, %238, %232, %240
-  %.0164.lcssa612 = phi i1 [ false, %._ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit267_crit_edge ], [ true, %238 ], [ true, %232 ], [ true, %240 ]
+  %.0164.lcssa660 = phi i1 [ false, %._ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit267_crit_edge ], [ true, %238 ], [ true, %232 ], [ true, %240 ]
   %244 = phi ptr [ %.pre608, %._ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit267_crit_edge ], [ %226, %238 ], [ %226, %232 ], [ %226, %240 ]
   %245 = load ptr, ptr %10, align 8, !tbaa !20
   %.not.i268 = icmp eq ptr %245, %244
@@ -1651,7 +1651,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKNS1_ILb1EEE.exit: ; preds = %_ZN4cvc58
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit270: ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKNS1_ILb1EEE.exit, %249, %255
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  br i1 %.0164.lcssa612, label %259, label %260
+  br i1 %.0164.lcssa660, label %259, label %260
 
 259:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit270
   call void @llvm.lifetime.end.p0(ptr nonnull %24)

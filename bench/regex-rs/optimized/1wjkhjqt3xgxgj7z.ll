@@ -1550,14 +1550,14 @@ default.unreachable10.i.i.i:                      ; preds = %110
   %.sroa.15106.2187194.i.i = phi i64 [ %123, %122 ], [ %.sroa.15106.0.ph.i.i, %126 ]
   %.pn.i68.i.i = phi i64 [ 0, %122 ], [ %..i5.i67.i.i, %126 ]
   %.pn6.i69.i.i = phi ptr [ %.sroa.7100.sroa.6.0.copyload.i.i, %122 ], [ %127, %126 ]
-  %.sroa.7100.0..sroa_idx.i.i324 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %.sroa.7100.sroa.7.0..sroa.7100.0..sroa_idx.sroa_idx.i.i335 = getelementptr inbounds nuw i8, ptr %108, i64 40
-  %.sroa.7100.sroa.6.0..sroa.7100.0..sroa_idx.sroa_idx.i.i346 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  store i64 %.sroa.0104.0181200.i.i, ptr %.sroa.7100.0..sroa_idx.i.i324, align 8, !noalias !218
+  %.sroa.7100.0..sroa_idx.i.i340 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  %.sroa.7100.sroa.7.0..sroa.7100.0..sroa_idx.sroa_idx.i.i351 = getelementptr inbounds nuw i8, ptr %108, i64 40
+  %.sroa.7100.sroa.6.0..sroa.7100.0..sroa_idx.sroa_idx.i.i362 = getelementptr inbounds nuw i8, ptr %108, i64 32
+  store i64 %.sroa.0104.0181200.i.i, ptr %.sroa.7100.0..sroa_idx.i.i340, align 8, !noalias !218
   %.sroa.5118.sroa.4.0..sroa.5118.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %108, i64 24
   store ptr %.sroa.11105.2183198.i.i, ptr %.sroa.5118.sroa.4.0..sroa.5118.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !218
-  store ptr %.sroa.13.2185196.i.i, ptr %.sroa.7100.sroa.6.0..sroa.7100.0..sroa_idx.sroa_idx.i.i346, align 8, !noalias !218
-  store i64 %.sroa.15106.2187194.i.i, ptr %.sroa.7100.sroa.7.0..sroa.7100.0..sroa_idx.sroa_idx.i.i335, align 8, !noalias !218
+  store ptr %.sroa.13.2185196.i.i, ptr %.sroa.7100.sroa.6.0..sroa.7100.0..sroa_idx.sroa_idx.i.i362, align 8, !noalias !218
+  store i64 %.sroa.15106.2187194.i.i, ptr %.sroa.7100.sroa.7.0..sroa.7100.0..sroa_idx.sroa_idx.i.i351, align 8, !noalias !218
   %132 = load i64, ptr %14, align 8, !alias.scope !268, !noalias !271, !noundef !4
   %133 = add i64 %132, 1
   store i64 %133, ptr %14, align 8, !alias.scope !268, !noalias !271
@@ -2385,7 +2385,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$regex_syntax..hir..print..Writer$LT
     i64 7, label %45
   ]
 
-default.unreachable412:                           ; preds = %38
+default.unreachable425:                           ; preds = %38
   unreachable
 
 15:                                               ; preds = %2
@@ -2443,7 +2443,7 @@ default.unreachable412:                           ; preds = %38
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load i32, ptr %39, align 8, !range !481, !noundef !4
   %41 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %40, i1 true)
-  switch i32 %41, label %default.unreachable412 [
+  switch i32 %41, label %default.unreachable425 [
     i32 0, label %199
     i32 1, label %202
     i32 2, label %205
@@ -2510,7 +2510,7 @@ default.unreachable412:                           ; preds = %38
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %63 = icmp eq i64 %23, 0
-  br i1 %63, label %.thread, label %.lr.ph423
+  br i1 %63, label %.thread, label %.lr.ph436
 
 64:                                               ; preds = %"_ZN12regex_syntax3hir5print15Writer$LT$W$GT$18write_literal_char17hf90c140c1cb42a42E.exit", %53
   %.sroa.0.0 = phi ptr [ %.sroa.4.0.copyload, %53 ], [ %.sroa.0.1.ph376, %"_ZN12regex_syntax3hir5print15Writer$LT$W$GT$18write_literal_char17hf90c140c1cb42a42E.exit" ]
@@ -2589,22 +2589,22 @@ default.unreachable412:                           ; preds = %38
 .thread:                                          ; preds = %64, %92, %.backedge, %55
   br i1 %31, label %118, label %"_ZN12regex_syntax3hir5print15Writer$LT$W$GT$18write_literal_char17hf90c140c1cb42a42E.exit.thread"
 
-.lr.ph423:                                        ; preds = %55, %.backedge
-  %.sroa.0361.0421 = phi ptr [ %108, %.backedge ], [ %21, %55 ]
-  %108 = getelementptr inbounds nuw i8, ptr %.sroa.0361.0421, i64 1
-  %109 = load i8, ptr %.sroa.0361.0421, align 1, !noundef !4
+.lr.ph436:                                        ; preds = %55, %.backedge
+  %.sroa.0361.0434 = phi ptr [ %108, %.backedge ], [ %21, %55 ]
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.0361.0434, i64 1
+  %109 = load i8, ptr %.sroa.0361.0434, align 1, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %109, ptr %6, align 1
   %or.cond.i = icmp slt i8 %109, 32
   br i1 %or.cond.i, label %.critedge.i, label %switch.early.test.i
 
-switch.early.test.i:                              ; preds = %.lr.ph423
+switch.early.test.i:                              ; preds = %.lr.ph436
   switch i8 %109, label %111 [
     i8 127, label %.critedge.i
     i8 32, label %.critedge.i
   ]
 
-.critedge.i:                                      ; preds = %switch.early.test.i, %switch.early.test.i, %.lr.ph423
+.critedge.i:                                      ; preds = %switch.early.test.i, %switch.early.test.i, %.lr.ph436
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
@@ -2653,7 +2653,7 @@ switch.early.test.i:                              ; preds = %.lr.ph423
 
 .backedge:                                        ; preds = %"_ZN12regex_syntax3hir5print15Writer$LT$W$GT$18write_literal_byte17hcde399eb5f49ed7bE.exit", %.critedge.i
   %117 = icmp eq ptr %108, %56
-  br i1 %117, label %.thread, label %.lr.ph423
+  br i1 %117, label %.thread, label %.lr.ph436
 
 118:                                              ; preds = %.thread
   %119 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val342, ptr noalias noundef nonnull readonly align 1 @anon.a0cf07ee2bf0c4ef13b938348e5442a5.24, i64 noundef 1), !noalias !515
@@ -3345,14 +3345,14 @@ define void @_ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN12regex_syntax3hir7visitor11HeapVisitor3pop17h37ec2ebcf539a063E(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #8 {
   %4 = load i64, ptr %2, align 8, !range !785, !noundef !4
-  switch i64 %4, label %default.unreachable17 [
+  switch i64 %4, label %default.unreachable18 [
     i64 0, label %5
     i64 1, label %6
     i64 2, label %7
     i64 3, label %11
   ]
 
-default.unreachable17:                            ; preds = %3
+default.unreachable18:                            ; preds = %3
   unreachable
 
 5:                                                ; preds = %3

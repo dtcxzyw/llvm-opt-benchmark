@@ -2790,16 +2790,16 @@ define dso_local ptr @vm_map_ram(ptr noundef readonly captures(none) %0, i32 nou
 125:                                              ; preds = %122
   %126 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %127 = load i64, ptr %126, align 8
-  br label %.backedge118
+  br label %.backedge159
 
-.backedge118:                                     ; preds = %.backedge118.backedge, %125
-  %128 = phi ptr [ %123, %125 ], [ %.be, %.backedge118.backedge ]
+.backedge159:                                     ; preds = %.backedge159.backedge, %125
+  %128 = phi ptr [ %123, %125 ], [ %.be, %.backedge159.backedge ]
   %129 = getelementptr i8, ptr %128, i64 -16
   %130 = load i64, ptr %129, align 8
   %131 = icmp ugt i64 %127, %130
   br i1 %131, label %132, label %.thread
 
-132:                                              ; preds = %.backedge118
+132:                                              ; preds = %.backedge159
   %133 = load i64, ptr %72, align 8
   %134 = getelementptr i8, ptr %128, i64 -8
   %135 = load i64, ptr %134, align 8
@@ -2810,19 +2810,19 @@ define dso_local ptr @vm_map_ram(ptr noundef readonly captures(none) %0, i32 nou
   %138 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %139 = load ptr, ptr %138, align 8
   %140 = icmp eq ptr %139, null
-  br i1 %140, label %152, label %.backedge118.backedge
+  br i1 %140, label %152, label %.backedge159.backedge
 
-.backedge118.backedge:                            ; preds = %137, %.thread
+.backedge159.backedge:                            ; preds = %137, %.thread
   %.be = phi ptr [ %139, %137 ], [ %142, %.thread ]
-  br label %.backedge118, !llvm.loop !116
+  br label %.backedge159, !llvm.loop !116
 
-.thread:                                          ; preds = %.backedge118
+.thread:                                          ; preds = %.backedge159
   %141 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %142 = load ptr, ptr %141, align 8
   %143 = icmp eq ptr %142, null
-  br i1 %143, label %.thread117, label %.backedge118.backedge
+  br i1 %143, label %.thread158, label %.backedge159.backedge
 
-.thread117:                                       ; preds = %.thread
+.thread158:                                       ; preds = %.thread
   %144 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %145 = getelementptr i8, ptr %128, i64 24
   br label %156
@@ -2848,10 +2848,10 @@ define dso_local ptr @vm_map_ram(ptr noundef readonly captures(none) %0, i32 nou
   %155 = load ptr, ptr %154, align 8
   br label %156
 
-156:                                              ; preds = %.thread117, %152
-  %157 = phi ptr [ %154, %152 ], [ %145, %.thread117 ]
-  %158 = phi ptr [ %153, %152 ], [ %144, %.thread117 ]
-  %159 = phi ptr [ %155, %152 ], [ %145, %.thread117 ]
+156:                                              ; preds = %.thread158, %152
+  %157 = phi ptr [ %154, %152 ], [ %145, %.thread158 ]
+  %158 = phi ptr [ %153, %152 ], [ %144, %.thread158 ]
+  %159 = phi ptr [ %155, %152 ], [ %145, %.thread158 ]
   %160 = icmp eq ptr %159, null
   br i1 %160, label %.thread65, label %161, !prof !57
 
@@ -3585,7 +3585,7 @@ select.unfold:                                    ; preds = %146
   %152 = select i1 %151, i32 1, i32 2
   %153 = select i1 %151, i32 3, i32 4
   %spec.select = select i1 %150, i32 %152, i32 %153
-  switch i32 %spec.select, label %default.unreachable95 [
+  switch i32 %spec.select, label %default.unreachable140 [
     i32 1, label %154
     i32 2, label %326
     i32 3, label %328
@@ -3979,7 +3979,7 @@ select.unfold:                                    ; preds = %146
   call fastcc void @insert_vmap_area_augment(ptr noundef nonnull %349, ptr noundef nonnull %350)
   br label %.thread44
 
-default.unreachable95:                            ; preds = %select.unfold
+default.unreachable140:                           ; preds = %select.unfold
   unreachable
 
 .thread45:                                        ; preds = %144, %146, %333
@@ -5623,13 +5623,13 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %280, %283
-  %.sink57 = phi i64 [ %284, %283 ], [ %281, %280 ]
-  %.sink55 = phi i32 [ 524288, %283 ], [ 262144, %280 ]
-  %285 = inttoptr i64 %.sink57 to ptr
+  %.sink77 = phi i64 [ %284, %283 ], [ %281, %280 ]
+  %.sink75 = phi i32 [ 524288, %283 ], [ 262144, %280 ]
+  %285 = inttoptr i64 %.sink77 to ptr
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 44
   %287 = load i32, ptr %286, align 4
-  %288 = and i32 %287, %.sink55
-  %289 = or i32 %287, %.sink55
+  %288 = and i32 %287, %.sink75
+  %289 = or i32 %287, %.sink75
   store i32 %289, ptr %286, align 4
   br label %290
 
@@ -6199,7 +6199,7 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %184 = lshr i64 %183, 22
   %185 = tail call ptr @xa_load(ptr noundef nonnull %180, i64 noundef %184) #21
   %186 = icmp eq ptr %185, null
-  br i1 %186, label %.preheader162, label %187
+  br i1 %186, label %.preheader198, label %187
 
 187:                                              ; preds = %168
   tail call void @_raw_spin_lock(ptr noundef nonnull %185) #21
@@ -6418,14 +6418,14 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 .loopexit68:                                      ; preds = %.thread39, %191, %187
   %331 = phi i64 [ %117, %187 ], [ %117, %191 ], [ %321, %.thread39 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %185) #21
-  br label %.preheader162
+  br label %.preheader198
 
-.preheader162:                                    ; preds = %.loopexit68, %168
+.preheader198:                                    ; preds = %.loopexit68, %168
   %.ph = phi i64 [ %117, %168 ], [ %331, %.loopexit68 ]
   br label %332
 
-332:                                              ; preds = %.preheader162, %335
-  %333 = phi i64 [ %347, %335 ], [ %.ph, %.preheader162 ]
+332:                                              ; preds = %.preheader198, %335
+  %333 = phi i64 [ %347, %335 ], [ %.ph, %.preheader198 ]
   %334 = icmp eq i64 %333, 0
   br i1 %334, label %.loopexit59.thread, label %335
 
@@ -6451,21 +6451,21 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br label %.loopexit59
 
 350:                                              ; preds = %111
-  br i1 %75, label %351, label %.preheader157
+  br i1 %75, label %351, label %.preheader193
 
 351:                                              ; preds = %350
   %352 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %353 = load i64, ptr %352, align 8
   %354 = and i64 %353, 1
   %355 = icmp eq i64 %354, 0
-  br i1 %355, label %.preheader157, label %.preheader60
+  br i1 %355, label %.preheader193, label %.preheader60
 
-.preheader157:                                    ; preds = %351, %350
+.preheader193:                                    ; preds = %351, %350
   br label %356
 
-356:                                              ; preds = %.preheader157, %397
-  %357 = phi ptr [ %399, %397 ], [ %113, %.preheader157 ]
-  %358 = phi i64 [ %400, %397 ], [ %117, %.preheader157 ]
+356:                                              ; preds = %.preheader193, %397
+  %357 = phi ptr [ %399, %397 ], [ %113, %.preheader193 ]
+  %358 = phi i64 [ %400, %397 ], [ %117, %.preheader193 ]
   %359 = icmp eq i64 %358, 0
   br i1 %359, label %.loopexit59.thread, label %360
 
@@ -7280,7 +7280,7 @@ select.unfold:                                    ; preds = %297
   %304 = select i1 %303, i32 1, i32 2
   %305 = select i1 %303, i32 3, i32 4
   %spec.select = select i1 %302, i32 %304, i32 %305
-  switch i32 %spec.select, label %default.unreachable297 [
+  switch i32 %spec.select, label %default.unreachable375 [
     i32 1, label %306
     i32 2, label %478
     i32 3, label %480
@@ -7674,7 +7674,7 @@ select.unfold:                                    ; preds = %297
   tail call fastcc void @insert_vmap_area_augment(ptr noundef nonnull %501, ptr noundef nonnull %502)
   br label %541
 
-default.unreachable297:                           ; preds = %select.unfold
+default.unreachable375:                           ; preds = %select.unfold
   unreachable
 
 .thread88:                                        ; preds = %294, %297, %485
@@ -7783,9 +7783,9 @@ default.unreachable297:                           ; preds = %select.unfold
   %590 = getelementptr inbounds nuw i8, ptr %577, i64 16
   %591 = load ptr, ptr %590, align 8
   %592 = icmp eq ptr %591, null
-  br i1 %592, label %.thread298, label %.backedge.backedge
+  br i1 %592, label %.thread376, label %.backedge.backedge
 
-.thread298:                                       ; preds = %.thread
+.thread376:                                       ; preds = %.thread
   %593 = getelementptr inbounds nuw i8, ptr %577, i64 16
   %594 = getelementptr i8, ptr %577, i64 24
   br label %605
@@ -7811,10 +7811,10 @@ default.unreachable297:                           ; preds = %select.unfold
   %604 = load ptr, ptr %603, align 8
   br label %605
 
-605:                                              ; preds = %.thread298, %601
-  %606 = phi ptr [ %603, %601 ], [ %594, %.thread298 ]
-  %607 = phi ptr [ %602, %601 ], [ %593, %.thread298 ]
-  %608 = phi ptr [ %604, %601 ], [ %594, %.thread298 ]
+605:                                              ; preds = %.thread376, %601
+  %606 = phi ptr [ %603, %601 ], [ %594, %.thread376 ]
+  %607 = phi ptr [ %602, %601 ], [ %593, %.thread376 ]
+  %608 = phi ptr [ %604, %601 ], [ %594, %.thread376 ]
   %609 = icmp eq ptr %608, null
   br i1 %609, label %.thread124, label %610, !prof !57
 
@@ -8013,16 +8013,16 @@ default.unreachable297:                           ; preds = %select.unfold
   %725 = ptrtoint ptr %703 to i64
   %726 = add i64 %725, 1
   store i64 %726, ptr %705, align 8
-  br label %.thread299
+  br label %.thread377
 
 727:                                              ; preds = %721
   %728 = load i64, ptr %704, align 8
   %729 = and i64 %728, 1
   %730 = icmp eq i64 %729, 0
   %731 = select i1 %730, ptr null, ptr %703
-  br label %.thread299
+  br label %.thread377
 
-.thread299:                                       ; preds = %724, %727
+.thread377:                                       ; preds = %724, %727
   %732 = phi ptr [ null, %724 ], [ %731, %727 ]
   store i64 %711, ptr %704, align 8
   br label %.lr.ph234.preheader
@@ -8033,9 +8033,9 @@ default.unreachable297:                           ; preds = %select.unfold
   %736 = icmp eq ptr %734, null
   br i1 %736, label %.thread113, label %.lr.ph234.preheader
 
-.lr.ph234.preheader:                              ; preds = %.thread299, %733
-  %737 = phi ptr [ %732, %.thread299 ], [ %735, %733 ]
-  %738 = phi ptr [ %704, %.thread299 ], [ %734, %733 ]
+.lr.ph234.preheader:                              ; preds = %.thread377, %733
+  %737 = phi ptr [ %732, %.thread377 ], [ %735, %733 ]
+  %738 = phi ptr [ %704, %.thread377 ], [ %734, %733 ]
   br label %.lr.ph234
 
 .lr.ph234:                                        ; preds = %.lr.ph234.preheader, %766
@@ -8241,27 +8241,27 @@ default.unreachable297:                           ; preds = %select.unfold
   br i1 %848, label %.loopexit149.backedge, label %.preheader147, !llvm.loop !247
 
 .loopexit148:                                     ; preds = %.preheader163, %.thread86, %842
-  br i1 %24, label %.preheader361, label %.thread85
+  br i1 %24, label %.preheader439, label %.thread85
 
-.preheader361:                                    ; preds = %.loopexit148, %855
+.preheader439:                                    ; preds = %.loopexit148, %855
   %849 = phi i64 [ %858, %855 ], [ 0, %.loopexit148 ]
   %850 = getelementptr ptr, ptr %77, i64 %849
   %851 = load ptr, ptr %850, align 8
   %852 = icmp eq ptr %851, null
   br i1 %852, label %855, label %853
 
-853:                                              ; preds = %.preheader361
+853:                                              ; preds = %.preheader439
   %854 = load ptr, ptr @vmap_area_cachep, align 8
   tail call void @kmem_cache_free(ptr noundef %854, ptr noundef nonnull %851) #21
   br label %855
 
-855:                                              ; preds = %853, %.preheader361
+855:                                              ; preds = %853, %.preheader439
   %856 = getelementptr ptr, ptr %76, i64 %849
   %857 = load ptr, ptr %856, align 8
   tail call void @kfree(ptr noundef %857) #21
   %858 = add nuw nsw i64 %849, 1
   %859 = icmp eq i64 %858, %74
-  br i1 %859, label %.thread85, label %.preheader361, !llvm.loop !248
+  br i1 %859, label %.thread85, label %.preheader439, !llvm.loop !248
 
 .thread85:                                        ; preds = %855, %71, %.loopexit148, %73
   %860 = phi ptr [ %77, %.loopexit148 ], [ %77, %73 ], [ null, %71 ], [ %77, %855 ]
@@ -8294,7 +8294,7 @@ define internal fastcc void @insert_vmap_area(ptr noundef %0) unnamed_addr #1 al
   %8 = getelementptr i8, ptr %7, i64 -16
   %9 = load i64, ptr %8, align 8
   %10 = icmp ugt i64 %6, %9
-  br i1 %10, label %11, label %.thread19
+  br i1 %10, label %11, label %.thread20
 
 11:                                               ; preds = %.backedge
   %12 = load i64, ptr %0, align 8
@@ -8309,11 +8309,11 @@ define internal fastcc void @insert_vmap_area(ptr noundef %0) unnamed_addr #1 al
   %19 = icmp eq ptr %18, null
   br i1 %19, label %30, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %16, %.thread19
-  %.be = phi ptr [ %18, %16 ], [ %21, %.thread19 ]
+.backedge.backedge:                               ; preds = %16, %.thread20
+  %.be = phi ptr [ %18, %16 ], [ %21, %.thread20 ]
   br label %.backedge, !llvm.loop !116
 
-.thread19:                                        ; preds = %.backedge
+.thread20:                                        ; preds = %.backedge
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
@@ -8339,7 +8339,7 @@ define internal fastcc void @insert_vmap_area(ptr noundef %0) unnamed_addr #1 al
   %32 = getelementptr i8, ptr %7, i64 24
   br label %.thread
 
-33:                                               ; preds = %.thread19
+33:                                               ; preds = %.thread20
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %35 = getelementptr i8, ptr %7, i64 32
   %36 = load ptr, ptr %35, align 8
@@ -9121,9 +9121,9 @@ define internal fastcc zeroext i1 @__purge_vmap_area_lazy(i64 noundef %0, i64 no
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %.thread91, label %.preheader69.backedge
+  br i1 %50, label %.thread123, label %.preheader69.backedge
 
-.thread91:                                        ; preds = %.thread
+.thread123:                                       ; preds = %.thread
   %51 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %52 = getelementptr i8, ptr %36, i64 24
   br label %63
@@ -9149,10 +9149,10 @@ define internal fastcc zeroext i1 @__purge_vmap_area_lazy(i64 noundef %0, i64 no
   %62 = load ptr, ptr %61, align 8
   br label %63
 
-63:                                               ; preds = %.thread91, %59
-  %64 = phi ptr [ %61, %59 ], [ %52, %.thread91 ]
-  %65 = phi ptr [ %60, %59 ], [ %51, %.thread91 ]
-  %66 = phi ptr [ %62, %59 ], [ %52, %.thread91 ]
+63:                                               ; preds = %.thread123, %59
+  %64 = phi ptr [ %61, %59 ], [ %52, %.thread123 ]
+  %65 = phi ptr [ %60, %59 ], [ %51, %.thread123 ]
+  %66 = phi ptr [ %62, %59 ], [ %52, %.thread123 ]
   %67 = icmp eq ptr %66, null
   br i1 %67, label %.thread56, label %68, !prof !57
 
@@ -9814,9 +9814,9 @@ define internal fastcc void @free_vmap_area_noflush(ptr noundef %0) unnamed_addr
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread50, label %.backedge.backedge
+  br i1 %38, label %.thread55, label %.backedge.backedge
 
-.thread50:                                        ; preds = %.thread
+.thread55:                                        ; preds = %.thread
   %39 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %40 = getelementptr i8, ptr %23, i64 24
   br label %52
@@ -9842,10 +9842,10 @@ define internal fastcc void @free_vmap_area_noflush(ptr noundef %0) unnamed_addr
   %51 = load ptr, ptr %50, align 8
   br label %52
 
-52:                                               ; preds = %.thread50, %48
-  %53 = phi ptr [ %50, %48 ], [ %40, %.thread50 ]
-  %54 = phi ptr [ %49, %48 ], [ %39, %.thread50 ]
-  %55 = phi ptr [ %51, %48 ], [ %40, %.thread50 ]
+52:                                               ; preds = %.thread55, %48
+  %53 = phi ptr [ %50, %48 ], [ %40, %.thread55 ]
+  %54 = phi ptr [ %49, %48 ], [ %39, %.thread55 ]
+  %55 = phi ptr [ %51, %48 ], [ %40, %.thread55 ]
   %56 = icmp eq ptr %55, null
   br i1 %56, label %.thread27, label %57, !prof !57
 
@@ -10273,7 +10273,7 @@ define internal fastcc void @insert_vmap_area_augment(ptr noundef nonnull %0, pt
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.thread13.loopexit39, label %7, !llvm.loop !116
+  br i1 %28, label %.thread13.loopexit45, label %7, !llvm.loop !116
 
 29:                                               ; preds = %2
   %30 = load ptr, ptr @free_vmap_area_root, align 8
@@ -10325,13 +10325,13 @@ define internal fastcc void @insert_vmap_area_augment(ptr noundef nonnull %0, pt
   %57 = getelementptr inbounds nuw i8, ptr %36, i64 %53
   br label %.thread13
 
-.thread13.loopexit39:                             ; preds = %24
+.thread13.loopexit45:                             ; preds = %24
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 %25
   br label %.thread13
 
-.thread13:                                        ; preds = %.thread13.loopexit39, %.thread13.loopexit
-  %.ph817 = phi ptr [ %57, %.thread13.loopexit ], [ %58, %.thread13.loopexit39 ]
-  %.ph16 = phi ptr [ %36, %.thread13.loopexit ], [ %8, %.thread13.loopexit39 ]
+.thread13:                                        ; preds = %.thread13.loopexit45, %.thread13.loopexit
+  %.ph817 = phi ptr [ %57, %.thread13.loopexit ], [ %58, %.thread13.loopexit45 ]
+  %.ph16 = phi ptr [ %36, %.thread13.loopexit ], [ %8, %.thread13.loopexit45 ]
   %59 = getelementptr i8, ptr %.ph16, i64 24
   %60 = getelementptr inbounds nuw i8, ptr %.ph16, i64 8
   %61 = icmp eq ptr %60, %.ph817

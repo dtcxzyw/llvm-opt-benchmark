@@ -769,8 +769,8 @@ canoncolor.exit:                                  ; preds = %.backedge.i
 
 agxblen.exit.i.i26:                               ; preds = %9, %canoncolor.exit
   %47 = phi ptr [ %46, %canoncolor.exit ], [ %11, %9 ]
-  %.val.i49 = phi i8 [ %.val.i41, %canoncolor.exit ], [ 0, %9 ]
-  %48 = zext i8 %.val.i49 to i64
+  %.val.i55 = phi i8 [ %.val.i41, %canoncolor.exit ], [ 0, %9 ]
+  %48 = zext i8 %.val.i55 to i64
   br label %agxbsizeof.exit.i.i20
 
 49:                                               ; preds = %canoncolor.exit
@@ -782,7 +782,7 @@ agxblen.exit.i.i26:                               ; preds = %9, %canoncolor.exit
 
 agxbsizeof.exit.i.i20:                            ; preds = %49, %agxblen.exit.i.i26
   %54 = phi ptr [ %46, %49 ], [ %47, %agxblen.exit.i.i26 ]
-  %.val.i48 = phi i8 [ -1, %49 ], [ %.val.i49, %agxblen.exit.i.i26 ]
+  %.val.i54 = phi i8 [ -1, %49 ], [ %.val.i55, %agxblen.exit.i.i26 ]
   %.0.i20.i.i21 = phi i64 [ %51, %49 ], [ %48, %agxblen.exit.i.i26 ]
   %.0.i14.i.i22 = phi i64 [ %53, %49 ], [ 31, %agxblen.exit.i.i26 ]
   %.not.i5.i = icmp ult i64 %.0.i20.i.i21, %.0.i14.i.i22
@@ -794,7 +794,7 @@ agxbsizeof.exit.i.i20:                            ; preds = %49, %agxblen.exit.i
   br label %56
 
 56:                                               ; preds = %55, %agxbsizeof.exit.i.i20
-  %.val.i6.pr.i = phi i8 [ %.val.i15.pre.i.i23, %55 ], [ %.val.i48, %agxbsizeof.exit.i.i20 ]
+  %.val.i6.pr.i = phi i8 [ %.val.i15.pre.i.i23, %55 ], [ %.val.i54, %agxbsizeof.exit.i.i20 ]
   %.not.i16.i.i25 = icmp eq i8 %.val.i6.pr.i, -1
   br i1 %.not.i16.i.i25, label %agxbputc.exit.i.thread, label %agxbputc.exit.i
 
@@ -1006,7 +1006,7 @@ agxbputc.exit:                                    ; preds = %134, %139
 
 thread-pre-split.thread:                          ; preds = %6, %thread-pre-split
   %146 = phi ptr [ %84, %thread-pre-split ], [ %4, %6 ]
-  %.val1954 = phi i1 [ %70, %thread-pre-split ], [ false, %6 ]
+  %.val1960 = phi i1 [ %70, %thread-pre-split ], [ false, %6 ]
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load i8, ptr %147, align 8, !tbaa !22
   %149 = uitofp i8 %148 to double
@@ -1020,7 +1020,7 @@ thread-pre-split.thread:                          ; preds = %6, %thread-pre-spli
   %157 = uitofp i8 %156 to double
   %158 = fdiv double %157, 2.550000e+02
   tail call void (ptr, ptr, ...) @agxbprint(ptr noundef %1, ptr nonnull poison, double noundef %150, double noundef %154, double noundef %158)
-  br i1 %.val1954, label %159, label %agxbfree.exit
+  br i1 %.val1960, label %159, label %agxbfree.exit
 
 agxbput.exit:                                     ; preds = %123, %93
   br i1 %70, label %159, label %agxbfree.exit

@@ -411,9 +411,9 @@ define internal fastcc noundef i32 @_ZN5ZXing6QRCode8MaskUtilL29ApplyMaskPenalty
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %.preheader
-  %.1.lcssa51 = phi i32 [ %.044, %.preheader ], [ %.2, %._crit_edge ]
+  %.1.lcssa55 = phi i32 [ %.044, %.preheader ], [ %.2, %._crit_edge ]
   %15 = phi i32 [ 0, %.preheader ], [ %spec.select, %._crit_edge ]
-  %.4 = add nsw i32 %.1.lcssa51, %15
+  %.4 = add nsw i32 %.1.lcssa55, %15
   %16 = add nuw nsw i32 %.03643, 1
   %exitcond47.not = icmp eq i32 %16, %6
   br i1 %exitcond47.not, label %._crit_edge45, label %.preheader, !llvm.loop !33

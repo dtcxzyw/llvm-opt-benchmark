@@ -7546,12 +7546,12 @@ define internal i64 @rb_f_test(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   %24 = alloca %struct.stat, align 8
   %25 = alloca %struct.stat, align 8
   %26 = icmp eq i32 %0, 0
-  %.sink135.sroa.gep = getelementptr inbounds nuw i8, ptr %21, i64 96
-  %.sink135.sroa.gep137 = getelementptr inbounds nuw i8, ptr %21, i64 112
-  %.sink135.sroa.gep138 = getelementptr inbounds nuw i8, ptr %21, i64 80
-  %.sink136.sroa.gep = getelementptr inbounds nuw i8, ptr %21, i64 88
-  %.sink136.sroa.gep139 = getelementptr inbounds nuw i8, ptr %21, i64 104
-  %.sink136.sroa.gep140 = getelementptr inbounds nuw i8, ptr %21, i64 72
+  %.sink138.sroa.gep = getelementptr inbounds nuw i8, ptr %21, i64 96
+  %.sink138.sroa.gep140 = getelementptr inbounds nuw i8, ptr %21, i64 112
+  %.sink138.sroa.gep141 = getelementptr inbounds nuw i8, ptr %21, i64 80
+  %.sink139.sroa.gep = getelementptr inbounds nuw i8, ptr %21, i64 88
+  %.sink139.sroa.gep142 = getelementptr inbounds nuw i8, ptr %21, i64 104
+  %.sink139.sroa.gep143 = getelementptr inbounds nuw i8, ptr %21, i64 72
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %3
@@ -8003,10 +8003,10 @@ rb_file_size_p.exit:                              ; preds = %173, %178, %184, %1
   br label %.thread
 
 .thread:                                          ; preds = %252, %253, %254
-  %.sink136.sroa.phi = phi ptr [ %.sink136.sroa.gep, %253 ], [ %.sink136.sroa.gep139, %254 ], [ %.sink136.sroa.gep140, %252 ]
-  %.sink135.sroa.phi = phi ptr [ %.sink135.sroa.gep, %253 ], [ %.sink135.sroa.gep137, %254 ], [ %.sink135.sroa.gep138, %252 ]
-  %.val98 = load i64, ptr %.sink136.sroa.phi, align 8, !tbaa !12
-  %.val99 = load i64, ptr %.sink135.sroa.phi, align 8, !tbaa !12
+  %.sink139.sroa.phi = phi ptr [ %.sink139.sroa.gep, %253 ], [ %.sink139.sroa.gep142, %254 ], [ %.sink139.sroa.gep143, %252 ]
+  %.sink138.sroa.phi = phi ptr [ %.sink138.sroa.gep, %253 ], [ %.sink138.sroa.gep140, %254 ], [ %.sink138.sroa.gep141, %252 ]
+  %.val98 = load i64, ptr %.sink139.sroa.phi, align 8, !tbaa !12
+  %.val99 = load i64, ptr %.sink138.sroa.phi, align 8, !tbaa !12
   %255 = call i64 @rb_time_nano_new(i64 noundef %.val98, i64 noundef %.val99) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -10127,13 +10127,13 @@ rbimpl_rstring_getmem.exit74:                     ; preds = %65, %71
 skipprefixroot.exit80:                            ; preds = %77, %.lr.ph.i.i77, %rbimpl_rstring_getmem.exit74, %skipprefixroot.exit, %63
   %.0.lcssa.i.i75.sink = phi ptr [ %.0.lcssa.i.i67, %63 ], [ %.0.lcssa.i.i, %skipprefixroot.exit ], [ %.sroa.585.0, %rbimpl_rstring_getmem.exit74 ], [ %72, %77 ], [ %.01.i.i78, %.lr.ph.i.i77 ]
   %.sroa.585.0.sink = phi ptr [ %.sroa.589.0, %63 ], [ %.sroa.593.0, %skipprefixroot.exit ], [ %.sroa.585.0, %rbimpl_rstring_getmem.exit74 ], [ %.sroa.585.0, %.lr.ph.i.i77 ], [ %.sroa.585.0, %77 ]
-  %.sink104 = phi i64 [ %64, %63 ], [ %14, %skipprefixroot.exit ], [ %66, %rbimpl_rstring_getmem.exit74 ], [ %66, %.lr.ph.i.i77 ], [ %66, %77 ]
+  %.sink115 = phi i64 [ %64, %63 ], [ %14, %skipprefixroot.exit ], [ %66, %rbimpl_rstring_getmem.exit74 ], [ %66, %.lr.ph.i.i77 ], [ %66, %77 ]
   %.048 = phi ptr [ null, %63 ], [ null, %skipprefixroot.exit ], [ %.sroa.585.0, %rbimpl_rstring_getmem.exit74 ], [ %72, %77 ], [ %.01.i.i78, %.lr.ph.i.i77 ]
   %.047 = phi ptr [ %.0.lcssa.i.i67, %63 ], [ null, %skipprefixroot.exit ], [ %.1, %rbimpl_rstring_getmem.exit74 ], [ %.1, %.lr.ph.i.i77 ], [ %.1, %77 ]
   %79 = ptrtoint ptr %.0.lcssa.i.i75.sink to i64
   %80 = ptrtoint ptr %.sroa.585.0.sink to i64
   %81 = sub i64 %79, %80
-  %82 = call i64 @rb_str_subseq(i64 noundef %.sink104, i64 noundef 0, i64 noundef %81) #22
+  %82 = call i64 @rb_str_subseq(i64 noundef %.sink115, i64 noundef 0, i64 noundef %81) #22
   store i64 %82, ptr %8, align 8, !tbaa !12
   %83 = inttoptr i64 %82 to ptr
   %84 = load i64, ptr %83, align 8, !tbaa !7, !noalias !298
@@ -10867,9 +10867,9 @@ rb_enc_path_last_separator.exit:                  ; preds = %.critedge.thread.i,
   br i1 %104, label %105, label %108
 
 105:                                              ; preds = %102
-  br i1 %18, label %.thread181, label %107
+  br i1 %18, label %.thread198, label %107
 
-.thread181:                                       ; preds = %105
+.thread198:                                       ; preds = %105
   %106 = call ptr @rb_errno_ptr() #22
   store i32 40, ptr %106, align 4, !tbaa !26
   br label %.loopexit
@@ -11108,8 +11108,8 @@ fs_enc_check.exit:                                ; preds = %167, %179
 .loopexit.loopexit:                               ; preds = %199
   br label %.loopexit
 
-.loopexit:                                        ; preds = %27, %199, %.loopexit.loopexit, %.thread181
-  %.9 = phi i32 [ -1, %.thread181 ], [ %.8, %.loopexit.loopexit ], [ 0, %199 ], [ 0, %27 ]
+.loopexit:                                        ; preds = %27, %199, %.loopexit.loopexit, %.thread198
+  %.9 = phi i32 [ -1, %.thread198 ], [ %.8, %.loopexit.loopexit ], [ 0, %199 ], [ 0, %27 ]
   ret i32 %.9
 }
 

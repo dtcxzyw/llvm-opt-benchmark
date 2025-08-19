@@ -853,13 +853,13 @@ dt_image_orientation_to_flip_bits.exit291:        ; preds = %252, %switch.lookup
 317:                                              ; preds = %314
   %318 = load i32, ptr %100, align 4, !tbaa !54
   %319 = icmp ugt i32 %318, 4
-  br i1 %319, label %.preheader319, label %.thread369
+  br i1 %319, label %.preheader319, label %.thread383
 
 .preheader319:                                    ; preds = %317
   %320 = getelementptr inbounds nuw i8, ptr %8, i64 172
   %321 = load i32, ptr %320, align 4, !tbaa !88
   %322 = icmp sgt i32 %321, 0
-  br i1 %322, label %.lr.ph, label %.thread369
+  br i1 %322, label %.lr.ph, label %.thread383
 
 .lr.ph:                                           ; preds = %.preheader319
   %323 = getelementptr inbounds nuw i8, ptr %8, i64 176
@@ -884,9 +884,9 @@ dt_image_orientation_to_flip_bits.exit291:        ; preds = %252, %switch.lookup
   store float %331, ptr %332, align 4, !tbaa !93
   %indvars.iv.next332 = add nuw nsw i64 %indvars.iv331, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next332, %wide.trip.count
-  br i1 %exitcond.not, label %.thread369, label %324
+  br i1 %exitcond.not, label %.thread383, label %324
 
-.thread369:                                       ; preds = %324, %317, %.preheader319
+.thread383:                                       ; preds = %324, %317, %.preheader319
   %335 = getelementptr inbounds nuw i8, ptr %8, i64 172
   call fastcc void @dt_add_hist(i32 noundef %0, ptr noundef nonnull @.str.31, ptr noundef %335, i32 noundef 644, ptr noundef %6, i32 noundef 1, ptr noundef %7)
   br label %337
@@ -894,8 +894,8 @@ dt_image_orientation_to_flip_bits.exit291:        ; preds = %252, %switch.lookup
 336:                                              ; preds = %314
   br i1 %109, label %337, label %.thread307
 
-337:                                              ; preds = %.thread369, %336
-  %.6371 = phi i32 [ 1, %.thread369 ], [ %.5245, %336 ]
+337:                                              ; preds = %.thread383, %336
+  %.6385 = phi i32 [ 1, %.thread383 ], [ %.5245, %336 ]
   %338 = load i32, ptr %81, align 8, !tbaa !94
   %339 = icmp ne i32 %338, 0
   %340 = getelementptr inbounds nuw i8, ptr %8, i64 1332
@@ -1142,7 +1142,7 @@ dt_image_orientation_to_flip_bits.exit291:        ; preds = %252, %switch.lookup
   br label %474
 
 474:                                              ; preds = %337, %473
-  %.7 = phi i32 [ 1, %473 ], [ %.6371, %337 ]
+  %.7 = phi i32 [ 1, %473 ], [ %.6385, %337 ]
   %475 = load i32, ptr %83, align 4
   %.not312 = icmp eq i32 %475, 0
   br i1 %.not312, label %488, label %476

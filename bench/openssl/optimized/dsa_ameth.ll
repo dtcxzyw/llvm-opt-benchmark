@@ -97,12 +97,12 @@ define internal range(i32 0, 2) i32 @dsa_pub_decode(ptr noundef %0, ptr noundef 
   br label %39
 
 38:                                               ; preds = %29, %24, %10, %21, %13
-  %.sink22 = phi i32 [ 51, %13 ], [ 57, %21 ], [ 61, %10 ], [ 66, %24 ], [ 71, %29 ]
+  %.sink25 = phi i32 [ 51, %13 ], [ 57, %21 ], [ 61, %10 ], [ 66, %24 ], [ 71, %29 ]
   %.sink = phi i32 [ 104, %13 ], [ 524298, %21 ], [ 105, %10 ], [ 104, %24 ], [ 108, %29 ]
   %.013 = phi ptr [ null, %13 ], [ null, %21 ], [ null, %10 ], [ null, %24 ], [ %27, %29 ]
   %.0 = phi ptr [ null, %13 ], [ null, %21 ], [ null, %10 ], [ %.1, %24 ], [ %.1, %29 ]
   call void @ERR_new() #5
-  call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink22, ptr noundef nonnull @__func__.dsa_pub_decode) #5
+  call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink25, ptr noundef nonnull @__func__.dsa_pub_decode) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 10, i32 noundef %.sink, ptr noundef null) #5
   call void @ASN1_INTEGER_free(ptr noundef %.013) #5
   call void @DSA_free(ptr noundef %.0) #5

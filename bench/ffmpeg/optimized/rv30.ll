@@ -1093,9 +1093,9 @@ rv30_weak_loop_filter.exit259:                    ; preds = %272, %.critedge236,
   %303 = icmp samesign ult i64 %indvars.iv349, 12
   br i1 %303, label %237, label %.preheader, !llvm.loop !107
 
-304:                                              ; preds = %.preheader, %.thread365
-  %305 = phi i1 [ true, %.preheader ], [ false, %.thread365 ]
-  %indvars.iv355 = phi i64 [ 0, %.preheader ], [ 1, %.thread365 ]
+304:                                              ; preds = %.preheader, %.thread371
+  %305 = phi i1 [ true, %.preheader ], [ false, %.thread371 ]
+  %indvars.iv355 = phi i64 [ 0, %.preheader ], [ 1, %.thread371 ]
   %306 = load ptr, ptr %209, align 8, !tbaa !93
   %307 = getelementptr inbounds i8, ptr %306, i64 %indvars.iv358
   %308 = load i8, ptr %307, align 1, !tbaa !61
@@ -1229,15 +1229,15 @@ rv30_weak_loop_filter.exit267:                    ; preds = %355, %343, %select.
   br label %333, !llvm.loop !108
 
 rv30_weak_loop_filter.exit267.thread:             ; preds = %.critedge240
-  br i1 %334, label %.backedge, label %.thread365
+  br i1 %334, label %.backedge, label %.thread371
 
 383:                                              ; preds = %rv30_weak_loop_filter.exit267
-  br i1 %.not208, label %324, label %.thread365, !llvm.loop !109
+  br i1 %.not208, label %324, label %.thread371, !llvm.loop !109
 
-.thread365:                                       ; preds = %383, %rv30_weak_loop_filter.exit267.thread
+.thread371:                                       ; preds = %383, %rv30_weak_loop_filter.exit267.thread
   br i1 %305, label %304, label %384, !llvm.loop !110
 
-384:                                              ; preds = %.thread365
+384:                                              ; preds = %.thread371
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
   %indvars.iv.next359 = add nsw i64 %indvars.iv358, 1
   %385 = load i32, ptr %4, align 4, !tbaa !88

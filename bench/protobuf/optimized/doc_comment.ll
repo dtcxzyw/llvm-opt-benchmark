@@ -3573,7 +3573,7 @@ if.then20:                                        ; preds = %if.else18
   %arrayidx1.i = getelementptr inbounds nuw i8, ptr %first, i64 %div6.i
   %1 = load i8, ptr %arrayidx1.i, align 1
   %sub.i31 = add nsw i64 %len, -1
-  %arrayidx2.i = getelementptr inbounds i8, ptr %first, i64 %sub.i31
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %first, i64 %sub.i31
   %2 = load i8, ptr %arrayidx2.i, align 1
   %conv.i32 = zext i8 %0 to i32
   %conv3.i33 = zext i8 %1 to i32
@@ -4391,9 +4391,9 @@ if.else:                                          ; preds = %if.then
           to label %if.end unwind label %lpad
 
 if.end:                                           ; preds = %if.else, %if.then3
-  %ref.tmp5.sink113 = phi ptr [ %ref.tmp, %if.then3 ], [ %ref.tmp5, %if.else ]
-  %call7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %comments, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.sink113) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.sink113) #22
+  %ref.tmp5.sink118 = phi ptr [ %ref.tmp, %if.then3 ], [ %ref.tmp5, %if.else ]
+  %call7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %comments, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.sink118) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.sink118) #22
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %comments) #22
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i)
   invoke void @_ZN4absl12lts_202308028ByStringC1ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1.i, i64 1, ptr nonnull @.str.57)
@@ -4814,7 +4814,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit: ; pred
   ret void
 
 lpad.body:                                        ; preds = %lpad.i.thread, %lpad.i, %if.then.i.i3.i
-  %lpad.phi8 = phi { ptr, i32 } [ %lpad.thr_comm, %lpad.i.thread ], [ %lpad.thr_comm.split-lp, %lpad.i ], [ %lpad.thr_comm.split-lp, %if.then.i.i3.i ]
+  %lpad.phi10 = phi { ptr, i32 } [ %lpad.thr_comm, %lpad.i.thread ], [ %lpad.thr_comm.split-lp, %lpad.i ], [ %lpad.thr_comm.split-lp, %if.then.i.i3.i ]
   %3 = load ptr, ptr %v, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit5, label %if.then.i.i.i4
@@ -4824,7 +4824,7 @@ if.then.i.i.i4:                                   ; preds = %lpad.body
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit5
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit5: ; preds = %lpad.body, %if.then.i.i.i4
-  resume { ptr, i32 } %lpad.phi8
+  resume { ptr, i32 } %lpad.phi10
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4885,7 +4885,7 @@ do.body:                                          ; preds = %do.body.preheader, 
 
 do.cond.thread:                                   ; preds = %do.body
   store i32 2, ptr %state_.i, align 8
-  %inc25 = add nuw nsw i64 %index.0, 1
+  %inc28 = add nuw nsw i64 %index.0, 1
   br label %do.end
 
 if.end.i:                                         ; preds = %do.body
@@ -4940,9 +4940,9 @@ do.cond:                                          ; preds = %if.end10.i
   br i1 %or.cond, label %do.end, label %do.body, !llvm.loop !104
 
 do.end:                                           ; preds = %do.cond, %do.cond.thread
-  %inc29 = phi i64 [ %inc25, %do.cond.thread ], [ %inc, %do.cond ]
+  %inc32 = phi i64 [ %inc28, %do.cond.thread ], [ %inc, %do.cond ]
   %9 = load ptr, ptr %_M_finish.i, align 8
-  %add.ptr = getelementptr inbounds nuw %struct.raw_view, ptr %ar, i64 %inc29
+  %add.ptr = getelementptr inbounds nuw %struct.raw_view, ptr %ar, i64 %inc32
   %10 = load ptr, ptr %agg.result, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64

@@ -1843,10 +1843,10 @@ define dso_local void @EventTriggerSQLDropAddObject(ptr noundef readonly capture
   br label %.sink.split
 
 .sink.split:                                      ; preds = %45, %50
-  %.sink67 = phi ptr [ %51, %50 ], [ @.str.19, %45 ]
+  %.sink69 = phi ptr [ %51, %50 ], [ @.str.19, %45 ]
   %.sink = phi i8 [ 0, %50 ], [ 1, %45 ]
   %52 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr %.sink67, ptr %52, align 8
+  store ptr %.sink69, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %22, i64 66
   store i8 %.sink, ptr %53, align 2
   br label %54
@@ -2886,12 +2886,12 @@ define dso_local noundef i64 @pg_event_trigger_ddl_commands(ptr noundef %0) loca
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %35 = load i32, ptr %17, align 4
   %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %.lr.ph104, label %.critedge
+  br i1 %36, label %.lr.ph106, label %.critedge
 
-.lr.ph104:                                        ; preds = %.lr.ph, %.critedge90
-  %indvars.iv103 = phi i64 [ %indvars.iv.next, %.critedge90 ], [ 0, %.lr.ph ]
+.lr.ph106:                                        ; preds = %.lr.ph, %.critedge90
+  %indvars.iv105 = phi i64 [ %indvars.iv.next, %.critedge90 ], [ 0, %.lr.ph ]
   %37 = load ptr, ptr %18, align 8
-  %38 = getelementptr inbounds nuw %union.ListCell, ptr %37, i64 %indvars.iv103
+  %38 = getelementptr inbounds nuw %union.ListCell, ptr %37, i64 %indvars.iv105
   %39 = load ptr, ptr %38, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2911,7 +2911,7 @@ define dso_local noundef i64 @pg_event_trigger_ddl_commands(ptr noundef %0) loca
 .critedge:                                        ; preds = %.critedge90, %.lr.ph, %13
   ret i64 0
 
-41:                                               ; preds = %.lr.ph104
+41:                                               ; preds = %.lr.ph106
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %43 = load i32, ptr %42, align 4
   %.not85 = icmp eq i32 %43, 0
@@ -2922,7 +2922,7 @@ define dso_local noundef i64 @pg_event_trigger_ddl_commands(ptr noundef %0) loca
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %44, i64 12, i1 false)
   br label %56
 
-45:                                               ; preds = %.lr.ph104
+45:                                               ; preds = %.lr.ph106
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %48 = load i32, ptr %47, align 4
@@ -2932,17 +2932,17 @@ define dso_local noundef i64 @pg_event_trigger_ddl_commands(ptr noundef %0) loca
   store i32 0, ptr %20, align 4
   br label %56
 
-50:                                               ; preds = %.lr.ph104
+50:                                               ; preds = %.lr.ph106
   %51 = getelementptr inbounds nuw i8, ptr %39, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %51, i64 12, i1 false)
   br label %56
 
-52:                                               ; preds = %.lr.ph104
+52:                                               ; preds = %.lr.ph106
   %53 = getelementptr inbounds nuw i8, ptr %39, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %53, i64 12, i1 false)
   br label %56
 
-54:                                               ; preds = %.lr.ph104
+54:                                               ; preds = %.lr.ph106
   %55 = getelementptr inbounds nuw i8, ptr %39, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %55, i64 12, i1 false)
   br label %56
@@ -3050,7 +3050,7 @@ define dso_local noundef i64 @pg_event_trigger_ddl_commands(ptr noundef %0) loca
   store i64 %115, ptr %32, align 16
   br label %.sink.split
 
-116:                                              ; preds = %.lr.ph104
+116:                                              ; preds = %.lr.ph106
   store i8 1, ptr %3, align 1
   store i8 1, ptr %21, align 1
   store i8 1, ptr %22, align 1
@@ -3179,7 +3179,7 @@ stringify_adefprivs_objtype.exit:                 ; preds = %116, %125, %126, %1
   store i8 1, ptr %26, align 1
   br label %.sink.split
 
-145:                                              ; preds = %.lr.ph104
+145:                                              ; preds = %.lr.ph106
   store i8 1, ptr %3, align 1
   store i8 1, ptr %21, align 1
   store i8 1, ptr %22, align 1
@@ -3322,7 +3322,7 @@ stringify_grant_objtype.exit:                     ; preds = %145, %156, %157, %1
   store i64 %180, ptr %28, align 16
   br label %181
 
-181:                                              ; preds = %.sink.split, %.lr.ph104
+181:                                              ; preds = %.sink.split, %.lr.ph106
   %182 = load ptr, ptr %33, align 8
   %183 = load ptr, ptr %34, align 8
   call void @tuplestore_putvalues(ptr noundef %182, ptr noundef %183, ptr noundef nonnull %2, ptr noundef nonnull %3) #16
@@ -3332,11 +3332,11 @@ stringify_grant_objtype.exit:                     ; preds = %145, %156, %157, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv103, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv105, 1
   %184 = load i32, ptr %17, align 4
   %185 = sext i32 %184 to i64
   %186 = icmp slt i64 %indvars.iv.next, %185
-  br i1 %186, label %.lr.ph104, label %.critedge
+  br i1 %186, label %.lr.ph106, label %.critedge
 }
 
 declare ptr @getObjectIdentity(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1

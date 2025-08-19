@@ -427,9 +427,9 @@ define internal i32 @efivarfs_callback(ptr noundef readonly captures(none) %0, i
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %64, ptr %65, align 4
   %66 = tail call zeroext i1 @efivarfs_valid_name(ptr noundef nonnull %41, i32 noundef %64) #17
-  br i1 %66, label %67, label %.thread9
+  br i1 %66, label %67, label %.thread14
 
-.thread9:                                         ; preds = %61
+.thread14:                                        ; preds = %61
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread5
 
@@ -452,8 +452,8 @@ define internal i32 @efivarfs_callback(ptr noundef readonly captures(none) %0, i
 
 .preheader.preheader:                             ; preds = %.thread, %75
   %.ph = phi i32 [ %69, %75 ], [ 35, %.thread ]
-  %.ph12 = phi ptr [ %41, %75 ], [ %74, %.thread ]
-  %.ph13 = phi i64 [ %68, %75 ], [ %87, %.thread ]
+  %.ph17 = phi ptr [ %41, %75 ], [ %74, %.thread ]
+  %.ph18 = phi i64 [ %68, %75 ], [ %87, %.thread ]
   br label %.preheader
 
 .preheader6:                                      ; preds = %67, %.preheader6
@@ -474,8 +474,8 @@ define internal i32 @efivarfs_callback(ptr noundef readonly captures(none) %0, i
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %90 = phi i32 [ %93, %.preheader ], [ %.ph, %.preheader.preheader ]
-  %91 = phi ptr [ %94, %.preheader ], [ %.ph12, %.preheader.preheader ]
-  %92 = phi i64 [ %107, %.preheader ], [ %.ph13, %.preheader.preheader ]
+  %91 = phi ptr [ %94, %.preheader ], [ %.ph17, %.preheader.preheader ]
+  %92 = phi i64 [ %107, %.preheader ], [ %.ph18, %.preheader.preheader ]
   %93 = add i32 %90, -1
   %94 = getelementptr i8, ptr %91, i64 1
   %95 = load i8, ptr %91, align 1
@@ -509,8 +509,8 @@ define internal i32 @efivarfs_callback(ptr noundef readonly captures(none) %0, i
   %116 = icmp ugt ptr %113, inttoptr (i64 -4096 to ptr)
   br i1 %116, label %.thread5, label %120
 
-.thread5:                                         ; preds = %.loopexit, %.thread9, %115
-  %117 = phi ptr [ %113, %115 ], [ inttoptr (i64 -22 to ptr), %.thread9 ], [ inttoptr (i64 -12 to ptr), %.loopexit ]
+.thread5:                                         ; preds = %.loopexit, %.thread14, %115
+  %117 = phi ptr [ %113, %115 ], [ inttoptr (i64 -22 to ptr), %.thread14 ], [ inttoptr (i64 -12 to ptr), %.loopexit ]
   %118 = ptrtoint ptr %117 to i64
   %119 = trunc i64 %118 to i32
   call void @iput(ptr noundef nonnull %59) #17
@@ -703,9 +703,9 @@ define internal noundef range(i32 -22, 1) i32 @efivarfs_d_hash(ptr noundef %0, p
   %9 = ptrtoint ptr %0 to i64
   %10 = add i32 %6, -1
   %11 = icmp ugt i32 %6, 36
-  br i1 %11, label %.preheader5, label %16
+  br i1 %11, label %.preheader6, label %16
 
-.thread:                                          ; preds = %.preheader5
+.thread:                                          ; preds = %.preheader6
   %12 = add i32 %6, -37
   %13 = zext i32 %12 to i64
   %14 = getelementptr i8, ptr %4, i64 %13
@@ -718,14 +718,14 @@ define internal noundef range(i32 -22, 1) i32 @efivarfs_d_hash(ptr noundef %0, p
 
 .preheader.preheader:                             ; preds = %.thread, %16
   %.ph = phi i32 [ %10, %16 ], [ 35, %.thread ]
-  %.ph7 = phi ptr [ %4, %16 ], [ %15, %.thread ]
-  %.ph8 = phi i64 [ %9, %16 ], [ %28, %.thread ]
+  %.ph8 = phi ptr [ %4, %16 ], [ %15, %.thread ]
+  %.ph9 = phi i64 [ %9, %16 ], [ %28, %.thread ]
   br label %.preheader
 
-.preheader5:                                      ; preds = %8, %.preheader5
-  %18 = phi i32 [ %29, %.preheader5 ], [ %10, %8 ]
-  %19 = phi ptr [ %21, %.preheader5 ], [ %4, %8 ]
-  %20 = phi i64 [ %28, %.preheader5 ], [ %9, %8 ]
+.preheader6:                                      ; preds = %8, %.preheader6
+  %18 = phi i32 [ %29, %.preheader6 ], [ %10, %8 ]
+  %19 = phi ptr [ %21, %.preheader6 ], [ %4, %8 ]
+  %20 = phi i64 [ %28, %.preheader6 ], [ %9, %8 ]
   %21 = getelementptr i8, ptr %19, i64 1
   %22 = load i8, ptr %19, align 1
   %23 = zext i8 %22 to i64
@@ -736,12 +736,12 @@ define internal noundef range(i32 -22, 1) i32 @efivarfs_d_hash(ptr noundef %0, p
   %28 = mul i64 %27, 11
   %29 = add i32 %18, -1
   %30 = icmp ugt i32 %18, 36
-  br i1 %30, label %.preheader5, label %.thread, !llvm.loop !6
+  br i1 %30, label %.preheader6, label %.thread, !llvm.loop !6
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %31 = phi i32 [ %34, %.preheader ], [ %.ph, %.preheader.preheader ]
-  %32 = phi ptr [ %35, %.preheader ], [ %.ph7, %.preheader.preheader ]
-  %33 = phi i64 [ %48, %.preheader ], [ %.ph8, %.preheader.preheader ]
+  %32 = phi ptr [ %35, %.preheader ], [ %.ph8, %.preheader.preheader ]
+  %33 = phi i64 [ %48, %.preheader ], [ %.ph9, %.preheader.preheader ]
   %34 = add i32 %31, -1
   %35 = getelementptr i8, ptr %32, i64 1
   %36 = load i8, ptr %32, align 1

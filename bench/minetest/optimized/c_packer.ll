@@ -2950,14 +2950,14 @@ if.end15.i.i:                                     ; preds = %entry
   br i1 %tobool.not.i.i.i.i, label %if.then.thread, label %if.end.i.i.i.i
 
 if.then.thread:                                   ; preds = %if.end15.i.i
-  %_M_finish.i18 = getelementptr inbounds nuw i8, ptr %pv, i64 8
-  %6 = load ptr, ptr %_M_finish.i18, align 8, !tbaa !57
+  %_M_finish.i22 = getelementptr inbounds nuw i8, ptr %pv, i64 8
+  %6 = load ptr, ptr %_M_finish.i22, align 8, !tbaa !57
   %7 = load ptr, ptr %pv, align 8, !tbaa !58
-  %sub.ptr.lhs.cast.i19 = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast.i20 = ptrtoint ptr %7 to i64
-  %sub.ptr.sub.i21 = sub i64 %sub.ptr.lhs.cast.i19, %sub.ptr.rhs.cast.i20
-  %sub.ptr.div.i22 = sdiv exact i64 %sub.ptr.sub.i21, 48
-  %conv23 = trunc i64 %sub.ptr.div.i22 to i32
+  %sub.ptr.lhs.cast.i23 = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast.i24 = ptrtoint ptr %7 to i64
+  %sub.ptr.sub.i25 = sub i64 %sub.ptr.lhs.cast.i23, %sub.ptr.rhs.cast.i24
+  %sub.ptr.div.i26 = sdiv exact i64 %sub.ptr.sub.i25, 48
+  %conv27 = trunc i64 %sub.ptr.div.i26 to i32
   br label %cleanup.cont.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
@@ -3037,16 +3037,16 @@ lor.lhs.false.i.i.i.i32:                          ; preds = %if.end3.i.i.i.i29
   br i1 %cmp.not.i.i.i.i35, label %for.cond.i.i.i.i36, label %cleanup.cont.i.i, !llvm.loop !74
 
 cleanup.cont.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i32, %if.end3.i.i.i.i29, %if.then.thread, %if.then
-  %conv28 = phi i32 [ %conv23, %if.then.thread ], [ %conv, %if.then ], [ %conv, %if.end3.i.i.i.i29 ], [ %conv, %lor.lhs.false.i.i.i.i32 ]
-  %.pre-phi26 = phi i64 [ %2, %if.then.thread ], [ %.pre-phi, %if.then ], [ %.pre-phi, %if.end3.i.i.i.i29 ], [ %.pre-phi, %lor.lhs.false.i.i.i.i32 ]
-  %rem.i.i.i.i.i23.pre-phi25 = phi i64 [ %rem.i.i.i.i.i, %if.then.thread ], [ %rem.i.i.i.i.i23.pre-phi, %if.then ], [ %rem.i.i.i.i.i23.pre-phi, %if.end3.i.i.i.i29 ], [ %rem.i.i.i.i.i23.pre-phi, %lor.lhs.false.i.i.i.i32 ]
+  %conv32 = phi i32 [ %conv27, %if.then.thread ], [ %conv, %if.then ], [ %conv, %if.end3.i.i.i.i29 ], [ %conv, %lor.lhs.false.i.i.i.i32 ]
+  %.pre-phi30 = phi i64 [ %2, %if.then.thread ], [ %.pre-phi, %if.then ], [ %.pre-phi, %if.end3.i.i.i.i29 ], [ %.pre-phi, %lor.lhs.false.i.i.i.i32 ]
+  %rem.i.i.i.i.i23.pre-phi29 = phi i64 [ %rem.i.i.i.i.i, %if.then.thread ], [ %rem.i.i.i.i.i23.pre-phi, %if.then ], [ %rem.i.i.i.i.i23.pre-phi, %if.end3.i.i.i.i29 ], [ %rem.i.i.i.i.i23.pre-phi, %lor.lhs.false.i.i.i.i32 ]
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   store ptr null, ptr %call5.i.i.i.i.i.i, align 8, !tbaa !13
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 8
   store ptr %call, ptr %add.ptr.i.i.i.i, align 8, !tbaa !75
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 16
   store i32 0, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !78
-  %call7.i.i = invoke ptr @_ZNSt10_HashtableIPKvSt4pairIKS1_iESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS6_10_Hash_nodeIS4_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %seen, i64 noundef %rem.i.i.i.i.i23.pre-phi25, i64 noundef %.pre-phi26, ptr noundef nonnull %call5.i.i.i.i.i.i, i64 noundef 1)
+  %call7.i.i = invoke ptr @_ZNSt10_HashtableIPKvSt4pairIKS1_iESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS6_10_Hash_nodeIS4_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %seen, i64 noundef %rem.i.i.i.i.i23.pre-phi29, i64 noundef %.pre-phi30, ptr noundef nonnull %call5.i.i.i.i.i.i, i64 noundef 1)
           to label %_ZNSt13unordered_mapIPKviSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEEEixERS7_.exit unwind label %_ZNSt10_HashtableIPKvSt4pairIKS1_iESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit33.i.i
 
 _ZNSt10_HashtableIPKvSt4pairIKS1_iESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit33.i.i: ; preds = %cleanup.cont.i.i
@@ -3056,10 +3056,10 @@ _ZNSt10_HashtableIPKvSt4pairIKS1_iESaIS4_ENSt8__detail10_Select1stESt8equal_toIS
   resume { ptr, i32 } %22
 
 _ZNSt13unordered_mapIPKviSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEEEixERS7_.exit: ; preds = %for.cond.i.i.i.i36, %cleanup.cont.i.i, %if.end.i.i.i.i26
-  %conv27 = phi i32 [ %conv, %if.end.i.i.i.i26 ], [ %conv28, %cleanup.cont.i.i ], [ %conv, %for.cond.i.i.i.i36 ]
+  %conv31 = phi i32 [ %conv, %if.end.i.i.i.i26 ], [ %conv32, %cleanup.cont.i.i ], [ %conv, %for.cond.i.i.i.i36 ]
   %call7.pn.i.i = phi ptr [ %17, %if.end.i.i.i.i26 ], [ %call7.i.i, %cleanup.cont.i.i ], [ %19, %for.cond.i.i.i.i36 ]
   %retval.1.i.i = getelementptr inbounds nuw i8, ptr %call7.pn.i.i, i64 16
-  store i32 %conv27, ptr %retval.1.i.i, align 4, !tbaa !79
+  store i32 %conv31, ptr %retval.1.i.i, align 4, !tbaa !79
   br label %cleanup
 
 if.end:                                           ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i

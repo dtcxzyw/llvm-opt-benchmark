@@ -5060,11 +5060,11 @@ _ZN8smallvec12layout_array17h97a5b0591b2fc685E.exit77.i: ; preds = %31
   br label %37
 
 40:                                               ; preds = %.thread.thread, %20
-  %.sink.i.i172122 = phi i64 [ %4, %.thread.thread ], [ %.sink.i.i, %20 ]
+  %.sink.i.i202425 = phi i64 [ %4, %.thread.thread ], [ %.sink.i.i, %20 ]
   %41 = mul i64 %8, 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(648) %0, ptr nonnull align 8 %6, i64 %41, i1 false)
   store i64 %8, ptr %3, align 8, !alias.scope !417
-  %42 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sink.i.i172122, i64 80)
+  %42 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sink.i.i202425, i64 80)
   %43 = extractvalue { i64, i1 } %42, 0
   %44 = extractvalue { i64, i1 } %42, 1
   br i1 %44, label %47, label %45, !prof !28
@@ -5242,11 +5242,11 @@ _ZN8smallvec12layout_array17h9d327fa0d8ea5595E.exit77.i: ; preds = %31
   br label %37
 
 40:                                               ; preds = %.thread.thread, %20
-  %.sink.i.i172122 = phi i64 [ %4, %.thread.thread ], [ %.sink.i.i, %20 ]
+  %.sink.i.i202425 = phi i64 [ %4, %.thread.thread ], [ %.sink.i.i, %20 ]
   %41 = mul i64 %8, 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(456) %0, ptr nonnull align 8 %6, i64 %41, i1 false)
   store i64 %8, ptr %3, align 8, !alias.scope !443
-  %42 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sink.i.i172122, i64 56)
+  %42 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sink.i.i202425, i64 56)
   %43 = extractvalue { i64, i1 } %42, 0
   %44 = extractvalue { i64, i1 } %42, 1
   br i1 %44, label %47, label %45, !prof !28

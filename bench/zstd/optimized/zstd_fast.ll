@@ -200,7 +200,8 @@ ZSTD_hashPtr.exit.i:                              ; preds = %114, %111, %108, %1
   br label %123
 
 123:                                              ; preds = %152, %ZSTD_hashPtr.exit.i
-  %indvars.iv.i = phi i64 [ 1, %ZSTD_hashPtr.exit.i ], [ %indvars.iv.next.i, %152 ]
+  %exitcond.not.i = phi i1 [ false, %ZSTD_hashPtr.exit.i ], [ true, %152 ]
+  %indvars.iv.i = phi i64 [ 1, %ZSTD_hashPtr.exit.i ], [ 2, %152 ]
   %124 = getelementptr inbounds nuw i8, ptr %.044.i, i64 %indvars.iv.i
   switch i32 %9, label %125 [
     i32 8, label %138
@@ -259,8 +260,6 @@ ZSTD_hashPtr.exit34.i:                            ; preds = %138, %135, %132, %1
   br label %152
 
 152:                                              ; preds = %145, %ZSTD_hashPtr.exit34.i
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %.loopexit.i, label %123, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %152
@@ -279,39 +278,39 @@ ZSTD_hashPtr.exit34.i:                            ; preds = %138, %135, %132, %1
   %160 = zext nneg i32 %159 to i64
   %161 = sub i32 32, %157
   %162 = icmp eq i32 %2, 0
-  br i1 %162, label %.lr.ph.split.us.i20, label %.lr.ph.split.i7
+  br i1 %162, label %.lr.ph.split.us.i19, label %.lr.ph.split.i7
 
-.lr.ph.split.us.i20:                              ; preds = %.lr.ph.i6
-  switch i32 %9, label %ZSTD_hashPtr.exit.us.i26 [
-    i32 8, label %ZSTD_hashPtr.exit.us.us.i24
+.lr.ph.split.us.i19:                              ; preds = %.lr.ph.i6
+  switch i32 %9, label %ZSTD_hashPtr.exit.us.i25 [
+    i32 8, label %ZSTD_hashPtr.exit.us.us.i23
     i32 5, label %ZSTD_hashPtr.exit.us.us59.i
     i32 6, label %ZSTD_hashPtr.exit.us.us63.i
     i32 7, label %ZSTD_hashPtr.exit.us.us67.i
   ]
 
-ZSTD_hashPtr.exit.us.us.i24:                      ; preds = %.lr.ph.split.us.i20, %ZSTD_hashPtr.exit.us.us.i24
-  %163 = phi ptr [ %170, %ZSTD_hashPtr.exit.us.us.i24 ], [ %17, %.lr.ph.split.us.i20 ]
-  %.056.us.us.i = phi ptr [ %163, %ZSTD_hashPtr.exit.us.us.i24 ], [ %15, %.lr.ph.split.us.i20 ]
+ZSTD_hashPtr.exit.us.us.i23:                      ; preds = %.lr.ph.split.us.i19, %ZSTD_hashPtr.exit.us.us.i23
+  %163 = phi ptr [ %170, %ZSTD_hashPtr.exit.us.us.i23 ], [ %17, %.lr.ph.split.us.i19 ]
+  %.056.us.us.i = phi ptr [ %163, %ZSTD_hashPtr.exit.us.us.i23 ], [ %15, %.lr.ph.split.us.i19 ]
   %164 = ptrtoint ptr %.056.us.us.i to i64
   %165 = sub i64 %164, %158
   %166 = trunc i64 %165 to i32
-  %.0.val42.us.us.i25 = load i64, ptr %.056.us.us.i, align 1, !tbaa !20
-  %167 = mul i64 %.0.val42.us.us.i25, -3523014627327384477
+  %.0.val42.us.us.i24 = load i64, ptr %.056.us.us.i, align 1, !tbaa !20
+  %167 = mul i64 %.0.val42.us.us.i24, -3523014627327384477
   %168 = lshr i64 %167, %160
   %169 = getelementptr inbounds nuw i32, ptr %7, i64 %168
   store i32 %166, ptr %169, align 4, !tbaa !21
   %170 = getelementptr inbounds nuw i8, ptr %163, i64 3
   %171 = icmp ult ptr %170, %16
-  br i1 %171, label %ZSTD_hashPtr.exit.us.us.i24, label %ZSTD_fillHashTableForCDict.exit, !llvm.loop !25
+  br i1 %171, label %ZSTD_hashPtr.exit.us.us.i23, label %ZSTD_fillHashTableForCDict.exit, !llvm.loop !25
 
-ZSTD_hashPtr.exit.us.us59.i:                      ; preds = %.lr.ph.split.us.i20, %ZSTD_hashPtr.exit.us.us59.i
-  %172 = phi ptr [ %179, %ZSTD_hashPtr.exit.us.us59.i ], [ %17, %.lr.ph.split.us.i20 ]
-  %.056.us.us58.i = phi ptr [ %172, %ZSTD_hashPtr.exit.us.us59.i ], [ %15, %.lr.ph.split.us.i20 ]
+ZSTD_hashPtr.exit.us.us59.i:                      ; preds = %.lr.ph.split.us.i19, %ZSTD_hashPtr.exit.us.us59.i
+  %172 = phi ptr [ %179, %ZSTD_hashPtr.exit.us.us59.i ], [ %17, %.lr.ph.split.us.i19 ]
+  %.056.us.us58.i = phi ptr [ %172, %ZSTD_hashPtr.exit.us.us59.i ], [ %15, %.lr.ph.split.us.i19 ]
   %173 = ptrtoint ptr %.056.us.us58.i to i64
   %174 = sub i64 %173, %158
   %175 = trunc i64 %174 to i32
-  %.0.val36.us.us.i23 = load i64, ptr %.056.us.us58.i, align 1, !tbaa !20
-  %176 = mul i64 %.0.val36.us.us.i23, -3523014627271114752
+  %.0.val36.us.us.i22 = load i64, ptr %.056.us.us58.i, align 1, !tbaa !20
+  %176 = mul i64 %.0.val36.us.us.i22, -3523014627271114752
   %177 = lshr i64 %176, %160
   %178 = getelementptr inbounds nuw i32, ptr %7, i64 %177
   store i32 %175, ptr %178, align 4, !tbaa !21
@@ -319,14 +318,14 @@ ZSTD_hashPtr.exit.us.us59.i:                      ; preds = %.lr.ph.split.us.i20
   %180 = icmp ult ptr %179, %16
   br i1 %180, label %ZSTD_hashPtr.exit.us.us59.i, label %ZSTD_fillHashTableForCDict.exit, !llvm.loop !25
 
-ZSTD_hashPtr.exit.us.us63.i:                      ; preds = %.lr.ph.split.us.i20, %ZSTD_hashPtr.exit.us.us63.i
-  %181 = phi ptr [ %188, %ZSTD_hashPtr.exit.us.us63.i ], [ %17, %.lr.ph.split.us.i20 ]
-  %.056.us.us62.i = phi ptr [ %181, %ZSTD_hashPtr.exit.us.us63.i ], [ %15, %.lr.ph.split.us.i20 ]
+ZSTD_hashPtr.exit.us.us63.i:                      ; preds = %.lr.ph.split.us.i19, %ZSTD_hashPtr.exit.us.us63.i
+  %181 = phi ptr [ %188, %ZSTD_hashPtr.exit.us.us63.i ], [ %17, %.lr.ph.split.us.i19 ]
+  %.056.us.us62.i = phi ptr [ %181, %ZSTD_hashPtr.exit.us.us63.i ], [ %15, %.lr.ph.split.us.i19 ]
   %182 = ptrtoint ptr %.056.us.us62.i to i64
   %183 = sub i64 %182, %158
   %184 = trunc i64 %183 to i32
-  %.0.val38.us.us.i22 = load i64, ptr %.056.us.us62.i, align 1, !tbaa !20
-  %185 = mul i64 %.0.val38.us.us.i22, -3523014627193847808
+  %.0.val38.us.us.i21 = load i64, ptr %.056.us.us62.i, align 1, !tbaa !20
+  %185 = mul i64 %.0.val38.us.us.i21, -3523014627193847808
   %186 = lshr i64 %185, %160
   %187 = getelementptr inbounds nuw i32, ptr %7, i64 %186
   store i32 %184, ptr %187, align 4, !tbaa !21
@@ -334,14 +333,14 @@ ZSTD_hashPtr.exit.us.us63.i:                      ; preds = %.lr.ph.split.us.i20
   %189 = icmp ult ptr %188, %16
   br i1 %189, label %ZSTD_hashPtr.exit.us.us63.i, label %ZSTD_fillHashTableForCDict.exit, !llvm.loop !25
 
-ZSTD_hashPtr.exit.us.us67.i:                      ; preds = %.lr.ph.split.us.i20, %ZSTD_hashPtr.exit.us.us67.i
-  %190 = phi ptr [ %197, %ZSTD_hashPtr.exit.us.us67.i ], [ %17, %.lr.ph.split.us.i20 ]
-  %.056.us.us66.i = phi ptr [ %190, %ZSTD_hashPtr.exit.us.us67.i ], [ %15, %.lr.ph.split.us.i20 ]
+ZSTD_hashPtr.exit.us.us67.i:                      ; preds = %.lr.ph.split.us.i19, %ZSTD_hashPtr.exit.us.us67.i
+  %190 = phi ptr [ %197, %ZSTD_hashPtr.exit.us.us67.i ], [ %17, %.lr.ph.split.us.i19 ]
+  %.056.us.us66.i = phi ptr [ %190, %ZSTD_hashPtr.exit.us.us67.i ], [ %15, %.lr.ph.split.us.i19 ]
   %191 = ptrtoint ptr %.056.us.us66.i to i64
   %192 = sub i64 %191, %158
   %193 = trunc i64 %192 to i32
-  %.0.val40.us.us.i21 = load i64, ptr %.056.us.us66.i, align 1, !tbaa !20
-  %194 = mul i64 %.0.val40.us.us.i21, -3523014627193167104
+  %.0.val40.us.us.i20 = load i64, ptr %.056.us.us66.i, align 1, !tbaa !20
+  %194 = mul i64 %.0.val40.us.us.i20, -3523014627193167104
   %195 = lshr i64 %194, %160
   %196 = getelementptr inbounds nuw i32, ptr %7, i64 %195
   store i32 %193, ptr %196, align 4, !tbaa !21
@@ -349,52 +348,52 @@ ZSTD_hashPtr.exit.us.us67.i:                      ; preds = %.lr.ph.split.us.i20
   %198 = icmp ult ptr %197, %16
   br i1 %198, label %ZSTD_hashPtr.exit.us.us67.i, label %ZSTD_fillHashTableForCDict.exit, !llvm.loop !25
 
-ZSTD_hashPtr.exit.us.i26:                         ; preds = %.lr.ph.split.us.i20, %ZSTD_hashPtr.exit.us.i26
-  %199 = phi ptr [ %207, %ZSTD_hashPtr.exit.us.i26 ], [ %17, %.lr.ph.split.us.i20 ]
-  %.056.us.i = phi ptr [ %199, %ZSTD_hashPtr.exit.us.i26 ], [ %15, %.lr.ph.split.us.i20 ]
+ZSTD_hashPtr.exit.us.i25:                         ; preds = %.lr.ph.split.us.i19, %ZSTD_hashPtr.exit.us.i25
+  %199 = phi ptr [ %207, %ZSTD_hashPtr.exit.us.i25 ], [ %17, %.lr.ph.split.us.i19 ]
+  %.056.us.i = phi ptr [ %199, %ZSTD_hashPtr.exit.us.i25 ], [ %15, %.lr.ph.split.us.i19 ]
   %200 = ptrtoint ptr %.056.us.i to i64
   %201 = sub i64 %200, %158
   %202 = trunc i64 %201 to i32
-  %.0.val.us.i27 = load i32, ptr %.056.us.i, align 1, !tbaa !21
-  %203 = mul i32 %.0.val.us.i27, -1640531535
+  %.0.val.us.i26 = load i32, ptr %.056.us.i, align 1, !tbaa !21
+  %203 = mul i32 %.0.val.us.i26, -1640531535
   %204 = lshr i32 %203, %161
   %205 = zext i32 %204 to i64
   %206 = getelementptr inbounds nuw i32, ptr %7, i64 %205
   store i32 %202, ptr %206, align 4, !tbaa !21
   %207 = getelementptr inbounds nuw i8, ptr %199, i64 3
   %208 = icmp ult ptr %207, %16
-  br i1 %208, label %ZSTD_hashPtr.exit.us.i26, label %ZSTD_fillHashTableForCDict.exit, !llvm.loop !25
+  br i1 %208, label %ZSTD_hashPtr.exit.us.i25, label %ZSTD_fillHashTableForCDict.exit, !llvm.loop !25
 
-.lr.ph.split.i7:                                  ; preds = %.lr.ph.i6, %.loopexit.i12
-  %209 = phi ptr [ %280, %.loopexit.i12 ], [ %17, %.lr.ph.i6 ]
-  %.056.i = phi ptr [ %209, %.loopexit.i12 ], [ %15, %.lr.ph.i6 ]
+.lr.ph.split.i7:                                  ; preds = %.lr.ph.i6, %.loopexit.i11
+  %209 = phi ptr [ %280, %.loopexit.i11 ], [ %17, %.lr.ph.i6 ]
+  %.056.i = phi ptr [ %209, %.loopexit.i11 ], [ %15, %.lr.ph.i6 ]
   %210 = ptrtoint ptr %.056.i to i64
   %211 = sub i64 %210, %158
   %212 = trunc i64 %211 to i32
-  switch i32 %9, label %ZSTD_hashPtr.exit.i16 [
+  switch i32 %9, label %ZSTD_hashPtr.exit.i15 [
     i32 8, label %ZSTD_hashPtr.exit.thread.i
-    i32 5, label %ZSTD_hashPtr.exit.thread96.i
-    i32 6, label %ZSTD_hashPtr.exit.thread98.i
-    i32 7, label %ZSTD_hashPtr.exit.thread100.i
+    i32 5, label %ZSTD_hashPtr.exit.thread98.i
+    i32 6, label %ZSTD_hashPtr.exit.thread100.i
+    i32 7, label %ZSTD_hashPtr.exit.thread102.i
   ]
 
-ZSTD_hashPtr.exit.thread96.i:                     ; preds = %.lr.ph.split.i7
-  %.0.val36.i14 = load i64, ptr %.056.i, align 1, !tbaa !20
-  %213 = mul i64 %.0.val36.i14, -3523014627271114752
+ZSTD_hashPtr.exit.thread98.i:                     ; preds = %.lr.ph.split.i7
+  %.0.val36.i13 = load i64, ptr %.056.i, align 1, !tbaa !20
+  %213 = mul i64 %.0.val36.i13, -3523014627271114752
   %214 = lshr i64 %213, %160
   %215 = getelementptr inbounds nuw i32, ptr %7, i64 %214
   store i32 %212, ptr %215, align 4, !tbaa !21
   br label %ZSTD_hashPtr.exit34.us46.i
 
-ZSTD_hashPtr.exit.thread98.i:                     ; preds = %.lr.ph.split.i7
-  %.0.val38.i13 = load i64, ptr %.056.i, align 1, !tbaa !20
-  %216 = mul i64 %.0.val38.i13, -3523014627193847808
+ZSTD_hashPtr.exit.thread100.i:                    ; preds = %.lr.ph.split.i7
+  %.0.val38.i12 = load i64, ptr %.056.i, align 1, !tbaa !20
+  %216 = mul i64 %.0.val38.i12, -3523014627193847808
   %217 = lshr i64 %216, %160
   %218 = getelementptr inbounds nuw i32, ptr %7, i64 %217
   store i32 %212, ptr %218, align 4, !tbaa !21
   br label %ZSTD_hashPtr.exit34.us50.i
 
-ZSTD_hashPtr.exit.thread100.i:                    ; preds = %.lr.ph.split.i7
+ZSTD_hashPtr.exit.thread102.i:                    ; preds = %.lr.ph.split.i7
   %.0.val40.i8 = load i64, ptr %.056.i, align 1, !tbaa !20
   %219 = mul i64 %.0.val40.i8, -3523014627193167104
   %220 = lshr i64 %219, %160
@@ -403,24 +402,25 @@ ZSTD_hashPtr.exit.thread100.i:                    ; preds = %.lr.ph.split.i7
   br label %ZSTD_hashPtr.exit34.us54.i
 
 ZSTD_hashPtr.exit.thread.i:                       ; preds = %.lr.ph.split.i7
-  %.0.val42.i15 = load i64, ptr %.056.i, align 1, !tbaa !20
-  %222 = mul i64 %.0.val42.i15, -3523014627327384477
+  %.0.val42.i14 = load i64, ptr %.056.i, align 1, !tbaa !20
+  %222 = mul i64 %.0.val42.i14, -3523014627327384477
   %223 = lshr i64 %222, %160
   %224 = getelementptr inbounds nuw i32, ptr %7, i64 %223
   store i32 %212, ptr %224, align 4, !tbaa !21
   br label %ZSTD_hashPtr.exit34.us.i
 
-ZSTD_hashPtr.exit.i16:                            ; preds = %.lr.ph.split.i7
-  %.0.val.i17 = load i32, ptr %.056.i, align 1, !tbaa !21
-  %225 = mul i32 %.0.val.i17, -1640531535
+ZSTD_hashPtr.exit.i15:                            ; preds = %.lr.ph.split.i7
+  %.0.val.i16 = load i32, ptr %.056.i, align 1, !tbaa !21
+  %225 = mul i32 %.0.val.i16, -1640531535
   %226 = lshr i32 %225, %161
   %227 = zext i32 %226 to i64
   %228 = getelementptr inbounds nuw i32, ptr %7, i64 %227
   store i32 %212, ptr %228, align 4, !tbaa !21
-  br label %ZSTD_hashPtr.exit34.i18
+  br label %ZSTD_hashPtr.exit34.i17
 
 ZSTD_hashPtr.exit34.us.i:                         ; preds = %238, %ZSTD_hashPtr.exit.thread.i
-  %indvars.iv87.i = phi i64 [ 1, %ZSTD_hashPtr.exit.thread.i ], [ %indvars.iv.next88.i, %238 ]
+  %exitcond90.not.i = phi i1 [ false, %ZSTD_hashPtr.exit.thread.i ], [ true, %238 ]
+  %indvars.iv87.i = phi i64 [ 1, %ZSTD_hashPtr.exit.thread.i ], [ 2, %238 ]
   %229 = getelementptr inbounds nuw i8, ptr %.056.i, i64 %indvars.iv87.i
   %.val41.us.i = load i64, ptr %229, align 1, !tbaa !20
   %230 = mul i64 %.val41.us.i, -3523014627327384477
@@ -437,12 +437,11 @@ ZSTD_hashPtr.exit34.us.i:                         ; preds = %238, %ZSTD_hashPtr.
   br label %238
 
 238:                                              ; preds = %235, %ZSTD_hashPtr.exit34.us.i
-  %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
-  %exitcond90.not.i = icmp eq i64 %indvars.iv.next88.i, 3
-  br i1 %exitcond90.not.i, label %.loopexit.i12, label %ZSTD_hashPtr.exit34.us.i, !llvm.loop !26
+  br i1 %exitcond90.not.i, label %.loopexit.i11, label %ZSTD_hashPtr.exit34.us.i, !llvm.loop !26
 
-ZSTD_hashPtr.exit34.us46.i:                       ; preds = %248, %ZSTD_hashPtr.exit.thread96.i
-  %indvars.iv83.i = phi i64 [ 1, %ZSTD_hashPtr.exit.thread96.i ], [ %indvars.iv.next84.i, %248 ]
+ZSTD_hashPtr.exit34.us46.i:                       ; preds = %248, %ZSTD_hashPtr.exit.thread98.i
+  %exitcond86.not.i = phi i1 [ false, %ZSTD_hashPtr.exit.thread98.i ], [ true, %248 ]
+  %indvars.iv83.i = phi i64 [ 1, %ZSTD_hashPtr.exit.thread98.i ], [ 2, %248 ]
   %239 = getelementptr inbounds nuw i8, ptr %.056.i, i64 %indvars.iv83.i
   %.val35.us.i = load i64, ptr %239, align 1, !tbaa !20
   %240 = mul i64 %.val35.us.i, -3523014627271114752
@@ -459,12 +458,11 @@ ZSTD_hashPtr.exit34.us46.i:                       ; preds = %248, %ZSTD_hashPtr.
   br label %248
 
 248:                                              ; preds = %245, %ZSTD_hashPtr.exit34.us46.i
-  %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv83.i, 1
-  %exitcond86.not.i = icmp eq i64 %indvars.iv.next84.i, 3
-  br i1 %exitcond86.not.i, label %.loopexit.i12, label %ZSTD_hashPtr.exit34.us46.i, !llvm.loop !26
+  br i1 %exitcond86.not.i, label %.loopexit.i11, label %ZSTD_hashPtr.exit34.us46.i, !llvm.loop !26
 
-ZSTD_hashPtr.exit34.us50.i:                       ; preds = %258, %ZSTD_hashPtr.exit.thread98.i
-  %indvars.iv79.i = phi i64 [ 1, %ZSTD_hashPtr.exit.thread98.i ], [ %indvars.iv.next80.i, %258 ]
+ZSTD_hashPtr.exit34.us50.i:                       ; preds = %258, %ZSTD_hashPtr.exit.thread100.i
+  %exitcond82.not.i = phi i1 [ false, %ZSTD_hashPtr.exit.thread100.i ], [ true, %258 ]
+  %indvars.iv79.i = phi i64 [ 1, %ZSTD_hashPtr.exit.thread100.i ], [ 2, %258 ]
   %249 = getelementptr inbounds nuw i8, ptr %.056.i, i64 %indvars.iv79.i
   %.val37.us.i = load i64, ptr %249, align 1, !tbaa !20
   %250 = mul i64 %.val37.us.i, -3523014627193847808
@@ -481,13 +479,12 @@ ZSTD_hashPtr.exit34.us50.i:                       ; preds = %258, %ZSTD_hashPtr.
   br label %258
 
 258:                                              ; preds = %255, %ZSTD_hashPtr.exit34.us50.i
-  %indvars.iv.next80.i = add nuw nsw i64 %indvars.iv79.i, 1
-  %exitcond82.not.i = icmp eq i64 %indvars.iv.next80.i, 3
-  br i1 %exitcond82.not.i, label %.loopexit.i12, label %ZSTD_hashPtr.exit34.us50.i, !llvm.loop !26
+  br i1 %exitcond82.not.i, label %.loopexit.i11, label %ZSTD_hashPtr.exit34.us50.i, !llvm.loop !26
 
-ZSTD_hashPtr.exit34.us54.i:                       ; preds = %268, %ZSTD_hashPtr.exit.thread100.i
-  %indvars.iv.i9 = phi i64 [ 1, %ZSTD_hashPtr.exit.thread100.i ], [ %indvars.iv.next.i10, %268 ]
-  %259 = getelementptr inbounds nuw i8, ptr %.056.i, i64 %indvars.iv.i9
+ZSTD_hashPtr.exit34.us54.i:                       ; preds = %268, %ZSTD_hashPtr.exit.thread102.i
+  %exitcond.not.i9 = phi i1 [ false, %ZSTD_hashPtr.exit.thread102.i ], [ true, %268 ]
+  %indvars.iv.i10 = phi i64 [ 1, %ZSTD_hashPtr.exit.thread102.i ], [ 2, %268 ]
+  %259 = getelementptr inbounds nuw i8, ptr %.056.i, i64 %indvars.iv.i10
   %.val39.us.i = load i64, ptr %259, align 1, !tbaa !20
   %260 = mul i64 %.val39.us.i, -3523014627193167104
   %261 = lshr i64 %260, %160
@@ -497,21 +494,20 @@ ZSTD_hashPtr.exit34.us54.i:                       ; preds = %268, %ZSTD_hashPtr.
   br i1 %264, label %265, label %268
 
 265:                                              ; preds = %ZSTD_hashPtr.exit34.us54.i
-  %266 = trunc nuw nsw i64 %indvars.iv.i9 to i32
+  %266 = trunc nuw nsw i64 %indvars.iv.i10 to i32
   %267 = add i32 %266, %212
   store i32 %267, ptr %262, align 4, !tbaa !21
   br label %268
 
 268:                                              ; preds = %265, %ZSTD_hashPtr.exit34.us54.i
-  %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i9, 1
-  %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, 3
-  br i1 %exitcond.not.i11, label %.loopexit.i12, label %ZSTD_hashPtr.exit34.us54.i, !llvm.loop !26
+  br i1 %exitcond.not.i9, label %.loopexit.i11, label %ZSTD_hashPtr.exit34.us54.i, !llvm.loop !26
 
-ZSTD_hashPtr.exit34.i18:                          ; preds = %279, %ZSTD_hashPtr.exit.i16
-  %indvars.iv91.i = phi i64 [ 1, %ZSTD_hashPtr.exit.i16 ], [ %indvars.iv.next92.i, %279 ]
+ZSTD_hashPtr.exit34.i17:                          ; preds = %279, %ZSTD_hashPtr.exit.i15
+  %exitcond94.not.i = phi i1 [ false, %ZSTD_hashPtr.exit.i15 ], [ true, %279 ]
+  %indvars.iv91.i = phi i64 [ 1, %ZSTD_hashPtr.exit.i15 ], [ 2, %279 ]
   %269 = getelementptr inbounds nuw i8, ptr %.056.i, i64 %indvars.iv91.i
-  %.val.i19 = load i32, ptr %269, align 1, !tbaa !21
-  %270 = mul i32 %.val.i19, -1640531535
+  %.val.i18 = load i32, ptr %269, align 1, !tbaa !21
+  %270 = mul i32 %.val.i18, -1640531535
   %271 = lshr i32 %270, %161
   %272 = zext i32 %271 to i64
   %273 = getelementptr inbounds nuw i32, ptr %7, i64 %272
@@ -519,23 +515,21 @@ ZSTD_hashPtr.exit34.i18:                          ; preds = %279, %ZSTD_hashPtr.
   %275 = icmp eq i32 %274, 0
   br i1 %275, label %276, label %279
 
-276:                                              ; preds = %ZSTD_hashPtr.exit34.i18
+276:                                              ; preds = %ZSTD_hashPtr.exit34.i17
   %277 = trunc nuw nsw i64 %indvars.iv91.i to i32
   %278 = add i32 %277, %212
   store i32 %278, ptr %273, align 4, !tbaa !21
   br label %279
 
-279:                                              ; preds = %276, %ZSTD_hashPtr.exit34.i18
-  %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i, 1
-  %exitcond94.not.i = icmp eq i64 %indvars.iv.next92.i, 3
-  br i1 %exitcond94.not.i, label %.loopexit.i12, label %ZSTD_hashPtr.exit34.i18, !llvm.loop !26
+279:                                              ; preds = %276, %ZSTD_hashPtr.exit34.i17
+  br i1 %exitcond94.not.i, label %.loopexit.i11, label %ZSTD_hashPtr.exit34.i17, !llvm.loop !26
 
-.loopexit.i12:                                    ; preds = %268, %258, %248, %238, %279
+.loopexit.i11:                                    ; preds = %268, %258, %248, %238, %279
   %280 = getelementptr inbounds nuw i8, ptr %209, i64 3
   %281 = icmp ult ptr %280, %16
   br i1 %281, label %.lr.ph.split.i7, label %ZSTD_fillHashTableForCDict.exit, !llvm.loop !25
 
-ZSTD_fillHashTableForCDict.exit:                  ; preds = %.loopexit.i12, %ZSTD_hashPtr.exit.us.us67.i, %ZSTD_hashPtr.exit.us.us63.i, %ZSTD_hashPtr.exit.us.us59.i, %ZSTD_hashPtr.exit.us.us.i24, %ZSTD_hashPtr.exit.us.i26, %.loopexit.i, %ZSTD_hashPtr.exit.us.us55.i, %ZSTD_hashPtr.exit.us.us51.i, %ZSTD_hashPtr.exit.us.us47.i, %ZSTD_hashPtr.exit.us.us.i, %ZSTD_hashPtr.exit.us.i, %155, %19
+ZSTD_fillHashTableForCDict.exit:                  ; preds = %.loopexit.i11, %ZSTD_hashPtr.exit.us.us67.i, %ZSTD_hashPtr.exit.us.us63.i, %ZSTD_hashPtr.exit.us.us59.i, %ZSTD_hashPtr.exit.us.us.i23, %ZSTD_hashPtr.exit.us.i25, %.loopexit.i, %ZSTD_hashPtr.exit.us.us55.i, %ZSTD_hashPtr.exit.us.us51.i, %ZSTD_hashPtr.exit.us.us47.i, %ZSTD_hashPtr.exit.us.us.i, %ZSTD_hashPtr.exit.us.i, %155, %19
   ret void
 }
 
@@ -759,17 +753,17 @@ ZSTD_match4Found_cmov.exit29.thread.i:            ; preds = %ZSTD_match4Found_cm
   br i1 %132, label %83, label %ZSTD_compressBlock_fast_noDict_4_1.exit, !llvm.loop !35
 
 .sink.split.i:                                    ; preds = %ZSTD_match4Found_cmov.exit.i, %106
-  %.0228.i.lcssa267.sink.i = phi ptr [ %.0230.i.i, %106 ], [ %.0228.i.i, %ZSTD_match4Found_cmov.exit.i ]
-  %.0262.i.lcssa261.sink.i = phi i64 [ %99, %106 ], [ %.0262.i.i, %ZSTD_match4Found_cmov.exit.i ]
+  %.0228.i.lcssa286.sink.i = phi ptr [ %.0230.i.i, %106 ], [ %.0228.i.i, %ZSTD_match4Found_cmov.exit.i ]
+  %.0262.i.lcssa280.sink.i = phi i64 [ %99, %106 ], [ %.0262.i.i, %ZSTD_match4Found_cmov.exit.i ]
   %.pre-phi247.ph.i = phi i64 [ %100, %106 ], [ %85, %ZSTD_match4Found_cmov.exit.i ]
   %.pre-phi.ph.i = phi i64 [ %103, %106 ], [ %92, %ZSTD_match4Found_cmov.exit.i ]
   %.1261.i.ph.ph.i = phi i32 [ %96, %106 ], [ %.0260.i.i, %ZSTD_match4Found_cmov.exit.i ]
   %.0234.i.ph.ph.i = phi i32 [ %102, %106 ], [ %87, %ZSTD_match4Found_cmov.exit.i ]
   %.2227.i.ph.ph.i = phi ptr [ %.0228.i.i, %106 ], [ %.1226.i.i, %ZSTD_match4Found_cmov.exit.i ]
-  %133 = ptrtoint ptr %.0228.i.lcssa267.sink.i to i64
+  %133 = ptrtoint ptr %.0228.i.lcssa286.sink.i to i64
   %134 = sub i64 %133, %21
   %135 = trunc i64 %134 to i32
-  %136 = getelementptr inbounds nuw i32, ptr %12, i64 %.0262.i.lcssa261.sink.i
+  %136 = getelementptr inbounds nuw i32, ptr %12, i64 %.0262.i.lcssa280.sink.i
   store i32 %135, ptr %136, align 4, !tbaa !21
   br label %137
 
@@ -1398,17 +1392,17 @@ ZSTD_match4Found_cmov.exit29.thread.i86:          ; preds = %ZSTD_match4Found_cm
   br i1 %424, label %376, label %ZSTD_compressBlock_fast_noDict_4_1.exit, !llvm.loop !35
 
 .sink.split.i212:                                 ; preds = %ZSTD_match4Found_cmov.exit.i217, %398
-  %.0228.i.lcssa266.sink.i = phi ptr [ %.0230.i.i71, %398 ], [ %.0228.i.i72, %ZSTD_match4Found_cmov.exit.i217 ]
-  %.0262.i.lcssa260.sink.i = phi i64 [ %391, %398 ], [ %.0262.i.i75, %ZSTD_match4Found_cmov.exit.i217 ]
+  %.0228.i.lcssa285.sink.i = phi ptr [ %.0230.i.i71, %398 ], [ %.0228.i.i72, %ZSTD_match4Found_cmov.exit.i217 ]
+  %.0262.i.lcssa279.sink.i = phi i64 [ %391, %398 ], [ %.0262.i.i75, %ZSTD_match4Found_cmov.exit.i217 ]
   %.pre-phi246.ph.i = phi i64 [ %392, %398 ], [ %378, %ZSTD_match4Found_cmov.exit.i217 ]
   %.pre-phi.ph.i213 = phi i64 [ %395, %398 ], [ %385, %ZSTD_match4Found_cmov.exit.i217 ]
   %.1261.i.ph.ph.i214 = phi i32 [ %389, %398 ], [ %.0260.i.i67, %ZSTD_match4Found_cmov.exit.i217 ]
   %.0234.i.ph.ph.i215 = phi i32 [ %394, %398 ], [ %380, %ZSTD_match4Found_cmov.exit.i217 ]
   %.2227.i.ph.ph.i216 = phi ptr [ %.0228.i.i72, %398 ], [ %.1226.i.i73, %ZSTD_match4Found_cmov.exit.i217 ]
-  %425 = ptrtoint ptr %.0228.i.lcssa266.sink.i to i64
+  %425 = ptrtoint ptr %.0228.i.lcssa285.sink.i to i64
   %426 = sub i64 %425, %21
   %427 = trunc i64 %426 to i32
-  %428 = getelementptr inbounds nuw i32, ptr %12, i64 %.0262.i.lcssa260.sink.i
+  %428 = getelementptr inbounds nuw i32, ptr %12, i64 %.0262.i.lcssa279.sink.i
   store i32 %427, ptr %428, align 4, !tbaa !21
   br label %429
 
@@ -2035,17 +2029,17 @@ ZSTD_match4Found_cmov.exit29.thread.i261:         ; preds = %ZSTD_match4Found_cm
   br i1 %713, label %665, label %ZSTD_compressBlock_fast_noDict_4_1.exit, !llvm.loop !35
 
 .sink.split.i390:                                 ; preds = %ZSTD_match4Found_cmov.exit.i398, %687
-  %.0228.i.lcssa266.sink.i391 = phi ptr [ %.0230.i.i246, %687 ], [ %.0228.i.i247, %ZSTD_match4Found_cmov.exit.i398 ]
-  %.0262.i.lcssa260.sink.i392 = phi i64 [ %680, %687 ], [ %.0262.i.i250, %ZSTD_match4Found_cmov.exit.i398 ]
+  %.0228.i.lcssa285.sink.i391 = phi ptr [ %.0230.i.i246, %687 ], [ %.0228.i.i247, %ZSTD_match4Found_cmov.exit.i398 ]
+  %.0262.i.lcssa279.sink.i392 = phi i64 [ %680, %687 ], [ %.0262.i.i250, %ZSTD_match4Found_cmov.exit.i398 ]
   %.pre-phi246.ph.i393 = phi i64 [ %681, %687 ], [ %667, %ZSTD_match4Found_cmov.exit.i398 ]
   %.pre-phi.ph.i394 = phi i64 [ %684, %687 ], [ %674, %ZSTD_match4Found_cmov.exit.i398 ]
   %.1261.i.ph.ph.i395 = phi i32 [ %678, %687 ], [ %.0260.i.i242, %ZSTD_match4Found_cmov.exit.i398 ]
   %.0234.i.ph.ph.i396 = phi i32 [ %683, %687 ], [ %669, %ZSTD_match4Found_cmov.exit.i398 ]
   %.2227.i.ph.ph.i397 = phi ptr [ %.0228.i.i247, %687 ], [ %.1226.i.i248, %ZSTD_match4Found_cmov.exit.i398 ]
-  %714 = ptrtoint ptr %.0228.i.lcssa266.sink.i391 to i64
+  %714 = ptrtoint ptr %.0228.i.lcssa285.sink.i391 to i64
   %715 = sub i64 %714, %21
   %716 = trunc i64 %715 to i32
-  %717 = getelementptr inbounds nuw i32, ptr %12, i64 %.0262.i.lcssa260.sink.i392
+  %717 = getelementptr inbounds nuw i32, ptr %12, i64 %.0262.i.lcssa279.sink.i392
   store i32 %716, ptr %717, align 4, !tbaa !21
   br label %718
 
@@ -2672,17 +2666,17 @@ ZSTD_match4Found_cmov.exit29.thread.i442:         ; preds = %ZSTD_match4Found_cm
   br i1 %1002, label %954, label %ZSTD_compressBlock_fast_noDict_4_1.exit, !llvm.loop !35
 
 .sink.split.i571:                                 ; preds = %ZSTD_match4Found_cmov.exit.i579, %976
-  %.0228.i.lcssa266.sink.i572 = phi ptr [ %.0230.i.i427, %976 ], [ %.0228.i.i428, %ZSTD_match4Found_cmov.exit.i579 ]
-  %.0262.i.lcssa260.sink.i573 = phi i64 [ %969, %976 ], [ %.0262.i.i431, %ZSTD_match4Found_cmov.exit.i579 ]
+  %.0228.i.lcssa285.sink.i572 = phi ptr [ %.0230.i.i427, %976 ], [ %.0228.i.i428, %ZSTD_match4Found_cmov.exit.i579 ]
+  %.0262.i.lcssa279.sink.i573 = phi i64 [ %969, %976 ], [ %.0262.i.i431, %ZSTD_match4Found_cmov.exit.i579 ]
   %.pre-phi246.ph.i574 = phi i64 [ %970, %976 ], [ %956, %ZSTD_match4Found_cmov.exit.i579 ]
   %.pre-phi.ph.i575 = phi i64 [ %973, %976 ], [ %963, %ZSTD_match4Found_cmov.exit.i579 ]
   %.1261.i.ph.ph.i576 = phi i32 [ %967, %976 ], [ %.0260.i.i423, %ZSTD_match4Found_cmov.exit.i579 ]
   %.0234.i.ph.ph.i577 = phi i32 [ %972, %976 ], [ %958, %ZSTD_match4Found_cmov.exit.i579 ]
   %.2227.i.ph.ph.i578 = phi ptr [ %.0228.i.i428, %976 ], [ %.1226.i.i429, %ZSTD_match4Found_cmov.exit.i579 ]
-  %1003 = ptrtoint ptr %.0228.i.lcssa266.sink.i572 to i64
+  %1003 = ptrtoint ptr %.0228.i.lcssa285.sink.i572 to i64
   %1004 = sub i64 %1003, %21
   %1005 = trunc i64 %1004 to i32
-  %1006 = getelementptr inbounds nuw i32, ptr %12, i64 %.0262.i.lcssa260.sink.i573
+  %1006 = getelementptr inbounds nuw i32, ptr %12, i64 %.0262.i.lcssa279.sink.i573
   store i32 %1005, ptr %1006, align 4, !tbaa !21
   br label %1007
 
@@ -6015,18 +6009,18 @@ ZSTD_storeSeqOnly.exit7.i1237:                    ; preds = %2455, %ZSTD_storeSe
   br i1 %.not281.i.i1221, label %2170, label %ZSTD_compressBlock_fast_noDict_4_1.exit
 
 ZSTD_compressBlock_fast_noDict_4_1.exit:          ; preds = %.critedge3.i.i1001, %1938, %1894, %.critedge3.i.i786, %1627, %1583, %.critedge3.i.i1217, %2249, %2205, %.critedge3.i.i642, %1313, %1268, %.critedge3.i.i306, %712, %.critedge3.i.i130, %423, %.critedge3.i.i487, %1001, %.critedge3.i.i, %131, %2156, %1845, %1534, %1218, %928, %639, %350, %57
-  %.1236.i172.i1128.sink2770 = phi i32 [ %.0235.i.i, %57 ], [ %.0235.i.i, %350 ], [ %.0235.i.i, %639 ], [ %.0235.i.i, %928 ], [ %.0235.i.i, %1218 ], [ %.0235.i.i, %1534 ], [ %.0235.i.i, %1845 ], [ %.0235.i.i, %2156 ], [ %.1236.i201.i, %131 ], [ %.3238.i.i, %.critedge3.i.i ], [ %.1236.i201.i417, %1001 ], [ %.3238.i.i489, %.critedge3.i.i487 ], [ %.1236.i201.i61, %423 ], [ %.3238.i.i132, %.critedge3.i.i130 ], [ %.1236.i201.i236, %712 ], [ %.3238.i.i308, %.critedge3.i.i306 ], [ 0, %1268 ], [ %.1236.i217.fr.i, %1313 ], [ %.3238.i.i644, %.critedge3.i.i642 ], [ 0, %2205 ], [ %.1236.i217.fr.i1139, %2249 ], [ %.3238.i.i1219, %.critedge3.i.i1217 ], [ 0, %1583 ], [ %.1236.i217.fr.i708, %1627 ], [ %.3238.i.i788, %.critedge3.i.i786 ], [ 0, %1894 ], [ %.1236.i217.fr.i923, %1938 ], [ %.3238.i.i1003, %.critedge3.i.i1001 ]
-  %.1269.i174.i1127.sink2768 = phi i32 [ %spec.select.i.i, %57 ], [ %spec.select.i.i, %350 ], [ %spec.select.i.i, %639 ], [ %spec.select.i.i, %928 ], [ %spec.select.i.i, %1218 ], [ %spec.select.i.i, %1534 ], [ %spec.select.i.i, %1845 ], [ %spec.select.i.i, %2156 ], [ %.1269.i200.i, %131 ], [ %.3271.i.i, %.critedge3.i.i ], [ %.1269.i200.i418, %1001 ], [ %.3271.i.i488, %.critedge3.i.i487 ], [ %.1269.i200.i62, %423 ], [ %.3271.i.i131, %.critedge3.i.i130 ], [ %.1269.i200.i237, %712 ], [ %.3271.i.i307, %.critedge3.i.i306 ], [ %.1269.i216.i, %1268 ], [ %.1269.i216.i, %1313 ], [ %.3271.i.i643, %.critedge3.i.i642 ], [ %.1269.i216.i1138, %2205 ], [ %.1269.i216.i1138, %2249 ], [ %.3271.i.i1218, %.critedge3.i.i1217 ], [ %.1269.i216.i707, %1583 ], [ %.1269.i216.i707, %1627 ], [ %.3271.i.i787, %.critedge3.i.i786 ], [ %.1269.i216.i922, %1894 ], [ %.1269.i216.i922, %1938 ], [ %.3271.i.i1002, %.critedge3.i.i1001 ]
+  %.1236.i172.i1128.sink2947 = phi i32 [ %.0235.i.i, %57 ], [ %.0235.i.i, %350 ], [ %.0235.i.i, %639 ], [ %.0235.i.i, %928 ], [ %.0235.i.i, %1218 ], [ %.0235.i.i, %1534 ], [ %.0235.i.i, %1845 ], [ %.0235.i.i, %2156 ], [ %.1236.i201.i, %131 ], [ %.3238.i.i, %.critedge3.i.i ], [ %.1236.i201.i417, %1001 ], [ %.3238.i.i489, %.critedge3.i.i487 ], [ %.1236.i201.i61, %423 ], [ %.3238.i.i132, %.critedge3.i.i130 ], [ %.1236.i201.i236, %712 ], [ %.3238.i.i308, %.critedge3.i.i306 ], [ 0, %1268 ], [ %.1236.i217.fr.i, %1313 ], [ %.3238.i.i644, %.critedge3.i.i642 ], [ 0, %2205 ], [ %.1236.i217.fr.i1139, %2249 ], [ %.3238.i.i1219, %.critedge3.i.i1217 ], [ 0, %1583 ], [ %.1236.i217.fr.i708, %1627 ], [ %.3238.i.i788, %.critedge3.i.i786 ], [ 0, %1894 ], [ %.1236.i217.fr.i923, %1938 ], [ %.3238.i.i1003, %.critedge3.i.i1001 ]
+  %.1269.i174.i1127.sink2945 = phi i32 [ %spec.select.i.i, %57 ], [ %spec.select.i.i, %350 ], [ %spec.select.i.i, %639 ], [ %spec.select.i.i, %928 ], [ %spec.select.i.i, %1218 ], [ %spec.select.i.i, %1534 ], [ %spec.select.i.i, %1845 ], [ %spec.select.i.i, %2156 ], [ %.1269.i200.i, %131 ], [ %.3271.i.i, %.critedge3.i.i ], [ %.1269.i200.i418, %1001 ], [ %.3271.i.i488, %.critedge3.i.i487 ], [ %.1269.i200.i62, %423 ], [ %.3271.i.i131, %.critedge3.i.i130 ], [ %.1269.i200.i237, %712 ], [ %.3271.i.i307, %.critedge3.i.i306 ], [ %.1269.i216.i, %1268 ], [ %.1269.i216.i, %1313 ], [ %.3271.i.i643, %.critedge3.i.i642 ], [ %.1269.i216.i1138, %2205 ], [ %.1269.i216.i1138, %2249 ], [ %.3271.i.i1218, %.critedge3.i.i1217 ], [ %.1269.i216.i707, %1583 ], [ %.1269.i216.i707, %1627 ], [ %.3271.i.i787, %.critedge3.i.i786 ], [ %.1269.i216.i922, %1894 ], [ %.1269.i216.i922, %1938 ], [ %.3271.i.i1002, %.critedge3.i.i1001 ]
   %.0223.i170.i1129.sink = phi ptr [ %3, %57 ], [ %3, %350 ], [ %3, %639 ], [ %3, %928 ], [ %3, %1218 ], [ %3, %1534 ], [ %3, %1845 ], [ %3, %2156 ], [ %.0223.i203.i, %131 ], [ %.1.i.i, %.critedge3.i.i ], [ %.0223.i203.i415, %1001 ], [ %.1.i.i490, %.critedge3.i.i487 ], [ %.0223.i203.i59, %423 ], [ %.1.i.i133, %.critedge3.i.i130 ], [ %.0223.i203.i234, %712 ], [ %.1.i.i309, %.critedge3.i.i306 ], [ %.0223.i220.i, %1268 ], [ %.0223.i220.i, %1313 ], [ %.1.i.i645, %.critedge3.i.i642 ], [ %.0223.i220.i1135, %2205 ], [ %.0223.i220.i1135, %2249 ], [ %.1.i.i1220, %.critedge3.i.i1217 ], [ %.0223.i220.i704, %1583 ], [ %.0223.i220.i704, %1627 ], [ %.1.i.i789, %.critedge3.i.i786 ], [ %.0223.i220.i919, %1894 ], [ %.0223.i220.i919, %1938 ], [ %.1.i.i1004, %.critedge3.i.i1001 ]
   %.0267.i.i1130 = select i1 %53, i32 %37, i32 0
   %spec.select289.i.i1131 = select i1 %52, i32 %39, i32 0
-  %2467 = icmp ne i32 %.1236.i172.i1128.sink2770, 0
+  %2467 = icmp ne i32 %.1236.i172.i1128.sink2947, 0
   %or.cond.i.i1132 = select i1 %53, i1 %2467, i1 false
   %2468 = select i1 %or.cond.i.i1132, i32 %37, i32 %spec.select289.i.i1131
-  %2469 = select i1 %2467, i32 %.1236.i172.i1128.sink2770, i32 %.0267.i.i1130
+  %2469 = select i1 %2467, i32 %.1236.i172.i1128.sink2947, i32 %.0267.i.i1130
   store i32 %2469, ptr %2, align 4, !tbaa !21
-  %.not288.i.i1133 = icmp eq i32 %.1269.i174.i1127.sink2768, 0
-  %2470 = select i1 %.not288.i.i1133, i32 %2468, i32 %.1269.i174.i1127.sink2768
+  %.not288.i.i1133 = icmp eq i32 %.1269.i174.i1127.sink2945, 0
+  %2470 = select i1 %.not288.i.i1133, i32 %2468, i32 %.1269.i174.i1127.sink2945
   store i32 %2470, ptr %38, align 4, !tbaa !21
   %2471 = ptrtoint ptr %35 to i64
   %2472 = ptrtoint ptr %.0223.i170.i1129.sink to i64
@@ -6793,15 +6787,15 @@ ZSTD_match4Found_cmov.exit.thread.i:              ; preds = %ZSTD_match4Found_cm
   br label %88
 
 ZSTD_storeSeqOnly.exit.i.sink.split.i:            ; preds = %349, %238, %159
-  %.sink296.i = phi ptr [ %160, %159 ], [ %239, %238 ], [ %350, %349 ]
-  %.sink292.ph.i = phi i64 [ %163, %159 ], [ %242, %238 ], [ %353, %349 ]
+  %.sink321.i = phi ptr [ %160, %159 ], [ %239, %238 ], [ %350, %349 ]
+  %.sink317.ph.i = phi i64 [ %163, %159 ], [ %242, %238 ], [ %353, %349 ]
   %.2295.i.ph.ph.i = phi i64 [ %112, %159 ], [ %.4297.i.lcssa.i, %238 ], [ %.6299.i.lcssa.i, %349 ]
   %.2284.i.ph.ph.i = phi i32 [ %.0282.i202.i, %159 ], [ %.0272.i203.i, %238 ], [ %.0272.i203.i, %349 ]
   %.2274.i.ph.ph.i = phi i32 [ %.0272.i203.i, %159 ], [ %176, %238 ], [ %248, %349 ]
   %.2.i.ph.ph.i = phi ptr [ %107, %159 ], [ %.4.i.lcssa.i, %238 ], [ %.6.i.lcssa.i, %349 ]
   store i32 2, ptr %70, align 8, !tbaa !46
   %364 = load ptr, ptr %1, align 8, !tbaa !47
-  %365 = ptrtoint ptr %.sink296.i to i64
+  %365 = ptrtoint ptr %.sink321.i to i64
   %366 = ptrtoint ptr %364 to i64
   %367 = sub i64 %365, %366
   %368 = lshr exact i64 %367, 3
@@ -6810,16 +6804,16 @@ ZSTD_storeSeqOnly.exit.i.sink.split.i:            ; preds = %349, %238, %159
   br label %ZSTD_storeSeqOnly.exit.i.i
 
 ZSTD_storeSeqOnly.exit.i.i:                       ; preds = %ZSTD_storeSeqOnly.exit.i.sink.split.i, %349, %238, %159
-  %.sink292.i = phi i64 [ %163, %159 ], [ %242, %238 ], [ %353, %349 ], [ %.sink292.ph.i, %ZSTD_storeSeqOnly.exit.i.sink.split.i ]
-  %.sink291.i = phi ptr [ %160, %159 ], [ %239, %238 ], [ %350, %349 ], [ %.sink296.i, %ZSTD_storeSeqOnly.exit.i.sink.split.i ]
+  %.sink317.i = phi i64 [ %163, %159 ], [ %242, %238 ], [ %353, %349 ], [ %.sink317.ph.i, %ZSTD_storeSeqOnly.exit.i.sink.split.i ]
+  %.sink316.i = phi ptr [ %160, %159 ], [ %239, %238 ], [ %350, %349 ], [ %.sink321.i, %ZSTD_storeSeqOnly.exit.i.sink.split.i ]
   %.2295.i.ph.i = phi i64 [ %112, %159 ], [ %.4297.i.lcssa.i, %238 ], [ %.6299.i.lcssa.i, %349 ], [ %.2295.i.ph.ph.i, %ZSTD_storeSeqOnly.exit.i.sink.split.i ]
   %.2284.i.ph.i = phi i32 [ %.0282.i202.i, %159 ], [ %.0272.i203.i, %238 ], [ %.0272.i203.i, %349 ], [ %.2284.i.ph.ph.i, %ZSTD_storeSeqOnly.exit.i.sink.split.i ]
   %.2274.i.ph.i = phi i32 [ %.0272.i203.i, %159 ], [ %176, %238 ], [ %248, %349 ], [ %.2274.i.ph.ph.i, %ZSTD_storeSeqOnly.exit.i.sink.split.i ]
   %.2.i.ph.i = phi ptr [ %107, %159 ], [ %.4.i.lcssa.i, %238 ], [ %.6.i.lcssa.i, %349 ], [ %.2.i.ph.ph.i, %ZSTD_storeSeqOnly.exit.i.sink.split.i ]
-  %370 = trunc i64 %.sink292.i to i16
-  %371 = getelementptr inbounds nuw i8, ptr %.sink291.i, i64 6
+  %370 = trunc i64 %.sink317.i to i16
+  %371 = getelementptr inbounds nuw i8, ptr %.sink316.i, i64 6
   store i16 %370, ptr %371, align 2, !tbaa !53
-  %372 = getelementptr inbounds nuw i8, ptr %.sink291.i, i64 8
+  %372 = getelementptr inbounds nuw i8, ptr %.sink316.i, i64 8
   store ptr %372, ptr %71, align 8, !tbaa !42
   %373 = getelementptr inbounds nuw i8, ptr %.2.i.ph.i, i64 %.2295.i.ph.i
   %.not339.i.i = icmp ugt ptr %373, %23
@@ -7633,15 +7627,15 @@ ZSTD_match4Found_cmov.exit.thread.i60:            ; preds = %ZSTD_match4Found_cm
   br label %469
 
 ZSTD_storeSeqOnly.exit.i.sink.split.i116:         ; preds = %730, %619, %540
-  %.sink296.i117 = phi ptr [ %541, %540 ], [ %620, %619 ], [ %731, %730 ]
-  %.sink292.ph.i118 = phi i64 [ %544, %540 ], [ %623, %619 ], [ %734, %730 ]
+  %.sink321.i117 = phi ptr [ %541, %540 ], [ %620, %619 ], [ %731, %730 ]
+  %.sink317.ph.i118 = phi i64 [ %544, %540 ], [ %623, %619 ], [ %734, %730 ]
   %.2295.i.ph.ph.i119 = phi i64 [ %493, %540 ], [ %.4297.i.lcssa.i177, %619 ], [ %.6299.i.lcssa.i82, %730 ]
   %.2284.i.ph.ph.i120 = phi i32 [ %.0282.i202.i36, %540 ], [ %.0272.i203.i35, %619 ], [ %.0272.i203.i35, %730 ]
   %.2274.i.ph.ph.i121 = phi i32 [ %.0272.i203.i35, %540 ], [ %557, %619 ], [ %629, %730 ]
   %.2.i.ph.ph.i122 = phi ptr [ %488, %540 ], [ %.4.i.lcssa.i178, %619 ], [ %.6.i.lcssa.i83, %730 ]
   store i32 2, ptr %451, align 8, !tbaa !46
   %745 = load ptr, ptr %1, align 8, !tbaa !47
-  %746 = ptrtoint ptr %.sink296.i117 to i64
+  %746 = ptrtoint ptr %.sink321.i117 to i64
   %747 = ptrtoint ptr %745 to i64
   %748 = sub i64 %746, %747
   %749 = lshr exact i64 %748, 3
@@ -7650,16 +7644,16 @@ ZSTD_storeSeqOnly.exit.i.sink.split.i116:         ; preds = %730, %619, %540
   br label %ZSTD_storeSeqOnly.exit.i.i88
 
 ZSTD_storeSeqOnly.exit.i.i88:                     ; preds = %ZSTD_storeSeqOnly.exit.i.sink.split.i116, %730, %619, %540
-  %.sink292.i89 = phi i64 [ %544, %540 ], [ %623, %619 ], [ %734, %730 ], [ %.sink292.ph.i118, %ZSTD_storeSeqOnly.exit.i.sink.split.i116 ]
-  %.sink291.i90 = phi ptr [ %541, %540 ], [ %620, %619 ], [ %731, %730 ], [ %.sink296.i117, %ZSTD_storeSeqOnly.exit.i.sink.split.i116 ]
+  %.sink317.i89 = phi i64 [ %544, %540 ], [ %623, %619 ], [ %734, %730 ], [ %.sink317.ph.i118, %ZSTD_storeSeqOnly.exit.i.sink.split.i116 ]
+  %.sink316.i90 = phi ptr [ %541, %540 ], [ %620, %619 ], [ %731, %730 ], [ %.sink321.i117, %ZSTD_storeSeqOnly.exit.i.sink.split.i116 ]
   %.2295.i.ph.i91 = phi i64 [ %493, %540 ], [ %.4297.i.lcssa.i177, %619 ], [ %.6299.i.lcssa.i82, %730 ], [ %.2295.i.ph.ph.i119, %ZSTD_storeSeqOnly.exit.i.sink.split.i116 ]
   %.2284.i.ph.i92 = phi i32 [ %.0282.i202.i36, %540 ], [ %.0272.i203.i35, %619 ], [ %.0272.i203.i35, %730 ], [ %.2284.i.ph.ph.i120, %ZSTD_storeSeqOnly.exit.i.sink.split.i116 ]
   %.2274.i.ph.i93 = phi i32 [ %.0272.i203.i35, %540 ], [ %557, %619 ], [ %629, %730 ], [ %.2274.i.ph.ph.i121, %ZSTD_storeSeqOnly.exit.i.sink.split.i116 ]
   %.2.i.ph.i94 = phi ptr [ %488, %540 ], [ %.4.i.lcssa.i178, %619 ], [ %.6.i.lcssa.i83, %730 ], [ %.2.i.ph.ph.i122, %ZSTD_storeSeqOnly.exit.i.sink.split.i116 ]
-  %751 = trunc i64 %.sink292.i89 to i16
-  %752 = getelementptr inbounds nuw i8, ptr %.sink291.i90, i64 6
+  %751 = trunc i64 %.sink317.i89 to i16
+  %752 = getelementptr inbounds nuw i8, ptr %.sink316.i90, i64 6
   store i16 %751, ptr %752, align 2, !tbaa !53
-  %753 = getelementptr inbounds nuw i8, ptr %.sink291.i90, i64 8
+  %753 = getelementptr inbounds nuw i8, ptr %.sink316.i90, i64 8
   store ptr %753, ptr %452, align 8, !tbaa !42
   %754 = getelementptr inbounds nuw i8, ptr %.2.i.ph.i94, i64 %.2295.i.ph.i91
   %.not339.i.i95 = icmp ugt ptr %754, %23
@@ -8470,15 +8464,15 @@ ZSTD_match4Found_cmov.exit.thread.i278:           ; preds = %ZSTD_match4Found_cm
   br label %847
 
 ZSTD_storeSeqOnly.exit.i.sink.split.i334:         ; preds = %1108, %997, %918
-  %.sink296.i335 = phi ptr [ %919, %918 ], [ %998, %997 ], [ %1109, %1108 ]
-  %.sink292.ph.i336 = phi i64 [ %922, %918 ], [ %1001, %997 ], [ %1112, %1108 ]
+  %.sink321.i335 = phi ptr [ %919, %918 ], [ %998, %997 ], [ %1109, %1108 ]
+  %.sink317.ph.i336 = phi i64 [ %922, %918 ], [ %1001, %997 ], [ %1112, %1108 ]
   %.2295.i.ph.ph.i337 = phi i64 [ %871, %918 ], [ %.4297.i.lcssa.i395, %997 ], [ %.6299.i.lcssa.i300, %1108 ]
   %.2284.i.ph.ph.i338 = phi i32 [ %.0282.i202.i253, %918 ], [ %.0272.i203.i252, %997 ], [ %.0272.i203.i252, %1108 ]
   %.2274.i.ph.ph.i339 = phi i32 [ %.0272.i203.i252, %918 ], [ %935, %997 ], [ %1007, %1108 ]
   %.2.i.ph.ph.i340 = phi ptr [ %866, %918 ], [ %.4.i.lcssa.i396, %997 ], [ %.6.i.lcssa.i301, %1108 ]
   store i32 2, ptr %829, align 8, !tbaa !46
   %1123 = load ptr, ptr %1, align 8, !tbaa !47
-  %1124 = ptrtoint ptr %.sink296.i335 to i64
+  %1124 = ptrtoint ptr %.sink321.i335 to i64
   %1125 = ptrtoint ptr %1123 to i64
   %1126 = sub i64 %1124, %1125
   %1127 = lshr exact i64 %1126, 3
@@ -8487,16 +8481,16 @@ ZSTD_storeSeqOnly.exit.i.sink.split.i334:         ; preds = %1108, %997, %918
   br label %ZSTD_storeSeqOnly.exit.i.i306
 
 ZSTD_storeSeqOnly.exit.i.i306:                    ; preds = %ZSTD_storeSeqOnly.exit.i.sink.split.i334, %1108, %997, %918
-  %.sink292.i307 = phi i64 [ %922, %918 ], [ %1001, %997 ], [ %1112, %1108 ], [ %.sink292.ph.i336, %ZSTD_storeSeqOnly.exit.i.sink.split.i334 ]
-  %.sink291.i308 = phi ptr [ %919, %918 ], [ %998, %997 ], [ %1109, %1108 ], [ %.sink296.i335, %ZSTD_storeSeqOnly.exit.i.sink.split.i334 ]
+  %.sink317.i307 = phi i64 [ %922, %918 ], [ %1001, %997 ], [ %1112, %1108 ], [ %.sink317.ph.i336, %ZSTD_storeSeqOnly.exit.i.sink.split.i334 ]
+  %.sink316.i308 = phi ptr [ %919, %918 ], [ %998, %997 ], [ %1109, %1108 ], [ %.sink321.i335, %ZSTD_storeSeqOnly.exit.i.sink.split.i334 ]
   %.2295.i.ph.i309 = phi i64 [ %871, %918 ], [ %.4297.i.lcssa.i395, %997 ], [ %.6299.i.lcssa.i300, %1108 ], [ %.2295.i.ph.ph.i337, %ZSTD_storeSeqOnly.exit.i.sink.split.i334 ]
   %.2284.i.ph.i310 = phi i32 [ %.0282.i202.i253, %918 ], [ %.0272.i203.i252, %997 ], [ %.0272.i203.i252, %1108 ], [ %.2284.i.ph.ph.i338, %ZSTD_storeSeqOnly.exit.i.sink.split.i334 ]
   %.2274.i.ph.i311 = phi i32 [ %.0272.i203.i252, %918 ], [ %935, %997 ], [ %1007, %1108 ], [ %.2274.i.ph.ph.i339, %ZSTD_storeSeqOnly.exit.i.sink.split.i334 ]
   %.2.i.ph.i312 = phi ptr [ %866, %918 ], [ %.4.i.lcssa.i396, %997 ], [ %.6.i.lcssa.i301, %1108 ], [ %.2.i.ph.ph.i340, %ZSTD_storeSeqOnly.exit.i.sink.split.i334 ]
-  %1129 = trunc i64 %.sink292.i307 to i16
-  %1130 = getelementptr inbounds nuw i8, ptr %.sink291.i308, i64 6
+  %1129 = trunc i64 %.sink317.i307 to i16
+  %1130 = getelementptr inbounds nuw i8, ptr %.sink316.i308, i64 6
   store i16 %1129, ptr %1130, align 2, !tbaa !53
-  %1131 = getelementptr inbounds nuw i8, ptr %.sink291.i308, i64 8
+  %1131 = getelementptr inbounds nuw i8, ptr %.sink316.i308, i64 8
   store ptr %1131, ptr %830, align 8, !tbaa !42
   %1132 = getelementptr inbounds nuw i8, ptr %.2.i.ph.i312, i64 %.2295.i.ph.i309
   %.not339.i.i313 = icmp ugt ptr %1132, %23
@@ -9307,15 +9301,15 @@ ZSTD_match4Found_cmov.exit.thread.i496:           ; preds = %ZSTD_match4Found_cm
   br label %1225
 
 ZSTD_storeSeqOnly.exit.i.sink.split.i552:         ; preds = %1486, %1375, %1296
-  %.sink296.i553 = phi ptr [ %1297, %1296 ], [ %1376, %1375 ], [ %1487, %1486 ]
-  %.sink292.ph.i554 = phi i64 [ %1300, %1296 ], [ %1379, %1375 ], [ %1490, %1486 ]
+  %.sink321.i553 = phi ptr [ %1297, %1296 ], [ %1376, %1375 ], [ %1487, %1486 ]
+  %.sink317.ph.i554 = phi i64 [ %1300, %1296 ], [ %1379, %1375 ], [ %1490, %1486 ]
   %.2295.i.ph.ph.i555 = phi i64 [ %1249, %1296 ], [ %.4297.i.lcssa.i613, %1375 ], [ %.6299.i.lcssa.i518, %1486 ]
   %.2284.i.ph.ph.i556 = phi i32 [ %.0282.i202.i471, %1296 ], [ %.0272.i203.i470, %1375 ], [ %.0272.i203.i470, %1486 ]
   %.2274.i.ph.ph.i557 = phi i32 [ %.0272.i203.i470, %1296 ], [ %1313, %1375 ], [ %1385, %1486 ]
   %.2.i.ph.ph.i558 = phi ptr [ %1244, %1296 ], [ %.4.i.lcssa.i614, %1375 ], [ %.6.i.lcssa.i519, %1486 ]
   store i32 2, ptr %1207, align 8, !tbaa !46
   %1501 = load ptr, ptr %1, align 8, !tbaa !47
-  %1502 = ptrtoint ptr %.sink296.i553 to i64
+  %1502 = ptrtoint ptr %.sink321.i553 to i64
   %1503 = ptrtoint ptr %1501 to i64
   %1504 = sub i64 %1502, %1503
   %1505 = lshr exact i64 %1504, 3
@@ -9324,16 +9318,16 @@ ZSTD_storeSeqOnly.exit.i.sink.split.i552:         ; preds = %1486, %1375, %1296
   br label %ZSTD_storeSeqOnly.exit.i.i524
 
 ZSTD_storeSeqOnly.exit.i.i524:                    ; preds = %ZSTD_storeSeqOnly.exit.i.sink.split.i552, %1486, %1375, %1296
-  %.sink292.i525 = phi i64 [ %1300, %1296 ], [ %1379, %1375 ], [ %1490, %1486 ], [ %.sink292.ph.i554, %ZSTD_storeSeqOnly.exit.i.sink.split.i552 ]
-  %.sink291.i526 = phi ptr [ %1297, %1296 ], [ %1376, %1375 ], [ %1487, %1486 ], [ %.sink296.i553, %ZSTD_storeSeqOnly.exit.i.sink.split.i552 ]
+  %.sink317.i525 = phi i64 [ %1300, %1296 ], [ %1379, %1375 ], [ %1490, %1486 ], [ %.sink317.ph.i554, %ZSTD_storeSeqOnly.exit.i.sink.split.i552 ]
+  %.sink316.i526 = phi ptr [ %1297, %1296 ], [ %1376, %1375 ], [ %1487, %1486 ], [ %.sink321.i553, %ZSTD_storeSeqOnly.exit.i.sink.split.i552 ]
   %.2295.i.ph.i527 = phi i64 [ %1249, %1296 ], [ %.4297.i.lcssa.i613, %1375 ], [ %.6299.i.lcssa.i518, %1486 ], [ %.2295.i.ph.ph.i555, %ZSTD_storeSeqOnly.exit.i.sink.split.i552 ]
   %.2284.i.ph.i528 = phi i32 [ %.0282.i202.i471, %1296 ], [ %.0272.i203.i470, %1375 ], [ %.0272.i203.i470, %1486 ], [ %.2284.i.ph.ph.i556, %ZSTD_storeSeqOnly.exit.i.sink.split.i552 ]
   %.2274.i.ph.i529 = phi i32 [ %.0272.i203.i470, %1296 ], [ %1313, %1375 ], [ %1385, %1486 ], [ %.2274.i.ph.ph.i557, %ZSTD_storeSeqOnly.exit.i.sink.split.i552 ]
   %.2.i.ph.i530 = phi ptr [ %1244, %1296 ], [ %.4.i.lcssa.i614, %1375 ], [ %.6.i.lcssa.i519, %1486 ], [ %.2.i.ph.ph.i558, %ZSTD_storeSeqOnly.exit.i.sink.split.i552 ]
-  %1507 = trunc i64 %.sink292.i525 to i16
-  %1508 = getelementptr inbounds nuw i8, ptr %.sink291.i526, i64 6
+  %1507 = trunc i64 %.sink317.i525 to i16
+  %1508 = getelementptr inbounds nuw i8, ptr %.sink316.i526, i64 6
   store i16 %1507, ptr %1508, align 2, !tbaa !53
-  %1509 = getelementptr inbounds nuw i8, ptr %.sink291.i526, i64 8
+  %1509 = getelementptr inbounds nuw i8, ptr %.sink316.i526, i64 8
   store ptr %1509, ptr %1208, align 8, !tbaa !42
   %1510 = getelementptr inbounds nuw i8, ptr %.2.i.ph.i530, i64 %.2295.i.ph.i527
   %.not339.i.i531 = icmp ugt ptr %1510, %23
@@ -9818,7 +9812,7 @@ ZSTD_hashPtr.exit384.thread458:                   ; preds = %66
 .unreachabledefault:                              ; preds = %66
   unreachable
 
-default.unreachable:                              ; preds = %285, %.thread639, %.thread637, %ZSTD_storeSeqOnly.exit387
+default.unreachable:                              ; preds = %285, %.thread655, %.thread653, %ZSTD_storeSeqOnly.exit387
   unreachable
 
 ZSTD_hashPtr.exit384:                             ; preds = %66
@@ -9903,7 +9897,7 @@ ZSTD_hashPtr.exit382:                             ; preds = %ZSTD_hashPtr.exit38
 
 127:                                              ; preds = %109
   %.not359 = icmp ult i32 %.0314, %34
-  br i1 %.not359, label %.thread637, label %128
+  br i1 %.not359, label %.thread653, label %128
 
 128:                                              ; preds = %127
   %129 = zext i32 %.0314 to i64
@@ -9911,9 +9905,9 @@ ZSTD_hashPtr.exit382:                             ; preds = %ZSTD_hashPtr.exit38
   %.val391 = load i32, ptr %130, align 1, !tbaa !21
   %.2298.val.pre = load i32, ptr %.1297, align 1, !tbaa !21
   %131 = icmp eq i32 %.2298.val.pre, %.val391
-  br i1 %131, label %190, label %.thread637
+  br i1 %131, label %190, label %.thread653
 
-.thread637:                                       ; preds = %127, %128
+.thread653:                                       ; preds = %127, %128
   %132 = getelementptr inbounds nuw i32, ptr %9, i64 %.0311
   %133 = load i32, ptr %132, align 4, !tbaa !21
   %134 = icmp ult i32 %133, %39
@@ -9925,25 +9919,25 @@ ZSTD_hashPtr.exit382:                             ; preds = %ZSTD_hashPtr.exit38
     i32 4, label %136
   ]
 
-136:                                              ; preds = %.thread637
+136:                                              ; preds = %.thread653
   %137 = mul i32 %.0305.val, -1640531535
   %138 = lshr i32 %137, %57
   %139 = zext i32 %138 to i64
   br label %ZSTD_hashPtr.exit380
 
-140:                                              ; preds = %.thread637
+140:                                              ; preds = %.thread653
   %.0305.val401 = load i64, ptr %.0305, align 1, !tbaa !20
   %141 = mul i64 %.0305.val401, -3523014627271114752
   %142 = lshr i64 %141, %59
   br label %ZSTD_hashPtr.exit380
 
-143:                                              ; preds = %.thread637
+143:                                              ; preds = %.thread653
   %.0305.val408 = load i64, ptr %.0305, align 1, !tbaa !20
   %144 = mul i64 %.0305.val408, -3523014627193847808
   %145 = lshr i64 %144, %59
   br label %ZSTD_hashPtr.exit380
 
-146:                                              ; preds = %.thread637
+146:                                              ; preds = %.thread653
   %.0305.val415 = load i64, ptr %.0305, align 1, !tbaa !20
   %147 = mul i64 %.0305.val415, -3523014627193167104
   %148 = lshr i64 %147, %59
@@ -9956,7 +9950,7 @@ ZSTD_hashPtr.exit380:                             ; preds = %136, %140, %143, %1
   %151 = trunc i64 %150 to i32
   store i32 %151, ptr %132, align 4, !tbaa !21
   %.not360 = icmp ult i32 %133, %34
-  br i1 %.not360, label %.thread639, label %152
+  br i1 %.not360, label %.thread655, label %152
 
 152:                                              ; preds = %ZSTD_hashPtr.exit380
   %153 = zext i32 %133 to i64
@@ -9964,9 +9958,9 @@ ZSTD_hashPtr.exit380:                             ; preds = %136, %140, %143, %1
   %.val389 = load i32, ptr %154, align 1, !tbaa !21
   %.0302.val.pre = load i32, ptr %.0302, align 1, !tbaa !21
   %155 = icmp eq i32 %.0302.val.pre, %.val389
-  br i1 %155, label %190, label %.thread639
+  br i1 %155, label %190, label %.thread655
 
-.thread639:                                       ; preds = %ZSTD_hashPtr.exit380, %152
+.thread655:                                       ; preds = %ZSTD_hashPtr.exit380, %152
   %156 = getelementptr inbounds nuw i32, ptr %9, i64 %.0.i379
   %157 = load i32, ptr %156, align 4, !tbaa !21
   %158 = icmp ult i32 %157, %39
@@ -9978,26 +9972,26 @@ ZSTD_hashPtr.exit380:                             ; preds = %136, %140, %143, %1
     i32 4, label %160
   ]
 
-160:                                              ; preds = %.thread639
+160:                                              ; preds = %.thread655
   %.0307.val = load i32, ptr %.0307, align 1, !tbaa !21
   %161 = mul i32 %.0307.val, -1640531535
   %162 = lshr i32 %161, %57
   %163 = zext i32 %162 to i64
   br label %ZSTD_hashPtr.exit378
 
-164:                                              ; preds = %.thread639
+164:                                              ; preds = %.thread655
   %.0307.val402 = load i64, ptr %.0307, align 1, !tbaa !20
   %165 = mul i64 %.0307.val402, -3523014627271114752
   %166 = lshr i64 %165, %59
   br label %ZSTD_hashPtr.exit378
 
-167:                                              ; preds = %.thread639
+167:                                              ; preds = %.thread655
   %.0307.val409 = load i64, ptr %.0307, align 1, !tbaa !20
   %168 = mul i64 %.0307.val409, -3523014627193847808
   %169 = lshr i64 %168, %59
   br label %ZSTD_hashPtr.exit378
 
-170:                                              ; preds = %.thread639
+170:                                              ; preds = %.thread655
   %.0307.val416 = load i64, ptr %.0307, align 1, !tbaa !20
   %171 = mul i64 %.0307.val416, -3523014627193167104
   %172 = lshr i64 %171, %59

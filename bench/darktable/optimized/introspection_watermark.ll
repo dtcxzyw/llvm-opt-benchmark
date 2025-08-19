@@ -917,15 +917,15 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %273 = load i32, ptr %272, align 4, !tbaa !114
   switch i32 %273, label %.thread454 [
     i32 1, label %.thread454.thread
-    i32 2, label %.thread454.thread546
-    i32 3, label %.thread454.thread550
+    i32 2, label %.thread454.thread554
+    i32 3, label %.thread454.thread558
   ]
 
 .thread454.thread:                                ; preds = %271
   %274 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %275 = load i32, ptr %274, align 4, !tbaa !115
-  %.fr544 = freeze i32 %275
-  %276 = icmp eq i32 %.fr544, 0
+  %.fr552 = freeze i32 %275
+  %276 = icmp eq i32 %.fr552, 0
   %. = select i1 %276, float %246, float %247
   %277 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %278 = load float, ptr %277, align 4, !tbaa !113
@@ -933,14 +933,14 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %280 = fmul reassoc nsz arcp contract afn float %279, %278
   %281 = fdiv reassoc nsz arcp contract afn float %280, %.
   %282 = fmul reassoc nsz arcp contract afn float %244, %238
-  %283 = icmp eq i32 %.fr544, 0
+  %283 = icmp eq i32 %.fr552, 0
   br i1 %283, label %334, label %338
 
-.thread454.thread546:                             ; preds = %271
+.thread454.thread554:                             ; preds = %271
   %284 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %285 = load i32, ptr %284, align 4, !tbaa !115
-  %.fr548 = freeze i32 %285
-  %286 = icmp eq i32 %.fr548, 0
+  %.fr556 = freeze i32 %285
+  %286 = icmp eq i32 %.fr556, 0
   %.441 = select i1 %286, float %246, float %247
   %287 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %288 = load float, ptr %287, align 4, !tbaa !113
@@ -948,16 +948,16 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %290 = fmul reassoc nsz arcp contract afn float %289, %288
   %291 = fdiv reassoc nsz arcp contract afn float %290, %.441
   %292 = fmul reassoc nsz arcp contract afn float %244, %241
-  %293 = icmp eq i32 %.fr548, 0
+  %293 = icmp eq i32 %.fr556, 0
   br i1 %293, label %334, label %338
 
-.thread454.thread550:                             ; preds = %271
+.thread454.thread558:                             ; preds = %271
   %294 = fcmp reassoc nsz arcp contract afn ogt float %238, %241
   %295 = select reassoc nsz arcp contract afn i1 %294, float %238, float %241
   %296 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %297 = load i32, ptr %296, align 4, !tbaa !115
-  %.fr552 = freeze i32 %297
-  %298 = icmp eq i32 %.fr552, 0
+  %.fr560 = freeze i32 %297
+  %298 = icmp eq i32 %.fr560, 0
   %.442 = select i1 %298, float %246, float %247
   %299 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %300 = load float, ptr %299, align 4, !tbaa !113
@@ -967,7 +967,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %304 = fcmp reassoc nsz arcp contract afn ogt float %238, %241
   %305 = select reassoc nsz arcp contract afn i1 %304, float %238, float %241
   %306 = fmul reassoc nsz arcp contract afn float %305, %244
-  %307 = icmp eq i32 %.fr552, 0
+  %307 = icmp eq i32 %.fr560, 0
   br i1 %307, label %334, label %338
 
 308:                                              ; preds = %235
@@ -1017,22 +1017,22 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %333 = fdiv reassoc nsz arcp contract afn float %332, %247
   br label %342
 
-334:                                              ; preds = %.thread454.thread550, %.thread454.thread546, %.thread454.thread, %.thread468, %.thread462, %.thread454
-  %.0407501 = phi float [ %327, %.thread454 ], [ %256, %.thread462 ], [ %263, %.thread468 ], [ %282, %.thread454.thread ], [ %292, %.thread454.thread546 ], [ %306, %.thread454.thread550 ]
-  %.0402458500 = phi float [ %241, %.thread454 ], [ %253, %.thread462 ], [ %260, %.thread468 ], [ %241, %.thread454.thread ], [ %241, %.thread454.thread546 ], [ %241, %.thread454.thread550 ]
-  %.0401460499 = phi float [ %238, %.thread454 ], [ %253, %.thread462 ], [ %260, %.thread468 ], [ %238, %.thread454.thread ], [ %238, %.thread454.thread546 ], [ %238, %.thread454.thread550 ]
-  %335 = phi ptr [ %320, %.thread454 ], [ %254, %.thread462 ], [ %261, %.thread468 ], [ %277, %.thread454.thread ], [ %287, %.thread454.thread546 ], [ %299, %.thread454.thread550 ]
-  %336 = phi float [ %324, %.thread454 ], [ %258, %.thread462 ], [ %265, %.thread468 ], [ %281, %.thread454.thread ], [ %291, %.thread454.thread546 ], [ %303, %.thread454.thread550 ]
+334:                                              ; preds = %.thread454.thread558, %.thread454.thread554, %.thread454.thread, %.thread468, %.thread462, %.thread454
+  %.0407501 = phi float [ %327, %.thread454 ], [ %256, %.thread462 ], [ %263, %.thread468 ], [ %282, %.thread454.thread ], [ %292, %.thread454.thread554 ], [ %306, %.thread454.thread558 ]
+  %.0402458500 = phi float [ %241, %.thread454 ], [ %253, %.thread462 ], [ %260, %.thread468 ], [ %241, %.thread454.thread ], [ %241, %.thread454.thread554 ], [ %241, %.thread454.thread558 ]
+  %.0401460499 = phi float [ %238, %.thread454 ], [ %253, %.thread462 ], [ %260, %.thread468 ], [ %238, %.thread454.thread ], [ %238, %.thread454.thread554 ], [ %238, %.thread454.thread558 ]
+  %335 = phi ptr [ %320, %.thread454 ], [ %254, %.thread462 ], [ %261, %.thread468 ], [ %277, %.thread454.thread ], [ %287, %.thread454.thread554 ], [ %299, %.thread454.thread558 ]
+  %336 = phi float [ %324, %.thread454 ], [ %258, %.thread462 ], [ %265, %.thread468 ], [ %281, %.thread454.thread ], [ %291, %.thread454.thread554 ], [ %303, %.thread454.thread558 ]
   %.pn = fmul reassoc nsz arcp contract afn float %.0407501, %247
   %337 = fdiv reassoc nsz arcp contract afn float %.pn, %246
   br label %342
 
-338:                                              ; preds = %.thread454.thread550, %.thread454.thread546, %.thread454.thread, %.thread468, %.thread462, %.thread454
-  %.0407491 = phi float [ %327, %.thread454 ], [ %256, %.thread462 ], [ %263, %.thread468 ], [ %282, %.thread454.thread ], [ %292, %.thread454.thread546 ], [ %306, %.thread454.thread550 ]
-  %.0402458490 = phi float [ %241, %.thread454 ], [ %253, %.thread462 ], [ %260, %.thread468 ], [ %241, %.thread454.thread ], [ %241, %.thread454.thread546 ], [ %241, %.thread454.thread550 ]
-  %.0401460489 = phi float [ %238, %.thread454 ], [ %253, %.thread462 ], [ %260, %.thread468 ], [ %238, %.thread454.thread ], [ %238, %.thread454.thread546 ], [ %238, %.thread454.thread550 ]
-  %339 = phi ptr [ %320, %.thread454 ], [ %254, %.thread462 ], [ %261, %.thread468 ], [ %277, %.thread454.thread ], [ %287, %.thread454.thread546 ], [ %299, %.thread454.thread550 ]
-  %340 = phi float [ %324, %.thread454 ], [ %258, %.thread462 ], [ %265, %.thread468 ], [ %281, %.thread454.thread ], [ %291, %.thread454.thread546 ], [ %303, %.thread454.thread550 ]
+338:                                              ; preds = %.thread454.thread558, %.thread454.thread554, %.thread454.thread, %.thread468, %.thread462, %.thread454
+  %.0407491 = phi float [ %327, %.thread454 ], [ %256, %.thread462 ], [ %263, %.thread468 ], [ %282, %.thread454.thread ], [ %292, %.thread454.thread554 ], [ %306, %.thread454.thread558 ]
+  %.0402458490 = phi float [ %241, %.thread454 ], [ %253, %.thread462 ], [ %260, %.thread468 ], [ %241, %.thread454.thread ], [ %241, %.thread454.thread554 ], [ %241, %.thread454.thread558 ]
+  %.0401460489 = phi float [ %238, %.thread454 ], [ %253, %.thread462 ], [ %260, %.thread468 ], [ %238, %.thread454.thread ], [ %238, %.thread454.thread554 ], [ %238, %.thread454.thread558 ]
+  %339 = phi ptr [ %320, %.thread454 ], [ %254, %.thread462 ], [ %261, %.thread468 ], [ %277, %.thread454.thread ], [ %287, %.thread454.thread554 ], [ %299, %.thread454.thread558 ]
+  %340 = phi float [ %324, %.thread454 ], [ %258, %.thread462 ], [ %265, %.thread468 ], [ %281, %.thread454.thread ], [ %291, %.thread454.thread554 ], [ %303, %.thread454.thread558 ]
   %.pn534 = fmul reassoc nsz arcp contract afn float %.0407491, %246
   %341 = fdiv reassoc nsz arcp contract afn float %.pn534, %247
   br label %342

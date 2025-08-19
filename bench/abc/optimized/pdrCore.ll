@@ -113,19 +113,19 @@ define ptr @Pdr_ManReduceClause(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %20 = load i32, ptr %19, align 4, !tbaa !54
   %21 = and i32 %20, 1
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.critedge.loopexit.split.loop.exit51, label %23
+  br i1 %22, label %.critedge.loopexit.split.loop.exit54, label %23
 
 23:                                               ; preds = %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %18, !llvm.loop !55
 
-.critedge.loopexit.split.loop.exit51:             ; preds = %18
+.critedge.loopexit.split.loop.exit54:             ; preds = %18
   %24 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %23, %.critedge.loopexit.split.loop.exit51, %.preheader36
-  %.027.lcssa = phi i32 [ 0, %.preheader36 ], [ %24, %.critedge.loopexit.split.loop.exit51 ], [ %.val30, %23 ]
+.critedge:                                        ; preds = %23, %.critedge.loopexit.split.loop.exit54, %.preheader36
+  %.027.lcssa = phi i32 [ 0, %.preheader36 ], [ %24, %.critedge.loopexit.split.loop.exit54 ], [ %.val30, %23 ]
   %25 = icmp eq i32 %.027.lcssa, %.val30
   %26 = icmp sgt i32 %14, 0
   %or.cond = and i1 %25, %26
@@ -1310,7 +1310,7 @@ define range(i32 -1, 2) i32 @ZPdr_ManDown(ptr noundef %0, i32 noundef %1, ptr no
   %133 = load i32, ptr %132, align 8, !tbaa !87
   %134 = call i32 @Pdr_ManCheckCube(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %130, ptr noundef nonnull %8, i32 noundef %133, i32 noundef 0, i32 noundef 1) #19
   switch i32 %134, label %.loopexit [
-    i32 -1, label %.loopexit.loopexit149
+    i32 -1, label %.loopexit.loopexit155
     i32 0, label %135
   ]
 
@@ -1326,11 +1326,11 @@ define range(i32 -1, 2) i32 @ZPdr_ManDown(ptr noundef %0, i32 noundef %1, ptr no
   call void @Pdr_SetDeref(ptr noundef %141) #19
   br label %.loopexit
 
-.loopexit.loopexit149:                            ; preds = %129
+.loopexit.loopexit155:                            ; preds = %129
   br label %.loopexit
 
-.loopexit:                                        ; preds = %108, %._crit_edge130, %129, %.loopexit.loopexit149, %124, %128, %140
-  %.0 = phi i32 [ 0, %140 ], [ 0, %128 ], [ 0, %124 ], [ 1, %129 ], [ 1, %._crit_edge130 ], [ 0, %108 ], [ %134, %.loopexit.loopexit149 ]
+.loopexit:                                        ; preds = %108, %._crit_edge130, %129, %.loopexit.loopexit155, %124, %128, %140
+  %.0 = phi i32 [ 0, %140 ], [ 0, %128 ], [ 0, %124 ], [ 1, %129 ], [ 1, %._crit_edge130 ], [ 0, %108 ], [ %134, %.loopexit.loopexit155 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -2262,14 +2262,14 @@ Hash_IntExists.exit:                              ; preds = %.lr.ph.i234, %286, 
   br label %._crit_edge337
 
 ._crit_edge337:                                   ; preds = %150, %._crit_edge337.loopexit, %Pdr_ManSortByPriority.exit
-  %.not363 = phi i1 [ true, %Pdr_ManSortByPriority.exit ], [ %353, %._crit_edge337.loopexit ], [ true, %150 ]
+  %.not381 = phi i1 [ true, %Pdr_ManSortByPriority.exit ], [ %353, %._crit_edge337.loopexit ], [ true, %150 ]
   %354 = phi ptr [ %98, %Pdr_ManSortByPriority.exit ], [ %.pre358, %._crit_edge337.loopexit ], [ %98, %150 ]
   %.0171.lcssa = phi ptr [ %155, %Pdr_ManSortByPriority.exit ], [ %.1172, %._crit_edge337.loopexit ], [ %155, %150 ]
   %.3.lcssa = phi ptr [ %.0164, %Pdr_ManSortByPriority.exit ], [ %.4, %._crit_edge337.loopexit ], [ %.0164, %150 ]
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 36
   %356 = load i32, ptr %355, align 4, !tbaa !135
   %.not190 = icmp eq i32 %356, 0
-  %brmerge = or i1 %.not190, %.not363
+  %brmerge = or i1 %.not190, %.not381
   br i1 %brmerge, label %.loopexit, label %.lr.ph342
 
 .lr.ph342:                                        ; preds = %._crit_edge337, %414
@@ -4875,8 +4875,8 @@ Abc_Clock.exit606:                                ; preds = %868, %871
   %898 = load ptr, ptr %897, align 8, !tbaa !171
   %.not484 = icmp ne ptr %898, null
   %899 = icmp sgt i32 %.val529, 0
-  %or.cond1007 = select i1 %.not484, i1 %899, i1 false
-  br i1 %or.cond1007, label %.lr.ph766, label %.loopexit
+  %or.cond1024 = select i1 %.not484, i1 %899, i1 false
+  br i1 %or.cond1024, label %.lr.ph766, label %.loopexit
 
 .lr.ph766:                                        ; preds = %.thread, %915
   %900 = phi ptr [ %916, %915 ], [ %888, %.thread ]

@@ -113,7 +113,7 @@ cb_internal_best_match.exit:                      ; preds = %21, %6
   %70 = load i32, ptr %69, align 8, !tbaa !10
   %71 = zext i32 %70 to i64
   %72 = icmp ult i64 %.06179, %71
-  br i1 %72, label %._crit_edge, label %.lr.ph106
+  br i1 %72, label %._crit_edge, label %.lr.ph113
 
 .lr.ph82:                                         ; preds = %._crit_edge93
   %73 = add nsw i64 %95, -1
@@ -122,12 +122,12 @@ cb_internal_best_match.exit:                      ; preds = %21, %6
   %76 = load i32, ptr %75, align 8, !tbaa !10
   %77 = zext i32 %76 to i64
   %78 = icmp ult i64 %.06179, %77
-  br i1 %78, label %._crit_edge, label %.lr.ph106
+  br i1 %78, label %._crit_edge, label %.lr.ph113
 
-.lr.ph106:                                        ; preds = %.lr.ph82.preheader, %.lr.ph82
+.lr.ph113:                                        ; preds = %.lr.ph82.preheader, %.lr.ph82
   %79 = phi i64 [ %77, %.lr.ph82 ], [ %71, %.lr.ph82.preheader ]
   %80 = phi ptr [ %74, %.lr.ph82 ], [ %68, %.lr.ph82.preheader ]
-  %.06381105 = phi ptr [ %93, %.lr.ph82 ], [ %0, %.lr.ph82.preheader ]
+  %.06381112 = phi ptr [ %93, %.lr.ph82 ], [ %0, %.lr.ph82.preheader ]
   %81 = phi ptr [ %94, %.lr.ph82 ], [ %64, %.lr.ph82.preheader ]
   %82 = icmp eq i64 %.06179, %79
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 20
@@ -137,7 +137,7 @@ cb_internal_best_match.exit:                      ; preds = %21, %6
   %or.cond = select i1 %82, i1 %86, i1 false
   br i1 %or.cond, label %._crit_edge, label %._crit_edge93
 
-._crit_edge93:                                    ; preds = %.lr.ph106
+._crit_edge93:                                    ; preds = %.lr.ph113
   %87 = getelementptr inbounds nuw [0 x i8], ptr %7, i64 0, i64 %79
   %88 = load i8, ptr %87, align 1, !tbaa !12
   %89 = or i8 %84, %88
@@ -151,9 +151,9 @@ cb_internal_best_match.exit:                      ; preds = %21, %6
   %.not71 = icmp eq i64 %96, 0
   br i1 %.not71, label %._crit_edge, label %.lr.ph82
 
-._crit_edge:                                      ; preds = %.lr.ph106, %._crit_edge93, %.lr.ph82, %.lr.ph82.preheader, %41
-  %97 = phi ptr [ %64, %41 ], [ %64, %.lr.ph82.preheader ], [ %94, %.lr.ph82 ], [ %94, %._crit_edge93 ], [ %81, %.lr.ph106 ]
-  %.063.lcssa = phi ptr [ %0, %41 ], [ %0, %.lr.ph82.preheader ], [ %93, %.lr.ph82 ], [ %93, %._crit_edge93 ], [ %.06381105, %.lr.ph106 ]
+._crit_edge:                                      ; preds = %.lr.ph113, %._crit_edge93, %.lr.ph82, %.lr.ph82.preheader, %41
+  %97 = phi ptr [ %64, %41 ], [ %64, %.lr.ph82.preheader ], [ %94, %.lr.ph82 ], [ %94, %._crit_edge93 ], [ %81, %.lr.ph113 ]
+  %.063.lcssa = phi ptr [ %0, %41 ], [ %0, %.lr.ph82.preheader ], [ %93, %.lr.ph82 ], [ %93, %._crit_edge93 ], [ %.06381112, %.lr.ph113 ]
   %98 = getelementptr inbounds nuw [2 x ptr], ptr %1, i64 0, i64 %57
   store ptr %97, ptr %98, align 8, !tbaa !13
   %99 = ptrtoint ptr %1 to i64

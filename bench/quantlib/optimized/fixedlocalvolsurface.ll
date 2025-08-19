@@ -707,7 +707,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i.
   br label %_ZSt10_ConstructIN5boost10shared_ptrISt6vectorIdSaIdEEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i
 
 _ZSt10_ConstructIN5boost10shared_ptrISt6vectorIdSaIdEEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
-  %dec.i.i.i.i.i.i = add i64 %__n.addr.05.i.i.i.i.i.i, -1
+  %dec.i.i.i.i.i.i = add nsw i64 %__n.addr.05.i.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.06.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %dec.i.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont13, label %for.body.i.i.i.i.ithread-pre-split.i, !llvm.loop !58
@@ -1922,12 +1922,12 @@ for.body:                                         ; preds = %do.end, %for.cond
   br i1 %cmp.not.i47, label %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit, label %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit.thread, !prof !102
 
 _ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit.thread: ; preds = %for.body
-  %_M_finish.i50248 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %32 = load ptr, ptr %_M_finish.i50248, align 8, !tbaa !90
+  %_M_finish.i50289 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %32 = load ptr, ptr %_M_finish.i50289, align 8, !tbaa !90
   %33 = load ptr, ptr %31, align 8, !tbaa !88
-  %sub.ptr.lhs.cast.i51249 = ptrtoint ptr %32 to i64
-  %sub.ptr.rhs.cast.i52250 = ptrtoint ptr %33 to i64
-  %sub.ptr.sub.i53251 = sub i64 %sub.ptr.lhs.cast.i51249, %sub.ptr.rhs.cast.i52250
+  %sub.ptr.lhs.cast.i51290 = ptrtoint ptr %32 to i64
+  %sub.ptr.rhs.cast.i52291 = ptrtoint ptr %33 to i64
+  %sub.ptr.sub.i53292 = sub i64 %sub.ptr.lhs.cast.i51290, %sub.ptr.rhs.cast.i52291
   br label %_ZNK5boost10shared_ptrIN8QuantLib6MatrixEEptEv.exit58
 
 _ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit: ; preds = %for.body
@@ -1949,12 +1949,12 @@ cond.false.i56:                                   ; preds = %_ZNK5boost10shared_
   br label %_ZNK5boost10shared_ptrIN8QuantLib6MatrixEEptEv.exit58
 
 _ZNK5boost10shared_ptrIN8QuantLib6MatrixEEptEv.exit58: ; preds = %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit.thread, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit, %cond.false.i56
-  %sub.ptr.div.i54254.in = phi i64 [ %sub.ptr.sub.i53, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit ], [ %sub.ptr.sub.i53, %cond.false.i56 ], [ %sub.ptr.sub.i53251, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit.thread ]
+  %sub.ptr.div.i54295.in = phi i64 [ %sub.ptr.sub.i53, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit ], [ %sub.ptr.sub.i53, %cond.false.i56 ], [ %sub.ptr.sub.i53292, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit.thread ]
   %36 = phi ptr [ %.pre, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit ], [ %.pre.i57, %cond.false.i56 ], [ %30, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit.thread ]
-  %sub.ptr.div.i54254 = ashr exact i64 %sub.ptr.div.i54254.in, 3
+  %sub.ptr.div.i54295 = ashr exact i64 %sub.ptr.div.i54295.in, 3
   %rows_.i = getelementptr inbounds nuw i8, ptr %36, i64 8
   %37 = load i64, ptr %rows_.i, align 8, !tbaa !113
-  %cmp39 = icmp eq i64 %sub.ptr.div.i54254, %37
+  %cmp39 = icmp eq i64 %sub.ptr.div.i54295, %37
   br i1 %cmp39, label %for.cond, label %if.then40
 
 if.then40:                                        ; preds = %_ZNK5boost10shared_ptrIN8QuantLib6MatrixEEptEv.exit58
@@ -3089,7 +3089,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i.
   br label %_ZSt10_ConstructIN5boost10shared_ptrISt6vectorIdSaIdEEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i
 
 _ZSt10_ConstructIN5boost10shared_ptrISt6vectorIdSaIdEEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
-  %dec.i.i.i.i.i.i = add i64 %__n.addr.05.i.i.i.i.i.i, -1
+  %dec.i.i.i.i.i.i = add nsw i64 %__n.addr.05.i.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.06.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %dec.i.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont11, label %for.body.i.i.i.i.ithread-pre-split.i, !llvm.loop !58
@@ -3786,7 +3786,7 @@ if.then.i.i.i.i.i.i.i.i.i25:                      ; preds = %for.body.i.i.i.i.i.
   br label %_ZSt10_ConstructIN5boost10shared_ptrISt6vectorIdSaIdEEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i
 
 _ZSt10_ConstructIN5boost10shared_ptrISt6vectorIdSaIdEEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i25, %for.body.i.i.i.i.i.i
-  %dec.i.i.i.i.i.i = add i64 %__n.addr.05.i.i.i.i.i.i, -1
+  %dec.i.i.i.i.i.i = add nsw i64 %__n.addr.05.i.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.06.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %dec.i.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont17, label %for.body.i.i.i.i.ithread-pre-split.i, !llvm.loop !58
@@ -4395,7 +4395,7 @@ if.then.i.i.i.i.i.i.i.i.i31:                      ; preds = %for.body.i.i.i.i.i.
   br label %_ZSt10_ConstructIN5boost10shared_ptrISt6vectorIdSaIdEEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i
 
 _ZSt10_ConstructIN5boost10shared_ptrISt6vectorIdSaIdEEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i31, %for.body.i.i.i.i.i.i
-  %dec.i.i.i.i.i.i = add i64 %__n.addr.05.i.i.i.i.i.i, -1
+  %dec.i.i.i.i.i.i = add nsw i64 %__n.addr.05.i.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.06.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %dec.i.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont15, label %for.body.i.i.i.i.ithread-pre-split.i, !llvm.loop !58

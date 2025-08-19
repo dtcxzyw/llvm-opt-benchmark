@@ -876,9 +876,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_10PlugP
   %78 = load ptr, ptr %8, align 8
   %79 = load ptr, ptr %34, align 8
   %80 = icmp eq ptr %78, %79
-  br i1 %80, label %.thread180, label %.preheader.outer
+  br i1 %80, label %.thread208, label %.preheader.outer
 
-.thread180:                                       ; preds = %77
+.thread208:                                       ; preds = %77
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
 
@@ -918,8 +918,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread128.thread: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %86
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.0119.0159, i64 32
-  %.not133179 = icmp eq ptr %93, %79
-  br i1 %.not133179, label %.thread, label %.preheader.outer
+  %.not133207 = icmp eq ptr %93, %79
+  br i1 %.not133207, label %.thread, label %.preheader.outer
 
 94:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread128
   br i1 %.035160.ph, label %.thread, label %95
@@ -960,8 +960,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %.not.i.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_10PlugPluginEE13_FetchPointerEv.exit.thread.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i: ; preds = %.thread180, %.thread
-  %107 = phi ptr [ %54, %.thread180 ], [ %.pre, %.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i: ; preds = %.thread208, %.thread
+  %107 = phi ptr [ %54, %.thread208 ], [ %.pre, %.thread ]
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 14
   %109 = load i8, ptr %108, align 2
   %110 = trunc i8 %109 to i1

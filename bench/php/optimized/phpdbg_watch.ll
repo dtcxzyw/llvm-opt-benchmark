@@ -3643,11 +3643,11 @@ phpdbg_clean_watch_element.exit.i52:              ; preds = %104, %._crit_edge, 
   br i1 %.not20.i47, label %.loopexit94thread-pre-split, label %.lr.ph103
 
 .loopexit94thread-pre-split:                      ; preds = %phpdbg_clean_watch_element.exit.i52, %90
-  %.pr132 = load ptr, ptr %80, align 8, !tbaa !94
+  %.pr153 = load ptr, ptr %80, align 8, !tbaa !94
   br label %.loopexit94
 
 .loopexit94:                                      ; preds = %.loopexit94thread-pre-split, %.preheader93
-  %205 = phi ptr [ %.pr132, %.loopexit94thread-pre-split ], [ %81, %.preheader93 ]
+  %205 = phi ptr [ %.pr153, %.loopexit94thread-pre-split ], [ %81, %.preheader93 ]
   %206 = icmp eq ptr %205, null
   br i1 %206, label %207, label %211
 
@@ -3772,9 +3772,9 @@ zend_hash_find_ptr.exit.i.thread:                 ; preds = %237, %231
   %264 = getelementptr inbounds nuw i8, ptr %253, i64 24
   %265 = load ptr, ptr %264, align 8, !tbaa !94
   %266 = icmp eq ptr %265, null
-  br i1 %266, label %.thread133, label %271
+  br i1 %266, label %.thread154, label %271
 
-.thread133:                                       ; preds = %263
+.thread154:                                       ; preds = %263
   %267 = getelementptr inbounds nuw i8, ptr %253, i64 120
   %268 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %269 = load ptr, ptr %268, align 8, !tbaa !90
@@ -3788,8 +3788,8 @@ zend_hash_find_ptr.exit.i.thread:                 ; preds = %237, %231
   %.not.i58 = icmp eq ptr %.pre130, null
   br i1 %.not.i58, label %phpdbg_clean_watch_element.exit.i, label %272
 
-272:                                              ; preds = %.thread133, %271
-  %273 = phi ptr [ %269, %.thread133 ], [ %.pre130, %271 ]
+272:                                              ; preds = %.thread154, %271
+  %273 = phi ptr [ %269, %.thread154 ], [ %.pre130, %271 ]
   %274 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %275 = getelementptr inbounds nuw i8, ptr %273, i64 16
   %276 = load i32, ptr %275, align 8, !tbaa !71
@@ -3977,11 +3977,11 @@ phpdbg_clean_watch_element.exit.i:                ; preds = %271, %._crit_edge10
   br i1 %.not20.i43, label %.loopexitthread-pre-split, label %.lr.ph110
 
 .loopexitthread-pre-split:                        ; preds = %phpdbg_clean_watch_element.exit.i, %257
-  %.pr135 = load ptr, ptr %246, align 8, !tbaa !94
+  %.pr156 = load ptr, ptr %246, align 8, !tbaa !94
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexitthread-pre-split, %.preheader
-  %372 = phi ptr [ %.pr135, %.loopexitthread-pre-split ], [ %247, %.preheader ]
+  %372 = phi ptr [ %.pr156, %.loopexitthread-pre-split ], [ %247, %.preheader ]
   %373 = icmp eq ptr %372, null
   br i1 %373, label %374, label %379
 

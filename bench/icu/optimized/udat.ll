@@ -1555,12 +1555,12 @@ define noundef i32 @udat_getSymbols_77(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %.not62, label %.thread68, label %16
 
 16:                                               ; preds = %14, %12
-  %.sink74 = phi ptr [ %13, %12 ], [ %15, %14 ]
-  %.sink73 = phi i64 [ 272, %12 ], [ 264, %14 ]
-  %17 = load ptr, ptr %.sink74, align 8, !tbaa !15
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.sink73
+  %.sink77 = phi ptr [ %13, %12 ], [ %15, %14 ]
+  %.sink76 = phi i64 [ 272, %12 ], [ 264, %14 ]
+  %17 = load ptr, ptr %.sink77, align 8, !tbaa !15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.sink76
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(456) %.sink74)
+  %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(456) %.sink77)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !33
   switch i32 %1, label %97 [
@@ -1843,12 +1843,12 @@ define i32 @udat_countSymbols_77(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br i1 %.not38, label %.thread41, label %9
 
 9:                                                ; preds = %7, %5
-  %.sink47 = phi ptr [ %6, %5 ], [ %8, %7 ]
-  %.sink46 = phi i64 [ 272, %5 ], [ 264, %7 ]
-  %10 = load ptr, ptr %.sink47, align 8, !tbaa !15
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink46
+  %.sink50 = phi ptr [ %6, %5 ], [ %8, %7 ]
+  %.sink49 = phi i64 [ 272, %5 ], [ 264, %7 ]
+  %10 = load ptr, ptr %.sink50, align 8, !tbaa !15
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink49
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(456) %.sink47)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(456) %.sink50)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !33
   switch i32 %1, label %73 [

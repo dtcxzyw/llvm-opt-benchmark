@@ -2570,8 +2570,8 @@ _ZN10async_task5utils14abort_on_panic17h1d73f1a15227ffb4E.exit: ; preds = %132, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h10104cb1ee02ab73E.exit.i129": ; preds = %261, %265, %212, %192, %148, %152, %.body175
   %.pn96 = phi { ptr, i32 } [ %255, %.body175 ], [ %149, %148 ], [ %153, %152 ], [ %193, %192 ], [ %213, %212 ], [ %255, %265 ], [ %262, %261 ]
   %143 = load i64, ptr %10, align 8, !range !433, !noundef !11
-  %.not275 = icmp eq i64 %143, -9223372036854775807
-  br i1 %.not275, label %common.resume, label %268
+  %.not278 = icmp eq i64 %143, -9223372036854775807
+  br i1 %.not278, label %common.resume, label %268
 
 144:                                              ; preds = %69
   invoke fastcc void @"_ZN4core3ptr180drop_in_place$LT$core..result..Result$LT$any_vec..any_vec..AnyVec$LT$dyn$u20$core..marker..Send$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17he0f39353214d7f04E"(ptr noundef nonnull align 8 %8) #31
@@ -3126,8 +3126,8 @@ _ZN10async_task5utils14abort_on_panic17ha7507d4c1bbaf883E.exit: ; preds = %24
 31:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8
-  %.sroa.2.0..sroa_idx315 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %10, ptr %.sroa.2.0..sroa_idx315, align 8
+  %.sroa.2.0..sroa_idx322 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %10, ptr %.sroa.2.0..sroa_idx322, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %11, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -4851,8 +4851,8 @@ _ZN10async_task5utils14abort_on_panic17h303f317aeaa8b2f6E.exit: ; preds = %24
 32:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8
-  %.sroa.2.0..sroa_idx312 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %10, ptr %.sroa.2.0..sroa_idx312, align 8
+  %.sroa.2.0..sroa_idx319 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %10, ptr %.sroa.2.0..sroa_idx319, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %11, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -5776,10 +5776,10 @@ _ZN10async_task5utils14abort_on_panic17hf4eeb46a9c939a70E.exit: ; preds = %26
   br label %58
 
 58:                                               ; preds = %56, %52, %48
-  %.sink262 = phi ptr [ null, %56 ], [ %53, %52 ], [ null, %48 ]
+  %.sink269 = phi ptr [ null, %56 ], [ %53, %52 ], [ null, %48 ]
   %.sink = phi ptr [ %57, %56 ], [ %54, %52 ], [ %49, %48 ]
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %.sink262, ptr %59, align 8
+  store ptr %.sink269, ptr %59, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %.sink, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 0, ptr %8, align 8
@@ -6676,10 +6676,10 @@ _ZN10async_task5utils14abort_on_panic17hd3e7e46e11ed0096E.exit: ; preds = %26
   br label %60
 
 60:                                               ; preds = %58, %54, %50
-  %.sink259 = phi ptr [ null, %58 ], [ %55, %54 ], [ null, %50 ]
+  %.sink266 = phi ptr [ null, %58 ], [ %55, %54 ], [ null, %50 ]
   %.sink = phi ptr [ %59, %58 ], [ %56, %54 ], [ %51, %50 ]
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %.sink259, ptr %61, align 8
+  store ptr %.sink266, ptr %61, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %.sink, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 0, ptr %8, align 8
@@ -8683,8 +8683,8 @@ _ZN10async_task5utils14abort_on_panic17h5d0b2e22b8d840b4E.exit: ; preds = %131, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h10104cb1ee02ab73E.exit.i130": ; preds = %260, %264, %211, %191, %.body.i143, %150, %.body177
   %.pn96 = phi { ptr, i32 } [ %254, %.body177 ], [ %147, %.body.i143 ], [ %151, %150 ], [ %192, %191 ], [ %212, %211 ], [ %254, %264 ], [ %261, %260 ]
   %142 = load i64, ptr %10, align 8, !range !433, !noundef !11
-  %.not277 = icmp eq i64 %142, -9223372036854775807
-  br i1 %.not277, label %common.resume, label %267
+  %.not280 = icmp eq i64 %142, -9223372036854775807
+  br i1 %.not280, label %common.resume, label %267
 
 143:                                              ; preds = %.body.i123
   invoke fastcc void @"_ZN4core3ptr180drop_in_place$LT$core..result..Result$LT$any_vec..any_vec..AnyVec$LT$dyn$u20$core..marker..Send$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17he0f39353214d7f04E"(ptr noundef nonnull align 8 %8) #31
@@ -13037,13 +13037,13 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2754)
-  switch i64 %.sroa.0.0.copyload, label %default.unreachable2.i [
+  switch i64 %.sroa.0.0.copyload, label %default.unreachable4.i [
     i64 0, label %11
     i64 1, label %20
     i64 2, label %29
   ]
 
-default.unreachable2.i:                           ; preds = %9
+default.unreachable4.i:                           ; preds = %9
   unreachable
 
 11:                                               ; preds = %9
@@ -14081,13 +14081,13 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %13 = lshr exact i64 %.sroa.012.0.ph90, 1
   %14 = and i64 %13, 31
   %15 = icmp eq i64 %14, 31
-  br i1 %15, label %.lr.ph157, label %._crit_edge
+  br i1 %15, label %.lr.ph159, label %._crit_edge
 
 16:                                               ; preds = %73
   %17 = lshr exact i64 %74, 1
   %18 = and i64 %17, 31
   %19 = icmp eq i64 %18, 31
-  br i1 %19, label %.lr.ph157, label %._crit_edge
+  br i1 %19, label %.lr.ph159, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %73, %3
   %.sroa.0.0.ph.lcssa85 = phi ptr [ null, %3 ], [ %.sroa.0.0.ph89, %73 ], [ %.sroa.0.0.ph.be, %.outer.backedge ]
@@ -14104,7 +14104,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %24, label %22
 
-.lr.ph157:                                        ; preds = %.lr.ph, %16
+.lr.ph159:                                        ; preds = %.lr.ph, %16
   invoke void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
           to label %73 unwind label %.loopexit
 
@@ -14251,14 +14251,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   store i64 2, ptr %0, align 8
   br label %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$alloc..string..String$GT$$GT$$GT$$GT$17h0f4aab9a7c300101E.exit42"
 
-73:                                               ; preds = %.lr.ph157
+73:                                               ; preds = %.lr.ph159
   %74 = load atomic i64, ptr %6 acquire, align 128
   %75 = load atomic ptr, ptr %8 acquire, align 8
   %76 = and i64 %74, 1
   %77 = icmp eq i64 %76, 0
   br i1 %77, label %16, label %.critedge
 
-.loopexit:                                        ; preds = %.lr.ph157
+.loopexit:                                        ; preds = %.lr.ph159
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %78
@@ -22780,13 +22780,13 @@ define hidden void @"_ZN70_$LT$serde_json..number..Number$u20$as$u20$serde..de..
   %6 = alloca [24 x i8], align 8
   %7 = load i64, ptr %1, align 8, !range !2016, !noundef !11
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  switch i64 %7, label %default.unreachable2 [
+  switch i64 %7, label %default.unreachable4 [
     i64 0, label %9
     i64 1, label %19
     i64 2, label %29
   ]
 
-default.unreachable2:                             ; preds = %2
+default.unreachable4:                             ; preds = %2
   unreachable
 
 9:                                                ; preds = %2

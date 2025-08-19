@@ -364,8 +364,8 @@ _ZN2bv8ackerman6removeEPNS0_2vvE.exit:            ; preds = %_ZN8dll_baseIN2bv8a
   %46 = icmp ugt i32 %34, 16
   %47 = mul i32 %34, 3
   %48 = icmp ugt i32 %45, %47
-  %or.cond16.i = select i1 %46, i1 %48, i1 false
-  br i1 %or.cond16.i, label %49, label %._crit_edge.thread.i
+  %or.cond18.i = select i1 %46, i1 %48, i1 false
+  br i1 %or.cond18.i, label %49, label %._crit_edge.thread.i
 
 49:                                               ; preds = %._crit_edge.i
   %50 = icmp eq ptr %32, null
@@ -881,12 +881,12 @@ _ZN6vectorIbLb0EjE7reserveEjRKb.exit:             ; preds = %_ZNK6vectorIbLb0EjE
   br i1 %.not.wide, label %._crit_edge, label %90, !llvm.loop !229
 
 ._crit_edge:                                      ; preds = %112, %_ZN6vectorIbLb0EjE7reserveEjRKb.exit
-  %.0.lcssa55 = phi i32 [ 0, %_ZN6vectorIbLb0EjE7reserveEjRKb.exit ], [ %.1, %112 ]
-  %113 = icmp ult i32 %.0.lcssa55, %.fr
+  %.0.lcssa64 = phi i32 [ 0, %_ZN6vectorIbLb0EjE7reserveEjRKb.exit ], [ %.1, %112 ]
+  %113 = icmp ult i32 %.0.lcssa64, %.fr
   br i1 %113, label %114, label %115
 
 114:                                              ; preds = %._crit_edge
-  store i32 %.0.lcssa55, ptr %37, align 4, !tbaa !40
+  store i32 %.0.lcssa64, ptr %37, align 4, !tbaa !40
   br label %115
 
 115:                                              ; preds = %114, %._crit_edge

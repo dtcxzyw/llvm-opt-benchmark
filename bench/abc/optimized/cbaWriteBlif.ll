@@ -566,9 +566,9 @@ Cba_ObjNtk.exit:                                  ; preds = %21, %Cba_ObjNtkId.e
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i.i:              ; preds = %109, %111, %100, %102
-  %storemerge338 = phi ptr [ %101, %100 ], [ %103, %102 ], [ %110, %109 ], [ %112, %111 ]
+  %storemerge394 = phi ptr [ %101, %100 ], [ %103, %102 ], [ %110, %109 ], [ %112, %111 ]
   %.sink.i.i.i.i = phi i32 [ %90, %100 ], [ %90, %102 ], [ %94, %109 ], [ %94, %111 ]
-  store ptr %storemerge338, ptr %83, align 8, !tbaa !19
+  store ptr %storemerge394, ptr %83, align 8, !tbaa !19
   store i32 %.sink.i.i.i.i, ptr %81, align 8, !tbaa !33
   %.pre.i.i.i = load i32, ptr %82, align 4, !tbaa !18
   br label %Vec_IntGrow.exit.i.i.i.i
@@ -652,9 +652,9 @@ Cba_ObjNameStr.exit:                              ; preds = %85, %._crit_edge.i.
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i138
 
 Vec_IntGrow.exit.sink.split.i.i.i.i138:           ; preds = %145, %147, %136, %138
-  %storemerge339 = phi ptr [ %137, %136 ], [ %139, %138 ], [ %146, %145 ], [ %148, %147 ]
+  %storemerge395 = phi ptr [ %137, %136 ], [ %139, %138 ], [ %146, %145 ], [ %148, %147 ]
   %.sink.i.i.i.i139 = phi i32 [ %126, %136 ], [ %126, %138 ], [ %130, %145 ], [ %130, %147 ]
-  store ptr %storemerge339, ptr %10, align 8, !tbaa !19
+  store ptr %storemerge395, ptr %10, align 8, !tbaa !19
   store i32 %.sink.i.i.i.i139, ptr %8, align 8, !tbaa !33
   %.pre.i.i.i140 = load i32, ptr %9, align 4, !tbaa !18
   br label %Vec_IntGrow.exit.i.i.i.i141
@@ -771,9 +771,9 @@ Cba_FonNameStr.exit:                              ; preds = %Cba_ObjNameStr.exit
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i154
 
 Vec_IntGrow.exit.sink.split.i.i.i.i154:           ; preds = %199, %201, %190, %192
-  %storemerge340 = phi ptr [ %191, %190 ], [ %193, %192 ], [ %200, %199 ], [ %202, %201 ]
+  %storemerge396 = phi ptr [ %191, %190 ], [ %193, %192 ], [ %200, %199 ], [ %202, %201 ]
   %.sink.i.i.i.i155 = phi i32 [ %180, %190 ], [ %180, %192 ], [ %184, %199 ], [ %184, %201 ]
-  store ptr %storemerge340, ptr %175, align 8, !tbaa !19
+  store ptr %storemerge396, ptr %175, align 8, !tbaa !19
   store i32 %.sink.i.i.i.i155, ptr %173, align 8, !tbaa !33
   %.pre.i.i.i156 = load i32, ptr %174, align 4, !tbaa !18
   br label %Vec_IntGrow.exit.i.i.i.i157
@@ -1238,9 +1238,9 @@ Cba_FonNameStr.exit232:                           ; preds = %.lr.ph278, %._crit_
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i237
 
 Vec_IntGrow.exit.sink.split.i.i.i.i237:           ; preds = %404, %406, %395, %397
-  %storemerge341 = phi ptr [ %396, %395 ], [ %398, %397 ], [ %405, %404 ], [ %407, %406 ]
+  %storemerge397 = phi ptr [ %396, %395 ], [ %398, %397 ], [ %405, %404 ], [ %407, %406 ]
   %.sink.i.i.i.i238 = phi i32 [ %385, %395 ], [ %385, %397 ], [ %389, %404 ], [ %389, %406 ]
-  store ptr %storemerge341, ptr %10, align 8, !tbaa !19
+  store ptr %storemerge397, ptr %10, align 8, !tbaa !19
   store i32 %.sink.i.i.i.i238, ptr %8, align 8, !tbaa !33
   %.pre.i.i.i239 = load i32, ptr %9, align 4, !tbaa !18
   br label %Vec_IntGrow.exit.i.i.i.i240
@@ -1337,9 +1337,9 @@ Cba_FonNameStr.exit249:                           ; preds = %.lr.ph292, %._crit_
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i254
 
 Vec_IntGrow.exit.sink.split.i.i.i.i254:           ; preds = %447, %449, %438, %440
-  %storemerge342 = phi ptr [ %439, %438 ], [ %441, %440 ], [ %448, %447 ], [ %450, %449 ]
+  %storemerge398 = phi ptr [ %439, %438 ], [ %441, %440 ], [ %448, %447 ], [ %450, %449 ]
   %.sink.i.i.i.i255 = phi i32 [ %428, %438 ], [ %428, %440 ], [ %432, %447 ], [ %432, %449 ]
-  store ptr %storemerge342, ptr %10, align 8, !tbaa !19
+  store ptr %storemerge398, ptr %10, align 8, !tbaa !19
   store i32 %.sink.i.i.i.i255, ptr %8, align 8, !tbaa !33
   %.pre.i.i.i256 = load i32, ptr %9, align 4, !tbaa !18
   br label %Vec_IntGrow.exit.i.i.i.i257

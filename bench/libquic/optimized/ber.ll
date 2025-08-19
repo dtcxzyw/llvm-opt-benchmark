@@ -231,8 +231,8 @@ is_eoc.exit.thread:                               ; preds = %16, %19, %is_eoc.ex
 
 28:                                               ; preds = %is_eoc.exit.thread
   %29 = and i32 %25, 224
-  %or.cond66 = icmp eq i32 %29, 32
-  br i1 %or.cond66, label %30, label %34
+  %or.cond68 = icmp eq i32 %29, 32
+  br i1 %or.cond68, label %30, label %34
 
 30:                                               ; preds = %28
   %31 = and i32 %25, 31

@@ -1322,17 +1322,17 @@ define internal fastcc range(i32 -2147483648, 1) i32 @frame_encode(ptr noundef %
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load i32, ptr %44, align 8, !tbaa !152
   switch i32 %45, label %46 [
-    i32 94209, label %.thread108.i
+    i32 94209, label %.thread112.i
     i32 94230, label %48
   ]
 
 46:                                               ; preds = %41
-  br label %.thread108.i
+  br label %.thread112.i
 
-.thread108.i:                                     ; preds = %46, %41
+.thread112.i:                                     ; preds = %46, %41
   %.078.ph.i = phi i32 [ 2, %41 ], [ 1, %46 ]
-  %.not90110.i = icmp eq i64 %39, -9223372036854775808
-  %47 = select i1 %.not90110.i, i64 0, i64 %39
+  %.not90114.i = icmp eq i64 %39, -9223372036854775808
+  %47 = select i1 %.not90114.i, i64 0, i64 %39
   br label %.lr.ph.i
 
 48:                                               ; preds = %41
@@ -1341,10 +1341,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @frame_encode(ptr noundef %
   %50 = icmp sgt i32 %29, 0
   br i1 %50, label %.lr.ph.i, label %do_subtitle_out.exit
 
-.lr.ph.i:                                         ; preds = %48, %.thread108.i
-  %.pn.i = phi i64 [ %47, %.thread108.i ], [ %49, %48 ]
-  %.078112.i = phi i32 [ %.078.ph.i, %.thread108.i ], [ %29, %48 ]
-  %spec.select95113.i = sub nsw i64 %32, %.pn.i
+.lr.ph.i:                                         ; preds = %48, %.thread112.i
+  %.pn.i = phi i64 [ %47, %.thread112.i ], [ %49, %48 ]
+  %.078116.i = phi i32 [ %.078.ph.i, %.thread112.i ], [ %29, %48 ]
+  %spec.select95117.i = sub nsw i64 %32, %.pn.i
   %51 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %52 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %53 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -1362,7 +1362,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @frame_encode(ptr noundef %
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %65 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %66 = getelementptr inbounds nuw i8, ptr %14, i64 104
-  %wide.trip.count.i = zext nneg i32 %.078112.i to i64
+  %wide.trip.count.i = zext nneg i32 %.078116.i to i64
   br label %67
 
 67:                                               ; preds = %122, %.lr.ph.i
@@ -1376,7 +1376,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @frame_encode(ptr noundef %
   br i1 %.not.i.i, label %check_recording_time.exit.i, label %69
 
 69:                                               ; preds = %67
-  %70 = call i32 @av_compare_ts(i64 noundef %spec.select95113.i, i64 4294967296000001, i64 noundef %.val.val.i, i64 4294967296000001) #15
+  %70 = call i32 @av_compare_ts(i64 noundef %spec.select95117.i, i64 4294967296000001, i64 noundef %.val.val.i, i64 4294967296000001) #15
   %71 = icmp sgt i32 %70, -1
   br i1 %71, label %.thread.i, label %check_recording_time.exit.i
 
@@ -1389,7 +1389,7 @@ check_recording_time.exit.i:                      ; preds = %69, %67
   %75 = load i32, ptr %52, align 4, !tbaa !194
   %76 = zext i32 %75 to i64
   %77 = call i64 @av_rescale_q(i64 noundef %76, i64 4294967296001, i64 4294967296000001) #17
-  %78 = add nsw i64 %77, %spec.select95113.i
+  %78 = add nsw i64 %77, %spec.select95117.i
   store i64 %78, ptr %51, align 8, !tbaa !188
   %79 = load i32, ptr %53, align 8, !tbaa !195
   %80 = sub i32 %79, %75
@@ -1461,8 +1461,8 @@ check_recording_time.exit.i:                      ; preds = %69, %67
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %110, %108
-  %.sink118.i = phi i64 [ %113, %110 ], [ %105, %108 ]
-  %114 = add nsw i64 %.sink118.i, %101
+  %.sink122.i = phi i64 [ %113, %110 ], [ %105, %108 ]
+  %114 = add nsw i64 %.sink122.i, %101
   store i64 %114, ptr %61, align 8, !tbaa !199
   br label %115
 

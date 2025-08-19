@@ -403,14 +403,14 @@ define ptr @Gia_ManDupTopMostRange(ptr noundef %0) local_unnamed_addr #0 {
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %33, %35, %25, %27
-  %.sink19 = phi ptr [ %26, %25 ], [ %28, %27 ], [ %34, %33 ], [ %36, %35 ]
+  %.sink20 = phi ptr [ %26, %25 ], [ %28, %27 ], [ %34, %33 ], [ %36, %35 ]
   %.sink = phi i32 [ 16, %25 ], [ 16, %27 ], [ %30, %33 ], [ %30, %35 ]
-  store ptr %.sink19, ptr %5, align 8, !tbaa !33
+  store ptr %.sink20, ptr %5, align 8, !tbaa !33
   store i32 %.sink, ptr %2, align 8, !tbaa !36
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %8
-  %.val13 = phi ptr [ %9, %8 ], [ %.sink19, %Vec_IntPush.exit.sink.split ]
+  %.val13 = phi ptr [ %9, %8 ], [ %.sink20, %Vec_IntPush.exit.sink.split ]
   %37 = add nsw i32 %19, 1
   store i32 %37, ptr %3, align 4, !tbaa !32
   %38 = sext i32 %19 to i64

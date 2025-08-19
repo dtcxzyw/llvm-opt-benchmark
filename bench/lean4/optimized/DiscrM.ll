@@ -1736,8 +1736,8 @@ lean_dec.exit446:                                 ; preds = %407, %406, %404, %l
 lean_obj_tag.exit643:                             ; preds = %lean_dec.exit446
   %408 = getelementptr i8, ptr %350, i64 4
   %.val.i642 = load i32, ptr %408, align 4
-  %.mask827 = and i32 %.val.i642, -16777216
-  %409 = icmp eq i32 %.mask827, 100663296
+  %.mask936 = and i32 %.val.i642, -16777216
+  %409 = icmp eq i32 %.mask936, 100663296
   br i1 %409, label %412, label %435
 
 lean_obj_tag.exit643.thread:                      ; preds = %lean_dec.exit446
@@ -9837,7 +9837,7 @@ lean_array_fget.exit46:                           ; preds = %lean_array_fget.exi
   br label %lean_dec.exit35
 
 57:                                               ; preds = %50
-  %58 = tail call ptr @lean_big_usize_to_nat(i64 noundef %51) #4
+  %58 = tail call ptr @lean_big_usize_to_nat(i64 noundef -9223372036854775808) #4
   br label %lean_dec.exit35
 
 59:                                               ; preds = %lean_array_fget.exit46
@@ -9901,8 +9901,8 @@ lean_obj_tag.exit:                                ; preds = %8, %11
   br i1 %15, label %lean_usize_to_nat.exit, label %211
 
 lean_usize_to_nat.exit:                           ; preds = %16
-  %.b589 = load i1, ptr @l_Lean_PersistentHashMap_insertAux___at_Lean_Compiler_LCNF_Simp_withDiscrCtorImp_updateCtx___spec__7___closed__2, align 8
-  %19 = select i1 %.b589, i64 31, i64 0
+  %.b684 = load i1, ptr @l_Lean_PersistentHashMap_insertAux___at_Lean_Compiler_LCNF_Simp_withDiscrCtorImp_updateCtx___spec__7___closed__2, align 8
+  %19 = select i1 %.b684, i64 31, i64 0
   %20 = and i64 %19, %1
   %21 = shl nuw nsw i64 %20, 1
   %22 = or disjoint i64 %21, 1
@@ -11765,7 +11765,7 @@ lean_dec.exit91.backedge:                         ; preds = %121, %125, %131, %1
   br label %lean_dec.exit91
 
 125:                                              ; preds = %118
-  %126 = tail call ptr @lean_big_usize_to_nat(i64 noundef %119) #4
+  %126 = tail call ptr @lean_big_usize_to_nat(i64 noundef -9223372036854775808) #4
   br label %lean_dec.exit91.backedge
 
 127:                                              ; preds = %lean_dec.exit92
@@ -16440,7 +16440,7 @@ lean_dec.exit31.backedge:                         ; preds = %47, %51, %57, %59, 
   br label %lean_dec.exit31
 
 51:                                               ; preds = %44
-  %52 = tail call ptr @lean_big_usize_to_nat(i64 noundef %45) #4
+  %52 = tail call ptr @lean_big_usize_to_nat(i64 noundef -9223372036854775808) #4
   br label %lean_dec.exit31.backedge
 
 53:                                               ; preds = %43
@@ -16569,8 +16569,8 @@ lean_obj_tag.exit:                                ; preds = %7, %10
   br i1 %15, label %lean_usize_to_nat.exit, label %122
 
 lean_usize_to_nat.exit:                           ; preds = %14
-  %.b272 = load i1, ptr @l_Lean_PersistentHashMap_insertAux___at_Lean_Compiler_LCNF_Simp_withDiscrCtorImp_updateCtx___spec__7___closed__2, align 8
-  %18 = select i1 %.b272, i64 31, i64 0
+  %.b309 = load i1, ptr @l_Lean_PersistentHashMap_insertAux___at_Lean_Compiler_LCNF_Simp_withDiscrCtorImp_updateCtx___spec__7___closed__2, align 8
+  %18 = select i1 %.b309, i64 31, i64 0
   %19 = and i64 %18, %.090
   %20 = getelementptr i8, ptr %17, i64 8
   %.val.i155 = load i64, ptr %20, align 8, !tbaa !13
@@ -19566,18 +19566,18 @@ _init_l_Lean_throwError___at_Lean_Compiler_LCNF_Simp_withDiscrCtorImp_updateCtx_
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_throwError___at_Lean_Compiler_LCNF_Simp_withDiscrCtorImp_updateCtx___spec__3___closed__3.exit, %3
-  %.sink33 = phi ptr [ %4, %3 ], [ %90, %_init_l_Lean_throwError___at_Lean_Compiler_LCNF_Simp_withDiscrCtorImp_updateCtx___spec__3___closed__3.exit ]
-  %93 = getelementptr inbounds nuw i8, ptr %.sink33, i64 4
-  store i32 1, ptr %.sink33, align 4, !tbaa !4
+  %.sink44 = phi ptr [ %4, %3 ], [ %90, %_init_l_Lean_throwError___at_Lean_Compiler_LCNF_Simp_withDiscrCtorImp_updateCtx___spec__3___closed__3.exit ]
+  %93 = getelementptr inbounds nuw i8, ptr %.sink44, i64 4
+  store i32 1, ptr %.sink44, align 4, !tbaa !4
   store i32 131096, ptr %93, align 4
-  %94 = getelementptr inbounds nuw i8, ptr %.sink33, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.sink44, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %94, align 8, !tbaa !9
-  %95 = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %.sink44, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %95, align 8, !tbaa !9
   br label %96
 
 96:                                               ; preds = %.sink.split, %lean_dec_ref.exit18, %lean_dec_ref.exit20, %lean_dec_ref.exit22, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit22 ], [ %28, %lean_dec_ref.exit20 ], [ %38, %lean_dec_ref.exit18 ], [ %.sink33, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit22 ], [ %28, %lean_dec_ref.exit20 ], [ %38, %lean_dec_ref.exit18 ], [ %.sink44, %.sink.split ]
   ret ptr %.0
 }
 

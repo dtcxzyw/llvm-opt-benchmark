@@ -8138,16 +8138,16 @@ define ptr @l_Lake_instEmptyCollectionLeanExeConfig___lambda__1(ptr noundef %0, 
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %9, %4
-  %.sink21 = phi ptr [ %6, %4 ], [ %11, %9 ]
-  %.sink16 = phi ptr [ %5, %4 ], [ %10, %9 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sink21, i64 4
-  store i32 1, ptr %.sink21, align 4, !tbaa !10
+  %.sink23 = phi ptr [ %6, %4 ], [ %11, %9 ]
+  %.sink18 = phi ptr [ %5, %4 ], [ %10, %9 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.sink23, i64 4
+  store i32 1, ptr %.sink23, align 4, !tbaa !10
   store i32 16908312, ptr %14, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %.sink21, i64 8
-  store ptr %.sink16, ptr %15, align 8, !tbaa !4
-  %16 = getelementptr inbounds nuw i8, ptr %.sink21, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.sink23, i64 8
+  store ptr %.sink18, ptr %15, align 8, !tbaa !4
+  %16 = getelementptr inbounds nuw i8, ptr %.sink23, i64 16
   store ptr %0, ptr %16, align 8, !tbaa !4
-  %17 = tail call ptr @lean_array_mk(ptr noundef nonnull %.sink21) #7
+  %17 = tail call ptr @lean_array_mk(ptr noundef nonnull %.sink23) #7
   ret ptr %17
 }
 
@@ -8291,16 +8291,16 @@ lean_dec.exit:                                    ; preds = %11, %10, %8, %2
   unreachable
 
 l_Lake_instEmptyCollectionLeanExeConfig___lambda__1.exit: ; preds = %14, %19
-  %.sink21.i = phi ptr [ %16, %14 ], [ %21, %19 ]
-  %.sink16.i = phi ptr [ %15, %14 ], [ %20, %19 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.sink21.i, i64 4
-  store i32 1, ptr %.sink21.i, align 4, !tbaa !10
+  %.sink23.i = phi ptr [ %16, %14 ], [ %21, %19 ]
+  %.sink18.i = phi ptr [ %15, %14 ], [ %20, %19 ]
+  %24 = getelementptr inbounds nuw i8, ptr %.sink23.i, i64 4
+  store i32 1, ptr %.sink23.i, align 4, !tbaa !10
   store i32 16908312, ptr %24, align 4
-  %25 = getelementptr inbounds nuw i8, ptr %.sink21.i, i64 8
-  store ptr %.sink16.i, ptr %25, align 8, !tbaa !4
-  %26 = getelementptr inbounds nuw i8, ptr %.sink21.i, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.sink23.i, i64 8
+  store ptr %.sink18.i, ptr %25, align 8, !tbaa !4
+  %26 = getelementptr inbounds nuw i8, ptr %.sink23.i, i64 16
   store ptr %0, ptr %26, align 8, !tbaa !4
-  %27 = tail call ptr @lean_array_mk(ptr noundef nonnull %.sink21.i) #7
+  %27 = tail call ptr @lean_array_mk(ptr noundef nonnull %.sink23.i) #7
   ret ptr %27
 }
 
@@ -9098,18 +9098,18 @@ _init_l_Lake_LeanExeConfig_instConfigMeta___closed__10.exit: ; preds = %_init_l_
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_LeanExeConfig_instConfigMeta___closed__10.exit, %3
-  %.sink24 = phi ptr [ %4, %3 ], [ %275, %_init_l_Lake_LeanExeConfig_instConfigMeta___closed__10.exit ]
-  %278 = getelementptr inbounds nuw i8, ptr %.sink24, i64 4
-  store i32 1, ptr %.sink24, align 4, !tbaa !10
+  %.sink45 = phi ptr [ %4, %3 ], [ %275, %_init_l_Lake_LeanExeConfig_instConfigMeta___closed__10.exit ]
+  %278 = getelementptr inbounds nuw i8, ptr %.sink45, i64 4
+  store i32 1, ptr %.sink45, align 4, !tbaa !10
   store i32 131096, ptr %278, align 4
-  %279 = getelementptr inbounds nuw i8, ptr %.sink24, i64 8
+  %279 = getelementptr inbounds nuw i8, ptr %.sink45, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %279, align 8, !tbaa !4
-  %280 = getelementptr inbounds nuw i8, ptr %.sink24, i64 16
+  %280 = getelementptr inbounds nuw i8, ptr %.sink45, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %280, align 8, !tbaa !4
   br label %281
 
 281:                                              ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink24, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink45, %.sink.split ]
   ret ptr %.0
 }
 

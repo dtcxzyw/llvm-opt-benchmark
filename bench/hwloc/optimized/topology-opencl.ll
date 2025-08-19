@@ -155,8 +155,8 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr noundef readonly
   %.not98 = icmp ne i32 %60, 0
   %61 = load i32, ptr %10, align 4
   %.not168 = icmp eq i32 %61, 0
-  %or.cond173 = select i1 %.not98, i1 true, i1 %.not168
-  br i1 %or.cond173, label %.sink.split, label %.lr.ph.preheader
+  %or.cond176 = select i1 %.not98, i1 true, i1 %.not168
+  br i1 %or.cond176, label %.sink.split, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %58
   %62 = trunc nuw i64 %indvars.iv170 to i32

@@ -253,21 +253,21 @@ copy_address.exit48:                              ; preds = %41, %50
   br i1 %62, label %copy_address.exit47, label %copy_address.exit47.sink.split
 
 copy_address.exit47.sink.split:                   ; preds = %copy_address.exit48, %copy_address.exit
-  %.sink63 = phi i32 [ %31, %copy_address.exit ], [ %59, %copy_address.exit48 ]
-  %.sink61 = phi ptr [ %33, %copy_address.exit ], [ %61, %copy_address.exit48 ]
-  %.sink60 = phi ptr [ %14, %copy_address.exit ], [ %42, %copy_address.exit48 ]
-  %63 = sext i32 %.sink63 to i64
-  %64 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %.sink61, i64 noundef %63) #18
-  %65 = getelementptr inbounds nuw i8, ptr %.sink60, i64 56
+  %.sink67 = phi i32 [ %31, %copy_address.exit ], [ %59, %copy_address.exit48 ]
+  %.sink65 = phi ptr [ %33, %copy_address.exit ], [ %61, %copy_address.exit48 ]
+  %.sink64 = phi ptr [ %14, %copy_address.exit ], [ %42, %copy_address.exit48 ]
+  %63 = sext i32 %.sink67 to i64
+  %64 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %.sink65, i64 noundef %63) #18
+  %65 = getelementptr inbounds nuw i8, ptr %.sink64, i64 56
   store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %.sink60, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %.sink64, i64 48
   store ptr %64, ptr %66, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %.sink60, i64 44
-  store i32 %.sink63, ptr %67, align 4
+  %67 = getelementptr inbounds nuw i8, ptr %.sink64, i64 44
+  store i32 %.sink67, ptr %67, align 4
   br label %copy_address.exit47
 
 copy_address.exit47:                              ; preds = %copy_address.exit47.sink.split, %copy_address.exit48, %copy_address.exit
-  %.0 = phi ptr [ %14, %copy_address.exit ], [ %42, %copy_address.exit48 ], [ %.sink60, %copy_address.exit47.sink.split ]
+  %.0 = phi ptr [ %14, %copy_address.exit ], [ %42, %copy_address.exit48 ], [ %.sink64, %copy_address.exit47.sink.split ]
   %.not46 = icmp eq ptr %.0, null
   br i1 %.not46, label %copy_address.exit47.thread, label %68
 
@@ -1210,7 +1210,7 @@ addresses_equal.exit:                             ; preds = %23, %15, %6
 
 215:                                              ; preds = %211
   %216 = icmp eq i32 %213, 0
-  br i1 %216, label %copy_address.exit.loopexit.split.loop.exit27.i, label %cmp_address.exit.i82
+  br i1 %216, label %copy_address.exit.loopexit.split.loop.exit30.i, label %cmp_address.exit.i82
 
 cmp_address.exit.i82:                             ; preds = %215
   %217 = getelementptr inbounds nuw i8, ptr %209, i64 8
@@ -1253,12 +1253,12 @@ copy_address.exit.loopexit.split.loop.exit.i:     ; preds = %cmp_address.exit.i8
   %234 = trunc nuw nsw i64 %indvars.iv.i76 to i32
   br label %add_or_get_node.exit
 
-copy_address.exit.loopexit.split.loop.exit27.i:   ; preds = %215
+copy_address.exit.loopexit.split.loop.exit30.i:   ; preds = %215
   %235 = trunc nuw nsw i64 %indvars.iv.i76 to i32
   br label %add_or_get_node.exit
 
-add_or_get_node.exit:                             ; preds = %cmp_address.exit.thread.i79, %addresses_equal.exit, %.critedge.i84, %228, %copy_address.exit.loopexit.split.loop.exit.i, %copy_address.exit.loopexit.split.loop.exit27.i
-  %.015.i = phi i32 [ 41, %addresses_equal.exit ], [ %202, %.critedge.i84 ], [ %202, %228 ], [ %234, %copy_address.exit.loopexit.split.loop.exit.i ], [ %235, %copy_address.exit.loopexit.split.loop.exit27.i ], [ 41, %cmp_address.exit.thread.i79 ]
+add_or_get_node.exit:                             ; preds = %cmp_address.exit.thread.i79, %addresses_equal.exit, %.critedge.i84, %228, %copy_address.exit.loopexit.split.loop.exit.i, %copy_address.exit.loopexit.split.loop.exit30.i
+  %.015.i = phi i32 [ 41, %addresses_equal.exit ], [ %202, %.critedge.i84 ], [ %202, %228 ], [ %234, %copy_address.exit.loopexit.split.loop.exit.i ], [ %235, %copy_address.exit.loopexit.split.loop.exit30.i ], [ 41, %cmp_address.exit.thread.i79 ]
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %.015.i, ptr %236, align 8
   %237 = load i32, ptr %11, align 8
@@ -1295,7 +1295,7 @@ add_or_get_node.exit:                             ; preds = %cmp_address.exit.th
 
 254:                                              ; preds = %250
   %255 = icmp eq i32 %252, 0
-  br i1 %255, label %copy_address.exit.loopexit.split.loop.exit27.i98, label %cmp_address.exit.i95
+  br i1 %255, label %copy_address.exit.loopexit.split.loop.exit30.i98, label %cmp_address.exit.i95
 
 cmp_address.exit.i95:                             ; preds = %254
   %256 = getelementptr inbounds nuw i8, ptr %248, i64 8
@@ -1338,12 +1338,12 @@ copy_address.exit.loopexit.split.loop.exit.i97:   ; preds = %cmp_address.exit.i9
   %273 = trunc nuw nsw i64 %indvars.iv.i86 to i32
   br label %.sink.split
 
-copy_address.exit.loopexit.split.loop.exit27.i98: ; preds = %254
+copy_address.exit.loopexit.split.loop.exit30.i98: ; preds = %254
   %274 = trunc nuw nsw i64 %indvars.iv.i86 to i32
   br label %.sink.split
 
-.sink.split:                                      ; preds = %cmp_address.exit.thread.i89, %cmp_address.exit.thread.i63, %cmp_address.exit.thread.i31, %copy_address.exit.loopexit.split.loop.exit27.i98, %copy_address.exit.loopexit.split.loop.exit.i97, %267, %.critedge.i99, %add_or_get_node.exit, %.critedge.thread.loopexit.split.loop.exit.i71, %copy_address.exit.i73, %add_or_get_node_local.exit58, %add_or_get_node_local.exit58.thread, %.critedge.thread.loopexit.split.loop.exit.i39, %copy_address.exit.i41, %add_or_get_node_local.exit, %add_or_get_node_local.exit.thread
-  %.015.i93.sink = phi i32 [ %81, %copy_address.exit.i41 ], [ 41, %add_or_get_node_local.exit ], [ %117, %.critedge.thread.loopexit.split.loop.exit.i39 ], [ 41, %add_or_get_node_local.exit.thread ], [ %162, %copy_address.exit.i73 ], [ 41, %add_or_get_node_local.exit58 ], [ %198, %.critedge.thread.loopexit.split.loop.exit.i71 ], [ 41, %add_or_get_node_local.exit58.thread ], [ 41, %add_or_get_node.exit ], [ %241, %.critedge.i99 ], [ %241, %267 ], [ %273, %copy_address.exit.loopexit.split.loop.exit.i97 ], [ %274, %copy_address.exit.loopexit.split.loop.exit27.i98 ], [ 41, %cmp_address.exit.thread.i31 ], [ 41, %cmp_address.exit.thread.i63 ], [ 41, %cmp_address.exit.thread.i89 ]
+.sink.split:                                      ; preds = %cmp_address.exit.thread.i89, %cmp_address.exit.thread.i63, %cmp_address.exit.thread.i31, %copy_address.exit.loopexit.split.loop.exit30.i98, %copy_address.exit.loopexit.split.loop.exit.i97, %267, %.critedge.i99, %add_or_get_node.exit, %.critedge.thread.loopexit.split.loop.exit.i71, %copy_address.exit.i73, %add_or_get_node_local.exit58, %add_or_get_node_local.exit58.thread, %.critedge.thread.loopexit.split.loop.exit.i39, %copy_address.exit.i41, %add_or_get_node_local.exit, %add_or_get_node_local.exit.thread
+  %.015.i93.sink = phi i32 [ %81, %copy_address.exit.i41 ], [ 41, %add_or_get_node_local.exit ], [ %117, %.critedge.thread.loopexit.split.loop.exit.i39 ], [ 41, %add_or_get_node_local.exit.thread ], [ %162, %copy_address.exit.i73 ], [ 41, %add_or_get_node_local.exit58 ], [ %198, %.critedge.thread.loopexit.split.loop.exit.i71 ], [ 41, %add_or_get_node_local.exit58.thread ], [ 41, %add_or_get_node.exit ], [ %241, %.critedge.i99 ], [ %241, %267 ], [ %273, %copy_address.exit.loopexit.split.loop.exit.i97 ], [ %274, %copy_address.exit.loopexit.split.loop.exit30.i98 ], [ 41, %cmp_address.exit.thread.i31 ], [ 41, %cmp_address.exit.thread.i63 ], [ 41, %cmp_address.exit.thread.i89 ]
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 %.015.i93.sink, ptr %275, align 4
   br label %276
@@ -1464,7 +1464,7 @@ define void @sequence_analysis_dump_to_file(ptr noundef %0, ptr noundef %1, i32 
   br label %g_string_append_c_inline.exit.i
 
 g_string_append_c_inline.exit.i:                  ; preds = %53, %47
-  %55 = add i64 %.05.i, 1
+  %55 = add nuw nsw i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %55, 40
   br i1 %exitcond.not.i, label %enlarge_string.exit, label %.lr.ph.i, !llvm.loop !13
 
@@ -1500,7 +1500,7 @@ enlarge_string.exit:                              ; preds = %g_string_append_c_i
   br label %g_string_append_c_inline.exit.i178
 
 g_string_append_c_inline.exit.i178:               ; preds = %70, %64
-  %72 = add i64 %.05.i177, 1
+  %72 = add nuw nsw i64 %.05.i177, 1
   %exitcond.not.i179 = icmp eq i64 %72, 20
   br i1 %exitcond.not.i179, label %enlarge_string.exit180, label %.lr.ph.i176, !llvm.loop !13
 
@@ -1547,7 +1547,7 @@ enlarge_string.exit180:                           ; preds = %g_string_append_c_i
   br label %g_string_append_c_inline.exit.i183
 
 g_string_append_c_inline.exit.i183:               ; preds = %93, %87
-  %95 = add i64 %.05.i182, 1
+  %95 = add nuw nsw i64 %.05.i182, 1
   %exitcond.not.i184 = icmp eq i64 %95, 20
   br i1 %exitcond.not.i184, label %enlarge_string.exit185, label %82, !llvm.loop !13
 
@@ -1598,7 +1598,7 @@ enlarge_string.exit185:                           ; preds = %g_string_append_c_i
   br label %g_string_append_c_inline.exit.i188
 
 g_string_append_c_inline.exit.i188:               ; preds = %118, %112
-  %120 = add i64 %.05.i187, 1
+  %120 = add nuw nsw i64 %.05.i187, 1
   %exitcond.not.i189 = icmp eq i64 %120, 20
   br i1 %exitcond.not.i189, label %enlarge_string.exit190, label %.lr.ph.i186, !llvm.loop !13
 
@@ -1636,7 +1636,7 @@ enlarge_string.exit190:                           ; preds = %g_string_append_c_i
   br label %g_string_append_c_inline.exit.i193
 
 g_string_append_c_inline.exit.i193:               ; preds = %135, %129
-  %137 = add i64 %.05.i192, 1
+  %137 = add nuw nsw i64 %.05.i192, 1
   %exitcond.not.i194 = icmp eq i64 %137, 40
   br i1 %exitcond.not.i194, label %enlarge_string.exit195, label %.lr.ph.i191, !llvm.loop !13
 
@@ -1672,7 +1672,7 @@ enlarge_string.exit195:                           ; preds = %g_string_append_c_i
   br label %g_string_append_c_inline.exit.i198
 
 g_string_append_c_inline.exit.i198:               ; preds = %152, %146
-  %154 = add i64 %.05.i197, 1
+  %154 = add nuw nsw i64 %.05.i197, 1
   %exitcond.not.i199 = icmp eq i64 %154, 20
   br i1 %exitcond.not.i199, label %enlarge_string.exit200, label %.lr.ph.i196, !llvm.loop !13
 
@@ -1855,7 +1855,7 @@ enlarge_string.exit205:                           ; preds = %g_string_append_c_i
   br label %g_string_append_c_inline.exit.i208
 
 g_string_append_c_inline.exit.i208:               ; preds = %251, %245
-  %253 = add i64 %.05.i207, 1
+  %253 = add nuw nsw i64 %.05.i207, 1
   %exitcond.not.i209 = icmp eq i64 %253, 5
   br i1 %exitcond.not.i209, label %enlarge_string.exit210, label %.lr.ph.i206, !llvm.loop !13
 
@@ -1900,7 +1900,7 @@ enlarge_string.exit210:                           ; preds = %g_string_append_c_i
   br label %g_string_append_c_inline.exit.i213
 
 g_string_append_c_inline.exit.i213:               ; preds = %272, %266
-  %274 = add i64 %.05.i212, 1
+  %274 = add nuw nsw i64 %.05.i212, 1
   %exitcond.not.i214 = icmp eq i64 %274, 10
   br i1 %exitcond.not.i214, label %enlarge_string.exit215, label %.lr.ph.i211, !llvm.loop !13
 
@@ -2046,14 +2046,14 @@ g_string_append_c_inline.exit221:                 ; preds = %g_string_append_c_i
   br label %351
 
 351:                                              ; preds = %349, %347
-  %.sink246 = phi i32 [ 19, %349 ], [ 9, %347 ]
+  %.sink295 = phi i32 [ 19, %349 ], [ 9, %347 ]
   %.sink = phi i32 [ %350, %349 ], [ %348, %347 ]
-  %.sink244 = phi i32 [ -9, %349 ], [ 1, %347 ]
-  %.sink243 = phi i32 [ 1, %349 ], [ 9, %347 ]
-  %352 = add i32 %212, %.sink246
+  %.sink293 = phi i32 [ -9, %349 ], [ 1, %347 ]
+  %.sink292 = phi i32 [ 1, %349 ], [ 9, %347 ]
+  %352 = add i32 %212, %.sink295
   call fastcc void @overwrite(ptr noundef %28, ptr noundef nonnull %4, i32 noundef %.sink, i32 noundef %352)
-  %353 = add i32 %.0152, %.sink244
-  %354 = add i32 %.0152, %.sink243
+  %353 = add i32 %.0152, %.sink293
+  %354 = add i32 %.0152, %.sink292
   call fastcc void @overwrite(ptr noundef %28, ptr noundef nonnull %5, i32 noundef %353, i32 noundef %354)
   %355 = load ptr, ptr %28, align 8
   %356 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.14, ptr noundef %355)

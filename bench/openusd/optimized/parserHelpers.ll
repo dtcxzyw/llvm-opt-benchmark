@@ -5210,18 +5210,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %27, label %._crit_edge.thread.i, label %33
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %20
-  %.020.lcssa32.i = phi ptr [ %.02127.i, %._crit_edge.i ], [ %4, %20 ]
+  %.020.lcssa33.i = phi ptr [ %.02127.i, %._crit_edge.i ], [ %4, %20 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %.020.lcssa32.i, %29
+  %30 = icmp eq ptr %.020.lcssa33.i, %29
   br i1 %30, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE24_M_get_insert_unique_posERS7_.exit, label %31
 
 31:                                               ; preds = %._crit_edge.thread.i
-  %32 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa32.i) #28
+  %32 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa33.i) #28
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge.i
-  %.020.lcssa33.i = phi ptr [ %.020.lcssa32.i, %31 ], [ %.02127.i, %._crit_edge.i ]
+  %.020.lcssa32.i = phi ptr [ %.020.lcssa33.i, %31 ], [ %.02127.i, %._crit_edge.i ]
   %.sroa.06.0.i = phi ptr [ %32, %31 ], [ %.02127.i, %._crit_edge.i ]
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 32
   %35 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %2)
@@ -5237,7 +5237,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i: ; preds = %33
   %39 = icmp slt i32 %35, 0
   %spec.select.i = select i1 %39, ptr null, ptr %.sroa.06.0.i
-  %spec.select22.i = select i1 %39, ptr %.020.lcssa33.i, ptr null
+  %spec.select22.i = select i1 %39, ptr %.020.lcssa32.i, ptr null
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE24_M_get_insert_unique_posERS7_.exit
 
 40:                                               ; preds = %3
@@ -5318,17 +5318,17 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %70, label %._crit_edge.thread.i31, label %75
 
 ._crit_edge.thread.i31:                           ; preds = %._crit_edge.i21, %63
-  %.020.lcssa32.i32 = phi ptr [ %.02127.i15, %._crit_edge.i21 ], [ %4, %63 ]
+  %.020.lcssa33.i32 = phi ptr [ %.02127.i15, %._crit_edge.i21 ], [ %4, %63 ]
   %71 = load ptr, ptr %48, align 8
-  %72 = icmp eq ptr %.020.lcssa32.i32, %71
+  %72 = icmp eq ptr %.020.lcssa33.i32, %71
   br i1 %72, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE24_M_get_insert_unique_posERS7_.exit, label %73
 
 73:                                               ; preds = %._crit_edge.thread.i31
-  %74 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa32.i32) #28
+  %74 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa33.i32) #28
   br label %75
 
 75:                                               ; preds = %73, %._crit_edge.i21
-  %.020.lcssa33.i22 = phi ptr [ %.020.lcssa32.i32, %73 ], [ %.02127.i15, %._crit_edge.i21 ]
+  %.020.lcssa32.i22 = phi ptr [ %.020.lcssa33.i32, %73 ], [ %.02127.i15, %._crit_edge.i21 ]
   %.sroa.06.0.i23 = phi ptr [ %74, %73 ], [ %.02127.i15, %._crit_edge.i21 ]
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i23, i64 32
   %77 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef nonnull align 8 dereferenceable(32) %2)
@@ -5344,7 +5344,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24: ; preds = %75
   %81 = icmp slt i32 %77, 0
   %spec.select.i25 = select i1 %81, ptr null, ptr %.sroa.06.0.i23
-  %spec.select22.i26 = select i1 %81, ptr %.020.lcssa33.i22, ptr null
+  %spec.select22.i26 = select i1 %81, ptr %.020.lcssa32.i22, ptr null
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE24_M_get_insert_unique_posERS7_.exit
 
 82:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit10
@@ -5424,18 +5424,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %111, label %._crit_edge.thread.i55, label %117
 
 ._crit_edge.thread.i55:                           ; preds = %._crit_edge.i45, %104
-  %.020.lcssa32.i56 = phi ptr [ %.02127.i39, %._crit_edge.i45 ], [ %4, %104 ]
+  %.020.lcssa33.i56 = phi ptr [ %.02127.i39, %._crit_edge.i45 ], [ %4, %104 ]
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %113 = load ptr, ptr %112, align 8
-  %114 = icmp eq ptr %.020.lcssa32.i56, %113
+  %114 = icmp eq ptr %.020.lcssa33.i56, %113
   br i1 %114, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE24_M_get_insert_unique_posERS7_.exit, label %115
 
 115:                                              ; preds = %._crit_edge.thread.i55
-  %116 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa32.i56) #28
+  %116 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa33.i56) #28
   br label %117
 
 117:                                              ; preds = %115, %._crit_edge.i45
-  %.020.lcssa33.i46 = phi ptr [ %.020.lcssa32.i56, %115 ], [ %.02127.i39, %._crit_edge.i45 ]
+  %.020.lcssa32.i46 = phi ptr [ %.020.lcssa33.i56, %115 ], [ %.02127.i39, %._crit_edge.i45 ]
   %.sroa.06.0.i47 = phi ptr [ %116, %115 ], [ %.02127.i39, %._crit_edge.i45 ]
   %118 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i47, i64 32
   %119 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull align 8 dereferenceable(32) %2)
@@ -5451,12 +5451,12 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48: ; preds = %117
   %123 = icmp slt i32 %119, 0
   %spec.select.i49 = select i1 %123, ptr null, ptr %.sroa.06.0.i47
-  %spec.select22.i50 = select i1 %123, ptr %.020.lcssa33.i46, ptr null
+  %spec.select22.i50 = select i1 %123, ptr %.020.lcssa32.i46, ptr null
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE24_M_get_insert_unique_posERS7_.exit
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE24_M_get_insert_unique_posERS7_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48, %._crit_edge.thread.i55, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24, %._crit_edge.thread.i31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i, %._crit_edge.thread.i, %100, %59, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34, %88, %47, %18
   %.sroa.078.0 = phi ptr [ null, %18 ], [ %49, %47 ], [ null, %88 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ %spec.select, %59 ], [ %spec.select80, %100 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ null, %._crit_edge.thread.i31 ], [ %spec.select.i25, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ null, %._crit_edge.thread.i55 ], [ %spec.select.i49, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ]
-  %.sroa.12.0 = phi ptr [ %19, %18 ], [ %49, %47 ], [ %90, %88 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ %spec.select79, %59 ], [ %spec.select81, %100 ], [ %.020.lcssa32.i, %._crit_edge.thread.i ], [ %spec.select22.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ %.020.lcssa32.i32, %._crit_edge.thread.i31 ], [ %spec.select22.i26, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ %.020.lcssa32.i56, %._crit_edge.thread.i55 ], [ %spec.select22.i50, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ]
+  %.sroa.12.0 = phi ptr [ %19, %18 ], [ %49, %47 ], [ %90, %88 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ %spec.select79, %59 ], [ %spec.select81, %100 ], [ %.020.lcssa33.i, %._crit_edge.thread.i ], [ %spec.select22.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ %.020.lcssa33.i32, %._crit_edge.thread.i31 ], [ %spec.select22.i26, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ %.020.lcssa33.i56, %._crit_edge.thread.i55 ], [ %spec.select22.i50, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.078.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -8998,7 +8998,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -9011,7 +9011,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -9588,7 +9588,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -9601,7 +9601,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -10178,7 +10178,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -10191,7 +10191,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -10768,7 +10768,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -10781,7 +10781,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -11358,7 +11358,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -11371,7 +11371,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -11948,7 +11948,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -11961,7 +11961,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -12538,7 +12538,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -12551,7 +12551,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -13128,7 +13128,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -13141,7 +13141,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -13718,7 +13718,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -13731,7 +13731,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -14308,7 +14308,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -14321,7 +14321,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -14898,7 +14898,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -14911,7 +14911,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -15488,7 +15488,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -15501,7 +15501,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -16078,7 +16078,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -16091,7 +16091,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -16668,7 +16668,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -16681,7 +16681,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -17258,7 +17258,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -17271,7 +17271,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -17848,7 +17848,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -17861,7 +17861,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -18438,7 +18438,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -18451,7 +18451,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -19028,7 +19028,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -19041,7 +19041,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -19618,7 +19618,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -19631,7 +19631,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -20208,7 +20208,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -20221,7 +20221,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -20798,7 +20798,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -20811,7 +20811,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -21388,7 +21388,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -21401,7 +21401,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -21978,7 +21978,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -21991,7 +21991,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -22568,7 +22568,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -22581,7 +22581,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -23158,7 +23158,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -23171,7 +23171,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -23748,7 +23748,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -23761,7 +23761,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -24338,7 +24338,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -24351,7 +24351,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -24928,7 +24928,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -24941,7 +24941,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -25518,7 +25518,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -25531,7 +25531,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -26108,7 +26108,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -26121,7 +26121,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -26698,7 +26698,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -26711,7 +26711,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -27288,7 +27288,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -27301,7 +27301,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -27878,7 +27878,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br i1 %.not.i.i104, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105, label %214
 
 214:                                              ; preds = %.body86.thread, %.body86
-  %.pn52123 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
+  %.pn52148 = phi { ptr, i32 } [ %212, %.body86.thread ], [ %213, %.body86 ]
   %215 = phi ptr [ @_ZNSt17_Function_handlerIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPSL_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, %.body86.thread ], [ %.pre, %.body86 ]
   %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105 unwind label %217
@@ -27891,7 +27891,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   unreachable
 
 _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit105: ; preds = %214, %.body86, %210
-  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52123, %214 ]
+  %.pn52.pn = phi { ptr, i32 } [ %211, %210 ], [ %213, %.body86 ], [ %.pn52148, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   br label %220
 
@@ -28179,11 +28179,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIbEELb0EEppEv.exit:
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -28193,9 +28193,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIbEELb0EEppEv.exit:
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -29307,11 +29307,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIhEELb0EEppEv.exit:
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -29321,9 +29321,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIhEELb0EEppEv.exit:
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -30434,11 +30434,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIiEELb0EEppEv.exit:
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -30448,9 +30448,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIiEELb0EEppEv.exit:
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -31522,11 +31522,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIjEELb0EEppEv.exit:
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -31536,9 +31536,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIjEELb0EEppEv.exit:
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -32609,11 +32609,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIlEELb0EEppEv.exit:
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -32623,9 +32623,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIlEELb0EEppEv.exit:
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -33626,11 +33626,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayImEELb0EEppEv.exit:
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -33640,9 +33640,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayImEELb0EEppEv.exit:
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -34648,11 +34648,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_8pxr_half4halfE
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -34662,9 +34662,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_8pxr_half4halfE
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -35694,11 +35694,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIfEELb0EEppEv.exit:
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc36, %.noexc
-  %.sink67 = phi ptr [ %16, %.noexc ], [ %71, %.noexc36 ]
+  %.sink72 = phi ptr [ %16, %.noexc ], [ %71, %.noexc36 ]
   %.sink.ph = phi ptr [ %7, %.noexc ], [ %8, %.noexc36 ]
-  %74 = getelementptr inbounds nuw i8, ptr %.sink67, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %.sink72, i64 40
   store atomic i32 0, ptr %74 seq_cst, align 4
-  store ptr %.sink67, ptr %0, align 8
+  store ptr %.sink72, ptr %0, align 8
   %75 = atomicrmw add ptr %74, i32 1 monotonic, align 4
   br label %76
 
@@ -35708,9 +35708,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIfEELb0EEppEv.exit:
   ret void
 
 .body:                                            ; preds = %53, %66, %72, %68, %19, %17
-  %.sink63 = phi ptr [ %7, %17 ], [ %7, %19 ], [ %8, %68 ], [ %8, %72 ], [ %8, %66 ], [ %8, %53 ]
+  %.sink68 = phi ptr [ %7, %17 ], [ %7, %19 ], [ %8, %68 ], [ %8, %72 ], [ %8, %66 ], [ %8, %53 ]
   %.merged = phi { ptr, i32 } [ %18, %17 ], [ %20, %19 ], [ %69, %68 ], [ %73, %72 ], [ %67, %66 ], [ %lpad.phi, %53 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink63) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink68) #26
   resume { ptr, i32 } %.merged
 
 77:                                               ; preds = %66
@@ -36448,11 +36448,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIdEELb0EEppEv.exit:
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc36, %.noexc
-  %.sink67 = phi ptr [ %16, %.noexc ], [ %71, %.noexc36 ]
+  %.sink72 = phi ptr [ %16, %.noexc ], [ %71, %.noexc36 ]
   %.sink.ph = phi ptr [ %7, %.noexc ], [ %8, %.noexc36 ]
-  %74 = getelementptr inbounds nuw i8, ptr %.sink67, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %.sink72, i64 40
   store atomic i32 0, ptr %74 seq_cst, align 4
-  store ptr %.sink67, ptr %0, align 8
+  store ptr %.sink72, ptr %0, align 8
   %75 = atomicrmw add ptr %74, i32 1 monotonic, align 4
   br label %76
 
@@ -36462,9 +36462,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIdEELb0EEppEv.exit:
   ret void
 
 .body:                                            ; preds = %53, %66, %72, %68, %19, %17
-  %.sink63 = phi ptr [ %7, %17 ], [ %7, %19 ], [ %8, %68 ], [ %8, %72 ], [ %8, %66 ], [ %8, %53 ]
+  %.sink68 = phi ptr [ %7, %17 ], [ %7, %19 ], [ %8, %68 ], [ %8, %72 ], [ %8, %66 ], [ %8, %53 ]
   %.merged = phi { ptr, i32 } [ %18, %17 ], [ %20, %19 ], [ %69, %68 ], [ %73, %72 ], [ %67, %66 ], [ %lpad.phi, %53 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink63) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink68) #26
   resume { ptr, i32 } %.merged
 
 77:                                               ; preds = %66
@@ -38976,11 +38976,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINSt7__cxx1112basic
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -38990,9 +38990,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINSt7__cxx1112basic
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -39949,11 +39949,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7TfTokenEEELb0E
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -39963,9 +39963,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7TfTokenEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -48528,8 +48528,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_17SdfPathExpressionES2_.exit.i.i.i.
   %122 = getelementptr inbounds nuw i8, ptr %.0815.i.i.i.i, i64 104
   %123 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 104
   %.not.i.i.i.i = icmp ne ptr %122, %86
-  %or.cond11.not = select i1 %121, i1 %.not.i.i.i.i, i1 false
-  br i1 %or.cond11.not, label %93, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionES3_EbT_S4_T0_.exit, !llvm.loop !290
+  %or.cond14.not = select i1 %121, i1 %.not.i.i.i.i, i1 false
+  br i1 %or.cond14.not, label %93, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionES3_EbT_S4_T0_.exit, !llvm.loop !290
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionES3_EbT_S4_T0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_17SdfPathExpressionES2_.exit.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEE11IsIdenticalERKS2_.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_17SdfPathExpressionES2_.exit.thread.i.i.i.i, %85, %77, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEE11IsIdenticalERKS2_.exit
   %124 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %77 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_17SdfPathExpressionES2_.exit.thread.i.i.i.i ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEE11IsIdenticalERKS2_.exit.thread ], [ %121, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_17SdfPathExpressionES2_.exit.i.i.i.i ]
@@ -49377,11 +49377,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec2iEEELb0E
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -49391,9 +49391,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec2iEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -50114,11 +50114,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec2hEEELb0E
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -50128,9 +50128,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec2hEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -50955,11 +50955,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec2fEEELb0E
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -50969,9 +50969,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec2fEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -51708,11 +51708,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec2dEEELb0E
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -51722,9 +51722,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec2dEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -52523,11 +52523,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec3iEEELb0E
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -52537,9 +52537,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec3iEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -53377,11 +53377,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec3hEEELb0E
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -53391,9 +53391,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec3hEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -54304,11 +54304,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec3fEEELb0E
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -54318,9 +54318,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec3fEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -55234,11 +55234,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec3dEEELb0E
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -55248,9 +55248,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec3dEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -56158,11 +56158,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec4iEEELb0E
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -56172,9 +56172,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec4iEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -57106,11 +57106,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec4hEEELb0E
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -57120,9 +57120,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec4hEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -58176,11 +58176,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec4fEEELb0E
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -58190,9 +58190,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec4fEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -59152,11 +59152,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec4dEEELb0E
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -59166,9 +59166,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec4dEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -60116,11 +60116,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfQuathEEELb0E
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -60130,9 +60130,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfQuathEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -61030,11 +61030,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfQuatfEEELb0E
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -61044,9 +61044,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfQuatfEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -62011,11 +62011,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfQuatdEEELb0E
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -62025,9 +62025,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfQuatdEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -62986,11 +62986,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_10GfMatrix2dEEE
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -63000,9 +63000,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_10GfMatrix2dEEE
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -63896,11 +63896,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_10GfMatrix3dEEE
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -63910,9 +63910,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_10GfMatrix3dEEE
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43
@@ -64936,11 +64936,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_10GfMatrix4dEEE
   br label %.body
 
 .sink.split:                                      ; preds = %.noexc33, %.noexc
-  %.sink61 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
+  %.sink65 = phi ptr [ %15, %.noexc ], [ %48, %.noexc33 ]
   %.sink.ph = phi ptr [ %6, %.noexc ], [ %7, %.noexc33 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink61, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sink65, i64 40
   store atomic i32 0, ptr %51 seq_cst, align 4
-  store ptr %.sink61, ptr %0, align 8
+  store ptr %.sink65, ptr %0, align 8
   %52 = atomicrmw add ptr %51, i32 1 monotonic, align 4
   br label %53
 
@@ -64950,9 +64950,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_10GfMatrix4dEEE
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink57 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
   %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink57) #26
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
 54:                                               ; preds = %43

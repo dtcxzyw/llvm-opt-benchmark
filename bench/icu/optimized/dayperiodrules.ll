@@ -863,16 +863,16 @@ define void @_ZN6icu_7714DayPeriodRulesC2Ev(ptr noundef nonnull writeonly align 
 define noundef double @_ZNK6icu_7714DayPeriodRules23getMidPointForDayPeriodENS0_9DayPeriodER10UErrorCode(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(100) %0, i32 noundef %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #13 align 2 {
   %4 = load i32, ptr %2, align 4, !tbaa !13
   %5 = icmp slt i32 %4, 1
-  br i1 %5, label %6, label %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread54
+  br i1 %5, label %6, label %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread56
 
 6:                                                ; preds = %3
   switch i32 %1, label %7 [
-    i32 0, label %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread54
-    i32 1, label %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread45
+    i32 0, label %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread56
+    i32 1, label %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread47
   ]
 
-_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread45: ; preds = %6
-  br label %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread54
+_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread47: ; preds = %6
+  br label %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread56
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -915,7 +915,7 @@ _ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCo
 
 _ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread: ; preds = %25, %17
   store i32 1, ptr %2, align 4, !tbaa !13
-  br label %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread54
+  br label %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread56
 
 .loopexit.loopexit.i:                             ; preds = %.preheader37.i
   %26 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -972,7 +972,7 @@ _ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCo
 
 .thread.i22:                                      ; preds = %42, %37
   store i32 1, ptr %2, align 4, !tbaa !13
-  br label %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread54
+  br label %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread56
 
 .loopexit.loopexit.i26:                           ; preds = %.preheader.i23
   %46 = trunc nuw nsw i64 %indvars.iv.i24 to i32
@@ -984,19 +984,19 @@ _ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode
   %48 = sitofp i32 %47 to double
   %49 = fmul double %48, 5.000000e-01
   %50 = icmp sgt i32 %.021.i.ph, %.021.i19
-  br i1 %50, label %51, label %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread54
+  br i1 %50, label %51, label %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread56
 
 51:                                               ; preds = %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread
   %52 = fadd double %49, 1.200000e+01
   %53 = fcmp ult double %52, 2.400000e+01
-  br i1 %53, label %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread54, label %54
+  br i1 %53, label %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread56, label %54
 
 54:                                               ; preds = %51
   %55 = fadd double %52, -2.400000e+01
-  br label %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread54
+  br label %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread56
 
-_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread54: ; preds = %6, %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread45, %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread, %.thread.i22, %51, %54, %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread, %3
-  %.015 = phi double [ -1.000000e+00, %3 ], [ %55, %54 ], [ %52, %51 ], [ %49, %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread ], [ -1.000000e+00, %.thread.i22 ], [ -1.000000e+00, %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread ], [ 0.000000e+00, %6 ], [ 1.200000e+01, %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread45 ]
+_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread56: ; preds = %6, %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread47, %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread, %.thread.i22, %51, %54, %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread, %3
+  %.015 = phi double [ -1.000000e+00, %3 ], [ %55, %54 ], [ %52, %51 ], [ %49, %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread ], [ -1.000000e+00, %.thread.i22 ], [ -1.000000e+00, %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread ], [ 0.000000e+00, %6 ], [ 1.200000e+01, %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread47 ]
   ret double %.015
 }
 

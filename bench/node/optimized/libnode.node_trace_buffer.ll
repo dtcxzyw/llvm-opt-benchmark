@@ -104,7 +104,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp8.not.i, label %if.else.i, label %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEmS7_ET_S9_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EEmS7_ET_S9_T0_RSaIT1_E.exit.i: ; preds = %if.then
-  %3 = shl nuw i64 %sub, 3
+  %3 = shl nuw nsw i64 %sub, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %3, i1 false)
   %scevgep.i.i.i.i = getelementptr i8, ptr %0, i64 %3
   store ptr %scevgep.i.i.i.i, ptr %_M_finish.i, align 8
@@ -153,7 +153,7 @@ if.then.i24.i:                                    ; preds = %_ZNSt6vectorISt10un
 
 _ZNSt12_Vector_baseISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit.i: ; preds = %if.then.i24.i, %_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr34.i = getelementptr inbounds %"class.std::unique_ptr.2", ptr %add.ptr.i, i64 %sub
+  %add.ptr34.i = getelementptr inbounds nuw %"class.std::unique_ptr.2", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr34.i, ptr %_M_finish.i, align 8
   %add.ptr37.i = getelementptr inbounds nuw %"class.std::unique_ptr.2", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8

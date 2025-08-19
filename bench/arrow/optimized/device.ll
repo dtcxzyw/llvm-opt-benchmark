@@ -1066,8 +1066,8 @@ _ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE7DestroyEv.exit.thread.i49: ; preds
   %189 = icmp ne ptr %.pre, null
   %.pr = load ptr, ptr %27, align 8
   %.not89 = icmp eq ptr %.pr, null
-  %or.cond99 = select i1 %189, i1 true, i1 %.not89
-  br i1 %or.cond99, label %199, label %_ZNR5arrow6ResultISt10shared_ptrINS_6BufferEEEdeEv.exit61
+  %or.cond122 = select i1 %189, i1 true, i1 %.not89
+  br i1 %or.cond122, label %199, label %_ZNR5arrow6ResultISt10shared_ptrINS_6BufferEEEdeEv.exit61
 
 _ZNR5arrow6ResultISt10shared_ptrINS_6BufferEEEdeEv.exit61: ; preds = %188, %139
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -2971,9 +2971,9 @@ define void @_ZN5arrow13MemoryManager20CopyBufferSliceToCPUERKSt10shared_ptrINS_
   %29 = load ptr, ptr %28, align 8
   %30 = icmp ne ptr %29, null
   %or.cond = select i1 %27, i1 %30, i1 false
-  br i1 %or.cond, label %.thread33, label %34
+  br i1 %or.cond, label %.thread37, label %34
 
-.thread33:                                        ; preds = %25
+.thread37:                                        ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !126)
   call void @llvm.experimental.noalias.scope.decl(metadata !129)
@@ -3039,8 +3039,8 @@ define void @_ZN5arrow13MemoryManager20CopyBufferSliceToCPUERKSt10shared_ptrINS_
   %.not = icmp eq ptr %.pr, null
   br i1 %.not, label %62, label %53
 
-53:                                               ; preds = %.thread33, %49
-  %54 = phi ptr [ %29, %.thread33 ], [ %.pr, %49 ]
+53:                                               ; preds = %.thread37, %49
+  %54 = phi ptr [ %29, %.thread37 ], [ %.pr, %49 ]
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 9
   %56 = load i8, ptr %55, align 1, !tbaa !118, !range !68, !noundef !69
   %57 = trunc nuw i8 %56 to i1

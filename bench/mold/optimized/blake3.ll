@@ -1059,8 +1059,8 @@ hasher_merge_cv_stack.exit:                       ; preds = %.lr.ph150, %hasher_
   br i1 %.not65, label %.critedge, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %161, %._crit_edge
-  %.1.lcssa200 = phi i64 [ %403, %._crit_edge ], [ %.0, %161 ]
-  %.158.lcssa199 = phi ptr [ %402, %._crit_edge ], [ %.057, %161 ]
+  %.1.lcssa221 = phi i64 [ %403, %._crit_edge ], [ %.0, %161 ]
+  %.158.lcssa220 = phi ptr [ %402, %._crit_edge ], [ %.057, %161 ]
   %405 = load i8, ptr %30, align 8, !tbaa !13
   %.not.i74 = icmp eq i8 %405, 0
   br i1 %.not.i74, label %426, label %406
@@ -1068,16 +1068,16 @@ hasher_merge_cv_stack.exit:                       ; preds = %.lr.ph150, %hasher_
 406:                                              ; preds = %._crit_edge.thread
   %407 = zext i8 %405 to i64
   %408 = sub nsw i64 64, %407
-  %spec.select.i86 = call i64 @llvm.umin.i64(i64 %408, i64 %.1.lcssa200)
+  %spec.select.i86 = call i64 @llvm.umin.i64(i64 %408, i64 %.1.lcssa221)
   %409 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %410 = getelementptr inbounds nuw i8, ptr %409, i64 %407
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %410, ptr align 1 %.158.lcssa199, i64 %spec.select.i86, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %410, ptr align 1 %.158.lcssa220, i64 %spec.select.i86, i1 false)
   %411 = trunc i64 %spec.select.i86 to i8
   %412 = load i8, ptr %30, align 8, !tbaa !13
   %413 = add i8 %412, %411
   store i8 %413, ptr %30, align 8, !tbaa !13
-  %414 = getelementptr inbounds nuw i8, ptr %.158.lcssa199, i64 %spec.select.i86
-  %415 = sub nsw i64 %.1.lcssa200, %spec.select.i86
+  %414 = getelementptr inbounds nuw i8, ptr %.158.lcssa220, i64 %spec.select.i86
+  %415 = sub nsw i64 %.1.lcssa221, %spec.select.i86
   %.not30.i75 = icmp eq i64 %415, 0
   br i1 %.not30.i75, label %chunk_state_update.exit80, label %416
 
@@ -1098,8 +1098,8 @@ hasher_merge_cv_stack.exit:                       ; preds = %.lr.ph150, %hasher_
   br label %426
 
 426:                                              ; preds = %416, %._crit_edge.thread
-  %.028.i76 = phi i64 [ %.1.lcssa200, %._crit_edge.thread ], [ %415, %416 ]
-  %.0.i77 = phi ptr [ %.158.lcssa199, %._crit_edge.thread ], [ %414, %416 ]
+  %.028.i76 = phi i64 [ %.1.lcssa221, %._crit_edge.thread ], [ %415, %416 ]
+  %.0.i77 = phi ptr [ %.158.lcssa220, %._crit_edge.thread ], [ %414, %416 ]
   %427 = icmp ugt i64 %.028.i76, 64
   br i1 %427, label %.lr.ph169, label %chunk_state_update.exit80
 
@@ -1394,10 +1394,10 @@ output_root_bytes.exit:                           ; preds = %49, %51
   %90 = phi ptr [ %77, %.thread ], [ %89, %78 ]
   %91 = phi ptr [ %76, %.thread ], [ %88, %78 ]
   %92 = phi ptr [ %75, %.thread ], [ %87, %78 ]
-  %.062 = phi i64 [ %66, %.thread ], [ %80, %78 ]
-  %.sink61 = phi i8 [ %71, %.thread ], [ %86, %78 ]
-  %.sink5260 = phi i8 [ %62, %.thread ], [ 64, %78 ]
-  %.sink5359 = phi i64 [ %74, %.thread ], [ 0, %78 ]
+  %.068 = phi i64 [ %66, %.thread ], [ %80, %78 ]
+  %.sink67 = phi i8 [ %71, %.thread ], [ %86, %78 ]
+  %.sink5266 = phi i8 [ %62, %.thread ], [ 64, %78 ]
+  %.sink5365 = phi i64 [ %74, %.thread ], [ 0, %78 ]
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 145
   %94 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -1419,10 +1419,10 @@ output_root_bytes.exit:                           ; preds = %49, %51
   br label %103
 
 103:                                              ; preds = %.lr.ph, %103
-  %104 = phi i8 [ %.sink61, %.lr.ph ], [ %119, %103 ]
-  %105 = phi i64 [ %.sink5359, %.lr.ph ], [ 0, %103 ]
-  %106 = phi i8 [ %.sink5260, %.lr.ph ], [ 64, %103 ]
-  %.151 = phi i64 [ %.062, %.lr.ph ], [ %107, %103 ]
+  %104 = phi i8 [ %.sink67, %.lr.ph ], [ %119, %103 ]
+  %105 = phi i64 [ %.sink5365, %.lr.ph ], [ 0, %103 ]
+  %106 = phi i8 [ %.sink5266, %.lr.ph ], [ 64, %103 ]
+  %.151 = phi i64 [ %.068, %.lr.ph ], [ %107, %103 ]
   %107 = add i64 %.151, -1
   %108 = shl i64 %107, 5
   %109 = getelementptr inbounds nuw [1760 x i8], ptr %93, i64 0, i64 %108

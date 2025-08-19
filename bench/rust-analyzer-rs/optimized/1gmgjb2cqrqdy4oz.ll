@@ -865,8 +865,8 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %.thr
   %189 = trunc i32 %.0.i90105 to i8
   %190 = and i8 %189, 63
   %191 = or disjoint i8 %190, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx182 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %191, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx182, align 1, !alias.scope !119, !noalias !116
+  %.sroa.0.i.1.i.1.i.1..sroa_idx196 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %191, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx196, align 1, !alias.scope !119, !noalias !116
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 192:                                              ; preds = %183
@@ -883,8 +883,8 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %.thr
   %200 = trunc i32 %.0.i90105 to i8
   %201 = and i8 %200, 63
   %202 = or disjoint i8 %201, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx183 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %202, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx183, align 2, !alias.scope !119, !noalias !116
+  %.sroa.0.i.2.i.2.i.2..sroa_idx197 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %202, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx197, align 2, !alias.scope !119, !noalias !116
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 203:                                              ; preds = %183
@@ -896,8 +896,8 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %.thr
   %208 = trunc i32 %207 to i8
   %209 = and i8 %208, 63
   %210 = or disjoint i8 %209, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx181 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %210, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx181, align 1, !alias.scope !119, !noalias !116
+  %.sroa.0.i.1.i.1.i.1..sroa_idx195 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %210, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx195, align 1, !alias.scope !119, !noalias !116
   %211 = lshr i32 %.0.i90105, 6
   %212 = trunc i32 %211 to i8
   %213 = and i8 %212, 63

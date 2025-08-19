@@ -57,9 +57,9 @@ define range(i32 -1094995529, 1) i32 @ff_evc_parse_slice_header(ptr noundef capt
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 6
   %39 = load i8, ptr %38, align 2, !tbaa !23
   %.not99 = icmp eq i8 %39, 0
-  br i1 %.not99, label %41, label %.thread148
+  br i1 %.not99, label %41, label %.thread153
 
-.thread148:                                       ; preds = %37
+.thread153:                                       ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 1, ptr %40, align 1, !tbaa !24
   br label %.loopexit
@@ -109,7 +109,7 @@ define range(i32 -1094995529, 1) i32 @ff_evc_parse_slice_header(ptr noundef capt
   %76 = getelementptr inbounds nuw i8, ptr %30, i64 1962
   %77 = load i8, ptr %76, align 2, !tbaa !27
   %.not101 = icmp eq i8 %77, 0
-  br i1 %.not101, label %.thread150, label %78
+  br i1 %.not101, label %.thread155, label %78
 
 78:                                               ; preds = %75
   %79 = load i32, ptr %5, align 8, !tbaa !4
@@ -131,9 +131,9 @@ define range(i32 -1094995529, 1) i32 @ff_evc_parse_slice_header(ptr noundef capt
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 %92, ptr %93, align 1, !tbaa !28
   %94 = icmp sgt i8 %91, -1
-  br i1 %94, label %.thread150, label %115
+  br i1 %94, label %.thread155, label %115
 
-.thread150:                                       ; preds = %75, %78
+.thread155:                                       ; preds = %75, %78
   %95 = getelementptr inbounds nuw i8, ptr %30, i64 196
   %96 = load i8, ptr %95, align 4, !tbaa !25
   %97 = zext i8 %96 to i32
@@ -361,7 +361,7 @@ get_ue_golomb_long.exit131:                       ; preds = %184, %226, %230
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %184, !llvm.loop !34
 
-.loopexit:                                        ; preds = %get_ue_golomb_long.exit131, %.thread148, %.thread150, %41
+.loopexit:                                        ; preds = %get_ue_golomb_long.exit131, %.thread153, %.thread155, %41
   %251 = load i32, ptr %5, align 8, !tbaa !4
   %252 = load i32, ptr %7, align 8, !tbaa !11
   %253 = load ptr, ptr %0, align 8, !tbaa !12

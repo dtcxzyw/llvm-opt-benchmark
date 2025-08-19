@@ -2220,8 +2220,8 @@ define hidden void @_ZN14ruff_formatter14format_element18normalize_newlines17h87
   ret void
 
 .thread89:                                        ; preds = %._crit_edge.thread, %122, %124
-  %.sroa.04.0.lcssa147150156 = phi i64 [ %.sroa.04.0.lcssa, %122 ], [ %.sroa.04.0.lcssa, %124 ], [ 0, %._crit_edge.thread ]
-  %129 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.04.0.lcssa147150156
+  %.sroa.04.0.lcssa155158164 = phi i64 [ %.sroa.04.0.lcssa, %122 ], [ %.sroa.04.0.lcssa, %124 ], [ 0, %._crit_edge.thread ]
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.04.0.lcssa155158164
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hbdbecf6651f6a610E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull %129, ptr noundef nonnull %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.93b0b4dae9c7f65659addb40567bf4a2.9)
           to label %130 unwind label %.loopexit.split-lp
 
@@ -4159,10 +4159,10 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h58be31ed8f8d577aE.exit.i.i", %137, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h9b77ac19358b5df5E.exit", %139
-  %.sroa.0.035 = phi i64 [ %.sroa.0.0, %139 ], [ %.sroa.0.0, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h9b77ac19358b5df5E.exit" ], [ %.sroa.0.0, %137 ], [ 0, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h58be31ed8f8d577aE.exit.i.i" ]
+  %.sroa.0.045 = phi i64 [ %.sroa.0.0, %139 ], [ %.sroa.0.0, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h9b77ac19358b5df5E.exit" ], [ %.sroa.0.0, %137 ], [ 0, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h58be31ed8f8d577aE.exit.i.i" ]
   %.sroa.01.1 = phi i64 [ %143, %139 ], [ %.sroa.14.018, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h9b77ac19358b5df5E.exit" ], [ %.sroa.14.018, %137 ], [ 0, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h58be31ed8f8d577aE.exit.i.i" ]
-  %144 = sub nuw i64 %.sroa.01.1, %.sroa.0.035
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.035
+  %144 = sub nuw i64 %.sroa.01.1, %.sroa.0.045
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.045
   %146 = insertvalue { ptr, i64 } poison, ptr %145, 0
   %147 = insertvalue { ptr, i64 } %146, i64 %144, 1
   ret { ptr, i64 } %147
@@ -6085,8 +6085,8 @@ define noundef zeroext i1 @"_ZN153_$LT$$LT$ruff_python_formatter..comments..debu
   br i1 %71, label %73, label %.thread
 
 .thread:                                          ; preds = %60, %70
-  %.sroa.56.035 = phi i64 [ %.sroa.56.0, %70 ], [ 0, %60 ]
-  %72 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %.sroa.56.035)
+  %.sroa.56.040 = phi i64 [ %.sroa.56.0, %70 ], [ 0, %60 ]
+  %72 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %.sroa.56.040)
   br i1 %72, label %105, label %77
 
 73:                                               ; preds = %70
@@ -6103,8 +6103,8 @@ define noundef zeroext i1 @"_ZN153_$LT$$LT$ruff_python_formatter..comments..debu
   br i1 %.not20, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16split_at_checked17h46803085811fc72eE.exit.thread", label %79, !prof !776
 
 77:                                               ; preds = %96, %.thread
-  %.sroa.56.034 = phi i64 [ %.sroa.56.0, %96 ], [ %.sroa.56.035, %.thread ]
-  %78 = icmp ult i64 %.sroa.56.034, %9
+  %.sroa.56.039 = phi i64 [ %.sroa.56.0, %96 ], [ %.sroa.56.040, %.thread ]
+  %78 = icmp ult i64 %.sroa.56.039, %9
   br i1 %78, label %101, label %103
 
 79:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16split_at_checked17h46803085811fc72eE.exit"
@@ -8188,13 +8188,13 @@ _ZN21ruff_python_formatter8comments6format20strip_comment_prefix17h2e2c2de330183
   br i1 %81, label %85, label %79
 
 82:                                               ; preds = %85, %39, %32
-  %.sink92 = phi ptr [ %27, %85 ], [ @anon.93b0b4dae9c7f65659addb40567bf4a2.398, %39 ], [ %.sroa.625.0.copyload, %32 ]
-  %.sink91 = phi i64 [ %28, %85 ], [ 1, %39 ], [ %.sroa.726.0.copyload, %32 ]
+  %.sink95 = phi ptr [ %27, %85 ], [ @anon.93b0b4dae9c7f65659addb40567bf4a2.398, %39 ], [ %.sroa.625.0.copyload, %32 ]
+  %.sink94 = phi i64 [ %28, %85 ], [ 1, %39 ], [ %.sroa.726.0.copyload, %32 ]
   %.sink = phi i64 [ 0, %85 ], [ 0, %39 ], [ 1, %32 ]
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink92, ptr %.sroa.417.0..sroa_idx, align 8
+  store ptr %.sink95, ptr %.sroa.417.0..sroa_idx, align 8
   %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sink91, ptr %.sroa.518.0..sroa_idx, align 8
+  store i64 %.sink94, ptr %.sroa.518.0..sroa_idx, align 8
   store i64 %.sink, ptr %0, align 8
   br label %167
 
@@ -8653,13 +8653,13 @@ define void @"_ZN190_$LT$ruff_python_formatter..expression..expr_number_literal.
   %19 = alloca [24 x i8], align 8
   %20 = alloca [8 x i8], align 4
   %21 = load i64, ptr %2, align 8, !range !567, !noundef !3
-  switch i64 %21, label %default.unreachable31 [
+  switch i64 %21, label %default.unreachable44 [
     i64 0, label %22
     i64 1, label %229
     i64 2, label %243
   ]
 
-default.unreachable31:                            ; preds = %4
+default.unreachable44:                            ; preds = %4
   unreachable
 
 22:                                               ; preds = %4
@@ -9543,17 +9543,17 @@ define internal fastcc void @_ZN21ruff_python_formatter10expression19expr_number
   br label %.preheader
 
 .preheader:                                       ; preds = %3, %57, %46
-  %.sroa.3.0.i167 = phi i1 [ false, %46 ], [ true, %57 ], [ false, %3 ]
-  %.sroa.0.2166 = phi ptr [ %.sroa.0.1, %46 ], [ %.sroa.0.1, %57 ], [ %1, %3 ]
-  %.sroa.23.1165 = phi i64 [ %49, %46 ], [ %49, %57 ], [ 0, %3 ]
+  %.sroa.3.0.i175 = phi i1 [ false, %46 ], [ true, %57 ], [ false, %3 ]
+  %.sroa.0.2174 = phi ptr [ %.sroa.0.1, %46 ], [ %.sroa.0.1, %57 ], [ %1, %3 ]
+  %.sroa.23.1173 = phi i64 [ %49, %46 ], [ %49, %57 ], [ 0, %3 ]
   %.sroa.018.0.ph = phi i64 [ 0, %46 ], [ 1, %57 ], [ 0, %3 ]
-  %60 = icmp eq ptr %.sroa.0.2166, %5
+  %60 = icmp eq ptr %.sroa.0.2174, %5
   br i1 %60, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %121
-  %.sroa.016.0154 = phi i1 [ %122, %121 ], [ %.sroa.3.0.i167, %.preheader ]
-  %.sroa.0.0153 = phi ptr [ %.sroa.0.3, %121 ], [ %.sroa.0.2166, %.preheader ]
-  %.sroa.23.0152 = phi i64 [ %101, %121 ], [ %.sroa.23.1165, %.preheader ]
+  %.sroa.016.0154 = phi i1 [ %122, %121 ], [ %.sroa.3.0.i175, %.preheader ]
+  %.sroa.0.0153 = phi ptr [ %.sroa.0.3, %121 ], [ %.sroa.0.2174, %.preheader ]
+  %.sroa.23.0152 = phi i64 [ %101, %121 ], [ %.sroa.23.1173, %.preheader ]
   %61 = ptrtoint ptr %.sroa.0.0153 to i64
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.0.0153, i64 1
   %63 = load i8, ptr %.sroa.0.0153, align 1, !noalias !1211, !noundef !3
@@ -9620,7 +9620,7 @@ define internal fastcc void @_ZN21ruff_python_formatter10expression19expr_number
   ]
 
 .thread:                                          ; preds = %121, %.preheader
-  %.sroa.016.0.lcssa = phi i1 [ %.sroa.3.0.i167, %.preheader ], [ %122, %121 ]
+  %.sroa.016.0.lcssa = phi i1 [ %.sroa.3.0.i175, %.preheader ], [ %122, %121 ]
   br i1 %.sroa.016.0.lcssa, label %103, label %.thread137
 
 .thread137:                                       ; preds = %175, %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit71, %225, %250, %.thread
@@ -9629,7 +9629,7 @@ define internal fastcc void @_ZN21ruff_python_formatter10expression19expr_number
   br i1 %102, label %252, label %255
 
 103:                                              ; preds = %.thread
-  br i1 %.sroa.3.0.i167, label %104, label %111
+  br i1 %.sroa.3.0.i175, label %104, label %111
 
 104:                                              ; preds = %103
   %.not.i = icmp ult i64 %.sroa.018.0.ph, %2
@@ -9686,7 +9686,7 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit71: ; preds = %117, %113
   br i1 %.not.i72, label %.invoke, label %128
 
 128:                                              ; preds = %127
-  br i1 %.sroa.3.0.i167, label %129, label %130
+  br i1 %.sroa.3.0.i175, label %129, label %130
 
 129:                                              ; preds = %128
   %.not5.i = icmp ult i64 %.sroa.018.0.ph, %2

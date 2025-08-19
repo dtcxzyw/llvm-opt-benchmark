@@ -74,12 +74,12 @@ define noundef zeroext i1 @_ZN5boost6fibers21recursive_timed_mutex15try_lock_unt
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #19
-  %.sroa.0.0.copyload.i.i.i16 = load i64, ptr %1, align 8, !tbaa !3
-  %9 = icmp slt i64 %.sroa.0.0.copyload.i.i.i16, %8
+  %.sroa.0.0.copyload.i.i.i18 = load i64, ptr %1, align 8, !tbaa !3
+  %9 = icmp slt i64 %.sroa.0.0.copyload.i.i.i18, %8
   br i1 %9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.backedge
-  %.0717 = phi i1 [ %.07.be, %.backedge ], [ undef, %2 ]
+  %.0719 = phi i1 [ %.07.be, %.backedge ], [ undef, %2 ]
   %10 = call noundef ptr @_ZN5boost6fibers7context6activeEv() #19
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !7
@@ -108,7 +108,7 @@ define noundef zeroext i1 @_ZN5boost6fibers21recursive_timed_mutex15try_lock_unt
           to label %21 unwind label %27
 
 21:                                               ; preds = %19
-  %.07. = select i1 %20, i1 %.0717, i1 false
+  %.07. = select i1 %20, i1 %.0719, i1 false
   %.pre = load i8, ptr %4, align 8, !tbaa !11, !range !26
   %22 = trunc nuw i8 %.pre to i1
   br i1 %22, label %.thread, label %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit
@@ -119,8 +119,8 @@ define noundef zeroext i1 @_ZN5boost6fibers21recursive_timed_mutex15try_lock_unt
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %21
-  %switch15 = phi i1 [ %20, %21 ], [ false, %.thread.sink.split ]
-  %.213 = phi i1 [ %.07., %21 ], [ true, %.thread.sink.split ]
+  %switch17 = phi i1 [ %20, %21 ], [ false, %.thread.sink.split ]
+  %.215 = phi i1 [ %.07., %21 ], [ true, %.thread.sink.split ]
   %23 = load ptr, ptr %3, align 8, !tbaa !7
   %.not.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i, label %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit, label %24
@@ -128,23 +128,23 @@ define noundef zeroext i1 @_ZN5boost6fibers21recursive_timed_mutex15try_lock_unt
 24:                                               ; preds = %.thread
   store atomic i32 1, ptr %23 release, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %switch15, label %.backedge, label %._crit_edge
+  br i1 %switch17, label %.backedge, label %._crit_edge
 
 _ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit: ; preds = %21, %.thread
-  %switch14 = phi i1 [ %20, %21 ], [ %switch15, %.thread ]
-  %.212 = phi i1 [ %.07., %21 ], [ %.213, %.thread ]
+  %switch16 = phi i1 [ %20, %21 ], [ %switch17, %.thread ]
+  %.214 = phi i1 [ %.07., %21 ], [ %.215, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %switch14, label %.backedge, label %._crit_edge
+  br i1 %switch16, label %.backedge, label %._crit_edge
 
 .backedge:                                        ; preds = %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit, %24
-  %.07.be = phi i1 [ %.212, %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit ], [ %.213, %24 ]
+  %.07.be = phi i1 [ %.214, %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit ], [ %.215, %24 ]
   %25 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #19
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %1, align 8, !tbaa !3
   %26 = icmp slt i64 %.sroa.0.0.copyload.i.i.i, %25
   br i1 %26, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.backedge, %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit, %24, %2
-  %.1 = phi i1 [ false, %2 ], [ false, %.backedge ], [ %.212, %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit ], [ %.213, %24 ]
+  %.1 = phi i1 [ false, %2 ], [ false, %.backedge ], [ %.214, %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit ], [ %.215, %24 ]
   ret i1 %.1
 
 27:                                               ; preds = %19
@@ -225,7 +225,7 @@ define void @_ZN5boost6fibers21recursive_timed_mutex4lockEv(ptr noundef nonnull 
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %17
-  %switch13 = phi i1 [ true, %17 ], [ false, %.thread.sink.split ]
+  %switch16 = phi i1 [ true, %17 ], [ false, %.thread.sink.split ]
   %19 = load ptr, ptr %2, align 8, !tbaa !7
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit, label %20
@@ -233,11 +233,11 @@ define void @_ZN5boost6fibers21recursive_timed_mutex4lockEv(ptr noundef nonnull 
 20:                                               ; preds = %.thread
   store atomic i32 1, ptr %19 release, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %switch13, label %.backedge.backedge, label %28
+  br i1 %switch16, label %.backedge.backedge, label %28
 
 _ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit: ; preds = %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %switch13, label %.backedge.backedge, label %28
+  br i1 %switch16, label %.backedge.backedge, label %28
 
 .backedge.critedge:                               ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

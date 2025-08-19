@@ -213,13 +213,13 @@ define void @ff_vc1_pred_mv(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %130 = icmp sgt i32 %96, 1
   %131 = zext i1 %130 to i32
   %.not514745 = icmp eq i32 %93, 0
-  br i1 %.not514745, label %.thread865, label %.thread746
+  br i1 %.not514745, label %.thread900, label %.thread746
 
 .thread:                                          ; preds = %91
   %.not514729 = icmp eq i32 %93, 0
-  br i1 %.not514729, label %.thread887, label %.thread753
+  br i1 %.not514729, label %.thread922, label %.thread753
 
-.thread887:                                       ; preds = %.thread
+.thread922:                                       ; preds = %.thread
   br i1 %90, label %207, label %.thread760
 
 .thread746:                                       ; preds = %.thread742, %124
@@ -274,15 +274,15 @@ define void @ff_vc1_pred_mv(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %.0485 = phi i32 [ %148, %151 ], [ %148, %.thread753 ], [ %85, %121 ]
   %.1484 = phi i32 [ %150, %151 ], [ %150, %.thread753 ], [ %85, %121 ]
   %.0482.shrunk = phi i1 [ %.not518, %151 ], [ false, %.thread753 ], [ %90, %121 ]
-  %.not1012 = icmp eq i32 %.0485, 0
-  br i1 %.not1012, label %179, label %.thread865
+  %.not1047 = icmp eq i32 %.0485, 0
+  br i1 %.not1047, label %179, label %.thread900
 
-.thread865:                                       ; preds = %.thread742, %156
-  %.0482.shrunk880 = phi i1 [ %.0482.shrunk, %156 ], [ %90, %.thread742 ]
-  %.1484878 = phi i32 [ %.1484, %156 ], [ %131, %.thread742 ]
-  %.1732874 = phi i32 [ %.1732, %156 ], [ %99, %.thread742 ]
+.thread900:                                       ; preds = %.thread742, %156
+  %.0482.shrunk915 = phi i1 [ %.0482.shrunk, %156 ], [ %90, %.thread742 ]
+  %.1484913 = phi i32 [ %.1484, %156 ], [ %131, %.thread742 ]
+  %.1732909 = phi i32 [ %.1732, %156 ], [ %99, %.thread742 ]
   %158 = phi ptr [ %157, %156 ], [ %92, %.thread742 ]
-  %.not514734872 = phi i1 [ %.not514734, %156 ], [ true, %.thread742 ]
+  %.not514734907 = phi i1 [ %.not514734, %156 ], [ true, %.thread742 ]
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %160 = sext i32 %9 to i64
   %161 = getelementptr inbounds [2 x ptr], ptr %159, i64 0, i64 %160
@@ -305,19 +305,19 @@ define void @ff_vc1_pred_mv(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %178 = load i16, ptr %177, align 2, !tbaa !50
   br label %179
 
-179:                                              ; preds = %156, %.thread865
-  %180 = phi i1 [ true, %.thread865 ], [ false, %156 ]
-  %.0482.shrunk879 = phi i1 [ %.0482.shrunk880, %.thread865 ], [ %.0482.shrunk, %156 ]
-  %.1484877 = phi i32 [ %.1484878, %.thread865 ], [ %.1484, %156 ]
-  %.0485875 = phi i32 [ 1, %.thread865 ], [ 0, %156 ]
-  %.1732873 = phi i32 [ %.1732874, %.thread865 ], [ %.1732, %156 ]
-  %181 = phi ptr [ %158, %.thread865 ], [ %157, %156 ]
-  %.not514734871 = phi i1 [ %.not514734872, %.thread865 ], [ %.not514734, %156 ]
-  %.0488 = phi i32 [ %174, %.thread865 ], [ 0, %156 ]
-  %.sroa.1593.0 = phi i16 [ %178, %.thread865 ], [ 0, %156 ]
-  %.sroa.084.0 = phi i16 [ %176, %.thread865 ], [ 0, %156 ]
-  %.0479 = phi i32 [ %175, %.thread865 ], [ 0, %156 ]
-  %.not524 = icmp eq i32 %.1484877, 0
+179:                                              ; preds = %156, %.thread900
+  %180 = phi i1 [ true, %.thread900 ], [ false, %156 ]
+  %.0482.shrunk914 = phi i1 [ %.0482.shrunk915, %.thread900 ], [ %.0482.shrunk, %156 ]
+  %.1484912 = phi i32 [ %.1484913, %.thread900 ], [ %.1484, %156 ]
+  %.0485910 = phi i32 [ 1, %.thread900 ], [ 0, %156 ]
+  %.1732908 = phi i32 [ %.1732909, %.thread900 ], [ %.1732, %156 ]
+  %181 = phi ptr [ %158, %.thread900 ], [ %157, %156 ]
+  %.not514734906 = phi i1 [ %.not514734907, %.thread900 ], [ %.not514734, %156 ]
+  %.0488 = phi i32 [ %174, %.thread900 ], [ 0, %156 ]
+  %.sroa.1593.0 = phi i16 [ %178, %.thread900 ], [ 0, %156 ]
+  %.sroa.084.0 = phi i16 [ %176, %.thread900 ], [ 0, %156 ]
+  %.0479 = phi i32 [ %175, %.thread900 ], [ 0, %156 ]
+  %.not524 = icmp eq i32 %.1484912, 0
   br i1 %.not524, label %206, label %182
 
 182:                                              ; preds = %179
@@ -326,7 +326,7 @@ define void @ff_vc1_pred_mv(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %185 = getelementptr inbounds [2 x ptr], ptr %183, i64 0, i64 %184
   %186 = load ptr, ptr %185, align 8, !tbaa !48
   %187 = sub i32 %28, %24
-  %188 = add nsw i32 %187, %.1732873
+  %188 = add nsw i32 %187, %.1732908
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 10432
   %190 = load i32, ptr %189, align 8, !tbaa !49
   %191 = add nsw i32 %188, %190
@@ -345,26 +345,26 @@ define void @ff_vc1_pred_mv(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %203 = getelementptr inbounds nuw i8, ptr %193, i64 2
   %204 = load i16, ptr %203, align 2, !tbaa !50
   %205 = icmp ne i8 %198, 0
-  br i1 %.0482.shrunk879, label %207, label %232
+  br i1 %.0482.shrunk914, label %207, label %232
 
 206:                                              ; preds = %179
-  br i1 %.0482.shrunk879, label %207, label %232
+  br i1 %.0482.shrunk914, label %207, label %232
 
-207:                                              ; preds = %.thread887, %182, %206
-  %.1480928 = phi i32 [ %201, %182 ], [ %.0479, %206 ], [ 0, %.thread887 ]
-  %.sroa.077.0927 = phi i16 [ %202, %182 ], [ 0, %206 ], [ 0, %.thread887 ]
-  %.sroa.10.0925 = phi i16 [ %204, %182 ], [ 0, %206 ], [ 0, %.thread887 ]
-  %.0487923 = phi i1 [ %205, %182 ], [ false, %206 ], [ false, %.thread887 ]
-  %.1491921 = phi i32 [ %200, %182 ], [ %.0488, %206 ], [ 0, %.thread887 ]
-  %or.cond5920 = phi i1 [ %205, %182 ], [ true, %206 ], [ true, %.thread887 ]
-  %208 = phi i1 [ %180, %182 ], [ %180, %206 ], [ false, %.thread887 ]
-  %.0485875899916 = phi i32 [ %.0485875, %182 ], [ %.0485875, %206 ], [ 0, %.thread887 ]
-  %209 = phi ptr [ %181, %182 ], [ %181, %206 ], [ %92, %.thread887 ]
-  %.not514734871900914 = phi i1 [ %.not514734871, %182 ], [ %.not514734871, %206 ], [ true, %.thread887 ]
-  %.0488901912 = phi i32 [ %.0488, %182 ], [ %.0488, %206 ], [ 0, %.thread887 ]
-  %.sroa.1593.0902910 = phi i16 [ %.sroa.1593.0, %182 ], [ %.sroa.1593.0, %206 ], [ 0, %.thread887 ]
-  %.sroa.084.0903908 = phi i16 [ %.sroa.084.0, %182 ], [ %.sroa.084.0, %206 ], [ 0, %.thread887 ]
-  %.not524904906 = phi i1 [ false, %182 ], [ true, %206 ], [ true, %.thread887 ]
+207:                                              ; preds = %.thread922, %182, %206
+  %.1480963 = phi i32 [ %201, %182 ], [ %.0479, %206 ], [ 0, %.thread922 ]
+  %.sroa.077.0962 = phi i16 [ %202, %182 ], [ 0, %206 ], [ 0, %.thread922 ]
+  %.sroa.10.0960 = phi i16 [ %204, %182 ], [ 0, %206 ], [ 0, %.thread922 ]
+  %.0487958 = phi i1 [ %205, %182 ], [ false, %206 ], [ false, %.thread922 ]
+  %.1491956 = phi i32 [ %200, %182 ], [ %.0488, %206 ], [ 0, %.thread922 ]
+  %or.cond5955 = phi i1 [ %205, %182 ], [ true, %206 ], [ true, %.thread922 ]
+  %208 = phi i1 [ %180, %182 ], [ %180, %206 ], [ false, %.thread922 ]
+  %.0485910934951 = phi i32 [ %.0485910, %182 ], [ %.0485910, %206 ], [ 0, %.thread922 ]
+  %209 = phi ptr [ %181, %182 ], [ %181, %206 ], [ %92, %.thread922 ]
+  %.not514734906935949 = phi i1 [ %.not514734906, %182 ], [ %.not514734906, %206 ], [ true, %.thread922 ]
+  %.0488936947 = phi i32 [ %.0488, %182 ], [ %.0488, %206 ], [ 0, %.thread922 ]
+  %.sroa.1593.0937945 = phi i16 [ %.sroa.1593.0, %182 ], [ %.sroa.1593.0, %206 ], [ 0, %.thread922 ]
+  %.sroa.084.0938943 = phi i16 [ %.sroa.084.0, %182 ], [ %.sroa.084.0, %206 ], [ 0, %.thread922 ]
+  %.not524939941 = phi i1 [ false, %182 ], [ true, %206 ], [ true, %.thread922 ]
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %211 = sext i32 %9 to i64
   %212 = getelementptr inbounds [2 x ptr], ptr %210, i64 0, i64 %211
@@ -381,42 +381,42 @@ define void @ff_vc1_pred_mv(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %223 = getelementptr inbounds i8, ptr %222, i64 %218
   %224 = load i8, ptr %223, align 1, !tbaa !57
   %225 = zext i8 %224 to i32
-  %226 = add nuw nsw i32 %.1491921, %225
-  %reass.sub519 = add nsw i32 %.1480928, 1
+  %226 = add nuw nsw i32 %.1491956, %225
+  %reass.sub519 = add nsw i32 %.1480963, 1
   %227 = sub nsw i32 %reass.sub519, %225
   %228 = load i16, ptr %219, align 2, !tbaa !50
   %229 = getelementptr inbounds nuw i8, ptr %219, i64 2
   %230 = load i16, ptr %229, align 2, !tbaa !50
   %231 = icmp ne i8 %224, 0
-  br i1 %.not514734871900914, label %.thread760, label %233
+  br i1 %.not514734906935949, label %.thread760, label %233
 
 232:                                              ; preds = %182, %206
-  %.sroa.077.0926 = phi i16 [ 0, %206 ], [ %202, %182 ]
-  %.sroa.10.0924 = phi i16 [ 0, %206 ], [ %204, %182 ]
-  %.0487922 = phi i1 [ false, %206 ], [ %205, %182 ]
-  %or.cond5919 = phi i1 [ true, %206 ], [ %205, %182 ]
+  %.sroa.077.0961 = phi i16 [ 0, %206 ], [ %202, %182 ]
+  %.sroa.10.0959 = phi i16 [ 0, %206 ], [ %204, %182 ]
+  %.0487957 = phi i1 [ false, %206 ], [ %205, %182 ]
+  %or.cond5954 = phi i1 [ true, %206 ], [ %205, %182 ]
   %.2492 = phi i32 [ %.0488, %206 ], [ %200, %182 ]
   %.2481 = phi i32 [ %.0479, %206 ], [ %201, %182 ]
-  br i1 %.not514734871, label %.thread760, label %233
+  br i1 %.not514734906, label %.thread760, label %233
 
 233:                                              ; preds = %207, %232
-  %.2481977 = phi i32 [ %227, %207 ], [ %.2481, %232 ]
-  %.sroa.0.0976 = phi i16 [ %228, %207 ], [ 0, %232 ]
-  %.sroa.15.0975 = phi i16 [ %230, %207 ], [ 0, %232 ]
-  %.0486974 = phi i1 [ %231, %207 ], [ false, %232 ]
-  %.2492973 = phi i32 [ %226, %207 ], [ %.2492, %232 ]
-  %.not524904905972 = phi i1 [ %.not524904906, %207 ], [ %.not524, %232 ]
-  %.sroa.084.0903907971 = phi i16 [ %.sroa.084.0903908, %207 ], [ %.sroa.084.0, %232 ]
-  %.sroa.1593.0902909970 = phi i16 [ %.sroa.1593.0902910, %207 ], [ %.sroa.1593.0, %232 ]
-  %.0488901911969 = phi i32 [ %.0488901912, %207 ], [ %.0488, %232 ]
+  %.24811012 = phi i32 [ %227, %207 ], [ %.2481, %232 ]
+  %.sroa.0.01011 = phi i16 [ %228, %207 ], [ 0, %232 ]
+  %.sroa.15.01010 = phi i16 [ %230, %207 ], [ 0, %232 ]
+  %.04861009 = phi i1 [ %231, %207 ], [ false, %232 ]
+  %.24921008 = phi i32 [ %226, %207 ], [ %.2492, %232 ]
+  %.not5249399401007 = phi i1 [ %.not524939941, %207 ], [ %.not524, %232 ]
+  %.sroa.084.09389421006 = phi i16 [ %.sroa.084.0938943, %207 ], [ %.sroa.084.0, %232 ]
+  %.sroa.1593.09379441005 = phi i16 [ %.sroa.1593.0937945, %207 ], [ %.sroa.1593.0, %232 ]
+  %.04889369461004 = phi i32 [ %.0488936947, %207 ], [ %.0488, %232 ]
   %234 = phi ptr [ %209, %207 ], [ %181, %232 ]
-  %.0485875899915968 = phi i32 [ %.0485875899916, %207 ], [ %.0485875, %232 ]
-  %.0482.shrunk879898917967 = phi i1 [ true, %207 ], [ false, %232 ]
+  %.04859109349501003 = phi i32 [ %.0485910934951, %207 ], [ %.0485910, %232 ]
+  %.0482.shrunk9149339521002 = phi i1 [ true, %207 ], [ false, %232 ]
   %235 = phi i1 [ %208, %207 ], [ %180, %232 ]
-  %or.cond5919966 = phi i1 [ %or.cond5920, %207 ], [ %or.cond5919, %232 ]
-  %.0487922965 = phi i1 [ %.0487923, %207 ], [ %.0487922, %232 ]
-  %.sroa.10.0924964 = phi i16 [ %.sroa.10.0925, %207 ], [ %.sroa.10.0924, %232 ]
-  %.sroa.077.0926963 = phi i16 [ %.sroa.077.0927, %207 ], [ %.sroa.077.0926, %232 ]
+  %or.cond59541001 = phi i1 [ %or.cond5955, %207 ], [ %or.cond5954, %232 ]
+  %.04879571000 = phi i1 [ %.0487958, %207 ], [ %.0487957, %232 ]
+  %.sroa.10.0959999 = phi i16 [ %.sroa.10.0960, %207 ], [ %.sroa.10.0959, %232 ]
+  %.sroa.077.0961998 = phi i16 [ %.sroa.077.0962, %207 ], [ %.sroa.077.0961, %232 ]
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 10408
   %237 = load i32, ptr %236, align 8, !tbaa !59
   %.not521 = icmp eq i32 %237, 0
@@ -429,7 +429,7 @@ define void @ff_vc1_pred_mv(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br label %244
 
 242:                                              ; preds = %233
-  %.not522 = icmp sgt i32 %.2481977, %.2492973
+  %.not522 = icmp sgt i32 %.24811012, %.24921008
   %243 = sub nsw i32 1, %8
   %spec.select542 = select i1 %.not522, i32 %8, i32 %243
   br label %244
@@ -457,13 +457,13 @@ define void @ff_vc1_pred_mv(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 10424
   %259 = getelementptr inbounds [2 x i32], ptr %258, i64 0, i64 %247
   store i32 %257, ptr %259, align 4, !tbaa !46
-  %260 = icmp eq i32 %.0485875899915968, 0
-  %261 = icmp ne i32 %.0488901911969, 0
+  %260 = icmp eq i32 %.04859109349501003, 0
+  %261 = icmp ne i32 %.04889369461004, 0
   %or.cond3 = select i1 %260, i1 true, i1 %261
   br i1 %or.cond3, label %395, label %262
 
 262:                                              ; preds = %245
-  %263 = sext i16 %.sroa.084.0903907971 to i32
+  %263 = sext i16 %.sroa.084.09389421006 to i32
   %264 = load i32, ptr %20, align 4, !tbaa !62
   %265 = sub nsw i32 1, %264
   %266 = ashr i32 %263, %265
@@ -536,7 +536,7 @@ scaleforopp.exit.thread:                          ; preds = %303, %300, %294, %2
   %.0.i.i657 = select i1 %310, i32 %308, i32 %..i.i656
   %.0.i764 = shl i32 %.0.i.i657, %265
   %311 = trunc i32 %.0.i764 to i16
-  %312 = sext i16 %.sroa.1593.0902909970 to i32
+  %312 = sext i16 %.sroa.1593.09379441005 to i32
   %313 = ashr i32 %312, %265
   br label %327
 
@@ -558,7 +558,7 @@ scaleforopp.exit:                                 ; preds = %262, %272
   %323 = lshr i32 %322, 8
   %.0.i = shl i32 %323, %265
   %324 = trunc i32 %.0.i to i16
-  %325 = sext i16 %.sroa.1593.0902909970 to i32
+  %325 = sext i16 %.sroa.1593.09379441005 to i32
   %326 = ashr i32 %325, %265
   br i1 %269, label %327, label %382
 
@@ -682,12 +682,12 @@ scaleforopp.exit551:                              ; preds = %375, %369, %382
   br label %395
 
 395:                                              ; preds = %scaleforopp.exit551, %245
-  %.sroa.1593.1 = phi i16 [ %.sroa.1593.0902909970, %245 ], [ %394, %scaleforopp.exit551 ]
-  %.sroa.084.1 = phi i16 [ %.sroa.084.0903907971, %245 ], [ %393, %scaleforopp.exit551 ]
-  br i1 %or.cond5919966, label %529, label %396
+  %.sroa.1593.1 = phi i16 [ %.sroa.1593.09379441005, %245 ], [ %394, %scaleforopp.exit551 ]
+  %.sroa.084.1 = phi i16 [ %.sroa.084.09389421006, %245 ], [ %393, %scaleforopp.exit551 ]
+  br i1 %or.cond59541001, label %529, label %396
 
 396:                                              ; preds = %395
-  %397 = sext i16 %.sroa.077.0926963 to i32
+  %397 = sext i16 %.sroa.077.0961998 to i32
   %398 = load i32, ptr %20, align 4, !tbaa !62
   %399 = sub nsw i32 1, %398
   %400 = ashr i32 %397, %399
@@ -760,7 +760,7 @@ scaleforopp.exit560.thread:                       ; preds = %437, %434, %428, %4
   %.0.i.i652 = select i1 %444, i32 %442, i32 %..i.i651
   %.0.i558766 = shl i32 %.0.i.i652, %399
   %445 = trunc i32 %.0.i558766 to i16
-  %446 = sext i16 %.sroa.10.0924964 to i32
+  %446 = sext i16 %.sroa.10.0959999 to i32
   %447 = ashr i32 %446, %399
   br label %461
 
@@ -782,7 +782,7 @@ scaleforopp.exit560:                              ; preds = %396, %406
   %457 = lshr i32 %456, 8
   %.0.i558 = shl i32 %457, %399
   %458 = trunc i32 %.0.i558 to i16
-  %459 = sext i16 %.sroa.10.0924964 to i32
+  %459 = sext i16 %.sroa.10.0959999 to i32
   %460 = ashr i32 %459, %399
   br i1 %403, label %461, label %516
 
@@ -906,14 +906,14 @@ scaleforopp.exit569:                              ; preds = %509, %503, %516
   br label %529
 
 529:                                              ; preds = %scaleforopp.exit569, %395
-  %.sroa.10.1 = phi i16 [ %.sroa.10.0924964, %395 ], [ %528, %scaleforopp.exit569 ]
-  %.sroa.077.1 = phi i16 [ %.sroa.077.0926963, %395 ], [ %527, %scaleforopp.exit569 ]
-  %530 = xor i1 %.0482.shrunk879898917967, true
-  %or.cond7 = select i1 %530, i1 true, i1 %.0486974
+  %.sroa.10.1 = phi i16 [ %.sroa.10.0959999, %395 ], [ %528, %scaleforopp.exit569 ]
+  %.sroa.077.1 = phi i16 [ %.sroa.077.0961998, %395 ], [ %527, %scaleforopp.exit569 ]
+  %530 = xor i1 %.0482.shrunk9149339521002, true
+  %or.cond7 = select i1 %530, i1 true, i1 %.04861009
   br i1 %or.cond7, label %1060, label %531
 
 531:                                              ; preds = %529
-  %532 = sext i16 %.sroa.0.0976 to i32
+  %532 = sext i16 %.sroa.0.01011 to i32
   %533 = load i32, ptr %20, align 4, !tbaa !62
   %534 = sub nsw i32 1, %533
   %535 = ashr i32 %532, %534
@@ -986,7 +986,7 @@ scaleforopp.exit578.thread:                       ; preds = %572, %569, %563, %5
   %.0.i.i648 = select i1 %579, i32 %577, i32 %..i.i647
   %.0.i576768 = shl i32 %.0.i.i648, %534
   %580 = trunc i32 %.0.i576768 to i16
-  %581 = sext i16 %.sroa.15.0975 to i32
+  %581 = sext i16 %.sroa.15.01010 to i32
   %582 = ashr i32 %581, %534
   br label %596
 
@@ -1008,7 +1008,7 @@ scaleforopp.exit578:                              ; preds = %531, %541
   %592 = lshr i32 %591, 8
   %.0.i576 = shl i32 %592, %534
   %593 = trunc i32 %.0.i576 to i16
-  %594 = sext i16 %.sroa.15.0975 to i32
+  %594 = sext i16 %.sroa.15.01010 to i32
   %595 = ashr i32 %594, %534
   br i1 %538, label %596, label %651
 
@@ -1131,22 +1131,22 @@ scaleforopp.exit587:                              ; preds = %644, %638, %651
   %663 = trunc i32 %.0.i585 to i16
   br i1 %235, label %1063, label %1067
 
-.thread760:                                       ; preds = %.thread887, %207, %232, %244
-  %.2481962 = phi i32 [ %.2481, %232 ], [ %.2481977, %244 ], [ %227, %207 ], [ 0, %.thread887 ]
-  %.sroa.0.0960 = phi i16 [ 0, %232 ], [ %.sroa.0.0976, %244 ], [ %228, %207 ], [ 0, %.thread887 ]
-  %.sroa.15.0959 = phi i16 [ 0, %232 ], [ %.sroa.15.0975, %244 ], [ %230, %207 ], [ 0, %.thread887 ]
-  %.0486958 = phi i1 [ false, %232 ], [ %.0486974, %244 ], [ %231, %207 ], [ false, %.thread887 ]
-  %.2492957 = phi i32 [ %.2492, %232 ], [ %.2492973, %244 ], [ %226, %207 ], [ 0, %.thread887 ]
-  %.not524904905955 = phi i1 [ %.not524, %232 ], [ %.not524904905972, %244 ], [ %.not524904906, %207 ], [ true, %.thread887 ]
-  %.sroa.084.0903907953 = phi i16 [ %.sroa.084.0, %232 ], [ %.sroa.084.0903907971, %244 ], [ %.sroa.084.0903908, %207 ], [ 0, %.thread887 ]
-  %.sroa.1593.0902909952 = phi i16 [ %.sroa.1593.0, %232 ], [ %.sroa.1593.0902909970, %244 ], [ %.sroa.1593.0902910, %207 ], [ 0, %.thread887 ]
-  %.0488901911951 = phi i32 [ %.0488, %232 ], [ %.0488901911969, %244 ], [ %.0488901912, %207 ], [ 0, %.thread887 ]
-  %664 = phi ptr [ %181, %232 ], [ %234, %244 ], [ %209, %207 ], [ %92, %.thread887 ]
-  %.0482.shrunk879898917950 = phi i1 [ false, %232 ], [ %.0482.shrunk879898917967, %244 ], [ true, %207 ], [ false, %.thread887 ]
-  %665 = phi i1 [ %180, %232 ], [ %235, %244 ], [ %208, %207 ], [ false, %.thread887 ]
-  %.0487922948 = phi i1 [ %.0487922, %232 ], [ %.0487922965, %244 ], [ %.0487923, %207 ], [ false, %.thread887 ]
-  %.sroa.10.0924947 = phi i16 [ %.sroa.10.0924, %232 ], [ %.sroa.10.0924964, %244 ], [ %.sroa.10.0925, %207 ], [ 0, %.thread887 ]
-  %.sroa.077.0926946 = phi i16 [ %.sroa.077.0926, %232 ], [ %.sroa.077.0926963, %244 ], [ %.sroa.077.0927, %207 ], [ 0, %.thread887 ]
+.thread760:                                       ; preds = %.thread922, %207, %232, %244
+  %.2481997 = phi i32 [ %.2481, %232 ], [ %.24811012, %244 ], [ %227, %207 ], [ 0, %.thread922 ]
+  %.sroa.0.0995 = phi i16 [ 0, %232 ], [ %.sroa.0.01011, %244 ], [ %228, %207 ], [ 0, %.thread922 ]
+  %.sroa.15.0994 = phi i16 [ 0, %232 ], [ %.sroa.15.01010, %244 ], [ %230, %207 ], [ 0, %.thread922 ]
+  %.0486993 = phi i1 [ false, %232 ], [ %.04861009, %244 ], [ %231, %207 ], [ false, %.thread922 ]
+  %.2492992 = phi i32 [ %.2492, %232 ], [ %.24921008, %244 ], [ %226, %207 ], [ 0, %.thread922 ]
+  %.not524939940990 = phi i1 [ %.not524, %232 ], [ %.not5249399401007, %244 ], [ %.not524939941, %207 ], [ true, %.thread922 ]
+  %.sroa.084.0938942988 = phi i16 [ %.sroa.084.0, %232 ], [ %.sroa.084.09389421006, %244 ], [ %.sroa.084.0938943, %207 ], [ 0, %.thread922 ]
+  %.sroa.1593.0937944987 = phi i16 [ %.sroa.1593.0, %232 ], [ %.sroa.1593.09379441005, %244 ], [ %.sroa.1593.0937945, %207 ], [ 0, %.thread922 ]
+  %.0488936946986 = phi i32 [ %.0488, %232 ], [ %.04889369461004, %244 ], [ %.0488936947, %207 ], [ 0, %.thread922 ]
+  %664 = phi ptr [ %181, %232 ], [ %234, %244 ], [ %209, %207 ], [ %92, %.thread922 ]
+  %.0482.shrunk914933952985 = phi i1 [ false, %232 ], [ %.0482.shrunk9149339521002, %244 ], [ true, %207 ], [ false, %.thread922 ]
+  %665 = phi i1 [ %180, %232 ], [ %235, %244 ], [ %208, %207 ], [ false, %.thread922 ]
+  %.0487957983 = phi i1 [ %.0487957, %232 ], [ %.04879571000, %244 ], [ %.0487958, %207 ], [ false, %.thread922 ]
+  %.sroa.10.0959982 = phi i16 [ %.sroa.10.0959, %232 ], [ %.sroa.10.0959999, %244 ], [ %.sroa.10.0960, %207 ], [ 0, %.thread922 ]
+  %.sroa.077.0961981 = phi i16 [ %.sroa.077.0961, %232 ], [ %.sroa.077.0961998, %244 ], [ %.sroa.077.0962, %207 ], [ 0, %.thread922 ]
   %666 = getelementptr inbounds nuw i8, ptr %0, i64 10352
   %667 = sext i32 %9 to i64
   %668 = getelementptr inbounds [2 x ptr], ptr %666, i64 0, i64 %667
@@ -1162,12 +1162,12 @@ scaleforopp.exit587:                              ; preds = %644, %638, %651
   %677 = getelementptr inbounds nuw i8, ptr %0, i64 10424
   %678 = getelementptr inbounds [2 x i32], ptr %677, i64 0, i64 %667
   store i32 %676, ptr %678, align 4, !tbaa !46
-  %679 = icmp ne i32 %.0488901911951, 0
+  %679 = icmp ne i32 %.0488936946986, 0
   %or.cond9 = select i1 %665, i1 %679, i1 false
   br i1 %or.cond9, label %680, label %806
 
 680:                                              ; preds = %.thread760
-  %681 = sext i16 %.sroa.084.0903907953 to i32
+  %681 = sext i16 %.sroa.084.0938942988 to i32
   %682 = load i32, ptr %20, align 4, !tbaa !62
   %683 = sub nsw i32 1, %682
   %684 = ashr i32 %681, %683
@@ -1251,7 +1251,7 @@ scaleforsame.exit.thread:                         ; preds = %689
   %734 = lshr i32 %733, 8
   %.0.i590770 = shl i32 %734, %683
   %735 = trunc i32 %.0.i590770 to i16
-  %736 = sext i16 %.sroa.1593.0902909952 to i32
+  %736 = sext i16 %.sroa.1593.0937944987 to i32
   %737 = ashr i32 %736, %683
   br label %746
 
@@ -1266,7 +1266,7 @@ scaleforsame.exit:                                ; preds = %725, %722, %716, %.
   %.0.i.i718 = select i1 %742, i32 %740, i32 %..i.i717
   %.0.i590 = shl i32 %.0.i.i718, %683
   %743 = trunc i32 %.0.i590 to i16
-  %744 = sext i16 %.sroa.1593.0902909952 to i32
+  %744 = sext i16 %.sroa.1593.0937944987 to i32
   %745 = ashr i32 %744, %683
   br i1 %.not.i588, label %746, label %752
 
@@ -1372,12 +1372,12 @@ scaleforsame.exit597:                             ; preds = %789, %796
   br label %806
 
 806:                                              ; preds = %scaleforsame.exit597, %.thread760
-  %.sroa.1593.3 = phi i16 [ %805, %scaleforsame.exit597 ], [ %.sroa.1593.0902909952, %.thread760 ]
-  %.sroa.084.3 = phi i16 [ %804, %scaleforsame.exit597 ], [ %.sroa.084.0903907953, %.thread760 ]
-  br i1 %.0487922948, label %807, label %933
+  %.sroa.1593.3 = phi i16 [ %805, %scaleforsame.exit597 ], [ %.sroa.1593.0937944987, %.thread760 ]
+  %.sroa.084.3 = phi i16 [ %804, %scaleforsame.exit597 ], [ %.sroa.084.0938942988, %.thread760 ]
+  br i1 %.0487957983, label %807, label %933
 
 807:                                              ; preds = %806
-  %808 = sext i16 %.sroa.077.0926946 to i32
+  %808 = sext i16 %.sroa.077.0961981 to i32
   %809 = load i32, ptr %20, align 4, !tbaa !62
   %810 = sub nsw i32 1, %809
   %811 = ashr i32 %808, %810
@@ -1461,7 +1461,7 @@ scaleforsame.exit603.thread:                      ; preds = %816
   %861 = lshr i32 %860, 8
   %.0.i600772 = shl i32 %861, %810
   %862 = trunc i32 %.0.i600772 to i16
-  %863 = sext i16 %.sroa.10.0924947 to i32
+  %863 = sext i16 %.sroa.10.0959982 to i32
   %864 = ashr i32 %863, %810
   br label %873
 
@@ -1476,7 +1476,7 @@ scaleforsame.exit603:                             ; preds = %852, %849, %843, %.
   %.0.i.i708 = select i1 %869, i32 %867, i32 %..i.i707
   %.0.i600 = shl i32 %.0.i.i708, %810
   %870 = trunc i32 %.0.i600 to i16
-  %871 = sext i16 %.sroa.10.0924947 to i32
+  %871 = sext i16 %.sroa.10.0959982 to i32
   %872 = ashr i32 %871, %810
   br i1 %.not.i598, label %873, label %879
 
@@ -1582,12 +1582,12 @@ scaleforsame.exit609:                             ; preds = %916, %923
   br label %933
 
 933:                                              ; preds = %scaleforsame.exit609, %806
-  %.sroa.10.3 = phi i16 [ %932, %scaleforsame.exit609 ], [ %.sroa.10.0924947, %806 ]
-  %.sroa.077.3 = phi i16 [ %931, %scaleforsame.exit609 ], [ %.sroa.077.0926946, %806 ]
-  br i1 %.0486958, label %934, label %1060
+  %.sroa.10.3 = phi i16 [ %932, %scaleforsame.exit609 ], [ %.sroa.10.0959982, %806 ]
+  %.sroa.077.3 = phi i16 [ %931, %scaleforsame.exit609 ], [ %.sroa.077.0961981, %806 ]
+  br i1 %.0486993, label %934, label %1060
 
 934:                                              ; preds = %933
-  %935 = sext i16 %.sroa.0.0960 to i32
+  %935 = sext i16 %.sroa.0.0995 to i32
   %936 = load i32, ptr %20, align 4, !tbaa !62
   %937 = sub nsw i32 1, %936
   %938 = ashr i32 %935, %937
@@ -1671,7 +1671,7 @@ scaleforsame.exit615.thread:                      ; preds = %943
   %988 = lshr i32 %987, 8
   %.0.i612774 = shl i32 %988, %937
   %989 = trunc i32 %.0.i612774 to i16
-  %990 = sext i16 %.sroa.15.0959 to i32
+  %990 = sext i16 %.sroa.15.0994 to i32
   %991 = ashr i32 %990, %937
   br label %1000
 
@@ -1686,7 +1686,7 @@ scaleforsame.exit615:                             ; preds = %979, %976, %970, %.
   %.0.i.i699 = select i1 %996, i32 %994, i32 %..i.i698
   %.0.i612 = shl i32 %.0.i.i699, %937
   %997 = trunc i32 %.0.i612 to i16
-  %998 = sext i16 %.sroa.15.0959 to i32
+  %998 = sext i16 %.sroa.15.0994 to i32
   %999 = ashr i32 %998, %937
   br i1 %.not.i610, label %1000, label %1006
 
@@ -1792,89 +1792,89 @@ scaleforsame.exit621:                             ; preds = %1043, %1050
   br i1 %665, label %1063, label %1067
 
 1060:                                             ; preds = %933, %529
-  %.2481961 = phi i32 [ %.2481977, %529 ], [ %.2481962, %933 ]
-  %.2492956 = phi i32 [ %.2492973, %529 ], [ %.2492957, %933 ]
-  %.not524904905954 = phi i1 [ %.not524904905972, %529 ], [ %.not524904905955, %933 ]
+  %.2481996 = phi i32 [ %.24811012, %529 ], [ %.2481997, %933 ]
+  %.2492991 = phi i32 [ %.24921008, %529 ], [ %.2492992, %933 ]
+  %.not524939940989 = phi i1 [ %.not5249399401007, %529 ], [ %.not524939940990, %933 ]
   %1061 = phi ptr [ %234, %529 ], [ %664, %933 ]
-  %.0482.shrunk879898917949 = phi i1 [ %.0482.shrunk879898917967, %529 ], [ %.0482.shrunk879898917950, %933 ]
+  %.0482.shrunk914933952984 = phi i1 [ %.0482.shrunk9149339521002, %529 ], [ %.0482.shrunk914933952985, %933 ]
   %1062 = phi i1 [ %235, %529 ], [ %665, %933 ]
   %.sroa.1593.2 = phi i16 [ %.sroa.1593.1, %529 ], [ %.sroa.1593.3, %933 ]
   %.sroa.084.2 = phi i16 [ %.sroa.084.1, %529 ], [ %.sroa.084.3, %933 ]
   %.sroa.10.2 = phi i16 [ %.sroa.10.1, %529 ], [ %.sroa.10.3, %933 ]
   %.sroa.077.2 = phi i16 [ %.sroa.077.1, %529 ], [ %.sroa.077.3, %933 ]
-  %.sroa.15.1 = phi i16 [ %.sroa.15.0975, %529 ], [ %.sroa.15.0959, %933 ]
-  %.sroa.0.1 = phi i16 [ %.sroa.0.0976, %529 ], [ %.sroa.0.0960, %933 ]
+  %.sroa.15.1 = phi i16 [ %.sroa.15.01010, %529 ], [ %.sroa.15.0994, %933 ]
+  %.sroa.0.1 = phi i16 [ %.sroa.0.01011, %529 ], [ %.sroa.0.0995, %933 ]
   br i1 %1062, label %1063, label %1067
 
 1063:                                             ; preds = %scaleforsame.exit621, %scaleforopp.exit587, %1060
-  %.sroa.0.11005 = phi i16 [ %662, %scaleforopp.exit587 ], [ %.sroa.0.1, %1060 ], [ %1058, %scaleforsame.exit621 ]
-  %.sroa.15.11002 = phi i16 [ %663, %scaleforopp.exit587 ], [ %.sroa.15.1, %1060 ], [ %1059, %scaleforsame.exit621 ]
-  %.sroa.077.2999 = phi i16 [ %.sroa.077.1, %scaleforopp.exit587 ], [ %.sroa.077.2, %1060 ], [ %.sroa.077.3, %scaleforsame.exit621 ]
-  %.sroa.10.2996 = phi i16 [ %.sroa.10.1, %scaleforopp.exit587 ], [ %.sroa.10.2, %1060 ], [ %.sroa.10.3, %scaleforsame.exit621 ]
-  %.sroa.084.2991 = phi i16 [ %.sroa.084.1, %scaleforopp.exit587 ], [ %.sroa.084.2, %1060 ], [ %.sroa.084.3, %scaleforsame.exit621 ]
-  %.sroa.1593.2988 = phi i16 [ %.sroa.1593.1, %scaleforopp.exit587 ], [ %.sroa.1593.2, %1060 ], [ %.sroa.1593.3, %scaleforsame.exit621 ]
-  %.0482.shrunk879898917949987 = phi i1 [ %.0482.shrunk879898917967, %scaleforopp.exit587 ], [ %.0482.shrunk879898917949, %1060 ], [ %.0482.shrunk879898917950, %scaleforsame.exit621 ]
+  %.sroa.0.11040 = phi i16 [ %662, %scaleforopp.exit587 ], [ %.sroa.0.1, %1060 ], [ %1058, %scaleforsame.exit621 ]
+  %.sroa.15.11037 = phi i16 [ %663, %scaleforopp.exit587 ], [ %.sroa.15.1, %1060 ], [ %1059, %scaleforsame.exit621 ]
+  %.sroa.077.21034 = phi i16 [ %.sroa.077.1, %scaleforopp.exit587 ], [ %.sroa.077.2, %1060 ], [ %.sroa.077.3, %scaleforsame.exit621 ]
+  %.sroa.10.21031 = phi i16 [ %.sroa.10.1, %scaleforopp.exit587 ], [ %.sroa.10.2, %1060 ], [ %.sroa.10.3, %scaleforsame.exit621 ]
+  %.sroa.084.21026 = phi i16 [ %.sroa.084.1, %scaleforopp.exit587 ], [ %.sroa.084.2, %1060 ], [ %.sroa.084.3, %scaleforsame.exit621 ]
+  %.sroa.1593.21023 = phi i16 [ %.sroa.1593.1, %scaleforopp.exit587 ], [ %.sroa.1593.2, %1060 ], [ %.sroa.1593.3, %scaleforsame.exit621 ]
+  %.0482.shrunk9149339529841022 = phi i1 [ %.0482.shrunk9149339521002, %scaleforopp.exit587 ], [ %.0482.shrunk914933952984, %1060 ], [ %.0482.shrunk914933952985, %scaleforsame.exit621 ]
   %1064 = phi ptr [ %234, %scaleforopp.exit587 ], [ %1061, %1060 ], [ %664, %scaleforsame.exit621 ]
-  %.2492956983 = phi i32 [ %.2492973, %scaleforopp.exit587 ], [ %.2492956, %1060 ], [ %.2492957, %scaleforsame.exit621 ]
-  %.2481961980 = phi i32 [ %.2481977, %scaleforopp.exit587 ], [ %.2481961, %1060 ], [ %.2481962, %scaleforsame.exit621 ]
-  %1065 = sext i16 %.sroa.084.2991 to i32
-  %1066 = sext i16 %.sroa.1593.2988 to i32
+  %.24929911018 = phi i32 [ %.24921008, %scaleforopp.exit587 ], [ %.2492991, %1060 ], [ %.2492992, %scaleforsame.exit621 ]
+  %.24819961015 = phi i32 [ %.24811012, %scaleforopp.exit587 ], [ %.2481996, %1060 ], [ %.2481997, %scaleforsame.exit621 ]
+  %1065 = sext i16 %.sroa.084.21026 to i32
+  %1066 = sext i16 %.sroa.1593.21023 to i32
   br label %1076
 
 1067:                                             ; preds = %scaleforsame.exit621, %scaleforopp.exit587, %1060
-  %.sroa.0.11004 = phi i16 [ %662, %scaleforopp.exit587 ], [ %.sroa.0.1, %1060 ], [ %1058, %scaleforsame.exit621 ]
-  %.sroa.15.11001 = phi i16 [ %663, %scaleforopp.exit587 ], [ %.sroa.15.1, %1060 ], [ %1059, %scaleforsame.exit621 ]
-  %.sroa.077.2998 = phi i16 [ %.sroa.077.1, %scaleforopp.exit587 ], [ %.sroa.077.2, %1060 ], [ %.sroa.077.3, %scaleforsame.exit621 ]
-  %.sroa.10.2995 = phi i16 [ %.sroa.10.1, %scaleforopp.exit587 ], [ %.sroa.10.2, %1060 ], [ %.sroa.10.3, %scaleforsame.exit621 ]
-  %.sroa.084.2993 = phi i16 [ %.sroa.084.1, %scaleforopp.exit587 ], [ %.sroa.084.2, %1060 ], [ %.sroa.084.3, %scaleforsame.exit621 ]
-  %.sroa.1593.2990 = phi i16 [ %.sroa.1593.1, %scaleforopp.exit587 ], [ %.sroa.1593.2, %1060 ], [ %.sroa.1593.3, %scaleforsame.exit621 ]
-  %.0482.shrunk879898917949986 = phi i1 [ %.0482.shrunk879898917967, %scaleforopp.exit587 ], [ %.0482.shrunk879898917949, %1060 ], [ %.0482.shrunk879898917950, %scaleforsame.exit621 ]
+  %.sroa.0.11039 = phi i16 [ %662, %scaleforopp.exit587 ], [ %.sroa.0.1, %1060 ], [ %1058, %scaleforsame.exit621 ]
+  %.sroa.15.11036 = phi i16 [ %663, %scaleforopp.exit587 ], [ %.sroa.15.1, %1060 ], [ %1059, %scaleforsame.exit621 ]
+  %.sroa.077.21033 = phi i16 [ %.sroa.077.1, %scaleforopp.exit587 ], [ %.sroa.077.2, %1060 ], [ %.sroa.077.3, %scaleforsame.exit621 ]
+  %.sroa.10.21030 = phi i16 [ %.sroa.10.1, %scaleforopp.exit587 ], [ %.sroa.10.2, %1060 ], [ %.sroa.10.3, %scaleforsame.exit621 ]
+  %.sroa.084.21028 = phi i16 [ %.sroa.084.1, %scaleforopp.exit587 ], [ %.sroa.084.2, %1060 ], [ %.sroa.084.3, %scaleforsame.exit621 ]
+  %.sroa.1593.21025 = phi i16 [ %.sroa.1593.1, %scaleforopp.exit587 ], [ %.sroa.1593.2, %1060 ], [ %.sroa.1593.3, %scaleforsame.exit621 ]
+  %.0482.shrunk9149339529841021 = phi i1 [ %.0482.shrunk9149339521002, %scaleforopp.exit587 ], [ %.0482.shrunk914933952984, %1060 ], [ %.0482.shrunk914933952985, %scaleforsame.exit621 ]
   %1068 = phi ptr [ %234, %scaleforopp.exit587 ], [ %1061, %1060 ], [ %664, %scaleforsame.exit621 ]
-  %.not524904905954984 = phi i1 [ %.not524904905972, %scaleforopp.exit587 ], [ %.not524904905954, %1060 ], [ %.not524904905955, %scaleforsame.exit621 ]
-  %.2492956982 = phi i32 [ %.2492973, %scaleforopp.exit587 ], [ %.2492956, %1060 ], [ %.2492957, %scaleforsame.exit621 ]
-  %.2481961979 = phi i32 [ %.2481977, %scaleforopp.exit587 ], [ %.2481961, %1060 ], [ %.2481962, %scaleforsame.exit621 ]
-  br i1 %.0482.shrunk879898917949986, label %1069, label %1072
+  %.not5249399409891019 = phi i1 [ %.not5249399401007, %scaleforopp.exit587 ], [ %.not524939940989, %1060 ], [ %.not524939940990, %scaleforsame.exit621 ]
+  %.24929911017 = phi i32 [ %.24921008, %scaleforopp.exit587 ], [ %.2492991, %1060 ], [ %.2492992, %scaleforsame.exit621 ]
+  %.24819961014 = phi i32 [ %.24811012, %scaleforopp.exit587 ], [ %.2481996, %1060 ], [ %.2481997, %scaleforsame.exit621 ]
+  br i1 %.0482.shrunk9149339529841021, label %1069, label %1072
 
 1069:                                             ; preds = %1067
-  %1070 = sext i16 %.sroa.0.11004 to i32
-  %1071 = sext i16 %.sroa.15.11001 to i32
+  %1070 = sext i16 %.sroa.0.11039 to i32
+  %1071 = sext i16 %.sroa.15.11036 to i32
   br label %1076
 
 1072:                                             ; preds = %1067
-  br i1 %.not524904905954984, label %1076, label %1073
+  br i1 %.not5249399409891019, label %1076, label %1073
 
 1073:                                             ; preds = %1072
-  %1074 = sext i16 %.sroa.077.2998 to i32
-  %1075 = sext i16 %.sroa.10.2995 to i32
+  %1074 = sext i16 %.sroa.077.21033 to i32
+  %1075 = sext i16 %.sroa.10.21030 to i32
   br label %1076
 
 1076:                                             ; preds = %1072, %1069, %1073, %1063
-  %.sroa.0.11003 = phi i16 [ %.sroa.0.11005, %1063 ], [ %.sroa.0.11004, %1069 ], [ %.sroa.0.11004, %1073 ], [ %.sroa.0.11004, %1072 ]
-  %.sroa.15.11000 = phi i16 [ %.sroa.15.11002, %1063 ], [ %.sroa.15.11001, %1069 ], [ %.sroa.15.11001, %1073 ], [ %.sroa.15.11001, %1072 ]
-  %.sroa.077.2997 = phi i16 [ %.sroa.077.2999, %1063 ], [ %.sroa.077.2998, %1069 ], [ %.sroa.077.2998, %1073 ], [ %.sroa.077.2998, %1072 ]
-  %.sroa.10.2994 = phi i16 [ %.sroa.10.2996, %1063 ], [ %.sroa.10.2995, %1069 ], [ %.sroa.10.2995, %1073 ], [ %.sroa.10.2995, %1072 ]
-  %.sroa.084.2992 = phi i16 [ %.sroa.084.2991, %1063 ], [ %.sroa.084.2993, %1069 ], [ %.sroa.084.2993, %1073 ], [ %.sroa.084.2993, %1072 ]
-  %.sroa.1593.2989 = phi i16 [ %.sroa.1593.2988, %1063 ], [ %.sroa.1593.2990, %1069 ], [ %.sroa.1593.2990, %1073 ], [ %.sroa.1593.2990, %1072 ]
+  %.sroa.0.11038 = phi i16 [ %.sroa.0.11040, %1063 ], [ %.sroa.0.11039, %1069 ], [ %.sroa.0.11039, %1073 ], [ %.sroa.0.11039, %1072 ]
+  %.sroa.15.11035 = phi i16 [ %.sroa.15.11037, %1063 ], [ %.sroa.15.11036, %1069 ], [ %.sroa.15.11036, %1073 ], [ %.sroa.15.11036, %1072 ]
+  %.sroa.077.21032 = phi i16 [ %.sroa.077.21034, %1063 ], [ %.sroa.077.21033, %1069 ], [ %.sroa.077.21033, %1073 ], [ %.sroa.077.21033, %1072 ]
+  %.sroa.10.21029 = phi i16 [ %.sroa.10.21031, %1063 ], [ %.sroa.10.21030, %1069 ], [ %.sroa.10.21030, %1073 ], [ %.sroa.10.21030, %1072 ]
+  %.sroa.084.21027 = phi i16 [ %.sroa.084.21026, %1063 ], [ %.sroa.084.21028, %1069 ], [ %.sroa.084.21028, %1073 ], [ %.sroa.084.21028, %1072 ]
+  %.sroa.1593.21024 = phi i16 [ %.sroa.1593.21023, %1063 ], [ %.sroa.1593.21025, %1069 ], [ %.sroa.1593.21025, %1073 ], [ %.sroa.1593.21025, %1072 ]
   %1077 = phi i1 [ true, %1063 ], [ false, %1069 ], [ false, %1073 ], [ false, %1072 ]
-  %.0482.shrunk879898917949985 = phi i1 [ %.0482.shrunk879898917949987, %1063 ], [ true, %1069 ], [ false, %1073 ], [ false, %1072 ]
+  %.0482.shrunk9149339529841020 = phi i1 [ %.0482.shrunk9149339529841022, %1063 ], [ true, %1069 ], [ false, %1073 ], [ false, %1072 ]
   %1078 = phi ptr [ %1064, %1063 ], [ %1068, %1069 ], [ %1068, %1073 ], [ %1068, %1072 ]
-  %.2492956981 = phi i32 [ %.2492956983, %1063 ], [ %.2492956982, %1069 ], [ %.2492956982, %1073 ], [ %.2492956982, %1072 ]
-  %.2481961978 = phi i32 [ %.2481961980, %1063 ], [ %.2481961979, %1069 ], [ %.2481961979, %1073 ], [ %.2481961979, %1072 ]
+  %.24929911016 = phi i32 [ %.24929911018, %1063 ], [ %.24929911017, %1069 ], [ %.24929911017, %1073 ], [ %.24929911017, %1072 ]
+  %.24819961013 = phi i32 [ %.24819961015, %1063 ], [ %.24819961014, %1069 ], [ %.24819961014, %1073 ], [ %.24819961014, %1072 ]
   %.0469 = phi i32 [ %1066, %1063 ], [ %1071, %1069 ], [ %1075, %1073 ], [ 0, %1072 ]
   %.0466 = phi i32 [ %1065, %1063 ], [ %1070, %1069 ], [ %1074, %1073 ], [ 0, %1072 ]
-  %1079 = add nsw i32 %.2481961978, %.2492956981
+  %1079 = add nsw i32 %.24819961013, %.24929911016
   %1080 = icmp sgt i32 %1079, 1
   br i1 %1080, label %1081, label %mid_pred.exit724
 
 1081:                                             ; preds = %1076
-  %1082 = sext i16 %.sroa.084.2992 to i32
-  %1083 = sext i16 %.sroa.077.2997 to i32
-  %1084 = sext i16 %.sroa.0.11003 to i32
-  %1085 = icmp sgt i16 %.sroa.084.2992, %.sroa.077.2997
+  %1082 = sext i16 %.sroa.084.21027 to i32
+  %1083 = sext i16 %.sroa.077.21032 to i32
+  %1084 = sext i16 %.sroa.0.11038 to i32
+  %1085 = icmp sgt i16 %.sroa.084.21027, %.sroa.077.21032
   br i1 %1085, label %1086, label %1089
 
 1086:                                             ; preds = %1081
-  %1087 = icmp sgt i16 %.sroa.0.11003, %.sroa.077.2997
+  %1087 = icmp sgt i16 %.sroa.0.11038, %.sroa.077.21032
   br i1 %1087, label %1088, label %mid_pred.exit
 
 1088:                                             ; preds = %1086
@@ -1882,7 +1882,7 @@ scaleforsame.exit621:                             ; preds = %1043, %1050
   br label %mid_pred.exit
 
 1089:                                             ; preds = %1081
-  %1090 = icmp sgt i16 %.sroa.077.2997, %.sroa.0.11003
+  %1090 = icmp sgt i16 %.sroa.077.21032, %.sroa.0.11038
   br i1 %1090, label %1091, label %mid_pred.exit
 
 1091:                                             ; preds = %1089
@@ -1891,14 +1891,14 @@ scaleforsame.exit621:                             ; preds = %1043, %1050
 
 mid_pred.exit:                                    ; preds = %1086, %1088, %1089, %1091
   %.0.i720 = phi i32 [ %1083, %1086 ], [ %1083, %1089 ], [ %..i, %1088 ], [ %.20.i, %1091 ]
-  %1092 = sext i16 %.sroa.1593.2989 to i32
-  %1093 = sext i16 %.sroa.10.2994 to i32
-  %1094 = sext i16 %.sroa.15.11000 to i32
-  %1095 = icmp sgt i16 %.sroa.1593.2989, %.sroa.10.2994
+  %1092 = sext i16 %.sroa.1593.21024 to i32
+  %1093 = sext i16 %.sroa.10.21029 to i32
+  %1094 = sext i16 %.sroa.15.11035 to i32
+  %1095 = icmp sgt i16 %.sroa.1593.21024, %.sroa.10.21029
   br i1 %1095, label %1096, label %1099
 
 1096:                                             ; preds = %mid_pred.exit
-  %1097 = icmp sgt i16 %.sroa.15.11000, %.sroa.10.2994
+  %1097 = icmp sgt i16 %.sroa.15.11035, %.sroa.10.21029
   br i1 %1097, label %1098, label %mid_pred.exit724
 
 1098:                                             ; preds = %1096
@@ -1906,7 +1906,7 @@ mid_pred.exit:                                    ; preds = %1086, %1088, %1089,
   br label %mid_pred.exit724
 
 1099:                                             ; preds = %mid_pred.exit
-  %1100 = icmp sgt i16 %.sroa.10.2994, %.sroa.15.11000
+  %1100 = icmp sgt i16 %.sroa.10.21029, %.sroa.15.11035
   br i1 %1100, label %1101, label %mid_pred.exit724
 
 1101:                                             ; preds = %1099
@@ -1924,7 +1924,7 @@ mid_pred.exit724:                                 ; preds = %1101, %1099, %1098,
   %1104 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %1105 = load i32, ptr %1104, align 8, !tbaa !68
   %.not528 = icmp ne i32 %1105, 3
-  %1106 = and i1 %.0482.shrunk879898917949985, %.not528
+  %1106 = and i1 %.0482.shrunk9149339529841020, %.not528
   %or.cond539 = and i1 %1077, %1106
   br i1 %or.cond539, label %1138, label %.thread787
 
@@ -1963,7 +1963,7 @@ mid_pred.exit724:                                 ; preds = %1101, %1099, %1098,
   %1136 = icmp sgt i32 %1135, %1125
   %1137 = sub nsw i32 %1125, %1117
   %.4473 = select i1 %1136, i32 %1137, i32 %.3472
-  %or.cond15.old = and i1 %1077, %.0482.shrunk879898917949985
+  %or.cond15.old = and i1 %1077, %.0482.shrunk9149339529841020
   br i1 %or.cond15.old, label %1138, label %.thread792
 
 1138:                                             ; preds = %1103, %1107
@@ -1981,18 +1981,18 @@ mid_pred.exit724:                                 ; preds = %1101, %1099, %1098,
   br label %1151
 
 1145:                                             ; preds = %1138
-  %1146 = sext i16 %.sroa.084.2992 to i32
+  %1146 = sext i16 %.sroa.084.21027 to i32
   %1147 = sub nsw i32 %.2468780, %1146
   %1148 = tail call i32 @llvm.abs.i32(i32 %1147, i1 true)
-  %1149 = sext i16 %.sroa.1593.2989 to i32
+  %1149 = sext i16 %.sroa.1593.21024 to i32
   %1150 = sub nsw i32 %.2471778, %1149
   br label %1151
 
 1151:                                             ; preds = %1145, %1143
-  %.sink1008 = phi i32 [ %1150, %1145 ], [ %.2471778, %1143 ]
-  %.sink1007 = phi i32 [ %1148, %1145 ], [ %1144, %1143 ]
-  %1152 = tail call i32 @llvm.abs.i32(i32 %.sink1008, i1 true)
-  %1153 = add nuw nsw i32 %1152, %.sink1007
+  %.sink1043 = phi i32 [ %1150, %1145 ], [ %.2471778, %1143 ]
+  %.sink1042 = phi i32 [ %1148, %1145 ], [ %1144, %1143 ]
+  %1152 = tail call i32 @llvm.abs.i32(i32 %.sink1043, i1 true)
+  %1153 = add nuw nsw i32 %1152, %.sink1042
   %1154 = icmp samesign ugt i32 %1153, 32
   br i1 %1154, label %1155, label %1178
 
@@ -2019,13 +2019,13 @@ mid_pred.exit724:                                 ; preds = %1101, %1099, %1098,
   br i1 %.not532, label %1175, label %1172
 
 1172:                                             ; preds = %1155
-  %1173 = zext i16 %.sroa.084.2992 to i32
-  %1174 = zext i16 %.sroa.1593.2989 to i32
+  %1173 = zext i16 %.sroa.084.21027 to i32
+  %1174 = zext i16 %.sroa.1593.21024 to i32
   br label %1218
 
 1175:                                             ; preds = %1155
-  %1176 = zext i16 %.sroa.0.11003 to i32
-  %1177 = zext i16 %.sroa.15.11000 to i32
+  %1176 = zext i16 %.sroa.0.11038 to i32
+  %1177 = zext i16 %.sroa.15.11035 to i32
   br label %1218
 
 1178:                                             ; preds = %1151
@@ -2041,18 +2041,18 @@ mid_pred.exit724:                                 ; preds = %1101, %1099, %1098,
   br label %1191
 
 1185:                                             ; preds = %1178
-  %1186 = sext i16 %.sroa.0.11003 to i32
+  %1186 = sext i16 %.sroa.0.11038 to i32
   %1187 = sub nsw i32 %.2468780, %1186
   %1188 = tail call i32 @llvm.abs.i32(i32 %1187, i1 true)
-  %1189 = sext i16 %.sroa.15.11000 to i32
+  %1189 = sext i16 %.sroa.15.11035 to i32
   %1190 = sub nsw i32 %.2471778, %1189
   br label %1191
 
 1191:                                             ; preds = %1185, %1183
-  %.sink1011 = phi i32 [ %1190, %1185 ], [ %.2471778, %1183 ]
-  %.sink1010 = phi i32 [ %1188, %1185 ], [ %1184, %1183 ]
-  %1192 = tail call i32 @llvm.abs.i32(i32 %.sink1011, i1 true)
-  %1193 = add nuw nsw i32 %1192, %.sink1010
+  %.sink1046 = phi i32 [ %1190, %1185 ], [ %.2471778, %1183 ]
+  %.sink1045 = phi i32 [ %1188, %1185 ], [ %1184, %1183 ]
+  %1192 = tail call i32 @llvm.abs.i32(i32 %.sink1046, i1 true)
+  %1193 = add nuw nsw i32 %1192, %.sink1045
   %1194 = icmp samesign ugt i32 %1193, 32
   br i1 %1194, label %1195, label %1218
 
@@ -2079,13 +2079,13 @@ mid_pred.exit724:                                 ; preds = %1101, %1099, %1098,
   br i1 %.not531, label %1215, label %1212
 
 1212:                                             ; preds = %1195
-  %1213 = zext i16 %.sroa.084.2992 to i32
-  %1214 = zext i16 %.sroa.1593.2989 to i32
+  %1213 = zext i16 %.sroa.084.21027 to i32
+  %1214 = zext i16 %.sroa.1593.21024 to i32
   br label %1218
 
 1215:                                             ; preds = %1195
-  %1216 = zext i16 %.sroa.0.11003 to i32
-  %1217 = zext i16 %.sroa.15.11000 to i32
+  %1216 = zext i16 %.sroa.0.11038 to i32
+  %1217 = zext i16 %.sroa.15.11035 to i32
   br label %1218
 
 1218:                                             ; preds = %1191, %1215, %1212, %1172, %1175
@@ -2600,7 +2600,7 @@ switch.early.test:                                ; preds = %57
   %271 = getelementptr inbounds i8, ptr %134, i64 %270
   %272 = load i8, ptr %271, align 1, !tbaa !57
   %.not449 = icmp ne i8 %272, 0
-  br i1 %.not449, label %.thread507, label %273
+  br i1 %.not449, label %.thread511, label %273
 
 273:                                              ; preds = %267
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 3376
@@ -2632,7 +2632,7 @@ switch.early.test:                                ; preds = %57
   %295 = getelementptr i8, ptr %291, i64 -6
   %296 = load i16, ptr %295, align 2, !tbaa !50
   %297 = sext i16 %296 to i32
-  br i1 %.not451, label %306, label %.thread507
+  br i1 %.not451, label %306, label %.thread511
 
 298:                                              ; preds = %273
   %299 = getelementptr [2 x i16], ptr %227, i64 %277
@@ -2642,7 +2642,7 @@ switch.early.test:                                ; preds = %57
   %303 = getelementptr i8, ptr %299, i64 -6
   %304 = load i16, ptr %303, align 2, !tbaa !50
   %305 = sext i16 %304 to i32
-  br label %.thread507
+  br label %.thread511
 
 306:                                              ; preds = %281
   %307 = add nsw i32 %294, 1
@@ -2662,7 +2662,7 @@ switch.early.test:                                ; preds = %57
   %321 = sext i16 %320 to i32
   %322 = add nsw i32 %318, %321
   %323 = ashr i32 %322, 1
-  br label %.thread507
+  br label %.thread511
 
 324:                                              ; preds = %123
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 3368
@@ -2688,7 +2688,7 @@ switch.early.test:                                ; preds = %57
   %345 = sext i16 %344 to i32
   br label %348
 
-.thread507:                                       ; preds = %298, %267, %306, %281
+.thread511:                                       ; preds = %298, %267, %306, %281
   %.sroa.16.1.ph = phi i32 [ %.sroa.16.0, %267 ], [ %305, %298 ], [ %323, %306 ], [ %297, %281 ]
   %.sroa.0.1.ph = phi i32 [ %.sroa.0.0, %267 ], [ %302, %298 ], [ %317, %306 ], [ %294, %281 ]
   %.0420.ph = phi i32 [ 0, %267 ], [ 1, %298 ], [ 1, %306 ], [ 1, %281 ]
@@ -2717,16 +2717,16 @@ switch.early.test474:                             ; preds = %348
 351:                                              ; preds = %switch.early.test474
   br label %352
 
-352:                                              ; preds = %.thread507, %switch.early.test474, %switch.early.test474, %348, %351
-  %353 = phi i32 [ %350, %switch.early.test474 ], [ %350, %351 ], [ %350, %348 ], [ %350, %switch.early.test474 ], [ %347, %.thread507 ]
-  %.not465520 = phi i1 [ %.not465, %switch.early.test474 ], [ %.not465, %351 ], [ %.not465, %348 ], [ %.not465, %switch.early.test474 ], [ %.not449, %.thread507 ]
-  %.1422519 = phi i32 [ %.1422, %switch.early.test474 ], [ %.1422, %351 ], [ %.1422, %348 ], [ %.1422, %switch.early.test474 ], [ %.0421, %.thread507 ]
-  %.sroa.0.1518 = phi i32 [ %.sroa.0.1, %switch.early.test474 ], [ %.sroa.0.1, %351 ], [ %.sroa.0.1, %348 ], [ %.sroa.0.1, %switch.early.test474 ], [ %.sroa.0.1.ph, %.thread507 ]
-  %.sroa.16.1517 = phi i32 [ %.sroa.16.1, %switch.early.test474 ], [ %.sroa.16.1, %351 ], [ %.sroa.16.1, %348 ], [ %.sroa.16.1, %switch.early.test474 ], [ %.sroa.16.1.ph, %.thread507 ]
-  %.sroa.091.1516 = phi i32 [ %.sroa.091.1, %switch.early.test474 ], [ %.sroa.091.1, %351 ], [ %.sroa.091.1, %348 ], [ %.sroa.091.1, %switch.early.test474 ], [ %.sroa.091.0, %.thread507 ]
-  %.sroa.17.1515 = phi i32 [ %.sroa.17.1, %switch.early.test474 ], [ %.sroa.17.1, %351 ], [ %.sroa.17.1, %348 ], [ %.sroa.17.1, %switch.early.test474 ], [ %.sroa.17.0, %.thread507 ]
-  %.sroa.0111.2 = phi i32 [ %.sroa.0111.1, %switch.early.test474 ], [ 0, %351 ], [ %.sroa.0111.1, %348 ], [ %.sroa.0111.1, %switch.early.test474 ], [ %.sroa.0111.1, %.thread507 ]
-  %.sroa.15.2 = phi i32 [ %.sroa.15.1, %switch.early.test474 ], [ 0, %351 ], [ %.sroa.15.1, %348 ], [ %.sroa.15.1, %switch.early.test474 ], [ %.sroa.15.1, %.thread507 ]
+352:                                              ; preds = %.thread511, %switch.early.test474, %switch.early.test474, %348, %351
+  %353 = phi i32 [ %350, %switch.early.test474 ], [ %350, %351 ], [ %350, %348 ], [ %350, %switch.early.test474 ], [ %347, %.thread511 ]
+  %.not465524 = phi i1 [ %.not465, %switch.early.test474 ], [ %.not465, %351 ], [ %.not465, %348 ], [ %.not465, %switch.early.test474 ], [ %.not449, %.thread511 ]
+  %.1422523 = phi i32 [ %.1422, %switch.early.test474 ], [ %.1422, %351 ], [ %.1422, %348 ], [ %.1422, %switch.early.test474 ], [ %.0421, %.thread511 ]
+  %.sroa.0.1522 = phi i32 [ %.sroa.0.1, %switch.early.test474 ], [ %.sroa.0.1, %351 ], [ %.sroa.0.1, %348 ], [ %.sroa.0.1, %switch.early.test474 ], [ %.sroa.0.1.ph, %.thread511 ]
+  %.sroa.16.1521 = phi i32 [ %.sroa.16.1, %switch.early.test474 ], [ %.sroa.16.1, %351 ], [ %.sroa.16.1, %348 ], [ %.sroa.16.1, %switch.early.test474 ], [ %.sroa.16.1.ph, %.thread511 ]
+  %.sroa.091.1520 = phi i32 [ %.sroa.091.1, %switch.early.test474 ], [ %.sroa.091.1, %351 ], [ %.sroa.091.1, %348 ], [ %.sroa.091.1, %switch.early.test474 ], [ %.sroa.091.0, %.thread511 ]
+  %.sroa.17.1519 = phi i32 [ %.sroa.17.1, %switch.early.test474 ], [ %.sroa.17.1, %351 ], [ %.sroa.17.1, %348 ], [ %.sroa.17.1, %switch.early.test474 ], [ %.sroa.17.0, %.thread511 ]
+  %.sroa.0111.2 = phi i32 [ %.sroa.0111.1, %switch.early.test474 ], [ 0, %351 ], [ %.sroa.0111.1, %348 ], [ %.sroa.0111.1, %switch.early.test474 ], [ %.sroa.0111.1, %.thread511 ]
+  %.sroa.15.2 = phi i32 [ %.sroa.15.1, %switch.early.test474 ], [ 0, %351 ], [ %.sroa.15.1, %348 ], [ %.sroa.15.1, %switch.early.test474 ], [ %.sroa.15.1, %.thread511 ]
   %354 = getelementptr inbounds nuw i8, ptr %0, i64 4140
   %355 = load i32, ptr %354, align 4, !tbaa !53
   %.not454 = icmp eq i32 %355, 0
@@ -2745,18 +2745,18 @@ switch.early.test474:                             ; preds = %348
   br i1 %or.cond, label %.thread489, label %.thread489.thread
 
 .thread489:                                       ; preds = %352, %356
-  %.sroa.17.2 = phi i32 [ 0, %356 ], [ %.sroa.17.1515, %352 ]
-  %.sroa.091.2 = phi i32 [ 0, %356 ], [ %.sroa.091.1516, %352 ]
-  %.sroa.16.2 = phi i32 [ 0, %356 ], [ %.sroa.16.1517, %352 ]
-  %.sroa.0.2 = phi i32 [ 0, %356 ], [ %.sroa.0.1518, %352 ]
+  %.sroa.17.2 = phi i32 [ 0, %356 ], [ %.sroa.17.1519, %352 ]
+  %.sroa.091.2 = phi i32 [ 0, %356 ], [ %.sroa.091.1520, %352 ]
+  %.sroa.16.2 = phi i32 [ 0, %356 ], [ %.sroa.16.1521, %352 ]
+  %.sroa.0.2 = phi i32 [ 0, %356 ], [ %.sroa.0.1522, %352 ]
   %.not458 = icmp eq i8 %.pre500, 0
   br i1 %.not458, label %.thread489.thread, label %380
 
 .thread489.thread:                                ; preds = %356, %.thread489
-  %.sroa.0.2532 = phi i32 [ %.sroa.0.2, %.thread489 ], [ %.sroa.0.1518, %356 ]
-  %.sroa.16.2531 = phi i32 [ %.sroa.16.2, %.thread489 ], [ %.sroa.16.1517, %356 ]
-  %.sroa.091.2530 = phi i32 [ %.sroa.091.2, %.thread489 ], [ %.sroa.091.1516, %356 ]
-  %.sroa.17.2529 = phi i32 [ %.sroa.17.2, %.thread489 ], [ %.sroa.17.1515, %356 ]
+  %.sroa.0.2536 = phi i32 [ %.sroa.0.2, %.thread489 ], [ %.sroa.0.1522, %356 ]
+  %.sroa.16.2535 = phi i32 [ %.sroa.16.2, %.thread489 ], [ %.sroa.16.1521, %356 ]
+  %.sroa.091.2534 = phi i32 [ %.sroa.091.2, %.thread489 ], [ %.sroa.091.1520, %356 ]
+  %.sroa.17.2533 = phi i32 [ %.sroa.17.2, %.thread489 ], [ %.sroa.17.1519, %356 ]
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %359 = load i32, ptr %358, align 4, !tbaa !55
   %360 = icmp eq i32 %359, 1
@@ -2767,44 +2767,44 @@ switch.early.test474:                             ; preds = %348
   br i1 %362, label %363, label %378
 
 363:                                              ; preds = %361
-  %364 = icmp sgt i32 %.sroa.0111.2, %.sroa.091.2530
+  %364 = icmp sgt i32 %.sroa.0111.2, %.sroa.091.2534
   br i1 %364, label %365, label %368
 
 365:                                              ; preds = %363
-  %366 = icmp sgt i32 %.sroa.0.2532, %.sroa.091.2530
+  %366 = icmp sgt i32 %.sroa.0.2536, %.sroa.091.2534
   br i1 %366, label %367, label %mid_pred.exit
 
 367:                                              ; preds = %365
-  %..i = tail call i32 @llvm.smin.i32(i32 range(i32 -32768, 32768) %.sroa.0.2532, i32 range(i32 -32768, 32768) %.sroa.0111.2)
+  %..i = tail call i32 @llvm.smin.i32(i32 range(i32 -32768, 32768) %.sroa.0.2536, i32 range(i32 -32768, 32768) %.sroa.0111.2)
   br label %mid_pred.exit
 
 368:                                              ; preds = %363
-  %369 = icmp sgt i32 %.sroa.091.2530, %.sroa.0.2532
+  %369 = icmp sgt i32 %.sroa.091.2534, %.sroa.0.2536
   br i1 %369, label %370, label %mid_pred.exit
 
 370:                                              ; preds = %368
-  %.20.i = tail call i32 @llvm.smax.i32(i32 range(i32 -32768, 32768) %.sroa.0.2532, i32 range(i32 -32768, 32768) %.sroa.0111.2)
+  %.20.i = tail call i32 @llvm.smax.i32(i32 range(i32 -32768, 32768) %.sroa.0.2536, i32 range(i32 -32768, 32768) %.sroa.0111.2)
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %365, %367, %368, %370
-  %.0.i = phi i32 [ %.sroa.091.2530, %365 ], [ %.sroa.091.2530, %368 ], [ %..i, %367 ], [ %.20.i, %370 ]
-  %371 = icmp sgt i32 %.sroa.15.2, %.sroa.17.2529
+  %.0.i = phi i32 [ %.sroa.091.2534, %365 ], [ %.sroa.091.2534, %368 ], [ %..i, %367 ], [ %.20.i, %370 ]
+  %371 = icmp sgt i32 %.sroa.15.2, %.sroa.17.2533
   br i1 %371, label %372, label %375
 
 372:                                              ; preds = %mid_pred.exit
-  %373 = icmp sgt i32 %.sroa.16.2531, %.sroa.17.2529
+  %373 = icmp sgt i32 %.sroa.16.2535, %.sroa.17.2533
   br i1 %373, label %374, label %mid_pred.exit479
 
 374:                                              ; preds = %372
-  %..i478 = tail call i32 @llvm.smin.i32(i32 range(i32 -32768, 32768) %.sroa.16.2531, i32 range(i32 -32768, 32768) %.sroa.15.2)
+  %..i478 = tail call i32 @llvm.smin.i32(i32 range(i32 -32768, 32768) %.sroa.16.2535, i32 range(i32 -32768, 32768) %.sroa.15.2)
   br label %mid_pred.exit479
 
 375:                                              ; preds = %mid_pred.exit
-  %376 = icmp sgt i32 %.sroa.17.2529, %.sroa.16.2531
+  %376 = icmp sgt i32 %.sroa.17.2533, %.sroa.16.2535
   br i1 %376, label %377, label %mid_pred.exit479
 
 377:                                              ; preds = %375
-  %.20.i477 = tail call i32 @llvm.smax.i32(i32 range(i32 -32768, 32768) %.sroa.16.2531, i32 range(i32 -32768, 32768) %.sroa.15.2)
+  %.20.i477 = tail call i32 @llvm.smax.i32(i32 range(i32 -32768, 32768) %.sroa.16.2535, i32 range(i32 -32768, 32768) %.sroa.15.2)
   br label %mid_pred.exit479
 
 378:                                              ; preds = %361
@@ -2815,22 +2815,22 @@ mid_pred.exit:                                    ; preds = %365, %367, %368, %3
   br i1 %brmerge, label %mid_pred.exit479, label %379
 
 379:                                              ; preds = %378
-  %.not461 = icmp eq i32 %.1422519, 0
-  %.sroa.0.2..sroa.091.2 = select i1 %.not461, i32 %.sroa.0.2532, i32 %.sroa.091.2530
-  %.sroa.16.2..sroa.17.2 = select i1 %.not461, i32 %.sroa.16.2531, i32 %.sroa.17.2529
+  %.not461 = icmp eq i32 %.1422523, 0
+  %.sroa.0.2..sroa.091.2 = select i1 %.not461, i32 %.sroa.0.2536, i32 %.sroa.091.2534
+  %.sroa.16.2..sroa.17.2 = select i1 %.not461, i32 %.sroa.16.2535, i32 %.sroa.17.2533
   br label %mid_pred.exit479
 
 380:                                              ; preds = %.thread489
   %381 = lshr i32 %.sroa.15.2, 2
   %.lobit = and i32 %381, 1
   %.0419 = select i1 %122, i32 %.lobit, i32 0
-  %382 = icmp ne i32 %.1422519, 0
+  %382 = icmp ne i32 %.1422523, 0
   %383 = lshr i32 %.sroa.17.2, 2
   %.lobit464 = and i32 %383, 1
   %.0418 = select i1 %382, i32 %.lobit464, i32 0
   %384 = lshr i32 %.sroa.16.2, 2
   %.lobit467 = and i32 %384, 1
-  %.0417 = select i1 %.not465520, i32 0, i32 %.lobit467
+  %.0417 = select i1 %.not465524, i32 0, i32 %.lobit467
   %385 = add nuw nsw i32 %.0418, %.0419
   %386 = add nuw nsw i32 %385, %.0417
   %387 = sub nsw i32 %353, %386
@@ -2933,8 +2933,8 @@ mid_pred.exit483:                                 ; preds = %393, %395, %396, %3
   br label %mid_pred.exit479
 
 mid_pred.exit479:                                 ; preds = %405, %403, %402, %400, %377, %375, %374, %372, %378, %380, %418, %416, %414, %379, %.thread489.thread, %407, %410, %420
-  %.0426 = phi i32 [ %408, %407 ], [ %411, %410 ], [ %422, %420 ], [ %.mux, %378 ], [ %.sroa.091.2530, %.thread489.thread ], [ %.sroa.0.2..sroa.091.2, %379 ], [ %.sroa.0111.2, %414 ], [ %.sroa.091.2..sroa.0.2, %416 ], [ %.sroa.0111.2..sroa.091.2, %418 ], [ 0, %380 ], [ %.0.i, %372 ], [ %.0.i, %374 ], [ %.0.i, %375 ], [ %.0.i, %377 ], [ %.0.i480, %400 ], [ %.0.i480, %402 ], [ %.0.i480, %403 ], [ %.0.i480, %405 ]
-  %.0425 = phi i32 [ %409, %407 ], [ %412, %410 ], [ %424, %420 ], [ %.mux475, %378 ], [ %.sroa.17.2529, %.thread489.thread ], [ %.sroa.16.2..sroa.17.2, %379 ], [ %.sroa.15.2, %414 ], [ %.sroa.17.2..sroa.16.2, %416 ], [ %.sroa.15.2..sroa.17.2, %418 ], [ 0, %380 ], [ %.sroa.17.2529, %372 ], [ %..i478, %374 ], [ %.sroa.17.2529, %375 ], [ %.20.i477, %377 ], [ %.sroa.17.2, %400 ], [ %..i486, %402 ], [ %.sroa.17.2, %403 ], [ %.20.i485, %405 ]
+  %.0426 = phi i32 [ %408, %407 ], [ %411, %410 ], [ %422, %420 ], [ %.mux, %378 ], [ %.sroa.091.2534, %.thread489.thread ], [ %.sroa.0.2..sroa.091.2, %379 ], [ %.sroa.0111.2, %414 ], [ %.sroa.091.2..sroa.0.2, %416 ], [ %.sroa.0111.2..sroa.091.2, %418 ], [ 0, %380 ], [ %.0.i, %372 ], [ %.0.i, %374 ], [ %.0.i, %375 ], [ %.0.i, %377 ], [ %.0.i480, %400 ], [ %.0.i480, %402 ], [ %.0.i480, %403 ], [ %.0.i480, %405 ]
+  %.0425 = phi i32 [ %409, %407 ], [ %412, %410 ], [ %424, %420 ], [ %.mux475, %378 ], [ %.sroa.17.2533, %.thread489.thread ], [ %.sroa.16.2..sroa.17.2, %379 ], [ %.sroa.15.2, %414 ], [ %.sroa.17.2..sroa.16.2, %416 ], [ %.sroa.15.2..sroa.17.2, %418 ], [ 0, %380 ], [ %.sroa.17.2533, %372 ], [ %..i478, %374 ], [ %.sroa.17.2533, %375 ], [ %.20.i477, %377 ], [ %.sroa.17.2, %400 ], [ %..i486, %402 ], [ %.sroa.17.2, %403 ], [ %.20.i485, %405 ]
   %425 = add i32 %5, %2
   %426 = add i32 %425, %.0426
   %427 = shl i32 %5, 1

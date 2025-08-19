@@ -76,9 +76,9 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.ws_filter_list_write, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i32 %0 to i64
-  %switch.gep331 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.ws_filter_list_write.2, i64 0, i64 %7
-  %switch.load332 = load ptr, ptr %switch.gep331, align 8
-  %8 = tail call ptr @get_persconffile_path(ptr noundef nonnull %switch.load332, i1 noundef zeroext true)
+  %switch.gep337 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.ws_filter_list_write.2, i64 0, i64 %7
+  %switch.load338 = load ptr, ptr %switch.gep337, align 8
+  %8 = tail call ptr @get_persconffile_path(ptr noundef nonnull %switch.load338, i1 noundef zeroext true)
   %9 = tail call noalias ptr @fopen(ptr noundef %8, ptr noundef nonnull @.str.9)
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %25
@@ -97,7 +97,7 @@ switch.lookup:                                    ; preds = %1
 
 16:                                               ; preds = %11
   tail call void @g_free(ptr noundef %8)
-  %17 = tail call ptr @get_datafile_path(ptr noundef nonnull %switch.load332)
+  %17 = tail call ptr @get_datafile_path(ptr noundef nonnull %switch.load338)
   %18 = tail call noalias ptr @fopen(ptr noundef %17, ptr noundef nonnull @.str.9)
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %25
@@ -290,8 +290,8 @@ getc_crlf.exit178:                                ; preds = %53, %56, %56
   br i1 %.not.i179, label %skip_whitespace.exit180, label %74, !llvm.loop !6
 
 skip_whitespace.exit180:                          ; preds = %76
-  %cond278 = icmp eq i32 %75, 10
-  br i1 %cond278, label %.loopexit193, label %.preheader191
+  %cond284 = icmp eq i32 %75, 10
+  br i1 %cond284, label %.loopexit193, label %.preheader191
 
 .loopexit192:                                     ; preds = %74
   %82 = tail call i32 @ferror(ptr noundef nonnull %.0155) #11
@@ -388,10 +388,10 @@ getc_crlf.exit182:                                ; preds = %88, %95, %95, %97
   br label %29
 
 .loopexit195.sink.split:                          ; preds = %99, %.loopexit192, %71
-  %.sink333 = phi i64 [ 250, %71 ], [ 269, %.loopexit192 ], [ 304, %99 ]
+  %.sink339 = phi i64 [ 250, %71 ], [ 269, %.loopexit192 ], [ 304, %99 ]
   %.1143.ph = phi ptr [ %.3145, %71 ], [ %.5147, %.loopexit192 ], [ %.5147, %99 ]
   %.1137.ph = phi ptr [ %.0136, %71 ], [ %.0136, %.loopexit192 ], [ %.4140, %99 ]
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.6, i32 noundef 5, ptr noundef nonnull @.str.7, i64 noundef %.sink333, ptr noundef nonnull @__func__.ws_filter_list_read, ptr noundef nonnull @.str.12, ptr noundef %.0126, i32 noundef %.0127)
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.6, i32 noundef 5, ptr noundef nonnull @.str.7, i64 noundef %.sink339, ptr noundef nonnull @__func__.ws_filter_list_read, ptr noundef nonnull @.str.12, ptr noundef %.0126, i32 noundef %.0127)
   br label %.loopexit195
 
 .loopexit195:                                     ; preds = %30, %.loopexit195.sink.split, %99, %.loopexit192, %71
@@ -534,8 +534,8 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.ws_filter_list_write, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i32 %3 to i64
-  %switch.gep59 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.ws_filter_list_write.2, i64 0, i64 %7
-  %switch.load60 = load ptr, ptr %switch.gep59, align 8
+  %switch.gep62 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.ws_filter_list_write.2, i64 0, i64 %7
+  %switch.load63 = load ptr, ptr %switch.gep62, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 @create_persconffile_dir(ptr noundef nonnull %2)
@@ -552,7 +552,7 @@ switch.lookup:                                    ; preds = %1
   br label %72
 
 18:                                               ; preds = %switch.lookup
-  %19 = call ptr @get_persconffile_path(ptr noundef nonnull %switch.load60, i1 noundef zeroext true)
+  %19 = call ptr @get_persconffile_path(ptr noundef nonnull %switch.load63, i1 noundef zeroext true)
   %20 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.17, ptr noundef %19)
   %21 = call noalias ptr @fopen(ptr noundef %20, ptr noundef nonnull @.str.18)
   %22 = icmp eq ptr %21, null

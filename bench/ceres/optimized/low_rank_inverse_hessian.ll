@@ -586,9 +586,9 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS1_IdLin
 
 201:                                              ; preds = %196, %._crit_edge.i.i.i.i, %175
   %.072.i.i.i.i = phi <2 x double> [ %177, %175 ], [ %200, %196 ], [ %184, %._crit_edge.i.i.i.i ]
-  %shift77 = shufflevector <2 x double> %.072.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop78 = fadd <2 x double> %.072.i.i.i.i, %shift77
-  %202 = extractelement <2 x double> %foldExtExtBinop78, i64 0
+  %shift89 = shufflevector <2 x double> %.072.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop90 = fadd <2 x double> %.072.i.i.i.i, %shift89
+  %202 = extractelement <2 x double> %foldExtExtBinop90, i64 0
   %203 = icmp slt i64 %174, %167
   br i1 %203, label %.lr.ph85.i.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit
 
@@ -728,8 +728,8 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit: ; preds = %_ZN5Eigen8i
   %.sext = sext i32 %48 to i64
   %49 = shl nsw i64 %.sext, 2
   %50 = sdiv i32 %7, 2
-  %.sext184 = sext i32 %50 to i64
-  %51 = shl nsw i64 %.sext184, 1
+  %.sext197 = sext i32 %50 to i64
+  %51 = shl nsw i64 %.sext197, 1
   %.off.i.i.i.i.i = add nsw i64 %8, 1
   %.not.i.i.i.i.i = icmp ult i64 %.off.i.i.i.i.i, 3
   %52 = icmp sgt i32 %7, 3
@@ -1160,9 +1160,9 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit: ; pr
 
 277:                                              ; preds = %271, %._crit_edge.i.i.i.i.i64, %247
   %.072.i.i.i.i.i58 = phi <2 x double> [ %250, %247 ], [ %276, %271 ], [ %256, %._crit_edge.i.i.i.i.i64 ]
-  %shift196 = shufflevector <2 x double> %.072.i.i.i.i.i58, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop197 = fadd <2 x double> %.072.i.i.i.i.i58, %shift196
-  %278 = extractelement <2 x double> %foldExtExtBinop197, i64 0
+  %shift209 = shufflevector <2 x double> %.072.i.i.i.i.i58, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop210 = fadd <2 x double> %.072.i.i.i.i.i58, %shift209
+  %278 = extractelement <2 x double> %foldExtExtBinop210, i64 0
   br i1 %224, label %.lr.ph85.i.i.i.i.i60, label %.loopexit
 
 .lr.ph85.i.i.i.i.i60:                             ; preds = %277, %.lr.ph85.i.i.i.i.i60

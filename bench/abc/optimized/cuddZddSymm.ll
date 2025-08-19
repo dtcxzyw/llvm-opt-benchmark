@@ -162,27 +162,27 @@ define range(i32 0, 2) i32 @cuddZddSymmCheck(ptr noundef readonly captures(none)
   br i1 %39, label %.thread, label %45
 
 .thread:                                          ; preds = %31, %33
-  %.255130 = phi i32 [ %spec.select, %33 ], [ %.15494, %31 ]
-  %.064129 = phi ptr [ %37, %33 ], [ %26, %31 ]
-  %.065127 = phi ptr [ %35, %33 ], [ %5, %31 ]
+  %.255131 = phi i32 [ %spec.select, %33 ], [ %.15494, %31 ]
+  %.064130 = phi ptr [ %37, %33 ], [ %26, %31 ]
+  %.065128 = phi ptr [ %35, %33 ], [ %5, %31 ]
   %40 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !37
   %42 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %43 = load ptr, ptr %42, align 8, !tbaa !37
   %.not79 = icmp ne ptr %43, %5
   %44 = zext i1 %.not79 to i32
-  %spec.select82 = add nsw i32 %.255130, %44
+  %spec.select82 = add nsw i32 %.255131, %44
   br label %45
 
 45:                                               ; preds = %33, %.thread
-  %.064128 = phi ptr [ %.064129, %.thread ], [ %37, %33 ]
-  %.065126 = phi ptr [ %.065127, %.thread ], [ %35, %33 ]
+  %.064129 = phi ptr [ %.064130, %.thread ], [ %37, %33 ]
+  %.065127 = phi ptr [ %.065128, %.thread ], [ %35, %33 ]
   %.067 = phi ptr [ %41, %.thread ], [ %5, %33 ]
   %.066 = phi ptr [ %43, %.thread ], [ %28, %33 ]
   %.3 = phi i32 [ %spec.select82, %.thread ], [ %spec.select, %33 ]
-  %.not80 = icmp eq ptr %.067, %.064128
+  %.not80 = icmp eq ptr %.067, %.064129
   %spec.select83 = select i1 %.not80, i32 %.16092, i32 0
-  %.not81 = icmp eq ptr %.065126, %.066
+  %.not81 = icmp eq ptr %.065127, %.066
   %.258 = select i1 %.not81, i32 %.15793, i32 0
   %46 = icmp eq i32 %spec.select83, 0
   %47 = icmp eq i32 %.258, 0
@@ -268,7 +268,7 @@ define range(i32 -2147483646, -2147483648) i32 @cuddZddSymmSifting(ptr noundef %
 11:                                               ; preds = %3
   %12 = tail call noalias ptr @malloc(i64 noundef %7) #12
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.thread109, label %.preheader82
+  br i1 %13, label %.thread120, label %.preheader82
 
 .preheader82:                                     ; preds = %11
   %14 = icmp sgt i32 %5, 0
@@ -282,7 +282,7 @@ define range(i32 -2147483646, -2147483648) i32 @cuddZddSymmSifting(ptr noundef %
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %20
 
-.thread109:                                       ; preds = %11
+.thread120:                                       ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %19, align 8, !tbaa !44
   tail call void @free(ptr noundef nonnull %8) #11
@@ -444,8 +444,8 @@ cuddZddSymmSummary.exit.loopexit:                 ; preds = %.loopexit.i
   tail call void @free(ptr noundef nonnull %12) #11
   br label %cuddZddSymmSummary.exit
 
-cuddZddSymmSummary.exit:                          ; preds = %.thread109, %66, %cuddZddSymmSummary.exit.loopexit, %.thread79, %.thread
-  %.0 = phi i32 [ 0, %.thread ], [ 0, %.thread79 ], [ 1, %66 ], [ %78, %cuddZddSymmSummary.exit.loopexit ], [ 0, %.thread109 ]
+cuddZddSymmSummary.exit:                          ; preds = %.thread120, %66, %cuddZddSymmSummary.exit.loopexit, %.thread79, %.thread
+  %.0 = phi i32 [ 0, %.thread ], [ 0, %.thread79 ], [ 1, %66 ], [ %78, %cuddZddSymmSummary.exit.loopexit ], [ 0, %.thread120 ]
   ret i32 %.0
 }
 
@@ -1030,8 +1030,8 @@ define internal fastcc range(i32 0, 2) i32 @cuddZddSymmSiftingAux(ptr noundef %0
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit420, %.loopexit406, %242
-  %.0330482 = phi ptr [ %.0330, %.loopexit406 ], [ %.0330, %242 ], [ %179, %.loopexit420 ]
-  %switch404 = icmp ult ptr %.0330482, inttoptr (i64 2 to ptr)
+  %.0330502 = phi ptr [ %.0330, %.loopexit406 ], [ %.0330, %242 ], [ %179, %.loopexit420 ]
+  %switch404 = icmp ult ptr %.0330502, inttoptr (i64 2 to ptr)
   br i1 %switch404, label %.loopexit408, label %.preheader
 
 .preheader:                                       ; preds = %.thread
@@ -1041,7 +1041,7 @@ define internal fastcc range(i32 0, 2) i32 @cuddZddSymmSiftingAux(ptr noundef %0
 
 251:                                              ; preds = %.preheader, %251
   %252 = phi ptr [ %.6336, %251 ], [ %.promoted460, %.preheader ]
-  %.6336 = phi ptr [ %254, %251 ], [ %.0330482, %.preheader ]
+  %.6336 = phi ptr [ %254, %251 ], [ %.0330502, %.preheader ]
   %253 = getelementptr inbounds nuw i8, ptr %.6336, i64 16
   %254 = load ptr, ptr %253, align 8, !tbaa !71
   %255 = getelementptr inbounds nuw i8, ptr %.6336, i64 4
@@ -1774,8 +1774,8 @@ define range(i32 -2147483646, -2147483648) i32 @cuddZddSymmSiftingConv(ptr nound
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.loopexit383.i, %.loopexit365.i, %301
-  %.0290426.i = phi ptr [ %.0290.i, %.loopexit365.i ], [ %.0290.i, %301 ], [ %239, %.loopexit383.i ]
-  %switch363.i = icmp ult ptr %.0290426.i, inttoptr (i64 2 to ptr)
+  %.0290443.i = phi ptr [ %.0290.i, %.loopexit365.i ], [ %.0290.i, %301 ], [ %239, %.loopexit383.i ]
+  %switch363.i = icmp ult ptr %.0290443.i, inttoptr (i64 2 to ptr)
   br i1 %switch363.i, label %cuddZddSymmSiftingConvAux.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.thread.i
@@ -1784,7 +1784,7 @@ define range(i32 -2147483646, -2147483648) i32 @cuddZddSymmSiftingConv(ptr nound
 
 308:                                              ; preds = %308, %.preheader.i
   %309 = phi ptr [ %.6296.i, %308 ], [ %.promoted407.i, %.preheader.i ]
-  %.6296.i = phi ptr [ %311, %308 ], [ %.0290426.i, %.preheader.i ]
+  %.6296.i = phi ptr [ %311, %308 ], [ %.0290443.i, %.preheader.i ]
   %310 = getelementptr inbounds nuw i8, ptr %.6296.i, i64 16
   %311 = load ptr, ptr %310, align 8, !tbaa !71
   %312 = getelementptr inbounds nuw i8, ptr %.6296.i, i64 4

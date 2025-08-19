@@ -2338,9 +2338,9 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17haf34102bc94cfbf6E.exit.thre
   br i1 %55, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17haf34102bc94cfbf6E.exit.i.i16, label %56
 
 56:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17haf34102bc94cfbf6E.exit.thread.i.i12, %48
-  %.sink11.i14 = phi ptr [ %.sroa.040.0, %48 ], [ %scevgep90, %_ZN4core4iter6traits8iterator8Iterator10advance_by17haf34102bc94cfbf6E.exit.thread.i.i12 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.sink11.i14, i64 12
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %.sink11.i14, i64 12, i1 false)
+  %.sink15.i14 = phi ptr [ %.sroa.040.0, %48 ], [ %scevgep90, %_ZN4core4iter6traits8iterator8Iterator10advance_by17haf34102bc94cfbf6E.exit.thread.i.i12 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.sink15.i14, i64 12
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %.sink15.i14, i64 12, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !426)
   %58 = load i64, ptr %10, align 8, !alias.scope !429, !noalias !432, !noundef !9
   %59 = icmp ugt i64 %58, 4
@@ -2410,9 +2410,9 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17haf34102bc94cfbf6E.exit.i.i1
   ret void
 
 84:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17haf34102bc94cfbf6E.exit.thread.i.i, %38
-  %.sink11.i = phi ptr [ %.sroa.0.075, %38 ], [ %scevgep, %_ZN4core4iter6traits8iterator8Iterator10advance_by17haf34102bc94cfbf6E.exit.thread.i.i ]
-  %85 = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 12
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %.sink11.i, i64 12, i1 false)
+  %.sink15.i = phi ptr [ %.sroa.0.075, %38 ], [ %scevgep, %_ZN4core4iter6traits8iterator8Iterator10advance_by17haf34102bc94cfbf6E.exit.thread.i.i ]
+  %85 = getelementptr inbounds nuw i8, ptr %.sink15.i, i64 12
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %.sink15.i, i64 12, i1 false)
   %86 = getelementptr inbounds { i32, i32, i16, i8, [1 x i8] }, ptr %.sink3.i, i64 %.sroa.7.073
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %86, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
   %87 = add nuw i64 %.sroa.7.073, 1
@@ -2806,9 +2806,9 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h9a3442815acc670fE.exit.thre
   br i1 %55, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9a3442815acc670fE.exit.i.i16, label %56
 
 56:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9a3442815acc670fE.exit.thread.i.i12, %48
-  %.sink11.i14 = phi ptr [ %.sroa.040.0, %48 ], [ %scevgep90, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9a3442815acc670fE.exit.thread.i.i12 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.sink11.i14, i64 12
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %.sink11.i14, i64 12, i1 false)
+  %.sink15.i14 = phi ptr [ %.sroa.040.0, %48 ], [ %scevgep90, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9a3442815acc670fE.exit.thread.i.i12 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.sink15.i14, i64 12
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %.sink15.i14, i64 12, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !503)
   %58 = load i64, ptr %10, align 8, !alias.scope !506, !noalias !509, !noundef !9
   %59 = icmp ugt i64 %58, 4
@@ -2878,9 +2878,9 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h9a3442815acc670fE.exit.i.i1
   ret void
 
 84:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9a3442815acc670fE.exit.thread.i.i, %38
-  %.sink11.i = phi ptr [ %.sroa.0.075, %38 ], [ %scevgep, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9a3442815acc670fE.exit.thread.i.i ]
-  %85 = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 12
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %.sink11.i, i64 12, i1 false)
+  %.sink15.i = phi ptr [ %.sroa.0.075, %38 ], [ %scevgep, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9a3442815acc670fE.exit.thread.i.i ]
+  %85 = getelementptr inbounds nuw i8, ptr %.sink15.i, i64 12
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %.sink15.i, i64 12, i1 false)
   %86 = getelementptr inbounds { { i32, i32 }, i32 }, ptr %.sink3.i, i64 %.sroa.7.073
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %86, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
   %87 = add nuw i64 %.sroa.7.073, 1

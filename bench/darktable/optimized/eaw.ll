@@ -1191,7 +1191,7 @@ dwt_interleave_rows.exit:                         ; preds = %46, %54, %59
   %.not237 = icmp slt i32 %84, %7
   %85 = tail call i32 @llvm.smax.i32(i32 %84, i32 0)
   %86 = select i1 %.not237, i32 %85, i32 %25
-  %87 = sext i32 %86 to i64
+  %87 = zext nneg i32 %86 to i64
   %88 = mul i64 %31, %87
   %invariant.gep = getelementptr float, ptr %1, i64 %88
   br label %91
@@ -1311,7 +1311,7 @@ dn_weight.exit:                                   ; preds = %99
   br i1 %exitcond309.not, label %138, label %143
 
 .preheader247.loopexit:                           ; preds = %213
-  %159 = trunc nsw i64 %indvars.iv.next to i32
+  %159 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.preheader247
 
 .preheader247:                                    ; preds = %.preheader247.loopexit, %.preheader248
@@ -1482,7 +1482,7 @@ dn_weight.exit242:                                ; preds = %174
   %.not234 = icmp slt i32 %238, %7
   %239 = tail call i32 @llvm.smax.i32(i32 %238, i32 0)
   %240 = select i1 %.not234, i32 %239, i32 %25
-  %241 = sext i32 %240 to i64
+  %241 = zext nneg i32 %240 to i64
   %242 = mul i64 %31, %241
   %invariant.gep280 = getelementptr float, ptr %1, i64 %242
   br label %245

@@ -522,7 +522,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   store ptr %31, ptr %24, align 8, !alias.scope !72, !noalias !62
   %.sroa.0.0.copyload4.i.i = load i64, ptr %30, align 8, !noalias !73
   %32 = icmp eq i64 %.sroa.0.0.copyload4.i.i, 12
-  br i1 %32, label %.thread.loopexit.split.loop.exit32, label %33
+  br i1 %32, label %.thread.loopexit.split.loop.exit35, label %33
 
 33:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i"
   %.sroa.8.0..sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -551,7 +551,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$uv_workspace..pyproject..SerdePattern$GT$$GT$17h5762dda6d7caa0a6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #27
           to label %10 unwind label %75
 
-.thread.loopexit.split.loop.exit32:               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i"
+.thread.loopexit.split.loop.exit35:               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i"
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 176
   br label %.loopexit
 
@@ -614,8 +614,8 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %.pre = load ptr, ptr %24, align 8, !alias.scope !86
   br label %.loopexit
 
-.loopexit:                                        ; preds = %51, %19, %.thread.loopexit.split.loop.exit32, %.loopexit.loopexit
-  %58 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %26, %19 ], [ %38, %.thread.loopexit.split.loop.exit32 ], [ %56, %51 ]
+.loopexit:                                        ; preds = %51, %19, %.thread.loopexit.split.loop.exit35, %.loopexit.loopexit
+  %58 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %26, %19 ], [ %38, %.thread.loopexit.split.loop.exit35 ], [ %56, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
@@ -1010,7 +1010,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   store ptr %37, ptr %28, align 8, !alias.scope !171, !noalias !161
   %.sroa.0.0.copyload4.i.i = load i64, ptr %36, align 8, !noalias !172
   %38 = icmp eq i64 %.sroa.0.0.copyload4.i.i, 12
-  br i1 %38, label %.thread.loopexit.split.loop.exit55, label %39
+  br i1 %38, label %.thread.loopexit.split.loop.exit60, label %39
 
 39:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i"
   %.sroa.8.0..sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -1085,7 +1085,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   invoke void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$uv_pypi_types..conflicts..SchemaConflictItem$GT$$GT$17hb20669b674928134E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #27
           to label %.body unwind label %125
 
-.thread.loopexit.split.loop.exit55:               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i"
+.thread.loopexit.split.loop.exit60:               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i"
   %54 = getelementptr inbounds nuw i8, ptr %36, i64 176
   br label %.loopexit
 
@@ -1239,8 +1239,8 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %.pre = load ptr, ptr %28, align 8, !alias.scope !221
   br label %.loopexit
 
-.loopexit:                                        ; preds = %101, %23, %.thread.loopexit.split.loop.exit55, %.loopexit.loopexit
-  %108 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %30, %23 ], [ %54, %.thread.loopexit.split.loop.exit55 ], [ %106, %101 ]
+.loopexit:                                        ; preds = %101, %23, %.thread.loopexit.split.loop.exit60, %.loopexit.loopexit
+  %108 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %30, %23 ], [ %54, %.thread.loopexit.split.loop.exit60 ], [ %106, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12)
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
@@ -1396,7 +1396,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   store ptr %31, ptr %24, align 8, !alias.scope !261, !noalias !251
   %.sroa.0.0.copyload4.i.i = load i64, ptr %30, align 8, !noalias !262
   %32 = icmp eq i64 %.sroa.0.0.copyload4.i.i, 12
-  br i1 %32, label %.thread.loopexit.split.loop.exit33, label %33
+  br i1 %32, label %.thread.loopexit.split.loop.exit36, label %33
 
 33:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i"
   %.sroa.8.0..sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -1425,7 +1425,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h8e67f1c6317466abE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #27
           to label %10 unwind label %75
 
-.thread.loopexit.split.loop.exit33:               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i"
+.thread.loopexit.split.loop.exit36:               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i"
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 176
   br label %.loopexit
 
@@ -1488,8 +1488,8 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %.pre = load ptr, ptr %24, align 8, !alias.scope !274
   br label %.loopexit
 
-.loopexit:                                        ; preds = %51, %19, %.thread.loopexit.split.loop.exit33, %.loopexit.loopexit
-  %58 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %26, %19 ], [ %38, %.thread.loopexit.split.loop.exit33 ], [ %56, %51 ]
+.loopexit:                                        ; preds = %51, %19, %.thread.loopexit.split.loop.exit36, %.loopexit.loopexit
+  %58 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %26, %19 ], [ %38, %.thread.loopexit.split.loop.exit36 ], [ %56, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
@@ -1652,7 +1652,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   store ptr %37, ptr %28, align 8, !alias.scope !314, !noalias !304
   %.sroa.0.0.copyload4.i.i = load i64, ptr %36, align 8, !noalias !315
   %38 = icmp eq i64 %.sroa.0.0.copyload4.i.i, 12
-  br i1 %38, label %.thread.loopexit.split.loop.exit48, label %39
+  br i1 %38, label %.thread.loopexit.split.loop.exit52, label %39
 
 39:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i"
   %.sroa.8.0..sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -1730,7 +1730,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$uv_pypi_types..conflicts..SchemaConflictSet$GT$$GT$17h1e46f00475d6c477E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #27
           to label %.body unwind label %98
 
-.thread.loopexit.split.loop.exit48:               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i"
+.thread.loopexit.split.loop.exit52:               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i"
   %49 = getelementptr inbounds nuw i8, ptr %36, i64 176
   br label %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$uv_pypi_types..conflicts..SchemaConflictSet$GT$$GT$17h7c7c8c95f856a5d0E.exit"
 
@@ -1816,8 +1816,8 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %.pre = load ptr, ptr %28, align 8, !alias.scope !350
   br label %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$uv_pypi_types..conflicts..SchemaConflictSet$GT$$GT$17h7c7c8c95f856a5d0E.exit"
 
-"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$uv_pypi_types..conflicts..SchemaConflictSet$GT$$GT$17h7c7c8c95f856a5d0E.exit": ; preds = %77, %23, %.thread.loopexit.split.loop.exit48, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$uv_pypi_types..conflicts..SchemaConflictSet$GT$$GT$17h7c7c8c95f856a5d0E.exit.loopexit"
-  %74 = phi ptr [ %.pre, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$uv_pypi_types..conflicts..SchemaConflictSet$GT$$GT$17h7c7c8c95f856a5d0E.exit.loopexit" ], [ %30, %23 ], [ %49, %.thread.loopexit.split.loop.exit48 ], [ %82, %77 ]
+"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$uv_pypi_types..conflicts..SchemaConflictSet$GT$$GT$17h7c7c8c95f856a5d0E.exit": ; preds = %77, %23, %.thread.loopexit.split.loop.exit52, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$uv_pypi_types..conflicts..SchemaConflictSet$GT$$GT$17h7c7c8c95f856a5d0E.exit.loopexit"
+  %74 = phi ptr [ %.pre, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$uv_pypi_types..conflicts..SchemaConflictSet$GT$$GT$17h7c7c8c95f856a5d0E.exit.loopexit" ], [ %30, %23 ], [ %49, %.thread.loopexit.split.loop.exit52 ], [ %82, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12)
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
@@ -1986,7 +1986,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   store ptr %31, ptr %24, align 8, !alias.scope !394, !noalias !384
   %.sroa.0.0.copyload4.i.i = load i64, ptr %30, align 8, !noalias !395
   %32 = icmp eq i64 %.sroa.0.0.copyload4.i.i, 12
-  br i1 %32, label %.thread.loopexit.split.loop.exit32, label %33
+  br i1 %32, label %.thread.loopexit.split.loop.exit35, label %33
 
 33:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i"
   %.sroa.8.0..sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -2015,7 +2015,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   invoke void @"_ZN4core3ptr102drop_in_place$LT$alloc..vec..Vec$LT$uv_pypi_types..dependency_groups..DependencyGroupSpecifier$GT$$GT$17ha28d5a4ff0d46ef9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #27
           to label %10 unwind label %75
 
-.thread.loopexit.split.loop.exit32:               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i"
+.thread.loopexit.split.loop.exit35:               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i"
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 176
   br label %.loopexit
 
@@ -2078,8 +2078,8 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %.pre = load ptr, ptr %24, align 8, !alias.scope !407
   br label %.loopexit
 
-.loopexit:                                        ; preds = %51, %19, %.thread.loopexit.split.loop.exit32, %.loopexit.loopexit
-  %58 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %26, %19 ], [ %38, %.thread.loopexit.split.loop.exit32 ], [ %56, %51 ]
+.loopexit:                                        ; preds = %51, %19, %.thread.loopexit.split.loop.exit35, %.loopexit.loopexit
+  %58 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %26, %19 ], [ %38, %.thread.loopexit.split.loop.exit35 ], [ %56, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
@@ -2230,7 +2230,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   store ptr %31, ptr %24, align 8, !alias.scope !447, !noalias !437
   %.sroa.0.0.copyload3.i.i = load i64, ptr %30, align 8, !noalias !448
   %32 = icmp eq i64 %.sroa.0.0.copyload3.i.i, 12
-  br i1 %32, label %._crit_edge.loopexit.split.loop.exit24, label %33
+  br i1 %32, label %._crit_edge.loopexit.split.loop.exit28, label %33
 
 33:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i"
   %.sroa.8.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -2302,12 +2302,12 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %58 = icmp eq ptr %57, %56
   br i1 %58, label %._crit_edge, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i"
 
-._crit_edge.loopexit.split.loop.exit24:           ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i"
+._crit_edge.loopexit.split.loop.exit28:           ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i"
   %59 = getelementptr inbounds nuw i8, ptr %30, i64 176
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %52, %._crit_edge.loopexit.split.loop.exit24, %19
-  %60 = phi ptr [ %26, %19 ], [ %59, %._crit_edge.loopexit.split.loop.exit24 ], [ %57, %52 ]
+._crit_edge:                                      ; preds = %52, %._crit_edge.loopexit.split.loop.exit28, %19
+  %60 = phi ptr [ %26, %19 ], [ %59, %._crit_edge.loopexit.split.loop.exit28 ], [ %57, %52 ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   store i64 2, ptr %0, align 8
@@ -13986,7 +13986,7 @@ define hidden void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$ser
   store ptr %14, ptr %8, align 8, !alias.scope !2203, !noalias !2193
   %.sroa.0.0.copyload3.i.i = load i64, ptr %13, align 8, !noalias !2204
   %15 = icmp eq i64 %.sroa.0.0.copyload3.i.i, 12
-  br i1 %15, label %.critedge.loopexit.split.loop.exit16, label %16
+  br i1 %15, label %.critedge.loopexit.split.loop.exit19, label %16
 
 16:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i"
   %.sroa.8.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -14061,12 +14061,12 @@ common.resume:                                    ; preds = %23, %36, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2220
   br label %41
 
-.critedge.loopexit.split.loop.exit16:             ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i"
+.critedge.loopexit.split.loop.exit19:             ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98ff7e691be45a78E.llvm.13733232736960424610.exit.i.i"
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 176
   br label %.critedge
 
-.critedge:                                        ; preds = %19, %.critedge.loopexit.split.loop.exit16, %2
-  %34 = phi ptr [ %10, %2 ], [ %33, %.critedge.loopexit.split.loop.exit16 ], [ %21, %19 ]
+.critedge:                                        ; preds = %19, %.critedge.loopexit.split.loop.exit19, %2
+  %34 = phi ptr [ %10, %2 ], [ %33, %.critedge.loopexit.split.loop.exit19 ], [ %21, %19 ]
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2221
   store ptr %1, ptr %3, align 8, !noalias !2221

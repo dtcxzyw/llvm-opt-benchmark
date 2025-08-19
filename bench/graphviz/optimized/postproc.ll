@@ -1416,9 +1416,9 @@ default.unreachable:                              ; preds = %577
   br i1 %597, label %.thread, label %translate_drawing.exit
 
 .thread.sink.split:                               ; preds = %590, %585, %580
-  %.sink88 = phi double [ %583, %580 ], [ %586, %585 ], [ %592, %590 ]
+  %.sink135 = phi double [ %583, %580 ], [ %586, %585 ], [ %592, %590 ]
   %.sink = phi double [ %584, %580 ], [ %589, %585 ], [ %593, %590 ]
-  store double %.sink88, ptr @Offset, align 8, !tbaa !12
+  store double %.sink135, ptr @Offset, align 8, !tbaa !12
   store double %.sink, ptr getelementptr inbounds nuw (i8, ptr @Offset, i64 8), align 8, !tbaa !12
   br label %.thread
 

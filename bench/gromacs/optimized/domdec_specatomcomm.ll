@@ -587,9 +587,9 @@ define void @_Z16dd_move_x_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPA3_
   br i1 %exitcond361.not, label %.split316.preheader, label %81, !llvm.loop !132
 
 .split316.preheader:                              ; preds = %81, %70
-  %.pn395.in = phi i8 [ %71, %70 ], [ %80, %81 ]
-  %.pn395 = trunc nuw i8 %.pn395.in to i1
-  %.0219.shrunk.ph = and i1 %39, %.pn395
+  %.pn414.in = phi i8 [ %71, %70 ], [ %80, %81 ]
+  %.pn414 = trunc nuw i8 %.pn414.in to i1
+  %.0219.shrunk.ph = and i1 %39, %.pn414
   %86 = getelementptr inbounds nuw [2 x %struct.gmx_specatsend_t], ptr %37, i64 0, i64 %indvars.iv364
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   br label %.split316
@@ -778,7 +778,7 @@ define void @_Z16dd_move_x_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPA3_
   %.1223327.us = phi ptr [ %188, %._crit_edge.us329 ], [ %.0222335, %.lr.ph324.us.preheader ]
   %180 = phi i1 [ false, %._crit_edge.us329 ], [ true, %.lr.ph324.us.preheader ]
   %181 = select i1 %180, ptr %3, ptr %4
-  %invariant.gep393 = getelementptr %"class.gmx::BasicVector.13", ptr %181, i64 %179
+  %invariant.gep412 = getelementptr %"class.gmx::BasicVector.13", ptr %181, i64 %179
   br label %182
 
 182:                                              ; preds = %.lr.ph324.us, %182
@@ -789,11 +789,11 @@ define void @_Z16dd_move_x_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPA3_
   %185 = load float, ptr %184, align 4, !tbaa !126
   %186 = getelementptr inbounds nuw i8, ptr %.2224323.us, i64 8
   %187 = load float, ptr %186, align 4, !tbaa !126
-  %gep394 = getelementptr %"class.gmx::BasicVector.13", ptr %invariant.gep393, i64 %indvars.iv367
-  store float %183, ptr %gep394, align 4
-  %.sroa.4.0..sroa_idx257.us = getelementptr inbounds nuw i8, ptr %gep394, i64 4
+  %gep413 = getelementptr %"class.gmx::BasicVector.13", ptr %invariant.gep412, i64 %indvars.iv367
+  store float %183, ptr %gep413, align 4
+  %.sroa.4.0..sroa_idx257.us = getelementptr inbounds nuw i8, ptr %gep413, i64 4
   store float %185, ptr %.sroa.4.0..sroa_idx257.us, align 4
-  %.sroa.5.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %gep394, i64 8
+  %.sroa.5.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %gep413, i64 8
   store float %187, ptr %.sroa.5.0..sroa_idx.us, align 4, !tbaa !134
   %188 = getelementptr inbounds nuw i8, ptr %.2224323.us, i64 12
   %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 1
@@ -807,8 +807,8 @@ define void @_Z16dd_move_x_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPA3_
   %.us-phi332 = phi ptr [ %.0222335, %175 ], [ %188, %._crit_edge.us329 ]
   %189 = add nsw i32 %177, %.0225334
   %indvars.iv.next373 = add nsw i64 %indvars.iv372, -1
-  %.not378 = icmp eq i64 %indvars.iv372, 0
-  br i1 %.not378, label %.loopexit280, label %175, !llvm.loop !141
+  %.not397 = icmp eq i64 %indvars.iv372, 0
+  br i1 %.not397, label %.loopexit280, label %175, !llvm.loop !141
 
 .loopexit280:                                     ; preds = %.split331.us, %156
   %190 = add nsw i32 %64, %53
@@ -1148,8 +1148,8 @@ define noundef i32 @_Z26setup_specat_communicationP12gmx_domdec_tPSt6vectorIiSaI
   br i1 %94, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %91
-  %95 = shl i64 %83, 2
-  %96 = add i64 %95, -4
+  %95 = shl nuw nsw i64 %83, 2
+  %96 = add nsw i64 %95, -4
   call void @llvm.memset.p0.i64(ptr align 4 %92, i8 0, i64 %96, i1 false), !tbaa !116
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %93, 2
   %97 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx.i.i.i.i.i.i
@@ -1790,7 +1790,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit284:       ; preds = %331, %_ZNSt6vectorI
   br i1 %.not37.i.i, label %428, label %426
 
 426:                                              ; preds = %417
-  %427 = shl i64 %418, 2
+  %427 = shl nuw nsw i64 %418, 2
   %scevgep.i.i.i = getelementptr i8, ptr %410, i64 %427
   store ptr %scevgep.i.i.i, ptr %152, align 8, !tbaa !190
   br label %_ZNSt6vectorIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE6resizeEm.exit
@@ -2039,8 +2039,8 @@ _ZNSt6vectorIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE6resizeEm.exit: ; p
 
 _ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i: ; preds = %548, %547, %546, %.critedge.i
   %549 = phi ptr [ %504, %548 ], [ %504, %547 ], [ %.pre.i309, %546 ], [ %504, %.critedge.i ]
-  %.2.lcssa47.i = phi i64 [ -1, %548 ], [ 0, %547 ], [ %538, %546 ], [ %.2.lcssa.i, %.critedge.i ]
-  %550 = trunc i64 %.2.lcssa47.i to i32
+  %.2.lcssa53.i = phi i64 [ -1, %548 ], [ 0, %547 ], [ %538, %546 ], [ %.2.lcssa.i, %.critedge.i ]
+  %550 = trunc i64 %.2.lcssa53.i to i32
   %551 = getelementptr inbounds nuw %"struct.gmx::HashedMap<int>::hashEntry", ptr %549, i64 %519, i32 2
   store i32 %550, ptr %551, align 4, !tbaa !186
   %552 = add i32 %550, 1
@@ -2049,7 +2049,7 @@ _ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i: ; preds = %5
 
 553:                                              ; preds = %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i, %.lr.ph401
   %554 = phi ptr [ %549, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i ], [ %504, %.lr.ph401 ]
-  %.026.i = phi i64 [ %.2.lcssa47.i, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i ], [ %510, %.lr.ph401 ]
+  %.026.i = phi i64 [ %.2.lcssa53.i, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i ], [ %510, %.lr.ph401 ]
   %555 = getelementptr inbounds nuw %"struct.gmx::HashedMap<int>::hashEntry", ptr %554, i64 %.026.i
   store i32 %507, ptr %555, align 4, !tbaa !184
   %556 = getelementptr inbounds nuw i8, ptr %555, i64 4
@@ -2292,7 +2292,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br i1 %.not28.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = mul i64 %12, 12
+  %22 = mul nuw nsw i64 %12, 12
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %22
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !195
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit

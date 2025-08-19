@@ -655,7 +655,7 @@ define hidden void @"_ZN160_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %47 = icmp ult i32 %.sroa.46.1, 1000000000
   %48 = add nuw i64 %.sroa.4.1, %40
   %spec.select = select i1 %47, i32 %.sroa.46.1, i32 %39
-  %spec.select105 = select i1 %47, i64 %.sroa.4.1, i64 %48
+  %spec.select106 = select i1 %47, i64 %.sroa.4.1, i64 %48
   br label %_ZN4core4time8Duration3new17h243a0eb3cc81cb09E.exit
 
 49:                                               ; preds = %45
@@ -664,7 +664,7 @@ define hidden void @"_ZN160_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
 
 _ZN4core4time8Duration3new17h243a0eb3cc81cb09E.exit: ; preds = %.thread30, %45
   %.sroa.3.0.i = phi i32 [ %.sroa.46.1, %45 ], [ %spec.select, %.thread30 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.4.1, %45 ], [ %spec.select105, %.thread30 ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.4.1, %45 ], [ %spec.select106, %.thread30 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0.0.i, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -797,7 +797,7 @@ define hidden void @"_ZN160_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %34 = icmp ult i32 %24, 1000000000
   %35 = add nuw i64 %16, %27
   %spec.select = select i1 %34, i32 %24, i32 %26
-  %spec.select51 = select i1 %34, i64 %16, i64 %35
+  %spec.select55 = select i1 %34, i64 %16, i64 %35
   br label %_ZN4core4time8Duration3new17h243a0eb3cc81cb09E.exit
 
 36:                                               ; preds = %32
@@ -806,7 +806,7 @@ define hidden void @"_ZN160_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
 
 _ZN4core4time8Duration3new17h243a0eb3cc81cb09E.exit: ; preds = %.thread49, %32
   %.sroa.3.0.i = phi i32 [ %24, %32 ], [ %spec.select, %.thread49 ]
-  %.sroa.0.0.i = phi i64 [ %16, %32 ], [ %spec.select51, %.thread49 ]
+  %.sroa.0.0.i = phi i64 [ %16, %32 ], [ %spec.select55, %.thread49 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0.0.i, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5398,8 +5398,8 @@ define hidden void @"_ZN91_$LT$pingora_cache..eviction..simple_lru..InsertToMana
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.not.i.i.i83 = icmp eq i32 %.promoted, 0
-  br i1 %.not.i.i.i83, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$pingora_cache..eviction..simple_lru..Node$GT$$GT$17h0a708df95941fce5E.exit", label %.lr.ph
+  %.not.i.i.i84 = icmp eq i32 %.promoted, 0
+  br i1 %.not.i.i.i84, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$pingora_cache..eviction..simple_lru..Node$GT$$GT$17h0a708df95941fce5E.exit", label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %16
   %11 = phi i32 [ %12, %16 ], [ %.promoted, %3 ]
@@ -6738,14 +6738,14 @@ define internal { i64, ptr } @"_ZN105_$LT$pingora_cache..eviction..simple_lru..M
   %25 = alloca [24 x i8], align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load i8, ptr %26, align 8, !range !139, !noundef !7
-  switch i8 %27, label %default.unreachable46 [
+  switch i8 %27, label %default.unreachable51 [
     i8 0, label %"_ZN4core3ptr133drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$pingora_error..Error$GT$$GT$$GT$$GT$17hffce5c8742d35864E.exit"
     i8 1, label %164
     i8 2, label %165
     i8 3, label %28
   ]
 
-default.unreachable46:                            ; preds = %2
+default.unreachable51:                            ; preds = %2
   unreachable
 
 28:                                               ; preds = %2
@@ -6757,13 +6757,13 @@ common.ret:                                       ; preds = %173, %30
   ret { i64, ptr } %common.ret.op
 
 .sink.split:                                      ; preds = %182, %138, %.thread
-  %.sink47 = phi ptr [ %.sink.i, %.thread ], [ %.sroa.7.0.copyload, %138 ], [ %184, %182 ]
-  %29 = icmp ne ptr %.sink47, null
+  %.sink52 = phi ptr [ %.sink.i, %.thread ], [ %.sroa.7.0.copyload, %138 ], [ %184, %182 ]
+  %29 = icmp ne ptr %.sink52, null
   call void @llvm.assume(i1 %29)
   br label %30
 
 30:                                               ; preds = %.sink.split, %182
-  %.sroa.05.0 = phi ptr [ %184, %182 ], [ %.sink47, %.sink.split ]
+  %.sroa.05.0 = phi ptr [ %184, %182 ], [ %.sink52, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   store i8 1, ptr %26, align 8
   %31 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.sroa.05.0, 1
@@ -7339,14 +7339,14 @@ define internal { i64, ptr } @"_ZN105_$LT$pingora_cache..eviction..simple_lru..M
   %17 = alloca [24 x i8], align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load i8, ptr %18, align 8, !range !139, !noundef !7
-  switch i8 %19, label %default.unreachable54 [
+  switch i8 %19, label %default.unreachable55 [
     i8 0, label %"_ZN4core3ptr133drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$pingora_error..Error$GT$$GT$$GT$$GT$17hffce5c8742d35864E.exit"
     i8 1, label %47
     i8 2, label %48
     i8 3, label %20
   ]
 
-default.unreachable54:                            ; preds = %2
+default.unreachable55:                            ; preds = %2
   unreachable
 
 20:                                               ; preds = %2

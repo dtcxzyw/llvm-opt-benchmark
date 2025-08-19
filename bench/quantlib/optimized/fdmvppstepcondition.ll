@@ -863,12 +863,12 @@ _ZNK5boost10shared_ptrIN8QuantLib9FdmMesherEEptEv.exit: ; preds = %entry, %cond.
   br i1 %cmp.not.i27, label %_ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEptEv.exit, label %_ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEptEv.exit.thread, !prof !53
 
 _ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEptEv.exit.thread: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib9FdmMesherEEptEv.exit
-  %dim_.i178 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %stateDirection_179 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %3 = load i64, ptr %stateDirection_179, align 8, !tbaa !46
-  %4 = load ptr, ptr %dim_.i178, align 8, !tbaa !56
-  %add.ptr.i180 = getelementptr inbounds nuw i64, ptr %4, i64 %3
-  %5 = load i64, ptr %add.ptr.i180, align 8, !tbaa !8
+  %dim_.i207 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %stateDirection_208 = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %3 = load i64, ptr %stateDirection_208, align 8, !tbaa !46
+  %4 = load ptr, ptr %dim_.i207, align 8, !tbaa !56
+  %add.ptr.i209 = getelementptr inbounds nuw i64, ptr %4, i64 %3
+  %5 = load i64, ptr %add.ptr.i209, align 8, !tbaa !8
   br label %_ZNK5boost10shared_ptrIN8QuantLib9FdmMesherEEptEv.exit33
 
 _ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEptEv.exit: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib9FdmMesherEEptEv.exit
@@ -891,7 +891,7 @@ cond.false.i31:                                   ; preds = %_ZNK5boost10shared_
 
 _ZNK5boost10shared_ptrIN8QuantLib9FdmMesherEEptEv.exit33: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEptEv.exit.thread, %_ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEptEv.exit, %cond.false.i31
   %9 = phi i64 [ %8, %_ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEptEv.exit ], [ %8, %cond.false.i31 ], [ %5, %_ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEptEv.exit.thread ]
-  %stateDirection_182 = phi ptr [ %stateDirection_, %_ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEptEv.exit ], [ %stateDirection_, %cond.false.i31 ], [ %stateDirection_179, %_ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEptEv.exit.thread ]
+  %stateDirection_211 = phi ptr [ %stateDirection_, %_ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEptEv.exit ], [ %stateDirection_, %cond.false.i31 ], [ %stateDirection_208, %_ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEptEv.exit.thread ]
   %10 = phi ptr [ %.pre, %_ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEptEv.exit ], [ %.pre.i32, %cond.false.i31 ], [ %1, %_ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEptEv.exit.thread ]
   %layout_.i34 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load ptr, ptr %layout_.i34, align 8, !tbaa !54
@@ -1008,7 +1008,7 @@ for.body41.lr.ph:                                 ; preds = %_ZNK5boost10shared_
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit
   %27 = phi i64 [ %14, %for.body.lr.ph ], [ %47, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit ]
-  %28 = load i64, ptr %stateDirection_182, align 8, !tbaa !46
+  %28 = load i64, ptr %stateDirection_211, align 8, !tbaa !46
   %29 = load ptr, ptr %coordinates_.i.i, align 8, !tbaa !56
   %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %29, i64 %28
   %30 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !8
@@ -1171,7 +1171,7 @@ _ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit103:    ; preds = %_ZNSt6vectorImSaImE
 
 for.body41:                                       ; preds = %for.body41.lr.ph, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit164
   %51 = phi i64 [ %23, %for.body41.lr.ph ], [ %92, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit164 ]
-  %52 = load i64, ptr %stateDirection_182, align 8, !tbaa !46
+  %52 = load i64, ptr %stateDirection_211, align 8, !tbaa !46
   %53 = load ptr, ptr %coordinates_.i104, align 8, !tbaa !56
   %add.ptr.i105 = getelementptr inbounds nuw i64, ptr %53, i64 %52
   %54 = load i64, ptr %add.ptr.i105, align 8, !tbaa !8
@@ -1245,7 +1245,7 @@ cond.false.i119:                                  ; preds = %invoke.cont58
 
 invoke.cont62:                                    ; preds = %.noexc121, %invoke.cont58
   %60 = phi ptr [ %59, %invoke.cont58 ], [ %.pre.i120, %.noexc121 ]
-  %61 = load i64, ptr %stateDirection_182, align 8, !tbaa !46
+  %61 = load i64, ptr %stateDirection_211, align 8, !tbaa !46
   %conv = trunc i64 %i.0167 to i32
   %call66 = invoke noundef i64 @_ZNK8QuantLib17FdmLinearOpLayout13neighbourhoodERKNS_19FdmLinearOpIteratorEmi(ptr noundef nonnull align 8 dereferenceable(56) %60, ptr noundef nonnull align 8 dereferenceable(56) %__begin132, i64 noundef %61, i32 noundef %conv)
           to label %invoke.cont65 unwind label %lpad57
@@ -1361,7 +1361,7 @@ cond.false.i137:                                  ; preds = %invoke.cont94
 
 invoke.cont98:                                    ; preds = %.noexc139, %invoke.cont94
   %81 = phi ptr [ %80, %invoke.cont94 ], [ %.pre.i138, %.noexc139 ]
-  %82 = load i64, ptr %stateDirection_182, align 8, !tbaa !46
+  %82 = load i64, ptr %stateDirection_211, align 8, !tbaa !46
   %conv101 = trunc i64 %i85.0169 to i32
   %call103 = invoke noundef i64 @_ZNK8QuantLib17FdmLinearOpLayout13neighbourhoodERKNS_19FdmLinearOpIteratorEmi(ptr noundef nonnull align 8 dereferenceable(56) %81, ptr noundef nonnull align 8 dereferenceable(56) %__begin132, i64 noundef %82, i32 noundef %conv101)
           to label %invoke.cont102 unwind label %lpad90

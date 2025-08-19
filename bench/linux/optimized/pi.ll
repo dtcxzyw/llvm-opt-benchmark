@@ -896,7 +896,7 @@ define dso_local i32 @futex_lock_pi(ptr noundef %0, i32 noundef %1, ptr noundef 
 .split.us:                                        ; preds = %28, %.split.us.backedge
   %32 = call ptr @futex_q_lock(ptr noundef nonnull %8) #13
   %33 = call i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %32, ptr noundef nonnull %25, ptr noundef nonnull %29, ptr noundef %10, ptr noundef nonnull %6, i32 noundef 0)
-  switch i32 %33, label %.split21.us.loopexit83 [
+  switch i32 %33, label %.split21.us.loopexit90 [
     i32 0, label %.split18.us
     i32 1, label %.split21.us
     i32 -14, label %39
@@ -925,7 +925,7 @@ define dso_local i32 @futex_lock_pi(ptr noundef %0, i32 noundef %1, ptr noundef 
 .split:                                           ; preds = %28, %47
   %42 = call ptr @futex_q_lock(ptr noundef nonnull %8) #13
   %43 = call i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %42, ptr noundef nonnull %25, ptr noundef nonnull %29, ptr noundef %10, ptr noundef nonnull %6, i32 noundef 0)
-  switch i32 %43, label %.split21.us.loopexit91 [
+  switch i32 %43, label %.split21.us.loopexit98 [
     i32 0, label %.split18.us
     i32 1, label %.split21.us
     i32 -14, label %110
@@ -1042,15 +1042,15 @@ define dso_local i32 @futex_lock_pi(ptr noundef %0, i32 noundef %1, ptr noundef 
   call void @_raw_spin_unlock(ptr noundef %100) #13
   br label %.loopexit8
 
-.split21.us.loopexit83:                           ; preds = %.split.us
+.split21.us.loopexit90:                           ; preds = %.split.us
   br label %.split21.us
 
-.split21.us.loopexit91:                           ; preds = %.split
+.split21.us.loopexit98:                           ; preds = %.split
   br label %.split21.us
 
-.split21.us:                                      ; preds = %.split, %.split.us, %.split21.us.loopexit91, %.split21.us.loopexit83
-  %101 = phi ptr [ %32, %.split21.us.loopexit83 ], [ %42, %.split21.us.loopexit91 ], [ %32, %.split.us ], [ %42, %.split ]
-  %102 = phi i32 [ %33, %.split21.us.loopexit83 ], [ %43, %.split21.us.loopexit91 ], [ 0, %.split.us ], [ 0, %.split ]
+.split21.us:                                      ; preds = %.split, %.split.us, %.split21.us.loopexit98, %.split21.us.loopexit90
+  %101 = phi ptr [ %32, %.split21.us.loopexit90 ], [ %42, %.split21.us.loopexit98 ], [ %32, %.split.us ], [ %42, %.split ]
+  %102 = phi i32 [ %33, %.split21.us.loopexit90 ], [ %43, %.split21.us.loopexit98 ], [ 0, %.split.us ], [ 0, %.split ]
   call void @futex_q_unlock(ptr noundef %101) #13
   br label %.loopexit8
 

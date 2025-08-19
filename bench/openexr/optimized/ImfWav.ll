@@ -88,7 +88,7 @@ define void @_ZN7Imf_3_410wav2EncodeEPtiiiit(ptr noundef captures(address) %0, i
   store i16 %57, ptr %29, align 2, !tbaa !3
   %58 = getelementptr inbounds i16, ptr %.093118.us, i64 %22
   %.not97.us = icmp ugt ptr %58, %26
-  br i1 %.not97.us, label %._crit_edge.thread147, label %.lr.ph.split.us, !llvm.loop !7
+  br i1 %.not97.us, label %._crit_edge.thread152, label %.lr.ph.split.us, !llvm.loop !7
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.093118 = phi ptr [ %101, %.lr.ph.split ], [ %.092120, %.lr.ph ]
@@ -148,10 +148,10 @@ define void @_ZN7Imf_3_410wav2EncodeEPtiiiit(ptr noundef captures(address) %0, i
 ._crit_edge:                                      ; preds = %25
   br i1 %.not98, label %130, label %104
 
-._crit_edge.thread147:                            ; preds = %.lr.ph.split.us
-  br i1 %.not98, label %130, label %.thread149
+._crit_edge.thread152:                            ; preds = %.lr.ph.split.us
+  br i1 %.not98, label %130, label %.thread154
 
-.thread149:                                       ; preds = %._crit_edge.thread147
+.thread154:                                       ; preds = %._crit_edge.thread152
   %102 = getelementptr inbounds i16, ptr %58, i64 %21
   br label %106
 
@@ -166,10 +166,10 @@ define void @_ZN7Imf_3_410wav2EncodeEPtiiiit(ptr noundef captures(address) %0, i
   %105 = getelementptr inbounds i16, ptr %.092120, i64 %21
   br i1 %7, label %106, label %115
 
-106:                                              ; preds = %.thread149, %104
-  %107 = phi ptr [ %102, %.thread149 ], [ %105, %104 ]
-  %.093.lcssa143151 = phi ptr [ %58, %.thread149 ], [ %.092120, %104 ]
-  %108 = load i16, ptr %.093.lcssa143151, align 2, !tbaa !3
+106:                                              ; preds = %.thread154, %104
+  %107 = phi ptr [ %102, %.thread154 ], [ %105, %104 ]
+  %.093.lcssa148156 = phi ptr [ %58, %.thread154 ], [ %.092120, %104 ]
+  %108 = load i16, ptr %.093.lcssa148156, align 2, !tbaa !3
   %109 = load i16, ptr %107, align 2, !tbaa !3
   %110 = sext i16 %108 to i32
   %111 = sext i16 %109 to i32
@@ -180,8 +180,8 @@ define void @_ZN7Imf_3_410wav2EncodeEPtiiiit(ptr noundef captures(address) %0, i
 
 115:                                              ; preds = %.thread, %104
   %116 = phi ptr [ %103, %.thread ], [ %105, %104 ]
-  %.093.lcssa143146 = phi ptr [ %101, %.thread ], [ %.092120, %104 ]
-  %117 = load i16, ptr %.093.lcssa143146, align 2, !tbaa !3
+  %.093.lcssa148151 = phi ptr [ %101, %.thread ], [ %.092120, %104 ]
+  %117 = load i16, ptr %.093.lcssa148151, align 2, !tbaa !3
   %118 = load i16, ptr %116, align 2, !tbaa !3
   %119 = xor i16 %117, -32768
   %120 = zext i16 %119 to i32
@@ -197,15 +197,15 @@ define void @_ZN7Imf_3_410wav2EncodeEPtiiiit(ptr noundef captures(address) %0, i
 
 128:                                              ; preds = %115, %106
   %129 = phi ptr [ %116, %115 ], [ %107, %106 ]
-  %.093.lcssa143145 = phi ptr [ %.093.lcssa143146, %115 ], [ %.093.lcssa143151, %106 ]
+  %.093.lcssa148150 = phi ptr [ %.093.lcssa148151, %115 ], [ %.093.lcssa148156, %106 ]
   %storemerge115 = phi i16 [ %127, %115 ], [ %114, %106 ]
   %.0113.in = phi i32 [ %spec.select.i102, %115 ], [ %113, %106 ]
   %.0113 = trunc i32 %.0113.in to i16
   store i16 %storemerge115, ptr %129, align 2, !tbaa !3
-  store i16 %.0113, ptr %.093.lcssa143145, align 2, !tbaa !3
+  store i16 %.0113, ptr %.093.lcssa148150, align 2, !tbaa !3
   br label %130
 
-130:                                              ; preds = %._crit_edge.thread147, %._crit_edge.thread, %128, %._crit_edge
+130:                                              ; preds = %._crit_edge.thread152, %._crit_edge.thread, %128, %._crit_edge
   %131 = getelementptr inbounds i16, ptr %.092120, i64 %24
   %.not94 = icmp ugt ptr %131, %12
   br i1 %.not94, label %._crit_edge124, label %25, !llvm.loop !9
@@ -371,7 +371,7 @@ define void @_ZN7Imf_3_410wav2DecodeEPtiiiit(ptr noundef captures(address) %0, i
   store i16 %59, ptr %35, align 2, !tbaa !3
   %60 = getelementptr inbounds i16, ptr %.098132.us, i64 %28
   %.not102.us = icmp ugt ptr %60, %32
-  br i1 %.not102.us, label %._crit_edge.thread161, label %.lr.ph.split.us, !llvm.loop !13
+  br i1 %.not102.us, label %._crit_edge.thread165, label %.lr.ph.split.us, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.098132 = phi ptr [ %72, %.lr.ph.split ], [ %.097134, %.lr.ph ]
@@ -409,10 +409,10 @@ define void @_ZN7Imf_3_410wav2DecodeEPtiiiit(ptr noundef captures(address) %0, i
 ._crit_edge:                                      ; preds = %31
   br i1 %.not103, label %93, label %75
 
-._crit_edge.thread161:                            ; preds = %.lr.ph.split.us
-  br i1 %.not103, label %93, label %.thread163
+._crit_edge.thread165:                            ; preds = %.lr.ph.split.us
+  br i1 %.not103, label %93, label %.thread167
 
-.thread163:                                       ; preds = %._crit_edge.thread161
+.thread167:                                       ; preds = %._crit_edge.thread165
   %73 = getelementptr inbounds i16, ptr %60, i64 %27
   br label %77
 
@@ -427,10 +427,10 @@ define void @_ZN7Imf_3_410wav2DecodeEPtiiiit(ptr noundef captures(address) %0, i
   %76 = getelementptr inbounds i16, ptr %.097134, i64 %27
   br i1 %11, label %77, label %86
 
-77:                                               ; preds = %.thread163, %75
-  %78 = phi ptr [ %73, %.thread163 ], [ %76, %75 ]
-  %.098.lcssa157165 = phi ptr [ %60, %.thread163 ], [ %.097134, %75 ]
-  %79 = load i16, ptr %.098.lcssa157165, align 2, !tbaa !3
+77:                                               ; preds = %.thread167, %75
+  %78 = phi ptr [ %73, %.thread167 ], [ %76, %75 ]
+  %.098.lcssa161169 = phi ptr [ %60, %.thread167 ], [ %.097134, %75 ]
+  %79 = load i16, ptr %.098.lcssa161169, align 2, !tbaa !3
   %80 = load i16, ptr %78, align 2, !tbaa !3
   %81 = and i16 %80, 1
   %82 = add i16 %81, %79
@@ -441,8 +441,8 @@ define void @_ZN7Imf_3_410wav2DecodeEPtiiiit(ptr noundef captures(address) %0, i
 
 86:                                               ; preds = %.thread, %75
   %87 = phi ptr [ %74, %.thread ], [ %76, %75 ]
-  %.098.lcssa157160 = phi ptr [ %72, %.thread ], [ %.097134, %75 ]
-  %88 = load i16, ptr %.098.lcssa157160, align 2, !tbaa !3
+  %.098.lcssa161164 = phi ptr [ %72, %.thread ], [ %.097134, %75 ]
+  %88 = load i16, ptr %.098.lcssa161164, align 2, !tbaa !3
   %89 = load i16, ptr %87, align 2, !tbaa !3
   %.tr.i113 = lshr i16 %89, 1
   %.narrow.i114 = sub i16 %88, %.tr.i113
@@ -452,14 +452,14 @@ define void @_ZN7Imf_3_410wav2DecodeEPtiiiit(ptr noundef captures(address) %0, i
 
 91:                                               ; preds = %86, %77
   %92 = phi ptr [ %87, %86 ], [ %78, %77 ]
-  %.098.lcssa157159 = phi ptr [ %.098.lcssa157160, %86 ], [ %.098.lcssa157165, %77 ]
+  %.098.lcssa161163 = phi ptr [ %.098.lcssa161164, %86 ], [ %.098.lcssa161169, %77 ]
   %storemerge = phi i16 [ %.narrow.i114, %86 ], [ %85, %77 ]
   %.0128 = phi i16 [ %90, %86 ], [ %84, %77 ]
   store i16 %storemerge, ptr %92, align 2, !tbaa !3
-  store i16 %.0128, ptr %.098.lcssa157159, align 2, !tbaa !3
+  store i16 %.0128, ptr %.098.lcssa161163, align 2, !tbaa !3
   br label %93
 
-93:                                               ; preds = %._crit_edge.thread161, %._crit_edge.thread, %91, %._crit_edge
+93:                                               ; preds = %._crit_edge.thread165, %._crit_edge.thread, %91, %._crit_edge
   %94 = getelementptr inbounds i16, ptr %.097134, i64 %30
   %.not99 = icmp ugt ptr %94, %18
   br i1 %.not99, label %._crit_edge138, label %31, !llvm.loop !14

@@ -131,7 +131,7 @@ define dso_local i32 @lre_parse_escape(ptr noundef captures(none) %0, i32 nounde
 
 from_hex.exit.thread:                             ; preds = %26, %17, %24
   %.0.i98 = phi i32 [ %21, %17 ], [ %25, %24 ], [ %28, %26 ]
-  %30 = shl i32 %.163, 4
+  %30 = shl nuw nsw i32 %.163, 4
   %31 = or i32 %.0.i98, %30
   %32 = icmp ugt i32 %31, 1114111
   br i1 %32, label %.critedge, label %33
@@ -603,7 +603,7 @@ define internal fastcc range(i32 -1, 1) i32 @re_parse_disjunction(ptr noundef no
 
 24:                                               ; preds = %.lr.ph.split
   %25 = load i64, ptr %9, align 8, !tbaa !34
-  %26 = tail call fastcc i32 @re_parse_term(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1)
+  %26 = tail call fastcc i32 @re_parse_term(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) 1)
   %.not33.i = icmp eq i32 %26, 0
   br i1 %.not33.i, label %27, label %re_parse_alternative.exit35
 
@@ -727,7 +727,7 @@ dbuf_insert.exit:                                 ; preds = %46
 
 84:                                               ; preds = %.lr.ph54.split
   %85 = load i64, ptr %9, align 8, !tbaa !34
-  %86 = call fastcc i32 @re_parse_term(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1)
+  %86 = call fastcc i32 @re_parse_term(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) 1)
   %.not33.i32 = icmp eq i32 %86, 0
   br i1 %.not33.i32, label %87, label %re_parse_alternative.exit35
 
@@ -3421,17 +3421,17 @@ re_parse_expect.exit480:                          ; preds = %441
   br label %.thread524
 
 444:                                              ; preds = %438, %400, %403, %402
-  %.sink587 = phi ptr [ %.pre574, %403 ], [ %.pre574, %402 ], [ %.pre574, %400 ], [ %440, %438 ]
+  %.sink600 = phi ptr [ %.pre574, %403 ], [ %.pre574, %402 ], [ %.pre574, %400 ], [ %440, %438 ]
   %.0327 = phi i32 [ 1, %403 ], [ 2147483647, %402 ], [ 2147483647, %400 ], [ %.3330, %438 ]
   %.0324 = phi i32 [ 0, %403 ], [ 1, %402 ], [ 0, %400 ], [ %420, %438 ]
-  %445 = getelementptr inbounds nuw i8, ptr %.sink587, i64 1
+  %445 = getelementptr inbounds nuw i8, ptr %.sink600, i64 1
   store ptr %445, ptr %13, align 8, !tbaa !7
   %446 = load i8, ptr %445, align 1, !tbaa !12
   %447 = icmp eq i8 %446, 63
   br i1 %447, label %.thread533, label %449
 
 .thread533:                                       ; preds = %444
-  %448 = getelementptr inbounds nuw i8, ptr %.sink587, i64 2
+  %448 = getelementptr inbounds nuw i8, ptr %.sink600, i64 2
   br label %.thread539
 
 449:                                              ; preds = %444
@@ -3541,11 +3541,11 @@ re_parse_expect.exit480:                          ; preds = %441
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %501, %.lr.ph.i482
-  %.sink27.i = phi i32 [ 3, %501 ], [ 2, %.lr.ph.i482 ]
+  %.sink28.i = phi i32 [ 3, %501 ], [ 2, %.lr.ph.i482 ]
   %502 = getelementptr inbounds nuw i8, ptr %495, i64 1
   %.val21.i = load i16, ptr %502, align 1, !tbaa !37
   %503 = zext i16 %.val21.i to i32
-  %504 = shl nuw nsw i32 %503, %.sink27.i
+  %504 = shl nuw nsw i32 %503, %.sink28.i
   %505 = add nuw nsw i32 %504, %500
   br label %506
 
@@ -4609,7 +4609,7 @@ cr_init_char_range.exit:                          ; preds = %40, %49
   br i1 %or.cond9, label %61, label %66
 
 61:                                               ; preds = %55
-  br i1 %.not56, label %62, label %.thread87
+  br i1 %.not56, label %62, label %.thread107
 
 62:                                               ; preds = %51, %61
   %63 = and i8 %52, 31
@@ -4619,7 +4619,7 @@ cr_init_char_range.exit:                          ; preds = %40, %49
   br label %cr_init_char_range.exit.thread
 
 66:                                               ; preds = %55
-  br i1 %.not56, label %67, label %.thread87
+  br i1 %.not56, label %67, label %.thread107
 
 67:                                               ; preds = %66
   store ptr %11, ptr %7, align 8, !tbaa !7
@@ -4899,17 +4899,17 @@ parse_unicode_property.exit:                      ; preds = %154, %155
   %.not60 = icmp ne ptr %memchr, null
   %.not61 = icmp eq i32 %160, 0
   %or.cond73 = or i1 %.not61, %.not60
-  br i1 %or.cond73, label %176, label %.thread87
+  br i1 %or.cond73, label %176, label %.thread107
 
 171:                                              ; preds = %166, %164
   %.not61.old = icmp eq i32 %160, 0
-  br i1 %.not61.old, label %._crit_edge85, label %.thread87
+  br i1 %.not61.old, label %._crit_edge85, label %.thread107
 
 ._crit_edge85:                                    ; preds = %171
   %.pre84.pre = load ptr, ptr %7, align 8, !tbaa !7
   br label %176
 
-.thread87:                                        ; preds = %61, %169, %171, %66
+.thread107:                                       ; preds = %61, %169, %171, %66
   tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.17)
   br label %188
 
@@ -4958,8 +4958,8 @@ cr_init_char_range.exit.thread:                   ; preds = %._crit_edge.i, %49,
   store ptr %187, ptr %2, align 8, !tbaa !7
   br label %188
 
-188:                                              ; preds = %parse_unicode_property.exit.thread, %cr_init_char_range.exit, %cr_init_char_range.exit.thread, %184, %175, %.thread87
-  %.0 = phi i32 [ %.2, %cr_init_char_range.exit.thread ], [ -1, %184 ], [ -1, %175 ], [ -1, %.thread87 ], [ -1, %cr_init_char_range.exit ], [ -1, %parse_unicode_property.exit.thread ]
+188:                                              ; preds = %parse_unicode_property.exit.thread, %cr_init_char_range.exit, %cr_init_char_range.exit.thread, %184, %175, %.thread107
+  %.0 = phi i32 [ %.2, %cr_init_char_range.exit.thread ], [ -1, %184 ], [ -1, %175 ], [ -1, %.thread107 ], [ -1, %cr_init_char_range.exit ], [ -1, %parse_unicode_property.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -5128,11 +5128,11 @@ define internal fastcc i32 @re_is_simple_quantifier(ptr noundef readonly capture
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph, %11
-  %.sink28 = phi i32 [ 3, %11 ], [ 2, %.lr.ph ]
+  %.sink29 = phi i32 [ 3, %11 ], [ 2, %.lr.ph ]
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %.val22 = load i16, ptr %12, align 1, !tbaa !37
   %13 = zext i16 %.val22 to i32
-  %14 = shl nuw nsw i32 %13, %.sink28
+  %14 = shl nuw nsw i32 %13, %.sink29
   %15 = add nuw nsw i32 %14, %10
   br label %16
 

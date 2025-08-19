@@ -383,7 +383,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt4pairIiiESaIS1_EE6resizeEm(ptr n
   br i1 %.not28.i, label %22, label %_ZSt27__uninitialized_default_n_aIPSt4pairIiiEmS1_ET_S3_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPSt4pairIiiEmS1_ET_S3_T0_RSaIT1_E.exit.i: ; preds = %11
-  %21 = shl nuw i64 %12, 3
+  %21 = shl nuw nsw i64 %12, 3
   tail call void @llvm.memset.p0.i64(ptr align 4 %4, i8 0, i64 %21, i1 false), !tbaa !52
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !61
@@ -565,8 +565,8 @@ _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit.i: ; preds = %39
   br i1 %.not.i25.i, label %_ZNSt6vectorIbSaIbEE13_M_initializeEm.exit.i, label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit.thread.i
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit.thread.i: ; preds = %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit.i, %39
-  %.pre-phi4757.i = phi i64 [ %.pre46.i, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit.i ], [ %31, %39 ]
-  %43 = add i64 %.pre-phi4757.i, 63
+  %.pre-phi4761.i = phi i64 [ %.pre46.i, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit.i ], [ %31, %39 ]
+  %43 = add i64 %.pre-phi4761.i, 63
   %44 = lshr i64 %43, 3
   %45 = and i64 %44, 2305843009213693944
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #21
@@ -575,13 +575,13 @@ _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit.thread.i: ; preds = %_ZNSt13_B
   store ptr %48, ptr %14, align 8, !tbaa !73
   store ptr %46, ptr %1, align 8
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
-  %49 = sdiv i64 %.pre-phi4757.i, 64
+  %49 = sdiv i64 %.pre-phi4761.i, 64
   %50 = getelementptr inbounds i64, ptr %46, i64 %49
-  %51 = and i64 %.pre-phi4757.i, -9223372036854775745
+  %51 = and i64 %.pre-phi4761.i, -9223372036854775745
   %52 = icmp ugt i64 %51, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %52, i64 -8, i64 0
   %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %50, i64 %storemerge.idx.i.i.i.i.i
-  %53 = trunc i64 %.pre-phi4757.i to i32
+  %53 = trunc i64 %.pre-phi4761.i to i32
   %54 = and i32 %53, 63
   store ptr %storemerge.i.i.i.i.i, ptr %.sroa.51.0..sroa_idx.i.i.i, align 8
   store i32 %54, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8
@@ -798,7 +798,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %2
 
 .preheader.i.i:                                   ; preds = %.split.us.i.i, %36
   %indvars.iv40.i.i = phi i64 [ -1, %36 ], [ %indvars.iv.next41.i.i, %.split.us.i.i ]
-  %45 = trunc i64 %indvars.iv40.i.i to i32
+  %45 = trunc nsw i64 %indvars.iv40.i.i to i32
   %46 = add i32 %41, %45
   %.fr37.i.i = freeze i32 %46
   %47 = icmp sgt i32 %.fr37.i.i, -1
@@ -1158,8 +1158,8 @@ _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %24
   br i1 %.not.i25, label %_ZNSt6vectorIbSaIbEE13_M_initializeEm.exit, label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit.thread
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit.thread: ; preds = %24, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
-  %.pre-phi4757 = phi i64 [ %.pre46, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit ], [ %15, %24 ]
-  %28 = add i64 %.pre-phi4757, 63
+  %.pre-phi4761 = phi i64 [ %.pre46, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit ], [ %15, %24 ]
+  %28 = add i64 %.pre-phi4761, 63
   %29 = lshr i64 %28, 3
   %30 = and i64 %29, 2305843009213693944
   %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #21
@@ -1169,13 +1169,13 @@ _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit.thread: ; preds = %24, %_ZNSt1
   store ptr %31, ptr %0, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %34 = sdiv i64 %.pre-phi4757, 64
+  %34 = sdiv i64 %.pre-phi4761, 64
   %35 = getelementptr inbounds i64, ptr %31, i64 %34
-  %36 = and i64 %.pre-phi4757, -9223372036854775745
+  %36 = and i64 %.pre-phi4761, -9223372036854775745
   %37 = icmp ugt i64 %36, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %37, i64 -8, i64 0
   %storemerge.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 %storemerge.idx.i.i.i.i
-  %38 = trunc i64 %.pre-phi4757 to i32
+  %38 = trunc i64 %.pre-phi4761 to i32
   %39 = and i32 %38, 63
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %storemerge.i.i.i.i, ptr %40, align 8
@@ -1368,7 +1368,7 @@ define hidden void @_ZN2cv11xfeatures2d10GMSMatcher18initalizeNeighborsERNS_3Mat
 
 .preheader.i:                                     ; preds = %.split.us.i, %10
   %indvars.iv40.i = phi i64 [ -1, %10 ], [ %indvars.iv.next41.i, %.split.us.i ]
-  %19 = trunc i64 %indvars.iv40.i to i32
+  %19 = trunc nsw i64 %indvars.iv40.i to i32
   %20 = add i32 %15, %19
   %.fr37.i = freeze i32 %20
   %21 = icmp sgt i32 %.fr37.i, -1
@@ -1497,7 +1497,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm(p
   br i1 %.not28.i, label %22, label %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i: ; preds = %11
-  %21 = shl nuw i64 %12, 3
+  %21 = shl nuw nsw i64 %12, 3
   tail call void @llvm.memset.p0.i64(ptr align 4 %4, i8 0, i64 %21, i1 false), !tbaa !121
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !119
@@ -2215,7 +2215,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %92
 
 .preheader.i.i:                                   ; preds = %.split.us.i.i, %.noexc26
   %indvars.iv40.i.i = phi i64 [ -1, %.noexc26 ], [ %indvars.iv.next41.i.i, %.split.us.i.i ]
-  %114 = trunc i64 %indvars.iv40.i.i to i32
+  %114 = trunc nsw i64 %indvars.iv40.i.i to i32
   %115 = add i32 %110, %114
   %.fr37.i.i = freeze i32 %115
   %116 = icmp sgt i32 %.fr37.i.i, -1

@@ -226,8 +226,8 @@ mlist_find_space.exit.i:                          ; preds = %28
   br label %49
 
 49:                                               ; preds = %47, %43
-  %.sink42.i.i = phi ptr [ %48, %47 ], [ %44, %43 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.sink42.i.i, i64 8
+  %.sink48.i.i = phi ptr [ %48, %47 ], [ %44, %43 ]
+  %50 = getelementptr inbounds nuw i8, ptr %.sink48.i.i, i64 8
   store ptr %46, ptr %50, align 8
   %51 = load ptr, ptr %.0.i.i, align 8
   store ptr %51, ptr %46, align 8

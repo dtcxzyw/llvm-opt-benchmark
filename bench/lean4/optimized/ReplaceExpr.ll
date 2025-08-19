@@ -433,8 +433,8 @@ lean_dec.exit328:                                 ; preds = %108, %107, %105
   br i1 %.not663, label %118, label %109
 
 lean_dec.exit328.thread:                          ; preds = %101
-  %.not663666 = icmp eq ptr %48, %76
-  br i1 %.not663666, label %lean_dec.exit326, label %109
+  %.not663792 = icmp eq ptr %48, %76
+  br i1 %.not663792, label %lean_dec.exit326, label %109
 
 109:                                              ; preds = %lean_dec.exit328.thread, %lean_dec.exit328
   br i1 %.not618, label %110, label %lean_dec.exit327
@@ -1829,8 +1829,8 @@ lean_dec.exit297:                                 ; preds = %602, %601, %599
   br i1 %.not636, label %612, label %603
 
 lean_dec.exit297.thread:                          ; preds = %595
-  %.not636667 = icmp eq ptr %495, %538
-  br i1 %.not636667, label %lean_dec.exit295, label %603
+  %.not636793 = icmp eq ptr %495, %538
+  br i1 %.not636793, label %lean_dec.exit295, label %603
 
 603:                                              ; preds = %lean_dec.exit297.thread, %lean_dec.exit297
   br i1 %.not618, label %604, label %lean_dec.exit296
@@ -2038,8 +2038,8 @@ lean_dec.exit291:                                 ; preds = %675, %674, %672
 
 lean_dec.exit291.thread:                          ; preds = %lean_inc.exit365
   %676 = tail call ptr @l_Lean_Expr_replaceNoCache(ptr noundef %0, ptr noundef %654)
-  %.not628669 = icmp eq ptr %654, %676
-  br i1 %.not628669, label %lean_dec.exit289, label %677
+  %.not628795 = icmp eq ptr %654, %676
+  br i1 %.not628795, label %lean_dec.exit289, label %677
 
 677:                                              ; preds = %lean_dec.exit291.thread, %lean_dec.exit291
   %678 = phi ptr [ %676, %lean_dec.exit291.thread ], [ %669, %lean_dec.exit291 ]
@@ -2228,8 +2228,8 @@ lean_dec.exit287:                                 ; preds = %744, %743, %741
 
 lean_dec.exit287.thread:                          ; preds = %lean_inc.exit369
   %745 = tail call ptr @l_Lean_Expr_replaceNoCache(ptr noundef %0, ptr noundef %723)
-  %.not624671 = icmp eq ptr %723, %745
-  br i1 %.not624671, label %lean_dec.exit285, label %746
+  %.not624797 = icmp eq ptr %723, %745
+  br i1 %.not624797, label %lean_dec.exit285, label %746
 
 746:                                              ; preds = %lean_dec.exit287.thread, %lean_dec.exit287
   %747 = phi ptr [ %745, %lean_dec.exit287.thread ], [ %738, %lean_dec.exit287 ]
@@ -2527,18 +2527,18 @@ lean_dec_ref.exit10:                              ; preds = %24, %26, %27
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit10, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %28, %lean_dec_ref.exit10 ]
-  %31 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !4
+  %.sink22 = phi ptr [ %4, %3 ], [ %28, %lean_dec_ref.exit10 ]
+  %31 = getelementptr inbounds nuw i8, ptr %.sink22, i64 4
+  store i32 1, ptr %.sink22, align 4, !tbaa !4
   store i32 131096, ptr %31, align 4
-  %32 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.sink22, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %32, align 8, !tbaa !10
-  %33 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.sink22, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %33, align 8, !tbaa !10
   br label %34
 
 34:                                               ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink22, %.sink.split ]
   ret ptr %.0
 }
 

@@ -1127,13 +1127,13 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
   br i1 %29, label %.lr.ph.preheader.i, label %convert_oid_to_str.exit.thread58
 
 .lr.ph.preheader.i:                               ; preds = %26, %.loopexit
-  %.042.i = phi i32 [ %28, %26 ], [ 0, %.loopexit ]
+  %.046.i = phi i32 [ %28, %26 ], [ 0, %.loopexit ]
   %30 = zext i8 %8 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.139.i = phi i32 [ %.042.i, %.lr.ph.preheader.i ], [ %41, %.lr.ph.i ]
+  %.139.i = phi i32 [ %.046.i, %.lr.ph.preheader.i ], [ %41, %.lr.ph.i ]
   %31 = sext i32 %.139.i to i64
   %32 = getelementptr i8, ptr %7, i64 %31
   %33 = sub i32 2048, %.139.i

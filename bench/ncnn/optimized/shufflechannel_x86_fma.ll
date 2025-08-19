@@ -1034,8 +1034,8 @@ _ZN4ncnn3MatD2Ev.exit677:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
 546:                                              ; preds = %461
   %547 = icmp sle i32 %40, 4
   %.not605 = icmp eq i32 %42, 0
-  %or.cond2091 = select i1 %547, i1 %.not605, i1 false
-  br i1 %or.cond2091, label %632, label %548
+  %or.cond2138 = select i1 %547, i1 %.not605, i1 false
+  br i1 %or.cond2138, label %632, label %548
 
 548:                                              ; preds = %546
   call void @llvm.lifetime.start.p0(ptr nonnull %8)

@@ -513,12 +513,12 @@ get_object_item.exit.i:                           ; preds = %10, %.thread
 24:                                               ; preds = %21
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(5) @.str.10) #14
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %.thread252, label %27
+  br i1 %26, label %.thread266, label %27
 
 27:                                               ; preds = %24
   %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(5) @.str.11) #14
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %.thread252, label %30
+  br i1 %29, label %.thread266, label %30
 
 30:                                               ; preds = %27
   %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(5) @.str.12) #14
@@ -545,7 +545,7 @@ get_object_item.exit151:                          ; preds = %36, %38
   %41 = xor i32 %40, 1
   br label %.thread219.thread
 
-.thread252:                                       ; preds = %27, %24
+.thread266:                                       ; preds = %27, %24
   %.0.i148.ph.ph = phi i32 [ 4, %24 ], [ 5, %27 ]
   %42 = getelementptr inbounds nuw i8, ptr %.0.i162164, i64 32
   %43 = load ptr, ptr %42, align 8, !tbaa !19
@@ -627,11 +627,11 @@ get_object_item.exit151:                          ; preds = %36, %38
   store ptr null, ptr %75, align 8, !tbaa !8
   br label %.thread219.thread
 
-78:                                               ; preds = %.thread252, %44
-  %79 = phi ptr [ %43, %.thread252 ], [ %46, %44 ]
-  %80 = phi ptr [ %42, %.thread252 ], [ %45, %44 ]
-  %.0.i148.ph256 = phi i32 [ %.0.i148.ph.ph, %.thread252 ], [ %.0.i148.ph, %44 ]
-  %81 = and i32 %.0.i148.ph256, 6
+78:                                               ; preds = %.thread266, %44
+  %79 = phi ptr [ %43, %.thread266 ], [ %46, %44 ]
+  %80 = phi ptr [ %42, %.thread266 ], [ %45, %44 ]
+  %.0.i148.ph270 = phi i32 [ %.0.i148.ph.ph, %.thread266 ], [ %.0.i148.ph, %44 ]
+  %81 = and i32 %.0.i148.ph270, 6
   switch i32 %81, label %.thread187 [
     i32 2, label %.thread177
     i32 4, label %88
@@ -666,7 +666,7 @@ get_object_item.exit155:                          ; preds = %89, %91
   br i1 %93, label %.thread219.thread, label %94
 
 94:                                               ; preds = %get_object_item.exit155
-  switch i32 %.0.i148.ph256, label %.thread219.thread [
+  switch i32 %.0.i148.ph270, label %.thread219.thread [
     i32 4, label %95
     i32 5, label %.thread196
   ]
@@ -1928,7 +1928,7 @@ compare_strings.exit:                             ; preds = %103
   br i1 %.not58, label %compare_strings.exit.thread, label %.thread
 
 compare_strings.exit.thread:                      ; preds = %103, %compare_strings.exit
-  %106 = tail call fastcc i32 @compare_json(ptr noundef nonnull %.152, ptr noundef nonnull %.154, i32 noundef %2)
+  %106 = tail call fastcc i32 @compare_json(ptr noundef nonnull %.152, ptr noundef nonnull %.154, i32 noundef 1)
   %.not59.not = icmp eq i32 %106, 0
   br i1 %.not59.not, label %.thread, label %sort_object.exit68.split
 
@@ -2274,9 +2274,9 @@ define internal fastcc ptr @sort_list(ptr noundef %0, i32 noundef range(i32 0, 2
   br i1 %.not79.us, label %.critedge.thread, label %.preheader.split.us.preheader
 
 .preheader.split.us.preheader:                    ; preds = %.preheader, %.preheader.split.usthread-pre-split
-  %.067.us183 = phi ptr [ %7, %.preheader.split.usthread-pre-split ], [ %0, %.preheader ]
+  %.067.us204 = phi ptr [ %7, %.preheader.split.usthread-pre-split ], [ %0, %.preheader ]
   %7 = phi ptr [ %.pr, %.preheader.split.usthread-pre-split ], [ %5, %.preheader ]
-  %8 = getelementptr inbounds nuw i8, ptr %.067.us183, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %.067.us204, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %11 = load ptr, ptr %10, align 8, !tbaa !8
@@ -2329,14 +2329,14 @@ define internal fastcc ptr @sort_list(ptr noundef %0, i32 noundef range(i32 0, 2
   br i1 %40, label %.preheader.split.usthread-pre-split, label %.critedge.preheader
 
 .preheader.splitthread-pre-split:                 ; preds = %compare_strings.exit
-  %.pr128 = load ptr, ptr %41, align 8, !tbaa !18
-  %.not79 = icmp eq ptr %.pr128, null
+  %.pr149 = load ptr, ptr %41, align 8, !tbaa !18
+  %.not79 = icmp eq ptr %.pr149, null
   br i1 %.not79, label %.critedge.thread, label %.preheader.split.preheader
 
 .preheader.split.preheader:                       ; preds = %.preheader, %.preheader.splitthread-pre-split
-  %.067182 = phi ptr [ %41, %.preheader.splitthread-pre-split ], [ %0, %.preheader ]
-  %41 = phi ptr [ %.pr128, %.preheader.splitthread-pre-split ], [ %5, %.preheader ]
-  %42 = getelementptr inbounds nuw i8, ptr %.067182, i64 56
+  %.067203 = phi ptr [ %41, %.preheader.splitthread-pre-split ], [ %0, %.preheader ]
+  %41 = phi ptr [ %.pr149, %.preheader.splitthread-pre-split ], [ %5, %.preheader ]
+  %42 = getelementptr inbounds nuw i8, ptr %.067203, i64 56
   %43 = load ptr, ptr %42, align 8, !tbaa !8
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 56
   %45 = load ptr, ptr %44, align 8, !tbaa !8
@@ -2508,30 +2508,30 @@ compare_strings.exit94.thread:                    ; preds = %.lr.ph.i91, %compar
   store ptr %.173, ptr %102, align 8, !tbaa !18
   %119 = getelementptr inbounds nuw i8, ptr %.173, i64 8
   store ptr %102, ptr %119, align 8, !tbaa !25
-  br i1 %114, label %.thread155, label %.critedge.thread
+  br i1 %114, label %.thread176, label %.critedge.thread
 
 120:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  %.lcssa101144 = phi i1 [ %63, %._crit_edge.thread ], [ %114, %._crit_edge ]
-  %.064.lcssa142 = phi ptr [ null, %._crit_edge.thread ], [ %102, %._crit_edge ]
-  %.065.lcssa140 = phi ptr [ null, %._crit_edge.thread ], [ %.166, %._crit_edge ]
-  %.170.lcssa138 = phi ptr [ %61, %._crit_edge.thread ], [ %.271, %._crit_edge ]
-  br i1 %.lcssa101144, label %121, label %.critedge.thread
+  %.lcssa101165 = phi i1 [ %63, %._crit_edge.thread ], [ %114, %._crit_edge ]
+  %.064.lcssa163 = phi ptr [ null, %._crit_edge.thread ], [ %102, %._crit_edge ]
+  %.065.lcssa161 = phi ptr [ null, %._crit_edge.thread ], [ %.166, %._crit_edge ]
+  %.170.lcssa159 = phi ptr [ %61, %._crit_edge.thread ], [ %.271, %._crit_edge ]
+  br i1 %.lcssa101165, label %121, label %.critedge.thread
 
 121:                                              ; preds = %120
-  %122 = icmp eq ptr %.065.lcssa140, null
-  br i1 %122, label %.critedge.thread, label %.thread155
+  %122 = icmp eq ptr %.065.lcssa161, null
+  br i1 %122, label %.critedge.thread, label %.thread176
 
-.thread155:                                       ; preds = %118, %121
-  %.064.lcssa142152161 = phi ptr [ %.064.lcssa142, %121 ], [ %102, %118 ]
-  %.065.lcssa140153160 = phi ptr [ %.065.lcssa140, %121 ], [ %.166, %118 ]
-  %.170.lcssa138154159 = phi ptr [ %.170.lcssa138, %121 ], [ %.271, %118 ]
-  store ptr %.170.lcssa138154159, ptr %.064.lcssa142152161, align 8, !tbaa !18
-  %123 = getelementptr inbounds nuw i8, ptr %.170.lcssa138154159, i64 8
-  store ptr %.064.lcssa142152161, ptr %123, align 8, !tbaa !25
+.thread176:                                       ; preds = %118, %121
+  %.064.lcssa163173182 = phi ptr [ %.064.lcssa163, %121 ], [ %102, %118 ]
+  %.065.lcssa161174181 = phi ptr [ %.065.lcssa161, %121 ], [ %.166, %118 ]
+  %.170.lcssa159175180 = phi ptr [ %.170.lcssa159, %121 ], [ %.271, %118 ]
+  store ptr %.170.lcssa159175180, ptr %.064.lcssa163173182, align 8, !tbaa !18
+  %123 = getelementptr inbounds nuw i8, ptr %.170.lcssa159175180, i64 8
+  store ptr %.064.lcssa163173182, ptr %123, align 8, !tbaa !25
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.preheader.splitthread-pre-split, %.preheader.split.usthread-pre-split, %._crit_edge.thread, %118, %120, %.thread155, %121, %116, %2, %4
-  %.074 = phi ptr [ %0, %4 ], [ null, %2 ], [ %.173, %116 ], [ %.170.lcssa138, %121 ], [ %.065.lcssa140153160, %.thread155 ], [ %.065.lcssa140, %120 ], [ %.166, %118 ], [ %60, %._crit_edge.thread ], [ %0, %.preheader.split.usthread-pre-split ], [ %0, %.preheader.splitthread-pre-split ]
+.critedge.thread:                                 ; preds = %.preheader.splitthread-pre-split, %.preheader.split.usthread-pre-split, %._crit_edge.thread, %118, %120, %.thread176, %121, %116, %2, %4
+  %.074 = phi ptr [ %0, %4 ], [ null, %2 ], [ %.173, %116 ], [ %.170.lcssa159, %121 ], [ %.065.lcssa161174181, %.thread176 ], [ %.065.lcssa161, %120 ], [ %.166, %118 ], [ %60, %._crit_edge.thread ], [ %0, %.preheader.split.usthread-pre-split ], [ %0, %.preheader.splitthread-pre-split ]
   ret ptr %.074
 }
 

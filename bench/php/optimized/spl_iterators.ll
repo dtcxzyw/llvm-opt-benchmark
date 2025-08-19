@@ -1194,9 +1194,9 @@ define hidden void @zim_RecursiveIteratorIterator_current(ptr noundef readonly c
   br i1 %.not27, label %40, label %.sink.split
 
 .sink.split:                                      ; preds = %27, %30
-  %.sink32 = phi i32 [ %34, %30 ], [ %25, %27 ]
+  %.sink34 = phi i32 [ %34, %30 ], [ %25, %27 ]
   %.sink.in = phi ptr [ %32, %30 ], [ %22, %27 ]
-  %36 = and i32 %.sink32, 65280
+  %36 = and i32 %.sink34, 65280
   %37 = icmp ne i32 %36, 0
   tail call void @llvm.assume(i1 %37)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !11
@@ -1474,7 +1474,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
 126:                                              ; preds = %123
   %.off = add i32 %.pre193, -1
   %switch175 = icmp ult i32 %.off, 2
-  br i1 %switch175, label %127, label %.thread195
+  br i1 %switch175, label %127, label %.thread201
 
 127:                                              ; preds = %126
   %128 = load ptr, ptr %1, align 8, !tbaa !11
@@ -1486,7 +1486,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
 131:                                              ; preds = %127, %123
   %132 = phi i32 [ %.pre, %127 ], [ %.pre193, %123 ]
   %133 = icmp eq i32 %132, 1
-  br i1 %133, label %134, label %.thread195
+  br i1 %133, label %134, label %.thread201
 
 134:                                              ; preds = %131
   %135 = load ptr, ptr %0, align 8, !tbaa !62
@@ -1496,7 +1496,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   store i32 3, ptr %138, align 8, !tbaa !84
   br label %.loopexit
 
-.thread195:                                       ; preds = %126, %131
+.thread201:                                       ; preds = %126, %131
   %139 = load ptr, ptr %0, align 8, !tbaa !62
   %140 = load i32, ptr %9, align 8, !tbaa !65
   %141 = sext i32 %140 to i64
@@ -1732,7 +1732,7 @@ instanceof_function.exit.thread:                  ; preds = %172, %instanceof_fu
 .preheader.backedge:                              ; preds = %266, %228, %238, %230, %90, %95, %103, %161
   br label %.preheader
 
-.loopexit:                                        ; preds = %249, %239, %266, %235, %158, %35, %8, %134, %.thread195, %113, %122, %119, %176, %72, %7
+.loopexit:                                        ; preds = %249, %239, %266, %235, %158, %35, %8, %134, %.thread201, %113, %122, %119, %176, %72, %7
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -1851,9 +1851,9 @@ define hidden void @zim_RecursiveIteratorIterator_getSubIterator(ptr noundef rea
   br i1 %.not24, label %56, label %.sink.split
 
 .sink.split:                                      ; preds = %43, %46
-  %.sink29 = phi i32 [ %50, %46 ], [ %41, %43 ]
+  %.sink31 = phi i32 [ %50, %46 ], [ %41, %43 ]
   %.sink.in = phi ptr [ %48, %46 ], [ %39, %43 ]
-  %52 = and i32 %.sink29, 65280
+  %52 = and i32 %.sink31, 65280
   %53 = icmp ne i32 %52, 0
   call void @llvm.assume(i1 %53)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !11
@@ -1935,9 +1935,9 @@ define hidden void @zim_RecursiveIteratorIterator_getInnerIterator(ptr noundef r
   br i1 %.not22, label %35, label %.sink.split
 
 .sink.split:                                      ; preds = %22, %25
-  %.sink27 = phi i32 [ %29, %25 ], [ %20, %22 ]
+  %.sink28 = phi i32 [ %29, %25 ], [ %20, %22 ]
   %.sink.in = phi ptr [ %27, %25 ], [ %18, %22 ]
-  %31 = and i32 %.sink27, 65280
+  %31 = and i32 %.sink28, 65280
   %32 = icmp ne i32 %31, 0
   tail call void @llvm.assume(i1 %32)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !11
@@ -2957,9 +2957,9 @@ define hidden void @zim_RecursiveTreeIterator_current(ptr noundef readonly captu
   br i1 %.not53, label %45, label %.sink.split
 
 .sink.split:                                      ; preds = %32, %35
-  %.sink73 = phi i32 [ %39, %35 ], [ %30, %32 ]
+  %.sink76 = phi i32 [ %39, %35 ], [ %30, %32 ]
   %.sink.in = phi ptr [ %37, %35 ], [ %26, %32 ]
-  %41 = and i32 %.sink73, 65280
+  %41 = and i32 %.sink76, 65280
   %42 = icmp ne i32 %41, 0
   tail call void @llvm.assume(i1 %42)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !11
@@ -6765,7 +6765,7 @@ spl_dual_it_valid.exit.i:                         ; preds = %1
   tail call void %33(ptr noundef nonnull %29, ptr noundef nonnull %34) #11
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !12
   %.not31.i = icmp eq ptr %36, null
-  br i1 %.not31.i, label %spl_dual_it_fetch.exit.thread55, label %37
+  br i1 %.not31.i, label %spl_dual_it_fetch.exit.thread58, label %37
 
 37:                                               ; preds = %35
   tail call void @zval_ptr_dtor(ptr noundef nonnull %34) #11
@@ -6783,9 +6783,9 @@ spl_dual_it_fetch.exit:                           ; preds = %37, %38
   store i32 %.sink.i, ptr %41, align 8, !tbaa !11
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !12
   %42 = icmp eq ptr %.pre, null
-  br i1 %42, label %spl_dual_it_fetch.exit.thread55, label %spl_dual_it_fetch.exit.thread
+  br i1 %42, label %spl_dual_it_fetch.exit.thread58, label %spl_dual_it_fetch.exit.thread
 
-spl_dual_it_fetch.exit.thread55:                  ; preds = %35, %spl_dual_it_fetch.exit
+spl_dual_it_fetch.exit.thread58:                  ; preds = %35, %spl_dual_it_fetch.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %44 = load i64, ptr %43, align 8, !tbaa !11
   %45 = or i64 %44, 65536
@@ -6794,7 +6794,7 @@ spl_dual_it_fetch.exit.thread55:                  ; preds = %35, %spl_dual_it_fe
   %.not = icmp eq i64 %46, 0
   br i1 %.not, label %59, label %47
 
-47:                                               ; preds = %spl_dual_it_fetch.exit.thread55
+47:                                               ; preds = %spl_dual_it_fetch.exit.thread58
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %50 = load i8, ptr %49, align 8, !tbaa !11
@@ -6813,7 +6813,7 @@ spl_dual_it_fetch.exit.thread55:                  ; preds = %35, %spl_dual_it_fe
   %58 = tail call i32 @array_set_zval_key(ptr noundef %57, ptr noundef nonnull %34, ptr noundef nonnull %.0) #11
   br label %59
 
-59:                                               ; preds = %55, %spl_dual_it_fetch.exit.thread55
+59:                                               ; preds = %55, %spl_dual_it_fetch.exit.thread58
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %61 = load i32, ptr %60, align 8, !tbaa !109
   %62 = icmp eq i32 %61, 3
@@ -8609,12 +8609,12 @@ spl_dual_it_rewind.exit:                          ; preds = %59
   br i1 %.not.i15, label %spl_dual_it_valid.exit17.thread, label %spl_dual_it_valid.exit17
 
 spl_dual_it_valid.exit17:                         ; preds = %59, %spl_dual_it_rewind.exit
-  %.val12.pr34 = phi ptr [ %.val12.pr.pre, %spl_dual_it_rewind.exit ], [ %58, %59 ]
-  %64 = getelementptr inbounds nuw i8, ptr %.val12.pr34, i64 72
+  %.val12.pr39 = phi ptr [ %.val12.pr.pre, %spl_dual_it_rewind.exit ], [ %58, %59 ]
+  %64 = getelementptr inbounds nuw i8, ptr %.val12.pr39, i64 72
   %65 = load ptr, ptr %64, align 8, !tbaa !86
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !92
-  %68 = tail call i32 %67(ptr noundef nonnull %.val12.pr34) #11
+  %68 = tail call i32 %67(ptr noundef nonnull %.val12.pr39) #11
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %70, label %spl_dual_it_valid.exit17.thread
 
@@ -9230,9 +9230,9 @@ spl_dual_it_fetch.exit:                           ; preds = %46, %.sink.split.i,
   br i1 %.not27, label %72, label %.sink.split
 
 .sink.split:                                      ; preds = %59, %62
-  %.sink32 = phi i32 [ %66, %62 ], [ %57, %59 ]
+  %.sink33 = phi i32 [ %66, %62 ], [ %57, %59 ]
   %.sink.in = phi ptr [ %64, %62 ], [ %53, %59 ]
-  %68 = and i32 %.sink32, 65280
+  %68 = and i32 %.sink33, 65280
   %69 = icmp ne i32 %68, 0
   tail call void @llvm.assume(i1 %69)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !11
@@ -12475,9 +12475,9 @@ zend_get_gc_buffer_add_obj.exit.i:                ; preds = %153, %148
   br label %zend_get_gc_buffer_add_zval.exit34.sink.split
 
 zend_get_gc_buffer_add_zval.exit34.sink.split:    ; preds = %93, %125, %zend_get_gc_buffer_add_obj.exit.i
-  %.sink52 = phi ptr [ %154, %zend_get_gc_buffer_add_obj.exit.i ], [ %126, %125 ], [ %94, %93 ]
+  %.sink64 = phi ptr [ %154, %zend_get_gc_buffer_add_obj.exit.i ], [ %126, %125 ], [ %94, %93 ]
   %.sink = phi i32 [ 776, %zend_get_gc_buffer_add_obj.exit.i ], [ %128, %125 ], [ %96, %93 ]
-  %155 = getelementptr inbounds nuw i8, ptr %.sink52, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %.sink64, i64 8
   store i32 %.sink, ptr %155, align 8, !tbaa !11
   %156 = load ptr, ptr %5, align 8, !tbaa !151
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 16
@@ -12781,7 +12781,7 @@ spl_dual_it_valid.exit.i:                         ; preds = %spl_dual_it_valid.e
   call void %38(ptr noundef nonnull %34, ptr noundef nonnull %7) #11
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !12
   %.not31.i = icmp eq ptr %40, null
-  br i1 %.not31.i, label %spl_dual_it_fetch.exit.thread11, label %41
+  br i1 %.not31.i, label %spl_dual_it_fetch.exit.thread12, label %41
 
 41:                                               ; preds = %39
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #11
@@ -12797,9 +12797,9 @@ spl_dual_it_fetch.exit:                           ; preds = %41, %42
   store i32 %.sink.i, ptr %9, align 8, !tbaa !11
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !12
   %44 = icmp eq ptr %.pre, null
-  br i1 %44, label %spl_dual_it_fetch.exit.thread11, label %spl_dual_it_fetch.exit.thread
+  br i1 %44, label %spl_dual_it_fetch.exit.thread12, label %spl_dual_it_fetch.exit.thread
 
-spl_dual_it_fetch.exit.thread11:                  ; preds = %39, %spl_dual_it_fetch.exit
+spl_dual_it_fetch.exit.thread12:                  ; preds = %39, %spl_dual_it_fetch.exit
   %45 = load ptr, ptr %0, align 8, !tbaa !11
   %46 = load ptr, ptr %10, align 8, !tbaa !123
   %47 = call ptr @zend_call_method(ptr noundef %45, ptr noundef %46, ptr noundef null, ptr noundef nonnull @.str.12, i64 noundef 6, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, ptr noundef null) #11
@@ -12807,7 +12807,7 @@ spl_dual_it_fetch.exit.thread11:                  ; preds = %39, %spl_dual_it_fe
   %.not = icmp eq i8 %48, 0
   br i1 %.not, label %52, label %49
 
-49:                                               ; preds = %spl_dual_it_fetch.exit.thread11
+49:                                               ; preds = %spl_dual_it_fetch.exit.thread12
   %50 = call zeroext i1 @zend_is_true(ptr noundef nonnull %3) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #11
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8
@@ -12815,7 +12815,7 @@ spl_dual_it_fetch.exit.thread11:                  ; preds = %39, %spl_dual_it_fe
   %or.cond.not = select i1 %50, i1 true, i1 %.not6
   br i1 %or.cond.not, label %.loopexit, label %53
 
-52:                                               ; preds = %spl_dual_it_fetch.exit.thread11
+52:                                               ; preds = %spl_dual_it_fetch.exit.thread12
   %.old = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !12
   %.not6.old = icmp eq ptr %.old, null
   br i1 %.not6.old, label %53, label %.loopexit

@@ -798,7 +798,7 @@ define void @_ZN6icu_7715RegexStaticSets11initGlobalsEP10UErrorCode(ptr noundef 
   store ptr null, ptr @_ZN6icu_7715RegexStaticSets11gStaticSetsE, align 8, !tbaa !33
   %15 = load i32, ptr %0, align 4, !tbaa !31
   %16 = icmp slt i32 %15, 1
-  br i1 %16, label %.thread12.i, label %_ZN6icu_77L14initStaticSetsER10UErrorCode.exit
+  br i1 %16, label %.thread13.i, label %_ZN6icu_77L14initStaticSetsER10UErrorCode.exit
 
 17:                                               ; preds = %11
   %18 = landingpad { ptr, i32 }
@@ -812,14 +812,14 @@ define void @_ZN6icu_7715RegexStaticSets11initGlobalsEP10UErrorCode(ptr noundef 
   %.pre.pre.i = load i32, ptr %0, align 4, !tbaa !31
   %20 = icmp sgt i32 %.pre.pre.i, 0
   store ptr null, ptr @_ZN6icu_7715RegexStaticSets11gStaticSetsE, align 8, !tbaa !33
-  br i1 %20, label %_ZN6icu_77L14initStaticSetsER10UErrorCode.exit, label %.thread12.i
+  br i1 %20, label %_ZN6icu_77L14initStaticSetsER10UErrorCode.exit, label %.thread13.i
 
-.thread12.i:                                      ; preds = %19, %.thread.i
+.thread13.i:                                      ; preds = %19, %.thread.i
   store i32 7, ptr %0, align 4, !tbaa !31
   br label %_ZN6icu_77L14initStaticSetsER10UErrorCode.exit
 
-_ZN6icu_77L14initStaticSetsER10UErrorCode.exit:   ; preds = %12, %.thread.i, %19, %.thread12.i
-  %21 = phi i32 [ %13, %12 ], [ %15, %.thread.i ], [ %.pre.pre.i, %19 ], [ 7, %.thread12.i ]
+_ZN6icu_77L14initStaticSetsER10UErrorCode.exit:   ; preds = %12, %.thread.i, %19, %.thread13.i
+  %21 = phi i32 [ %13, %12 ], [ %15, %.thread.i ], [ %.pre.pre.i, %19 ], [ 7, %.thread13.i ]
   store i32 %21, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_7719gStaticSetsInitOnceE, i64 4), align 4, !tbaa !35
   tail call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_7719gStaticSetsInitOnceE)
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit

@@ -299,8 +299,8 @@ while.end.i:                                      ; preds = %_ZN5eastl9allocator
   br i1 %isnull.i9.i, label %_ZN5eastl9allocator10deallocateEPvm.exit11.i, label %delete.notnull.i10.i
 
 delete.notnull.i10.i:                             ; preds = %while.end.i, %while.cond.preheader.i
-  %segment.0.lcssa16.i = phi ptr [ %3, %while.end.i ], [ %0, %while.cond.preheader.i ]
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16.i) #9
+  %segment.0.lcssa17.i = phi ptr [ %3, %while.end.i ], [ %0, %while.cond.preheader.i ]
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa17.i) #9
   br label %_ZN5eastl9allocator10deallocateEPvm.exit11.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit11.i:     ; preds = %delete.notnull.i10.i, %while.end.i
@@ -339,8 +339,8 @@ while.end:                                        ; preds = %_ZN5eastl9allocator
   br i1 %isnull.i9, label %_ZN5eastl9allocator10deallocateEPvm.exit11, label %delete.notnull.i10
 
 delete.notnull.i10:                               ; preds = %while.cond.preheader, %while.end
-  %segment.0.lcssa16 = phi ptr [ %3, %while.end ], [ %0, %while.cond.preheader ]
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16) #9
+  %segment.0.lcssa17 = phi ptr [ %3, %while.end ], [ %0, %while.cond.preheader ]
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa17) #9
   br label %_ZN5eastl9allocator10deallocateEPvm.exit11
 
 _ZN5eastl9allocator10deallocateEPvm.exit11:       ; preds = %while.end, %delete.notnull.i10
@@ -1014,8 +1014,8 @@ while.end.i:                                      ; preds = %_ZN5eastl9allocator
   br i1 %isnull.i9.i, label %_ZN5eastl9allocator10deallocateEPvm.exit11.i, label %delete.notnull.i10.i
 
 delete.notnull.i10.i:                             ; preds = %while.end.i, %while.cond.preheader.i
-  %segment.0.lcssa16.i = phi ptr [ %3, %while.end.i ], [ %0, %while.cond.preheader.i ]
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16.i) #9
+  %segment.0.lcssa17.i = phi ptr [ %3, %while.end.i ], [ %0, %while.cond.preheader.i ]
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa17.i) #9
   br label %_ZN5eastl9allocator10deallocateEPvm.exit11.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit11.i:     ; preds = %delete.notnull.i10.i, %while.end.i
@@ -1054,8 +1054,8 @@ while.end:                                        ; preds = %_ZN5eastl9allocator
   br i1 %isnull.i9, label %_ZN5eastl9allocator10deallocateEPvm.exit11, label %delete.notnull.i10
 
 delete.notnull.i10:                               ; preds = %while.cond.preheader, %while.end
-  %segment.0.lcssa16 = phi ptr [ %3, %while.end ], [ %0, %while.cond.preheader ]
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16) #9
+  %segment.0.lcssa17 = phi ptr [ %3, %while.end ], [ %0, %while.cond.preheader ]
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa17) #9
   br label %_ZN5eastl9allocator10deallocateEPvm.exit11
 
 _ZN5eastl9allocator10deallocateEPvm.exit11:       ; preds = %while.end, %delete.notnull.i10
@@ -1709,8 +1709,8 @@ while.end.i:                                      ; preds = %_ZN5eastl9allocator
   br i1 %isnull.i9.i, label %_ZN5eastl9allocator10deallocateEPvm.exit11.i, label %delete.notnull.i10.i
 
 delete.notnull.i10.i:                             ; preds = %while.end.i, %while.cond.preheader.i
-  %segment.0.lcssa16.i = phi ptr [ %3, %while.end.i ], [ %0, %while.cond.preheader.i ]
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16.i) #9
+  %segment.0.lcssa17.i = phi ptr [ %3, %while.end.i ], [ %0, %while.cond.preheader.i ]
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa17.i) #9
   br label %_ZN5eastl9allocator10deallocateEPvm.exit11.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit11.i:     ; preds = %delete.notnull.i10.i, %while.end.i
@@ -1749,8 +1749,8 @@ while.end:                                        ; preds = %_ZN5eastl9allocator
   br i1 %isnull.i9, label %_ZN5eastl9allocator10deallocateEPvm.exit11, label %delete.notnull.i10
 
 delete.notnull.i10:                               ; preds = %while.cond.preheader, %while.end
-  %segment.0.lcssa16 = phi ptr [ %3, %while.end ], [ %0, %while.cond.preheader ]
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16) #9
+  %segment.0.lcssa17 = phi ptr [ %3, %while.end ], [ %0, %while.cond.preheader ]
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa17) #9
   br label %_ZN5eastl9allocator10deallocateEPvm.exit11
 
 _ZN5eastl9allocator10deallocateEPvm.exit11:       ; preds = %while.end, %delete.notnull.i10
@@ -3758,8 +3758,8 @@ while.end.i:                                      ; preds = %_ZN5eastl9allocator
   br i1 %isnull.i9.i, label %_ZN5eastl9allocator10deallocateEPvm.exit11.i, label %delete.notnull.i10.i
 
 delete.notnull.i10.i:                             ; preds = %while.end.i, %while.cond.preheader.i
-  %segment.0.lcssa16.i = phi ptr [ %79, %while.end.i ], [ %76, %while.cond.preheader.i ]
-  call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16.i) #9
+  %segment.0.lcssa17.i = phi ptr [ %79, %while.end.i ], [ %76, %while.cond.preheader.i ]
+  call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa17.i) #9
   br label %_ZN5eastl9allocator10deallocateEPvm.exit11.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit11.i:     ; preds = %delete.notnull.i10.i, %while.end.i
@@ -3854,8 +3854,8 @@ while.end.i:                                      ; preds = %_ZN5eastl9allocator
   br i1 %isnull.i9.i, label %_ZN5eastl9allocator10deallocateEPvm.exit11.i, label %delete.notnull.i10.i
 
 delete.notnull.i10.i:                             ; preds = %while.end.i, %while.cond.preheader.i
-  %segment.0.lcssa16.i = phi ptr [ %3, %while.end.i ], [ %0, %while.cond.preheader.i ]
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16.i) #9
+  %segment.0.lcssa17.i = phi ptr [ %3, %while.end.i ], [ %0, %while.cond.preheader.i ]
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa17.i) #9
   br label %_ZN5eastl9allocator10deallocateEPvm.exit11.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit11.i:     ; preds = %delete.notnull.i10.i, %while.end.i
@@ -3894,8 +3894,8 @@ while.end.i:                                      ; preds = %_ZN5eastl9allocator
   br i1 %isnull.i9.i, label %_ZN5eastl9allocator10deallocateEPvm.exit11.i, label %delete.notnull.i10.i
 
 delete.notnull.i10.i:                             ; preds = %while.end.i, %while.cond.preheader.i
-  %segment.0.lcssa16.i = phi ptr [ %3, %while.end.i ], [ %0, %while.cond.preheader.i ]
-  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa16.i) #9
+  %segment.0.lcssa17.i = phi ptr [ %3, %while.end.i ], [ %0, %while.cond.preheader.i ]
+  tail call void @_ZdaPv(ptr noundef nonnull %segment.0.lcssa17.i) #9
   br label %_ZN5eastl9allocator10deallocateEPvm.exit11.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit11.i:     ; preds = %delete.notnull.i10.i, %while.end.i

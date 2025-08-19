@@ -699,14 +699,14 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   %.sroa.0.sroa.7.1 = phi ptr [ %.sroa.9.sroa.5.0, %6 ], [ %.sroa.0.sroa.7.0, %4 ]
   %.sroa.9.sroa.5.1 = phi ptr [ %.sroa.0.sroa.7.0, %6 ], [ %.sroa.9.sroa.5.0, %4 ]
   %.sroa.9.sroa.0.1 = phi ptr [ %.sroa.0.sroa.0.0, %6 ], [ %.sroa.9.sroa.0.0, %4 ]
-  %.sink7.i = phi ptr [ %.sroa.9.sroa.0.0, %6 ], [ %.sroa.0.sroa.0.0, %4 ]
-  %.not = icmp eq ptr %.sink7.i, null
+  %.sink9.i = phi ptr [ %.sroa.9.sroa.0.0, %6 ], [ %.sroa.0.sroa.0.0, %4 ]
+  %.not = icmp eq ptr %.sink9.i, null
   br i1 %.not, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha251bce2afda4bbcE.exit.thread", label %8
 
 8:                                                ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha251bce2afda4bbcE.exit"
-  %9 = getelementptr inbounds nuw i8, ptr %.sink7.i, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %.sink9.i, i64 112
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %.sink7.i, ptr %3, align 8
+  store ptr %.sink9.i, ptr %3, align 8
   %10 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h70bbfb3afd8c1d1cE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8e3af52d7ab36e26e42eb5a5d7fa403b.16)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %4
@@ -743,14 +743,14 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   %.sroa.0.sroa.7.1 = phi ptr [ %.sroa.9.sroa.5.0, %6 ], [ %.sroa.0.sroa.7.0, %4 ]
   %.sroa.9.sroa.5.1 = phi ptr [ %.sroa.0.sroa.7.0, %6 ], [ %.sroa.9.sroa.5.0, %4 ]
   %.sroa.9.sroa.0.1 = phi ptr [ %.sroa.0.sroa.0.0, %6 ], [ %.sroa.9.sroa.0.0, %4 ]
-  %.sink7.i = phi ptr [ %.sroa.9.sroa.0.0, %6 ], [ %.sroa.0.sroa.0.0, %4 ]
-  %.not = icmp eq ptr %.sink7.i, null
+  %.sink9.i = phi ptr [ %.sroa.9.sroa.0.0, %6 ], [ %.sroa.0.sroa.0.0, %4 ]
+  %.not = icmp eq ptr %.sink9.i, null
   br i1 %.not, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha749b230e332ecd7E.exit.thread", label %8
 
 8:                                                ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha749b230e332ecd7E.exit"
-  %9 = getelementptr inbounds nuw i8, ptr %.sink7.i, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.sink9.i, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %.sink7.i, ptr %3, align 8
+  store ptr %.sink9.i, ptr %3, align 8
   %10 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h70bbfb3afd8c1d1cE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8e3af52d7ab36e26e42eb5a5d7fa403b.17)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %4
@@ -2542,9 +2542,9 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %15, ptr %10, align 8, !alias.scope !498, !noalias !503
   %16 = getelementptr i8, ptr %11, i64 8
-  %.val2.i2.sink.i.i14.i = load i64, ptr %16, align 8, !noalias !505, !noundef !13
-  %.val.i1.sink.i.i15.i = load i64, ptr %11, align 8, !noalias !505, !noundef !13
-  %17 = add i64 %.val2.i2.sink.i.i14.i, -1
+  %.val2.i2.sink.i.i18.i = load i64, ptr %16, align 8, !noalias !505, !noundef !13
+  %.val.i1.sink.i.i19.i = load i64, ptr %11, align 8, !noalias !505, !noundef !13
+  %17 = add i64 %.val2.i2.sink.i.i18.i, -1
   br label %26
 
 18:                                               ; preds = %3
@@ -2575,7 +2575,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %.val1.i.i.i = phi ptr [ %13, %.thread.i ], [ %.val1.i.i.i.pre, %._crit_edge ]
   %.val.i.i.i = phi ptr [ %15, %.thread.i ], [ %.val.i.i.i.pre, %._crit_edge ]
   %27 = phi i64 [ %17, %.thread.i ], [ %25, %._crit_edge ]
-  %.val.i1.sink.i.i17.i = phi i64 [ %.val.i1.sink.i.i15.i, %.thread.i ], [ %.val.i1.sink.i.i.i, %._crit_edge ]
+  %.val.i1.sink.i.i21.i = phi i64 [ %.val.i1.sink.i.i19.i, %.thread.i ], [ %.val.i1.sink.i.i.i, %._crit_edge ]
   %28 = ptrtoint ptr %.val1.i.i.i to i64
   %29 = ptrtoint ptr %.val.i.i.i to i64
   %30 = sub nuw i64 %28, %29
@@ -2589,7 +2589,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc6077ef783c17a3cE.exit.i": ; preds = %32, %26
   %34 = phi i64 [ %27, %26 ], [ %25, %32 ]
-  %.val.i1.sink.i.i16.i = phi i64 [ %.val.i1.sink.i.i17.i, %26 ], [ %.val.i1.sink.i.i.i, %32 ]
+  %.val.i1.sink.i.i20.i = phi i64 [ %.val.i1.sink.i.i21.i, %26 ], [ %.val.i1.sink.i.i.i, %32 ]
   %.val2.sink3.i.i.i = phi i64 [ %31, %26 ], [ %.val2.i.i.i, %32 ]
   %35 = tail call i64 @llvm.uadd.sat.i64(i64 %.val2.sink3.i.i.i, i64 1)
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %35, i64 4)
@@ -2612,7 +2612,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %44 = icmp ule i64 %.sroa.0.0.sroa.speculated.i.i, %39
   tail call void @llvm.assume(i1 %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !517
-  store i64 %.val.i1.sink.i.i16.i, ptr %43, align 8, !noalias !521
+  store i64 %.val.i1.sink.i.i20.i, ptr %43, align 8, !noalias !521
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 %34, ptr %45, align 8, !noalias !521
   store i64 %39, ptr %6, align 8, !noalias !488
@@ -3432,9 +3432,9 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %15, ptr %10, align 8, !alias.scope !721, !noalias !726
   %16 = getelementptr i8, ptr %11, i64 8
-  %.val2.i2.sink.i.i14.i = load i64, ptr %16, align 8, !noalias !728, !noundef !13
-  %.val.i1.sink.i.i15.i = load i64, ptr %11, align 8, !noalias !728, !noundef !13
-  %17 = add i64 %.val2.i2.sink.i.i14.i, -1
+  %.val2.i2.sink.i.i18.i = load i64, ptr %16, align 8, !noalias !728, !noundef !13
+  %.val.i1.sink.i.i19.i = load i64, ptr %11, align 8, !noalias !728, !noundef !13
+  %17 = add i64 %.val2.i2.sink.i.i18.i, -1
   br label %26
 
 18:                                               ; preds = %3
@@ -3465,7 +3465,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %.val1.i.i.i = phi ptr [ %13, %.thread.i ], [ %.val1.i.i.i.pre, %._crit_edge ]
   %.val.i.i.i = phi ptr [ %15, %.thread.i ], [ %.val.i.i.i.pre, %._crit_edge ]
   %27 = phi i64 [ %17, %.thread.i ], [ %25, %._crit_edge ]
-  %.val.i1.sink.i.i17.i = phi i64 [ %.val.i1.sink.i.i15.i, %.thread.i ], [ %.val.i1.sink.i.i.i, %._crit_edge ]
+  %.val.i1.sink.i.i21.i = phi i64 [ %.val.i1.sink.i.i19.i, %.thread.i ], [ %.val.i1.sink.i.i.i, %._crit_edge ]
   %28 = ptrtoint ptr %.val1.i.i.i to i64
   %29 = ptrtoint ptr %.val.i.i.i to i64
   %30 = sub nuw i64 %28, %29
@@ -3479,7 +3479,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h57a36c1255c542e1E.exit.i": ; preds = %32, %26
   %34 = phi i64 [ %27, %26 ], [ %25, %32 ]
-  %.val.i1.sink.i.i16.i = phi i64 [ %.val.i1.sink.i.i17.i, %26 ], [ %.val.i1.sink.i.i.i, %32 ]
+  %.val.i1.sink.i.i20.i = phi i64 [ %.val.i1.sink.i.i21.i, %26 ], [ %.val.i1.sink.i.i.i, %32 ]
   %.val2.sink3.i.i.i = phi i64 [ %31, %26 ], [ %.val2.i.i.i, %32 ]
   %35 = tail call i64 @llvm.uadd.sat.i64(i64 %.val2.sink3.i.i.i, i64 1)
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %35, i64 4)
@@ -3502,7 +3502,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %44 = icmp ule i64 %.sroa.0.0.sroa.speculated.i.i, %39
   tail call void @llvm.assume(i1 %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !740
-  store i64 %.val.i1.sink.i.i16.i, ptr %43, align 8, !noalias !744
+  store i64 %.val.i1.sink.i.i20.i, ptr %43, align 8, !noalias !744
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 %34, ptr %45, align 8, !noalias !744
   store i64 %39, ptr %6, align 8, !noalias !711
@@ -5389,8 +5389,8 @@ _ZN6quiche8recovery11gcongestion4bbr24mode4Mode22do_on_congestion_event17h3969c2
   %.not14 = icmp eq i64 %79, %90
   %91 = add nsw i64 %.sroa.0.015, -1
   %.not = icmp eq i64 %91, 0
-  %or.cond16 = select i1 %.not14, i1 true, i1 %.not
-  br i1 %or.cond16, label %92, label %63
+  %or.cond18 = select i1 %.not14, i1 true, i1 %.not
+  br i1 %or.cond18, label %92, label %63
 
 92:                                               ; preds = %_ZN6quiche8recovery11gcongestion4bbr24mode4Mode22do_on_congestion_event17h3969c227b86e9efbE.exit
   %93 = getelementptr inbounds nuw i8, ptr %18, i64 112

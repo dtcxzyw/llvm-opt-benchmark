@@ -689,7 +689,7 @@ define dso_local ptr @bio_alloc_bioset(ptr noundef %0, i16 noundef zeroext %1, i
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 20
   %35 = load volatile i32, ptr %34, align 4
   %36 = icmp ugt i32 %35, 15
-  br i1 %36, label %37, label %.thread29
+  br i1 %36, label %37, label %.thread41
 
 37:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -720,9 +720,9 @@ define dso_local ptr @bio_alloc_bioset(ptr noundef %0, i16 noundef zeroext %1, i
 48:                                               ; preds = %47, %37
   %49 = phi ptr [ %.pre, %47 ], [ %40, %37 ]
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %.thread29, label %57
+  br i1 %50, label %.thread41, label %57
 
-.thread29:                                        ; preds = %33, %48
+.thread41:                                        ; preds = %33, %48
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !27
   %51 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !28
   %52 = icmp ult i8 %51, 2
@@ -730,7 +730,7 @@ define dso_local ptr @bio_alloc_bioset(ptr noundef %0, i16 noundef zeroext %1, i
   %53 = icmp eq i8 %51, 0
   br i1 %53, label %.thread, label %54, !prof !13
 
-54:                                               ; preds = %.thread29
+54:                                               ; preds = %.thread41
   %55 = call i64 @llvm.read_register.i64(metadata !0)
   %56 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %55) #17, !srcloc !29
   call void @llvm.write_register.i64(metadata !0, i64 %56)
@@ -805,8 +805,8 @@ define dso_local ptr @bio_alloc_bioset(ptr noundef %0, i16 noundef zeroext %1, i
   %91 = and i32 %2, -8388609
   br label %.thread
 
-.thread:                                          ; preds = %.thread29, %54, %90, %14
-  %92 = phi i32 [ %91, %90 ], [ %2, %14 ], [ %2, %54 ], [ %2, %.thread29 ]
+.thread:                                          ; preds = %.thread41, %54, %90, %14
+  %92 = phi i32 [ %91, %90 ], [ %2, %14 ], [ %2, %54 ], [ %2, %.thread41 ]
   %93 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #19, !srcloc !32
   %94 = inttoptr i64 %93 to ptr
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 2112
@@ -4150,7 +4150,7 @@ define dso_local void @bio_endio(ptr noundef %0) #0 align 16 {
 25:                                               ; preds = %20
   %26 = and i16 %21, 1536
   %27 = icmp eq i16 %26, 0
-  br i1 %27, label %.thread13, label %28
+  br i1 %27, label %.thread19, label %28
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 24
@@ -4158,23 +4158,23 @@ define dso_local void @bio_endio(ptr noundef %0) #0 align 16 {
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 264
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.thread13, label %34
+  br i1 %33, label %.thread19, label %34
 
 34:                                               ; preds = %28
   tail call void @__rq_qos_done_bio(ptr noundef nonnull %32, ptr noundef %3) #17
   %.pr.pre = load ptr, ptr %22, align 8
   %35 = icmp eq ptr %.pr.pre, null
-  br i1 %35, label %.thread, label %.thread13
+  br i1 %35, label %.thread, label %.thread19
 
-.thread13:                                        ; preds = %25, %28, %34
-  %.pr15 = phi ptr [ %.pr.pre, %34 ], [ %23, %28 ], [ %23, %25 ]
+.thread19:                                        ; preds = %25, %28, %34
+  %.pr21 = phi ptr [ %.pr.pre, %34 ], [ %23, %28 ], [ %23, %25 ]
   %36 = load i16, ptr %4, align 4
   %37 = and i16 %36, 128
   %38 = icmp eq i16 %37, 0
   br i1 %38, label %.thread, label %39
 
-39:                                               ; preds = %.thread13
-  %40 = getelementptr inbounds nuw i8, ptr %.pr15, i64 24
+39:                                               ; preds = %.thread19
+  %40 = getelementptr inbounds nuw i8, ptr %.pr21, i64 24
   %41 = load ptr, ptr %40, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_block_bio_complete, i64 8), i32 2) #17
           to label %62 [label %42], !srcloc !89
@@ -4221,7 +4221,7 @@ define dso_local void @bio_endio(ptr noundef %0) #0 align 16 {
   store i16 %64, ptr %4, align 4
   br label %.thread
 
-.thread:                                          ; preds = %20, %62, %.thread13, %34
+.thread:                                          ; preds = %20, %62, %.thread19, %34
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, @bio_chain_endio

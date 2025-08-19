@@ -45,28 +45,28 @@ define ptr @i2s_ASN1_ENUMERATED_TABLE(ptr noundef %0, ptr noundef %1) #1 {
   %8 = load i32, ptr %5, align 8, !tbaa !12
   %9 = sext i32 %8 to i64
   %10 = icmp eq i64 %3, %9
-  br i1 %10, label %.lr.ph._crit_edge, label %.lr.ph18
+  br i1 %10, label %.lr.ph._crit_edge, label %.lr.ph20
 
-.lr.ph18:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.091317 = phi ptr [ %13, %.lr.ph ], [ %5, %.lr.ph.preheader ]
-  %11 = getelementptr inbounds nuw i8, ptr %.091317, i64 32
+.lr.ph20:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.091319 = phi ptr [ %13, %.lr.ph ], [ %5, %.lr.ph.preheader ]
+  %11 = getelementptr inbounds nuw i8, ptr %.091319, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !9
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
-.lr.ph:                                           ; preds = %.lr.ph18
-  %13 = getelementptr inbounds nuw i8, ptr %.091317, i64 24
+.lr.ph:                                           ; preds = %.lr.ph20
+  %13 = getelementptr inbounds nuw i8, ptr %.091319, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !12
   %15 = sext i32 %14 to i64
   %16 = icmp eq i64 %3, %15
-  br i1 %16, label %.lr.ph._crit_edge, label %.lr.ph18, !llvm.loop !13
+  br i1 %16, label %.lr.ph._crit_edge, label %.lr.ph20, !llvm.loop !13
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %7, %.lr.ph.preheader ], [ %12, %.lr.ph ]
   %17 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %.lcssa, ptr noundef nonnull @.str, i32 noundef 50) #2
   br label %19
 
-._crit_edge:                                      ; preds = %.lr.ph18, %2
+._crit_edge:                                      ; preds = %.lr.ph20, %2
   %18 = tail call ptr @i2s_ASN1_ENUMERATED(ptr noundef %0, ptr noundef %1) #2
   br label %19
 

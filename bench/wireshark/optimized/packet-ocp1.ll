@@ -3778,7 +3778,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
 
 .lr.ph.preheader.i253:                            ; preds = %1294
   %invariant.op.i254 = add i32 %1, 8
-  %invariant.op450.i = add i32 %1, 17
+  %invariant.op451.i = add i32 %1, 17
   br label %.lr.ph.i255
 
 .lr.ph.i255:                                      ; preds = %1309, %.lr.ph.preheader.i253
@@ -3801,8 +3801,8 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br i1 %1308, label %1309, label %.thread423.i
 
 1309:                                             ; preds = %.lr.ph.i255
-  %.reass451.i = add i32 %invariant.op450.i, %spec.select411.i
-  %1310 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %.reass451.i, i32 noundef 0)
+  %.reass452.i = add i32 %invariant.op451.i, %spec.select411.i
+  %1310 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %.reass452.i, i32 noundef 0)
   %1311 = zext i16 %1310 to i32
   %1312 = add i32 %spec.select411.i, 19
   %1313 = add i32 %1312, %1311

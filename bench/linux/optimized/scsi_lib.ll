@@ -1681,7 +1681,7 @@ define internal fastcc void @scsi_io_completion_action(ptr noundef %0, i32 nound
   br label %.thread11
 
 122:                                              ; preds = %108, %.thread8
-  switch i32 %104, label %default.unreachable12 [
+  switch i32 %104, label %default.unreachable15 [
     i32 0, label %.thread11
     i32 1, label %170
     i32 2, label %171
@@ -1834,7 +1834,7 @@ define internal fastcc void @scsi_io_completion_action(ptr noundef %0, i32 nound
   call void @blk_mq_requeue_request(ptr noundef %4, i1 noundef zeroext %209) #16
   br label %210
 
-default.unreachable12:                            ; preds = %122
+default.unreachable15:                            ; preds = %122
   unreachable
 
 210:                                              ; preds = %208, %189, %171, %170, %167
@@ -2685,8 +2685,8 @@ define dso_local range(i32 -2147483648, 1) i32 @scsi_mode_sense(ptr noundef capt
 
 .split26.us.us:                                   ; preds = %57, %60
   %.old = and i32 %40, 254
-  %.old94 = icmp eq i32 %.old, 2
-  br i1 %.old94, label %42, label %.loopexit
+  %.old99 = icmp eq i32 %.old, 2
+  br i1 %.old99, label %42, label %.loopexit
 
 .lr.ph44.us:                                      ; preds = %.split.us.us
   %68 = and i32 %40, 16711680

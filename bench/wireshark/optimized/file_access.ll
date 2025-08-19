@@ -1603,19 +1603,19 @@ define range(i32 -2147483648, 2147483647) i32 @wtap_name_to_file_type_subtype(pt
 12:                                               ; preds = %9
   %13 = tail call i32 @strcmp(ptr noundef %spec.select, ptr noundef nonnull dereferenceable(1) %11) #23
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %._crit_edge.loopexit.split.loop.exit18, label %15
+  br i1 %14, label %._crit_edge.loopexit.split.loop.exit19, label %15
 
 15:                                               ; preds = %9, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !23
 
-._crit_edge.loopexit.split.loop.exit18:           ; preds = %12
+._crit_edge.loopexit.split.loop.exit19:           ; preds = %12
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %15, %._crit_edge.loopexit.split.loop.exit18, %1
-  %.09 = phi i32 [ -1, %1 ], [ %16, %._crit_edge.loopexit.split.loop.exit18 ], [ -1, %15 ]
+._crit_edge:                                      ; preds = %15, %._crit_edge.loopexit.split.loop.exit19, %1
+  %.09 = phi i32 [ -1, %1 ], [ %16, %._crit_edge.loopexit.split.loop.exit19 ], [ -1, %15 ]
   ret i32 %.09
 }
 
@@ -2103,9 +2103,9 @@ define ptr @wtap_get_savable_file_types_subtypes_for_file(i32 noundef %0, ptr no
 .lr.ph:                                           ; preds = %19, %25
   %storemerge29 = phi i32 [ %26, %25 ], [ 0, %19 ]
   %24 = tail call fastcc zeroext i1 @wtap_dump_can_write_format(i32 noundef %storemerge29, ptr noundef %1, i32 noundef %2)
-  br i1 %24, label %.thread33, label %25
+  br i1 %24, label %.thread37, label %25
 
-.thread33:                                        ; preds = %.lr.ph
+.thread37:                                        ; preds = %.lr.ph
   store i32 %storemerge29, ptr %6, align 4
   br label %33
 
@@ -2123,8 +2123,8 @@ define ptr @wtap_get_savable_file_types_subtypes_for_file(i32 noundef %0, ptr no
   %32 = icmp eq i32 %.sink, -1
   br i1 %32, label %.thread, label %33
 
-33:                                               ; preds = %.thread33, %31
-  %34 = phi i32 [ %storemerge29, %.thread33 ], [ %.sink, %31 ]
+33:                                               ; preds = %.thread37, %31
+  %34 = phi i32 [ %storemerge29, %.thread37 ], [ %.sink, %31 ]
   %35 = load i32, ptr @pcap_file_type_subtype, align 4
   %36 = icmp eq i32 %34, %35
   %37 = load i32, ptr @pcapng_file_type_subtype, align 4

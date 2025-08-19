@@ -3734,8 +3734,8 @@ QuESTAssert.exit48.us:                            ; preds = %23, %13
 .preheader52:                                     ; preds = %QuESTAssert.exit
   %26 = icmp sgt i32 %4, 0
   %27 = icmp sgt i32 %1, 0
-  %or.cond88 = and i1 %26, %27
-  br i1 %or.cond88, label %.preheader.us.preheader, label %.loopexit
+  %or.cond93 = and i1 %26, %27
+  br i1 %or.cond93, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %.preheader52
   %28 = zext nneg i32 %1 to i64
@@ -3745,8 +3745,8 @@ QuESTAssert.exit48.us:                            ; preds = %23, %13
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us64
   %.063.us = phi i64 [ %38, %._crit_edge.us64 ], [ 0, %.preheader.us.preheader ]
   %.03662.us = phi i32 [ %39, %._crit_edge.us64 ], [ 0, %.preheader.us.preheader ]
-  %sext86 = shl i64 %.063.us, 32
-  %29 = ashr exact i64 %sext86, 32
+  %sext91 = shl i64 %.063.us, 32
+  %29 = ashr exact i64 %sext91, 32
   br label %30
 
 30:                                               ; preds = %.preheader.us, %QuESTAssert.exit46.us

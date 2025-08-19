@@ -319,9 +319,9 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h265(ptr noundef rea
   %175 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %176 = load i32, ptr %175, align 4, !tbaa !118
   %.not308 = icmp eq i32 %176, %170
-  %or.cond362 = select i1 %.not307, i1 %.not308, i1 false
+  %or.cond373 = select i1 %.not307, i1 %.not308, i1 false
   %177 = getelementptr inbounds nuw i8, ptr %2, i64 7924686
-  br i1 %or.cond362, label %194, label %._crit_edge360
+  br i1 %or.cond373, label %194, label %._crit_edge360
 
 ._crit_edge360:                                   ; preds = %153
   store i8 1, ptr %177, align 2, !tbaa !119

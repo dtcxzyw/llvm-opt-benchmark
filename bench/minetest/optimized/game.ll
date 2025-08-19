@@ -36441,8 +36441,8 @@ entry:
   %.pre5 = load float, ptr %arrayidx50.i.phi.trans.insert, align 4, !tbaa !34
   %6 = tail call nsz float @llvm.fabs.f32(float %.pre5)
   %cmp.i68.i = fcmp nsz ugt float %6, 0x3EB0C6F7A0000000
-  %or.cond6 = select i1 %or.cond67, i1 true, i1 %cmp.i68.i
-  br i1 %or.cond6, label %if.else19.thread, label %land.lhs.true13.i
+  %or.cond10 = select i1 %or.cond67, i1 true, i1 %cmp.i68.i
+  br i1 %or.cond10, label %if.else19.thread, label %land.lhs.true13.i
 
 land.lhs.true13.i:                                ; preds = %entry
   %arrayidx15.i = getelementptr inbounds nuw i8, ptr %this, i64 32

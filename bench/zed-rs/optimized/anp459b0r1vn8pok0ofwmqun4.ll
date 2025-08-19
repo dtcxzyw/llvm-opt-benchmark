@@ -10792,10 +10792,10 @@ switch.lookup:                                    ; preds = %52
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %7, ptr noundef nonnull align 8 dereferenceable(712) %29, i64 712, i1 false)
   invoke void @_ZN4gpui7element13ParentElement5child17h45554535827ef08dE(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(720) %19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(712) %7)
-          to label %170 unwind label %.body12.thread65.thread.thread86
+          to label %170 unwind label %.body12.thread65.thread.thread89
 
-.body12.thread65.thread.thread86:                 ; preds = %169
-  %lpad.thr_comm.split-lp88 = landingpad { ptr, i32 }
+.body12.thread65.thread.thread89:                 ; preds = %169
+  %lpad.thr_comm.split-lp91 = landingpad { ptr, i32 }
           cleanup
   br label %.body12.thread65.thread.thread
 
@@ -10885,8 +10885,8 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.3741760397517672727.ex
 193:                                              ; preds = %.body12.thread65.thread.thread
   resume { ptr, i32 } %.pn5482
 
-.body12.thread65.thread.thread:                   ; preds = %.body12.thread65, %.thread, %.body12.thread65.thread.thread86, %172
-  %.pn5482 = phi { ptr, i32 } [ %173, %172 ], [ %lpad.thr_comm.split-lp88, %.body12.thread65.thread.thread86 ], [ %eh.lpad-body1364, %.body12.thread65 ], [ %.pn55, %.thread ]
+.body12.thread65.thread.thread:                   ; preds = %.body12.thread65, %.thread, %.body12.thread65.thread.thread89, %172
+  %.pn5482 = phi { ptr, i32 } [ %173, %172 ], [ %lpad.thr_comm.split-lp91, %.body12.thread65.thread.thread89 ], [ %eh.lpad-body1364, %.body12.thread65 ], [ %.pn55, %.thread ]
   %194 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.val6 = load ptr, ptr %194, align 8, !noundef !7
   %195 = getelementptr inbounds nuw i8, ptr %1, i64 104

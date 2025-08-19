@@ -1036,16 +1036,16 @@ _ZL12isTileRegDefPN4llvm19MachineRegisterInfoERNS_12MachineInstrE.exit.i39: ; pr
   br label %340
 
 340:                                              ; preds = %335, %330
-  %.val71924.i.i = phi i32 [ %.val717.i.i, %335 ], [ %.val7.i.i, %330 ]
+  %.val72024.i.i = phi i32 [ %.val717.i.i, %335 ], [ %.val7.i.i, %330 ]
   %.0.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i, %335 ], [ 0, %330 ]
-  %341 = icmp eq i32 %.0.i.i.i.i, %.val71924.i.i
+  %341 = icmp eq i32 %.0.i.i.i.i, %.val72024.i.i
   br i1 %341, label %342, label %346
 
 342:                                              ; preds = %340
   store i32 0, ptr %146, align 8, !tbaa !263
   store i32 0, ptr %148, align 4, !tbaa !264
   %.val.i.i.i.i.i = load ptr, ptr %145, align 8, !tbaa !265
-  %343 = zext nneg i32 %.val71924.i.i to i64
+  %343 = zext nneg i32 %.val72024.i.i to i64
   %.idx.i.i.i.i.i = mul nuw nsw i64 %343, 24
   %344 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 %.idx.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i
@@ -1059,7 +1059,7 @@ _ZL12isTileRegDefPN4llvm19MachineRegisterInfoERNS_12MachineInstrE.exit.i39: ; pr
 
 346:                                              ; preds = %340
   %347 = load ptr, ptr %145, align 8, !tbaa !265
-  %348 = zext i32 %.val71924.i.i to i64
+  %348 = zext i32 %.val72024.i.i to i64
   %349 = mul nuw nsw i64 %348, 24
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %347, i64 noundef %349, i64 noundef 8) #17
   %350 = icmp eq i32 %.0.i.i.i.i, 0
@@ -1108,12 +1108,12 @@ _ZL12isTileRegDefPN4llvm19MachineRegisterInfoERNS_12MachineInstrE.exit.i39: ; pr
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEN12_GLOBAL__N_120X86FastPreTileConfig7PHIInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5clearEv.exit.i
 
 375:                                              ; preds = %.thread.i.i, %330
-  %.val720.i.i = phi i32 [ %.val717.i.i, %.thread.i.i ], [ %.val7.i.i, %330 ]
+  %.val719.i.i = phi i32 [ %.val717.i.i, %.thread.i.i ], [ %.val7.i.i, %330 ]
   %.val.i.i = load ptr, ptr %145, align 8, !tbaa !265
-  %376 = zext i32 %.val720.i.i to i64
+  %376 = zext i32 %.val719.i.i to i64
   %.idx.i.i = mul nuw nsw i64 %376, 24
   %377 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 %.idx.i.i
-  %.not14.i.i = icmp eq i32 %.val720.i.i, 0
+  %.not14.i.i = icmp eq i32 %.val719.i.i, 0
   br i1 %.not14.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %375
@@ -1419,8 +1419,8 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i.i: ; preds = %463, %_
 
 _ZL9isTileDefPN4llvm19MachineRegisterInfoERNS_12MachineInstrE.exit.i: ; preds = %495
   %512 = add nsw i32 %497, -284
-  %or.cond11.i.i = icmp ult i32 %512, 12
-  br i1 %or.cond11.i.i, label %513, label %_ZL9isTileDefPN4llvm19MachineRegisterInfoERNS_12MachineInstrE.exit.thread.i
+  %or.cond12.i.i = icmp ult i32 %512, 12
+  br i1 %or.cond12.i.i, label %513, label %_ZL9isTileDefPN4llvm19MachineRegisterInfoERNS_12MachineInstrE.exit.thread.i
 
 513:                                              ; preds = %_ZL9isTileDefPN4llvm19MachineRegisterInfoERNS_12MachineInstrE.exit.i, %499
   %.not.i59 = icmp eq ptr %.0302362.i, null
@@ -3042,7 +3042,7 @@ _ZN12_GLOBAL__N_120X86FastPreTileConfig30InitializeTileConfigStackSpaceEv.exit: 
   br label %._crit_edge129.thread
 
 ._crit_edge129.thread:                            ; preds = %._crit_edge, %_ZN12_GLOBAL__N_120X86FastPreTileConfig30InitializeTileConfigStackSpaceEv.exit, %._crit_edge129
-  %.019.lcssa178 = phi i1 [ true, %_ZN12_GLOBAL__N_120X86FastPreTileConfig30InitializeTileConfigStackSpaceEv.exit ], [ false, %._crit_edge129 ], [ false, %._crit_edge ]
+  %.019.lcssa250 = phi i1 [ true, %_ZN12_GLOBAL__N_120X86FastPreTileConfig30InitializeTileConfigStackSpaceEv.exit ], [ false, %._crit_edge129 ], [ false, %._crit_edge ]
   store i32 0, ptr %82, align 8, !tbaa !60
   %1168 = load ptr, ptr %54, align 8, !tbaa !59
   %1169 = icmp eq ptr %1168, %135
@@ -3057,7 +3057,7 @@ _ZN4llvm25ReversePostOrderTraversalIPNS_15MachineFunctionENS_11GraphTraitsIS2_EE
   br label %1171
 
 1171:                                             ; preds = %2, %_ZN4llvm25ReversePostOrderTraversalIPNS_15MachineFunctionENS_11GraphTraitsIS2_EEED2Ev.exit
-  %.0 = phi i1 [ %.019.lcssa178, %_ZN4llvm25ReversePostOrderTraversalIPNS_15MachineFunctionENS_11GraphTraitsIS2_EEED2Ev.exit ], [ false, %2 ]
+  %.0 = phi i1 [ %.019.lcssa250, %_ZN4llvm25ReversePostOrderTraversalIPNS_15MachineFunctionENS_11GraphTraitsIS2_EEED2Ev.exit ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -5092,8 +5092,8 @@ tailrecurse.i:                                    ; preds = %_ZL9isTileDefPN4llv
 
 _ZL9isTileDefPN4llvm19MachineRegisterInfoERNS_12MachineInstrE.exit.i: ; preds = %348
   %364 = add nsw i32 %350, -284
-  %or.cond11.i.i = icmp ult i32 %364, 12
-  br i1 %or.cond11.i.i, label %_ZL8getShapePN4llvm19MachineRegisterInfoENS_8RegisterE.exit, label %_ZL9isTileDefPN4llvm19MachineRegisterInfoERNS_12MachineInstrE.exit.thread.i
+  %or.cond12.i.i = icmp ult i32 %364, 12
+  br i1 %or.cond12.i.i, label %_ZL8getShapePN4llvm19MachineRegisterInfoENS_8RegisterE.exit, label %_ZL9isTileDefPN4llvm19MachineRegisterInfoERNS_12MachineInstrE.exit.thread.i
 
 _ZL9isTileDefPN4llvm19MachineRegisterInfoERNS_12MachineInstrE.exit.thread.i: ; preds = %_ZL9isTileDefPN4llvm19MachineRegisterInfoERNS_12MachineInstrE.exit.i, %352, %342, %336, %tailrecurse.i
   %365 = icmp eq i16 %332, 20

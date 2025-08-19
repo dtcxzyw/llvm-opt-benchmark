@@ -460,11 +460,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit59: ; preds = %_ZStl
   unreachable
 
 _ZNSt10unique_ptrIN4cvc58internal6theory12ModelManagerESt14default_deleteIS3_EE5resetEPS3_.exit.sink.split: ; preds = %140, %86
-  %.sink66 = phi ptr [ %87, %86 ], [ %141, %140 ]
-  %168 = load ptr, ptr %.sink66, align 8, !tbaa !3
+  %.sink81 = phi ptr [ %87, %86 ], [ %141, %140 ]
+  %168 = load ptr, ptr %.sink81, align 8, !tbaa !3
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %170 = load ptr, ptr %169, align 8
-  call void %170(ptr noundef nonnull align 8 dereferenceable(122) %.sink66) #24
+  call void %170(ptr noundef nonnull align 8 dereferenceable(122) %.sink81) #24
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory12ModelManagerESt14default_deleteIS3_EE5resetEPS3_.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory12ModelManagerESt14default_deleteIS3_EE5resetEPS3_.exit: ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory12ModelManagerESt14default_deleteIS3_EE5resetEPS3_.exit.sink.split, %140, %86

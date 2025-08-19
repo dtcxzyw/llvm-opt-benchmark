@@ -763,7 +763,7 @@ define hidden noundef ptr @_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv(p
   br i1 %.not.i, label %_ZN22ThreadLocalAllocBuffer8allocateEm.exit, label %14
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds ptr, ptr %7, i64 %5
+  %15 = getelementptr inbounds nuw ptr, ptr %7, i64 %5
   store ptr %15, ptr %6, align 8
   br label %_ZN22ThreadLocalAllocBuffer8allocateEm.exit
 
@@ -802,7 +802,7 @@ _ZN22ThreadLocalAllocBuffer8allocateEm.exit.thread: ; preds = %8
   br label %22
 
 _ZN22ThreadLocalAllocBuffer8allocateEm.exit:      ; preds = %8
-  %20 = getelementptr inbounds ptr, ptr %12, i64 %10
+  %20 = getelementptr inbounds nuw ptr, ptr %12, i64 %10
   store ptr %20, ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i8 1, ptr %21, align 8
@@ -987,7 +987,7 @@ define hidden noundef ptr @_ZNK12MemAllocator12mem_allocateERNS_10AllocationE(pt
   br i1 %.not.i.i, label %_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.thread, label %_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit
 
 _ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit: ; preds = %5
-  %18 = getelementptr inbounds ptr, ptr %11, i64 %9
+  %18 = getelementptr inbounds nuw ptr, ptr %11, i64 %9
   store ptr %18, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.thread, label %_ZNK12MemAllocator25mem_allocate_outside_tlabERNS_10AllocationE.exit
@@ -1066,7 +1066,7 @@ define hidden noundef ptr @_ZNK12MemAllocator8allocateEv(ptr noundef nonnull ali
   br i1 %.not.i.i.i, label %_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.thread.i, label %_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.i
 
 _ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.i: ; preds = %14
-  %25 = getelementptr inbounds ptr, ptr %18, i64 %16
+  %25 = getelementptr inbounds nuw ptr, ptr %18, i64 %16
   store ptr %25, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.thread.i, label %43

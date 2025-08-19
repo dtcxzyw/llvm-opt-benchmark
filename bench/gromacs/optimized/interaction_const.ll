@@ -897,10 +897,10 @@ _ZL26initCoulombEwaldParametersP8_IO_FILERK10t_inputrecbP19interaction_const_t.e
   br label %_ZL8usingPmeRK22CoulombInteractionType.exit.sink.split
 
 _ZL8usingPmeRK22CoulombInteractionType.exit.sink.split: ; preds = %315, %326
-  %.sink126.in = phi ptr [ %327, %326 ], [ %24, %315 ]
+  %.sink146.in = phi ptr [ %327, %326 ], [ %24, %315 ]
   %.str.7.sink = phi ptr [ @.str.7, %326 ], [ @.str.6, %315 ]
-  %.sink126 = load float, ptr %.sink126.in, align 8, !tbaa !278
-  %328 = fneg float %.sink126
+  %.sink146 = load float, ptr %.sink146.in, align 8, !tbaa !278
+  %328 = fneg float %.sink146
   %329 = fpext float %328 to double
   %330 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull %.str.7.sink, double noundef %329) #21
   br label %_ZL8usingPmeRK22CoulombInteractionType.exit

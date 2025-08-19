@@ -884,8 +884,8 @@ av_cmp_q.exit220.thread.i:                        ; preds = %av_cmp_q.exit220.i,
   %428 = trunc i64 %427 to i32
   %429 = call i64 @av_rescale_rnd(i64 noundef %155, i64 noundef 1, i64 noundef 20, i32 noundef 3) #11
   %430 = trunc i64 %429 to i32
-  %sext229.i = shl i64 %237, 32
-  %431 = ashr exact i64 %sext229.i, 32
+  %sext235.i = shl i64 %237, 32
+  %431 = ashr exact i64 %sext235.i, 32
   br label %437
 
 ._crit_edge.i26:                                  ; preds = %437, %409

@@ -939,10 +939,10 @@ switch.lookup:                                    ; preds = %137, %133
   %140 = phi ptr [ %139, %137 ], [ %136, %133 ]
   %141 = phi ptr [ %138, %137 ], [ %135, %133 ]
   %142 = zext nneg i32 %3 to i64
-  %switch.gep536 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvm12DisplayGraphENS_9StringRefEbNS_12GraphProgram4NameE.2, i64 0, i64 %142
-  %switch.load537 = load ptr, ptr %switch.gep536, align 8
-  %143 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load537) #16
-  %144 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112GraphSession14TryFindProgramEN4llvm9StringRefERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr nonnull %switch.load537, i64 %143, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %switch.gep583 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvm12DisplayGraphENS_9StringRefEbNS_12GraphProgram4NameE.2, i64 0, i64 %142
+  %switch.load584 = load ptr, ptr %switch.gep583, align 8
+  %143 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load584) #16
+  %144 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112GraphSession14TryFindProgramEN4llvm9StringRefERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr nonnull %switch.load584, i64 %143, ptr noundef nonnull align 8 dereferenceable(32) %11)
   br i1 %144, label %147, label %145
 
 145:                                              ; preds = %switch.lookup
@@ -1032,13 +1032,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   br label %.lr.ph.i.i.i.i.i.i174
 
 .lr.ph.i.i.i.i.i.i174:                            ; preds = %.lr.ph.i.i.i.i.i.i160.preheader, %.lr.ph.i.i.i.i.i.i174
-  %.012.i.i.i.i.i.i175.idx = phi i64 [ %.012.i.i.i.i.i.i175.add538, %.lr.ph.i.i.i.i.i.i174 ], [ 0, %.lr.ph.i.i.i.i.i.i160.preheader ]
+  %.012.i.i.i.i.i.i175.idx = phi i64 [ %.012.i.i.i.i.i.i175.add585, %.lr.ph.i.i.i.i.i.i174 ], [ 0, %.lr.ph.i.i.i.i.i.i160.preheader ]
   %.0911.i.i.i.i.i.i176.idx = phi i64 [ %.0911.i.i.i.i.i.i176.add, %.lr.ph.i.i.i.i.i.i174 ], [ 0, %.lr.ph.i.i.i.i.i.i160.preheader ]
   %.012.i.i.i.i.i.i175.ptr = getelementptr inbounds nuw i8, ptr %177, i64 %.012.i.i.i.i.i.i175.idx
   %.0911.i.i.i.i.i.i176.ptr = getelementptr inbounds nuw i8, ptr %174, i64 %.0911.i.i.i.i.i.i176.idx
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i175.ptr, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i176.ptr, i64 16, i1 false), !tbaa.struct !46, !alias.scope !75
   %.0911.i.i.i.i.i.i176.add = add nuw nsw i64 %.0911.i.i.i.i.i.i176.idx, 16
-  %.012.i.i.i.i.i.i175.add538 = add nuw nsw i64 %.012.i.i.i.i.i.i175.idx, 16
+  %.012.i.i.i.i.i.i175.add585 = add nuw nsw i64 %.012.i.i.i.i.i.i175.idx, 16
   %.not.i.i.i.i.i.i177 = icmp eq i64 %.0911.i.i.i.i.i.i176.add, 32
   br i1 %.not.i.i.i.i.i.i177, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i181, label %.lr.ph.i.i.i.i.i.i174, !llvm.loop !79
 

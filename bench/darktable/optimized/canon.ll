@@ -1589,13 +1589,13 @@ define void @_ZN6LibRaw20parseCanonMakernotesEjjjj(ptr noundef nonnull align 8 d
   br label %66
 
 66:                                               ; preds = %19, %57
-  %.sink777 = phi i64 [ 4, %57 ], [ 24, %19 ]
+  %.sink792 = phi i64 [ 4, %57 ], [ 24, %19 ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 381416
   %68 = load ptr, ptr %67, align 8, !tbaa !87
   %69 = load ptr, ptr %68, align 8, !tbaa !88
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = load ptr, ptr %70, align 8
-  %72 = tail call noundef i32 %71(ptr noundef nonnull align 8 dereferenceable(8) %68, i64 noundef %.sink777, i32 noundef 1)
+  %72 = tail call noundef i32 %71(ptr noundef nonnull align 8 dereferenceable(8) %68, i64 noundef %.sink792, i32 noundef 1)
   %73 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %.not519 = icmp eq i16 %73, 0
   br i1 %.not519, label %79, label %74

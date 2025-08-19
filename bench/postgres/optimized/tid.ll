@@ -54,7 +54,7 @@ switch.early.test:                                ; preds = %1, %18
 
 13:                                               ; preds = %switch.early.test, %10
   %14 = getelementptr inbounds nuw i8, ptr %.04561, i64 1
-  %15 = add i32 %.04660, 1
+  %15 = add nuw nsw i32 %.04660, 1
   %16 = zext nneg i32 %.04660 to i64
   %17 = getelementptr inbounds nuw [2 x ptr], ptr %2, i64 0, i64 %16
   store ptr %14, ptr %17, align 8
@@ -649,9 +649,9 @@ list_length.exit.thread:                          ; preds = %64, %list_length.ex
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 408, ptr noundef nonnull @__func__.currtid_for_view) #11
   unreachable
 
-common.ret65:                                     ; preds = %currtid_for_view.exit, %common.ret
-  %common.ret65.op = phi ptr [ %3, %common.ret ], [ %107, %currtid_for_view.exit ]
-  ret ptr %common.ret65.op
+common.ret74:                                     ; preds = %currtid_for_view.exit, %common.ret
+  %common.ret74.op = phi ptr [ %3, %common.ret ], [ %107, %currtid_for_view.exit ]
+  ret ptr %common.ret74.op
 
 currtid_for_view.exit:                            ; preds = %94
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 28
@@ -659,7 +659,7 @@ currtid_for_view.exit:                            ; preds = %94
   %106 = tail call ptr @table_open(i32 noundef %105, i32 noundef 1) #11
   %107 = tail call fastcc ptr @currtid_internal(ptr noundef %106, ptr noundef %1)
   tail call void @table_close(ptr noundef %106, i32 noundef 1) #11
-  br label %common.ret65
+  br label %common.ret74
 
 108:                                              ; preds = %16
   %109 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -692,7 +692,7 @@ common.ret:                                       ; preds = %16, %16, %16, %16, 
   %129 = load ptr, ptr %128, align 8
   tail call void %129(ptr noundef nonnull %124) #11
   tail call void @UnregisterSnapshot(ptr noundef %119) #11
-  br label %common.ret65
+  br label %common.ret74
 }
 
 declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1

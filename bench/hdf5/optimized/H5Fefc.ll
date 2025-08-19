@@ -404,11 +404,11 @@ define range(i32 -1, 1) i32 @H5F__efc_open(i1 noundef zeroext %0, ptr noundef ca
   br label %174
 
 174:                                              ; preds = %112, %91, %162, %170
-  %.0102147 = phi ptr [ %.4, %162 ], [ %.4, %170 ], [ %.3141, %91 ], [ %.4, %112 ]
-  %175 = load ptr, ptr %.0102147, align 8, !tbaa !35
+  %.0102157 = phi ptr [ %.4, %162 ], [ %.4, %170 ], [ %.3141, %91 ], [ %.4, %112 ]
+  %175 = load ptr, ptr %.0102157, align 8, !tbaa !35
   %176 = call ptr @H5MM_xfree(ptr noundef %175) #6
-  store ptr %176, ptr %.0102147, align 8, !tbaa !35
-  %177 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5F_efc_ent_t_reg_free_list, ptr noundef nonnull %.0102147) #6
+  store ptr %176, ptr %.0102157, align 8, !tbaa !35
+  %177 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5F_efc_ent_t_reg_free_list, ptr noundef nonnull %.0102157) #6
   br label %.thread133
 
 .thread133:                                       ; preds = %40, %52, %104, %97, %32, %25, %18, %.critedge127, %37, %119, %160, %174, %7

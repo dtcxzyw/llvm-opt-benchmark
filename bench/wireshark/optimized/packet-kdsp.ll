@@ -791,9 +791,9 @@ define internal i32 @dissect_kdsp_message(ptr noundef %0, ptr noundef %1, ptr no
 
 270:                                              ; preds = %258, %261
   %hf_kdsp_ch_dwell.sink = phi ptr [ @hf_kdsp_ch_dwell, %258 ], [ @hf_kdsp_ch_iter, %261 ]
-  %.sink473 = phi i32 [ %257, %258 ], [ %269, %261 ]
+  %.sink474 = phi i32 [ %257, %258 ], [ %269, %261 ]
   %271 = load i32, ptr %hf_kdsp_ch_dwell.sink, align 4
-  %272 = tail call ptr @proto_tree_add_item(ptr noundef %255, i32 noundef %271, ptr noundef %0, i32 noundef %.sink473, i32 noundef 2, i32 noundef 0)
+  %272 = tail call ptr @proto_tree_add_item(ptr noundef %255, i32 noundef %271, ptr noundef %0, i32 noundef %.sink474, i32 noundef 2, i32 noundef 0)
   %.9 = add nuw nsw i32 %.8471, 8
   %273 = add nuw nsw i32 %.0439470, 1
   %exitcond.not = icmp eq i32 %273, %251

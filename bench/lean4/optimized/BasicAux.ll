@@ -6080,17 +6080,17 @@ lean_inc.exit:                                    ; preds = %791, %790, %788, %l
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit, %lean_dec.exit356
-  %.sink702 = phi ptr [ %17, %lean_dec.exit356 ], [ %796, %lean_inc.exit ]
-  %.sink699 = phi i32 [ 16908312, %lean_dec.exit356 ], [ 131096, %lean_inc.exit ]
+  %.sink728 = phi ptr [ %17, %lean_dec.exit356 ], [ %796, %lean_inc.exit ]
+  %.sink725 = phi i32 [ 16908312, %lean_dec.exit356 ], [ 131096, %lean_inc.exit ]
   %.sink = phi ptr [ inttoptr (i64 3 to ptr), %lean_dec.exit356 ], [ %795, %lean_inc.exit ]
-  %799 = getelementptr inbounds nuw i8, ptr %.sink702, i64 4
-  store i32 1, ptr %.sink702, align 4, !tbaa !4
-  store i32 %.sink699, ptr %799, align 4
-  %800 = getelementptr inbounds nuw i8, ptr %.sink702, i64 8
+  %799 = getelementptr inbounds nuw i8, ptr %.sink728, i64 4
+  store i32 1, ptr %.sink728, align 4, !tbaa !4
+  store i32 %.sink725, ptr %799, align 4
+  %800 = getelementptr inbounds nuw i8, ptr %.sink728, i64 8
   store ptr %.sink, ptr %800, align 8, !tbaa !10
-  %801 = getelementptr inbounds nuw i8, ptr %.sink702, i64 16
+  %801 = getelementptr inbounds nuw i8, ptr %.sink728, i64 16
   store ptr %2, ptr %801, align 8, !tbaa !10
-  ret ptr %.sink702
+  ret ptr %.sink728
 }
 
 declare zeroext i8 @l_Lean_Syntax_isOfKind(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -6186,17 +6186,17 @@ lean_alloc_ctor.exit24:                           ; preds = %lean_inc.exit
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_alloc_ctor.exit24, %7
-  %.sink32 = phi ptr [ %8, %7 ], [ %32, %lean_alloc_ctor.exit24 ]
-  %.sink29 = phi i32 [ 16908312, %7 ], [ 131096, %lean_alloc_ctor.exit24 ]
+  %.sink35 = phi ptr [ %8, %7 ], [ %32, %lean_alloc_ctor.exit24 ]
+  %.sink32 = phi i32 [ 16908312, %7 ], [ 131096, %lean_alloc_ctor.exit24 ]
   %.sink = phi ptr [ inttoptr (i64 3 to ptr), %7 ], [ %31, %lean_alloc_ctor.exit24 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.sink32, i64 4
-  store i32 1, ptr %.sink32, align 4, !tbaa !4
-  store i32 %.sink29, ptr %35, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %.sink32, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.sink35, i64 4
+  store i32 1, ptr %.sink35, align 4, !tbaa !4
+  store i32 %.sink32, ptr %35, align 4
+  %36 = getelementptr inbounds nuw i8, ptr %.sink35, i64 8
   store ptr %.sink, ptr %36, align 8, !tbaa !10
-  %37 = getelementptr inbounds nuw i8, ptr %.sink32, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.sink35, i64 16
   store ptr %2, ptr %37, align 8, !tbaa !10
-  ret ptr %.sink32
+  ret ptr %.sink35
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6762,18 +6762,18 @@ _init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSize
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__40.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %246, %_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__40.exit ]
-  %249 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !4
+  %.sink18 = phi ptr [ %4, %3 ], [ %246, %_init_l_List___aux__Init__Data__List__BasicAux______macroRules__List__tacticSizeOf__list__dec__1___closed__40.exit ]
+  %249 = getelementptr inbounds nuw i8, ptr %.sink18, i64 4
+  store i32 1, ptr %.sink18, align 4, !tbaa !4
   store i32 131096, ptr %249, align 4
-  %250 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %.sink18, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %250, align 8, !tbaa !10
-  %251 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %251 = getelementptr inbounds nuw i8, ptr %.sink18, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %251, align 8, !tbaa !10
   br label %252
 
 252:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink18, %.sink.split ]
   ret ptr %.0
 }
 

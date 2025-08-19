@@ -441,8 +441,8 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   br label %98
 
 98:                                               ; preds = %92, %94
-  %.sink373 = phi i32 [ %97, %94 ], [ 1, %92 ]
-  %99 = call i32 @cli_jsonint(ptr noundef nonnull %88, ptr noundef nonnull @.str.18, i32 noundef %.sink373) #8
+  %.sink394 = phi i32 [ %97, %94 ], [ 1, %92 ]
+  %99 = call i32 @cli_jsonint(ptr noundef nonnull %88, ptr noundef nonnull @.str.18, i32 noundef %.sink394) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load i32, ptr %68, align 8, !tbaa !37
   br label %100
@@ -652,8 +652,8 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   %.pre351 = load i32, ptr %68, align 8, !tbaa !37
   %174 = and i32 %.pre351, 512
   %.not274 = icmp eq i32 %174, 0
-  %or.cond374 = select i1 %.not273, i1 true, i1 %.not274
-  br i1 %or.cond374, label %177, label %175
+  %or.cond395 = select i1 %.not273, i1 true, i1 %.not274
+  br i1 %or.cond395, label %177, label %175
 
 175:                                              ; preds = %172
   %176 = call fastcc i32 @msxml_parse_value(ptr noundef %.0212, ptr noundef %173)

@@ -582,7 +582,7 @@ define range(i32 -2147483647, -2147483648) i32 @cli_chomp(ptr noundef captures(a
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
   %10 = load i8, ptr %9, align 1, !tbaa !3
-  switch i8 %10, label %.critedge.loopexit.split.loop.exit24 [
+  switch i8 %10, label %.critedge.loopexit.split.loop.exit25 [
     i8 10, label %.critedge2
     i8 13, label %.critedge2
   ]
@@ -592,12 +592,12 @@ define range(i32 -2147483647, -2147483648) i32 @cli_chomp(ptr noundef captures(a
   %11 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %11, label %.lr.ph, label %.critedge
 
-.critedge.loopexit.split.loop.exit24:             ; preds = %.lr.ph
+.critedge.loopexit.split.loop.exit25:             ; preds = %.lr.ph
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge2, %.critedge.loopexit.split.loop.exit24, %.preheader, %3, %1
-  %.014 = phi i32 [ -1, %1 ], [ 0, %3 ], [ %5, %.preheader ], [ %12, %.critedge.loopexit.split.loop.exit24 ], [ 0, %.critedge2 ]
+.critedge:                                        ; preds = %.critedge2, %.critedge.loopexit.split.loop.exit25, %.preheader, %3, %1
+  %.014 = phi i32 [ -1, %1 ], [ 0, %3 ], [ %5, %.preheader ], [ %12, %.critedge.loopexit.split.loop.exit25 ], [ 0, %.critedge2 ]
   ret i32 %.014
 }
 
@@ -672,7 +672,7 @@ define ptr @cli_strtok(ptr noundef readonly captures(none) %0, i32 noundef %1, p
   %32 = sext i8 %31 to i32
   %33 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef %32) #23
   %.not47 = icmp eq ptr %33, null
-  br i1 %.not47, label %34, label %._crit_edge61.split.loop.exit74
+  br i1 %.not47, label %34, label %._crit_edge61.split.loop.exit80
 
 34:                                               ; preds = %.lr.ph60
   %indvars.iv.next70 = add nsw i64 %indvars.iv69, 1
@@ -682,12 +682,12 @@ define ptr @cli_strtok(ptr noundef readonly captures(none) %0, i32 noundef %1, p
   %.not46 = icmp eq i8 %37, 0
   br i1 %.not46, label %._crit_edge61, label %.lr.ph60
 
-._crit_edge61.split.loop.exit74:                  ; preds = %.lr.ph60
+._crit_edge61.split.loop.exit80:                  ; preds = %.lr.ph60
   %38 = trunc nsw i64 %indvars.iv69 to i32
   br label %._crit_edge61
 
-._crit_edge61:                                    ; preds = %34, %._crit_edge61.split.loop.exit74
-  %.0.lcssa.ph = phi i32 [ %38, %._crit_edge61.split.loop.exit74 ], [ %35, %34 ]
+._crit_edge61:                                    ; preds = %34, %._crit_edge61.split.loop.exit80
+  %.0.lcssa.ph = phi i32 [ %38, %._crit_edge61.split.loop.exit80 ], [ %35, %34 ]
   %39 = icmp eq i32 %.038.lcssa, %.0.lcssa.ph
   br i1 %39, label %50, label %40
 
@@ -794,7 +794,7 @@ define noundef ptr @cli_strtokbuf(ptr noundef readonly captures(none) %0, i32 no
   %34 = sext i8 %33 to i32
   %35 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef %34) #23
   %.not42 = icmp eq ptr %35, null
-  br i1 %.not42, label %36, label %._crit_edge55.split.loop.exit68
+  br i1 %.not42, label %36, label %._crit_edge55.split.loop.exit73
 
 36:                                               ; preds = %.lr.ph54
   %indvars.iv.next64 = add nsw i64 %indvars.iv63, 1
@@ -804,12 +804,12 @@ define noundef ptr @cli_strtokbuf(ptr noundef readonly captures(none) %0, i32 no
   %.not = icmp eq i8 %39, 0
   br i1 %.not, label %._crit_edge55, label %.lr.ph54
 
-._crit_edge55.split.loop.exit68:                  ; preds = %.lr.ph54
+._crit_edge55.split.loop.exit73:                  ; preds = %.lr.ph54
   %40 = trunc nsw i64 %indvars.iv63 to i32
   br label %._crit_edge55
 
-._crit_edge55:                                    ; preds = %36, %._crit_edge55.split.loop.exit68
-  %.0.lcssa.ph = phi i32 [ %40, %._crit_edge55.split.loop.exit68 ], [ %37, %36 ]
+._crit_edge55:                                    ; preds = %36, %._crit_edge55.split.loop.exit73
+  %.0.lcssa.ph = phi i32 [ %40, %._crit_edge55.split.loop.exit73 ], [ %37, %36 ]
   %41 = icmp eq i32 %.035.lcssa, %.0.lcssa.ph
   br i1 %41, label %47, label %42
 
@@ -1123,7 +1123,7 @@ define i64 @cli_strtokenize(ptr noundef %0, i8 noundef signext %1, i64 noundef %
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #17 {
   %5 = icmp eq i64 %1, 0
-  br i1 %5, label %.thread152, label %.preheader
+  br i1 %5, label %.thread165, label %.preheader
 
 .preheader:                                       ; preds = %4
   %6 = tail call ptr @__ctype_b_loc() #25
@@ -1149,7 +1149,7 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly ca
 .critedge:                                        ; preds = %9, %15
   %.286 = phi ptr [ %16, %15 ], [ %.185, %9 ]
   %.not100 = icmp ult ptr %.286, %8
-  br i1 %.not100, label %18, label %.thread152
+  br i1 %.not100, label %18, label %.thread165
 
 18:                                               ; preds = %.critedge
   %.not105 = icmp eq i8 %10, 45
@@ -1159,7 +1159,7 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly ca
   %20 = getelementptr inbounds nuw i8, ptr %.286, i64 1
   %21 = load i8, ptr %.286, align 1, !tbaa !3
   %.not102 = icmp ult ptr %20, %8
-  br i1 %.not102, label %27, label %.thread152
+  br i1 %.not102, label %27, label %.thread165
 
 22:                                               ; preds = %18
   %23 = icmp eq i8 %10, 43
@@ -1169,7 +1169,7 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly ca
   %25 = getelementptr inbounds nuw i8, ptr %.286, i64 1
   %26 = load i8, ptr %.286, align 1, !tbaa !3
   %.not101 = icmp ult ptr %25, %8
-  br i1 %.not101, label %27, label %.thread152
+  br i1 %.not101, label %27, label %.thread165
 
 27:                                               ; preds = %22, %24, %19
   %.3 = phi ptr [ %20, %19 ], [ %25, %24 ], [ %.286, %22 ]
@@ -1196,7 +1196,7 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly ca
 35:                                               ; preds = %33, %33
   %36 = getelementptr inbounds nuw i8, ptr %.3, i64 2
   %.not103 = icmp ult ptr %36, %8
-  br i1 %.not103, label %.thread127, label %.thread152
+  br i1 %.not103, label %.thread127, label %.thread165
 
 .thread:                                          ; preds = %30, %33
   %37 = icmp eq i32 %3, 0
@@ -1220,7 +1220,7 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly ca
   %46 = trunc i64 %45 to i32
   %47 = udiv i64 %43, %44
   %48 = icmp ult ptr %.4118130, %8
-  br i1 %48, label %.lr.ph, label %.thread152
+  br i1 %48, label %.lr.ph, label %.thread165
 
 .lr.ph:                                           ; preds = %.thread127, %74
   %.176135 = phi i32 [ %.2, %74 ], [ 0, %.thread127 ]
@@ -1292,26 +1292,26 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly ca
 78:                                               ; preds = %._crit_edge
   %79 = tail call ptr @__errno_location() #25
   store i32 34, ptr %79, align 4, !tbaa !6
-  br label %.thread152
+  br label %.thread165
 
 80:                                               ; preds = %._crit_edge
   %81 = sub i64 0, %.182.lcssa
   %spec.select = select i1 %.not105, i64 %81, i64 %.182.lcssa
   %82 = icmp eq i32 %.176.lcssa, 0
-  %spec.select159 = select i1 %82, ptr %0, ptr %.5.lcssa
-  br label %.thread152
+  %spec.select172 = select i1 %82, ptr %0, ptr %.5.lcssa
+  br label %.thread165
 
-.thread152:                                       ; preds = %80, %.thread127, %78, %35, %24, %19, %.critedge, %4
+.thread165:                                       ; preds = %80, %.thread127, %78, %35, %24, %19, %.critedge, %4
   %.081 = phi i64 [ 0, %4 ], [ 0, %.critedge ], [ 0, %19 ], [ 0, %35 ], [ %43, %78 ], [ 0, %24 ], [ 0, %.thread127 ], [ %spec.select, %80 ]
-  %.075 = phi ptr [ %0, %4 ], [ %0, %.critedge ], [ %0, %19 ], [ %0, %35 ], [ %.5.lcssa, %78 ], [ %0, %24 ], [ %0, %.thread127 ], [ %spec.select159, %80 ]
+  %.075 = phi ptr [ %0, %4 ], [ %0, %.critedge ], [ %0, %19 ], [ %0, %35 ], [ %.5.lcssa, %78 ], [ %0, %24 ], [ %0, %.thread127 ], [ %spec.select172, %80 ]
   %.not110 = icmp eq ptr %2, null
   br i1 %.not110, label %84, label %83
 
-83:                                               ; preds = %.thread152
+83:                                               ; preds = %.thread165
   store ptr %.075, ptr %2, align 8, !tbaa !13
   br label %84
 
-84:                                               ; preds = %83, %.thread152
+84:                                               ; preds = %83, %.thread165
   ret i64 %.081
 }
 
@@ -1346,7 +1346,7 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly c
 .critedge:                                        ; preds = %8, %14
   %.174 = phi ptr [ %15, %14 ], [ %.073, %8 ]
   %.not95 = icmp ult ptr %.174, %7
-  br i1 %.not95, label %17, label %.thread147
+  br i1 %.not95, label %17, label %.thread159
 
 17:                                               ; preds = %.critedge
   %.not104 = icmp eq i8 %9, 45
@@ -1356,7 +1356,7 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly c
   %19 = getelementptr inbounds nuw i8, ptr %.174, i64 1
   %20 = load i8, ptr %.174, align 1, !tbaa !3
   %.not97 = icmp ult ptr %19, %7
-  br i1 %.not97, label %26, label %.thread147
+  br i1 %.not97, label %26, label %.thread159
 
 21:                                               ; preds = %17
   %22 = icmp eq i8 %9, 43
@@ -1366,7 +1366,7 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly c
   %24 = getelementptr inbounds nuw i8, ptr %.174, i64 1
   %25 = load i8, ptr %.174, align 1, !tbaa !3
   %.not96 = icmp ult ptr %24, %7
-  br i1 %.not96, label %26, label %.thread147
+  br i1 %.not96, label %26, label %.thread159
 
 26:                                               ; preds = %21, %23, %18
   %.076.in = phi i8 [ %20, %18 ], [ %25, %23 ], [ %9, %21 ]
@@ -1393,7 +1393,7 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly c
 34:                                               ; preds = %32, %32
   %35 = getelementptr inbounds nuw i8, ptr %.3, i64 2
   %.not98 = icmp ult ptr %35, %7
-  br i1 %.not98, label %.thread122, label %.thread147
+  br i1 %.not98, label %.thread122, label %.thread159
 
 .thread:                                          ; preds = %29, %32
   %36 = icmp eq i32 %3, 0
@@ -1416,7 +1416,7 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly c
   %44 = urem i64 -1, %42
   %45 = trunc i64 %44 to i32
   %46 = icmp ult ptr %.4113125, %7
-  br i1 %46, label %.lr.ph, label %.thread147
+  br i1 %46, label %.lr.ph, label %.thread159
 
 .lr.ph:                                           ; preds = %.thread122, %72
   %.171130 = phi i32 [ %.2, %72 ], [ 0, %.thread122 ]
@@ -1488,26 +1488,26 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly c
 76:                                               ; preds = %._crit_edge
   %77 = tail call ptr @__errno_location() #25
   store i32 34, ptr %77, align 4, !tbaa !6
-  br label %.thread147
+  br label %.thread159
 
 78:                                               ; preds = %._crit_edge
   %79 = sub i64 0, %.180.lcssa
   %spec.select = select i1 %.not104, i64 %79, i64 %.180.lcssa
   %80 = icmp eq i32 %.171.lcssa, 0
-  %spec.select154 = select i1 %80, ptr %0, ptr %.5.lcssa
-  br label %.thread147
+  %spec.select166 = select i1 %80, ptr %0, ptr %.5.lcssa
+  br label %.thread159
 
-.thread147:                                       ; preds = %78, %.thread122, %76, %34, %23, %18, %.critedge
+.thread159:                                       ; preds = %78, %.thread122, %76, %34, %23, %18, %.critedge
   %.079 = phi i64 [ 0, %.critedge ], [ 0, %18 ], [ 0, %34 ], [ -1, %76 ], [ 0, %23 ], [ 0, %.thread122 ], [ %spec.select, %78 ]
-  %.070 = phi ptr [ %0, %.critedge ], [ %0, %18 ], [ %0, %34 ], [ %.5.lcssa, %76 ], [ %0, %23 ], [ %0, %.thread122 ], [ %spec.select154, %78 ]
+  %.070 = phi ptr [ %0, %.critedge ], [ %0, %18 ], [ %0, %34 ], [ %.5.lcssa, %76 ], [ %0, %23 ], [ %0, %.thread122 ], [ %spec.select166, %78 ]
   %.not105 = icmp eq ptr %2, null
   br i1 %.not105, label %82, label %81
 
-81:                                               ; preds = %.thread147
+81:                                               ; preds = %.thread159
   store ptr %.070, ptr %2, align 8, !tbaa !13
   br label %82
 
-82:                                               ; preds = %81, %.thread147
+82:                                               ; preds = %81, %.thread159
   ret i64 %.079
 }
 
@@ -1635,8 +1635,8 @@ define i64 @cli_ldbtokenize(ptr noundef %0, i8 noundef signext %1, i64 noundef %
   br i1 %.not85, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %.not112 = icmp eq i8 %9, %1
-  br i1 %.not112, label %.split.us, label %.lr.ph63.split
+  %.not118 = icmp eq i8 %9, %1
+  br i1 %.not118, label %.split.us, label %.lr.ph63.split
 
 10:                                               ; preds = %.lr.ph63.split
   %.not86 = icmp eq i8 %13, %1

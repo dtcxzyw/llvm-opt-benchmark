@@ -684,9 +684,9 @@ define internal fastcc noundef zeroext i1 @nettrace_msg_to_packet(ptr noundef %0
   %145 = call ptr @ascii_strdown_inplace(ptr noundef nonnull %10)
   %lhsv = load i64, ptr %10, align 16
   %.not238 = icmp eq i64 %lhsv, 27915717453050983
-  br i1 %.not238, label %.thread297, label %147
+  br i1 %.not238, label %.thread313, label %147
 
-.thread297:                                       ; preds = %141
+.thread313:                                       ; preds = %141
   %146 = getelementptr inbounds nuw i8, ptr %10, i64 5
   store i8 0, ptr %146, align 1
   br label %175
@@ -763,10 +763,10 @@ thread-pre-split:                                 ; preds = %155, %151
   store ptr null, ptr %162, align 8
   br label %175
 
-175:                                              ; preds = %.thread297, %164, %174, %170, %159
-  %.1201301 = phi i32 [ %.1201, %164 ], [ %.1201, %170 ], [ %.1201, %174 ], [ %.1201, %159 ], [ 5, %.thread297 ]
-  %.0196 = phi i32 [ 56, %164 ], [ 56, %170 ], [ 0, %174 ], [ 0, %159 ], [ 0, %.thread297 ]
-  %176 = phi i1 [ false, %164 ], [ false, %170 ], [ true, %174 ], [ true, %159 ], [ true, %.thread297 ]
+175:                                              ; preds = %.thread313, %164, %174, %170, %159
+  %.1201317 = phi i32 [ %.1201, %164 ], [ %.1201, %170 ], [ %.1201, %174 ], [ %.1201, %159 ], [ 5, %.thread313 ]
+  %.0196 = phi i32 [ 56, %164 ], [ 56, %170 ], [ 0, %174 ], [ 0, %159 ], [ 0, %.thread313 ]
+  %176 = phi i1 [ false, %164 ], [ false, %170 ], [ true, %174 ], [ true, %159 ], [ true, %.thread313 ]
   %177 = sub i64 %.neg234, %137
   %178 = call ptr @g_strstr_len(ptr noundef %136, i64 noundef %177, ptr noundef nonnull @.str.3)
   %179 = getelementptr i8, ptr %178, i64 1
@@ -782,7 +782,7 @@ thread-pre-split:                                 ; preds = %155, %151
   br i1 %176, label %188, label %190
 
 188:                                              ; preds = %175
-  %189 = trunc i32 %.1201301 to i16
+  %189 = trunc i32 %.1201317 to i16
   call void @wtap_buffer_append_epdu_tag(ptr noundef nonnull %186, i16 noundef zeroext 12, ptr noundef nonnull %10, i16 noundef zeroext %189)
   br label %191
 

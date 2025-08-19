@@ -1137,7 +1137,7 @@ define i64 @osqp_solve(ptr noundef %0) local_unnamed_addr #0 {
 
 75:                                               ; preds = %72
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br i1 %.0150244, label %.thread272, label %.thread218
+  br i1 %.0150244, label %.thread282, label %.thread218
 
 76:                                               ; preds = %61
   %77 = load i64, ptr %50, align 8, !tbaa !54
@@ -1178,7 +1178,7 @@ define i64 @osqp_solve(ptr noundef %0) local_unnamed_addr #0 {
 93:                                               ; preds = %89
   %94 = load i64, ptr %52, align 8, !tbaa !45
   %95 = icmp eq i64 %94, 0
-  br i1 %95, label %96, label %.thread262
+  br i1 %95, label %96, label %.thread272
 
 96:                                               ; preds = %93
   %97 = load ptr, ptr %20, align 8, !tbaa !61
@@ -1219,22 +1219,22 @@ define i64 @osqp_solve(ptr noundef %0) local_unnamed_addr #0 {
   br label %118
 
 thread-pre-split:                                 ; preds = %89, %89
-  %.pr261 = load i64, ptr %52, align 8, !tbaa !45
+  %.pr271 = load i64, ptr %52, align 8, !tbaa !45
   br label %118
 
 118:                                              ; preds = %thread-pre-split, %117
-  %119 = phi i64 [ %.pr261, %thread-pre-split ], [ %spec.select, %117 ]
+  %119 = phi i64 [ %.pr271, %thread-pre-split ], [ %spec.select, %117 ]
   %.not178 = icmp eq i64 %119, 0
-  br i1 %.not178, label %123, label %.thread262
+  br i1 %.not178, label %123, label %.thread272
 
-.thread262:                                       ; preds = %93, %118
+.thread272:                                       ; preds = %93, %118
   %120 = phi i64 [ %119, %118 ], [ %94, %93 ]
   %121 = srem i64 %.0156238, %120
   %122 = icmp eq i64 %121, 0
   br i1 %122, label %.thread, label %123
 
-123:                                              ; preds = %118, %.thread262, %96, %92, %89
-  %.1153 = phi i64 [ %.0152243, %89 ], [ 0, %92 ], [ 0, %96 ], [ 0, %.thread262 ], [ 0, %118 ]
+123:                                              ; preds = %118, %.thread272, %96, %92, %89
+  %.1153 = phi i64 [ %.0152243, %89 ], [ 0, %92 ], [ 0, %96 ], [ 0, %.thread272 ], [ 0, %118 ]
   %124 = icmp ne i64 %.1153, 0
   %125 = icmp eq i64 %.0156238, 1
   %126 = or i1 %125, %90
@@ -1242,8 +1242,8 @@ thread-pre-split:                                 ; preds = %89, %89
   %or.cond5 = or i1 %127, %124
   br i1 %or.cond5, label %.thread, label %129
 
-.thread:                                          ; preds = %.thread262, %123
-  %128 = phi i1 [ %124, %123 ], [ true, %.thread262 ]
+.thread:                                          ; preds = %.thread272, %123
+  %128 = phi i1 [ %124, %123 ], [ true, %.thread272 ]
   tail call void @update_info(ptr noundef nonnull %0, i64 noundef %.0156238, i64 noundef 0) #15
   br label %129
 
@@ -1324,21 +1324,21 @@ thread-pre-split:                                 ; preds = %89, %89
   br i1 %82, label %.thread218, label %.loopexit.thread
 
 .loopexit:                                        ; preds = %72
-  br i1 %.0150244, label %.thread272, label %.thread218
+  br i1 %.0150244, label %.thread282, label %.thread218
 
 .loopexit.thread:                                 ; preds = %40, %..loopexit_crit_edge
-  %.1155271 = phi i64 [ %161, %..loopexit_crit_edge ], [ %19, %40 ]
-  %.0156236270 = phi i64 [ %56, %..loopexit_crit_edge ], [ 1, %40 ]
-  %.not187 = icmp eq i64 %.1155271, 0
-  br i1 %.not187, label %.thread272, label %163
+  %.1155281 = phi i64 [ %161, %..loopexit_crit_edge ], [ %19, %40 ]
+  %.0156236280 = phi i64 [ %56, %..loopexit_crit_edge ], [ 1, %40 ]
+  %.not187 = icmp eq i64 %.1155281, 0
+  br i1 %.not187, label %.thread282, label %163
 
-.thread272:                                       ; preds = %75, %.loopexit, %.loopexit.thread
-  %.0156236270276 = phi i64 [ %.0156236270, %.loopexit.thread ], [ %.0156238, %75 ], [ %.0156238, %.loopexit ]
-  %162 = add nsw i64 %.0156236270276, -1
+.thread282:                                       ; preds = %75, %.loopexit, %.loopexit.thread
+  %.0156236280286 = phi i64 [ %.0156236280, %.loopexit.thread ], [ %.0156238, %75 ], [ %.0156238, %.loopexit ]
+  %162 = add nsw i64 %.0156236280286, -1
   tail call void @update_info(ptr noundef nonnull %0, i64 noundef %162, i64 noundef 0) #15
   br label %163
 
-163:                                              ; preds = %.thread272, %.loopexit.thread
+163:                                              ; preds = %.thread282, %.loopexit.thread
   %164 = load i64, ptr %18, align 8, !tbaa !32
   %.not188 = icmp eq i64 %164, 0
   br i1 %.not188, label %169, label %165

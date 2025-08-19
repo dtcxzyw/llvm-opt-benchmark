@@ -2523,8 +2523,8 @@ define range(i32 -1, 1) i32 @H5Sset_extent_simple(i64 noundef %0, i32 noundef %1
   br i1 %.not51, label %.split, label %.lr.ph76.preheader
 
 ._crit_edge.thread:                               ; preds = %.preheader73
-  %.not5185 = icmp eq ptr %3, null
-  br i1 %.not5185, label %.split, label %.split44
+  %.not5189 = icmp eq ptr %3, null
+  br i1 %.not5189, label %.split, label %.split44
 
 .lr.ph76.preheader:                               ; preds = %._crit_edge
   %smax = call i32 @llvm.smax.i32(i32 %1, i32 1)

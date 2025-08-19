@@ -736,8 +736,8 @@ _ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit449:  ; preds = %_ZN6icu_7712_GLOBAL
 _ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit450:  ; preds = %124
   %125 = getelementptr inbounds nuw i8, ptr %.0477487, i64 28
   %126 = load i32, ptr %125, align 4, !tbaa !12
-  %.not510 = icmp eq i32 %44, 8
-  br i1 %.not510, label %_ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit451, label %127
+  %.not532 = icmp eq i32 %44, 8
+  br i1 %.not532, label %_ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit451, label %127
 
 127:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit450
   %128 = getelementptr inbounds nuw i8, ptr %.0477487, i64 32
@@ -796,8 +796,8 @@ _ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit451:  ; preds = %124, %_ZN6icu_7712_
 _ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit452:  ; preds = %154
   %156 = getelementptr inbounds nuw i8, ptr %.0477487, i64 36
   %157 = load i32, ptr %156, align 4, !tbaa !12
-  %.not511 = icmp eq i32 %44, 10
-  br i1 %.not511, label %_ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit453, label %158
+  %.not533 = icmp eq i32 %44, 10
+  br i1 %.not533, label %_ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit453, label %158
 
 158:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit452
   %159 = getelementptr inbounds nuw i8, ptr %.0477487, i64 40
@@ -836,8 +836,8 @@ _ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit453:  ; preds = %154, %_ZN6icu_7712_
 _ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit454:  ; preds = %174
   %176 = getelementptr inbounds nuw i8, ptr %.0477487, i64 44
   %177 = load i32, ptr %176, align 4, !tbaa !12
-  %.not512 = icmp eq i32 %44, 12
-  br i1 %.not512, label %_ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit455, label %178
+  %.not534 = icmp eq i32 %44, 12
+  br i1 %.not534, label %_ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit455, label %178
 
 178:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit454
   %179 = getelementptr inbounds nuw i8, ptr %.0477487, i64 48
@@ -988,8 +988,8 @@ _ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit458:  ; preds = %_ZN6icu_7712_GLOBAL
 _ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit459:  ; preds = %.critedge443
   %246 = getelementptr inbounds nuw i8, ptr %.0477487, i64 52
   %247 = load i32, ptr %246, align 4, !tbaa !12
-  %.not513 = icmp eq i32 %44, 14
-  br i1 %.not513, label %_ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit460, label %248
+  %.not535 = icmp eq i32 %44, 14
+  br i1 %.not535, label %_ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit460, label %248
 
 248:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit459
   %249 = getelementptr inbounds nuw i8, ptr %.0477487, i64 56
@@ -1204,8 +1204,8 @@ _ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit462:  ; preds = %_ZN6icu_7712_GLOBAL
 _ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit463:  ; preds = %346
   %347 = getelementptr inbounds nuw i8, ptr %.0477487, i64 60
   %348 = load i32, ptr %347, align 4, !tbaa !12
-  %.not514 = icmp eq i32 %44, 16
-  br i1 %.not514, label %_ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit464, label %349
+  %.not536 = icmp eq i32 %44, 16
+  br i1 %.not536, label %_ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit464, label %349
 
 349:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit463
   %350 = getelementptr inbounds nuw i8, ptr %.0477487, i64 64
@@ -1254,8 +1254,8 @@ _ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit464:  ; preds = %346, %_ZN6icu_7712_
 _ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit465:  ; preds = %368
   %371 = getelementptr inbounds nuw i8, ptr %.0477487, i64 64
   %372 = load i32, ptr %371, align 4, !tbaa !12
-  %.not515 = icmp eq i32 %44, 17
-  br i1 %.not515, label %_ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit466, label %373
+  %.not537 = icmp eq i32 %44, 17
+  br i1 %.not537, label %_ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit466, label %373
 
 373:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit465
   %374 = getelementptr inbounds nuw i8, ptr %.0477487, i64 68
@@ -1387,7 +1387,7 @@ _ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit468:  ; preds = %_ZN6icu_7712_GLOBAL
 444:                                              ; preds = %442
   %445 = sext i32 %433 to i64
   %446 = getelementptr inbounds i8, ptr %.0477487, i64 %445
-  br label %.sink.split507
+  br label %.sink.split529
 
 447:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit468
   br i1 %441, label %454, label %448
@@ -1398,19 +1398,19 @@ _ZN6icu_7712_GLOBAL__N_18getIndexEPKiii.exit468:  ; preds = %_ZN6icu_7712_GLOBAL
 449:                                              ; preds = %448
   %450 = getelementptr inbounds nuw i8, ptr %70, i64 72
   %451 = load ptr, ptr %450, align 8, !tbaa !74
-  br label %.sink.split507
+  br label %.sink.split529
 
 452:                                              ; preds = %448
   store i32 3, ptr %4, align 4, !tbaa !13
   br label %.critedge446
 
-.sink.split507:                                   ; preds = %444, %449
-  %.sink508 = phi ptr [ %451, %449 ], [ %446, %444 ]
+.sink.split529:                                   ; preds = %444, %449
+  %.sink530 = phi ptr [ %451, %449 ], [ %446, %444 ]
   %453 = getelementptr inbounds nuw i8, ptr %.0391, i64 72
-  store ptr %.sink508, ptr %453, align 8, !tbaa !74
+  store ptr %.sink530, ptr %453, align 8, !tbaa !74
   br label %454
 
-454:                                              ; preds = %.sink.split507, %447
+454:                                              ; preds = %.sink.split529, %447
   %455 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %456 = load ptr, ptr %455, align 8, !tbaa !75
   %457 = getelementptr inbounds nuw i8, ptr %.0477487, i64 4

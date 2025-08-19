@@ -272,19 +272,19 @@ define dso_local i32 @intel_lpe_audio_init(ptr noundef %0) local_unnamed_addr #0
   br i1 %106, label %107, label %.thread12
 
 107:                                              ; preds = %69
-  br i1 %11, label %.thread13, label %108
+  br i1 %11, label %.thread23, label %108
 
 108:                                              ; preds = %107
   %109 = load ptr, ptr %58, align 8
-  br label %.thread13
+  br label %.thread23
 
-.thread13:                                        ; preds = %107, %108
+.thread23:                                        ; preds = %107, %108
   %110 = phi ptr [ %109, %108 ], [ null, %107 ]
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %110, ptr noundef nonnull @.str.15) #9
   br label %.thread
 
-.thread:                                          ; preds = %57, %68, %.thread13
-  %.sink = phi ptr [ %105, %.thread13 ], [ inttoptr (i64 -12 to ptr), %68 ], [ inttoptr (i64 -12 to ptr), %57 ]
+.thread:                                          ; preds = %57, %68, %.thread23
+  %.sink = phi ptr [ %105, %.thread23 ], [ inttoptr (i64 -12 to ptr), %68 ], [ inttoptr (i64 -12 to ptr), %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr %.sink, ptr %18, align 8
   %111 = ptrtoint ptr %.sink to i64

@@ -162,8 +162,8 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
   br i1 %87, label %.sink.split, label %90
 
 .sink.split:                                      ; preds = %81, %84
-  %.sink83 = phi i64 [ 184, %84 ], [ 32, %81 ]
-  %88 = getelementptr inbounds nuw i8, ptr %.06779, i64 %.sink83
+  %.sink88 = phi i64 [ 184, %84 ], [ 32, %81 ]
+  %88 = getelementptr inbounds nuw i8, ptr %.06779, i64 %.sink88
   %89 = load ptr, ptr %88, align 8
   tail call void %89(ptr noundef nonnull %6, i32 noundef %2) #5
   br label %90

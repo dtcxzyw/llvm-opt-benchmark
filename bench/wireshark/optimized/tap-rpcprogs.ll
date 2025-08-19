@@ -144,37 +144,37 @@ define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr readnone captures(none)
 .lr.ph:                                           ; preds = %36, %.thread
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %54 = load ptr, ptr %7, align 8
-  %.not146181 = icmp eq ptr %54, null
-  br i1 %.not146181, label %.thread173._crit_edge, label %.lr.ph183
+  %.not146196 = icmp eq ptr %54, null
+  br i1 %.not146196, label %.thread188._crit_edge, label %.lr.ph198
 
-.lr.ph183:                                        ; preds = %.lr.ph, %.thread174
-  %55 = phi ptr [ %83, %.thread174 ], [ %54, %.lr.ph ]
-  %.1159182 = phi ptr [ %55, %.thread174 ], [ %7, %.lr.ph ]
+.lr.ph198:                                        ; preds = %.lr.ph, %.thread189
+  %55 = phi ptr [ %83, %.thread189 ], [ %54, %.lr.ph ]
+  %.1159197 = phi ptr [ %55, %.thread189 ], [ %7, %.lr.ph ]
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i32, ptr %56, align 8
   %58 = icmp eq i32 %57, %25
-  br i1 %58, label %59, label %.thread173
+  br i1 %58, label %59, label %.thread188
 
-59:                                               ; preds = %.lr.ph183
+59:                                               ; preds = %.lr.ph198
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 12
   %61 = load i32, ptr %60, align 4
   %62 = load i32, ptr %53, align 4
   %63 = icmp eq i32 %61, %62
   br i1 %63, label %.loopexit, label %65
 
-.thread173:                                       ; preds = %.lr.ph183
+.thread188:                                       ; preds = %.lr.ph198
   %64 = icmp ugt i32 %57, %25
-  br i1 %64, label %.thread173._crit_edge, label %.thread174
+  br i1 %64, label %.thread188._crit_edge, label %.thread189
 
 65:                                               ; preds = %59
   %66 = getelementptr inbounds nuw i8, ptr %55, i64 12
   %67 = load i32, ptr %66, align 4
   %68 = load i32, ptr %53, align 4
   %69 = icmp ugt i32 %67, %68
-  br i1 %69, label %.thread173._crit_edge, label %.thread174
+  br i1 %69, label %.thread188._crit_edge, label %.thread189
 
-.thread173._crit_edge:                            ; preds = %65, %.thread174, %.thread173, %.lr.ph
-  %.1159.lcssa = phi ptr [ %7, %.lr.ph ], [ %.1159182, %65 ], [ %55, %.thread174 ], [ %.1159182, %.thread173 ]
+.thread188._crit_edge:                            ; preds = %65, %.thread189, %.thread188, %.lr.ph
+  %.1159.lcssa = phi ptr [ %7, %.lr.ph ], [ %.1159197, %65 ], [ %55, %.thread189 ], [ %.1159197, %.thread188 ]
   %70 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc(i64 noundef 72) #7
   %71 = load ptr, ptr %.1159.lcssa, align 8
   store ptr %71, ptr %70, align 8
@@ -201,13 +201,13 @@ define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr readnone captures(none)
   store ptr %70, ptr %.1159.lcssa, align 8
   br label %.loopexit
 
-.thread174:                                       ; preds = %.thread173, %65
+.thread189:                                       ; preds = %.thread188, %65
   %83 = load ptr, ptr %55, align 8
   %.not146 = icmp eq ptr %83, null
-  br i1 %.not146, label %.thread173._crit_edge, label %.lr.ph183
+  br i1 %.not146, label %.thread188._crit_edge, label %.lr.ph198
 
-.loopexit:                                        ; preds = %59, %29, %.thread173._crit_edge, %38, %8
-  %.0129 = phi ptr [ %39, %38 ], [ %70, %.thread173._crit_edge ], [ %9, %8 ], [ %7, %29 ], [ %55, %59 ]
+.loopexit:                                        ; preds = %59, %29, %.thread188._crit_edge, %38, %8
+  %.0129 = phi ptr [ %39, %38 ], [ %70, %.thread188._crit_edge ], [ %9, %8 ], [ %7, %29 ], [ %55, %59 ]
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %85 = load i8, ptr %84, align 4, !range !7, !noundef !8
   %86 = trunc nuw i8 %85 to i1
@@ -254,9 +254,9 @@ define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr readnone captures(none)
   %109 = load i32, ptr %108, align 8
   %110 = icmp eq i32 %109, 0
   %.pre164 = load i64, ptr %6, align 8
-  br i1 %110, label %.thread176, label %113
+  br i1 %110, label %.thread191, label %113
 
-.thread176:                                       ; preds = %107
+.thread191:                                       ; preds = %107
   store i64 %.pre164, ptr %104, align 8
   %111 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %112 = load i32, ptr %111, align 8
@@ -277,8 +277,8 @@ define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr readnone captures(none)
   %117 = icmp eq i64 %114, %105
   br i1 %117, label %118, label %129
 
-118:                                              ; preds = %.thread176, %116
-  %119 = phi i64 [ %.pre164, %.thread176 ], [ %114, %116 ]
+118:                                              ; preds = %.thread191, %116
+  %119 = phi i64 [ %.pre164, %.thread191 ], [ %114, %116 ]
   %120 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %121 = load i32, ptr %120, align 8
   %122 = getelementptr inbounds nuw i8, ptr %.0129, i64 32

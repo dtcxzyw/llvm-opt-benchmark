@@ -470,7 +470,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr noundef captures(n
 .preheader168.i:                                  ; preds = %76
   %83 = load i8, ptr %2, align 1
   %.not140191.i = icmp eq i8 %83, 0
-  br i1 %.not140191.i, label %.loopexit.thread223.i, label %.preheader.lr.ph.i
+  br i1 %.not140191.i, label %.loopexit.thread231.i, label %.preheader.lr.ph.i
 
 .preheader.lr.ph.i:                               ; preds = %.preheader168.i
   %84 = icmp sgt i64 %79, 0
@@ -506,31 +506,31 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr noundef captures(n
   %97 = getelementptr i8, ptr %2, i64 %96
   %98 = load i8, ptr %97, align 1
   %.not140.us.i = icmp eq i8 %98, 0
-  br i1 %.not140.us.i, label %.loopexit.thread223.i, label %.preheader.us.i, !llvm.loop !11
+  br i1 %.not140.us.i, label %.loopexit.thread231.i, label %.preheader.us.i, !llvm.loop !11
 
 .preheader.lr.ph.split.i:                         ; preds = %.preheader.lr.ph.i
   %99 = icmp eq ptr %.1114.i, %40
-  br i1 %99, label %.loopexit.thread.i, label %.loopexit.thread223.i
+  br i1 %99, label %.loopexit.thread.i, label %.loopexit.thread231.i
 
 .loopexit.thread.i:                               ; preds = %.critedge3.us.i, %92, %.preheader.lr.ph.split.i, %47
   %.3.ph.i = phi i32 [ 2, %.preheader.lr.ph.split.i ], [ 0, %47 ], [ 2, %92 ], [ 2, %.critedge3.us.i ]
-  %.pre206219.i = load i32, ptr @ws_optind, align 4
-  %.pre = sext i32 %.pre206219.i to i64
+  %.pre206227.i = load i32, ptr @ws_optind, align 4
+  %.pre = sext i32 %.pre206227.i to i64
   %.phi.trans.insert = getelementptr ptr, ptr %1, i64 %.pre
   %.pre75 = load ptr, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert76 = getelementptr i8, ptr %.pre75, i64 1
   %.pre77 = load i8, ptr %.phi.trans.insert76, align 1
   br label %145
 
-.loopexit.thread223.i:                            ; preds = %94, %.preheader.lr.ph.split.i, %.preheader168.i
-  %.pre206227.i = load i32, ptr @ws_optind, align 4
+.loopexit.thread231.i:                            ; preds = %94, %.preheader.lr.ph.split.i, %.preheader168.i
+  %.pre206235.i = load i32, ptr @ws_optind, align 4
   br label %.thread162.i
 
 .loopexit.i:                                      ; preds = %._crit_edge.i
   br i1 %75, label %.thread162.i, label %145
 
-.thread162.i:                                     ; preds = %.loopexit.i, %.loopexit.thread223.i, %..thread162_crit_edge.i
-  %100 = phi i32 [ %.pre205.i, %..thread162_crit_edge.i ], [ %31, %.loopexit.i ], [ %.pre206227.i, %.loopexit.thread223.i ]
+.thread162.i:                                     ; preds = %.loopexit.i, %.loopexit.thread231.i, %..thread162_crit_edge.i
+  %100 = phi i32 [ %.pre205.i, %..thread162_crit_edge.i ], [ %31, %.loopexit.i ], [ %.pre206235.i, %.loopexit.thread231.i ]
   %101 = add i32 %100, 1
   store i32 %101, ptr @ws_optind, align 4
   %102 = load i8, ptr %.1114.i, align 1
@@ -623,8 +623,8 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr noundef captures(n
 
 145:                                              ; preds = %.loopexit.i, %.loopexit.thread.i
   %146 = phi i8 [ %41, %.loopexit.i ], [ %.pre77, %.loopexit.thread.i ]
-  %.pre206221.i = phi i32 [ %31, %.loopexit.i ], [ %.pre206219.i, %.loopexit.thread.i ]
-  %.3220.i = phi i32 [ %.1120.i, %.loopexit.i ], [ %.3.ph.i, %.loopexit.thread.i ]
+  %.pre206229.i = phi i32 [ %31, %.loopexit.i ], [ %.pre206227.i, %.loopexit.thread.i ]
+  %.3228.i = phi i32 [ %.1120.i, %.loopexit.i ], [ %.3.ph.i, %.loopexit.thread.i ]
   %147 = icmp eq i8 %146, 45
   br i1 %147, label %148, label %163
 
@@ -637,7 +637,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr noundef captures(n
 
 151:                                              ; preds = %148
   %152 = tail call ptr @g_get_prgname()
-  %.not142.i = icmp eq i32 %.3220.i, 0
+  %.not142.i = icmp eq i32 %.3228.i, 0
   %153 = select i1 %.not142.i, ptr @.str, ptr @.str.3
   %154 = load i32, ptr @ws_optind, align 4
   %155 = sext i32 %154 to i64
@@ -650,7 +650,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr noundef captures(n
   br label %160
 
 160:                                              ; preds = %151, %148
-  %161 = phi i32 [ %.pre204.i, %151 ], [ %.pre206221.i, %148 ]
+  %161 = phi i32 [ %.pre204.i, %151 ], [ %.pre206229.i, %148 ]
   %162 = add i32 %161, 1
   store i32 %162, ptr @ws_optind, align 4
   br label %__getopt_long_core.exit

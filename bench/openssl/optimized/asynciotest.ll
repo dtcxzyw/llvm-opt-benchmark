@@ -182,7 +182,7 @@ define internal range(i32 0, 2) i32 @test_asyncio(i32 noundef %0) #1 {
   %48 = phi i1 [ true, %.preheader68 ], [ false, %63 ]
   %49 = load ptr, ptr %5, align 8, !tbaa !11
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 %47
-  %51 = sub i32 10, %.03976
+  %51 = sub nsw i32 10, %.03976
   %52 = call i32 @SSL_write(ptr noundef %49, ptr noundef nonnull %50, i32 noundef %51) #6
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %54, label %56
@@ -219,7 +219,7 @@ define internal range(i32 0, 2) i32 @test_asyncio(i32 noundef %0) #1 {
   %.14477 = phi i64 [ %85, %84 ], [ 0, %67 ]
   %70 = load ptr, ptr %4, align 8, !tbaa !11
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 %69
-  %72 = sub i32 10, %.24178
+  %72 = sub nsw i32 10, %.24178
   %73 = call i32 @SSL_read(ptr noundef %70, ptr noundef nonnull %71, i32 noundef %72) #6
   %74 = icmp sgt i32 %73, 0
   br i1 %74, label %75, label %77

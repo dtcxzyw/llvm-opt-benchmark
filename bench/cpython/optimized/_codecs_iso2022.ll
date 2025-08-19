@@ -974,22 +974,22 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   br label %.sink.split
 
 .sink.split:                                      ; preds = %204, %200
-  %.sink257 = phi i64 [ 1, %200 ], [ 2, %204 ]
-  %.sink253 = phi i64 [ 2, %200 ], [ 3, %204 ]
-  %.sink248 = phi i64 [ 3, %200 ], [ 4, %204 ]
+  %.sink262 = phi i64 [ 1, %200 ], [ 2, %204 ]
+  %.sink258 = phi i64 [ 2, %200 ], [ 3, %204 ]
+  %.sink253 = phi i64 [ 3, %200 ], [ 4, %204 ]
   %.sink = phi i64 [ -3, %200 ], [ -4, %204 ]
   %208 = load ptr, ptr %6, align 8, !tbaa !39
-  %209 = getelementptr i8, ptr %208, i64 %.sink257
+  %209 = getelementptr i8, ptr %208, i64 %.sink262
   store i8 41, ptr %209, align 1, !tbaa !36
   %210 = load i8, ptr %.us-phi, align 8, !tbaa !51
   %211 = and i8 %210, 127
   %212 = load ptr, ptr %6, align 8, !tbaa !39
-  %213 = getelementptr i8, ptr %212, i64 %.sink253
+  %213 = getelementptr i8, ptr %212, i64 %.sink258
   store i8 %211, ptr %213, align 1, !tbaa !36
   %214 = load i8, ptr %.us-phi, align 8, !tbaa !51
   store i8 %214, ptr %17, align 1, !tbaa !36
   %215 = load ptr, ptr %6, align 8, !tbaa !39
-  %216 = getelementptr i8, ptr %215, i64 %.sink248
+  %216 = getelementptr i8, ptr %215, i64 %.sink253
   store ptr %216, ptr %6, align 8, !tbaa !39
   %217 = add nsw i64 %.0138200, %.sink
   br label %218
@@ -1050,12 +1050,12 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   br label %248
 
 248:                                              ; preds = %236, %241
-  %.sink261 = phi i64 [ 1, %236 ], [ 2, %241 ]
-  %.sink258 = phi i64 [ -1, %236 ], [ -2, %241 ]
+  %.sink266 = phi i64 [ 1, %236 ], [ 2, %241 ]
+  %.sink263 = phi i64 [ -1, %236 ], [ -2, %241 ]
   %249 = load ptr, ptr %6, align 8, !tbaa !39
-  %250 = getelementptr i8, ptr %249, i64 %.sink261
+  %250 = getelementptr i8, ptr %249, i64 %.sink266
   store ptr %250, ptr %6, align 8, !tbaa !39
-  %251 = add nsw i64 %.5143, %.sink258
+  %251 = add nsw i64 %.5143, %.sink263
   %252 = load i64, ptr %4, align 8, !tbaa !55
   %253 = add i64 %252, %.us-phi197
   store i64 %253, ptr %4, align 8, !tbaa !55

@@ -23423,9 +23423,9 @@ define hidden void @_ZN12polars_arrow6offset17try_check_offsets17h5fb948be35275b
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %28, %19, %10
-  %.sink30 = phi ptr [ %9, %10 ], [ %7, %19 ], [ %5, %28 ]
+  %.sink31 = phi ptr [ %9, %10 ], [ %7, %19 ], [ %5, %28 ]
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17ha8e8e4232d5beca2E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %.sroa.411.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %.sink30)
+  call void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17ha8e8e4232d5beca2E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %.sroa.411.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %.sink31)
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %._crit_edge
@@ -25639,8 +25639,8 @@ tailrecurse.backedge:                             ; preds = %136, %145, %152, %2
   br i1 %exitcond1065.not, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0efae39d18f1d3f8E.exit, label %176
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h0efae39d18f1d3f8E.exit: ; preds = %184, %164, %183
-  %storemerge1118 = phi i64 [ %182, %183 ], [ 17, %164 ], [ 17, %184 ]
-  store i64 %storemerge1118, ptr %0, align 8, !noalias !2297
+  %storemerge1141 = phi i64 [ %182, %183 ], [ 17, %164 ], [ 17, %184 ]
+  store i64 %storemerge1141, ptr %0, align 8, !noalias !2297
   br label %616
 
 186:                                              ; preds = %156
@@ -27725,15 +27725,15 @@ define hidden noalias noundef align 1 ptr @_ZN12polars_arrow2io3ipc5write6common
   unreachable
 
 .sink.split:                                      ; preds = %.split, %.split5
-  %.sink9 = phi ptr [ %3, %.split5 ], [ %7, %.split ]
+  %.sink10 = phi ptr [ %3, %.split5 ], [ %7, %.split ]
   %.sink = phi i8 [ 1, %.split5 ], [ 0, %.split ]
-  store i8 0, ptr %.sink9, align 1
-  %10 = getelementptr inbounds nuw i8, ptr %.sink9, i64 1
+  store i8 0, ptr %.sink10, align 1
+  %10 = getelementptr inbounds nuw i8, ptr %.sink10, i64 1
   store i8 %.sink, ptr %10, align 1
   br label %11
 
 11:                                               ; preds = %.sink.split, %1
-  %.sroa.02.0 = phi ptr [ null, %1 ], [ %.sink9, %.sink.split ]
+  %.sroa.02.0 = phi ptr [ null, %1 ], [ %.sink10, %.sink.split ]
   ret ptr %.sroa.02.0
 }
 
@@ -28334,10 +28334,10 @@ define void @_ZN12polars_arrow2io3ipc5write6common21commit_encoded_arrays17ha803
   br i1 %25, label %.invoke, label %.sink.split.i, !prof !16
 
 .sink.split.i:                                    ; preds = %.split.i, %.split5.i
-  %.sink9.i = phi ptr [ %21, %.split5.i ], [ %24, %.split.i ]
+  %.sink10.i = phi ptr [ %21, %.split5.i ], [ %24, %.split.i ]
   %.sink.i = phi i8 [ 1, %.split5.i ], [ 0, %.split.i ]
-  store i8 0, ptr %.sink9.i, align 1
-  %26 = getelementptr inbounds nuw i8, ptr %.sink9.i, i64 1
+  store i8 0, ptr %.sink10.i, align 1
+  %26 = getelementptr inbounds nuw i8, ptr %.sink10.i, i64 1
   store i8 %.sink.i, ptr %26, align 1
   br label %_ZN12polars_arrow2io3ipc5write6common21serialize_compression17hc46645866033fbf6E.exit
 
@@ -28347,7 +28347,7 @@ define void @_ZN12polars_arrow2io3ipc5write6common21commit_encoded_arrays17ha803
   br label %.critedge19
 
 _ZN12polars_arrow2io3ipc5write6common21serialize_compression17hc46645866033fbf6E.exit: ; preds = %.sink.split.i, %18
-  %.sroa.02.0.i = phi ptr [ null, %18 ], [ %.sink9.i, %.sink.split.i ]
+  %.sroa.02.0.i = phi ptr [ null, %18 ], [ %.sink10.i, %.sink.split.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
@@ -28556,7 +28556,7 @@ define void @_ZN12polars_arrow2io3ipc5write6common17DictionaryTracker6insert17hd
   %22 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %19)
   %23 = extractvalue { i64, i64 } %22, 0
   %24 = extractvalue { i64, i64 } %22, 1
-  switch i8 %15, label %default.unreachable91 [
+  switch i8 %15, label %default.unreachable95 [
     i8 0, label %26
     i8 1, label %29
     i8 2, label %32
@@ -28572,7 +28572,7 @@ define void @_ZN12polars_arrow2io3ipc5write6common17DictionaryTracker6insert17hd
   tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.f18896686a9f4af98d4255051cb23e14.229, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f18896686a9f4af98d4255051cb23e14.268) #28
   unreachable
 
-default.unreachable91:                            ; preds = %13
+default.unreachable95:                            ; preds = %13
   unreachable
 
 26:                                               ; preds = %13
@@ -29734,9 +29734,9 @@ define void @_ZN12polars_arrow2io3ipc5write17default_ipc_field17ha0b6d34989260c9
   br label %39
 
 48:                                               ; preds = %53, %44
-  %.sink25 = phi ptr [ %24, %53 ], [ %37, %44 ]
+  %.sink26 = phi ptr [ %24, %53 ], [ %37, %44 ]
   %.pn = phi { ptr, i32 } [ %54, %53 ], [ %45, %44 ]
-  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.sink25, i64 noundef 40, i64 noundef 8) #27
+  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.sink26, i64 noundef 40, i64 noundef 8) #27
   resume { ptr, i32 } %.pn
 
 49:                                               ; preds = %20
@@ -46547,7 +46547,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !326, !noundef !3
-  switch i8 %23, label %default.unreachable61 [
+  switch i8 %23, label %default.unreachable66 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -46589,7 +46589,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %228
   ]
 
-default.unreachable61:                            ; preds = %2
+default.unreachable66:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2

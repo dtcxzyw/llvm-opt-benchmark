@@ -156,13 +156,13 @@ switch.lookup:                                    ; preds = %16
   %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.iousers_draw, i64 0, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep192 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.iousers_draw.1, i64 0, i64 %27
-  %switch.load193 = load ptr, ptr %switch.gep192, align 8
+  %switch.gep201 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.iousers_draw.1, i64 0, i64 %27
+  %switch.load202 = load ptr, ptr %switch.gep201, align 8
   br label %28
 
 28:                                               ; preds = %16, %switch.lookup
   %.str.16.sink = phi ptr [ %switch.load, %switch.lookup ], [ @.str.16, %16 ]
-  %.str.17.sink = phi ptr [ %switch.load193, %switch.lookup ], [ @.str.17, %16 ]
+  %.str.17.sink = phi ptr [ %switch.load202, %switch.lookup ], [ @.str.17, %16 ]
   %29 = select i1 %17, ptr @.str.9, ptr @.str.10
   %30 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull %.str.16.sink, ptr noundef nonnull %29)
   %31 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull %.str.17.sink, ptr noundef nonnull %29)

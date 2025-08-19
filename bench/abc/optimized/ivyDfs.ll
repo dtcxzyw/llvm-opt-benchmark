@@ -361,14 +361,14 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %7
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %41, %43, %33, %35
-  %.sink106 = phi ptr [ %34, %33 ], [ %36, %35 ], [ %42, %41 ], [ %44, %43 ]
+  %.sink112 = phi ptr [ %34, %33 ], [ %36, %35 ], [ %42, %41 ], [ %44, %43 ]
   %.sink = phi i32 [ 16, %33 ], [ 16, %35 ], [ %38, %41 ], [ %38, %43 ]
-  store ptr %.sink106, ptr %12, align 8, !tbaa !23
+  store ptr %.sink112, ptr %12, align 8, !tbaa !23
   store i32 %.sink, ptr %4, align 8, !tbaa !22
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %25
-  %.pre.i103 = phi ptr [ %17, %25 ], [ %.sink106, %Vec_IntPush.exit.sink.split ]
+  %.pre.i103 = phi ptr [ %17, %25 ], [ %.sink112, %Vec_IntPush.exit.sink.split ]
   %45 = load i32, ptr %6, align 4, !tbaa !20
   %46 = add nsw i32 %45, 1
   store i32 %46, ptr %6, align 4, !tbaa !20
@@ -715,9 +715,9 @@ Vec_PtrPush.exit.i:                               ; preds = %79, %Vec_PtrGrow.ex
 
 Vec_PtrPushUnique.exit.sink.split:                ; preds = %Vec_PtrPush.exit, %Vec_PtrPush.exit.i
   %.sink = phi i32 [ %82, %Vec_PtrPush.exit.i ], [ %40, %Vec_PtrPush.exit ]
-  %.sink17 = phi ptr [ %81, %Vec_PtrPush.exit.i ], [ %39, %Vec_PtrPush.exit ]
+  %.sink22 = phi ptr [ %81, %Vec_PtrPush.exit.i ], [ %39, %Vec_PtrPush.exit ]
   %84 = sext i32 %.sink to i64
-  %85 = getelementptr inbounds ptr, ptr %.sink17, i64 %84
+  %85 = getelementptr inbounds ptr, ptr %.sink22, i64 %84
   store ptr %0, ptr %85, align 8, !tbaa !30
   br label %Vec_PtrPushUnique.exit
 
@@ -858,15 +858,15 @@ define noalias noundef ptr @Ivy_ManLevelize(ptr noundef readonly captures(none) 
 Vec_PtrGrow.exit.i:                               ; preds = %32, %24
   %34 = phi ptr [ %33, %32 ], [ %.val.i.pre16, %24 ]
   %35 = phi i32 [ %23, %32 ], [ %11, %24 ]
-  %36 = zext nneg i32 %12 to i64
+  %36 = sext i32 %12 to i64
   br label %37
 
 37:                                               ; preds = %37, %Vec_PtrGrow.exit.i
   %indvars.iv.i = phi i64 [ %36, %Vec_PtrGrow.exit.i ], [ %indvars.iv.next.i, %37 ]
   %calloc.i.i = tail call noalias noundef dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %38 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i
+  %38 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv.i
   store ptr %calloc.i.i, ptr %38, align 8, !tbaa !30
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %23, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %37, !llvm.loop !47
@@ -1509,9 +1509,9 @@ define range(i32 0, 2097152) i32 @Ivy_ManSetLevels_rec(ptr noundef captures(addr
 
 .sink.split:                                      ; preds = %26, %36
   %.sink = phi i32 [ 2047, %36 ], [ 2039, %26 ]
-  %.sink78 = phi i32 [ %38, %36 ], [ %33, %26 ]
+  %.sink82 = phi i32 [ %38, %36 ], [ %33, %26 ]
   %39 = and i32 %.val57, %.sink
-  %40 = or disjoint i32 %.sink78, %39
+  %40 = or disjoint i32 %.sink82, %39
   store i32 %40, ptr %3, align 8
   br label %41
 
@@ -1848,8 +1848,8 @@ define range(i32 0, 2097152) i32 @Ivy_ManSetLevels(ptr noundef readonly captures
   br i1 %98, label %.lr.ph115, label %.critedge8, !llvm.loop !68
 
 .critedge8:                                       ; preds = %.critedge6, %.preheader, %.critedge, %.critedge2.preheader, %.critedge4.preheader, %.critedge6.preheader
-  %.2.lcssa150 = phi i32 [ %.3, %.critedge6.preheader ], [ %.1, %.critedge4.preheader ], [ 0, %.critedge2.preheader ], [ 0, %.critedge ], [ 0, %.preheader ], [ %.3, %.critedge6 ]
-  ret i32 %.2.lcssa150
+  %.2.lcssa154 = phi i32 [ %.3, %.critedge6.preheader ], [ %.1, %.critedge4.preheader ], [ 0, %.critedge2.preheader ], [ 0, %.critedge ], [ 0, %.preheader ], [ %.3, %.critedge6 ]
+  ret i32 %.2.lcssa154
 }
 
 ; Function Attrs: nofree nounwind

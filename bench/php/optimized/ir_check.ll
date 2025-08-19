@@ -304,30 +304,30 @@ ir_input_edges_count.exit:                        ; preds = %22, %28
   br i1 %122, label %123, label %124
 
 123:                                              ; preds = %.thread
-  switch i8 %108, label %.thread401 [
+  switch i8 %108, label %.thread426 [
     i8 5, label %131
     i8 11, label %131
   ]
 
 124:                                              ; preds = %.thread
   %125 = icmp eq i8 %108, 6
-  br i1 %125, label %126, label %.thread401
+  br i1 %125, label %126, label %.thread426
 
 126:                                              ; preds = %124
-  switch i8 %106, label %.thread401 [
+  switch i8 %106, label %.thread426 [
     i8 5, label %131
     i8 11, label %131
   ]
 
-.thread401:                                       ; preds = %123, %126, %124
+.thread426:                                       ; preds = %123, %126, %124
   %127 = load ptr, ptr @stderr, align 8, !tbaa !28
   %128 = zext i8 %108 to i32
   %129 = zext i8 %106 to i32
   %130 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %127, ptr noundef nonnull @.str.6, i32 noundef %.0262389, i32 noundef %.0263371, i32 noundef %38, i32 noundef %128, i32 noundef %129) #4
   br label %131
 
-131:                                              ; preds = %123, %123, %119, %126, %126, %101, %103, %111, %.thread401, %105, %100
-  %.6 = phi i1 [ %.5, %101 ], [ %.5, %103 ], [ %.5, %111 ], [ %.5, %123 ], [ %.5, %126 ], [ false, %.thread401 ], [ %.5, %105 ], [ %.5, %100 ], [ %.5, %123 ], [ %.5, %126 ], [ %.5, %119 ]
+131:                                              ; preds = %123, %123, %119, %126, %126, %101, %103, %111, %.thread426, %105, %100
+  %.6 = phi i1 [ %.5, %101 ], [ %.5, %103 ], [ %.5, %111 ], [ %.5, %123 ], [ %.5, %126 ], [ false, %.thread426 ], [ %.5, %105 ], [ %.5, %100 ], [ %.5, %123 ], [ %.5, %126 ], [ %.5, %119 ]
   %132 = load i32, ptr %7, align 4, !tbaa !33
   %133 = and i32 %132, 32
   %.not326 = icmp eq i32 %133, 0
@@ -844,7 +844,7 @@ ir_check_input_list.exit:                         ; preds = %.lr.ph.i345, %.loop
   %397 = sext i32 %396 to i64
   %398 = getelementptr i32, ptr %395, i64 %397
   %399 = icmp sgt i32 %.lcssa364, 0
-  br i1 %399, label %.lr.ph384, label %.thread405
+  br i1 %399, label %.lr.ph384, label %.thread430
 
 .lr.ph384:                                        ; preds = %394
   %400 = load ptr, ptr %0, align 8, !tbaa !26
@@ -878,20 +878,20 @@ ir_check_input_list.exit:                         ; preds = %.lr.ph.i345, %.loop
   %414 = icmp eq i8 %366, 69
   %415 = icmp eq i32 %spec.select, 2
   %or.cond13 = and i1 %414, %415
-  br i1 %or.cond13, label %446, label %.thread405
+  br i1 %or.cond13, label %446, label %.thread430
 
-.thread405:                                       ; preds = %394, %413
+.thread430:                                       ; preds = %394, %413
   %416 = phi i1 [ %415, %413 ], [ false, %394 ]
-  %.0.lcssa404408 = phi i32 [ %spec.select, %413 ], [ %.lcssa364, %394 ]
+  %.0.lcssa429433 = phi i32 [ %spec.select, %413 ], [ %.lcssa364, %394 ]
   %417 = icmp eq i8 %366, 101
   br i1 %417, label %420, label %418
 
-418:                                              ; preds = %.thread405
+418:                                              ; preds = %.thread430
   %419 = icmp eq i8 %366, 100
   %or.cond16 = and i1 %419, %416
   br i1 %or.cond16, label %421, label %437
 
-420:                                              ; preds = %.thread405
+420:                                              ; preds = %.thread430
   br i1 %416, label %421, label %437
 
 421:                                              ; preds = %418, %420
@@ -902,7 +902,7 @@ ir_check_input_list.exit:                         ; preds = %.lr.ph.i345, %.loop
   %426 = load i8, ptr %425, align 8, !tbaa !27
   %427 = icmp eq i8 %426, 92
   %428 = sext i1 %427 to i32
-  %spec.select335 = add nsw i32 %.0.lcssa404408, %428
+  %spec.select335 = add nsw i32 %.0.lcssa429433, %428
   %429 = getelementptr i8, ptr %398, i64 4
   %430 = load i32, ptr %429, align 4, !tbaa !30
   %431 = sext i32 %430 to i64
@@ -915,7 +915,7 @@ ir_check_input_list.exit:                         ; preds = %.lr.ph.i345, %.loop
   br i1 %436, label %446, label %437
 
 437:                                              ; preds = %421, %420, %418
-  %.2 = phi i32 [ %.4, %421 ], [ %.0.lcssa404408, %420 ], [ %.0.lcssa404408, %418 ]
+  %.2 = phi i32 [ %.4, %421 ], [ %.0.lcssa429433, %420 ], [ %.0.lcssa429433, %418 ]
   %438 = icmp eq i32 %.2, 0
   %439 = and i8 %366, -2
   %switch339 = icmp eq i8 %439, 100

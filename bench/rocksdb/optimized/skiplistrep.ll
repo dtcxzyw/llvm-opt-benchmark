@@ -2117,9 +2117,9 @@ define internal noundef zeroext i1 @_ZNK7rocksdb12_GLOBAL__N_111SkipListRep8Cont
 
 .thread.us.i.thread.i:                            ; preds = %.split.us.i.i
   %36 = icmp eq i32 %.037.us.i.i, 0
-  br i1 %36, label %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualEPKcPPNS5_4NodeE.exit.thread15.i, label %37
+  br i1 %36, label %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualEPKcPPNS5_4NodeE.exit.thread16.i, label %37
 
-_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualEPKcPPNS5_4NodeE.exit.thread15.i: ; preds = %.thread.us.i.thread.i
+_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualEPKcPPNS5_4NodeE.exit.thread16.i: ; preds = %.thread.us.i.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %48
 
@@ -2143,7 +2143,7 @@ _ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrE
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8ContainsEPKc.exit, label %48
 
-48:                                               ; preds = %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualEPKcPPNS5_4NodeE.exit.thread.i, %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualEPKcPPNS5_4NodeE.exit.thread15.i
+48:                                               ; preds = %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualEPKcPPNS5_4NodeE.exit.thread.i, %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualEPKcPPNS5_4NodeE.exit.thread16.i
   br label %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8ContainsEPKc.exit
 
 _ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8ContainsEPKc.exit: ; preds = %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualEPKcPPNS5_4NodeE.exit.thread.i, %48
@@ -3516,7 +3516,7 @@ _ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLe
   br i1 %135, label %96, label %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE21RecomputeSpliceLevelsERKNS_5SliceEPNS5_6SpliceEi.exit, !llvm.loop !181
 
 _ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE21RecomputeSpliceLevelsERKNS_5SliceEPNS5_6SpliceEi.exit: ; preds = %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb1EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit.i, %.preheader130, %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit110.thread
-  %.092167 = phi i32 [ %.092, %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit110.thread ], [ 0, %.preheader130 ], [ %.092, %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb1EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit.i ]
+  %.092175 = phi i32 [ %.092, %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit110.thread ], [ 0, %.preheader130 ], [ %.092, %_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindSpliceForLevelILb1EEEvRKNS_5SliceEPNS5_4NodeESB_iPSB_SC_.exit.i ]
   %.not104142 = icmp slt i32 %.0.copyload.i, 1
   br i1 %.not104142, label %.loopexit, label %.lr.ph145
 
@@ -3525,7 +3525,7 @@ _ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE21RecomputeSplice
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %139 = ptrtoint ptr %6 to i64
-  %140 = sext i32 %.092167 to i64
+  %140 = sext i32 %.092175 to i64
   %wide.trip.count = zext nneg i32 %.0.copyload.i to i64
   br label %143
 

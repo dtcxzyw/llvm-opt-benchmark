@@ -2953,22 +2953,22 @@ _ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit: ; preds = %cond.true.i.i.i.
 
 _ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread: ; preds = %_ZNK8QuantLib8SobolRsg12nextSequenceEv.exit
   %add.ptr.i.i.i.i20 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i.i
-  %weight3.i29 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %8 = load double, ptr %weight3.i29, align 8, !tbaa !64
-  %x_30 = getelementptr inbounds nuw i8, ptr %this, i64 112
-  %weight231 = getelementptr inbounds nuw i8, ptr %this, i64 136
-  store double %8, ptr %weight231, align 8, !tbaa !105
-  %dimension_32 = getelementptr inbounds nuw i8, ptr %this, i64 104
-  %9 = load i64, ptr %dimension_32, align 8, !tbaa !98
-  %cmp23.not33 = icmp eq i64 %9, 0
-  br i1 %cmp23.not33, label %_ZN8QuantLib6SampleISt6vectorIdSaIdEEED2Ev.exit, label %for.body.lr.ph
+  %weight3.i33 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %8 = load double, ptr %weight3.i33, align 8, !tbaa !64
+  %x_34 = getelementptr inbounds nuw i8, ptr %this, i64 112
+  %weight235 = getelementptr inbounds nuw i8, ptr %this, i64 136
+  store double %8, ptr %weight235, align 8, !tbaa !105
+  %dimension_36 = getelementptr inbounds nuw i8, ptr %this, i64 104
+  %9 = load i64, ptr %dimension_36, align 8, !tbaa !98
+  %cmp23.not37 = icmp eq i64 %9, 0
+  br i1 %cmp23.not37, label %_ZN8QuantLib6SampleISt6vectorIdSaIdEEED2Ev.exit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit
   %10 = phi i64 [ %9, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %7, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
-  %dimension_44 = phi ptr [ %dimension_32, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %dimension_, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
-  %x_42 = phi ptr [ %x_30, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %x_, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
-  %cond.i.i.i.i.i2137 = phi ptr [ null, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %call5.i.i.i.i2.i6.i.i, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
-  %add.ptr.i.i.i.i2234 = phi ptr [ %add.ptr.i.i.i.i20, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %add.ptr.i.i.i.i, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
+  %dimension_48 = phi ptr [ %dimension_36, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %dimension_, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
+  %x_46 = phi ptr [ %x_34, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %x_, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
+  %cond.i.i.i.i.i2141 = phi ptr [ null, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %call5.i.i.i.i2.i6.i.i, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
+  %add.ptr.i.i.i.i2238 = phi ptr [ %add.ptr.i.i.i.i20, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %add.ptr.i.i.i.i, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
   %ICD_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %sigma_.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %11 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal6x_low_E, align 8, !tbaa !42
@@ -2987,23 +2987,23 @@ for.body.lr.ph:                                   ; preds = %_ZN8QuantLib6Sample
   br label %for.body
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit
-  %x_41 = phi ptr [ %x_, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ], [ %x_42, %invoke.cont ]
-  %cond.i.i.i.i.i2138 = phi ptr [ %call5.i.i.i.i2.i6.i.i, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ], [ %cond.i.i.i.i.i2137, %invoke.cont ]
-  %add.ptr.i.i.i.i2235 = phi ptr [ %add.ptr.i.i.i.i, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ], [ %add.ptr.i.i.i.i2234, %invoke.cont ]
-  %sub.ptr.lhs.cast.i.i.i4 = ptrtoint ptr %add.ptr.i.i.i.i2235 to i64
-  %sub.ptr.rhs.cast.i.i.i5 = ptrtoint ptr %cond.i.i.i.i.i2138 to i64
+  %x_45 = phi ptr [ %x_, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ], [ %x_46, %invoke.cont ]
+  %cond.i.i.i.i.i2143 = phi ptr [ %call5.i.i.i.i2.i6.i.i, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ], [ %cond.i.i.i.i.i2141, %invoke.cont ]
+  %add.ptr.i.i.i.i2239 = phi ptr [ %add.ptr.i.i.i.i, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ], [ %add.ptr.i.i.i.i2238, %invoke.cont ]
+  %sub.ptr.lhs.cast.i.i.i4 = ptrtoint ptr %add.ptr.i.i.i.i2239 to i64
+  %sub.ptr.rhs.cast.i.i.i5 = ptrtoint ptr %cond.i.i.i.i.i2143 to i64
   %sub.ptr.sub.i.i.i6 = sub i64 %sub.ptr.lhs.cast.i.i.i4, %sub.ptr.rhs.cast.i.i.i5
-  tail call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i.i2138, i64 noundef %sub.ptr.sub.i.i.i6) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i.i2143, i64 noundef %sub.ptr.sub.i.i.i6) #25
   br label %_ZN8QuantLib6SampleISt6vectorIdSaIdEEED2Ev.exit
 
 _ZN8QuantLib6SampleISt6vectorIdSaIdEEED2Ev.exit:  ; preds = %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread, %if.then.i.i.i.i
-  %x_40 = phi ptr [ %x_41, %if.then.i.i.i.i ], [ %x_30, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ]
-  ret ptr %x_40
+  %x_44 = phi ptr [ %x_45, %if.then.i.i.i.i ], [ %x_34, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ]
+  ret ptr %x_44
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont
   %24 = phi i64 [ %10, %for.body.lr.ph ], [ %38, %invoke.cont ]
   %i.024 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %invoke.cont ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %cond.i.i.i.i.i2137, i64 %i.024
+  %add.ptr.i = getelementptr inbounds nuw double, ptr %cond.i.i.i.i.i2141, i64 %i.024
   %25 = load double, ptr %add.ptr.i, align 8, !tbaa !42
   %26 = load double, ptr %ICD_, align 8, !tbaa !106
   %27 = load double, ptr %sigma_.i, align 8, !tbaa !107
@@ -3017,7 +3017,7 @@ if.then.i.i:                                      ; preds = %for.body
           to label %if.then.i.i.invoke.cont_crit_edge unwind label %_ZN8QuantLib6SampleISt6vectorIdSaIdEEED2Ev.exit15
 
 if.then.i.i.invoke.cont_crit_edge:                ; preds = %if.then.i.i
-  %.pre25 = load i64, ptr %dimension_44, align 8, !tbaa !98
+  %.pre25 = load i64, ptr %dimension_48, align 8, !tbaa !98
   br label %invoke.cont
 
 if.else.i.i:                                      ; preds = %for.body
@@ -3041,7 +3041,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.invoke.
   %38 = phi i64 [ %24, %if.else.i.i ], [ %.pre25, %if.then.i.i.invoke.cont_crit_edge ]
   %z.0.i.i = phi double [ %div.i.i, %if.else.i.i ], [ %call.i.i7, %if.then.i.i.invoke.cont_crit_edge ]
   %39 = tail call noundef double @llvm.fmuladd.f64(double %27, double %z.0.i.i, double %26)
-  %40 = load ptr, ptr %x_42, align 8, !tbaa !40
+  %40 = load ptr, ptr %x_46, align 8, !tbaa !40
   %add.ptr.i8 = getelementptr inbounds nuw double, ptr %40, i64 %i.024
   store double %39, ptr %add.ptr.i8, align 8, !tbaa !42
   %inc = add nuw i64 %i.024, 1
@@ -3051,10 +3051,10 @@ invoke.cont:                                      ; preds = %if.then.i.i.invoke.
 _ZN8QuantLib6SampleISt6vectorIdSaIdEEED2Ev.exit15: ; preds = %if.then.i.i
   %41 = landingpad { ptr, i32 }
           cleanup
-  %sub.ptr.lhs.cast.i.i.i12 = ptrtoint ptr %add.ptr.i.i.i.i2234 to i64
-  %sub.ptr.rhs.cast.i.i.i13 = ptrtoint ptr %cond.i.i.i.i.i2137 to i64
+  %sub.ptr.lhs.cast.i.i.i12 = ptrtoint ptr %add.ptr.i.i.i.i2238 to i64
+  %sub.ptr.rhs.cast.i.i.i13 = ptrtoint ptr %cond.i.i.i.i.i2141 to i64
   %sub.ptr.sub.i.i.i14 = sub i64 %sub.ptr.lhs.cast.i.i.i12, %sub.ptr.rhs.cast.i.i.i13
-  tail call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i.i2137, i64 noundef %sub.ptr.sub.i.i.i14) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i.i2141, i64 noundef %sub.ptr.sub.i.i.i14) #25
   resume { ptr, i32 } %41
 }
 
@@ -3532,21 +3532,21 @@ _ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit: ; preds = %cond.true.i.i.i.
   br i1 %cmp19.not, label %if.then.i.i.i.i, label %for.body.lr.ph
 
 _ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread: ; preds = %entry
-  %weight3.i25 = getelementptr inbounds nuw i8, ptr %call, i64 24
-  %4 = load double, ptr %weight3.i25, align 8, !tbaa !64
-  %x_26 = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %weight227 = getelementptr inbounds nuw i8, ptr %this, i64 160
-  store double %4, ptr %weight227, align 8, !tbaa !130
-  %dimension_28 = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %5 = load i64, ptr %dimension_28, align 8, !tbaa !127
-  %cmp19.not29 = icmp eq i64 %5, 0
-  br i1 %cmp19.not29, label %_ZN8QuantLib6SampleISt6vectorIdSaIdEEED2Ev.exit, label %for.body.lr.ph
+  %weight3.i28 = getelementptr inbounds nuw i8, ptr %call, i64 24
+  %4 = load double, ptr %weight3.i28, align 8, !tbaa !64
+  %x_29 = getelementptr inbounds nuw i8, ptr %this, i64 136
+  %weight230 = getelementptr inbounds nuw i8, ptr %this, i64 160
+  store double %4, ptr %weight230, align 8, !tbaa !130
+  %dimension_31 = getelementptr inbounds nuw i8, ptr %this, i64 128
+  %5 = load i64, ptr %dimension_31, align 8, !tbaa !127
+  %cmp19.not32 = icmp eq i64 %5, 0
+  br i1 %cmp19.not32, label %_ZN8QuantLib6SampleISt6vectorIdSaIdEEED2Ev.exit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit
   %6 = phi i64 [ %5, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %3, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
-  %dimension_37 = phi ptr [ %dimension_28, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %dimension_, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
-  %x_35 = phi ptr [ %x_26, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %x_, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
-  %cond.i.i.i.i.i2230 = phi ptr [ null, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %call5.i.i.i.i2.i6.i.i, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
+  %dimension_40 = phi ptr [ %dimension_31, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %dimension_, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
+  %x_38 = phi ptr [ %x_29, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %x_, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
+  %cond.i.i.i.i.i2533 = phi ptr [ null, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %call5.i.i.i.i2.i6.i.i, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
   %ICD_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   %sigma_.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %7 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal6x_low_E, align 8, !tbaa !42
@@ -3565,19 +3565,19 @@ for.body.lr.ph:                                   ; preds = %_ZN8QuantLib6Sample
   br label %for.body
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit
-  %x_34 = phi ptr [ %x_, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ], [ %x_35, %invoke.cont ]
-  %cond.i.i.i.i.i2231 = phi ptr [ %call5.i.i.i.i2.i6.i.i, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ], [ %cond.i.i.i.i.i2230, %invoke.cont ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i.i2231, i64 noundef %sub.ptr.sub.i.i.i) #25
+  %x_37 = phi ptr [ %x_, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ], [ %x_38, %invoke.cont ]
+  %cond.i.i.i.i.i2535 = phi ptr [ %call5.i.i.i.i2.i6.i.i, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ], [ %cond.i.i.i.i.i2533, %invoke.cont ]
+  tail call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i.i2535, i64 noundef %sub.ptr.sub.i.i.i) #25
   br label %_ZN8QuantLib6SampleISt6vectorIdSaIdEEED2Ev.exit
 
 _ZN8QuantLib6SampleISt6vectorIdSaIdEEED2Ev.exit:  ; preds = %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread, %if.then.i.i.i.i
-  %x_33 = phi ptr [ %x_34, %if.then.i.i.i.i ], [ %x_26, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ]
-  ret ptr %x_33
+  %x_36 = phi ptr [ %x_37, %if.then.i.i.i.i ], [ %x_29, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ]
+  ret ptr %x_36
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont
   %20 = phi i64 [ %6, %for.body.lr.ph ], [ %34, %invoke.cont ]
   %i.020 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %invoke.cont ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %cond.i.i.i.i.i2230, i64 %i.020
+  %add.ptr.i = getelementptr inbounds nuw double, ptr %cond.i.i.i.i.i2533, i64 %i.020
   %21 = load double, ptr %add.ptr.i, align 8, !tbaa !42
   %22 = load double, ptr %ICD_, align 8, !tbaa !106
   %23 = load double, ptr %sigma_.i, align 8, !tbaa !107
@@ -3591,7 +3591,7 @@ if.then.i.i:                                      ; preds = %for.body
           to label %if.then.i.i.invoke.cont_crit_edge unwind label %_ZN8QuantLib6SampleISt6vectorIdSaIdEEED2Ev.exit15
 
 if.then.i.i.invoke.cont_crit_edge:                ; preds = %if.then.i.i
-  %.pre = load i64, ptr %dimension_37, align 8, !tbaa !127
+  %.pre = load i64, ptr %dimension_40, align 8, !tbaa !127
   br label %invoke.cont
 
 if.else.i.i:                                      ; preds = %for.body
@@ -3615,7 +3615,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.invoke.
   %34 = phi i64 [ %20, %if.else.i.i ], [ %.pre, %if.then.i.i.invoke.cont_crit_edge ]
   %z.0.i.i = phi double [ %div.i.i, %if.else.i.i ], [ %call.i.i7, %if.then.i.i.invoke.cont_crit_edge ]
   %35 = tail call noundef double @llvm.fmuladd.f64(double %23, double %z.0.i.i, double %22)
-  %36 = load ptr, ptr %x_35, align 8, !tbaa !40
+  %36 = load ptr, ptr %x_38, align 8, !tbaa !40
   %add.ptr.i8 = getelementptr inbounds nuw double, ptr %36, i64 %i.020
   store double %35, ptr %add.ptr.i8, align 8, !tbaa !42
   %inc = add nuw i64 %i.020, 1
@@ -3625,7 +3625,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.invoke.
 _ZN8QuantLib6SampleISt6vectorIdSaIdEEED2Ev.exit15: ; preds = %if.then.i.i
   %37 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i.i2230, i64 noundef %sub.ptr.sub.i.i.i) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i.i2533, i64 noundef %sub.ptr.sub.i.i.i) #25
   resume { ptr, i32 } %37
 }
 

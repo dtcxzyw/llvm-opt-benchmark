@@ -413,11 +413,11 @@ Vec_IntPush.exit73:                               ; preds = %.Vec_IntGrow.exit10
   br label %203
 
 203:                                              ; preds = %Vec_IntPush.exit, %Vec_IntPush.exit66, %Vec_IntPush.exit73, %Vec_IntPush.exit56
-  %.sink81 = phi i32 [ %71, %Vec_IntPush.exit ], [ %162, %Vec_IntPush.exit66 ], [ %201, %Vec_IntPush.exit73 ], [ %107, %Vec_IntPush.exit56 ]
-  %.sink79 = phi ptr [ %70, %Vec_IntPush.exit ], [ %161, %Vec_IntPush.exit66 ], [ %200, %Vec_IntPush.exit73 ], [ %106, %Vec_IntPush.exit56 ]
+  %.sink96 = phi i32 [ %71, %Vec_IntPush.exit ], [ %162, %Vec_IntPush.exit66 ], [ %201, %Vec_IntPush.exit73 ], [ %107, %Vec_IntPush.exit56 ]
+  %.sink94 = phi ptr [ %70, %Vec_IntPush.exit ], [ %161, %Vec_IntPush.exit66 ], [ %200, %Vec_IntPush.exit73 ], [ %106, %Vec_IntPush.exit56 ]
   %.sink = phi i32 [ 0, %Vec_IntPush.exit ], [ 1, %Vec_IntPush.exit66 ], [ %173, %Vec_IntPush.exit73 ], [ 1, %Vec_IntPush.exit56 ]
-  %204 = sext i32 %.sink81 to i64
-  %205 = getelementptr inbounds i32, ptr %.sink79, i64 %204
+  %204 = sext i32 %.sink96 to i64
+  %205 = getelementptr inbounds i32, ptr %.sink94, i64 %204
   store i32 %.sink, ptr %205, align 4, !tbaa !41
   %206 = add nuw nsw i32 %.03675, 1
   %207 = load ptr, ptr %20, align 8, !tbaa !19

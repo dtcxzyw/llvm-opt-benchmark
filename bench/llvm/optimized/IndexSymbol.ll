@@ -335,9 +335,9 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %_ZN5clang5index21is
 82:                                               ; preds = %79
   store i8 13, ptr %4, align 8, !tbaa !3
   %83 = icmp eq i32 %46, 41
-  br i1 %83, label %.thread151, label %84
+  br i1 %83, label %.thread156, label %84
 
-.thread151:                                       ; preds = %82
+.thread156:                                       ; preds = %82
   store i8 25, ptr %4, align 8, !tbaa !3
   br label %107
 
@@ -389,7 +389,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit65:         ; preds = %84, %90
   store i16 %106, ptr %6, align 4, !tbaa !12
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread132
 
-107:                                              ; preds = %.thread151, %102
+107:                                              ; preds = %.thread156, %102
   %108 = tail call noundef ptr @_ZNK5clang7VarDecl23getDescribedVarTemplateEv(ptr noundef nonnull align 8 dereferenceable(100) %.0121) #6
   %.not54 = icmp eq ptr %108, null
   br i1 %.not54, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread132, label %109
@@ -489,8 +489,8 @@ _ZNK5clang4Decl14getDeclContextEv.exit68:         ; preds = %115, %121
 133:                                              ; preds = %111, %111
   store i8 7, ptr %4, align 8, !tbaa !3
   store i8 1, ptr %7, align 2, !tbaa !13
-  %.not154 = icmp eq i32 %46, 18
-  br i1 %.not154, label %137, label %134
+  %.not159 = icmp eq i32 %46, 18
+  br i1 %.not159, label %137, label %134
 
 134:                                              ; preds = %133
   %135 = getelementptr inbounds nuw i8, ptr %.0121, i64 88
@@ -540,8 +540,8 @@ _ZNK5clang4Decl14getDeclContextEv.exit68:         ; preds = %115, %121
   %152 = getelementptr inbounds nuw i8, ptr %.0121, i64 104
   %153 = load i32, ptr %152, align 8, !tbaa !45
   %.not50 = icmp eq i32 %153, 0
-  %.153 = select i1 %.not50, i8 3, i8 4
-  store i8 %.153, ptr %5, align 1, !tbaa !11
+  %.158 = select i1 %.not50, i8 3, i8 4
+  store i8 %.158, ptr %5, align 1, !tbaa !11
   br label %154
 
 154:                                              ; preds = %.sink.split, %146
@@ -1126,9 +1126,9 @@ _ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit: ; preds = %.lr.ph
   br i1 %.not16, label %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit.thread14, label %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit.thread14.sink.split
 
 _ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit.thread14.sink.split: ; preds = %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit, %_ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit
-  %.sink24 = phi i16 [ 16, %_ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit ], [ 48, %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit ]
+  %.sink25 = phi i16 [ 16, %_ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit ], [ 48, %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit ]
   %34 = load i16, ptr %1, align 2, !tbaa !89
-  %35 = or i16 %34, %.sink24
+  %35 = or i16 %34, %.sink25
   store i16 %35, ptr %1, align 2, !tbaa !89
   br label %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit.thread14
 

@@ -2979,8 +2979,8 @@ lean_dec.exit510:                                 ; preds = %127, %126, %124, %l
   br i1 %or.cond, label %lean_dec.exit509.thread, label %lean_nat_le.exit, !prof !15
 
 lean_dec.exit509.thread:                          ; preds = %lean_dec.exit510
-  %.not960 = icmp ugt ptr %84, %120
-  br i1 %.not960, label %146, label %147
+  %.not1084 = icmp ugt ptr %84, %120
+  br i1 %.not1084, label %146, label %147
 
 lean_nat_le.exit:                                 ; preds = %lean_dec.exit510
   %131 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %84, ptr noundef %120) #4
@@ -3573,8 +3573,8 @@ lean_dec.exit500:                                 ; preds = %347, %346, %344, %l
   br i1 %or.cond853, label %lean_dec.exit499.thread, label %lean_nat_le.exit611, !prof !15
 
 lean_dec.exit499.thread:                          ; preds = %lean_dec.exit500
-  %.not959 = icmp ugt ptr %306, %340
-  br i1 %.not959, label %366, label %373
+  %.not1083 = icmp ugt ptr %306, %340
+  br i1 %.not1083, label %366, label %373
 
 lean_nat_le.exit611:                              ; preds = %lean_dec.exit500
   %351 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %306, ptr noundef %340) #4
@@ -4505,8 +4505,8 @@ lean_dec.exit491:                                 ; preds = %698, %697, %695, %l
   br i1 %or.cond856, label %lean_dec.exit490.thread, label %lean_nat_le.exit614, !prof !15
 
 lean_dec.exit490.thread:                          ; preds = %lean_dec.exit491
-  %.not958 = icmp ugt ptr %657, %691
-  br i1 %.not958, label %717, label %728
+  %.not1082 = icmp ugt ptr %657, %691
+  br i1 %.not1082, label %717, label %728
 
 lean_nat_le.exit614:                              ; preds = %lean_dec.exit491
   %702 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %657, ptr noundef %691) #4
@@ -5620,8 +5620,8 @@ lean_dec.exit481:                                 ; preds = %1115, %1114, %1112,
   br i1 %or.cond859, label %lean_dec.exit480.thread, label %lean_nat_le.exit617, !prof !15
 
 lean_dec.exit480.thread:                          ; preds = %lean_dec.exit481
-  %.not957 = icmp ugt ptr %1074, %1108
-  br i1 %.not957, label %1134, label %1145
+  %.not1081 = icmp ugt ptr %1074, %1108
+  br i1 %.not1081, label %1134, label %1145
 
 lean_nat_le.exit617:                              ; preds = %lean_dec.exit481
   %1119 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %1074, ptr noundef %1108) #4
@@ -15450,8 +15450,8 @@ lean_dec.exit71:                                  ; preds = %101, %100, %98, %le
   br label %lean_dec.exit70
 
 lean_dec.exit70:                                  ; preds = %lean_dec.exit71.thread, %108, %107, %105, %lean_dec.exit71
-  %.0.i140142 = phi i1 [ %93, %lean_dec.exit71.thread ], [ %94, %108 ], [ %94, %107 ], [ %94, %105 ], [ %94, %lean_dec.exit71 ]
-  %109 = select i1 %.0.i140142, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  %.0.i164166 = phi i1 [ %93, %lean_dec.exit71.thread ], [ %94, %108 ], [ %94, %107 ], [ %94, %105 ], [ %94, %lean_dec.exit71 ]
+  %109 = select i1 %.0.i164166, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   store ptr %109, ptr %42, align 8, !tbaa !4
   br label %207
 
@@ -15701,7 +15701,7 @@ lean_dec.exit65:                                  ; preds = %192, %191, %189, %l
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %lean_dec.exit65.thread, %199, %198, %196, %lean_dec.exit65
-  %.0.i99145147 = phi i1 [ %184, %lean_dec.exit65.thread ], [ %185, %199 ], [ %185, %198 ], [ %185, %196 ], [ %185, %lean_dec.exit65 ]
+  %.0.i99169171 = phi i1 [ %184, %lean_dec.exit65.thread ], [ %185, %199 ], [ %185, %198 ], [ %185, %196 ], [ %185, %lean_dec.exit65 ]
   tail call void @lean_inc_heartbeat() #4
   %200 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %201 = icmp eq ptr %200, null
@@ -15712,7 +15712,7 @@ lean_dec.exit:                                    ; preds = %lean_dec.exit65.thr
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
-  %203 = select i1 %.0.i99145147, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  %203 = select i1 %.0.i99169171, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   %204 = getelementptr inbounds nuw i8, ptr %200, i64 4
   store i32 1, ptr %200, align 4, !tbaa !8
   store i32 131096, ptr %204, align 4

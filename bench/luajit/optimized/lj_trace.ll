@@ -349,11 +349,11 @@ trace_unpatch.exit:                               ; preds = %2, %13, %15, %21, %
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %49 = icmp eq i16 %48, %35
-  br i1 %49, label %.lr.ph._crit_edge, label %.lr.ph30
+  br i1 %49, label %.lr.ph._crit_edge, label %.lr.ph36
 
-.lr.ph:                                           ; preds = %.lr.ph30
+.lr.ph:                                           ; preds = %.lr.ph36
   %50 = icmp eq i16 %59, %35
-  br i1 %50, label %.lr.ph._crit_edge, label %.lr.ph30, !llvm.loop !66
+  br i1 %50, label %.lr.ph._crit_edge, label %.lr.ph36, !llvm.loop !66
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.026.lcssa = phi ptr [ %.024, %.lr.ph.preheader ], [ %.0, %.lr.ph ]
@@ -363,7 +363,7 @@ trace_unpatch.exit:                               ; preds = %2, %13, %15, %21, %
   store i16 %53, ptr %51, align 2, !tbaa !65
   br label %.loopexit
 
-.lr.ph30:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph36:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %54 = phi i16 [ %59, %.lr.ph ], [ %48, %.lr.ph.preheader ]
   %55 = zext i16 %54 to i64
   %56 = getelementptr inbounds nuw %struct.GCRef, ptr %43, i64 %55
@@ -374,7 +374,7 @@ trace_unpatch.exit:                               ; preds = %2, %13, %15, %21, %
   %.not22 = icmp eq i16 %59, 0
   br i1 %.not22, label %.loopexit, label %.lr.ph, !llvm.loop !66
 
-.loopexit:                                        ; preds = %.lr.ph30, %.preheader, %41, %.lr.ph._crit_edge, %40, %37
+.loopexit:                                        ; preds = %.lr.ph36, %.preheader, %41, %.lr.ph._crit_edge, %40, %37
   ret void
 }
 

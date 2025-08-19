@@ -1087,8 +1087,8 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   br i1 %.not.i, label %_proc_stdout.exit, label %.lr.ph125.i, !llvm.loop !19
 
 .thread.sink.split.i:                             ; preds = %137, %112
-  %.074.lcssa136.sink.i = phi ptr [ %.074.i, %112 ], [ %.2.i, %137 ]
-  store i8 0, ptr %.074.lcssa136.sink.i, align 1
+  %.074.lcssa139.sink.i = phi ptr [ %.074.i, %112 ], [ %.2.i, %137 ]
+  store i8 0, ptr %.074.lcssa139.sink.i, align 1
   br label %_proc_stdout.exit
 
 _proc_stdout.exit:                                ; preds = %.thread100.i, %.loopexit.i, %.thread.sink.split.i, %37, %36

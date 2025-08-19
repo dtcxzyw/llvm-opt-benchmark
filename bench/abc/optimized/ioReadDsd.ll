@@ -213,7 +213,7 @@ define ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   br i1 %.not73, label %.preheader78, label %.preheader80
 
 .preheader80:                                     ; preds = %19
-  br i1 %21, label %.lr.ph.preheader, label %.loopexit.thread100
+  br i1 %21, label %.lr.ph.preheader, label %.loopexit.thread106
 
 .lr.ph.preheader:                                 ; preds = %.preheader80
   %wide.trip.count = zext nneg i32 %16 to i64
@@ -255,9 +255,9 @@ define ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   br i1 %exitcond99.not, label %.loopexit, label %.lr.ph85, !llvm.loop !15
 
 .loopexit:                                        ; preds = %26, %31
-  br i1 %.not73, label %.loopexit.thread, label %.loopexit.thread100
+  br i1 %.not73, label %.loopexit.thread, label %.loopexit.thread106
 
-.loopexit.thread100:                              ; preds = %.preheader80, %.loopexit
+.loopexit.thread106:                              ; preds = %.preheader80, %.loopexit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %33 = load ptr, ptr %32, align 8, !tbaa !16
   %34 = tail call ptr @Abc_SopRegister(ptr noundef %33, ptr noundef nonnull %2) #10
@@ -339,8 +339,8 @@ define ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   tail call void @free(ptr noundef nonnull %59) #10
   br label %.loopexit79
 
-.loopexit79:                                      ; preds = %.lr.ph, %.lr.ph85, %61, %58, %.loopexit.thread100, %42, %40, %57, %48, %18, %7
-  %.0 = phi ptr [ %10, %7 ], [ null, %18 ], [ %53, %48 ], [ null, %57 ], [ %20, %40 ], [ %20, %42 ], [ %20, %.loopexit.thread100 ], [ %60, %58 ], [ %60, %61 ], [ null, %.lr.ph85 ], [ null, %.lr.ph ]
+.loopexit79:                                      ; preds = %.lr.ph, %.lr.ph85, %61, %58, %.loopexit.thread106, %42, %40, %57, %48, %18, %7
+  %.0 = phi ptr [ %10, %7 ], [ null, %18 ], [ %53, %48 ], [ null, %57 ], [ %20, %40 ], [ %20, %42 ], [ %20, %.loopexit.thread106 ], [ %60, %58 ], [ %60, %61 ], [ null, %.lr.ph85 ], [ null, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0

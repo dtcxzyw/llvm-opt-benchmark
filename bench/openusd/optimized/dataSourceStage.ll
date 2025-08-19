@@ -636,13 +636,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25UsdImagingDataSourceStage3Ge
   %31 = xor i64 %30, %28
   %32 = icmp ult i64 %31, 8
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink.sroa.gep136 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink.sroa.gep138 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink.sroa.gep139 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink.sroa.gep141 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sink.sroa.gep142 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink.sroa.gep144 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink.sroa.gep145 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink.sroa.gep157 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink.sroa.gep159 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink.sroa.gep160 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink.sroa.gep162 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink.sroa.gep163 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink.sroa.gep165 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink.sroa.gep166 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br i1 %32, label %33, label %306
 
 33:                                               ; preds = %3
@@ -1326,16 +1326,16 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_19UsdRenderTokensTypeENS
   br i1 %.not.i59, label %.invoke, label %336
 
 .invoke:                                          ; preds = %334, %314
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %314 ], [ %.sink.sroa.gep136, %334 ]
-  %.sink.sroa.phi137 = phi ptr [ %.sink.sroa.gep138, %314 ], [ %.sink.sroa.gep139, %334 ]
-  %.sink.sroa.phi140 = phi ptr [ %.sink.sroa.gep141, %314 ], [ %.sink.sroa.gep142, %334 ]
-  %.sink.sroa.phi143 = phi ptr [ %.sink.sroa.gep144, %314 ], [ %.sink.sroa.gep145, %334 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %314 ], [ %.sink.sroa.gep157, %334 ]
+  %.sink.sroa.phi158 = phi ptr [ %.sink.sroa.gep159, %314 ], [ %.sink.sroa.gep160, %334 ]
+  %.sink.sroa.phi161 = phi ptr [ %.sink.sroa.gep162, %314 ], [ %.sink.sroa.gep163, %334 ]
+  %.sink.sroa.phi164 = phi ptr [ %.sink.sroa.gep165, %314 ], [ %.sink.sroa.gep166, %334 ]
   %.sink = phi ptr [ %7, %314 ], [ %6, %334 ]
   store ptr @.str.1, ptr %.sink, align 8
   store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEptEv, ptr %.sink.sroa.phi, align 8
-  store i64 936, ptr %.sink.sroa.phi137, align 8
-  store ptr @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEptEv, ptr %.sink.sroa.phi140, align 8
-  store i8 0, ptr %.sink.sroa.phi143, align 8
+  store i64 936, ptr %.sink.sroa.phi158, align 8
+  store ptr @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEptEv, ptr %.sink.sroa.phi161, align 8
+  store i8 0, ptr %.sink.sroa.phi164, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__40Tf_PostNullSmartPtrDereferenceFatalErrorERKNS_13TfCallContextEPKc(ptr noundef nonnull align 8 dereferenceable(33) %.sink, ptr noundef nonnull @_ZTSN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEE) #18
           to label %.cont unwind label %352
 

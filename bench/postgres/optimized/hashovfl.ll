@@ -407,12 +407,12 @@ _hash_firstfreebit.exit:                          ; preds = %101
   %.not280 = icmp ne i32 %177, 0
   %.pre = load i32, ptr %154, align 4
   %178 = zext i1 %.not280 to i32
-  %spec.select358 = add i32 %.pre, %178
+  %spec.select371 = add i32 %.pre, %178
   br label %.thread255
 
 .thread255:                                       ; preds = %.loopexit286, %._crit_edge316
   %.1181257 = phi i32 [ 0, %._crit_edge316 ], [ %177, %.loopexit286 ]
-  %179 = phi i32 [ %153, %._crit_edge316 ], [ %spec.select358, %.loopexit286 ]
+  %179 = phi i32 [ %153, %._crit_edge316 ], [ %spec.select371, %.loopexit286 ]
   %180 = load i32, ptr %54, align 4
   %181 = add i32 %179, 1
   %182 = icmp ugt i32 %180, 1
@@ -1591,14 +1591,14 @@ BufferGetPage.exit203:                            ; preds = %36, %42
   br label %58
 
 58:                                               ; preds = %.preheader, %BufferGetPage.exit211
-  %.0184 = phi ptr [ %.2186.lcssa380, %BufferGetPage.exit211 ], [ %.0.i.i, %.preheader ]
+  %.0184 = phi ptr [ %.2186.lcssa393, %BufferGetPage.exit211 ], [ %.0.i.i, %.preheader ]
   %.0182 = phi ptr [ %.0.i.i210, %BufferGetPage.exit211 ], [ %.0.i.i202, %.preheader ]
-  %.0175 = phi ptr [ %.2177.lcssa381, %BufferGetPage.exit211 ], [ %27, %.preheader ]
+  %.0175 = phi ptr [ %.2177.lcssa394, %BufferGetPage.exit211 ], [ %27, %.preheader ]
   %.1173 = phi ptr [ %246, %BufferGetPage.exit211 ], [ %51, %.preheader ]
   %.1166 = phi i32 [ %229, %BufferGetPage.exit211 ], [ %34, %.preheader ]
-  %.0135 = phi i32 [ %.2137.lcssa382, %BufferGetPage.exit211 ], [ %3, %.preheader ]
+  %.0135 = phi i32 [ %.2137.lcssa395, %BufferGetPage.exit211 ], [ %3, %.preheader ]
   %.0131 = phi i32 [ %222, %BufferGetPage.exit211 ], [ %31, %.preheader ]
-  %.0 = phi i32 [ %.2.lcssa383, %BufferGetPage.exit211 ], [ %2, %.preheader ]
+  %.0 = phi i32 [ %.2.lcssa396, %BufferGetPage.exit211 ], [ %2, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1969,23 +1969,23 @@ BufferGetPage.exit209:                            ; preds = %188, %194
 
 ._crit_edge336:                                   ; preds = %.lr.ph335, %._crit_edge309.thread, %._crit_edge309
   %222 = phi i32 [ %216, %._crit_edge309.thread ], [ %218, %._crit_edge309 ], [ %218, %.lr.ph335 ]
-  %.2.lcssa383 = phi i32 [ %.2.lcssa.ph, %._crit_edge309.thread ], [ %.3238, %._crit_edge309 ], [ %.3238, %.lr.ph335 ]
-  %.2137.lcssa382 = phi i32 [ %.2137.lcssa.ph, %._crit_edge309.thread ], [ %.3138237, %._crit_edge309 ], [ %.3138237, %.lr.ph335 ]
-  %.2177.lcssa381 = phi ptr [ %.2177.lcssa.ph, %._crit_edge309.thread ], [ %.3178232, %._crit_edge309 ], [ %.3178232, %.lr.ph335 ]
-  %.2186.lcssa380 = phi ptr [ %.2186.lcssa.ph, %._crit_edge309.thread ], [ %.3187231, %._crit_edge309 ], [ %.3187231, %.lr.ph335 ]
-  %223 = icmp eq i32 %222, %.2.lcssa383
+  %.2.lcssa396 = phi i32 [ %.2.lcssa.ph, %._crit_edge309.thread ], [ %.3238, %._crit_edge309 ], [ %.3238, %.lr.ph335 ]
+  %.2137.lcssa395 = phi i32 [ %.2137.lcssa.ph, %._crit_edge309.thread ], [ %.3138237, %._crit_edge309 ], [ %.3138237, %.lr.ph335 ]
+  %.2177.lcssa394 = phi ptr [ %.2177.lcssa.ph, %._crit_edge309.thread ], [ %.3178232, %._crit_edge309 ], [ %.3178232, %.lr.ph335 ]
+  %.2186.lcssa393 = phi ptr [ %.2186.lcssa.ph, %._crit_edge309.thread ], [ %.3187231, %._crit_edge309 ], [ %.3187231, %.lr.ph335 ]
+  %223 = icmp eq i32 %222, %.2.lcssa396
   br i1 %223, label %224, label %228
 
 224:                                              ; preds = %._crit_edge336
-  %225 = icmp eq i32 %.2.lcssa383, %2
+  %225 = icmp eq i32 %.2.lcssa396, %2
   br i1 %225, label %226, label %227
 
 226:                                              ; preds = %224
-  call void @LockBuffer(i32 noundef %.2137.lcssa382, i32 noundef 0) #6
+  call void @LockBuffer(i32 noundef %.2137.lcssa395, i32 noundef 0) #6
   br label %.thread250
 
 227:                                              ; preds = %224
-  call void @_hash_relbuf(ptr noundef %0, i32 noundef %.2137.lcssa382) #6
+  call void @_hash_relbuf(ptr noundef %0, i32 noundef %.2137.lcssa395) #6
   br label %.thread250
 
 228:                                              ; preds = %._crit_edge336

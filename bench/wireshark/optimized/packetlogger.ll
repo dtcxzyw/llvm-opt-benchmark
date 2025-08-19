@@ -78,7 +78,7 @@ packetlogger_byte_swap_header.exit:               ; preds = %16
 
 28:                                               ; preds = %25
   %.not.i = icmp eq i32 %.val, 8
-  br i1 %.not.i, label %packetlogger_check_record.exit.thread104, label %29
+  br i1 %.not.i, label %packetlogger_check_record.exit.thread108, label %29
 
 29:                                               ; preds = %28
   %30 = load ptr, ptr %0, align 8
@@ -109,24 +109,24 @@ packetlogger_byte_swap_header.exit:               ; preds = %16
 34:                                               ; preds = %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32
   %35 = add nsw i32 %.val, -9
   %.not19.i = icmp eq i32 %35, 0
-  br i1 %.not19.i, label %packetlogger_check_record.exit.thread104, label %36
+  br i1 %.not19.i, label %packetlogger_check_record.exit.thread108, label %36
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %0, align 8
   %38 = call zeroext i1 @wtap_read_bytes(ptr noundef %37, ptr noundef null, i32 noundef %35, ptr noundef %1, ptr noundef %2)
-  br i1 %38, label %packetlogger_check_record.exit.thread104, label %packetlogger_check_record.exit.thread84
+  br i1 %38, label %packetlogger_check_record.exit.thread108, label %packetlogger_check_record.exit.thread84
 
 packetlogger_check_record.exit.thread84:          ; preds = %36
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.pr106 = load i32, ptr %1, align 4
-  %39 = icmp eq i32 %.pr106, -12
+  %.pr110 = load i32, ptr %1, align 4
+  %39 = icmp eq i32 %.pr110, -12
   br i1 %39, label %.thread97, label %.thread
 
 packetlogger_check_record.exit.thread:            ; preds = %25, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
-packetlogger_check_record.exit.thread104:         ; preds = %36, %34, %28
+packetlogger_check_record.exit.thread108:         ; preds = %36, %34, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %41
 
@@ -134,11 +134,11 @@ packetlogger_check_record.exit:                   ; preds = %29
   %40 = load i32, ptr %1, align 4
   %.not18.i.not = icmp ne i32 %40, -12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %spec.select107 = sext i1 %.not18.i.not to i32
+  %spec.select111 = sext i1 %.not18.i.not to i32
   br label %.thread
 
-41:                                               ; preds = %packetlogger_check_record.exit.thread104, %packetlogger_check_record.exit81.thread92
-  %.053100 = phi i32 [ 1, %packetlogger_check_record.exit.thread104 ], [ %71, %packetlogger_check_record.exit81.thread92 ]
+41:                                               ; preds = %packetlogger_check_record.exit.thread108, %packetlogger_check_record.exit81.thread92
+  %.053100 = phi i32 [ 1, %packetlogger_check_record.exit.thread108 ], [ %71, %packetlogger_check_record.exit81.thread92 ]
   %42 = load ptr, ptr %0, align 8
   %43 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %42, ptr noundef nonnull %6, i32 noundef 4, ptr noundef %1, ptr noundef %2)
   br i1 %43, label %44, label %packetlogger_read_header.exit73.thread
@@ -282,7 +282,7 @@ packetlogger_check_record.exit81:                 ; preds = %60
   br label %.thread
 
 .thread:                                          ; preds = %packetlogger_check_record.exit, %packetlogger_check_record.exit81, %packetlogger_read_header.exit73.thread, %packetlogger_check_record.exit81.thread, %55, %packetlogger_check_record.exit.thread, %packetlogger_read_header.exit.thread, %.thread97, %packetlogger_check_record.exit.thread84, %packetlogger_check_record.exit81.thread90, %76
-  %.0 = phi i32 [ 1, %76 ], [ -1, %packetlogger_check_record.exit81.thread90 ], [ -1, %packetlogger_check_record.exit.thread84 ], [ -1, %.thread97 ], [ %15, %packetlogger_read_header.exit.thread ], [ 0, %packetlogger_check_record.exit.thread ], [ 0, %packetlogger_check_record.exit81.thread ], [ 0, %55 ], [ -1, %packetlogger_read_header.exit73.thread ], [ %spec.select, %packetlogger_check_record.exit81 ], [ %spec.select107, %packetlogger_check_record.exit ]
+  %.0 = phi i32 [ 1, %76 ], [ -1, %packetlogger_check_record.exit81.thread90 ], [ -1, %packetlogger_check_record.exit.thread84 ], [ -1, %.thread97 ], [ %15, %packetlogger_read_header.exit.thread ], [ 0, %packetlogger_check_record.exit.thread ], [ 0, %packetlogger_check_record.exit81.thread ], [ 0, %55 ], [ -1, %packetlogger_read_header.exit73.thread ], [ %spec.select, %packetlogger_check_record.exit81 ], [ %spec.select111, %packetlogger_check_record.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

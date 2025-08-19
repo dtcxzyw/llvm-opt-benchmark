@@ -101,9 +101,9 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %2
 
 _ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEEESt9cv_statusRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EE.exit: ; preds = %28
   %35 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #7
-  %.not38 = icmp slt i64 %35, %30
+  %.not43 = icmp slt i64 %35, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not38, label %.critedge, label %.loopexit
+  br i1 %.not43, label %.critedge, label %.loopexit
 
 36:                                               ; preds = %24
   %37 = invoke i64 @_ZNK4absl24synchronization_internal13KernelTimeout17ToChronoTimePointEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -122,9 +122,9 @@ _ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEEESt9cv_statusRSt
 
 43:                                               ; preds = %38
   %44 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #7
-  %.not39 = icmp slt i64 %44, %37
+  %.not44 = icmp slt i64 %44, %37
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not39, label %.critedge, label %.loopexit
+  br i1 %.not44, label %.critedge, label %.loopexit
 
 45:                                               ; preds = %28, %26
   %46 = landingpad { ptr, i32 }

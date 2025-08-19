@@ -471,12 +471,12 @@ define internal fastcc void @rankSort(i32 noundef %0, ptr noundef captures(none)
   br label %24
 
 24:                                               ; preds = %.lr.ph, %17, %21
-  %.sink47 = phi i32 [ %23, %21 ], [ 0, %17 ], [ 0, %.lr.ph ]
-  %indvars.iv.tr45 = trunc i64 %indvars.iv to i32
-  %25 = shl i32 %indvars.iv.tr45, 1
+  %.sink48 = phi i32 [ %23, %21 ], [ 0, %17 ], [ 0, %.lr.ph ]
+  %indvars.iv.tr46 = trunc i64 %indvars.iv to i32
+  %25 = shl i32 %indvars.iv.tr46, 1
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i32, ptr %5, i64 %26
-  store i32 %.sink47, ptr %27, align 4
+  store i32 %.sink48, ptr %27, align 4
   %28 = getelementptr i8, ptr %27, i64 4
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %29, ptr %28, align 4
@@ -657,8 +657,8 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
 
 .lr.ph.i.us.us159.preheader:                      ; preds = %.lr.ph.i.preheader.thread, %.lr.ph.i.preheader
   %73 = load ptr, ptr %65, align 8
-  %.not.i123.us.us161221 = icmp eq ptr %73, null
-  br i1 %.not.i123.us.us161221, label %bsearch.exit.loopexit.split.loop.exit154, label %.thread.us.us163
+  %.not.i123.us.us161230 = icmp eq ptr %73, null
+  br i1 %.not.i123.us.us161230, label %bsearch.exit.loopexit.split.loop.exit154, label %.thread.us.us163
 
 .thread.us.us163:                                 ; preds = %.lr.ph.i.us.us159.preheader, %.thread.us.us163
   %74 = phi i64 [ %78, %.thread.us.us163 ], [ %63, %.lr.ph.i.us.us159.preheader ]

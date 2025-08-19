@@ -578,37 +578,37 @@ repeatIsDead.exit.i.thread54:                     ; preds = %114, %repeatIsDead.
 
 .lr.ph.preheader:                                 ; preds = %repeatIsDead.exit.i.thread54
   %wide.trip.count = zext i32 %118 to i64
-  %.idx.i135 = mul nuw nsw i64 %104, 24
-  %120 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i135
+  %.idx.i146 = mul nuw nsw i64 %104, 24
+  %120 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i146
   %121 = load i64, ptr %120, align 8
-  %.not.i2136 = icmp sgt i64 %121, %2
-  br i1 %.not.i2136, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph138
+  %.not.i2147 = icmp sgt i64 %121, %2
+  br i1 %.not.i2147, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph149
 
 .lr.ph:                                           ; preds = %130
   %.idx.i = mul nuw nsw i64 %indvars.iv.next, 24
   %122 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i
   %123 = load i64, ptr %122, align 8
   %.not.i2 = icmp sgt i64 %123, %2
-  br i1 %.not.i2, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph138
+  br i1 %.not.i2, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph149
 
-.lr.ph138:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph149:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %124 = phi i64 [ %123, %.lr.ph ], [ %121, %.lr.ph.preheader ]
-  %indvars.iv137 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %104, %.lr.ph.preheader ]
-  %125 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %indvars.iv137
+  %indvars.iv148 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %104, %.lr.ph.preheader ]
+  %125 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %indvars.iv148
   %126 = load i32, ptr %125, align 8
   switch i32 %126, label %130 [
     i32 4, label %127
     i32 2, label %127
   ]
 
-127:                                              ; preds = %.lr.ph138, %.lr.ph138
+127:                                              ; preds = %.lr.ph149, %.lr.ph149
   %128 = add i64 %124, %116
   %129 = load i64, ptr %117, align 8
   %.not56.i = icmp ult i64 %128, %129
   br i1 %.not56.i, label %130, label %132
 
-130:                                              ; preds = %.lr.ph138, %127
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv137, 1
+130:                                              ; preds = %.lr.ph149, %127
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv148, 1
   %131 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %131, ptr %30, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -822,7 +822,7 @@ repeatIsDead.exit.i.i:                            ; preds = %185, %185, %185, %1
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %204
 
 .split.i.i:                                       ; preds = %repeatIsDead.exit.i.i
-  switch i8 %196, label %default.unreachable110 [
+  switch i8 %196, label %default.unreachable121 [
     i8 0, label %197
     i8 1, label %198
     i8 2, label %199
@@ -934,7 +934,7 @@ repeatLastTop.exit15:                             ; preds = %204, %204, %185, %2
   tail call void @repeatStoreTrailer(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i122.i.in.in, i64 noundef %188, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-default.unreachable110:                           ; preds = %.split.i.i
+default.unreachable121:                           ; preds = %.split.i.i
   unreachable
 
 lbrTop.exit.i:                                    ; preds = %185, %repeatLastTop.exit, %.split.i.i9, %144, %145, %146, %147, %148, %149, %150, %.split16.i.i12, %164, %165, %166, %167, %168, %169, %repeatLastTop.exit15, %197, %198, %199, %200, %201, %202, %203, %.split16.i.i, %216, %217, %218, %219, %220, %221, %repeatIsDead.exit.i.thread
@@ -1266,37 +1266,37 @@ repeatIsDead.exit.i.thread64:                     ; preds = %112, %repeatIsDead.
 
 .lr.ph.preheader:                                 ; preds = %repeatIsDead.exit.i.thread64
   %wide.trip.count = zext i32 %116 to i64
-  %.idx.i24145 = mul nuw nsw i64 %102, 24
-  %118 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i24145
+  %.idx.i24156 = mul nuw nsw i64 %102, 24
+  %118 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i24156
   %119 = load i64, ptr %118, align 8
-  %.not.i2146 = icmp sgt i64 %119, %2
-  br i1 %.not.i2146, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph148
+  %.not.i2157 = icmp sgt i64 %119, %2
+  br i1 %.not.i2157, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph159
 
 .lr.ph:                                           ; preds = %128
   %.idx.i24 = mul nuw nsw i64 %indvars.iv.next, 24
   %120 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i24
   %121 = load i64, ptr %120, align 8
   %.not.i2 = icmp sgt i64 %121, %2
-  br i1 %.not.i2, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph148
+  br i1 %.not.i2, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph159
 
-.lr.ph148:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph159:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %122 = phi i64 [ %121, %.lr.ph ], [ %119, %.lr.ph.preheader ]
-  %indvars.iv147 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %102, %.lr.ph.preheader ]
-  %123 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %45, i64 0, i64 %indvars.iv147
+  %indvars.iv158 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %102, %.lr.ph.preheader ]
+  %123 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %45, i64 0, i64 %indvars.iv158
   %124 = load i32, ptr %123, align 8
   switch i32 %124, label %128 [
     i32 4, label %125
     i32 2, label %125
   ]
 
-125:                                              ; preds = %.lr.ph148, %.lr.ph148
+125:                                              ; preds = %.lr.ph159, %.lr.ph159
   %126 = add i64 %122, %114
   %127 = load i64, ptr %115, align 8
   %.not56.i = icmp ult i64 %126, %127
   br i1 %.not56.i, label %128, label %130
 
-128:                                              ; preds = %.lr.ph148, %125
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv147, 1
+128:                                              ; preds = %.lr.ph159, %125
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv158, 1
   %129 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %129, ptr %30, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1510,7 +1510,7 @@ repeatIsDead.exit.i.i:                            ; preds = %183, %183, %183, %1
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %202
 
 .split.i.i:                                       ; preds = %repeatIsDead.exit.i.i
-  switch i8 %194, label %default.unreachable120 [
+  switch i8 %194, label %default.unreachable131 [
     i8 0, label %195
     i8 1, label %196
     i8 2, label %197
@@ -1622,7 +1622,7 @@ repeatLastTop.exit15:                             ; preds = %202, %202, %183, %2
   tail call void @repeatStoreTrailer(ptr noundef nonnull %189, ptr noundef nonnull %.0.shrunk.i122.i.in.in, i64 noundef %186, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-default.unreachable120:                           ; preds = %.split.i.i
+default.unreachable131:                           ; preds = %.split.i.i
   unreachable
 
 lbrTop.exit.i:                                    ; preds = %183, %repeatLastTop.exit, %.split.i.i9, %142, %143, %144, %145, %146, %147, %148, %.split16.i.i12, %162, %163, %164, %165, %166, %167, %repeatLastTop.exit15, %195, %196, %197, %198, %199, %200, %201, %.split16.i.i, %214, %215, %216, %217, %218, %219, %repeatIsDead.exit.i.thread
@@ -2020,7 +2020,7 @@ repeatIsDead.exit.i:                              ; preds = %91, %91, %91, %91, 
   br i1 %.0.shrunk.i.i.not, label %.split.i, label %108
 
 .split.i:                                         ; preds = %repeatIsDead.exit.i
-  switch i8 %100, label %default.unreachable217 [
+  switch i8 %100, label %default.unreachable227 [
     i8 0, label %101
     i8 1, label %102
     i8 2, label %103
@@ -2132,7 +2132,7 @@ repeatLastTop.exit108:                            ; preds = %108, %108, %91, %10
   tail call void @repeatStoreTrailer(ptr noundef nonnull %95, ptr noundef nonnull %.0.shrunk.i83.in.in, i64 noundef %88, i8 noundef signext 1) #8
   br label %lbrTop.exit
 
-default.unreachable217:                           ; preds = %.split.i
+default.unreachable227:                           ; preds = %.split.i
   unreachable
 
 lbrTop.exit:                                      ; preds = %91, %repeatLastTop.exit, %.split.i.i, %61, %62, %63, %64, %65, %66, %67, %.split16.i.i, %81, %82, %83, %84, %85, %86, %repeatLastTop.exit108, %101, %102, %103, %104, %105, %106, %107, %.split16.i, %120, %121, %122, %123, %124, %125, %repeatIsDead.exit79.thread
@@ -3140,38 +3140,38 @@ repeatIsDead.exit.i.thread103:                    ; preds = %194, %repeatIsDead.
   %205 = phi i32 [ %198, %.lr.ph182.lr.ph ], [ %297, %291 ]
   %206 = zext i32 %204 to i64
   %207 = zext i32 %205 to i64
-  %.idx.i263 = mul nuw nsw i64 %206, 24
-  %208 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i263
+  %.idx.i293 = mul nuw nsw i64 %206, 24
+  %208 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i293
   %209 = load i64, ptr %208, align 8
-  %.not.i2264 = icmp sgt i64 %209, %2
-  br i1 %.not.i2264, label %nfaExecLbrVerm_TopScan.exit, label %.lr.ph266
+  %.not.i2294 = icmp sgt i64 %209, %2
+  br i1 %.not.i2294, label %nfaExecLbrVerm_TopScan.exit, label %.lr.ph296
 
 210:                                              ; preds = %220
   %.idx.i = mul nuw nsw i64 %indvars.iv.next, 24
   %211 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i
   %212 = load i64, ptr %211, align 8
   %.not.i2 = icmp sgt i64 %212, %2
-  br i1 %.not.i2, label %nfaExecLbrVerm_TopScan.exit, label %.lr.ph266
+  br i1 %.not.i2, label %nfaExecLbrVerm_TopScan.exit, label %.lr.ph296
 
-.lr.ph266:                                        ; preds = %.lr.ph182, %210
+.lr.ph296:                                        ; preds = %.lr.ph182, %210
   %213 = phi i64 [ %212, %210 ], [ %209, %.lr.ph182 ]
-  %indvars.iv265 = phi i64 [ %indvars.iv.next, %210 ], [ %206, %.lr.ph182 ]
-  %214 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %50, i64 0, i64 %indvars.iv265
+  %indvars.iv295 = phi i64 [ %indvars.iv.next, %210 ], [ %206, %.lr.ph182 ]
+  %214 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %50, i64 0, i64 %indvars.iv295
   %215 = load i32, ptr %214, align 8
   switch i32 %215, label %220 [
     i32 4, label %216
     i32 2, label %216
   ]
 
-216:                                              ; preds = %.lr.ph266, %.lr.ph266
+216:                                              ; preds = %.lr.ph296, %.lr.ph296
   %217 = load i64, ptr %36, align 8
   %218 = add i64 %217, %213
   %219 = load i64, ptr %197, align 8
   %.not56.i = icmp ult i64 %218, %219
   br i1 %.not56.i, label %220, label %223
 
-220:                                              ; preds = %.lr.ph266, %216
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv265, 1
+220:                                              ; preds = %.lr.ph296, %216
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv295, 1
   %221 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %221, ptr %30, align 8
   %222 = icmp samesign ult i64 %indvars.iv.next, %207
@@ -3521,7 +3521,7 @@ repeatIsDead.exit.i.i:                            ; preds = %351, %351, %351, %3
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %370
 
 .split.i.i:                                       ; preds = %repeatIsDead.exit.i.i
-  switch i8 %362, label %default.unreachable214 [
+  switch i8 %362, label %default.unreachable244 [
     i8 0, label %363
     i8 1, label %364
     i8 2, label %365
@@ -3633,7 +3633,7 @@ repeatLastTop.exit15:                             ; preds = %370, %370, %351, %3
   tail call void @repeatStoreTrailer(ptr noundef nonnull %357, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %354, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-default.unreachable214:                           ; preds = %.split.i.i
+default.unreachable244:                           ; preds = %.split.i.i
   unreachable
 
 lbrTop.exit.i:                                    ; preds = %351, %repeatLastTop.exit, %.split.i.i9, %310, %311, %312, %313, %314, %315, %316, %.split16.i.i12, %330, %331, %332, %333, %334, %335, %repeatLastTop.exit15, %363, %364, %365, %366, %367, %368, %369, %.split16.i.i, %382, %383, %384, %385, %386, %387, %repeatIsDead.exit.i.thread
@@ -4133,38 +4133,38 @@ repeatIsDead.exit.i.thread117:                    ; preds = %192, %repeatIsDead.
   %203 = phi i32 [ %196, %.lr.ph196.lr.ph ], [ %295, %289 ]
   %204 = zext i32 %202 to i64
   %205 = zext i32 %203 to i64
-  %.idx.i24275 = mul nuw nsw i64 %204, 24
-  %206 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i24275
+  %.idx.i24305 = mul nuw nsw i64 %204, 24
+  %206 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i24305
   %207 = load i64, ptr %206, align 8
-  %.not.i2276 = icmp sgt i64 %207, %2
-  br i1 %.not.i2276, label %nfaExecLbrVerm_TopScan.exit, label %.lr.ph278
+  %.not.i2306 = icmp sgt i64 %207, %2
+  br i1 %.not.i2306, label %nfaExecLbrVerm_TopScan.exit, label %.lr.ph308
 
 208:                                              ; preds = %218
   %.idx.i24 = mul nuw nsw i64 %indvars.iv.next, 24
   %209 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i24
   %210 = load i64, ptr %209, align 8
   %.not.i2 = icmp sgt i64 %210, %2
-  br i1 %.not.i2, label %nfaExecLbrVerm_TopScan.exit, label %.lr.ph278
+  br i1 %.not.i2, label %nfaExecLbrVerm_TopScan.exit, label %.lr.ph308
 
-.lr.ph278:                                        ; preds = %.lr.ph196, %208
+.lr.ph308:                                        ; preds = %.lr.ph196, %208
   %211 = phi i64 [ %210, %208 ], [ %207, %.lr.ph196 ]
-  %indvars.iv277 = phi i64 [ %indvars.iv.next, %208 ], [ %204, %.lr.ph196 ]
-  %212 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %47, i64 0, i64 %indvars.iv277
+  %indvars.iv307 = phi i64 [ %indvars.iv.next, %208 ], [ %204, %.lr.ph196 ]
+  %212 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %47, i64 0, i64 %indvars.iv307
   %213 = load i32, ptr %212, align 8
   switch i32 %213, label %218 [
     i32 4, label %214
     i32 2, label %214
   ]
 
-214:                                              ; preds = %.lr.ph278, %.lr.ph278
+214:                                              ; preds = %.lr.ph308, %.lr.ph308
   %215 = load i64, ptr %36, align 8
   %216 = add i64 %215, %211
   %217 = load i64, ptr %195, align 8
   %.not56.i = icmp ult i64 %216, %217
   br i1 %.not56.i, label %218, label %221
 
-218:                                              ; preds = %.lr.ph278, %214
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv277, 1
+218:                                              ; preds = %.lr.ph308, %214
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv307, 1
   %219 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %219, ptr %30, align 8
   %220 = icmp samesign ult i64 %indvars.iv.next, %205
@@ -4514,7 +4514,7 @@ repeatIsDead.exit.i.i:                            ; preds = %349, %349, %349, %3
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %368
 
 .split.i.i:                                       ; preds = %repeatIsDead.exit.i.i
-  switch i8 %360, label %default.unreachable228 [
+  switch i8 %360, label %default.unreachable258 [
     i8 0, label %361
     i8 1, label %362
     i8 2, label %363
@@ -4626,7 +4626,7 @@ repeatLastTop.exit15:                             ; preds = %368, %368, %349, %3
   tail call void @repeatStoreTrailer(ptr noundef nonnull %355, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %352, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-default.unreachable228:                           ; preds = %.split.i.i
+default.unreachable258:                           ; preds = %.split.i.i
   unreachable
 
 lbrTop.exit.i:                                    ; preds = %349, %repeatLastTop.exit, %.split.i.i9, %308, %309, %310, %311, %312, %313, %314, %.split16.i.i12, %328, %329, %330, %331, %332, %333, %repeatLastTop.exit15, %361, %362, %363, %364, %365, %366, %367, %.split16.i.i, %380, %381, %382, %383, %384, %385, %repeatIsDead.exit.i.thread
@@ -5124,8 +5124,8 @@ vermicelliExec.exit136:                           ; preds = %.lr.ph335, %146, %1
 
 203:                                              ; preds = %vermicelliExec.exit136
   %204 = load i8, ptr %136, align 4
-  %switch401 = icmp ult i8 %204, 7
-  br i1 %switch401, label %nfaExecLbrVerm_StreamSilent.exit94.sink.split, label %nfaExecLbrVerm_StreamSilent.exit94
+  %switch437 = icmp ult i8 %204, 7
+  br i1 %switch437, label %nfaExecLbrVerm_StreamSilent.exit94.sink.split, label %nfaExecLbrVerm_StreamSilent.exit94
 
 nfaExecLbrVerm_StreamSilent.exit94.sink.split:    ; preds = %203
   %205 = getelementptr inbounds nuw i8, ptr %137, i64 8
@@ -5526,7 +5526,7 @@ repeatIsDead.exit.i:                              ; preds = %350, %350, %350, %3
   br i1 %.0.shrunk.i.i.not, label %.split.i, label %371
 
 .split.i:                                         ; preds = %repeatIsDead.exit.i
-  switch i8 %363, label %default.unreachable380 [
+  switch i8 %363, label %default.unreachable416 [
     i8 0, label %364
     i8 1, label %365
     i8 2, label %366
@@ -5638,7 +5638,7 @@ repeatLastTop.exit112:                            ; preds = %371, %371, %350, %3
   tail call void @repeatStoreTrailer(ptr noundef nonnull %358, ptr noundef nonnull %.0.shrunk.i83.in.in, i64 noundef %355, i8 noundef signext 1) #8
   br label %lbrTop.exit
 
-default.unreachable380:                           ; preds = %.split.i
+default.unreachable416:                           ; preds = %.split.i
   unreachable
 
 lbrTop.exit:                                      ; preds = %350, %repeatLastTop.exit, %.split.i.i, %320, %321, %322, %323, %324, %325, %326, %.split16.i.i, %340, %341, %342, %343, %344, %345, %repeatLastTop.exit112, %364, %365, %366, %367, %368, %369, %370, %.split16.i, %383, %384, %385, %386, %387, %388, %repeatIsDead.exit79.thread
@@ -6647,38 +6647,38 @@ repeatIsDead.exit.i.thread87:                     ; preds = %197, %repeatIsDead.
   %208 = phi i32 [ %201, %.lr.ph166.lr.ph ], [ %302, %296 ]
   %209 = zext i32 %207 to i64
   %210 = zext i32 %208 to i64
-  %.idx.i247 = mul nuw nsw i64 %209, 24
-  %211 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i247
+  %.idx.i277 = mul nuw nsw i64 %209, 24
+  %211 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i277
   %212 = load i64, ptr %211, align 8
-  %.not.i2248 = icmp sgt i64 %212, %2
-  br i1 %.not.i2248, label %nfaExecLbrNVerm_TopScan.exit, label %.lr.ph250
+  %.not.i2278 = icmp sgt i64 %212, %2
+  br i1 %.not.i2278, label %nfaExecLbrNVerm_TopScan.exit, label %.lr.ph280
 
 213:                                              ; preds = %223
   %.idx.i = mul nuw nsw i64 %indvars.iv.next, 24
   %214 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i
   %215 = load i64, ptr %214, align 8
   %.not.i2 = icmp sgt i64 %215, %2
-  br i1 %.not.i2, label %nfaExecLbrNVerm_TopScan.exit, label %.lr.ph250
+  br i1 %.not.i2, label %nfaExecLbrNVerm_TopScan.exit, label %.lr.ph280
 
-.lr.ph250:                                        ; preds = %.lr.ph166, %213
+.lr.ph280:                                        ; preds = %.lr.ph166, %213
   %216 = phi i64 [ %215, %213 ], [ %212, %.lr.ph166 ]
-  %indvars.iv249 = phi i64 [ %indvars.iv.next, %213 ], [ %209, %.lr.ph166 ]
-  %217 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %50, i64 0, i64 %indvars.iv249
+  %indvars.iv279 = phi i64 [ %indvars.iv.next, %213 ], [ %209, %.lr.ph166 ]
+  %217 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %50, i64 0, i64 %indvars.iv279
   %218 = load i32, ptr %217, align 8
   switch i32 %218, label %223 [
     i32 4, label %219
     i32 2, label %219
   ]
 
-219:                                              ; preds = %.lr.ph250, %.lr.ph250
+219:                                              ; preds = %.lr.ph280, %.lr.ph280
   %220 = load i64, ptr %36, align 8
   %221 = add i64 %220, %216
   %222 = load i64, ptr %200, align 8
   %.not56.i = icmp ult i64 %221, %222
   br i1 %.not56.i, label %223, label %226
 
-223:                                              ; preds = %.lr.ph250, %219
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv249, 1
+223:                                              ; preds = %.lr.ph280, %219
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv279, 1
   %224 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %224, ptr %30, align 8
   %225 = icmp samesign ult i64 %indvars.iv.next, %210
@@ -7031,7 +7031,7 @@ repeatIsDead.exit.i.i:                            ; preds = %356, %356, %356, %3
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %375
 
 .split.i.i:                                       ; preds = %repeatIsDead.exit.i.i
-  switch i8 %367, label %default.unreachable198 [
+  switch i8 %367, label %default.unreachable228 [
     i8 0, label %368
     i8 1, label %369
     i8 2, label %370
@@ -7143,7 +7143,7 @@ repeatLastTop.exit15:                             ; preds = %375, %375, %356, %3
   tail call void @repeatStoreTrailer(ptr noundef nonnull %362, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %359, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-default.unreachable198:                           ; preds = %.split.i.i
+default.unreachable228:                           ; preds = %.split.i.i
   unreachable
 
 lbrTop.exit.i:                                    ; preds = %356, %repeatLastTop.exit, %.split.i.i9, %315, %316, %317, %318, %319, %320, %321, %.split16.i.i12, %335, %336, %337, %338, %339, %340, %repeatLastTop.exit15, %368, %369, %370, %371, %372, %373, %374, %.split16.i.i, %387, %388, %389, %390, %391, %392, %repeatIsDead.exit.i.thread
@@ -7647,38 +7647,38 @@ repeatIsDead.exit.i.thread101:                    ; preds = %195, %repeatIsDead.
   %206 = phi i32 [ %199, %.lr.ph180.lr.ph ], [ %300, %294 ]
   %207 = zext i32 %205 to i64
   %208 = zext i32 %206 to i64
-  %.idx.i24259 = mul nuw nsw i64 %207, 24
-  %209 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i24259
+  %.idx.i24289 = mul nuw nsw i64 %207, 24
+  %209 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i24289
   %210 = load i64, ptr %209, align 8
-  %.not.i2260 = icmp sgt i64 %210, %2
-  br i1 %.not.i2260, label %nfaExecLbrNVerm_TopScan.exit, label %.lr.ph262
+  %.not.i2290 = icmp sgt i64 %210, %2
+  br i1 %.not.i2290, label %nfaExecLbrNVerm_TopScan.exit, label %.lr.ph292
 
 211:                                              ; preds = %221
   %.idx.i24 = mul nuw nsw i64 %indvars.iv.next, 24
   %212 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i24
   %213 = load i64, ptr %212, align 8
   %.not.i2 = icmp sgt i64 %213, %2
-  br i1 %.not.i2, label %nfaExecLbrNVerm_TopScan.exit, label %.lr.ph262
+  br i1 %.not.i2, label %nfaExecLbrNVerm_TopScan.exit, label %.lr.ph292
 
-.lr.ph262:                                        ; preds = %.lr.ph180, %211
+.lr.ph292:                                        ; preds = %.lr.ph180, %211
   %214 = phi i64 [ %213, %211 ], [ %210, %.lr.ph180 ]
-  %indvars.iv261 = phi i64 [ %indvars.iv.next, %211 ], [ %207, %.lr.ph180 ]
-  %215 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %47, i64 0, i64 %indvars.iv261
+  %indvars.iv291 = phi i64 [ %indvars.iv.next, %211 ], [ %207, %.lr.ph180 ]
+  %215 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %47, i64 0, i64 %indvars.iv291
   %216 = load i32, ptr %215, align 8
   switch i32 %216, label %221 [
     i32 4, label %217
     i32 2, label %217
   ]
 
-217:                                              ; preds = %.lr.ph262, %.lr.ph262
+217:                                              ; preds = %.lr.ph292, %.lr.ph292
   %218 = load i64, ptr %36, align 8
   %219 = add i64 %218, %214
   %220 = load i64, ptr %198, align 8
   %.not56.i = icmp ult i64 %219, %220
   br i1 %.not56.i, label %221, label %224
 
-221:                                              ; preds = %.lr.ph262, %217
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv261, 1
+221:                                              ; preds = %.lr.ph292, %217
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv291, 1
   %222 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %222, ptr %30, align 8
   %223 = icmp samesign ult i64 %indvars.iv.next, %208
@@ -8031,7 +8031,7 @@ repeatIsDead.exit.i.i:                            ; preds = %354, %354, %354, %3
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %373
 
 .split.i.i:                                       ; preds = %repeatIsDead.exit.i.i
-  switch i8 %365, label %default.unreachable212 [
+  switch i8 %365, label %default.unreachable242 [
     i8 0, label %366
     i8 1, label %367
     i8 2, label %368
@@ -8143,7 +8143,7 @@ repeatLastTop.exit15:                             ; preds = %373, %373, %354, %3
   tail call void @repeatStoreTrailer(ptr noundef nonnull %360, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %357, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-default.unreachable212:                           ; preds = %.split.i.i
+default.unreachable242:                           ; preds = %.split.i.i
   unreachable
 
 lbrTop.exit.i:                                    ; preds = %354, %repeatLastTop.exit, %.split.i.i9, %313, %314, %315, %316, %317, %318, %319, %.split16.i.i12, %333, %334, %335, %336, %337, %338, %repeatLastTop.exit15, %366, %367, %368, %369, %370, %371, %372, %.split16.i.i, %385, %386, %387, %388, %389, %390, %repeatIsDead.exit.i.thread
@@ -8649,8 +8649,8 @@ nvermicelliExec.exit156:                          ; preds = %.lr.ph320, %148, %1
 
 209:                                              ; preds = %nvermicelliExec.exit156
   %210 = load i8, ptr %139, align 4
-  %switch386 = icmp ult i8 %210, 7
-  br i1 %switch386, label %nfaExecLbrNVerm_StreamSilent.exit94.sink.split, label %nfaExecLbrNVerm_StreamSilent.exit94
+  %switch422 = icmp ult i8 %210, 7
+  br i1 %switch422, label %nfaExecLbrNVerm_StreamSilent.exit94.sink.split, label %nfaExecLbrNVerm_StreamSilent.exit94
 
 nfaExecLbrNVerm_StreamSilent.exit94.sink.split:   ; preds = %209
   %211 = getelementptr inbounds nuw i8, ptr %140, i64 8
@@ -9054,7 +9054,7 @@ repeatIsDead.exit.i:                              ; preds = %358, %358, %358, %3
   br i1 %.0.shrunk.i.i.not, label %.split.i, label %379
 
 .split.i:                                         ; preds = %repeatIsDead.exit.i
-  switch i8 %371, label %default.unreachable365 [
+  switch i8 %371, label %default.unreachable401 [
     i8 0, label %372
     i8 1, label %373
     i8 2, label %374
@@ -9166,7 +9166,7 @@ repeatLastTop.exit112:                            ; preds = %379, %379, %358, %3
   tail call void @repeatStoreTrailer(ptr noundef nonnull %366, ptr noundef nonnull %.0.shrunk.i83.in.in, i64 noundef %363, i8 noundef signext 1) #8
   br label %lbrTop.exit
 
-default.unreachable365:                           ; preds = %.split.i
+default.unreachable401:                           ; preds = %.split.i
   unreachable
 
 lbrTop.exit:                                      ; preds = %358, %repeatLastTop.exit, %.split.i.i, %328, %329, %330, %331, %332, %333, %334, %.split16.i.i, %348, %349, %350, %351, %352, %353, %repeatLastTop.exit112, %372, %373, %374, %375, %376, %377, %378, %.split16.i, %391, %392, %393, %394, %395, %396, %repeatIsDead.exit79.thread
@@ -10054,38 +10054,38 @@ repeatIsDead.exit.i.thread62:                     ; preds = %137, %repeatIsDead.
   %148 = phi i32 [ %141, %.lr.ph.lr.ph ], [ %190, %184 ]
   %149 = zext i32 %147 to i64
   %150 = zext i32 %148 to i64
-  %.idx.i163 = mul nuw nsw i64 %149, 24
-  %151 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i163
+  %.idx.i182 = mul nuw nsw i64 %149, 24
+  %151 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i182
   %152 = load i64, ptr %151, align 8
-  %.not.i2164 = icmp sgt i64 %152, %2
-  br i1 %.not.i2164, label %nfaExecLbrShuf_TopScan.exit, label %.lr.ph166
+  %.not.i2183 = icmp sgt i64 %152, %2
+  br i1 %.not.i2183, label %nfaExecLbrShuf_TopScan.exit, label %.lr.ph185
 
 153:                                              ; preds = %163
   %.idx.i = mul nuw nsw i64 %indvars.iv.next, 24
   %154 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i
   %155 = load i64, ptr %154, align 8
   %.not.i2 = icmp sgt i64 %155, %2
-  br i1 %.not.i2, label %nfaExecLbrShuf_TopScan.exit, label %.lr.ph166
+  br i1 %.not.i2, label %nfaExecLbrShuf_TopScan.exit, label %.lr.ph185
 
-.lr.ph166:                                        ; preds = %.lr.ph, %153
+.lr.ph185:                                        ; preds = %.lr.ph, %153
   %156 = phi i64 [ %155, %153 ], [ %152, %.lr.ph ]
-  %indvars.iv165 = phi i64 [ %indvars.iv.next, %153 ], [ %149, %.lr.ph ]
-  %157 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %51, i64 0, i64 %indvars.iv165
+  %indvars.iv184 = phi i64 [ %indvars.iv.next, %153 ], [ %149, %.lr.ph ]
+  %157 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %51, i64 0, i64 %indvars.iv184
   %158 = load i32, ptr %157, align 8
   switch i32 %158, label %163 [
     i32 4, label %159
     i32 2, label %159
   ]
 
-159:                                              ; preds = %.lr.ph166, %.lr.ph166
+159:                                              ; preds = %.lr.ph185, %.lr.ph185
   %160 = load i64, ptr %36, align 8
   %161 = add i64 %160, %156
   %162 = load i64, ptr %140, align 8
   %.not56.i = icmp ult i64 %161, %162
   br i1 %.not56.i, label %163, label %166
 
-163:                                              ; preds = %.lr.ph166, %159
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv165, 1
+163:                                              ; preds = %.lr.ph185, %159
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv184, 1
   %164 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %164, ptr %30, align 8
   %165 = icmp samesign ult i64 %indvars.iv.next, %150
@@ -10337,7 +10337,7 @@ repeatIsDead.exit.i.i:                            ; preds = %244, %244, %244, %2
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %263
 
 .split.i.i:                                       ; preds = %repeatIsDead.exit.i.i
-  switch i8 %255, label %default.unreachable132 [
+  switch i8 %255, label %default.unreachable151 [
     i8 0, label %256
     i8 1, label %257
     i8 2, label %258
@@ -10449,7 +10449,7 @@ repeatLastTop.exit15:                             ; preds = %263, %263, %244, %2
   tail call void @repeatStoreTrailer(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %247, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-default.unreachable132:                           ; preds = %.split.i.i
+default.unreachable151:                           ; preds = %.split.i.i
   unreachable
 
 lbrTop.exit.i:                                    ; preds = %244, %repeatLastTop.exit, %.split.i.i9, %203, %204, %205, %206, %207, %208, %209, %.split16.i.i12, %223, %224, %225, %226, %227, %228, %repeatLastTop.exit15, %256, %257, %258, %259, %260, %261, %262, %.split16.i.i, %275, %276, %277, %278, %279, %280, %repeatIsDead.exit.i.thread
@@ -10832,38 +10832,38 @@ repeatIsDead.exit.i.thread75:                     ; preds = %135, %repeatIsDead.
   %146 = phi i32 [ %139, %.lr.ph.lr.ph ], [ %188, %182 ]
   %147 = zext i32 %145 to i64
   %148 = zext i32 %146 to i64
-  %.idx.i24175 = mul nuw nsw i64 %147, 24
-  %149 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i24175
+  %.idx.i24194 = mul nuw nsw i64 %147, 24
+  %149 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i24194
   %150 = load i64, ptr %149, align 8
-  %.not.i2176 = icmp sgt i64 %150, %2
-  br i1 %.not.i2176, label %nfaExecLbrShuf_TopScan.exit, label %.lr.ph178
+  %.not.i2195 = icmp sgt i64 %150, %2
+  br i1 %.not.i2195, label %nfaExecLbrShuf_TopScan.exit, label %.lr.ph197
 
 151:                                              ; preds = %161
   %.idx.i24 = mul nuw nsw i64 %indvars.iv.next, 24
   %152 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i24
   %153 = load i64, ptr %152, align 8
   %.not.i2 = icmp sgt i64 %153, %2
-  br i1 %.not.i2, label %nfaExecLbrShuf_TopScan.exit, label %.lr.ph178
+  br i1 %.not.i2, label %nfaExecLbrShuf_TopScan.exit, label %.lr.ph197
 
-.lr.ph178:                                        ; preds = %.lr.ph, %151
+.lr.ph197:                                        ; preds = %.lr.ph, %151
   %154 = phi i64 [ %153, %151 ], [ %150, %.lr.ph ]
-  %indvars.iv177 = phi i64 [ %indvars.iv.next, %151 ], [ %147, %.lr.ph ]
-  %155 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %indvars.iv177
+  %indvars.iv196 = phi i64 [ %indvars.iv.next, %151 ], [ %147, %.lr.ph ]
+  %155 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %indvars.iv196
   %156 = load i32, ptr %155, align 8
   switch i32 %156, label %161 [
     i32 4, label %157
     i32 2, label %157
   ]
 
-157:                                              ; preds = %.lr.ph178, %.lr.ph178
+157:                                              ; preds = %.lr.ph197, %.lr.ph197
   %158 = load i64, ptr %36, align 8
   %159 = add i64 %158, %154
   %160 = load i64, ptr %138, align 8
   %.not56.i = icmp ult i64 %159, %160
   br i1 %.not56.i, label %161, label %164
 
-161:                                              ; preds = %.lr.ph178, %157
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv177, 1
+161:                                              ; preds = %.lr.ph197, %157
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv196, 1
   %162 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %162, ptr %30, align 8
   %163 = icmp samesign ult i64 %indvars.iv.next, %148
@@ -11115,7 +11115,7 @@ repeatIsDead.exit.i.i:                            ; preds = %242, %242, %242, %2
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %261
 
 .split.i.i:                                       ; preds = %repeatIsDead.exit.i.i
-  switch i8 %253, label %default.unreachable146 [
+  switch i8 %253, label %default.unreachable165 [
     i8 0, label %254
     i8 1, label %255
     i8 2, label %256
@@ -11227,7 +11227,7 @@ repeatLastTop.exit15:                             ; preds = %261, %261, %242, %2
   tail call void @repeatStoreTrailer(ptr noundef nonnull %248, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %245, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-default.unreachable146:                           ; preds = %.split.i.i
+default.unreachable165:                           ; preds = %.split.i.i
   unreachable
 
 lbrTop.exit.i:                                    ; preds = %242, %repeatLastTop.exit, %.split.i.i9, %201, %202, %203, %204, %205, %206, %207, %.split16.i.i12, %221, %222, %223, %224, %225, %226, %repeatLastTop.exit15, %254, %255, %256, %257, %258, %259, %260, %.split16.i.i, %273, %274, %275, %276, %277, %278, %repeatIsDead.exit.i.thread
@@ -11482,8 +11482,8 @@ repeatIsDead.exit82.thread:                       ; preds = %nfaExecLbrShuf_Stre
   %85 = zext i32 %71 to i64
   %86 = getelementptr inbounds nuw i8, ptr %18, i64 %85
   %87 = load i8, ptr %86, align 4
-  %switch239 = icmp ult i8 %87, 7
-  br i1 %switch239, label %nfaExecLbrShuf_StreamSilent.exit94.sink.split, label %nfaExecLbrShuf_StreamSilent.exit94
+  %switch255 = icmp ult i8 %87, 7
+  br i1 %switch255, label %nfaExecLbrShuf_StreamSilent.exit94.sink.split, label %nfaExecLbrShuf_StreamSilent.exit94
 
 nfaExecLbrShuf_StreamSilent.exit94.sink.split:    ; preds = %84
   %88 = getelementptr inbounds nuw i8, ptr %72, i64 8
@@ -11786,7 +11786,7 @@ repeatIsDead.exit.i:                              ; preds = %183, %183, %183, %1
   br i1 %.0.shrunk.i.i.not, label %.split.i, label %204
 
 .split.i:                                         ; preds = %repeatIsDead.exit.i
-  switch i8 %196, label %default.unreachable234 [
+  switch i8 %196, label %default.unreachable250 [
     i8 0, label %197
     i8 1, label %198
     i8 2, label %199
@@ -11898,7 +11898,7 @@ repeatLastTop.exit112:                            ; preds = %204, %204, %183, %2
   tail call void @repeatStoreTrailer(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i83.in.in, i64 noundef %188, i8 noundef signext 1) #8
   br label %lbrTop.exit
 
-default.unreachable234:                           ; preds = %.split.i
+default.unreachable250:                           ; preds = %.split.i
   unreachable
 
 lbrTop.exit:                                      ; preds = %183, %repeatLastTop.exit, %.split.i.i, %153, %154, %155, %156, %157, %158, %159, %.split16.i.i, %173, %174, %175, %176, %177, %178, %repeatLastTop.exit112, %197, %198, %199, %200, %201, %202, %203, %.split16.i, %216, %217, %218, %219, %220, %221, %repeatIsDead.exit79.thread
@@ -12786,38 +12786,38 @@ repeatIsDead.exit.i.thread62:                     ; preds = %137, %repeatIsDead.
   %148 = phi i32 [ %141, %.lr.ph.lr.ph ], [ %190, %184 ]
   %149 = zext i32 %147 to i64
   %150 = zext i32 %148 to i64
-  %.idx.i163 = mul nuw nsw i64 %149, 24
-  %151 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i163
+  %.idx.i182 = mul nuw nsw i64 %149, 24
+  %151 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i182
   %152 = load i64, ptr %151, align 8
-  %.not.i2164 = icmp sgt i64 %152, %2
-  br i1 %.not.i2164, label %nfaExecLbrTruf_TopScan.exit, label %.lr.ph166
+  %.not.i2183 = icmp sgt i64 %152, %2
+  br i1 %.not.i2183, label %nfaExecLbrTruf_TopScan.exit, label %.lr.ph185
 
 153:                                              ; preds = %163
   %.idx.i = mul nuw nsw i64 %indvars.iv.next, 24
   %154 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i
   %155 = load i64, ptr %154, align 8
   %.not.i2 = icmp sgt i64 %155, %2
-  br i1 %.not.i2, label %nfaExecLbrTruf_TopScan.exit, label %.lr.ph166
+  br i1 %.not.i2, label %nfaExecLbrTruf_TopScan.exit, label %.lr.ph185
 
-.lr.ph166:                                        ; preds = %.lr.ph, %153
+.lr.ph185:                                        ; preds = %.lr.ph, %153
   %156 = phi i64 [ %155, %153 ], [ %152, %.lr.ph ]
-  %indvars.iv165 = phi i64 [ %indvars.iv.next, %153 ], [ %149, %.lr.ph ]
-  %157 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %51, i64 0, i64 %indvars.iv165
+  %indvars.iv184 = phi i64 [ %indvars.iv.next, %153 ], [ %149, %.lr.ph ]
+  %157 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %51, i64 0, i64 %indvars.iv184
   %158 = load i32, ptr %157, align 8
   switch i32 %158, label %163 [
     i32 4, label %159
     i32 2, label %159
   ]
 
-159:                                              ; preds = %.lr.ph166, %.lr.ph166
+159:                                              ; preds = %.lr.ph185, %.lr.ph185
   %160 = load i64, ptr %36, align 8
   %161 = add i64 %160, %156
   %162 = load i64, ptr %140, align 8
   %.not56.i = icmp ult i64 %161, %162
   br i1 %.not56.i, label %163, label %166
 
-163:                                              ; preds = %.lr.ph166, %159
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv165, 1
+163:                                              ; preds = %.lr.ph185, %159
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv184, 1
   %164 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %164, ptr %30, align 8
   %165 = icmp samesign ult i64 %indvars.iv.next, %150
@@ -13069,7 +13069,7 @@ repeatIsDead.exit.i.i:                            ; preds = %244, %244, %244, %2
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %263
 
 .split.i.i:                                       ; preds = %repeatIsDead.exit.i.i
-  switch i8 %255, label %default.unreachable132 [
+  switch i8 %255, label %default.unreachable151 [
     i8 0, label %256
     i8 1, label %257
     i8 2, label %258
@@ -13181,7 +13181,7 @@ repeatLastTop.exit15:                             ; preds = %263, %263, %244, %2
   tail call void @repeatStoreTrailer(ptr noundef nonnull %250, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %247, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-default.unreachable132:                           ; preds = %.split.i.i
+default.unreachable151:                           ; preds = %.split.i.i
   unreachable
 
 lbrTop.exit.i:                                    ; preds = %244, %repeatLastTop.exit, %.split.i.i9, %203, %204, %205, %206, %207, %208, %209, %.split16.i.i12, %223, %224, %225, %226, %227, %228, %repeatLastTop.exit15, %256, %257, %258, %259, %260, %261, %262, %.split16.i.i, %275, %276, %277, %278, %279, %280, %repeatIsDead.exit.i.thread
@@ -13564,38 +13564,38 @@ repeatIsDead.exit.i.thread75:                     ; preds = %135, %repeatIsDead.
   %146 = phi i32 [ %139, %.lr.ph.lr.ph ], [ %188, %182 ]
   %147 = zext i32 %145 to i64
   %148 = zext i32 %146 to i64
-  %.idx.i24175 = mul nuw nsw i64 %147, 24
-  %149 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i24175
+  %.idx.i24194 = mul nuw nsw i64 %147, 24
+  %149 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i24194
   %150 = load i64, ptr %149, align 8
-  %.not.i2176 = icmp sgt i64 %150, %2
-  br i1 %.not.i2176, label %nfaExecLbrTruf_TopScan.exit, label %.lr.ph178
+  %.not.i2195 = icmp sgt i64 %150, %2
+  br i1 %.not.i2195, label %nfaExecLbrTruf_TopScan.exit, label %.lr.ph197
 
 151:                                              ; preds = %161
   %.idx.i24 = mul nuw nsw i64 %indvars.iv.next, 24
   %152 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i24
   %153 = load i64, ptr %152, align 8
   %.not.i2 = icmp sgt i64 %153, %2
-  br i1 %.not.i2, label %nfaExecLbrTruf_TopScan.exit, label %.lr.ph178
+  br i1 %.not.i2, label %nfaExecLbrTruf_TopScan.exit, label %.lr.ph197
 
-.lr.ph178:                                        ; preds = %.lr.ph, %151
+.lr.ph197:                                        ; preds = %.lr.ph, %151
   %154 = phi i64 [ %153, %151 ], [ %150, %.lr.ph ]
-  %indvars.iv177 = phi i64 [ %indvars.iv.next, %151 ], [ %147, %.lr.ph ]
-  %155 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %indvars.iv177
+  %indvars.iv196 = phi i64 [ %indvars.iv.next, %151 ], [ %147, %.lr.ph ]
+  %155 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %indvars.iv196
   %156 = load i32, ptr %155, align 8
   switch i32 %156, label %161 [
     i32 4, label %157
     i32 2, label %157
   ]
 
-157:                                              ; preds = %.lr.ph178, %.lr.ph178
+157:                                              ; preds = %.lr.ph197, %.lr.ph197
   %158 = load i64, ptr %36, align 8
   %159 = add i64 %158, %154
   %160 = load i64, ptr %138, align 8
   %.not56.i = icmp ult i64 %159, %160
   br i1 %.not56.i, label %161, label %164
 
-161:                                              ; preds = %.lr.ph178, %157
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv177, 1
+161:                                              ; preds = %.lr.ph197, %157
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv196, 1
   %162 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %162, ptr %30, align 8
   %163 = icmp samesign ult i64 %indvars.iv.next, %148
@@ -13847,7 +13847,7 @@ repeatIsDead.exit.i.i:                            ; preds = %242, %242, %242, %2
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %261
 
 .split.i.i:                                       ; preds = %repeatIsDead.exit.i.i
-  switch i8 %253, label %default.unreachable146 [
+  switch i8 %253, label %default.unreachable165 [
     i8 0, label %254
     i8 1, label %255
     i8 2, label %256
@@ -13959,7 +13959,7 @@ repeatLastTop.exit15:                             ; preds = %261, %261, %242, %2
   tail call void @repeatStoreTrailer(ptr noundef nonnull %248, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %245, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-default.unreachable146:                           ; preds = %.split.i.i
+default.unreachable165:                           ; preds = %.split.i.i
   unreachable
 
 lbrTop.exit.i:                                    ; preds = %242, %repeatLastTop.exit, %.split.i.i9, %201, %202, %203, %204, %205, %206, %207, %.split16.i.i12, %221, %222, %223, %224, %225, %226, %repeatLastTop.exit15, %254, %255, %256, %257, %258, %259, %260, %.split16.i.i, %273, %274, %275, %276, %277, %278, %repeatIsDead.exit.i.thread
@@ -14214,8 +14214,8 @@ repeatIsDead.exit82.thread:                       ; preds = %nfaExecLbrTruf_Stre
   %85 = zext i32 %71 to i64
   %86 = getelementptr inbounds nuw i8, ptr %18, i64 %85
   %87 = load i8, ptr %86, align 4
-  %switch239 = icmp ult i8 %87, 7
-  br i1 %switch239, label %nfaExecLbrTruf_StreamSilent.exit94.sink.split, label %nfaExecLbrTruf_StreamSilent.exit94
+  %switch255 = icmp ult i8 %87, 7
+  br i1 %switch255, label %nfaExecLbrTruf_StreamSilent.exit94.sink.split, label %nfaExecLbrTruf_StreamSilent.exit94
 
 nfaExecLbrTruf_StreamSilent.exit94.sink.split:    ; preds = %84
   %88 = getelementptr inbounds nuw i8, ptr %72, i64 8
@@ -14518,7 +14518,7 @@ repeatIsDead.exit.i:                              ; preds = %183, %183, %183, %1
   br i1 %.0.shrunk.i.i.not, label %.split.i, label %204
 
 .split.i:                                         ; preds = %repeatIsDead.exit.i
-  switch i8 %196, label %default.unreachable234 [
+  switch i8 %196, label %default.unreachable250 [
     i8 0, label %197
     i8 1, label %198
     i8 2, label %199
@@ -14630,7 +14630,7 @@ repeatLastTop.exit112:                            ; preds = %204, %204, %183, %2
   tail call void @repeatStoreTrailer(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i83.in.in, i64 noundef %188, i8 noundef signext 1) #8
   br label %lbrTop.exit
 
-default.unreachable234:                           ; preds = %.split.i
+default.unreachable250:                           ; preds = %.split.i
   unreachable
 
 lbrTop.exit:                                      ; preds = %183, %repeatLastTop.exit, %.split.i.i, %153, %154, %155, %156, %157, %158, %159, %.split16.i.i, %173, %174, %175, %176, %177, %178, %repeatLastTop.exit112, %197, %198, %199, %200, %201, %202, %203, %.split16.i, %216, %217, %218, %219, %220, %221, %repeatIsDead.exit79.thread

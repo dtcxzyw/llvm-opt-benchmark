@@ -2003,10 +2003,10 @@ define internal noundef range(i32 0, 3) i32 @spi_dv_device_echo_buffer(ptr nound
   %36 = phi i32 [ 0, %29 ], [ %33, %.loopexit18 ]
   %37 = phi i32 [ 65535, %29 ], [ %32, %.loopexit18 ]
   %38 = icmp slt i32 %36, %30
-  br i1 %38, label %39, label %.loopexit46
+  br i1 %38, label %39, label %.loopexit66
 
 39:                                               ; preds = %35
-  %40 = sext i32 %36 to i64
+  %40 = zext nneg i32 %36 to i64
   br label %60
 
 .loopexit23:                                      ; preds = %.loopexit18, %4
@@ -2029,9 +2029,9 @@ define internal noundef range(i32 0, 3) i32 @spi_dv_device_echo_buffer(ptr nound
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 1
   br label %97
 
-.loopexit46:                                      ; preds = %60, %35
+.loopexit66:                                      ; preds = %60, %35
   %56 = phi i32 [ %36, %35 ], [ %30, %60 ]
-  %57 = add i32 %56, 32
+  %57 = add nuw i32 %56, 32
   %58 = tail call i32 @llvm.smin.i32(i32 %57, i32 %14)
   %59 = icmp slt i32 %56, %58
   br i1 %59, label %.preheader21, label %.loopexit22
@@ -2041,23 +2041,23 @@ define internal noundef range(i32 0, 3) i32 @spi_dv_device_echo_buffer(ptr nound
   %62 = trunc i64 %61 to i8
   %63 = getelementptr i8, ptr %1, i64 %61
   store i8 %62, ptr %63, align 1
-  %64 = add nsw i64 %61, 1
+  %64 = add nuw nsw i64 %61, 1
   %65 = icmp eq i64 %64, %31
-  br i1 %65, label %.loopexit46, label %60, !llvm.loop !22
+  br i1 %65, label %.loopexit66, label %60, !llvm.loop !22
 
 .loopexit22.loopexit:                             ; preds = %.preheader21
   %.pre = add i32 %68, 34
   %.pre40 = tail call i32 @llvm.smin.i32(i32 %.pre, i32 %14)
   br label %.loopexit22
 
-.loopexit22:                                      ; preds = %.loopexit22.loopexit, %.loopexit46
-  %.pre-phi41 = phi i32 [ %.pre40, %.loopexit22.loopexit ], [ %58, %.loopexit46 ]
-  %66 = phi i32 [ %75, %.loopexit22.loopexit ], [ %56, %.loopexit46 ]
+.loopexit22:                                      ; preds = %.loopexit22.loopexit, %.loopexit66
+  %.pre-phi41 = phi i32 [ %.pre40, %.loopexit22.loopexit ], [ %58, %.loopexit66 ]
+  %66 = phi i32 [ %75, %.loopexit22.loopexit ], [ %56, %.loopexit66 ]
   %67 = icmp slt i32 %66, %.pre-phi41
   br i1 %67, label %.preheader19, label %.loopexit20
 
-.preheader21:                                     ; preds = %.loopexit46, %.preheader21
-  %68 = phi i32 [ %75, %.preheader21 ], [ %56, %.loopexit46 ]
+.preheader21:                                     ; preds = %.loopexit66, %.preheader21
+  %68 = phi i32 [ %75, %.preheader21 ], [ %56, %.loopexit66 ]
   %69 = sext i32 %68 to i64
   %70 = getelementptr i8, ptr %1, i64 %69
   %71 = trunc i32 %68 to i16

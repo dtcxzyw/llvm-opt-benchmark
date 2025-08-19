@@ -77,19 +77,19 @@ define void @ff_vp9_fill_mv(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   %38 = load i16, ptr %1, align 4, !tbaa !39
   %39 = and i16 %38, 1
   %.not76 = icmp eq i16 %39, 0
-  br i1 %.not76, label %41, label %.sink.split387
+  br i1 %.not76, label %41, label %.sink.split500
 
-.sink.split387:                                   ; preds = %36
-  %.inv396 = icmp sgt i16 %38, -1
-  %.393 = select i1 %.inv396, i16 -1, i16 1
-  %40 = add nsw i16 %38, %.393
+.sink.split500:                                   ; preds = %36
+  %.inv509 = icmp sgt i16 %38, -1
+  %.506 = select i1 %.inv509, i16 -1, i16 1
+  %40 = add nsw i16 %38, %.506
   store i16 %40, ptr %1, align 4, !tbaa !39
   br label %41
 
-41:                                               ; preds = %.sink.split387, %36, %27
-  %42 = phi i16 [ %24, %27 ], [ %38, %36 ], [ %40, %.sink.split387 ]
-  %43 = phi i16 [ %29, %27 ], [ %37, %36 ], [ %37, %.sink.split387 ]
-  %.not84.i = phi i1 [ false, %27 ], [ true, %36 ], [ true, %.sink.split387 ]
+41:                                               ; preds = %.sink.split500, %36, %27
+  %42 = phi i16 [ %24, %27 ], [ %38, %36 ], [ %40, %.sink.split500 ]
+  %43 = phi i16 [ %29, %27 ], [ %37, %36 ], [ %37, %.sink.split500 ]
+  %.not84.i = phi i1 [ false, %27 ], [ true, %36 ], [ true, %.sink.split500 ]
   br i1 %17, label %44, label %.thread
 
 44:                                               ; preds = %41
@@ -1377,33 +1377,33 @@ read_mv_component.exit101:                        ; preds = %743, %vpx_rac_renor
   %918 = load i16, ptr %917, align 2, !tbaa !42
   %919 = and i16 %918, 1
   %.not80 = icmp eq i16 %919, 0
-  br i1 %.not80, label %921, label %.sink.split389
+  br i1 %.not80, label %921, label %.sink.split502
 
-.sink.split389:                                   ; preds = %.critedge5
-  %.inv397 = icmp sgt i16 %918, -1
-  %.394 = select i1 %.inv397, i16 -1, i16 1
-  %920 = add nsw i16 %918, %.394
+.sink.split502:                                   ; preds = %.critedge5
+  %.inv510 = icmp sgt i16 %918, -1
+  %.507 = select i1 %.inv510, i16 -1, i16 1
+  %920 = add nsw i16 %918, %.507
   store i16 %920, ptr %917, align 2, !tbaa !42
   br label %921
 
-921:                                              ; preds = %.sink.split389, %.critedge5
-  %922 = phi i16 [ %918, %.critedge5 ], [ %920, %.sink.split389 ]
+921:                                              ; preds = %.sink.split502, %.critedge5
+  %922 = phi i16 [ %918, %.critedge5 ], [ %920, %.sink.split502 ]
   %923 = load i16, ptr %901, align 4, !tbaa !39
   %924 = and i16 %923, 1
   %.not81 = icmp eq i16 %924, 0
-  br i1 %.not81, label %926, label %.sink.split391
+  br i1 %.not81, label %926, label %.sink.split504
 
-.sink.split391:                                   ; preds = %921
-  %.inv398 = icmp sgt i16 %923, -1
-  %.395 = select i1 %.inv398, i16 -1, i16 1
-  %925 = add nsw i16 %923, %.395
+.sink.split504:                                   ; preds = %921
+  %.inv511 = icmp sgt i16 %923, -1
+  %.508 = select i1 %.inv511, i16 -1, i16 1
+  %925 = add nsw i16 %923, %.508
   store i16 %925, ptr %901, align 4, !tbaa !39
   br label %926
 
-926:                                              ; preds = %.sink.split391, %921, %912
-  %927 = phi i16 [ %909, %912 ], [ %923, %921 ], [ %925, %.sink.split391 ]
-  %928 = phi i16 [ %914, %912 ], [ %922, %921 ], [ %922, %.sink.split391 ]
-  %.not84.i109 = phi i1 [ false, %912 ], [ true, %921 ], [ true, %.sink.split391 ]
+926:                                              ; preds = %.sink.split504, %921, %912
+  %927 = phi i16 [ %909, %912 ], [ %923, %921 ], [ %925, %.sink.split504 ]
+  %928 = phi i16 [ %914, %912 ], [ %922, %921 ], [ %922, %.sink.split504 ]
+  %.not84.i109 = phi i1 [ false, %912 ], [ true, %921 ], [ true, %.sink.split504 ]
   br i1 %17, label %929, label %.thread236
 
 929:                                              ; preds = %926
@@ -2824,8 +2824,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not954, label %96, label %112
 
 96:                                               ; preds = %92
-  %sext2011 = shl i32 %95, 16
-  %97 = ashr exact i32 %sext2011, 16
+  %sext2032 = shl i32 %95, 16
+  %97 = ashr exact i32 %sext2032, 16
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 77024
   %99 = load i32, ptr %98, align 16, !tbaa !74
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 77032
@@ -2857,8 +2857,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not955, label %.thread1603, label %115
 
 115:                                              ; preds = %114
-  %sext1945 = shl i32 %95, 16
-  %116 = ashr exact i32 %sext1945, 16
+  %sext1966 = shl i32 %95, 16
+  %116 = ashr exact i32 %sext1966, 16
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 77024
   %118 = load i32, ptr %117, align 16, !tbaa !74
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 77032
@@ -2941,8 +2941,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not950, label %166, label %182
 
 166:                                              ; preds = %162
-  %sext1943 = shl i32 %165, 16
-  %167 = ashr exact i32 %sext1943, 16
+  %sext1964 = shl i32 %165, 16
+  %167 = ashr exact i32 %sext1964, 16
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 77024
   %169 = load i32, ptr %168, align 16, !tbaa !74
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 77032
@@ -3076,8 +3076,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not968, label %.thread1613, label %248
 
 248:                                              ; preds = %246
-  %sext1953 = shl i32 %247, 16
-  %249 = ashr exact i32 %sext1953, 16
+  %sext1974 = shl i32 %247, 16
+  %249 = ashr exact i32 %sext1974, 16
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 77024
   %251 = load i32, ptr %250, align 16, !tbaa !74
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 77032
@@ -3111,8 +3111,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not966, label %267, label %283
 
 267:                                              ; preds = %261
-  %sext2009 = shl i32 %266, 16
-  %268 = ashr exact i32 %sext2009, 16
+  %sext2030 = shl i32 %266, 16
+  %268 = ashr exact i32 %sext2030, 16
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 77024
   %270 = load i32, ptr %269, align 16, !tbaa !74
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 77032
@@ -3144,8 +3144,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not967, label %.thread1613, label %286
 
 286:                                              ; preds = %285
-  %sext1955 = shl i32 %266, 16
-  %287 = ashr exact i32 %sext1955, 16
+  %sext1976 = shl i32 %266, 16
+  %287 = ashr exact i32 %sext1976, 16
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 77024
   %289 = load i32, ptr %288, align 16, !tbaa !74
   %290 = getelementptr inbounds nuw i8, ptr %0, i64 77032
@@ -3230,8 +3230,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not961, label %.thread1613, label %337
 
 337:                                              ; preds = %335
-  %sext1947 = shl i32 %336, 16
-  %338 = ashr exact i32 %sext1947, 16
+  %sext1968 = shl i32 %336, 16
+  %338 = ashr exact i32 %sext1968, 16
   %339 = getelementptr inbounds nuw i8, ptr %0, i64 77024
   %340 = load i32, ptr %339, align 16, !tbaa !74
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 77032
@@ -3266,8 +3266,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not958, label %356, label %372
 
 356:                                              ; preds = %350
-  %sext1951 = shl i32 %355, 16
-  %357 = ashr exact i32 %sext1951, 16
+  %sext1972 = shl i32 %355, 16
+  %357 = ashr exact i32 %sext1972, 16
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 77024
   %359 = load i32, ptr %358, align 16, !tbaa !74
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 77032
@@ -3299,8 +3299,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not959, label %.thread1613, label %375
 
 375:                                              ; preds = %374
-  %sext1949 = shl i32 %355, 16
-  %376 = ashr exact i32 %sext1949, 16
+  %sext1970 = shl i32 %355, 16
+  %376 = ashr exact i32 %sext1970, 16
   %377 = getelementptr inbounds nuw i8, ptr %0, i64 77024
   %378 = load i32, ptr %377, align 16, !tbaa !74
   %379 = getelementptr inbounds nuw i8, ptr %0, i64 77032
@@ -3425,8 +3425,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not1055, label %.thread1634, label %450
 
 450:                                              ; preds = %448
-  %sext1967 = shl i32 %449, 16
-  %451 = ashr exact i32 %sext1967, 16
+  %sext1988 = shl i32 %449, 16
+  %451 = ashr exact i32 %sext1988, 16
   %452 = load i32, ptr %398, align 16, !tbaa !74
   %453 = load i32, ptr %399, align 8, !tbaa !75
   %454 = icmp sgt i32 %452, %451
@@ -3451,8 +3451,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not1047, label %461, label %473
 
 461:                                              ; preds = %459
-  %sext1965 = shl i32 %460, 16
-  %462 = ashr exact i32 %sext1965, 16
+  %sext1986 = shl i32 %460, 16
+  %462 = ashr exact i32 %sext1986, 16
   %463 = load i32, ptr %398, align 16, !tbaa !74
   %464 = load i32, ptr %399, align 8, !tbaa !75
   %465 = icmp sgt i32 %463, %462
@@ -3480,8 +3480,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not1054, label %.thread1634, label %476
 
 476:                                              ; preds = %475
-  %sext1963 = shl i32 %460, 16
-  %477 = ashr exact i32 %sext1963, 16
+  %sext1984 = shl i32 %460, 16
+  %477 = ashr exact i32 %sext1984, 16
   %478 = load i32, ptr %398, align 16, !tbaa !74
   %479 = load i32, ptr %399, align 8, !tbaa !75
   %480 = icmp sgt i32 %478, %477
@@ -3551,8 +3551,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not1049, label %.thread1634, label %514
 
 514:                                              ; preds = %512
-  %sext1961 = shl i32 %513, 16
-  %515 = ashr exact i32 %sext1961, 16
+  %sext1982 = shl i32 %513, 16
+  %515 = ashr exact i32 %sext1982, 16
   %516 = load i32, ptr %398, align 16, !tbaa !74
   %517 = load i32, ptr %399, align 8, !tbaa !75
   %518 = icmp sgt i32 %516, %515
@@ -3578,8 +3578,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not1047, label %526, label %538
 
 526:                                              ; preds = %523
-  %sext1959 = shl i32 %525, 16
-  %527 = ashr exact i32 %sext1959, 16
+  %sext1980 = shl i32 %525, 16
+  %527 = ashr exact i32 %sext1980, 16
   %528 = load i32, ptr %398, align 16, !tbaa !74
   %529 = load i32, ptr %399, align 8, !tbaa !75
   %530 = icmp sgt i32 %528, %527
@@ -3607,8 +3607,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not1048, label %.thread1634, label %541
 
 541:                                              ; preds = %540
-  %sext1957 = shl i32 %525, 16
-  %542 = ashr exact i32 %sext1957, 16
+  %sext1978 = shl i32 %525, 16
+  %542 = ashr exact i32 %sext1978, 16
   %543 = load i32, ptr %398, align 16, !tbaa !74
   %544 = load i32, ptr %399, align 8, !tbaa !75
   %545 = icmp sgt i32 %543, %542
@@ -3710,8 +3710,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not982, label %.thread1657, label %595
 
 595:                                              ; preds = %593
-  %sext1979 = shl i32 %594, 16
-  %596 = ashr exact i32 %sext1979, 16
+  %sext2000 = shl i32 %594, 16
+  %596 = ashr exact i32 %sext2000, 16
   %597 = load i32, ptr %398, align 16, !tbaa !74
   %598 = load i32, ptr %399, align 8, !tbaa !75
   %599 = icmp sgt i32 %597, %596
@@ -3736,8 +3736,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not1047, label %606, label %618
 
 606:                                              ; preds = %604
-  %sext1977 = shl i32 %605, 16
-  %607 = ashr exact i32 %sext1977, 16
+  %sext1998 = shl i32 %605, 16
+  %607 = ashr exact i32 %sext1998, 16
   %608 = load i32, ptr %398, align 16, !tbaa !74
   %609 = load i32, ptr %399, align 8, !tbaa !75
   %610 = icmp sgt i32 %608, %607
@@ -3765,8 +3765,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not981, label %.thread1657, label %621
 
 621:                                              ; preds = %620
-  %sext1975 = shl i32 %605, 16
-  %622 = ashr exact i32 %sext1975, 16
+  %sext1996 = shl i32 %605, 16
+  %622 = ashr exact i32 %sext1996, 16
   %623 = load i32, ptr %398, align 16, !tbaa !74
   %624 = load i32, ptr %399, align 8, !tbaa !75
   %625 = icmp sgt i32 %623, %622
@@ -3836,8 +3836,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not976, label %.thread1657, label %659
 
 659:                                              ; preds = %657
-  %sext1973 = shl i32 %658, 16
-  %660 = ashr exact i32 %sext1973, 16
+  %sext1994 = shl i32 %658, 16
+  %660 = ashr exact i32 %sext1994, 16
   %661 = load i32, ptr %398, align 16, !tbaa !74
   %662 = load i32, ptr %399, align 8, !tbaa !75
   %663 = icmp sgt i32 %661, %660
@@ -3863,8 +3863,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not1047, label %671, label %683
 
 671:                                              ; preds = %668
-  %sext1971 = shl i32 %670, 16
-  %672 = ashr exact i32 %sext1971, 16
+  %sext1992 = shl i32 %670, 16
+  %672 = ashr exact i32 %sext1992, 16
   %673 = load i32, ptr %398, align 16, !tbaa !74
   %674 = load i32, ptr %399, align 8, !tbaa !75
   %675 = icmp sgt i32 %673, %672
@@ -3892,8 +3892,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not975, label %.thread1657, label %686
 
 686:                                              ; preds = %685
-  %sext1969 = shl i32 %670, 16
-  %687 = ashr exact i32 %sext1969, 16
+  %sext1990 = shl i32 %670, 16
+  %687 = ashr exact i32 %sext1990, 16
   %688 = load i32, ptr %398, align 16, !tbaa !74
   %689 = load i32, ptr %399, align 8, !tbaa !75
   %690 = icmp sgt i32 %688, %687
@@ -4141,8 +4141,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not1021, label %.thread1678, label %812
 
 812:                                              ; preds = %810
-  %sext1985 = shl i32 %811, 16
-  %813 = ashr exact i32 %sext1985, 16
+  %sext2006 = shl i32 %811, 16
+  %813 = ashr exact i32 %sext2006, 16
   %814 = load i32, ptr %398, align 16, !tbaa !74
   %815 = load i32, ptr %399, align 8, !tbaa !75
   %816 = icmp sgt i32 %814, %813
@@ -4167,8 +4167,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not1047, label %823, label %835
 
 823:                                              ; preds = %821
-  %sext1983 = shl i32 %822, 16
-  %824 = ashr exact i32 %sext1983, 16
+  %sext2004 = shl i32 %822, 16
+  %824 = ashr exact i32 %sext2004, 16
   %825 = load i32, ptr %398, align 16, !tbaa !74
   %826 = load i32, ptr %399, align 8, !tbaa !75
   %827 = icmp sgt i32 %825, %824
@@ -4196,8 +4196,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not1020, label %.thread1678, label %838
 
 838:                                              ; preds = %837
-  %sext1981 = shl i32 %822, 16
-  %839 = ashr exact i32 %sext1981, 16
+  %sext2002 = shl i32 %822, 16
+  %839 = ashr exact i32 %sext2002, 16
   %840 = load i32, ptr %398, align 16, !tbaa !74
   %841 = load i32, ptr %399, align 8, !tbaa !75
   %842 = icmp sgt i32 %840, %839
@@ -4376,8 +4376,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %922, label %923, label %933
 
 923:                                              ; preds = %921
-  %sext1993 = shl i32 %857, 16
-  %924 = ashr exact i32 %sext1993, 16
+  %sext2014 = shl i32 %857, 16
+  %924 = ashr exact i32 %sext2014, 16
   %925 = load i32, ptr %398, align 16, !tbaa !74
   %926 = load i32, ptr %399, align 8, !tbaa !75
   %927 = icmp sgt i32 %925, %924
@@ -4404,8 +4404,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not1036, label %.thread1699, label %934
 
 934:                                              ; preds = %933
-  %sext1991 = shl i32 %857, 16
-  %935 = ashr exact i32 %sext1991, 16
+  %sext2012 = shl i32 %857, 16
+  %935 = ashr exact i32 %sext2012, 16
   %936 = load i32, ptr %398, align 16, !tbaa !74
   %937 = load i32, ptr %399, align 8, !tbaa !75
   %938 = icmp sgt i32 %936, %935
@@ -4429,8 +4429,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not1047, label %944, label %956
 
 944:                                              ; preds = %943
-  %sext1989 = shl i32 %857, 16
-  %945 = ashr exact i32 %sext1989, 16
+  %sext2010 = shl i32 %857, 16
+  %945 = ashr exact i32 %sext2010, 16
   %946 = load i32, ptr %398, align 16, !tbaa !74
   %947 = load i32, ptr %399, align 8, !tbaa !75
   %948 = icmp sgt i32 %946, %945
@@ -4458,8 +4458,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not1035, label %.thread1699, label %959
 
 959:                                              ; preds = %958
-  %sext1987 = shl i32 %857, 16
-  %960 = ashr exact i32 %sext1987, 16
+  %sext2008 = shl i32 %857, 16
+  %960 = ashr exact i32 %sext2008, 16
   %961 = load i32, ptr %398, align 16, !tbaa !74
   %962 = load i32, ptr %399, align 8, !tbaa !75
   %963 = icmp sgt i32 %961, %960
@@ -4684,8 +4684,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not991, label %.thread1725, label %1068
 
 1068:                                             ; preds = %1066
-  %sext1999 = shl i32 %1067, 16
-  %1069 = ashr exact i32 %sext1999, 16
+  %sext2020 = shl i32 %1067, 16
+  %1069 = ashr exact i32 %sext2020, 16
   %1070 = load i32, ptr %398, align 16, !tbaa !74
   %1071 = load i32, ptr %399, align 8, !tbaa !75
   %1072 = icmp sgt i32 %1070, %1069
@@ -4710,8 +4710,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not1047, label %1079, label %1091
 
 1079:                                             ; preds = %1077
-  %sext1997 = shl i32 %1078, 16
-  %1080 = ashr exact i32 %sext1997, 16
+  %sext2018 = shl i32 %1078, 16
+  %1080 = ashr exact i32 %sext2018, 16
   %1081 = load i32, ptr %398, align 16, !tbaa !74
   %1082 = load i32, ptr %399, align 8, !tbaa !75
   %1083 = icmp sgt i32 %1081, %1080
@@ -4739,8 +4739,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not990, label %.thread1725, label %1094
 
 1094:                                             ; preds = %1093
-  %sext1995 = shl i32 %1078, 16
-  %1095 = ashr exact i32 %sext1995, 16
+  %sext2016 = shl i32 %1078, 16
+  %1095 = ashr exact i32 %sext2016, 16
   %1096 = load i32, ptr %398, align 16, !tbaa !74
   %1097 = load i32, ptr %399, align 8, !tbaa !75
   %1098 = icmp sgt i32 %1096, %1095
@@ -4910,8 +4910,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %1176, label %1177, label %1187
 
 1177:                                             ; preds = %1175
-  %sext2007 = shl i32 %1113, 16
-  %1178 = ashr exact i32 %sext2007, 16
+  %sext2028 = shl i32 %1113, 16
+  %1178 = ashr exact i32 %sext2028, 16
   %1179 = load i32, ptr %398, align 16, !tbaa !74
   %1180 = load i32, ptr %399, align 8, !tbaa !75
   %1181 = icmp sgt i32 %1179, %1178
@@ -4938,8 +4938,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not1006, label %.critedge1090, label %1188
 
 1188:                                             ; preds = %1187
-  %sext2005 = shl i32 %1113, 16
-  %1189 = ashr exact i32 %sext2005, 16
+  %sext2026 = shl i32 %1113, 16
+  %1189 = ashr exact i32 %sext2026, 16
   %1190 = load i32, ptr %398, align 16, !tbaa !74
   %1191 = load i32, ptr %399, align 8, !tbaa !75
   %1192 = icmp sgt i32 %1190, %1189
@@ -4963,8 +4963,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %.not1047, label %1198, label %1210
 
 1198:                                             ; preds = %1197
-  %sext2003 = shl i32 %1113, 16
-  %1199 = ashr exact i32 %sext2003, 16
+  %sext2024 = shl i32 %1113, 16
+  %1199 = ashr exact i32 %sext2024, 16
   %1200 = load i32, ptr %398, align 16, !tbaa !74
   %1201 = load i32, ptr %399, align 8, !tbaa !75
   %1202 = icmp sgt i32 %1200, %1199
@@ -4990,8 +4990,8 @@ define internal fastcc void @find_ref_mvs(ptr noundef readonly %0, ptr noundef w
   br i1 %or.cond1088, label %.critedge1090, label %1212
 
 1212:                                             ; preds = %1210
-  %sext2001 = shl i32 %1113, 16
-  %1213 = ashr exact i32 %sext2001, 16
+  %sext2022 = shl i32 %1113, 16
+  %1213 = ashr exact i32 %sext2022, 16
   %1214 = load i32, ptr %398, align 16, !tbaa !74
   %1215 = load i32, ptr %399, align 8, !tbaa !75
   %1216 = icmp sgt i32 %1214, %1213

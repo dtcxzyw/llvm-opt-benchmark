@@ -152,7 +152,7 @@ find_any_idle_slot.exit:                          ; preds = %.lr.ph.i36
   store i8 1, ptr %60, align 8
   br label %135
 
-find_any_idle_slot.exit.thread.thread:            ; preds = %wait_on_slots.exit, %find_matching_idle_slot.exit.thread, %wait_on_slots.exit.thread70, %2
+find_any_idle_slot.exit.thread.thread:            ; preds = %wait_on_slots.exit, %find_matching_idle_slot.exit.thread, %wait_on_slots.exit.thread79, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %wait_on_slots.exit.thread
 
@@ -249,9 +249,9 @@ select_loop.exit.i:                               ; preds = %94
   call void @ResetCancelConn() #9
   %96 = load i32, ptr %0, align 8
   %97 = icmp sgt i32 %96, 0
-  br i1 %97, label %.lr.ph80.i, label %wait_on_slots.exit.thread70
+  br i1 %97, label %.lr.ph80.i, label %wait_on_slots.exit.thread79
 
-wait_on_slots.exit.thread70:                      ; preds = %select_loop.exit.i
+wait_on_slots.exit.thread79:                      ; preds = %select_loop.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %find_any_idle_slot.exit.thread.thread
 

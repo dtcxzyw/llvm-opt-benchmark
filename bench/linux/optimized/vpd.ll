@@ -403,21 +403,21 @@ split:                                            ; preds = %73
   %86 = phi i32 [ %41, %split.thread ], [ %84, %split ], [ %69, %._crit_edge ]
   %87 = phi ptr [ %40, %split.thread ], [ %83, %split ], [ %68, %._crit_edge ]
   %88 = phi i64 [ 0, %split.thread ], [ %75, %split ], [ %65, %._crit_edge ]
-  %.lcssa1218 = phi i64 [ 0, %split.thread ], [ %18, %split ], [ 0, %._crit_edge ]
+  %.lcssa1220 = phi i64 [ 0, %split.thread ], [ %18, %split ], [ 0, %._crit_edge ]
   br label %89
 
 89:                                               ; preds = %._crit_edge, %split, %85
   %90 = phi i32 [ %86, %85 ], [ %84, %split ], [ %69, %._crit_edge ]
   %91 = phi ptr [ %87, %85 ], [ %83, %split ], [ %68, %._crit_edge ]
   %92 = phi i64 [ %88, %85 ], [ %75, %split ], [ %65, %._crit_edge ]
-  %.lcssa419 = phi i64 [ 4294967295, %85 ], [ %18, %split ], [ %18, %._crit_edge ]
-  %.lcssa1217 = phi i64 [ %.lcssa1218, %85 ], [ %18, %split ], [ %18, %._crit_edge ]
+  %.lcssa421 = phi i64 [ 4294967295, %85 ], [ %18, %split ], [ %18, %._crit_edge ]
+  %.lcssa1219 = phi i64 [ %.lcssa1220, %85 ], [ %18, %split ], [ %18, %._crit_edge ]
   %93 = phi ptr [ @.str.5, %85 ], [ @.str.6, %split ], [ @.str.6, %._crit_edge ]
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %91, ptr noundef nonnull @.str.4, i32 noundef %90, i64 noundef %92, i64 noundef %.lcssa1217, ptr noundef nonnull %93) #14
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %91, ptr noundef nonnull @.str.4, i32 noundef %90, i64 noundef %92, i64 noundef %.lcssa1219, ptr noundef nonnull %93) #14
   br label %.thread
 
 .thread:                                          ; preds = %22, %78, %32, %89, %.thread3
-  %94 = phi i64 [ %.lcssa419, %89 ], [ %62, %.thread3 ], [ %18, %22 ], [ %18, %32 ], [ %80, %78 ]
+  %94 = phi i64 [ %.lcssa421, %89 ], [ %62, %.thread3 ], [ %18, %22 ], [ %18, %32 ], [ %80, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %95 = trunc i64 %94 to i32
   store i32 %95, ptr %8, align 8

@@ -352,17 +352,17 @@ SharpYuvInit.exit:                                ; preds = %51, %.sink.split.i
   %166 = getelementptr inbounds i8, ptr %.0205296.i, i64 %145
   %167 = getelementptr inbounds i8, ptr %.0206295.i, i64 %145
   tail call fastcc void @ImportOneRow(ptr noundef %165, ptr noundef %166, ptr noundef %167, i32 noundef %3, i32 noundef %5, i32 noundef %13, ptr noundef nonnull %144)
-  br label %.preheader124
+  br label %.preheader138
 
 168:                                              ; preds = %162
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %144, ptr nonnull align 2 %112, i64 %110, i1 false)
-  br label %.preheader124
+  br label %.preheader138
 
-.preheader124:                                    ; preds = %168, %164
+.preheader138:                                    ; preds = %168, %164
   br label %169
 
-169:                                              ; preds = %.preheader124, %169
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %169 ], [ 0, %.preheader124 ]
+169:                                              ; preds = %.preheader138, %169
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %169 ], [ 0, %.preheader138 ]
   %170 = getelementptr inbounds nuw i16, ptr %112, i64 %indvars.iv.i.i
   %171 = load i16, ptr %170, align 2, !tbaa !14
   %172 = zext i16 %171 to i32
@@ -889,8 +889,8 @@ split.i:                                          ; preds = %388
   %.094.us.i.i = phi ptr [ %547, %.split119.us.us.i.i ], [ %10, %.split117.us.us.preheader.i.i ]
   %.093.us.i.i = phi ptr [ %546, %.split119.us.us.i.i ], [ %8, %.split117.us.us.preheader.i.i ]
   %.1.us.i.i = phi ptr [ %545, %.split119.us.us.i.i ], [ %126, %.split117.us.us.preheader.i.i ]
-  %invariant.gep167.i.i = getelementptr i16, ptr %.1.us.i.i, i64 %160
-  %invariant.gep169.i.i = getelementptr i16, ptr %.1.us.i.i, i64 %113
+  %invariant.gep171.i.i = getelementptr i16, ptr %.1.us.i.i, i64 %160
+  %invariant.gep173.i.i = getelementptr i16, ptr %.1.us.i.i, i64 %113
   br label %509
 
 509:                                              ; preds = %509, %.split117.us.us.i.i
@@ -898,11 +898,11 @@ split.i:                                          ; preds = %388
   %510 = getelementptr inbounds nuw i16, ptr %.1.us.i.i, i64 %indvars.iv144.i.i
   %511 = load i16, ptr %510, align 2, !tbaa !14
   %512 = sext i16 %511 to i32
-  %gep168.i.i = getelementptr i16, ptr %invariant.gep167.i.i, i64 %indvars.iv144.i.i
-  %513 = load i16, ptr %gep168.i.i, align 2, !tbaa !14
+  %gep172.i.i = getelementptr i16, ptr %invariant.gep171.i.i, i64 %indvars.iv144.i.i
+  %513 = load i16, ptr %gep172.i.i, align 2, !tbaa !14
   %514 = sext i16 %513 to i32
-  %gep170.i.i = getelementptr i16, ptr %invariant.gep169.i.i, i64 %indvars.iv144.i.i
-  %515 = load i16, ptr %gep170.i.i, align 2, !tbaa !14
+  %gep174.i.i = getelementptr i16, ptr %invariant.gep173.i.i, i64 %indvars.iv144.i.i
+  %515 = load i16, ptr %gep174.i.i, align 2, !tbaa !14
   %516 = sext i16 %515 to i32
   %517 = mul nsw i32 %503, %512
   %518 = mul nsw i32 %504, %514
@@ -954,7 +954,7 @@ split.i:                                          ; preds = %388
   %.093.i.i = phi ptr [ %584, %.split119.i.i ], [ %8, %.split117.preheader.i.i ]
   %.1.i.i = phi ptr [ %583, %.split119.i.i ], [ %126, %.split117.preheader.i.i ]
   %invariant.gep.i280.i = getelementptr i16, ptr %.1.i.i, i64 %160
-  %invariant.gep165.i.i = getelementptr i16, ptr %.1.i.i, i64 %113
+  %invariant.gep169.i.i = getelementptr i16, ptr %.1.i.i, i64 %113
   br label %549
 
 549:                                              ; preds = %549, %.split117.i.i
@@ -965,8 +965,8 @@ split.i:                                          ; preds = %388
   %gep.i281.i = getelementptr i16, ptr %invariant.gep.i280.i, i64 %indvars.iv136.i.i
   %553 = load i16, ptr %gep.i281.i, align 2, !tbaa !14
   %554 = sext i16 %553 to i32
-  %gep166.i.i = getelementptr i16, ptr %invariant.gep165.i.i, i64 %indvars.iv136.i.i
-  %555 = load i16, ptr %gep166.i.i, align 2, !tbaa !14
+  %gep170.i.i = getelementptr i16, ptr %invariant.gep169.i.i, i64 %indvars.iv136.i.i
+  %555 = load i16, ptr %gep170.i.i, align 2, !tbaa !14
   %556 = sext i16 %555 to i32
   %557 = mul nsw i32 %.pre155.pre.i.i, %552
   %558 = mul nsw i32 %.pre156.pre.i.i, %554

@@ -213,8 +213,8 @@ define noundef i32 @_Z11xdr3dfcoordP3XDRPfPiS1_i(ptr noundef %0, ptr noundef %1,
   %95 = load float, ptr %94, align 4, !tbaa !20
   %96 = fcmp ult float %95, 0.000000e+00
   %97 = fmul float %95, %70
-  %.725 = select i1 %96, float -5.000000e-01, float 5.000000e-01
-  %98 = fadd float %97, %.725
+  %.770 = select i1 %96, float -5.000000e-01, float 5.000000e-01
+  %98 = fadd float %97, %.770
   %99 = call noundef float @llvm.fabs.f32(float %98)
   %100 = fcmp ogt float %99, %69
   %101 = or i1 %83, %100
@@ -243,8 +243,8 @@ define noundef i32 @_Z11xdr3dfcoordP3XDRPfPiS1_i(ptr noundef %0, ptr noundef %1,
   %113 = load float, ptr %112, align 4, !tbaa !20
   %114 = fcmp ult float %113, 0.000000e+00
   %115 = fmul float %113, %70
-  %.726 = select i1 %114, float -5.000000e-01, float 5.000000e-01
-  %116 = fadd float %115, %.726
+  %.771 = select i1 %114, float -5.000000e-01, float 5.000000e-01
+  %116 = fadd float %115, %.771
   %117 = call noundef float @llvm.fabs.f32(float %116)
   %118 = fcmp ogt float %117, %69
   %119 = or i1 %101, %118
@@ -441,19 +441,19 @@ _ZL9sizeofinti.exit473:                           ; preds = %.lr.ph.i470, %_ZL9s
   %218 = getelementptr inbounds nuw [73 x i32], ptr @_ZL9magicints, i64 0, i64 %indvars.iv
   %219 = load i32, ptr %218, align 4, !tbaa !16
   %220 = icmp slt i32 %219, %.1420
-  br i1 %220, label %221, label %.critedge.split.loop.exit714
+  br i1 %220, label %221, label %.critedge.split.loop.exit759
 
 221:                                              ; preds = %217
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 73
   br i1 %exitcond.not, label %.critedge, label %217, !llvm.loop !25
 
-.critedge.split.loop.exit714:                     ; preds = %217
+.critedge.split.loop.exit759:                     ; preds = %217
   %222 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %221, %.critedge.split.loop.exit714
-  %storemerge447.lcssa = phi i32 [ %222, %.critedge.split.loop.exit714 ], [ 73, %221 ]
+.critedge:                                        ; preds = %221, %.critedge.split.loop.exit759
+  %storemerge447.lcssa = phi i32 [ %222, %.critedge.split.loop.exit759 ], [ 73, %221 ]
   store i32 %storemerge447.lcssa, ptr %10, align 4, !tbaa !16
   %223 = call noundef i32 @_Z7xdr_intP3XDRPi(ptr noundef nonnull %0, ptr noundef nonnull %10)
   %224 = icmp eq i32 %223, 0
@@ -1036,10 +1036,10 @@ _ZL8sendbitsP10DataBufferii.exit499:              ; preds = %514
 
 _ZL8sendbitsP10DataBufferii.exit505.sink.split:   ; preds = %555, %541
   %.0.i510.sink = phi i32 [ %.0.i504, %541 ], [ %.0.i510, %555 ]
-  %.sink723 = phi i32 [ %542, %541 ], [ %501, %555 ]
+  %.sink768 = phi i32 [ %542, %541 ], [ %501, %555 ]
   %.1392.ph = phi i32 [ %.0393.lcssa, %541 ], [ %.0391625, %555 ]
   %557 = sub nsw i32 8, %.0.i510.sink
-  %558 = shl i32 %.sink723, %557
+  %558 = shl i32 %.sink768, %557
   %559 = trunc i32 %558 to i8
   %560 = load ptr, ptr %253, align 8, !tbaa !17
   %561 = load i64, ptr %16, align 8, !tbaa !28
@@ -1875,7 +1875,8 @@ define internal fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr noundef nonnul
   br label %.preheader98
 
 .preheader98:                                     ; preds = %.preheader98.preheader, %._crit_edge
-  %indvars.iv150 = phi i64 [ 1, %.preheader98.preheader ], [ %indvars.iv.next151, %._crit_edge ]
+  %exitcond153.not = phi i1 [ false, %.preheader98.preheader ], [ true, %._crit_edge ]
+  %indvars.iv150 = phi i64 [ 1, %.preheader98.preheader ], [ 2, %._crit_edge ]
   %.158119 = phi i32 [ %11, %.preheader98.preheader ], [ %.156.lcssa, %._crit_edge ]
   %12 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv150
   %13 = load i32, ptr %12, align 4, !tbaa !16
@@ -1939,8 +1940,6 @@ define internal fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr noundef nonnul
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader96
   %.156.lcssa = phi i32 [ %.055.lcssa, %.preheader96 ], [ %30, %._crit_edge.loopexit ]
-  %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
-  %exitcond153.not = icmp eq i64 %indvars.iv.next151, 3
   br i1 %exitcond153.not, label %31, label %.preheader98, !llvm.loop !45
 
 31:                                               ; preds = %._crit_edge
@@ -2304,13 +2303,13 @@ _ZL11receivebitsP10DataBufferi.exit:              ; preds = %_ZL11receivebitsP10
   br i1 %24, label %25, label %.split.preheader
 
 25:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.030.lcssa101 = phi i32 [ %21, %._crit_edge.thread ], [ %1, %._crit_edge ]
-  %.031.lcssa100 = phi i32 [ %23, %._crit_edge.thread ], [ 0, %._crit_edge ]
+  %.030.lcssa105 = phi i32 [ %21, %._crit_edge.thread ], [ %1, %._crit_edge ]
+  %.031.lcssa104 = phi i32 [ %23, %._crit_edge.thread ], [ 0, %._crit_edge ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %29 = load i32, ptr %28, align 4, !tbaa !27
-  %30 = icmp samesign ugt i32 %.030.lcssa101, 7
+  %30 = icmp samesign ugt i32 %.030.lcssa105, 7
   br i1 %30, label %.lr.ph.i._ZL11receivebitsP10DataBufferi.exit45_crit_edge, label %._crit_edge.i34.thread
 
 .lr.ph.i._ZL11receivebitsP10DataBufferi.exit45_crit_edge: ; preds = %25
@@ -2328,7 +2327,7 @@ _ZL11receivebitsP10DataBufferi.exit:              ; preds = %_ZL11receivebitsP10
   br label %57
 
 ._crit_edge.i34.thread:                           ; preds = %25
-  %40 = icmp slt i32 %27, %.030.lcssa101
+  %40 = icmp slt i32 %27, %.030.lcssa105
   br i1 %40, label %41, label %52
 
 41:                                               ; preds = %._crit_edge.i34.thread
@@ -2348,9 +2347,9 @@ _ZL11receivebitsP10DataBufferi.exit:              ; preds = %_ZL11receivebitsP10
 52:                                               ; preds = %41, %._crit_edge.i34.thread
   %.133.i38 = phi i32 [ %42, %41 ], [ %27, %._crit_edge.i34.thread ]
   %.2.i39 = phi i32 [ %51, %41 ], [ %29, %._crit_edge.i34.thread ]
-  %53 = sub nsw i32 %.133.i38, %.030.lcssa101
+  %53 = sub nsw i32 %.133.i38, %.030.lcssa105
   %54 = lshr i32 %.2.i39, %53
-  %notmask38.i40 = shl nsw i32 -1, %.030.lcssa101
+  %notmask38.i40 = shl nsw i32 -1, %.030.lcssa105
   %55 = xor i32 %notmask38.i40, -1
   %56 = and i32 %54, %55
   br label %57
@@ -2363,17 +2362,17 @@ _ZL11receivebitsP10DataBufferi.exit:              ; preds = %_ZL11receivebitsP10
   %58 = and i32 %.135.i35, %.pre-phi
   store i32 %.032.i36, ptr %26, align 8, !tbaa !26
   store i32 %.1.i37, ptr %28, align 4, !tbaa !27
-  %59 = zext nneg i32 %.031.lcssa100 to i64
+  %59 = zext nneg i32 %.031.lcssa104 to i64
   %60 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %59
   store i32 %58, ptr %60, align 4, !tbaa !16
-  %61 = icmp ult i32 %.031.lcssa100, 2147483647
+  %61 = icmp ult i32 %.031.lcssa104, 2147483647
   br i1 %61, label %.split.us.preheader, label %.split.preheader
 
 .split.preheader:                                 ; preds = %._crit_edge, %57
   br label %.split
 
 .split.us.preheader:                              ; preds = %57
-  %62 = add nuw i32 %.031.lcssa100, 1
+  %62 = add nuw i32 %.031.lcssa104, 1
   %63 = zext nneg i32 %62 to i64
   br label %.split.us
 
@@ -2630,11 +2629,11 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZL19xtc_at_header_startP8_
 16:                                               ; preds = %10
   %17 = load i32, ptr %6, align 4, !tbaa !16
   switch i32 %17, label %18 [
-    i32 2023, label %.preheader47
-    i32 1995, label %.preheader47
+    i32 2023, label %.preheader48
+    i32 1995, label %.preheader48
   ]
 
-.preheader47:                                     ; preds = %16, %16
+.preheader48:                                     ; preds = %16, %16
   br label %22
 
 18:                                               ; preds = %16
@@ -2649,8 +2648,8 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZL19xtc_at_header_startP8_
   %exitcond46.not = icmp eq i64 %indvars.iv.next44, 10
   br i1 %exitcond46.not, label %28, label %22, !llvm.loop !55
 
-22:                                               ; preds = %.preheader47, %21
-  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %21 ], [ 0, %.preheader47 ]
+22:                                               ; preds = %.preheader48, %21
+  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %21 ], [ 0, %.preheader48 ]
   %23 = getelementptr inbounds nuw [10 x float], ptr %7, i64 0, i64 %indvars.iv43
   %24 = call noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %1, ptr noundef nonnull %23)
   %.not36 = icmp eq i32 %24, 0

@@ -187,16 +187,16 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIjSaIjE
   unreachable
 
 _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i5: ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit, %_ZNSt6vectorIjSaIjEED2Ev.exit
-  %.pre-phi137 = phi i32 [ %.pre119, %_ZNSt6vectorIjSaIjEED2Ev.exit ], [ %10, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit ]
-  %.pre-phi121136 = phi i64 [ %.pre120, %_ZNSt6vectorIjSaIjEED2Ev.exit ], [ %11, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit ]
-  %.not.i.i.i.i6 = icmp eq i32 %.pre-phi137, 0
+  %.pre-phi142 = phi i32 [ %.pre119, %_ZNSt6vectorIjSaIjEED2Ev.exit ], [ %10, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit ]
+  %.pre-phi121141 = phi i64 [ %.pre120, %_ZNSt6vectorIjSaIjEED2Ev.exit ], [ %11, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit ]
+  %.not.i.i.i.i6 = icmp eq i32 %.pre-phi142, 0
   br i1 %.not.i.i.i.i6, label %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit14, label %.noexc13
 
 .noexc13:                                         ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i5
-  %22 = shl nuw nsw i64 %.pre-phi121136, 2
+  %22 = shl nuw nsw i64 %.pre-phi121141, 2
   %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %23, i8 0, i64 %22, i1 false), !tbaa !32
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %.pre-phi121136
+  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %.pre-phi121141
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 %22
   br label %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit14
 
@@ -228,16 +228,16 @@ _ZNSt6vectorIjSaIjEED2Ev.exit18:                  ; preds = %_ZNSt6vectorIjSaIjE
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit14, %_ZNSt6vectorIjSaIjEED2Ev.exit18
-  %.pre-phi123141 = phi i32 [ %.pre122, %_ZNSt6vectorIjSaIjEED2Ev.exit18 ], [ %.pre-phi137, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit14 ]
-  %.pre-phi125140 = phi i64 [ %.pre124, %_ZNSt6vectorIjSaIjEED2Ev.exit18 ], [ %.pre-phi121136, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit14 ]
-  %.not.i.i.i.i19 = icmp eq i32 %.pre-phi123141, 0
+  %.pre-phi123146 = phi i32 [ %.pre122, %_ZNSt6vectorIjSaIjEED2Ev.exit18 ], [ %.pre-phi142, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit14 ]
+  %.pre-phi125145 = phi i64 [ %.pre124, %_ZNSt6vectorIjSaIjEED2Ev.exit18 ], [ %.pre-phi121141, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit14 ]
+  %.not.i.i.i.i19 = icmp eq i32 %.pre-phi123146, 0
   br i1 %.not.i.i.i.i19, label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit, label %.noexc25
 
 .noexc25:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %31 = shl nuw nsw i64 %.pre-phi125140, 2
+  %31 = shl nuw nsw i64 %.pre-phi125145, 2
   %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %32, i8 0, i64 %31, i1 false), !tbaa !32
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %.pre-phi125140
+  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %.pre-phi125145
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 %31
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
 
@@ -269,16 +269,16 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i28: ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit, %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %.pre-phi127145 = phi i32 [ %.pre126, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %.pre-phi123141, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ]
-  %.pre-phi129144 = phi i64 [ %.pre128, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %.pre-phi125140, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ]
-  %.not.i.i.i.i29 = icmp eq i32 %.pre-phi127145, 0
+  %.pre-phi127150 = phi i32 [ %.pre126, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %.pre-phi123146, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ]
+  %.pre-phi129149 = phi i64 [ %.pre128, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %.pre-phi125145, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ]
+  %.not.i.i.i.i29 = icmp eq i32 %.pre-phi127150, 0
   br i1 %.not.i.i.i.i29, label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit37, label %.noexc36
 
 .noexc36:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i28
-  %40 = shl nuw nsw i64 %.pre-phi129144, 2
+  %40 = shl nuw nsw i64 %.pre-phi129149, 2
   %41 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %41, i8 0, i64 %40, i1 false), !tbaa !32
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %.pre-phi129144
+  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %.pre-phi129149
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 %40
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit37
 
@@ -310,16 +310,16 @@ _ZNSt6vectorIiSaIiEED2Ev.exit41:                  ; preds = %_ZNSt6vectorIiSaIiE
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i42: ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit37, %_ZNSt6vectorIiSaIiEED2Ev.exit41
-  %.pre-phi131149 = phi i32 [ %.pre130, %_ZNSt6vectorIiSaIiEED2Ev.exit41 ], [ %.pre-phi127145, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit37 ]
-  %.pre-phi133148 = phi i64 [ %.pre132, %_ZNSt6vectorIiSaIiEED2Ev.exit41 ], [ %.pre-phi129144, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit37 ]
-  %.not.i.i.i.i43 = icmp eq i32 %.pre-phi131149, 0
+  %.pre-phi131154 = phi i32 [ %.pre130, %_ZNSt6vectorIiSaIiEED2Ev.exit41 ], [ %.pre-phi127150, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit37 ]
+  %.pre-phi133153 = phi i64 [ %.pre132, %_ZNSt6vectorIiSaIiEED2Ev.exit41 ], [ %.pre-phi129149, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit37 ]
+  %.not.i.i.i.i43 = icmp eq i32 %.pre-phi131154, 0
   br i1 %.not.i.i.i.i43, label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit51, label %.noexc50
 
 .noexc50:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i42
-  %49 = shl nuw nsw i64 %.pre-phi133148, 2
+  %49 = shl nuw nsw i64 %.pre-phi133153, 2
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %50, i8 0, i64 %49, i1 false), !tbaa !32
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %.pre-phi133148
+  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %.pre-phi133153
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 %49
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit51
 
@@ -583,7 +583,7 @@ define hidden void @_ZN5zxing11UnicomBlock3BfsEii(ptr noundef nonnull align 8 ca
   %95 = load ptr, ptr %21, align 8, !tbaa !29
   %96 = getelementptr inbounds nuw i32, ptr %95, i64 %66
   store i32 %94, ptr %96, align 4, !tbaa !32
-  %97 = shl i32 %51, 16
+  %97 = shl nuw i32 %51, 16
   %98 = or i32 %97, %47
   %99 = add nsw i32 %.1100, 1
   %100 = sext i32 %.1100 to i64
@@ -732,16 +732,16 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing11UnicomBlock11GetMinPointE
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %23
-  %.sink28.in = phi ptr [ %30, %23 ], [ %22, %19 ]
-  %.sink25 = phi ptr [ %29, %23 ], [ %21, %19 ]
-  %.sink28 = load i32, ptr %.sink28.in, align 4, !tbaa !32
-  %31 = ashr i32 %.sink28, 16
+  %.sink31.in = phi ptr [ %30, %23 ], [ %22, %19 ]
+  %.sink28 = phi ptr [ %29, %23 ], [ %21, %19 ]
+  %.sink31 = load i32, ptr %.sink31.in, align 4, !tbaa !32
+  %31 = ashr i32 %.sink31, 16
   store i32 %31, ptr %3, align 4, !tbaa !32
   %32 = load i32, ptr %9, align 8, !tbaa !25
   %33 = mul nsw i32 %32, %1
   %34 = add nsw i32 %33, %2
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %.sink25, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %.sink28, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !32
   %38 = and i32 %37, 65535
   store i32 %38, ptr %4, align 4, !tbaa !32
@@ -794,16 +794,16 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing11UnicomBlock11GetMaxPointE
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %23
-  %.sink28.in = phi ptr [ %30, %23 ], [ %22, %19 ]
-  %.sink25 = phi ptr [ %29, %23 ], [ %21, %19 ]
-  %.sink28 = load i32, ptr %.sink28.in, align 4, !tbaa !32
-  %31 = ashr i32 %.sink28, 16
+  %.sink31.in = phi ptr [ %30, %23 ], [ %22, %19 ]
+  %.sink28 = phi ptr [ %29, %23 ], [ %21, %19 ]
+  %.sink31 = load i32, ptr %.sink31.in, align 4, !tbaa !32
+  %31 = ashr i32 %.sink31, 16
   store i32 %31, ptr %3, align 4, !tbaa !32
   %32 = load i32, ptr %9, align 8, !tbaa !25
   %33 = mul nsw i32 %32, %1
   %34 = add nsw i32 %33, %2
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %.sink25, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %.sink28, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !32
   %38 = and i32 %37, 65535
   store i32 %38, ptr %4, align 4, !tbaa !32

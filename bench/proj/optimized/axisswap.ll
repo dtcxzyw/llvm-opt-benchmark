@@ -243,10 +243,10 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
   br label %.thread
 
 83:                                               ; preds = %72, %75, %76, %77, %78, %79
-  %.sink206 = phi i32 [ 1, %75 ], [ -1, %76 ], [ 1, %77 ], [ -1, %78 ], [ 1, %79 ], [ -1, %72 ]
+  %.sink210 = phi i32 [ 1, %75 ], [ -1, %76 ], [ 1, %77 ], [ -1, %78 ], [ 1, %79 ], [ -1, %72 ]
   %.sink = phi i32 [ 0, %75 ], [ 1, %76 ], [ 1, %77 ], [ 2, %78 ], [ 2, %79 ], [ 0, %72 ]
   %84 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %indvars.iv186
-  store i32 %.sink206, ptr %84, align 4, !tbaa !42
+  store i32 %.sink210, ptr %84, align 4, !tbaa !42
   %85 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %indvars.iv186
   store i32 %.sink, ptr %85, align 4, !tbaa !42
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
@@ -344,13 +344,13 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
   br i1 %125, label %.sink.split, label %128
 
 .sink.split:                                      ; preds = %.thread156, %119, %106, %98
-  %.sink211 = phi i64 [ 136, %98 ], [ 120, %106 ], [ 136, %119 ], [ 104, %.thread156 ]
+  %.sink215 = phi i64 [ 136, %98 ], [ 120, %106 ], [ 136, %119 ], [ 104, %.thread156 ]
   %_ZL22pj_axisswap_forward_3d6PJ_LPZP8PJconsts.sink = phi ptr [ @_ZL22pj_axisswap_forward_4dR8PJ_COORDP8PJconsts, %98 ], [ @_ZL22pj_axisswap_forward_3d6PJ_LPZP8PJconsts, %106 ], [ @_ZL10swap_xy_4dR8PJ_COORDP8PJconsts, %119 ], [ @_ZL22pj_axisswap_forward_2d5PJ_LPP8PJconsts, %.thread156 ]
-  %.sink209 = phi i64 [ 144, %98 ], [ 128, %106 ], [ 144, %119 ], [ 112, %.thread156 ]
+  %.sink213 = phi i64 [ 144, %98 ], [ 128, %106 ], [ 144, %119 ], [ 112, %.thread156 ]
   %_ZL22pj_axisswap_reverse_3d6PJ_XYZP8PJconsts.sink = phi ptr [ @_ZL22pj_axisswap_reverse_4dR8PJ_COORDP8PJconsts, %98 ], [ @_ZL22pj_axisswap_reverse_3d6PJ_XYZP8PJconsts, %106 ], [ @_ZL10swap_xy_4dR8PJ_COORDP8PJconsts, %119 ], [ @_ZL22pj_axisswap_reverse_2d5PJ_XYP8PJconsts, %.thread156 ]
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink211
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink215
   store ptr %_ZL22pj_axisswap_forward_3d6PJ_LPZP8PJconsts.sink, ptr %126, align 8, !tbaa !53
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink209
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink213
   store ptr %_ZL22pj_axisswap_reverse_3d6PJ_XYZP8PJconsts.sink, ptr %127, align 8, !tbaa !53
   br label %128
 
@@ -383,11 +383,11 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
   %145 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %143, ptr noundef %144, ptr noundef nonnull @.str.10)
   %146 = and i64 %145, 4294967295
   %.not151 = icmp eq i64 %146, 0
-  %spec.select212 = select i1 %.not151, i32 0, i32 4
+  %spec.select216 = select i1 %.not151, i32 0, i32 4
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 380
-  store i32 %spec.select212, ptr %147, align 4, !tbaa !38
+  store i32 %spec.select216, ptr %147, align 4, !tbaa !38
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  store i32 %spec.select212, ptr %148, align 8, !tbaa !39
+  store i32 %spec.select216, ptr %148, align 8, !tbaa !39
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 364
   store i32 1, ptr %149, align 4, !tbaa !57
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 368

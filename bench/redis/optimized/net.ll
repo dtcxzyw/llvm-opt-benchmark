@@ -736,8 +736,8 @@ redisContextTimeoutMsec.exit:                     ; preds = %42, %46
   %71 = and i32 %69, 4096
   %.not111 = icmp eq i32 %71, 0
   %. = select i1 %.not111, i32 2, i32 10
-  %.sink206 = select i1 %or.cond129.not, i32 0, i32 %.
-  store i32 %.sink206, ptr %67, align 4, !tbaa !44
+  %.sink224 = select i1 %or.cond129.not, i32 0, i32 %.
+  store i32 %.sink224, ptr %67, align 4, !tbaa !44
   %72 = load ptr, ptr %19, align 8, !tbaa !35
   %73 = call i32 @getaddrinfo(ptr noundef %72, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #10
   %74 = icmp ne i32 %73, 0

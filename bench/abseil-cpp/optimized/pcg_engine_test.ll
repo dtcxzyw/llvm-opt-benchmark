@@ -5464,8 +5464,8 @@ define linkonce_odr dso_local void @_ZNSt8seed_seqC2IivEESt16initializer_listIT_
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not16 = icmp eq i64 %2, 0
-  br i1 %.not16, label %._crit_edge, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
+  %.not22 = icmp eq i64 %2, 0
+  br i1 %.not22, label %._crit_edge, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %6
   %8 = shl nuw nsw i64 %2, 2
@@ -5610,8 +5610,8 @@ define linkonce_odr dso_local void @_ZNSt8seed_seqC2IjvEESt16initializer_listIT_
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not16 = icmp eq i64 %2, 0
-  br i1 %.not16, label %._crit_edge, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
+  %.not22 = icmp eq i64 %2, 0
+  br i1 %.not22, label %._crit_edge, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %6
   %8 = shl nuw nsw i64 %2, 2
@@ -8509,8 +8509,8 @@ define internal void @_ZN12_GLOBAL__N_132PCGEngineTest_VerifyDiscard_TestIN4absl
   br i1 %.not.i.i, label %_ZN4absl15random_internal10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EE7discardEm.exit, label %.lr.ph.i.i, !llvm.loop !179
 
 _ZN4absl15random_internal10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EE7discardEm.exit: ; preds = %22, %.preheader
-  %.sroa.090.0.lcssa147 = phi i64 [ %.sroa.095.0.lcssa, %.preheader ], [ %.sroa.0.0.extract.trunc.i17.i.i49, %22 ]
-  %.sroa.891.0.lcssa146 = phi i64 [ %.sroa.898.0.lcssa, %.preheader ], [ %.narrow.i.i.i51, %22 ]
+  %.sroa.090.0.lcssa165 = phi i64 [ %.sroa.095.0.lcssa, %.preheader ], [ %.sroa.0.0.extract.trunc.i17.i.i49, %22 ]
+  %.sroa.891.0.lcssa164 = phi i64 [ %.sroa.898.0.lcssa, %.preheader ], [ %.narrow.i.i.i51, %22 ]
   %.sroa.6.0119.lcssa.i.i = phi i64 [ 0, %.preheader ], [ %.sroa.6.1120.i.i, %22 ]
   %.sroa.0112.0.lcssa.i.i = phi i64 [ 1, %.preheader ], [ %.sroa.0112.1.i.i, %22 ]
   %.sroa.6.0.lcssa.i.i = phi i64 [ 0, %.preheader ], [ %.sroa.6.1.i.i, %22 ]
@@ -8550,8 +8550,8 @@ _ZN4absl15random_internal10pcg_engineINS0_13pcg128_paramsILm2549297995355413924E
   %.023130 = phi i64 [ 0, %_ZN4absl15random_internal10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EE7discardEm.exit ], [ %133, %132 ]
   %.sroa.0.0129 = phi i64 [ %.sroa.0.0.extract.trunc.i107.i.i, %_ZN4absl15random_internal10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EE7discardEm.exit ], [ %.sroa.0.0.extract.trunc.i17.i.i73, %132 ]
   %.sroa.8.0128 = phi i64 [ %.narrow.i109.i.i, %_ZN4absl15random_internal10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EE7discardEm.exit ], [ %.narrow.i.i.i75, %132 ]
-  %.sroa.090.1127 = phi i64 [ %.sroa.090.0.lcssa147, %_ZN4absl15random_internal10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EE7discardEm.exit ], [ %.sroa.0.0.extract.trunc.i17.i.i61, %132 ]
-  %.sroa.891.1126 = phi i64 [ %.sroa.891.0.lcssa146, %_ZN4absl15random_internal10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EE7discardEm.exit ], [ %.narrow.i.i.i63, %132 ]
+  %.sroa.090.1127 = phi i64 [ %.sroa.090.0.lcssa165, %_ZN4absl15random_internal10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EE7discardEm.exit ], [ %.sroa.0.0.extract.trunc.i17.i.i61, %132 ]
+  %.sroa.891.1126 = phi i64 [ %.sroa.891.0.lcssa164, %_ZN4absl15random_internal10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EE7discardEm.exit ], [ %.narrow.i.i.i63, %132 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.24.0.insert.ext.i.i.i56 = zext i64 %.sroa.891.1126 to i128
   %.sroa.24.0.insert.shift.i.i.i57 = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i56, 64
@@ -8990,7 +8990,7 @@ define internal void @_ZN12_GLOBAL__N_132PCGEngineTest_VerifyDiscard_TestIN4absl
   br i1 %.not.i.i, label %_ZN4absl15random_internal10pcg_engineINS0_12pcg64_paramsILm6364136223846793005ELm1442695040888963407EEENS0_16pcg_xsh_rr_64_32EE7discardEm.exit, label %.lr.ph.i.i, !llvm.loop !188
 
 _ZN4absl15random_internal10pcg_engineINS0_12pcg64_paramsILm6364136223846793005ELm1442695040888963407EEENS0_16pcg_xsh_rr_64_32EE7discardEm.exit: ; preds = %22, %.preheader
-  %.sroa.048.0.lcssa93 = phi i64 [ %.sroa.052.0.lcssa, %.preheader ], [ %30, %22 ]
+  %.sroa.048.0.lcssa111 = phi i64 [ %.sroa.052.0.lcssa, %.preheader ], [ %30, %22 ]
   %.015.lcssa.i.i = phi i64 [ 1, %.preheader ], [ %.116.i.i, %22 ]
   %.0.lcssa.i.i = phi i64 [ 0, %.preheader ], [ %.1.i.i, %22 ]
   %27 = mul i64 %.015.lcssa.i.i, %.sroa.052.0.lcssa
@@ -9009,7 +9009,7 @@ _ZN4absl15random_internal10pcg_engineINS0_12pcg64_paramsILm6364136223846793005EL
 32:                                               ; preds = %_ZN4absl15random_internal10pcg_engineINS0_12pcg64_paramsILm6364136223846793005ELm1442695040888963407EEENS0_16pcg_xsh_rr_64_32EE7discardEm.exit, %143
   %.02377 = phi i64 [ 0, %_ZN4absl15random_internal10pcg_engineINS0_12pcg64_paramsILm6364136223846793005ELm1442695040888963407EEENS0_16pcg_xsh_rr_64_32EE7discardEm.exit ], [ %144, %143 ]
   %.sroa.0.076 = phi i64 [ %28, %_ZN4absl15random_internal10pcg_engineINS0_12pcg64_paramsILm6364136223846793005ELm1442695040888963407EEENS0_16pcg_xsh_rr_64_32EE7discardEm.exit ], [ %43, %143 ]
-  %.sroa.048.175 = phi i64 [ %.sroa.048.0.lcssa93, %_ZN4absl15random_internal10pcg_engineINS0_12pcg64_paramsILm6364136223846793005ELm1442695040888963407EEENS0_16pcg_xsh_rr_64_32EE7discardEm.exit ], [ %34, %143 ]
+  %.sroa.048.175 = phi i64 [ %.sroa.048.0.lcssa111, %_ZN4absl15random_internal10pcg_engineINS0_12pcg64_paramsILm6364136223846793005ELm1442695040888963407EEENS0_16pcg_xsh_rr_64_32EE7discardEm.exit ], [ %34, %143 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %33 = mul i64 %.sroa.048.175, 6364136223846793005
   %34 = add i64 %33, 1442695040888963407

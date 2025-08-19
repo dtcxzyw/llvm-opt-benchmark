@@ -1294,7 +1294,7 @@ define ptr @JNU_NewStringPlatform(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %44, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %43, %28
-  %.02127.i.i = phi ptr [ %6, %43 ], [ %31, %28 ]
+  %.02129.i.i = phi ptr [ %6, %43 ], [ %31, %28 ]
   %wide.trip.count.i.i = and i64 %20, 4294967295
   br label %.lr.ph.i.i
 
@@ -1303,23 +1303,23 @@ define ptr @JNU_NewStringPlatform(ptr noundef %0, ptr noundef %1) local_unnamed_
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i16
-  %48 = getelementptr inbounds nuw i16, ptr %.02127.i.i, i64 %indvars.iv.i.i
+  %48 = getelementptr inbounds nuw i16, ptr %.02129.i.i, i64 %indvars.iv.i.i
   store i16 %47, ptr %48, align 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %43
-  %.02128.i.i = phi ptr [ %6, %43 ], [ %.02127.i.i, %.lr.ph.i.i ]
+  %.02130.i.i = phi ptr [ %6, %43 ], [ %.02129.i.i, %.lr.ph.i.i ]
   %49 = load ptr, ptr %0, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 1304
   %51 = load ptr, ptr %50, align 8
-  %52 = call ptr %51(ptr noundef nonnull %0, ptr noundef nonnull %.02128.i.i, i32 noundef %19) #10
-  %.not.i.i = icmp eq ptr %.02128.i.i, %6
+  %52 = call ptr %51(ptr noundef nonnull %0, ptr noundef nonnull %.02130.i.i, i32 noundef %19) #10
+  %.not.i.i = icmp eq ptr %.02130.i.i, %6
   br i1 %.not.i.i, label %newSizedString8859_1.exit.i, label %53
 
 53:                                               ; preds = %._crit_edge.i.i
-  call void @free(ptr noundef nonnull %.02128.i.i) #10
+  call void @free(ptr noundef nonnull %.02130.i.i) #10
   br label %newSizedString8859_1.exit.i
 
 newSizedString8859_1.exit.i:                      ; preds = %53, %._crit_edge.i.i, %38, %33, %._crit_edge.thread.i
@@ -1374,7 +1374,7 @@ newSizedString8859_1.exit.i:                      ; preds = %53, %._crit_edge.i.
   br i1 %82, label %.lr.ph.preheader.i.i18, label %._crit_edge.i.i13
 
 .lr.ph.preheader.i.i18:                           ; preds = %81, %66
-  %.02127.i.i19 = phi ptr [ %5, %81 ], [ %69, %66 ]
+  %.02129.i.i19 = phi ptr [ %5, %81 ], [ %69, %66 ]
   %wide.trip.count.i.i20 = and i64 %57, 4294967295
   br label %.lr.ph.i.i21
 
@@ -1383,23 +1383,23 @@ newSizedString8859_1.exit.i:                      ; preds = %53, %._crit_edge.i.
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i22
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i16
-  %86 = getelementptr inbounds nuw i16, ptr %.02127.i.i19, i64 %indvars.iv.i.i22
+  %86 = getelementptr inbounds nuw i16, ptr %.02129.i.i19, i64 %indvars.iv.i.i22
   store i16 %85, ptr %86, align 2
   %indvars.iv.next.i.i23 = add nuw nsw i64 %indvars.iv.i.i22, 1
   %exitcond.not.i.i24 = icmp eq i64 %indvars.iv.next.i.i23, %wide.trip.count.i.i20
   br i1 %exitcond.not.i.i24, label %._crit_edge.i.i13, label %.lr.ph.i.i21, !llvm.loop !10
 
 ._crit_edge.i.i13:                                ; preds = %.lr.ph.i.i21, %81
-  %.02128.i.i14 = phi ptr [ %5, %81 ], [ %.02127.i.i19, %.lr.ph.i.i21 ]
+  %.02130.i.i14 = phi ptr [ %5, %81 ], [ %.02129.i.i19, %.lr.ph.i.i21 ]
   %87 = load ptr, ptr %0, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1304
   %89 = load ptr, ptr %88, align 8
-  %90 = call ptr %89(ptr noundef nonnull %0, ptr noundef nonnull %.02128.i.i14, i32 noundef %58) #10
-  %.not.i.i15 = icmp eq ptr %.02128.i.i14, %5
+  %90 = call ptr %89(ptr noundef nonnull %0, ptr noundef nonnull %.02130.i.i14, i32 noundef %58) #10
+  %.not.i.i15 = icmp eq ptr %.02130.i.i14, %5
   br i1 %.not.i.i15, label %newString8859_1.exit, label %91
 
 91:                                               ; preds = %._crit_edge.i.i13
-  call void @free(ptr noundef nonnull %.02128.i.i14) #10
+  call void @free(ptr noundef nonnull %.02130.i.i14) #10
   br label %newString8859_1.exit
 
 newString8859_1.exit:                             ; preds = %56, %71, %76, %._crit_edge.i.i13, %91
@@ -1450,7 +1450,7 @@ newString8859_1.exit:                             ; preds = %56, %71, %76, %._cr
   br i1 %118, label %.lr.ph.preheader.i, label %._crit_edge.i26
 
 .lr.ph.preheader.i:                               ; preds = %117, %102
-  %.02633.i = phi ptr [ %4, %117 ], [ %105, %102 ]
+  %.02637.i = phi ptr [ %4, %117 ], [ %105, %102 ]
   %wide.trip.count.i = and i64 %93, 2147483647
   br label %.lr.ph.i28
 
@@ -1461,23 +1461,23 @@ newString8859_1.exit:                             ; preds = %56, %71, %76, %._cr
   %121 = icmp sgt i8 %120, -1
   %narrow.i = select i1 %121, i8 %120, i8 63
   %spec.select.i = zext i8 %narrow.i to i16
-  %122 = getelementptr inbounds nuw i16, ptr %.02633.i, i64 %indvars.iv.i
+  %122 = getelementptr inbounds nuw i16, ptr %.02637.i, i64 %indvars.iv.i
   store i16 %spec.select.i, ptr %122, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i26, label %.lr.ph.i28, !llvm.loop !11
 
 ._crit_edge.i26:                                  ; preds = %.lr.ph.i28, %117
-  %.02632.i = phi ptr [ %4, %117 ], [ %.02633.i, %.lr.ph.i28 ]
+  %.02636.i = phi ptr [ %4, %117 ], [ %.02637.i, %.lr.ph.i28 ]
   %123 = load ptr, ptr %0, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 1304
   %125 = load ptr, ptr %124, align 8
-  %126 = call ptr %125(ptr noundef nonnull %0, ptr noundef nonnull %.02632.i, i32 noundef %94) #10
-  %.not.i27 = icmp eq ptr %.02632.i, %4
+  %126 = call ptr %125(ptr noundef nonnull %0, ptr noundef nonnull %.02636.i, i32 noundef %94) #10
+  %.not.i27 = icmp eq ptr %.02636.i, %4
   br i1 %.not.i27, label %newString646_US.exit, label %127
 
 127:                                              ; preds = %._crit_edge.i26
-  call void @free(ptr noundef nonnull %.02632.i) #10
+  call void @free(ptr noundef nonnull %.02636.i) #10
   br label %newString646_US.exit
 
 newString646_US.exit:                             ; preds = %92, %107, %112, %._crit_edge.i26, %127
@@ -1528,7 +1528,7 @@ newString646_US.exit:                             ; preds = %92, %107, %112, %._
   br i1 %154, label %.lr.ph.preheader.i32, label %._crit_edge.i29
 
 .lr.ph.preheader.i32:                             ; preds = %153, %138
-  %.03038.i = phi ptr [ %3, %153 ], [ %141, %138 ]
+  %.03042.i = phi ptr [ %3, %153 ], [ %141, %138 ]
   %wide.trip.count.i33 = and i64 %129, 2147483647
   br label %.lr.ph.i34
 
@@ -1553,23 +1553,23 @@ newString646_US.exit:                             ; preds = %92, %107, %112, %._
 
 165:                                              ; preds = %163, %157
   %.sink.i = phi i16 [ %162, %157 ], [ %164, %163 ]
-  %166 = getelementptr inbounds nuw i16, ptr %.03038.i, i64 %indvars.iv.i35
+  %166 = getelementptr inbounds nuw i16, ptr %.03042.i, i64 %indvars.iv.i35
   store i16 %.sink.i, ptr %166, align 2
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, %wide.trip.count.i33
   br i1 %exitcond.not.i37, label %._crit_edge.i29, label %.lr.ph.i34, !llvm.loop !12
 
 ._crit_edge.i29:                                  ; preds = %165, %153
-  %.03037.i = phi ptr [ %3, %153 ], [ %.03038.i, %165 ]
+  %.03041.i = phi ptr [ %3, %153 ], [ %.03042.i, %165 ]
   %167 = load ptr, ptr %0, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 1304
   %169 = load ptr, ptr %168, align 8
-  %170 = call ptr %169(ptr noundef nonnull %0, ptr noundef nonnull %.03037.i, i32 noundef %130) #10
-  %.not.i30 = icmp eq ptr %.03037.i, %3
+  %170 = call ptr %169(ptr noundef nonnull %0, ptr noundef nonnull %.03041.i, i32 noundef %130) #10
+  %.not.i30 = icmp eq ptr %.03041.i, %3
   br i1 %.not.i30, label %newStringCp1252.exit, label %171
 
 171:                                              ; preds = %._crit_edge.i29
-  call void @free(ptr noundef nonnull %.03037.i) #10
+  call void @free(ptr noundef nonnull %.03041.i) #10
   br label %newStringCp1252.exit
 
 newStringCp1252.exit:                             ; preds = %128, %143, %148, %._crit_edge.i29, %171
@@ -1903,9 +1903,9 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
 150:                                              ; preds = %.lr.ph.split.i24
   %151 = icmp ult i16 %135, 256
   %152 = trunc nuw i16 %135 to i8
-  %spec.select63.i = select i1 %151, i8 %152, i8 63
+  %spec.select70.i = select i1 %151, i8 %152, i8 63
   %153 = getelementptr inbounds nuw i8, ptr %115, i64 %indvars.iv.i25
-  store i8 %spec.select63.i, ptr %153, align 1
+  store i8 %spec.select70.i, ptr %153, align 1
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, %wide.trip.count59.i
   br i1 %exitcond.not.i27, label %._crit_edge.i28, label %.lr.ph.split.i24, !llvm.loop !15
@@ -2015,9 +2015,9 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
 208:                                              ; preds = %.lr.ph.split.i40
   %209 = icmp ult i16 %193, 128
   %210 = trunc nuw nsw i16 %193 to i8
-  %spec.select63.i42 = select i1 %209, i8 %210, i8 63
+  %spec.select70.i42 = select i1 %209, i8 %210, i8 63
   %211 = getelementptr inbounds nuw i8, ptr %173, i64 %indvars.iv.i41
-  store i8 %spec.select63.i42, ptr %211, align 1
+  store i8 %spec.select70.i42, ptr %211, align 1
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, %wide.trip.count59.i39
   br i1 %exitcond.not.i44, label %._crit_edge.i45, label %.lr.ph.split.i40, !llvm.loop !16

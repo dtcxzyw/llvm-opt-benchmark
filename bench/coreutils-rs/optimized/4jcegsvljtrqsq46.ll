@@ -830,9 +830,9 @@ common.resume:                                    ; preds = %21, %24
   br label %52
 
 52:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he3e42d29207d138bE.exit", %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h6a650d4252cb6caaE.exit"
-  %.sink44 = phi i64 [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he3e42d29207d138bE.exit" ], [ %.sroa.7.8.copyload, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h6a650d4252cb6caaE.exit" ]
+  %.sink46 = phi i64 [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he3e42d29207d138bE.exit" ], [ %.sroa.7.8.copyload, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h6a650d4252cb6caaE.exit" ]
   %53 = load i64, ptr %18, align 8, !noundef !5
-  %54 = add i64 %53, %.sink44
+  %54 = add i64 %53, %.sink46
   store i64 %54, ptr %18, align 8
   %55 = load ptr, ptr %.sroa.628.0..sroa_idx, align 8, !alias.scope !145, !noalias !134, !nonnull !5, !noundef !5
   %56 = load ptr, ptr %.sroa.425.0..sroa_idx, align 8, !alias.scope !145, !noalias !134, !nonnull !5, !noundef !5

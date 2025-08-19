@@ -547,12 +547,12 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_inotify_
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %35, %45, %176
-  %.ph14 = phi i32 [ %163, %176 ], [ %43, %35 ], [ %46, %45 ]
+  %.ph24 = phi i32 [ %163, %176 ], [ %43, %35 ], [ %46, %45 ]
   call void @path_put(ptr noundef nonnull %4) #10
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %24, %20, %17
-  %177 = phi i32 [ -22, %17 ], [ -22, %20 ], [ %33, %24 ], [ %.ph14, %.thread.sink.split ]
+  %177 = phi i32 [ -22, %17 ], [ -22, %20 ], [ %33, %24 ], [ %.ph24, %.thread.sink.split ]
   %178 = and i64 %13, 1
   %179 = icmp eq i64 %178, 0
   br i1 %179, label %181, label %180
@@ -755,7 +755,7 @@ define internal fastcc i32 @do_inotify_init(i32 noundef %0) unnamed_addr #0 alig
   %5 = load i32, ptr @inotify_max_queued_events, align 4
   %6 = tail call ptr @fsnotify_alloc_group(ptr noundef nonnull @inotify_fsnotify_ops, i32 noundef 1) #10
   %7 = icmp ugt ptr %6, inttoptr (i64 -4096 to ptr)
-  br i1 %7, label %.thread6, label %8
+  br i1 %7, label %.thread9, label %8
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
@@ -804,9 +804,9 @@ define internal fastcc i32 @do_inotify_init(i32 noundef %0) unnamed_addr #0 alig
 .thread:                                          ; preds = %8, %12
   %34 = phi ptr [ inttoptr (i64 -12 to ptr), %8 ], [ inttoptr (i64 -24 to ptr), %12 ]
   tail call void @fsnotify_destroy_group(ptr noundef %6) #10
-  br label %.thread6
+  br label %.thread9
 
-.thread6:                                         ; preds = %4, %.thread
+.thread9:                                         ; preds = %4, %.thread
   %35 = phi ptr [ %34, %.thread ], [ %6, %4 ]
   %36 = ptrtoint ptr %35 to i64
   %37 = trunc i64 %36 to i32
@@ -821,8 +821,8 @@ define internal fastcc i32 @do_inotify_init(i32 noundef %0) unnamed_addr #0 alig
   tail call void @fsnotify_destroy_group(ptr noundef %6) #10
   br label %42
 
-42:                                               ; preds = %41, %38, %.thread6, %1
-  %43 = phi i32 [ %37, %.thread6 ], [ -22, %1 ], [ %39, %41 ], [ %39, %38 ]
+42:                                               ; preds = %41, %38, %.thread9, %1
+  %43 = phi i32 [ %37, %.thread9 ], [ -22, %1 ], [ %39, %41 ], [ %39, %38 ]
   ret i32 %43
 }
 

@@ -2396,16 +2396,16 @@ _ZNSt16allocator_traitsISaIN7rocksdb22ColumnFamilyDescriptorEEE8allocateERS2_m.e
           cleanup
   %33 = load ptr, ptr %8, align 8, !tbaa !100, !noalias !94
   %.not.i7.i = icmp eq ptr %33, null
-  br i1 %.not.i7.i, label %.body.thread36, label %_ZNKSt14default_deleteIN7rocksdb2DBEEclEPS1_.exit.i8.i
+  br i1 %.not.i7.i, label %.body.thread51, label %_ZNKSt14default_deleteIN7rocksdb2DBEEclEPS1_.exit.i8.i
 
 _ZNKSt14default_deleteIN7rocksdb2DBEEclEPS1_.exit.i8.i: ; preds = %31
   %34 = load ptr, ptr %33, align 8, !tbaa !49
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
   call void %36(ptr noundef nonnull align 8 dereferenceable(8) %33) #24
-  br label %.body.thread36
+  br label %.body.thread51
 
-.body.thread36:                                   ; preds = %31, %_ZNKSt14default_deleteIN7rocksdb2DBEEclEPS1_.exit.i8.i
+.body.thread51:                                   ; preds = %31, %_ZNKSt14default_deleteIN7rocksdb2DBEEclEPS1_.exit.i8.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !94
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #24
@@ -2589,10 +2589,10 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   call void @_ZdaPv(ptr noundef nonnull %72) #22
   br label %_ZN7rocksdb6StatusD2Ev.exit26
 
-_ZN7rocksdb6StatusD2Ev.exit26:                    ; preds = %.body.thread36, %.body.thread, %.body, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i25
-  %.pn.pn35 = phi { ptr, i32 } [ %.pn.pn.ph, %.body.thread ], [ %.pn, %.body ], [ %.pn, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i25 ], [ %32, %.body.thread36 ]
+_ZN7rocksdb6StatusD2Ev.exit26:                    ; preds = %.body.thread51, %.body.thread, %.body, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i25
+  %.pn.pn50 = phi { ptr, i32 } [ %.pn.pn.ph, %.body.thread ], [ %.pn, %.body ], [ %.pn, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i25 ], [ %32, %.body.thread51 ]
   store ptr null, ptr %11, align 8, !tbaa !141
-  resume { ptr, i32 } %.pn.pn35
+  resume { ptr, i32 } %.pn.pn50
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

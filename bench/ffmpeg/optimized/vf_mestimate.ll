@@ -919,10 +919,10 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %thread-pre-split.sink.split
 
 thread-pre-split.sink.split:                      ; preds = %441, %432
-  %.sink778 = phi i64 [ %436, %432 ], [ %448, %441 ]
+  %.sink871 = phi i64 [ %436, %432 ], [ %448, %441 ]
   %.sink.in = phi ptr [ %439, %432 ], [ %450, %441 ]
   %.sink = load i32, ptr %.sink.in, align 4, !tbaa !52
-  %.idx559 = shl nuw nsw i64 %.sink778, 3
+  %.idx559 = shl nuw nsw i64 %.sink871, 3
   %451 = getelementptr i8, ptr %73, i64 %.idx559
   %452 = getelementptr i8, ptr %451, i64 4
   store i32 %.sink, ptr %452, align 4, !tbaa !52

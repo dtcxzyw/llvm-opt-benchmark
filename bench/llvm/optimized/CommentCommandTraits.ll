@@ -2633,7 +2633,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %21, %19
 
 34:                                               ; preds = %._crit_edge50, %.thread
   %35 = phi i32 [ 0, %.thread ], [ %.pre, %._crit_edge50 ]
-  %.341 = phi i32 [ %30, %.thread ], [ %.03945, %._crit_edge50 ]
+  %.341 = phi i32 [ 0, %.thread ], [ %.03945, %._crit_edge50 ]
   %36 = load i32, ptr %11, align 4, !tbaa !20
   %.not.i.i.not.i.i = icmp ult i32 %35, %36
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments11CommandInfoELb1EE9push_backES5_.exit.i, label %37, !prof !38
@@ -2717,7 +2717,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i20:                ; preds = %55, %53
 
 68:                                               ; preds = %._crit_edge51, %.thread42
   %69 = phi i32 [ 0, %.thread42 ], [ %.pre52, %._crit_edge51 ]
-  %.544 = phi i32 [ %64, %.thread42 ], [ %.148, %._crit_edge51 ]
+  %.544 = phi i32 [ 0, %.thread42 ], [ %.148, %._crit_edge51 ]
   %70 = load i32, ptr %11, align 4, !tbaa !20
   %.not.i.i.not.i.i22 = icmp ult i32 %69, %70
   br i1 %.not.i.i.not.i.i22, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments11CommandInfoELb1EE9push_backES5_.exit.i24, label %71, !prof !38

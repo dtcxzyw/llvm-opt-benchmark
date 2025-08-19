@@ -2319,11 +2319,11 @@ define hidden void @compute_curve_lut(ptr noundef readonly captures(none) %0, pt
   br i1 %.not267, label %137, label %.sink.split
 
 .sink.split:                                      ; preds = %.thread297, %131, %130, %115
-  %.sink335 = phi float [ %84, %115 ], [ 0.000000e+00, %130 ], [ 0.000000e+00, %131 ], [ %84, %.thread297 ]
+  %.sink351 = phi float [ %84, %115 ], [ 0.000000e+00, %130 ], [ 0.000000e+00, %131 ], [ %84, %.thread297 ]
   %.sink = phi float [ 1.000000e+00, %115 ], [ %88, %130 ], [ 1.000000e+00, %131 ], [ %88, %.thread297 ]
   %wide.trip.count317.ph = phi i64 [ 4, %115 ], [ 4, %130 ], [ 3, %131 ], [ 4, %.thread297 ]
   %135 = getelementptr inbounds nuw i8, ptr %4, i64 786468
-  store float %.sink335, ptr %135, align 4, !tbaa !172
+  store float %.sink351, ptr %135, align 4, !tbaa !172
   %136 = getelementptr inbounds nuw i8, ptr %4, i64 786472
   store float %.sink, ptr %136, align 4, !tbaa !173
   br label %137

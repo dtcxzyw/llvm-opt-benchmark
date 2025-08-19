@@ -145,9 +145,9 @@ define noalias ptr @cli_getdsig(ptr noundef %0, ptr noundef %1, ptr noundef read
   %49 = sub nsw i64 128, %48
   %switch.selectcmp = icmp eq i16 %4, 2
   %switch.select = select i1 %switch.selectcmp, ptr @.str.12, ptr @.str.13
-  %switch.selectcmp37 = icmp eq i16 %4, 1
-  %switch.select38 = select i1 %switch.selectcmp37, ptr @.str.11, ptr %switch.select
-  %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %7, i64 noundef %49, ptr noundef nonnull %switch.select38, ptr noundef %1, ptr noundef nonnull %8) #15
+  %switch.selectcmp39 = icmp eq i16 %4, 1
+  %switch.select40 = select i1 %switch.selectcmp39, ptr @.str.11, ptr %switch.select
+  %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %7, i64 noundef %49, ptr noundef nonnull %switch.select40, ptr noundef %1, ptr noundef nonnull %8) #15
   %51 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #17
   %52 = trunc i64 %51 to i32
   %sext = shl i64 %51, 32
@@ -572,18 +572,18 @@ define range(i32 0, 21) i32 @cli_versig2(ptr noundef readonly captures(none) %0,
   store i8 0, ptr %34, align 1, !tbaa !3
   store i8 0, ptr %35, align 1, !tbaa !3
   %36 = call ptr @cl_hash_init(ptr noundef nonnull @.str.26) #15
-  %.not5162 = icmp eq ptr %36, null
-  br i1 %.not5162, label %.loopexit, label %.lr.ph
+  %.not5166 = icmp eq ptr %36, null
+  br i1 %.not5166, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29, %44
   %37 = phi ptr [ %46, %44 ], [ %36, %29 ]
-  %indvars.iv63 = phi i64 [ %indvars.iv.next, %44 ], [ 0, %29 ]
+  %indvars.iv67 = phi i64 [ %indvars.iv.next, %44 ], [ 0, %29 ]
   %38 = call i32 @cl_update_hash(ptr noundef nonnull %37, ptr noundef nonnull %6, i64 noundef 32) #15
   %39 = call i32 @cl_update_hash(ptr noundef nonnull %37, ptr noundef nonnull %11, i64 noundef 4) #15
   %40 = call i32 @cl_finish_hash(ptr noundef nonnull %37, ptr noundef nonnull %7) #15
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv63, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv67, 1
   %41 = icmp eq i64 %indvars.iv.next, 7
-  %42 = shl nuw nsw i64 %indvars.iv63, 5
+  %42 = shl nuw nsw i64 %indvars.iv67, 5
   %43 = getelementptr inbounds nuw [223 x i8], ptr %9, i64 0, i64 %42
   br i1 %41, label %.preheader.preheader, label %44
 

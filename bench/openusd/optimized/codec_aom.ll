@@ -411,8 +411,8 @@ define internal range(i32 0, 2) i32 @aomCodecGetNextImage(ptr noundef readonly c
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %152, %186
-  %.sink144 = phi i64 [ 76, %186 ], [ 60, %152 ]
-  %223 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink144
+  %.sink148 = phi i64 [ 76, %186 ], [ 60, %152 ]
+  %223 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink148
   store i32 0, ptr %223, align 4
   br label %.loopexit
 

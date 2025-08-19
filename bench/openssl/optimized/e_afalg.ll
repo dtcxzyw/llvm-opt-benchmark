@@ -651,19 +651,19 @@ define internal range(i32 0, 2) i32 @afalg_cipher_init(ptr noundef %0, ptr nound
   br i1 %48, label %ERR_AFALG_error.exit.sink.split.i, label %ERR_AFALG_error.exit.i
 
 ERR_AFALG_error.exit.sink.split.i:                ; preds = %44, %35, %27
-  %.sink2.ph.i = phi i32 [ 109, %27 ], [ 103, %35 ], [ 110, %44 ]
+  %.sink5.ph.i = phi i32 [ 109, %27 ], [ 103, %35 ], [ 110, %44 ]
   %.sink.ph.i = phi i32 [ 456, %27 ], [ 463, %35 ], [ 470, %44 ]
   %49 = call i32 @ERR_get_next_error_library() #13
   store i32 %49, ptr @lib_code, align 4, !tbaa !12
   br label %ERR_AFALG_error.exit.i
 
 ERR_AFALG_error.exit.i:                           ; preds = %ERR_AFALG_error.exit.sink.split.i, %44, %35, %27
-  %.sink2.i = phi i32 [ 109, %27 ], [ 103, %35 ], [ 110, %44 ], [ %.sink2.ph.i, %ERR_AFALG_error.exit.sink.split.i ]
+  %.sink5.i = phi i32 [ 109, %27 ], [ 103, %35 ], [ 110, %44 ], [ %.sink5.ph.i, %ERR_AFALG_error.exit.sink.split.i ]
   %.sink.i = phi i32 [ 456, %27 ], [ 463, %35 ], [ 470, %44 ], [ %.sink.ph.i, %ERR_AFALG_error.exit.sink.split.i ]
   call void @ERR_new() #13
   call void @ERR_set_debug(ptr noundef nonnull @.str.5, i32 noundef 70, ptr noundef nonnull @__func__.ERR_AFALG_error) #13
   %50 = load i32, ptr @lib_code, align 4, !tbaa !12
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef %50, i32 noundef %.sink2.i, ptr noundef null) #13
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef %50, i32 noundef %.sink5.i, ptr noundef null) #13
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink.i, ptr noundef null) #13
   %51 = load i32, ptr %20, align 8, !tbaa !31
   %52 = icmp sgt i32 %51, -1

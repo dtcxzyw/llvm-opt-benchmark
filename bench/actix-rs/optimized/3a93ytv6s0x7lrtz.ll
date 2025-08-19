@@ -728,14 +728,14 @@ define internal void @"_ZN90_$LT$actix_multipart..form..bytes..Bytes$u20$as$u20$
   %16 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %18 = load i8, ptr %17, align 8, !range !55, !noundef !9
-  switch i8 %18, label %default.unreachable179 [
+  switch i8 %18, label %default.unreachable183 [
     i8 0, label %19
     i8 1, label %40
     i8 2, label %41
     i8 3, label %22
   ]
 
-default.unreachable179:                           ; preds = %3
+default.unreachable183:                           ; preds = %3
   unreachable
 
 19:                                               ; preds = %3

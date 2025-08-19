@@ -260,7 +260,7 @@ define dso_local void @_ZN4Fact26abstract_fact_for_var_initEPK8Variable(ptr dead
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %22 = load i8, ptr %21, align 8, !tbaa !103, !range !104, !noundef !105
   %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %24, label %.loopexit62
+  br i1 %23, label %24, label %.loopexit78
 
 24:                                               ; preds = %20
   %25 = call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTI8Variable, ptr nonnull @_ZTI13ArrayVariable, i64 0) #22
@@ -269,7 +269,7 @@ define dso_local void @_ZN4Fact26abstract_fact_for_var_initEPK8Variable(ptr dead
   %28 = load ptr, ptr %27, align 8, !tbaa !106
   %29 = load ptr, ptr %26, align 8, !tbaa !109
   %.not = icmp eq ptr %28, %29
-  br i1 %.not, label %.loopexit62, label %.lr.ph
+  br i1 %.not, label %.loopexit78, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -488,7 +488,7 @@ _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit:            ; preds = %_Z11merge_factsRSt6
   %133 = sub i64 %131, %132
   %134 = ashr exact i64 %133, 3
   %135 = icmp ult i64 %128, %134
-  br i1 %135, label %38, label %.loopexit62, !llvm.loop !117
+  br i1 %135, label %38, label %.loopexit78, !llvm.loop !117
 
 .loopexit:                                        ; preds = %.lr.ph.i33
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -567,14 +567,14 @@ _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit29:          ; preds = %150, %152
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn
 
-.loopexit62:                                      ; preds = %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit, %20, %24
+.loopexit78:                                      ; preds = %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit, %20, %24
   call void @_ZN3LhsD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %5) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pr40 = load ptr, ptr %4, align 8, !tbaa !66
   %.not.i.i.i30 = icmp eq ptr %.pr40, null
   br i1 %.not.i.i.i30, label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit31, label %158
 
-158:                                              ; preds = %.loopexit62
+158:                                              ; preds = %.loopexit78
   %159 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %160 = load ptr, ptr %159, align 8, !tbaa !68
   %161 = ptrtoint ptr %160 to i64
@@ -583,7 +583,7 @@ _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit29:          ; preds = %150, %152
   call void @_ZdlPvm(ptr noundef nonnull %.pr40, i64 noundef %163) #19
   br label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit31
 
-_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit31:          ; preds = %.thread, %.loopexit62, %158
+_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit31:          ; preds = %.thread, %.loopexit78, %158
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

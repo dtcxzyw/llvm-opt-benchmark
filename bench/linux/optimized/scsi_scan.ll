@@ -766,7 +766,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
 72:                                               ; preds = %.backedge, %53
   %73 = phi i1 [ false, %53 ], [ %.be, %.backedge ]
   %74 = phi i1 [ true, %53 ], [ false, %.backedge ]
-  %75 = phi i32 [ %62, %53 ], [ %.be58, %.backedge ]
+  %75 = phi i32 [ %62, %53 ], [ %.be73, %.backedge ]
   %76 = trunc i32 %75 to i8
   %77 = zext nneg i32 %75 to i64
   br label %78
@@ -938,7 +938,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
 
 .backedge:                                        ; preds = %182, %178
   %.be = phi i1 [ false, %182 ], [ true, %178 ]
-  %.be58 = phi i32 [ %62, %182 ], [ %179, %178 ]
+  %.be73 = phi i32 [ %62, %182 ], [ %179, %178 ]
   br label %72
 
 183:                                              ; preds = %157, %178
@@ -1098,9 +1098,9 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
 275:                                              ; preds = %272, %263
   %276 = and i64 %163, 256
   %277 = icmp eq i64 %276, 0
-  br i1 %277, label %281, label %.thread42
+  br i1 %277, label %281, label %.thread57
 
-.thread42:                                        ; preds = %275
+.thread57:                                        ; preds = %275
   %278 = getelementptr inbounds nuw i8, ptr %49, i64 176
   store i8 5, ptr %278, align 8
   %279 = load i64, ptr %220, align 4
@@ -1128,9 +1128,9 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   %296 = icmp ne i64 %295, 49408
   %297 = icmp eq i8 %283, 30
   %298 = select i1 %296, i1 true, i1 %297
-  br i1 %298, label %301, label %.thread41
+  br i1 %298, label %301, label %.thread56
 
-.thread41:                                        ; preds = %281
+.thread56:                                        ; preds = %281
   %299 = zext nneg i8 %283 to i32
   %300 = trunc i64 %294 to i32
   call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.22, ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__.scsi_add_lun, i32 noundef %299, i32 noundef %300) #17
@@ -1143,17 +1143,17 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
     i8 5, label %302
   ]
 
-302:                                              ; preds = %.thread42, %301, %301
-  %303 = phi i8 [ 5, %.thread42 ], [ %283, %301 ], [ %283, %301 ]
+302:                                              ; preds = %.thread57, %301, %301
+  %303 = phi i8 [ 5, %.thread57 ], [ %283, %301 ], [ %283, %301 ]
   %304 = shl i64 %163, 1
   %305 = and i64 %304, 262144
   %306 = xor i64 %305, 262144
   %307 = or i64 %306, %163
   br label %308
 
-308:                                              ; preds = %.thread41, %302, %301
-  %309 = phi i8 [ %283, %301 ], [ %303, %302 ], [ 30, %.thread41 ]
-  %310 = phi i64 [ %163, %301 ], [ %307, %302 ], [ %163, %.thread41 ]
+308:                                              ; preds = %.thread56, %302, %301
+  %309 = phi i8 [ %283, %301 ], [ %303, %302 ], [ 30, %.thread56 ]
+  %310 = phi i64 [ %163, %301 ], [ %307, %302 ], [ %163, %.thread56 ]
   %311 = load i8, ptr %51, align 8
   %312 = lshr i8 %311, 5
   %313 = getelementptr inbounds nuw i8, ptr %49, i64 178

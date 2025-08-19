@@ -178,10 +178,10 @@ define noundef i32 @_ZNK13llama_hparams10n_embd_v_sEv(ptr noundef nonnull readon
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 6332
   %5 = load i32, ptr %4, align 4
   %.sink = select i1 %.not, i64 6328, i64 8
-  %.sink2 = select i1 %.not, i32 %5, i32 %3
+  %.sink3 = select i1 %.not, i32 %5, i32 %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %7 = load i32, ptr %6, align 4, !tbaa !17
-  %8 = mul i32 %7, %.sink2
+  %8 = mul i32 %7, %.sink3
   ret i32 %8
 }
 

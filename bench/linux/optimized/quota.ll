@@ -794,7 +794,7 @@ define internal fastcc i32 @quota_quotaon(ptr noundef %0, i32 noundef range(i32 
   br i1 %11, label %19, label %.thread
 
 .thread:                                          ; preds = %12, %13
-  switch i32 %1, label %default.unreachable2 [
+  switch i32 %1, label %default.unreachable4 [
     i32 0, label %16
     i32 1, label %14
     i32 2, label %15
@@ -806,7 +806,7 @@ define internal fastcc i32 @quota_quotaon(ptr noundef %0, i32 noundef range(i32 
 15:                                               ; preds = %.thread
   br label %16
 
-default.unreachable2:                             ; preds = %.thread
+default.unreachable4:                             ; preds = %.thread
   unreachable
 
 16:                                               ; preds = %15, %14, %.thread
@@ -851,7 +851,7 @@ define internal fastcc i32 @quota_quotaoff(ptr noundef %0, i32 noundef range(i32
   br i1 %10, label %18, label %.thread
 
 .thread:                                          ; preds = %11, %12
-  switch i32 %1, label %default.unreachable1 [
+  switch i32 %1, label %default.unreachable2 [
     i32 0, label %15
     i32 1, label %13
     i32 2, label %14
@@ -863,7 +863,7 @@ define internal fastcc i32 @quota_quotaoff(ptr noundef %0, i32 noundef range(i32
 14:                                               ; preds = %.thread
   br label %15
 
-default.unreachable1:                             ; preds = %.thread
+default.unreachable2:                             ; preds = %.thread
   unreachable
 
 15:                                               ; preds = %14, %13, %.thread
@@ -2162,8 +2162,8 @@ define internal fastcc i32 @quota_setxquota(ptr noundef %0, i32 noundef range(i3
   %145 = zext i16 %144 to i32
   %146 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store i32 %145, ptr %146, align 8
-  %storemerge13 = and i16 %67, 32767
-  %storemerge = zext nneg i16 %storemerge13 to i32
+  %storemerge15 = and i16 %67, 32767
+  %storemerge = zext nneg i16 %storemerge15 to i32
   store i32 %storemerge, ptr %6, align 8
   %147 = load ptr, ptr %11, align 64
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 64

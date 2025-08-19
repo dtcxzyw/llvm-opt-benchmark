@@ -6154,12 +6154,12 @@ define internal fastcc i32 @loop_record(ptr noundef %0, ptr noundef readonly cap
 .thread:                                          ; preds = %42, %43
   %hf_afp_struct_size.sink = phi ptr [ @hf_afp_file_flag, %43 ], [ @hf_afp_struct_size, %42 ]
   %.07992.sink = phi i32 [ %46, %43 ], [ %.07992, %42 ]
-  %.sink98 = phi i32 [ 3, %43 ], [ 1, %42 ]
+  %.sink101 = phi i32 [ 3, %43 ], [ 1, %42 ]
   %hf_afp_file_flag.sink = phi ptr [ @hf_afp_pad, %43 ], [ @hf_afp_file_flag, %42 ]
   %.sink = phi i32 [ 4, %43 ], [ 2, %42 ]
   %47 = load i32, ptr %hf_afp_struct_size.sink, align 4
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %.182, i32 noundef %47, ptr noundef %0, i32 noundef %.07992.sink, i32 noundef 1, i32 noundef 0)
-  %49 = add i32 %.07992, %.sink98
+  %49 = add i32 %.07992, %.sink101
   %50 = load i32, ptr %hf_afp_file_flag.sink, align 4
   %51 = tail call ptr @proto_tree_add_item(ptr noundef %.182, i32 noundef %50, ptr noundef %0, i32 noundef %49, i32 noundef 1, i32 noundef 0)
   %52 = add i32 %.07992, %.sink
@@ -6515,7 +6515,7 @@ spotlight_get_utf16_string_byte_order.exit:       ; preds = %53, %60
   br i1 %exitcond.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
-  %101 = sub i32 %.0229274, %84
+  %101 = sub nsw i32 %.0229274, %84
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %93, %86

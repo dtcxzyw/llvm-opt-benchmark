@@ -1727,9 +1727,9 @@ mi_span_queue_for.exit.i:                         ; preds = %15
   br i1 %.not54.i, label %.loopexit, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %mi_span_queue_for.exit.i.thread, %mi_span_queue_for.exit.i, %4
-  %spec.store.select67.i = phi i64 [ %11, %mi_span_queue_for.exit.i ], [ 1, %4 ], [ %11, %mi_span_queue_for.exit.i.thread ]
-  %.0.i.i.i66.i = phi i64 [ %11, %mi_span_queue_for.exit.i ], [ %11, %4 ], [ %25, %mi_span_queue_for.exit.i.thread ]
-  %.idx.i = mul nuw nsw i64 %.0.i.i.i66.i, 24
+  %spec.store.select78.i = phi i64 [ %11, %mi_span_queue_for.exit.i ], [ 1, %4 ], [ %11, %mi_span_queue_for.exit.i.thread ]
+  %.0.i.i.i77.i = phi i64 [ %11, %mi_span_queue_for.exit.i ], [ %11, %4 ], [ %25, %mi_span_queue_for.exit.i.thread ]
+  %.idx.i = mul nuw nsw i64 %.0.i.i.i77.i, 24
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %.preheader.preheader.i
@@ -1743,7 +1743,7 @@ mi_span_queue_for.exit.i:                         ; preds = %15
   %.03552.i = phi ptr [ %.035.i, %121 ], [ %.03550.i, %.preheader.i ]
   %26 = load i32, ptr %.03552.i, align 8, !tbaa !22
   %27 = zext i32 %26 to i64
-  %.not39.i = icmp samesign ugt i64 %spec.store.select67.i, %27
+  %.not39.i = icmp samesign ugt i64 %spec.store.select78.i, %27
   br i1 %.not39.i, label %121, label %28
 
 28:                                               ; preds = %.lr.ph.i
@@ -1805,7 +1805,7 @@ mi_span_queue_delete.exit.i:                      ; preds = %50, %46
   store i64 1, ptr %52, align 8, !tbaa !14
   %53 = load i32, ptr %.03552.i, align 8, !tbaa !22
   %54 = zext i32 %53 to i64
-  %55 = icmp samesign ult i64 %spec.store.select67.i, %54
+  %55 = icmp samesign ult i64 %spec.store.select78.i, %54
   br i1 %55, label %56, label %mi_span_queue_delete.exit._crit_edge.i
 
 56:                                               ; preds = %mi_span_queue_delete.exit.i
@@ -1813,8 +1813,8 @@ mi_span_queue_delete.exit.i:                      ; preds = %50, %46
   %58 = ptrtoint ptr %57 to i64
   %59 = sub i64 %29, %58
   %60 = sdiv exact i64 %59, 96
-  %61 = add nsw i64 %60, %spec.store.select67.i
-  %62 = sub nuw nsw i64 %54, %spec.store.select67.i
+  %61 = add nsw i64 %60, %spec.store.select78.i
+  %62 = sub nuw nsw i64 %54, %spec.store.select78.i
   %63 = getelementptr inbounds nuw i8, ptr %32, i64 264
   %64 = load i32, ptr %63, align 8, !tbaa !47
   %65 = icmp eq i32 %64, 1
@@ -1905,12 +1905,12 @@ mi_span_queue_for.exit.i.i.i:                     ; preds = %77, %72, %70
 mi_segment_slice_split.exit.i:                    ; preds = %109, %107, %102
   %111 = getelementptr inbounds nuw i8, ptr %87, i64 40
   store i64 0, ptr %111, align 8, !tbaa !14
-  %112 = trunc nuw nsw i64 %spec.store.select67.i to i32
+  %112 = trunc nuw nsw i64 %spec.store.select78.i to i32
   store i32 %112, ptr %.03552.i, align 8, !tbaa !22
   br label %mi_span_queue_delete.exit._crit_edge.i
 
 mi_span_queue_delete.exit._crit_edge.i:           ; preds = %mi_span_queue_delete.exit.i, %mi_segment_slice_split.exit.i
-  %.pre-phi.i = phi i64 [ %spec.store.select67.i, %mi_segment_slice_split.exit.i ], [ %54, %mi_span_queue_delete.exit.i ]
+  %.pre-phi.i = phi i64 [ %spec.store.select78.i, %mi_segment_slice_split.exit.i ], [ %54, %mi_span_queue_delete.exit.i ]
   %113 = getelementptr inbounds nuw i8, ptr %34, i64 288
   %114 = ptrtoint ptr %113 to i64
   %115 = sub i64 %29, %114
@@ -2110,7 +2110,7 @@ mi_segment_check_free.exit.thread.i.i:            ; preds = %160
   %207 = getelementptr inbounds nuw i8, ptr %159, i64 216
   %208 = load i64, ptr %207, align 8, !tbaa !37
   %209 = icmp eq i64 %208, 0
-  br i1 %209, label %210, label %.thread48.i.i
+  br i1 %209, label %210, label %.thread54.i.i
 
 210:                                              ; preds = %mi_segment_check_free.exit.thread.i.i, %mi_segment_check_free.exit.i.i
   %211 = call fastcc ptr @mi_segment_reclaim(ptr noundef nonnull %159, ptr noundef %0, i64 noundef 0, ptr noundef null, ptr noundef %3) #10
@@ -2118,24 +2118,24 @@ mi_segment_check_free.exit.thread.i.i:            ; preds = %160
 
 212:                                              ; preds = %mi_segment_check_free.exit.i.i
   %213 = select i1 %.2.i.i.i, i1 %164, i1 false
-  br i1 %213, label %.thread.i.i, label %.thread48.i.i
+  br i1 %213, label %.thread.i.i, label %.thread54.i.i
 
 .thread.i.i:                                      ; preds = %212
   %214 = call fastcc ptr @mi_segment_reclaim(ptr noundef nonnull %159, ptr noundef %0, i64 noundef range(i64 0, 16777217) %2, ptr noundef nonnull %6, ptr noundef %3) #10
   %215 = icmp eq ptr %214, null
   br label %mi_segment_try_reclaim.exit.i
 
-.thread48.i.i:                                    ; preds = %212, %mi_segment_check_free.exit.thread.i.i
+.thread54.i.i:                                    ; preds = %212, %mi_segment_check_free.exit.thread.i.i
   %216 = load i64, ptr %161, align 8, !tbaa !65
   %217 = icmp ugt i64 %216, 3
   %or.cond3.i.i = select i1 %217, i1 %164, i1 false
   br i1 %or.cond3.i.i, label %218, label %220
 
-218:                                              ; preds = %.thread48.i.i
+218:                                              ; preds = %.thread54.i.i
   %219 = call fastcc ptr @mi_segment_reclaim(ptr noundef nonnull %159, ptr noundef %0, i64 noundef 0, ptr noundef null, ptr noundef %3) #10
   br label %.backedge
 
-220:                                              ; preds = %.thread48.i.i
+220:                                              ; preds = %.thread54.i.i
   call fastcc void @mi_segment_try_purge(ptr noundef nonnull %159, i1 noundef zeroext false) #10
   call void @_mi_arena_segment_mark_abandoned(ptr noundef nonnull %159) #11
   br label %.backedge

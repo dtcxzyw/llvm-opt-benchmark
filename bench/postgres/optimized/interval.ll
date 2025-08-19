@@ -1410,7 +1410,7 @@ define ptr @PGTYPESinterval_from_asc(ptr noundef %0, ptr noundef %1) local_unnam
   store ptr %35, ptr %3, align 8
   %36 = load i8, ptr %35, align 1
   %.not91169.i = icmp eq i8 %36, 0
-  br i1 %.not91169.i, label %.sink.split160, label %.lr.ph.i
+  br i1 %.not91169.i, label %.sink.split177, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %34, %AdjustFractDays.exit.i
   %37 = phi i8 [ %417, %AdjustFractDays.exit.i ], [ %36, %34 ]
@@ -1669,7 +1669,7 @@ define ptr @PGTYPESinterval_from_asc(ptr noundef %0, ptr noundef %1) local_unnam
 
 AdjustFractSeconds.exit101.i:                     ; preds = %176, %164
   %189 = icmp eq i8 %71, 0
-  br i1 %189, label %.sink.split160.sink.split, label %AdjustFractDays.exit.i
+  br i1 %189, label %.sink.split177.sink.split, label %AdjustFractDays.exit.i
 
 190:                                              ; preds = %157
   br i1 %163, label %.sink.split.sink.split, label %191
@@ -1686,7 +1686,7 @@ AdjustFractSeconds.exit101.i:                     ; preds = %176, %164
   %199 = fptosi double %198 to i32
   store i32 %199, ptr %15, align 8
   switch i8 %71, label %200 [
-    i8 0, label %.sink.split160.sink.split
+    i8 0, label %.sink.split177.sink.split
     i8 84, label %AdjustFractDays.exit.i
   ], !llvm.loop !5
 
@@ -1749,7 +1749,7 @@ AdjustFractSeconds.exit101.i:                     ; preds = %176, %164
   call fastcc void @AdjustFractDays(double noundef %226, ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 30)
   %229 = load i8, ptr %209, align 1
   switch i8 %229, label %.sink.split.sink.split [
-    i8 0, label %.sink.split160.sink.split
+    i8 0, label %.sink.split177.sink.split
     i8 84, label %AdjustFractDays.exit.i
     i8 45, label %230
   ], !llvm.loop !5
@@ -1791,7 +1791,7 @@ AdjustFractSeconds.exit113.i:                     ; preds = %239, %233
   %252 = load ptr, ptr %3, align 8
   %253 = load i8, ptr %252, align 1
   switch i8 %253, label %.sink.split.sink.split [
-    i8 0, label %.sink.split160.sink.split
+    i8 0, label %.sink.split177.sink.split
     i8 84, label %AdjustFractDays.exit.i
   ], !llvm.loop !5
 
@@ -1901,7 +1901,7 @@ AdjustFractSeconds.exit113.i:                     ; preds = %239, %233
   %321 = add i32 %320, %319
   store i32 %321, ptr %7, align 8
   %322 = fcmp oeq double %69, 0.000000e+00
-  br i1 %322, label %.sink.split160.sink.split, label %323
+  br i1 %322, label %.sink.split177.sink.split, label %323
 
 323:                                              ; preds = %311
   %324 = fptosi double %69 to i32
@@ -1916,7 +1916,7 @@ AdjustFractSeconds.exit113.i:                     ; preds = %239, %233
   %332 = fadd double %329, %331
   %333 = fptosi double %332 to i32
   store i32 %333, ptr %6, align 4
-  br label %.sink.split160.sink.split
+  br label %.sink.split177.sink.split
 
 .loopexit144.loopexit.i:                          ; preds = %254
   %.pre.i = trunc nuw i8 %.080170.i to i1
@@ -1951,7 +1951,7 @@ AdjustFractSeconds.exit113.i:                     ; preds = %239, %233
 
 AdjustFractSeconds.exit120.i:                     ; preds = %338, %334
   %351 = icmp eq i8 %71, 0
-  br i1 %351, label %.sink.split160.sink.split, label %352
+  br i1 %351, label %.sink.split177.sink.split, label %352
 
 352:                                              ; preds = %AdjustFractSeconds.exit120.i
   %353 = load ptr, ptr %43, align 8
@@ -2032,7 +2032,7 @@ AdjustFractSeconds.exit120.i:                     ; preds = %338, %334
 AdjustFractSeconds.exit132.i:                     ; preds = %382, %376
   %395 = load i8, ptr %361, align 1
   switch i8 %395, label %.sink.split.sink.split [
-    i8 0, label %.sink.split160.sink.split
+    i8 0, label %.sink.split177.sink.split
     i8 58, label %396
   ]
 
@@ -2075,7 +2075,7 @@ AdjustFractDays.exit.i:                           ; preds = %293, %289, %276, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %417 = load i8, ptr %416, align 1
   %.not91.i = icmp eq i8 %417, 0
-  br i1 %.not91.i, label %.sink.split160, label %.lr.ph.i
+  br i1 %.not91.i, label %.sink.split177, label %.lr.ph.i
 
 DecodeISO8601Interval.exit:                       ; preds = %399, %405
   %418 = load ptr, ptr %3, align 8
@@ -2100,16 +2100,16 @@ DecodeISO8601Interval.exit:                       ; preds = %399, %405
   store i32 330, ptr %421, align 4
   br label %461
 
-.sink.split160.sink.split:                        ; preds = %AdjustFractSeconds.exit101.i, %191, %224, %AdjustFractSeconds.exit113.i, %AdjustFractSeconds.exit120.i, %AdjustFractSeconds.exit132.i, %311, %323
+.sink.split177.sink.split:                        ; preds = %AdjustFractSeconds.exit101.i, %191, %224, %AdjustFractSeconds.exit113.i, %AdjustFractSeconds.exit120.i, %AdjustFractSeconds.exit132.i, %311, %323
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.sink.split160
+  br label %.sink.split177
 
-.sink.split160:                                   ; preds = %AdjustFractDays.exit.i, %.sink.split160.sink.split, %34
+.sink.split177:                                   ; preds = %AdjustFractDays.exit.i, %.sink.split177.sink.split, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %422
 
-422:                                              ; preds = %.sink.split160, %DecodeISO8601Interval.exit, %26
+422:                                              ; preds = %.sink.split177, %DecodeISO8601Interval.exit, %26
   %423 = call ptr @pgtypes_alloc(i64 noundef 16) #13
   %.not25 = icmp eq ptr %423, null
   br i1 %.not25, label %461, label %424

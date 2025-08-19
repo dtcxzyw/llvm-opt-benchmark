@@ -1417,8 +1417,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h5e6540d81
   %19 = load i64, ptr %18, align 8, !noundef !13
   %20 = load i64, ptr %0, align 8, !noundef !13
   %21 = sub i64 %20, %19
-  %.not10 = icmp ult i64 %15, %21
-  br i1 %.not10, label %27, label %32
+  %.not11 = icmp ult i64 %15, %21
+  br i1 %.not11, label %27, label %32
 
 22:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf2b94fa09cea61b2E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2203,15 +2203,15 @@ default.unreachable:                              ; preds = %2
   invoke void @"_ZN77_$LT$serde..__private..de..content..Content$u20$as$u20$core..clone..Clone$GT$5clone17hdd5f76bcfc170ed8E.llvm.12712274325511499544"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.val1)
           to label %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8755e30bdd237f23E.exit" unwind label %96
 
-common.resume5:                                   ; preds = %137, %common.resume
-  %common.resume5.op = phi { ptr, i32 } [ %common.resume.op, %common.resume ], [ %lpad.loopexit.i, %137 ]
-  resume { ptr, i32 } %common.resume5.op
+common.resume6:                                   ; preds = %137, %common.resume
+  %common.resume6.op = phi { ptr, i32 } [ %common.resume.op, %common.resume ], [ %lpad.loopexit.i, %137 ]
+  resume { ptr, i32 } %common.resume6.op
 
 common.resume:                                    ; preds = %106, %96
   %.sink = phi ptr [ %102, %106 ], [ %92, %96 ]
   %common.resume.op = phi { ptr, i32 } [ %107, %106 ], [ %97, %96 ]
   call void @__rust_dealloc(ptr noundef nonnull %.sink, i64 noundef 32, i64 noundef 8) #23
-  br label %common.resume5
+  br label %common.resume6
 
 96:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h6c9cdacb9f4c4fd8E.exit.i"
   %97 = landingpad { ptr, i32 }
@@ -2320,7 +2320,7 @@ common.resume:                                    ; preds = %106, %96
           cleanup
   store i64 %.sroa.7.019.i, ptr %122, align 8, !noalias !467
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$serde..__private..de..content..Content$GT$$GT$17hd009a493b6643283E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #20
-          to label %common.resume5 unwind label %135, !noalias !471
+          to label %common.resume6 unwind label %135, !noalias !471
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h1b123c45353b0cf2E.llvm.15254045753746439579.exit": ; preds = %.lr.ph.i, %130, %119
   store i64 %113, ptr %122, align 8, !noalias !467
@@ -2510,8 +2510,8 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %19 = load i64, ptr %18, align 8, !alias.scope !523, !noalias !526, !noundef !13
   %20 = load i64, ptr %0, align 8, !alias.scope !523, !noalias !526, !noundef !13
   %21 = sub i64 %20, %19
-  %.not10.i = icmp ult i64 %15, %21
-  br i1 %.not10.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h5e6540d81a12daf0E.llvm.15254045753746439579.exit", label %27
+  %.not11.i = icmp ult i64 %15, %21
+  br i1 %.not11.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h5e6540d81a12daf0E.llvm.15254045753746439579.exit", label %27
 
 22:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf2b94fa09cea61b2E.exit.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !545

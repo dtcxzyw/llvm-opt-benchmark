@@ -871,7 +871,7 @@ declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #9
 declare void @_ZN6icu_776LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 -176000, -2147483648) i32 @_ZN6icu_7712_GLOBAL__N_111parseWeightERPKcS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) unnamed_addr #11 {
+define internal fastcc noundef range(i32 -48000, -2147483648) i32 @_ZN6icu_7712_GLOBAL__N_111parseWeightERPKcS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) unnamed_addr #11 {
   %3 = load ptr, ptr %0, align 8, !tbaa !25
   %4 = icmp ult ptr %3, %1
   br i1 %4, label %.lr.ph.preheader.i, label %_ZN6icu_7712_GLOBAL__N_110skipSpacesEPKcS2_.exit
@@ -1006,17 +1006,17 @@ define noundef zeroext i1 @_ZN6icu_7718LocalePriorityList3addERKNS_6LocaleEiR10U
   %20 = call i32 @uhash_getiAndFound_77(ptr noundef %19, ptr noundef nonnull %1, ptr noundef nonnull %5)
   %21 = load i8, ptr %5, align 1, !tbaa !26
   %.not33 = icmp eq i8 %21, 0
-  br i1 %.not33, label %22, label %.thread60
+  br i1 %.not33, label %22, label %.thread65
 
 22:                                               ; preds = %18
   %23 = icmp slt i32 %2, 1
-  br i1 %23, label %.thread73, label %.thread67
+  br i1 %23, label %.thread78, label %.thread72
 
-.thread73:                                        ; preds = %22
+.thread78:                                        ; preds = %22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN6icu_7712LocalPointerINS_6LocaleEED2Ev.exit
 
-.thread60:                                        ; preds = %18
+.thread65:                                        ; preds = %18
   %24 = load ptr, ptr %0, align 8, !tbaa !20
   %25 = sext i32 %20 to i64
   %.val = load ptr, ptr %24, align 8, !tbaa !21
@@ -1032,21 +1032,21 @@ define noundef zeroext i1 @_ZN6icu_7718LocalePriorityList3addERKNS_6LocaleEiR10U
   %32 = icmp slt i32 %2, 1
   br i1 %32, label %33, label %36
 
-33:                                               ; preds = %.thread60
+33:                                               ; preds = %.thread65
   %34 = load ptr, ptr %9, align 8, !tbaa !15
   %35 = invoke i32 @uhash_removei_77(ptr noundef %34, ptr noundef nonnull %1)
           to label %85 unwind label %93
 
-36:                                               ; preds = %.thread60
+36:                                               ; preds = %.thread65
   %.not = icmp eq ptr %27, null
-  br i1 %.not, label %.thread67, label %44
+  br i1 %.not, label %.thread72, label %44
 
-.thread67:                                        ; preds = %22, %36
+.thread72:                                        ; preds = %22, %36
   %37 = call noundef ptr @_ZNK6icu_776Locale5cloneEv(ptr noundef nonnull align 8 dereferenceable(217) %1)
   %.not59 = icmp eq ptr %37, null
   br i1 %.not59, label %43, label %38
 
-38:                                               ; preds = %.thread67
+38:                                               ; preds = %.thread72
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 216
   %40 = load i8, ptr %39, align 8, !tbaa !33
   %.not36 = icmp ne i8 %40, 0
@@ -1056,7 +1056,7 @@ define noundef zeroext i1 @_ZN6icu_7718LocalePriorityList3addERKNS_6LocaleEiR10U
   %or.cond = select i1 %.not36, i1 %.not37, i1 false
   br i1 %or.cond, label %43, label %44
 
-43:                                               ; preds = %38, %.thread67
+43:                                               ; preds = %38, %.thread72
   store i32 7, ptr %3, align 4, !tbaa !13
   br label %85
 
@@ -1077,7 +1077,7 @@ define noundef zeroext i1 @_ZN6icu_7718LocalePriorityList3addERKNS_6LocaleEiR10U
   %53 = zext nneg i32 %spec.select to i64
   %54 = shl nuw nsw i64 %53, 4
   %55 = invoke noalias ptr @uprv_malloc_77(i64 noundef %54) #18
-          to label %.noexc unwind label %.thread75
+          to label %.noexc unwind label %.thread80
 
 .noexc:                                           ; preds = %50
   %.not.i = icmp eq ptr %55, null
@@ -1106,7 +1106,7 @@ define noundef zeroext i1 @_ZN6icu_7718LocalePriorityList3addERKNS_6LocaleEiR10U
 65:                                               ; preds = %63
   %.val.i = load ptr, ptr %47, align 8
   invoke void @uprv_free_77(ptr noundef %.val.i)
-          to label %_ZN6icu_7715MaybeStackArrayINS_12_GLOBAL__N_115LocaleAndWeightELi20EE6resizeEii.exit unwind label %.thread75
+          to label %_ZN6icu_7715MaybeStackArrayINS_12_GLOBAL__N_115LocaleAndWeightELi20EE6resizeEii.exit unwind label %.thread80
 
 _ZN6icu_7715MaybeStackArrayINS_12_GLOBAL__N_115LocaleAndWeightELi20EE6resizeEii.exit: ; preds = %63, %65
   store ptr %55, ptr %47, align 8, !tbaa !21
@@ -1117,9 +1117,9 @@ _ZN6icu_7715MaybeStackArrayINS_12_GLOBAL__N_115LocaleAndWeightELi20EE6resizeEii.
 
 66:                                               ; preds = %.noexc
   store i32 7, ptr %3, align 4, !tbaa !13
-  br label %.thread70
+  br label %.thread75
 
-.thread75:                                        ; preds = %50, %65
+.thread80:                                        ; preds = %50, %65
   %67 = landingpad { ptr, i32 }
           cleanup
   br label %.sink.split
@@ -1128,17 +1128,17 @@ _ZN6icu_7715MaybeStackArrayINS_12_GLOBAL__N_115LocaleAndWeightELi20EE6resizeEii.
   %68 = phi i32 [ %.pre, %_ZN6icu_7715MaybeStackArrayINS_12_GLOBAL__N_115LocaleAndWeightELi20EE6resizeEii.exit ], [ %46, %44 ]
   %69 = load ptr, ptr %9, align 8, !tbaa !15
   %70 = invoke i32 @uhash_putiAllowZero_77(ptr noundef %69, ptr noundef nonnull %.sroa.0.4, i32 noundef %68, ptr noundef nonnull %3)
-          to label %71 unwind label %.thread85
+          to label %71 unwind label %.thread90
 
-.thread85:                                        ; preds = %.critedge
-  %lpad.thr_comm.split-lp87 = landingpad { ptr, i32 }
+.thread90:                                        ; preds = %.critedge
+  %lpad.thr_comm.split-lp92 = landingpad { ptr, i32 }
           cleanup
   br label %.sink.split
 
 71:                                               ; preds = %.critedge
   %72 = load i32, ptr %3, align 4, !tbaa !13
   %73 = icmp slt i32 %72, 1
-  br i1 %73, label %74, label %.thread70
+  br i1 %73, label %74, label %.thread75
 
 74:                                               ; preds = %71
   %75 = load ptr, ptr %0, align 8, !tbaa !20
@@ -1165,7 +1165,7 @@ _ZN6icu_7715MaybeStackArrayINS_12_GLOBAL__N_115LocaleAndWeightELi20EE6resizeEii.
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN6icu_7712LocalPointerINS_6LocaleEED2Ev.exit
 
-.thread70:                                        ; preds = %66, %71
+.thread75:                                        ; preds = %66, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %88
 
@@ -1176,13 +1176,13 @@ _ZN6icu_7715MaybeStackArrayINS_12_GLOBAL__N_115LocaleAndWeightELi20EE6resizeEii.
   %87 = icmp eq ptr %.sroa.0.3, null
   br i1 %87, label %_ZN6icu_7712LocalPointerINS_6LocaleEED2Ev.exit, label %88
 
-88:                                               ; preds = %.thread70, %85
-  %.sroa.0.372 = phi ptr [ %.sroa.0.4, %.thread70 ], [ %.sroa.0.3, %85 ]
-  %89 = phi i1 [ false, %.thread70 ], [ %86, %85 ]
-  %90 = load ptr, ptr %.sroa.0.372, align 8, !tbaa !47
+88:                                               ; preds = %.thread75, %85
+  %.sroa.0.377 = phi ptr [ %.sroa.0.4, %.thread75 ], [ %.sroa.0.3, %85 ]
+  %89 = phi i1 [ false, %.thread75 ], [ %86, %85 ]
+  %90 = load ptr, ptr %.sroa.0.377, align 8, !tbaa !47
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8
-  call void %92(ptr noundef nonnull align 8 dereferenceable(217) %.sroa.0.372) #17
+  call void %92(ptr noundef nonnull align 8 dereferenceable(217) %.sroa.0.377) #17
   br label %_ZN6icu_7712LocalPointerINS_6LocaleEED2Ev.exit
 
 93:                                               ; preds = %33
@@ -1192,26 +1192,26 @@ _ZN6icu_7715MaybeStackArrayINS_12_GLOBAL__N_115LocaleAndWeightELi20EE6resizeEii.
   %94 = icmp eq ptr %27, null
   br i1 %94, label %_ZN6icu_7712LocalPointerINS_6LocaleEED2Ev.exit46, label %95
 
-.sink.split:                                      ; preds = %.thread75, %.thread85
-  %.pn79.ph = phi { ptr, i32 } [ %lpad.thr_comm.split-lp87, %.thread85 ], [ %67, %.thread75 ]
+.sink.split:                                      ; preds = %.thread80, %.thread90
+  %.pn84.ph = phi { ptr, i32 } [ %lpad.thr_comm.split-lp92, %.thread90 ], [ %67, %.thread80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %95
 
 95:                                               ; preds = %.sink.split, %93
-  %.pn79 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %93 ], [ %.pn79.ph, %.sink.split ]
-  %.sroa.0.278 = phi ptr [ %27, %93 ], [ %.sroa.0.4, %.sink.split ]
-  %96 = load ptr, ptr %.sroa.0.278, align 8, !tbaa !47
+  %.pn84 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %93 ], [ %.pn84.ph, %.sink.split ]
+  %.sroa.0.283 = phi ptr [ %27, %93 ], [ %.sroa.0.4, %.sink.split ]
+  %96 = load ptr, ptr %.sroa.0.283, align 8, !tbaa !47
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8
-  call void %98(ptr noundef nonnull align 8 dereferenceable(217) %.sroa.0.278) #17
+  call void %98(ptr noundef nonnull align 8 dereferenceable(217) %.sroa.0.283) #17
   br label %_ZN6icu_7712LocalPointerINS_6LocaleEED2Ev.exit46
 
 _ZN6icu_7712LocalPointerINS_6LocaleEED2Ev.exit46: ; preds = %93, %95
-  %.pn80 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %93 ], [ %.pn79, %95 ]
-  resume { ptr, i32 } %.pn80
+  %.pn85 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %93 ], [ %.pn84, %95 ]
+  resume { ptr, i32 } %.pn85
 
-_ZN6icu_7712LocalPointerINS_6LocaleEED2Ev.exit:   ; preds = %.thread73, %88, %85, %.thread, %14, %12, %4
-  %.0 = phi i1 [ false, %4 ], [ true, %12 ], [ false, %14 ], [ true, %.thread ], [ %86, %85 ], [ %89, %88 ], [ true, %.thread73 ]
+_ZN6icu_7712LocalPointerINS_6LocaleEED2Ev.exit:   ; preds = %.thread78, %88, %85, %.thread, %14, %12, %4
+  %.0 = phi i1 [ false, %4 ], [ true, %12 ], [ false, %14 ], [ true, %.thread ], [ %86, %85 ], [ %89, %88 ], [ true, %.thread78 ]
   ret i1 %.0
 }
 

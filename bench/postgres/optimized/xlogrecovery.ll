@@ -481,9 +481,9 @@ define dso_local void @InitWalRecovery(ptr noundef captures(none) %0, ptr nounde
 
 57:                                               ; preds = %56
   %.b911.i = load i1, ptr @recovery_signal_file_found, align 1
-  br i1 %.b911.i, label %.thread14.i, label %readRecoverySignalFile.exit.thread224
+  br i1 %.b911.i, label %.thread14.i, label %readRecoverySignalFile.exit.thread240
 
-readRecoverySignalFile.exit.thread224:            ; preds = %57
+readRecoverySignalFile.exit.thread240:            ; preds = %57
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %validateRecoveryParameters.exit
 
@@ -626,7 +626,7 @@ readRecoverySignalFile.exit:                      ; preds = %4
   store i32 %.sink.i, ptr @recoveryTargetTLI, align 4
   br label %validateRecoveryParameters.exit
 
-validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalFile.exit.thread224, %readRecoverySignalFile.exit, %104, %.sink.split.i
+validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalFile.exit.thread240, %readRecoverySignalFile.exit, %104, %.sink.split.i
   %117 = load i8, ptr @ArchiveRecoveryRequested, align 1, !range !4, !noundef !5
   %118 = trunc nuw i8 %117 to i1
   br i1 %118, label %119, label %122
@@ -1263,11 +1263,11 @@ read_tablespace_map.exit:                         ; preds = %304
 
 .sink.split:                                      ; preds = %401
   %405 = icmp eq i32 %403, 0
-  %.246 = select i1 %405, i32 727, i32 733
+  %.262 = select i1 %405, i32 727, i32 733
   %.str.19..str.20 = select i1 %405, ptr @.str.19, ptr @.str.20
   %406 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.18) #23
   %407 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull %.str.19..str.20, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef %.246, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef %.262, ptr noundef nonnull @__func__.InitWalRecovery) #23
   br label %408
 
 408:                                              ; preds = %401, %.sink.split, %398
@@ -1436,7 +1436,7 @@ read_tablespace_map.exit:                         ; preds = %304
 
 474:                                              ; preds = %472
   %475 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23) #23
-  br label %.sink.split244
+  br label %.sink.split260
 
 476:                                              ; preds = %471
   %477 = load i32, ptr @recoveryTarget, align 4
@@ -1455,7 +1455,7 @@ read_tablespace_map.exit:                         ; preds = %304
 480:                                              ; preds = %479
   %481 = load i32, ptr @recoveryTargetXid, align 4
   %482 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, i32 noundef %481) #23
-  br label %.sink.split244
+  br label %.sink.split260
 
 483:                                              ; preds = %476
   br i1 %478, label %484, label %505
@@ -1464,7 +1464,7 @@ read_tablespace_map.exit:                         ; preds = %304
   %485 = load i64, ptr @recoveryTargetTime, align 8
   %486 = call ptr @timestamptz_to_str(i64 noundef %485) #23
   %487 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25, ptr noundef %486) #23
-  br label %.sink.split244
+  br label %.sink.split260
 
 488:                                              ; preds = %476
   br i1 %478, label %489, label %505
@@ -1472,7 +1472,7 @@ read_tablespace_map.exit:                         ; preds = %304
 489:                                              ; preds = %488
   %490 = load ptr, ptr @recoveryTargetName, align 8
   %491 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef %490) #23
-  br label %.sink.split244
+  br label %.sink.split260
 
 492:                                              ; preds = %476
   br i1 %478, label %493, label %505
@@ -1483,28 +1483,28 @@ read_tablespace_map.exit:                         ; preds = %304
   %496 = trunc nuw i64 %495 to i32
   %497 = trunc i64 %494 to i32
   %498 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, i32 noundef %496, i32 noundef %497) #23
-  br label %.sink.split244
+  br label %.sink.split260
 
 499:                                              ; preds = %476
   br i1 %478, label %500, label %505
 
 500:                                              ; preds = %499
   %501 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28) #23
-  br label %.sink.split244
+  br label %.sink.split260
 
 502:                                              ; preds = %476
   br i1 %478, label %503, label %505
 
 503:                                              ; preds = %502
   %504 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29) #23
-  br label %.sink.split244
+  br label %.sink.split260
 
-.sink.split244:                                   ; preds = %480, %489, %500, %503, %493, %484, %474
-  %.sink245 = phi i32 [ 807, %474 ], [ 815, %484 ], [ 823, %493 ], [ 829, %503 ], [ 826, %500 ], [ 819, %489 ], [ 811, %480 ]
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef %.sink245, ptr noundef nonnull @__func__.InitWalRecovery) #23
+.sink.split260:                                   ; preds = %480, %489, %500, %503, %493, %484, %474
+  %.sink261 = phi i32 [ 807, %474 ], [ 815, %484 ], [ 823, %493 ], [ 829, %503 ], [ 826, %500 ], [ 819, %489 ], [ 811, %480 ]
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef %.sink261, ptr noundef nonnull @__func__.InitWalRecovery) #23
   br label %505
 
-505:                                              ; preds = %.sink.split244, %472, %483, %492, %502, %499, %488, %479, %468
+505:                                              ; preds = %.sink.split260, %472, %483, %492, %502, %499, %488, %479, %468
   %506 = load i64, ptr @CheckPointLoc, align 8
   %507 = load ptr, ptr @expectedTLEs, align 8
   %508 = call i32 @tliOfPointInHistory(i64 noundef %506, ptr noundef %507) #23
@@ -1666,7 +1666,7 @@ read_tablespace_map.exit:                         ; preds = %304
 
 .thread:                                          ; preds = %591, %587
   store i8 1, ptr @InRecovery, align 1
-  %.pre223225 = load i8, ptr @InArchiveRecovery, align 1, !range !4
+  %.pre223241 = load i8, ptr @InArchiveRecovery, align 1, !range !4
   br label %597
 
 595:                                              ; preds = %591
@@ -1676,8 +1676,8 @@ read_tablespace_map.exit:                         ; preds = %304
   br i1 %596, label %597, label %635
 
 597:                                              ; preds = %.thread, %595
-  %.pre223226 = phi i8 [ %.pre223225, %.thread ], [ %.pre223, %595 ]
-  %598 = trunc nuw i8 %.pre223226 to i1
+  %.pre223242 = phi i8 [ %.pre223241, %.thread ], [ %.pre223, %595 ]
+  %598 = trunc nuw i8 %.pre223242 to i1
   br i1 %598, label %613, label %599
 
 599:                                              ; preds = %597
@@ -1917,7 +1917,7 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
 61:                                               ; preds = %58
   %62 = load i64, ptr @flushedUpto, align 8
   %63 = icmp ult i64 %62, %43
-  br i1 %63, label %64, label %WaitForWALToBecomeAvailable.exit.thread71.thread113
+  br i1 %63, label %64, label %WaitForWALToBecomeAvailable.exit.thread71.thread144
 
 64:                                               ; preds = %61
   %65 = load i8, ptr %44, align 1, !range !4, !noundef !5
@@ -2056,14 +2056,14 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
   %130 = load i8, ptr @InArchiveRecovery, align 1, !range !4
   %131 = trunc nuw i8 %130 to i1
   %or.cond9.i = select i1 %129, i1 %131, i1 false
-  br i1 %or.cond9.i, label %132, label %.thread119.i
+  br i1 %or.cond9.i, label %132, label %.thread142.i
 
 132:                                              ; preds = %128, %123, %100, %95
-  %.sink137.i = phi i32 [ 1, %123 ], [ 3, %95 ], [ 1, %100 ], [ 1, %128 ]
+  %.sink160.i = phi i32 [ 1, %123 ], [ 3, %95 ], [ 1, %100 ], [ 1, %128 ]
   %.055.i = phi i8 [ 0, %123 ], [ 1, %95 ], [ 0, %100 ], [ 0, %128 ]
-  store i32 %.sink137.i, ptr @currentSource, align 4
-  %.not.i = icmp eq i32 %.sink137.i, %86
-  br i1 %.not.i, label %.thread119.i, label %133
+  store i32 %.sink160.i, ptr @currentSource, align 4
+  %.not.i = icmp eq i32 %.sink160.i, %86
+  br i1 %.not.i, label %.thread142.i, label %133
 
 133:                                              ; preds = %132
   %134 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #23
@@ -2085,10 +2085,10 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
 
 thread-pre-split.i:                               ; preds = %135, %133
   %.pr.i = load i32, ptr @currentSource, align 4
-  br label %.thread119.i
+  br label %.thread142.i
 
-.thread119.i:                                     ; preds = %thread-pre-split.i, %132, %128
-  %.055122.i = phi i8 [ %.055.i, %thread-pre-split.i ], [ %.055.i, %132 ], [ 0, %128 ]
+.thread142.i:                                     ; preds = %thread-pre-split.i, %132, %128
+  %.055145.i = phi i8 [ %.055.i, %thread-pre-split.i ], [ %.055.i, %132 ], [ 0, %128 ]
   %145 = phi i32 [ %.pr.i, %thread-pre-split.i ], [ %86, %132 ], [ %86, %128 ]
   store i1 false, ptr @lastSourceFailed, align 1
   switch i32 %145, label %337 [
@@ -2097,7 +2097,7 @@ thread-pre-split.i:                               ; preds = %135, %133
     i32 3, label %252
   ]
 
-146:                                              ; preds = %.thread119.i, %.thread119.i
+146:                                              ; preds = %.thread142.i, %.thread142.i
   %147 = load i32, ptr @readFile, align 4
   %148 = icmp sgt i32 %147, -1
   br i1 %148, label %149, label %151
@@ -2131,9 +2131,9 @@ thread-pre-split.i:                               ; preds = %135, %133
   br i1 %.not44.i.i, label %.critedge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %159, %153
-  %.038139.i.i = phi ptr [ %161, %159 ], [ %158, %153 ]
-  %162 = getelementptr inbounds nuw i8, ptr %.038139.i.i, i64 4
-  %163 = getelementptr inbounds nuw i8, ptr %.038139.i.i, i64 16
+  %.038156.i.i = phi ptr [ %161, %159 ], [ %158, %153 ]
+  %162 = getelementptr inbounds nuw i8, ptr %.038156.i.i, i64 4
+  %163 = getelementptr inbounds nuw i8, ptr %.038156.i.i, i64 16
   %or.cond.i.i = icmp samesign ult i32 %157, 2
   %164 = and i32 %157, 1
   %or.cond4.i.i = icmp eq i32 %164, 0
@@ -2345,7 +2345,7 @@ thread-pre-split.i:                               ; preds = %135, %133
 
 XLogFileReadAnyTLI.exit.thread.sink.split.i:      ; preds = %.split76.us.i.i, %234
   %.3.i.ph.ph.i = phi i32 [ %.us-phi92.i.i, %234 ], [ %.us-phi77.i.i, %.split76.us.i.i ]
-  store ptr %.038139.i.i, ptr @expectedTLEs, align 8
+  store ptr %.038156.i.i, ptr @expectedTLEs, align 8
   br label %WaitForWALToBecomeAvailable.exit.thread71
 
 251:                                              ; preds = %248, %.critedge.i.i
@@ -2354,10 +2354,10 @@ XLogFileReadAnyTLI.exit.thread.sink.split.i:      ; preds = %.split76.us.i.i, %2
   store i1 true, ptr @lastSourceFailed, align 1
   br label %.thread.i
 
-252:                                              ; preds = %.thread119.i
+252:                                              ; preds = %.thread142.i
   %.b70.i = load i1, ptr @pendingWalRcvRestart, align 1
   %.not3.i = xor i1 %.b70.i, true
-  %253 = trunc nuw i8 %.055122.i to i1
+  %253 = trunc nuw i8 %.055145.i to i1
   %or.cond5.i = select i1 %.not3.i, i1 true, i1 %253
   br i1 %or.cond5.i, label %259, label %254
 
@@ -2372,7 +2372,7 @@ XLogFileReadAnyTLI.exit.thread.sink.split.i:      ; preds = %.split76.us.i.i, %2
   br label %259
 
 259:                                              ; preds = %257, %254, %252
-  %.156.i = phi i8 [ %.055122.i, %252 ], [ 1, %257 ], [ 1, %254 ]
+  %.156.i = phi i8 [ %.055145.i, %252 ], [ 1, %257 ], [ 1, %254 ]
   store i1 false, ptr @pendingWalRcvRestart, align 1
   %260 = trunc nuw i8 %.156.i to i1
   %261 = load ptr, ptr @PrimaryConnInfo, align 8
@@ -2516,7 +2516,7 @@ SetCurrentChunkStartTime.exit.i:                  ; preds = %305, %300
 WaitForWALToBecomeAvailable.exit.thread71.thread: ; preds = %.critedge.i
   store i32 3, ptr @readSource, align 4
   store i32 3, ptr @XLogReceiptSource, align 4
-  br label %WaitForWALToBecomeAvailable.exit.thread71.thread113
+  br label %WaitForWALToBecomeAvailable.exit.thread71.thread144
 
 325:                                              ; preds = %313
   %326 = call fastcc zeroext i1 @CheckForStandbyTrigger()
@@ -2545,7 +2545,7 @@ WaitForWALToBecomeAvailable.exit.thread71.thread: ; preds = %.critedge.i
   call void @ResetLatch(ptr noundef nonnull %336) #23
   br label %.thread.i
 
-337:                                              ; preds = %.thread119.i
+337:                                              ; preds = %.thread142.i
   %338 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #24
   call void @llvm.assume(i1 %338)
   %339 = load i32, ptr @currentSource, align 4
@@ -2591,15 +2591,15 @@ WaitForWALToBecomeAvailable.exit.thread71:        ; preds = %234, %.split76.us.i
   store i32 %.3.i.ph.i, ptr @readFile, align 4
   %.pr73.pr.pre = load i32, ptr @readSource, align 4
   %351 = icmp eq i32 %.pr73.pr.pre, 3
-  br i1 %351, label %WaitForWALToBecomeAvailable.exit.thread71.thread113, label %.thread74
+  br i1 %351, label %WaitForWALToBecomeAvailable.exit.thread71.thread144, label %.thread74
 
-WaitForWALToBecomeAvailable.exit.thread71.thread113: ; preds = %61, %WaitForWALToBecomeAvailable.exit.thread71.thread, %WaitForWALToBecomeAvailable.exit.thread71
+WaitForWALToBecomeAvailable.exit.thread71.thread144: ; preds = %61, %WaitForWALToBecomeAvailable.exit.thread71.thread, %WaitForWALToBecomeAvailable.exit.thread71
   %352 = load i64, ptr @flushedUpto, align 8
   %.not.unshifted = xor i64 %352, %1
   %.not = icmp ult i64 %.not.unshifted, 8192
   br i1 %.not, label %353, label %.thread74
 
-353:                                              ; preds = %WaitForWALToBecomeAvailable.exit.thread71.thread113
+353:                                              ; preds = %WaitForWALToBecomeAvailable.exit.thread71.thread144
   %354 = load i32, ptr @wal_segment_size, align 4
   %355 = add i32 %354, -1
   %356 = trunc i64 %352 to i32
@@ -2607,8 +2607,8 @@ WaitForWALToBecomeAvailable.exit.thread71.thread113: ; preds = %61, %WaitForWALT
   %358 = sub i32 %357, %15
   br label %.thread74
 
-.thread74:                                        ; preds = %WaitForWALToBecomeAvailable.exit.thread71, %58, %WaitForWALToBecomeAvailable.exit.thread71.thread113, %353
-  %.sink = phi i32 [ %358, %353 ], [ 8192, %WaitForWALToBecomeAvailable.exit.thread71.thread113 ], [ 8192, %58 ], [ 8192, %WaitForWALToBecomeAvailable.exit.thread71 ]
+.thread74:                                        ; preds = %WaitForWALToBecomeAvailable.exit.thread71, %58, %WaitForWALToBecomeAvailable.exit.thread71.thread144, %353
+  %.sink = phi i32 [ %358, %353 ], [ 8192, %WaitForWALToBecomeAvailable.exit.thread71.thread144 ], [ 8192, %58 ], [ 8192, %WaitForWALToBecomeAvailable.exit.thread71 ]
   store i32 %.sink, ptr @readLen, align 4
   store i32 %15, ptr @readOff, align 4
   %359 = load i8, ptr @track_io_timing, align 1, !range !4, !noundef !5
@@ -2700,8 +2700,8 @@ emode_for_corrupt_record.exit65:                  ; preds = %396, %399, %402
   br label %.sink.split
 
 .sink.split:                                      ; preds = %392, %404
-  %.sink131 = phi i32 [ 3433, %404 ], [ 3426, %392 ]
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef %.sink131, ptr noundef nonnull @__func__.XLogPageRead) #23
+  %.sink162 = phi i32 [ 3433, %404 ], [ 3426, %392 ]
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef %.sink162, ptr noundef nonnull @__func__.XLogPageRead) #23
   br label %408
 
 408:                                              ; preds = %.sink.split, %emode_for_corrupt_record.exit65, %emode_for_corrupt_record.exit
@@ -3369,19 +3369,19 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   br label %34
 
 34:                                               ; preds = %26, %23
-  %.sink161 = phi ptr [ %30, %26 ], [ %24, %23 ]
+  %.sink174 = phi ptr [ %30, %26 ], [ %24, %23 ]
   %.sink = phi i64 [ %33, %26 ], [ %20, %23 ]
   %CheckPointTLI.sink = phi ptr [ @CheckPointTLI, %26 ], [ @RedoStartTLI, %23 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.sink161, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %.sink174, i64 32
   store i64 %.sink, ptr %35, align 8
   %36 = load i32, ptr %CheckPointTLI.sink, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %.sink161, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %.sink174, i64 40
   store i32 %36, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %.sink161, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.sink174, i64 48
   store i64 %.sink, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %.sink161, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %.sink174, i64 56
   store i32 %36, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %.sink161, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %.sink174, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %40, i8 0, i64 20, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !12
   %41 = load ptr, ptr @XLogRecoveryCtl, align 8
@@ -3865,9 +3865,9 @@ recoveryApplyDelay.exit.thread:                   ; preds = %233, %236, %229, %2
   ]
 
 282:                                              ; preds = %278, %278
-  %.pn59.in.i = getelementptr inbounds nuw i8, ptr %271, i64 104
-  %.pn59.i = load ptr, ptr %.pn59.in.i, align 8
-  %.pn.in.i = getelementptr inbounds nuw i8, ptr %.pn59.i, i64 72
+  %.pn64.in.i = getelementptr inbounds nuw i8, ptr %271, i64 104
+  %.pn64.i = load ptr, ptr %.pn64.in.i, align 8
+  %.pn.in.i = getelementptr inbounds nuw i8, ptr %.pn64.i, i64 72
   %.pn.i = load ptr, ptr %.pn.in.i, align 8
   %.040.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   %.040.i = load i32, ptr %.040.in.i, align 1

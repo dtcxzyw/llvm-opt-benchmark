@@ -5022,13 +5022,13 @@ define hidden void @_ZN17pyo3_build_config5impl_8unescape17he2c6557a5c517beaE(pt
   %11 = and i64 %2, 1
   %12 = icmp eq i64 %11, 0
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink.sroa.gep15 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink.sroa.gep17 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink.sroa.gep18 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sink.sroa.gep20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink.sroa.gep21 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink.sroa.gep23 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sink.sroa.gep24 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink.sroa.gep18 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink.sroa.gep20 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink.sroa.gep21 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink.sroa.gep23 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink.sroa.gep24 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink.sroa.gep26 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink.sroa.gep27 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %3
@@ -5074,7 +5074,7 @@ define hidden void @_ZN17pyo3_build_config5impl_8unescape17he2c6557a5c517beaE(pt
           cleanup
   br label %31
 
-.loopexit.split-lp:                               ; preds = %.invoke9, %.invoke, %25
+.loopexit.split-lp:                               ; preds = %.invoke12, %.invoke, %25
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %31
@@ -5116,27 +5116,27 @@ define hidden void @_ZN17pyo3_build_config5impl_8unescape17he2c6557a5c517beaE(pt
 44:                                               ; preds = %41
   %45 = add i8 %42, -48
   %or.cond1.i = icmp ult i8 %45, 10
-  br i1 %or.cond1.i, label %50, label %.invoke9
+  br i1 %or.cond1.i, label %50, label %.invoke12
 
 46:                                               ; preds = %41
   %47 = add nsw i8 %42, -87
   br label %50
 
-.invoke9:                                         ; preds = %44, %56
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %56 ], [ %.sink.sroa.gep15, %44 ]
-  %.sink.sroa.phi16 = phi ptr [ %.sink.sroa.gep17, %56 ], [ %.sink.sroa.gep18, %44 ]
+.invoke12:                                        ; preds = %44, %56
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %56 ], [ %.sink.sroa.gep18, %44 ]
   %.sink.sroa.phi19 = phi ptr [ %.sink.sroa.gep20, %56 ], [ %.sink.sroa.gep21, %44 ]
   %.sink.sroa.phi22 = phi ptr [ %.sink.sroa.gep23, %56 ], [ %.sink.sroa.gep24, %44 ]
+  %.sink.sroa.phi25 = phi ptr [ %.sink.sroa.gep26, %56 ], [ %.sink.sroa.gep27, %44 ]
   %.sink = phi ptr [ %4, %56 ], [ %5, %44 ]
   store ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.160, ptr %.sink, align 8
   store i64 1, ptr %.sink.sroa.phi, align 8
-  store ptr null, ptr %.sink.sroa.phi16, align 8
-  store ptr inttoptr (i64 8 to ptr), ptr %.sink.sroa.phi19, align 8
-  store i64 0, ptr %.sink.sroa.phi22, align 8
+  store ptr null, ptr %.sink.sroa.phi19, align 8
+  store ptr inttoptr (i64 8 to ptr), ptr %.sink.sroa.phi22, align 8
+  store i64 0, ptr %.sink.sroa.phi25, align 8
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %.sink, ptr nonnull align 8 @anon.ca6e988e113f9f3b293ee61d3a823dd5.162) #12
-          to label %.cont10 unwind label %.loopexit.split-lp
+          to label %.cont13 unwind label %.loopexit.split-lp
 
-.cont10:                                          ; preds = %.invoke9
+.cont13:                                          ; preds = %.invoke12
   unreachable
 
 .invoke:                                          ; preds = %50, %40
@@ -5166,7 +5166,7 @@ define hidden void @_ZN17pyo3_build_config5impl_8unescape17he2c6557a5c517beaE(pt
 56:                                               ; preds = %52
   %57 = add i8 %54, -48
   %or.cond1.i5 = icmp ult i8 %57, 10
-  br i1 %or.cond1.i5, label %60, label %.invoke9
+  br i1 %or.cond1.i5, label %60, label %.invoke12
 
 58:                                               ; preds = %52
   %59 = add nsw i8 %54, -87

@@ -2988,13 +2988,13 @@ define linkonce_odr void @_ZNSt6vectorIM6SystemFivESaIS2_EE17_M_default_appendEm
 19:                                               ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPM6SystemFivEmS2_ET_S4_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %19
-  %.idx.i.i.i.i.i = shl nsw i64 %21, 4
-  %23 = getelementptr inbounds i8, ptr %20, i64 %.idx.i.i.i.i.i
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 4
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   %.elt5.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %24
 
@@ -3071,7 +3071,7 @@ _ZNSt6vectorIM6SystemFivESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %_
 
 _ZNSt12_Vector_baseIM6SystemFivESaIS2_EE13_M_deallocateEPS2_m.exit42: ; preds = %_ZNSt6vectorIM6SystemFivESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %42
   store ptr %32, ptr %0, align 8
-  %44 = getelementptr inbounds { i64, i64 }, ptr %33, i64 %1
+  %44 = getelementptr inbounds nuw { i64, i64 }, ptr %33, i64 %1
   store ptr %44, ptr %4, align 8
   %45 = getelementptr inbounds nuw { i64, i64 }, ptr %32, i64 %30
   store ptr %45, ptr %11, align 8
@@ -3110,16 +3110,16 @@ define linkonce_odr void @_ZNSt6vectorIPFviESaIS1_EE17_M_default_appendEm(ptr no
 19:                                               ; preds = %3
   store ptr null, ptr %5, align 8
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPPFviEmS1_ET_S3_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPPFviEmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPPFviEmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false)
-  %.idx.i.i.i.i.i = shl nsw i64 %21, 3
-  %25 = getelementptr inbounds i8, ptr %20, i64 %.idx.i.i.i.i.i
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPPFviEmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPFviEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPFviEmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i
@@ -3172,7 +3172,7 @@ _ZNSt6vectorIPFviESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %_ZSt27__
 
 _ZNSt12_Vector_baseIPFviESaIS1_EE13_M_deallocateEPS1_m.exit36: ; preds = %_ZNSt6vectorIPFviESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %40
   store ptr %32, ptr %0, align 8
-  %42 = getelementptr inbounds ptr, ptr %33, i64 %1
+  %42 = getelementptr inbounds nuw ptr, ptr %33, i64 %1
   store ptr %42, ptr %4, align 8
   %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %30
   store ptr %43, ptr %11, align 8
@@ -3211,16 +3211,16 @@ define linkonce_odr void @_ZNSt6vectorIPFvRK6boardsRS_IiSaIiEES5_ESaIS7_EE17_M_d
 19:                                               ; preds = %3
   store ptr null, ptr %5, align 8
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPPFvRK6boardsRSt6vectorIiSaIiEES6_EmS8_ET_SA_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPPFvRK6boardsRSt6vectorIiSaIiEES6_EmS8_ET_SA_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPPFvRK6boardsRSt6vectorIiSaIiEES6_EmS8_ET_SA_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false)
-  %.idx.i.i.i.i.i = shl nsw i64 %21, 3
-  %25 = getelementptr inbounds i8, ptr %20, i64 %.idx.i.i.i.i.i
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPPFvRK6boardsRSt6vectorIiSaIiEES6_EmS8_ET_SA_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPFvRK6boardsRSt6vectorIiSaIiEES6_EmS8_ET_SA_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPFvRK6boardsRSt6vectorIiSaIiEES6_EmS8_ET_SA_T0_RKT1_.exit.loopexit.i.i.i
@@ -3273,7 +3273,7 @@ _ZNSt6vectorIPFvRK6boardsRS_IiSaIiEES5_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exi
 
 _ZNSt12_Vector_baseIPFvRK6boardsRSt6vectorIiSaIiEES6_ESaIS8_EE13_M_deallocateEPS8_m.exit36: ; preds = %_ZNSt6vectorIPFvRK6boardsRS_IiSaIiEES5_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %40
   store ptr %32, ptr %0, align 8
-  %42 = getelementptr inbounds ptr, ptr %33, i64 %1
+  %42 = getelementptr inbounds nuw ptr, ptr %33, i64 %1
   store ptr %42, ptr %4, align 8
   %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %30
   store ptr %43, ptr %11, align 8
@@ -3312,16 +3312,16 @@ define linkonce_odr void @_ZNSt6vectorIPFviiESaIS1_EE17_M_default_appendEm(ptr n
 19:                                               ; preds = %3
   store ptr null, ptr %5, align 8
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPPFviiEmS1_ET_S3_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPPFviiEmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPPFviiEmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false)
-  %.idx.i.i.i.i.i = shl nsw i64 %21, 3
-  %25 = getelementptr inbounds i8, ptr %20, i64 %.idx.i.i.i.i.i
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPPFviiEmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPFviiEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPFviiEmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i
@@ -3374,7 +3374,7 @@ _ZNSt6vectorIPFviiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %_ZSt27_
 
 _ZNSt12_Vector_baseIPFviiESaIS1_EE13_M_deallocateEPS1_m.exit36: ; preds = %_ZNSt6vectorIPFviiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %40
   store ptr %32, ptr %0, align 8
-  %42 = getelementptr inbounds ptr, ptr %33, i64 %1
+  %42 = getelementptr inbounds nuw ptr, ptr %33, i64 %1
   store ptr %42, ptr %4, align 8
   %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %30
   store ptr %43, ptr %11, align 8
@@ -3413,16 +3413,16 @@ define linkonce_odr void @_ZNSt6vectorIPFvRKS_IiSaIiEEESaIS5_EE17_M_default_appe
 19:                                               ; preds = %3
   store ptr null, ptr %5, align 8
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPPFvRKSt6vectorIiSaIiEEEmS6_ET_S8_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPPFvRKSt6vectorIiSaIiEEEmS6_ET_S8_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPPFvRKSt6vectorIiSaIiEEEmS6_ET_S8_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false)
-  %.idx.i.i.i.i.i = shl nsw i64 %21, 3
-  %25 = getelementptr inbounds i8, ptr %20, i64 %.idx.i.i.i.i.i
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPPFvRKSt6vectorIiSaIiEEEmS6_ET_S8_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPFvRKSt6vectorIiSaIiEEEmS6_ET_S8_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPFvRKSt6vectorIiSaIiEEEmS6_ET_S8_T0_RKT1_.exit.loopexit.i.i.i
@@ -3475,7 +3475,7 @@ _ZNSt6vectorIPFvRKS_IiSaIiEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds 
 
 _ZNSt12_Vector_baseIPFvRKSt6vectorIiSaIiEEESaIS6_EE13_M_deallocateEPS6_m.exit36: ; preds = %_ZNSt6vectorIPFvRKS_IiSaIiEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %40
   store ptr %32, ptr %0, align 8
-  %42 = getelementptr inbounds ptr, ptr %33, i64 %1
+  %42 = getelementptr inbounds nuw ptr, ptr %33, i64 %1
   store ptr %42, ptr %4, align 8
   %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %30
   store ptr %43, ptr %11, align 8

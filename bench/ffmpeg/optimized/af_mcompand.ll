@@ -726,8 +726,8 @@ count_items.exit245.thread:                       ; preds = %31, %count_items.ex
   %61 = load ptr, ptr %60, align 8, !tbaa !96
   %.not225 = icmp eq ptr %61, null
   %.not226 = icmp eq ptr %53, null
-  %or.cond384 = select i1 %.not225, i1 true, i1 %.not226
-  br i1 %or.cond384, label %.thread, label %.preheader284
+  %or.cond407 = select i1 %.not225, i1 true, i1 %.not226
+  br i1 %or.cond407, label %.thread, label %.preheader284
 
 .preheader284:                                    ; preds = %59
   %62 = ashr exact i32 %spec.select280, 1
@@ -960,23 +960,23 @@ count_items.exit250:                              ; preds = %.lr.ph.i247, %136
   br i1 %178, label %._crit_edge.thread.i, label %180
 
 ._crit_edge.thread.i:                             ; preds = %152, %._crit_edge.i
-  %.pre274.pre290.i = phi ptr [ %.pre274.pre.i, %._crit_edge.i ], [ %149, %152 ]
-  %.0223.lcssa288.i = phi i32 [ %.2263, %._crit_edge.i ], [ 0, %152 ]
-  %179 = add nuw nsw i32 %.0223.lcssa288.i, 1
+  %.pre274.pre294.i = phi ptr [ %.pre274.pre.i, %._crit_edge.i ], [ %149, %152 ]
+  %.0223.lcssa292.i = phi i32 [ %.2263, %._crit_edge.i ], [ 0, %152 ]
+  %179 = add nuw nsw i32 %.0223.lcssa292.i, 1
   br label %180
 
 180:                                              ; preds = %._crit_edge.thread.i, %._crit_edge.i
-  %.pre274.pre289.i = phi ptr [ %.pre274.pre290.i, %._crit_edge.thread.i ], [ %.pre274.pre.i, %._crit_edge.i ]
+  %.pre274.pre293.i = phi ptr [ %.pre274.pre294.i, %._crit_edge.thread.i ], [ %.pre274.pre.i, %._crit_edge.i ]
   %.0225.i = phi i32 [ %179, %._crit_edge.thread.i ], [ %.2263, %._crit_edge.i ]
-  %181 = getelementptr inbounds nuw i8, ptr %.pre274.pre289.i, i64 64
+  %181 = getelementptr inbounds nuw i8, ptr %.pre274.pre293.i, i64 64
   %182 = load double, ptr %181, align 8, !tbaa !75
   %183 = getelementptr inbounds nuw i8, ptr %151, i64 32
   %184 = load double, ptr %183, align 8, !tbaa !104
   %185 = call nsz double @llvm.fmuladd.f64(double %184, double -2.000000e+00, double %182)
-  store double %185, ptr %.pre274.pre289.i, align 8, !tbaa !75
-  %186 = getelementptr inbounds nuw i8, ptr %.pre274.pre289.i, i64 72
+  store double %185, ptr %.pre274.pre293.i, align 8, !tbaa !75
+  %186 = getelementptr inbounds nuw i8, ptr %.pre274.pre293.i, i64 72
   %187 = load double, ptr %186, align 8, !tbaa !78
-  %188 = getelementptr inbounds nuw i8, ptr %.pre274.pre289.i, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %.pre274.pre293.i, i64 8
   store double %187, ptr %188, align 8, !tbaa !78
   %189 = icmp sgt i32 %.0225.i, 1
   br i1 %189, label %.lr.ph250.preheader.i, label %.preheader238.i
@@ -990,7 +990,7 @@ count_items.exit250:                              ; preds = %.lr.ph.i247, %136
   br label %.preheader238.i
 
 .preheader238.i:                                  ; preds = %.preheader238.loopexit.i, %180
-  %.pre282.pre.i = phi ptr [ %.pre282.pre.pre.i, %.preheader238.loopexit.i ], [ %.pre274.pre289.i, %180 ]
+  %.pre282.pre.i = phi ptr [ %.pre282.pre.pre.i, %.preheader238.loopexit.i ], [ %.pre274.pre293.i, %180 ]
   %191 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %192 = load i32, ptr %191, align 8, !tbaa !73
   %193 = icmp sgt i32 %192, 0
@@ -1051,11 +1051,11 @@ count_items.exit250:                              ; preds = %.lr.ph.i247, %136
 .lr.ph246.i:                                      ; preds = %.lr.ph246.i, %.lr.ph246.preheader.i
   %indvars.iv262.i = phi i64 [ %230, %.lr.ph246.preheader.i ], [ %indvars.iv.next263.i, %.lr.ph246.i ]
   %231 = load ptr, ptr %151, align 8, !tbaa !74
-  %.idx284.i = shl nsw i64 %indvars.iv262.i, 6
-  %232 = getelementptr inbounds i8, ptr %231, i64 %.idx284.i
+  %.idx288.i = shl nsw i64 %indvars.iv262.i, 6
+  %232 = getelementptr inbounds i8, ptr %231, i64 %.idx288.i
   %indvars.iv.next263.i = add nsw i64 %indvars.iv262.i, 1
-  %.idx285.i = shl nsw i64 %indvars.iv.next263.i, 6
-  %233 = getelementptr inbounds i8, ptr %231, i64 %.idx285.i
+  %.idx289.i = shl nsw i64 %indvars.iv.next263.i, 6
+  %233 = getelementptr inbounds i8, ptr %231, i64 %.idx289.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %232, ptr noundef nonnull align 8 dereferenceable(32) %233, i64 32, i1 false), !tbaa.struct !106
   %lftr.wideiv = trunc i64 %indvars.iv.next263.i to i32
   %exitcond352 = icmp eq i32 %227, %lftr.wideiv
@@ -1233,8 +1233,8 @@ count_items.exit250:                              ; preds = %.lr.ph.i247, %136
   %.pre367 = sitofp i32 %.pre to double
   %.pre368 = fmul nsz double %.pre367, 5.000000e-01
   %343 = fcmp nsz ult double %341, %.pre368
-  %or.cond398 = select i1 %342, i1 %343, i1 false
-  br i1 %or.cond398, label %344, label %split
+  %or.cond421 = select i1 %342, i1 %343, i1 false
+  br i1 %or.cond421, label %344, label %split
 
 split:                                            ; preds = %331
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %7, i32 noundef 16, ptr noundef nonnull @.str.13, double noundef %341, double noundef %.pre368) #9
@@ -1332,8 +1332,8 @@ split:                                            ; preds = %331
   store i32 %337, ptr %20, align 8, !tbaa !25
   %385 = icmp sgt i32 %.1191, 0
   %386 = icmp ne i32 %337, 0
-  %or.cond385 = select i1 %385, i1 %386, i1 false
-  br i1 %or.cond385, label %.lr.ph334, label %.critedge
+  %or.cond408 = select i1 %385, i1 %386, i1 false
+  br i1 %or.cond408, label %.lr.ph334, label %.critedge
 
 387:                                              ; preds = %.lr.ph334
   %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
@@ -1352,8 +1352,8 @@ split:                                            ; preds = %331
   br i1 %.not219.us, label %.loopexit, label %387
 
 .critedge:                                        ; preds = %387, %._crit_edge326.thread, %._crit_edge326
-  %.0190.lcssa371 = phi i32 [ 0, %._crit_edge326.thread ], [ %.1191, %._crit_edge326 ], [ %.1191, %387 ]
-  %394 = sext i32 %.0190.lcssa371 to i64
+  %.0190.lcssa394 = phi i32 [ 0, %._crit_edge326.thread ], [ %.1191, %._crit_edge326 ], [ %.1191, %387 ]
+  %394 = sext i32 %.0190.lcssa394 to i64
   %395 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i64 %394, ptr %395, align 8, !tbaa !69
   br label %.loopexit

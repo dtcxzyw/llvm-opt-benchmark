@@ -891,8 +891,8 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %374, %_ZNSt6vectorI
 
 .lr.ph579.preheader:                              ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit, %.preheader
   %390 = phi i64 [ %389, %.preheader ], [ 1, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
-  %.sroa.33.4.lcssa643 = phi ptr [ %.sroa.33.5, %.preheader ], [ %.sroa.33.7, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
-  %.sroa.0393.4.lcssa641 = phi ptr [ %.sroa.0393.5, %.preheader ], [ %.sroa.0393.7, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
+  %.sroa.33.4.lcssa670 = phi ptr [ %.sroa.33.5, %.preheader ], [ %.sroa.33.7, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
+  %.sroa.0393.4.lcssa668 = phi ptr [ %.sroa.0393.5, %.preheader ], [ %.sroa.0393.7, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
   br label %.lr.ph579
 
 .loopexit534:                                     ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
@@ -1071,10 +1071,10 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit344:       ; preds = %447, %_ZNSt6vectorI
   br i1 %477, label %391, label %.preheader, !llvm.loop !8
 
 ._crit_edge580:                                   ; preds = %.lr.ph579, %.preheader
-  %.not603646 = phi i1 [ true, %.preheader ], [ false, %.lr.ph579 ]
+  %.not603673 = phi i1 [ true, %.preheader ], [ false, %.lr.ph579 ]
   %478 = phi i64 [ 0, %.preheader ], [ %390, %.lr.ph579 ]
-  %.sroa.33.4.lcssa644 = phi ptr [ %.sroa.33.5, %.preheader ], [ %.sroa.33.4.lcssa643, %.lr.ph579 ]
-  %.sroa.0393.4.lcssa642 = phi ptr [ %.sroa.0393.5, %.preheader ], [ %.sroa.0393.4.lcssa641, %.lr.ph579 ]
+  %.sroa.33.4.lcssa671 = phi ptr [ %.sroa.33.5, %.preheader ], [ %.sroa.33.4.lcssa670, %.lr.ph579 ]
+  %.sroa.0393.4.lcssa669 = phi ptr [ %.sroa.0393.5, %.preheader ], [ %.sroa.0393.4.lcssa668, %.lr.ph579 ]
   %.sroa.14376.0.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %499, %.lr.ph579 ]
   %.sroa.9374.0.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %496, %.lr.ph579 ]
   %.sroa.0372.0.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %493, %.lr.ph579 ]
@@ -1104,7 +1104,7 @@ _ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %._crit_edge580
   %.sroa.0372.0574 = phi float [ %493, %.lr.ph579 ], [ 0.000000e+00, %.lr.ph579.preheader ]
   %.sroa.9374.0573 = phi float [ %496, %.lr.ph579 ], [ 0.000000e+00, %.lr.ph579.preheader ]
   %.sroa.14376.0572 = phi float [ %499, %.lr.ph579 ], [ 0.000000e+00, %.lr.ph579.preheader ]
-  %488 = getelementptr inbounds nuw i32, ptr %.sroa.0393.4.lcssa641, i64 %487
+  %488 = getelementptr inbounds nuw i32, ptr %.sroa.0393.4.lcssa668, i64 %487
   %489 = load i32, ptr %488, align 4
   %490 = zext i32 %489 to i64
   %491 = getelementptr inbounds nuw %class.aiVector3t, ptr %43, i64 %490
@@ -1152,12 +1152,12 @@ _ZN10aiVector3tIfE9NormalizeEv.exit352:           ; preds = %_ZN10aiVector3tIfE9
   %.sroa.14.1 = phi float [ %.sroa.14.0.lcssa, %_ZN10aiVector3tIfE9NormalizeEv.exit ], [ %519, %_ZN10aiVector3tIfEdVEf.exit.i350 ]
   %.sroa.9.1 = phi float [ %.sroa.9.0.lcssa, %_ZN10aiVector3tIfE9NormalizeEv.exit ], [ %518, %_ZN10aiVector3tIfEdVEf.exit.i350 ]
   %.sroa.0.1 = phi float [ %.sroa.0.0.lcssa, %_ZN10aiVector3tIfE9NormalizeEv.exit ], [ %517, %_ZN10aiVector3tIfEdVEf.exit.i350 ]
-  br i1 %.not603646, label %.loopexit, label %.lr.ph589
+  br i1 %.not603673, label %.loopexit, label %.lr.ph589
 
 .lr.ph589:                                        ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit352, %.lr.ph589
   %520 = phi i64 [ %529, %.lr.ph589 ], [ 0, %_ZN10aiVector3tIfE9NormalizeEv.exit352 ]
   %.0588 = phi i32 [ %528, %.lr.ph589 ], [ 0, %_ZN10aiVector3tIfE9NormalizeEv.exit352 ]
-  %521 = getelementptr inbounds nuw i32, ptr %.sroa.0393.4.lcssa642, i64 %520
+  %521 = getelementptr inbounds nuw i32, ptr %.sroa.0393.4.lcssa669, i64 %520
   %522 = load i32, ptr %521, align 4
   %523 = zext i32 %522 to i64
   %524 = getelementptr inbounds nuw %class.aiVector3t, ptr %43, i64 %523
@@ -1180,8 +1180,8 @@ _ZN10aiVector3tIfE9NormalizeEv.exit352:           ; preds = %_ZN10aiVector3tIfE9
   br i1 %530, label %.lr.ph589, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph589, %_ZN10aiVector3tIfE9NormalizeEv.exit352, %338
-  %.sroa.0393.1 = phi ptr [ %.sroa.0393.0590, %338 ], [ %.sroa.0393.4.lcssa642, %_ZN10aiVector3tIfE9NormalizeEv.exit352 ], [ %.sroa.0393.4.lcssa642, %.lr.ph589 ]
-  %.sroa.33.1 = phi ptr [ %.sroa.33.0591, %338 ], [ %.sroa.33.4.lcssa644, %_ZN10aiVector3tIfE9NormalizeEv.exit352 ], [ %.sroa.33.4.lcssa644, %.lr.ph589 ]
+  %.sroa.0393.1 = phi ptr [ %.sroa.0393.0590, %338 ], [ %.sroa.0393.4.lcssa669, %_ZN10aiVector3tIfE9NormalizeEv.exit352 ], [ %.sroa.0393.4.lcssa669, %.lr.ph589 ]
+  %.sroa.33.1 = phi ptr [ %.sroa.33.0591, %338 ], [ %.sroa.33.4.lcssa671, %_ZN10aiVector3tIfE9NormalizeEv.exit352 ], [ %.sroa.33.4.lcssa671, %.lr.ph589 ]
   %indvars.iv.next631 = add nuw nsw i64 %indvars.iv630, 1
   %531 = load i32, ptr %32, align 4
   %532 = zext i32 %531 to i64

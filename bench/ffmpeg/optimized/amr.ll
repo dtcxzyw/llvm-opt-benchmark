@@ -216,7 +216,7 @@ define internal range(i32 0, 27) i32 @amrnb_probe(ptr noundef readonly captures(
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ %7, %15 ]
   %.0 = phi i32 [ %23, %22 ], [ %19, %15 ]
   %.not33 = icmp eq i32 %.0, 0
-  br i1 %.not33, label %.split.loop.exit42, label %22
+  br i1 %.not33, label %.split.loop.exit44, label %22
 
 22:                                               ; preds = %21
   %23 = add nsw i32 %.0, -1
@@ -228,9 +228,9 @@ define internal range(i32 0, 27) i32 @amrnb_probe(ptr noundef readonly captures(
 
 .split.loop.exit:                                 ; preds = %22
   %indvars.le = trunc i64 %indvars.iv.next to i32
-  br label %.split.loop.exit42
+  br label %.split.loop.exit44
 
-.split.loop.exit42:                               ; preds = %21, %.split.loop.exit
+.split.loop.exit44:                               ; preds = %21, %.split.loop.exit
   %.lcssa = phi i32 [ %23, %.split.loop.exit ], [ -1, %21 ]
   %.2 = phi i32 [ %indvars.le, %.split.loop.exit ], [ %20, %21 ]
   %26 = icmp sgt i32 %.0, 1
@@ -245,10 +245,10 @@ define internal range(i32 0, 27) i32 @amrnb_probe(ptr noundef readonly captures(
   %31 = add nsw i32 %.02539, 1
   br label %32
 
-32:                                               ; preds = %29, %.split.loop.exit42
-  %.230 = phi i32 [ %.129, %.split.loop.exit42 ], [ 0, %29 ]
-  %.127 = phi i32 [ %.02638, %.split.loop.exit42 ], [ %30, %29 ]
-  %.4 = phi i32 [ %.3, %.split.loop.exit42 ], [ %31, %29 ]
+32:                                               ; preds = %29, %.split.loop.exit44
+  %.230 = phi i32 [ %.129, %.split.loop.exit44 ], [ 0, %29 ]
+  %.127 = phi i32 [ %.02638, %.split.loop.exit44 ], [ %30, %29 ]
+  %.4 = phi i32 [ %.3, %.split.loop.exit44 ], [ %31, %29 ]
   %33 = icmp slt i32 %.4, %5
   br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !58
 
@@ -333,7 +333,7 @@ define internal range(i32 0, 27) i32 @amrwb_probe(ptr noundef readonly captures(
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ %7, %15 ]
   %.0 = phi i32 [ %23, %22 ], [ %19, %15 ]
   %.not33 = icmp eq i32 %.0, 0
-  br i1 %.not33, label %.split.loop.exit42, label %22
+  br i1 %.not33, label %.split.loop.exit44, label %22
 
 22:                                               ; preds = %21
   %23 = add nsw i32 %.0, -1
@@ -345,9 +345,9 @@ define internal range(i32 0, 27) i32 @amrwb_probe(ptr noundef readonly captures(
 
 .split.loop.exit:                                 ; preds = %22
   %indvars.le = trunc i64 %indvars.iv.next to i32
-  br label %.split.loop.exit42
+  br label %.split.loop.exit44
 
-.split.loop.exit42:                               ; preds = %21, %.split.loop.exit
+.split.loop.exit44:                               ; preds = %21, %.split.loop.exit
   %.lcssa = phi i32 [ %23, %.split.loop.exit ], [ -1, %21 ]
   %.2 = phi i32 [ %indvars.le, %.split.loop.exit ], [ %20, %21 ]
   %26 = icmp sgt i32 %.0, 1
@@ -362,10 +362,10 @@ define internal range(i32 0, 27) i32 @amrwb_probe(ptr noundef readonly captures(
   %31 = add nsw i32 %.02539, 1
   br label %32
 
-32:                                               ; preds = %29, %.split.loop.exit42
-  %.230 = phi i32 [ %.129, %.split.loop.exit42 ], [ 0, %29 ]
-  %.127 = phi i32 [ %.02638, %.split.loop.exit42 ], [ %30, %29 ]
-  %.4 = phi i32 [ %.3, %.split.loop.exit42 ], [ %31, %29 ]
+32:                                               ; preds = %29, %.split.loop.exit44
+  %.230 = phi i32 [ %.129, %.split.loop.exit44 ], [ 0, %29 ]
+  %.127 = phi i32 [ %.02638, %.split.loop.exit44 ], [ %30, %29 ]
+  %.4 = phi i32 [ %.3, %.split.loop.exit44 ], [ %31, %29 ]
   %33 = icmp slt i32 %.4, %5
   br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !60
 

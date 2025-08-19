@@ -490,10 +490,10 @@ define internal void @cpu_common_parse_features(ptr noundef %0, ptr noundef %1, 
   br i1 %.b30, label %6, label %7
 
 .thread:                                          ; preds = %3
-  %.b3037 = load i1, ptr @cpu_common_parse_features.cpu_globals_initialized, align 1
-  br i1 %.b3037, label %6, label %.thread38
+  %.b3040 = load i1, ptr @cpu_common_parse_features.cpu_globals_initialized, align 1
+  br i1 %.b3040, label %6, label %.thread41
 
-.thread38:                                        ; preds = %.thread
+.thread41:                                        ; preds = %.thread
   store i1 true, ptr @cpu_common_parse_features.cpu_globals_initialized, align 1
   br label %.loopexit
 
@@ -532,7 +532,7 @@ define internal void @cpu_common_parse_features(ptr noundef %0, ptr noundef %1, 
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 189, ptr noundef nonnull @__func__.cpu_common_parse_features, ptr noundef nonnull @.str.14, ptr noundef nonnull %.02735) #12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %9, %.thread38, %7, %17
+.loopexit:                                        ; preds = %9, %.thread41, %7, %17
   ret void
 }
 

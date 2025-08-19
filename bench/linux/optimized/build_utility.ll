@@ -7454,7 +7454,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   br i1 %117, label %118, label %.preheader152
 
 .preheader152:                                    ; preds = %107, %.loopexit155, %114
-  %.lcssa259 = phi i8 [ %109, %107 ], [ %.ph, %.loopexit155 ], [ %109, %114 ]
+  %.lcssa349 = phi i8 [ %109, %107 ], [ %.ph, %.loopexit155 ], [ %109, %114 ]
   br label %381
 
 118:                                              ; preds = %114
@@ -7670,25 +7670,25 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
 .thread98:                                        ; preds = %228, %252
   %254 = load volatile ptr, ptr @asym_cap_list, align 8
   %255 = icmp eq ptr %254, @asym_cap_list
-  br i1 %255, label %.thread224, label %256, !prof !18
+  br i1 %255, label %.thread314, label %256, !prof !18
 
 256:                                              ; preds = %.thread98
   tail call void asm sideeffect "1524: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1524b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1524) #42, !srcloc !177
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 1375, i32 2307, i64 12) #42, !srcloc !178
   tail call void asm sideeffect "1525: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1525b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1525) #42, !srcloc !179
-  br label %.thread224
+  br label %.thread314
 
 257:                                              ; preds = %252
   %258 = icmp eq i32 %248, 0
   %259 = select i1 %258, i32 96, i32 32
   %260 = icmp slt i32 %249, 2
-  br i1 %260, label %.thread224, label %261
+  br i1 %260, label %.thread314, label %261
 
-.thread224:                                       ; preds = %.thread98, %256, %257
+.thread314:                                       ; preds = %.thread98, %256, %257
   br label %261
 
-261:                                              ; preds = %257, %.thread224
-  %262 = phi i32 [ 0, %.thread224 ], [ %259, %257 ]
+261:                                              ; preds = %257, %.thread314
+  %262 = phi i32 [ 0, %.thread314 ], [ %259, %257 ]
   %263 = load i32, ptr %210, align 4
   %264 = or i32 %263, %262
   store i32 %264, ptr %210, align 4
@@ -8023,20 +8023,20 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 8
   %459 = load ptr, ptr %458, align 8
   %460 = icmp eq ptr %459, null
-  br i1 %460, label %.preheader265, label %461
+  br i1 %460, label %.preheader355, label %461
 
 461:                                              ; preds = %.preheader147
   %462 = getelementptr inbounds nuw i8, ptr %459, i64 280
   %463 = load i64, ptr %462, align 8
   %464 = and i64 %463, %454
   %465 = icmp eq i64 %464, 0
-  br i1 %465, label %.preheader265, label %.preheader147, !llvm.loop !189
+  br i1 %465, label %.preheader355, label %.preheader147, !llvm.loop !189
 
-.preheader265:                                    ; preds = %461, %.preheader147
+.preheader355:                                    ; preds = %461, %.preheader147
   br label %466
 
-466:                                              ; preds = %.preheader265, %471
-  %467 = phi ptr [ %469, %471 ], [ %457, %.preheader265 ]
+466:                                              ; preds = %.preheader355, %471
+  %467 = phi ptr [ %469, %471 ], [ %457, %.preheader355 ]
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 8
   %469 = load ptr, ptr %468, align 8
   %470 = icmp eq ptr %469, null
@@ -8918,7 +8918,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
 .thread123:                                       ; preds = %976, %.loopexit137, %983
   %.lcssa161 = phi i8 [ %978, %976 ], [ %1012, %.loopexit137 ], [ %978, %983 ]
   tail call void @__rcu_read_unlock() #42
-  %1016 = icmp eq i8 %.lcssa259, 0
+  %1016 = icmp eq i8 %.lcssa349, 0
   br i1 %1016, label %1019, label %1017
 
 1017:                                             ; preds = %.thread123
@@ -8948,12 +8948,12 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   br label %.thread128.sink.split
 
 .thread128.sink.split:                            ; preds = %101, %1025
-  %.ph244 = phi i32 [ %.ph125, %1025 ], [ -12, %101 ]
+  %.ph334 = phi i32 [ %.ph125, %1025 ], [ -12, %101 ]
   tail call void @kfree(ptr noundef nonnull %99) #42
   br label %.thread128
 
 .thread128:                                       ; preds = %.thread128.sink.split, %97, %.loopexit135
-  %1029 = phi i32 [ %.ph125, %.loopexit135 ], [ -12, %97 ], [ %.ph244, %.thread128.sink.split ]
+  %1029 = phi i32 [ %.ph125, %.loopexit135 ], [ -12, %97 ], [ %.ph334, %.thread128.sink.split ]
   tail call void @free_percpu(ptr noundef nonnull %95) #42
   br label %.loopexit157
 
@@ -12116,9 +12116,9 @@ define internal fastcc void @cpu_attach_domain(ptr noundef %0, ptr noundef %1, i
 .lr.ph.preheader:                                 ; preds = %3
   %7 = load ptr, ptr %0, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.critedge, label %.lr.ph57
+  br i1 %8, label %.critedge, label %.lr.ph78
 
-.lr.ph57:                                         ; preds = %.lr.ph.preheader, %.critedge27
+.lr.ph78:                                         ; preds = %.lr.ph.preheader, %.critedge27
   %9 = phi ptr [ %96, %.critedge27 ], [ %7, %.lr.ph.preheader ]
   %10 = phi ptr [ %95, %.critedge27 ], [ %0, %.lr.ph.preheader ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 60
@@ -12133,7 +12133,7 @@ define internal fastcc void @cpu_attach_domain(ptr noundef %0, ptr noundef %1, i
   %20 = icmp eq i64 %19, 1
   br i1 %20, label %.critedge25, label %21
 
-21:                                               ; preds = %.lr.ph57
+21:                                               ; preds = %.lr.ph78
   %22 = and i32 %14, 32751
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %32, label %24
@@ -12172,7 +12172,7 @@ define internal fastcc void @cpu_attach_domain(ptr noundef %0, ptr noundef %1, i
   %.not33 = icmp eq i64 %48, 0
   br i1 %.not33, label %.critedge25, label %.critedge27
 
-.critedge25:                                      ; preds = %32, %.lr.ph57, %24, %39
+.critedge25:                                      ; preds = %32, %.lr.ph78, %24, %39
   %49 = load ptr, ptr %9, align 8
   store ptr %49, ptr %10, align 8
   %50 = icmp eq ptr %49, null
@@ -12265,7 +12265,7 @@ destroy_sched_domain.exit:                        ; preds = %.loopexit.i, %89, %
   %95 = phi ptr [ %10, %destroy_sched_domain.exit ], [ %9, %39 ], [ %9, %35 ]
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, null
-  br i1 %97, label %.critedge, label %.lr.ph57
+  br i1 %97, label %.critedge, label %.lr.ph78
 
 .critedge:                                        ; preds = %.critedge27, %.lr.ph.preheader
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -12685,7 +12685,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @membarrier_private_expedite
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %9 = load volatile i32, ptr %8, align 4
-  switch i32 %0, label %default.unreachable13 [
+  switch i32 %0, label %default.unreachable17 [
     i32 1, label %10
     i32 2, label %13
     i32 0, label %16
@@ -12701,7 +12701,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @membarrier_private_expedite
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %92, label %19
 
-default.unreachable13:                            ; preds = %2
+default.unreachable17:                            ; preds = %2
   unreachable
 
 16:                                               ; preds = %2
@@ -13085,9 +13085,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @housekeeping_setup(ptr nound
   call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %31) #42, !srcloc !152
   %32 = load i64, ptr getelementptr inbounds nuw (i8, ptr @housekeeping, i64 72), align 8
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %35, label %.thread14
+  br i1 %33, label %35, label %.thread21
 
-.thread14:                                        ; preds = %27
+.thread21:                                        ; preds = %27
   %34 = load i64, ptr %4, align 8
   br label %.preheader12
 
@@ -13102,9 +13102,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @housekeeping_setup(ptr nound
   %40 = load i64, ptr %4, align 8
   br i1 %39, label %.preheader, label %.preheader12
 
-.preheader12:                                     ; preds = %.thread14, %38
-  %41 = phi i64 [ %34, %.thread14 ], [ %40, %38 ]
-  %42 = phi i64 [ %32, %.thread14 ], [ %.pr, %38 ]
+.preheader12:                                     ; preds = %.thread21, %38
+  %41 = phi i64 [ %34, %.thread21 ], [ %40, %38 ]
+  %42 = phi i64 [ %32, %.thread21 ], [ %.pr, %38 ]
   %invariant.op = and i64 %42, %1
   br label %57
 
@@ -13162,18 +13162,18 @@ define internal fastcc noundef range(i32 0, 2) i32 @housekeeping_setup(ptr nound
 
 .thread7:                                         ; preds = %61, %57, %64
   %75 = xor i64 %42, -1
-  %invariant.op20 = and i64 %75, %1
+  %invariant.op27 = and i64 %75, %1
   br label %76
 
 76:                                               ; preds = %.thread7, %84
   %77 = phi i64 [ 0, %.thread7 ], [ %88, %84 ]
   %78 = shl nsw i64 -1, %77
-  %.reass17.reass = and i64 %78, %invariant.op20
-  %79 = icmp eq i64 %.reass17.reass, 0
+  %.reass24.reass = and i64 %78, %invariant.op27
+  %79 = icmp eq i64 %.reass24.reass, 0
   br i1 %79, label %.thread, label %80
 
 80:                                               ; preds = %76
-  %81 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.reass17.reass) #43, !srcloc !46
+  %81 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.reass24.reass) #43, !srcloc !46
   %82 = trunc i64 %81 to i32
   %83 = icmp ult i32 %82, 9
   br i1 %83, label %84, label %.thread

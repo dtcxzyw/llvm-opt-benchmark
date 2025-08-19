@@ -968,7 +968,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjENS_8DenseSetIjNS_12D
   br label %_ZN4llvm8DenseMapISt4pairINS_9StringRefEjENS_8DenseSetIjNS_12DenseMapInfoIjvEEEENS5_IS3_vEENS_6detail12DenseMapPairIS3_S7_EEED2Ev.exit
 
 _ZN4llvm8DenseMapISt4pairINS_9StringRefEjENS_8DenseSetIjNS_12DenseMapInfoIjvEEEENS5_IS3_vEENS_6detail12DenseMapPairIS3_S7_EEED2Ev.exit: ; preds = %._crit_edge235, %._crit_edge252, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjENS_8DenseSetIjNS_12DenseMapInfoIjvEEEENS6_IS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_S9_SC_E10destroyAllEv.exit.loopexit.i
-  %.057.lcssa271 = phi i1 [ %.158.lcssa, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjENS_8DenseSetIjNS_12DenseMapInfoIjvEEEENS6_IS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_S9_SC_E10destroyAllEv.exit.loopexit.i ], [ %.158.lcssa, %._crit_edge252 ], [ false, %._crit_edge235 ]
+  %.057.lcssa302 = phi i1 [ %.158.lcssa, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjENS_8DenseSetIjNS_12DenseMapInfoIjvEEEENS6_IS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_S9_SC_E10destroyAllEv.exit.loopexit.i ], [ %.158.lcssa, %._crit_edge252 ], [ false, %._crit_edge235 ]
   %252 = phi i64 [ %251, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjENS_8DenseSetIjNS_12DenseMapInfoIjvEEEENS6_IS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_S9_SC_E10destroyAllEv.exit.loopexit.i ], [ 0, %._crit_edge252 ], [ 0, %._crit_edge235 ]
   %253 = phi ptr [ %.pre.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjENS_8DenseSetIjNS_12DenseMapInfoIjvEEEENS6_IS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_S9_SC_E10destroyAllEv.exit.loopexit.i ], [ %.pre1.i.pre, %._crit_edge252 ], [ null, %._crit_edge235 ]
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %253, i64 noundef %252, i64 noundef 8) #18
@@ -1779,7 +1779,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit144: ; pred
   br i1 %.not211, label %._crit_edge243, label %.lr.ph242
 
 610:                                              ; preds = %_ZN4llvm8DenseMapISt4pairINS_9StringRefEjENS_8DenseSetIjNS_12DenseMapInfoIjvEEEENS5_IS3_vEENS_6detail12DenseMapPairIS3_S7_EEED2Ev.exit, %_ZNK4llvm12DISubprogram7getUnitEv.exit, %20, %2
-  %.0 = phi i1 [ false, %2 ], [ %.057.lcssa271, %_ZN4llvm8DenseMapISt4pairINS_9StringRefEjENS_8DenseSetIjNS_12DenseMapInfoIjvEEEENS5_IS3_vEENS_6detail12DenseMapPairIS3_S7_EEED2Ev.exit ], [ false, %_ZNK4llvm12DISubprogram7getUnitEv.exit ], [ false, %20 ]
+  %.0 = phi i1 [ false, %2 ], [ %.057.lcssa302, %_ZN4llvm8DenseMapISt4pairINS_9StringRefEjENS_8DenseSetIjNS_12DenseMapInfoIjvEEEENS5_IS3_vEENS_6detail12DenseMapPairIS3_S7_EEED2Ev.exit ], [ false, %_ZNK4llvm12DISubprogram7getUnitEv.exit ], [ false, %20 ]
   ret i1 %.0
 }
 
@@ -3052,13 +3052,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfo
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %10, %55
-  %.sink28 = phi i32 [ %58, %55 ], [ %8, %10 ], [ %8, %23 ]
-  %.sink26 = phi ptr [ %57, %55 ], [ %6, %10 ], [ %6, %23 ]
-  %.sink25 = phi ptr [ %46, %55 ], [ %15, %10 ], [ %29, %23 ]
+  %.sink32 = phi i32 [ %58, %55 ], [ %8, %10 ], [ %8, %23 ]
+  %.sink30 = phi ptr [ %57, %55 ], [ %6, %10 ], [ %6, %23 ]
+  %.sink29 = phi ptr [ %46, %55 ], [ %15, %10 ], [ %29, %23 ]
   %.sink = phi i8 [ 1, %55 ], [ 0, %10 ], [ 0, %23 ]
-  %59 = zext i32 %.sink28 to i64
-  %60 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink26, i64 %59
-  store ptr %.sink25, ptr %0, align 8
+  %59 = zext i32 %.sink32 to i64
+  %60 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink30, i64 %59
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %60, ptr %.sroa.4.0..sroa_idx, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16

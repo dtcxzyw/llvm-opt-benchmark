@@ -470,15 +470,15 @@ _ZTWN7rocksdb10perf_levelE.exit18:                ; preds = %33, %34
   br i1 %.not.i19, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %38, %28
-  %.sink28.ph = phi i64 [ 568, %28 ], [ 576, %38 ]
+  %.sink33.ph = phi i64 [ 568, %28 ], [ 576, %38 ]
   call void @_ZTHN7rocksdb12perf_contextE()
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %38, %28
-  %.sink28 = phi i64 [ 568, %28 ], [ 576, %38 ], [ %.sink28.ph, %.sink.split.sink.split ]
+  %.sink33 = phi i64 [ 568, %28 ], [ 576, %38 ], [ %.sink33.ph, %.sink.split.sink.split ]
   %.0.ph = phi i1 [ true, %28 ], [ false, %38 ], [ %21, %.sink.split.sink.split ]
   %39 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.sink28
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.sink33
   %41 = load i64, ptr %40, align 8, !tbaa !41
   %42 = add i64 %41, 1
   store i64 %42, ptr %40, align 8, !tbaa !41
@@ -1185,7 +1185,7 @@ _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit59: ; preds = %179, %174
   %185 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 576
   %187 = getelementptr inbounds nuw i8, ptr %49, i64 3848
-  %invariant.op178 = or i64 %.sroa.20.0.lcssa, %65
+  %invariant.op201 = or i64 %.sroa.20.0.lcssa, %65
   br label %201
 
 ._crit_edge152:                                   ; preds = %182, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit67, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit59
@@ -1301,8 +1301,8 @@ _ZTWN7rocksdb12perf_contextE.exit:                ; preds = %212, %213
   %230 = add i64 %228, 1
   %231 = shl nuw i64 1, %230
   %232 = load i64, ptr %187, align 8, !tbaa !79
-  %.reass167.reass = or i64 %232, %invariant.op178
-  %233 = and i64 %.reass167.reass, %231
+  %.reass190.reass = or i64 %232, %invariant.op201
+  %233 = and i64 %.reass190.reass, %231
   %.not.i66 = icmp eq i64 %233, 0
   br i1 %.not.i66, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit67, label %227, !llvm.loop !143
 

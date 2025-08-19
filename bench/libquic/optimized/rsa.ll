@@ -709,8 +709,8 @@ define hidden range(i32 0, 2) i32 @RSA_add_pkcs1_prefix(ptr noundef writeonly ca
   br label %.thread
 
 .lr.ph:                                           ; preds = %6, %.preheader
-  %indvars.iv50 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %6 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv50, 1
+  %indvars.iv52 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %6 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv52, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond, label %27, label %.preheader, !llvm.loop !63
 
@@ -1156,7 +1156,7 @@ RSA_is_opaque.exit.thread:                        ; preds = %1, %RSA_is_opaque.e
   br label %122
 
 ._crit_edge:                                      ; preds = %58, %53, %56
-  %.not9497 = phi i1 [ true, %56 ], [ true, %53 ], [ false, %58 ]
+  %.not94101 = phi i1 [ true, %56 ], [ true, %53 ], [ false, %58 ]
   %73 = call i32 @BN_div(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %33) #10
   %.not71 = icmp eq i32 %73, 0
   br i1 %.not71, label %80, label %74
@@ -1218,7 +1218,7 @@ RSA_is_opaque.exit.thread:                        ; preds = %1, %RSA_is_opaque.e
   br label %122
 
 100:                                              ; preds = %95
-  %or.cond = and i1 %.not9497, %91
+  %or.cond = and i1 %.not94101, %91
   br i1 %or.cond, label %101, label %122
 
 101:                                              ; preds = %100

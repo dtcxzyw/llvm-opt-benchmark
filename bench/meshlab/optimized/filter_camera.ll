@@ -433,13 +433,13 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
   br i1 %23, label %._crit_edge.thread.i.i, label %28
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %18
-  %.019.lcssa28.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %6, %18 ]
+  %.019.lcssa29.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %6, %18 ]
   %24 = load ptr, ptr %8, align 8
-  %25 = icmp eq ptr %.019.lcssa28.i.i, %24
+  %25 = icmp eq ptr %.019.lcssa29.i.i, %24
   br i1 %25, label %select.unfold, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #28
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i) #28
   %.phi.trans.insert80.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81.i = load i32, ptr %.phi.trans.insert80.i, align 4
   %.pre82.i = load i32, ptr %.08.i, align 4
@@ -448,12 +448,12 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
 28:                                               ; preds = %26, %._crit_edge.i.i
   %29 = phi i32 [ %.pre82.i, %26 ], [ %19, %._crit_edge.i.i ]
   %30 = phi i32 [ %.pre81.i, %26 ], [ %22, %._crit_edge.i.i ]
-  %.019.lcssa29.i.i = phi ptr [ %.019.lcssa28.i.i, %26 ], [ %.02024.i.i, %._crit_edge.i.i ]
+  %.019.lcssa28.i.i = phi ptr [ %.019.lcssa29.i.i, %26 ], [ %.02024.i.i, %._crit_edge.i.i ]
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE17_M_insert_unique_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EOT_RT0_.exit.i
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
-  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
+  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
 
@@ -1057,8 +1057,8 @@ _ZNSt7__cxx114listIiSaIiEE6spliceESt20_List_const_iteratorIiERS2_.exit: ; preds 
   br i1 %.not.i.i.i8, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i6, !llvm.loop !12
 
 _ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i6, %4, %23
-  %.sroa.04.013 = phi ptr [ %.sroa.04.0, %23 ], [ %1, %4 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
-  ret ptr %.sroa.04.013
+  %.sroa.04.020 = phi ptr [ %.sroa.04.0, %23 ], [ %1, %4 ], [ %.sroa.04.0, %.lr.ph.i.i.i6 ]
+  ret ptr %.sroa.04.020
 }
 
 ; Function Attrs: nounwind
@@ -10537,8 +10537,8 @@ _ZN7QStringD2Ev.exit738:                          ; preds = %714, %_ZN9QtPrivate
   br label %.loopexit1438.sink.split
 
 .loopexit1438.sink.split:                         ; preds = %754, %733
-  %.sink1555 = phi ptr [ %97, %733 ], [ %755, %754 ]
-  call void @_ZN3vcg4ShotIfNS_8Matrix44IfEEE24ApplyRigidTransformationERKS2_(ptr noundef nonnull align 4 dereferenceable(132) %.sink1555, ptr noundef nonnull align 4 dereferenceable(64) %36)
+  %.sink1693 = phi ptr [ %97, %733 ], [ %755, %754 ]
+  call void @_ZN3vcg4ShotIfNS_8Matrix44IfEEE24ApplyRigidTransformationERKS2_(ptr noundef nonnull align 4 dereferenceable(132) %.sink1693, ptr noundef nonnull align 4 dereferenceable(64) %36)
   br label %.loopexit1438
 
 .loopexit1438:                                    ; preds = %_ZN12MeshDocument19RasterRangeIterator3endEv.exit731, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit715, %.loopexit1438.sink.split, %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit730, %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit714, %_ZN7QStringD2Ev.exit738
@@ -10834,13 +10834,13 @@ _ZN7QStringD2Ev.exit775:                          ; preds = %805, %_ZN9QtPrivate
   br label %.sink.split
 
 .sink.split:                                      ; preds = %832, %845
-  %.sroa.01.0.copyload.i787.sink1559.in = phi ptr [ %846, %845 ], [ %833, %832 ]
+  %.sroa.01.0.copyload.i787.sink1697.in = phi ptr [ %846, %845 ], [ %833, %832 ]
   %.sroa.22.0.copyload.i789.sink.in = phi ptr [ %.sroa.22.0..sroa_idx.i788, %845 ], [ %.sroa.22.0..sroa_idx.i778, %832 ]
   %.sroa.22.0.copyload.i789.sink = load float, ptr %.sroa.22.0.copyload.i789.sink.in, align 4
-  %.sroa.01.0.copyload.i787.sink1559 = load <2 x float>, ptr %.sroa.01.0.copyload.i787.sink1559.in, align 4
-  %.sroa.01189.0.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i787.sink1559, i64 0
+  %.sroa.01.0.copyload.i787.sink1697 = load <2 x float>, ptr %.sroa.01.0.copyload.i787.sink1697.in, align 4
+  %.sroa.01189.0.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i787.sink1697, i64 0
   %847 = fneg float %.sroa.01189.0.vec.extract
-  %.sroa.01189.4.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i787.sink1559, i64 1
+  %.sroa.01189.4.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i787.sink1697, i64 1
   %848 = fneg float %.sroa.01189.4.vec.extract
   %849 = fneg float %.sroa.22.0.copyload.i789.sink
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %766, i8 0, i64 56, i1 false)
@@ -11295,8 +11295,8 @@ _ZN7QStringD2Ev.exit838:                          ; preds = %972, %_ZN9QtPrivate
   br label %.loopexit1441.sink.split
 
 .loopexit1441.sink.split:                         ; preds = %979, %1002
-  %.sink1560 = phi ptr [ %1003, %1002 ], [ %97, %979 ]
-  call void @_ZN3vcg4ShotIfNS_8Matrix44IfEEE24ApplyRigidTransformationERKS2_(ptr noundef nonnull align 4 dereferenceable(132) %.sink1560, ptr noundef nonnull align 4 dereferenceable(64) %51)
+  %.sink1698 = phi ptr [ %1003, %1002 ], [ %97, %979 ]
+  call void @_ZN3vcg4ShotIfNS_8Matrix44IfEEE24ApplyRigidTransformationERKS2_(ptr noundef nonnull align 4 dereferenceable(132) %.sink1698, ptr noundef nonnull align 4 dereferenceable(64) %51)
   br label %.loopexit1441
 
 .loopexit1441:                                    ; preds = %_ZN12MeshDocument19RasterRangeIterator3endEv.exit831, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit815, %.loopexit1441.sink.split, %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit830, %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit814, %_ZN7QStringD2Ev.exit838
@@ -11418,61 +11418,61 @@ _ZN7QStringD2Ev.exit854:                          ; preds = %1013, %_ZN9QtPrivat
 
 1035:                                             ; preds = %1019
   %1036 = getelementptr inbounds nuw i8, ptr %97, i64 56
-  %.sroa.0.0.copyload1586 = load float, ptr %1036, align 4
-  %.sroa.4.0..sroa_idx1587 = getelementptr inbounds nuw i8, ptr %97, i64 60
-  %.sroa.4.0.copyload1588 = load float, ptr %.sroa.4.0..sroa_idx1587, align 4
-  %.sroa.6.0..sroa_idx1589 = getelementptr inbounds nuw i8, ptr %97, i64 64
-  %.sroa.6.0.copyload1590 = load float, ptr %.sroa.6.0..sroa_idx1589, align 4
-  %.sroa.7.0..sroa_idx1591 = getelementptr inbounds nuw i8, ptr %97, i64 68
-  %.sroa.7.0.copyload1592 = load float, ptr %.sroa.7.0..sroa_idx1591, align 4
-  %.sroa.9.0..sroa_idx1593 = getelementptr inbounds nuw i8, ptr %97, i64 72
-  %.sroa.9.0.copyload1594 = load float, ptr %.sroa.9.0..sroa_idx1593, align 4
-  %.sroa.10.0..sroa_idx1595 = getelementptr inbounds nuw i8, ptr %97, i64 76
-  %.sroa.10.0.copyload1596 = load float, ptr %.sroa.10.0..sroa_idx1595, align 4
-  %.sroa.12.0..sroa_idx1597 = getelementptr inbounds nuw i8, ptr %97, i64 80
-  %.sroa.12.0.copyload1598 = load float, ptr %.sroa.12.0..sroa_idx1597, align 4
-  %.sroa.13.0..sroa_idx1599 = getelementptr inbounds nuw i8, ptr %97, i64 84
-  %.sroa.13.0.copyload1600 = load float, ptr %.sroa.13.0..sroa_idx1599, align 4
-  %.sroa.15.0..sroa_idx1601 = getelementptr inbounds nuw i8, ptr %97, i64 88
-  %.sroa.15.0.copyload1602 = load float, ptr %.sroa.15.0..sroa_idx1601, align 4
-  %.sroa.16.0..sroa_idx1603 = getelementptr inbounds nuw i8, ptr %97, i64 92
-  %.sroa.16.0.copyload1604 = load float, ptr %.sroa.16.0..sroa_idx1603, align 4
-  %.sroa.17.0..sroa_idx1605 = getelementptr inbounds nuw i8, ptr %97, i64 96
-  %.sroa.17.0.copyload1606 = load float, ptr %.sroa.17.0..sroa_idx1605, align 4
-  %.sroa.19.0..sroa_idx1607 = getelementptr inbounds nuw i8, ptr %97, i64 100
-  %.sroa.19.0.copyload1608 = load float, ptr %.sroa.19.0..sroa_idx1607, align 4
-  %.sroa.21.0..sroa_idx1609 = getelementptr inbounds nuw i8, ptr %97, i64 104
-  %.sroa.21.0.copyload1610 = load float, ptr %.sroa.21.0..sroa_idx1609, align 4
-  %.sroa.22.0..sroa_idx1611 = getelementptr inbounds nuw i8, ptr %97, i64 108
-  %.sroa.22.0.copyload1612 = load float, ptr %.sroa.22.0..sroa_idx1611, align 4
-  %.sroa.23.0..sroa_idx1613 = getelementptr inbounds nuw i8, ptr %97, i64 112
-  %.sroa.23.0.copyload1614 = load float, ptr %.sroa.23.0..sroa_idx1613, align 4
-  %.sroa.24.0..sroa_idx1615 = getelementptr inbounds nuw i8, ptr %97, i64 116
-  %.sroa.24.0.copyload1616 = load float, ptr %.sroa.24.0..sroa_idx1615, align 4
+  %.sroa.0.0.copyload1724 = load float, ptr %1036, align 4
+  %.sroa.4.0..sroa_idx1725 = getelementptr inbounds nuw i8, ptr %97, i64 60
+  %.sroa.4.0.copyload1726 = load float, ptr %.sroa.4.0..sroa_idx1725, align 4
+  %.sroa.6.0..sroa_idx1727 = getelementptr inbounds nuw i8, ptr %97, i64 64
+  %.sroa.6.0.copyload1728 = load float, ptr %.sroa.6.0..sroa_idx1727, align 4
+  %.sroa.7.0..sroa_idx1729 = getelementptr inbounds nuw i8, ptr %97, i64 68
+  %.sroa.7.0.copyload1730 = load float, ptr %.sroa.7.0..sroa_idx1729, align 4
+  %.sroa.9.0..sroa_idx1731 = getelementptr inbounds nuw i8, ptr %97, i64 72
+  %.sroa.9.0.copyload1732 = load float, ptr %.sroa.9.0..sroa_idx1731, align 4
+  %.sroa.10.0..sroa_idx1733 = getelementptr inbounds nuw i8, ptr %97, i64 76
+  %.sroa.10.0.copyload1734 = load float, ptr %.sroa.10.0..sroa_idx1733, align 4
+  %.sroa.12.0..sroa_idx1735 = getelementptr inbounds nuw i8, ptr %97, i64 80
+  %.sroa.12.0.copyload1736 = load float, ptr %.sroa.12.0..sroa_idx1735, align 4
+  %.sroa.13.0..sroa_idx1737 = getelementptr inbounds nuw i8, ptr %97, i64 84
+  %.sroa.13.0.copyload1738 = load float, ptr %.sroa.13.0..sroa_idx1737, align 4
+  %.sroa.15.0..sroa_idx1739 = getelementptr inbounds nuw i8, ptr %97, i64 88
+  %.sroa.15.0.copyload1740 = load float, ptr %.sroa.15.0..sroa_idx1739, align 4
+  %.sroa.16.0..sroa_idx1741 = getelementptr inbounds nuw i8, ptr %97, i64 92
+  %.sroa.16.0.copyload1742 = load float, ptr %.sroa.16.0..sroa_idx1741, align 4
+  %.sroa.17.0..sroa_idx1743 = getelementptr inbounds nuw i8, ptr %97, i64 96
+  %.sroa.17.0.copyload1744 = load float, ptr %.sroa.17.0..sroa_idx1743, align 4
+  %.sroa.19.0..sroa_idx1745 = getelementptr inbounds nuw i8, ptr %97, i64 100
+  %.sroa.19.0.copyload1746 = load float, ptr %.sroa.19.0..sroa_idx1745, align 4
+  %.sroa.21.0..sroa_idx1747 = getelementptr inbounds nuw i8, ptr %97, i64 104
+  %.sroa.21.0.copyload1748 = load float, ptr %.sroa.21.0..sroa_idx1747, align 4
+  %.sroa.22.0..sroa_idx1749 = getelementptr inbounds nuw i8, ptr %97, i64 108
+  %.sroa.22.0.copyload1750 = load float, ptr %.sroa.22.0..sroa_idx1749, align 4
+  %.sroa.23.0..sroa_idx1751 = getelementptr inbounds nuw i8, ptr %97, i64 112
+  %.sroa.23.0.copyload1752 = load float, ptr %.sroa.23.0..sroa_idx1751, align 4
+  %.sroa.24.0..sroa_idx1753 = getelementptr inbounds nuw i8, ptr %97, i64 116
+  %.sroa.24.0.copyload1754 = load float, ptr %.sroa.24.0..sroa_idx1753, align 4
   %1037 = getelementptr inbounds nuw i8, ptr %97, i64 120
   %.sroa.01.0.copyload.i856 = load <2 x float>, ptr %1037, align 4
   %.sroa.22.0..sroa_idx.i857 = getelementptr inbounds nuw i8, ptr %97, i64 128
   %.sroa.22.0.copyload.i858 = load float, ptr %.sroa.22.0..sroa_idx.i857, align 4
   %.sroa.01166.0.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i856, i64 0
   %.sroa.01166.4.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i856, i64 1
-  %1038 = fmul float %.sroa.01166.4.vec.extract, %.sroa.4.0.copyload1588
-  %1039 = call float @llvm.fmuladd.f32(float %.sroa.0.0.copyload1586, float %.sroa.01166.0.vec.extract, float %1038)
-  %1040 = call float @llvm.fmuladd.f32(float %.sroa.6.0.copyload1590, float %.sroa.22.0.copyload.i858, float %1039)
-  %1041 = fadd float %.sroa.7.0.copyload1592, %1040
+  %1038 = fmul float %.sroa.01166.4.vec.extract, %.sroa.4.0.copyload1726
+  %1039 = call float @llvm.fmuladd.f32(float %.sroa.0.0.copyload1724, float %.sroa.01166.0.vec.extract, float %1038)
+  %1040 = call float @llvm.fmuladd.f32(float %.sroa.6.0.copyload1728, float %.sroa.22.0.copyload.i858, float %1039)
+  %1041 = fadd float %.sroa.7.0.copyload1730, %1040
   %.sroa.0.0.vec.insert.i861 = insertelement <2 x float> poison, float %1041, i64 0
-  %1042 = fmul float %.sroa.01166.4.vec.extract, %.sroa.10.0.copyload1596
-  %1043 = call float @llvm.fmuladd.f32(float %.sroa.9.0.copyload1594, float %.sroa.01166.0.vec.extract, float %1042)
-  %1044 = call float @llvm.fmuladd.f32(float %.sroa.12.0.copyload1598, float %.sroa.22.0.copyload.i858, float %1043)
-  %1045 = fadd float %.sroa.13.0.copyload1600, %1044
+  %1042 = fmul float %.sroa.01166.4.vec.extract, %.sroa.10.0.copyload1734
+  %1043 = call float @llvm.fmuladd.f32(float %.sroa.9.0.copyload1732, float %.sroa.01166.0.vec.extract, float %1042)
+  %1044 = call float @llvm.fmuladd.f32(float %.sroa.12.0.copyload1736, float %.sroa.22.0.copyload.i858, float %1043)
+  %1045 = fadd float %.sroa.13.0.copyload1738, %1044
   %.sroa.0.4.vec.insert.i862 = insertelement <2 x float> %.sroa.0.0.vec.insert.i861, float %1045, i64 1
-  %1046 = fmul float %.sroa.01166.4.vec.extract, %.sroa.16.0.copyload1604
-  %1047 = call float @llvm.fmuladd.f32(float %.sroa.15.0.copyload1602, float %.sroa.01166.0.vec.extract, float %1046)
-  %1048 = call float @llvm.fmuladd.f32(float %.sroa.17.0.copyload1606, float %.sroa.22.0.copyload.i858, float %1047)
-  %1049 = fadd float %.sroa.19.0.copyload1608, %1048
-  %1050 = fmul float %.sroa.01166.4.vec.extract, %.sroa.22.0.copyload1612
-  %1051 = call float @llvm.fmuladd.f32(float %.sroa.21.0.copyload1610, float %.sroa.01166.0.vec.extract, float %1050)
-  %1052 = call float @llvm.fmuladd.f32(float %.sroa.23.0.copyload1614, float %.sroa.22.0.copyload.i858, float %1051)
-  %1053 = fadd float %.sroa.24.0.copyload1616, %1052
+  %1046 = fmul float %.sroa.01166.4.vec.extract, %.sroa.16.0.copyload1742
+  %1047 = call float @llvm.fmuladd.f32(float %.sroa.15.0.copyload1740, float %.sroa.01166.0.vec.extract, float %1046)
+  %1048 = call float @llvm.fmuladd.f32(float %.sroa.17.0.copyload1744, float %.sroa.22.0.copyload.i858, float %1047)
+  %1049 = fadd float %.sroa.19.0.copyload1746, %1048
+  %1050 = fmul float %.sroa.01166.4.vec.extract, %.sroa.22.0.copyload1750
+  %1051 = call float @llvm.fmuladd.f32(float %.sroa.21.0.copyload1748, float %.sroa.01166.0.vec.extract, float %1050)
+  %1052 = call float @llvm.fmuladd.f32(float %.sroa.23.0.copyload1752, float %.sroa.22.0.copyload.i858, float %1051)
+  %1053 = fadd float %.sroa.24.0.copyload1754, %1052
   %1054 = fcmp une float %1053, 0.000000e+00
   br i1 %1054, label %1055, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit877
 
@@ -11492,37 +11492,37 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit877:             ; preds = %1055, %1035
   %.sroa.01169.4.vec.extract = extractelement <2 x float> %.sroa.0.0.i, i64 1
   %1060 = fneg float %.sroa.01169.4.vec.extract
   %1061 = fneg float %.sroa.7.0.i
-  store float %.sroa.0.0.copyload1586, ptr %65, align 4
+  store float %.sroa.0.0.copyload1724, ptr %65, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 4
-  store float %.sroa.4.0.copyload1588, ptr %.sroa.4.0..sroa_idx, align 4
+  store float %.sroa.4.0.copyload1726, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store float %.sroa.6.0.copyload1590, ptr %.sroa.6.0..sroa_idx, align 4
+  store float %.sroa.6.0.copyload1728, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 12
   store float %1059, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store float %.sroa.9.0.copyload1594, ptr %.sroa.9.0..sroa_idx, align 4
+  store float %.sroa.9.0.copyload1732, ptr %.sroa.9.0..sroa_idx, align 4
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 20
-  store float %.sroa.10.0.copyload1596, ptr %.sroa.10.0..sroa_idx, align 4
+  store float %.sroa.10.0.copyload1734, ptr %.sroa.10.0..sroa_idx, align 4
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 24
-  store float %.sroa.12.0.copyload1598, ptr %.sroa.12.0..sroa_idx, align 4
+  store float %.sroa.12.0.copyload1736, ptr %.sroa.12.0..sroa_idx, align 4
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 28
   store float %1060, ptr %.sroa.13.0..sroa_idx, align 4
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 32
-  store float %.sroa.15.0.copyload1602, ptr %.sroa.15.0..sroa_idx, align 4
+  store float %.sroa.15.0.copyload1740, ptr %.sroa.15.0..sroa_idx, align 4
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 36
-  store float %.sroa.16.0.copyload1604, ptr %.sroa.16.0..sroa_idx, align 4
+  store float %.sroa.16.0.copyload1742, ptr %.sroa.16.0..sroa_idx, align 4
   %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 40
-  store float %.sroa.17.0.copyload1606, ptr %.sroa.17.0..sroa_idx, align 4
+  store float %.sroa.17.0.copyload1744, ptr %.sroa.17.0..sroa_idx, align 4
   %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 44
   store float %1061, ptr %.sroa.19.0..sroa_idx, align 4
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 48
-  store float %.sroa.21.0.copyload1610, ptr %.sroa.21.0..sroa_idx, align 4
+  store float %.sroa.21.0.copyload1748, ptr %.sroa.21.0..sroa_idx, align 4
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 52
-  store float %.sroa.22.0.copyload1612, ptr %.sroa.22.0..sroa_idx, align 4
+  store float %.sroa.22.0.copyload1750, ptr %.sroa.22.0..sroa_idx, align 4
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 56
-  store float %.sroa.23.0.copyload1614, ptr %.sroa.23.0..sroa_idx, align 4
+  store float %.sroa.23.0.copyload1752, ptr %.sroa.23.0..sroa_idx, align 4
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 60
-  store float %.sroa.24.0.copyload1616, ptr %.sroa.24.0..sroa_idx, align 4
+  store float %.sroa.24.0.copyload1754, ptr %.sroa.24.0..sroa_idx, align 4
   br label %1062
 
 1062:                                             ; preds = %_ZNK3vcg8Matrix44IfEmlERKS1_.exit877, %_ZN7QStringD2Ev.exit854
@@ -11970,8 +11970,8 @@ _ZN7QStringD2Ev.exit920:                          ; preds = %1184, %_ZN9QtPrivat
   br label %.loopexit1444.sink.split
 
 .loopexit1444.sink.split:                         ; preds = %1191, %1214
-  %.sink1561 = phi ptr [ %1215, %1214 ], [ %97, %1191 ]
-  call void @_ZN3vcg4ShotIfNS_8Matrix44IfEEE24ApplyRigidTransformationERKS2_(ptr noundef nonnull align 4 dereferenceable(132) %.sink1561, ptr noundef nonnull align 4 dereferenceable(64) %65)
+  %.sink1699 = phi ptr [ %1215, %1214 ], [ %97, %1191 ]
+  call void @_ZN3vcg4ShotIfNS_8Matrix44IfEEE24ApplyRigidTransformationERKS2_(ptr noundef nonnull align 4 dereferenceable(132) %.sink1699, ptr noundef nonnull align 4 dereferenceable(64) %65)
   br label %.loopexit1444
 
 .loopexit1444:                                    ; preds = %_ZN12MeshDocument19RasterRangeIterator3endEv.exit913, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit897, %.loopexit1444.sink.split, %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit912, %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit896, %_ZN7QStringD2Ev.exit920
@@ -12723,10 +12723,10 @@ _ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE
   br i1 %.not.i.i.i, label %.lr.ph.i1048, label %.lr.ph.i.i.i, !llvm.loop !42
 
 .lr.ph.i1048:                                     ; preds = %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i.i, %.lr.ph27.i.i.i
-  %.sroa.0.6.i22.i = phi <2 x float> [ %.sroa.0.5.i.i, %.lr.ph27.i.i.i ], [ %.sroa.0.1.i.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i.i ]
-  %.sroa.01.0.vec.extract.i = extractelement <2 x float> %.sroa.0.6.i22.i, i64 0
-  %shift = shufflevector <2 x float> %.sroa.0.6.i22.i, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop = fsub <2 x float> %shift, %.sroa.0.6.i22.i
+  %.sroa.0.6.i26.i = phi <2 x float> [ %.sroa.0.5.i.i, %.lr.ph27.i.i.i ], [ %.sroa.0.1.i.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i.i ]
+  %.sroa.01.0.vec.extract.i = extractelement <2 x float> %.sroa.0.6.i26.i, i64 0
+  %shift = shufflevector <2 x float> %.sroa.0.6.i26.i, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop = fsub <2 x float> %shift, %.sroa.0.6.i26.i
   %1519 = extractelement <2 x float> %foldExtExtBinop, i64 0
   br label %1520
 
@@ -12849,9 +12849,9 @@ _ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE
   br i1 %.not.i.i.i1068, label %.lr.ph.i1072, label %.lr.ph.i.i.i1062, !llvm.loop !42
 
 .lr.ph.i1072:                                     ; preds = %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i.i1066, %.lr.ph27.i.i.i1080
-  %.sroa.0.1.i.i1067.lcssa.sink1562 = phi <2 x float> [ %.sroa.0.5.i.i1087, %.lr.ph27.i.i.i1080 ], [ %.sroa.0.1.i.i1067, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i.i1066 ]
-  %.sroa.01.0.vec.extract.i1070 = extractelement <2 x float> %.sroa.0.1.i.i1067.lcssa.sink1562, i64 0
-  %.sroa.01.4.vec.extract.i1071 = extractelement <2 x float> %.sroa.0.1.i.i1067.lcssa.sink1562, i64 1
+  %.sroa.0.1.i.i1067.lcssa.sink1700 = phi <2 x float> [ %.sroa.0.5.i.i1087, %.lr.ph27.i.i.i1080 ], [ %.sroa.0.1.i.i1067, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i.i1066 ]
+  %.sroa.01.0.vec.extract.i1070 = extractelement <2 x float> %.sroa.0.1.i.i1067.lcssa.sink1700, i64 0
+  %.sroa.01.4.vec.extract.i1071 = extractelement <2 x float> %.sroa.0.1.i.i1067.lcssa.sink1700, i64 1
   br label %1565
 
 1565:                                             ; preds = %1575, %.lr.ph.i1072
@@ -15193,7 +15193,7 @@ define internal fastcc void @_ZNSt6vectorIS_IZN18FilterCameraPlugin11applyFilter
   br i1 %.not28.i, label %21, label %19
 
 19:                                               ; preds = %9
-  %20 = mul nuw i64 %10, 24
+  %20 = mul nuw nsw i64 %10, 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.val4, i8 0, i64 %20, i1 false)
   %scevgep.i.i.i.i = getelementptr i8, ptr %.val4, i64 %20
   store ptr %scevgep.i.i.i.i, ptr %3, align 8

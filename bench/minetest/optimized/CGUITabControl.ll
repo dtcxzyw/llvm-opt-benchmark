@@ -1121,9 +1121,9 @@ if.else.i:                                        ; preds = %entry
   %9 = load i32, ptr %Y2.i39.i, align 4, !tbaa !74
   %TabHeight24.i = getelementptr inbounds nuw i8, ptr %this, i64 352
   %10 = load i32, ptr %TabHeight24.i, align 8, !tbaa !62
-  %.neg23 = add i32 %8, -2
+  %.neg24 = add i32 %8, -2
   %11 = add i32 %9, %10
-  %sub26.i = sub i32 %.neg23, %11
+  %sub26.i = sub i32 %.neg24, %11
   %spec.select.i = zext nneg i8 %3 to i32
   br label %_ZN3irr3gui11IGUIElement6removeEv.exit
 
@@ -1534,17 +1534,17 @@ _ZN3irr3gui14CGUITabControl17needScrollControlEibPi.exit: ; preds = %for.cond.i,
   br label %if.end16
 
 if.end16:                                         ; preds = %_ZN3irr3gui14CGUITabControl17needScrollControlEibPi.exit, %_ZN3irr3gui14CGUITabControl17needScrollControlEibPi.exit.thread
-  %.sink6 = phi i1 [ true, %_ZN3irr3gui14CGUITabControl17needScrollControlEibPi.exit.thread ], [ %cmp, %_ZN3irr3gui14CGUITabControl17needScrollControlEibPi.exit ]
+  %.sink8 = phi i1 [ true, %_ZN3irr3gui14CGUITabControl17needScrollControlEibPi.exit.thread ], [ %cmp, %_ZN3irr3gui14CGUITabControl17needScrollControlEibPi.exit ]
   %20 = load ptr, ptr %UpButton, align 8, !tbaa !63
   %vtable11 = load ptr, ptr %20, align 8, !tbaa !3
   %vfn12 = getelementptr inbounds nuw i8, ptr %vtable11, i64 120
   %21 = load ptr, ptr %vfn12, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(308) %20, i1 noundef zeroext %.sink6) #19
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(308) %20, i1 noundef zeroext %.sink8) #19
   %22 = load ptr, ptr %DownButton, align 8, !tbaa !65
   %vtable14 = load ptr, ptr %22, align 8, !tbaa !3
   %vfn15 = getelementptr inbounds nuw i8, ptr %vtable14, i64 120
   %23 = load ptr, ptr %vfn15, align 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(308) %22, i1 noundef zeroext %.sink6) #19
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(308) %22, i1 noundef zeroext %.sink8) #19
   %24 = load ptr, ptr %UpButton, align 8, !tbaa !63
   %vtable18 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn19 = getelementptr inbounds nuw i8, ptr %vtable18, i64 208
@@ -1636,9 +1636,9 @@ if.else.i:                                        ; preds = %if.end
   %11 = load i32, ptr %Y2.i39.i, align 4, !tbaa !74
   %TabHeight24.i = getelementptr inbounds nuw i8, ptr %this, i64 352
   %12 = load i32, ptr %TabHeight24.i, align 8, !tbaa !62
-  %.neg22 = add i32 %10, -2
+  %.neg23 = add i32 %10, -2
   %13 = add i32 %11, %12
-  %sub26.i = sub i32 %.neg22, %13
+  %sub26.i = sub i32 %.neg23, %13
   %spec.select.i = zext nneg i8 %5 to i32
   br label %_ZN3irr3gui11IGUIElement6removeEv.exit
 

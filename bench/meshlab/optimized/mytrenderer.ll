@@ -6639,7 +6639,7 @@ _ZN8QMapDataI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10cre
   %.not14 = icmp eq ptr %31, null
   br i1 %.not14, label %common.ret, label %32
 
-common.ret15:                                     ; preds = %32, %common.ret
+common.ret16:                                     ; preds = %32, %common.ret
   ret ptr %5
 
 32:                                               ; preds = %29
@@ -6651,12 +6651,12 @@ common.ret15:                                     ; preds = %32, %common.ret
   %37 = ptrtoint ptr %5 to i64
   %38 = or i64 %36, %37
   store i64 %38, ptr %33, align 8
-  br label %common.ret15
+  br label %common.ret16
 
 common.ret:                                       ; preds = %29
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %39, align 8
-  br label %common.ret15
+  br label %common.ret16
 }
 
 declare void @_ZN12QMapDataBase18recalcMostLeftNodeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3

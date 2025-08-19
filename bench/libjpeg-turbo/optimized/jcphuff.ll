@@ -68,9 +68,9 @@ define internal void @start_pass_phuff(ptr noundef %0, i32 noundef %1) #0 {
   store ptr @encode_mcu_AC_refine, ptr %21, align 8, !tbaa !38
   %24 = tail call i32 @jsimd_can_encode_mcu_AC_refine_prepare() #6
   %.not = icmp eq i32 %24, 0
-  %spec.select89 = select i1 %.not, ptr @encode_mcu_AC_refine_prepare, ptr @jsimd_encode_mcu_AC_refine_prepare
+  %spec.select92 = select i1 %.not, ptr @encode_mcu_AC_refine_prepare, ptr @jsimd_encode_mcu_AC_refine_prepare
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %spec.select89, ptr %25, align 8, !tbaa !40
+  store ptr %spec.select92, ptr %25, align 8, !tbaa !40
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %27 = load ptr, ptr %26, align 8, !tbaa !33
   %28 = icmp eq ptr %27, null
@@ -1554,7 +1554,7 @@ emit_eobrun.exit:                                 ; preds = %.lr.ph, %emit_buffe
   %322 = zext i32 %318 to i64
   %323 = load i32, ptr %56, align 8, !tbaa !62
   %324 = icmp eq i8 %320, 0
-  br i1 %324, label %325, label %.thread229
+  br i1 %324, label %325, label %.thread246
 
 325:                                              ; preds = %314
   %326 = load ptr, ptr %51, align 8, !tbaa !34
@@ -1565,9 +1565,9 @@ emit_eobrun.exit:                                 ; preds = %.lr.ph, %emit_buffe
   call void %329(ptr noundef nonnull %326) #6
   %.pre217 = load i32, ptr %53, align 8, !tbaa !35
   %330 = icmp eq i32 %.pre217, 0
-  br i1 %330, label %.thread229, label %emit_buffered_bits.exit
+  br i1 %330, label %.thread246, label %emit_buffered_bits.exit
 
-.thread229:                                       ; preds = %314, %325
+.thread246:                                       ; preds = %314, %325
   %331 = zext nneg i32 %321 to i64
   %notmask.i127 = shl nsw i64 -1, %331
   %332 = xor i64 %notmask.i127, -1
@@ -1581,9 +1581,9 @@ emit_eobrun.exit:                                 ; preds = %.lr.ph, %emit_buffe
   %340 = icmp sgt i32 %334, 7
   br i1 %340, label %.lr.ph.i131, label %emit_symbol.exit
 
-.lr.ph.i131:                                      ; preds = %.thread229, %387
-  %.034.i132 = phi i64 [ %388, %387 ], [ %339, %.thread229 ]
-  %.03033.i133 = phi i32 [ %389, %387 ], [ %334, %.thread229 ]
+.lr.ph.i131:                                      ; preds = %.thread246, %387
+  %.034.i132 = phi i64 [ %388, %387 ], [ %339, %.thread246 ]
+  %.03033.i133 = phi i32 [ %389, %387 ], [ %334, %.thread246 ]
   %341 = lshr i64 %.034.i132, 16
   %342 = trunc i64 %341 to i8
   %343 = load ptr, ptr %18, align 8, !tbaa !71
@@ -1677,10 +1677,10 @@ dump_buffer.exit32.i135:                          ; preds = %379, %372
   %391 = icmp eq i32 %.pre218.pre, 0
   br label %emit_symbol.exit
 
-emit_symbol.exit:                                 ; preds = %.thread229, %._crit_edge.i128.loopexit
-  %.pre218 = phi i1 [ true, %.thread229 ], [ %391, %._crit_edge.i128.loopexit ]
-  %.030.lcssa.i129 = phi i32 [ %334, %.thread229 ], [ %389, %._crit_edge.i128.loopexit ]
-  %.0.lcssa.i130 = phi i64 [ %339, %.thread229 ], [ %388, %._crit_edge.i128.loopexit ]
+emit_symbol.exit:                                 ; preds = %.thread246, %._crit_edge.i128.loopexit
+  %.pre218 = phi i1 [ true, %.thread246 ], [ %391, %._crit_edge.i128.loopexit ]
+  %.030.lcssa.i129 = phi i32 [ %334, %.thread246 ], [ %389, %._crit_edge.i128.loopexit ]
+  %.0.lcssa.i130 = phi i64 [ %339, %.thread246 ], [ %388, %._crit_edge.i128.loopexit ]
   store i64 %.0.lcssa.i130, ptr %57, align 8, !tbaa !61
   store i32 %.030.lcssa.i129, ptr %56, align 8, !tbaa !62
   %392 = icmp ne i32 %.184178, 0

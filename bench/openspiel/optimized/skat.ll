@@ -3377,17 +3377,17 @@ _ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i20.us: ; preds = %
   %43 = srem i32 %41, 8
   %44 = icmp eq i32 %42, %31
   %45 = icmp sgt i32 %43, -1
-  %or.cond56 = and i1 %44, %45
-  br i1 %or.cond56, label %switch.lookup52, label %_ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22.us
+  %or.cond62 = and i1 %44, %45
+  br i1 %or.cond62, label %switch.lookup58, label %_ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22.us
 
-switch.lookup52:                                  ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i20.us
+switch.lookup58:                                  ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i20.us
   %46 = zext nneg i32 %43 to i64
-  %switch.gep53 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK10open_spiel4skat9SkatState9WinsTrickEv.1, i64 0, i64 %46
-  %switch.load54 = load i32, ptr %switch.gep53, align 4
+  %switch.gep59 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK10open_spiel4skat9SkatState9WinsTrickEv.1, i64 0, i64 %46
+  %switch.load60 = load i32, ptr %switch.gep59, align 4
   br label %_ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22.us
 
-_ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22.us: ; preds = %switch.lookup52, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i20.us
-  %.0.i15.us = phi i32 [ -1, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i20.us ], [ %switch.load54, %switch.lookup52 ]
+_ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22.us: ; preds = %switch.lookup58, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i20.us
+  %.0.i15.us = phi i32 [ -1, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i20.us ], [ %switch.load60, %switch.lookup58 ]
   %47 = icmp sgt i32 %.0.i.ph.us, %.0.i15.us
   %48 = trunc nuw nsw i64 %indvars.iv46 to i32
   %spec.select.us = select i1 %47, i32 %48, i32 %.01040.us
@@ -3451,11 +3451,11 @@ _ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i: ; preds = %_ZNK10open_s
   %70 = sdiv i32 %50, 8
   %71 = srem i32 %50, 8
   %72 = icmp eq i32 %70, %31
-  %spec.select57 = select i1 %72, i32 %71, i32 -1
+  %spec.select63 = select i1 %72, i32 %71, i32 -1
   br label %73
 
 73:                                               ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i, %_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i
-  %.0.i = phi i32 [ %69, %_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i ], [ %spec.select57, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i ]
+  %.0.i = phi i32 [ %69, %_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i ], [ %spec.select63, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i ]
   %74 = zext nneg i32 %.01040 to i64
   %75 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %74
   %76 = load i32, ptr %75, align 4
@@ -3510,11 +3510,11 @@ _ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i14: ; preds = %_ZNK10open
   %96 = sdiv i32 %76, 8
   %97 = srem i32 %76, 8
   %98 = icmp eq i32 %96, %31
-  %spec.select58 = select i1 %98, i32 %97, i32 -1
+  %spec.select64 = select i1 %98, i32 %97, i32 -1
   br label %_ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22
 
 _ZNK10open_spiel4skat9SkatState9CardOrderEii.exit22: ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i14, %_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i17
-  %.0.i15 = phi i32 [ %95, %_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i17 ], [ %spec.select58, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i14 ]
+  %.0.i15 = phi i32 [ %95, %_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i17 ], [ %spec.select64, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i14 ]
   %99 = icmp sgt i32 %.0.i, %.0.i15
   %100 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %99, i32 %100, i32 %.01040
@@ -4212,16 +4212,16 @@ _ZN10open_spiel4skat5TrickD2Ev.exit14:            ; preds = %52, %45
   %72 = srem i32 %71, 8
   %switch.tableidx = add nsw i32 %72, -3
   %73 = icmp ult i32 %switch.tableidx, 5
-  br i1 %73, label %switch.lookup73, label %_ZN10open_spiel4skat9CardValueEi.exit.i
+  br i1 %73, label %switch.lookup82, label %_ZN10open_spiel4skat9CardValueEi.exit.i
 
-switch.lookup73:                                  ; preds = %.lr.ph.i
+switch.lookup82:                                  ; preds = %.lr.ph.i
   %74 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN10open_spiel4skat9SkatState7ScoreUpEv, i64 0, i64 %74
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN10open_spiel4skat9CardValueEi.exit.i
 
-_ZN10open_spiel4skat9CardValueEi.exit.i:          ; preds = %.lr.ph.i, %switch.lookup73
-  %.0.i.i = phi i32 [ %switch.load, %switch.lookup73 ], [ 0, %.lr.ph.i ]
+_ZN10open_spiel4skat9CardValueEi.exit.i:          ; preds = %.lr.ph.i, %switch.lookup82
+  %.0.i.i = phi i32 [ %switch.load, %switch.lookup82 ], [ 0, %.lr.ph.i ]
   %75 = add nuw nsw i32 %.0.i.i, %.010.i
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i, i64 4
   %.not.i = icmp eq ptr %76, %69
@@ -4277,18 +4277,18 @@ _ZNK10open_spiel4skat5Trick6PointsEv.exit:        ; preds = %_ZN10open_spiel4ska
   %.sroa.05.09.i23 = phi ptr [ %104, %_ZN10open_spiel4skat9CardValueEi.exit.i24 ], [ %67, %98 ]
   %99 = load i32, ptr %.sroa.05.09.i23, align 4
   %100 = srem i32 %99, 8
-  %switch.tableidx75 = add nsw i32 %100, -3
-  %101 = icmp ult i32 %switch.tableidx75, 5
-  br i1 %101, label %switch.lookup74, label %_ZN10open_spiel4skat9CardValueEi.exit.i24
+  %switch.tableidx84 = add nsw i32 %100, -3
+  %101 = icmp ult i32 %switch.tableidx84, 5
+  br i1 %101, label %switch.lookup83, label %_ZN10open_spiel4skat9CardValueEi.exit.i24
 
-switch.lookup74:                                  ; preds = %.lr.ph.i21
-  %102 = zext nneg i32 %switch.tableidx75 to i64
-  %switch.gep76 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN10open_spiel4skat9SkatState7ScoreUpEv, i64 0, i64 %102
-  %switch.load77 = load i32, ptr %switch.gep76, align 4
+switch.lookup83:                                  ; preds = %.lr.ph.i21
+  %102 = zext nneg i32 %switch.tableidx84 to i64
+  %switch.gep85 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN10open_spiel4skat9SkatState7ScoreUpEv, i64 0, i64 %102
+  %switch.load86 = load i32, ptr %switch.gep85, align 4
   br label %_ZN10open_spiel4skat9CardValueEi.exit.i24
 
-_ZN10open_spiel4skat9CardValueEi.exit.i24:        ; preds = %.lr.ph.i21, %switch.lookup74
-  %.0.i.i25 = phi i32 [ %switch.load77, %switch.lookup74 ], [ 0, %.lr.ph.i21 ]
+_ZN10open_spiel4skat9CardValueEi.exit.i24:        ; preds = %.lr.ph.i21, %switch.lookup83
+  %.0.i.i25 = phi i32 [ %switch.load86, %switch.lookup83 ], [ 0, %.lr.ph.i21 ]
   %103 = add nuw nsw i32 %.0.i.i25, %.010.i22
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i23, i64 4
   %.not.i26 = icmp eq ptr %104, %69
@@ -4348,18 +4348,18 @@ _ZN10open_spiel4skat9SkatState7ScoreUpEv.exit:    ; preds = %_ZN10open_spiel4ska
 127:                                              ; preds = %.preheader.i29
   %128 = trunc nuw nsw i64 %indvars.iv.i31 to i32
   %.zext.i40 = and i32 %128, 7
-  %switch.tableidx79 = add nsw i32 %.zext.i40, -3
-  %129 = icmp ult i32 %switch.tableidx79, 5
-  br i1 %129, label %switch.lookup78, label %_ZN10open_spiel4skat9CardValueEi.exit.i41
+  %switch.tableidx88 = add nsw i32 %.zext.i40, -3
+  %129 = icmp ult i32 %switch.tableidx88, 5
+  br i1 %129, label %switch.lookup87, label %_ZN10open_spiel4skat9CardValueEi.exit.i41
 
-switch.lookup78:                                  ; preds = %127
-  %130 = zext nneg i32 %switch.tableidx79 to i64
-  %switch.gep80 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN10open_spiel4skat9SkatState7ScoreUpEv, i64 0, i64 %130
-  %switch.load81 = load i32, ptr %switch.gep80, align 4
+switch.lookup87:                                  ; preds = %127
+  %130 = zext nneg i32 %switch.tableidx88 to i64
+  %switch.gep89 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN10open_spiel4skat9SkatState7ScoreUpEv, i64 0, i64 %130
+  %switch.load90 = load i32, ptr %switch.gep89, align 4
   br label %_ZN10open_spiel4skat9CardValueEi.exit.i41
 
-_ZN10open_spiel4skat9CardValueEi.exit.i41:        ; preds = %127, %switch.lookup78
-  %.0.i.i42 = phi i32 [ %switch.load81, %switch.lookup78 ], [ 0, %127 ]
+_ZN10open_spiel4skat9CardValueEi.exit.i41:        ; preds = %127, %switch.lookup87
+  %.0.i.i42 = phi i32 [ %switch.load90, %switch.lookup87 ], [ 0, %127 ]
   %131 = add nsw i32 %.0.i.i42, %123
   store i32 %131, ptr %119, align 8
   br label %132
@@ -5109,13 +5109,13 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit22:         ; preds = %_ZNKSt6vectorIlSaIl
 
 .thread:                                          ; preds = %_ZNSt6vectorIlSaIlEE9push_backEOl.exit22, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i14, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i
   %.ph = phi ptr [ %5, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i ], [ %10, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i14 ], [ %14, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit22 ]
-  %.ph78 = phi ptr [ %4, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i ], [ %6, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i14 ], [ %11, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit22 ]
+  %.ph96 = phi ptr [ %4, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i ], [ %6, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i14 ], [ %11, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit22 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %22 = ptrtoint ptr %.ph to i64
-  %23 = ptrtoint ptr %.ph78 to i64
+  %23 = ptrtoint ptr %.ph96 to i64
   %24 = sub i64 %22, %23
-  tail call void @_ZdlPvm(ptr noundef nonnull %.ph78, i64 noundef %24) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull %.ph96, i64 noundef %24) #31
   resume { ptr, i32 } %lpad.thr_comm
 }
 
@@ -5258,8 +5258,8 @@ define void @_ZNK10open_spiel4skat9SkatState16PlayLegalActionsEv(ptr dead_on_unw
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not150 = icmp eq i32 %5, 0
-  br i1 %.not150, label %_ZNSt6vectorIlSaIlEE7reserveEm.exit, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i
+  %.not171 = icmp eq i32 %5, 0
+  br i1 %.not171, label %_ZNSt6vectorIlSaIlEE7reserveEm.exit, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i: ; preds = %9
   %11 = shl nuw nsw i64 %6, 3
@@ -5541,8 +5541,8 @@ _ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit36.thread: ; preds = %115, %_ZNK10
   %117 = load i32, ptr %116, align 4
   %118 = load i32, ptr %39, align 4
   %119 = icmp ult i32 %118, 3
-  %switch.offset229 = add nsw i32 %118, 1
-  %.0.i37 = select i1 %119, i32 %switch.offset229, i32 0
+  %switch.offset250 = add nsw i32 %118, 1
+  %.0.i37 = select i1 %119, i32 %switch.offset250, i32 0
   %120 = icmp eq i32 %117, %.0.i37
   br i1 %120, label %121, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit48
 
@@ -5618,18 +5618,18 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit48:         ; preds = %_ZNSt6vectorIlSaIlE
   br i1 %exitcond.not, label %.loopexit74, label %88, !llvm.loop !27
 
 .loopexit74:                                      ; preds = %_ZNSt6vectorIlSaIlEE9push_backEOl.exit48, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
-  %.lcssa189.sink = phi ptr [ %87, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ], [ %145, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit48 ]
-  %.lcssa190.sink = phi ptr [ %86, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ], [ %144, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit48 ]
+  %.lcssa210.sink = phi ptr [ %87, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ], [ %145, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit48 ]
+  %.lcssa211.sink = phi ptr [ %86, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ], [ %144, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit48 ]
   %.promoted98 = phi ptr [ %85, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ], [ %143, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit48 ]
-  store ptr %.lcssa189.sink, ptr %10, align 8
-  store ptr %.lcssa190.sink, ptr %0, align 8
-  %146 = icmp eq ptr %.lcssa190.sink, %.promoted98
+  store ptr %.lcssa210.sink, ptr %10, align 8
+  store ptr %.lcssa211.sink, ptr %0, align 8
+  %146 = icmp eq ptr %.lcssa211.sink, %.promoted98
   br i1 %146, label %.preheader, label %184
 
 .preheader:                                       ; preds = %_ZNSt6vectorIlSaIlEE7reserveEm.exit, %.loopexit74
-  %.promoted106156 = phi ptr [ %.lcssa190.sink, %.loopexit74 ], [ %.promoted93, %_ZNSt6vectorIlSaIlEE7reserveEm.exit ]
-  %.promoted98155 = phi ptr [ %.promoted98, %.loopexit74 ], [ %.promoted93, %_ZNSt6vectorIlSaIlEE7reserveEm.exit ]
-  %.promoted102154 = phi ptr [ %.lcssa189.sink, %.loopexit74 ], [ %.promoted89, %_ZNSt6vectorIlSaIlEE7reserveEm.exit ]
+  %.promoted106177 = phi ptr [ %.lcssa211.sink, %.loopexit74 ], [ %.promoted93, %_ZNSt6vectorIlSaIlEE7reserveEm.exit ]
+  %.promoted98176 = phi ptr [ %.promoted98, %.loopexit74 ], [ %.promoted93, %_ZNSt6vectorIlSaIlEE7reserveEm.exit ]
+  %.promoted102175 = phi ptr [ %.lcssa210.sink, %.loopexit74 ], [ %.promoted89, %_ZNSt6vectorIlSaIlEE7reserveEm.exit ]
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 212
@@ -5637,9 +5637,9 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit48:         ; preds = %_ZNSt6vectorIlSaIlE
 
 150:                                              ; preds = %.preheader, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit58
   %indvars.iv143 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next144, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit58 ]
-  %151 = phi ptr [ %.promoted98155, %.preheader ], [ %183, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit58 ]
-  %152 = phi ptr [ %.promoted102154, %.preheader ], [ %182, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit58 ]
-  %153 = phi ptr [ %.promoted106156, %.preheader ], [ %181, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit58 ]
+  %151 = phi ptr [ %.promoted98176, %.preheader ], [ %183, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit58 ]
+  %152 = phi ptr [ %.promoted102175, %.preheader ], [ %182, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit58 ]
+  %153 = phi ptr [ %.promoted106177, %.preheader ], [ %181, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit58 ]
   %154 = getelementptr inbounds nuw [32 x i32], ptr %148, i64 0, i64 %indvars.iv143
   %155 = load i32, ptr %154, align 4
   %156 = load i32, ptr %149, align 4
@@ -8758,8 +8758,8 @@ define linkonce_odr void @_ZNK10open_spiel5State19LegalChanceOutcomesEv(ptr dead
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not35 = icmp eq ptr %8, %9
-  br i1 %.not35, label %_ZNSt6vectorIlSaIlEE7reserveEm.exit, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i
+  %.not47 = icmp eq ptr %8, %9
+  br i1 %.not47, label %_ZNSt6vectorIlSaIlEE7reserveEm.exit, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i: ; preds = %16
   %18 = ashr exact i64 %12, 1
@@ -11312,18 +11312,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %27, label %._crit_edge.thread.i, label %33
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %20
-  %.020.lcssa32.i = phi ptr [ %.02127.i, %._crit_edge.i ], [ %4, %20 ]
+  %.020.lcssa33.i = phi ptr [ %.02127.i, %._crit_edge.i ], [ %4, %20 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %.020.lcssa32.i, %29
+  %30 = icmp eq ptr %.020.lcssa33.i, %29
   br i1 %30, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE24_M_get_insert_unique_posERS7_.exit, label %31
 
 31:                                               ; preds = %._crit_edge.thread.i
-  %32 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa32.i) #32
+  %32 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa33.i) #32
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge.i
-  %.020.lcssa33.i = phi ptr [ %.020.lcssa32.i, %31 ], [ %.02127.i, %._crit_edge.i ]
+  %.020.lcssa32.i = phi ptr [ %.020.lcssa33.i, %31 ], [ %.02127.i, %._crit_edge.i ]
   %.sroa.06.0.i = phi ptr [ %32, %31 ], [ %.02127.i, %._crit_edge.i ]
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 32
   %35 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %2)
@@ -11339,7 +11339,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i: ; preds = %33
   %39 = icmp slt i32 %35, 0
   %spec.select.i = select i1 %39, ptr null, ptr %.sroa.06.0.i
-  %spec.select22.i = select i1 %39, ptr %.020.lcssa33.i, ptr null
+  %spec.select22.i = select i1 %39, ptr %.020.lcssa32.i, ptr null
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE24_M_get_insert_unique_posERS7_.exit
 
 40:                                               ; preds = %3
@@ -11420,17 +11420,17 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %70, label %._crit_edge.thread.i31, label %75
 
 ._crit_edge.thread.i31:                           ; preds = %._crit_edge.i21, %63
-  %.020.lcssa32.i32 = phi ptr [ %.02127.i15, %._crit_edge.i21 ], [ %4, %63 ]
+  %.020.lcssa33.i32 = phi ptr [ %.02127.i15, %._crit_edge.i21 ], [ %4, %63 ]
   %71 = load ptr, ptr %48, align 8
-  %72 = icmp eq ptr %.020.lcssa32.i32, %71
+  %72 = icmp eq ptr %.020.lcssa33.i32, %71
   br i1 %72, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE24_M_get_insert_unique_posERS7_.exit, label %73
 
 73:                                               ; preds = %._crit_edge.thread.i31
-  %74 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa32.i32) #32
+  %74 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa33.i32) #32
   br label %75
 
 75:                                               ; preds = %73, %._crit_edge.i21
-  %.020.lcssa33.i22 = phi ptr [ %.020.lcssa32.i32, %73 ], [ %.02127.i15, %._crit_edge.i21 ]
+  %.020.lcssa32.i22 = phi ptr [ %.020.lcssa33.i32, %73 ], [ %.02127.i15, %._crit_edge.i21 ]
   %.sroa.06.0.i23 = phi ptr [ %74, %73 ], [ %.02127.i15, %._crit_edge.i21 ]
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i23, i64 32
   %77 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef nonnull align 8 dereferenceable(32) %2)
@@ -11446,7 +11446,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24: ; preds = %75
   %81 = icmp slt i32 %77, 0
   %spec.select.i25 = select i1 %81, ptr null, ptr %.sroa.06.0.i23
-  %spec.select22.i26 = select i1 %81, ptr %.020.lcssa33.i22, ptr null
+  %spec.select22.i26 = select i1 %81, ptr %.020.lcssa32.i22, ptr null
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE24_M_get_insert_unique_posERS7_.exit
 
 82:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit10
@@ -11526,18 +11526,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %111, label %._crit_edge.thread.i55, label %117
 
 ._crit_edge.thread.i55:                           ; preds = %._crit_edge.i45, %104
-  %.020.lcssa32.i56 = phi ptr [ %.02127.i39, %._crit_edge.i45 ], [ %4, %104 ]
+  %.020.lcssa33.i56 = phi ptr [ %.02127.i39, %._crit_edge.i45 ], [ %4, %104 ]
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %113 = load ptr, ptr %112, align 8
-  %114 = icmp eq ptr %.020.lcssa32.i56, %113
+  %114 = icmp eq ptr %.020.lcssa33.i56, %113
   br i1 %114, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE24_M_get_insert_unique_posERS7_.exit, label %115
 
 115:                                              ; preds = %._crit_edge.thread.i55
-  %116 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa32.i56) #32
+  %116 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa33.i56) #32
   br label %117
 
 117:                                              ; preds = %115, %._crit_edge.i45
-  %.020.lcssa33.i46 = phi ptr [ %.020.lcssa32.i56, %115 ], [ %.02127.i39, %._crit_edge.i45 ]
+  %.020.lcssa32.i46 = phi ptr [ %.020.lcssa33.i56, %115 ], [ %.02127.i39, %._crit_edge.i45 ]
   %.sroa.06.0.i47 = phi ptr [ %116, %115 ], [ %.02127.i39, %._crit_edge.i45 ]
   %118 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i47, i64 32
   %119 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull align 8 dereferenceable(32) %2)
@@ -11553,12 +11553,12 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48: ; preds = %117
   %123 = icmp slt i32 %119, 0
   %spec.select.i49 = select i1 %123, ptr null, ptr %.sroa.06.0.i47
-  %spec.select22.i50 = select i1 %123, ptr %.020.lcssa33.i46, ptr null
+  %spec.select22.i50 = select i1 %123, ptr %.020.lcssa32.i46, ptr null
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE24_M_get_insert_unique_posERS7_.exit
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE24_M_get_insert_unique_posERS7_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48, %._crit_edge.thread.i55, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24, %._crit_edge.thread.i31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i, %._crit_edge.thread.i, %100, %59, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34, %88, %47, %18
   %.sroa.078.0 = phi ptr [ null, %18 ], [ %49, %47 ], [ null, %88 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ %spec.select, %59 ], [ %spec.select80, %100 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ null, %._crit_edge.thread.i31 ], [ %spec.select.i25, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ null, %._crit_edge.thread.i55 ], [ %spec.select.i49, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ]
-  %.sroa.12.0 = phi ptr [ %19, %18 ], [ %49, %47 ], [ %90, %88 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ %spec.select79, %59 ], [ %spec.select81, %100 ], [ %.020.lcssa32.i, %._crit_edge.thread.i ], [ %spec.select22.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ %.020.lcssa32.i32, %._crit_edge.thread.i31 ], [ %spec.select22.i26, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ %.020.lcssa32.i56, %._crit_edge.thread.i55 ], [ %spec.select22.i50, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ]
+  %.sroa.12.0 = phi ptr [ %19, %18 ], [ %49, %47 ], [ %90, %88 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ %spec.select79, %59 ], [ %spec.select81, %100 ], [ %.020.lcssa33.i, %._crit_edge.thread.i ], [ %spec.select22.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ %.020.lcssa33.i32, %._crit_edge.thread.i31 ], [ %spec.select22.i26, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ %.020.lcssa33.i56, %._crit_edge.thread.i55 ], [ %spec.select22.i50, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.078.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

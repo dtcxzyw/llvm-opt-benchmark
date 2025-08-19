@@ -2229,9 +2229,9 @@ define dso_local void @_ZN5clang7APValue9setLValueENS0_10LValueBaseERKNS_9CharUn
   store i32 %9, ptr %21, align 8, !tbaa !91
   %33 = add i32 %9, -3
   %34 = icmp ult i32 %33, -4
-  br i1 %34, label %_ZN5clang7APValue2LV10resizePathEj.exit.thread.i, label %_ZN5clang7APValue2LV10resizePathEj.exit.thread12.i
+  br i1 %34, label %_ZN5clang7APValue2LV10resizePathEj.exit.thread.i, label %_ZN5clang7APValue2LV10resizePathEj.exit.thread16.i
 
-_ZN5clang7APValue2LV10resizePathEj.exit.thread12.i: ; preds = %32
+_ZN5clang7APValue2LV10resizePathEj.exit.thread16.i: ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %_ZN5clang7APValue15setLValueUninitENS0_10LValueBaseERKNS_9CharUnitsEjbb.exit
 
@@ -2252,8 +2252,8 @@ _ZN5clang7APValue2LV10resizePathEj.exit.i:        ; preds = %8
   %spec.select.i = select i1 %40, ptr %42, ptr %41
   br label %_ZN5clang7APValue15setLValueUninitENS0_10LValueBaseERKNS_9CharUnitsEjbb.exit
 
-_ZN5clang7APValue15setLValueUninitENS0_10LValueBaseERKNS_9CharUnitsEjbb.exit: ; preds = %_ZN5clang7APValue2LV10resizePathEj.exit.thread12.i, %_ZN5clang7APValue2LV10resizePathEj.exit.thread.i, %_ZN5clang7APValue2LV10resizePathEj.exit.i
-  %43 = phi ptr [ %35, %_ZN5clang7APValue2LV10resizePathEj.exit.thread12.i ], [ %38, %_ZN5clang7APValue2LV10resizePathEj.exit.thread.i ], [ %spec.select.i, %_ZN5clang7APValue2LV10resizePathEj.exit.i ]
+_ZN5clang7APValue15setLValueUninitENS0_10LValueBaseERKNS_9CharUnitsEjbb.exit: ; preds = %_ZN5clang7APValue2LV10resizePathEj.exit.thread16.i, %_ZN5clang7APValue2LV10resizePathEj.exit.thread.i, %_ZN5clang7APValue2LV10resizePathEj.exit.i
+  %43 = phi ptr [ %35, %_ZN5clang7APValue2LV10resizePathEj.exit.thread16.i ], [ %38, %_ZN5clang7APValue2LV10resizePathEj.exit.thread.i ], [ %spec.select.i, %_ZN5clang7APValue2LV10resizePathEj.exit.i ]
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %46, label %44
 
@@ -2541,28 +2541,28 @@ define dso_local void @_ZN5clang7APValue17MakeMemberPointerEPKNS_9ValueDeclEbN4l
   %21 = select i1 %2, i64 4, i64 0
   store i64 %21, ptr %7, align 8
   %22 = icmp eq i32 %6, 0
-  br i1 %22, label %_ZN5clang7APValue22setMemberPointerUninitEPKNS_9ValueDeclEbj.exit, label %.thread13.i
+  br i1 %22, label %_ZN5clang7APValue22setMemberPointerUninitEPKNS_9ValueDeclEbj.exit, label %.thread16.i
 
 23:                                               ; preds = %9
   %24 = icmp ugt i32 %.pre.i, 4
-  br i1 %24, label %25, label %.thread13.i
+  br i1 %24, label %25, label %.thread16.i
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.thread13.i, label %29
+  br i1 %28, label %.thread16.i, label %29
 
 29:                                               ; preds = %25
   tail call void @_ZdaPv(ptr noundef nonnull %27) #27
-  br label %.thread13.i
+  br label %.thread16.i
 
-.thread13.i:                                      ; preds = %29, %25, %23, %.thread.i
+.thread16.i:                                      ; preds = %29, %25, %23, %.thread.i
   store i32 %6, ptr %8, align 8, !tbaa !106
   %30 = icmp ugt i32 %6, 4
   br i1 %30, label %_ZN5clang7APValue22setMemberPointerUninitEPKNS_9ValueDeclEbj.exit.thread, label %_ZN5clang7APValue22setMemberPointerUninitEPKNS_9ValueDeclEbj.exit
 
-_ZN5clang7APValue22setMemberPointerUninitEPKNS_9ValueDeclEbj.exit.thread: ; preds = %.thread13.i
+_ZN5clang7APValue22setMemberPointerUninitEPKNS_9ValueDeclEbj.exit.thread: ; preds = %.thread16.i
   %31 = shl i64 %4, 3
   %32 = and i64 %31, 34359738360
   %33 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %32) #26
@@ -2570,7 +2570,7 @@ _ZN5clang7APValue22setMemberPointerUninitEPKNS_9ValueDeclEbj.exit.thread: ; pred
   store ptr %33, ptr %34, align 8, !tbaa !3
   br label %.lr.ph.preheader
 
-_ZN5clang7APValue22setMemberPointerUninitEPKNS_9ValueDeclEbj.exit: ; preds = %9, %.thread.i, %.thread13.i
+_ZN5clang7APValue22setMemberPointerUninitEPKNS_9ValueDeclEbj.exit: ; preds = %9, %.thread.i, %.thread16.i
   %35 = icmp ugt i32 %6, 4
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load ptr, ptr %36, align 8
@@ -3384,10 +3384,10 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %_ZNK5clang9FieldDec
   %160 = load i32, ptr %159, align 8, !tbaa !72
   %.not202 = icmp eq i32 %160, %153
   %161 = add i32 %153, -1
-  %.sink370 = select i1 %.not202, i32 %161, i32 %160
+  %.sink458 = select i1 %.not202, i32 %161, i32 %160
   %162 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   %163 = load ptr, ptr %162, align 8, !tbaa !70
-  %164 = zext i32 %.sink370 to i64
+  %164 = zext i32 %.sink458 to i64
   %165 = getelementptr inbounds nuw %"class.clang::APValue", ptr %163, i64 %164
   call void @_ZNK5clang7APValue7ProfileERN4llvm16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(56) %165, ptr noundef nonnull align 8 dereferenceable(144) %4)
   call void @_ZN4llvm16FoldingSetNodeID9AddNodeIDERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull align 8 dereferenceable(144) %4) #25
@@ -4912,10 +4912,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit232:              ; preds = %219, %221
 _ZN4llvm11raw_ostreamlsEc.exit242:                ; preds = %322, %320, %312, %310, %314
   %.sroa.0419.1 = phi i64 [ %storemerge196, %314 ], [ %.sroa.0419.0, %310 ], [ %.sroa.0419.0, %312 ], [ %storemerge196, %320 ], [ %storemerge196, %322 ]
   %324 = and i64 %.sroa.0.0.copyload.i239, 3
-  %.not509 = icmp eq i64 %324, 0
+  %.not565 = icmp eq i64 %324, 0
   %325 = and i64 %.sroa.0.0.copyload.i239, -4
   %326 = inttoptr i64 %325 to ptr
-  br i1 %.not509, label %327, label %328
+  br i1 %.not565, label %327, label %328
 
 327:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit242
   call void @_ZNK5clang9NamedDecl9printNameERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %326, ptr noundef nonnull align 8 dereferenceable(48) %1) #25
@@ -5034,10 +5034,10 @@ _ZN4llvm11raw_ostreamlsEc.exit242:                ; preds = %322, %320, %312, %3
 _ZN4llvm11raw_ostreamlsEc.exit255:                ; preds = %370, %368, %372, %376
   %378 = call i64 @_ZNK5clang7APValue10LValueBase7getTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
   %379 = and i64 %.sroa.0.0.copyload.i239, 3
-  %.not508 = icmp eq i64 %379, 0
+  %.not564 = icmp eq i64 %379, 0
   %380 = and i64 %.sroa.0.0.copyload.i239, -4
   %381 = inttoptr i64 %380 to ptr
-  br i1 %.not508, label %382, label %383
+  br i1 %.not564, label %382, label %383
 
 382:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit255
   call void @_ZNK5clang9NamedDecl9printNameERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %381, ptr noundef nonnull align 8 dereferenceable(48) %1) #25
@@ -5413,12 +5413,12 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit.i: ; preds = %_ZNK4llv
   br i1 %.not3288.i, label %.critedge33.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %556, %559, %560
-  %.idx96.pn.in.i = phi i64 [ %551, %560 ], [ %551, %556 ], [ 34, %559 ]
-  %.sroa.064.0102.i = phi ptr [ null, %560 ], [ null, %556 ], [ @.str.32, %559 ]
-  %.sroa.565.0100.i = phi i64 [ 0, %560 ], [ 0, %556 ], [ 5, %559 ]
-  %.not.i.i.i4098.i = phi i1 [ true, %560 ], [ true, %556 ], [ false, %559 ]
-  %.idx96.pn.i = mul nuw nsw i64 %.idx96.pn.in.i, 56
-  %561 = getelementptr inbounds nuw i8, ptr %529, i64 %.idx96.pn.i
+  %.idx111.pn.in.i = phi i64 [ %551, %560 ], [ %551, %556 ], [ 34, %559 ]
+  %.sroa.064.0117.i = phi ptr [ null, %560 ], [ null, %556 ], [ @.str.32, %559 ]
+  %.sroa.565.0115.i = phi i64 [ 0, %560 ], [ 0, %556 ], [ 5, %559 ]
+  %.not.i.i.i40113.i = phi i1 [ true, %560 ], [ true, %556 ], [ false, %559 ]
+  %.idx111.pn.i = mul nuw nsw i64 %.idx111.pn.in.i, 56
+  %561 = getelementptr inbounds nuw i8, ptr %529, i64 %.idx111.pn.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm15SmallVectorImplIcE12emplace_backIJRhEEERcDpOT_.exit.i, %.lr.ph.preheader.i
@@ -5543,12 +5543,12 @@ _ZN4llvm15SmallVectorImplIcE12emplace_backIJRhEEERcDpOT_.exit.i: ; preds = %_ZN4
   br label %.critedge33.i
 
 .critedge33.i:                                    ; preds = %.critedge33.loopexit.i, %560
-  %.sroa.064.0103.i = phi ptr [ %.sroa.064.0102.i, %.critedge33.loopexit.i ], [ null, %560 ]
-  %.sroa.565.0101.i = phi i64 [ %.sroa.565.0100.i, %.critedge33.loopexit.i ], [ 0, %560 ]
-  %.not.i.i.i4099.i = phi i1 [ %.not.i.i.i4098.i, %.critedge33.loopexit.i ], [ true, %560 ]
+  %.sroa.064.0118.i = phi ptr [ %.sroa.064.0117.i, %.critedge33.loopexit.i ], [ null, %560 ]
+  %.sroa.565.0116.i = phi i64 [ %.sroa.565.0115.i, %.critedge33.loopexit.i ], [ 0, %560 ]
+  %.not.i.i.i40114.i = phi i1 [ %.not.i.i.i40113.i, %.critedge33.loopexit.i ], [ true, %560 ]
   %617 = phi i64 [ %.pre91.i, %.critedge33.loopexit.i ], [ 40, %560 ]
   %618 = phi i64 [ %.pre.i, %.critedge33.loopexit.i ], [ 1, %560 ]
-  %619 = add i64 %618, %.sroa.565.0101.i
+  %619 = add i64 %618, %.sroa.565.0116.i
   %620 = icmp ult i64 %617, %619
   br i1 %620, label %621, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i38.i
 
@@ -5559,18 +5559,18 @@ _ZN4llvm15SmallVectorImplIcE12emplace_backIJRhEEERcDpOT_.exit.i: ; preds = %_ZN4
 
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i38.i: ; preds = %621, %.critedge33.i
   %.pre8.i.i39.i = phi i64 [ %618, %.critedge33.i ], [ %.pre8.pre.i.i42.i, %621 ]
-  br i1 %.not.i.i.i4099.i, label %_ZN4llvm11SmallStringILj40EE6appendENS_9StringRefE.exit43.i, label %622
+  br i1 %.not.i.i.i40114.i, label %_ZN4llvm11SmallStringILj40EE6appendENS_9StringRefE.exit43.i, label %622
 
 622:                                              ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i38.i
   %623 = load ptr, ptr %6, align 8, !tbaa !158
   %624 = getelementptr inbounds nuw i8, ptr %623, i64 %.pre8.i.i39.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %624, ptr align 1 %.sroa.064.0103.i, i64 %.sroa.565.0101.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %624, ptr align 1 %.sroa.064.0118.i, i64 %.sroa.565.0116.i, i1 false)
   %.pre.i.i41.i = load i64, ptr %553, align 8, !tbaa !161
   br label %_ZN4llvm11SmallStringILj40EE6appendENS_9StringRefE.exit43.i
 
 _ZN4llvm11SmallStringILj40EE6appendENS_9StringRefE.exit43.i: ; preds = %622, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i38.i
   %625 = phi i64 [ %.pre8.i.i39.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i38.i ], [ %.pre.i.i41.i, %622 ]
-  %626 = add i64 %625, %.sroa.565.0101.i
+  %626 = add i64 %625, %.sroa.565.0116.i
   store i64 %626, ptr %553, align 8, !tbaa !161
   %627 = add i64 %626, 1
   %628 = load i64, ptr %554, align 8, !tbaa !160
@@ -6810,9 +6810,9 @@ define dso_local { ptr, i64 } @_ZN5clang7APValue15setLValueUninitENS0_10LValueBa
   store i32 %4, ptr %19, align 8, !tbaa !91
   %31 = add i32 %4, -3
   %32 = icmp ult i32 %31, -4
-  br i1 %32, label %_ZN5clang7APValue2LV10resizePathEj.exit.thread, label %_ZN5clang7APValue2LV10resizePathEj.exit.thread12
+  br i1 %32, label %_ZN5clang7APValue2LV10resizePathEj.exit.thread, label %_ZN5clang7APValue2LV10resizePathEj.exit.thread16
 
-_ZN5clang7APValue2LV10resizePathEj.exit.thread12: ; preds = %30
+_ZN5clang7APValue2LV10resizePathEj.exit.thread16: ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %41
 
@@ -6833,8 +6833,8 @@ _ZN5clang7APValue2LV10resizePathEj.exit:          ; preds = %7
   %spec.select = select i1 %38, ptr %40, ptr %39
   br label %41
 
-41:                                               ; preds = %_ZN5clang7APValue2LV10resizePathEj.exit, %_ZN5clang7APValue2LV10resizePathEj.exit.thread, %_ZN5clang7APValue2LV10resizePathEj.exit.thread12
-  %42 = phi ptr [ %33, %_ZN5clang7APValue2LV10resizePathEj.exit.thread12 ], [ %36, %_ZN5clang7APValue2LV10resizePathEj.exit.thread ], [ %spec.select, %_ZN5clang7APValue2LV10resizePathEj.exit ]
+41:                                               ; preds = %_ZN5clang7APValue2LV10resizePathEj.exit, %_ZN5clang7APValue2LV10resizePathEj.exit.thread, %_ZN5clang7APValue2LV10resizePathEj.exit.thread16
+  %42 = phi ptr [ %33, %_ZN5clang7APValue2LV10resizePathEj.exit.thread16 ], [ %36, %_ZN5clang7APValue2LV10resizePathEj.exit.thread ], [ %spec.select, %_ZN5clang7APValue2LV10resizePathEj.exit ]
   %43 = zext i32 %4 to i64
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %42, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %43, 1
@@ -6872,28 +6872,28 @@ define dso_local { ptr, i64 } @_ZN5clang7APValue22setMemberPointerUninitEPKNS_9V
   %19 = select i1 %2, i64 4, i64 0
   store i64 %19, ptr %5, align 8
   %20 = icmp eq i32 %3, 0
-  br i1 %20, label %_ZN5clang7APValue17MemberPointerData10resizePathEj.exit, label %.thread13
+  br i1 %20, label %_ZN5clang7APValue17MemberPointerData10resizePathEj.exit, label %.thread16
 
 21:                                               ; preds = %7
   %22 = icmp ugt i32 %.pre, 4
-  br i1 %22, label %23, label %.thread13
+  br i1 %22, label %23, label %.thread16
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !3
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.thread13, label %27
+  br i1 %26, label %.thread16, label %27
 
 27:                                               ; preds = %23
   tail call void @_ZdaPv(ptr noundef nonnull %25) #27
-  br label %.thread13
+  br label %.thread16
 
-.thread13:                                        ; preds = %.thread, %27, %23, %21
+.thread16:                                        ; preds = %.thread, %27, %23, %21
   store i32 %3, ptr %6, align 8, !tbaa !106
   %28 = icmp ugt i32 %3, 4
   br i1 %28, label %29, label %_ZN5clang7APValue17MemberPointerData10resizePathEj.exit
 
-29:                                               ; preds = %.thread13
+29:                                               ; preds = %.thread16
   %30 = zext i32 %3 to i64
   %31 = shl nuw nsw i64 %30, 3
   %32 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %31) #26
@@ -6901,7 +6901,7 @@ define dso_local { ptr, i64 } @_ZN5clang7APValue22setMemberPointerUninitEPKNS_9V
   store ptr %32, ptr %33, align 8, !tbaa !3
   br label %_ZN5clang7APValue17MemberPointerData10resizePathEj.exit
 
-_ZN5clang7APValue17MemberPointerData10resizePathEj.exit: ; preds = %.thread, %7, %.thread13, %29
+_ZN5clang7APValue17MemberPointerData10resizePathEj.exit: ; preds = %.thread, %7, %.thread16, %29
   %34 = icmp ugt i32 %3, 4
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8
@@ -6922,7 +6922,7 @@ define dso_local i8 @_ZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_
   store ptr %4, ptr %5, align 8, !tbaa !223
   %6 = load i32, ptr %1, align 8, !tbaa !66
   switch i32 %6, label %.thread186 [
-    i32 12, label %250
+    i32 12, label %227
     i32 7, label %173
     i32 9, label %107
     i32 11, label %77
@@ -6996,11 +6996,10 @@ define dso_local i8 @_ZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_
   br i1 %or.cond, label %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit108._crit_edge", label %12, !llvm.loop !225
 
 "_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit108._crit_edge": ; preds = %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit108", %7
-  %.sroa.051.0.copyload230 = phi i8 [ 22, %7 ], [ %storemerge.i.i104, %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit108" ]
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %42 = load i32, ptr %41, align 4, !tbaa !77
   %.not59201 = icmp eq i32 %42, 0
-  br i1 %.not59201, label %.thread190, label %.lr.ph204
+  br i1 %.not59201, label %.thread186, label %.lr.ph204
 
 .lr.ph204:                                        ; preds = %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit108._crit_edge"
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7060,14 +7059,14 @@ define dso_local i8 @_ZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_
   %75 = icmp eq i8 %74, 2
   %76 = add nuw i32 %.053202, 1
   %.not59 = icmp eq i32 %76, %42
-  %or.cond214 = select i1 %75, i1 true, i1 %.not59
-  br i1 %or.cond214, label %.thread190, label %44, !llvm.loop !226
+  %or.cond236 = select i1 %75, i1 true, i1 %.not59
+  br i1 %or.cond236, label %.thread186, label %44, !llvm.loop !226
 
 77:                                               ; preds = %3
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !78
   %.not60 = icmp eq ptr %79, null
-  br i1 %.not60, label %.thread190, label %80
+  br i1 %.not60, label %.thread186, label %80
 
 80:                                               ; preds = %77
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -7114,7 +7113,8 @@ define dso_local i8 @_ZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_
   %105 = or disjoint i8 %104, %103
   %106 = or disjoint i8 %105, %97
   %storemerge.i.i124 = select i1 %or.cond9.i.i.i.i123, i8 %106, i8 %94
-  br label %.thread190
+  store i8 %storemerge.i.i124, ptr %4, align 1
+  br label %.thread186
 
 107:                                              ; preds = %3
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -7178,20 +7178,19 @@ define dso_local i8 @_ZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_
   %140 = icmp eq i8 %139, 2
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %.not61 = icmp eq i64 %indvars.iv.next212, %111
-  %or.cond215 = select i1 %140, i1 true, i1 %.not61
-  br i1 %or.cond215, label %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit138._crit_edge.loopexit", label %112, !llvm.loop !227
+  %or.cond237 = select i1 %140, i1 true, i1 %.not61
+  br i1 %or.cond237, label %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit138._crit_edge.loopexit", label %112, !llvm.loop !227
 
 "_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit138._crit_edge.loopexit": ; preds = %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit138"
   %.pre = load i32, ptr %108, align 8, !tbaa !72
   br label %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit138._crit_edge"
 
 "_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit138._crit_edge": ; preds = %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit138._crit_edge.loopexit", %107
-  %.sroa.051.0.copyload231 = phi i8 [ %storemerge.i.i134, %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit138._crit_edge.loopexit" ], [ 22, %107 ]
   %141 = phi i32 [ %.pre, %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit138._crit_edge.loopexit" ], [ 0, %107 ]
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %143 = load i32, ptr %142, align 4, !tbaa !73
   %.not192 = icmp eq i32 %141, %143
-  br i1 %.not192, label %.thread190, label %144
+  br i1 %.not192, label %.thread186, label %144
 
 144:                                              ; preds = %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit138._crit_edge"
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7240,22 +7239,23 @@ define dso_local i8 @_ZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_
   %171 = or disjoint i8 %170, %169
   %172 = or disjoint i8 %171, %163
   %storemerge.i.i144 = select i1 %or.cond9.i.i.i.i143, i8 %172, i8 %160
-  br label %.thread190
+  store i8 %storemerge.i.i144, ptr %4, align 1
+  br label %.thread186
 
 173:                                              ; preds = %3
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i70 = load i64, ptr %174, align 8
   %.not.i.i.i = icmp ugt i64 %.sroa.0.0.copyload.i70, 3
-  br i1 %.not.i.i.i, label %175, label %.thread190
+  br i1 %.not.i.i.i, label %175, label %.thread186
 
 175:                                              ; preds = %173
   %176 = and i64 %.sroa.0.0.copyload.i70, 3
   %177 = and i64 %.sroa.0.0.copyload.i70, -4
   %178 = inttoptr i64 %177 to ptr
-  switch i64 %176, label %default.unreachable [
+  switch i64 %176, label %.unreachabledefault [
     i64 0, label %179
     i64 2, label %204
-    i64 1, label %229
+    i64 1, label %206
     i64 3, label %.thread190
   ]
 
@@ -7302,154 +7302,116 @@ define dso_local i8 @_ZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_
   %202 = or disjoint i8 %201, %200
   %203 = or disjoint i8 %202, %194
   %storemerge.i.i = select i1 %or.cond9.i.i.i.i, i8 %203, i8 %191
-  br label %.thread190
+  store i8 %storemerge.i.i, ptr %4, align 1
+  br label %.thread186
 
 204:                                              ; preds = %175
   %205 = call i8 @_ZN5clang15LinkageComputer12getLVForTypeERKNS_4TypeENS_17LVComputationKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 16 dereferenceable(24) %178, i32 %2) #25
-  %206 = and i8 %205, 7
-  %207 = load i8, ptr %4, align 1
-  %208 = and i8 %207, 7
-  %209 = icmp eq i8 %206, 4
-  br i1 %209, label %.thread.i.i.i.i.i225, label %210
+  call fastcc void @"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE"(ptr noundef nonnull align 8 dereferenceable(8) %5, i8 %205)
+  br label %.thread186
 
-210:                                              ; preds = %204
-  %211 = icmp eq i8 %208, 4
-  br i1 %211, label %.thread.i.i.i.i.i225, label %213
+206:                                              ; preds = %175
+  %207 = load i16, ptr %178, align 8
+  %208 = and i16 %207, 511
+  %.not198 = icmp eq i16 %208, 50
+  br i1 %.not198, label %209, label %.thread190
 
-.thread.i.i.i.i.i225:                             ; preds = %210, %204
-  %.0713.i.i.i.i.i226 = phi i8 [ %206, %210 ], [ %208, %204 ]
-  %212 = and i8 %.0713.i.i.i.i.i226, 6
-  %switch.i.i.i.i.i227 = icmp eq i8 %212, 2
-  br i1 %switch.i.i.i.i.i227, label %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit228", label %213
+209:                                              ; preds = %206
+  %210 = getelementptr inbounds nuw i8, ptr %178, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %210, align 8
+  %211 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 4
+  %212 = icmp eq i64 %211, 0
+  br i1 %212, label %.thread190, label %_ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit
 
-213:                                              ; preds = %.thread.i.i.i.i.i225, %210
-  %.0714.i.i.i.i.i219 = phi i8 [ %.0713.i.i.i.i.i226, %.thread.i.i.i.i.i225 ], [ %206, %210 ]
-  %.0811.i.i.i.i.i220 = phi i8 [ 4, %.thread.i.i.i.i.i225 ], [ %208, %210 ]
-  %214 = call i8 @llvm.umin.i8(i8 %.0811.i.i.i.i.i220, i8 %.0714.i.i.i.i.i219)
-  br label %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit228"
+_ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit: ; preds = %209
+  %213 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
+  %214 = inttoptr i64 %213 to ptr
+  %215 = call noundef i32 @_ZNK5clang29LifetimeExtendedTemporaryDecl18getStorageDurationEv(ptr noundef nonnull align 8 dereferenceable(72) %214) #25
+  %216 = icmp eq i32 %215, 0
+  br i1 %216, label %.thread190, label %217
 
-"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit228": ; preds = %.thread.i.i.i.i.i225, %213
-  %.0.i.i.i.i.i221 = phi i8 [ %214, %213 ], [ 1, %.thread.i.i.i.i.i225 ]
-  %215 = and i8 %207, -8
-  %216 = or disjoint i8 %.0.i.i.i.i.i221, %215
-  %217 = lshr i8 %205, 3
-  %218 = and i8 %217, 3
-  %219 = and i8 %205, 32
-  %220 = icmp ne i8 %219, 0
-  %221 = lshr i8 %216, 3
-  %222 = and i8 %221, 3
-  %223 = icmp samesign ule i8 %218, %222
-  %224 = icmp ne i8 %218, %222
-  %or.cond.i.i.i.i222 = or i1 %220, %224
-  %or.cond9.i.i.i.i223 = and i1 %223, %or.cond.i.i.i.i222
-  %225 = shl nuw nsw i8 %218, 3
-  %226 = and i8 %216, -57
-  %227 = or disjoint i8 %226, %225
-  %228 = or disjoint i8 %227, %219
-  %storemerge.i.i224 = select i1 %or.cond9.i.i.i.i223, i8 %228, i8 %216
-  br label %.thread190
+217:                                              ; preds = %_ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %210, align 8
+  %218 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
+  %219 = icmp eq i64 %218, 0
+  br i1 %219, label %_ZNK5clang24MaterializeTemporaryExpr16getExtendingDeclEv.exit, label %220
 
-229:                                              ; preds = %175
-  %230 = load i16, ptr %178, align 8
-  %231 = and i16 %230, 511
-  %.not198 = icmp eq i16 %231, 50
-  br i1 %.not198, label %232, label %.thread190
-
-232:                                              ; preds = %229
-  %233 = getelementptr inbounds nuw i8, ptr %178, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %233, align 8
-  %234 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 4
-  %235 = icmp eq i64 %234, 0
-  br i1 %235, label %.thread190, label %_ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit
-
-_ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit: ; preds = %232
-  %236 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
-  %237 = inttoptr i64 %236 to ptr
-  %238 = call noundef i32 @_ZNK5clang29LifetimeExtendedTemporaryDecl18getStorageDurationEv(ptr noundef nonnull align 8 dereferenceable(72) %237) #25
-  %239 = icmp eq i32 %238, 0
-  br i1 %239, label %.thread190, label %240
-
-240:                                              ; preds = %_ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %233, align 8
-  %241 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
-  %242 = icmp eq i64 %241, 0
-  br i1 %242, label %_ZNK5clang24MaterializeTemporaryExpr16getExtendingDeclEv.exit, label %243
-
-243:                                              ; preds = %240
-  %244 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
-  %245 = inttoptr i64 %244 to ptr
-  %246 = getelementptr inbounds nuw i8, ptr %245, i64 48
-  %247 = load ptr, ptr %246, align 8, !tbaa !228
+220:                                              ; preds = %217
+  %221 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
+  %222 = inttoptr i64 %221 to ptr
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 48
+  %224 = load ptr, ptr %223, align 8, !tbaa !228
   br label %_ZNK5clang24MaterializeTemporaryExpr16getExtendingDeclEv.exit
 
-_ZNK5clang24MaterializeTemporaryExpr16getExtendingDeclEv.exit: ; preds = %240, %243
-  %248 = phi ptr [ %247, %243 ], [ null, %240 ]
-  %249 = call i8 @_ZN5clang15LinkageComputer12getLVForDeclEPKNS_9NamedDeclENS_17LVComputationKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %248, i32 %2) #25
-  call fastcc void @"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE"(ptr noundef nonnull align 8 dereferenceable(8) %5, i8 %249)
-  %.sroa.051.0.copyload.pre = load i8, ptr %4, align 1, !tbaa !3
-  br label %.thread190
+_ZNK5clang24MaterializeTemporaryExpr16getExtendingDeclEv.exit: ; preds = %217, %220
+  %225 = phi ptr [ %224, %220 ], [ null, %217 ]
+  %226 = call i8 @_ZN5clang15LinkageComputer12getLVForDeclEPKNS_9NamedDeclENS_17LVComputationKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %225, i32 %2) #25
+  call fastcc void @"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE"(ptr noundef nonnull align 8 dereferenceable(8) %5, i8 %226)
+  br label %.thread186
 
-250:                                              ; preds = %3
-  %251 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.0.copyload.i.i.i.i = load i64, ptr %251, align 8
-  %252 = and i64 %.0.copyload.i.i.i.i, -8
-  %.not65 = icmp eq i64 %252, 0
-  br i1 %.not65, label %.thread190, label %253
+227:                                              ; preds = %3
+  %228 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.0.copyload.i.i.i.i = load i64, ptr %228, align 8
+  %229 = and i64 %.0.copyload.i.i.i.i, -8
+  %.not65 = icmp eq i64 %229, 0
+  br i1 %.not65, label %.thread186, label %230
 
-253:                                              ; preds = %250
-  %254 = inttoptr i64 %252 to ptr
-  %255 = call i8 @_ZN5clang15LinkageComputer12getLVForDeclEPKNS_9NamedDeclENS_17LVComputationKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull %254, i32 %2) #25
-  %256 = and i8 %255, 7
-  %257 = load i8, ptr %4, align 1
-  %258 = and i8 %257, 7
-  %259 = icmp eq i8 %256, 4
-  br i1 %259, label %.thread.i.i.i.i.i95, label %260
+230:                                              ; preds = %227
+  %231 = inttoptr i64 %229 to ptr
+  %232 = call i8 @_ZN5clang15LinkageComputer12getLVForDeclEPKNS_9NamedDeclENS_17LVComputationKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull %231, i32 %2) #25
+  %233 = and i8 %232, 7
+  %234 = load i8, ptr %4, align 1
+  %235 = and i8 %234, 7
+  %236 = icmp eq i8 %233, 4
+  br i1 %236, label %.thread.i.i.i.i.i95, label %237
 
-260:                                              ; preds = %253
-  %261 = icmp eq i8 %258, 4
-  br i1 %261, label %.thread.i.i.i.i.i95, label %263
+237:                                              ; preds = %230
+  %238 = icmp eq i8 %235, 4
+  br i1 %238, label %.thread.i.i.i.i.i95, label %240
 
-.thread.i.i.i.i.i95:                              ; preds = %260, %253
-  %.0713.i.i.i.i.i96 = phi i8 [ %256, %260 ], [ %258, %253 ]
-  %262 = and i8 %.0713.i.i.i.i.i96, 6
-  %switch.i.i.i.i.i97 = icmp eq i8 %262, 2
-  br i1 %switch.i.i.i.i.i97, label %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit98", label %263
+.thread.i.i.i.i.i95:                              ; preds = %237, %230
+  %.0713.i.i.i.i.i96 = phi i8 [ %233, %237 ], [ %235, %230 ]
+  %239 = and i8 %.0713.i.i.i.i.i96, 6
+  %switch.i.i.i.i.i97 = icmp eq i8 %239, 2
+  br i1 %switch.i.i.i.i.i97, label %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit98", label %240
 
-263:                                              ; preds = %.thread.i.i.i.i.i95, %260
-  %.0714.i.i.i.i.i89 = phi i8 [ %.0713.i.i.i.i.i96, %.thread.i.i.i.i.i95 ], [ %256, %260 ]
-  %.0811.i.i.i.i.i90 = phi i8 [ 4, %.thread.i.i.i.i.i95 ], [ %258, %260 ]
-  %264 = call i8 @llvm.umin.i8(i8 %.0811.i.i.i.i.i90, i8 %.0714.i.i.i.i.i89)
+240:                                              ; preds = %.thread.i.i.i.i.i95, %237
+  %.0714.i.i.i.i.i89 = phi i8 [ %.0713.i.i.i.i.i96, %.thread.i.i.i.i.i95 ], [ %233, %237 ]
+  %.0811.i.i.i.i.i90 = phi i8 [ 4, %.thread.i.i.i.i.i95 ], [ %235, %237 ]
+  %241 = call i8 @llvm.umin.i8(i8 %.0811.i.i.i.i.i90, i8 %.0714.i.i.i.i.i89)
   br label %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit98"
 
-"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit98": ; preds = %.thread.i.i.i.i.i95, %263
-  %.0.i.i.i.i.i91 = phi i8 [ %264, %263 ], [ 1, %.thread.i.i.i.i.i95 ]
-  %265 = and i8 %257, -8
-  %266 = or disjoint i8 %.0.i.i.i.i.i91, %265
-  %267 = lshr i8 %255, 3
-  %268 = and i8 %267, 3
-  %269 = and i8 %255, 32
-  %270 = icmp ne i8 %269, 0
-  %271 = lshr i8 %266, 3
-  %272 = and i8 %271, 3
-  %273 = icmp samesign ule i8 %268, %272
-  %274 = icmp ne i8 %268, %272
-  %or.cond.i.i.i.i92 = or i1 %270, %274
-  %or.cond9.i.i.i.i93 = and i1 %273, %or.cond.i.i.i.i92
-  %275 = shl nuw nsw i8 %268, 3
-  %276 = and i8 %266, -57
-  %277 = or disjoint i8 %276, %275
-  %278 = or disjoint i8 %277, %269
-  %storemerge.i.i94 = select i1 %or.cond9.i.i.i.i93, i8 %278, i8 %266
+"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit98": ; preds = %.thread.i.i.i.i.i95, %240
+  %.0.i.i.i.i.i91 = phi i8 [ %241, %240 ], [ 1, %.thread.i.i.i.i.i95 ]
+  %242 = and i8 %234, -8
+  %243 = or disjoint i8 %.0.i.i.i.i.i91, %242
+  %244 = lshr i8 %232, 3
+  %245 = and i8 %244, 3
+  %246 = and i8 %232, 32
+  %247 = icmp ne i8 %246, 0
+  %248 = lshr i8 %243, 3
+  %249 = and i8 %248, 3
+  %250 = icmp samesign ule i8 %245, %249
+  %251 = icmp ne i8 %245, %249
+  %or.cond.i.i.i.i92 = or i1 %247, %251
+  %or.cond9.i.i.i.i93 = and i1 %250, %or.cond.i.i.i.i92
+  %252 = shl nuw nsw i8 %245, 3
+  %253 = and i8 %243, -57
+  %254 = or disjoint i8 %253, %252
+  %255 = or disjoint i8 %254, %246
+  %storemerge.i.i94 = select i1 %or.cond9.i.i.i.i93, i8 %255, i8 %243
+  store i8 %storemerge.i.i94, ptr %4, align 1
+  br label %.thread186
+
+.thread186:                                       ; preds = %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit118", %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit108._crit_edge", %204, %_ZNK5clang24MaterializeTemporaryExpr16getExtendingDeclEv.exit, %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit", %227, %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit98", %173, %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit138._crit_edge", %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit148", %77, %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit128", %3
+  %.sroa.051.0.copyload = load i8, ptr %4, align 1, !tbaa !3
   br label %.thread190
 
-.thread186:                                       ; preds = %3
-  br label %.thread190
-
-default.unreachable:                              ; preds = %175
+.unreachabledefault:                              ; preds = %175
   unreachable
 
-.thread190:                                       ; preds = %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit118", %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit128", %77, %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit148", %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit138._crit_edge", %173, %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit98", %250, %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit", %_ZNK5clang24MaterializeTemporaryExpr16getExtendingDeclEv.exit, %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit228", %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit108._crit_edge", %175, %232, %_ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit, %229, %3, %.thread186
-  %.sroa.051.0 = phi i8 [ 18, %3 ], [ 18, %229 ], [ 18, %_ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit ], [ 18, %232 ], [ 18, %175 ], [ %.sroa.051.0.copyload230, %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit108._crit_edge" ], [ %storemerge.i.i224, %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit228" ], [ %.sroa.051.0.copyload.pre, %_ZNK5clang24MaterializeTemporaryExpr16getExtendingDeclEv.exit ], [ %storemerge.i.i, %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit" ], [ 22, %250 ], [ %storemerge.i.i94, %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit98" ], [ 22, %173 ], [ %.sroa.051.0.copyload231, %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit138._crit_edge" ], [ %storemerge.i.i144, %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit148" ], [ 22, %77 ], [ %storemerge.i.i124, %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit128" ], [ 22, %.thread186 ], [ %storemerge.i.i114, %"_ZZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_17LVComputationKindEENK3$_0clENS_11LinkageInfoE.exit118" ]
+.thread190:                                       ; preds = %175, %209, %_ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit, %206, %3, %.thread186
+  %.sroa.051.0 = phi i8 [ %.sroa.051.0.copyload, %.thread186 ], [ 18, %3 ], [ 18, %206 ], [ 18, %_ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit ], [ 18, %209 ], [ 18, %175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.sroa.051.0

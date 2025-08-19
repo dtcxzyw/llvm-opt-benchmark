@@ -2965,7 +2965,7 @@ define internal i32 @ieee80211_start_ap(ptr readnone captures(none) %0, ptr noun
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 768
   %85 = load ptr, ptr %84, align 8
   %86 = icmp eq ptr %85, null
-  br i1 %86, label %.thread21, label %87
+  br i1 %86, label %.thread38, label %87
 
 87:                                               ; preds = %83
   %88 = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -2990,12 +2990,12 @@ define internal i32 @ieee80211_start_ap(ptr readnone captures(none) %0, ptr noun
   store i64 %103, ptr %4, align 8
   %.pr.pre = load ptr, ptr %80, align 8
   %104 = icmp eq ptr %.pr.pre, null
-  br i1 %104, label %.thread, label %.thread21
+  br i1 %104, label %.thread, label %.thread38
 
-.thread21:                                        ; preds = %83, %87
-  %.pr23 = phi ptr [ %.pr.pre, %87 ], [ %81, %83 ]
+.thread38:                                        ; preds = %83, %87
+  %.pr40 = phi ptr [ %.pr.pre, %87 ], [ %81, %83 ]
   %105 = phi i64 [ %103, %87 ], [ 135004992, %83 ]
-  %106 = getelementptr i8, ptr %.pr23, i64 7
+  %106 = getelementptr i8, ptr %.pr40, i64 7
   %107 = load i8, ptr %106, align 1
   %108 = getelementptr inbounds nuw i8, ptr %18, i64 780
   %109 = lshr i8 %107, 5
@@ -3029,8 +3029,8 @@ define internal i32 @ieee80211_start_ap(ptr readnone captures(none) %0, ptr noun
   store i8 %132, ptr %130, align 4
   br label %.thread
 
-.thread:                                          ; preds = %79, %.thread21, %87
-  %133 = phi i64 [ 135004992, %79 ], [ %105, %.thread21 ], [ %103, %87 ]
+.thread:                                          ; preds = %79, %.thread38, %87
+  %133 = phi i64 [ 135004992, %79 ], [ %105, %.thread38 ], [ %103, %87 ]
   %134 = getelementptr inbounds nuw i8, ptr %2, i64 776
   %135 = load ptr, ptr %134, align 8
   %136 = icmp eq ptr %135, null

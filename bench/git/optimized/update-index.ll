@@ -3874,25 +3874,25 @@ define internal fastcc range(i32 -1, 1) i32 @add_one_path(ptr noundef %0, ptr no
 
 .thread.i:                                        ; preds = %33
   %40 = load i32, ptr @trust_executable_bit, align 4, !tbaa !4
-  %.not1116.i = icmp eq i32 %40, 0
-  br i1 %.not1116.i, label %.thread28.i, label %.thread25.i
+  %.not1118.i = icmp eq i32 %40, 0
+  br i1 %.not1118.i, label %.thread30.i, label %.thread27.i
 
 41:                                               ; preds = %._crit_edge.i
-  br i1 %.not, label %44, label %..thread28.i_crit_edge
+  br i1 %.not, label %44, label %..thread30.i_crit_edge
 
-..thread28.i_crit_edge:                           ; preds = %41
+..thread30.i_crit_edge:                           ; preds = %41
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 52
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !4
   %.pre33 = and i32 %.pre, 61440
-  br label %.thread28.i
+  br label %.thread30.i
 
-.thread28.i:                                      ; preds = %..thread28.i_crit_edge, %.thread.i
-  %.pre-phi = phi i32 [ %.pre33, %..thread28.i_crit_edge ], [ %36, %.thread.i ]
-  %42 = phi i32 [ %.pre, %..thread28.i_crit_edge ], [ %35, %.thread.i ]
+.thread30.i:                                      ; preds = %..thread30.i_crit_edge, %.thread.i
+  %.pre-phi = phi i32 [ %.pre33, %..thread30.i_crit_edge ], [ %36, %.thread.i ]
+  %42 = phi i32 [ %.pre, %..thread30.i_crit_edge ], [ %35, %.thread.i ]
   %43 = icmp eq i32 %.pre-phi, 32768
   br i1 %43, label %ce_mode_from_stat.exit, label %44
 
-44:                                               ; preds = %.thread28.i, %41
+44:                                               ; preds = %.thread30.i, %41
   br label %ce_mode_from_stat.exit
 
 45:                                               ; preds = %._crit_edge.i
@@ -3905,19 +3905,19 @@ define internal fastcc range(i32 -1, 1) i32 @add_one_path(ptr noundef %0, ptr no
 
 49:                                               ; preds = %47
   %trunc.i.i = trunc nuw i32 %29 to i16
-  switch i16 %trunc.i.i, label %.thread25.i [
+  switch i16 %trunc.i.i, label %.thread27.i [
     i16 16384, label %ce_mode_from_stat.exit
     i16 -8192, label %ce_mode_from_stat.exit
   ]
 
-.thread25.i:                                      ; preds = %49, %.thread.i
+.thread27.i:                                      ; preds = %49, %.thread.i
   %50 = and i32 %27, 64
   %.not.i.i = icmp eq i32 %50, 0
   %51 = select i1 %.not.i.i, i32 33188, i32 33261
   br label %ce_mode_from_stat.exit
 
-ce_mode_from_stat.exit:                           ; preds = %33, %.thread28.i, %44, %45, %47, %49, %49, %.thread25.i
-  %.0.i = phi i32 [ 33188, %44 ], [ %35, %33 ], [ %42, %.thread28.i ], [ %51, %.thread25.i ], [ 40960, %45 ], [ 16384, %47 ], [ 57344, %49 ], [ 57344, %49 ]
+ce_mode_from_stat.exit:                           ; preds = %33, %.thread30.i, %44, %45, %47, %49, %49, %.thread27.i
+  %.0.i = phi i32 [ 33188, %44 ], [ %35, %33 ], [ %42, %.thread30.i ], [ %51, %.thread27.i ], [ 40960, %45 ], [ 16384, %47 ], [ 57344, %49 ], [ 57344, %49 ]
   %52 = getelementptr inbounds nuw i8, ptr %19, i64 52
   store i32 %.0.i, ptr %52, align 4, !tbaa !4
   %53 = load ptr, ptr @the_repository, align 8, !tbaa !14

@@ -1069,13 +1069,13 @@ define internal fastcc void @_ZN4raft10confchange7changer7Changer5apply17h34b2c9
 27:                                               ; preds = %20
   %28 = call noundef i8 @_ZN10raft_proto6protos7eraftpb16ConfChangeSingle15get_change_type17hd4bd7420c11350a9E(ptr noundef nonnull align 8 %.sroa.02.05)
   %29 = load i64, ptr %.sroa.02.05, align 8, !noundef !4
-  switch i8 %28, label %default.unreachable6 [
+  switch i8 %28, label %default.unreachable12 [
     i8 0, label %30
     i8 1, label %46
     i8 2, label %90
   ]
 
-default.unreachable6:                             ; preds = %27
+default.unreachable12:                            ; preds = %27
   unreachable
 
 30:                                               ; preds = %27
@@ -2443,8 +2443,8 @@ _ZN4raft10confchange7restore21to_conf_change_single17hd833d3358f4f95f5E.exit: ; 
   %.sroa.558.0.copyload = load i64, ptr %.sroa.558.0..sroa_idx, align 8
   %164 = icmp ult i64 %.sroa.558.0.copyload, 288230376151711744
   call void @llvm.assume(i1 %164)
-  %.idx113 = shl nuw nsw i64 %.sroa.558.0.copyload, 5
-  %165 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 %.idx113
+  %.idx123 = shl nuw nsw i64 %.sroa.558.0.copyload, 5
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 %.idx123
   %166 = icmp sgt i64 %.sroa.057.0.copyload, -1
   call void @llvm.assume(i1 %166)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)

@@ -285,9 +285,9 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_8(ptr noundef initia
   br label %.sink.split
 
 .sink.split:                                      ; preds = %128, %129
-  %.sink577 = phi i8 [ -128, %129 ], [ -96, %128 ]
+  %.sink603 = phi i8 [ -128, %129 ], [ -96, %128 ]
   %.sink = phi i8 [ -97, %129 ], [ -65, %128 ]
-  store i8 %.sink577, ptr %86, align 4, !tbaa !24
+  store i8 %.sink603, ptr %86, align 4, !tbaa !24
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 69
   store i8 %.sink, ptr %130, align 1, !tbaa !24
   br label %131
@@ -400,22 +400,22 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_8(ptr noundef initia
 
 182:                                              ; preds = %179
   switch i8 %94, label %185 [
-    i8 -16, label %.sink.split578
+    i8 -16, label %.sink.split604
     i8 -12, label %183
   ]
 
 183:                                              ; preds = %182
-  br label %.sink.split578
+  br label %.sink.split604
 
-.sink.split578:                                   ; preds = %182, %183
-  %.sink581 = phi i8 [ -128, %183 ], [ -112, %182 ]
-  %.sink579 = phi i8 [ -113, %183 ], [ -65, %182 ]
-  store i8 %.sink581, ptr %86, align 4, !tbaa !24
+.sink.split604:                                   ; preds = %182, %183
+  %.sink607 = phi i8 [ -128, %183 ], [ -112, %182 ]
+  %.sink605 = phi i8 [ -113, %183 ], [ -65, %182 ]
+  store i8 %.sink607, ptr %86, align 4, !tbaa !24
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 69
-  store i8 %.sink579, ptr %184, align 1, !tbaa !24
+  store i8 %.sink605, ptr %184, align 1, !tbaa !24
   br label %185
 
-185:                                              ; preds = %.sink.split578, %182
+185:                                              ; preds = %.sink.split604, %182
   store ptr %93, ptr %1, align 8, !tbaa !4
   store i32 3, ptr %33, align 8, !tbaa !24
   store i32 14, ptr %6, align 4, !tbaa !9
@@ -846,9 +846,9 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_big5(ptr noundef initial
   %116 = zext i8 %.0136 to i32
   %117 = mul nuw nsw i32 %116, 157
   %. = select i1 %115, i32 -20253, i32 -20351
-  %.191 = select i1 %115, i32 %110, i32 %109
+  %.211 = select i1 %115, i32 %110, i32 %109
   %118 = add nsw i32 %117, %.
-  %119 = add nsw i32 %118, %.191
+  %119 = add nsw i32 %118, %.211
   switch i32 %119, label %190 [
     i32 1133, label %120
     i32 1135, label %132
@@ -2501,13 +2501,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_ibm866(ptr noundef captu
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -3068,8 +3068,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
 
 274:                                              ; preds = %272
   switch i8 %.0277, label %277 [
-    i8 66, label %.loopexit399
-    i8 74, label %.loopexit427
+    i8 66, label %.loopexit413
+    i8 74, label %.loopexit441
     i8 73, label %297
   ]
 
@@ -3115,14 +3115,14 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   store i8 0, ptr %4, align 8, !tbaa !38
   br label %60
 
-.loopexit399:                                     ; preds = %274
+.loopexit413:                                     ; preds = %274
   br label %297
 
-.loopexit427:                                     ; preds = %274
+.loopexit441:                                     ; preds = %274
   br label %297
 
-297:                                              ; preds = %275, %274, %.loopexit427, %.loopexit399
-  %.sink = phi i32 [ 0, %.loopexit399 ], [ 2, %274 ], [ 3, %275 ], [ 1, %.loopexit427 ]
+297:                                              ; preds = %275, %274, %.loopexit441, %.loopexit413
+  %.sink = phi i32 [ 0, %.loopexit413 ], [ 2, %274 ], [ 3, %275 ], [ 1, %.loopexit441 ]
   store i32 %.sink, ptr %52, align 4, !tbaa !36
   store i8 0, ptr %4, align 4, !tbaa !38
   store i32 %.sink, ptr %54, align 4, !tbaa !39
@@ -3252,13 +3252,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_10(ptr noundef 
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -3351,13 +3351,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_13(ptr noundef 
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -3450,13 +3450,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_14(ptr noundef 
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -3549,13 +3549,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_15(ptr noundef 
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -3648,13 +3648,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_16(ptr noundef 
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -3747,13 +3747,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_2(ptr noundef c
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -3846,13 +3846,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_3(ptr noundef c
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -3945,13 +3945,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_4(ptr noundef c
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -4044,13 +4044,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_5(ptr noundef c
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -4143,13 +4143,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_6(ptr noundef c
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -4242,13 +4242,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_7(ptr noundef c
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -4341,13 +4341,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_8(ptr noundef c
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -4440,13 +4440,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_8_i(ptr noundef
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -4539,13 +4539,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_koi8_r(ptr noundef captu
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -4638,13 +4638,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_koi8_u(ptr noundef captu
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -5157,14 +5157,14 @@ define internal fastcc range(i32 0, 16) i32 @lxb_encoding_decode_utf_16(ptr noun
 .lr.ph120.preheader:                              ; preds = %.preheader.split.us
   %71 = add i32 %69, -56320
   %72 = icmp ult i32 %71, 1024
-  br i1 %72, label %.split111.us, label %.lr.ph231
+  br i1 %72, label %.split111.us, label %.lr.ph245
 
 .lr.ph120:                                        ; preds = %84
   %73 = add i32 %95, -56320
   %74 = icmp ult i32 %73, 1024
-  br i1 %74, label %.split111.us.loopexit, label %.lr.ph231
+  br i1 %74, label %.split111.us.loopexit, label %.lr.ph245
 
-.lr.ph231:                                        ; preds = %.lr.ph120.preheader, %.lr.ph120
+.lr.ph245:                                        ; preds = %.lr.ph120.preheader, %.lr.ph120
   %75 = phi ptr [ %91, %.lr.ph120 ], [ %65, %.lr.ph120.preheader ]
   %76 = phi i64 [ %90, %.lr.ph120 ], [ %57, %.lr.ph120.preheader ]
   store ptr %75, ptr %2, align 8, !tbaa !4
@@ -5173,7 +5173,7 @@ define internal fastcc range(i32 0, 16) i32 @lxb_encoding_decode_utf_16(ptr noun
   %78 = icmp eq ptr %77, null
   br i1 %78, label %.loopexit, label %79
 
-79:                                               ; preds = %.lr.ph231
+79:                                               ; preds = %.lr.ph245
   %80 = load i64, ptr %62, align 8, !tbaa !21
   %81 = add i64 %80, %76
   %82 = load i64, ptr %63, align 8, !tbaa !22
@@ -5209,7 +5209,7 @@ define internal fastcc range(i32 0, 16) i32 @lxb_encoding_decode_utf_16(ptr noun
 .lr.ph.preheader:                                 ; preds = %.preheader.split
   %100 = add i32 %98, -56320
   %101 = icmp ult i32 %100, 1024
-  br i1 %101, label %.split111.us, label %.lr.ph227
+  br i1 %101, label %.split111.us, label %.lr.ph241
 
 102:                                              ; preds = %51
   %103 = add nuw nsw i32 %56, 1
@@ -5220,21 +5220,21 @@ define internal fastcc range(i32 0, 16) i32 @lxb_encoding_decode_utf_16(ptr noun
 .lr.ph:                                           ; preds = %127
   %104 = add i32 %139, -56320
   %105 = icmp ult i32 %104, 1024
-  br i1 %105, label %.split111.us.loopexit247, label %.lr.ph227
+  br i1 %105, label %.split111.us.loopexit261, label %.lr.ph241
 
 .split111.us.loopexit:                            ; preds = %.lr.ph120
   %106 = getelementptr inbounds nuw i8, ptr %91, i64 1
   br label %.split111.us
 
-.split111.us.loopexit247:                         ; preds = %.lr.ph
+.split111.us.loopexit261:                         ; preds = %.lr.ph
   %107 = getelementptr inbounds nuw i8, ptr %134, i64 1
   br label %.split111.us
 
-.split111.us:                                     ; preds = %.split111.us.loopexit247, %.split111.us.loopexit, %.lr.ph.preheader, %.lr.ph120.preheader
-  %108 = phi i64 [ %57, %.lr.ph120.preheader ], [ %57, %.lr.ph.preheader ], [ %90, %.split111.us.loopexit ], [ %133, %.split111.us.loopexit247 ]
-  %109 = phi ptr [ %66, %.lr.ph120.preheader ], [ %66, %.lr.ph.preheader ], [ %106, %.split111.us.loopexit ], [ %107, %.split111.us.loopexit247 ]
-  %.us-phi112 = phi i32 [ %71, %.lr.ph120.preheader ], [ %100, %.lr.ph.preheader ], [ %73, %.split111.us.loopexit ], [ %104, %.split111.us.loopexit247 ]
-  %.us-phi114 = phi i32 [ %70, %.lr.ph120.preheader ], [ %99, %.lr.ph.preheader ], [ %96, %.split111.us.loopexit ], [ %140, %.split111.us.loopexit247 ]
+.split111.us:                                     ; preds = %.split111.us.loopexit261, %.split111.us.loopexit, %.lr.ph.preheader, %.lr.ph120.preheader
+  %108 = phi i64 [ %57, %.lr.ph120.preheader ], [ %57, %.lr.ph.preheader ], [ %90, %.split111.us.loopexit ], [ %133, %.split111.us.loopexit261 ]
+  %109 = phi ptr [ %66, %.lr.ph120.preheader ], [ %66, %.lr.ph.preheader ], [ %106, %.split111.us.loopexit ], [ %107, %.split111.us.loopexit261 ]
+  %.us-phi112 = phi i32 [ %71, %.lr.ph120.preheader ], [ %100, %.lr.ph.preheader ], [ %73, %.split111.us.loopexit ], [ %104, %.split111.us.loopexit261 ]
+  %.us-phi114 = phi i32 [ %70, %.lr.ph120.preheader ], [ %99, %.lr.ph.preheader ], [ %96, %.split111.us.loopexit ], [ %140, %.split111.us.loopexit261 ]
   %110 = shl i32 %.us-phi114, 10
   %111 = add i32 %110, -56557568
   %112 = or disjoint i32 %111, %.us-phi112
@@ -5248,7 +5248,7 @@ define internal fastcc range(i32 0, 16) i32 @lxb_encoding_decode_utf_16(ptr noun
   store i32 %112, ptr %116, align 4, !tbaa !26
   br label %43
 
-.lr.ph227:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph241:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %117 = phi ptr [ %134, %.lr.ph ], [ %65, %.lr.ph.preheader ]
   %118 = phi i64 [ %133, %.lr.ph ], [ %57, %.lr.ph.preheader ]
   store ptr %117, ptr %2, align 8, !tbaa !4
@@ -5257,7 +5257,7 @@ define internal fastcc range(i32 0, 16) i32 @lxb_encoding_decode_utf_16(ptr noun
   %120 = icmp eq ptr %119, null
   br i1 %120, label %.loopexit, label %121
 
-121:                                              ; preds = %.lr.ph227
+121:                                              ; preds = %.lr.ph241
   %122 = load i64, ptr %62, align 8, !tbaa !21
   %123 = add i64 %122, %118
   %124 = load i64, ptr %63, align 8, !tbaa !22
@@ -5288,20 +5288,20 @@ define internal fastcc range(i32 0, 16) i32 @lxb_encoding_decode_utf_16(ptr noun
   %139 = add i32 %138, %.082.ph
   %140 = load i32, ptr %58, align 4, !tbaa !27
   %.not92 = icmp eq i32 %140, 0
-  br i1 %.not92, label %.split.us.loopexit246, label %.lr.ph
+  br i1 %.not92, label %.split.us.loopexit260, label %.lr.ph
 
 .split.us.loopexit:                               ; preds = %84
   %141 = getelementptr inbounds nuw i8, ptr %91, i64 1
   br label %.split.us
 
-.split.us.loopexit246:                            ; preds = %127
+.split.us.loopexit260:                            ; preds = %127
   %142 = getelementptr inbounds nuw i8, ptr %134, i64 1
   br label %.split.us
 
-.split.us:                                        ; preds = %.split.us.loopexit246, %.split.us.loopexit, %.preheader.split, %.preheader.split.us
-  %143 = phi i64 [ %57, %.preheader.split.us ], [ %57, %.preheader.split ], [ %90, %.split.us.loopexit ], [ %133, %.split.us.loopexit246 ]
-  %144 = phi ptr [ %66, %.preheader.split.us ], [ %66, %.preheader.split ], [ %141, %.split.us.loopexit ], [ %142, %.split.us.loopexit246 ]
-  %.us-phi = phi i32 [ %69, %.preheader.split.us ], [ %98, %.preheader.split ], [ %95, %.split.us.loopexit ], [ %139, %.split.us.loopexit246 ]
+.split.us:                                        ; preds = %.split.us.loopexit260, %.split.us.loopexit, %.preheader.split, %.preheader.split.us
+  %143 = phi i64 [ %57, %.preheader.split.us ], [ %57, %.preheader.split ], [ %90, %.split.us.loopexit ], [ %133, %.split.us.loopexit260 ]
+  %144 = phi ptr [ %66, %.preheader.split.us ], [ %66, %.preheader.split ], [ %141, %.split.us.loopexit ], [ %142, %.split.us.loopexit260 ]
+  %.us-phi = phi i32 [ %69, %.preheader.split.us ], [ %98, %.preheader.split ], [ %95, %.split.us.loopexit ], [ %139, %.split.us.loopexit260 ]
   %145 = and i32 %.us-phi, -2048
   %146 = icmp eq i32 %145, 55296
   br i1 %146, label %147, label %168
@@ -5356,8 +5356,8 @@ define internal fastcc range(i32 0, 16) i32 @lxb_encoding_decode_utf_16(ptr noun
   store i32 %.us-phi, ptr %171, align 4, !tbaa !26
   br label %43
 
-.loopexit:                                        ; preds = %.lr.ph227, %.lr.ph231, %43, %150, %46, %36, %9, %167, %158, %.split116.us, %102, %35, %22
-  %.083 = phi i32 [ 15, %22 ], [ 14, %35 ], [ 14, %102 ], [ 15, %.split116.us ], [ 15, %158 ], [ 14, %167 ], [ 1, %9 ], [ 15, %36 ], [ 15, %46 ], [ 1, %150 ], [ 0, %43 ], [ 1, %.lr.ph231 ], [ 1, %.lr.ph227 ]
+.loopexit:                                        ; preds = %.lr.ph241, %.lr.ph245, %43, %150, %46, %36, %9, %167, %158, %.split116.us, %102, %35, %22
+  %.083 = phi i32 [ 15, %22 ], [ 14, %35 ], [ 14, %102 ], [ 15, %.split116.us ], [ 15, %158 ], [ 14, %167 ], [ 1, %9 ], [ 15, %36 ], [ 15, %46 ], [ 1, %150 ], [ 0, %43 ], [ 1, %.lr.ph245 ], [ 1, %.lr.ph241 ]
   ret i32 %.083
 }
 
@@ -5448,13 +5448,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_macintosh(ptr noundef ca
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -5553,13 +5553,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1250(ptr noundef
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -5652,13 +5652,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1251(ptr noundef
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -5751,13 +5751,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1252(ptr noundef
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -5850,13 +5850,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1253(ptr noundef
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -5949,13 +5949,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1254(ptr noundef
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -6048,13 +6048,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1255(ptr noundef
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -6147,13 +6147,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1256(ptr noundef
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -6246,13 +6246,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1257(ptr noundef
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -6345,13 +6345,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1258(ptr noundef
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -6444,13 +6444,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_874(ptr noundef 
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -6543,13 +6543,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_x_mac_cyrillic(ptr nound
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43, %18
-  %.sink67 = phi i64 [ %16, %18 ], [ %44, %43 ]
+  %.sink72 = phi i64 [ %16, %18 ], [ %44, %43 ]
   %.sink = phi i32 [ %13, %18 ], [ %25, %43 ]
   %.1 = phi ptr [ %19, %18 ], [ %21, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !23
-  %48 = add nuw i64 %.sink67, 1
+  %48 = add nuw i64 %.sink72, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink67
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink72
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -6575,11 +6575,11 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_x_user_defined(ptr nound
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %6, align 8, !tbaa !22
-  %.promoted22 = load i64, ptr %4, align 8, !tbaa !20
+  %.promoted26 = load i64, ptr %4, align 8, !tbaa !20
   br label %9
 
 9:                                                ; preds = %.lr.ph, %25
-  %10 = phi i64 [ %.promoted22, %.lr.ph ], [ %28, %25 ]
+  %10 = phi i64 [ %.promoted26, %.lr.ph ], [ %28, %25 ]
   %11 = phi ptr [ %.promoted, %.lr.ph ], [ %26, %25 ]
   %12 = load i8, ptr %11, align 1, !tbaa !24
   %13 = icmp sgt i8 %12, -1
@@ -6976,9 +6976,9 @@ define hidden i32 @lxb_encoding_decode_big5_single(ptr noundef captures(none) %0
   %36 = zext i8 %.046 to i32
   %37 = mul nuw nsw i32 %36, 157
   %. = select i1 %35, i32 -20253, i32 -20351
-  %.57 = select i1 %35, i32 %30, i32 %29
+  %.62 = select i1 %35, i32 %30, i32 %29
   %38 = add nsw i32 %37, %.
-  %39 = add nsw i32 %38, %.57
+  %39 = add nsw i32 %38, %.62
   switch i32 %39, label %52 [
     i32 1133, label %40
     i32 1135, label %43

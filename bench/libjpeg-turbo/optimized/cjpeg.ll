@@ -224,8 +224,8 @@ define dso_local range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef readonly 
   br i1 %31, label %32, label %43
 
 32:                                               ; preds = %30
-  %33 = sext i32 %20 to i64
-  %34 = getelementptr inbounds ptr, ptr %1, i64 %33
+  %33 = zext nneg i32 %20 to i64
+  %34 = getelementptr inbounds nuw ptr, ptr %1, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !4
   %36 = call noalias ptr @fopen(ptr noundef %35, ptr noundef nonnull @.str.2)
   %37 = icmp eq ptr %36, null
@@ -611,7 +611,7 @@ declare void @jpeg_CreateCompress(ptr noundef, i32 noundef, i64 noundef) local_u
 declare void @jpeg_set_defaults(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @parse_switches(ptr noundef nonnull %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef nonnull %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i8, align 1
@@ -1275,8 +1275,8 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @parse_switches(p
   br i1 %.not217, label %296, label %271
 
 ._crit_edge.thread:                               ; preds = %4
-  %.not217456 = icmp eq i32 %3, 0
-  br i1 %.not217456, label %296, label %.thread516
+  %.not217475 = icmp eq i32 %3, 0
+  br i1 %.not217475, label %296, label %.thread535
 
 271:                                              ; preds = %._crit_edge
   %.not218 = icmp eq ptr %.0157.lcssa.ph, null
@@ -1331,30 +1331,30 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @parse_switches(p
   unreachable
 
 287:                                              ; preds = %284, %283
-  br i1 %270, label %.thread516, label %288
+  br i1 %270, label %.thread535, label %288
 
 288:                                              ; preds = %287
   call void @jpeg_simple_progression(ptr noundef nonnull %0) #9
-  br label %.thread516
+  br label %.thread535
 
-.thread516:                                       ; preds = %._crit_edge.thread, %288, %287
-  %.0163.lcssa457481491506513521 = phi i32 [ %.0163.lcssa.ph, %288 ], [ %.0163.lcssa.ph, %287 ], [ 1, %._crit_edge.thread ]
-  %.0149.lcssa465475495503515520 = phi ptr [ %.0149.lcssa.ph, %288 ], [ %.0149.lcssa.ph, %287 ], [ null, %._crit_edge.thread ]
+.thread535:                                       ; preds = %._crit_edge.thread, %288, %287
+  %.0163.lcssa476500510525532540 = phi i32 [ %.0163.lcssa.ph, %288 ], [ %.0163.lcssa.ph, %287 ], [ 1, %._crit_edge.thread ]
+  %.0149.lcssa484494514522534539 = phi ptr [ %.0149.lcssa.ph, %288 ], [ %.0149.lcssa.ph, %287 ], [ null, %._crit_edge.thread ]
   %289 = load i32, ptr %5, align 4, !tbaa !61
   %.not227 = icmp eq i32 %289, 0
   br i1 %.not227, label %292, label %290
 
-290:                                              ; preds = %.thread516
+290:                                              ; preds = %.thread535
   %291 = load i32, ptr %6, align 4, !tbaa !61
   call void @jpeg_enable_lossless(ptr noundef nonnull %0, i32 noundef %289, i32 noundef %291) #9
   br label %292
 
-292:                                              ; preds = %290, %.thread516
-  %.not228 = icmp eq ptr %.0149.lcssa465475495503515520, null
+292:                                              ; preds = %290, %.thread535
+  %.not228 = icmp eq ptr %.0149.lcssa484494514522534539, null
   br i1 %.not228, label %296, label %293
 
 293:                                              ; preds = %292
-  %294 = call i32 @read_scan_script(ptr noundef nonnull %0, ptr noundef nonnull %.0149.lcssa465475495503515520) #9
+  %294 = call i32 @read_scan_script(ptr noundef nonnull %0, ptr noundef nonnull %.0149.lcssa484494514522534539) #9
   %.not229 = icmp eq i32 %294, 0
   br i1 %.not229, label %295, label %296
 
@@ -1363,10 +1363,10 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @parse_switches(p
   unreachable
 
 296:                                              ; preds = %._crit_edge.thread, %292, %293, %._crit_edge
-  %.0163.lcssa458 = phi i32 [ 1, %._crit_edge.thread ], [ %.0163.lcssa457481491506513521, %292 ], [ %.0163.lcssa457481491506513521, %293 ], [ %.0163.lcssa.ph, %._crit_edge ]
+  %.0163.lcssa477 = phi i32 [ 1, %._crit_edge.thread ], [ %.0163.lcssa476500510525532540, %292 ], [ %.0163.lcssa476500510525532540, %293 ], [ %.0163.lcssa.ph, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.0163.lcssa458
+  ret i32 %.0163.lcssa477
 }
 
 ; Function Attrs: nounwind uwtable

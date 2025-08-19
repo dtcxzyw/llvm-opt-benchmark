@@ -461,16 +461,16 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_insert217hed9e
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %.outer154
+  br label %.outer164
 
-.outer154:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h050d5fedf4443b39E.exit.thread", %25
+.outer164:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h050d5fedf4443b39E.exit.thread", %25
   %.sroa.011.0.ph = phi i64 [ %71, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h050d5fedf4443b39E.exit.thread" ], [ 0, %25 ]
   %.sroa.022.0.ph = phi i64 [ %72, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h050d5fedf4443b39E.exit.thread" ], [ %29, %25 ]
   %35 = load i64, ptr %31, align 8, !noundef !3
   br label %36
 
-36:                                               ; preds = %.outer154, %36
-  %.sroa.022.0 = phi i64 [ 0, %36 ], [ %.sroa.022.0.ph, %.outer154 ]
+36:                                               ; preds = %.outer164, %36
+  %.sroa.022.0 = phi i64 [ 0, %36 ], [ %.sroa.022.0.ph, %.outer164 ]
   %37 = icmp ult i64 %.sroa.022.0, %35
   br i1 %37, label %38, label %36
 
@@ -540,7 +540,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_insert217hed9e
 "_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h050d5fedf4443b39E.exit.thread": ; preds = %76, %85, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h050d5fedf4443b39E.exit", %69
   %71 = add nuw nsw i64 %.sroa.011.0.ph, 1
   %72 = add i64 %.sroa.022.0, 1
-  br label %.outer154
+  br label %.outer164
 
 73:                                               ; preds = %69
   %74 = load i64, ptr %32, align 8, !noundef !3

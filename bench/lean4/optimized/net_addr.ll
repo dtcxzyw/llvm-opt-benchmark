@@ -828,15 +828,15 @@ _ZN4lean21lean_mk_socketaddressEP11lean_objectt.exit24: ; preds = %_ZN4lean26lea
   unreachable
 
 _ZL15lean_alloc_ctorjjj.exit:                     ; preds = %_ZN4lean21lean_mk_socketaddressEP11lean_objectt.exit24, %_ZN4lean21lean_mk_socketaddressEP11lean_objectt.exit
-  %.sink28 = phi ptr [ %32, %_ZN4lean21lean_mk_socketaddressEP11lean_objectt.exit ], [ %67, %_ZN4lean21lean_mk_socketaddressEP11lean_objectt.exit24 ]
+  %.sink32 = phi ptr [ %32, %_ZN4lean21lean_mk_socketaddressEP11lean_objectt.exit ], [ %67, %_ZN4lean21lean_mk_socketaddressEP11lean_objectt.exit24 ]
   %.sink = phi i32 [ 65552, %_ZN4lean21lean_mk_socketaddressEP11lean_objectt.exit ], [ 16842768, %_ZN4lean21lean_mk_socketaddressEP11lean_objectt.exit24 ]
   %.0 = phi ptr [ %26, %_ZN4lean21lean_mk_socketaddressEP11lean_objectt.exit ], [ %61, %_ZN4lean21lean_mk_socketaddressEP11lean_objectt.exit24 ]
-  %75 = getelementptr inbounds nuw i8, ptr %.sink28, i64 4
-  store i32 1, ptr %.sink28, align 4, !tbaa !10
+  %75 = getelementptr inbounds nuw i8, ptr %.sink32, i64 4
+  store i32 1, ptr %.sink32, align 4, !tbaa !10
   store i32 %.sink, ptr %75, align 4
-  %76 = getelementptr inbounds nuw i8, ptr %.sink28, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.sink32, i64 8
   store ptr %.0, ptr %76, align 8, !tbaa !8
-  ret ptr %.sink28
+  ret ptr %.sink32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1288,19 +1288,19 @@ _ZN4lean26lean_phys_addr_to_mac_addrEPc.exit:     ; preds = %59
   br i1 %78, label %37, label %._crit_edge, !llvm.loop !46
 
 _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %._crit_edge, %6
-  %.sink35 = phi ptr [ %9, %6 ], [ %34, %._crit_edge ]
+  %.sink40 = phi ptr [ %9, %6 ], [ %34, %._crit_edge ]
   %.sink = phi i32 [ 16908312, %6 ], [ 131096, %._crit_edge ]
   %.020.lcssa.sink = phi ptr [ %8, %6 ], [ %.020.lcssa, %._crit_edge ]
-  %79 = getelementptr inbounds nuw i8, ptr %.sink35, i64 4
-  store i32 1, ptr %.sink35, align 4, !tbaa !10
+  %79 = getelementptr inbounds nuw i8, ptr %.sink40, i64 4
+  store i32 1, ptr %.sink40, align 4, !tbaa !10
   store i32 %.sink, ptr %79, align 4
-  %80 = getelementptr inbounds nuw i8, ptr %.sink35, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.sink40, i64 8
   store ptr %.020.lcssa.sink, ptr %80, align 8, !tbaa !8
-  %81 = getelementptr inbounds nuw i8, ptr %.sink35, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %.sink40, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %81, align 8, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret ptr %.sink35
+  ret ptr %.sink40
 }
 
 declare i32 @uv_interface_addresses(ptr noundef, ptr noundef) local_unnamed_addr #1

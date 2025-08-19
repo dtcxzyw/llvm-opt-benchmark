@@ -79,8 +79,8 @@ define noundef i32 @_ZN6icu_7716CollationCompare21compareUpToQuaternaryERNS_17Co
   br i1 %46, label %20, label %.preheader373, !llvm.loop !32
 
 .preheader373:                                    ; preds = %.loopexit371, %._crit_edge
-  %.2205556 = phi i8 [ 1, %._crit_edge ], [ %.0203, %.loopexit371 ]
-  %.0210555 = phi i32 [ %42, %._crit_edge ], [ %23, %.loopexit371 ]
+  %.2205572 = phi i8 [ 1, %._crit_edge ], [ %.0203, %.loopexit371 ]
+  %.0210571 = phi i32 [ %42, %._crit_edge ], [ %23, %.loopexit371 ]
   br label %47
 
 47:                                               ; preds = %.preheader373, %73
@@ -130,9 +130,9 @@ define noundef i32 @_ZN6icu_7716CollationCompare21compareUpToQuaternaryERNS_17Co
   br i1 %74, label %47, label %.thread, !llvm.loop !35
 
 .thread:                                          ; preds = %73, %._crit_edge430
-  %.4207303 = phi i8 [ 1, %._crit_edge430 ], [ %.2205556, %73 ]
+  %.4207303 = phi i8 [ 1, %._crit_edge430 ], [ %.2205572, %73 ]
   %.0235302 = phi i32 [ %69, %._crit_edge430 ], [ %50, %73 ]
-  %.not277 = icmp eq i32 %.0210555, %.0235302
+  %.not277 = icmp eq i32 %.0210571, %.0235302
   br i1 %.not277, label %108, label %75
 
 75:                                               ; preds = %.thread
@@ -142,24 +142,24 @@ define noundef i32 @_ZN6icu_7716CollationCompare21compareUpToQuaternaryERNS_17Co
   br i1 %.not, label %.thread304, label %78
 
 78:                                               ; preds = %75
-  %79 = lshr i32 %.0210555, 24
+  %79 = lshr i32 %.0210571, 24
   %80 = zext nneg i32 %79 to i64
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !37
   %83 = icmp ne i8 %82, 0
-  %84 = icmp eq i32 %.0210555, 1
+  %84 = icmp eq i32 %.0210571, 1
   %or.cond.i = or i1 %84, %83
   br i1 %or.cond.i, label %85, label %90
 
 85:                                               ; preds = %78
   %86 = zext i8 %82 to i32
   %87 = shl nuw i32 %86, 24
-  %88 = and i32 %.0210555, 16777215
+  %88 = and i32 %.0210571, 16777215
   %89 = or disjoint i32 %87, %88
   br label %_ZNK6icu_7717CollationSettings7reorderEj.exit
 
 90:                                               ; preds = %78
-  %91 = tail call noundef i32 @_ZNK6icu_7717CollationSettings9reorderExEj(ptr noundef nonnull align 8 dereferenceable(852) %2, i32 noundef %.0210555)
+  %91 = tail call noundef i32 @_ZNK6icu_7717CollationSettings9reorderExEj(ptr noundef nonnull align 8 dereferenceable(852) %2, i32 noundef %.0210571)
   %.pre = load ptr, ptr %76, align 8, !tbaa !36
   br label %_ZNK6icu_7717CollationSettings7reorderEj.exit
 
@@ -188,13 +188,13 @@ _ZNK6icu_7717CollationSettings7reorderEj.exit:    ; preds = %85, %90
 
 .thread304:                                       ; preds = %75, %99, %104
   %.1236 = phi i32 [ %.0235302, %75 ], [ %103, %99 ], [ %105, %104 ]
-  %.1211 = phi i32 [ %.0210555, %75 ], [ %.0.i, %99 ], [ %.0.i, %104 ]
+  %.1211 = phi i32 [ %.0210571, %75 ], [ %.0.i, %99 ], [ %.0.i, %104 ]
   %106 = icmp ult i32 %.1211, %.1236
   %107 = select i1 %106, i32 -1, i32 1
   br label %.loopexit
 
 108:                                              ; preds = %.thread
-  %109 = icmp eq i32 %.0210555, 1
+  %109 = icmp eq i32 %.0210571, 1
   br i1 %109, label %110, label %19
 
 110:                                              ; preds = %108
@@ -232,8 +232,8 @@ _ZNK6icu_7717CollationSettings7reorderEj.exit:    ; preds = %85, %90
   br i1 %126, label %122, label %.preheader360, !llvm.loop !38
 
 .preheader360:                                    ; preds = %122
-  %sext544 = shl i64 %.0260, 32
-  %127 = ashr exact i64 %sext544, 32
+  %sext560 = shl i64 %.0260, 32
+  %127 = ashr exact i64 %sext560, 32
   br label %128
 
 128:                                              ; preds = %.preheader360, %128
@@ -395,8 +395,8 @@ _ZNK6icu_7717CollationSettings7reorderEj.exit:    ; preds = %85, %90
 .preheader355.us:                                 ; preds = %.preheader359, %201
   %.0231.us = phi i64 [ %indvars.iv.next527, %201 ], [ 0, %.preheader359 ]
   %.0227.us = phi i64 [ %indvars.iv.next530, %201 ], [ 0, %.preheader359 ]
-  %sext547 = shl i64 %.0231.us, 32
-  %186 = ashr exact i64 %sext547, 32
+  %sext563 = shl i64 %.0231.us, 32
+  %186 = ashr exact i64 %sext563, 32
   br label %187
 
 187:                                              ; preds = %.preheader355.us, %187
@@ -427,8 +427,8 @@ _ZNK6icu_7717CollationSettings7reorderEj.exit:    ; preds = %85, %90
   br i1 %202, label %.thread330, label %.preheader355.us
 
 .preheader353.us:                                 ; preds = %187
-  %sext548 = shl i64 %.0227.us, 32
-  %203 = ashr exact i64 %sext548, 32
+  %sext564 = shl i64 %.0227.us, 32
+  %203 = ashr exact i64 %sext564, 32
   br label %194
 
 .loopexit354.us:                                  ; preds = %194
@@ -440,8 +440,8 @@ _ZNK6icu_7717CollationSettings7reorderEj.exit:    ; preds = %85, %90
 .preheader358:                                    ; preds = %.preheader359, %223
   %.0231 = phi i64 [ %indvars.iv.next521, %223 ], [ 0, %.preheader359 ]
   %.0227 = phi i64 [ %indvars.iv.next524, %223 ], [ 0, %.preheader359 ]
-  %sext545 = shl i64 %.0231, 32
-  %204 = ashr exact i64 %sext545, 32
+  %sext561 = shl i64 %.0231, 32
+  %204 = ashr exact i64 %sext561, 32
   br label %205
 
 205:                                              ; preds = %.preheader358, %205
@@ -454,8 +454,8 @@ _ZNK6icu_7717CollationSettings7reorderEj.exit:    ; preds = %85, %90
   br i1 %209, label %205, label %.preheader356, !llvm.loop !49
 
 .preheader356:                                    ; preds = %205
-  %sext546 = shl i64 %.0227, 32
-  %210 = ashr exact i64 %sext546, 32
+  %sext562 = shl i64 %.0227, 32
+  %210 = ashr exact i64 %sext562, 32
   br label %211
 
 211:                                              ; preds = %.preheader356, %211
@@ -510,8 +510,8 @@ _ZNK6icu_7717CollationSettings7reorderEj.exit:    ; preds = %85, %90
   %.0219 = phi i64 [ 0, %226 ], [ %indvars.iv.next533, %269 ]
   %.0215 = phi i64 [ 0, %226 ], [ %indvars.iv.next536, %269 ]
   %.0212 = phi i32 [ 0, %226 ], [ %245, %269 ]
-  %sext549 = shl i64 %.0219, 32
-  %232 = ashr exact i64 %sext549, 32
+  %sext565 = shl i64 %.0219, 32
+  %232 = ashr exact i64 %sext565, 32
   br label %233
 
 233:                                              ; preds = %233, %231
@@ -527,8 +527,8 @@ _ZNK6icu_7717CollationSettings7reorderEj.exit:    ; preds = %85, %90
   br i1 %239, label %233, label %.preheader352, !llvm.loop !51
 
 .preheader352:                                    ; preds = %233
-  %sext550 = shl i64 %.0215, 32
-  %240 = ashr exact i64 %sext550, 32
+  %sext566 = shl i64 %.0215, 32
+  %240 = ashr exact i64 %sext566, 32
   br label %241
 
 241:                                              ; preds = %.preheader352, %241
@@ -610,8 +610,8 @@ _ZNK6icu_7717CollationSettings7reorderEj.exit:    ; preds = %85, %90
 .preheader351:                                    ; preds = %273, %307
   %.2221 = phi i64 [ %indvars.iv.next539, %307 ], [ 0, %273 ]
   %.2217 = phi i64 [ %indvars.iv.next542, %307 ], [ 0, %273 ]
-  %sext551 = shl i64 %.2221, 32
-  %276 = ashr exact i64 %sext551, 32
+  %sext567 = shl i64 %.2221, 32
+  %276 = ashr exact i64 %sext567, 32
   br label %277
 
 277:                                              ; preds = %277, %.preheader351
@@ -630,8 +630,8 @@ _ZNK6icu_7717CollationSettings7reorderEj.exit:    ; preds = %85, %90
   br i1 %286, label %277, label %.preheader, !llvm.loop !53
 
 .preheader:                                       ; preds = %277
-  %sext552 = shl i64 %.2217, 32
-  %287 = ashr exact i64 %sext552, 32
+  %sext568 = shl i64 %.2217, 32
+  %287 = ashr exact i64 %sext568, 32
   br label %288
 
 288:                                              ; preds = %.preheader, %288

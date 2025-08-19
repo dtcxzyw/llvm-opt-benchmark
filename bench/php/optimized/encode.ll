@@ -5722,8 +5722,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -6087,8 +6087,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -6133,8 +6133,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -6179,8 +6179,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -6225,8 +6225,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -6271,8 +6271,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -6317,8 +6317,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -6363,8 +6363,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -6409,8 +6409,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -6455,8 +6455,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -6501,8 +6501,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -6547,8 +6547,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -6593,8 +6593,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -6639,8 +6639,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -6685,8 +6685,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -6731,8 +6731,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -7198,8 +7198,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -7252,8 +7252,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -7298,8 +7298,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -7344,8 +7344,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -7390,8 +7390,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -7436,8 +7436,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -7482,8 +7482,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -7528,8 +7528,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -7574,8 +7574,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -7620,8 +7620,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -7666,8 +7666,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -7712,8 +7712,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %10
   br label %lexbor_shs_hash_get_static.exit.thread.sink.split
 
 lexbor_shs_hash_get_static.exit.thread.sink.split: ; preds = %4, %lexbor_shs_hash_get_static.exit
-  %.sink16 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
-  %20 = trunc i32 %.sink16 to i8
+  %.sink17 = phi i32 [ %19, %lexbor_shs_hash_get_static.exit ], [ %3, %4 ]
+  %20 = trunc i32 %.sink17 to i8
   %21 = load ptr, ptr %1, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8, !tbaa !31
@@ -7730,8 +7730,8 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_x_user_defined_sin
   %5 = icmp ult i32 %3, 128
   %6 = and i32 %3, -128
   %or.cond = icmp eq i32 %6, 63360
-  %or.cond12 = or i1 %5, %or.cond
-  br i1 %or.cond12, label %.sink.split, label %10
+  %or.cond13 = or i1 %5, %or.cond
+  br i1 %or.cond13, label %.sink.split, label %10
 
 .sink.split:                                      ; preds = %4
   %7 = trunc i32 %3 to i8

@@ -577,8 +577,8 @@ define dso_local void @restoreCommand(ptr noundef %0) local_unnamed_addr #0 {
 70:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %71 = phi ptr [ %13, %._crit_edge.thread ], [ %69, %._crit_edge ]
   %72 = phi ptr [ %10, %._crit_edge.thread ], [ %66, %._crit_edge ]
-  %.0.lcssa165 = phi i64 [ -1, %._crit_edge.thread ], [ %.2, %._crit_edge ]
-  %.0101.lcssa161 = phi i1 [ false, %._crit_edge.thread ], [ %65, %._crit_edge ]
+  %.0.lcssa172 = phi i64 [ -1, %._crit_edge.thread ], [ %.2, %._crit_edge ]
+  %.0101.lcssa168 = phi i1 [ false, %._crit_edge.thread ], [ %65, %._crit_edge ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %74 = load ptr, ptr %73, align 8, !tbaa !47
   %75 = call ptr @lookupKeyWrite(ptr noundef %74, ptr noundef %71) #16
@@ -597,9 +597,9 @@ define dso_local void @restoreCommand(ptr noundef %0) local_unnamed_addr #0 {
 78:                                               ; preds = %._crit_edge152, %._crit_edge
   %79 = phi ptr [ %71, %._crit_edge152 ], [ %69, %._crit_edge ]
   %80 = phi ptr [ %72, %._crit_edge152 ], [ %66, %._crit_edge ]
-  %.0.lcssa164 = phi i64 [ %.0.lcssa165, %._crit_edge152 ], [ %.2, %._crit_edge ]
-  %.098.lcssa162 = phi i1 [ true, %._crit_edge152 ], [ false, %._crit_edge ]
-  %.0101.lcssa160 = phi i1 [ %.0101.lcssa161, %._crit_edge152 ], [ %65, %._crit_edge ]
+  %.0.lcssa171 = phi i64 [ %.0.lcssa172, %._crit_edge152 ], [ %.2, %._crit_edge ]
+  %.098.lcssa169 = phi i1 [ true, %._crit_edge152 ], [ false, %._crit_edge ]
+  %.0101.lcssa167 = phi i1 [ %.0101.lcssa168, %._crit_edge152 ], [ %65, %._crit_edge ]
   %81 = phi ptr [ %.pre, %._crit_edge152 ], [ %67, %._crit_edge ]
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8, !tbaa !59
@@ -737,7 +737,7 @@ verifyDumpPayload.exit._crit_edge:                ; preds = %verifyDumpPayload.e
   br label %.critedge
 
 143:                                              ; preds = %133
-  br i1 %.098.lcssa162, label %148, label %144
+  br i1 %.098.lcssa169, label %148, label %144
 
 144:                                              ; preds = %143
   %145 = load ptr, ptr %136, align 8, !tbaa !47
@@ -749,7 +749,7 @@ verifyDumpPayload.exit._crit_edge:                ; preds = %verifyDumpPayload.e
   %.0104 = phi i1 [ %147, %144 ], [ true, %143 ]
   %149 = load i64, ptr %3, align 8, !tbaa !62
   %150 = icmp eq i64 %149, 0
-  %or.cond11 = select i1 %150, i1 true, i1 %.0101.lcssa160
+  %or.cond11 = select i1 %150, i1 true, i1 %.0101.lcssa167
   br i1 %or.cond11, label %155, label %151
 
 151:                                              ; preds = %148
@@ -823,7 +823,7 @@ verifyDumpPayload.exit._crit_edge:                ; preds = %verifyDumpPayload.e
 186:                                              ; preds = %184
   %187 = load ptr, ptr %136, align 8, !tbaa !47
   call void @setExpire(ptr noundef nonnull %0, ptr noundef %187, ptr noundef nonnull %79, i64 noundef %185) #16
-  br i1 %.0101.lcssa160, label %193, label %188
+  br i1 %.0101.lcssa167, label %193, label %188
 
 188:                                              ; preds = %186
   %189 = load i64, ptr %3, align 8, !tbaa !62
@@ -838,7 +838,7 @@ verifyDumpPayload.exit._crit_edge:                ; preds = %verifyDumpPayload.e
 193:                                              ; preds = %186, %188, %184
   %194 = load i64, ptr %4, align 8, !tbaa !62
   %195 = load i64, ptr %5, align 8, !tbaa !62
-  %196 = call i32 @objectSetLRUOrLFU(ptr noundef nonnull %140, i64 noundef %194, i64 noundef %195, i64 noundef %.0.lcssa164, i32 noundef 1000) #16
+  %196 = call i32 @objectSetLRUOrLFU(ptr noundef nonnull %140, i64 noundef %194, i64 noundef %195, i64 noundef %.0.lcssa171, i32 noundef 1000) #16
   %197 = load ptr, ptr %136, align 8, !tbaa !47
   call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %197, ptr noundef nonnull %79) #16
   %198 = load ptr, ptr %136, align 8, !tbaa !47
@@ -1431,12 +1431,12 @@ sdslen.exit.thread:                               ; preds = %47, %sdslen.exit
   br label %.loopexit379
 
 .sink.split:                                      ; preds = %28, %37
-  %.sink613 = phi i32 [ 2, %37 ], [ 1, %28 ]
-  %.sink610 = phi ptr [ %44, %37 ], [ %17, %28 ]
+  %.sink618 = phi i32 [ 2, %37 ], [ 1, %28 ]
+  %.sink615 = phi ptr [ %44, %37 ], [ %17, %28 ]
   %.3260.ph.ph = phi ptr [ %43, %37 ], [ %.0257438, %28 ]
-  %79 = add nsw i32 %.0253439, %.sink613
+  %79 = add nsw i32 %.0253439, %.sink618
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %.sink610, i64 %80
+  %81 = getelementptr inbounds ptr, ptr %.sink615, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !59
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !64
@@ -1565,7 +1565,7 @@ sdslen.exit.thread:                               ; preds = %47, %sdslen.exit
 144:                                              ; preds = %.preheader, %458
   %145 = phi i1 [ false, %458 ], [ true, %.preheader ]
   %.0281 = phi i32 [ 0, %458 ], [ 1, %.preheader ]
-  %.0276 = phi i32 [ %.1277547, %458 ], [ 0, %.preheader ]
+  %.0276 = phi i32 [ %.1277552, %458 ], [ 0, %.preheader ]
   %.3272 = phi i32 [ %.0251.lcssa, %458 ], [ %.1262, %.preheader ]
   %146 = load ptr, ptr %89, align 8, !tbaa !58
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
@@ -2075,7 +2075,7 @@ sdslen.exit338:                                   ; preds = %328, %332, %335, %3
   br i1 %378, label %.loopexit, label %379
 
 379:                                              ; preds = %371, %370
-  br i1 %.not312, label %380, label %.thread548
+  br i1 %.not312, label %380, label %.thread553
 
 380:                                              ; preds = %379
   %381 = add nsw i32 %.0251.lcssa, 1
@@ -2083,14 +2083,14 @@ sdslen.exit338:                                   ; preds = %328, %332, %335, %3
   %383 = shl nsw i64 %382, 3
   %384 = call noalias ptr @zmalloc(i64 noundef %383) #19
   %385 = icmp sgt i32 %.0251.lcssa, 0
-  br i1 %385, label %.lr.ph460.preheader, label %.thread557
+  br i1 %385, label %.lr.ph460.preheader, label %.thread562
 
-.thread548:                                       ; preds = %379
+.thread553:                                       ; preds = %379
   %386 = icmp sgt i32 %.0251.lcssa, 0
-  br i1 %386, label %.lr.ph460.preheader, label %.thread537
+  br i1 %386, label %.lr.ph460.preheader, label %.thread542
 
-.lr.ph460.preheader:                              ; preds = %.thread548, %380
-  %.2285550 = phi ptr [ null, %.thread548 ], [ %384, %380 ]
+.lr.ph460.preheader:                              ; preds = %.thread553, %380
+  %.2285555 = phi ptr [ null, %.thread553 ], [ %384, %380 ]
   %wide.trip.count518 = zext nneg i32 %.0251.lcssa to i64
   br label %.lr.ph460
 
@@ -2159,7 +2159,7 @@ sdslen.exit338:                                   ; preds = %328, %332, %335, %3
   %420 = load ptr, ptr %409, align 8, !tbaa !59
   %421 = add nsw i32 %.0239458, 1
   %422 = sext i32 %.0239458 to i64
-  %423 = getelementptr inbounds ptr, ptr %.2285550, i64 %422
+  %423 = getelementptr inbounds ptr, ptr %.2285555, i64 %422
   store ptr %420, ptr %423, align 8, !tbaa !59
   call void @incrRefCount(ptr noundef %420) #16
   br label %424
@@ -2203,18 +2203,18 @@ sdslen.exit338:                                   ; preds = %328, %332, %335, %3
   %or.cond21373377 = phi i1 [ %427, %433 ], [ false, %._crit_edge461.loopexit ]
   br i1 %.not312, label %440, label %445
 
-.thread557:                                       ; preds = %380
+.thread562:                                       ; preds = %380
   call void @zfree(ptr noundef %384) #16
-  br label %.thread537
+  br label %.thread542
 
 440:                                              ; preds = %._crit_edge461
   %441 = icmp sgt i32 %.0239391, 1
-  br i1 %441, label %442, label %.thread528
+  br i1 %441, label %442, label %.thread533
 
 442:                                              ; preds = %440
   %443 = call ptr @createStringObject(ptr noundef nonnull @.str.43, i64 noundef 3) #16
-  store ptr %443, ptr %.2285550, align 8, !tbaa !59
-  call void @replaceClientCommandVector(ptr noundef nonnull %0, i32 noundef %.0239391, ptr noundef nonnull %.2285550) #16
+  store ptr %443, ptr %.2285555, align 8, !tbaa !59
+  call void @replaceClientCommandVector(ptr noundef nonnull %0, i32 noundef %.0239391, ptr noundef nonnull %.2285555) #16
   br i1 %or.cond21373377, label %.loopexit.thread, label %446
 
 .loopexit.thread:                                 ; preds = %442
@@ -2222,37 +2222,37 @@ sdslen.exit338:                                   ; preds = %328, %332, %335, %3
   call void @sdsfree(ptr noundef %444) #16
   br label %458
 
-.thread528:                                       ; preds = %440
-  call void @zfree(ptr noundef %.2285550) #16
+.thread533:                                       ; preds = %440
+  call void @zfree(ptr noundef %.2285555) #16
   br i1 %or.cond21373377, label %.loopexit, label %446
 
 445:                                              ; preds = %._crit_edge461
   br i1 %or.cond21373377, label %.loopexit, label %446
 
-446:                                              ; preds = %442, %.thread528, %445
-  %.3286536 = phi ptr [ %.2285550, %445 ], [ null, %.thread528 ], [ null, %442 ]
-  br i1 %439, label %.thread537, label %449
+446:                                              ; preds = %442, %.thread533, %445
+  %.3286541 = phi ptr [ %.2285555, %445 ], [ null, %.thread533 ], [ null, %442 ]
+  br i1 %439, label %.thread542, label %449
 
-.thread537:                                       ; preds = %.thread548, %.thread557, %446
-  %.3286536540 = phi ptr [ %.3286536, %446 ], [ null, %.thread557 ], [ null, %.thread548 ]
+.thread542:                                       ; preds = %.thread553, %.thread562, %446
+  %.3286541545 = phi ptr [ %.3286541, %446 ], [ null, %.thread562 ], [ null, %.thread553 ]
   %447 = load i64, ptr %3, align 8, !tbaa !45
   store i64 %447, ptr %205, align 8, !tbaa !86
   %448 = load ptr, ptr @shared, align 8, !tbaa !72
   call void @addReply(ptr noundef nonnull %0, ptr noundef %448) #16
   br label %449
 
-449:                                              ; preds = %446, %.thread537
-  %.3286536539 = phi ptr [ %.3286536, %446 ], [ %.3286536540, %.thread537 ]
+449:                                              ; preds = %446, %.thread542
+  %.3286541544 = phi ptr [ %.3286541, %446 ], [ %.3286541545, %.thread542 ]
   %450 = load ptr, ptr %142, align 8, !tbaa !5
   call void @sdsfree(ptr noundef %450) #16
   call void @zfree(ptr noundef %106) #16
   call void @zfree(ptr noundef %107) #16
-  call void @zfree(ptr noundef %.3286536539) #16
+  call void @zfree(ptr noundef %.3286541544) #16
   br label %.thread
 
-.loopexit:                                        ; preds = %346, %.thread528, %445, %430, %371, %362
-  %.1284 = phi ptr [ null, %362 ], [ null, %371 ], [ %.2285550, %430 ], [ %.2285550, %445 ], [ null, %.thread528 ], [ null, %346 ]
-  %.1282 = phi i32 [ %.0281, %362 ], [ %.0281, %371 ], [ 1, %430 ], [ 0, %445 ], [ 0, %.thread528 ], [ %.0281, %346 ]
+.loopexit:                                        ; preds = %346, %.thread533, %445, %430, %371, %362
+  %.1284 = phi ptr [ null, %362 ], [ null, %371 ], [ %.2285555, %430 ], [ %.2285555, %445 ], [ null, %.thread533 ], [ null, %346 ]
+  %.1282 = phi i32 [ %.0281, %362 ], [ %.0281, %371 ], [ 1, %430 ], [ 0, %445 ], [ 0, %.thread533 ], [ %.0281, %346 ]
   %451 = load ptr, ptr %142, align 8, !tbaa !5
   call void @sdsfree(ptr noundef %451) #16
   %.not316 = icmp eq i32 %.0276, 0
@@ -2268,14 +2268,14 @@ sdslen.exit338:                                   ; preds = %328, %332, %335, %3
   br label %458
 
 458:                                              ; preds = %.loopexit.thread, %452, %.loopexit
-  %.not310560 = phi i1 [ true, %.loopexit.thread ], [ %.not310, %452 ], [ %.not310, %.loopexit ]
-  %.1277547 = phi i32 [ 1, %.loopexit.thread ], [ 0, %452 ], [ %.0276, %.loopexit ]
-  %.1282546 = phi i32 [ 0, %.loopexit.thread ], [ %.1282, %452 ], [ %.1282, %.loopexit ]
-  %.1284545 = phi ptr [ null, %.loopexit.thread ], [ %.1284, %452 ], [ %.1284, %.loopexit ]
-  call void @zfree(ptr noundef %.1284545) #16
+  %.not310565 = phi i1 [ true, %.loopexit.thread ], [ %.not310, %452 ], [ %.not310, %.loopexit ]
+  %.1277552 = phi i32 [ 1, %.loopexit.thread ], [ 0, %452 ], [ %.0276, %.loopexit ]
+  %.1282551 = phi i32 [ 0, %.loopexit.thread ], [ %.1282, %452 ], [ %.1282, %.loopexit ]
+  %.1284550 = phi ptr [ null, %.loopexit.thread ], [ %.1284, %452 ], [ %.1284, %.loopexit ]
+  call void @zfree(ptr noundef %.1284550) #16
   %459 = load i32, ptr %321, align 4, !tbaa !44
   %460 = icmp ne i32 %459, 110
-  %461 = icmp ne i32 %.1282546, 0
+  %461 = icmp ne i32 %.1282551, 0
   %or.cond29 = and i1 %461, %460
   br i1 %or.cond29, label %144, label %462
 
@@ -2283,7 +2283,7 @@ sdslen.exit338:                                   ; preds = %328, %332, %335, %3
   call void @zfree(ptr noundef %106) #16
   call void @zfree(ptr noundef %107) #16
   %463 = call ptr @sdsempty() #16
-  %464 = select i1 %.not310560, ptr @.str.46, ptr @.str.45
+  %464 = select i1 %.not310565, ptr @.str.46, ptr @.str.45
   %465 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %463, ptr noundef nonnull @.str.44, ptr noundef nonnull %464) #16
   call void @addReplyErrorSds(ptr noundef nonnull %0, ptr noundef %465) #16
   br label %.thread
@@ -2841,15 +2841,15 @@ define dso_local void @clusterCommand(ptr noundef %0) local_unnamed_addr #0 {
 .thread:                                          ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %21 = tail call i32 @strcasecmp(ptr noundef %.pre159, ptr noundef nonnull @.str.67) #18
-  %.not94160 = icmp eq i32 %21, 0
-  br i1 %.not94160, label %.thread161, label %55
+  %.not94175 = icmp eq i32 %21, 0
+  br i1 %.not94175, label %.thread176, label %55
 
-.thread161:                                       ; preds = %.thread
+.thread176:                                       ; preds = %.thread
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1480), align 8, !tbaa !108
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %30, label %23
 
-23:                                               ; preds = %.thread161
+23:                                               ; preds = %.thread176
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !109
   %.not3.i = icmp eq ptr %25, null
@@ -2862,7 +2862,7 @@ define dso_local void @clusterCommand(ptr noundef %0) local_unnamed_addr #0 {
   %29 = zext i1 %28 to i32
   br label %shouldReturnTlsInfo.exit
 
-30:                                               ; preds = %23, %.thread161
+30:                                               ; preds = %23, %.thread176
   %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8160), align 8, !tbaa !10
   br label %shouldReturnTlsInfo.exit
 
@@ -3606,7 +3606,7 @@ define dso_local ptr @getNodeByQuery(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph297:                                        ; preds = %.thread, %26
   %30 = phi ptr [ %.sroa.4, %.thread ], [ %29, %26 ]
-  %.0141315 = phi ptr [ %.sroa.0, %.thread ], [ %27, %26 ]
+  %.0141324 = phi ptr [ %.sroa.0, %.thread ], [ %27, %26 ]
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 56
   br label %33
@@ -3622,7 +3622,7 @@ define dso_local ptr @getNodeByQuery(ptr noundef readonly captures(none) %0, ptr
   %.0161289 = phi i32 [ 0, %.lr.ph297 ], [ %.1162, %.thread223 ]
   %.0163288 = phi i32 [ 0, %.lr.ph297 ], [ %.1164.lcssa, %.thread223 ]
   %.0168287 = phi i32 [ 0, %.lr.ph297 ], [ %.1169.lcssa, %.thread223 ]
-  %34 = load ptr, ptr %.0141315, align 8, !tbaa !124
+  %34 = load ptr, ptr %.0141324, align 8, !tbaa !124
   %35 = getelementptr inbounds nuw %struct.multiCmd, ptr %34, i64 %indvars.iv311
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !129
@@ -4525,7 +4525,7 @@ shouldReturnTlsInfo.exit:                         ; preds = %19, %23
   br i1 %30, label %43, label %47
 
 43:                                               ; preds = %37, %42
-  %.243 = phi i32 [ %39, %37 ], [ %.1, %42 ]
+  %.247 = phi i32 [ %39, %37 ], [ %.1, %42 ]
   %44 = load i8, ptr %3, align 1, !tbaa !5
   %.not41 = icmp eq i8 %44, 0
   br i1 %.not41, label %47, label %45
@@ -4533,11 +4533,11 @@ shouldReturnTlsInfo.exit:                         ; preds = %19, %23
 45:                                               ; preds = %43
   tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.55) #16
   tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull %3) #16
-  %46 = add nsw i32 %.243, -1
+  %46 = add nsw i32 %.247, -1
   br label %47
 
 47:                                               ; preds = %37, %45, %43, %42
-  %.3 = phi i32 [ %46, %45 ], [ %.243, %43 ], [ %.1, %42 ], [ %39, %37 ]
+  %.3 = phi i32 [ %46, %45 ], [ %.247, %43 ], [ %.1, %42 ], [ %39, %37 ]
   %48 = icmp eq i32 %.3, 0
   br i1 %48, label %50, label %49, !prof !103
 

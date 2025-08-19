@@ -715,14 +715,14 @@ define hidden i32 @mbedtls_x509write_crt_der(ptr noundef %0, ptr noundef %1, i64
   br i1 %134, label %202, label %135
 
 135:                                              ; preds = %131, %129
-  %.sink224 = phi i32 [ %127, %129 ], [ %133, %131 ]
+  %.sink277 = phi i32 [ %127, %129 ], [ %133, %131 ]
   %.sink = phi i64 [ %130, %129 ], [ %116, %131 ]
   %136 = call i32 @mbedtls_asn1_write_tag(ptr noundef nonnull %8, ptr noundef %1, i8 noundef zeroext 2) #11
   %137 = icmp slt i32 %136, 0
   br i1 %137, label %202, label %138
 
 138:                                              ; preds = %135
-  %139 = zext nneg i32 %.sink224 to i64
+  %139 = zext nneg i32 %.sink277 to i64
   %140 = add nuw nsw i64 %.sink, %139
   %141 = zext nneg i32 %136 to i64
   %142 = add nuw nsw i64 %140, %141

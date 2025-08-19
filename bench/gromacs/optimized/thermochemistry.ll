@@ -337,9 +337,9 @@ define noundef double @_Z21calcRotationalEntropyfibPKff(float noundef %0, i32 no
 
 .sink.split:                                      ; preds = %31, %18
   %.sink = phi double [ %21, %18 ], [ %39, %31 ]
-  %.sink21 = phi double [ 1.000000e+00, %18 ], [ 1.500000e+00, %31 ]
+  %.sink25 = phi double [ 1.000000e+00, %18 ], [ 1.500000e+00, %31 ]
   %40 = tail call double @log(double noundef %.sink) #8, !tbaa !4
-  %41 = fadd double %40, %.sink21
+  %41 = fadd double %40, %.sink25
   %42 = fmul double %41, 0x4020A1013E8990BE
   br label %43
 

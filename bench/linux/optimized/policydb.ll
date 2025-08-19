@@ -1689,7 +1689,7 @@ define internal fastcc i32 @hashtab_insert(ptr noundef %0, ptr noundef nonnull %
   %25 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.thread3.thread8, label %.lr.ph
+  br i1 %27, label %.thread3.thread10, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14, %24
   %28 = phi ptr [ %26, %24 ], [ %22, %14 ]
@@ -1705,11 +1705,11 @@ define internal fastcc i32 @hashtab_insert(ptr noundef %0, ptr noundef nonnull %
 
 .thread3:                                         ; preds = %33
   %35 = icmp eq ptr %29, null
-  br i1 %35, label %.thread3.thread, label %.thread3.thread8
+  br i1 %35, label %.thread3.thread, label %.thread3.thread10
 
-.thread3.thread8:                                 ; preds = %24, %.thread3
-  %.lcssa10 = phi ptr [ %29, %.thread3 ], [ %28, %24 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.lcssa10, i64 16
+.thread3.thread10:                                ; preds = %24, %.thread3
+  %.lcssa12 = phi ptr [ %29, %.thread3 ], [ %28, %24 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.lcssa12, i64 16
   br label %39
 
 .thread3.thread:                                  ; preds = %14, %.thread3
@@ -1717,8 +1717,8 @@ define internal fastcc i32 @hashtab_insert(ptr noundef %0, ptr noundef nonnull %
   %38 = getelementptr ptr, ptr %37, i64 %20
   br label %39
 
-39:                                               ; preds = %.thread3.thread, %.thread3.thread8
-  %40 = phi ptr [ %36, %.thread3.thread8 ], [ %38, %.thread3.thread ]
+39:                                               ; preds = %.thread3.thread, %.thread3.thread10
+  %40 = phi ptr [ %36, %.thread3.thread10 ], [ %38, %.thread3.thread ]
   %41 = tail call i32 @__hashtab_insert(ptr noundef %0, ptr noundef %40, ptr noundef nonnull %1, ptr noundef %2) #22
   br label %.thread
 
@@ -3621,36 +3621,36 @@ define internal fastcc i32 @ocontext_write(ptr noundef readonly captures(none) %
   %16 = icmp eq i32 %15, 0
   %.4..4..4.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 4
   %.8..8..8.gep88.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.4..4..4.gep.sroa_idx197 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %.4..4..4.gep.sroa_idx248 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.8..8..8.gep89.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.4..4..4.gep.sroa_idx199 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %.4..4..4.gep.sroa_idx250 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %.8..8..8.gep92.sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.4..4..4.gep.sroa_idx201 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %.4..4..4.gep.sroa_idx252 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.8..8..8.gep95.sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.4..4..4.gep.sroa_idx203 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %.4..4..4.gep.sroa_idx254 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.8..8..8.gep98.sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.4..4..4.gep.sroa_idx205 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %.4..4..4.gep.sroa_idx256 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.8..8..8.gep101.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.4..4..4.gep.sroa_idx207 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %.4..4..4.gep.sroa_idx258 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.8..8..8.gep104.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.4..4..4.gep.sroa_idx209 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.4..4..4.gep.sroa_idx260 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.8..8..8.gep107.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.4..4..4.gep.sroa_idx211 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %.4..4..4.gep.sroa_idx262 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.8..8..8.gep110.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %16, label %.thread115, label %17
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.4..4..4.gep.sroa_idx212 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %.4..4..4.gep.sroa_idx210 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %.4..4..4.gep.sroa_idx208 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %.4..4..4.gep.sroa_idx206 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %.4..4..4.gep.sroa_idx204 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %.4..4..4.gep.sroa_idx202 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %.4..4..4.gep.sroa_idx198 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %.4..4..4.gep.sroa_idx200 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %.4..4..4.gep.sroa_idx196 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %.4..4..4.gep.sroa_idx263 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %.4..4..4.gep.sroa_idx261 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.4..4..4.gep.sroa_idx259 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %.4..4..4.gep.sroa_idx257 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %.4..4..4.gep.sroa_idx255 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %.4..4..4.gep.sroa_idx253 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %.4..4..4.gep.sroa_idx249 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %.4..4..4.gep.sroa_idx251 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %.4..4..4.gep.sroa_idx247 = getelementptr inbounds nuw i8, ptr %12, i64 4
   br label %20
 
 20:                                               ; preds = %.loopexit, %17
@@ -3782,7 +3782,7 @@ define internal fastcc i32 @ocontext_write(ptr noundef readonly captures(none) %
   %89 = phi i32 [ %.pre7.i, %..thread_crit_edge.i ], [ %80, %65 ]
   %90 = phi i32 [ %.pre.i, %..thread_crit_edge.i ], [ %81, %65 ]
   store i32 2, ptr %12, align 4
-  store i32 %90, ptr %.4..4..4.gep.sroa_idx196, align 4
+  store i32 %90, ptr %.4..4..4.gep.sroa_idx247, align 4
   br label %91
 
 91:                                               ; preds = %.thread.i, %88
@@ -3906,11 +3906,11 @@ define internal fastcc i32 @ocontext_write(ptr noundef readonly captures(none) %
   %155 = phi i32 [ %.pre7.i23, %..thread_crit_edge.i22 ], [ %146, %131 ]
   %156 = phi i32 [ %.pre.i21, %..thread_crit_edge.i22 ], [ %147, %131 ]
   store i32 2, ptr %11, align 4
-  store i32 %156, ptr %.4..4..4.gep.sroa_idx198, align 4
+  store i32 %156, ptr %.4..4..4.gep.sroa_idx249, align 4
   br label %157
 
 157:                                              ; preds = %.thread.i16, %154
-  %.sink.i18.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx197, %154 ], [ %.8..8..8.gep89.sroa_idx, %.thread.i16 ]
+  %.sink.i18.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx248, %154 ], [ %.8..8..8.gep89.sroa_idx, %.thread.i16 ]
   %.pre.sink.i19 = phi i32 [ %.pre.i21, %154 ], [ %155, %.thread.i16 ]
   %158 = phi i64 [ 8, %154 ], [ 12, %.thread.i16 ]
   %159 = phi i1 [ false, %154 ], [ true, %.thread.i16 ]
@@ -4001,11 +4001,11 @@ define internal fastcc i32 @ocontext_write(ptr noundef readonly captures(none) %
   %204 = phi i32 [ %.pre7.i32, %..thread_crit_edge.i31 ], [ %195, %179 ]
   %205 = phi i32 [ %.pre.i30, %..thread_crit_edge.i31 ], [ %196, %179 ]
   store i32 2, ptr %10, align 4
-  store i32 %205, ptr %.4..4..4.gep.sroa_idx200, align 4
+  store i32 %205, ptr %.4..4..4.gep.sroa_idx251, align 4
   br label %206
 
 206:                                              ; preds = %.thread.i25, %203
-  %.sink.i27.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx199, %203 ], [ %.8..8..8.gep92.sroa_idx, %.thread.i25 ]
+  %.sink.i27.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx250, %203 ], [ %.8..8..8.gep92.sroa_idx, %.thread.i25 ]
   %.pre.sink.i28 = phi i32 [ %.pre.i30, %203 ], [ %204, %.thread.i25 ]
   %207 = phi i64 [ 8, %203 ], [ 12, %.thread.i25 ]
   %208 = phi i1 [ false, %203 ], [ true, %.thread.i25 ]
@@ -4122,11 +4122,11 @@ define internal fastcc i32 @ocontext_write(ptr noundef readonly captures(none) %
   %270 = phi i32 [ %.pre7.i41, %..thread_crit_edge.i40 ], [ %261, %246 ]
   %271 = phi i32 [ %.pre.i39, %..thread_crit_edge.i40 ], [ %262, %246 ]
   store i32 2, ptr %9, align 4
-  store i32 %271, ptr %.4..4..4.gep.sroa_idx202, align 4
+  store i32 %271, ptr %.4..4..4.gep.sroa_idx253, align 4
   br label %272
 
 272:                                              ; preds = %.thread.i34, %269
-  %.sink.i36.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx201, %269 ], [ %.8..8..8.gep95.sroa_idx, %.thread.i34 ]
+  %.sink.i36.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx252, %269 ], [ %.8..8..8.gep95.sroa_idx, %.thread.i34 ]
   %.pre.sink.i37 = phi i32 [ %.pre.i39, %269 ], [ %270, %.thread.i34 ]
   %273 = phi i64 [ 8, %269 ], [ 12, %.thread.i34 ]
   %274 = phi i1 [ false, %269 ], [ true, %.thread.i34 ]
@@ -4232,11 +4232,11 @@ define internal fastcc i32 @ocontext_write(ptr noundef readonly captures(none) %
   %327 = phi i32 [ %.pre7.i50, %..thread_crit_edge.i49 ], [ %318, %303 ]
   %328 = phi i32 [ %.pre.i48, %..thread_crit_edge.i49 ], [ %319, %303 ]
   store i32 2, ptr %8, align 4
-  store i32 %328, ptr %.4..4..4.gep.sroa_idx204, align 4
+  store i32 %328, ptr %.4..4..4.gep.sroa_idx255, align 4
   br label %329
 
 329:                                              ; preds = %.thread.i43, %326
-  %.sink.i45.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx203, %326 ], [ %.8..8..8.gep98.sroa_idx, %.thread.i43 ]
+  %.sink.i45.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx254, %326 ], [ %.8..8..8.gep98.sroa_idx, %.thread.i43 ]
   %.pre.sink.i46 = phi i32 [ %.pre.i48, %326 ], [ %327, %.thread.i43 ]
   %330 = phi i64 [ 8, %326 ], [ 12, %.thread.i43 ]
   %331 = phi i1 [ false, %326 ], [ true, %.thread.i43 ]
@@ -4360,11 +4360,11 @@ define internal fastcc i32 @ocontext_write(ptr noundef readonly captures(none) %
   %396 = phi i32 [ %.pre7.i59, %..thread_crit_edge.i58 ], [ %387, %372 ]
   %397 = phi i32 [ %.pre.i57, %..thread_crit_edge.i58 ], [ %388, %372 ]
   store i32 2, ptr %7, align 4
-  store i32 %397, ptr %.4..4..4.gep.sroa_idx206, align 4
+  store i32 %397, ptr %.4..4..4.gep.sroa_idx257, align 4
   br label %398
 
 398:                                              ; preds = %.thread.i52, %395
-  %.sink.i54.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx205, %395 ], [ %.8..8..8.gep101.sroa_idx, %.thread.i52 ]
+  %.sink.i54.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx256, %395 ], [ %.8..8..8.gep101.sroa_idx, %.thread.i52 ]
   %.pre.sink.i55 = phi i32 [ %.pre.i57, %395 ], [ %396, %.thread.i52 ]
   %399 = phi i64 [ 8, %395 ], [ 12, %.thread.i52 ]
   %400 = phi i1 [ false, %395 ], [ true, %.thread.i52 ]
@@ -4468,11 +4468,11 @@ define internal fastcc i32 @ocontext_write(ptr noundef readonly captures(none) %
   %451 = phi i32 [ %.pre7.i68, %..thread_crit_edge.i67 ], [ %442, %427 ]
   %452 = phi i32 [ %.pre.i66, %..thread_crit_edge.i67 ], [ %443, %427 ]
   store i32 2, ptr %6, align 4
-  store i32 %452, ptr %.4..4..4.gep.sroa_idx208, align 4
+  store i32 %452, ptr %.4..4..4.gep.sroa_idx259, align 4
   br label %453
 
 453:                                              ; preds = %.thread.i61, %450
-  %.sink.i63.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx207, %450 ], [ %.8..8..8.gep104.sroa_idx, %.thread.i61 ]
+  %.sink.i63.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx258, %450 ], [ %.8..8..8.gep104.sroa_idx, %.thread.i61 ]
   %.pre.sink.i64 = phi i32 [ %.pre.i66, %450 ], [ %451, %.thread.i61 ]
   %454 = phi i64 [ 8, %450 ], [ 12, %.thread.i61 ]
   %455 = phi i1 [ false, %450 ], [ true, %.thread.i61 ]
@@ -4598,11 +4598,11 @@ define internal fastcc i32 @ocontext_write(ptr noundef readonly captures(none) %
   %522 = phi i32 [ %.pre7.i77, %..thread_crit_edge.i76 ], [ %513, %498 ]
   %523 = phi i32 [ %.pre.i75, %..thread_crit_edge.i76 ], [ %514, %498 ]
   store i32 2, ptr %5, align 4
-  store i32 %523, ptr %.4..4..4.gep.sroa_idx210, align 4
+  store i32 %523, ptr %.4..4..4.gep.sroa_idx261, align 4
   br label %524
 
 524:                                              ; preds = %.thread.i70, %521
-  %.sink.i72.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx209, %521 ], [ %.8..8..8.gep107.sroa_idx, %.thread.i70 ]
+  %.sink.i72.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx260, %521 ], [ %.8..8..8.gep107.sroa_idx, %.thread.i70 ]
   %.pre.sink.i73 = phi i32 [ %.pre.i75, %521 ], [ %522, %.thread.i70 ]
   %525 = phi i64 [ 8, %521 ], [ 12, %.thread.i70 ]
   %526 = phi i1 [ false, %521 ], [ true, %.thread.i70 ]
@@ -4727,11 +4727,11 @@ define internal fastcc i32 @ocontext_write(ptr noundef readonly captures(none) %
   %592 = phi i32 [ %.pre7.i86, %..thread_crit_edge.i85 ], [ %583, %568 ]
   %593 = phi i32 [ %.pre.i84, %..thread_crit_edge.i85 ], [ %584, %568 ]
   store i32 2, ptr %4, align 4
-  store i32 %593, ptr %.4..4..4.gep.sroa_idx212, align 4
+  store i32 %593, ptr %.4..4..4.gep.sroa_idx263, align 4
   br label %594
 
 594:                                              ; preds = %.thread.i79, %591
-  %.sink.i81.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx211, %591 ], [ %.8..8..8.gep110.sroa_idx, %.thread.i79 ]
+  %.sink.i81.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx262, %591 ], [ %.8..8..8.gep110.sroa_idx, %.thread.i79 ]
   %.pre.sink.i82 = phi i32 [ %.pre.i84, %591 ], [ %592, %.thread.i79 ]
   %595 = phi i64 [ 8, %591 ], [ 12, %.thread.i79 ]
   %596 = phi i1 [ false, %591 ], [ true, %.thread.i79 ]
@@ -4837,7 +4837,7 @@ define internal fastcc i32 @genfs_write(ptr noundef readonly captures(none) %0, 
 .lr.ph33.preheader:                               ; preds = %.preheader24
   %26 = load ptr, ptr %23, align 8
   %27 = tail call i64 @strlen(ptr noundef %26) #22
-  %.4..4..4.gep.sroa_idx49 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.4..4..4.gep.sroa_idx61 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %.lr.ph33
 
 thread-pre-split:                                 ; preds = %.loopexit
@@ -5012,7 +5012,7 @@ thread-pre-split15:                               ; preds = %67
   %122 = phi i32 [ %.pre7.i, %..thread_crit_edge.i ], [ %113, %98 ]
   %123 = phi i32 [ %.pre.i, %..thread_crit_edge.i ], [ %114, %98 ]
   store i32 2, ptr %3, align 4
-  store i32 %123, ptr %.4..4..4.gep.sroa_idx49, align 4
+  store i32 %123, ptr %.4..4..4.gep.sroa_idx61, align 4
   br label %124
 
 124:                                              ; preds = %.thread.i, %121
@@ -7891,8 +7891,8 @@ define internal i32 @user_write(ptr noundef readonly captures(none) %0, ptr noun
   %50 = phi i32 [ %.pre7.i, %..thread_crit_edge.i ], [ %41, %38 ]
   %51 = phi i32 [ %.pre.i, %..thread_crit_edge.i ], [ %42, %38 ]
   store i32 2, ptr %4, align 4
-  %.4..4..4.gep.sroa_idx7 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %51, ptr %.4..4..4.gep.sroa_idx7, align 4
+  %.4..4..4.gep.sroa_idx14 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %51, ptr %.4..4..4.gep.sroa_idx14, align 4
   br label %52
 
 52:                                               ; preds = %.thread.i, %49
@@ -8629,8 +8629,8 @@ define internal i32 @range_write_helper(ptr noundef readonly captures(none) %0, 
   %43 = phi i32 [ %.pre7.i, %..thread_crit_edge.i ], [ %34, %32 ]
   %44 = phi i32 [ %.pre.i, %..thread_crit_edge.i ], [ %35, %32 ]
   store i32 2, ptr %4, align 4
-  %.4..4..4.gep.sroa_idx4 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %44, ptr %.4..4..4.gep.sroa_idx4, align 4
+  %.4..4..4.gep.sroa_idx8 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %44, ptr %.4..4..4.gep.sroa_idx8, align 4
   br label %45
 
 45:                                               ; preds = %.thread.i, %42

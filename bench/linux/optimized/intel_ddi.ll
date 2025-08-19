@@ -277,9 +277,9 @@ define dso_local void @intel_wait_ddi_buf_idle(ptr noundef %0, i32 noundef %1) l
 
 .outer:                                           ; preds = %35, %8
   %.ph = phi i64 [ %38, %35 ], [ %10, %8 ]
-  %.ph6 = phi i32 [ %37, %35 ], [ 8000, %8 ]
-  %.ph7 = phi i32 [ %33, %35 ], [ %9, %8 ]
-  %15 = sext i32 %.ph6 to i64
+  %.ph9 = phi i32 [ %37, %35 ], [ 8000, %8 ]
+  %.ph10 = phi i32 [ %33, %35 ], [ %9, %8 ]
+  %15 = sext i32 %.ph9 to i64
   br label %16
 
 16:                                               ; preds = %.outer, %32
@@ -315,12 +315,12 @@ define dso_local void @intel_wait_ddi_buf_idle(ptr noundef %0, i32 noundef %1) l
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !24
   %33 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !25
-  %34 = icmp eq i32 %.ph7, %33
+  %34 = icmp eq i32 %.ph10, %33
   br i1 %34, label %16, label %35, !prof !7
 
 35:                                               ; preds = %32
   %36 = trunc i64 %30 to i32
-  %37 = sub i32 %.ph6, %36
+  %37 = sub i32 %.ph9, %36
   %38 = tail call i64 @local_clock() #14
   br label %.outer
 
@@ -442,9 +442,9 @@ define dso_local void @intel_ddi_set_dp_msa(ptr noundef %0, ptr noundef %1) loca
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 4744
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %.thread3, label %47, !prof !7
+  br i1 %45, label %.thread5, label %47, !prof !7
 
-.thread3:                                         ; preds = %42
+.thread5:                                         ; preds = %42
   %46 = or disjoint i32 %38, 8
   br label %61
 
@@ -479,8 +479,8 @@ define dso_local void @intel_ddi_set_dp_msa(ptr noundef %0, ptr noundef %1) loca
 .thread:                                          ; preds = %37, %57
   br label %61
 
-61:                                               ; preds = %.thread3, %57, %.thread
-  %62 = phi i32 [ %38, %.thread ], [ %60, %57 ], [ %46, %.thread3 ]
+61:                                               ; preds = %.thread5, %57, %.thread
+  %62 = phi i32 [ %38, %.thread ], [ %60, %57 ], [ %46, %.thread5 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 4744
   %64 = load i32, ptr %63, align 8
   %65 = icmp eq i32 %64, 2
@@ -4226,7 +4226,7 @@ define dso_local void @intel_ddi_init(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %327, label %328, label %335
 
 328:                                              ; preds = %325
-  br i1 %139, label %.thread16, label %329
+  br i1 %139, label %.thread26, label %329
 
 329:                                              ; preds = %328
   %330 = icmp sgt i32 %3, 2
@@ -4234,11 +4234,11 @@ define dso_local void @intel_ddi_init(ptr noundef %0, ptr noundef %1) local_unna
 
 331:                                              ; preds = %329
   %332 = add nuw nsw i32 %3, 6
-  br label %.thread16
+  br label %.thread26
 
 333:                                              ; preds = %329
   %334 = add nsw i32 %3, 4
-  br label %.thread16
+  br label %.thread26
 
 335:                                              ; preds = %325
   %336 = getelementptr inbounds nuw i8, ptr %0, i64 7184
@@ -4291,7 +4291,7 @@ define dso_local void @intel_ddi_init(ptr noundef %0, ptr noundef %1) local_unna
   %365 = icmp sgt i32 %3, 2
   %366 = select i1 %365, i32 6, i32 4
   %367 = add i32 %366, %3
-  br label %.thread16
+  br label %.thread26
 
 368:                                              ; preds = %362
   %369 = and i64 %339, 24
@@ -4328,15 +4328,15 @@ define dso_local void @intel_ddi_init(ptr noundef %0, ptr noundef %1) local_unna
   %385 = icmp sgt i32 %3, 1
   %386 = select i1 %385, i32 7, i32 4
   %387 = add i32 %386, %3
-  br label %.thread16
+  br label %.thread26
 
 388:                                              ; preds = %383
   %389 = load i32, ptr %336, align 4
   %390 = and i32 %389, 67108864
   %391 = icmp eq i32 %390, 0
-  br i1 %391, label %.thread18, label %400
+  br i1 %391, label %.thread28, label %400
 
-.thread18:                                        ; preds = %388
+.thread28:                                        ; preds = %388
   %392 = getelementptr inbounds nuw i8, ptr %0, i64 8112
   %393 = load i32, ptr %392, align 8
   %394 = icmp eq i32 %393, 7
@@ -4353,10 +4353,10 @@ define dso_local void @intel_ddi_init(ptr noundef %0, ptr noundef %1) local_unna
   %.pre = load i16, ptr %6, align 8
   br label %403
 
-.thread16:                                        ; preds = %364, %384, %331, %333, %328
-  %.ph15 = phi i32 [ %3, %328 ], [ %334, %333 ], [ %332, %331 ], [ %387, %384 ], [ %367, %364 ]
+.thread26:                                        ; preds = %364, %384, %331, %333, %328
+  %.ph25 = phi i32 [ %3, %328 ], [ %334, %333 ], [ %332, %331 ], [ %387, %384 ], [ %367, %364 ]
   %402 = getelementptr inbounds nuw i8, ptr %132, i64 368
-  store i32 %.ph15, ptr %402, align 8
+  store i32 %.ph25, ptr %402, align 8
   br label %408
 
 403:                                              ; preds = %400, %381, %377, %371, %360, %358, %354, %342
@@ -4368,11 +4368,11 @@ define dso_local void @intel_ddi_init(ptr noundef %0, ptr noundef %1) local_unna
   %407 = icmp ugt i16 %.fr, 10
   br i1 %407, label %408, label %409
 
-408:                                              ; preds = %.thread16, %403
+408:                                              ; preds = %.thread26, %403
   br label %409
 
-409:                                              ; preds = %.thread18, %403, %408
-  %410 = phi i32 [ 65536, %408 ], [ 65552, %403 ], [ 65552, %.thread18 ]
+409:                                              ; preds = %.thread28, %403, %408
+  %410 = phi i32 [ 65536, %408 ], [ 65552, %403 ], [ 65552, %.thread28 ]
   %411 = shl i32 %3, 8
   %412 = add i32 %411, 409600
   %413 = getelementptr inbounds nuw i8, ptr %0, i64 7368
@@ -6798,9 +6798,9 @@ intel_dp_sink_set_fec_ready.exit:                 ; preds = %289, %304, %312
 
 369:                                              ; preds = %.thread25, %._crit_edge34, %368, %365, %365, %365, %365
   %370 = phi ptr [ %367, %365 ], [ %367, %365 ], [ %367, %365 ], [ %367, %365 ], [ %367, %368 ], [ %363, %.thread25 ], [ %367, %._crit_edge34 ]
-  %.pn37 = phi ptr [ %366, %365 ], [ %366, %365 ], [ %366, %365 ], [ %366, %365 ], [ %366, %368 ], [ %362, %.thread25 ], [ %366, %._crit_edge34 ]
+  %.pn60 = phi ptr [ %366, %365 ], [ %366, %365 ], [ %366, %365 ], [ %366, %365 ], [ %366, %368 ], [ %362, %.thread25 ], [ %366, %._crit_edge34 ]
   %371 = phi ptr [ %1, %365 ], [ %1, %365 ], [ %1, %365 ], [ %1, %365 ], [ null, %368 ], [ %362, %.thread25 ], [ %.pre36, %._crit_edge34 ]
-  %372 = getelementptr inbounds nuw i8, ptr %.pn37, i64 392
+  %372 = getelementptr inbounds nuw i8, ptr %.pn60, i64 392
   %373 = load i32, ptr %33, align 8
   %374 = and i32 %373, 2048
   %375 = icmp eq i32 %374, 0
@@ -7063,12 +7063,12 @@ intel_dp_sink_set_fec_ready.exit:                 ; preds = %289, %304, %312
 539:                                              ; preds = %538, %536
   %540 = getelementptr i8, ptr %2, i64 4903
   %.val21 = load i8, ptr %540, align 1, !range !37, !noundef !38
-  %541 = load ptr, ptr %.pn37, align 8
+  %541 = load ptr, ptr %.pn60, align 8
   %542 = icmp eq i8 %.val21, 0
   br i1 %542, label %intel_dp_sink_set_fec_ready.exit23, label %543
 
 543:                                              ; preds = %539
-  %544 = getelementptr inbounds nuw i8, ptr %.pn37, i64 616
+  %544 = getelementptr inbounds nuw i8, ptr %.pn60, i64 616
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 1, ptr %8, align 1
   %545 = call i64 @drm_dp_dpcd_write(ptr noundef nonnull %544, i32 noundef 288, ptr noundef nonnull %8, i64 noundef 1) #14

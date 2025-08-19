@@ -380,7 +380,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263: ; preds = %_Z
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %._crit_edge
   %indvars.iv377 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next378, %._crit_edge ]
   %143 = sub nsw i64 %indvars.iv377, %.sroa.10.0.extract.shift
-  %144 = trunc i64 %143 to i32
+  %144 = trunc nsw i64 %143 to i32
   %145 = sitofp i32 %144 to float
   %146 = fdiv float %145, %138
   %147 = fneg float %146
@@ -597,7 +597,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266: ; preds = %_Z
   %231 = sitofp i32 %230 to double
   %sext = shl i64 %.0173350, 32
   %232 = ashr exact i64 %sext, 32
-  %invariant.gep409 = getelementptr float, ptr %.0197349, i64 %194
+  %invariant.gep416 = getelementptr float, ptr %.0197349, i64 %194
   br label %233
 
 233:                                              ; preds = %.lr.ph336, %233
@@ -619,8 +619,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266: ; preds = %_Z
   %241 = load float, ptr %240, align 4, !tbaa !34
   %242 = fsub float %238, %241
   %243 = fpext float %242 to double
-  %gep410 = getelementptr float, ptr %invariant.gep409, i64 %indvars.iv387
-  %244 = getelementptr inbounds nuw i8, ptr %gep410, i64 8
+  %gep417 = getelementptr float, ptr %invariant.gep416, i64 %indvars.iv387
+  %244 = getelementptr inbounds nuw i8, ptr %gep417, i64 8
   %245 = load float, ptr %244, align 4, !tbaa !34
   %246 = sub nsw i64 %indvars.iv387, %194
   %247 = getelementptr float, ptr %.0197349, i64 %246
@@ -729,8 +729,8 @@ _ZNK2cv5Rect_IiE8containsIfEEbRKNS_6Point_IT_EE.exit269: ; preds = %280
   br i1 %316, label %321, label %317
 
 317:                                              ; preds = %.thread296
-  %foldExtExtBinop416 = fsub <2 x float> %.sroa.054.1303, %200
-  %318 = extractelement <2 x float> %foldExtExtBinop416, i64 1
+  %foldExtExtBinop423 = fsub <2 x float> %.sroa.054.1303, %200
+  %318 = extractelement <2 x float> %foldExtExtBinop423, i64 1
   %319 = call noundef float @llvm.fabs.f32(float %318)
   %320 = fcmp ogt float %319, %193
   br i1 %320, label %321, label %322

@@ -369,7 +369,7 @@ define dso_local range(i32 -32768, 133) i32 @insn_get_code_seg_params(ptr nounde
   %63 = lshr i32 %55, 22
   %64 = and i32 %63, 1
   %65 = or disjoint i32 %62, %64
-  switch i32 %65, label %default.unreachable2 [
+  switch i32 %65, label %default.unreachable3 [
     i32 0, label %69
     i32 1, label %66
     i32 2, label %67
@@ -382,7 +382,7 @@ define dso_local range(i32 -32768, 133) i32 @insn_get_code_seg_params(ptr nounde
 67:                                               ; preds = %60
   br label %69
 
-default.unreachable2:                             ; preds = %60
+default.unreachable3:                             ; preds = %60
   unreachable
 
 68:                                               ; preds = %60
@@ -871,11 +871,11 @@ get_eff_addr_reg.exit:                            ; preds = %128, %138, %140
   %161 = and i64 %160, 3
   %162 = icmp ne i64 %161, 0
   %163 = icmp ne i64 %160, 51
-  %.not10 = and i1 %163, %162
+  %.not16 = and i1 %163, %162
   %.pre6 = and i64 %154, 4294967295
   %164 = load i64, ptr %7, align 8
   %165 = icmp ugt i64 %.pre6, %164
-  %or.cond = select i1 %.not10, i1 %165, i1 false
+  %or.cond = select i1 %.not16, i1 %165, i1 false
   br i1 %or.cond, label %get_eff_addr_reg.exit.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %158

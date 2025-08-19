@@ -305,12 +305,12 @@ _bt_recsplitloc.exit.sink.split:                  ; preds = %BTreeTupleIsPosting
   %.160.in.i157.sink = phi i32 [ %.160.in.i, %BTreeTupleIsPosting.exit.thread.i ], [ %.160.in.i105, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.160.in.i157, %BTreeTupleIsPosting.exit.thread.i149 ]
   %.1.in.i156.sink = phi i32 [ %.1.in.i, %BTreeTupleIsPosting.exit.thread.i ], [ %.1.in.i104, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.1.in.i156, %BTreeTupleIsPosting.exit.thread.i149 ]
   %.sroa.103.5.sink = phi i64 [ %.sroa.103.0496, %BTreeTupleIsPosting.exit.thread.i ], [ %.sroa.103.0496, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.sroa.103.5, %BTreeTupleIsPosting.exit.thread.i149 ]
-  %.sroa.117.5.sink531 = phi i32 [ %.sroa.117.0497, %BTreeTupleIsPosting.exit.thread.i ], [ %.sroa.117.0497, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.sroa.117.5, %BTreeTupleIsPosting.exit.thread.i149 ]
+  %.sroa.117.5.sink555 = phi i32 [ %.sroa.117.0497, %BTreeTupleIsPosting.exit.thread.i ], [ %.sroa.117.0497, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.sroa.117.5, %BTreeTupleIsPosting.exit.thread.i149 ]
   %.sink = phi i8 [ 0, %BTreeTupleIsPosting.exit.thread.i ], [ 1, %BTreeTupleIsPosting.exit.thread.i97 ], [ 1, %BTreeTupleIsPosting.exit.thread.i149 ]
   %.160.i161 = trunc i32 %.160.in.i157.sink to i16
   %.1.i162 = trunc i32 %.1.in.i156.sink to i16
   %..061.i163 = tail call i64 @llvm.umin.i64(i64 %.sroa.103.5.sink, i64 %68)
-  %158 = sext i32 %.sroa.117.5.sink531 to i64
+  %158 = sext i32 %.sroa.117.5.sink555 to i64
   %159 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %158
   store i16 0, ptr %159, align 2
   %160 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %158, i32 1
@@ -321,7 +321,7 @@ _bt_recsplitloc.exit.sink.split:                  ; preds = %BTreeTupleIsPosting
   store i16 %.081498, ptr %162, align 2
   %163 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %158, i32 4
   store i8 %.sink, ptr %163, align 2
-  %164 = add i32 %.sroa.117.5.sink531, 1
+  %164 = add i32 %.sroa.117.5.sink555, 1
   br label %_bt_recsplitloc.exit
 
 _bt_recsplitloc.exit:                             ; preds = %_bt_recsplitloc.exit.sink.split, %BTreeTupleIsPosting.exit.thread.i149, %BTreeTupleIsPosting.exit.thread.i97, %BTreeTupleIsPosting.exit.thread.i
@@ -642,7 +642,7 @@ _bt_deltasortsplits.exit:                         ; preds = %.lr.ph.split.i, %.l
   %or.cond.not45.i = select i1 %307, i1 %308, i1 false
   %309 = icmp sle i16 %306, %299
   %or.cond36.not.i = select i1 %or.cond.not45.i, i1 %309, i1 false
-  br i1 %or.cond36.not.i, label %310, label %.thread40.loopexit.split.loop.exit54.i
+  br i1 %or.cond36.not.i, label %310, label %.thread40.loopexit.split.loop.exit55.i
 
 310:                                              ; preds = %304
   %indvars.iv.next.i210 = add nuw nsw i64 %indvars.iv.i209, 1
@@ -653,12 +653,12 @@ _bt_deltasortsplits.exit:                         ; preds = %.lr.ph.split.i, %.l
   %311 = trunc nuw nsw i64 %indvars.iv.i209 to i32
   br label %_bt_defaultinterval.exit
 
-.thread40.loopexit.split.loop.exit54.i:           ; preds = %304
+.thread40.loopexit.split.loop.exit55.i:           ; preds = %304
   %312 = trunc nuw nsw i64 %indvars.iv.i209 to i32
   br label %_bt_defaultinterval.exit
 
-_bt_defaultinterval.exit:                         ; preds = %310, %_bt_deltasortsplits.exit, %.thread40.loopexit.split.loop.exit.i, %.thread40.loopexit.split.loop.exit54.i
-  %.3.i = phi i32 [ %.sroa.117.2, %_bt_deltasortsplits.exit ], [ %311, %.thread40.loopexit.split.loop.exit.i ], [ %312, %.thread40.loopexit.split.loop.exit54.i ], [ %.sroa.117.2, %310 ]
+_bt_defaultinterval.exit:                         ; preds = %310, %_bt_deltasortsplits.exit, %.thread40.loopexit.split.loop.exit.i, %.thread40.loopexit.split.loop.exit55.i
+  %.3.i = phi i32 [ %.sroa.117.2, %_bt_deltasortsplits.exit ], [ %311, %.thread40.loopexit.split.loop.exit.i ], [ %312, %.thread40.loopexit.split.loop.exit55.i ], [ %.sroa.117.2, %310 ]
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %314 = load ptr, ptr %313, align 8
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 10
@@ -668,7 +668,6 @@ _bt_defaultinterval.exit:                         ; preds = %310, %_bt_deltasort
 
 .lr.ph.i.i:                                       ; preds = %_bt_defaultinterval.exit
   %..i.i = tail call i32 @llvm.smin.i32(i32 %.3.i, i32 %.sroa.117.2)
-  %.050.i.i = add i32 %..i.i, -1
   %318 = load i16, ptr %.sroa.3242.0..sroa_idx, align 2
   br label %.backedge.i.i
 
@@ -676,9 +675,10 @@ _bt_defaultinterval.exit:                         ; preds = %310, %_bt_deltasort
   %.09.i = phi ptr [ null, %.lr.ph.i.i ], [ %.09.i.be, %.backedge.i.i.backedge ]
   %.08.i = phi ptr [ null, %.lr.ph.i.i ], [ %.08.i.be, %.backedge.i.i.backedge ]
   %319 = phi ptr [ null, %.lr.ph.i.i ], [ %.be, %.backedge.i.i.backedge ]
-  %320 = phi ptr [ null, %.lr.ph.i.i ], [ %.be535, %.backedge.i.i.backedge ]
-  %321 = phi ptr [ null, %.lr.ph.i.i ], [ %.be536, %.backedge.i.i.backedge ]
-  %.051.i.i = phi i32 [ %.050.i.i, %.lr.ph.i.i ], [ %.051.i.i.be, %.backedge.i.i.backedge ]
+  %320 = phi ptr [ null, %.lr.ph.i.i ], [ %.be559, %.backedge.i.i.backedge ]
+  %321 = phi ptr [ null, %.lr.ph.i.i ], [ %.be560, %.backedge.i.i.backedge ]
+  %.051.i.in.i = phi i32 [ %..i.i, %.lr.ph.i.i ], [ %.051.i.i, %.backedge.i.i.backedge ]
+  %.051.i.i = add i32 %.051.i.in.i, -1
   %322 = zext nneg i32 %.051.i.i to i64
   %323 = getelementptr inbounds nuw %struct.SplitPoint, ptr %50, i64 %322
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 6
@@ -747,22 +747,21 @@ _bt_defaultinterval.exit:                         ; preds = %310, %_bt_deltasort
   %.413.i = phi ptr [ %323, %.thread48.sink.split.i.i ], [ %.09.i, %327 ], [ %.312.i, %347 ], [ %.09.i, %340 ], [ %spec.select.i212, %._crit_edge.i.i ]
   %.2.i = phi ptr [ %.08.i, %.thread48.sink.split.i.i ], [ %.08.i, %327 ], [ %.1.i217, %347 ], [ %.08.i, %340 ], [ %.08.i, %._crit_edge.i.i ]
   %.not47.i.i = icmp eq ptr %.2.i, null
-  %.0.i.i = add i32 %.051.i.i, -1
-  %351 = icmp sgt i32 %.0.i.i, -1
+  %351 = icmp sgt i32 %.051.i.i, 0
   %or.cond.i.i = and i1 %351, %.not47.i.i
   br i1 %or.cond.i.i, label %.backedge.i.i.backedge, label %_bt_interval_edges.exit.i
 
 .critedge.i.i:                                    ; preds = %347
-  %.0.old.i.i = add i32 %.051.i.i, -1
+  %.old.i.i = icmp sgt i32 %.051.i.i, 0
+  tail call void @llvm.assume(i1 %.old.i.i)
   br label %.backedge.i.i.backedge
 
 .backedge.i.i.backedge:                           ; preds = %.critedge.i.i, %.thread48.i.i
   %.09.i.be = phi ptr [ %.413.i, %.thread48.i.i ], [ null, %.critedge.i.i ]
   %.08.i.be = phi ptr [ null, %.thread48.i.i ], [ %.1.i217, %.critedge.i.i ]
   %.be = phi ptr [ null, %.thread48.i.i ], [ %348, %.critedge.i.i ]
-  %.be535 = phi ptr [ null, %.thread48.i.i ], [ %349, %.critedge.i.i ]
-  %.be536 = phi ptr [ null, %.thread48.i.i ], [ %350, %.critedge.i.i ]
-  %.051.i.i.be = phi i32 [ %.0.i.i, %.thread48.i.i ], [ %.0.old.i.i, %.critedge.i.i ]
+  %.be559 = phi ptr [ null, %.thread48.i.i ], [ %349, %.critedge.i.i ]
+  %.be560 = phi ptr [ null, %.thread48.i.i ], [ %350, %.critedge.i.i ]
   br label %.backedge.i.i, !llvm.loop !11
 
 _bt_interval_edges.exit.i:                        ; preds = %.thread48.i.i
@@ -788,30 +787,30 @@ _bt_interval_edges.exit.i:                        ; preds = %.thread48.i.i
   br label %_bt_split_lastleft.exit.i
 
 _bt_split_lastleft.exit.i:                        ; preds = %_bt_interval_edges.exit.i, %._crit_edge.i42.i
-  %.0.i43.i = phi ptr [ %365, %._crit_edge.i42.i ], [ %4, %_bt_interval_edges.exit.i ]
+  %.0.i.i = phi ptr [ %365, %._crit_edge.i42.i ], [ %4, %_bt_interval_edges.exit.i ]
   %366 = getelementptr inbounds nuw i8, ptr %.2.i, i64 8
   %367 = load i8, ptr %366, align 2, !range !6, !noundef !7
   %368 = trunc nuw i8 %367 to i1
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.2.i, i64 6
-  %.pre.i44.i = load i16, ptr %.phi.trans.insert.i.i, align 2
-  %369 = icmp ne i16 %.pre.i44.i, %2
+  %.pre.i43.i = load i16, ptr %.phi.trans.insert.i.i, align 2
+  %369 = icmp ne i16 %.pre.i43.i, %2
   %or.cond458.not = select i1 %368, i1 true, i1 %369
-  br i1 %or.cond458.not, label %._crit_edge.i45.i, label %_bt_split_firstright.exit.i
+  br i1 %or.cond458.not, label %._crit_edge.i44.i, label %_bt_split_firstright.exit.i
 
-._crit_edge.i45.i:                                ; preds = %_bt_split_lastleft.exit.i
+._crit_edge.i44.i:                                ; preds = %_bt_split_lastleft.exit.i
   %370 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %371 = zext i16 %.pre.i44.i to i64
+  %371 = zext i16 %.pre.i43.i to i64
   %372 = add nsw i64 %371, -1
   %373 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %370, i64 0, i64 %372
-  %.val.i46.i = load i32, ptr %373, align 4
-  %374 = and i32 %.val.i46.i, 32767
+  %.val.i45.i = load i32, ptr %373, align 4
+  %374 = and i32 %.val.i45.i, 32767
   %375 = zext nneg i32 %374 to i64
   %376 = getelementptr inbounds nuw i8, ptr %1, i64 %375
   br label %_bt_split_firstright.exit.i
 
-_bt_split_firstright.exit.i:                      ; preds = %_bt_split_lastleft.exit.i, %._crit_edge.i45.i
-  %.0.i47.i = phi ptr [ %376, %._crit_edge.i45.i ], [ %4, %_bt_split_lastleft.exit.i ]
-  %377 = tail call i32 @_bt_keep_natts_fast(ptr noundef %0, ptr noundef %.0.i43.i, ptr noundef %.0.i47.i) #7
+_bt_split_firstright.exit.i:                      ; preds = %_bt_split_lastleft.exit.i, %._crit_edge.i44.i
+  %.0.i46.i = phi ptr [ %376, %._crit_edge.i44.i ], [ %4, %_bt_split_lastleft.exit.i ]
+  %377 = tail call i32 @_bt_keep_natts_fast(ptr noundef %0, ptr noundef %.0.i.i, ptr noundef %.0.i46.i) #7
   %.not.i214 = icmp sgt i32 %377, %317
   br i1 %.not.i214, label %378, label %_bt_strategy.exit
 
@@ -819,45 +818,45 @@ _bt_split_firstright.exit.i:                      ; preds = %_bt_split_lastleft.
   %379 = trunc nuw i8 %.sroa.4243.0.copyload to i1
   %380 = icmp eq i16 %.sroa.3242.0.copyload, %2
   %or.cond459 = select i1 %379, i1 %380, i1 false
-  br i1 %or.cond459, label %_bt_split_lastleft.exit51.i, label %._crit_edge.i48.i
+  br i1 %or.cond459, label %_bt_split_lastleft.exit50.i, label %._crit_edge.i47.i
 
-._crit_edge.i48.i:                                ; preds = %378
+._crit_edge.i47.i:                                ; preds = %378
   %381 = add i16 %.sroa.3242.0.copyload, -1
   %382 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %383 = zext i16 %381 to i64
   %384 = add nsw i64 %383, -1
   %385 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %382, i64 0, i64 %384
-  %.val.i49.i = load i32, ptr %385, align 4
-  %386 = and i32 %.val.i49.i, 32767
+  %.val.i48.i = load i32, ptr %385, align 4
+  %386 = and i32 %.val.i48.i, 32767
   %387 = zext nneg i32 %386 to i64
   %388 = getelementptr inbounds nuw i8, ptr %1, i64 %387
-  br label %_bt_split_lastleft.exit51.i
+  br label %_bt_split_lastleft.exit50.i
 
-_bt_split_lastleft.exit51.i:                      ; preds = %378, %._crit_edge.i48.i
-  %.0.i50.i = phi ptr [ %388, %._crit_edge.i48.i ], [ %4, %378 ]
+_bt_split_lastleft.exit50.i:                      ; preds = %378, %._crit_edge.i47.i
+  %.0.i49.i = phi ptr [ %388, %._crit_edge.i47.i ], [ %4, %378 ]
   %389 = trunc nuw i8 %.sroa.4.0.copyload to i1
   %390 = icmp ne i16 %.sroa.3.0.copyload, %2
   %or.cond461.not = select i1 %389, i1 true, i1 %390
-  br i1 %or.cond461.not, label %._crit_edge.i54.i, label %_bt_split_firstright.exit57.i
+  br i1 %or.cond461.not, label %._crit_edge.i53.i, label %_bt_split_firstright.exit56.i
 
-._crit_edge.i54.i:                                ; preds = %_bt_split_lastleft.exit51.i
+._crit_edge.i53.i:                                ; preds = %_bt_split_lastleft.exit50.i
   %391 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %392 = zext i16 %.sroa.3.0.copyload to i64
   %393 = add nsw i64 %392, -1
   %394 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %391, i64 0, i64 %393
-  %.val.i55.i = load i32, ptr %394, align 4
-  %395 = and i32 %.val.i55.i, 32767
+  %.val.i54.i = load i32, ptr %394, align 4
+  %395 = and i32 %.val.i54.i, 32767
   %396 = zext nneg i32 %395 to i64
   %397 = getelementptr inbounds nuw i8, ptr %1, i64 %396
-  br label %_bt_split_firstright.exit57.i
+  br label %_bt_split_firstright.exit56.i
 
-_bt_split_firstright.exit57.i:                    ; preds = %_bt_split_lastleft.exit51.i, %._crit_edge.i54.i
-  %.0.i56.i = phi ptr [ %397, %._crit_edge.i54.i ], [ %4, %_bt_split_lastleft.exit51.i ]
-  %398 = tail call i32 @_bt_keep_natts_fast(ptr noundef %0, ptr noundef %.0.i50.i, ptr noundef %.0.i56.i) #7
+_bt_split_firstright.exit56.i:                    ; preds = %_bt_split_lastleft.exit50.i, %._crit_edge.i53.i
+  %.0.i55.i = phi ptr [ %397, %._crit_edge.i53.i ], [ %4, %_bt_split_lastleft.exit50.i ]
+  %398 = tail call i32 @_bt_keep_natts_fast(ptr noundef %0, ptr noundef %.0.i49.i, ptr noundef %.0.i55.i) #7
   %.not40.i = icmp sgt i32 %398, %317
   br i1 %.not40.i, label %399, label %_bt_strategy.exit
 
-399:                                              ; preds = %_bt_split_firstright.exit57.i
+399:                                              ; preds = %_bt_split_firstright.exit56.i
   br i1 %47, label %406, label %400
 
 400:                                              ; preds = %399
@@ -905,10 +904,10 @@ _bt_deltasortsplits.exit226:                      ; preds = %.lr.ph.split.us.i22
   tail call void @pg_qsort(ptr noundef %50, i64 noundef %.pre-phi.i220, i64 noundef 10, ptr noundef nonnull @_bt_splitcmp) #7
   br label %_bt_strategy.exit
 
-_bt_strategy.exit:                                ; preds = %_bt_split_firstright.exit.i, %400, %_bt_split_firstright.exit57.i, %_bt_deltasortsplits.exit226
-  %.0.i211430 = phi i32 [ %.0.i211.ph432, %_bt_deltasortsplits.exit226 ], [ %317, %_bt_split_firstright.exit57.i ], [ %405, %400 ], [ %377, %_bt_split_firstright.exit.i ]
-  %brmerge = phi i1 [ true, %_bt_deltasortsplits.exit226 ], [ %47, %_bt_split_firstright.exit57.i ], [ true, %400 ], [ true, %_bt_split_firstright.exit.i ]
-  %.sroa.204.0 = phi i32 [ 1, %_bt_deltasortsplits.exit226 ], [ %.sroa.117.2, %_bt_split_firstright.exit57.i ], [ %.3.i, %400 ], [ %.3.i, %_bt_split_firstright.exit.i ]
+_bt_strategy.exit:                                ; preds = %_bt_split_firstright.exit.i, %400, %_bt_split_firstright.exit56.i, %_bt_deltasortsplits.exit226
+  %.0.i211430 = phi i32 [ %.0.i211.ph432, %_bt_deltasortsplits.exit226 ], [ %317, %_bt_split_firstright.exit56.i ], [ %405, %400 ], [ %377, %_bt_split_firstright.exit.i ]
+  %brmerge = phi i1 [ true, %_bt_deltasortsplits.exit226 ], [ %47, %_bt_split_firstright.exit56.i ], [ true, %400 ], [ true, %_bt_split_firstright.exit.i ]
+  %.sroa.204.0 = phi i32 [ 1, %_bt_deltasortsplits.exit226 ], [ %.sroa.117.2, %_bt_split_firstright.exit56.i ], [ %.3.i, %400 ], [ %.3.i, %_bt_split_firstright.exit.i ]
   %..i227 = tail call i32 @llvm.smin.i32(i32 %.sroa.204.0, i32 %.sroa.117.2)
   %418 = icmp sgt i32 %..i227, 0
   br i1 %418, label %.lr.ph.split.preheader.i, label %._crit_edge.i

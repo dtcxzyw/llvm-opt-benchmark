@@ -93,10 +93,10 @@ define internal i32 @ft_svg_render(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %21, label %ft_svg_preset_slot.exit, label %.thread
 
 .thread:                                          ; preds = %14, %18
-  %.sroa.41.0.copyload.i32.in = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %.sroa.41.0.copyload.i32 = load ptr, ptr %.sroa.41.0.copyload.i32.in, align 8, !tbaa !28
+  %.sroa.41.0.copyload.i35.in = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %.sroa.41.0.copyload.i35 = load ptr, ptr %.sroa.41.0.copyload.i35.in, align 8, !tbaa !28
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %23 = tail call i32 %.sroa.41.0.copyload.i32(ptr noundef %1, i8 noundef zeroext 1, ptr noundef nonnull %22) #8
+  %23 = tail call i32 %.sroa.41.0.copyload.i35(ptr noundef %1, i8 noundef zeroext 1, ptr noundef nonnull %22) #8
   br label %ft_svg_preset_slot.exit
 
 ft_svg_preset_slot.exit:                          ; preds = %18, %.thread

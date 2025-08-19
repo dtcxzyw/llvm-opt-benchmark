@@ -2093,17 +2093,17 @@ if.end.i.i.i:                                     ; preds = %_ZN4absl12lts_20230
 while.body.lr.ph.i.i.i:                           ; preds = %if.end.i.i.i
   %add.ptr9.i.i.i = getelementptr inbounds i8, ptr %path.coerce1, i64 %path.coerce0
   %sub.ptr.lhs.cast20.i.i.i = ptrtoint ptr %add.ptr9.i.i.i to i64
-  br label %while.body.i.i.i
+  br label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
 
-while.body.i.i.i:                                 ; preds = %if.end19.i.i.i, %while.body.lr.ph.i.i.i
+_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %if.end19.i.i.i, %while.body.lr.ph.i.i.i
   %__len.022.i.i.i = phi i64 [ %path.coerce0, %while.body.lr.ph.i.i.i ], [ %sub.ptr.sub22.i.i.i, %if.end19.i.i.i ]
   %__first.021.i.i.i = phi ptr [ %path.coerce1, %while.body.lr.ph.i.i.i ], [ %incdec.ptr.i.i.i, %if.end19.i.i.i ]
   %add.i.i.i = add i64 %__len.022.i.i.i, -3
-  %call.i.i.i.i = tail call ptr @memchr(ptr noundef nonnull %__first.021.i.i.i, i32 noundef 47, i64 noundef %add.i.i.i) #27
+  %call.i.i.i.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %__first.021.i.i.i, i32 noundef 47, i64 noundef %add.i.i.i) #27
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %lor.end, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %while.body.i.i.i
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %call.i.i.i.i, ptr noundef nonnull dereferenceable(4) @.str.13, i64 4)
   %cmp16.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp16.i.i.i, label %if.then17.i.i.i, label %if.end19.i.i.i
@@ -2120,10 +2120,10 @@ if.end19.i.i.i:                                   ; preds = %_ZNSt11char_traitsI
   %sub.ptr.rhs.cast21.i.i.i = ptrtoint ptr %incdec.ptr.i.i.i to i64
   %sub.ptr.sub22.i.i.i = sub i64 %sub.ptr.lhs.cast20.i.i.i, %sub.ptr.rhs.cast21.i.i.i
   %cmp11.not.i.i.i = icmp ult i64 %sub.ptr.sub22.i.i.i, 4
-  br i1 %cmp11.not.i.i.i, label %lor.end, label %while.body.i.i.i, !llvm.loop !36
+  br i1 %cmp11.not.i.i.i, label %lor.end, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, !llvm.loop !36
 
-lor.end:                                          ; preds = %if.end19.i.i.i, %while.body.i.i.i, %if.end.i.i.i.thread, %if.then17.i.i.i, %if.end.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
-  %2 = phi i1 [ true, %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ true, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %1, %if.then17.i.i.i ], [ false, %if.end.i.i.i ], [ false, %if.end.i.i.i.thread ], [ false, %while.body.i.i.i ], [ false, %if.end19.i.i.i ]
+lor.end:                                          ; preds = %if.end19.i.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, %if.end.i.i.i.thread, %if.then17.i.i.i, %if.end.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
+  %2 = phi i1 [ true, %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ true, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %1, %if.then17.i.i.i ], [ false, %if.end.i.i.i ], [ false, %if.end.i.i.i.thread ], [ false, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ], [ false, %if.end19.i.i.i ]
   ret i1 %2
 }
 

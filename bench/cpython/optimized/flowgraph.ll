@@ -417,7 +417,7 @@ check_cfg.exit.i:                                 ; preds = %54
 
 .lr.ph.i20.i:                                     ; preds = %._crit_edge.i.i, %.thread.i21.i
   %.01341.i.i = phi ptr [ %.mux, %.thread.i21.i ], [ %.02738.i.i, %._crit_edge.i.i ]
-  %.01440.i.i = phi i1 [ %.mux283, %.thread.i21.i ], [ false, %._crit_edge.i.i ]
+  %.01440.i.i = phi i1 [ %.mux434, %.thread.i21.i ], [ false, %._crit_edge.i.i ]
   %58 = getelementptr inbounds nuw i8, ptr %.01341.i.i, i64 40
   %59 = load i32, ptr %58, align 8, !tbaa !25
   %60 = icmp sgt i32 %59, 0
@@ -593,7 +593,7 @@ basicblock_last_instr.exit44.i.i.i:               ; preds = %basicblock_append_i
   %.not.i.i = icmp ne ptr %131, null
   %brmerge = select i1 %.not.i.i, i1 true, i1 %129
   %.mux = select i1 %.not.i.i, ptr %131, ptr %.02738.i.i
-  %.mux283 = select i1 %.not.i.i, i1 %129, i1 false
+  %.mux434 = select i1 %.not.i.i, i1 %129, i1 false
   br i1 %brmerge, label %.lr.ph.i20.i, label %.thread.loopexit.i, !llvm.loop !48
 
 .thread.loopexit.i:                               ; preds = %.thread.i21.i
@@ -2549,7 +2549,7 @@ fold_tuple_on_constants.exit.i.i:                 ; preds = %951, %937, %next_sw
 .preheader.i42.i:                                 ; preds = %._crit_edge.i19, %basicblock_nofallthrough.exit.thread.i.i
   %.13982.i.i = phi i1 [ %.240.lcssa.i.i.mux, %basicblock_nofallthrough.exit.thread.i.i ], [ true, %._crit_edge.i19 ]
   %.04281.i.i = phi ptr [ %.345.i.i.mux, %basicblock_nofallthrough.exit.thread.i.i ], [ null, %._crit_edge.i19 ]
-  %.04680.i.i = phi ptr [ %.mux285, %basicblock_nofallthrough.exit.thread.i.i ], [ %.pre154.i, %._crit_edge.i19 ]
+  %.04680.i.i = phi ptr [ %.mux436, %basicblock_nofallthrough.exit.thread.i.i ], [ %.pre154.i, %._crit_edge.i19 ]
   %959 = getelementptr inbounds nuw i8, ptr %.04680.i.i, i64 40
   %960 = load i32, ptr %959, align 8, !tbaa !25
   %961 = icmp sgt i32 %960, 0
@@ -2790,11 +2790,11 @@ basicblock_nofallthrough.exit.thread.i.i:         ; preds = %basicblock_nofallth
   %1053 = getelementptr inbounds nuw i8, ptr %.04680.i.i, i64 32
   %1054 = load ptr, ptr %1053, align 8, !tbaa !34
   %.not.i44.i = icmp eq ptr %1054, null
-  %brmerge284.not = select i1 %.not.i44.i, i1 %.240.lcssa.i.i, i1 false
+  %brmerge435.not = select i1 %.not.i44.i, i1 %.240.lcssa.i.i, i1 false
   %.240.lcssa.i.i.mux = select i1 %.not.i44.i, i1 true, i1 %.240.lcssa.i.i
   %.345.i.i.mux = select i1 %.not.i44.i, ptr null, ptr %.345.i.i
-  %.mux285 = select i1 %.not.i44.i, ptr %.pre154.i, ptr %1054
-  br i1 %brmerge284.not, label %.loopexit.loopexit.i, label %.preheader.i42.i, !llvm.loop !79
+  %.mux436 = select i1 %.not.i44.i, ptr %.pre154.i, ptr %1054
+  br i1 %brmerge435.not, label %.loopexit.loopexit.i, label %.preheader.i42.i, !llvm.loop !79
 
 .loopexit.loopexit.i:                             ; preds = %basicblock_nofallthrough.exit.thread.i.i
   %.pre155.i = load ptr, ptr %0, align 8, !tbaa !18
@@ -2920,8 +2920,8 @@ optimize_cfg.exit:                                ; preds = %.loopexit.i
 
 ._crit_edge125.i:                                 ; preds = %1116, %.preheader110.i, %.preheader109.i
   %1101 = phi i1 [ false, %.preheader109.i ], [ false, %.preheader110.i ], [ true, %1116 ]
-  %.090.lcssa145147.i = phi i64 [ %.1.i, %.preheader109.i ], [ 0, %.preheader110.i ], [ %.1.i, %1116 ]
-  %1102 = call i32 @PyList_SetSlice(ptr noundef %1, i64 noundef %.090.lcssa145147.i, i64 noundef %.val.i20, ptr noundef null) #8
+  %.090.lcssa158160.i = phi i64 [ %.1.i, %.preheader109.i ], [ 0, %.preheader110.i ], [ %.1.i, %1116 ]
+  %1102 = call i32 @PyList_SetSlice(ptr noundef %1, i64 noundef %.090.lcssa158160.i, i64 noundef %.val.i20, ptr noundef null) #8
   %1103 = icmp slt i32 %1102, 0
   br i1 %1103, label %optimize_cfg.exit.thread.critedge, label %1118
 
@@ -2979,7 +2979,7 @@ _Py_NewRef.exit.i:                                ; preds = %1113, %1107
   %1123 = getelementptr i64, ptr %1119, i64 %1122
   store i64 %.085128.i, ptr %1123, align 8, !tbaa !81
   %1124 = add nuw nsw i64 %.085128.i, 1
-  %exitcond138.not.i = icmp eq i64 %1124, %.090.lcssa145147.i
+  %exitcond138.not.i = icmp eq i64 %1124, %.090.lcssa158160.i
   br i1 %exitcond138.not.i, label %.preheader106.i, label %.lr.ph129.i, !llvm.loop !86
 
 .preheader.i23:                                   ; preds = %.preheader106.i, %._crit_edge132.i
@@ -4328,12 +4328,12 @@ basicblock_nofallthrough.exit.thread:             ; preds = %96, %91, %basicbloc
   br label %basicblock_nofallthrough.exit.thread136
 
 basicblock_nofallthrough.exit.thread136:          ; preds = %96, %96, %96, %96, %96, %96, %96, %96, %100
-  %.sink203 = phi ptr [ %101, %100 ], [ %87, %96 ], [ %87, %96 ], [ %87, %96 ], [ %87, %96 ], [ %87, %96 ], [ %87, %96 ], [ %87, %96 ], [ %87, %96 ]
+  %.sink215 = phi ptr [ %101, %100 ], [ %87, %96 ], [ %87, %96 ], [ %87, %96 ], [ %87, %96 ], [ %87, %96 ], [ %87, %96 ], [ %87, %96 ], [ %87, %96 ]
   %.sink = phi ptr [ %98, %100 ], [ %.091180, %96 ], [ %.091180, %96 ], [ %.091180, %96 ], [ %.091180, %96 ], [ %.091180, %96 ], [ %.091180, %96 ], [ %.091180, %96 ], [ %.091180, %96 ]
   %.495 = phi ptr [ %.091180, %100 ], [ null, %96 ], [ null, %96 ], [ null, %96 ], [ null, %96 ], [ null, %96 ], [ null, %96 ], [ null, %96 ], [ null, %96 ]
-  %102 = getelementptr inbounds nuw i8, ptr %.sink203, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %.sink215, i64 16
   store ptr %.sink, ptr %102, align 8, !tbaa !115
-  store ptr %.sink203, ptr %.197179, align 8, !tbaa !23
+  store ptr %.sink215, ptr %.197179, align 8, !tbaa !23
   %103 = load ptr, ptr %86, align 8, !tbaa !36
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 64
   %105 = load i8, ptr %104, align 8
@@ -4406,8 +4406,8 @@ basicblock_last_instr.exit.i129:                  ; preds = %._crit_edge
   ]
 
 basicblock_nofallthrough.exit131.thread:          ; preds = %.lr.ph184, %129, %._crit_edge, %basicblock_last_instr.exit.i129
-  %.091.lcssa197 = phi ptr [ %.293.ph, %129 ], [ %.293.ph, %._crit_edge ], [ %.293.ph, %basicblock_last_instr.exit.i129 ], [ %28, %.lr.ph184 ]
-  %.197.lcssa194 = phi ptr [ %.5.ph, %129 ], [ %.5.ph, %._crit_edge ], [ %.5.ph, %basicblock_last_instr.exit.i129 ], [ %25, %.lr.ph184 ]
+  %.091.lcssa209 = phi ptr [ %.293.ph, %129 ], [ %.293.ph, %._crit_edge ], [ %.293.ph, %basicblock_last_instr.exit.i129 ], [ %28, %.lr.ph184 ]
+  %.197.lcssa206 = phi ptr [ %.5.ph, %129 ], [ %.5.ph, %._crit_edge ], [ %.5.ph, %basicblock_last_instr.exit.i129 ], [ %25, %.lr.ph184 ]
   %131 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %132 = load ptr, ptr %131, align 8, !tbaa !34
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 64
@@ -4418,28 +4418,28 @@ basicblock_nofallthrough.exit131.thread:          ; preds = %.lr.ph184, %129, %.
 
 136:                                              ; preds = %basicblock_nofallthrough.exit131.thread
   %137 = getelementptr inbounds nuw i8, ptr %132, i64 16
-  store ptr %.091.lcssa197, ptr %137, align 8, !tbaa !115
-  store ptr %132, ptr %.197.lcssa194, align 8, !tbaa !23
+  store ptr %.091.lcssa209, ptr %137, align 8, !tbaa !115
+  store ptr %132, ptr %.197.lcssa206, align 8, !tbaa !23
   %138 = load ptr, ptr %131, align 8, !tbaa !34
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 64
   %140 = load i8, ptr %139, align 8
   %141 = or i8 %140, 2
   store i8 %141, ptr %139, align 8
-  %142 = getelementptr i8, ptr %.197.lcssa194, i64 8
+  %142 = getelementptr i8, ptr %.197.lcssa206, i64 8
   br label %144
 
 basicblock_nofallthrough.exit131.thread160:       ; preds = %129, %129, %129, %129, %129, %129, %129, %129, %basicblock_nofallthrough.exit131.thread
-  %.091.lcssa196 = phi ptr [ %.293.ph, %129 ], [ %.293.ph, %129 ], [ %.293.ph, %129 ], [ %.293.ph, %129 ], [ %.293.ph, %129 ], [ %.293.ph, %129 ], [ %.293.ph, %129 ], [ %.293.ph, %129 ], [ %.091.lcssa197, %basicblock_nofallthrough.exit131.thread ]
-  %.197.lcssa195 = phi ptr [ %.5.ph, %129 ], [ %.5.ph, %129 ], [ %.5.ph, %129 ], [ %.5.ph, %129 ], [ %.5.ph, %129 ], [ %.5.ph, %129 ], [ %.5.ph, %129 ], [ %.5.ph, %129 ], [ %.197.lcssa194, %basicblock_nofallthrough.exit131.thread ]
-  %.not123 = icmp eq ptr %.091.lcssa196, null
+  %.091.lcssa208 = phi ptr [ %.293.ph, %129 ], [ %.293.ph, %129 ], [ %.293.ph, %129 ], [ %.293.ph, %129 ], [ %.293.ph, %129 ], [ %.293.ph, %129 ], [ %.293.ph, %129 ], [ %.293.ph, %129 ], [ %.091.lcssa209, %basicblock_nofallthrough.exit131.thread ]
+  %.197.lcssa207 = phi ptr [ %.5.ph, %129 ], [ %.5.ph, %129 ], [ %.5.ph, %129 ], [ %.5.ph, %129 ], [ %.5.ph, %129 ], [ %.5.ph, %129 ], [ %.5.ph, %129 ], [ %.5.ph, %129 ], [ %.197.lcssa206, %basicblock_nofallthrough.exit131.thread ]
+  %.not123 = icmp eq ptr %.091.lcssa208, null
   br i1 %.not123, label %144, label %143
 
 143:                                              ; preds = %basicblock_nofallthrough.exit131.thread160
-  tail call void @PyMem_Free(ptr noundef nonnull %.091.lcssa196) #8
+  tail call void @PyMem_Free(ptr noundef nonnull %.091.lcssa208) #8
   br label %144
 
 144:                                              ; preds = %136, %143, %basicblock_nofallthrough.exit131.thread160
-  %.7 = phi ptr [ %.197.lcssa195, %143 ], [ %.197.lcssa195, %basicblock_nofallthrough.exit131.thread160 ], [ %142, %136 ]
+  %.7 = phi ptr [ %.197.lcssa207, %143 ], [ %.197.lcssa207, %basicblock_nofallthrough.exit131.thread160 ], [ %142, %136 ]
   %145 = icmp ugt ptr %.7, %4
   br i1 %145, label %.lr.ph184, label %._crit_edge185
 
@@ -7220,7 +7220,7 @@ define internal fastcc i32 @add_const(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %44
 
 ._crit_edge.thread:                               ; preds = %23, %._crit_edge
-  %.0.lcssa30 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %.val, %23 ]
+  %.0.lcssa34 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %.val, %23 ]
   %26 = icmp samesign ugt i64 %.val, 2147483645
   br i1 %26, label %27, label %35
 
@@ -7265,7 +7265,7 @@ define internal fastcc i32 @add_const(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %Py_DECREF.exit17
 
 44:                                               ; preds = %._crit_edge._crit_edge, %35
-  %.0.lcssa29 = phi i64 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %.0.lcssa30, %35 ]
+  %.0.lcssa33 = phi i64 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %.0.lcssa34, %35 ]
   %45 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %.pre27, %35 ]
   %46 = load i32, ptr %45, align 8, !tbaa !55
   %.not.i = icmp sgt i32 %46, -1
@@ -7282,7 +7282,7 @@ define internal fastcc i32 @add_const(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %44, %47, %50
-  %51 = trunc i64 %.0.lcssa29 to i32
+  %51 = trunc i64 %.0.lcssa33 to i32
   br label %Py_DECREF.exit17
 
 Py_DECREF.exit17:                                 ; preds = %43, %40, %38, %34, %31, %27, %18, %15, %12, %Py_DECREF.exit

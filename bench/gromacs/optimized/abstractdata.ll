@@ -1343,13 +1343,13 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !11
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !11
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -1447,40 +1447,40 @@ define void @_ZN3gmx20AbstractAnalysisData14setColumnCountEii(ptr noundef nonnul
   unreachable
 
 21:                                               ; preds = %18
-  %.not20 = icmp eq i32 %2, 1
-  %.pre = zext nneg i32 %1 to i64
-  br i1 %.not20, label %.lr.ph.preheader, label %._crit_edge
+  %.not22 = icmp eq i32 %2, 1
+  %22 = zext nneg i32 %1 to i64
+  br i1 %.not22, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %21
-  %22 = and i64 %14, 2147483647
+  %23 = and i64 %14, 4294967295
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %31, %21
-  %.013.lcssa = phi i1 [ true, %21 ], [ %.1, %31 ]
-  %23 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  tail call void @_ZN3gmx25AnalysisDataModuleManager25dataPropertyAboutToChangeENS0_12DataPropertyEb(ptr noundef nonnull align 8 dereferenceable(8) %23, i32 noundef 1, i1 noundef zeroext %.013.lcssa)
-  %24 = load ptr, ptr %6, align 8, !tbaa !16
-  %25 = load ptr, ptr %24, align 8, !tbaa !13
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %.pre
-  store i32 %2, ptr %26, align 4, !tbaa !11
+._crit_edge:                                      ; preds = %32, %21
+  %.013.lcssa = phi i1 [ true, %21 ], [ %.1, %32 ]
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  tail call void @_ZN3gmx25AnalysisDataModuleManager25dataPropertyAboutToChangeENS0_12DataPropertyEb(ptr noundef nonnull align 8 dereferenceable(8) %24, i32 noundef 1, i1 noundef zeroext %.013.lcssa)
+  %25 = load ptr, ptr %6, align 8, !tbaa !16
+  %26 = load ptr, ptr %25, align 8, !tbaa !13
+  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %22
+  store i32 %2, ptr %27, align 4, !tbaa !11
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %31
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %31 ]
-  %.not = icmp eq i64 %indvars.iv, %.pre
-  br i1 %.not, label %31, label %27
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %32
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %32 ]
+  %.not = icmp eq i64 %indvars.iv, %22
+  br i1 %.not, label %32, label %28
 
-27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
-  %29 = load i32, ptr %28, align 4, !tbaa !11
-  %30 = icmp sgt i32 %29, 1
-  br label %31
+28:                                               ; preds = %.lr.ph
+  %29 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %30 = load i32, ptr %29, align 4, !tbaa !11
+  %31 = icmp sgt i32 %30, 1
+  br label %32
 
-31:                                               ; preds = %27, %.lr.ph
-  %.1 = phi i1 [ false, %.lr.ph ], [ %30, %27 ]
+32:                                               ; preds = %28, %.lr.ph
+  %.1 = phi i1 [ false, %.lr.ph ], [ %31, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = icmp samesign uge i64 %indvars.iv.next, %22
-  %.not15 = select i1 %32, i1 true, i1 %.1
+  %33 = icmp samesign uge i64 %indvars.iv.next, %23
+  %.not15 = select i1 %33, i1 true, i1 %.1
   br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !83
 }
 

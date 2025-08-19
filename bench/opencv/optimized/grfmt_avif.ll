@@ -2859,20 +2859,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br label %_ZN2cv12_GLOBAL__N_113ConvertToAvifERKNS_3MatEbi.exit
 
 158:                                              ; preds = %.noexc90, %.noexc89
-  %.sink72.i = phi ptr [ %151, %.noexc89 ], [ %155, %.noexc90 ]
-  %.sink70.i = phi i16 [ 2, %.noexc89 ], [ 1, %.noexc90 ]
-  %.sink67.i = phi i16 [ 2, %.noexc89 ], [ 13, %.noexc90 ]
+  %.sink77.i = phi ptr [ %151, %.noexc89 ], [ %155, %.noexc90 ]
+  %.sink75.i = phi i16 [ 2, %.noexc89 ], [ 1, %.noexc90 ]
+  %.sink72.i = phi i16 [ 2, %.noexc89 ], [ 13, %.noexc90 ]
   %.sink.i = phi i16 [ 0, %.noexc89 ], [ 6, %.noexc90 ]
-  %159 = getelementptr inbounds nuw i8, ptr %.sink72.i, i64 112
-  store i16 %.sink70.i, ptr %159, align 8, !tbaa !165, !noalias !160
-  %160 = getelementptr inbounds nuw i8, ptr %.sink72.i, i64 114
-  store i16 %.sink67.i, ptr %160, align 2, !tbaa !166, !noalias !160
-  %161 = getelementptr inbounds nuw i8, ptr %.sink72.i, i64 116
+  %159 = getelementptr inbounds nuw i8, ptr %.sink77.i, i64 112
+  store i16 %.sink75.i, ptr %159, align 8, !tbaa !165, !noalias !160
+  %160 = getelementptr inbounds nuw i8, ptr %.sink77.i, i64 114
+  store i16 %.sink72.i, ptr %160, align 2, !tbaa !166, !noalias !160
+  %161 = getelementptr inbounds nuw i8, ptr %.sink77.i, i64 116
   store i16 %.sink.i, ptr %161, align 4, !tbaa !167, !noalias !160
-  %162 = getelementptr inbounds nuw i8, ptr %.sink72.i, i64 16
+  %162 = getelementptr inbounds nuw i8, ptr %.sink77.i, i64 16
   store i32 1, ptr %162, align 8, !tbaa !168, !noalias !160
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !160
-  invoke void @avifRGBImageSetDefaults(ptr noundef nonnull %6, ptr noundef nonnull %.sink72.i)
+  invoke void @avifRGBImageSetDefaults(ptr noundef nonnull %6, ptr noundef nonnull %.sink77.i)
           to label %.noexc91 unwind label %219
 
 .noexc91:                                         ; preds = %158
@@ -2933,8 +2933,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63.i: ; preds = %_
   br label %180
 
 180:                                              ; preds = %179, %.noexc91
-  %.sink73.i = phi i32 [ 4, %179 ], [ 3, %.noexc91 ]
-  store i32 %.sink73.i, ptr %69, align 4, !tbaa !131, !noalias !160
+  %.sink78.i = phi i32 [ 4, %179 ], [ 3, %.noexc91 ]
+  store i32 %.sink78.i, ptr %69, align 4, !tbaa !131, !noalias !160
   %181 = getelementptr inbounds nuw i8, ptr %.sroa.0123.0180, i64 72
   %182 = load ptr, ptr %181, align 8, !tbaa !135, !noalias !160
   %183 = load i64, ptr %182, align 8, !tbaa !79, !noalias !160
@@ -2944,7 +2944,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63.i: ; preds = %_
   %185 = getelementptr inbounds nuw i8, ptr %.sroa.0123.0180, i64 16
   %186 = load ptr, ptr %185, align 8, !tbaa !138, !noalias !160
   store ptr %186, ptr %72, align 8, !tbaa !139, !noalias !160
-  %187 = invoke i32 @avifImageRGBToYUV(ptr noundef nonnull %.sink72.i, ptr noundef nonnull %6)
+  %187 = invoke i32 @avifImageRGBToYUV(ptr noundef nonnull %.sink77.i, ptr noundef nonnull %6)
           to label %.noexc92 unwind label %219
 
 .noexc92:                                         ; preds = %180
@@ -2952,11 +2952,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63.i: ; preds = %_
   br i1 %.not.i, label %.noexc93, label %188
 
 188:                                              ; preds = %.noexc92
-  invoke void @avifImageDestroy(ptr noundef nonnull %.sink72.i)
+  invoke void @avifImageDestroy(ptr noundef nonnull %.sink77.i)
           to label %.noexc93 unwind label %219
 
 .noexc93:                                         ; preds = %188, %.noexc92
-  %storemerge.i = phi ptr [ %.sink72.i, %.noexc92 ], [ null, %188 ]
+  %storemerge.i = phi ptr [ %.sink77.i, %.noexc92 ], [ null, %188 ]
   store ptr %storemerge.i, ptr %12, align 8, !tbaa !170, !alias.scope !160
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !160
   %189 = ptrtoint ptr %storemerge.i to i64
@@ -3092,9 +3092,9 @@ _ZNSt10unique_ptrI9avifImageN2cv12_GLOBAL__N_116AvifImageDeleterEED2Ev.exit: ; p
   br i1 %exitcond.not, label %._crit_edge186, label %227, !llvm.loop !181
 
 ._crit_edge186:                                   ; preds = %222, %.preheader.thread, %.preheader
-  %.not190228 = phi i1 [ true, %.preheader.thread ], [ true, %.preheader ], [ false, %222 ]
-  %.lcssa170227 = phi ptr [ null, %.preheader.thread ], [ %217, %.preheader ], [ %217, %222 ]
-  %.val85226 = phi ptr [ null, %.preheader.thread ], [ %216, %.preheader ], [ %216, %222 ]
+  %.not190257 = phi i1 [ true, %.preheader.thread ], [ true, %.preheader ], [ false, %222 ]
+  %.lcssa170256 = phi ptr [ null, %.preheader.thread ], [ %217, %.preheader ], [ %217, %222 ]
+  %.val85255 = phi ptr [ null, %.preheader.thread ], [ %216, %.preheader ], [ %216, %222 ]
   %224 = load ptr, ptr %31, align 8, !tbaa !150
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 40
   store i64 1000, ptr %225, align 8, !tbaa !182
@@ -3442,10 +3442,10 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %.lr.ph.i.i.i.i, %3
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, %351
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %.not190228, label %_ZSt8_DestroyIPSt10unique_ptrI9avifImageN2cv12_GLOBAL__N_116AvifImageDeleterEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i115
+  br i1 %.not190257, label %_ZSt8_DestroyIPSt10unique_ptrI9avifImageN2cv12_GLOBAL__N_116AvifImageDeleterEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i115
 
 .lr.ph.i.i.i.i115:                                ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, %_ZSt8_DestroyISt10unique_ptrI9avifImageN2cv12_GLOBAL__N_116AvifImageDeleterEEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i116 = phi ptr [ %357, %_ZSt8_DestroyISt10unique_ptrI9avifImageN2cv12_GLOBAL__N_116AvifImageDeleterEEEvPT_.exit.i.i.i.i ], [ %.lcssa170227, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ]
+  %.05.i.i.i.i116 = phi ptr [ %357, %_ZSt8_DestroyISt10unique_ptrI9avifImageN2cv12_GLOBAL__N_116AvifImageDeleterEEEvPT_.exit.i.i.i.i ], [ %.lcssa170256, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ]
   %352 = load ptr, ptr %.05.i.i.i.i116, align 8, !tbaa !170
   %.not.i.i.i.i.i.i117 = icmp eq ptr %352, null
   br i1 %.not.i.i.i.i.i.i117, label %_ZSt8_DestroyISt10unique_ptrI9avifImageN2cv12_GLOBAL__N_116AvifImageDeleterEEEvPT_.exit.i.i.i.i, label %353
@@ -3464,15 +3464,15 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 _ZSt8_DestroyISt10unique_ptrI9avifImageN2cv12_GLOBAL__N_116AvifImageDeleterEEEvPT_.exit.i.i.i.i: ; preds = %353, %.lr.ph.i.i.i.i115
   store ptr null, ptr %.05.i.i.i.i116, align 8, !tbaa !170
   %357 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i116, i64 8
-  %.not.i.i.i.i118 = icmp eq ptr %357, %.val85226
+  %.not.i.i.i.i118 = icmp eq ptr %357, %.val85255
   br i1 %.not.i.i.i.i118, label %_ZSt8_DestroyIPSt10unique_ptrI9avifImageN2cv12_GLOBAL__N_116AvifImageDeleterEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i115, !llvm.loop !187
 
 _ZSt8_DestroyIPSt10unique_ptrI9avifImageN2cv12_GLOBAL__N_116AvifImageDeleterEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyISt10unique_ptrI9avifImageN2cv12_GLOBAL__N_116AvifImageDeleterEEEvPT_.exit.i.i.i.i, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
-  %.not.i.i.i119 = icmp eq ptr %.lcssa170227, null
+  %.not.i.i.i119 = icmp eq ptr %.lcssa170256, null
   br i1 %.not.i.i.i119, label %359, label %358
 
 358:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrI9avifImageN2cv12_GLOBAL__N_116AvifImageDeleterEES5_EvT_S7_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %.lcssa170227) #22
+  call void @_ZdlPv(ptr noundef nonnull %.lcssa170256) #22
   br label %359
 
 359:                                              ; preds = %358, %_ZSt8_DestroyIPSt10unique_ptrI9avifImageN2cv12_GLOBAL__N_116AvifImageDeleterEES5_EvT_S7_RSaIT0_E.exit.i
@@ -3575,7 +3575,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1, !tbaa !78
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %21 = add i64 %11, -1
+  %21 = add nsw i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
 

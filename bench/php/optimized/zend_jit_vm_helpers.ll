@@ -1331,7 +1331,7 @@ define hidden range(i32 0, 96) i32 @zend_jit_trace_execute(ptr noundef %0, ptr n
   br label %.thread.outer
 
 57:                                               ; preds = %56
-  %58 = tail call fastcc range(i32 -2147483646, -2147483648) i32 @zend_jit_trace_record_fake_init_call_ex(ptr noundef nonnull %11, ptr noundef nonnull %2, i32 noundef 2, i32 noundef %4, i32 noundef 0)
+  %58 = tail call fastcc i32 @zend_jit_trace_record_fake_init_call_ex(ptr noundef nonnull %11, ptr noundef nonnull %2, i32 noundef 2, i32 noundef %4, i32 noundef 0)
   %59 = icmp sgt i32 %58, -1
   br i1 %59, label %.thread.preheader, label %60
 
@@ -1350,19 +1350,19 @@ define hidden range(i32 0, 96) i32 @zend_jit_trace_execute(ptr noundef %0, ptr n
   store ptr %9, ptr %65, align 8, !tbaa !16
   br label %840
 
-.thread:                                          ; preds = %.thread.backedge, %.thread.outer1589
-  %.0672 = phi i32 [ %.0672.ph1590, %.thread.outer1589 ], [ %.2674, %.thread.backedge ]
-  %.0668 = phi i32 [ %.0668.ph1591, %.thread.outer1589 ], [ %.2670, %.thread.backedge ]
-  %.0664 = phi i32 [ %.0664.ph1592, %.thread.outer1589 ], [ %.2666, %.thread.backedge ]
-  %.0650 = phi ptr [ %.0650.ph1596, %.thread.outer1589 ], [ %.1651, %.thread.backedge ]
-  %.0647 = phi ptr [ %.0647.ph1597, %.thread.outer1589 ], [ %.1648, %.thread.backedge ]
-  %.0645 = phi ptr [ %.0645.ph1598, %.thread.outer1589 ], [ %693, %.thread.backedge ]
-  %.0642 = phi ptr [ %.0642.ph1599, %.thread.outer1589 ], [ %.2644, %.thread.backedge ]
-  %.2617 = phi i32 [ %.2617.ph1600, %.thread.outer1589 ], [ %.16, %.thread.backedge ]
-  %.0606 = phi i64 [ %.0606.ph1601, %.thread.outer1589 ], [ %.1607, %.thread.backedge ]
-  %.1597 = phi ptr [ %.1597.ph1602, %.thread.outer1589 ], [ %.2598, %.thread.backedge ]
-  %.0589 = phi i32 [ %.0589.ph1603, %.thread.outer1589 ], [ %.2591, %.thread.backedge ]
-  %.0587 = phi i32 [ %.0587.ph1604, %.thread.outer1589 ], [ %.1588, %.thread.backedge ]
+.thread:                                          ; preds = %.thread.backedge, %.thread.outer1619
+  %.0672 = phi i32 [ %.0672.ph1620, %.thread.outer1619 ], [ %.2674, %.thread.backedge ]
+  %.0668 = phi i32 [ %.0668.ph1621, %.thread.outer1619 ], [ %.2670, %.thread.backedge ]
+  %.0664 = phi i32 [ %.0664.ph1622, %.thread.outer1619 ], [ %.2666, %.thread.backedge ]
+  %.0650 = phi ptr [ %.0650.ph1626, %.thread.outer1619 ], [ %.1651, %.thread.backedge ]
+  %.0647 = phi ptr [ %.0647.ph1627, %.thread.outer1619 ], [ %.1648, %.thread.backedge ]
+  %.0645 = phi ptr [ %.0645.ph1628, %.thread.outer1619 ], [ %693, %.thread.backedge ]
+  %.0642 = phi ptr [ %.0642.ph1629, %.thread.outer1619 ], [ %.2644, %.thread.backedge ]
+  %.2617 = phi i32 [ %.2617.ph1630, %.thread.outer1619 ], [ %.16, %.thread.backedge ]
+  %.0606 = phi i64 [ %.0606.ph1631, %.thread.outer1619 ], [ %.1607, %.thread.backedge ]
+  %.1597 = phi ptr [ %.1597.ph1632, %.thread.outer1619 ], [ %.2598, %.thread.backedge ]
+  %.0589 = phi i32 [ %.0589.ph1633, %.thread.outer1619 ], [ %.2591, %.thread.backedge ]
+  %.0587 = phi i32 [ %.0587.ph1634, %.thread.outer1619 ], [ %.1588, %.thread.backedge ]
   %66 = getelementptr inbounds nuw i8, ptr %.0645, i64 29
   %67 = load i8, ptr %66, align 1, !tbaa !122
   %68 = and i8 %67, 14
@@ -1625,8 +1625,8 @@ define hidden range(i32 0, 96) i32 @zend_jit_trace_execute(ptr noundef %0, ptr n
 
 190:                                              ; preds = %163, %165, %188
   %.0685 = phi i8 [ %189, %188 ], [ -1, %165 ], [ -1, %163 ]
-  %191 = sext i32 %.2617 to i64
-  %192 = getelementptr inbounds %struct._zend_jit_trace_rec, ptr %2, i64 %191
+  %191 = zext nneg i32 %.2617 to i64
+  %192 = getelementptr inbounds nuw %struct._zend_jit_trace_rec, ptr %2, i64 %191
   store i8 0, ptr %192, align 8, !tbaa !16
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 1
   store i8 %.2693, ptr %193, align 1, !tbaa !16
@@ -1636,8 +1636,8 @@ define hidden range(i32 0, 96) i32 @zend_jit_trace_execute(ptr noundef %0, ptr n
   store i8 %.0685, ptr %195, align 1, !tbaa !16
   %196 = getelementptr inbounds nuw i8, ptr %192, i64 8
   store ptr %.0645, ptr %196, align 8, !tbaa !16
-  %197 = add nsw i32 %.2617, 1
-  %198 = sext i32 %197 to i64
+  %197 = add nuw nsw i32 %.2617, 1
+  %198 = zext nneg i32 %197 to i64
   %199 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 152), align 8, !tbaa !126
   %200 = add nsw i64 %199, -2
   %.not754 = icmp sgt i64 %200, %198
@@ -1648,12 +1648,12 @@ define hidden range(i32 0, 96) i32 @zend_jit_trace_execute(ptr noundef %0, ptr n
   br i1 %.not755, label %209, label %202
 
 202:                                              ; preds = %201
-  %203 = getelementptr inbounds %struct._zend_jit_trace_rec, ptr %2, i64 %198
+  %203 = getelementptr inbounds nuw %struct._zend_jit_trace_rec, ptr %2, i64 %198
   store i32 1, ptr %203, align 8, !tbaa !16
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
   store ptr %.1683, ptr %204, align 8, !tbaa !16
-  %205 = add nsw i32 %.2617, 2
-  %206 = sext i32 %205 to i64
+  %205 = add nuw nsw i32 %.2617, 2
+  %206 = zext nneg i32 %205 to i64
   %207 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 152), align 8, !tbaa !126
   %208 = add nsw i64 %207, -2
   %.not756 = icmp sgt i64 %208, %206
@@ -1665,13 +1665,13 @@ define hidden range(i32 0, 96) i32 @zend_jit_trace_execute(ptr noundef %0, ptr n
   br i1 %.not757, label %218, label %210
 
 210:                                              ; preds = %209
-  %211 = sext i32 %.4619 to i64
-  %212 = getelementptr inbounds %struct._zend_jit_trace_rec, ptr %2, i64 %211
+  %211 = zext nneg i32 %.4619 to i64
+  %212 = getelementptr inbounds nuw %struct._zend_jit_trace_rec, ptr %2, i64 %211
   store i32 2, ptr %212, align 8, !tbaa !16
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store ptr %.0680, ptr %213, align 8, !tbaa !16
-  %214 = add nsw i32 %.4619, 1
-  %215 = sext i32 %214 to i64
+  %214 = add nuw nsw i32 %.4619, 1
+  %215 = zext nneg i32 %214 to i64
   %216 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 152), align 8, !tbaa !126
   %217 = add nsw i64 %216, -2
   %.not758 = icmp sgt i64 %217, %215
@@ -1847,8 +1847,8 @@ zend_symtable_find.exit:                          ; preds = %280, %_zend_handle_
 
 288:                                              ; preds = %285, %284
   %.0600 = phi i8 [ %287, %285 ], [ 0, %284 ]
-  %289 = sext i32 %.5620 to i64
-  %290 = getelementptr inbounds %struct._zend_jit_trace_rec, ptr %2, i64 %289
+  %289 = zext nneg i32 %.5620 to i64
+  %290 = getelementptr inbounds nuw %struct._zend_jit_trace_rec, ptr %2, i64 %289
   store i8 3, ptr %290, align 8, !tbaa !16
   br label %thread-pre-split.sink.split
 
@@ -1959,25 +1959,25 @@ zend_symtable_find.exit:                          ; preds = %280, %_zend_handle_
   %354 = load i32, ptr %344, align 8, !tbaa !133
   %355 = zext i32 %354 to i64
   %356 = getelementptr inbounds nuw i8, ptr %353, i64 %355
-  %357 = sext i32 %.5620 to i64
-  %358 = getelementptr inbounds %struct._zend_jit_trace_rec, ptr %2, i64 %357
+  %357 = zext nneg i32 %.5620 to i64
+  %358 = getelementptr inbounds nuw %struct._zend_jit_trace_rec, ptr %2, i64 %357
   store i8 3, ptr %358, align 8, !tbaa !16
   %359 = getelementptr inbounds nuw i8, ptr %356, i64 8
   %360 = load i8, ptr %359, align 8, !tbaa !16
   br label %thread-pre-split.sink.split
 
 thread-pre-split.sink.split:                      ; preds = %352, %288
-  %.sink1457 = phi ptr [ %290, %288 ], [ %358, %352 ]
+  %.sink1487 = phi ptr [ %290, %288 ], [ %358, %352 ]
   %.0600.sink = phi i8 [ %.0600, %288 ], [ %360, %352 ]
-  %361 = getelementptr inbounds nuw i8, ptr %.sink1457, i64 1
+  %361 = getelementptr inbounds nuw i8, ptr %.sink1487, i64 1
   store i8 %.0600.sink, ptr %361, align 1, !tbaa !16
-  %362 = getelementptr inbounds nuw i8, ptr %.sink1457, i64 2
+  %362 = getelementptr inbounds nuw i8, ptr %.sink1487, i64 2
   store i8 0, ptr %362, align 1, !tbaa !16
-  %363 = getelementptr inbounds nuw i8, ptr %.sink1457, i64 3
+  %363 = getelementptr inbounds nuw i8, ptr %.sink1487, i64 3
   store i8 0, ptr %363, align 1, !tbaa !16
-  %364 = getelementptr inbounds nuw i8, ptr %.sink1457, i64 8
+  %364 = getelementptr inbounds nuw i8, ptr %.sink1487, i64 8
   store ptr null, ptr %364, align 8, !tbaa !16
-  %365 = add nsw i32 %.5620, 1
+  %365 = add nuw nsw i32 %.5620, 1
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %thread-pre-split.sink.split, %236, %230, %323, %315, %312, %310, %233, %345, %348, %341, %341, %333, %337
@@ -2033,13 +2033,13 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
 
 388:                                              ; preds = %379, %383, %386
   %.0585 = phi ptr [ %376, %386 ], [ null, %383 ], [ null, %379 ]
-  %389 = sext i32 %.8623 to i64
-  %390 = getelementptr inbounds %struct._zend_jit_trace_rec, ptr %2, i64 %389
+  %389 = zext nneg i32 %.8623 to i64
+  %390 = getelementptr inbounds nuw %struct._zend_jit_trace_rec, ptr %2, i64 %389
   store i32 5, ptr %390, align 8, !tbaa !16
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 8
   store ptr %.0585, ptr %391, align 8, !tbaa !16
-  %392 = add nsw i32 %.8623, 1
-  %393 = sext i32 %392 to i64
+  %392 = add nuw nsw i32 %.8623, 1
+  %393 = zext nneg i32 %392 to i64
   %394 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 152), align 8, !tbaa !126
   %395 = add nsw i64 %394, -2
   %.not774 = icmp sgt i64 %395, %393
@@ -2134,13 +2134,13 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   %444 = load ptr, ptr %443, align 8, !tbaa !135
   %.not800 = icmp eq ptr %444, null
   %445 = select i1 %.not800, i32 6, i32 262
-  %446 = sext i32 %.12627 to i64
-  %447 = getelementptr inbounds %struct._zend_jit_trace_rec, ptr %2, i64 %446
+  %446 = zext nneg i32 %.12627 to i64
+  %447 = getelementptr inbounds nuw %struct._zend_jit_trace_rec, ptr %2, i64 %446
   store i32 %445, ptr %447, align 8, !tbaa !16
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 8
   store ptr %.3599, ptr %448, align 8, !tbaa !16
-  %449 = add nsw i32 %.12627, 1
-  %450 = sext i32 %449 to i64
+  %449 = add nuw nsw i32 %.12627, 1
+  %450 = zext nneg i32 %449 to i64
   %451 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 152), align 8, !tbaa !126
   %452 = add nsw i64 %451, -2
   %.not801 = icmp sgt i64 %452, %450
@@ -2260,13 +2260,13 @@ zend_jit_trace_has_recursive_ret.exit:            ; preds = %499
   br i1 %507, label %.thread969, label %508
 
 508:                                              ; preds = %zend_jit_trace_has_recursive_ret.exit
-  %509 = sext i32 %.12627 to i64
-  %510 = getelementptr inbounds %struct._zend_jit_trace_rec, ptr %2, i64 %509
+  %509 = zext nneg i32 %.12627 to i64
+  %510 = getelementptr inbounds nuw %struct._zend_jit_trace_rec, ptr %2, i64 %509
   store i32 7, ptr %510, align 8, !tbaa !16
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 8
   store ptr %.3599, ptr %511, align 8, !tbaa !16
-  %512 = add nsw i32 %.12627, 1
-  %513 = sext i32 %512 to i64
+  %512 = add nuw nsw i32 %.12627, 1
+  %513 = zext nneg i32 %512 to i64
   %514 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 152), align 8, !tbaa !126
   %515 = add nsw i64 %514, -2
   %.not793 = icmp sgt i64 %515, %513
@@ -2322,7 +2322,7 @@ zend_jit_trace_recursive_ret_count.exit:          ; preds = %.lr.ph.i870, %516
   br i1 %.not796, label %601, label %536
 
 536:                                              ; preds = %532
-  %537 = call fastcc range(i32 -2147483646, -2147483648) i32 @zend_jit_trace_record_fake_init_call_ex(ptr noundef nonnull %477, ptr noundef nonnull %2, i32 noundef range(i32 -2147483647, -2147483648) %512, i32 noundef 0, i32 noundef 0)
+  %537 = call fastcc i32 @zend_jit_trace_record_fake_init_call_ex(ptr noundef nonnull %477, ptr noundef nonnull %2, i32 noundef range(i32 -2147483647, -2147483648) %512, i32 noundef 0, i32 noundef 0)
   %538 = icmp slt i32 %537, 0
   br i1 %538, label %.critedge, label %601
 
@@ -2412,13 +2412,13 @@ zend_jit_trace_bad_stop_event.exit883:            ; preds = %571
   br i1 %or.cond837, label %579, label %.critedge
 
 579:                                              ; preds = %577
-  %580 = sext i32 %.12627 to i64
-  %581 = getelementptr inbounds %struct._zend_jit_trace_rec, ptr %2, i64 %580
+  %580 = zext nneg i32 %.12627 to i64
+  %581 = getelementptr inbounds nuw %struct._zend_jit_trace_rec, ptr %2, i64 %580
   store i32 7, ptr %581, align 8, !tbaa !16
   %582 = getelementptr inbounds nuw i8, ptr %581, i64 8
   store ptr %.3599, ptr %582, align 8, !tbaa !16
-  %583 = add nsw i32 %.12627, 1
-  %584 = sext i32 %583 to i64
+  %583 = add nuw nsw i32 %.12627, 1
+  %584 = zext nneg i32 %583 to i64
   %585 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 152), align 8, !tbaa !126
   %586 = add nsw i64 %585, -2
   %.not791 = icmp sgt i64 %586, %584
@@ -2430,21 +2430,21 @@ zend_jit_trace_bad_stop_event.exit883:            ; preds = %571
   br i1 %.not792, label %601, label %589
 
 589:                                              ; preds = %587
-  %590 = call fastcc range(i32 -2147483646, -2147483648) i32 @zend_jit_trace_record_fake_init_call_ex(ptr noundef nonnull %477, ptr noundef nonnull %2, i32 noundef range(i32 -2147483647, -2147483648) %583, i32 noundef 0, i32 noundef 0)
+  %590 = call fastcc i32 @zend_jit_trace_record_fake_init_call_ex(ptr noundef nonnull %477, ptr noundef nonnull %2, i32 noundef range(i32 -2147483647, -2147483648) %583, i32 noundef 0, i32 noundef 0)
   %591 = icmp slt i32 %590, 0
   br i1 %591, label %.critedge, label %601
 
 592:                                              ; preds = %475
   %593 = add nsw i32 %.0587, -1
-  %.not780 = icmp sgt i32 %.0587, %.0655.ph1595
+  %.not780 = icmp sgt i32 %.0587, %.0655.ph1625
   %spec.select841 = select i1 %.not780, ptr %.0650, ptr null
-  %594 = sext i32 %.12627 to i64
-  %595 = getelementptr inbounds %struct._zend_jit_trace_rec, ptr %2, i64 %594
+  %594 = zext nneg i32 %.12627 to i64
+  %595 = getelementptr inbounds nuw %struct._zend_jit_trace_rec, ptr %2, i64 %594
   store i32 7, ptr %595, align 8, !tbaa !16
   %596 = getelementptr inbounds nuw i8, ptr %595, i64 8
   store ptr %.3599, ptr %596, align 8, !tbaa !16
-  %597 = add nsw i32 %.12627, 1
-  %598 = sext i32 %597 to i64
+  %597 = add nuw nsw i32 %.12627, 1
+  %598 = zext nneg i32 %597 to i64
   %599 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 152), align 8, !tbaa !126
   %600 = add nsw i64 %599, -2
   %.not781 = icmp sgt i64 %600, %598
@@ -2646,13 +2646,13 @@ zend_jit_may_be_polymorphic_call.exit.thread943:  ; preds = %651, %651, %651, %6
   %.1580949 = phi ptr [ null, %677 ], [ %.0579940, %669 ], [ %.0579940, %zend_jit_may_be_polymorphic_call.exit.thread943 ]
   %684 = phi ptr [ %.ph, %677 ], [ %641, %669 ], [ %641, %zend_jit_may_be_polymorphic_call.exit.thread943 ]
   %.0578 = phi i32 [ %682, %677 ], [ 4, %669 ], [ 4, %zend_jit_may_be_polymorphic_call.exit.thread943 ]
-  %685 = sext i32 %.13628 to i64
-  %686 = getelementptr inbounds %struct._zend_jit_trace_rec, ptr %2, i64 %685
+  %685 = zext nneg i32 %.13628 to i64
+  %686 = getelementptr inbounds nuw %struct._zend_jit_trace_rec, ptr %2, i64 %685
   store i32 %.0578, ptr %686, align 8, !tbaa !16
   %687 = getelementptr inbounds nuw i8, ptr %686, i64 8
   store ptr %.1580949, ptr %687, align 8, !tbaa !16
-  %688 = add nsw i32 %.13628, 1
-  %689 = sext i32 %688 to i64
+  %688 = add nuw nsw i32 %.13628, 1
+  %689 = zext nneg i32 %688 to i64
   %690 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 152), align 8, !tbaa !126
   %691 = add nsw i64 %690, -2
   %.not816 = icmp sgt i64 %691, %689
@@ -2747,14 +2747,14 @@ zend_jit_trace_bad_stop_event.exit889:            ; preds = %719
   %.0672.ph = phi i32 [ -1, %.thread.preheader ], [ %.2674, %727 ]
   %.0668.ph = phi i32 [ -1, %.thread.preheader ], [ %.2670, %727 ]
   %.0664.ph = phi i32 [ 0, %.thread.preheader ], [ %.2666, %727 ]
-  %.0661.ph = phi i32 [ 0, %.thread.preheader ], [ %.0661.ph1593, %727 ]
-  %.0658.ph = phi i32 [ -1, %.thread.preheader ], [ %.0658.ph1594, %727 ]
-  %.0655.ph = phi i32 [ -1, %.thread.preheader ], [ %.0655.ph1595, %727 ]
+  %.0661.ph = phi i32 [ 0, %.thread.preheader ], [ %.0661.ph1623, %727 ]
+  %.0658.ph = phi i32 [ -1, %.thread.preheader ], [ %.0658.ph1624, %727 ]
+  %.0655.ph = phi i32 [ -1, %.thread.preheader ], [ %.0655.ph1625, %727 ]
   %.0650.ph = phi ptr [ null, %.thread.preheader ], [ %.1651, %727 ]
   %.0647.ph = phi ptr [ %0, %.thread.preheader ], [ %.1648, %727 ]
   %.0645.ph = phi ptr [ %9, %.thread.preheader ], [ %693, %727 ]
   %.0642.ph = phi ptr [ %11, %.thread.preheader ], [ %.2644, %727 ]
-  %.2617.ph1588 = phi i32 [ %.2617.ph, %.thread.preheader ], [ %.16, %727 ]
+  %.2617.ph1618 = phi i32 [ %.2617.ph, %.thread.preheader ], [ %.16, %727 ]
   %.0606.ph = phi i64 [ %20, %.thread.preheader ], [ %.1607, %727 ]
   %.1597.ph = phi ptr [ %.0596, %.thread.preheader ], [ %.2598, %727 ]
   %.0589.ph = phi i32 [ 0, %.thread.preheader ], [ %.2591, %727 ]
@@ -2770,7 +2770,7 @@ zend_jit_trace_bad_stop_event.exit889:            ; preds = %719
   %.not790 = icmp ne i32 %733, 0
   %.not823 = icmp eq i8 %.0576.ph, 8
   %.not823.not = xor i1 %.not823, true
-  br label %.thread.outer1589
+  br label %.thread.outer1619
 
 734:                                              ; preds = %701
   %735 = and i32 %702, 32
@@ -2857,7 +2857,7 @@ zend_jit_trace_bad_stop_event.exit901:            ; preds = %762
 
 768:                                              ; preds = %zend_jit_trace_bad_stop_event.exit895, %zend_jit_trace_bad_stop_event.exit895, %742, %zend_jit_trace_bad_stop_event.exit901
   %769 = icmp eq ptr %693, %.1651
-  %770 = icmp eq i32 %.1588, %.0655.ph1595
+  %770 = icmp eq i32 %.1588, %.0655.ph1625
   %or.cond854 = select i1 %769, i1 %770, i1 false
   br i1 %or.cond854, label %771, label %779
 
@@ -2869,9 +2869,9 @@ zend_jit_trace_bad_stop_event.exit901:            ; preds = %762
   store i32 0, ptr %34, align 8, !tbaa !16
   store ptr %693, ptr %35, align 8, !tbaa !16
   %772 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %773 = sext i32 %.0658.ph1594 to i64
+  %773 = sext i32 %.0658.ph1624 to i64
   %774 = getelementptr inbounds %struct._zend_jit_trace_rec, ptr %2, i64 %773
-  %775 = sub nsw i32 %.16, %.0658.ph1594
+  %775 = sub nsw i32 %.16, %.0658.ph1624
   %776 = sext i32 %775 to i64
   %777 = shl nsw i64 %776, 4
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %772, ptr nonnull align 8 %774, i64 %777, i1 false)
@@ -2879,31 +2879,31 @@ zend_jit_trace_bad_stop_event.exit901:            ; preds = %762
   br label %.critedge
 
 779:                                              ; preds = %768
-  %780 = sext i32 %.0661.ph1593 to i64
+  %780 = sext i32 %.0661.ph1623 to i64
   %781 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 120), align 8, !tbaa !142
   %782 = icmp sgt i64 %781, %780
   br i1 %782, label %783, label %.thread969
 
 783:                                              ; preds = %779
-  %784 = add nsw i32 %.0661.ph1593, 1
-  br label %.thread.outer1589
+  %784 = add nsw i32 %.0661.ph1623, 1
+  br label %.thread.outer1619
 
-.thread.outer1589:                                ; preds = %.thread.outer, %783
-  %.0672.ph1590 = phi i32 [ %.0672.ph, %.thread.outer ], [ %.2674, %783 ]
-  %.0668.ph1591 = phi i32 [ %.0668.ph, %.thread.outer ], [ %.2670, %783 ]
-  %.0664.ph1592 = phi i32 [ %.0664.ph, %.thread.outer ], [ %.2666, %783 ]
-  %.0661.ph1593 = phi i32 [ %.0661.ph, %.thread.outer ], [ %784, %783 ]
-  %.0658.ph1594 = phi i32 [ %.0658.ph, %.thread.outer ], [ %.16, %783 ]
-  %.0655.ph1595 = phi i32 [ %.0655.ph, %.thread.outer ], [ %.1588, %783 ]
-  %.0650.ph1596 = phi ptr [ %.0650.ph, %.thread.outer ], [ %693, %783 ]
-  %.0647.ph1597 = phi ptr [ %.0647.ph, %.thread.outer ], [ %.1648, %783 ]
-  %.0645.ph1598 = phi ptr [ %.0645.ph, %.thread.outer ], [ %693, %783 ]
-  %.0642.ph1599 = phi ptr [ %.0642.ph, %.thread.outer ], [ %.2644, %783 ]
-  %.2617.ph1600 = phi i32 [ %.2617.ph1588, %.thread.outer ], [ %.16, %783 ]
-  %.0606.ph1601 = phi i64 [ %.0606.ph, %.thread.outer ], [ %.1607, %783 ]
-  %.1597.ph1602 = phi ptr [ %.1597.ph, %.thread.outer ], [ %.2598, %783 ]
-  %.0589.ph1603 = phi i32 [ %.0589.ph, %.thread.outer ], [ %.2591, %783 ]
-  %.0587.ph1604 = phi i32 [ %.0587.ph, %.thread.outer ], [ %.1588, %783 ]
+.thread.outer1619:                                ; preds = %.thread.outer, %783
+  %.0672.ph1620 = phi i32 [ %.0672.ph, %.thread.outer ], [ %.2674, %783 ]
+  %.0668.ph1621 = phi i32 [ %.0668.ph, %.thread.outer ], [ %.2670, %783 ]
+  %.0664.ph1622 = phi i32 [ %.0664.ph, %.thread.outer ], [ %.2666, %783 ]
+  %.0661.ph1623 = phi i32 [ %.0661.ph, %.thread.outer ], [ %784, %783 ]
+  %.0658.ph1624 = phi i32 [ %.0658.ph, %.thread.outer ], [ %.16, %783 ]
+  %.0655.ph1625 = phi i32 [ %.0655.ph, %.thread.outer ], [ %.1588, %783 ]
+  %.0650.ph1626 = phi ptr [ %.0650.ph, %.thread.outer ], [ %693, %783 ]
+  %.0647.ph1627 = phi ptr [ %.0647.ph, %.thread.outer ], [ %.1648, %783 ]
+  %.0645.ph1628 = phi ptr [ %.0645.ph, %.thread.outer ], [ %693, %783 ]
+  %.0642.ph1629 = phi ptr [ %.0642.ph, %.thread.outer ], [ %.2644, %783 ]
+  %.2617.ph1630 = phi i32 [ %.2617.ph1618, %.thread.outer ], [ %.16, %783 ]
+  %.0606.ph1631 = phi i64 [ %.0606.ph, %.thread.outer ], [ %.1607, %783 ]
+  %.1597.ph1632 = phi ptr [ %.1597.ph, %.thread.outer ], [ %.2598, %783 ]
+  %.0589.ph1633 = phi i32 [ %.0589.ph, %.thread.outer ], [ %.2591, %783 ]
+  %.0587.ph1634 = phi i32 [ %.0587.ph, %.thread.outer ], [ %.1588, %783 ]
   br label %.thread
 
 785:                                              ; preds = %736
@@ -2915,13 +2915,13 @@ zend_jit_trace_bad_stop_event.exit901:            ; preds = %762
   br label %.thread
 
 787:                                              ; preds = %785
-  %788 = sext i32 %.16 to i64
-  %789 = getelementptr inbounds %struct._zend_jit_trace_rec, ptr %2, i64 %788
+  %788 = zext nneg i32 %.16 to i64
+  %789 = getelementptr inbounds nuw %struct._zend_jit_trace_rec, ptr %2, i64 %788
   store i32 0, ptr %789, align 8, !tbaa !16
   %790 = getelementptr inbounds nuw i8, ptr %789, i64 8
   store ptr %693, ptr %790, align 8, !tbaa !16
-  %791 = add nsw i32 %.16, 1
-  %792 = sext i32 %791 to i64
+  %791 = add nuw nsw i32 %.16, 1
+  %792 = zext nneg i32 %791 to i64
   %793 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 152), align 8, !tbaa !126
   %794 = add nsw i64 %793, -2
   %.not822 = icmp sgt i64 %794, %792
@@ -2984,7 +2984,7 @@ zend_jit_trace_bad_stop_event.exit907:            ; preds = %810
   %.20.ph = phi i32 [ %.0676.ph, %zend_jit_trace_bad_stop_event.exit907 ], [ %.16, %706 ], [ %.16, %zend_jit_trace_bad_stop_event.exit889 ], [ %.16, %725 ]
   %.5594.ph = phi i32 [ %.1590983, %zend_jit_trace_bad_stop_event.exit907 ], [ %.2591, %706 ], [ %.2591, %zend_jit_trace_bad_stop_event.exit889 ], [ %.2591, %725 ]
   %.0581.ph = phi ptr [ %.0678.ph, %zend_jit_trace_bad_stop_event.exit907 ], [ %693, %706 ], [ %693, %zend_jit_trace_bad_stop_event.exit889 ], [ %693, %725 ]
-  %817 = sext i32 %.20.ph to i64
+  %817 = zext nneg i32 %.20.ph to i64
   %818 = getelementptr %struct._zend_jit_trace_rec, ptr %2, i64 %817
   %819 = getelementptr i8, ptr %818, i64 -16
   %820 = load i8, ptr %819, align 8, !tbaa !16
@@ -3072,7 +3072,7 @@ declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr
 declare i32 @zend_jit_trace_hot_root(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2147483646, -2147483648) i32 @zend_jit_trace_record_fake_init_call_ex(ptr noundef nonnull captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 -2147483647, -2147483648) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 {
+define internal fastcc i32 @zend_jit_trace_record_fake_init_call_ex(ptr noundef nonnull captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 -2147483647, -2147483648) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !23
   %.not = icmp eq ptr %7, null

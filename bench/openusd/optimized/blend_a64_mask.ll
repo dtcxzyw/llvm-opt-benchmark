@@ -678,8 +678,8 @@ define hidden void @aom_blend_a64_mask_c(ptr noundef writeonly captures(none) %0
 .preheader130:                                    ; preds = %12
   %15 = icmp sgt i32 %9, 0
   %16 = icmp sgt i32 %8, 0
-  %or.cond181 = and i1 %15, %16
-  br i1 %or.cond181, label %.preheader.us.preheader, label %.loopexit
+  %or.cond189 = and i1 %15, %16
+  br i1 %or.cond189, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %.preheader130
   %wide.trip.count175 = zext nneg i32 %8 to i64
@@ -740,8 +740,8 @@ define hidden void @aom_blend_a64_mask_c(ptr noundef writeonly captures(none) %0
 .preheader132:                                    ; preds = %49
   %52 = icmp sgt i32 %9, 0
   %53 = icmp sgt i32 %8, 0
-  %or.cond182 = and i1 %52, %53
-  br i1 %or.cond182, label %.preheader131.us.preheader, label %.loopexit
+  %or.cond190 = and i1 %52, %53
+  br i1 %or.cond190, label %.preheader131.us.preheader, label %.loopexit
 
 .preheader131.us.preheader:                       ; preds = %.preheader132
   %wide.trip.count169 = zext nneg i32 %8 to i64
@@ -824,11 +824,11 @@ define hidden void @aom_blend_a64_mask_c(ptr noundef writeonly captures(none) %0
   %or.cond5 = and i1 %50, %13
   %114 = icmp sgt i32 %9, 0
   %115 = icmp sgt i32 %8, 0
-  %or.cond184 = and i1 %114, %115
+  %or.cond192 = and i1 %114, %115
   br i1 %or.cond5, label %.preheader135, label %.preheader138
 
 .preheader138:                                    ; preds = %113
-  br i1 %or.cond184, label %.preheader137.us.preheader, label %.loopexit
+  br i1 %or.cond192, label %.preheader137.us.preheader, label %.loopexit
 
 .preheader137.us.preheader:                       ; preds = %.preheader138
   %wide.trip.count = zext nneg i32 %8 to i64
@@ -892,7 +892,7 @@ define hidden void @aom_blend_a64_mask_c(ptr noundef writeonly captures(none) %0
   br i1 %exitcond159.not, label %.loopexit, label %.preheader137.us, !llvm.loop !26
 
 .preheader135:                                    ; preds = %113
-  br i1 %or.cond184, label %.preheader134.us.preheader, label %.loopexit
+  br i1 %or.cond192, label %.preheader134.us.preheader, label %.loopexit
 
 .preheader134.us.preheader:                       ; preds = %.preheader135
   %wide.trip.count163 = zext nneg i32 %8 to i64
@@ -978,8 +978,8 @@ define hidden void @aom_highbd_blend_a64_mask_c(ptr noundef %0, i32 noundef %1, 
 .preheader133:                                    ; preds = %13
   %25 = icmp sgt i32 %9, 0
   %26 = icmp sgt i32 %8, 0
-  %or.cond184 = and i1 %25, %26
-  br i1 %or.cond184, label %.preheader.us.preheader, label %.loopexit
+  %or.cond192 = and i1 %25, %26
+  br i1 %or.cond192, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %.preheader133
   %wide.trip.count178 = zext nneg i32 %8 to i64
@@ -1040,8 +1040,8 @@ define hidden void @aom_highbd_blend_a64_mask_c(ptr noundef %0, i32 noundef %1, 
 .preheader135:                                    ; preds = %59
   %62 = icmp sgt i32 %9, 0
   %63 = icmp sgt i32 %8, 0
-  %or.cond185 = and i1 %62, %63
-  br i1 %or.cond185, label %.preheader134.us.preheader, label %.loopexit
+  %or.cond193 = and i1 %62, %63
+  br i1 %or.cond193, label %.preheader134.us.preheader, label %.loopexit
 
 .preheader134.us.preheader:                       ; preds = %.preheader135
   %wide.trip.count172 = zext nneg i32 %8 to i64
@@ -1124,11 +1124,11 @@ define hidden void @aom_highbd_blend_a64_mask_c(ptr noundef %0, i32 noundef %1, 
   %or.cond5 = and i1 %60, %23
   %124 = icmp sgt i32 %9, 0
   %125 = icmp sgt i32 %8, 0
-  %or.cond187 = and i1 %124, %125
+  %or.cond195 = and i1 %124, %125
   br i1 %or.cond5, label %.preheader138, label %.preheader141
 
 .preheader141:                                    ; preds = %123
-  br i1 %or.cond187, label %.preheader140.us.preheader, label %.loopexit
+  br i1 %or.cond195, label %.preheader140.us.preheader, label %.loopexit
 
 .preheader140.us.preheader:                       ; preds = %.preheader141
   %wide.trip.count = zext nneg i32 %8 to i64
@@ -1192,7 +1192,7 @@ define hidden void @aom_highbd_blend_a64_mask_c(ptr noundef %0, i32 noundef %1, 
   br i1 %exitcond162.not, label %.loopexit, label %.preheader140.us, !llvm.loop !34
 
 .preheader138:                                    ; preds = %123
-  br i1 %or.cond187, label %.preheader137.us.preheader, label %.loopexit
+  br i1 %or.cond195, label %.preheader137.us.preheader, label %.loopexit
 
 .preheader137.us.preheader:                       ; preds = %.preheader138
   %wide.trip.count166 = zext nneg i32 %8 to i64

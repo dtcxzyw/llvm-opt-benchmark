@@ -66,23 +66,23 @@ define void @dorg2r_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .lr.ph106:                                        ; preds = %30
   %.not96100 = icmp eq i32 %16, 0
   %31 = add i32 %12, 1
-  %narrow138 = add nuw nsw i32 %21, 1
+  %narrow140 = add nuw nsw i32 %21, 1
   br i1 %.not96100, label %.lr.ph106.split.us, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph106
   %32 = shl nsw i64 %13, 3
   %scevgep = getelementptr i8, ptr %3, i64 %32
-  %33 = mul i32 %12, %narrow138
+  %33 = mul i32 %12, %narrow140
   %34 = add i32 %33, 1
   %35 = zext nneg i32 %16 to i64
   %36 = shl nuw nsw i64 %35, 3
-  %narrow137 = add nuw nsw i32 %21, 1
-  %37 = zext nneg i32 %narrow137 to i64
+  %narrow139 = add nuw nsw i32 %21, 1
+  %37 = zext nneg i32 %narrow139 to i64
   %38 = sub nsw i32 %19, %21
   br label %.lr.ph
 
 .lr.ph106.split.us:                               ; preds = %.lr.ph106
-  %39 = mul i32 %31, %narrow138
+  %39 = mul i32 %31, %narrow140
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds double, ptr %14, i64 %40
   store double 1.000000e+00, ptr %41, align 8, !tbaa !7
@@ -115,12 +115,12 @@ define void @dorg2r_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %53 = shl nsw i64 %52, 3
   %scevgep114 = getelementptr i8, ptr %scevgep, i64 %53
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep114, i8 0, i64 %36, i1 false), !tbaa !7
-  %54 = trunc i64 %indvars.iv to i32
+  %54 = trunc nsw i64 %indvars.iv to i32
   %55 = mul i32 %31, %54
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds double, ptr %14, i64 %56
   store double 1.000000e+00, ptr %57, align 8, !tbaa !7
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvar.next = add i32 %indvar, 1
   %exitcond.not = icmp eq i32 %indvar.next, %38
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !9

@@ -2454,9 +2454,9 @@ _ZL7bitDiffii.exit:                               ; preds = %.preheader.i, %106,
   br label %112
 
 112:                                              ; preds = %111, %_ZL7bitDiffii.exit
-  %.sink143 = phi i32 [ 1, %111 ], [ %110, %_ZL7bitDiffii.exit ]
+  %.sink149 = phi i32 [ 1, %111 ], [ %110, %_ZL7bitDiffii.exit ]
   %113 = load i32, ptr %7, align 4, !tbaa !6
-  %114 = add nsw i32 %113, %.sink143
+  %114 = add nsw i32 %113, %.sink149
   %115 = icmp slt i32 %114, 0
   br i1 %115, label %119, label %116
 
@@ -2724,9 +2724,9 @@ _ZL7bitDiffii.exit:                               ; preds = %.preheader.i, %100,
   br label %106
 
 106:                                              ; preds = %105, %_ZL7bitDiffii.exit
-  %.sink132 = phi i32 [ 1, %105 ], [ %104, %_ZL7bitDiffii.exit ]
+  %.sink138 = phi i32 [ 1, %105 ], [ %104, %_ZL7bitDiffii.exit ]
   %107 = load i32, ptr %7, align 4, !tbaa !6
-  %108 = add nsw i32 %107, %.sink132
+  %108 = add nsw i32 %107, %.sink138
   %109 = icmp slt i32 %108, 0
   br i1 %109, label %113, label %110
 

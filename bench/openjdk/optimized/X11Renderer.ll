@@ -611,12 +611,12 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
   br i1 %72, label %._crit_edge.thread, label %77
 
 ._crit_edge.thread:                               ; preds = %.thread124, %._crit_edge
-  %.098.lcssa140 = phi i32 [ %.1, %._crit_edge ], [ %50, %.thread124 ]
-  %.099.lcssa139 = phi i32 [ %.1100, %._crit_edge ], [ %47, %.thread124 ]
-  %73 = trunc nsw i32 %.099.lcssa139 to i16
+  %.098.lcssa143 = phi i32 [ %.1, %._crit_edge ], [ %50, %.thread124 ]
+  %.099.lcssa142 = phi i32 [ %.1100, %._crit_edge ], [ %47, %.thread124 ]
+  %73 = trunc nsw i32 %.099.lcssa142 to i16
   %74 = getelementptr inbounds nuw i8, ptr %.097127, i64 4
   store i16 %73, ptr %74, align 2
-  %75 = trunc nsw i32 %.098.lcssa140 to i16
+  %75 = trunc nsw i32 %.098.lcssa143 to i16
   %76 = getelementptr inbounds nuw i8, ptr %.097127, i64 6
   store i16 %75, ptr %76, align 2
   br label %83
@@ -1175,8 +1175,8 @@ Java_sun_java2d_x11_X11Renderer_XFillRect.exit:   ; preds = %15
 
 awt_drawArc.exit:                                 ; preds = %29, %72
   %77 = trunc nsw i64 %54 to i32
-  %.tr184 = sub nsw i32 %narrow, %77
-  %78 = shl nsw i32 %.tr184, 1
+  %.tr191 = sub nsw i32 %narrow, %77
+  %78 = shl nsw i32 %.tr191, 1
   %79 = sub nsw i32 %narrow, %78
   %80 = or i32 %70, %78
   %or.cond.not.i173 = icmp sgt i32 %80, -1
@@ -1191,8 +1191,8 @@ awt_drawArc.exit:                                 ; preds = %29, %72
   br label %awt_drawArc.exit174
 
 awt_drawArc.exit174:                              ; preds = %awt_drawArc.exit, %81
-  %.tr185 = trunc nsw i64 %64 to i32
-  %86 = shl nsw i32 %.tr185, 1
+  %.tr192 = trunc nsw i64 %64 to i32
+  %86 = shl nsw i32 %.tr192, 1
   %87 = sub nsw i32 %narrow179, %86
   %88 = or i32 %68, %86
   %or.cond.not.i175 = icmp sgt i32 %88, -1

@@ -1048,7 +1048,7 @@ gv_isspace.exit769.thread:                        ; preds = %gv_isspace.exit769,
   %424 = add i64 %422, %423
   store i64 %424, ptr %5, align 16, !tbaa !3
   %425 = icmp sgt i32 %.13607, 1
-  br i1 %425, label %.lr.ph1423, label %.critedge49
+  br i1 %425, label %.lr.ph1454, label %.critedge49
 
 426:                                              ; preds = %416
   %427 = icmp samesign ult i32 %.6622, 8
@@ -1091,7 +1091,7 @@ gv_isspace.exit769.thread:                        ; preds = %gv_isspace.exit769,
   %444 = add i64 %442, %443
   store i64 %444, ptr %5, align 16, !tbaa !3
   %445 = icmp sgt i32 %.10604, 1
-  br i1 %445, label %.lr.ph1435, label %.critedge49
+  br i1 %445, label %.lr.ph1466, label %.critedge49
 
 446:                                              ; preds = %456
   %447 = load i64, ptr %5, align 16, !tbaa !3
@@ -1099,20 +1099,20 @@ gv_isspace.exit769.thread:                        ; preds = %gv_isspace.exit769,
   %449 = sext i8 %459 to i64
   %450 = add i64 %448, %449
   store i64 %450, ptr %5, align 16, !tbaa !3
-  %451 = icmp sgt i32 %.in1447, 2
-  br i1 %451, label %.lr.ph1435, label %.critedge49, !llvm.loop !39
+  %451 = icmp sgt i32 %.in1478, 2
+  br i1 %451, label %.lr.ph1466, label %.critedge49, !llvm.loop !39
 
-.lr.ph1435:                                       ; preds = %439, %446
-  %.in1447 = phi i32 [ %452, %446 ], [ %.10604, %439 ]
-  %.291434 = phi i32 [ %.30, %446 ], [ %.22, %439 ]
-  %452 = add nsw i32 %.in1447, -1
+.lr.ph1466:                                       ; preds = %439, %446
+  %.in1478 = phi i32 [ %452, %446 ], [ %.10604, %439 ]
+  %.291465 = phi i32 [ %.30, %446 ], [ %.22, %439 ]
+  %452 = add nsw i32 %.in1478, -1
   %453 = call i32 @getc(ptr noundef %0)
   %454 = icmp sgt i32 %453, -1
   %455 = zext i1 %454 to i32
-  %.30 = add nsw i32 %.291434, %455
+  %.30 = add nsw i32 %.291465, %455
   br i1 %454, label %456, label %.critedge49
 
-456:                                              ; preds = %.lr.ph1435
+456:                                              ; preds = %.lr.ph1466
   %457 = zext nneg i32 %453 to i64
   %458 = getelementptr inbounds nuw i8, ptr %.0554, i64 %457
   %459 = load i8, ptr %458, align 1, !tbaa !3
@@ -1127,36 +1127,36 @@ gv_isspace.exit769.thread:                        ; preds = %gv_isspace.exit769,
   %466 = add i64 %464, %465
   store i64 %466, ptr %5, align 16, !tbaa !3
   %467 = icmp sgt i32 %.in, 2
-  br i1 %467, label %.lr.ph1423, label %.critedge49, !llvm.loop !40
+  br i1 %467, label %.lr.ph1454, label %.critedge49, !llvm.loop !40
 
-.lr.ph1423:                                       ; preds = %.preheader839, %462
+.lr.ph1454:                                       ; preds = %.preheader839, %462
   %.in = phi i32 [ %468, %462 ], [ %.13607, %.preheader839 ]
-  %.311422 = phi i32 [ %.32, %462 ], [ %.28, %.preheader839 ]
+  %.311453 = phi i32 [ %.32, %462 ], [ %.28, %.preheader839 ]
   %468 = add nsw i32 %.in, -1
   %469 = call i32 @getc(ptr noundef %0)
   %470 = icmp sgt i32 %469, -1
   %471 = zext i1 %470 to i32
-  %.32 = add nsw i32 %.311422, %471
+  %.32 = add nsw i32 %.311453, %471
   br i1 %470, label %472, label %.critedge49
 
-472:                                              ; preds = %.lr.ph1423
+472:                                              ; preds = %.lr.ph1454
   %473 = zext nneg i32 %469 to i64
   %474 = getelementptr inbounds nuw i8, ptr %.1555, i64 %473
   %475 = load i8, ptr %474, align 1, !tbaa !3
   %476 = sext i8 %475 to i32
   %477 = icmp sgt i32 %.6622, %476
-  br i1 %477, label %462, label %..critedge49.loopexit1296_crit_edge, !llvm.loop !40
+  br i1 %477, label %462, label %..critedge49.loopexit1327_crit_edge, !llvm.loop !40
 
 ..critedge49.loopexit_crit_edge:                  ; preds = %456
   br label %.critedge49, !llvm.loop !39
 
-..critedge49.loopexit1296_crit_edge:              ; preds = %472
+..critedge49.loopexit1327_crit_edge:              ; preds = %472
   br label %.critedge49, !llvm.loop !40
 
-.critedge49:                                      ; preds = %.preheader843, %462, %.lr.ph1423, %446, %.lr.ph1435, %.preheader839, %..critedge49.loopexit1296_crit_edge, %439, %..critedge49.loopexit_crit_edge, %390, %394, %398, %384, %.critedge41, %360, %.thread800
-  %.13637 = phi i32 [ %.11635804, %.thread800 ], [ %.11635, %360 ], [ 35, %384 ], [ %395, %398 ], [ %395, %394 ], [ 35, %390 ], [ %379, %.critedge41 ], [ %453, %..critedge49.loopexit_crit_edge ], [ %.12636, %439 ], [ %469, %..critedge49.loopexit1296_crit_edge ], [ %.16640, %.preheader839 ], [ %453, %.lr.ph1435 ], [ %453, %446 ], [ %469, %.lr.ph1423 ], [ %469, %462 ], [ %.14638, %.preheader843 ]
-  %.11605 = phi i32 [ %.9603805, %.thread800 ], [ %.9603, %360 ], [ %378, %384 ], [ %393, %398 ], [ %393, %394 ], [ 0, %390 ], [ %378, %.critedge41 ], [ %452, %..critedge49.loopexit_crit_edge ], [ %440, %439 ], [ %468, %..critedge49.loopexit1296_crit_edge ], [ %420, %.preheader839 ], [ %452, %.lr.ph1435 ], [ %440, %446 ], [ %468, %.lr.ph1423 ], [ %420, %462 ], [ %368, %.preheader843 ]
-  %.23 = phi i32 [ %.20806, %.thread800 ], [ %.20, %360 ], [ %.25, %384 ], [ %.27, %398 ], [ %.27, %394 ], [ %.25, %390 ], [ %.25, %.critedge41 ], [ %.30, %..critedge49.loopexit_crit_edge ], [ %.22, %439 ], [ %.32, %..critedge49.loopexit1296_crit_edge ], [ %.28, %.preheader839 ], [ %.30, %.lr.ph1435 ], [ %.30, %446 ], [ %.32, %.lr.ph1423 ], [ %.32, %462 ], [ %.24, %.preheader843 ]
+.critedge49:                                      ; preds = %.preheader843, %462, %.lr.ph1454, %446, %.lr.ph1466, %.preheader839, %..critedge49.loopexit1327_crit_edge, %439, %..critedge49.loopexit_crit_edge, %390, %394, %398, %384, %.critedge41, %360, %.thread800
+  %.13637 = phi i32 [ %.11635804, %.thread800 ], [ %.11635, %360 ], [ 35, %384 ], [ %395, %398 ], [ %395, %394 ], [ 35, %390 ], [ %379, %.critedge41 ], [ %453, %..critedge49.loopexit_crit_edge ], [ %.12636, %439 ], [ %469, %..critedge49.loopexit1327_crit_edge ], [ %.16640, %.preheader839 ], [ %453, %.lr.ph1466 ], [ %453, %446 ], [ %469, %.lr.ph1454 ], [ %469, %462 ], [ %.14638, %.preheader843 ]
+  %.11605 = phi i32 [ %.9603805, %.thread800 ], [ %.9603, %360 ], [ %378, %384 ], [ %393, %398 ], [ %393, %394 ], [ 0, %390 ], [ %378, %.critedge41 ], [ %452, %..critedge49.loopexit_crit_edge ], [ %440, %439 ], [ %468, %..critedge49.loopexit1327_crit_edge ], [ %420, %.preheader839 ], [ %452, %.lr.ph1466 ], [ %440, %446 ], [ %468, %.lr.ph1454 ], [ %420, %462 ], [ %368, %.preheader843 ]
+  %.23 = phi i32 [ %.20806, %.thread800 ], [ %.20, %360 ], [ %.25, %384 ], [ %.27, %398 ], [ %.27, %394 ], [ %.25, %390 ], [ %.25, %.critedge41 ], [ %.30, %..critedge49.loopexit_crit_edge ], [ %.22, %439 ], [ %.32, %..critedge49.loopexit1327_crit_edge ], [ %.28, %.preheader839 ], [ %.30, %.lr.ph1466 ], [ %.30, %446 ], [ %.32, %.lr.ph1454 ], [ %.32, %462 ], [ %.24, %.preheader843 ]
   %478 = and i32 %.4586.ph, 268435456
   %.not743 = icmp eq i32 %478, 0
   br i1 %.not743, label %482, label %479

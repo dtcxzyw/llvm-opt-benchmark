@@ -2592,7 +2592,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %152, %154
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i190: ; preds = %175
   %178 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx199) #26
-          to label %.noexc196 unwind label %.thread231
+          to label %.noexc196 unwind label %.thread304
 
 .noexc196:                                        ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i190
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %178, ptr align 4 %.val68, i64 %.idx199, i1 false)
@@ -2602,7 +2602,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i190: ; preds = %175
   store ptr %179, ptr %135, align 8, !tbaa !109
   br label %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_4UMatE.exit90
 
-.thread231:                                       ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i190
+.thread304:                                       ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i190
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body88
@@ -2654,8 +2654,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit92:                  ; preds = %182, %184
   call void @_ZdlPv(ptr noundef nonnull %195) #23
   br label %.body88
 
-.body88:                                          ; preds = %.thread231, %196, %193, %181, %180
-  %.pn58 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %181 ], [ %lpad.loopexit.split-lp, %180 ], [ %194, %193 ], [ %194, %196 ], [ %lpad.loopexit, %.thread231 ]
+.body88:                                          ; preds = %.thread304, %196, %193, %181, %180
+  %.pn58 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %181 ], [ %lpad.loopexit.split-lp, %180 ], [ %194, %193 ], [ %194, %196 ], [ %lpad.loopexit, %.thread304 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %262
 

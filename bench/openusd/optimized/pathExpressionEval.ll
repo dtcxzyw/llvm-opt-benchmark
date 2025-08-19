@@ -1180,7 +1180,7 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
   %.sroa.0.2 = phi ptr [ %.sroa.02.039.i, %.noexc ], [ %.sroa.0.0229, %130 ]
   %132 = and i64 %128, 1
   %.not67.not = icmp eq i64 %132, 0
-  br i1 %.not67.not, label %.loopexit204.split.loop.exit212.split.loop.exit257, label %133
+  br i1 %.not67.not, label %.loopexit204.split.loop.exit212.split.loop.exit269, label %133
 
 133:                                              ; preds = %..loopexit_crit_edge.i
   %134 = load i64, ptr %84, align 8
@@ -1211,17 +1211,17 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
   %.sroa.23168.0.extract.trunc.le = trunc nuw i64 %.sroa.23168.0.extract.shift.le to i32
   br label %.loopexit204
 
-.loopexit204.split.loop.exit212.split.loop.exit257: ; preds = %..loopexit_crit_edge.i
+.loopexit204.split.loop.exit212.split.loop.exit269: ; preds = %..loopexit_crit_edge.i
   %.sroa.722.0.extract.shift.le.i.le = and i64 %128, -4294967296
   br label %.loopexit204.split.loop.exit212
 
-.loopexit204.split.loop.exit212:                  ; preds = %116, %124, %.loopexit204.split.loop.exit212.split.loop.exit257
-  %.sroa.7.sroa.0.1.i242 = phi i64 [ %128, %.loopexit204.split.loop.exit212.split.loop.exit257 ], [ 0, %124 ], [ 0, %116 ]
-  %.sroa.722.1.i241 = phi i64 [ %.sroa.722.0.extract.shift.le.i.le, %.loopexit204.split.loop.exit212.split.loop.exit257 ], [ 4294967296, %124 ], [ 4294967296, %116 ]
-  %.sroa.0133.0.extract.trunc137.le = trunc i64 %.sroa.7.sroa.0.1.i242 to i8
-  %.sroa.23.0.extract.shift150.le = lshr i64 %.sroa.7.sroa.0.1.i242, 8
+.loopexit204.split.loop.exit212:                  ; preds = %116, %124, %.loopexit204.split.loop.exit212.split.loop.exit269
+  %.sroa.7.sroa.0.1.i254 = phi i64 [ %128, %.loopexit204.split.loop.exit212.split.loop.exit269 ], [ 0, %124 ], [ 0, %116 ]
+  %.sroa.722.1.i253 = phi i64 [ %.sroa.722.0.extract.shift.le.i.le, %.loopexit204.split.loop.exit212.split.loop.exit269 ], [ 4294967296, %124 ], [ 4294967296, %116 ]
+  %.sroa.0133.0.extract.trunc137.le = trunc i64 %.sroa.7.sroa.0.1.i254 to i8
+  %.sroa.23.0.extract.shift150.le = lshr i64 %.sroa.7.sroa.0.1.i254, 8
   %.sroa.23.0.extract.trunc151.le = trunc i64 %.sroa.23.0.extract.shift150.le to i24
-  %.sroa.23168.0.extract.shift169.le = lshr exact i64 %.sroa.722.1.i241, 32
+  %.sroa.23168.0.extract.shift169.le = lshr exact i64 %.sroa.722.1.i253, 32
   %.sroa.23168.0.extract.trunc170.le = trunc nuw i64 %.sroa.23168.0.extract.shift169.le to i32
   br label %.loopexit204
 
@@ -2068,11 +2068,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit148: ; preds = %_ZN32pxrIn
   br i1 %296, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread.sink.split, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread.sink.split: ; preds = %293, %165, %236
-  %.sink259 = phi i32 [ %237, %236 ], [ %166, %165 ], [ %278, %293 ]
+  %.sink273 = phi i32 [ %237, %236 ], [ %166, %165 ], [ %278, %293 ]
   %.sink = phi i8 [ 0, %236 ], [ 0, %165 ], [ 1, %293 ]
   %.sroa.0170.1.ph = phi i8 [ %.sroa.0170.0.extract.trunc173.le, %236 ], [ %.sroa.0170.0.extract.trunc172.le, %165 ], [ 1, %293 ]
   %.sroa.24.sroa.0.1.ph = phi i64 [ %.sroa.24.0.extract.shift186.le, %236 ], [ %.sroa.24.0.extract.shift184.le, %165 ], [ 0, %293 ]
-  store i32 %.sink259, ptr %12, align 8
+  store i32 %.sink273, ptr %12, align 8
   %297 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i8 %.sink, ptr %297, align 4
   br label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread

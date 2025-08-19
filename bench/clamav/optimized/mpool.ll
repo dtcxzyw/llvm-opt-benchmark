@@ -210,8 +210,8 @@ define range(i32 -1, 1) i32 @mpool_getstats(ptr noundef readonly captures(addres
 ; Function Attrs: nounwind uwtable
 define ptr @mpool_malloc(ptr noundef captures(ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = and i64 %1, 7
-  %.not130 = icmp eq i64 %3, 7
-  br i1 %.not130, label %alignof.exit, label %switch.lookup
+  %.not137 = icmp eq i64 %3, 7
+  br i1 %.not137, label %alignof.exit, label %switch.lookup
 
 switch.lookup:                                    ; preds = %2
   %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table.mpool_malloc, i64 0, i64 %3
@@ -358,10 +358,10 @@ allocate_aligned.exit:                            ; preds = %59, %to_bits.exit.i
   %75 = add nsw i64 %15, -89
   %76 = icmp ult i64 %75, 11
   %77 = add nuw nsw i64 %37, 24
-  %.sink119 = select i1 %76, i64 %77, i64 262144
+  %.sink126 = select i1 %76, i64 %77, i64 262144
   %.val = load i64, ptr %0, align 8, !tbaa !13
-  %78 = udiv i64 %.sink119, %.val
-  %79 = urem i64 %.sink119, %.val
+  %78 = udiv i64 %.sink126, %.val
+  %79 = urem i64 %.sink126, %.val
   %80 = icmp ne i64 %79, 0
   %81 = zext i1 %80 to i64
   %82 = add nuw nsw i64 %78, %81

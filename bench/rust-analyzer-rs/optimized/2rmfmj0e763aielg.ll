@@ -185,7 +185,7 @@ define void @_ZN10line_index9LineIndex3new17haaa10d7242ffbeb2E(ptr noalias nound
   br i1 %28, label %"_ZN4core3str6traits66_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$str$GT$5index17h092230c0b7b61c29E.exit.i.i.i", label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i.i"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i.i": ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %1, i64 %20
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 %20
   %30 = load i8, ptr %29, align 1, !alias.scope !33, !noalias !42, !noundef !5
   %31 = icmp sgt i8 %30, -65
   %32 = sub nsw i64 %2, %20
@@ -193,7 +193,7 @@ define void @_ZN10line_index9LineIndex3new17haaa10d7242ffbeb2E(ptr noalias nound
 
 "_ZN4core3str6traits66_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$str$GT$5index17h092230c0b7b61c29E.exit.i.i.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i.i", %27
   %.pre-phi.i.i.i = phi i64 [ %32, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i.i" ], [ %2, %27 ]
-  %33 = getelementptr inbounds i8, ptr %1, i64 %20
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %20
   %34 = trunc nuw i64 %20 to i32
   %35 = invoke fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic17h718c1b65ebf865faE(ptr noalias noundef nonnull readonly align 1 %33, i64 noundef %.pre-phi.i.i.i, i64 noundef %.pre-phi.i.i.i, i32 noundef %34, ptr noalias noundef nonnull align 8 dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
           to label %_ZN10line_index28analyze_source_file_dispatch17hc6f80359e4f7f36bE.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !16
@@ -217,7 +217,7 @@ define void @_ZN10line_index9LineIndex3new17haaa10d7242ffbeb2E(ptr noalias nound
   br i1 %44, label %"_ZN4core3str6traits66_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$str$GT$5index17h092230c0b7b61c29E.exit33.i.i.i", label %.invoke.i
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i32.i.i.i": ; preds = %42
-  %45 = getelementptr inbounds i8, ptr %1, i64 %40
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 %40
   %46 = load i8, ptr %45, align 1, !alias.scope !45, !noalias !54, !noundef !5
   %47 = icmp sgt i8 %46, -65
   %48 = sub nuw nsw i64 %2, %40
@@ -678,7 +678,7 @@ define { i32, i32 } @_ZN10line_index9LineIndex6offset17h9ad6f3ac77bd320aE(ptr no
   br i1 %10, label %_ZN10line_index9LineIndex12start_offset17h55fef644bcc0771fE.exit, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i32, ptr %.val, i64 %7
+  %12 = getelementptr inbounds nuw i32, ptr %.val, i64 %7
   %13 = load i32, ptr %12, align 4, !noundef !5
   br label %_ZN10line_index9LineIndex12start_offset17h55fef644bcc0771fE.exit
 

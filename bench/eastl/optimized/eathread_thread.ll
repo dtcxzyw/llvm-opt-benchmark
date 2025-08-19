@@ -1699,7 +1699,7 @@ if.then4:                                         ; preds = %for.body
 
 if.then6:                                         ; preds = %if.then4
   %arrayidx7 = getelementptr inbounds nuw [128 x [240 x i8]], ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 0, i64 %i.011
-  %arrayidx8 = getelementptr inbounds %"struct.EA::Thread::ThreadEnumData", ptr %pDataArray, i64 %requiredCount.010
+  %arrayidx8 = getelementptr inbounds nuw %"struct.EA::Thread::ThreadEnumData", ptr %pDataArray, i64 %requiredCount.010
   store ptr %arrayidx7, ptr %arrayidx8, align 8
   %mnRefCount.i = getelementptr inbounds nuw i8, ptr %arrayidx7, i64 64
   %1 = atomicrmw add ptr %mnRefCount.i, i32 1 seq_cst, align 4

@@ -1400,11 +1400,11 @@ inet_semi_join_sel.exit122:                       ; preds = %.lr.ph.i117, %.thre
   br i1 %148, label %124, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %inet_semi_join_sel.exit122
-  %149 = sitofp i32 %144 to double
-  %150 = fsub double 1.000000e+00, %.083
-  %151 = fsub double %150, %.085
-  %152 = fmul double %151, %143
-  %153 = fdiv double %152, %149
+  %149 = fsub double 1.000000e+00, %.083
+  %150 = fsub double %149, %.085
+  %151 = fmul double %150, %143
+  %152 = sitofp i32 %144 to double
+  %153 = fdiv double %151, %152
   %154 = fadd double %.075, %153
   br label %155
 

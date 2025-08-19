@@ -212,12 +212,12 @@ Vec_WrdPushUnique.exit.us.us.us:                  ; preds = %20, %Vec_WrdPush.ex
   br i1 %.not, label %83, label %.split59.us.thread
 
 .split59.us.thread:                               ; preds = %._crit_edge49.split.us.us.us, %.split59.us
-  %.us-phi6083 = phi i64 [ -1, %.split59.us ], [ %spec.select.us.us.us, %._crit_edge49.split.us.us.us ]
+  %.us-phi6088 = phi i64 [ -1, %.split59.us ], [ %spec.select.us.us.us, %._crit_edge49.split.us.us.us ]
   tail call void @free(ptr noundef nonnull %5) #11
   br label %83
 
 83:                                               ; preds = %.split59.us, %.split59.us.thread
-  %.us-phi6084 = phi i64 [ -1, %.split59.us ], [ %.us-phi6083, %.split59.us.thread ]
+  %.us-phi6089 = phi i64 [ -1, %.split59.us ], [ %.us-phi6088, %.split59.us.thread ]
   %.not40 = icmp eq ptr %6, null
   br i1 %.not40, label %85, label %84
 
@@ -226,7 +226,7 @@ Vec_WrdPushUnique.exit.us.us.us:                  ; preds = %20, %Vec_WrdPush.ex
   br label %85
 
 85:                                               ; preds = %83, %84
-  ret i64 %.us-phi6084
+  ret i64 %.us-phi6089
 }
 
 declare i32 @Extra_Factorial(i32 noundef) local_unnamed_addr #1
@@ -889,30 +889,30 @@ define noalias noundef ptr @Acec_MultCollectInputs(ptr noundef readonly captures
   br label %Vec_IntPushUnique.exit.sink.split.sink.split
 
 Vec_IntPushUnique.exit.sink.split.sink.split:     ; preds = %63, %61, %71, %69, %36, %34, %44, %42
-  %.sink65.sink = phi ptr [ %35, %34 ], [ %37, %36 ], [ %43, %42 ], [ %45, %44 ], [ %62, %61 ], [ %64, %63 ], [ %70, %69 ], [ %72, %71 ]
-  %.sink64.sink = phi i32 [ 16, %34 ], [ 16, %36 ], [ %39, %42 ], [ %39, %44 ], [ 16, %61 ], [ 16, %63 ], [ %66, %69 ], [ %66, %71 ]
-  %.sink73.ph = phi i32 [ %22, %34 ], [ %22, %36 ], [ %22, %42 ], [ %22, %44 ], [ %49, %61 ], [ %49, %63 ], [ %49, %69 ], [ %49, %71 ]
-  %.sink68.ph = phi i32 [ %19, %34 ], [ %19, %36 ], [ %19, %42 ], [ %19, %44 ], [ %17, %61 ], [ %17, %63 ], [ %17, %69 ], [ %17, %71 ]
-  store ptr %.sink65.sink, ptr %7, align 8, !tbaa !30
-  store i32 %.sink64.sink, ptr %4, align 8, !tbaa !32
+  %.sink73.sink = phi ptr [ %35, %34 ], [ %37, %36 ], [ %43, %42 ], [ %45, %44 ], [ %62, %61 ], [ %64, %63 ], [ %70, %69 ], [ %72, %71 ]
+  %.sink72.sink = phi i32 [ 16, %34 ], [ 16, %36 ], [ %39, %42 ], [ %39, %44 ], [ 16, %61 ], [ 16, %63 ], [ %66, %69 ], [ %66, %71 ]
+  %.sink81.ph = phi i32 [ %22, %34 ], [ %22, %36 ], [ %22, %42 ], [ %22, %44 ], [ %49, %61 ], [ %49, %63 ], [ %49, %69 ], [ %49, %71 ]
+  %.sink76.ph = phi i32 [ %19, %34 ], [ %19, %36 ], [ %19, %42 ], [ %19, %44 ], [ %17, %61 ], [ %17, %63 ], [ %17, %69 ], [ %17, %71 ]
+  store ptr %.sink73.sink, ptr %7, align 8, !tbaa !30
+  store i32 %.sink72.sink, ptr %4, align 8, !tbaa !32
   br label %Vec_IntPushUnique.exit.sink.split
 
 Vec_IntPushUnique.exit.sink.split:                ; preds = %Vec_IntPushUnique.exit.sink.split.sink.split, %._crit_edge.i25, %._crit_edge.i
-  %.sink73 = phi i32 [ %22, %._crit_edge.i ], [ %49, %._crit_edge.i25 ], [ %.sink73.ph, %Vec_IntPushUnique.exit.sink.split.sink.split ]
-  %.pre.i.i2851.sink = phi ptr [ %12, %._crit_edge.i ], [ %14, %._crit_edge.i25 ], [ %.sink65.sink, %Vec_IntPushUnique.exit.sink.split.sink.split ]
-  %.sink68 = phi i32 [ %19, %._crit_edge.i ], [ %17, %._crit_edge.i25 ], [ %.sink68.ph, %Vec_IntPushUnique.exit.sink.split.sink.split ]
-  %.pre.i.i56.ph = phi ptr [ %12, %._crit_edge.i ], [ %12, %._crit_edge.i25 ], [ %.sink65.sink, %Vec_IntPushUnique.exit.sink.split.sink.split ]
-  %.ph66 = phi ptr [ %12, %._crit_edge.i ], [ %13, %._crit_edge.i25 ], [ %.sink65.sink, %Vec_IntPushUnique.exit.sink.split.sink.split ]
-  %73 = add nsw i32 %.sink73, 1
+  %.sink81 = phi i32 [ %22, %._crit_edge.i ], [ %49, %._crit_edge.i25 ], [ %.sink81.ph, %Vec_IntPushUnique.exit.sink.split.sink.split ]
+  %.pre.i.i2851.sink = phi ptr [ %12, %._crit_edge.i ], [ %14, %._crit_edge.i25 ], [ %.sink73.sink, %Vec_IntPushUnique.exit.sink.split.sink.split ]
+  %.sink76 = phi i32 [ %19, %._crit_edge.i ], [ %17, %._crit_edge.i25 ], [ %.sink76.ph, %Vec_IntPushUnique.exit.sink.split.sink.split ]
+  %.pre.i.i56.ph = phi ptr [ %12, %._crit_edge.i ], [ %12, %._crit_edge.i25 ], [ %.sink73.sink, %Vec_IntPushUnique.exit.sink.split.sink.split ]
+  %.ph74 = phi ptr [ %12, %._crit_edge.i ], [ %13, %._crit_edge.i25 ], [ %.sink73.sink, %Vec_IntPushUnique.exit.sink.split.sink.split ]
+  %73 = add nsw i32 %.sink81, 1
   store i32 %73, ptr %5, align 4, !tbaa !27
-  %74 = sext i32 %.sink73 to i64
+  %74 = sext i32 %.sink81 to i64
   %75 = getelementptr inbounds i32, ptr %.pre.i.i2851.sink, i64 %74
-  store i32 %.sink68, ptr %75, align 4, !tbaa !16
+  store i32 %.sink76, ptr %75, align 4, !tbaa !16
   br label %Vec_IntPushUnique.exit
 
 Vec_IntPushUnique.exit:                           ; preds = %52, %25, %Vec_IntPushUnique.exit.sink.split, %46
   %.pre.i.i56 = phi ptr [ %12, %46 ], [ %.pre.i.i56.ph, %Vec_IntPushUnique.exit.sink.split ], [ %12, %25 ], [ %12, %52 ]
-  %76 = phi ptr [ %13, %46 ], [ %.ph66, %Vec_IntPushUnique.exit.sink.split ], [ %13, %25 ], [ %13, %52 ]
+  %76 = phi ptr [ %13, %46 ], [ %.ph74, %Vec_IntPushUnique.exit.sink.split ], [ %13, %25 ], [ %13, %52 ]
   %.pre.i.i2853 = phi ptr [ %14, %46 ], [ %.pre.i.i2851.sink, %Vec_IntPushUnique.exit.sink.split ], [ %13, %25 ], [ %14, %52 ]
   %77 = phi ptr [ %15, %46 ], [ %.pre.i.i2851.sink, %Vec_IntPushUnique.exit.sink.split ], [ %13, %25 ], [ %15, %52 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
@@ -1264,14 +1264,14 @@ Vec_IntStart.exit153:                             ; preds = %Vec_IntAlloc.exit.t
   br label %Vec_IntPush.exit.i.sink.split
 
 Vec_IntPush.exit.i.sink.split:                    ; preds = %147, %149, %139, %141
-  %.sink250 = phi ptr [ %140, %139 ], [ %142, %141 ], [ %148, %147 ], [ %150, %149 ]
+  %.sink270 = phi ptr [ %140, %139 ], [ %142, %141 ], [ %148, %147 ], [ %150, %149 ]
   %.sink = phi i32 [ 16, %139 ], [ 16, %141 ], [ %144, %147 ], [ %144, %149 ]
-  store ptr %.sink250, ptr %34, align 8, !tbaa !30
+  store ptr %.sink270, ptr %34, align 8, !tbaa !30
   store i32 %.sink, ptr %31, align 8, !tbaa !32
   br label %Vec_IntPush.exit.i
 
 Vec_IntPush.exit.i:                               ; preds = %Vec_IntPush.exit.i.sink.split, %114
-  %.pre.i.i235 = phi ptr [ %88, %114 ], [ %.sink250, %Vec_IntPush.exit.i.sink.split ]
+  %.pre.i.i235 = phi ptr [ %88, %114 ], [ %.sink270, %Vec_IntPush.exit.i.sink.split ]
   %151 = add nsw i32 %133, 1
   store i32 %151, ptr %32, align 4, !tbaa !27
   %152 = sext i32 %133 to i64
@@ -1287,9 +1287,9 @@ Vec_IntPush.exit9.sink.split.i:                   ; preds = %Vec_IntPush.exit.i
   %158 = shl nuw nsw i32 %154, 1
   %159 = zext nneg i32 %158 to i64
   %160 = shl nuw nsw i64 %159, 2
-  %.sink251 = select i1 %157, i64 64, i64 %160
+  %.sink271 = select i1 %157, i64 64, i64 %160
   %.sink.i = select i1 %157, i32 16, i32 %158
-  %161 = tail call ptr @realloc(ptr noundef nonnull %.pre.i.i235, i64 noundef %.sink251) #12
+  %161 = tail call ptr @realloc(ptr noundef nonnull %.pre.i.i235, i64 noundef %.sink271) #12
   store ptr %161, ptr %34, align 8, !tbaa !30
   store i32 %.sink.i, ptr %31, align 8, !tbaa !32
   %.pre = load i32, ptr %32, align 4, !tbaa !27
@@ -2388,20 +2388,20 @@ Vec_WrdStart.exit:                                ; preds = %Vec_BitStart.exit, 
   br i1 %113, label %.critedge, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %._crit_edge.i.thread, %._crit_edge.i
-  %spec.select60 = phi i64 [ %42, %._crit_edge.i.thread ], [ %spec.select, %._crit_edge.i ]
+  %spec.select65 = phi i64 [ %42, %._crit_edge.i.thread ], [ %spec.select, %._crit_edge.i ]
   br label %114
 
 .preheader:                                       ; preds = %114
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv63, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv68, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 19
   br i1 %exitcond, label %.critedge, label %114
 
 114:                                              ; preds = %.preheader.preheader, %.preheader
-  %indvars.iv63 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
-  %115 = getelementptr inbounds nuw [32 x i64], ptr @__const.Acec_MultFindPPs.Saved, i64 0, i64 %indvars.iv63
+  %indvars.iv68 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
+  %115 = getelementptr inbounds nuw [32 x i64], ptr @__const.Acec_MultFindPPs.Saved, i64 0, i64 %indvars.iv68
   %116 = load i64, ptr %115, align 8, !tbaa !11
-  %117 = icmp eq i64 %spec.select60, %116
-  %118 = xor i64 %116, %spec.select60
+  %117 = icmp eq i64 %spec.select65, %116
+  %118 = xor i64 %116, %spec.select65
   %119 = icmp eq i64 %118, -1
   %or.cond = or i1 %117, %119
   br i1 %or.cond, label %120, label %.preheader
@@ -2763,20 +2763,20 @@ Vec_WrdStart.exit:                                ; preds = %1, %13
   br i1 %103, label %.critedge, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %._crit_edge.i.thread, %._crit_edge.i
-  %spec.select59 = phi i64 [ %32, %._crit_edge.i.thread ], [ %spec.select, %._crit_edge.i ]
+  %spec.select63 = phi i64 [ %32, %._crit_edge.i.thread ], [ %spec.select, %._crit_edge.i ]
   br label %104
 
 .preheader:                                       ; preds = %104
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv62, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv66, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 19
   br i1 %exitcond, label %.critedge, label %104
 
 104:                                              ; preds = %.preheader.preheader, %.preheader
-  %indvars.iv62 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
-  %105 = getelementptr inbounds nuw [32 x i64], ptr @__const.Acec_MultFindPPs.Saved, i64 0, i64 %indvars.iv62
+  %indvars.iv66 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
+  %105 = getelementptr inbounds nuw [32 x i64], ptr @__const.Acec_MultFindPPs.Saved, i64 0, i64 %indvars.iv66
   %106 = load i64, ptr %105, align 8, !tbaa !11
-  %107 = icmp eq i64 %spec.select59, %106
-  %108 = xor i64 %106, %spec.select59
+  %107 = icmp eq i64 %spec.select63, %106
+  %108 = xor i64 %106, %spec.select63
   %109 = icmp eq i64 %108, -1
   %or.cond = or i1 %107, %109
   br i1 %or.cond, label %110, label %.preheader

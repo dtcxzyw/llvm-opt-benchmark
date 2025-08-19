@@ -494,8 +494,8 @@ rb_class_of.exit:                                 ; preds = %6, %9, %10, %11, %1
   %or.cond = select i1 %.not8.i, i1 %or.cond.i, i1 false
   %20 = and i64 %.pre, 31
   %21 = icmp eq i64 %20, 28
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %21
-  br i1 %or.cond3, label %.critedge2.i, label %rb_class_real.exit
+  %or.cond4 = select i1 %or.cond, i1 true, i1 %21
+  br i1 %or.cond4, label %.critedge2.i, label %rb_class_real.exit
 
 .critedge2.i:                                     ; preds = %.lr.ph.i
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -761,21 +761,21 @@ rb_scan_args_n_opt.exit:                          ; preds = %2, %rbimpl_intern_c
   %12 = load i64, ptr %11, align 8, !tbaa !7
   %13 = tail call i32 @rb_keyword_given_p() #23
   %.not2 = icmp eq i32 %13, 0
-  br i1 %.not2, label %.thread12, label %16
+  br i1 %.not2, label %.thread14, label %16
 
 14:                                               ; preds = %rb_scan_args_n_opt.exit
   %15 = icmp slt i32 %0, 0
-  br i1 %15, label %.thread12, label %obj_freeze_opt.exit
+  br i1 %15, label %.thread14, label %obj_freeze_opt.exit
 
 16:                                               ; preds = %8
   %17 = tail call i64 @rb_hash_dup(i64 noundef %12) #23
   %18 = add nsw i32 %0, -1
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %rb_scan_args_set.exit, label %.thread12
+  br i1 %19, label %rb_scan_args_set.exit, label %.thread14
 
-.thread12:                                        ; preds = %8, %16, %14
-  %.0.i7 = phi i32 [ %18, %16 ], [ %0, %14 ], [ %0, %8 ]
-  tail call void @rb_error_arity(i32 noundef %.0.i7, i32 noundef 0, i32 noundef 0) #24
+.thread14:                                        ; preds = %8, %16, %14
+  %.0.i9 = phi i32 [ %18, %16 ], [ %0, %14 ], [ %0, %8 ]
+  tail call void @rb_error_arity(i32 noundef %.0.i9, i32 noundef 0, i32 noundef 0) #24
   unreachable
 
 rb_scan_args_set.exit:                            ; preds = %16
@@ -1194,8 +1194,8 @@ rb_class_of.exit.i:                               ; preds = %15, %13, %12, %11, 
   %or.cond.i = select i1 %.not8.i.i, i1 %or.cond.i.i, i1 false
   %21 = and i64 %.pre.i, 31
   %22 = icmp eq i64 %21, 28
-  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %22
-  br i1 %or.cond3.i, label %.critedge2.i.i, label %rb_obj_class.exit
+  %or.cond4.i = select i1 %or.cond.i, i1 true, i1 %22
+  br i1 %or.cond4.i, label %.critedge2.i.i, label %rb_obj_class.exit
 
 .critedge2.i.i:                                   ; preds = %.lr.ph.i.i
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -1264,8 +1264,8 @@ rb_class_of.exit.i:                               ; preds = %6
   %or.cond.i = select i1 %.not8.i.i, i1 %or.cond.i.i, i1 false
   %15 = and i64 %.pre.i, 31
   %16 = icmp eq i64 %15, 28
-  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %16
-  br i1 %or.cond3.i, label %.critedge2.i.i, label %rb_obj_class.exit
+  %or.cond4.i = select i1 %or.cond.i, i1 true, i1 %16
+  br i1 %or.cond4.i, label %.critedge2.i.i, label %rb_obj_class.exit
 
 .critedge2.i.i:                                   ; preds = %.lr.ph.i.i
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -1353,8 +1353,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
   %14 = icmp ne i64 %11, 5
   %15 = and i64 %10, 49152
   %.not.i = icmp eq i64 %15, 0
-  %or.cond8.i = or i1 %14, %.not.i
-  br i1 %or.cond8.i, label %rb_type.exit, label %16, !prof !42
+  %or.cond9.i = or i1 %14, %.not.i
+  br i1 %or.cond9.i, label %rb_type.exit, label %16, !prof !42
 
 16:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   tail call void @rb_str_modify(i64 noundef %0) #23
@@ -1425,8 +1425,8 @@ rb_class_of.exit.i:                               ; preds = %rb_type.exit16
   %or.cond.i17 = select i1 %.not8.i.i, i1 %or.cond.i.i, i1 false
   %41 = and i64 %.pre.i, 31
   %42 = icmp eq i64 %41, 28
-  %or.cond3.i = select i1 %or.cond.i17, i1 true, i1 %42
-  br i1 %or.cond3.i, label %.critedge2.i.i, label %rb_obj_class.exit
+  %or.cond4.i = select i1 %or.cond.i17, i1 true, i1 %42
+  br i1 %or.cond4.i, label %.critedge2.i.i, label %rb_obj_class.exit
 
 .critedge2.i.i:                                   ; preds = %.lr.ph.i.i
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -1484,8 +1484,8 @@ rb_class_of.exit.i19:                             ; preds = %53, %51, %50, %49, 
   %or.cond.i28 = select i1 %.not8.i.i25, i1 %or.cond.i.i27, i1 false
   %59 = and i64 %.pre.i26, 31
   %60 = icmp eq i64 %59, 28
-  %or.cond3.i29 = select i1 %or.cond.i28, i1 true, i1 %60
-  br i1 %or.cond3.i29, label %.critedge2.i.i31, label %rb_obj_class.exit35
+  %or.cond4.i29 = select i1 %or.cond.i28, i1 true, i1 %60
+  br i1 %or.cond4.i29, label %.critedge2.i.i31, label %rb_obj_class.exit35
 
 .critedge2.i.i31:                                 ; preds = %.lr.ph.i.i23
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 16
@@ -1705,8 +1705,8 @@ rb_class_of.exit.i:                               ; preds = %25, %23, %22, %21, 
   %or.cond.i = select i1 %.not8.i.i, i1 %or.cond.i.i, i1 false
   %31 = and i64 %.pre.i, 31
   %32 = icmp eq i64 %31, 28
-  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %32
-  br i1 %or.cond3.i, label %.critedge2.i.i, label %rb_obj_class.exit
+  %or.cond4.i = select i1 %or.cond.i, i1 true, i1 %32
+  br i1 %or.cond4.i, label %.critedge2.i.i, label %rb_obj_class.exit
 
 .critedge2.i.i:                                   ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -2769,11 +2769,11 @@ convert_type.exit:                                ; preds = %50, %conv_method_in
 66:                                               ; preds = %convert_type.exit
   %67 = tail call i64 @llvm.fshl.i64(i64 %56, i64 %56, i64 62)
   %68 = icmp ult i64 %67, 10
-  %switch.maskindex24 = trunc i64 %67 to i16
-  %switch.shifted25 = lshr i16 547, %switch.maskindex24
-  %switch.lobit26 = trunc i16 %switch.shifted25 to i1
-  %or.cond29 = select i1 %68, i1 %switch.lobit26, i1 false
-  br i1 %or.cond29, label %switch.lookup23, label %69
+  %switch.maskindex27 = trunc i64 %67 to i16
+  %switch.shifted28 = lshr i16 547, %switch.maskindex27
+  %switch.lobit29 = trunc i16 %switch.shifted28 to i1
+  %or.cond32 = select i1 %68, i1 %switch.lobit29, i1 false
+  br i1 %or.cond32, label %switch.lookup26, label %69
 
 69:                                               ; preds = %66
   %70 = and i64 %56, 1
@@ -2786,13 +2786,13 @@ convert_type.exit:                                ; preds = %50, %conv_method_in
   %spec.select.i16 = select i1 %73, i32 20, i32 4
   br label %rb_type.exit17
 
-switch.lookup23:                                  ; preds = %66
-  %switch.gep27 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %67
-  %switch.load28 = load i32, ptr %switch.gep27, align 4
+switch.lookup26:                                  ; preds = %66
+  %switch.gep30 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %67
+  %switch.load31 = load i32, ptr %switch.gep30, align 4
   br label %rb_type.exit17
 
-rb_type.exit17:                                   ; preds = %switch.lookup23, %61, %69, %71
-  %.0.i14 = phi i32 [ %65, %61 ], [ 21, %69 ], [ %spec.select.i16, %71 ], [ %switch.load28, %switch.lookup23 ]
+rb_type.exit17:                                   ; preds = %switch.lookup26, %61, %69, %71
+  %.0.i14 = phi i32 [ %65, %61 ], [ 21, %69 ], [ %spec.select.i16, %71 ], [ %switch.load31, %switch.lookup26 ]
   %.not = icmp eq i32 %.0.i14, %1
   br i1 %.not, label %75, label %74
 
@@ -2877,11 +2877,11 @@ rb_type.exit:                                     ; preds = %switch.lookup, %9, 
 34:                                               ; preds = %23
   %35 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 62)
   %36 = icmp ult i64 %35, 10
-  %switch.maskindex20 = trunc i64 %35 to i16
-  %switch.shifted21 = lshr i16 547, %switch.maskindex20
-  %switch.lobit22 = trunc i16 %switch.shifted21 to i1
-  %or.cond25 = select i1 %36, i1 %switch.lobit22, i1 false
-  br i1 %or.cond25, label %switch.lookup19, label %37
+  %switch.maskindex23 = trunc i64 %35 to i16
+  %switch.shifted24 = lshr i16 547, %switch.maskindex23
+  %switch.lobit25 = trunc i16 %switch.shifted24 to i1
+  %or.cond28 = select i1 %36, i1 %switch.lobit25, i1 false
+  br i1 %or.cond28, label %switch.lookup22, label %37
 
 37:                                               ; preds = %34
   %38 = and i64 %24, 1
@@ -2894,13 +2894,13 @@ rb_type.exit:                                     ; preds = %switch.lookup, %9, 
   %spec.select.i16 = select i1 %41, i32 20, i32 4
   br label %rb_type.exit17
 
-switch.lookup19:                                  ; preds = %34
-  %switch.gep23 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %35
-  %switch.load24 = load i32, ptr %switch.gep23, align 4
+switch.lookup22:                                  ; preds = %34
+  %switch.gep26 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %35
+  %switch.load27 = load i32, ptr %switch.gep26, align 4
   br label %rb_type.exit17
 
-rb_type.exit17:                                   ; preds = %switch.lookup19, %29, %37, %39
-  %.0.i14 = phi i32 [ %33, %29 ], [ 21, %37 ], [ %spec.select.i16, %39 ], [ %switch.load24, %switch.lookup19 ]
+rb_type.exit17:                                   ; preds = %switch.lookup22, %29, %37, %39
+  %.0.i14 = phi i32 [ %33, %29 ], [ 21, %37 ], [ %spec.select.i16, %39 ], [ %switch.load27, %switch.lookup22 ]
   %.not = icmp eq i32 %.0.i14, %1
   br i1 %.not, label %49, label %42
 
@@ -2997,8 +2997,8 @@ define dso_local noundef i64 @rb_check_convert_type(i64 noundef %0, i32 noundef 
   %switch.maskindex = trunc i64 %15 to i16
   %switch.shifted = lshr i16 547, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond26 = select i1 %16, i1 %switch.lobit, i1 false
-  br i1 %or.cond26, label %switch.lookup, label %17
+  %or.cond28 = select i1 %16, i1 %switch.lobit, i1 false
+  br i1 %or.cond28, label %switch.lookup, label %17
 
 17:                                               ; preds = %14
   %18 = and i64 %0, 1
@@ -3111,11 +3111,11 @@ convert_type.exit:                                ; preds = %50, %conv_method_in
 67:                                               ; preds = %57
   %68 = tail call i64 @llvm.fshl.i64(i64 %56, i64 %56, i64 62)
   %69 = icmp ult i64 %68, 10
-  %switch.maskindex29 = trunc i64 %68 to i16
-  %switch.shifted30 = lshr i16 547, %switch.maskindex29
-  %switch.lobit31 = trunc i16 %switch.shifted30 to i1
-  %or.cond34 = select i1 %69, i1 %switch.lobit31, i1 false
-  br i1 %or.cond34, label %switch.lookup28, label %70
+  %switch.maskindex31 = trunc i64 %68 to i16
+  %switch.shifted32 = lshr i16 547, %switch.maskindex31
+  %switch.lobit33 = trunc i16 %switch.shifted32 to i1
+  %or.cond36 = select i1 %69, i1 %switch.lobit33, i1 false
+  br i1 %or.cond36, label %switch.lookup30, label %70
 
 70:                                               ; preds = %67
   %71 = and i64 %56, 1
@@ -3128,13 +3128,13 @@ convert_type.exit:                                ; preds = %50, %conv_method_in
   %spec.select.i18 = select i1 %74, i32 20, i32 4
   br label %rb_type.exit19
 
-switch.lookup28:                                  ; preds = %67
-  %switch.gep32 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %68
-  %switch.load33 = load i32, ptr %switch.gep32, align 4
+switch.lookup30:                                  ; preds = %67
+  %switch.gep34 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %68
+  %switch.load35 = load i32, ptr %switch.gep34, align 4
   br label %rb_type.exit19
 
-rb_type.exit19:                                   ; preds = %switch.lookup28, %62, %70, %72
-  %.0.i16 = phi i32 [ %66, %62 ], [ 21, %70 ], [ %spec.select.i18, %72 ], [ %switch.load33, %switch.lookup28 ]
+rb_type.exit19:                                   ; preds = %switch.lookup30, %62, %70, %72
+  %.0.i16 = phi i32 [ %66, %62 ], [ 21, %70 ], [ %spec.select.i18, %72 ], [ %switch.load35, %switch.lookup30 ]
   %.not = icmp eq i32 %.0.i16, %1
   br i1 %.not, label %convert_type_with_id.exit.thread, label %75
 
@@ -3168,8 +3168,8 @@ define hidden noundef i64 @rb_check_convert_type_with_id(i64 noundef %0, i32 nou
   %switch.maskindex = trunc i64 %15 to i16
   %switch.shifted = lshr i16 547, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond22 = select i1 %16, i1 %switch.lobit, i1 false
-  br i1 %or.cond22, label %switch.lookup, label %17
+  %or.cond24 = select i1 %16, i1 %switch.lobit, i1 false
+  br i1 %or.cond24, label %switch.lookup, label %17
 
 17:                                               ; preds = %14
   %18 = and i64 %0, 1
@@ -3218,11 +3218,11 @@ rb_type.exit:                                     ; preds = %switch.lookup, %9, 
 36:                                               ; preds = %26
   %37 = tail call i64 @llvm.fshl.i64(i64 %25, i64 %25, i64 62)
   %38 = icmp ult i64 %37, 10
-  %switch.maskindex25 = trunc i64 %37 to i16
-  %switch.shifted26 = lshr i16 547, %switch.maskindex25
-  %switch.lobit27 = trunc i16 %switch.shifted26 to i1
-  %or.cond30 = select i1 %38, i1 %switch.lobit27, i1 false
-  br i1 %or.cond30, label %switch.lookup24, label %39
+  %switch.maskindex27 = trunc i64 %37 to i16
+  %switch.shifted28 = lshr i16 547, %switch.maskindex27
+  %switch.lobit29 = trunc i16 %switch.shifted28 to i1
+  %or.cond32 = select i1 %38, i1 %switch.lobit29, i1 false
+  br i1 %or.cond32, label %switch.lookup26, label %39
 
 39:                                               ; preds = %36
   %40 = and i64 %25, 1
@@ -3235,13 +3235,13 @@ rb_type.exit:                                     ; preds = %switch.lookup, %9, 
   %spec.select.i19 = select i1 %43, i32 20, i32 4
   br label %rb_type.exit20
 
-switch.lookup24:                                  ; preds = %36
-  %switch.gep28 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %37
-  %switch.load29 = load i32, ptr %switch.gep28, align 4
+switch.lookup26:                                  ; preds = %36
+  %switch.gep30 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_check_convert_type_with_id.7, i64 0, i64 %37
+  %switch.load31 = load i32, ptr %switch.gep30, align 4
   br label %rb_type.exit20
 
-rb_type.exit20:                                   ; preds = %switch.lookup24, %31, %39, %41
-  %.0.i17 = phi i32 [ %35, %31 ], [ 21, %39 ], [ %spec.select.i19, %41 ], [ %switch.load29, %switch.lookup24 ]
+rb_type.exit20:                                   ; preds = %switch.lookup26, %31, %39, %41
+  %.0.i17 = phi i32 [ %35, %31 ], [ 21, %39 ], [ %spec.select.i19, %41 ], [ %switch.load31, %switch.lookup26 ]
   %.not = icmp eq i32 %.0.i17, %1
   br i1 %.not, label %convert_type_with_id.exit.thread, label %44
 
@@ -3982,10 +3982,10 @@ define internal fastcc double @rb_cstr_to_dbl_raise(ptr noundef %0, ptr noundef 
   %.3.ph.ph = phi i8 [ %.1101, %.loopexit188 ], [ %53, %.lr.ph ]
   br label %.outer
 
-59:                                               ; preds = %.outer288, %114
-  %.6 = phi ptr [ %.14, %114 ], [ %.6.ph290, %.outer288 ]
-  %.3 = phi i8 [ %73, %114 ], [ %.3.ph291, %.outer288 ]
-  %.098 = phi i32 [ %.199, %114 ], [ %.098.ph292, %.outer288 ]
+59:                                               ; preds = %.outer297, %114
+  %.6 = phi ptr [ %.14, %114 ], [ %.6.ph299, %.outer297 ]
+  %.3 = phi i8 [ %73, %114 ], [ %.3.ph300, %.outer297 ]
+  %.098 = phi i32 [ %.199, %114 ], [ %.098.ph301, %.outer297 ]
   %60 = load i8, ptr %.6, align 1, !tbaa !28
   switch i8 %60, label %thread-pre-split [
     i8 0, label %117
@@ -4027,8 +4027,8 @@ thread-pre-split:                                 ; preds = %66, %59
   ]
 
 76:                                               ; preds = %75, %75, %75, %75
-  %77 = getelementptr i8, ptr %.3112.ph289, i64 1
-  store i8 %73, ptr %.3112.ph289, align 1, !tbaa !28
+  %77 = getelementptr i8, ptr %.3112.ph298, i64 1
+  store i8 %73, ptr %.3112.ph298, align 1, !tbaa !28
   %78 = load i8, ptr %74, align 1, !tbaa !28
   switch i8 %78, label %82 [
     i8 43, label %79
@@ -4037,7 +4037,7 @@ thread-pre-split:                                 ; preds = %66, %59
 
 79:                                               ; preds = %76, %76
   %80 = getelementptr i8, ptr %.7, i64 2
-  %81 = getelementptr i8, ptr %.3112.ph289, i64 2
+  %81 = getelementptr i8, ptr %.3112.ph298, i64 2
   store i8 %78, ptr %77, align 1, !tbaa !28
   %.pr164 = load i8, ptr %80, align 1, !tbaa !28
   br label %82
@@ -4078,15 +4078,15 @@ thread-pre-split:                                 ; preds = %66, %59
   %.0102.idx.ph.sroa.phi = phi ptr [ %.0102.idx.ph.sroa.gep, %.outer.preheader ], [ %.0102.idx.ph.sroa.gep239, %.outer.backedge ]
   %.3.ph = phi i8 [ %.3.ph.ph, %.outer.preheader ], [ %.3.ph.be, %.outer.backedge ]
   %.098.ph = phi i32 [ 0, %.outer.preheader ], [ %.098, %.outer.backedge ]
-  br label %.outer288
+  br label %.outer297
 
-.outer288:                                        ; preds = %115, %.outer
-  %.3112.ph289 = phi ptr [ %116, %115 ], [ %.3112.ph, %.outer ]
-  %.6.ph290 = phi ptr [ %.14, %115 ], [ %.6.ph, %.outer ]
-  %.3.ph291 = phi i8 [ %73, %115 ], [ %.3.ph, %.outer ]
-  %.098.ph292 = phi i32 [ %.199, %115 ], [ %.098.ph, %.outer ]
-  %92 = icmp eq ptr %.3112.ph289, %7
-  %93 = icmp ult ptr %.3112.ph289, %.0102.idx.ph.sroa.phi
+.outer297:                                        ; preds = %115, %.outer
+  %.3112.ph298 = phi ptr [ %116, %115 ], [ %.3112.ph, %.outer ]
+  %.6.ph299 = phi ptr [ %.14, %115 ], [ %.6.ph, %.outer ]
+  %.3.ph300 = phi i8 [ %73, %115 ], [ %.3.ph, %.outer ]
+  %.098.ph301 = phi i32 [ %.199, %115 ], [ %.098.ph, %.outer ]
+  %92 = icmp eq ptr %.3112.ph298, %7
+  %93 = icmp ult ptr %.3112.ph298, %.0102.idx.ph.sroa.phi
   br label %59
 
 94:                                               ; preds = %75, %thread-pre-split
@@ -4137,19 +4137,19 @@ thread-pre-split:                                 ; preds = %66, %59
   br i1 %93, label %115, label %59, !llvm.loop !84
 
 115:                                              ; preds = %114
-  %116 = getelementptr i8, ptr %.3112.ph289, i64 1
-  store i8 %73, ptr %.3112.ph289, align 1, !tbaa !28
-  br label %.outer288, !llvm.loop !84
+  %116 = getelementptr i8, ptr %.3112.ph298, i64 1
+  store i8 %73, ptr %.3112.ph298, align 1, !tbaa !28
+  br label %.outer297, !llvm.loop !84
 
 117:                                              ; preds = %59
-  store i8 0, ptr %.3112.ph289, align 1, !tbaa !28
+  store i8 0, ptr %.3112.ph298, align 1, !tbaa !28
   %118 = load i8, ptr %7, align 16
   %119 = icmp eq i8 %118, 48
   %or.cond = select i1 %.not138, i1 %119, i1 false
   br i1 %or.cond, label %120, label %123
 
 .critedge156:                                     ; preds = %72, %106, %113
-  store i8 0, ptr %.3112.ph289, align 1, !tbaa !28
+  store i8 0, ptr %.3112.ph298, align 1, !tbaa !28
   %.old = load i8, ptr %7, align 16, !tbaa !28
   %.old157 = icmp eq i8 %.old, 48
   br i1 %.old157, label %120, label %123
@@ -6554,26 +6554,26 @@ rb_scan_args_n_opt.exit:
   %9 = load i64, ptr %8, align 8, !tbaa !7
   %10 = tail call i32 @rb_keyword_given_p() #23
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %.thread16, label %11
+  br i1 %.not, label %.thread18, label %11
 
 11:                                               ; preds = %5
   %12 = tail call i64 @rb_hash_dup(i64 noundef %9) #23
   %13 = add nsw i32 %0, -1
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %.thread, label %.thread16
+  br i1 %14, label %.thread, label %.thread18
 
-.thread16:                                        ; preds = %5, %11
-  %.0.i18 = phi i32 [ %13, %11 ], [ %0, %5 ]
+.thread18:                                        ; preds = %5, %11
+  %.0.i20 = phi i32 [ %13, %11 ], [ %0, %5 ]
   %15 = load i64, ptr %1, align 8, !tbaa !7
-  %16 = icmp eq i32 %.0.i18, 1
+  %16 = icmp eq i32 %.0.i20, 1
   br i1 %16, label %rb_scan_args_set.exit, label %.thread
 
-.thread:                                          ; preds = %rb_scan_args_n_opt.exit, %.thread16, %11
-  %.0.i11 = phi i32 [ %.0.i18, %.thread16 ], [ 0, %11 ], [ %0, %rb_scan_args_n_opt.exit ]
+.thread:                                          ; preds = %rb_scan_args_n_opt.exit, %.thread18, %11
+  %.0.i11 = phi i32 [ %.0.i20, %.thread18 ], [ 0, %11 ], [ %0, %rb_scan_args_n_opt.exit ]
   tail call void @rb_error_arity(i32 noundef %.0.i11, i32 noundef 1, i32 noundef 1) #24
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %.thread16
+rb_scan_args_set.exit:                            ; preds = %.thread18
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = load i64, ptr %8, align 8, !tbaa !7
   %18 = tail call i32 @rb_keyword_given_p() #23
@@ -7212,9 +7212,9 @@ rbimpl_RB_TYPE_P_fastpath.exit112.us:             ; preds = %98
 
 .critedge.thread:                                 ; preds = %108
   %112 = icmp eq ptr %.182150, %109
-  br i1 %112, label %.thread125, label %.thread230
+  br i1 %112, label %.thread125, label %.thread246
 
-.thread230:                                       ; preds = %.critedge.thread
+.thread246:                                       ; preds = %.critedge.thread
   %113 = ptrtoint ptr %109 to i64
   %114 = ptrtoint ptr %.182150 to i64
   %115 = sub i64 %113, %114
@@ -7241,12 +7241,12 @@ rbimpl_RB_TYPE_P_fastpath.exit112.us:             ; preds = %98
   %.not101 = icmp eq i8 %128, 58
   br i1 %.not101, label %129, label %.thread125
 
-129:                                              ; preds = %.thread230, %126, %117
-  %130 = phi i64 [ %121, %117 ], [ %121, %126 ], [ %116, %.thread230 ]
-  %131 = phi i64 [ %120, %117 ], [ %120, %126 ], [ %115, %.thread230 ]
-  %132 = phi i64 [ %119, %117 ], [ %119, %126 ], [ %114, %.thread230 ]
-  %.490 = phi ptr [ %.288146, %117 ], [ %125, %126 ], [ %109, %.thread230 ]
-  %.384 = phi ptr [ %.182150, %117 ], [ %125, %126 ], [ %.182150, %.thread230 ]
+129:                                              ; preds = %.thread246, %126, %117
+  %130 = phi i64 [ %121, %117 ], [ %121, %126 ], [ %116, %.thread246 ]
+  %131 = phi i64 [ %120, %117 ], [ %120, %126 ], [ %115, %.thread246 ]
+  %132 = phi i64 [ %119, %117 ], [ %119, %126 ], [ %114, %.thread246 ]
+  %.490 = phi ptr [ %.288146, %117 ], [ %125, %126 ], [ %109, %.thread246 ]
+  %.384 = phi ptr [ %.182150, %117 ], [ %125, %126 ], [ %.182150, %.thread246 ]
   %.not102 = icmp eq i64 %130, 0
   br i1 %.not102, label %.split.us, label %138
 
@@ -7320,8 +7320,8 @@ rbimpl_RB_TYPE_P_fastpath.exit112:                ; preds = %157
   %162 = inttoptr i64 %.4 to ptr
   %163 = load i64, ptr %162, align 8, !tbaa !24
   %164 = and i64 %163, 30
-  %switch275 = icmp eq i64 %164, 2
-  br i1 %switch275, label %.preheader, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
+  %switch291 = icmp eq i64 %164, 2
+  br i1 %switch291, label %.preheader, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fastpath.exit112, %157, %rbimpl_RB_TYPE_P_fastpath.exit112.us, %98
   %165 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
@@ -8007,8 +8007,8 @@ rb_class_of.exit.i:                               ; preds = %15, %13, %12, %11, 
   %or.cond.i = select i1 %.not8.i.i, i1 %or.cond.i.i, i1 false
   %21 = and i64 %.pre.i, 31
   %22 = icmp eq i64 %21, 28
-  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %22
-  br i1 %or.cond3.i, label %.critedge2.i.i, label %rb_obj_class.exit
+  %or.cond4.i = select i1 %or.cond.i, i1 true, i1 %22
+  br i1 %or.cond4.i, label %.critedge2.i.i, label %rb_obj_class.exit
 
 .critedge2.i.i:                                   ; preds = %.lr.ph.i.i
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -8311,8 +8311,8 @@ rb_class_of.exit.i:                               ; preds = %23, %21, %20, %19, 
   %or.cond.i = select i1 %.not8.i.i, i1 %or.cond.i.i, i1 false
   %29 = and i64 %.pre.i, 31
   %30 = icmp eq i64 %29, 28
-  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %30
-  br i1 %or.cond3.i, label %.critedge2.i.i, label %rb_obj_class.exit
+  %or.cond4.i = select i1 %or.cond.i, i1 true, i1 %30
+  br i1 %or.cond4.i, label %.critedge2.i.i, label %rb_obj_class.exit
 
 .critedge2.i.i:                                   ; preds = %.lr.ph.i.i
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -8336,8 +8336,8 @@ rb_obj_class.exit:                                ; preds = %.lr.ph.i.i, %.crite
   %or.cond = select i1 %.not8.i, i1 %or.cond.i9, i1 false
   %36 = and i64 %.pre, 31
   %37 = icmp eq i64 %36, 28
-  %or.cond11 = select i1 %or.cond, i1 true, i1 %37
-  br i1 %or.cond11, label %.critedge2.i, label %rb_class_real.exit
+  %or.cond14 = select i1 %or.cond, i1 true, i1 %37
+  br i1 %or.cond14, label %.critedge2.i, label %rb_class_real.exit
 
 .critedge2.i:                                     ; preds = %.lr.ph.i
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 16

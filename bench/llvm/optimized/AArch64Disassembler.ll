@@ -27212,7 +27212,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %_ZL25DecodeSimpleRe
   br i1 %.not.i.i.not.i.i33, label %.sink.split, label %.sink.split.sink.split, !prof !64
 
 .sink.split.sink.split:                           ; preds = %54, %49
-  %.sink10.ph = phi i64 [ %52, %49 ], [ %56, %54 ]
+  %.sink16.ph = phi i64 [ %52, %49 ], [ %56, %54 ]
   %58 = zext i32 %47 to i64
   %59 = add nuw nsw i64 %58, 1
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -27221,14 +27221,14 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %_ZL25DecodeSimpleRe
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %54, %49
-  %.sink15 = phi i32 [ %47, %49 ], [ %47, %54 ], [ %.pre.i.i34, %.sink.split.sink.split ]
-  %.sink10 = phi i64 [ %52, %49 ], [ %56, %54 ], [ %.sink10.ph, %.sink.split.sink.split ]
+  %.sink21 = phi i32 [ %47, %49 ], [ %47, %54 ], [ %.pre.i.i34, %.sink.split.sink.split ]
+  %.sink16 = phi i64 [ %52, %49 ], [ %56, %54 ], [ %.sink16.ph, %.sink.split.sink.split ]
   %61 = load ptr, ptr %34, align 8, !tbaa !45
-  %62 = zext i32 %.sink15 to i64
+  %62 = zext i32 %.sink21 to i64
   %63 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %61, i64 %62
   store i8 2, ptr %63, align 1
   %.sroa.22.0..sroa_idx.i.i35 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store i64 %.sink10, ptr %.sroa.22.0..sroa_idx.i.i35, align 1
+  store i64 %.sink16, ptr %.sroa.22.0..sroa_idx.i.i35, align 1
   %64 = load i32, ptr %35, align 8, !tbaa !34
   %65 = add i32 %64, 1
   store i32 %65, ptr %35, align 8, !tbaa !34
@@ -28026,10 +28026,10 @@ _ZL25DecodeSimpleRegisterClassILj41ELj0ELj32EEN4llvm14MCDisassembler12DecodeStat
   br label %_ZL25DecodeSimpleRegisterClassILj41ELj0ELj32EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjmPKS1_.exit
 
 _ZL25DecodeSimpleRegisterClassILj41ELj0ELj32EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjmPKS1_.exit: ; preds = %_ZL25DecodeSimpleRegisterClassILj41ELj0ELj32EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjmPKS1_.exit.sink.split, %68, %64
-  %.sink16 = phi i32 [ %10, %64 ], [ %10, %68 ], [ %.pre.i.i.i54, %_ZL25DecodeSimpleRegisterClassILj41ELj0ELj32EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjmPKS1_.exit.sink.split ]
+  %.sink31 = phi i32 [ %10, %64 ], [ %10, %68 ], [ %.pre.i.i.i54, %_ZL25DecodeSimpleRegisterClassILj41ELj0ELj32EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjmPKS1_.exit.sink.split ]
   %.sroa.3.8.insert.ext.i.i46.sink = phi i64 [ %.sroa.3.8.insert.ext.i.i46, %64 ], [ %.sroa.3.8.insert.ext.i.i52, %68 ], [ %.sroa.3.8.insert.ext.i.i46.sink.ph, %_ZL25DecodeSimpleRegisterClassILj41ELj0ELj32EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjmPKS1_.exit.sink.split ]
   %75 = load ptr, ptr %8, align 8, !tbaa !45
-  %76 = zext i32 %.sink16 to i64
+  %76 = zext i32 %.sink31 to i64
   %77 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %75, i64 %76
   store i8 1, ptr %77, align 1
   %.sroa.22.0..sroa_idx.i.i.i50 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -30863,9 +30863,9 @@ define internal fastcc void @_ZL25DecodeFMOVLaneInstructionRN4llvm6MCInstEjmPKNS
   br i1 %.not.i.i.not.i.i.i31, label %_ZL25DecodeSimpleRegisterClassILj57ELj0ELj32EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjmPKS1_.exit, label %_ZL25DecodeSimpleRegisterClassILj57ELj0ELj32EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjmPKS1_.exit.sink.split, !prof !64
 
 _ZL25DecodeSimpleRegisterClassILj57ELj0ELj32EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjmPKS1_.exit.sink.split: ; preds = %41, %21
-  %.sink10 = phi i32 [ %27, %21 ], [ %47, %41 ]
+  %.sink18 = phi i32 [ %27, %21 ], [ %47, %41 ]
   %.sroa.3.8.insert.ext.i.i30.sink.ph = phi i64 [ %.sroa.3.8.insert.ext.i.i19, %21 ], [ %.sroa.3.8.insert.ext.i.i30, %41 ]
-  %53 = zext i32 %.sink10 to i64
+  %53 = zext i32 %.sink18 to i64
   %54 = add nuw nsw i64 %53, 1
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %55, i64 noundef %54, i64 noundef 16) #13

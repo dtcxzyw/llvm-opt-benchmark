@@ -803,7 +803,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   %isdigit = icmp ult i8 %narrow, 10
   %241 = icmp ne i64 %indvars.iv683, 0
   %or.cond21 = and i1 %241, %isdigit
-  br i1 %or.cond21, label %242, label %.critedge.split.loop.exit746
+  br i1 %or.cond21, label %242, label %.critedge.split.loop.exit785
 
 242:                                              ; preds = %.lr.ph
   %indvars.iv.next684 = add nsw i64 %indvars.iv683, -1
@@ -813,13 +813,13 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   %246 = icmp sgt i8 %245, 0
   br i1 %246, label %.lr.ph, label %.critedge, !llvm.loop !148
 
-.critedge.split.loop.exit746:                     ; preds = %.lr.ph
+.critedge.split.loop.exit785:                     ; preds = %.lr.ph
   %247 = trunc nuw nsw i64 %indvars.iv683 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %242, %.critedge.split.loop.exit746
-  %.2198.lcssa.ph = phi i32 [ %247, %.critedge.split.loop.exit746 ], [ %243, %242 ]
-  %.lcssa604.ph = phi i64 [ %indvars.iv683, %.critedge.split.loop.exit746 ], [ %indvars.iv.next684, %242 ]
+.critedge:                                        ; preds = %242, %.critedge.split.loop.exit785
+  %.2198.lcssa.ph = phi i32 [ %247, %.critedge.split.loop.exit785 ], [ %243, %242 ]
+  %.lcssa604.ph = phi i64 [ %indvars.iv683, %.critedge.split.loop.exit785 ], [ %indvars.iv.next684, %242 ]
   %248 = icmp slt i32 %.2198.lcssa.ph, 11
   br i1 %248, label %249, label %.critedge.thread
 
@@ -1140,7 +1140,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
 411:                                              ; preds = %390, %179, %177, %172, %214, %220, %223, %307, %322, %389, %392, %395, %410, %396, %391, %381, %315, %288, %221, %218, %184, %189, %187
   %412 = load i8, ptr %29, align 4, !tbaa !85
   %413 = icmp eq i8 %412, 0
-  br i1 %413, label %.preheader599, label %.thread734
+  br i1 %413, label %.preheader599, label %.thread773
 
 .preheader599:                                    ; preds = %411
   %414 = icmp sgt i32 %128, 0
@@ -1335,7 +1335,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
 508:                                              ; preds = %507, %.loopexit600
   %509 = phi i8 [ %.pr, %507 ], [ %504, %.loopexit600 ]
   %510 = icmp eq i8 %509, 0
-  br i1 %510, label %511, label %.thread734
+  br i1 %510, label %511, label %.thread773
 
 511:                                              ; preds = %508
   %512 = call noundef i32 @_ZN6LibRaw10parse_jpegEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef 0)
@@ -1405,7 +1405,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   store i64 0, ptr %80, align 8, !tbaa !109
   %550 = add nsw i32 %523, -10270209
   store i32 %550, ptr %79, align 8, !tbaa !149
-  br label %.thread734
+  br label %.thread773
 
 551:                                              ; preds = %532, %526, %511
   %bcmp322 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %28, ptr noundef nonnull dereferenceable(6) @.str.33, i64 6)
@@ -1484,14 +1484,14 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   store i64 0, ptr %80, align 8, !tbaa !109
   %583 = add nsw i32 %523, -6404097
   store i32 %583, ptr %79, align 8, !tbaa !149
-  br label %.thread734
+  br label %.thread773
 
 584:                                              ; preds = %562, %556, %555, %552
   store i32 0, ptr %100, align 8, !tbaa !128
-  br label %.thread734
+  br label %.thread773
 
-.thread734:                                       ; preds = %411, %543, %584, %576, %508
-  %spec.select454733736 = phi i32 [ %168, %543 ], [ %168, %584 ], [ %168, %576 ], [ %168, %508 ], [ 0, %411 ]
+.thread773:                                       ; preds = %411, %543, %584, %576, %508
+  %spec.select454772775 = phi i32 [ %168, %543 ], [ %168, %584 ], [ %168, %576 ], [ %168, %508 ], [ 0, %411 ]
   %585 = getelementptr inbounds nuw i8, ptr %0, i64 153507
   store i8 0, ptr %585, align 1, !tbaa !85
   %586 = getelementptr inbounds nuw i8, ptr %0, i64 331
@@ -1509,8 +1509,8 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   %exitcond692.not = icmp eq i64 %indvars.iv.next690, 78
   br i1 %exitcond692.not, label %thread-pre-split, label %591, !llvm.loop !172
 
-591:                                              ; preds = %.thread734, %590
-  %indvars.iv689 = phi i64 [ 0, %.thread734 ], [ %indvars.iv.next690, %590 ]
+591:                                              ; preds = %.thread773, %590
+  %indvars.iv689 = phi i64 [ 0, %.thread773 ], [ %indvars.iv.next690, %590 ]
   %592 = getelementptr inbounds nuw [78 x %struct.anon], ptr @_ZL9CorpTable, i64 0, i64 %indvars.iv689
   %593 = getelementptr inbounds nuw i8, ptr %592, i64 8
   %594 = load ptr, ptr %593, align 8, !tbaa !15
@@ -1551,12 +1551,12 @@ thread-pre-split:                                 ; preds = %590
   br i1 %.not336, label %.thread561.sink.split, label %.thread561
 
 .thread561.sink.split:                            ; preds = %604, %602, %600
-  %.sink749 = phi i32 [ 44, %600 ], [ 29, %602 ], [ 49, %604 ]
-  store i32 %.sink749, ptr %36, align 4, !tbaa !16
+  %.sink788 = phi i32 [ 44, %600 ], [ 29, %602 ], [ 49, %604 ]
+  store i32 %.sink788, ptr %36, align 4, !tbaa !16
   br label %.thread561
 
 .thread561:                                       ; preds = %.thread561.sink.split, %598, %600, %602, %604
-  %606 = phi i32 [ %599, %598 ], [ 75, %600 ], [ 28, %602 ], [ 56, %604 ], [ %.sink749, %.thread561.sink.split ]
+  %606 = phi i32 [ %599, %598 ], [ 75, %600 ], [ 28, %602 ], [ 56, %604 ], [ %.sink788, %.thread561.sink.split ]
   br label %608
 
 607:                                              ; preds = %608
@@ -1851,7 +1851,7 @@ thread-pre-split:                                 ; preds = %590
 717:                                              ; preds = %662
   %718 = load i32, ptr %36, align 4, !tbaa !16
   %719 = icmp ne i32 %718, 8
-  %720 = icmp ne i32 %spec.select454733736, 0
+  %720 = icmp ne i32 %spec.select454772775, 0
   %or.cond15 = or i1 %720, %719
   %721 = load i32, ptr %84, align 8
   %.not351 = icmp eq i32 %721, 15
@@ -1993,8 +1993,8 @@ thread-pre-split:                                 ; preds = %590
   %795 = sext i16 %794 to i32
   %796 = zext i16 %726 to i32
   %797 = icmp eq i32 %795, %796
-  %or.cond755 = select i1 %792, i1 %797, i1 false
-  br i1 %or.cond755, label %798, label %813
+  %or.cond794 = select i1 %792, i1 %797, i1 false
+  br i1 %or.cond794, label %798, label %813
 
 798:                                              ; preds = %785
   %799 = getelementptr inbounds nuw i8, ptr %0, i64 2060
@@ -2018,7 +2018,7 @@ thread-pre-split:                                 ; preds = %590
   br label %813
 
 813:                                              ; preds = %777, %798, %785, %717
-  call void @_ZN6LibRaw29identify_finetune_by_filesizeEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %spec.select454733736)
+  call void @_ZN6LibRaw29identify_finetune_by_filesizeEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %spec.select454772775)
   %bcmp359 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %28, ptr noundef nonnull dereferenceable(9) @.str.47, i64 9)
   %.not360 = icmp eq i32 %bcmp359, 0
   br i1 %.not360, label %814, label %818
@@ -2037,7 +2037,7 @@ thread-pre-split:                                 ; preds = %590
 
 818:                                              ; preds = %817, %814, %813
   call void @_ZN6LibRaw18GetNormalizedModelEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  call void @_ZN6LibRaw21identify_finetune_dcrEPcii(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %3, i32 noundef %spec.select454733736, i32 noundef %168)
+  call void @_ZN6LibRaw21identify_finetune_dcrEPcii(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %3, i32 noundef %spec.select454772775, i32 noundef %168)
   %.unpack362 = load i64, ptr %81, align 8, !tbaa !147
   %.unpack364 = load i64, ptr %.repack251, align 8, !tbaa !147
   %.not365 = icmp eq i64 %.unpack362, 0
@@ -2130,7 +2130,7 @@ thread-pre-split:                                 ; preds = %590
   %867 = load i32, ptr %14, align 8
   %868 = icmp eq i32 %867, -1
   %or.cond479 = select i1 %.not367, i1 %868, i1 false
-  br i1 %or.cond479, label %.sink.split756, label %869
+  br i1 %or.cond479, label %.sink.split795, label %869
 
 869:                                              ; preds = %863
   br i1 %868, label %870, label %875
@@ -2141,18 +2141,18 @@ thread-pre-split:                                 ; preds = %590
   %872 = load i32, ptr %93, align 4
   %873 = icmp eq i32 %872, 1
   %or.cond482 = select i1 %.not368, i1 %873, i1 false
-  br i1 %or.cond482, label %874, label %.sink.split756
+  br i1 %or.cond482, label %874, label %.sink.split795
 
 874:                                              ; preds = %870
   store i32 1, ptr %123, align 4, !tbaa !136
-  br label %.sink.split756
+  br label %.sink.split795
 
-.sink.split756:                                   ; preds = %870, %863, %874
-  %.sink757 = phi i32 [ 0, %874 ], [ -1802201964, %863 ], [ -1802201964, %870 ]
-  store i32 %.sink757, ptr %14, align 8, !tbaa !78
+.sink.split795:                                   ; preds = %870, %863, %874
+  %.sink796 = phi i32 [ 0, %874 ], [ -1802201964, %863 ], [ -1802201964, %870 ]
+  store i32 %.sink796, ptr %14, align 8, !tbaa !78
   br label %875
 
-875:                                              ; preds = %.sink.split756, %869
+875:                                              ; preds = %.sink.split795, %869
   %876 = load i64, ptr %80, align 8, !tbaa !109
   %.not369 = icmp ne i64 %876, 0
   %877 = load i16, ptr %77, align 2
@@ -2374,8 +2374,8 @@ thread-pre-split:                                 ; preds = %590
   %.not406 = icmp ne i32 %968, 0
   %969 = load float, ptr %107, align 8
   %970 = fcmp reassoc nsz arcp contract afn ogt float %969, 1.250000e-01
-  %or.cond760 = select i1 %.not406, i1 %970, i1 false
-  br i1 %or.cond760, label %971, label %972
+  %or.cond799 = select i1 %.not406, i1 %970, i1 false
+  br i1 %or.cond799, label %971, label %972
 
 971:                                              ; preds = %958
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %108, ptr noundef nonnull align 8 dereferenceable(48) %107, i64 48, i1 false)
@@ -2388,7 +2388,7 @@ thread-pre-split:                                 ; preds = %590
   %974 = load i32, ptr %40, align 4
   %.not408 = icmp eq i32 %974, 0
   %or.cond509 = select i1 %.not407, i1 %.not408, i1 false
-  br i1 %or.cond509, label %.sink.split761, label %975
+  br i1 %or.cond509, label %.sink.split800, label %975
 
 975:                                              ; preds = %972
   %976 = getelementptr inbounds nuw i8, ptr %0, i64 153352
@@ -2396,20 +2396,20 @@ thread-pre-split:                                 ; preds = %590
   %978 = fpext reassoc nsz arcp contract afn float %977 to double
   %979 = fcmp reassoc nsz arcp contract afn olt double %978, 1.000000e-02
   %or.cond511 = select i1 %979, i1 %.not408, i1 false
-  br i1 %or.cond511, label %.sink.split761, label %985
+  br i1 %or.cond511, label %.sink.split800, label %985
 
-.sink.split761:                                   ; preds = %975, %972
-  %.sink765 = phi i32 [ 0, %972 ], [ 1, %975 ]
+.sink.split800:                                   ; preds = %975, %972
+  %.sink804 = phi i32 [ 0, %972 ], [ 1, %975 ]
   %980 = load i32, ptr %36, align 4, !tbaa !16
   %981 = load ptr, ptr %0, align 8, !tbaa !140
   %982 = getelementptr inbounds nuw i8, ptr %981, i64 72
   %983 = load ptr, ptr %982, align 8
-  %984 = call noundef i32 %983(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %980, ptr noundef nonnull %38, i32 noundef %.sink765)
+  %984 = call noundef i32 %983(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %980, ptr noundef nonnull %38, i32 noundef %.sink804)
   store i32 %984, ptr %40, align 4, !tbaa !198
   br label %985
 
-985:                                              ; preds = %.sink.split761, %975
-  %986 = phi i32 [ %974, %975 ], [ %984, %.sink.split761 ]
+985:                                              ; preds = %.sink.split800, %975
+  %986 = phi i32 [ %974, %975 ], [ %984, %.sink.split800 ]
   %.unpack411 = load i64, ptr %81, align 8, !tbaa !147
   %.unpack413 = load i64, ptr %.repack251, align 8, !tbaa !147
   %987 = icmp eq i64 %.unpack411, ptrtoint (ptr @_ZN6LibRaw19kodak_radc_load_rawEv to i64)
@@ -2458,7 +2458,7 @@ thread-pre-split:                                 ; preds = %590
   br i1 %.not420, label %.thread571, label %thread-pre-split569.thread
 
 thread-pre-split569.thread:                       ; preds = %1002
-  %.pre728738 = load i16, ptr %25, align 4, !tbaa !154
+  %.pre728777 = load i16, ptr %25, align 4, !tbaa !154
   br label %1006
 
 .thread571:                                       ; preds = %1002
@@ -2472,7 +2472,7 @@ thread-pre-split569:                              ; preds = %999
   br i1 %.not421, label %1029, label %1006
 
 1006:                                             ; preds = %thread-pre-split569.thread, %thread-pre-split569
-  %.pre728739 = phi i16 [ %.pre728738, %thread-pre-split569.thread ], [ %.pre728, %thread-pre-split569 ]
+  %.pre728778 = phi i16 [ %.pre728777, %thread-pre-split569.thread ], [ %.pre728, %thread-pre-split569 ]
   %1007 = load i16, ptr %24, align 2, !tbaa !153
   %1008 = load i32, ptr %19, align 8, !tbaa !82
   %.not422 = icmp eq i32 %1008, 0
@@ -2483,7 +2483,7 @@ thread-pre-split569:                              ; preds = %999
   %.not423 = icmp eq i16 %1011, 0
   %1012 = select i1 %.not423, i32 1229539657, i32 -1802201964
   store i32 %1012, ptr %14, align 8, !tbaa !78
-  %1013 = zext i16 %.pre728739 to i32
+  %1013 = zext i16 %.pre728778 to i32
   %1014 = lshr i32 %1013, %1008
   %1015 = trunc nuw i32 %1014 to i16
   %1016 = add i16 %1010, %1015
@@ -2568,19 +2568,19 @@ thread-pre-split569:                              ; preds = %999
   %1059 = icmp eq i64 %.unpack428, ptrtoint (ptr @_ZN6LibRaw18sony_arw2_load_rawEv to i64)
   %1060 = icmp eq i64 %.unpack430, 0
   %1061 = and i1 %1059, %1060
-  br i1 %1061, label %.sink.split769, label %thread-pre-split573
+  br i1 %1061, label %.sink.split808, label %thread-pre-split573
 
 thread-pre-split573:                              ; preds = %1053, %1057, %1050, %1047
   %1062 = phi i32 [ %1051, %1050 ], [ %1049, %1047 ], [ %1051, %1057 ], [ %1051, %1053 ]
   %1063 = icmp ugt i32 %1062, 65535
-  br i1 %1063, label %.sink.split769, label %1064
+  br i1 %1063, label %.sink.split808, label %1064
 
-.sink.split769:                                   ; preds = %thread-pre-split573, %1057
-  %.sink770 = phi i32 [ %1058, %1057 ], [ 65535, %thread-pre-split573 ]
-  store i32 %.sink770, ptr %26, align 8, !tbaa !84
+.sink.split808:                                   ; preds = %thread-pre-split573, %1057
+  %.sink809 = phi i32 [ %1058, %1057 ], [ 65535, %thread-pre-split573 ]
+  store i32 %.sink809, ptr %26, align 8, !tbaa !84
   br label %1064
 
-1064:                                             ; preds = %.sink.split769, %thread-pre-split573
+1064:                                             ; preds = %.sink.split808, %thread-pre-split573
   %.unpack432 = load i64, ptr %81, align 8, !tbaa !147
   %.unpack434 = load i64, ptr %.repack251, align 8, !tbaa !147
   %.not435 = icmp eq i64 %.unpack432, 0
@@ -2625,8 +2625,8 @@ thread-pre-split573:                              ; preds = %1053, %1057, %1050,
   %1083 = add i16 %1042, 1535
   %or.cond536 = icmp ult i16 %1083, 1557
   %1084 = icmp ult i16 %1041, 22
-  %or.cond772 = or i1 %or.cond536, %1084
-  br i1 %or.cond772, label %1090, label %1085
+  %or.cond811 = or i1 %or.cond536, %1084
+  br i1 %or.cond811, label %1090, label %1085
 
 1085:                                             ; preds = %1082
   %1086 = load double, ptr %101, align 8, !tbaa !129
@@ -2646,8 +2646,8 @@ thread-pre-split573:                              ; preds = %1053, %1057, %1050,
   %.not436 = icmp ugt i16 %1042, %1092
   %1093 = load i16, ptr %23, align 8
   %.not437 = icmp ugt i16 %1041, %1093
-  %or.cond774 = select i1 %.not436, i1 %.not437, i1 false
-  br i1 %or.cond774, label %1095, label %1094
+  %or.cond813 = select i1 %.not436, i1 %.not437, i1 false
+  br i1 %or.cond813, label %1095, label %1094
 
 1094:                                             ; preds = %1091
   store i32 0, ptr %100, align 8, !tbaa !128
@@ -2736,23 +2736,23 @@ thread-pre-split573:                              ; preds = %1053, %1057, %1050,
   %1132 = add nsw i32 %1129, 3600
   %1133 = srem i32 %1132, 360
   switch i32 %1133, label %1136 [
-    i32 270, label %.sink.split775
+    i32 270, label %.sink.split814
     i32 180, label %1134
     i32 90, label %1135
   ]
 
 1134:                                             ; preds = %1131
-  br label %.sink.split775
+  br label %.sink.split814
 
 1135:                                             ; preds = %1131
-  br label %.sink.split775
+  br label %.sink.split814
 
-.sink.split775:                                   ; preds = %1131, %1135, %1134
-  %.sink776 = phi i32 [ 3, %1134 ], [ 6, %1135 ], [ 5, %1131 ]
-  store i32 %.sink776, ptr %16, align 8, !tbaa !79
+.sink.split814:                                   ; preds = %1131, %1135, %1134
+  %.sink815 = phi i32 [ 3, %1134 ], [ 6, %1135 ], [ 5, %1131 ]
+  store i32 %.sink815, ptr %16, align 8, !tbaa !79
   br label %1136
 
-1136:                                             ; preds = %.sink.split775, %.thread576, %1131
+1136:                                             ; preds = %.sink.split814, %.thread576, %1131
   %1137 = getelementptr inbounds nuw i8, ptr %0, i64 381736
   %1138 = load i32, ptr %1137, align 8, !tbaa !200
   %.not442 = icmp eq i32 %1138, 0
@@ -2780,9 +2780,9 @@ thread-pre-split573:                              ; preds = %1053, %1057, %1050,
   br label %1150
 
 1150:                                             ; preds = %1136, %1145, %1148
-  %.sink777 = phi i32 [ %1147, %1145 ], [ %1149, %1148 ], [ %1138, %1136 ]
+  %.sink816 = phi i32 [ %1147, %1145 ], [ %1149, %1148 ], [ %1138, %1136 ]
   %1151 = getelementptr inbounds nuw i8, ptr %0, i64 192544
-  store i32 %.sink777, ptr %1151, align 8, !tbaa !202
+  store i32 %.sink816, ptr %1151, align 8, !tbaa !202
   %1152 = getelementptr inbounds nuw i8, ptr %0, i64 767448
   %1153 = load ptr, ptr %1152, align 8, !tbaa !183
   %.not447 = icmp eq ptr %1153, null
@@ -3489,12 +3489,12 @@ define void @_ZN6LibRaw21identify_finetune_dcrEPcii(ptr noundef nonnull align 8 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %111, %115
-  %.sink596 = phi i16 [ 3866, %115 ], [ 3272, %111 ]
-  store i16 %.sink596, ptr %113, align 2, !tbaa !153
+  %.sink614 = phi i16 [ 3866, %115 ], [ 3272, %111 ]
+  store i16 %.sink614, ptr %113, align 2, !tbaa !153
   br label %116
 
 116:                                              ; preds = %.sink.split, %111
-  %117 = phi i16 [ %114, %111 ], [ %.sink596, %.sink.split ]
+  %117 = phi i16 [ %114, %111 ], [ %.sink614, %.sink.split ]
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %119 = load i16, ptr %118, align 4, !tbaa !154
   %120 = icmp ugt i16 %119, %117
@@ -3610,9 +3610,9 @@ define void @_ZN6LibRaw21identify_finetune_dcrEPcii(ptr noundef nonnull align 8 
   br label %162
 
 162:                                              ; preds = %159, %154, %148
-  %.sink597 = phi i32 [ 508251675, %159 ], [ 458115870, %154 ], [ 508436046, %148 ]
+  %.sink615 = phi i32 [ 508251675, %159 ], [ 458115870, %154 ], [ 508436046, %148 ]
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i32 %.sink597, ptr %163, align 8, !tbaa !78
+  store i32 %.sink615, ptr %163, align 8, !tbaa !78
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 540
   store i32 4, ptr %164, align 4, !tbaa !136
   store i32 10, ptr %108, align 8, !tbaa !112
@@ -4268,8 +4268,8 @@ switch.early.test:                                ; preds = %233
   switch i16 %429, label %.thread553 [
     i16 4100, label %.thread529
     i16 4080, label %430
-    i16 10400, label %.thread594
-    i16 8200, label %.thread594.fold.split
+    i16 10400, label %.thread612
+    i16 8200, label %.thread612.fold.split
     i16 8180, label %.thread536
     i16 9280, label %431
   ]
@@ -4282,11 +4282,11 @@ switch.early.test:                                ; preds = %233
   store i16 4056, ptr %428, align 2, !tbaa !153
   br label %.thread553
 
-.thread594.fold.split:                            ; preds = %427
-  br label %.thread594
+.thread612.fold.split:                            ; preds = %427
+  br label %.thread612
 
-.thread594:                                       ; preds = %427, %.thread594.fold.split
-  %storemerge = phi i16 [ 10388, %427 ], [ 8170, %.thread594.fold.split ]
+.thread612:                                       ; preds = %427, %.thread612.fold.split
+  %storemerge = phi i16 [ 10388, %427 ], [ 8170, %.thread612.fold.split ]
   store i16 %storemerge, ptr %428, align 2, !tbaa !153
   br label %.thread553
 
@@ -4300,8 +4300,8 @@ switch.early.test:                                ; preds = %233
   store i16 %432, ptr %420, align 4, !tbaa !154
   br label %.thread553
 
-.thread553:                                       ; preds = %427, %.thread594, %.thread529, %430, %.thread536, %431
-  %433 = phi i16 [ 4096, %.thread529 ], [ 4056, %430 ], [ 8170, %.thread536 ], [ 9274, %431 ], [ %storemerge, %.thread594 ], [ %429, %427 ]
+.thread553:                                       ; preds = %427, %.thread612, %.thread529, %430, %.thread536, %431
+  %433 = phi i16 [ 4096, %.thread529 ], [ 4056, %430 ], [ 8170, %.thread536 ], [ 9274, %431 ], [ %storemerge, %.thread612 ], [ %429, %427 ]
   %434 = getelementptr inbounds nuw i8, ptr %0, i64 767584
   %.unpack213 = load i64, ptr %434, align 8, !tbaa !147
   %.elt214 = getelementptr inbounds nuw i8, ptr %0, i64 767592
@@ -4457,7 +4457,7 @@ switch.early.test:                                ; preds = %233
   store i16 2144, ptr %502, align 4, !tbaa !154
   %503 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i16 2880, ptr %503, align 2, !tbaa !153
-  br label %.sink.split599
+  br label %.sink.split617
 
 504:                                              ; preds = %495
   %505 = getelementptr inbounds nuw i8, ptr %0, i64 767584
@@ -4486,16 +4486,16 @@ switch.early.test:                                ; preds = %233
   %.not185 = icmp eq i32 %517, 0
   %518 = select i1 %.not185, i32 15872, i32 12032
   %519 = select i1 %515, i32 %518, i32 15872
-  br label %.sink.split599
+  br label %.sink.split617
 
-.sink.split599:                                   ; preds = %501, %512
-  %.sink602 = phi i64 [ 153000, %512 ], [ 48, %501 ]
-  %.sink600 = phi i32 [ %519, %512 ], [ 6, %501 ]
-  %520 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink602
-  store i32 %.sink600, ptr %520, align 8, !tbaa !92
+.sink.split617:                                   ; preds = %501, %512
+  %.sink620 = phi i64 [ 153000, %512 ], [ 48, %501 ]
+  %.sink618 = phi i32 [ %519, %512 ], [ 6, %501 ]
+  %520 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink620
+  store i32 %.sink618, ptr %520, align 8, !tbaa !92
   br label %521
 
-521:                                              ; preds = %.sink.split599, %504
+521:                                              ; preds = %.sink.split617, %504
   %522 = getelementptr inbounds nuw i8, ptr %0, i64 2888
   %523 = load i16, ptr %522, align 8, !tbaa !88
   %.not186 = icmp eq i16 %523, 0
@@ -4537,9 +4537,9 @@ switch.early.test:                                ; preds = %233
   br label %.thread538.sink.split
 
 .thread538.sink.split:                            ; preds = %525, %538, %534
-  %.sink603 = phi i16 [ %537, %534 ], [ %540, %538 ], [ %532, %525 ]
+  %.sink621 = phi i16 [ %537, %534 ], [ %540, %538 ], [ %532, %525 ]
   %541 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i16 %.sink603, ptr %541, align 4, !tbaa !154
+  store i16 %.sink621, ptr %541, align 4, !tbaa !154
   br label %.thread538
 
 .thread538:                                       ; preds = %.thread538.sink.split, %524, %524, %533
@@ -4914,12 +4914,12 @@ switch.early.test:                                ; preds = %233
   %687 = load i16, ptr %686, align 2, !tbaa !218
   %688 = getelementptr inbounds nuw i8, ptr %0, i64 767584
   switch i16 %687, label %690 [
-    i16 82, label %.sink.split605
+    i16 82, label %.sink.split623
     i16 89, label %689
   ]
 
 689:                                              ; preds = %685
-  br label %.sink.split605
+  br label %.sink.split623
 
 690:                                              ; preds = %685
   %.unpack162 = load i64, ptr %688, align 8, !tbaa !147
@@ -4929,33 +4929,33 @@ switch.early.test:                                ; preds = %233
 691:                                              ; preds = %690
   %692 = getelementptr inbounds nuw i8, ptr %0, i64 153000
   store i32 4095, ptr %692, align 8, !tbaa !84
-  br label %.sink.split605
+  br label %.sink.split623
 
-.sink.split605:                                   ; preds = %685, %691, %689
-  %.sink606 = phi i64 [ ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64), %689 ], [ ptrtoint (ptr @_ZN6LibRaw17unpacked_load_rawEv to i64), %691 ], [ ptrtoint (ptr @_ZN6LibRaw17unpacked_load_rawEv to i64), %685 ]
-  store i64 %.sink606, ptr %688, align 8, !tbaa !147
+.sink.split623:                                   ; preds = %685, %691, %689
+  %.sink624 = phi i64 [ ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64), %689 ], [ ptrtoint (ptr @_ZN6LibRaw17unpacked_load_rawEv to i64), %691 ], [ ptrtoint (ptr @_ZN6LibRaw17unpacked_load_rawEv to i64), %685 ]
+  store i64 %.sink624, ptr %688, align 8, !tbaa !147
   %.repack167 = getelementptr inbounds nuw i8, ptr %0, i64 767592
   store i64 0, ptr %.repack167, align 8, !tbaa !147
   br label %693
 
-693:                                              ; preds = %.sink.split605, %690
+693:                                              ; preds = %.sink.split623, %690
   %694 = getelementptr inbounds nuw i8, ptr %0, i64 3660
   %695 = load i16, ptr %694, align 4, !tbaa !219
   switch i16 %695, label %698 [
-    i16 4, label %.sink.split607
+    i16 4, label %.sink.split625
     i16 1, label %696
   ]
 
 696:                                              ; preds = %693
-  br label %.sink.split607
+  br label %.sink.split625
 
-.sink.split607:                                   ; preds = %693, %696
-  %.sink608 = phi i32 [ -1802201964, %696 ], [ 1229539657, %693 ]
+.sink.split625:                                   ; preds = %693, %696
+  %.sink626 = phi i32 [ -1802201964, %696 ], [ 1229539657, %693 ]
   %697 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i32 %.sink608, ptr %697, align 8, !tbaa !78
+  store i32 %.sink626, ptr %697, align 8, !tbaa !78
   br label %698
 
-698:                                              ; preds = %.sink.split607, %693
+698:                                              ; preds = %.sink.split625, %693
   %699 = getelementptr inbounds nuw i8, ptr %0, i64 3656
   %700 = load i16, ptr %699, align 8, !tbaa !220
   %.not169 = icmp eq i16 %700, 0
@@ -4989,28 +4989,28 @@ switch.early.test:                                ; preds = %233
 711:                                              ; preds = %708
   %712 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i16 1716, ptr %712, align 4, !tbaa !154
-  br label %.sink.split610
+  br label %.sink.split628
 
 713:                                              ; preds = %708, %680
   %714 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i16 1956, ptr %714, align 4, !tbaa !154
   %715 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i16 2607, ptr %715, align 2, !tbaa !153
-  br label %.sink.split610
+  br label %.sink.split628
 
 716:                                              ; preds = %708
   %717 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i16 2136, ptr %717, align 4, !tbaa !154
-  br label %.sink.split610
+  br label %.sink.split628
 
-.sink.split610:                                   ; preds = %711, %716, %713
-  %.sink613 = phi i64 [ 18, %713 ], [ 22, %716 ], [ 22, %711 ]
-  %.sink611 = phi i16 [ 2624, %713 ], [ 2848, %716 ], [ 2304, %711 ]
-  %718 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink613
-  store i16 %.sink611, ptr %718, align 2, !tbaa !81
+.sink.split628:                                   ; preds = %711, %716, %713
+  %.sink631 = phi i64 [ 18, %713 ], [ 22, %716 ], [ 22, %711 ]
+  %.sink629 = phi i16 [ 2624, %713 ], [ 2848, %716 ], [ 2304, %711 ]
+  %718 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink631
+  store i16 %.sink629, ptr %718, align 2, !tbaa !81
   br label %719
 
-719:                                              ; preds = %.sink.split610, %708
+719:                                              ; preds = %.sink.split628, %708
   %720 = getelementptr inbounds nuw i8, ptr %0, i64 381584
   %721 = load i64, ptr %720, align 8, !tbaa !146
   %722 = add nsw i64 %721, 14
@@ -5957,10 +5957,10 @@ switch.early.test:                                ; preds = %233
   %1186 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %1187 = load i32, ptr %1186, align 8, !tbaa !78
   %1188 = icmp eq i32 %1187, 3
-  %or.cond614 = select i1 %or.cond520, i1 %1188, i1 false
+  %or.cond632 = select i1 %or.cond520, i1 %1188, i1 false
   %1189 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %1190 = add i32 %1187, 3
-  %1191 = select i1 %or.cond614, i32 3, i32 %1190
+  %1191 = select i1 %or.cond632, i32 3, i32 %1190
   %1192 = load i16, ptr %1146, align 2, !tbaa !164
   %1193 = and i16 %1192, 1
   %1194 = zext nneg i16 %1193 to i32
@@ -6863,29 +6863,29 @@ switch.early.test:                                ; preds = %233
   %1583 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %1584 = load i16, ptr %1583, align 2, !tbaa !151
   switch i16 %1584, label %1590 [
-    i16 1316, label %.sink.split615
+    i16 1316, label %.sink.split633
     i16 2568, label %1585
   ]
 
 1585:                                             ; preds = %1582
-  br label %.sink.split615
+  br label %.sink.split633
 
-.sink.split615:                                   ; preds = %1582, %1585
-  %.sink622 = phi i16 [ 1960, %1585 ], [ 1030, %1582 ]
-  %.sink620 = phi i16 [ 2560, %1585 ], [ 1300, %1582 ]
-  %.sink618 = phi i16 [ 2, %1585 ], [ 1, %1582 ]
-  %.sink616 = phi i16 [ 8, %1585 ], [ 6, %1582 ]
+.sink.split633:                                   ; preds = %1582, %1585
+  %.sink640 = phi i16 [ 1960, %1585 ], [ 1030, %1582 ]
+  %.sink638 = phi i16 [ 2560, %1585 ], [ 1300, %1582 ]
+  %.sink636 = phi i16 [ 2, %1585 ], [ 1, %1582 ]
+  %.sink634 = phi i16 [ 8, %1585 ], [ 6, %1582 ]
   %1586 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i16 %.sink622, ptr %1586, align 4, !tbaa !154
+  store i16 %.sink640, ptr %1586, align 4, !tbaa !154
   %1587 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  store i16 %.sink620, ptr %1587, align 2, !tbaa !153
+  store i16 %.sink638, ptr %1587, align 2, !tbaa !153
   %1588 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 %.sink618, ptr %1588, align 8, !tbaa !155
+  store i16 %.sink636, ptr %1588, align 8, !tbaa !155
   %1589 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  store i16 %.sink616, ptr %1589, align 2, !tbaa !164
+  store i16 %.sink634, ptr %1589, align 2, !tbaa !164
   br label %1590
 
-1590:                                             ; preds = %.sink.split615, %1582
+1590:                                             ; preds = %.sink.split633, %1582
   %1591 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 370546198, ptr %1591, align 8, !tbaa !78
   store i64 ptrtoint (ptr @_ZN6LibRaw15rollei_load_rawEv to i64), ptr %1004, align 8, !tbaa !147
@@ -6992,8 +6992,8 @@ declare noundef i32 @_ZN6LibRaw11ljpeg_startEP5jheadi(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align 8 dereferenceable(767680) %0) local_unnamed_addr #3 align 2 {
-  %.sroa.0829 = alloca i32, align 4
-  %.sroa.4830 = alloca i32, align 4
+  %.sroa.0868 = alloca i32, align 4
+  %.sroa.4869 = alloca i32, align 4
   %.sroa.0 = alloca i32, align 4
   %.sroa.4 = alloca i32, align 4
   %2 = alloca [2 x i32], align 4
@@ -7007,7 +7007,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 532
   %11 = load i32, ptr %10, align 4, !tbaa !115
   %.not = icmp eq i32 %11, 0
-  %indvars.iv.sroa.gep822 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %indvars.iv.sroa.gep861 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br i1 %.not, label %748, label %12
 
 12:                                               ; preds = %1
@@ -7052,8 +7052,8 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   br i1 %.not390, label %39, label %169
 
 39:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0829)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4830)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0868)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4869)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -7076,26 +7076,26 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %52 = and i32 %51, 1
   %sext = add nsw i32 %52, -1
   %53 = select i1 %.not391, i32 %sext, i32 %26
-  %.sroa.0829.0..sroa.0829.0. = load i32, ptr %.sroa.0829, align 4, !tbaa !92
-  %54 = icmp sgt i32 %.sroa.0829.0..sroa.0829.0., -1
-  %55 = icmp slt i32 %.sroa.0829.0..sroa.0829.0., %32
+  %.sroa.0868.0..sroa.0868.0. = load i32, ptr %.sroa.0868, align 4, !tbaa !92
+  %54 = icmp sgt i32 %.sroa.0868.0..sroa.0868.0., -1
+  %55 = icmp slt i32 %.sroa.0868.0..sroa.0868.0., %32
   %or.cond513 = and i1 %54, %55
-  %.sroa.4830.0..sroa.4830.4. = load i32, ptr %.sroa.4830, align 4
-  %56 = icmp eq i32 %.sroa.0829.0..sroa.0829.0., %.sroa.4830.0..sroa.4830.4.
+  %.sroa.4869.0..sroa.4869.4. = load i32, ptr %.sroa.4869, align 4
+  %56 = icmp eq i32 %.sroa.0868.0..sroa.0868.0., %.sroa.4869.0..sroa.4869.4.
   %or.cond516 = select i1 %or.cond513, i1 %56, i1 false
   %.sroa.0.0..sroa.0.0. = load i32, ptr %.sroa.0, align 4
-  %57 = icmp eq i32 %.sroa.0829.0..sroa.0829.0., %.sroa.0.0..sroa.0.0.
+  %57 = icmp eq i32 %.sroa.0868.0..sroa.0868.0., %.sroa.0.0..sroa.0.0.
   %or.cond518 = select i1 %or.cond516, i1 %57, i1 false
   %.sroa.4.0..sroa.4.4. = load i32, ptr %.sroa.4, align 4
-  %58 = icmp eq i32 %.sroa.0829.0..sroa.0829.0., %.sroa.4.0..sroa.4.4.
+  %58 = icmp eq i32 %.sroa.0868.0..sroa.0868.0., %.sroa.4.0..sroa.4.4.
   %or.cond521 = select i1 %or.cond518, i1 %58, i1 false
   br i1 %or.cond521, label %87, label %168
 
 59:                                               ; preds = %39, %85
   %60 = phi i1 [ true, %39 ], [ false, %85 ]
-  %indvars.iv.sroa.phi = phi ptr [ %2, %39 ], [ %indvars.iv.sroa.gep822, %85 ]
-  %indvars.iv.sroa.phi823 = phi ptr [ %.sroa.0, %39 ], [ %.sroa.4, %85 ]
-  %indvars.iv.sroa.phi826 = phi ptr [ %.sroa.0829, %39 ], [ %.sroa.4830, %85 ]
+  %indvars.iv.sroa.phi = phi ptr [ %2, %39 ], [ %indvars.iv.sroa.gep861, %85 ]
+  %indvars.iv.sroa.phi862 = phi ptr [ %.sroa.0, %39 ], [ %.sroa.4, %85 ]
+  %indvars.iv.sroa.phi865 = phi ptr [ %.sroa.0868, %39 ], [ %.sroa.4869, %85 ]
   %indvars.iv = phi i64 [ 0, %39 ], [ 1, %85 ]
   %61 = getelementptr inbounds nuw [2 x %struct.libraw_dng_color_t], ptr %43, i64 0, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4, !tbaa !227
@@ -7113,7 +7113,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 69:                                               ; preds = %59, %64
   %70 = phi i32 [ %sext409, %64 ], [ %26, %59 ]
-  store i32 %70, ptr %indvars.iv.sroa.phi826, align 4, !tbaa !92
+  store i32 %70, ptr %indvars.iv.sroa.phi865, align 4, !tbaa !92
   %71 = and i32 %62, 4
   %.not410 = icmp eq i32 %71, 0
   br i1 %.not410, label %72, label %77
@@ -7128,7 +7128,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 77:                                               ; preds = %69, %72
   %78 = phi i32 [ %sext412, %72 ], [ %26, %69 ]
-  store i32 %78, ptr %indvars.iv.sroa.phi823, align 4, !tbaa !92
+  store i32 %78, ptr %indvars.iv.sroa.phi862, align 4, !tbaa !92
   %79 = and i32 %62, 8
   %.not413 = icmp eq i32 %79, 0
   br i1 %.not413, label %80, label %85
@@ -7147,7 +7147,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   br i1 %60, label %59, label %45, !llvm.loop !228
 
 87:                                               ; preds = %45
-  %88 = zext nneg i32 %.sroa.0829.0..sroa.0829.0. to i64
+  %88 = zext nneg i32 %.sroa.0868.0..sroa.0868.0. to i64
   %89 = getelementptr inbounds nuw [10 x %struct.tiff_ifd_t], ptr %40, i64 0, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 140
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 144
@@ -7242,7 +7242,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   br i1 %120, label %.preheader569, label %167
 
 .preheader569:                                    ; preds = %.thread.thread, %.thread
-  %.1344800 = phi i32 [ %119, %.thread.thread ], [ %.4347, %.thread ]
+  %.1344839 = phi i32 [ %119, %.thread.thread ], [ %.4347, %.thread ]
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %122 = load i32, ptr %121, align 4, !tbaa !136
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %122, i32 4)
@@ -7250,7 +7250,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   br i1 %123, label %.preheader568.lr.ph, label %.loopexit567
 
 .preheader568.lr.ph:                              ; preds = %.preheader569
-  %124 = zext nneg i32 %.1344800 to i64
+  %124 = zext nneg i32 %.1344839 to i64
   %.idx405 = mul nuw nsw i64 %124, 168
   %125 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx405
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 72
@@ -7282,8 +7282,8 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 ._crit_edge:                                      ; preds = %129
   %135 = getelementptr inbounds nuw [2 x i32], ptr %2, i64 0, i64 %124
   %136 = load i32, ptr %135, align 4, !tbaa !92
-  %.not813 = icmp eq i32 %136, %.sroa.0829.0..sroa.0829.0.
-  br i1 %.not813, label %.preheader565.us.preheader, label %.loopexit567
+  %.not852 = icmp eq i32 %136, %.sroa.0868.0..sroa.0868.0.
+  br i1 %.not852, label %.preheader565.us.preheader, label %.loopexit567
 
 .preheader565.us.preheader:                       ; preds = %._crit_edge
   %.idx404 = mul nuw nsw i64 %124, 168
@@ -7315,7 +7315,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   br i1 %exitcond710.not, label %.loopexit567, label %.preheader565.us, !llvm.loop !236
 
 .loopexit567:                                     ; preds = %._crit_edge587.us, %._crit_edge, %.preheader569
-  %146 = icmp eq i32 %53, %.sroa.0829.0..sroa.0829.0.
+  %146 = icmp eq i32 %53, %.sroa.0868.0..sroa.0868.0.
   br i1 %146, label %.preheader563, label %.loopexit564
 
 .preheader563:                                    ; preds = %.loopexit567
@@ -7407,8 +7407,8 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0829)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4830)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0868)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4869)
   br label %169
 
 169:                                              ; preds = %168, %35
@@ -8082,8 +8082,8 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %563 = getelementptr inbounds nuw i8, ptr %0, i64 154184
   %564 = load i32, ptr %563, align 8, !tbaa !92
   %565 = icmp eq i32 %564, 1
-  %or.cond810 = select i1 %or.cond533, i1 %565, i1 false
-  br i1 %or.cond810, label %566, label %._crit_edge791
+  %or.cond849 = select i1 %or.cond533, i1 %565, i1 false
+  br i1 %or.cond849, label %566, label %._crit_edge791
 
 566:                                              ; preds = %557
   %567 = getelementptr inbounds nuw i8, ptr %0, i64 154188
@@ -8159,8 +8159,8 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %.not662 = icmp eq i32 %584, 0
   %.not663 = icmp eq i32 %587, 0
-  %or.cond811 = or i1 %.not662, %.not663
-  br i1 %or.cond811, label %.preheader553.preheader, label %.preheader554.us.preheader
+  %or.cond850 = or i1 %.not662, %.not663
+  br i1 %or.cond850, label %.preheader553.preheader, label %.preheader554.us.preheader
 
 .preheader553.preheader:                          ; preds = %._crit_edge636.us, %609
   br label %.preheader553
@@ -8263,8 +8263,8 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %.not659 = icmp eq i32 %651, 0
   %.not660 = icmp eq i32 %653, 0
-  %or.cond812 = or i1 %.not659, %.not660
-  br i1 %or.cond812, label %.preheader555.preheader, label %.preheader557.us.us.preheader
+  %or.cond851 = or i1 %.not659, %.not660
+  br i1 %or.cond851, label %.preheader555.preheader, label %.preheader557.us.us.preheader
 
 .preheader555.preheader:                          ; preds = %._crit_edge624.split.us.us.us, %659
   br label %.preheader555
@@ -8281,8 +8281,8 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 .preheader556.us.us.us:                           ; preds = %._crit_edge620.us.us.us, %.preheader557.us.us
   %.0326623.us.us.us = phi i32 [ 0, %.preheader557.us.us ], [ %670, %._crit_edge620.us.us.us ]
   %.1329622.us.us.us = phi i64 [ %.0328626.us.us, %.preheader557.us.us ], [ %indvars.iv.next754, %._crit_edge620.us.us.us ]
-  %sext798 = shl i64 %.1329622.us.us.us, 32
-  %660 = ashr exact i64 %sext798, 32
+  %sext837 = shl i64 %.1329622.us.us.us, 32
+  %660 = ashr exact i64 %sext837, 32
   br label %661
 
 661:                                              ; preds = %661, %.preheader556.us.us.us

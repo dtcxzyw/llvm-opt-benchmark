@@ -240,7 +240,7 @@ define dso_local i32 @handle_pmi1_cmd(i32 noundef %0, i32 noundef %1) local_unna
 58:                                               ; preds = %.critedge52.i
   %59 = add nuw nsw i32 %.04456.i, %44
   %60 = load ptr, ptr %3, align 8
-  %61 = sext i32 %59 to i64
+  %61 = zext nneg i32 %59 to i64
   %62 = getelementptr i8, ptr %60, i64 %61
   %63 = getelementptr i8, ptr %62, i64 -7
   %64 = call i32 @slurm_xstrncmp(ptr noundef %63, ptr noundef nonnull @.str.6, i64 noundef 7) #8
@@ -362,16 +362,16 @@ define internal fastcc i32 @_handle_pmi1_cmd_buf(i32 noundef %0, i32 noundef %1,
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @slurm_xstrcmp(ptr noundef %12, ptr noundef nonnull @.str.12) #8
-  %.not2027 = icmp eq i32 %13, 0
-  br i1 %.not2027, label %._crit_edge, label %.lr.ph
+  %.not2028 = icmp eq i32 %13, 0
+  br i1 %.not2028, label %._crit_edge, label %.lr.ph
 
 14:                                               ; preds = %8
   %15 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.10) #8
   br label %28
 
 .lr.ph:                                           ; preds = %.preheader, %16
-  %indvars.iv28 = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv28, 1
+  %indvars.iv29 = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv29, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond, label %21, label %16, !llvm.loop !14
 

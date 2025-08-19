@@ -2859,18 +2859,18 @@ _init_l_Lake_EquipT_instMonadLift___closed__1.exit: ; preds = %_init_l_Lake_Equi
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_EquipT_instMonadLift___closed__1.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %50, %_init_l_Lake_EquipT_instMonadLift___closed__1.exit ]
-  %53 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !4
+  %.sink16 = phi ptr [ %4, %3 ], [ %50, %_init_l_Lake_EquipT_instMonadLift___closed__1.exit ]
+  %53 = getelementptr inbounds nuw i8, ptr %.sink16, i64 4
+  store i32 1, ptr %.sink16, align 4, !tbaa !4
   store i32 131096, ptr %53, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.sink16, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %54, align 8, !tbaa !10
-  %55 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %.sink16, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %55, align 8, !tbaa !10
   br label %56
 
 56:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink16, %.sink.split ]
   ret ptr %.0
 }
 

@@ -1708,7 +1708,7 @@ dissect_rdm_mdb.exit:                             ; preds = %8, %63, %64, %66, %
 .lr.ph.i.preheader:                               ; preds = %.thread, %88
   %95 = phi i32 [ %87, %.thread ], [ %94, %88 ]
   %96 = phi i32 [ %86, %.thread ], [ %93, %88 ]
-  %.080 = phi i32 [ %.1.i, %.thread ], [ %92, %88 ]
+  %.083 = phi i32 [ %.1.i, %.thread ], [ %92, %88 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -1718,7 +1718,7 @@ dissect_rdm_mdb.exit:                             ; preds = %8, %63, %64, %66, %
   %98 = zext i8 %97 to i16
   %99 = add i16 %.067.i, %98
   %100 = add nuw i32 %.08.i, 1
-  %exitcond.not.i = icmp eq i32 %100, %.080
+  %exitcond.not.i = icmp eq i32 %100, %.083
   br i1 %exitcond.not.i, label %rdm_checksum.exit.loopexit, label %.lr.ph.i, !llvm.loop !6
 
 rdm_checksum.exit.loopexit:                       ; preds = %.lr.ph.i
@@ -1728,10 +1728,10 @@ rdm_checksum.exit.loopexit:                       ; preds = %.lr.ph.i
 rdm_checksum.exit:                                ; preds = %rdm_checksum.exit.loopexit, %88
   %102 = phi i32 [ %94, %88 ], [ %95, %rdm_checksum.exit.loopexit ]
   %103 = phi i32 [ %93, %88 ], [ %96, %rdm_checksum.exit.loopexit ]
-  %.081 = phi i32 [ 0, %88 ], [ %.080, %rdm_checksum.exit.loopexit ]
+  %.084 = phi i32 [ 0, %88 ], [ %.083, %rdm_checksum.exit.loopexit ]
   %.06.lcssa.i = phi i32 [ 204, %88 ], [ %101, %rdm_checksum.exit.loopexit ]
-  %104 = tail call ptr @proto_tree_add_checksum(ptr noundef %12, ptr noundef %0, i32 noundef %.081, i32 noundef %103, i32 noundef %102, ptr noundef nonnull @ei_rdm_checksum, ptr noundef %1, i32 noundef %.06.lcssa.i, i32 noundef 0, i32 noundef 1)
-  %105 = add i32 %.081, 2
+  %104 = tail call ptr @proto_tree_add_checksum(ptr noundef %12, ptr noundef %0, i32 noundef %.084, i32 noundef %103, i32 noundef %102, ptr noundef nonnull @ei_rdm_checksum, ptr noundef %1, i32 noundef %.06.lcssa.i, i32 noundef 0, i32 noundef 1)
+  %105 = add i32 %.084, 2
   %106 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %107 = icmp ult i32 %105, %106
   br i1 %107, label %108, label %111

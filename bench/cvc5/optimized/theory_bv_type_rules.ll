@@ -1295,24 +1295,24 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %174, %1
   br i1 %188, label %.invoke, label %_ZN4cvc58internal8TypeNode4nullEv.exit, !prof !12
 
 .invoke:                                          ; preds = %187, %70
-  %.sink78 = phi i64 [ %65, %70 ], [ %182, %187 ]
-  %.sink77 = phi ptr [ %64, %70 ], [ %181, %187 ]
-  %189 = or i64 %.sink78, 1152920405095219200
-  store i64 %189, ptr %.sink77, align 8, !noalias !65
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink77)
+  %.sink94 = phi i64 [ %65, %70 ], [ %182, %187 ]
+  %.sink93 = phi ptr [ %64, %70 ], [ %181, %187 ]
+  %189 = or i64 %.sink94, 1152920405095219200
+  store i64 %189, ptr %.sink93, align 8, !noalias !65
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink93)
           to label %_ZN4cvc58internal8TypeNode4nullEv.exit unwind label %76
 
 _ZN4cvc58internal8TypeNode4nullEv.exit.sink.split: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i, %63
-  %.sink84 = phi i32 [ %68, %63 ], [ %110, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i ], [ %185, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
+  %.sink100 = phi i32 [ %68, %63 ], [ %110, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i ], [ %185, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
   %.sink = phi i64 [ %65, %63 ], [ %107, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i ], [ %182, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
-  %.sink79 = phi ptr [ %64, %63 ], [ %106, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i ], [ %181, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
+  %.sink95 = phi ptr [ %64, %63 ], [ %106, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i ], [ %181, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
   %.114.ph = phi i32 [ 1, %63 ], [ 3, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i ], [ 1, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
-  %190 = add nuw nsw i32 %.sink84, 1
+  %190 = add nuw nsw i32 %.sink100, 1
   %191 = zext nneg i32 %190 to i64
   %192 = shl nuw nsw i64 %191, 40
   %193 = and i64 %.sink, -1152920405095219201
   %194 = or i64 %192, %193
-  store i64 %194, ptr %.sink79, align 8
+  store i64 %194, ptr %.sink95, align 8
   br label %_ZN4cvc58internal8TypeNode4nullEv.exit
 
 _ZN4cvc58internal8TypeNode4nullEv.exit:           ; preds = %_ZN4cvc58internal8TypeNode4nullEv.exit.sink.split, %.invoke, %187, %112, %93, %114, %70, %170
@@ -2457,8 +2457,8 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %_ZN4cvc58internal8T
   br label %.thread
 
 ._crit_edge.thread:                               ; preds = %5, %._crit_edge
-  %.016.lcssa48 = phi i32 [ %.2, %._crit_edge ], [ 0, %5 ]
-  call void @_ZN4cvc58internal11NodeManager15mkBitVectorTypeEj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::TypeNode") align 8 %0, ptr noundef nonnull align 8 dereferenceable(3560) %1, i32 noundef %.016.lcssa48)
+  %.016.lcssa51 = phi i32 [ %.2, %._crit_edge ], [ 0, %5 ]
+  call void @_ZN4cvc58internal11NodeManager15mkBitVectorTypeEj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::TypeNode") align 8 %0, ptr noundef nonnull align 8 dereferenceable(3560) %1, i32 noundef %.016.lcssa51)
   br label %.thread
 
 .thread:                                          ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit, %._crit_edge.thread, %73
@@ -3344,23 +3344,23 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %64, %63
   br i1 %73, label %.invoke, label %_ZN4cvc58internal8TypeNode4nullEv.exit, !prof !12
 
 .invoke:                                          ; preds = %72, %49
-  %.sink21 = phi i64 [ %44, %49 ], [ %67, %72 ]
-  %.sink20 = phi ptr [ %43, %49 ], [ %66, %72 ]
-  %74 = or i64 %.sink21, 1152920405095219200
-  store i64 %74, ptr %.sink20, align 8, !noalias !65
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink20)
+  %.sink25 = phi i64 [ %44, %49 ], [ %67, %72 ]
+  %.sink24 = phi ptr [ %43, %49 ], [ %66, %72 ]
+  %74 = or i64 %.sink25, 1152920405095219200
+  store i64 %74, ptr %.sink24, align 8, !noalias !65
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink24)
           to label %_ZN4cvc58internal8TypeNode4nullEv.exit unwind label %55
 
 _ZN4cvc58internal8TypeNode4nullEv.exit.sink.split: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %42
-  %.sink27 = phi i32 [ %47, %42 ], [ %70, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
+  %.sink31 = phi i32 [ %47, %42 ], [ %70, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
   %.sink = phi i64 [ %44, %42 ], [ %67, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
-  %.sink22 = phi ptr [ %43, %42 ], [ %66, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
-  %75 = add nuw nsw i32 %.sink27, 1
+  %.sink26 = phi ptr [ %43, %42 ], [ %66, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
+  %75 = add nuw nsw i32 %.sink31, 1
   %76 = zext nneg i32 %75 to i64
   %77 = shl nuw nsw i64 %76, 40
   %78 = and i64 %.sink, -1152920405095219201
   %79 = or i64 %77, %78
-  store i64 %79, ptr %.sink22, align 8, !noalias !65
+  store i64 %79, ptr %.sink26, align 8, !noalias !65
   br label %_ZN4cvc58internal8TypeNode4nullEv.exit
 
 _ZN4cvc58internal8TypeNode4nullEv.exit:           ; preds = %_ZN4cvc58internal8TypeNode4nullEv.exit.sink.split, %.invoke, %72, %49, %59, %62
@@ -3752,11 +3752,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %86, %85
   br i1 %95, label %.invoke, label %.critedge, !prof !12
 
 .invoke:                                          ; preds = %94, %73
-  %.sink31 = phi i64 [ %68, %73 ], [ %89, %94 ]
-  %.sink30 = phi ptr [ %67, %73 ], [ %88, %94 ]
-  %96 = or i64 %.sink31, 1152920405095219200
-  store i64 %96, ptr %.sink30, align 8, !noalias !65
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink30)
+  %.sink37 = phi i64 [ %68, %73 ], [ %89, %94 ]
+  %.sink36 = phi ptr [ %67, %73 ], [ %88, %94 ]
+  %96 = or i64 %.sink37, 1152920405095219200
+  store i64 %96, ptr %.sink36, align 8, !noalias !65
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink36)
           to label %.critedge unwind label %77
 
 97:                                               ; preds = %81, %84
@@ -3802,15 +3802,15 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %97, %101, %107
   br label %_ZN4cvc58internal8TypeNode4nullEv.exit
 
 .critedge.sink.split:                             ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %66
-  %.sink37 = phi i32 [ %71, %66 ], [ %92, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
+  %.sink43 = phi i32 [ %71, %66 ], [ %92, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
   %.sink = phi i64 [ %68, %66 ], [ %89, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
-  %.sink32 = phi ptr [ %67, %66 ], [ %88, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
-  %115 = add nuw nsw i32 %.sink37, 1
+  %.sink38 = phi ptr [ %67, %66 ], [ %88, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
+  %115 = add nuw nsw i32 %.sink43, 1
   %116 = zext nneg i32 %115 to i64
   %117 = shl nuw nsw i64 %116, 40
   %118 = and i64 %.sink, -1152920405095219201
   %119 = or i64 %117, %118
-  store i64 %119, ptr %.sink32, align 8, !noalias !65
+  store i64 %119, ptr %.sink38, align 8, !noalias !65
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %.invoke, %94, %73
@@ -4084,11 +4084,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %58, %57
   br i1 %96, label %.invoke, label %_ZN4cvc58internal8TypeNode4nullEv.exit, !prof !12
 
 .invoke:                                          ; preds = %95, %73
-  %.sink30 = phi i64 [ %68, %73 ], [ %90, %95 ]
-  %.sink29 = phi ptr [ %67, %73 ], [ %89, %95 ]
-  %97 = or i64 %.sink30, 1152920405095219200
-  store i64 %97, ptr %.sink29, align 8, !noalias !65
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink29)
+  %.sink37 = phi i64 [ %68, %73 ], [ %90, %95 ]
+  %.sink36 = phi ptr [ %67, %73 ], [ %89, %95 ]
+  %97 = or i64 %.sink37, 1152920405095219200
+  store i64 %97, ptr %.sink36, align 8, !noalias !65
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink36)
           to label %_ZN4cvc58internal8TypeNode4nullEv.exit unwind label %65
 
 98:                                               ; preds = %77
@@ -4101,15 +4101,15 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %58, %57
           to label %_ZN4cvc58internal8TypeNode4nullEv.exit unwind label %65
 
 _ZN4cvc58internal8TypeNode4nullEv.exit.sink.split: ; preds = %88, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %25
-  %.sink36 = phi i32 [ %30, %25 ], [ %71, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ %93, %88 ]
+  %.sink43 = phi i32 [ %30, %25 ], [ %71, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ %93, %88 ]
   %.sink = phi i64 [ %27, %25 ], [ %68, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ %90, %88 ]
-  %.sink31 = phi ptr [ %26, %25 ], [ %67, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ %89, %88 ]
-  %102 = add nuw nsw i32 %.sink36, 1
+  %.sink38 = phi ptr [ %26, %25 ], [ %67, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ %89, %88 ]
+  %102 = add nuw nsw i32 %.sink43, 1
   %103 = zext nneg i32 %102 to i64
   %104 = shl nuw nsw i64 %103, 40
   %105 = and i64 %.sink, -1152920405095219201
   %106 = or i64 %104, %105
-  store i64 %106, ptr %.sink31, align 8, !noalias !65
+  store i64 %106, ptr %.sink38, align 8, !noalias !65
   br label %_ZN4cvc58internal8TypeNode4nullEv.exit
 
 _ZN4cvc58internal8TypeNode4nullEv.exit:           ; preds = %_ZN4cvc58internal8TypeNode4nullEv.exit.sink.split, %.invoke, %95, %87, %73, %32, %34, %100
@@ -4291,11 +4291,11 @@ _ZN4cvc58internal6theory2bv19checkMaybeBitVectorERKNS0_8TypeNodeEPSo.exit: ; pre
   br i1 %58, label %.invoke, label %_ZN4cvc58internal8TypeNode4nullEv.exit, !prof !12
 
 .invoke:                                          ; preds = %57, %33
-  %.sink57 = phi i64 [ %28, %33 ], [ %52, %57 ]
-  %.sink56 = phi ptr [ %27, %33 ], [ %51, %57 ]
-  %59 = or i64 %.sink57, 1152920405095219200
-  store i64 %59, ptr %.sink56, align 8, !noalias !65
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink56)
+  %.sink60 = phi i64 [ %28, %33 ], [ %52, %57 ]
+  %.sink59 = phi ptr [ %27, %33 ], [ %51, %57 ]
+  %59 = or i64 %.sink60, 1152920405095219200
+  store i64 %59, ptr %.sink59, align 8, !noalias !65
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink59)
           to label %_ZN4cvc58internal8TypeNode4nullEv.exit unwind label %35
 
 60:                                               ; preds = %39
@@ -4438,15 +4438,15 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit47: ; preds = %.critedge38, %91, %
   br label %135
 
 _ZN4cvc58internal8TypeNode4nullEv.exit.sink.split: ; preds = %50, %26
-  %.sink63 = phi i32 [ %31, %26 ], [ %55, %50 ]
+  %.sink66 = phi i32 [ %31, %26 ], [ %55, %50 ]
   %.sink = phi i64 [ %28, %26 ], [ %52, %50 ]
-  %.sink58 = phi ptr [ %27, %26 ], [ %51, %50 ]
-  %117 = add nuw nsw i32 %.sink63, 1
+  %.sink61 = phi ptr [ %27, %26 ], [ %51, %50 ]
+  %117 = add nuw nsw i32 %.sink66, 1
   %118 = zext nneg i32 %117 to i64
   %119 = shl nuw nsw i64 %118, 40
   %120 = and i64 %.sink, -1152920405095219201
   %121 = or i64 %119, %120
-  store i64 %121, ptr %.sink58, align 8, !noalias !65
+  store i64 %121, ptr %.sink61, align 8, !noalias !65
   br label %_ZN4cvc58internal8TypeNode4nullEv.exit
 
 _ZN4cvc58internal8TypeNode4nullEv.exit:           ; preds = %_ZN4cvc58internal8TypeNode4nullEv.exit.sink.split, %.invoke, %57, %49, %33, %103
@@ -4756,23 +4756,23 @@ _ZN4cvc58internal6theory2bv19checkMaybeBitVectorERKNS0_8TypeNodeEPSo.exit: ; pre
   br i1 %54, label %.invoke, label %_ZN4cvc58internal8TypeNode4nullEv.exit, !prof !12
 
 .invoke:                                          ; preds = %53, %32
-  %.sink12 = phi i64 [ %27, %32 ], [ %48, %53 ]
-  %.sink11 = phi ptr [ %26, %32 ], [ %47, %53 ]
-  %55 = or i64 %.sink12, 1152920405095219200
-  store i64 %55, ptr %.sink11, align 8, !noalias !65
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink11)
+  %.sink15 = phi i64 [ %27, %32 ], [ %48, %53 ]
+  %.sink14 = phi ptr [ %26, %32 ], [ %47, %53 ]
+  %55 = or i64 %.sink15, 1152920405095219200
+  store i64 %55, ptr %.sink14, align 8, !noalias !65
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink14)
           to label %_ZN4cvc58internal8TypeNode4nullEv.exit unwind label %34
 
 _ZN4cvc58internal8TypeNode4nullEv.exit.sink.split: ; preds = %46, %25
-  %.sink18 = phi i32 [ %30, %25 ], [ %51, %46 ]
+  %.sink21 = phi i32 [ %30, %25 ], [ %51, %46 ]
   %.sink = phi i64 [ %27, %25 ], [ %48, %46 ]
-  %.sink13 = phi ptr [ %26, %25 ], [ %47, %46 ]
-  %56 = add nuw nsw i32 %.sink18, 1
+  %.sink16 = phi ptr [ %26, %25 ], [ %47, %46 ]
+  %56 = add nuw nsw i32 %.sink21, 1
   %57 = zext nneg i32 %56 to i64
   %58 = shl nuw nsw i64 %57, 40
   %59 = and i64 %.sink, -1152920405095219201
   %60 = or i64 %58, %59
-  store i64 %60, ptr %.sink13, align 8, !noalias !65
+  store i64 %60, ptr %.sink16, align 8, !noalias !65
   br label %_ZN4cvc58internal8TypeNode4nullEv.exit
 
 _ZN4cvc58internal8TypeNode4nullEv.exit:           ; preds = %_ZN4cvc58internal8TypeNode4nullEv.exit.sink.split, %.invoke, %53, %45, %32
@@ -4944,23 +4944,23 @@ _ZN4cvc58internal6theory2bv19checkMaybeBitVectorERKNS0_8TypeNodeEPSo.exit: ; pre
   br i1 %54, label %.invoke, label %_ZN4cvc58internal8TypeNode4nullEv.exit, !prof !12
 
 .invoke:                                          ; preds = %53, %32
-  %.sink12 = phi i64 [ %27, %32 ], [ %48, %53 ]
-  %.sink11 = phi ptr [ %26, %32 ], [ %47, %53 ]
-  %55 = or i64 %.sink12, 1152920405095219200
-  store i64 %55, ptr %.sink11, align 8, !noalias !65
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink11)
+  %.sink15 = phi i64 [ %27, %32 ], [ %48, %53 ]
+  %.sink14 = phi ptr [ %26, %32 ], [ %47, %53 ]
+  %55 = or i64 %.sink15, 1152920405095219200
+  store i64 %55, ptr %.sink14, align 8, !noalias !65
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink14)
           to label %_ZN4cvc58internal8TypeNode4nullEv.exit unwind label %34
 
 _ZN4cvc58internal8TypeNode4nullEv.exit.sink.split: ; preds = %46, %25
-  %.sink18 = phi i32 [ %30, %25 ], [ %51, %46 ]
+  %.sink21 = phi i32 [ %30, %25 ], [ %51, %46 ]
   %.sink = phi i64 [ %27, %25 ], [ %48, %46 ]
-  %.sink13 = phi ptr [ %26, %25 ], [ %47, %46 ]
-  %56 = add nuw nsw i32 %.sink18, 1
+  %.sink16 = phi ptr [ %26, %25 ], [ %47, %46 ]
+  %56 = add nuw nsw i32 %.sink21, 1
   %57 = zext nneg i32 %56 to i64
   %58 = shl nuw nsw i64 %57, 40
   %59 = and i64 %.sink, -1152920405095219201
   %60 = or i64 %58, %59
-  store i64 %60, ptr %.sink13, align 8, !noalias !65
+  store i64 %60, ptr %.sink16, align 8, !noalias !65
   br label %_ZN4cvc58internal8TypeNode4nullEv.exit
 
 _ZN4cvc58internal8TypeNode4nullEv.exit:           ; preds = %_ZN4cvc58internal8TypeNode4nullEv.exit.sink.split, %.invoke, %53, %45, %32

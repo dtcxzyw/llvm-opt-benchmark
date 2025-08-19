@@ -1151,11 +1151,11 @@ define dso_local { ptr, i32 } @_ZNK4llvm23AArch64SelectionDAGInfo23EmitTargetCod
   br i1 %.not.i.i.not.i.i, label %.backedge.i, label %.backedge.sink.split.i, !prof !33
 
 .backedge.sink.split.i:                           ; preds = %85, %72
-  %.sink150.i = phi i32 [ %89, %85 ], [ %76, %72 ]
+  %.sink154.i = phi i32 [ %89, %85 ], [ %76, %72 ]
   %.fca.0.extract30.sink.ph.i = phi ptr [ %.fca.0.extract3.i, %85 ], [ %.fca.0.extract30.i, %72 ]
   %.fca.1.extract31.sink.ph.i = phi i32 [ %.fca.1.extract4.i, %85 ], [ %.fca.1.extract31.i, %72 ]
   %.0.be.ph.i = phi i32 [ %88, %85 ], [ %75, %72 ]
-  %78 = zext i32 %.sink150.i to i64
+  %78 = zext i32 %.sink154.i to i64
   %79 = add nuw nsw i64 %78, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %53, i64 noundef %79, i64 noundef 16) #17
   %.pre.i.i = load i32, ptr %54, align 8, !tbaa !26

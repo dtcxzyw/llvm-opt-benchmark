@@ -642,7 +642,7 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit98:      ; preds = %157
   %160 = add nuw nsw i32 %.sroa.51.0306, 12
   %161 = icmp samesign ule i32 %160, %14
   call void @llvm.assume(i1 %161)
-  %162 = zext i32 %160 to i64
+  %162 = zext nneg i32 %160 to i64
   br label %163
 
 163:                                              ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit98, %_ZN8rawspeed10ByteStream6getU16Ev.exit102
@@ -673,8 +673,8 @@ _ZN8rawspeed10ByteStream11setPositionEj.exit:     ; preds = %_ZN8rawspeed10ByteS
   br i1 %.not42, label %._crit_edge, label %23, !llvm.loop !62
 
 _ZN8rawspeed10ByteStream11setPositionEj.exit.thread: ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit92
-  %.not42363 = icmp eq i32 %14, %41
-  br i1 %.not42363, label %._crit_edge.thread, label %.outer, !llvm.loop !62
+  %.not42385 = icmp eq i32 %14, %41
+  br i1 %.not42385, label %._crit_edge.thread, label %.outer, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %_ZN8rawspeed10ByteStream11setPositionEj.exit
   br i1 %.0307.ph, label %._crit_edge.thread, label %.critedge
@@ -690,8 +690,8 @@ _ZN8rawspeed10ByteStream11setPositionEj.exit.thread: ; preds = %_ZN8rawspeed10By
   %172 = load i32, ptr %21, align 8, !tbaa !9
   %173 = mul i32 %171, %172
   %174 = lshr i32 %173, 3
-  %narrow361 = add nuw i32 %174, %14
-  %.not.i104 = icmp ugt i32 %narrow361, %.sroa.234.0.copyload
+  %narrow383 = add nuw i32 %174, %14
+  %.not.i104 = icmp ugt i32 %narrow383, %.sroa.234.0.copyload
   br i1 %.not.i104, label %175, label %_ZNK8rawspeed6Buffer10getSubViewEjj.exit
 
 175:                                              ; preds = %._crit_edge.thread
@@ -1764,15 +1764,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
   br label %65
 
 65:                                               ; preds = %58, %43
-  %.sink37 = phi ptr [ %62, %58 ], [ %48, %43 ]
-  %.sink35.in = phi ptr [ %64, %58 ], [ %44, %43 ]
+  %.sink47 = phi ptr [ %62, %58 ], [ %48, %43 ]
+  %.sink45.in = phi ptr [ %64, %58 ], [ %44, %43 ]
   %.sink = phi i64 [ 148, %58 ], [ 140, %43 ]
-  %.sink35 = load float, ptr %.sink35.in, align 4, !tbaa !45
-  %66 = getelementptr inbounds nuw i8, ptr %.sink37, i64 260
-  store float %.sink35, ptr %66, align 4, !tbaa !45
+  %.sink45 = load float, ptr %.sink45.in, align 4, !tbaa !45
+  %66 = getelementptr inbounds nuw i8, ptr %.sink47, i64 260
+  store float %.sink45, ptr %66, align 4, !tbaa !45
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %68 = load float, ptr %67, align 4, !tbaa !45
-  %69 = getelementptr inbounds nuw i8, ptr %.sink37, i64 264
+  %69 = getelementptr inbounds nuw i8, ptr %.sink47, i64 264
   store float %68, ptr %69, align 4, !tbaa !45
   %70 = load ptr, ptr %11, align 8, !tbaa !74
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 48

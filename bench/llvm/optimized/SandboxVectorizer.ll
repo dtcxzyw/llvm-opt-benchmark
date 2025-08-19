@@ -731,7 +731,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %_ZN
   %.sroa.7.0101 = phi i64 [ %119, %118 ], [ 0, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
   %.sroa.068.0100 = phi ptr [ %120, %118 ], [ %47, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
   %70 = load i8, ptr %.sroa.068.0100, align 1, !tbaa !60
-  switch i32 %.0107, label %default.unreachable118 [
+  switch i32 %.0107, label %default.unreachable131 [
     i32 0, label %71
     i32 1, label %90
     i32 2, label %111
@@ -839,7 +839,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %_ZN
   call void @exit(i32 noundef 1) #23
   unreachable
 
-default.unreachable118:                           ; preds = %.lr.ph
+default.unreachable131:                           ; preds = %.lr.ph
   unreachable
 
 118:                                              ; preds = %90, %71, %96, %101, %83, %112, %91, %72

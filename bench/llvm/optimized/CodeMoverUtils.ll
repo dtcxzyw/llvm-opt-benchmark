@@ -168,7 +168,7 @@ _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNearestCommonDominatorEP
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %.val28 = load i8, ptr %59, align 8, !tbaa !50, !range !52, !noundef !53
   %60 = trunc nuw i8 %.val28 to i1
-  br i1 %60, label %61, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread39
+  br i1 %60, label %61, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread49
 
 61:                                               ; preds = %58
   %.val29 = load ptr, ptr %5, align 8
@@ -284,28 +284,28 @@ _ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit: ; preds = %74, %
   %100 = icmp eq ptr %71, %.028.i.i.i.i.i.i
   %.pre = load i8, ptr %59, align 8, !tbaa !50, !range !52
   %101 = trunc nuw i8 %.pre to i1
-  br i1 %101, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread39
+  br i1 %101, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread49
 
 _ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread: ; preds = %63, %66, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit
-  %.238 = phi i1 [ %100, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit ], [ %.not.i6.i, %63 ], [ false, %66 ]
+  %.248 = phi i1 [ %100, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit ], [ %.not.i6.i, %63 ], [ false, %66 ]
   store i8 0, ptr %59, align 8, !tbaa !50
   %102 = load ptr, ptr %6, align 8, !tbaa !36
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %104 = icmp eq ptr %102, %103
-  br i1 %104, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread39, label %105
+  br i1 %104, label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread49, label %105
 
 105:                                              ; preds = %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread
   call void @free(ptr noundef %102) #8
-  br label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread39
+  br label %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread49
 
-_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread39: ; preds = %58, %105, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit
-  %.237 = phi i1 [ %100, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit ], [ %.238, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread ], [ %.238, %105 ], [ false, %58 ]
+_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread49: ; preds = %58, %105, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit
+  %.247 = phi i1 [ %100, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit ], [ %.248, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread ], [ %.248, %105 ], [ false, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre35 = load i8, ptr %56, align 8, !tbaa !50, !range !52
   %106 = trunc nuw i8 %.pre35 to i1
   br i1 %106, label %107, label %_ZNSt14_Optional_baseIN12_GLOBAL__N_117ControlConditionsELb0ELb0EED2Ev.exit32
 
-107:                                              ; preds = %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread39
+107:                                              ; preds = %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread49
   store i8 0, ptr %56, align 8, !tbaa !50
   %108 = load ptr, ptr %5, align 8, !tbaa !36
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -316,13 +316,13 @@ _ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread39: ; preds
   call void @free(ptr noundef %108) #8
   br label %_ZNSt14_Optional_baseIN12_GLOBAL__N_117ControlConditionsELb0ELb0EED2Ev.exit32
 
-_ZNSt14_Optional_baseIN12_GLOBAL__N_117ControlConditionsELb0ELb0EED2Ev.exit32: ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNearestCommonDominatorEPKS1_S4_.exit, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread39, %107, %111
-  %.142 = phi i1 [ %.237, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread39 ], [ %.237, %107 ], [ %.237, %111 ], [ false, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNearestCommonDominatorEPKS1_S4_.exit ]
+_ZNSt14_Optional_baseIN12_GLOBAL__N_117ControlConditionsELb0ELb0EED2Ev.exit32: ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNearestCommonDominatorEPKS1_S4_.exit, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread49, %107, %111
+  %.152 = phi i1 [ %.247, %_ZNK12_GLOBAL__N_117ControlConditions12isEquivalentERKS0_.exit.thread49 ], [ %.247, %107 ], [ %.247, %111 ], [ false, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNearestCommonDominatorEPKS1_S4_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %112
 
 112:                                              ; preds = %10, %14, %4, %_ZNSt14_Optional_baseIN12_GLOBAL__N_117ControlConditionsELb0ELb0EED2Ev.exit32
-  %.0 = phi i1 [ %.142, %_ZNSt14_Optional_baseIN12_GLOBAL__N_117ControlConditionsELb0ELb0EED2Ev.exit32 ], [ true, %4 ], [ true, %14 ], [ true, %10 ]
+  %.0 = phi i1 [ %.152, %_ZNSt14_Optional_baseIN12_GLOBAL__N_117ControlConditionsELb0ELb0EED2Ev.exit32 ], [ true, %4 ], [ true, %14 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -914,8 +914,8 @@ define internal fastcc void @_ZL28collectInstructionsInBetweenRN4llvm11Instructi
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %16
 
-16:                                               ; preds = %.lr.ph, %.critedge18
-  %17 = phi i32 [ %10, %.lr.ph ], [ %61, %.critedge18 ]
+16:                                               ; preds = %.lr.ph, %.critedge27
+  %17 = phi i32 [ %10, %.lr.ph ], [ %61, %.critedge27 ]
   %18 = load ptr, ptr %4, align 8, !tbaa !67
   %19 = load i8, ptr %9, align 4, !tbaa !72, !range !52, !noundef !53
   %20 = trunc nuw i8 %19 to i1
@@ -984,7 +984,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit: ; preds = %.lr.ph.i
 
 _ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE5eraseES2_.exit: ; preds = %36, %26, %31, %38, %40
   %43 = icmp eq ptr %25, %1
-  br i1 %43, label %.critedge18, label %44, !llvm.loop !76
+  br i1 %43, label %.critedge27, label %44, !llvm.loop !76
 
 44:                                               ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE5eraseES2_.exit
   %45 = load i8, ptr %13, align 4, !tbaa !72, !range !52, !noalias !77, !noundef !53
@@ -1004,7 +1004,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE5eraseES2_.exit: ; preds = %36, %26
   %.02937.i.i = phi ptr [ %53, %.critedge.i.i ], [ %48, %47 ]
   %52 = load ptr, ptr %.02937.i.i, align 8, !tbaa !73, !noalias !77
   %.not17.i.i = icmp eq ptr %52, %25
-  br i1 %.not17.i.i, label %.critedge18, label %.critedge.i.i
+  br i1 %.not17.i.i, label %.critedge27, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i8
   %53 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
@@ -1026,19 +1026,19 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   %57 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef %25) #8, !noalias !77
   %58 = extractvalue { ptr, i8 } %57, 1
   %59 = trunc nuw i8 %58 to i1
-  br i1 %59, label %60, label %.critedge18, !llvm.loop !76
+  br i1 %59, label %60, label %.critedge27, !llvm.loop !76
 
 60:                                               ; preds = %.critedge, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
   call fastcc void @"_ZZL28collectInstructionsInBetweenRN4llvm11InstructionERKS0_RNS_15SmallPtrSetImplIPS0_EEENK3$_0clES1_S7_"(ptr noundef nonnull align 8 dereferenceable(72) %25, ptr noundef nonnull align 8 dereferenceable(21) %4)
-  br label %.critedge18
+  br label %.critedge27
 
-.critedge18:                                      ; preds = %.lr.ph.i.i8, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE5eraseES2_.exit, %60
+.critedge27:                                      ; preds = %.lr.ph.i.i8, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE5eraseES2_.exit, %60
   %61 = load i32, ptr %7, align 4, !tbaa !70
   %62 = load i32, ptr %8, align 8, !tbaa !71
   %63 = icmp eq i32 %61, %62
   br i1 %63, label %._crit_edge, label %16
 
-._crit_edge:                                      ; preds = %.critedge18, %3
+._crit_edge:                                      ; preds = %.critedge27, %3
   %64 = load i8, ptr %9, align 4, !tbaa !72, !range !52, !noundef !53
   %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %66
@@ -1096,8 +1096,8 @@ define linkonce_odr hidden void @_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6i
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread: ; preds = %.lr.ph.i, %18
-  %.sink15 = phi ptr [ %21, %18 ], [ %.02937.i, %.lr.ph.i ]
-  %.sink14 = phi i8 [ 1, %18 ], [ 0, %.lr.ph.i ]
+  %.sink18 = phi ptr [ %21, %18 ], [ %.02937.i, %.lr.ph.i ]
+  %.sink17 = phi i8 [ 1, %18 ], [ 0, %.lr.ph.i ]
   %.ph = phi ptr [ %20, %18 ], [ %8, %.lr.ph.i ]
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %23 = load i32, ptr %22, align 4
@@ -1119,17 +1119,17 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit: ; preds = %3, %._crit_edge.i
   br label %31
 
 31:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread
-  %.fca.0.extract11 = phi ptr [ %.sink15, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %.fca.0.extract, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
-  %.fca.1.insert.merged.i9 = phi i8 [ %.sink14, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %30, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
+  %.fca.0.extract14 = phi ptr [ %.sink18, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %.fca.0.extract, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
+  %.fca.1.insert.merged.i12 = phi i8 [ %.sink17, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %30, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
   %32 = phi ptr [ %.ph, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %.pre5, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
   %33 = phi i32 [ %23, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %spec.select, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
   %.v.i5.i = zext i32 %33 to i64
   %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %.v.i5.i
-  %.not3.i4.i.i6.i = icmp eq ptr %.fca.0.extract11, %34
+  %.not3.i4.i.i6.i = icmp eq ptr %.fca.0.extract14, %34
   br i1 %.not3.i4.i.i6.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE12makeIteratorEPKPKv.exit, label %.lr.ph.i5.i.i7.i
 
 .lr.ph.i5.i.i7.i:                                 ; preds = %31, %.critedge2.i7.i.i9.i
-  %.sroa.0.3.i = phi ptr [ %36, %.critedge2.i7.i.i9.i ], [ %.fca.0.extract11, %31 ]
+  %.sroa.0.3.i = phi ptr [ %36, %.critedge2.i7.i.i9.i ], [ %.fca.0.extract14, %31 ]
   %35 = load ptr, ptr %.sroa.0.3.i, align 8, !tbaa !73
   %switch.i6.i.i8.i = icmp ugt ptr %35, inttoptr (i64 -3 to ptr)
   br i1 %switch.i6.i.i8.i, label %.critedge2.i7.i.i9.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE12makeIteratorEPKPKv.exit
@@ -1140,12 +1140,12 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit: ; preds = %3, %._crit_edge.i
   br i1 %.not.i8.i.i10.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE12makeIteratorEPKPKv.exit, label %.lr.ph.i5.i.i7.i, !llvm.loop !74
 
 _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE12makeIteratorEPKPKv.exit: ; preds = %.lr.ph.i5.i.i7.i, %.critedge2.i7.i.i9.i, %31
-  %.sroa.0.4.i = phi ptr [ %.fca.0.extract11, %31 ], [ %36, %.critedge2.i7.i.i9.i ], [ %.sroa.0.3.i, %.lr.ph.i5.i.i7.i ]
+  %.sroa.0.4.i = phi ptr [ %.fca.0.extract14, %31 ], [ %36, %.critedge2.i7.i.i9.i ], [ %.sroa.0.3.i, %.lr.ph.i5.i.i7.i ]
   store ptr %.sroa.0.4.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %34, ptr %.sroa.4.0..sroa_idx, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.fca.1.insert.merged.i9, ptr %37, align 8, !tbaa !81, !alias.scope !85
+  store i8 %.fca.1.insert.merged.i12, ptr %37, align 8, !tbaa !81, !alias.scope !85
   ret void
 }
 

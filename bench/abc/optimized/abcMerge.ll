@@ -2042,8 +2042,8 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %Abc_NtkIncrementTra
   %98 = load i32, ptr %80, align 4, !tbaa !52
   %99 = icmp sle i32 %.val69, %98
   %100 = icmp sgt i32 %.val69, 0
-  %or.cond132 = and i1 %99, %100
-  br i1 %or.cond132, label %.lr.ph111, label %.critedge4
+  %or.cond151 = and i1 %99, %100
+  br i1 %or.cond151, label %.lr.ph111, label %.critedge4
 
 .lr.ph111:                                        ; preds = %96
   %101 = getelementptr i8, ptr %93, i64 48

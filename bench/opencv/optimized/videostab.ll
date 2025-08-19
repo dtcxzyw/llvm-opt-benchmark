@@ -5437,15 +5437,15 @@ _ZN2cv3PtrINS_9videostab20WobbleSuppressorBaseEEC2INS1_38MoreAccurateMotionWobbl
   %1447 = getelementptr inbounds nuw i8, ptr %798, i64 720
   %1448 = load ptr, ptr %1447, align 8, !tbaa !100
   %.not.i.i.i.i.i1187 = icmp eq ptr %1437, %1448
-  br i1 %.not.i.i.i.i.i1187, label %_ZN2cv9videostab17TwoPassStabilizer19setWobbleSuppressorENS_3PtrINS0_20WobbleSuppressorBaseEEE.exit.thread2543, label %1452
+  br i1 %.not.i.i.i.i.i1187, label %_ZN2cv9videostab17TwoPassStabilizer19setWobbleSuppressorENS_3PtrINS0_20WobbleSuppressorBaseEEE.exit.thread2914, label %1452
 
 _ZN2cv3PtrINS_9videostab20WobbleSuppressorBaseEEC2INS1_38MoreAccurateMotionWobbleSuppressorBaseEEERKNS0_IT_EE.exit.thread: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1184
   %1449 = getelementptr inbounds nuw i8, ptr %798, i64 712
   store ptr %1423, ptr %1449, align 8, !tbaa !254
   %1450 = getelementptr inbounds nuw i8, ptr %798, i64 720
   %1451 = load ptr, ptr %1450, align 8, !tbaa !100
-  %.not.i.i.i.i.i11872541 = icmp eq ptr %1451, null
-  br i1 %.not.i.i.i.i.i11872541, label %_ZNSt12__shared_ptrIN2cv9videostab20WobbleSuppressorBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i1190.thread
+  %.not.i.i.i.i.i11872912 = icmp eq ptr %1451, null
+  br i1 %.not.i.i.i.i.i11872912, label %_ZNSt12__shared_ptrIN2cv9videostab20WobbleSuppressorBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i1190.thread
 
 1452:                                             ; preds = %_ZN2cv3PtrINS_9videostab20WobbleSuppressorBaseEEC2INS1_38MoreAccurateMotionWobbleSuppressorBaseEEERKNS0_IT_EE.exit
   %1453 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31
@@ -5470,7 +5470,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 _ZN2cv9videostab17TwoPassStabilizer19setWobbleSuppressorENS_3PtrINS0_20WobbleSuppressorBaseEEE.exit.thread: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i1190
   store ptr %1437, ptr %1447, align 8, !tbaa !100
-  br label %_ZN2cv9videostab17TwoPassStabilizer19setWobbleSuppressorENS_3PtrINS0_20WobbleSuppressorBaseEEE.exit.thread2543
+  br label %_ZN2cv9videostab17TwoPassStabilizer19setWobbleSuppressorENS_3PtrINS0_20WobbleSuppressorBaseEEE.exit.thread2914
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i1190.thread: ; preds = %_ZN2cv3PtrINS_9videostab20WobbleSuppressorBaseEEC2INS1_38MoreAccurateMotionWobbleSuppressorBaseEEERKNS0_IT_EE.exit.thread, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i1190
   %1460 = phi ptr [ %1459, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i1190 ], [ %1451, %_ZN2cv3PtrINS_9videostab20WobbleSuppressorBaseEEC2INS1_38MoreAccurateMotionWobbleSuppressorBaseEEERKNS0_IT_EE.exit.thread ]
@@ -5520,16 +5520,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1193: ; preds = %
 
 _ZN2cv9videostab17TwoPassStabilizer19setWobbleSuppressorENS_3PtrINS0_20WobbleSuppressorBaseEEE.exit: ; preds = %1466, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1193, %1481
   store ptr %1437, ptr %1461, align 8, !tbaa !100
-  br i1 %.not.i.i.i.i1185, label %_ZNSt12__shared_ptrIN2cv9videostab20WobbleSuppressorBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %_ZN2cv9videostab17TwoPassStabilizer19setWobbleSuppressorENS_3PtrINS0_20WobbleSuppressorBaseEEE.exit.thread2543
+  br i1 %.not.i.i.i.i1185, label %_ZNSt12__shared_ptrIN2cv9videostab20WobbleSuppressorBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %_ZN2cv9videostab17TwoPassStabilizer19setWobbleSuppressorENS_3PtrINS0_20WobbleSuppressorBaseEEE.exit.thread2914
 
-_ZN2cv9videostab17TwoPassStabilizer19setWobbleSuppressorENS_3PtrINS0_20WobbleSuppressorBaseEEE.exit.thread2543: ; preds = %_ZN2cv9videostab17TwoPassStabilizer19setWobbleSuppressorENS_3PtrINS0_20WobbleSuppressorBaseEEE.exit.thread, %_ZN2cv3PtrINS_9videostab20WobbleSuppressorBaseEEC2INS1_38MoreAccurateMotionWobbleSuppressorBaseEEERKNS0_IT_EE.exit, %_ZN2cv9videostab17TwoPassStabilizer19setWobbleSuppressorENS_3PtrINS0_20WobbleSuppressorBaseEEE.exit
+_ZN2cv9videostab17TwoPassStabilizer19setWobbleSuppressorENS_3PtrINS0_20WobbleSuppressorBaseEEE.exit.thread2914: ; preds = %_ZN2cv9videostab17TwoPassStabilizer19setWobbleSuppressorENS_3PtrINS0_20WobbleSuppressorBaseEEE.exit.thread, %_ZN2cv3PtrINS_9videostab20WobbleSuppressorBaseEEC2INS1_38MoreAccurateMotionWobbleSuppressorBaseEEERKNS0_IT_EE.exit, %_ZN2cv9videostab17TwoPassStabilizer19setWobbleSuppressorENS_3PtrINS0_20WobbleSuppressorBaseEEE.exit
   %1482 = getelementptr inbounds nuw i8, ptr %1437, i64 8
   %1483 = load atomic i64, ptr %1482 acquire, align 8
   %1484 = icmp eq i64 %1483, 4294967297
   %1485 = trunc i64 %1483 to i32
   br i1 %1484, label %1486, label %1494
 
-1486:                                             ; preds = %_ZN2cv9videostab17TwoPassStabilizer19setWobbleSuppressorENS_3PtrINS0_20WobbleSuppressorBaseEEE.exit.thread2543
+1486:                                             ; preds = %_ZN2cv9videostab17TwoPassStabilizer19setWobbleSuppressorENS_3PtrINS0_20WobbleSuppressorBaseEEE.exit.thread2914
   store i32 0, ptr %1482, align 8, !tbaa !91
   %1487 = getelementptr inbounds nuw i8, ptr %1437, i64 12
   store i32 0, ptr %1487, align 4, !tbaa !96
@@ -5543,7 +5543,7 @@ _ZN2cv9videostab17TwoPassStabilizer19setWobbleSuppressorENS_3PtrINS0_20WobbleSup
   call void %1493(ptr noundef nonnull align 8 dereferenceable(16) %1437) #28
   br label %_ZNSt12__shared_ptrIN2cv9videostab20WobbleSuppressorBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-1494:                                             ; preds = %_ZN2cv9videostab17TwoPassStabilizer19setWobbleSuppressorENS_3PtrINS0_20WobbleSuppressorBaseEEE.exit.thread2543
+1494:                                             ; preds = %_ZN2cv9videostab17TwoPassStabilizer19setWobbleSuppressorENS_3PtrINS0_20WobbleSuppressorBaseEEE.exit.thread2914
   %1495 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31
   %.not.i.i.i1198 = icmp eq i8 %1495, 0
   br i1 %.not.i.i.i1198, label %1498, label %1496
@@ -7346,15 +7346,15 @@ _ZN2cv3PtrINS_9videostab12IFrameSourceEEC2INS1_15VideoFileSourceEEERKNS0_IT_EE.e
   %2122 = getelementptr inbounds nuw i8, ptr %.0248, i64 32
   %2123 = load ptr, ptr %2122, align 8, !tbaa !100
   %.not.i.i.i.i.i1482 = icmp eq ptr %2112, %2123
-  br i1 %.not.i.i.i.i.i1482, label %_ZN2cv9videostab14StabilizerBase14setFrameSourceENS_3PtrINS0_12IFrameSourceEEE.exit.thread2547, label %2127
+  br i1 %.not.i.i.i.i.i1482, label %_ZN2cv9videostab14StabilizerBase14setFrameSourceENS_3PtrINS0_12IFrameSourceEEE.exit.thread2918, label %2127
 
 _ZN2cv3PtrINS_9videostab12IFrameSourceEEC2INS1_15VideoFileSourceEEERKNS0_IT_EE.exit.thread: ; preds = %2110
   %2124 = getelementptr inbounds nuw i8, ptr %.0248, i64 24
   store ptr %2111, ptr %2124, align 8, !tbaa !4
   %2125 = getelementptr inbounds nuw i8, ptr %.0248, i64 32
   %2126 = load ptr, ptr %2125, align 8, !tbaa !100
-  %.not.i.i.i.i.i14822544 = icmp eq ptr %2126, null
-  br i1 %.not.i.i.i.i.i14822544, label %_ZNSt12__shared_ptrIN2cv9videostab12IFrameSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i1485.thread
+  %.not.i.i.i.i.i14822915 = icmp eq ptr %2126, null
+  br i1 %.not.i.i.i.i.i14822915, label %_ZNSt12__shared_ptrIN2cv9videostab12IFrameSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i1485.thread
 
 2127:                                             ; preds = %_ZN2cv3PtrINS_9videostab12IFrameSourceEEC2INS1_15VideoFileSourceEEERKNS0_IT_EE.exit
   %2128 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31
@@ -7379,7 +7379,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 _ZN2cv9videostab14StabilizerBase14setFrameSourceENS_3PtrINS0_12IFrameSourceEEE.exit.thread: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i1485
   store ptr %2112, ptr %2122, align 8, !tbaa !100
-  br label %_ZN2cv9videostab14StabilizerBase14setFrameSourceENS_3PtrINS0_12IFrameSourceEEE.exit.thread2547
+  br label %_ZN2cv9videostab14StabilizerBase14setFrameSourceENS_3PtrINS0_12IFrameSourceEEE.exit.thread2918
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i1485.thread: ; preds = %_ZN2cv3PtrINS_9videostab12IFrameSourceEEC2INS1_15VideoFileSourceEEERKNS0_IT_EE.exit.thread, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i1485
   %2135 = phi ptr [ %2134, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i1485 ], [ %2126, %_ZN2cv3PtrINS_9videostab12IFrameSourceEEC2INS1_15VideoFileSourceEEERKNS0_IT_EE.exit.thread ]
@@ -7429,16 +7429,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1488: ; preds = %
 
 _ZN2cv9videostab14StabilizerBase14setFrameSourceENS_3PtrINS0_12IFrameSourceEEE.exit: ; preds = %2141, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1488, %2156
   store ptr %2112, ptr %2136, align 8, !tbaa !100
-  br i1 %.not.i.i.i.i1480, label %_ZNSt12__shared_ptrIN2cv9videostab12IFrameSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %_ZN2cv9videostab14StabilizerBase14setFrameSourceENS_3PtrINS0_12IFrameSourceEEE.exit.thread2547
+  br i1 %.not.i.i.i.i1480, label %_ZNSt12__shared_ptrIN2cv9videostab12IFrameSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %_ZN2cv9videostab14StabilizerBase14setFrameSourceENS_3PtrINS0_12IFrameSourceEEE.exit.thread2918
 
-_ZN2cv9videostab14StabilizerBase14setFrameSourceENS_3PtrINS0_12IFrameSourceEEE.exit.thread2547: ; preds = %_ZN2cv9videostab14StabilizerBase14setFrameSourceENS_3PtrINS0_12IFrameSourceEEE.exit.thread, %_ZN2cv3PtrINS_9videostab12IFrameSourceEEC2INS1_15VideoFileSourceEEERKNS0_IT_EE.exit, %_ZN2cv9videostab14StabilizerBase14setFrameSourceENS_3PtrINS0_12IFrameSourceEEE.exit
+_ZN2cv9videostab14StabilizerBase14setFrameSourceENS_3PtrINS0_12IFrameSourceEEE.exit.thread2918: ; preds = %_ZN2cv9videostab14StabilizerBase14setFrameSourceENS_3PtrINS0_12IFrameSourceEEE.exit.thread, %_ZN2cv3PtrINS_9videostab12IFrameSourceEEC2INS1_15VideoFileSourceEEERKNS0_IT_EE.exit, %_ZN2cv9videostab14StabilizerBase14setFrameSourceENS_3PtrINS0_12IFrameSourceEEE.exit
   %2157 = getelementptr inbounds nuw i8, ptr %2112, i64 8
   %2158 = load atomic i64, ptr %2157 acquire, align 8
   %2159 = icmp eq i64 %2158, 4294967297
   %2160 = trunc i64 %2158 to i32
   br i1 %2159, label %2161, label %2169
 
-2161:                                             ; preds = %_ZN2cv9videostab14StabilizerBase14setFrameSourceENS_3PtrINS0_12IFrameSourceEEE.exit.thread2547
+2161:                                             ; preds = %_ZN2cv9videostab14StabilizerBase14setFrameSourceENS_3PtrINS0_12IFrameSourceEEE.exit.thread2918
   store i32 0, ptr %2157, align 8, !tbaa !91
   %2162 = getelementptr inbounds nuw i8, ptr %2112, i64 12
   store i32 0, ptr %2162, align 4, !tbaa !96
@@ -7452,7 +7452,7 @@ _ZN2cv9videostab14StabilizerBase14setFrameSourceENS_3PtrINS0_12IFrameSourceEEE.e
   call void %2168(ptr noundef nonnull align 8 dereferenceable(16) %2112) #28
   br label %_ZNSt12__shared_ptrIN2cv9videostab12IFrameSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-2169:                                             ; preds = %_ZN2cv9videostab14StabilizerBase14setFrameSourceENS_3PtrINS0_12IFrameSourceEEE.exit.thread2547
+2169:                                             ; preds = %_ZN2cv9videostab14StabilizerBase14setFrameSourceENS_3PtrINS0_12IFrameSourceEEE.exit.thread2918
   %2170 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31
   %.not.i.i.i1493 = icmp eq i8 %2170, 0
   br i1 %.not.i.i.i1493, label %2173, label %2171
@@ -7767,10 +7767,10 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab15VideoFileS
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab15MaskFrameSourceESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2280, align 8, !tbaa !12, !noalias !320
   %2284 = getelementptr inbounds nuw i8, ptr %2280, i64 16
   %2285 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31, !noalias !320
-  %.not.i.i.i.i.i.i.i.i2556 = icmp eq i8 %2285, 0
+  %.not.i.i.i.i.i.i.i.i2927 = icmp eq i8 %2285, 0
   %2286 = getelementptr inbounds nuw i8, ptr %2280, i64 24
   %2287 = getelementptr inbounds nuw i8, ptr %2280, i64 32
-  br i1 %.not.i.i.i.i.i.i.i.i2556, label %2290, label %.thread.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i2927, label %2290, label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %2281
   %2288 = load i32, ptr %2274, align 4, !tbaa !24, !noalias !320
@@ -7790,11 +7790,11 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab15VideoFileS
   br i1 %2292, label %2296, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %2290
-  %.pre.i.i2560 = load i32, ptr %2274, align 4, !tbaa !24, !noalias !320
+  %.pre.i.i2931 = load i32, ptr %2274, align 4, !tbaa !24, !noalias !320
   br label %2293
 
 2293:                                             ; preds = %._crit_edge.i.i, %.thread.i.i.i
-  %2294 = phi i32 [ %.pre.i.i2560, %._crit_edge.i.i ], [ %2289, %.thread.i.i.i ]
+  %2294 = phi i32 [ %.pre.i.i2931, %._crit_edge.i.i ], [ %2289, %.thread.i.i.i ]
   %2295 = add nsw i32 %2294, 1
   store i32 %2295, ptr %2274, align 4, !tbaa !24, !noalias !320
   br label %2298
@@ -7826,28 +7826,28 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab15VideoFileS
 
 2310:                                             ; preds = %2298
   %2311 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31, !noalias !320
-  %.not.i.i.i.i.i.i2557 = icmp eq i8 %2311, 0
-  br i1 %.not.i.i.i.i.i.i2557, label %2314, label %2312
+  %.not.i.i.i.i.i.i2928 = icmp eq i8 %2311, 0
+  br i1 %.not.i.i.i.i.i.i2928, label %2314, label %2312
 
 2312:                                             ; preds = %2310
   %2313 = add nsw i32 %2302, -1
   store i32 %2313, ptr %2274, align 4, !tbaa !24, !noalias !320
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i2558
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i2929
 
 2314:                                             ; preds = %2310
   %2315 = atomicrmw volatile add ptr %2274, i32 -1 acq_rel, align 4, !noalias !320
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i2558
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i2929
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i2558: ; preds = %2314, %2312
-  %.0.i.i.i.i.i.i.i2559 = phi i32 [ %2302, %2312 ], [ %2315, %2314 ]
-  %2316 = icmp eq i32 %.0.i.i.i.i.i.i.i2559, 1
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i2929: ; preds = %2314, %2312
+  %.0.i.i.i.i.i.i.i2930 = phi i32 [ %2302, %2312 ], [ %2315, %2314 ]
+  %2316 = icmp eq i32 %.0.i.i.i.i.i.i.i2930, 1
   br i1 %2316, label %2317, label %_ZNSt23_Sp_counted_ptr_inplaceIN2cv9videostab15MaskFrameSourceESaIvELN9__gnu_cxx12_Lock_policyE2EEC2IJRKNS0_3PtrINS1_15VideoFileSourceEEEEEES3_DpOT_.exit, !prof !216
 
-2317:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i2558
+2317:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i2929
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %2273) #28, !noalias !320
   br label %_ZNSt23_Sp_counted_ptr_inplaceIN2cv9videostab15MaskFrameSourceESaIvELN9__gnu_cxx12_Lock_policyE2EEC2IJRKNS0_3PtrINS1_15VideoFileSourceEEEEEES3_DpOT_.exit
 
-_ZNSt23_Sp_counted_ptr_inplaceIN2cv9videostab15MaskFrameSourceESaIvELN9__gnu_cxx12_Lock_policyE2EEC2IJRKNS0_3PtrINS1_15VideoFileSourceEEEEEES3_DpOT_.exit: ; preds = %2317, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i2558, %2303
+_ZNSt23_Sp_counted_ptr_inplaceIN2cv9videostab15MaskFrameSourceESaIvELN9__gnu_cxx12_Lock_policyE2EEC2IJRKNS0_3PtrINS1_15VideoFileSourceEEEEEES3_DpOT_.exit: ; preds = %2317, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i2929, %2303
   store ptr %2284, ptr %118, align 8, !tbaa !323, !alias.scope !317
   %2318 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store ptr %2280, ptr %2318, align 8, !tbaa !100, !alias.scope !317
@@ -8020,9 +8020,9 @@ _ZN2cv3PtrINS_9videostab12IFrameSourceEEC2INS1_15MaskFrameSourceEEERKNS0_IT_EE.e
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i1563: ; preds = %2382, %2379
   %2384 = phi ptr [ %2373, %2379 ], [ %.pr.pre.i.i.i.i.i1569, %2382 ]
   %.not8.i.i.i.i.i1564 = icmp eq ptr %2384, null
-  br i1 %.not8.i.i.i.i.i1564, label %_ZN2cv9videostab14StabilizerBase13setMaskSourceERKNS_3PtrINS0_12IFrameSourceEEE.exit.thread2549, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i1563.thread
+  br i1 %.not8.i.i.i.i.i1564, label %_ZN2cv9videostab14StabilizerBase13setMaskSourceERKNS_3PtrINS0_12IFrameSourceEEE.exit.thread2920, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i1563.thread
 
-_ZN2cv9videostab14StabilizerBase13setMaskSourceERKNS_3PtrINS0_12IFrameSourceEEE.exit.thread2549: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i1563
+_ZN2cv9videostab14StabilizerBase13setMaskSourceERKNS_3PtrINS0_12IFrameSourceEEE.exit.thread2920: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i1563
   store ptr %2362, ptr %2372, align 8, !tbaa !100
   br label %_ZN2cv9videostab14StabilizerBase13setMaskSourceERKNS_3PtrINS0_12IFrameSourceEEE.exit.thread
 
@@ -8076,7 +8076,7 @@ _ZN2cv9videostab14StabilizerBase13setMaskSourceERKNS_3PtrINS0_12IFrameSourceEEE.
   store ptr %2362, ptr %2386, align 8, !tbaa !100
   br i1 %.not.i.i.i.i1558, label %_ZNSt12__shared_ptrIN2cv9videostab12IFrameSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit1574, label %_ZN2cv9videostab14StabilizerBase13setMaskSourceERKNS_3PtrINS0_12IFrameSourceEEE.exit.thread
 
-_ZN2cv9videostab14StabilizerBase13setMaskSourceERKNS_3PtrINS0_12IFrameSourceEEE.exit.thread: ; preds = %_ZN2cv3PtrINS_9videostab12IFrameSourceEEC2INS1_15MaskFrameSourceEEERKNS0_IT_EE.exit, %_ZN2cv9videostab14StabilizerBase13setMaskSourceERKNS_3PtrINS0_12IFrameSourceEEE.exit.thread2549, %_ZN2cv9videostab14StabilizerBase13setMaskSourceERKNS_3PtrINS0_12IFrameSourceEEE.exit
+_ZN2cv9videostab14StabilizerBase13setMaskSourceERKNS_3PtrINS0_12IFrameSourceEEE.exit.thread: ; preds = %_ZN2cv3PtrINS_9videostab12IFrameSourceEEC2INS1_15MaskFrameSourceEEERKNS0_IT_EE.exit, %_ZN2cv9videostab14StabilizerBase13setMaskSourceERKNS_3PtrINS0_12IFrameSourceEEE.exit.thread2920, %_ZN2cv9videostab14StabilizerBase13setMaskSourceERKNS_3PtrINS0_12IFrameSourceEEE.exit
   %2407 = getelementptr inbounds nuw i8, ptr %2362, i64 8
   %2408 = load atomic i64, ptr %2407 acquire, align 8
   %2409 = icmp eq i64 %2408, 4294967297
@@ -12293,7 +12293,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208.thread: ; pre
   %3827 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %.sink.split2555
+  br label %.sink.split2926
 
 3828:                                             ; preds = %3820
   %3829 = landingpad { ptr, i32 }
@@ -12361,11 +12361,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %3852 = load i64, ptr %3851, align 8, !tbaa !14
   %3853 = icmp ult i64 %3852, 16
   call void @llvm.assume(i1 %3853)
-  br label %.sink.split2555
+  br label %.sink.split2926
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208.thread2485: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2205.thread
   call void @_ZdlPv(ptr noundef %3848) #29
-  br label %.sink.split2555
+  br label %.sink.split2926
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2207: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2205
   %3854 = getelementptr inbounds nuw i8, ptr %184, i64 8
@@ -12386,7 +12386,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %182)
   br i1 %.3, label %3857, label %4135
 
-.sink.split2555:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208.thread2485, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2207.thread
+.sink.split2926:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208.thread2485, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2207.thread
   %.pn470.pn.pn2478.ph = phi { ptr, i32 } [ %3847, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2207.thread ], [ %3847, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208.thread2485 ], [ %3827, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %185)
   call void @llvm.lifetime.end.p0(ptr nonnull %184)
@@ -12394,8 +12394,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %182)
   br label %3857
 
-3857:                                             ; preds = %.sink.split2555, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2207, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208
-  %.pn470.pn.pn2478 = phi { ptr, i32 } [ %.pn470, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208 ], [ %.pn470, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2207 ], [ %.pn470.pn.pn2478.ph, %.sink.split2555 ]
+3857:                                             ; preds = %.sink.split2926, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2207, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208
+  %.pn470.pn.pn2478 = phi { ptr, i32 } [ %.pn470, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2208 ], [ %.pn470, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2207 ], [ %.pn470.pn.pn2478.ph, %.sink.split2926 ]
   call void @__cxa_free_exception(ptr %3818) #28
   br label %4135
 
@@ -12473,15 +12473,15 @@ _ZN2cv3PtrINS_9videostab13InpainterBaseEEC2ERKS3_.exit: ; preds = %3881, %3884
   %3887 = getelementptr inbounds nuw i8, ptr %.0248, i64 96
   %3888 = load ptr, ptr %3887, align 8, !tbaa !100
   %.not.i.i.i.i.i2220 = icmp eq ptr %3877, %3888
-  br i1 %.not.i.i.i.i.i2220, label %_ZN2cv9videostab14StabilizerBase12setInpainterENS_3PtrINS0_13InpainterBaseEEE.exit.thread2553, label %3892
+  br i1 %.not.i.i.i.i.i2220, label %_ZN2cv9videostab14StabilizerBase12setInpainterENS_3PtrINS0_13InpainterBaseEEE.exit.thread2924, label %3892
 
 _ZN2cv3PtrINS_9videostab13InpainterBaseEEC2ERKS3_.exit.thread: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2217
   %3889 = getelementptr inbounds nuw i8, ptr %.0248, i64 88
   store ptr %3876, ptr %3889, align 8, !tbaa !400
   %3890 = getelementptr inbounds nuw i8, ptr %.0248, i64 96
   %3891 = load ptr, ptr %3890, align 8, !tbaa !100
-  %.not.i.i.i.i.i22202550 = icmp eq ptr %3891, null
-  br i1 %.not.i.i.i.i.i22202550, label %_ZNSt12__shared_ptrIN2cv9videostab13InpainterBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit2234, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i2223.thread
+  %.not.i.i.i.i.i22202921 = icmp eq ptr %3891, null
+  br i1 %.not.i.i.i.i.i22202921, label %_ZNSt12__shared_ptrIN2cv9videostab13InpainterBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit2234, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i2223.thread
 
 3892:                                             ; preds = %_ZN2cv3PtrINS_9videostab13InpainterBaseEEC2ERKS3_.exit
   %3893 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31
@@ -12506,7 +12506,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 _ZN2cv9videostab14StabilizerBase12setInpainterENS_3PtrINS0_13InpainterBaseEEE.exit.thread: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i2223
   store ptr %3877, ptr %3887, align 8, !tbaa !100
-  br label %_ZN2cv9videostab14StabilizerBase12setInpainterENS_3PtrINS0_13InpainterBaseEEE.exit.thread2553
+  br label %_ZN2cv9videostab14StabilizerBase12setInpainterENS_3PtrINS0_13InpainterBaseEEE.exit.thread2924
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i2223.thread: ; preds = %_ZN2cv3PtrINS_9videostab13InpainterBaseEEC2ERKS3_.exit.thread, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i2223
   %3900 = phi ptr [ %3899, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i2223 ], [ %3891, %_ZN2cv3PtrINS_9videostab13InpainterBaseEEC2ERKS3_.exit.thread ]
@@ -12556,16 +12556,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i2226: ; preds = %
 
 _ZN2cv9videostab14StabilizerBase12setInpainterENS_3PtrINS0_13InpainterBaseEEE.exit: ; preds = %3906, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i2226, %3921
   store ptr %3877, ptr %3901, align 8, !tbaa !100
-  br i1 %.not.i.i.i.i2218, label %_ZNSt12__shared_ptrIN2cv9videostab13InpainterBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit2234, label %_ZN2cv9videostab14StabilizerBase12setInpainterENS_3PtrINS0_13InpainterBaseEEE.exit.thread2553
+  br i1 %.not.i.i.i.i2218, label %_ZNSt12__shared_ptrIN2cv9videostab13InpainterBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit2234, label %_ZN2cv9videostab14StabilizerBase12setInpainterENS_3PtrINS0_13InpainterBaseEEE.exit.thread2924
 
-_ZN2cv9videostab14StabilizerBase12setInpainterENS_3PtrINS0_13InpainterBaseEEE.exit.thread2553: ; preds = %_ZN2cv9videostab14StabilizerBase12setInpainterENS_3PtrINS0_13InpainterBaseEEE.exit.thread, %_ZN2cv3PtrINS_9videostab13InpainterBaseEEC2ERKS3_.exit, %_ZN2cv9videostab14StabilizerBase12setInpainterENS_3PtrINS0_13InpainterBaseEEE.exit
+_ZN2cv9videostab14StabilizerBase12setInpainterENS_3PtrINS0_13InpainterBaseEEE.exit.thread2924: ; preds = %_ZN2cv9videostab14StabilizerBase12setInpainterENS_3PtrINS0_13InpainterBaseEEE.exit.thread, %_ZN2cv3PtrINS_9videostab13InpainterBaseEEC2ERKS3_.exit, %_ZN2cv9videostab14StabilizerBase12setInpainterENS_3PtrINS0_13InpainterBaseEEE.exit
   %3922 = getelementptr inbounds nuw i8, ptr %3877, i64 8
   %3923 = load atomic i64, ptr %3922 acquire, align 8
   %3924 = icmp eq i64 %3923, 4294967297
   %3925 = trunc i64 %3923 to i32
   br i1 %3924, label %3926, label %3934
 
-3926:                                             ; preds = %_ZN2cv9videostab14StabilizerBase12setInpainterENS_3PtrINS0_13InpainterBaseEEE.exit.thread2553
+3926:                                             ; preds = %_ZN2cv9videostab14StabilizerBase12setInpainterENS_3PtrINS0_13InpainterBaseEEE.exit.thread2924
   store i32 0, ptr %3922, align 8, !tbaa !91
   %3927 = getelementptr inbounds nuw i8, ptr %3877, i64 12
   store i32 0, ptr %3927, align 4, !tbaa !96
@@ -12579,7 +12579,7 @@ _ZN2cv9videostab14StabilizerBase12setInpainterENS_3PtrINS0_13InpainterBaseEEE.ex
   call void %3933(ptr noundef nonnull align 8 dereferenceable(16) %3877) #28
   br label %_ZNSt12__shared_ptrIN2cv9videostab13InpainterBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit2234
 
-3934:                                             ; preds = %_ZN2cv9videostab14StabilizerBase12setInpainterENS_3PtrINS0_13InpainterBaseEEE.exit.thread2553
+3934:                                             ; preds = %_ZN2cv9videostab14StabilizerBase12setInpainterENS_3PtrINS0_13InpainterBaseEEE.exit.thread2924
   %3935 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31
   %.not.i.i.i2231 = icmp eq i8 %3935, 0
   br i1 %.not.i.i.i2231, label %3938, label %3936
@@ -12742,7 +12742,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b.exit2263: ; preds = %._crit_edge.i.i2254
   %3982 = load ptr, ptr @_Z10outputPathB5cxx11, align 8, !tbaa !38
   %3983 = icmp eq ptr %3982, getelementptr inbounds nuw (i8, ptr @_Z10outputPathB5cxx11, i64 16)
-  br i1 %3983, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %3983, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b.exit2263
   %3984 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_Z10outputPathB5cxx11, i64 8), align 8, !tbaa !14
@@ -12752,13 +12752,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %3987 = icmp eq ptr %3986, %3974
   br i1 %3987, label %3990, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b.exit2263
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b.exit2263
   %3988 = load ptr, ptr %189, align 8, !tbaa !38
   %3989 = icmp eq ptr %3988, %3974
   br i1 %3989, label %3990, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-3990:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %3991 = phi ptr [ %3988, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %3986, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+3990:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %3991 = phi ptr [ %3988, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %3986, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %3992 = load i64, ptr %3975, align 8, !tbaa !14
   %3993 = icmp ult i64 %3992, 16
   call void @llvm.assume(i1 %3993)
@@ -12793,7 +12793,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %4001, ptr getelementptr inbounds nuw (i8, ptr @_Z10outputPathB5cxx11, i64 16), align 8, !tbaa !31
   br label %4006
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %4002 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_Z10outputPathB5cxx11, i64 16), align 8, !tbaa !31
   store ptr %3988, ptr @_Z10outputPathB5cxx11, align 8, !tbaa !38
   %4003 = load i64, ptr %3975, align 8, !tbaa !14
@@ -15413,15 +15413,15 @@ _ZN2cv3PtrINS_9videostab16IOutlierRejectorEEC2ERKS3_.exit: ; preds = %439, %442
   %445 = getelementptr inbounds nuw i8, ptr %433, i64 72
   %446 = load ptr, ptr %445, align 8, !tbaa !100
   %.not.i.i.i.i.i174 = icmp eq ptr %435, %446
-  br i1 %.not.i.i.i.i.i174, label %_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit.thread211, label %450
+  br i1 %.not.i.i.i.i.i174, label %_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit.thread249, label %450
 
 _ZN2cv3PtrINS_9videostab16IOutlierRejectorEEC2ERKS3_.exit.thread: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171
   %447 = getelementptr inbounds nuw i8, ptr %433, i64 64
   store ptr %434, ptr %447, align 8, !tbaa !521
   %448 = getelementptr inbounds nuw i8, ptr %433, i64 72
   %449 = load ptr, ptr %448, align 8, !tbaa !100
-  %.not.i.i.i.i.i174209 = icmp eq ptr %449, null
-  br i1 %.not.i.i.i.i.i174209, label %_ZNSt12__shared_ptrIN2cv9videostab28KeypointBasedMotionEstimatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i177
+  %.not.i.i.i.i.i174247 = icmp eq ptr %449, null
+  br i1 %.not.i.i.i.i.i174247, label %_ZNSt12__shared_ptrIN2cv9videostab28KeypointBasedMotionEstimatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i177
 
 450:                                              ; preds = %_ZN2cv3PtrINS_9videostab16IOutlierRejectorEEC2ERKS3_.exit
   %451 = getelementptr inbounds nuw i8, ptr %435, i64 8
@@ -15493,16 +15493,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i180: ; preds = %4
 
 _ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i177, %466, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i180, %481
   store ptr %458, ptr %459, align 8, !tbaa !100
-  br i1 %.not.i.i.i.i172, label %_ZNSt12__shared_ptrIN2cv9videostab28KeypointBasedMotionEstimatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit.thread211
+  br i1 %.not.i.i.i.i172, label %_ZNSt12__shared_ptrIN2cv9videostab28KeypointBasedMotionEstimatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit.thread249
 
-_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit.thread211: ; preds = %_ZN2cv3PtrINS_9videostab16IOutlierRejectorEEC2ERKS3_.exit, %_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit
+_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit.thread249: ; preds = %_ZN2cv3PtrINS_9videostab16IOutlierRejectorEEC2ERKS3_.exit, %_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit
   %482 = getelementptr inbounds nuw i8, ptr %435, i64 8
   %483 = load atomic i64, ptr %482 acquire, align 8
   %484 = icmp eq i64 %483, 4294967297
   %485 = trunc i64 %483 to i32
   br i1 %484, label %486, label %494
 
-486:                                              ; preds = %_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit.thread211
+486:                                              ; preds = %_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit.thread249
   store i32 0, ptr %482, align 8, !tbaa !91
   %487 = getelementptr inbounds nuw i8, ptr %435, i64 12
   store i32 0, ptr %487, align 4, !tbaa !96
@@ -15516,7 +15516,7 @@ _ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_1
   call void %493(ptr noundef nonnull align 8 dereferenceable(16) %435) #28
   br label %_ZNSt12__shared_ptrIN2cv9videostab28KeypointBasedMotionEstimatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-494:                                              ; preds = %_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit.thread211
+494:                                              ; preds = %_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit.thread249
   %495 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31
   %.not.i.i.i185 = icmp eq i8 %495, 0
   br i1 %.not.i.i.i185, label %498, label %496
@@ -18591,15 +18591,15 @@ _ZN2cv3PtrINS_9videostab16IOutlierRejectorEEC2ERKS3_.exit: ; preds = %720, %723
   %726 = getelementptr inbounds nuw i8, ptr %714, i64 72
   %727 = load ptr, ptr %726, align 8, !tbaa !100
   %.not.i.i.i.i.i346 = icmp eq ptr %716, %727
-  br i1 %.not.i.i.i.i.i346, label %_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit.thread388, label %731
+  br i1 %.not.i.i.i.i.i346, label %_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit.thread448, label %731
 
 _ZN2cv3PtrINS_9videostab16IOutlierRejectorEEC2ERKS3_.exit.thread: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit343
   %728 = getelementptr inbounds nuw i8, ptr %714, i64 64
   store ptr %715, ptr %728, align 8, !tbaa !521
   %729 = getelementptr inbounds nuw i8, ptr %714, i64 72
   %730 = load ptr, ptr %729, align 8, !tbaa !100
-  %.not.i.i.i.i.i346386 = icmp eq ptr %730, null
-  br i1 %.not.i.i.i.i.i346386, label %_ZNSt12__shared_ptrIN2cv9videostab28KeypointBasedMotionEstimatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i349
+  %.not.i.i.i.i.i346446 = icmp eq ptr %730, null
+  br i1 %.not.i.i.i.i.i346446, label %_ZNSt12__shared_ptrIN2cv9videostab28KeypointBasedMotionEstimatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i349
 
 731:                                              ; preds = %_ZN2cv3PtrINS_9videostab16IOutlierRejectorEEC2ERKS3_.exit
   %732 = getelementptr inbounds nuw i8, ptr %716, i64 8
@@ -18671,16 +18671,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i352: ; preds = %7
 
 _ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i349, %747, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i352, %762
   store ptr %739, ptr %740, align 8, !tbaa !100
-  br i1 %.not.i.i.i.i344, label %_ZNSt12__shared_ptrIN2cv9videostab28KeypointBasedMotionEstimatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit.thread388
+  br i1 %.not.i.i.i.i344, label %_ZNSt12__shared_ptrIN2cv9videostab28KeypointBasedMotionEstimatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit.thread448
 
-_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit.thread388: ; preds = %_ZN2cv3PtrINS_9videostab16IOutlierRejectorEEC2ERKS3_.exit, %_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit
+_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit.thread448: ; preds = %_ZN2cv3PtrINS_9videostab16IOutlierRejectorEEC2ERKS3_.exit, %_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit
   %763 = getelementptr inbounds nuw i8, ptr %716, i64 8
   %764 = load atomic i64, ptr %763 acquire, align 8
   %765 = icmp eq i64 %764, 4294967297
   %766 = trunc i64 %764 to i32
   br i1 %765, label %767, label %775
 
-767:                                              ; preds = %_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit.thread388
+767:                                              ; preds = %_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit.thread448
   store i32 0, ptr %763, align 8, !tbaa !91
   %768 = getelementptr inbounds nuw i8, ptr %716, i64 12
   store i32 0, ptr %768, align 4, !tbaa !96
@@ -18694,7 +18694,7 @@ _ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_1
   call void %774(ptr noundef nonnull align 8 dereferenceable(16) %716) #28
   br label %_ZNSt12__shared_ptrIN2cv9videostab28KeypointBasedMotionEstimatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-775:                                              ; preds = %_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit.thread388
+775:                                              ; preds = %_ZN2cv9videostab28KeypointBasedMotionEstimator18setOutlierRejectorENS_3PtrINS0_16IOutlierRejectorEEE.exit.thread448
   %776 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31
   %.not.i.i.i357 = icmp eq i8 %776, 0
   br i1 %.not.i.i.i357, label %779, label %777

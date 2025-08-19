@@ -1126,7 +1126,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i64 7, label %35
   ]
 
-default.unreachable93:                            ; preds = %24
+default.unreachable102:                           ; preds = %24
   unreachable
 
 14:                                               ; preds = %tailrecurse
@@ -1153,7 +1153,7 @@ default.unreachable93:                            ; preds = %24
   %25 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   %26 = load i32, ptr %25, align 8, !range !186, !noundef !7
   %27 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %26, i1 true)
-  switch i32 %27, label %default.unreachable93 [
+  switch i32 %27, label %default.unreachable102 [
     i32 0, label %127
     i32 1, label %127
     i32 2, label %130

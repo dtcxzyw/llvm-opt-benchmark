@@ -3412,8 +3412,8 @@ define hidden void @_ZN14GenerateOopMap24rewrite_refval_conflictsEv(ptr noundef 
   %29 = phi i32 [ %.pre, %28 ], [ %19, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = sext i32 %29 to i64
-  %.not16 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %.not16, label %18, label %.critedge, !llvm.loop !32
+  %.not17 = icmp slt i64 %indvars.iv.next, %30
+  br i1 %.not17, label %18, label %.critedge, !llvm.loop !32
 
 .critedge:                                        ; preds = %._crit_edge, %11
   %31 = phi i32 [ %.pre14, %11 ], [ %29, %._crit_edge ]
@@ -10479,12 +10479,12 @@ _Z17is_reference_type9BasicTypeb.exit.i4:         ; preds = %43
   br label %.sink.split.i6
 
 .sink.split.i6:                                   ; preds = %57, %48
-  %storemerge15.in = phi i32 [ %58, %57 ], [ %49, %48 ]
+  %storemerge16.in = phi i32 [ %58, %57 ], [ %49, %48 ]
   %.sink.i9 = phi i32 [ %.sroa.03.0.copyload.i5, %57 ], [ %51, %48 ]
   %.sink10.i8 = load ptr, ptr %41, align 8
-  %storemerge15 = add nsw i32 %storemerge15.in, 1
-  store i32 %storemerge15, ptr %42, align 8
-  %59 = sext i32 %storemerge15.in to i64
+  %storemerge16 = add nsw i32 %storemerge16.in, 1
+  store i32 %storemerge16, ptr %42, align 8
+  %59 = sext i32 %storemerge16.in to i64
   %60 = getelementptr inbounds %class.CellTypeState, ptr %.sink10.i8, i64 %59
   store i32 %.sink.i9, ptr %60, align 4
   br label %_ZN17ComputeEntryStack7do_typeE9BasicTypeb.exit10

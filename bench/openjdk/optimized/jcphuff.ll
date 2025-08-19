@@ -362,13 +362,13 @@ define internal noundef i32 @encode_mcu_DC_first(ptr noundef %0, ptr noundef rea
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %34, %51, %._crit_edge
-  %.056.lcssa73 = phi i32 [ %48, %51 ], [ %48, %._crit_edge ], [ 0, %34 ]
+  %.056.lcssa75 = phi i32 [ %48, %51 ], [ %48, %._crit_edge ], [ 0, %34 ]
   %56 = getelementptr inbounds nuw i8, ptr %41, i64 20
   %57 = load i32, ptr %56, align 4
   %58 = load i32, ptr %31, align 8
   %.not.i = icmp eq i32 %58, 0
   %59 = sext i32 %57 to i64
-  %60 = zext nneg i32 %.056.lcssa73 to i64
+  %60 = zext nneg i32 %.056.lcssa75 to i64
   br i1 %.not.i, label %67, label %61
 
 61:                                               ; preds = %._crit_edge.thread
@@ -393,11 +393,11 @@ define internal noundef i32 @encode_mcu_DC_first(ptr noundef %0, ptr noundef rea
   br label %emit_symbol.exit
 
 emit_symbol.exit:                                 ; preds = %61, %67
-  %.not63 = icmp eq i32 %.056.lcssa73, 0
+  %.not63 = icmp eq i32 %.056.lcssa75, 0
   br i1 %.not63, label %77, label %76
 
 76:                                               ; preds = %emit_symbol.exit
-  tail call fastcc void @emit_bits(ptr noundef nonnull %4, i32 noundef %.055, i32 noundef %.056.lcssa73)
+  tail call fastcc void @emit_bits(ptr noundef nonnull %4, i32 noundef %.055, i32 noundef %.056.lcssa75)
   br label %77
 
 77:                                               ; preds = %emit_symbol.exit, %76
@@ -722,10 +722,10 @@ emit_symbol.exit:                                 ; preds = %._crit_edge.i, %78,
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %153, %._crit_edge
-  %.063.lcssa97 = phi i32 [ %151, %153 ], [ %151, %._crit_edge ], [ 1, %.preheader ]
+  %.063.lcssa103 = phi i32 [ %151, %153 ], [ %151, %._crit_edge ], [ 1, %.preheader ]
   %158 = load i32, ptr %31, align 8
   %159 = shl i32 %.2.lcssa, 4
-  %160 = add nsw i32 %.063.lcssa97, %159
+  %160 = add nsw i32 %.063.lcssa103, %159
   %161 = load i32, ptr %32, align 8
   %.not.i74 = icmp eq i32 %161, 0
   %162 = sext i32 %158 to i64
@@ -739,7 +739,7 @@ emit_symbol.exit:                                 ; preds = %._crit_edge.i, %78,
   %168 = load i64, ptr %167, align 8
   %169 = add nsw i64 %168, 1
   store i64 %169, ptr %167, align 8
-  br label %.thread99
+  br label %.thread105
 
 170:                                              ; preds = %._crit_edge.thread
   %171 = getelementptr inbounds [4 x ptr], ptr %34, i64 0, i64 %162
@@ -751,7 +751,7 @@ emit_symbol.exit:                                 ; preds = %._crit_edge.i, %78,
   %177 = load i8, ptr %176, align 1
   %178 = sext i8 %177 to i32
   tail call fastcc void @emit_bits(ptr noundef nonnull %4, i32 noundef %174, i32 noundef %178)
-  br label %.thread99
+  br label %.thread105
 
 179:                                              ; preds = %46, %.backedge
   %180 = add nsw i32 %.06585, 1
@@ -760,17 +760,17 @@ emit_symbol.exit:                                 ; preds = %._crit_edge.i, %78,
   %exitcond.not = icmp eq i32 %39, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge89, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %179, %.thread99
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %179 ], [ %indvars.iv.next101, %.thread99 ]
-  %.06585.be = phi i32 [ %180, %179 ], [ 0, %.thread99 ]
+.backedge.backedge:                               ; preds = %179, %.thread105
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %179 ], [ %indvars.iv.next107, %.thread105 ]
+  %.06585.be = phi i32 [ %180, %179 ], [ 0, %.thread105 ]
   br label %.backedge, !llvm.loop !13
 
-.thread99:                                        ; preds = %170, %164
-  tail call fastcc void @emit_bits(ptr noundef nonnull %4, i32 noundef %.062, i32 noundef %.063.lcssa97)
-  %indvars.iv.next101 = add nsw i64 %indvars.iv, 1
-  %lftr.wideiv102 = trunc i64 %indvars.iv.next101 to i32
-  %exitcond.not103 = icmp eq i32 %39, %lftr.wideiv102
-  br i1 %exitcond.not103, label %._crit_edge89.thread, label %.backedge.backedge
+.thread105:                                       ; preds = %170, %164
+  tail call fastcc void @emit_bits(ptr noundef nonnull %4, i32 noundef %.062, i32 noundef %.063.lcssa103)
+  %indvars.iv.next107 = add nsw i64 %indvars.iv, 1
+  %lftr.wideiv108 = trunc i64 %indvars.iv.next107 to i32
+  %exitcond.not109 = icmp eq i32 %39, %lftr.wideiv108
+  br i1 %exitcond.not109, label %._crit_edge89.thread, label %.backedge.backedge
 
 ._crit_edge89:                                    ; preds = %179
   %181 = icmp sgt i32 %.06585, -1
@@ -788,7 +788,7 @@ emit_symbol.exit:                                 ; preds = %._crit_edge.i, %78,
   tail call fastcc void @emit_eobrun(ptr noundef nonnull %4)
   br label %._crit_edge89.thread
 
-._crit_edge89.thread:                             ; preds = %.thread99, %26, %182, %187, %._crit_edge89
+._crit_edge89.thread:                             ; preds = %.thread105, %26, %182, %187, %._crit_edge89
   %188 = load ptr, ptr %12, align 8
   %189 = load ptr, ptr %9, align 8
   store ptr %188, ptr %189, align 8
@@ -1060,9 +1060,9 @@ define internal noundef i32 @encode_mcu_AC_refine(ptr noundef readonly captures(
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %74, %._crit_edge.i, %.lr.ph193
-  %.0.lcssa28.i = phi i32 [ %72, %74 ], [ %72, %._crit_edge.i ], [ 0, %.lr.ph193 ]
+  %.0.lcssa29.i = phi i32 [ %72, %74 ], [ %72, %._crit_edge.i ], [ 0, %.lr.ph193 ]
   %81 = load i32, ptr %53, align 8
-  %82 = shl i32 %.0.lcssa28.i, 4
+  %82 = shl i32 %.0.lcssa29.i, 4
   %83 = load i32, ptr %54, align 8
   %.not.i.i = icmp eq i32 %83, 0
   %84 = sext i32 %81 to i64
@@ -1224,7 +1224,7 @@ emit_symbol.exit.ithread-pre-split:               ; preds = %86, %._crit_edge.i1
 
 emit_symbol.exit.i:                               ; preds = %emit_symbol.exit.ithread-pre-split, %103
   %.pre230 = phi i32 [ %.pre230.pr, %emit_symbol.exit.ithread-pre-split ], [ %.pre, %103 ]
-  %.not23.i = icmp eq i32 %.0.lcssa28.i, 0
+  %.not23.i = icmp eq i32 %.0.lcssa29.i, 0
   br i1 %.not23.i, label %emit_bits.exit123, label %173
 
 173:                                              ; preds = %emit_symbol.exit.i
@@ -1238,10 +1238,10 @@ emit_bits.exit123.thread:                         ; preds = %173
 174:                                              ; preds = %173
   %175 = load i32, ptr %57, align 4
   %176 = load i32, ptr %51, align 4
-  %notmask.i = shl nsw i32 -1, %.0.lcssa28.i
+  %notmask.i = shl nsw i32 -1, %.0.lcssa29.i
   %177 = xor i32 %notmask.i, -1
   %178 = and i32 %176, %177
-  %179 = add nsw i32 %175, %.0.lcssa28.i
+  %179 = add nsw i32 %175, %.0.lcssa29.i
   %180 = sub nsw i32 24, %179
   %181 = shl i32 %178, %180
   %182 = load i32, ptr %58, align 8
@@ -1527,7 +1527,7 @@ emit_eobrun.exit:                                 ; preds = %.lr.ph193, %emit_bu
   %328 = sext i8 %327 to i32
   %329 = load i32, ptr %57, align 4
   %330 = icmp eq i8 %327, 0
-  br i1 %330, label %331, label %.thread236
+  br i1 %330, label %331, label %.thread252
 
 331:                                              ; preds = %321
   %332 = load ptr, ptr %52, align 8
@@ -1540,9 +1540,9 @@ emit_eobrun.exit:                                 ; preds = %.lr.ph193, %emit_bu
   tail call void %337(ptr noundef nonnull %335) #4
   %.pre231 = load i32, ptr %54, align 8
   %338 = icmp eq i32 %.pre231, 0
-  br i1 %338, label %.thread236, label %emit_symbol.exit
+  br i1 %338, label %.thread252, label %emit_symbol.exit
 
-.thread236:                                       ; preds = %321, %331
+.thread252:                                       ; preds = %321, %331
   %notmask.i138 = shl nsw i32 -1, %328
   %339 = xor i32 %notmask.i138, -1
   %340 = and i32 %325, %339
@@ -1554,9 +1554,9 @@ emit_eobrun.exit:                                 ; preds = %.lr.ph193, %emit_bu
   %346 = icmp sgt i32 %341, 7
   br i1 %346, label %.lr.ph.i142, label %._crit_edge.i139
 
-.lr.ph.i142:                                      ; preds = %.thread236, %397
-  %.034.i143 = phi i32 [ %398, %397 ], [ %345, %.thread236 ]
-  %.03033.i144 = phi i32 [ %399, %397 ], [ %341, %.thread236 ]
+.lr.ph.i142:                                      ; preds = %.thread252, %397
+  %.034.i143 = phi i32 [ %398, %397 ], [ %345, %.thread252 ]
+  %.03033.i144 = phi i32 [ %399, %397 ], [ %341, %.thread252 ]
   %347 = lshr i32 %.034.i143, 16
   %348 = trunc i32 %347 to i8
   %349 = load ptr, ptr %13, align 8
@@ -1649,9 +1649,9 @@ dump_buffer.exit32.i146:                          ; preds = %387, %380
   %400 = icmp sgt i32 %.03033.i144, 15
   br i1 %400, label %.lr.ph.i142, label %._crit_edge.i139, !llvm.loop !10
 
-._crit_edge.i139:                                 ; preds = %397, %.thread236
-  %.030.lcssa.i140 = phi i32 [ %341, %.thread236 ], [ %399, %397 ]
-  %.0.lcssa.i141 = phi i32 [ %345, %.thread236 ], [ %398, %397 ]
+._crit_edge.i139:                                 ; preds = %397, %.thread252
+  %.030.lcssa.i140 = phi i32 [ %341, %.thread252 ], [ %399, %397 ]
+  %.0.lcssa.i141 = phi i32 [ %345, %.thread252 ], [ %398, %397 ]
   store i32 %.0.lcssa.i141, ptr %58, align 8
   store i32 %.030.lcssa.i140, ptr %57, align 4
   br label %emit_symbol.exit
@@ -2556,10 +2556,10 @@ define internal fastcc void @emit_eobrun(ptr noundef captures(none) %0) unnamed_
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %1, %7, %._crit_edge
-  %.0.lcssa28 = phi i32 [ %5, %7 ], [ %5, %._crit_edge ], [ 0, %1 ]
+  %.0.lcssa29 = phi i32 [ %5, %7 ], [ %5, %._crit_edge ], [ 0, %1 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %16 = load i32, ptr %15, align 8
-  %17 = shl i32 %.0.lcssa28, 4
+  %17 = shl i32 %.0.lcssa29, 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 8
   %.not.i = icmp eq i32 %19, 0
@@ -2591,12 +2591,12 @@ define internal fastcc void @emit_eobrun(ptr noundef captures(none) %0) unnamed_
   br label %emit_symbol.exit
 
 emit_symbol.exit:                                 ; preds = %22, %29
-  %.not23 = icmp eq i32 %.0.lcssa28, 0
+  %.not23 = icmp eq i32 %.0.lcssa29, 0
   br i1 %.not23, label %41, label %39
 
 39:                                               ; preds = %emit_symbol.exit
   %40 = load i32, ptr %2, align 4
-  tail call fastcc void @emit_bits(ptr noundef nonnull %0, i32 noundef %40, i32 noundef %.0.lcssa28)
+  tail call fastcc void @emit_bits(ptr noundef nonnull %0, i32 noundef %40, i32 noundef %.0.lcssa29)
   br label %41
 
 41:                                               ; preds = %39, %emit_symbol.exit

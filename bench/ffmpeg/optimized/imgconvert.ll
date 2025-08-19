@@ -38,21 +38,21 @@ define i32 @avcodec_find_best_pix_fmt_of_list(ptr noundef readonly captures(none
   %14 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next
   %15 = load i32, ptr %14, align 4, !tbaa !4
   %.not = icmp eq i32 %15, -1
-  br i1 %.not, label %._crit_edge.thread28, label %.lr.ph.split, !llvm.loop !8
+  br i1 %.not, label %._crit_edge.thread29, label %.lr.ph.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %4
-  br i1 %.not14, label %._crit_edge.thread, label %._crit_edge.thread28
+  br i1 %.not14, label %._crit_edge.thread, label %._crit_edge.thread29
 
-._crit_edge.thread28:                             ; preds = %.lr.ph.split, %._crit_edge
-  %.0.lcssa31 = phi i32 [ -1, %._crit_edge ], [ %13, %.lr.ph.split ]
+._crit_edge.thread29:                             ; preds = %.lr.ph.split, %._crit_edge
+  %.0.lcssa32 = phi i32 [ -1, %._crit_edge ], [ %13, %.lr.ph.split ]
   %16 = load i32, ptr %5, align 4, !tbaa !4
   store i32 %16, ptr %3, align 4, !tbaa !4
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %._crit_edge.thread28, %._crit_edge
-  %.0.lcssa27 = phi i32 [ %.0.lcssa31, %._crit_edge.thread28 ], [ -1, %._crit_edge ], [ %8, %.lr.ph.split.us ]
+._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %._crit_edge.thread29, %._crit_edge
+  %.0.lcssa28 = phi i32 [ %.0.lcssa32, %._crit_edge.thread29 ], [ -1, %._crit_edge ], [ %8, %.lr.ph.split.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.0.lcssa27
+  ret i32 %.0.lcssa28
 }
 
 declare i32 @av_find_best_pix_fmt_of_2(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

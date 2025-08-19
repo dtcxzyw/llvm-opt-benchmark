@@ -1152,14 +1152,14 @@ _ZNK5Klass13is_subtype_ofEPS_.exit19:             ; preds = %38, %32, %29
   br i1 %52, label %_ZNK5Klass13is_subtype_ofEPS_.exit.thread, label %.lr.ph, !llvm.loop !14
 
 _ZNK5Klass13is_subtype_ofEPS_.exit.thread.sink.split: ; preds = %19, %39
-  %.01026.lcssa38.sink = phi ptr [ %.01026, %39 ], [ %.027, %19 ]
-  %.027.lcssa40.sink = phi ptr [ %.027, %39 ], [ %.01026, %19 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.01026.lcssa38.sink, i64 32
-  store ptr %.027.lcssa40.sink, ptr %53, align 8
+  %.01026.lcssa42.sink = phi ptr [ %.01026, %39 ], [ %.027, %19 ]
+  %.027.lcssa44.sink = phi ptr [ %.027, %39 ], [ %.01026, %19 ]
+  %53 = getelementptr inbounds nuw i8, ptr %.01026.lcssa42.sink, i64 32
+  store ptr %.027.lcssa44.sink, ptr %53, align 8
   br label %_ZNK5Klass13is_subtype_ofEPS_.exit.thread
 
 _ZNK5Klass13is_subtype_ofEPS_.exit.thread:        ; preds = %_ZNK5Klass13is_subtype_ofEPS_.exit19, %10, %_ZNK5Klass13is_subtype_ofEPS_.exit, %30, %_ZNK5Klass13is_subtype_ofEPS_.exit.thread.sink.split, %2
-  %.011 = phi ptr [ %1, %2 ], [ %.027.lcssa40.sink, %_ZNK5Klass13is_subtype_ofEPS_.exit.thread.sink.split ], [ %46, %_ZNK5Klass13is_subtype_ofEPS_.exit19 ], [ %.01026, %10 ], [ %.027, %_ZNK5Klass13is_subtype_ofEPS_.exit ], [ %.027, %30 ]
+  %.011 = phi ptr [ %1, %2 ], [ %.027.lcssa44.sink, %_ZNK5Klass13is_subtype_ofEPS_.exit.thread.sink.split ], [ %46, %_ZNK5Klass13is_subtype_ofEPS_.exit19 ], [ %.01026, %10 ], [ %.027, %_ZNK5Klass13is_subtype_ofEPS_.exit ], [ %.027, %30 ]
   ret ptr %.011
 }
 

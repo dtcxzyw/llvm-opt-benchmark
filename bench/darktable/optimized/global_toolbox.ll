@@ -629,8 +629,8 @@ define internal void @_overlays_show_popup(ptr noundef %0, ptr noundef readonly 
   br label %70
 
 66:                                               ; preds = %.thread92, %56, %58, %60, %59, %57
-  %.sink101 = phi i64 [ 88, %56 ], [ 104, %58 ], [ 80, %60 ], [ 112, %59 ], [ 96, %57 ], [ 72, %.thread92 ]
-  %67 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink101
+  %.sink103 = phi i64 [ 88, %56 ], [ 104, %58 ], [ 80, %60 ], [ 112, %59 ], [ 96, %57 ], [ 72, %.thread92 ]
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink103
   %68 = load ptr, ptr %67, align 8, !tbaa !102
   %69 = tail call ptr @g_type_check_instance_cast(ptr noundef %68, i64 noundef %55) #10
   tail call void @gtk_toggle_button_set_active(ptr noundef %69, i32 noundef 1) #10
@@ -731,8 +731,8 @@ define internal void @_overlays_show_popup(ptr noundef %0, ptr noundef readonly 
   br i1 %121, label %.critedge, label %.thread98
 
 .thread98.sink.split:                             ; preds = %94, %113, %114
-  %.sink107 = phi i64 [ 168, %114 ], [ 160, %113 ], [ 152, %94 ]
-  %122 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink107
+  %.sink109 = phi i64 [ 168, %114 ], [ 160, %113 ], [ 152, %94 ]
+  %122 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink109
   %123 = load ptr, ptr %122, align 8, !tbaa !102
   %124 = tail call i64 @gtk_toggle_button_get_type() #12
   %125 = tail call ptr @g_type_check_instance_cast(ptr noundef %123, i64 noundef %124) #10
@@ -743,9 +743,9 @@ define internal void @_overlays_show_popup(ptr noundef %0, ptr noundef readonly 
   br label %.critedge
 
 .critedge:                                        ; preds = %115, %.thread98
-  %.str.37.sink110 = phi ptr [ @.str.37, %.thread98 ], [ @.str.36, %115 ]
+  %.str.37.sink112 = phi ptr [ @.str.37, %.thread98 ], [ @.str.36, %115 ]
   %126 = load ptr, ptr %107, align 8, !tbaa !82
-  %127 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.37.sink110, i32 noundef 5) #10
+  %127 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.37.sink112, i32 noundef 5) #10
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %126, ptr noundef %127) #10
   %128 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.42, i32 noundef %spec.select) #10
   %129 = getelementptr inbounds nuw i8, ptr %8, i64 192

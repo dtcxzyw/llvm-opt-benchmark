@@ -1649,13 +1649,13 @@ hwloc_obj_get_info_by_name.exit:                  ; preds = %35
 hwloc_obj_get_info_by_name.exit.thread:           ; preds = %34, %28, %hwloc_obj_get_info_by_name.exit
   %41 = tail call i32 @hwloc_topology_is_thissystem(ptr noundef %9) #26
   %.not231 = icmp eq i32 %41, 0
-  br i1 %.not231, label %.thread310, label %42
+  br i1 %.not231, label %.thread323, label %42
 
 42:                                               ; preds = %hwloc_obj_get_info_by_name.exit.thread
   %43 = call i32 @gethostname(ptr noundef nonnull %7, i64 noundef 122) #28
   %.pre308 = load i8, ptr %7, align 16
   %44 = icmp eq i8 %.pre308, 0
-  br i1 %44, label %.thread310, label %.thread
+  br i1 %44, label %.thread323, label %.thread
 
 .thread:                                          ; preds = %hwloc_obj_get_info_by_name.exit, %42
   %45 = phi ptr [ %7, %42 ], [ %40, %hwloc_obj_get_info_by_name.exit ]
@@ -1675,9 +1675,9 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %34, %28, %hwloc_obj
   %57 = fmul float %54, %56
   %58 = fptoui float %57 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread310
+  br label %.thread323
 
-.thread310:                                       ; preds = %hwloc_obj_get_info_by_name.exit.thread, %42, %.thread
+.thread323:                                       ; preds = %hwloc_obj_get_info_by_name.exit.thread, %42, %.thread
   %.1206 = phi i32 [ %58, %.thread ], [ 0, %42 ], [ 0, %hwloc_obj_get_info_by_name.exit.thread ]
   %.1203 = phi i32 [ 1, %.thread ], [ 0, %42 ], [ 0, %hwloc_obj_get_info_by_name.exit.thread ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -1685,7 +1685,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %34, %28, %hwloc_obj
   %.not233 = icmp eq i32 %60, 0
   br i1 %.not233, label %80, label %61
 
-61:                                               ; preds = %.thread310
+61:                                               ; preds = %.thread323
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %63 = zext nneg i32 %.1203 to i64
   %64 = getelementptr inbounds nuw [3 x [128 x i8]], ptr %62, i64 0, i64 %63
@@ -1710,9 +1710,9 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %34, %28, %hwloc_obj
   %79 = add nuw nsw i32 %.1203, 1
   br label %80
 
-80:                                               ; preds = %61, %.thread310
-  %.3 = phi i32 [ %spec.select238, %61 ], [ %.1206, %.thread310 ]
-  %.2204 = phi i32 [ %79, %61 ], [ %.1203, %.thread310 ]
+80:                                               ; preds = %61, %.thread323
+  %.3 = phi i32 [ %spec.select238, %61 ], [ %.1206, %.thread323 ]
+  %.2204 = phi i32 [ %79, %61 ], [ %.1203, %.thread323 ]
   %81 = call i64 @time(ptr noundef null) #28
   store i64 %81, ptr %8, align 8, !tbaa !75
   %82 = call ptr @localtime(ptr noundef nonnull %8) #28
@@ -2021,18 +2021,18 @@ get_type_fun.exit:                                ; preds = %output_align_PU_tex
   %225 = getelementptr inbounds nuw i8, ptr %20, i64 76
   %226 = load i32, ptr %225, align 4, !tbaa !100
   %227 = load i32, ptr %18, align 8, !tbaa !96
-  %switch.tableidx317 = add i32 %227, -5
-  %228 = icmp ult i32 %switch.tableidx317, 13
-  br i1 %228, label %switch.lookup316, label %get_type_fun.exit245
+  %switch.tableidx330 = add i32 %227, -5
+  %228 = icmp ult i32 %switch.tableidx330, 13
+  br i1 %228, label %switch.lookup329, label %get_type_fun.exit245
 
-switch.lookup316:                                 ; preds = %224
-  %229 = zext nneg i32 %switch.tableidx317 to i64
-  %switch.gep318 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.draw__children, i64 0, i64 %229
-  %switch.load319 = load ptr, ptr %switch.gep318, align 8
+switch.lookup329:                                 ; preds = %224
+  %229 = zext nneg i32 %switch.tableidx330 to i64
+  %switch.gep331 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.draw__children, i64 0, i64 %229
+  %switch.load332 = load ptr, ptr %switch.gep331, align 8
   br label %get_type_fun.exit245
 
-get_type_fun.exit245:                             ; preds = %224, %switch.lookup316
-  %.0.i244 = phi ptr [ %switch.load319, %switch.lookup316 ], [ @normal_draw, %224 ]
+get_type_fun.exit245:                             ; preds = %224, %switch.lookup329
+  %.0.i244 = phi ptr [ %switch.load332, %switch.lookup329 ], [ @normal_draw, %224 ]
   tail call void %.0.i244(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef 100, i32 noundef 0, i32 noundef 0) #28, !callees !97
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %231 = load i32, ptr %230, align 8, !tbaa !71
@@ -2926,10 +2926,10 @@ thread-pre-split:                                 ; preds = %4
 
 .sink.split:                                      ; preds = %41, %39, %39, %39, %39, %39, %42
   %.sink = phi i64 [ 16, %42 ], [ 52, %39 ], [ 52, %39 ], [ 52, %39 ], [ 52, %39 ], [ 52, %39 ], [ 52, %41 ]
-  %.sink102 = phi i64 [ 1320, %42 ], [ 1312, %39 ], [ 1312, %39 ], [ 1312, %39 ], [ 1312, %39 ], [ 1312, %39 ], [ 1312, %41 ]
+  %.sink105 = phi i64 [ 1320, %42 ], [ 1312, %39 ], [ 1312, %39 ], [ 1312, %39 ], [ 1312, %39 ], [ 1312, %39 ], [ 1312, %41 ]
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink
   %.072.ph.ph = load i32, ptr %43, align 4, !tbaa !4
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink102
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink105
   %45 = load ptr, ptr %44, align 8, !tbaa !81
   br label %46
 
@@ -4871,8 +4871,8 @@ thread-pre-split.i298:                            ; preds = %231, %225, %223
   store i32 %2, ptr %355, align 4, !tbaa !171
   %356 = icmp ugt i32 %273, %274
   %357 = icmp ugt i32 %338, %318
-  %or.cond362 = select i1 %356, i1 %357, i1 false
-  br i1 %or.cond362, label %358, label %364
+  %or.cond369 = select i1 %356, i1 %357, i1 false
+  br i1 %or.cond369, label %358, label %364
 
 358:                                              ; preds = %351
   %359 = add i32 %338, %16
@@ -5154,8 +5154,8 @@ lstopo_pu_binding.exit.thread:                    ; preds = %61, %lstopo_pu_bind
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %15, %lstopo_pu_binding.exit, %54, %lstopo_numa_binding.exit, %32, %24, %26, %3, %47, %48, %49, %50, %69, %70, %71, %28, %lstopo_numa_binding.exit.thread, %lstopo_pu_binding.exit.thread
-  %.sink99 = phi i64 [ 256, %lstopo_pu_binding.exit.thread ], [ 288, %lstopo_numa_binding.exit.thread ], [ 480, %28 ], [ 416, %71 ], [ 384, %70 ], [ 448, %69 ], [ 352, %50 ], [ 224, %49 ], [ 192, %48 ], [ 128, %47 ], [ 64, %3 ], [ 576, %26 ], [ 576, %24 ], [ 544, %32 ], [ 512, %lstopo_numa_binding.exit ], [ 544, %54 ], [ 512, %lstopo_pu_binding.exit ], [ 160, %15 ]
-  %72 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink99
+  %.sink100 = phi i64 [ 256, %lstopo_pu_binding.exit.thread ], [ 288, %lstopo_numa_binding.exit.thread ], [ 480, %28 ], [ 416, %71 ], [ 384, %70 ], [ 448, %69 ], [ 352, %50 ], [ 224, %49 ], [ 192, %48 ], [ 128, %47 ], [ 64, %3 ], [ 576, %26 ], [ 576, %24 ], [ 544, %32 ], [ 512, %lstopo_numa_binding.exit ], [ 544, %54 ], [ 512, %lstopo_pu_binding.exit ], [ 160, %15 ]
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink100
   store ptr %72, ptr %2, align 8, !tbaa !59
   br label %.loopexit
 

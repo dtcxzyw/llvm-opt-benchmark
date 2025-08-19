@@ -1175,16 +1175,16 @@ l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit19
   unreachable
 
 lean_alloc_ctor.exit167:                          ; preds = %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit198, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit, %169
-  %.sink223 = phi ptr [ %170, %169 ], [ %224, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit ], [ %289, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit198 ]
+  %.sink238 = phi ptr [ %170, %169 ], [ %224, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit ], [ %289, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit198 ]
   %.0.i175.sink = phi ptr [ %161, %169 ], [ %.0.i175, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit ], [ %.0.i193, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit198 ]
-  %292 = getelementptr inbounds nuw i8, ptr %.sink223, i64 4
-  store i32 1, ptr %.sink223, align 4, !tbaa !8
+  %292 = getelementptr inbounds nuw i8, ptr %.sink238, i64 4
+  store i32 1, ptr %.sink238, align 4, !tbaa !8
   store i32 131096, ptr %292, align 4
-  %293 = getelementptr inbounds nuw i8, ptr %.sink223, i64 8
+  %293 = getelementptr inbounds nuw i8, ptr %.sink238, i64 8
   store ptr %3, ptr %293, align 8, !tbaa !4
-  %294 = getelementptr inbounds nuw i8, ptr %.sink223, i64 16
+  %294 = getelementptr inbounds nuw i8, ptr %.sink238, i64 16
   store ptr %.0.i175.sink, ptr %294, align 8, !tbaa !4
-  ret ptr %.sink223
+  ret ptr %.sink238
 }
 
 declare ptr @l_Lean_Language_SnapshotTask_map___rarg(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
@@ -3742,16 +3742,16 @@ l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit13
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit133, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit, %lean_dec.exit78
-  %.sink156 = phi ptr [ %39, %lean_dec.exit78 ], [ %135, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit ], [ %225, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit133 ]
+  %.sink175 = phi ptr [ %39, %lean_dec.exit78 ], [ %135, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit ], [ %225, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit133 ]
   %.0.i106.sink = phi ptr [ %38, %lean_dec.exit78 ], [ %.0.i106, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit ], [ %.0.i128, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit133 ]
-  %228 = getelementptr inbounds nuw i8, ptr %.sink156, i64 4
-  store i32 1, ptr %.sink156, align 4, !tbaa !8
+  %228 = getelementptr inbounds nuw i8, ptr %.sink175, i64 4
+  store i32 1, ptr %.sink175, align 4, !tbaa !8
   store i32 131096, ptr %228, align 4
-  %229 = getelementptr inbounds nuw i8, ptr %.sink156, i64 8
+  %229 = getelementptr inbounds nuw i8, ptr %.sink175, i64 8
   store ptr %19, ptr %229, align 8, !tbaa !4
-  %230 = getelementptr inbounds nuw i8, ptr %.sink156, i64 16
+  %230 = getelementptr inbounds nuw i8, ptr %.sink175, i64 16
   store ptr %.0.i106.sink, ptr %230, align 8, !tbaa !4
-  ret ptr %.sink156
+  ret ptr %.sink175
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4266,18 +4266,18 @@ _init_l_Lean_Language_Lean_HeaderParsedSnapshot_processedResult___closed__2.exit
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Language_Lean_HeaderParsedSnapshot_processedResult___closed__2.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %67, %_init_l_Lean_Language_Lean_HeaderParsedSnapshot_processedResult___closed__2.exit ]
-  %70 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !8
+  %.sink27 = phi ptr [ %4, %3 ], [ %67, %_init_l_Lean_Language_Lean_HeaderParsedSnapshot_processedResult___closed__2.exit ]
+  %70 = getelementptr inbounds nuw i8, ptr %.sink27, i64 4
+  store i32 1, ptr %.sink27, align 4, !tbaa !8
   store i32 131096, ptr %70, align 4
-  %71 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.sink27, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %71, align 8, !tbaa !4
-  %72 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.sink27, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %72, align 8, !tbaa !4
   br label %73
 
 73:                                               ; preds = %.sink.split, %lean_dec_ref.exit10, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink27, %.sink.split ]
   ret ptr %.0
 }
 

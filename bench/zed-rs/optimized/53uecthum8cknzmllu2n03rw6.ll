@@ -993,9 +993,9 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17h3136a4fc5ae63fadE.exit.threa
 
 ._crit_edge.i.i:                                  ; preds = %198
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %23, i64 16)
-  %spec.select28.i = tail call i64 @llvm.umin.i64(i64 %23, i64 16)
+  %spec.select31.i = tail call i64 @llvm.umin.i64(i64 %23, i64 16)
   %184 = getelementptr inbounds i8, ptr %.val10.i, i64 %spec.select.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %184, ptr nonnull align 1 %.val10.i, i64 %spec.select28.i, i1 false), !noalias !202
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %184, ptr nonnull align 1 %.val10.i, i64 %spec.select31.i, i1 false), !noalias !202
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !202
   %185 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %185, align 8, !noalias !202

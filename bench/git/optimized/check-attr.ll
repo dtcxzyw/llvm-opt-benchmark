@@ -136,8 +136,8 @@ sub_2:                                            ; preds = %sub_1
 
 ._crit_edge.thread:                               ; preds = %23
   %40 = load i32, ptr @all_attrs, align 4, !tbaa !30
-  %.not5792 = icmp eq i32 %40, 0
-  br i1 %.not5792, label %.thread104, label %thread-pre-split
+  %.not5796 = icmp eq i32 %40, 0
+  br i1 %.not5796, label %.thread108, label %thread-pre-split
 
 41:                                               ; preds = %._crit_edge
   %42 = icmp sgt i32 %.not67, 0
@@ -156,26 +156,26 @@ sub_2:                                            ; preds = %sub_1
   unreachable
 
 47:                                               ; preds = %44
-  br i1 %36, label %.thread104, label %thread-pre-split
+  br i1 %36, label %.thread108, label %thread-pre-split
 
-.thread104:                                       ; preds = %._crit_edge.thread, %47
+.thread108:                                       ; preds = %._crit_edge.thread, %47
   %.not58 = icmp eq i32 %13, 0
   br i1 %.not58, label %48, label %49
 
-48:                                               ; preds = %.thread104
+48:                                               ; preds = %.thread108
   tail call fastcc void @error_with_usage(ptr noundef nonnull @.str.3) #11
   unreachable
 
-49:                                               ; preds = %.thread104
+49:                                               ; preds = %.thread108
   %50 = load i32, ptr @stdin_paths, align 4, !tbaa !30
   %.not59 = icmp eq i32 %50, 0
   %. = select i1 %.not59, i32 1, i32 %13
   br label %51
 
 thread-pre-split:                                 ; preds = %._crit_edge.thread, %47, %41
-  %.047.lcssa94 = phi i32 [ %.not67, %41 ], [ %.not67, %47 ], [ -1, %._crit_edge.thread ]
+  %.047.lcssa97 = phi i32 [ %.not67, %41 ], [ %.not67, %47 ], [ -1, %._crit_edge.thread ]
   %.052.ph = phi i32 [ 0, %41 ], [ %.not67, %47 ], [ 0, %._crit_edge.thread ]
-  %.046.ph = add nsw i32 %.047.lcssa94, 1
+  %.046.ph = add nsw i32 %.047.lcssa97, 1
   %.pr = load i32, ptr @stdin_paths, align 4, !tbaa !30
   br label %51
 

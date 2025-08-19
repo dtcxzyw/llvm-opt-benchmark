@@ -1694,11 +1694,11 @@ _RNvXsc_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
   br label %40
 
 40:                                               ; preds = %34, %_RNvXsc_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_17FromExternalErrorBP_NtNtNtCs1LoaDTb72WA_4core3num5error13ParseIntErrorE19from_external_errorB1G_.exit
-  %.sink56 = phi i64 [ 48, %34 ], [ 24, %_RNvXsc_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_17FromExternalErrorBP_NtNtNtCs1LoaDTb72WA_4core3num5error13ParseIntErrorE19from_external_errorB1G_.exit ]
+  %.sink57 = phi i64 [ 48, %34 ], [ 24, %_RNvXsc_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_17FromExternalErrorBP_NtNtNtCs1LoaDTb72WA_4core3num5error13ParseIntErrorE19from_external_errorB1G_.exit ]
   %.sroa.728.0..sroa.728.0..sroa.728.8..sink = phi i64 [ %.sroa.728.0..sroa.728.0..sroa.728.0..sroa.728.8., %34 ], [ 1, %_RNvXsc_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_17FromExternalErrorBP_NtNtNtCs1LoaDTb72WA_4core3num5error13ParseIntErrorE19from_external_errorB1G_.exit ]
   %.sink = phi i64 [ 56, %34 ], [ 48, %_RNvXsc_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_17FromExternalErrorBP_NtNtNtCs1LoaDTb72WA_4core3num5error13ParseIntErrorE19from_external_errorB1G_.exit ]
   %.sroa.11.0..sroa.11.0..sroa.11.0.copyload.sink = phi i64 [ %.sroa.11.0..sroa.11.0..sroa.11.0..sroa.11.0.copyload, %34 ], [ 2, %_RNvXsc_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8StatefulINtBS_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEEINtB5_17FromExternalErrorBP_NtNtNtCs1LoaDTb72WA_4core3num5error13ParseIntErrorE19from_external_errorB1G_.exit ]
-  %.sroa.618.sroa.4.0..sroa.618.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink56
+  %.sroa.618.sroa.4.0..sroa.618.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink57
   store i64 %.sroa.728.0..sroa.728.0..sroa.728.8..sink, ptr %.sroa.618.sroa.4.0..sroa.618.0..sroa_idx.sroa_idx, align 8
   %.sroa.618.sroa.5.0..sroa.618.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   store i64 %.sroa.11.0..sroa.11.0..sroa.11.0.copyload.sink, ptr %.sroa.618.sroa.5.0..sroa.618.0..sroa_idx.sroa_idx, align 8
@@ -6364,8 +6364,8 @@ _RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvNtB7_10combinator3mapINtCs4DJqE8qduBp_
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i18)
   %42 = getelementptr inbounds nuw i8, ptr %15, i64 44
   %43 = load i64, ptr %15, align 8, !range !9
-  %.not52 = icmp eq i64 %43, 1
-  br i1 %.not52, label %44, label %98
+  %.not57 = icmp eq i64 %43, 1
+  br i1 %.not57, label %44, label %98
 
 44:                                               ; preds = %_RNvXsa_NtCsaPKTPzkFU9s_3nom8internalNCINvNtB7_10combinator3mapINtCs4DJqE8qduBp_4pori8StatefulINtB11_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEcNtB1O_9ArchetypeINtNtB7_5error12VerboseErrorBY_ENCNvNvNvB1M_5parse5class10archetypes0NvYB2z_INtNtCs1LoaDTb72WA_4core7convert4FromcE4fromE0INtB5_6ParserBY_B2z_B2P_E5parseB1Q_.exit
   %45 = getelementptr inbounds nuw i8, ptr %15, i64 8

@@ -1256,12 +1256,12 @@ _ZL7IsMatchPKhS0_.exit6.preheader:                ; preds = %678
   %704 = load i8, ptr %703, align 1, !tbaa !7
   %705 = getelementptr inbounds nuw i8, ptr %.7368.i258, i64 4
   %706 = load i8, ptr %705, align 1, !tbaa !7
-  %.not509 = icmp eq i8 %704, %706
-  br i1 %.not509, label %.lr.ph513, label %.thread74.backedge
+  %.not545 = icmp eq i8 %704, %706
+  br i1 %.not545, label %.lr.ph549, label %.thread74.backedge
 
 .thread74.backedge:                               ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit, %912, %_ZL7IsMatchPKhS0_.exit6, %_ZL7IsMatchPKhS0_.exit6.preheader, %678
-  %.0340.i.be = phi i32 [ %.3343.i, %678 ], [ %.3343.i, %_ZL7IsMatchPKhS0_.exit6.preheader ], [ %.4344.i261512, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit ], [ %745, %912 ], [ %745, %_ZL7IsMatchPKhS0_.exit6 ]
-  %.1325.i.be = phi ptr [ %218, %678 ], [ %218, %_ZL7IsMatchPKhS0_.exit6.preheader ], [ %.2337.i262511, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit ], [ %744, %912 ], [ %744, %_ZL7IsMatchPKhS0_.exit6 ]
+  %.0340.i.be = phi i32 [ %.3343.i, %678 ], [ %.3343.i, %_ZL7IsMatchPKhS0_.exit6.preheader ], [ %.4344.i261548, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit ], [ %745, %912 ], [ %745, %_ZL7IsMatchPKhS0_.exit6 ]
+  %.1325.i.be = phi ptr [ %218, %678 ], [ %218, %_ZL7IsMatchPKhS0_.exit6.preheader ], [ %.2337.i262547, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit ], [ %744, %912 ], [ %744, %_ZL7IsMatchPKhS0_.exit6 ]
   br label %.thread74
 
 _ZL7IsMatchPKhS0_.exit6:                          ; preds = %912
@@ -1270,23 +1270,23 @@ _ZL7IsMatchPKhS0_.exit6:                          ; preds = %912
   %709 = getelementptr inbounds nuw i8, ptr %.7368.i, i64 4
   %710 = load i8, ptr %709, align 1, !tbaa !7
   %.not = icmp eq i8 %708, %710
-  br i1 %.not, label %.lr.ph513, label %.thread74.backedge
+  br i1 %.not, label %.lr.ph549, label %.thread74.backedge
 
-.lr.ph513:                                        ; preds = %_ZL7IsMatchPKhS0_.exit6.preheader, %_ZL7IsMatchPKhS0_.exit6
-  %.4344.i261512 = phi i32 [ %745, %_ZL7IsMatchPKhS0_.exit6 ], [ %.3343.i, %_ZL7IsMatchPKhS0_.exit6.preheader ]
-  %.2337.i262511 = phi ptr [ %744, %_ZL7IsMatchPKhS0_.exit6 ], [ %218, %_ZL7IsMatchPKhS0_.exit6.preheader ]
-  %.7368.i263510 = phi ptr [ %.7368.i, %_ZL7IsMatchPKhS0_.exit6 ], [ %.7368.i258, %_ZL7IsMatchPKhS0_.exit6.preheader ]
-  %711 = getelementptr inbounds nuw i8, ptr %.7368.i263510, i64 5
-  %712 = getelementptr inbounds nuw i8, ptr %.2337.i262511, i64 5
-  %713 = ptrtoint ptr %.2337.i262511 to i64
+.lr.ph549:                                        ; preds = %_ZL7IsMatchPKhS0_.exit6.preheader, %_ZL7IsMatchPKhS0_.exit6
+  %.4344.i261548 = phi i32 [ %745, %_ZL7IsMatchPKhS0_.exit6 ], [ %.3343.i, %_ZL7IsMatchPKhS0_.exit6.preheader ]
+  %.2337.i262547 = phi ptr [ %744, %_ZL7IsMatchPKhS0_.exit6 ], [ %218, %_ZL7IsMatchPKhS0_.exit6.preheader ]
+  %.7368.i263546 = phi ptr [ %.7368.i, %_ZL7IsMatchPKhS0_.exit6 ], [ %.7368.i258, %_ZL7IsMatchPKhS0_.exit6.preheader ]
+  %711 = getelementptr inbounds nuw i8, ptr %.7368.i263546, i64 5
+  %712 = getelementptr inbounds nuw i8, ptr %.2337.i262547, i64 5
+  %713 = ptrtoint ptr %.2337.i262547 to i64
   %714 = sub i64 %114, %713
   %715 = icmp ugt i64 %714, 7
   br i1 %715, label %.lr.ph245, label %.preheader
 
-.preheader:                                       ; preds = %724, %.lr.ph513
-  %.027.i.lcssa = phi i64 [ %714, %.lr.ph513 ], [ %727, %724 ]
-  %.025.i.lcssa = phi ptr [ %712, %.lr.ph513 ], [ %725, %724 ]
-  %.022.i.lcssa = phi ptr [ %711, %.lr.ph513 ], [ %726, %724 ]
+.preheader:                                       ; preds = %724, %.lr.ph549
+  %.027.i.lcssa = phi i64 [ %714, %.lr.ph549 ], [ %727, %724 ]
+  %.025.i.lcssa = phi ptr [ %712, %.lr.ph549 ], [ %725, %724 ]
+  %.022.i.lcssa = phi ptr [ %711, %.lr.ph549 ], [ %726, %724 ]
   %.not.i8249 = icmp eq i64 %.027.i.lcssa, 0
   br i1 %.not.i8249, label %.critedge.i, label %.lr.ph253.preheader
 
@@ -1294,10 +1294,10 @@ _ZL7IsMatchPKhS0_.exit6:                          ; preds = %912
   %scevgep355 = getelementptr i8, ptr %.022.i.lcssa, i64 %.027.i.lcssa
   br label %.lr.ph253
 
-.lr.ph245:                                        ; preds = %.lr.ph513, %724
-  %.022.i243 = phi ptr [ %726, %724 ], [ %711, %.lr.ph513 ]
-  %.025.i242 = phi ptr [ %725, %724 ], [ %712, %.lr.ph513 ]
-  %.027.i241 = phi i64 [ %727, %724 ], [ %714, %.lr.ph513 ]
+.lr.ph245:                                        ; preds = %.lr.ph549, %724
+  %.022.i243 = phi ptr [ %726, %724 ], [ %711, %.lr.ph549 ]
+  %.025.i242 = phi ptr [ %725, %724 ], [ %712, %.lr.ph549 ]
+  %.027.i241 = phi i64 [ %727, %724 ], [ %714, %.lr.ph549 ]
   %.0.copyload.i39 = load i64, ptr %.025.i242, align 1
   %.0.copyload.i38 = load i64, ptr %.022.i243, align 1
   %.not30.i = icmp eq i64 %.0.copyload.i39, %.0.copyload.i38
@@ -1345,14 +1345,14 @@ _ZL7IsMatchPKhS0_.exit6:                          ; preds = %912
 
 _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.critedge.i
   %.2.i9 = phi i64 [ %723, %716 ], [ %738, %.critedge.i ]
-  %739 = ptrtoint ptr %.7368.i263510 to i64
+  %739 = ptrtoint ptr %.7368.i263546 to i64
   %740 = sub i64 %713, %739
   %741 = icmp sgt i64 %740, 262128
   br i1 %741, label %.thread74.backedge, label %742
 
 742:                                              ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit
   %743 = add i64 %.2.i9, 5
-  %744 = getelementptr inbounds nuw i8, ptr %.2337.i262511, i64 %743
+  %744 = getelementptr inbounds nuw i8, ptr %.2337.i262547, i64 %743
   %745 = trunc i64 %740 to i32
   %746 = icmp ult i64 %743, 10
   br i1 %746, label %747, label %767
@@ -1709,7 +1709,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   br i1 %979, label %1006, label %980
 
 980:                                              ; preds = %_ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit
-  %981 = trunc nuw i64 %940 to i32
+  %981 = trunc nuw nsw i64 %940 to i32
   %982 = add nsw i32 %981, -1
   br label %983
 
@@ -3264,12 +3264,12 @@ _ZL7IsMatchPKhS0_.exit6.preheader:                ; preds = %678
   %704 = load i8, ptr %703, align 1, !tbaa !7
   %705 = getelementptr inbounds nuw i8, ptr %.7368.i258, i64 4
   %706 = load i8, ptr %705, align 1, !tbaa !7
-  %.not509 = icmp eq i8 %704, %706
-  br i1 %.not509, label %.lr.ph513, label %.thread74.backedge
+  %.not545 = icmp eq i8 %704, %706
+  br i1 %.not545, label %.lr.ph549, label %.thread74.backedge
 
 .thread74.backedge:                               ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit, %912, %_ZL7IsMatchPKhS0_.exit6, %_ZL7IsMatchPKhS0_.exit6.preheader, %678
-  %.0340.i.be = phi i32 [ %.3343.i, %678 ], [ %.3343.i, %_ZL7IsMatchPKhS0_.exit6.preheader ], [ %.4344.i261512, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit ], [ %745, %912 ], [ %745, %_ZL7IsMatchPKhS0_.exit6 ]
-  %.1325.i.be = phi ptr [ %218, %678 ], [ %218, %_ZL7IsMatchPKhS0_.exit6.preheader ], [ %.2337.i262511, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit ], [ %744, %912 ], [ %744, %_ZL7IsMatchPKhS0_.exit6 ]
+  %.0340.i.be = phi i32 [ %.3343.i, %678 ], [ %.3343.i, %_ZL7IsMatchPKhS0_.exit6.preheader ], [ %.4344.i261548, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit ], [ %745, %912 ], [ %745, %_ZL7IsMatchPKhS0_.exit6 ]
+  %.1325.i.be = phi ptr [ %218, %678 ], [ %218, %_ZL7IsMatchPKhS0_.exit6.preheader ], [ %.2337.i262547, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit ], [ %744, %912 ], [ %744, %_ZL7IsMatchPKhS0_.exit6 ]
   br label %.thread74
 
 _ZL7IsMatchPKhS0_.exit6:                          ; preds = %912
@@ -3278,23 +3278,23 @@ _ZL7IsMatchPKhS0_.exit6:                          ; preds = %912
   %709 = getelementptr inbounds nuw i8, ptr %.7368.i, i64 4
   %710 = load i8, ptr %709, align 1, !tbaa !7
   %.not = icmp eq i8 %708, %710
-  br i1 %.not, label %.lr.ph513, label %.thread74.backedge
+  br i1 %.not, label %.lr.ph549, label %.thread74.backedge
 
-.lr.ph513:                                        ; preds = %_ZL7IsMatchPKhS0_.exit6.preheader, %_ZL7IsMatchPKhS0_.exit6
-  %.4344.i261512 = phi i32 [ %745, %_ZL7IsMatchPKhS0_.exit6 ], [ %.3343.i, %_ZL7IsMatchPKhS0_.exit6.preheader ]
-  %.2337.i262511 = phi ptr [ %744, %_ZL7IsMatchPKhS0_.exit6 ], [ %218, %_ZL7IsMatchPKhS0_.exit6.preheader ]
-  %.7368.i263510 = phi ptr [ %.7368.i, %_ZL7IsMatchPKhS0_.exit6 ], [ %.7368.i258, %_ZL7IsMatchPKhS0_.exit6.preheader ]
-  %711 = getelementptr inbounds nuw i8, ptr %.7368.i263510, i64 5
-  %712 = getelementptr inbounds nuw i8, ptr %.2337.i262511, i64 5
-  %713 = ptrtoint ptr %.2337.i262511 to i64
+.lr.ph549:                                        ; preds = %_ZL7IsMatchPKhS0_.exit6.preheader, %_ZL7IsMatchPKhS0_.exit6
+  %.4344.i261548 = phi i32 [ %745, %_ZL7IsMatchPKhS0_.exit6 ], [ %.3343.i, %_ZL7IsMatchPKhS0_.exit6.preheader ]
+  %.2337.i262547 = phi ptr [ %744, %_ZL7IsMatchPKhS0_.exit6 ], [ %218, %_ZL7IsMatchPKhS0_.exit6.preheader ]
+  %.7368.i263546 = phi ptr [ %.7368.i, %_ZL7IsMatchPKhS0_.exit6 ], [ %.7368.i258, %_ZL7IsMatchPKhS0_.exit6.preheader ]
+  %711 = getelementptr inbounds nuw i8, ptr %.7368.i263546, i64 5
+  %712 = getelementptr inbounds nuw i8, ptr %.2337.i262547, i64 5
+  %713 = ptrtoint ptr %.2337.i262547 to i64
   %714 = sub i64 %114, %713
   %715 = icmp ugt i64 %714, 7
   br i1 %715, label %.lr.ph245, label %.preheader
 
-.preheader:                                       ; preds = %724, %.lr.ph513
-  %.027.i.lcssa = phi i64 [ %714, %.lr.ph513 ], [ %727, %724 ]
-  %.025.i.lcssa = phi ptr [ %712, %.lr.ph513 ], [ %725, %724 ]
-  %.022.i.lcssa = phi ptr [ %711, %.lr.ph513 ], [ %726, %724 ]
+.preheader:                                       ; preds = %724, %.lr.ph549
+  %.027.i.lcssa = phi i64 [ %714, %.lr.ph549 ], [ %727, %724 ]
+  %.025.i.lcssa = phi ptr [ %712, %.lr.ph549 ], [ %725, %724 ]
+  %.022.i.lcssa = phi ptr [ %711, %.lr.ph549 ], [ %726, %724 ]
   %.not.i8249 = icmp eq i64 %.027.i.lcssa, 0
   br i1 %.not.i8249, label %.critedge.i, label %.lr.ph253.preheader
 
@@ -3302,10 +3302,10 @@ _ZL7IsMatchPKhS0_.exit6:                          ; preds = %912
   %scevgep355 = getelementptr i8, ptr %.022.i.lcssa, i64 %.027.i.lcssa
   br label %.lr.ph253
 
-.lr.ph245:                                        ; preds = %.lr.ph513, %724
-  %.022.i243 = phi ptr [ %726, %724 ], [ %711, %.lr.ph513 ]
-  %.025.i242 = phi ptr [ %725, %724 ], [ %712, %.lr.ph513 ]
-  %.027.i241 = phi i64 [ %727, %724 ], [ %714, %.lr.ph513 ]
+.lr.ph245:                                        ; preds = %.lr.ph549, %724
+  %.022.i243 = phi ptr [ %726, %724 ], [ %711, %.lr.ph549 ]
+  %.025.i242 = phi ptr [ %725, %724 ], [ %712, %.lr.ph549 ]
+  %.027.i241 = phi i64 [ %727, %724 ], [ %714, %.lr.ph549 ]
   %.0.copyload.i39 = load i64, ptr %.025.i242, align 1
   %.0.copyload.i38 = load i64, ptr %.022.i243, align 1
   %.not30.i = icmp eq i64 %.0.copyload.i39, %.0.copyload.i38
@@ -3353,14 +3353,14 @@ _ZL7IsMatchPKhS0_.exit6:                          ; preds = %912
 
 _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.critedge.i
   %.2.i9 = phi i64 [ %723, %716 ], [ %738, %.critedge.i ]
-  %739 = ptrtoint ptr %.7368.i263510 to i64
+  %739 = ptrtoint ptr %.7368.i263546 to i64
   %740 = sub i64 %713, %739
   %741 = icmp sgt i64 %740, 262128
   br i1 %741, label %.thread74.backedge, label %742
 
 742:                                              ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit
   %743 = add i64 %.2.i9, 5
-  %744 = getelementptr inbounds nuw i8, ptr %.2337.i262511, i64 %743
+  %744 = getelementptr inbounds nuw i8, ptr %.2337.i262547, i64 %743
   %745 = trunc i64 %740 to i32
   %746 = icmp ult i64 %743, 10
   br i1 %746, label %747, label %767
@@ -3717,7 +3717,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   br i1 %979, label %1006, label %980
 
 980:                                              ; preds = %_ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit
-  %981 = trunc nuw i64 %940 to i32
+  %981 = trunc nuw nsw i64 %940 to i32
   %982 = add nsw i32 %981, -1
   br label %983
 
@@ -5272,12 +5272,12 @@ _ZL7IsMatchPKhS0_.exit6.preheader:                ; preds = %678
   %704 = load i8, ptr %703, align 1, !tbaa !7
   %705 = getelementptr inbounds nuw i8, ptr %.7368.i258, i64 4
   %706 = load i8, ptr %705, align 1, !tbaa !7
-  %.not509 = icmp eq i8 %704, %706
-  br i1 %.not509, label %.lr.ph513, label %.thread74.backedge
+  %.not545 = icmp eq i8 %704, %706
+  br i1 %.not545, label %.lr.ph549, label %.thread74.backedge
 
 .thread74.backedge:                               ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit, %912, %_ZL7IsMatchPKhS0_.exit6, %_ZL7IsMatchPKhS0_.exit6.preheader, %678
-  %.0340.i.be = phi i32 [ %.3343.i, %678 ], [ %.3343.i, %_ZL7IsMatchPKhS0_.exit6.preheader ], [ %.4344.i261512, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit ], [ %745, %912 ], [ %745, %_ZL7IsMatchPKhS0_.exit6 ]
-  %.1325.i.be = phi ptr [ %218, %678 ], [ %218, %_ZL7IsMatchPKhS0_.exit6.preheader ], [ %.2337.i262511, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit ], [ %744, %912 ], [ %744, %_ZL7IsMatchPKhS0_.exit6 ]
+  %.0340.i.be = phi i32 [ %.3343.i, %678 ], [ %.3343.i, %_ZL7IsMatchPKhS0_.exit6.preheader ], [ %.4344.i261548, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit ], [ %745, %912 ], [ %745, %_ZL7IsMatchPKhS0_.exit6 ]
+  %.1325.i.be = phi ptr [ %218, %678 ], [ %218, %_ZL7IsMatchPKhS0_.exit6.preheader ], [ %.2337.i262547, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit ], [ %744, %912 ], [ %744, %_ZL7IsMatchPKhS0_.exit6 ]
   br label %.thread74
 
 _ZL7IsMatchPKhS0_.exit6:                          ; preds = %912
@@ -5286,23 +5286,23 @@ _ZL7IsMatchPKhS0_.exit6:                          ; preds = %912
   %709 = getelementptr inbounds nuw i8, ptr %.7368.i, i64 4
   %710 = load i8, ptr %709, align 1, !tbaa !7
   %.not = icmp eq i8 %708, %710
-  br i1 %.not, label %.lr.ph513, label %.thread74.backedge
+  br i1 %.not, label %.lr.ph549, label %.thread74.backedge
 
-.lr.ph513:                                        ; preds = %_ZL7IsMatchPKhS0_.exit6.preheader, %_ZL7IsMatchPKhS0_.exit6
-  %.4344.i261512 = phi i32 [ %745, %_ZL7IsMatchPKhS0_.exit6 ], [ %.3343.i, %_ZL7IsMatchPKhS0_.exit6.preheader ]
-  %.2337.i262511 = phi ptr [ %744, %_ZL7IsMatchPKhS0_.exit6 ], [ %218, %_ZL7IsMatchPKhS0_.exit6.preheader ]
-  %.7368.i263510 = phi ptr [ %.7368.i, %_ZL7IsMatchPKhS0_.exit6 ], [ %.7368.i258, %_ZL7IsMatchPKhS0_.exit6.preheader ]
-  %711 = getelementptr inbounds nuw i8, ptr %.7368.i263510, i64 5
-  %712 = getelementptr inbounds nuw i8, ptr %.2337.i262511, i64 5
-  %713 = ptrtoint ptr %.2337.i262511 to i64
+.lr.ph549:                                        ; preds = %_ZL7IsMatchPKhS0_.exit6.preheader, %_ZL7IsMatchPKhS0_.exit6
+  %.4344.i261548 = phi i32 [ %745, %_ZL7IsMatchPKhS0_.exit6 ], [ %.3343.i, %_ZL7IsMatchPKhS0_.exit6.preheader ]
+  %.2337.i262547 = phi ptr [ %744, %_ZL7IsMatchPKhS0_.exit6 ], [ %218, %_ZL7IsMatchPKhS0_.exit6.preheader ]
+  %.7368.i263546 = phi ptr [ %.7368.i, %_ZL7IsMatchPKhS0_.exit6 ], [ %.7368.i258, %_ZL7IsMatchPKhS0_.exit6.preheader ]
+  %711 = getelementptr inbounds nuw i8, ptr %.7368.i263546, i64 5
+  %712 = getelementptr inbounds nuw i8, ptr %.2337.i262547, i64 5
+  %713 = ptrtoint ptr %.2337.i262547 to i64
   %714 = sub i64 %114, %713
   %715 = icmp ugt i64 %714, 7
   br i1 %715, label %.lr.ph245, label %.preheader
 
-.preheader:                                       ; preds = %724, %.lr.ph513
-  %.027.i.lcssa = phi i64 [ %714, %.lr.ph513 ], [ %727, %724 ]
-  %.025.i.lcssa = phi ptr [ %712, %.lr.ph513 ], [ %725, %724 ]
-  %.022.i.lcssa = phi ptr [ %711, %.lr.ph513 ], [ %726, %724 ]
+.preheader:                                       ; preds = %724, %.lr.ph549
+  %.027.i.lcssa = phi i64 [ %714, %.lr.ph549 ], [ %727, %724 ]
+  %.025.i.lcssa = phi ptr [ %712, %.lr.ph549 ], [ %725, %724 ]
+  %.022.i.lcssa = phi ptr [ %711, %.lr.ph549 ], [ %726, %724 ]
   %.not.i8249 = icmp eq i64 %.027.i.lcssa, 0
   br i1 %.not.i8249, label %.critedge.i, label %.lr.ph253.preheader
 
@@ -5310,10 +5310,10 @@ _ZL7IsMatchPKhS0_.exit6:                          ; preds = %912
   %scevgep355 = getelementptr i8, ptr %.022.i.lcssa, i64 %.027.i.lcssa
   br label %.lr.ph253
 
-.lr.ph245:                                        ; preds = %.lr.ph513, %724
-  %.022.i243 = phi ptr [ %726, %724 ], [ %711, %.lr.ph513 ]
-  %.025.i242 = phi ptr [ %725, %724 ], [ %712, %.lr.ph513 ]
-  %.027.i241 = phi i64 [ %727, %724 ], [ %714, %.lr.ph513 ]
+.lr.ph245:                                        ; preds = %.lr.ph549, %724
+  %.022.i243 = phi ptr [ %726, %724 ], [ %711, %.lr.ph549 ]
+  %.025.i242 = phi ptr [ %725, %724 ], [ %712, %.lr.ph549 ]
+  %.027.i241 = phi i64 [ %727, %724 ], [ %714, %.lr.ph549 ]
   %.0.copyload.i39 = load i64, ptr %.025.i242, align 1
   %.0.copyload.i38 = load i64, ptr %.022.i243, align 1
   %.not30.i = icmp eq i64 %.0.copyload.i39, %.0.copyload.i38
@@ -5361,14 +5361,14 @@ _ZL7IsMatchPKhS0_.exit6:                          ; preds = %912
 
 _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.critedge.i
   %.2.i9 = phi i64 [ %723, %716 ], [ %738, %.critedge.i ]
-  %739 = ptrtoint ptr %.7368.i263510 to i64
+  %739 = ptrtoint ptr %.7368.i263546 to i64
   %740 = sub i64 %713, %739
   %741 = icmp sgt i64 %740, 262128
   br i1 %741, label %.thread74.backedge, label %742
 
 742:                                              ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit
   %743 = add i64 %.2.i9, 5
-  %744 = getelementptr inbounds nuw i8, ptr %.2337.i262511, i64 %743
+  %744 = getelementptr inbounds nuw i8, ptr %.2337.i262547, i64 %743
   %745 = trunc i64 %740 to i32
   %746 = icmp ult i64 %743, 10
   br i1 %746, label %747, label %767
@@ -5725,7 +5725,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   br i1 %979, label %1006, label %980
 
 980:                                              ; preds = %_ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit
-  %981 = trunc nuw i64 %940 to i32
+  %981 = trunc nuw nsw i64 %940 to i32
   %982 = add nsw i32 %981, -1
   br label %983
 
@@ -7280,12 +7280,12 @@ _ZL7IsMatchPKhS0_.exit6.preheader:                ; preds = %678
   %704 = load i8, ptr %703, align 1, !tbaa !7
   %705 = getelementptr inbounds nuw i8, ptr %.7368.i258, i64 4
   %706 = load i8, ptr %705, align 1, !tbaa !7
-  %.not509 = icmp eq i8 %704, %706
-  br i1 %.not509, label %.lr.ph513, label %.thread74.backedge
+  %.not545 = icmp eq i8 %704, %706
+  br i1 %.not545, label %.lr.ph549, label %.thread74.backedge
 
 .thread74.backedge:                               ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit, %912, %_ZL7IsMatchPKhS0_.exit6, %_ZL7IsMatchPKhS0_.exit6.preheader, %678
-  %.0340.i.be = phi i32 [ %.3343.i, %678 ], [ %.3343.i, %_ZL7IsMatchPKhS0_.exit6.preheader ], [ %.4344.i261512, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit ], [ %745, %912 ], [ %745, %_ZL7IsMatchPKhS0_.exit6 ]
-  %.1325.i.be = phi ptr [ %218, %678 ], [ %218, %_ZL7IsMatchPKhS0_.exit6.preheader ], [ %.2337.i262511, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit ], [ %744, %912 ], [ %744, %_ZL7IsMatchPKhS0_.exit6 ]
+  %.0340.i.be = phi i32 [ %.3343.i, %678 ], [ %.3343.i, %_ZL7IsMatchPKhS0_.exit6.preheader ], [ %.4344.i261548, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit ], [ %745, %912 ], [ %745, %_ZL7IsMatchPKhS0_.exit6 ]
+  %.1325.i.be = phi ptr [ %218, %678 ], [ %218, %_ZL7IsMatchPKhS0_.exit6.preheader ], [ %.2337.i262547, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit ], [ %744, %912 ], [ %744, %_ZL7IsMatchPKhS0_.exit6 ]
   br label %.thread74
 
 _ZL7IsMatchPKhS0_.exit6:                          ; preds = %912
@@ -7294,23 +7294,23 @@ _ZL7IsMatchPKhS0_.exit6:                          ; preds = %912
   %709 = getelementptr inbounds nuw i8, ptr %.7368.i, i64 4
   %710 = load i8, ptr %709, align 1, !tbaa !7
   %.not = icmp eq i8 %708, %710
-  br i1 %.not, label %.lr.ph513, label %.thread74.backedge
+  br i1 %.not, label %.lr.ph549, label %.thread74.backedge
 
-.lr.ph513:                                        ; preds = %_ZL7IsMatchPKhS0_.exit6.preheader, %_ZL7IsMatchPKhS0_.exit6
-  %.4344.i261512 = phi i32 [ %745, %_ZL7IsMatchPKhS0_.exit6 ], [ %.3343.i, %_ZL7IsMatchPKhS0_.exit6.preheader ]
-  %.2337.i262511 = phi ptr [ %744, %_ZL7IsMatchPKhS0_.exit6 ], [ %218, %_ZL7IsMatchPKhS0_.exit6.preheader ]
-  %.7368.i263510 = phi ptr [ %.7368.i, %_ZL7IsMatchPKhS0_.exit6 ], [ %.7368.i258, %_ZL7IsMatchPKhS0_.exit6.preheader ]
-  %711 = getelementptr inbounds nuw i8, ptr %.7368.i263510, i64 5
-  %712 = getelementptr inbounds nuw i8, ptr %.2337.i262511, i64 5
-  %713 = ptrtoint ptr %.2337.i262511 to i64
+.lr.ph549:                                        ; preds = %_ZL7IsMatchPKhS0_.exit6.preheader, %_ZL7IsMatchPKhS0_.exit6
+  %.4344.i261548 = phi i32 [ %745, %_ZL7IsMatchPKhS0_.exit6 ], [ %.3343.i, %_ZL7IsMatchPKhS0_.exit6.preheader ]
+  %.2337.i262547 = phi ptr [ %744, %_ZL7IsMatchPKhS0_.exit6 ], [ %218, %_ZL7IsMatchPKhS0_.exit6.preheader ]
+  %.7368.i263546 = phi ptr [ %.7368.i, %_ZL7IsMatchPKhS0_.exit6 ], [ %.7368.i258, %_ZL7IsMatchPKhS0_.exit6.preheader ]
+  %711 = getelementptr inbounds nuw i8, ptr %.7368.i263546, i64 5
+  %712 = getelementptr inbounds nuw i8, ptr %.2337.i262547, i64 5
+  %713 = ptrtoint ptr %.2337.i262547 to i64
   %714 = sub i64 %114, %713
   %715 = icmp ugt i64 %714, 7
   br i1 %715, label %.lr.ph245, label %.preheader
 
-.preheader:                                       ; preds = %724, %.lr.ph513
-  %.027.i.lcssa = phi i64 [ %714, %.lr.ph513 ], [ %727, %724 ]
-  %.025.i.lcssa = phi ptr [ %712, %.lr.ph513 ], [ %725, %724 ]
-  %.022.i.lcssa = phi ptr [ %711, %.lr.ph513 ], [ %726, %724 ]
+.preheader:                                       ; preds = %724, %.lr.ph549
+  %.027.i.lcssa = phi i64 [ %714, %.lr.ph549 ], [ %727, %724 ]
+  %.025.i.lcssa = phi ptr [ %712, %.lr.ph549 ], [ %725, %724 ]
+  %.022.i.lcssa = phi ptr [ %711, %.lr.ph549 ], [ %726, %724 ]
   %.not.i8249 = icmp eq i64 %.027.i.lcssa, 0
   br i1 %.not.i8249, label %.critedge.i, label %.lr.ph253.preheader
 
@@ -7318,10 +7318,10 @@ _ZL7IsMatchPKhS0_.exit6:                          ; preds = %912
   %scevgep355 = getelementptr i8, ptr %.022.i.lcssa, i64 %.027.i.lcssa
   br label %.lr.ph253
 
-.lr.ph245:                                        ; preds = %.lr.ph513, %724
-  %.022.i243 = phi ptr [ %726, %724 ], [ %711, %.lr.ph513 ]
-  %.025.i242 = phi ptr [ %725, %724 ], [ %712, %.lr.ph513 ]
-  %.027.i241 = phi i64 [ %727, %724 ], [ %714, %.lr.ph513 ]
+.lr.ph245:                                        ; preds = %.lr.ph549, %724
+  %.022.i243 = phi ptr [ %726, %724 ], [ %711, %.lr.ph549 ]
+  %.025.i242 = phi ptr [ %725, %724 ], [ %712, %.lr.ph549 ]
+  %.027.i241 = phi i64 [ %727, %724 ], [ %714, %.lr.ph549 ]
   %.0.copyload.i39 = load i64, ptr %.025.i242, align 1
   %.0.copyload.i38 = load i64, ptr %.022.i243, align 1
   %.not30.i = icmp eq i64 %.0.copyload.i39, %.0.copyload.i38
@@ -7369,14 +7369,14 @@ _ZL7IsMatchPKhS0_.exit6:                          ; preds = %912
 
 _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %716, %.critedge.i
   %.2.i9 = phi i64 [ %723, %716 ], [ %738, %.critedge.i ]
-  %739 = ptrtoint ptr %.7368.i263510 to i64
+  %739 = ptrtoint ptr %.7368.i263546 to i64
   %740 = sub i64 %713, %739
   %741 = icmp sgt i64 %740, 262128
   br i1 %741, label %.thread74.backedge, label %742
 
 742:                                              ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit
   %743 = add i64 %.2.i9, 5
-  %744 = getelementptr inbounds nuw i8, ptr %.2337.i262511, i64 %743
+  %744 = getelementptr inbounds nuw i8, ptr %.2337.i262547, i64 %743
   %745 = trunc i64 %740 to i32
   %746 = icmp ult i64 %743, 10
   br i1 %746, label %747, label %767
@@ -7733,7 +7733,7 @@ _ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit: ; preds
   br i1 %979, label %1006, label %980
 
 980:                                              ; preds = %_ZL16ShouldMergeBlockPN13duckdb_brotli18BrotliOnePassArenaEPKhmS3_.exit
-  %981 = trunc nuw i64 %940 to i32
+  %981 = trunc nuw nsw i64 %940 to i32
   %982 = add nsw i32 %981, -1
   br label %983
 

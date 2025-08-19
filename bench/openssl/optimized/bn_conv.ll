@@ -85,8 +85,8 @@ define ptr @BN_bn2hex(ptr noundef %0) local_unnamed_addr #0 {
   %.225 = phi i32 [ 1, %31 ], [ 0, %23 ]
   %.3 = phi ptr [ %34, %31 ], [ %.232, %23 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -8
-  %.not41 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not41, label %.loopexit, label %23, !llvm.loop !17
+  %.not43 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not43, label %.loopexit, label %23, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.loopexit, %18
   %.1.lcssa = phi ptr [ %.0, %18 ], [ %.3, %.loopexit ]

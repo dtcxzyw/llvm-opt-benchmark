@@ -324,9 +324,9 @@ _ZN10serde_json3ser10CharEscape17from_escape_table17h0e70bf5357d61956E.exit.thre
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h42998f28ec9a8509E.exit
 
 _ZN10serde_json3ser9Formatter17write_char_escape17h42998f28ec9a8509E.exit: ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h5076392623eb81ceE.llvm.2337583790011467692.exit.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h5076392623eb81ceE.llvm.2337583790011467692.exit4.i"
-  %.sink95 = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h5076392623eb81ceE.llvm.2337583790011467692.exit.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h5076392623eb81ceE.llvm.2337583790011467692.exit4.i" ]
+  %.sink98 = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h5076392623eb81ceE.llvm.2337583790011467692.exit.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h5076392623eb81ceE.llvm.2337583790011467692.exit4.i" ]
   %90 = load i64, ptr %6, align 8, !noalias !13, !noundef !13
-  %91 = add i64 %90, %.sink95
+  %91 = add i64 %90, %.sink98
   store i64 %91, ptr %6, align 8, !noalias !13
   br label %.outer
 
@@ -2533,9 +2533,9 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17he614be39e22fb3aaE.exit.th
   br label %70
 
 70:                                               ; preds = %29, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17he614be39e22fb3aaE.exit.thread.i.i, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h079f1336fe61e38eE.exit.sink.split.i.i"
-  %.sink10.i.i = phi i64 [ %28, %29 ], [ %66, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17he614be39e22fb3aaE.exit.thread.i.i ], [ %.pre.i.i.i.i.i.i.i12.i.i, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h079f1336fe61e38eE.exit.sink.split.i.i" ]
+  %.sink21.i.i = phi i64 [ %28, %29 ], [ %66, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17he614be39e22fb3aaE.exit.thread.i.i ], [ %.pre.i.i.i.i.i.i.i12.i.i, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h079f1336fe61e38eE.exit.sink.split.i.i" ]
   %71 = load ptr, ptr %24, align 8, !noalias !1177, !nonnull !13, !noundef !13
-  %72 = getelementptr inbounds i8, ptr %71, i64 %.sink10.i.i
+  %72 = getelementptr inbounds i8, ptr %71, i64 %.sink21.i.i
   store i8 93, ptr %72, align 1, !noalias !1177
   %storemerge.in.i.i = load i64, ptr %18, align 8, !noalias !1177, !noundef !13
   %storemerge.i.i = add i64 %storemerge.in.i.i, 1

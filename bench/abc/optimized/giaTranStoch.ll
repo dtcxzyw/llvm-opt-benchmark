@@ -761,8 +761,8 @@ Vec_PtrPush.exit:
   br i1 %.not207, label %112, label %.lr.ph.preheader
 
 .thread:                                          ; preds = %Vec_PtrPush.exit
-  %.not207441 = icmp eq i32 %10, 0
-  br i1 %.not207441, label %112, label %._crit_edge.thread
+  %.not207459 = icmp eq i32 %10, 0
+  br i1 %.not207459, label %112, label %._crit_edge.thread
 
 .lr.ph.preheader:                                 ; preds = %38
   %71 = load ptr, ptr %35, align 8, !tbaa !75
@@ -833,8 +833,8 @@ Vec_PtrPush.exit:
   br i1 %102, label %104, label %.Vec_PtrGrow.exit11_crit_edge.i256
 
 .Vec_PtrGrow.exit11_crit_edge.i256:               ; preds = %._crit_edge.thread, %._crit_edge
-  %.1192.lcssa450 = phi i64 [ 0, %._crit_edge.thread ], [ %103, %._crit_edge ]
-  %.0194.lcssa448 = phi ptr [ %101, %._crit_edge.thread ], [ %.1195, %._crit_edge ]
+  %.1192.lcssa468 = phi i64 [ 0, %._crit_edge.thread ], [ %103, %._crit_edge ]
+  %.0194.lcssa466 = phi ptr [ %101, %._crit_edge.thread ], [ %.1195, %._crit_edge ]
   %.pre.i258 = load ptr, ptr %36, align 8, !tbaa !73
   br label %Vec_PtrPush.exit262
 
@@ -858,15 +858,15 @@ Vec_PtrGrow.exit.i261:                            ; preds = %108, %106
   br label %Vec_PtrPush.exit262
 
 Vec_PtrPush.exit262:                              ; preds = %.Vec_PtrGrow.exit11_crit_edge.i256, %Vec_PtrGrow.exit.i261
-  %.1192.lcssa449 = phi i64 [ %.1192.lcssa450, %.Vec_PtrGrow.exit11_crit_edge.i256 ], [ %103, %Vec_PtrGrow.exit.i261 ]
-  %.0194.lcssa447 = phi ptr [ %.0194.lcssa448, %.Vec_PtrGrow.exit11_crit_edge.i256 ], [ %.1195, %Vec_PtrGrow.exit.i261 ]
+  %.1192.lcssa467 = phi i64 [ %.1192.lcssa468, %.Vec_PtrGrow.exit11_crit_edge.i256 ], [ %103, %Vec_PtrGrow.exit.i261 ]
+  %.0194.lcssa465 = phi ptr [ %.0194.lcssa466, %.Vec_PtrGrow.exit11_crit_edge.i256 ], [ %.1195, %Vec_PtrGrow.exit.i261 ]
   %111 = phi ptr [ %.pre.i258, %.Vec_PtrGrow.exit11_crit_edge.i256 ], [ %110, %Vec_PtrGrow.exit.i261 ]
   store i32 1, ptr %34, align 4, !tbaa !74
-  store ptr %.0194.lcssa447, ptr %111, align 8, !tbaa !75
+  store ptr %.0194.lcssa465, ptr %111, align 8, !tbaa !75
   br label %112
 
 112:                                              ; preds = %.thread, %Vec_PtrPush.exit262, %38
-  %.0191 = phi i64 [ %.1192.lcssa449, %Vec_PtrPush.exit262 ], [ 0, %38 ], [ 0, %.thread ]
+  %.0191 = phi i64 [ %.1192.lcssa467, %Vec_PtrPush.exit262 ], [ 0, %38 ], [ 0, %.thread ]
   %113 = call ptr @Gia_ManDup(ptr noundef %0) #14
   %114 = icmp eq i32 %14, 1
   br i1 %114, label %.lr.ph388.preheader, label %175
@@ -1293,11 +1293,11 @@ Vec_PtrPush.exit262:                              ; preds = %.Vec_PtrGrow.exit11
 314:                                              ; preds = %.preheader298.us.us322
   %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400, 1
   %exitcond404.not = icmp eq i64 %indvars.iv.next401, %wide.trip.count403
-  %spec.select476 = select i1 %exitcond404.not, i64 0, i64 %indvars.iv.next401
+  %spec.select494 = select i1 %exitcond404.not, i64 0, i64 %indvars.iv.next401
   br label %.preheader298.us.us322, !llvm.loop !83
 
 .preheader298.us.us322:                           ; preds = %314, %.preheader299.us
-  %indvars.iv400 = phi i64 [ 0, %.preheader299.us ], [ %spec.select476, %314 ]
+  %indvars.iv400 = phi i64 [ 0, %.preheader299.us ], [ %spec.select494, %314 ]
   %315 = getelementptr inbounds nuw [100 x %struct.Gia_ManTranStochParam], ptr %18, i64 0, i64 %indvars.iv400
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 88
   %317 = load i32, ptr %316, align 8, !tbaa !26
@@ -1403,7 +1403,7 @@ Vec_PtrPush.exit262:                              ; preds = %.Vec_PtrGrow.exit11
   br label %.lr.ph382
 
 .preheader295:                                    ; preds = %.lr.ph382, %.critedge2.preheader
-  %.us-phi379456 = phi ptr [ %.5199.lcssa, %.critedge2.preheader ], [ %.us-phi379, %.lr.ph382 ]
+  %.us-phi379474 = phi ptr [ %.5199.lcssa, %.critedge2.preheader ], [ %.us-phi379, %.lr.ph382 ]
   %.val232 = load i32, ptr %34, align 4, !tbaa !74
   %372 = icmp sgt i32 %.val232, 0
   br i1 %372, label %.lr.ph384, label %.critedge4
@@ -1438,7 +1438,7 @@ Vec_PtrPush.exit262:                              ; preds = %.Vec_PtrGrow.exit11
   br label %.critedge
 
 .critedge:                                        ; preds = %151, %.critedge4
-  %.4198 = phi ptr [ %.us-phi379456, %.critedge4 ], [ %..2196386, %151 ]
+  %.4198 = phi ptr [ %.us-phi379474, %.critedge4 ], [ %..2196386, %151 ]
   %.not218 = icmp eq i32 %15, 0
   br i1 %.not218, label %391, label %378
 

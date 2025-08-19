@@ -1813,7 +1813,7 @@ find_lanman.exit:                                 ; preds = %92
   %162 = load i16, ptr %161, align 2
   %163 = and i16 %162, 8
   %.not.i.i = icmp eq i16 %163, 0
-  br i1 %.not.i.i, label %get_count.exit.thread191.i, label %.preheader.i.i
+  br i1 %.not.i.i, label %get_count.exit.thread201.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %158
   %.not1416.i.i = icmp eq i8 %159, 0
@@ -1848,11 +1848,11 @@ get_count.exit.i:                                 ; preds = %169, %.lr.ph.i.i
   %178 = icmp eq ptr %177, null
   br i1 %178, label %185, label %192
 
-get_count.exit.thread191.i:                       ; preds = %158
+get_count.exit.thread201.i:                       ; preds = %158
   %179 = getelementptr inbounds nuw i8, ptr %.0145.i, i64 8
   %180 = load ptr, ptr %179, align 8
   %181 = icmp eq ptr %180, null
-  br i1 %181, label %.thread196.i, label %192
+  br i1 %181, label %.thread206.i, label %192
 
 get_count.exit.thread.i:                          ; preds = %.preheader.i.i
   %182 = getelementptr inbounds nuw i8, ptr %.0145.i, i64 8
@@ -1862,10 +1862,10 @@ get_count.exit.thread.i:                          ; preds = %.preheader.i.i
 
 185:                                              ; preds = %get_count.exit.i
   %186 = icmp eq i32 %storemerge.i.i, 1
-  br i1 %186, label %.thread196.i, label %.thread.i
+  br i1 %186, label %.thread206.i, label %.thread.i
 
-.thread196.i:                                     ; preds = %185, %get_count.exit.thread191.i
-  %.0.i195199.i = phi ptr [ %.0.i.i, %185 ], [ %101, %get_count.exit.thread191.i ]
+.thread206.i:                                     ; preds = %185, %get_count.exit.thread201.i
+  %.0.i205209.i = phi ptr [ %.0.i.i, %185 ], [ %101, %get_count.exit.thread201.i ]
   %187 = load i32, ptr @hf_smb_pipe_byte_param, align 4
   %188 = call ptr @proto_tree_add_item(ptr noundef %.0162, i32 noundef %187, ptr noundef nonnull %1, i32 noundef %.0.i185, i32 noundef 1, i32 noundef -2147483648)
   br label %add_bytes_param.exit.i
@@ -1877,16 +1877,16 @@ get_count.exit.thread.i:                          ; preds = %.preheader.i.i
   %190 = call ptr @proto_tree_add_item(ptr noundef %.0162, i32 noundef %189, ptr noundef nonnull %1, i32 noundef %.0.i185, i32 noundef %storemerge.i181189.i, i32 noundef 0)
   br label %add_bytes_param.exit.i
 
-add_bytes_param.exit.i:                           ; preds = %.thread.i, %.thread196.i
-  %storemerge.i181190.i = phi i32 [ 1, %.thread196.i ], [ %storemerge.i181189.i, %.thread.i ]
-  %.0.i184187.i = phi ptr [ %.0.i195199.i, %.thread196.i ], [ %.0.i184188.i, %.thread.i ]
+add_bytes_param.exit.i:                           ; preds = %.thread.i, %.thread206.i
+  %storemerge.i181190.i = phi i32 [ 1, %.thread206.i ], [ %storemerge.i181189.i, %.thread.i ]
+  %.0.i184187.i = phi ptr [ %.0.i205209.i, %.thread206.i ], [ %.0.i184188.i, %.thread.i ]
   %191 = add i32 %storemerge.i181190.i, %.0.i185
   br label %.backedge
 
-192:                                              ; preds = %get_count.exit.thread.i, %get_count.exit.thread191.i, %get_count.exit.i
-  %193 = phi ptr [ %183, %get_count.exit.thread.i ], [ %177, %get_count.exit.i ], [ %180, %get_count.exit.thread191.i ]
-  %.0.i183.i = phi ptr [ %101, %get_count.exit.thread.i ], [ %.0.i.i, %get_count.exit.i ], [ %101, %get_count.exit.thread191.i ]
-  %storemerge.i182.i = phi i32 [ 0, %get_count.exit.thread.i ], [ %storemerge.i.i, %get_count.exit.i ], [ 1, %get_count.exit.thread191.i ]
+192:                                              ; preds = %get_count.exit.thread.i, %get_count.exit.thread201.i, %get_count.exit.i
+  %193 = phi ptr [ %183, %get_count.exit.thread.i ], [ %177, %get_count.exit.i ], [ %180, %get_count.exit.thread201.i ]
+  %.0.i183.i = phi ptr [ %101, %get_count.exit.thread.i ], [ %.0.i.i, %get_count.exit.i ], [ %101, %get_count.exit.thread201.i ]
+  %storemerge.i182.i = phi i32 [ 0, %get_count.exit.thread.i ], [ %storemerge.i.i, %get_count.exit.i ], [ 1, %get_count.exit.thread201.i ]
   %194 = getelementptr inbounds nuw i8, ptr %.0145.i, i64 16
   %195 = load i32, ptr %194, align 8
   %.not158.i = icmp eq i32 %195, 3
@@ -2225,16 +2225,16 @@ find_lanman.exit189:                              ; preds = %364
   %391 = getelementptr inbounds nuw i8, ptr %3, i64 408
   br label %392
 
-392:                                              ; preds = %.backedge233, %387
-  %.2 = phi i1 [ false, %387 ], [ %.2.be, %.backedge233 ]
-  %.0211 = phi i1 [ false, %387 ], [ %.0211.be, %.backedge233 ]
-  %.0209 = phi i16 [ 0, %387 ], [ %.0209.be, %.backedge233 ]
-  %.098.i = phi ptr [ %389, %387 ], [ %.098.i.be, %.backedge233 ]
-  %.096.i = phi ptr [ %377, %387 ], [ %.096.i.be, %.backedge233 ]
-  %.0.i190 = phi i32 [ 4, %387 ], [ %.0.i190.be, %.backedge233 ]
+392:                                              ; preds = %.backedge257, %387
+  %.2 = phi i1 [ false, %387 ], [ %.2.be, %.backedge257 ]
+  %.0211 = phi i1 [ false, %387 ], [ %.0211.be, %.backedge257 ]
+  %.0209 = phi i16 [ 0, %387 ], [ %.0209.be, %.backedge257 ]
+  %.098.i = phi ptr [ %389, %387 ], [ %.098.i.be, %.backedge257 ]
+  %.096.i = phi ptr [ %377, %387 ], [ %.096.i.be, %.backedge257 ]
+  %.0.i190 = phi i32 [ 4, %387 ], [ %.0.i190.be, %.backedge257 ]
   %393 = getelementptr i8, ptr %.096.i, i64 1
   %394 = load i8, ptr %.096.i, align 1
-  switch i8 %394, label %.backedge233 [
+  switch i8 %394, label %.backedge257 [
     i8 0, label %dissect_response_parameters.exit
     i8 114, label %395
     i8 103, label %396
@@ -2244,7 +2244,7 @@ find_lanman.exit189:                              ; preds = %364
   ]
 
 395:                                              ; preds = %392
-  br label %.backedge233
+  br label %.backedge257
 
 396:                                              ; preds = %392
   %397 = load i8, ptr %393, align 1
@@ -2253,7 +2253,7 @@ find_lanman.exit189:                              ; preds = %364
   %400 = load i16, ptr %399, align 2
   %401 = and i16 %400, 8
   %.not.i.i192 = icmp eq i16 %401, 0
-  br i1 %.not.i.i192, label %get_count.exit.thread126.i, label %.preheader.i.i193
+  br i1 %.not.i.i192, label %get_count.exit.thread132.i, label %.preheader.i.i193
 
 .preheader.i.i193:                                ; preds = %396
   %.not1416.i.i194 = icmp eq i8 %397, 0
@@ -2288,11 +2288,11 @@ get_count.exit.i200:                              ; preds = %407, %.lr.ph.i.i195
   %416 = icmp eq ptr %415, null
   br i1 %416, label %423, label %430
 
-get_count.exit.thread126.i:                       ; preds = %396
+get_count.exit.thread132.i:                       ; preds = %396
   %417 = getelementptr inbounds nuw i8, ptr %.098.i, i64 8
   %418 = load ptr, ptr %417, align 8
   %419 = icmp eq ptr %418, null
-  br i1 %419, label %.thread131.i, label %430
+  br i1 %419, label %.thread137.i, label %430
 
 get_count.exit.thread.i205:                       ; preds = %.preheader.i.i193
   %420 = getelementptr inbounds nuw i8, ptr %.098.i, i64 8
@@ -2302,10 +2302,10 @@ get_count.exit.thread.i205:                       ; preds = %.preheader.i.i193
 
 423:                                              ; preds = %get_count.exit.i200
   %424 = icmp eq i32 %storemerge.i.i201, 1
-  br i1 %424, label %.thread131.i, label %.thread.i203
+  br i1 %424, label %.thread137.i, label %.thread.i203
 
-.thread131.i:                                     ; preds = %423, %get_count.exit.thread126.i
-  %.0.i130134.i = phi ptr [ %.0.i.i202, %423 ], [ %393, %get_count.exit.thread126.i ]
+.thread137.i:                                     ; preds = %423, %get_count.exit.thread132.i
+  %.0.i136140.i = phi ptr [ %.0.i.i202, %423 ], [ %393, %get_count.exit.thread132.i ]
   %425 = load i32, ptr @hf_smb_pipe_byte_param, align 4
   %426 = tail call ptr @proto_tree_add_item(ptr noundef %.0162, i32 noundef %425, ptr noundef nonnull %1, i32 noundef %.0.i190, i32 noundef 1, i32 noundef -2147483648)
   br label %add_bytes_param.exit.i204
@@ -2317,16 +2317,16 @@ get_count.exit.thread.i205:                       ; preds = %.preheader.i.i193
   %428 = tail call ptr @proto_tree_add_item(ptr noundef %.0162, i32 noundef %427, ptr noundef nonnull %1, i32 noundef %.0.i190, i32 noundef %storemerge.i117124.i, i32 noundef 0)
   br label %add_bytes_param.exit.i204
 
-add_bytes_param.exit.i204:                        ; preds = %.thread.i203, %.thread131.i
-  %storemerge.i117125.i = phi i32 [ 1, %.thread131.i ], [ %storemerge.i117124.i, %.thread.i203 ]
-  %.0.i119122.i = phi ptr [ %.0.i130134.i, %.thread131.i ], [ %.0.i119123.i, %.thread.i203 ]
+add_bytes_param.exit.i204:                        ; preds = %.thread.i203, %.thread137.i
+  %storemerge.i117125.i = phi i32 [ 1, %.thread137.i ], [ %storemerge.i117124.i, %.thread.i203 ]
+  %.0.i119122.i = phi ptr [ %.0.i136140.i, %.thread137.i ], [ %.0.i119123.i, %.thread.i203 ]
   %429 = add i32 %storemerge.i117125.i, %.0.i190
-  br label %.backedge233
+  br label %.backedge257
 
-430:                                              ; preds = %get_count.exit.thread.i205, %get_count.exit.thread126.i, %get_count.exit.i200
-  %431 = phi ptr [ %421, %get_count.exit.thread.i205 ], [ %415, %get_count.exit.i200 ], [ %418, %get_count.exit.thread126.i ]
-  %.0.i118.i = phi ptr [ %393, %get_count.exit.thread.i205 ], [ %.0.i.i202, %get_count.exit.i200 ], [ %393, %get_count.exit.thread126.i ]
-  %storemerge.i116.i = phi i32 [ 0, %get_count.exit.thread.i205 ], [ %storemerge.i.i201, %get_count.exit.i200 ], [ 1, %get_count.exit.thread126.i ]
+430:                                              ; preds = %get_count.exit.thread.i205, %get_count.exit.thread132.i, %get_count.exit.i200
+  %431 = phi ptr [ %421, %get_count.exit.thread.i205 ], [ %415, %get_count.exit.i200 ], [ %418, %get_count.exit.thread132.i ]
+  %.0.i118.i = phi ptr [ %393, %get_count.exit.thread.i205 ], [ %.0.i.i202, %get_count.exit.i200 ], [ %393, %get_count.exit.thread132.i ]
+  %storemerge.i116.i = phi i32 [ 0, %get_count.exit.thread.i205 ], [ %storemerge.i.i201, %get_count.exit.i200 ], [ 1, %get_count.exit.thread132.i ]
   %432 = getelementptr inbounds nuw i8, ptr %.098.i, i64 16
   %433 = load i32, ptr %432, align 8
   %.not109.i = icmp eq i32 %433, 3
@@ -2344,12 +2344,12 @@ add_bytes_param.exit.i204:                        ; preds = %.thread.i203, %.thr
   %443 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0162, ptr noundef %3, ptr noundef nonnull @ei_smb_pipe_bad_type, ptr noundef nonnull %1, i32 noundef %.0.i190, i32 noundef %storemerge.i116.i, ptr noundef nonnull @.str.731, ptr noundef %440, ptr noundef %442)
   %444 = add i32 %storemerge.i116.i, %.0.i190
   %445 = getelementptr i8, ptr %.098.i, i64 24
-  br label %.backedge233
+  br label %.backedge257
 
 446:                                              ; preds = %430
   %447 = tail call i32 %431(ptr noundef nonnull %1, i32 noundef %.0.i190, i32 noundef %storemerge.i116.i, ptr noundef %3, ptr noundef %.0162, i32 noundef 0, i32 noundef %435, ptr noundef %5)
   %448 = getelementptr i8, ptr %.098.i, i64 24
-  br label %.backedge233
+  br label %.backedge257
 
 449:                                              ; preds = %392
   %450 = getelementptr inbounds nuw i8, ptr %.098.i, i64 8
@@ -2361,7 +2361,7 @@ add_bytes_param.exit.i204:                        ; preds = %.thread.i203, %.thr
   %454 = load i32, ptr @hf_smb_pipe_word_param, align 4
   %455 = tail call ptr @proto_tree_add_item(ptr noundef %.0162, i32 noundef %454, ptr noundef nonnull %1, i32 noundef %.0.i190, i32 noundef 2, i32 noundef -2147483648)
   %456 = add i32 %.0.i190, 2
-  br label %.backedge233
+  br label %.backedge257
 
 457:                                              ; preds = %449
   %458 = getelementptr inbounds nuw i8, ptr %.098.i, i64 16
@@ -2381,14 +2381,14 @@ add_bytes_param.exit.i204:                        ; preds = %.thread.i203, %.thr
   %469 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0162, ptr noundef %3, ptr noundef nonnull @ei_smb_pipe_bad_type, ptr noundef nonnull %1, i32 noundef %.0.i190, i32 noundef 2, ptr noundef nonnull @.str.723, ptr noundef %467, i32 noundef %468, i32 noundef %468)
   %470 = add i32 %.0.i190, 2
   %471 = getelementptr i8, ptr %.098.i, i64 24
-  br label %.backedge233
+  br label %.backedge257
 
 472:                                              ; preds = %457
   %473 = load ptr, ptr %.098.i, align 8
   %474 = load i32, ptr %473, align 4
   %475 = tail call i32 %451(ptr noundef nonnull %1, i32 noundef %.0.i190, i32 noundef 0, ptr noundef %3, ptr noundef %.0162, i32 noundef 0, i32 noundef %474, ptr noundef %5)
   %476 = getelementptr i8, ptr %.098.i, i64 24
-  br label %.backedge233
+  br label %.backedge257
 
 477:                                              ; preds = %392
   %478 = getelementptr inbounds nuw i8, ptr %.098.i, i64 8
@@ -2400,7 +2400,7 @@ add_bytes_param.exit.i204:                        ; preds = %.thread.i203, %.thr
   %482 = load i32, ptr @hf_smb_pipe_doubleword_param, align 4
   %483 = tail call ptr @proto_tree_add_item(ptr noundef %.0162, i32 noundef %482, ptr noundef nonnull %1, i32 noundef %.0.i190, i32 noundef 4, i32 noundef -2147483648)
   %484 = add i32 %.0.i190, 4
-  br label %.backedge233
+  br label %.backedge257
 
 485:                                              ; preds = %477
   %486 = getelementptr inbounds nuw i8, ptr %.098.i, i64 16
@@ -2419,14 +2419,14 @@ add_bytes_param.exit.i204:                        ; preds = %.thread.i203, %.thr
   %496 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0162, ptr noundef %3, ptr noundef nonnull @ei_smb_pipe_bad_type, ptr noundef nonnull %1, i32 noundef %.0.i190, i32 noundef 2, ptr noundef nonnull @.str.732, ptr noundef %495, i32 noundef %489, i32 noundef %489)
   %497 = add i32 %.0.i190, 4
   %498 = getelementptr i8, ptr %.098.i, i64 24
-  br label %.backedge233
+  br label %.backedge257
 
 499:                                              ; preds = %485
   %500 = load ptr, ptr %.098.i, align 8
   %501 = load i32, ptr %500, align 4
   %502 = tail call i32 %479(ptr noundef nonnull %1, i32 noundef %.0.i190, i32 noundef 0, ptr noundef %3, ptr noundef %.0162, i32 noundef 0, i32 noundef %501, ptr noundef %5)
   %503 = getelementptr i8, ptr %.098.i, i64 24
-  br label %.backedge233
+  br label %.backedge257
 
 504:                                              ; preds = %392
   %505 = tail call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %1, i32 noundef %.0.i190)
@@ -2434,9 +2434,9 @@ add_bytes_param.exit.i204:                        ; preds = %.thread.i203, %.thr
   %507 = zext i16 %505 to i32
   %508 = tail call ptr @proto_tree_add_uint(ptr noundef %.0162, i32 noundef %506, ptr noundef nonnull %1, i32 noundef %.0.i190, i32 noundef 2, i32 noundef %507)
   %509 = add i32 %.0.i190, 2
-  br label %.backedge233
+  br label %.backedge257
 
-.backedge233:                                     ; preds = %504, %499, %488, %481, %472, %460, %453, %446, %436, %add_bytes_param.exit.i204, %395, %392
+.backedge257:                                     ; preds = %504, %499, %488, %481, %472, %460, %453, %446, %436, %add_bytes_param.exit.i204, %395, %392
   %.2.be = phi i1 [ %.2, %392 ], [ true, %395 ], [ %.2, %add_bytes_param.exit.i204 ], [ %.2, %446 ], [ %.2, %436 ], [ %.2, %453 ], [ %.2, %472 ], [ %.2, %460 ], [ %.2, %481 ], [ %.2, %499 ], [ %.2, %488 ], [ %.2, %504 ]
   %.0211.be = phi i1 [ %.0211, %392 ], [ %.0211, %395 ], [ %.0211, %add_bytes_param.exit.i204 ], [ %.0211, %446 ], [ %.0211, %436 ], [ %.0211, %453 ], [ %.0211, %472 ], [ %.0211, %460 ], [ %.0211, %481 ], [ %.0211, %499 ], [ %.0211, %488 ], [ true, %504 ]
   %.0209.be = phi i16 [ %.0209, %392 ], [ %.0209, %395 ], [ %.0209, %add_bytes_param.exit.i204 ], [ %.0209, %446 ], [ %.0209, %436 ], [ %.0209, %453 ], [ %.0209, %472 ], [ %.0209, %460 ], [ %.0209, %481 ], [ %.0209, %499 ], [ %.0209, %488 ], [ %505, %504 ]
@@ -2713,7 +2713,7 @@ get_count.exit215:                                ; preds = %.lr.ph.i208, %69, %
   %102 = load i16, ptr %101, align 2
   %103 = and i16 %102, 8
   %.not.i216 = icmp eq i16 %103, 0
-  br i1 %.not.i216, label %get_count.exit226.thread266, label %.preheader.i217
+  br i1 %.not.i216, label %get_count.exit226.thread284, label %.preheader.i217
 
 .preheader.i217:                                  ; preds = %98
   %.not1416.i218 = icmp eq i8 %99, 0
@@ -2748,11 +2748,11 @@ get_count.exit226:                                ; preds = %.lr.ph.i219, %109
   %118 = icmp eq ptr %117, null
   br i1 %118, label %125, label %132
 
-get_count.exit226.thread266:                      ; preds = %98
+get_count.exit226.thread284:                      ; preds = %98
   %119 = getelementptr inbounds nuw i8, ptr %.0182, i64 8
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq ptr %120, null
-  br i1 %121, label %.thread271, label %132
+  br i1 %121, label %.thread289, label %132
 
 get_count.exit226.thread:                         ; preds = %.preheader.i217
   %122 = getelementptr inbounds nuw i8, ptr %.0182, i64 8
@@ -2762,10 +2762,10 @@ get_count.exit226.thread:                         ; preds = %.preheader.i217
 
 125:                                              ; preds = %get_count.exit226
   %126 = icmp eq i32 %storemerge.i224, 1
-  br i1 %126, label %.thread271, label %.thread
+  br i1 %126, label %.thread289, label %.thread
 
-.thread271:                                       ; preds = %get_count.exit226.thread266, %125
-  %.0.i225270274 = phi ptr [ %.0.i225, %125 ], [ %15, %get_count.exit226.thread266 ]
+.thread289:                                       ; preds = %get_count.exit226.thread284, %125
+  %.0.i225288292 = phi ptr [ %.0.i225, %125 ], [ %15, %get_count.exit226.thread284 ]
   %127 = load i32, ptr @hf_smb_pipe_byte_param, align 4
   %128 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %127, ptr noundef nonnull %0, i32 noundef %.0, i32 noundef 1, i32 noundef -2147483648)
   br label %add_bytes_param.exit
@@ -2777,16 +2777,16 @@ get_count.exit226.thread:                         ; preds = %.preheader.i217
   %130 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %129, ptr noundef nonnull %0, i32 noundef %.0, i32 noundef %storemerge.i224255263, i32 noundef 0)
   br label %add_bytes_param.exit
 
-add_bytes_param.exit:                             ; preds = %.thread271, %.thread
-  %storemerge.i224255264 = phi i32 [ 1, %.thread271 ], [ %storemerge.i224255263, %.thread ]
-  %.0.i225258261 = phi ptr [ %.0.i225270274, %.thread271 ], [ %.0.i225258262, %.thread ]
+add_bytes_param.exit:                             ; preds = %.thread289, %.thread
+  %storemerge.i224255264 = phi i32 [ 1, %.thread289 ], [ %storemerge.i224255263, %.thread ]
+  %.0.i225258261 = phi ptr [ %.0.i225288292, %.thread289 ], [ %.0.i225258262, %.thread ]
   %131 = add i32 %storemerge.i224255264, %.0
   br label %.backedge
 
-132:                                              ; preds = %get_count.exit226.thread266, %get_count.exit226.thread, %get_count.exit226
-  %133 = phi ptr [ %123, %get_count.exit226.thread ], [ %117, %get_count.exit226 ], [ %120, %get_count.exit226.thread266 ]
-  %.0.i225257 = phi ptr [ %15, %get_count.exit226.thread ], [ %.0.i225, %get_count.exit226 ], [ %15, %get_count.exit226.thread266 ]
-  %storemerge.i224256 = phi i32 [ 0, %get_count.exit226.thread ], [ %storemerge.i224, %get_count.exit226 ], [ 1, %get_count.exit226.thread266 ]
+132:                                              ; preds = %get_count.exit226.thread284, %get_count.exit226.thread, %get_count.exit226
+  %133 = phi ptr [ %123, %get_count.exit226.thread ], [ %117, %get_count.exit226 ], [ %120, %get_count.exit226.thread284 ]
+  %.0.i225257 = phi ptr [ %15, %get_count.exit226.thread ], [ %.0.i225, %get_count.exit226 ], [ %15, %get_count.exit226.thread284 ]
+  %storemerge.i224256 = phi i32 [ 0, %get_count.exit226.thread ], [ %storemerge.i224, %get_count.exit226 ], [ 1, %get_count.exit226.thread284 ]
   %134 = getelementptr inbounds nuw i8, ptr %.0182, i64 16
   %135 = load i32, ptr %134, align 8
   %.not202 = icmp eq i32 %135, 3

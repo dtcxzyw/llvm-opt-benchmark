@@ -310,11 +310,11 @@ _ZNK4llvm12DISubprogram7getUnitEv.exit:           ; preds = %19, %22
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx63 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 8
+  %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx85 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 8
   %.sroa.0.i.i.12.i.i.12.i.i.12.i.12.i.12..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 12
   %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 8
   %.sroa.0.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 4
-  %.sroa.0.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx62 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 8
+  %.sroa.0.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx84 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 8
   %.sroa.0.i.i.i.12.i.i.i.12.i.i.i.12.i.i.12.i.i.12.i.12.i.12..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 12
   %.sroa.0.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 8
   %.sroa.0.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 4
@@ -928,7 +928,7 @@ _ZNK4llvm10DILocation12getInlinedAtEv.exit.i16.i: ; preds = %_ZNK4llvm6MDNode10g
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   %291 = ptrtoint ptr %267 to i64
   store i64 %291, ptr %.sroa.0.i.i, align 8
-  store i32 0, ptr %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx63, align 8
+  store i32 0, ptr %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx85, align 8
   %292 = ptrtoint ptr %.0.i.i.i17.i to i64
   store i64 %292, ptr %.sroa.0.i.i.12.i.i.12.i.i.12.i.12.i.12..sroa_idx, align 4
   %293 = mul i64 %291, -5435081209227447693
@@ -1219,7 +1219,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableESt4pairIPNS_14MachineOper
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
   %436 = ptrtoint ptr %433 to i64
   store i64 %436, ptr %.sroa.0.i.i.i, align 8
-  store i32 %.0.i.i.i.i.i, ptr %.sroa.0.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx62, align 8
+  store i32 %.0.i.i.i.i.i, ptr %.sroa.0.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx84, align 8
   %437 = ptrtoint ptr %435 to i64
   store i64 %437, ptr %.sroa.0.i.i.i.12.i.i.i.12.i.i.i.12.i.i.12.i.i.12.i.12.i.12..sroa_idx, align 4
   %438 = mul i64 %436, -5435081209227447693
@@ -1568,8 +1568,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_13Small
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %23 = ptrtoint ptr %20 to i64
   store i64 %23, ptr %.sroa.0, align 8
-  %.sroa.0.8..sroa_idx102 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
-  store i32 %.0.i.i, ptr %.sroa.0.8..sroa_idx102, align 8
+  %.sroa.0.8..sroa_idx103 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
+  store i32 %.0.i.i, ptr %.sroa.0.8..sroa_idx103, align 8
   %24 = ptrtoint ptr %22 to i64
   %.sroa.0.12..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 12
   store i64 %24, ptr %.sroa.0.12..sroa_idx, align 4
@@ -2096,8 +2096,8 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMa
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %22 = ptrtoint ptr %19 to i64
   store i64 %22, ptr %.sroa.0, align 8
-  %.sroa.0.8..sroa_idx46 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
-  store i32 %.0.i.i, ptr %.sroa.0.8..sroa_idx46, align 8
+  %.sroa.0.8..sroa_idx47 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
+  store i32 %.0.i.i, ptr %.sroa.0.8..sroa_idx47, align 8
   %23 = ptrtoint ptr %21 to i64
   %.sroa.0.12..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 12
   store i64 %23, ptr %.sroa.0.12..sroa_idx, align 4
@@ -2352,8 +2352,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %18 = ptrtoint ptr %15 to i64
   store i64 %18, ptr %.sroa.0, align 8
-  %.sroa.0.8..sroa_idx102 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
-  store i32 %.0.i.i, ptr %.sroa.0.8..sroa_idx102, align 8
+  %.sroa.0.8..sroa_idx103 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
+  store i32 %.0.i.i, ptr %.sroa.0.8..sroa_idx103, align 8
   %19 = ptrtoint ptr %17 to i64
   %.sroa.0.12..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 12
   store i64 %19, ptr %.sroa.0.12..sroa_idx, align 4

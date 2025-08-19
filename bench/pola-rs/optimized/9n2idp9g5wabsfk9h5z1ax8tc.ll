@@ -19674,9 +19674,9 @@ default.unreachable:                              ; preds = %.lr.ph40.i.i.i.i.i.
           to label %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17h0957906d428d274dE.exit.i.i.i.i.i.i.i" unwind label %128, !noalias !3925
 
 127:                                              ; preds = %._crit_edge41.i.i.i.i.i.i, %28
-  %.sink54.i.i.i.i.i = phi i64 [ %32, %28 ], [ %86, %._crit_edge41.i.i.i.i.i.i ]
+  %.sink62.i.i.i.i.i = phi i64 [ %32, %28 ], [ %86, %._crit_edge41.i.i.i.i.i.i ]
   %.sink.i.i.i.i.i = phi i64 [ %33, %28 ], [ %119, %._crit_edge41.i.i.i.i.i.i ]
-  %.sroa.7.8.insert.ext3.i.i.i.i.i = and i64 %.sink54.i.i.i.i.i, 4294967295
+  %.sroa.7.8.insert.ext3.i.i.i.i.i = and i64 %.sink62.i.i.i.i.i, 4294967295
   %.sroa.7.12.insert.ext7.i.i.i.i.i = shl i64 %.sink.i.i.i.i.i, 32
   %.sroa.7.12.insert.insert10.i.i.i.i.i = or disjoint i64 %.sroa.7.12.insert.ext7.i.i.i.i.i, %.sroa.7.8.insert.ext3.i.i.i.i.i
   br label %130
@@ -22764,7 +22764,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %54 = phi i64 [ %58, %57 ], [ %43, %.lr.ph.i.i.i.i.i.i ]
   %55 = load i64, ptr %.sroa.026.016.us24.i.i.i.i.i.i, align 8, !noalias !4796, !noundef !16
   %56 = icmp sgt i64 %55, %38
-  br i1 %56, label %._crit_edge.thread63.i.i.i.i.i.i, label %57
+  br i1 %56, label %._crit_edge.thread65.i.i.i.i.i.i, label %57
 
 57:                                               ; preds = %.lr.ph.split.split.us22.i.i.i.i.i.i
   %58 = add i64 %54, 1
@@ -22772,7 +22772,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %59 = icmp eq ptr %.sroa.026.117.us23.i.i.i.i.i.i, %44
   %.sroa.026.1.idx.us25.i.i.i.i.i.i = select i1 %59, i64 0, i64 8
   %.sroa.026.1.us26.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.026.117.us23.i.i.i.i.i.i, i64 %.sroa.026.1.idx.us25.i.i.i.i.i.i
-  br i1 %59, label %._crit_edge.thread63.i.i.i.i.i.i, label %.lr.ph.split.split.us22.i.i.i.i.i.i
+  br i1 %59, label %._crit_edge.thread65.i.i.i.i.i.i, label %.lr.ph.split.split.us22.i.i.i.i.i.i
 
 .lr.ph.split.split.us27.i.i.i.i.i.i:              ; preds = %.lr.ph.i.i.i.i.i.i, %62
   %.sroa.026.117.us28.i.i.i.i.i.i = phi ptr [ %.sroa.026.1.us31.i.i.i.i.i.i, %62 ], [ %.sroa.026.115.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
@@ -22780,7 +22780,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %60 = phi i64 [ %63, %62 ], [ %43, %.lr.ph.i.i.i.i.i.i ]
   %61 = load i64, ptr %.sroa.026.016.us29.i.i.i.i.i.i, align 8, !noalias !4796, !noundef !16
   %.not6.us.i.i.i.i.i.i = icmp slt i64 %61, %38
-  br i1 %.not6.us.i.i.i.i.i.i, label %62, label %._crit_edge.thread66.i.i.i.i.i.i
+  br i1 %.not6.us.i.i.i.i.i.i, label %62, label %._crit_edge.thread68.i.i.i.i.i.i
 
 62:                                               ; preds = %.lr.ph.split.split.us27.i.i.i.i.i.i
   %63 = add i64 %60, 1
@@ -22788,7 +22788,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %64 = icmp eq ptr %.sroa.026.117.us28.i.i.i.i.i.i, %44
   %.sroa.026.1.idx.us30.i.i.i.i.i.i = select i1 %64, i64 0, i64 8
   %.sroa.026.1.us31.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.026.117.us28.i.i.i.i.i.i, i64 %.sroa.026.1.idx.us30.i.i.i.i.i.i
-  br i1 %64, label %._crit_edge.thread66.i.i.i.i.i.i, label %.lr.ph.split.split.us27.i.i.i.i.i.i
+  br i1 %64, label %._crit_edge.thread68.i.i.i.i.i.i, label %.lr.ph.split.split.us27.i.i.i.i.i.i
 
 default.unreachable:                              ; preds = %.lr.ph38.split.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   unreachable
@@ -22799,16 +22799,16 @@ default.unreachable:                              ; preds = %.lr.ph38.split.i.i.
   %65 = phi i64 [ %69, %68 ], [ %43, %.lr.ph.i.i.i.i.i.i ]
   %66 = load i64, ptr %.sroa.026.016.i.i.i.i.i.i, align 8, !noalias !4796, !noundef !16
   %67 = icmp sgt i64 %66, %38
-  br i1 %67, label %._crit_edge.thread69.i.i.i.i.i.i, label %68
+  br i1 %67, label %._crit_edge.thread71.i.i.i.i.i.i, label %68
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %36
   %.phi.trans.insert.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 122
   %.pre.i.i.i.i.i.i = load i8, ptr %.phi.trans.insert.i.i.i.i.i.i, align 2, !range !3921, !alias.scope !4795, !noalias !4796
   switch i8 %.pre.i.i.i.i.i.i, label %default.unreachable [
     i8 0, label %._crit_edge.thread.i.i.i.i.i.i
-    i8 1, label %._crit_edge.thread63.i.i.i.i.i.i
-    i8 2, label %._crit_edge.thread66.i.i.i.i.i.i
-    i8 3, label %._crit_edge.thread69.i.i.i.i.i.i
+    i8 1, label %._crit_edge.thread65.i.i.i.i.i.i
+    i8 2, label %._crit_edge.thread68.i.i.i.i.i.i
+    i8 3, label %._crit_edge.thread71.i.i.i.i.i.i
   ]
 
 68:                                               ; preds = %.lr.ph.split.split.i.i.i.i.i.i
@@ -22817,40 +22817,40 @@ default.unreachable:                              ; preds = %.lr.ph38.split.i.i.
   %70 = icmp eq ptr %.sroa.026.117.i.i.i.i.i.i, %44
   %.sroa.026.1.idx.i.i.i.i.i.i = select i1 %70, i64 0, i64 8
   %.sroa.026.1.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.026.117.i.i.i.i.i.i, i64 %.sroa.026.1.idx.i.i.i.i.i.i
-  br i1 %70, label %._crit_edge.thread69.i.i.i.i.i.i, label %.lr.ph.split.split.i.i.i.i.i.i
+  br i1 %70, label %._crit_edge.thread71.i.i.i.i.i.i, label %.lr.ph.split.split.i.i.i.i.i.i
 
 ._crit_edge.thread.i.i.i.i.i.i:                   ; preds = %51, %.lr.ph.split.split.us.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
   %71 = phi i64 [ %22, %._crit_edge.i.i.i.i.i.i ], [ %49, %.lr.ph.split.split.us.i.i.i.i.i.i ], [ %52, %51 ]
   %72 = icmp slt i64 %.val.i.i.i, %39
   br i1 %72, label %82, label %77
 
-._crit_edge.thread63.i.i.i.i.i.i:                 ; preds = %57, %.lr.ph.split.split.us22.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
+._crit_edge.thread65.i.i.i.i.i.i:                 ; preds = %57, %.lr.ph.split.split.us22.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
   %73 = phi i64 [ %22, %._crit_edge.i.i.i.i.i.i ], [ %54, %.lr.ph.split.split.us22.i.i.i.i.i.i ], [ %58, %57 ]
   %.not9.i.i.i.i.i.i = icmp sgt i64 %.val.i.i.i, %39
   br i1 %.not9.i.i.i.i.i.i, label %77, label %82
 
-._crit_edge.thread66.i.i.i.i.i.i:                 ; preds = %62, %.lr.ph.split.split.us27.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
+._crit_edge.thread68.i.i.i.i.i.i:                 ; preds = %62, %.lr.ph.split.split.us27.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
   %74 = phi i64 [ %22, %._crit_edge.i.i.i.i.i.i ], [ %60, %.lr.ph.split.split.us27.i.i.i.i.i.i ], [ %63, %62 ]
   %.not8.i.i.i.i.i.i = icmp sgt i64 %.val.i.i.i, %39
   br i1 %.not8.i.i.i.i.i.i, label %77, label %82
 
-._crit_edge.thread69.i.i.i.i.i.i:                 ; preds = %68, %.lr.ph.split.split.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
+._crit_edge.thread71.i.i.i.i.i.i:                 ; preds = %68, %.lr.ph.split.split.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
   %75 = phi i64 [ %22, %._crit_edge.i.i.i.i.i.i ], [ %65, %.lr.ph.split.split.i.i.i.i.i.i ], [ %69, %68 ]
   %76 = icmp slt i64 %.val.i.i.i, %39
   br i1 %76, label %82, label %77
 
-77:                                               ; preds = %._crit_edge.thread69.i.i.i.i.i.i, %._crit_edge.thread66.i.i.i.i.i.i, %._crit_edge.thread63.i.i.i.i.i.i, %._crit_edge.thread.i.i.i.i.i.i
-  %78 = phi i8 [ 2, %._crit_edge.thread66.i.i.i.i.i.i ], [ 1, %._crit_edge.thread63.i.i.i.i.i.i ], [ 0, %._crit_edge.thread.i.i.i.i.i.i ], [ 3, %._crit_edge.thread69.i.i.i.i.i.i ]
-  %79 = phi i64 [ %74, %._crit_edge.thread66.i.i.i.i.i.i ], [ %73, %._crit_edge.thread63.i.i.i.i.i.i ], [ %71, %._crit_edge.thread.i.i.i.i.i.i ], [ %75, %._crit_edge.thread69.i.i.i.i.i.i ]
+77:                                               ; preds = %._crit_edge.thread71.i.i.i.i.i.i, %._crit_edge.thread68.i.i.i.i.i.i, %._crit_edge.thread65.i.i.i.i.i.i, %._crit_edge.thread.i.i.i.i.i.i
+  %78 = phi i8 [ 2, %._crit_edge.thread68.i.i.i.i.i.i ], [ 1, %._crit_edge.thread65.i.i.i.i.i.i ], [ 0, %._crit_edge.thread.i.i.i.i.i.i ], [ 3, %._crit_edge.thread71.i.i.i.i.i.i ]
+  %79 = phi i64 [ %74, %._crit_edge.thread68.i.i.i.i.i.i ], [ %73, %._crit_edge.thread65.i.i.i.i.i.i ], [ %71, %._crit_edge.thread.i.i.i.i.i.i ], [ %75, %._crit_edge.thread71.i.i.i.i.i.i ]
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %81 = load i64, ptr %80, align 8, !alias.scope !4795, !noalias !4796, !noundef !16
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %79, i64 %81)
   store i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i, ptr %80, align 8, !alias.scope !4795, !noalias !4796
   br label %86
 
-82:                                               ; preds = %._crit_edge.thread69.i.i.i.i.i.i, %._crit_edge.thread66.i.i.i.i.i.i, %._crit_edge.thread63.i.i.i.i.i.i, %._crit_edge.thread.i.i.i.i.i.i
-  %83 = phi i8 [ 2, %._crit_edge.thread66.i.i.i.i.i.i ], [ 1, %._crit_edge.thread63.i.i.i.i.i.i ], [ 0, %._crit_edge.thread.i.i.i.i.i.i ], [ 3, %._crit_edge.thread69.i.i.i.i.i.i ]
-  %84 = phi i64 [ %74, %._crit_edge.thread66.i.i.i.i.i.i ], [ %73, %._crit_edge.thread63.i.i.i.i.i.i ], [ %71, %._crit_edge.thread.i.i.i.i.i.i ], [ %75, %._crit_edge.thread69.i.i.i.i.i.i ]
+82:                                               ; preds = %._crit_edge.thread71.i.i.i.i.i.i, %._crit_edge.thread68.i.i.i.i.i.i, %._crit_edge.thread65.i.i.i.i.i.i, %._crit_edge.thread.i.i.i.i.i.i
+  %83 = phi i8 [ 2, %._crit_edge.thread68.i.i.i.i.i.i ], [ 1, %._crit_edge.thread65.i.i.i.i.i.i ], [ 0, %._crit_edge.thread.i.i.i.i.i.i ], [ 3, %._crit_edge.thread71.i.i.i.i.i.i ]
+  %84 = phi i64 [ %74, %._crit_edge.thread68.i.i.i.i.i.i ], [ %73, %._crit_edge.thread65.i.i.i.i.i.i ], [ %71, %._crit_edge.thread.i.i.i.i.i.i ], [ %75, %._crit_edge.thread71.i.i.i.i.i.i ]
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store i64 %22, ptr %85, align 8, !alias.scope !4795, !noalias !4796
   br label %86
@@ -22958,9 +22958,9 @@ default.unreachable:                              ; preds = %.lr.ph38.split.i.i.
           to label %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17h0957906d428d274dE.exit.i.i.i.i.i.i.i" unwind label %124, !noalias !4805
 
 123:                                              ; preds = %._crit_edge39.i.i.i.i.i.i, %30
-  %.sink45.i.i.i.i.i = phi i64 [ %34, %30 ], [ %88, %._crit_edge39.i.i.i.i.i.i ]
+  %.sink47.i.i.i.i.i = phi i64 [ %34, %30 ], [ %88, %._crit_edge39.i.i.i.i.i.i ]
   %.sink.i.i.i.i.i = phi i64 [ %35, %30 ], [ %115, %._crit_edge39.i.i.i.i.i.i ]
-  %.sroa.6.8.insert.ext3.i.i.i.i.i = and i64 %.sink45.i.i.i.i.i, 4294967295
+  %.sroa.6.8.insert.ext3.i.i.i.i.i = and i64 %.sink47.i.i.i.i.i, 4294967295
   %.sroa.6.12.insert.ext7.i.i.i.i.i = shl i64 %.sink.i.i.i.i.i, 32
   %.sroa.6.12.insert.insert10.i.i.i.i.i = or disjoint i64 %.sroa.6.12.insert.ext7.i.i.i.i.i, %.sroa.6.8.insert.ext3.i.i.i.i.i
   br label %126
@@ -25975,9 +25975,9 @@ default.unreachable:                              ; preds = %.lr.ph41.i.i.i.i, %
           to label %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17h0957906d428d274dE.exit.i.i.i.i.i" unwind label %122, !noalias !5457
 
 121:                                              ; preds = %._crit_edge42.i.i.i.i, %28
-  %.sink54.i.i.i = phi i64 [ %32, %28 ], [ %80, %._crit_edge42.i.i.i.i ]
+  %.sink58.i.i.i = phi i64 [ %32, %28 ], [ %80, %._crit_edge42.i.i.i.i ]
   %.sink.i.i.i = phi i64 [ %33, %28 ], [ %113, %._crit_edge42.i.i.i.i ]
-  %.sroa.7.8.insert.ext3.i.i.i = and i64 %.sink54.i.i.i, 4294967295
+  %.sroa.7.8.insert.ext3.i.i.i = and i64 %.sink58.i.i.i, 4294967295
   %.sroa.7.12.insert.ext7.i.i.i = shl i64 %.sink.i.i.i, 32
   %.sroa.7.12.insert.insert10.i.i.i = or disjoint i64 %.sroa.7.12.insert.ext7.i.i.i, %.sroa.7.8.insert.ext3.i.i.i
   br label %124
@@ -34501,7 +34501,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !3344, !noundef !16
-  switch i8 %23, label %default.unreachable61 [
+  switch i8 %23, label %default.unreachable66 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -34543,7 +34543,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %228
   ]
 
-default.unreachable61:                            ; preds = %2
+default.unreachable66:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2

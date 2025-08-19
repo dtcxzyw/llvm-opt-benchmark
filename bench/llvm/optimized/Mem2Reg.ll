@@ -80,16 +80,16 @@ define internal fastcc noundef zeroext i1 @_ZL23promoteMemoryToRegisterRN4llvm8F
   %3 = getelementptr inbounds nuw i8, ptr %.80.val, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %.80.val, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !19
-  %.sroa.04.02441 = load ptr, ptr %3, align 8, !tbaa !22
-  %.not192542 = icmp eq ptr %.sroa.04.02441, %5
-  br i1 %.not192542, label %._crit_edge.thread, label %.lr.ph.preheader
+  %.sroa.04.02443 = load ptr, ptr %3, align 8, !tbaa !22
+  %.not192544 = icmp eq ptr %.sroa.04.02443, %5
+  br i1 %.not192544, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit
-  %.sroa.04.02446 = phi ptr [ %.sroa.04.024, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit ], [ %.sroa.04.02441, %2 ]
+  %.sroa.04.02448 = phi ptr [ %.sroa.04.024, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit ], [ %.sroa.04.02443, %2 ]
   %6 = phi ptr [ %39, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit ], [ %5, %2 ]
-  %.045 = phi i1 [ true, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit ], [ false, %2 ]
-  %.sroa.07.044 = phi ptr [ %.sroa.07.3, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit ], [ null, %2 ]
-  %.sroa.18.043 = phi ptr [ %.sroa.18.3, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit ], [ null, %2 ]
+  %.047 = phi i1 [ true, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit ], [ false, %2 ]
+  %.sroa.07.046 = phi ptr [ %.sroa.07.3, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit ], [ null, %2 ]
+  %.sroa.18.045 = phi ptr [ %.sroa.18.3, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit ], [ null, %2 ]
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE9push_backERKS2_.exit
@@ -97,10 +97,10 @@ define internal fastcc noundef zeroext i1 @_ZL23promoteMemoryToRegisterRN4llvm8F
   br i1 %7, label %._crit_edge.thread.loopexit, label %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE9push_backERKS2_.exit
-  %.sroa.04.029 = phi ptr [ %.sroa.04.0, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.04.02446, %.lr.ph.preheader ]
-  %.sroa.07.128 = phi ptr [ %.sroa.07.3, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.07.044, %.lr.ph.preheader ]
-  %.sroa.1013.227 = phi ptr [ %.sroa.1013.4, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.07.044, %.lr.ph.preheader ]
-  %.sroa.18.126 = phi ptr [ %.sroa.18.3, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.18.043, %.lr.ph.preheader ]
+  %.sroa.04.029 = phi ptr [ %.sroa.04.0, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.04.02448, %.lr.ph.preheader ]
+  %.sroa.07.128 = phi ptr [ %.sroa.07.3, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.07.046, %.lr.ph.preheader ]
+  %.sroa.1013.227 = phi ptr [ %.sroa.1013.4, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.07.046, %.lr.ph.preheader ]
+  %.sroa.18.126 = phi ptr [ %.sroa.18.3, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.18.045, %.lr.ph.preheader ]
   %8 = getelementptr inbounds i8, ptr %.sroa.04.029, i64 -24
   %9 = load i8, ptr %8, align 8, !tbaa !23
   %.not = icmp eq i8 %9, 60
@@ -184,23 +184,23 @@ _ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit: ; preds = %._crit_edge
   br i1 %.not1925, label %._crit_edge.thread.loopexit, label %.lr.ph.preheader, !llvm.loop !32
 
 ._crit_edge.thread.loopexit:                      ; preds = %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit, %._crit_edge
-  %.0.lcssa.ph = phi i1 [ %.045, %._crit_edge ], [ true, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit ]
-  %.sroa.1013.2.lcssa37.ph = phi ptr [ %.sroa.1013.4, %._crit_edge ], [ %.sroa.07.3, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit ]
+  %.0.lcssa.ph = phi i1 [ %.047, %._crit_edge ], [ true, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit ]
+  %.sroa.1013.2.lcssa39.ph = phi ptr [ %.sroa.1013.4, %._crit_edge ], [ %.sroa.07.3, %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EE5clearEv.exit ]
   %40 = ptrtoint ptr %.sroa.18.3 to i64
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.thread.loopexit, %2
   %.0.lcssa = phi i1 [ false, %2 ], [ %.0.lcssa.ph, %._crit_edge.thread.loopexit ]
-  %.sroa.07.1.lcssa38 = phi ptr [ null, %2 ], [ %.sroa.07.3, %._crit_edge.thread.loopexit ]
-  %.sroa.1013.2.lcssa37 = phi ptr [ null, %2 ], [ %.sroa.1013.2.lcssa37.ph, %._crit_edge.thread.loopexit ]
-  %.sroa.18.1.lcssa36 = phi i64 [ 0, %2 ], [ %40, %._crit_edge.thread.loopexit ]
-  %.not.i.i.i12 = icmp eq ptr %.sroa.1013.2.lcssa37, null
+  %.sroa.07.1.lcssa40 = phi ptr [ null, %2 ], [ %.sroa.07.3, %._crit_edge.thread.loopexit ]
+  %.sroa.1013.2.lcssa39 = phi ptr [ null, %2 ], [ %.sroa.1013.2.lcssa39.ph, %._crit_edge.thread.loopexit ]
+  %.sroa.18.1.lcssa38 = phi i64 [ 0, %2 ], [ %40, %._crit_edge.thread.loopexit ]
+  %.not.i.i.i12 = icmp eq ptr %.sroa.1013.2.lcssa39, null
   br i1 %.not.i.i.i12, label %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EED2Ev.exit, label %41
 
 41:                                               ; preds = %._crit_edge.thread
-  %42 = ptrtoint ptr %.sroa.1013.2.lcssa37 to i64
-  %43 = sub i64 %.sroa.18.1.lcssa36, %42
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.07.1.lcssa38, i64 noundef %43) #15
+  %42 = ptrtoint ptr %.sroa.1013.2.lcssa39 to i64
+  %43 = sub i64 %.sroa.18.1.lcssa38, %42
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.07.1.lcssa40, i64 noundef %43) #15
   br label %_ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN4llvm10AllocaInstESaIS2_EED2Ev.exit: ; preds = %._crit_edge.thread, %41

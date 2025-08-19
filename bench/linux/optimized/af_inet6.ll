@@ -412,22 +412,22 @@ inet_addr_valid_or_nonlocal.exit:                 ; preds = %73, %81, %86
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %115 = load i32, ptr %114, align 4
   %116 = icmp eq i32 %115, 0
-  br i1 %116, label %.thread11, label %.thread12
+  br i1 %116, label %.thread11, label %.thread18
 
 117:                                              ; preds = %99
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %118 = icmp eq i32 %.pre, 0
-  br i1 %118, label %122, label %.thread12
+  br i1 %118, label %122, label %.thread18
 
-.thread12:                                        ; preds = %113, %117
+.thread18:                                        ; preds = %113, %117
   %119 = phi i32 [ %.pre, %117 ], [ %115, %113 ]
   %120 = tail call ptr @dev_get_by_index_rcu(ptr noundef %17, i32 noundef %119) #14
   %121 = icmp eq ptr %120, null
   br i1 %121, label %.thread11, label %122
 
-122:                                              ; preds = %.thread12, %117
-  %123 = phi ptr [ %120, %.thread12 ], [ null, %117 ]
+122:                                              ; preds = %.thread18, %117
+  %123 = phi ptr [ %120, %.thread18 ], [ null, %117 ]
   br i1 %25, label %124, label %140
 
 124:                                              ; preds = %122
@@ -578,8 +578,8 @@ inet_addr_valid_or_nonlocal.exit:                 ; preds = %73, %81, %86
   tail call void @release_sock(ptr noundef %0) #14
   br label %205
 
-.thread11:                                        ; preds = %137, %.thread12, %113, %70
-  %204 = phi i32 [ -19, %70 ], [ -99, %137 ], [ -19, %.thread12 ], [ -22, %113 ]
+.thread11:                                        ; preds = %137, %.thread18, %113, %70
+  %204 = phi i32 [ -19, %70 ], [ -99, %137 ], [ -19, %.thread18 ], [ -22, %113 ]
   tail call void @__rcu_read_unlock() #14
   br label %.thread
 

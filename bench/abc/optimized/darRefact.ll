@@ -567,8 +567,8 @@ define i32 @Dar_RefactTryGraph(ptr noundef %0, ptr noundef readnone captures(add
   br i1 %.not97, label %.critedge2, label %.preheader
 
 .preheader:                                       ; preds = %7
-  %.not119 = icmp eq i32 %.val78, 0
-  br i1 %.not119, label %.critedge.preheader, label %.lr.ph
+  %.not125 = icmp eq i32 %.val78, 0
+  br i1 %.not125, label %.critedge.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %12 = getelementptr i8, ptr %3, i64 16
@@ -711,8 +711,8 @@ define i32 @Dar_RefactTryGraph(ptr noundef %0, ptr noundef readnone captures(add
   %101 = ptrtoint ptr %.06795 to i64
   %102 = and i64 %101, -2
   %103 = icmp eq i64 %94, %102
-  %or.cond118 = select i1 %100, i1 true, i1 %103
-  br i1 %or.cond118, label %.sink.split, label %109
+  %or.cond124 = select i1 %100, i1 true, i1 %103
+  br i1 %or.cond124, label %.sink.split, label %109
 
 .sink.split:                                      ; preds = %97
   %104 = getelementptr inbounds nuw i8, ptr %95, i64 24
@@ -1291,9 +1291,9 @@ Kit_TruthNot.exit:                                ; preds = %Kit_TruthNot.exit.l
   %212 = load i32, ptr %211, align 8
   %213 = and i32 %212, 16383
   %214 = icmp samesign ult i32 %205, %213
-  br i1 %214, label %.thread187, label %242
+  br i1 %214, label %.thread206, label %242
 
-.thread187:                                       ; preds = %197
+.thread206:                                       ; preds = %197
   store i32 %191, ptr %5, align 8, !tbaa !93
   br label %217
 
@@ -1303,8 +1303,8 @@ Kit_TruthNot.exit:                                ; preds = %Kit_TruthNot.exit.l
   %.not123 = icmp eq ptr %216, null
   br i1 %.not123, label %219, label %217
 
-217:                                              ; preds = %.thread187, %215
-  %218 = phi ptr [ %.pre185, %.thread187 ], [ %216, %215 ]
+217:                                              ; preds = %.thread206, %215
+  %218 = phi ptr [ %.pre185, %.thread206 ], [ %216, %215 ]
   tail call void @Kit_GraphFree(ptr noundef nonnull %218) #21
   br label %219
 

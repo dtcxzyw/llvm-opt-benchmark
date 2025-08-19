@@ -1394,7 +1394,7 @@ define internal i32 @dissect_cablelabs_specific_opts(ptr noundef %0, ptr noundef
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   %8 = add i32 %5, -4
   %9 = icmp sgt i32 %8, 4
-  br i1 %9, label %.preheader274, label %323
+  br i1 %9, label %.preheader274, label %321
 
 .preheader274:                                    ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -1402,7 +1402,7 @@ define internal i32 @dissect_cablelabs_specific_opts(ptr noundef %0, ptr noundef
 
 11:                                               ; preds = %.preheader274, %.loopexit
   %.0295 = phi ptr [ null, %.preheader274 ], [ %.1, %.loopexit ]
-  %.0246294 = phi i32 [ 4, %.preheader274 ], [ %321, %.loopexit ]
+  %.0246294 = phi i32 [ 4, %.preheader274 ], [ %319, %.loopexit ]
   %12 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0246294)
   %13 = load i32, ptr @hf_cablelabs_opts, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %.0246294, i32 noundef 2, i32 noundef 0)
@@ -1434,8 +1434,8 @@ define internal i32 @dissect_cablelabs_specific_opts(ptr noundef %0, ptr noundef
     i16 1026, label %124
     i16 1027, label %130
     i16 2170, label %133
-    i16 2171, label %172
-    i16 2172, label %317
+    i16 2171, label %170
+    i16 2172, label %315
   ]
 
 19:                                               ; preds = %11
@@ -1506,8 +1506,8 @@ define internal i32 @dissect_cablelabs_specific_opts(ptr noundef %0, ptr noundef
   %48 = and i32 %17, 15
   %49 = icmp ne i32 %48, 0
   %.not299 = icmp eq i16 %16, 0
-  %or.cond312 = select i1 %49, i1 true, i1 %.not299
-  br i1 %or.cond312, label %.loopexit, label %.lr.ph291.preheader
+  %or.cond323 = select i1 %49, i1 true, i1 %.not299
+  br i1 %or.cond323, label %.loopexit, label %.lr.ph291.preheader
 
 .lr.ph291.preheader:                              ; preds = %45
   %50 = lshr exact i32 %17, 4
@@ -1695,379 +1695,378 @@ define internal i32 @dissect_cablelabs_specific_opts(ptr noundef %0, ptr noundef
   br i1 %.not297, label %.loopexit, label %.lr.ph282
 
 .lr.ph282:                                        ; preds = %133, %dissect_packetcable_ccc_option.exit
-  %.1239281 = phi i32 [ %170, %dissect_packetcable_ccc_option.exit ], [ 0, %133 ]
+  %.1239281 = phi i32 [ %168, %dissect_packetcable_ccc_option.exit ], [ 0, %133 ]
   %.4280 = phi i32 [ %.pre-phi, %dissect_packetcable_ccc_option.exit ], [ %18, %133 ]
-  %136 = sub i32 %17, %.1239281
-  %137 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.4280)
-  %138 = add i32 %.4280, 2
-  %139 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %138)
-  %140 = add i32 %.4280, 4
-  %141 = icmp slt i32 %136, 1
-  br i1 %141, label %142, label %145
+  %136 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.4280)
+  %137 = add i32 %.4280, 2
+  %138 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %137)
+  %139 = add i32 %.4280, 4
+  %.not317 = icmp slt i32 %.1239281, %17
+  br i1 %.not317, label %143, label %140
 
-142:                                              ; preds = %.lr.ph282
-  %143 = zext i16 %137 to i32
-  %144 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %14, ptr noundef nonnull @ei_dhcpv6_no_suboption_len, ptr noundef nonnull @.str.969, i32 noundef %143)
+140:                                              ; preds = %.lr.ph282
+  %141 = zext i16 %136 to i32
+  %142 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %14, ptr noundef nonnull @ei_dhcpv6_no_suboption_len, ptr noundef nonnull @.str.969, i32 noundef %141)
   br label %dissect_packetcable_ccc_option.exit
 
-145:                                              ; preds = %.lr.ph282
-  %146 = load i32, ptr @hf_packetcable_ccc_suboption, align 4
-  %147 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %146, ptr noundef %0, i32 noundef %.4280, i32 noundef 2, i32 noundef 0)
-  %148 = load i32, ptr @ett_dhcpv6_pkt_option, align 4
-  %149 = tail call ptr @proto_item_add_subtree(ptr noundef %147, i32 noundef %148)
-  switch i16 %137, label %166 [
-    i16 1, label %150
-    i16 2, label %158
+143:                                              ; preds = %.lr.ph282
+  %144 = load i32, ptr @hf_packetcable_ccc_suboption, align 4
+  %145 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %144, ptr noundef %0, i32 noundef %.4280, i32 noundef 2, i32 noundef 0)
+  %146 = load i32, ptr @ett_dhcpv6_pkt_option, align 4
+  %147 = tail call ptr @proto_item_add_subtree(ptr noundef %145, i32 noundef %146)
+  switch i16 %136, label %164 [
+    i16 1, label %148
+    i16 2, label %156
   ]
 
-150:                                              ; preds = %145
-  %151 = icmp eq i16 %139, 4
-  br i1 %151, label %152, label %155
+148:                                              ; preds = %143
+  %149 = icmp eq i16 %138, 4
+  br i1 %149, label %150, label %153
 
-152:                                              ; preds = %150
-  %153 = load i32, ptr @hf_packetcable_ccc_pri_dhcp, align 4
-  %154 = tail call ptr @proto_tree_add_item(ptr noundef %149, i32 noundef %153, ptr noundef %0, i32 noundef %140, i32 noundef 4, i32 noundef 0)
-  br label %168
+150:                                              ; preds = %148
+  %151 = load i32, ptr @hf_packetcable_ccc_pri_dhcp, align 4
+  %152 = tail call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %151, ptr noundef %0, i32 noundef %139, i32 noundef 4, i32 noundef 0)
+  br label %166
 
-155:                                              ; preds = %150
-  %156 = zext i16 %139 to i32
-  %157 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %147, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.956, i32 noundef %156)
-  br label %168
+153:                                              ; preds = %148
+  %154 = zext i16 %138 to i32
+  %155 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %145, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.956, i32 noundef %154)
+  br label %166
 
-158:                                              ; preds = %145
-  %159 = icmp eq i16 %139, 4
-  br i1 %159, label %160, label %163
+156:                                              ; preds = %143
+  %157 = icmp eq i16 %138, 4
+  br i1 %157, label %158, label %161
 
-160:                                              ; preds = %158
-  %161 = load i32, ptr @hf_packetcable_ccc_sec_dhcp, align 4
-  %162 = tail call ptr @proto_tree_add_item(ptr noundef %149, i32 noundef %161, ptr noundef %0, i32 noundef %140, i32 noundef 4, i32 noundef 0)
-  br label %168
+158:                                              ; preds = %156
+  %159 = load i32, ptr @hf_packetcable_ccc_sec_dhcp, align 4
+  %160 = tail call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %159, ptr noundef %0, i32 noundef %139, i32 noundef 4, i32 noundef 0)
+  br label %166
 
-163:                                              ; preds = %158
-  %164 = zext i16 %139 to i32
-  %165 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %147, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.956, i32 noundef %164)
-  br label %168
+161:                                              ; preds = %156
+  %162 = zext i16 %138 to i32
+  %163 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %145, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.956, i32 noundef %162)
+  br label %166
 
-166:                                              ; preds = %145
-  %167 = zext i16 %139 to i32
-  br label %168
+164:                                              ; preds = %143
+  %165 = zext i16 %138 to i32
+  br label %166
 
-168:                                              ; preds = %166, %163, %160, %155, %152
-  %.pn.i = phi i32 [ %167, %166 ], [ %156, %155 ], [ 4, %152 ], [ %164, %163 ], [ 4, %160 ]
-  %169 = add nuw nsw i32 %.pn.i, 4
-  %.pre = add i32 %169, %.4280
+166:                                              ; preds = %164, %161, %158, %153, %150
+  %.pn.i = phi i32 [ %165, %164 ], [ %154, %153 ], [ 4, %150 ], [ %162, %161 ], [ 4, %158 ]
+  %167 = add nuw nsw i32 %.pn.i, 4
+  %.pre = add i32 %167, %.4280
   br label %dissect_packetcable_ccc_option.exit
 
-dissect_packetcable_ccc_option.exit:              ; preds = %142, %168
-  %.pre-phi = phi i32 [ %140, %142 ], [ %.pre, %168 ]
-  %.0.i = phi i32 [ 4, %142 ], [ %169, %168 ]
-  %170 = add i32 %.0.i, %.1239281
-  %171 = icmp slt i32 %170, %17
-  br i1 %171, label %.lr.ph282, label %.loopexit, !llvm.loop !13
+dissect_packetcable_ccc_option.exit:              ; preds = %140, %166
+  %.pre-phi = phi i32 [ %139, %140 ], [ %.pre, %166 ]
+  %.0.i = phi i32 [ 4, %140 ], [ %167, %166 ]
+  %168 = add nuw nsw i32 %.0.i, %.1239281
+  %169 = icmp slt i32 %168, %17
+  br i1 %169, label %.lr.ph282, label %.loopexit, !llvm.loop !13
 
-172:                                              ; preds = %11
-  %173 = load i32, ptr @ett_dhcpv6_vendor_option, align 4
-  %174 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %173)
+170:                                              ; preds = %11
+  %171 = load i32, ptr @ett_dhcpv6_vendor_option, align 4
+  %172 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %171)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.966, i32 noundef %17)
   %.not296 = icmp eq i16 %16, 0
   br i1 %.not296, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %172, %dissect_packetcable_cccV6_option.exit
-  %.2279 = phi i32 [ %315, %dissect_packetcable_cccV6_option.exit ], [ 0, %172 ]
-  %.5276 = phi i32 [ %.pre-phi306, %dissect_packetcable_cccV6_option.exit ], [ %18, %172 ]
-  %175 = sub i32 %17, %.2279
-  %176 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.5276)
-  %177 = add i32 %.5276, 2
-  %178 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %177)
-  %179 = add i32 %.5276, 4
-  %180 = icmp slt i32 %175, 1
-  br i1 %180, label %181, label %184
+.lr.ph:                                           ; preds = %170, %dissect_packetcable_cccV6_option.exit
+  %.2279 = phi i32 [ %313, %dissect_packetcable_cccV6_option.exit ], [ 0, %170 ]
+  %.5276 = phi i32 [ %.pre-phi306, %dissect_packetcable_cccV6_option.exit ], [ %18, %170 ]
+  %173 = sub i32 %17, %.2279
+  %174 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.5276)
+  %175 = add i32 %.5276, 2
+  %176 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %175)
+  %177 = add i32 %.5276, 4
+  %178 = icmp slt i32 %173, 1
+  br i1 %178, label %179, label %182
 
-181:                                              ; preds = %.lr.ph
-  %182 = zext i16 %176 to i32
-  %183 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %14, ptr noundef nonnull @ei_dhcpv6_no_suboption_len, ptr noundef nonnull @.str.969, i32 noundef %182)
+179:                                              ; preds = %.lr.ph
+  %180 = zext i16 %174 to i32
+  %181 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %14, ptr noundef nonnull @ei_dhcpv6_no_suboption_len, ptr noundef nonnull @.str.969, i32 noundef %180)
   br label %dissect_packetcable_cccV6_option.exit
 
-184:                                              ; preds = %.lr.ph
-  %185 = load i32, ptr @hf_packetcable_cccV6_suboption, align 4
-  %186 = tail call ptr @proto_tree_add_item(ptr noundef %174, i32 noundef %185, ptr noundef %0, i32 noundef %.5276, i32 noundef 2, i32 noundef 0)
-  %187 = load i32, ptr @ett_dhcpv6_pkt_option, align 4
-  %188 = tail call ptr @proto_item_add_subtree(ptr noundef %186, i32 noundef %187)
-  switch i16 %176, label %310 [
-    i16 1, label %189
-    i16 2, label %199
-    i16 3, label %209
-    i16 4, label %234
-    i16 5, label %249
-    i16 6, label %264
-    i16 7, label %270
-    i16 8, label %282
-    i16 9, label %296
+182:                                              ; preds = %.lr.ph
+  %183 = load i32, ptr @hf_packetcable_cccV6_suboption, align 4
+  %184 = tail call ptr @proto_tree_add_item(ptr noundef %172, i32 noundef %183, ptr noundef %0, i32 noundef %.5276, i32 noundef 2, i32 noundef 0)
+  %185 = load i32, ptr @ett_dhcpv6_pkt_option, align 4
+  %186 = tail call ptr @proto_item_add_subtree(ptr noundef %184, i32 noundef %185)
+  switch i16 %174, label %308 [
+    i16 1, label %187
+    i16 2, label %197
+    i16 3, label %207
+    i16 4, label %232
+    i16 5, label %247
+    i16 6, label %262
+    i16 7, label %268
+    i16 8, label %280
+    i16 9, label %294
   ]
 
-189:                                              ; preds = %184
-  %190 = zext i16 %178 to i32
-  %191 = icmp ult i16 %178, 35
-  br i1 %191, label %192, label %195
+187:                                              ; preds = %182
+  %188 = zext i16 %176 to i32
+  %189 = icmp ult i16 %176, 35
+  br i1 %189, label %190, label %193
 
-192:                                              ; preds = %189
-  %193 = load i32, ptr @hf_packetcable_cccV6_pri_dss, align 4
-  %194 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %193, ptr noundef %0, i32 noundef %179, i32 noundef %190, i32 noundef 0)
-  br label %197
+190:                                              ; preds = %187
+  %191 = load i32, ptr @hf_packetcable_cccV6_pri_dss, align 4
+  %192 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %191, ptr noundef %0, i32 noundef %177, i32 noundef %188, i32 noundef 0)
+  br label %195
 
-195:                                              ; preds = %189
-  %196 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %186, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.956, i32 noundef %190)
-  br label %197
+193:                                              ; preds = %187
+  %194 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %184, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.956, i32 noundef %188)
+  br label %195
 
-197:                                              ; preds = %195, %192
-  %198 = add i32 %179, %190
-  br label %313
+195:                                              ; preds = %193, %190
+  %196 = add i32 %177, %188
+  br label %311
 
-199:                                              ; preds = %184
-  %200 = zext i16 %178 to i32
-  %201 = icmp ult i16 %178, 35
-  br i1 %201, label %202, label %205
+197:                                              ; preds = %182
+  %198 = zext i16 %176 to i32
+  %199 = icmp ult i16 %176, 35
+  br i1 %199, label %200, label %203
 
-202:                                              ; preds = %199
-  %203 = load i32, ptr @hf_packetcable_cccV6_sec_dss, align 4
-  %204 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %203, ptr noundef %0, i32 noundef %179, i32 noundef %200, i32 noundef 0)
-  br label %207
+200:                                              ; preds = %197
+  %201 = load i32, ptr @hf_packetcable_cccV6_sec_dss, align 4
+  %202 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %201, ptr noundef %0, i32 noundef %177, i32 noundef %198, i32 noundef 0)
+  br label %205
 
-205:                                              ; preds = %199
-  %206 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %186, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.956, i32 noundef %200)
-  br label %207
+203:                                              ; preds = %197
+  %204 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %184, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.956, i32 noundef %198)
+  br label %205
 
-207:                                              ; preds = %205, %202
-  %208 = add i32 %179, %200
-  br label %313
+205:                                              ; preds = %203, %200
+  %206 = add i32 %177, %198
+  br label %311
 
-209:                                              ; preds = %184
-  %210 = load i32, ptr @hf_packetcable_cccV6_prov_srv_type, align 4
-  %211 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %210, ptr noundef %0, i32 noundef %179, i32 noundef 1, i32 noundef 0)
-  %212 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %179)
-  switch i8 %212, label %227 [
-    i8 0, label %213
-    i8 1, label %217
+207:                                              ; preds = %182
+  %208 = load i32, ptr @hf_packetcable_cccV6_prov_srv_type, align 4
+  %209 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %208, ptr noundef %0, i32 noundef %177, i32 noundef 1, i32 noundef 0)
+  %210 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %177)
+  switch i8 %210, label %225 [
+    i8 0, label %211
+    i8 1, label %215
   ]
 
-213:                                              ; preds = %209
-  %214 = load i32, ptr @hf_packetcable_cccV6_prov_srv_fqdn, align 4
-  %215 = add i32 %.5276, 5
-  %216 = add i16 %178, -1
-  tail call fastcc void @dhcpv6_domain(ptr noundef %188, ptr noundef %1, i32 noundef %214, ptr noundef %0, i32 noundef %215, i16 noundef zeroext %216)
-  %.pre.i = zext i16 %178 to i32
+211:                                              ; preds = %207
+  %212 = load i32, ptr @hf_packetcable_cccV6_prov_srv_fqdn, align 4
+  %213 = add i32 %.5276, 5
+  %214 = add i16 %176, -1
+  tail call fastcc void @dhcpv6_domain(ptr noundef %186, ptr noundef %1, i32 noundef %212, ptr noundef %0, i32 noundef %213, i16 noundef zeroext %214)
+  %.pre.i = zext i16 %176 to i32
   br label %.loopexit.i
 
-217:                                              ; preds = %209
-  %218 = zext i16 %178 to i32
-  %219 = and i32 %218, 15
-  %220 = icmp eq i32 %219, 0
-  br i1 %220, label %.preheader.i, label %.loopexit.i
+215:                                              ; preds = %207
+  %216 = zext i16 %176 to i32
+  %217 = and i32 %216, 15
+  %218 = icmp eq i32 %217, 0
+  br i1 %218, label %.preheader.i, label %.loopexit.i
 
-.preheader.i:                                     ; preds = %217
-  %.not161.i = icmp eq i16 %178, 0
+.preheader.i:                                     ; preds = %215
+  %.not161.i = icmp eq i16 %176, 0
   br i1 %.not161.i, label %.loopexit.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %221 = lshr exact i32 %218, 4
+  %219 = lshr exact i32 %216, 4
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.0160.i = phi i32 [ %226, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.2159.i = phi i32 [ %225, %.lr.ph.i ], [ %179, %.lr.ph.preheader.i ]
-  %222 = load i32, ptr @hf_packetcable_cccV6_prov_srv_ipv6, align 4
-  %223 = add i32 %.2159.i, 1
-  %224 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %222, ptr noundef %0, i32 noundef %223, i32 noundef 4, i32 noundef 0)
-  %225 = add i32 %.2159.i, 16
-  %226 = add nuw nsw i32 %.0160.i, 1
-  %exitcond.not.i = icmp eq i32 %226, %221
+  %.0160.i = phi i32 [ %224, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %.2159.i = phi i32 [ %223, %.lr.ph.i ], [ %177, %.lr.ph.preheader.i ]
+  %220 = load i32, ptr @hf_packetcable_cccV6_prov_srv_ipv6, align 4
+  %221 = add i32 %.2159.i, 1
+  %222 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %220, ptr noundef %0, i32 noundef %221, i32 noundef 4, i32 noundef 0)
+  %223 = add i32 %.2159.i, 16
+  %224 = add nuw nsw i32 %.0160.i, 1
+  %exitcond.not.i = icmp eq i32 %224, %219
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !14
 
-227:                                              ; preds = %209
-  %228 = zext i8 %212 to i32
-  %229 = zext i16 %178 to i32
-  %230 = icmp eq i16 %178, 1
-  %231 = select i1 %230, ptr @.str.971, ptr @.str.972
-  %232 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %186, ptr noundef nonnull @ei_dhcpv6_invalid_type, ptr noundef nonnull @.str.970, i32 noundef %228, i32 noundef %229, ptr noundef nonnull %231)
+225:                                              ; preds = %207
+  %226 = zext i8 %210 to i32
+  %227 = zext i16 %176 to i32
+  %228 = icmp eq i16 %176, 1
+  %229 = select i1 %228, ptr @.str.971, ptr @.str.972
+  %230 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %184, ptr noundef nonnull @ei_dhcpv6_invalid_type, ptr noundef nonnull @.str.970, i32 noundef %226, i32 noundef %227, ptr noundef nonnull %229)
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.lr.ph.i, %227, %.preheader.i, %217, %213
-  %.pre-phi.i = phi i32 [ 0, %.preheader.i ], [ %229, %227 ], [ %218, %217 ], [ %.pre.i, %213 ], [ %218, %.lr.ph.i ]
-  %.1.i = phi i32 [ %179, %.preheader.i ], [ %179, %227 ], [ %179, %217 ], [ %179, %213 ], [ %225, %.lr.ph.i ]
-  %233 = add i32 %.1.i, %.pre-phi.i
-  br label %313
+.loopexit.i:                                      ; preds = %.lr.ph.i, %225, %.preheader.i, %215, %211
+  %.pre-phi.i = phi i32 [ 0, %.preheader.i ], [ %227, %225 ], [ %216, %215 ], [ %.pre.i, %211 ], [ %216, %.lr.ph.i ]
+  %.1.i = phi i32 [ %177, %.preheader.i ], [ %177, %225 ], [ %177, %215 ], [ %177, %211 ], [ %223, %.lr.ph.i ]
+  %231 = add i32 %.1.i, %.pre-phi.i
+  br label %311
 
-234:                                              ; preds = %184
-  %235 = zext i16 %178 to i32
-  %236 = icmp eq i16 %178, 12
-  br i1 %236, label %237, label %246
+232:                                              ; preds = %182
+  %233 = zext i16 %176 to i32
+  %234 = icmp eq i16 %176, 12
+  br i1 %234, label %235, label %244
 
-237:                                              ; preds = %234
-  %238 = load i32, ptr @hf_packetcable_cccV6_as_krb_nominal_timeout, align 4
-  %239 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %238, ptr noundef %0, i32 noundef %179, i32 noundef 4, i32 noundef 0)
-  %240 = load i32, ptr @hf_packetcable_cccV6_as_krb_max_timeout, align 4
-  %241 = add i32 %.5276, 8
-  %242 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %240, ptr noundef %0, i32 noundef %241, i32 noundef 4, i32 noundef 0)
-  %243 = load i32, ptr @hf_packetcable_cccV6_as_krb_max_retry_count, align 4
-  %244 = add i32 %.5276, 12
-  %245 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %243, ptr noundef %0, i32 noundef %244, i32 noundef 4, i32 noundef 0)
-  br label %247
+235:                                              ; preds = %232
+  %236 = load i32, ptr @hf_packetcable_cccV6_as_krb_nominal_timeout, align 4
+  %237 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %236, ptr noundef %0, i32 noundef %177, i32 noundef 4, i32 noundef 0)
+  %238 = load i32, ptr @hf_packetcable_cccV6_as_krb_max_timeout, align 4
+  %239 = add i32 %.5276, 8
+  %240 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %238, ptr noundef %0, i32 noundef %239, i32 noundef 4, i32 noundef 0)
+  %241 = load i32, ptr @hf_packetcable_cccV6_as_krb_max_retry_count, align 4
+  %242 = add i32 %.5276, 12
+  %243 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %241, ptr noundef %0, i32 noundef %242, i32 noundef 4, i32 noundef 0)
+  br label %245
 
-246:                                              ; preds = %234
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %186, ptr noundef nonnull @.str.956, i32 noundef %235)
-  br label %247
+244:                                              ; preds = %232
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %184, ptr noundef nonnull @.str.956, i32 noundef %233)
+  br label %245
 
-247:                                              ; preds = %246, %237
-  %248 = add i32 %179, %235
-  br label %313
+245:                                              ; preds = %244, %235
+  %246 = add i32 %177, %233
+  br label %311
 
-249:                                              ; preds = %184
-  %250 = zext i16 %178 to i32
-  %251 = icmp eq i16 %178, 12
-  br i1 %251, label %252, label %261
+247:                                              ; preds = %182
+  %248 = zext i16 %176 to i32
+  %249 = icmp eq i16 %176, 12
+  br i1 %249, label %250, label %259
 
-252:                                              ; preds = %249
-  %253 = load i32, ptr @hf_packetcable_cccV6_ap_krb_nominal_timeout, align 4
-  %254 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %253, ptr noundef %0, i32 noundef %179, i32 noundef 4, i32 noundef 0)
-  %255 = load i32, ptr @hf_packetcable_cccV6_ap_krb_max_timeout, align 4
-  %256 = add i32 %.5276, 8
-  %257 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %255, ptr noundef %0, i32 noundef %256, i32 noundef 4, i32 noundef 0)
-  %258 = load i32, ptr @hf_packetcable_cccV6_ap_krb_max_retry_count, align 4
-  %259 = add i32 %.5276, 12
-  %260 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %258, ptr noundef %0, i32 noundef %259, i32 noundef 4, i32 noundef 0)
-  br label %262
+250:                                              ; preds = %247
+  %251 = load i32, ptr @hf_packetcable_cccV6_ap_krb_nominal_timeout, align 4
+  %252 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %251, ptr noundef %0, i32 noundef %177, i32 noundef 4, i32 noundef 0)
+  %253 = load i32, ptr @hf_packetcable_cccV6_ap_krb_max_timeout, align 4
+  %254 = add i32 %.5276, 8
+  %255 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %253, ptr noundef %0, i32 noundef %254, i32 noundef 4, i32 noundef 0)
+  %256 = load i32, ptr @hf_packetcable_cccV6_ap_krb_max_retry_count, align 4
+  %257 = add i32 %.5276, 12
+  %258 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %256, ptr noundef %0, i32 noundef %257, i32 noundef 4, i32 noundef 0)
+  br label %260
 
-261:                                              ; preds = %249
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %186, ptr noundef nonnull @.str.956, i32 noundef %250)
-  br label %262
+259:                                              ; preds = %247
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %184, ptr noundef nonnull @.str.956, i32 noundef %248)
+  br label %260
 
-262:                                              ; preds = %261, %252
-  %263 = add i32 %179, %250
-  br label %313
+260:                                              ; preds = %259, %250
+  %261 = add i32 %177, %248
+  br label %311
 
-264:                                              ; preds = %184
-  %265 = zext i16 %178 to i32
-  %.not.i = icmp eq i16 %178, 0
-  br i1 %.not.i, label %268, label %266
+262:                                              ; preds = %182
+  %263 = zext i16 %176 to i32
+  %.not.i = icmp eq i16 %176, 0
+  br i1 %.not.i, label %266, label %264
 
-266:                                              ; preds = %264
-  %267 = load i32, ptr @hf_packetcable_cccV6_krb_realm, align 4
-  tail call fastcc void @dhcpv6_domain(ptr noundef %188, ptr noundef %1, i32 noundef %267, ptr noundef %0, i32 noundef %179, i16 noundef zeroext %178)
-  br label %268
+264:                                              ; preds = %262
+  %265 = load i32, ptr @hf_packetcable_cccV6_krb_realm, align 4
+  tail call fastcc void @dhcpv6_domain(ptr noundef %186, ptr noundef %1, i32 noundef %265, ptr noundef %0, i32 noundef %177, i16 noundef zeroext %176)
+  br label %266
 
-268:                                              ; preds = %266, %264
-  %269 = add i32 %179, %265
-  br label %313
+266:                                              ; preds = %264, %262
+  %267 = add i32 %177, %263
+  br label %311
 
-270:                                              ; preds = %184
-  %271 = zext i16 %178 to i32
-  %272 = icmp eq i16 %178, 1
-  br i1 %272, label %273, label %278
+268:                                              ; preds = %182
+  %269 = zext i16 %176 to i32
+  %270 = icmp eq i16 %176, 1
+  br i1 %270, label %271, label %276
 
-273:                                              ; preds = %270
-  %274 = load i32, ptr @hf_packetcable_cccV6_tgt_flag, align 4
-  %275 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %274, ptr noundef %0, i32 noundef %179, i32 noundef 1, i32 noundef 0)
-  %276 = load i32, ptr @hf_packetcable_cccV6_tgt_flag_fetch, align 4
-  %277 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %276, ptr noundef %0, i32 noundef %179, i32 noundef 1, i32 noundef 0)
-  br label %280
+271:                                              ; preds = %268
+  %272 = load i32, ptr @hf_packetcable_cccV6_tgt_flag, align 4
+  %273 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %272, ptr noundef %0, i32 noundef %177, i32 noundef 1, i32 noundef 0)
+  %274 = load i32, ptr @hf_packetcable_cccV6_tgt_flag_fetch, align 4
+  %275 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %274, ptr noundef %0, i32 noundef %177, i32 noundef 1, i32 noundef 0)
+  br label %278
 
-278:                                              ; preds = %270
-  %279 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %186, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.956, i32 noundef %271)
-  br label %280
+276:                                              ; preds = %268
+  %277 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %184, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.956, i32 noundef %269)
+  br label %278
 
-280:                                              ; preds = %278, %273
-  %281 = add i32 %179, %271
-  br label %313
+278:                                              ; preds = %276, %271
+  %279 = add i32 %177, %269
+  br label %311
 
-282:                                              ; preds = %184
-  %283 = zext i16 %178 to i32
-  %284 = icmp eq i16 %178, 1
-  br i1 %284, label %285, label %292
+280:                                              ; preds = %182
+  %281 = zext i16 %176 to i32
+  %282 = icmp eq i16 %176, 1
+  br i1 %282, label %283, label %290
 
-285:                                              ; preds = %282
-  %286 = load i32, ptr @hf_packetcable_cccV6_prov_timer, align 4
-  %287 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %286, ptr noundef %0, i32 noundef %179, i32 noundef 1, i32 noundef 0)
-  %288 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %179)
-  %289 = icmp ugt i8 %288, 30
-  br i1 %289, label %290, label %294
+283:                                              ; preds = %280
+  %284 = load i32, ptr @hf_packetcable_cccV6_prov_timer, align 4
+  %285 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %284, ptr noundef %0, i32 noundef %177, i32 noundef 1, i32 noundef 0)
+  %286 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %177)
+  %287 = icmp ugt i8 %286, 30
+  br i1 %287, label %288, label %292
 
-290:                                              ; preds = %285
-  %291 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %287, ptr noundef nonnull @ei_dhcpv6_invalid_time_value)
-  br label %294
+288:                                              ; preds = %283
+  %289 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %285, ptr noundef nonnull @ei_dhcpv6_invalid_time_value)
+  br label %292
 
-292:                                              ; preds = %282
-  %293 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %186, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.956, i32 noundef %283)
-  br label %294
+290:                                              ; preds = %280
+  %291 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %184, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.956, i32 noundef %281)
+  br label %292
 
-294:                                              ; preds = %292, %290, %285
-  %295 = add i32 %179, %283
-  br label %313
+292:                                              ; preds = %290, %288, %283
+  %293 = add i32 %177, %281
+  br label %311
 
-296:                                              ; preds = %184
-  %297 = load i32, ptr @hf_packetcable_cccV6_sec_tcm, align 4
-  %298 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %297, ptr noundef %0, i32 noundef %179, i32 noundef 2, i32 noundef 0)
-  %299 = zext i16 %178 to i32
-  %300 = icmp eq i16 %178, 2
-  br i1 %300, label %301, label %306
+294:                                              ; preds = %182
+  %295 = load i32, ptr @hf_packetcable_cccV6_sec_tcm, align 4
+  %296 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %295, ptr noundef %0, i32 noundef %177, i32 noundef 2, i32 noundef 0)
+  %297 = zext i16 %176 to i32
+  %298 = icmp eq i16 %176, 2
+  br i1 %298, label %299, label %304
 
-301:                                              ; preds = %296
-  %302 = load i32, ptr @hf_packetcable_cccV6_sec_tcm_provisioning_server, align 4
-  %303 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %302, ptr noundef %0, i32 noundef %179, i32 noundef 2, i32 noundef 0)
-  %304 = load i32, ptr @hf_packetcable_cccV6_sec_tcm_call_manager_server, align 4
-  %305 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %304, ptr noundef %0, i32 noundef %179, i32 noundef 2, i32 noundef 0)
-  br label %308
+299:                                              ; preds = %294
+  %300 = load i32, ptr @hf_packetcable_cccV6_sec_tcm_provisioning_server, align 4
+  %301 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %300, ptr noundef %0, i32 noundef %177, i32 noundef 2, i32 noundef 0)
+  %302 = load i32, ptr @hf_packetcable_cccV6_sec_tcm_call_manager_server, align 4
+  %303 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %302, ptr noundef %0, i32 noundef %177, i32 noundef 2, i32 noundef 0)
+  br label %306
 
-306:                                              ; preds = %296
-  %307 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %186, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.956, i32 noundef %299)
-  br label %308
+304:                                              ; preds = %294
+  %305 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %184, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.956, i32 noundef %297)
+  br label %306
 
-308:                                              ; preds = %306, %301
-  %309 = add i32 %179, %299
-  br label %313
+306:                                              ; preds = %304, %299
+  %307 = add i32 %177, %297
+  br label %311
 
-310:                                              ; preds = %184
-  %311 = zext i16 %178 to i32
-  %312 = add i32 %179, %311
-  br label %313
+308:                                              ; preds = %182
+  %309 = zext i16 %176 to i32
+  %310 = add i32 %177, %309
+  br label %311
 
-313:                                              ; preds = %310, %308, %294, %280, %268, %262, %247, %.loopexit.i, %207, %197
-  %.0148.i = phi i32 [ %312, %310 ], [ %198, %197 ], [ %208, %207 ], [ %233, %.loopexit.i ], [ %248, %247 ], [ %263, %262 ], [ %269, %268 ], [ %281, %280 ], [ %295, %294 ], [ %309, %308 ]
-  %314 = sub i32 %.0148.i, %.5276
+311:                                              ; preds = %308, %306, %292, %278, %266, %260, %245, %.loopexit.i, %205, %195
+  %.0148.i = phi i32 [ %310, %308 ], [ %196, %195 ], [ %206, %205 ], [ %231, %.loopexit.i ], [ %246, %245 ], [ %261, %260 ], [ %267, %266 ], [ %279, %278 ], [ %293, %292 ], [ %307, %306 ]
+  %312 = sub i32 %.0148.i, %.5276
   br label %dissect_packetcable_cccV6_option.exit
 
-dissect_packetcable_cccV6_option.exit:            ; preds = %181, %313
-  %.pre-phi306 = phi i32 [ %179, %181 ], [ %.0148.i, %313 ]
-  %.0147.i = phi i32 [ 4, %181 ], [ %314, %313 ]
-  %315 = add i32 %.0147.i, %.2279
-  %316 = icmp slt i32 %315, %17
-  br i1 %316, label %.lr.ph, label %.loopexit, !llvm.loop !15
+dissect_packetcable_cccV6_option.exit:            ; preds = %179, %311
+  %.pre-phi306 = phi i32 [ %177, %179 ], [ %.0148.i, %311 ]
+  %.0147.i = phi i32 [ 4, %179 ], [ %312, %311 ]
+  %313 = add i32 %.0147.i, %.2279
+  %314 = icmp slt i32 %313, %17
+  br i1 %314, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
-317:                                              ; preds = %11
+315:                                              ; preds = %11
   %.not = icmp eq i16 %16, 4
-  br i1 %.not, label %319, label %318
+  br i1 %.not, label %317, label %316
 
-318:                                              ; preds = %317
+316:                                              ; preds = %315
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.967, i32 noundef %17)
   br label %.loopexit
 
-319:                                              ; preds = %317
-  %320 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %18)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.968, i32 noundef %320)
+317:                                              ; preds = %315
+  %318 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %18)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.968, i32 noundef %318)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %dissect_packetcable_cccV6_option.exit, %dissect_packetcable_ccc_option.exit, %119, %68, %70, %.lr.ph291, %.preheader, %172, %133, %61, %11, %318, %319, %125, %127, %123, %92, %94, %95, %93, %56, %58, %45, %39, %31, %37, %34, %25, %26, %130, %88, %27
-  %.1 = phi ptr [ %21, %25 ], [ %21, %26 ], [ %.0295, %27 ], [ %.0295, %31 ], [ %.0295, %34 ], [ %.0295, %37 ], [ %.0295, %39 ], [ %.0295, %45 ], [ %.0295, %56 ], [ %.0295, %58 ], [ %.0295, %88 ], [ %.0295, %92 ], [ %.0295, %93 ], [ %.0295, %94 ], [ %.0295, %95 ], [ %.0295, %123 ], [ %.0295, %125 ], [ %.0295, %127 ], [ %.0295, %130 ], [ %.0295, %318 ], [ %.0295, %319 ], [ %.0295, %11 ], [ %.0295, %61 ], [ %.0295, %133 ], [ %.0295, %172 ], [ %.0295, %.preheader ], [ %.0295, %.lr.ph291 ], [ %.0295, %70 ], [ %.0295, %68 ], [ %.0295, %119 ], [ %.0295, %dissect_packetcable_ccc_option.exit ], [ %.0295, %dissect_packetcable_cccV6_option.exit ]
-  %321 = add i32 %18, %17
-  %322 = icmp slt i32 %321, %8
-  br i1 %322, label %11, label %.loopexit275, !llvm.loop !16
+.loopexit:                                        ; preds = %dissect_packetcable_cccV6_option.exit, %dissect_packetcable_ccc_option.exit, %119, %68, %70, %.lr.ph291, %.preheader, %170, %133, %61, %11, %316, %317, %125, %127, %123, %92, %94, %95, %93, %56, %58, %45, %39, %31, %37, %34, %25, %26, %130, %88, %27
+  %.1 = phi ptr [ %21, %25 ], [ %21, %26 ], [ %.0295, %27 ], [ %.0295, %31 ], [ %.0295, %34 ], [ %.0295, %37 ], [ %.0295, %39 ], [ %.0295, %45 ], [ %.0295, %56 ], [ %.0295, %58 ], [ %.0295, %88 ], [ %.0295, %92 ], [ %.0295, %93 ], [ %.0295, %94 ], [ %.0295, %95 ], [ %.0295, %123 ], [ %.0295, %125 ], [ %.0295, %127 ], [ %.0295, %130 ], [ %.0295, %316 ], [ %.0295, %317 ], [ %.0295, %11 ], [ %.0295, %61 ], [ %.0295, %133 ], [ %.0295, %170 ], [ %.0295, %.preheader ], [ %.0295, %.lr.ph291 ], [ %.0295, %70 ], [ %.0295, %68 ], [ %.0295, %119 ], [ %.0295, %dissect_packetcable_ccc_option.exit ], [ %.0295, %dissect_packetcable_cccV6_option.exit ]
+  %319 = add i32 %18, %17
+  %320 = icmp slt i32 %319, %8
+  br i1 %320, label %11, label %.loopexit275, !llvm.loop !16
 
-323:                                              ; preds = %4
-  %324 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %7, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.956, i32 noundef %8)
+321:                                              ; preds = %4
+  %322 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %7, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.956, i32 noundef %8)
   br label %.loopexit275
 
-.loopexit275:                                     ; preds = %.loopexit, %323
-  %325 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  ret i32 %325
+.loopexit275:                                     ; preds = %.loopexit, %321
+  %323 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  ret i32 %323
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -3591,8 +3590,8 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   %728 = icmp ult i8 %switch.tableidx, 6
   %switch.shifted = lshr i8 53, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond1638 = select i1 %728, i1 %switch.lobit, i1 false
-  br i1 %or.cond1638, label %switch.lookup, label %729
+  %or.cond1661 = select i1 %728, i1 %switch.lobit, i1 false
+  br i1 %or.cond1661, label %switch.lookup, label %729
 
 729:                                              ; preds = %723
   %730 = load i32, ptr @hf_clientfqdn_server_n, align 4

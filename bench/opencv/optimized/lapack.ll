@@ -378,11 +378,11 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %10, %15
 
 .preheader365:                                    ; preds = %134
   %32 = add nsw i32 %6, -1
-  %.not646.not = icmp eq i32 %6, 1
+  %.not667.not = icmp eq i32 %6, 1
   %33 = icmp sgt i32 %5, 0
   %34 = fpext float %9 to double
   %.not332 = icmp eq ptr %3, null
-  br i1 %.not646.not, label %.preheader361.lr.ph, label %.preheader364.us.preheader
+  br i1 %.not667.not, label %.preheader361.lr.ph, label %.preheader364.us.preheader
 
 .preheader364.us.preheader:                       ; preds = %.preheader365
   %wide.trip.count534 = zext i32 %32 to i64
@@ -610,7 +610,7 @@ _ZN2cvL5hypotIdEET_S1_S1_.exit.us:                ; preds = %58, %54, %52
 .preheader361.preheader:                          ; preds = %.preheader361.lr.ph
   %135 = shl nuw nsw i64 %wide.trip.count547, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %20, i8 0, i64 %135, i1 false), !tbaa !15
-  br i1 %.not646.not, label %.lr.ph421.preheader, label %.lr.ph419
+  br i1 %.not667.not, label %.lr.ph421.preheader, label %.lr.ph419
 
 .preheader361.us.preheader:                       ; preds = %.preheader361.lr.ph
   %wide.trip.count542 = zext nneg i32 %5 to i64
@@ -642,7 +642,7 @@ _ZN2cvL5hypotIdEET_S1_S1_.exit.us:                ; preds = %58, %54, %52
   br i1 %exitcond548.not, label %.preheader360, label %.preheader361.us, !llvm.loop !30
 
 .preheader360:                                    ; preds = %._crit_edge405.us
-  br i1 %.not646.not, label %.lr.ph421.preheader, label %.lr.ph419
+  br i1 %.not667.not, label %.lr.ph421.preheader, label %.lr.ph419
 
 .lr.ph419:                                        ; preds = %.preheader361.preheader, %.preheader360
   %wide.trip.count575 = zext i32 %32 to i64
@@ -793,7 +793,7 @@ _ZN2cvL5hypotIdEET_S1_S1_.exit.us:                ; preds = %58, %54, %52
   br label %206
 
 ._crit_edge480:                                   ; preds = %._crit_edge474, %195
-  %.sroa.0.1.lcssa = phi i64 [ %.sroa.0.0487, %195 ], [ %.sroa.0.2.lcssa632636, %._crit_edge474 ]
+  %.sroa.0.1.lcssa = phi i64 [ %.sroa.0.0487, %195 ], [ %.sroa.0.2.lcssa653657, %._crit_edge474 ]
   %.2312.lcssa = phi double [ %196, %195 ], [ %248, %._crit_edge474 ]
   %200 = fcmp ogt double %.2312.lcssa, %8
   %201 = fdiv double 1.000000e+00, %.2312.lcssa
@@ -808,7 +808,7 @@ _ZN2cvL5hypotIdEET_S1_S1_.exit.us:                ; preds = %58, %54, %52
 
 206:                                              ; preds = %.lr.ph479, %._crit_edge474
   %.0299477 = phi i32 [ 0, %.lr.ph479 ], [ %249, %._crit_edge474 ]
-  %.sroa.0.1476 = phi i64 [ %.sroa.0.0487, %.lr.ph479 ], [ %.sroa.0.2.lcssa632636, %._crit_edge474 ]
+  %.sroa.0.1476 = phi i64 [ %.sroa.0.0487, %.lr.ph479 ], [ %.sroa.0.2.lcssa653657, %._crit_edge474 ]
   br i1 %183, label %.lr.ph426, label %._crit_edge474
 
 .preheader354:                                    ; preds = %.lr.ph426
@@ -915,7 +915,7 @@ _ZN2cvL5hypotIdEET_S1_S1_.exit.us:                ; preds = %58, %54, %52
   br i1 %exitcond611.not, label %._crit_edge474, label %.lr.ph473, !llvm.loop !42
 
 ._crit_edge474:                                   ; preds = %.lr.ph473, %206
-  %.sroa.0.2.lcssa632636 = phi i64 [ %.sroa.0.1476, %206 ], [ %240, %.lr.ph473 ]
+  %.sroa.0.2.lcssa653657 = phi i64 [ %.sroa.0.1476, %206 ], [ %240, %.lr.ph473 ]
   %.4314.lcssa = phi double [ 0.000000e+00, %206 ], [ %247, %.lr.ph473 ]
   %248 = call double @sqrt(double noundef %.4314.lcssa) #18, !tbaa !17
   %249 = add nuw nsw i32 %.0299477, 1
@@ -1022,10 +1022,10 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %10, %15
 
 .preheader365:                                    ; preds = %122
   %32 = add nsw i32 %6, -1
-  %.not655.not = icmp eq i32 %6, 1
+  %.not676.not = icmp eq i32 %6, 1
   %33 = icmp sgt i32 %5, 0
   %.not332 = icmp eq ptr %3, null
-  br i1 %.not655.not, label %.preheader361.lr.ph, label %.preheader364.us.preheader
+  br i1 %.not676.not, label %.preheader361.lr.ph, label %.preheader364.us.preheader
 
 .preheader364.us.preheader:                       ; preds = %.preheader365
   %wide.trip.count545 = zext i32 %32 to i64
@@ -1242,7 +1242,7 @@ _ZN2cvL5hypotIdEET_S1_S1_.exit.us:                ; preds = %57, %53, %51
 .preheader361.preheader:                          ; preds = %.preheader361.lr.ph
   %123 = shl nuw nsw i64 %wide.trip.count558, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %20, i8 0, i64 %123, i1 false), !tbaa !15
-  br i1 %.not655.not, label %.lr.ph421.preheader, label %.lr.ph419
+  br i1 %.not676.not, label %.lr.ph421.preheader, label %.lr.ph419
 
 .preheader361.us.preheader:                       ; preds = %.preheader361.lr.ph
   %wide.trip.count553 = zext nneg i32 %5 to i64
@@ -1273,7 +1273,7 @@ _ZN2cvL5hypotIdEET_S1_S1_.exit.us:                ; preds = %57, %53, %51
   br i1 %exitcond559.not, label %.preheader360, label %.preheader361.us, !llvm.loop !55
 
 .preheader360:                                    ; preds = %._crit_edge405.us
-  br i1 %.not655.not, label %.lr.ph421.preheader, label %.lr.ph419
+  br i1 %.not676.not, label %.lr.ph421.preheader, label %.lr.ph419
 
 .lr.ph419:                                        ; preds = %.preheader361.preheader, %.preheader360
   %wide.trip.count586 = zext i32 %32 to i64
@@ -1414,7 +1414,7 @@ _ZN2cvL5hypotIdEET_S1_S1_.exit.us:                ; preds = %57, %53, %51
   br label %189
 
 ._crit_edge491:                                   ; preds = %._crit_edge485, %179
-  %.sroa.0.1.lcssa = phi i64 [ %.sroa.0.0498, %179 ], [ %.sroa.0.2.lcssa641645, %._crit_edge485 ]
+  %.sroa.0.1.lcssa = phi i64 [ %.sroa.0.0498, %179 ], [ %.sroa.0.2.lcssa662666, %._crit_edge485 ]
   %.2312.lcssa = phi double [ %180, %179 ], [ %225, %._crit_edge485 ]
   %184 = fcmp ogt double %.2312.lcssa, %8
   %185 = fdiv double 1.000000e+00, %.2312.lcssa
@@ -1428,7 +1428,7 @@ _ZN2cvL5hypotIdEET_S1_S1_.exit.us:                ; preds = %57, %53, %51
 
 189:                                              ; preds = %.lr.ph490, %._crit_edge485
   %.0299488 = phi i32 [ 0, %.lr.ph490 ], [ %226, %._crit_edge485 ]
-  %.sroa.0.1487 = phi i64 [ %.sroa.0.0498, %.lr.ph490 ], [ %.sroa.0.2.lcssa641645, %._crit_edge485 ]
+  %.sroa.0.1487 = phi i64 [ %.sroa.0.0498, %.lr.ph490 ], [ %.sroa.0.2.lcssa662666, %._crit_edge485 ]
   br i1 %168, label %.lr.ph426, label %._crit_edge485
 
 .preheader354:                                    ; preds = %.lr.ph426
@@ -1529,7 +1529,7 @@ _ZN2cvL5hypotIdEET_S1_S1_.exit.us:                ; preds = %57, %53, %51
   br i1 %exitcond620.not, label %._crit_edge485, label %.lr.ph484, !llvm.loop !66
 
 ._crit_edge485:                                   ; preds = %.lr.ph484, %189
-  %.sroa.0.2.lcssa641645 = phi i64 [ %.sroa.0.1487, %189 ], [ %218, %.lr.ph484 ]
+  %.sroa.0.2.lcssa662666 = phi i64 [ %.sroa.0.1487, %189 ], [ %218, %.lr.ph484 ]
   %.4314.lcssa = phi double [ 0.000000e+00, %189 ], [ %224, %.lr.ph484 ]
   %225 = call double @sqrt(double noundef %.4314.lcssa) #18, !tbaa !17
   %226 = add nuw nsw i32 %.0299488, 1
@@ -1897,8 +1897,8 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc168, %127
   %167 = load ptr, ptr %8, align 8, !tbaa !93
   %.not.i.i169 = icmp eq ptr %167, %131
   %168 = icmp eq ptr %167, null
-  %or.cond197 = or i1 %.not.i.i169, %168
-  br i1 %or.cond197, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %169
+  %or.cond207 = or i1 %.not.i.i169, %168
+  br i1 %or.cond207, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %169
 
 169:                                              ; preds = %.loopexit
   call void @_ZdaPv(ptr noundef nonnull %167) #20
@@ -1919,8 +1919,8 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %169, %.loopexit
   %172 = load ptr, ptr %8, align 8, !tbaa !93
   %.not.i.i170 = icmp eq ptr %172, %131
   %173 = icmp eq ptr %172, null
-  %or.cond198 = or i1 %.not.i.i170, %173
-  br i1 %or.cond198, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit171, label %174
+  %or.cond208 = or i1 %.not.i.i170, %173
+  br i1 %or.cond208, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit171, label %174
 
 174:                                              ; preds = %171
   call void @_ZdaPv(ptr noundef nonnull %172) #20
@@ -2088,8 +2088,8 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit174:         ; preds = %.noexc173, %220
   %259 = load ptr, ptr %11, align 8, !tbaa !93
   %.not.i.i175 = icmp eq ptr %259, %224
   %260 = icmp eq ptr %259, null
-  %or.cond199 = or i1 %.not.i.i175, %260
-  br i1 %or.cond199, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit176, label %261
+  %or.cond209 = or i1 %.not.i.i175, %260
+  br i1 %or.cond209, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit176, label %261
 
 261:                                              ; preds = %.loopexit180
   call void @_ZdaPv(ptr noundef nonnull %259) #20
@@ -2110,8 +2110,8 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit176:         ; preds = %261, %.loopexit180
   %264 = load ptr, ptr %11, align 8, !tbaa !93
   %.not.i.i177 = icmp eq ptr %264, %224
   %265 = icmp eq ptr %264, null
-  %or.cond200 = or i1 %.not.i.i177, %265
-  br i1 %or.cond200, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit178, label %266
+  %or.cond210 = or i1 %.not.i.i177, %265
+  br i1 %or.cond210, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit178, label %266
 
 266:                                              ; preds = %263
   call void @_ZdaPv(ptr noundef nonnull %264) #20
@@ -2519,8 +2519,8 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc536, %86
   %173 = load ptr, ptr %9, align 8, !tbaa !93
   %.not.i.i539 = icmp eq ptr %173, %93
   %174 = icmp eq ptr %173, null
-  %or.cond628 = or i1 %.not.i.i539, %174
-  br i1 %or.cond628, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %175
+  %or.cond657 = or i1 %.not.i.i539, %174
+  br i1 %or.cond657, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %175
 
 175:                                              ; preds = %171
   call void @_ZdaPv(ptr noundef nonnull %173) #20
@@ -2597,8 +2597,8 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %175, %171
   %192 = load ptr, ptr %9, align 8, !tbaa !93
   %.not.i.i540 = icmp eq ptr %192, %93
   %193 = icmp eq ptr %192, null
-  %or.cond629 = or i1 %.not.i.i540, %193
-  br i1 %or.cond629, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit541, label %194
+  %or.cond658 = or i1 %.not.i.i540, %193
+  br i1 %or.cond658, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit541, label %194
 
 194:                                              ; preds = %191
   call void @_ZdaPv(ptr noundef nonnull %192) #20
@@ -2847,8 +2847,8 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit547:         ; preds = %.noexc546, %212
   %292 = load ptr, ptr %24, align 8, !tbaa !93
   %.not.i.i548 = icmp eq ptr %292, %219
   %293 = icmp eq ptr %292, null
-  %or.cond630 = or i1 %.not.i.i548, %293
-  br i1 %or.cond630, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit549, label %294
+  %or.cond659 = or i1 %.not.i.i548, %293
+  br i1 %or.cond659, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit549, label %294
 
 294:                                              ; preds = %290
   call void @_ZdaPv(ptr noundef nonnull %292) #20
@@ -2927,8 +2927,8 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit549:         ; preds = %294, %290
   %313 = load ptr, ptr %24, align 8, !tbaa !93
   %.not.i.i550 = icmp eq ptr %313, %219
   %314 = icmp eq ptr %313, null
-  %or.cond631 = or i1 %.not.i.i550, %314
-  br i1 %or.cond631, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit551, label %315
+  %or.cond660 = or i1 %.not.i.i550, %314
+  br i1 %or.cond660, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit551, label %315
 
 315:                                              ; preds = %312
   call void @_ZdaPv(ptr noundef nonnull %313) #20
@@ -3558,8 +3558,8 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit564:         ; preds = %.noexc563, %603
   %673 = load ptr, ptr %44, align 8, !tbaa !93
   %.not.i.i565 = icmp eq ptr %673, %607
   %674 = icmp eq ptr %673, null
-  %or.cond632 = or i1 %.not.i.i565, %674
-  br i1 %or.cond632, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit566, label %675
+  %or.cond661 = or i1 %.not.i.i565, %674
+  br i1 %or.cond661, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit566, label %675
 
 675:                                              ; preds = %672
   call void @_ZdaPv(ptr noundef nonnull %673) #20
@@ -3580,8 +3580,8 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit566:         ; preds = %675, %672
   %678 = load ptr, ptr %44, align 8, !tbaa !93
   %.not.i.i567 = icmp eq ptr %678, %607
   %679 = icmp eq ptr %678, null
-  %or.cond633 = or i1 %.not.i.i567, %679
-  br i1 %or.cond633, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit568, label %680
+  %or.cond662 = or i1 %.not.i.i567, %679
+  br i1 %or.cond662, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit568, label %680
 
 680:                                              ; preds = %677
   call void @_ZdaPv(ptr noundef nonnull %678) #20
@@ -4186,8 +4186,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %_Z
   %236 = load ptr, ptr %10, align 8, !tbaa !93
   %.not.i.i113 = icmp eq ptr %236, %82
   %237 = icmp eq ptr %236, null
-  %or.cond141 = or i1 %.not.i.i113, %237
-  br i1 %or.cond141, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %238
+  %or.cond152 = or i1 %.not.i.i113, %237
+  br i1 %or.cond152, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %238
 
 238:                                              ; preds = %235
   call void @_ZdaPv(ptr noundef nonnull %236) #20
@@ -4215,8 +4215,8 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %238, %235
   %241 = load ptr, ptr %10, align 8, !tbaa !93
   %.not.i.i114 = icmp eq ptr %241, %82
   %242 = icmp eq ptr %241, null
-  %or.cond142 = or i1 %.not.i.i114, %242
-  br i1 %or.cond142, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit115, label %243
+  %or.cond153 = or i1 %.not.i.i114, %242
+  br i1 %or.cond153, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit115, label %243
 
 243:                                              ; preds = %240
   call void @_ZdaPv(ptr noundef nonnull %241) #20
@@ -4559,8 +4559,8 @@ _ZN2cvL6JacobiEPfmS0_S0_miPh.exit:                ; preds = %130, %128
   %134 = load ptr, ptr %12, align 8, !tbaa !93
   %.not.i.i78 = icmp eq ptr %134, %102
   %135 = icmp eq ptr %134, null
-  %or.cond81 = or i1 %.not.i.i78, %135
-  br i1 %or.cond81, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %136
+  %or.cond88 = or i1 %.not.i.i78, %135
+  br i1 %or.cond88, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %136
 
 136:                                              ; preds = %133
   call void @_ZdaPv(ptr noundef nonnull %134) #20
@@ -4635,8 +4635,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv10AutoBufferI
   %156 = load ptr, ptr %12, align 8, !tbaa !93
   %.not.i.i79 = icmp eq ptr %156, %102
   %157 = icmp eq ptr %156, null
-  %or.cond82 = or i1 %.not.i.i79, %157
-  br i1 %or.cond82, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit80, label %158
+  %or.cond89 = or i1 %.not.i.i79, %157
+  br i1 %or.cond89, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit80, label %158
 
 158:                                              ; preds = %155
   call void @_ZdaPv(ptr noundef nonnull %156) #20
@@ -4952,8 +4952,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit670: ; preds = %_Z
   %118 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %119 = load i32, ptr %118, align 4
   %120 = icmp eq i32 %119, 1
-  %or.cond715 = select i1 %117, i1 %120, i1 false
-  br i1 %or.cond715, label %121, label %.thread
+  %or.cond739 = select i1 %117, i1 %120, i1 false
+  br i1 %or.cond739, label %121, label %.thread
 
 121:                                              ; preds = %116
   invoke void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %100, i32 noundef 1, i32 noundef %64, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
@@ -6142,15 +6142,15 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit:     ; preds = %.noexc685, %_ZN2cv1
 
 702:                                              ; preds = %677
   %703 = icmp eq ptr %688, null
-  %.716 = select i1 %703, i32 0, i32 %389
+  %.740 = select i1 %703, i32 0, i32 %389
   br i1 %71, label %.split31.i.i.invoke, label %.split31.i.i692.invoke
 
 .split31.i.i.invoke:                              ; preds = %702
-  invoke void @_ZN2cv14JacobiSVDImpl_IfEEvPT_mS2_S2_miiidS1_(ptr noundef %682, i64 noundef %684, ptr noundef %686, ptr noundef %688, i64 noundef %690, i32 noundef %.0586, i32 noundef %389, i32 noundef %.716, double noundef 0x3810000000000000, float noundef 0x3E90000000000000)
+  invoke void @_ZN2cv14JacobiSVDImpl_IfEEvPT_mS2_S2_miiidS1_(ptr noundef %682, i64 noundef %684, ptr noundef %686, ptr noundef %688, i64 noundef %690, i32 noundef %.0586, i32 noundef %389, i32 noundef %.740, double noundef 0x3810000000000000, float noundef 0x3E90000000000000)
           to label %_ZN2cvL9JacobiSVDEPfmS0_S0_miii.exit.invoke unwind label %698
 
 .split31.i.i692.invoke:                           ; preds = %702
-  invoke void @_ZN2cv14JacobiSVDImpl_IdEEvPT_mS2_S2_miiidS1_(ptr noundef %682, i64 noundef %684, ptr noundef %686, ptr noundef %688, i64 noundef %690, i32 noundef %.0586, i32 noundef %389, i32 noundef %.716, double noundef 0x10000000000000, double noundef 0x3CE4000000000000)
+  invoke void @_ZN2cv14JacobiSVDImpl_IdEEvPT_mS2_S2_miiidS1_(ptr noundef %682, i64 noundef %684, ptr noundef %686, ptr noundef %688, i64 noundef %690, i32 noundef %.0586, i32 noundef %389, i32 noundef %.740, double noundef 0x10000000000000, double noundef 0x3CE4000000000000)
           to label %_ZN2cvL9JacobiSVDEPfmS0_S0_miii.exit.invoke unwind label %698
 
 _ZN2cvL9JacobiSVDEPfmS0_S0_miii.exit.invoke:      ; preds = %.split31.i.i692.invoke, %.split31.i.i.invoke, %692, %700
@@ -6238,8 +6238,8 @@ _ZN2cvL9JacobiSVDEPfmS0_S0_miii.exit.invoke:      ; preds = %.split31.i.i692.inv
   %736 = load ptr, ptr %17, align 8, !tbaa !93
   %.not.i.i695 = icmp eq ptr %736, %405
   %737 = icmp eq ptr %736, null
-  %or.cond719 = or i1 %.not.i.i695, %737
-  br i1 %or.cond719, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %738
+  %or.cond743 = or i1 %.not.i.i695, %737
+  br i1 %or.cond743, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %738
 
 738:                                              ; preds = %735
   call void @_ZdaPv(ptr noundef nonnull %736) #20
@@ -6280,8 +6280,8 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %738, %735
   %745 = load ptr, ptr %17, align 8, !tbaa !93
   %.not.i.i697 = icmp eq ptr %745, %405
   %746 = icmp eq ptr %745, null
-  %or.cond720 = or i1 %.not.i.i697, %746
-  br i1 %or.cond720, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit699, label %747
+  %or.cond744 = or i1 %.not.i.i697, %746
+  br i1 %or.cond744, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit699, label %747
 
 747:                                              ; preds = %744
   call void @_ZdaPv(ptr noundef nonnull %745) #20
@@ -7324,8 +7324,8 @@ _ZN2cvL9JacobiSVDEPfmS0_S0_miii.exit:             ; preds = %.split31.i.i.invoke
   %199 = load ptr, ptr %9, align 8, !tbaa !93
   %.not.i.i97 = icmp eq ptr %199, %93
   %200 = icmp eq ptr %199, null
-  %or.cond121 = or i1 %.not.i.i97, %200
-  br i1 %or.cond121, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %201
+  %or.cond129 = or i1 %.not.i.i97, %200
+  br i1 %or.cond129, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %201
 
 201:                                              ; preds = %198
   call void @_ZdaPv(ptr noundef nonnull %199) #20
@@ -7362,8 +7362,8 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %201, %198
   %206 = load ptr, ptr %9, align 8, !tbaa !93
   %.not.i.i98 = icmp eq ptr %206, %93
   %207 = icmp eq ptr %206, null
-  %or.cond122 = or i1 %.not.i.i98, %207
-  br i1 %or.cond122, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit99, label %208
+  %or.cond130 = or i1 %.not.i.i98, %207
+  br i1 %or.cond130, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit99, label %208
 
 208:                                              ; preds = %205
   call void @_ZdaPv(ptr noundef nonnull %206) #20
@@ -9933,7 +9933,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv11JacobiImpl_IfEEbPT_mS2_S2
 .lr.ph406:                                        ; preds = %.loopexit390.thread, %.loopexit390
   %32 = phi ptr [ %24, %.loopexit390.thread ], [ %30, %.loopexit390 ]
   %33 = phi ptr [ %22, %.loopexit390.thread ], [ %28, %.loopexit390 ]
-  %.0557 = phi i64 [ %10, %.loopexit390.thread ], [ %4, %.loopexit390 ]
+  %.0570 = phi i64 [ %10, %.loopexit390.thread ], [ %4, %.loopexit390 ]
   %.pn = mul i32 %5, 30
   %34 = mul i32 %.pn, %5
   %35 = add nuw nsw i64 %8, 1
@@ -10283,9 +10283,9 @@ _ZN2cvL5hypotIfEET_S1_S1_.exit380:                ; preds = %133, %137, %139
   br i1 %.not, label %.loopexit384.preheader, label %.lr.ph438
 
 .lr.ph438:                                        ; preds = %._crit_edge436
-  %193 = mul i64 %.0557, %103
+  %193 = mul i64 %.0570, %103
   %194 = getelementptr float, ptr %3, i64 %193
-  %195 = mul i64 %.0557, %105
+  %195 = mul i64 %.0570, %105
   %196 = getelementptr float, ptr %3, i64 %195
   %197 = fneg float %.0326
   br label %198
@@ -10446,9 +10446,9 @@ _ZN2cvL5hypotIfEET_S1_S1_.exit380:                ; preds = %133, %137, %139
   br i1 %.not, label %.loopexit, label %.lr.ph466
 
 .lr.ph466:                                        ; preds = %253
-  %259 = mul i64 %.0557, %254
+  %259 = mul i64 %.0570, %254
   %260 = getelementptr float, ptr %3, i64 %259
-  %261 = mul i64 %.0557, %indvars.iv548
+  %261 = mul i64 %.0570, %indvars.iv548
   %262 = getelementptr float, ptr %3, i64 %261
   br label %263
 
@@ -10531,7 +10531,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv11JacobiImpl_IdEEbPT_mS2_S2
 .lr.ph406:                                        ; preds = %.loopexit390.thread, %.loopexit390
   %32 = phi ptr [ %24, %.loopexit390.thread ], [ %30, %.loopexit390 ]
   %33 = phi ptr [ %22, %.loopexit390.thread ], [ %28, %.loopexit390 ]
-  %.0557 = phi i64 [ %10, %.loopexit390.thread ], [ %4, %.loopexit390 ]
+  %.0570 = phi i64 [ %10, %.loopexit390.thread ], [ %4, %.loopexit390 ]
   %.pn = mul i32 %5, 30
   %34 = mul i32 %.pn, %5
   %35 = add nuw nsw i64 %8, 1
@@ -10881,9 +10881,9 @@ _ZN2cvL5hypotIdEET_S1_S1_.exit380:                ; preds = %133, %137, %139
   br i1 %.not, label %.loopexit384.preheader, label %.lr.ph438
 
 .lr.ph438:                                        ; preds = %._crit_edge436
-  %193 = mul i64 %.0557, %103
+  %193 = mul i64 %.0570, %103
   %194 = getelementptr double, ptr %3, i64 %193
-  %195 = mul i64 %.0557, %105
+  %195 = mul i64 %.0570, %105
   %196 = getelementptr double, ptr %3, i64 %195
   %197 = fneg double %.0326
   br label %198
@@ -11044,9 +11044,9 @@ _ZN2cvL5hypotIdEET_S1_S1_.exit380:                ; preds = %133, %137, %139
   br i1 %.not, label %.loopexit, label %.lr.ph466
 
 .lr.ph466:                                        ; preds = %253
-  %259 = mul i64 %.0557, %254
+  %259 = mul i64 %.0570, %254
   %260 = getelementptr double, ptr %3, i64 %259
-  %261 = mul i64 %.0557, %indvars.iv548
+  %261 = mul i64 %.0570, %indvars.iv548
   %262 = getelementptr double, ptr %3, i64 %261
   br label %263
 

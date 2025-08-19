@@ -481,17 +481,17 @@ define hidden void @mlib_ImageCopy_bit_al(ptr noundef %0, ptr noundef %1, i32 no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %8, %80
-  %.sink166 = phi i32 [ %83, %80 ], [ %12, %8 ]
+  %.sink172 = phi i32 [ %83, %80 ], [ %12, %8 ]
   %.2.lcssa.sink = phi ptr [ %.2.lcssa, %80 ], [ %0, %8 ]
-  %.sink163 = phi i32 [ %82, %80 ], [ %12, %8 ]
+  %.sink169 = phi i32 [ %82, %80 ], [ %12, %8 ]
   %.289.lcssa.sink = phi ptr [ %.289.lcssa, %80 ], [ %1, %8 ]
   %.sink.in = load i8, ptr %.289.lcssa.sink, align 1
   %.sink = zext i8 %.sink.in to i32
-  %84 = xor i32 %.sink166, -1
+  %84 = xor i32 %.sink172, -1
   %85 = and i32 %.sink, %84
   %86 = load i8, ptr %.2.lcssa.sink, align 1
   %87 = zext i8 %86 to i32
-  %88 = and i32 %.sink163, %87
+  %88 = and i32 %.sink169, %87
   %89 = or i32 %88, %85
   %90 = trunc nuw i32 %89 to i8
   store i8 %90, ptr %.289.lcssa.sink, align 1
@@ -562,19 +562,19 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr noundef nonnull readonly ca
   %indvars.iv210 = phi i64 [ %indvars.iv.next211, %._crit_edge154.us.us ], [ 0, %.lr.ph156.split.us ]
   %25 = mul nsw i64 %indvars.iv210, %23
   %26 = mul nsw i64 %indvars.iv210, %24
-  %invariant.gep220 = getelementptr i8, ptr %.val120, i64 %25
-  %invariant.gep222 = getelementptr i8, ptr %.val119, i64 %26
+  %invariant.gep221 = getelementptr i8, ptr %.val120, i64 %25
+  %invariant.gep223 = getelementptr i8, ptr %.val119, i64 %26
   br label %27
 
 27:                                               ; preds = %27, %.lr.ph153.us.us
   %indvars.iv207 = phi i64 [ %indvars.iv.next208, %27 ], [ 0, %.lr.ph153.us.us ]
-  %gep221 = getelementptr i8, ptr %invariant.gep220, i64 %indvars.iv207
-  %28 = load i8, ptr %gep221, align 1
-  %29 = getelementptr i8, ptr %gep221, i64 1
+  %gep222 = getelementptr i8, ptr %invariant.gep221, i64 %indvars.iv207
+  %28 = load i8, ptr %gep222, align 1
+  %29 = getelementptr i8, ptr %gep222, i64 1
   %30 = load i8, ptr %29, align 1
-  %gep223 = getelementptr i8, ptr %invariant.gep222, i64 %indvars.iv207
-  store i8 %28, ptr %gep223, align 1
-  %31 = getelementptr i8, ptr %gep223, i64 1
+  %gep224 = getelementptr i8, ptr %invariant.gep223, i64 %indvars.iv207
+  store i8 %28, ptr %gep224, align 1
+  %31 = getelementptr i8, ptr %gep224, i64 1
   store i8 %30, ptr %31, align 1
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 2
   %32 = icmp samesign ult i64 %indvars.iv.next208, %22
@@ -594,7 +594,7 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr noundef nonnull readonly ca
   %37 = getelementptr inbounds i8, ptr %.val119, i64 %36
   store i8 %35, ptr %37, align 1
   %invariant.gep = getelementptr i8, ptr %.val120, i64 %33
-  %invariant.gep218 = getelementptr i8, ptr %.val119, i64 %36
+  %invariant.gep219 = getelementptr i8, ptr %.val119, i64 %36
   br label %38
 
 38:                                               ; preds = %.lr.ph153.us, %38
@@ -603,9 +603,9 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr noundef nonnull readonly ca
   %39 = load i8, ptr %gep, align 1
   %40 = getelementptr i8, ptr %gep, i64 1
   %41 = load i8, ptr %40, align 1
-  %gep219 = getelementptr i8, ptr %invariant.gep218, i64 %indvars.iv199
-  store i8 %39, ptr %gep219, align 1
-  %42 = getelementptr i8, ptr %gep219, i64 1
+  %gep220 = getelementptr i8, ptr %invariant.gep219, i64 %indvars.iv199
+  store i8 %39, ptr %gep220, align 1
+  %42 = getelementptr i8, ptr %gep220, i64 1
   store i8 %41, ptr %42, align 1
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 2
   %43 = icmp samesign ult i64 %indvars.iv.next200, %22
@@ -851,19 +851,19 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr noundef nonnull readonly c
   %indvars.iv210 = phi i64 [ %indvars.iv.next211, %._crit_edge154.us.us ], [ 0, %.lr.ph156.split.us ]
   %27 = mul nsw i64 %indvars.iv210, %25
   %28 = mul nsw i64 %indvars.iv210, %26
-  %invariant.gep220 = getelementptr i16, ptr %.val120, i64 %27
-  %invariant.gep222 = getelementptr i16, ptr %.val119, i64 %28
+  %invariant.gep221 = getelementptr i16, ptr %.val120, i64 %27
+  %invariant.gep223 = getelementptr i16, ptr %.val119, i64 %28
   br label %29
 
 29:                                               ; preds = %29, %.lr.ph153.us.us
   %indvars.iv207 = phi i64 [ %indvars.iv.next208, %29 ], [ 0, %.lr.ph153.us.us ]
-  %gep221 = getelementptr i16, ptr %invariant.gep220, i64 %indvars.iv207
-  %30 = load i16, ptr %gep221, align 2
-  %31 = getelementptr i8, ptr %gep221, i64 2
+  %gep222 = getelementptr i16, ptr %invariant.gep221, i64 %indvars.iv207
+  %30 = load i16, ptr %gep222, align 2
+  %31 = getelementptr i8, ptr %gep222, i64 2
   %32 = load i16, ptr %31, align 2
-  %gep223 = getelementptr i16, ptr %invariant.gep222, i64 %indvars.iv207
-  store i16 %30, ptr %gep223, align 2
-  %33 = getelementptr i8, ptr %gep223, i64 2
+  %gep224 = getelementptr i16, ptr %invariant.gep223, i64 %indvars.iv207
+  store i16 %30, ptr %gep224, align 2
+  %33 = getelementptr i8, ptr %gep224, i64 2
   store i16 %32, ptr %33, align 2
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 2
   %34 = icmp samesign ult i64 %indvars.iv.next208, %24
@@ -883,7 +883,7 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr noundef nonnull readonly c
   %39 = getelementptr inbounds i16, ptr %.val119, i64 %38
   store i16 %37, ptr %39, align 2
   %invariant.gep = getelementptr i16, ptr %.val120, i64 %35
-  %invariant.gep218 = getelementptr i16, ptr %.val119, i64 %38
+  %invariant.gep219 = getelementptr i16, ptr %.val119, i64 %38
   br label %40
 
 40:                                               ; preds = %.lr.ph153.us, %40
@@ -892,9 +892,9 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr noundef nonnull readonly c
   %41 = load i16, ptr %gep, align 2
   %42 = getelementptr i8, ptr %gep, i64 2
   %43 = load i16, ptr %42, align 2
-  %gep219 = getelementptr i16, ptr %invariant.gep218, i64 %indvars.iv199
-  store i16 %41, ptr %gep219, align 2
-  %44 = getelementptr i8, ptr %gep219, i64 2
+  %gep220 = getelementptr i16, ptr %invariant.gep219, i64 %indvars.iv199
+  store i16 %41, ptr %gep220, align 2
+  %44 = getelementptr i8, ptr %gep220, i64 2
   store i16 %43, ptr %44, align 2
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 2
   %45 = icmp samesign ult i64 %indvars.iv.next200, %24
@@ -1148,19 +1148,19 @@ define internal fastcc void @mlib_c_ImageCopy_s32(ptr noundef nonnull readonly c
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %._crit_edge131.us.us ], [ 0, %.lr.ph133.split.us ]
   %31 = mul nsw i64 %indvars.iv182, %29
   %32 = mul nsw i64 %indvars.iv182, %30
-  %invariant.gep193 = getelementptr i32, ptr %.val109, i64 %31
-  %invariant.gep195 = getelementptr i32, ptr %.val108, i64 %32
+  %invariant.gep195 = getelementptr i32, ptr %.val109, i64 %31
+  %invariant.gep197 = getelementptr i32, ptr %.val108, i64 %32
   br label %33
 
 33:                                               ; preds = %33, %.lr.ph130.us.us
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %33 ], [ 0, %.lr.ph130.us.us ]
-  %gep194 = getelementptr i32, ptr %invariant.gep193, i64 %indvars.iv179
-  %34 = load i32, ptr %gep194, align 4
-  %35 = getelementptr i8, ptr %gep194, i64 4
-  %36 = load i32, ptr %35, align 4
   %gep196 = getelementptr i32, ptr %invariant.gep195, i64 %indvars.iv179
-  store i32 %34, ptr %gep196, align 4
-  %37 = getelementptr i8, ptr %gep196, i64 4
+  %34 = load i32, ptr %gep196, align 4
+  %35 = getelementptr i8, ptr %gep196, i64 4
+  %36 = load i32, ptr %35, align 4
+  %gep198 = getelementptr i32, ptr %invariant.gep197, i64 %indvars.iv179
+  store i32 %34, ptr %gep198, align 4
+  %37 = getelementptr i8, ptr %gep198, i64 4
   store i32 %36, ptr %37, align 4
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 2
   %38 = icmp samesign ult i64 %indvars.iv.next180, %28
@@ -1180,7 +1180,7 @@ define internal fastcc void @mlib_c_ImageCopy_s32(ptr noundef nonnull readonly c
   %43 = getelementptr inbounds i32, ptr %.val108, i64 %42
   store i32 %41, ptr %43, align 4
   %invariant.gep = getelementptr i32, ptr %.val109, i64 %39
-  %invariant.gep191 = getelementptr i32, ptr %.val108, i64 %42
+  %invariant.gep193 = getelementptr i32, ptr %.val108, i64 %42
   br label %44
 
 44:                                               ; preds = %.lr.ph130.us, %44
@@ -1189,9 +1189,9 @@ define internal fastcc void @mlib_c_ImageCopy_s32(ptr noundef nonnull readonly c
   %45 = load i32, ptr %gep, align 4
   %46 = getelementptr i8, ptr %gep, i64 4
   %47 = load i32, ptr %46, align 4
-  %gep192 = getelementptr i32, ptr %invariant.gep191, i64 %indvars.iv171
-  store i32 %45, ptr %gep192, align 4
-  %48 = getelementptr i8, ptr %gep192, i64 4
+  %gep194 = getelementptr i32, ptr %invariant.gep193, i64 %indvars.iv171
+  store i32 %45, ptr %gep194, align 4
+  %48 = getelementptr i8, ptr %gep194, i64 4
   store i32 %47, ptr %48, align 4
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 2
   %49 = icmp samesign ult i64 %indvars.iv.next172, %28
@@ -1231,8 +1231,8 @@ define internal fastcc void @mlib_c_ImageCopy_s32(ptr noundef nonnull readonly c
   %.lobit = and i32 %58, 1
   %59 = zext nneg i32 %.lobit to i64
   %60 = lshr i32 %indvars.iv, 2
-  %.lobit187 = and i32 %60, 1
-  %61 = zext nneg i32 %.lobit187 to i64
+  %.lobit188 = and i32 %60, 1
+  %61 = zext nneg i32 %.lobit188 to i64
   %62 = mul nsw i64 %indvars.iv161, %24
   %63 = getelementptr inbounds i32, ptr %.val109, i64 %62
   %64 = mul nsw i64 %indvars.iv161, %25
@@ -1242,93 +1242,79 @@ define internal fastcc void @mlib_c_ImageCopy_s32(ptr noundef nonnull readonly c
   %68 = xor i64 %66, %67
   %69 = and i64 %68, 7
   %.not = icmp eq i64 %69, 0
-  br i1 %.not, label %70, label %80
+  br i1 %.not, label %70, label %77
 
 70:                                               ; preds = %57
-  %71 = trunc i64 %66 to i32
-  %72 = lshr i32 %71, 2
-  %73 = and i32 %72, 1
-  %.not101 = icmp eq i32 %73, 0
-  br i1 %.not101, label %76, label %74
+  %71 = and i64 %66, 4
+  %.not101 = icmp eq i64 %71, 0
+  br i1 %.not101, label %.lr.ph122.preheader, label %72
 
-74:                                               ; preds = %70
-  %75 = load i32, ptr %63, align 4
-  store i32 %75, ptr %65, align 4
-  br label %76
+72:                                               ; preds = %70
+  %73 = load i32, ptr %63, align 4
+  store i32 %73, ptr %65, align 4
+  br label %.lr.ph122.preheader
 
-76:                                               ; preds = %74, %70
-  %.not102120 = icmp sgt i32 %73, %18
-  br i1 %.not102120, label %.loopexit112, label %.lr.ph122
+.lr.ph122.preheader:                              ; preds = %70, %72
+  br label %.lr.ph122
 
-.lr.ph122:                                        ; preds = %76, %.lr.ph122
-  %indvars.iv152 = phi i64 [ %indvars.iv.next153, %.lr.ph122 ], [ %59, %76 ]
-  %77 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv152
-  %78 = load double, ptr %77, align 8
-  %79 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv152
-  store double %78, ptr %79, align 8
+.lr.ph122:                                        ; preds = %.lr.ph122.preheader, %.lr.ph122
+  %indvars.iv152 = phi i64 [ %indvars.iv.next153, %.lr.ph122 ], [ %59, %.lr.ph122.preheader ]
+  %74 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv152
+  %75 = load double, ptr %74, align 8
+  %76 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv152
+  store double %75, ptr %76, align 8
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 2
   %.not102 = icmp samesign ugt i64 %indvars.iv.next153, %21
-  br i1 %.not102, label %.loopexit112.loopexit, label %.lr.ph122, !llvm.loop !37
+  br i1 %.not102, label %.loopexit112, label %.lr.ph122, !llvm.loop !37
 
-80:                                               ; preds = %57
-  %81 = trunc i64 %67 to i32
-  %82 = lshr i32 %81, 2
-  %83 = and i32 %82, 1
-  %.not103 = icmp eq i32 %83, 0
-  br i1 %.not103, label %86, label %84
+77:                                               ; preds = %57
+  %78 = trunc i64 %67 to i32
+  %79 = lshr i32 %78, 2
+  %80 = and i32 %79, 1
+  %.not103 = icmp eq i32 %80, 0
+  br i1 %.not103, label %.lr.ph.preheader, label %81
 
-84:                                               ; preds = %80
-  %85 = load i32, ptr %63, align 4
-  store i32 %85, ptr %65, align 4
-  br label %86
+81:                                               ; preds = %77
+  %82 = load i32, ptr %63, align 4
+  store i32 %82, ptr %65, align 4
+  br label %.lr.ph.preheader
 
-86:                                               ; preds = %84, %80
-  %.not104116 = icmp sgt i32 %83, %18
-  br i1 %.not104116, label %.loopexit112, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %86
-  %87 = zext nneg i32 %83 to i64
-  %88 = getelementptr inbounds nuw i32, ptr %63, i64 %87
-  %89 = getelementptr inbounds i8, ptr %88, i64 -4
-  %90 = load i64, ptr %89, align 8
+.lr.ph.preheader:                                 ; preds = %77, %81
+  %83 = zext nneg i32 %80 to i64
+  %84 = getelementptr inbounds nuw i32, ptr %63, i64 %83
+  %85 = getelementptr inbounds i8, ptr %84, i64 -4
+  %86 = load i64, ptr %85, align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv142 = phi i64 [ %61, %.lr.ph.preheader ], [ %indvars.iv.next143, %.lr.ph ]
-  %.0119 = phi i64 [ %90, %.lr.ph.preheader ], [ %92, %.lr.ph ]
-  %.094118 = phi ptr [ %89, %.lr.ph.preheader ], [ %91, %.lr.ph ]
-  %91 = getelementptr inbounds nuw i8, ptr %.094118, i64 8
-  %92 = load i64, ptr %91, align 8
-  %93 = tail call i64 @llvm.fshl.i64(i64 %92, i64 %.0119, i64 32)
-  %94 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv142
-  store i64 %93, ptr %94, align 8
+  %.0119 = phi i64 [ %86, %.lr.ph.preheader ], [ %88, %.lr.ph ]
+  %.094118 = phi ptr [ %85, %.lr.ph.preheader ], [ %87, %.lr.ph ]
+  %87 = getelementptr inbounds nuw i8, ptr %.094118, i64 8
+  %88 = load i64, ptr %87, align 8
+  %89 = tail call i64 @llvm.fshl.i64(i64 %88, i64 %.0119, i64 32)
+  %90 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv142
+  store i64 %89, ptr %90, align 8
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 2
   %.not104 = icmp samesign ugt i64 %indvars.iv.next143, %21
-  br i1 %.not104, label %.loopexit112.loopexit138, label %.lr.ph, !llvm.loop !38
+  br i1 %.not104, label %.loopexit112, label %.lr.ph, !llvm.loop !38
 
-.loopexit112.loopexit:                            ; preds = %.lr.ph122
-  %95 = trunc nuw nsw i64 %indvars.iv.next153 to i32
-  br label %.loopexit112
-
-.loopexit112.loopexit138:                         ; preds = %.lr.ph
-  %96 = trunc nuw nsw i64 %indvars.iv.next143 to i32
-  br label %.loopexit112
-
-.loopexit112:                                     ; preds = %.loopexit112.loopexit138, %.loopexit112.loopexit, %86, %76
-  %.2 = phi i32 [ %73, %76 ], [ %83, %86 ], [ %95, %.loopexit112.loopexit ], [ %96, %.loopexit112.loopexit138 ]
-  %97 = icmp slt i32 %.2, %.095
-  br i1 %97, label %.lr.ph125.preheader, label %._crit_edge
+.loopexit112:                                     ; preds = %.lr.ph, %.lr.ph122
+  %.2.in = phi i64 [ %indvars.iv.next153, %.lr.ph122 ], [ %indvars.iv.next143, %.lr.ph ]
+  %.2 = trunc i64 %.2.in to i32
+  %91 = icmp sgt i32 %.095, %.2
+  br i1 %91, label %.lr.ph125.preheader, label %._crit_edge
 
 .lr.ph125.preheader:                              ; preds = %.loopexit112
-  %98 = zext nneg i32 %.2 to i64
+  %92 = and i64 %.2.in, 4294967295
   br label %.lr.ph125
 
 .lr.ph125:                                        ; preds = %.lr.ph125.preheader, %.lr.ph125
-  %indvars.iv158 = phi i64 [ %98, %.lr.ph125.preheader ], [ %indvars.iv.next159, %.lr.ph125 ]
-  %99 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv158
-  %100 = load i32, ptr %99, align 4
-  %101 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv158
-  store i32 %100, ptr %101, align 4
+  %indvars.iv158 = phi i64 [ %92, %.lr.ph125.preheader ], [ %indvars.iv.next159, %.lr.ph125 ]
+  %93 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv158
+  %94 = load i32, ptr %93, align 4
+  %95 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv158
+  store i32 %94, ptr %95, align 4
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph125, !llvm.loop !39

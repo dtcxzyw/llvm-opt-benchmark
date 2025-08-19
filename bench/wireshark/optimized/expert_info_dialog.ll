@@ -517,8 +517,8 @@ _ZN7QStringD2Ev.exit165:                          ; preds = %178, %_ZN17QArrayDa
   br i1 %.not.i.i.i.i.i, label %.thread, label %190
 
 .thread:                                          ; preds = %183
-  %.idx413 = shl i64 %188, 2
-  %189 = getelementptr i8, ptr %186, i64 %.idx413
+  %.idx438 = shl i64 %188, 2
+  %189 = getelementptr i8, ptr %186, i64 %.idx438
   br label %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit
 
 190:                                              ; preds = %183
@@ -541,9 +541,9 @@ _ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i: ; preds =
 
 _ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit: ; preds = %.thread, %190, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i, %194
   %196 = phi ptr [ %189, %.thread ], [ %192, %190 ], [ %192, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i ], [ %192, %194 ]
-  %.idx415 = phi i64 [ %.idx413, %.thread ], [ %.idx, %190 ], [ %.idx, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i ], [ %.idx, %194 ]
+  %.idx440 = phi i64 [ %.idx438, %.thread ], [ %.idx, %190 ], [ %.idx, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i ], [ %.idx, %194 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  %.not395 = icmp eq i64 %.idx415, 0
+  %.not395 = icmp eq i64 %.idx440, 0
   br i1 %.not395, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit
@@ -742,11 +742,11 @@ _ZN7QStringD2Ev.exit196:                          ; preds = %242, %_ZN17QArrayDa
   %251 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %252 = load i64, ptr %251, align 8, !noalias !23
   %.not.i.i.i.i.i197 = icmp eq ptr %248, null
-  br i1 %.not.i.i.i.i.i197, label %.thread416, label %254
+  br i1 %.not.i.i.i.i.i197, label %.thread441, label %254
 
-.thread416:                                       ; preds = %247
-  %.idx405417 = shl i64 %252, 2
-  %253 = getelementptr i8, ptr %250, i64 %.idx405417
+.thread441:                                       ; preds = %247
+  %.idx405442 = shl i64 %252, 2
+  %253 = getelementptr i8, ptr %250, i64 %.idx405442
   br label %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit204
 
 254:                                              ; preds = %247
@@ -767,11 +767,11 @@ _ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i202: ; pred
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %259, i64 noundef 4, i64 noundef 8) #20
   br label %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit204
 
-_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit204: ; preds = %.thread416, %254, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i202, %258
-  %260 = phi ptr [ %253, %.thread416 ], [ %256, %254 ], [ %256, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i202 ], [ %256, %258 ]
-  %.idx405419 = phi i64 [ %.idx405417, %.thread416 ], [ %.idx405, %254 ], [ %.idx405, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i202 ], [ %.idx405, %258 ]
+_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit204: ; preds = %.thread441, %254, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i202, %258
+  %260 = phi ptr [ %253, %.thread441 ], [ %256, %254 ], [ %256, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i202 ], [ %256, %258 ]
+  %.idx405444 = phi i64 [ %.idx405442, %.thread441 ], [ %.idx405, %254 ], [ %.idx405, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i202 ], [ %.idx405, %258 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  %.not389397 = icmp eq i64 %.idx405419, 0
+  %.not389397 = icmp eq i64 %.idx405444, 0
   br i1 %.not389397, label %._crit_edge400, label %.lr.ph399
 
 .lr.ph399:                                        ; preds = %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit204
@@ -6735,14 +6735,14 @@ _ZNK17QArrayDataPointerIN12FilterAction6ActionEE11needsDetachEv.exit31.thread: ;
   br i1 %50, label %_ZN9QtPrivate12QPodArrayOpsIN12FilterAction6ActionEE10copyAppendEPKS2_S5_.exit, label %_ZN9QtPrivate12QPodArrayOpsIN12FilterAction6ActionEE10copyAppendEPKS2_S5_.exit.sink.split
 
 _ZN9QtPrivate12QPodArrayOpsIN12FilterAction6ActionEE10copyAppendEPKS2_S5_.exit.sink.split: ; preds = %49, %_ZNK17QArrayDataPointerIN12FilterAction6ActionEE11needsDetachEv.exit31.thread
-  %.idx.sink48 = phi i64 [ %.idx40, %_ZNK17QArrayDataPointerIN12FilterAction6ActionEE11needsDetachEv.exit31.thread ], [ %.idx, %49 ]
+  %.idx.sink55 = phi i64 [ %.idx40, %_ZNK17QArrayDataPointerIN12FilterAction6ActionEE11needsDetachEv.exit31.thread ], [ %.idx, %49 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %54 = load i64, ptr %53, align 8
   %55 = getelementptr i32, ptr %31, i64 %54
-  %56 = ashr exact i64 %.idx.sink48, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %55, ptr noundef align 1 %52, i64 noundef %.idx.sink48, i1 noundef false) #20
+  %56 = ashr exact i64 %.idx.sink55, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %55, ptr noundef align 1 %52, i64 noundef %.idx.sink55, i1 noundef false) #20
   %57 = load i64, ptr %53, align 8
   %58 = add i64 %57, %56
   store i64 %58, ptr %53, align 8
@@ -6896,8 +6896,8 @@ _ZNK17QArrayDataPointerIN12FilterAction6ActionEE16freeSpaceAtBeginEv.exit33: ; p
 
 60:                                               ; preds = %_ZNK17QArrayDataPointerIN12FilterAction6ActionEE16freeSpaceAtBeginEv.exit33.thread, %_ZNK17QArrayDataPointerIN12FilterAction6ActionEE16freeSpaceAtBeginEv.exit33
   %61 = phi ptr [ %50, %_ZNK17QArrayDataPointerIN12FilterAction6ActionEE16freeSpaceAtBeginEv.exit33.thread ], [ %59, %_ZNK17QArrayDataPointerIN12FilterAction6ActionEE16freeSpaceAtBeginEv.exit33 ]
-  %.pr59 = phi ptr [ %41, %_ZNK17QArrayDataPointerIN12FilterAction6ActionEE16freeSpaceAtBeginEv.exit33.thread ], [ %.pr.pre, %_ZNK17QArrayDataPointerIN12FilterAction6ActionEE16freeSpaceAtBeginEv.exit33 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.pr59, i64 4
+  %.pr62 = phi ptr [ %41, %_ZNK17QArrayDataPointerIN12FilterAction6ActionEE16freeSpaceAtBeginEv.exit33.thread ], [ %.pr.pre, %_ZNK17QArrayDataPointerIN12FilterAction6ActionEE16freeSpaceAtBeginEv.exit33 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.pr62, i64 4
   %63 = load i32, ptr %62, align 4
   br label %_ZNK17QArrayDataPointerIN12FilterAction6ActionEE5flagsEv.exit
 

@@ -450,8 +450,8 @@ define internal fastcc i32 @Render_Glyph(ptr noundef nonnull initializes((0, 20)
   %19 = and i32 %7, 32
   %.not31 = icmp eq i32 %19, 0
   %20 = zext i1 %.not31 to i8
-  %spec.select35 = or disjoint i8 %spec.select, %20
-  store i8 %spec.select35, ptr %16, align 4
+  %spec.select37 = or disjoint i8 %spec.select, %20
+  store i8 %spec.select37, ptr %16, align 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr @Vertical_Sweep_Init, ptr %21, align 8, !tbaa !91
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -561,8 +561,8 @@ define internal void @Vertical_Sweep_Span(ptr noundef readonly captures(none) %0
 .lr.ph.preheader:                                 ; preds = %37
   %41 = getelementptr i8, ptr %32, i64 %33
   %scevgep = getelementptr i8, ptr %41, i64 1
-  %42 = add nuw nsw i32 %25, 2
-  %43 = sub nsw i32 %26, %42
+  %42 = add nsw i32 %26, -2
+  %43 = sub nsw i32 %42, %25
   %44 = zext i32 %43 to i64
   %45 = add nuw nsw i64 %44, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 -1, i64 %45, i1 false), !tbaa !96
@@ -1131,7 +1131,7 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull initializes((
   %.val.i = load i16, ptr %19, align 8, !tbaa !103
   %260 = add i16 %.val.i, -1
   %.not1.i.i = icmp eq i16 %260, 0
-  br i1 %.not1.i.i, label %Convert_Glyph.exit.thread146, label %.lr.ph.i47.i
+  br i1 %.not1.i.i, label %Convert_Glyph.exit.thread165, label %.lr.ph.i47.i
 
 .lr.ph.i47.i:                                     ; preds = %259, %269
   %261 = phi i16 [ %270, %269 ], [ %260, %259 ]
@@ -1151,7 +1151,7 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull initializes((
 269:                                              ; preds = %268, %.lr.ph.i47.i
   %270 = add i16 %261, -1
   %.not.i48.i = icmp eq i16 %270, 0
-  br i1 %.not.i48.i, label %Convert_Glyph.exit.thread146, label %.lr.ph.i47.i, !llvm.loop !122
+  br i1 %.not.i48.i, label %Convert_Glyph.exit.thread165, label %.lr.ph.i47.i, !llvm.loop !122
 
 .loopexit:                                        ; preds = %249, %.split257.us.i.i, %221, %._crit_edge.i.i, %105, %154, %173, %212, %175, %148
   %.pr = load i32, ptr %11, align 8, !tbaa !99
@@ -1172,7 +1172,7 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull initializes((
   %279 = add nsw i32 %275, 1
   br label %36
 
-Convert_Glyph.exit.thread146:                     ; preds = %269, %259
+Convert_Glyph.exit.thread165:                     ; preds = %269, %259
   %.sink = phi ptr [ %.pre.i, %259 ], [ %262, %269 ]
   store ptr null, ptr %.sink, align 8, !tbaa !120
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1195,9 +1195,9 @@ Convert_Glyph.exit.thread146:                     ; preds = %269, %259
   %.not.not175.i = icmp slt i32 %282, %287
   br i1 %.not.not175.i, label %.preheader157.i, label %Draw_Sweep.exit
 
-.preheader157.i:                                  ; preds = %Convert_Glyph.exit.thread146, %458
-  %.0..0102160.pre183.i = phi ptr [ %.0..0102160.pre184.i, %458 ], [ null, %Convert_Glyph.exit.thread146 ]
-  %.096176.i = phi i32 [ %456, %458 ], [ %282, %Convert_Glyph.exit.thread146 ]
+.preheader157.i:                                  ; preds = %Convert_Glyph.exit.thread165, %458
+  %.0..0102160.pre183.i = phi ptr [ %.0..0102160.pre184.i, %458 ], [ null, %Convert_Glyph.exit.thread165 ]
+  %.096176.i = phi i32 [ %456, %458 ], [ %282, %Convert_Glyph.exit.thread165 ]
   %.0..0..0..0..i = load ptr, ptr %4, align 8, !tbaa !123
   %.not158.i = icmp eq ptr %.0..0..0..0..i, null
   br i1 %.not158.i, label %._crit_edge.i36, label %.lr.ph.i34
@@ -1604,7 +1604,7 @@ Increment.exit153.i:                              ; preds = %454, %.preheader.i1
   %.not.not.i = icmp slt i32 %456, %287
   br i1 %.not.not.i, label %.preheader157.i, label %Draw_Sweep.exit, !llvm.loop !136
 
-Draw_Sweep.exit:                                  ; preds = %458, %Convert_Glyph.exit.thread146
+Draw_Sweep.exit:                                  ; preds = %458, %Convert_Glyph.exit.thread165
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2880,10 +2880,10 @@ define internal fastcc signext range(i8 0, 2) i8 @New_Profile(ptr noundef nonnul
   br label %74
 
 74:                                               ; preds = %56, %68, %8
-  %.sink56 = phi i64 [ 56, %8 ], [ 128, %68 ], [ 128, %56 ]
+  %.sink57 = phi i64 [ 56, %8 ], [ 128, %68 ], [ 128, %56 ]
   %.sink = phi i32 [ 98, %8 ], [ %1, %68 ], [ %1, %56 ]
   %.046 = phi i8 [ 1, %8 ], [ 0, %68 ], [ 0, %56 ]
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink56
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink57
   store i32 %.sink, ptr %75, align 8, !tbaa !3
   ret i8 %.046
 }

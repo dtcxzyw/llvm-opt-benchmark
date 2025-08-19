@@ -578,7 +578,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %8, %37, %39
   %133 = zext i32 %117 to i64
   %134 = getelementptr inbounds nuw i8, ptr %60, i64 %133
   %135 = load ptr, ptr %4, align 8, !tbaa !10
-  %136 = invoke ptr @u_strToUTF8WithSub_77(ptr noundef %134, i32 noundef %53, ptr noundef nonnull %3, ptr noundef %.0.i31, i32 noundef %132, i32 noundef 65533, ptr noundef null, ptr noundef %135)
+  %136 = invoke ptr @u_strToUTF8WithSub_77(ptr noundef nonnull %134, i32 noundef %53, ptr noundef nonnull %3, ptr noundef %.0.i31, i32 noundef %132, i32 noundef 65533, ptr noundef null, ptr noundef %135)
           to label %137 unwind label %.loopexit.split-lp
 
 137:                                              ; preds = %127
@@ -608,7 +608,7 @@ _ZN6icu_7711LocalMemoryINS_14RBBIDataHeaderEED2Ev.exit: ; preds = %141
 
 145:                                              ; preds = %.loopexit, %.loopexit.split-lp, %63
   %.pn = phi { ptr, i32 } [ %64, %63 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @uprv_free_77(ptr noundef %60)
+  invoke void @uprv_free_77(ptr noundef nonnull %60)
           to label %_ZN6icu_7711LocalMemoryINS_14RBBIDataHeaderEED2Ev.exit34 unwind label %146
 
 146:                                              ; preds = %145

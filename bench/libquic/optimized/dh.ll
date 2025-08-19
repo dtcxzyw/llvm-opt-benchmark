@@ -369,22 +369,22 @@ define hidden range(i32 0, 2) i32 @DH_generate_key(ptr noundef %0) local_unnamed
   br label %55
 
 55:                                               ; preds = %.thread, %54, %.loopexit
-  %.0437085 = phi i32 [ 1, %.thread ], [ 0, %54 ], [ 0, %.loopexit ]
-  %.0427284 = phi ptr [ %8, %.thread ], [ %.042.ph, %54 ], [ %.042.ph, %.loopexit ]
-  %.07683 = phi ptr [ %.1, %.thread ], [ %.0.ph, %54 ], [ %.0.ph, %.loopexit ]
+  %.0437091 = phi i32 [ 1, %.thread ], [ 0, %54 ], [ 0, %.loopexit ]
+  %.0427290 = phi ptr [ %8, %.thread ], [ %.042.ph, %54 ], [ %.042.ph, %.loopexit ]
+  %.07689 = phi ptr [ %.1, %.thread ], [ %.0.ph, %54 ], [ %.0.ph, %.loopexit ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %57 = load ptr, ptr %56, align 8, !tbaa !25
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %60
 
 59:                                               ; preds = %55
-  call void @BN_free(ptr noundef %.07683) #5
+  call void @BN_free(ptr noundef %.07689) #5
   br label %60
 
 60:                                               ; preds = %59, %55
-  call void @BN_CTX_free(ptr noundef %.0427284) #5
+  call void @BN_CTX_free(ptr noundef %.0427290) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.0437085
+  ret i32 %.0437091
 }
 
 declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1

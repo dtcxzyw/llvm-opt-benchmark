@@ -2027,16 +2027,16 @@ define linkonce_odr dso_local void @_ZN11DynamicTree9BuildTreeEv(ptr noundef non
   %93 = fcmp ogt float %92, 0.000000e+00
   %94 = fmul float %81, %70
   %. = select i1 %93, float %94, float %81
-  %.69 = select i1 %93, float %81, float %94
+  %.75 = select i1 %93, float %81, float %94
   %95 = getelementptr inbounds nuw i8, ptr %56, i64 40
   store float %., ptr %95, align 4, !tbaa !152
   %96 = getelementptr inbounds nuw i8, ptr %56, i64 44
-  store float %.69, ptr %96, align 4, !tbaa !155
+  store float %.75, ptr %96, align 4, !tbaa !155
   store float %.05158, ptr %56, align 4, !tbaa !15
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 4
   store float %.060, ptr %.sroa.49.0..sroa_idx, align 4, !tbaa !15
   %97 = fadd float %.05158, %.
-  %98 = fadd float %.060, %.69
+  %98 = fadd float %.060, %.75
   %99 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store float %97, ptr %99, align 4, !tbaa !15
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 12
@@ -2379,9 +2379,9 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
   br label %135
 
 135:                                              ; preds = %66, %79, %130
-  %.sink155 = phi i8 [ 1, %130 ], [ 0, %79 ], [ 0, %66 ]
+  %.sink158 = phi i8 [ 1, %130 ], [ 0, %79 ], [ 0, %66 ]
   %136 = getelementptr inbounds nuw i8, ptr %57, i64 60
-  store i8 %.sink155, ptr %136, align 4, !tbaa !159
+  store i8 %.sink158, ptr %136, align 4, !tbaa !159
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %137 = load i32, ptr %39, align 8, !tbaa !40
   %138 = sext i32 %137 to i64
@@ -5074,7 +5074,7 @@ define internal noundef float @_ZL21RayCastSortedCallback9b2ShapeId6b2Vec2S0_fPv
 .lr.ph:                                           ; preds = %19, %.preheader
   %.15356 = phi i32 [ %23, %.preheader ], [ 0, %19 ]
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %26 = sext i32 %.15356 to i64
+  %26 = zext nneg i32 %.15356 to i64
   br label %35
 
 ._crit_edge:                                      ; preds = %35, %.preheader
@@ -5654,8 +5654,8 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld4StepER8Settings(ptr nounde
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 2056
   %.sroa.028.0.copyload = load <2 x float>, ptr %44, align 8
   %.sroa.0.0.vec.extract.i71 = extractelement <2 x float> %.sroa.028.0.copyload, i64 0
-  %foldExtExtBinop96 = fmul <2 x float> %17, %.sroa.028.0.copyload
-  %45 = extractelement <2 x float> %foldExtExtBinop96, i64 0
+  %foldExtExtBinop97 = fmul <2 x float> %17, %.sroa.028.0.copyload
+  %45 = extractelement <2 x float> %foldExtExtBinop97, i64 0
   %.sroa.0.4.vec.extract.i73 = extractelement <2 x float> %.sroa.028.0.copyload, i64 1
   %46 = fmul float %.sroa.3.12.vec.extract.i, %.sroa.0.4.vec.extract.i73
   %47 = fsub float %45, %46
@@ -5704,8 +5704,8 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld4StepER8Settings(ptr nounde
   %66 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %57, i64 0, i64 %indvars.iv
   %.sroa.013.0.copyload = load <2 x float>, ptr %66, align 4
   %.sroa.0.0.vec.extract.i79 = extractelement <2 x float> %.sroa.013.0.copyload, i64 0
-  %foldExtExtBinop98 = fmul <2 x float> %17, %.sroa.013.0.copyload
-  %67 = extractelement <2 x float> %foldExtExtBinop98, i64 0
+  %foldExtExtBinop99 = fmul <2 x float> %17, %.sroa.013.0.copyload
+  %67 = extractelement <2 x float> %foldExtExtBinop99, i64 0
   %.sroa.0.4.vec.extract.i81 = extractelement <2 x float> %.sroa.013.0.copyload, i64 1
   %68 = fmul float %.sroa.3.12.vec.extract.i80, %.sroa.0.4.vec.extract.i81
   %69 = fsub float %67, %68
@@ -8633,8 +8633,8 @@ define linkonce_odr dso_local void @_ZN9ShapeCast4StepER8Settings(ptr noundef no
   %87 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %16, i64 0, i64 %indvars.iv106
   %.sroa.031.0.copyload = load <2 x float>, ptr %87, align 8
   %.sroa.0.0.vec.extract.i69 = extractelement <2 x float> %.sroa.031.0.copyload, i64 0
-  %foldExtExtBinop117 = fmul <2 x float> %.sroa.233.0.copyload, %.sroa.031.0.copyload
-  %88 = extractelement <2 x float> %foldExtExtBinop117, i64 0
+  %foldExtExtBinop124 = fmul <2 x float> %.sroa.233.0.copyload, %.sroa.031.0.copyload
+  %88 = extractelement <2 x float> %foldExtExtBinop124, i64 0
   %.sroa.0.4.vec.extract.i71 = extractelement <2 x float> %.sroa.031.0.copyload, i64 1
   %89 = fmul float %.sroa.3.12.vec.extract.i70, %.sroa.0.4.vec.extract.i71
   %90 = fsub float %88, %89
@@ -8690,8 +8690,8 @@ define linkonce_odr dso_local void @_ZN9ShapeCast4StepER8Settings(ptr noundef no
   %108 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %16, i64 0, i64 %indvars.iv111
   %.sroa.018.0.copyload = load <2 x float>, ptr %108, align 8
   %.sroa.0.0.vec.extract.i77 = extractelement <2 x float> %.sroa.018.0.copyload, i64 0
-  %foldExtExtBinop119 = fmul <2 x float> %.sroa.5.8.copyload, %.sroa.018.0.copyload
-  %109 = extractelement <2 x float> %foldExtExtBinop119, i64 0
+  %foldExtExtBinop126 = fmul <2 x float> %.sroa.5.8.copyload, %.sroa.018.0.copyload
+  %109 = extractelement <2 x float> %foldExtExtBinop126, i64 0
   %.sroa.0.4.vec.extract.i79 = extractelement <2 x float> %.sroa.018.0.copyload, i64 1
   %110 = fmul float %.sroa.3.12.vec.extract.i78, %.sroa.0.4.vec.extract.i79
   %111 = fsub float %109, %110
@@ -8961,8 +8961,8 @@ define linkonce_odr dso_local void @_ZN12TimeOfImpact4StepER8Settings(ptr nounde
   %65 = getelementptr inbounds nuw [2 x %struct.b2Vec2], ptr %18, i64 0, i64 %indvars.iv99
   %.sroa.025.0.copyload = load <2 x float>, ptr %65, align 8
   %.sroa.0.0.vec.extract.i60 = extractelement <2 x float> %.sroa.025.0.copyload, i64 0
-  %foldExtExtBinop115 = fmul <2 x float> %44, %.sroa.025.0.copyload
-  %66 = extractelement <2 x float> %foldExtExtBinop115, i64 0
+  %foldExtExtBinop118 = fmul <2 x float> %44, %.sroa.025.0.copyload
+  %66 = extractelement <2 x float> %foldExtExtBinop118, i64 0
   %.sroa.0.4.vec.extract.i62 = extractelement <2 x float> %.sroa.025.0.copyload, i64 1
   %67 = fmul float %.sroa.3.12.vec.extract.i61, %.sroa.0.4.vec.extract.i62
   %68 = fsub float %66, %67
@@ -9001,8 +9001,8 @@ define linkonce_odr dso_local void @_ZN12TimeOfImpact4StepER8Settings(ptr nounde
   %81 = getelementptr inbounds nuw [2 x %struct.b2Vec2], ptr %18, i64 0, i64 %indvars.iv104
   %.sroa.013.0.copyload = load <2 x float>, ptr %81, align 8
   %.sroa.0.0.vec.extract.i68 = extractelement <2 x float> %.sroa.013.0.copyload, i64 0
-  %foldExtExtBinop117 = fmul <2 x float> %62, %.sroa.013.0.copyload
-  %82 = extractelement <2 x float> %foldExtExtBinop117, i64 0
+  %foldExtExtBinop120 = fmul <2 x float> %62, %.sroa.013.0.copyload
+  %82 = extractelement <2 x float> %foldExtExtBinop120, i64 0
   %.sroa.0.4.vec.extract.i70 = extractelement <2 x float> %.sroa.013.0.copyload, i64 1
   %83 = fmul float %.sroa.3.12.vec.extract.i69, %.sroa.0.4.vec.extract.i70
   %84 = fsub float %82, %83
@@ -9033,8 +9033,8 @@ define linkonce_odr dso_local void @_ZN12TimeOfImpact4StepER8Settings(ptr nounde
   %95 = getelementptr inbounds nuw [2 x %struct.b2Vec2], ptr %18, i64 0, i64 %indvars.iv109
   %.sroa.05.0.copyload = load <2 x float>, ptr %95, align 8
   %.sroa.0.0.vec.extract.i76 = extractelement <2 x float> %.sroa.05.0.copyload, i64 0
-  %foldExtExtBinop119 = fmul <2 x float> %78, %.sroa.05.0.copyload
-  %96 = extractelement <2 x float> %foldExtExtBinop119, i64 0
+  %foldExtExtBinop122 = fmul <2 x float> %78, %.sroa.05.0.copyload
+  %96 = extractelement <2 x float> %foldExtExtBinop122, i64 0
   %.sroa.0.4.vec.extract.i78 = extractelement <2 x float> %.sroa.05.0.copyload, i64 1
   %97 = fmul float %.sroa.3.12.vec.extract.i77, %.sroa.0.4.vec.extract.i78
   %98 = fsub float %96, %97

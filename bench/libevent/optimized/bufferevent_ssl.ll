@@ -1941,7 +1941,7 @@ define internal fastcc range(i32 0, 8) i32 @do_write(ptr noundef %0) unnamed_add
   %65 = zext i1 %64 to i32
   %spec.select = add nsw i32 %37, %65
   %66 = icmp slt i32 %spec.select, %21
-  br i1 %66, label %.lr.ph, label %.loopexit.thread147, !llvm.loop !6
+  br i1 %66, label %.lr.ph, label %.loopexit.thread150, !llvm.loop !6
 
 67:                                               ; preds = %35
   %68 = load ptr, ptr %23, align 8
@@ -2022,21 +2022,21 @@ define internal fastcc range(i32 0, 8) i32 @do_write(ptr noundef %0) unnamed_add
 .loopexit:                                        ; preds = %.lr.ph, %33, %109
   %.178 = phi i32 [ %110, %109 ], [ %.077.ph126, %33 ], [ %.077.ph126, %.lr.ph ]
   %.not93 = icmp eq i32 %.082.ph124, 0
-  br i1 %.not93, label %bufferevent_trigger_nolock_.exit, label %.loopexit.thread147
+  br i1 %.not93, label %bufferevent_trigger_nolock_.exit, label %.loopexit.thread150
 
-.loopexit.thread147:                              ; preds = %.outer, %.loopexit
-  %.178152 = phi i32 [ %.178, %.loopexit ], [ 1, %.outer ]
-  %.082.ph115151 = phi i32 [ %.082.ph124, %.loopexit ], [ %55, %.outer ]
-  %111 = zext nneg i32 %.082.ph115151 to i64
+.loopexit.thread150:                              ; preds = %.outer, %.loopexit
+  %.178155 = phi i32 [ %.178, %.loopexit ], [ 1, %.outer ]
+  %.082.ph115154 = phi i32 [ %.082.ph124, %.loopexit ], [ %55, %.outer ]
+  %111 = zext nneg i32 %.082.ph115154 to i64
   %112 = call i32 @evbuffer_drain(ptr noundef %4, i64 noundef %111) #7
   %.not94 = icmp eq i32 %112, 0
   br i1 %.not94, label %115, label %113
 
-113:                                              ; preds = %.loopexit.thread147
-  %114 = or i32 %.178152, 4
+113:                                              ; preds = %.loopexit.thread150
+  %114 = or i32 %.178155, 4
   br label %bufferevent_trigger_nolock_.exit
 
-115:                                              ; preds = %.loopexit.thread147
+115:                                              ; preds = %.loopexit.thread150
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %117 = load ptr, ptr %116, align 8
   %.not95 = icmp eq ptr %117, null
@@ -2072,7 +2072,7 @@ define internal fastcc range(i32 0, 8) i32 @do_write(ptr noundef %0) unnamed_add
   br label %bufferevent_trigger_nolock_.exit
 
 bufferevent_trigger_nolock_.exit:                 ; preds = %52, %20, %101, %86, %132, %127, %.loopexit, %16, %113
-  %.0 = phi i32 [ %114, %113 ], [ 4, %16 ], [ %.178, %.loopexit ], [ %.178152, %127 ], [ %.178152, %132 ], [ %102, %101 ], [ %87, %86 ], [ 0, %20 ], [ 5, %52 ]
+  %.0 = phi i32 [ %114, %113 ], [ 4, %16 ], [ %.178, %.loopexit ], [ %.178155, %127 ], [ %.178155, %132 ], [ %102, %101 ], [ %87, %86 ], [ 0, %20 ], [ 5, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -2253,7 +2253,7 @@ define internal fastcc range(i32 0, 6) i32 @do_read(ptr noundef %0, i32 noundef 
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %.split131.us, %89, %.thread
-  %.172166 = phi i32 [ %.172, %89 ], [ %.172, %.thread ], [ 1, %.split131.us ]
+  %.172170 = phi i32 [ %.172, %89 ], [ %.172, %.thread ], [ 1, %.split131.us ]
   %.175 = phi i32 [ %92, %89 ], [ %.074.ph121, %.thread ], [ %12, %.split131.us ]
   %.not90 = icmp eq i32 %.175, 0
   br i1 %.not90, label %.loopexit, label %93
@@ -2283,7 +2283,7 @@ define internal fastcc range(i32 0, 6) i32 @do_read(ptr noundef %0, i32 noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %38, %.preheader, %68, %81, %.thread.thread, %100, %103, %93, %8, %2
-  %.0 = phi i32 [ 0, %2 ], [ 4, %8 ], [ %.172166, %93 ], [ %.172166, %103 ], [ %.172166, %100 ], [ %.172166, %.thread.thread ], [ %69, %68 ], [ %82, %81 ], [ 0, %.preheader ], [ 5, %38 ]
+  %.0 = phi i32 [ 0, %2 ], [ 4, %8 ], [ %.172170, %93 ], [ %.172170, %103 ], [ %.172170, %100 ], [ %.172170, %.thread.thread ], [ %69, %68 ], [ %82, %81 ], [ 0, %.preheader ], [ 5, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -2384,9 +2384,9 @@ bufferevent_ssl_stop_writing.exit.thread:         ; preds = %1
 7:                                                ; preds = %1
   %8 = and i8 %5, 1
   %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %bufferevent_ssl_stop_writing.exit, label %bufferevent_ssl_stop_writing.exit.thread7
+  br i1 %.not.i, label %bufferevent_ssl_stop_writing.exit, label %bufferevent_ssl_stop_writing.exit.thread8
 
-bufferevent_ssl_stop_writing.exit.thread7:        ; preds = %7
+bufferevent_ssl_stop_writing.exit.thread8:        ; preds = %7
   %9 = or i8 %5, 2
   store i8 %9, ptr %4, align 4
   br label %15
@@ -2406,7 +2406,7 @@ bufferevent_ssl_stop_writing.exit:                ; preds = %7
   tail call void @bufferevent_unsuspend_read_(ptr noundef nonnull %14, i16 noundef zeroext 16) #7
   br label %start_reading.exit
 
-15:                                               ; preds = %bufferevent_ssl_stop_writing.exit.thread7, %bufferevent_ssl_stop_writing.exit
+15:                                               ; preds = %bufferevent_ssl_stop_writing.exit.thread8, %bufferevent_ssl_stop_writing.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %18 = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %16, ptr noundef nonnull %17) #7
@@ -2524,9 +2524,9 @@ bufferevent_ssl_stop_reading.exit.thread:         ; preds = %1
 7:                                                ; preds = %1
   %8 = and i8 %5, 2
   %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %bufferevent_ssl_stop_reading.exit, label %bufferevent_ssl_stop_reading.exit.thread7
+  br i1 %.not.i, label %bufferevent_ssl_stop_reading.exit, label %bufferevent_ssl_stop_reading.exit.thread8
 
-bufferevent_ssl_stop_reading.exit.thread7:        ; preds = %7
+bufferevent_ssl_stop_reading.exit.thread8:        ; preds = %7
   %9 = or i8 %5, 1
   store i8 %9, ptr %4, align 4
   br label %18
@@ -2552,7 +2552,7 @@ bufferevent_ssl_stop_reading.exit:                ; preds = %7
   tail call void @bufferevent_unsuspend_read_(ptr noundef nonnull %15, i16 noundef zeroext 16) #7
   br label %start_writing.exit
 
-18:                                               ; preds = %bufferevent_ssl_stop_reading.exit.thread7, %bufferevent_ssl_stop_reading.exit
+18:                                               ; preds = %bufferevent_ssl_stop_reading.exit.thread8, %bufferevent_ssl_stop_reading.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %21 = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %19, ptr noundef nonnull %20) #7

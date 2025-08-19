@@ -446,7 +446,7 @@ define internal i32 @dissect_llcgprs(ptr noundef %0, ptr noundef %1, ptr noundef
   %51 = icmp ult i8 %47, -32
   %52 = select i1 %51, i32 3, i32 4
   %.0521 = select i1 %48, i32 %50, i32 %52
-  switch i32 %.0521, label %default.unreachable620 [
+  switch i32 %.0521, label %default.unreachable629 [
     i32 1, label %53
     i32 2, label %117
     i32 3, label %142
@@ -630,7 +630,7 @@ define internal i32 @dissect_llcgprs(ptr noundef %0, ptr noundef %1, ptr noundef
   %176 = tail call ptr @proto_tree_add_uint(ptr noundef %169, i32 noundef %175, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %160)
   br label %.loopexit564
 
-default.unreachable620:                           ; preds = %203, %46
+default.unreachable629:                           ; preds = %203, %46
   unreachable
 
 .loopexit564:                                     ; preds = %.lr.ph, %131, %117, %.thread, %142, %156, %92, %.loopexit563, %159
@@ -698,7 +698,7 @@ crc_calc.exit:                                    ; preds = %crc_calc.exit.loope
 
 203:                                              ; preds = %193, %198, %196, %200
   %204 = phi i1 [ true, %193 ], [ false, %196 ], [ false, %198 ], [ false, %200 ]
-  switch i32 %.0521, label %default.unreachable620 [
+  switch i32 %.0521, label %default.unreachable629 [
     i32 1, label %205
     i32 2, label %242
     i32 3, label %281
@@ -1225,8 +1225,8 @@ define internal fastcc void @llc_gprs_dissect_xid(ptr noundef %0, ptr noundef %1
   br i1 %or.cond, label %.lr.ph.preheader, label %60
 
 .lr.ph.preheader:                                 ; preds = %49
-  %narrow154 = add nuw nsw i8 %.0118, 1
-  %wide.trip.count = zext nneg i8 %narrow154 to i32
+  %narrow157 = add nuw nsw i8 %.0118, 1
+  %wide.trip.count = zext nneg i8 %narrow157 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

@@ -1255,9 +1255,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   ret void
 
 .body:                                            ; preds = %46, %27, %44, %19, %17, %13, %11
-  %.sink22 = phi ptr [ %3, %11 ], [ %3, %13 ], [ %4, %17 ], [ %4, %19 ], [ %7, %44 ], [ %7, %27 ], [ %7, %46 ]
+  %.sink23 = phi ptr [ %3, %11 ], [ %3, %13 ], [ %4, %17 ], [ %4, %19 ], [ %7, %44 ], [ %7, %27 ], [ %7, %46 ]
   %.pn.pn = phi { ptr, i32 } [ %12, %11 ], [ %14, %13 ], [ %18, %17 ], [ %20, %19 ], [ %45, %44 ], [ %28, %27 ], [ %47, %46 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink22) #27
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink23) #27
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -2199,13 +2199,13 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i32
   %33 = icmp samesign ult i32 %.0, %32
-  %spec.select72 = select i1 %33, i16 %27, i16 %.064
-  %spec.select73 = tail call i32 @llvm.umax.i32(i32 %.0, i32 %32)
+  %spec.select79 = select i1 %33, i16 %27, i16 %.064
+  %spec.select80 = tail call i32 @llvm.umax.i32(i32 %.0, i32 %32)
   br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit9.i"
 
 "_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit9.i": ; preds = %24, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit.i"
-  %.165 = phi i16 [ %.064, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit.i" ], [ %spec.select72, %24 ]
-  %.1 = phi i32 [ %.0, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit.i" ], [ %spec.select73, %24 ]
+  %.165 = phi i16 [ %.064, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit.i" ], [ %spec.select79, %24 ]
+  %.1 = phi i32 [ %.0, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit.i" ], [ %spec.select80, %24 ]
   %34 = add i16 %1, -1
   %35 = zext i16 %34 to i64
   %.idx.i.i10.i = mul nuw nsw i64 %35, 6
@@ -2225,13 +2225,13 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_
   %46 = load i16, ptr %45, align 2
   %47 = zext i16 %46 to i32
   %48 = icmp samesign ult i32 %.1, %47
-  %spec.select74 = select i1 %48, i16 %42, i16 %.165
-  %spec.select75 = tail call i32 @llvm.umax.i32(i32 %.1, i32 %47)
+  %spec.select81 = select i1 %48, i16 %42, i16 %.165
+  %spec.select82 = tail call i32 @llvm.umax.i32(i32 %.1, i32 %47)
   br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit12.i"
 
 "_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit12.i": ; preds = %39, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit9.i"
-  %.266 = phi i16 [ %.165, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit9.i" ], [ %spec.select74, %39 ]
-  %.2 = phi i32 [ %.1, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit9.i" ], [ %spec.select75, %39 ]
+  %.266 = phi i16 [ %.165, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit9.i" ], [ %spec.select81, %39 ]
+  %.2 = phi i32 [ %.1, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit9.i" ], [ %spec.select82, %39 ]
   %49 = add i16 %1, -21
   %50 = zext i16 %49 to i64
   %.idx.i.i13.i = mul nuw nsw i64 %50, 6
@@ -3015,7 +3015,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i16 @_ZNK10open_spiel10phantom_go14PhantomGoBoard13SingleLibertyEt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8706) %0, i16 noundef zeroext %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i16 21, 0) i16 @_ZNK10open_spiel10phantom_go14PhantomGoBoard13SingleLibertyEt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8706) %0, i16 noundef zeroext %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5314,7 +5314,7 @@ _ZN4absl7debian216strings_internal23ConvertibleToStringViewC2ERKNSt7__cxx1112bas
   unreachable
 
 _ZNK4absl7debian211string_view6substrEmm.exit.i.i.i: ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %11, i64 %30
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 %30
   %34 = ptrtoint ptr %24 to i64
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %34, %35

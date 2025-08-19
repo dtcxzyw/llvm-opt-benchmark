@@ -807,17 +807,17 @@ lean_inc.exit134:                                 ; preds = %277, %276, %274, %l
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit134, %lean_inc.exit132, %lean_dec.exit135
-  %.sink226 = phi ptr [ %32, %lean_dec.exit135 ], [ %214, %lean_inc.exit132 ], [ %281, %lean_inc.exit134 ]
-  %.sink223 = phi i32 [ 16908312, %lean_dec.exit135 ], [ 131096, %lean_inc.exit132 ], [ 131096, %lean_inc.exit134 ]
+  %.sink252 = phi ptr [ %32, %lean_dec.exit135 ], [ %214, %lean_inc.exit132 ], [ %281, %lean_inc.exit134 ]
+  %.sink249 = phi i32 [ 16908312, %lean_dec.exit135 ], [ 131096, %lean_inc.exit132 ], [ 131096, %lean_inc.exit134 ]
   %.sink = phi ptr [ inttoptr (i64 3 to ptr), %lean_dec.exit135 ], [ %213, %lean_inc.exit132 ], [ %280, %lean_inc.exit134 ]
-  %284 = getelementptr inbounds nuw i8, ptr %.sink226, i64 4
-  store i32 1, ptr %.sink226, align 4, !tbaa !8
-  store i32 %.sink223, ptr %284, align 4
-  %285 = getelementptr inbounds nuw i8, ptr %.sink226, i64 8
+  %284 = getelementptr inbounds nuw i8, ptr %.sink252, i64 4
+  store i32 1, ptr %.sink252, align 4, !tbaa !8
+  store i32 %.sink249, ptr %284, align 4
+  %285 = getelementptr inbounds nuw i8, ptr %.sink252, i64 8
   store ptr %.sink, ptr %285, align 8, !tbaa !4
-  %286 = getelementptr inbounds nuw i8, ptr %.sink226, i64 16
+  %286 = getelementptr inbounds nuw i8, ptr %.sink252, i64 16
   store ptr %2, ptr %286, align 8, !tbaa !4
-  ret ptr %.sink226
+  ret ptr %.sink252
 }
 
 declare zeroext i8 @l_Lean_Syntax_isOfKind(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1294,18 +1294,18 @@ _init_l_Lean___aux__Init__MacroTrace______macroRules__Lean__termMacro_x2etrace_x
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean___aux__Init__MacroTrace______macroRules__Lean__termMacro_x2etrace_x5b___x5d____1___closed__12.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %177, %_init_l_Lean___aux__Init__MacroTrace______macroRules__Lean__termMacro_x2etrace_x5b___x5d____1___closed__12.exit ]
-  %180 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !8
+  %.sink33 = phi ptr [ %4, %3 ], [ %177, %_init_l_Lean___aux__Init__MacroTrace______macroRules__Lean__termMacro_x2etrace_x5b___x5d____1___closed__12.exit ]
+  %180 = getelementptr inbounds nuw i8, ptr %.sink33, i64 4
+  store i32 1, ptr %.sink33, align 4, !tbaa !8
   store i32 131096, ptr %180, align 4
-  %181 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %.sink33, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %181, align 8, !tbaa !4
-  %182 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %182, align 8, !tbaa !4
   br label %183
 
 183:                                              ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink33, %.sink.split ]
   ret ptr %.0
 }
 

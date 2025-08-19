@@ -2086,7 +2086,7 @@ bitwriter_grow_.exit:                             ; preds = %62, %39, %29
 88:                                               ; preds = %85
   %89 = lshr i64 %83, 32
   store i64 %89, ptr %64, align 8, !tbaa !15
-  br label %.sink.split248
+  br label %.sink.split272
 
 90:                                               ; preds = %85
   %91 = load i64, ptr %64, align 8, !tbaa !15
@@ -2100,7 +2100,7 @@ bitwriter_grow_.exit:                             ; preds = %62, %39, %29
   %97 = zext i32 %95 to i64
   %98 = getelementptr inbounds nuw i64, ptr %94, i64 %97
   store i64 %93, ptr %98, align 8, !tbaa !16
-  br label %.sink.split248
+  br label %.sink.split272
 
 99:                                               ; preds = %68
   %100 = icmp ugt i32 %75, 64
@@ -2227,20 +2227,20 @@ bitwriter_grow_.exit:                             ; preds = %62, %39, %29
   br i1 %167, label %.thread, label %202
 
 .thread:                                          ; preds = %162, %165
-  %.5.lcssa247 = phi i64 [ %.4191, %165 ], [ 0, %162 ]
-  %.0193.lcssa246 = phi i32 [ %134, %165 ], [ %163, %162 ]
+  %.5.lcssa271 = phi i64 [ %.4191, %165 ], [ 0, %162 ]
+  %.0193.lcssa270 = phi i32 [ %134, %165 ], [ %163, %162 ]
   %168 = phi i32 [ %.promoted, %165 ], [ %storemerge218, %162 ]
   %169 = icmp eq i32 %168, 0
   br i1 %169, label %170, label %172
 
 170:                                              ; preds = %.thread
-  %171 = lshr exact i64 %.5.lcssa247, 32
+  %171 = lshr exact i64 %.5.lcssa271, 32
   store i64 %171, ptr %64, align 8, !tbaa !15
   br label %181
 
 172:                                              ; preds = %.thread
   %173 = load i64, ptr %64, align 8, !tbaa !15
-  %174 = tail call i64 @llvm.fshl.i64(i64 %173, i64 %.5.lcssa247, i64 32)
+  %174 = tail call i64 @llvm.fshl.i64(i64 %173, i64 %.5.lcssa271, i64 32)
   store i64 %174, ptr %64, align 8, !tbaa !15
   %175 = tail call i64 @llvm.bswap.i64(i64 %174)
   %176 = load ptr, ptr %0, align 8, !tbaa !3
@@ -2255,7 +2255,7 @@ bitwriter_grow_.exit:                             ; preds = %62, %39, %29
 181:                                              ; preds = %172, %170
   %storemerge216 = phi i32 [ 0, %172 ], [ 32, %170 ]
   store i32 %storemerge216, ptr %9, align 8, !tbaa !12
-  %182 = sub nuw nsw i32 96, %.0193.lcssa246
+  %182 = sub nuw nsw i32 96, %.0193.lcssa270
   br label %202
 
 183:                                              ; preds = %.critedge
@@ -2313,7 +2313,7 @@ bitwriter_grow_.exit:                             ; preds = %62, %39, %29
 212:                                              ; preds = %209
   %213 = lshr i64 %207, 32
   store i64 %213, ptr %64, align 8, !tbaa !15
-  br label %.sink.split248
+  br label %.sink.split272
 
 214:                                              ; preds = %209
   %215 = load i64, ptr %64, align 8, !tbaa !15
@@ -2327,22 +2327,22 @@ bitwriter_grow_.exit:                             ; preds = %62, %39, %29
   %221 = zext i32 %219 to i64
   %222 = getelementptr inbounds nuw i64, ptr %218, i64 %221
   store i64 %217, ptr %222, align 8, !tbaa !16
-  br label %.sink.split248
+  br label %.sink.split272
 
-.sink.split248:                                   ; preds = %212, %214, %88, %90
-  %.sink251 = phi i64 [ %83, %90 ], [ %83, %88 ], [ %207, %214 ], [ %207, %212 ]
+.sink.split272:                                   ; preds = %212, %214, %88, %90
+  %.sink275 = phi i64 [ %83, %90 ], [ %83, %88 ], [ %207, %214 ], [ %207, %212 ]
   %storemerge217.sink = phi i32 [ 0, %90 ], [ 32, %88 ], [ 0, %214 ], [ 32, %212 ]
-  %.sink250 = phi i32 [ %80, %90 ], [ %80, %88 ], [ %204, %214 ], [ %204, %212 ]
-  %.ph249 = phi i32 [ %69, %90 ], [ %69, %88 ], [ %131, %214 ], [ %131, %212 ]
-  %.10 = shl i64 %.sink251, 32
+  %.sink274 = phi i32 [ %80, %90 ], [ %80, %88 ], [ %204, %214 ], [ %204, %212 ]
+  %.ph273 = phi i32 [ %69, %90 ], [ %69, %88 ], [ %131, %214 ], [ %131, %212 ]
+  %.10 = shl i64 %.sink275, 32
   store i32 %storemerge217.sink, ptr %9, align 8, !tbaa !12
-  %223 = add nuw nsw i32 %.sink250, 32
+  %223 = add nuw nsw i32 %.sink274, 32
   br label %224
 
-224:                                              ; preds = %.sink.split248, %202, %78
-  %225 = phi i32 [ %69, %78 ], [ %131, %202 ], [ %.ph249, %.sink.split248 ]
-  %.3190 = phi i64 [ %83, %78 ], [ %207, %202 ], [ %.10, %.sink.split248 ]
-  %.2184 = phi i32 [ %80, %78 ], [ %204, %202 ], [ %223, %.sink.split248 ]
+224:                                              ; preds = %.sink.split272, %202, %78
+  %225 = phi i32 [ %69, %78 ], [ %131, %202 ], [ %.ph273, %.sink.split272 ]
+  %.3190 = phi i64 [ %83, %78 ], [ %207, %202 ], [ %.10, %.sink.split272 ]
+  %.2184 = phi i32 [ %80, %78 ], [ %204, %202 ], [ %223, %.sink.split272 ]
   %226 = getelementptr inbounds nuw i8, ptr %.0180239, i64 4
   %227 = add i32 %.0192235, -1
   %.not211 = icmp eq i32 %227, 0
@@ -2381,8 +2381,8 @@ bitwriter_grow_.exit:                             ; preds = %62, %39, %29
   br label %bitwriter_grow_.exit.thread.sink.split
 
 bitwriter_grow_.exit.thread.sink.split:           ; preds = %231, %235
-  %.sink253 = phi i32 [ 96, %235 ], [ 64, %231 ]
-  %244 = sub nuw nsw i32 %.sink253, %.1183.lcssa
+  %.sink277 = phi i32 [ 96, %235 ], [ 64, %231 ]
+  %244 = sub nuw nsw i32 %.sink277, %.1183.lcssa
   store i32 %244, ptr %9, align 8, !tbaa !12
   br label %bitwriter_grow_.exit.thread
 
@@ -2628,10 +2628,10 @@ bitwriter_grow_.exit.i73:                         ; preds = %111, %89, %83
   br i1 %148, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit84, label %.thread
 
 .thread:                                          ; preds = %95, %117, %140, %125, %147
-  %.0.i75.ph.ph185 = phi i32 [ 0, %147 ], [ 0, %95 ], [ 1, %117 ], [ 1, %140 ], [ 1, %125 ]
-  %.pr184 = phi ptr [ %.pr.pre, %147 ], [ %81, %95 ], [ %112, %117 ], [ %112, %140 ], [ %112, %125 ]
-  %.in218 = and i32 %1, 63
-  %149 = or disjoint i32 %.in218, 128
+  %.0.i75.ph.ph240 = phi i32 [ 0, %147 ], [ 0, %95 ], [ 1, %117 ], [ 1, %140 ], [ 1, %125 ]
+  %.pr239 = phi ptr [ %.pr.pre, %147 ], [ %81, %95 ], [ %112, %117 ], [ %112, %140 ], [ %112, %125 ]
+  %.in273 = and i32 %1, 63
+  %149 = or disjoint i32 %.in273, 128
   %150 = load i32, ptr %84, align 8, !tbaa !11
   %151 = load i32, ptr %86, align 4, !tbaa !13
   %152 = add i32 %151, 8
@@ -2664,7 +2664,7 @@ bitwriter_grow_.exit.i73:                         ; preds = %111, %89, %83
   %spec.select.i.i83 = select i1 %169, i32 %170, i32 %158
   %171 = zext i32 %spec.select.i.i83 to i64
   %172 = shl nuw nsw i64 %171, 3
-  %173 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %.pr184, i64 noundef %172) #19
+  %173 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %.pr239, i64 noundef %172) #19
   %174 = icmp eq ptr %173, null
   br i1 %174, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit84, label %175
 
@@ -2674,7 +2674,7 @@ bitwriter_grow_.exit.i73:                         ; preds = %111, %89, %83
   br label %bitwriter_grow_.exit.i80
 
 bitwriter_grow_.exit.i80:                         ; preds = %175, %153, %.thread
-  %176 = phi ptr [ %173, %175 ], [ %.pr184, %153 ], [ %.pr184, %.thread ]
+  %176 = phi ptr [ %173, %175 ], [ %.pr239, %153 ], [ %.pr239, %.thread ]
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %178 = load i32, ptr %177, align 8, !tbaa !12
   %179 = sub i32 64, %178
@@ -2729,7 +2729,7 @@ bitwriter_grow_.exit.i80:                         ; preds = %175, %153, %.thread
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit84
 
 FLAC__bitwriter_write_raw_uint32_nocheck.exit84:  ; preds = %76, %80, %147, %159, %166, %181, %189, %204
-  %.0.i75136 = phi i32 [ 0, %147 ], [ %.0.i75.ph.ph185, %189 ], [ %.0.i75.ph.ph185, %204 ], [ %.0.i75.ph.ph185, %181 ], [ %.0.i75.ph.ph185, %159 ], [ %.0.i75.ph.ph185, %166 ], [ 0, %80 ], [ 0, %76 ]
+  %.0.i75136 = phi i32 [ 0, %147 ], [ %.0.i75.ph.ph240, %189 ], [ %.0.i75.ph.ph240, %204 ], [ %.0.i75.ph.ph240, %181 ], [ %.0.i75.ph.ph240, %159 ], [ %.0.i75.ph.ph240, %166 ], [ 0, %80 ], [ 0, %76 ]
   %.0.i82 = phi i32 [ 0, %147 ], [ 1, %189 ], [ 1, %204 ], [ 1, %181 ], [ 0, %159 ], [ 0, %166 ], [ 0, %80 ], [ 0, %76 ]
   %211 = and i32 %.0.i82, %.0.i75136
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
@@ -2774,7 +2774,7 @@ FLAC__bitwriter_write_raw_uint32_nocheck.exit84:  ; preds = %76, %80, %147, %159
   %237 = shl nuw i32 1, %236
   %238 = zext i32 %237 to i64
   %239 = icmp samesign ugt i64 %235, %238
-  br i1 %239, label %.thread187, label %240
+  br i1 %239, label %.thread242, label %240
 
 240:                                              ; preds = %233
   %241 = sub i32 %232, %223
@@ -2810,7 +2810,7 @@ bitwriter_grow_.exit.i87:                         ; preds = %249, %227, %221
   store i64 %260, ptr %256, align 8, !tbaa !15
   %261 = add i32 %252, 8
   store i32 %261, ptr %251, align 8, !tbaa !12
-  br label %.thread187
+  br label %.thread242
 
 262:                                              ; preds = %bitwriter_grow_.exit.i87
   %.not38.i88 = icmp eq i32 %252, 0
@@ -2835,7 +2835,7 @@ bitwriter_grow_.exit.i87:                         ; preds = %249, %227, %221
   store i64 %272, ptr %276, align 8, !tbaa !16
   %277 = zext nneg i32 %216 to i64
   store i64 %277, ptr %264, align 8, !tbaa !15
-  br label %.thread187
+  br label %.thread242
 
 278:                                              ; preds = %262
   %279 = zext nneg i32 %216 to i64
@@ -2846,26 +2846,26 @@ bitwriter_grow_.exit.i87:                         ; preds = %249, %227, %221
   %283 = zext i32 %281 to i64
   %284 = getelementptr inbounds nuw i64, ptr %250, i64 %283
   store i64 %280, ptr %284, align 8, !tbaa !16
-  br label %.thread187
+  br label %.thread242
 
 285:                                              ; preds = %240
   %.pr142.pre = load ptr, ptr %0, align 8, !tbaa !3
   %286 = icmp eq ptr %.pr142.pre, null
-  br i1 %286, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit105, label %.thread187
+  br i1 %286, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit105, label %.thread242
 
-.thread187:                                       ; preds = %233, %255, %278, %263, %285
-  %.0.i89.ph.ph191 = phi i32 [ 0, %285 ], [ 0, %233 ], [ 1, %255 ], [ 1, %278 ], [ 1, %263 ]
-  %.pr142190 = phi ptr [ %.pr142.pre, %285 ], [ %219, %233 ], [ %250, %255 ], [ %250, %278 ], [ %250, %263 ]
-  %.in216.in = lshr i32 %1, 6
-  %.in216 = and i32 %.in216.in, 63
-  %287 = or disjoint i32 %.in216, 128
+.thread242:                                       ; preds = %233, %255, %278, %263, %285
+  %.0.i89.ph.ph246 = phi i32 [ 0, %285 ], [ 0, %233 ], [ 1, %255 ], [ 1, %278 ], [ 1, %263 ]
+  %.pr142245 = phi ptr [ %.pr142.pre, %285 ], [ %219, %233 ], [ %250, %255 ], [ %250, %278 ], [ %250, %263 ]
+  %.in271.in = lshr i32 %1, 6
+  %.in271 = and i32 %.in271.in, 63
+  %287 = or disjoint i32 %.in271, 128
   %288 = load i32, ptr %222, align 8, !tbaa !11
   %289 = load i32, ptr %224, align 4, !tbaa !13
   %290 = add i32 %289, 8
   %.not.i92 = icmp ugt i32 %288, %290
   br i1 %.not.i92, label %bitwriter_grow_.exit.i94, label %291
 
-291:                                              ; preds = %.thread187
+291:                                              ; preds = %.thread242
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %293 = load i32, ptr %292, align 8, !tbaa !12
   %294 = add i32 %293, 71
@@ -2881,7 +2881,7 @@ bitwriter_grow_.exit.i87:                         ; preds = %249, %227, %221
   %301 = shl nuw i32 1, %300
   %302 = zext i32 %301 to i64
   %303 = icmp samesign ugt i64 %299, %302
-  br i1 %303, label %.thread193, label %304
+  br i1 %303, label %.thread248, label %304
 
 304:                                              ; preds = %297
   %305 = sub i32 %296, %288
@@ -2891,7 +2891,7 @@ bitwriter_grow_.exit.i87:                         ; preds = %249, %227, %221
   %spec.select.i.i97 = select i1 %307, i32 %308, i32 %296
   %309 = zext i32 %spec.select.i.i97 to i64
   %310 = shl nuw nsw i64 %309, 3
-  %311 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %.pr142190, i64 noundef %310) #19
+  %311 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %.pr142245, i64 noundef %310) #19
   %312 = icmp eq ptr %311, null
   br i1 %312, label %350, label %313
 
@@ -2900,8 +2900,8 @@ bitwriter_grow_.exit.i87:                         ; preds = %249, %227, %221
   store i32 %spec.select.i.i97, ptr %222, align 8, !tbaa !11
   br label %bitwriter_grow_.exit.i94
 
-bitwriter_grow_.exit.i94:                         ; preds = %313, %291, %.thread187
-  %314 = phi ptr [ %311, %313 ], [ %.pr142190, %291 ], [ %.pr142190, %.thread187 ]
+bitwriter_grow_.exit.i94:                         ; preds = %313, %291, %.thread242
+  %314 = phi ptr [ %311, %313 ], [ %.pr142245, %291 ], [ %.pr142245, %.thread242 ]
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %316 = load i32, ptr %315, align 8, !tbaa !12
   %317 = sub i32 64, %316
@@ -2917,7 +2917,7 @@ bitwriter_grow_.exit.i94:                         ; preds = %313, %291, %.thread
   store i64 %324, ptr %320, align 8, !tbaa !15
   %325 = add i32 %316, 8
   store i32 %325, ptr %315, align 8, !tbaa !12
-  br label %.thread193
+  br label %.thread248
 
 326:                                              ; preds = %bitwriter_grow_.exit.i94
   %.not38.i95 = icmp eq i32 %316, 0
@@ -2942,7 +2942,7 @@ bitwriter_grow_.exit.i94:                         ; preds = %313, %291, %.thread
   store i64 %336, ptr %340, align 8, !tbaa !16
   %341 = zext nneg i32 %287 to i64
   store i64 %341, ptr %328, align 8, !tbaa !15
-  br label %.thread193
+  br label %.thread248
 
 342:                                              ; preds = %326
   %343 = zext nneg i32 %287 to i64
@@ -2953,12 +2953,12 @@ bitwriter_grow_.exit.i94:                         ; preds = %313, %291, %.thread
   %347 = zext i32 %345 to i64
   %348 = getelementptr inbounds nuw i64, ptr %314, i64 %347
   store i64 %344, ptr %348, align 8, !tbaa !16
-  br label %.thread193
+  br label %.thread248
 
-.thread193:                                       ; preds = %327, %342, %319, %297
-  %.pr148.ph = phi ptr [ %.pr142190, %297 ], [ %314, %319 ], [ %314, %342 ], [ %314, %327 ]
+.thread248:                                       ; preds = %327, %342, %319, %297
+  %.pr148.ph = phi ptr [ %.pr142245, %297 ], [ %314, %319 ], [ %314, %342 ], [ %314, %327 ]
   %.0.i96.ph.ph.ph = phi i32 [ 0, %297 ], [ 1, %319 ], [ 1, %342 ], [ 1, %327 ]
-  %349 = and i32 %.0.i96.ph.ph.ph, %.0.i89.ph.ph191
+  %349 = and i32 %.0.i96.ph.ph.ph, %.0.i89.ph.ph246
   br label %352
 
 350:                                              ; preds = %304
@@ -2966,11 +2966,11 @@ bitwriter_grow_.exit.i94:                         ; preds = %313, %291, %.thread
   %351 = icmp eq ptr %.pr148.pre, null
   br i1 %351, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit105, label %352
 
-352:                                              ; preds = %.thread193, %350
-  %353 = phi i32 [ %349, %.thread193 ], [ 0, %350 ]
-  %.pr148196 = phi ptr [ %.pr148.ph, %.thread193 ], [ %.pr148.pre, %350 ]
-  %.in217 = and i32 %1, 63
-  %354 = or disjoint i32 %.in217, 128
+352:                                              ; preds = %.thread248, %350
+  %353 = phi i32 [ %349, %.thread248 ], [ 0, %350 ]
+  %.pr148251 = phi ptr [ %.pr148.ph, %.thread248 ], [ %.pr148.pre, %350 ]
+  %.in272 = and i32 %1, 63
+  %354 = or disjoint i32 %.in272, 128
   %355 = load i32, ptr %222, align 8, !tbaa !11
   %356 = load i32, ptr %224, align 4, !tbaa !13
   %357 = add i32 %356, 8
@@ -3003,7 +3003,7 @@ bitwriter_grow_.exit.i94:                         ; preds = %313, %291, %.thread
   %spec.select.i.i104 = select i1 %374, i32 %375, i32 %363
   %376 = zext i32 %spec.select.i.i104 to i64
   %377 = shl nuw nsw i64 %376, 3
-  %378 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %.pr148196, i64 noundef %377) #19
+  %378 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %.pr148251, i64 noundef %377) #19
   %379 = icmp eq ptr %378, null
   br i1 %379, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit105, label %380
 
@@ -3013,7 +3013,7 @@ bitwriter_grow_.exit.i94:                         ; preds = %313, %291, %.thread
   br label %bitwriter_grow_.exit.i101
 
 bitwriter_grow_.exit.i101:                        ; preds = %380, %358, %352
-  %381 = phi ptr [ %378, %380 ], [ %.pr148196, %358 ], [ %.pr148196, %352 ]
+  %381 = phi ptr [ %378, %380 ], [ %.pr148251, %358 ], [ %.pr148251, %352 ]
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %383 = load i32, ptr %382, align 8, !tbaa !12
   %384 = sub i32 64, %383
@@ -3113,7 +3113,7 @@ FLAC__bitwriter_write_raw_uint32_nocheck.exit105: ; preds = %214, %218, %285, %3
   %443 = shl nuw i32 1, %442
   %444 = zext i32 %443 to i64
   %445 = icmp samesign ugt i64 %441, %444
-  br i1 %445, label %.thread198, label %446
+  br i1 %445, label %.thread253, label %446
 
 446:                                              ; preds = %439
   %447 = sub i32 %438, %429
@@ -3149,7 +3149,7 @@ bitwriter_grow_.exit.i108:                        ; preds = %455, %433, %427
   store i64 %466, ptr %462, align 8, !tbaa !15
   %467 = add i32 %458, 8
   store i32 %467, ptr %457, align 8, !tbaa !12
-  br label %.thread198
+  br label %.thread253
 
 468:                                              ; preds = %bitwriter_grow_.exit.i108
   %.not38.i109 = icmp eq i32 %458, 0
@@ -3174,7 +3174,7 @@ bitwriter_grow_.exit.i108:                        ; preds = %455, %433, %427
   store i64 %478, ptr %482, align 8, !tbaa !16
   %483 = zext nneg i32 %422 to i64
   store i64 %483, ptr %470, align 8, !tbaa !15
-  br label %.thread198
+  br label %.thread253
 
 484:                                              ; preds = %468
   %485 = zext nneg i32 %422 to i64
@@ -3185,16 +3185,16 @@ bitwriter_grow_.exit.i108:                        ; preds = %455, %433, %427
   %489 = zext i32 %487 to i64
   %490 = getelementptr inbounds nuw i64, ptr %456, i64 %489
   store i64 %486, ptr %490, align 8, !tbaa !16
-  br label %.thread198
+  br label %.thread253
 
 491:                                              ; preds = %446
   %.pr156.pre = load ptr, ptr %0, align 8, !tbaa !3
   %492 = icmp eq ptr %.pr156.pre, null
-  br i1 %492, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit133, label %.thread198
+  br i1 %492, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit133, label %.thread253
 
-.thread198:                                       ; preds = %439, %461, %484, %469, %491
-  %.0.i110.ph.ph202 = phi i32 [ 0, %491 ], [ 0, %439 ], [ 1, %461 ], [ 1, %484 ], [ 1, %469 ]
-  %.pr156201 = phi ptr [ %.pr156.pre, %491 ], [ %425, %439 ], [ %456, %461 ], [ %456, %484 ], [ %456, %469 ]
+.thread253:                                       ; preds = %439, %461, %484, %469, %491
+  %.0.i110.ph.ph257 = phi i32 [ 0, %491 ], [ 0, %439 ], [ 1, %461 ], [ 1, %484 ], [ 1, %469 ]
+  %.pr156256 = phi ptr [ %.pr156.pre, %491 ], [ %425, %439 ], [ %456, %461 ], [ %456, %484 ], [ %456, %469 ]
   %.in.in = lshr i32 %1, 12
   %.in = and i32 %.in.in, 63
   %493 = or disjoint i32 %.in, 128
@@ -3204,7 +3204,7 @@ bitwriter_grow_.exit.i108:                        ; preds = %455, %433, %427
   %.not.i113 = icmp ugt i32 %494, %496
   br i1 %.not.i113, label %bitwriter_grow_.exit.i115, label %497
 
-497:                                              ; preds = %.thread198
+497:                                              ; preds = %.thread253
   %498 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %499 = load i32, ptr %498, align 8, !tbaa !12
   %500 = add i32 %499, 71
@@ -3220,7 +3220,7 @@ bitwriter_grow_.exit.i108:                        ; preds = %455, %433, %427
   %507 = shl nuw i32 1, %506
   %508 = zext i32 %507 to i64
   %509 = icmp samesign ugt i64 %505, %508
-  br i1 %509, label %.thread204, label %510
+  br i1 %509, label %.thread259, label %510
 
 510:                                              ; preds = %503
   %511 = sub i32 %502, %494
@@ -3230,7 +3230,7 @@ bitwriter_grow_.exit.i108:                        ; preds = %455, %433, %427
   %spec.select.i.i118 = select i1 %513, i32 %514, i32 %502
   %515 = zext i32 %spec.select.i.i118 to i64
   %516 = shl nuw nsw i64 %515, 3
-  %517 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %.pr156201, i64 noundef %516) #19
+  %517 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %.pr156256, i64 noundef %516) #19
   %518 = icmp eq ptr %517, null
   br i1 %518, label %556, label %519
 
@@ -3239,8 +3239,8 @@ bitwriter_grow_.exit.i108:                        ; preds = %455, %433, %427
   store i32 %spec.select.i.i118, ptr %428, align 8, !tbaa !11
   br label %bitwriter_grow_.exit.i115
 
-bitwriter_grow_.exit.i115:                        ; preds = %519, %497, %.thread198
-  %520 = phi ptr [ %517, %519 ], [ %.pr156201, %497 ], [ %.pr156201, %.thread198 ]
+bitwriter_grow_.exit.i115:                        ; preds = %519, %497, %.thread253
+  %520 = phi ptr [ %517, %519 ], [ %.pr156256, %497 ], [ %.pr156256, %.thread253 ]
   %521 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %522 = load i32, ptr %521, align 8, !tbaa !12
   %523 = sub i32 64, %522
@@ -3256,7 +3256,7 @@ bitwriter_grow_.exit.i115:                        ; preds = %519, %497, %.thread
   store i64 %530, ptr %526, align 8, !tbaa !15
   %531 = add i32 %522, 8
   store i32 %531, ptr %521, align 8, !tbaa !12
-  br label %.thread204
+  br label %.thread259
 
 532:                                              ; preds = %bitwriter_grow_.exit.i115
   %.not38.i116 = icmp eq i32 %522, 0
@@ -3281,7 +3281,7 @@ bitwriter_grow_.exit.i115:                        ; preds = %519, %497, %.thread
   store i64 %542, ptr %546, align 8, !tbaa !16
   %547 = zext nneg i32 %493 to i64
   store i64 %547, ptr %534, align 8, !tbaa !15
-  br label %.thread204
+  br label %.thread259
 
 548:                                              ; preds = %532
   %549 = zext nneg i32 %493 to i64
@@ -3292,12 +3292,12 @@ bitwriter_grow_.exit.i115:                        ; preds = %519, %497, %.thread
   %553 = zext i32 %551 to i64
   %554 = getelementptr inbounds nuw i64, ptr %520, i64 %553
   store i64 %550, ptr %554, align 8, !tbaa !16
-  br label %.thread204
+  br label %.thread259
 
-.thread204:                                       ; preds = %533, %548, %525, %503
-  %.pr162.ph = phi ptr [ %.pr156201, %503 ], [ %520, %525 ], [ %520, %548 ], [ %520, %533 ]
+.thread259:                                       ; preds = %533, %548, %525, %503
+  %.pr162.ph = phi ptr [ %.pr156256, %503 ], [ %520, %525 ], [ %520, %548 ], [ %520, %533 ]
   %.0.i117.ph.ph.ph = phi i32 [ 0, %503 ], [ 1, %525 ], [ 1, %548 ], [ 1, %533 ]
-  %555 = and i32 %.0.i117.ph.ph.ph, %.0.i110.ph.ph202
+  %555 = and i32 %.0.i117.ph.ph.ph, %.0.i110.ph.ph257
   br label %558
 
 556:                                              ; preds = %510
@@ -3305,12 +3305,12 @@ bitwriter_grow_.exit.i115:                        ; preds = %519, %497, %.thread
   %557 = icmp eq ptr %.pr162.pre, null
   br i1 %557, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit133, label %558
 
-558:                                              ; preds = %.thread204, %556
-  %559 = phi i32 [ %555, %.thread204 ], [ 0, %556 ]
-  %.pr162207 = phi ptr [ %.pr162.ph, %.thread204 ], [ %.pr162.pre, %556 ]
-  %.in214.in = lshr i32 %1, 6
-  %.in214 = and i32 %.in214.in, 63
-  %560 = or disjoint i32 %.in214, 128
+558:                                              ; preds = %.thread259, %556
+  %559 = phi i32 [ %555, %.thread259 ], [ 0, %556 ]
+  %.pr162262 = phi ptr [ %.pr162.ph, %.thread259 ], [ %.pr162.pre, %556 ]
+  %.in269.in = lshr i32 %1, 6
+  %.in269 = and i32 %.in269.in, 63
+  %560 = or disjoint i32 %.in269, 128
   %561 = load i32, ptr %428, align 8, !tbaa !11
   %562 = load i32, ptr %430, align 4, !tbaa !13
   %563 = add i32 %562, 8
@@ -3343,7 +3343,7 @@ bitwriter_grow_.exit.i115:                        ; preds = %519, %497, %.thread
   %spec.select.i.i125 = select i1 %580, i32 %581, i32 %569
   %582 = zext i32 %spec.select.i.i125 to i64
   %583 = shl nuw nsw i64 %582, 3
-  %584 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %.pr162207, i64 noundef %583) #19
+  %584 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %.pr162262, i64 noundef %583) #19
   %585 = icmp eq ptr %584, null
   br i1 %585, label %.thread164, label %586
 
@@ -3353,7 +3353,7 @@ bitwriter_grow_.exit.i115:                        ; preds = %519, %497, %.thread
   br label %bitwriter_grow_.exit.i122
 
 bitwriter_grow_.exit.i122:                        ; preds = %586, %564, %558
-  %587 = phi ptr [ %584, %586 ], [ %.pr162207, %564 ], [ %.pr162207, %558 ]
+  %587 = phi ptr [ %584, %586 ], [ %.pr162262, %564 ], [ %.pr162262, %558 ]
   %588 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %589 = load i32, ptr %588, align 8, !tbaa !12
   %590 = sub i32 64, %589
@@ -3408,7 +3408,7 @@ bitwriter_grow_.exit.i122:                        ; preds = %586, %564, %558
   br label %.thread164.thread
 
 .thread164.thread:                                ; preds = %600, %615, %592, %570
-  %.pr168.ph = phi ptr [ %.pr162207, %570 ], [ %587, %592 ], [ %587, %615 ], [ %587, %600 ]
+  %.pr168.ph = phi ptr [ %.pr162262, %570 ], [ %587, %592 ], [ %587, %615 ], [ %587, %600 ]
   %.0.i124.ph.ph.ph = phi i32 [ 0, %570 ], [ 1, %592 ], [ 1, %615 ], [ 1, %600 ]
   %622 = and i32 %559, %.0.i124.ph.ph.ph
   br label %624
@@ -3420,9 +3420,9 @@ bitwriter_grow_.exit.i122:                        ; preds = %586, %564, %558
 
 624:                                              ; preds = %.thread164.thread, %.thread164
   %625 = phi i32 [ %622, %.thread164.thread ], [ 0, %.thread164 ]
-  %.pr168210 = phi ptr [ %.pr168.ph, %.thread164.thread ], [ %.pr168.pre, %.thread164 ]
-  %.in215 = and i32 %1, 63
-  %626 = or disjoint i32 %.in215, 128
+  %.pr168265 = phi ptr [ %.pr168.ph, %.thread164.thread ], [ %.pr168.pre, %.thread164 ]
+  %.in270 = and i32 %1, 63
+  %626 = or disjoint i32 %.in270, 128
   %627 = load i32, ptr %428, align 8, !tbaa !11
   %628 = load i32, ptr %430, align 4, !tbaa !13
   %629 = add i32 %628, 8
@@ -3455,7 +3455,7 @@ bitwriter_grow_.exit.i122:                        ; preds = %586, %564, %558
   %spec.select.i.i132 = select i1 %646, i32 %647, i32 %635
   %648 = zext i32 %spec.select.i.i132 to i64
   %649 = shl nuw nsw i64 %648, 3
-  %650 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %.pr168210, i64 noundef %649) #19
+  %650 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %.pr168265, i64 noundef %649) #19
   %651 = icmp eq ptr %650, null
   br i1 %651, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit133, label %652
 
@@ -3465,7 +3465,7 @@ bitwriter_grow_.exit.i122:                        ; preds = %586, %564, %558
   br label %bitwriter_grow_.exit.i129
 
 bitwriter_grow_.exit.i129:                        ; preds = %652, %630, %624
-  %653 = phi ptr [ %650, %652 ], [ %.pr168210, %630 ], [ %.pr168210, %624 ]
+  %653 = phi ptr [ %650, %652 ], [ %.pr168265, %630 ], [ %.pr168265, %624 ]
   %654 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %655 = load i32, ptr %654, align 8, !tbaa !12
   %656 = sub i32 64, %655
@@ -3825,11 +3825,11 @@ bitwriter_grow_.exit.i94:                         ; preds = %110, %88, %82
   br i1 %147, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit105, label %.thread
 
 .thread:                                          ; preds = %94, %116, %139, %124, %146
-  %.0.i96.ph.ph201 = phi i32 [ 0, %146 ], [ 0, %94 ], [ 1, %116 ], [ 1, %139 ], [ 1, %124 ]
-  %.pr200 = phi ptr [ %.pr.pre, %146 ], [ %80, %94 ], [ %111, %116 ], [ %111, %139 ], [ %111, %124 ]
-  %.in246.in = trunc nuw i64 %1 to i32
-  %.in246 = and i32 %.in246.in, 63
-  %148 = or disjoint i32 %.in246, 128
+  %.0.i96.ph.ph257 = phi i32 [ 0, %146 ], [ 0, %94 ], [ 1, %116 ], [ 1, %139 ], [ 1, %124 ]
+  %.pr256 = phi ptr [ %.pr.pre, %146 ], [ %80, %94 ], [ %111, %116 ], [ %111, %139 ], [ %111, %124 ]
+  %.in302.in = trunc nuw i64 %1 to i32
+  %.in302 = and i32 %.in302.in, 63
+  %148 = or disjoint i32 %.in302, 128
   %149 = load i32, ptr %83, align 8, !tbaa !11
   %150 = load i32, ptr %85, align 4, !tbaa !13
   %151 = add i32 %150, 8
@@ -3862,7 +3862,7 @@ bitwriter_grow_.exit.i94:                         ; preds = %110, %88, %82
   %spec.select.i.i104 = select i1 %168, i32 %169, i32 %157
   %170 = zext i32 %spec.select.i.i104 to i64
   %171 = shl nuw nsw i64 %170, 3
-  %172 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %.pr200, i64 noundef %171) #19
+  %172 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %.pr256, i64 noundef %171) #19
   %173 = icmp eq ptr %172, null
   br i1 %173, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit105, label %174
 
@@ -3872,7 +3872,7 @@ bitwriter_grow_.exit.i94:                         ; preds = %110, %88, %82
   br label %bitwriter_grow_.exit.i101
 
 bitwriter_grow_.exit.i101:                        ; preds = %174, %152, %.thread
-  %175 = phi ptr [ %172, %174 ], [ %.pr200, %152 ], [ %.pr200, %.thread ]
+  %175 = phi ptr [ %172, %174 ], [ %.pr256, %152 ], [ %.pr256, %.thread ]
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %177 = load i32, ptr %176, align 8, !tbaa !12
   %178 = sub i32 64, %177
@@ -3927,7 +3927,7 @@ bitwriter_grow_.exit.i101:                        ; preds = %174, %152, %.thread
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit105
 
 FLAC__bitwriter_write_raw_uint32_nocheck.exit105: ; preds = %74, %79, %146, %158, %165, %180, %188, %203
-  %.0.i96157 = phi i32 [ 0, %146 ], [ %.0.i96.ph.ph201, %188 ], [ %.0.i96.ph.ph201, %203 ], [ %.0.i96.ph.ph201, %180 ], [ %.0.i96.ph.ph201, %158 ], [ %.0.i96.ph.ph201, %165 ], [ 0, %79 ], [ 0, %74 ]
+  %.0.i96157 = phi i32 [ 0, %146 ], [ %.0.i96.ph.ph257, %188 ], [ %.0.i96.ph.ph257, %203 ], [ %.0.i96.ph.ph257, %180 ], [ %.0.i96.ph.ph257, %158 ], [ %.0.i96.ph.ph257, %165 ], [ 0, %79 ], [ 0, %74 ]
   %.0.i103 = phi i32 [ 0, %146 ], [ 1, %188 ], [ 1, %203 ], [ 1, %180 ], [ 0, %158 ], [ 0, %165 ], [ 0, %79 ], [ 0, %74 ]
   %210 = and i32 %.0.i103, %.0.i96157
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
@@ -3973,7 +3973,7 @@ FLAC__bitwriter_write_raw_uint32_nocheck.exit105: ; preds = %74, %79, %146, %158
   %237 = shl nuw i32 1, %236
   %238 = zext i32 %237 to i64
   %239 = icmp samesign ugt i64 %235, %238
-  br i1 %239, label %.thread203, label %240
+  br i1 %239, label %.thread259, label %240
 
 240:                                              ; preds = %233
   %241 = sub i32 %232, %223
@@ -4009,7 +4009,7 @@ bitwriter_grow_.exit.i108:                        ; preds = %249, %227, %221
   store i64 %260, ptr %256, align 8, !tbaa !15
   %261 = add i32 %252, 8
   store i32 %261, ptr %251, align 8, !tbaa !12
-  br label %.thread203
+  br label %.thread259
 
 262:                                              ; preds = %bitwriter_grow_.exit.i108
   %.not38.i109 = icmp eq i32 %252, 0
@@ -4034,7 +4034,7 @@ bitwriter_grow_.exit.i108:                        ; preds = %249, %227, %221
   store i64 %272, ptr %276, align 8, !tbaa !16
   %277 = zext nneg i32 %216 to i64
   store i64 %277, ptr %264, align 8, !tbaa !15
-  br label %.thread203
+  br label %.thread259
 
 278:                                              ; preds = %262
   %279 = zext nneg i32 %216 to i64
@@ -4045,27 +4045,27 @@ bitwriter_grow_.exit.i108:                        ; preds = %249, %227, %221
   %283 = zext i32 %281 to i64
   %284 = getelementptr inbounds nuw i64, ptr %250, i64 %283
   store i64 %280, ptr %284, align 8, !tbaa !16
-  br label %.thread203
+  br label %.thread259
 
 285:                                              ; preds = %240
   %.pr163.pre = load ptr, ptr %0, align 8, !tbaa !3
   %286 = icmp eq ptr %.pr163.pre, null
-  br i1 %286, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit126, label %.thread203
+  br i1 %286, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit126, label %.thread259
 
-.thread203:                                       ; preds = %233, %255, %278, %263, %285
-  %.0.i110.ph.ph207 = phi i32 [ 0, %285 ], [ 0, %233 ], [ 1, %255 ], [ 1, %278 ], [ 1, %263 ]
-  %.pr163206 = phi ptr [ %.pr163.pre, %285 ], [ %219, %233 ], [ %250, %255 ], [ %250, %278 ], [ %250, %263 ]
+.thread259:                                       ; preds = %233, %255, %278, %263, %285
+  %.0.i110.ph.ph263 = phi i32 [ 0, %285 ], [ 0, %233 ], [ 1, %255 ], [ 1, %278 ], [ 1, %263 ]
+  %.pr163262 = phi ptr [ %.pr163.pre, %285 ], [ %219, %233 ], [ %250, %255 ], [ %250, %278 ], [ %250, %263 ]
   %287 = trunc nuw i64 %1 to i32
-  %.in244.in = lshr i32 %287, 6
-  %.in244 = and i32 %.in244.in, 63
-  %288 = or disjoint i32 %.in244, 128
+  %.in300.in = lshr i32 %287, 6
+  %.in300 = and i32 %.in300.in, 63
+  %288 = or disjoint i32 %.in300, 128
   %289 = load i32, ptr %222, align 8, !tbaa !11
   %290 = load i32, ptr %224, align 4, !tbaa !13
   %291 = add i32 %290, 8
   %.not.i113 = icmp ugt i32 %289, %291
   br i1 %.not.i113, label %bitwriter_grow_.exit.i115, label %292
 
-292:                                              ; preds = %.thread203
+292:                                              ; preds = %.thread259
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %294 = load i32, ptr %293, align 8, !tbaa !12
   %295 = add i32 %294, 71
@@ -4081,7 +4081,7 @@ bitwriter_grow_.exit.i108:                        ; preds = %249, %227, %221
   %302 = shl nuw i32 1, %301
   %303 = zext i32 %302 to i64
   %304 = icmp samesign ugt i64 %300, %303
-  br i1 %304, label %.thread210, label %305
+  br i1 %304, label %.thread266, label %305
 
 305:                                              ; preds = %298
   %306 = sub i32 %297, %289
@@ -4091,7 +4091,7 @@ bitwriter_grow_.exit.i108:                        ; preds = %249, %227, %221
   %spec.select.i.i118 = select i1 %308, i32 %309, i32 %297
   %310 = zext i32 %spec.select.i.i118 to i64
   %311 = shl nuw nsw i64 %310, 3
-  %312 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %.pr163206, i64 noundef %311) #19
+  %312 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %.pr163262, i64 noundef %311) #19
   %313 = icmp eq ptr %312, null
   br i1 %313, label %351, label %314
 
@@ -4100,8 +4100,8 @@ bitwriter_grow_.exit.i108:                        ; preds = %249, %227, %221
   store i32 %spec.select.i.i118, ptr %222, align 8, !tbaa !11
   br label %bitwriter_grow_.exit.i115
 
-bitwriter_grow_.exit.i115:                        ; preds = %314, %292, %.thread203
-  %315 = phi ptr [ %312, %314 ], [ %.pr163206, %292 ], [ %.pr163206, %.thread203 ]
+bitwriter_grow_.exit.i115:                        ; preds = %314, %292, %.thread259
+  %315 = phi ptr [ %312, %314 ], [ %.pr163262, %292 ], [ %.pr163262, %.thread259 ]
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %317 = load i32, ptr %316, align 8, !tbaa !12
   %318 = sub i32 64, %317
@@ -4117,7 +4117,7 @@ bitwriter_grow_.exit.i115:                        ; preds = %314, %292, %.thread
   store i64 %325, ptr %321, align 8, !tbaa !15
   %326 = add i32 %317, 8
   store i32 %326, ptr %316, align 8, !tbaa !12
-  br label %.thread210
+  br label %.thread266
 
 327:                                              ; preds = %bitwriter_grow_.exit.i115
   %.not38.i116 = icmp eq i32 %317, 0
@@ -4142,7 +4142,7 @@ bitwriter_grow_.exit.i115:                        ; preds = %314, %292, %.thread
   store i64 %337, ptr %341, align 8, !tbaa !16
   %342 = zext nneg i32 %288 to i64
   store i64 %342, ptr %329, align 8, !tbaa !15
-  br label %.thread210
+  br label %.thread266
 
 343:                                              ; preds = %327
   %344 = zext nneg i32 %288 to i64
@@ -4153,12 +4153,12 @@ bitwriter_grow_.exit.i115:                        ; preds = %314, %292, %.thread
   %348 = zext i32 %346 to i64
   %349 = getelementptr inbounds nuw i64, ptr %315, i64 %348
   store i64 %345, ptr %349, align 8, !tbaa !16
-  br label %.thread210
+  br label %.thread266
 
-.thread210:                                       ; preds = %328, %343, %320, %298
-  %.pr169.ph = phi ptr [ %.pr163206, %298 ], [ %315, %320 ], [ %315, %343 ], [ %315, %328 ]
+.thread266:                                       ; preds = %328, %343, %320, %298
+  %.pr169.ph = phi ptr [ %.pr163262, %298 ], [ %315, %320 ], [ %315, %343 ], [ %315, %328 ]
   %.0.i117.ph.ph.ph = phi i32 [ 0, %298 ], [ 1, %320 ], [ 1, %343 ], [ 1, %328 ]
-  %350 = and i32 %.0.i117.ph.ph.ph, %.0.i110.ph.ph207
+  %350 = and i32 %.0.i117.ph.ph.ph, %.0.i110.ph.ph263
   br label %353
 
 351:                                              ; preds = %305
@@ -4166,11 +4166,11 @@ bitwriter_grow_.exit.i115:                        ; preds = %314, %292, %.thread
   %352 = icmp eq ptr %.pr169.pre, null
   br i1 %352, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit126, label %353
 
-353:                                              ; preds = %.thread210, %351
-  %354 = phi i32 [ %350, %.thread210 ], [ 0, %351 ]
-  %.pr169214 = phi ptr [ %.pr169.ph, %.thread210 ], [ %.pr169.pre, %351 ]
-  %.in245 = and i32 %287, 63
-  %355 = or disjoint i32 %.in245, 128
+353:                                              ; preds = %.thread266, %351
+  %354 = phi i32 [ %350, %.thread266 ], [ 0, %351 ]
+  %.pr169270 = phi ptr [ %.pr169.ph, %.thread266 ], [ %.pr169.pre, %351 ]
+  %.in301 = and i32 %287, 63
+  %355 = or disjoint i32 %.in301, 128
   %356 = load i32, ptr %222, align 8, !tbaa !11
   %357 = load i32, ptr %224, align 4, !tbaa !13
   %358 = add i32 %357, 8
@@ -4203,7 +4203,7 @@ bitwriter_grow_.exit.i115:                        ; preds = %314, %292, %.thread
   %spec.select.i.i125 = select i1 %375, i32 %376, i32 %364
   %377 = zext i32 %spec.select.i.i125 to i64
   %378 = shl nuw nsw i64 %377, 3
-  %379 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %.pr169214, i64 noundef %378) #19
+  %379 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %.pr169270, i64 noundef %378) #19
   %380 = icmp eq ptr %379, null
   br i1 %380, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit126, label %381
 
@@ -4213,7 +4213,7 @@ bitwriter_grow_.exit.i115:                        ; preds = %314, %292, %.thread
   br label %bitwriter_grow_.exit.i122
 
 bitwriter_grow_.exit.i122:                        ; preds = %381, %359, %353
-  %382 = phi ptr [ %379, %381 ], [ %.pr169214, %359 ], [ %.pr169214, %353 ]
+  %382 = phi ptr [ %379, %381 ], [ %.pr169270, %359 ], [ %.pr169270, %353 ]
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %384 = load i32, ptr %383, align 8, !tbaa !12
   %385 = sub i32 64, %384
@@ -4314,7 +4314,7 @@ FLAC__bitwriter_write_raw_uint32_nocheck.exit126: ; preds = %285, %213, %218, %3
   %445 = shl nuw i32 1, %444
   %446 = zext i32 %445 to i64
   %447 = icmp samesign ugt i64 %443, %446
-  br i1 %447, label %.thread220, label %448
+  br i1 %447, label %.thread276, label %448
 
 448:                                              ; preds = %441
   %449 = sub i32 %440, %431
@@ -4350,7 +4350,7 @@ bitwriter_grow_.exit.i129:                        ; preds = %457, %435, %429
   store i64 %468, ptr %464, align 8, !tbaa !15
   %469 = add i32 %460, 8
   store i32 %469, ptr %459, align 8, !tbaa !12
-  br label %.thread220
+  br label %.thread276
 
 470:                                              ; preds = %bitwriter_grow_.exit.i129
   %.not38.i130 = icmp eq i32 %460, 0
@@ -4375,7 +4375,7 @@ bitwriter_grow_.exit.i129:                        ; preds = %457, %435, %429
   store i64 %480, ptr %484, align 8, !tbaa !16
   %485 = zext nneg i32 %424 to i64
   store i64 %485, ptr %472, align 8, !tbaa !15
-  br label %.thread220
+  br label %.thread276
 
 486:                                              ; preds = %470
   %487 = zext nneg i32 %424 to i64
@@ -4386,16 +4386,16 @@ bitwriter_grow_.exit.i129:                        ; preds = %457, %435, %429
   %491 = zext i32 %489 to i64
   %492 = getelementptr inbounds nuw i64, ptr %458, i64 %491
   store i64 %488, ptr %492, align 8, !tbaa !16
-  br label %.thread220
+  br label %.thread276
 
 493:                                              ; preds = %448
   %.pr178.pre = load ptr, ptr %0, align 8, !tbaa !3
   %494 = icmp eq ptr %.pr178.pre, null
-  br i1 %494, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit154, label %.thread220
+  br i1 %494, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit154, label %.thread276
 
-.thread220:                                       ; preds = %441, %463, %486, %471, %493
-  %.0.i131.ph.ph224 = phi i32 [ 0, %493 ], [ 0, %441 ], [ 1, %463 ], [ 1, %486 ], [ 1, %471 ]
-  %.pr178223 = phi ptr [ %.pr178.pre, %493 ], [ %427, %441 ], [ %458, %463 ], [ %458, %486 ], [ %458, %471 ]
+.thread276:                                       ; preds = %441, %463, %486, %471, %493
+  %.0.i131.ph.ph280 = phi i32 [ 0, %493 ], [ 0, %441 ], [ 1, %463 ], [ 1, %486 ], [ 1, %471 ]
+  %.pr178279 = phi ptr [ %.pr178.pre, %493 ], [ %427, %441 ], [ %458, %463 ], [ %458, %486 ], [ %458, %471 ]
   %495 = trunc nuw i64 %1 to i32
   %.in.in = lshr i32 %495, 12
   %.in = and i32 %.in.in, 63
@@ -4406,7 +4406,7 @@ bitwriter_grow_.exit.i129:                        ; preds = %457, %435, %429
   %.not.i134 = icmp ugt i32 %497, %499
   br i1 %.not.i134, label %bitwriter_grow_.exit.i136, label %500
 
-500:                                              ; preds = %.thread220
+500:                                              ; preds = %.thread276
   %501 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %502 = load i32, ptr %501, align 8, !tbaa !12
   %503 = add i32 %502, 71
@@ -4422,7 +4422,7 @@ bitwriter_grow_.exit.i129:                        ; preds = %457, %435, %429
   %510 = shl nuw i32 1, %509
   %511 = zext i32 %510 to i64
   %512 = icmp samesign ugt i64 %508, %511
-  br i1 %512, label %.thread227, label %513
+  br i1 %512, label %.thread283, label %513
 
 513:                                              ; preds = %506
   %514 = sub i32 %505, %497
@@ -4432,7 +4432,7 @@ bitwriter_grow_.exit.i129:                        ; preds = %457, %435, %429
   %spec.select.i.i139 = select i1 %516, i32 %517, i32 %505
   %518 = zext i32 %spec.select.i.i139 to i64
   %519 = shl nuw nsw i64 %518, 3
-  %520 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %.pr178223, i64 noundef %519) #19
+  %520 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %.pr178279, i64 noundef %519) #19
   %521 = icmp eq ptr %520, null
   br i1 %521, label %559, label %522
 
@@ -4441,8 +4441,8 @@ bitwriter_grow_.exit.i129:                        ; preds = %457, %435, %429
   store i32 %spec.select.i.i139, ptr %430, align 8, !tbaa !11
   br label %bitwriter_grow_.exit.i136
 
-bitwriter_grow_.exit.i136:                        ; preds = %522, %500, %.thread220
-  %523 = phi ptr [ %520, %522 ], [ %.pr178223, %500 ], [ %.pr178223, %.thread220 ]
+bitwriter_grow_.exit.i136:                        ; preds = %522, %500, %.thread276
+  %523 = phi ptr [ %520, %522 ], [ %.pr178279, %500 ], [ %.pr178279, %.thread276 ]
   %524 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %525 = load i32, ptr %524, align 8, !tbaa !12
   %526 = sub i32 64, %525
@@ -4458,7 +4458,7 @@ bitwriter_grow_.exit.i136:                        ; preds = %522, %500, %.thread
   store i64 %533, ptr %529, align 8, !tbaa !15
   %534 = add i32 %525, 8
   store i32 %534, ptr %524, align 8, !tbaa !12
-  br label %.thread227
+  br label %.thread283
 
 535:                                              ; preds = %bitwriter_grow_.exit.i136
   %.not38.i137 = icmp eq i32 %525, 0
@@ -4483,7 +4483,7 @@ bitwriter_grow_.exit.i136:                        ; preds = %522, %500, %.thread
   store i64 %545, ptr %549, align 8, !tbaa !16
   %550 = zext nneg i32 %496 to i64
   store i64 %550, ptr %537, align 8, !tbaa !15
-  br label %.thread227
+  br label %.thread283
 
 551:                                              ; preds = %535
   %552 = zext nneg i32 %496 to i64
@@ -4494,12 +4494,12 @@ bitwriter_grow_.exit.i136:                        ; preds = %522, %500, %.thread
   %556 = zext i32 %554 to i64
   %557 = getelementptr inbounds nuw i64, ptr %523, i64 %556
   store i64 %553, ptr %557, align 8, !tbaa !16
-  br label %.thread227
+  br label %.thread283
 
-.thread227:                                       ; preds = %506, %528, %551, %536
-  %.ph226 = phi ptr [ %523, %536 ], [ %523, %551 ], [ %523, %528 ], [ %.pr178223, %506 ]
+.thread283:                                       ; preds = %506, %528, %551, %536
+  %.ph282 = phi ptr [ %523, %536 ], [ %523, %551 ], [ %523, %528 ], [ %.pr178279, %506 ]
   %.0.i138.ph.ph = phi i32 [ 1, %536 ], [ 1, %551 ], [ 1, %528 ], [ 0, %506 ]
-  %558 = and i32 %.0.i138.ph.ph, %.0.i131.ph.ph224
+  %558 = and i32 %.0.i138.ph.ph, %.0.i131.ph.ph280
   br label %561
 
 559:                                              ; preds = %513
@@ -4507,12 +4507,12 @@ bitwriter_grow_.exit.i136:                        ; preds = %522, %500, %.thread
   %560 = icmp eq ptr %.pre, null
   br i1 %560, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit154, label %561
 
-561:                                              ; preds = %.thread227, %559
-  %562 = phi i32 [ %558, %.thread227 ], [ 0, %559 ]
-  %563 = phi ptr [ %.ph226, %.thread227 ], [ %.pre, %559 ]
-  %.in242.in = lshr i32 %495, 6
-  %.in242 = and i32 %.in242.in, 63
-  %564 = or disjoint i32 %.in242, 128
+561:                                              ; preds = %.thread283, %559
+  %562 = phi i32 [ %558, %.thread283 ], [ 0, %559 ]
+  %563 = phi ptr [ %.ph282, %.thread283 ], [ %.pre, %559 ]
+  %.in298.in = lshr i32 %495, 6
+  %.in298 = and i32 %.in298.in, 63
+  %564 = or disjoint i32 %.in298, 128
   %565 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %566 = load i32, ptr %565, align 8, !tbaa !11
   %567 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -4537,7 +4537,7 @@ bitwriter_grow_.exit.i136:                        ; preds = %522, %500, %.thread
   %580 = shl nuw i32 1, %579
   %581 = zext i32 %580 to i64
   %582 = icmp samesign ugt i64 %578, %581
-  br i1 %582, label %.thread238, label %583
+  br i1 %582, label %.thread294, label %583
 
 583:                                              ; preds = %576
   %584 = sub i32 %575, %566
@@ -4573,7 +4573,7 @@ bitwriter_grow_.exit.i143:                        ; preds = %592, %570, %561
   store i64 %603, ptr %599, align 8, !tbaa !15
   %604 = add i32 %595, 8
   store i32 %604, ptr %594, align 8, !tbaa !12
-  br label %.thread238
+  br label %.thread294
 
 605:                                              ; preds = %bitwriter_grow_.exit.i143
   %.not38.i144 = icmp eq i32 %595, 0
@@ -4598,7 +4598,7 @@ bitwriter_grow_.exit.i143:                        ; preds = %592, %570, %561
   store i64 %615, ptr %619, align 8, !tbaa !16
   %620 = zext nneg i32 %564 to i64
   store i64 %620, ptr %607, align 8, !tbaa !15
-  br label %.thread238
+  br label %.thread294
 
 621:                                              ; preds = %605
   %622 = zext nneg i32 %564 to i64
@@ -4609,9 +4609,9 @@ bitwriter_grow_.exit.i143:                        ; preds = %592, %570, %561
   %626 = zext i32 %624 to i64
   %627 = getelementptr inbounds nuw i64, ptr %593, i64 %626
   store i64 %623, ptr %627, align 8, !tbaa !16
-  br label %.thread238
+  br label %.thread294
 
-.thread238:                                       ; preds = %606, %621, %598, %576
+.thread294:                                       ; preds = %606, %621, %598, %576
   %.pr185.ph = phi ptr [ %563, %576 ], [ %593, %598 ], [ %593, %621 ], [ %593, %606 ]
   %.0.i145.ph.ph.ph = phi i32 [ 0, %576 ], [ 1, %598 ], [ 1, %621 ], [ 1, %606 ]
   %628 = and i32 %562, %.0.i145.ph.ph.ph
@@ -4622,11 +4622,11 @@ bitwriter_grow_.exit.i143:                        ; preds = %592, %570, %561
   %630 = icmp eq ptr %.pr185.pre, null
   br i1 %630, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit154, label %631
 
-631:                                              ; preds = %.thread238, %629
-  %632 = phi i32 [ %628, %.thread238 ], [ 0, %629 ]
-  %.pr185241 = phi ptr [ %.pr185.ph, %.thread238 ], [ %.pr185.pre, %629 ]
-  %.in243 = and i32 %495, 63
-  %633 = or disjoint i32 %.in243, 128
+631:                                              ; preds = %.thread294, %629
+  %632 = phi i32 [ %628, %.thread294 ], [ 0, %629 ]
+  %.pr185297 = phi ptr [ %.pr185.ph, %.thread294 ], [ %.pr185.pre, %629 ]
+  %.in299 = and i32 %495, 63
+  %633 = or disjoint i32 %.in299, 128
   %634 = load i32, ptr %565, align 8, !tbaa !11
   %635 = load i32, ptr %567, align 4, !tbaa !13
   %636 = add i32 %635, 8
@@ -4659,7 +4659,7 @@ bitwriter_grow_.exit.i143:                        ; preds = %592, %570, %561
   %spec.select.i.i153 = select i1 %653, i32 %654, i32 %642
   %655 = zext i32 %spec.select.i.i153 to i64
   %656 = shl nuw nsw i64 %655, 3
-  %657 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %.pr185241, i64 noundef %656) #19
+  %657 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %.pr185297, i64 noundef %656) #19
   %658 = icmp eq ptr %657, null
   br i1 %658, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit154, label %659
 
@@ -4669,7 +4669,7 @@ bitwriter_grow_.exit.i143:                        ; preds = %592, %570, %561
   br label %bitwriter_grow_.exit.i150
 
 bitwriter_grow_.exit.i150:                        ; preds = %659, %637, %631
-  %660 = phi ptr [ %657, %659 ], [ %.pr185241, %637 ], [ %.pr185241, %631 ]
+  %660 = phi ptr [ %657, %659 ], [ %.pr185297, %637 ], [ %.pr185297, %631 ]
   %661 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %662 = load i32, ptr %661, align 8, !tbaa !12
   %663 = sub i32 64, %662

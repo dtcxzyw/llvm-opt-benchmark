@@ -494,8 +494,8 @@ _ZN4ncnn3MatD2Ev.exit1004.lr.ph.i:                ; preds = %.preheader1103.i
   %255 = add i32 %13, -8
   %256 = lshr i32 %255, 1
   %257 = and i32 %256, 2147483644
-  %narrow1808.i = add nuw i32 %257, 4
-  %258 = zext i32 %narrow1808.i to i64
+  %narrow1832.i = add nuw i32 %257, 4
+  %258 = zext i32 %narrow1832.i to i64
   %259 = mul nsw i64 %258, %250
   %scevgep1681.i = getelementptr i8, ptr %239, i64 %259
   %260 = mul i32 %240, %.0.lcssa.i
@@ -704,30 +704,30 @@ _ZN4ncnn3MatD2Ev.exit1005.i:                      ; preds = %._crit_edge1244.i, 
   br i1 %210, label %.preheader1106.preheader.i, label %.preheader1106.us.i
 
 .preheader1106.preheader.i:                       ; preds = %.preheader1106.lr.ph.i, %.preheader1110.thread.i
-  %.0898.lcssa18211850.i = phi i32 [ %.0898.lcssa.i, %.preheader1106.lr.ph.i ], [ %231, %.preheader1110.thread.i ]
-  %.0887.lcssa18221849.i = phi ptr [ %.0887.lcssa.i, %.preheader1106.lr.ph.i ], [ %324, %.preheader1110.thread.i ]
-  %.0884.lcssa18231848.i = phi ptr [ %.0884.lcssa.i, %.preheader1106.lr.ph.i ], [ %scevgep1640.i, %.preheader1110.thread.i ]
-  %.0881.lcssa18241847.i = phi ptr [ %.0881.lcssa.i, %.preheader1106.lr.ph.i ], [ %scevgep1636.i, %.preheader1110.thread.i ]
-  %.0858.lcssa18251846.i = phi ptr [ %.0858.lcssa.i, %.preheader1106.lr.ph.i ], [ %scevgep1632.i, %.preheader1110.thread.i ]
-  %.0855.lcssa18261845.i = phi ptr [ %.0855.lcssa.i, %.preheader1106.lr.ph.i ], [ %scevgep1628.i, %.preheader1110.thread.i ]
-  %.0851.lcssa18271844.i = phi ptr [ %.0851.lcssa.i, %.preheader1106.lr.ph.i ], [ %scevgep1624.i, %.preheader1110.thread.i ]
-  %.0848.lcssa18281843.i = phi ptr [ %.0848.lcssa.i, %.preheader1106.lr.ph.i ], [ %scevgep1620.i, %.preheader1110.thread.i ]
-  %.0840.lcssa18291842.i = phi ptr [ %.0840.lcssa.i, %.preheader1106.lr.ph.i ], [ %scevgep1616.i, %.preheader1110.thread.i ]
-  %.0837.lcssa18301841.i = phi ptr [ %.0837.lcssa.i, %.preheader1106.lr.ph.i ], [ %scevgep1612.i, %.preheader1110.thread.i ]
-  %374 = sub i32 %232, %.0898.lcssa18211850.i
+  %.0898.lcssa18451874.i = phi i32 [ %.0898.lcssa.i, %.preheader1106.lr.ph.i ], [ %231, %.preheader1110.thread.i ]
+  %.0887.lcssa18461873.i = phi ptr [ %.0887.lcssa.i, %.preheader1106.lr.ph.i ], [ %324, %.preheader1110.thread.i ]
+  %.0884.lcssa18471872.i = phi ptr [ %.0884.lcssa.i, %.preheader1106.lr.ph.i ], [ %scevgep1640.i, %.preheader1110.thread.i ]
+  %.0881.lcssa18481871.i = phi ptr [ %.0881.lcssa.i, %.preheader1106.lr.ph.i ], [ %scevgep1636.i, %.preheader1110.thread.i ]
+  %.0858.lcssa18491870.i = phi ptr [ %.0858.lcssa.i, %.preheader1106.lr.ph.i ], [ %scevgep1632.i, %.preheader1110.thread.i ]
+  %.0855.lcssa18501869.i = phi ptr [ %.0855.lcssa.i, %.preheader1106.lr.ph.i ], [ %scevgep1628.i, %.preheader1110.thread.i ]
+  %.0851.lcssa18511868.i = phi ptr [ %.0851.lcssa.i, %.preheader1106.lr.ph.i ], [ %scevgep1624.i, %.preheader1110.thread.i ]
+  %.0848.lcssa18521867.i = phi ptr [ %.0848.lcssa.i, %.preheader1106.lr.ph.i ], [ %scevgep1620.i, %.preheader1110.thread.i ]
+  %.0840.lcssa18531866.i = phi ptr [ %.0840.lcssa.i, %.preheader1106.lr.ph.i ], [ %scevgep1616.i, %.preheader1110.thread.i ]
+  %.0837.lcssa18541865.i = phi ptr [ %.0837.lcssa.i, %.preheader1106.lr.ph.i ], [ %scevgep1612.i, %.preheader1110.thread.i ]
+  %374 = sub i32 %232, %.0898.lcssa18451874.i
   %375 = and i32 %374, -4
   %376 = zext i32 %375 to i64
   %377 = add nuw nsw i64 %376, 4
   %378 = mul nsw i64 %377, %215
-  %scevgep1645.i = getelementptr i8, ptr %.0837.lcssa18301841.i, i64 %378
-  %scevgep1646.i = getelementptr i8, ptr %.0840.lcssa18291842.i, i64 %378
-  %scevgep1647.i = getelementptr i8, ptr %.0848.lcssa18281843.i, i64 %378
-  %scevgep1648.i = getelementptr i8, ptr %.0851.lcssa18271844.i, i64 %378
-  %scevgep1649.i = getelementptr i8, ptr %.0855.lcssa18261845.i, i64 %378
-  %scevgep1650.i = getelementptr i8, ptr %.0858.lcssa18251846.i, i64 %378
-  %scevgep1651.i = getelementptr i8, ptr %.0881.lcssa18241847.i, i64 %378
-  %scevgep1652.i = getelementptr i8, ptr %.0884.lcssa18231848.i, i64 %378
-  %379 = add i32 %.0898.lcssa18211850.i, 4
+  %scevgep1645.i = getelementptr i8, ptr %.0837.lcssa18541865.i, i64 %378
+  %scevgep1646.i = getelementptr i8, ptr %.0840.lcssa18531866.i, i64 %378
+  %scevgep1647.i = getelementptr i8, ptr %.0848.lcssa18521867.i, i64 %378
+  %scevgep1648.i = getelementptr i8, ptr %.0851.lcssa18511868.i, i64 %378
+  %scevgep1649.i = getelementptr i8, ptr %.0855.lcssa18501869.i, i64 %378
+  %scevgep1650.i = getelementptr i8, ptr %.0858.lcssa18491870.i, i64 %378
+  %scevgep1651.i = getelementptr i8, ptr %.0881.lcssa18481871.i, i64 %378
+  %scevgep1652.i = getelementptr i8, ptr %.0884.lcssa18471872.i, i64 %378
+  %379 = add i32 %.0898.lcssa18451874.i, 4
   %380 = add i32 %379, %375
   br label %.preheader1109.i
 
@@ -825,7 +825,7 @@ _ZN4ncnn3MatD2Ev.exit1005.i:                      ; preds = %._crit_edge1244.i, 
 
 .preheader1109.i:                                 ; preds = %._crit_edge.us1184.i, %.preheader1106.preheader.i, %.preheader1110.thread.i, %.preheader1110.i
   %.1899.lcssa.i = phi i32 [ %.0898.lcssa.i, %.preheader1110.i ], [ %380, %.preheader1106.preheader.i ], [ %231, %.preheader1110.thread.i ], [ %425, %._crit_edge.us1184.i ]
-  %.3890.lcssa.i = phi ptr [ %.0887.lcssa.i, %.preheader1110.i ], [ %.0887.lcssa18221849.i, %.preheader1106.preheader.i ], [ %324, %.preheader1110.thread.i ], [ %415, %._crit_edge.us1184.i ]
+  %.3890.lcssa.i = phi ptr [ %.0887.lcssa.i, %.preheader1110.i ], [ %.0887.lcssa18461873.i, %.preheader1106.preheader.i ], [ %324, %.preheader1110.thread.i ], [ %415, %._crit_edge.us1184.i ]
   %.1885.lcssa.i = phi ptr [ %.0884.lcssa.i, %.preheader1110.i ], [ %scevgep1652.i, %.preheader1106.preheader.i ], [ %scevgep1640.i, %.preheader1110.thread.i ], [ %424, %._crit_edge.us1184.i ]
   %.1882.lcssa.i = phi ptr [ %.0881.lcssa.i, %.preheader1110.i ], [ %scevgep1651.i, %.preheader1106.preheader.i ], [ %scevgep1636.i, %.preheader1110.thread.i ], [ %423, %._crit_edge.us1184.i ]
   %.1859.lcssa.i = phi ptr [ %.0858.lcssa.i, %.preheader1110.i ], [ %scevgep1650.i, %.preheader1106.preheader.i ], [ %scevgep1632.i, %.preheader1110.thread.i ], [ %422, %._crit_edge.us1184.i ]
@@ -1048,8 +1048,8 @@ _ZN4ncnn3MatD2Ev.exit1003.lr.ph.i:                ; preds = %.preheader1095.i
   %533 = add i32 %13, -8
   %534 = lshr i32 %533, 1
   %535 = and i32 %534, 2147483644
-  %narrow1809.i = add nuw i32 %535, 4
-  %536 = zext i32 %narrow1809.i to i64
+  %narrow1833.i = add nuw i32 %535, 4
+  %536 = zext i32 %narrow1833.i to i64
   %537 = mul nsw i64 %536, %532
   %scevgep1736.i = getelementptr i8, ptr %509, i64 %537
   %538 = mul i32 %510, %.1.lcssa.i
@@ -1189,22 +1189,22 @@ _ZN4ncnn3MatD2Ev.exit1004.i:                      ; preds = %._crit_edge1337.i, 
   br i1 %247, label %.preheader1098.preheader.i, label %.preheader1098.us.i
 
 .preheader1098.preheader.i:                       ; preds = %.preheader1098.lr.ph.i, %.preheader1102.thread.i
-  %.0945.lcssa18871904.i = phi ptr [ %.0945.lcssa.i, %.preheader1098.lr.ph.i ], [ %scevgep1684.i, %.preheader1102.thread.i ]
-  %.0942.lcssa18881903.i = phi ptr [ %.0942.lcssa.i, %.preheader1098.lr.ph.i ], [ %scevgep1688.i, %.preheader1102.thread.i ]
-  %.0939.lcssa18891902.i = phi ptr [ %.0939.lcssa.i, %.preheader1098.lr.ph.i ], [ %scevgep1692.i, %.preheader1102.thread.i ]
-  %.0936.lcssa18901901.i = phi ptr [ %.0936.lcssa.i, %.preheader1098.lr.ph.i ], [ %scevgep1696.i, %.preheader1102.thread.i ]
-  %.0925.lcssa18911900.i = phi ptr [ %.0925.lcssa.i, %.preheader1098.lr.ph.i ], [ %576, %.preheader1102.thread.i ]
-  %.0921.lcssa18921899.i = phi i32 [ %.0921.lcssa.i, %.preheader1098.lr.ph.i ], [ %268, %.preheader1102.thread.i ]
-  %606 = sub i32 %269, %.0921.lcssa18921899.i
+  %.0945.lcssa19111928.i = phi ptr [ %.0945.lcssa.i, %.preheader1098.lr.ph.i ], [ %scevgep1684.i, %.preheader1102.thread.i ]
+  %.0942.lcssa19121927.i = phi ptr [ %.0942.lcssa.i, %.preheader1098.lr.ph.i ], [ %scevgep1688.i, %.preheader1102.thread.i ]
+  %.0939.lcssa19131926.i = phi ptr [ %.0939.lcssa.i, %.preheader1098.lr.ph.i ], [ %scevgep1692.i, %.preheader1102.thread.i ]
+  %.0936.lcssa19141925.i = phi ptr [ %.0936.lcssa.i, %.preheader1098.lr.ph.i ], [ %scevgep1696.i, %.preheader1102.thread.i ]
+  %.0925.lcssa19151924.i = phi ptr [ %.0925.lcssa.i, %.preheader1098.lr.ph.i ], [ %576, %.preheader1102.thread.i ]
+  %.0921.lcssa19161923.i = phi i32 [ %.0921.lcssa.i, %.preheader1098.lr.ph.i ], [ %268, %.preheader1102.thread.i ]
+  %606 = sub i32 %269, %.0921.lcssa19161923.i
   %607 = and i32 %606, -4
   %608 = zext i32 %607 to i64
   %609 = add nuw nsw i64 %608, 4
   %610 = mul nsw i64 %609, %252
-  %scevgep1703.i = getelementptr i8, ptr %.0945.lcssa18871904.i, i64 %610
-  %scevgep1704.i = getelementptr i8, ptr %.0942.lcssa18881903.i, i64 %610
-  %scevgep1705.i = getelementptr i8, ptr %.0939.lcssa18891902.i, i64 %610
-  %scevgep1706.i = getelementptr i8, ptr %.0936.lcssa18901901.i, i64 %610
-  %611 = add i32 %.0921.lcssa18921899.i, 4
+  %scevgep1703.i = getelementptr i8, ptr %.0945.lcssa19111928.i, i64 %610
+  %scevgep1704.i = getelementptr i8, ptr %.0942.lcssa19121927.i, i64 %610
+  %scevgep1705.i = getelementptr i8, ptr %.0939.lcssa19131926.i, i64 %610
+  %scevgep1706.i = getelementptr i8, ptr %.0936.lcssa19141925.i, i64 %610
+  %611 = add i32 %.0921.lcssa19161923.i, 4
   %612 = add i32 %611, %607
   br label %.preheader1101.i
 
@@ -1273,7 +1273,7 @@ _ZN4ncnn3MatD2Ev.exit1004.i:                      ; preds = %._crit_edge1337.i, 
   %.1943.lcssa.i = phi ptr [ %.0942.lcssa.i, %.preheader1102.i ], [ %scevgep1704.i, %.preheader1098.preheader.i ], [ %scevgep1688.i, %.preheader1102.thread.i ], [ %634, %._crit_edge.us1297.i ]
   %.1940.lcssa.i = phi ptr [ %.0939.lcssa.i, %.preheader1102.i ], [ %scevgep1705.i, %.preheader1098.preheader.i ], [ %scevgep1692.i, %.preheader1102.thread.i ], [ %635, %._crit_edge.us1297.i ]
   %.1937.lcssa.i = phi ptr [ %.0936.lcssa.i, %.preheader1102.i ], [ %scevgep1706.i, %.preheader1098.preheader.i ], [ %scevgep1696.i, %.preheader1102.thread.i ], [ %636, %._crit_edge.us1297.i ]
-  %.3928.lcssa.i = phi ptr [ %.0925.lcssa.i, %.preheader1102.i ], [ %.0925.lcssa18911900.i, %.preheader1098.preheader.i ], [ %576, %.preheader1102.thread.i ], [ %631, %._crit_edge.us1297.i ]
+  %.3928.lcssa.i = phi ptr [ %.0925.lcssa.i, %.preheader1102.i ], [ %.0925.lcssa19151924.i, %.preheader1098.preheader.i ], [ %576, %.preheader1102.thread.i ], [ %631, %._crit_edge.us1297.i ]
   %.1922.lcssa.i = phi i32 [ %.0921.lcssa.i, %.preheader1102.i ], [ %612, %.preheader1098.preheader.i ], [ %268, %.preheader1102.thread.i ], [ %637, %._crit_edge.us1297.i ]
   %640 = or disjoint i32 %.1922.lcssa.i, 1
   %641 = icmp slt i32 %640, %13
@@ -1348,8 +1348,8 @@ _ZN4ncnn3MatD2Ev.exit1004.i:                      ; preds = %._crit_edge1337.i, 
   %.6931.lcssa.i = phi ptr [ %.3928.lcssa.i, %.preheader1101.i ], [ %661, %._crit_edge.us1325.i ]
   %.2923.lcssa.i = phi i32 [ %.1922.lcssa.i, %.preheader1101.i ], [ %666, %._crit_edge.us1325.i ]
   %669 = icmp sge i32 %.2923.lcssa.i, %13
-  %brmerge2043.i = or i1 %247, %669
-  br i1 %brmerge2043.i, label %._crit_edge1337.i, label %.preheader1096.us.i
+  %brmerge2067.i = or i1 %247, %669
+  br i1 %brmerge2067.i, label %._crit_edge1337.i, label %.preheader1096.us.i
 
 .preheader1096.us.i:                              ; preds = %.preheader1100.i, %._crit_edge.us1338.i
   %.39241336.us.i = phi i32 [ %683, %._crit_edge.us1338.i ], [ %.2923.lcssa.i, %.preheader1100.i ]
@@ -1425,8 +1425,8 @@ _ZN4ncnn3MatD2Ev.exit.lr.ph.i:                    ; preds = %.preheader1087.i
   %704 = add i32 %13, -8
   %705 = lshr i32 %704, 1
   %706 = and i32 %705, 2147483644
-  %narrow1810.i = add nuw i32 %706, 4
-  %707 = zext i32 %narrow1810.i to i64
+  %narrow1834.i = add nuw i32 %706, 4
+  %707 = zext i32 %narrow1834.i to i64
   %708 = mul nsw i64 %707, %699
   %scevgep1773.i = getelementptr i8, ptr %688, i64 %708
   %709 = mul i32 %689, %.2.lcssa.i
@@ -1575,18 +1575,18 @@ _ZN4ncnn3MatD2Ev.exit1003.i:                      ; preds = %._crit_edge1400.i, 
   br i1 %517, label %.preheader1090.preheader.i, label %.preheader1090.us.i
 
 .preheader1090.preheader.i:                       ; preds = %.preheader1090.lr.ph.i, %.preheader1094.thread.i
-  %.0878.lcssa19271938.i = phi ptr [ %.0878.lcssa.i, %.preheader1090.lr.ph.i ], [ %scevgep1739.i, %.preheader1094.thread.i ]
-  %.0875.lcssa19281937.i = phi ptr [ %.0875.lcssa.i, %.preheader1090.lr.ph.i ], [ %scevgep1743.i, %.preheader1094.thread.i ]
-  %.0866.lcssa19291936.i = phi ptr [ %.0866.lcssa.i, %.preheader1090.lr.ph.i ], [ %736, %.preheader1094.thread.i ]
-  %.0862.lcssa19301935.i = phi i32 [ %.0862.lcssa.i, %.preheader1090.lr.ph.i ], [ %542, %.preheader1094.thread.i ]
-  %793 = sub i32 %543, %.0862.lcssa19301935.i
+  %.0878.lcssa19511962.i = phi ptr [ %.0878.lcssa.i, %.preheader1090.lr.ph.i ], [ %scevgep1739.i, %.preheader1094.thread.i ]
+  %.0875.lcssa19521961.i = phi ptr [ %.0875.lcssa.i, %.preheader1090.lr.ph.i ], [ %scevgep1743.i, %.preheader1094.thread.i ]
+  %.0866.lcssa19531960.i = phi ptr [ %.0866.lcssa.i, %.preheader1090.lr.ph.i ], [ %736, %.preheader1094.thread.i ]
+  %.0862.lcssa19541959.i = phi i32 [ %.0862.lcssa.i, %.preheader1090.lr.ph.i ], [ %542, %.preheader1094.thread.i ]
+  %793 = sub i32 %543, %.0862.lcssa19541959.i
   %794 = and i32 %793, -4
   %795 = zext i32 %794 to i64
   %796 = add nuw nsw i64 %795, 4
   %797 = mul nsw i64 %796, %524
-  %scevgep1749.i = getelementptr i8, ptr %.0878.lcssa19271938.i, i64 %797
-  %scevgep1750.i = getelementptr i8, ptr %.0875.lcssa19281937.i, i64 %797
-  %798 = add i32 %.0862.lcssa19301935.i, 4
+  %scevgep1749.i = getelementptr i8, ptr %.0878.lcssa19511962.i, i64 %797
+  %scevgep1750.i = getelementptr i8, ptr %.0875.lcssa19521961.i, i64 %797
+  %798 = add i32 %.0862.lcssa19541959.i, 4
   %799 = add i32 %798, %794
   br label %.preheader1093.i
 
@@ -1647,7 +1647,7 @@ _ZN4ncnn3MatD2Ev.exit1003.i:                      ; preds = %._crit_edge1400.i, 
 .preheader1093.i:                                 ; preds = %._crit_edge.us1370.i, %.preheader1090.preheader.i, %.preheader1094.thread.i, %.preheader1094.i
   %.1879.lcssa.i = phi ptr [ %.0878.lcssa.i, %.preheader1094.i ], [ %scevgep1749.i, %.preheader1090.preheader.i ], [ %scevgep1739.i, %.preheader1094.thread.i ], [ %825, %._crit_edge.us1370.i ]
   %.1876.lcssa.i = phi ptr [ %.0875.lcssa.i, %.preheader1094.i ], [ %scevgep1750.i, %.preheader1090.preheader.i ], [ %scevgep1743.i, %.preheader1094.thread.i ], [ %826, %._crit_edge.us1370.i ]
-  %.2868.lcssa.i = phi ptr [ %.0866.lcssa.i, %.preheader1094.i ], [ %.0866.lcssa19291936.i, %.preheader1090.preheader.i ], [ %736, %.preheader1094.thread.i ], [ %824, %._crit_edge.us1370.i ]
+  %.2868.lcssa.i = phi ptr [ %.0866.lcssa.i, %.preheader1094.i ], [ %.0866.lcssa19531960.i, %.preheader1090.preheader.i ], [ %736, %.preheader1094.thread.i ], [ %824, %._crit_edge.us1370.i ]
   %.1863.lcssa.i = phi i32 [ %.0862.lcssa.i, %.preheader1094.i ], [ %799, %.preheader1090.preheader.i ], [ %542, %.preheader1094.thread.i ], [ %827, %._crit_edge.us1370.i ]
   %830 = or disjoint i32 %.1863.lcssa.i, 1
   %831 = icmp slt i32 %830, %13
@@ -1704,8 +1704,8 @@ _ZN4ncnn3MatD2Ev.exit1003.i:                      ; preds = %._crit_edge1400.i, 
   %.4870.lcssa.i = phi ptr [ %.2868.lcssa.i, %.preheader1093.i ], [ %843, %._crit_edge.us1390.i ]
   %.2864.lcssa.i = phi i32 [ %.1863.lcssa.i, %.preheader1093.i ], [ %846, %._crit_edge.us1390.i ]
   %849 = icmp sge i32 %.2864.lcssa.i, %13
-  %brmerge2046.i = or i1 %517, %849
-  br i1 %brmerge2046.i, label %._crit_edge1400.i, label %.preheader1088.us.i
+  %brmerge2070.i = or i1 %517, %849
+  br i1 %brmerge2070.i, label %._crit_edge1400.i, label %.preheader1088.us.i
 
 .preheader1088.us.i:                              ; preds = %.preheader1092.i, %._crit_edge.us1401.i
   %.38651399.us.i = phi i32 [ %857, %._crit_edge.us1401.i ], [ %.2864.lcssa.i, %.preheader1092.i ]
@@ -1819,16 +1819,16 @@ _ZN4ncnn3MatD2Ev.exit.i:                          ; preds = %._crit_edge1459.i, 
   br i1 %696, label %.preheader1082.preheader.i, label %.preheader1082.us.i
 
 .preheader1082.preheader.i:                       ; preds = %.preheader1082.lr.ph.i, %.preheader1086.thread.i
-  %.0834.lcssa19541962.i = phi ptr [ %.0834.lcssa.i, %.preheader1082.lr.ph.i ], [ %scevgep1776.i, %.preheader1086.thread.i ]
-  %.0830.lcssa19551961.i = phi ptr [ %.0830.lcssa.i, %.preheader1082.lr.ph.i ], [ %877, %.preheader1086.thread.i ]
-  %.0826.lcssa19561960.i = phi i32 [ %.0826.lcssa.i, %.preheader1082.lr.ph.i ], [ %711, %.preheader1086.thread.i ]
-  %892 = sub i32 %712, %.0826.lcssa19561960.i
+  %.0834.lcssa19781986.i = phi ptr [ %.0834.lcssa.i, %.preheader1082.lr.ph.i ], [ %scevgep1776.i, %.preheader1086.thread.i ]
+  %.0830.lcssa19791985.i = phi ptr [ %.0830.lcssa.i, %.preheader1082.lr.ph.i ], [ %877, %.preheader1086.thread.i ]
+  %.0826.lcssa19801984.i = phi i32 [ %.0826.lcssa.i, %.preheader1082.lr.ph.i ], [ %711, %.preheader1086.thread.i ]
+  %892 = sub i32 %712, %.0826.lcssa19801984.i
   %893 = and i32 %892, -4
   %894 = zext i32 %893 to i64
   %895 = add nuw nsw i64 %894, 4
   %896 = mul nsw i64 %895, %701
-  %scevgep1783.i = getelementptr i8, ptr %.0834.lcssa19541962.i, i64 %896
-  %897 = add i32 %.0826.lcssa19561960.i, 4
+  %scevgep1783.i = getelementptr i8, ptr %.0834.lcssa19781986.i, i64 %896
+  %897 = add i32 %.0826.lcssa19801984.i, 4
   %898 = add i32 %897, %893
   br label %.preheader1085.i
 
@@ -1870,7 +1870,7 @@ _ZN4ncnn3MatD2Ev.exit.i:                          ; preds = %._crit_edge1459.i, 
 
 .preheader1085.i:                                 ; preds = %._crit_edge.us1434.i, %.preheader1082.preheader.i, %.preheader1086.thread.i, %.preheader1086.i
   %.1835.lcssa.i = phi ptr [ %.0834.lcssa.i, %.preheader1086.i ], [ %scevgep1783.i, %.preheader1082.preheader.i ], [ %scevgep1776.i, %.preheader1086.thread.i ], [ %907, %._crit_edge.us1434.i ]
-  %.3833.lcssa.i = phi ptr [ %.0830.lcssa.i, %.preheader1086.i ], [ %.0830.lcssa19551961.i, %.preheader1082.preheader.i ], [ %877, %.preheader1086.thread.i ], [ %905, %._crit_edge.us1434.i ]
+  %.3833.lcssa.i = phi ptr [ %.0830.lcssa.i, %.preheader1086.i ], [ %.0830.lcssa19791985.i, %.preheader1082.preheader.i ], [ %877, %.preheader1086.thread.i ], [ %905, %._crit_edge.us1434.i ]
   %.1827.lcssa.i = phi i32 [ %.0826.lcssa.i, %.preheader1086.i ], [ %898, %.preheader1082.preheader.i ], [ %711, %.preheader1086.thread.i ], [ %908, %._crit_edge.us1434.i ]
   %911 = or disjoint i32 %.1827.lcssa.i, 1
   %912 = icmp slt i32 %911, %13
@@ -1918,8 +1918,8 @@ _ZN4ncnn3MatD2Ev.exit.i:                          ; preds = %._crit_edge1459.i, 
   %.6.lcssa.i = phi ptr [ %.3833.lcssa.i, %.preheader1085.i ], [ %920, %._crit_edge.us1450.i ]
   %.2828.lcssa.i = phi i32 [ %.1827.lcssa.i, %.preheader1085.i ], [ %922, %._crit_edge.us1450.i ]
   %925 = icmp sge i32 %.2828.lcssa.i, %13
-  %brmerge2049.i = or i1 %696, %925
-  br i1 %brmerge2049.i, label %._crit_edge1459.i, label %.preheader.us.i
+  %brmerge2073.i = or i1 %696, %925
+  br i1 %brmerge2073.i, label %._crit_edge1459.i, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.preheader1084.i, %._crit_edge.us1460.i
   %.38291458.us.i = phi i32 [ %930, %._crit_edge.us1460.i ], [ %.2828.lcssa.i, %.preheader1084.i ]

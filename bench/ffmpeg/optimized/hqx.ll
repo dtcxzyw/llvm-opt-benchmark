@@ -284,12 +284,12 @@ switch.lookup:                                    ; preds = %129
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.hqx_decode_frame, i64 0, i64 %133
   %switch.load = load i32, ptr %switch.gep, align 4
   %134 = zext nneg i32 %130 to i64
-  %switch.gep116 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.hqx_decode_frame.2, i64 0, i64 %134
-  %switch.load117 = load ptr, ptr %switch.gep116, align 8
+  %switch.gep119 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.hqx_decode_frame.2, i64 0, i64 %134
+  %switch.load120 = load ptr, ptr %switch.gep119, align 8
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %switch.load, ptr %135, align 8, !tbaa !55
   %136 = getelementptr inbounds nuw i8, ptr %6, i64 33304
-  store ptr %switch.load117, ptr %136, align 8, !tbaa !56
+  store ptr %switch.load120, ptr %136, align 8, !tbaa !56
   %137 = tail call i32 @ff_thread_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #8
   %138 = icmp slt i32 %137, 0
   br i1 %138, label %144, label %139
@@ -1430,7 +1430,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_slice_thread(ptr noundef %
   %55 = sdiv i32 %48, %52
   %56 = mul nsw i32 %52, %55
   %.recomposed = srem i32 %44, %50
-  %.recomposed29 = srem i32 %48, %52
+  %.recomposed34 = srem i32 %48, %52
   %57 = mul nsw i32 %48, %44
   %58 = add nsw i32 %57, 479
   %59 = sdiv i32 %58, 480
@@ -1487,7 +1487,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_slice_thread(ptr noundef %
   %87 = mul nsw i32 %86, %52
   %88 = srem i32 %.095.i, %65
   %.not.i = icmp slt i32 %87, %56
-  %..i = select i1 %.not.i, i32 %52, i32 %.recomposed29
+  %..i = select i1 %.not.i, i32 %52, i32 %.recomposed34
   %.pn97.i = mul nsw i32 %..i, %50
   %.092.i = srem i32 %88, %.pn97.i
   %.pn.i = sdiv i32 %88, %.pn97.i

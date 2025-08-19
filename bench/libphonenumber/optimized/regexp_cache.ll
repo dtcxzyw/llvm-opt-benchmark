@@ -3106,11 +3106,11 @@ _ZNKSt3tr18__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsI
 
 _ZNKSt3tr110_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_PKN4i18n12phonenumbers6RegExpEESaISE_ESt10_Select1stISE_ESt8equal_toIS6_ENS_4hashIS6_EENS_8__detail18_Mod_range_hashingENSM_20_Default_ranged_hashENSM_20_Prime_rehash_policyELb0ELb0ELb1EE12_M_find_nodeEPNSM_10_Hash_nodeISE_Lb0EEERS8_m.exit: ; preds = %_ZNKSt3tr18__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS7_PKN4i18n12phonenumbers6RegExpEESt10_Select1stISF_ESt8equal_toIS7_ENS_4hashIS7_EENS0_18_Mod_range_hashingENS0_20_Default_ranged_hashELb0EE10_M_compareERS9_mPNS0_10_Hash_nodeISF_Lb0EEE.exit.i, %.lr.ph.split.us.i, %.critedge
   %.07.lcssa.i.sink = phi ptr [ %52, %.critedge ], [ %.0710.us.i, %.lr.ph.split.us.i ], [ %.0710.i, %_ZNKSt3tr18__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS7_PKN4i18n12phonenumbers6RegExpEESt10_Select1stISF_ESt8equal_toIS7_ENS_4hashIS7_EENS0_18_Mod_range_hashingENS0_20_Default_ranged_hashELb0EE10_M_compareERS9_mPNS0_10_Hash_nodeISF_Lb0EEE.exit.i ]
-  %.sink33 = phi ptr [ %53, %.critedge ], [ %34, %.lr.ph.split.us.i ], [ %34, %_ZNKSt3tr18__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS7_PKN4i18n12phonenumbers6RegExpEESt10_Select1stISF_ESt8equal_toIS7_ENS_4hashIS7_EENS0_18_Mod_range_hashingENS0_20_Default_ranged_hashELb0EE10_M_compareERS9_mPNS0_10_Hash_nodeISF_Lb0EEE.exit.i ]
+  %.sink37 = phi ptr [ %53, %.critedge ], [ %34, %.lr.ph.split.us.i ], [ %34, %_ZNKSt3tr18__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS7_PKN4i18n12phonenumbers6RegExpEESt10_Select1stISF_ESt8equal_toIS7_ENS_4hashIS7_EENS0_18_Mod_range_hashingENS0_20_Default_ranged_hashELb0EE10_M_compareERS9_mPNS0_10_Hash_nodeISF_Lb0EEE.exit.i ]
   %.sink = phi i8 [ 1, %.critedge ], [ 0, %.lr.ph.split.us.i ], [ 0, %_ZNKSt3tr18__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS7_PKN4i18n12phonenumbers6RegExpEESt10_Select1stISF_ESt8equal_toIS7_ENS_4hashIS7_EENS0_18_Mod_range_hashingENS0_20_Default_ranged_hashELb0EE10_M_compareERS9_mPNS0_10_Hash_nodeISF_Lb0EEE.exit.i ]
   store ptr %.07.lcssa.i.sink, ptr %0, align 8
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink33, ptr %.sroa.417.0..sroa_idx, align 8
+  store ptr %.sink37, ptr %.sroa.417.0..sroa_idx, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %54, align 8, !tbaa !99
   ret void
@@ -3173,9 +3173,9 @@ _ZNKSt3tr18__detail20_Prime_rehash_policy11_M_next_bktEm.exit.i: ; preds = %_ZSt
   br label %_ZNKSt3tr18__detail20_Prime_rehash_policy14_M_need_rehashEmmm.exit
 
 _ZNKSt3tr18__detail20_Prime_rehash_policy14_M_need_rehashEmmm.exit: ; preds = %12, %_ZNKSt3tr18__detail20_Prime_rehash_policy11_M_next_bktEm.exit.i
-  %.sink24.i = phi float [ %38, %_ZNKSt3tr18__detail20_Prime_rehash_policy11_M_next_bktEm.exit.i ], [ %20, %12 ]
+  %.sink25.i = phi float [ %38, %_ZNKSt3tr18__detail20_Prime_rehash_policy11_M_next_bktEm.exit.i ], [ %20, %12 ]
   %.sroa.4.1.ph.i = phi i64 [ %37, %_ZNKSt3tr18__detail20_Prime_rehash_policy11_M_next_bktEm.exit.i ], [ 0, %12 ]
-  %39 = fmul float %18, %.sink24.i
+  %39 = fmul float %18, %.sink25.i
   %40 = tail call float @llvm.ceil.f32(float %39)
   %41 = fptoui float %40 to i64
   store i64 %41, ptr %8, align 8, !tbaa !39

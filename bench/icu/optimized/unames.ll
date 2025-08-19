@@ -687,8 +687,8 @@ _ZN6icu_77L14getCharCatNameEi.exit:               ; preds = %_ZN6icu_77L10getCha
 
 ._crit_edge74:                                    ; preds = %._crit_edge74.loopexit, %40
   %.047.lcssa = phi i32 [ 4, %40 ], [ %43, %._crit_edge74.loopexit ]
-  %.not86 = icmp eq i16 %.354, 0
-  br i1 %.not86, label %.critedge.thread, label %.lr.ph82.preheader
+  %.not92 = icmp eq i16 %.354, 0
+  br i1 %.not92, label %.critedge.thread, label %.lr.ph82.preheader
 
 .lr.ph82.preheader:                               ; preds = %._crit_edge74
   %44 = sext i32 %.047.lcssa to i64
@@ -906,9 +906,9 @@ define i32 @u_charFromName_77(i32 noundef %0, ptr noundef readonly captures(addr
   br i1 %or.cond104, label %70, label %.loopexit.sink.split
 
 70:                                               ; preds = %68, %62
-  %.sink201 = phi i32 [ -48, %62 ], [ -87, %68 ]
+  %.sink217 = phi i32 [ -48, %62 ], [ -87, %68 ]
   %71 = shl i32 %.087, 4
-  %72 = add i32 %71, %.sink201
+  %72 = add i32 %71, %.sink217
   %.188 = add i32 %72, %66
   %73 = icmp sgt i32 %.188, 1114111
   br i1 %73, label %.loopexit.sink.split, label %60, !llvm.loop !44
@@ -949,8 +949,8 @@ define i32 @u_charFromName_77(i32 noundef %0, ptr noundef readonly captures(addr
   %.not100140 = icmp ne i32 %93, 0
   %94 = and i32 %0, -3
   %or.cond.not.i = icmp eq i32 %94, 0
-  %or.cond202 = and i1 %.not100140, %or.cond.not.i
-  br i1 %or.cond202, label %.lr.ph.split.us.preheader, label %._crit_edge
+  %or.cond218 = and i1 %.not100140, %or.cond.not.i
+  br i1 %or.cond218, label %.lr.ph.split.us.preheader, label %._crit_edge
 
 .lr.ph.split.us.preheader:                        ; preds = %87
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
@@ -1093,8 +1093,8 @@ define i32 @u_charFromName_77(i32 noundef %0, ptr noundef readonly captures(addr
   br i1 %157, label %._crit_edge148.thread.i.us, label %160
 
 ._crit_edge148.thread.i.us:                       ; preds = %._crit_edge148.i.us, %._crit_edge.i.us
-  %.084.lcssa182.i.us = phi ptr [ %.185.lcssa.i.us, %._crit_edge148.i.us ], [ %.282.i.us, %._crit_edge.i.us ]
-  %158 = load i8, ptr %.084.lcssa182.i.us, align 1, !tbaa !26
+  %.084.lcssa192.i.us = phi ptr [ %.185.lcssa.i.us, %._crit_edge148.i.us ], [ %.282.i.us, %._crit_edge.i.us ]
+  %158 = load i8, ptr %.084.lcssa192.i.us, align 1, !tbaa !26
   %159 = icmp eq i8 %158, 0
   br i1 %159, label %.thread115.i.us, label %160
 
@@ -1160,9 +1160,9 @@ define i32 @u_charFromName_77(i32 noundef %0, ptr noundef readonly captures(addr
   br i1 %or.cond8.i.us, label %180, label %_ZN6icu_77L11findAlgNameEPNS_16AlgorithmicRangeE15UCharNameChoicePKc.exit.thread.us
 
 180:                                              ; preds = %178, %.lr.ph156.i.us
-  %.sink199.i.us = phi i32 [ -48, %.lr.ph156.i.us ], [ -55, %178 ]
+  %.sink209.i.us = phi i32 [ -48, %.lr.ph156.i.us ], [ -55, %178 ]
   %181 = shl i32 %.090153.i.us, 4
-  %182 = add nsw i32 %.sink199.i.us, %176
+  %182 = add nsw i32 %.sink209.i.us, %176
   %183 = or i32 %182, %181
   %184 = add nuw nsw i16 %.095152.i.us, 1
   %exitcond179.not.i.us = icmp eq i16 %184, %173
@@ -1487,30 +1487,30 @@ _ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit192.thread: ; pr
   %111 = load i16, ptr %.0135, align 2, !tbaa !33
   %112 = zext i16 %111 to i32
   %113 = icmp samesign ugt i32 %58, %112
-  br i1 %113, label %.lr.ph297, label %.critedge
+  br i1 %113, label %.lr.ph319, label %.critedge
 
-.lr.ph297:                                        ; preds = %.lr.ph, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203.thread
+.lr.ph319:                                        ; preds = %.lr.ph, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203.thread
   %114 = phi i32 [ %145, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203.thread ], [ %112, %.lr.ph ]
-  %.2137248296 = phi ptr [ %121, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203.thread ], [ %.0135, %.lr.ph ]
+  %.2137248318 = phi ptr [ %121, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203.thread ], [ %.0135, %.lr.ph ]
   %115 = shl nuw nsw i32 %114, 5
   %116 = or disjoint i32 %115, 31
-  %117 = getelementptr i8, ptr %.2137248296, i64 2
+  %117 = getelementptr i8, ptr %.2137248318, i64 2
   %.2137.val = load i16, ptr %117, align 2, !tbaa !33
-  %118 = getelementptr i8, ptr %.2137248296, i64 4
+  %118 = getelementptr i8, ptr %.2137248318, i64 4
   %.2137.val178 = load i16, ptr %118, align 2, !tbaa !33
   %119 = call fastcc noundef signext i8 @_ZN6icu_77L14enumGroupNamesEPNS_10UCharNamesEPKtiiPFaPvi15UCharNameChoicePKciES4_S5_(ptr noundef %0, i16 %.2137.val, i16 %.2137.val178, i32 noundef %115, i32 noundef %116, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   %.not164 = icmp eq i8 %119, 0
   br i1 %.not164, label %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit214, label %120
 
-120:                                              ; preds = %.lr.ph297
-  %121 = getelementptr inbounds nuw i8, ptr %.2137248296, i64 6
+120:                                              ; preds = %.lr.ph319
+  %121 = getelementptr inbounds nuw i8, ptr %.2137248318, i64 6
   %122 = icmp ult ptr %121, %75
   br i1 %122, label %123, label %.critedge172
 
 123:                                              ; preds = %120
   %124 = load i16, ptr %121, align 2, !tbaa !33
   %125 = zext i16 %124 to i32
-  %126 = load i16, ptr %.2137248296, align 2, !tbaa !33
+  %126 = load i16, ptr %.2137248318, align 2, !tbaa !33
   %127 = zext i16 %126 to i32
   %128 = add nuw nsw i32 %127, 1
   %129 = icmp samesign ult i32 %128, %125
@@ -1562,7 +1562,7 @@ _ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203.thread: ; pr
   %144 = load i16, ptr %121, align 2, !tbaa !33
   %145 = zext i16 %144 to i32
   %146 = icmp samesign ugt i32 %58, %145
-  br i1 %146, label %.lr.ph297, label %.critedge, !llvm.loop !58
+  br i1 %146, label %.lr.ph319, label %.critedge, !llvm.loop !58
 
 .critedge:                                        ; preds = %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203.thread, %.lr.ph
   %.4132249.lcssa = phi i32 [ %.0128, %.lr.ph ], [ %115, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203.thread ]
@@ -1637,8 +1637,8 @@ _ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203.thread: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit214
 
-_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit214: ; preds = %.lr.ph297, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit192, %.critedge172, %81, %149, %.sink.split.i211, %161, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit, %160, %64
-  %.2 = phi i8 [ %67, %64 ], [ 0, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit ], [ 1, %160 ], [ 1, %161 ], [ %.1.ph.i212, %.sink.split.i211 ], [ 0, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203 ], [ 0, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit192 ], [ 1, %.critedge172 ], [ 0, %81 ], [ %153, %149 ], [ 0, %.lr.ph297 ]
+_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit214: ; preds = %.lr.ph319, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit192, %.critedge172, %81, %149, %.sink.split.i211, %161, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit, %160, %64
+  %.2 = phi i8 [ %67, %64 ], [ 0, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit ], [ 1, %160 ], [ 1, %161 ], [ %.1.ph.i212, %.sink.split.i211 ], [ 0, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203 ], [ 0, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit192 ], [ 1, %.critedge172 ], [ 0, %81 ], [ %153, %149 ], [ 0, %.lr.ph319 ]
   ret i8 %.2
 }
 
@@ -2618,7 +2618,7 @@ _ZN6icu_77L19calcStringSetLengthEPjPKc.exit57.i.i: ; preds = %_ZN6icu_77L19calcS
 
 _ZN6icu_77L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.thread.i: ; preds = %315, %249
   %.041.lcssa.i.ph.i = phi i32 [ %.1.us.i.i, %249 ], [ %.1.i.i, %315 ]
-  %spec.select123.i = tail call i32 @llvm.smax.i32(i32 %.041.lcssa.i.ph.i, i32 %.1105.i)
+  %spec.select147.i = tail call i32 @llvm.smax.i32(i32 %.041.lcssa.i.ph.i, i32 %.1105.i)
   br label %_ZN6icu_77L18expandGroupLengthsEPKhPtS2_.exit.i
 
 _ZN6icu_77L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.i: ; preds = %.lr.ph.split.i.i, %.lr.ph.split.us.i.i
@@ -2855,7 +2855,7 @@ _ZN6icu_77L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit93.i: ; preds = %441, %.lr
   br label %_ZN6icu_77L18expandGroupLengthsEPKhPtS2_.exit.i
 
 _ZN6icu_77L18expandGroupLengthsEPKhPtS2_.exit.i:  ; preds = %_ZN6icu_77L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit93.i, %_ZN6icu_77L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.i, %_ZN6icu_77L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.thread.i, %_ZN6icu_77L18expandGroupLengthsEPKhPtS2_.exit.preheader.i
-  %.2.i = phi i32 [ %.1105.i, %_ZN6icu_77L18expandGroupLengthsEPKhPtS2_.exit.preheader.i ], [ %spec.select.i28, %_ZN6icu_77L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.i ], [ %spec.select48.i30, %_ZN6icu_77L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit93.i ], [ %spec.select123.i, %_ZN6icu_77L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.thread.i ]
+  %.2.i = phi i32 [ %.1105.i, %_ZN6icu_77L18expandGroupLengthsEPKhPtS2_.exit.preheader.i ], [ %spec.select.i28, %_ZN6icu_77L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.i ], [ %spec.select48.i30, %_ZN6icu_77L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit93.i ], [ %spec.select147.i, %_ZN6icu_77L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.thread.i ]
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i22, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, 32
   br i1 %exitcond.not.i26, label %442, label %_ZN6icu_77L18expandGroupLengthsEPKhPtS2_.exit.preheader.i, !llvm.loop !75
@@ -3143,11 +3143,11 @@ define i32 @uchar_swapNames_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   br i1 %119, label %.lr.ph315.preheader, label %._crit_edge
 
 .lr.ph315.preheader:                              ; preds = %91, %.preheader305
-  %.1270.lcssa382 = phi i32 [ %., %.preheader305 ], [ 0, %91 ]
-  %120 = shl nuw nsw i32 %.1270.lcssa382, 1
+  %.1270.lcssa397 = phi i32 [ %., %.preheader305 ], [ 0, %91 ]
+  %120 = shl nuw nsw i32 %.1270.lcssa397, 1
   %121 = zext nneg i32 %120 to i64
   %scevgep = getelementptr i8, ptr %6, i64 %121
-  %122 = shl nuw nsw i32 %.1270.lcssa382, 1
+  %122 = shl nuw nsw i32 %.1270.lcssa397, 1
   %narrow = sub nuw nsw i32 1024, %122
   %123 = zext nneg i32 %narrow to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %scevgep, i8 0, i64 %123, i1 false), !tbaa !33
@@ -3350,14 +3350,14 @@ define i32 @uchar_swapNames_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
 
 221:                                              ; preds = %._crit_edge335, %165
   %222 = load ptr, ptr %58, align 8, !tbaa !85
-  %223 = zext i32 %62 to i64
+  %223 = zext nneg i32 %62 to i64
   %224 = getelementptr inbounds nuw i8, ptr %49, i64 %223
   %225 = load i32, ptr %224, align 4, !tbaa !12
   %226 = tail call noundef i32 %222(i32 noundef %225)
   %227 = load ptr, ptr %103, align 8, !tbaa !89
   %228 = getelementptr inbounds nuw i8, ptr %52, i64 %223
   %229 = tail call noundef i32 %227(ptr noundef nonnull %0, ptr noundef nonnull %224, i32 noundef 4, ptr noundef %228, ptr noundef nonnull %4)
-  %230 = add i32 %62, 4
+  %230 = add nuw i32 %62, 4
   %.not348 = icmp eq i32 %226, 0
   br i1 %.not348, label %._crit_edge340, label %.lr.ph339
 
@@ -3385,7 +3385,7 @@ define i32 @uchar_swapNames_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %241 = load i16, ptr %240, align 2, !tbaa !17
   %242 = tail call noundef zeroext i16 %239(i16 noundef zeroext %241)
   %243 = zext i16 %242 to i32
-  %244 = add i32 %.3337, %243
+  %244 = add nuw i32 %.3337, %243
   %245 = load ptr, ptr %103, align 8, !tbaa !89
   %246 = tail call noundef i32 %245(ptr noundef nonnull %0, ptr noundef nonnull %237, i32 noundef 8, ptr noundef %238, ptr noundef nonnull %4)
   %247 = load ptr, ptr %112, align 8, !tbaa !90
@@ -3428,7 +3428,7 @@ define i32 @uchar_swapNames_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %273 = getelementptr inbounds nuw i16, ptr %267, i64 %271
   %274 = add nuw nsw i64 %236, 12
   %275 = add nuw nsw i64 %274, %.idx
-  %276 = trunc i64 %275 to i32
+  %276 = trunc nuw i64 %275 to i32
   %277 = sub i32 %244, %276
   %278 = zext i32 %277 to i64
   br label %279
@@ -3443,14 +3443,14 @@ define i32 @uchar_swapNames_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %282 = getelementptr inbounds nuw i8, ptr %272, i64 %281
   %283 = load i8, ptr %282, align 1, !tbaa !26
   %.not292 = icmp eq i8 %283, 0
-  br i1 %.not292, label %.critedge.split.loop.exit392, label %279, !llvm.loop !99
+  br i1 %.not292, label %.critedge.split.loop.exit407, label %279, !llvm.loop !99
 
-.critedge.split.loop.exit392:                     ; preds = %280
+.critedge.split.loop.exit407:                     ; preds = %280
   %284 = trunc nuw i64 %indvars.iv375 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %279, %.critedge.split.loop.exit392
-  %.1278.lcssa = phi i32 [ %284, %.critedge.split.loop.exit392 ], [ 0, %279 ]
+.critedge:                                        ; preds = %279, %.critedge.split.loop.exit407
+  %.1278.lcssa = phi i32 [ %284, %.critedge.split.loop.exit407 ], [ 0, %279 ]
   %285 = load ptr, ptr %231, align 8, !tbaa !98
   %286 = tail call noundef i32 %285(ptr noundef nonnull %0, ptr noundef nonnull %272, i32 noundef %.1278.lcssa, ptr noundef nonnull %273, ptr noundef nonnull %4)
   br label %289
@@ -3968,21 +3968,21 @@ define internal fastcc noundef zeroext i16 @_ZN6icu_77L10expandNameEPNS_10UCharN
 
 14:                                               ; preds = %6
   %15 = icmp ult i16 %9, 60
-  br i1 %15, label %.preheader346, label %16
+  br i1 %15, label %.preheader355, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %18 = load i16, ptr %17, align 2, !tbaa !33
   %19 = icmp eq i16 %18, -1
-  br i1 %19, label %.preheader346, label %.loopexit99
+  br i1 %19, label %.preheader355, label %.loopexit99
 
-.preheader346:                                    ; preds = %16, %14
+.preheader355:                                    ; preds = %16, %14
   br label %20
 
-20:                                               ; preds = %.preheader346, %.loopexit101
-  %.166 = phi i16 [ %.368, %.loopexit101 ], [ %2, %.preheader346 ]
-  %.1 = phi ptr [ %.3, %.loopexit101 ], [ %1, %.preheader346 ]
-  %.060 = phi i32 [ %26, %.loopexit101 ], [ %3, %.preheader346 ]
+20:                                               ; preds = %.preheader355, %.loopexit101
+  %.166 = phi i16 [ %.368, %.loopexit101 ], [ %2, %.preheader355 ]
+  %.1 = phi ptr [ %.3, %.loopexit101 ], [ %1, %.preheader355 ]
+  %.060 = phi i32 [ %26, %.loopexit101 ], [ %3, %.preheader355 ]
   %.old5.not = icmp eq i16 %.166, 0
   br i1 %.old5.not, label %.loopexit101, label %.preheader
 
@@ -4438,8 +4438,8 @@ _ZN6icu_77L18expandGroupLengthsEPKhPtS2_.exit:    ; preds = %55
   br i1 %.not48, label %89, label %.thread
 
 .thread:                                          ; preds = %.lr.ph.split, %83
-  %.04164 = phi i16 [ %84, %83 ], [ %81, %.lr.ph.split ]
-  %87 = zext i16 %.04164 to i32
+  %.04182 = phi i16 [ %84, %83 ], [ %81, %.lr.ph.split ]
+  %87 = zext i16 %.04182 to i32
   %88 = call noundef signext i8 %3(ptr noundef %4, i32 noundef %.04229, i32 noundef 2, ptr noundef nonnull %9, i32 noundef %87)
   %.not49 = icmp eq i8 %88, 0
   br i1 %.not49, label %.split.us, label %89

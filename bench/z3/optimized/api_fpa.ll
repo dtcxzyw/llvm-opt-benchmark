@@ -9397,22 +9397,22 @@ _ZN10scoped_mpfC2ER11mpf_manager.exit:            ; preds = %59
 
 71:                                               ; preds = %65
   %72 = invoke noundef zeroext i1 @_ZN11mpf_manager6is_posERK3mpf(ptr noundef nonnull align 8 dereferenceable(840) %21, ptr noundef nonnull align 8 dereferenceable(32) %60)
-          to label %.invoke85 unwind label %76
+          to label %.invoke88 unwind label %76
 
-.invoke85:                                        ; preds = %71
+.invoke88:                                        ; preds = %71
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %not. = xor i1 %72, true
   %74 = zext i1 %not. to i64
   %75 = invoke noundef ptr @_ZNK7bv_util10mk_numeralEmj(ptr noundef nonnull align 8 dereferenceable(24) %73, i64 noundef %74, i32 noundef 1)
           to label %78 unwind label %76
 
-76:                                               ; preds = %.invoke85, %78, %71
+76:                                               ; preds = %.invoke88, %78, %71
   %77 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI12z3_exception
   br label %92
 
-78:                                               ; preds = %.invoke85
+78:                                               ; preds = %.invoke88
   invoke void @_ZN3api7context14save_ast_trailEP3ast(ptr noundef nonnull align 8 dereferenceable(3056) %0, ptr noundef %75)
           to label %79 unwind label %76
 
@@ -11578,7 +11578,7 @@ _ZN10scoped_mpfC2ER11mpf_manager.exit:            ; preds = %59
           to label %88 unwind label %93
 
 88:                                               ; preds = %86
-  br i1 %87, label %.invoke93, label %89
+  br i1 %87, label %.invoke107, label %89
 
 89:                                               ; preds = %88
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -11586,7 +11586,7 @@ _ZN10scoped_mpfC2ER11mpf_manager.exit:            ; preds = %59
   %92 = invoke noundef i64 @_ZN11mpf_manager8bias_expEjl(ptr noundef nonnull align 8 dereferenceable(840) %24, i32 noundef %82, i64 noundef %91)
           to label %110 unwind label %93
 
-93:                                               ; preds = %.invoke93, %105, %102, %98, %95, %89, %86, %83
+93:                                               ; preds = %.invoke107, %105, %102, %98, %95, %89, %86, %83
   %94 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI12z3_exception
@@ -11604,9 +11604,9 @@ _ZN10scoped_mpfC2ER11mpf_manager.exit:            ; preds = %59
           to label %100 unwind label %93
 
 100:                                              ; preds = %98
-  br i1 %99, label %.invoke93, label %102
+  br i1 %99, label %.invoke107, label %102
 
-.invoke93:                                        ; preds = %88, %100
+.invoke107:                                       ; preds = %88, %100
   %101 = invoke noundef i64 @_ZN11mpf_manager10mk_top_expEj(ptr noundef nonnull align 8 dereferenceable(840) %24, i32 noundef %82)
           to label %110 unwind label %93
 
@@ -11626,8 +11626,8 @@ _ZN10scoped_mpfC2ER11mpf_manager.exit:            ; preds = %59
   %109 = load i64, ptr %108, align 8, !tbaa !265
   br label %110
 
-110:                                              ; preds = %.invoke93, %97, %107, %105, %85, %89
-  %.054 = phi i64 [ 0, %85 ], [ %92, %89 ], [ 0, %97 ], [ %109, %107 ], [ %106, %105 ], [ %101, %.invoke93 ]
+110:                                              ; preds = %.invoke107, %97, %107, %105, %85, %89
+  %.054 = phi i64 [ 0, %85 ], [ %92, %89 ], [ 0, %97 ], [ %109, %107 ], [ %106, %105 ], [ %101, %.invoke107 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5)
           to label %111 unwind label %179
@@ -12122,7 +12122,7 @@ _ZN10scoped_mpfC2ER11mpf_manager.exit:            ; preds = %61
           to label %90 unwind label %95
 
 90:                                               ; preds = %88
-  br i1 %89, label %.invoke87, label %91
+  br i1 %89, label %.invoke91, label %91
 
 91:                                               ; preds = %90
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -12130,7 +12130,7 @@ _ZN10scoped_mpfC2ER11mpf_manager.exit:            ; preds = %61
   %94 = invoke noundef i64 @_ZN11mpf_manager8bias_expEjl(ptr noundef nonnull align 8 dereferenceable(840) %25, i32 noundef %84, i64 noundef %93)
           to label %112 unwind label %95
 
-95:                                               ; preds = %.invoke87, %107, %104, %100, %97, %91, %88, %85
+95:                                               ; preds = %.invoke91, %107, %104, %100, %97, %91, %88, %85
   %96 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI12z3_exception
@@ -12148,9 +12148,9 @@ _ZN10scoped_mpfC2ER11mpf_manager.exit:            ; preds = %61
           to label %102 unwind label %95
 
 102:                                              ; preds = %100
-  br i1 %101, label %.invoke87, label %104
+  br i1 %101, label %.invoke91, label %104
 
-.invoke87:                                        ; preds = %90, %102
+.invoke91:                                        ; preds = %90, %102
   %103 = invoke noundef i64 @_ZN11mpf_manager10mk_top_expEj(ptr noundef nonnull align 8 dereferenceable(840) %25, i32 noundef %84)
           to label %112 unwind label %95
 
@@ -12170,9 +12170,9 @@ _ZN10scoped_mpfC2ER11mpf_manager.exit:            ; preds = %61
   %111 = load i64, ptr %110, align 8, !tbaa !265
   br label %112
 
-112:                                              ; preds = %.invoke87, %91, %87, %107, %109, %99, %77
-  %storemerge75 = phi i64 [ 0, %77 ], [ 0, %87 ], [ %94, %91 ], [ 0, %99 ], [ %111, %109 ], [ %108, %107 ], [ %103, %.invoke87 ]
-  %.2 = phi i1 [ false, %77 ], [ true, %87 ], [ true, %91 ], [ true, %99 ], [ true, %109 ], [ true, %107 ], [ true, %.invoke87 ]
+112:                                              ; preds = %.invoke91, %91, %87, %107, %109, %99, %77
+  %storemerge75 = phi i64 [ 0, %77 ], [ 0, %87 ], [ %94, %91 ], [ 0, %99 ], [ %111, %109 ], [ %108, %107 ], [ %103, %.invoke91 ]
+  %.2 = phi i1 [ false, %77 ], [ true, %87 ], [ true, %91 ], [ true, %99 ], [ true, %109 ], [ true, %107 ], [ true, %.invoke91 ]
   store i64 %storemerge75, ptr %2, align 8, !tbaa !265
   %113 = load ptr, ptr %5, align 8, !tbaa !178
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 728
@@ -12468,7 +12468,7 @@ _ZN10scoped_mpfC2ER11mpf_manager.exit:            ; preds = %60
           to label %93 unwind label %98
 
 93:                                               ; preds = %91
-  br i1 %92, label %.invoke106, label %94
+  br i1 %92, label %.invoke109, label %94
 
 94:                                               ; preds = %93
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -12476,7 +12476,7 @@ _ZN10scoped_mpfC2ER11mpf_manager.exit:            ; preds = %60
   %97 = invoke noundef i64 @_ZN11mpf_manager8bias_expEjl(ptr noundef nonnull align 8 dereferenceable(840) %22, i32 noundef %87, i64 noundef %96)
           to label %115 unwind label %98
 
-98:                                               ; preds = %.invoke106, %110, %107, %103, %100, %94, %91, %88
+98:                                               ; preds = %.invoke109, %110, %107, %103, %100, %94, %91, %88
   %99 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI12z3_exception
@@ -12494,9 +12494,9 @@ _ZN10scoped_mpfC2ER11mpf_manager.exit:            ; preds = %60
           to label %105 unwind label %98
 
 105:                                              ; preds = %103
-  br i1 %104, label %.invoke106, label %107
+  br i1 %104, label %.invoke109, label %107
 
-.invoke106:                                       ; preds = %93, %105
+.invoke109:                                       ; preds = %93, %105
   %106 = invoke noundef i64 @_ZN11mpf_manager10mk_top_expEj(ptr noundef nonnull align 8 dereferenceable(840) %22, i32 noundef %87)
           to label %115 unwind label %98
 
@@ -12516,8 +12516,8 @@ _ZN10scoped_mpfC2ER11mpf_manager.exit:            ; preds = %60
   %114 = load i64, ptr %113, align 8, !tbaa !265
   br label %115
 
-115:                                              ; preds = %.invoke106, %102, %112, %110, %90, %94
-  %.074 = phi i64 [ 0, %90 ], [ %97, %94 ], [ 0, %102 ], [ %114, %112 ], [ %111, %110 ], [ %106, %.invoke106 ]
+115:                                              ; preds = %.invoke109, %102, %112, %110, %90, %94
+  %.074 = phi i64 [ 0, %90 ], [ %97, %94 ], [ 0, %102 ], [ %114, %112 ], [ %111, %110 ], [ %106, %.invoke109 ]
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %117 = invoke noundef ptr @_ZNK7bv_util10mk_numeralEmj(ptr noundef nonnull align 8 dereferenceable(24) %116, i64 noundef %.074, i32 noundef %87)
           to label %118 unwind label %121

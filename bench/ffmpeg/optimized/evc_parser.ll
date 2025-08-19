@@ -496,8 +496,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_nal_unit(ptr noundef
   %96 = icmp ult i8 %94, 3
   %switch.idx.cast = zext i8 %94 to i32
   %switch.offset = sub nsw i32 3, %switch.idx.cast
-  %.sink121 = select i1 %96, i32 %switch.offset, i32 0
-  store i32 %.sink121, ptr %95, align 8, !tbaa !75
+  %.sink131 = select i1 %96, i32 %switch.offset, i32 0
+  store i32 %.sink131, ptr %95, align 8, !tbaa !75
   %97 = getelementptr inbounds nuw i8, ptr %64, i64 1
   %98 = load i8, ptr %97, align 1, !tbaa !76
   %99 = zext i8 %98 to i32
@@ -549,9 +549,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_nal_unit(ptr noundef
   %switch.shifted = lshr i16 343, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   %or.cond = select i1 %125, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup128, label %132
+  br i1 %or.cond, label %switch.lookup138, label %132
 
-switch.lookup128:                                 ; preds = %121
+switch.lookup138:                                 ; preds = %121
   %126 = zext nneg i8 %123 to i64
   %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.parse_nal_unit, i64 0, i64 %126
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -563,7 +563,7 @@ switch.lookup128:                                 ; preds = %121
   store i32 %131, ptr %124, align 8, !tbaa !83
   br label %132
 
-132:                                              ; preds = %121, %switch.lookup128
+132:                                              ; preds = %121, %switch.lookup138
   %133 = icmp eq i32 %31, 1
   %134 = zext i1 %133 to i32
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 232

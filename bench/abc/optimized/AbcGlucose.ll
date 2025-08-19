@@ -717,8 +717,8 @@ _ZN5Gluco3vecIiE5clearEb.exit:                    ; preds = %22, %.preheader.i
   %32 = sext i32 %13 to i64
   %33 = sext i32 %3 to i64
   %wide.trip.count98 = zext nneg i32 %23 to i64
-  %invariant.gep113 = getelementptr i32, ptr %1, i64 %32
-  %invariant.gep115 = getelementptr i32, ptr %1, i64 %33
+  %invariant.gep118 = getelementptr i32, ptr %1, i64 %32
+  %invariant.gep120 = getelementptr i32, ptr %1, i64 %33
   br label %.lr.ph87
 
 34:                                               ; preds = %.lr.ph, %_ZN5Gluco3vecIiE4pushERKi.exit
@@ -784,15 +784,15 @@ _ZN5Gluco3vecIiE4pushERKi.exit:                   ; preds = %34, %._ZN5Gluco3vec
 .lr.ph89:                                         ; preds = %.preheader
   %62 = sext i32 %61 to i64
   %wide.trip.count104 = zext nneg i32 %12 to i64
-  %invariant.gep117 = getelementptr i32, ptr %1, i64 %62
+  %invariant.gep122 = getelementptr i32, ptr %1, i64 %62
   br label %64
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
   %indvars.iv95 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next96, %.lr.ph87 ]
-  %gep114 = getelementptr i32, ptr %invariant.gep113, i64 %indvars.iv95
-  %63 = load i32, ptr %gep114, align 4, !tbaa !6
-  %gep116 = getelementptr i32, ptr %invariant.gep115, i64 %indvars.iv95
-  store i32 %63, ptr %gep116, align 4, !tbaa !6
+  %gep119 = getelementptr i32, ptr %invariant.gep118, i64 %indvars.iv95
+  %63 = load i32, ptr %gep119, align 4, !tbaa !6
+  %gep121 = getelementptr i32, ptr %invariant.gep120, i64 %indvars.iv95
+  store i32 %63, ptr %gep121, align 4, !tbaa !6
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
   br i1 %exitcond99.not, label %.preheader, label %.lr.ph87, !llvm.loop !81
@@ -801,8 +801,8 @@ _ZN5Gluco3vecIiE4pushERKi.exit:                   ; preds = %34, %._ZN5Gluco3vec
   %indvars.iv100 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next101, %64 ]
   %65 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv100
   %66 = load i32, ptr %65, align 4, !tbaa !6
-  %gep118 = getelementptr i32, ptr %invariant.gep117, i64 %indvars.iv100
-  store i32 %66, ptr %gep118, align 4, !tbaa !6
+  %gep123 = getelementptr i32, ptr %invariant.gep122, i64 %indvars.iv100
+  store i32 %66, ptr %gep123, align 4, !tbaa !6
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count104
   br i1 %exitcond105.not, label %._crit_edge, label %64, !llvm.loop !82
@@ -1078,15 +1078,15 @@ _ZN5Gluco3vecINS_3LitEE5clearEb.exit:             ; preds = %2, %.preheader.i
   %12 = load i8, ptr %.040, align 1, !tbaa !59
   switch i8 %12, label %.preheader [
     i8 0, label %70
-    i8 99, label %.preheader67
-    i8 112, label %.preheader67
+    i8 99, label %.preheader73
+    i8 112, label %.preheader73
   ]
 
-.preheader67:                                     ; preds = %11, %11
+.preheader73:                                     ; preds = %11, %11
   br label %13
 
-13:                                               ; preds = %.preheader67, %13
-  %.141 = phi ptr [ %15, %13 ], [ %.040, %.preheader67 ]
+13:                                               ; preds = %.preheader73, %13
+  %.141 = phi ptr [ %15, %13 ], [ %.040, %.preheader73 ]
   %14 = load i8, ptr %.141, align 1, !tbaa !59
   %.not50 = icmp eq i8 %14, 10
   %15 = getelementptr inbounds nuw i8, ptr %.141, i64 1
@@ -2375,12 +2375,12 @@ define noalias noundef ptr @bmcg_sat_solver_sop(ptr noundef %0, i32 noundef %1) 
   %13 = sub nsw i32 %12, %.val.val
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %indvars.iv90.sroa.gep117 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %indvars.iv90.sroa.gep130 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %16
 
 16:                                               ; preds = %2, %121
   %17 = phi i1 [ true, %2 ], [ false, %121 ]
-  %indvars.iv90.sroa.phi = phi ptr [ %3, %2 ], [ %indvars.iv90.sroa.gep117, %121 ]
+  %indvars.iv90.sroa.phi = phi ptr [ %3, %2 ], [ %indvars.iv90.sroa.gep130, %121 ]
   %indvars.iv90 = phi i32 [ 0, %2 ], [ 1, %121 ]
   %18 = load ptr, ptr %indvars.iv90.sroa.phi, align 8, !tbaa !151
   %19 = load i32, ptr %11, align 8, !tbaa !139
@@ -2722,14 +2722,14 @@ _ZL16Vec_IntStartFulli.exit:                      ; preds = %_ZL12Vec_IntAlloci.
   br label %_ZL11Vec_IntPushP10Vec_Int_t_i.exit.sink.split
 
 _ZL11Vec_IntPushP10Vec_Int_t_i.exit.sink.split:   ; preds = %157, %159, %149, %151
-  %.sink106 = phi ptr [ %150, %149 ], [ %152, %151 ], [ %158, %157 ], [ %160, %159 ]
+  %.sink119 = phi ptr [ %150, %149 ], [ %152, %151 ], [ %158, %157 ], [ %160, %159 ]
   %.sink = phi i32 [ 16, %149 ], [ 16, %151 ], [ %154, %157 ], [ %154, %159 ]
-  store ptr %.sink106, ptr %126, align 8, !tbaa !138
+  store ptr %.sink119, ptr %126, align 8, !tbaa !138
   store i32 %.sink, ptr %123, align 8, !tbaa !137
   br label %_ZL11Vec_IntPushP10Vec_Int_t_i.exit
 
 _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %_ZL11Vec_IntPushP10Vec_Int_t_i.exit.sink.split, %139
-  %.pre.i100 = phi ptr [ %140, %139 ], [ %.sink106, %_ZL11Vec_IntPushP10Vec_Int_t_i.exit.sink.split ]
+  %.pre.i100 = phi ptr [ %140, %139 ], [ %.sink119, %_ZL11Vec_IntPushP10Vec_Int_t_i.exit.sink.split ]
   %161 = add nsw i32 %143, 1
   store i32 %161, ptr %124, align 4, !tbaa !136
   %162 = sext i32 %143 to i64
@@ -2986,8 +2986,8 @@ _ZL12Vec_IntStarti.exit:                          ; preds = %_ZL12Vec_IntAlloci.
   ]
 
 29:                                               ; preds = %27
-  %.idx67 = shl nuw nsw i64 %indvars.iv, 3
-  %30 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx67
+  %.idx73 = shl nuw nsw i64 %indvars.iv, 3
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx73
   %31 = load i32, ptr %30, align 4, !tbaa !6
   %32 = add nsw i32 %31, 1
   store i32 %32, ptr %30, align 4, !tbaa !6
@@ -4172,7 +4172,7 @@ _ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i:            ; preds = %_ZL11Vec_IntGrowP10
   br i1 %68, label %69, label %._ZL11Vec_IntGrowP10Vec_Int_t_i.exit10_crit_edge.i
 
 ._ZL11Vec_IntGrowP10Vec_Int_t_i.exit10_crit_edge.i: ; preds = %23, %67
-  %.val99160 = phi i32 [ %.val99.pre, %67 ], [ 0, %23 ]
+  %.val99177 = phi i32 [ %.val99.pre, %67 ], [ 0, %23 ]
   %.pre.i = load ptr, ptr %14, align 8, !tbaa !138
   br label %_ZL11Vec_IntPushP10Vec_Int_t_i.exit
 
@@ -4222,7 +4222,7 @@ _ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i113:         ; preds = %75, %73
   br label %_ZL11Vec_IntPushP10Vec_Int_t_i.exit
 
 _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %._ZL11Vec_IntGrowP10Vec_Int_t_i.exit10_crit_edge.i, %_ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i113, %87
-  %.val99159 = phi i32 [ %.val99160, %._ZL11Vec_IntGrowP10Vec_Int_t_i.exit10_crit_edge.i ], [ %.val99.pre, %87 ], [ %.val99.pre, %_ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i113 ]
+  %.val99176 = phi i32 [ %.val99177, %._ZL11Vec_IntGrowP10Vec_Int_t_i.exit10_crit_edge.i ], [ %.val99.pre, %87 ], [ %.val99.pre, %_ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i113 ]
   %89 = phi ptr [ %.pre.i, %._ZL11Vec_IntGrowP10Vec_Int_t_i.exit10_crit_edge.i ], [ %88, %87 ], [ %77, %_ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i113 ]
   %90 = load i32, ptr %12, align 4, !tbaa !136
   %91 = add nsw i32 %90, 1
@@ -4232,7 +4232,7 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %._ZL11Vec_IntGrowP1
   store i32 0, ptr %93, align 4, !tbaa !6
   %94 = getelementptr i8, ptr %1, i64 400
   %.val111 = load ptr, ptr %94, align 8, !tbaa !138
-  store i32 %.val99159, ptr %.val111, align 4, !tbaa !6
+  store i32 %.val99176, ptr %.val111, align 4, !tbaa !6
   %95 = lshr i32 %2, 1
   %96 = tail call noundef i32 @_Z24Gia_ManSatAndCollect_recP10Gia_Man_t_iP10Vec_Int_t_S2_(ptr noundef nonnull %1, i32 noundef %95, ptr noundef nonnull %11, ptr noundef nonnull %15)
   tail call void @_Z19Gia_ManQuantLoadCnfP10Gia_Man_t_P10Vec_Int_t_PPv(ptr noundef nonnull %1, ptr noundef nonnull %11, ptr noundef %0)
@@ -4852,9 +4852,9 @@ _ZL11Vec_IntFreeP10Vec_Int_t_.exit:               ; preds = %.critedge, %.crited
   br label %.sink.split
 
 .sink.split:                                      ; preds = %82, %80
-  %.sink54 = phi i32 [ -1, %80 ], [ 1, %82 ]
+  %.sink59 = phi i32 [ -1, %80 ], [ 1, %82 ]
   %84 = call noundef range(i32 -1, 2) i32 @_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %7, i32 noundef 2)
-  %85 = icmp eq i32 %84, %.sink54
+  %85 = icmp eq i32 %84, %.sink59
   %86 = zext i1 %85 to i32
   br label %87
 

@@ -506,7 +506,7 @@ sync_queue_process.exit.thread.i:                 ; preds = %sync_queue_process.
   br label %mux_packet_filter.exit
 
 mux_packet_filter.exit.thread44:                  ; preds = %.critedge.thread.i, %.backedge.i, %sync_queue_process.exit.thread.i, %178, %209, %sync_queue_process.exit95.thread158.i
-  %.5.ph = phi i32 [ %.131, %sync_queue_process.exit95.thread158.i ], [ 1, %209 ], [ 1, %178 ], [ %.2, %sync_queue_process.exit.thread.i ], [ 1, %.backedge.i ], [ 1, %.critedge.thread.i ]
+  %.5.ph = phi i32 [ 1, %sync_queue_process.exit95.thread158.i ], [ 1, %209 ], [ 1, %178 ], [ %.2, %sync_queue_process.exit.thread.i ], [ 1, %.backedge.i ], [ 1, %.critedge.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %229 = load ptr, ptr %5, align 8, !tbaa !4
@@ -1196,19 +1196,19 @@ mux_final_stats.exit:                             ; preds = %._crit_edge.i, %106
   %143 = icmp eq i32 %.1.i33, 0
   %144 = select i1 %143, ptr @.str.48, ptr @.str.47
   %145 = icmp sgt i32 %.122.i, -1
-  %spec.select56.i = select i1 %145, i32 -22, i32 %.122.i
+  %spec.select57.i = select i1 %145, i32 -22, i32 %.122.i
   br label %.thread.i
 
 .thread.i:                                        ; preds = %mux_final_stats.exit, %142
-  %.021.lcssa4452.i = phi i32 [ %.122.i, %142 ], [ 0, %mux_final_stats.exit ]
-  %.020.lcssa4550.i = phi ptr [ %144, %142 ], [ @.str.47, %mux_final_stats.exit ]
-  %146 = phi i32 [ %spec.select56.i, %142 ], [ -22, %mux_final_stats.exit ]
-  %.not2554.in.in.i = load i32, ptr @abort_on_flags, align 4, !tbaa !49
-  %.not2554.in.i = and i32 %.not2554.in.in.i, 1
-  %.not2554.i = icmp eq i32 %.not2554.in.i, 0
-  %.3.i = select i1 %.not2554.i, i32 %.021.lcssa4452.i, i32 %146
-  %.0.i30 = select i1 %.not2554.i, i32 24, i32 8
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef %.0.i30, ptr noundef nonnull @.str.46, ptr noundef nonnull %.020.lcssa4550.i) #11
+  %.021.lcssa4553.i = phi i32 [ %.122.i, %142 ], [ 0, %mux_final_stats.exit ]
+  %.020.lcssa4651.i = phi ptr [ %144, %142 ], [ @.str.47, %mux_final_stats.exit ]
+  %146 = phi i32 [ %spec.select57.i, %142 ], [ -22, %mux_final_stats.exit ]
+  %.not2555.in.in.i = load i32, ptr @abort_on_flags, align 4, !tbaa !49
+  %.not2555.in.i = and i32 %.not2555.in.in.i, 1
+  %.not2555.i = icmp eq i32 %.not2555.in.i, 0
+  %.3.i = select i1 %.not2555.i, i32 %.021.lcssa4553.i, i32 %146
+  %.0.i30 = select i1 %.not2555.i, i32 24, i32 8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef %.0.i30, ptr noundef nonnull @.str.46, ptr noundef nonnull %.020.lcssa4651.i) #11
   br label %check_written.exit
 
 check_written.exit:                               ; preds = %._crit_edge.i35, %.thread.i
